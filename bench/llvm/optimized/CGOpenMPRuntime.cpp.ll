@@ -12313,7 +12313,7 @@ _ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit64.i: ;
   store i8 0, ptr %.sroa.47.0..sroa_idx.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.68.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.68.i, i64 23, i1 false)
   %309 = trunc nuw i64 %indvars.iv.i to i32
-  call fastcc void @_ZL22emitAddrOfVarFromArrayRN5clang7CodeGen15CodeGenFunctionENS0_7AddressEjPKNS_7VarDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(6488) %16, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %22, i32 noundef %309, ptr noundef %308)
+  call fastcc void @_ZL22emitAddrOfVarFromArrayRN5clang7CodeGen15CodeGenFunctionENS0_7AddressEjPKNS_7VarDeclE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(6488) %16, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %22, i32 noundef %309, ptr noundef %308)
   %310 = getelementptr inbounds ptr, ptr %.sroa.0102.0.copyload, i64 %indvars.iv.i
   %311 = load ptr, ptr %310, align 8
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 16
@@ -12323,7 +12323,7 @@ _ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit64.i: ;
   store i64 %300, ptr %.sroa.3.0..sroa_idx.i, align 8
   store i8 0, ptr %.sroa.4.0..sroa_idx.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.6.i, i64 23, i1 false)
-  call fastcc void @_ZL22emitAddrOfVarFromArrayRN5clang7CodeGen15CodeGenFunctionENS0_7AddressEjPKNS_7VarDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(6488) %16, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %24, i32 noundef %309, ptr noundef %313)
+  call fastcc void @_ZL22emitAddrOfVarFromArrayRN5clang7CodeGen15CodeGenFunctionENS0_7AddressEjPKNS_7VarDeclE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(6488) %16, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %24, i32 noundef %309, ptr noundef %313)
   %314 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.i
   %315 = load ptr, ptr %314, align 8
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 16
@@ -13434,7 +13434,7 @@ declare noundef zeroext i1 @_ZN5clang21isOpenMPLoopDirectiveEN4llvm3omp9Directiv
 declare { ptr, ptr } @_ZN4llvm15OpenMPIRBuilder27createForStaticInitFunctionEjbb(ptr noundef nonnull align 8 dereferenceable(3104), i32 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21emitForStaticInitCallRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueES5_NS3_14FunctionCalleeEN12_GLOBAL__N_115OpenMPSchedTypeENS_28OpenMPScheduleClauseModifierES9_RKNS0_15CGOpenMPRuntime13StaticRTInputE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, ptr noundef %2, ptr %3, ptr %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(208) %8) unnamed_addr #0 {
+define internal fastcc void @_ZL21emitForStaticInitCallRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueES5_NS3_14FunctionCalleeEN12_GLOBAL__N_115OpenMPSchedTypeENS_28OpenMPScheduleClauseModifierES9_RKNS0_15CGOpenMPRuntime13StaticRTInputE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, ptr noundef %2, ptr %3, ptr %4, i32 noundef range(i32 33, 93) %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(208) %8) unnamed_addr #0 {
   %10 = alloca [9 x ptr], align 16
   %11 = alloca %"class.llvm::Twine", align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -13531,7 +13531,7 @@ _ZL22addMonoNonMonoModifierRN5clang7CodeGen13CodeGenModuleEN12_GLOBAL__N_115Open
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %48) #28
-  %50 = zext i32 %46 to i64
+  %50 = zext nneg i32 %46 to i64
   %51 = tail call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %49, i64 noundef %50, i1 noundef zeroext false) #28
   store ptr %51, ptr %26, align 16
   %52 = getelementptr inbounds i8, ptr %10, i64 24
@@ -26532,7 +26532,7 @@ _ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit90: ; p
   store i64 %178, ptr %.sroa.3126.0..sroa_idx, align 8
   store i8 0, ptr %.sroa.4127.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.6128.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.6128, i64 23, i1 false)
-  call fastcc void @_ZL22emitAddrOfVarFromArrayRN5clang7CodeGen15CodeGenFunctionENS0_7AddressEjPKNS_7VarDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(6488) %22, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, i32 noundef %.072186, ptr noundef %233)
+  call fastcc void @_ZL22emitAddrOfVarFromArrayRN5clang7CodeGen15CodeGenFunctionENS0_7AddressEjPKNS_7VarDeclE(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(6488) %22, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, i32 noundef %.072186, ptr noundef %233)
   %234 = load ptr, ptr %188, align 8
   %235 = call noundef zeroext i1 @_ZN5clang7CodeGen15CodeGenFunction10OMPMapVars10setVarAddrERS1_PKNS_7VarDeclENS0_7AddressE(ptr noundef nonnull align 8 dereferenceable(48) %206, ptr noundef nonnull align 8 dereferenceable(6488) %234, ptr noundef %233, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28)
   %236 = getelementptr inbounds ptr, ptr %.pre202, i64 %indvars.iv
@@ -26544,7 +26544,7 @@ _ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit90: ; p
   store i64 %139, ptr %.sroa.4134.0..sroa_idx, align 8
   store i8 0, ptr %.sroa.5137.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7, i64 23, i1 false)
-  call fastcc void @_ZL22emitAddrOfVarFromArrayRN5clang7CodeGen15CodeGenFunctionENS0_7AddressEjPKNS_7VarDeclE(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(6488) %22, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, i32 noundef %.072186, ptr noundef %239)
+  call fastcc void @_ZL22emitAddrOfVarFromArrayRN5clang7CodeGen15CodeGenFunctionENS0_7AddressEjPKNS_7VarDeclE(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(6488) %22, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, i32 noundef %.072186, ptr noundef %239)
   %240 = load ptr, ptr %188, align 8
   %241 = call noundef zeroext i1 @_ZN5clang7CodeGen15CodeGenFunction10OMPMapVars10setVarAddrERS1_PKNS_7VarDeclENS0_7AddressE(ptr noundef nonnull align 8 dereferenceable(48) %206, ptr noundef nonnull align 8 dereferenceable(6488) %240, ptr noundef %239, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30)
   %242 = load ptr, ptr %.0187, align 8
@@ -26942,7 +26942,7 @@ _ZN5clang7CodeGen15FunctionArgListD2Ev.exit:      ; preds = %_ZN5clang7CodeGen15
 declare void @_ZN5clang7CodeGen13CodeGenModule29SetInternalFunctionAttributesENS_10GlobalDeclEPN4llvm8FunctionERKNS0_14CGFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(3600), i64, i32, ptr noundef, ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL22emitAddrOfVarFromArrayRN5clang7CodeGen15CodeGenFunctionENS0_7AddressEjPKNS_7VarDeclE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL22emitAddrOfVarFromArrayRN5clang7CodeGen15CodeGenFunctionENS0_7AddressEjPKNS_7VarDeclE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::TypeSize", align 8
   %7 = alloca [2 x ptr], align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -29378,7 +29378,7 @@ _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit.i: ; preds = %356, %_ZN5cla
   %363 = load ptr, ptr %66, align 8
   %364 = getelementptr inbounds %"struct.clang::CodeGen::ReductionCodeGen::ReductionData", ptr %363, i64 %indvars.iv, i32 1
   %365 = load ptr, ptr %364, align 8
-  call fastcc void @_ZL18generateUniqueNameB5cxx11RN5clang7CodeGen13CodeGenModuleEN4llvm9StringRefEPKNS_4ExprE(ptr dead_on_unwind noalias nonnull writable align 8 %60, ptr noundef nonnull align 8 dereferenceable(3600) %291, ptr nonnull @.str.45, i64 14, ptr noundef %365)
+  call fastcc void @_ZL18generateUniqueNameB5cxx11RN5clang7CodeGen13CodeGenModuleEN4llvm9StringRefEPKNS_4ExprE(ptr dead_on_unwind noalias writable align 8 %60, ptr noundef nonnull align 8 dereferenceable(3600) %291, ptr nonnull @.str.45, i64 14, ptr noundef %365)
   %366 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %60) #28
   %367 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %60) #28
   %368 = load ptr, ptr %360, align 8
@@ -29812,7 +29812,7 @@ _ZNK5clang12CanProxyBaseINS_11PointerTypeEEcvPKS1_Ev.exit.i: ; preds = %554, %_Z
   %564 = load ptr, ptr %66, align 8
   %565 = getelementptr inbounds %"struct.clang::CodeGen::ReductionCodeGen::ReductionData", ptr %564, i64 %indvars.iv, i32 1
   %566 = load ptr, ptr %565, align 8
-  call fastcc void @_ZL18generateUniqueNameB5cxx11RN5clang7CodeGen13CodeGenModuleEN4llvm9StringRefEPKNS_4ExprE(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(3600) %499, ptr nonnull @.str.45, i64 14, ptr noundef %566)
+  call fastcc void @_ZL18generateUniqueNameB5cxx11RN5clang7CodeGen13CodeGenModuleEN4llvm9StringRefEPKNS_4ExprE(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(3600) %499, ptr nonnull @.str.45, i64 14, ptr noundef %566)
   %567 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %44) #28
   %568 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %44) #28
   %569 = load ptr, ptr %561, align 8
@@ -30000,7 +30000,7 @@ _ZL22emitReduceFiniFunctionRN5clang7CodeGen13CodeGenModuleENS_14SourceLocationER
   %648 = load ptr, ptr %66, align 8
   %649 = getelementptr inbounds %"struct.clang::CodeGen::ReductionCodeGen::ReductionData", ptr %648, i64 %indvars.iv, i32 1
   %650 = load ptr, ptr %649, align 8
-  call fastcc void @_ZL18generateUniqueNameB5cxx11RN5clang7CodeGen13CodeGenModuleEN4llvm9StringRefEPKNS_4ExprE(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(3600) %600, ptr nonnull @.str.45, i64 14, ptr noundef %650)
+  call fastcc void @_ZL18generateUniqueNameB5cxx11RN5clang7CodeGen13CodeGenModuleEN4llvm9StringRefEPKNS_4ExprE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(3600) %600, ptr nonnull @.str.45, i64 14, ptr noundef %650)
   %651 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #28
   %652 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #28
   %653 = load ptr, ptr %645, align 8
@@ -30619,7 +30619,7 @@ define dso_local void @_ZN5clang7CodeGen15CGOpenMPRuntime23emitTaskReductionFixu
   %31 = load ptr, ptr %3, align 8
   %32 = getelementptr inbounds %"struct.clang::CodeGen::ReductionCodeGen::ReductionData", ptr %31, i64 %10, i32 1
   %33 = load ptr, ptr %32, align 8
-  call fastcc void @_ZL18generateUniqueNameB5cxx11RN5clang7CodeGen13CodeGenModuleEN4llvm9StringRefEPKNS_4ExprE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(3600) %30, ptr nonnull @.str.45, i64 14, ptr noundef %33)
+  call fastcc void @_ZL18generateUniqueNameB5cxx11RN5clang7CodeGen13CodeGenModuleEN4llvm9StringRefEPKNS_4ExprE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(3600) %30, ptr nonnull @.str.45, i64 14, ptr noundef %33)
   %34 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
   %35 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
   %36 = load ptr, ptr %0, align 8
@@ -30645,7 +30645,7 @@ define dso_local void @_ZN5clang7CodeGen15CGOpenMPRuntime23emitTaskReductionFixu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18generateUniqueNameB5cxx11RN5clang7CodeGen13CodeGenModuleEN4llvm9StringRefEPKNS_4ExprE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(3600) %1, ptr %2, i64 %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @_ZL18generateUniqueNameB5cxx11RN5clang7CodeGen13CodeGenModuleEN4llvm9StringRefEPKNS_4ExprE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(3600) %1, ptr %2, i64 %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %7 = alloca %"class.llvm::SmallString.2194", align 8
   %8 = alloca %"class.llvm::raw_svector_ostream", align 8
@@ -45132,7 +45132,7 @@ _ZL15evaluateCDTSizePKN5clang12FunctionDeclEN4llvm8ArrayRefIN12_GLOBAL__N_111Par
   br label %_ZN4llvm6APSIntD2Ev.exit.i
 
 _ZN4llvm6APSIntD2Ev.exit.i:                       ; preds = %1623, %1622, %1619, %_ZL15evaluateCDTSizePKN5clang12FunctionDeclEN4llvm8ArrayRefIN12_GLOBAL__N_111ParamAttrTyEEE.exit.i
-  call fastcc void @_ZL22mangleVectorParametersB5cxx11N4llvm8ArrayRefIN12_GLOBAL__N_111ParamAttrTyEEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %.val.i, i64 %1462)
+  call fastcc void @_ZL22mangleVectorParametersB5cxx11N4llvm8ArrayRefIN12_GLOBAL__N_111ParamAttrTyEEE(ptr dead_on_unwind noalias writable align 8 %8, ptr %.val.i, i64 %1462)
   %1627 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
   %1628 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
   %1629 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %1627, i64 noundef %1628) #28
@@ -45405,7 +45405,7 @@ declare noundef i32 @_ZNK5clang10ASTContext25getOpenMPDefaultSimdAlignENS_8QualT
 declare noundef zeroext i1 @_ZNK5clang4Expr13EvaluateAsIntERNS0_10EvalResultERKNS_10ASTContextENS0_15SideEffectsKindEb(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(23096), i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL30emitAArch64DeclareSimdFunctionRN5clang7CodeGen13CodeGenModuleEPKNS_12FunctionDeclEjN4llvm8ArrayRefIN12_GLOBAL__N_111ParamAttrTyEEENS_22OMPDeclareSimdDeclAttr13BranchStateTyENS6_9StringRefEcjPNS6_8FunctionENS_14SourceLocationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3600) %0, ptr noundef %1, i32 noundef %2, ptr %3, i64 %4, i32 noundef %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6, i8 noundef signext %7, ptr noundef %8, i32 %9) unnamed_addr #0 {
+define internal fastcc void @_ZL30emitAArch64DeclareSimdFunctionRN5clang7CodeGen13CodeGenModuleEPKNS_12FunctionDeclEjN4llvm8ArrayRefIN12_GLOBAL__N_111ParamAttrTyEEENS_22OMPDeclareSimdDeclAttr13BranchStateTyENS6_9StringRefEcjPNS6_8FunctionENS_14SourceLocationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3600) %0, ptr noundef %1, i32 noundef %2, ptr %3, i64 %4, i32 noundef %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6, i8 noundef signext range(i8 110, 116) %7, ptr noundef %8, i32 %9) unnamed_addr #0 {
   %11 = alloca %"class.llvm::SmallString.2194", align 8
   %12 = alloca %"class.llvm::raw_svector_ostream", align 8
   %13 = alloca %"class.llvm::SmallVector.1108", align 8
@@ -45737,7 +45737,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit133:         ; preds = %.lr.ph.i.i.i.i124, 
   br i1 %or.cond95, label %.thread.thread.thread, label %182
 
 .thread.thread.thread:                            ; preds = %178
-  call fastcc void @_ZL22mangleVectorParametersB5cxx11N4llvm8ArrayRefIN12_GLOBAL__N_111ParamAttrTyEEE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr %3, i64 %4)
+  call fastcc void @_ZL22mangleVectorParametersB5cxx11N4llvm8ArrayRefIN12_GLOBAL__N_111ParamAttrTyEEE(ptr dead_on_unwind noalias writable align 8 %14, ptr %3, i64 %4)
   br label %213
 
 182:                                              ; preds = %178
@@ -45795,11 +45795,11 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit146:         ; preds = %.lr.ph.i.i.i.i136, 
   br label %347
 
 .thread.thread:                                   ; preds = %_ZN4llvm13isPowerOf2_32Ej.exit
-  call fastcc void @_ZL22mangleVectorParametersB5cxx11N4llvm8ArrayRefIN12_GLOBAL__N_111ParamAttrTyEEE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr %3, i64 %4)
+  call fastcc void @_ZL22mangleVectorParametersB5cxx11N4llvm8ArrayRefIN12_GLOBAL__N_111ParamAttrTyEEE(ptr dead_on_unwind noalias writable align 8 %14, ptr %3, i64 %4)
   br label %216
 
 .thread:                                          ; preds = %176
-  call fastcc void @_ZL22mangleVectorParametersB5cxx11N4llvm8ArrayRefIN12_GLOBAL__N_111ParamAttrTyEEE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr %3, i64 %4)
+  call fastcc void @_ZL22mangleVectorParametersB5cxx11N4llvm8ArrayRefIN12_GLOBAL__N_111ParamAttrTyEEE(ptr dead_on_unwind noalias writable align 8 %14, ptr %3, i64 %4)
   br i1 %151, label %212, label %228
 
 212:                                              ; preds = %.thread
@@ -52696,7 +52696,7 @@ _ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_20OMPLastprivateClauseEE
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8
   %90 = load ptr, ptr %0, align 8
-  call fastcc void @_ZL18generateUniqueNameB5cxx11RN5clang7CodeGen13CodeGenModuleEN4llvm9StringRefEPKNS_4ExprE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(3600) %90, ptr nonnull @.str.72, i64 7, ptr noundef nonnull %86)
+  call fastcc void @_ZL18generateUniqueNameB5cxx11RN5clang7CodeGen13CodeGenModuleEN4llvm9StringRefEPKNS_4ExprE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(3600) %90, ptr nonnull @.str.72, i64 7, ptr noundef nonnull %86)
   %91 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #28
   %92 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #28
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull %68, i64 noundef 16) #28
@@ -66344,7 +66344,7 @@ _ZN4llvm9MapVectorIN5clang16CanonicalDeclPtrIKNS1_4DeclEEENS_11SmallVectorINS6_I
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZNK12_GLOBAL__N_120MappableExprsHandler25generateAllInfoForClausesEN4llvm8ArrayRefIPKN5clang9OMPClauseEEERNS0_17MapCombinedInfoTyERNS1_15OpenMPIRBuilderERKNS1_8DenseSetINS3_16CanonicalDeclPtrIKNS3_4DeclEEENS1_12DenseMapInfoISG_vEEEEENKUlPKNS3_9ValueDeclEZNKS0_25generateAllInfoForClausesES7_S9_SB_SL_E7MapKindNS2_INS3_27OMPClauseMappableExprCommon17MappableComponentEEENS3_19OpenMPMapClauseKindENS2_INS3_21OpenMPMapModifierKindEEENS2_INS3_24OpenMPMotionModifierKindEEEbbSO_PKNS3_4ExprEbE_clESO_SP_SS_ST_SV_SX_bbSO_S10_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, ptr %3, i64 %4, i32 noundef %5, ptr %.0.val, i64 %.8.val, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.2250") align 8 %6, i1 noundef zeroext %7, ptr noundef %8, ptr noundef %9, i1 noundef zeroext %10) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZNK12_GLOBAL__N_120MappableExprsHandler25generateAllInfoForClausesEN4llvm8ArrayRefIPKN5clang9OMPClauseEEERNS0_17MapCombinedInfoTyERNS1_15OpenMPIRBuilderERKNS1_8DenseSetINS3_16CanonicalDeclPtrIKNS3_4DeclEEENS1_12DenseMapInfoISG_vEEEEENKUlPKNS3_9ValueDeclEZNKS0_25generateAllInfoForClausesES7_S9_SB_SL_E7MapKindNS2_INS3_27OMPClauseMappableExprCommon17MappableComponentEEENS3_19OpenMPMapClauseKindENS2_INS3_21OpenMPMapModifierKindEEENS2_INS3_24OpenMPMotionModifierKindEEEbbSO_PKNS3_4ExprEbE_clESO_SP_SS_ST_SV_SX_bbSO_S10_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2, ptr %3, i64 %4, i32 noundef %5, ptr %.0.val, i64 %.8.val, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.2250") align 8 %6, i1 noundef zeroext %7, ptr noundef %8, ptr noundef %9, i1 noundef zeroext %10) unnamed_addr #0 align 2 {
   %12 = alloca %"struct.(anonymous namespace)::MappableExprsHandler::MapInfo", align 8
   %13 = alloca i64, align 8
   %14 = alloca %"struct.std::pair.2337", align 8
@@ -68956,7 +68956,7 @@ _ZNK12_GLOBAL__N_120MappableExprsHandler29isFinalArraySectionExpressionEPKN5clan
   %.val432 = load i32, ptr %.pre-phi307, align 8
   %617 = getelementptr i8, ptr %.pre-phi307, i64 16
   %.val433 = load ptr, ptr %617, align 8
-  call fastcc void @_ZZNK12_GLOBAL__N_120MappableExprsHandler28generateInfoForComponentListEN5clang19OpenMPMapClauseKindEN4llvm8ArrayRefINS1_21OpenMPMapModifierKindEEENS4_INS1_24OpenMPMotionModifierKindEEENS4_INS1_27OMPClauseMappableExprCommon17MappableComponentEEERNS0_17MapCombinedInfoTyESD_RNS0_17StructRangeInfoTyEbbbPKNS1_9ValueDeclEbSI_PKNS1_4ExprENS4_ISB_EEbENKUlRNS1_7CodeGen15CodeGenFunctionEPKNS1_10MemberExprEE_clESP_SS_(ptr dead_on_unwind noalias nonnull writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(6488) %581, i32 %.val432, ptr %.val433)
+  call fastcc void @_ZZNK12_GLOBAL__N_120MappableExprsHandler28generateInfoForComponentListEN5clang19OpenMPMapClauseKindEN4llvm8ArrayRefINS1_21OpenMPMapModifierKindEEENS4_INS1_24OpenMPMotionModifierKindEEENS4_INS1_27OMPClauseMappableExprCommon17MappableComponentEEERNS0_17MapCombinedInfoTyESD_RNS0_17StructRangeInfoTyEbbbPKNS1_9ValueDeclEbSI_PKNS1_4ExprENS4_ISB_EEbENKUlRNS1_7CodeGen15CodeGenFunctionEPKNS1_10MemberExprEE_clESP_SS_(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(6488) %581, i32 %.val432, ptr %.val433)
   %618 = load ptr, ptr %303, align 8
   call void @_ZN5clang7CodeGen15CodeGenFunction32EmitLValueForFieldInitializationENS0_6LValueEPKNS_9FieldDeclE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::LValue") align 8 %52, ptr noundef nonnull align 8 dereferenceable(6488) %618, ptr noundef nonnull byval(%"class.clang::CodeGen::LValue") align 8 %51, ptr noundef %spec.select195) #28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %50, ptr noundef nonnull align 8 dereferenceable(48) %319, i64 48, i1 false)
@@ -69278,7 +69278,7 @@ _ZN4llvm11SmallVectorIPKN5clang9ValueDeclELj4EEC2EOS5_.exit.i.i: ; preds = %723,
   %.val434 = load i32, ptr %776, align 8
   %778 = getelementptr i8, ptr %776, i64 16
   %.val435 = load ptr, ptr %778, align 8
-  call fastcc void @_ZZNK12_GLOBAL__N_120MappableExprsHandler28generateInfoForComponentListEN5clang19OpenMPMapClauseKindEN4llvm8ArrayRefINS1_21OpenMPMapModifierKindEEENS4_INS1_24OpenMPMotionModifierKindEEENS4_INS1_27OMPClauseMappableExprCommon17MappableComponentEEERNS0_17MapCombinedInfoTyESD_RNS0_17StructRangeInfoTyEbbbPKNS1_9ValueDeclEbSI_PKNS1_4ExprENS4_ISB_EEbENKUlRNS1_7CodeGen15CodeGenFunctionEPKNS1_10MemberExprEE_clESP_SS_(ptr dead_on_unwind noalias nonnull writable align 8 %59, ptr noundef nonnull align 8 dereferenceable(6488) %777, i32 %.val434, ptr %.val435)
+  call fastcc void @_ZZNK12_GLOBAL__N_120MappableExprsHandler28generateInfoForComponentListEN5clang19OpenMPMapClauseKindEN4llvm8ArrayRefINS1_21OpenMPMapModifierKindEEENS4_INS1_24OpenMPMotionModifierKindEEENS4_INS1_27OMPClauseMappableExprCommon17MappableComponentEEERNS0_17MapCombinedInfoTyESD_RNS0_17StructRangeInfoTyEbbbPKNS1_9ValueDeclEbSI_PKNS1_4ExprENS4_ISB_EEbENKUlRNS1_7CodeGen15CodeGenFunctionEPKNS1_10MemberExprEE_clESP_SS_(ptr dead_on_unwind noalias writable align 8 %59, ptr noundef nonnull align 8 dereferenceable(6488) %777, i32 %.val434, ptr %.val435)
   %779 = load ptr, ptr %303, align 8
   call void @_ZN5clang7CodeGen15CodeGenFunction32EmitLValueForFieldInitializationENS0_6LValueEPKNS_9FieldDeclE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::LValue") align 8 %60, ptr noundef nonnull align 8 dereferenceable(6488) %779, ptr noundef nonnull byval(%"class.clang::CodeGen::LValue") align 8 %59, ptr noundef nonnull %755) #28
   br label %783
@@ -73636,7 +73636,7 @@ declare void @_ZN5clang7CodeGen15CodeGenFunction18LoadCXXThisAddressEv(ptr dead_
 declare i64 @_ZN5clang16ArraySectionExpr19getBaseOriginalTypeEPKNS_4ExprE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZNK12_GLOBAL__N_120MappableExprsHandler28generateInfoForComponentListEN5clang19OpenMPMapClauseKindEN4llvm8ArrayRefINS1_21OpenMPMapModifierKindEEENS4_INS1_24OpenMPMotionModifierKindEEENS4_INS1_27OMPClauseMappableExprCommon17MappableComponentEEERNS0_17MapCombinedInfoTyESD_RNS0_17StructRangeInfoTyEbbbPKNS1_9ValueDeclEbSI_PKNS1_4ExprENS4_ISB_EEbENKUlRNS1_7CodeGen15CodeGenFunctionEPKNS1_10MemberExprEE_clESP_SS_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i32 %.0.val, ptr %.16.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZNK12_GLOBAL__N_120MappableExprsHandler28generateInfoForComponentListEN5clang19OpenMPMapClauseKindEN4llvm8ArrayRefINS1_21OpenMPMapModifierKindEEENS4_INS1_24OpenMPMotionModifierKindEEENS4_INS1_27OMPClauseMappableExprCommon17MappableComponentEEERNS0_17MapCombinedInfoTyESD_RNS0_17StructRangeInfoTyEbbbPKNS1_9ValueDeclEbSI_PKNS1_4ExprENS4_ISB_EEbENKUlRNS1_7CodeGen15CodeGenFunctionEPKNS1_10MemberExprEE_clESP_SS_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i32 %.0.val, ptr %.16.val) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %4 = alloca %"class.clang::CodeGen::Address", align 8
   %5 = alloca %"class.clang::CodeGen::LValueBaseInfo", align 4
@@ -76657,7 +76657,7 @@ declare void @_ZN5clang7APValue24DestroyDataAndMakeUninitEv(ptr noundef nonnull 
 declare noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntmLEm(ptr noundef nonnull align 8 dereferenceable(12), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL22mangleVectorParametersB5cxx11N4llvm8ArrayRefIN12_GLOBAL__N_111ParamAttrTyEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZL22mangleVectorParametersB5cxx11N4llvm8ArrayRefIN12_GLOBAL__N_111ParamAttrTyEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.llvm::APSInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
@@ -77278,7 +77278,7 @@ declare noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntppEv(ptr 
 declare void @_ZN4llvm5APInt19flipAllBitsSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20addAArch64VectorNameIjEvT_N4llvm9StringRefES2_cS2_S2_bPNS1_8FunctionE(i32 noundef %0, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext %5, ptr %.0.val, i64 %.8.val, ptr %.0.val1, i64 %.8.val3, i1 noundef zeroext %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @_ZL20addAArch64VectorNameIjEvT_N4llvm9StringRefES2_cS2_S2_bPNS1_8FunctionE(i32 noundef range(i32 2, 0) %0, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext range(i8 110, 116) %5, ptr %.0.val, i64 %.8.val, ptr %.0.val1, i64 %.8.val3, i1 noundef zeroext %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %"class.llvm::SmallString.2194", align 8
   %10 = alloca %"class.llvm::raw_svector_ostream", align 8
   %11 = getelementptr inbounds i8, ptr %9, i64 24
@@ -77487,7 +77487,7 @@ _ZN4llvm11SmallStringILj256EED2Ev.exit:           ; preds = %_ZN4llvm11raw_ostre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL25addAArch64AdvSIMDNDSNamesjN4llvm9StringRefES0_cS0_S0_bPNS_8FunctionE(i32 noundef %0, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %7, i1 noundef zeroext %8, ptr noundef %9) unnamed_addr #0 {
+define internal fastcc void @_ZL25addAArch64AdvSIMDNDSNamesjN4llvm9StringRefES0_cS0_S0_bPNS_8FunctionE(i32 noundef %0, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext range(i8 110, 116) %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %7, i1 noundef zeroext %8, ptr noundef %9) unnamed_addr #0 {
   switch i32 %0, label %15 [
     i32 8, label %11
     i32 16, label %12
@@ -77851,7 +77851,7 @@ _ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit: ; preds = %.lr.ph.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20addAArch64VectorNameIiEvT_N4llvm9StringRefES2_cS2_S2_bPNS1_8FunctionE(i32 noundef %0, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext %5, ptr %.0.val, i64 %.8.val, ptr %.0.val1, i64 %.8.val3, i1 noundef zeroext %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @_ZL20addAArch64VectorNameIiEvT_N4llvm9StringRefES2_cS2_S2_bPNS1_8FunctionE(i32 noundef range(i32 2, 17) %0, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext range(i8 110, 116) %5, ptr %.0.val, i64 %.8.val, ptr %.0.val1, i64 %.8.val3, i1 noundef zeroext %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %"class.llvm::SmallString.2194", align 8
   %10 = alloca %"class.llvm::raw_svector_ostream", align 8
   %11 = getelementptr inbounds i8, ptr %9, i64 24
@@ -77943,7 +77943,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %34, %36
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit19:    ; preds = %47, %49, %50
   %.0.i18 = phi ptr [ %48, %47 ], [ %.0.i16, %50 ], [ %.0.i16, %49 ]
-  %53 = sext i32 %0 to i64
+  %53 = zext nneg i32 %0 to i64
   %54 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %.0.i18, i64 noundef %53) #28
   %.pre8 = load ptr, ptr %19, align 8
   br i1 %6, label %55, label %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -81998,7 +81998,7 @@ _ZSt17__rotate_adaptiveIPSt4pairIN5clang9CharUnitsEN12_GLOBAL__N_116PrivateHelpe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt17__merge_sort_loopIPSt4pairIN5clang9CharUnitsEN12_GLOBAL__N_116PrivateHelpersTyEES6_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_7CodeGen15CGOpenMPRuntime12emitTaskInitERNSA_15CodeGenFunctionENS1_14SourceLocationERKNS1_22OMPExecutableDirectiveEPN4llvm8FunctionENS1_8QualTypeENSA_7AddressERKNSA_13OMPTaskDataTyEE3$_0EEEvT_SS_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) unnamed_addr #10 {
+define internal fastcc void @"_ZSt17__merge_sort_loopIPSt4pairIN5clang9CharUnitsEN12_GLOBAL__N_116PrivateHelpersTyEES6_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_7CodeGen15CGOpenMPRuntime12emitTaskInitERNSA_15CodeGenFunctionENS1_14SourceLocationERKNS1_22OMPExecutableDirectiveEPN4llvm8FunctionENS1_8QualTypeENSA_7AddressERKNSA_13OMPTaskDataTyEE3$_0EEEvT_SS_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 -9223372036854775808, 461168601842738789) %3) unnamed_addr #10 {
   %5 = shl nsw i64 %3, 1
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %0 to i64
@@ -89479,7 +89479,7 @@ _ZNK5clang4Type28getPointeeOrArrayElementTypeEv.exit264.i: ; preds = %_ZNK5clang
   br i1 %.not140.i, label %980, label %979
 
 979:                                              ; preds = %._crit_edge604.i
-  call fastcc void @_ZNK12_GLOBAL__N_120MappableExprsHandler14getPlainLayoutEPKN5clang13CXXRecordDeclERN4llvm15SmallVectorImplIPKNS1_9FieldDeclEEEb(ptr noundef nonnull readonly align 8 dereferenceable(112) %0, ptr noundef nonnull %978, ptr noundef nonnull align 8 dereferenceable(16) %43, i1 noundef zeroext false)
+  call fastcc void @_ZNK12_GLOBAL__N_120MappableExprsHandler14getPlainLayoutEPKN5clang13CXXRecordDeclERN4llvm15SmallVectorImplIPKNS1_9FieldDeclEEEb(ptr noundef nonnull readonly align 8 dereferenceable(112) %0, ptr noundef %978, ptr noundef nonnull align 8 dereferenceable(16) %43, i1 noundef zeroext false)
   br label %983
 
 980:                                              ; preds = %._crit_edge604.i
@@ -93012,7 +93012,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPKNS2_12OMPMapClauseENS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_120MappableExprsHandler14getPlainLayoutEPKN5clang13CXXRecordDeclERN4llvm15SmallVectorImplIPKNS1_9FieldDeclEEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_120MappableExprsHandler14getPlainLayoutEPKN5clang13CXXRecordDeclERN4llvm15SmallVectorImplIPKNS1_9FieldDeclEEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SmallVector.2694", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -93020,7 +93020,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_120MappableExprsHandler14getPlainL
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 296
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef nonnull align 8 dereferenceable(113) ptr @_ZN5clang7CodeGen12CodeGenTypes17getCGRecordLayoutEPKNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(240) %11, ptr noundef %1) #28
+  %12 = tail call noundef nonnull align 8 dereferenceable(113) ptr @_ZN5clang7CodeGen12CodeGenTypes17getCGRecordLayoutEPKNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(240) %11, ptr noundef nonnull %1) #28
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
@@ -93503,7 +93503,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
 
 276:                                              ; preds = %272
   %277 = inttoptr i64 %275 to ptr
-  call fastcc void @_ZNK12_GLOBAL__N_120MappableExprsHandler14getPlainLayoutEPKN5clang13CXXRecordDeclERN4llvm15SmallVectorImplIPKNS1_9FieldDeclEEEb(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %277, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext true)
+  call fastcc void @_ZNK12_GLOBAL__N_120MappableExprsHandler14getPlainLayoutEPKN5clang13CXXRecordDeclERN4llvm15SmallVectorImplIPKNS1_9FieldDeclEEEb(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %277, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext true)
   br label %288
 
 278:                                              ; preds = %272
@@ -97727,7 +97727,7 @@ _ZSt21__move_merge_adaptiveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt17__merge_sort_loopIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEEvT_SO_T0_T1_T2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr %4) unnamed_addr #0 {
+define internal fastcc void @_ZSt17__merge_sort_loopIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEEvT_SO_T0_T1_T2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 -9223372036854775808, 1152921504606846973) %3, ptr %4) unnamed_addr #0 {
   %6 = shl nsw i64 %3, 1
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %0 to i64

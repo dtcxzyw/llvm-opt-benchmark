@@ -249,7 +249,7 @@ return:                                           ; preds = %if.then.i22, %if.th
 declare void @CRYPTO_library_init() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_cert_reparse(ptr noundef %der_bytes, i64 noundef %der_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_cert_reparse(ptr noundef %der_bytes, i64 noundef range(i64 693, 2896) %der_len) unnamed_addr #0 {
 entry:
   %pkcs7 = alloca %struct.cbs_st, align 8
   %cbb = alloca %struct.cbb_st, align 8

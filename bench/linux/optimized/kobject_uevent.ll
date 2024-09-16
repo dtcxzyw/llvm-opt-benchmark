@@ -580,7 +580,7 @@ define dso_local noundef range(i32 -12, 1) i32 @add_uevent_var(ptr noundef %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @zap_modalias_env(ptr nocapture noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc void @zap_modalias_env(ptr nocapture noundef nonnull %0) unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 536
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -675,7 +675,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @kobject_uevent_net_broadcast(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @kobject_uevent_net_broadcast(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 align 16 {
   %5 = tail call ptr @kobj_ns_ops(ptr noundef %0) #12
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %.thread12
@@ -868,9 +868,9 @@ declare dso_local ptr @kobj_ns_ops(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @netlink_has_listeners(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @alloc_uevent_skb(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @alloc_uevent_skb(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 align 16 {
   %4 = tail call i64 @strlen(ptr noundef %1) #12
-  %5 = tail call i64 @strlen(ptr noundef %2) #12
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #12
   %6 = add i64 %5, %4
   %7 = getelementptr inbounds i8, ptr %0, i64 2588
   %8 = load i32, ptr %7, align 4
@@ -883,7 +883,7 @@ define internal fastcc ptr @alloc_uevent_skb(ptr nocapture noundef readonly %0, 
 
 14:                                               ; preds = %3
   %15 = tail call ptr @skb_put(ptr noundef nonnull %12, i32 noundef %10) #12
-  %16 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %15, ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef %1, ptr noundef %2) #12
+  %16 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %15, ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef %1, ptr noundef nonnull %2) #12
   %17 = getelementptr inbounds i8, ptr %0, i64 540
   %18 = load i32, ptr %7, align 4
   %19 = tail call ptr @skb_put(ptr noundef nonnull %12, i32 noundef %18) #12

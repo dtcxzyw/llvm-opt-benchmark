@@ -2668,7 +2668,7 @@ if.end100.i:                                      ; preds = %if.end100.loopexit.
   %34 = load ptr, ptr %targetLimit.i, align 8
   %flush103.i = getelementptr inbounds i8, ptr %pArgs, i64 2
   %35 = load i8, ptr %flush103.i, align 2
-  %call.i = call fastcc noundef i32 @_ZL9_extFromUP10UConverterPK20UConverterSharedDataiPPKDsS5_PPhPKhPPiiaP10UErrorCode(ptr noundef %7, ptr noundef %33, i32 noundef %c.3.i, ptr noundef nonnull %source.i, ptr noundef %9, ptr noundef nonnull %target.i, ptr noundef %34, ptr noundef nonnull %offsets.i, i32 noundef %sourceIndex.4.i, i8 noundef signext %35, ptr noundef %pErrorCode)
+  %call.i = call fastcc noundef i32 @_ZL9_extFromUP10UConverterPK20UConverterSharedDataiPPKDsS5_PPhPKhPPiiaP10UErrorCode(ptr noundef %7, ptr noundef %33, i32 noundef %c.3.i, ptr noundef %source.i, ptr noundef %9, ptr noundef %target.i, ptr noundef %34, ptr noundef nonnull %offsets.i, i32 noundef %sourceIndex.4.i, i8 noundef signext %35, ptr noundef %pErrorCode)
   %36 = load ptr, ptr %source.i, align 8
   %sub.ptr.lhs.cast104.i = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast105.i = ptrtoint ptr %32 to i64
@@ -2933,7 +2933,7 @@ unassigned.i:                                     ; preds = %if.end51.i, %if.the
   %add.ptr.i = getelementptr inbounds i8, ptr %72, i64 %idx.ext.i
   %flush.i347 = getelementptr inbounds i8, ptr %pArgs, i64 2
   %75 = load i8, ptr %flush.i347, align 2
-  %call.i348 = call fastcc noundef i32 @_ZL9_extFromUP10UConverterPK20UConverterSharedDataiPPKDsS5_PPhPKhPPiiaP10UErrorCode(ptr noundef %50, ptr noundef %74, i32 noundef %c.4.i, ptr noundef nonnull %source.i309, ptr noundef %52, ptr noundef nonnull %target.i310, ptr noundef %add.ptr.i, ptr noundef nonnull %offsets.i311, i32 noundef %sourceIndex.3.i346, i8 noundef signext %75, ptr noundef %pErrorCode)
+  %call.i348 = call fastcc noundef i32 @_ZL9_extFromUP10UConverterPK20UConverterSharedDataiPPKDsS5_PPhPKhPPiiaP10UErrorCode(ptr noundef %50, ptr noundef %74, i32 noundef %c.4.i, ptr noundef %source.i309, ptr noundef %52, ptr noundef %target.i310, ptr noundef %add.ptr.i, ptr noundef nonnull %offsets.i311, i32 noundef %sourceIndex.3.i346, i8 noundef signext %75, ptr noundef %pErrorCode)
   %76 = load i32, ptr %pErrorCode, align 4
   %cmp.i.i349 = icmp slt i32 %76, 1
   %.pre.i350 = load ptr, ptr %source.i309, align 8
@@ -3039,24 +3039,24 @@ while.cond.preheader.i377:                        ; preds = %if.end165.i, %if.el
   br i1 %cmp24106.i, label %while.body.i382.preheader, label %_ZL37ucnv_MBCSDoubleFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode.exit
 
 while.body.i382.preheader:                        ; preds = %while.cond.preheader.i377
-  %cmp25.i383503 = icmp sgt i32 %targetCapacity.1.ph.i380, 0
-  br i1 %cmp25.i383503, label %if.then26.i, label %if.else166.i
+  %cmp25.i383501 = icmp sgt i32 %targetCapacity.1.ph.i380, 0
+  br i1 %cmp25.i383501, label %if.then26.i, label %if.else166.i
 
 while.body.i382:                                  ; preds = %if.end38.i
-  %dec.i423 = add nsw i32 %targetCapacity.1110.i504, -1
-  %cmp25.i383 = icmp sgt i32 %targetCapacity.1110.i504, 1
+  %dec.i423 = add nsw i32 %targetCapacity.1110.i502, -1
+  %cmp25.i383 = icmp sgt i32 %targetCapacity.1110.i502, 1
   br i1 %cmp25.i383, label %if.then26.i, label %if.else166.i, !llvm.loop !33
 
 if.then26.i:                                      ; preds = %while.body.i382.preheader, %while.body.i382
-  %nextSourceIndex.1107.i506 = phi i32 [ %inc.i385, %while.body.i382 ], [ %nextSourceIndex.1.ph.i, %while.body.i382.preheader ]
-  %sourceIndex.1108.i505 = phi i32 [ %sourceIndex.2.i422, %while.body.i382 ], [ %sourceIndex.1.ph.i378, %while.body.i382.preheader ]
-  %targetCapacity.1110.i504 = phi i32 [ %dec.i423, %while.body.i382 ], [ %targetCapacity.1.ph.i380, %while.body.i382.preheader ]
+  %nextSourceIndex.1107.i504 = phi i32 [ %inc.i385, %while.body.i382 ], [ %nextSourceIndex.1.ph.i, %while.body.i382.preheader ]
+  %sourceIndex.1108.i503 = phi i32 [ %sourceIndex.2.i422, %while.body.i382 ], [ %sourceIndex.1.ph.i378, %while.body.i382.preheader ]
+  %targetCapacity.1110.i502 = phi i32 [ %dec.i423, %while.body.i382 ], [ %targetCapacity.1.ph.i380, %while.body.i382.preheader ]
   %98 = phi ptr [ %102, %while.body.i382 ], [ %97, %while.body.i382.preheader ]
   %incdec.ptr.i384 = getelementptr inbounds i8, ptr %98, i64 2
   store ptr %incdec.ptr.i384, ptr %source.i360, align 8
   %99 = load i16, ptr %98, align 2
   %conv27.i = zext i16 %99 to i32
-  %inc.i385 = add nsw i32 %nextSourceIndex.1107.i506, 1
+  %inc.i385 = add nsw i32 %nextSourceIndex.1107.i504, 1
   %cmp28.i386 = icmp ult i16 %99, 128
   br i1 %cmp28.i386, label %land.lhs.true29.i, label %if.end39.i
 
@@ -3080,17 +3080,17 @@ if.then32.i:                                      ; preds = %land.lhs.true29.i
 if.then36.i:                                      ; preds = %if.then32.i
   %incdec.ptr37.i = getelementptr inbounds i8, ptr %101, i64 4
   store ptr %incdec.ptr37.i, ptr %offsets.i362, align 8
-  store i32 %sourceIndex.1108.i505, ptr %101, align 4
+  store i32 %sourceIndex.1108.i503, ptr %101, align 4
   br label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.then36.i, %if.then32.i
-  %sourceIndex.2.i422 = phi i32 [ %inc.i385, %if.then36.i ], [ %sourceIndex.1108.i505, %if.then32.i ]
+  %sourceIndex.2.i422 = phi i32 [ %inc.i385, %if.then36.i ], [ %sourceIndex.1108.i503, %if.then32.i ]
   %102 = load ptr, ptr %source.i360, align 8
   %cmp24.i424 = icmp ult ptr %102, %88
   br i1 %cmp24.i424, label %while.body.i382, label %_ZL37ucnv_MBCSDoubleFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode.exit, !llvm.loop !33
 
 if.end39.i:                                       ; preds = %if.then26.i
-  %incdec.ptr.i384.le623 = getelementptr inbounds i8, ptr %98, i64 2
+  %incdec.ptr.i384.le621 = getelementptr inbounds i8, ptr %98, i64 2
   %cmp40.i = icmp ult i16 %99, -10240
   br i1 %cmp40.i, label %if.then41.i, label %if.else51.i
 
@@ -3099,7 +3099,7 @@ if.then41.i.loopexit:                             ; preds = %land.lhs.true29.i
   br label %if.then41.i
 
 if.then41.i:                                      ; preds = %if.then41.i.loopexit, %if.end39.i
-  %incdec.ptr.i384611 = phi ptr [ %incdec.ptr.i384.le, %if.then41.i.loopexit ], [ %incdec.ptr.i384.le623, %if.end39.i ]
+  %incdec.ptr.i384609 = phi ptr [ %incdec.ptr.i384.le, %if.then41.i.loopexit ], [ %incdec.ptr.i384.le621, %if.end39.i ]
   %shr42.i = lshr i32 %conv27.i, 6
   %idxprom.i416 = zext nneg i32 %shr42.i to i64
   %arrayidx.i417 = getelementptr inbounds i16, ptr %93, i64 %idxprom.i416
@@ -3127,11 +3127,11 @@ if.then57.i:                                      ; preds = %if.else51.i
   br i1 %cmp59.i, label %getTrail.i408, label %if.else81.i407
 
 getTrail.i408:                                    ; preds = %if.then57.i, %if.then25
-  %106 = phi ptr [ %87, %if.then25 ], [ %incdec.ptr.i384.le623, %if.then57.i ]
+  %106 = phi ptr [ %87, %if.then25 ], [ %incdec.ptr.i384.le621, %if.then57.i ]
   %nextSourceIndex.0.i409 = phi i32 [ 0, %if.then25 ], [ %inc.i385, %if.then57.i ]
-  %sourceIndex.0.i410 = phi i32 [ %cond.i375, %if.then25 ], [ %sourceIndex.1108.i505, %if.then57.i ]
+  %sourceIndex.0.i410 = phi i32 [ %cond.i375, %if.then25 ], [ %sourceIndex.1108.i503, %if.then57.i ]
   %c.0.i411 = phi i32 [ %96, %if.then25 ], [ %conv27.i, %if.then57.i ]
-  %targetCapacity.0.i412 = phi i32 [ %conv.i369, %if.then25 ], [ %targetCapacity.1110.i504, %if.then57.i ]
+  %targetCapacity.0.i412 = phi i32 [ %conv.i369, %if.then25 ], [ %targetCapacity.1110.i502, %if.then57.i ]
   %cmp61.i = icmp ult ptr %106, %88
   br i1 %cmp61.i, label %if.then62.i, label %_ZL37ucnv_MBCSDoubleFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode.exit
 
@@ -3162,11 +3162,11 @@ if.else81.i407:                                   ; preds = %if.then57.i
   br label %_ZL37ucnv_MBCSDoubleFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode.exit
 
 if.end83.i388:                                    ; preds = %if.then66.i414, %if.else51.i
-  %109 = phi ptr [ %incdec.ptr67.i, %if.then66.i414 ], [ %incdec.ptr.i384.le623, %if.else51.i ]
+  %109 = phi ptr [ %incdec.ptr67.i, %if.then66.i414 ], [ %incdec.ptr.i384.le621, %if.else51.i ]
   %nextSourceIndex.4.i = phi i32 [ %inc68.i, %if.then66.i414 ], [ %inc.i385, %if.else51.i ]
-  %sourceIndex.5.i = phi i32 [ %sourceIndex.0.i410, %if.then66.i414 ], [ %sourceIndex.1108.i505, %if.else51.i ]
+  %sourceIndex.5.i = phi i32 [ %sourceIndex.0.i410, %if.then66.i414 ], [ %sourceIndex.1108.i503, %if.else51.i ]
   %c.4.i389 = phi i32 [ %sub.i415, %if.then66.i414 ], [ %conv27.i, %if.else51.i ]
-  %targetCapacity.4.i = phi i32 [ %targetCapacity.0.i412, %if.then66.i414 ], [ %targetCapacity.1110.i504, %if.else51.i ]
+  %targetCapacity.4.i = phi i32 [ %targetCapacity.0.i412, %if.then66.i414 ], [ %targetCapacity.1110.i502, %if.else51.i ]
   %shr84.i = ashr i32 %c.4.i389, 10
   %idxprom85.i = sext i32 %shr84.i to i64
   %arrayidx86.i = getelementptr inbounds i16, ptr %92, i64 %idxprom85.i
@@ -3211,11 +3211,11 @@ land.lhs.true112.i:                               ; preds = %lor.lhs.false.i
   br i1 %cmp113.old.not.i, label %unassigned.i396, label %if.end133.i
 
 unassigned.i396:                                  ; preds = %land.lhs.true112.i, %lor.lhs.false109.i, %if.then66.i414, %if.then41.i
-  %114 = phi ptr [ %incdec.ptr.i384611, %if.then41.i ], [ %109, %land.lhs.true112.i ], [ %109, %lor.lhs.false109.i ], [ %incdec.ptr67.i, %if.then66.i414 ]
+  %114 = phi ptr [ %incdec.ptr.i384609, %if.then41.i ], [ %109, %land.lhs.true112.i ], [ %109, %lor.lhs.false109.i ], [ %incdec.ptr67.i, %if.then66.i414 ]
   %nextSourceIndex.2.i397 = phi i32 [ %inc.i385, %if.then41.i ], [ %nextSourceIndex.4.i, %land.lhs.true112.i ], [ %nextSourceIndex.4.i, %lor.lhs.false109.i ], [ %inc68.i, %if.then66.i414 ]
-  %sourceIndex.3.i398 = phi i32 [ %sourceIndex.1108.i505, %if.then41.i ], [ %sourceIndex.5.i, %land.lhs.true112.i ], [ %sourceIndex.5.i, %lor.lhs.false109.i ], [ %sourceIndex.0.i410, %if.then66.i414 ]
+  %sourceIndex.3.i398 = phi i32 [ %sourceIndex.1108.i503, %if.then41.i ], [ %sourceIndex.5.i, %land.lhs.true112.i ], [ %sourceIndex.5.i, %lor.lhs.false109.i ], [ %sourceIndex.0.i410, %if.then66.i414 ]
   %c.3.i399 = phi i32 [ %conv27.i, %if.then41.i ], [ %c.4.i389, %land.lhs.true112.i ], [ %c.4.i389, %lor.lhs.false109.i ], [ %sub.i415, %if.then66.i414 ]
-  %targetCapacity.2.i400 = phi i32 [ %targetCapacity.1110.i504, %if.then41.i ], [ %targetCapacity.4.i, %land.lhs.true112.i ], [ %targetCapacity.4.i, %lor.lhs.false109.i ], [ %targetCapacity.0.i412, %if.then66.i414 ]
+  %targetCapacity.2.i400 = phi i32 [ %targetCapacity.1110.i502, %if.then41.i ], [ %targetCapacity.4.i, %land.lhs.true112.i ], [ %targetCapacity.4.i, %lor.lhs.false109.i ], [ %targetCapacity.0.i412, %if.then66.i414 ]
   store ptr %114, ptr %source2.i, align 8
   %115 = load ptr, ptr %sharedData.i364, align 8
   %116 = load ptr, ptr %target.i361, align 8
@@ -3223,7 +3223,7 @@ unassigned.i396:                                  ; preds = %land.lhs.true112.i,
   %add.ptr.i402 = getelementptr inbounds i8, ptr %116, i64 %idx.ext.i401
   %flush.i403 = getelementptr inbounds i8, ptr %pArgs, i64 2
   %117 = load i8, ptr %flush.i403, align 2
-  %call.i404 = call fastcc noundef i32 @_ZL9_extFromUP10UConverterPK20UConverterSharedDataiPPKDsS5_PPhPKhPPiiaP10UErrorCode(ptr noundef %84, ptr noundef %115, i32 noundef %c.3.i399, ptr noundef nonnull %source.i360, ptr noundef %88, ptr noundef nonnull %target.i361, ptr noundef %add.ptr.i402, ptr noundef nonnull %offsets.i362, i32 noundef %sourceIndex.3.i398, i8 noundef signext %117, ptr noundef %pErrorCode)
+  %call.i404 = call fastcc noundef i32 @_ZL9_extFromUP10UConverterPK20UConverterSharedDataiPPKDsS5_PPhPKhPPiiaP10UErrorCode(ptr noundef %84, ptr noundef %115, i32 noundef %c.3.i399, ptr noundef %source.i360, ptr noundef %88, ptr noundef %target.i361, ptr noundef %add.ptr.i402, ptr noundef nonnull %offsets.i362, i32 noundef %sourceIndex.3.i398, i8 noundef signext %117, ptr noundef %pErrorCode)
   %118 = load i32, ptr %pErrorCode, align 4
   %cmp.i.i405 = icmp slt i32 %118, 1
   %.pre131.i = load ptr, ptr %source.i360, align 8
@@ -3247,9 +3247,9 @@ if.else126.i:                                     ; preds = %unassigned.i396
 
 if.end133.i:                                      ; preds = %land.lhs.true112.i, %lor.lhs.false109.i, %if.end83.i388, %if.then41.i
   %nextSourceIndex.3.i390 = phi i32 [ %inc.i385, %if.then41.i ], [ %nextSourceIndex.4.i, %lor.lhs.false109.i ], [ %nextSourceIndex.4.i, %land.lhs.true112.i ], [ %nextSourceIndex.4.i, %if.end83.i388 ]
-  %sourceIndex.4.i391 = phi i32 [ %sourceIndex.1108.i505, %if.then41.i ], [ %sourceIndex.5.i, %lor.lhs.false109.i ], [ %sourceIndex.5.i, %land.lhs.true112.i ], [ %sourceIndex.5.i, %if.end83.i388 ]
+  %sourceIndex.4.i391 = phi i32 [ %sourceIndex.1108.i503, %if.then41.i ], [ %sourceIndex.5.i, %lor.lhs.false109.i ], [ %sourceIndex.5.i, %land.lhs.true112.i ], [ %sourceIndex.5.i, %if.end83.i388 ]
   %value.0.in.i = phi i16 [ %104, %if.then41.i ], [ %112, %lor.lhs.false109.i ], [ %112, %land.lhs.true112.i ], [ %112, %if.end83.i388 ]
-  %targetCapacity.3.i392 = phi i32 [ %targetCapacity.1110.i504, %if.then41.i ], [ %targetCapacity.4.i, %lor.lhs.false109.i ], [ %targetCapacity.4.i, %land.lhs.true112.i ], [ %targetCapacity.4.i, %if.end83.i388 ]
+  %targetCapacity.3.i392 = phi i32 [ %targetCapacity.1110.i502, %if.then41.i ], [ %targetCapacity.4.i, %lor.lhs.false109.i ], [ %targetCapacity.4.i, %land.lhs.true112.i ], [ %targetCapacity.4.i, %if.end83.i388 ]
   %cmp134.i = icmp ult i16 %value.0.in.i, 256
   br i1 %cmp134.i, label %if.then135.i, label %if.else143.i
 
@@ -3326,13 +3326,13 @@ if.end165.i:                                      ; preds = %if.end165.sink.spli
   br label %while.cond.preheader.i377, !llvm.loop !33
 
 if.else166.i:                                     ; preds = %while.body.i382, %while.body.i382.preheader
-  %.lcssa483 = phi ptr [ %97, %while.body.i382.preheader ], [ %102, %while.body.i382 ]
+  %.lcssa481 = phi ptr [ %97, %while.body.i382.preheader ], [ %102, %while.body.i382 ]
   %c.1109.i.lcssa = phi i32 [ %c.1.ph.i379, %while.body.i382.preheader ], [ 0, %while.body.i382 ]
   store i32 15, ptr %pErrorCode, align 4
   br label %_ZL37ucnv_MBCSDoubleFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode.exit
 
 _ZL37ucnv_MBCSDoubleFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode.exit: ; preds = %if.end38.i, %while.cond.preheader.i377, %getTrail.i408, %if.else77.i, %if.else81.i407, %unassigned.i396, %if.end161.i, %if.else166.i
-  %130 = phi ptr [ %.pre131.i, %unassigned.i396 ], [ %incdec.ptr.i384.le623, %if.else81.i407 ], [ %.lcssa483, %if.else166.i ], [ %.pre130.i, %if.end161.i ], [ %106, %if.else77.i ], [ %106, %getTrail.i408 ], [ %97, %while.cond.preheader.i377 ], [ %102, %if.end38.i ]
+  %130 = phi ptr [ %.pre131.i, %unassigned.i396 ], [ %incdec.ptr.i384.le621, %if.else81.i407 ], [ %.lcssa481, %if.else166.i ], [ %.pre130.i, %if.end161.i ], [ %106, %if.else77.i ], [ %106, %getTrail.i408 ], [ %97, %while.cond.preheader.i377 ], [ %102, %if.end38.i ]
   %c.2.i381 = phi i32 [ %call.i404, %unassigned.i396 ], [ %conv27.i, %if.else81.i407 ], [ %c.1109.i.lcssa, %if.else166.i ], [ 0, %if.end161.i ], [ %c.0.i411, %if.else77.i ], [ %c.0.i411, %getTrail.i408 ], [ %c.1.ph.i379, %while.cond.preheader.i377 ], [ 0, %if.end38.i ]
   store i32 %c.2.i381, ptr %fromUChar32.i374, align 4
   store ptr %130, ptr %source2.i, align 8
@@ -3401,14 +3401,14 @@ if.end65:                                         ; preds = %if.end45, %if.then6
   %prevLength.0 = phi i32 [ %spec.store.select, %if.then60 ], [ 0, %if.end45 ]
   %cmp66 = icmp ne i32 %143, 0
   %cond = sext i1 %cmp66 to i32
-  %and.i426 = and i32 %141, 4096
-  %cmp.not.i427 = icmp eq i32 %and.i426, 0
-  br i1 %cmp.not.i427, label %if.else.i, label %_ZL12getSISOBytes11SISO_OptionjPh.exit432
+  %and17.i = and i32 %141, 4096
+  %cmp18.not.i = icmp eq i32 %and17.i, 0
+  br i1 %cmp18.not.i, label %if.else.i, label %_ZL12getSISOBytes11SISO_OptionjPh.exit430
 
 if.else.i:                                        ; preds = %if.end65
   %and2.i = and i32 %141, 8192
   %cmp3.not.i = icmp eq i32 %and2.i, 0
-  br i1 %cmp3.not.i, label %if.else6.i, label %_ZL12getSISOBytes11SISO_OptionjPh.exit432
+  br i1 %cmp3.not.i, label %if.else6.i, label %_ZL12getSISOBytes11SISO_OptionjPh.exit430
 
 if.else6.i:                                       ; preds = %if.else.i
   %and7.i = and i32 %141, 16384
@@ -3416,19 +3416,19 @@ if.else6.i:                                       ; preds = %if.else.i
   %siBytes.sroa.11.0.ph.ph = select i1 %cmp8.not.i, i8 0, i8 113
   %siBytes.sroa.0.0.ph.ph = select i1 %cmp8.not.i, i8 15, i8 26
   %SISOLength.0.i.ph.ph = select i1 %cmp8.not.i, i32 1, i32 2
-  %conv69453562 = trunc nuw nsw i32 %SISOLength.0.i.ph.ph to i8
+  %conv69451560 = trunc nuw nsw i32 %SISOLength.0.i.ph.ph to i8
   %and28.i = and i32 %141, 16384
   %cmp29.not.i = icmp eq i32 %and28.i, 0
-  br i1 %cmp29.not.i, label %if.else33.i, label %_ZL12getSISOBytes11SISO_OptionjPh.exit432
+  br i1 %cmp29.not.i, label %if.else33.i, label %_ZL12getSISOBytes11SISO_OptionjPh.exit430
 
 if.else33.i:                                      ; preds = %if.else6.i
-  br label %_ZL12getSISOBytes11SISO_OptionjPh.exit432
+  br label %_ZL12getSISOBytes11SISO_OptionjPh.exit430
 
-_ZL12getSISOBytes11SISO_OptionjPh.exit432:        ; preds = %if.else.i, %if.end65, %if.else6.i, %if.else33.i
-  %conv69460 = phi i8 [ %conv69453562, %if.else33.i ], [ %conv69453562, %if.else6.i ], [ 2, %if.end65 ], [ 1, %if.else.i ]
-  %SISOLength.0.i458 = phi i32 [ %SISOLength.0.i.ph.ph, %if.else33.i ], [ %SISOLength.0.i.ph.ph, %if.else6.i ], [ 2, %if.end65 ], [ 1, %if.else.i ]
-  %siBytes.sroa.0.0456 = phi i8 [ %siBytes.sroa.0.0.ph.ph, %if.else33.i ], [ %siBytes.sroa.0.0.ph.ph, %if.else6.i ], [ 10, %if.end65 ], [ 41, %if.else.i ]
-  %siBytes.sroa.11.0454 = phi i8 [ %siBytes.sroa.11.0.ph.ph, %if.else33.i ], [ %siBytes.sroa.11.0.ph.ph, %if.else6.i ], [ 65, %if.end65 ], [ 0, %if.else.i ]
+_ZL12getSISOBytes11SISO_OptionjPh.exit430:        ; preds = %if.else.i, %if.end65, %if.else6.i, %if.else33.i
+  %conv69458 = phi i8 [ %conv69451560, %if.else33.i ], [ %conv69451560, %if.else6.i ], [ 2, %if.end65 ], [ 1, %if.else.i ]
+  %SISOLength.0.i456 = phi i32 [ %SISOLength.0.i.ph.ph, %if.else33.i ], [ %SISOLength.0.i.ph.ph, %if.else6.i ], [ 2, %if.end65 ], [ 1, %if.else.i ]
+  %siBytes.sroa.0.0454 = phi i8 [ %siBytes.sroa.0.0.ph.ph, %if.else33.i ], [ %siBytes.sroa.0.0.ph.ph, %if.else6.i ], [ 10, %if.end65 ], [ 41, %if.else.i ]
+  %siBytes.sroa.11.0452 = phi i8 [ %siBytes.sroa.11.0.ph.ph, %if.else33.i ], [ %siBytes.sroa.11.0.ph.ph, %if.else6.i ], [ 65, %if.end65 ], [ 0, %if.else.i ]
   %soBytes.sroa.9.0 = phi i32 [ 0, %if.else33.i ], [ 7340032, %if.else6.i ], [ 4325376, %if.end65 ], [ 0, %if.else.i ]
   %soBytes.sroa.0.0 = phi i32 [ 14, %if.else33.i ], [ 26, %if.else6.i ], [ 10, %if.end65 ], [ 40, %if.else.i ]
   %cmp410 = phi i1 [ true, %if.else33.i ], [ false, %if.else6.i ], [ false, %if.end65 ], [ true, %if.else.i ]
@@ -3436,37 +3436,37 @@ _ZL12getSISOBytes11SISO_OptionjPh.exit432:        ; preds = %if.else.i, %if.end6
   %or.cond = select i1 %cmp66, i1 %cmp76, i1 false
   br i1 %or.cond, label %getTrail, label %while.cond.preheader
 
-while.cond.preheader:                             ; preds = %if.else589, %if.end643, %_ZL12getSISOBytes11SISO_OptionjPh.exit432
-  %145 = phi ptr [ %133, %_ZL12getSISOBytes11SISO_OptionjPh.exit432 ], [ %192, %if.else589 ], [ %.pre, %if.end643 ]
-  %prevSourceIndex.1.ph = phi i32 [ -1, %_ZL12getSISOBytes11SISO_OptionjPh.exit432 ], [ %spec.select, %if.else589 ], [ %spec.select298, %if.end643 ]
-  %sourceIndex.1.ph = phi i32 [ %cond, %_ZL12getSISOBytes11SISO_OptionjPh.exit432 ], [ %spec.select297, %if.else589 ], [ %spec.select299, %if.end643 ]
-  %nextSourceIndex.1.ph = phi i32 [ 0, %_ZL12getSISOBytes11SISO_OptionjPh.exit432 ], [ %add584, %if.else589 ], [ %nextSourceIndex.3577, %if.end643 ]
-  %c.1.ph = phi i32 [ %143, %_ZL12getSISOBytes11SISO_OptionjPh.exit432 ], [ %call578, %if.else589 ], [ 0, %if.end643 ]
-  %prevLength.2.ph = phi i32 [ %prevLength.0, %_ZL12getSISOBytes11SISO_OptionjPh.exit432 ], [ %190, %if.else589 ], [ %prevLength.5580, %if.end643 ]
-  %targetCapacity.1.ph = phi i32 [ %conv32, %_ZL12getSISOBytes11SISO_OptionjPh.exit432 ], [ %conv594, %if.else589 ], [ %sub644, %if.end643 ]
-  %cmp79509 = icmp ult ptr %145, %134
-  br i1 %cmp79509, label %while.body.preheader, label %while.end
+while.cond.preheader:                             ; preds = %if.else589, %if.end643, %_ZL12getSISOBytes11SISO_OptionjPh.exit430
+  %145 = phi ptr [ %133, %_ZL12getSISOBytes11SISO_OptionjPh.exit430 ], [ %192, %if.else589 ], [ %.pre, %if.end643 ]
+  %prevSourceIndex.1.ph = phi i32 [ -1, %_ZL12getSISOBytes11SISO_OptionjPh.exit430 ], [ %spec.select, %if.else589 ], [ %spec.select298, %if.end643 ]
+  %sourceIndex.1.ph = phi i32 [ %cond, %_ZL12getSISOBytes11SISO_OptionjPh.exit430 ], [ %spec.select297, %if.else589 ], [ %spec.select299, %if.end643 ]
+  %nextSourceIndex.1.ph = phi i32 [ 0, %_ZL12getSISOBytes11SISO_OptionjPh.exit430 ], [ %add584, %if.else589 ], [ %nextSourceIndex.3575, %if.end643 ]
+  %c.1.ph = phi i32 [ %143, %_ZL12getSISOBytes11SISO_OptionjPh.exit430 ], [ %call578, %if.else589 ], [ 0, %if.end643 ]
+  %prevLength.2.ph = phi i32 [ %prevLength.0, %_ZL12getSISOBytes11SISO_OptionjPh.exit430 ], [ %190, %if.else589 ], [ %prevLength.5578, %if.end643 ]
+  %targetCapacity.1.ph = phi i32 [ %conv32, %_ZL12getSISOBytes11SISO_OptionjPh.exit430 ], [ %conv594, %if.else589 ], [ %sub644, %if.end643 ]
+  %cmp79507 = icmp ult ptr %145, %134
+  br i1 %cmp79507, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %while.cond.preheader
   %smin = call i32 @llvm.smin.i32(i32 %targetCapacity.1.ph, i32 0)
-  %cmp80669 = icmp sgt i32 %targetCapacity.1.ph, 0
-  br i1 %cmp80669, label %if.then81, label %while.end.sink.split
+  %cmp80667 = icmp sgt i32 %targetCapacity.1.ph, 0
+  br i1 %cmp80667, label %if.then81, label %while.end.sink.split
 
 while.body:                                       ; preds = %if.end93
-  %cmp80 = icmp sgt i32 %targetCapacity.1514670, 1
+  %cmp80 = icmp sgt i32 %targetCapacity.1512668, 1
   br i1 %cmp80, label %if.then81, label %while.end.sink.split, !llvm.loop !34
 
 if.then81:                                        ; preds = %while.body.preheader, %while.body
-  %prevSourceIndex.1510673 = phi i32 [ %prevSourceIndex.3, %while.body ], [ %prevSourceIndex.1.ph, %while.body.preheader ]
-  %sourceIndex.1511672 = phi i32 [ %sourceIndex.2, %while.body ], [ %sourceIndex.1.ph, %while.body.preheader ]
-  %nextSourceIndex.1512671 = phi i32 [ %inc, %while.body ], [ %nextSourceIndex.1.ph, %while.body.preheader ]
-  %targetCapacity.1514670 = phi i32 [ %dec, %while.body ], [ %targetCapacity.1.ph, %while.body.preheader ]
+  %prevSourceIndex.1508671 = phi i32 [ %prevSourceIndex.3, %while.body ], [ %prevSourceIndex.1.ph, %while.body.preheader ]
+  %sourceIndex.1509670 = phi i32 [ %sourceIndex.2, %while.body ], [ %sourceIndex.1.ph, %while.body.preheader ]
+  %nextSourceIndex.1510669 = phi i32 [ %inc, %while.body ], [ %nextSourceIndex.1.ph, %while.body.preheader ]
+  %targetCapacity.1512668 = phi i32 [ %dec, %while.body ], [ %targetCapacity.1.ph, %while.body.preheader ]
   %146 = phi ptr [ %150, %while.body ], [ %145, %while.body.preheader ]
   %incdec.ptr = getelementptr inbounds i8, ptr %146, i64 2
   store ptr %incdec.ptr, ptr %source, align 8
   %147 = load i16, ptr %146, align 2
   %conv82 = zext i16 %147 to i32
-  %inc = add nsw i32 %nextSourceIndex.1512671, 1
+  %inc = add nsw i32 %nextSourceIndex.1510669, 1
   %cmp83 = icmp ult i16 %147, 128
   br i1 %cmp83, label %land.lhs.true84, label %if.end94
 
@@ -3490,13 +3490,13 @@ if.then87:                                        ; preds = %land.lhs.true84
 if.then91:                                        ; preds = %if.then87
   %incdec.ptr92 = getelementptr inbounds i8, ptr %149, i64 4
   store ptr %incdec.ptr92, ptr %offsets, align 8
-  store i32 %sourceIndex.1511672, ptr %149, align 4
+  store i32 %sourceIndex.1509670, ptr %149, align 4
   br label %if.end93
 
 if.end93:                                         ; preds = %if.then91, %if.then87
-  %prevSourceIndex.3 = phi i32 [ %sourceIndex.1511672, %if.then91 ], [ %prevSourceIndex.1510673, %if.then87 ]
-  %sourceIndex.2 = phi i32 [ %inc, %if.then91 ], [ %sourceIndex.1511672, %if.then87 ]
-  %dec = add nsw i32 %targetCapacity.1514670, -1
+  %prevSourceIndex.3 = phi i32 [ %sourceIndex.1509670, %if.then91 ], [ %prevSourceIndex.1508671, %if.then87 ]
+  %sourceIndex.2 = phi i32 [ %inc, %if.then91 ], [ %sourceIndex.1509670, %if.then87 ]
+  %dec = add nsw i32 %targetCapacity.1512668, -1
   %150 = load ptr, ptr %source, align 8
   %cmp79 = icmp ult ptr %150, %134
   br i1 %cmp79, label %while.body, label %while.end, !llvm.loop !34
@@ -3559,18 +3559,18 @@ if.else125:                                       ; preds = %if.then122
   br i1 %cmp126, label %if.end599, label %if.else128
 
 if.else128:                                       ; preds = %if.else125
-  %cmp130 = icmp eq i32 %SISOLength.0.i458, 1
+  %cmp130 = icmp eq i32 %SISOLength.0.i456, 1
   br i1 %cmp130, label %if.then131, label %if.then138
 
 if.then131:                                       ; preds = %if.else128
-  %conv133 = zext nneg i8 %siBytes.sroa.0.0456 to i32
+  %conv133 = zext nneg i8 %siBytes.sroa.0.0454 to i32
   %shl134 = shl nuw nsw i32 %conv133, 8
   br label %if.end148
 
 if.then138:                                       ; preds = %if.else128
-  %conv140 = zext nneg i8 %siBytes.sroa.11.0454 to i32
+  %conv140 = zext nneg i8 %siBytes.sroa.11.0452 to i32
   %shl141 = shl nuw nsw i32 %conv140, 8
-  %conv144 = zext nneg i8 %siBytes.sroa.0.0456 to i32
+  %conv144 = zext nneg i8 %siBytes.sroa.0.0454 to i32
   %shl145 = shl nuw nsw i32 %conv144, 16
   %154 = or disjoint i32 %shl141, %shl145
   br label %if.end148
@@ -3746,14 +3746,14 @@ if.then305:                                       ; preds = %if.else298
   %cmp307 = icmp eq i32 %and306, 0
   br i1 %cmp307, label %getTrail, label %while.end.sink.split
 
-getTrail:                                         ; preds = %if.then305, %_ZL12getSISOBytes11SISO_OptionjPh.exit432
-  %166 = phi ptr [ %133, %_ZL12getSISOBytes11SISO_OptionjPh.exit432 ], [ %incdec.ptr.le, %if.then305 ]
-  %prevSourceIndex.0 = phi i32 [ -1, %_ZL12getSISOBytes11SISO_OptionjPh.exit432 ], [ %prevSourceIndex.1510673, %if.then305 ]
-  %sourceIndex.0 = phi i32 [ %cond, %_ZL12getSISOBytes11SISO_OptionjPh.exit432 ], [ %sourceIndex.1511672, %if.then305 ]
-  %nextSourceIndex.0 = phi i32 [ 0, %_ZL12getSISOBytes11SISO_OptionjPh.exit432 ], [ %inc, %if.then305 ]
-  %c.0 = phi i32 [ %143, %_ZL12getSISOBytes11SISO_OptionjPh.exit432 ], [ %conv82, %if.then305 ]
-  %prevLength.1 = phi i32 [ %prevLength.0, %_ZL12getSISOBytes11SISO_OptionjPh.exit432 ], [ %prevLength.2.ph, %if.then305 ]
-  %targetCapacity.0 = phi i32 [ %conv32, %_ZL12getSISOBytes11SISO_OptionjPh.exit432 ], [ %targetCapacity.1514670, %if.then305 ]
+getTrail:                                         ; preds = %if.then305, %_ZL12getSISOBytes11SISO_OptionjPh.exit430
+  %166 = phi ptr [ %133, %_ZL12getSISOBytes11SISO_OptionjPh.exit430 ], [ %incdec.ptr.le, %if.then305 ]
+  %prevSourceIndex.0 = phi i32 [ -1, %_ZL12getSISOBytes11SISO_OptionjPh.exit430 ], [ %prevSourceIndex.1508671, %if.then305 ]
+  %sourceIndex.0 = phi i32 [ %cond, %_ZL12getSISOBytes11SISO_OptionjPh.exit430 ], [ %sourceIndex.1509670, %if.then305 ]
+  %nextSourceIndex.0 = phi i32 [ 0, %_ZL12getSISOBytes11SISO_OptionjPh.exit430 ], [ %inc, %if.then305 ]
+  %c.0 = phi i32 [ %143, %_ZL12getSISOBytes11SISO_OptionjPh.exit430 ], [ %conv82, %if.then305 ]
+  %prevLength.1 = phi i32 [ %prevLength.0, %_ZL12getSISOBytes11SISO_OptionjPh.exit430 ], [ %prevLength.2.ph, %if.then305 ]
+  %targetCapacity.0 = phi i32 [ %conv32, %_ZL12getSISOBytes11SISO_OptionjPh.exit430 ], [ %targetCapacity.1512668, %if.then305 ]
   %cmp309 = icmp ult ptr %166, %134
   br i1 %cmp309, label %if.then310, label %while.end
 
@@ -3782,12 +3782,12 @@ if.then323:                                       ; preds = %if.then314
 
 if.end332:                                        ; preds = %if.then314, %if.else298
   %169 = phi ptr [ %incdec.ptr315, %if.then314 ], [ %incdec.ptr.le, %if.else298 ]
-  %prevSourceIndex.6 = phi i32 [ %prevSourceIndex.0, %if.then314 ], [ %prevSourceIndex.1510673, %if.else298 ]
-  %sourceIndex.5 = phi i32 [ %sourceIndex.0, %if.then314 ], [ %sourceIndex.1511672, %if.else298 ]
+  %prevSourceIndex.6 = phi i32 [ %prevSourceIndex.0, %if.then314 ], [ %prevSourceIndex.1508671, %if.else298 ]
+  %sourceIndex.5 = phi i32 [ %sourceIndex.0, %if.then314 ], [ %sourceIndex.1509670, %if.else298 ]
   %nextSourceIndex.4 = phi i32 [ %inc316, %if.then314 ], [ %inc, %if.else298 ]
   %c.4 = phi i32 [ %sub, %if.then314 ], [ %conv82, %if.else298 ]
   %prevLength.6 = phi i32 [ %prevLength.1, %if.then314 ], [ %prevLength.2.ph, %if.else298 ]
-  %targetCapacity.5 = phi i32 [ %targetCapacity.0, %if.then314 ], [ %targetCapacity.1514670, %if.else298 ]
+  %targetCapacity.5 = phi i32 [ %targetCapacity.0, %if.then314 ], [ %targetCapacity.1512668, %if.else298 ]
   %shr333 = ashr i32 %c.4, 10
   %idxprom334 = sext i32 %shr333 to i64
   %arrayidx335 = getelementptr inbounds i16, ptr %138, i64 %idxprom334
@@ -3810,7 +3810,7 @@ if.end332:                                        ; preds = %if.then314, %if.els
   ]
 
 if.end332.sw.epilog555_crit_edge:                 ; preds = %if.end332
-  %.pre558 = and i32 %c.4, 15
+  %.pre556 = and i32 %c.4, 15
   br label %sw.epilog555
 
 sw.bb343:                                         ; preds = %if.end332
@@ -3855,18 +3855,18 @@ if.else378:                                       ; preds = %land.lhs.true369, %
   br i1 %cmp379, label %sw.epilog555, label %if.else381
 
 if.else381:                                       ; preds = %if.else378
-  %cmp383 = icmp eq i32 %SISOLength.0.i458, 1
+  %cmp383 = icmp eq i32 %SISOLength.0.i456, 1
   br i1 %cmp383, label %if.then384, label %if.then392
 
 if.then384:                                       ; preds = %if.else381
-  %conv386 = zext nneg i8 %siBytes.sroa.0.0456 to i32
+  %conv386 = zext nneg i8 %siBytes.sroa.0.0454 to i32
   %shl387 = shl nuw nsw i32 %conv386, 8
   br label %if.end402
 
 if.then392:                                       ; preds = %if.else381
-  %conv394 = zext nneg i8 %siBytes.sroa.11.0454 to i32
+  %conv394 = zext nneg i8 %siBytes.sroa.11.0452 to i32
   %shl395 = shl nuw nsw i32 %conv394, 8
-  %conv398 = zext nneg i8 %siBytes.sroa.0.0456 to i32
+  %conv398 = zext nneg i8 %siBytes.sroa.0.0454 to i32
   %shl399 = shl nuw nsw i32 %conv398, 16
   %174 = or disjoint i32 %shl395, %shl399
   br label %if.end402
@@ -4024,7 +4024,7 @@ if.else544:                                       ; preds = %if.else539
   br label %sw.epilog555
 
 sw.epilog555:                                     ; preds = %if.end332.sw.epilog555_crit_edge, %if.else544, %if.else507, %if.else536, %sw.bb516, %sw.bb491, %if.else484, %if.else481, %sw.bb471, %if.else465, %sw.bb445, %sw.bb432, %if.else405, %if.else378, %land.lhs.true369, %sw.bb343, %if.then542, %if.then505, %if.else443, %if.end402, %if.else408
-  %and556.pre-phi = phi i32 [ %.pre558, %if.end332.sw.epilog555_crit_edge ], [ %and520, %if.else544 ], [ %and495, %if.else507 ], [ %and520, %if.else536 ], [ %and520, %sw.bb516 ], [ %and495, %sw.bb491 ], [ %and475, %if.else484 ], [ %and475, %if.else481 ], [ %and475, %sw.bb471 ], [ %and449, %if.else465 ], [ %and449, %sw.bb445 ], [ %and436, %sw.bb432 ], [ %and361, %if.else405 ], [ %and361, %if.else378 ], [ %and361, %land.lhs.true369 ], [ %and347, %sw.bb343 ], [ %and520, %if.then542 ], [ %and495, %if.then505 ], [ %and436, %if.else443 ], [ %and361, %if.end402 ], [ %and361, %if.else408 ]
+  %and556.pre-phi = phi i32 [ %.pre556, %if.end332.sw.epilog555_crit_edge ], [ %and520, %if.else544 ], [ %and495, %if.else507 ], [ %and520, %if.else536 ], [ %and520, %sw.bb516 ], [ %and495, %sw.bb491 ], [ %and475, %if.else484 ], [ %and475, %if.else481 ], [ %and475, %sw.bb471 ], [ %and449, %if.else465 ], [ %and449, %sw.bb445 ], [ %and436, %sw.bb432 ], [ %and361, %if.else405 ], [ %and361, %if.else378 ], [ %and361, %land.lhs.true369 ], [ %and347, %sw.bb343 ], [ %and520, %if.then542 ], [ %and495, %if.then505 ], [ %and436, %if.else443 ], [ %and361, %if.end402 ], [ %and361, %if.else408 ]
   %stage2Entry.0 = phi i32 [ 0, %if.end332.sw.epilog555_crit_edge ], [ %171, %if.else544 ], [ %171, %if.else507 ], [ %171, %if.else536 ], [ %171, %sw.bb516 ], [ %171, %sw.bb491 ], [ %171, %if.else484 ], [ %171, %if.else481 ], [ %171, %sw.bb471 ], [ %171, %if.else465 ], [ %171, %sw.bb445 ], [ 0, %sw.bb432 ], [ %171, %if.else405 ], [ %171, %if.else378 ], [ %171, %land.lhs.true369 ], [ %171, %sw.bb343 ], [ %171, %if.then542 ], [ %171, %if.then505 ], [ %171, %if.else443 ], [ %171, %if.end402 ], [ %171, %if.else408 ]
   %value.4 = phi i32 [ 0, %if.end332.sw.epilog555_crit_edge ], [ %spec.select306, %if.else544 ], [ %spec.select304, %if.else507 ], [ %or533, %if.else536 ], [ %or533, %sw.bb516 ], [ %conv499, %sw.bb491 ], [ %180, %if.else484 ], [ %180, %if.else481 ], [ %180, %sw.bb471 ], [ %or462, %if.else465 ], [ %or462, %sw.bb445 ], [ 0, %sw.bb432 ], [ %conv365, %if.else405 ], [ %conv365, %if.else378 ], [ 0, %land.lhs.true369 ], [ %conv351, %sw.bb343 ], [ %or543, %if.then542 ], [ %or506, %if.then505 ], [ %conv440, %if.else443 ], [ %value.5, %if.end402 ], [ %value.6, %if.else408 ]
   %length.8 = phi i32 [ 0, %if.end332.sw.epilog555_crit_edge ], [ %spec.select307, %if.else544 ], [ %spec.select305, %if.else507 ], [ 2, %if.else536 ], [ 1, %sw.bb516 ], [ 1, %sw.bb491 ], [ %.295, %if.else484 ], [ 2, %if.else481 ], [ 1, %sw.bb471 ], [ %.294, %if.else465 ], [ 1, %sw.bb445 ], [ 0, %sw.bb432 ], [ 2, %if.else405 ], [ 1, %if.else378 ], [ 0, %land.lhs.true369 ], [ %.293, %sw.bb343 ], [ 4, %if.then542 ], [ 3, %if.then505 ], [ 2, %if.else443 ], [ %length.9, %if.end402 ], [ %length.10, %if.else408 ]
@@ -4056,11 +4056,11 @@ land.lhs.true571:                                 ; preds = %lor.lhs.false563
 
 unassigned:                                       ; preds = %lor.lhs.false568, %land.lhs.true571, %if.then275, %if.then240, %if.then218, %if.then201, %sw.bb178, %if.then122, %if.then107, %if.then323
   %186 = phi ptr [ %incdec.ptr.le, %if.then275 ], [ %incdec.ptr.le, %if.then240 ], [ %incdec.ptr.le, %if.then218 ], [ %incdec.ptr.le, %if.then201 ], [ %incdec.ptr.le, %sw.bb178 ], [ %incdec.ptr.le, %if.then122 ], [ %incdec.ptr.le, %if.then107 ], [ %169, %land.lhs.true571 ], [ %169, %lor.lhs.false568 ], [ %incdec.ptr315, %if.then323 ]
-  %prevSourceIndex.4 = phi i32 [ %prevSourceIndex.1510673, %if.then275 ], [ %prevSourceIndex.1510673, %if.then240 ], [ %prevSourceIndex.1510673, %if.then218 ], [ %prevSourceIndex.1510673, %if.then201 ], [ %prevSourceIndex.1510673, %sw.bb178 ], [ %prevSourceIndex.1510673, %if.then122 ], [ %prevSourceIndex.1510673, %if.then107 ], [ %prevSourceIndex.6, %land.lhs.true571 ], [ %prevSourceIndex.6, %lor.lhs.false568 ], [ %prevSourceIndex.0, %if.then323 ]
-  %sourceIndex.3 = phi i32 [ %sourceIndex.1511672, %if.then275 ], [ %sourceIndex.1511672, %if.then240 ], [ %sourceIndex.1511672, %if.then218 ], [ %sourceIndex.1511672, %if.then201 ], [ %sourceIndex.1511672, %sw.bb178 ], [ %sourceIndex.1511672, %if.then122 ], [ %sourceIndex.1511672, %if.then107 ], [ %sourceIndex.5, %land.lhs.true571 ], [ %sourceIndex.5, %lor.lhs.false568 ], [ %sourceIndex.0, %if.then323 ]
+  %prevSourceIndex.4 = phi i32 [ %prevSourceIndex.1508671, %if.then275 ], [ %prevSourceIndex.1508671, %if.then240 ], [ %prevSourceIndex.1508671, %if.then218 ], [ %prevSourceIndex.1508671, %if.then201 ], [ %prevSourceIndex.1508671, %sw.bb178 ], [ %prevSourceIndex.1508671, %if.then122 ], [ %prevSourceIndex.1508671, %if.then107 ], [ %prevSourceIndex.6, %land.lhs.true571 ], [ %prevSourceIndex.6, %lor.lhs.false568 ], [ %prevSourceIndex.0, %if.then323 ]
+  %sourceIndex.3 = phi i32 [ %sourceIndex.1509670, %if.then275 ], [ %sourceIndex.1509670, %if.then240 ], [ %sourceIndex.1509670, %if.then218 ], [ %sourceIndex.1509670, %if.then201 ], [ %sourceIndex.1509670, %sw.bb178 ], [ %sourceIndex.1509670, %if.then122 ], [ %sourceIndex.1509670, %if.then107 ], [ %sourceIndex.5, %land.lhs.true571 ], [ %sourceIndex.5, %lor.lhs.false568 ], [ %sourceIndex.0, %if.then323 ]
   %nextSourceIndex.2 = phi i32 [ %inc, %if.then275 ], [ %inc, %if.then240 ], [ %inc, %if.then218 ], [ %inc, %if.then201 ], [ %inc, %sw.bb178 ], [ %inc, %if.then122 ], [ %inc, %if.then107 ], [ %nextSourceIndex.4, %land.lhs.true571 ], [ %nextSourceIndex.4, %lor.lhs.false568 ], [ %inc316, %if.then323 ]
   %c.3 = phi i32 [ %conv82, %if.then275 ], [ %conv82, %if.then240 ], [ %conv82, %if.then218 ], [ %conv82, %if.then201 ], [ %conv82, %sw.bb178 ], [ %conv82, %if.then122 ], [ %conv82, %if.then107 ], [ %c.4, %land.lhs.true571 ], [ %c.4, %lor.lhs.false568 ], [ %sub, %if.then323 ]
-  %targetCapacity.3 = phi i32 [ %targetCapacity.1514670, %if.then275 ], [ %targetCapacity.1514670, %if.then240 ], [ %targetCapacity.1514670, %if.then218 ], [ %targetCapacity.1514670, %if.then201 ], [ %targetCapacity.1514670, %sw.bb178 ], [ %targetCapacity.1514670, %if.then122 ], [ %targetCapacity.1514670, %if.then107 ], [ %targetCapacity.5, %land.lhs.true571 ], [ %targetCapacity.5, %lor.lhs.false568 ], [ %targetCapacity.0, %if.then323 ]
+  %targetCapacity.3 = phi i32 [ %targetCapacity.1512668, %if.then275 ], [ %targetCapacity.1512668, %if.then240 ], [ %targetCapacity.1512668, %if.then218 ], [ %targetCapacity.1512668, %if.then201 ], [ %targetCapacity.1512668, %sw.bb178 ], [ %targetCapacity.1512668, %if.then122 ], [ %targetCapacity.1512668, %if.then107 ], [ %targetCapacity.5, %land.lhs.true571 ], [ %targetCapacity.5, %lor.lhs.false568 ], [ %targetCapacity.0, %if.then323 ]
   store ptr %186, ptr %source28, align 8
   %187 = load ptr, ptr %sharedData, align 8
   %188 = load ptr, ptr %target, align 8
@@ -4068,12 +4068,12 @@ unassigned:                                       ; preds = %lor.lhs.false568, %
   %add.ptr577 = getelementptr inbounds i8, ptr %188, i64 %idx.ext576
   %flush = getelementptr inbounds i8, ptr %pArgs, i64 2
   %189 = load i8, ptr %flush, align 2
-  %call578 = call fastcc noundef i32 @_ZL9_extFromUP10UConverterPK20UConverterSharedDataiPPKDsS5_PPhPKhPPiiaP10UErrorCode(ptr noundef %0, ptr noundef %187, i32 noundef %c.3, ptr noundef nonnull %source, ptr noundef %134, ptr noundef nonnull %target, ptr noundef %add.ptr577, ptr noundef nonnull %offsets, i32 noundef %sourceIndex.3, i8 noundef signext %189, ptr noundef %pErrorCode)
+  %call578 = call fastcc noundef i32 @_ZL9_extFromUP10UConverterPK20UConverterSharedDataiPPKDsS5_PPhPKhPPiiaP10UErrorCode(ptr noundef %0, ptr noundef %187, i32 noundef %c.3, ptr noundef %source, ptr noundef %134, ptr noundef %target, ptr noundef %add.ptr577, ptr noundef nonnull %offsets, i32 noundef %sourceIndex.3, i8 noundef signext %189, ptr noundef %pErrorCode)
   %fromUnicodeStatus585 = getelementptr inbounds i8, ptr %0, i64 80
   %190 = load i32, ptr %fromUnicodeStatus585, align 8
   %191 = load i32, ptr %pErrorCode, align 4
-  %cmp.i433 = icmp slt i32 %191, 1
-  br i1 %cmp.i433, label %if.else589, label %while.end
+  %cmp.i431 = icmp slt i32 %191, 1
+  br i1 %cmp.i431, label %if.else589, label %while.end
 
 if.else589:                                       ; preds = %unassigned
   %192 = load ptr, ptr %source, align 8
@@ -4097,30 +4097,30 @@ if.else589:                                       ; preds = %unassigned
   br label %while.cond.preheader, !llvm.loop !34
 
 if.end599:                                        ; preds = %if.else288, %if.else250, %sw.epilog555, %land.lhs.true571, %lor.lhs.false568, %if.else186, %if.else154, %if.end148, %if.then248, %if.then286, %if.then107, %sw.bb, %if.else125, %if.else151, %if.then201, %if.else206, %if.then218, %if.else223, %if.else226, %if.then240, %if.then275, %if.else280
-  %prevSourceIndex.5 = phi i32 [ %prevSourceIndex.1510673, %if.else280 ], [ %prevSourceIndex.1510673, %if.then275 ], [ %prevSourceIndex.1510673, %if.then240 ], [ %prevSourceIndex.1510673, %if.else226 ], [ %prevSourceIndex.1510673, %if.else223 ], [ %prevSourceIndex.1510673, %if.then218 ], [ %prevSourceIndex.1510673, %if.else206 ], [ %prevSourceIndex.1510673, %if.then201 ], [ %prevSourceIndex.1510673, %if.else151 ], [ %prevSourceIndex.1510673, %if.else125 ], [ %prevSourceIndex.1510673, %sw.bb ], [ %prevSourceIndex.1510673, %if.then107 ], [ %prevSourceIndex.1510673, %if.then286 ], [ %prevSourceIndex.1510673, %if.then248 ], [ %prevSourceIndex.1510673, %if.end148 ], [ %prevSourceIndex.1510673, %if.else154 ], [ %prevSourceIndex.1510673, %if.else186 ], [ %prevSourceIndex.6, %lor.lhs.false568 ], [ %prevSourceIndex.6, %land.lhs.true571 ], [ %prevSourceIndex.6, %sw.epilog555 ], [ %prevSourceIndex.1510673, %if.else250 ], [ %prevSourceIndex.1510673, %if.else288 ]
-  %sourceIndex.4 = phi i32 [ %sourceIndex.1511672, %if.else280 ], [ %sourceIndex.1511672, %if.then275 ], [ %sourceIndex.1511672, %if.then240 ], [ %sourceIndex.1511672, %if.else226 ], [ %sourceIndex.1511672, %if.else223 ], [ %sourceIndex.1511672, %if.then218 ], [ %sourceIndex.1511672, %if.else206 ], [ %sourceIndex.1511672, %if.then201 ], [ %sourceIndex.1511672, %if.else151 ], [ %sourceIndex.1511672, %if.else125 ], [ %sourceIndex.1511672, %sw.bb ], [ %sourceIndex.1511672, %if.then107 ], [ %sourceIndex.1511672, %if.then286 ], [ %sourceIndex.1511672, %if.then248 ], [ %sourceIndex.1511672, %if.end148 ], [ %sourceIndex.1511672, %if.else154 ], [ %sourceIndex.1511672, %if.else186 ], [ %sourceIndex.5, %lor.lhs.false568 ], [ %sourceIndex.5, %land.lhs.true571 ], [ %sourceIndex.5, %sw.epilog555 ], [ %sourceIndex.1511672, %if.else250 ], [ %sourceIndex.1511672, %if.else288 ]
+  %prevSourceIndex.5 = phi i32 [ %prevSourceIndex.1508671, %if.else280 ], [ %prevSourceIndex.1508671, %if.then275 ], [ %prevSourceIndex.1508671, %if.then240 ], [ %prevSourceIndex.1508671, %if.else226 ], [ %prevSourceIndex.1508671, %if.else223 ], [ %prevSourceIndex.1508671, %if.then218 ], [ %prevSourceIndex.1508671, %if.else206 ], [ %prevSourceIndex.1508671, %if.then201 ], [ %prevSourceIndex.1508671, %if.else151 ], [ %prevSourceIndex.1508671, %if.else125 ], [ %prevSourceIndex.1508671, %sw.bb ], [ %prevSourceIndex.1508671, %if.then107 ], [ %prevSourceIndex.1508671, %if.then286 ], [ %prevSourceIndex.1508671, %if.then248 ], [ %prevSourceIndex.1508671, %if.end148 ], [ %prevSourceIndex.1508671, %if.else154 ], [ %prevSourceIndex.1508671, %if.else186 ], [ %prevSourceIndex.6, %lor.lhs.false568 ], [ %prevSourceIndex.6, %land.lhs.true571 ], [ %prevSourceIndex.6, %sw.epilog555 ], [ %prevSourceIndex.1508671, %if.else250 ], [ %prevSourceIndex.1508671, %if.else288 ]
+  %sourceIndex.4 = phi i32 [ %sourceIndex.1509670, %if.else280 ], [ %sourceIndex.1509670, %if.then275 ], [ %sourceIndex.1509670, %if.then240 ], [ %sourceIndex.1509670, %if.else226 ], [ %sourceIndex.1509670, %if.else223 ], [ %sourceIndex.1509670, %if.then218 ], [ %sourceIndex.1509670, %if.else206 ], [ %sourceIndex.1509670, %if.then201 ], [ %sourceIndex.1509670, %if.else151 ], [ %sourceIndex.1509670, %if.else125 ], [ %sourceIndex.1509670, %sw.bb ], [ %sourceIndex.1509670, %if.then107 ], [ %sourceIndex.1509670, %if.then286 ], [ %sourceIndex.1509670, %if.then248 ], [ %sourceIndex.1509670, %if.end148 ], [ %sourceIndex.1509670, %if.else154 ], [ %sourceIndex.1509670, %if.else186 ], [ %sourceIndex.5, %lor.lhs.false568 ], [ %sourceIndex.5, %land.lhs.true571 ], [ %sourceIndex.5, %sw.epilog555 ], [ %sourceIndex.1509670, %if.else250 ], [ %sourceIndex.1509670, %if.else288 ]
   %nextSourceIndex.3 = phi i32 [ %inc, %if.else280 ], [ %inc, %if.then275 ], [ %inc, %if.then240 ], [ %inc, %if.else226 ], [ %inc, %if.else223 ], [ %inc, %if.then218 ], [ %inc, %if.else206 ], [ %inc, %if.then201 ], [ %inc, %if.else151 ], [ %inc, %if.else125 ], [ %inc, %sw.bb ], [ %inc, %if.then107 ], [ %inc, %if.then286 ], [ %inc, %if.then248 ], [ %inc, %if.end148 ], [ %inc, %if.else154 ], [ %inc, %if.else186 ], [ %nextSourceIndex.4, %lor.lhs.false568 ], [ %nextSourceIndex.4, %land.lhs.true571 ], [ %nextSourceIndex.4, %sw.epilog555 ], [ %inc, %if.else250 ], [ %inc, %if.else288 ]
   %value.3 = phi i32 [ %or273, %if.else280 ], [ %or273, %if.then275 ], [ %conv238, %if.then240 ], [ %160, %if.else226 ], [ %160, %if.else223 ], [ %160, %if.then218 ], [ %or199, %if.else206 ], [ %or199, %if.then201 ], [ %conv120, %if.else151 ], [ %conv120, %if.else125 ], [ %conv105, %sw.bb ], [ %conv105, %if.then107 ], [ %or287, %if.then286 ], [ %or249, %if.then248 ], [ %value.1, %if.end148 ], [ %value.2, %if.else154 ], [ %conv183, %if.else186 ], [ %value.4, %lor.lhs.false568 ], [ %value.4, %land.lhs.true571 ], [ %value.4, %sw.epilog555 ], [ %spec.select300, %if.else250 ], [ %spec.select302, %if.else288 ]
   %length.6 = phi i32 [ 2, %if.else280 ], [ 1, %if.then275 ], [ 1, %if.then240 ], [ %.291, %if.else226 ], [ 2, %if.else223 ], [ 1, %if.then218 ], [ %., %if.else206 ], [ 1, %if.then201 ], [ 2, %if.else151 ], [ 1, %if.else125 ], [ 2, %sw.bb ], [ 1, %if.then107 ], [ 4, %if.then286 ], [ 3, %if.then248 ], [ %length.4, %if.end148 ], [ %length.5, %if.else154 ], [ 2, %if.else186 ], [ %length.8, %lor.lhs.false568 ], [ %length.8, %land.lhs.true571 ], [ %length.8, %sw.epilog555 ], [ %spec.select301, %if.else250 ], [ %spec.select303, %if.else288 ]
   %prevLength.5 = phi i32 [ %prevLength.2.ph, %if.else280 ], [ %prevLength.2.ph, %if.then275 ], [ %prevLength.2.ph, %if.then240 ], [ %prevLength.2.ph, %if.else226 ], [ %prevLength.2.ph, %if.else223 ], [ %prevLength.2.ph, %if.then218 ], [ %prevLength.2.ph, %if.else206 ], [ %prevLength.2.ph, %if.then201 ], [ 2, %if.else151 ], [ %prevLength.2.ph, %if.else125 ], [ %prevLength.2.ph, %sw.bb ], [ %prevLength.2.ph, %if.then107 ], [ %prevLength.2.ph, %if.then286 ], [ %prevLength.2.ph, %if.then248 ], [ 1, %if.end148 ], [ 2, %if.else154 ], [ %prevLength.2.ph, %if.else186 ], [ %prevLength.7, %lor.lhs.false568 ], [ %prevLength.7, %land.lhs.true571 ], [ %prevLength.7, %sw.epilog555 ], [ %prevLength.2.ph, %if.else250 ], [ %prevLength.2.ph, %if.else288 ]
-  %targetCapacity.4 = phi i32 [ %targetCapacity.1514670, %if.else280 ], [ %targetCapacity.1514670, %if.then275 ], [ %targetCapacity.1514670, %if.then240 ], [ %targetCapacity.1514670, %if.else226 ], [ %targetCapacity.1514670, %if.else223 ], [ %targetCapacity.1514670, %if.then218 ], [ %targetCapacity.1514670, %if.else206 ], [ %targetCapacity.1514670, %if.then201 ], [ %targetCapacity.1514670, %if.else151 ], [ %targetCapacity.1514670, %if.else125 ], [ %targetCapacity.1514670, %sw.bb ], [ %targetCapacity.1514670, %if.then107 ], [ %targetCapacity.1514670, %if.then286 ], [ %targetCapacity.1514670, %if.then248 ], [ %targetCapacity.1514670, %if.end148 ], [ %targetCapacity.1514670, %if.else154 ], [ %targetCapacity.1514670, %if.else186 ], [ %targetCapacity.5, %lor.lhs.false568 ], [ %targetCapacity.5, %land.lhs.true571 ], [ %targetCapacity.5, %sw.epilog555 ], [ %targetCapacity.1514670, %if.else250 ], [ %targetCapacity.1514670, %if.else288 ]
+  %targetCapacity.4 = phi i32 [ %targetCapacity.1512668, %if.else280 ], [ %targetCapacity.1512668, %if.then275 ], [ %targetCapacity.1512668, %if.then240 ], [ %targetCapacity.1512668, %if.else226 ], [ %targetCapacity.1512668, %if.else223 ], [ %targetCapacity.1512668, %if.then218 ], [ %targetCapacity.1512668, %if.else206 ], [ %targetCapacity.1512668, %if.then201 ], [ %targetCapacity.1512668, %if.else151 ], [ %targetCapacity.1512668, %if.else125 ], [ %targetCapacity.1512668, %sw.bb ], [ %targetCapacity.1512668, %if.then107 ], [ %targetCapacity.1512668, %if.then286 ], [ %targetCapacity.1512668, %if.then248 ], [ %targetCapacity.1512668, %if.end148 ], [ %targetCapacity.1512668, %if.else154 ], [ %targetCapacity.1512668, %if.else186 ], [ %targetCapacity.5, %lor.lhs.false568 ], [ %targetCapacity.5, %land.lhs.true571 ], [ %targetCapacity.5, %sw.epilog555 ], [ %targetCapacity.1512668, %if.else250 ], [ %targetCapacity.1512668, %if.else288 ]
   %cmp600.not = icmp ugt i32 %length.6, %targetCapacity.4
   br i1 %cmp600.not, label %if.else645, label %if.then601
 
 if.then601:                                       ; preds = %if.then98, %if.end599
-  %targetCapacity.4581 = phi i32 [ %targetCapacity.4, %if.end599 ], [ %targetCapacity.1514670, %if.then98 ]
-  %prevLength.5580 = phi i32 [ %prevLength.5, %if.end599 ], [ %prevLength.2.ph, %if.then98 ]
-  %length.6579 = phi i32 [ %length.6, %if.end599 ], [ 0, %if.then98 ]
-  %value.3578 = phi i32 [ %value.3, %if.end599 ], [ 0, %if.then98 ]
-  %nextSourceIndex.3577 = phi i32 [ %nextSourceIndex.3, %if.end599 ], [ %inc, %if.then98 ]
-  %sourceIndex.4576 = phi i32 [ %sourceIndex.4, %if.end599 ], [ %sourceIndex.1511672, %if.then98 ]
-  %prevSourceIndex.5575 = phi i32 [ %prevSourceIndex.5, %if.end599 ], [ %prevSourceIndex.1510673, %if.then98 ]
+  %targetCapacity.4579 = phi i32 [ %targetCapacity.4, %if.end599 ], [ %targetCapacity.1512668, %if.then98 ]
+  %prevLength.5578 = phi i32 [ %prevLength.5, %if.end599 ], [ %prevLength.2.ph, %if.then98 ]
+  %length.6577 = phi i32 [ %length.6, %if.end599 ], [ 0, %if.then98 ]
+  %value.3576 = phi i32 [ %value.3, %if.end599 ], [ 0, %if.then98 ]
+  %nextSourceIndex.3575 = phi i32 [ %nextSourceIndex.3, %if.end599 ], [ %inc, %if.then98 ]
+  %sourceIndex.4574 = phi i32 [ %sourceIndex.4, %if.end599 ], [ %sourceIndex.1509670, %if.then98 ]
+  %prevSourceIndex.5573 = phi i32 [ %prevSourceIndex.5, %if.end599 ], [ %prevSourceIndex.1508671, %if.then98 ]
   %197 = load ptr, ptr %offsets, align 8
   %cmp602 = icmp eq ptr %197, null
   br i1 %cmp602, label %if.then603, label %if.else621
 
 if.then603:                                       ; preds = %if.then601
-  switch i32 %length.6579, label %if.end643 [
+  switch i32 %length.6577, label %if.end643 [
     i32 4, label %sw.bb604
     i32 3, label %sw.bb608
     i32 2, label %sw.bb612
@@ -4128,7 +4128,7 @@ if.then603:                                       ; preds = %if.then601
   ]
 
 sw.bb604:                                         ; preds = %if.then603
-  %shr605 = lshr i32 %value.3578, 24
+  %shr605 = lshr i32 %value.3576, 24
   %conv606 = trunc nuw i32 %shr605 to i8
   %198 = load ptr, ptr %target, align 8
   %incdec.ptr607 = getelementptr inbounds i8, ptr %198, i64 1
@@ -4137,7 +4137,7 @@ sw.bb604:                                         ; preds = %if.then603
   br label %sw.bb608
 
 sw.bb608:                                         ; preds = %sw.bb604, %if.then603
-  %shr609 = lshr i32 %value.3578, 16
+  %shr609 = lshr i32 %value.3576, 16
   %conv610 = trunc i32 %shr609 to i8
   %199 = load ptr, ptr %target, align 8
   %incdec.ptr611 = getelementptr inbounds i8, ptr %199, i64 1
@@ -4146,7 +4146,7 @@ sw.bb608:                                         ; preds = %sw.bb604, %if.then6
   br label %sw.bb612
 
 sw.bb612:                                         ; preds = %sw.bb608, %if.then603
-  %shr613 = lshr i32 %value.3578, 8
+  %shr613 = lshr i32 %value.3576, 8
   %conv614 = trunc i32 %shr613 to i8
   %200 = load ptr, ptr %target, align 8
   %incdec.ptr615 = getelementptr inbounds i8, ptr %200, i64 1
@@ -4155,7 +4155,7 @@ sw.bb612:                                         ; preds = %sw.bb608, %if.then6
   br label %sw.bb616
 
 sw.bb616:                                         ; preds = %sw.bb612, %if.then603
-  %conv617 = trunc i32 %value.3578 to i8
+  %conv617 = trunc i32 %value.3576 to i8
   %201 = load ptr, ptr %target, align 8
   %incdec.ptr618 = getelementptr inbounds i8, ptr %201, i64 1
   store ptr %incdec.ptr618, ptr %target, align 8
@@ -4163,7 +4163,7 @@ sw.bb616:                                         ; preds = %sw.bb612, %if.then6
   br label %if.end643
 
 if.else621:                                       ; preds = %if.then601
-  switch i32 %length.6579, label %if.end643 [
+  switch i32 %length.6577, label %if.end643 [
     i32 4, label %sw.bb622
     i32 3, label %sw.bb627
     i32 2, label %sw.bb632
@@ -4171,7 +4171,7 @@ if.else621:                                       ; preds = %if.then601
   ]
 
 sw.bb622:                                         ; preds = %if.else621
-  %shr623 = lshr i32 %value.3578, 24
+  %shr623 = lshr i32 %value.3576, 24
   %conv624 = trunc nuw i32 %shr623 to i8
   %202 = load ptr, ptr %target, align 8
   %incdec.ptr625 = getelementptr inbounds i8, ptr %202, i64 1
@@ -4180,11 +4180,11 @@ sw.bb622:                                         ; preds = %if.else621
   %203 = load ptr, ptr %offsets, align 8
   %incdec.ptr626 = getelementptr inbounds i8, ptr %203, i64 4
   store ptr %incdec.ptr626, ptr %offsets, align 8
-  store i32 %sourceIndex.4576, ptr %203, align 4
+  store i32 %sourceIndex.4574, ptr %203, align 4
   br label %sw.bb627
 
 sw.bb627:                                         ; preds = %sw.bb622, %if.else621
-  %shr628 = lshr i32 %value.3578, 16
+  %shr628 = lshr i32 %value.3576, 16
   %conv629 = trunc i32 %shr628 to i8
   %204 = load ptr, ptr %target, align 8
   %incdec.ptr630 = getelementptr inbounds i8, ptr %204, i64 1
@@ -4193,11 +4193,11 @@ sw.bb627:                                         ; preds = %sw.bb622, %if.else6
   %205 = load ptr, ptr %offsets, align 8
   %incdec.ptr631 = getelementptr inbounds i8, ptr %205, i64 4
   store ptr %incdec.ptr631, ptr %offsets, align 8
-  store i32 %sourceIndex.4576, ptr %205, align 4
+  store i32 %sourceIndex.4574, ptr %205, align 4
   br label %sw.bb632
 
 sw.bb632:                                         ; preds = %sw.bb627, %if.else621
-  %shr633 = lshr i32 %value.3578, 8
+  %shr633 = lshr i32 %value.3576, 8
   %conv634 = trunc i32 %shr633 to i8
   %206 = load ptr, ptr %target, align 8
   %incdec.ptr635 = getelementptr inbounds i8, ptr %206, i64 1
@@ -4206,11 +4206,11 @@ sw.bb632:                                         ; preds = %sw.bb627, %if.else6
   %207 = load ptr, ptr %offsets, align 8
   %incdec.ptr636 = getelementptr inbounds i8, ptr %207, i64 4
   store ptr %incdec.ptr636, ptr %offsets, align 8
-  store i32 %sourceIndex.4576, ptr %207, align 4
+  store i32 %sourceIndex.4574, ptr %207, align 4
   br label %sw.bb637
 
 sw.bb637:                                         ; preds = %sw.bb632, %if.else621
-  %conv638 = trunc i32 %value.3578 to i8
+  %conv638 = trunc i32 %value.3576 to i8
   %208 = load ptr, ptr %target, align 8
   %incdec.ptr639 = getelementptr inbounds i8, ptr %208, i64 1
   store ptr %incdec.ptr639, ptr %target, align 8
@@ -4218,15 +4218,15 @@ sw.bb637:                                         ; preds = %sw.bb632, %if.else6
   %209 = load ptr, ptr %offsets, align 8
   %incdec.ptr640 = getelementptr inbounds i8, ptr %209, i64 4
   store ptr %incdec.ptr640, ptr %offsets, align 8
-  store i32 %sourceIndex.4576, ptr %209, align 4
+  store i32 %sourceIndex.4574, ptr %209, align 4
   br label %if.end643
 
 if.end643:                                        ; preds = %sw.bb637, %if.else621, %sw.bb616, %if.then603
-  %sub644 = sub nsw i32 %targetCapacity.4581, %length.6579
+  %sub644 = sub nsw i32 %targetCapacity.4579, %length.6577
   %210 = load ptr, ptr %offsets, align 8
   %cmp690.not = icmp eq ptr %210, null
-  %spec.select298 = select i1 %cmp690.not, i32 %prevSourceIndex.5575, i32 %sourceIndex.4576
-  %spec.select299 = select i1 %cmp690.not, i32 %sourceIndex.4576, i32 %nextSourceIndex.3577
+  %spec.select298 = select i1 %cmp690.not, i32 %prevSourceIndex.5573, i32 %sourceIndex.4574
+  %spec.select299 = select i1 %cmp690.not, i32 %sourceIndex.4574, i32 %nextSourceIndex.3575
   %.pre = load ptr, ptr %source, align 8
   br label %while.cond.preheader, !llvm.loop !34
 
@@ -4327,10 +4327,10 @@ default.unreachable:                              ; preds = %sw.epilog660
 
 while.end.sink.split:                             ; preds = %while.body, %while.body.preheader, %sw.bb680, %if.then684, %if.then305, %if.then310
   %.sink = phi i32 [ 12, %if.then310 ], [ 12, %if.then305 ], [ 15, %if.then684 ], [ 15, %sw.bb680 ], [ 15, %while.body.preheader ], [ 15, %while.body ]
-  %prevSourceIndex.2.ph = phi i32 [ %prevSourceIndex.0, %if.then310 ], [ %prevSourceIndex.1510673, %if.then305 ], [ %prevSourceIndex.5, %if.then684 ], [ %prevSourceIndex.5, %sw.bb680 ], [ %prevSourceIndex.1.ph, %while.body.preheader ], [ %prevSourceIndex.3, %while.body ]
+  %prevSourceIndex.2.ph = phi i32 [ %prevSourceIndex.0, %if.then310 ], [ %prevSourceIndex.1508671, %if.then305 ], [ %prevSourceIndex.5, %if.then684 ], [ %prevSourceIndex.5, %sw.bb680 ], [ %prevSourceIndex.1.ph, %while.body.preheader ], [ %prevSourceIndex.3, %while.body ]
   %c.2.ph = phi i32 [ %c.0, %if.then310 ], [ %conv82, %if.then305 ], [ 0, %if.then684 ], [ 0, %sw.bb680 ], [ %c.1.ph, %while.body.preheader ], [ 0, %while.body ]
   %prevLength.3.ph = phi i32 [ %prevLength.1, %if.then310 ], [ %prevLength.2.ph, %if.then305 ], [ %prevLength.5, %if.then684 ], [ %prevLength.5, %sw.bb680 ], [ %prevLength.2.ph, %while.body.preheader ], [ %prevLength.2.ph, %while.body ]
-  %targetCapacity.2.ph = phi i32 [ %targetCapacity.0, %if.then310 ], [ %targetCapacity.1514670, %if.then305 ], [ 0, %if.then684 ], [ 0, %sw.bb680 ], [ %smin, %while.body.preheader ], [ %smin, %while.body ]
+  %targetCapacity.2.ph = phi i32 [ %targetCapacity.0, %if.then310 ], [ %targetCapacity.1512668, %if.then305 ], [ 0, %if.then684 ], [ 0, %sw.bb680 ], [ %smin, %while.body.preheader ], [ %smin, %while.body ]
   store i32 %.sink, ptr %pErrorCode, align 4
   br label %while.end
 
@@ -4340,8 +4340,8 @@ while.end:                                        ; preds = %if.end93, %while.en
   %prevLength.3 = phi i32 [ %190, %unassigned ], [ %prevLength.1, %getTrail ], [ %prevLength.2.ph, %while.cond.preheader ], [ %prevLength.3.ph, %while.end.sink.split ], [ %prevLength.2.ph, %if.end93 ]
   %targetCapacity.2 = phi i32 [ %targetCapacity.3, %unassigned ], [ %targetCapacity.0, %getTrail ], [ %targetCapacity.1.ph, %while.cond.preheader ], [ %targetCapacity.2.ph, %while.end.sink.split ], [ %dec, %if.end93 ]
   %217 = load i32, ptr %pErrorCode, align 4
-  %cmp.i435 = icmp slt i32 %217, 1
-  %or.cond4 = and i1 %cmp59, %cmp.i435
+  %cmp.i433 = icmp slt i32 %217, 1
+  %or.cond4 = and i1 %cmp59, %cmp.i433
   %cmp700 = icmp eq i32 %prevLength.3, 2
   %or.cond6 = select i1 %or.cond4, i1 %cmp700, i1 false
   br i1 %or.cond6, label %land.lhs.true701, label %if.end744
@@ -4367,8 +4367,8 @@ if.then710:                                       ; preds = %if.then708
   %220 = load ptr, ptr %target, align 8
   %incdec.ptr712 = getelementptr inbounds i8, ptr %220, i64 1
   store ptr %incdec.ptr712, ptr %target, align 8
-  store i8 %siBytes.sroa.0.0456, ptr %220, align 1
-  %cmp714 = icmp eq i32 %SISOLength.0.i458, 2
+  store i8 %siBytes.sroa.0.0454, ptr %220, align 1
+  %cmp714 = icmp eq i32 %SISOLength.0.i456, 2
   br i1 %cmp714, label %if.then715, label %if.end726
 
 if.then715:                                       ; preds = %if.then710
@@ -4377,7 +4377,7 @@ if.then715:                                       ; preds = %if.then710
 
 if.then717:                                       ; preds = %if.then715
   %charErrorBuffer719 = getelementptr inbounds i8, ptr %0, i64 104
-  store i8 %siBytes.sroa.11.0454, ptr %charErrorBuffer719, align 8
+  store i8 %siBytes.sroa.11.0452, ptr %charErrorBuffer719, align 8
   %charErrorBufferLength721 = getelementptr inbounds i8, ptr %0, i64 91
   store i8 1, ptr %charErrorBufferLength721, align 1
   store i32 15, ptr %pErrorCode, align 4
@@ -4387,7 +4387,7 @@ if.else722:                                       ; preds = %if.then715
   %221 = load ptr, ptr %target, align 8
   %incdec.ptr724 = getelementptr inbounds i8, ptr %221, i64 1
   store ptr %incdec.ptr724, ptr %target, align 8
-  store i8 %siBytes.sroa.11.0454, ptr %221, align 1
+  store i8 %siBytes.sroa.11.0452, ptr %221, align 1
   br label %if.end726
 
 if.end726:                                        ; preds = %if.then717, %if.else722, %if.then710
@@ -4403,18 +4403,18 @@ if.then728:                                       ; preds = %if.end726
 
 if.else731:                                       ; preds = %if.then708
   %charErrorBuffer733 = getelementptr inbounds i8, ptr %0, i64 104
-  store i8 %siBytes.sroa.0.0456, ptr %charErrorBuffer733, align 8
-  %cmp736 = icmp eq i32 %SISOLength.0.i458, 2
+  store i8 %siBytes.sroa.0.0454, ptr %charErrorBuffer733, align 8
+  %cmp736 = icmp eq i32 %SISOLength.0.i456, 2
   br i1 %cmp736, label %if.then737, label %if.end741
 
 if.then737:                                       ; preds = %if.else731
   %arrayidx740 = getelementptr inbounds i8, ptr %0, i64 105
-  store i8 %siBytes.sroa.11.0454, ptr %arrayidx740, align 1
+  store i8 %siBytes.sroa.11.0452, ptr %arrayidx740, align 1
   br label %if.end741
 
 if.end741:                                        ; preds = %if.then737, %if.else731
   %charErrorBufferLength742 = getelementptr inbounds i8, ptr %0, i64 91
-  store i8 %conv69460, ptr %charErrorBufferLength742, align 1
+  store i8 %conv69458, ptr %charErrorBufferLength742, align 1
   store i32 15, ptr %pErrorCode, align 4
   br label %if.end744
 
@@ -4441,7 +4441,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare void @ucnv_extContinueMatchFromU_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL9_extFromUP10UConverterPK20UConverterSharedDataiPPKDsS5_PPhPKhPPiiaP10UErrorCode(ptr noundef %cnv, ptr nocapture noundef readonly %sharedData, i32 noundef %cp, ptr noundef %source, ptr noundef %sourceLimit, ptr noundef %target, ptr noundef %targetLimit, ptr noundef %offsets, i32 noundef %sourceIndex, i8 noundef signext %flush, ptr noundef %pErrorCode) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL9_extFromUP10UConverterPK20UConverterSharedDataiPPKDsS5_PPhPKhPPiiaP10UErrorCode(ptr noundef %cnv, ptr nocapture noundef readonly %sharedData, i32 noundef %cp, ptr noundef nonnull %source, ptr noundef %sourceLimit, ptr noundef nonnull %target, ptr noundef %targetLimit, ptr noundef %offsets, i32 noundef %sourceIndex, i8 noundef signext %flush, ptr noundef %pErrorCode) unnamed_addr #0 {
 entry:
   %bytes = alloca [4 x i8], align 1
   %useSubChar1 = getelementptr inbounds i8, ptr %cnv, i64 95
@@ -4452,7 +4452,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call = tail call signext i8 @ucnv_extInitialMatchFromU_75(ptr noundef nonnull %cnv, ptr noundef nonnull %0, i32 noundef %cp, ptr noundef %source, ptr noundef %sourceLimit, ptr noundef %target, ptr noundef %targetLimit, ptr noundef %offsets, i32 noundef %sourceIndex, i8 noundef signext %flush, ptr noundef %pErrorCode)
+  %call = tail call signext i8 @ucnv_extInitialMatchFromU_75(ptr noundef nonnull %cnv, ptr noundef nonnull %0, i32 noundef %cp, ptr noundef nonnull %source, ptr noundef %sourceLimit, ptr noundef nonnull %target, ptr noundef %targetLimit, ptr noundef %offsets, i32 noundef %sourceIndex, i8 noundef signext %flush, ptr noundef %pErrorCode)
   %tobool.not = icmp eq i8 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -4503,7 +4503,7 @@ if.then8:                                         ; preds = %land.lhs.true5
   %8 = trunc i32 %div25 to i8
   %conv27 = add i8 %8, -127
   store i8 %conv27, ptr %bytes, align 1
-  call void @ucnv_fromUWriteBytes_75(ptr noundef %cnv, ptr noundef nonnull %bytes, i32 noundef 4, ptr noundef %target, ptr noundef %targetLimit, ptr noundef %offsets, i32 noundef %sourceIndex, ptr noundef %pErrorCode)
+  call void @ucnv_fromUWriteBytes_75(ptr noundef %cnv, ptr noundef nonnull %bytes, i32 noundef 4, ptr noundef nonnull %target, ptr noundef %targetLimit, ptr noundef %offsets, i32 noundef %sourceIndex, ptr noundef %pErrorCode)
   br label %return
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true5
@@ -5326,7 +5326,7 @@ for.end59.i:                                      ; preds = %for.inc57.i, %if.en
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %stateProps.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %stateProps.i.i, i8 -1, i64 128, i1 false)
   %85 = load ptr, ptr %stateTable185, align 8
-  call fastcc void @_ZL12getStatePropPA256_KiPai(ptr noundef %85, ptr noundef nonnull %stateProps.i.i, i32 noundef 0)
+  call fastcc void @_ZL12getStatePropPA256_KiPai(ptr noundef %85, ptr noundef %stateProps.i.i, i32 noundef 0)
   %86 = load i8, ptr %mbcs, align 8
   %cmp2.not.i.i = icmp eq i8 %86, 0
   br i1 %cmp2.not.i.i, label %_ZL22ucnv_MBCSEnumToUnicodeP19UConverterMBCSTablePFaPKvjPiES2_P10UErrorCode.exit.i, label %for.body.i.i
@@ -5341,7 +5341,7 @@ for.body.i.i:                                     ; preds = %for.end59.i, %for.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %89 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  call fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_P10UErrorCode(ptr noundef nonnull readonly %mbcs, ptr noundef nonnull %stateProps.i.i, i32 noundef %89, i32 noundef 0, i32 noundef 0, ptr noundef nonnull readonly %mbcs)
+  call fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_P10UErrorCode(ptr noundef nonnull readonly %mbcs, ptr noundef %stateProps.i.i, i32 noundef %89, i32 noundef 0, i32 noundef 0, ptr noundef nonnull readonly %mbcs)
   %.pre.i.i = load i8, ptr %mbcs, align 8
   br label %for.inc.i.i
 
@@ -6510,7 +6510,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #8
 declare void @udata_getInfo_75(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL12getStatePropPA256_KiPai(ptr noundef %stateTable, ptr noundef %stateProps, i32 noundef %state) unnamed_addr #9 {
+define internal fastcc void @_ZL12getStatePropPA256_KiPai(ptr noundef %stateTable, ptr noundef nonnull %stateProps, i32 noundef range(i32 0, 128) %state) unnamed_addr #9 {
 entry:
   %idxprom = zext nneg i32 %state to i64
   %arrayidx = getelementptr inbounds [256 x i32], ptr %stateTable, i64 %idxprom
@@ -6532,7 +6532,7 @@ for.cond:                                         ; preds = %for.inc, %entry
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.cond
-  tail call fastcc void @_ZL12getStatePropPA256_KiPai(ptr noundef nonnull %stateTable, ptr noundef nonnull %stateProps, i32 noundef %and)
+  tail call fastcc void @_ZL12getStatePropPA256_KiPai(ptr noundef nonnull %stateTable, ptr noundef %stateProps, i32 noundef %and)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.cond
@@ -6586,7 +6586,7 @@ for.body:                                         ; preds = %for.end, %for.inc64
   br i1 %cmp45, label %if.then46, label %if.end48
 
 if.then46:                                        ; preds = %for.body
-  tail call fastcc void @_ZL12getStatePropPA256_KiPai(ptr noundef nonnull %stateTable, ptr noundef nonnull %stateProps, i32 noundef %and41)
+  tail call fastcc void @_ZL12getStatePropPA256_KiPai(ptr noundef nonnull %stateTable, ptr noundef %stateProps, i32 noundef %and41)
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then46, %for.body
@@ -6650,7 +6650,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp82, label %if.then83, label %if.end85
 
 if.then83:                                        ; preds = %while.body
-  tail call fastcc void @_ZL12getStatePropPA256_KiPai(ptr noundef nonnull %stateTable, ptr noundef nonnull %stateProps, i32 noundef %and78)
+  tail call fastcc void @_ZL12getStatePropPA256_KiPai(ptr noundef nonnull %stateTable, ptr noundef %stateProps, i32 noundef %and78)
   br label %if.end85
 
 if.end85:                                         ; preds = %if.then83, %while.body
@@ -6681,7 +6681,7 @@ return:                                           ; preds = %if.end103, %for.end
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_P10UErrorCode(ptr nocapture noundef readonly %mbcsTable, ptr nocapture noundef readonly %stateProps, i32 noundef %state, i32 noundef %offset, i32 noundef %value, ptr nocapture noundef readonly %context) unnamed_addr #5 {
+define internal fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_P10UErrorCode(ptr nocapture noundef readonly %mbcsTable, ptr nocapture noundef nonnull readonly %stateProps, i32 noundef range(i32 -2147483648, 255) %state, i32 noundef %offset, i32 noundef %value, ptr nocapture noundef readonly %context) unnamed_addr #5 {
 entry:
   %codePoints = alloca [32 x i32], align 16
   %stateTable = getelementptr inbounds i8, ptr %mbcsTable, i64 8
@@ -6755,7 +6755,7 @@ if.then25:                                        ; preds = %if.then20
   %add27 = add i32 %and26, %offset
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   %or = or i32 %shl, %9
-  tail call fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_P10UErrorCode(ptr noundef %mbcsTable, ptr noundef nonnull %stateProps, i32 noundef %shr, i32 noundef %add27, i32 noundef %or, ptr noundef %context)
+  tail call fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_P10UErrorCode(ptr noundef %mbcsTable, ptr noundef %stateProps, i32 noundef %shr, i32 noundef %add27, i32 noundef %or, ptr noundef %context)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then20, %if.then25
@@ -7515,7 +7515,7 @@ if.else321:                                       ; preds = %if.end313
   %add.ptr324 = getelementptr inbounds i8, ptr %57, i64 %idx.ext323
   %flush = getelementptr inbounds i8, ptr %pFromUArgs, i64 2
   %58 = load i8, ptr %flush, align 2
-  %call325 = call fastcc noundef i32 @_ZL9_extFromUP10UConverterPK20UConverterSharedDataiPPKDsS5_PPhPKhPPiiaP10UErrorCode(ptr noundef %1, ptr noundef %56, i32 noundef %c.2, ptr noundef nonnull %noSource, ptr noundef nonnull @_ZZL17ucnv_SBCSFromUTF8P25UConverterFromUnicodeArgsP23UConverterToUnicodeArgsP10UErrorCodeE3nul, ptr noundef nonnull %target, ptr noundef %add.ptr324, ptr noundef null, i32 noundef -1, i8 noundef signext %58, ptr noundef %pErrorCode)
+  %call325 = call fastcc noundef i32 @_ZL9_extFromUP10UConverterPK20UConverterSharedDataiPPKDsS5_PPhPKhPPiiaP10UErrorCode(ptr noundef %1, ptr noundef %56, i32 noundef %c.2, ptr noundef %noSource, ptr noundef nonnull @_ZZL17ucnv_SBCSFromUTF8P25UConverterFromUnicodeArgsP23UConverterToUnicodeArgsP10UErrorCodeE3nul, ptr noundef %target, ptr noundef %add.ptr324, ptr noundef null, i32 noundef -1, i8 noundef signext %58, ptr noundef %pErrorCode)
   %59 = load i32, ptr %pErrorCode, align 4
   %cmp.i176 = icmp slt i32 %59, 1
   br i1 %cmp.i176, label %if.else329, label %if.then328
@@ -8216,7 +8216,7 @@ unassigned:                                       ; preds = %if.else95, %lor.lhs
   %add.ptr346 = getelementptr inbounds i8, ptr %58, i64 %idx.ext345
   %flush = getelementptr inbounds i8, ptr %pFromUArgs, i64 2
   %59 = load i8, ptr %flush, align 2
-  %call347 = call fastcc noundef i32 @_ZL9_extFromUP10UConverterPK20UConverterSharedDataiPPKDsS5_PPhPKhPPiiaP10UErrorCode(ptr noundef %1, ptr noundef %57, i32 noundef %c.2, ptr noundef nonnull %noSource, ptr noundef nonnull @_ZZL17ucnv_DBCSFromUTF8P25UConverterFromUnicodeArgsP23UConverterToUnicodeArgsP10UErrorCodeE3nul, ptr noundef nonnull %target, ptr noundef %add.ptr346, ptr noundef null, i32 noundef -1, i8 noundef signext %59, ptr noundef %pErrorCode)
+  %call347 = call fastcc noundef i32 @_ZL9_extFromUP10UConverterPK20UConverterSharedDataiPPKDsS5_PPhPKhPPiiaP10UErrorCode(ptr noundef %1, ptr noundef %57, i32 noundef %c.2, ptr noundef %noSource, ptr noundef nonnull @_ZZL17ucnv_DBCSFromUTF8P25UConverterFromUnicodeArgsP23UConverterToUnicodeArgsP10UErrorCodeE3nul, ptr noundef %target, ptr noundef %add.ptr346, ptr noundef null, i32 noundef -1, i8 noundef signext %59, ptr noundef %pErrorCode)
   %60 = load i32, ptr %pErrorCode, align 4
   %cmp.i185 = icmp slt i32 %60, 1
   br i1 %cmp.i185, label %if.else351, label %if.then350
@@ -8354,7 +8354,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocaptur
 declare void @ucnv_cbFromUWriteBytes_75(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL18hasValidTrailBytesPA256_Kih(ptr nocapture noundef readonly %stateTable, i8 noundef zeroext %state) unnamed_addr #11 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL18hasValidTrailBytesPA256_Kih(ptr nocapture noundef readonly %stateTable, i8 noundef zeroext range(i8 0, -128) %state) unnamed_addr #11 {
 entry:
   %idxprom = zext nneg i8 %state to i64
   %arrayidx = getelementptr inbounds [256 x i32], ptr %stateTable, i64 %idxprom

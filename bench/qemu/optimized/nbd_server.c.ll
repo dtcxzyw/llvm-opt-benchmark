@@ -4747,7 +4747,7 @@ nbd_co_send_iov.exit:                             ; preds = %set_be_chunk.exit
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @nbd_extent_array_add(ptr nocapture noundef %ea, i64 noundef %length, i32 noundef %flags) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @nbd_extent_array_add(ptr nocapture noundef %ea, i64 noundef %length, i32 noundef range(i32 0, -2147483648) %flags) unnamed_addr #1 {
 entry:
   %can_add = getelementptr inbounds i8, ptr %ea, i64 25
   %0 = load i8, ptr %can_add, align 1
@@ -5747,7 +5747,7 @@ sw.bb77:                                          ; preds = %if.then64, %if.then
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buf.i)
   store ptr null, ptr %name.i, align 8
   store i32 0, ptr %namelen.i, align 4
-  %call.i178 = call fastcc i32 @nbd_opt_read_name(ptr noundef nonnull %client, ptr noundef nonnull %name.i, ptr noundef nonnull %namelen.i, ptr noundef %errp)
+  %call.i178 = call fastcc i32 @nbd_opt_read_name(ptr noundef nonnull %client, ptr noundef %name.i, ptr noundef nonnull %namelen.i, ptr noundef %errp)
   %cmp.i179 = icmp slt i32 %call.i178, 1
   %name.val.pre.i = load ptr, ptr %name.i, align 8
   br i1 %cmp.i179, label %nbd_negotiate_handle_info.exit.thread, label %if.end.i180
@@ -6318,7 +6318,7 @@ if.end.i232:                                      ; preds = %land.lhs.true.i293,
   %157 = load ptr, ptr %meta.0.sroa.sel92.i, align 8
   call void @g_free(ptr noundef %157) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %meta.0.i, i8 0, i64 32, i1 false)
-  %call9.i233 = call fastcc i32 @nbd_opt_read_name(ptr noundef nonnull %client, ptr noundef nonnull %export_name.i, ptr noundef null, ptr noundef %errp)
+  %call9.i233 = call fastcc i32 @nbd_opt_read_name(ptr noundef nonnull %client, ptr noundef %export_name.i, ptr noundef null, ptr noundef %errp)
   %cmp10.i = icmp slt i32 %call9.i233, 1
   %export_name.val.pre.i = load ptr, ptr %export_name.i, align 8
   br i1 %cmp10.i, label %nbd_negotiate_meta_queries.exit, label %if.end12.i
@@ -7392,7 +7392,7 @@ return:                                           ; preds = %if.end, %if.then4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nbd_opt_drop(ptr nocapture noundef %client, i32 noundef %type, ptr noundef %errp, ptr noundef %fmt, ...) unnamed_addr #1 {
+define internal i32 @nbd_opt_drop(ptr nocapture noundef %client, i32 noundef range(i32 -2147483647, -2147483641) %type, ptr noundef %errp, ptr noundef %fmt, ...) unnamed_addr #1 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
@@ -7407,7 +7407,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %nbd_opt_vdrop.exit
 
 if.then.i:                                        ; preds = %entry
-  %call2.i = call fastcc i32 @nbd_negotiate_send_rep_verr(ptr noundef nonnull %client, i32 noundef %type, ptr noundef %errp, ptr noundef %fmt, ptr noundef nonnull %va)
+  %call2.i = call fastcc i32 @nbd_negotiate_send_rep_verr(ptr noundef nonnull %client, i32 noundef %type, ptr noundef %errp, ptr noundef %fmt, ptr noundef %va)
   br label %nbd_opt_vdrop.exit
 
 nbd_opt_vdrop.exit:                               ; preds = %entry, %if.then.i
@@ -7682,11 +7682,11 @@ cleanup:                                          ; preds = %if.then5.i, %do.bod
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -5, 1) i32 @nbd_negotiate_send_rep_err(ptr nocapture noundef readonly %client, i32 noundef %type, ptr noundef %errp, ptr noundef %fmt, ...) unnamed_addr #1 {
+define internal range(i32 -5, 1) i32 @nbd_negotiate_send_rep_err(ptr nocapture noundef readonly %client, i32 noundef range(i32 -2147483646, -2147483637) %type, ptr noundef %errp, ptr noundef %fmt, ...) unnamed_addr #1 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
-  %call = call fastcc i32 @nbd_negotiate_send_rep_verr(ptr noundef %client, i32 noundef %type, ptr noundef %errp, ptr noundef %fmt, ptr noundef nonnull %va)
+  %call = call fastcc i32 @nbd_negotiate_send_rep_verr(ptr noundef %client, i32 noundef %type, ptr noundef %errp, ptr noundef %fmt, ptr noundef %va)
   call void @llvm.va_end.p0(ptr nonnull %va)
   ret i32 %call
 }
@@ -7707,7 +7707,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %nbd_opt_vdrop.exit
 
 if.then.i:                                        ; preds = %entry
-  %call2.i = call fastcc i32 @nbd_negotiate_send_rep_verr(ptr noundef nonnull %client, i32 noundef -2147483645, ptr noundef %errp, ptr noundef %fmt, ptr noundef nonnull %va)
+  %call2.i = call fastcc i32 @nbd_negotiate_send_rep_verr(ptr noundef nonnull %client, i32 noundef -2147483645, ptr noundef %errp, ptr noundef %fmt, ptr noundef %va)
   br label %nbd_opt_vdrop.exit
 
 nbd_opt_vdrop.exit:                               ; preds = %entry, %if.then.i
@@ -7717,7 +7717,7 @@ nbd_opt_vdrop.exit:                               ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_verr(ptr nocapture noundef readonly %client, i32 noundef %type, ptr noundef %errp, ptr noundef %fmt, ptr noundef %va) unnamed_addr #1 {
+define internal fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_verr(ptr nocapture noundef readonly %client, i32 noundef range(i32 -2147483647, -2147483637) %type, ptr noundef %errp, ptr noundef %fmt, ptr noundef nonnull %va) unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
@@ -7728,7 +7728,7 @@ entry:
   %cmp = icmp eq ptr %errp, @error_fatal
   %or.cond = or i1 %tobool, %cmp
   %spec.select = select i1 %or.cond, ptr %_auto_errp_prop, ptr %errp
-  %call = tail call noalias ptr @g_strdup_vprintf(ptr noundef %fmt, ptr noundef %va) #20
+  %call = tail call noalias ptr @g_strdup_vprintf(ptr noundef %fmt, ptr noundef nonnull %va) #20
   %call3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #21
   %cmp4 = icmp ult i64 %call3, 4096
   br i1 %cmp4, label %if.end6, label %if.else
@@ -7800,7 +7800,7 @@ cleanup:                                          ; preds = %if.end11, %trace_nb
 declare noalias ptr @g_strdup_vprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr nocapture noundef readonly %client, i32 noundef %type, i32 noundef %len, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr nocapture noundef readonly %client, i32 noundef range(i32 -2147483647, 4) %type, i32 noundef %len, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %rep = alloca %struct.NBDOptionReply, align 8
@@ -7888,7 +7888,7 @@ declare void @g_main_loop_run(ptr noundef) local_unnamed_addr #3
 declare void @g_main_loop_unref(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_nbd_negotiate_new_style_size_flags(i64 noundef %size, i32 noundef %flags) unnamed_addr #1 {
+define internal fastcc void @trace_nbd_negotiate_new_style_size_flags(i64 noundef %size, i32 noundef range(i32 0, 65536) %flags) unnamed_addr #1 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -7929,7 +7929,7 @@ _nocheck__trace_nbd_negotiate_new_style_size_flags.exit: ; preds = %entry, %land
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @nbd_opt_read_name(ptr nocapture noundef %client, ptr nocapture noundef writeonly %name, ptr noundef writeonly %length, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc i32 @nbd_opt_read_name(ptr nocapture noundef %client, ptr nocapture noundef nonnull writeonly %name, ptr noundef writeonly %length, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %len = alloca i32, align 4
   store ptr null, ptr %name, align 8
@@ -8029,7 +8029,7 @@ cleanup:                                          ; preds = %if.end.i13, %if.end
 declare ptr @nbd_info_lookup(i16 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_info(ptr nocapture noundef readonly %client, i16 noundef zeroext %info, i32 noundef %length, ptr noundef %buf, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_info(ptr nocapture noundef readonly %client, i16 noundef zeroext range(i16 0, 4) %info, i32 noundef %length, ptr noundef %buf, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %info.addr = alloca i16, align 2
@@ -8076,7 +8076,7 @@ trace_nbd_negotiate_send_info.exit:               ; preds = %entry, %land.lhs.tr
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %trace_nbd_negotiate_send_info.exit
-  %6 = tail call noundef i16 @llvm.bswap.i16(i16 %info)
+  %6 = shl nuw nsw i16 %info, 8
   store i16 %6, ptr %info.addr, align 2
   %ioc = getelementptr inbounds i8, ptr %client, i64 48
   %7 = load ptr, ptr %ioc, align 8

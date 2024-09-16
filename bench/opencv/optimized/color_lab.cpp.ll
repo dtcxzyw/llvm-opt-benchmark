@@ -3316,7 +3316,7 @@ _ZN2cv9softfloataSERKS0_.exit:                    ; preds = %248, %250
   br i1 %exitcond.not, label %252, label %243, !llvm.loop !58
 
 252:                                              ; preds = %_ZN2cv9softfloataSERKS0_.exit
-  %253 = call fastcc noundef ptr @_ZL11splineBuildPKN2cv9softfloatEm(ptr noundef nonnull %165)
+  %253 = call fastcc noundef ptr @_ZL11splineBuildPKN2cv9softfloatEm(ptr noundef %165)
   store ptr %253, ptr @_ZN2cvL10LabCbrtTabE, align 8
   store i32 1065353216, ptr %175, align 4, !alias.scope !59
   store float 1.024000e+03, ptr %176, align 4
@@ -3332,7 +3332,7 @@ _ZN2cv9softfloataSERKS0_.exit:                    ; preds = %248, %250
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %177, ptr noundef nonnull align 4 dereferenceable(4) %168, ptr noundef nonnull align 4 dereferenceable(4) %178)
   %257 = load i32, ptr %177, align 4
   store i32 %257, ptr %180, align 4
-  call fastcc void @_ZN2cvL10applyGammaENS_9softfloatE(ptr dead_on_unwind noalias nonnull writable align 4 %179, ptr noundef nonnull %180)
+  call fastcc void @_ZN2cvL10applyGammaENS_9softfloatE(ptr dead_on_unwind noalias writable align 4 %179, ptr noundef %180)
   %258 = getelementptr inbounds [1025 x %"struct.cv::softfloat"], ptr %166, i64 0, i64 %indvars.iv137
   %.not.i103 = icmp eq ptr %179, %258
   br i1 %.not.i103, label %_ZN2cv9softfloataSERKS0_.exit104, label %259
@@ -3345,7 +3345,7 @@ _ZN2cv9softfloataSERKS0_.exit:                    ; preds = %248, %250
 _ZN2cv9softfloataSERKS0_.exit104:                 ; preds = %255, %259
   %261 = load i32, ptr %177, align 4
   store i32 %261, ptr %182, align 4
-  call fastcc void @_ZN2cvL13applyInvGammaENS_9softfloatE(ptr dead_on_unwind noalias nonnull writable align 4 %181, ptr noundef nonnull %182)
+  call fastcc void @_ZN2cvL13applyInvGammaENS_9softfloatE(ptr dead_on_unwind noalias writable align 4 %181, ptr noundef %182)
   %262 = getelementptr inbounds [1025 x %"struct.cv::softfloat"], ptr %167, i64 0, i64 %indvars.iv137
   %.not.i105 = icmp eq ptr %181, %262
   br i1 %.not.i105, label %_ZN2cv9softfloataSERKS0_.exit106, label %263
@@ -3361,9 +3361,9 @@ _ZN2cv9softfloataSERKS0_.exit106:                 ; preds = %_ZN2cv9softfloataSE
   br i1 %exitcond140.not, label %265, label %255, !llvm.loop !64
 
 265:                                              ; preds = %_ZN2cv9softfloataSERKS0_.exit106
-  %266 = call fastcc noundef ptr @_ZL11splineBuildPKN2cv9softfloatEm(ptr noundef nonnull %166)
+  %266 = call fastcc noundef ptr @_ZL11splineBuildPKN2cv9softfloatEm(ptr noundef %166)
   store ptr %266, ptr @_ZN2cvL12sRGBGammaTabE, align 8
-  %267 = call fastcc noundef ptr @_ZL11splineBuildPKN2cv9softfloatEm(ptr noundef nonnull %167)
+  %267 = call fastcc noundef ptr @_ZL11splineBuildPKN2cv9softfloatEm(ptr noundef %167)
   store ptr %267, ptr @_ZN2cvL15sRGBInvGammaTabE, align 8
   %268 = load atomic i8, ptr @_ZGVZN2cvL13createLabTabsEvE8intScale acquire, align 8
   %269 = icmp eq i8 %268, 0
@@ -3392,7 +3392,7 @@ _ZN2cv9softfloataSERKS0_.exit106:                 ; preds = %_ZN2cv9softfloataSE
   call void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %183, ptr noundef nonnull align 4 dereferenceable(4) %184, ptr noundef nonnull align 4 dereferenceable(4) @_ZN2cvL4f255E)
   %276 = load i32, ptr %183, align 4
   store i32 %276, ptr %187, align 4
-  call fastcc void @_ZN2cvL10applyGammaENS_9softfloatE(ptr dead_on_unwind noalias nonnull writable align 4 %186, ptr noundef nonnull %187)
+  call fastcc void @_ZN2cvL10applyGammaENS_9softfloatE(ptr dead_on_unwind noalias writable align 4 %186, ptr noundef %187)
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %185, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN2cvL13createLabTabsEvE8intScale, ptr noundef nonnull align 4 dereferenceable(4) %186)
   %277 = call noundef i32 @_Z7cvRoundRKN2cv9softfloatE(ptr noundef nonnull align 4 dereferenceable(4) %185)
   %278 = trunc i32 %277 to i16
@@ -3445,7 +3445,7 @@ _ZN2cv9softfloataSERKS0_.exit106:                 ; preds = %_ZN2cv9softfloataSE
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %190, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN2cvL13createLabTabsEvE8invScale, ptr noundef nonnull align 4 dereferenceable(4) %191)
   %294 = load i32, ptr %190, align 4
   store i32 %294, ptr %194, align 4
-  call fastcc void @_ZN2cvL13applyInvGammaENS_9softfloatE(ptr dead_on_unwind noalias nonnull writable align 4 %193, ptr noundef nonnull %194)
+  call fastcc void @_ZN2cvL13applyInvGammaENS_9softfloatE(ptr dead_on_unwind noalias writable align 4 %193, ptr noundef %194)
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %192, ptr noundef nonnull align 4 dereferenceable(4) @_ZN2cvL4f255E, ptr noundef nonnull align 4 dereferenceable(4) %193)
   %295 = call noundef i32 @_Z7cvRoundRKN2cv9softfloatE(ptr noundef nonnull align 4 dereferenceable(4) %192)
   %296 = trunc i32 %295 to i16
@@ -5355,7 +5355,7 @@ declare void @_ZN2cv6mulAddERKNS_9softfloatES2_S2_(ptr dead_on_unwind writable s
 declare void @_ZN2cv4cbrtERKNS_9softfloatE(ptr dead_on_unwind writable sret(%"struct.cv::softfloat") align 4, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL11splineBuildPKN2cv9softfloatEm(ptr noundef %0) unnamed_addr #5 {
+define internal fastcc noundef ptr @_ZL11splineBuildPKN2cv9softfloatEm(ptr noundef nonnull %0) unnamed_addr #5 {
   %2 = alloca %"struct.cv::softfloat", align 4
   %3 = alloca %"struct.cv::softfloat", align 4
   %4 = alloca %"struct.cv::softfloat", align 4
@@ -5503,7 +5503,7 @@ _ZN2cv9softfloataSERKS0_.exit55:                  ; preds = %_ZN2cv9softfloataSE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL10applyGammaENS_9softfloatE(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull %1) unnamed_addr #5 {
+define internal fastcc void @_ZN2cvL10applyGammaENS_9softfloatE(ptr dead_on_unwind noalias nonnull writable align 4 %0, ptr noundef nonnull %1) unnamed_addr #5 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -5527,12 +5527,12 @@ define internal fastcc void @_ZN2cvL10applyGammaENS_9softfloatE(ptr dead_on_unwi
   br label %12
 
 12:                                               ; preds = %11, %10
-  call void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind writable sret(%"struct.cv::softfloat") align 4 %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL13applyInvGammaENS_9softfloatE(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull %1) unnamed_addr #5 {
+define internal fastcc void @_ZN2cvL13applyInvGammaENS_9softfloatE(ptr dead_on_unwind noalias nonnull writable align 4 %0, ptr noundef nonnull %1) unnamed_addr #5 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -5560,7 +5560,7 @@ define internal fastcc void @_ZN2cvL13applyInvGammaENS_9softfloatE(ptr dead_on_u
   br label %14
 
 14:                                               ; preds = %13, %12
-  call void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind writable sret(%"struct.cv::softfloat") align 4 %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   ret void
 }
 

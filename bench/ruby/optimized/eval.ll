@@ -187,7 +187,6 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.rb_print_inaccessible.29 = private unnamed_addr constant [4 x i64] [i64 35, i64 35, i64 42, i64 44], align 8
 @switch.table.rb_print_inaccessible.30 = private unnamed_addr constant [4 x ptr] [ptr @.str.13, ptr @.str.13, ptr @.str.15, ptr @.str.17], align 8
 @switch.table.rb_print_inaccessible.31 = private unnamed_addr constant [4 x ptr] [ptr @.str.12, ptr @.str.12, ptr @.str.14, ptr @.str.16], align 8
-@switch.table.Check_Type = private unnamed_addr constant [10 x i32] [i32 19, i32 17, i32 19, i32 19, i32 19, i32 18, i32 19, i32 19, i32 19, i32 22], align 4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_decorate_message(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -206,7 +205,7 @@ define hidden i64 @rb_decorate_message(i64 noundef %0, i64 noundef %1, i32 nound
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %8
-  %11 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %9) #28
+  %11 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %9) #27
   %.not3.i = icmp eq i32 %11, 0
   br i1 %.not3.i, label %12, label %rb_enc_asciicompat.exit.thread
 
@@ -336,7 +335,7 @@ RSTRING_PTR.exit155:                              ; preds = %51, %56
   %57 = load i8, ptr %.sroa.2.0.i154, align 1
   %58 = icmp eq i8 %57, 35
   %spec.select = select i1 %58, i64 0, i64 %34
-  %59 = tail call ptr @memchr(ptr noundef %.0, i32 noundef 10, i64 noundef %.0135) #28
+  %59 = tail call ptr @memchr(ptr noundef %.0, i32 noundef 10, i64 noundef %.0135) #27
   %.not143 = icmp eq ptr %59, null
   %60 = icmp eq i64 %6, 4
   br i1 %.not143, label %70, label %61
@@ -467,7 +466,7 @@ RSTRING_PTR.exit155:                              ; preds = %51, %56
 .lr.ph.split.us:                                  ; preds = %107, %.critedge.us
   %.1189.us = phi ptr [ %120, %.critedge.us ], [ %.0132164, %107 ]
   %.1136188.us = phi i64 [ %127, %.critedge.us ], [ %104, %107 ]
-  %109 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %.1189.us, i32 noundef 10, i64 noundef %.1136188.us) #28
+  %109 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %.1189.us, i32 noundef 10, i64 noundef %.1136188.us) #27
   %.not146.us = icmp eq ptr %109, null
   %110 = icmp ugt ptr %109, %.1189.us
   %or.cond151.us = or i1 %.not146.us, %110
@@ -519,7 +518,7 @@ RSTRING_PTR.exit155:                              ; preds = %51, %56
 .lr.ph.split:                                     ; preds = %.thread216, %.critedge
   %.1189 = phi ptr [ %143, %.critedge ], [ %.0132164, %.thread216 ]
   %.1136188 = phi i64 [ %151, %.critedge ], [ %104, %.thread216 ]
-  %129 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %.1189, i32 noundef 10, i64 noundef %.1136188) #28
+  %129 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %.1189, i32 noundef 10, i64 noundef %.1136188) #27
   %.not146 = icmp eq ptr %129, null
   %130 = icmp ugt ptr %129, %.1189
   %or.cond151 = or i1 %.not146, %130
@@ -718,7 +717,7 @@ rb_class_of.exit:                                 ; preds = %19, %22, %23, %24, 
   br label %41
 
 41:                                               ; preds = %39, %38
-  call fastcc void @show_cause(i64 noundef %0, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %11, ptr noundef nonnull %9)
+  call fastcc void @show_cause(i64 noundef %0, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %11, ptr noundef %9)
   %.0..0..0..0.16 = load volatile i64, ptr %8, align 8
   call fastcc void @print_backtrace(i64 noundef %.0..0..0..0.16, i64 noundef %spec.store.select, i64 noundef %3, i32 noundef 1, i64 noundef %11)
   %.0..0..0..0.17 = load volatile i64, ptr %8, align 8
@@ -734,7 +733,7 @@ rb_class_of.exit:                                 ; preds = %19, %22, %23, %24, 
   tail call fastcc void @print_errinfo(i64 noundef %.0..0..0..0.18, i64 noundef %spec.store.select, i64 noundef %1, i64 noundef %3, i32 noundef %46)
   %.0..0..0..0.19 = load volatile i64, ptr %8, align 8
   tail call fastcc void @print_backtrace(i64 noundef %.0..0..0..0.19, i64 noundef %spec.store.select, i64 noundef %3, i32 noundef 0, i64 noundef %11)
-  call fastcc void @show_cause(i64 noundef %0, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef 0, i64 noundef %11, ptr noundef nonnull %9)
+  call fastcc void @show_cause(i64 noundef %0, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef 0, i64 noundef %11, ptr noundef %9)
   br label %47
 
 47:                                               ; preds = %7, %43, %41
@@ -744,7 +743,7 @@ rb_class_of.exit:                                 ; preds = %19, %22, %23, %24, 
 declare i64 @rb_str_cat(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @show_cause(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc void @show_cause(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = load i64, ptr @ruby_static_id_cause, align 8
   %10 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %9) #9
@@ -828,7 +827,7 @@ common.ret79:                                     ; preds = %7, %tailrecurse, %1
   ret void
 
 44:                                               ; preds = %rb_class_of.exit
-  tail call fastcc void @show_cause(i64 noundef %16, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %.tr5057, i64 noundef %5, ptr noundef nonnull %6)
+  tail call fastcc void @show_cause(i64 noundef %16, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %.tr5057, i64 noundef %5, ptr noundef %6)
   %.0..0..0..0. = load volatile i64, ptr %8, align 8
   tail call fastcc void @print_backtrace(i64 noundef %.0..0..0..0., i64 noundef %42, i64 noundef %1, i32 noundef 1, i64 noundef %5)
   %.0..0..0..0.6 = load volatile i64, ptr %8, align 8
@@ -847,7 +846,7 @@ tailrecurse:                                      ; preds = %rb_class_of.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @print_backtrace(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc void @print_backtrace(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3, i64 noundef %4) unnamed_addr #0 {
   %6 = icmp eq i64 %1, 4
   br i1 %6, label %.loopexit, label %7
 
@@ -1081,7 +1080,7 @@ RARRAY_AREF.exit:                                 ; preds = %104, %108
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @print_errinfo(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @print_errinfo(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = icmp eq i64 %1, 4
   br i1 %6, label %22, label %7
 
@@ -1469,7 +1468,7 @@ switch.lookup:                                    ; preds = %8, %3
   %.str.10..str.11 = select i1 %.025, ptr %switch.load37, ptr %switch.load35
   %18 = tail call i64 @rb_fstring_new(ptr noundef nonnull %.str.10..str.11, i64 noundef %.28) #9
   %19 = tail call i64 @rb_id2sym(i64 noundef %1) #9
-  tail call fastcc void @rb_name_err_raise_str(i64 noundef %18, i64 noundef %0, i64 noundef %19) #29
+  tail call fastcc void @rb_name_err_raise_str(i64 noundef %18, i64 noundef %0, i64 noundef %19) #28
   unreachable
 }
 
@@ -1478,7 +1477,7 @@ declare i64 @rb_fstring_new(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal fastcc void @rb_name_err_raise_str(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #4 {
   %4 = tail call i64 @rb_name_err_new(i64 noundef %0, i64 noundef %1, i64 noundef %2) #9
-  tail call void @rb_exc_raise(i64 noundef %4) #29
+  tail call void @rb_exc_raise(i64 noundef %4) #28
   unreachable
 }
 
@@ -1506,7 +1505,7 @@ define hidden void @rb_print_undef_str(i64 noundef %0, i64 noundef %1) local_unn
   %.sink = phi i64 [ 40, %.critedge ], [ 41, %7 ]
   %.str.7.sink = phi ptr [ @.str.7, %.critedge ], [ @.str.6, %7 ]
   %13 = tail call i64 @rb_fstring_new(ptr noundef nonnull %.str.7.sink, i64 noundef %.sink) #9
-  tail call fastcc void @rb_name_err_raise_str(i64 noundef %13, i64 noundef %0, i64 noundef %1) #29
+  tail call fastcc void @rb_name_err_raise_str(i64 noundef %13, i64 noundef %0, i64 noundef %1) #28
   unreachable
 }
 
@@ -1544,7 +1543,7 @@ switch.lookup:                                    ; preds = %8, %3
   %.str.16..str.17 = select i1 %.025, ptr %switch.load37, ptr %switch.load35
   %18 = tail call i64 @rb_fstring_new(ptr noundef nonnull %.str.16..str.17, i64 noundef %.28) #9
   %19 = tail call i64 @rb_id2sym(i64 noundef %1) #9
-  tail call fastcc void @rb_name_err_raise_str(i64 noundef %18, i64 noundef %0, i64 noundef %19) #29
+  tail call fastcc void @rb_name_err_raise_str(i64 noundef %18, i64 noundef %0, i64 noundef %19) #28
   unreachable
 }
 
@@ -1561,7 +1560,7 @@ declare i64 @rb_ary_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_set_end_proc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #30
+  %3 = tail call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #29
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 48
@@ -1645,7 +1644,7 @@ define internal i64 @rb_f_at_exit(i64 %0) #0 {
 
 9:                                                ; preds = %1
   %10 = tail call i64 @rb_block_proc() #9
-  %11 = tail call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #30
+  %11 = tail call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #29
   %12 = load ptr, ptr %2, align 8
   %13 = getelementptr i8, ptr %12, i64 48
   %.val.i.i = load ptr, ptr %13, align 8
@@ -1858,7 +1857,7 @@ define dso_local void @ruby_init() local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %8, %4
-  tail call void @exit(i32 noundef 1) #31
+  tail call void @exit(i32 noundef 1) #30
   unreachable
 
 14:                                               ; preds = %0
@@ -2082,7 +2081,7 @@ define internal fastcc i32 @error_handle(ptr noundef %0, i64 noundef %1, i32 nou
   br label %22
 
 21:                                               ; preds = %8
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.26, i32 noundef %2) #31
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.26, i32 noundef %2) #30
   unreachable
 
 22:                                               ; preds = %17, %20, %16, %15, %14, %13, %12, %11, %10
@@ -3108,7 +3107,7 @@ define hidden void @rb_class_modify_check(i64 noundef %0) local_unnamed_addr #0 
   br i1 %5, label %.thread30.i, label %.critedge
 
 .thread30.i:                                      ; preds = %1
-  tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef 2) #31
+  tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef 2) #30
   unreachable
 
 .critedge:                                        ; preds = %1
@@ -3192,57 +3191,26 @@ RB_FL_TEST.exit:                                  ; preds = %.critedge34
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @Check_Type(i64 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Check_Type(i64 noundef %0, i32 noundef range(i32 2, 4) %1) unnamed_addr #0 {
   %3 = icmp eq i64 %0, 0
   %4 = and i64 %0, 7
   %5 = icmp ne i64 %4, 0
   %6 = or i1 %3, %5
-  br i1 %6, label %12, label %7
+  br i1 %6, label %.thread30, label %rb_type.exit.i
 
-7:                                                ; preds = %2
-  %8 = inttoptr i64 %0 to ptr
-  %9 = load i64, ptr %8, align 8
-  %10 = trunc i64 %9 to i32
-  %11 = and i32 %10, 31
-  br label %rb_type.exit.i
-
-12:                                               ; preds = %2
-  %13 = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
-  %14 = icmp ult i64 %13, 10
-  br i1 %14, label %switch.hole_check, label %15
-
-15:                                               ; preds = %switch.hole_check, %12
-  %16 = and i64 %0, 1
-  %.not.i.i = icmp eq i64 %16, 0
-  br i1 %.not.i.i, label %17, label %rb_type.exit.i
-
-17:                                               ; preds = %15
-  %18 = and i64 %0, 254
-  %19 = icmp eq i64 %18, 12
-  %spec.select.i.i = select i1 %19, i32 20, i32 4
-  br label %rb_type.exit.i
-
-switch.hole_check:                                ; preds = %12
-  %switch.maskindex = trunc nuw i64 %13 to i16
-  %switch.shifted = lshr i16 547, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %15
-
-switch.lookup:                                    ; preds = %switch.hole_check
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.Check_Type, i64 0, i64 %13
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %rb_type.exit.i
-
-rb_type.exit.i:                                   ; preds = %switch.lookup, %7, %15, %17
-  %.0.i.i.pn = phi i32 [ %11, %7 ], [ 21, %15 ], [ %spec.select.i.i, %17 ], [ %switch.load, %switch.lookup ]
-  %.023.i.not = icmp eq i32 %1, %.0.i.i.pn
+rb_type.exit.i:                                   ; preds = %2
+  %7 = inttoptr i64 %0 to ptr
+  %8 = load i64, ptr %7, align 8
+  %9 = trunc i64 %8 to i32
+  %10 = and i32 %9, 31
+  %.023.i.not = icmp eq i32 %1, %10
   br i1 %.023.i.not, label %.thread28, label %.thread30
 
 .thread28:                                        ; preds = %rb_type.exit.i
   ret void
 
-.thread30:                                        ; preds = %rb_type.exit.i
-  tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef %1) #31
+.thread30:                                        ; preds = %2, %rb_type.exit.i
+  tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef %1) #30
   unreachable
 }
 
@@ -3445,12 +3413,12 @@ declare i64 @rb_ivar_set(i64 noundef, i64 noundef, i64 noundef) local_unnamed_ad
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define dso_local void @rb_exc_raise(i64 noundef %0) local_unnamed_addr #4 {
-  tail call fastcc void @rb_exc_exception(i64 noundef %0, i32 noundef 6, i64 noundef 36) #29
+  tail call fastcc void @rb_exc_exception(i64 noundef %0, i32 noundef 6, i64 noundef 36) #28
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @rb_exc_exception(i64 noundef %0, i32 noundef %1, i64 noundef %2) unnamed_addr #4 {
+define internal fastcc void @rb_exc_exception(i64 noundef %0, i32 noundef range(i32 6, 9) %1, i64 noundef range(i64 4, 37) %2) unnamed_addr #4 {
   %4 = alloca i64, align 8
   store i64 %0, ptr %4, align 8
   %5 = icmp eq i64 %0, 4
@@ -3486,13 +3454,13 @@ make_exception.exit:                              ; preds = %12
   %18 = phi i64 [ %8, %make_exception.exit ], [ 4, %3 ]
   %19 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %20 = load ptr, ptr %19, align 8
-  call fastcc void @rb_longjmp(ptr noundef %20, i32 noundef %1, i64 noundef %18, i64 noundef %2) #29
+  call fastcc void @rb_longjmp(ptr noundef %20, i32 noundef %1, i64 noundef %18, i64 noundef %2) #28
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define dso_local void @rb_exc_fatal(i64 noundef %0) local_unnamed_addr #4 {
-  tail call fastcc void @rb_exc_exception(i64 noundef %0, i32 noundef 8, i64 noundef 4) #29
+  tail call fastcc void @rb_exc_exception(i64 noundef %0, i32 noundef 8, i64 noundef 4) #28
   unreachable
 }
 
@@ -3500,7 +3468,7 @@ define dso_local void @rb_exc_fatal(i64 noundef %0) local_unnamed_addr #4 {
 define dso_local void @rb_interrupt() local_unnamed_addr #4 {
   %1 = load i64, ptr @rb_eInterrupt, align 8
   %2 = tail call i64 @rb_exc_new(i64 noundef %1, ptr noundef null, i64 noundef 0) #9
-  tail call void @rb_exc_raise(i64 noundef %2) #29
+  tail call void @rb_exc_raise(i64 noundef %2) #28
   unreachable
 }
 
@@ -3699,7 +3667,7 @@ get_errinfo.exit:                                 ; preds = %79, %get_errinfo.ex
   %.0 = phi i32 [ %.012.i, %extract_raise_opts.exit ], [ %spec.select8, %get_errinfo.exit ]
   %86 = call i64 @rb_make_exception(i32 noundef %.0, ptr noundef %.06)
   %87 = load i64, ptr %6, align 8
-  call fastcc void @rb_raise_jump(i64 noundef %86, i64 noundef %87) #29
+  call fastcc void @rb_raise_jump(i64 noundef %86, i64 noundef %87) #28
   unreachable
 }
 
@@ -3761,7 +3729,7 @@ rb_ec_ractor_hooks.exit:
   br label %36
 
 36:                                               ; preds = %rb_ec_ractor_hooks.exit, %20
-  call fastcc void @rb_longjmp(ptr noundef nonnull %4, i32 noundef 6, i64 noundef %0, i64 noundef %1) #29
+  call fastcc void @rb_longjmp(ptr noundef nonnull %4, i32 noundef 6, i64 noundef %0, i64 noundef %1) #28
   unreachable
 }
 
@@ -3840,7 +3808,7 @@ define dso_local void @rb_jump_tag(i32 noundef %0) local_unnamed_addr #4 {
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %1
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.26, i32 noundef %0) #31
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.26, i32 noundef %0) #30
   unreachable
 
 5:                                                ; preds = %1
@@ -4732,10 +4700,10 @@ define hidden void @Init_eval() local_unnamed_addr #0 {
   tail call void @rb_define_singleton_method(i64 noundef %19, ptr noundef nonnull @.str.52, ptr noundef nonnull @rb_mod_nesting, i32 noundef 0) #9
   %20 = load i64, ptr @rb_cModule, align 8
   tail call void @rb_define_singleton_method(i64 noundef %20, ptr noundef nonnull @.str.53, ptr noundef nonnull @rb_mod_s_constants, i32 noundef -1) #9
-  %21 = tail call i64 @rb_vm_top_self() #28
+  %21 = tail call i64 @rb_vm_top_self() #27
   %22 = tail call i64 @rb_singleton_class(i64 noundef %21) #9
   tail call void @rb_define_private_method(i64 noundef %22, ptr noundef nonnull @.str.38, ptr noundef nonnull @top_include, i32 noundef -1) #9
-  %23 = tail call i64 @rb_vm_top_self() #28
+  %23 = tail call i64 @rb_vm_top_self() #27
   %24 = tail call i64 @rb_singleton_class(i64 noundef %23) #9
   tail call void @rb_define_private_method(i64 noundef %24, ptr noundef nonnull @.str.44, ptr noundef nonnull @top_using, i32 noundef 1) #9
   %25 = load i64, ptr @rb_mKernel, align 8
@@ -5020,7 +4988,7 @@ declare void @rb_gvar_ractor_local(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal noundef i64 @f_raise(i32 noundef %0, ptr noundef %1, i64 %2) #4 {
-  %4 = tail call i64 @rb_f_raise(i32 noundef %0, ptr noundef %1) #29
+  %4 = tail call i64 @rb_f_raise(i32 noundef %0, ptr noundef %1) #28
   unreachable
 }
 
@@ -5203,7 +5171,7 @@ rb_check_arity.exit.preheader:                    ; preds = %rb_check_arity.exit
   br i1 %30, label %RB_FL_TEST.exit31, label %.thread30.i
 
 .thread30.i:                                      ; preds = %26, %rb_check_arity.exit.preheader
-  tail call void @rb_unexpected_type(i64 noundef %21, i32 noundef 3) #31
+  tail call void @rb_unexpected_type(i64 noundef %21, i32 noundef 3) #30
   unreachable
 
 RB_FL_TEST.exit31:                                ; preds = %26
@@ -5314,7 +5282,7 @@ rb_check_arity.exit.preheader:                    ; preds = %rb_check_arity.exit
   br i1 %30, label %RB_FL_TEST.exit31, label %.thread30.i
 
 .thread30.i:                                      ; preds = %26, %rb_check_arity.exit.preheader
-  tail call void @rb_unexpected_type(i64 noundef %21, i32 noundef 3) #31
+  tail call void @rb_unexpected_type(i64 noundef %21, i32 noundef 3) #30
   unreachable
 
 RB_FL_TEST.exit31:                                ; preds = %26
@@ -5361,7 +5329,7 @@ define internal noundef i64 @rb_mod_append_features(i64 noundef returned %0, i64
   br i1 %or.cond, label %Check_Type.exit, label %.thread30.i
 
 .thread30.i:                                      ; preds = %7, %2
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 2) #31
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 2) #30
   unreachable
 
 Check_Type.exit:                                  ; preds = %7
@@ -5392,7 +5360,7 @@ define internal noundef i64 @rb_mod_prepend_features(i64 noundef returned %0, i6
   br i1 %or.cond, label %Check_Type.exit, label %.thread30.i
 
 .thread30.i:                                      ; preds = %7, %2
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 2) #31
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 2) #30
   unreachable
 
 Check_Type.exit:                                  ; preds = %7
@@ -5787,7 +5755,7 @@ prev_frame_func.exit.thread:                      ; preds = %13, %2, %prev_frame
   br i1 %39, label %ignored_block.exit, label %.thread30.i.i
 
 .thread30.i.i:                                    ; preds = %35, %32
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 3) #31
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 3) #30
   unreachable
 
 ignored_block.exit:                               ; preds = %35
@@ -5795,7 +5763,7 @@ ignored_block.exit:                               ; preds = %35
   %41 = and i64 %40, -5
   %.not.i9 = icmp eq i64 %41, 0
   %spec.select.i = select i1 %.not.i9, ptr @.str.107, ptr @.str
-  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.106, ptr noundef nonnull %spec.select.i) #32
+  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.106, ptr noundef nonnull %spec.select.i) #31
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %26, %ignored_block.exit
@@ -5813,7 +5781,7 @@ ignored_block.exit:                               ; preds = %35
   br i1 %49, label %rb_using_module.exit, label %.thread30.i.i10
 
 .thread30.i.i10:                                  ; preds = %45, %._crit_edge
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 3) #31
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 3) #30
   unreachable
 
 rb_using_module.exit:                             ; preds = %45
@@ -5958,7 +5926,7 @@ rb_check_arity.exit.preheader:                    ; preds = %rb_check_arity.exit
   br i1 %17, label %Check_Type.exit, label %.thread30.i
 
 .thread30.i:                                      ; preds = %13, %rb_check_arity.exit.preheader
-  tail call void @rb_unexpected_type(i64 noundef %8, i32 noundef 3) #31
+  tail call void @rb_unexpected_type(i64 noundef %8, i32 noundef 3) #30
   unreachable
 
 Check_Type.exit:                                  ; preds = %13
@@ -5969,7 +5937,7 @@ Check_Type.exit:                                  ; preds = %13
 
 20:                                               ; preds = %Check_Type.exit
   %21 = tail call i64 @rb_class_path(i64 noundef %8) #9
-  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.112, i64 noundef %21) #32
+  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.112, i64 noundef %21) #31
   br label %rb_check_arity.exit
 
 rb_check_arity.exit:                              ; preds = %Check_Type.exit, %20
@@ -6364,7 +6332,7 @@ define internal noundef i64 @top_using(i64 noundef returned %0, i64 noundef %1) 
   br i1 %37, label %ignored_block.exit, label %.thread30.i.i
 
 .thread30.i.i:                                    ; preds = %33, %30
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 3) #31
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 3) #30
   unreachable
 
 ignored_block.exit:                               ; preds = %33
@@ -6372,7 +6340,7 @@ ignored_block.exit:                               ; preds = %33
   %39 = and i64 %38, -5
   %.not.i = icmp eq i64 %39, 0
   %spec.select.i = select i1 %.not.i, ptr @.str.107, ptr @.str
-  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.119, ptr noundef nonnull %spec.select.i) #32
+  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.119, ptr noundef nonnull %spec.select.i) #31
   br label %._crit_edge17
 
 ._crit_edge17:                                    ; preds = %26, %ignored_block.exit
@@ -6390,7 +6358,7 @@ ignored_block.exit:                               ; preds = %33
   br i1 %47, label %rb_using_module.exit, label %.thread30.i.i14
 
 .thread30.i.i14:                                  ; preds = %43, %._crit_edge17
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 3) #31
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 3) #30
   unreachable
 
 rb_using_module.exit:                             ; preds = %43
@@ -6459,7 +6427,7 @@ rb_check_arity.exit.preheader:                    ; preds = %rb_check_arity.exit
   br i1 %18, label %RB_FL_TEST.exit, label %.thread30.i
 
 .thread30.i:                                      ; preds = %14, %rb_check_arity.exit.preheader
-  tail call void @rb_unexpected_type(i64 noundef %9, i32 noundef 3) #31
+  tail call void @rb_unexpected_type(i64 noundef %9, i32 noundef 3) #30
   unreachable
 
 RB_FL_TEST.exit:                                  ; preds = %14
@@ -6506,21 +6474,21 @@ declare i64 @rb_usascii_str_new_static(ptr noundef, i64 noundef) local_unnamed_a
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @rb_errno() local_unnamed_addr #15 {
-  %1 = tail call ptr @__errno_location() #33
+  %1 = tail call ptr @__errno_location() #32
   %2 = load i32, ptr %1, align 4
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
 define dso_local void @rb_errno_set(i32 noundef %0) local_unnamed_addr #16 {
-  %2 = tail call ptr @__errno_location() #33
+  %2 = tail call ptr @__errno_location() #32
   store i32 %0, ptr %2, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(none) uwtable
 define dso_local ptr @rb_errno_ptr() local_unnamed_addr #17 {
-  %1 = tail call ptr @__errno_location() #33
+  %1 = tail call ptr @__errno_location() #32
   ret ptr %1
 }
 
@@ -6804,13 +6772,13 @@ declare i64 @rb_iseq_eval_main(ptr noundef) local_unnamed_addr #1
 declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @rb_longjmp(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 {
+define internal fastcc void @rb_longjmp(ptr noundef %0, i32 noundef range(i32 6, 9) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   store volatile i64 %2, ptr %5, align 8
   store i64 %3, ptr %6, align 8
   %.0..0..0..0. = load volatile i64, ptr %5, align 8
-  %7 = call fastcc i64 @exc_setup_message(ptr noundef %0, i64 noundef %.0..0..0..0., ptr noundef nonnull %6)
+  %7 = call fastcc i64 @exc_setup_message(ptr noundef %0, i64 noundef %.0..0..0..0., ptr noundef %6)
   store volatile i64 %7, ptr %5, align 8
   %.0..0..0..0.1 = load volatile i64, ptr %5, align 8
   %8 = load i64, ptr %6, align 8
@@ -6828,7 +6796,7 @@ define internal fastcc void @rb_longjmp(ptr noundef %0, i32 noundef %1, i64 noun
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @exc_setup_message(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @exc_setup_message(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = icmp eq i64 %1, 4
   br i1 %4, label %5, label %.thread
 
@@ -7004,7 +6972,7 @@ rb_ec_get_errinfo.exit:                           ; preds = %53, %rb_ec_get_erri
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @setup_exception(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @setup_exception(ptr noundef %0, i32 noundef range(i32 6, 9) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.rb_trace_arg_struct, align 8
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
@@ -7773,7 +7741,7 @@ ensure_class_or_module.exit.i:                    ; preds = %9
   br i1 %23, label %Check_Type.exit.i, label %.thread30.i.i
 
 .thread30.i.i:                                    ; preds = %19, %ensure_class_or_module.exit.i
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 3) #31
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 3) #30
   unreachable
 
 Check_Type.exit.i:                                ; preds = %19
@@ -8156,17 +8124,14 @@ declare void @llvm.va_end.p0(ptr) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_copy.p0(ptr, ptr) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #25
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #27
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #26
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8193,15 +8158,14 @@ attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn mem
 attributes #22 = { noreturn nounwind }
 attributes #23 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #26 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #27 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #28 = { nounwind willreturn memory(read) }
-attributes #29 = { noreturn }
-attributes #30 = { nounwind allocsize(0) }
-attributes #31 = { cold noreturn nounwind }
-attributes #32 = { cold nounwind }
-attributes #33 = { nounwind willreturn memory(none) }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #26 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #27 = { nounwind willreturn memory(read) }
+attributes #28 = { noreturn }
+attributes #29 = { nounwind allocsize(0) }
+attributes #30 = { cold noreturn nounwind }
+attributes #31 = { cold nounwind }
+attributes #32 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

@@ -3762,7 +3762,7 @@ Gia_ObjIsMuxId.exit.thread:                       ; preds = %Gia_ObjIsMuxId.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_StrPrintNumStar(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @Vec_StrPrintNumStar(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = icmp eq i32 %1, 0
@@ -4413,7 +4413,7 @@ Vec_IntStart.exit:
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %9 = getelementptr %struct.Vec_Int_t_, ptr %.val47, i64 %indvars.iv, i32 1
   %.val41 = load i32, ptr %9, align 4
-  %10 = tail call noundef i32 @llvm.smin.i32(i32 %.val41, i32 999)
+  %10 = tail call range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %.val41, i32 999)
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i32, ptr %calloc, i64 %11
   %13 = load i32, ptr %12, align 4
@@ -4428,7 +4428,7 @@ Vec_IntStart.exit:
   %16 = load ptr, ptr %7, align 8
   %17 = tail call ptr @Abc_NamStr(ptr noundef %16, i32 noundef %.166) #26
   %18 = tail call i32 @atoi(ptr nocapture noundef %17) #27
-  %19 = tail call noundef i32 @llvm.smin.i32(i32 %18, i32 999)
+  %19 = tail call range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %18, i32 999)
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i32, ptr %calloc, i64 %20
   %22 = load i32, ptr %21, align 4
@@ -4917,7 +4917,7 @@ Abc_Clock.exit127:                                ; preds = %Vec_WecSizeSize.exi
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %168)
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %.val112 = load i32, ptr %135, align 4
-  %174 = call noundef i32 @llvm.smin.i32(i32 %.val112, i32 10)
+  %174 = call range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %.val112, i32 10)
   %175 = sext i32 %174 to i64
   %176 = icmp slt i64 %indvars.iv.next156, %175
   br i1 %176, label %.lr.ph142, label %.critedge4.preheader, !llvm.loop !30
@@ -10404,7 +10404,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 

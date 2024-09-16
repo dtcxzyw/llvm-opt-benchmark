@@ -1510,7 +1510,7 @@ if.end120:                                        ; preds = %if.then119, %if.end
   %sub6.i = add i64 %t1.sroa.0.0.i, %sub.lobit.i
   store i64 %sub6.i, ptr %t2, align 8
   store i64 %t1.sroa.6.0.i, ptr %22, align 8
-  call fastcc void @print_report(ptr noundef nonnull @.str.18, ptr noundef nonnull %t2, i64 noundef %retval.0.i86, i64 noundef %retval.0.i98, i64 noundef %total.0, i32 noundef 1, i1 noundef zeroext %Cflag.0)
+  call fastcc void @print_report(ptr noundef nonnull @.str.18, ptr noundef %t2, i64 noundef %retval.0.i86, i64 noundef %retval.0.i98, i64 noundef %total.0, i32 noundef 1, i1 noundef zeroext %Cflag.0)
   br label %out
 
 out:                                              ; preds = %if.end114, %if.end120, %if.then100
@@ -1548,7 +1548,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @qemu_io_alloc(ptr noundef %blk, i64 noundef %len, i32 noundef %pattern, i1 noundef zeroext %register_buf) unnamed_addr #0 {
+define internal fastcc ptr @qemu_io_alloc(ptr noundef %blk, i64 noundef range(i64 0, -9223372036854775808) %len, i32 noundef range(i32 0, -2147483648) %pattern, i1 noundef zeroext %register_buf) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr @qemuio_misalign, align 1
   %tobool = trunc i8 %0 to i1
@@ -1647,7 +1647,7 @@ for.end33:                                        ; preds = %for.end29, %entry
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc void @print_report(ptr noundef %op, ptr nocapture noundef readonly %t, i64 noundef %offset, i64 noundef %count, i64 noundef %total, i32 noundef %cnt, i1 noundef zeroext %Cflag) unnamed_addr #6 {
+define internal fastcc void @print_report(ptr noundef %op, ptr nocapture noundef nonnull readonly %t, i64 noundef %offset, i64 noundef %count, i64 noundef %total, i32 noundef range(i32 0, -2147483648) %cnt, i1 noundef zeroext %Cflag) unnamed_addr #6 {
 entry:
   %s1 = alloca [64 x i8], align 16
   %s2 = alloca [64 x i8], align 16
@@ -1656,19 +1656,19 @@ entry:
   %0 = load i64, ptr %tv_nsec.i, align 8
   %conv.i = sitofp i64 %0 to double
   %div.i = fdiv double %conv.i, 1.000000e+09
-  %.pre.pre.i = load i64, ptr %t, align 8
-  %tobool14.not.i = icmp ne i64 %.pre.pre.i, 0
+  %.pre.i = load i64, ptr %t, align 8
+  %tobool14.not.i = icmp ne i64 %.pre.i, 0
   %or.cond.i.not = select i1 %Cflag, i1 true, i1 %tobool14.not.i
   br i1 %or.cond.i.not, label %if.then15.i, label %if.else.i
 
 if.then15.i:                                      ; preds = %entry
-  %div17.i = sdiv i64 %.pre.pre.i, 3600
+  %div17.i = sdiv i64 %.pre.i, 3600
   %conv18.i = trunc i64 %div17.i to i32
-  %rem20.i = srem i64 %.pre.pre.i, 3600
+  %rem20.i = srem i64 %.pre.i, 3600
   %div21.lhs.trunc.i = trunc nsw i64 %rem20.i to i16
-  %div2116.i = sdiv i16 %div21.lhs.trunc.i, 60
-  %conv22.i = sext i16 %div2116.i to i32
-  %rem24.i = srem i64 %.pre.pre.i, 60
+  %div2118.i = sdiv i16 %div21.lhs.trunc.i, 60
+  %conv22.i = sext i16 %div2118.i to i32
+  %rem24.i = srem i64 %.pre.i, 60
   %conv25.i = sitofp i64 %rem24.i to double
   %add26.i = fadd double %div.i, %conv25.i
   %call27.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %ts, i64 noundef 64, ptr noundef nonnull @.str.43, i32 noundef %conv18.i, i32 noundef %conv22.i, double noundef %add26.i) #25
@@ -1683,7 +1683,7 @@ timestr.exit:                                     ; preds = %if.then15.i, %if.el
   br i1 %Cflag, label %if.else, label %if.then
 
 if.then:                                          ; preds = %timestr.exit
-  call fastcc void @cvtstr(double noundef %conv13, ptr noundef nonnull %s1)
+  call fastcc void @cvtstr(double noundef %conv13, ptr noundef %s1)
   %1 = load i64, ptr %t, align 8
   %2 = load i64, ptr %tv_nsec.i, align 8
   %conv.i13 = sitofp i64 %1 to double
@@ -1691,7 +1691,7 @@ if.then:                                          ; preds = %timestr.exit
   %div.i14 = fdiv double %conv1.i, 1.000000e+09
   %add.i = fadd double %div.i14, %conv.i13
   %div2.i = fdiv double %conv13, %add.i
-  call fastcc void @cvtstr(double noundef %div2.i, ptr noundef nonnull %s2)
+  call fastcc void @cvtstr(double noundef %div2.i, ptr noundef %s2)
   %call5 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef %op, i64 noundef %total, i64 noundef %count, i64 noundef %offset)
   %conv9 = uitofp nneg i32 %cnt to double
   %3 = load i64, ptr %t, align 8
@@ -1758,7 +1758,7 @@ declare i32 @blk_pread(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 n
 declare ptr @__ctype_b_loc() local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc void @cvtstr(double noundef %value, ptr noundef %str) unnamed_addr #6 {
+define internal fastcc void @cvtstr(double noundef %value, ptr noundef nonnull %str) unnamed_addr #6 {
 entry:
   %cmp = fcmp ult double %value, 0x43B0000000000000
   br i1 %cmp, label %if.else, label %if.then
@@ -2073,7 +2073,7 @@ if.end52:                                         ; preds = %if.then50, %if.end4
   %20 = load i64, ptr %size.i, align 8
   %sext = shl i64 %10, 32
   %conv55 = ashr exact i64 %sext, 32
-  call fastcc void @print_report(ptr noundef nonnull @.str.18, ptr noundef nonnull %t2, i64 noundef %retval.0.i29, i64 noundef %20, i64 noundef %conv55, i32 noundef 1, i1 noundef zeroext %Cflag.0)
+  call fastcc void @print_report(ptr noundef nonnull @.str.18, ptr noundef %t2, i64 noundef %retval.0.i29, i64 noundef %20, i64 noundef %conv55, i32 noundef 1, i1 noundef zeroext %Cflag.0)
   br label %out
 
 out:                                              ; preds = %if.end45, %if.end52, %if.then29
@@ -2109,7 +2109,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @create_iovec(ptr noundef %blk, ptr noundef %qiov, ptr nocapture noundef readonly %argv, i32 noundef %nr_iov, i32 noundef %pattern, i1 noundef zeroext %register_buf) unnamed_addr #0 {
+define internal fastcc ptr @create_iovec(ptr noundef %blk, ptr noundef %qiov, ptr nocapture noundef readonly %argv, i32 noundef %nr_iov, i32 noundef range(i32 0, -2147483648) %pattern, i1 noundef zeroext %register_buf) unnamed_addr #0 {
 entry:
   %value.i = alloca i64, align 8
   %conv = sext i32 %nr_iov to i64
@@ -2615,7 +2615,7 @@ if.end151:                                        ; preds = %if.end148
   %sub6.i = add i64 %t1.sroa.0.0.i, %sub.lobit.i
   store i64 %sub6.i, ptr %t2, align 8
   store i64 %t1.sroa.6.0.i, ptr %15, align 8
-  call fastcc void @print_report(ptr noundef nonnull @.str.77, ptr noundef nonnull %t2, i64 noundef %retval.0.i77, i64 noundef %call66, i64 noundef %total.0, i32 noundef 1, i1 noundef zeroext %Cflag.0)
+  call fastcc void @print_report(ptr noundef nonnull @.str.77, ptr noundef %t2, i64 noundef %retval.0.i77, i64 noundef %call66, i64 noundef %total.0, i32 noundef 1, i1 noundef zeroext %Cflag.0)
   br label %out
 
 out:                                              ; preds = %if.end148, %if.end151, %if.then144
@@ -2642,12 +2642,12 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @qemu_io_alloc_from_file(ptr noundef %blk, i64 noundef %len, ptr noundef %file_name, i1 noundef zeroext %register_buf) unnamed_addr #0 {
+define internal fastcc noundef ptr @qemu_io_alloc_from_file(ptr noundef %blk, i64 noundef range(i64 0, -9223372036854775808) %len, ptr noundef %file_name, i1 noundef zeroext %register_buf) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr @qemuio_misalign, align 1
   %tobool = trunc i8 %0 to i1
   %conv = select i1 %tobool, i64 16, i64 0
-  %add = add i64 %conv, %len
+  %add = add nuw i64 %conv, %len
   %call = tail call noalias ptr @fopen64(ptr noundef %file_name, ptr noundef nonnull @.str.19)
   %tobool1.not = icmp eq ptr %call, null
   br i1 %tobool1.not, label %if.then, label %if.end
@@ -2935,7 +2935,7 @@ if.end37:                                         ; preds = %if.end34
   %17 = load i64, ptr %size.i, align 8
   %sext = shl i64 %10, 32
   %conv39 = ashr exact i64 %sext, 32
-  call fastcc void @print_report(ptr noundef nonnull @.str.77, ptr noundef nonnull %t2, i64 noundef %retval.0.i24, i64 noundef %17, i64 noundef %conv39, i32 noundef 1, i1 noundef zeroext %Cflag.0)
+  call fastcc void @print_report(ptr noundef nonnull @.str.77, ptr noundef %t2, i64 noundef %retval.0.i24, i64 noundef %17, i64 noundef %conv39, i32 noundef 1, i1 noundef zeroext %Cflag.0)
   br label %out
 
 out:                                              ; preds = %if.end34, %if.end37, %if.then30
@@ -3257,7 +3257,7 @@ if.end30:                                         ; preds = %if.then25, %if.end2
   %Cflag = getelementptr inbounds i8, ptr %opaque, i64 66
   %22 = load i8, ptr %Cflag, align 2
   %tobool37 = trunc i8 %22 to i1
-  call fastcc void @print_report(ptr noundef nonnull @.str.18, ptr noundef nonnull %t2, i64 noundef %20, i64 noundef %21, i64 noundef %21, i32 noundef 1, i1 noundef zeroext %tobool37)
+  call fastcc void @print_report(ptr noundef nonnull @.str.18, ptr noundef %t2, i64 noundef %20, i64 noundef %21, i64 noundef %21, i32 noundef 1, i1 noundef zeroext %tobool37)
   br label %out
 
 out:                                              ; preds = %if.end17, %if.end30, %if.then
@@ -3626,7 +3626,7 @@ if.end8:                                          ; preds = %if.end
   %Cflag = getelementptr inbounds i8, ptr %opaque, i64 66
   %11 = load i8, ptr %Cflag, align 2
   %tobool12 = trunc i8 %11 to i1
-  call fastcc void @print_report(ptr noundef nonnull @.str.77, ptr noundef nonnull %t2, i64 noundef %9, i64 noundef %10, i64 noundef %10, i32 noundef 1, i1 noundef zeroext %tobool12)
+  call fastcc void @print_report(ptr noundef nonnull @.str.77, ptr noundef %t2, i64 noundef %9, i64 noundef %10, i64 noundef %10, i32 noundef 1, i1 noundef zeroext %tobool12)
   br label %out
 
 out:                                              ; preds = %if.end, %if.end8, %if.then
@@ -4183,7 +4183,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %conv4 = uitofp nneg i64 %call to double
-  call fastcc void @cvtstr(double noundef %conv4, ptr noundef nonnull %s1)
+  call fastcc void @cvtstr(double noundef %conv4, ptr noundef %s1)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %s1)
   br label %return
 
@@ -4247,11 +4247,11 @@ if.end19:                                         ; preds = %do.end, %if.then15,
 if.end23:                                         ; preds = %if.end19
   %4 = load i32, ptr %bdi, align 8
   %conv = sitofp i32 %4 to double
-  call fastcc void @cvtstr(double noundef %conv, ptr noundef nonnull %s1)
+  call fastcc void @cvtstr(double noundef %conv, ptr noundef %s1)
   %vm_state_offset = getelementptr inbounds i8, ptr %bdi, i64 8
   %5 = load i64, ptr %vm_state_offset, align 8
   %conv24 = sitofp i64 %5 to double
-  call fastcc void @cvtstr(double noundef %conv24, ptr noundef nonnull %s2)
+  call fastcc void @cvtstr(double noundef %conv24, ptr noundef %s2)
   %call27 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.151, ptr noundef nonnull %s1)
   %call29 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.152, ptr noundef nonnull %s2)
   %call30 = call ptr @bdrv_get_specific_info(ptr noundef nonnull %call, ptr noundef nonnull %local_err) #25
@@ -4438,7 +4438,7 @@ if.then36:                                        ; preds = %if.end35
   %sub6.i = add i64 %t1.sroa.0.0.i, %sub.lobit.i
   store i64 %sub6.i, ptr %t2, align 8
   store i64 %t1.sroa.6.0.i, ptr %12, align 8
-  call fastcc void @print_report(ptr noundef nonnull @.str.154, ptr noundef nonnull %t2, i64 noundef %retval.0.i, i64 noundef %retval.0.i27, i64 noundef %retval.0.i27, i32 noundef 1, i1 noundef zeroext %Cflag.0)
+  call fastcc void @print_report(ptr noundef nonnull @.str.154, ptr noundef %t2, i64 noundef %retval.0.i, i64 noundef %retval.0.i27, i64 noundef %retval.0.i27, i32 noundef 1, i1 noundef zeroext %Cflag.0)
   br label %return
 
 return:                                           ; preds = %if.end35, %if.then36, %if.then31, %if.then20, %if.then14, %if.then5, %if.then, %sw.default
@@ -4557,7 +4557,7 @@ while.end:                                        ; preds = %if.end21, %if.end14
   %count.1.lcssa = phi i64 [ 0, %if.end14 ], [ %spec.select33, %if.end21 ]
   %sum_alloc.0.lcssa = phi i64 [ 0, %if.end14 ], [ %spec.select, %if.end21 ]
   %conv32 = uitofp nneg i64 %retval.0.i to double
-  call fastcc void @cvtstr(double noundef %conv32, ptr noundef nonnull %s1)
+  call fastcc void @cvtstr(double noundef %conv32, ptr noundef %s1)
   %call34 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.166, i64 noundef %sum_alloc.0.lcssa, i64 noundef %count.1.lcssa, ptr noundef nonnull %s1)
   br label %return
 
@@ -4643,9 +4643,9 @@ if.end13:                                         ; preds = %if.else
   %tobool14.not = icmp eq i32 %call.i, 0
   %cond = select i1 %tobool14.not, ptr @.str.174, ptr @.str.173
   %conv15 = sitofp i64 %num.219 to double
-  call fastcc void @cvtstr(double noundef %conv15, ptr noundef nonnull %s1)
+  call fastcc void @cvtstr(double noundef %conv15, ptr noundef %s1)
   %conv16 = sitofp i64 %offset.023 to double
-  call fastcc void @cvtstr(double noundef %conv16, ptr noundef nonnull %s2)
+  call fastcc void @cvtstr(double noundef %conv16, ptr noundef %s2)
   %call20 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.175, ptr noundef nonnull %s1, i64 noundef %num.219, ptr noundef nonnull %cond, ptr noundef nonnull %s2, i64 noundef %offset.023)
   %add = add i64 %num.219, %offset.023
   %sub21 = sub i64 %bytes.022, %num.219

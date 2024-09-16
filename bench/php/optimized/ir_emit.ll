@@ -2797,7 +2797,7 @@ ir_add_const_tmp_reg.exit:                        ; preds = %ir_may_fuse_imm.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ir_add_const_tmp_reg(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #1 {
+define internal fastcc i32 @ir_add_const_tmp_reg(ptr noundef %0, i32 noundef range(i32 -2147483648, 0) %1, i32 noundef range(i32 2, 4) %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #1 {
   %6 = load ptr, ptr %0, align 8
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds %struct._ir_insn, ptr %6, i64 %7
@@ -46427,7 +46427,7 @@ define internal noundef i32 @ir_fix_dessa_tmps(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ir_emit_store(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i8 noundef signext %3) unnamed_addr #1 {
+define internal fastcc void @ir_emit_store(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 256) %1, i32 noundef %2, i8 noundef signext %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 136
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %2 to i64
@@ -46506,7 +46506,7 @@ ir_emit_store_mem.exit:                           ; preds = %48, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ir_emit_load_mem_int(ptr nocapture readonly %.248.val, i32 noundef %0, i8 noundef signext %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc void @ir_emit_load_mem_int(ptr nocapture readonly %.248.val, i32 noundef range(i32 0, 256) %0, i8 noundef signext %1, i64 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %.248.val, i64 32
   %5 = trunc i64 %2 to i32
   %sh.diff = lshr i64 %2, 8
@@ -47096,7 +47096,7 @@ define internal fastcc void @ir_emit_load_mem_fp(i32 %.36.val, ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ir_emit_store_mem_int(ptr nocapture readonly %.248.val, i32 noundef %0, i64 noundef %1, i8 noundef signext %2) unnamed_addr #1 {
+define internal fastcc void @ir_emit_store_mem_int(ptr nocapture readonly %.248.val, i32 noundef range(i32 0, 256) %0, i64 noundef %1, i8 noundef signext %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %.248.val, i64 32
   %5 = trunc i64 %1 to i32
   %sh.diff = lshr i64 %1, 8
@@ -48384,7 +48384,7 @@ ir_emit_load_imm_fp.exit:                         ; preds = %153, %151, %106, %1
 declare i32 @ir_strtab_find(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ir_emit_load_imm_int(ptr nocapture readonly %.248.val, i32 noundef %0, i8 noundef signext %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc void @ir_emit_load_imm_int(ptr nocapture readonly %.248.val, i32 noundef range(i32 0, 256) %0, i8 noundef signext %1, i64 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %.248.val, i64 32
   %5 = icmp eq i64 %2, 0
   %6 = zext nneg i32 %0 to i64
@@ -48625,7 +48625,7 @@ ir_fuse_addr_const.exit:                          ; preds = %ir_sym_val.exit.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ir_emit_cmp_int_common(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i8 noundef signext %4, i8 noundef signext %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc void @ir_emit_cmp_int_common(ptr noundef %0, i32 noundef range(i32 0, 256) %1, i32 noundef %2, ptr nocapture noundef readonly %3, i8 noundef signext %4, i8 noundef signext %5, i32 noundef %6) unnamed_addr #1 {
   %8 = alloca [10 x i8], align 4
   %9 = alloca [10 x i8], align 4
   %10 = getelementptr inbounds i8, ptr %0, i64 248
@@ -49916,7 +49916,7 @@ ir_fuse_imm.exit724:                              ; preds = %361, %ir_sym_val.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ir_emit_test_int_common(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @ir_emit_test_int_common(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #1 {
   %5 = alloca [10 x i8], align 4
   %6 = alloca [10 x i8], align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 248
@@ -50046,7 +50046,7 @@ ir_sym_val.exit.i:                                ; preds = %67, %63
 
 ir_fuse_imm.exit:                                 ; preds = %49, %ir_sym_val.exit.i
   %.0.i = phi i32 [ %71, %ir_sym_val.exit.i ], [ %55, %49 ]
-  %72 = and i32 %3, -2
+  %72 = and i32 %3, 254
   %or.cond3 = icmp eq i32 %72, 14
   %73 = icmp eq i32 %.0.i, 255
   %or.cond5 = select i1 %or.cond3, i1 %73, i1 false
@@ -53885,7 +53885,7 @@ ir_emit_store.exit:                               ; preds = %371, %370, %265, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ir_parallel_copy(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i8 noundef signext %3) unnamed_addr #1 {
+define internal fastcc void @ir_parallel_copy(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 1, 0) %2, i8 noundef signext %3) unnamed_addr #1 {
   %5 = icmp eq i32 %2, 1
   br i1 %5, label %6, label %33
 
@@ -54279,7 +54279,7 @@ ir_emit_mov.exit214:                              ; preds = %switch.lookup13, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ir_emit_store_mem_int_const(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i8 noundef signext %4, i1 noundef zeroext %5) unnamed_addr #1 {
+define internal fastcc void @ir_emit_store_mem_int_const(ptr noundef %0, i32 noundef range(i32 0, 256) %1, i64 noundef %2, i32 noundef range(i32 -2147483648, 0) %3, i8 noundef signext %4, i1 noundef zeroext %5) unnamed_addr #1 {
   %7 = load ptr, ptr %0, align 8
   %8 = sext i32 %3 to i64
   %9 = getelementptr inbounds %struct._ir_insn, ptr %7, i64 %8
@@ -54393,7 +54393,7 @@ ir_sym_val.exit:                                  ; preds = %41, %45
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ir_emit_store_mem_fp_const(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i8 noundef signext %4, i8 noundef signext %5) unnamed_addr #1 {
+define internal fastcc void @ir_emit_store_mem_fp_const(ptr noundef %0, i32 noundef range(i32 0, 256) %1, i64 noundef %2, i32 noundef range(i32 -2147483648, 0) %3, i8 noundef signext %4, i8 noundef signext %5) unnamed_addr #1 {
   %7 = load ptr, ptr %0, align 8
   %8 = sext i32 %3 to i64
   %9 = getelementptr inbounds %struct._ir_insn, ptr %7, i64 %8, i32 1
@@ -54440,7 +54440,7 @@ define internal fastcc void @ir_emit_store_mem_fp_const(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ir_emit_mov_ext(ptr nocapture readonly %.248.val, i32 noundef %0, i8 noundef signext %1, i8 noundef signext %2) unnamed_addr #1 {
+define internal fastcc void @ir_emit_mov_ext(ptr nocapture readonly %.248.val, i32 noundef range(i32 0, 12) %0, i8 noundef signext %1, i8 noundef signext %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %.248.val, i64 32
   %5 = zext nneg i32 %0 to i64
   %6 = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 %5
@@ -54502,7 +54502,7 @@ define internal fastcc void @ir_emit_mov_ext(ptr nocapture readonly %.248.val, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ir_emit_store_mem_imm(ptr nocapture readonly %.248.val, i32 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @ir_emit_store_mem_imm(ptr nocapture readonly %.248.val, i32 noundef range(i32 0, 256) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %.248.val, i64 32
   %5 = trunc i64 %1 to i32
   %sh.diff = lshr i64 %1, 8

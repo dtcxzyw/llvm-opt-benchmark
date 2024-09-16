@@ -325,7 +325,7 @@ entry:
   %call.i = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef nonnull %val.addr.i, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i)
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  call fastcc void @build_append_namestringv(ptr noundef %array, ptr noundef %name_format, ptr noundef nonnull %ap)
+  call fastcc void @build_append_namestringv(ptr noundef %array, ptr noundef %name_format, ptr noundef %ap)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i7)
   store i8 12, ptr %val.addr.i7, align 1
@@ -360,14 +360,14 @@ if.end:                                           ; preds = %build_append_int_no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @build_append_namestringv(ptr noundef %array, ptr noundef %format, ptr noundef %ap) unnamed_addr #0 {
+define internal fastcc void @build_append_namestringv(ptr noundef %array, ptr noundef %format, ptr noundef nonnull %ap) unnamed_addr #0 {
 entry:
   %val.addr.i54 = alloca i8, align 1
   %val.addr.i52 = alloca i8, align 1
   %val.addr.i34 = alloca i8, align 1
   %val.addr.i31 = alloca i8, align 1
   %val.addr.i = alloca i8, align 1
-  %call = tail call noalias ptr @g_strdup_vprintf(ptr noundef %format, ptr noundef %ap) #14
+  %call = tail call noalias ptr @g_strdup_vprintf(ptr noundef %format, ptr noundef nonnull %ap) #14
   %call1 = tail call ptr @g_strsplit(ptr noundef %call, ptr noundef nonnull @.str.43, i32 noundef 0) #14
   tail call void @g_free(ptr noundef %call) #14
   %0 = load ptr, ptr %call1, align 8
@@ -705,7 +705,7 @@ entry:
   store i32 2, ptr %block_flags.i.i, align 4
   call void @llvm.va_start.p0(ptr nonnull %ap)
   %1 = load ptr, ptr %call.i.i, align 8
-  call fastcc void @build_append_namestringv(ptr noundef %1, ptr noundef %name_format, ptr noundef nonnull %ap)
+  call fastcc void @build_append_namestringv(ptr noundef %1, ptr noundef %name_format, ptr noundef %ap)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   ret ptr %call.i.i
 }
@@ -898,7 +898,7 @@ entry:
   store ptr %call.i.i, ptr %call.i, align 8
   call void @llvm.va_start.p0(ptr nonnull %ap)
   %1 = load ptr, ptr %call.i, align 8
-  call fastcc void @build_append_namestringv(ptr noundef %1, ptr noundef %name_format, ptr noundef nonnull %ap)
+  call fastcc void @build_append_namestringv(ptr noundef %1, ptr noundef %name_format, ptr noundef %ap)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   ret ptr %call.i
 }
@@ -926,7 +926,7 @@ define internal void @build_append_namestring(ptr noundef %array, ptr nocapture 
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  call fastcc void @build_append_namestringv(ptr noundef %array, ptr noundef nonnull @.str.4, ptr noundef nonnull %ap)
+  call fastcc void @build_append_namestringv(ptr noundef %array, ptr noundef nonnull @.str.4, ptr noundef %ap)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
@@ -1108,7 +1108,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @build_opcode_2arg_dst(i8 noundef zeroext %op, ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc noundef ptr @build_opcode_2arg_dst(i8 noundef zeroext range(i8 114, -119) %op, ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr noundef readonly %dst) unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i8, align 1
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
@@ -2206,7 +2206,7 @@ entry:
   store i32 3, ptr %block_flags.i.i, align 4
   call void @llvm.va_start.p0(ptr nonnull %ap)
   %1 = load ptr, ptr %call.i.i, align 8
-  call fastcc void @build_append_namestringv(ptr noundef %1, ptr noundef %name_format, ptr noundef nonnull %ap)
+  call fastcc void @build_append_namestringv(ptr noundef %1, ptr noundef %name_format, ptr noundef %ap)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   ret ptr %call.i.i
 }
@@ -2592,7 +2592,7 @@ entry:
   store i32 3, ptr %block_flags.i.i, align 4
   call void @llvm.va_start.p0(ptr nonnull %ap)
   %1 = load ptr, ptr %call.i.i, align 8
-  call fastcc void @build_append_namestringv(ptr noundef %1, ptr noundef %name_format, ptr noundef nonnull %ap)
+  call fastcc void @build_append_namestringv(ptr noundef %1, ptr noundef %name_format, ptr noundef %ap)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   %2 = load ptr, ptr %call.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i)
@@ -2733,7 +2733,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @aml_word_as_desc(i32 noundef %type, i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %dec, i16 noundef zeroext %addr_gran, i16 noundef zeroext %addr_min, i16 noundef zeroext %addr_max, i16 noundef zeroext %addr_trans, i16 noundef zeroext %len, i8 noundef zeroext %type_flags) unnamed_addr #0 {
+define internal fastcc noundef ptr @aml_word_as_desc(i32 noundef range(i32 1, 3) %type, i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %dec, i16 noundef zeroext %addr_gran, i16 noundef zeroext %addr_min, i16 noundef zeroext %addr_max, i16 noundef zeroext %addr_trans, i16 noundef zeroext %len, i8 noundef zeroext %type_flags) unnamed_addr #0 {
 entry:
   %val.addr.i.i49 = alloca i8, align 1
   %val.addr.i.i39 = alloca i8, align 1
@@ -2898,7 +2898,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @aml_dword_as_desc(i32 noundef %type, i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %dec, i32 noundef %addr_gran, i32 noundef %addr_min, i32 noundef %addr_max, i32 noundef %addr_trans, i32 noundef %len, i8 noundef zeroext %type_flags) unnamed_addr #0 {
+define internal fastcc noundef ptr @aml_dword_as_desc(i32 noundef range(i32 0, 2) %type, i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %dec, i32 noundef %addr_gran, i32 noundef %addr_min, i32 noundef %addr_max, i32 noundef %addr_trans, i32 noundef %len, i8 noundef zeroext %type_flags) unnamed_addr #0 {
 entry:
   %val.addr.i.i49 = alloca i8, align 1
   %val.addr.i.i39 = alloca i8, align 1
@@ -5082,7 +5082,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @build_processor_hierarchy_node(ptr noundef %tbl, i32 noundef %flags, i32 noundef %parent, i32 noundef %id) unnamed_addr #0 {
+define internal fastcc void @build_processor_hierarchy_node(ptr noundef %tbl, i32 noundef range(i32 0, 15) %flags, i32 noundef %parent, i32 noundef %id) unnamed_addr #0 {
 entry:
   %val.addr.i.i46 = alloca i8, align 1
   %val.addr.i.i36 = alloca i8, align 1
@@ -5109,17 +5109,19 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i)
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 2
-  br i1 %exitcond.not.i, label %for.body.i17, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %build_append_int_noprefix.exit, label %for.body.i, !llvm.loop !8
 
-for.body.i17:                                     ; preds = %for.body.i, %for.body.i17
-  %i.05.i18 = phi i32 [ %inc.i23, %for.body.i17 ], [ 0, %for.body.i ]
-  %value.addr.04.i19 = phi i32 [ %shr.i22, %for.body.i17 ], [ %flags, %for.body.i ]
-  %conv.i20 = trunc i32 %value.addr.04.i19 to i8
+build_append_int_noprefix.exit:                   ; preds = %for.body.i
+  %0 = trunc nuw nsw i32 %flags to i8
+  br label %for.body.i17
+
+for.body.i17:                                     ; preds = %for.body.i17, %build_append_int_noprefix.exit
+  %i.05.i18 = phi i32 [ %inc.i23, %for.body.i17 ], [ 0, %build_append_int_noprefix.exit ]
+  %value.addr.04.i19 = phi i8 [ 0, %for.body.i17 ], [ %0, %build_append_int_noprefix.exit ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i16)
-  store i8 %conv.i20, ptr %val.addr.i.i16, align 1
+  store i8 %value.addr.04.i19, ptr %val.addr.i.i16, align 1
   %call.i.i21 = call ptr @g_array_append_vals(ptr noundef %tbl, ptr noundef nonnull %val.addr.i.i16, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i16)
-  %shr.i22 = lshr i32 %value.addr.04.i19, 8
   %inc.i23 = add nuw nsw i32 %i.05.i18, 1
   %exitcond.not.i24 = icmp eq i32 %inc.i23, 4
   br i1 %exitcond.not.i24, label %for.body.i27, label %for.body.i17, !llvm.loop !8

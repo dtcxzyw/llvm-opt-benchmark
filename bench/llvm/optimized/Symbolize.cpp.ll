@@ -3075,7 +3075,7 @@ define dso_local noundef ptr @_ZN4llvm9symbolize14LLVMSymbolizer14lookUpDsymFile
   %28 = load ptr, ptr %27, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 %26, ptr %28, ptr noundef nonnull align 1 dereferenceable(1) %13) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call fastcc void @_ZN4llvm9symbolize12_GLOBAL__N_129getDarwinDWARFResourceForPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  call fastcc void @_ZN4llvm9symbolize12_GLOBAL__N_129getDarwinDWARFResourceForPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %12)
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -3121,7 +3121,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %47 = load ptr, ptr %41, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 %46, ptr %47, ptr noundef nonnull align 1 dereferenceable(1) %16) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call fastcc void @_ZN4llvm9symbolize12_GLOBAL__N_129getDarwinDWARFResourceForPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.032.051, ptr noundef nonnull align 8 dereferenceable(32) %15)
+  call fastcc void @_ZN4llvm9symbolize12_GLOBAL__N_129getDarwinDWARFResourceForPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.032.051, ptr noundef nonnull align 8 dereferenceable(32) %15)
   %48 = load ptr, ptr %29, align 8
   %49 = load ptr, ptr %31, align 8
   %.not.i.i21 = icmp eq ptr %48, %49
@@ -3269,7 +3269,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 declare { ptr, i64 } @_ZN4llvm3sys4path8filenameENS_9StringRefENS1_5StyleE(ptr, i64, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm9symbolize12_GLOBAL__N_129getDarwinDWARFResourceForPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm9symbolize12_GLOBAL__N_129getDarwinDWARFResourceForPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca %"class.std::allocator.16", align 1
   %5 = alloca %"class.llvm::SmallString", align 8
   %6 = alloca %"class.llvm::Twine", align 8

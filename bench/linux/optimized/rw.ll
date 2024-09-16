@@ -2002,7 +2002,7 @@ define dso_local i32 @io_write(ptr noundef %0, i32 noundef %1) local_unnamed_add
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @io_import_iovec(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 align 16 {
+define internal fastcc i32 @io_import_iovec(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 align 16 {
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 64
@@ -2151,7 +2151,7 @@ define internal fastcc i32 @io_import_iovec(i32 noundef %0, ptr noundef %1, ptr 
 declare dso_local void @iov_iter_restore(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -95, 1) i32 @io_rw_init_file(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -95, 1) i32 @io_rw_init_file(ptr nocapture noundef %0, i32 noundef range(i32 1, 3) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -2287,7 +2287,7 @@ define internal fastcc noundef range(i32 -95, 1) i32 @io_rw_init_file(ptr nocapt
 declare dso_local i32 @rw_verify_area(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @loop_rw_iter(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i64 @loop_rw_iter(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load i32, ptr %5, align 8

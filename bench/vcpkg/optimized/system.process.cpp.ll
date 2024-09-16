@@ -752,7 +752,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   %13 = getelementptr inbounds i8, ptr %2, i64 40
   store i64 0, ptr %13, align 8
   %14 = call i32 @getpid() #26
-  invoke fastcc void @_ZN12_GLOBAL__N_127try_get_process_stat_by_pidEi(ptr dead_on_unwind noalias nonnull writable align 8 %3, i32 noundef %14)
+  invoke fastcc void @_ZN12_GLOBAL__N_127try_get_process_stat_by_pidEi(ptr dead_on_unwind noalias writable align 8 %3, i32 noundef %14)
           to label %15 unwind label %31
 
 15:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit
@@ -871,7 +871,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
   br label %55
 
 55:                                               ; preds = %.noexc, %42
-  invoke fastcc void @_ZN12_GLOBAL__N_127try_get_process_stat_by_pidEi(ptr dead_on_unwind noalias nonnull writable align 8 %4, i32 noundef %.027)
+  invoke fastcc void @_ZN12_GLOBAL__N_127try_get_process_stat_by_pidEi(ptr dead_on_unwind noalias writable align 8 %4, i32 noundef %.027)
           to label %56 unwind label %33
 
 56:                                               ; preds = %55
@@ -977,7 +977,7 @@ _ZN5vcpkg8OptionalINS_11ProcessStatEED2Ev.exit22: ; preds = %86, %_ZN5vcpkg8Opti
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_127try_get_process_stat_by_pidEi(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_127try_get_process_stat_by_pidEi(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.fmt::v10::format_arg_store", align 16
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"struct.vcpkg::ExpectedT.77", align 8
@@ -1001,7 +1001,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_127try_get_process_stat_by_pidEi(pt
   br i1 %12, label %20, label %13
 
 13:                                               ; preds = %9
-  invoke void @_ZN5vcpkg27try_parse_process_stat_fileERKNS_12FileContentsE(ptr dead_on_unwind writable sret(%"struct.vcpkg::Optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %5)
+  invoke void @_ZN5vcpkg27try_parse_process_stat_fileERKNS_12FileContentsE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %5)
           to label %._crit_edge unwind label %18
 
 ._crit_edge:                                      ; preds = %13
@@ -2465,7 +2465,7 @@ _ZNSt6vectorIPcSaIS0_EE12emplace_backIJDnEEERS0_DpOT_.exit: ; preds = %81, %100,
 104:                                              ; preds = %103
   %105 = tail call ptr @__errno_location() #32
   %106 = load i32, ptr %105, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr nonnull @.str.10, i64 11, i32 noundef %106)
+  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias writable align 8 %14, ptr nonnull @.str.10, i64 11, i32 noundef %106)
           to label %107 unwind label %.loopexit.split-lp
 
 107:                                              ; preds = %104
@@ -2618,7 +2618,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataE
 declare i32 @posix_spawn(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 %2, i32 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2, i32 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.fmt::v10::format_arg_store.103", align 16
   %6 = alloca %"struct.vcpkg::msg::TagArg.100", align 8
   %7 = alloca %"struct.vcpkg::msg::TagArg.101", align 8
@@ -2636,7 +2636,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vc
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %8, i64 8
   %.fca.1.load.i = load i64, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  invoke void @_ZN5vcpkg12error_prefixEv(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %0)
+  invoke void @_ZN5vcpkg12error_prefixEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %0)
           to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %4
@@ -3449,7 +3449,7 @@ define dso_local void @_ZN5vcpkg27cmd_execute_and_stream_dataERKNS_7CommandERKNS
 83:                                               ; preds = %79
   %84 = tail call ptr @__errno_location() #32
   %85 = load i32, ptr %84, align 4, !noalias !85
-  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr nonnull @.str.51, i64 5, i32 noundef %85)
+  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias writable align 8 %18, ptr nonnull @.str.51, i64 5, i32 noundef %85)
           to label %87 unwind label %96
 
 .thread.i:                                        ; preds = %79
@@ -3503,7 +3503,7 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit106.i: ; preds = %87
 99:                                               ; preds = %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit106.i
   %100 = tail call ptr @__errno_location() #32
   %101 = load i32, ptr %100, align 4, !noalias !88
-  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr nonnull @.str.51, i64 5, i32 noundef %101)
+  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias writable align 8 %17, ptr nonnull @.str.51, i64 5, i32 noundef %101)
           to label %103 unwind label %110
 
 .thread261.i:                                     ; preds = %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit106.i
@@ -3559,7 +3559,7 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit112.i: ; preds = %10
   br i1 %.not.i114.i, label %.thread262.i, label %118
 
 118:                                              ; preds = %115
-  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr nonnull @.str.53, i64 32, i32 noundef %117)
+  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias writable align 8 %15, ptr nonnull @.str.53, i64 32, i32 noundef %117)
           to label %120 unwind label %200
 
 .thread262.i:                                     ; preds = %115
@@ -3591,7 +3591,7 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit116.i: ; preds = %12
   br i1 %.not.i117.i, label %.thread263.i, label %126
 
 126:                                              ; preds = %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit116.i
-  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr nonnull @.str.53, i64 32, i32 noundef %125)
+  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias writable align 8 %14, ptr nonnull @.str.53, i64 32, i32 noundef %125)
           to label %128 unwind label %200
 
 .thread263.i:                                     ; preds = %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit116.i
@@ -3623,7 +3623,7 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit120.i: ; preds = %13
   br i1 %.not.i121.i, label %.thread264.i, label %134
 
 134:                                              ; preds = %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit120.i
-  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr nonnull @.str.53, i64 32, i32 noundef %133)
+  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias writable align 8 %13, ptr nonnull @.str.53, i64 32, i32 noundef %133)
           to label %136 unwind label %200
 
 .thread264.i:                                     ; preds = %_ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit120.i
@@ -3931,7 +3931,7 @@ _ZNSt6vectorIPcSaIS0_EE12emplace_backIJDnEEERS0_DpOT_.exit.i: ; preds = %223, %_
   br i1 %.not89.i, label %230, label %227
 
 227:                                              ; preds = %226
-  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr nonnull @.str.10, i64 11, i32 noundef %225)
+  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias writable align 8 %35, ptr nonnull @.str.10, i64 11, i32 noundef %225)
           to label %228 unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 228:                                              ; preds = %227
@@ -3967,7 +3967,7 @@ _ZNSt6vectorIPcSaIS0_EE12emplace_backIJDnEEERS0_DpOT_.exit.i: ; preds = %223, %_
 239:                                              ; preds = %238
   %240 = tail call ptr @__errno_location() #32
   %241 = load i32, ptr %240, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr nonnull @.str.48, i64 5, i32 noundef %241)
+  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias writable align 8 %38, ptr nonnull @.str.48, i64 5, i32 noundef %241)
           to label %242 unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 242:                                              ; preds = %239
@@ -4002,7 +4002,7 @@ _ZNSt6vectorIPcSaIS0_EE12emplace_backIJDnEEERS0_DpOT_.exit.i: ; preds = %223, %_
 256:                                              ; preds = %.noexc
   %257 = tail call ptr @__errno_location() #32
   %258 = load i32, ptr %257, align 4, !noalias !100
-  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr nonnull @.str.55, i64 5, i32 noundef %258)
+  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias writable align 8 %5, ptr nonnull @.str.55, i64 5, i32 noundef %258)
           to label %268 unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 259:                                              ; preds = %.noexc
@@ -4084,7 +4084,7 @@ _ZNSt6vectorIPcSaIS0_EE12emplace_backIJDnEEERS0_DpOT_.exit.i: ; preds = %223, %_
 296:                                              ; preds = %294
   %297 = tail call ptr @__errno_location() #32
   %298 = load i32, ptr %297, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr nonnull @.str.49, i64 4, i32 noundef %298)
+  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias writable align 8 %41, ptr nonnull @.str.49, i64 4, i32 noundef %298)
           to label %299 unwind label %.loopexit.split-lp224.i
 
 299:                                              ; preds = %296
@@ -4159,7 +4159,7 @@ _ZNSt6vectorIPcSaIS0_EE12emplace_backIJDnEEERS0_DpOT_.exit.i: ; preds = %223, %_
 322:                                              ; preds = %.noexc155.i
   %323 = tail call ptr @__errno_location() #32
   %324 = load i32, ptr %323, align 4, !noalias !103
-  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr nonnull @.str.55, i64 5, i32 noundef %324)
+  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias writable align 8 %11, ptr nonnull @.str.55, i64 5, i32 noundef %324)
           to label %325 unwind label %.loopexit223.i
 
 325:                                              ; preds = %322
@@ -4233,7 +4233,7 @@ _ZN5vcpkg9ExpectedTIbNS_15LocalizedStringEED2Ev.exit158.i: ; preds = %340, %336
 349:                                              ; preds = %347
   %350 = tail call ptr @__errno_location() #32
   %351 = load i32, ptr %350, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias nonnull writable align 8 %43, ptr nonnull @.str.50, i64 4, i32 noundef %351)
+  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias writable align 8 %43, ptr nonnull @.str.50, i64 4, i32 noundef %351)
           to label %352 unwind label %.loopexit.split-lp224.i
 
 352:                                              ; preds = %349
@@ -4334,7 +4334,7 @@ _ZN5vcpkg9ExpectedTIbNS_15LocalizedStringEED2Ev.exit161.i: ; preds = %373, %.loo
   br i1 %387, label %.loopexit, label %388
 
 388:                                              ; preds = %384
-  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr nonnull @.str.50, i64 4, i32 noundef %386)
+  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias writable align 8 %45, ptr nonnull @.str.50, i64 4, i32 noundef %386)
           to label %389 unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 389:                                              ; preds = %388
@@ -4407,7 +4407,7 @@ _ZN5vcpkg9ExpectedTIbNS_15LocalizedStringEED2Ev.exit161.i: ; preds = %373, %.loo
 409:                                              ; preds = %.noexc167.i
   %410 = tail call ptr @__errno_location() #32
   %411 = load i32, ptr %410, align 4, !noalias !109
-  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr nonnull @.str.56, i64 7, i32 noundef %411)
+  invoke fastcc void @_ZN12_GLOBAL__N_127format_system_error_messageEN5vcpkg13StringLiteralEi(ptr dead_on_unwind noalias writable align 8 %8, ptr nonnull @.str.56, i64 7, i32 noundef %411)
           to label %.noexc168.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc168.i:                                      ; preds = %409

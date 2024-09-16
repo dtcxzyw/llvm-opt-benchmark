@@ -963,7 +963,7 @@ define dso_local ptr @getOwnedSequences(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @getOwnedSequences_internal(i32 noundef %0, i16 noundef signext %1, i8 noundef signext %2) unnamed_addr #0 {
+define internal fastcc ptr @getOwnedSequences_internal(i32 noundef %0, i16 noundef signext %1, i8 noundef signext range(i8 0, 106) %2) unnamed_addr #0 {
   %4 = alloca [3 x %struct.ScanKeyData], align 16
   %5 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 1) #6
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 4, i16 noundef zeroext 3, i32 noundef 184, i64 noundef 1259) #6

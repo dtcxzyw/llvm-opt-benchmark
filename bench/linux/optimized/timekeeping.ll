@@ -1626,7 +1626,7 @@ define internal fastcc void @tk_set_wall_to_mono(ptr nocapture noundef %0, i64 %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @timekeeping_update(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @timekeeping_update(ptr noundef %0, i32 noundef range(i32 0, 8) %1) unnamed_addr #0 align 16 {
   %3 = and i32 %1, 1
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %7, label %5
@@ -1683,61 +1683,60 @@ define internal fastcc void @timekeeping_update(ptr noundef %0, i32 noundef %1) 
   %42 = getelementptr inbounds i8, ptr %0, i64 96
   store i64 %41, ptr %42, align 8
   tail call void @update_vsyscall(ptr noundef %0) #10
-  %43 = and i32 %1, 4
-  %44 = icmp eq i32 %43, 0
-  %45 = lshr exact i32 %43, 2
-  %46 = zext nneg i32 %45 to i64
-  %47 = tail call i32 @raw_notifier_call_chain(ptr noundef nonnull @pvclock_gtod_chain, i64 noundef %46, ptr noundef %0) #10
-  %48 = load i64, ptr %26, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 144
-  %50 = load i64, ptr %49, align 8
-  %51 = add i64 %50, %48
-  %52 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 %51, ptr %52, align 8
+  %43 = icmp ult i32 %1, 4
+  %44 = lshr i32 %1, 2
+  %45 = zext nneg i32 %44 to i64
+  %46 = tail call i32 @raw_notifier_call_chain(ptr noundef nonnull @pvclock_gtod_chain, i64 noundef %45, ptr noundef %0) #10
+  %47 = load i64, ptr %26, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 144
+  %49 = load i64, ptr %48, align 8
+  %50 = add i64 %49, %47
+  %51 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %50, ptr %51, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !82
-  %53 = load i32, ptr @tk_fast_mono, align 64
-  %54 = add i32 %53, 1
-  store i32 %54, ptr @tk_fast_mono, align 64
+  %52 = load i32, ptr @tk_fast_mono, align 64
+  %53 = add i32 %52, 1
+  store i32 %53, ptr @tk_fast_mono, align 64
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !83
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @tk_fast_mono, i64 8), ptr noundef align 8 dereferenceable(56) %0, i64 56, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !82
-  %55 = load i32, ptr @tk_fast_mono, align 64
-  %56 = add i32 %55, 1
-  store i32 %56, ptr @tk_fast_mono, align 64
+  %54 = load i32, ptr @tk_fast_mono, align 64
+  %55 = add i32 %54, 1
+  store i32 %55, ptr @tk_fast_mono, align 64
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !83
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) getelementptr inbounds (i8, ptr @tk_fast_mono, i64 64), ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @tk_fast_mono, i64 8), i64 56, i1 false)
-  %57 = getelementptr inbounds i8, ptr %0, i64 56
+  %56 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !82
-  %58 = load i32, ptr @tk_fast_raw, align 64
-  %59 = add i32 %58, 1
-  store i32 %59, ptr @tk_fast_raw, align 64
+  %57 = load i32, ptr @tk_fast_raw, align 64
+  %58 = add i32 %57, 1
+  store i32 %58, ptr @tk_fast_raw, align 64
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !83
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @tk_fast_raw, i64 8), ptr noundef align 8 dereferenceable(56) %57, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @tk_fast_raw, i64 8), ptr noundef align 8 dereferenceable(56) %56, i64 56, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !82
-  %60 = load i32, ptr @tk_fast_raw, align 64
-  %61 = add i32 %60, 1
-  store i32 %61, ptr @tk_fast_raw, align 64
+  %59 = load i32, ptr @tk_fast_raw, align 64
+  %60 = add i32 %59, 1
+  store i32 %60, ptr @tk_fast_raw, align 64
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !83
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(56) getelementptr inbounds (i8, ptr @tk_fast_raw, i64 64), ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @tk_fast_raw, i64 8), i64 56, i1 false)
-  br i1 %44, label %66, label %62
+  br i1 %43, label %65, label %61
 
-62:                                               ; preds = %15
-  %63 = getelementptr inbounds i8, ptr %0, i64 172
-  %64 = load i32, ptr %63, align 4
-  %65 = add i32 %64, 1
-  store i32 %65, ptr %63, align 4
-  br label %66
+61:                                               ; preds = %15
+  %62 = getelementptr inbounds i8, ptr %0, i64 172
+  %63 = load i32, ptr %62, align 4
+  %64 = add i32 %63, 1
+  store i32 %64, ptr %62, align 4
+  br label %65
 
-66:                                               ; preds = %62, %15
-  %67 = and i32 %1, 2
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %70, label %69
+65:                                               ; preds = %61, %15
+  %66 = and i32 %1, 2
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %69, label %68
 
-69:                                               ; preds = %66
+68:                                               ; preds = %65
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) @shadow_timekeeper, ptr noundef nonnull align 8 dereferenceable(280) getelementptr inbounds (i8, ptr @tk_core, i64 8), i64 280, i1 false)
-  br label %70
+  br label %69
 
-70:                                               ; preds = %69, %66
+69:                                               ; preds = %68, %65
   ret void
 }
 
@@ -3074,7 +3073,7 @@ define dso_local void @update_wall_time() local_unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @timekeeping_advance(i32 noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @timekeeping_advance(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.timespec64, align 8
   %3 = alloca %struct.timespec64, align 8
   %4 = alloca %struct.timespec64, align 8

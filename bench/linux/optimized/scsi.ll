@@ -2052,7 +2052,7 @@ thread-pre-split18:                               ; preds = %75, %78, %81
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @scsi_get_vpd_buf(ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #1 align 16 {
+define internal fastcc ptr @scsi_get_vpd_buf(ptr noundef %0, i8 noundef zeroext range(i8 -128, 1) %1) unnamed_addr #1 align 16 {
   %3 = alloca [16 x i8], align 16
   %4 = tail call fastcc i32 @scsi_get_vpd_size(ptr noundef %0, i8 noundef zeroext %1), !range !20
   %5 = icmp eq i32 %4, 0

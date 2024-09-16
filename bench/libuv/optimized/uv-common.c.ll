@@ -2666,7 +2666,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @uv__print_handles(ptr noundef readonly %loop, i32 noundef %only_active, ptr noundef %stream) unnamed_addr #0 {
+define internal fastcc void @uv__print_handles(ptr noundef readonly %loop, i32 noundef range(i32 0, 2) %only_active, ptr noundef %stream) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %loop, null
   br i1 %cmp, label %if.then, label %if.end

@@ -1354,7 +1354,7 @@ _ZNSt6vectorIS_IfSaIfEESaIS1_EE6resizeEm.exit:    ; preds = %._crit_edge, %._ZNS
   store ptr %76, ptr %16, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_7details5FastX10calcAnglesERKSt6vectorINS0_3MatESaIS8_EERS7_INS0_8KeyPointESaISD_EEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %78, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_7details5FastX10calcAnglesERKSt6vectorINS0_3MatESaIS8_EERS7_INS0_8KeyPointESaISD_EEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %75, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef nonnull %16)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef %16)
           to label %79 unwind label %88
 
 79:                                               ; preds = %77
@@ -1410,7 +1410,7 @@ _ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit27:      ; preds = %91, %88, %86
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::ParallelLoopBodyLambdaWrapper", align 8
   %4 = alloca %"class.std::function", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -2798,7 +2798,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit31:   ; preds = %_ZSt8_DestroyIPN2cv
   store ptr %109, ptr %16, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_7details5FastX10detectImplERKNS0_3MatERSt6vectorIS7_SaIS7_EESD_S9_E3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %111, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_7details5FastX10detectImplERKNS0_3MatERSt6vectorIS7_SaIS7_EESD_S9_E3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %108, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef nonnull %16)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef %16)
           to label %112 unwind label %119
 
 112:                                              ; preds = %110
@@ -16182,7 +16182,7 @@ define hidden noundef zeroext i1 @_ZN2cv7details10Chessboard5Board13estimatePoin
           to label %_ZN2cv4Mat_IdEC2Eii.exit unwind label %234
 
 _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %54
-  invoke fastcc void @_ZN2cvlsIdiEENS_20MatCommaInitializer_IT_EERKNS_4Mat_IS2_EET0_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(96) %8)
+  invoke fastcc void @_ZN2cvlsIdiEENS_20MatCommaInitializer_IT_EERKNS_4Mat_IS2_EET0_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(96) %8)
           to label %55 unwind label %236
 
 55:                                               ; preds = %_ZN2cv4Mat_IdEC2Eii.exit
@@ -16243,7 +16243,7 @@ _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %54
   %sqrt.i154 = call noundef double @llvm.sqrt.f64(double %84)
   %85 = fptrunc double %sqrt.i154 to float
   call void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %12, i32 noundef 1, i32 noundef 4, i32 noundef 6)
-  invoke fastcc void @_ZN2cvlsIdiEENS_20MatCommaInitializer_IT_EERKNS_4Mat_IS2_EET0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(96) %12)
+  invoke fastcc void @_ZN2cvlsIdiEENS_20MatCommaInitializer_IT_EERKNS_4Mat_IS2_EET0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(96) %12)
           to label %86 unwind label %239
 
 86:                                               ; preds = %64
@@ -16280,7 +16280,7 @@ _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %54
   store i32 16842752, ptr %15, align 8
   %99 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %9, ptr %99, align 8
-  invoke fastcc void @_ZN2cv7detailsL16findHomography1DERKNS_11_InputArrayES3_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15)
+  invoke fastcc void @_ZN2cv7detailsL16findHomography1DERKNS_11_InputArrayES3_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15)
           to label %100 unwind label %241
 
 100:                                              ; preds = %93
@@ -16593,7 +16593,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit190:                 ; preds = %251, %_ZNSt6vectorI
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvlsIdiEENS_20MatCommaInitializer_IT_EERKNS_4Mat_IS2_EET0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #4 {
+define internal fastcc void @_ZN2cvlsIdiEENS_20MatCommaInitializer_IT_EERKNS_4Mat_IS2_EET0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #4 {
   %3 = alloca %"class.cv::MatCommaInitializer_", align 8
   call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 16
@@ -16731,7 +16731,7 @@ _ZN2cv12MatIterator_IdEppEv.exit:                 ; preds = %2, %7, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv7detailsL16findHomography1DERKNS_11_InputArrayES3_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv7detailsL16findHomography1DERKNS_11_InputArrayES3_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Mat", align 8
   %5 = alloca %"class.cv::Mat", align 8
   %6 = alloca %"class.cv::Mat", align 8
@@ -29379,7 +29379,7 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit:           ; preds = %_ZNSt6vectorIhSaIhE
   unreachable
 
 306:                                              ; preds = %.noexc164
-  invoke fastcc void @_ZN2cv7detailsL15normalizeVectorERKNS_11_InputArrayE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %33)
+  invoke fastcc void @_ZN2cv7detailsL15normalizeVectorERKNS_11_InputArrayE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %33)
           to label %.noexc167 unwind label %.loopexit281
 
 .noexc167:                                        ; preds = %306
@@ -32880,7 +32880,7 @@ _ZNK2cv7details10Chessboard9buildDataERKSt6vectorINS_8KeyPointESaIS3_EE.exit: ; 
   store ptr %184, ptr %22, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_7details10Chessboard10detectImplERKNS0_3MatERSt6vectorIS7_SaIS7_EES9_E3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %139, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_7details10Chessboard10detectImplERKNS0_3MatERSt6vectorIS7_SaIS7_EES9_E3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %138, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull %22)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef %22)
           to label %186 unwind label %220
 
 186:                                              ; preds = %185
@@ -34499,7 +34499,7 @@ define void @_ZN2cv27estimateChessboardSharpnessERKNS_11_InputArrayENS_5Size_IiE
   br label %143
 
 44:                                               ; preds = %33
-  invoke fastcc void @_ZN2cv7detailsL15normalizeVectorERKNS_11_InputArrayE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  invoke fastcc void @_ZN2cv7detailsL15normalizeVectorERKNS_11_InputArrayE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %45 unwind label %29
 
 45:                                               ; preds = %44
@@ -34800,7 +34800,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit41:  ; preds = %140, %142
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv7detailsL15normalizeVectorERKNS_11_InputArrayE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv7detailsL15normalizeVectorERKNS_11_InputArrayE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::Mat", align 8
   %4 = alloca %"class.cv::Mat", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -34816,7 +34816,7 @@ define internal fastcc void @_ZN2cv7detailsL15normalizeVectorERKNS_11_InputArray
   br label %_ZNK2cv11_InputArray6getMatEi.exit
 
 12:                                               ; preds = %2
-  tail call void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef -1)
+  tail call void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef -1)
   br label %_ZNK2cv11_InputArray6getMatEi.exit
 
 _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12

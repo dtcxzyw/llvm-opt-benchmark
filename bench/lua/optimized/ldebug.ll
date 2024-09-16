@@ -1994,6 +1994,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
 
 for.cond.preheader.i:                             ; preds = %if.end.i
   %20 = sext i32 %spec.select to i64
+  %sext.i = sext i32 %sub to i64
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end8.i, %for.cond.preheader.i
@@ -2008,9 +2009,8 @@ for.cond.i:                                       ; preds = %if.end8.i, %for.con
 if.end8.i:                                        ; preds = %for.cond.i
   %conv.i = sext i8 %21 to i32
   %add.i = add nsw i32 %delta.0.i, %conv.i
-  %22 = trunc nsw i64 %indvars.iv.next.i to i32
-  %cmp9.i = icmp eq i32 %sub, %22
-  br i1 %cmp9.i, label %changedline.exit, label %for.cond.i
+  %22 = icmp eq i64 %indvars.iv.next.i, %sext.i
+  br i1 %22, label %changedline.exit, label %for.cond.i
 
 if.else.i.i:                                      ; preds = %for.cond.i, %if.end.i
   %sizeabslineinfo.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
@@ -2274,7 +2274,7 @@ declare hidden ptr @luaH_new(ptr noundef) local_unnamed_addr #6
 declare hidden void @luaH_setint(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @getobjname(ptr noundef %p, i32 noundef %lastpc, i32 noundef %reg, ptr nocapture noundef writeonly %name) unnamed_addr #5 {
+define internal fastcc ptr @getobjname(ptr noundef %p, i32 noundef range(i32 -2147483648, 2147483647) %lastpc, i32 noundef range(i32 0, -2147483648) %reg, ptr nocapture noundef writeonly %name) unnamed_addr #5 {
 entry:
   %pc.addr.i.i = alloca i32, align 4
   %pc.addr.i41 = alloca i32, align 4
@@ -2284,7 +2284,7 @@ entry:
   %pc.addr.i24 = alloca i32, align 4
   %lastpc.addr = alloca i32, align 4
   store i32 %lastpc, ptr %lastpc.addr, align 4
-  %call = call fastcc ptr @basicgetobjname(ptr noundef %p, ptr noundef nonnull %lastpc.addr, i32 noundef %reg, ptr noundef %name)
+  %call = call fastcc ptr @basicgetobjname(ptr noundef %p, ptr noundef %lastpc.addr, i32 noundef %reg, ptr noundef %name)
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.else, label %return
 
@@ -2347,7 +2347,7 @@ sw.bb7:                                           ; preds = %if.then2
   %shr9 = lshr i32 %2, 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %pc.addr.i24)
   store i32 %0, ptr %pc.addr.i24, align 4
-  %call.i = call fastcc ptr @basicgetobjname(ptr noundef nonnull %p, ptr noundef nonnull %pc.addr.i24, i32 noundef %shr9, ptr noundef %name)
+  %call.i = call fastcc ptr @basicgetobjname(ptr noundef nonnull %p, ptr noundef %pc.addr.i24, i32 noundef %shr9, ptr noundef %name)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then.i26, label %land.lhs.true.i
 
@@ -2367,7 +2367,7 @@ rname.exit:                                       ; preds = %land.lhs.true.i, %i
   store i32 %0, ptr %pc.addr.i27, align 4
   %shr.i28 = lshr i32 %2, 16
   %and.i29 = and i32 %shr.i28, 255
-  %call1.i = call fastcc ptr @basicgetobjname(ptr noundef nonnull %p, ptr noundef nonnull %pc.addr.i27, i32 noundef %and.i29, ptr noundef nonnull %name.i)
+  %call1.i = call fastcc ptr @basicgetobjname(ptr noundef nonnull %p, ptr noundef %pc.addr.i27, i32 noundef %and.i29, ptr noundef nonnull %name.i)
   %.pr.i = load ptr, ptr %name.i, align 8
   %tobool2.not.i = icmp eq ptr %.pr.i, null
   br i1 %tobool2.not.i, label %isEnv.exit, label %land.rhs.i
@@ -2413,7 +2413,7 @@ kname.exit40:                                     ; preds = %sw.bb13, %if.then.i
   store i32 %0, ptr %pc.addr.i41, align 4
   %shr.i43 = lshr i32 %2, 16
   %and.i44 = and i32 %shr.i43, 255
-  %call1.i45 = call fastcc ptr @basicgetobjname(ptr noundef nonnull %p, ptr noundef nonnull %pc.addr.i41, i32 noundef %and.i44, ptr noundef nonnull %name.i42)
+  %call1.i45 = call fastcc ptr @basicgetobjname(ptr noundef nonnull %p, ptr noundef %pc.addr.i41, i32 noundef %and.i44, ptr noundef nonnull %name.i42)
   %.pr.i46 = load ptr, ptr %name.i42, align 8
   %tobool2.not.i47 = icmp eq ptr %.pr.i46, null
   br i1 %tobool2.not.i47, label %isEnv.exit52, label %land.rhs.i48
@@ -2460,7 +2460,7 @@ kname.exit.i:                                     ; preds = %if.then.i.i, %if.th
 if.else.i:                                        ; preds = %sw.bb19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %pc.addr.i.i)
   store i32 %0, ptr %pc.addr.i.i, align 4
-  %call.i.i = call fastcc ptr @basicgetobjname(ptr noundef nonnull %p, ptr noundef nonnull %pc.addr.i.i, i32 noundef %shr.i53, ptr noundef %name)
+  %call.i.i = call fastcc ptr @basicgetobjname(ptr noundef nonnull %p, ptr noundef %pc.addr.i.i, i32 noundef %shr.i53, ptr noundef %name)
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %if.then.i6.i, label %land.lhs.true.i.i
 
@@ -2483,7 +2483,7 @@ return:                                           ; preds = %rname.exit.i, %knam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @basicgetobjname(ptr noundef %p, ptr nocapture noundef %ppc, i32 noundef %reg, ptr nocapture noundef writeonly %name) unnamed_addr #5 {
+define internal fastcc noundef ptr @basicgetobjname(ptr noundef %p, ptr nocapture noundef nonnull %ppc, i32 noundef range(i32 0, -2147483648) %reg, ptr nocapture noundef writeonly %name) unnamed_addr #5 {
 entry:
   %0 = getelementptr i8, ptr %p, i64 64
   %.pre = load i32, ptr %ppc, align 4
@@ -2539,16 +2539,16 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   ]
 
 sw.bb.i:                                          ; preds = %for.body.i
-  %cmp14.not.i = icmp sgt i32 %and11.i, %reg.tr
+  %cmp14.not.i = icmp ugt i32 %and11.i, %reg.tr
   br i1 %cmp14.not.i, label %for.inc.i, label %sw.epilog.i
 
 sw.bb18.i:                                        ; preds = %for.body.i
   %add19.i = add nuw nsw i32 %and11.i, 2
-  %cmp20.not.i = icmp slt i32 %reg.tr, %add19.i
+  %cmp20.not.i = icmp ult i32 %reg.tr, %add19.i
   br i1 %cmp20.not.i, label %for.inc.i, label %if.then48.i
 
 sw.bb22.i:                                        ; preds = %for.body.i, %for.body.i
-  %cmp23.not.i = icmp slt i32 %reg.tr, %and11.i
+  %cmp23.not.i = icmp ult i32 %reg.tr, %and11.i
   br i1 %cmp23.not.i, label %for.inc.i, label %if.then48.i
 
 sw.bb25.i:                                        ; preds = %for.body.i

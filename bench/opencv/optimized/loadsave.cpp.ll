@@ -970,7 +970,7 @@ define internal fastcc void @_ZN2cvL7imread_ERKNSt7__cxx1112basic_stringIcSt11ch
   %18 = alloca %"class.std::__cxx11::basic_string", align 8
   %19 = alloca %"struct.cv::ExifEntry_t", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN2cvL11findDecoderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  invoke fastcc void @_ZN2cvL11findDecoderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %20 unwind label %100
 
 20:                                               ; preds = %3
@@ -2063,7 +2063,7 @@ define internal fastcc noundef zeroext i1 @_ZN2cvL12imreadmulti_ERKNSt7__cxx1112
   br label %.loopexit.split-lp
 
 23:                                               ; preds = %5
-  invoke fastcc void @_ZN2cvL11findDecoderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  invoke fastcc void @_ZN2cvL11findDecoderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %24 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 24:                                               ; preds = %23
@@ -3389,7 +3389,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %67, %70
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %.082.sroa.gep.i = getelementptr inbounds i8, ptr %17, i64 8
   %.082.sroa.gep127.i = getelementptr inbounds i8, ptr %2, i64 8
-  invoke fastcc void @_ZN2cvL11findEncoderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  invoke fastcc void @_ZN2cvL11findEncoderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %92 unwind label %103
 
 92:                                               ; preds = %86
@@ -4582,7 +4582,7 @@ define internal fastcc noundef zeroext i1 @_ZN2cvL9imdecode_ERKNS_3MatEiRS0_(ptr
 67:                                               ; preds = %56
   call void @_ZNK2cv3Mat7reshapeEii(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %10, ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 1, i32 noundef 1)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #27
-  invoke fastcc void @_ZN2cvL11findDecoderERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(96) %10)
+  invoke fastcc void @_ZN2cvL11findDecoderERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(96) %10)
           to label %68 unwind label %70
 
 68:                                               ; preds = %67
@@ -5933,7 +5933,7 @@ define internal fastcc noundef zeroext i1 @_ZN2cvL14imdecodemulti_ERKNS_3MatEiRS
 67:                                               ; preds = %56
   call void @_ZNK2cv3Mat7reshapeEii(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %12, ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 1, i32 noundef 1)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #27
-  invoke fastcc void @_ZN2cvL11findDecoderERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(96) %12)
+  invoke fastcc void @_ZN2cvL11findDecoderERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(96) %12)
           to label %68 unwind label %70
 
 68:                                               ; preds = %67
@@ -7150,7 +7150,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %32, %35
   br label %317
 
 62:                                               ; preds = %50, %50, %50
-  invoke fastcc void @_ZN2cvL11findEncoderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  invoke fastcc void @_ZN2cvL11findEncoderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %63 unwind label %40
 
 63:                                               ; preds = %62
@@ -7771,7 +7771,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit93:                  ; preds = %316, %314, %120, %1
 declare noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL11findEncoderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL11findEncoderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #27
   %5 = icmp ult i64 %4, 2
@@ -7995,7 +7995,7 @@ _ZN2cvL9getCodecsEv.exit:                         ; preds = %.critedge, %22, %25
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 64
   %105 = load ptr, ptr %104, align 8
-  invoke void %105(ptr dead_on_unwind writable sret(%"struct.cv::Ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %102)
+  invoke void %105(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %102)
           to label %108 unwind label %106
 
 106:                                              ; preds = %.split.us
@@ -8254,7 +8254,7 @@ _ZNSt10shared_ptrIN2cv16BaseImageEncoderEED2Ev.exit: ; preds = %1, %20, %33, %_Z
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN2cv15haveImageReaderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.cv::Ptr.13", align 8
-  call fastcc void @_ZN2cvL11findDecoderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  call fastcc void @_ZN2cvL11findDecoderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -8335,7 +8335,7 @@ _ZN2cv3PtrINS_16BaseImageDecoderEED2Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL11findDecoderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL11findDecoderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8512,7 +8512,7 @@ _ZN2cvL9getCodecsEv.exit:                         ; preds = %2, %10, %13
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 96
   %86 = load ptr, ptr %85, align 8
-  invoke void %86(ptr dead_on_unwind writable sret(%"struct.cv::Ptr.13") align 8 %0, ptr noundef nonnull align 8 dereferenceable(272) %83)
+  invoke void %86(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.13") align 8 %0, ptr noundef nonnull align 8 dereferenceable(272) %83)
           to label %99 unwind label %.loopexit.split-lp
 
 87:                                               ; preds = %63
@@ -8641,7 +8641,7 @@ _ZNSt10shared_ptrIN2cv16BaseImageDecoderEED2Ev.exit: ; preds = %1, %20, %33, %_Z
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN2cv15haveImageWriterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.cv::Ptr", align 8
-  call fastcc void @_ZN2cvL11findEncoderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  call fastcc void @_ZN2cvL11findEncoderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -8760,7 +8760,7 @@ define void @_ZN2cv15ImageCollection4Impl4initERKNSt7__cxx1112basic_stringIcSt11
   %10 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %2, ptr %11, align 8
-  call fastcc void @_ZN2cvL11findDecoderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call fastcc void @_ZN2cvL11findDecoderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %12 = getelementptr inbounds i8, ptr %0, i64 88
   %13 = load ptr, ptr %4, align 8
   store ptr %13, ptr %12, align 8
@@ -9059,7 +9059,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %139, %141, %143, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i
-  call fastcc void @_ZN2cvL11findDecoderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  call fastcc void @_ZN2cvL11findDecoderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %146 = load ptr, ptr %9, align 8
   store ptr %146, ptr %12, align 8
   %147 = getelementptr inbounds i8, ptr %9, i64 8
@@ -9952,7 +9952,7 @@ define void @_ZN2cv15ImageCollection4Impl5resetEv(ptr noundef nonnull align 8 de
   %2 = alloca %"struct.cv::Ptr.13", align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 0, ptr %3, align 8
-  call fastcc void @_ZN2cvL11findDecoderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  call fastcc void @_ZN2cvL11findDecoderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = load ptr, ptr %2, align 8
   store ptr %5, ptr %4, align 8
@@ -11143,7 +11143,7 @@ declare noundef i32 @_ZNK2cv3Mat11checkVectorEiib(ptr noundef nonnull align 8 de
 declare void @_ZNK2cv3Mat7reshapeEii(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8, ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL11findDecoderERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL11findDecoderERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -11280,7 +11280,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %42, %50
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 96
   %78 = load ptr, ptr %77, align 8
-  invoke void %78(ptr dead_on_unwind writable sret(%"struct.cv::Ptr.13") align 8 %0, ptr noundef nonnull align 8 dereferenceable(272) %75)
+  invoke void %78(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.13") align 8 %0, ptr noundef nonnull align 8 dereferenceable(272) %75)
           to label %91 unwind label %.loopexit.split-lp
 
 79:                                               ; preds = %._crit_edge

@@ -34,7 +34,7 @@ define dso_local range(i32 0, 2) i32 @read_quant_tables(ptr noundef %0, ptr noun
   br i1 %8, label %10, label %.preheader29
 
 .preheader29:                                     ; preds = %3
-  %9 = call fastcc i32 @read_text_integer(ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  %9 = call fastcc i32 @read_text_integer(ptr noundef %7, ptr noundef %5, ptr noundef %4)
   %.not45 = icmp eq i32 %9, 0
   br i1 %.not45, label %._crit_edge, label %.lr.ph
 
@@ -158,7 +158,7 @@ text_getc.exit26.i:                               ; preds = %.preheader.i25.i, %
   %62 = trunc nuw nsw i64 %indvars.iv57 to i32
   call void @jpeg_add_quant_table(ptr noundef %0, i32 noundef %62, ptr noundef nonnull %6, i32 noundef %61, i32 noundef %2) #9
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %63 = call fastcc i32 @read_text_integer(ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  %63 = call fastcc i32 @read_text_integer(ptr noundef %7, ptr noundef %5, ptr noundef %4)
   %.not = icmp eq i32 %63, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
@@ -189,16 +189,16 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @read_text_integer(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @read_text_integer(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #2 {
   br label %4
 
 4:                                                ; preds = %9, %3
-  %5 = tail call i32 @getc(ptr noundef %0)
+  %5 = tail call i32 @getc(ptr noundef nonnull %0)
   %6 = icmp eq i32 %5, 35
   br i1 %6, label %.preheader.i, label %text_getc.exit
 
 .preheader.i:                                     ; preds = %4, %.preheader.i
-  %7 = tail call i32 @getc(ptr noundef %0)
+  %7 = tail call i32 @getc(ptr noundef nonnull %0)
   switch i32 %7, label %.preheader.i [
     i32 -1, label %text_getc.exit
     i32 10, label %text_getc.exit
@@ -232,12 +232,12 @@ text_getc.exit:                                   ; preds = %.preheader.i, %.pre
 
 22:                                               ; preds = %32, %19
   %.0 = phi i64 [ %21, %19 ], [ %36, %32 ]
-  %23 = tail call i32 @getc(ptr noundef %0)
+  %23 = tail call i32 @getc(ptr noundef nonnull %0)
   %24 = icmp eq i32 %23, 35
   br i1 %24, label %.preheader.i25, label %text_getc.exit26
 
 .preheader.i25:                                   ; preds = %22, %.preheader.i25
-  %25 = tail call i32 @getc(ptr noundef %0)
+  %25 = tail call i32 @getc(ptr noundef nonnull %0)
   switch i32 %25, label %.preheader.i25 [
     i32 -1, label %text_getc.exit26
     i32 10, label %text_getc.exit26
@@ -290,7 +290,7 @@ define dso_local range(i32 0, 2) i32 @read_scan_script(ptr noundef %0, ptr nound
   br i1 %7, label %9, label %.preheader71
 
 .preheader71:                                     ; preds = %2
-  %8 = call fastcc i32 @read_scan_integer(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %3)
+  %8 = call fastcc i32 @read_scan_integer(ptr noundef %6, ptr noundef %4, ptr noundef %3)
   %.not110 = icmp eq i32 %8, 0
   br i1 %.not110, label %._crit_edge114.thread, label %.lr.ph113
 
@@ -477,7 +477,7 @@ select.unfold:                                    ; preds = %74, %71
   br i1 %81, label %82, label %112
 
 82:                                               ; preds = %._crit_edge
-  %83 = call fastcc i32 @read_scan_integer(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %3)
+  %83 = call fastcc i32 @read_scan_integer(ptr noundef %6, ptr noundef %4, ptr noundef %3)
   %84 = icmp eq i32 %83, 0
   %85 = load i32, ptr %3, align 4
   %86 = icmp ne i32 %85, 32
@@ -489,7 +489,7 @@ select.unfold:                                    ; preds = %74, %71
   %89 = trunc i64 %88 to i32
   %90 = getelementptr inbounds i8, ptr %.0112, i64 20
   store i32 %89, ptr %90, align 4
-  %91 = call fastcc i32 @read_scan_integer(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %3)
+  %91 = call fastcc i32 @read_scan_integer(ptr noundef %6, ptr noundef %4, ptr noundef %3)
   %92 = icmp eq i32 %91, 0
   %93 = load i32, ptr %3, align 4
   %94 = icmp ne i32 %93, 32
@@ -501,7 +501,7 @@ select.unfold:                                    ; preds = %74, %71
   %97 = trunc i64 %96 to i32
   %98 = getelementptr inbounds i8, ptr %.0112, i64 24
   store i32 %97, ptr %98, align 4
-  %99 = call fastcc i32 @read_scan_integer(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %3)
+  %99 = call fastcc i32 @read_scan_integer(ptr noundef %6, ptr noundef %4, ptr noundef %3)
   %100 = icmp eq i32 %99, 0
   %101 = load i32, ptr %3, align 4
   %102 = icmp ne i32 %101, 32
@@ -513,7 +513,7 @@ select.unfold:                                    ; preds = %74, %71
   %105 = trunc i64 %104 to i32
   %106 = getelementptr inbounds i8, ptr %.0112, i64 28
   store i32 %105, ptr %106, align 4
-  %107 = call fastcc i32 @read_scan_integer(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %3)
+  %107 = call fastcc i32 @read_scan_integer(ptr noundef %6, ptr noundef %4, ptr noundef %3)
   %.not58 = icmp eq i32 %107, 0
   br i1 %.not58, label %read_scan_integer.exit.thread, label %108
 
@@ -552,7 +552,7 @@ read_scan_integer.exit.thread:                    ; preds = %117, %103, %95, %87
 122:                                              ; preds = %117, %117
   %123 = getelementptr inbounds i8, ptr %.0112, i64 36
   %124 = add nuw nsw i32 %.053111, 1
-  %125 = call fastcc i32 @read_scan_integer(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %3)
+  %125 = call fastcc i32 @read_scan_integer(ptr noundef %6, ptr noundef %4, ptr noundef %3)
   %.not = icmp eq i32 %125, 0
   br i1 %.not, label %._crit_edge114, label %.lr.ph113, !llvm.loop !12
 
@@ -596,7 +596,7 @@ read_scan_integer.exit.thread:                    ; preds = %117, %103, %95, %87
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @read_scan_integer(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @read_scan_integer(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #2 {
   %4 = tail call fastcc i32 @read_text_integer(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %28, label %5
@@ -618,12 +618,12 @@ define internal fastcc range(i32 0, 2) i32 @read_scan_integer(ptr nocapture noun
   br i1 %.not19, label %.critedge, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = tail call i32 @getc(ptr noundef %0)
+  %13 = tail call i32 @getc(ptr noundef nonnull %0)
   %14 = icmp eq i32 %13, 35
   br i1 %14, label %.preheader.i, label %text_getc.exit
 
 .preheader.i:                                     ; preds = %12, %.preheader.i
-  %15 = tail call i32 @getc(ptr noundef %0)
+  %15 = tail call i32 @getc(ptr noundef nonnull %0)
   switch i32 %15, label %.preheader.i [
     i32 -1, label %text_getc.exit
     i32 10, label %text_getc.exit
@@ -646,7 +646,7 @@ text_getc.exit:                                   ; preds = %.preheader.i, %.pre
   br i1 %.not20, label %24, label %21
 
 21:                                               ; preds = %.critedge
-  %22 = tail call i32 @ungetc(i32 noundef %.0.lcssa, ptr noundef %0)
+  %22 = tail call i32 @ungetc(i32 noundef %.0.lcssa, ptr noundef nonnull %0)
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %28, label %27
 

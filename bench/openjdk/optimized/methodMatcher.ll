@@ -592,7 +592,7 @@ _ZL10check_modePcRPKc.exit48:                     ; preds = %52, %70, %.sink.spl
   %107 = getelementptr inbounds i8, ptr %105, i64 %106
   store ptr %107, ptr %0, align 8
   store i32 0, ptr %8, align 4
-  call fastcc void @_ZL19skip_leading_spacesRPcPi(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %9)
+  call fastcc void @_ZL19skip_leading_spacesRPcPi(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %9)
   %108 = load ptr, ptr %0, align 8
   %109 = load i8, ptr %108, align 1
   %110 = icmp eq i8 %109, 40
@@ -665,7 +665,7 @@ _ZL10check_modePcRPKc.exit48:                     ; preds = %52, %70, %.sink.spl
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL19skip_leading_spacesRPcPi(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef %1) unnamed_addr #6 {
+define internal fastcc void @_ZL19skip_leading_spacesRPcPi(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull %1) unnamed_addr #6 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   %4 = load ptr, ptr %0, align 8

@@ -9607,7 +9607,7 @@ if.then1219:                                      ; preds = %invoke.cont1214
   %constant1220 = getelementptr inbounds i8, ptr %call1215, i64 32
   store i16 0, ptr %id, align 2
   %call1222 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant1220) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotItEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %ref.tmp1221, ptr noundef %call1222, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %id)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotItEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %ref.tmp1221, ptr noundef %call1222, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %id)
           to label %invoke.cont1223 unwind label %lpad17
 
 invoke.cont1223:                                  ; preds = %if.then1219
@@ -10938,7 +10938,7 @@ if.then448:                                       ; preds = %land.lhs.true445
   ]
 
 sw.bb464:                                         ; preds = %if.then448
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val465)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val465)
   store i8 1, ptr %has_been_checked_.i305, align 1
   %90 = load i8, ptr %agg.result, align 1
   %tobool.i280 = trunc i8 %90 to i1
@@ -10950,7 +10950,7 @@ cleanup.cont479:                                  ; preds = %sw.bb464
   br label %if.end668
 
 sw.bb481:                                         ; preds = %if.then448
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val482)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val482)
   store i8 1, ptr %has_been_checked_.i305, align 1
   %92 = load i8, ptr %agg.result, align 1
   %tobool.i282 = trunc i8 %92 to i1
@@ -10962,7 +10962,7 @@ cleanup.cont496:                                  ; preds = %sw.bb481
   br label %if.end668
 
 sw.bb498:                                         ; preds = %if.then448
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIaEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val499)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIaEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val499)
   store i8 1, ptr %has_been_checked_.i305, align 1
   %94 = load i8, ptr %agg.result, align 1
   %tobool.i284 = trunc i8 %94 to i1
@@ -10974,7 +10974,7 @@ cleanup.cont513:                                  ; preds = %sw.bb498
   br label %if.end668
 
 sw.bb515:                                         ; preds = %if.then448
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val516)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val516)
   store i8 1, ptr %has_been_checked_.i305, align 1
   %96 = load i8, ptr %agg.result, align 1
   %tobool.i286 = trunc i8 %96 to i1
@@ -10986,7 +10986,7 @@ cleanup.cont530:                                  ; preds = %sw.bb515
   br label %if.end668
 
 sw.bb532:                                         ; preds = %if.then448
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIsEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val533)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIsEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val533)
   store i8 1, ptr %has_been_checked_.i305, align 1
   %98 = load i8, ptr %agg.result, align 1
   %tobool.i288 = trunc i8 %98 to i1
@@ -10998,7 +10998,7 @@ cleanup.cont547:                                  ; preds = %sw.bb532
   br label %if.end668
 
 sw.bb549:                                         ; preds = %if.then448
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotItEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val550)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotItEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val550)
   store i8 1, ptr %has_been_checked_.i305, align 1
   %100 = load i8, ptr %agg.result, align 1
   %tobool.i290 = trunc i8 %100 to i1
@@ -11010,7 +11010,7 @@ cleanup.cont564:                                  ; preds = %sw.bb549
   br label %if.end668
 
 sw.bb566:                                         ; preds = %if.then448
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIiEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val567)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIiEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val567)
   store i8 1, ptr %has_been_checked_.i305, align 1
   %102 = load i8, ptr %agg.result, align 1
   %tobool.i292 = trunc i8 %102 to i1
@@ -11022,7 +11022,7 @@ cleanup.cont581:                                  ; preds = %sw.bb566
   br label %if.end668
 
 sw.bb583:                                         ; preds = %if.then448
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIjEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val584)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIjEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val584)
   store i8 1, ptr %has_been_checked_.i305, align 1
   %104 = load i8, ptr %agg.result, align 1
   %tobool.i294 = trunc i8 %104 to i1
@@ -11034,7 +11034,7 @@ cleanup.cont598:                                  ; preds = %sw.bb583
   br label %if.end668
 
 sw.bb600:                                         ; preds = %if.then448
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIlEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val601)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIlEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val601)
   store i8 1, ptr %has_been_checked_.i305, align 1
   %106 = load i8, ptr %agg.result, align 1
   %tobool.i296 = trunc i8 %106 to i1
@@ -11046,7 +11046,7 @@ cleanup.cont615:                                  ; preds = %sw.bb600
   br label %if.end668
 
 sw.bb617:                                         ; preds = %if.then448
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotImEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val618)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotImEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val618)
   store i8 1, ptr %has_been_checked_.i305, align 1
   %108 = load i8, ptr %agg.result, align 1
   %tobool.i298 = trunc i8 %108 to i1
@@ -11058,7 +11058,7 @@ cleanup.cont632:                                  ; preds = %sw.bb617
   br label %if.end668
 
 sw.bb634:                                         ; preds = %if.then448
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIfEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val635)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIfEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val635)
   store i8 1, ptr %has_been_checked_.i305, align 1
   %110 = load i8, ptr %agg.result, align 1
   %tobool.i300 = trunc i8 %110 to i1
@@ -11074,7 +11074,7 @@ if.then.i303:                                     ; preds = %cleanup.cont649
   br label %if.end668
 
 sw.bb651:                                         ; preds = %if.then448
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIdEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val652)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIdEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val652)
   store i8 1, ptr %has_been_checked_.i305, align 1
   %112 = load i8, ptr %agg.result, align 1
   %tobool.i306 = trunc i8 %112 to i1
@@ -12055,7 +12055,7 @@ return:                                           ; preds = %_ZNSt3mapINSt7__cxx
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotItEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr nocapture noundef writeonly %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotItEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr nocapture noundef nonnull writeonly %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i50 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12273,7 +12273,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
 
 invoke.cont26:                                    ; preds = %invoke.cont24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(32) %call.i45) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringItEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %ref.tmp27)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringItEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %ref.tmp27)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont26
@@ -12704,7 +12704,7 @@ if.then:                                          ; preds = %invoke.cont10
 invoke.cont20:                                    ; preds = %land.lhs.true.us
   %constant22 = getelementptr inbounds i8, ptr %elem.sroa.0.0238.us, i64 -48
   %call23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant22) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIjEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call23, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %offset)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIjEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call23, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %offset)
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %invoke.cont20
@@ -13115,7 +13115,7 @@ invoke.cont212:                                   ; preds = %if.then199
 
 if.else214:                                       ; preds = %if.end197
   %call216 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call216, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %enum_idx)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call216, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %enum_idx)
           to label %invoke.cont217 unwind label %lpad
 
 invoke.cont217:                                   ; preds = %if.else214
@@ -13517,7 +13517,7 @@ return:                                           ; preds = %cleanup304.thread, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIjEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr nocapture noundef writeonly %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIjEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr nocapture noundef nonnull writeonly %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i50 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13735,7 +13735,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
 
 invoke.cont26:                                    ; preds = %invoke.cont24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(32) %call.i45) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %ref.tmp27)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %ref.tmp27)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont26
@@ -14391,7 +14391,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr nocapture noundef writeonly %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr nocapture noundef nonnull writeonly %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i50 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14609,7 +14609,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
 
 invoke.cont26:                                    ; preds = %invoke.cont24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(32) %call.i45) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIhEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %ref.tmp27)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIhEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %ref.tmp27)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont26
@@ -16191,7 +16191,7 @@ invoke.cont112:                                   ; preds = %for.body.i.i, %sw.b
 if.then115:                                       ; preds = %invoke.cont112
   %constant = getelementptr inbounds i8, ptr %it.sroa.0.01327, i64 -48
   %call117 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call117, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call117, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val)
           to label %invoke.cont118 unwind label %lpad6.loopexit
 
 invoke.cont118:                                   ; preds = %if.then115
@@ -16258,7 +16258,7 @@ if.then136:                                       ; preds = %invoke.cont134
 
 if.then140:                                       ; preds = %if.then136
   %call144 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant137) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call144, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val141)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call144, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val141)
           to label %invoke.cont145 unwind label %lpad6.loopexit
 
 invoke.cont145:                                   ; preds = %if.then140
@@ -16347,7 +16347,7 @@ if.then.i.i:                                      ; preds = %_ZN11flatbuffers15v
 
 if.else161:                                       ; preds = %invoke.cont134
   %call165 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant137) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call165, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val162)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call165, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val162)
           to label %invoke.cont166 unwind label %lpad6.loopexit
 
 invoke.cont166:                                   ; preds = %if.else161
@@ -16359,7 +16359,7 @@ invoke.cont166:                                   ; preds = %if.else161
 nrvo.unused174:                                   ; preds = %invoke.cont166
   %constant181 = getelementptr inbounds i8, ptr %124, i64 232
   %call182 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant181) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call182, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %valdef)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call182, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %valdef)
           to label %invoke.cont183 unwind label %lpad6.loopexit
 
 invoke.cont183:                                   ; preds = %nrvo.unused174
@@ -16509,7 +16509,7 @@ invoke.cont204:                                   ; preds = %for.body.i.i447, %s
 if.then207:                                       ; preds = %invoke.cont204
   %constant210 = getelementptr inbounds i8, ptr %it.sroa.0.01327, i64 -48
   %call211 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant210) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call211, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val208)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call211, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val208)
           to label %invoke.cont212 unwind label %lpad6.loopexit
 
 invoke.cont212:                                   ; preds = %if.then207
@@ -16537,7 +16537,7 @@ if.then231:                                       ; preds = %invoke.cont229
 
 if.then235:                                       ; preds = %if.then231
   %call239 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant232) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call239, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val236)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call239, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val236)
           to label %invoke.cont240 unwind label %lpad6.loopexit
 
 invoke.cont240:                                   ; preds = %if.then235
@@ -16548,7 +16548,7 @@ invoke.cont240:                                   ; preds = %if.then235
 
 if.else257:                                       ; preds = %invoke.cont229
   %call262 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant232) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call262, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val258)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call262, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val258)
           to label %invoke.cont263 unwind label %lpad6.loopexit
 
 invoke.cont263:                                   ; preds = %if.else257
@@ -16560,7 +16560,7 @@ invoke.cont263:                                   ; preds = %if.else257
 nrvo.unused271:                                   ; preds = %invoke.cont263
   %constant278 = getelementptr inbounds i8, ptr %124, i64 232
   %call279 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant278) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call279, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %valdef259)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call279, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %valdef259)
           to label %invoke.cont280 unwind label %lpad6.loopexit
 
 invoke.cont280:                                   ; preds = %nrvo.unused271
@@ -16621,7 +16621,7 @@ invoke.cont301:                                   ; preds = %for.body.i.i485, %s
 if.then304:                                       ; preds = %invoke.cont301
   %constant307 = getelementptr inbounds i8, ptr %it.sroa.0.01327, i64 -48
   %call308 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant307) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call308, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val305)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call308, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val305)
           to label %invoke.cont309 unwind label %lpad6.loopexit
 
 invoke.cont309:                                   ; preds = %if.then304
@@ -16649,7 +16649,7 @@ if.then328:                                       ; preds = %invoke.cont326
 
 if.then332:                                       ; preds = %if.then328
   %call336 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant329) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call336, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val333)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call336, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val333)
           to label %invoke.cont337 unwind label %lpad6.loopexit
 
 invoke.cont337:                                   ; preds = %if.then332
@@ -16660,7 +16660,7 @@ invoke.cont337:                                   ; preds = %if.then332
 
 if.else354:                                       ; preds = %invoke.cont326
   %call359 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant329) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call359, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val355)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call359, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val355)
           to label %invoke.cont360 unwind label %lpad6.loopexit
 
 invoke.cont360:                                   ; preds = %if.else354
@@ -16672,7 +16672,7 @@ invoke.cont360:                                   ; preds = %if.else354
 nrvo.unused368:                                   ; preds = %invoke.cont360
   %constant375 = getelementptr inbounds i8, ptr %124, i64 232
   %call376 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant375) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call376, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %valdef356)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call376, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %valdef356)
           to label %invoke.cont377 unwind label %lpad6.loopexit
 
 invoke.cont377:                                   ; preds = %nrvo.unused368
@@ -16733,7 +16733,7 @@ invoke.cont398:                                   ; preds = %for.body.i.i523, %s
 if.then401:                                       ; preds = %invoke.cont398
   %constant404 = getelementptr inbounds i8, ptr %it.sroa.0.01327, i64 -48
   %call405 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant404) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIaEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call405, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val402)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIaEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call405, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val402)
           to label %invoke.cont406 unwind label %lpad6.loopexit
 
 invoke.cont406:                                   ; preds = %if.then401
@@ -16799,7 +16799,7 @@ if.then425:                                       ; preds = %invoke.cont423
 
 if.then429:                                       ; preds = %if.then425
   %call433 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant426) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIaEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call433, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val430)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIaEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call433, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val430)
           to label %invoke.cont434 unwind label %lpad6.loopexit
 
 invoke.cont434:                                   ; preds = %if.then429
@@ -16887,7 +16887,7 @@ if.then.i.i1527:                                  ; preds = %_ZN11flatbuffers15v
 
 if.else451:                                       ; preds = %invoke.cont423
   %call456 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant426) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIaEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call456, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val452)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIaEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call456, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val452)
           to label %invoke.cont457 unwind label %lpad6.loopexit
 
 invoke.cont457:                                   ; preds = %if.else451
@@ -16899,7 +16899,7 @@ invoke.cont457:                                   ; preds = %if.else451
 nrvo.unused465:                                   ; preds = %invoke.cont457
   %constant472 = getelementptr inbounds i8, ptr %124, i64 232
   %call473 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant472) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIaEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call473, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %valdef453)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIaEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call473, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %valdef453)
           to label %invoke.cont474 unwind label %lpad6.loopexit
 
 invoke.cont474:                                   ; preds = %nrvo.unused465
@@ -17047,7 +17047,7 @@ invoke.cont495:                                   ; preds = %for.body.i.i561, %s
 if.then498:                                       ; preds = %invoke.cont495
   %constant501 = getelementptr inbounds i8, ptr %it.sroa.0.01327, i64 -48
   %call502 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant501) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call502, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val499)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call502, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val499)
           to label %invoke.cont503 unwind label %lpad6.loopexit
 
 invoke.cont503:                                   ; preds = %if.then498
@@ -17075,7 +17075,7 @@ if.then522:                                       ; preds = %invoke.cont520
 
 if.then526:                                       ; preds = %if.then522
   %call530 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant523) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call530, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val527)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call530, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val527)
           to label %invoke.cont531 unwind label %lpad6.loopexit
 
 invoke.cont531:                                   ; preds = %if.then526
@@ -17086,7 +17086,7 @@ invoke.cont531:                                   ; preds = %if.then526
 
 if.else548:                                       ; preds = %invoke.cont520
   %call553 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant523) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call553, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val549)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call553, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val549)
           to label %invoke.cont554 unwind label %lpad6.loopexit
 
 invoke.cont554:                                   ; preds = %if.else548
@@ -17098,7 +17098,7 @@ invoke.cont554:                                   ; preds = %if.else548
 nrvo.unused562:                                   ; preds = %invoke.cont554
   %constant569 = getelementptr inbounds i8, ptr %124, i64 232
   %call570 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant569) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call570, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %valdef550)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call570, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %valdef550)
           to label %invoke.cont571 unwind label %lpad6.loopexit
 
 invoke.cont571:                                   ; preds = %nrvo.unused562
@@ -17159,7 +17159,7 @@ invoke.cont592:                                   ; preds = %for.body.i.i599, %s
 if.then595:                                       ; preds = %invoke.cont592
   %constant598 = getelementptr inbounds i8, ptr %it.sroa.0.01327, i64 -48
   %call599 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant598) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIsEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call599, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val596)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIsEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call599, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val596)
           to label %invoke.cont600 unwind label %lpad6.loopexit
 
 invoke.cont600:                                   ; preds = %if.then595
@@ -17270,7 +17270,7 @@ if.then619:                                       ; preds = %invoke.cont617
 
 if.then623:                                       ; preds = %if.then619
   %call627 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant620) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIsEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call627, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val624)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIsEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call627, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val624)
           to label %invoke.cont628 unwind label %lpad6.loopexit
 
 invoke.cont628:                                   ; preds = %if.then623
@@ -17288,7 +17288,7 @@ nrvo.unused636:                                   ; preds = %invoke.cont628
 
 if.else645:                                       ; preds = %invoke.cont617
   %call650 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant620) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIsEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call650, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val646)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIsEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call650, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val646)
           to label %invoke.cont651 unwind label %lpad6.loopexit
 
 invoke.cont651:                                   ; preds = %if.else645
@@ -17300,7 +17300,7 @@ invoke.cont651:                                   ; preds = %if.else645
 nrvo.unused659:                                   ; preds = %invoke.cont651
   %constant666 = getelementptr inbounds i8, ptr %124, i64 232
   %call667 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant666) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIsEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call667, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %valdef647)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIsEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call667, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %valdef647)
           to label %invoke.cont668 unwind label %lpad6.loopexit
 
 invoke.cont668:                                   ; preds = %nrvo.unused659
@@ -17369,7 +17369,7 @@ invoke.cont689:                                   ; preds = %for.body.i.i637, %s
 if.then692:                                       ; preds = %invoke.cont689
   %constant695 = getelementptr inbounds i8, ptr %it.sroa.0.01327, i64 -48
   %call696 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant695) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotItEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call696, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val693)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotItEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call696, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val693)
           to label %invoke.cont697 unwind label %lpad6.loopexit
 
 invoke.cont697:                                   ; preds = %if.then692
@@ -17480,7 +17480,7 @@ if.then716:                                       ; preds = %invoke.cont714
 
 if.then720:                                       ; preds = %if.then716
   %call724 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant717) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotItEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call724, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val721)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotItEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call724, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val721)
           to label %invoke.cont725 unwind label %lpad6.loopexit
 
 invoke.cont725:                                   ; preds = %if.then720
@@ -17498,7 +17498,7 @@ nrvo.unused733:                                   ; preds = %invoke.cont725
 
 if.else742:                                       ; preds = %invoke.cont714
   %call747 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant717) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotItEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call747, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val743)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotItEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call747, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val743)
           to label %invoke.cont748 unwind label %lpad6.loopexit
 
 invoke.cont748:                                   ; preds = %if.else742
@@ -17510,7 +17510,7 @@ invoke.cont748:                                   ; preds = %if.else742
 nrvo.unused756:                                   ; preds = %invoke.cont748
   %constant763 = getelementptr inbounds i8, ptr %124, i64 232
   %call764 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant763) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotItEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call764, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %valdef744)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotItEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call764, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %valdef744)
           to label %invoke.cont765 unwind label %lpad6.loopexit
 
 invoke.cont765:                                   ; preds = %nrvo.unused756
@@ -17579,7 +17579,7 @@ invoke.cont786:                                   ; preds = %for.body.i.i675, %s
 if.then789:                                       ; preds = %invoke.cont786
   %constant792 = getelementptr inbounds i8, ptr %it.sroa.0.01327, i64 -48
   %call793 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant792) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIiEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call793, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val790)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIiEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call793, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val790)
           to label %invoke.cont794 unwind label %lpad6.loopexit
 
 invoke.cont794:                                   ; preds = %if.then789
@@ -17691,7 +17691,7 @@ if.then813:                                       ; preds = %invoke.cont811
 
 if.then817:                                       ; preds = %if.then813
   %call821 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant814) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIiEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call821, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val818)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIiEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call821, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val818)
           to label %invoke.cont822 unwind label %lpad6.loopexit
 
 invoke.cont822:                                   ; preds = %if.then817
@@ -17709,7 +17709,7 @@ nrvo.unused830:                                   ; preds = %invoke.cont822
 
 if.else839:                                       ; preds = %invoke.cont811
   %call844 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant814) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIiEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call844, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val840)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIiEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call844, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val840)
           to label %invoke.cont845 unwind label %lpad6.loopexit
 
 invoke.cont845:                                   ; preds = %if.else839
@@ -17721,7 +17721,7 @@ invoke.cont845:                                   ; preds = %if.else839
 nrvo.unused853:                                   ; preds = %invoke.cont845
   %constant860 = getelementptr inbounds i8, ptr %124, i64 232
   %call861 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant860) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIiEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call861, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %valdef841)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIiEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call861, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %valdef841)
           to label %invoke.cont862 unwind label %lpad6.loopexit
 
 invoke.cont862:                                   ; preds = %nrvo.unused853
@@ -17790,7 +17790,7 @@ invoke.cont883:                                   ; preds = %for.body.i.i713, %s
 if.then886:                                       ; preds = %invoke.cont883
   %constant889 = getelementptr inbounds i8, ptr %it.sroa.0.01327, i64 -48
   %call890 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant889) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIjEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call890, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val887)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIjEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call890, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val887)
           to label %invoke.cont891 unwind label %lpad6.loopexit
 
 invoke.cont891:                                   ; preds = %if.then886
@@ -17902,7 +17902,7 @@ if.then910:                                       ; preds = %invoke.cont908
 
 if.then914:                                       ; preds = %if.then910
   %call918 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant911) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIjEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call918, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val915)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIjEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call918, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val915)
           to label %invoke.cont919 unwind label %lpad6.loopexit
 
 invoke.cont919:                                   ; preds = %if.then914
@@ -17920,7 +17920,7 @@ nrvo.unused927:                                   ; preds = %invoke.cont919
 
 if.else936:                                       ; preds = %invoke.cont908
   %call941 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant911) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIjEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call941, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val937)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIjEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call941, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val937)
           to label %invoke.cont942 unwind label %lpad6.loopexit
 
 invoke.cont942:                                   ; preds = %if.else936
@@ -17932,7 +17932,7 @@ invoke.cont942:                                   ; preds = %if.else936
 nrvo.unused950:                                   ; preds = %invoke.cont942
   %constant957 = getelementptr inbounds i8, ptr %124, i64 232
   %call958 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant957) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIjEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call958, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %valdef938)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIjEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call958, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %valdef938)
           to label %invoke.cont959 unwind label %lpad6.loopexit
 
 invoke.cont959:                                   ; preds = %nrvo.unused950
@@ -18000,7 +18000,7 @@ invoke.cont980:                                   ; preds = %for.body.i.i751, %s
 if.then983:                                       ; preds = %invoke.cont980
   %constant986 = getelementptr inbounds i8, ptr %it.sroa.0.01327, i64 -48
   %call987 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant986) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIlEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call987, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val984)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIlEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call987, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val984)
           to label %invoke.cont988 unwind label %lpad6.loopexit
 
 invoke.cont988:                                   ; preds = %if.then983
@@ -18112,7 +18112,7 @@ if.then1007:                                      ; preds = %invoke.cont1005
 
 if.then1011:                                      ; preds = %if.then1007
   %call1015 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant1008) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIlEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call1015, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val1012)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIlEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call1015, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val1012)
           to label %invoke.cont1016 unwind label %lpad6.loopexit
 
 invoke.cont1016:                                  ; preds = %if.then1011
@@ -18130,7 +18130,7 @@ nrvo.unused1024:                                  ; preds = %invoke.cont1016
 
 if.else1033:                                      ; preds = %invoke.cont1005
   %call1038 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant1008) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIlEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call1038, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val1034)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIlEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call1038, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val1034)
           to label %invoke.cont1039 unwind label %lpad6.loopexit
 
 invoke.cont1039:                                  ; preds = %if.else1033
@@ -18142,7 +18142,7 @@ invoke.cont1039:                                  ; preds = %if.else1033
 nrvo.unused1047:                                  ; preds = %invoke.cont1039
   %constant1054 = getelementptr inbounds i8, ptr %124, i64 232
   %call1055 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant1054) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIlEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call1055, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %valdef1035)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIlEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call1055, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %valdef1035)
           to label %invoke.cont1056 unwind label %lpad6.loopexit
 
 invoke.cont1056:                                  ; preds = %nrvo.unused1047
@@ -18211,7 +18211,7 @@ invoke.cont1077:                                  ; preds = %for.body.i.i789, %s
 if.then1080:                                      ; preds = %invoke.cont1077
   %constant1083 = getelementptr inbounds i8, ptr %it.sroa.0.01327, i64 -48
   %call1084 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant1083) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotImEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call1084, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val1081)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotImEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call1084, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val1081)
           to label %invoke.cont1085 unwind label %lpad6.loopexit
 
 invoke.cont1085:                                  ; preds = %if.then1080
@@ -18323,7 +18323,7 @@ if.then1104:                                      ; preds = %invoke.cont1102
 
 if.then1108:                                      ; preds = %if.then1104
   %call1112 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant1105) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotImEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call1112, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val1109)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotImEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call1112, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val1109)
           to label %invoke.cont1113 unwind label %lpad6.loopexit
 
 invoke.cont1113:                                  ; preds = %if.then1108
@@ -18341,7 +18341,7 @@ nrvo.unused1121:                                  ; preds = %invoke.cont1113
 
 if.else1130:                                      ; preds = %invoke.cont1102
   %call1135 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant1105) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotImEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call1135, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val1131)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotImEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call1135, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val1131)
           to label %invoke.cont1136 unwind label %lpad6.loopexit
 
 invoke.cont1136:                                  ; preds = %if.else1130
@@ -18353,7 +18353,7 @@ invoke.cont1136:                                  ; preds = %if.else1130
 nrvo.unused1144:                                  ; preds = %invoke.cont1136
   %constant1151 = getelementptr inbounds i8, ptr %124, i64 232
   %call1152 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant1151) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotImEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call1152, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %valdef1132)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotImEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call1152, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %valdef1132)
           to label %invoke.cont1153 unwind label %lpad6.loopexit
 
 invoke.cont1153:                                  ; preds = %nrvo.unused1144
@@ -18421,7 +18421,7 @@ invoke.cont1174:                                  ; preds = %for.body.i.i827, %s
 if.then1177:                                      ; preds = %invoke.cont1174
   %constant1180 = getelementptr inbounds i8, ptr %it.sroa.0.01327, i64 -48
   %call1181 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant1180) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIfEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call1181, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val1178)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIfEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call1181, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val1178)
           to label %invoke.cont1182 unwind label %lpad6.loopexit
 
 invoke.cont1182:                                  ; preds = %if.then1177
@@ -18533,7 +18533,7 @@ if.then1201:                                      ; preds = %invoke.cont1199
 
 if.then1205:                                      ; preds = %if.then1201
   %call1209 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant1202) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIfEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call1209, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val1206)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIfEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call1209, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val1206)
           to label %invoke.cont1210 unwind label %lpad6.loopexit
 
 invoke.cont1210:                                  ; preds = %if.then1205
@@ -18551,7 +18551,7 @@ nrvo.unused1218:                                  ; preds = %invoke.cont1210
 
 if.else1227:                                      ; preds = %invoke.cont1199
   %call1232 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant1202) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIfEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call1232, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val1228)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIfEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call1232, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val1228)
           to label %invoke.cont1233 unwind label %lpad6.loopexit
 
 invoke.cont1233:                                  ; preds = %if.else1227
@@ -18563,7 +18563,7 @@ invoke.cont1233:                                  ; preds = %if.else1227
 nrvo.unused1241:                                  ; preds = %invoke.cont1233
   %constant1248 = getelementptr inbounds i8, ptr %124, i64 232
   %call1249 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant1248) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIfEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call1249, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %valdef1229)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIfEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call1249, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %valdef1229)
           to label %invoke.cont1250 unwind label %lpad6.loopexit
 
 invoke.cont1250:                                  ; preds = %nrvo.unused1241
@@ -18632,7 +18632,7 @@ invoke.cont1271:                                  ; preds = %for.body.i.i865, %s
 if.then1274:                                      ; preds = %invoke.cont1271
   %constant1277 = getelementptr inbounds i8, ptr %it.sroa.0.01327, i64 -48
   %call1278 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant1277) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIdEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call1278, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val1275)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIdEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call1278, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val1275)
           to label %invoke.cont1279 unwind label %lpad6.loopexit
 
 invoke.cont1279:                                  ; preds = %if.then1274
@@ -18744,7 +18744,7 @@ if.then1298:                                      ; preds = %invoke.cont1296
 
 if.then1302:                                      ; preds = %if.then1298
   %call1306 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant1299) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIdEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call1306, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val1303)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIdEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call1306, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val1303)
           to label %invoke.cont1307 unwind label %lpad6.loopexit
 
 invoke.cont1307:                                  ; preds = %if.then1302
@@ -18762,7 +18762,7 @@ nrvo.unused1315:                                  ; preds = %invoke.cont1307
 
 if.else1324:                                      ; preds = %invoke.cont1296
   %call1329 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant1299) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIdEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call1329, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val1325)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIdEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call1329, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %val1325)
           to label %invoke.cont1330 unwind label %lpad6.loopexit
 
 invoke.cont1330:                                  ; preds = %if.else1324
@@ -18774,7 +18774,7 @@ invoke.cont1330:                                  ; preds = %if.else1324
 nrvo.unused1338:                                  ; preds = %invoke.cont1330
   %constant1345 = getelementptr inbounds i8, ptr %124, i64 232
   %call1346 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant1345) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIdEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call1346, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %valdef1326)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIdEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call1346, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %valdef1326)
           to label %invoke.cont1347 unwind label %lpad6.loopexit
 
 invoke.cont1347:                                  ; preds = %nrvo.unused1338
@@ -20335,7 +20335,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %sw
 if.else54:                                        ; preds = %for.body
   %constant56 = getelementptr inbounds i8, ptr %61, i64 -48
   %call57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant56) #30
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call57, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call57, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem)
   store i8 1, ptr %has_been_checked_.i.i1131, align 1
   %63 = load i8, ptr %agg.result, align 1
   %tobool.i263 = trunc i8 %63 to i1
@@ -20379,7 +20379,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit: ; pre
 if.else83:                                        ; preds = %for.body
   %constant86 = getelementptr inbounds i8, ptr %61, i64 -48
   %call87 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant86) #30
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call87, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem84)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call87, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem84)
   store i8 1, ptr %has_been_checked_.i.i1131, align 1
   %69 = load i8, ptr %agg.result, align 1
   %tobool.i281 = trunc i8 %69 to i1
@@ -20423,7 +20423,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit300: ; 
 if.else113:                                       ; preds = %for.body
   %constant116 = getelementptr inbounds i8, ptr %61, i64 -48
   %call117 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant116) #30
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call117, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem114)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call117, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem114)
   store i8 1, ptr %has_been_checked_.i.i1131, align 1
   %75 = load i8, ptr %agg.result, align 1
   %tobool.i311 = trunc i8 %75 to i1
@@ -20467,7 +20467,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit330: ; 
 if.else143:                                       ; preds = %for.body
   %constant146 = getelementptr inbounds i8, ptr %61, i64 -48
   %call147 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant146) #30
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIaEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call147, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem144)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIaEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call147, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem144)
   store i8 1, ptr %has_been_checked_.i.i1131, align 1
   %81 = load i8, ptr %agg.result, align 1
   %tobool.i341 = trunc i8 %81 to i1
@@ -20511,7 +20511,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIajEET0_T_.exit: ; pre
 if.else173:                                       ; preds = %for.body
   %constant176 = getelementptr inbounds i8, ptr %61, i64 -48
   %call177 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant176) #30
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call177, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem174)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call177, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem174)
   store i8 1, ptr %has_been_checked_.i.i1131, align 1
   %87 = load i8, ptr %agg.result, align 1
   %tobool.i370 = trunc i8 %87 to i1
@@ -20555,7 +20555,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit389: ; 
 if.else203:                                       ; preds = %for.body
   %constant206 = getelementptr inbounds i8, ptr %61, i64 -48
   %call207 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant206) #30
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIsEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call207, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem204)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIsEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call207, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem204)
   store i8 1, ptr %has_been_checked_.i.i1131, align 1
   %93 = load i8, ptr %agg.result, align 1
   %tobool.i400 = trunc i8 %93 to i1
@@ -20641,7 +20641,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIsjEET0_T_.exit: ; pre
 if.else233:                                       ; preds = %for.body
   %constant236 = getelementptr inbounds i8, ptr %61, i64 -48
   %call237 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant236) #30
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotItEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call237, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem234)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotItEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call237, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem234)
   store i8 1, ptr %has_been_checked_.i.i1131, align 1
   %105 = load i8, ptr %agg.result, align 1
   %tobool.i450 = trunc i8 %105 to i1
@@ -20727,7 +20727,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementItjEET0_T_.exit: ; pre
 if.else263:                                       ; preds = %for.body
   %constant266 = getelementptr inbounds i8, ptr %61, i64 -48
   %call267 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant266) #30
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIiEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call267, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem264)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIiEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call267, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem264)
   store i8 1, ptr %has_been_checked_.i.i1131, align 1
   %117 = load i8, ptr %agg.result, align 1
   %tobool.i503 = trunc i8 %117 to i1
@@ -20814,7 +20814,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIijEET0_T_.exit: ; pre
 if.else293:                                       ; preds = %for.body
   %constant296 = getelementptr inbounds i8, ptr %61, i64 -48
   %call297 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant296) #30
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIjEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call297, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem294)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIjEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call297, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem294)
   store i8 1, ptr %has_been_checked_.i.i1131, align 1
   %130 = load i8, ptr %agg.result, align 1
   %tobool.i556 = trunc i8 %130 to i1
@@ -20901,7 +20901,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit: ; pre
 if.else323:                                       ; preds = %for.body
   %constant326 = getelementptr inbounds i8, ptr %61, i64 -48
   %call327 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant326) #30
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIlEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call327, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem324)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIlEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call327, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem324)
   store i8 1, ptr %has_been_checked_.i.i1131, align 1
   %143 = load i8, ptr %agg.result, align 1
   %tobool.i609 = trunc i8 %143 to i1
@@ -20988,7 +20988,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIljEET0_T_.exit: ; pre
 if.else353:                                       ; preds = %for.body
   %constant356 = getelementptr inbounds i8, ptr %61, i64 -48
   %call357 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant356) #30
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotImEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call357, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem354)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotImEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call357, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem354)
   store i8 1, ptr %has_been_checked_.i.i1131, align 1
   %156 = load i8, ptr %agg.result, align 1
   %tobool.i662 = trunc i8 %156 to i1
@@ -21075,7 +21075,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementImjEET0_T_.exit: ; pre
 if.else383:                                       ; preds = %for.body
   %constant386 = getelementptr inbounds i8, ptr %61, i64 -48
   %call387 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant386) #30
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIfEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call387, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem384)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIfEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call387, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem384)
   store i8 1, ptr %has_been_checked_.i.i1131, align 1
   %169 = load i8, ptr %agg.result, align 1
   %tobool.i715 = trunc i8 %169 to i1
@@ -21162,7 +21162,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIfjEET0_T_.exit: ; pre
 if.else413:                                       ; preds = %for.body
   %constant416 = getelementptr inbounds i8, ptr %61, i64 -48
   %call417 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant416) #30
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIdEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call417, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem414)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIdEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call417, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem414)
   store i8 1, ptr %has_been_checked_.i.i1131, align 1
   %182 = load i8, ptr %agg.result, align 1
   %tobool.i768 = trunc i8 %182 to i1
@@ -21312,7 +21312,7 @@ nrvo.unused588:                                   ; preds = %for.body
 if.else607:                                       ; preds = %for.body
   %constant610 = getelementptr inbounds i8, ptr %61, i64 -48
   %call611 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant610) #30
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIiEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call611, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem608)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIiEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call611, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem608)
   store i8 1, ptr %has_been_checked_.i.i1131, align 1
   %197 = load i8, ptr %agg.result, align 1
   %tobool.i885 = trunc i8 %197 to i1
@@ -22051,7 +22051,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.else:                                          ; preds = %for.body
   %constant = getelementptr inbounds i8, ptr %it.sroa.0.02012, i64 -40
   %call34 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call34, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call34, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem)
           to label %invoke.cont35 unwind label %lpad8.loopexit
 
 invoke.cont35:                                    ; preds = %if.else
@@ -22172,7 +22172,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit: ; pre
 if.else59:                                        ; preds = %for.body
   %constant62 = getelementptr inbounds i8, ptr %it.sroa.0.02012, i64 -40
   %call63 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant62) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call63, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem60)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call63, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem60)
           to label %invoke.cont64 unwind label %lpad8.loopexit
 
 invoke.cont64:                                    ; preds = %if.else59
@@ -22293,7 +22293,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit185: ; 
 if.else88:                                        ; preds = %for.body
   %constant91 = getelementptr inbounds i8, ptr %it.sroa.0.02012, i64 -40
   %call92 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant91) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call92, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem89)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call92, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem89)
           to label %invoke.cont93 unwind label %lpad8.loopexit
 
 invoke.cont93:                                    ; preds = %if.else88
@@ -22414,7 +22414,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit212: ; 
 if.else117:                                       ; preds = %for.body
   %constant120 = getelementptr inbounds i8, ptr %it.sroa.0.02012, i64 -40
   %call121 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant120) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIaEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call121, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem118)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIaEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call121, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem118)
           to label %invoke.cont122 unwind label %lpad8.loopexit
 
 invoke.cont122:                                   ; preds = %if.else117
@@ -22535,7 +22535,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIajEET0_T_.exit: ; pre
 if.else146:                                       ; preds = %for.body
   %constant149 = getelementptr inbounds i8, ptr %it.sroa.0.02012, i64 -40
   %call150 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant149) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call150, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem147)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call150, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem147)
           to label %invoke.cont151 unwind label %lpad8.loopexit
 
 invoke.cont151:                                   ; preds = %if.else146
@@ -22656,7 +22656,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIhjEET0_T_.exit265: ; 
 if.else175:                                       ; preds = %for.body
   %constant178 = getelementptr inbounds i8, ptr %it.sroa.0.02012, i64 -40
   %call179 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant178) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIsEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call179, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem176)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIsEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call179, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem176)
           to label %invoke.cont180 unwind label %lpad8.loopexit
 
 invoke.cont180:                                   ; preds = %if.else175
@@ -22895,7 +22895,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIsjEET0_T_.exit: ; pre
 if.else204:                                       ; preds = %for.body
   %constant207 = getelementptr inbounds i8, ptr %it.sroa.0.02012, i64 -40
   %call208 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant207) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotItEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call208, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem205)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotItEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call208, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem205)
           to label %invoke.cont209 unwind label %lpad8.loopexit
 
 invoke.cont209:                                   ; preds = %if.else204
@@ -23134,7 +23134,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementItjEET0_T_.exit: ; pre
 if.else233:                                       ; preds = %for.body
   %constant236 = getelementptr inbounds i8, ptr %it.sroa.0.02012, i64 -40
   %call237 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant236) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIiEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call237, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem234)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIiEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call237, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem234)
           to label %invoke.cont238 unwind label %lpad8.loopexit
 
 invoke.cont238:                                   ; preds = %if.else233
@@ -23374,7 +23374,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIijEET0_T_.exit: ; pre
 if.else262:                                       ; preds = %for.body
   %constant265 = getelementptr inbounds i8, ptr %it.sroa.0.02012, i64 -40
   %call266 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant265) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIjEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call266, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem263)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIjEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call266, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem263)
           to label %invoke.cont267 unwind label %lpad8.loopexit
 
 invoke.cont267:                                   ; preds = %if.else262
@@ -23614,7 +23614,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit: ; pre
 if.else291:                                       ; preds = %for.body
   %constant294 = getelementptr inbounds i8, ptr %it.sroa.0.02012, i64 -40
   %call295 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant294) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIlEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call295, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem292)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIlEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call295, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem292)
           to label %invoke.cont296 unwind label %lpad8.loopexit
 
 invoke.cont296:                                   ; preds = %if.else291
@@ -23854,7 +23854,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIljEET0_T_.exit: ; pre
 if.else320:                                       ; preds = %for.body
   %constant323 = getelementptr inbounds i8, ptr %it.sroa.0.02012, i64 -40
   %call324 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant323) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotImEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call324, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem321)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotImEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call324, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem321)
           to label %invoke.cont325 unwind label %lpad8.loopexit
 
 invoke.cont325:                                   ; preds = %if.else320
@@ -24094,7 +24094,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementImjEET0_T_.exit: ; pre
 if.else349:                                       ; preds = %for.body
   %constant352 = getelementptr inbounds i8, ptr %it.sroa.0.02012, i64 -40
   %call353 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant352) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIfEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call353, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem350)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIfEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call353, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem350)
           to label %invoke.cont354 unwind label %lpad8.loopexit
 
 invoke.cont354:                                   ; preds = %if.else349
@@ -24334,7 +24334,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIfjEET0_T_.exit: ; pre
 if.else378:                                       ; preds = %for.body
   %constant381 = getelementptr inbounds i8, ptr %it.sroa.0.02012, i64 -40
   %call382 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant381) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIdEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call382, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem379)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIdEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call382, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem379)
           to label %invoke.cont383 unwind label %lpad8.loopexit
 
 invoke.cont383:                                   ; preds = %if.else378
@@ -24606,7 +24606,7 @@ if.then498:                                       ; preds = %_ZN11flatbuffers8Is
 if.else566:                                       ; preds = %for.body
   %constant569 = getelementptr inbounds i8, ptr %it.sroa.0.02012, i64 -40
   %call570 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant569) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIiEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call570, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %elem567)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIiEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call570, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %elem567)
           to label %invoke.cont571 unwind label %lpad8.loopexit
 
 invoke.cont571:                                   ; preds = %if.else566
@@ -25495,7 +25495,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIaEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIaEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i52 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25510,7 +25510,7 @@ entry:
   %ref.tmp17 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18 = alloca %"class.std::allocator", align 1
   %ref.tmp27 = alloca %"class.std::__cxx11::basic_string", align 8
-  %call.i = tail call noundef zeroext i1 @_ZN11flatbuffers14StringToNumberIaEEbPKcPT_(ptr noundef %s, ptr noundef %val)
+  %call.i = tail call noundef zeroext i1 @_ZN11flatbuffers14StringToNumberIaEEbPKcPT_(ptr noundef %s, ptr noundef nonnull %val)
   br i1 %call.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -25677,7 +25677,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
 
 invoke.cont26:                                    ; preds = %invoke.cont24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(32) %call.i4546) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIaEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %ref.tmp27)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIaEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %ref.tmp27)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont26
@@ -25810,7 +25810,7 @@ eh.resume:                                        ; preds = %ehcleanup39, %lpad.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIsEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIsEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i52 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25825,7 +25825,7 @@ entry:
   %ref.tmp17 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18 = alloca %"class.std::allocator", align 1
   %ref.tmp27 = alloca %"class.std::__cxx11::basic_string", align 8
-  %call.i = tail call noundef zeroext i1 @_ZN11flatbuffers14StringToNumberIsEEbPKcPT_(ptr noundef %s, ptr noundef %val)
+  %call.i = tail call noundef zeroext i1 @_ZN11flatbuffers14StringToNumberIsEEbPKcPT_(ptr noundef %s, ptr noundef nonnull %val)
   br i1 %call.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -25992,7 +25992,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
 
 invoke.cont26:                                    ; preds = %invoke.cont24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(32) %call.i4546) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %ref.tmp27)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %ref.tmp27)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont26
@@ -26637,7 +26637,7 @@ return:                                           ; preds = %if.then.i, %_ZN11fl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIiEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIiEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i52 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -26652,7 +26652,7 @@ entry:
   %ref.tmp17 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18 = alloca %"class.std::allocator", align 1
   %ref.tmp27 = alloca %"class.std::__cxx11::basic_string", align 8
-  %call.i = tail call noundef zeroext i1 @_ZN11flatbuffers14StringToNumberIiEEbPKcPT_(ptr noundef %s, ptr noundef %val)
+  %call.i = tail call noundef zeroext i1 @_ZN11flatbuffers14StringToNumberIiEEbPKcPT_(ptr noundef %s, ptr noundef nonnull %val)
   br i1 %call.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -26819,7 +26819,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
 
 invoke.cont26:                                    ; preds = %invoke.cont24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(32) %call.i4546) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %ref.tmp27)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %ref.tmp27)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont26
@@ -27468,7 +27468,7 @@ return:                                           ; preds = %if.then.i, %_ZN11fl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIlEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIlEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i51 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -27483,7 +27483,7 @@ entry:
   %ref.tmp17 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18 = alloca %"class.std::allocator", align 1
   %ref.tmp27 = alloca %"class.std::__cxx11::basic_string", align 8
-  %call.i.i = tail call noundef zeroext i1 @_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib(ptr noundef %val, ptr noundef %s, i32 noundef 0, i1 noundef zeroext true)
+  %call.i.i = tail call noundef zeroext i1 @_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib(ptr noundef nonnull %val, ptr noundef %s, i32 noundef 0, i1 noundef zeroext true)
   br i1 %call.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -27650,7 +27650,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
 
 invoke.cont26:                                    ; preds = %invoke.cont24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(32) %call.i46) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %ref.tmp27)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %ref.tmp27)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont26
@@ -28041,7 +28041,7 @@ return:                                           ; preds = %if.then.i, %_ZN11fl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotImEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotImEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i51 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -28056,7 +28056,7 @@ entry:
   %ref.tmp17 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18 = alloca %"class.std::allocator", align 1
   %ref.tmp27 = alloca %"class.std::__cxx11::basic_string", align 8
-  %call.i.i = tail call noundef zeroext i1 @_ZN11flatbuffers19StringToIntegerImplImEEbPT_PKcib(ptr noundef %val, ptr noundef %s, i32 noundef 0, i1 noundef zeroext true)
+  %call.i.i = tail call noundef zeroext i1 @_ZN11flatbuffers19StringToIntegerImplImEEbPT_PKcib(ptr noundef nonnull %val, ptr noundef %s, i32 noundef 0, i1 noundef zeroext true)
   %0 = load i64, ptr %val, align 8
   %tobool.not.i.i = icmp eq i64 %0, 0
   br i1 %call.i.i, label %if.end.i.i, label %if.end
@@ -28249,7 +28249,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
 
 invoke.cont26:                                    ; preds = %invoke.cont24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(32) %call.i46) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %ref.tmp27)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %ref.tmp27)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont26
@@ -28640,7 +28640,7 @@ return:                                           ; preds = %if.then.i, %_ZN11fl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIfEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr nocapture noundef writeonly %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIfEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr nocapture noundef nonnull writeonly %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %end.i.i.i = alloca ptr, align 8
@@ -29047,7 +29047,7 @@ return:                                           ; preds = %if.then.i, %_ZN11fl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIdEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr nocapture noundef writeonly %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIdEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr nocapture noundef nonnull writeonly %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %end.i.i.i = alloca ptr, align 8
@@ -35123,7 +35123,7 @@ invoke.cont100:                                   ; preds = %nrvo.unused94
 nrvo.unused108:                                   ; preds = %invoke.cont100
   %constant114 = getelementptr inbounds i8, ptr %e, i64 32
   %call115 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant114) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIdEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call115, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %x)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIdEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %agg.result, ptr noundef %call115, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %x)
           to label %invoke.cont116 unwind label %lpad5
 
 invoke.cont116:                                   ; preds = %nrvo.unused108
@@ -40601,7 +40601,7 @@ invoke.cont248:                                   ; preds = %invoke.cont246
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp244) #30
   store i16 0, ptr %id, align 2
   %call254 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant250) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotItEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %ref.tmp253, ptr noundef %call254, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %id)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotItEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nonnull align 1 %ref.tmp253, ptr noundef %call254, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %id)
           to label %invoke.cont255 unwind label %lpad18.loopexit
 
 invoke.cont255:                                   ; preds = %invoke.cont248
@@ -66265,7 +66265,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
 
 invoke.cont13:                                    ; preds = %invoke.cont11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(32) %call.i1617) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIhEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %ref.tmp14)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIhEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %ref.tmp14)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont13
@@ -66456,7 +66456,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
 
 invoke.cont13:                                    ; preds = %invoke.cont11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(32) %call.i1617) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIhEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %ref.tmp14)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIhEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %ref.tmp14)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont13
@@ -66647,7 +66647,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
 
 invoke.cont13:                                    ; preds = %invoke.cont11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(32) %call.i1617) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIaEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %ref.tmp14)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIaEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %ref.tmp14)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont13
@@ -66838,7 +66838,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
 
 invoke.cont13:                                    ; preds = %invoke.cont11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(32) %call.i1617) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIhEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %ref.tmp14)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIhEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %ref.tmp14)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont13
@@ -67029,7 +67029,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
 
 invoke.cont13:                                    ; preds = %invoke.cont11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(32) %call.i1617) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %ref.tmp14)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %ref.tmp14)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont13
@@ -67220,7 +67220,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
 
 invoke.cont13:                                    ; preds = %invoke.cont11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(32) %call.i1617) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringItEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %ref.tmp14)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringItEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %ref.tmp14)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont13
@@ -67411,7 +67411,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
 
 invoke.cont13:                                    ; preds = %invoke.cont11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(32) %call.i1617) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %ref.tmp14)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %ref.tmp14)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont13
@@ -67602,7 +67602,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
 
 invoke.cont13:                                    ; preds = %invoke.cont11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(32) %call.i1617) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %ref.tmp14)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %ref.tmp14)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont13
@@ -67789,7 +67789,7 @@ invoke.cont9:                                     ; preds = %invoke.cont
 
 invoke.cont11:                                    ; preds = %invoke.cont9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call.i1617) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %ref.tmp12)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %ref.tmp12)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %invoke.cont11
@@ -67976,7 +67976,7 @@ invoke.cont9:                                     ; preds = %invoke.cont
 
 invoke.cont11:                                    ; preds = %invoke.cont9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %call.i1617) #30
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %ref.tmp12)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %ref.tmp12)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %invoke.cont11
@@ -68105,7 +68105,7 @@ return:                                           ; preds = %if.end, %invoke.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIhEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIhEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i7 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -68252,7 +68252,7 @@ ehcleanup16:                                      ; preds = %ehcleanup15, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIaEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIaEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i7 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -68399,7 +68399,7 @@ ehcleanup16:                                      ; preds = %ehcleanup15, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i9 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -68546,7 +68546,7 @@ ehcleanup16:                                      ; preds = %ehcleanup15, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringItEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringItEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i9 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -68693,7 +68693,7 @@ ehcleanup16:                                      ; preds = %ehcleanup15, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i9 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -68840,7 +68840,7 @@ ehcleanup16:                                      ; preds = %ehcleanup15, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i9 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -68987,7 +68987,7 @@ ehcleanup16:                                      ; preds = %ehcleanup15, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i9 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -69134,7 +69134,7 @@ ehcleanup16:                                      ; preds = %ehcleanup15, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_120TypeToIntervalStringImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv(ptr noalias nonnull align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i9 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i = alloca %"class.std::__cxx11::basic_stringstream", align 8

@@ -33132,7 +33132,7 @@ if.end24.sink.split.i.i44:                        ; preds = %if.end.i.i39, %if.t
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %if.end24.sink.split.i.i44, %if.else.i.i41
-  invoke fastcc void @_ZN7testing8internal11CmpHelperNEIN4absl16strings_internal13SplitIteratorINS3_8SplitterINS2_6ByCharEN12_GLOBAL__N_14SkipESt17basic_string_viewIcSt11char_traitsIcEEEEEESE_EENS_15AssertionResultEPKcSH_RKT_RKT0_(ptr noalias nonnull align 8 %gtest_ar, ptr noundef nonnull align 8 dereferenceable(80) %it, ptr noundef nonnull align 8 dereferenceable(80) %end)
+  invoke fastcc void @_ZN7testing8internal11CmpHelperNEIN4absl16strings_internal13SplitIteratorINS3_8SplitterINS2_6ByCharEN12_GLOBAL__N_14SkipESt17basic_string_viewIcSt11char_traitsIcEEEEEESE_EENS_15AssertionResultEPKcSH_RKT_RKT0_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull align 8 dereferenceable(80) %it, ptr noundef nonnull align 8 dereferenceable(80) %end)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %invoke.cont12
@@ -33376,7 +33376,7 @@ _ZN7testing15AssertionResultD2Ev.exit79:          ; preds = %if.end47, %_ZNKSt14
           to label %invoke.cont49 unwind label %lpad13
 
 invoke.cont49:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit79
-  invoke fastcc void @_ZN7testing8internal11CmpHelperNEIN4absl16strings_internal13SplitIteratorINS3_8SplitterINS2_6ByCharEN12_GLOBAL__N_14SkipESt17basic_string_viewIcSt11char_traitsIcEEEEEESE_EENS_15AssertionResultEPKcSH_RKT_RKT0_(ptr noalias nonnull align 8 %gtest_ar51, ptr noundef nonnull align 8 dereferenceable(80) %it, ptr noundef nonnull align 8 dereferenceable(80) %end)
+  invoke fastcc void @_ZN7testing8internal11CmpHelperNEIN4absl16strings_internal13SplitIteratorINS3_8SplitterINS2_6ByCharEN12_GLOBAL__N_14SkipESt17basic_string_viewIcSt11char_traitsIcEEEEEESE_EENS_15AssertionResultEPKcSH_RKT_RKT0_(ptr noalias align 8 %gtest_ar51, ptr noundef nonnull align 8 dereferenceable(80) %it, ptr noundef nonnull align 8 dereferenceable(80) %end)
           to label %invoke.cont52 unwind label %lpad13
 
 invoke.cont52:                                    ; preds = %invoke.cont49
@@ -33838,7 +33838,7 @@ eh.resume:                                        ; preds = %ehcleanup124, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal11CmpHelperNEIN4absl16strings_internal13SplitIteratorINS3_8SplitterINS2_6ByCharEN12_GLOBAL__N_14SkipESt17basic_string_viewIcSt11char_traitsIcEEEEEESE_EENS_15AssertionResultEPKcSH_RKT_RKT0_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %val1, ptr noundef nonnull align 8 dereferenceable(80) %val2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal11CmpHelperNEIN4absl16strings_internal13SplitIteratorINS3_8SplitterINS2_6ByCharEN12_GLOBAL__N_14SkipESt17basic_string_viewIcSt11char_traitsIcEEEEEESE_EENS_15AssertionResultEPKcSH_RKT_RKT0_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %val1, ptr noundef nonnull align 8 dereferenceable(80) %val2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i166.i = alloca %"class.testing::Message", align 8
   %ss.i.i.i158.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -33867,7 +33867,7 @@ entry:
   br i1 %.not.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  tail call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -169166,7 +169166,7 @@ entry:
   %ref.tmp135 = alloca %"class.testing::internal::AssertHelper", align 8
   %ref.tmp136 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4absl8ByStringC1ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i64 1, ptr nonnull @.str.64)
-  invoke fastcc void @_ZN12_GLOBAL__N_19TestCommaIN4absl8ByStringEEEvT_(ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN12_GLOBAL__N_19TestCommaIN4absl8ByStringEEEvT_(ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -169176,7 +169176,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont
-  invoke fastcc void @_ZN12_GLOBAL__N_19TestCommaIN4absl8ByStringEEEvT_(ptr noundef nonnull %agg.tmp4)
+  invoke fastcc void @_ZN12_GLOBAL__N_19TestCommaIN4absl8ByStringEEEvT_(ptr noundef %agg.tmp4)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont6
@@ -169299,7 +169299,7 @@ invoke.cont24:                                    ; preds = %_ZN7testing15Assert
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont24
-  %call32 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 0, ptr nonnull @.str.73, ptr noundef nonnull %agg.tmp27, i32 noundef 0)
+  %call32 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 0, ptr nonnull @.str.73, ptr noundef %agg.tmp27, i32 noundef 0)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont29
@@ -169423,7 +169423,7 @@ _ZN7testing15AssertionResultD2Ev.exit58:          ; preds = %if.end53, %_ZNKSt14
           to label %invoke.cont59 unwind label %lpad28
 
 invoke.cont59:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit58
-  %call62 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.65, ptr noundef nonnull %agg.tmp58, i32 noundef 0)
+  %call62 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.65, ptr noundef %agg.tmp58, i32 noundef 0)
           to label %invoke.cont61 unwind label %lpad60
 
 invoke.cont61:                                    ; preds = %invoke.cont59
@@ -169542,7 +169542,7 @@ _ZN7testing15AssertionResultD2Ev.exit79:          ; preds = %if.end85, %_ZNKSt14
           to label %invoke.cont91 unwind label %lpad28
 
 invoke.cont91:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit79
-  %call94 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 2, ptr nonnull @.str.223, ptr noundef nonnull %agg.tmp90, i32 noundef 1)
+  %call94 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 2, ptr nonnull @.str.223, ptr noundef %agg.tmp90, i32 noundef 1)
           to label %invoke.cont93 unwind label %lpad92
 
 invoke.cont93:                                    ; preds = %invoke.cont91
@@ -169660,7 +169660,7 @@ _ZN7testing15AssertionResultD2Ev.exit100:         ; preds = %if.end116, %_ZNKSt1
           to label %invoke.cont122 unwind label %lpad28
 
 invoke.cont122:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit100
-  %call125 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 3, ptr nonnull @.str.74, ptr noundef nonnull %agg.tmp121, i32 noundef 1)
+  %call125 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 3, ptr nonnull @.str.74, ptr noundef %agg.tmp121, i32 noundef 1)
           to label %invoke.cont124 unwind label %lpad123
 
 invoke.cont124:                                   ; preds = %invoke.cont122
@@ -169854,7 +169854,7 @@ entry:
   %ref.tmp339 = alloca %"class.testing::internal::AssertHelper", align 8
   %ref.tmp340 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %d)
-  %call = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.64, ptr noundef nonnull %agg.tmp1, i32 noundef 0)
+  %call = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.64, ptr noundef %agg.tmp1, i32 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -169964,7 +169964,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp21, ptr noundef nonnull align 8 dereferenceable(32) %d)
-  %call24 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 2, ptr nonnull @.str.217, ptr noundef nonnull %agg.tmp21, i32 noundef 1)
+  %call24 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 2, ptr nonnull @.str.217, ptr noundef %agg.tmp21, i32 noundef 1)
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -170079,7 +170079,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit74:          ; preds = %if.end46, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i73
   store ptr null, ptr %message_.i59, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp51, ptr noundef nonnull align 8 dereferenceable(32) %d)
-  %call54 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 2, ptr nonnull @.str.202, ptr noundef nonnull %agg.tmp51, i32 noundef 0)
+  %call54 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 2, ptr nonnull @.str.202, ptr noundef %agg.tmp51, i32 noundef 0)
           to label %invoke.cont53 unwind label %lpad52
 
 invoke.cont53:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit74
@@ -170194,7 +170194,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit93:          ; preds = %if.end76, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i92
   store ptr null, ptr %message_.i78, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp81, ptr noundef nonnull align 8 dereferenceable(32) %d)
-  %call84 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 3, ptr nonnull @.str.159, ptr noundef nonnull %agg.tmp81, i32 noundef 1)
+  %call84 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 3, ptr nonnull @.str.159, ptr noundef %agg.tmp81, i32 noundef 1)
           to label %invoke.cont83 unwind label %lpad82
 
 invoke.cont83:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit93
@@ -170309,7 +170309,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit112:         ; preds = %if.end106, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i111
   store ptr null, ptr %message_.i97, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp111, ptr noundef nonnull align 8 dereferenceable(32) %d)
-  %call114 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 4, ptr nonnull @.str.254, ptr noundef nonnull %agg.tmp111, i32 noundef 1)
+  %call114 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 4, ptr nonnull @.str.254, ptr noundef %agg.tmp111, i32 noundef 1)
           to label %invoke.cont113 unwind label %lpad112
 
 invoke.cont113:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit112
@@ -170424,7 +170424,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit131:         ; preds = %if.end136, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i130
   store ptr null, ptr %message_.i116, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp141, ptr noundef nonnull align 8 dereferenceable(32) %d)
-  %call144 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 5, ptr nonnull @.str.63, ptr noundef nonnull %agg.tmp141, i32 noundef 1)
+  %call144 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 5, ptr nonnull @.str.63, ptr noundef %agg.tmp141, i32 noundef 1)
           to label %invoke.cont143 unwind label %lpad142
 
 invoke.cont143:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit131
@@ -170539,7 +170539,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit150:         ; preds = %if.end166, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i149
   store ptr null, ptr %message_.i135, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp171, ptr noundef nonnull align 8 dereferenceable(32) %d)
-  %call174 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 0, ptr nonnull @.str.73, ptr noundef nonnull %agg.tmp171, i32 noundef -1)
+  %call174 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 0, ptr nonnull @.str.73, ptr noundef %agg.tmp171, i32 noundef -1)
           to label %invoke.cont173 unwind label %lpad172
 
 invoke.cont173:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit150
@@ -170655,7 +170655,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit169:         ; preds = %if.end196, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i168
   store ptr null, ptr %message_.i154, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp201, ptr noundef nonnull align 8 dereferenceable(32) %d)
-  %call204 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.140, ptr noundef nonnull %agg.tmp201, i32 noundef -1)
+  %call204 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.140, ptr noundef %agg.tmp201, i32 noundef -1)
           to label %invoke.cont203 unwind label %lpad202
 
 invoke.cont203:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit169
@@ -170771,7 +170771,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit188:         ; preds = %if.end227, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i187
   store ptr null, ptr %message_.i173, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp232, ptr noundef nonnull align 8 dereferenceable(32) %d)
-  %call235 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.65, ptr noundef nonnull %agg.tmp232, i32 noundef -1)
+  %call235 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.65, ptr noundef %agg.tmp232, i32 noundef -1)
           to label %invoke.cont234 unwind label %lpad233
 
 invoke.cont234:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit188
@@ -170887,7 +170887,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit207:         ; preds = %if.end258, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i206
   store ptr null, ptr %message_.i192, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp263, ptr noundef nonnull align 8 dereferenceable(32) %d)
-  %call266 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 5, ptr nonnull @.str.260, ptr noundef nonnull %agg.tmp263, i32 noundef -1)
+  %call266 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 5, ptr nonnull @.str.260, ptr noundef %agg.tmp263, i32 noundef -1)
           to label %invoke.cont265 unwind label %lpad264
 
 invoke.cont265:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit207
@@ -171003,7 +171003,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit226:         ; preds = %if.end289, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i225
   store ptr null, ptr %message_.i211, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp294, ptr noundef nonnull align 8 dereferenceable(32) %d)
-  %call297 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 5, ptr nonnull @.str.262, ptr noundef nonnull %agg.tmp294, i32 noundef -1)
+  %call297 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 5, ptr nonnull @.str.262, ptr noundef %agg.tmp294, i32 noundef -1)
           to label %invoke.cont296 unwind label %lpad295
 
 invoke.cont296:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit226
@@ -171119,7 +171119,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit245:         ; preds = %if.end320, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i244
   store ptr null, ptr %message_.i230, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp325, ptr noundef nonnull align 8 dereferenceable(32) %d)
-  %call328 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.264, ptr noundef nonnull %agg.tmp325, i32 noundef -1)
+  %call328 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.264, ptr noundef %agg.tmp325, i32 noundef -1)
           to label %invoke.cont327 unwind label %lpad326
 
 invoke.cont327:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit245
@@ -171241,7 +171241,7 @@ eh.resume:                                        ; preds = %ehcleanup352, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 %text.coerce0, ptr %text.coerce1, ptr noundef %d, i32 noundef %expected_pos) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByStringEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 %text.coerce0, ptr %text.coerce1, ptr noundef nonnull %d, i32 noundef range(i32 -1, 2) %expected_pos) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %leading_text = alloca %"class.std::__cxx11::basic_string", align 8
@@ -172669,7 +172669,7 @@ eh.resume:                                        ; preds = %lpad302, %_ZN7testi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl6ByCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 %text.coerce0, ptr %text.coerce1, i8 %d.coerce, i32 noundef %expected_pos) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl6ByCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 %text.coerce0, ptr %text.coerce1, i8 %d.coerce, i32 noundef range(i32 -1, 2) %expected_pos) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %d.i14 = alloca %"class.absl::ByChar", align 1
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -173018,7 +173018,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %call = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.64, ptr noundef nonnull %agg.tmp3, i32 noundef 0)
+  %call = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.64, ptr noundef %agg.tmp3, i32 noundef 0)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
@@ -173136,7 +173136,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
           to label %invoke.cont26 unwind label %lpad
 
 invoke.cont26:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
-  %call29 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 2, ptr nonnull @.str.217, ptr noundef nonnull %agg.tmp25, i32 noundef 1)
+  %call29 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 2, ptr nonnull @.str.217, ptr noundef %agg.tmp25, i32 noundef 1)
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont26
@@ -173254,7 +173254,7 @@ _ZN7testing15AssertionResultD2Ev.exit143:         ; preds = %if.end51, %_ZNKSt14
           to label %invoke.cont57 unwind label %lpad
 
 invoke.cont57:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit143
-  %call60 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 3, ptr nonnull @.str.159, ptr noundef nonnull %agg.tmp56, i32 noundef 1)
+  %call60 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 3, ptr nonnull @.str.159, ptr noundef %agg.tmp56, i32 noundef 1)
           to label %invoke.cont59 unwind label %lpad58
 
 invoke.cont59:                                    ; preds = %invoke.cont57
@@ -173372,7 +173372,7 @@ _ZN7testing15AssertionResultD2Ev.exit163:         ; preds = %if.end82, %_ZNKSt14
           to label %invoke.cont88 unwind label %lpad
 
 invoke.cont88:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit163
-  %call91 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 2, ptr nonnull @.str.202, ptr noundef nonnull %agg.tmp87, i32 noundef 0)
+  %call91 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 2, ptr nonnull @.str.202, ptr noundef %agg.tmp87, i32 noundef 0)
           to label %invoke.cont90 unwind label %lpad89
 
 invoke.cont90:                                    ; preds = %invoke.cont88
@@ -173490,7 +173490,7 @@ _ZN7testing15AssertionResultD2Ev.exit183:         ; preds = %if.end113, %_ZNKSt1
           to label %invoke.cont119 unwind label %lpad
 
 invoke.cont119:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit183
-  %call122 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 0, ptr nonnull @.str.73, ptr noundef nonnull %agg.tmp118, i32 noundef -1)
+  %call122 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 0, ptr nonnull @.str.73, ptr noundef %agg.tmp118, i32 noundef -1)
           to label %invoke.cont121 unwind label %lpad120
 
 invoke.cont121:                                   ; preds = %invoke.cont119
@@ -173609,7 +173609,7 @@ _ZN7testing15AssertionResultD2Ev.exit203:         ; preds = %if.end144, %_ZNKSt1
           to label %invoke.cont150 unwind label %lpad
 
 invoke.cont150:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit203
-  %call153 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.140, ptr noundef nonnull %agg.tmp149, i32 noundef -1)
+  %call153 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.140, ptr noundef %agg.tmp149, i32 noundef -1)
           to label %invoke.cont152 unwind label %lpad151
 
 invoke.cont152:                                   ; preds = %invoke.cont150
@@ -173728,7 +173728,7 @@ _ZN7testing15AssertionResultD2Ev.exit223:         ; preds = %if.end176, %_ZNKSt1
           to label %invoke.cont182 unwind label %lpad
 
 invoke.cont182:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit223
-  %call185 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.65, ptr noundef nonnull %agg.tmp181, i32 noundef -1)
+  %call185 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.65, ptr noundef %agg.tmp181, i32 noundef -1)
           to label %invoke.cont184 unwind label %lpad183
 
 invoke.cont184:                                   ; preds = %invoke.cont182
@@ -173847,7 +173847,7 @@ _ZN7testing15AssertionResultD2Ev.exit243:         ; preds = %if.end208, %_ZNKSt1
           to label %invoke.cont214 unwind label %lpad
 
 invoke.cont214:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit243
-  %call217 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 5, ptr nonnull @.str.262, ptr noundef nonnull %agg.tmp213, i32 noundef -1)
+  %call217 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 5, ptr nonnull @.str.262, ptr noundef %agg.tmp213, i32 noundef -1)
           to label %invoke.cont216 unwind label %lpad215
 
 invoke.cont216:                                   ; preds = %invoke.cont214
@@ -173966,7 +173966,7 @@ _ZN7testing15AssertionResultD2Ev.exit263:         ; preds = %if.end240, %_ZNKSt1
           to label %invoke.cont246 unwind label %lpad
 
 invoke.cont246:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit263
-  %call249 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.264, ptr noundef nonnull %agg.tmp245, i32 noundef -1)
+  %call249 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.264, ptr noundef %agg.tmp245, i32 noundef -1)
           to label %invoke.cont248 unwind label %lpad247
 
 invoke.cont248:                                   ; preds = %invoke.cont246
@@ -174089,7 +174089,7 @@ invoke.cont275:                                   ; preds = %_ZN7testing15Assert
           to label %invoke.cont281 unwind label %lpad280
 
 invoke.cont281:                                   ; preds = %invoke.cont275
-  %call284 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.64, ptr noundef nonnull %agg.tmp279, i32 noundef 0)
+  %call284 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.64, ptr noundef %agg.tmp279, i32 noundef 0)
           to label %invoke.cont283 unwind label %lpad282
 
 invoke.cont283:                                   ; preds = %invoke.cont281
@@ -174212,7 +174212,7 @@ _ZN7testing15AssertionResultD2Ev.exit305:         ; preds = %if.end306, %_ZNKSt1
           to label %invoke.cont312 unwind label %lpad280
 
 invoke.cont312:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit305
-  %call315 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.264, ptr noundef nonnull %agg.tmp311, i32 noundef 0)
+  %call315 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.264, ptr noundef %agg.tmp311, i32 noundef 0)
           to label %invoke.cont314 unwind label %lpad313
 
 invoke.cont314:                                   ; preds = %invoke.cont312
@@ -174330,7 +174330,7 @@ _ZN7testing15AssertionResultD2Ev.exit325:         ; preds = %if.end337, %_ZNKSt1
           to label %invoke.cont343 unwind label %lpad280
 
 invoke.cont343:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit325
-  %call346 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 2, ptr nonnull @.str.83, ptr noundef nonnull %agg.tmp342, i32 noundef 0)
+  %call346 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 2, ptr nonnull @.str.83, ptr noundef %agg.tmp342, i32 noundef 0)
           to label %invoke.cont345 unwind label %lpad344
 
 invoke.cont345:                                   ; preds = %invoke.cont343
@@ -174448,7 +174448,7 @@ _ZN7testing15AssertionResultD2Ev.exit345:         ; preds = %if.end368, %_ZNKSt1
           to label %invoke.cont374 unwind label %lpad280
 
 invoke.cont374:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit345
-  %call377 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 2, ptr nonnull @.str.279, ptr noundef nonnull %agg.tmp373, i32 noundef 0)
+  %call377 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 2, ptr nonnull @.str.279, ptr noundef %agg.tmp373, i32 noundef 0)
           to label %invoke.cont376 unwind label %lpad375
 
 invoke.cont376:                                   ; preds = %invoke.cont374
@@ -174566,7 +174566,7 @@ _ZN7testing15AssertionResultD2Ev.exit365:         ; preds = %if.end399, %_ZNKSt1
           to label %invoke.cont405 unwind label %lpad280
 
 invoke.cont405:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit365
-  %call408 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 3, ptr nonnull @.str.281, ptr noundef nonnull %agg.tmp404, i32 noundef 0)
+  %call408 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 3, ptr nonnull @.str.281, ptr noundef %agg.tmp404, i32 noundef 0)
           to label %invoke.cont407 unwind label %lpad406
 
 invoke.cont407:                                   ; preds = %invoke.cont405
@@ -174684,7 +174684,7 @@ _ZN7testing15AssertionResultD2Ev.exit385:         ; preds = %if.end430, %_ZNKSt1
           to label %invoke.cont436 unwind label %lpad280
 
 invoke.cont436:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit385
-  %call439 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 3, ptr nonnull @.str.283, ptr noundef nonnull %agg.tmp435, i32 noundef 0)
+  %call439 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 3, ptr nonnull @.str.283, ptr noundef %agg.tmp435, i32 noundef 0)
           to label %invoke.cont438 unwind label %lpad437
 
 invoke.cont438:                                   ; preds = %invoke.cont436
@@ -174802,7 +174802,7 @@ _ZN7testing15AssertionResultD2Ev.exit405:         ; preds = %if.end461, %_ZNKSt1
           to label %invoke.cont467 unwind label %lpad280
 
 invoke.cont467:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit405
-  %call470 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 3, ptr nonnull @.str.285, ptr noundef nonnull %agg.tmp466, i32 noundef 1)
+  %call470 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 3, ptr nonnull @.str.285, ptr noundef %agg.tmp466, i32 noundef 1)
           to label %invoke.cont469 unwind label %lpad468
 
 invoke.cont469:                                   ; preds = %invoke.cont467
@@ -174920,7 +174920,7 @@ _ZN7testing15AssertionResultD2Ev.exit425:         ; preds = %if.end492, %_ZNKSt1
           to label %invoke.cont498 unwind label %lpad280
 
 invoke.cont498:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit425
-  %call501 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 3, ptr nonnull @.str.287, ptr noundef nonnull %agg.tmp497, i32 noundef 1)
+  %call501 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 3, ptr nonnull @.str.287, ptr noundef %agg.tmp497, i32 noundef 1)
           to label %invoke.cont500 unwind label %lpad499
 
 invoke.cont500:                                   ; preds = %invoke.cont498
@@ -175038,7 +175038,7 @@ _ZN7testing15AssertionResultD2Ev.exit445:         ; preds = %if.end523, %_ZNKSt1
           to label %invoke.cont529 unwind label %lpad280
 
 invoke.cont529:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit445
-  %call532 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 4, ptr nonnull @.str.289, ptr noundef nonnull %agg.tmp528, i32 noundef 1)
+  %call532 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 4, ptr nonnull @.str.289, ptr noundef %agg.tmp528, i32 noundef 1)
           to label %invoke.cont531 unwind label %lpad530
 
 invoke.cont531:                                   ; preds = %invoke.cont529
@@ -175156,7 +175156,7 @@ _ZN7testing15AssertionResultD2Ev.exit465:         ; preds = %if.end554, %_ZNKSt1
           to label %invoke.cont560 unwind label %lpad280
 
 invoke.cont560:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit465
-  %call563 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 4, ptr nonnull @.str.291, ptr noundef nonnull %agg.tmp559, i32 noundef 1)
+  %call563 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 4, ptr nonnull @.str.291, ptr noundef %agg.tmp559, i32 noundef 1)
           to label %invoke.cont562 unwind label %lpad561
 
 invoke.cont562:                                   ; preds = %invoke.cont560
@@ -175274,7 +175274,7 @@ _ZN7testing15AssertionResultD2Ev.exit485:         ; preds = %if.end585, %_ZNKSt1
           to label %invoke.cont591 unwind label %lpad280
 
 invoke.cont591:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit485
-  %call594 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 0, ptr nonnull @.str.73, ptr noundef nonnull %agg.tmp590, i32 noundef -1)
+  %call594 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 0, ptr nonnull @.str.73, ptr noundef %agg.tmp590, i32 noundef -1)
           to label %invoke.cont593 unwind label %lpad592
 
 invoke.cont593:                                   ; preds = %invoke.cont591
@@ -175393,7 +175393,7 @@ _ZN7testing15AssertionResultD2Ev.exit505:         ; preds = %if.end617, %_ZNKSt1
           to label %invoke.cont623 unwind label %lpad280
 
 invoke.cont623:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit505
-  %call626 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.140, ptr noundef nonnull %agg.tmp622, i32 noundef -1)
+  %call626 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.140, ptr noundef %agg.tmp622, i32 noundef -1)
           to label %invoke.cont625 unwind label %lpad624
 
 invoke.cont625:                                   ; preds = %invoke.cont623
@@ -175512,7 +175512,7 @@ _ZN7testing15AssertionResultD2Ev.exit525:         ; preds = %if.end649, %_ZNKSt1
           to label %invoke.cont655 unwind label %lpad280
 
 invoke.cont655:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit525
-  %call658 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.65, ptr noundef nonnull %agg.tmp654, i32 noundef -1)
+  %call658 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.65, ptr noundef %agg.tmp654, i32 noundef -1)
           to label %invoke.cont657 unwind label %lpad656
 
 invoke.cont657:                                   ; preds = %invoke.cont655
@@ -175631,7 +175631,7 @@ _ZN7testing15AssertionResultD2Ev.exit545:         ; preds = %if.end681, %_ZNKSt1
           to label %invoke.cont687 unwind label %lpad280
 
 invoke.cont687:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit545
-  %call690 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 5, ptr nonnull @.str.296, ptr noundef nonnull %agg.tmp686, i32 noundef -1)
+  %call690 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 5, ptr nonnull @.str.296, ptr noundef %agg.tmp686, i32 noundef -1)
           to label %invoke.cont689 unwind label %lpad688
 
 invoke.cont689:                                   ; preds = %invoke.cont687
@@ -175750,7 +175750,7 @@ _ZN7testing15AssertionResultD2Ev.exit565:         ; preds = %if.end713, %_ZNKSt1
           to label %invoke.cont719 unwind label %lpad280
 
 invoke.cont719:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit565
-  %call722 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.298, ptr noundef nonnull %agg.tmp718, i32 noundef -1)
+  %call722 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.298, ptr noundef %agg.tmp718, i32 noundef -1)
           to label %invoke.cont721 unwind label %lpad720
 
 invoke.cont721:                                   ; preds = %invoke.cont719
@@ -175873,7 +175873,7 @@ invoke.cont748:                                   ; preds = %_ZN7testing15Assert
           to label %invoke.cont754 unwind label %lpad753
 
 invoke.cont754:                                   ; preds = %invoke.cont748
-  %call757 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 0, ptr nonnull @.str.73, ptr noundef nonnull %agg.tmp752, i32 noundef 0)
+  %call757 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 0, ptr nonnull @.str.73, ptr noundef %agg.tmp752, i32 noundef 0)
           to label %invoke.cont756 unwind label %lpad755
 
 invoke.cont756:                                   ; preds = %invoke.cont754
@@ -175997,7 +175997,7 @@ _ZN7testing15AssertionResultD2Ev.exit607:         ; preds = %if.end780, %_ZNKSt1
           to label %invoke.cont786 unwind label %lpad753
 
 invoke.cont786:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit607
-  %call789 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.65, ptr noundef nonnull %agg.tmp785, i32 noundef 0)
+  %call789 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 1, ptr nonnull @.str.65, ptr noundef %agg.tmp785, i32 noundef 0)
           to label %invoke.cont788 unwind label %lpad787
 
 invoke.cont788:                                   ; preds = %invoke.cont786
@@ -176116,7 +176116,7 @@ _ZN7testing15AssertionResultD2Ev.exit627:         ; preds = %if.end812, %_ZNKSt1
           to label %invoke.cont818 unwind label %lpad753
 
 invoke.cont818:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit627
-  %call821 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 2, ptr nonnull @.str.223, ptr noundef nonnull %agg.tmp817, i32 noundef 1)
+  %call821 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 2, ptr nonnull @.str.223, ptr noundef %agg.tmp817, i32 noundef 1)
           to label %invoke.cont820 unwind label %lpad819
 
 invoke.cont820:                                   ; preds = %invoke.cont818
@@ -176234,7 +176234,7 @@ _ZN7testing15AssertionResultD2Ev.exit647:         ; preds = %if.end843, %_ZNKSt1
           to label %invoke.cont849 unwind label %lpad753
 
 invoke.cont849:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit647
-  %call852 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 3, ptr nonnull @.str.74, ptr noundef nonnull %agg.tmp848, i32 noundef 1)
+  %call852 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 3, ptr nonnull @.str.74, ptr noundef %agg.tmp848, i32 noundef 1)
           to label %invoke.cont851 unwind label %lpad850
 
 invoke.cont851:                                   ; preds = %invoke.cont849
@@ -176370,7 +176370,7 @@ ehcleanup878:                                     ; preds = %ehcleanup877, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 %text.coerce0, ptr %text.coerce1, ptr noundef %d, i32 noundef %expected_pos) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl9ByAnyCharEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 %text.coerce0, ptr %text.coerce1, ptr noundef nonnull %d, i32 noundef range(i32 -1, 2) %expected_pos) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %leading_text = alloca %"class.std::__cxx11::basic_string", align 8
@@ -177403,7 +177403,7 @@ eh.resume:                                        ; preds = %lpad193, %_ZN7testi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByLengthEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 %text.coerce0, ptr %text.coerce1, i64 %d.coerce, i32 noundef %expected_pos) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19IsFoundAtIN4absl8ByLengthEEEbSt17basic_string_viewIcSt11char_traitsIcEET_i(i64 %text.coerce0, ptr %text.coerce1, i64 %d.coerce, i32 noundef range(i32 0, 5) %expected_pos) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %d.i14 = alloca %"class.absl::ByLength", align 8
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -177442,7 +177442,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %1 = extractvalue { i64, ptr } %call.i10, 1
   %add.ptr.i8 = getelementptr inbounds i8, ptr %text.coerce1, i64 %text.coerce0
   %cmp.not.i = icmp ne ptr %1, %add.ptr.i8
-  %conv.i = sext i32 %expected_pos to i64
+  %conv.i = zext nneg i32 %expected_pos to i64
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %text.coerce1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i

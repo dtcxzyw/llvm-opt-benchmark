@@ -2934,7 +2934,7 @@ define internal fastcc noundef ptr @_ZL23foldInlineAsmMemOperandRN4llvm12Machine
   %16 = getelementptr inbounds i8, ptr %15, i64 192
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef nonnull align 8 dereferenceable(70) ptr %17(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(288) %14, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(70) %0) #26
-  tail call fastcc void @_ZL23foldInlineAsmMemOperandPN4llvm12MachineInstrEjiRKNS_15TargetInstrInfoE(ptr noundef nonnull %18, i32 noundef %10, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(80) %4)
+  tail call fastcc void @_ZL23foldInlineAsmMemOperandPN4llvm12MachineInstrEjiRKNS_15TargetInstrInfoE(ptr noundef %18, i32 noundef %10, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(80) %4)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = zext i32 %10 to i64
@@ -8769,7 +8769,7 @@ declare void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14Ma
 declare noundef zeroext i1 @_ZNK4llvm12MachineInstr21mayFoldInlineAsmRegOpEj(ptr noundef nonnull align 8 dereferenceable(70), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23foldInlineAsmMemOperandPN4llvm12MachineInstrEjiRKNS_15TargetInstrInfoE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(80) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL23foldInlineAsmMemOperandPN4llvm12MachineInstrEjiRKNS_15TargetInstrInfoE(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(80) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::SmallVector.497", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -8806,7 +8806,7 @@ define internal fastcc void @_ZL23foldInlineAsmMemOperandPN4llvm12MachineInstrEj
   br label %_ZN4llvm12MachineInstr15untieRegOperandEj.exit
 
 _ZN4llvm12MachineInstr15untieRegOperandEj.exit:   ; preds = %12, %21
-  tail call fastcc void @_ZL23foldInlineAsmMemOperandPN4llvm12MachineInstrEjiRKNS_15TargetInstrInfoE(ptr noundef nonnull %0, i32 noundef %13, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(80) %3)
+  tail call fastcc void @_ZL23foldInlineAsmMemOperandPN4llvm12MachineInstrEjiRKNS_15TargetInstrInfoE(ptr noundef %0, i32 noundef %13, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(80) %3)
   br label %30
 
 30:                                               ; preds = %_ZN4llvm12MachineInstr15untieRegOperandEj.exit, %4

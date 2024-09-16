@@ -1061,7 +1061,7 @@ define dso_local i32 @__mdiobus_register(ptr noundef %0, ptr noundef %1) #1 alig
 
 84:                                               ; preds = %77
   %85 = trunc i64 %78 to i32
-  %86 = tail call ptr @get_phy_device(ptr noundef %0, i32 noundef %85, i1 noundef zeroext false) #15
+  %86 = tail call ptr @get_phy_device(ptr noundef nonnull %0, i32 noundef %85, i1 noundef zeroext false) #15
   %87 = icmp ugt ptr %86, inttoptr (i64 -4096 to ptr)
   br i1 %87, label %91, label %88
 
@@ -1138,7 +1138,7 @@ mdiobus_prevent_c45_scan.exit:                    ; preds = %113, %.thread3.i
   br i1 %126, label %127, label %128
 
 127:                                              ; preds = %124, %121, %mdiobus_prevent_c45_scan.exit
-  tail call void @mdiobus_setup_mdiodev_from_board_info(ptr noundef %0, ptr noundef nonnull @mdiobus_create_device) #15
+  tail call void @mdiobus_setup_mdiodev_from_board_info(ptr noundef nonnull %0, ptr noundef nonnull @mdiobus_create_device) #15
   store i32 2, ptr %39, align 8
   br label %150
 
@@ -1215,7 +1215,7 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local void @device_del(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @mdiobus_scan_bus_c45(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc i32 @mdiobus_scan_bus_c45(ptr noundef nonnull %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2184
   %3 = getelementptr inbounds i8, ptr %0, i64 1928
   br label %4
@@ -1237,7 +1237,7 @@ define internal fastcc i32 @mdiobus_scan_bus_c45(ptr noundef %0) unnamed_addr #1
 
 15:                                               ; preds = %11
   %16 = trunc i64 %5 to i32
-  %17 = tail call ptr @get_phy_device(ptr noundef %0, i32 noundef %16, i1 noundef zeroext true) #15
+  %17 = tail call ptr @get_phy_device(ptr noundef nonnull %0, i32 noundef %16, i1 noundef zeroext true) #15
   %18 = icmp ugt ptr %17, inttoptr (i64 -4096 to ptr)
   br i1 %18, label %22, label %19
 

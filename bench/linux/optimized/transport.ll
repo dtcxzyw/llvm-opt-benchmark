@@ -2099,7 +2099,7 @@ define dso_local i32 @usb_stor_CB_reset(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @usb_stor_reset_common(ptr noundef %0, i8 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3, i16 noundef zeroext %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @usb_stor_reset_common(ptr noundef %0, i8 noundef zeroext range(i8 -1, 1) %1, i16 noundef zeroext range(i16 0, 256) %2, ptr noundef %3, i16 noundef zeroext range(i16 0, 13) %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.wait_queue_entry, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 64
   %8 = load volatile i64, ptr %7, align 8

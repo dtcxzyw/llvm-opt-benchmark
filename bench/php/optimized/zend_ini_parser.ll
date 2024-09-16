@@ -778,7 +778,7 @@ zend_ini_init_string.exit438:                     ; preds = %269, %273
 
 275:                                              ; preds = %85
   %276 = getelementptr inbounds i8, ptr %.2347, i64 -16
-  call fastcc void @zend_ini_add_string(ptr noundef nonnull %8, ptr noundef nonnull %276, ptr noundef nonnull %.2347)
+  call fastcc void @zend_ini_add_string(ptr noundef %8, ptr noundef %276, ptr noundef %.2347)
   %277 = load ptr, ptr %.2347, align 8
   %278 = getelementptr inbounds i8, ptr %277, i64 4
   %279 = load i32, ptr %278, align 4
@@ -801,7 +801,7 @@ zend_ini_init_string.exit438:                     ; preds = %269, %273
 
 285:                                              ; preds = %85
   %286 = getelementptr inbounds i8, ptr %.2347, i64 -16
-  call fastcc void @zend_ini_add_string(ptr noundef nonnull %8, ptr noundef nonnull %286, ptr noundef nonnull %.2347)
+  call fastcc void @zend_ini_add_string(ptr noundef %8, ptr noundef %286, ptr noundef %.2347)
   %287 = load ptr, ptr %.2347, align 8
   %288 = getelementptr inbounds i8, ptr %287, i64 4
   %289 = load i32, ptr %288, align 4
@@ -863,7 +863,7 @@ zend_ini_init_string.exit441:                     ; preds = %298, %302
 
 308:                                              ; preds = %85
   %309 = getelementptr inbounds i8, ptr %.2347, i64 -16
-  call fastcc void @zend_ini_add_string(ptr noundef nonnull %8, ptr noundef nonnull %309, ptr noundef nonnull %.2347)
+  call fastcc void @zend_ini_add_string(ptr noundef %8, ptr noundef %309, ptr noundef %.2347)
   %310 = load ptr, ptr %.2347, align 8
   %311 = getelementptr inbounds i8, ptr %310, i64 4
   %312 = load i32, ptr %311, align 4
@@ -886,7 +886,7 @@ zend_ini_init_string.exit441:                     ; preds = %298, %302
 
 318:                                              ; preds = %85
   %319 = getelementptr inbounds i8, ptr %.2347, i64 -16
-  call fastcc void @zend_ini_add_string(ptr noundef nonnull %8, ptr noundef nonnull %319, ptr noundef nonnull %.2347)
+  call fastcc void @zend_ini_add_string(ptr noundef %8, ptr noundef %319, ptr noundef %.2347)
   %320 = load ptr, ptr %.2347, align 8
   %321 = getelementptr inbounds i8, ptr %320, i64 4
   %322 = load i32, ptr %321, align 4
@@ -910,7 +910,7 @@ zend_ini_init_string.exit441:                     ; preds = %298, %302
 328:                                              ; preds = %85
   %329 = getelementptr inbounds i8, ptr %.2347, i64 -48
   %330 = getelementptr inbounds i8, ptr %.2347, i64 -16
-  call fastcc void @zend_ini_add_string(ptr noundef nonnull %8, ptr noundef nonnull %329, ptr noundef nonnull %330)
+  call fastcc void @zend_ini_add_string(ptr noundef %8, ptr noundef %329, ptr noundef %330)
   %331 = load ptr, ptr %330, align 8
   %332 = getelementptr inbounds i8, ptr %331, i64 4
   %333 = load i32, ptr %332, align 4
@@ -946,7 +946,7 @@ zend_ini_init_string.exit441:                     ; preds = %298, %302
 
 343:                                              ; preds = %85
   %344 = getelementptr inbounds i8, ptr %.2347, i64 -16
-  call fastcc void @zend_ini_add_string(ptr noundef nonnull %8, ptr noundef nonnull %344, ptr noundef nonnull %.2347)
+  call fastcc void @zend_ini_add_string(ptr noundef %8, ptr noundef %344, ptr noundef %.2347)
   %345 = load ptr, ptr %.2347, align 8
   %346 = getelementptr inbounds i8, ptr %345, i64 4
   %347 = load i32, ptr %346, align 4
@@ -969,7 +969,7 @@ zend_ini_init_string.exit441:                     ; preds = %298, %302
 
 353:                                              ; preds = %85
   %354 = getelementptr inbounds i8, ptr %.2347, i64 -16
-  call fastcc void @zend_ini_add_string(ptr noundef nonnull %8, ptr noundef nonnull %354, ptr noundef nonnull %.2347)
+  call fastcc void @zend_ini_add_string(ptr noundef %8, ptr noundef %354, ptr noundef %.2347)
   %355 = load ptr, ptr %.2347, align 8
   %356 = getelementptr inbounds i8, ptr %355, i64 4
   %357 = load i32, ptr %356, align 4
@@ -993,7 +993,7 @@ zend_ini_init_string.exit441:                     ; preds = %298, %302
 363:                                              ; preds = %85
   %364 = getelementptr inbounds i8, ptr %.2347, i64 -48
   %365 = getelementptr inbounds i8, ptr %.2347, i64 -16
-  call fastcc void @zend_ini_add_string(ptr noundef nonnull %8, ptr noundef nonnull %364, ptr noundef nonnull %365)
+  call fastcc void @zend_ini_add_string(ptr noundef %8, ptr noundef %364, ptr noundef %365)
   %366 = load ptr, ptr %365, align 8
   %367 = getelementptr inbounds i8, ptr %366, i64 4
   %368 = load i32, ptr %367, align 4
@@ -1020,25 +1020,25 @@ zend_ini_init_string.exit441:                     ; preds = %298, %302
 
 375:                                              ; preds = %85
   %376 = getelementptr inbounds i8, ptr %.2347, i64 -32
-  call fastcc void @zend_ini_do_op(i8 noundef signext 124, ptr noundef nonnull %8, ptr noundef nonnull %376, ptr noundef nonnull %.2347)
+  call fastcc void @zend_ini_do_op(i8 noundef signext 124, ptr noundef %8, ptr noundef %376, ptr noundef nonnull %.2347)
   br label %zval_ini_dtor.exit
 
 377:                                              ; preds = %85
   %378 = getelementptr inbounds i8, ptr %.2347, i64 -32
-  call fastcc void @zend_ini_do_op(i8 noundef signext 38, ptr noundef nonnull %8, ptr noundef nonnull %378, ptr noundef nonnull %.2347)
+  call fastcc void @zend_ini_do_op(i8 noundef signext 38, ptr noundef %8, ptr noundef %378, ptr noundef nonnull %.2347)
   br label %zval_ini_dtor.exit
 
 379:                                              ; preds = %85
   %380 = getelementptr inbounds i8, ptr %.2347, i64 -32
-  call fastcc void @zend_ini_do_op(i8 noundef signext 94, ptr noundef nonnull %8, ptr noundef nonnull %380, ptr noundef nonnull %.2347)
+  call fastcc void @zend_ini_do_op(i8 noundef signext 94, ptr noundef %8, ptr noundef %380, ptr noundef nonnull %.2347)
   br label %zval_ini_dtor.exit
 
 381:                                              ; preds = %85
-  call fastcc void @zend_ini_do_op(i8 noundef signext 126, ptr noundef nonnull %8, ptr noundef nonnull %.2347, ptr noundef null)
+  call fastcc void @zend_ini_do_op(i8 noundef signext 126, ptr noundef %8, ptr noundef %.2347, ptr noundef null)
   br label %zval_ini_dtor.exit
 
 382:                                              ; preds = %85
-  call fastcc void @zend_ini_do_op(i8 noundef signext 33, ptr noundef nonnull %8, ptr noundef nonnull %.2347, ptr noundef null)
+  call fastcc void @zend_ini_do_op(i8 noundef signext 33, ptr noundef %8, ptr noundef %.2347, ptr noundef null)
   br label %zval_ini_dtor.exit
 
 383:                                              ; preds = %85
@@ -1048,7 +1048,7 @@ zend_ini_init_string.exit441:                     ; preds = %298, %302
 
 385:                                              ; preds = %85
   %386 = getelementptr inbounds i8, ptr %.2347, i64 -16
-  call fastcc void @zend_ini_get_var(ptr noundef nonnull %8, ptr noundef nonnull %386, ptr noundef null)
+  call fastcc void @zend_ini_get_var(ptr noundef %8, ptr noundef %386, ptr noundef null)
   %387 = load ptr, ptr %386, align 8
   %388 = getelementptr inbounds i8, ptr %387, i64 4
   %389 = load i32, ptr %388, align 4
@@ -1072,7 +1072,7 @@ zend_ini_init_string.exit441:                     ; preds = %298, %302
 395:                                              ; preds = %85
   %396 = getelementptr inbounds i8, ptr %.2347, i64 -48
   %397 = getelementptr inbounds i8, ptr %.2347, i64 -16
-  call fastcc void @zend_ini_get_var(ptr noundef nonnull %8, ptr noundef nonnull %396, ptr noundef nonnull %397)
+  call fastcc void @zend_ini_get_var(ptr noundef %8, ptr noundef %396, ptr noundef nonnull %397)
   %398 = load ptr, ptr %396, align 8
   %399 = getelementptr inbounds i8, ptr %398, i64 4
   %400 = load i32, ptr %399, align 4
@@ -1407,7 +1407,7 @@ zval_ini_dtor.exit:                               ; preds = %251, %convert_to_nu
 
 549:                                              ; preds = %541, %543, %544
   %550 = phi i32 [ -2, %541 ], [ %548, %544 ], [ 2, %543 ]
-  %551 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %10, ptr nonnull %9, ptr %.2357, i32 %550)
+  %551 = call fastcc i32 @yysyntax_error(ptr noundef %10, ptr nonnull %9, ptr %.2357, i32 %550)
   switch i32 %551, label %.thread [
     i32 0, label %.thread457
     i32 -1, label %552
@@ -1432,7 +1432,7 @@ zval_ini_dtor.exit:                               ; preds = %251, %convert_to_nu
   br label %.loopexit500
 
 556:                                              ; preds = %552
-  %557 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %10, ptr nonnull %554, ptr %.2357, i32 %550)
+  %557 = call fastcc i32 @yysyntax_error(ptr noundef %10, ptr nonnull %554, ptr %.2357, i32 %550)
   call fastcc void @ini_error(ptr noundef nonnull %554)
   %558 = icmp eq i32 %557, -2
   br i1 %558, label %.loopexit500, label %.loopexit502
@@ -1451,7 +1451,7 @@ zval_ini_dtor.exit:                               ; preds = %251, %convert_to_nu
   %561 = getelementptr inbounds [76 x i8], ptr @yystos, i64 0, i64 %560
   %562 = load i8, ptr %561, align 1
   %563 = sext i8 %562 to i32
-  call fastcc void @yydestruct(i32 noundef %563, ptr noundef nonnull %.5350529)
+  call fastcc void @yydestruct(i32 noundef %563, ptr noundef %.5350529)
   %564 = getelementptr inbounds i8, ptr %.5350529, i64 -16
   %565 = getelementptr inbounds i8, ptr %.5360528, i64 -1
   %566 = load i8, ptr %565, align 1
@@ -1491,7 +1491,7 @@ zval_ini_dtor.exit:                               ; preds = %251, %convert_to_nu
 
 574:                                              ; preds = %569, %.thread481
   %575 = phi i32 [ %573, %.thread481 ], [ 2, %569 ]
-  call fastcc void @yydestruct(i32 noundef %575, ptr noundef nonnull %5)
+  call fastcc void @yydestruct(i32 noundef %575, ptr noundef %5)
   br label %576
 
 576:                                              ; preds = %574, %.loopexit
@@ -1506,7 +1506,7 @@ zval_ini_dtor.exit:                               ; preds = %251, %convert_to_nu
   %579 = getelementptr inbounds [76 x i8], ptr @yystos, i64 0, i64 %578
   %580 = load i8, ptr %579, align 1
   %581 = sext i8 %580 to i32
-  call fastcc void @yydestruct(i32 noundef %581, ptr noundef nonnull %.7352534)
+  call fastcc void @yydestruct(i32 noundef %581, ptr noundef %.7352534)
   %582 = getelementptr inbounds i8, ptr %.7352534, i64 -16
   %583 = getelementptr inbounds i8, ptr %.7362533, i64 -1
   %.not418 = icmp eq ptr %583, %.4339
@@ -1573,7 +1573,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 declare i32 @ini_lex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_ini_init_string(ptr nocapture noundef writeonly %0) unnamed_addr #0 {
+define internal fastcc void @zend_ini_init_string(ptr nocapture noundef nonnull writeonly %0) unnamed_addr #0 {
   %2 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %8
@@ -1603,7 +1603,7 @@ define internal fastcc void @zend_ini_init_string(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_ini_add_string(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @zend_ini_add_string(ptr nocapture noundef nonnull writeonly %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8
   %.not = icmp eq i8 %5, 6
@@ -1790,7 +1790,7 @@ define internal fastcc void @zend_ini_add_string(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_ini_do_op(i8 noundef signext %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @zend_ini_do_op(i8 noundef signext range(i8 33, 127) %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull readonly %2, ptr noundef readonly %3) unnamed_addr #0 {
   %5 = alloca [21 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i8, ptr %6, align 8
@@ -1971,7 +1971,7 @@ get_int_val.exit82:                               ; preds = %45, %44, %35, %32, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_ini_get_var(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @zend_ini_get_var(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @zend_get_configuration_directive(ptr noundef %4) #17
   %.not = icmp eq ptr %5, null
@@ -2118,7 +2118,7 @@ define internal fastcc void @zend_ini_get_var(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture noundef %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #5 {
+define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #5 {
   %2 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %yy_syntax_error_arguments.exit.thread6, label %3
@@ -2410,7 +2410,7 @@ define internal fastcc void @ini_error(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @yydestruct(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   switch i32 %0, label %zval_ini_dtor.exit [
     i32 4, label %3
     i32 5, label %21

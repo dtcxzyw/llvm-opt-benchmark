@@ -1625,7 +1625,7 @@ define range(i32 -1, 1) i32 @opal_rb_tree_traverse(ptr nocapture noundef readonl
   %8 = load ptr, ptr %7, align 16
   %9 = getelementptr inbounds i8, ptr %8, i64 72
   %10 = load ptr, ptr %9, align 8
-  tail call fastcc void @inorder_traversal(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %10)
+  tail call fastcc void @inorder_traversal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10)
   br label %11
 
 11:                                               ; preds = %3, %6
@@ -1634,7 +1634,7 @@ define range(i32 -1, 1) i32 @opal_rb_tree_traverse(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @inorder_traversal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @inorder_traversal(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %3, %6

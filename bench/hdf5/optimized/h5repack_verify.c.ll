@@ -1500,7 +1500,7 @@ declare i64 @H5Dget_create_plist(i64 noundef) local_unnamed_addr #1
 declare i64 @H5Dget_type(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef range(i64 0, -9223372036854775808) %0, i64 noundef range(i64 0, -9223372036854775808) %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca [20 x i32], align 16
   %7 = alloca i64, align 8

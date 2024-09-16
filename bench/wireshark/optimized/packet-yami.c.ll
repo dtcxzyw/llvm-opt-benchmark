@@ -245,7 +245,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_yami_data(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_yami_data(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   %6 = load i32, ptr @hf_yami_message_data, align 4
   %7 = load i32, ptr @hf_yami_message_hdr, align 4

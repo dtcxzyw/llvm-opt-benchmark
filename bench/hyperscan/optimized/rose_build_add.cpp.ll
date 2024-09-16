@@ -2399,7 +2399,7 @@ for.inc111:                                       ; preds = %invoke.cont96, %inv
 
 for.end113:                                       ; preds = %for.inc111, %invoke.cont51.thread, %invoke.cont51, %for.end75
   %_M_finish.i.i.i296299 = phi ptr [ %_M_finish.i.i.i, %for.end75 ], [ %_M_finish.i.i.i293, %invoke.cont51.thread ], [ %_M_finish.i.i.i, %invoke.cont51 ], [ %_M_finish.i.i.i, %for.inc111 ]
-  invoke fastcc void @_ZN3ue2L17populateRoseGraphEPNS_13RoseBuildImplERNS_13RoseBuildDataE(ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(65) %bd)
+  invoke fastcc void @_ZN3ue2L17populateRoseGraphEPNS_13RoseBuildImplERNS_13RoseBuildDataE(ptr noundef %this, ptr noundef nonnull align 8 dereferenceable(65) %bd)
           to label %cleanup unwind label %lpad46.loopexit.split-lp.loopexit.split-lp
 
 cleanup:                                          ; preds = %call6.i.noexc, %land.lhs.true.i, %if.end.i207, %for.end113
@@ -2666,7 +2666,7 @@ declare noundef i32 @_ZN3ue214whatRoseIsThisERKNS_11RoseInGraphERKNS_12graph_det
 declare void @_ZN3ue210set_reportERNS_8NGHolderEj(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L17populateRoseGraphEPNS_13RoseBuildImplERNS_13RoseBuildDataE(ptr noundef %tbi, ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %bd) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L17populateRoseGraphEPNS_13RoseBuildImplERNS_13RoseBuildDataE(ptr noundef nonnull %tbi, ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %bd) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i629 = alloca %"class.std::tuple.528", align 8
   %ref.tmp10.i630 = alloca %"class.std::tuple.531", align 1
@@ -5480,7 +5480,7 @@ if.then.i103.cont.i.i:                            ; preds = %if.then.i103.invoke
   unreachable
 
 invoke.cont131.i.i:                               ; preds = %_ZNSt4pairIjN3ue215rose_literal_idEED2Ev.exit.i.i
-  %call134.i.i = invoke fastcc { ptr, i64 } @_ZN3ue2L20createAnchoredVertexEPNS_13RoseBuildImplEjjj(ptr noundef nonnull %tbi, i32 noundef %anchored_exit_id.0.i.i, i32 noundef %min_width.sroa.0.1.i.i, i32 noundef %max_width.sroa.0.1.i.i)
+  %call134.i.i = invoke fastcc { ptr, i64 } @_ZN3ue2L20createAnchoredVertexEPNS_13RoseBuildImplEjjj(ptr noundef %tbi, i32 noundef %anchored_exit_id.0.i.i, i32 noundef %min_width.sroa.0.1.i.i, i32 noundef %max_width.sroa.0.1.i.i)
           to label %invoke.cont133.i.i unwind label %lpad124.i.i.loopexit
 
 invoke.cont133.i.i:                               ; preds = %invoke.cont131.i.i
@@ -8914,7 +8914,7 @@ if.end148.i:                                      ; preds = %call138.i.noexc
   store ptr %52, ptr %_M_left.i.i.i.i.i.i.i373, align 8
   store ptr %52, ptr %_M_right.i.i.i.i.i.i.i374, align 8
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i375, align 8
-  invoke fastcc void @_ZN3ue2L17makeRoseEodPrefixERKNS_8NGHolderERNS_13RoseBuildImplERSt3mapINS_8flat_setIjSt4lessIjESaIjEEEjS7_ISA_ESaISt4pairIKSA_jEEE(ptr noalias nonnull align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(136) %577, ptr noundef nonnull align 8 dereferenceable(780) %tbi, ptr noundef nonnull align 8 dereferenceable(48) %report_remap.i.i)
+  invoke fastcc void @_ZN3ue2L17makeRoseEodPrefixERKNS_8NGHolderERNS_13RoseBuildImplERSt3mapINS_8flat_setIjSt4lessIjESaIjEEEjS7_ISA_ESaISt4pairIKSA_jEEE(ptr noalias align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(136) %577, ptr noundef nonnull align 8 dereferenceable(780) %tbi, ptr noundef nonnull align 8 dereferenceable(48) %report_remap.i.i)
           to label %invoke.cont.i.i424 unwind label %lpad.i.i419
 
 invoke.cont.i.i424:                               ; preds = %if.end148.i
@@ -10478,7 +10478,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i, i8 0, i64 16, i1 false)
   %som.i = getelementptr inbounds i8, ptr %bd, i64 64
   store i8 1, ptr %som.i, align 8
-  invoke fastcc void @_ZN3ue2L17populateRoseGraphEPNS_13RoseBuildImplERNS_13RoseBuildDataE(ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(65) %bd)
+  invoke fastcc void @_ZN3ue2L17populateRoseGraphEPNS_13RoseBuildImplERNS_13RoseBuildDataE(ptr noundef %this, ptr noundef nonnull align 8 dereferenceable(65) %bd)
           to label %invoke.cont18 unwind label %lpad
 
 lpad:                                             ; preds = %if.end
@@ -12058,7 +12058,7 @@ land.rhs:                                         ; preds = %land.lhs.true
   store ptr %2, ptr %_M_right.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %report_remap.i, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  invoke fastcc void @_ZN3ue2L17makeRoseEodPrefixERKNS_8NGHolderERNS_13RoseBuildImplERSt3mapINS_8flat_setIjSt4lessIjESaIjEEEjS7_ISA_ESaISt4pairIKSA_jEEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(136) %h, ptr noundef nonnull align 8 dereferenceable(780) %this, ptr noundef nonnull align 8 dereferenceable(48) %report_remap.i)
+  invoke fastcc void @_ZN3ue2L17makeRoseEodPrefixERKNS_8NGHolderERNS_13RoseBuildImplERSt3mapINS_8flat_setIjSt4lessIjESaIjEEEjS7_ISA_ESaISt4pairIKSA_jEEE(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(136) %h, ptr noundef nonnull align 8 dereferenceable(780) %this, ptr noundef nonnull align 8 dereferenceable(48) %report_remap.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %land.rhs
@@ -13863,7 +13863,7 @@ invoke.cont62:                                    ; preds = %invoke.cont60
 
 invoke.cont64:                                    ; preds = %invoke.cont62
   %28 = load i32, ptr %second, align 4
-  %call68 = invoke fastcc { ptr, i64 } @_ZN3ue2L20createAnchoredVertexEPNS_13RoseBuildImplEjjj(ptr noundef nonnull %this, i32 noundef %28, i32 noundef %26, i32 noundef %27)
+  %call68 = invoke fastcc { ptr, i64 } @_ZN3ue2L20createAnchoredVertexEPNS_13RoseBuildImplEjjj(ptr noundef %this, i32 noundef %28, i32 noundef %26, i32 noundef %27)
           to label %invoke.cont67 unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont67:                                    ; preds = %invoke.cont64
@@ -13910,7 +13910,7 @@ invoke.cont99:                                    ; preds = %invoke.cont96
 
 invoke.cont102:                                   ; preds = %invoke.cont99
   %33 = load i32, ptr %second91, align 4
-  %call106 = invoke fastcc { ptr, i64 } @_ZN3ue2L20createAnchoredVertexEPNS_13RoseBuildImplEjjj(ptr noundef nonnull %this, i32 noundef %33, i32 noundef %31, i32 noundef %32)
+  %call106 = invoke fastcc { ptr, i64 } @_ZN3ue2L20createAnchoredVertexEPNS_13RoseBuildImplEjjj(ptr noundef %this, i32 noundef %33, i32 noundef %31, i32 noundef %32)
           to label %invoke.cont105 unwind label %lpad19.loopexit.split-lp.loopexit
 
 invoke.cont105:                                   ; preds = %invoke.cont102
@@ -14505,7 +14505,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, i64 } @_ZN3ue2L20createAnchoredVertexEPNS_13RoseBuildImplEjjj(ptr noundef %build, i32 noundef %literalId, i32 noundef %min_offset, i32 noundef %max_offset) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i64 } @_ZN3ue2L20createAnchoredVertexEPNS_13RoseBuildImplEjjj(ptr noundef nonnull %build, i32 noundef %literalId, i32 noundef %min_offset, i32 noundef %max_offset) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %"class.ue2::graph_detail::vertex_descriptor", align 8
   %literalId.addr.i = alloca i32, align 4
@@ -21161,7 +21161,7 @@ return:                                           ; preds = %_ZN5boost9container
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L17makeRoseEodPrefixERKNS_8NGHolderERNS_13RoseBuildImplERSt3mapINS_8flat_setIjSt4lessIjESaIjEEEjS7_ISA_ESaISt4pairIKSA_jEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %h, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr noundef nonnull align 8 dereferenceable(48) %remap) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L17makeRoseEodPrefixERKNS_8NGHolderERNS_13RoseBuildImplERSt3mapINS_8flat_setIjSt4lessIjESaIjEEEjS7_ISA_ESaISt4pairIKSA_jEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %h, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr noundef nonnull align 8 dereferenceable(48) %remap) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i65 = alloca %"class.std::tuple.741", align 8
   %ref.tmp10.i66 = alloca %"class.std::tuple.531", align 1
@@ -21169,7 +21169,7 @@ entry:
   %ref.tmp10.i = alloca %"class.std::tuple.531", align 1
   %ref.tmp.i = alloca %"struct.std::pair.553", align 8
   %ref.tmp35 = alloca %"class.ue2::flat_set", align 8
-  tail call void @_ZN3ue211cloneHolderERKNS_8NGHolderE(ptr sret(%"class.std::unique_ptr.310") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %h)
+  tail call void @_ZN3ue211cloneHolderERKNS_8NGHolderE(ptr nonnull sret(%"class.std::unique_ptr.310") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %h)
   %0 = load ptr, ptr %agg.result, align 8
   %kind.i = getelementptr inbounds i8, ptr %h, i64 64
   %1 = load i32, ptr %kind.i, align 8

@@ -878,7 +878,7 @@ declare dso_local ptr @ttm_resource_manager_first(ptr noundef, ptr noundef) loca
 declare dso_local ptr @ttm_resource_manager_next(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ttm_bo_cleanup_refs(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ttm_bo_cleanup_refs(ptr noundef nonnull %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 256
   %6 = tail call zeroext i1 @dma_resv_test_signaled(ptr noundef %5, i32 noundef 3) #6
   %7 = or i1 %2, %6
@@ -962,7 +962,7 @@ define internal fastcc i32 @ttm_bo_cleanup_refs(ptr noundef %0, i1 noundef zeroe
   br i1 %50, label %52, label %51
 
 51:                                               ; preds = %.thread5
-  tail call void %49(ptr noundef %0) #6
+  tail call void %49(ptr noundef nonnull %0) #6
   br label %52
 
 52:                                               ; preds = %51, %.thread5
@@ -982,7 +982,7 @@ define internal fastcc i32 @ttm_bo_cleanup_refs(ptr noundef %0, i1 noundef zeroe
 
 60:                                               ; preds = %56, %52
   %61 = getelementptr inbounds i8, ptr %0, i64 384
-  tail call void @ttm_resource_free(ptr noundef %0, ptr noundef %61) #6
+  tail call void @ttm_resource_free(ptr noundef nonnull %0, ptr noundef %61) #6
   br i1 %3, label %62, label %.thread
 
 62:                                               ; preds = %60
@@ -1838,7 +1838,7 @@ define dso_local i32 @ttm_bo_swapout(ptr noundef %0, ptr noundef %1, i32 noundef
 
 87:                                               ; preds = %83
   %88 = icmp ne i8 %29, 0
-  %89 = call fastcc i32 @ttm_bo_cleanup_refs(ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext %88)
+  %89 = call fastcc i32 @ttm_bo_cleanup_refs(ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext %88)
   call void @ttm_bo_put(ptr noundef nonnull %0)
   %90 = icmp eq i32 %89, -16
   %91 = select i1 %90, i32 -28, i32 %89
@@ -2244,7 +2244,7 @@ declare dso_local void @ww_mutex_unlock(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @ww_mutex_lock_interruptible(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ttm_bo_mem_space_debug(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ttm_bo_mem_space_debug(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.drm_printer, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
   store ptr @__drm_printfn_debug, ptr %3, align 8, !alias.scope !57

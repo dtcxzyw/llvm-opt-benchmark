@@ -511,7 +511,7 @@ pm_integer_copy.exit:                             ; preds = %pm_integer_copy.exi
 
 .lr.ph:                                           ; preds = %pm_integer_copy.exit, %.lr.ph
   %.024 = phi ptr [ %54, %.lr.ph ], [ %45, %pm_integer_copy.exit ]
-  %51 = call fastcc range(i32 0, 10) i32 @pm_integer_divide_word(ptr noundef nonnull %3, ptr noundef nonnull %36)
+  %51 = call fastcc range(i32 0, 10) i32 @pm_integer_divide_word(ptr noundef %3, ptr noundef %36)
   %52 = trunc nuw nsw i32 %51 to i8
   %53 = or disjoint i8 %52, 48
   %54 = getelementptr i8, ptr %.024, i64 -1
@@ -557,7 +557,7 @@ define hidden void @pm_integer_free(ptr nocapture noundef readonly %0) local_unn
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call fastcc void @pm_integer_word_destroy(ptr noundef nonnull %3)
+  tail call fastcc void @pm_integer_word_destroy(ptr noundef %3)
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -565,13 +565,13 @@ define hidden void @pm_integer_free(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pm_integer_word_destroy(ptr nocapture noundef %0) unnamed_addr #4 {
+define internal fastcc void @pm_integer_word_destroy(ptr nocapture noundef nonnull %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call fastcc void @pm_integer_word_destroy(ptr noundef nonnull %2)
+  tail call fastcc void @pm_integer_word_destroy(ptr noundef %2)
   br label %4
 
 4:                                                ; preds = %3, %1
@@ -583,13 +583,13 @@ define internal fastcc void @pm_integer_word_destroy(ptr nocapture noundef %0) u
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 10) i32 @pm_integer_divide_word(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #4 {
+define internal fastcc range(i32 0, 10) i32 @pm_integer_divide_word(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #4 {
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call fastcc i32 @pm_integer_divide_word(ptr noundef %0, ptr noundef nonnull %3)
+  %5 = tail call fastcc i32 @pm_integer_divide_word(ptr noundef %0, ptr noundef %3)
   %6 = load i64, ptr %0, align 8
   %.not16 = icmp eq i64 %6, 0
   br i1 %.not16, label %15, label %7

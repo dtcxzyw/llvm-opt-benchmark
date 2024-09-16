@@ -309,7 +309,7 @@ define internal void @Intra16Preds_SSE2(ptr nocapture noundef writeonly %0, ptr 
 
 DC16Mode_SSE2.exit:                               ; preds = %22, %36, %51, %.preheader.i
   %56 = getelementptr inbounds i8, ptr %0, i64 512
-  br i1 %.not.i, label %.preheader.i11, label %57
+  br i1 %.not.i, label %.preheader14.i, label %57
 
 57:                                               ; preds = %DC16Mode_SSE2.exit
   %.val7.i = load <2 x i64>, ptr %2, align 16
@@ -324,48 +324,48 @@ DC16Mode_SSE2.exit:                               ; preds = %22, %36, %51, %.pre
   %exitcond.not.i10.i = icmp eq i64 %indvars.iv.next.i9.i, 16
   br i1 %exitcond.not.i10.i, label %VerticalPred_SSE2.exit, label %58, !llvm.loop !8
 
-.preheader.i11:                                   ; preds = %DC16Mode_SSE2.exit, %.preheader.i11
-  %indvars.iv.i11.i.i = phi i64 [ %indvars.iv.next.i12.i.i, %.preheader.i11 ], [ 0, %DC16Mode_SSE2.exit ]
+.preheader14.i:                                   ; preds = %DC16Mode_SSE2.exit, %.preheader14.i
+  %indvars.iv.i11.i.i = phi i64 [ %indvars.iv.next.i12.i.i, %.preheader14.i ], [ 0, %DC16Mode_SSE2.exit ]
   %61 = shl nuw nsw i64 %indvars.iv.i11.i.i, 5
   %62 = getelementptr inbounds i8, ptr %56, i64 %61
   store <16 x i8> <i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127>, ptr %62, align 16
   %indvars.iv.next.i12.i.i = add nuw nsw i64 %indvars.iv.i11.i.i, 1
   %exitcond.not.i13.i.i = icmp eq i64 %indvars.iv.next.i12.i.i, 16
-  br i1 %exitcond.not.i13.i.i, label %VerticalPred_SSE2.exit, label %.preheader.i11, !llvm.loop !7
+  br i1 %exitcond.not.i13.i.i, label %VerticalPred_SSE2.exit, label %.preheader14.i, !llvm.loop !7
 
-VerticalPred_SSE2.exit:                           ; preds = %58, %.preheader.i11
+VerticalPred_SSE2.exit:                           ; preds = %58, %.preheader14.i
   %63 = getelementptr inbounds i8, ptr %0, i64 528
-  br i1 %.not12.i, label %.preheader.i15, label %.preheader19.i
+  br i1 %.not12.i, label %.preheader14.i14, label %.preheader18.i
 
-.preheader19.i:                                   ; preds = %VerticalPred_SSE2.exit, %.preheader19.i
-  %indvars.iv.i7.i = phi i64 [ %indvars.iv.next.i9.i13, %.preheader19.i ], [ 0, %VerticalPred_SSE2.exit ]
-  %.043.i8.i = phi ptr [ %68, %.preheader19.i ], [ %63, %VerticalPred_SSE2.exit ]
+.preheader18.i:                                   ; preds = %VerticalPred_SSE2.exit, %.preheader18.i
+  %indvars.iv.i7.i = phi i64 [ %indvars.iv.next.i9.i12, %.preheader18.i ], [ 0, %VerticalPred_SSE2.exit ]
+  %.043.i8.i = phi ptr [ %68, %.preheader18.i ], [ %63, %VerticalPred_SSE2.exit ]
   %64 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i7.i
   %65 = load i8, ptr %64, align 1
   %66 = insertelement <16 x i8> poison, i8 %65, i64 0
   %67 = shufflevector <16 x i8> %66, <16 x i8> poison, <16 x i32> zeroinitializer
   store <16 x i8> %67, ptr %.043.i8.i, align 16
   %68 = getelementptr inbounds i8, ptr %.043.i8.i, i64 32
-  %indvars.iv.next.i9.i13 = add nuw nsw i64 %indvars.iv.i7.i, 1
-  %exitcond.not.i10.i14 = icmp eq i64 %indvars.iv.next.i9.i13, 16
-  br i1 %exitcond.not.i10.i14, label %HorizontalPred_SSE2.exit.thread, label %.preheader19.i, !llvm.loop !9
+  %indvars.iv.next.i9.i12 = add nuw nsw i64 %indvars.iv.i7.i, 1
+  %exitcond.not.i10.i13 = icmp eq i64 %indvars.iv.next.i9.i12, 16
+  br i1 %exitcond.not.i10.i13, label %HorizontalPred_SSE2.exit.thread, label %.preheader18.i, !llvm.loop !9
 
-HorizontalPred_SSE2.exit.thread:                  ; preds = %.preheader19.i
+HorizontalPred_SSE2.exit.thread:                  ; preds = %.preheader18.i
   %69 = getelementptr inbounds i8, ptr %0, i64 16
-  br i1 %.not.i, label %.preheader19.i.i, label %73
+  br i1 %.not.i, label %.preheader18.i.i, label %73
 
-.preheader.i15:                                   ; preds = %VerticalPred_SSE2.exit, %.preheader.i15
-  %indvars.iv.i11.i.i16 = phi i64 [ %indvars.iv.next.i12.i.i17, %.preheader.i15 ], [ 0, %VerticalPred_SSE2.exit ]
-  %70 = shl nuw nsw i64 %indvars.iv.i11.i.i16, 5
+.preheader14.i14:                                 ; preds = %VerticalPred_SSE2.exit, %.preheader14.i14
+  %indvars.iv.i11.i.i15 = phi i64 [ %indvars.iv.next.i12.i.i16, %.preheader14.i14 ], [ 0, %VerticalPred_SSE2.exit ]
+  %70 = shl nuw nsw i64 %indvars.iv.i11.i.i15, 5
   %71 = getelementptr inbounds i8, ptr %63, i64 %70
   store <16 x i8> <i8 -127, i8 -127, i8 -127, i8 -127, i8 -127, i8 -127, i8 -127, i8 -127, i8 -127, i8 -127, i8 -127, i8 -127, i8 -127, i8 -127, i8 -127, i8 -127>, ptr %71, align 16
-  %indvars.iv.next.i12.i.i17 = add nuw nsw i64 %indvars.iv.i11.i.i16, 1
-  %exitcond.not.i13.i.i18 = icmp eq i64 %indvars.iv.next.i12.i.i17, 16
-  br i1 %exitcond.not.i13.i.i18, label %HorizontalPred_SSE2.exit, label %.preheader.i15, !llvm.loop !7
+  %indvars.iv.next.i12.i.i16 = add nuw nsw i64 %indvars.iv.i11.i.i15, 1
+  %exitcond.not.i13.i.i17 = icmp eq i64 %indvars.iv.next.i12.i.i16, 16
+  br i1 %exitcond.not.i13.i.i17, label %HorizontalPred_SSE2.exit, label %.preheader14.i14, !llvm.loop !7
 
-HorizontalPred_SSE2.exit:                         ; preds = %.preheader.i15
+HorizontalPred_SSE2.exit:                         ; preds = %.preheader14.i14
   %72 = getelementptr inbounds i8, ptr %0, i64 16
-  br i1 %.not.i, label %.preheader.i20, label %98
+  br i1 %.not.i, label %.preheader39.i, label %98
 
 73:                                               ; preds = %HorizontalPred_SSE2.exit.thread
   %74 = load <16 x i8>, ptr %2, align 16
@@ -396,9 +396,9 @@ HorizontalPred_SSE2.exit:                         ; preds = %.preheader.i15
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
   br i1 %exitcond.not.i.i, label %TrueMotion_SSE2.exit, label %80, !llvm.loop !10
 
-.preheader19.i.i:                                 ; preds = %HorizontalPred_SSE2.exit.thread, %.preheader19.i.i
-  %indvars.iv.i7.i.i = phi i64 [ %indvars.iv.next.i9.i.i, %.preheader19.i.i ], [ 0, %HorizontalPred_SSE2.exit.thread ]
-  %.043.i8.i.i = phi ptr [ %97, %.preheader19.i.i ], [ %69, %HorizontalPred_SSE2.exit.thread ]
+.preheader18.i.i:                                 ; preds = %HorizontalPred_SSE2.exit.thread, %.preheader18.i.i
+  %indvars.iv.i7.i.i = phi i64 [ %indvars.iv.next.i9.i.i, %.preheader18.i.i ], [ 0, %HorizontalPred_SSE2.exit.thread ]
+  %.043.i8.i.i = phi ptr [ %97, %.preheader18.i.i ], [ %69, %HorizontalPred_SSE2.exit.thread ]
   %93 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i7.i.i
   %94 = load i8, ptr %93, align 1
   %95 = insertelement <16 x i8> poison, i8 %94, i64 0
@@ -407,31 +407,31 @@ HorizontalPred_SSE2.exit:                         ; preds = %.preheader.i15
   %97 = getelementptr inbounds i8, ptr %.043.i8.i.i, i64 32
   %indvars.iv.next.i9.i.i = add nuw nsw i64 %indvars.iv.i7.i.i, 1
   %exitcond.not.i10.i.i = icmp eq i64 %indvars.iv.next.i9.i.i, 16
-  br i1 %exitcond.not.i10.i.i, label %TrueMotion_SSE2.exit, label %.preheader19.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i10.i.i, label %TrueMotion_SSE2.exit, label %.preheader18.i.i, !llvm.loop !9
 
 98:                                               ; preds = %HorizontalPred_SSE2.exit
   %.val7.i.i = load <2 x i64>, ptr %2, align 16
   br label %99
 
 99:                                               ; preds = %99, %98
-  %indvars.iv.i8.i.i = phi i64 [ 0, %98 ], [ %indvars.iv.next.i9.i18.i, %99 ]
+  %indvars.iv.i8.i.i = phi i64 [ 0, %98 ], [ %indvars.iv.next.i9.i19.i, %99 ]
   %100 = shl nuw nsw i64 %indvars.iv.i8.i.i, 5
   %101 = getelementptr inbounds i8, ptr %72, i64 %100
   store <2 x i64> %.val7.i.i, ptr %101, align 16
-  %indvars.iv.next.i9.i18.i = add nuw nsw i64 %indvars.iv.i8.i.i, 1
-  %exitcond.not.i10.i19.i = icmp eq i64 %indvars.iv.next.i9.i18.i, 16
-  br i1 %exitcond.not.i10.i19.i, label %TrueMotion_SSE2.exit, label %99, !llvm.loop !8
+  %indvars.iv.next.i9.i19.i = add nuw nsw i64 %indvars.iv.i8.i.i, 1
+  %exitcond.not.i10.i20.i = icmp eq i64 %indvars.iv.next.i9.i19.i, 16
+  br i1 %exitcond.not.i10.i20.i, label %TrueMotion_SSE2.exit, label %99, !llvm.loop !8
 
-.preheader.i20:                                   ; preds = %HorizontalPred_SSE2.exit, %.preheader.i20
-  %indvars.iv.i11.i42.i = phi i64 [ %indvars.iv.next.i12.i43.i, %.preheader.i20 ], [ 0, %HorizontalPred_SSE2.exit ]
-  %102 = shl nuw nsw i64 %indvars.iv.i11.i42.i, 5
+.preheader39.i:                                   ; preds = %HorizontalPred_SSE2.exit, %.preheader39.i
+  %indvars.iv.i11.i.i19 = phi i64 [ %indvars.iv.next.i12.i.i20, %.preheader39.i ], [ 0, %HorizontalPred_SSE2.exit ]
+  %102 = shl nuw nsw i64 %indvars.iv.i11.i.i19, 5
   %103 = getelementptr inbounds i8, ptr %72, i64 %102
   store <16 x i8> <i8 -127, i8 -127, i8 -127, i8 -127, i8 -127, i8 -127, i8 -127, i8 -127, i8 -127, i8 -127, i8 -127, i8 -127, i8 -127, i8 -127, i8 -127, i8 -127>, ptr %103, align 16
-  %indvars.iv.next.i12.i43.i = add nuw nsw i64 %indvars.iv.i11.i42.i, 1
-  %exitcond.not.i13.i44.i = icmp eq i64 %indvars.iv.next.i12.i43.i, 16
-  br i1 %exitcond.not.i13.i44.i, label %TrueMotion_SSE2.exit, label %.preheader.i20, !llvm.loop !7
+  %indvars.iv.next.i12.i.i20 = add nuw nsw i64 %indvars.iv.i11.i.i19, 1
+  %exitcond.not.i13.i.i21 = icmp eq i64 %indvars.iv.next.i12.i.i20, 16
+  br i1 %exitcond.not.i13.i.i21, label %TrueMotion_SSE2.exit, label %.preheader39.i, !llvm.loop !7
 
-TrueMotion_SSE2.exit:                             ; preds = %80, %.preheader19.i.i, %99, %.preheader.i20
+TrueMotion_SSE2.exit:                             ; preds = %80, %.preheader18.i.i, %99, %.preheader39.i
   ret void
 }
 
@@ -538,7 +538,7 @@ define internal void @IntraChromaPreds_SSE2(ptr nocapture noundef writeonly %0, 
 
 DC8uvMode_SSE2.exit:                              ; preds = %22, %38, %55, %.preheader.i
   %60 = getelementptr inbounds i8, ptr %0, i64 1280
-  br i1 %.not.i, label %.preheader15.i, label %61
+  br i1 %.not.i, label %.preheader.i32, label %61
 
 61:                                               ; preds = %DC8uvMode_SSE2.exit
   %.val.i31 = load i64, ptr %2, align 1
@@ -553,23 +553,23 @@ DC8uvMode_SSE2.exit:                              ; preds = %22, %38, %55, %.pre
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %VerticalPred_SSE2.exit, label %62, !llvm.loop !12
 
-.preheader15.i:                                   ; preds = %DC8uvMode_SSE2.exit, %.preheader15.i
-  %indvars.iv.i.i.i32 = phi i64 [ %indvars.iv.next.i.i.i33, %.preheader15.i ], [ 0, %DC8uvMode_SSE2.exit ]
-  %65 = shl nuw nsw i64 %indvars.iv.i.i.i32, 5
+.preheader.i32:                                   ; preds = %DC8uvMode_SSE2.exit, %.preheader.i32
+  %indvars.iv.i.i.i33 = phi i64 [ %indvars.iv.next.i.i.i34, %.preheader.i32 ], [ 0, %DC8uvMode_SSE2.exit ]
+  %65 = shl nuw nsw i64 %indvars.iv.i.i.i33, 5
   %66 = getelementptr inbounds i8, ptr %60, i64 %65
   store i64 9187201950435737471, ptr %66, align 1
-  %indvars.iv.next.i.i.i33 = add nuw nsw i64 %indvars.iv.i.i.i32, 1
-  %exitcond.not.i.i.i34 = icmp eq i64 %indvars.iv.next.i.i.i33, 8
-  br i1 %exitcond.not.i.i.i34, label %VerticalPred_SSE2.exit, label %.preheader15.i, !llvm.loop !11
+  %indvars.iv.next.i.i.i34 = add nuw nsw i64 %indvars.iv.i.i.i33, 1
+  %exitcond.not.i.i.i35 = icmp eq i64 %indvars.iv.next.i.i.i34, 8
+  br i1 %exitcond.not.i.i.i35, label %VerticalPred_SSE2.exit, label %.preheader.i32, !llvm.loop !11
 
-VerticalPred_SSE2.exit:                           ; preds = %62, %.preheader15.i
+VerticalPred_SSE2.exit:                           ; preds = %62, %.preheader.i32
   %67 = getelementptr inbounds i8, ptr %0, i64 1296
-  br i1 %.not12.i, label %.preheader15.i39, label %.preheader17.i
+  br i1 %.not12.i, label %.preheader.i40, label %.preheader16.i
 
-.preheader17.i:                                   ; preds = %VerticalPred_SSE2.exit, %.preheader17.i
-  %indvars.iv.i.i36 = phi i64 [ %indvars.iv.next.i.i37, %.preheader17.i ], [ 0, %VerticalPred_SSE2.exit ]
-  %.043.i.i = phi ptr [ %74, %.preheader17.i ], [ %67, %VerticalPred_SSE2.exit ]
-  %68 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i36
+.preheader16.i:                                   ; preds = %VerticalPred_SSE2.exit, %.preheader16.i
+  %indvars.iv.i.i37 = phi i64 [ %indvars.iv.next.i.i38, %.preheader16.i ], [ 0, %VerticalPred_SSE2.exit ]
+  %.043.i.i = phi ptr [ %74, %.preheader16.i ], [ %67, %VerticalPred_SSE2.exit ]
+  %68 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i37
   %69 = load i8, ptr %68, align 1
   %70 = insertelement <16 x i8> poison, i8 %69, i64 0
   %71 = shufflevector <16 x i8> %70, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
@@ -577,26 +577,26 @@ VerticalPred_SSE2.exit:                           ; preds = %62, %.preheader15.i
   %73 = extractelement <2 x i64> %72, i64 0
   store i64 %73, ptr %.043.i.i, align 1
   %74 = getelementptr inbounds i8, ptr %.043.i.i, i64 32
-  %indvars.iv.next.i.i37 = add nuw nsw i64 %indvars.iv.i.i36, 1
-  %exitcond.not.i.i38 = icmp eq i64 %indvars.iv.next.i.i37, 8
-  br i1 %exitcond.not.i.i38, label %HorizontalPred_SSE2.exit.thread, label %.preheader17.i, !llvm.loop !13
+  %indvars.iv.next.i.i38 = add nuw nsw i64 %indvars.iv.i.i37, 1
+  %exitcond.not.i.i39 = icmp eq i64 %indvars.iv.next.i.i38, 8
+  br i1 %exitcond.not.i.i39, label %HorizontalPred_SSE2.exit.thread, label %.preheader16.i, !llvm.loop !13
 
-HorizontalPred_SSE2.exit.thread:                  ; preds = %.preheader17.i
+HorizontalPred_SSE2.exit.thread:                  ; preds = %.preheader16.i
   %75 = getelementptr inbounds i8, ptr %0, i64 1040
-  br i1 %.not.i, label %.preheader17.i.i, label %79
+  br i1 %.not.i, label %.preheader16.i.i, label %79
 
-.preheader15.i39:                                 ; preds = %VerticalPred_SSE2.exit, %.preheader15.i39
-  %indvars.iv.i.i.i40 = phi i64 [ %indvars.iv.next.i.i.i41, %.preheader15.i39 ], [ 0, %VerticalPred_SSE2.exit ]
-  %76 = shl nuw nsw i64 %indvars.iv.i.i.i40, 5
+.preheader.i40:                                   ; preds = %VerticalPred_SSE2.exit, %.preheader.i40
+  %indvars.iv.i.i.i41 = phi i64 [ %indvars.iv.next.i.i.i42, %.preheader.i40 ], [ 0, %VerticalPred_SSE2.exit ]
+  %76 = shl nuw nsw i64 %indvars.iv.i.i.i41, 5
   %77 = getelementptr inbounds i8, ptr %67, i64 %76
   store i64 -9114861777597660799, ptr %77, align 1
-  %indvars.iv.next.i.i.i41 = add nuw nsw i64 %indvars.iv.i.i.i40, 1
-  %exitcond.not.i.i.i42 = icmp eq i64 %indvars.iv.next.i.i.i41, 8
-  br i1 %exitcond.not.i.i.i42, label %HorizontalPred_SSE2.exit, label %.preheader15.i39, !llvm.loop !11
+  %indvars.iv.next.i.i.i42 = add nuw nsw i64 %indvars.iv.i.i.i41, 1
+  %exitcond.not.i.i.i43 = icmp eq i64 %indvars.iv.next.i.i.i42, 8
+  br i1 %exitcond.not.i.i.i43, label %HorizontalPred_SSE2.exit, label %.preheader.i40, !llvm.loop !11
 
-HorizontalPred_SSE2.exit:                         ; preds = %.preheader15.i39
+HorizontalPred_SSE2.exit:                         ; preds = %.preheader.i40
   %78 = getelementptr inbounds i8, ptr %0, i64 1040
-  br i1 %.not.i, label %.preheader46.i, label %107
+  br i1 %.not.i, label %.preheader.i48, label %107
 
 79:                                               ; preds = %HorizontalPred_SSE2.exit.thread
   %80 = load i64, ptr %2, align 1
@@ -628,10 +628,10 @@ HorizontalPred_SSE2.exit:                         ; preds = %.preheader15.i39
   %exitcond105.not.i.i = icmp eq i64 %indvars.iv.next103.i.i, 8
   br i1 %exitcond105.not.i.i, label %TrueMotion_SSE2.exit, label %86, !llvm.loop !14
 
-.preheader17.i.i:                                 ; preds = %HorizontalPred_SSE2.exit.thread, %.preheader17.i.i
-  %indvars.iv.i.i.i44 = phi i64 [ %indvars.iv.next.i.i.i45, %.preheader17.i.i ], [ 0, %HorizontalPred_SSE2.exit.thread ]
-  %.043.i.i.i = phi ptr [ %106, %.preheader17.i.i ], [ %75, %HorizontalPred_SSE2.exit.thread ]
-  %100 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i.i44
+.preheader16.i.i:                                 ; preds = %HorizontalPred_SSE2.exit.thread, %.preheader16.i.i
+  %indvars.iv.i.i.i45 = phi i64 [ %indvars.iv.next.i.i.i46, %.preheader16.i.i ], [ 0, %HorizontalPred_SSE2.exit.thread ]
+  %.043.i.i.i = phi ptr [ %106, %.preheader16.i.i ], [ %75, %HorizontalPred_SSE2.exit.thread ]
+  %100 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i.i45
   %101 = load i8, ptr %100, align 1
   %102 = insertelement <16 x i8> poison, i8 %101, i64 0
   %103 = shufflevector <16 x i8> %102, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
@@ -639,33 +639,33 @@ HorizontalPred_SSE2.exit:                         ; preds = %.preheader15.i39
   %105 = extractelement <2 x i64> %104, i64 0
   store i64 %105, ptr %.043.i.i.i, align 1
   %106 = getelementptr inbounds i8, ptr %.043.i.i.i, i64 32
-  %indvars.iv.next.i.i.i45 = add nuw nsw i64 %indvars.iv.i.i.i44, 1
-  %exitcond.not.i.i.i46 = icmp eq i64 %indvars.iv.next.i.i.i45, 8
-  br i1 %exitcond.not.i.i.i46, label %TrueMotion_SSE2.exit, label %.preheader17.i.i, !llvm.loop !13
+  %indvars.iv.next.i.i.i46 = add nuw nsw i64 %indvars.iv.i.i.i45, 1
+  %exitcond.not.i.i.i47 = icmp eq i64 %indvars.iv.next.i.i.i46, 8
+  br i1 %exitcond.not.i.i.i47, label %TrueMotion_SSE2.exit, label %.preheader16.i.i, !llvm.loop !13
 
 107:                                              ; preds = %HorizontalPred_SSE2.exit
   %.val.i.i = load i64, ptr %2, align 1
   br label %108
 
 108:                                              ; preds = %108, %107
-  %indvars.iv.i.i20.i47 = phi i64 [ 0, %107 ], [ %indvars.iv.next.i.i21.i48, %108 ]
-  %109 = shl nuw nsw i64 %indvars.iv.i.i20.i47, 5
+  %indvars.iv.i.i21.i = phi i64 [ 0, %107 ], [ %indvars.iv.next.i.i22.i, %108 ]
+  %109 = shl nuw nsw i64 %indvars.iv.i.i21.i, 5
   %110 = getelementptr inbounds i8, ptr %78, i64 %109
   store i64 %.val.i.i, ptr %110, align 1
-  %indvars.iv.next.i.i21.i48 = add nuw nsw i64 %indvars.iv.i.i20.i47, 1
-  %exitcond.not.i.i22.i49 = icmp eq i64 %indvars.iv.next.i.i21.i48, 8
-  br i1 %exitcond.not.i.i22.i49, label %TrueMotion_SSE2.exit, label %108, !llvm.loop !12
+  %indvars.iv.next.i.i22.i = add nuw nsw i64 %indvars.iv.i.i21.i, 1
+  %exitcond.not.i.i23.i = icmp eq i64 %indvars.iv.next.i.i22.i, 8
+  br i1 %exitcond.not.i.i23.i, label %TrueMotion_SSE2.exit, label %108, !llvm.loop !12
 
-.preheader46.i:                                   ; preds = %HorizontalPred_SSE2.exit, %.preheader46.i
-  %indvars.iv.i.i35.i = phi i64 [ %indvars.iv.next.i.i36.i, %.preheader46.i ], [ 0, %HorizontalPred_SSE2.exit ]
-  %111 = shl nuw nsw i64 %indvars.iv.i.i35.i, 5
+.preheader.i48:                                   ; preds = %HorizontalPred_SSE2.exit, %.preheader.i48
+  %indvars.iv.i.i32.i = phi i64 [ %indvars.iv.next.i.i33.i, %.preheader.i48 ], [ 0, %HorizontalPred_SSE2.exit ]
+  %111 = shl nuw nsw i64 %indvars.iv.i.i32.i, 5
   %112 = getelementptr inbounds i8, ptr %78, i64 %111
   store i64 -9114861777597660799, ptr %112, align 1
-  %indvars.iv.next.i.i36.i = add nuw nsw i64 %indvars.iv.i.i35.i, 1
-  %exitcond.not.i.i37.i = icmp eq i64 %indvars.iv.next.i.i36.i, 8
-  br i1 %exitcond.not.i.i37.i, label %TrueMotion_SSE2.exit, label %.preheader46.i, !llvm.loop !11
+  %indvars.iv.next.i.i33.i = add nuw nsw i64 %indvars.iv.i.i32.i, 1
+  %exitcond.not.i.i34.i = icmp eq i64 %indvars.iv.next.i.i33.i, 8
+  br i1 %exitcond.not.i.i34.i, label %TrueMotion_SSE2.exit, label %.preheader.i48, !llvm.loop !11
 
-TrueMotion_SSE2.exit:                             ; preds = %86, %.preheader17.i.i, %108, %.preheader46.i
+TrueMotion_SSE2.exit:                             ; preds = %86, %.preheader16.i.i, %108, %.preheader.i48
   %113 = getelementptr inbounds i8, ptr %2, i64 8
   %114 = getelementptr inbounds i8, ptr %1, i64 16
   %.025 = select i1 %.not12.i, ptr null, ptr %114
@@ -676,10 +676,10 @@ TrueMotion_SSE2.exit:                             ; preds = %86, %.preheader17.i
   br i1 %.not12.i, label %136, label %117
 
 117:                                              ; preds = %116
-  %.val.i52 = load i64, ptr %114, align 1
-  %.val14.i53 = load i64, ptr %113, align 1
-  %118 = insertelement <2 x i64> poison, i64 %.val14.i53, i64 0
-  %119 = insertelement <2 x i64> %118, i64 %.val.i52, i64 1
+  %.val.i51 = load i64, ptr %114, align 1
+  %.val14.i52 = load i64, ptr %113, align 1
+  %118 = insertelement <2 x i64> poison, i64 %.val14.i52, i64 0
+  %119 = insertelement <2 x i64> %118, i64 %.val.i51, i64 1
   %120 = bitcast <2 x i64> %119 to <16 x i8>
   %121 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %120, <16 x i8> zeroinitializer)
   %122 = bitcast <2 x i64> %121 to <4 x i32>
@@ -696,17 +696,17 @@ TrueMotion_SSE2.exit:                             ; preds = %86, %.preheader17.i
   br label %133
 
 133:                                              ; preds = %133, %117
-  %indvars.iv.i.i.i54 = phi i64 [ 0, %117 ], [ %indvars.iv.next.i.i.i55, %133 ]
-  %134 = shl nuw nsw i64 %indvars.iv.i.i.i54, 5
+  %indvars.iv.i.i.i53 = phi i64 [ 0, %117 ], [ %indvars.iv.next.i.i.i54, %133 ]
+  %134 = shl nuw nsw i64 %indvars.iv.i.i.i53, 5
   %135 = getelementptr inbounds i8, ptr %115, i64 %134
   store i64 %132, ptr %135, align 1
-  %indvars.iv.next.i.i.i55 = add nuw nsw i64 %indvars.iv.i.i.i54, 1
-  %exitcond.not.i.i.i56 = icmp eq i64 %indvars.iv.next.i.i.i55, 8
-  br i1 %exitcond.not.i.i.i56, label %DC8uvMode_SSE2.exit69, label %133, !llvm.loop !11
+  %indvars.iv.next.i.i.i54 = add nuw nsw i64 %indvars.iv.i.i.i53, 1
+  %exitcond.not.i.i.i55 = icmp eq i64 %indvars.iv.next.i.i.i54, 8
+  br i1 %exitcond.not.i.i.i55, label %DC8uvMode_SSE2.exit68, label %133, !llvm.loop !11
 
 136:                                              ; preds = %116
-  %.val15.i57 = load i64, ptr %113, align 1
-  %137 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %.val15.i57, i64 0
+  %.val15.i56 = load i64, ptr %113, align 1
+  %137 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %.val15.i56, i64 0
   %138 = bitcast <2 x i64> %137 to <16 x i8>
   %139 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %138, <16 x i8> zeroinitializer)
   %140 = bitcast <2 x i64> %139 to <4 x i32>
@@ -721,20 +721,20 @@ TrueMotion_SSE2.exit:                             ; preds = %86, %.preheader17.i
   br label %149
 
 149:                                              ; preds = %149, %136
-  %indvars.iv.i.i17.i58 = phi i64 [ 0, %136 ], [ %indvars.iv.next.i.i18.i59, %149 ]
-  %150 = shl nuw nsw i64 %indvars.iv.i.i17.i58, 5
+  %indvars.iv.i.i17.i57 = phi i64 [ 0, %136 ], [ %indvars.iv.next.i.i18.i58, %149 ]
+  %150 = shl nuw nsw i64 %indvars.iv.i.i17.i57, 5
   %151 = getelementptr inbounds i8, ptr %115, i64 %150
   store i64 %148, ptr %151, align 1
-  %indvars.iv.next.i.i18.i59 = add nuw nsw i64 %indvars.iv.i.i17.i58, 1
-  %exitcond.not.i.i19.i60 = icmp eq i64 %indvars.iv.next.i.i18.i59, 8
-  br i1 %exitcond.not.i.i19.i60, label %DC8uvMode_SSE2.exit69, label %149, !llvm.loop !11
+  %indvars.iv.next.i.i18.i58 = add nuw nsw i64 %indvars.iv.i.i17.i57, 1
+  %exitcond.not.i.i19.i59 = icmp eq i64 %indvars.iv.next.i.i18.i58, 8
+  br i1 %exitcond.not.i.i19.i59, label %DC8uvMode_SSE2.exit68, label %149, !llvm.loop !11
 
 152:                                              ; preds = %TrueMotion_SSE2.exit
-  br i1 %.not12.i, label %.preheader.i65, label %153
+  br i1 %.not12.i, label %.preheader.i64, label %153
 
 153:                                              ; preds = %152
-  %.val16.i61 = load i64, ptr %114, align 1
-  %154 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %.val16.i61, i64 0
+  %.val16.i60 = load i64, ptr %114, align 1
+  %154 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %.val16.i60, i64 0
   %155 = bitcast <2 x i64> %154 to <16 x i8>
   %156 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %155, <16 x i8> zeroinitializer)
   %157 = bitcast <2 x i64> %156 to <4 x i32>
@@ -749,83 +749,83 @@ TrueMotion_SSE2.exit:                             ; preds = %86, %.preheader17.i
   br label %166
 
 166:                                              ; preds = %166, %153
-  %indvars.iv.i.i.i.i62 = phi i64 [ 0, %153 ], [ %indvars.iv.next.i.i.i.i63, %166 ]
-  %167 = shl nuw nsw i64 %indvars.iv.i.i.i.i62, 5
+  %indvars.iv.i.i.i.i61 = phi i64 [ 0, %153 ], [ %indvars.iv.next.i.i.i.i62, %166 ]
+  %167 = shl nuw nsw i64 %indvars.iv.i.i.i.i61, 5
   %168 = getelementptr inbounds i8, ptr %115, i64 %167
   store i64 %165, ptr %168, align 1
-  %indvars.iv.next.i.i.i.i63 = add nuw nsw i64 %indvars.iv.i.i.i.i62, 1
-  %exitcond.not.i.i.i.i64 = icmp eq i64 %indvars.iv.next.i.i.i.i63, 8
-  br i1 %exitcond.not.i.i.i.i64, label %DC8uvMode_SSE2.exit69, label %166, !llvm.loop !11
+  %indvars.iv.next.i.i.i.i62 = add nuw nsw i64 %indvars.iv.i.i.i.i61, 1
+  %exitcond.not.i.i.i.i63 = icmp eq i64 %indvars.iv.next.i.i.i.i62, 8
+  br i1 %exitcond.not.i.i.i.i63, label %DC8uvMode_SSE2.exit68, label %166, !llvm.loop !11
 
-.preheader.i65:                                   ; preds = %152, %.preheader.i65
-  %indvars.iv.i.i20.i66 = phi i64 [ %indvars.iv.next.i.i21.i67, %.preheader.i65 ], [ 0, %152 ]
-  %169 = shl nuw nsw i64 %indvars.iv.i.i20.i66, 5
+.preheader.i64:                                   ; preds = %152, %.preheader.i64
+  %indvars.iv.i.i20.i65 = phi i64 [ %indvars.iv.next.i.i21.i66, %.preheader.i64 ], [ 0, %152 ]
+  %169 = shl nuw nsw i64 %indvars.iv.i.i20.i65, 5
   %170 = getelementptr inbounds i8, ptr %115, i64 %169
   store i64 -9187201950435737472, ptr %170, align 1
-  %indvars.iv.next.i.i21.i67 = add nuw nsw i64 %indvars.iv.i.i20.i66, 1
-  %exitcond.not.i.i22.i68 = icmp eq i64 %indvars.iv.next.i.i21.i67, 8
-  br i1 %exitcond.not.i.i22.i68, label %DC8uvMode_SSE2.exit69, label %.preheader.i65, !llvm.loop !11
+  %indvars.iv.next.i.i21.i66 = add nuw nsw i64 %indvars.iv.i.i20.i65, 1
+  %exitcond.not.i.i22.i67 = icmp eq i64 %indvars.iv.next.i.i21.i66, 8
+  br i1 %exitcond.not.i.i22.i67, label %DC8uvMode_SSE2.exit68, label %.preheader.i64, !llvm.loop !11
 
-DC8uvMode_SSE2.exit69:                            ; preds = %133, %149, %166, %.preheader.i65
+DC8uvMode_SSE2.exit68:                            ; preds = %133, %149, %166, %.preheader.i64
   %171 = getelementptr inbounds i8, ptr %0, i64 1288
-  br i1 %.not.i, label %.preheader15.i75, label %172
+  br i1 %.not.i, label %.preheader.i74, label %172
 
-172:                                              ; preds = %DC8uvMode_SSE2.exit69
-  %.val.i71 = load i64, ptr %113, align 1
+172:                                              ; preds = %DC8uvMode_SSE2.exit68
+  %.val.i70 = load i64, ptr %113, align 1
   br label %173
 
 173:                                              ; preds = %173, %172
-  %indvars.iv.i.i72 = phi i64 [ 0, %172 ], [ %indvars.iv.next.i.i73, %173 ]
-  %174 = shl nuw nsw i64 %indvars.iv.i.i72, 5
+  %indvars.iv.i.i71 = phi i64 [ 0, %172 ], [ %indvars.iv.next.i.i72, %173 ]
+  %174 = shl nuw nsw i64 %indvars.iv.i.i71, 5
   %175 = getelementptr inbounds i8, ptr %171, i64 %174
-  store i64 %.val.i71, ptr %175, align 1
-  %indvars.iv.next.i.i73 = add nuw nsw i64 %indvars.iv.i.i72, 1
-  %exitcond.not.i.i74 = icmp eq i64 %indvars.iv.next.i.i73, 8
-  br i1 %exitcond.not.i.i74, label %VerticalPred_SSE2.exit79, label %173, !llvm.loop !12
+  store i64 %.val.i70, ptr %175, align 1
+  %indvars.iv.next.i.i72 = add nuw nsw i64 %indvars.iv.i.i71, 1
+  %exitcond.not.i.i73 = icmp eq i64 %indvars.iv.next.i.i72, 8
+  br i1 %exitcond.not.i.i73, label %VerticalPred_SSE2.exit78, label %173, !llvm.loop !12
 
-.preheader15.i75:                                 ; preds = %DC8uvMode_SSE2.exit69, %.preheader15.i75
-  %indvars.iv.i.i.i76 = phi i64 [ %indvars.iv.next.i.i.i77, %.preheader15.i75 ], [ 0, %DC8uvMode_SSE2.exit69 ]
-  %176 = shl nuw nsw i64 %indvars.iv.i.i.i76, 5
+.preheader.i74:                                   ; preds = %DC8uvMode_SSE2.exit68, %.preheader.i74
+  %indvars.iv.i.i.i75 = phi i64 [ %indvars.iv.next.i.i.i76, %.preheader.i74 ], [ 0, %DC8uvMode_SSE2.exit68 ]
+  %176 = shl nuw nsw i64 %indvars.iv.i.i.i75, 5
   %177 = getelementptr inbounds i8, ptr %171, i64 %176
   store i64 9187201950435737471, ptr %177, align 1
-  %indvars.iv.next.i.i.i77 = add nuw nsw i64 %indvars.iv.i.i.i76, 1
-  %exitcond.not.i.i.i78 = icmp eq i64 %indvars.iv.next.i.i.i77, 8
-  br i1 %exitcond.not.i.i.i78, label %VerticalPred_SSE2.exit79, label %.preheader15.i75, !llvm.loop !11
+  %indvars.iv.next.i.i.i76 = add nuw nsw i64 %indvars.iv.i.i.i75, 1
+  %exitcond.not.i.i.i77 = icmp eq i64 %indvars.iv.next.i.i.i76, 8
+  br i1 %exitcond.not.i.i.i77, label %VerticalPred_SSE2.exit78, label %.preheader.i74, !llvm.loop !11
 
-VerticalPred_SSE2.exit79:                         ; preds = %173, %.preheader15.i75
+VerticalPred_SSE2.exit78:                         ; preds = %173, %.preheader.i74
   %178 = getelementptr inbounds i8, ptr %0, i64 1304
-  br i1 %.not12.i, label %.preheader15.i86, label %.preheader17.i81
+  br i1 %.not12.i, label %.preheader.i85, label %.preheader16.i80
 
-.preheader17.i81:                                 ; preds = %VerticalPred_SSE2.exit79, %.preheader17.i81
-  %indvars.iv.i.i82 = phi i64 [ %indvars.iv.next.i.i84, %.preheader17.i81 ], [ 0, %VerticalPred_SSE2.exit79 ]
-  %.043.i.i83 = phi ptr [ %185, %.preheader17.i81 ], [ %178, %VerticalPred_SSE2.exit79 ]
-  %179 = getelementptr inbounds i8, ptr %.025, i64 %indvars.iv.i.i82
+.preheader16.i80:                                 ; preds = %VerticalPred_SSE2.exit78, %.preheader16.i80
+  %indvars.iv.i.i81 = phi i64 [ %indvars.iv.next.i.i83, %.preheader16.i80 ], [ 0, %VerticalPred_SSE2.exit78 ]
+  %.043.i.i82 = phi ptr [ %185, %.preheader16.i80 ], [ %178, %VerticalPred_SSE2.exit78 ]
+  %179 = getelementptr inbounds i8, ptr %.025, i64 %indvars.iv.i.i81
   %180 = load i8, ptr %179, align 1
   %181 = insertelement <16 x i8> poison, i8 %180, i64 0
   %182 = shufflevector <16 x i8> %181, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %183 = bitcast <16 x i8> %182 to <2 x i64>
   %184 = extractelement <2 x i64> %183, i64 0
-  store i64 %184, ptr %.043.i.i83, align 1
-  %185 = getelementptr inbounds i8, ptr %.043.i.i83, i64 32
-  %indvars.iv.next.i.i84 = add nuw nsw i64 %indvars.iv.i.i82, 1
-  %exitcond.not.i.i85 = icmp eq i64 %indvars.iv.next.i.i84, 8
-  br i1 %exitcond.not.i.i85, label %HorizontalPred_SSE2.exit90, label %.preheader17.i81, !llvm.loop !13
+  store i64 %184, ptr %.043.i.i82, align 1
+  %185 = getelementptr inbounds i8, ptr %.043.i.i82, i64 32
+  %indvars.iv.next.i.i83 = add nuw nsw i64 %indvars.iv.i.i81, 1
+  %exitcond.not.i.i84 = icmp eq i64 %indvars.iv.next.i.i83, 8
+  br i1 %exitcond.not.i.i84, label %HorizontalPred_SSE2.exit89, label %.preheader16.i80, !llvm.loop !13
 
-.preheader15.i86:                                 ; preds = %VerticalPred_SSE2.exit79, %.preheader15.i86
-  %indvars.iv.i.i.i87 = phi i64 [ %indvars.iv.next.i.i.i88, %.preheader15.i86 ], [ 0, %VerticalPred_SSE2.exit79 ]
-  %186 = shl nuw nsw i64 %indvars.iv.i.i.i87, 5
+.preheader.i85:                                   ; preds = %VerticalPred_SSE2.exit78, %.preheader.i85
+  %indvars.iv.i.i.i86 = phi i64 [ %indvars.iv.next.i.i.i87, %.preheader.i85 ], [ 0, %VerticalPred_SSE2.exit78 ]
+  %186 = shl nuw nsw i64 %indvars.iv.i.i.i86, 5
   %187 = getelementptr inbounds i8, ptr %178, i64 %186
   store i64 -9114861777597660799, ptr %187, align 1
-  %indvars.iv.next.i.i.i88 = add nuw nsw i64 %indvars.iv.i.i.i87, 1
-  %exitcond.not.i.i.i89 = icmp eq i64 %indvars.iv.next.i.i.i88, 8
-  br i1 %exitcond.not.i.i.i89, label %HorizontalPred_SSE2.exit90, label %.preheader15.i86, !llvm.loop !11
+  %indvars.iv.next.i.i.i87 = add nuw nsw i64 %indvars.iv.i.i.i86, 1
+  %exitcond.not.i.i.i88 = icmp eq i64 %indvars.iv.next.i.i.i87, 8
+  br i1 %exitcond.not.i.i.i88, label %HorizontalPred_SSE2.exit89, label %.preheader.i85, !llvm.loop !11
 
-HorizontalPred_SSE2.exit90:                       ; preds = %.preheader17.i81, %.preheader15.i86
+HorizontalPred_SSE2.exit89:                       ; preds = %.preheader16.i80, %.preheader.i85
   %188 = getelementptr inbounds i8, ptr %0, i64 1048
   br i1 %.not12.i, label %218, label %189
 
-189:                                              ; preds = %HorizontalPred_SSE2.exit90
-  br i1 %.not.i, label %.preheader17.i.i97, label %190
+189:                                              ; preds = %HorizontalPred_SSE2.exit89
+  br i1 %.not.i, label %.preheader16.i.i96, label %190
 
 190:                                              ; preds = %189
   %191 = load i64, ptr %113, align 1
@@ -837,9 +837,9 @@ HorizontalPred_SSE2.exit90:                       ; preds = %.preheader17.i81, %
   br label %197
 
 197:                                              ; preds = %197, %190
-  %indvars.iv102.i.i93 = phi i64 [ 0, %190 ], [ %indvars.iv.next103.i.i95, %197 ]
-  %.099.i.i94 = phi ptr [ %188, %190 ], [ %210, %197 ]
-  %198 = getelementptr inbounds i8, ptr %114, i64 %indvars.iv102.i.i93
+  %indvars.iv102.i.i92 = phi i64 [ 0, %190 ], [ %indvars.iv.next103.i.i94, %197 ]
+  %.099.i.i93 = phi ptr [ %188, %190 ], [ %210, %197 ]
+  %198 = getelementptr inbounds i8, ptr %114, i64 %indvars.iv102.i.i92
   %199 = load i8, ptr %198, align 1
   %200 = zext i8 %199 to i16
   %201 = load i8, ptr %195, align 1
@@ -851,53 +851,53 @@ HorizontalPred_SSE2.exit90:                       ; preds = %.preheader17.i81, %
   %207 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %206, <8 x i16> poison)
   %208 = bitcast <16 x i8> %207 to <2 x i64>
   %209 = extractelement <2 x i64> %208, i64 0
-  store i64 %209, ptr %.099.i.i94, align 1
-  %indvars.iv.next103.i.i95 = add nuw nsw i64 %indvars.iv102.i.i93, 1
-  %210 = getelementptr inbounds i8, ptr %.099.i.i94, i64 32
-  %exitcond105.not.i.i96 = icmp eq i64 %indvars.iv.next103.i.i95, 8
-  br i1 %exitcond105.not.i.i96, label %TrueMotion_SSE2.exit110, label %197, !llvm.loop !14
+  store i64 %209, ptr %.099.i.i93, align 1
+  %indvars.iv.next103.i.i94 = add nuw nsw i64 %indvars.iv102.i.i92, 1
+  %210 = getelementptr inbounds i8, ptr %.099.i.i93, i64 32
+  %exitcond105.not.i.i95 = icmp eq i64 %indvars.iv.next103.i.i94, 8
+  br i1 %exitcond105.not.i.i95, label %TrueMotion_SSE2.exit109, label %197, !llvm.loop !14
 
-.preheader17.i.i97:                               ; preds = %189, %.preheader17.i.i97
-  %indvars.iv.i.i.i98 = phi i64 [ %indvars.iv.next.i.i.i100, %.preheader17.i.i97 ], [ 0, %189 ]
-  %.043.i.i.i99 = phi ptr [ %217, %.preheader17.i.i97 ], [ %188, %189 ]
-  %211 = getelementptr inbounds i8, ptr %.025, i64 %indvars.iv.i.i.i98
+.preheader16.i.i96:                               ; preds = %189, %.preheader16.i.i96
+  %indvars.iv.i.i.i97 = phi i64 [ %indvars.iv.next.i.i.i99, %.preheader16.i.i96 ], [ 0, %189 ]
+  %.043.i.i.i98 = phi ptr [ %217, %.preheader16.i.i96 ], [ %188, %189 ]
+  %211 = getelementptr inbounds i8, ptr %.025, i64 %indvars.iv.i.i.i97
   %212 = load i8, ptr %211, align 1
   %213 = insertelement <16 x i8> poison, i8 %212, i64 0
   %214 = shufflevector <16 x i8> %213, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %215 = bitcast <16 x i8> %214 to <2 x i64>
   %216 = extractelement <2 x i64> %215, i64 0
-  store i64 %216, ptr %.043.i.i.i99, align 1
-  %217 = getelementptr inbounds i8, ptr %.043.i.i.i99, i64 32
-  %indvars.iv.next.i.i.i100 = add nuw nsw i64 %indvars.iv.i.i.i98, 1
-  %exitcond.not.i.i.i101 = icmp eq i64 %indvars.iv.next.i.i.i100, 8
-  br i1 %exitcond.not.i.i.i101, label %TrueMotion_SSE2.exit110, label %.preheader17.i.i97, !llvm.loop !13
+  store i64 %216, ptr %.043.i.i.i98, align 1
+  %217 = getelementptr inbounds i8, ptr %.043.i.i.i98, i64 32
+  %indvars.iv.next.i.i.i99 = add nuw nsw i64 %indvars.iv.i.i.i97, 1
+  %exitcond.not.i.i.i100 = icmp eq i64 %indvars.iv.next.i.i.i99, 8
+  br i1 %exitcond.not.i.i.i100, label %TrueMotion_SSE2.exit109, label %.preheader16.i.i96, !llvm.loop !13
 
-218:                                              ; preds = %HorizontalPred_SSE2.exit90
-  br i1 %.not.i, label %.preheader46.i106, label %219
+218:                                              ; preds = %HorizontalPred_SSE2.exit89
+  br i1 %.not.i, label %.preheader.i105, label %219
 
 219:                                              ; preds = %218
-  %.val.i.i102 = load i64, ptr %113, align 1
+  %.val.i.i101 = load i64, ptr %113, align 1
   br label %220
 
 220:                                              ; preds = %220, %219
-  %indvars.iv.i.i20.i103 = phi i64 [ 0, %219 ], [ %indvars.iv.next.i.i21.i104, %220 ]
-  %221 = shl nuw nsw i64 %indvars.iv.i.i20.i103, 5
+  %indvars.iv.i.i21.i102 = phi i64 [ 0, %219 ], [ %indvars.iv.next.i.i22.i103, %220 ]
+  %221 = shl nuw nsw i64 %indvars.iv.i.i21.i102, 5
   %222 = getelementptr inbounds i8, ptr %188, i64 %221
-  store i64 %.val.i.i102, ptr %222, align 1
-  %indvars.iv.next.i.i21.i104 = add nuw nsw i64 %indvars.iv.i.i20.i103, 1
-  %exitcond.not.i.i22.i105 = icmp eq i64 %indvars.iv.next.i.i21.i104, 8
-  br i1 %exitcond.not.i.i22.i105, label %TrueMotion_SSE2.exit110, label %220, !llvm.loop !12
+  store i64 %.val.i.i101, ptr %222, align 1
+  %indvars.iv.next.i.i22.i103 = add nuw nsw i64 %indvars.iv.i.i21.i102, 1
+  %exitcond.not.i.i23.i104 = icmp eq i64 %indvars.iv.next.i.i22.i103, 8
+  br i1 %exitcond.not.i.i23.i104, label %TrueMotion_SSE2.exit109, label %220, !llvm.loop !12
 
-.preheader46.i106:                                ; preds = %218, %.preheader46.i106
-  %indvars.iv.i.i35.i107 = phi i64 [ %indvars.iv.next.i.i36.i108, %.preheader46.i106 ], [ 0, %218 ]
-  %223 = shl nuw nsw i64 %indvars.iv.i.i35.i107, 5
+.preheader.i105:                                  ; preds = %218, %.preheader.i105
+  %indvars.iv.i.i32.i106 = phi i64 [ %indvars.iv.next.i.i33.i107, %.preheader.i105 ], [ 0, %218 ]
+  %223 = shl nuw nsw i64 %indvars.iv.i.i32.i106, 5
   %224 = getelementptr inbounds i8, ptr %188, i64 %223
   store i64 -9114861777597660799, ptr %224, align 1
-  %indvars.iv.next.i.i36.i108 = add nuw nsw i64 %indvars.iv.i.i35.i107, 1
-  %exitcond.not.i.i37.i109 = icmp eq i64 %indvars.iv.next.i.i36.i108, 8
-  br i1 %exitcond.not.i.i37.i109, label %TrueMotion_SSE2.exit110, label %.preheader46.i106, !llvm.loop !11
+  %indvars.iv.next.i.i33.i107 = add nuw nsw i64 %indvars.iv.i.i32.i106, 1
+  %exitcond.not.i.i34.i108 = icmp eq i64 %indvars.iv.next.i.i33.i107, 8
+  br i1 %exitcond.not.i.i34.i108, label %TrueMotion_SSE2.exit109, label %.preheader.i105, !llvm.loop !11
 
-TrueMotion_SSE2.exit110:                          ; preds = %197, %.preheader17.i.i97, %220, %.preheader46.i106
+TrueMotion_SSE2.exit109:                          ; preds = %197, %.preheader16.i.i96, %220, %.preheader.i105
   ret void
 }
 
@@ -2435,110 +2435,110 @@ define internal void @FTransformWHT_SSE2(ptr nocapture noundef readonly %0, ptr 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @SSE16x16_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
-  br label %.lr.ph.i
+  br label %3
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %2
-  %.032.i = phi ptr [ %32, %.lr.ph.i ], [ %0, %2 ]
-  %.02531.i = phi ptr [ %33, %.lr.ph.i ], [ %1, %2 ]
-  %3 = phi <4 x i32> [ %31, %.lr.ph.i ], [ zeroinitializer, %2 ]
-  %.02730.i = phi i32 [ %34, %.lr.ph.i ], [ 0, %2 ]
-  %4 = load <16 x i8>, ptr %.032.i, align 1
-  %5 = load <16 x i8>, ptr %.02531.i, align 1
-  %6 = getelementptr inbounds i8, ptr %.032.i, i64 32
-  %7 = load <16 x i8>, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %.02531.i, i64 32
-  %9 = load <16 x i8>, ptr %8, align 1
-  %10 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %4, <16 x i8> %5)
-  %11 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %5, <16 x i8> %4)
-  %12 = or <16 x i8> %10, %11
-  %13 = shufflevector <16 x i8> %12, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %14 = shufflevector <16 x i8> %12, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %15 = bitcast <16 x i8> %13 to <8 x i16>
-  %16 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %15, <8 x i16> %15)
-  %17 = bitcast <16 x i8> %14 to <8 x i16>
-  %18 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %17, <8 x i16> %17)
-  %19 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %7, <16 x i8> %9)
-  %20 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %9, <16 x i8> %7)
-  %21 = or <16 x i8> %19, %20
-  %22 = shufflevector <16 x i8> %21, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %23 = shufflevector <16 x i8> %21, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %24 = bitcast <16 x i8> %22 to <8 x i16>
-  %25 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %24, <8 x i16> %24)
-  %26 = bitcast <16 x i8> %23 to <8 x i16>
-  %27 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %26, <8 x i16> %26)
-  %28 = add <4 x i32> %16, %3
-  %29 = add <4 x i32> %28, %18
-  %30 = add <4 x i32> %29, %25
-  %31 = add <4 x i32> %30, %27
-  %32 = getelementptr inbounds i8, ptr %.032.i, i64 64
-  %33 = getelementptr inbounds i8, ptr %.02531.i, i64 64
-  %34 = add nuw nsw i32 %.02730.i, 1
-  %exitcond.not.i = icmp eq i32 %34, 8
-  br i1 %exitcond.not.i, label %SSE_16xN_SSE2.exit, label %.lr.ph.i, !llvm.loop !19
+3:                                                ; preds = %3, %2
+  %.032.i = phi ptr [ %0, %2 ], [ %33, %3 ]
+  %.02531.i = phi ptr [ %1, %2 ], [ %34, %3 ]
+  %4 = phi <4 x i32> [ zeroinitializer, %2 ], [ %32, %3 ]
+  %.02730.i = phi i32 [ 0, %2 ], [ %35, %3 ]
+  %5 = load <16 x i8>, ptr %.032.i, align 1
+  %6 = load <16 x i8>, ptr %.02531.i, align 1
+  %7 = getelementptr inbounds i8, ptr %.032.i, i64 32
+  %8 = load <16 x i8>, ptr %7, align 1
+  %9 = getelementptr inbounds i8, ptr %.02531.i, i64 32
+  %10 = load <16 x i8>, ptr %9, align 1
+  %11 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %5, <16 x i8> %6)
+  %12 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %6, <16 x i8> %5)
+  %13 = or <16 x i8> %11, %12
+  %14 = shufflevector <16 x i8> %13, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %15 = shufflevector <16 x i8> %13, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %16 = bitcast <16 x i8> %14 to <8 x i16>
+  %17 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %16, <8 x i16> %16)
+  %18 = bitcast <16 x i8> %15 to <8 x i16>
+  %19 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %18, <8 x i16> %18)
+  %20 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %8, <16 x i8> %10)
+  %21 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %10, <16 x i8> %8)
+  %22 = or <16 x i8> %20, %21
+  %23 = shufflevector <16 x i8> %22, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %24 = shufflevector <16 x i8> %22, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %25 = bitcast <16 x i8> %23 to <8 x i16>
+  %26 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %25, <8 x i16> %25)
+  %27 = bitcast <16 x i8> %24 to <8 x i16>
+  %28 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %27, <8 x i16> %27)
+  %29 = add <4 x i32> %17, %4
+  %30 = add <4 x i32> %29, %19
+  %31 = add <4 x i32> %30, %26
+  %32 = add <4 x i32> %31, %28
+  %33 = getelementptr inbounds i8, ptr %.032.i, i64 64
+  %34 = getelementptr inbounds i8, ptr %.02531.i, i64 64
+  %35 = add nuw nsw i32 %.02730.i, 1
+  %exitcond.not.i = icmp eq i32 %35, 8
+  br i1 %exitcond.not.i, label %SSE_16xN_SSE2.exit, label %3, !llvm.loop !19
 
-SSE_16xN_SSE2.exit:                               ; preds = %.lr.ph.i
-  %shift = shufflevector <4 x i32> %31, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
-  %35 = add nsw <4 x i32> %shift, %31
-  %shift2 = shufflevector <4 x i32> %35, <4 x i32> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %36 = add nsw <4 x i32> %shift2, %31
-  %shift3 = shufflevector <4 x i32> %36, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %37 = add nsw <4 x i32> %shift3, %31
-  %38 = extractelement <4 x i32> %37, i64 0
-  ret i32 %38
+SSE_16xN_SSE2.exit:                               ; preds = %3
+  %shift = shufflevector <4 x i32> %32, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
+  %36 = add nsw <4 x i32> %shift, %32
+  %shift2 = shufflevector <4 x i32> %36, <4 x i32> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
+  %37 = add nsw <4 x i32> %shift2, %32
+  %shift3 = shufflevector <4 x i32> %37, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %38 = add nsw <4 x i32> %shift3, %32
+  %39 = extractelement <4 x i32> %38, i64 0
+  ret i32 %39
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @SSE16x8_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
-  br label %.lr.ph.i
+  br label %3
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %2
-  %.032.i = phi ptr [ %32, %.lr.ph.i ], [ %0, %2 ]
-  %.02531.i = phi ptr [ %33, %.lr.ph.i ], [ %1, %2 ]
-  %3 = phi <4 x i32> [ %31, %.lr.ph.i ], [ zeroinitializer, %2 ]
-  %.02730.i = phi i32 [ %34, %.lr.ph.i ], [ 0, %2 ]
-  %4 = load <16 x i8>, ptr %.032.i, align 1
-  %5 = load <16 x i8>, ptr %.02531.i, align 1
-  %6 = getelementptr inbounds i8, ptr %.032.i, i64 32
-  %7 = load <16 x i8>, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %.02531.i, i64 32
-  %9 = load <16 x i8>, ptr %8, align 1
-  %10 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %4, <16 x i8> %5)
-  %11 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %5, <16 x i8> %4)
-  %12 = or <16 x i8> %10, %11
-  %13 = shufflevector <16 x i8> %12, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %14 = shufflevector <16 x i8> %12, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %15 = bitcast <16 x i8> %13 to <8 x i16>
-  %16 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %15, <8 x i16> %15)
-  %17 = bitcast <16 x i8> %14 to <8 x i16>
-  %18 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %17, <8 x i16> %17)
-  %19 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %7, <16 x i8> %9)
-  %20 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %9, <16 x i8> %7)
-  %21 = or <16 x i8> %19, %20
-  %22 = shufflevector <16 x i8> %21, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %23 = shufflevector <16 x i8> %21, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %24 = bitcast <16 x i8> %22 to <8 x i16>
-  %25 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %24, <8 x i16> %24)
-  %26 = bitcast <16 x i8> %23 to <8 x i16>
-  %27 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %26, <8 x i16> %26)
-  %28 = add <4 x i32> %16, %3
-  %29 = add <4 x i32> %28, %18
-  %30 = add <4 x i32> %29, %25
-  %31 = add <4 x i32> %30, %27
-  %32 = getelementptr inbounds i8, ptr %.032.i, i64 64
-  %33 = getelementptr inbounds i8, ptr %.02531.i, i64 64
-  %34 = add nuw nsw i32 %.02730.i, 1
-  %exitcond.not.i = icmp eq i32 %34, 4
-  br i1 %exitcond.not.i, label %SSE_16xN_SSE2.exit, label %.lr.ph.i, !llvm.loop !19
+3:                                                ; preds = %3, %2
+  %.032.i = phi ptr [ %0, %2 ], [ %33, %3 ]
+  %.02531.i = phi ptr [ %1, %2 ], [ %34, %3 ]
+  %4 = phi <4 x i32> [ zeroinitializer, %2 ], [ %32, %3 ]
+  %.02730.i = phi i32 [ 0, %2 ], [ %35, %3 ]
+  %5 = load <16 x i8>, ptr %.032.i, align 1
+  %6 = load <16 x i8>, ptr %.02531.i, align 1
+  %7 = getelementptr inbounds i8, ptr %.032.i, i64 32
+  %8 = load <16 x i8>, ptr %7, align 1
+  %9 = getelementptr inbounds i8, ptr %.02531.i, i64 32
+  %10 = load <16 x i8>, ptr %9, align 1
+  %11 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %5, <16 x i8> %6)
+  %12 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %6, <16 x i8> %5)
+  %13 = or <16 x i8> %11, %12
+  %14 = shufflevector <16 x i8> %13, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %15 = shufflevector <16 x i8> %13, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %16 = bitcast <16 x i8> %14 to <8 x i16>
+  %17 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %16, <8 x i16> %16)
+  %18 = bitcast <16 x i8> %15 to <8 x i16>
+  %19 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %18, <8 x i16> %18)
+  %20 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %8, <16 x i8> %10)
+  %21 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %10, <16 x i8> %8)
+  %22 = or <16 x i8> %20, %21
+  %23 = shufflevector <16 x i8> %22, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %24 = shufflevector <16 x i8> %22, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %25 = bitcast <16 x i8> %23 to <8 x i16>
+  %26 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %25, <8 x i16> %25)
+  %27 = bitcast <16 x i8> %24 to <8 x i16>
+  %28 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %27, <8 x i16> %27)
+  %29 = add <4 x i32> %17, %4
+  %30 = add <4 x i32> %29, %19
+  %31 = add <4 x i32> %30, %26
+  %32 = add <4 x i32> %31, %28
+  %33 = getelementptr inbounds i8, ptr %.032.i, i64 64
+  %34 = getelementptr inbounds i8, ptr %.02531.i, i64 64
+  %35 = add nuw nsw i32 %.02730.i, 1
+  %exitcond.not.i = icmp eq i32 %35, 4
+  br i1 %exitcond.not.i, label %SSE_16xN_SSE2.exit, label %3, !llvm.loop !19
 
-SSE_16xN_SSE2.exit:                               ; preds = %.lr.ph.i
-  %shift = shufflevector <4 x i32> %31, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
-  %35 = add nsw <4 x i32> %shift, %31
-  %shift2 = shufflevector <4 x i32> %35, <4 x i32> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %36 = add nsw <4 x i32> %shift2, %31
-  %shift3 = shufflevector <4 x i32> %36, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %37 = add nsw <4 x i32> %shift3, %31
-  %38 = extractelement <4 x i32> %37, i64 0
-  ret i32 %38
+SSE_16xN_SSE2.exit:                               ; preds = %3
+  %shift = shufflevector <4 x i32> %32, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
+  %36 = add nsw <4 x i32> %shift, %32
+  %shift2 = shufflevector <4 x i32> %36, <4 x i32> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
+  %37 = add nsw <4 x i32> %shift2, %32
+  %shift3 = shufflevector <4 x i32> %37, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %38 = add nsw <4 x i32> %shift3, %32
+  %39 = extractelement <4 x i32> %38, i64 0
+  ret i32 %39
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable

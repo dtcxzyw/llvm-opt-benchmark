@@ -1644,7 +1644,7 @@ invoke.cont77:                                    ; preds = %invoke.cont53.threa
   store ptr %77, ptr %agg.tmp76, align 8
   %79 = getelementptr inbounds i8, ptr %agg.tmp76, i64 8
   store i32 %78, ptr %79, align 8
-  %call80 = invoke fastcc noundef i32 @_ZN6icu_755units12_GLOBAL__N_126getPreferenceMetadataIndexEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEENS_11StringPieceES7_S7_R10UErrorCode(ptr noundef nonnull %this, ptr %agg.tmp74.sroa.0.0.copyload, i32 %agg.tmp74.sroa.2.0.copyload, ptr %usage.coerce0, i32 %usage.coerce1, ptr noundef nonnull byval(%"class.icu_75::StringPiece") align 8 %agg.tmp76, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call80 = invoke fastcc noundef i32 @_ZN6icu_755units12_GLOBAL__N_126getPreferenceMetadataIndexEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEENS_11StringPieceES7_S7_R10UErrorCode(ptr noundef %this, ptr %agg.tmp74.sroa.0.0.copyload, i32 %agg.tmp74.sroa.2.0.copyload, ptr %usage.coerce0, i32 %usage.coerce1, ptr noundef nonnull byval(%"class.icu_75::StringPiece") align 8 %agg.tmp76, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont79 unwind label %lpad54.loopexit.split-lp
 
 invoke.cont79:                                    ; preds = %invoke.cont77
@@ -2006,7 +2006,7 @@ invoke.cont179:                                   ; preds = %invoke.cont156.invo
   store ptr %145, ptr %agg.tmp178, align 8
   %147 = getelementptr inbounds i8, ptr %agg.tmp178, i64 8
   store i32 %146, ptr %147, align 8
-  %call182 = invoke fastcc noundef i32 @_ZN6icu_755units12_GLOBAL__N_126getPreferenceMetadataIndexEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEENS_11StringPieceES7_S7_R10UErrorCode(ptr noundef nonnull %this, ptr %agg.tmp176.sroa.0.0.copyload, i32 %agg.tmp176.sroa.2.0.copyload, ptr %usage.coerce0, i32 %usage.coerce1, ptr noundef nonnull byval(%"class.icu_75::StringPiece") align 8 %agg.tmp178, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call182 = invoke fastcc noundef i32 @_ZN6icu_755units12_GLOBAL__N_126getPreferenceMetadataIndexEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEENS_11StringPieceES7_S7_R10UErrorCode(ptr noundef %this, ptr %agg.tmp176.sroa.0.0.copyload, i32 %agg.tmp176.sroa.2.0.copyload, ptr %usage.coerce0, i32 %usage.coerce1, ptr noundef nonnull byval(%"class.icu_75::StringPiece") align 8 %agg.tmp178, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont181 unwind label %lpad96.loopexit.split-lp
 
 invoke.cont181:                                   ; preds = %invoke.cont179
@@ -2221,7 +2221,7 @@ declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharStringa
 declare i32 @ulocimp_getRegionForSupplementalData_75(ptr noundef, i8 noundef signext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -1, -2147483648) i32 @_ZN6icu_755units12_GLOBAL__N_126getPreferenceMetadataIndexEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEENS_11StringPieceES7_S7_R10UErrorCode(ptr nocapture noundef readonly %metadata, ptr %category.coerce0, i32 %category.coerce1, ptr %usage.coerce0, i32 %usage.coerce1, ptr nocapture noundef readonly byval(%"class.icu_75::StringPiece") align 8 %region, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -1, -2147483648) i32 @_ZN6icu_755units12_GLOBAL__N_126getPreferenceMetadataIndexEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEENS_11StringPieceES7_S7_R10UErrorCode(ptr nocapture noundef nonnull readonly %metadata, ptr %category.coerce0, i32 %category.coerce1, ptr %usage.coerce0, i32 %usage.coerce1, ptr nocapture noundef readonly byval(%"class.icu_75::StringPiece") align 8 %region, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %foundCategory = alloca i8, align 1
   %foundUsage = alloca i8, align 1
@@ -2452,7 +2452,7 @@ invoke.cont56:                                    ; preds = %invoke.cont53
 
 if.end61:                                         ; preds = %invoke.cont56
   %status.val18 = load i32, ptr %status, align 4
-  %call60 = call fastcc noundef i32 @_ZN6icu_755units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode(ptr noundef nonnull %metadata, ptr noundef nonnull align 8 dereferenceable(208) %desired, ptr noundef nonnull %foundCategory, ptr noundef nonnull %foundUsage, ptr noundef nonnull %foundRegion, i32 %status.val18)
+  %call60 = call fastcc noundef i32 @_ZN6icu_755units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode(ptr noundef %metadata, ptr noundef nonnull align 8 dereferenceable(208) %desired, ptr noundef %foundCategory, ptr noundef %foundUsage, ptr noundef %foundRegion, i32 %status.val18)
   %.pre = load i8, ptr %foundRegion, align 1
   %tobool62 = trunc i8 %.pre to i1
   br i1 %tobool62, label %cleanup, label %cleanup.sink.split
@@ -3806,7 +3806,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 -1, 1073741824) i32 @_ZN6icu_755units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode(ptr nocapture noundef readonly %metadata, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %desired, ptr nocapture noundef writeonly %foundCategory, ptr nocapture noundef writeonly %foundUsage, ptr nocapture noundef writeonly %foundRegion, i32 %status.0.val) unnamed_addr #11 {
+define internal fastcc noundef range(i32 -1, 1073741824) i32 @_ZN6icu_755units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode(ptr nocapture noundef nonnull readonly %metadata, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %desired, ptr nocapture noundef nonnull writeonly %foundCategory, ptr nocapture noundef nonnull writeonly %foundUsage, ptr nocapture noundef nonnull writeonly %foundRegion, i32 %status.0.val) unnamed_addr #11 {
 entry:
   %cmp.i = icmp slt i32 %status.0.val, 1
   br i1 %cmp.i, label %if.end, label %return

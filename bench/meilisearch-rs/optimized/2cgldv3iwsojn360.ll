@@ -471,7 +471,7 @@ define hidden void @"_ZN4core3ptr185drop_in_place$LT$core..option..Option$LT$mei
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr190drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingIndexUid$GT$$GT$$GT$17haaf61d3681429255E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr190drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingIndexUid$GT$$GT$$GT$17haaf61d3681429255E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !49, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -505,7 +505,7 @@ define internal fastcc void @"_ZN4core3ptr190drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr193drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingSwapIndexes$GT$$GT$$GT$17hd02e9141f5947903E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr193drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingSwapIndexes$GT$$GT$$GT$17hd02e9141f5947903E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !49, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -539,7 +539,7 @@ define internal fastcc void @"_ZN4core3ptr193drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyActions$GT$$GT$$GT$17h9f2c5b70e922d4c9E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyActions$GT$$GT$$GT$17h9f2c5b70e922d4c9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !49, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -573,7 +573,7 @@ define internal fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyIndexes$GT$$GT$$GT$17h409d990e1b2d9146E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyIndexes$GT$$GT$$GT$17h409d990e1b2d9146E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !49, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -607,7 +607,7 @@ define internal fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingDocumentFilter$GT$$GT$$GT$17h19a9053655b5696bE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingDocumentFilter$GT$$GT$$GT$17h19a9053655b5696bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !49, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -641,7 +641,7 @@ define internal fastcc void @"_ZN4core3ptr196drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr197drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyExpiresAt$GT$$GT$$GT$17h453fb892bc5c3321E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr197drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyExpiresAt$GT$$GT$$GT$17h453fb892bc5c3321E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !49, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -675,7 +675,7 @@ define internal fastcc void @"_ZN4core3ptr197drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$$GT$17h1d67b010d0340caeE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$$GT$17h1d67b010d0340caeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !49, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -709,7 +709,7 @@ define internal fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingFacetSearchFacetName$GT$$GT$$GT$17h4f17912248834bb0E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingFacetSearchFacetName$GT$$GT$$GT$17h4f17912248834bb0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !49, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -753,7 +753,7 @@ define internal void @"_ZN4core3ptr46drop_in_place$LT$$RF$alloc..string..String$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr53drop_in_place$LT$milli..criterion..CriterionError$GT$17hbf4479a161c06170E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr53drop_in_place$LT$milli..criterion..CriterionError$GT$17hbf4479a161c06170E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
@@ -3118,7 +3118,7 @@ define void @"_ZN17meilisearch_types8settings246_$LT$impl$u20$deserr..MergeWithE
 
 35:                                               ; preds = %.body.i, %36
   %.pn3.i = phi { ptr, i32 } [ %37, %36 ], [ %48, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$$GT$17h1d67b010d0340caeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17) #29
+  invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$$GT$17h1d67b010d0340caeE"(ptr noalias noundef align 8 dereferenceable(32) %17) #29
           to label %.body.thread unwind label %77, !noalias !499
 
 36:                                               ; preds = %53, %33
@@ -3254,12 +3254,12 @@ define void @"_ZN17meilisearch_types8settings246_$LT$impl$u20$deserr..MergeWithE
 "_ZN132_$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$C$GT$$u20$as$u20$deserr..DeserializeError$GT$5error17h8b05612f9ffc8b55E.exit": ; preds = %"_ZN4core3ptr174drop_in_place$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$17hd1ab6b43abe3c903E.exit.i.i", %64
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
-  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$milli..criterion..CriterionError$GT$17hbf4479a161c06170E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
+  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$milli..criterion..CriterionError$GT$17hbf4479a161c06170E"(ptr noalias noundef align 8 dereferenceable(32) %2)
           to label %82 unwind label %80
 
 79:                                               ; preds = %.body.thread, %80
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %eh.lpad-body9, %.body.thread ]
-  invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$$GT$17h1d67b010d0340caeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #29
+  invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$$GT$17h1d67b010d0340caeE"(ptr noalias noundef align 8 dereferenceable(32) %1) #29
           to label %97 unwind label %95
 
 80:                                               ; preds = %"_ZN132_$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$C$GT$$u20$as$u20$deserr..DeserializeError$GT$5error17h8b05612f9ffc8b55E.exit"
@@ -3301,11 +3301,11 @@ define void @"_ZN17meilisearch_types8settings246_$LT$impl$u20$deserr..MergeWithE
 
 .body.thread:                                     ; preds = %35, %31, %.body
   %eh.lpad-body9 = phi { ptr, i32 } [ %26, %.body ], [ %32, %31 ], [ %.pn3.i, %35 ]
-  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$milli..criterion..CriterionError$GT$17hbf4479a161c06170E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2) #29
+  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$milli..criterion..CriterionError$GT$17hbf4479a161c06170E"(ptr noalias noundef align 8 dereferenceable(32) %2) #29
           to label %79 unwind label %95
 
 .body:                                            ; preds = %25
-  invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$$GT$17h1d67b010d0340caeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17) #29
+  invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..InvalidSettingsRankingRules$GT$$GT$$GT$17h1d67b010d0340caeE"(ptr noalias noundef align 8 dereferenceable(32) %17) #29
           to label %.body.thread unwind label %95
 
 95:                                               ; preds = %.body, %.body.thread, %79
@@ -4211,7 +4211,7 @@ define void @"_ZN17meilisearch_types6deserr114DeserrError$LT$meilisearch_types..
 
 16:                                               ; preds = %.body.i, %17
   %.pn3.i = phi { ptr, i32 } [ %18, %17 ], [ %29, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr190drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingIndexUid$GT$$GT$$GT$17haaf61d3681429255E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #29
+  invoke fastcc void @"_ZN4core3ptr190drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingIndexUid$GT$$GT$$GT$17haaf61d3681429255E"(ptr noalias noundef align 8 dereferenceable(32) %13) #29
           to label %46 unwind label %44, !noalias !696
 
 17:                                               ; preds = %34, %4
@@ -4351,7 +4351,7 @@ define void @"_ZN17meilisearch_types6deserr119DeserrError$LT$meilisearch_types..
 
 16:                                               ; preds = %.body.i, %17
   %.pn3.i = phi { ptr, i32 } [ %18, %17 ], [ %29, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyActions$GT$$GT$$GT$17h9f2c5b70e922d4c9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #29
+  invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyActions$GT$$GT$$GT$17h9f2c5b70e922d4c9E"(ptr noalias noundef align 8 dereferenceable(32) %13) #29
           to label %46 unwind label %44, !noalias !721
 
 17:                                               ; preds = %34, %4
@@ -4491,7 +4491,7 @@ define void @"_ZN17meilisearch_types6deserr121DeserrError$LT$meilisearch_types..
 
 16:                                               ; preds = %.body.i, %17
   %.pn3.i = phi { ptr, i32 } [ %18, %17 ], [ %29, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr197drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyExpiresAt$GT$$GT$$GT$17h453fb892bc5c3321E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #29
+  invoke fastcc void @"_ZN4core3ptr197drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyExpiresAt$GT$$GT$$GT$17h453fb892bc5c3321E"(ptr noalias noundef align 8 dereferenceable(32) %13) #29
           to label %46 unwind label %44, !noalias !746
 
 17:                                               ; preds = %34, %4
@@ -4631,7 +4631,7 @@ define void @"_ZN17meilisearch_types6deserr119DeserrError$LT$meilisearch_types..
 
 16:                                               ; preds = %.body.i, %17
   %.pn3.i = phi { ptr, i32 } [ %18, %17 ], [ %29, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyIndexes$GT$$GT$$GT$17h409d990e1b2d9146E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #29
+  invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingApiKeyIndexes$GT$$GT$$GT$17h409d990e1b2d9146E"(ptr noalias noundef align 8 dereferenceable(32) %13) #29
           to label %46 unwind label %44, !noalias !771
 
 17:                                               ; preds = %34, %4
@@ -4771,7 +4771,7 @@ define void @"_ZN17meilisearch_types6deserr117DeserrError$LT$meilisearch_types..
 
 16:                                               ; preds = %.body.i, %17
   %.pn3.i = phi { ptr, i32 } [ %18, %17 ], [ %29, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr193drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingSwapIndexes$GT$$GT$$GT$17hd02e9141f5947903E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #29
+  invoke fastcc void @"_ZN4core3ptr193drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingSwapIndexes$GT$$GT$$GT$17hd02e9141f5947903E"(ptr noalias noundef align 8 dereferenceable(32) %13) #29
           to label %46 unwind label %44, !noalias !796
 
 17:                                               ; preds = %34, %4
@@ -4911,7 +4911,7 @@ define void @"_ZN17meilisearch_types6deserr120DeserrError$LT$meilisearch_types..
 
 16:                                               ; preds = %.body.i, %17
   %.pn3.i = phi { ptr, i32 } [ %18, %17 ], [ %29, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingDocumentFilter$GT$$GT$$GT$17h19a9053655b5696bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #29
+  invoke fastcc void @"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingDocumentFilter$GT$$GT$$GT$17h19a9053655b5696bE"(ptr noalias noundef align 8 dereferenceable(32) %13) #29
           to label %46 unwind label %44, !noalias !821
 
 17:                                               ; preds = %34, %4
@@ -5051,7 +5051,7 @@ define void @"_ZN17meilisearch_types6deserr126DeserrError$LT$meilisearch_types..
 
 16:                                               ; preds = %.body.i, %17
   %.pn3.i = phi { ptr, i32 } [ %18, %17 ], [ %29, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingFacetSearchFacetName$GT$$GT$$GT$17h4f17912248834bb0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #29
+  invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$meilisearch_types..deserr..DeserrError$LT$meilisearch_types..deserr..DeserrJson$C$meilisearch_types..error..deserr_codes..MissingFacetSearchFacetName$GT$$GT$$GT$17h4f17912248834bb0E"(ptr noalias noundef align 8 dereferenceable(32) %13) #29
           to label %46 unwind label %44, !noalias !846
 
 17:                                               ; preds = %34, %4

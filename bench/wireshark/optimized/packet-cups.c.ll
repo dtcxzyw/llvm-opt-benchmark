@@ -399,7 +399,7 @@ get_quoted_string.exit170:                        ; preds = %137
 151:                                              ; preds = %147
   store i32 %.08.i171, ptr %5, align 4
   %152 = load ptr, ptr %101, align 8
-  %153 = call fastcc ptr @get_quoted_string(ptr noundef %152, ptr noundef %0, i32 noundef %.08.i171, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %153 = call fastcc ptr @get_quoted_string(ptr noundef %152, ptr noundef %0, i32 noundef %.08.i171, ptr noundef %5, ptr noundef %6)
   %154 = icmp eq ptr %153, null
   br i1 %154, label %skip_space.exit.thread, label %155
 
@@ -448,7 +448,7 @@ declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_quoted_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc ptr @get_quoted_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #2
   %7 = icmp eq i8 %6, 34
   br i1 %7, label %8, label %15

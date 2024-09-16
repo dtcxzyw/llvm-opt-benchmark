@@ -1933,7 +1933,7 @@ fileset_extract_prefix_suffix.exit.thread:        ; preds = %741
   %storemerge.i = phi ptr [ %757, %755 ], [ null, %758 ]
   call void @g_free(ptr noundef nonnull %747) #22
   %761 = add i32 %.03691114, 1
-  %762 = call fastcc ptr @fileset_get_filename_by_pattern(i32 noundef %.03691114, ptr noundef nonnull %20, ptr noundef %.3598, ptr noundef %storemerge.i)
+  %762 = call fastcc ptr @fileset_get_filename_by_pattern(i32 noundef %.03691114, ptr noundef %20, ptr noundef %.3598, ptr noundef %storemerge.i)
   br label %770
 
 763:                                              ; preds = %739
@@ -1966,7 +1966,7 @@ fileset_extract_prefix_suffix.exit.thread:        ; preds = %741
   br label %781
 
 781:                                              ; preds = %775, %770
-  %782 = call fastcc ptr @editcap_dump_open(ptr noundef %.3379, ptr noundef nonnull %23, ptr noundef %721, ptr noundef nonnull %11, ptr noundef nonnull %13)
+  %782 = call fastcc ptr @editcap_dump_open(ptr noundef %.3379, ptr noundef %23, ptr noundef %721, ptr noundef %11, ptr noundef %13)
   %783 = icmp eq ptr %782, null
   br i1 %783, label %784, label %788
 
@@ -1983,7 +1983,7 @@ fileset_extract_prefix_suffix.exit.thread:        ; preds = %741
   %.2378 = phi ptr [ %.3379, %781 ], [ %.13771113, %735 ]
   %.1370 = phi i32 [ %.2371, %781 ], [ %.03691114, %735 ]
   %.1330 = phi ptr [ %782, %781 ], [ %.03291118, %735 ]
-  %789 = call fastcc i32 @process_new_idbs(ptr noundef nonnull %482, ptr noundef %.1330, ptr noundef %721, ptr noundef nonnull %11, ptr noundef nonnull %13)
+  %789 = call fastcc i32 @process_new_idbs(ptr noundef %482, ptr noundef %.1330, ptr noundef %721, ptr noundef %11, ptr noundef %13)
   %.not472 = icmp eq i32 %789, 0
   br i1 %.not472, label %790, label %799
 
@@ -2049,7 +2049,7 @@ fileset_extract_prefix_suffix.exit.thread:        ; preds = %741
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %22, ptr noundef nonnull align 8 dereferenceable(280) %20, i64 280, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.2355.sroa.gep, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
   %819 = add i32 %.4373, 1
-  %820 = call fastcc ptr @fileset_get_filename_by_pattern(i32 noundef %.4373, ptr noundef nonnull %22, ptr noundef %.1596, ptr noundef %.1592)
+  %820 = call fastcc ptr @fileset_get_filename_by_pattern(i32 noundef %.4373, ptr noundef %22, ptr noundef %.1596, ptr noundef %.1592)
   call void @nstime_sum(ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %18) #22
   %.b452 = load i1, ptr @verbose, align 4
   br i1 %.b452, label %821, label %824
@@ -2060,7 +2060,7 @@ fileset_extract_prefix_suffix.exit.thread:        ; preds = %741
   br label %824
 
 824:                                              ; preds = %821, %818
-  %825 = call fastcc ptr @editcap_dump_open(ptr noundef %820, ptr noundef nonnull %23, ptr noundef %721, ptr noundef nonnull %11, ptr noundef nonnull %13)
+  %825 = call fastcc ptr @editcap_dump_open(ptr noundef %820, ptr noundef %23, ptr noundef %721, ptr noundef %11, ptr noundef %13)
   %826 = icmp eq ptr %825, null
   br i1 %826, label %827, label %810, !llvm.loop !23
 
@@ -2096,7 +2096,7 @@ fileset_extract_prefix_suffix.exit.thread:        ; preds = %741
 839:                                              ; preds = %834
   call void @g_free(ptr noundef %.4380) #22
   %840 = add i32 %.3372, 1
-  %841 = call fastcc ptr @fileset_get_filename_by_pattern(i32 noundef %.3372, ptr noundef nonnull %20, ptr noundef %.1596, ptr noundef %.1592)
+  %841 = call fastcc ptr @fileset_get_filename_by_pattern(i32 noundef %.3372, ptr noundef %20, ptr noundef %.1596, ptr noundef %.1592)
   %.b451 = load i1, ptr @verbose, align 4
   br i1 %.b451, label %842, label %845
 
@@ -2106,7 +2106,7 @@ fileset_extract_prefix_suffix.exit.thread:        ; preds = %741
   br label %845
 
 845:                                              ; preds = %842, %839
-  %846 = call fastcc ptr @editcap_dump_open(ptr noundef %841, ptr noundef nonnull %23, ptr noundef %721, ptr noundef nonnull %11, ptr noundef nonnull %13)
+  %846 = call fastcc ptr @editcap_dump_open(ptr noundef %841, ptr noundef %23, ptr noundef %721, ptr noundef %11, ptr noundef %13)
   %847 = icmp eq ptr %846, null
   br i1 %847, label %848, label %852
 
@@ -2424,7 +2424,7 @@ selected.exit:                                    ; preds = %882, %.thread615
   %.7360 = phi ptr [ %22, %971 ], [ %.5358, %969 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %22, ptr noundef nonnull align 8 dereferenceable(280) %.7360, i64 280, i1 false)
   %973 = getelementptr inbounds i8, ptr %.7360, i64 64
-  call fastcc void @handle_chopping(ptr noundef nonnull byval(%struct._chop_t) align 8 %15, ptr noundef nonnull %728, ptr noundef nonnull %973, ptr noundef nonnull %17, i32 noundef %.0326)
+  call fastcc void @handle_chopping(ptr noundef nonnull byval(%struct._chop_t) align 8 %15, ptr noundef %728, ptr noundef %973, ptr noundef %17, i32 noundef %.0326)
   %.b425 = load i1, ptr @set_unused, align 4
   br i1 %.b425, label %974, label %976
 
@@ -2559,7 +2559,7 @@ remove_vlan_info.exit:                            ; preds = %987, %979, %977, %9
   store i32 %1036, ptr %732, align 8
   %1037 = load ptr, ptr %17, align 8
   %1038 = load i32, ptr %728, align 8
-  %1039 = call fastcc i32 @is_duplicate_rel_time(ptr noundef %1037, i32 noundef %1038, ptr noundef nonnull %39)
+  %1039 = call fastcc i32 @is_duplicate_rel_time(ptr noundef %1037, i32 noundef %1038, ptr noundef %39)
   %.not487 = icmp eq i32 %1039, 0
   %.b446 = load i1, ptr @verbose, align 4
   br i1 %.not487, label %1054, label %1040
@@ -2925,7 +2925,7 @@ remove_vlan_info.exit:                            ; preds = %987, %979, %977, %9
   %1208 = getelementptr ptr, ptr %1, i64 %1207
   %1209 = load ptr, ptr %1208, align 8
   %1210 = call noalias ptr @g_strdup(ptr noundef %1209) #22
-  %1211 = call fastcc ptr @editcap_dump_open(ptr noundef %1210, ptr noundef nonnull %23, ptr noundef %721, ptr noundef nonnull %11, ptr noundef nonnull %13)
+  %1211 = call fastcc ptr @editcap_dump_open(ptr noundef %1210, ptr noundef %23, ptr noundef %721, ptr noundef %11, ptr noundef %13)
   %1212 = icmp eq ptr %1211, null
   br i1 %1212, label %1213, label %1217
 
@@ -2939,7 +2939,7 @@ remove_vlan_info.exit:                            ; preds = %987, %979, %977, %9
 1217:                                             ; preds = %1204, %1203
   %.7383 = phi ptr [ %.1377.lcssa, %1203 ], [ %1210, %1204 ]
   %.5334 = phi ptr [ %.0329.lcssa, %1203 ], [ %1211, %1204 ]
-  %1218 = call fastcc i32 @process_new_idbs(ptr noundef nonnull %482, ptr noundef nonnull %.5334, ptr noundef %721, ptr noundef nonnull %11, ptr noundef nonnull %13)
+  %1218 = call fastcc i32 @process_new_idbs(ptr noundef %482, ptr noundef nonnull %.5334, ptr noundef %721, ptr noundef %11, ptr noundef %13)
   %.not497 = icmp eq i32 %1218, 0
   br i1 %.not497, label %1219, label %1228
 
@@ -3457,7 +3457,7 @@ declare void @ws_buffer_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @wtap_read(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @fileset_get_filename_by_pattern(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noalias ptr @fileset_get_filename_by_pattern(i32 noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [6 x i8], align 1
   %6 = urem i32 %0, 100000
   %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 6, ptr noundef nonnull @.str.200, i32 noundef %6) #22
@@ -3516,7 +3516,7 @@ declare i32 @wtap_block_add_string_option_format(ptr noundef, i32 noundef, ptr n
 declare ptr @get_appname_and_version() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @editcap_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @editcap_dump_open(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
 sub_0:
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -3532,12 +3532,12 @@ sub_0:
 
 11:                                               ; preds = %.tail
   %12 = load i32, ptr @out_file_type_subtype, align 4
-  %13 = tail call ptr @wtap_dump_open_stdout(i32 noundef %12, i32 noundef 0, ptr noundef %1, ptr noundef %3, ptr noundef %4) #22
+  %13 = tail call ptr @wtap_dump_open_stdout(i32 noundef %12, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #22
   br label %16
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
   %14 = load i32, ptr @out_file_type_subtype, align 4
-  %15 = tail call ptr @wtap_dump_open(ptr noundef nonnull %0, i32 noundef %14, i32 noundef 0, ptr noundef %1, ptr noundef %3, ptr noundef %4) #22
+  %15 = tail call ptr @wtap_dump_open(ptr noundef nonnull %0, i32 noundef %14, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #22
   br label %16
 
 16:                                               ; preds = %.tail.thread, %11
@@ -3574,7 +3574,7 @@ sub_0:
   br label %31
 
 31:                                               ; preds = %28, %.lr.ph
-  %32 = tail call i32 @wtap_dump_add_idb(ptr noundef nonnull %.026, ptr noundef %26, ptr noundef %3, ptr noundef %4) #22
+  %32 = tail call i32 @wtap_dump_add_idb(ptr noundef nonnull %.026, ptr noundef %26, ptr noundef nonnull %3, ptr noundef nonnull %4) #22
   %.not29 = icmp eq i32 %32, 0
   br i1 %.not29, label %33, label %36
 
@@ -3599,9 +3599,9 @@ sub_0:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @process_new_idbs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @process_new_idbs(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  %7 = tail call ptr @wtap_get_next_interface_description(ptr noundef %0) #22
+  %7 = tail call ptr @wtap_get_next_interface_description(ptr noundef nonnull %0) #22
   %.not16 = icmp eq ptr %7, null
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
@@ -3610,7 +3610,7 @@ define internal fastcc range(i32 0, 2) i32 @process_new_idbs(ptr noundef %0, ptr
   br i1 %.not12, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %8 = tail call ptr @wtap_get_next_interface_description(ptr noundef %0) #22
+  %8 = tail call ptr @wtap_get_next_interface_description(ptr noundef nonnull %0) #22
   %.not.us = icmp eq ptr %8, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !37
 
@@ -3637,7 +3637,7 @@ define internal fastcc range(i32 0, 2) i32 @process_new_idbs(ptr noundef %0, ptr
 
 18:                                               ; preds = %15, %12
   %19 = phi ptr [ %.pre, %15 ], [ %13, %12 ]
-  %20 = call i32 @wtap_dump_add_idb(ptr noundef nonnull %1, ptr noundef %19, ptr noundef %3, ptr noundef %4) #22
+  %20 = call i32 @wtap_dump_add_idb(ptr noundef nonnull %1, ptr noundef %19, ptr noundef nonnull %3, ptr noundef nonnull %4) #22
   %.not15 = icmp eq i32 %20, 0
   br i1 %.not15, label %._crit_edge, label %21
 
@@ -3650,7 +3650,7 @@ define internal fastcc range(i32 0, 2) i32 @process_new_idbs(ptr noundef %0, ptr
   br label %25
 
 25:                                               ; preds = %21, %.lr.ph.split
-  %26 = call ptr @wtap_get_next_interface_description(ptr noundef %0) #22
+  %26 = call ptr @wtap_get_next_interface_description(ptr noundef nonnull %0) #22
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !37
 
@@ -3709,7 +3709,7 @@ define internal fastcc range(i32 0, 2) i32 @selected(i32 noundef %0) unnamed_add
 declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @handle_chopping(ptr nocapture noundef byval(%struct._chop_t) align 8 %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #12 {
+define internal fastcc void @handle_chopping(ptr nocapture noundef byval(%struct._chop_t) align 8 %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #12 {
   %6 = load i32, ptr %0, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %11
@@ -4030,7 +4030,7 @@ define internal fastcc range(i32 0, 2) i32 @is_duplicate(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_duplicate_rel_time(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_duplicate_rel_time(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = load i32, ptr @ignored_bytes, align 4
   %.not = icmp ugt i32 %1, %5

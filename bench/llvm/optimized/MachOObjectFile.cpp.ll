@@ -1994,7 +1994,7 @@ _ZN4llvm5ErrorD2Ev.exit.i313:                     ; preds = %805
   %826 = extractvalue { ptr, i64 } %825, 0
   %827 = getelementptr inbounds i8, ptr %826, i64 %823
   %828 = getelementptr inbounds i8, ptr %827, i64 %824
-  call fastcc void @_ZL18getLoadCommandInfoRKN4llvm6object15MachOObjectFileEPKcj(ptr dead_on_unwind noalias nonnull writable align 8 %477, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull %828, i32 noundef 0)
+  call fastcc void @_ZL18getLoadCommandInfoRKN4llvm6object15MachOObjectFileEPKcj(ptr dead_on_unwind noalias writable align 8 %477, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull %828, i32 noundef 0)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %477, i64 16
   %.pre = load i8, ptr %.phi.trans.insert, align 8
   br label %_ZL23getFirstLoadCommandInfoRKN4llvm6object15MachOObjectFileE.exit
@@ -3020,7 +3020,7 @@ _ZN4llvm5TwineC2EPKc.exit.i:                      ; preds = %1519, %1517
   br label %_ZN4llvm5ErrorD2Ev.exit335
 
 1521:                                             ; preds = %1507
-  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias nonnull writable align 8 %496, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1503, i64 noundef %.040.i, ptr noundef nonnull @.str.347)
+  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias writable align 8 %496, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1503, i64 noundef %.040.i, ptr noundef nonnull @.str.347)
   %1522 = load ptr, ptr %496, align 8, !alias.scope !158
   %.not196.i = icmp eq ptr %1522, null
   br i1 %.not196.i, label %_ZN4llvm5ErrorD2Ev.exit.i333, label %_ZN4llvm5ErrorD2Ev.exit335
@@ -3069,7 +3069,7 @@ _ZN4llvm5ErrorD2Ev.exit.i333:                     ; preds = %1521
   br label %_ZN4llvm5ErrorD2Ev.exit335
 
 1533:                                             ; preds = %1527
-  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias nonnull writable align 8 %496, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1523, i64 noundef %1528, ptr noundef nonnull @.str.350)
+  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias writable align 8 %496, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1523, i64 noundef %1528, ptr noundef nonnull @.str.350)
   %1534 = load ptr, ptr %496, align 8, !alias.scope !158
   %.not197.i = icmp eq ptr %1534, null
   br i1 %.not197.i, label %_ZN4llvm12ErrorSuccessD2Ev.exit.i, label %_ZN4llvm5ErrorD2Ev.exit335
@@ -3429,7 +3429,7 @@ _ZL14malformedErrorRKN4llvm5TwineE.exit239.i:     ; preds = %1576
   br label %_ZN4llvm5ErrorD2Ev.exit349
 
 1590:                                             ; preds = %1583
-  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias nonnull writable align 8 %497, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1579, i64 noundef %1585, ptr noundef nonnull @.str.358)
+  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias writable align 8 %497, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1579, i64 noundef %1585, ptr noundef nonnull @.str.358)
   %1591 = load ptr, ptr %497, align 8, !alias.scope !299
   %.not306.i = icmp eq ptr %1591, null
   br i1 %.not306.i, label %_ZN4llvm5ErrorD2Ev.exit.i344, label %_ZN4llvm5ErrorD2Ev.exit349
@@ -3502,7 +3502,7 @@ _ZN4llvm5TwineC2EPKc.exit.i347:                   ; preds = %1607, %1605
   br label %_ZN4llvm5ErrorD2Ev.exit349
 
 1609:                                             ; preds = %1596
-  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias nonnull writable align 8 %497, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1592, i64 noundef %1602, ptr noundef nonnull @.str.364)
+  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias writable align 8 %497, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1592, i64 noundef %1602, ptr noundef nonnull @.str.364)
   %1610 = load ptr, ptr %497, align 8, !alias.scope !299
   %.not307.i = icmp eq ptr %1610, null
   br i1 %.not307.i, label %_ZN4llvm5ErrorD2Ev.exit248.i, label %_ZN4llvm5ErrorD2Ev.exit349
@@ -3552,7 +3552,7 @@ _ZN4llvm5ErrorD2Ev.exit248.i:                     ; preds = %1609
   br label %_ZN4llvm5ErrorD2Ev.exit349
 
 1622:                                             ; preds = %1615
-  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias nonnull writable align 8 %497, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1611, i64 noundef %1617, ptr noundef nonnull @.str.367)
+  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias writable align 8 %497, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1611, i64 noundef %1617, ptr noundef nonnull @.str.367)
   %1623 = load ptr, ptr %497, align 8, !alias.scope !299
   %.not308.i = icmp eq ptr %1623, null
   br i1 %.not308.i, label %_ZN4llvm5ErrorD2Ev.exit253.i, label %_ZN4llvm5ErrorD2Ev.exit349
@@ -3602,7 +3602,7 @@ _ZN4llvm5ErrorD2Ev.exit253.i:                     ; preds = %1622
   br label %_ZN4llvm5ErrorD2Ev.exit349
 
 1635:                                             ; preds = %1628
-  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias nonnull writable align 8 %497, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1624, i64 noundef %1630, ptr noundef nonnull @.str.370)
+  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias writable align 8 %497, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1624, i64 noundef %1630, ptr noundef nonnull @.str.370)
   %1636 = load ptr, ptr %497, align 8, !alias.scope !299
   %.not309.i = icmp eq ptr %1636, null
   br i1 %.not309.i, label %_ZN4llvm5ErrorD2Ev.exit258.i, label %_ZN4llvm5ErrorD2Ev.exit349
@@ -3652,7 +3652,7 @@ _ZN4llvm5ErrorD2Ev.exit258.i:                     ; preds = %1635
   br label %_ZN4llvm5ErrorD2Ev.exit349
 
 1648:                                             ; preds = %1641
-  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias nonnull writable align 8 %497, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1637, i64 noundef %1643, ptr noundef nonnull @.str.373)
+  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias writable align 8 %497, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1637, i64 noundef %1643, ptr noundef nonnull @.str.373)
   %1649 = load ptr, ptr %497, align 8, !alias.scope !299
   %.not310.i = icmp eq ptr %1649, null
   br i1 %.not310.i, label %_ZN4llvm5ErrorD2Ev.exit263.i, label %_ZN4llvm5ErrorD2Ev.exit349
@@ -3702,7 +3702,7 @@ _ZN4llvm5ErrorD2Ev.exit263.i:                     ; preds = %1648
   br label %_ZN4llvm5ErrorD2Ev.exit349
 
 1661:                                             ; preds = %1654
-  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias nonnull writable align 8 %497, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1650, i64 noundef %1656, ptr noundef nonnull @.str.376)
+  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias writable align 8 %497, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1650, i64 noundef %1656, ptr noundef nonnull @.str.376)
   %1662 = load ptr, ptr %497, align 8, !alias.scope !299
   %.not311.i = icmp eq ptr %1662, null
   br i1 %.not311.i, label %_ZN4llvm12ErrorSuccessD2Ev.exit.i345, label %_ZN4llvm5ErrorD2Ev.exit349
@@ -3804,7 +3804,7 @@ _ZN4llvm5ErrorD2Ev.exit349:                       ; preds = %_ZNSt10unique_ptrIN
 
 _ZN4llvm5ErrorD2Ev.exit350:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %1666 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL24checkLinkeditDataCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEES8_(ptr dead_on_unwind noalias nonnull writable align 8 %498, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %1666, ptr noundef nonnull %658, ptr noundef nonnull @.str.7, ptr noundef nonnull align 8 dereferenceable(24) %475, ptr noundef nonnull @.str.8)
+  call fastcc void @_ZL24checkLinkeditDataCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEES8_(ptr dead_on_unwind noalias writable align 8 %498, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %1666, ptr noundef %658, ptr noundef nonnull @.str.7, ptr noundef nonnull align 8 dereferenceable(24) %475, ptr noundef nonnull @.str.8)
   %1667 = load ptr, ptr %498, align 8
   store ptr %1667, ptr %4, align 8
   store ptr null, ptr %498, align 8
@@ -3813,7 +3813,7 @@ _ZN4llvm5ErrorD2Ev.exit350:                       ; preds = %_ZN4llvm23SmallVect
 
 _ZN4llvm5ErrorD2Ev.exit351:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %1668 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL24checkLinkeditDataCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEES8_(ptr dead_on_unwind noalias nonnull writable align 8 %499, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %1668, ptr noundef nonnull %659, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(24) %475, ptr noundef nonnull @.str.10)
+  call fastcc void @_ZL24checkLinkeditDataCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEES8_(ptr dead_on_unwind noalias writable align 8 %499, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %1668, ptr noundef %659, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(24) %475, ptr noundef nonnull @.str.10)
   %1669 = load ptr, ptr %499, align 8
   store ptr %1669, ptr %4, align 8
   store ptr null, ptr %499, align 8
@@ -3822,7 +3822,7 @@ _ZN4llvm5ErrorD2Ev.exit351:                       ; preds = %_ZN4llvm23SmallVect
 
 _ZN4llvm5ErrorD2Ev.exit352:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %1670 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL24checkLinkeditDataCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEES8_(ptr dead_on_unwind noalias nonnull writable align 8 %500, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %1670, ptr noundef nonnull %661, ptr noundef nonnull @.str.11, ptr noundef nonnull align 8 dereferenceable(24) %475, ptr noundef nonnull @.str.12)
+  call fastcc void @_ZL24checkLinkeditDataCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEES8_(ptr dead_on_unwind noalias writable align 8 %500, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %1670, ptr noundef %661, ptr noundef nonnull @.str.11, ptr noundef nonnull align 8 dereferenceable(24) %475, ptr noundef nonnull @.str.12)
   %1671 = load ptr, ptr %500, align 8
   store ptr %1671, ptr %4, align 8
   store ptr null, ptr %500, align 8
@@ -3831,7 +3831,7 @@ _ZN4llvm5ErrorD2Ev.exit352:                       ; preds = %_ZN4llvm23SmallVect
 
 _ZN4llvm5ErrorD2Ev.exit353:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %1672 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL24checkLinkeditDataCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEES8_(ptr dead_on_unwind noalias nonnull writable align 8 %501, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %1672, ptr noundef nonnull %478, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %475, ptr noundef nonnull @.str.14)
+  call fastcc void @_ZL24checkLinkeditDataCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEES8_(ptr dead_on_unwind noalias writable align 8 %501, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %1672, ptr noundef %478, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %475, ptr noundef nonnull @.str.14)
   %1673 = load ptr, ptr %501, align 8
   store ptr %1673, ptr %4, align 8
   store ptr null, ptr %501, align 8
@@ -3840,7 +3840,7 @@ _ZN4llvm5ErrorD2Ev.exit353:                       ; preds = %_ZN4llvm23SmallVect
 
 _ZN4llvm5ErrorD2Ev.exit354:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %1674 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL24checkLinkeditDataCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEES8_(ptr dead_on_unwind noalias nonnull writable align 8 %502, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %1674, ptr noundef nonnull %479, ptr noundef nonnull @.str.15, ptr noundef nonnull align 8 dereferenceable(24) %475, ptr noundef nonnull @.str.16)
+  call fastcc void @_ZL24checkLinkeditDataCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEES8_(ptr dead_on_unwind noalias writable align 8 %502, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %1674, ptr noundef %479, ptr noundef nonnull @.str.15, ptr noundef nonnull align 8 dereferenceable(24) %475, ptr noundef nonnull @.str.16)
   %1675 = load ptr, ptr %502, align 8
   store ptr %1675, ptr %4, align 8
   store ptr null, ptr %502, align 8
@@ -3849,7 +3849,7 @@ _ZN4llvm5ErrorD2Ev.exit354:                       ; preds = %_ZN4llvm23SmallVect
 
 _ZN4llvm5ErrorD2Ev.exit355:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %1676 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL24checkLinkeditDataCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEES8_(ptr dead_on_unwind noalias nonnull writable align 8 %503, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %1676, ptr noundef nonnull %480, ptr noundef nonnull @.str.17, ptr noundef nonnull align 8 dereferenceable(24) %475, ptr noundef nonnull @.str.18)
+  call fastcc void @_ZL24checkLinkeditDataCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEES8_(ptr dead_on_unwind noalias writable align 8 %503, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %1676, ptr noundef %480, ptr noundef nonnull @.str.17, ptr noundef nonnull align 8 dereferenceable(24) %475, ptr noundef nonnull @.str.18)
   %1677 = load ptr, ptr %503, align 8
   store ptr %1677, ptr %4, align 8
   store ptr null, ptr %503, align 8
@@ -3858,7 +3858,7 @@ _ZN4llvm5ErrorD2Ev.exit355:                       ; preds = %_ZN4llvm23SmallVect
 
 _ZN4llvm5ErrorD2Ev.exit356:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %1678 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL20checkDyldInfoCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEE(ptr dead_on_unwind noalias nonnull writable align 8 %504, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %1678, ptr noundef nonnull %660, ptr noundef nonnull @.str.19, ptr noundef nonnull align 8 dereferenceable(24) %475)
+  call fastcc void @_ZL20checkDyldInfoCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEE(ptr dead_on_unwind noalias writable align 8 %504, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %1678, ptr noundef %660, ptr noundef nonnull @.str.19, ptr noundef nonnull align 8 dereferenceable(24) %475)
   %1679 = load ptr, ptr %504, align 8
   store ptr %1679, ptr %4, align 8
   store ptr null, ptr %504, align 8
@@ -3867,7 +3867,7 @@ _ZN4llvm5ErrorD2Ev.exit356:                       ; preds = %_ZN4llvm23SmallVect
 
 _ZN4llvm5ErrorD2Ev.exit357:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %1680 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL20checkDyldInfoCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEE(ptr dead_on_unwind noalias nonnull writable align 8 %505, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %1680, ptr noundef nonnull %660, ptr noundef nonnull @.str.20, ptr noundef nonnull align 8 dereferenceable(24) %475)
+  call fastcc void @_ZL20checkDyldInfoCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEE(ptr dead_on_unwind noalias writable align 8 %505, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %1680, ptr noundef %660, ptr noundef nonnull @.str.20, ptr noundef nonnull align 8 dereferenceable(24) %475)
   %1681 = load ptr, ptr %505, align 8
   store ptr %1681, ptr %4, align 8
   store ptr null, ptr %505, align 8
@@ -3876,7 +3876,7 @@ _ZN4llvm5ErrorD2Ev.exit357:                       ; preds = %_ZN4llvm23SmallVect
 
 _ZN4llvm5ErrorD2Ev.exit358:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %1682 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL24checkLinkeditDataCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEES8_(ptr dead_on_unwind noalias nonnull writable align 8 %506, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %1682, ptr noundef nonnull %662, ptr noundef nonnull @.str.21, ptr noundef nonnull align 8 dereferenceable(24) %475, ptr noundef nonnull @.str.22)
+  call fastcc void @_ZL24checkLinkeditDataCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEES8_(ptr dead_on_unwind noalias writable align 8 %506, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %1682, ptr noundef %662, ptr noundef nonnull @.str.21, ptr noundef nonnull align 8 dereferenceable(24) %475, ptr noundef nonnull @.str.22)
   %1683 = load ptr, ptr %506, align 8
   store ptr %1683, ptr %4, align 8
   store ptr null, ptr %506, align 8
@@ -3885,7 +3885,7 @@ _ZN4llvm5ErrorD2Ev.exit358:                       ; preds = %_ZN4llvm23SmallVect
 
 _ZN4llvm5ErrorD2Ev.exit359:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %1684 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL24checkLinkeditDataCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEES8_(ptr dead_on_unwind noalias nonnull writable align 8 %507, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %1684, ptr noundef nonnull %663, ptr noundef nonnull @.str.23, ptr noundef nonnull align 8 dereferenceable(24) %475, ptr noundef nonnull @.str.24)
+  call fastcc void @_ZL24checkLinkeditDataCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEES8_(ptr dead_on_unwind noalias writable align 8 %507, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %1684, ptr noundef %663, ptr noundef nonnull @.str.23, ptr noundef nonnull align 8 dereferenceable(24) %475, ptr noundef nonnull @.str.24)
   %1685 = load ptr, ptr %507, align 8
   store ptr %1685, ptr %4, align 8
   store ptr null, ptr %507, align 8
@@ -4126,7 +4126,7 @@ _ZL14malformedErrorRKN4llvm5TwineE.exit.i385:     ; preds = %1703
 
 1708:                                             ; preds = %1703
   %1709 = load ptr, ptr %476, align 8, !noalias !440
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO18segment_command_64EENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %212, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %1709), !noalias !440
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO18segment_command_64EENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %212, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %1709), !noalias !440
   %1710 = load i8, ptr %1033, align 8, !noalias !440
   %1711 = trunc i8 %1710 to i1
   br i1 %1711, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i357.thread.i, label %1712
@@ -4555,7 +4555,7 @@ _ZN4llvm8ExpectedINS_5MachO10section_64EE9takeErrorEv.exit.i: ; preds = %1755, %
   br i1 %or.cond7.i, label %1810, label %_ZN4llvm5ErrorD2Ev.exit.i380
 
 1810:                                             ; preds = %.thread157.i
-  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias nonnull writable align 8 %516, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1778, i64 noundef %.sroa.4.0.i.i379, ptr noundef nonnull @.str.492)
+  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias writable align 8 %516, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1778, i64 noundef %.sroa.4.0.i.i379, ptr noundef nonnull @.str.492)
   %1811 = load ptr, ptr %516, align 8, !alias.scope !440
   %.not20.i = icmp eq ptr %1811, null
   br i1 %.not20.i, label %_ZN4llvm5ErrorD2Ev.exit.i380, label %_ZN4llvm5ErrorD2Ev.exit386
@@ -4637,7 +4637,7 @@ _ZN4llvm5ErrorD2Ev.exit.i380:                     ; preds = %1810, %.thread157.i
   br label %_ZN4llvm5ErrorD2Ev.exit386
 
 .critedge.i:                                      ; preds = %1816
-  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias nonnull writable align 8 %516, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1812, i64 noundef %1818, ptr noundef nonnull @.str.495)
+  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias writable align 8 %516, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1812, i64 noundef %1818, ptr noundef nonnull @.str.495)
   %1823 = load ptr, ptr %516, align 8, !alias.scope !440
   %.not21.i = icmp eq ptr %1823, null
   br i1 %.not21.i, label %1824, label %_ZN4llvm5ErrorD2Ev.exit386
@@ -5097,7 +5097,7 @@ _ZL14malformedErrorRKN4llvm5TwineE.exit.i446:     ; preds = %1851
 
 1856:                                             ; preds = %1851
   %1857 = load ptr, ptr %476, align 8, !noalias !555
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO15segment_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %65, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %1857), !noalias !555
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO15segment_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %65, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %1857), !noalias !555
   %1858 = load i8, ptr %842, align 8, !noalias !555
   %1859 = trunc i8 %1858 to i1
   br i1 %1859, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i357.thread.i445, label %1860
@@ -5532,7 +5532,7 @@ _ZN4llvm8ExpectedINS_5MachO7sectionEE9takeErrorEv.exit.i: ; preds = %1905, %_ZN4
   br i1 %or.cond7.i413, label %1964, label %_ZN4llvm5ErrorD2Ev.exit.i425
 
 1964:                                             ; preds = %.thread157.i423
-  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias nonnull writable align 8 %517, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1928, i64 noundef %1939, ptr noundef nonnull @.str.492)
+  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias writable align 8 %517, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1928, i64 noundef %1939, ptr noundef nonnull @.str.492)
   %1965 = load ptr, ptr %517, align 8, !alias.scope !555
   %.not19.i = icmp eq ptr %1965, null
   br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit.i425, label %_ZN4llvm5ErrorD2Ev.exit448
@@ -5614,7 +5614,7 @@ _ZN4llvm5ErrorD2Ev.exit.i425:                     ; preds = %1964, %.thread157.i
   br label %_ZN4llvm5ErrorD2Ev.exit448
 
 .critedge.i426:                                   ; preds = %1970
-  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias nonnull writable align 8 %517, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1966, i64 noundef %1972, ptr noundef nonnull @.str.495)
+  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias writable align 8 %517, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %1966, i64 noundef %1972, ptr noundef nonnull @.str.495)
   %1977 = load ptr, ptr %517, align 8, !alias.scope !555
   %.not20.i427 = icmp eq ptr %1977, null
   br i1 %.not20.i427, label %1978, label %_ZN4llvm5ErrorD2Ev.exit448
@@ -5892,7 +5892,7 @@ _ZN4llvm5ErrorD2Ev.exit448:                       ; preds = %.critedge.i426, %19
 
 2007:                                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %2008 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL17checkDylibCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias nonnull writable align 8 %518, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %476, i32 noundef %2008, ptr noundef nonnull @.str.400)
+  call fastcc void @_ZL17checkDylibCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias writable align 8 %518, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %476, i32 noundef %2008, ptr noundef nonnull @.str.400)
   %2009 = load ptr, ptr %518, align 8
   %.not26.i = icmp eq ptr %2009, null
   br i1 %.not26.i, label %2010, label %.loopexit.sink.split
@@ -5962,7 +5962,7 @@ _ZN4llvm5ErrorD2Ev.exit453:                       ; preds = %2018, %2018
 
 _ZN4llvm5ErrorD2Ev.exit454:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %2028 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL17checkDylibCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias nonnull writable align 8 %519, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2028, ptr noundef nonnull @.str.30)
+  call fastcc void @_ZL17checkDylibCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias writable align 8 %519, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2028, ptr noundef nonnull @.str.30)
   %2029 = load ptr, ptr %519, align 8
   store ptr %2029, ptr %4, align 8
   store ptr null, ptr %519, align 8
@@ -5994,7 +5994,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %2030, 
 
 _ZN4llvm5ErrorD2Ev.exit456:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %2042 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL17checkDylibCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias nonnull writable align 8 %520, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2042, ptr noundef nonnull @.str.31)
+  call fastcc void @_ZL17checkDylibCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias writable align 8 %520, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2042, ptr noundef nonnull @.str.31)
   %2043 = load ptr, ptr %520, align 8
   store ptr %2043, ptr %4, align 8
   store ptr null, ptr %520, align 8
@@ -6026,7 +6026,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit458: ; preds = %204
 
 _ZN4llvm5ErrorD2Ev.exit459:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %2056 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL17checkDylibCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias nonnull writable align 8 %521, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2056, ptr noundef nonnull @.str.32)
+  call fastcc void @_ZL17checkDylibCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias writable align 8 %521, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2056, ptr noundef nonnull @.str.32)
   %2057 = load ptr, ptr %521, align 8
   store ptr %2057, ptr %4, align 8
   store ptr null, ptr %521, align 8
@@ -6058,7 +6058,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit461: ; preds = %205
 
 _ZN4llvm5ErrorD2Ev.exit462:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %2070 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL17checkDylibCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias nonnull writable align 8 %522, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2070, ptr noundef nonnull @.str.33)
+  call fastcc void @_ZL17checkDylibCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias writable align 8 %522, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2070, ptr noundef nonnull @.str.33)
   %2071 = load ptr, ptr %522, align 8
   store ptr %2071, ptr %4, align 8
   store ptr null, ptr %522, align 8
@@ -6090,7 +6090,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit464: ; preds = %207
 
 _ZN4llvm5ErrorD2Ev.exit465:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %2084 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL17checkDylibCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias nonnull writable align 8 %523, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2084, ptr noundef nonnull @.str.34)
+  call fastcc void @_ZL17checkDylibCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias writable align 8 %523, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2084, ptr noundef nonnull @.str.34)
   %2085 = load ptr, ptr %523, align 8
   store ptr %2085, ptr %4, align 8
   store ptr null, ptr %523, align 8
@@ -6122,7 +6122,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit467: ; preds = %208
 
 _ZN4llvm5ErrorD2Ev.exit468:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %2098 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL16checkDyldCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias nonnull writable align 8 %524, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2098, ptr noundef nonnull @.str.35)
+  call fastcc void @_ZL16checkDyldCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias writable align 8 %524, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2098, ptr noundef nonnull @.str.35)
   %2099 = load ptr, ptr %524, align 8
   store ptr %2099, ptr %4, align 8
   store ptr null, ptr %524, align 8
@@ -6131,7 +6131,7 @@ _ZN4llvm5ErrorD2Ev.exit468:                       ; preds = %_ZN4llvm23SmallVect
 
 _ZN4llvm5ErrorD2Ev.exit469:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %2100 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL16checkDyldCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias nonnull writable align 8 %525, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2100, ptr noundef nonnull @.str.36)
+  call fastcc void @_ZL16checkDyldCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias writable align 8 %525, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2100, ptr noundef nonnull @.str.36)
   %2101 = load ptr, ptr %525, align 8
   store ptr %2101, ptr %4, align 8
   store ptr null, ptr %525, align 8
@@ -6140,7 +6140,7 @@ _ZN4llvm5ErrorD2Ev.exit469:                       ; preds = %_ZN4llvm23SmallVect
 
 _ZN4llvm5ErrorD2Ev.exit470:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %2102 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL16checkDyldCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias nonnull writable align 8 %526, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2102, ptr noundef nonnull @.str.37)
+  call fastcc void @_ZL16checkDyldCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias writable align 8 %526, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2102, ptr noundef nonnull @.str.37)
   %2103 = load ptr, ptr %526, align 8
   store ptr %2103, ptr %4, align 8
   store ptr null, ptr %526, align 8
@@ -6151,7 +6151,7 @@ _ZN4llvm5ErrorD2Ev.exit471:                       ; preds = %_ZN4llvm23SmallVect
   %.val = load ptr, ptr %476, align 8
   %.val236 = load i32, ptr %834, align 4
   %2104 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL16checkVersCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_(ptr dead_on_unwind noalias nonnull writable align 8 %527, ptr %.val, i32 %.val236, i32 noundef %2104, ptr noundef nonnull %481, ptr noundef nonnull @.str.38)
+  call fastcc void @_ZL16checkVersCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_(ptr dead_on_unwind noalias writable align 8 %527, ptr %.val, i32 %.val236, i32 noundef %2104, ptr noundef %481, ptr noundef nonnull @.str.38)
   %2105 = load ptr, ptr %527, align 8
   store ptr %2105, ptr %4, align 8
   store ptr null, ptr %527, align 8
@@ -6162,7 +6162,7 @@ _ZN4llvm5ErrorD2Ev.exit472:                       ; preds = %_ZN4llvm23SmallVect
   %.val237 = load ptr, ptr %476, align 8
   %.val238 = load i32, ptr %834, align 4
   %2106 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL16checkVersCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_(ptr dead_on_unwind noalias nonnull writable align 8 %528, ptr %.val237, i32 %.val238, i32 noundef %2106, ptr noundef nonnull %481, ptr noundef nonnull @.str.39)
+  call fastcc void @_ZL16checkVersCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_(ptr dead_on_unwind noalias writable align 8 %528, ptr %.val237, i32 %.val238, i32 noundef %2106, ptr noundef %481, ptr noundef nonnull @.str.39)
   %2107 = load ptr, ptr %528, align 8
   store ptr %2107, ptr %4, align 8
   store ptr null, ptr %528, align 8
@@ -6173,7 +6173,7 @@ _ZN4llvm5ErrorD2Ev.exit473:                       ; preds = %_ZN4llvm23SmallVect
   %.val239 = load ptr, ptr %476, align 8
   %.val240 = load i32, ptr %834, align 4
   %2108 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL16checkVersCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_(ptr dead_on_unwind noalias nonnull writable align 8 %529, ptr %.val239, i32 %.val240, i32 noundef %2108, ptr noundef nonnull %481, ptr noundef nonnull @.str.40)
+  call fastcc void @_ZL16checkVersCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_(ptr dead_on_unwind noalias writable align 8 %529, ptr %.val239, i32 %.val240, i32 noundef %2108, ptr noundef %481, ptr noundef nonnull @.str.40)
   %2109 = load ptr, ptr %529, align 8
   store ptr %2109, ptr %4, align 8
   store ptr null, ptr %529, align 8
@@ -6184,7 +6184,7 @@ _ZN4llvm5ErrorD2Ev.exit474:                       ; preds = %_ZN4llvm23SmallVect
   %.val241 = load ptr, ptr %476, align 8
   %.val242 = load i32, ptr %834, align 4
   %2110 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL16checkVersCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_(ptr dead_on_unwind noalias nonnull writable align 8 %530, ptr %.val241, i32 %.val242, i32 noundef %2110, ptr noundef nonnull %481, ptr noundef nonnull @.str.41)
+  call fastcc void @_ZL16checkVersCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_(ptr dead_on_unwind noalias writable align 8 %530, ptr %.val241, i32 %.val242, i32 noundef %2110, ptr noundef %481, ptr noundef nonnull @.str.41)
   %2111 = load ptr, ptr %530, align 8
   store ptr %2111, ptr %4, align 8
   store ptr null, ptr %530, align 8
@@ -6402,7 +6402,7 @@ _ZN4llvm5ErrorD2Ev.exit481.thread:                ; preds = %_ZNSt10unique_ptrIN
   br label %.loopexit.sink.split
 
 _ZN4llvm5ErrorD2Ev.exit481:                       ; preds = %2160
-  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias nonnull writable align 8 %531, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %.sroa.610.0.i.i, i64 noundef %.sroa.8.0.i.i480, ptr noundef nonnull @.str.412)
+  call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias writable align 8 %531, ptr noundef nonnull align 8 dereferenceable(24) %475, i64 noundef %.sroa.610.0.i.i, i64 noundef %.sroa.8.0.i.i480, ptr noundef nonnull @.str.412)
   %.pr621 = load ptr, ptr %531, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %45)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %46)
@@ -6960,7 +6960,7 @@ _ZN4llvm5ErrorD2Ev.exit521:                       ; preds = %2358
   %2371 = load i32, ptr %840, align 4
   %2372 = zext i32 %2371 to i64
   %2373 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL19checkEncryptCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjmmPPKcS8_(ptr dead_on_unwind noalias nonnull writable align 8 %555, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2373, i64 noundef %2370, i64 noundef %2372, ptr noundef nonnull %482, ptr noundef nonnull @.str.47)
+  call fastcc void @_ZL19checkEncryptCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjmmPPKcS8_(ptr dead_on_unwind noalias writable align 8 %555, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2373, i64 noundef %2370, i64 noundef %2372, ptr noundef %482, ptr noundef nonnull @.str.47)
   %2374 = load ptr, ptr %555, align 8
   store ptr %2374, ptr %4, align 8
   store ptr null, ptr %555, align 8
@@ -7003,7 +7003,7 @@ _ZN4llvm5ErrorD2Ev.exit525:                       ; preds = %2375
   %2388 = load i32, ptr %838, align 4
   %2389 = zext i32 %2388 to i64
   %2390 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL19checkEncryptCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjmmPPKcS8_(ptr dead_on_unwind noalias nonnull writable align 8 %563, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2390, i64 noundef %2387, i64 noundef %2389, ptr noundef nonnull %482, ptr noundef nonnull @.str.49)
+  call fastcc void @_ZL19checkEncryptCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjmmPPKcS8_(ptr dead_on_unwind noalias writable align 8 %563, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2390, i64 noundef %2387, i64 noundef %2389, ptr noundef %482, ptr noundef nonnull @.str.49)
   %2391 = load ptr, ptr %563, align 8
   store ptr %2391, ptr %4, align 8
   store ptr null, ptr %563, align 8
@@ -7012,7 +7012,7 @@ _ZN4llvm5ErrorD2Ev.exit525:                       ; preds = %2375
 
 _ZN4llvm5ErrorD2Ev.exit526:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %2392 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL21checkLinkerOptCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEj(ptr dead_on_unwind noalias nonnull writable align 8 %564, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2392)
+  call fastcc void @_ZL21checkLinkerOptCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEj(ptr dead_on_unwind noalias writable align 8 %564, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2392)
   %2393 = load ptr, ptr %564, align 8
   store ptr %2393, ptr %4, align 8
   store ptr null, ptr %564, align 8
@@ -7053,7 +7053,7 @@ _ZN4llvm5ErrorD2Ev.exit530:                       ; preds = %2394
   %.val245 = load ptr, ptr %476, align 8
   %.val246 = load i32, ptr %834, align 4
   %2407 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL15checkSubCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKcmS8_jS8_(ptr dead_on_unwind noalias nonnull writable align 8 %571, ptr %.val245, i32 %.val246, i32 noundef %2407, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef %2406, ptr noundef nonnull @.str.53)
+  call fastcc void @_ZL15checkSubCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKcmS8_jS8_(ptr dead_on_unwind noalias writable align 8 %571, ptr %.val245, i32 %.val246, i32 noundef %2407, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef %2406, ptr noundef nonnull @.str.53)
   %2408 = load ptr, ptr %571, align 8
   store ptr %2408, ptr %4, align 8
   store ptr null, ptr %571, align 8
@@ -7094,7 +7094,7 @@ _ZN4llvm5ErrorD2Ev.exit534:                       ; preds = %2409
   %.val247 = load ptr, ptr %476, align 8
   %.val248 = load i32, ptr %834, align 4
   %2422 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL15checkSubCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKcmS8_jS8_(ptr dead_on_unwind noalias nonnull writable align 8 %578, ptr %.val247, i32 %.val248, i32 noundef %2422, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef %2421, ptr noundef nonnull @.str.57)
+  call fastcc void @_ZL15checkSubCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKcmS8_jS8_(ptr dead_on_unwind noalias writable align 8 %578, ptr %.val247, i32 %.val248, i32 noundef %2422, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef %2421, ptr noundef nonnull @.str.57)
   %2423 = load ptr, ptr %578, align 8
   store ptr %2423, ptr %4, align 8
   store ptr null, ptr %578, align 8
@@ -7135,7 +7135,7 @@ _ZN4llvm5ErrorD2Ev.exit538:                       ; preds = %2424
   %.val249 = load ptr, ptr %476, align 8
   %.val250 = load i32, ptr %834, align 4
   %2437 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL15checkSubCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKcmS8_jS8_(ptr dead_on_unwind noalias nonnull writable align 8 %585, ptr %.val249, i32 %.val250, i32 noundef %2437, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, i32 noundef %2436, ptr noundef nonnull @.str.61)
+  call fastcc void @_ZL15checkSubCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKcmS8_jS8_(ptr dead_on_unwind noalias writable align 8 %585, ptr %.val249, i32 %.val250, i32 noundef %2437, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, i32 noundef %2436, ptr noundef nonnull @.str.61)
   %2438 = load ptr, ptr %585, align 8
   store ptr %2438, ptr %4, align 8
   store ptr null, ptr %585, align 8
@@ -7176,7 +7176,7 @@ _ZN4llvm5ErrorD2Ev.exit542:                       ; preds = %2439
   %.val251 = load ptr, ptr %476, align 8
   %.val252 = load i32, ptr %834, align 4
   %2452 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL15checkSubCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKcmS8_jS8_(ptr dead_on_unwind noalias nonnull writable align 8 %592, ptr %.val251, i32 %.val252, i32 noundef %2452, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64, i32 noundef %2451, ptr noundef nonnull @.str.65)
+  call fastcc void @_ZL15checkSubCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKcmS8_jS8_(ptr dead_on_unwind noalias writable align 8 %592, ptr %.val251, i32 %.val252, i32 noundef %2452, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64, i32 noundef %2451, ptr noundef nonnull @.str.65)
   %2453 = load ptr, ptr %592, align 8
   store ptr %2453, ptr %4, align 8
   store ptr null, ptr %592, align 8
@@ -7277,7 +7277,7 @@ _ZN4llvm5ErrorD2Ev.exit552:                       ; preds = %2480
 
 _ZN4llvm5ErrorD2Ev.exit553:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %2486 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL18checkThreadCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias nonnull writable align 8 %609, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2486, ptr noundef nonnull @.str.70)
+  call fastcc void @_ZL18checkThreadCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias writable align 8 %609, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2486, ptr noundef nonnull @.str.70)
   %2487 = load ptr, ptr %609, align 8
   store ptr %2487, ptr %4, align 8
   store ptr null, ptr %609, align 8
@@ -7304,7 +7304,7 @@ _ZN4llvm5ErrorD2Ev.exit555:                       ; preds = %2488
 
 _ZN4llvm5ErrorD2Ev.exit556:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %2494 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL18checkThreadCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias nonnull writable align 8 %612, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2494, ptr noundef nonnull @.str.72)
+  call fastcc void @_ZL18checkThreadCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias writable align 8 %612, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2494, ptr noundef nonnull @.str.72)
   %2495 = load ptr, ptr %612, align 8
   store ptr %2495, ptr %4, align 8
   store ptr null, ptr %612, align 8
@@ -7313,7 +7313,7 @@ _ZN4llvm5ErrorD2Ev.exit556:                       ; preds = %_ZN4llvm23SmallVect
 
 _ZN4llvm5ErrorD2Ev.exit557:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6object15MachOObjectFile15LoadCommandInfoELb1EE9push_backES3_.exit
   %2496 = trunc nuw i64 %indvars.iv to i32
-  call fastcc void @_ZL25checkTwoLevelHintsCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcRNSt7__cxx114listI12MachOElementSaISC_EEE(ptr dead_on_unwind noalias nonnull writable align 8 %613, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2496, ptr noundef nonnull %483, ptr noundef nonnull align 8 dereferenceable(24) %475)
+  call fastcc void @_ZL25checkTwoLevelHintsCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcRNSt7__cxx114listI12MachOElementSaISC_EEE(ptr dead_on_unwind noalias writable align 8 %613, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %476, i32 noundef %2496, ptr noundef %483, ptr noundef nonnull align 8 dereferenceable(24) %475)
   %2497 = load ptr, ptr %613, align 8
   store ptr %2497, ptr %4, align 8
   store ptr null, ptr %613, align 8
@@ -7441,7 +7441,7 @@ _ZN4llvm5ErrorD2Ev.exit.i563:                     ; preds = %2514
   %2543 = getelementptr inbounds i8, ptr %2540, i64 %2542
   %2544 = trunc i64 %indvars.iv to i32
   %2545 = add i32 %2544, 1
-  call fastcc void @_ZL18getLoadCommandInfoRKN4llvm6object15MachOObjectFileEPKcj(ptr dead_on_unwind noalias nonnull writable align 8 %624, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %2543, i32 noundef %2545)
+  call fastcc void @_ZL18getLoadCommandInfoRKN4llvm6object15MachOObjectFileEPKcj(ptr dead_on_unwind noalias writable align 8 %624, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %2543, i32 noundef %2545)
   %.pre877 = load i8, ptr %1425, align 8
   br label %_ZL22getNextLoadCommandInfoRKN4llvm6object15MachOObjectFileEjRKNS1_15LoadCommandInfoE.exit
 
@@ -7501,7 +7501,7 @@ _ZN4llvm5ErrorD2Ev.exit574:                       ; preds = %2555
   br i1 %.not211, label %.thread626, label %2560
 
 2560:                                             ; preds = %2559
-  call fastcc void @_ZL9getStructIN4llvm5MachO14symtab_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 4 %627, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull %2553)
+  call fastcc void @_ZL9getStructIN4llvm5MachO14symtab_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 4 %627, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %2553)
   %2561 = load ptr, ptr %657, align 8
   call fastcc void @_ZL9getStructIN4llvm5MachO16dysymtab_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 4 %628, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %2561)
   %2562 = getelementptr inbounds nuw i8, ptr %628, i64 12
@@ -7831,7 +7831,7 @@ _ZNK4llvm5Twine6concatERKS0_.exit:                ; preds = %11, %16, %19, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24checkLinkeditDataCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEES8_(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, ptr nocapture noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @_ZL24checkLinkeditDataCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEES8_(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, ptr nocapture noundef nonnull %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::Twine", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -8270,7 +8270,7 @@ _ZN4llvm5TwineC2EPKc.exit270:                     ; preds = %166, %172
   store ptr @.str.342, ptr %40, align 8
   store i8 3, ptr %177, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %32, ptr noundef nonnull align 8 dereferenceable(34) %33, ptr noundef nonnull align 8 dereferenceable(34) %40)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %32)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %32)
   br label %_ZN4llvm8ExpectedINS_5MachO21linkedit_data_commandEED2Ev.exit
 
 179:                                              ; preds = %162
@@ -8313,7 +8313,7 @@ _ZN4llvm8ExpectedINS_5MachO21linkedit_data_commandEED2Ev.exit: ; preds = %_ZL14m
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20checkDyldInfoCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, ptr nocapture noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(24) %6) unnamed_addr #0 {
+define internal fastcc void @_ZL20checkDyldInfoCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_RNSt7__cxx114listI12MachOElementSaISC_EEE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, ptr nocapture noundef nonnull %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(24) %6) unnamed_addr #0 {
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::Twine", align 8
@@ -8581,7 +8581,7 @@ _ZL14malformedErrorRKN4llvm5TwineE.exit163:       ; preds = %146
 
 155:                                              ; preds = %146
   %156 = load ptr, ptr %2, align 8
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef %156)
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef %156)
   %157 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %158 = load i8, ptr %157, align 8
   %159 = trunc i8 %158 to i1
@@ -8793,7 +8793,7 @@ _ZN4llvm5TwineC2EPKc.exit310:                     ; preds = %213, %219
   store ptr @.str.342, ptr %36, align 8
   store i8 3, ptr %224, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %28, ptr noundef nonnull align 8 dereferenceable(34) %29, ptr noundef nonnull align 8 dereferenceable(34) %36)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %28)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %28)
   br label %_ZN4llvm8ExpectedINS_5MachO17dyld_info_commandEED2Ev.exit
 
 226:                                              ; preds = %209
@@ -8898,7 +8898,7 @@ _ZN4llvm5TwineC2EPKc.exit322:                     ; preds = %247, %253
   br label %_ZN4llvm8ExpectedINS_5MachO17dyld_info_commandEED2Ev.exit
 
 260:                                              ; preds = %243
-  tail call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %228, i64 noundef %244, ptr noundef nonnull @.str.390)
+  tail call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %228, i64 noundef %244, ptr noundef nonnull @.str.390)
   %261 = load ptr, ptr %0, align 8
   %.not372 = icmp eq ptr %261, null
   br i1 %.not372, label %_ZN4llvm5ErrorD2Ev.exit325, label %_ZN4llvm8ExpectedINS_5MachO17dyld_info_commandEED2Ev.exit
@@ -8999,7 +8999,7 @@ _ZN4llvm5TwineC2EPKc.exit335:                     ; preds = %281, %287
   br label %_ZN4llvm8ExpectedINS_5MachO17dyld_info_commandEED2Ev.exit
 
 294:                                              ; preds = %277
-  tail call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %262, i64 noundef %278, ptr noundef nonnull @.str.393)
+  tail call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %262, i64 noundef %278, ptr noundef nonnull @.str.393)
   %295 = load ptr, ptr %0, align 8
   %.not373 = icmp eq ptr %295, null
   br i1 %.not373, label %_ZN4llvm5ErrorD2Ev.exit338, label %_ZN4llvm8ExpectedINS_5MachO17dyld_info_commandEED2Ev.exit
@@ -9100,7 +9100,7 @@ _ZN4llvm5TwineC2EPKc.exit348:                     ; preds = %315, %321
   br label %_ZN4llvm8ExpectedINS_5MachO17dyld_info_commandEED2Ev.exit
 
 328:                                              ; preds = %311
-  tail call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %296, i64 noundef %312, ptr noundef nonnull @.str.396)
+  tail call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %296, i64 noundef %312, ptr noundef nonnull @.str.396)
   %329 = load ptr, ptr %0, align 8
   %.not374 = icmp eq ptr %329, null
   br i1 %.not374, label %_ZN4llvm5ErrorD2Ev.exit351, label %_ZN4llvm8ExpectedINS_5MachO17dyld_info_commandEED2Ev.exit
@@ -9201,7 +9201,7 @@ _ZN4llvm5TwineC2EPKc.exit361:                     ; preds = %349, %355
   br label %_ZN4llvm8ExpectedINS_5MachO17dyld_info_commandEED2Ev.exit
 
 362:                                              ; preds = %345
-  tail call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %330, i64 noundef %346, ptr noundef nonnull @.str.399)
+  tail call fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %330, i64 noundef %346, ptr noundef nonnull @.str.399)
   %363 = load ptr, ptr %0, align 8
   %.not375 = icmp eq ptr %363, null
   br i1 %.not375, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %_ZN4llvm8ExpectedINS_5MachO17dyld_info_commandEED2Ev.exit
@@ -9224,7 +9224,7 @@ _ZN4llvm8ExpectedINS_5MachO17dyld_info_commandEED2Ev.exit: ; preds = %365, %_ZL1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17checkDylibCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL17checkDylibCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -9375,7 +9375,7 @@ _ZL14malformedErrorRKN4llvm5TwineE.exit:          ; preds = %_ZN4llvmplERKNS_5Tw
 
 67:                                               ; preds = %5
   %68 = load ptr, ptr %2, align 8
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO13dylib_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef %68)
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO13dylib_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef %68)
   %69 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %70 = load i8, ptr %69, align 8
   %71 = trunc i8 %70 to i1
@@ -9781,7 +9781,7 @@ _ZN4llvm8ExpectedINS_5MachO13dylib_commandEED2Ev.exit: ; preds = %_ZL14malformed
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16checkDyldCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL16checkDyldCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -10383,7 +10383,7 @@ _ZN4llvm8ExpectedINS_5MachO16dylinker_commandEED2Ev.exit: ; preds = %_ZL14malfor
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16checkVersCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.0.val, i32 %.12.val, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL16checkVersCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, i32 %.12.val, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -10613,7 +10613,7 @@ _ZNK4llvm6object6Binary14isLittleEndianEv.exit.thread: ; preds = %14, %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19checkEncryptCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjmmPPKcS8_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, ptr nocapture noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @_ZL19checkEncryptCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjmmPPKcS8_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef range(i64 0, 4294967296) %4, i64 noundef range(i64 0, 4294967296) %5, ptr nocapture noundef nonnull %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::Twine", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -10877,7 +10877,7 @@ _ZNK4llvm6object6Binary14isLittleEndianEv.exit.thread: ; preds = %14, %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21checkLinkerOptCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEj(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL21checkLinkerOptCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEj(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -11237,7 +11237,7 @@ _ZNK4llvm6object6Binary14isLittleEndianEv.exit.thread: ; preds = %13, %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15checkSubCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKcmS8_jS8_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture readonly %.0.val, i32 %.12.val, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @_ZL15checkSubCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKcmS8_jS8_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture readonly %.0.val, i32 %.12.val, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
@@ -12128,7 +12128,7 @@ _ZNK4llvm6object6Binary14isLittleEndianEv.exit.thread: ; preds = %13, %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18checkThreadCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL18checkThreadCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPKc(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -12988,7 +12988,7 @@ _ZN4llvm5TwineC2EPKc.exit340:                     ; preds = %461, %475
   store ptr @.str.380, ptr %37, align 8
   store i8 3, ptr %476, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %25, ptr noundef nonnull align 8 dereferenceable(34) %26, ptr noundef nonnull align 8 dereferenceable(34) %37)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %25)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %25)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 478:                                              ; preds = %460
@@ -13035,7 +13035,7 @@ _ZN4llvm5TwineC2EPKc.exit346:                     ; preds = %481, %491
   store ptr @.str.380, ptr %46, align 8
   store i8 3, ptr %492, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %38, ptr noundef nonnull align 8 dereferenceable(34) %39, ptr noundef nonnull align 8 dereferenceable(34) %46)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %38)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %38)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 494:                                              ; preds = %458
@@ -13101,7 +13101,7 @@ _ZN4llvm5TwineC2EPKc.exit354:                     ; preds = %494, %512
   store ptr @.str.380, ptr %63, align 8
   store i8 3, ptr %513, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %47, ptr noundef nonnull align 8 dereferenceable(34) %48, ptr noundef nonnull align 8 dereferenceable(34) %63)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %47)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %47)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 515:                                              ; preds = %_ZNK4llvm6object6Binary14isLittleEndianEv.exit334.thread
@@ -13168,7 +13168,7 @@ _ZN4llvm5TwineC2EPKc.exit361:                     ; preds = %517, %531
   store ptr @.str.380, ptr %76, align 8
   store i8 3, ptr %532, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %64, ptr noundef nonnull align 8 dereferenceable(34) %65, ptr noundef nonnull align 8 dereferenceable(34) %76)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %64)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %64)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 534:                                              ; preds = %516
@@ -13215,7 +13215,7 @@ _ZN4llvm5TwineC2EPKc.exit367:                     ; preds = %537, %547
   store ptr @.str.380, ptr %85, align 8
   store i8 3, ptr %548, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %77, ptr noundef nonnull align 8 dereferenceable(34) %78, ptr noundef nonnull align 8 dereferenceable(34) %85)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %77)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %77)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 550:                                              ; preds = %515
@@ -13273,7 +13273,7 @@ _ZN4llvm5TwineC2EPKc.exit374:                     ; preds = %551, %565
   store ptr @.str.380, ptr %98, align 8
   store i8 3, ptr %566, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %86, ptr noundef nonnull align 8 dereferenceable(34) %87, ptr noundef nonnull align 8 dereferenceable(34) %98)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %86)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %86)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 568:                                              ; preds = %550
@@ -13320,7 +13320,7 @@ _ZN4llvm5TwineC2EPKc.exit380:                     ; preds = %571, %581
   store ptr @.str.380, ptr %107, align 8
   store i8 3, ptr %582, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %99, ptr noundef nonnull align 8 dereferenceable(34) %100, ptr noundef nonnull align 8 dereferenceable(34) %107)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %99)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %99)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 584:                                              ; preds = %515
@@ -13378,7 +13378,7 @@ _ZN4llvm5TwineC2EPKc.exit387:                     ; preds = %585, %599
   store ptr @.str.380, ptr %120, align 8
   store i8 3, ptr %600, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %108, ptr noundef nonnull align 8 dereferenceable(34) %109, ptr noundef nonnull align 8 dereferenceable(34) %120)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %108)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %108)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 602:                                              ; preds = %584
@@ -13425,7 +13425,7 @@ _ZN4llvm5TwineC2EPKc.exit393:                     ; preds = %605, %615
   store ptr @.str.380, ptr %129, align 8
   store i8 3, ptr %616, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %121, ptr noundef nonnull align 8 dereferenceable(34) %122, ptr noundef nonnull align 8 dereferenceable(34) %129)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %121)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %121)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 618:                                              ; preds = %515
@@ -13483,7 +13483,7 @@ _ZN4llvm5TwineC2EPKc.exit400:                     ; preds = %619, %633
   store ptr @.str.380, ptr %142, align 8
   store i8 3, ptr %634, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %130, ptr noundef nonnull align 8 dereferenceable(34) %131, ptr noundef nonnull align 8 dereferenceable(34) %142)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %130)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %130)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 636:                                              ; preds = %618
@@ -13530,7 +13530,7 @@ _ZN4llvm5TwineC2EPKc.exit406:                     ; preds = %639, %649
   store ptr @.str.380, ptr %151, align 8
   store i8 3, ptr %650, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %143, ptr noundef nonnull align 8 dereferenceable(34) %144, ptr noundef nonnull align 8 dereferenceable(34) %151)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %143)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %143)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 652:                                              ; preds = %515
@@ -13588,7 +13588,7 @@ _ZN4llvm5TwineC2EPKc.exit413:                     ; preds = %653, %667
   store ptr @.str.380, ptr %164, align 8
   store i8 3, ptr %668, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %152, ptr noundef nonnull align 8 dereferenceable(34) %153, ptr noundef nonnull align 8 dereferenceable(34) %164)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %152)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %152)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 670:                                              ; preds = %652
@@ -13635,7 +13635,7 @@ _ZN4llvm5TwineC2EPKc.exit419:                     ; preds = %673, %683
   store ptr @.str.380, ptr %173, align 8
   store i8 3, ptr %684, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %165, ptr noundef nonnull align 8 dereferenceable(34) %166, ptr noundef nonnull align 8 dereferenceable(34) %173)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %165)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %165)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 686:                                              ; preds = %515
@@ -13701,7 +13701,7 @@ _ZN4llvm5TwineC2EPKc.exit427:                     ; preds = %686, %704
   store ptr @.str.380, ptr %190, align 8
   store i8 3, ptr %705, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %174, ptr noundef nonnull align 8 dereferenceable(34) %175, ptr noundef nonnull align 8 dereferenceable(34) %190)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %174)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %174)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 707:                                              ; preds = %_ZNK4llvm6object6Binary14isLittleEndianEv.exit334.thread
@@ -13763,7 +13763,7 @@ _ZN4llvm5TwineC2EPKc.exit434:                     ; preds = %710, %724
   store ptr @.str.380, ptr %203, align 8
   store i8 3, ptr %725, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %191, ptr noundef nonnull align 8 dereferenceable(34) %192, ptr noundef nonnull align 8 dereferenceable(34) %203)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %191)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %191)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 727:                                              ; preds = %709
@@ -13810,7 +13810,7 @@ _ZN4llvm5TwineC2EPKc.exit440:                     ; preds = %730, %740
   store ptr @.str.380, ptr %212, align 8
   store i8 3, ptr %741, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %204, ptr noundef nonnull align 8 dereferenceable(34) %205, ptr noundef nonnull align 8 dereferenceable(34) %212)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %204)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %204)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 743:                                              ; preds = %707
@@ -13876,7 +13876,7 @@ _ZN4llvm5TwineC2EPKc.exit448:                     ; preds = %743, %761
   store ptr @.str.380, ptr %229, align 8
   store i8 3, ptr %762, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %213, ptr noundef nonnull align 8 dereferenceable(34) %214, ptr noundef nonnull align 8 dereferenceable(34) %229)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %213)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %213)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 764:                                              ; preds = %_ZNK4llvm6object6Binary14isLittleEndianEv.exit334.thread, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit334.thread
@@ -13938,7 +13938,7 @@ _ZN4llvm5TwineC2EPKc.exit455:                     ; preds = %767, %781
   store ptr @.str.380, ptr %242, align 8
   store i8 3, ptr %782, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %230, ptr noundef nonnull align 8 dereferenceable(34) %231, ptr noundef nonnull align 8 dereferenceable(34) %242)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %230)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %230)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 784:                                              ; preds = %766
@@ -13985,7 +13985,7 @@ _ZN4llvm5TwineC2EPKc.exit461:                     ; preds = %787, %797
   store ptr @.str.380, ptr %251, align 8
   store i8 3, ptr %798, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %243, ptr noundef nonnull align 8 dereferenceable(34) %244, ptr noundef nonnull align 8 dereferenceable(34) %251)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %243)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %243)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 800:                                              ; preds = %764
@@ -14051,7 +14051,7 @@ _ZN4llvm5TwineC2EPKc.exit469:                     ; preds = %800, %818
   store ptr @.str.380, ptr %268, align 8
   store i8 3, ptr %819, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %252, ptr noundef nonnull align 8 dereferenceable(34) %253, ptr noundef nonnull align 8 dereferenceable(34) %268)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %252)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %252)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 821:                                              ; preds = %_ZNK4llvm6object6Binary14isLittleEndianEv.exit334.thread
@@ -14113,7 +14113,7 @@ _ZN4llvm5TwineC2EPKc.exit476:                     ; preds = %824, %838
   store ptr @.str.380, ptr %281, align 8
   store i8 3, ptr %839, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %269, ptr noundef nonnull align 8 dereferenceable(34) %270, ptr noundef nonnull align 8 dereferenceable(34) %281)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %269)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %269)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 841:                                              ; preds = %823
@@ -14160,7 +14160,7 @@ _ZN4llvm5TwineC2EPKc.exit482:                     ; preds = %844, %854
   store ptr @.str.380, ptr %290, align 8
   store i8 3, ptr %855, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %282, ptr noundef nonnull align 8 dereferenceable(34) %283, ptr noundef nonnull align 8 dereferenceable(34) %290)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %282)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %282)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 857:                                              ; preds = %821
@@ -14226,7 +14226,7 @@ _ZN4llvm5TwineC2EPKc.exit490:                     ; preds = %857, %875
   store ptr @.str.380, ptr %307, align 8
   store i8 3, ptr %876, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %291, ptr noundef nonnull align 8 dereferenceable(34) %292, ptr noundef nonnull align 8 dereferenceable(34) %307)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %291)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %291)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 878:                                              ; preds = %_ZNK4llvm6object6Binary14isLittleEndianEv.exit334.thread
@@ -14280,7 +14280,7 @@ _ZN4llvm5TwineC2EPKc.exit497:                     ; preds = %878, %892
   store ptr @.str.465, ptr %320, align 8
   store i8 3, ptr %893, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %308, ptr noundef nonnull align 8 dereferenceable(34) %309, ptr noundef nonnull align 8 dereferenceable(34) %320)
-  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %308)
+  call fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %308)
   br label %_ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit
 
 895:                                              ; preds = %841, %784, %727, %670, %636, %602, %568, %534, %478
@@ -14322,7 +14322,7 @@ _ZN4llvm8ExpectedINS_5MachO14thread_commandEED2Ev.exit: ; preds = %_ZN4llvm12Err
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL25checkTwoLevelHintsCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcRNSt7__cxx114listI12MachOElementSaISC_EEE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, ptr nocapture noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 {
+define internal fastcc void @_ZL25checkTwoLevelHintsCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcRNSt7__cxx114listI12MachOElementSaISC_EEE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, ptr nocapture noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
@@ -14594,7 +14594,7 @@ _ZN4llvm8ExpectedINS_5MachO22twolevel_hints_commandEED2Ev.exit: ; preds = %_ZN4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL9getStructIN4llvm5MachO14symtab_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nocapture writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @_ZL9getStructIN4llvm5MachO14symtab_commandEET_RKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nocapture writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #29
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = icmp ult ptr %2, %5
@@ -17673,7 +17673,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm6object15MachOObjectFile18getSegmentCont
 
 26:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO15segment_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %.sroa.011.0.copyload)
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO15segment_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %.sroa.011.0.copyload)
   %27 = load i8, ptr %21, align 8
   %28 = trunc i8 %27 to i1
   br i1 %28, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i, label %38
@@ -17742,7 +17742,7 @@ _ZN12_GLOBAL__N_118getSegmentContentsIN4llvm5MachO15segment_commandEEENS1_8Array
 
 55:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7)
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO18segment_command_64EENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %.sroa.011.0.copyload)
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO18segment_command_64EENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %.sroa.011.0.copyload)
   %56 = load i8, ptr %16, align 8
   %57 = trunc i8 %56 to i1
   br i1 %57, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i32, label %67
@@ -17872,7 +17872,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm6object15MachOObjectFile18getSegmentCont
 17:                                               ; preds = %15
   %.sroa.03.0.copyload.le = load ptr, ptr %.01735, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO15segment_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %.sroa.03.0.copyload.le)
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO15segment_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %.sroa.03.0.copyload.le)
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
@@ -17939,7 +17939,7 @@ _ZN12_GLOBAL__N_118getSegmentContentsIN4llvm5MachO15segment_commandEEENS1_8Array
 47:                                               ; preds = %45
   %.sroa.03.0.copyload.le32 = load ptr, ptr %.01735, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO18segment_command_64EENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %.sroa.03.0.copyload.le32)
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO18segment_command_64EENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %.sroa.03.0.copyload.le32)
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %49 = load i8, ptr %48, align 8
   %50 = trunc i8 %49 to i1
@@ -19818,7 +19818,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   %30 = load ptr, ptr %8, align 8
   %31 = getelementptr inbounds ptr, ptr %30, i64 %29
   %32 = load ptr, ptr %31, align 8
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO13dylib_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %32)
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO13dylib_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %32)
   %33 = load i8, ptr %17, align 8
   %34 = trunc i8 %33 to i1
   br i1 %34, label %59, label %35
@@ -19899,7 +19899,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %59
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO13dylib_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO13dylib_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #29
@@ -23434,7 +23434,7 @@ define dso_local void @_ZNK4llvm6object15MachOObjectFile7exportsERNS_5ErrorE(ptr
 
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %6)
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
@@ -23498,7 +23498,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm6object15MachOObjectFile22getDyldInfoExp
   br i1 %.not, label %_ZN4llvm8ExpectedINS_5MachO17dyld_info_commandEED2Ev.exit, label %5
 
 5:                                                ; preds = %1
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull %4)
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
@@ -25416,7 +25416,7 @@ _ZN4llvm5ErrorD2Ev.exit79:                        ; preds = %181
   store i8 1, ptr %142, align 1
   store ptr @.str.301, ptr %19, align 8
   store i8 3, ptr %141, align 8
-  call fastcc void @"_ZZNK4llvm6object15MachOObjectFile24getChainedFixupsSegmentsEvENK3$_0clENS_5TwineE"(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr nonnull %16, ptr nonnull %17, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %19)
+  call fastcc void @"_ZZNK4llvm6object15MachOObjectFile24getChainedFixupsSegmentsEvENK3$_0clENS_5TwineE"(ptr dead_on_unwind noalias writable align 8 %18, ptr nonnull %16, ptr nonnull %17, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %19)
   %185 = or i8 %150, 1
   store i8 %185, ptr %136, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !3406)
@@ -25550,7 +25550,7 @@ _ZN4llvm5ErrorD2Ev.exit88:                        ; preds = %219
   store i8 1, ptr %140, align 1
   store i32 %223, ptr %24, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %22, ptr noundef nonnull align 8 dereferenceable(34) %23, ptr noundef nonnull align 8 dereferenceable(34) %24)
-  call fastcc void @"_ZZNK4llvm6object15MachOObjectFile24getChainedFixupsSegmentsEvENK3$_0clENS_5TwineE"(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr nonnull %16, ptr nonnull %17, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %22)
+  call fastcc void @"_ZZNK4llvm6object15MachOObjectFile24getChainedFixupsSegmentsEvENK3$_0clENS_5TwineE"(ptr dead_on_unwind noalias writable align 8 %21, ptr nonnull %16, ptr nonnull %17, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %22)
   %224 = or i8 %150, 1
   store i8 %224, ptr %136, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !3439)
@@ -25572,7 +25572,7 @@ _ZN4llvm5ErrorD2Ev.exit90:                        ; preds = %226
   store i8 1, ptr %135, align 1
   store ptr @.str.303, ptr %26, align 8
   store i8 3, ptr %134, align 8
-  call fastcc void @"_ZZNK4llvm6object15MachOObjectFile24getChainedFixupsSegmentsEvENK3$_0clENS_5TwineE"(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr nonnull %16, ptr nonnull %17, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %26)
+  call fastcc void @"_ZZNK4llvm6object15MachOObjectFile24getChainedFixupsSegmentsEvENK3$_0clENS_5TwineE"(ptr dead_on_unwind noalias writable align 8 %25, ptr nonnull %16, ptr nonnull %17, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %26)
   %233 = or i8 %150, 1
   store i8 %233, ptr %136, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !3442)
@@ -28424,7 +28424,7 @@ define dso_local void @_ZN4llvm6object15MachOObjectFile11rebaseTableERNS_5ErrorE
   br i1 %.not.i, label %_ZNK4llvm6object15MachOObjectFile24getDyldInfoRebaseOpcodesEv.exit, label %7
 
 7:                                                ; preds = %3
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %6)
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
@@ -28475,7 +28475,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm6object15MachOObjectFile24getDyldInfoReb
   br i1 %.not, label %_ZN4llvm8ExpectedINS_5MachO17dyld_info_commandEED2Ev.exit, label %5
 
 5:                                                ; preds = %1
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull %4)
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
@@ -32013,7 +32013,7 @@ define dso_local void @_ZN4llvm6object15MachOObjectFile9bindTableERNS_5ErrorE(pt
   br i1 %.not.i, label %_ZNK4llvm6object15MachOObjectFile22getDyldInfoBindOpcodesEv.exit, label %7
 
 7:                                                ; preds = %3
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %6)
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
@@ -32064,7 +32064,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm6object15MachOObjectFile22getDyldInfoBin
   br i1 %.not, label %_ZN4llvm8ExpectedINS_5MachO17dyld_info_commandEED2Ev.exit, label %5
 
 5:                                                ; preds = %1
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull %4)
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
@@ -32112,7 +32112,7 @@ define dso_local void @_ZN4llvm6object15MachOObjectFile13lazyBindTableERNS_5Erro
   br i1 %.not.i, label %_ZNK4llvm6object15MachOObjectFile26getDyldInfoLazyBindOpcodesEv.exit, label %7
 
 7:                                                ; preds = %3
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %6)
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
@@ -32163,7 +32163,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm6object15MachOObjectFile26getDyldInfoLaz
   br i1 %.not, label %_ZN4llvm8ExpectedINS_5MachO17dyld_info_commandEED2Ev.exit, label %5
 
 5:                                                ; preds = %1
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull %4)
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
@@ -32211,7 +32211,7 @@ define dso_local void @_ZN4llvm6object15MachOObjectFile13weakBindTableERNS_5Erro
   br i1 %.not.i, label %_ZNK4llvm6object15MachOObjectFile26getDyldInfoWeakBindOpcodesEv.exit, label %7
 
 7:                                                ; preds = %3
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %6)
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
@@ -32262,7 +32262,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm6object15MachOObjectFile26getDyldInfoWea
   br i1 %.not, label %_ZN4llvm8ExpectedINS_5MachO17dyld_info_commandEED2Ev.exit, label %5
 
 5:                                                ; preds = %1
-  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull %4)
+  call fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
@@ -34728,7 +34728,7 @@ _ZL9getStructIN4llvm5MachO21linkedit_data_commandEET_RKNS0_6object15MachOObjectF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #29
@@ -35328,7 +35328,7 @@ _ZN4llvm8ExpectedISt8optionalINS_5MachO21linkedit_data_commandEEED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK4llvm6object15MachOObjectFile24getChainedFixupsSegmentsEvENK3$_0clENS_5TwineE"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.0.val, ptr nocapture readonly %.8.val, ptr noundef byval(%"class.llvm::Twine") align 8 %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK4llvm6object15MachOObjectFile24getChainedFixupsSegmentsEvENK3$_0clENS_5TwineE"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr nocapture readonly %.8.val, ptr noundef byval(%"class.llvm::Twine") align 8 %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -37304,7 +37304,7 @@ _ZN4llvm5ErrorD2Ev.exit:
 declare void @_ZN4llvm6object18GenericBinaryErrorC1ERKNS_5TwineENS0_12object_errorE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(34), i32 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18getLoadCommandInfoRKN4llvm6object15MachOObjectFileEPKcj(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL18getLoadCommandInfoRKN4llvm6object15MachOObjectFileEPKcj(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -37503,7 +37503,7 @@ _ZN4llvm8ExpectedINS_5MachO12load_commandEED2Ev.exit: ; preds = %74, %_ZN4llvm5E
 declare i32 @llvm.bswap.i32(i32) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL23checkOverlappingElementRNSt7__cxx114listI12MachOElementSaIS1_EEEmmPKc(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca i64, align 8
@@ -39153,7 +39153,7 @@ declare i64 @llvm.bswap.i64(i64) #17
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO18segment_command_64EENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO18segment_command_64EENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #29
@@ -39286,7 +39286,7 @@ _ZNK4llvm6object6Binary14isLittleEndianEv.exit.thread: ; preds = %26, %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO15segment_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO15segment_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #29

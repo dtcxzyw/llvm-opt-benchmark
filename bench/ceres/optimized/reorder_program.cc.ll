@@ -1630,7 +1630,7 @@ _ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit47: ; preds = %1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17)
   call void @_ZNK5ceres8internal7Program36CreateJacobianBlockSparsityTransposeEi(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.49") align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %5, i32 noundef 0)
   %123 = load ptr, ptr %8, align 8
-  invoke fastcc void @_ZN5ceres8internal12_GLOBAL__N_119CreateBlockJacobianERKNS0_19TripletSparseMatrixE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(48) %123)
+  invoke fastcc void @_ZN5ceres8internal12_GLOBAL__N_119CreateBlockJacobianERKNS0_19TripletSparseMatrixE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(48) %123)
           to label %124 unwind label %161
 
 124:                                              ; preds = %122
@@ -2628,7 +2628,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc34, %_ZNSt6ve
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
-  invoke fastcc void @_ZN5ceres8internal12_GLOBAL__N_119CreateBlockJacobianERKNS0_19TripletSparseMatrixE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %51)
+  invoke fastcc void @_ZN5ceres8internal12_GLOBAL__N_119CreateBlockJacobianERKNS0_19TripletSparseMatrixE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %51)
           to label %.noexc36 unwind label %48
 
 .noexc36:                                         ; preds = %50
@@ -3187,7 +3187,7 @@ declare void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull ali
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5ceres8internal12_GLOBAL__N_119CreateBlockJacobianERKNS0_19TripletSparseMatrixE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5ceres8internal12_GLOBAL__N_119CreateBlockJacobianERKNS0_19TripletSparseMatrixE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Eigen::internal::scalar_sum_op", align 1
   %4 = alloca %"class.__gnu_cxx::__normal_iterator.118", align 8
   %5 = alloca %"class.__gnu_cxx::__normal_iterator.118", align 8

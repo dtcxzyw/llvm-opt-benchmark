@@ -26,7 +26,7 @@ define hidden i32 @WebPParseHeaders(ptr noundef %0) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = call fastcc i32 @ParseHeadersInternal(ptr noundef %4, i64 noundef %6, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %0)
+  %7 = call fastcc i32 @ParseHeadersInternal(ptr noundef %4, i64 noundef %6, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %3, ptr noundef null, ptr noundef nonnull %0)
   store volatile i32 %7, ptr %2, align 4
   %.0..0..0..0. = load volatile i32, ptr %2, align 4
   %8 = icmp eq i32 %.0..0..0..0., 0
@@ -55,7 +55,7 @@ define hidden i32 @WebPParseHeaders(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 8) i32 @ParseHeadersInternal(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr noundef writeonly %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc range(i32 0, 8) i32 @ParseHeadersInternal(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef %4, ptr nocapture noundef nonnull writeonly %5, ptr noundef writeonly %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
   %11 = alloca i32, align 4
@@ -232,7 +232,7 @@ ParseVP8X.exit.thread115:                         ; preds = %ParseRIFF.exit.thre
 86:                                               ; preds = %82, %85
   %87 = getelementptr inbounds i8, ptr %13, i64 32
   %88 = getelementptr inbounds i8, ptr %13, i64 40
-  %89 = call fastcc i32 @ParseOptionalChunks(ptr noundef nonnull %9, ptr noundef nonnull %10, i64 noundef %43, ptr noundef nonnull %87, ptr noundef nonnull %88)
+  %89 = call fastcc i32 @ParseOptionalChunks(ptr noundef %9, ptr noundef %10, i64 noundef %43, ptr noundef %87, ptr noundef %88)
   %.not80 = icmp eq i32 %89, 0
   br i1 %.not80, label %._crit_edge, label %124
 
@@ -244,7 +244,7 @@ ParseVP8X.exit.thread115:                         ; preds = %ParseRIFF.exit.thre
   %91 = phi i64 [ %.pre, %._crit_edge ], [ 0, %85 ], [ %43, %84 ]
   %92 = getelementptr inbounds i8, ptr %13, i64 48
   %93 = getelementptr inbounds i8, ptr %13, i64 64
-  %94 = call fastcc i32 @ParseVP8Header(ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %18, i64 noundef %91, ptr noundef nonnull %92, ptr noundef nonnull %93)
+  %94 = call fastcc i32 @ParseVP8Header(ptr noundef %9, ptr noundef %10, i32 noundef %18, i64 noundef %91, ptr noundef %92, ptr noundef %93)
   %.not81 = icmp eq i32 %94, 0
   br i1 %.not81, label %95, label %124
 
@@ -400,7 +400,7 @@ define ptr @WebPDecodeRGBInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   store i64 %3, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 1, ptr %16, align 4
-  %17 = call fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %6)
+  %17 = call fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr noundef %6)
   %.not9.i = icmp eq i32 %17, 0
   %..i = select i1 %.not9.i, ptr %2, ptr null
   br label %DecodeIntoRGBABuffer.exit
@@ -439,7 +439,7 @@ define ptr @WebPDecodeRGBAInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   store i64 %3, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 1, ptr %16, align 4
-  %17 = call fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %6)
+  %17 = call fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr noundef %6)
   %.not9.i = icmp eq i32 %17, 0
   %..i = select i1 %.not9.i, ptr %2, ptr null
   br label %DecodeIntoRGBABuffer.exit
@@ -478,7 +478,7 @@ define ptr @WebPDecodeARGBInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   store i64 %3, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 1, ptr %16, align 4
-  %17 = call fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %6)
+  %17 = call fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr noundef %6)
   %.not9.i = icmp eq i32 %17, 0
   %..i = select i1 %.not9.i, ptr %2, ptr null
   br label %DecodeIntoRGBABuffer.exit
@@ -517,7 +517,7 @@ define ptr @WebPDecodeBGRInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   store i64 %3, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 1, ptr %16, align 4
-  %17 = call fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %6)
+  %17 = call fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr noundef %6)
   %.not9.i = icmp eq i32 %17, 0
   %..i = select i1 %.not9.i, ptr %2, ptr null
   br label %DecodeIntoRGBABuffer.exit
@@ -556,7 +556,7 @@ define ptr @WebPDecodeBGRAInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   store i64 %3, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 1, ptr %16, align 4
-  %17 = call fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %6)
+  %17 = call fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr noundef %6)
   %.not9.i = icmp eq i32 %17, 0
   %..i = select i1 %.not9.i, ptr %2, ptr null
   br label %DecodeIntoRGBABuffer.exit
@@ -605,7 +605,7 @@ define ptr @WebPDecodeYUVInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   store i64 %9, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %13, i64 12
   store i32 1, ptr %28, align 4
-  %29 = call fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %12)
+  %29 = call fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr noundef %12)
   %.not14 = icmp eq i32 %29, 0
   %. = select i1 %.not14, ptr %2, ptr null
   br label %30
@@ -616,7 +616,7 @@ define ptr @WebPDecodeYUVInto(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %struct.VP8Io, align 8
@@ -629,7 +629,7 @@ define internal fastcc i32 @DecodeInto(ptr noundef %0, i64 noundef %1, ptr nound
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %10 = call fastcc i32 @ParseHeadersInternal(ptr noundef %0, i64 noundef %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %7)
+  %10 = call fastcc i32 @ParseHeadersInternal(ptr noundef %0, i64 noundef %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %5, ptr noundef null, ptr noundef nonnull %7)
   store volatile i32 %10, ptr %4, align 4
   %.0..0..0..0..0..0..i = load volatile i32, ptr %4, align 4
   %11 = icmp eq i32 %.0..0..0..0..0..0..i, 0
@@ -675,7 +675,7 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
   %27 = sub i64 %26, %23
   %28 = getelementptr inbounds i8, ptr %6, i64 96
   store i64 %27, ptr %28, align 8
-  call void @WebPInitCustomIo(ptr noundef %2, ptr noundef nonnull %6) #10
+  call void @WebPInitCustomIo(ptr noundef nonnull %2, ptr noundef nonnull %6) #10
   %29 = getelementptr inbounds i8, ptr %7, i64 64
   %30 = load i32, ptr %29, align 8
   %.not45 = icmp eq i32 %30, 0
@@ -827,7 +827,7 @@ GetFeatures.exit.i.i:                             ; preds = %9
   %15 = getelementptr inbounds i8, ptr %5, i64 8
   %16 = getelementptr inbounds i8, ptr %5, i64 12
   %17 = getelementptr inbounds i8, ptr %5, i64 16
-  %18 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef null)
+  %18 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %16, ptr noundef nonnull %17, ptr noundef null)
   %.not.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i, label %19, label %WebPGetInfo.exit.thread.i
 
@@ -857,7 +857,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   br label %25
 
 25:                                               ; preds = %24, %23
-  %26 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %6)
+  %26 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %6)
   %.not18.i = icmp eq i32 %26, 0
   br i1 %.not18.i, label %27, label %Decode.exit
 
@@ -901,7 +901,7 @@ GetFeatures.exit.i.i:                             ; preds = %9
   %15 = getelementptr inbounds i8, ptr %5, i64 8
   %16 = getelementptr inbounds i8, ptr %5, i64 12
   %17 = getelementptr inbounds i8, ptr %5, i64 16
-  %18 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef null)
+  %18 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %16, ptr noundef nonnull %17, ptr noundef null)
   %.not.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i, label %19, label %WebPGetInfo.exit.thread.i
 
@@ -931,7 +931,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   br label %25
 
 25:                                               ; preds = %24, %23
-  %26 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %6)
+  %26 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %6)
   %.not18.i = icmp eq i32 %26, 0
   br i1 %.not18.i, label %27, label %Decode.exit
 
@@ -975,7 +975,7 @@ GetFeatures.exit.i.i:                             ; preds = %9
   %15 = getelementptr inbounds i8, ptr %5, i64 8
   %16 = getelementptr inbounds i8, ptr %5, i64 12
   %17 = getelementptr inbounds i8, ptr %5, i64 16
-  %18 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef null)
+  %18 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %16, ptr noundef nonnull %17, ptr noundef null)
   %.not.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i, label %19, label %WebPGetInfo.exit.thread.i
 
@@ -1005,7 +1005,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   br label %25
 
 25:                                               ; preds = %24, %23
-  %26 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %6)
+  %26 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %6)
   %.not18.i = icmp eq i32 %26, 0
   br i1 %.not18.i, label %27, label %Decode.exit
 
@@ -1049,7 +1049,7 @@ GetFeatures.exit.i.i:                             ; preds = %9
   %15 = getelementptr inbounds i8, ptr %5, i64 8
   %16 = getelementptr inbounds i8, ptr %5, i64 12
   %17 = getelementptr inbounds i8, ptr %5, i64 16
-  %18 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef null)
+  %18 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %16, ptr noundef nonnull %17, ptr noundef null)
   %.not.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i, label %19, label %WebPGetInfo.exit.thread.i
 
@@ -1079,7 +1079,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   br label %25
 
 25:                                               ; preds = %24, %23
-  %26 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %6)
+  %26 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %6)
   %.not18.i = icmp eq i32 %26, 0
   br i1 %.not18.i, label %27, label %Decode.exit
 
@@ -1123,7 +1123,7 @@ GetFeatures.exit.i.i:                             ; preds = %9
   %15 = getelementptr inbounds i8, ptr %5, i64 8
   %16 = getelementptr inbounds i8, ptr %5, i64 12
   %17 = getelementptr inbounds i8, ptr %5, i64 16
-  %18 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef null)
+  %18 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %16, ptr noundef nonnull %17, ptr noundef null)
   %.not.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i, label %19, label %WebPGetInfo.exit.thread.i
 
@@ -1153,7 +1153,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   br label %25
 
 25:                                               ; preds = %24, %23
-  %26 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %6)
+  %26 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %6)
   %.not18.i = icmp eq i32 %26, 0
   br i1 %.not18.i, label %27, label %Decode.exit
 
@@ -1208,7 +1208,7 @@ GetFeatures.exit.i.i:                             ; preds = %19
   %25 = getelementptr inbounds i8, ptr %9, i64 8
   %26 = getelementptr inbounds i8, ptr %9, i64 12
   %27 = getelementptr inbounds i8, ptr %9, i64 16
-  %28 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef null)
+  %28 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef %26, ptr noundef nonnull %27, ptr noundef null)
   %.not.i.i = icmp eq i32 %28, 0
   br i1 %.not.i.i, label %29, label %WebPGetInfo.exit.thread.i
 
@@ -1238,7 +1238,7 @@ WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.
   br label %35
 
 35:                                               ; preds = %34, %33
-  %36 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %10)
+  %36 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %10)
   %.not18.i = icmp eq i32 %36, 0
   br i1 %.not18.i, label %Decode.exit, label %Decode.exit.thread
 
@@ -1288,7 +1288,7 @@ GetFeatures.exit:                                 ; preds = %4
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   %9 = getelementptr inbounds i8, ptr %5, i64 12
   %10 = getelementptr inbounds i8, ptr %5, i64 16
-  %11 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef null)
+  %11 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %9, ptr noundef nonnull %10, ptr noundef null)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %GetFeatures.exit.thread
 
@@ -1352,7 +1352,7 @@ define range(i32 0, 8) i32 @WebPGetFeaturesInternal(ptr noundef %0, i64 noundef 
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   %10 = getelementptr inbounds i8, ptr %2, i64 12
   %11 = getelementptr inbounds i8, ptr %2, i64 16
-  %12 = tail call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef null)
+  %12 = tail call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull %11, ptr noundef null)
   br label %GetFeatures.exit
 
 GetFeatures.exit:                                 ; preds = %7, %4
@@ -1375,7 +1375,7 @@ GetFeatures.exit:                                 ; preds = %3
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   %10 = getelementptr inbounds i8, ptr %2, i64 12
   %11 = getelementptr inbounds i8, ptr %2, i64 16
-  %12 = tail call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef null)
+  %12 = tail call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull %11, ptr noundef null)
   switch i32 %12, label %13 [
     i32 0, label %14
     i32 7, label %GetFeatures.exit.thread
@@ -1411,7 +1411,7 @@ GetFeatures.exit:                                 ; preds = %3
   %27 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %26, ptr %27, align 8
   store ptr %5, ptr %4, align 8
-  %28 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %4)
+  %28 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %4)
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %32
 
@@ -1425,7 +1425,7 @@ GetFeatures.exit:                                 ; preds = %3
   br label %GetFeatures.exit.thread
 
 33:                                               ; preds = %14
-  %34 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %4)
+  %34 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %4)
   br label %GetFeatures.exit.thread
 
 GetFeatures.exit.thread:                          ; preds = %32, %33, %20, %GetFeatures.exit, %3, %13
@@ -1634,7 +1634,7 @@ define hidden range(i32 0, 2) i32 @WebPIoInitFromOptions(ptr noundef readonly %0
 declare i32 @WebPRescalerGetScaledDimensions(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 8) i32 @ParseOptionalChunks(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #5 {
+define internal fastcc range(i32 0, 8) i32 @ParseOptionalChunks(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #5 {
   %6 = load ptr, ptr %0, align 8
   %7 = load i64, ptr %1, align 8
   store ptr null, ptr %3, align 8
@@ -1763,7 +1763,7 @@ define internal fastcc range(i32 0, 8) i32 @ParseOptionalChunks(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 8) i32 @ParseVP8Header(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 8) i32 @ParseVP8Header(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8
   %bcmp27 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %7, ptr noundef nonnull dereferenceable(4) @.str.5, i64 4)
   %.not28 = icmp eq i32 %bcmp27, 0

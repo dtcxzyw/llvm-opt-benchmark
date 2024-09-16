@@ -535,7 +535,7 @@ define dso_local void @ReplicationSlotCreate(ptr noundef %0, i1 noundef zeroext 
 98:                                               ; preds = %91
   call void @fsync_fname(ptr noundef nonnull %7, i1 noundef zeroext true) #15
   store i8 1, ptr %76, align 1
-  call fastcc void @SaveSlotToPath(ptr noundef nonnull %spec.select, ptr noundef nonnull %7, i32 noundef 21)
+  call fastcc void @SaveSlotToPath(ptr noundef nonnull %spec.select, ptr noundef %7, i32 noundef 21)
   %99 = call i32 @rename(ptr noundef nonnull %7, ptr noundef nonnull %8) #15
   %.not.i = icmp eq i32 %99, 0
   br i1 %.not.i, label %CreateSlotOnDisk.exit, label %100
@@ -1434,7 +1434,7 @@ ReplicationSlotMarkDirty.exit:                    ; preds = %49, %55
   %61 = getelementptr inbounds i8, ptr %60, i64 24
   %62 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.27, ptr noundef nonnull %61) #15
   %63 = load ptr, ptr @MyReplicationSlot, align 8
-  call fastcc void @SaveSlotToPath(ptr noundef %63, ptr noundef nonnull %3, i32 noundef 21)
+  call fastcc void @SaveSlotToPath(ptr noundef %63, ptr noundef %3, i32 noundef 21)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3)
   br label %64
 
@@ -1472,14 +1472,14 @@ define dso_local void @ReplicationSlotSave() local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.27, ptr noundef nonnull %3) #15
   %5 = load ptr, ptr @MyReplicationSlot, align 8
-  call fastcc void @SaveSlotToPath(ptr noundef %5, ptr noundef nonnull %1, i32 noundef 21)
+  call fastcc void @SaveSlotToPath(ptr noundef %5, ptr noundef %1, i32 noundef 21)
   ret void
 }
 
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SaveSlotToPath(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @SaveSlotToPath(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 15, 22) %2) unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [1024 x i8], align 16
   %6 = alloca %struct.ReplicationSlotOnDisk, align 8
@@ -1504,8 +1504,8 @@ define internal fastcc void @SaveSlotToPath(ptr noundef %0, ptr noundef %1, i32 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %0, i64 208
   %17 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %16, i32 noundef 0) #15
-  %18 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.52, ptr noundef %1) #15
-  %19 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.53, ptr noundef %1) #15
+  %18 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.52, ptr noundef nonnull %1) #15
+  %19 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.53, ptr noundef nonnull %1) #15
   %20 = call i32 @OpenTransientFile(ptr noundef nonnull %4, i32 noundef 193) #15
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %22, label %29
@@ -1644,7 +1644,7 @@ define internal fastcc void @SaveSlotToPath(ptr noundef %0, ptr noundef %1, i32 
   %85 = add i32 %84, 1
   store volatile i32 %85, ptr @CritSectionCount, align 4
   call void @fsync_fname(ptr noundef nonnull %5, i1 noundef zeroext false) #15
-  call void @fsync_fname(ptr noundef %1, i1 noundef zeroext true) #15
+  call void @fsync_fname(ptr noundef nonnull %1, i1 noundef zeroext true) #15
   call void @fsync_fname(ptr noundef nonnull @.str.35, i1 noundef zeroext true) #15
   %86 = load volatile i32, ptr @CritSectionCount, align 4
   %87 = add i32 %86, -1
@@ -1719,7 +1719,7 @@ ReplicationSlotMarkDirty.exit:                    ; preds = %6, %10
   %16 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.27, ptr noundef nonnull %16) #15
   %18 = load ptr, ptr @MyReplicationSlot, align 8
-  call fastcc void @SaveSlotToPath(ptr noundef %18, ptr noundef nonnull %1, i32 noundef 21)
+  call fastcc void @SaveSlotToPath(ptr noundef %18, ptr noundef %1, i32 noundef 21)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1)
   ret void
 }
@@ -2439,7 +2439,7 @@ ReplicationSlotMarkDirty.exit.i:                  ; preds = %98, %93
   %104 = getelementptr inbounds i8, ptr %103, i64 24
   %105 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.27, ptr noundef nonnull %104) #15
   %106 = load ptr, ptr @MyReplicationSlot, align 8
-  call fastcc void @SaveSlotToPath(ptr noundef %106, ptr noundef nonnull %5, i32 noundef 21)
+  call fastcc void @SaveSlotToPath(ptr noundef %106, ptr noundef %5, i32 noundef 21)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
   call void @ReplicationSlotRelease()
   call void @pgstat_drop_replslot(ptr noundef nonnull %25) #15
@@ -2562,7 +2562,7 @@ define dso_local void @CheckPointReplicationSlots(i1 noundef zeroext %0) local_u
   br label %40
 
 40:                                               ; preds = %39, %18
-  call fastcc void @SaveSlotToPath(ptr noundef %14, ptr noundef nonnull %2, i32 noundef 15)
+  call fastcc void @SaveSlotToPath(ptr noundef %14, ptr noundef %2, i32 noundef 15)
   %.pre25 = load ptr, ptr @ReplicationSlotCtl, align 8
   %.pre27 = load i32, ptr @max_replication_slots, align 4
   br label %41
@@ -2588,7 +2588,7 @@ define dso_local void @CheckPointReplicationSlots(i1 noundef zeroext %0) local_u
 52:                                               ; preds = %.lr.ph.split
   %53 = getelementptr inbounds i8, ptr %48, i64 24
   %54 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.27, ptr noundef nonnull %53) #15
-  call fastcc void @SaveSlotToPath(ptr noundef %48, ptr noundef nonnull %2, i32 noundef 15)
+  call fastcc void @SaveSlotToPath(ptr noundef %48, ptr noundef %2, i32 noundef 15)
   %.pre = load ptr, ptr @ReplicationSlotCtl, align 8
   %.pre24 = load i32, ptr @max_replication_slots, align 4
   br label %55
@@ -3078,10 +3078,10 @@ declare zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef, i32 noundef) loca
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReportSlotInvalidation(i32 noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef byval(%struct.nameData) align 8 %3, i64 noundef %4, i64 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @ReportSlotInvalidation(i32 noundef range(i32 1, 4) %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef byval(%struct.nameData) align 8 %3, i64 noundef %4, i64 noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.StringInfoData, align 8
   call void @initStringInfo(ptr noundef nonnull %8) #15
-  switch i32 %0, label %default.unreachable [
+  switch i32 %0, label %default.unreachable11 [
     i32 1, label %9
     i32 2, label %16
     i32 3, label %17
@@ -3105,7 +3105,7 @@ define internal fastcc void @ReportSlotInvalidation(i32 noundef %0, i1 noundef z
   call void @appendStringInfoString(ptr noundef nonnull %8, ptr noundef nonnull @.str.45) #15
   br label %18
 
-default.unreachable:                              ; preds = %7
+default.unreachable11:                            ; preds = %7
   unreachable
 
 18:                                               ; preds = %17, %16, %9

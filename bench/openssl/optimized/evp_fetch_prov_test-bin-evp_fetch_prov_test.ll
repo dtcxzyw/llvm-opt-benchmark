@@ -182,7 +182,7 @@ entry:
   br i1 %.b, label %lor.lhs.false, label %land.rhs
 
 lor.lhs.false:                                    ; preds = %entry
-  %call = call fastcc i32 @load_providers(ptr noundef nonnull %ctx, ptr noundef nonnull %prov)
+  %call = call fastcc i32 @load_providers(ptr noundef %ctx, ptr noundef %prov)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
 
@@ -308,7 +308,7 @@ entry:
   br i1 %.b, label %lor.lhs.false, label %land.rhs
 
 lor.lhs.false:                                    ; preds = %entry
-  %call = call fastcc i32 @load_providers(ptr noundef nonnull %ctx, ptr noundef nonnull %prov)
+  %call = call fastcc i32 @load_providers(ptr noundef %ctx, ptr noundef %prov)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
 
@@ -425,7 +425,7 @@ return:                                           ; preds = %make_algor.exit.thr
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @load_providers(ptr nocapture noundef writeonly %libctx, ptr nocapture noundef writeonly %prov) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @load_providers(ptr nocapture noundef nonnull writeonly %libctx, ptr nocapture noundef nonnull writeonly %prov) unnamed_addr #1 {
 entry:
   %call = tail call ptr @OSSL_LIB_CTX_new() #7
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.32, i32 noundef 86, ptr noundef nonnull @.str.33, ptr noundef %call) #7
@@ -629,7 +629,7 @@ entry:
   br i1 %.b5, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call = call fastcc i32 @load_providers(ptr noundef nonnull %ctx, ptr noundef nonnull %prov)
+  %call = call fastcc i32 @load_providers(ptr noundef %ctx, ptr noundef %prov)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %err, label %land.lhs.true.if.end_crit_edge
 
@@ -851,7 +851,7 @@ entry:
   br i1 %.b5, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call = call fastcc i32 @load_providers(ptr noundef nonnull %ctx, ptr noundef nonnull %prov)
+  %call = call fastcc i32 @load_providers(ptr noundef %ctx, ptr noundef %prov)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %err, label %land.lhs.true.if.end_crit_edge
 

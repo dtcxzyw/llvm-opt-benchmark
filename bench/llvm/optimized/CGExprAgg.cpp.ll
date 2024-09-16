@@ -9440,7 +9440,7 @@ declare void @_ZN5clang7CodeGen15CodeGenFunction16ErrorUnsupportedEPKNS_4StmtEPK
 declare noundef ptr @_ZN4llvm13IRBuilderBase12CreateSelectEPNS_5ValueES2_S2_RKNS_5TwineEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(34), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZZN12_GLOBAL__N_114AggExprEmitter11VisitBinCmpEPKN5clang14BinaryOperatorEENK3$_2clE11CompareKind"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @"_ZZN12_GLOBAL__N_114AggExprEmitter11VisitBinCmpEPKN5clang14BinaryOperatorEENK3$_2clE11CompareKind"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = load ptr, ptr %0, align 8
@@ -9633,7 +9633,7 @@ declare noundef ptr @_ZN4llvm11ConstantInt3getERNS_11LLVMContextERKNS_5APIntE(pt
 declare noundef ptr @_ZNK5clang22ComparisonCategoryInfo15lookupValueInfoENS_24ComparisonCategoryResultE(ptr noundef nonnull align 8 dereferenceable(113), i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL11EmitCompareRN5clang7CodeGen11CGBuilderTyERNS0_15CodeGenFunctionEPKNS_14BinaryOperatorEPN4llvm5ValueESA_11CompareKindPKc(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %.16.val.8.val, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL11EmitCompareRN5clang7CodeGen11CGBuilderTyERNS0_15CodeGenFunctionEPKNS_14BinaryOperatorEPN4llvm5ValueESA_11CompareKindPKc(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %.16.val.8.val, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 3) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = and i64 %.16.val.8.val, -16
@@ -9705,17 +9705,17 @@ _ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread17: ; preds = %_
   br label %96
 
 switch.lookup:                                    ; preds = %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit, %27
-  %44 = sext i32 %4 to i64
+  %44 = zext nneg i32 %4 to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZL11EmitCompareRN5clang7CodeGen11CGBuilderTyERNS0_15CodeGenFunctionEPKNS_14BinaryOperatorEPN4llvm5ValueESA_11CompareKindPKc, i64 0, i64 %44
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %45 = sext i32 %4 to i64
+  %45 = zext nneg i32 %4 to i64
   %switch.gep80 = getelementptr inbounds [3 x i32], ptr @switch.table._ZL11EmitCompareRN5clang7CodeGen11CGBuilderTyERNS0_15CodeGenFunctionEPKNS_14BinaryOperatorEPN4llvm5ValueESA_11CompareKindPKc.233, i64 0, i64 %45
   %switch.load81 = load i32, ptr %switch.gep80, align 4
-  %46 = sext i32 %4 to i64
+  %46 = zext nneg i32 %4 to i64
   %switch.gep82 = getelementptr inbounds [3 x i32], ptr @switch.table._ZL11EmitCompareRN5clang7CodeGen11CGBuilderTyERNS0_15CodeGenFunctionEPKNS_14BinaryOperatorEPN4llvm5ValueESA_11CompareKindPKc.234, i64 0, i64 %46
   %switch.load83 = load i32, ptr %switch.gep82, align 4
-  %47 = shl i32 %4, 1
-  %switch.offset = sub i32 36, %47
+  %47 = shl nuw nsw i32 %4, 1
+  %switch.offset = sub nuw nsw i32 36, %47
   %48 = load ptr, ptr %.pre-phi53, align 8
   %49 = tail call noundef zeroext i1 @_ZNK5clang4Type25hasFloatingRepresentationEv(ptr noundef nonnull align 16 dereferenceable(24) %48) #15
   br i1 %49, label %50, label %56
@@ -13968,7 +13968,7 @@ _ZN5clang7CodeGen14EHCleanupScope16AuxillaryAllocas3AddEPN4llvm10AllocaInstE.exi
 declare noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114AggExprEmitter13EmitArrayInitEN5clang7CodeGen7AddressEPN4llvm9ArrayTypeENS1_8QualTypeEPNS1_4ExprENS4_8ArrayRefIS9_EES9_ENK3$_0clES9_m"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114AggExprEmitter13EmitArrayInitEN5clang7CodeGen7AddressEPN4llvm9ArrayTypeENS1_8QualTypeEPNS1_4ExprENS4_8ArrayRefIS9_EES9_ENK3$_0clES9_m"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %5 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %6 = alloca ptr, align 8

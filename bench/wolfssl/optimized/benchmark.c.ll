@@ -955,7 +955,7 @@ lor.lhs.false240.i:                               ; preds = %if.end238.i, %lor.l
 if.end244.i:                                      ; preds = %lor.lhs.false240.i, %if.end238.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %key.i.i, i8 11, i64 16, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 3, ptr noundef nonnull %key.i.i, i32 noundef 16, ptr noundef nonnull @.str.62)
+  call fastcc void @bench_hmac(i32 noundef 3, ptr noundef %key.i.i, i32 noundef 16, ptr noundef nonnull @.str.62)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key.i.i)
   %.b66.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b66.pr.i, label %if.end244.lor.lhs.false246_crit_edge.i, label %if.end250.i
@@ -973,7 +973,7 @@ lor.lhs.false246.i:                               ; preds = %if.end244.lor.lhs.f
 if.end250.i:                                      ; preds = %lor.lhs.false246.i, %if.end244.i
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %key.i92.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %key.i92.i, i8 11, i64 20, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 4, ptr noundef nonnull %key.i92.i, i32 noundef 20, ptr noundef nonnull @.str.63)
+  call fastcc void @bench_hmac(i32 noundef 4, ptr noundef %key.i92.i, i32 noundef 20, ptr noundef nonnull @.str.63)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %key.i92.i)
   %.b65.pre.i = load i1, ptr @bench_all, align 4
   br i1 %.b65.pre.i, label %if.end250.i.lor.lhs.false252.i_crit_edge, label %if.end256.i
@@ -991,7 +991,7 @@ lor.lhs.false252.i:                               ; preds = %if.end250.i.lor.lhs
 if.end256.i:                                      ; preds = %lor.lhs.false252.i, %if.end250.i
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %key.i93.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %key.i93.i, i8 11, i64 28, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 5, ptr noundef nonnull %key.i93.i, i32 noundef 28, ptr noundef nonnull @.str.64)
+  call fastcc void @bench_hmac(i32 noundef 5, ptr noundef %key.i93.i, i32 noundef 28, ptr noundef nonnull @.str.64)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %key.i93.i)
   %.b64.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b64.pr.i, label %if.end256.lor.lhs.false258_crit_edge.i, label %if.end262.i
@@ -1009,7 +1009,7 @@ lor.lhs.false258.i:                               ; preds = %if.end256.lor.lhs.f
 if.end262.i:                                      ; preds = %lor.lhs.false258.i, %if.end256.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %key.i94.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %key.i94.i, i8 11, i64 32, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 6, ptr noundef nonnull %key.i94.i, i32 noundef 32, ptr noundef nonnull @.str.65)
+  call fastcc void @bench_hmac(i32 noundef 6, ptr noundef %key.i94.i, i32 noundef 32, ptr noundef nonnull @.str.65)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %key.i94.i)
   %.b63.pre.i = load i1, ptr @bench_all, align 4
   br i1 %.b63.pre.i, label %if.end262.i.lor.lhs.false264.i_crit_edge, label %if.end268.i
@@ -1027,7 +1027,7 @@ lor.lhs.false264.i:                               ; preds = %if.end262.i.lor.lhs
 if.end268.i:                                      ; preds = %lor.lhs.false264.i, %if.end262.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %key.i95.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %key.i95.i, i8 11, i64 48, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 7, ptr noundef nonnull %key.i95.i, i32 noundef 48, ptr noundef nonnull @.str.66)
+  call fastcc void @bench_hmac(i32 noundef 7, ptr noundef %key.i95.i, i32 noundef 48, ptr noundef nonnull @.str.66)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %key.i95.i)
   %.b62.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b62.pr.i, label %if.end268.lor.lhs.false270_crit_edge.i, label %if.end274.i
@@ -1045,7 +1045,7 @@ lor.lhs.false270.i:                               ; preds = %if.end268.lor.lhs.f
 if.end274.i:                                      ; preds = %lor.lhs.false270.i, %if.end268.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %key.i96.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %key.i96.i, i8 11, i64 64, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 8, ptr noundef nonnull %key.i96.i, i32 noundef 64, ptr noundef nonnull @.str.67)
+  call fastcc void @bench_hmac(i32 noundef 8, ptr noundef %key.i96.i, i32 noundef 64, ptr noundef nonnull @.str.67)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %key.i96.i)
   %.b61.pre.i = load i1, ptr @bench_all, align 4
   br i1 %.b61.pre.i, label %if.end274.i.lor.lhs.false276.i_crit_edge, label %if.end280.i
@@ -1379,7 +1379,7 @@ declare i32 @wc_InitRng_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bench_stats_start(ptr nocapture noundef writeonly %count, ptr nocapture noundef writeonly %start) unnamed_addr #0 {
+define internal fastcc void @bench_stats_start(ptr nocapture noundef nonnull writeonly %count, ptr nocapture noundef nonnull writeonly %start) unnamed_addr #0 {
 entry:
   %tv.i = alloca %struct.timespec, align 8
   store i32 0, ptr %count, align 4
@@ -1644,7 +1644,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bench_aescbc_internal(ptr noundef %key, i32 noundef %keySz, ptr noundef %iv, ptr noundef %encLabel, ptr noundef %decLabel) unnamed_addr #0 {
+define internal fastcc void @bench_aescbc_internal(ptr noundef %key, i32 noundef range(i32 16, 33) %keySz, ptr noundef %iv, ptr noundef %encLabel, ptr noundef %decLabel) unnamed_addr #0 {
 entry:
   %tv.i.i60 = alloca %struct.timespec, align 8
   %tv.i.i36 = alloca %struct.timespec, align 8
@@ -1917,7 +1917,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bench_aesgcm_internal(ptr noundef %key, i32 noundef %keySz, ptr noundef %iv, ptr noundef %encLabel, ptr noundef %decLabel) unnamed_addr #0 {
+define internal fastcc void @bench_aesgcm_internal(ptr noundef %key, i32 noundef range(i32 16, 33) %keySz, ptr noundef %iv, ptr noundef %encLabel, ptr noundef %decLabel) unnamed_addr #0 {
 entry:
   %tv.i.i30 = alloca %struct.timespec, align 8
   %tv.i.i = alloca %struct.timespec, align 8
@@ -2065,7 +2065,7 @@ if.then65:                                        ; preds = %if.end60
   br label %exit
 
 for.end70:                                        ; preds = %if.end60
-  call fastcc void @bench_stats_start(ptr noundef nonnull %count, ptr noundef nonnull %start)
+  call fastcc void @bench_stats_start(ptr noundef %count, ptr noundef %start)
   %count.promoted78 = load i32, ptr %count, align 4
   %19 = load double, ptr %start, align 8
   br label %do.body71
@@ -5448,7 +5448,7 @@ define dso_local void @bench_hmac_md5(i32 noundef %useDeviceID) local_unnamed_ad
 entry:
   %key = alloca [16 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %key, i8 11, i64 16, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 3, ptr noundef nonnull %key, i32 noundef 16, ptr noundef nonnull @.str.62)
+  call fastcc void @bench_hmac(i32 noundef 3, ptr noundef %key, i32 noundef 16, ptr noundef nonnull @.str.62)
   ret void
 }
 
@@ -5456,7 +5456,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bench_hmac(i32 noundef %type, ptr noundef %key, i32 noundef %keySz, ptr noundef %label) unnamed_addr #0 {
+define internal fastcc void @bench_hmac(i32 noundef range(i32 3, 9) %type, ptr noundef nonnull %key, i32 noundef range(i32 16, 65) %keySz, ptr noundef %label) unnamed_addr #0 {
 entry:
   %tv.i.i23 = alloca %struct.timespec, align 8
   %tv.i.i = alloca %struct.timespec, align 8
@@ -5472,7 +5472,7 @@ if.then:                                          ; preds = %entry
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %call5 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef %type, ptr noundef %key, i32 noundef %keySz) #16
+  %call5 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef %type, ptr noundef nonnull %key, i32 noundef %keySz) #16
   %cmp6.not = icmp eq i32 %call5, 0
   br i1 %cmp6.not, label %for.end, label %if.then7
 
@@ -5588,7 +5588,7 @@ define dso_local void @bench_hmac_sha(i32 noundef %useDeviceID) local_unnamed_ad
 entry:
   %key = alloca [20 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %key, i8 11, i64 20, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 4, ptr noundef nonnull %key, i32 noundef 20, ptr noundef nonnull @.str.63)
+  call fastcc void @bench_hmac(i32 noundef 4, ptr noundef %key, i32 noundef 20, ptr noundef nonnull @.str.63)
   ret void
 }
 
@@ -5597,7 +5597,7 @@ define dso_local void @bench_hmac_sha224(i32 noundef %useDeviceID) local_unnamed
 entry:
   %key = alloca [28 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %key, i8 11, i64 28, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 5, ptr noundef nonnull %key, i32 noundef 28, ptr noundef nonnull @.str.64)
+  call fastcc void @bench_hmac(i32 noundef 5, ptr noundef %key, i32 noundef 28, ptr noundef nonnull @.str.64)
   ret void
 }
 
@@ -5606,7 +5606,7 @@ define dso_local void @bench_hmac_sha256(i32 noundef %useDeviceID) local_unnamed
 entry:
   %key = alloca [32 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %key, i8 11, i64 32, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 6, ptr noundef nonnull %key, i32 noundef 32, ptr noundef nonnull @.str.65)
+  call fastcc void @bench_hmac(i32 noundef 6, ptr noundef %key, i32 noundef 32, ptr noundef nonnull @.str.65)
   ret void
 }
 
@@ -5615,7 +5615,7 @@ define dso_local void @bench_hmac_sha384(i32 noundef %useDeviceID) local_unnamed
 entry:
   %key = alloca [48 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %key, i8 11, i64 48, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 7, ptr noundef nonnull %key, i32 noundef 48, ptr noundef nonnull @.str.66)
+  call fastcc void @bench_hmac(i32 noundef 7, ptr noundef %key, i32 noundef 48, ptr noundef nonnull @.str.66)
   ret void
 }
 
@@ -5624,7 +5624,7 @@ define dso_local void @bench_hmac_sha512(i32 noundef %useDeviceID) local_unnamed
 entry:
   %key = alloca [64 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %key, i8 11, i64 64, i1 false)
-  call fastcc void @bench_hmac(i32 noundef 8, ptr noundef nonnull %key, i32 noundef 64, ptr noundef nonnull @.str.67)
+  call fastcc void @bench_hmac(i32 noundef 8, ptr noundef %key, i32 noundef 64, ptr noundef nonnull @.str.67)
   ret void
 }
 

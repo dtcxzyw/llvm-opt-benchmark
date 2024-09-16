@@ -1319,7 +1319,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare dso_local void @do_trace_netlink_extack(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @fib_nl2rule(ptr %.24.val.48.val, ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @fib_nl2rule(ptr %.24.val.48.val, ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef nonnull %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #1 align 16 {
   %7 = alloca i64, align 8
   %8 = getelementptr i8, ptr %0, i64 18
   %9 = load i8, ptr %8, align 2
@@ -1818,7 +1818,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @fib_nl2rule(ptr %.24.val.4
 declare dso_local void @ip_tunnel_need_metadata() local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @notify_rule_change(i32 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 align 16 {
+define internal fastcc void @notify_rule_change(i32 noundef range(i32 32, 34) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 align 16 {
   %6 = getelementptr inbounds i8, ptr %2, i64 152
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 104
@@ -1842,7 +1842,7 @@ define internal fastcc void @notify_rule_change(i32 noundef %0, ptr noundef %1, 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %3, i64 8
   %22 = load i32, ptr %21, align 4
-  %23 = tail call fastcc i32 @fib_nl_fill_rule(ptr noundef nonnull %18, ptr noundef %1, i32 noundef %4, i32 noundef %22, i32 noundef %0, i32 noundef 0, ptr noundef %2), !range !30
+  %23 = tail call fastcc i32 @fib_nl_fill_rule(ptr noundef nonnull %18, ptr noundef %1, i32 noundef %4, i32 noundef %22, i32 noundef %0, i32 noundef 0, ptr noundef nonnull %2), !range !30
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %25, label %29
 
@@ -2458,7 +2458,7 @@ define dso_local i32 @fib_nl_delrule(ptr nocapture noundef readonly %0, ptr noun
 declare dso_local void @ip_tunnel_unneed_metadata() local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @fib_rule_put(ptr noundef %0) unnamed_addr #6 align 16 {
+define internal fastcc void @fib_rule_put(ptr noundef nonnull %0) unnamed_addr #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 -1, ptr elementtype(i32) %2) #16, !srcloc !9
   %.not = icmp eq i32 %3, 1
@@ -2561,7 +2561,7 @@ declare dso_local i32 @nla_memcpy(ptr noundef, ptr noundef, i32 noundef) local_u
 declare dso_local i32 @call_fib_notifiers(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -90, 1) i32 @fib_nl_fill_rule(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @fib_nl_fill_rule(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 32, 34) %4, i32 noundef range(i32 0, 3) %5, ptr nocapture noundef readonly %6) unnamed_addr #1 align 16 {
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1

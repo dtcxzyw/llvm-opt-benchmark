@@ -2066,7 +2066,7 @@ if.end:                                           ; preds = %entry
 if.then4:                                         ; preds = %if.end
   %4 = load i64, ptr %end, align 8
   %5 = load i32, ptr %strict, align 4
-  %call5 = call fastcc ptr @scanstring_unicode(ptr noundef nonnull %0, i64 noundef %4, i32 noundef %5, ptr noundef nonnull %next_end)
+  %call5 = call fastcc ptr @scanstring_unicode(ptr noundef nonnull %0, i64 noundef %4, i32 noundef %5, ptr noundef %next_end)
   %6 = load i64, ptr %next_end, align 8
   %call9 = call fastcc ptr @_build_rval_index_tuple(ptr noundef %call5, i64 noundef %6)
   br label %return
@@ -2092,7 +2092,7 @@ declare ptr @PyUnicode_New(i64 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @scanstring_unicode(ptr noundef %pystr, i64 noundef %end, i32 noundef %strict, ptr nocapture noundef writeonly %next_end_ptr) unnamed_addr #0 {
+define internal fastcc ptr @scanstring_unicode(ptr noundef %pystr, i64 noundef %end, i32 noundef %strict, ptr nocapture noundef nonnull writeonly %next_end_ptr) unnamed_addr #0 {
 entry:
   %writer = alloca %struct._PyUnicodeWriter, align 8
   %sub = add i64 %end, -1
@@ -2814,7 +2814,7 @@ if.end7:                                          ; preds = %if.end
 if.end10:                                         ; preds = %if.end7
   %6 = load ptr, ptr %pystr, align 8
   %7 = load i64, ptr %idx, align 8
-  %call11 = call fastcc ptr @scan_once_unicode(ptr noundef %self, ptr noundef nonnull %call8, ptr noundef %6, i64 noundef %7, ptr noundef nonnull %next_idx)
+  %call11 = call fastcc ptr @scan_once_unicode(ptr noundef %self, ptr noundef %call8, ptr noundef %6, i64 noundef %7, ptr noundef %next_idx)
   %8 = load i64, ptr %call8, align 8
   %9 = and i64 %8, 2147483648
   %cmp.i17.not = icmp eq i64 %9, 0
@@ -3159,7 +3159,7 @@ declare i32 @PyArg_ParseTupleAndKeywords(ptr noundef, ptr noundef, ptr noundef, 
 declare ptr @PyDict_New() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @scan_once_unicode(ptr nocapture noundef readonly %s, ptr noundef %memo, ptr noundef %pystr, i64 noundef %idx, ptr nocapture noundef writeonly %next_idx_ptr) unnamed_addr #0 {
+define internal fastcc ptr @scan_once_unicode(ptr nocapture noundef readonly %s, ptr noundef nonnull %memo, ptr noundef %pystr, i64 noundef %idx, ptr nocapture noundef nonnull writeonly %next_idx_ptr) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %pystr, i64 32
   %op.val.i = load i32, ptr %0, align 8
@@ -4962,7 +4962,7 @@ _Py_EnterRecursiveCallTstate.exit:                ; preds = %entry, %land.rhs.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_parse_object_unicode(ptr nocapture noundef readonly %s, ptr noundef %memo, ptr noundef %pystr, i64 noundef %idx, ptr nocapture noundef writeonly %next_idx_ptr) unnamed_addr #0 {
+define internal fastcc ptr @_parse_object_unicode(ptr nocapture noundef readonly %s, ptr noundef nonnull %memo, ptr noundef %pystr, i64 noundef range(i64 1, -9223372036854775807) %idx, ptr nocapture noundef nonnull writeonly %next_idx_ptr) unnamed_addr #0 {
 entry:
   %next_idx = alloca i64, align 8
   %object_pairs_hook = getelementptr inbounds i8, ptr %s, i64 32
@@ -5205,12 +5205,12 @@ if.end39:                                         ; preds = %PyUnicode_READ.exit
   %add = add i64 %idx.addr.2524, 1
   %24 = load i8, ptr %strict, align 8
   %conv40 = sext i8 %24 to i32
-  %call41 = call fastcc ptr @scanstring_unicode(ptr noundef %pystr, i64 noundef %add, i32 noundef %conv40, ptr noundef nonnull %next_idx)
+  %call41 = call fastcc ptr @scanstring_unicode(ptr noundef %pystr, i64 noundef %add, i32 noundef %conv40, ptr noundef %next_idx)
   %cmp42 = icmp eq ptr %call41, null
   br i1 %cmp42, label %if.then.i448, label %if.end45
 
 if.end45:                                         ; preds = %if.end39
-  %call46 = tail call ptr @PyDict_SetDefault(ptr noundef %memo, ptr noundef nonnull %call41, ptr noundef nonnull %call41) #3
+  %call46 = tail call ptr @PyDict_SetDefault(ptr noundef nonnull %memo, ptr noundef nonnull %call41, ptr noundef nonnull %call41) #3
   %cmp47 = icmp eq ptr %call46, null
   br i1 %cmp47, label %if.then.i434, label %do.body
 
@@ -5521,7 +5521,7 @@ while.body106:                                    ; preds = %PyUnicode_READ.exit
 
 while.end108:                                     ; preds = %PyUnicode_READ.exit323, %while.body106, %while.cond85.preheader
   %idx.addr.4.lcssa = phi i64 [ %idx.addr.4510, %while.cond85.preheader ], [ %idx.addr.4, %while.body106 ], [ %idx.addr.4512, %PyUnicode_READ.exit323 ]
-  %call109 = call fastcc ptr @scan_once_unicode(ptr noundef %s, ptr noundef %memo, ptr noundef %pystr, i64 noundef %idx.addr.4.lcssa, ptr noundef nonnull %next_idx)
+  %call109 = call fastcc ptr @scan_once_unicode(ptr noundef %s, ptr noundef %memo, ptr noundef %pystr, i64 noundef %idx.addr.4.lcssa, ptr noundef %next_idx)
   %cmp110 = icmp eq ptr %call109, null
   br i1 %cmp110, label %if.then.i434, label %if.end113
 
@@ -6077,7 +6077,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_parse_array_unicode(ptr nocapture noundef readonly %s, ptr noundef %memo, ptr noundef %pystr, i64 noundef %idx, ptr nocapture noundef writeonly %next_idx_ptr) unnamed_addr #0 {
+define internal fastcc ptr @_parse_array_unicode(ptr nocapture noundef readonly %s, ptr noundef nonnull %memo, ptr noundef %pystr, i64 noundef range(i64 1, -9223372036854775807) %idx, ptr nocapture noundef nonnull writeonly %next_idx_ptr) unnamed_addr #0 {
 entry:
   %next_idx = alloca i64, align 8
   %call = tail call ptr @PyList_New(i64 noundef 0) #3
@@ -6261,7 +6261,7 @@ PyUnicode_READ.exit133:                           ; preds = %if.then.i128, %if.t
 
 if.then17:                                        ; preds = %while.body, %PyUnicode_DATA.exit, %PyUnicode_READ.exit133
   %idx.addr.0271 = phi i64 [ %idx.addr.0273, %PyUnicode_READ.exit133 ], [ %idx, %PyUnicode_DATA.exit ], [ %inc, %while.body ]
-  %call20282 = call fastcc ptr @scan_once_unicode(ptr noundef %s, ptr noundef %memo, ptr noundef %pystr, i64 noundef %idx.addr.0271, ptr noundef nonnull %next_idx)
+  %call20282 = call fastcc ptr @scan_once_unicode(ptr noundef %s, ptr noundef %memo, ptr noundef %pystr, i64 noundef %idx.addr.0271, ptr noundef %next_idx)
   %cmp21283 = icmp eq ptr %call20282, null
   br i1 %cmp21283, label %Py_XDECREF.exit, label %if.end23
 
@@ -6628,7 +6628,7 @@ if.then85:                                        ; preds = %PyUnicode_READ.exit
 
 if.end86:                                         ; preds = %while.body78, %while.cond62.preheader, %PyUnicode_READ.exit243
   %idx.addr.4264 = phi i64 [ %idx.addr.4280, %PyUnicode_READ.exit243 ], [ %idx.addr.4278, %while.cond62.preheader ], [ %idx.addr.4, %while.body78 ]
-  %call20 = call fastcc ptr @scan_once_unicode(ptr noundef %s, ptr noundef %memo, ptr noundef %pystr, i64 noundef %idx.addr.4264, ptr noundef nonnull %next_idx)
+  %call20 = call fastcc ptr @scan_once_unicode(ptr noundef %s, ptr noundef %memo, ptr noundef %pystr, i64 noundef %idx.addr.4264, ptr noundef %next_idx)
   %cmp21 = icmp eq ptr %call20, null
   br i1 %cmp21, label %Py_XDECREF.exit, label %if.end23
 
@@ -6705,7 +6705,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_parse_constant(ptr nocapture noundef readonly %s, ptr noundef %constant, i64 noundef %idx, ptr nocapture noundef writeonly %next_idx_ptr) unnamed_addr #0 {
+define internal fastcc ptr @_parse_constant(ptr nocapture noundef readonly %s, ptr noundef %constant, i64 noundef range(i64 0, -9223372036854775808) %idx, ptr nocapture noundef nonnull writeonly %next_idx_ptr) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyUnicode_InternFromString(ptr noundef %constant) #3
   %cmp = icmp eq ptr %call, null
@@ -6843,7 +6843,7 @@ if.end:                                           ; preds = %entry
   store i8 1, ptr %overallocate, align 4
   %0 = load ptr, ptr %obj, align 8
   %1 = load i64, ptr %indent_level, align 8
-  %call1 = call fastcc i32 @encoder_listencode_obj(ptr noundef %self, ptr noundef nonnull %writer, ptr noundef %0, i64 noundef %1)
+  %call1 = call fastcc i32 @encoder_listencode_obj(ptr noundef %self, ptr noundef %writer, ptr noundef %0, i64 noundef %1)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
@@ -7283,13 +7283,13 @@ return:                                           ; preds = %PyObject_TypeCheck.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @encoder_listencode_obj(ptr nocapture noundef readonly %s, ptr noundef %writer, ptr noundef %obj, i64 noundef %indent_level) unnamed_addr #0 {
+define internal fastcc i32 @encoder_listencode_obj(ptr nocapture noundef readonly %s, ptr noundef nonnull %writer, ptr noundef %obj, i64 noundef %indent_level) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.43, i64 noundef 4) #3
+  %call = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef nonnull %writer, ptr noundef nonnull @.str.43, i64 noundef 4) #3
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -7297,7 +7297,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.else4
 
 if.then2:                                         ; preds = %if.else
-  %call3 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.44, i64 noundef 4) #3
+  %call3 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef nonnull %writer, ptr noundef nonnull @.str.44, i64 noundef 4) #3
   br label %return
 
 if.else4:                                         ; preds = %if.else
@@ -7305,7 +7305,7 @@ if.else4:                                         ; preds = %if.else
   br i1 %cmp5, label %if.then6, label %if.else8
 
 if.then6:                                         ; preds = %if.else4
-  %call7 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.45, i64 noundef 5) #3
+  %call7 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef nonnull %writer, ptr noundef nonnull @.str.45, i64 noundef 5) #3
   br label %return
 
 if.else8:                                         ; preds = %if.else4
@@ -7366,7 +7366,7 @@ encoder_encode_string.exit:                       ; preds = %if.then11
 
 if.end:                                           ; preds = %land.lhs.true.i, %encoder_encode_string.exit
   %retval.0.i134 = phi ptr [ %call.i, %encoder_encode_string.exit ], [ %call2.i, %land.lhs.true.i ]
-  %call.i72 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef %writer, ptr noundef nonnull %retval.0.i134) #3
+  %call.i72 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef nonnull %writer, ptr noundef nonnull %retval.0.i134) #3
   %12 = load i64, ptr %retval.0.i134, align 8
   %13 = and i64 %12, 2147483648
   %cmp.i2.not.i = icmp eq i64 %13, 0
@@ -7394,7 +7394,7 @@ if.then20:                                        ; preds = %if.else16
   br i1 %cmp23, label %return, label %if.end25
 
 if.end25:                                         ; preds = %if.then20
-  %call.i80 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef %writer, ptr noundef nonnull %call22) #3
+  %call.i80 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef nonnull %writer, ptr noundef nonnull %call22) #3
   %16 = load i64, ptr %call22, align 8
   %17 = and i64 %16, 2147483648
   %cmp.i2.not.i81 = icmp eq i64 %17, 0
@@ -7468,7 +7468,7 @@ encoder_encode_float.exit:                        ; preds = %if.then3.i, %if.the
   br i1 %cmp33, label %return, label %if.end35
 
 if.end35:                                         ; preds = %encoder_encode_float.exit
-  %call36 = tail call fastcc i32 @_steal_accumulate(ptr noundef %writer, ptr noundef nonnull %retval.0.i88)
+  %call36 = tail call fastcc i32 @_steal_accumulate(ptr noundef %writer, ptr noundef %retval.0.i88)
   br label %return
 
 if.else37:                                        ; preds = %PyObject_TypeCheck.exit
@@ -7690,9 +7690,9 @@ declare i32 @PyTuple_SetItem(ptr noundef, i64 noundef, ptr noundef) local_unname
 declare i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_steal_accumulate(ptr noundef %writer, ptr noundef %stolen) unnamed_addr #0 {
+define internal fastcc i32 @_steal_accumulate(ptr noundef nonnull %writer, ptr noundef nonnull %stolen) unnamed_addr #0 {
 entry:
-  %call = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef %writer, ptr noundef %stolen) #3
+  %call = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef nonnull %writer, ptr noundef nonnull %stolen) #3
   %0 = load i64, ptr %stolen, align 8
   %1 = and i64 %0, 2147483648
   %cmp.i2.not = icmp eq i64 %1, 0
@@ -7713,7 +7713,7 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @encoder_listencode_list(ptr nocapture noundef readonly %s, ptr noundef %writer, ptr noundef %seq, i64 noundef %indent_level) unnamed_addr #0 {
+define internal fastcc i32 @encoder_listencode_list(ptr nocapture noundef readonly %s, ptr noundef nonnull %writer, ptr noundef %seq, i64 noundef %indent_level) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PySequence_Fast(ptr noundef %seq, ptr noundef nonnull @.str.50) #3
   %cmp = icmp eq ptr %call, null
@@ -7743,7 +7743,7 @@ if.then1.i105:                                    ; preds = %if.end.i102
   br label %Py_DECREF.exit107
 
 Py_DECREF.exit107:                                ; preds = %if.then6, %if.then1.i105, %if.end.i102
-  %call7 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.51, i64 noundef 2) #3
+  %call7 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef nonnull %writer, ptr noundef nonnull @.str.51, i64 noundef 2) #3
   br label %return
 
 if.end8:                                          ; preds = %if.end
@@ -7778,7 +7778,7 @@ if.end22:                                         ; preds = %if.end14
 
 if.end28:                                         ; preds = %if.end22, %if.end8
   %ident.0 = phi ptr [ %call11, %if.end22 ], [ null, %if.end8 ]
-  %call29 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %writer, i32 noundef 91) #3
+  %call29 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef nonnull %writer, i32 noundef 91) #3
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %if.end32, label %bail
 
@@ -7826,7 +7826,7 @@ cond.end53:                                       ; preds = %cond.false50, %cond
 
 if.then56:                                        ; preds = %cond.end53
   %11 = load ptr, ptr %item_separator, align 8
-  %call57 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef %writer, ptr noundef %11) #3
+  %call57 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef nonnull %writer, ptr noundef %11) #3
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %if.end61, label %bail
 
@@ -7863,7 +7863,7 @@ if.then1.i96:                                     ; preds = %if.end.i93
   br label %if.end76
 
 if.end76:                                         ; preds = %if.end.i93, %if.then1.i96, %if.then74, %for.end
-  %call77 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %writer, i32 noundef 93) #3
+  %call77 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef nonnull %writer, i32 noundef 93) #3
   %tobool78.not = icmp eq i32 %call77, 0
   br i1 %tobool78.not, label %if.end80, label %Py_XDECREF.exit
 
@@ -7926,7 +7926,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @encoder_listencode_dict(ptr nocapture noundef readonly %s, ptr noundef %writer, ptr noundef %dct, i64 noundef %indent_level) unnamed_addr #0 {
+define internal fastcc i32 @encoder_listencode_dict(ptr nocapture noundef readonly %s, ptr noundef nonnull %writer, ptr noundef %dct, i64 noundef %indent_level) unnamed_addr #0 {
 entry:
   %key = alloca ptr, align 8
   %value = alloca ptr, align 8
@@ -7939,7 +7939,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.52, i64 noundef 2) #3
+  %call1 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef nonnull %writer, ptr noundef nonnull @.str.52, i64 noundef 2) #3
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -7974,7 +7974,7 @@ if.end14:                                         ; preds = %if.end7
 
 if.end20:                                         ; preds = %if.end14, %if.end
   %ident.0 = phi ptr [ %call4, %if.end14 ], [ null, %if.end ]
-  %call21 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %writer, i32 noundef 123) #3
+  %call21 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef nonnull %writer, i32 noundef 123) #3
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %if.end24, label %Py_XDECREF.exit
 
@@ -8057,7 +8057,7 @@ if.end55:                                         ; preds = %lor.lhs.false50
   %arrayidx59 = getelementptr i8, ptr %11, i64 32
   %18 = load ptr, ptr %arrayidx59, align 8
   store ptr %18, ptr %value, align 8
-  %call60 = call fastcc i32 @encoder_encode_key_value(ptr noundef %s, ptr noundef %writer, ptr noundef nonnull %first, ptr noundef %17, ptr noundef %18, i64 noundef %spec.select)
+  %call60 = call fastcc i32 @encoder_encode_key_value(ptr noundef %s, ptr noundef %writer, ptr noundef %first, ptr noundef %17, ptr noundef %18, i64 noundef %spec.select)
   %cmp61 = icmp slt i32 %call60, 0
   br i1 %cmp61, label %if.then.i, label %for.cond
 
@@ -8089,7 +8089,7 @@ while.cond:                                       ; preds = %while.body, %if.els
 while.body:                                       ; preds = %while.cond
   %21 = load ptr, ptr %key, align 8
   %22 = load ptr, ptr %value, align 8
-  %call71 = call fastcc i32 @encoder_encode_key_value(ptr noundef %s, ptr noundef %writer, ptr noundef nonnull %first, ptr noundef %21, ptr noundef %22, i64 noundef %spec.select)
+  %call71 = call fastcc i32 @encoder_encode_key_value(ptr noundef %s, ptr noundef %writer, ptr noundef %first, ptr noundef %21, ptr noundef %22, i64 noundef %spec.select)
   %cmp72 = icmp slt i32 %call71, 0
   br i1 %cmp72, label %Py_XDECREF.exit, label %while.cond, !llvm.loop !28
 
@@ -8120,7 +8120,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %if.end93
 
 if.end93:                                         ; preds = %if.end.i, %if.then1.i, %if.then90, %if.end76
-  %call94 = call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %writer, i32 noundef 125) #3
+  %call94 = call i32 @_PyUnicodeWriter_WriteChar(ptr noundef nonnull %writer, i32 noundef 125) #3
   %tobool95.not = icmp eq i32 %call94, 0
   br i1 %tobool95.not, label %return, label %Py_XDECREF.exit.thread75
 
@@ -8188,7 +8188,7 @@ declare ptr @PyMapping_Items(ptr noundef) local_unnamed_addr #1
 declare i32 @PyList_Sort(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @encoder_encode_key_value(ptr nocapture noundef readonly %s, ptr noundef %writer, ptr nocapture noundef %first, ptr noundef %key, ptr noundef %value, i64 noundef %indent_level) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @encoder_encode_key_value(ptr nocapture noundef readonly %s, ptr noundef nonnull %writer, ptr nocapture noundef nonnull %first, ptr noundef %key, ptr noundef %value, i64 noundef %indent_level) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %key, i64 8
   %key.val30 = load ptr, ptr %0, align 8
@@ -8324,7 +8324,7 @@ if.then32:                                        ; preds = %if.end30
 if.else33:                                        ; preds = %if.end30
   %item_separator = getelementptr inbounds i8, ptr %s, i64 56
   %18 = load ptr, ptr %item_separator, align 8
-  %call34 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef %writer, ptr noundef %18) #3
+  %call34 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef nonnull %writer, ptr noundef %18) #3
   %cmp35 = icmp slt i32 %call34, 0
   br i1 %cmp35, label %if.then36, label %if.end38
 
@@ -8412,7 +8412,7 @@ Py_DECREF.exit:                                   ; preds = %encoder_encode_stri
   br i1 %cmp40, label %return, label %if.end42
 
 if.end42:                                         ; preds = %Py_DECREF.exit
-  %call.i51 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef %writer, ptr noundef nonnull %retval.0.i45) #3
+  %call.i51 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef nonnull %writer, ptr noundef nonnull %retval.0.i45) #3
   %32 = load i64, ptr %retval.0.i45, align 8
   %33 = and i64 %32, 2147483648
   %cmp.i2.not.i = icmp eq i64 %33, 0
@@ -8435,7 +8435,7 @@ _steal_accumulate.exit:                           ; preds = %if.end42, %if.end.i
 if.end46:                                         ; preds = %_steal_accumulate.exit
   %key_separator = getelementptr inbounds i8, ptr %s, i64 48
   %34 = load ptr, ptr %key_separator, align 8
-  %call47 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef %writer, ptr noundef %34) #3
+  %call47 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef nonnull %writer, ptr noundef %34) #3
   %cmp48 = icmp slt i32 %call47, 0
   br i1 %cmp48, label %return, label %if.end50
 

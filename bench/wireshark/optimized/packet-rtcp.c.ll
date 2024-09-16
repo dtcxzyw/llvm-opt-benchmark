@@ -1808,7 +1808,7 @@ define internal range(i32 0, 2) i32 @dissect_rtcp_heur(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rtcp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_rtcp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -5709,8 +5709,8 @@ declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 n
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rtcp_rr(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
-  %.not78 = icmp slt i32 %4, 1
+define internal fastcc noundef i32 @dissect_rtcp_rr(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 32) %4, i32 noundef %5) unnamed_addr #0 {
+  %.not78 = icmp eq i32 %4, 0
   br i1 %.not78, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
@@ -5881,7 +5881,7 @@ define internal fastcc noundef i32 @dissect_rtcp_rr(ptr noundef %0, ptr noundef 
   br label %calculate_roundtrip_delay.exit
 
 calculate_roundtrip_delay.exit:                   ; preds = %118, %94, %90, %81, %78, %71, %64, %15
-  %120 = add nuw i32 %.07479, 1
+  %120 = add nuw nsw i32 %.07479, 1
   %exitcond.not = icmp eq i32 %.07479, %4
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !39
 
@@ -6206,39 +6206,39 @@ declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef,
 declare i32 @dissector_try_uint(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rtcp_rtpfb_tmmbr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
-  %7 = icmp eq i32 %5, 1
-  %8 = load i32, ptr @ett_ssrc, align 4
-  %.str.943..str.944 = select i1 %7, ptr @.str.943, ptr @.str.944
-  %9 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef %8, ptr noundef null, ptr noundef nonnull %.str.943..str.944, i32 noundef %4) #7
-  %10 = load i32, ptr @hf_rtcp_rtpfb_tmbbr_fci_ssrc, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0) #7
-  %12 = add i32 %1, 4
-  %13 = load i32, ptr @hf_rtcp_rtpfb_tmbbr_fci_exp, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %13, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef 0) #7
-  %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %12) #7
-  %16 = lshr i8 %15, 2
-  %17 = load i32, ptr @hf_rtcp_rtpfb_tmbbr_fci_mantissa, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %17, ptr noundef %0, i32 noundef %12, i32 noundef 3, i32 noundef 0) #7
-  %19 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %12) #7
-  %20 = lshr i32 %19, 9
-  %21 = and i32 %20, 131071
-  %22 = load i32, ptr @hf_rtcp_rtpfb_tmbbr_fci_bitrate, align 4
-  %23 = zext nneg i8 %16 to i32
-  %24 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %9, i32 noundef %22, ptr noundef %0, i32 noundef %12, i32 noundef 3, ptr noundef nonnull @.str.871, ptr noundef nonnull @.str.945, i32 noundef %21, i32 noundef %23) #7
-  %25 = add i32 %1, 7
-  %26 = load i32, ptr @hf_rtcp_rtpfb_tmbbr_fci_measuredoverhead, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0) #7
-  %.not = icmp eq ptr %3, null
-  br i1 %.not, label %29, label %28
+define internal fastcc noundef i32 @dissect_rtcp_rtpfb_tmmbr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+  %.not = icmp eq i32 %5, 0
+  %7 = load i32, ptr @ett_ssrc, align 4
+  %.str.944..str.943 = select i1 %.not, ptr @.str.944, ptr @.str.943
+  %8 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef %7, ptr noundef null, ptr noundef nonnull %.str.944..str.943, i32 noundef %4) #7
+  %9 = load i32, ptr @hf_rtcp_rtpfb_tmbbr_fci_ssrc, align 4
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0) #7
+  %11 = add i32 %1, 4
+  %12 = load i32, ptr @hf_rtcp_rtpfb_tmbbr_fci_exp, align 4
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %12, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #7
+  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %11) #7
+  %15 = lshr i8 %14, 2
+  %16 = load i32, ptr @hf_rtcp_rtpfb_tmbbr_fci_mantissa, align 4
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %16, ptr noundef %0, i32 noundef %11, i32 noundef 3, i32 noundef 0) #7
+  %18 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %11) #7
+  %19 = lshr i32 %18, 9
+  %20 = and i32 %19, 131071
+  %21 = load i32, ptr @hf_rtcp_rtpfb_tmbbr_fci_bitrate, align 4
+  %22 = zext nneg i8 %15 to i32
+  %23 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %8, i32 noundef %21, ptr noundef %0, i32 noundef %11, i32 noundef 3, ptr noundef nonnull @.str.871, ptr noundef nonnull @.str.945, i32 noundef %20, i32 noundef %22) #7
+  %24 = add i32 %1, 7
+  %25 = load i32, ptr @hf_rtcp_rtpfb_tmbbr_fci_measuredoverhead, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %25, ptr noundef %0, i32 noundef %24, i32 noundef 1, i32 noundef 0) #7
+  %.not38 = icmp eq ptr %3, null
+  br i1 %.not38, label %28, label %27
 
-28:                                               ; preds = %6
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %3, ptr noundef nonnull @.str.946, i32 noundef %21, i32 noundef %23) #7
-  br label %29
+27:                                               ; preds = %6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %3, ptr noundef nonnull @.str.946, i32 noundef %20, i32 noundef %22) #7
+  br label %28
 
-29:                                               ; preds = %28, %6
-  %30 = add i32 %1, 8
-  ret i32 %30
+28:                                               ; preds = %27, %6
+  %29 = add i32 %1, 8
+  ret i32 %29
 }
 
 declare ptr @proto_tree_add_string_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1

@@ -140,7 +140,7 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 declare ptr @OSSL_LIB_CTX_new_child(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @p_set_error(i32 %lib, i32 noundef %reason, ptr noundef %file, i32 noundef %line, ptr noundef %func, ptr nocapture readnone %fmt, ...) unnamed_addr #0 {
+define internal void @p_set_error(i32 %lib, i32 noundef range(i32 1, 4) %reason, ptr noundef %file, i32 noundef range(i32 152, 304) %line, ptr noundef %func, ptr nocapture readnone %fmt, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -149,9 +149,8 @@ entry:
   %1 = load ptr, ptr @c_set_error_debug, align 8
   call void %1(ptr noundef null, ptr noundef %file, i32 noundef %line, ptr noundef %func) #12
   %2 = load ptr, ptr @c_vset_error, align 8
-  %3 = and i32 %reason, 8388607
-  %4 = or disjoint i32 %3, 478150656
-  call void %2(ptr noundef null, i32 noundef %4, ptr noundef null, ptr noundef nonnull %ap) #12
+  %3 = or disjoint i32 %reason, 478150656
+  call void %2(ptr noundef null, i32 noundef %3, ptr noundef null, ptr noundef nonnull %ap) #12
   call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }

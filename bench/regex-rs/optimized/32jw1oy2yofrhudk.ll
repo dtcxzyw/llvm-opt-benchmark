@@ -551,7 +551,7 @@ define internal void @"_ZN4core3ptr66drop_in_place$LT$$RF$regex_automata..util..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr66drop_in_place$LT$regex_automata..nfa..thompson..builder..State$GT$17h78ee975fc9020c5dE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr66drop_in_place$LT$regex_automata..nfa..thompson..builder..State$GT$17h78ee975fc9020c5dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -7169,7 +7169,7 @@ define void @_ZN14regex_automata3nfa8thompson7builder7Builder5clear17h2e5863433b
 9:                                                ; preds = %7
   %10 = getelementptr inbounds [0 x { i32, [7 x i32] }], ptr %4, i64 0, i64 %.0.i
   %11 = add i64 %.0.i, 1
-  invoke fastcc void @"_ZN4core3ptr66drop_in_place$LT$regex_automata..nfa..thompson..builder..State$GT$17h78ee975fc9020c5dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10)
+  invoke fastcc void @"_ZN4core3ptr66drop_in_place$LT$regex_automata..nfa..thompson..builder..State$GT$17h78ee975fc9020c5dE"(ptr noalias noundef align 8 dereferenceable(32) %10)
           to label %7 unwind label %14
 
 12:                                               ; preds = %16, %14
@@ -7185,7 +7185,7 @@ define void @_ZN14regex_automata3nfa8thompson7builder7Builder5clear17h2e5863433b
 16:                                               ; preds = %12
   %17 = getelementptr inbounds [0 x { i32, [7 x i32] }], ptr %4, i64 0, i64 %.1.i
   %18 = add i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr66drop_in_place$LT$regex_automata..nfa..thompson..builder..State$GT$17h78ee975fc9020c5dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17) #25
+  invoke fastcc void @"_ZN4core3ptr66drop_in_place$LT$regex_automata..nfa..thompson..builder..State$GT$17h78ee975fc9020c5dE"(ptr noalias noundef align 8 dereferenceable(32) %17) #25
           to label %12 unwind label %19
 
 common.resume:                                    ; preds = %12, %31
@@ -9437,7 +9437,7 @@ _ZN14regex_automata3nfa8thompson7builder5State12memory_usage17hb7e007d369ee87f9E
 23:                                               ; preds = %22
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr66drop_in_place$LT$regex_automata..nfa..thompson..builder..State$GT$17h78ee975fc9020c5dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #25
+  invoke fastcc void @"_ZN4core3ptr66drop_in_place$LT$regex_automata..nfa..thompson..builder..State$GT$17h78ee975fc9020c5dE"(ptr noalias noundef align 8 dereferenceable(32) %4) #25
           to label %.body unwind label %25
 
 25:                                               ; preds = %23
@@ -9494,7 +9494,7 @@ _ZN14regex_automata3nfa8thompson7builder5State12memory_usage17hb7e007d369ee87f9E
   store i32 %.sroa.4.sroa.6.0.extract.trunc, ptr %.sroa.317.0..sroa_idx, align 4
   %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 2147483647, ptr %.sroa.317.sroa.2.0..sroa.317.0..sroa_idx.sroa_idx, align 8
-  tail call fastcc void @"_ZN4core3ptr66drop_in_place$LT$regex_automata..nfa..thompson..builder..State$GT$17h78ee975fc9020c5dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
+  tail call fastcc void @"_ZN4core3ptr66drop_in_place$LT$regex_automata..nfa..thompson..builder..State$GT$17h78ee975fc9020c5dE"(ptr noalias noundef align 8 dereferenceable(32) %2)
   br label %44
 
 .body:                                            ; preds = %23

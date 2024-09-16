@@ -669,7 +669,7 @@ define hidden noundef align 8 ptr @"_ZN17meilisearch_types4keys1_80_$LT$impl$u20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %55 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %55, ptr %5, align 8
-  %56 = call fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc57ec63b136fa0aaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5)
+  %56 = call fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc57ec63b136fa0aaE"(ptr noalias noundef align 8 dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(8) %5)
   %57 = icmp eq ptr %56, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br i1 %57, label %58, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h23738a11aec11490E.exit.thread"
@@ -678,7 +678,7 @@ define hidden noundef align 8 ptr @"_ZN17meilisearch_types4keys1_80_$LT$impl$u20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %59 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %59, ptr %4, align 8
-  %60 = call fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h594facd022fd5c93E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
+  %60 = call fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h594facd022fd5c93E"(ptr noalias noundef align 8 dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(8) %4)
   %61 = icmp eq ptr %60, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br i1 %61, label %62, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h23738a11aec11490E.exit.thread"
@@ -687,7 +687,7 @@ define hidden noundef align 8 ptr @"_ZN17meilisearch_types4keys1_80_$LT$impl$u20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %63 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %63, ptr %3, align 8
-  %64 = call fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h880c4ee90036bc5bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
+  %64 = call fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h880c4ee90036bc5bE"(ptr noalias noundef align 8 dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(8) %3)
   %65 = icmp eq ptr %64, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br i1 %65, label %66, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h23738a11aec11490E.exit.thread"
@@ -3995,7 +3995,7 @@ define hidden noundef zeroext i1 @"_ZN72_$LT$meilisearch_types..keys..Action$u20
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h594facd022fd5c93E"(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #5 {
+define internal fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h594facd022fd5c93E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #5 {
   %3 = tail call noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17h7d5ce459ba2adb03E.llvm.2337583790011467692"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 @anon.483bc9c946ca89c834588af66a832594.8.llvm.17679927419414190380, i64 noundef 10), !noalias !2555
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5serde3ser12SerializeMap15serialize_entry17hda281ac45f594b2dE.exit
@@ -4010,7 +4010,7 @@ _ZN5serde3ser12SerializeMap15serialize_entry17hda281ac45f594b2dE.exit: ; preds =
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h880c4ee90036bc5bE"(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #5 {
+define internal fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h880c4ee90036bc5bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #5 {
   %3 = tail call noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17h7d5ce459ba2adb03E.llvm.2337583790011467692"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 @anon.483bc9c946ca89c834588af66a832594.9.llvm.17679927419414190380, i64 noundef 10), !noalias !2558
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5serde3ser12SerializeMap15serialize_entry17h350fc02380cca89fE.exit
@@ -4025,7 +4025,7 @@ _ZN5serde3ser12SerializeMap15serialize_entry17h350fc02380cca89fE.exit: ; preds =
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc57ec63b136fa0aaE"(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #5 {
+define internal fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc57ec63b136fa0aaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #5 {
   %3 = tail call noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17h7d5ce459ba2adb03E.llvm.2337583790011467692"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 @anon.483bc9c946ca89c834588af66a832594.7.llvm.17679927419414190380, i64 noundef 10), !noalias !2561
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5serde3ser12SerializeMap15serialize_entry17h1ebb2b96b433f14eE.exit
@@ -4040,7 +4040,7 @@ _ZN5serde3ser12SerializeMap15serialize_entry17h1ebb2b96b433f14eE.exit: ; preds =
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17hac6a5b9046846297E"(ptr %.0.val, i8 noundef %0) unnamed_addr #5 {
+define internal fastcc void @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17hac6a5b9046846297E"(ptr %.0.val, i8 noundef range(i8 0, 3) %0) unnamed_addr #5 {
   %2 = icmp eq i8 %0, 0
   br i1 %2, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h5c4ed68500e1e060E.exit", label %3
 

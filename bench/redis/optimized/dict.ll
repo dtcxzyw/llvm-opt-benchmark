@@ -1420,7 +1420,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dictGenericDelete(ptr noundef %d, ptr noundef %key, i32 noundef %nofree) unnamed_addr #3 {
+define internal fastcc ptr @dictGenericDelete(ptr noundef %d, ptr noundef %key, i32 noundef range(i32 0, 2) %nofree) unnamed_addr #3 {
 entry:
   %ht_used = getelementptr inbounds i8, ptr %d, i64 24
   %0 = load i64, ptr %ht_used, align 8
@@ -3442,7 +3442,7 @@ if.then22:                                        ; preds = %if.then4
   %5 = load ptr, ptr %ht_table, align 8
   %and = and i64 %cond21, %v
   %arrayidx25 = getelementptr inbounds ptr, ptr %5, i64 %and
-  tail call fastcc void @dictDefragBucket(ptr noundef %arrayidx25, ptr noundef nonnull %defragfns)
+  tail call fastcc void @dictDefragBucket(ptr noundef %arrayidx25, ptr noundef %defragfns)
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then4.if.end26_crit_edge, %if.then22
@@ -3565,7 +3565,7 @@ if.then127:                                       ; preds = %if.else
   %14 = load ptr, ptr %arrayidx130, align 8
   %and131 = and i64 %cond98, %v
   %arrayidx132 = getelementptr inbounds ptr, ptr %14, i64 %and131
-  tail call fastcc void @dictDefragBucket(ptr noundef %arrayidx132, ptr noundef nonnull %defragfns)
+  tail call fastcc void @dictDefragBucket(ptr noundef %arrayidx132, ptr noundef %defragfns)
   br label %if.end133
 
 if.end133:                                        ; preds = %if.else.if.end133_crit_edge, %if.then127
@@ -3616,7 +3616,7 @@ do.body:                                          ; preds = %do.body.preheader, 
 
 if.then145:                                       ; preds = %do.body
   %arrayidx150 = getelementptr inbounds ptr, ptr %.pre162, i64 %.pre165
-  tail call fastcc void @dictDefragBucket(ptr noundef %arrayidx150, ptr noundef nonnull %defragfns)
+  tail call fastcc void @dictDefragBucket(ptr noundef %arrayidx150, ptr noundef %defragfns)
   %.pre = load ptr, ptr %arrayidx148, align 8
   br label %if.end151
 
@@ -3709,7 +3709,7 @@ return:                                           ; preds = %entry, %if.end169
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dictDefragBucket(ptr noundef %bucketref, ptr nocapture noundef readonly %defragfns) unnamed_addr #3 {
+define internal fastcc void @dictDefragBucket(ptr noundef %bucketref, ptr nocapture noundef nonnull readonly %defragfns) unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %defragfns, align 8
   %defragKey = getelementptr inbounds i8, ptr %defragfns, i64 8

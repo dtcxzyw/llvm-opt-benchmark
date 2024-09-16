@@ -1173,7 +1173,7 @@ postmaster_is_alive.exit18:                       ; preds = %20
 25:                                               ; preds = %postmaster_is_alive.exit18
   %26 = load ptr, ptr @progname, align 8
   %27 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.113, ptr noundef %26, i32 noundef %2) #17
-  %28 = call fastcc ptr @readfile(ptr noundef nonnull @postopts_file, ptr noundef nonnull %1)
+  %28 = call fastcc ptr @readfile(ptr noundef nonnull @postopts_file, ptr noundef %1)
   %.not15 = icmp eq ptr %28, null
   br i1 %.not15, label %41, label %.preheader
 
@@ -1259,7 +1259,7 @@ thread-pre-split:                                 ; preds = %9, %7
   br i1 %15, label %16, label %read_post_opts.exit
 
 16:                                               ; preds = %14
-  %17 = call fastcc ptr @readfile(ptr noundef nonnull @postopts_file, ptr noundef nonnull %4)
+  %17 = call fastcc ptr @readfile(ptr noundef nonnull @postopts_file, ptr noundef %4)
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %21
 
@@ -1471,7 +1471,7 @@ print_msg.exit:                                   ; preds = %101, %103
 
 .lr.ph.i:                                         ; preds = %print_msg.exit, %print_msg.exit.i
   %.01628.i = phi i32 [ %154, %print_msg.exit.i ], [ 0, %print_msg.exit ]
-  %111 = call fastcc ptr @readfile(ptr noundef nonnull @pid_file, ptr noundef nonnull %1)
+  %111 = call fastcc ptr @readfile(ptr noundef nonnull @pid_file, ptr noundef %1)
   %112 = icmp ne ptr %111, null
   %113 = load i32, ptr %1, align 4
   %114 = icmp sgt i32 %113, 7
@@ -2455,7 +2455,7 @@ define internal fastcc i32 @get_pgpid(i1 noundef zeroext %0) unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @readfile(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #4 {
+define internal fastcc ptr @readfile(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #4 {
   %3 = alloca %struct.stat, align 8
   store i32 0, ptr %1, align 4
   %4 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 0, i32 noundef 0) #17

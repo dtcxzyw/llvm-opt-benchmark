@@ -2005,7 +2005,7 @@ declare dso_local void @_raw_spin_unlock_bh(ptr noundef) local_unnamed_addr #2 s
 declare dso_local i32 @__SCT__tp_func_cfg80211_pmsr_report(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -2032,7 +2032,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(
   %24 = load i32, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #11
   store i32 %24, ptr %18, align 4
-  %25 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %18) #11
+  %25 = call i32 @nla_put(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %18) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #11
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %188
@@ -2052,7 +2052,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(
   %35 = zext i8 %32 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #11
   store i32 %35, ptr %17, align 4
-  %36 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 4, ptr noundef nonnull %17) #11
+  %36 = call i32 @nla_put(ptr noundef nonnull %0, i32 noundef 5, i32 noundef 4, ptr noundef nonnull %17) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #11
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %189, label %188
@@ -2068,7 +2068,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(
   %44 = zext nneg i16 %41 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #11
   store i32 %44, ptr %16, align 4
-  %45 = call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef 4, ptr noundef nonnull %16) #11
+  %45 = call i32 @nla_put(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 4, ptr noundef nonnull %16) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #11
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %188
@@ -2085,7 +2085,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(
   %54 = load i32, ptr %53, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #11
   store i32 %54, ptr %15, align 4
-  %55 = call i32 @nla_put(ptr noundef %0, i32 noundef 3, i32 noundef 4, ptr noundef nonnull %15) #11
+  %55 = call i32 @nla_put(ptr noundef nonnull %0, i32 noundef 3, i32 noundef 4, ptr noundef nonnull %15) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #11
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %._crit_edge, label %188
@@ -2105,7 +2105,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(
   %63 = load i32, ptr %62, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #11
   store i32 %63, ptr %14, align 4
-  %64 = call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %14) #11
+  %64 = call i32 @nla_put(ptr noundef nonnull %0, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %14) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #11
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %188
@@ -2115,7 +2115,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(
   %68 = load i8, ptr %67, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #11
   store i8 %68, ptr %13, align 1
-  %69 = call i32 @nla_put(ptr noundef %0, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %13) #11
+  %69 = call i32 @nla_put(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %13) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #11
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %188
@@ -2125,7 +2125,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(
   %73 = load i8, ptr %72, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #11
   store i8 %73, ptr %12, align 1
-  %74 = call i32 @nla_put(ptr noundef %0, i32 noundef 7, i32 noundef 1, ptr noundef nonnull %12) #11
+  %74 = call i32 @nla_put(ptr noundef nonnull %0, i32 noundef 7, i32 noundef 1, ptr noundef nonnull %12) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #11
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %188
@@ -2135,7 +2135,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(
   %78 = load i8, ptr %77, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #11
   store i8 %78, ptr %11, align 1
-  %79 = call i32 @nla_put(ptr noundef %0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull %11) #11
+  %79 = call i32 @nla_put(ptr noundef nonnull %0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull %11) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #11
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %81, label %188
@@ -2151,7 +2151,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(
   %87 = load i32, ptr %86, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #11
   store i32 %87, ptr %10, align 4
-  %88 = call i32 @nla_put(ptr noundef %0, i32 noundef 9, i32 noundef 4, ptr noundef nonnull %10) #11
+  %88 = call i32 @nla_put(ptr noundef nonnull %0, i32 noundef 9, i32 noundef 4, ptr noundef nonnull %10) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #11
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %._crit_edge6, label %188
@@ -2171,7 +2171,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(
   %96 = load i32, ptr %95, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #11
   store i32 %96, ptr %9, align 4
-  %97 = call i32 @nla_put(ptr noundef %0, i32 noundef 10, i32 noundef 4, ptr noundef nonnull %9) #11
+  %97 = call i32 @nla_put(ptr noundef nonnull %0, i32 noundef 10, i32 noundef 4, ptr noundef nonnull %9) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #11
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %._crit_edge8, label %188
@@ -2188,7 +2188,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(
 
 103:                                              ; preds = %99
   %104 = getelementptr inbounds i8, ptr %1, i64 84
-  %105 = call zeroext i1 @nl80211_put_sta_rate(ptr noundef %0, ptr noundef %104, i32 noundef 11) #11
+  %105 = call zeroext i1 @nl80211_put_sta_rate(ptr noundef nonnull %0, ptr noundef %104, i32 noundef 11) #11
   br i1 %105, label %._crit_edge10, label %188
 
 ._crit_edge10:                                    ; preds = %103
@@ -2203,7 +2203,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(
 
 110:                                              ; preds = %106
   %111 = getelementptr inbounds i8, ptr %1, i64 98
-  %112 = call zeroext i1 @nl80211_put_sta_rate(ptr noundef %0, ptr noundef %111, i32 noundef 12) #11
+  %112 = call zeroext i1 @nl80211_put_sta_rate(ptr noundef nonnull %0, ptr noundef %111, i32 noundef 12) #11
   br i1 %112, label %._crit_edge12, label %188
 
 ._crit_edge12:                                    ; preds = %110
@@ -2221,7 +2221,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(
   %119 = load i64, ptr %118, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
   store i64 %119, ptr %8, align 8
-  %120 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 13, i32 noundef 8, ptr noundef nonnull %8, i32 noundef 21) #11
+  %120 = call i32 @nla_put_64bit(ptr noundef nonnull %0, i32 noundef 13, i32 noundef 8, ptr noundef nonnull %8, i32 noundef 21) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %._crit_edge14, label %188
@@ -2241,7 +2241,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(
   %128 = load i64, ptr %127, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
   store i64 %128, ptr %7, align 8
-  %129 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 14, i32 noundef 8, ptr noundef nonnull %7, i32 noundef 21) #11
+  %129 = call i32 @nla_put_64bit(ptr noundef nonnull %0, i32 noundef 14, i32 noundef 8, ptr noundef nonnull %7, i32 noundef 21) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %._crit_edge16, label %188
@@ -2261,7 +2261,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(
   %137 = load i64, ptr %136, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
   store i64 %137, ptr %6, align 8
-  %138 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 15, i32 noundef 8, ptr noundef nonnull %6, i32 noundef 21) #11
+  %138 = call i32 @nla_put_64bit(ptr noundef nonnull %0, i32 noundef 15, i32 noundef 8, ptr noundef nonnull %6, i32 noundef 21) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
   %139 = icmp eq i32 %138, 0
   br i1 %139, label %._crit_edge18, label %188
@@ -2281,7 +2281,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(
   %146 = load i64, ptr %145, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
   store i64 %146, ptr %5, align 8
-  %147 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 16, i32 noundef 8, ptr noundef nonnull %5, i32 noundef 21) #11
+  %147 = call i32 @nla_put_64bit(ptr noundef nonnull %0, i32 noundef 16, i32 noundef 8, ptr noundef nonnull %5, i32 noundef 21) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %._crit_edge20, label %188
@@ -2301,7 +2301,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(
   %155 = load i64, ptr %154, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   store i64 %155, ptr %4, align 8
-  %156 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 17, i32 noundef 8, ptr noundef nonnull %4, i32 noundef 21) #11
+  %156 = call i32 @nla_put_64bit(ptr noundef nonnull %0, i32 noundef 17, i32 noundef 8, ptr noundef nonnull %4, i32 noundef 21) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %._crit_edge22, label %188
@@ -2321,7 +2321,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(
   %164 = load i64, ptr %163, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   store i64 %164, ptr %3, align 8
-  %165 = call i32 @nla_put_64bit(ptr noundef %0, i32 noundef 18, i32 noundef 8, ptr noundef nonnull %3, i32 noundef 21) #11
+  %165 = call i32 @nla_put_64bit(ptr noundef nonnull %0, i32 noundef 18, i32 noundef 8, ptr noundef nonnull %3, i32 noundef 21) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
   %166 = icmp eq i32 %165, 0
   br i1 %166, label %167, label %188
@@ -2338,7 +2338,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(
   br i1 %173, label %177, label %174
 
 174:                                              ; preds = %170
-  %175 = call i32 @nla_put(ptr noundef %0, i32 noundef 19, i32 noundef %172, ptr noundef nonnull %168) #11
+  %175 = call i32 @nla_put(ptr noundef nonnull %0, i32 noundef 19, i32 noundef %172, ptr noundef nonnull %168) #11
   %176 = icmp eq i32 %175, 0
   br i1 %176, label %177, label %188
 
@@ -2355,7 +2355,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @nl80211_pmsr_send_ftm_res(
   br i1 %184, label %189, label %185
 
 185:                                              ; preds = %181
-  %186 = call i32 @nla_put(ptr noundef %0, i32 noundef 20, i32 noundef %183, ptr noundef nonnull %179) #11
+  %186 = call i32 @nla_put(ptr noundef nonnull %0, i32 noundef 20, i32 noundef %183, ptr noundef nonnull %179) #11
   %187 = icmp eq i32 %186, 0
   br i1 %187, label %189, label %188
 

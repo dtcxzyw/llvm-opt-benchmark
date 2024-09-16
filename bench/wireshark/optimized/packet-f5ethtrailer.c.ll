@@ -4865,7 +4865,7 @@ declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_uint64_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @displayIPv6as4(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @displayIPv6as4(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_memeql(ptr noundef %3, i32 noundef %4, ptr noundef nonnull @ipv4as6prefix, i64 noundef 12) #7
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %17
@@ -4959,7 +4959,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @f5eth_add_tls_element(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @f5eth_add_tls_element(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 330) %2, i32 noundef range(i32 1, 65) %3) unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %23, label %6
 
@@ -4996,7 +4996,7 @@ define internal fastcc range(i32 0, 2) i32 @f5eth_add_tls_element(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @f5eth_add_tls_keylog(ptr nocapture noundef readonly %0, i32 noundef %1, ptr %.0.val, i32 %.8.val, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noalias ptr @f5eth_add_tls_keylog(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 6) %1, ptr %.0.val, i32 %.8.val, ptr nocapture noundef readonly %2) unnamed_addr #0 {
 switch.lookup:
   %3 = getelementptr inbounds i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
@@ -5019,7 +5019,7 @@ switch.lookup:
   %20 = tail call ptr @bytes_to_hexstr(ptr noundef %18, ptr noundef %12, i64 noundef %19) #7
   store i8 0, ptr %20, align 1
   %21 = tail call ptr @wmem_file_scope() #7
-  %22 = sext i32 %1 to i64
+  %22 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.f5eth_add_tls_keylog, i64 0, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   %23 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %21, ptr noundef nonnull %switch.load, ptr noundef %8, ptr noundef %18) #7

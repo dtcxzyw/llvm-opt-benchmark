@@ -3495,7 +3495,7 @@ thread-pre-split17:                               ; preds = %141
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -33, 1) i32 @sock_set_timeout(ptr noundef %0, ptr %1, i8 %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -33, 1) i32 @sock_set_timeout(ptr noundef %0, ptr %1, i8 %2, i32 noundef range(i32 4, 0) %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.__kernel_sock_timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !21
@@ -3640,7 +3640,7 @@ define internal fastcc void @dst_negative_advice(ptr noundef %0) unnamed_addr #6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @sock_release_reserved_memory(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @sock_release_reserved_memory(ptr noundef %0, i32 noundef range(i32 1, -2147483647) %1) unnamed_addr #0 align 16 {
   %3 = and i32 %1, -4096
   %4 = getelementptr inbounds i8, ptr %0, i64 268
   %5 = load i32, ptr %4, align 4
@@ -4713,7 +4713,7 @@ thread-pre-split:                                 ; preds = %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @copy_to_sockptr(ptr %0, i8 %1, ptr noundef %2, i64 noundef %3) unnamed_addr #6 align 16 {
+define internal fastcc i32 @copy_to_sockptr(ptr %0, i8 %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3) unnamed_addr #6 align 16 {
   %5 = and i8 %1, 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %15
@@ -4871,7 +4871,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @groups_to_user(ptr %0, i8 
 declare dso_local i32 @security_socket_getpeersec_stream(ptr noundef, ptr, i8, ptr, i8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @sock_getbindtodevice(ptr noundef %0, ptr %1, i8 %2, ptr %3, i8 %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @sock_getbindtodevice(ptr noundef %0, ptr %1, i8 %2, ptr %3, i8 %4, i32 noundef range(i32 0, -2147483648) %5) unnamed_addr #0 align 16 {
   %7 = alloca i32, align 4
   %8 = alloca [16 x i8], align 16
   %9 = getelementptr inbounds i8, ptr %0, i64 20
@@ -4888,7 +4888,7 @@ define internal fastcc i32 @sock_getbindtodevice(ptr noundef %0, ptr %1, i8 %2, 
   br label %35
 
 15:                                               ; preds = %6
-  %16 = icmp slt i32 %5, 16
+  %16 = icmp ult i32 %5, 16
   br i1 %16, label %45, label %17
 
 17:                                               ; preds = %15

@@ -679,7 +679,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %127
 219:                                              ; preds = %202
   %220 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$core..result..Result$LT$chrono..time_delta..TimeDelta$C$parse_datetime..ParseDateTimeError$GT$$GT$17hcccc98c79085b2b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24) #8
+  invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$core..result..Result$LT$chrono..time_delta..TimeDelta$C$parse_datetime..ParseDateTimeError$GT$$GT$17hcccc98c79085b2b6E"(ptr noalias noundef align 8 dereferenceable(24) %24) #8
           to label %.body205 unwind label %240
 
 221:                                              ; preds = %.noexc184
@@ -1159,7 +1159,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %127
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr115drop_in_place$LT$core..result..Result$LT$chrono..time_delta..TimeDelta$C$parse_datetime..ParseDateTimeError$GT$$GT$17hcccc98c79085b2b6E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr115drop_in_place$LT$core..result..Result$LT$chrono..time_delta..TimeDelta$C$parse_datetime..ParseDateTimeError$GT$$GT$17hcccc98c79085b2b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !131, !noundef !7
   %switch = icmp slt i64 %3, -9223372036854775805

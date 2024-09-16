@@ -99,8 +99,8 @@ if.then21.i:                                      ; preds = %for.body.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %tmp_block.i, i8 0, i64 1024, i1 false)
   %inc.i = add i64 %inc15.i, 1
   store i64 %inc.i, ptr %arrayidx24.i, align 8
-  call fastcc void @fill_block_with_xor(ptr noundef nonnull %zero_block.i, ptr noundef nonnull %input_block.i, ptr noundef nonnull %tmp_block.i)
-  call fastcc void @fill_block_with_xor(ptr noundef nonnull %zero2_block.i, ptr noundef nonnull %tmp_block.i, ptr noundef nonnull %address_block.i)
+  call fastcc void @fill_block_with_xor(ptr noundef %zero_block.i, ptr noundef nonnull %input_block.i, ptr noundef nonnull %tmp_block.i)
+  call fastcc void @fill_block_with_xor(ptr noundef %zero2_block.i, ptr noundef nonnull %tmp_block.i, ptr noundef nonnull %address_block.i)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then21.i, %for.body.i
@@ -273,7 +273,7 @@ index_alpha.exit:                                 ; preds = %if.then3.i, %if.the
   br i1 %cmp11, label %if.else93, label %if.then87
 
 if.then87:                                        ; preds = %index_alpha.exit
-  call fastcc void @fill_block_with_xor(ptr noundef nonnull %state, ptr noundef %add.ptr79, ptr noundef %add.ptr83)
+  call fastcc void @fill_block_with_xor(ptr noundef %state, ptr noundef %add.ptr79, ptr noundef %add.ptr83)
   br label %for.inc
 
 if.else93:                                        ; preds = %index_alpha.exit
@@ -742,7 +742,7 @@ for.end:                                          ; preds = %for.inc, %if.end9, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal fastcc void @fill_block_with_xor(ptr nocapture noundef %state, ptr nocapture noundef readonly %ref_block, ptr nocapture noundef %next_block) unnamed_addr #2 {
+define internal fastcc void @fill_block_with_xor(ptr nocapture noundef nonnull %state, ptr nocapture noundef readonly %ref_block, ptr nocapture noundef %next_block) unnamed_addr #2 {
 entry:
   %block_XY = alloca [32 x <4 x i64>], align 32
   br label %for.body

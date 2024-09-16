@@ -5327,7 +5327,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   store ptr null, ptr %fut_result, align 8
-  %call4 = call fastcc i32 @future_get_result(ptr noundef nonnull %call1.val.i, ptr noundef nonnull %o, ptr noundef nonnull %fut_result)
+  %call4 = call fastcc i32 @future_get_result(ptr noundef nonnull %call1.val.i, ptr noundef nonnull %o, ptr noundef %fut_result)
   switch i32 %call4, label %sw.default [
     i32 -1, label %if.end12
     i32 0, label %sw.bb5
@@ -5421,7 +5421,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @future_get_result(ptr nocapture noundef readonly %state, ptr nocapture noundef %fut, ptr nocapture noundef writeonly %result) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @future_get_result(ptr nocapture noundef readonly %state, ptr nocapture noundef %fut, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #0 {
 entry:
   %fut_state = getelementptr inbounds i8, ptr %fut, i64 96
   %0 = load i32, ptr %fut_state, align 8
@@ -6199,7 +6199,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = call fastcc i32 @future_get_result(ptr noundef %call1.val.i, ptr noundef nonnull %self, ptr noundef nonnull %result)
+  %call2 = call fastcc i32 @future_get_result(ptr noundef %call1.val.i, ptr noundef nonnull %self, ptr noundef %result)
   switch i32 %call2, label %if.end7 [
     i32 -1, label %return
     i32 0, label %if.then6

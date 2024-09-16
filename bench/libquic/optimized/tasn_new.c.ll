@@ -25,7 +25,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_item_ex_combine_new(ptr noundef %pval, ptr noundef %it, i32 noundef %combine) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_item_ex_combine_new(ptr noundef %pval, ptr noundef %it, i32 noundef range(i32 0, 1025) %combine) unnamed_addr #0 {
 entry:
   %funcs = getelementptr inbounds i8, ptr %it, i64 32
   %0 = load ptr, ptr %funcs, align 8

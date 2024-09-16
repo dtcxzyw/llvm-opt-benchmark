@@ -25741,7 +25741,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2776:
 
 _ZN4llvm12ErrorSuccessD2Ev.exit2778:              ; preds = %_ZN4llvm11PassBuilder19parsePassParametersIRFNS_8ExpectedINS_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEEEENS_9StringRefEEEEDTclfp_tlSC_EEEOT_SC_SC_.exit
   call void @_ZN4llvm11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(16) %219, ptr noundef nonnull align 8 dereferenceable(16) %217)
-  call fastcc void @"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_0clENS_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEE"(ptr dead_on_unwind noalias nonnull writable align 8 %218, ptr noundef nonnull %219)
+  call fastcc void @"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_0clENS_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEE"(ptr dead_on_unwind noalias writable align 8 %218, ptr noundef %219)
   call void @_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15InternalizePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(64) %218)
   call void @_ZN4llvm15InternalizePassD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %218) #25
   call void @_ZN4llvm11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %219) #25
@@ -25916,7 +25916,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2830:
 
 _ZN4llvm12ErrorSuccessD2Ev.exit2832:              ; preds = %_ZN4llvm11PassBuilder19parsePassParametersIRFNS_8ExpectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_9StringRefEEEEDTclfp_tlSA_EEEOT_SA_SA_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %226, ptr noundef nonnull align 8 dereferenceable(32) %224) #25
-  call fastcc void @"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_9clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %225, ptr noundef nonnull %226)
+  call fastcc void @"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_9clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %225, ptr noundef %226)
   call void @_ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_14MemProfUsePassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(40) %225)
   call void @_ZN4llvm14MemProfUsePassD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %225) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %226) #25
@@ -39521,7 +39521,7 @@ _ZNSt10unique_ptrIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_0clENS_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_0clENS_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.anon.2113, align 8
   %4 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #25
   br i1 %4, label %5, label %6
@@ -40142,7 +40142,7 @@ _ZNSt10unique_ptrIN4llvm6detail11PassConceptINS0_6ModuleENS0_15AnalysisManagerIS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_9clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm11PassBuilder15parseModulePassERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_9clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1) #25
@@ -72339,7 +72339,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit320.thread613:   ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %154, label %155, label %181
 
 155:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit320.thread613
-  call fastcc void @"_ZN4llvm11PassBuilder19parsePassParametersIZNS0_16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS3_JEEEJEEERKNS0_15PipelineElementEE3$_0EEDTclfp_tlNS_9StringRefEEEEOT_SC_SC_"(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr nonnull %1, ptr %.sroa.085.0.copyload, i64 %.sroa.286.0.copyload, ptr nonnull @.str.511, i64 12)
+  call fastcc void @"_ZN4llvm11PassBuilder19parsePassParametersIZNS0_16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS3_JEEEJEEERKNS0_15PipelineElementEE3$_0EEDTclfp_tlNS_9StringRefEEEEOT_SC_SC_"(ptr dead_on_unwind noalias writable align 8 %44, ptr nonnull %1, ptr %.sroa.085.0.copyload, i64 %.sroa.286.0.copyload, ptr nonnull @.str.511, i64 12)
   %156 = getelementptr inbounds nuw i8, ptr %44, i64 56
   %157 = load i8, ptr %156, align 8
   %158 = trunc i8 %157 to i1
@@ -72373,7 +72373,7 @@ _ZN4llvm23RegAllocFastPassOptionsC2ERKS0_.exit:   ; preds = %161, %164
   %171 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %172 = getelementptr inbounds nuw i8, ptr %44, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %171, ptr noundef nonnull align 8 dereferenceable(17) %172, i64 17, i1 false)
-  call fastcc void @"_ZZN4llvm11PassBuilder16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_1clENS_23RegAllocFastPassOptionsE"(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef nonnull %46)
+  call fastcc void @"_ZZN4llvm11PassBuilder16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_1clENS_23RegAllocFastPassOptionsE"(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef %46)
   call void @_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_16RegAllocFastPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(56) %45)
   %173 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %174 = load ptr, ptr %173, align 8
@@ -73244,7 +73244,7 @@ _ZNSt10unique_ptrIN4llvm6detail11PassConceptINS0_15MachineFunctionENS0_15Analysi
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm11PassBuilder19parsePassParametersIZNS0_16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS3_JEEEJEEERKNS0_15PipelineElementEE3$_0EEDTclfp_tlNS_9StringRefEEEEOT_SC_SC_"(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr %.0.val, ptr %1, i64 %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN4llvm11PassBuilder19parsePassParametersIZNS0_16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS3_JEEEJEEERKNS0_15PipelineElementEE3$_0EEDTclfp_tlNS_9StringRefEEEEOT_SC_SC_"(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %.0.val, ptr %1, i64 %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::raw_string_ostream", align 8
   %.sroa.0.i.i.i.i.i = alloca { i64, i64 }, align 8
@@ -73734,7 +73734,7 @@ _ZN4llvm16RegAllocFastPassD2Ev.exit:              ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm11PassBuilder16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_1clENS_23RegAllocFastPassOptionsE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm11PassBuilder16parseMachinePassERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS2_JEEEJEEERKNS0_15PipelineElementEENK3$_1clENS_23RegAllocFastPassOptionsE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::RegAllocFastPassOptions", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)

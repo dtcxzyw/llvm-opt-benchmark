@@ -2610,7 +2610,7 @@ define internal fastcc void @RangeDec_Decode(ptr nocapture noundef %0, i32 nound
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @ShrinkUnits(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #8 {
+define internal fastcc ptr @ShrinkUnits(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 1, 130) %2, i32 noundef range(i32 1, 129) %3) unnamed_addr #8 {
   %5 = getelementptr inbounds i8, ptr %0, i64 166
   %6 = add nsw i32 %2, -1
   %7 = zext nneg i32 %6 to i64
@@ -2662,7 +2662,7 @@ define internal fastcc ptr @ShrinkUnits(ptr nocapture noundef %0, ptr noundef %1
   store i32 %37, ptr %38, align 4
   %39 = getelementptr inbounds i8, ptr %.032, i64 12
   %40 = getelementptr inbounds i8, ptr %.033, i64 12
-  %41 = add i32 %.0, -1
+  %41 = add nsw i32 %.0, -1
   %.not37 = icmp eq i32 %41, 0
   br i1 %.not37, label %42, label %31, !llvm.loop !35
 
@@ -2785,7 +2785,7 @@ SplitBlock.exit:                                  ; preds = %58, %79
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @CreateSuccessors(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #8 {
+define internal fastcc ptr @CreateSuccessors(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #8 {
   %5 = alloca [17 x ptr], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -3569,7 +3569,7 @@ GetUsedMemory.exit79:                             ; preds = %272
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @AllocUnitsRare(ptr noundef %0, i32 noundef %1) unnamed_addr #8 {
+define internal fastcc ptr @AllocUnitsRare(ptr noundef %0, i32 noundef range(i32 0, 257) %1) unnamed_addr #8 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 52
   %5 = load i32, ptr %4, align 4

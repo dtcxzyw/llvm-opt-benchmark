@@ -119,7 +119,7 @@ define i64 @rsock_bsock_sendmsg(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @bsock_sendmsg_internal(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i64 @bsock_sendmsg_internal(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca %struct.sendmsg_args_struct, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -699,7 +699,7 @@ define i64 @rsock_bsock_recvmsg(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @bsock_recvmsg_internal(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i64 @bsock_recvmsg_internal(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca %struct.stat, align 8
   %9 = alloca i64, align 8
   %10 = alloca %struct.recvmsg_args_struct, align 8
@@ -3178,7 +3178,7 @@ RSTRING_PTR.exit:                                 ; preds = %15, %19
 define internal i64 @ancillary_ipv6_pktinfo(i64 noundef %0) #0 {
   %2 = alloca %struct.in6_pktinfo, align 4
   %3 = alloca %struct.sockaddr_in6, align 4
-  call fastcc void @extract_ipv6_pktinfo(i64 noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  call fastcc void @extract_ipv6_pktinfo(i64 noundef %0, ptr noundef %2, ptr noundef %3)
   %4 = call i64 @rsock_addrinfo_new(ptr noundef nonnull %3, i32 noundef 28, i32 noundef 10, i32 noundef 0, i32 noundef 0, i64 noundef 4, i64 noundef 4) #11
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 4
@@ -3193,7 +3193,7 @@ define internal i64 @ancillary_ipv6_pktinfo(i64 noundef %0) #0 {
 define internal i64 @ancillary_ipv6_pktinfo_addr(i64 noundef %0) #0 {
   %2 = alloca %struct.in6_pktinfo, align 4
   %3 = alloca %struct.sockaddr_in6, align 4
-  call fastcc void @extract_ipv6_pktinfo(i64 noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  call fastcc void @extract_ipv6_pktinfo(i64 noundef %0, ptr noundef %2, ptr noundef %3)
   %4 = call i64 @rsock_addrinfo_new(ptr noundef nonnull %3, i32 noundef 28, i32 noundef 10, i32 noundef 0, i32 noundef 0, i64 noundef 4, i64 noundef 4) #11
   ret i64 %4
 }
@@ -3202,7 +3202,7 @@ define internal i64 @ancillary_ipv6_pktinfo_addr(i64 noundef %0) #0 {
 define internal range(i64 1, 8589934592) i64 @ancillary_ipv6_pktinfo_ifindex(i64 noundef %0) #0 {
   %2 = alloca %struct.in6_pktinfo, align 4
   %3 = alloca %struct.sockaddr_in6, align 4
-  call fastcc void @extract_ipv6_pktinfo(i64 noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  call fastcc void @extract_ipv6_pktinfo(i64 noundef %0, ptr noundef %2, ptr noundef %3)
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
@@ -3419,7 +3419,7 @@ declare i64 @rb_num2uint(i64 noundef) local_unnamed_addr #1
 declare i64 @rsock_addrinfo_new(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @extract_ipv6_pktinfo(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @extract_ipv6_pktinfo(i64 noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %.pr.i.i = load i64, ptr @ancillary_level.rbimpl_id, align 8
   %.not4.i.i = icmp eq i64 %.pr.i.i, 0

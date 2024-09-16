@@ -2070,7 +2070,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly4json12_GLOBAL__N_17Printer18contextDescriptionB5cxx11EPKNS2_7ContextE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef readonly %context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly4json12_GLOBAL__N_17Printer18contextDescriptionB5cxx11EPKNS2_7ContextE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef readonly %context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2154,7 +2154,7 @@ invoke.cont4:                                     ; preds = %if.else.i.i, %if.th
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont4
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5)
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont7
@@ -3424,7 +3424,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK5folly4json12_GLOBAL__N_17Printer7Context19locationDescriptionB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK5folly4json12_GLOBAL__N_17Printer7Context19locationDescriptionB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %keys = alloca %"class.std::vector.19", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4094,7 +4094,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #16
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly4json12_GLOBAL__N_17Printer10toStringOrB5cxx11ERKNS_7dynamicEPKc(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %v, ptr noundef %placeholder) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly4json12_GLOBAL__N_17Printer10toStringOrB5cxx11ERKNS_7dynamicEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %v, ptr noundef %placeholder) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %indentLevel = alloca i32, align 4
   %opts = alloca %"struct.folly::json::serialization_opts", align 16
@@ -5110,7 +5110,7 @@ if.end:                                           ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK5folly4json12_GLOBAL__N_17Printer12printKVPairsINS_7dynamic19const_item_iteratorEEEvRKS4_T_S8_PKNS2_7ContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(40) %o, ptr nocapture noundef %begin, ptr nocapture noundef readonly %end, ptr noundef %context) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK5folly4json12_GLOBAL__N_17Printer12printKVPairsINS_7dynamic19const_item_iteratorEEEvRKS4_T_S8_PKNS2_7ContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(40) %o, ptr nocapture noundef nonnull %begin, ptr nocapture noundef nonnull readonly %end, ptr noundef %context) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %begin, align 8, !tbaa !223
   %1 = load ptr, ptr %0, align 8, !tbaa !28
@@ -5574,7 +5574,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #23
 declare void @__cxa_rethrow() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEElNS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SP_SQ_(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit, ptr %__comp.coerce) unnamed_addr #3 {
+define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEElNS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SP_SQ_(ptr %__first.coerce, ptr %__last.coerce, i64 noundef range(i64 0, 128) %__depth_limit, ptr %__comp.coerce) unnamed_addr #3 {
 entry:
   %__last.coerce.fr = freeze ptr %__last.coerce
   %__first.coerce.fr = freeze ptr %__first.coerce
@@ -5902,7 +5902,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #23
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEElNS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SP_SQ_(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit) unnamed_addr #3 {
+define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEElNS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SP_SQ_(ptr %__first.coerce, ptr %__last.coerce, i64 noundef range(i64 0, 128) %__depth_limit) unnamed_addr #3 {
 entry:
   %__last.coerce.fr = freeze ptr %__last.coerce
   %__first.coerce.fr = freeze ptr %__first.coerce
@@ -13264,7 +13264,7 @@ return:                                           ; preds = %_ZN5folly3f146detai
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly4json12_GLOBAL__N_15Input6expectEc(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, i8 noundef signext %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly4json12_GLOBAL__N_15Input6expectEc(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, i8 noundef signext range(i8 58, 126) %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %c.addr = alloca i8, align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14662,7 +14662,7 @@ cleanup.done19:                                   ; preds = %ehcleanup9, %_ZNKSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK5folly4json12_GLOBAL__N_15Input7contextB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr %this.0.val, ptr %this.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK5folly4json12_GLOBAL__N_15Input7contextB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr %this.0.val, ptr %this.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %this.8.val to i64
@@ -15339,7 +15339,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef zeroext i16 @"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clEv"(ptr nocapture %this.0.val, ptr nocapture readonly %this.8.val) unnamed_addr #6 align 2 {
+define internal fastcc noundef zeroext i16 @"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clEv"(ptr nocapture nonnull %this.0.val, ptr nocapture nonnull readonly %this.8.val) unnamed_addr #6 align 2 {
 entry:
   %.val33 = load ptr, ptr %this.0.val, align 8, !tbaa !327
   %0 = getelementptr i8, ptr %this.0.val, i64 8

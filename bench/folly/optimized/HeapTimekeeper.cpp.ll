@@ -5274,7 +5274,7 @@ _ZN5folly14HeapTimekeeper7TimeoutD2Ev.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i.
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @"_ZZN5folly14HeapTimekeeper7TimeoutC1ERS0_NSt6chrono10time_pointINS3_3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_7PromiseINS_4UnitEEEEN3$_0clENS_17exception_wrapperE"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef %ew) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5folly14HeapTimekeeper7TimeoutC1ERS0_NSt6chrono10time_pointINS3_3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_7PromiseINS_4UnitEEEEN3$_0clENS_17exception_wrapperE"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull %ew) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.90", align 8
   %agg.tmp2 = alloca %"class.folly::exception_wrapper", align 8

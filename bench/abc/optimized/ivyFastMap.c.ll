@@ -1255,7 +1255,7 @@ Vec_VecClear.exit:                                ; preds = %9, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Ivy_FastMapRequired(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @Ivy_FastMapRequired(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 32768) %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val104129 = load i32, ptr %4, align 4

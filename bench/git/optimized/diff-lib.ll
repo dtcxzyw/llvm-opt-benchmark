@@ -179,7 +179,7 @@ if.then23:                                        ; preds = %if.end20
   %algo.i = getelementptr inbounds i8, ptr %call29, i64 52
   store i32 %conv.i.i, ptr %algo.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %parent, i8 0, i64 360, i1 false)
-  %call38 = call fastcc i32 @check_removed(ptr noundef nonnull %6, ptr noundef nonnull %st)
+  %call38 = call fastcc i32 @check_removed(ptr noundef nonnull %6, ptr noundef %st)
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %if.then40, label %if.else
 
@@ -434,7 +434,7 @@ if.then124:                                       ; preds = %if.end120
   br label %if.end165
 
 if.else126:                                       ; preds = %if.end120
-  %call128 = call fastcc i32 @check_removed(ptr noundef nonnull %ce.0, ptr noundef nonnull %st127)
+  %call128 = call fastcc i32 @check_removed(ptr noundef nonnull %ce.0, ptr noundef %st127)
   %tobool129.not = icmp eq i32 %call128, 0
   br i1 %tobool129.not, label %if.else145, label %if.then130
 
@@ -881,7 +881,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @check_removed(ptr noundef %ce, ptr noundef %st) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @check_removed(ptr noundef %ce, ptr noundef nonnull %st) unnamed_addr #0 {
 entry:
   %sub = alloca %struct.object_id, align 4
   %ce_flags = getelementptr inbounds i8, ptr %ce, i64 56
@@ -892,11 +892,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   %name = getelementptr inbounds i8, ptr %ce, i64 108
-  %call = tail call i32 @lstat64(ptr noundef nonnull %name, ptr noundef %st) #14
+  %call = tail call i32 @lstat64(ptr noundef nonnull %name, ptr noundef nonnull %st) #14
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %call1 = tail call i32 @fake_lstat(ptr noundef nonnull %ce, ptr noundef %st) #14
+  %call1 = tail call i32 @fake_lstat(ptr noundef nonnull %ce, ptr noundef nonnull %st) #14
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -1219,7 +1219,7 @@ declare i64 @trace_performance_enter() local_unnamed_addr #1
 declare ptr @oid_to_hex_r(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @diff_cache(ptr noundef %revs, ptr noundef %tree_oid, ptr noundef %tree_name, i32 noundef %cached) unnamed_addr #0 {
+define internal fastcc i32 @diff_cache(ptr noundef %revs, ptr noundef %tree_oid, ptr noundef %tree_name, i32 noundef range(i32 0, 2) %cached) unnamed_addr #0 {
 entry:
   %t = alloca %struct.tree_desc, align 8
   %opts = alloca %struct.unpack_trees_options, align 8
@@ -1664,7 +1664,7 @@ entry.split.i.i:                                  ; preds = %if.then35.i, %if.th
   %diffopt.i66.i = phi ptr [ %diffopt.i59.i, %if.then35.thread.i ], [ %diffopt.i.i, %if.then35.i ]
   %bf.cast142364.i = phi i32 [ %bf.cast8.i, %if.then35.thread.i ], [ %bf.cast.i, %if.then35.i ]
   %lor.ext122663.i = phi i32 [ 0, %if.then35.thread.i ], [ %lor.ext.i12, %if.then35.i ]
-  %call9.i.i = call fastcc i32 @get_stat_data(ptr noundef null, ptr noundef nonnull %oid.i.i, ptr noundef nonnull %mode.i.i, i32 noundef %lor.ext122663.i, i32 noundef %bf.cast142364.i, ptr noundef nonnull %dirty_submodule.i.i, ptr noundef nonnull %diffopt.i66.i)
+  %call9.i.i = call fastcc i32 @get_stat_data(ptr noundef null, ptr noundef %oid.i.i, ptr noundef %mode.i.i, i32 noundef %lor.ext122663.i, i32 noundef %bf.cast142364.i, ptr noundef %dirty_submodule.i.i, ptr noundef nonnull %diffopt.i66.i)
   br label %if.end.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then35.i
@@ -1674,7 +1674,7 @@ land.lhs.true.i.i:                                ; preds = %if.then35.i
   br i1 %cmp.i.i, label %if.then.i.i, label %land.lhs.true.split.i.i
 
 land.lhs.true.split.i.i:                          ; preds = %land.lhs.true.i.i
-  %call10.i.i = call fastcc i32 @get_stat_data(ptr noundef nonnull %0, ptr noundef nonnull %oid.i.i, ptr noundef nonnull %mode.i.i, i32 noundef %lor.ext.i12, i32 noundef %bf.cast.i, ptr noundef nonnull %dirty_submodule.i.i, ptr noundef nonnull %diffopt.i.i)
+  %call10.i.i = call fastcc i32 @get_stat_data(ptr noundef nonnull %0, ptr noundef %oid.i.i, ptr noundef %mode.i.i, i32 noundef %lor.ext.i12, i32 noundef %bf.cast.i, ptr noundef %dirty_submodule.i.i, ptr noundef nonnull %diffopt.i.i)
   br label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -1780,7 +1780,7 @@ if.then.i65.i:                                    ; preds = %if.end49.i
   br label %show_modified.exit.i
 
 if.end.i42.i:                                     ; preds = %if.end49.i
-  %call.i.i = call fastcc i32 @get_stat_data(ptr noundef nonnull %0, ptr noundef nonnull %oid.i37.i, ptr noundef nonnull %mode.i36.i, i32 noundef %lor.ext.i12, i32 noundef %bf.cast.i, ptr noundef nonnull %dirty_submodule.i38.i, ptr noundef nonnull %diffopt.i39.i)
+  %call.i.i = call fastcc i32 @get_stat_data(ptr noundef nonnull %0, ptr noundef %oid.i37.i, ptr noundef %mode.i36.i, i32 noundef %lor.ext.i12, i32 noundef %bf.cast.i, ptr noundef %dirty_submodule.i38.i, ptr noundef nonnull %diffopt.i39.i)
   %cmp5.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp5.i.i, label %if.then7.i.i, label %if.end11.i.i
 
@@ -2083,7 +2083,7 @@ declare i32 @unpack_trees(i32 noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare void @fill_filespec(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @get_stat_data(ptr noundef %ce, ptr nocapture noundef writeonly %oidp, ptr nocapture noundef writeonly %modep, i32 noundef %cached, i32 noundef %match_missing, ptr nocapture noundef writeonly %dirty_submodule, ptr noundef %diffopt) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @get_stat_data(ptr noundef %ce, ptr nocapture noundef nonnull writeonly %oidp, ptr nocapture noundef nonnull writeonly %modep, i32 noundef range(i32 0, 2) %cached, i32 noundef range(i32 0, 2) %match_missing, ptr nocapture noundef nonnull writeonly %dirty_submodule, ptr noundef %diffopt) unnamed_addr #0 {
 entry:
   %orig_flags.i = alloca %struct.diff_flags, align 4
   %st = alloca %struct.stat, align 8
@@ -2101,7 +2101,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool2.not, label %if.then, label %return.sink.split
 
 if.then:                                          ; preds = %land.lhs.true
-  %call = call fastcc i32 @check_removed(ptr noundef nonnull %ce, ptr noundef nonnull %st)
+  %call = call fastcc i32 @check_removed(ptr noundef nonnull %ce, ptr noundef %st)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.else
 

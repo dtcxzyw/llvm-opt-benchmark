@@ -154,7 +154,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree nounwind memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define internal fastcc noalias noundef ptr @Hsh_IntManStart(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc noalias noundef ptr @Hsh_IntManStart(ptr noundef %0, i32 noundef range(i32 2, 5) %1, i32 noundef %2) unnamed_addr #3 {
   %4 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #25
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8

@@ -621,7 +621,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr noundef %0, ptr noundef %1, 
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_paper_size(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 2) i32 @_paper_size(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #1 {
   %5 = alloca float, align 4
   %6 = alloca float, align 4
   %7 = alloca float, align 4

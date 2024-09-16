@@ -43966,7 +43966,7 @@ _ZN4llvm15OpenMPIRBuilder19LocationDescriptionD2Ev.exit: ; preds = %_ZN4llvm15Op
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit135
 
 _ZN4llvm8DebugLocC2ERKS0_.exit135:                ; preds = %_ZN4llvm15OpenMPIRBuilder19LocationDescriptionD2Ev.exit, %362
-  call fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef %356, ptr noundef %360, ptr noundef nonnull %47)
+  call fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef %356, ptr noundef %360, ptr noundef %47)
   %364 = load ptr, ptr %47, align 8
   %.not.i.i.i.i136 = icmp eq ptr %364, null
   br i1 %.not.i.i.i.i136, label %_ZN4llvm8DebugLocD2Ev.exit137, label %365
@@ -43987,7 +43987,7 @@ _ZN4llvm8DebugLocD2Ev.exit137:                    ; preds = %_ZN4llvm8DebugLocC2
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit139
 
 _ZN4llvm8DebugLocC2ERKS0_.exit139:                ; preds = %_ZN4llvm8DebugLocD2Ev.exit137, %368
-  call fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef %366, ptr noundef %353, ptr noundef nonnull %48)
+  call fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef %366, ptr noundef %353, ptr noundef %48)
   %370 = load ptr, ptr %48, align 8
   %.not.i.i.i.i140 = icmp eq ptr %370, null
   br i1 %.not.i.i.i.i140, label %_ZN4llvm8DebugLocD2Ev.exit141, label %371
@@ -44007,7 +44007,7 @@ _ZN4llvm8DebugLocD2Ev.exit141:                    ; preds = %_ZN4llvm8DebugLocC2
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit143
 
 _ZN4llvm8DebugLocC2ERKS0_.exit143:                ; preds = %_ZN4llvm8DebugLocD2Ev.exit141, %373
-  call fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef %351, ptr noundef nonnull %326, ptr noundef nonnull %49)
+  call fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef %351, ptr noundef nonnull %326, ptr noundef %49)
   %375 = load ptr, ptr %49, align 8
   %.not.i.i.i.i144 = icmp eq ptr %375, null
   br i1 %.not.i.i.i.i144, label %_ZN4llvm8DebugLocD2Ev.exit145, label %376
@@ -44530,7 +44530,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_8ZExtInstEEEPT_S4_RKNS_5TwineE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::InsertPosition", align 8
   %5 = alloca %"class.llvm::DebugLoc", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -47154,7 +47154,7 @@ _ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit157: ; preds = %_ZN4llvm12PredI
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit159
 
 _ZN4llvm8DebugLocC2ERKS0_.exit159:                ; preds = %_ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit157, %357
-  call fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef %.lcssa.i130, ptr noundef %.lcssa.i147, ptr noundef nonnull %21)
+  call fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef %.lcssa.i130, ptr noundef %.lcssa.i147, ptr noundef %21)
   %359 = load ptr, ptr %21, align 8
   %.not.i.i.i.i160 = icmp eq ptr %359, null
   br i1 %.not.i.i.i.i160, label %_ZN4llvm8DebugLocD2Ev.exit161, label %360
@@ -47179,7 +47179,7 @@ _ZN4llvm8DebugLocD2Ev.exit161:                    ; preds = %_ZN4llvm8DebugLocC2
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit163
 
 _ZN4llvm8DebugLocC2ERKS0_.exit163:                ; preds = %_ZN4llvm8DebugLocD2Ev.exit161, %367
-  call fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef %363, ptr noundef %365, ptr noundef nonnull %22)
+  call fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef %363, ptr noundef %365, ptr noundef %22)
   %369 = load ptr, ptr %22, align 8
   %.not.i.i.i.i164 = icmp eq ptr %369, null
   br i1 %.not.i.i.i.i164, label %_ZN4llvm8DebugLocD2Ev.exit165, label %370
@@ -47366,7 +47366,7 @@ define internal fastcc void @"_ZZN4llvm15OpenMPIRBuilder13collapseLoopsENS_8Debu
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit
 
 _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %8, %11
-  call fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef nonnull %7, ptr noundef %1, ptr noundef nonnull %4)
+  call fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %4)
   %13 = load ptr, ptr %4, align 8
   %.not.i.i.i.i4 = icmp eq ptr %13, null
   br i1 %.not.i.i.i.i4, label %_ZN4llvm8DebugLocD2Ev.exit, label %14
@@ -47392,7 +47392,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %8, %11
 _ZN4llvm8DebugLocC2ERKS0_.exit6:                  ; preds = %15, %21
   %23 = getelementptr i8, ptr %18, i64 16
   %.val = load ptr, ptr %23, align 8
-  call fastcc void @_ZL25redirectAllPredecessorsToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr %.val, ptr noundef %1, ptr noundef nonnull %5)
+  call fastcc void @_ZL25redirectAllPredecessorsToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr %.val, ptr noundef %1, ptr noundef %5)
   %24 = load ptr, ptr %5, align 8
   %.not.i.i.i.i7 = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i7, label %_ZN4llvm8DebugLocD2Ev.exit, label %25
@@ -48541,7 +48541,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit159: ; pred
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit161
 
 _ZN4llvm8DebugLocC2ERKS0_.exit161:                ; preds = %391, %392
-  call fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef nonnull %.0107278, ptr noundef %.sroa.0.0.copyload, ptr noundef nonnull %38)
+  call fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef nonnull %.0107278, ptr noundef %.sroa.0.0.copyload, ptr noundef %38)
   %394 = load ptr, ptr %38, align 8
   %.not.i.i.i.i162 = icmp eq ptr %394, null
   br i1 %.not.i.i.i.i162, label %_ZN4llvm8DebugLocD2Ev.exit163, label %395
@@ -48561,7 +48561,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit161:                ; preds = %391, %392
 _ZN4llvm8DebugLocC2ERKS0_.exit165:                ; preds = %396, %397
   %399 = getelementptr i8, ptr %.0108277, i64 16
   %.0108.val = load ptr, ptr %399, align 8
-  call fastcc void @_ZL25redirectAllPredecessorsToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr %.0108.val, ptr noundef %.sroa.0.0.copyload, ptr noundef nonnull %39)
+  call fastcc void @_ZL25redirectAllPredecessorsToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr %.0108.val, ptr noundef %.sroa.0.0.copyload, ptr noundef %39)
   %400 = load ptr, ptr %39, align 8
   %.not.i.i.i.i166 = icmp eq ptr %400, null
   br i1 %.not.i.i.i.i166, label %_ZN4llvm8DebugLocD2Ev.exit163, label %401
@@ -48590,7 +48590,7 @@ _ZN4llvm8DebugLocD2Ev.exit163:                    ; preds = %401, %_ZN4llvm8Debu
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit169
 
 _ZN4llvm8DebugLocC2ERKS0_.exit169:                ; preds = %403, %405
-  call fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef nonnull %386, ptr noundef %75, ptr noundef nonnull %40)
+  call fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef nonnull %386, ptr noundef %75, ptr noundef %40)
   %407 = load ptr, ptr %40, align 8
   %.not.i.i.i.i170 = icmp eq ptr %407, null
   br i1 %.not.i.i.i.i170, label %_ZN4llvm8DebugLocD2Ev.exit171, label %408
@@ -48613,7 +48613,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit169:                ; preds = %403, %405
 _ZN4llvm8DebugLocC2ERKS0_.exit173:                ; preds = %._crit_edge281.thread, %410
   %412 = getelementptr i8, ptr %.0108.lcssa334, i64 16
   %.0108.val117 = load ptr, ptr %412, align 8
-  call fastcc void @_ZL25redirectAllPredecessorsToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr %.0108.val117, ptr noundef %75, ptr noundef nonnull %41)
+  call fastcc void @_ZL25redirectAllPredecessorsToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr %.0108.val117, ptr noundef %75, ptr noundef %41)
   %413 = load ptr, ptr %41, align 8
   %.not.i.i.i.i174 = icmp eq ptr %413, null
   br i1 %.not.i.i.i.i174, label %_ZN4llvm8DebugLocD2Ev.exit171, label %414
@@ -48636,7 +48636,7 @@ _ZN4llvm8DebugLocD2Ev.exit171:                    ; preds = %414, %_ZN4llvm8Debu
 _ZN4llvm8DebugLocC2ERKS0_.exit177:                ; preds = %_ZN4llvm8DebugLocD2Ev.exit171, %417
   %419 = getelementptr i8, ptr %77, i64 16
   %.val = load ptr, ptr %419, align 8
-  call fastcc void @_ZL25redirectAllPredecessorsToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr %.val, ptr noundef %415, ptr noundef nonnull %42)
+  call fastcc void @_ZL25redirectAllPredecessorsToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr %.val, ptr noundef %415, ptr noundef %42)
   %420 = load ptr, ptr %42, align 8
   %.not.i.i.i.i178 = icmp eq ptr %420, null
   br i1 %.not.i.i.i.i178, label %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit186, label %421
@@ -49097,7 +49097,7 @@ _ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit.i: ; preds = %_ZN4llvm12PredIt
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit11.i
 
 _ZN4llvm8DebugLocC2ERKS0_.exit11.i:               ; preds = %66, %_ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit.i
-  call fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef %41, ptr noundef %.lcssa.i.i, ptr noundef nonnull %6)
+  call fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef %41, ptr noundef %.lcssa.i.i, ptr noundef %6)
   %68 = load ptr, ptr %6, align 8
   %.not.i.i.i.i12.i = icmp eq ptr %68, null
   br i1 %.not.i.i.i.i12.i, label %_ZN4llvm8DebugLocD2Ev.exit13.i, label %69
@@ -49123,7 +49123,7 @@ _ZN4llvm8DebugLocD2Ev.exit13.i:                   ; preds = %69, %_ZN4llvm8Debug
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit15.i
 
 _ZN4llvm8DebugLocC2ERKS0_.exit15.i:               ; preds = %77, %_ZN4llvm8DebugLocD2Ev.exit13.i
-  call fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef %72, ptr noundef %75, ptr noundef nonnull %7)
+  call fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef %72, ptr noundef %75, ptr noundef %7)
   %79 = load ptr, ptr %7, align 8
   %.not.i.i.i.i16.i = icmp eq ptr %79, null
   br i1 %.not.i.i.i.i16.i, label %"_ZZN4llvm15OpenMPIRBuilder9tileLoopsENS_8DebugLocENS_8ArrayRefIPNS_17CanonicalLoopInfoEEENS2_IPNS_5ValueEEEENK3$_1clES7_RKNS_5TwineE.exit", label %80
@@ -49238,7 +49238,7 @@ _ZNSt6vectorIPN4llvm17CanonicalLoopInfoESaIS2_EE9push_backERKS2_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL25redirectAllPredecessorsToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr readonly %.16.val, ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZL25redirectAllPredecessorsToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr readonly %.16.val, ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::DebugLoc", align 8
   %4 = icmp eq ptr %.16.val, null
   br i1 %4, label %._crit_edge, label %.lr.ph.i.i.i.i
@@ -49302,7 +49302,7 @@ _ZN4llvm23early_inc_iterator_implINS_12PredIteratorINS_10BasicBlockENS_5Value18u
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit
 
 _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %_ZN4llvm23early_inc_iterator_implINS_12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEEEdeEv.exit, %35
-  call fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef %33, ptr noundef %0, ptr noundef nonnull %3)
+  call fastcc void @_ZL10redirectToPN4llvm10BasicBlockES1_NS_8DebugLocE(ptr noundef %33, ptr noundef %0, ptr noundef %3)
   %37 = load ptr, ptr %3, align 8
   %.not.i.i.i.i8 = icmp eq ptr %37, null
   br i1 %.not.i.i.i.i8, label %_ZN4llvm8DebugLocD2Ev.exit, label %38

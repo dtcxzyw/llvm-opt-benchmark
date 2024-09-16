@@ -16772,7 +16772,7 @@ declare noundef zeroext i1 @_ZN13ScriptApiNode11node_on_digEN3irr4core8vector3dI
 declare void @_ZN12RemoteClient19ResendBlockIfOnWireEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(632), i48) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZL14getWieldedItemPK9PlayerSAORSt8optionalI9ItemStackE(ptr noundef %playersao, ptr noundef nonnull align 8 dereferenceable(320) %ret) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14getWieldedItemPK9PlayerSAORSt8optionalI9ItemStackE(ptr noundef nonnull %playersao, ptr noundef nonnull align 8 dereferenceable(320) %ret) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.ItemStack, align 8
   %agg.tmp.ensured = alloca %struct.ItemStack, align 8

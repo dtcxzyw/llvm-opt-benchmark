@@ -962,7 +962,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
   br label %invoke.cont2.i
 
 invoke.cont2.i:                                   ; preds = %if.then.i.i.i, %if.then.i, %if.then.thread.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(512) %arg, ptr noundef nonnull %agg.tmp.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(512) %arg, ptr noundef %agg.tmp.i)
           to label %invoke.cont4.i unwind label %lpad3.i
 
 invoke.cont4.i:                                   ; preds = %invoke.cont2.i
@@ -1015,7 +1015,7 @@ invoke.cont14.i:                                  ; preds = %if.then7.i
           to label %invoke.cont16.i unwind label %lpad15.i
 
 invoke.cont16.i:                                  ; preds = %invoke.cont14.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(512) %arg, ptr noundef nonnull %agg.tmp8.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(512) %arg, ptr noundef %agg.tmp8.i)
           to label %invoke.cont18.i unwind label %lpad17.i
 
 invoke.cont18.i:                                  ; preds = %invoke.cont16.i
@@ -1140,7 +1140,7 @@ invoke.cont33.i:                                  ; preds = %if.then25.i
           to label %invoke.cont35.i unwind label %lpad34.i
 
 invoke.cont35.i:                                  ; preds = %invoke.cont33.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(512) %arg, ptr noundef nonnull %agg.tmp26.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(512) %arg, ptr noundef %agg.tmp26.i)
           to label %invoke.cont37.i unwind label %lpad36.i
 
 invoke.cont37.i:                                  ; preds = %invoke.cont35.i
@@ -1279,7 +1279,7 @@ invoke.cont57.i:                                  ; preds = %if.then49.i
           to label %invoke.cont59.i unwind label %lpad58.i
 
 invoke.cont59.i:                                  ; preds = %invoke.cont57.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(512) %arg, ptr noundef nonnull %agg.tmp50.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(512) %arg, ptr noundef %agg.tmp50.i)
           to label %invoke.cont61.i unwind label %lpad60.i
 
 invoke.cont61.i:                                  ; preds = %invoke.cont59.i
@@ -1337,7 +1337,7 @@ invoke.cont86.i:                                  ; preds = %if.then78.i
           to label %invoke.cont88.i unwind label %lpad87.i
 
 invoke.cont88.i:                                  ; preds = %invoke.cont86.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(512) %arg, ptr noundef nonnull %agg.tmp79.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(512) %arg, ptr noundef %agg.tmp79.i)
           to label %invoke.cont90.i unwind label %lpad89.i
 
 invoke.cont90.i:                                  ; preds = %invoke.cont88.i
@@ -1508,7 +1508,7 @@ invoke.cont149.i:                                 ; preds = %invoke.cont147.i
 if.then155.i:                                     ; preds = %invoke.cont149.i
   %83 = load ptr, ptr %args_144.i, align 8
   %84 = load ptr, ptr %auth_context_.i, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_112_GLOBAL__N_135MakeChannelzSecurityFromAuthContextEP17grpc_auth_context(ptr noalias nonnull align 8 %agg.tmp159.i, ptr noundef %84)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_112_GLOBAL__N_135MakeChannelzSecurityFromAuthContextEP17grpc_auth_context(ptr noalias align 8 %agg.tmp159.i, ptr noundef %84)
           to label %invoke.cont163.i unwind label %lpad.i
 
 invoke.cont163.i:                                 ; preds = %if.then155.i
@@ -2186,7 +2186,7 @@ if.end.i6:                                        ; preds = %call.i.noexc8
   %25 = load ptr, ptr %bytes_to_send.i, align 8, !noalias !29
   %26 = load i64, ptr %bytes_to_send_size.i, align 8, !noalias !29
   %27 = load ptr, ptr %hs_result.i, align 8, !noalias !29
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker25OnHandshakeNextDoneLockedE10tsi_resultPKhmP21tsi_handshaker_result(ptr noalias nonnull align 8 %error, ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef %call.i9, ptr noundef %25, i64 noundef %26, ptr noundef %27)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker25OnHandshakeNextDoneLockedE10tsi_resultPKhmP21tsi_handshaker_result(ptr noalias align 8 %error, ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef %call.i9, ptr noundef %25, i64 noundef %26, ptr noundef %27)
           to label %invoke.cont6 unwind label %lpad2.loopexit.split-lp
 
 invoke.cont6:                                     ; preds = %if.end.i6
@@ -2210,7 +2210,7 @@ if.then.i.i:                                      ; preds = %if.then
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %if.then.i.i, %if.then
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(512) %this, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(512) %this, ptr noundef %agg.tmp)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont8
@@ -2337,7 +2337,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr nocapture noundef nonnull align 8 dereferenceable(512) %this, ptr nocapture noundef %error) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr nocapture noundef nonnull align 8 dereferenceable(512) %this, ptr nocapture noundef nonnull %error) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.grpc_core::ChannelArgs", align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -2738,7 +2738,7 @@ _ZN9grpc_core13RefCountedPtrINS_8channelz10SocketNode8SecurityEED2Ev.exit8: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_112_GLOBAL__N_135MakeChannelzSecurityFromAuthContextEP17grpc_auth_context(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %auth_context) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_112_GLOBAL__N_135MakeChannelzSecurityFromAuthContextEP17grpc_auth_context(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %auth_context) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 invoke.cont1:
   %ref.tmp = alloca %"class.std::optional.120", align 8
   %it = alloca %struct.grpc_auth_property_iterator, align 8
@@ -3395,7 +3395,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker25OnHandshakeNextDoneLockedE10tsi_resultPKhmP21tsi_handshaker_result(ptr noalias nonnull align 8 %error, ptr noundef nonnull align 8 dereferenceable(512) %user_data, i32 noundef %result, ptr noundef %bytes_to_send, i64 noundef %bytes_to_send_size, ptr noundef %handshaker_result)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker25OnHandshakeNextDoneLockedE10tsi_resultPKhmP21tsi_handshaker_result(ptr noalias align 8 %error, ptr noundef nonnull align 8 dereferenceable(512) %user_data, i32 noundef %result, ptr noundef %bytes_to_send, i64 noundef %bytes_to_send_size, ptr noundef %handshaker_result)
           to label %invoke.cont5 unwind label %lpad2
 
 invoke.cont5:                                     ; preds = %invoke.cont
@@ -3416,7 +3416,7 @@ if.then.i.i:                                      ; preds = %if.then
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %if.then.i.i, %if.then
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(512) %user_data, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(512) %user_data, ptr noundef %agg.tmp)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont8
@@ -3537,7 +3537,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit28:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker25OnHandshakeNextDoneLockedE10tsi_resultPKhmP21tsi_handshaker_result(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef %result, ptr noundef %bytes_to_send, i64 noundef %bytes_to_send_size, ptr noundef %handshaker_result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker25OnHandshakeNextDoneLockedE10tsi_resultPKhmP21tsi_handshaker_result(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef %result, ptr noundef %bytes_to_send, i64 noundef %bytes_to_send_size, ptr noundef %handshaker_result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %error = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
@@ -3565,7 +3565,7 @@ if.then:                                          ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.then
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp3, i8 0, i64 24, i1 false)
-  invoke void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i32 noundef 2, i64 19, ptr nonnull @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull %agg.tmp3)
+  invoke void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i32 noundef 2, i64 19, ptr nonnull @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull %agg.tmp3)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
@@ -3710,7 +3710,7 @@ invoke.cont41:                                    ; preds = %invoke.cont37
           to label %invoke.cont48 unwind label %lpad47
 
 invoke.cont48:                                    ; preds = %invoke.cont41
-  invoke void @_Z25grpc_set_tsi_error_resultN4absl12lts_202308026StatusE10tsi_result(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull %agg.tmp27, i32 noundef %result)
+  invoke void @_Z25grpc_set_tsi_error_resultN4absl12lts_202308026StatusE10tsi_result(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull %agg.tmp27, i32 noundef %result)
           to label %invoke.cont50 unwind label %lpad49
 
 invoke.cont50:                                    ; preds = %invoke.cont48
@@ -3862,7 +3862,7 @@ if.then78:                                        ; preds = %if.end64
           to label %if.end94 unwind label %lpad
 
 if.else86:                                        ; preds = %if.end64.thread
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker15CheckPeerLockedEv(ptr noalias nonnull align 8 %ref.tmp87, ptr noundef nonnull align 8 dereferenceable(512) %this)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker15CheckPeerLockedEv(ptr noalias align 8 %ref.tmp87, ptr noundef nonnull align 8 dereferenceable(512) %this)
           to label %invoke.cont88 unwind label %lpad
 
 invoke.cont88:                                    ; preds = %if.else86
@@ -4029,7 +4029,7 @@ lpad:                                             ; preds = %_ZN4absl12lts_20230
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker15CheckPeerLockedEv(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker15CheckPeerLockedEv(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %peer = alloca %struct.tsi_peer, align 8
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -4048,7 +4048,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  invoke void @_Z25grpc_set_tsi_error_resultN4absl12lts_202308026StatusE10tsi_result(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull %agg.tmp, i32 noundef %call)
+  invoke void @_Z25grpc_set_tsi_error_resultN4absl12lts_202308026StatusE10tsi_result(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull %agg.tmp, i32 noundef %call)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
@@ -4201,7 +4201,7 @@ if.then:                                          ; preds = %lor.lhs.false, %inv
           to label %invoke.cont8 unwind label %lpad1.loopexit.split-lp
 
 invoke.cont8:                                     ; preds = %if.then
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(512) %arg, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(512) %arg, ptr noundef %agg.tmp)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont8
@@ -4368,7 +4368,7 @@ if.end.i14:                                       ; preds = %call.i.noexc16
   %31 = load ptr, ptr %bytes_to_send.i, align 8, !noalias !59
   %32 = load i64, ptr %bytes_to_send_size.i, align 8, !noalias !59
   %33 = load ptr, ptr %hs_result.i, align 8, !noalias !59
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker25OnHandshakeNextDoneLockedE10tsi_resultPKhmP21tsi_handshaker_result(ptr noalias nonnull align 8 %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(512) %arg, i32 noundef %call.i17, ptr noundef %31, i64 noundef %32, ptr noundef %33)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker25OnHandshakeNextDoneLockedE10tsi_resultPKhmP21tsi_handshaker_result(ptr noalias align 8 %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(512) %arg, i32 noundef %call.i17, ptr noundef %31, i64 noundef %32, ptr noundef %33)
           to label %if.end.i14.invoke.cont17_crit_edge unwind label %lpad1.loopexit.split-lp
 
 if.end.i14.invoke.cont17_crit_edge:               ; preds = %if.end.i14
@@ -4438,7 +4438,7 @@ if.then.i.i33:                                    ; preds = %if.then23
   br label %invoke.cont26
 
 invoke.cont26:                                    ; preds = %if.then.i.i33, %if.then23
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(512) %arg, ptr noundef nonnull %agg.tmp25)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(512) %arg, ptr noundef %agg.tmp25)
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont26
@@ -4567,7 +4567,7 @@ if.then:                                          ; preds = %lor.lhs.false, %inv
           to label %invoke.cont8 unwind label %lpad1
 
 invoke.cont8:                                     ; preds = %if.then
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(512) %arg, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(512) %arg, ptr noundef %agg.tmp)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont8
@@ -4626,7 +4626,7 @@ if.then12:                                        ; preds = %if.end
           to label %cleanup unwind label %lpad1
 
 if.else:                                          ; preds = %if.end
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker15CheckPeerLockedEv(ptr noalias nonnull align 8 %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(512) %arg)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker15CheckPeerLockedEv(ptr noalias align 8 %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(512) %arg)
           to label %invoke.cont23 unwind label %lpad1
 
 invoke.cont23:                                    ; preds = %if.else
@@ -4689,7 +4689,7 @@ if.then.i.i25:                                    ; preds = %if.then29
   br label %invoke.cont32
 
 invoke.cont32:                                    ; preds = %if.then.i.i25, %if.then29
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(512) %arg, ptr noundef nonnull %agg.tmp31)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker21HandshakeFailedLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(512) %arg, ptr noundef %agg.tmp31)
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %invoke.cont32

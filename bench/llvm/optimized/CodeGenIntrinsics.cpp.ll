@@ -3528,7 +3528,7 @@ _ZN4llvm16CodeGenIntrinsicC2EOS0_.exit.i.i.i:     ; preds = %78, %58
   br label %_ZN4llvm16CodeGenIntrinsicC2EOS0_.exit9.i.i.i
 
 _ZN4llvm16CodeGenIntrinsicC2EOS0_.exit9.i.i.i:    ; preds = %88, %_ZN4llvm16CodeGenIntrinsicC2EOS0_.exit.i.i.i
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm16CodeGenIntrinsicESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_21CodeGenIntrinsicTableC1ERKNS2_12RecordKeeperEE3$_0EEEvT_T0_SI_T1_T2_"(ptr nonnull %0, i64 noundef %.08.i.i.i, i64 noundef %33, ptr noundef nonnull %8)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm16CodeGenIntrinsicESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_21CodeGenIntrinsicTableC1ERKNS2_12RecordKeeperEE3$_0EEEvT_T0_SI_T1_T2_"(ptr nonnull %0, i64 noundef %.08.i.i.i, i64 noundef %33, ptr noundef %8)
   call void @_ZN4llvm16CodeGenIntrinsicD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %8) #17
   %.not.i.i.i = icmp eq i64 %.08.i.i.i, 0
   %90 = add nsw i64 %.08.i.i.i, -1
@@ -3637,7 +3637,7 @@ _ZN4llvm16CodeGenIntrinsicC2EOS0_.exit.i:         ; preds = %132, %.lr.ph.i9.i
   %145 = ptrtoint ptr %113 to i64
   %146 = sub i64 %145, %9
   %147 = sdiv exact i64 %146, 240
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm16CodeGenIntrinsicESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_21CodeGenIntrinsicTableC1ERKNS2_12RecordKeeperEE3$_0EEEvT_T0_SI_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %147, ptr noundef nonnull %6)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm16CodeGenIntrinsicESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_21CodeGenIntrinsicTableC1ERKNS2_12RecordKeeperEE3$_0EEEvT_T0_SI_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %147, ptr noundef %6)
   call void @_ZN4llvm16CodeGenIntrinsicD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %6) #17
   call void @_ZN4llvm16CodeGenIntrinsicD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %5) #17
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %5)
@@ -4256,7 +4256,7 @@ _ZN4llvm16CodeGenIntrinsicD2Ev.exit:              ; preds = %_ZNSt6vectorIPKN4ll
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm16CodeGenIntrinsicESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_21CodeGenIntrinsicTableC1ERKNS2_12RecordKeeperEE3$_0EEEvT_T0_SI_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm16CodeGenIntrinsicESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_21CodeGenIntrinsicTableC1ERKNS2_12RecordKeeperEE3$_0EEEvT_T0_SI_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"struct.llvm::CodeGenIntrinsic", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

@@ -197,7 +197,7 @@ for.body.i4.i:                                    ; preds = %arc4_seed_getrandom
   br i1 %cmp.i6.i, label %arc4_seed_urandom.exit.thread.i, label %for.cond.i7.i
 
 arc4_seed_urandom.exit.i:                         ; preds = %arc4_seed_getrandom.exit.i
-  %call.i2.i = call fastcc i32 @arc4_seed_urandom_helper_(ptr noundef nonnull %6)
+  %call.i2.i = call fastcc i32 @arc4_seed_urandom_helper_(ptr noundef %6)
   %call.i2.fr.i = freeze i32 %call.i2.i
   %cmp2.i = icmp eq i32 %call.i2.fr.i, 0
   br i1 %cmp2.i, label %arc4_seed_urandom.exit.thread.i, label %arc4_seed_urandom.exit.thread44.i
@@ -637,10 +637,10 @@ declare i64 @getrandom(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr
 declare void @evutil_memclear_(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @arc4_seed_urandom_helper_(ptr noundef %fname) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @arc4_seed_urandom_helper_(ptr noundef nonnull %fname) unnamed_addr #0 {
 entry:
   %buf = alloca [32 x i8], align 16
-  %call = tail call i32 @evutil_open_closeonexec_(ptr noundef %fname, i32 noundef 0, i32 noundef 0) #7
+  %call = tail call i32 @evutil_open_closeonexec_(ptr noundef nonnull %fname, i32 noundef 0, i32 noundef 0) #7
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %while.body.i
 

@@ -1719,7 +1719,7 @@ declare dso_local i32 @__get_random_u32_below(i32 noundef) local_unnamed_addr #1
 declare dso_local noalias ptr @kvmalloc_node(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @sbitmap_find_bit(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @sbitmap_find_bit(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0

@@ -447,7 +447,7 @@ declare ptr @g_dir_read_name(ptr noundef) local_unnamed_addr #1
 declare ptr @get_basename(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fileset_add_file(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @fileset_add_file(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   %5 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %0, ptr noundef %1) #9
   %6 = tail call i32 (ptr, i32, ...) @open(ptr noundef %5, i32 noundef 0, i32 noundef 0) #9

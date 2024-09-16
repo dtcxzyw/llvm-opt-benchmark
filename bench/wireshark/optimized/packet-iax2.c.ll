@@ -879,7 +879,7 @@ iax_new_call.exit.i:                              ; preds = %78, %76
 
 88:                                               ; preds = %51
   %89 = zext nneg i16 %41 to i32
-  %90 = call fastcc ptr @iax_lookup_call(ptr noundef nonnull %1, i32 noundef %54, i32 noundef %89, ptr noundef nonnull %12)
+  %90 = call fastcc ptr @iax_lookup_call(ptr noundef nonnull %1, i32 noundef %54, i32 noundef %89, ptr noundef %12)
   %.pre.i = load i32, ptr %12, align 4
   br label %91
 
@@ -2299,7 +2299,7 @@ declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @iax_lookup_call(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc ptr @iax_lookup_call(ptr noundef %0, i32 noundef range(i32 0, 32768) %1, i32 noundef range(i32 0, 32768) %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 208
   %6 = getelementptr inbounds i8, ptr %0, i64 280
   %7 = load i32, ptr %6, align 8
@@ -2525,7 +2525,7 @@ iax_lookup_call_from_dest.exit:                   ; preds = %.lr.ph.i54.i, %.lr.
 declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @iax2_add_ts_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @iax2_add_ts_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 3) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.nstime_t, align 8
   %8 = alloca %struct.nstime_t, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 8
@@ -2537,99 +2537,96 @@ define internal fastcc void @iax2_add_ts_fields(ptr noundef %0, ptr noundef %1, 
   %13 = getelementptr inbounds i8, ptr %3, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, -1
-  br i1 %15, label %16, label %37
+  br i1 %15, label %16, label %35
 
 16:                                               ; preds = %12
-  switch i32 %4, label %default.unreachable [
-    i32 0, label %17
+  %17 = getelementptr inbounds i8, ptr %10, i64 72
+  switch i32 %4, label %default.unreachable30 [
+    i32 0, label %18
     i32 1, label %22
-    i32 3, label %22
-    i32 2, label %24
+    i32 2, label %23
   ]
 
-17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %10, i64 72
-  %19 = load i32, ptr %18, align 8
+18:                                               ; preds = %16
+  %19 = load i32, ptr %17, align 8
   %20 = and i32 %19, -65536
   %21 = or i32 %20, %5
-  br label %29
+  br label %27
 
-22:                                               ; preds = %16, %16
-  %23 = getelementptr inbounds i8, ptr %10, i64 72
-  store i32 %5, ptr %23, align 8
+22:                                               ; preds = %16
+  store i32 %5, ptr %17, align 8
   %.pre = load ptr, ptr %9, align 8
-  br label %29
+  br label %27
 
-24:                                               ; preds = %16
-  %25 = getelementptr inbounds i8, ptr %10, i64 72
-  %26 = load i32, ptr %25, align 8
-  %27 = and i32 %26, -32768
-  %28 = or i32 %27, %5
-  br label %29
+23:                                               ; preds = %16
+  %24 = load i32, ptr %17, align 8
+  %25 = and i32 %24, -32768
+  %26 = or i32 %25, %5
+  br label %27
 
-default.unreachable:                              ; preds = %16
+default.unreachable30:                            ; preds = %16
   unreachable
 
-29:                                               ; preds = %24, %22, %17
-  %30 = phi ptr [ %10, %24 ], [ %.pre, %22 ], [ %10, %17 ]
-  %.0 = phi i32 [ %28, %24 ], [ %5, %22 ], [ %21, %17 ]
-  %31 = udiv i32 %.0, 1000
-  %32 = zext nneg i32 %31 to i64
-  store i64 %32, ptr %8, align 8
-  %33 = urem i32 %.0, 1000
-  %34 = mul nuw nsw i32 %33, 1000000
-  %35 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %30, i64 56
-  call void @nstime_sum(ptr noundef nonnull %13, ptr noundef nonnull %36, ptr noundef nonnull %8) #13
-  br label %37
+27:                                               ; preds = %23, %22, %18
+  %28 = phi ptr [ %10, %23 ], [ %.pre, %22 ], [ %10, %18 ]
+  %.0 = phi i32 [ %26, %23 ], [ %5, %22 ], [ %21, %18 ]
+  %29 = udiv i32 %.0, 1000
+  %30 = zext nneg i32 %29 to i64
+  store i64 %30, ptr %8, align 8
+  %31 = urem i32 %.0, 1000
+  %32 = mul nuw nsw i32 %31, 1000000
+  %33 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %32, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %28, i64 56
+  call void @nstime_sum(ptr noundef nonnull %13, ptr noundef nonnull %34, ptr noundef nonnull %8) #13
+  br label %35
 
-37:                                               ; preds = %29, %12
+35:                                               ; preds = %27, %12
   store i32 %5, ptr getelementptr inbounds (i8, ptr @ii_arr, i64 12), align 4
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %proto_item_set_generated.exit29, label %38
+  br i1 %.not, label %proto_item_set_generated.exit29, label %36
 
-38:                                               ; preds = %37
-  %39 = load i32, ptr @hf_iax2_absts, align 4
-  %40 = call ptr @proto_tree_add_time(ptr noundef nonnull %1, i32 noundef %39, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %13) #13
-  %.not.i = icmp eq ptr %40, null
-  br i1 %.not.i, label %proto_item_set_generated.exit, label %41
+36:                                               ; preds = %35
+  %37 = load i32, ptr @hf_iax2_absts, align 4
+  %38 = call ptr @proto_tree_add_time(ptr noundef nonnull %1, i32 noundef %37, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %13) #13
+  %.not.i = icmp eq ptr %38, null
+  br i1 %.not.i, label %proto_item_set_generated.exit, label %39
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %40, i64 32
-  %43 = load ptr, ptr %42, align 8
-  %.not5.i = icmp eq ptr %43, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %44
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds i8, ptr %38, i64 32
+  %41 = load ptr, ptr %40, align 8
+  %.not5.i = icmp eq ptr %41, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %42
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %43, i64 28
-  %46 = load i32, ptr %45, align 4
-  %47 = or i32 %46, 2
-  store i32 %47, ptr %45, align 4
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds i8, ptr %41, i64 28
+  %44 = load i32, ptr %43, align 4
+  %45 = or i32 %44, 2
+  store i32 %45, ptr %43, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %38, %41, %44
-  %48 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @nstime_delta(ptr noundef nonnull %7, ptr noundef nonnull %48, ptr noundef nonnull %13) #13
-  %49 = load i32, ptr @hf_iax2_lateness, align 4
-  %50 = call ptr @proto_tree_add_time(ptr noundef nonnull %1, i32 noundef %49, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #13
-  %.not.i27 = icmp eq ptr %50, null
-  br i1 %.not.i27, label %proto_item_set_generated.exit29, label %51
+proto_item_set_generated.exit:                    ; preds = %36, %39, %42
+  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  call void @nstime_delta(ptr noundef nonnull %7, ptr noundef nonnull %46, ptr noundef nonnull %13) #13
+  %47 = load i32, ptr @hf_iax2_lateness, align 4
+  %48 = call ptr @proto_tree_add_time(ptr noundef nonnull %1, i32 noundef %47, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #13
+  %.not.i27 = icmp eq ptr %48, null
+  br i1 %.not.i27, label %proto_item_set_generated.exit29, label %49
 
-51:                                               ; preds = %proto_item_set_generated.exit
-  %52 = getelementptr inbounds i8, ptr %50, i64 32
-  %53 = load ptr, ptr %52, align 8
-  %.not5.i28 = icmp eq ptr %53, null
-  br i1 %.not5.i28, label %proto_item_set_generated.exit29, label %54
+49:                                               ; preds = %proto_item_set_generated.exit
+  %50 = getelementptr inbounds i8, ptr %48, i64 32
+  %51 = load ptr, ptr %50, align 8
+  %.not5.i28 = icmp eq ptr %51, null
+  br i1 %.not5.i28, label %proto_item_set_generated.exit29, label %52
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %53, i64 28
-  %56 = load i32, ptr %55, align 4
-  %57 = or i32 %56, 2
-  store i32 %57, ptr %55, align 4
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds i8, ptr %51, i64 28
+  %54 = load i32, ptr %53, align 4
+  %55 = or i32 %54, 2
+  store i32 %55, ptr %53, align 4
   br label %proto_item_set_generated.exit29
 
-proto_item_set_generated.exit29:                  ; preds = %54, %51, %proto_item_set_generated.exit, %6, %37
+proto_item_set_generated.exit29:                  ; preds = %52, %49, %proto_item_set_generated.exit, %6, %35
   ret void
 }
 
@@ -2695,7 +2692,7 @@ define internal fastcc range(i32 -1, 64) i32 @uncompress_subclass(i8 noundef zer
 declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_payload(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
+define internal fastcc void @dissect_payload(ptr noundef %0, i32 noundef range(i32 4, 15) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
   %8 = alloca %struct._iax2_dissector_info_t, align 4
   %9 = alloca %struct._iax2_dissector_info_t, align 4
   %10 = alloca ptr, align 8
@@ -3262,7 +3259,7 @@ declare i32 @dissector_try_uint(ptr noundef, i32 noundef, ptr noundef, ptr nound
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @iax2_get_packet_data_for_minipacket(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @iax2_get_packet_data_for_minipacket(ptr noundef %0, i16 noundef zeroext range(i16 0, -32768) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @wmem_file_scope() #13
   %6 = load i32, ptr @proto_iax2, align 4
@@ -3272,7 +3269,7 @@ define internal fastcc ptr @iax2_get_packet_data_for_minipacket(ptr noundef %0, 
 
 8:                                                ; preds = %3
   %9 = zext nneg i16 %1 to i32
-  %10 = call fastcc ptr @iax_lookup_call(ptr noundef %0, i32 noundef %9, i32 noundef 0, ptr noundef nonnull %4)
+  %10 = call fastcc ptr @iax_lookup_call(ptr noundef %0, i32 noundef %9, i32 noundef 0, ptr noundef %4)
   %11 = load i32, ptr %4, align 4
   %12 = tail call ptr @wmem_file_scope() #13
   %13 = tail call noalias ptr @wmem_alloc(ptr noundef %12, i64 noundef 40) #13

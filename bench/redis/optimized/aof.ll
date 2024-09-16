@@ -5740,7 +5740,7 @@ declare i32 @hashTypeNext(ptr noundef) local_unnamed_addr #2
 declare void @hashTypeReleaseIterator(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rioWriteHashIteratorCursor(ptr noundef %r, ptr noundef %hi, i32 noundef %what) unnamed_addr #0 {
+define internal fastcc i32 @rioWriteHashIteratorCursor(ptr noundef %r, ptr noundef %hi, i32 noundef range(i32 1, 3) %what) unnamed_addr #0 {
 entry:
   %vstr = alloca ptr, align 8
   %vlen = alloca i32, align 4

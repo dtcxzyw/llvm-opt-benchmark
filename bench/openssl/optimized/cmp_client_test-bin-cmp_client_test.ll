@@ -324,7 +324,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %expected.i = getelementptr inbounds i8, ptr %call.i, i64 28
   store i32 0, ptr %expected.i, align 4
-  %call7.i = tail call fastcc i32 @execute_exec_RR_ses_test(ptr noundef nonnull %call.i)
+  %call7.i = tail call fastcc i32 @execute_exec_RR_ses_test(ptr noundef %call.i)
   %cmp_ctx.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %cmp_ctx.i.i, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %0) #4
@@ -364,7 +364,7 @@ if.end:                                           ; preds = %entry
   %call3 = tail call i32 @ossl_cmp_mock_srv_set_sendError(ptr noundef %1, i32 noundef 11) #4
   %expected = getelementptr inbounds i8, ptr %call, i64 28
   store i32 2, ptr %expected, align 4
-  %call6 = tail call fastcc i32 @execute_exec_RR_ses_test(ptr noundef nonnull %call)
+  %call6 = tail call fastcc i32 @execute_exec_RR_ses_test(ptr noundef %call)
   %cmp_ctx.i = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load ptr, ptr %cmp_ctx.i, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %2) #4
@@ -441,7 +441,7 @@ if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %srv_ctx, align 8
   %4 = load ptr, ptr %caPubs, align 8
   %call11 = tail call i32 @ossl_cmp_mock_srv_set1_caPubsOut(ptr noundef %3, ptr noundef %4) #4
-  %call14 = tail call fastcc i32 @execute_exec_certrequest_ses_test(ptr noundef nonnull %call)
+  %call14 = tail call fastcc i32 @execute_exec_certrequest_ses_test(ptr noundef %call)
   %cmp_ctx.i = getelementptr inbounds i8, ptr %call, i64 8
   %5 = load ptr, ptr %cmp_ctx.i, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %5) #4
@@ -490,7 +490,7 @@ if.end.i:                                         ; preds = %entry
   store i32 7, ptr %req_type.i, align 8
   %expected.i = getelementptr inbounds i8, ptr %call.i, i64 28
   store i32 0, ptr %expected.i, align 4
-  %call27.i = tail call fastcc i32 @execute_exec_certrequest_ses_test(ptr noundef nonnull %call.i)
+  %call27.i = tail call fastcc i32 @execute_exec_certrequest_ses_test(ptr noundef %call.i)
   %cmp_ctx.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %cmp_ctx.i.i, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %0) #4
@@ -795,7 +795,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_exec_RR_ses(i32 noundef %request_error) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_exec_RR_ses(i32 noundef range(i32 0, 2) %request_error) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @__func__.test_exec_RR_ses)
   %cmp = icmp eq ptr %call, null
@@ -815,7 +815,7 @@ if.end3:                                          ; preds = %if.then1, %if.end
   %cond = phi i32 [ -3, %if.then1 ], [ 0, %if.end ]
   %expected = getelementptr inbounds i8, ptr %call, i64 28
   store i32 %cond, ptr %expected, align 4
-  %call7 = tail call fastcc i32 @execute_exec_RR_ses_test(ptr noundef nonnull %call)
+  %call7 = tail call fastcc i32 @execute_exec_RR_ses_test(ptr noundef %call)
   %cmp_ctx.i = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %cmp_ctx.i, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %1) #4
@@ -973,7 +973,7 @@ return:                                           ; preds = %entry, %err, %if.en
 declare i32 @OSSL_CMP_CTX_set1_oldCert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @execute_exec_RR_ses_test(ptr nocapture noundef readonly %fixt) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @execute_exec_RR_ses_test(ptr nocapture noundef nonnull readonly %fixt) unnamed_addr #0 {
 entry:
   %cmp_ctx = getelementptr inbounds i8, ptr %fixt, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8
@@ -1058,7 +1058,7 @@ declare i32 @ossl_cmp_mock_srv_set_statusInfo(ptr noundef, i32 noundef, i32 noun
 declare i32 @ossl_cmp_mock_srv_set_sendError(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_exec_CR_ses(i32 noundef %implicit_confirm, i32 noundef %granted, i32 noundef %reject) unnamed_addr #0 {
+define internal fastcc i32 @test_exec_CR_ses(i32 noundef range(i32 0, 2) %implicit_confirm, i32 noundef range(i32 0, 2) %granted, i32 noundef range(i32 0, 2) %reject) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @__func__.test_exec_CR_ses)
   %cmp = icmp eq ptr %call, null
@@ -1080,7 +1080,7 @@ if.end:                                           ; preds = %entry
   %cond6 = select i1 %tobool.not, i32 0, i32 2
   %expected = getelementptr inbounds i8, ptr %call, i64 28
   store i32 %cond6, ptr %expected, align 4
-  %call9 = tail call fastcc i32 @execute_exec_certrequest_ses_test(ptr noundef nonnull %call)
+  %call9 = tail call fastcc i32 @execute_exec_certrequest_ses_test(ptr noundef %call)
   %3 = load ptr, ptr %cmp_ctx, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %3) #4
   %4 = load ptr, ptr %srv_ctx, align 8
@@ -1099,7 +1099,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @OSSL_CMP_SRV_CTX_set_grant_implicit_confirm(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_exec_certrequest_ses_test(ptr nocapture noundef readonly %fixture) unnamed_addr #0 {
+define internal fastcc i32 @execute_exec_certrequest_ses_test(ptr nocapture noundef nonnull readonly %fixture) unnamed_addr #0 {
 entry:
   %cmp_ctx = getelementptr inbounds i8, ptr %fixture, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8
@@ -1186,7 +1186,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_cmp_mock_srv_set1_caPubsOut(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_exec_IR_ses_poll(i32 noundef %check_after, i32 noundef %poll_count, i32 noundef %total_timeout, i32 noundef %expect) unnamed_addr #0 {
+define internal fastcc i32 @test_exec_IR_ses_poll(i32 noundef range(i32 1, 3) %check_after, i32 noundef range(i32 1, 3) %poll_count, i32 noundef range(i32 0, 3) %total_timeout, i32 noundef range(i32 0, 4) %expect) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @__func__.test_exec_IR_ses_poll)
   %cmp = icmp eq ptr %call, null
@@ -1205,7 +1205,7 @@ if.end:                                           ; preds = %entry
   %cmp_ctx = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load ptr, ptr %cmp_ctx, align 8
   %call4 = tail call i32 @OSSL_CMP_CTX_set_option(ptr noundef %2, i32 noundef 12, i32 noundef %total_timeout) #4
-  %call7 = tail call fastcc i32 @execute_exec_certrequest_ses_test(ptr noundef nonnull %call)
+  %call7 = tail call fastcc i32 @execute_exec_certrequest_ses_test(ptr noundef %call)
   %3 = load ptr, ptr %cmp_ctx, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %3) #4
   %4 = load ptr, ptr %srv_ctx, align 8
@@ -1226,7 +1226,7 @@ declare i32 @ossl_cmp_mock_srv_set_checkAfterTime(ptr noundef, i32 noundef) loca
 declare i32 @ossl_cmp_mock_srv_set_pollCount(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_exec_KUR_ses(i32 noundef %transfer_error, i32 noundef %pubkey, i32 noundef %raverified) unnamed_addr #0 {
+define internal fastcc i32 @test_exec_KUR_ses(i32 noundef range(i32 0, 2) %transfer_error, i32 noundef range(i32 0, 2) %pubkey, i32 noundef range(i32 0, 2) %raverified) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @__func__.test_exec_KUR_ses)
   %cmp = icmp eq ptr %call, null
@@ -1279,7 +1279,7 @@ if.end17:                                         ; preds = %if.end11, %if.then1
   %cond24 = select i1 %tobool.not, i32 %cond22, i32 -2
   %expected = getelementptr inbounds i8, ptr %call, i64 28
   store i32 %cond24, ptr %expected, align 4
-  %call27 = tail call fastcc i32 @execute_exec_certrequest_ses_test(ptr noundef nonnull %call)
+  %call27 = tail call fastcc i32 @execute_exec_certrequest_ses_test(ptr noundef %call)
   %cmp_ctx.i = getelementptr inbounds i8, ptr %call, i64 8
   %7 = load ptr, ptr %cmp_ctx.i, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %7) #4
@@ -1304,7 +1304,7 @@ declare i32 @OSSL_CMP_CTX_set0_newPkey(ptr noundef, i32 noundef, ptr noundef) lo
 declare i32 @OSSL_CMP_SRV_CTX_set_accept_raverified(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_exec_P10CR_ses(i32 noundef %reject) unnamed_addr #0 {
+define internal fastcc i32 @test_exec_P10CR_ses(i32 noundef range(i32 0, 2) %reject) unnamed_addr #0 {
 entry:
   %reject.addr = alloca i32, align 4
   store i32 %reject, ptr %reject.addr, align 4
@@ -1367,7 +1367,7 @@ if.end21.thread:                                  ; preds = %if.end, %lor.lhs.fa
 
 if.then24:                                        ; preds = %lor.lhs.false14
   call void @X509_REQ_free(ptr noundef %call1) #4
-  %call25 = call fastcc i32 @execute_exec_certrequest_ses_test(ptr noundef nonnull %call)
+  %call25 = call fastcc i32 @execute_exec_certrequest_ses_test(ptr noundef %call)
   %6 = load ptr, ptr %cmp_ctx, align 8
   call void @OSSL_CMP_CTX_free(ptr noundef %6) #4
   %srv_ctx.i12 = getelementptr inbounds i8, ptr %call, i64 16
@@ -1422,7 +1422,7 @@ declare i32 @test_ptr_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 declare ptr @OSSL_CMP_CTX_get0_newCert(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_exec_GENM_ses(i32 noundef %transfer_error, i32 noundef %total_timeout, i32 noundef %expect) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_exec_GENM_ses(i32 noundef range(i32 0, 2) %transfer_error, i32 noundef range(i32 -1, 1) %total_timeout, i32 noundef range(i32 -2, 1) %expect) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @__func__.test_exec_GENM_ses)
   %cmp = icmp eq ptr %call, null
@@ -1445,7 +1445,7 @@ if.end3:                                          ; preds = %if.then1, %if.end
   store i32 %total_timeout, ptr %total_timeout5, align 8
   %expected = getelementptr inbounds i8, ptr %call, i64 28
   store i32 %expect, ptr %expected, align 4
-  %call.i = tail call fastcc i32 @execute_exec_GENM_ses_test_single(ptr noundef nonnull readonly %call)
+  %call.i = tail call fastcc i32 @execute_exec_GENM_ses_test_single(ptr noundef readonly %call)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %execute_exec_GENM_ses_test.exit, label %land.lhs.true.i
 
@@ -1456,7 +1456,7 @@ land.lhs.true.i:                                  ; preds = %if.end3
   br i1 %tobool2.not.i, label %execute_exec_GENM_ses_test.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %call3.i = tail call fastcc i32 @execute_exec_GENM_ses_test_single(ptr noundef nonnull readonly %call)
+  %call3.i = tail call fastcc i32 @execute_exec_GENM_ses_test_single(ptr noundef readonly %call)
   %tobool4.i = icmp ne i32 %call3.i, 0
   %3 = zext i1 %tobool4.i to i32
   br label %execute_exec_GENM_ses_test.exit
@@ -1480,7 +1480,7 @@ return:                                           ; preds = %entry, %execute_exe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_exec_GENM_ses_test_single(ptr nocapture noundef readonly %fixture) unnamed_addr #0 {
+define internal fastcc i32 @execute_exec_GENM_ses_test_single(ptr nocapture noundef nonnull readonly %fixture) unnamed_addr #0 {
 entry:
   %cmp_ctx = getelementptr inbounds i8, ptr %fixture, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8

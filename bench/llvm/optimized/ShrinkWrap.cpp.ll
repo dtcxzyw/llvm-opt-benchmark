@@ -2479,7 +2479,7 @@ _ZN12_GLOBAL__N_110ShrinkWrap24checkIfRestoreSplittableEPKN4llvm17MachineBasicBl
   %858 = load ptr, ptr %857, align 8
   call void @_ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj2EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %12)
   %859 = load ptr, ptr %77, align 8
-  %860 = call fastcc noundef ptr @_ZL8FindIDomIN4llvm11SmallVectorIPNS0_17MachineBasicBlockELj2EEENS0_20MachineDominatorTreeEES3_RS2_T_RT0_b(ptr noundef nonnull align 8 dereferenceable(288) %858, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(1200) %859)
+  %860 = call fastcc noundef ptr @_ZL8FindIDomIN4llvm11SmallVectorIPNS0_17MachineBasicBlockELj2EEENS0_20MachineDominatorTreeEES3_RS2_T_RT0_b(ptr noundef nonnull align 8 dereferenceable(288) %858, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(1200) %859)
   call void @_ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj2EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #18
   %.not70210.i = icmp eq ptr %860, null
   br i1 %.not70210.i, label %.critedge.i39, label %.lr.ph214.i
@@ -2597,7 +2597,7 @@ _ZL8FindIDomIN4llvm14iterator_rangeIPPNS0_17MachineBasicBlockEEENS0_20MachineDom
 913:                                              ; preds = %.critedge.i39
   %914 = load ptr, ptr %13, align 8
   %915 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #18
-  %916 = call fastcc noundef zeroext i1 @_ZL27isSaveReachableThroughCleanPKN4llvm17MachineBasicBlockENS_8ArrayRefIPS0_EE(ptr noundef nonnull %.069.lcssa.i, ptr %914, i64 %915)
+  %916 = call fastcc noundef zeroext i1 @_ZL27isSaveReachableThroughCleanPKN4llvm17MachineBasicBlockENS_8ArrayRefIPS0_EE(ptr noundef %.069.lcssa.i, ptr %914, i64 %915)
   br i1 %916, label %_ZN12_GLOBAL__N_110ShrinkWrap24checkIfRestoreSplittableEPKN4llvm17MachineBasicBlockERKNS1_8DenseSetIS4_NS1_12DenseMapInfoIS4_vEEEERNS1_15SmallVectorImplIPS2_EESE_PKNS1_15TargetInstrInfoEPNS1_12RegScavengerE.exit.thread.i, label %917
 
 917:                                              ; preds = %913
@@ -2610,7 +2610,7 @@ _ZL8FindIDomIN4llvm14iterator_rangeIPPNS0_17MachineBasicBlockEEENS0_20MachineDom
 922:                                              ; preds = %917
   %923 = load ptr, ptr %12, align 8
   %924 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
-  %925 = call fastcc noundef ptr @_ZL17tryToSplitRestorePN4llvm17MachineBasicBlockENS_8ArrayRefIS1_EEPKNS_15TargetInstrInfoE(ptr noundef nonnull %.067.i, ptr %923, i64 %924, ptr noundef %778)
+  %925 = call fastcc noundef ptr @_ZL17tryToSplitRestorePN4llvm17MachineBasicBlockENS_8ArrayRefIS1_EEPKNS_15TargetInstrInfoE(ptr noundef %.067.i, ptr %923, i64 %924, ptr noundef %778)
   %926 = load ptr, ptr %911, align 8
   %927 = getelementptr inbounds i8, ptr %926, i64 328
   %928 = load ptr, ptr %927, align 8
@@ -2620,7 +2620,7 @@ _ZL8FindIDomIN4llvm14iterator_rangeIPPNS0_17MachineBasicBlockEEENS0_20MachineDom
 930:                                              ; preds = %922
   %931 = load ptr, ptr %12, align 8
   %932 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
-  call fastcc void @_ZL20rollbackRestoreSplitRN4llvm15MachineFunctionEPNS_17MachineBasicBlockES3_NS_8ArrayRefIS3_EEPKNS_15TargetInstrInfoE(ptr noundef %925, ptr noundef nonnull %.067.i, ptr %931, i64 %932, ptr noundef %778)
+  call fastcc void @_ZL20rollbackRestoreSplitRN4llvm15MachineFunctionEPNS_17MachineBasicBlockES3_NS_8ArrayRefIS3_EEPKNS_15TargetInstrInfoE(ptr noundef %925, ptr noundef %.067.i, ptr %931, i64 %932, ptr noundef %778)
   br label %_ZN12_GLOBAL__N_110ShrinkWrap24checkIfRestoreSplittableEPKN4llvm17MachineBasicBlockERKNS1_8DenseSetIS4_NS1_12DenseMapInfoIS4_vEEEERNS1_15SmallVectorImplIPS2_EESE_PKNS1_15TargetInstrInfoEPNS1_12RegScavengerE.exit.thread.i
 
 933:                                              ; preds = %922
@@ -6868,7 +6868,7 @@ _ZN4llvm15SmallVectorImplIPNS_17MachineBasicBlockEED2Ev.exit: ; preds = %1, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL27isSaveReachableThroughCleanPKN4llvm17MachineBasicBlockENS_8ArrayRefIPS0_EE(ptr noundef readnone %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL27isSaveReachableThroughCleanPKN4llvm17MachineBasicBlockENS_8ArrayRefIPS0_EE(ptr noundef nonnull readnone %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::DenseSet.483", align 8
   %5 = alloca %"class.llvm::SmallVector.190", align 8
   %6 = alloca ptr, align 8
@@ -6991,7 +6991,7 @@ _ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj4EED2Ev.exit: ; preds = %._crit_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL17tryToSplitRestorePN4llvm17MachineBasicBlockENS_8ArrayRefIS1_EEPKNS_15TargetInstrInfoE(ptr noundef %0, ptr readonly %1, i64 %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL17tryToSplitRestorePN4llvm17MachineBasicBlockENS_8ArrayRefIS1_EEPKNS_15TargetInstrInfoE(ptr noundef nonnull %0, ptr readonly %1, i64 %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::DebugLoc", align 8
   %6 = alloca %"class.llvm::SmallPtrSet.412", align 8
   %7 = alloca %"class.llvm::DebugLoc", align 8
@@ -7291,7 +7291,7 @@ _ZN4llvm11SmallPtrSetIPNS_17MachineBasicBlockELj8EED2Ev.exit: ; preds = %._crit_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20rollbackRestoreSplitRN4llvm15MachineFunctionEPNS_17MachineBasicBlockES3_NS_8ArrayRefIS3_EEPKNS_15TargetInstrInfoE(ptr noundef %0, ptr noundef %1, ptr readonly %2, i64 %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL20rollbackRestoreSplitRN4llvm15MachineFunctionEPNS_17MachineBasicBlockES3_NS_8ArrayRefIS3_EEPKNS_15TargetInstrInfoE(ptr noundef %0, ptr noundef nonnull %1, ptr readonly %2, i64 %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::DebugLoc", align 8
   %7 = alloca %"class.llvm::SmallPtrSet.412", align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -7309,7 +7309,7 @@ define internal fastcc void @_ZL20rollbackRestoreSplitRN4llvm15MachineFunctionEP
   br i1 %.not13, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %5
-  call void @_ZN4llvm17MachineBasicBlock15removeSuccessorEPS0_b(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %1, i1 noundef zeroext false) #18
+  call void @_ZN4llvm17MachineBasicBlock15removeSuccessorEPS0_b(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull %1, i1 noundef zeroext false) #18
   br label %._crit_edge19
 
 .lr.ph:                                           ; preds = %5, %_ZN4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE6insertES2_.exit
@@ -7364,13 +7364,13 @@ _ZN4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE6insertES2_.exit: ; preds = %
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE6insertES2_.exit
-  call void @_ZN4llvm17MachineBasicBlock15removeSuccessorEPS0_b(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %1, i1 noundef zeroext false) #18
+  call void @_ZN4llvm17MachineBasicBlock15removeSuccessorEPS0_b(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull %1, i1 noundef zeroext false) #18
   br label %.lr.ph18
 
 .lr.ph18:                                         ; preds = %._crit_edge, %.lr.ph18
   %.03116 = phi ptr [ %37, %.lr.ph18 ], [ %2, %._crit_edge ]
   %36 = load ptr, ptr %.03116, align 8
-  call void @_ZN4llvm17MachineBasicBlock22ReplaceUsesOfBlockWithEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(288) %36, ptr noundef nonnull %0, ptr noundef %1) #18
+  call void @_ZN4llvm17MachineBasicBlock22ReplaceUsesOfBlockWithEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(288) %36, ptr noundef nonnull %0, ptr noundef nonnull %1) #18
   %37 = getelementptr inbounds i8, ptr %.03116, i64 8
   %.not32 = icmp eq ptr %37, %13
   br i1 %.not32, label %._crit_edge19, label %.lr.ph18
@@ -7440,14 +7440,14 @@ _ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5beginEv.exit: ; preds = %.l
   %59 = load ptr, ptr %.sroa.01.021, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @_ZN4llvm17MachineBasicBlock18findBranchDebugLocEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::DebugLoc") align 8 %6, ptr noundef nonnull align 8 dereferenceable(288) %59) #18
-  %60 = call noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock17isLayoutSuccessorEPKS0_(ptr noundef nonnull align 8 dereferenceable(288) %59, ptr noundef %1) #18
+  %60 = call noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock17isLayoutSuccessorEPKS0_(ptr noundef nonnull align 8 dereferenceable(288) %59, ptr noundef nonnull %1) #18
   br i1 %60, label %66, label %61
 
 61:                                               ; preds = %.lr.ph22
   %62 = load ptr, ptr %4, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 280
   %64 = load ptr, ptr %63, align 8
-  %65 = call noundef i32 %64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(288) %59, ptr noundef %1, ptr noundef null, ptr null, i64 0, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef null) #18
+  %65 = call noundef i32 %64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(288) %59, ptr noundef nonnull %1, ptr noundef null, ptr null, i64 0, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef null) #18
   br label %66
 
 66:                                               ; preds = %61, %.lr.ph22

@@ -251,7 +251,7 @@ declare dso_local i32 @kobject_uevent(ptr noundef, i32 noundef) local_unnamed_ad
 declare dso_local ptr @xa_find(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @blk_mq_register_hctx(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc i32 @blk_mq_register_hctx(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 254
   %3 = load i16, ptr %2, align 2
   %4 = icmp eq i16 %3, 0

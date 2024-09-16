@@ -5596,7 +5596,7 @@ _ZN4llvm3vfs18directory_iteratorD2Ev.exit:        ; preds = %_ZN4llvm3vfs18direc
 
 199:                                              ; preds = %_ZN4llvm3vfs18directory_iteratorD2Ev.exit
   call void @_ZNK4llvm11SmallStringILj256EEcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %18, ptr noundef nonnull align 8 dereferenceable(280) %6)
-  call fastcc void @_ZSt11make_sharedIN12_GLOBAL__N_129RedirectingFSDirRemapIterImplEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN4llvm3vfs18directory_iteratorEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(16) %11)
+  call fastcc void @_ZSt11make_sharedIN12_GLOBAL__N_129RedirectingFSDirRemapIterImplEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN4llvm3vfs18directory_iteratorEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(16) %11)
   %200 = load ptr, ptr %17, align 8
   store ptr %200, ptr %16, align 8
   %201 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -5894,7 +5894,7 @@ _ZNSt10shared_ptrIN4llvm3vfs24RedirectingFSDirIterImplEED2Ev.exit: ; preds = %_Z
   %.133 = select i1 %switch, ptr %11, ptr %21
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_3vfs18directory_iteratorELb0EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %.)
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_3vfs18directory_iteratorELb0EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %.133)
-  call fastcc void @_ZSt11make_sharedIN12_GLOBAL__N_120CombiningDirIterImplEJRN4llvm11SmallVectorINS2_3vfs18directory_iteratorELj2EEERSt10error_codeEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  call fastcc void @_ZSt11make_sharedIN12_GLOBAL__N_120CombiningDirIterImplEJRN4llvm11SmallVectorINS2_3vfs18directory_iteratorELj2EEERSt10error_codeEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %338 = load ptr, ptr %27, align 8
   store ptr %338, ptr %26, align 8
   %339 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -6681,7 +6681,7 @@ _ZNSt10shared_ptrIN4llvm3vfs6detail11DirIterImplEEaSEOS4_.exit: ; preds = %2, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_sharedIN12_GLOBAL__N_129RedirectingFSDirRemapIterImplEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN4llvm3vfs18directory_iteratorEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_sharedIN12_GLOBAL__N_129RedirectingFSDirRemapIterImplEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN4llvm3vfs18directory_iteratorEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr null, ptr %0, align 8
@@ -6987,7 +6987,7 @@ _ZN4llvm3vfs18directory_iteratorC2ERKS1_.exit:    ; preds = %2, %14, %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_sharedIN12_GLOBAL__N_120CombiningDirIterImplEJRN4llvm11SmallVectorINS2_3vfs18directory_iteratorELj2EEERSt10error_codeEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_sharedIN12_GLOBAL__N_120CombiningDirIterImplEJRN4llvm11SmallVectorINS2_3vfs18directory_iteratorELj2EEERSt10error_codeEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #30, !noalias !162
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -9594,7 +9594,7 @@ _ZN4llvm11SmallStringILj256EED2Ev.exit:           ; preds = %42, %38, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112canonicalizeEN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112canonicalizeEN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::StringRef", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr %1, ptr %4, align 8
@@ -9965,7 +9965,7 @@ _ZN4llvm3vfs21RedirectingFileSystem12LookupResultD2Ev.exit: ; preds = %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23getRedirectedFileStatusRKN4llvm5TwineEbNS_3vfs6StatusE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL23getRedirectedFileStatusRKN4llvm5TwineEbNS_3vfs6StatusE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i1 noundef zeroext %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::vfs::Status", align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %7 = load i8, ptr %6, align 8
@@ -11121,9 +11121,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_119FileWithFixedStatusESt14default_deleteIS1_EED
   %214 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %215 = getelementptr inbounds nuw i8, ptr %19, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %214, ptr noundef nonnull align 8 dereferenceable(49) %215, i64 49, i1 false)
-  call fastcc void @_ZL23getRedirectedFileStatusRKN4llvm5TwineEbNS_3vfs6StatusE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(34) %2, i1 noundef zeroext %213, ptr noundef nonnull %21)
+  call fastcc void @_ZL23getRedirectedFileStatusRKN4llvm5TwineEbNS_3vfs6StatusE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(34) %2, i1 noundef zeroext %213, ptr noundef %21)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #27
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_119FileWithFixedStatusEJSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS5_EERNS4_6StatusEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(81) %20)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_119FileWithFixedStatusEJSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS5_EERNS4_6StatusEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(81) %20)
   %216 = load ptr, ptr %22, align 8
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %218 = load i8, ptr %217, align 8
@@ -11214,7 +11214,7 @@ _ZN4llvm11SmallStringILj256EED2Ev.exit82:         ; preds = %.critedge, %252
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_119FileWithFixedStatusEJSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS5_EERNS4_6StatusEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(81) %2) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_119FileWithFixedStatusEJSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS5_EERNS4_6StatusEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(81) %2) unnamed_addr #0 {
 _ZNSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS2_EED2Ev.exit:
   %3 = alloca %"class.llvm::vfs::Status", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #30
@@ -18731,7 +18731,7 @@ _ZN4llvm16DenseMapIteratorINS_9StringRefENS_3vfs27RedirectingFileSystemParser9Ke
   %389 = call { i32, ptr } @_ZNK4llvm3vfs21RedirectingFileSystem12makeAbsoluteENS_9StringRefERNS_15SmallVectorImplIcEE(ptr nonnull align 8 poison, ptr %387, i64 %388, ptr noundef nonnull align 8 dereferenceable(24) %21)
   %390 = load ptr, ptr %21, align 8
   %391 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %21) #27
-  call fastcc void @_ZN12_GLOBAL__N_112canonicalizeEN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %42, ptr %390, i64 %391)
+  call fastcc void @_ZN12_GLOBAL__N_112canonicalizeEN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %42, ptr %390, i64 %391)
   %392 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15SmallVectorImplIcEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %42)
   call void @_ZN4llvm11SmallStringILj256EED2Ev(ptr noundef nonnull align 8 dereferenceable(280) %42) #27
   br label %395
@@ -24347,7 +24347,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %55 = load i8, ptr %46, align 8
   %56 = and i8 %55, 1
   store i8 %56, ptr %48, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm3vfs12YAMLVFSEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_13YAMLVFSWriter5writeERNS2_11raw_ostreamEE3$_0EEEvT_T0_SI_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %42, ptr noundef nonnull %14)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm3vfs12YAMLVFSEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_13YAMLVFSWriter5writeERNS2_11raw_ostreamEE3$_0EEEvT_T0_SI_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %42, ptr noundef %14)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #27
   %.not.i.i.i = icmp eq i64 %.08.i.i.i, 0
@@ -24390,7 +24390,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %74 = load i8, ptr %59, align 8
   %75 = and i8 %74, 1
   store i8 %75, ptr %61, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm3vfs12YAMLVFSEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_13YAMLVFSWriter5writeERNS2_11raw_ostreamEE3$_0EEEvT_T0_SI_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %73, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm3vfs12YAMLVFSEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_13YAMLVFSWriter5writeERNS2_11raw_ostreamEE3$_0EEEvT_T0_SI_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %73, ptr noundef %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #27
@@ -24633,7 +24633,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm3vfs12YAMLVFSEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_13YAMLVFSWriter5writeERNS2_11raw_ostreamEE3$_0EEEvT_T0_SI_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm3vfs12YAMLVFSEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_13YAMLVFSWriter5writeERNS2_11raw_ostreamEE3$_0EEEvT_T0_SI_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"struct.llvm::vfs::YAMLVFSEntry", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

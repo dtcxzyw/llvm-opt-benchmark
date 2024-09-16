@@ -2230,7 +2230,7 @@ define dso_local noundef zeroext i1 @check_sql_fn_retval(ptr noundef readonly %0
   %60 = getelementptr i8, ptr %.0152, i64 16
   %.0152.val = load ptr, ptr %60, align 8
   %61 = load ptr, ptr %.0152.val, align 8
-  %62 = call fastcc zeroext i1 @coerce_fn_result_column(ptr noundef %61, i32 noundef %1, i32 noundef -1, i1 noundef zeroext %.0153, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %62 = call fastcc zeroext i1 @coerce_fn_result_column(ptr noundef %61, i32 noundef %1, i32 noundef -1, i1 noundef zeroext %.0153, ptr noundef %6, ptr noundef %7)
   br i1 %62, label %194, label %63
 
 63:                                               ; preds = %59
@@ -2261,7 +2261,7 @@ define dso_local noundef zeroext i1 @check_sql_fn_retval(ptr noundef readonly %0
   %79 = getelementptr i8, ptr %.0152, i64 16
   %.0152.val195 = load ptr, ptr %79, align 8
   %80 = load ptr, ptr %.0152.val195, align 8
-  %81 = call fastcc zeroext i1 @coerce_fn_result_column(ptr noundef %80, i32 noundef %1, i32 noundef -1, i1 noundef zeroext %.0153, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %81 = call fastcc zeroext i1 @coerce_fn_result_column(ptr noundef %80, i32 noundef %1, i32 noundef -1, i1 noundef zeroext %.0153, ptr noundef %6, ptr noundef %7)
   br i1 %81, label %194, label %82
 
 82:                                               ; preds = %78, %76
@@ -2427,7 +2427,7 @@ list_length.exit:                                 ; preds = %141, %143
   %158 = load i32, ptr %157, align 4
   %159 = getelementptr inbounds i8, ptr %.us-phi270, i64 80
   %160 = load i32, ptr %159, align 4
-  %161 = call fastcc zeroext i1 @coerce_fn_result_column(ptr noundef %114, i32 noundef %158, i32 noundef %160, i1 noundef zeroext %.0153, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %161 = call fastcc zeroext i1 @coerce_fn_result_column(ptr noundef %114, i32 noundef %158, i32 noundef %160, i1 noundef zeroext %.0153, ptr noundef %6, ptr noundef %7)
   br i1 %161, label %175, label %162
 
 162:                                              ; preds = %.split267.us
@@ -2616,7 +2616,7 @@ declare i32 @ExecCleanTargetListLength(ptr noundef) local_unnamed_addr #1
 declare signext i8 @get_typtype(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @coerce_fn_result_column(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @coerce_fn_result_column(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   br i1 %3, label %7, label %19
 
 7:                                                ; preds = %6

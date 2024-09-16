@@ -7664,7 +7664,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTab
   %.sroa.0.0.copyload = load i64, ptr %59, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  call fastcc void @_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE8iteratordeEv(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  call fastcc void @_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE8iteratordeEv(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %5)
   call void @_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_11ContextInfoEEC2EN4llvm12VersionTupleENS5_11SmallVectorISt4pairIS6_S3_ELj1EEE(ptr noundef nonnull align 8 dereferenceable(200) %0, i64 %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef nonnull %6)
   call void @_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %6) #17
   br label %60
@@ -8480,7 +8480,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTab
   %.sroa.0.0.copyload = load i64, ptr %59, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  call fastcc void @_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE8iteratordeEv(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  call fastcc void @_ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE8iteratordeEv(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %5)
   call void @_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_11ContextInfoEEC2EN4llvm12VersionTupleENS5_11SmallVectorISt4pairIS6_S3_ELj1EEE(ptr noundef nonnull align 8 dereferenceable(200) %0, i64 %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef nonnull %6)
   call void @_ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %6) #17
   br label %60

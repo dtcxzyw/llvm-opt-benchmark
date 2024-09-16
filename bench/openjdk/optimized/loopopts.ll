@@ -14669,7 +14669,7 @@ _ZN16Unique_Node_ListC2Ev.exit:                   ; preds = %771, %773
   %.val = load ptr, ptr %789, align 8
   %790 = getelementptr i8, ptr %788, i64 32
   %.val202 = load i32, ptr %790, align 8
-  call fastcc void @_ZL51collect_nodes_in_outer_loop_not_reachable_from_sfptP4NodePK13IdealLoopTreeS3_RK9Node_ListR16Unique_Node_ListP14PhaseIdealLoopb(ptr %.val, i32 %.val202, ptr noundef %3, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(68) %10, ptr noundef nonnull %0, i1 noundef zeroext true)
+  call fastcc void @_ZL51collect_nodes_in_outer_loop_not_reachable_from_sfptP4NodePK13IdealLoopTreeS3_RK9Node_ListR16Unique_Node_ListP14PhaseIdealLoopb(ptr %.val, i32 %.val202, ptr noundef %3, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(68) %10, ptr noundef %0, i1 noundef zeroext true)
   %indvars.iv.next380 = add nuw nsw i64 %indvars.iv379, 1
   %791 = load i32, ptr %779, align 8
   %792 = zext i32 %791 to i64
@@ -14685,7 +14685,7 @@ _ZN16Unique_Node_ListC2Ev.exit:                   ; preds = %771, %773
   %.val203 = load ptr, ptr %798, align 8
   %799 = getelementptr i8, ptr %797, i64 32
   %.val204 = load i32, ptr %799, align 8
-  call fastcc void @_ZL51collect_nodes_in_outer_loop_not_reachable_from_sfptP4NodePK13IdealLoopTreeS3_RK9Node_ListR16Unique_Node_ListP14PhaseIdealLoopb(ptr %.val203, i32 %.val204, ptr noundef nonnull %3, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(68) %10, ptr noundef nonnull %0, i1 noundef zeroext true)
+  call fastcc void @_ZL51collect_nodes_in_outer_loop_not_reachable_from_sfptP4NodePK13IdealLoopTreeS3_RK9Node_ListR16Unique_Node_ListP14PhaseIdealLoopb(ptr %.val203, i32 %.val204, ptr noundef nonnull %3, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(68) %10, ptr noundef %0, i1 noundef zeroext true)
   %indvars.iv.next384 = add nuw nsw i64 %indvars.iv383, 1
   %800 = load i32, ptr %782, align 8
   %801 = zext i32 %800 to i64
@@ -14704,7 +14704,7 @@ _ZN16Unique_Node_ListC2Ev.exit:                   ; preds = %771, %773
 809:                                              ; preds = %._crit_edge356
   %810 = getelementptr i8, ptr %805, i64 16
   %.val205 = load ptr, ptr %810, align 8
-  call fastcc void @_ZL51collect_nodes_in_outer_loop_not_reachable_from_sfptP4NodePK13IdealLoopTreeS3_RK9Node_ListR16Unique_Node_ListP14PhaseIdealLoopb(ptr %.val205, i32 %807, ptr noundef nonnull %3, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(68) %10, ptr noundef nonnull %0, i1 noundef zeroext true)
+  call fastcc void @_ZL51collect_nodes_in_outer_loop_not_reachable_from_sfptP4NodePK13IdealLoopTreeS3_RK9Node_ListR16Unique_Node_ListP14PhaseIdealLoopb(ptr %.val205, i32 %807, ptr noundef nonnull %3, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(68) %10, ptr noundef %0, i1 noundef zeroext true)
   br label %811
 
 811:                                              ; preds = %809, %._crit_edge356
@@ -14814,7 +14814,7 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit319: ; preds = %_ZN9VectorSet
   %.val207 = load ptr, ptr %870, align 8
   %871 = getelementptr i8, ptr %826, i64 32
   %.val208 = load i32, ptr %871, align 8
-  call fastcc void @_ZL51collect_nodes_in_outer_loop_not_reachable_from_sfptP4NodePK13IdealLoopTreeS3_RK9Node_ListR16Unique_Node_ListP14PhaseIdealLoopb(ptr %.val207, i32 %.val208, ptr noundef %3, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(68) %10, ptr noundef nonnull %0, i1 noundef zeroext false)
+  call fastcc void @_ZL51collect_nodes_in_outer_loop_not_reachable_from_sfptP4NodePK13IdealLoopTreeS3_RK9Node_ListR16Unique_Node_ListP14PhaseIdealLoopb(ptr %.val207, i32 %.val208, ptr noundef %3, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(68) %10, ptr noundef %0, i1 noundef zeroext false)
   %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
   %872 = load i32, ptr %776, align 8
   %873 = zext i32 %872 to i64
@@ -14872,7 +14872,7 @@ declare noundef ptr @_ZNK15CountedLoopNode10outer_loopEv(ptr noundef nonnull ali
 declare void @_ZN14PhaseIdealLoop8set_idomEP4NodeS1_j(ptr noundef nonnull align 8 dereferenceable(237), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL51collect_nodes_in_outer_loop_not_reachable_from_sfptP4NodePK13IdealLoopTreeS3_RK9Node_ListR16Unique_Node_ListP14PhaseIdealLoopb(ptr readonly %.16.val, i32 %.32.val, ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %2, ptr noundef nonnull align 8 dereferenceable(68) %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @_ZL51collect_nodes_in_outer_loop_not_reachable_from_sfptP4NodePK13IdealLoopTreeS3_RK9Node_ListR16Unique_Node_ListP14PhaseIdealLoopb(ptr readonly %.16.val, i32 %.32.val, ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %2, ptr noundef nonnull align 8 dereferenceable(68) %3, ptr nocapture noundef nonnull readonly %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = zext i32 %.32.val to i64
   %8 = getelementptr inbounds ptr, ptr %.16.val, i64 %7
   %.not3 = icmp eq i32 %.32.val, 0

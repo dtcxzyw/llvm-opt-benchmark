@@ -577,7 +577,7 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
   %76 = icmp eq i32 %4, 2
   %. = select i1 %76, i32 65536, i32 64
   %77 = or i32 %3, %.
-  %78 = call fastcc i32 @cli_tgzload(i32 noundef %74, ptr noundef %1, ptr noundef %2, i32 noundef %77, ptr noundef nonnull %11, ptr noundef null)
+  %78 = call fastcc i32 @cli_tgzload(i32 noundef %74, ptr noundef %1, ptr noundef %2, i32 noundef %77, ptr noundef %11, ptr noundef null)
   %.not94 = icmp eq i32 %78, 0
   br i1 %.not94, label %79, label %.loopexit
 
@@ -642,7 +642,7 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
   store i32 %6, ptr %75, align 4
   %.074.v = select i1 %76, i32 65536, i32 16448
   %.074 = or i32 %.074.v, %3
-  %110 = call fastcc i32 @cli_tgzload(i32 noundef %74, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.074, ptr noundef nonnull %11, ptr noundef nonnull %107)
+  %110 = call fastcc i32 @cli_tgzload(i32 noundef %74, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.074, ptr noundef %11, ptr noundef nonnull %107)
   %111 = load ptr, ptr %80, align 8
   %.not102104 = icmp eq ptr %111, null
   br i1 %.not102104, label %.loopexit, label %.lr.ph
@@ -850,7 +850,7 @@ declare i32 @cl_retflevel() local_unnamed_addr #2
 declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 64, 0) %3, ptr noundef nonnull %4, ptr noundef readonly %5) unnamed_addr #0 {
   %7 = alloca [13 x i8], align 1
   %8 = alloca [101 x i8], align 16
   %9 = alloca [512 x i8], align 16
@@ -1017,7 +1017,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
 
 86:                                               ; preds = %85
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.94) #19
-  call fastcc void @cli_tgzload_cleanup(i32 noundef %spec.select, ptr noundef nonnull %4)
+  call fastcc void @cli_tgzload_cleanup(i32 noundef %spec.select, ptr noundef %4)
   br label %cli_tgzload_cleanup.exit
 
 87:                                               ; preds = %85
@@ -1090,7 +1090,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
   br i1 %.not142, label %114, label %115
 
 114:                                              ; preds = %112
-  call fastcc void @cli_tgzload_cleanup(i32 noundef %spec.select, ptr noundef nonnull %4)
+  call fastcc void @cli_tgzload_cleanup(i32 noundef %spec.select, ptr noundef %4)
   br label %cli_tgzload_cleanup.exit
 
 115:                                              ; preds = %112, %104
@@ -1318,11 +1318,11 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
 
 .loopexit:                                        ; preds = %200, %.thread
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.102, ptr noundef nonnull %8) #19
-  call fastcc void @cli_tgzload_cleanup(i32 noundef %spec.select, ptr noundef nonnull %4)
+  call fastcc void @cli_tgzload_cleanup(i32 noundef %spec.select, ptr noundef %4)
   br label %cli_tgzload_cleanup.exit
 
 203:                                              ; preds = %.thread
-  call fastcc void @cli_tgzload_cleanup(i32 noundef %spec.select, ptr noundef nonnull %4)
+  call fastcc void @cli_tgzload_cleanup(i32 noundef %spec.select, ptr noundef %4)
   br label %cli_tgzload_cleanup.exit
 
 .preheader:                                       ; preds = %200, %206
@@ -1389,7 +1389,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
 
 226:                                              ; preds = %222
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.104, ptr noundef nonnull %8) #19
-  call fastcc void @cli_tgzload_cleanup(i32 noundef %spec.select, ptr noundef nonnull %4)
+  call fastcc void @cli_tgzload_cleanup(i32 noundef %spec.select, ptr noundef %4)
   br label %cli_tgzload_cleanup.exit
 
 227:                                              ; preds = %222
@@ -1401,7 +1401,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
   br i1 %.not188, label %231, label %232
 
 231:                                              ; preds = %227
-  call fastcc void @cli_tgzload_cleanup(i32 noundef %spec.select, ptr noundef nonnull %4)
+  call fastcc void @cli_tgzload_cleanup(i32 noundef %spec.select, ptr noundef %4)
   br label %cli_tgzload_cleanup.exit
 
 232:                                              ; preds = %227
@@ -1413,7 +1413,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
 
 235:                                              ; preds = %232
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.105, ptr noundef nonnull %8) #19
-  call fastcc void @cli_tgzload_cleanup(i32 noundef %spec.select, ptr noundef nonnull %4)
+  call fastcc void @cli_tgzload_cleanup(i32 noundef %spec.select, ptr noundef %4)
   br label %cli_tgzload_cleanup.exit
 
 236:                                              ; preds = %123, %232, %.critedge, %198
@@ -1623,7 +1623,7 @@ define range(i32 -1, 21) i32 @cl_cvdunpack(ptr noundef %0, ptr noundef %1, i1 no
 
 68:                                               ; preds = %65
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.112) #19
-  call fastcc void @cli_untgz_cleanup(ptr noundef nonnull %46, ptr noundef nonnull %35, ptr noundef %.0112.i.i)
+  call fastcc void @cli_untgz_cleanup(ptr noundef nonnull %46, ptr noundef %35, ptr noundef %.0112.i.i)
   br label %cli_cvdunpack.exit.thread23
 
 69:                                               ; preds = %65
@@ -1638,13 +1638,13 @@ define range(i32 -1, 21) i32 @cl_cvdunpack(ptr noundef %0, ptr noundef %1, i1 no
 
 72:                                               ; preds = %69
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.114) #19
-  call fastcc void @cli_untgz_cleanup(ptr noundef nonnull %46, ptr noundef nonnull %35, ptr noundef %.0112.i.i)
+  call fastcc void @cli_untgz_cleanup(ptr noundef nonnull %46, ptr noundef %35, ptr noundef %.0112.i.i)
   br label %cli_cvdunpack.exit.thread23
 
 73:                                               ; preds = %69
   %74 = sext i8 %71 to i32
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.115, i32 noundef %74) #19
-  call fastcc void @cli_untgz_cleanup(ptr noundef nonnull %46, ptr noundef nonnull %35, ptr noundef %.0112.i.i)
+  call fastcc void @cli_untgz_cleanup(ptr noundef nonnull %46, ptr noundef %35, ptr noundef %.0112.i.i)
   br label %cli_cvdunpack.exit.thread23
 
 75:                                               ; preds = %69, %69
@@ -1658,7 +1658,7 @@ define range(i32 -1, 21) i32 @cl_cvdunpack(ptr noundef %0, ptr noundef %1, i1 no
 
 78:                                               ; preds = %76
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.116, ptr noundef nonnull %46) #19
-  call fastcc void @cli_untgz_cleanup(ptr noundef nonnull %46, ptr noundef nonnull %35, ptr noundef null)
+  call fastcc void @cli_untgz_cleanup(ptr noundef nonnull %46, ptr noundef %35, ptr noundef null)
   br label %cli_cvdunpack.exit.thread23
 
 79:                                               ; preds = %76, %75
@@ -1668,7 +1668,7 @@ define range(i32 -1, 21) i32 @cl_cvdunpack(ptr noundef %0, ptr noundef %1, i1 no
 
 81:                                               ; preds = %79
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.118, ptr noundef nonnull %46) #19
-  call fastcc void @cli_untgz_cleanup(ptr noundef nonnull %46, ptr noundef nonnull %35, ptr noundef null)
+  call fastcc void @cli_untgz_cleanup(ptr noundef nonnull %46, ptr noundef %35, ptr noundef null)
   br label %cli_cvdunpack.exit.thread23
 
 82:                                               ; preds = %79
@@ -1680,7 +1680,7 @@ define range(i32 -1, 21) i32 @cl_cvdunpack(ptr noundef %0, ptr noundef %1, i1 no
 
 86:                                               ; preds = %82
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.119) #19
-  call fastcc void @cli_untgz_cleanup(ptr noundef nonnull %46, ptr noundef nonnull %35, ptr noundef nonnull %80)
+  call fastcc void @cli_untgz_cleanup(ptr noundef nonnull %46, ptr noundef %35, ptr noundef nonnull %80)
   br label %cli_cvdunpack.exit.thread23
 
 87:                                               ; preds = %82
@@ -2214,7 +2214,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #2
 declare noalias noundef ptr @fdopen(i32 noundef, ptr nocapture noundef readonly) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cli_tgzload_cleanup(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @cli_tgzload_cleanup(i32 noundef range(i32 0, 2) %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.106) #19
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %6, label %3
@@ -2294,7 +2294,7 @@ declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_add
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cli_untgz_cleanup(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @cli_untgz_cleanup(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.121) #19
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %4
@@ -2304,7 +2304,7 @@ define internal fastcc void @cli_untgz_cleanup(ptr noundef %0, ptr noundef %1, p
   br label %5
 
 5:                                                ; preds = %3, %4
-  %6 = tail call i32 @gzclose(ptr noundef %1) #19
+  %6 = tail call i32 @gzclose(ptr noundef nonnull %1) #19
   %.not8 = icmp eq ptr %2, null
   br i1 %.not8, label %9, label %7
 

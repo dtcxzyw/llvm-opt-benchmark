@@ -634,134 +634,125 @@ define internal void @finish_input_gif(ptr nocapture readnone %0, ptr nocapture 
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReadColorMap(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
-  %4 = icmp sgt i32 %1, 0
-  br i1 %4, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+define internal fastcc void @ReadColorMap(ptr nocapture noundef readonly %0, i32 noundef range(i32 2, 257) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds i8, ptr %2, i64 16
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %9
+  br label %8
 
-9:                                                ; preds = %.lr.ph, %60
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
-  %.032 = phi i32 [ 1, %.lr.ph ], [ %.1, %60 ]
-  %10 = load ptr, ptr %5, align 8
-  %11 = tail call i32 @getc(ptr noundef %10)
-  %12 = icmp eq i32 %11, -1
-  br i1 %12, label %13, label %ReadByte.exit
+8:                                                ; preds = %3, %59
+  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %59 ]
+  %.032 = phi i32 [ 1, %3 ], [ %.1, %59 ]
+  %9 = load ptr, ptr %4, align 8
+  %10 = tail call i32 @getc(ptr noundef %9)
+  %11 = icmp eq i32 %10, -1
+  br i1 %11, label %12, label %ReadByte.exit
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %6, align 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 40
-  store i32 43, ptr %16, align 8
-  %17 = load ptr, ptr %6, align 8
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %5, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 40
+  store i32 43, ptr %15, align 8
+  %16 = load ptr, ptr %5, align 8
+  %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef nonnull %17) #4
+  tail call void %18(ptr noundef nonnull %16) #4
   br label %ReadByte.exit
 
-ReadByte.exit:                                    ; preds = %9, %13
-  %.tr = trunc i32 %11 to i16
-  %20 = shl i16 %.tr, 4
-  %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds i16, ptr %21, i64 %indvars.iv
-  store i16 %20, ptr %22, align 2
-  %23 = load ptr, ptr %5, align 8
-  %24 = tail call i32 @getc(ptr noundef %23)
-  %25 = icmp eq i32 %24, -1
-  br i1 %25, label %26, label %ReadByte.exit29
+ReadByte.exit:                                    ; preds = %8, %12
+  %.tr = trunc i32 %10 to i16
+  %19 = shl i16 %.tr, 4
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds i16, ptr %20, i64 %indvars.iv
+  store i16 %19, ptr %21, align 2
+  %22 = load ptr, ptr %4, align 8
+  %23 = tail call i32 @getc(ptr noundef %22)
+  %24 = icmp eq i32 %23, -1
+  br i1 %24, label %25, label %ReadByte.exit29
 
-26:                                               ; preds = %ReadByte.exit
-  %27 = load ptr, ptr %6, align 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 40
-  store i32 43, ptr %29, align 8
-  %30 = load ptr, ptr %6, align 8
+25:                                               ; preds = %ReadByte.exit
+  %26 = load ptr, ptr %5, align 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 40
+  store i32 43, ptr %28, align 8
+  %29 = load ptr, ptr %5, align 8
+  %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull %30) #4
+  tail call void %31(ptr noundef nonnull %29) #4
   br label %ReadByte.exit29
 
-ReadByte.exit29:                                  ; preds = %ReadByte.exit, %26
-  %.tr26 = trunc i32 %24 to i16
-  %33 = shl i16 %.tr26, 4
-  %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds i16, ptr %34, i64 %indvars.iv
-  store i16 %33, ptr %35, align 2
-  %36 = load ptr, ptr %5, align 8
-  %37 = tail call i32 @getc(ptr noundef %36)
-  %38 = icmp eq i32 %37, -1
-  br i1 %38, label %39, label %ReadByte.exit30
+ReadByte.exit29:                                  ; preds = %ReadByte.exit, %25
+  %.tr26 = trunc i32 %23 to i16
+  %32 = shl i16 %.tr26, 4
+  %33 = load ptr, ptr %6, align 8
+  %34 = getelementptr inbounds i16, ptr %33, i64 %indvars.iv
+  store i16 %32, ptr %34, align 2
+  %35 = load ptr, ptr %4, align 8
+  %36 = tail call i32 @getc(ptr noundef %35)
+  %37 = icmp eq i32 %36, -1
+  br i1 %37, label %38, label %ReadByte.exit30
 
-39:                                               ; preds = %ReadByte.exit29
-  %40 = load ptr, ptr %6, align 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 40
-  store i32 43, ptr %42, align 8
-  %43 = load ptr, ptr %6, align 8
+38:                                               ; preds = %ReadByte.exit29
+  %39 = load ptr, ptr %5, align 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 40
+  store i32 43, ptr %41, align 8
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %43, align 8
-  %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull %43) #4
+  tail call void %44(ptr noundef nonnull %42) #4
   br label %ReadByte.exit30
 
-ReadByte.exit30:                                  ; preds = %ReadByte.exit29, %39
-  %.tr27 = trunc i32 %37 to i16
-  %46 = shl i16 %.tr27, 4
-  %47 = load ptr, ptr %8, align 8
-  %48 = getelementptr inbounds i16, ptr %47, i64 %indvars.iv
-  store i16 %46, ptr %48, align 2
-  %49 = load ptr, ptr %2, align 8
-  %50 = getelementptr inbounds i16, ptr %49, i64 %indvars.iv
-  %51 = load i16, ptr %50, align 2
-  %52 = load ptr, ptr %7, align 8
-  %53 = getelementptr inbounds i16, ptr %52, i64 %indvars.iv
-  %54 = load i16, ptr %53, align 2
-  %.not = icmp eq i16 %51, %54
-  br i1 %.not, label %55, label %59
+ReadByte.exit30:                                  ; preds = %ReadByte.exit29, %38
+  %.tr27 = trunc i32 %36 to i16
+  %45 = shl i16 %.tr27, 4
+  %46 = load ptr, ptr %7, align 8
+  %47 = getelementptr inbounds i16, ptr %46, i64 %indvars.iv
+  store i16 %45, ptr %47, align 2
+  %48 = load ptr, ptr %2, align 8
+  %49 = getelementptr inbounds i16, ptr %48, i64 %indvars.iv
+  %50 = load i16, ptr %49, align 2
+  %51 = load ptr, ptr %6, align 8
+  %52 = getelementptr inbounds i16, ptr %51, i64 %indvars.iv
+  %53 = load i16, ptr %52, align 2
+  %.not = icmp eq i16 %50, %53
+  br i1 %.not, label %54, label %58
 
-55:                                               ; preds = %ReadByte.exit30
-  %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds i16, ptr %56, i64 %indvars.iv
-  %58 = load i16, ptr %57, align 2
-  %.not28 = icmp eq i16 %51, %58
-  br i1 %.not28, label %60, label %59
+54:                                               ; preds = %ReadByte.exit30
+  %55 = load ptr, ptr %7, align 8
+  %56 = getelementptr inbounds i16, ptr %55, i64 %indvars.iv
+  %57 = load i16, ptr %56, align 2
+  %.not28 = icmp eq i16 %50, %57
+  br i1 %.not28, label %59, label %58
 
-59:                                               ; preds = %55, %ReadByte.exit30
-  br label %60
+58:                                               ; preds = %54, %ReadByte.exit30
+  br label %59
 
-60:                                               ; preds = %55, %59
-  %.1 = phi i32 [ 0, %59 ], [ %.032, %55 ]
+59:                                               ; preds = %54, %58
+  %.1 = phi i32 [ 0, %58 ], [ %.032, %54 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %9, !llvm.loop !8
+  br i1 %exitcond.not, label %60, label %8, !llvm.loop !8
 
-._crit_edge.loopexit:                             ; preds = %60
-  %61 = icmp ne i32 %.1, 0
-  br label %._crit_edge
+60:                                               ; preds = %59
+  %61 = load ptr, ptr %5, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 60
+  %63 = load i32, ptr %62, align 4
+  %64 = icmp eq i32 %63, 2
+  %65 = icmp ne i32 %.1, 0
+  %or.cond = select i1 %64, i1 %65, i1 false
+  br i1 %or.cond, label %66, label %69
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.0.lcssa = phi i1 [ true, %3 ], [ %61, %._crit_edge.loopexit ]
-  %62 = getelementptr inbounds i8, ptr %0, i64 64
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 60
-  %65 = load i32, ptr %64, align 4
-  %66 = icmp eq i32 %65, 2
-  %or.cond = select i1 %66, i1 %.0.lcssa, i1 false
-  br i1 %or.cond, label %67, label %70
+66:                                               ; preds = %60
+  store i32 1, ptr %62, align 4
+  %67 = load ptr, ptr %5, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 56
+  store i32 1, ptr %68, align 8
+  br label %69
 
-67:                                               ; preds = %._crit_edge
-  store i32 1, ptr %64, align 4
-  %68 = load ptr, ptr %62, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 56
-  store i32 1, ptr %69, align 8
-  br label %70
-
-70:                                               ; preds = %67, %._crit_edge
+69:                                               ; preds = %66, %60
   ret void
 }
 

@@ -221,7 +221,7 @@ define internal fastcc void @"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$L
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h823d2ecd7d101033E"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0) unnamed_addr #1 {
+define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h823d2ecd7d101033E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 65
   %3 = load i8, ptr %2, align 1, !range !17, !noundef !4
   %4 = trunc nuw i8 %3 to i1
@@ -277,7 +277,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4
   br i1 %29, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i, label %30
 
 30:                                               ; preds = %.lr.ph.i.us.i
-  %31 = add nuw i64 %.05.i.us.i, 1
+  %31 = add nuw nsw i64 %.05.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %31, %.sroa.3.0.i47.us.i
   br i1 %exitcond.not.i.us.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i, label %.lr.ph.i.us.i
 
@@ -334,7 +334,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i: ; preds = %30
   br i1 %52, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i, label %53
 
 53:                                               ; preds = %.lr.ph.i.i
-  %54 = add nuw i64 %.05.i.i, 1
+  %54 = add nuw nsw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %54, %.sroa.3.0.i47.i
   br i1 %exitcond.not.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i, label %.lr.ph.i.i
 
@@ -798,7 +798,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %42
   br label %67
 
 67:                                               ; preds = %109, %59
-  %68 = invoke fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h823d2ecd7d101033E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %14)
+  %68 = invoke fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h823d2ecd7d101033E"(ptr noalias noundef align 8 dereferenceable(72) %14)
           to label %69 unwind label %.loopexit.split-lp.loopexit.i, !noalias !81
 
 .loopexit.i:                                      ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h65d70227f39c197eE.llvm.8793365203981443344.exit.i.i.i", %117
@@ -1604,7 +1604,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h5e6bc508209b4221E.exit: ; preds = 
   store i8 1, ptr %.sroa.6.0..sroa_idx, align 8
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !199)
-  %126 = invoke fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h823d2ecd7d101033E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %8)
+  %126 = invoke fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h823d2ecd7d101033E"(ptr noalias noundef align 8 dereferenceable(72) %8)
           to label %.noexc78 unwind label %.loopexit.split-lp.loopexit
 
 .noexc78:                                         ; preds = %125
@@ -1677,7 +1677,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h5e6bc508209b4221E.exit: ; preds = 
   br label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h51a361870d5c9e7eE.exit.i"
 
 "_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h51a361870d5c9e7eE.exit.i": ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hf72d7e16cff269a9E.exit.i.i", %.lr.ph.i
-  %145 = invoke fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h823d2ecd7d101033E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %8)
+  %145 = invoke fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h823d2ecd7d101033E"(ptr noalias noundef align 8 dereferenceable(72) %8)
           to label %.noexc82 unwind label %.loopexit
 
 .noexc82:                                         ; preds = %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h51a361870d5c9e7eE.exit.i"
@@ -2553,7 +2553,7 @@ define void @_ZN11uu_unexpand6uu_app17ha863f52a37591065E(ptr noalias nocapture n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN11uu_unexpand10write_tabs17h63910aa56f4f72ecE(ptr noalias noundef align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN11uu_unexpand10write_tabs17h63910aa56f4f72ecE(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #2 personality ptr @rust_eh_personality {
   %9 = alloca [1 x { ptr, ptr }], align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %11 = alloca { ptr, i64 }, align 8
@@ -3418,7 +3418,7 @@ _ZN11uu_unexpand4open17hd359cbb5c6c43d80E.exit:   ; preds = %"_ZN3std2io8buffere
   %176 = phi i64 [ %174, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h721ac343ed803f57E.exit117.thread.i" ], [ %174, %.noexc75 ], [ 0, %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h964a8da52f186658E.exit53" ], [ %337, %.loopexit.loopexit.i ]
   %.1103.i = phi i64 [ %174, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h721ac343ed803f57E.exit117.thread.i" ], [ %174, %.noexc75 ], [ 0, %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h964a8da52f186658E.exit53" ], [ %.2104.i, %.loopexit.loopexit.i ]
   %177 = icmp eq i8 %.089110.i, 2
-  invoke fastcc void @_ZN11uu_unexpand10write_tabs17h63910aa56f4f72ecE(ptr noalias noundef nonnull align 8 dereferenceable(40) %22, ptr noalias noundef nonnull readonly align 8 %30, i64 noundef %32, i64 noundef %.1103.i, i64 noundef %176, i1 noundef zeroext %177, i1 noundef zeroext %.pre-phi.i, i1 noundef zeroext true)
+  invoke fastcc void @_ZN11uu_unexpand10write_tabs17h63910aa56f4f72ecE(ptr noalias noundef align 8 dereferenceable(40) %22, ptr noalias noundef nonnull readonly align 8 %30, i64 noundef %32, i64 noundef %.1103.i, i64 noundef %176, i1 noundef zeroext %177, i1 noundef zeroext %.pre-phi.i, i1 noundef zeroext true)
           to label %.noexc59 unwind label %.loopexit.split-lp.loopexit
 
 .noexc59:                                         ; preds = %.loopexit.i
@@ -3647,7 +3647,7 @@ _ZN11uu_unexpand14next_char_info17hf51ded0aee89c199E.exit.thread.i: ; preds = %_
   %.120.i16.i = phi i8 [ %.221.i.ph.i, %_ZN11uu_unexpand14next_char_info17hf51ded0aee89c199E.exit.thread38.i ], [ 0, %189 ], [ 3, %185 ], [ 3, %190 ]
   %280 = trunc nuw i8 %.095144.i to i1
   %281 = icmp eq i8 %.089149.i, 2
-  invoke fastcc void @_ZN11uu_unexpand10write_tabs17h63910aa56f4f72ecE(ptr noalias noundef nonnull align 8 dereferenceable(40) %22, ptr noalias noundef nonnull readonly align 8 %30, i64 noundef %32, i64 noundef %.0102142.i, i64 noundef %174, i1 noundef zeroext %281, i1 noundef zeroext %280, i1 noundef zeroext %55)
+  invoke fastcc void @_ZN11uu_unexpand10write_tabs17h63910aa56f4f72ecE(ptr noalias noundef align 8 dereferenceable(40) %22, ptr noalias noundef nonnull readonly align 8 %30, i64 noundef %32, i64 noundef %.0102142.i, i64 noundef %174, i1 noundef zeroext %281, i1 noundef zeroext %280, i1 noundef zeroext %55)
           to label %.noexc66 unwind label %.loopexit
 
 .noexc66:                                         ; preds = %_ZN11uu_unexpand14next_char_info17hf51ded0aee89c199E.exit.thread.i
@@ -3802,7 +3802,7 @@ _ZN11uu_unexpand12next_tabstop17hc89086dd79392bcdE.exit.thread.i: ; preds = %"_Z
 339:                                              ; preds = %173
   %340 = icmp eq i8 %.089149.i, 2
   %341 = trunc nuw i8 %.095144.i to i1
-  invoke fastcc void @_ZN11uu_unexpand10write_tabs17h63910aa56f4f72ecE(ptr noalias noundef nonnull align 8 dereferenceable(40) %22, ptr noalias noundef nonnull readonly align 8 %30, i64 noundef %32, i64 noundef %.0102142.i, i64 noundef %174, i1 noundef zeroext %340, i1 noundef zeroext %341, i1 noundef zeroext true)
+  invoke fastcc void @_ZN11uu_unexpand10write_tabs17h63910aa56f4f72ecE(ptr noalias noundef align 8 dereferenceable(40) %22, ptr noalias noundef nonnull readonly align 8 %30, i64 noundef %32, i64 noundef %.0102142.i, i64 noundef %174, i1 noundef zeroext %340, i1 noundef zeroext %341, i1 noundef zeroext true)
           to label %.noexc74 unwind label %.loopexit.split-lp.loopexit
 
 .noexc74:                                         ; preds = %339

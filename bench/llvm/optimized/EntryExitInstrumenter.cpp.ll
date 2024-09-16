@@ -330,7 +330,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm13TrackingM
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit
 
 _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %_ZN4llvm8DebugLocD2Ev.exit, %51
-  call fastcc void @_ZL10insertCallRN4llvm8FunctionENS_9StringRefENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %20, i64 %21, ptr %.fca.0.extract1.i, i64 %.sroa.4.0.i.i, ptr noundef nonnull %7)
+  call fastcc void @_ZL10insertCallRN4llvm8FunctionENS_9StringRefENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %20, i64 %21, ptr %.fca.0.extract1.i, i64 %.sroa.4.0.i.i, ptr noundef %7)
   %53 = load ptr, ptr %7, align 8
   %.not.i.i.i.i61 = icmp eq ptr %53, null
   br i1 %.not.i.i.i.i61, label %_ZN4llvm8DebugLocD2Ev.exit62, label %54
@@ -484,7 +484,7 @@ _ZN4llvm8DebugLocD2Ev.exit81:                     ; preds = %_ZN4llvm8DebugLocaS
 
 _ZN4llvm8DebugLocC2ERKS0_.exit84:                 ; preds = %_ZN4llvm8DebugLocD2Ev.exit81.thread, %_ZN4llvm8DebugLocD2Ev.exit81, %99
   %101 = getelementptr inbounds i8, ptr %spec.select, i64 24
-  call fastcc void @_ZL10insertCallRN4llvm8FunctionENS_9StringRefENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %24, i64 %25, ptr nonnull %101, i64 0, ptr noundef nonnull %11)
+  call fastcc void @_ZL10insertCallRN4llvm8FunctionENS_9StringRefENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %24, i64 %25, ptr nonnull %101, i64 0, ptr noundef %11)
   %102 = load ptr, ptr %11, align 8
   %.not.i.i.i.i85 = icmp eq ptr %102, null
   br i1 %.not.i.i.i.i85, label %_ZN4llvm8DebugLocD2Ev.exit86, label %103
@@ -913,7 +913,7 @@ declare noundef ptr @_ZNK4llvm8Function13getSubprogramEv(ptr noundef nonnull ali
 declare void @_ZN4llvm8DebugLocC1EPKNS_10DILocationE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10insertCallRN4llvm8FunctionENS_9StringRefENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @_ZL10insertCallRN4llvm8FunctionENS_9StringRefENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %1, i64 %2, ptr %3, i64 range(i64 0, 65536) %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::SmallVector.143", align 8
   %8 = alloca %"class.llvm::ArrayRef.137", align 8
   %9 = alloca %"class.llvm::InsertPosition", align 8

@@ -394,7 +394,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias nonnull align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i = alloca %"class.testing::Message", align 8
   %ref.tmp.i.i3.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7321,7 +7321,7 @@ invoke.cont.i:                                    ; preds = %.noexc.i
 invoke.cont4.i:                                   ; preds = %invoke.cont.i
   %line.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i32 94, ptr %line.i.i, align 8
-  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias nonnull align 8 %ref.tmp5.i)
+  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias align 8 %ref.tmp5.i)
           to label %invoke.cont7.i unwind label %lpad6.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont4.i
@@ -8412,7 +8412,7 @@ invoke.cont.i49:                                  ; preds = %.noexc.i47
 invoke.cont4.i53:                                 ; preds = %invoke.cont.i49
   %line.i.i54 = getelementptr inbounds i8, ptr %ref.tmp.i38, i64 32
   store i32 120, ptr %line.i.i54, align 8
-  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias nonnull align 8 %ref.tmp5.i41)
+  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias align 8 %ref.tmp5.i41)
           to label %invoke.cont7.i58 unwind label %lpad6.i55
 
 invoke.cont7.i58:                                 ; preds = %invoke.cont4.i53
@@ -9497,7 +9497,7 @@ invoke.cont.i382:                                 ; preds = %.noexc.i380
 invoke.cont4.i386:                                ; preds = %invoke.cont.i382
   %line.i.i387 = getelementptr inbounds i8, ptr %ref.tmp.i371, i64 32
   store i32 145, ptr %line.i.i387, align 8
-  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias nonnull align 8 %ref.tmp5.i374)
+  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias align 8 %ref.tmp5.i374)
           to label %invoke.cont7.i391 unwind label %lpad6.i388
 
 invoke.cont7.i391:                                ; preds = %invoke.cont4.i386
@@ -10582,7 +10582,7 @@ invoke.cont.i776:                                 ; preds = %.noexc.i774
 invoke.cont4.i780:                                ; preds = %invoke.cont.i776
   %line.i.i781 = getelementptr inbounds i8, ptr %ref.tmp.i765, i64 32
   store i32 191, ptr %line.i.i781, align 8
-  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias nonnull align 8 %ref.tmp5.i768)
+  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias align 8 %ref.tmp5.i768)
           to label %invoke.cont7.i785 unwind label %lpad6.i782
 
 invoke.cont7.i785:                                ; preds = %invoke.cont4.i780
@@ -11667,7 +11667,7 @@ invoke.cont.i1170:                                ; preds = %.noexc.i1168
 invoke.cont4.i1174:                               ; preds = %invoke.cont.i1170
   %line.i.i1175 = getelementptr inbounds i8, ptr %ref.tmp.i1159, i64 32
   store i32 203, ptr %line.i.i1175, align 8
-  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias nonnull align 8 %ref.tmp5.i1162)
+  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias align 8 %ref.tmp5.i1162)
           to label %invoke.cont7.i1179 unwind label %lpad6.i1176
 
 invoke.cont7.i1179:                               ; preds = %invoke.cont4.i1174
@@ -12752,7 +12752,7 @@ invoke.cont.i1564:                                ; preds = %.noexc.i1562
 invoke.cont4.i1568:                               ; preds = %invoke.cont.i1564
   %line.i.i1569 = getelementptr inbounds i8, ptr %ref.tmp.i1553, i64 32
   store i32 214, ptr %line.i.i1569, align 8
-  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias nonnull align 8 %ref.tmp5.i1556)
+  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias align 8 %ref.tmp5.i1556)
           to label %invoke.cont7.i1573 unwind label %lpad6.i1570
 
 invoke.cont7.i1573:                               ; preds = %invoke.cont4.i1568
@@ -13837,7 +13837,7 @@ invoke.cont.i1958:                                ; preds = %.noexc.i1956
 invoke.cont4.i1962:                               ; preds = %invoke.cont.i1958
   %line.i.i1963 = getelementptr inbounds i8, ptr %ref.tmp.i1947, i64 32
   store i32 229, ptr %line.i.i1963, align 8
-  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias nonnull align 8 %ref.tmp5.i1950)
+  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias align 8 %ref.tmp5.i1950)
           to label %invoke.cont7.i1967 unwind label %lpad6.i1964
 
 invoke.cont7.i1967:                               ; preds = %invoke.cont4.i1962
@@ -14922,7 +14922,7 @@ invoke.cont.i2352:                                ; preds = %.noexc.i2350
 invoke.cont4.i2356:                               ; preds = %invoke.cont.i2352
   %line.i.i2357 = getelementptr inbounds i8, ptr %ref.tmp.i2341, i64 32
   store i32 246, ptr %line.i.i2357, align 8
-  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias nonnull align 8 %ref.tmp5.i2344)
+  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias align 8 %ref.tmp5.i2344)
           to label %invoke.cont7.i2361 unwind label %lpad6.i2358
 
 invoke.cont7.i2361:                               ; preds = %invoke.cont4.i2356
@@ -16007,7 +16007,7 @@ invoke.cont.i2746:                                ; preds = %.noexc.i2744
 invoke.cont4.i2750:                               ; preds = %invoke.cont.i2746
   %line.i.i2751 = getelementptr inbounds i8, ptr %ref.tmp.i2735, i64 32
   store i32 275, ptr %line.i.i2751, align 8
-  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias nonnull align 8 %ref.tmp5.i2738)
+  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias align 8 %ref.tmp5.i2738)
           to label %invoke.cont7.i2755 unwind label %lpad6.i2752
 
 invoke.cont7.i2755:                               ; preds = %invoke.cont4.i2750
@@ -17092,7 +17092,7 @@ invoke.cont.i3140:                                ; preds = %.noexc.i3138
 invoke.cont4.i3144:                               ; preds = %invoke.cont.i3140
   %line.i.i3145 = getelementptr inbounds i8, ptr %ref.tmp.i3129, i64 32
   store i32 285, ptr %line.i.i3145, align 8
-  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias nonnull align 8 %ref.tmp5.i3132)
+  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias align 8 %ref.tmp5.i3132)
           to label %invoke.cont7.i3149 unwind label %lpad6.i3146
 
 invoke.cont7.i3149:                               ; preds = %invoke.cont4.i3144
@@ -18177,7 +18177,7 @@ invoke.cont.i3534:                                ; preds = %.noexc.i3532
 invoke.cont4.i3538:                               ; preds = %invoke.cont.i3534
   %line.i.i3539 = getelementptr inbounds i8, ptr %ref.tmp.i3523, i64 32
   store i32 298, ptr %line.i.i3539, align 8
-  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias nonnull align 8 %ref.tmp5.i3526)
+  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias align 8 %ref.tmp5.i3526)
           to label %invoke.cont7.i3543 unwind label %lpad6.i3540
 
 invoke.cont7.i3543:                               ; preds = %invoke.cont4.i3538

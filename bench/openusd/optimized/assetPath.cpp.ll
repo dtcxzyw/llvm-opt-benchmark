@@ -198,7 +198,7 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   store ptr %0, ptr %2, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
-  %6 = invoke fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L9_ReadUTF8ERPKhPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3)
+  %6 = invoke fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L9_ReadUTF8ERPKhPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
           to label %.preheader unwind label %.loopexit.split-lp
 
 .preheader:                                       ; preds = %1
@@ -245,7 +245,7 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
   resume { ptr, i32 } %lpad.phi
 
 17:                                               ; preds = %.lr.ph
-  %18 = invoke fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L9_ReadUTF8ERPKhPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3)
+  %18 = invoke fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L9_ReadUTF8ERPKhPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
           to label %19 unwind label %.loopexit
 
 19:                                               ; preds = %17
@@ -879,7 +879,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__6TfType13_FindByTypeidERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L9_ReadUTF8ERPKhPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L9_ReadUTF8ERPKhPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = load ptr, ptr %0, align 8

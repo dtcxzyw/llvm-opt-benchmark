@@ -3038,7 +3038,7 @@ define void @jpeg_set_marker_processor(ptr noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @get_sof(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @get_sof(ptr noundef %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -3487,7 +3487,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @jpeg_alloc_quant_table(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @examine_app0(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @examine_app0(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 noundef range(i64 -16, 4294967296) %3) unnamed_addr #0 {
   %5 = zext i32 %2 to i64
   %6 = add nsw i64 %3, %5
   %7 = icmp ugt i32 %2, 13

@@ -74328,7 +74328,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call fastcc void @_ZN5glTF212_GLOBAL__N_114ReadExtensionsEPKcRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull @.str.74, ptr noundef nonnull align 8 dereferenceable(16) %call3.i)
+  call fastcc void @_ZN5glTF212_GLOBAL__N_114ReadExtensionsEPKcRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull @.str.74, ptr noundef nonnull align 8 dereferenceable(16) %call3.i)
   %customExtensions = getelementptr inbounds i8, ptr %this, i64 80
   %call.i23 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %customExtensions, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %call.i2.noexc unwind label %lpad
@@ -74426,7 +74426,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont10.i, %i
   %9 = inttoptr i64 %and.i.i9.i to ptr
   %cond.i.i = select i1 %tobool.not.i.i, ptr %9, ptr %it.017.i
   %value.i = getelementptr inbounds i8, ptr %it.017.i, i64 16
-  invoke fastcc void @_ZN5glTF212_GLOBAL__N_114ReadExtensionsEPKcRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef %cond.i.i, ptr noundef nonnull align 8 dereferenceable(16) %value.i)
+  invoke fastcc void @_ZN5glTF212_GLOBAL__N_114ReadExtensionsEPKcRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEE(ptr noalias align 8 %ref.tmp.i, ptr noundef %cond.i.i, ptr noundef nonnull align 8 dereferenceable(16) %value.i)
           to label %invoke.cont8.i unwind label %lpad.loopexit.i
 
 invoke.cont8.i:                                   ; preds = %invoke.cont6.i
@@ -82662,7 +82662,7 @@ eh.resume:                                        ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZN10glTFCommonL15MemberOrDefaultIN5glTF213ComponentTypeEEET_RN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %obj, i32 noundef %defaultValue) unnamed_addr #28 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN10glTFCommonL15MemberOrDefaultIN5glTF213ComponentTypeEEET_RN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %obj, i32 noundef range(i32 5120, 5124) %defaultValue) unnamed_addr #28 personality ptr @__gxx_personality_v0 {
 entry:
   %n.i.i = alloca %"class.rapidjson::GenericValue", align 8
   %flags.i.i = getelementptr inbounds i8, ptr %obj, i64 14
@@ -91793,7 +91793,7 @@ invoke.cont9:                                     ; preds = %invoke.cont9.lr.ph,
   %9 = inttoptr i64 %and.i.i28 to ptr
   %cond.i = select i1 %tobool.not.i, ptr %9, ptr %it.074
   %value = getelementptr inbounds i8, ptr %it.074, i64 16
-  invoke fastcc void @_ZN5glTF212_GLOBAL__N_114ReadExtensionsEPKcRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %cond.i, ptr noundef nonnull align 8 dereferenceable(16) %value)
+  invoke fastcc void @_ZN5glTF212_GLOBAL__N_114ReadExtensionsEPKcRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEE(ptr noalias align 8 %ref.tmp, ptr noundef %cond.i, ptr noundef nonnull align 8 dereferenceable(16) %value)
           to label %invoke.cont11 unwind label %lpad.loopexit
 
 invoke.cont11:                                    ; preds = %invoke.cont9
@@ -91880,7 +91880,7 @@ for.body25:                                       ; preds = %for.body25.lr.ph, %
   %and.i.i34 = and i64 %21, 281474976710655
   %22 = inttoptr i64 %and.i.i34 to ptr
   %arrayidx.i = getelementptr inbounds %"class.rapidjson::GenericValue", ptr %22, i64 %indvars.iv
-  invoke fastcc void @_ZN5glTF212_GLOBAL__N_114ReadExtensionsEPKcRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEE(ptr noalias nonnull align 8 %ref.tmp28, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i)
+  invoke fastcc void @_ZN5glTF212_GLOBAL__N_114ReadExtensionsEPKcRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEE(ptr noalias align 8 %ref.tmp28, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i)
           to label %invoke.cont30 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont30:                                    ; preds = %for.body25

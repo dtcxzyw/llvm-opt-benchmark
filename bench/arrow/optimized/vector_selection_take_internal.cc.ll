@@ -36164,7 +36164,7 @@ if.then.i.i.i51:                                  ; preds = %_ZNK5arrow5Datum5ar
   unreachable
 
 _ZNK5arrow5Datum5arrayEv.exit54:                  ; preds = %_ZNK5arrow5Datum5arrayEv.exit
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeAAERKSt10shared_ptrINS_9ArrayDataEES7_RKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx)
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeAAERKSt10shared_ptrINS_9ArrayDataEES7_RKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx)
   store ptr null, ptr %agg.result, align 8
   %3 = load ptr, ptr %ref.tmp, align 8
   %cmp.i.i = icmp eq ptr %3, null
@@ -36289,7 +36289,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %add.ptr.i.i.i = getelementptr inbounds %"class.std::shared_ptr.181", ptr %15, i64 %indvars.iv.i
   %16 = load ptr, ptr %add.ptr.i.i.i, align 8, !noalias !1119
   %data_.i13.i = getelementptr inbounds i8, ptr %16, i64 8
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeAAERKSt10shared_ptrINS_9ArrayDataEES7_RKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias nonnull align 8 %ref.tmp1.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %data_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %data_.i13.i, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeAAERKSt10shared_ptrINS_9ArrayDataEES7_RKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias align 8 %ref.tmp1.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %data_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %data_.i13.i, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx)
           to label %invoke.cont8.i unwind label %lpad3.loopexit.i, !noalias !1119
 
 invoke.cont8.i:                                   ; preds = %for.body.i
@@ -36798,7 +36798,7 @@ _ZNK5arrow5Datum13chunked_arrayEv.exit86:         ; preds = %sw.bb20
   %85 = load ptr, ptr %0, align 8
   call void @_ZNK5arrow5Datum10make_arrayEv(ptr nonnull sret(%"class.std::shared_ptr.181") align 8 %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i)
   %86 = load ptr, ptr %ref.tmp27, align 8
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeCAERKNS_12ChunkedArrayERKNS_5ArrayERKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(88) %85, ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeCAERKNS_12ChunkedArrayERKNS_5ArrayERKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(88) %85, ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %_ZNK5arrow5Datum13chunked_arrayEv.exit86
@@ -36898,7 +36898,7 @@ if.then.i.i.i130:                                 ; preds = %_ZNK5arrow5Datum13c
 _ZNK5arrow5Datum13chunked_arrayEv.exit133:        ; preds = %_ZNK5arrow5Datum13chunked_arrayEv.exit126
   %99 = load ptr, ptr %0, align 8
   %100 = load ptr, ptr %add.ptr.i, align 8
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeCCERKNS_12ChunkedArrayES5_RKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias nonnull align 8 %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(88) %99, ptr noundef nonnull align 8 dereferenceable(88) %100, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx)
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeCCERKNS_12ChunkedArrayES5_RKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias align 8 %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(88) %99, ptr noundef nonnull align 8 dereferenceable(88) %100, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx)
   call void @_ZN5arrow6ResultINS_5DatumEEC2ISt10shared_ptrINS_12ChunkedArrayEEvEEONS0_IT_EE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp35) #19
   call void @_ZN5arrow6ResultISt10shared_ptrINS_12ChunkedArrayEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp35) #19
   br label %return
@@ -36982,7 +36982,7 @@ for.body.i156:                                    ; preds = %for.inc.i187, %call
 invoke.cont5.i:                                   ; preds = %for.body.i156
   %109 = load ptr, ptr %ref.tmp3.i, align 8, !noalias !1135
   %data_.i13.i159 = getelementptr inbounds i8, ptr %109, i64 8
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeAAERKSt10shared_ptrINS_9ArrayDataEES7_RKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias nonnull align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(16) %data_.i13.i159, ptr noundef nonnull readonly align 8 dereferenceable(16) %data_.i.i141, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeAAERKSt10shared_ptrINS_9ArrayDataEES7_RKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(16) %data_.i13.i159, ptr noundef nonnull readonly align 8 dereferenceable(16) %data_.i.i141, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx)
           to label %invoke.cont10.i unwind label %lpad9.i, !noalias !1135
 
 invoke.cont10.i:                                  ; preds = %invoke.cont5.i
@@ -37836,7 +37836,7 @@ for.body.i329:                                    ; preds = %for.inc.i360, %call
 
 invoke.cont4.i:                                   ; preds = %for.body.i329
   %233 = load ptr, ptr %ref.tmp2.i314, align 8, !noalias !1147
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeCAERKNS_12ChunkedArrayERKNS_5ArrayERKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias nonnull align 8 %ref.tmp1.i313, ptr noundef nonnull align 8 dereferenceable(88) %233, ptr noundef nonnull readonly align 8 dereferenceable(32) %227, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeCAERKNS_12ChunkedArrayERKNS_5ArrayERKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias align 8 %ref.tmp1.i313, ptr noundef nonnull align 8 dereferenceable(88) %233, ptr noundef nonnull readonly align 8 dereferenceable(32) %227, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx)
           to label %invoke.cont7.i unwind label %lpad6.i, !noalias !1147
 
 invoke.cont7.i:                                   ; preds = %invoke.cont4.i
@@ -38518,7 +38518,7 @@ for.body.i518:                                    ; preds = %for.inc.i599, %for.
 
 invoke.cont4.i525:                                ; preds = %for.body.i518
   %332 = load ptr, ptr %ref.tmp2.i501, align 8, !noalias !1157
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeCCERKNS_12ChunkedArrayES5_RKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias nonnull align 8 %ref.tmp1.i500, ptr noundef nonnull align 8 dereferenceable(88) %332, ptr noundef nonnull readonly align 8 dereferenceable(88) %326, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeCCERKNS_12ChunkedArrayES5_RKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias align 8 %ref.tmp1.i500, ptr noundef nonnull align 8 dereferenceable(88) %332, ptr noundef nonnull readonly align 8 dereferenceable(88) %326, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx)
           to label %invoke.cont7.i527 unwind label %lpad6.i526, !noalias !1157
 
 invoke.cont7.i527:                                ; preds = %invoke.cont4.i525
@@ -39297,7 +39297,7 @@ eh.resume:                                        ; preds = %if.then.i.i, %lpad1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeAAERKSt10shared_ptrINS_9ArrayDataEES7_RKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %values, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %indices, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeAAERKSt10shared_ptrINS_9ArrayDataEES7_RKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %values, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %indices, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i.i.i.i70 = alloca %class.anon.223, align 1
   %ref.tmp.i.i.i.i.i.i.i.i.i = alloca %class.anon.223, align 1
@@ -40253,7 +40253,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6ResultISt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeCAERKNS_12ChunkedArrayERKNS_5ArrayERKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %values, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %indices, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeCAERKNS_12ChunkedArrayERKNS_5ArrayERKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %values, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %indices, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %current_chunk = alloca %"class.std::shared_ptr.181", align 8
   %ref.tmp = alloca %"class.arrow::Result.297", align 8
@@ -40441,7 +40441,7 @@ if.end49:                                         ; preds = %cleanup45.thread, %
   %27 = phi ptr [ %25, %cleanup45.thread ], [ %21, %cleanup.thread ], [ %.pre, %if.end9.i.i.i ], [ %3, %if.then ]
   %data_.i = getelementptr inbounds i8, ptr %27, i64 8
   %data_.i121 = getelementptr inbounds i8, ptr %indices, i64 8
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeAAERKSt10shared_ptrINS_9ArrayDataEES7_RKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias nonnull align 8 %ref.tmp50, ptr noundef nonnull align 8 dereferenceable(16) %data_.i, ptr noundef nonnull align 8 dereferenceable(16) %data_.i121, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeAAERKSt10shared_ptrINS_9ArrayDataEES7_RKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias align 8 %ref.tmp50, ptr noundef nonnull align 8 dereferenceable(16) %data_.i, ptr noundef nonnull align 8 dereferenceable(16) %data_.i121, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx)
           to label %invoke.cont54 unwind label %lpad
 
 invoke.cont54:                                    ; preds = %if.end49
@@ -40888,7 +40888,7 @@ ehcleanup91:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeCCERKNS_12ChunkedArrayES5_RKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %values, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %indices, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeCCERKNS_12ChunkedArrayES5_RKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %values, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %indices, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %new_chunks = alloca %"class.std::vector.264", align 8
   %ref.tmp1 = alloca %"class.arrow::Result.260", align 8
@@ -40958,7 +40958,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = load ptr, ptr %indices, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.181", ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %add.ptr.i.i, align 8
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeCAERKNS_12ChunkedArrayERKNS_5ArrayERKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias nonnull align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(88) %values, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_16TakeCAERKNS_12ChunkedArrayERKNS_5ArrayERKNS0_11TakeOptionsEPNS0_11ExecContextE(ptr noalias align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(88) %values, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(17) %options, ptr noundef %ctx)
           to label %invoke.cont5 unwind label %lpad4.loopexit
 
 invoke.cont5:                                     ; preds = %for.body

@@ -944,7 +944,7 @@ Cudd_ApaSetToLiteral.exit:                        ; preds = %35, %.lr.ph.prehead
   %46 = and i64 %45, -2
   %47 = inttoptr i64 %46 to ptr
   %48 = load i32, ptr %3, align 4
-  %49 = tail call fastcc ptr @cuddApaCountMintermAux(ptr noundef %47, i32 noundef %48, ptr noundef nonnull %18, ptr noundef nonnull %32, ptr noundef nonnull %41)
+  %49 = tail call fastcc ptr @cuddApaCountMintermAux(ptr noundef %47, i32 noundef %48, ptr noundef %18, ptr noundef %32, ptr noundef %41)
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %53
 
@@ -1045,7 +1045,7 @@ declare i32 @st__ptrcmp(ptr noundef, ptr noundef) #12
 declare i32 @st__ptrhash(ptr noundef, i32 noundef) #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #11 {
+define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #11 {
   %6 = alloca ptr, align 8
   %7 = load i32, ptr %0, align 8
   %8 = icmp eq i32 %7, 2147483647
@@ -1067,7 +1067,7 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %14
-  %19 = call i32 @st__lookup(ptr noundef %4, ptr noundef nonnull %0, ptr noundef nonnull %6) #18
+  %19 = call i32 @st__lookup(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef nonnull %6) #18
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %22, label %20
 
@@ -1246,7 +1246,7 @@ Cudd_ApaShiftRight.exit:                          ; preds = %.lr.ph.i80, %58, %7
   br i1 %108, label %109, label %114
 
 109:                                              ; preds = %106
-  %110 = call i32 @st__insert(ptr noundef %4, ptr noundef nonnull %0, ptr noundef %.pre86) #18
+  %110 = call i32 @st__insert(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef %.pre86) #18
   %111 = icmp eq i32 %110, -10000
   %.pre = load ptr, ptr %6, align 8
   br i1 %111, label %112, label %114

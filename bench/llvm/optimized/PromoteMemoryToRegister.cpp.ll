@@ -1782,7 +1782,7 @@ _ZL24rewriteSingleStoreAllocaPN4llvm10AllocaInstERN12_GLOBAL__N_110AllocaInfoERN
   %507 = call noundef ptr @_ZNK4llvm11Instruction9getModuleEv(ptr noundef nonnull align 8 dereferenceable(72) %206) #17
   call void @_ZN4llvm9DIBuilderC1ERNS_6ModuleEbPNS_13DICompileUnitE(ptr noundef nonnull align 8 dereferenceable(416) %12, ptr noundef nonnull align 8 dereferenceable(857) %507, i1 noundef zeroext false, ptr noundef null) #17
   %508 = load ptr, ptr %145, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_122AssignmentTrackingInfo21updateForDeletedStoreEPN4llvm9StoreInstERNS1_9DIBuilderEPNS1_8SmallSetIPNS1_18DbgAssignIntrinsicELj8ESt4lessIS8_EEEPNS6_IPNS1_17DbgVariableRecordELj8ES9_ISE_EEE(ptr noundef nonnull align 8 dereferenceable(128) %130, ptr noundef %508, ptr noundef nonnull align 8 dereferenceable(416) %12, ptr noundef nonnull %166, ptr noundef nonnull %167)
+  call fastcc void @_ZNK12_GLOBAL__N_122AssignmentTrackingInfo21updateForDeletedStoreEPN4llvm9StoreInstERNS1_9DIBuilderEPNS1_8SmallSetIPNS1_18DbgAssignIntrinsicELj8ESt4lessIS8_EEEPNS6_IPNS1_17DbgVariableRecordELj8ES9_ISE_EEE(ptr noundef nonnull align 8 dereferenceable(128) %130, ptr noundef %508, ptr noundef nonnull align 8 dereferenceable(416) %12, ptr noundef %166, ptr noundef %167)
   %509 = load ptr, ptr %126, align 8
   %510 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %126) #17
   %511 = getelementptr inbounds ptr, ptr %509, i64 %510
@@ -2180,7 +2180,7 @@ _ZN12_GLOBAL__N_114LargeBlockInfo11deleteValueEPKN4llvm11InstructionE.exit.i117:
   %714 = phi ptr [ %774, %_ZN12_GLOBAL__N_114LargeBlockInfo11deleteValueEPKN4llvm11InstructionE.exit71.i ], [ %712, %._crit_edge113.i ]
   %715 = getelementptr inbounds nuw i8, ptr %714, i64 24
   %716 = load ptr, ptr %715, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_122AssignmentTrackingInfo21updateForDeletedStoreEPN4llvm9StoreInstERNS1_9DIBuilderEPNS1_8SmallSetIPNS1_18DbgAssignIntrinsicELj8ESt4lessIS8_EEEPNS6_IPNS1_17DbgVariableRecordELj8ES9_ISE_EEE(ptr noundef nonnull align 8 dereferenceable(128) %130, ptr noundef %716, ptr noundef nonnull align 8 dereferenceable(416) %11, ptr noundef nonnull %166, ptr noundef nonnull %167)
+  call fastcc void @_ZNK12_GLOBAL__N_122AssignmentTrackingInfo21updateForDeletedStoreEPN4llvm9StoreInstERNS1_9DIBuilderEPNS1_8SmallSetIPNS1_18DbgAssignIntrinsicELj8ESt4lessIS8_EEEPNS6_IPNS1_17DbgVariableRecordELj8ES9_ISE_EEE(ptr noundef nonnull align 8 dereferenceable(128) %130, ptr noundef %716, ptr noundef nonnull align 8 dereferenceable(416) %11, ptr noundef %166, ptr noundef %167)
   %717 = load ptr, ptr %126, align 8
   %718 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %126) #17
   %719 = getelementptr inbounds ptr, ptr %717, i64 %718
@@ -4811,7 +4811,7 @@ _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i:   ; preds = %1970, %1968
 _ZN4llvm8DebugLocaSERKS0_.exit.i:                 ; preds = %1972, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i, %1958
   %.val.i208 = load ptr, ptr %43, align 8
   %1974 = getelementptr inbounds %"class.(anonymous namespace)::AssignmentTrackingInfo", ptr %.val.i208, i64 %1963
-  call fastcc void @_ZNK12_GLOBAL__N_122AssignmentTrackingInfo21updateForDeletedStoreEPN4llvm9StoreInstERNS1_9DIBuilderEPNS1_8SmallSetIPNS1_18DbgAssignIntrinsicELj8ESt4lessIS8_EEEPNS6_IPNS1_17DbgVariableRecordELj8ES9_ISE_EEE(ptr noundef nonnull align 8 dereferenceable(128) %1974, ptr noundef nonnull %spec.select.i.i101.i, ptr noundef nonnull align 8 dereferenceable(416) %1391, ptr noundef nonnull %1396, ptr noundef nonnull %1397)
+  call fastcc void @_ZNK12_GLOBAL__N_122AssignmentTrackingInfo21updateForDeletedStoreEPN4llvm9StoreInstERNS1_9DIBuilderEPNS1_8SmallSetIPNS1_18DbgAssignIntrinsicELj8ESt4lessIS8_EEEPNS6_IPNS1_17DbgVariableRecordELj8ES9_ISE_EEE(ptr noundef nonnull align 8 dereferenceable(128) %1974, ptr noundef nonnull %spec.select.i.i101.i, ptr noundef nonnull align 8 dereferenceable(416) %1391, ptr noundef %1396, ptr noundef %1397)
   %1975 = load i32, ptr %1959, align 8
   %1976 = zext i32 %1975 to i64
   %1977 = load ptr, ptr %35, align 8
@@ -8565,7 +8565,7 @@ _ZL16addAssumeNonNullPN4llvm15AssumptionCacheEPNS_8LoadInstE.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_122AssignmentTrackingInfo21updateForDeletedStoreEPN4llvm9StoreInstERNS1_9DIBuilderEPNS1_8SmallSetIPNS1_18DbgAssignIntrinsicELj8ESt4lessIS8_EEEPNS6_IPNS1_17DbgVariableRecordELj8ES9_ISE_EEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(416) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_122AssignmentTrackingInfo21updateForDeletedStoreEPN4llvm9StoreInstERNS1_9DIBuilderEPNS1_8SmallSetIPNS1_18DbgAssignIntrinsicELj8ESt4lessIS8_EEEPNS6_IPNS1_17DbgVariableRecordELj8ES9_ISE_EEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(416) %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::pair.333", align 8
   %7 = alloca %"class.llvm::DebugVariableAggregate", align 8
   %8 = alloca %"class.llvm::DebugVariable", align 8

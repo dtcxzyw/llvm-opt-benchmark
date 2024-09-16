@@ -9663,7 +9663,7 @@ _ZNSt3mapIN5Yosys5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESa
           to label %3152 unwind label %.loopexit1750
 
 3152:                                             ; preds = %3151
-  invoke fastcc void @_ZN12_GLOBAL__N_118create_gold_moduleEPN5Yosys5RTLIL6DesignENS1_8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(ptr noundef nonnull %3083, ptr noundef nonnull %206, ptr noundef nonnull %207, i1 noundef zeroext %.0129.lcssa, i1 noundef zeroext %.0124.lcssa)
+  invoke fastcc void @_ZN12_GLOBAL__N_118create_gold_moduleEPN5Yosys5RTLIL6DesignENS1_8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(ptr noundef %3083, ptr noundef %206, ptr noundef %207, i1 noundef zeroext %.0129.lcssa, i1 noundef zeroext %.0124.lcssa)
           to label %3153 unwind label %3169
 
 3153:                                             ; preds = %3152
@@ -15641,7 +15641,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
           to label %5515 unwind label %5492
 
 5515:                                             ; preds = %5514
-  invoke fastcc void @_ZN12_GLOBAL__N_113run_eval_testEPN5Yosys5RTLIL6DesignEbbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt14basic_ofstreamIcS7_E(ptr noundef nonnull %3083, i1 noundef zeroext %.0126.lcssa, i1 noundef zeroext %.0131.lcssa, ptr noundef nonnull %232, ptr noundef nonnull align 8 dereferenceable(248) %145)
+  invoke fastcc void @_ZN12_GLOBAL__N_113run_eval_testEPN5Yosys5RTLIL6DesignEbbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt14basic_ofstreamIcS7_E(ptr noundef %3083, i1 noundef zeroext %.0126.lcssa, i1 noundef zeroext %.0131.lcssa, ptr noundef %232, ptr noundef nonnull align 8 dereferenceable(248) %145)
           to label %5516 unwind label %5517
 
 5516:                                             ; preds = %5515
@@ -16130,7 +16130,7 @@ declare void @_ZN5Yosys5RTLIL6DesignC1Ev(ptr noundef nonnull align 8 dereference
 declare void @_ZN5Yosys8Frontend13frontend_callEPNS_5RTLIL6DesignEPSiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118create_gold_moduleEPN5Yosys5RTLIL6DesignENS1_8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118create_gold_moduleEPN5Yosys5RTLIL6DesignENS1_8IdStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %7 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %8 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
@@ -24150,7 +24150,7 @@ declare void @_ZN5Yosys4Pass4callEPNS_5RTLIL6DesignENSt7__cxx1112basic_stringIcS
 declare void @_ZN5Yosys7Backend12backend_callEPNS_5RTLIL6DesignEPSoNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113run_eval_testEPN5Yosys5RTLIL6DesignEbbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt14basic_ofstreamIcS7_E(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(248) %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113run_eval_testEPN5Yosys5RTLIL6DesignEbbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt14basic_ofstreamIcS7_E(ptr noundef nonnull %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(248) %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca [75 x i32], align 4
   %7 = alloca %"class.std::allocator.102", align 1
   %8 = alloca [75 x i32], align 4

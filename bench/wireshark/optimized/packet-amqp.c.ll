@@ -6525,7 +6525,7 @@ declare ptr @proto_tree_add_double(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @proto_tree_add_item_ret_length(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_amqp_0_9_field_array(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_amqp_0_9_field_array(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -5) %3) unnamed_addr #0 {
   %5 = load i32, ptr @ett_amqp, align 4
   %6 = tail call ptr @proto_item_add_subtree(ptr noundef null, i32 noundef %5) #12
   %.not2 = icmp eq i32 %3, 0
@@ -6647,7 +6647,7 @@ get_conversation_channel.exit:                    ; preds = %4, %8, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @record_delivery_ack(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @record_delivery_ack(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i64 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #12
   %7 = load i32, ptr @proto_amqp, align 4
   %8 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %6, i32 noundef %7) #12
@@ -11881,7 +11881,7 @@ declare ptr @tvb_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef)
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @format_amqp_0_10_sequence_set(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @format_amqp_0_10_sequence_set(ptr noundef %0, i32 noundef range(i32 6, 9) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = and i32 %2, 3
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %7, label %6
@@ -12174,7 +12174,7 @@ get_amqp_1_0_type_value_formatter.exit.i:         ; preds = %.lr.ph.i
   store i32 0, ptr %7, align 4
   store ptr null, ptr %8, align 8
   store ptr null, ptr %9, align 8
-  %111 = call fastcc i32 @get_amqp_1_0_type_formatter(ptr noundef %.058, i32 noundef %107, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %10)
+  %111 = call fastcc i32 @get_amqp_1_0_type_formatter(ptr noundef %.058, i32 noundef %107, ptr noundef %6, ptr noundef %9, ptr noundef %7, ptr noundef %8, ptr noundef %10)
   %112 = load ptr, ptr %9, align 8
   %113 = load i32, ptr %10, align 4
   %114 = add i32 %113, %107
@@ -12182,7 +12182,7 @@ get_amqp_1_0_type_value_formatter.exit.i:         ; preds = %.lr.ph.i
   %116 = load i32, ptr %6, align 4
   %117 = load i32, ptr %7, align 4
   %118 = load ptr, ptr %8, align 8
-  call fastcc void @get_amqp_1_0_value_formatter(ptr noundef %.058, ptr noundef %1, i8 noundef zeroext %115, i32 noundef %114, i32 noundef %116, ptr noundef %112, i32 noundef %117, ptr noundef %118, ptr noundef nonnull %11, ptr noundef %77) #14
+  call fastcc void @get_amqp_1_0_value_formatter(ptr noundef %.058, ptr noundef %1, i8 noundef zeroext %115, i32 noundef %114, i32 noundef %116, ptr noundef %112, i32 noundef %117, ptr noundef %118, ptr noundef %11, ptr noundef %77) #14
   %119 = load i32, ptr %11, align 4
   %120 = add i32 %119, %113
   store i32 %120, ptr %11, align 4
@@ -12411,7 +12411,7 @@ get_amqp_1_0_type_value_formatter.exit:           ; preds = %57, %59
   store i32 0, ptr %10, align 4
   store ptr null, ptr %11, align 8
   store ptr null, ptr %12, align 8
-  %62 = call fastcc i32 @get_amqp_1_0_type_formatter(ptr noundef %0, i32 noundef %.07782, ptr noundef nonnull %9, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13)
+  %62 = call fastcc i32 @get_amqp_1_0_type_formatter(ptr noundef %0, i32 noundef %.07782, ptr noundef %9, ptr noundef %12, ptr noundef %10, ptr noundef %11, ptr noundef %13)
   %63 = load ptr, ptr %12, align 8
   %64 = load i32, ptr %13, align 4
   %65 = add i32 %64, %.07782
@@ -12419,7 +12419,7 @@ get_amqp_1_0_type_value_formatter.exit:           ; preds = %57, %59
   %67 = load i32, ptr %9, align 4
   %68 = load i32, ptr %10, align 4
   %69 = load ptr, ptr %11, align 8
-  call fastcc void @get_amqp_1_0_value_formatter(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %66, i32 noundef %65, i32 noundef %67, ptr noundef %63, i32 noundef %68, ptr noundef %69, ptr noundef nonnull %14, ptr noundef %.078)
+  call fastcc void @get_amqp_1_0_value_formatter(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %66, i32 noundef %65, i32 noundef %67, ptr noundef %63, i32 noundef %68, ptr noundef %69, ptr noundef %14, ptr noundef %.078)
   %70 = load i32, ptr %14, align 4
   %71 = add i32 %70, %64
   store i32 %71, ptr %14, align 4
@@ -12459,7 +12459,7 @@ get_amqp_1_0_type_value_formatter.exit:           ; preds = %57, %59
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_amqp_1_0_type_value_formatter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @get_amqp_1_0_type_value_formatter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef nonnull %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
@@ -12469,7 +12469,7 @@ define internal fastcc void @get_amqp_1_0_type_value_formatter(ptr noundef %0, p
   store i32 0, ptr %9, align 4
   store ptr null, ptr %10, align 8
   store ptr null, ptr %11, align 8
-  %13 = call fastcc i32 @get_amqp_1_0_type_formatter(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %12)
+  %13 = call fastcc i32 @get_amqp_1_0_type_formatter(ptr noundef %0, i32 noundef %2, ptr noundef %8, ptr noundef %11, ptr noundef %9, ptr noundef %10, ptr noundef %12)
   %14 = icmp ne ptr %4, null
   %15 = load ptr, ptr %11, align 8
   %16 = icmp ne ptr %15, null
@@ -12508,7 +12508,7 @@ define internal fastcc void @get_amqp_1_0_type_value_formatter(ptr noundef %0, p
 declare ptr @proto_registrar_get_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 256) i32 @get_amqp_1_0_type_formatter(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @get_amqp_1_0_type_formatter(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #12
   %9 = add i32 %1, 1
   %10 = icmp eq i8 %8, 0
@@ -12621,7 +12621,7 @@ define internal fastcc range(i32 0, 256) i32 @get_amqp_1_0_type_formatter(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_amqp_1_0_value_formatter(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef writeonly %8, ptr noundef %9) unnamed_addr #0 {
+define internal fastcc void @get_amqp_1_0_value_formatter(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef nonnull writeonly %8, ptr noundef %9) unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
@@ -12977,7 +12977,7 @@ decode_fixed_type.exit142.thread:                 ; preds = %.lr.ph169
 170:                                              ; preds = %146
   %171 = load i32, ptr @hf_amqp_1_0_list, align 4
   %172 = load ptr, ptr %17, align 8
-  call fastcc void @get_amqp_1_0_type_value_formatter(ptr noundef %0, ptr noundef %1, i32 noundef %.091.i173, i32 noundef %171, ptr noundef %172, ptr noundef nonnull %16, ptr noundef %.197.i148)
+  call fastcc void @get_amqp_1_0_type_value_formatter(ptr noundef %0, ptr noundef %1, i32 noundef %.091.i173, i32 noundef %171, ptr noundef %172, ptr noundef %16, ptr noundef %.197.i148)
   %173 = load i32, ptr %16, align 4
   br label %174
 
@@ -13045,7 +13045,7 @@ dissect_amqp_1_0_map.exit:                        ; preds = %108, %133, %137, %.
   %.080.i = phi i32 [ %188, %187 ], [ %183, %181 ]
   %198 = shl nuw nsw i32 %.083.i, 1
   %199 = add i32 %198, %3
-  %200 = call fastcc i32 @get_amqp_1_0_type_formatter(ptr noundef %0, i32 noundef %199, ptr noundef nonnull %11, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %12)
+  %200 = call fastcc i32 @get_amqp_1_0_type_formatter(ptr noundef %0, i32 noundef %199, ptr noundef %11, ptr noundef %15, ptr noundef %13, ptr noundef %14, ptr noundef %12)
   %201 = load i32, ptr %11, align 4
   %202 = add nuw nsw i32 %.083.i, 1
   %203 = add i32 %202, %.080.i
@@ -13123,7 +13123,7 @@ dissect_amqp_1_0_map.exit:                        ; preds = %108, %133, %137, %.
   %.0.i137 = load i32, ptr %.0.in.i, align 4
   %237 = tail call ptr @proto_registrar_get_nth(i32 noundef %201) #12
   %238 = load ptr, ptr %237, align 8
-  call fastcc void @get_amqp_1_0_value_formatter(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %221, i32 noundef %.079.i158, i32 noundef %.0.i137, ptr noundef %238, i32 noundef %222, ptr noundef %223, ptr noundef nonnull %12, ptr noundef %.084.i)
+  call fastcc void @get_amqp_1_0_value_formatter(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %221, i32 noundef %.079.i158, i32 noundef %.0.i137, ptr noundef %238, i32 noundef %222, ptr noundef %223, ptr noundef %12, ptr noundef %.084.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %239 = load i32, ptr %12, align 4
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %239, i32 1)

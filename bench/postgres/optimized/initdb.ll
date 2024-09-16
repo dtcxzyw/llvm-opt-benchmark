@@ -790,27 +790,27 @@ define dso_local void @setup_locale_encoding() local_unnamed_addr #0 {
 
 29:                                               ; preds = %28, %25, %0
   %30 = phi ptr [ %10, %25 ], [ %10, %28 ], [ %.pre.i, %0 ]
-  call fastcc void @check_locale_name(i32 noundef 0, ptr noundef %30, ptr noundef nonnull %5)
+  call fastcc void @check_locale_name(i32 noundef 0, ptr noundef %30, ptr noundef %5)
   %31 = load ptr, ptr %5, align 8
   store ptr %31, ptr @lc_ctype, align 8
   %32 = load ptr, ptr @lc_collate, align 8
-  call fastcc void @check_locale_name(i32 noundef 3, ptr noundef %32, ptr noundef nonnull %5)
+  call fastcc void @check_locale_name(i32 noundef 3, ptr noundef %32, ptr noundef %5)
   %33 = load ptr, ptr %5, align 8
   store ptr %33, ptr @lc_collate, align 8
   %34 = load ptr, ptr @lc_numeric, align 8
-  call fastcc void @check_locale_name(i32 noundef 1, ptr noundef %34, ptr noundef nonnull %5)
+  call fastcc void @check_locale_name(i32 noundef 1, ptr noundef %34, ptr noundef %5)
   %35 = load ptr, ptr %5, align 8
   store ptr %35, ptr @lc_numeric, align 8
   %36 = load ptr, ptr @lc_time, align 8
-  call fastcc void @check_locale_name(i32 noundef 2, ptr noundef %36, ptr noundef nonnull %5)
+  call fastcc void @check_locale_name(i32 noundef 2, ptr noundef %36, ptr noundef %5)
   %37 = load ptr, ptr %5, align 8
   store ptr %37, ptr @lc_time, align 8
   %38 = load ptr, ptr @lc_monetary, align 8
-  call fastcc void @check_locale_name(i32 noundef 4, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @check_locale_name(i32 noundef 4, ptr noundef %38, ptr noundef %5)
   %39 = load ptr, ptr %5, align 8
   store ptr %39, ptr @lc_monetary, align 8
   %40 = load ptr, ptr @lc_messages, align 8
-  call fastcc void @check_locale_name(i32 noundef 5, ptr noundef %40, ptr noundef nonnull %5)
+  call fastcc void @check_locale_name(i32 noundef 5, ptr noundef %40, ptr noundef %5)
   %41 = load ptr, ptr %5, align 8
   store ptr %41, ptr @lc_messages, align 8
   %.b5.i = load i1, ptr @locale_provider, align 1
@@ -1124,7 +1124,7 @@ declare i32 @pg_valid_server_encoding_id_private(i32 noundef) local_unnamed_addr
 declare ptr @pg_encoding_to_char_private(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @check_locale_encoding(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @check_locale_encoding(ptr noundef %0, i32 noundef range(i32 0, -1) %1) unnamed_addr #0 {
   %3 = tail call i32 @pg_get_encoding_from_locale(ptr noundef %0, i1 noundef zeroext true) #18
   %4 = icmp eq i32 %3, %1
   %5 = add i32 %3, 1
@@ -2134,7 +2134,7 @@ pretty_wal_size.exit49.i:                         ; preds = %189, %186
   %.3.lcssa.i = phi ptr [ %.2.i, %215 ], [ %218, %.lr.ph.i ]
   %221 = load ptr, ptr @pg_data, align 8
   %222 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 1024, ptr noundef nonnull @.str.278, ptr noundef %221) #18
-  call fastcc void @writefile(ptr noundef nonnull %8, ptr noundef %.3.lcssa.i)
+  call fastcc void @writefile(ptr noundef %8, ptr noundef %.3.lcssa.i)
   %223 = load i32, ptr @pg_file_create_mode, align 4
   %224 = call i32 @chmod(ptr noundef nonnull %8, i32 noundef %223) #18
   %.not44.i = icmp eq i32 %224, 0
@@ -2156,7 +2156,7 @@ pretty_wal_size.exit49.i:                         ; preds = %189, %186
   store ptr null, ptr %231, align 8
   %232 = load ptr, ptr @pg_data, align 8
   %233 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.329, ptr noundef %232) #18
-  call fastcc void @writefile(ptr noundef nonnull %8, ptr noundef nonnull %227)
+  call fastcc void @writefile(ptr noundef %8, ptr noundef nonnull %227)
   %234 = load i32, ptr @pg_file_create_mode, align 4
   %235 = call i32 @chmod(ptr noundef nonnull %8, i32 noundef %234) #18
   %.not45.i = icmp eq i32 %235, 0
@@ -2207,7 +2207,7 @@ pretty_wal_size.exit49.i:                         ; preds = %189, %186
   %262 = call fastcc ptr @replace_token(ptr noundef %239, ptr noundef nonnull @.str.338, ptr noundef nonnull %261)
   %263 = load ptr, ptr @pg_data, align 8
   %264 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 1024, ptr noundef nonnull @.str.341, ptr noundef %263) #18
-  call fastcc void @writefile(ptr noundef nonnull %8, ptr noundef %239)
+  call fastcc void @writefile(ptr noundef %8, ptr noundef %239)
   %265 = load i32, ptr @pg_file_create_mode, align 4
   %266 = call i32 @chmod(ptr noundef nonnull %8, i32 noundef %265) #18
   %.not47.i = icmp eq i32 %266, 0
@@ -2223,7 +2223,7 @@ pretty_wal_size.exit49.i:                         ; preds = %189, %186
   %270 = call fastcc ptr @readfile(ptr noundef %269)
   %271 = load ptr, ptr @pg_data, align 8
   %272 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 1024, ptr noundef nonnull @.str.342, ptr noundef %271) #18
-  call fastcc void @writefile(ptr noundef nonnull %8, ptr noundef %270)
+  call fastcc void @writefile(ptr noundef %8, ptr noundef %270)
   %273 = load i32, ptr @pg_file_create_mode, align 4
   %274 = call i32 @chmod(ptr noundef nonnull %8, i32 noundef %273) #18
   %.not48.i = icmp eq i32 %274, 0
@@ -2462,9 +2462,9 @@ escape_quotes.exit.i:                             ; preds = %368
 
 setup_auth.exit:                                  ; preds = %366, %374, %377
   %379 = load ptr, ptr @system_constraints_file, align 8
-  call fastcc void @setup_run_file(ptr noundef nonnull %356, ptr noundef %379)
+  call fastcc void @setup_run_file(ptr noundef %356, ptr noundef %379)
   %380 = load ptr, ptr @system_functions_file, align 8
-  call fastcc void @setup_run_file(ptr noundef nonnull %356, ptr noundef %380)
+  call fastcc void @setup_run_file(ptr noundef %356, ptr noundef %380)
   %381 = call i32 @fputs(ptr noundef nonnull @.str.385, ptr noundef nonnull %356)
   %382 = icmp slt i32 %381, 0
   br i1 %382, label %386, label %383
@@ -2482,7 +2482,7 @@ setup_auth.exit:                                  ; preds = %366, %374, %377
 
 setup_depend.exit:                                ; preds = %383, %386
   %388 = load ptr, ptr @system_views_file, align 8
-  call fastcc void @setup_run_file(ptr noundef nonnull %356, ptr noundef %388)
+  call fastcc void @setup_run_file(ptr noundef %356, ptr noundef %388)
   %389 = call i32 @fputs(ptr noundef nonnull @.str.386, ptr noundef nonnull %356)
   %390 = icmp slt i32 %389, 0
   br i1 %390, label %394, label %391
@@ -2532,7 +2532,7 @@ setup_description.exit:                           ; preds = %391, %394
 
 setup_collation.exit:                             ; preds = %406, %409
   %411 = load ptr, ptr @dictionary_file, align 8
-  call fastcc void @setup_run_file(ptr noundef nonnull %356, ptr noundef %411)
+  call fastcc void @setup_run_file(ptr noundef %356, ptr noundef %411)
   %412 = load ptr, ptr @username, align 8
   %413 = call ptr @escape_single_quotes_ascii(ptr noundef %412) #18
   %.not.i.i32 = icmp eq ptr %413, null
@@ -2737,7 +2737,7 @@ escape_quotes.exit.i33:                           ; preds = %setup_collation.exi
 
 setup_privileges.exit:                            ; preds = %505, %508
   %510 = load ptr, ptr @info_schema_file, align 8
-  call fastcc void @setup_run_file(ptr noundef nonnull %356, ptr noundef %510)
+  call fastcc void @setup_run_file(ptr noundef %356, ptr noundef %510)
   %511 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %356, ptr noundef nonnull @.str.401, ptr noundef nonnull @infoversion) #18
   %512 = icmp slt i32 %511, 0
   br i1 %512, label %516, label %513
@@ -3027,7 +3027,7 @@ declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #3
 declare void @printfPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setup_run_file(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @setup_run_file(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @readfile(ptr noundef %1)
   %4 = load ptr, ptr %3, align 8
   %.not12 = icmp eq ptr %4, null
@@ -3036,12 +3036,12 @@ define internal fastcc void @setup_run_file(ptr nocapture noundef %0, ptr nounde
 .lr.ph:                                           ; preds = %2, %14
   %5 = phi ptr [ %17, %14 ], [ %4, %2 ]
   %.013 = phi ptr [ %16, %14 ], [ %3, %2 ]
-  %6 = tail call i32 @fputs(ptr noundef nonnull %5, ptr noundef %0)
+  %6 = tail call i32 @fputs(ptr noundef nonnull %5, ptr noundef nonnull %0)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = tail call i32 @fflush(ptr noundef %0)
+  %9 = tail call i32 @fflush(ptr noundef nonnull %0)
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %14
 
@@ -3061,12 +3061,12 @@ define internal fastcc void @setup_run_file(ptr nocapture noundef %0, ptr nounde
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %14, %2
-  %18 = tail call i32 @fputs(ptr noundef nonnull @.str.384, ptr noundef %0)
+  %18 = tail call i32 @fputs(ptr noundef nonnull @.str.384, ptr noundef nonnull %0)
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %._crit_edge
-  %21 = tail call i32 @fflush(ptr noundef %0)
+  %21 = tail call i32 @fflush(ptr noundef nonnull %0)
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %26
 
@@ -4176,7 +4176,7 @@ declare void @appendPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_add
 declare void @destroyPQExpBuffer(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_locale_name(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc void @check_locale_name(i32 noundef range(i32 0, 6) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   %4 = tail call ptr @setlocale(i32 noundef %0, ptr noundef null) #18
   %.not = icmp eq ptr %4, null
@@ -4637,8 +4637,8 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @writefile(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
-  %3 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.59)
+define internal fastcc void @writefile(ptr noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
+  %3 = tail call noalias ptr @fopen(ptr noundef nonnull %0, ptr noundef nonnull @.str.59)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %.preheader
 
@@ -4648,7 +4648,7 @@ define internal fastcc void @writefile(ptr noundef %0, ptr nocapture noundef %1)
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 6:                                                ; preds = %2
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.274, ptr noundef %0) #18
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.274, ptr noundef nonnull %0) #18
   tail call void @exit(i32 noundef 1) #19
   unreachable
 
@@ -4660,7 +4660,7 @@ define internal fastcc void @writefile(ptr noundef %0, ptr nocapture noundef %1)
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %.lr.ph
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.277, ptr noundef %0) #18
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.277, ptr noundef nonnull %0) #18
   tail call void @exit(i32 noundef 1) #19
   unreachable
 
@@ -4678,7 +4678,7 @@ define internal fastcc void @writefile(ptr noundef %0, ptr nocapture noundef %1)
   br i1 %.not14, label %17, label %16
 
 16:                                               ; preds = %._crit_edge
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.356, ptr noundef %0) #18
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.356, ptr noundef nonnull %0) #18
   tail call void @exit(i32 noundef 1) #19
   unreachable
 

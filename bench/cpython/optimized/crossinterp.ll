@@ -1522,7 +1522,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_xidata_release(ptr noundef %data, i32 noundef %rawfree) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_xidata_release(ptr noundef %data, i32 noundef range(i32 0, 2) %rawfree) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
@@ -2679,7 +2679,7 @@ _sharedns_new.exit.thread:                        ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i8 0, i64 16, i1 false)
-  %call5 = tail call fastcc i32 @_sharedns_init(ptr noundef nonnull %call.i, ptr noundef nonnull %names)
+  %call5 = tail call fastcc i32 @_sharedns_init(ptr noundef %call.i, ptr noundef nonnull %names)
   %cmp6 = icmp slt i32 %call5, 0
   br i1 %cmp6, label %if.then7, label %return
 
@@ -2699,7 +2699,7 @@ return:                                           ; preds = %_sharedns_new.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_sharedns_init(ptr nocapture noundef writeonly %ns, ptr noundef %names) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_sharedns_init(ptr nocapture noundef nonnull writeonly %ns, ptr noundef %names) unnamed_addr #0 {
 entry:
   %size.i.i36 = alloca i64, align 8
   %size.i.i = alloca i64, align 8
@@ -3226,7 +3226,7 @@ _sharedns_new.exit.thread.i:                      ; preds = %if.end3.i
 
 if.end7.i:                                        ; preds = %if.end3.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i, i8 0, i64 16, i1 false)
-  %call8.i = tail call fastcc i32 @_sharedns_init(ptr noundef nonnull %call.i.i, ptr noundef nonnull %nsupdates)
+  %call8.i = tail call fastcc i32 @_sharedns_init(ptr noundef %call.i.i, ptr noundef nonnull %nsupdates)
   %cmp9.i = icmp slt i32 %call8.i, 0
   br i1 %cmp9.i, label %if.then10.i, label %if.end15.i
 

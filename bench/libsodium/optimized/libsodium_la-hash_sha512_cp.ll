@@ -74,7 +74,7 @@ for.body28:                                       ; preds = %if.end, %for.body28
 
 for.end35:                                        ; preds = %for.body28
   %arrayidx40 = getelementptr inbounds i8, ptr %tmp64, i64 640
-  call fastcc void @SHA512_Transform(ptr noundef nonnull %state, ptr noundef nonnull %buf, ptr noundef nonnull %tmp64, ptr noundef nonnull %arrayidx40)
+  call fastcc void @SHA512_Transform(ptr noundef %state, ptr noundef nonnull %buf, ptr noundef %tmp64, ptr noundef nonnull %arrayidx40)
   %add.ptr = getelementptr i8, ptr %in, i64 %sub
   %sub43 = sub i64 %inlen, %sub
   %cmp4442 = icmp ugt i64 %sub43, 127
@@ -89,7 +89,7 @@ for.cond52.preheader:                             ; preds = %while.body, %for.en
 while.body:                                       ; preds = %for.end35, %while.body
   %in.addr.044 = phi ptr [ %add.ptr49, %while.body ], [ %add.ptr, %for.end35 ]
   %inlen.addr.043 = phi i64 [ %sub50, %while.body ], [ %sub43, %for.end35 ]
-  call fastcc void @SHA512_Transform(ptr noundef nonnull %state, ptr noundef %in.addr.044, ptr noundef nonnull %tmp64, ptr noundef nonnull %arrayidx40)
+  call fastcc void @SHA512_Transform(ptr noundef %state, ptr noundef %in.addr.044, ptr noundef %tmp64, ptr noundef nonnull %arrayidx40)
   %add.ptr49 = getelementptr i8, ptr %in.addr.044, i64 128
   %sub50 = add i64 %inlen.addr.043, -128
   %cmp44 = icmp ugt i64 %sub50, 127
@@ -114,7 +114,7 @@ return:                                           ; preds = %for.body, %entry, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal fastcc void @SHA512_Transform(ptr nocapture noundef %state, ptr nocapture noundef readonly %block, ptr nocapture noundef %W, ptr nocapture noundef %S) unnamed_addr #3 {
+define internal fastcc void @SHA512_Transform(ptr nocapture noundef nonnull %state, ptr nocapture noundef readonly %block, ptr nocapture noundef nonnull %W, ptr nocapture noundef %S) unnamed_addr #3 {
 entry:
   br label %for.body.i
 
@@ -984,7 +984,7 @@ for.cond7.preheader.i:                            ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 16 dereferenceable(1) @PAD, i64 %5, i1 false)
   %buf22.i = getelementptr inbounds i8, ptr %state, i64 80
   %arrayidx25.i = getelementptr inbounds i8, ptr %tmp64, i64 640
-  call fastcc void @SHA512_Transform(ptr noundef nonnull %state, ptr noundef nonnull %buf22.i, ptr noundef nonnull %tmp64, ptr noundef nonnull %arrayidx25.i)
+  call fastcc void @SHA512_Transform(ptr noundef %state, ptr noundef nonnull %buf22.i, ptr noundef %tmp64, ptr noundef nonnull %arrayidx25.i)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %buf22.i, i8 0, i64 112, i1 false)
   br label %if.end.i
 
@@ -1045,7 +1045,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
 SHA512_Pad.exit:                                  ; preds = %for.body.i.i
   %buf28.i = getelementptr inbounds i8, ptr %state, i64 80
   %arrayidx37.i = getelementptr inbounds i8, ptr %tmp64, i64 640
-  call fastcc void @SHA512_Transform(ptr noundef nonnull %state, ptr noundef nonnull %buf28.i, ptr noundef nonnull %tmp64, ptr noundef nonnull %arrayidx37.i)
+  call fastcc void @SHA512_Transform(ptr noundef %state, ptr noundef nonnull %buf28.i, ptr noundef %tmp64, ptr noundef nonnull %arrayidx37.i)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %SHA512_Pad.exit

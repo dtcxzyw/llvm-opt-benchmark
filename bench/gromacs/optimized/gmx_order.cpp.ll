@@ -4083,7 +4083,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit187.i:     ; preds = %1436, %1433
   %1485 = getelementptr inbounds i8, ptr %1480, i64 %1484
   %1486 = load i32, ptr @_ZZ9gmx_orderiPPcE7nslices, align 4
   %1487 = load ptr, ptr %114, align 8
-  invoke fastcc void @_ZL14write_bfactorsP8t_filenmiN3gmx8ArrayRefIK10IndexGroupEEiPPfPK10t_topologyS7_P16gmx_output_env_t(ptr noundef nonnull %113, i32 noundef 12, ptr %1480, ptr %1485, i32 noundef %1486, ptr noundef %810, ptr noundef %697, ptr noundef %.1205, ptr noundef %1487)
+  invoke fastcc void @_ZL14write_bfactorsP8t_filenmiN3gmx8ArrayRefIK10IndexGroupEEiPPfPK10t_topologyS7_P16gmx_output_env_t(ptr noundef %113, i32 noundef 12, ptr %1480, ptr %1485, i32 noundef %1486, ptr noundef %810, ptr noundef %697, ptr noundef %.1205, ptr noundef %1487)
           to label %1488 unwind label %.loopexit.split-lp242.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 1488:                                             ; preds = %1476, %1479, %1472
@@ -4476,7 +4476,7 @@ _ZNSt16allocator_traitsISaI10IndexGroupEE7destroyIS0_EEvRS1_PT_.exit: ; preds = 
 declare noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14write_bfactorsP8t_filenmiN3gmx8ArrayRefIK10IndexGroupEEiPPfPK10t_topologyS7_P16gmx_output_env_t(ptr noundef %0, i32 noundef %1, ptr %2, ptr %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr noundef readonly %7, ptr noundef %8) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14write_bfactorsP8t_filenmiN3gmx8ArrayRefIK10IndexGroupEEiPPfPK10t_topologyS7_P16gmx_output_env_t(ptr noundef nonnull %0, i32 noundef %1, ptr %2, ptr %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr noundef readonly %7, ptr noundef %8) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca ptr, align 8
   %11 = alloca %struct.t_trxframe, align 8
   %12 = alloca %struct.t_trxframe, align 8
@@ -4491,7 +4491,7 @@ define internal fastcc void @_ZL14write_bfactorsP8t_filenmiN3gmx8ArrayRefIK10Ind
   %21 = sdiv exact i64 %20, 56
   %22 = trunc i64 %21 to i32
   %23 = add i32 %22, -2
-  %24 = tail call noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 1, i32 noundef %1, ptr noundef %0)
+  %24 = tail call noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 1, i32 noundef %1, ptr noundef nonnull %0)
   store ptr %24, ptr %15, align 8
   call void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, i8 noundef zeroext 2)
   %25 = invoke noundef zeroext i1 @_Z16read_first_framePK16gmx_output_env_tPP11t_trxstatusRKNSt10filesystem7__cxx114pathEP10t_trxframei(ptr noundef %8, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull %11, i32 noundef 2)
@@ -4665,7 +4665,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %26, %30
   br label %127
 
 ._crit_edge65:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %.preheader58
-  %116 = call noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef nonnull @.str.46, i32 noundef %1, ptr noundef %0)
+  %116 = call noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef nonnull @.str.46, i32 noundef %1, ptr noundef nonnull %0)
   store ptr %116, ptr %17, align 8
   call void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, i8 noundef zeroext 2)
   %117 = getelementptr inbounds i8, ptr %12, i64 156

@@ -17,7 +17,7 @@ entry:
   br i1 %tobool.not, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc ptr @BIO_new_bufferevent(ptr noundef nonnull %underlying)
+  %call = tail call fastcc ptr @BIO_new_bufferevent(ptr noundef %underlying)
   %tobool1.not = icmp eq ptr %call, null
   br i1 %tobool1.not, label %err, label %if.end3
 
@@ -41,7 +41,7 @@ return:                                           ; preds = %err, %if.then6, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @BIO_new_bufferevent(ptr noundef %bufferevent) unnamed_addr #0 {
+define internal fastcc ptr @BIO_new_bufferevent(ptr noundef nonnull %bufferevent) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @methods_bufferevent, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -76,7 +76,7 @@ BIO_s_bufferevent.exit:                           ; preds = %entry, %if.then.i, 
 
 if.end4:                                          ; preds = %BIO_s_bufferevent.exit
   tail call void @BIO_set_init(ptr noundef nonnull %call1, i32 noundef 1) #4
-  tail call void @BIO_set_data(ptr noundef nonnull %call1, ptr noundef %bufferevent) #4
+  tail call void @BIO_set_data(ptr noundef nonnull %call1, ptr noundef nonnull %bufferevent) #4
   tail call void @BIO_set_shutdown(ptr noundef nonnull %call1, i32 noundef 0) #4
   br label %return
 
@@ -563,7 +563,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call3 = tail call fastcc ptr @BIO_new_bufferevent(ptr noundef nonnull %0)
+  %call3 = tail call fastcc ptr @BIO_new_bufferevent(ptr noundef %0)
   %tobool4.not = icmp eq ptr %call3, null
   br i1 %tobool4.not, label %return, label %if.end
 

@@ -1074,7 +1074,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %38, %42
   %44 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %9) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
   %45 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #14
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_116quoteIfNecessaryB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %45)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_116quoteIfNecessaryB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %45)
           to label %46 unwind label %.loopexit.split-lp
 
 46:                                               ; preds = %43
@@ -1095,7 +1095,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %38, %42
 50:                                               ; preds = %.lr.ph
   %51 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_116quoteIfNecessaryB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %52)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_116quoteIfNecessaryB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %52)
           to label %53 unwind label %.loopexit
 
 53:                                               ; preds = %50
@@ -1353,14 +1353,14 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZN3gmx20stripSuffixIfPresentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx12_GLOBAL__N_116quoteIfNecessaryB5cxx11EPKc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmx12_GLOBAL__N_116quoteIfNecessaryB5cxx11EPKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 32) #19
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.5, ptr noundef %1)
+  tail call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.5, ptr noundef %1)
   br label %18
 
 6:                                                ; preds = %2

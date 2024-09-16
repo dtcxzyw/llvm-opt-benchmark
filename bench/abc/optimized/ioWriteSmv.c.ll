@@ -154,7 +154,7 @@ Io_WriteSmvCheckNames.exit:                       ; preds = %.lr.ph.i, %.lr.ph.i
   br label %53, !llvm.loop !7
 
 cleanUNSAFE.exit.i:                               ; preds = %53
-  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.8, ptr noundef nonnull @cleanUNSAFE.buffer) #6
+  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.8, ptr noundef nonnull @cleanUNSAFE.buffer) #6
   %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i15, 1
   %.val92.i = load ptr, ptr %39, align 8
   %60 = getelementptr i8, ptr %.val92.i, i64 4
@@ -164,8 +164,8 @@ cleanUNSAFE.exit.i:                               ; preds = %53
   br i1 %62, label %.lr.ph.i14, label %.critedge.i, !llvm.loop !8
 
 .critedge.i:                                      ; preds = %cleanUNSAFE.exit.i, %32
-  %fputc78.i = tail call i32 @fputc(i32 10, ptr %27)
-  %63 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 24, i64 1, ptr %27)
+  %fputc78.i = tail call i32 @fputc(i32 10, ptr nonnull %27)
+  %63 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 24, i64 1, ptr nonnull %27)
   %64 = getelementptr inbounds i8, ptr %0, i64 80
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr i8, ptr %65, i64 4
@@ -231,7 +231,7 @@ cleanUNSAFE.exit.i:                               ; preds = %53
   br label %89, !llvm.loop !7
 
 cleanUNSAFE.exit124.i:                            ; preds = %89
-  %95 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.8, ptr noundef nonnull @cleanUNSAFE.buffer) #6
+  %95 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.8, ptr noundef nonnull @cleanUNSAFE.buffer) #6
   %.pre.i = load ptr, ptr %64, align 8
   br label %96
 
@@ -245,8 +245,8 @@ cleanUNSAFE.exit124.i:                            ; preds = %89
   br i1 %100, label %.lr.ph150.i, label %.critedge2.i12, !llvm.loop !9
 
 .critedge2.i12:                                   ; preds = %96, %.critedge.i
-  %fputc79.i = tail call i32 @fputc(i32 10, ptr %27)
-  %101 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 7, i64 1, ptr %27)
+  %fputc79.i = tail call i32 @fputc(i32 10, ptr nonnull %27)
+  %101 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 7, i64 1, ptr nonnull %27)
   %102 = load ptr, ptr @stdout, align 8
   %.val112.i = load ptr, ptr %3, align 8
   %103 = getelementptr i8, ptr %.val112.i, i64 4
@@ -335,8 +335,8 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %122, %118
   br label %134, !llvm.loop !7
 
 cleanUNSAFE.exit.i.i:                             ; preds = %134
-  %140 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.22, ptr noundef nonnull @cleanUNSAFE.buffer) #6
-  %141 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 7, i64 1, ptr %27)
+  %140 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.22, ptr noundef nonnull @cleanUNSAFE.buffer) #6
+  %141 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 7, i64 1, ptr nonnull %27)
   br label %Io_WriteSmvOneNode.exit.i
 
 142:                                              ; preds = %Extra_ProgressBarUpdate.exit.i
@@ -375,7 +375,7 @@ cleanUNSAFE.exit.i.i:                             ; preds = %134
   br label %.preheader143.i, !llvm.loop !7
 
 cleanUNSAFE.exit37.i.i:                           ; preds = %.preheader143.i
-  %157 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.24, ptr noundef nonnull @cleanUNSAFE.buffer) #6
+  %157 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.24, ptr noundef nonnull @cleanUNSAFE.buffer) #6
   %.val28.i.i = load ptr, ptr %112, align 8
   %158 = getelementptr i8, ptr %112, i64 32
   %.val29.i.i = load ptr, ptr %158, align 8
@@ -409,7 +409,7 @@ cleanUNSAFE.exit37.i.i:                           ; preds = %.preheader143.i
   br label %166, !llvm.loop !7
 
 cleanUNSAFE.exit39.i.i:                           ; preds = %166
-  %172 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.14, ptr noundef nonnull @cleanUNSAFE.buffer) #6
+  %172 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.14, ptr noundef nonnull @cleanUNSAFE.buffer) #6
   br label %Io_WriteSmvOneNode.exit.i
 
 .preheader.i:                                     ; preds = %142, %175
@@ -430,7 +430,7 @@ cleanUNSAFE.exit39.i.i:                           ; preds = %166
   br label %.preheader.i, !llvm.loop !7
 
 cleanUNSAFE.exit41.i.i:                           ; preds = %.preheader.i
-  %178 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.25, ptr noundef nonnull @cleanUNSAFE.buffer) #6
+  %178 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.25, ptr noundef nonnull @cleanUNSAFE.buffer) #6
   %.val30.i.i = load ptr, ptr %112, align 8
   %179 = getelementptr i8, ptr %112, i64 32
   %.val31.i.i = load ptr, ptr %179, align 8
@@ -464,7 +464,7 @@ cleanUNSAFE.exit41.i.i:                           ; preds = %.preheader.i
   br label %187, !llvm.loop !7
 
 cleanUNSAFE.exit43.i.i:                           ; preds = %187
-  %193 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.14, ptr noundef nonnull @cleanUNSAFE.buffer) #6
+  %193 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.14, ptr noundef nonnull @cleanUNSAFE.buffer) #6
   br label %Io_WriteSmvOneNode.exit.i
 
 194:                                              ; preds = %Extra_ProgressBarUpdate.exit.i
@@ -501,7 +501,7 @@ cleanUNSAFE.exit43.i.i:                           ; preds = %187
   br label %203, !llvm.loop !7
 
 cleanUNSAFE.exit45.i.i:                           ; preds = %203
-  %209 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.22, ptr noundef nonnull @cleanUNSAFE.buffer) #6
+  %209 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.22, ptr noundef nonnull @cleanUNSAFE.buffer) #6
   %.val32.i.i = load ptr, ptr %112, align 8
   %210 = getelementptr i8, ptr %112, i64 32
   %.val33.i.i = load ptr, ptr %210, align 8
@@ -535,7 +535,7 @@ cleanUNSAFE.exit45.i.i:                           ; preds = %203
   br label %218, !llvm.loop !7
 
 cleanUNSAFE.exit47.i.i:                           ; preds = %218
-  %224 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.26, ptr noundef nonnull @cleanUNSAFE.buffer) #6
+  %224 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.26, ptr noundef nonnull @cleanUNSAFE.buffer) #6
   %.val34.i.i = load ptr, ptr %112, align 8
   %.val35.i.i = load ptr, ptr %210, align 8
   %225 = getelementptr i8, ptr %.val34.i.i, i64 32
@@ -569,7 +569,7 @@ cleanUNSAFE.exit47.i.i:                           ; preds = %218
   br label %233, !llvm.loop !7
 
 cleanUNSAFE.exit49.i.i:                           ; preds = %233
-  %239 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.14, ptr noundef nonnull @cleanUNSAFE.buffer) #6
+  %239 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.14, ptr noundef nonnull @cleanUNSAFE.buffer) #6
   br label %Io_WriteSmvOneNode.exit.i
 
 Io_WriteSmvOneNode.exit.i:                        ; preds = %cleanUNSAFE.exit49.i.i, %cleanUNSAFE.exit43.i.i, %cleanUNSAFE.exit39.i.i, %cleanUNSAFE.exit.i.i, %114, %108
@@ -583,8 +583,8 @@ Io_WriteSmvOneNode.exit.i:                        ; preds = %cleanUNSAFE.exit49.
 
 .critedge4.i:                                     ; preds = %Io_WriteSmvOneNode.exit.i, %.critedge2.i12
   tail call void @Extra_ProgressBarStop(ptr noundef %104) #6
-  %fputc80.i = tail call i32 @fputc(i32 10, ptr %27)
-  %244 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 7, i64 1, ptr %27)
+  %fputc80.i = tail call i32 @fputc(i32 10, ptr nonnull %27)
+  %244 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 7, i64 1, ptr nonnull %27)
   %245 = load ptr, ptr %64, align 8
   %246 = getelementptr i8, ptr %245, i64 4
   %.val90155.i = load i32, ptr %246, align 4
@@ -658,7 +658,7 @@ Io_WriteSmvOneNode.exit.i:                        ; preds = %cleanUNSAFE.exit49.
 
 cleanUNSAFE.exit127.i:                            ; preds = %273
   %279 = add nsw i32 %257, -1
-  %280 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.12, ptr noundef nonnull @cleanUNSAFE.buffer, i32 noundef %279) #6
+  %280 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.12, ptr noundef nonnull @cleanUNSAFE.buffer, i32 noundef %279) #6
   br label %281
 
 281:                                              ; preds = %cleanUNSAFE.exit127.i, %254
@@ -706,7 +706,7 @@ cleanUNSAFE.exit127.i:                            ; preds = %273
   br label %296, !llvm.loop !7
 
 cleanUNSAFE.exit129.i:                            ; preds = %296
-  %302 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.13, ptr noundef nonnull @cleanUNSAFE.buffer) #6
+  %302 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.13, ptr noundef nonnull @cleanUNSAFE.buffer) #6
   %.val114.i = load ptr, ptr %251, align 8
   %303 = getelementptr i8, ptr %251, i64 32
   %.val115.i = load ptr, ptr %303, align 8
@@ -751,7 +751,7 @@ cleanUNSAFE.exit129.i:                            ; preds = %296
   br label %317, !llvm.loop !7
 
 cleanUNSAFE.exit131.i:                            ; preds = %317
-  %323 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.14, ptr noundef nonnull @cleanUNSAFE.buffer) #6
+  %323 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.14, ptr noundef nonnull @cleanUNSAFE.buffer) #6
   %.pre176.i = load ptr, ptr %64, align 8
   br label %324
 
@@ -765,7 +765,7 @@ cleanUNSAFE.exit131.i:                            ; preds = %317
   br i1 %328, label %.lr.ph157.i, label %.critedge6.i, !llvm.loop !11
 
 .critedge6.i:                                     ; preds = %324, %.critedge4.i
-  %fputc81.i = tail call i32 @fputc(i32 10, ptr %27)
+  %fputc81.i = tail call i32 @fputc(i32 10, ptr nonnull %27)
   %329 = getelementptr i8, ptr %0, i64 48
   %.val121158.i = load ptr, ptr %329, align 8
   %330 = getelementptr i8, ptr %.val121158.i, i64 4
@@ -834,7 +834,7 @@ cleanUNSAFE.exit133.i:                            ; preds = %343
 
 .sink.split.i:                                    ; preds = %351, %350, %349, %cleanUNSAFE.exit133.i
   %.str.16.sink.i = phi ptr [ @.str.16, %cleanUNSAFE.exit133.i ], [ @.str.19, %350 ], [ @.str.19, %349 ], [ @.str.21, %351 ]
-  %352 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull %.str.16.sink.i, ptr noundef nonnull @cleanUNSAFE.buffer) #6
+  %352 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull %.str.16.sink.i, ptr noundef nonnull @cleanUNSAFE.buffer) #6
   br label %353
 
 353:                                              ; preds = %.sink.split.i, %351

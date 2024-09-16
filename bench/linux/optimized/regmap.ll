@@ -8623,7 +8623,7 @@ define dso_local i32 @regmap_multi_reg_write(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #1 align 16 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 598
   %6 = load i8, ptr %5, align 2, !range !36, !noundef !37
@@ -11231,7 +11231,7 @@ declare void @llvm.assume(i1 noundef) #23
 declare dso_local void @__udelay(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @_regmap_raw_multi_reg_write(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc i32 @_regmap_raw_multi_reg_write(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 -2147483648, 4294967296) %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 88

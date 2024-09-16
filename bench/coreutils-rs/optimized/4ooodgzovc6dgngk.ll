@@ -345,7 +345,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %15
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h69aa0d43ac0df393E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h69aa0d43ac0df393E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { i64, [1 x i64] }, align 8
@@ -358,7 +358,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = icmp eq i64 %.promoted, 0
-  %.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %.promoted, i64 32)
+  %.0.sroa.speculated.i.i = tail call range(i64 1, 0) i64 @llvm.umin.i64(i64 %.promoted, i64 32)
   br i1 %11, label %.thread17, label %.lr.ph
 
 .thread17:                                        ; preds = %3
@@ -501,7 +501,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %26
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17ha3bc3f4732c3bb82E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17ha3bc3f4732c3bb82E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { i64, [1 x i64] }, align 8
@@ -517,7 +517,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %6, i64 8
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   %13 = icmp eq i64 %.promoted, 0
-  %.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %.promoted, i64 32)
+  %.0.sroa.speculated.i.i = tail call range(i64 1, 0) i64 @llvm.umin.i64(i64 %.promoted, i64 32)
   br i1 %13, label %.thread17, label %.lr.ph
 
 .thread17:                                        ; preds = %3
@@ -762,7 +762,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h13b20556b8edbafaE(ptr noal
 
 35:                                               ; preds = %.thread93
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17ha3bc3f4732c3bb82E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17ha3bc3f4732c3bb82E(ptr noalias nocapture noundef align 8 dereferenceable(16) %10, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef align 8 dereferenceable(24) %2)
   %36 = load i64, ptr %10, align 8, !range !47, !noundef !4
   %trunc = trunc nuw i64 %36 to i1
   %37 = getelementptr inbounds i8, ptr %10, i64 8
@@ -805,7 +805,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h13b20556b8edbafaE(ptr noal
 
 54:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17ha3bc3f4732c3bb82E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17ha3bc3f4732c3bb82E(ptr noalias nocapture noundef align 8 dereferenceable(16) %9, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef align 8 dereferenceable(24) %2)
   %55 = load i64, ptr %9, align 8, !range !47, !noundef !4
   %trunc58 = trunc nuw i64 %55 to i1
   %56 = load ptr, ptr %31, align 8
@@ -1282,7 +1282,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h7f632c616569cfbdE(ptr noal
 
 41:                                               ; preds = %.thread84
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h69aa0d43ac0df393E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h69aa0d43ac0df393E(ptr noalias nocapture noundef align 8 dereferenceable(16) %10, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef align 8 dereferenceable(24) %2)
   %42 = load i64, ptr %10, align 8, !range !47, !noundef !4
   %trunc = trunc nuw i64 %42 to i1
   %43 = getelementptr inbounds i8, ptr %10, i64 8
@@ -1331,7 +1331,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h7f632c616569cfbdE(ptr noal
 
 61:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h69aa0d43ac0df393E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17h69aa0d43ac0df393E(ptr noalias nocapture noundef align 8 dereferenceable(16) %9, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef align 8 dereferenceable(24) %2)
   %62 = load i64, ptr %9, align 8, !range !47, !noundef !4
   %trunc58 = trunc nuw i64 %62 to i1
   %63 = load ptr, ptr %31, align 8

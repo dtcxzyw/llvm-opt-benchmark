@@ -491,7 +491,7 @@ declare i64 @H5Pcreate(i64 noundef) local_unnamed_addr #1
 declare void @error_msg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @leave(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc void @leave(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @params_g, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3

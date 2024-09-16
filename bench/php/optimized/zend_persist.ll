@@ -1188,7 +1188,7 @@ zend_persist_class_method.exit:                   ; preds = %329, %326, %321, %3
   br i1 %.not92.i, label %547, label %545
 
 545:                                              ; preds = %542
-  %546 = tail call fastcc ptr @zend_persist_attributes(ptr noundef nonnull %544)
+  %546 = tail call fastcc ptr @zend_persist_attributes(ptr noundef %544)
   store ptr %546, ptr %543, align 8
   br label %547
 
@@ -1591,7 +1591,7 @@ zend_persist_class_constant.exit:                 ; preds = %547, %458, %452, %.
   br i1 %.not125.i, label %zend_persist_property_info.exit, label %755
 
 755:                                              ; preds = %752
-  %756 = tail call fastcc ptr @zend_persist_attributes(ptr noundef nonnull %754)
+  %756 = tail call fastcc ptr @zend_persist_attributes(ptr noundef %754)
   store ptr %756, ptr %753, align 8
   br label %zend_persist_property_info.exit
 
@@ -1930,7 +1930,7 @@ zend_persist_property_info.exit:                  ; preds = %752, %755
   br i1 %.not1147, label %923, label %921
 
 921:                                              ; preds = %918
-  %922 = tail call fastcc ptr @zend_persist_attributes(ptr noundef nonnull %920)
+  %922 = tail call fastcc ptr @zend_persist_attributes(ptr noundef %920)
   store ptr %922, ptr %919, align 8
   br label %923
 
@@ -4009,7 +4009,7 @@ declare ptr @zend_shared_memdup(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @zend_shared_alloc_register_xlat_entry(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @zend_persist_attributes(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc ptr @zend_persist_attributes(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 384
   %4 = load i8, ptr %3, align 8
@@ -4017,16 +4017,16 @@ define internal fastcc ptr @zend_persist_attributes(ptr noundef %0) unnamed_addr
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call zeroext i1 @zend_accel_in_shm(ptr noundef %0) #6
+  %7 = tail call zeroext i1 @zend_accel_in_shm(ptr noundef nonnull %0) #6
   br i1 %7, label %200, label %8
 
 8:                                                ; preds = %6, %1
-  %9 = tail call ptr @zend_shared_alloc_get_xlat_entry(ptr noundef %0) #6
+  %9 = tail call ptr @zend_shared_alloc_get_xlat_entry(ptr noundef nonnull %0) #6
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %200
 
 10:                                               ; preds = %8
-  tail call fastcc void @zend_hash_persist(ptr noundef %0)
+  tail call fastcc void @zend_hash_persist(ptr noundef nonnull %0)
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4377,7 +4377,7 @@ define internal fastcc ptr @zend_persist_attributes(ptr noundef %0) unnamed_addr
   br i1 %.not183, label %._crit_edge208, label %.lr.ph207
 
 ._crit_edge208:                                   ; preds = %196, %10
-  %198 = tail call ptr @zend_shared_memdup_put_free(ptr noundef %0, i64 noundef 56) #6
+  %198 = tail call ptr @zend_shared_memdup_put_free(ptr noundef nonnull %0, i64 noundef 56) #6
   store i32 2, ptr %198, align 4
   %199 = getelementptr inbounds i8, ptr %198, i64 4
   store i32 87, ptr %199, align 4
@@ -7233,7 +7233,7 @@ define internal fastcc void @zend_persist_op_array_ex(ptr noundef %0, ptr nounde
   br i1 %.not583, label %525, label %523
 
 523:                                              ; preds = %520
-  %524 = call fastcc ptr @zend_persist_attributes(ptr noundef nonnull %522)
+  %524 = call fastcc ptr @zend_persist_attributes(ptr noundef %522)
   store ptr %524, ptr %521, align 8
   br label %525
 

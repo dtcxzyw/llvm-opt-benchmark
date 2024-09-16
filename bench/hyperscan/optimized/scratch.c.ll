@@ -304,7 +304,7 @@ if.then116:                                       ; preds = %if.then114
   br label %if.end118
 
 if.end118:                                        ; preds = %if.then116, %if.then114
-  %call119 = tail call fastcc i32 @alloc_scratch(ptr noundef nonnull %11, ptr noundef nonnull %scratch)
+  %call119 = tail call fastcc i32 @alloc_scratch(ptr noundef nonnull %11, ptr noundef %scratch)
   %46 = load ptr, ptr @hs_scratch_free, align 8
   tail call void %46(ptr noundef nonnull %call18) #5
   %cmp120.not = icmp eq i32 %call119, 0
@@ -336,7 +336,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -9, 1) i32 @alloc_scratch(ptr nocapture noundef readonly %proto, ptr nocapture noundef writeonly %scratch) unnamed_addr #0 {
+define internal fastcc range(i32 -9, 1) i32 @alloc_scratch(ptr nocapture noundef readonly %proto, ptr nocapture noundef nonnull writeonly %scratch) unnamed_addr #0 {
 entry:
   %queueCount1 = getelementptr inbounds i8, ptr %proto, i64 8
   %0 = load i32, ptr %queueCount1, align 8
@@ -599,7 +599,7 @@ lor.lhs.false3:                                   ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false3
   store ptr null, ptr %dest, align 8
-  %call = tail call fastcc i32 @alloc_scratch(ptr noundef nonnull %src, ptr noundef nonnull %dest)
+  %call = tail call fastcc i32 @alloc_scratch(ptr noundef nonnull %src, ptr noundef %dest)
   %cmp5.not = icmp eq i32 %call, 0
   br i1 %cmp5.not, label %return, label %if.then6
 

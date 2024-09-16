@@ -483,7 +483,7 @@ if.then113:                                       ; preds = %lor.lhs.false
   br i1 %cmp115, label %err, label %if.end117
 
 if.end117:                                        ; preds = %if.then113
-  %call118 = call fastcc i32 @ossl_cms_add1_signing_cert(ptr noundef nonnull %call7, ptr noundef nonnull %call114)
+  %call118 = call fastcc i32 @ossl_cms_add1_signing_cert(ptr noundef %call7, ptr noundef %call114)
   call void @ESS_SIGNING_CERT_free(ptr noundef nonnull %call114) #7
   br label %if.end125
 
@@ -493,7 +493,7 @@ if.else119:                                       ; preds = %lor.lhs.false
   br i1 %cmp121, label %err, label %if.end123
 
 if.end123:                                        ; preds = %if.else119
-  %call124 = call fastcc i32 @ossl_cms_add1_signing_cert_v2(ptr noundef nonnull %call7, ptr noundef nonnull %call120)
+  %call124 = call fastcc i32 @ossl_cms_add1_signing_cert_v2(ptr noundef %call7, ptr noundef %call120)
   call void @ESS_SIGNING_CERT_V2_free(ptr noundef nonnull %call120) #7
   br label %if.end125
 
@@ -508,7 +508,7 @@ if.end129:                                        ; preds = %if.end125, %if.end1
   br i1 %tobool131.not, label %if.end149, label %if.then132
 
 if.then132:                                       ; preds = %if.end129
-  %call133 = call fastcc i32 @cms_copy_messageDigest(ptr noundef %cms, ptr noundef nonnull %call7)
+  %call133 = call fastcc i32 @cms_copy_messageDigest(ptr noundef %cms, ptr noundef %call7)
   %tobool134.not = icmp eq i32 %call133, 0
   br i1 %tobool134.not, label %err, label %if.end136
 
@@ -661,7 +661,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @X509_ALGOR_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cms_sd_asn1_ctrl(ptr noundef %si, i32 noundef %cmd) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_sd_asn1_ctrl(ptr noundef %si, i32 noundef range(i32 0, 2) %cmd) unnamed_addr #0 {
 entry:
   %pkey1 = getelementptr inbounds i8, ptr %si, i64 64
   %0 = load ptr, ptr %pkey1, align 8
@@ -994,10 +994,10 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 declare ptr @OSSL_ESS_signing_cert_new_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ossl_cms_add1_signing_cert(ptr noundef %si, ptr noundef %sc) unnamed_addr #0 {
+define internal fastcc i32 @ossl_cms_add1_signing_cert(ptr noundef nonnull %si, ptr noundef nonnull %sc) unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
-  %call = tail call i32 @i2d_ESS_SIGNING_CERT(ptr noundef %sc, ptr noundef null) #7
+  %call = tail call i32 @i2d_ESS_SIGNING_CERT(ptr noundef nonnull %sc, ptr noundef null) #7
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %return, label %lor.lhs.false
 
@@ -1009,7 +1009,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   store ptr %call1, ptr %p, align 8
-  %call4 = call i32 @i2d_ESS_SIGNING_CERT(ptr noundef %sc, ptr noundef nonnull %p) #7
+  %call4 = call i32 @i2d_ESS_SIGNING_CERT(ptr noundef nonnull %sc, ptr noundef nonnull %p) #7
   %call5 = call ptr @ASN1_STRING_new() #7
   %tobool.not = icmp eq ptr %call5, null
   br i1 %tobool.not, label %if.then9, label %lor.lhs.false6
@@ -1026,7 +1026,7 @@ if.then9:                                         ; preds = %lor.lhs.false6, %if
 
 if.end10:                                         ; preds = %lor.lhs.false6
   call void @CRYPTO_free(ptr noundef nonnull %call1, ptr noundef nonnull @.str, i32 noundef 302) #7
-  %call11 = call i32 @CMS_signed_add1_attr_by_NID(ptr noundef %si, i32 noundef 223, i32 noundef 16, ptr noundef nonnull %call5, i32 noundef -1) #7
+  %call11 = call i32 @CMS_signed_add1_attr_by_NID(ptr noundef nonnull %si, i32 noundef 223, i32 noundef 16, ptr noundef nonnull %call5, i32 noundef -1) #7
   call void @ASN1_STRING_free(ptr noundef nonnull %call5) #7
   br label %return
 
@@ -1040,10 +1040,10 @@ declare void @ESS_SIGNING_CERT_free(ptr noundef) local_unnamed_addr #1
 declare ptr @OSSL_ESS_signing_cert_v2_new_init(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ossl_cms_add1_signing_cert_v2(ptr noundef %si, ptr noundef %sc) unnamed_addr #0 {
+define internal fastcc i32 @ossl_cms_add1_signing_cert_v2(ptr noundef nonnull %si, ptr noundef nonnull %sc) unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
-  %call = tail call i32 @i2d_ESS_SIGNING_CERT_V2(ptr noundef %sc, ptr noundef null) #7
+  %call = tail call i32 @i2d_ESS_SIGNING_CERT_V2(ptr noundef nonnull %sc, ptr noundef null) #7
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %return, label %lor.lhs.false
 
@@ -1055,7 +1055,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   store ptr %call1, ptr %p, align 8
-  %call4 = call i32 @i2d_ESS_SIGNING_CERT_V2(ptr noundef %sc, ptr noundef nonnull %p) #7
+  %call4 = call i32 @i2d_ESS_SIGNING_CERT_V2(ptr noundef nonnull %sc, ptr noundef nonnull %p) #7
   %call5 = call ptr @ASN1_STRING_new() #7
   %tobool.not = icmp eq ptr %call5, null
   br i1 %tobool.not, label %if.then9, label %lor.lhs.false6
@@ -1072,7 +1072,7 @@ if.then9:                                         ; preds = %lor.lhs.false6, %if
 
 if.end10:                                         ; preds = %lor.lhs.false6
   call void @CRYPTO_free(ptr noundef nonnull %call1, ptr noundef nonnull @.str, i32 noundef 327) #7
-  %call11 = call i32 @CMS_signed_add1_attr_by_NID(ptr noundef %si, i32 noundef 1086, i32 noundef 16, ptr noundef nonnull %call5, i32 noundef -1) #7
+  %call11 = call i32 @CMS_signed_add1_attr_by_NID(ptr noundef nonnull %si, i32 noundef 1086, i32 noundef 16, ptr noundef nonnull %call5, i32 noundef -1) #7
   call void @ASN1_STRING_free(ptr noundef nonnull %call5) #7
   br label %return
 
@@ -1084,7 +1084,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare void @ESS_SIGNING_CERT_V2_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cms_copy_messageDigest(ptr nocapture noundef readonly %cms, ptr noundef %si) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_copy_messageDigest(ptr nocapture noundef readonly %cms, ptr noundef nonnull %si) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %cms, align 8
   %call.i.i = tail call i32 @OBJ_obj2nid(ptr noundef %0) #7
@@ -2851,7 +2851,7 @@ declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #1
 declare ptr @ossl_X509_ALGOR_from_nid(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cms_add_cipher_smcap(ptr nocapture noundef %sk, i32 noundef %nid, i32 noundef %arg) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_add_cipher_smcap(ptr nocapture noundef %sk, i32 noundef range(i32 31, 814) %nid, i32 noundef range(i32 -1, 129) %arg) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_nid2sn(i32 noundef %nid) #7
   %call1 = tail call ptr @EVP_get_cipherbyname(ptr noundef %call) #7
@@ -2868,7 +2868,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cms_add_digest_smcap(ptr nocapture noundef %sk, i32 noundef %nid) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_add_digest_smcap(ptr nocapture noundef %sk, i32 noundef range(i32 809, 984) %nid) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_nid2sn(i32 noundef %nid) #7
   %call1 = tail call ptr @EVP_get_digestbyname(ptr noundef %call) #7
@@ -2917,34 +2917,30 @@ declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_PKEY_is_a(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cms_generic_sign(ptr nocapture noundef readonly %si, i32 noundef %verify) unnamed_addr #0 {
+define internal fastcc i32 @cms_generic_sign(ptr nocapture noundef readonly %si, i32 noundef range(i32 0, 2) %verify) unnamed_addr #0 {
 entry:
   %snid = alloca i32, align 4
-  %0 = icmp ult i32 %verify, 2
-  br i1 %0, label %if.end, label %return
-
-if.end:                                           ; preds = %entry
   %tobool4.not = icmp eq i32 %verify, 0
   br i1 %tobool4.not, label %if.then5, label %return
 
-if.then5:                                         ; preds = %if.end
+if.then5:                                         ; preds = %entry
   %pkey6 = getelementptr inbounds i8, ptr %si, i64 64
-  %1 = load ptr, ptr %pkey6, align 8
-  %call = tail call i32 @EVP_PKEY_get_id(ptr noundef %1) #7
+  %0 = load ptr, ptr %pkey6, align 8
+  %call = tail call i32 @EVP_PKEY_get_id(ptr noundef %0) #7
   %digestAlgorithm.i = getelementptr inbounds i8, ptr %si, i64 16
-  %2 = load ptr, ptr %digestAlgorithm.i, align 8
+  %1 = load ptr, ptr %digestAlgorithm.i, align 8
   %signatureAlgorithm.i = getelementptr inbounds i8, ptr %si, i64 32
-  %3 = load ptr, ptr %signatureAlgorithm.i, align 8
-  %cmp7 = icmp eq ptr %2, null
+  %2 = load ptr, ptr %signatureAlgorithm.i, align 8
+  %cmp7 = icmp eq ptr %1, null
   br i1 %cmp7, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then5
-  %4 = load ptr, ptr %2, align 8
-  %cmp9 = icmp eq ptr %4, null
+  %3 = load ptr, ptr %1, align 8
+  %cmp9 = icmp eq ptr %3, null
   br i1 %cmp9, label %return, label %if.end12
 
 if.end12:                                         ; preds = %lor.lhs.false
-  %call14 = tail call i32 @OBJ_obj2nid(ptr noundef nonnull %4) #7
+  %call14 = tail call i32 @OBJ_obj2nid(ptr noundef nonnull %3) #7
   %cmp15 = icmp eq i32 %call14, 0
   br i1 %cmp15, label %return, label %if.end18
 
@@ -2953,7 +2949,7 @@ if.end18:                                         ; preds = %if.end12
   br i1 %cmp19, label %if.then21, label %if.end28
 
 if.then21:                                        ; preds = %if.end18
-  %call22 = tail call ptr @EVP_PKEY_get0_type_name(ptr noundef %1) #7
+  %call22 = tail call ptr @EVP_PKEY_get0_type_name(ptr noundef %0) #7
   %cmp23.not = icmp eq ptr %call22, null
   br i1 %cmp23.not, label %if.end28, label %if.then25
 
@@ -2968,13 +2964,13 @@ if.end28:                                         ; preds = %if.then21, %if.then
   br i1 %tobool30.not, label %return, label %if.end32
 
 if.end32:                                         ; preds = %if.end28
-  %5 = load i32, ptr %snid, align 4
-  %call33 = call ptr @OBJ_nid2obj(i32 noundef %5) #7
-  %call34 = call i32 @X509_ALGOR_set0(ptr noundef %3, ptr noundef %call33, i32 noundef -1, ptr noundef null) #7
+  %4 = load i32, ptr %snid, align 4
+  %call33 = call ptr @OBJ_nid2obj(i32 noundef %4) #7
+  %call34 = call i32 @X509_ALGOR_set0(ptr noundef %2, ptr noundef %call33, i32 noundef -1, ptr noundef null) #7
   br label %return
 
-return:                                           ; preds = %if.end, %if.end28, %if.end12, %if.then5, %lor.lhs.false, %entry, %if.end32
-  %retval.0 = phi i32 [ %call34, %if.end32 ], [ -1, %entry ], [ -1, %lor.lhs.false ], [ -1, %if.then5 ], [ -1, %if.end12 ], [ -1, %if.end28 ], [ 1, %if.end ]
+return:                                           ; preds = %entry, %if.end28, %if.end12, %if.then5, %lor.lhs.false, %if.end32
+  %retval.0 = phi i32 [ %call34, %if.end32 ], [ -1, %lor.lhs.false ], [ -1, %if.then5 ], [ -1, %if.end12 ], [ -1, %if.end28 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 

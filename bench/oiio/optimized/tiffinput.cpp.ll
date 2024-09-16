@@ -7919,7 +7919,7 @@ if.then375:                                       ; preds = %if.then370
   %nchannels383 = getelementptr inbounds i8, ptr %this, i64 68
   %157 = load i32, ptr %nchannels383, align 4
   %conv384 = sext i32 %157 to i64
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11cmyk_to_rgbIhEEviPKT_mPS1_m(i32 noundef %154, ptr noundef nonnull %155, i64 noundef %conv381, ptr noundef %data, i64 noundef %conv384)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11cmyk_to_rgbIhEEviPKT_mPS1_m(i32 noundef %154, ptr noundef %155, i64 noundef %conv381, ptr noundef %data, i64 noundef %conv384)
   br label %if.end406thread-pre-split
 
 if.else386:                                       ; preds = %if.then370
@@ -7937,7 +7937,7 @@ if.then391:                                       ; preds = %if.else386
   %nchannels399 = getelementptr inbounds i8, ptr %this, i64 68
   %162 = load i32, ptr %nchannels399, align 4
   %conv400 = sext i32 %162 to i64
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11cmyk_to_rgbItEEviPKT_mPS1_m(i32 noundef %159, ptr noundef nonnull %160, i64 noundef %conv397, ptr noundef %data, i64 noundef %conv400)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11cmyk_to_rgbItEEviPKT_mPS1_m(i32 noundef %159, ptr noundef %160, i64 noundef %conv397, ptr noundef %data, i64 noundef %conv400)
   br label %if.end406thread-pre-split
 
 if.else402.invoke:                                ; preds = %if.else386, %invoke.cont15
@@ -8201,7 +8201,7 @@ _ZNSt10lock_guardIRKN18OpenImageIO_v2_6_010ImageInputEED2Ev.exit: ; preds = %ent
 declare i32 @TIFFReadScanline(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11cmyk_to_rgbIhEEviPKT_mPS1_m(i32 noundef %n, ptr nocapture noundef readonly %cmyk, i64 noundef %cmyk_stride, ptr nocapture noundef writeonly %rgb, i64 noundef %rgb_stride) unnamed_addr #18 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11cmyk_to_rgbIhEEviPKT_mPS1_m(i32 noundef %n, ptr nocapture noundef nonnull readonly %cmyk, i64 noundef range(i64 0, 65536) %cmyk_stride, ptr nocapture noundef writeonly %rgb, i64 noundef range(i64 -2147483648, 2147483648) %rgb_stride) unnamed_addr #18 {
 entry:
   %tobool.not35 = icmp eq i32 %n, 0
   br i1 %tobool.not35, label %for.end, label %for.body
@@ -8275,7 +8275,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11cmyk_to_rgbItEEviPKT_mPS1_m(i32 noundef %n, ptr nocapture noundef readonly %cmyk, i64 noundef %cmyk_stride, ptr nocapture noundef writeonly %rgb, i64 noundef %rgb_stride) unnamed_addr #18 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11cmyk_to_rgbItEEviPKT_mPS1_m(i32 noundef %n, ptr nocapture noundef nonnull readonly %cmyk, i64 noundef range(i64 0, 65536) %cmyk_stride, ptr nocapture noundef writeonly %rgb, i64 noundef range(i64 -2147483648, 2147483648) %rgb_stride) unnamed_addr #18 {
 entry:
   %tobool.not35 = icmp eq i32 %n, 0
   br i1 %tobool.not35, label %for.end, label %for.body

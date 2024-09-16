@@ -57,7 +57,7 @@ define internal range(i32 0, 61) i32 @uudecode_bidder_bid(ptr nocapture readnone
 
 12:                                               ; preds = %.thread, %10
   %.0 = phi i32 [ 20, %10 ], [ 0, %.thread ]
-  %13 = call fastcc i64 @bid_get_line(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %13 = call fastcc i64 @bid_get_line(ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %14 = icmp slt i64 %13, 0
   %15 = load i64, ptr %6, align 8
   %16 = icmp eq i64 %15, 0
@@ -133,7 +133,7 @@ define internal range(i32 0, 61) i32 @uudecode_bidder_bid(ptr nocapture readnone
   br i1 %.not53, label %.loopexit83, label %51
 
 51:                                               ; preds = %47
-  %52 = call fastcc i64 @bid_get_line(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %52 = call fastcc i64 @bid_get_line(ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %53 = icmp slt i64 %52, 0
   %54 = load i64, ptr %6, align 8
   %55 = icmp eq i64 %54, 0
@@ -358,7 +358,7 @@ define internal range(i32 -30, 1) i32 @uudecode_bidder_init(ptr nocapture nounde
 declare ptr @__archive_read_filter_ahead(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @bid_get_line(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc i64 @bid_get_line(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = load i64, ptr %2, align 8
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %.lr.ph.preheader, label %9

@@ -2040,7 +2040,7 @@ declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly,
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @relay_file_read_consume(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #8 align 16 {
+define internal fastcc void @relay_file_read_consume(ptr nocapture noundef %0, i64 noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #8 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8

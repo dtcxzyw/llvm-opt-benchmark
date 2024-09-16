@@ -146,7 +146,7 @@ if.else:                                          ; preds = %entry
   store i32 %flags, ptr %flags6, align 8
   %call7 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_pwrite_zeroes_entry, ptr noundef nonnull %s) #5
   store ptr %call7, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %1 = load i32, ptr %ret, align 8
   br label %return
 
@@ -186,7 +186,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @bdrv_poll_co(ptr nocapture noundef readonly %s) unnamed_addr #0 {
+define internal fastcc void @bdrv_poll_co(ptr nocapture noundef nonnull readonly %s) unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_coroutine() #5
   br i1 %call, label %if.else, label %if.end
@@ -318,7 +318,7 @@ if.else:                                          ; preds = %entry
   store i32 %flags, ptr %flags7, align 8
   %call8 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_pread_entry, ptr noundef nonnull %s) #5
   store ptr %call8, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %2 = load i32, ptr %ret, align 8
   br label %return
 
@@ -428,7 +428,7 @@ if.else:                                          ; preds = %entry
   store i32 %flags, ptr %flags7, align 8
   %call8 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_pwrite_entry, ptr noundef nonnull %s) #5
   store ptr %call8, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %2 = load i32, ptr %ret, align 8
   br label %return
 
@@ -525,7 +525,7 @@ if.else:                                          ; preds = %entry
   store i32 %flags, ptr %flags7, align 8
   %call8 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_pwrite_sync_entry, ptr noundef nonnull %s) #5
   store ptr %call8, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %1 = load i32, ptr %ret, align 8
   br label %return
 
@@ -583,7 +583,7 @@ if.else:                                          ; preds = %entry
   store ptr %bs, ptr %bs3, align 8
   %call4 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_getlength_entry, ptr noundef nonnull %s) #5
   store ptr %call4, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i64, ptr %ret, align 8
   br label %return
 
@@ -633,7 +633,7 @@ if.end:                                           ; preds = %entry
   %ret = getelementptr inbounds i8, ptr %s, i64 24
   %call3 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_get_allocated_file_size_entry, ptr noundef nonnull %s) #5
   store ptr %call3, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i64, ptr %ret, align 8
   ret i64 %0
 }
@@ -691,7 +691,7 @@ if.else:                                          ; preds = %entry
   store ptr %file, ptr %file8, align 8
   %call9 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_block_status_entry, ptr noundef nonnull %s) #5
   store ptr %call9, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -764,7 +764,7 @@ if.else:                                          ; preds = %entry
   store ptr %file, ptr %file9, align 8
   %call10 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_block_status_above_entry, ptr noundef nonnull %s) #5
   store ptr %call10, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -833,7 +833,7 @@ if.else:                                          ; preds = %entry
   store ptr %pnum, ptr %pnum6, align 8
   %call7 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_is_allocated_entry, ptr noundef nonnull %s) #5
   store ptr %call7, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -901,7 +901,7 @@ if.else:                                          ; preds = %entry
   store ptr %pnum, ptr %pnum10, align 8
   %call11 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_is_allocated_above_entry, ptr noundef nonnull %s) #5
   store ptr %call11, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -963,7 +963,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call3 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_is_inserted_entry, ptr noundef nonnull %s) #5
   store ptr %call3, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i8, ptr %ret, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1012,7 +1012,7 @@ if.else:                                          ; preds = %entry
   store ptr %bdi, ptr %bdi4, align 8
   %call5 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_get_info_entry, ptr noundef nonnull %s) #5
   store ptr %call5, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -1072,7 +1072,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call7 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_change_backing_file_entry, ptr noundef nonnull %s) #5
   store ptr %call7, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   ret i32 %0
 }
@@ -1124,7 +1124,7 @@ if.else:                                          ; preds = %entry
   store i32 %event, ptr %event3, align 8
   %call4 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_debug_event_entry, ptr noundef nonnull %s) #5
   store ptr %call4, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -1179,7 +1179,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call6 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_can_store_new_dirty_bitmap_entry, ptr noundef nonnull %s) #5
   store ptr %call6, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i8, ptr %ret, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1244,7 +1244,7 @@ if.else:                                          ; preds = %entry
   store ptr %errp, ptr %errp10, align 8
   %call11 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_truncate_entry, ptr noundef nonnull %s) #5
   store ptr %call11, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %1 = load i32, ptr %ret, align 8
   br label %return
 
@@ -1310,7 +1310,7 @@ if.else:                                          ; preds = %entry
   store i32 %fix, ptr %fix5, align 8
   %call6 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_check_entry, ptr noundef nonnull %s) #5
   store ptr %call6, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -1367,7 +1367,7 @@ if.else:                                          ; preds = %entry
   store ptr %errp, ptr %errp4, align 8
   %call5 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_invalidate_cache_entry, ptr noundef nonnull %s) #5
   store ptr %call5, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -1420,7 +1420,7 @@ if.else:                                          ; preds = %entry
   store ptr %bs, ptr %bs3, align 8
   %call4 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_flush_entry, ptr noundef nonnull %s) #5
   store ptr %call4, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -1476,7 +1476,7 @@ if.else:                                          ; preds = %entry
   store i64 %bytes, ptr %bytes5, align 8
   %call6 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_pdiscard_entry, ptr noundef nonnull %s) #5
   store ptr %call6, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %1 = load i32, ptr %ret, align 8
   br label %return
 
@@ -1535,7 +1535,7 @@ if.else:                                          ; preds = %entry
   store i64 %pos, ptr %pos5, align 8
   %call6 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_readv_vmstate_entry, ptr noundef nonnull %s) #5
   store ptr %call6, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -1594,7 +1594,7 @@ if.else:                                          ; preds = %entry
   store i64 %pos, ptr %pos5, align 8
   %call6 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_writev_vmstate_entry, ptr noundef nonnull %s) #5
   store ptr %call6, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -1653,7 +1653,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call5 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_remove_persistent_dirty_bitmap_entry, ptr noundef nonnull %s) #5
   store ptr %call5, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   ret i32 %0
 }
@@ -1704,7 +1704,7 @@ if.else:                                          ; preds = %entry
   store i64 %hint, ptr %hint4, align 8
   %call5 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_refresh_total_sectors_entry, ptr noundef nonnull %s) #5
   store ptr %call5, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -1763,7 +1763,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call6 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_create_entry, ptr noundef nonnull %s) #5
   store ptr %call6, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   ret i32 %0
 }
@@ -2269,7 +2269,7 @@ if.else:                                          ; preds = %entry
   store ptr %blk, ptr %blk3, align 8
   %call4 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_is_inserted_entry, ptr noundef nonnull %s) #5
   store ptr %call4, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i8, ptr %ret, align 8
   %tobool = trunc i8 %0 to i1
   br label %return
@@ -2324,7 +2324,7 @@ if.else:                                          ; preds = %entry
   store ptr %blk, ptr %blk3, align 8
   %call4 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_is_available_entry, ptr noundef nonnull %s) #5
   store ptr %call4, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i8, ptr %ret, align 8
   %tobool = trunc i8 %0 to i1
   br label %return
@@ -2378,7 +2378,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call5 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_lock_medium_entry, ptr noundef nonnull %s) #5
   store ptr %call5, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   ret void
 }
 
@@ -2422,7 +2422,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call5 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_eject_entry, ptr noundef nonnull %s) #5
   store ptr %call5, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   ret void
 }
 
@@ -2464,7 +2464,7 @@ if.else:                                          ; preds = %entry
   store ptr %blk, ptr %blk3, align 8
   %call4 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_getlength_entry, ptr noundef nonnull %s) #5
   store ptr %call4, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i64, ptr %ret, align 8
   br label %return
 
@@ -2521,7 +2521,7 @@ if.else:                                          ; preds = %entry
   store i32 %flags, ptr %flags7, align 8
   %call8 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_pread_entry, ptr noundef nonnull %s) #5
   store ptr %call8, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -2586,7 +2586,7 @@ if.else:                                          ; preds = %entry
   store i32 %flags, ptr %flags7, align 8
   %call8 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_preadv_entry, ptr noundef nonnull %s) #5
   store ptr %call8, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -2653,7 +2653,7 @@ if.else:                                          ; preds = %entry
   store i32 %flags, ptr %flags8, align 8
   %call9 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_preadv_part_entry, ptr noundef nonnull %s) #5
   store ptr %call9, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -2720,7 +2720,7 @@ if.else:                                          ; preds = %entry
   store i32 %flags, ptr %flags7, align 8
   %call8 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_pwrite_entry, ptr noundef nonnull %s) #5
   store ptr %call8, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -2785,7 +2785,7 @@ if.else:                                          ; preds = %entry
   store i32 %flags, ptr %flags7, align 8
   %call8 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_pwritev_entry, ptr noundef nonnull %s) #5
   store ptr %call8, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -2852,7 +2852,7 @@ if.else:                                          ; preds = %entry
   store i32 %flags, ptr %flags8, align 8
   %call9 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_pwritev_part_entry, ptr noundef nonnull %s) #5
   store ptr %call9, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -2917,7 +2917,7 @@ if.else:                                          ; preds = %entry
   store ptr %buf, ptr %buf6, align 8
   %call7 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_pwrite_compressed_entry, ptr noundef nonnull %s) #5
   store ptr %call7, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -2978,7 +2978,7 @@ if.else:                                          ; preds = %entry
   store i32 %flags, ptr %flags6, align 8
   %call7 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_pwrite_zeroes_entry, ptr noundef nonnull %s) #5
   store ptr %call7, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -3039,7 +3039,7 @@ if.else:                                          ; preds = %entry
   store ptr %zones, ptr %zones6, align 8
   %call7 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_zone_report_entry, ptr noundef nonnull %s) #5
   store ptr %call7, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -3100,7 +3100,7 @@ if.else:                                          ; preds = %entry
   store i64 %len, ptr %len6, align 8
   %call7 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_zone_mgmt_entry, ptr noundef nonnull %s) #5
   store ptr %call7, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -3161,7 +3161,7 @@ if.else:                                          ; preds = %entry
   store i32 %flags, ptr %flags6, align 8
   %call7 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_zone_append_entry, ptr noundef nonnull %s) #5
   store ptr %call7, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -3220,7 +3220,7 @@ if.else:                                          ; preds = %entry
   store i64 %bytes, ptr %bytes5, align 8
   %call6 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_pdiscard_entry, ptr noundef nonnull %s) #5
   store ptr %call6, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -3273,7 +3273,7 @@ if.else:                                          ; preds = %entry
   store ptr %blk, ptr %blk3, align 8
   %call4 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_flush_entry, ptr noundef nonnull %s) #5
   store ptr %call4, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -3326,7 +3326,7 @@ if.else:                                          ; preds = %entry
   store ptr %buf, ptr %buf5, align 8
   %call6 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_ioctl_entry, ptr noundef nonnull %s) #5
   store ptr %call6, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -3390,7 +3390,7 @@ if.else:                                          ; preds = %entry
   store ptr %errp, ptr %errp10, align 8
   %call11 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_truncate_entry, ptr noundef nonnull %s) #5
   store ptr %call11, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -3470,7 +3470,7 @@ if.else:                                          ; preds = %entry
   store ptr %depth, ptr %depth18, align 8
   %call19 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_common_block_status_above_entry, ptr noundef nonnull %s) #5
   store ptr %call19, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 
@@ -3546,7 +3546,7 @@ if.else:                                          ; preds = %entry
   store ptr %errp, ptr %errp7, align 8
   %call8 = call ptr @qemu_coroutine_create(ptr noundef nonnull @nbd_co_do_establish_connection_entry, ptr noundef nonnull %s) #5
   store ptr %call8, ptr %co, align 8
-  call fastcc void @bdrv_poll_co(ptr noundef nonnull %s)
+  call fastcc void @bdrv_poll_co(ptr noundef %s)
   %0 = load i32, ptr %ret, align 8
   br label %return
 

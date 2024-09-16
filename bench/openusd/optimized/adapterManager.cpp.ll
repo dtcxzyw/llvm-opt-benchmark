@@ -2868,7 +2868,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not, label %105, label %99
 
 99:                                               ; preds = %97
-  invoke fastcc void @_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %5)
+  invoke fastcc void @_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_(ptr dead_on_unwind noalias writable align 8 %5)
           to label %100 unwind label %155
 
 100:                                              ; preds = %99
@@ -3163,7 +3163,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapterEED2
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__25UsdImagingAdapterRegistry16ConstructAdapterERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(184), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8

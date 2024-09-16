@@ -2366,7 +2366,7 @@ declare void @init_setproctitle(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @log_init(ptr noundef, ptr noundef byval(%struct.log_options_t) align 8, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_send_fail_to_slurmd(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc void @_send_fail_to_slurmd(i32 noundef range(i32 1, 0) %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   br label %.lr.ph.split.us

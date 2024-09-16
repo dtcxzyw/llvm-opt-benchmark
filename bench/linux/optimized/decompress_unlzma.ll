@@ -437,7 +437,7 @@ define internal fastcc range(i32 0, 2) i32 @rc_is_bit_0(ptr nocapture noundef %0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -1, 1) i32 @process_bit0(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @process_bit0(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef range(i32 0, -2147483648) %6) unnamed_addr #0 section ".init.text" align 16 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #10
   store i32 1, ptr %8, align 4
@@ -547,7 +547,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @process_bit0(ptr nocapture 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @process_bit1(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr nocapture noundef %5) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc i32 @process_bit1(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef nonnull %3, i32 noundef range(i32 0, -2147483648) %4, ptr nocapture noundef %5) unnamed_addr #0 section ".init.text" align 16 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4

@@ -110,7 +110,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.8b4729588241e2262fbb8a9598519a27.127 = private unnamed_addr constant <{ ptr, [9 x i8], [7 x i8], ptr, [9 x i8], [7 x i8] }> <{ ptr @anon.8b4729588241e2262fbb8a9598519a27.125, [9 x i8] c"\02\00\00\00\00\00\00\00\01", [7 x i8] undef, ptr @anon.8b4729588241e2262fbb8a9598519a27.126, [9 x i8] c"\02\00\00\00\00\00\00\00\02", [7 x i8] undef }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 8, !range !4, !noundef !5
   %cond = icmp eq i32 %2, 8
   br i1 %cond, label %4, label %3
@@ -187,7 +187,7 @@ define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$wasmtime_wasi..preview
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i16 noundef %2) unnamed_addr #2 {
+define internal fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i16 noundef %2) unnamed_addr #2 {
   %.sroa.743 = alloca [8 x i32], align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -271,7 +271,7 @@ define internal fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..Guest
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN53_$LT$u32$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h33f606294a43f9ddE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
+define internal fastcc void @"_ZN53_$LT$u32$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h33f606294a43f9ddE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %.sroa.743 = alloca [8 x i32], align 8
   %3 = alloca { i32, [15 x i32] }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
@@ -356,7 +356,7 @@ define internal fastcc void @"_ZN53_$LT$u32$u20$as$u20$wiggle..guest_type..Guest
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN53_$LT$u32$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h2479e97c234e59ebE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc void @"_ZN53_$LT$u32$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h2479e97c234e59ebE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #2 {
   %.sroa.743 = alloca [8 x i32], align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -440,7 +440,7 @@ define internal fastcc void @"_ZN53_$LT$u32$u20$as$u20$wiggle..guest_type..Guest
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
+define internal fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %.sroa.743 = alloca [8 x i32], align 8
   %3 = alloca { i32, [15 x i32] }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
@@ -526,7 +526,7 @@ define internal fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..Guest
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2) unnamed_addr #2 {
+define internal fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %2) unnamed_addr #2 {
   %.sroa.743 = alloca [8 x i32], align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2179,7 +2179,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %163, ptr %165, align 8
   %166 = getelementptr inbounds i8, ptr %156, i64 16
   store i32 %164, ptr %166, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %157, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %156, i16 noundef 0)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %157, ptr noalias noundef readonly align 8 dereferenceable(24) %156, i16 noundef 0)
   %167 = load i32, ptr %157, align 8, !range !11, !noundef !5
   %168 = icmp eq i32 %167, 11
   br i1 %168, label %777, label %778
@@ -2195,7 +2195,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %171, ptr %173, align 8
   %174 = getelementptr inbounds i8, ptr %154, i64 16
   store i32 %172, ptr %174, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %155, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %154, i16 noundef 1)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %155, ptr noalias noundef readonly align 8 dereferenceable(24) %154, i16 noundef 1)
   %175 = load i32, ptr %155, align 8, !range !11, !noundef !5
   %176 = icmp eq i32 %175, 11
   br i1 %176, label %781, label %782
@@ -2211,7 +2211,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %179, ptr %181, align 8
   %182 = getelementptr inbounds i8, ptr %152, i64 16
   store i32 %180, ptr %182, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %153, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %152, i16 noundef 2)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %153, ptr noalias noundef readonly align 8 dereferenceable(24) %152, i16 noundef 2)
   %183 = load i32, ptr %153, align 8, !range !11, !noundef !5
   %184 = icmp eq i32 %183, 11
   br i1 %184, label %783, label %784
@@ -2227,7 +2227,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %187, ptr %189, align 8
   %190 = getelementptr inbounds i8, ptr %150, i64 16
   store i32 %188, ptr %190, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %151, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %150, i16 noundef 3)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %151, ptr noalias noundef readonly align 8 dereferenceable(24) %150, i16 noundef 3)
   %191 = load i32, ptr %151, align 8, !range !11, !noundef !5
   %192 = icmp eq i32 %191, 11
   br i1 %192, label %785, label %786
@@ -2243,7 +2243,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %195, ptr %197, align 8
   %198 = getelementptr inbounds i8, ptr %148, i64 16
   store i32 %196, ptr %198, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %149, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %148, i16 noundef 4)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %149, ptr noalias noundef readonly align 8 dereferenceable(24) %148, i16 noundef 4)
   %199 = load i32, ptr %149, align 8, !range !11, !noundef !5
   %200 = icmp eq i32 %199, 11
   br i1 %200, label %787, label %788
@@ -2259,7 +2259,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %203, ptr %205, align 8
   %206 = getelementptr inbounds i8, ptr %146, i64 16
   store i32 %204, ptr %206, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %147, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %146, i16 noundef 5)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %147, ptr noalias noundef readonly align 8 dereferenceable(24) %146, i16 noundef 5)
   %207 = load i32, ptr %147, align 8, !range !11, !noundef !5
   %208 = icmp eq i32 %207, 11
   br i1 %208, label %789, label %790
@@ -2275,7 +2275,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %211, ptr %213, align 8
   %214 = getelementptr inbounds i8, ptr %144, i64 16
   store i32 %212, ptr %214, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %145, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %144, i16 noundef 6)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %145, ptr noalias noundef readonly align 8 dereferenceable(24) %144, i16 noundef 6)
   %215 = load i32, ptr %145, align 8, !range !11, !noundef !5
   %216 = icmp eq i32 %215, 11
   br i1 %216, label %791, label %792
@@ -2291,7 +2291,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %219, ptr %221, align 8
   %222 = getelementptr inbounds i8, ptr %142, i64 16
   store i32 %220, ptr %222, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %143, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %142, i16 noundef 7)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %143, ptr noalias noundef readonly align 8 dereferenceable(24) %142, i16 noundef 7)
   %223 = load i32, ptr %143, align 8, !range !11, !noundef !5
   %224 = icmp eq i32 %223, 11
   br i1 %224, label %793, label %794
@@ -2307,7 +2307,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %227, ptr %229, align 8
   %230 = getelementptr inbounds i8, ptr %140, i64 16
   store i32 %228, ptr %230, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %141, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %140, i16 noundef 8)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %141, ptr noalias noundef readonly align 8 dereferenceable(24) %140, i16 noundef 8)
   %231 = load i32, ptr %141, align 8, !range !11, !noundef !5
   %232 = icmp eq i32 %231, 11
   br i1 %232, label %795, label %796
@@ -2323,7 +2323,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %235, ptr %237, align 8
   %238 = getelementptr inbounds i8, ptr %138, i64 16
   store i32 %236, ptr %238, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %139, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %138, i16 noundef 9)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %139, ptr noalias noundef readonly align 8 dereferenceable(24) %138, i16 noundef 9)
   %239 = load i32, ptr %139, align 8, !range !11, !noundef !5
   %240 = icmp eq i32 %239, 11
   br i1 %240, label %797, label %798
@@ -2339,7 +2339,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %243, ptr %245, align 8
   %246 = getelementptr inbounds i8, ptr %136, i64 16
   store i32 %244, ptr %246, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %137, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %136, i16 noundef 10)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %137, ptr noalias noundef readonly align 8 dereferenceable(24) %136, i16 noundef 10)
   %247 = load i32, ptr %137, align 8, !range !11, !noundef !5
   %248 = icmp eq i32 %247, 11
   br i1 %248, label %799, label %800
@@ -2355,7 +2355,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %251, ptr %253, align 8
   %254 = getelementptr inbounds i8, ptr %134, i64 16
   store i32 %252, ptr %254, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %135, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %134, i16 noundef 11)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %135, ptr noalias noundef readonly align 8 dereferenceable(24) %134, i16 noundef 11)
   %255 = load i32, ptr %135, align 8, !range !11, !noundef !5
   %256 = icmp eq i32 %255, 11
   br i1 %256, label %801, label %802
@@ -2371,7 +2371,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %259, ptr %261, align 8
   %262 = getelementptr inbounds i8, ptr %132, i64 16
   store i32 %260, ptr %262, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %133, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %132, i16 noundef 12)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %133, ptr noalias noundef readonly align 8 dereferenceable(24) %132, i16 noundef 12)
   %263 = load i32, ptr %133, align 8, !range !11, !noundef !5
   %264 = icmp eq i32 %263, 11
   br i1 %264, label %803, label %804
@@ -2387,7 +2387,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %267, ptr %269, align 8
   %270 = getelementptr inbounds i8, ptr %130, i64 16
   store i32 %268, ptr %270, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %131, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %130, i16 noundef 13)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %131, ptr noalias noundef readonly align 8 dereferenceable(24) %130, i16 noundef 13)
   %271 = load i32, ptr %131, align 8, !range !11, !noundef !5
   %272 = icmp eq i32 %271, 11
   br i1 %272, label %805, label %806
@@ -2403,7 +2403,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %275, ptr %277, align 8
   %278 = getelementptr inbounds i8, ptr %128, i64 16
   store i32 %276, ptr %278, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %129, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %128, i16 noundef 14)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %129, ptr noalias noundef readonly align 8 dereferenceable(24) %128, i16 noundef 14)
   %279 = load i32, ptr %129, align 8, !range !11, !noundef !5
   %280 = icmp eq i32 %279, 11
   br i1 %280, label %807, label %808
@@ -2419,7 +2419,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %283, ptr %285, align 8
   %286 = getelementptr inbounds i8, ptr %126, i64 16
   store i32 %284, ptr %286, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %127, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %126, i16 noundef 15)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %127, ptr noalias noundef readonly align 8 dereferenceable(24) %126, i16 noundef 15)
   %287 = load i32, ptr %127, align 8, !range !11, !noundef !5
   %288 = icmp eq i32 %287, 11
   br i1 %288, label %809, label %810
@@ -2435,7 +2435,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %291, ptr %293, align 8
   %294 = getelementptr inbounds i8, ptr %124, i64 16
   store i32 %292, ptr %294, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %125, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %124, i16 noundef 16)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %125, ptr noalias noundef readonly align 8 dereferenceable(24) %124, i16 noundef 16)
   %295 = load i32, ptr %125, align 8, !range !11, !noundef !5
   %296 = icmp eq i32 %295, 11
   br i1 %296, label %811, label %812
@@ -2451,7 +2451,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %299, ptr %301, align 8
   %302 = getelementptr inbounds i8, ptr %122, i64 16
   store i32 %300, ptr %302, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %123, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %122, i16 noundef 17)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %123, ptr noalias noundef readonly align 8 dereferenceable(24) %122, i16 noundef 17)
   %303 = load i32, ptr %123, align 8, !range !11, !noundef !5
   %304 = icmp eq i32 %303, 11
   br i1 %304, label %813, label %814
@@ -2467,7 +2467,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %307, ptr %309, align 8
   %310 = getelementptr inbounds i8, ptr %120, i64 16
   store i32 %308, ptr %310, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %121, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %120, i16 noundef 18)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %121, ptr noalias noundef readonly align 8 dereferenceable(24) %120, i16 noundef 18)
   %311 = load i32, ptr %121, align 8, !range !11, !noundef !5
   %312 = icmp eq i32 %311, 11
   br i1 %312, label %815, label %816
@@ -2483,7 +2483,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %315, ptr %317, align 8
   %318 = getelementptr inbounds i8, ptr %118, i64 16
   store i32 %316, ptr %318, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %119, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %118, i16 noundef 19)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %119, ptr noalias noundef readonly align 8 dereferenceable(24) %118, i16 noundef 19)
   %319 = load i32, ptr %119, align 8, !range !11, !noundef !5
   %320 = icmp eq i32 %319, 11
   br i1 %320, label %817, label %818
@@ -2499,7 +2499,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %323, ptr %325, align 8
   %326 = getelementptr inbounds i8, ptr %116, i64 16
   store i32 %324, ptr %326, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %117, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %116, i16 noundef 20)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %117, ptr noalias noundef readonly align 8 dereferenceable(24) %116, i16 noundef 20)
   %327 = load i32, ptr %117, align 8, !range !11, !noundef !5
   %328 = icmp eq i32 %327, 11
   br i1 %328, label %819, label %820
@@ -2515,7 +2515,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %331, ptr %333, align 8
   %334 = getelementptr inbounds i8, ptr %114, i64 16
   store i32 %332, ptr %334, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %115, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %114, i16 noundef 21)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %115, ptr noalias noundef readonly align 8 dereferenceable(24) %114, i16 noundef 21)
   %335 = load i32, ptr %115, align 8, !range !11, !noundef !5
   %336 = icmp eq i32 %335, 11
   br i1 %336, label %821, label %822
@@ -2531,7 +2531,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %339, ptr %341, align 8
   %342 = getelementptr inbounds i8, ptr %112, i64 16
   store i32 %340, ptr %342, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %113, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %112, i16 noundef 22)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %113, ptr noalias noundef readonly align 8 dereferenceable(24) %112, i16 noundef 22)
   %343 = load i32, ptr %113, align 8, !range !11, !noundef !5
   %344 = icmp eq i32 %343, 11
   br i1 %344, label %823, label %824
@@ -2547,7 +2547,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %347, ptr %349, align 8
   %350 = getelementptr inbounds i8, ptr %110, i64 16
   store i32 %348, ptr %350, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %111, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %110, i16 noundef 23)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %111, ptr noalias noundef readonly align 8 dereferenceable(24) %110, i16 noundef 23)
   %351 = load i32, ptr %111, align 8, !range !11, !noundef !5
   %352 = icmp eq i32 %351, 11
   br i1 %352, label %825, label %826
@@ -2563,7 +2563,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %355, ptr %357, align 8
   %358 = getelementptr inbounds i8, ptr %108, i64 16
   store i32 %356, ptr %358, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %109, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %108, i16 noundef 24)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %109, ptr noalias noundef readonly align 8 dereferenceable(24) %108, i16 noundef 24)
   %359 = load i32, ptr %109, align 8, !range !11, !noundef !5
   %360 = icmp eq i32 %359, 11
   br i1 %360, label %827, label %828
@@ -2579,7 +2579,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %363, ptr %365, align 8
   %366 = getelementptr inbounds i8, ptr %106, i64 16
   store i32 %364, ptr %366, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %107, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %106, i16 noundef 25)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %107, ptr noalias noundef readonly align 8 dereferenceable(24) %106, i16 noundef 25)
   %367 = load i32, ptr %107, align 8, !range !11, !noundef !5
   %368 = icmp eq i32 %367, 11
   br i1 %368, label %829, label %830
@@ -2595,7 +2595,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %371, ptr %373, align 8
   %374 = getelementptr inbounds i8, ptr %104, i64 16
   store i32 %372, ptr %374, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %105, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %104, i16 noundef 26)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %105, ptr noalias noundef readonly align 8 dereferenceable(24) %104, i16 noundef 26)
   %375 = load i32, ptr %105, align 8, !range !11, !noundef !5
   %376 = icmp eq i32 %375, 11
   br i1 %376, label %831, label %832
@@ -2611,7 +2611,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %379, ptr %381, align 8
   %382 = getelementptr inbounds i8, ptr %102, i64 16
   store i32 %380, ptr %382, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %103, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %102, i16 noundef 27)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %103, ptr noalias noundef readonly align 8 dereferenceable(24) %102, i16 noundef 27)
   %383 = load i32, ptr %103, align 8, !range !11, !noundef !5
   %384 = icmp eq i32 %383, 11
   br i1 %384, label %833, label %834
@@ -2627,7 +2627,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %387, ptr %389, align 8
   %390 = getelementptr inbounds i8, ptr %100, i64 16
   store i32 %388, ptr %390, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %101, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %100, i16 noundef 28)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %101, ptr noalias noundef readonly align 8 dereferenceable(24) %100, i16 noundef 28)
   %391 = load i32, ptr %101, align 8, !range !11, !noundef !5
   %392 = icmp eq i32 %391, 11
   br i1 %392, label %835, label %836
@@ -2643,7 +2643,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %395, ptr %397, align 8
   %398 = getelementptr inbounds i8, ptr %98, i64 16
   store i32 %396, ptr %398, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %98, i16 noundef 29)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %99, ptr noalias noundef readonly align 8 dereferenceable(24) %98, i16 noundef 29)
   %399 = load i32, ptr %99, align 8, !range !11, !noundef !5
   %400 = icmp eq i32 %399, 11
   br i1 %400, label %837, label %838
@@ -2659,7 +2659,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %403, ptr %405, align 8
   %406 = getelementptr inbounds i8, ptr %96, i64 16
   store i32 %404, ptr %406, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %97, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %96, i16 noundef 30)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %97, ptr noalias noundef readonly align 8 dereferenceable(24) %96, i16 noundef 30)
   %407 = load i32, ptr %97, align 8, !range !11, !noundef !5
   %408 = icmp eq i32 %407, 11
   br i1 %408, label %839, label %840
@@ -2675,7 +2675,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %411, ptr %413, align 8
   %414 = getelementptr inbounds i8, ptr %94, i64 16
   store i32 %412, ptr %414, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %95, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %94, i16 noundef 31)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %95, ptr noalias noundef readonly align 8 dereferenceable(24) %94, i16 noundef 31)
   %415 = load i32, ptr %95, align 8, !range !11, !noundef !5
   %416 = icmp eq i32 %415, 11
   br i1 %416, label %841, label %842
@@ -2691,7 +2691,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %419, ptr %421, align 8
   %422 = getelementptr inbounds i8, ptr %92, i64 16
   store i32 %420, ptr %422, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %93, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %92, i16 noundef 32)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %93, ptr noalias noundef readonly align 8 dereferenceable(24) %92, i16 noundef 32)
   %423 = load i32, ptr %93, align 8, !range !11, !noundef !5
   %424 = icmp eq i32 %423, 11
   br i1 %424, label %843, label %844
@@ -2707,7 +2707,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %427, ptr %429, align 8
   %430 = getelementptr inbounds i8, ptr %90, i64 16
   store i32 %428, ptr %430, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %91, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %90, i16 noundef 33)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %91, ptr noalias noundef readonly align 8 dereferenceable(24) %90, i16 noundef 33)
   %431 = load i32, ptr %91, align 8, !range !11, !noundef !5
   %432 = icmp eq i32 %431, 11
   br i1 %432, label %845, label %846
@@ -2723,7 +2723,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %435, ptr %437, align 8
   %438 = getelementptr inbounds i8, ptr %88, i64 16
   store i32 %436, ptr %438, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %89, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %88, i16 noundef 34)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %89, ptr noalias noundef readonly align 8 dereferenceable(24) %88, i16 noundef 34)
   %439 = load i32, ptr %89, align 8, !range !11, !noundef !5
   %440 = icmp eq i32 %439, 11
   br i1 %440, label %847, label %848
@@ -2739,7 +2739,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %443, ptr %445, align 8
   %446 = getelementptr inbounds i8, ptr %86, i64 16
   store i32 %444, ptr %446, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %87, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %86, i16 noundef 35)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %87, ptr noalias noundef readonly align 8 dereferenceable(24) %86, i16 noundef 35)
   %447 = load i32, ptr %87, align 8, !range !11, !noundef !5
   %448 = icmp eq i32 %447, 11
   br i1 %448, label %849, label %850
@@ -2755,7 +2755,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %451, ptr %453, align 8
   %454 = getelementptr inbounds i8, ptr %84, i64 16
   store i32 %452, ptr %454, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %85, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %84, i16 noundef 36)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %85, ptr noalias noundef readonly align 8 dereferenceable(24) %84, i16 noundef 36)
   %455 = load i32, ptr %85, align 8, !range !11, !noundef !5
   %456 = icmp eq i32 %455, 11
   br i1 %456, label %851, label %852
@@ -2771,7 +2771,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %459, ptr %461, align 8
   %462 = getelementptr inbounds i8, ptr %82, i64 16
   store i32 %460, ptr %462, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %83, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %82, i16 noundef 37)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %83, ptr noalias noundef readonly align 8 dereferenceable(24) %82, i16 noundef 37)
   %463 = load i32, ptr %83, align 8, !range !11, !noundef !5
   %464 = icmp eq i32 %463, 11
   br i1 %464, label %853, label %854
@@ -2787,7 +2787,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %467, ptr %469, align 8
   %470 = getelementptr inbounds i8, ptr %80, i64 16
   store i32 %468, ptr %470, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %81, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %80, i16 noundef 38)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %81, ptr noalias noundef readonly align 8 dereferenceable(24) %80, i16 noundef 38)
   %471 = load i32, ptr %81, align 8, !range !11, !noundef !5
   %472 = icmp eq i32 %471, 11
   br i1 %472, label %855, label %856
@@ -2803,7 +2803,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %475, ptr %477, align 8
   %478 = getelementptr inbounds i8, ptr %78, i64 16
   store i32 %476, ptr %478, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %78, i16 noundef 39)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %79, ptr noalias noundef readonly align 8 dereferenceable(24) %78, i16 noundef 39)
   %479 = load i32, ptr %79, align 8, !range !11, !noundef !5
   %480 = icmp eq i32 %479, 11
   br i1 %480, label %857, label %858
@@ -2819,7 +2819,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %483, ptr %485, align 8
   %486 = getelementptr inbounds i8, ptr %76, i64 16
   store i32 %484, ptr %486, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %76, i16 noundef 40)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %77, ptr noalias noundef readonly align 8 dereferenceable(24) %76, i16 noundef 40)
   %487 = load i32, ptr %77, align 8, !range !11, !noundef !5
   %488 = icmp eq i32 %487, 11
   br i1 %488, label %859, label %860
@@ -2835,7 +2835,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %491, ptr %493, align 8
   %494 = getelementptr inbounds i8, ptr %74, i64 16
   store i32 %492, ptr %494, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %75, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %74, i16 noundef 41)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %75, ptr noalias noundef readonly align 8 dereferenceable(24) %74, i16 noundef 41)
   %495 = load i32, ptr %75, align 8, !range !11, !noundef !5
   %496 = icmp eq i32 %495, 11
   br i1 %496, label %861, label %862
@@ -2851,7 +2851,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %499, ptr %501, align 8
   %502 = getelementptr inbounds i8, ptr %72, i64 16
   store i32 %500, ptr %502, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %72, i16 noundef 42)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %73, ptr noalias noundef readonly align 8 dereferenceable(24) %72, i16 noundef 42)
   %503 = load i32, ptr %73, align 8, !range !11, !noundef !5
   %504 = icmp eq i32 %503, 11
   br i1 %504, label %863, label %864
@@ -2867,7 +2867,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %507, ptr %509, align 8
   %510 = getelementptr inbounds i8, ptr %70, i64 16
   store i32 %508, ptr %510, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %71, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %70, i16 noundef 43)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %71, ptr noalias noundef readonly align 8 dereferenceable(24) %70, i16 noundef 43)
   %511 = load i32, ptr %71, align 8, !range !11, !noundef !5
   %512 = icmp eq i32 %511, 11
   br i1 %512, label %865, label %866
@@ -2883,7 +2883,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %515, ptr %517, align 8
   %518 = getelementptr inbounds i8, ptr %68, i64 16
   store i32 %516, ptr %518, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %69, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %68, i16 noundef 44)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %69, ptr noalias noundef readonly align 8 dereferenceable(24) %68, i16 noundef 44)
   %519 = load i32, ptr %69, align 8, !range !11, !noundef !5
   %520 = icmp eq i32 %519, 11
   br i1 %520, label %867, label %868
@@ -2899,7 +2899,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %523, ptr %525, align 8
   %526 = getelementptr inbounds i8, ptr %66, i64 16
   store i32 %524, ptr %526, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %67, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %66, i16 noundef 45)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %67, ptr noalias noundef readonly align 8 dereferenceable(24) %66, i16 noundef 45)
   %527 = load i32, ptr %67, align 8, !range !11, !noundef !5
   %528 = icmp eq i32 %527, 11
   br i1 %528, label %869, label %870
@@ -2915,7 +2915,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %531, ptr %533, align 8
   %534 = getelementptr inbounds i8, ptr %64, i64 16
   store i32 %532, ptr %534, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %65, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %64, i16 noundef 46)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %65, ptr noalias noundef readonly align 8 dereferenceable(24) %64, i16 noundef 46)
   %535 = load i32, ptr %65, align 8, !range !11, !noundef !5
   %536 = icmp eq i32 %535, 11
   br i1 %536, label %871, label %872
@@ -2931,7 +2931,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %539, ptr %541, align 8
   %542 = getelementptr inbounds i8, ptr %62, i64 16
   store i32 %540, ptr %542, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %63, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %62, i16 noundef 47)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %63, ptr noalias noundef readonly align 8 dereferenceable(24) %62, i16 noundef 47)
   %543 = load i32, ptr %63, align 8, !range !11, !noundef !5
   %544 = icmp eq i32 %543, 11
   br i1 %544, label %873, label %874
@@ -2947,7 +2947,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %547, ptr %549, align 8
   %550 = getelementptr inbounds i8, ptr %60, i64 16
   store i32 %548, ptr %550, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %60, i16 noundef 48)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %61, ptr noalias noundef readonly align 8 dereferenceable(24) %60, i16 noundef 48)
   %551 = load i32, ptr %61, align 8, !range !11, !noundef !5
   %552 = icmp eq i32 %551, 11
   br i1 %552, label %875, label %876
@@ -2963,7 +2963,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %555, ptr %557, align 8
   %558 = getelementptr inbounds i8, ptr %58, i64 16
   store i32 %556, ptr %558, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %59, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %58, i16 noundef 49)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %59, ptr noalias noundef readonly align 8 dereferenceable(24) %58, i16 noundef 49)
   %559 = load i32, ptr %59, align 8, !range !11, !noundef !5
   %560 = icmp eq i32 %559, 11
   br i1 %560, label %877, label %878
@@ -2979,7 +2979,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %563, ptr %565, align 8
   %566 = getelementptr inbounds i8, ptr %56, i64 16
   store i32 %564, ptr %566, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %56, i16 noundef 50)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %57, ptr noalias noundef readonly align 8 dereferenceable(24) %56, i16 noundef 50)
   %567 = load i32, ptr %57, align 8, !range !11, !noundef !5
   %568 = icmp eq i32 %567, 11
   br i1 %568, label %879, label %880
@@ -2995,7 +2995,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %571, ptr %573, align 8
   %574 = getelementptr inbounds i8, ptr %54, i64 16
   store i32 %572, ptr %574, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %54, i16 noundef 51)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %55, ptr noalias noundef readonly align 8 dereferenceable(24) %54, i16 noundef 51)
   %575 = load i32, ptr %55, align 8, !range !11, !noundef !5
   %576 = icmp eq i32 %575, 11
   br i1 %576, label %881, label %882
@@ -3011,7 +3011,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %579, ptr %581, align 8
   %582 = getelementptr inbounds i8, ptr %52, i64 16
   store i32 %580, ptr %582, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %52, i16 noundef 52)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %53, ptr noalias noundef readonly align 8 dereferenceable(24) %52, i16 noundef 52)
   %583 = load i32, ptr %53, align 8, !range !11, !noundef !5
   %584 = icmp eq i32 %583, 11
   br i1 %584, label %883, label %884
@@ -3027,7 +3027,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %587, ptr %589, align 8
   %590 = getelementptr inbounds i8, ptr %50, i64 16
   store i32 %588, ptr %590, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %50, i16 noundef 53)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %51, ptr noalias noundef readonly align 8 dereferenceable(24) %50, i16 noundef 53)
   %591 = load i32, ptr %51, align 8, !range !11, !noundef !5
   %592 = icmp eq i32 %591, 11
   br i1 %592, label %885, label %886
@@ -3043,7 +3043,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %595, ptr %597, align 8
   %598 = getelementptr inbounds i8, ptr %48, i64 16
   store i32 %596, ptr %598, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %48, i16 noundef 54)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %49, ptr noalias noundef readonly align 8 dereferenceable(24) %48, i16 noundef 54)
   %599 = load i32, ptr %49, align 8, !range !11, !noundef !5
   %600 = icmp eq i32 %599, 11
   br i1 %600, label %887, label %888
@@ -3059,7 +3059,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %603, ptr %605, align 8
   %606 = getelementptr inbounds i8, ptr %46, i64 16
   store i32 %604, ptr %606, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %47, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %46, i16 noundef 55)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %47, ptr noalias noundef readonly align 8 dereferenceable(24) %46, i16 noundef 55)
   %607 = load i32, ptr %47, align 8, !range !11, !noundef !5
   %608 = icmp eq i32 %607, 11
   br i1 %608, label %889, label %890
@@ -3075,7 +3075,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %611, ptr %613, align 8
   %614 = getelementptr inbounds i8, ptr %44, i64 16
   store i32 %612, ptr %614, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %44, i16 noundef 56)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %45, ptr noalias noundef readonly align 8 dereferenceable(24) %44, i16 noundef 56)
   %615 = load i32, ptr %45, align 8, !range !11, !noundef !5
   %616 = icmp eq i32 %615, 11
   br i1 %616, label %891, label %892
@@ -3091,7 +3091,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %619, ptr %621, align 8
   %622 = getelementptr inbounds i8, ptr %42, i64 16
   store i32 %620, ptr %622, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %42, i16 noundef 57)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %43, ptr noalias noundef readonly align 8 dereferenceable(24) %42, i16 noundef 57)
   %623 = load i32, ptr %43, align 8, !range !11, !noundef !5
   %624 = icmp eq i32 %623, 11
   br i1 %624, label %893, label %894
@@ -3107,7 +3107,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %627, ptr %629, align 8
   %630 = getelementptr inbounds i8, ptr %40, i64 16
   store i32 %628, ptr %630, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %40, i16 noundef 58)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %41, ptr noalias noundef readonly align 8 dereferenceable(24) %40, i16 noundef 58)
   %631 = load i32, ptr %41, align 8, !range !11, !noundef !5
   %632 = icmp eq i32 %631, 11
   br i1 %632, label %895, label %896
@@ -3123,7 +3123,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %635, ptr %637, align 8
   %638 = getelementptr inbounds i8, ptr %38, i64 16
   store i32 %636, ptr %638, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38, i16 noundef 59)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %39, ptr noalias noundef readonly align 8 dereferenceable(24) %38, i16 noundef 59)
   %639 = load i32, ptr %39, align 8, !range !11, !noundef !5
   %640 = icmp eq i32 %639, 11
   br i1 %640, label %897, label %898
@@ -3139,7 +3139,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %643, ptr %645, align 8
   %646 = getelementptr inbounds i8, ptr %36, i64 16
   store i32 %644, ptr %646, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %36, i16 noundef 60)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %37, ptr noalias noundef readonly align 8 dereferenceable(24) %36, i16 noundef 60)
   %647 = load i32, ptr %37, align 8, !range !11, !noundef !5
   %648 = icmp eq i32 %647, 11
   br i1 %648, label %899, label %900
@@ -3155,7 +3155,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %651, ptr %653, align 8
   %654 = getelementptr inbounds i8, ptr %34, i64 16
   store i32 %652, ptr %654, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %34, i16 noundef 61)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %35, ptr noalias noundef readonly align 8 dereferenceable(24) %34, i16 noundef 61)
   %655 = load i32, ptr %35, align 8, !range !11, !noundef !5
   %656 = icmp eq i32 %655, 11
   br i1 %656, label %901, label %902
@@ -3171,7 +3171,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %659, ptr %661, align 8
   %662 = getelementptr inbounds i8, ptr %32, i64 16
   store i32 %660, ptr %662, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %32, i16 noundef 62)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %33, ptr noalias noundef readonly align 8 dereferenceable(24) %32, i16 noundef 62)
   %663 = load i32, ptr %33, align 8, !range !11, !noundef !5
   %664 = icmp eq i32 %663, 11
   br i1 %664, label %903, label %904
@@ -3187,7 +3187,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %667, ptr %669, align 8
   %670 = getelementptr inbounds i8, ptr %30, i64 16
   store i32 %668, ptr %670, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30, i16 noundef 63)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %31, ptr noalias noundef readonly align 8 dereferenceable(24) %30, i16 noundef 63)
   %671 = load i32, ptr %31, align 8, !range !11, !noundef !5
   %672 = icmp eq i32 %671, 11
   br i1 %672, label %905, label %906
@@ -3203,7 +3203,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %675, ptr %677, align 8
   %678 = getelementptr inbounds i8, ptr %28, i64 16
   store i32 %676, ptr %678, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28, i16 noundef 64)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %29, ptr noalias noundef readonly align 8 dereferenceable(24) %28, i16 noundef 64)
   %679 = load i32, ptr %29, align 8, !range !11, !noundef !5
   %680 = icmp eq i32 %679, 11
   br i1 %680, label %907, label %908
@@ -3219,7 +3219,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %683, ptr %685, align 8
   %686 = getelementptr inbounds i8, ptr %26, i64 16
   store i32 %684, ptr %686, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26, i16 noundef 65)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %27, ptr noalias noundef readonly align 8 dereferenceable(24) %26, i16 noundef 65)
   %687 = load i32, ptr %27, align 8, !range !11, !noundef !5
   %688 = icmp eq i32 %687, 11
   br i1 %688, label %909, label %910
@@ -3235,7 +3235,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %691, ptr %693, align 8
   %694 = getelementptr inbounds i8, ptr %24, i64 16
   store i32 %692, ptr %694, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24, i16 noundef 66)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %25, ptr noalias noundef readonly align 8 dereferenceable(24) %24, i16 noundef 66)
   %695 = load i32, ptr %25, align 8, !range !11, !noundef !5
   %696 = icmp eq i32 %695, 11
   br i1 %696, label %911, label %912
@@ -3251,7 +3251,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %699, ptr %701, align 8
   %702 = getelementptr inbounds i8, ptr %22, i64 16
   store i32 %700, ptr %702, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22, i16 noundef 67)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %23, ptr noalias noundef readonly align 8 dereferenceable(24) %22, i16 noundef 67)
   %703 = load i32, ptr %23, align 8, !range !11, !noundef !5
   %704 = icmp eq i32 %703, 11
   br i1 %704, label %913, label %914
@@ -3267,7 +3267,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %707, ptr %709, align 8
   %710 = getelementptr inbounds i8, ptr %20, i64 16
   store i32 %708, ptr %710, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, i16 noundef 68)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %21, ptr noalias noundef readonly align 8 dereferenceable(24) %20, i16 noundef 68)
   %711 = load i32, ptr %21, align 8, !range !11, !noundef !5
   %712 = icmp eq i32 %711, 11
   br i1 %712, label %915, label %916
@@ -3283,7 +3283,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %715, ptr %717, align 8
   %718 = getelementptr inbounds i8, ptr %18, i64 16
   store i32 %716, ptr %718, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18, i16 noundef 69)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %19, ptr noalias noundef readonly align 8 dereferenceable(24) %18, i16 noundef 69)
   %719 = load i32, ptr %19, align 8, !range !11, !noundef !5
   %720 = icmp eq i32 %719, 11
   br i1 %720, label %917, label %918
@@ -3299,7 +3299,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %723, ptr %725, align 8
   %726 = getelementptr inbounds i8, ptr %16, i64 16
   store i32 %724, ptr %726, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16, i16 noundef 70)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %17, ptr noalias noundef readonly align 8 dereferenceable(24) %16, i16 noundef 70)
   %727 = load i32, ptr %17, align 8, !range !11, !noundef !5
   %728 = icmp eq i32 %727, 11
   br i1 %728, label %919, label %920
@@ -3315,7 +3315,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %731, ptr %733, align 8
   %734 = getelementptr inbounds i8, ptr %14, i64 16
   store i32 %732, ptr %734, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, i16 noundef 71)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %15, ptr noalias noundef readonly align 8 dereferenceable(24) %14, i16 noundef 71)
   %735 = load i32, ptr %15, align 8, !range !11, !noundef !5
   %736 = icmp eq i32 %735, 11
   br i1 %736, label %921, label %922
@@ -3331,7 +3331,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %739, ptr %741, align 8
   %742 = getelementptr inbounds i8, ptr %12, i64 16
   store i32 %740, ptr %742, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, i16 noundef 72)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %13, ptr noalias noundef readonly align 8 dereferenceable(24) %12, i16 noundef 72)
   %743 = load i32, ptr %13, align 8, !range !11, !noundef !5
   %744 = icmp eq i32 %743, 11
   br i1 %744, label %923, label %924
@@ -3347,7 +3347,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %747, ptr %749, align 8
   %750 = getelementptr inbounds i8, ptr %10, i64 16
   store i32 %748, ptr %750, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i16 noundef 73)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %11, ptr noalias noundef readonly align 8 dereferenceable(24) %10, i16 noundef 73)
   %751 = load i32, ptr %11, align 8, !range !11, !noundef !5
   %752 = icmp eq i32 %751, 11
   br i1 %752, label %925, label %926
@@ -3363,7 +3363,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %755, ptr %757, align 8
   %758 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 %756, ptr %758, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i16 noundef 74)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %8, i16 noundef 74)
   %759 = load i32, ptr %9, align 8, !range !11, !noundef !5
   %760 = icmp eq i32 %759, 11
   br i1 %760, label %927, label %928
@@ -3379,7 +3379,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %763, ptr %765, align 8
   %766 = getelementptr inbounds i8, ptr %6, i64 16
   store i32 %764, ptr %766, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i16 noundef 75)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %7, ptr noalias noundef readonly align 8 dereferenceable(24) %6, i16 noundef 75)
   %767 = load i32, ptr %7, align 8, !range !11, !noundef !5
   %768 = icmp eq i32 %767, 11
   br i1 %768, label %929, label %930
@@ -3395,7 +3395,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Errno$u20$as$u20$wiggle.
   store ptr %771, ptr %773, align 8
   %774 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 %772, ptr %774, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, i16 noundef 76)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %4, i16 noundef 76)
   %775 = load i32, ptr %5, align 8, !range !11, !noundef !5
   %776 = icmp eq i32 %775, 11
   br i1 %776, label %931, label %932
@@ -4807,7 +4807,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Rights$u20$as$u20$wiggle
   br label %31
 
 28:                                               ; preds = %22
-  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3), !noalias !62
+  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias noundef align 8 dereferenceable(64) %3), !noalias !62
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   %29 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %23, ptr %29, align 8
@@ -8306,7 +8306,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview0..types..Fdflags$u20$as$u20$wiggl
   br label %31
 
 28:                                               ; preds = %22
-  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3), !noalias !217
+  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias noundef align 8 dereferenceable(64) %3), !noalias !217
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   %29 = getelementptr inbounds i8, ptr %0, i64 4
   store i16 %23, ptr %29, align 4
@@ -9061,7 +9061,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview0..types..Fstflags$u20$as$u20$wigg
   br label %31
 
 28:                                               ; preds = %22
-  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3), !noalias !244
+  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias noundef align 8 dereferenceable(64) %3), !noalias !244
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   %29 = getelementptr inbounds i8, ptr %0, i64 4
   store i16 %23, ptr %29, align 4
@@ -9302,7 +9302,7 @@ define void @"_ZN93_$LT$wasmtime_wasi..preview0..types..Lookupflags$u20$as$u20$w
   br label %31
 
 28:                                               ; preds = %22
-  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3), !noalias !257
+  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias noundef align 8 dereferenceable(64) %3), !noalias !257
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   %29 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %23, ptr %29, align 4
@@ -9547,7 +9547,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Oflags$u20$as$u20$wiggle
   br label %31
 
 28:                                               ; preds = %22
-  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3), !noalias !270
+  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias noundef align 8 dereferenceable(64) %3), !noalias !270
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   %29 = getelementptr inbounds i8, ptr %0, i64 4
   store i16 %23, ptr %29, align 4
@@ -9938,7 +9938,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview0..types..Filestat$u20$as$u20$wigg
   store ptr %19, ptr %72, align 8
   %73 = getelementptr inbounds i8, ptr %13, i64 16
   store i32 %71, ptr %73, align 8
-  call fastcc void @"_ZN53_$LT$u32$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h33f606294a43f9ddE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
+  call fastcc void @"_ZN53_$LT$u32$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h33f606294a43f9ddE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %14, ptr noalias noundef readonly align 8 dereferenceable(24) %13)
   %74 = load i32, ptr %14, align 8, !range !11, !noundef !5
   %75 = icmp eq i32 %74, 11
   %76 = getelementptr inbounds i8, ptr %14, i64 4
@@ -9981,7 +9981,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview0..types..Filestat$u20$as$u20$wigg
   store ptr %19, ptr %85, align 8
   %86 = getelementptr inbounds i8, ptr %11, i64 16
   store i32 %84, ptr %86, align 8
-  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
+  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %12, ptr noalias noundef readonly align 8 dereferenceable(24) %11)
   %87 = load i32, ptr %12, align 8, !range !11, !noundef !5
   %88 = icmp eq i32 %87, 11
   br i1 %88, label %90, label %95
@@ -10030,7 +10030,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview0..types..Filestat$u20$as$u20$wigg
   store ptr %19, ptr %98, align 8
   %99 = getelementptr inbounds i8, ptr %9, i64 16
   store i32 %97, ptr %99, align 8
-  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %10, ptr noalias noundef readonly align 8 dereferenceable(24) %9)
   %100 = load i32, ptr %10, align 8, !range !11, !noundef !5
   %101 = icmp eq i32 %100, 11
   br i1 %101, label %103, label %108
@@ -10079,7 +10079,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview0..types..Filestat$u20$as$u20$wigg
   store ptr %19, ptr %111, align 8
   %112 = getelementptr inbounds i8, ptr %7, i64 16
   store i32 %110, ptr %112, align 8
-  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
+  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %8, ptr noalias noundef readonly align 8 dereferenceable(24) %7)
   %113 = load i32, ptr %8, align 8, !range !11, !noundef !5
   %114 = icmp eq i32 %113, 11
   br i1 %114, label %116, label %121
@@ -10128,7 +10128,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview0..types..Filestat$u20$as$u20$wigg
   store ptr %19, ptr %124, align 8
   %125 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 %123, ptr %125, align 8
-  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %5)
   %126 = load i32, ptr %6, align 8, !range !11, !noundef !5
   %127 = icmp eq i32 %126, 11
   br i1 %127, label %129, label %133
@@ -10465,7 +10465,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview0..types..Filestat$u20$as$u20$wigg
   store i32 %73, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %2, i64 48
   %77 = load i32, ptr %76, align 8, !noundef !5
-  call fastcc void @"_ZN53_$LT$u32$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h2479e97c234e59ebE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, i32 noundef %77)
+  call fastcc void @"_ZN53_$LT$u32$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h2479e97c234e59ebE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %15, ptr noalias noundef readonly align 8 dereferenceable(24) %14, i32 noundef %77)
   %78 = load i32, ptr %15, align 8, !range !11, !noundef !5
   %79 = icmp eq i32 %78, 11
   br i1 %79, label %81, label %84
@@ -10506,7 +10506,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview0..types..Filestat$u20$as$u20$wigg
   store i32 %86, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %2, i64 16
   %90 = load i64, ptr %89, align 8, !noundef !5
-  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, i64 noundef %90)
+  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias nocapture noundef align 8 dereferenceable(64) %13, ptr noalias noundef readonly align 8 dereferenceable(24) %12, i64 noundef %90)
   %91 = load i32, ptr %13, align 8, !range !11, !noundef !5
   %92 = icmp eq i32 %91, 11
   br i1 %92, label %94, label %97
@@ -10547,7 +10547,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview0..types..Filestat$u20$as$u20$wigg
   store i32 %99, ptr %101, align 8
   %102 = getelementptr inbounds i8, ptr %2, i64 24
   %103 = load i64, ptr %102, align 8, !noundef !5
-  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i64 noundef %103)
+  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias nocapture noundef align 8 dereferenceable(64) %11, ptr noalias noundef readonly align 8 dereferenceable(24) %10, i64 noundef %103)
   %104 = load i32, ptr %11, align 8, !range !11, !noundef !5
   %105 = icmp eq i32 %104, 11
   br i1 %105, label %107, label %110
@@ -10588,7 +10588,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview0..types..Filestat$u20$as$u20$wigg
   store i32 %112, ptr %114, align 8
   %115 = getelementptr inbounds i8, ptr %2, i64 32
   %116 = load i64, ptr %115, align 8, !noundef !5
-  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i64 noundef %116)
+  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias nocapture noundef align 8 dereferenceable(64) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %8, i64 noundef %116)
   %117 = load i32, ptr %9, align 8, !range !11, !noundef !5
   %118 = icmp eq i32 %117, 11
   br i1 %118, label %120, label %123
@@ -10629,7 +10629,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview0..types..Filestat$u20$as$u20$wigg
   store i32 %125, ptr %127, align 8
   %128 = getelementptr inbounds i8, ptr %2, i64 40
   %129 = load i64, ptr %128, align 8, !noundef !5
-  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i64 noundef %129)
+  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias nocapture noundef align 8 dereferenceable(64) %7, ptr noalias noundef readonly align 8 dereferenceable(24) %6, i64 noundef %129)
   %130 = load i32, ptr %7, align 8, !range !11, !noundef !5
   %131 = icmp eq i32 %130, 11
   br i1 %131, label %133, label %134
@@ -11210,7 +11210,7 @@ define void @"_ZN94_$LT$wasmtime_wasi..preview0..types..Eventrwflags$u20$as$u20$
   br label %31
 
 28:                                               ; preds = %22
-  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3), !noalias !315
+  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias noundef align 8 dereferenceable(64) %3), !noalias !315
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   %29 = getelementptr inbounds i8, ptr %0, i64 4
   store i16 %23, ptr %29, align 4
@@ -12364,7 +12364,7 @@ define void @"_ZN95_$LT$wasmtime_wasi..preview0..types..Subclockflags$u20$as$u20
   br label %31
 
 28:                                               ; preds = %22
-  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3), !noalias !359
+  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias noundef align 8 dereferenceable(64) %3), !noalias !359
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   %29 = getelementptr inbounds i8, ptr %0, i64 4
   store i16 %23, ptr %29, align 4
@@ -12793,7 +12793,7 @@ switch.lookup:                                    ; preds = %44
   store ptr %12, ptr %72, align 8
   %73 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 %71, ptr %73, align 8
-  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
+  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %8)
   %74 = load i32, ptr %9, align 8, !range !11, !noundef !5
   %75 = icmp eq i32 %74, 11
   br i1 %75, label %77, label %82
@@ -13142,7 +13142,7 @@ define void @"_ZN99_$LT$wasmtime_wasi..preview0..types..SubscriptionClock$u20$as
   store i32 %67, ptr %69, align 8
   %70 = getelementptr inbounds i8, ptr %2, i64 16
   %71 = load i64, ptr %70, align 8, !noundef !5
-  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i64 noundef %71)
+  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias nocapture noundef align 8 dereferenceable(64) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %8, i64 noundef %71)
   %72 = load i32, ptr %9, align 8, !range !11, !noundef !5
   %73 = icmp eq i32 %72, 11
   br i1 %73, label %75, label %78
@@ -17523,7 +17523,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview0..types..Riflags$u20$as$u20$wiggl
   br label %31
 
 28:                                               ; preds = %22
-  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3), !noalias !594
+  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias noundef align 8 dereferenceable(64) %3), !noalias !594
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   %29 = getelementptr inbounds i8, ptr %0, i64 4
   store i16 %23, ptr %29, align 4
@@ -17769,7 +17769,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview0..types..Roflags$u20$as$u20$wiggl
   br label %31
 
 28:                                               ; preds = %22
-  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3), !noalias !607
+  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias noundef align 8 dereferenceable(64) %3), !noalias !607
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   %29 = getelementptr inbounds i8, ptr %0, i64 4
   store i16 %23, ptr %29, align 4
@@ -18015,7 +18015,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview0..types..Sdflags$u20$as$u20$wiggl
   br label %31
 
 28:                                               ; preds = %22
-  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3), !noalias !620
+  call fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias noundef align 8 dereferenceable(64) %3), !noalias !620
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   %29 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 %23, ptr %29, align 4

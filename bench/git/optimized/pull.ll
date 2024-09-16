@@ -1181,7 +1181,7 @@ is_null_oid.exit116:                              ; preds = %if.then.i.i.i112, %
   br i1 %retval.0.in.i.i.i110.not, label %if.end91, label %land.lhs.true79
 
 land.lhs.true79:                                  ; preds = %is_null_oid.exit116
-  %call80 = call fastcc i32 @oideq(ptr noundef nonnull %orig_head, ptr noundef nonnull %curr_head)
+  %call80 = call fastcc i32 @oideq(ptr noundef %orig_head, ptr noundef nonnull %curr_head)
   %tobool81.not = icmp eq i32 %call80, 0
   br i1 %tobool81.not, label %if.then82, label %if.end91
 
@@ -1398,7 +1398,7 @@ get_can_ff.exit:                                  ; preds = %if.end104
   br i1 %tobool121.not, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.end111, %land.lhs.true113, %get_can_ff.exit
-  %call122 = call fastcc i32 @already_up_to_date(ptr noundef nonnull %orig_head, ptr noundef nonnull %merge_heads)
+  %call122 = call fastcc i32 @already_up_to_date(ptr noundef %orig_head, ptr noundef %merge_heads)
   %tobool123.not = icmp eq i32 %call122, 0
   br label %land.end
 
@@ -1675,7 +1675,7 @@ if.then154:                                       ; preds = %if.end152
   br label %if.end157
 
 if.else:                                          ; preds = %if.end152
-  %call156 = call fastcc i32 @run_rebase(ptr noundef nonnull %newbase, ptr noundef nonnull %upstream)
+  %call156 = call fastcc i32 @run_rebase(ptr noundef %newbase, ptr noundef %upstream)
   br label %if.end157
 
 if.end157:                                        ; preds = %if.else, %if.then154
@@ -1822,7 +1822,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @require_clean_work_tree(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @oideq(ptr nocapture noundef readonly %oid1, ptr nocapture noundef readonly %oid2) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @oideq(ptr nocapture noundef nonnull readonly %oid1, ptr nocapture noundef readonly %oid2) unnamed_addr #6 {
 entry:
   %algo = getelementptr inbounds i8, ptr %oid1, i64 32
   %0 = load i32, ptr %algo, align 4
@@ -2164,11 +2164,11 @@ if.end79:                                         ; preds = %_.exit29, %_.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @already_up_to_date(ptr noundef %orig_head, ptr nocapture noundef readonly %merge_heads) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @already_up_to_date(ptr noundef nonnull %orig_head, ptr nocapture noundef nonnull readonly %merge_heads) unnamed_addr #0 {
 entry:
   %list = alloca ptr, align 8
   %0 = load ptr, ptr @the_repository, align 8
-  %call = tail call ptr @lookup_commit_reference(ptr noundef %0, ptr noundef %orig_head) #17
+  %call = tail call ptr @lookup_commit_reference(ptr noundef %0, ptr noundef nonnull %orig_head) #17
   %nr = getelementptr inbounds i8, ptr %merge_heads, i64 8
   %1 = load i64, ptr %nr, align 8
   %cmp4.not = icmp eq i64 %1, 0
@@ -2403,7 +2403,7 @@ if.end73:                                         ; preds = %if.then70, %if.end6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @run_rebase(ptr noundef %newbase, ptr noundef %upstream) unnamed_addr #0 {
+define internal fastcc i32 @run_rebase(ptr noundef nonnull %newbase, ptr noundef nonnull %upstream) unnamed_addr #0 {
 entry:
   %cmd = alloca %struct.child_process, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cmd, ptr noundef nonnull align 8 dereferenceable(120) @__const.update_submodules.cp, i64 120, i1 false)
@@ -2522,9 +2522,9 @@ _.exit:                                           ; preds = %if.then39, %if.end3
 
 if.end41:                                         ; preds = %_.exit, %land.lhs.true, %if.end35
   %call43 = call ptr @strvec_push(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.182) #17
-  %call45 = call ptr @oid_to_hex(ptr noundef %newbase) #17
+  %call45 = call ptr @oid_to_hex(ptr noundef nonnull %newbase) #17
   %call46 = call ptr @strvec_push(ptr noundef nonnull %cmd, ptr noundef %call45) #17
-  %call48 = call ptr @oid_to_hex(ptr noundef %upstream) #17
+  %call48 = call ptr @oid_to_hex(ptr noundef nonnull %upstream) #17
   %call49 = call ptr @strvec_push(ptr noundef nonnull %cmd, ptr noundef %call48) #17
   %git_cmd = getelementptr inbounds i8, ptr %cmd, i64 104
   %bf.load = load i16, ptr %git_cmd, align 8

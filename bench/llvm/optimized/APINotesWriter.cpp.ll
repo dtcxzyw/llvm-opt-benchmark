@@ -25085,7 +25085,7 @@ _ZN4llvm15SmallVectorImplIPvE5eraseEPKS1_S4_.exit: ; preds = %_ZN4llvm20BumpPtrA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -25115,7 +25115,7 @@ _ZN4llvm11safe_callocEmm.exit:                    ; preds = %2, %7
 
 .lr.ph17:                                         ; preds = %_ZN4llvm11safe_callocEmm.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %14 = add i64 %1, 4294967295
+  %14 = add nuw nsw i64 %1, 4294967295
   br label %15
 
 15:                                               ; preds = %.lr.ph17, %._crit_edge
@@ -25460,7 +25460,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %5, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -25543,7 +25543,7 @@ _ZN4llvm11safe_callocEmm.exit:                    ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -25762,7 +25762,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit
 _ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEEC2EOS5_.exit16.i.i.i: ; preds = %78, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit.i.i.i15.i.i.i
   %79 = load i8, ptr %45, align 8
   store i8 %79, ptr %53, align 8
-  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef %.013.i.i.i, i64 noundef %35, ptr noundef nonnull %15)
+  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef %.013.i.i.i, i64 noundef %35, ptr noundef %15)
   %80 = load i8, ptr %51, align 8
   %81 = trunc i8 %80 to i1
   br i1 %81, label %82, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i.i.i
@@ -25911,7 +25911,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit
 _ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEEC2EOS5_.exit8.i: ; preds = %138, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit.i.i.i7.i
   %139 = load i8, ptr %100, align 8
   store i8 %139, ptr %109, align 8
-  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %131, ptr noundef nonnull %6)
+  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %131, ptr noundef %6)
   %140 = load i8, ptr %107, align 8
   %141 = trunc i8 %140 to i1
   br i1 %141, label %142, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i
@@ -26516,7 +26516,7 @@ _ZSt14__partial_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef range(i64 0, 26202761468337431) %1, i64 noundef range(i64 -52405522936674862, 52405522936674863) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"struct.std::pair.237", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -27577,7 +27577,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %6, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_121ObjCPropertyTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -28037,7 +28037,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPSt4pairIN4llvm12VersionTupl
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %40) #16
   %61 = load i8, ptr %41, align 8
   store i8 %61, ptr %47, align 8
-  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %33, ptr noundef nonnull %15)
+  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %33, ptr noundef %15)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #16
@@ -28114,7 +28114,7 @@ _ZSt11__make_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyI
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull align 8 dereferenceable(32) %67) #16
   %101 = load i8, ptr %68, align 8
   store i8 %101, ptr %79, align 8
-  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %98, ptr noundef nonnull %6)
+  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %98, ptr noundef %6)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %78) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %76) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %74) #16
@@ -28535,7 +28535,7 @@ _ZSt14__partial_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCProper
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef range(i64 0, 33909456017848440) %1, i64 noundef range(i64 -67818912035696880, 67818912035696881) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"struct.std::pair.255", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -29275,7 +29275,7 @@ _ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_119ObjCM
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -30038,7 +30038,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPSt4pairIN4llvm12VersionTupl
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %55 = load i8, ptr %25, align 8
   store i8 %55, ptr %34, align 8
-  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %14, ptr noundef nonnull %7)
+  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %14, ptr noundef %7)
   call void @_ZN5clang9api_notes12FunctionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %26) #16
   %.not.i.i.i = icmp eq i64 %.013.i.i.i, 0
   %56 = add nsw i64 %.013.i.i.i, -1
@@ -30123,7 +30123,7 @@ _ZSt11__make_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInf
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false)
   %101 = load i8, ptr %65, align 8
   store i8 %101, ptr %76, align 8
-  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %96, ptr noundef nonnull %5)
+  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %96, ptr noundef %5)
   call void @_ZN5clang9api_notes12FunctionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %68) #16
   call void @_ZN5clang9api_notes12FunctionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %57) #16
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %4)
@@ -30822,7 +30822,7 @@ _ZSt21__unguarded_partitionIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes14Obj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef range(i64 0, 27450512014448737) %1, i64 noundef range(i64 -54901024028897475, 54901024028897476) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"struct.std::pair.257", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -31630,7 +31630,7 @@ _ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_118CXXMe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -32077,7 +32077,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPSt4pairIN4llvm12VersionTupl
   %50 = load ptr, ptr %24, align 8
   store ptr %50, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
-  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %14, ptr noundef nonnull %7)
+  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %14, ptr noundef %7)
   call void @_ZN5clang9api_notes12FunctionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %25) #16
   %.not.i.i.i = icmp eq i64 %.013.i.i.i, 0
   %51 = add nsw i64 %.013.i.i.i, -1
@@ -32152,7 +32152,7 @@ _ZSt11__make_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfo
   %89 = load ptr, ptr %59, align 8
   store ptr %89, ptr %68, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false)
-  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %85, ptr noundef nonnull %5)
+  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %85, ptr noundef %5)
   call void @_ZN5clang9api_notes12FunctionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %61) #16
   call void @_ZN5clang9api_notes12FunctionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %52) #16
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
@@ -32788,7 +32788,7 @@ _ZSt21__unguarded_partitionIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXX
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef range(i64 0, 28823037615171174) %1, i64 noundef range(i64 -57646075230342348, 57646075230342349) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"struct.std::pair.264", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -33300,7 +33300,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_114FieldTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -33736,7 +33736,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPSt4pairIN4llvm12VersionTupl
   %55 = load i8, ptr %38, align 8
   store i8 %55, ptr %43, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %39) #16
-  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %32, ptr noundef nonnull %15)
+  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %32, ptr noundef %15)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #16
@@ -33803,7 +33803,7 @@ _ZSt11__make_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEEN9_
   %88 = load i8, ptr %60, align 8
   store i8 %88, ptr %69, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %61) #16
-  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %86, ptr noundef nonnull %6)
+  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %86, ptr noundef %6)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #16
@@ -34216,7 +34216,7 @@ _ZSt14__partial_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef range(i64 0, 36028797018963967) %1, i64 noundef range(i64 -72057594037927936, 72057594037927936) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"struct.std::pair.266", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -34785,7 +34785,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_121ObjCSelectorTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -34815,7 +34815,7 @@ _ZN4llvm11safe_callocEmm.exit:                    ; preds = %2, %7
 
 .lr.ph17:                                         ; preds = %_ZN4llvm11safe_callocEmm.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %14 = add i64 %1, 4294967295
+  %14 = add nuw nsw i64 %1, 4294967295
   br label %15
 
 15:                                               ; preds = %.lr.ph17, %._crit_edge
@@ -34869,7 +34869,7 @@ _ZN4llvm11safe_callocEmm.exit:                    ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_123GlobalVariableTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -35305,7 +35305,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPSt4pairIN4llvm12VersionTupl
   %55 = load i8, ptr %38, align 8
   store i8 %55, ptr %43, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %39) #16
-  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %32, ptr noundef nonnull %15)
+  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %32, ptr noundef %15)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #16
@@ -35372,7 +35372,7 @@ _ZSt11__make_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariabl
   %88 = load i8, ptr %60, align 8
   store i8 %88, ptr %69, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %61) #16
-  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %86, ptr noundef nonnull %6)
+  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %86, ptr noundef %6)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #16
@@ -35785,7 +35785,7 @@ _ZSt14__partial_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVari
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef range(i64 0, 36028797018963967) %1, i64 noundef range(i64 -72057594037927936, 72057594037927936) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"struct.std::pair.276", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -36441,7 +36441,7 @@ _ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_123Globa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_123GlobalFunctionTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -36888,7 +36888,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPSt4pairIN4llvm12VersionTupl
   %50 = load ptr, ptr %24, align 8
   store ptr %50, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
-  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %14, ptr noundef nonnull %7)
+  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %14, ptr noundef %7)
   call void @_ZN5clang9api_notes12FunctionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %25) #16
   %.not.i.i.i = icmp eq i64 %.013.i.i.i, 0
   %51 = add nsw i64 %.013.i.i.i, -1
@@ -36963,7 +36963,7 @@ _ZSt11__make_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctio
   %89 = load ptr, ptr %59, align 8
   store ptr %89, ptr %68, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false)
-  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %85, ptr noundef nonnull %5)
+  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %85, ptr noundef %5)
   call void @_ZN5clang9api_notes12FunctionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %61) #16
   call void @_ZN5clang9api_notes12FunctionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %52) #16
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
@@ -37599,7 +37599,7 @@ _ZSt21__unguarded_partitionIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18Glo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef range(i64 0, 28823037615171174) %1, i64 noundef range(i64 -57646075230342348, 57646075230342349) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"struct.std::pair.278", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -38111,7 +38111,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_121EnumConstantTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -38522,7 +38522,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPSt4pairIN4llvm12VersionTupl
   %68 = load i8, ptr %57, align 8
   store i8 %68, ptr %60, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %58) #16
-  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %53, ptr noundef nonnull %21)
+  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %53, ptr noundef %21)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #16
   %.not.i.i.i = icmp eq i64 %.013.i.i.i, 0
@@ -38568,7 +38568,7 @@ _ZSt11__make_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantI
   %87 = load i8, ptr %71, align 8
   store i8 %87, ptr %74, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(32) %72) #16
-  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %86, ptr noundef nonnull %5)
+  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %86, ptr noundef %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %75) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #16
@@ -39070,7 +39070,7 @@ _ZSt14__partial_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConsta
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef range(i64 0, 52405522936674862) %1, i64 noundef range(i64 -104811045873349725, 104811045873349726) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"struct.std::pair.280", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -39643,7 +39643,7 @@ _ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_112TagTa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_112TagTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -40237,7 +40237,7 @@ define internal fastcc void @_ZSt14__partial_sortIPSt4pairIN4llvm12VersionTupleE
   call void @_ZN5clang9api_notes7TagInfoC2EOS1_(ptr noundef nonnull align 8 dereferenceable(328) %18, ptr noundef nonnull align 8 dereferenceable(328) %22) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   call void @_ZN5clang9api_notes7TagInfoC2EOS1_(ptr noundef nonnull align 8 dereferenceable(328) %19, ptr noundef nonnull align 8 dereferenceable(328) %18) #16
-  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %.013.i.i, i64 noundef %13, ptr noundef nonnull %9)
+  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %.013.i.i, i64 noundef %13, ptr noundef %9)
   call void @_ZN5clang9api_notes7TagInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %19) #16
   %.not.i.i = icmp eq i64 %.013.i.i, 0
   %23 = add nsw i64 %.013.i.i, -1
@@ -40317,7 +40317,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersi
   %61 = call noundef nonnull align 8 dereferenceable(328) ptr @_ZN5clang9api_notes7TagInfoaSEOS1_(ptr noundef nonnull align 8 dereferenceable(328) %60, ptr noundef nonnull align 8 dereferenceable(328) %27) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
   call void @_ZN5clang9api_notes7TagInfoC2EOS1_(ptr noundef nonnull align 8 dereferenceable(328) %28, ptr noundef nonnull align 8 dereferenceable(328) %26) #16
-  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %13, ptr noundef nonnull %7)
+  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %13, ptr noundef %7)
   call void @_ZN5clang9api_notes7TagInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %28) #16
   call void @_ZN5clang9api_notes7TagInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %26) #16
   call void @llvm.lifetime.end.p0(i64 344, ptr nonnull %6)
@@ -40354,7 +40354,7 @@ _ZSt13__heap_selectIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEEN9_
   %74 = sdiv exact i64 %73, 344
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   call void @_ZN5clang9api_notes7TagInfoC2EOS1_(ptr noundef nonnull align 8 dereferenceable(328) %67, ptr noundef nonnull align 8 dereferenceable(328) %65) #16
-  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %74, ptr noundef nonnull %5)
+  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %74, ptr noundef %5)
   call void @_ZN5clang9api_notes7TagInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %67) #16
   call void @_ZN5clang9api_notes7TagInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %65) #16
   call void @llvm.lifetime.end.p0(i64 344, ptr nonnull %4)
@@ -40797,7 +40797,7 @@ _ZSt21__unguarded_partitionIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef range(i64 0, 13406064007056360) %1, i64 noundef range(i64 -26812128014112720, 26812128014112721) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"struct.std::pair.282", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -41181,7 +41181,7 @@ _ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefIn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_116TypedefTableInfoEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -41771,7 +41771,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit
 _ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEEC2EOS5_.exit16.i.i.i: ; preds = %78, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit.i.i.i15.i.i.i
   %79 = load i64, ptr %45, align 8
   store i64 %79, ptr %53, align 8
-  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef %.013.i.i.i, i64 noundef %35, ptr noundef nonnull %15)
+  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef %.013.i.i.i, i64 noundef %35, ptr noundef %15)
   %80 = load i8, ptr %51, align 8
   %81 = trunc i8 %80 to i1
   br i1 %81, label %82, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i.i.i
@@ -41920,7 +41920,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit
 _ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEEC2EOS5_.exit8.i: ; preds = %138, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit.i.i.i7.i
   %139 = load i64, ptr %100, align 8
   store i64 %139, ptr %109, align 8
-  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %131, ptr noundef nonnull %6)
+  call fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %131, ptr noundef %6)
   %140 = load i8, ptr %107, align 8
   %141 = trunc i8 %140 to i1
   br i1 %141, label %142, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i
@@ -42525,7 +42525,7 @@ _ZSt14__partial_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_T0_SW_T1_T2_(ptr noundef %0, i64 noundef range(i64 0, 26202761468337431) %1, i64 noundef range(i64 -52405522936674862, 52405522936674863) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"struct.std::pair.292", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

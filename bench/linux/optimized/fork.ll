@@ -1315,7 +1315,7 @@ define dso_local noundef ptr @mm_alloc() local_unnamed_addr #1 align 16 {
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @mm_init(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef ptr @mm_init(ptr noundef nonnull %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 771, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 72
@@ -1398,7 +1398,7 @@ define internal fastcc noundef ptr @mm_init(ptr noundef %0) unnamed_addr #1 alig
   %49 = phi i64 [ 0, %45 ], [ %44, %32 ]
   %50 = getelementptr inbounds i8, ptr %0, i64 304
   store i64 %49, ptr %50, align 16
-  %51 = tail call ptr @pgd_alloc(ptr noundef %0) #18
+  %51 = tail call ptr @pgd_alloc(ptr noundef nonnull %0) #18
   %52 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %51, ptr %52, align 64
   %53 = icmp eq ptr %51, null
@@ -1484,14 +1484,14 @@ define internal fastcc noundef ptr @mm_init(ptr noundef %0) unnamed_addr #1 alig
   br label %98
 
 98:                                               ; preds = %96, %63
-  tail call void @destroy_context_ldt(ptr noundef %0) #18
+  tail call void @destroy_context_ldt(ptr noundef nonnull %0) #18
   %99 = load ptr, ptr %52, align 64
-  tail call void @pgd_free(ptr noundef %0, ptr noundef %99) #18
+  tail call void @pgd_free(ptr noundef nonnull %0, ptr noundef %99) #18
   br label %100
 
 100:                                              ; preds = %98, %48
   %101 = load ptr, ptr @mm_cachep, align 8
-  tail call void @kmem_cache_free(ptr noundef %101, ptr noundef %0) #18
+  tail call void @kmem_cache_free(ptr noundef %101, ptr noundef nonnull %0) #18
   br label %102
 
 102:                                              ; preds = %100, %94
@@ -2749,27 +2749,27 @@ define dso_local ptr @copy_process(ptr noundef readnone %0, i32 noundef %1, i32 
   %229 = lshr i8 %228, 3
   %230 = and i8 %229, 1
   %231 = zext nneg i8 %230 to i32
-  %232 = call fastcc i32 @copy_files(i64 noundef %7, ptr noundef nonnull %72, i32 noundef %231)
+  %232 = call fastcc i32 @copy_files(i64 noundef %7, ptr noundef %72, i32 noundef %231)
   %233 = icmp eq i32 %232, 0
   br i1 %233, label %234, label %562
 
 234:                                              ; preds = %227
-  %235 = call fastcc i32 @copy_fs(i64 noundef %7, ptr noundef nonnull %72), !range !77
+  %235 = call fastcc i32 @copy_fs(i64 noundef %7, ptr noundef %72), !range !77
   %236 = icmp eq i32 %235, 0
   br i1 %236, label %237, label %560
 
 237:                                              ; preds = %234
-  %238 = call fastcc i32 @copy_sighand(i64 noundef %7, ptr noundef nonnull %72), !range !77
+  %238 = call fastcc i32 @copy_sighand(i64 noundef %7, ptr noundef %72), !range !77
   %239 = icmp eq i32 %238, 0
   br i1 %239, label %240, label %558
 
 240:                                              ; preds = %237
-  %241 = call fastcc i32 @copy_signal(i64 noundef %7, ptr noundef nonnull %72), !range !77
+  %241 = call fastcc i32 @copy_signal(i64 noundef %7, ptr noundef %72), !range !77
   %242 = icmp eq i32 %241, 0
   br i1 %242, label %243, label %554
 
 243:                                              ; preds = %240
-  %244 = call fastcc i32 @copy_mm(i64 noundef %7, ptr noundef nonnull %72), !range !77
+  %244 = call fastcc i32 @copy_mm(i64 noundef %7, ptr noundef %72), !range !77
   %245 = icmp eq i32 %244, 0
   br i1 %245, label %246, label %549
 
@@ -3029,7 +3029,7 @@ define dso_local ptr @copy_process(ptr noundef readnone %0, i32 noundef %1, i32 
   br i1 %398, label %.critedge, label %522
 
 .critedge:                                        ; preds = %390, %394
-  call fastcc void @copy_seccomp(ptr noundef nonnull %72)
+  call fastcc void @copy_seccomp(ptr noundef %72)
   %399 = getelementptr inbounds i8, ptr %72, i64 1424
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(64) %399, i8 0, i64 64, i1 false)
   %400 = load i32, ptr %311, align 8
@@ -3041,7 +3041,7 @@ define dso_local ptr @copy_process(ptr noundef readnone %0, i32 noundef %1, i32 
   %404 = icmp ne i64 %403, 0
   %405 = icmp ne i32 %1, 0
   %406 = or i1 %405, %404
-  call fastcc void @ptrace_init_task(ptr noundef nonnull %72, i1 noundef zeroext %406)
+  call fastcc void @ptrace_init_task(ptr noundef %72, i1 noundef zeroext %406)
   %407 = getelementptr inbounds i8, ptr %72, i64 1416
   store ptr %275, ptr %407, align 8
   %408 = load i32, ptr %360, align 8
@@ -3238,9 +3238,9 @@ define dso_local ptr @copy_process(ptr noundef readnone %0, i32 noundef %1, i32 
   call void @sched_post_fork(ptr noundef nonnull %72) #18
   call void @cgroup_post_fork(ptr noundef nonnull %72, ptr noundef %3) #18
   call void @perf_event_fork(ptr noundef nonnull %72) #18
-  call fastcc void @trace_task_newtask(ptr noundef nonnull %72, i64 noundef %7)
+  call fastcc void @trace_task_newtask(ptr noundef %72, i64 noundef %7)
   call void @uprobe_copy_process(ptr noundef nonnull %72, i64 noundef %7) #18
-  call fastcc void @copy_oom_score_adj(i64 noundef %7, ptr noundef nonnull %72)
+  call fastcc void @copy_oom_score_adj(i64 noundef %7, ptr noundef %72)
   br label %610
 
 522:                                              ; preds = %394, %385
@@ -3645,7 +3645,7 @@ declare dso_local i32 @security_task_alloc(ptr noundef, i64 noundef) local_unnam
 declare dso_local i32 @copy_semundo(i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @copy_files(i64 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc i32 @copy_files(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
   store i32 0, ptr %4, align 4
@@ -3695,7 +3695,7 @@ define internal fastcc i32 @copy_files(i64 noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -12, 1) i32 @copy_fs(i64 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -12, 1) i32 @copy_fs(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #1 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #20, !srcloc !34
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds i8, ptr %4, i64 1848
@@ -3737,7 +3737,7 @@ define internal fastcc range(i32 -12, 1) i32 @copy_fs(i64 noundef %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @copy_sighand(i64 noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @copy_sighand(i64 noundef %0, ptr noundef nonnull %1) unnamed_addr #1 align 16 {
   %3 = and i64 %0, 2048
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %19, label %5
@@ -3793,7 +3793,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @copy_sighand(i64 noundef %
   br i1 %35, label %37, label %36
 
 36:                                               ; preds = %24
-  tail call void @flush_signal_handlers(ptr noundef %1, i32 noundef 0) #18
+  tail call void @flush_signal_handlers(ptr noundef nonnull %1, i32 noundef 0) #18
   br label %37
 
 37:                                               ; preds = %36, %24, %19, %18, %14, %13
@@ -3802,7 +3802,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @copy_sighand(i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @copy_signal(i64 noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @copy_signal(i64 noundef %0, ptr noundef nonnull %1) unnamed_addr #1 align 16 {
   %3 = and i64 %0, 65536
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %54
@@ -3897,7 +3897,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @copy_signal(i64 noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @copy_mm(i64 noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @copy_mm(i64 noundef %0, ptr noundef nonnull %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.list_head, align 8
   %4 = alloca %struct.vma_iterator, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 1616
@@ -4163,7 +4163,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @copy_mm(i64 noundef %0, pt
   %144 = sub i64 %142, %143
   %145 = lshr i64 %144, 12
   %146 = sub nsw i64 0, %145
-  call void @vm_stat_account(ptr noundef %21, i64 noundef %141, i64 noundef %146) #18
+  call void @vm_stat_account(ptr noundef nonnull %21, i64 noundef %141, i64 noundef %146) #18
   br label %.thread30, !llvm.loop !91
 
 147:                                              ; preds = %117
@@ -4369,7 +4369,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @copy_mm(i64 noundef %0, pt
   br label %.thread25
 
 .thread25:                                        ; preds = %.loopexit, %252
-  %259 = call i32 @ldt_dup_context(ptr noundef %12, ptr noundef %21) #18
+  %259 = call i32 @ldt_dup_context(ptr noundef %12, ptr noundef nonnull %21) #18
   %260 = icmp eq i32 %259, 0
   call void @mas_destroy(ptr noundef nonnull %4) #18
   br i1 %260, label %261, label %.thread76
@@ -4432,7 +4432,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @copy_mm(i64 noundef %0, pt
           to label %290 [label %289], !srcloc !65
 
 289:                                              ; preds = %.thread76
-  call void @__mmap_lock_do_trace_released(ptr noundef %21, i1 noundef zeroext true) #18
+  call void @__mmap_lock_do_trace_released(ptr noundef nonnull %21, i1 noundef zeroext true) #18
   br label %290
 
 290:                                              ; preds = %289, %.thread76
@@ -4523,14 +4523,14 @@ define internal fastcc noundef range(i32 -12, 1) i32 @copy_mm(i64 noundef %0, pt
   br i1 %334, label %.thread39, label %335
 
 335:                                              ; preds = %328
-  call fastcc void @__mmput(ptr noundef %21)
+  call fastcc void @__mmput(ptr noundef nonnull %21)
   br label %.thread39
 
 336:                                              ; preds = %306, %324, %17
   %337 = phi ptr [ %12, %17 ], [ %21, %324 ], [ %21, %306 ]
   store ptr %337, ptr %7, align 8
   store ptr %337, ptr %8, align 16
-  call void @sched_mm_cid_fork(ptr noundef %1) #18
+  call void @sched_mm_cid_fork(ptr noundef nonnull %1) #18
   br label %.thread39
 
 .thread39:                                        ; preds = %335, %328, %19, %23, %336, %2
@@ -4569,7 +4569,7 @@ declare dso_local void @sched_cgroup_fork(ptr noundef, ptr noundef) local_unname
 declare dso_local void @_raw_write_lock_irq(ptr noundef) local_unnamed_addr #0 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @copy_seccomp(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc void @copy_seccomp(ptr noundef nonnull %0) unnamed_addr #1 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #20, !srcloc !34
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 1888
@@ -4614,7 +4614,7 @@ define internal fastcc void @copy_seccomp(ptr noundef %0) unnamed_addr #1 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @ptrace_init_task(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #10 align 16 {
+define internal fastcc void @ptrace_init_task(ptr noundef nonnull %0, i1 noundef zeroext %1) unnamed_addr #10 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1400
   store volatile ptr %3, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1408
@@ -4647,14 +4647,14 @@ define internal fastcc void @ptrace_init_task(ptr noundef %0, i1 noundef zeroext
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %14, i64 1768
   %22 = load ptr, ptr %21, align 8
-  tail call void @__ptrace_link(ptr noundef %0, ptr noundef %20, ptr noundef %22) #18
+  tail call void @__ptrace_link(ptr noundef nonnull %0, ptr noundef %20, ptr noundef %22) #18
   %23 = load i32, ptr %8, align 16
   %24 = and i32 %23, 65536
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %18
-  %27 = tail call zeroext i1 @task_set_jobctl_pending(ptr noundef %0, i64 noundef 524288) #18
+  %27 = tail call zeroext i1 @task_set_jobctl_pending(ptr noundef nonnull %0, i64 noundef 524288) #18
   br label %34
 
 28:                                               ; preds = %18
@@ -4744,7 +4744,7 @@ declare dso_local void @cgroup_post_fork(ptr noundef, ptr noundef) local_unnamed
 declare dso_local void @perf_event_fork(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_task_newtask(ptr noundef %0, i64 noundef %1) unnamed_addr #10 align 16 {
+define internal fastcc void @trace_task_newtask(ptr noundef nonnull %0, i64 noundef %1) unnamed_addr #10 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_task_newtask, i64 8), i32 2) #18
           to label %23 [label %3], !srcloc !65
 
@@ -4767,7 +4767,7 @@ define internal fastcc void @trace_task_newtask(ptr noundef %0, i64 noundef %1) 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @__SCT__tp_func_task_newtask(ptr noundef %14, ptr noundef %0, i64 noundef %1) #18
+  %15 = tail call i32 @__SCT__tp_func_task_newtask(ptr noundef %14, ptr noundef nonnull %0, i64 noundef %1) #18
   br label %16
 
 16:                                               ; preds = %12, %9
@@ -4792,7 +4792,7 @@ define internal fastcc void @trace_task_newtask(ptr noundef %0, i64 noundef %1) 
 declare dso_local void @uprobe_copy_process(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @copy_oom_score_adj(i64 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 16 {
+define internal fastcc void @copy_oom_score_adj(i64 noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 1192
   %4 = load ptr, ptr %3, align 8
   %5 = icmp ne ptr %4, null
@@ -5227,7 +5227,7 @@ declare dso_local i32 @pid_vnr(ptr noundef) local_unnamed_addr #0
 declare dso_local void @wake_up_new_task(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @ptrace_event_pid(i32 noundef %0, ptr noundef %1) unnamed_addr #10 align 16 {
+define internal fastcc void @ptrace_event_pid(i32 noundef range(i32 1, 4) %0, ptr noundef %1) unnamed_addr #10 align 16 {
   tail call void @__rcu_read_lock() #18
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #20, !srcloc !34
   %4 = inttoptr i64 %3 to ptr

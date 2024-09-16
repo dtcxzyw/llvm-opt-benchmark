@@ -972,7 +972,7 @@ read_data_stored.exit:                            ; preds = %57, %58, %64, %65
   %218 = add i64 %214, %217
   store i64 9223372036854775807, ptr %213, align 8
   store i64 %218, ptr %5, align 8
-  %219 = call fastcc i32 @expand(ptr noundef nonnull %0, ptr noundef nonnull %5)
+  %219 = call fastcc i32 @expand(ptr noundef nonnull %0, ptr noundef %5)
   %.not.i.i = icmp eq i32 %219, 0
   br i1 %.not.i.i, label %.preheader.i.i, label %run_filters.exit.thread.i
 
@@ -1061,7 +1061,7 @@ copy_from_lzss_window.exit:                       ; preds = %234
   %258 = load ptr, ptr %208, align 8
   %259 = getelementptr inbounds i8, ptr %207, i64 184
   %260 = load i64, ptr %259, align 8
-  %261 = tail call fastcc i32 @execute_filter(ptr noundef nonnull %0, ptr noundef nonnull %210, ptr noundef %258, i64 noundef %260)
+  %261 = tail call fastcc i32 @execute_filter(ptr noundef nonnull %0, ptr noundef %210, ptr noundef %258, i64 noundef %260)
   %.not86.i.i = icmp eq i32 %261, 0
   br i1 %.not86.i.i, label %run_filters.exit.thread.i, label %262
 
@@ -1117,7 +1117,7 @@ delete_filter.exit:                               ; preds = %.lr.ph.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %285, ptr nonnull align 1 %287, i64 %288, i1 false)
   %289 = load ptr, ptr %208, align 8
   %290 = load i64, ptr %259, align 8
-  %291 = tail call fastcc i32 @execute_filter(ptr noundef %0, ptr noundef nonnull %274, ptr noundef %289, i64 noundef %290)
+  %291 = tail call fastcc i32 @execute_filter(ptr noundef %0, ptr noundef %274, ptr noundef %289, i64 noundef %290)
   %.not89.i.i = icmp eq i32 %291, 0
   br i1 %.not89.i.i, label %run_filters.exit.thread.i, label %292
 
@@ -1481,7 +1481,7 @@ tailrecurse.i:                                    ; preds = %356
   %443 = load i64, ptr %97, align 8
   %spec.store.select.i = tail call i64 @llvm.smin.i64(i64 %443, i64 %442)
   store i64 %spec.store.select.i, ptr %6, align 8
-  %444 = call fastcc i32 @expand(ptr noundef %0, ptr noundef nonnull %6)
+  %444 = call fastcc i32 @expand(ptr noundef %0, ptr noundef %6)
   %.not222.i = icmp eq i32 %444, 0
   br i1 %.not222.i, label %445, label %read_data_compressed.exit
 
@@ -2795,7 +2795,7 @@ default.unreachable473:                           ; preds = %166
   br i1 %.not390, label %348, label %344
 
 344:                                              ; preds = %342
-  %345 = tail call fastcc i32 @read_exttime(ptr noundef %.3343, ptr noundef nonnull %7, ptr noundef nonnull %.0344)
+  %345 = tail call fastcc i32 @read_exttime(ptr noundef %.3343, ptr noundef nonnull %7, ptr noundef %.0344)
   %346 = icmp slt i32 %345, 0
   br i1 %346, label %347, label %348
 
@@ -2965,7 +2965,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @read_exttime(ptr noundef readonly %0, ptr nocapture noundef %1, ptr noundef readnone %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @read_exttime(ptr noundef nonnull readonly %0, ptr nocapture noundef %1, ptr noundef nonnull readnone %2) unnamed_addr #0 {
   %4 = alloca %struct.tm, align 8
   %5 = alloca i64, align 8
   %6 = alloca %struct.tm, align 8
@@ -4111,7 +4111,7 @@ thread-pre-split250:                              ; preds = %149, %146
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @expand(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @expand(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.memory_bit_reader, align 8
   %4 = alloca %struct.memory_bit_reader, align 8
   %5 = alloca [8 x i32], align 16
@@ -4471,7 +4471,7 @@ define internal fastcc range(i32 -30, 1) i32 @expand(ptr noundef %0, ptr nocaptu
   br i1 %.not123.i.i, label %217, label %196
 
 196:                                              ; preds = %._crit_edge.i.i
-  %197 = call fastcc i32 @membr_next_rarvm_number(ptr noundef nonnull %4)
+  %197 = call fastcc i32 @membr_next_rarvm_number(ptr noundef %4)
   %198 = icmp eq i32 %197, 0
   br i1 %198, label %199, label %212
 
@@ -4564,7 +4564,7 @@ delete_filter.exit.i.i:                           ; preds = %delete_filter.exit.
   br label %227
 
 227:                                              ; preds = %223, %._crit_edge43.i.i
-  %228 = call fastcc i32 @membr_next_rarvm_number(ptr noundef nonnull %4)
+  %228 = call fastcc i32 @membr_next_rarvm_number(ptr noundef %4)
   %229 = zext i32 %228 to i64
   %230 = getelementptr i8, ptr %.val.val.i, i64 864
   %.val.i.i236 = load i64, ptr %230, align 8
@@ -4593,7 +4593,7 @@ delete_filter.exit.i.i:                           ; preds = %delete_filter.exit.
   br label %240
 
 238:                                              ; preds = %227
-  %239 = call fastcc i32 @membr_next_rarvm_number(ptr noundef nonnull %4)
+  %239 = call fastcc i32 @membr_next_rarvm_number(ptr noundef %4)
   store i32 245760, ptr %25, align 4
   store i32 %239, ptr %26, align 16
   br i1 %.not124.i.i, label %243, label %240
@@ -4695,7 +4695,7 @@ membr_bits.exit.i.i:                              ; preds = %membr_fill.exit.i.i
   br i1 %.not137.i.i, label %281, label %278
 
 278:                                              ; preds = %274
-  %279 = call fastcc i32 @membr_next_rarvm_number(ptr noundef nonnull %4)
+  %279 = call fastcc i32 @membr_next_rarvm_number(ptr noundef %4)
   %280 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i
   store i32 %279, ptr %280, align 4
   br label %281
@@ -4709,7 +4709,7 @@ membr_bits.exit.i.i:                              ; preds = %membr_fill.exit.i.i
   br i1 %.not124.i.i, label %282, label %372
 
 282:                                              ; preds = %.loopexit19.i.i
-  %283 = call fastcc i32 @membr_next_rarvm_number(ptr noundef nonnull %4)
+  %283 = call fastcc i32 @membr_next_rarvm_number(ptr noundef %4)
   %284 = add i32 %283, -65537
   %or.cond.i58.i = icmp ult i32 %284, -65536
   br i1 %or.cond.i58.i, label %.loopexit, label %285
@@ -4841,7 +4841,7 @@ membr_bits.exit.i.i.i:                            ; preds = %.lr.ph.i.i.i.i.i
   br i1 %.not33.i.i.i, label %compile_program.exit.thread12.i.i, label %330
 
 330:                                              ; preds = %membr_bits.exit.i.i.i
-  %331 = call fastcc i32 @membr_next_rarvm_number(ptr noundef nonnull %3)
+  %331 = call fastcc i32 @membr_next_rarvm_number(ptr noundef %3)
   %332 = add i32 %331, 1
   %333 = getelementptr inbounds i8, ptr %322, i64 8
   store i32 %332, ptr %333, align 8
@@ -4970,7 +4970,7 @@ compile_program.exit.thread12.i.i:                ; preds = %membr_bits.exit45.i
   br label %.loopexit.i.i
 
 375:                                              ; preds = %372
-  %376 = call fastcc i32 @membr_next_rarvm_number(ptr noundef nonnull %4)
+  %376 = call fastcc i32 @membr_next_rarvm_number(ptr noundef %4)
   %377 = icmp ugt i32 %376, 8128
   br i1 %377, label %.loopexit, label %378
 
@@ -5618,7 +5618,7 @@ read_filter.exit.thread:                          ; preds = %.backedge, %.lr.ph5
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @execute_filter(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @execute_filter(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.audio_state, align 4
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 32
@@ -6499,7 +6499,7 @@ define internal zeroext i8 @ppmd_read(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @create_code(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @create_code(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 17, 300) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 12
@@ -6527,184 +6527,180 @@ define internal fastcc range(i32 -30, 1) i32 @create_code(ptr noundef %0, ptr no
   store i32 2147483647, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %1, i64 20
   store i32 -2147483648, ptr %15, align 4
-  %16 = icmp sgt i32 %3, 0
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
-  br i1 %16, label %.preheader.us.preheader, label %add_value.exit.thread
-
-.preheader.us.preheader:                          ; preds = %10
+  %16 = getelementptr inbounds i8, ptr %1, i64 32
   %wide.trip.count = zext nneg i32 %3 to i64
-  br label %.preheader.us
+  br label %.preheader
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %18
-  %.058.us = phi i32 [ %.3.us, %18 ], [ %3, %.preheader.us.preheader ]
-  %.02657.us = phi i32 [ %19, %18 ], [ 0, %.preheader.us.preheader ]
-  %.03156.us = phi i32 [ %20, %18 ], [ 1, %.preheader.us.preheader ]
-  br label %21
+.preheader:                                       ; preds = %10, %97
+  %.057 = phi i32 [ %3, %10 ], [ %.3, %97 ]
+  %.02656 = phi i32 [ 0, %10 ], [ %98, %97 ]
+  %.03155 = phi i32 [ 1, %10 ], [ %99, %97 ]
+  br label %17
 
-18:                                               ; preds = %._crit_edge.us
-  %19 = shl i32 %.329.us, 1
-  %20 = add nuw nsw i32 %.03156.us, 1
-  %exitcond68.not = icmp eq i32 %20, 16
-  br i1 %exitcond68.not, label %add_value.exit.thread, label %.preheader.us, !llvm.loop !55
+17:                                               ; preds = %.preheader, %94
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %94 ]
+  %.154 = phi i32 [ %.057, %.preheader ], [ %.3, %94 ]
+  %.12753 = phi i32 [ %.02656, %.preheader ], [ %.329, %94 ]
+  %18 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %19 to i32
+  %.not = icmp eq i32 %.03155, %20
+  br i1 %.not, label %21, label %94
 
-21:                                               ; preds = %.preheader.us, %95
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %95 ]
-  %.154.us = phi i32 [ %.058.us, %.preheader.us ], [ %.3.us, %95 ]
-  %.12753.us = phi i32 [ %.02657.us, %.preheader.us ], [ %.329.us, %95 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
-  %23 = load i8, ptr %22, align 1
-  %24 = zext i8 %23 to i32
-  %.not.us = icmp eq i32 %.03156.us, %24
-  br i1 %.not.us, label %25, label %95
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %16, align 8
+  tail call void @free(ptr noundef %22) #19
+  store ptr null, ptr %16, align 8
+  %23 = load i32, ptr %15, align 4
+  %24 = icmp sgt i32 %.03155, %23
+  br i1 %24, label %25, label %26
 
 25:                                               ; preds = %21
-  %26 = load ptr, ptr %17, align 8
-  tail call void @free(ptr noundef %26) #19
-  store ptr null, ptr %17, align 8
-  %27 = load i32, ptr %15, align 4
-  %28 = icmp sgt i32 %.03156.us, %27
+  store i32 %.03155, ptr %15, align 4
+  br label %26
+
+26:                                               ; preds = %25, %21
+  %27 = load i32, ptr %14, align 8
+  %28 = icmp slt i32 %.03155, %27
   br i1 %28, label %29, label %30
 
-29:                                               ; preds = %25
-  store i32 %.03156.us, ptr %15, align 4
+29:                                               ; preds = %26
+  store i32 %.03155, ptr %14, align 8
   br label %30
 
-30:                                               ; preds = %29, %25
-  %31 = load i32, ptr %14, align 8
-  %32 = icmp slt i32 %.03156.us, %31
-  br i1 %32, label %33, label %34
+30:                                               ; preds = %29, %26
+  %.pre53.i = load ptr, ptr %1, align 8
+  br label %31
 
-33:                                               ; preds = %30
-  store i32 %.03156.us, ptr %14, align 8
-  br label %34
+31:                                               ; preds = %74, %30
+  %32 = phi ptr [ %.pre53.i, %30 ], [ %76, %74 ]
+  %.04351.in.i = phi i32 [ %.03155, %30 ], [ %.04351.i, %74 ]
+  %.04450.i = phi i32 [ 0, %30 ], [ %75, %74 ]
+  %.04351.i = add nsw i32 %.04351.in.i, -1
+  %33 = sext i32 %.04450.i to i64
+  %34 = getelementptr inbounds %struct.huffman_tree_node, ptr %32, i64 %33
+  %35 = load i32, ptr %34, align 4
+  %36 = getelementptr inbounds i8, ptr %34, i64 4
+  %37 = load i32, ptr %36, align 4
+  %38 = icmp eq i32 %35, %37
+  br i1 %38, label %39, label %40
 
-34:                                               ; preds = %33, %30
-  %.pre53.i.us = load ptr, ptr %1, align 8
-  br label %35
-
-35:                                               ; preds = %76, %34
-  %36 = phi ptr [ %.pre53.i.us, %34 ], [ %78, %76 ]
-  %.04351.in.i.us = phi i32 [ %.03156.us, %34 ], [ %.04351.i.us, %76 ]
-  %.04450.i.us = phi i32 [ 0, %34 ], [ %77, %76 ]
-  %.04351.i.us = add nsw i32 %.04351.in.i.us, -1
-  %37 = sext i32 %.04450.i.us to i64
-  %38 = getelementptr inbounds %struct.huffman_tree_node, ptr %36, i64 %37
-  %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %38, i64 4
-  %41 = load i32, ptr %40, align 4
-  %42 = icmp eq i32 %39, %41
-  br i1 %42, label %.split60.us, label %43
-
-43:                                               ; preds = %35
-  %44 = lshr i32 %.12753.us, %.04351.i.us
-  %45 = and i32 %44, 1
-  %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds [2 x i32], ptr %38, i64 0, i64 %46
-  %48 = load i32, ptr %47, align 4
-  %49 = icmp slt i32 %48, 0
-  br i1 %49, label %50, label %76
-
-50:                                               ; preds = %43
-  %51 = load i32, ptr %6, align 4
-  %52 = load i32, ptr %5, align 8
-  %53 = icmp eq i32 %51, %52
-  br i1 %53, label %54, label %62
-
-54:                                               ; preds = %50
-  %55 = icmp sgt i32 %51, 0
-  %56 = shl nuw nsw i32 %51, 1
-  %spec.select.i.i.us = select i1 %55, i32 %56, i32 256
-  %57 = zext nneg i32 %spec.select.i.i.us to i64
-  %58 = shl nuw nsw i64 %57, 3
-  %59 = tail call ptr @realloc(ptr noundef nonnull %36, i64 noundef %58) #22
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %.split62.us, label %61
-
-61:                                               ; preds = %54
-  store ptr %59, ptr %1, align 8
-  store i32 %spec.select.i.i.us, ptr %6, align 4
-  %.pre18.i.i.us = load i32, ptr %5, align 8
-  br label %62
-
-62:                                               ; preds = %61, %50
-  %63 = phi i32 [ %.pre18.i.i.us, %61 ], [ %52, %50 ]
-  %64 = phi ptr [ %59, %61 ], [ %36, %50 ]
-  %65 = sext i32 %63 to i64
-  %66 = getelementptr inbounds %struct.huffman_tree_node, ptr %64, i64 %65
-  store i32 -1, ptr %66, align 4
-  %67 = load ptr, ptr %1, align 8
-  %68 = load i32, ptr %5, align 8
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds %struct.huffman_tree_node, ptr %67, i64 %69, i32 0, i64 1
-  store i32 -2, ptr %70, align 4
-  %71 = load i32, ptr %5, align 8
-  %72 = add nsw i32 %71, 1
-  store i32 %72, ptr %5, align 8
-  %73 = load ptr, ptr %1, align 8
-  %74 = getelementptr inbounds %struct.huffman_tree_node, ptr %73, i64 %37
-  %75 = getelementptr inbounds [2 x i32], ptr %74, i64 0, i64 %46
-  store i32 %71, ptr %75, align 4
-  %.pre52.i.us = load ptr, ptr %1, align 8
-  %.phi.trans.insert.i.us = getelementptr inbounds %struct.huffman_tree_node, ptr %.pre52.i.us, i64 %37
-  %.phi.trans.insert54.i.us = getelementptr inbounds [2 x i32], ptr %.phi.trans.insert.i.us, i64 0, i64 %46
-  %.pre.i36.us = load i32, ptr %.phi.trans.insert54.i.us, align 4
-  br label %76
-
-76:                                               ; preds = %62, %43
-  %77 = phi i32 [ %.pre.i36.us, %62 ], [ %48, %43 ]
-  %78 = phi ptr [ %.pre52.i.us, %62 ], [ %36, %43 ]
-  %79 = icmp ugt i32 %.04351.in.i.us, 1
-  br i1 %79, label %35, label %._crit_edge.loopexit.i.us, !llvm.loop !56
-
-._crit_edge.loopexit.i.us:                        ; preds = %76
-  %80 = sext i32 %77 to i64
-  %81 = getelementptr inbounds %struct.huffman_tree_node, ptr %78, i64 %80
-  %82 = load i32, ptr %81, align 4
-  %83 = icmp eq i32 %82, -1
-  br i1 %83, label %84, label %.split64.us
-
-84:                                               ; preds = %._crit_edge.loopexit.i.us
-  %85 = getelementptr inbounds i8, ptr %81, i64 4
-  %86 = load i32, ptr %85, align 4
-  %87 = icmp eq i32 %86, -2
-  br i1 %87, label %88, label %.split64.us
-
-88:                                               ; preds = %84
-  %89 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %89, ptr %81, align 4
-  %90 = load ptr, ptr %1, align 8
-  %91 = getelementptr inbounds %struct.huffman_tree_node, ptr %90, i64 %80, i32 0, i64 1
-  store i32 %89, ptr %91, align 4
-  %92 = add nsw i32 %.12753.us, 1
-  %93 = add nsw i32 %.154.us, -1
-  %94 = icmp slt i32 %.154.us, 2
-  br i1 %94, label %add_value.exit.thread, label %95
-
-95:                                               ; preds = %88, %21
-  %.329.us = phi i32 [ %.12753.us, %21 ], [ %92, %88 ]
-  %.3.us = phi i32 [ %.154.us, %21 ], [ %93, %88 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !57
-
-._crit_edge.us:                                   ; preds = %95
-  %96 = icmp slt i32 %.3.us, 1
-  br i1 %96, label %add_value.exit.thread, label %18
-
-.split60.us:                                      ; preds = %35
+39:                                               ; preds = %31
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.46) #19
   br label %add_value.exit.thread
 
-.split62.us:                                      ; preds = %54
+40:                                               ; preds = %31
+  %41 = lshr i32 %.12753, %.04351.i
+  %42 = and i32 %41, 1
+  %43 = zext nneg i32 %42 to i64
+  %44 = getelementptr inbounds [2 x i32], ptr %34, i64 0, i64 %43
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %47, label %74
+
+47:                                               ; preds = %40
+  %48 = load i32, ptr %6, align 4
+  %49 = load i32, ptr %5, align 8
+  %50 = icmp eq i32 %48, %49
+  br i1 %50, label %51, label %60
+
+51:                                               ; preds = %47
+  %52 = icmp sgt i32 %48, 0
+  %53 = shl nuw nsw i32 %48, 1
+  %spec.select.i.i = select i1 %52, i32 %53, i32 256
+  %54 = zext nneg i32 %spec.select.i.i to i64
+  %55 = shl nuw nsw i64 %54, 3
+  %56 = tail call ptr @realloc(ptr noundef nonnull %32, i64 noundef %55) #22
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %59, label %58
+
+58:                                               ; preds = %51
+  store ptr %56, ptr %1, align 8
+  store i32 %spec.select.i.i, ptr %6, align 4
+  %.pre18.i.i = load i32, ptr %5, align 8
+  br label %60
+
+59:                                               ; preds = %51
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.45) #19
   br label %add_value.exit.thread
 
-.split64.us:                                      ; preds = %._crit_edge.loopexit.i.us, %84
+60:                                               ; preds = %58, %47
+  %61 = phi i32 [ %.pre18.i.i, %58 ], [ %49, %47 ]
+  %62 = phi ptr [ %56, %58 ], [ %32, %47 ]
+  %63 = sext i32 %61 to i64
+  %64 = getelementptr inbounds %struct.huffman_tree_node, ptr %62, i64 %63
+  store i32 -1, ptr %64, align 4
+  %65 = load ptr, ptr %1, align 8
+  %66 = load i32, ptr %5, align 8
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds %struct.huffman_tree_node, ptr %65, i64 %67, i32 0, i64 1
+  store i32 -2, ptr %68, align 4
+  %69 = load i32, ptr %5, align 8
+  %70 = add nsw i32 %69, 1
+  store i32 %70, ptr %5, align 8
+  %71 = load ptr, ptr %1, align 8
+  %72 = getelementptr inbounds %struct.huffman_tree_node, ptr %71, i64 %33
+  %73 = getelementptr inbounds [2 x i32], ptr %72, i64 0, i64 %43
+  store i32 %69, ptr %73, align 4
+  %.pre52.i = load ptr, ptr %1, align 8
+  %.phi.trans.insert.i = getelementptr inbounds %struct.huffman_tree_node, ptr %.pre52.i, i64 %33
+  %.phi.trans.insert54.i = getelementptr inbounds [2 x i32], ptr %.phi.trans.insert.i, i64 0, i64 %43
+  %.pre.i36 = load i32, ptr %.phi.trans.insert54.i, align 4
+  br label %74
+
+74:                                               ; preds = %60, %40
+  %75 = phi i32 [ %.pre.i36, %60 ], [ %45, %40 ]
+  %76 = phi ptr [ %.pre52.i, %60 ], [ %32, %40 ]
+  %77 = icmp ugt i32 %.04351.in.i, 1
+  br i1 %77, label %31, label %._crit_edge.loopexit.i, !llvm.loop !55
+
+._crit_edge.loopexit.i:                           ; preds = %74
+  %78 = sext i32 %75 to i64
+  %79 = getelementptr inbounds %struct.huffman_tree_node, ptr %76, i64 %78
+  %80 = load i32, ptr %79, align 4
+  %81 = icmp eq i32 %80, -1
+  br i1 %81, label %82, label %86
+
+82:                                               ; preds = %._crit_edge.loopexit.i
+  %83 = getelementptr inbounds i8, ptr %79, i64 4
+  %84 = load i32, ptr %83, align 4
+  %85 = icmp eq i32 %84, -2
+  br i1 %85, label %87, label %86
+
+86:                                               ; preds = %82, %._crit_edge.loopexit.i
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.46) #19
   br label %add_value.exit.thread
 
-add_value.exit.thread:                            ; preds = %18, %._crit_edge.us, %88, %10, %.split64.us, %.split62.us, %.split60.us, %9
-  %.032 = phi i32 [ -30, %9 ], [ -30, %.split60.us ], [ -30, %.split62.us ], [ -30, %.split64.us ], [ 0, %10 ], [ 0, %88 ], [ 0, %._crit_edge.us ], [ 0, %18 ]
+87:                                               ; preds = %82
+  %88 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %88, ptr %79, align 4
+  %89 = load ptr, ptr %1, align 8
+  %90 = getelementptr inbounds %struct.huffman_tree_node, ptr %89, i64 %78, i32 0, i64 1
+  store i32 %88, ptr %90, align 4
+  %91 = add nsw i32 %.12753, 1
+  %92 = add nsw i32 %.154, -1
+  %93 = icmp slt i32 %.154, 2
+  br i1 %93, label %add_value.exit.thread, label %94
+
+94:                                               ; preds = %87, %17
+  %.329 = phi i32 [ %.12753, %17 ], [ %91, %87 ]
+  %.3 = phi i32 [ %.154, %17 ], [ %92, %87 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %95, label %17, !llvm.loop !56
+
+95:                                               ; preds = %94
+  %96 = icmp slt i32 %.3, 1
+  br i1 %96, label %add_value.exit.thread, label %97
+
+97:                                               ; preds = %95
+  %98 = shl i32 %.329, 1
+  %99 = add nuw nsw i32 %.03155, 1
+  %exitcond61.not = icmp eq i32 %99, 16
+  br i1 %exitcond61.not, label %add_value.exit.thread, label %.preheader, !llvm.loop !57
+
+add_value.exit.thread:                            ; preds = %97, %95, %87, %86, %59, %39, %9
+  %.032 = phi i32 [ -30, %9 ], [ -30, %39 ], [ -30, %59 ], [ -30, %86 ], [ 0, %87 ], [ 0, %95 ], [ 0, %97 ]
   ret i32 %.032
 }
 
@@ -6948,7 +6944,7 @@ tailrecurse:                                      ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @membr_next_rarvm_number(ptr nocapture noundef %0) unnamed_addr #15 {
+define internal fastcc i32 @membr_next_rarvm_number(ptr nocapture noundef nonnull %0) unnamed_addr #15 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp slt i32 %3, 2

@@ -5967,7 +5967,7 @@ declare noundef zeroext i1 @_ZN2cv20checkHardwareSupportEi(i32 noundef) local_un
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7DFTInitEiiPKiPiiPvi(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7DFTInitEiiPKiPiiPvi(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef range(i32 8, 17) %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca [34 x i32], align 16
   %9 = alloca [34 x i32], align 16
   %10 = alloca %"class.std::__cxx11::basic_string", align 8

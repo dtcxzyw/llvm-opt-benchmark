@@ -16295,7 +16295,7 @@ define internal fastcc { i64, i64 } @_ZN2cv4gapi5fluidL23convertScalarForBitwise
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIhhEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr nocapture readonly %.8.val, ptr nocapture readonly %.8.val1.0.val, i32 %.8.val1.72.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIhhEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr nocapture readonly %.8.val, ptr nocapture readonly %.8.val1.0.val, i32 %.8.val1.72.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.26", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16311,7 +16311,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIhhEEvRNS1_6Buffer
   %15 = load i32, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %.8.val, i64 28
   %17 = load i32, ptr %16, align 4
-  switch i32 %1, label %default.unreachable [
+  switch i32 %1, label %default.unreachable19 [
     i32 0, label %18
     i32 1, label %118
     i32 2, label %218
@@ -16950,7 +16950,7 @@ _ZN2cv4gapi5fluidL13run_bitwise_sIhPFhhiEEEvPT_PKS5_iiPKiT0_.exit75: ; preds = %
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   br label %318
 
-default.unreachable:                              ; preds = %2
+default.unreachable19:                            ; preds = %2
   unreachable
 
 318:                                              ; preds = %_ZN2cv4gapi5fluidL13run_bitwise_sIhPFhhiEEEvPT_PKS5_iiPKiT0_.exit75, %_ZN2cv4gapi5fluidL13run_bitwise_sIhPFhhiEEEvPT_PKS5_iiPKiT0_.exit48, %_ZN2cv4gapi5fluidL13run_bitwise_sIhPFhhiEEEvPT_PKS5_iiPKiT0_.exit
@@ -16958,7 +16958,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIttEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr nocapture readonly %.8.val, ptr nocapture readonly %.8.val1.0.val, i32 %.8.val1.72.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIttEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr nocapture readonly %.8.val, ptr nocapture readonly %.8.val1.0.val, i32 %.8.val1.72.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.26", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16974,7 +16974,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIttEEvRNS1_6Buffer
   %15 = load i32, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %.8.val, i64 28
   %17 = load i32, ptr %16, align 4
-  switch i32 %1, label %default.unreachable [
+  switch i32 %1, label %default.unreachable19 [
     i32 0, label %18
     i32 1, label %118
     i32 2, label %218
@@ -17613,7 +17613,7 @@ _ZN2cv4gapi5fluidL13run_bitwise_sItPFttiEEEvPT_PKS5_iiPKiT0_.exit75: ; preds = %
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   br label %318
 
-default.unreachable:                              ; preds = %2
+default.unreachable19:                            ; preds = %2
   unreachable
 
 318:                                              ; preds = %_ZN2cv4gapi5fluidL13run_bitwise_sItPFttiEEEvPT_PKS5_iiPKiT0_.exit75, %_ZN2cv4gapi5fluidL13run_bitwise_sItPFttiEEEvPT_PKS5_iiPKiT0_.exit48, %_ZN2cv4gapi5fluidL13run_bitwise_sItPFttiEEEvPT_PKS5_iiPKiT0_.exit
@@ -17621,7 +17621,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIssEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr nocapture readonly %.8.val, ptr nocapture readonly %.8.val1.0.val, i32 %.8.val1.72.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIssEEvRNS1_6BufferERKNS1_4ViewEPKiNS1_7BitwiseE(ptr nocapture readonly %.8.val, ptr nocapture readonly %.8.val1.0.val, i32 %.8.val1.72.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.26", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17637,7 +17637,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL13run_bitwise_sIssEEvRNS1_6Buffer
   %15 = load i32, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %.8.val, i64 28
   %17 = load i32, ptr %16, align 4
-  switch i32 %1, label %default.unreachable [
+  switch i32 %1, label %default.unreachable19 [
     i32 0, label %18
     i32 1, label %118
     i32 2, label %218
@@ -18246,7 +18246,7 @@ _ZN2cv4gapi5fluidL13run_bitwise_sIsPFssiEEEvPT_PKS5_iiPKiT0_.exit75: ; preds = %
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   br label %318
 
-default.unreachable:                              ; preds = %2
+default.unreachable19:                            ; preds = %2
   unreachable
 
 318:                                              ; preds = %_ZN2cv4gapi5fluidL13run_bitwise_sIsPFssiEEEvPT_PKS5_iiPKiT0_.exit75, %_ZN2cv4gapi5fluidL13run_bitwise_sIsPFssiEEEvPT_PKS5_iiPKiT0_.exit48, %_ZN2cv4gapi5fluidL13run_bitwise_sIsPFssiEEEvPT_PKS5_iiPKiT0_.exit
@@ -20742,24 +20742,24 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMin3runERKNS1_4ViewES5_
   %36 = load i32, ptr %35, align 4
   %37 = mul i32 %36, %34
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph5.preheader.i, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
+  br i1 %38, label %.lr.ph.preheader.i, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
 
-.lr.ph5.preheader.i:                              ; preds = %22
-  %wide.trip.count11.i = zext nneg i32 %37 to i64
-  br label %.lr.ph5.i
+.lr.ph.preheader.i:                               ; preds = %22
+  %wide.trip.count.i = zext nneg i32 %37 to i64
+  br label %.lr.ph.i
 
-.lr.ph5.i:                                        ; preds = %.lr.ph5.i, %.lr.ph5.preheader.i
-  %indvars.iv8.i = phi i64 [ 0, %.lr.ph5.preheader.i ], [ %indvars.iv.next9.i, %.lr.ph5.i ]
-  %39 = getelementptr inbounds i8, ptr %27, i64 %indvars.iv8.i
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %39 = getelementptr inbounds i8, ptr %27, i64 %indvars.iv.i
   %40 = load i8, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %30, i64 %indvars.iv8.i
+  %41 = getelementptr inbounds i8, ptr %30, i64 %indvars.iv.i
   %42 = load i8, ptr %41, align 1
   %..i = tail call i8 @llvm.umin.i8(i8 %40, i8 %42)
-  %43 = getelementptr inbounds i8, ptr %32, i64 %indvars.iv8.i
+  %43 = getelementptr inbounds i8, ptr %32, i64 %indvars.iv.i
   store i8 %..i, ptr %43, align 1
-  %indvars.iv.next9.i = add nuw nsw i64 %indvars.iv8.i, 1
-  %exitcond12.not.i = icmp eq i64 %indvars.iv.next9.i, %wide.trip.count11.i
-  br i1 %exitcond12.not.i, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph5.i, !llvm.loop !179
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph.i, !llvm.loop !179
 
 44:                                               ; preds = %3
   %45 = getelementptr inbounds i8, ptr %0, i64 8
@@ -20798,24 +20798,24 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMin3runERKNS1_4ViewES5_
   %70 = load i32, ptr %69, align 4
   %71 = mul i32 %70, %68
   %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %.lr.ph5.preheader.i46, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
+  br i1 %72, label %.lr.ph.preheader.i46, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
 
-.lr.ph5.preheader.i46:                            ; preds = %56
-  %wide.trip.count11.i47 = zext nneg i32 %71 to i64
-  br label %.lr.ph5.i48
+.lr.ph.preheader.i46:                             ; preds = %56
+  %wide.trip.count.i47 = zext nneg i32 %71 to i64
+  br label %.lr.ph.i48
 
-.lr.ph5.i48:                                      ; preds = %.lr.ph5.i48, %.lr.ph5.preheader.i46
-  %indvars.iv8.i49 = phi i64 [ 0, %.lr.ph5.preheader.i46 ], [ %indvars.iv.next9.i51, %.lr.ph5.i48 ]
-  %73 = getelementptr inbounds i16, ptr %61, i64 %indvars.iv8.i49
+.lr.ph.i48:                                       ; preds = %.lr.ph.i48, %.lr.ph.preheader.i46
+  %indvars.iv.i49 = phi i64 [ 0, %.lr.ph.preheader.i46 ], [ %indvars.iv.next.i51, %.lr.ph.i48 ]
+  %73 = getelementptr inbounds i16, ptr %61, i64 %indvars.iv.i49
   %74 = load i16, ptr %73, align 2
-  %75 = getelementptr inbounds i16, ptr %64, i64 %indvars.iv8.i49
+  %75 = getelementptr inbounds i16, ptr %64, i64 %indvars.iv.i49
   %76 = load i16, ptr %75, align 2
   %..i50 = tail call i16 @llvm.umin.i16(i16 %74, i16 %76)
-  %77 = getelementptr inbounds i16, ptr %66, i64 %indvars.iv8.i49
+  %77 = getelementptr inbounds i16, ptr %66, i64 %indvars.iv.i49
   store i16 %..i50, ptr %77, align 2
-  %indvars.iv.next9.i51 = add nuw nsw i64 %indvars.iv8.i49, 1
-  %exitcond12.not.i52 = icmp eq i64 %indvars.iv.next9.i51, %wide.trip.count11.i47
-  br i1 %exitcond12.not.i52, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph5.i48, !llvm.loop !180
+  %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i49, 1
+  %exitcond.not.i52 = icmp eq i64 %indvars.iv.next.i51, %wide.trip.count.i47
+  br i1 %exitcond.not.i52, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph.i48, !llvm.loop !180
 
 78:                                               ; preds = %3
   %79 = getelementptr inbounds i8, ptr %0, i64 8
@@ -20854,24 +20854,24 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMin3runERKNS1_4ViewES5_
   %104 = load i32, ptr %103, align 4
   %105 = mul i32 %104, %102
   %106 = icmp sgt i32 %105, 0
-  br i1 %106, label %.lr.ph5.preheader.i53, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
+  br i1 %106, label %.lr.ph.preheader.i53, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
 
-.lr.ph5.preheader.i53:                            ; preds = %90
-  %wide.trip.count11.i54 = zext nneg i32 %105 to i64
-  br label %.lr.ph5.i55
+.lr.ph.preheader.i53:                             ; preds = %90
+  %wide.trip.count.i54 = zext nneg i32 %105 to i64
+  br label %.lr.ph.i55
 
-.lr.ph5.i55:                                      ; preds = %.lr.ph5.i55, %.lr.ph5.preheader.i53
-  %indvars.iv8.i56 = phi i64 [ 0, %.lr.ph5.preheader.i53 ], [ %indvars.iv.next9.i58, %.lr.ph5.i55 ]
-  %107 = getelementptr inbounds i16, ptr %95, i64 %indvars.iv8.i56
+.lr.ph.i55:                                       ; preds = %.lr.ph.i55, %.lr.ph.preheader.i53
+  %indvars.iv.i56 = phi i64 [ 0, %.lr.ph.preheader.i53 ], [ %indvars.iv.next.i58, %.lr.ph.i55 ]
+  %107 = getelementptr inbounds i16, ptr %95, i64 %indvars.iv.i56
   %108 = load i16, ptr %107, align 2
-  %109 = getelementptr inbounds i16, ptr %98, i64 %indvars.iv8.i56
+  %109 = getelementptr inbounds i16, ptr %98, i64 %indvars.iv.i56
   %110 = load i16, ptr %109, align 2
   %..i57 = tail call i16 @llvm.smin.i16(i16 %108, i16 %110)
-  %111 = getelementptr inbounds i16, ptr %100, i64 %indvars.iv8.i56
+  %111 = getelementptr inbounds i16, ptr %100, i64 %indvars.iv.i56
   store i16 %..i57, ptr %111, align 2
-  %indvars.iv.next9.i58 = add nuw nsw i64 %indvars.iv8.i56, 1
-  %exitcond12.not.i59 = icmp eq i64 %indvars.iv.next9.i58, %wide.trip.count11.i54
-  br i1 %exitcond12.not.i59, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph5.i55, !llvm.loop !181
+  %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i56, 1
+  %exitcond.not.i59 = icmp eq i64 %indvars.iv.next.i58, %wide.trip.count.i54
+  br i1 %exitcond.not.i59, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph.i55, !llvm.loop !181
 
 112:                                              ; preds = %3
   %113 = getelementptr inbounds i8, ptr %0, i64 8
@@ -20910,25 +20910,25 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMin3runERKNS1_4ViewES5_
   %138 = load i32, ptr %137, align 4
   %139 = mul i32 %138, %136
   %140 = icmp sgt i32 %139, 0
-  br i1 %140, label %.lr.ph5.preheader.i60, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
+  br i1 %140, label %.lr.ph.preheader.i60, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
 
-.lr.ph5.preheader.i60:                            ; preds = %124
-  %wide.trip.count11.i61 = zext nneg i32 %139 to i64
-  br label %.lr.ph5.i62
+.lr.ph.preheader.i60:                             ; preds = %124
+  %wide.trip.count.i61 = zext nneg i32 %139 to i64
+  br label %.lr.ph.i62
 
-.lr.ph5.i62:                                      ; preds = %.lr.ph5.i62, %.lr.ph5.preheader.i60
-  %indvars.iv8.i63 = phi i64 [ 0, %.lr.ph5.preheader.i60 ], [ %indvars.iv.next9.i65, %.lr.ph5.i62 ]
-  %141 = getelementptr inbounds float, ptr %129, i64 %indvars.iv8.i63
+.lr.ph.i62:                                       ; preds = %.lr.ph.i62, %.lr.ph.preheader.i60
+  %indvars.iv.i63 = phi i64 [ 0, %.lr.ph.preheader.i60 ], [ %indvars.iv.next.i65, %.lr.ph.i62 ]
+  %141 = getelementptr inbounds float, ptr %129, i64 %indvars.iv.i63
   %142 = load float, ptr %141, align 4
-  %143 = getelementptr inbounds float, ptr %132, i64 %indvars.iv8.i63
+  %143 = getelementptr inbounds float, ptr %132, i64 %indvars.iv.i63
   %144 = load float, ptr %143, align 4
   %145 = fcmp olt float %142, %144
   %..i64 = select i1 %145, float %142, float %144
-  %146 = getelementptr inbounds float, ptr %134, i64 %indvars.iv8.i63
+  %146 = getelementptr inbounds float, ptr %134, i64 %indvars.iv.i63
   store float %..i64, ptr %146, align 4
-  %indvars.iv.next9.i65 = add nuw nsw i64 %indvars.iv8.i63, 1
-  %exitcond12.not.i66 = icmp eq i64 %indvars.iv.next9.i65, %wide.trip.count11.i61
-  br i1 %exitcond12.not.i66, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph5.i62, !llvm.loop !182
+  %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i63, 1
+  %exitcond.not.i66 = icmp eq i64 %indvars.iv.next.i65, %wide.trip.count.i61
+  br i1 %exitcond.not.i66, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph.i62, !llvm.loop !182
 
 .thread70:                                        ; preds = %3, %10, %16, %44, %50, %78, %84, %118, %112
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
@@ -20958,7 +20958,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMin3runERKNS1_4ViewES5_
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   resume { ptr, i32 } %.pn
 
-_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit: ; preds = %.lr.ph5.i62, %.lr.ph5.i55, %.lr.ph5.i48, %.lr.ph5.i, %124, %90, %56, %22
+_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit: ; preds = %.lr.ph.i62, %.lr.ph.i55, %.lr.ph.i48, %.lr.ph.i, %124, %90, %56, %22
   ret void
 }
 
@@ -21737,24 +21737,24 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMax3runERKNS1_4ViewES5_
   %36 = load i32, ptr %35, align 4
   %37 = mul i32 %36, %34
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph.preheader.i, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
+  br i1 %38, label %.lr.ph5.preheader.i, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
 
-.lr.ph.preheader.i:                               ; preds = %22
-  %wide.trip.count.i = zext nneg i32 %37 to i64
-  br label %.lr.ph.i
+.lr.ph5.preheader.i:                              ; preds = %22
+  %wide.trip.count11.i = zext nneg i32 %37 to i64
+  br label %.lr.ph5.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %39 = getelementptr inbounds i8, ptr %27, i64 %indvars.iv.i
+.lr.ph5.i:                                        ; preds = %.lr.ph5.i, %.lr.ph5.preheader.i
+  %indvars.iv8.i = phi i64 [ 0, %.lr.ph5.preheader.i ], [ %indvars.iv.next9.i, %.lr.ph5.i ]
+  %39 = getelementptr inbounds i8, ptr %27, i64 %indvars.iv8.i
   %40 = load i8, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %30, i64 %indvars.iv.i
+  %41 = getelementptr inbounds i8, ptr %30, i64 %indvars.iv8.i
   %42 = load i8, ptr %41, align 1
   %.38.i = tail call i8 @llvm.umax.i8(i8 %40, i8 %42)
-  %43 = getelementptr inbounds i8, ptr %32, i64 %indvars.iv.i
+  %43 = getelementptr inbounds i8, ptr %32, i64 %indvars.iv8.i
   store i8 %.38.i, ptr %43, align 1
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph.i, !llvm.loop !189
+  %indvars.iv.next9.i = add nuw nsw i64 %indvars.iv8.i, 1
+  %exitcond12.not.i = icmp eq i64 %indvars.iv.next9.i, %wide.trip.count11.i
+  br i1 %exitcond12.not.i, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph5.i, !llvm.loop !189
 
 44:                                               ; preds = %3
   %45 = getelementptr inbounds i8, ptr %0, i64 8
@@ -21793,24 +21793,24 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMax3runERKNS1_4ViewES5_
   %70 = load i32, ptr %69, align 4
   %71 = mul i32 %70, %68
   %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %.lr.ph.preheader.i46, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
+  br i1 %72, label %.lr.ph5.preheader.i46, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
 
-.lr.ph.preheader.i46:                             ; preds = %56
-  %wide.trip.count.i47 = zext nneg i32 %71 to i64
-  br label %.lr.ph.i48
+.lr.ph5.preheader.i46:                            ; preds = %56
+  %wide.trip.count11.i47 = zext nneg i32 %71 to i64
+  br label %.lr.ph5.i48
 
-.lr.ph.i48:                                       ; preds = %.lr.ph.i48, %.lr.ph.preheader.i46
-  %indvars.iv.i49 = phi i64 [ 0, %.lr.ph.preheader.i46 ], [ %indvars.iv.next.i51, %.lr.ph.i48 ]
-  %73 = getelementptr inbounds i16, ptr %61, i64 %indvars.iv.i49
+.lr.ph5.i48:                                      ; preds = %.lr.ph5.i48, %.lr.ph5.preheader.i46
+  %indvars.iv8.i49 = phi i64 [ 0, %.lr.ph5.preheader.i46 ], [ %indvars.iv.next9.i51, %.lr.ph5.i48 ]
+  %73 = getelementptr inbounds i16, ptr %61, i64 %indvars.iv8.i49
   %74 = load i16, ptr %73, align 2
-  %75 = getelementptr inbounds i16, ptr %64, i64 %indvars.iv.i49
+  %75 = getelementptr inbounds i16, ptr %64, i64 %indvars.iv8.i49
   %76 = load i16, ptr %75, align 2
   %.38.i50 = tail call i16 @llvm.umax.i16(i16 %74, i16 %76)
-  %77 = getelementptr inbounds i16, ptr %66, i64 %indvars.iv.i49
+  %77 = getelementptr inbounds i16, ptr %66, i64 %indvars.iv8.i49
   store i16 %.38.i50, ptr %77, align 2
-  %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i49, 1
-  %exitcond.not.i52 = icmp eq i64 %indvars.iv.next.i51, %wide.trip.count.i47
-  br i1 %exitcond.not.i52, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph.i48, !llvm.loop !190
+  %indvars.iv.next9.i51 = add nuw nsw i64 %indvars.iv8.i49, 1
+  %exitcond12.not.i52 = icmp eq i64 %indvars.iv.next9.i51, %wide.trip.count11.i47
+  br i1 %exitcond12.not.i52, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph5.i48, !llvm.loop !190
 
 78:                                               ; preds = %3
   %79 = getelementptr inbounds i8, ptr %0, i64 8
@@ -21849,24 +21849,24 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMax3runERKNS1_4ViewES5_
   %104 = load i32, ptr %103, align 4
   %105 = mul i32 %104, %102
   %106 = icmp sgt i32 %105, 0
-  br i1 %106, label %.lr.ph.preheader.i53, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
+  br i1 %106, label %.lr.ph5.preheader.i53, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
 
-.lr.ph.preheader.i53:                             ; preds = %90
-  %wide.trip.count.i54 = zext nneg i32 %105 to i64
-  br label %.lr.ph.i55
+.lr.ph5.preheader.i53:                            ; preds = %90
+  %wide.trip.count11.i54 = zext nneg i32 %105 to i64
+  br label %.lr.ph5.i55
 
-.lr.ph.i55:                                       ; preds = %.lr.ph.i55, %.lr.ph.preheader.i53
-  %indvars.iv.i56 = phi i64 [ 0, %.lr.ph.preheader.i53 ], [ %indvars.iv.next.i58, %.lr.ph.i55 ]
-  %107 = getelementptr inbounds i16, ptr %95, i64 %indvars.iv.i56
+.lr.ph5.i55:                                      ; preds = %.lr.ph5.i55, %.lr.ph5.preheader.i53
+  %indvars.iv8.i56 = phi i64 [ 0, %.lr.ph5.preheader.i53 ], [ %indvars.iv.next9.i58, %.lr.ph5.i55 ]
+  %107 = getelementptr inbounds i16, ptr %95, i64 %indvars.iv8.i56
   %108 = load i16, ptr %107, align 2
-  %109 = getelementptr inbounds i16, ptr %98, i64 %indvars.iv.i56
+  %109 = getelementptr inbounds i16, ptr %98, i64 %indvars.iv8.i56
   %110 = load i16, ptr %109, align 2
   %.38.i57 = tail call i16 @llvm.smax.i16(i16 %108, i16 %110)
-  %111 = getelementptr inbounds i16, ptr %100, i64 %indvars.iv.i56
+  %111 = getelementptr inbounds i16, ptr %100, i64 %indvars.iv8.i56
   store i16 %.38.i57, ptr %111, align 2
-  %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i56, 1
-  %exitcond.not.i59 = icmp eq i64 %indvars.iv.next.i58, %wide.trip.count.i54
-  br i1 %exitcond.not.i59, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph.i55, !llvm.loop !191
+  %indvars.iv.next9.i58 = add nuw nsw i64 %indvars.iv8.i56, 1
+  %exitcond12.not.i59 = icmp eq i64 %indvars.iv.next9.i58, %wide.trip.count11.i54
+  br i1 %exitcond12.not.i59, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph5.i55, !llvm.loop !191
 
 112:                                              ; preds = %3
   %113 = getelementptr inbounds i8, ptr %0, i64 8
@@ -21905,25 +21905,25 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMax3runERKNS1_4ViewES5_
   %138 = load i32, ptr %137, align 4
   %139 = mul i32 %138, %136
   %140 = icmp sgt i32 %139, 0
-  br i1 %140, label %.lr.ph.preheader.i60, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
+  br i1 %140, label %.lr.ph5.preheader.i60, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit
 
-.lr.ph.preheader.i60:                             ; preds = %124
-  %wide.trip.count.i61 = zext nneg i32 %139 to i64
-  br label %.lr.ph.i62
+.lr.ph5.preheader.i60:                            ; preds = %124
+  %wide.trip.count11.i61 = zext nneg i32 %139 to i64
+  br label %.lr.ph5.i62
 
-.lr.ph.i62:                                       ; preds = %.lr.ph.i62, %.lr.ph.preheader.i60
-  %indvars.iv.i63 = phi i64 [ 0, %.lr.ph.preheader.i60 ], [ %indvars.iv.next.i64, %.lr.ph.i62 ]
-  %141 = getelementptr inbounds float, ptr %129, i64 %indvars.iv.i63
+.lr.ph5.i62:                                      ; preds = %.lr.ph5.i62, %.lr.ph5.preheader.i60
+  %indvars.iv8.i63 = phi i64 [ 0, %.lr.ph5.preheader.i60 ], [ %indvars.iv.next9.i64, %.lr.ph5.i62 ]
+  %141 = getelementptr inbounds float, ptr %129, i64 %indvars.iv8.i63
   %142 = load float, ptr %141, align 4
-  %143 = getelementptr inbounds float, ptr %132, i64 %indvars.iv.i63
+  %143 = getelementptr inbounds float, ptr %132, i64 %indvars.iv8.i63
   %144 = load float, ptr %143, align 4
   %145 = fcmp ogt float %142, %144
   %.42.i = select i1 %145, float %142, float %144
-  %146 = getelementptr inbounds float, ptr %134, i64 %indvars.iv.i63
+  %146 = getelementptr inbounds float, ptr %134, i64 %indvars.iv8.i63
   store float %.42.i, ptr %146, align 4
-  %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 1
-  %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, %wide.trip.count.i61
-  br i1 %exitcond.not.i65, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph.i62, !llvm.loop !192
+  %indvars.iv.next9.i64 = add nuw nsw i64 %indvars.iv8.i63, 1
+  %exitcond12.not.i65 = icmp eq i64 %indvars.iv.next9.i64, %wide.trip.count11.i61
+  br i1 %exitcond12.not.i65, label %_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit, label %.lr.ph5.i62, !llvm.loop !192
 
 .thread69:                                        ; preds = %3, %10, %16, %44, %50, %78, %84, %118, %112
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
@@ -21953,7 +21953,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid9GFluidMax3runERKNS1_4ViewES5_
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   resume { ptr, i32 } %.pn
 
-_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit: ; preds = %.lr.ph.i62, %.lr.ph.i55, %.lr.ph.i48, %.lr.ph.i, %124, %90, %56, %22
+_ZN2cv4gapi5fluidL10run_minmaxIhhhEEvRNS1_6BufferERKNS1_4ViewES7_NS1_6MinmaxE.exit: ; preds = %.lr.ph5.i62, %.lr.ph5.i55, %.lr.ph5.i48, %.lr.ph5.i, %124, %90, %56, %22
   ret void
 }
 

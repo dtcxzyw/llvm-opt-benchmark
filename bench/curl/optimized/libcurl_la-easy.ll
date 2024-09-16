@@ -698,7 +698,7 @@ if.end67.i:                                       ; preds = %if.end60.i
 
 if.end73.i:                                       ; preds = %if.end67.i, %for.end29.i
   %mimepost77.i = getelementptr inbounds i8, ptr %data, i64 816
-  %call78.i = tail call i32 @Curl_mime_duppart(ptr noundef %call, ptr noundef nonnull %mimepost.i, ptr noundef nonnull %mimepost77.i) #8
+  %call78.i = tail call i32 @Curl_mime_duppart(ptr noundef nonnull %call, ptr noundef nonnull %mimepost.i, ptr noundef nonnull %mimepost77.i) #8
   %resolve.i = getelementptr inbounds i8, ptr %data, i64 1264
   %8 = load ptr, ptr %resolve.i, align 8
   %tobool80.not.i = icmp eq ptr %8, null

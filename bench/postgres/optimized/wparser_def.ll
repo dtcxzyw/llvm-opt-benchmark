@@ -1858,7 +1858,7 @@ define dso_local i64 @prsd_headline(ptr nocapture noundef readonly %0) local_unn
   br i1 %.080.lcssa197, label %309, label %.preheader430.i
 
 .preheader430.i:                                  ; preds = %137
-  %138 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef nonnull %16, ptr noundef %.0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %138 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef nonnull %16, ptr noundef %.0, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   br i1 %138, label %.lr.ph491.i, label %.preheader.i
 
 .lr.ph491.i:                                      ; preds = %.preheader430.i
@@ -2317,7 +2317,7 @@ define dso_local i64 @prsd_headline(ptr nocapture noundef readonly %0) local_unn
   %.1364.i = phi i32 [ %.8351.i, %288 ], [ %.0363488.i, %282 ], [ %.0363488.i, %273 ], [ %.0363488.i, %263 ], [ %.0363488.i, %284 ]
   %.1362.i = phi i8 [ %255, %288 ], [ %.0361489.i, %282 ], [ %.0361489.i, %273 ], [ %.0361489.i, %263 ], [ %.0361489.i, %284 ]
   %.1335.i = phi i32 [ %.0354.i, %288 ], [ %.0334490.i, %282 ], [ %.0334490.i, %273 ], [ %.0334490.i, %263 ], [ %.0334490.i, %284 ]
-  %290 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef %16, ptr noundef %.0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %290 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef %16, ptr noundef %.0, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   br i1 %290, label %141, label %._crit_edge492.i, !llvm.loop !15
 
 ._crit_edge492.i:                                 ; preds = %289
@@ -2392,14 +2392,14 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
   %315 = call ptr @palloc(i64 noundef 640) #16
-  %316 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef nonnull %16, ptr noundef %.0, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %316 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef nonnull %16, ptr noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br i1 %316, label %.lr.ph.i101, label %.preheader.i93
 
 .loopexit.i:                                      ; preds = %487, %.lr.ph.i101
   %.1268.lcssa.i = phi i32 [ %.0267392.i, %.lr.ph.i101 ], [ %495, %487 ]
   %.1265.lcssa.i = phi i32 [ %.0264393.i, %.lr.ph.i101 ], [ %.2266.i, %487 ]
   %.1.lcssa.i = phi ptr [ %.0394.i, %.lr.ph.i101 ], [ %.2.i, %487 ]
-  %317 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef %16, ptr noundef %.0, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %317 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef %16, ptr noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br i1 %317, label %.lr.ph.i101, label %.preheader382.i, !llvm.loop !17
 
 .preheader382.i:                                  ; preds = %.loopexit.i
@@ -3869,7 +3869,7 @@ define internal void @SpecialHyphen(ptr nocapture noundef readonly %0) #10 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @hlCover(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @hlCover(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = alloca %struct.hlCheck, align 8
   %.not = icmp eq ptr %2, null
   %8 = getelementptr inbounds i8, ptr %2, i64 4

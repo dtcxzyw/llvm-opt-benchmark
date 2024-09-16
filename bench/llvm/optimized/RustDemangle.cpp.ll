@@ -496,7 +496,7 @@ _ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread14.i: ; preds = %31
   br label %_ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit
 
 _ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit: ; preds = %.split.i.i, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread14.i, %25, %26, %.loopexit.i.i, %_ZN12_GLOBAL__N_19Demangler9mulAssignERmm.exit.i.i, %_ZN12_GLOBAL__N_19Demangler9addAssignERmm.exit.thread.i.i, %54, %56
-  call fastcc void @_ZN12_GLOBAL__N_19Demangler15parseIdentifierEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(96) %0)
+  call fastcc void @_ZN12_GLOBAL__N_19Demangler15parseIdentifierEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(96) %0)
   tail call fastcc void @_ZN12_GLOBAL__N_19Demangler15printIdentifierENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull byval(%"struct.(anonymous namespace)::Identifier") align 8 %4)
   br label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit24
 
@@ -1230,7 +1230,7 @@ _ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.i88: ; preds = %.split.i.i
 
 _ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit93: ; preds = %328, %332, %335, %.loopexit.i.i74, %_ZN12_GLOBAL__N_19Demangler9mulAssignERmm.exit.i.i85, %_ZN12_GLOBAL__N_19Demangler9addAssignERmm.exit.thread.i.i84, %364, %367, %.thread.i90
   %.0.i71 = phi i64 [ 0, %335 ], [ 0, %332 ], [ 0, %328 ], [ %368, %.thread.i90 ], [ 0, %367 ], [ 0, %.loopexit.i.i74 ], [ 0, %_ZN12_GLOBAL__N_19Demangler9mulAssignERmm.exit.i.i85 ], [ 0, %_ZN12_GLOBAL__N_19Demangler9addAssignERmm.exit.thread.i.i84 ], [ 0, %364 ]
-  call fastcc void @_ZN12_GLOBAL__N_19Demangler15parseIdentifierEv(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(96) %0)
+  call fastcc void @_ZN12_GLOBAL__N_19Demangler15parseIdentifierEv(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(96) %0)
   %369 = add i8 %325, -65
   %370 = icmp ult i8 %369, 26
   br i1 %370, label %371, label %379
@@ -2239,7 +2239,7 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19Demangler15parseIdentifierEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_19Demangler15parseIdentifierEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 49
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -3791,7 +3791,7 @@ _ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit27.thread: ; preds = %_ZN12_GLOBAL__
   br label %_ZN12_GLOBAL__N_19Demangler14printBasicTypeENS_9BasicTypeE.exit
 
 561:                                              ; preds = %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit
-  tail call fastcc void @"_ZN12_GLOBAL__N_19Demangler15demangleBackrefIZNS0_12demangleTypeEvE3$_0EEvT_"(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr nonnull %0)
+  tail call fastcc void @"_ZN12_GLOBAL__N_19Demangler15demangleBackrefIZNS0_12demangleTypeEvE3$_0EEvT_"(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr %0)
   br label %_ZN12_GLOBAL__N_19Demangler14printBasicTypeENS_9BasicTypeE.exit
 
 562:                                              ; preds = %_ZN12_GLOBAL__N_19Demangler7consumeEv.exit, %_ZL14parseBasicTypecRN12_GLOBAL__N_19BasicTypeE.exit.thread104
@@ -5007,7 +5007,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i29: ; preds = %._ZN4llvm
   br label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit33
 
 110:                                              ; preds = %83, %80, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit22
-  call fastcc void @_ZN12_GLOBAL__N_19Demangler15parseIdentifierEv(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(96) %0)
+  call fastcc void @_ZN12_GLOBAL__N_19Demangler15parseIdentifierEv(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(96) %0)
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %112 = load i8, ptr %111, align 8
   %113 = trunc i8 %112 to i1
@@ -5652,7 +5652,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i33: ; preds = %._ZN4llvm
 
 _ZN12_GLOBAL__N_19Demangler5printEc.exit:         ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i33, %101, %_ZN4llvm16itanium_demangle12OutputBufferpLEc.exit.i, %86
   %.1.i = phi i8 [ 1, %86 ], [ 1, %_ZN4llvm16itanium_demangle12OutputBufferpLEc.exit.i ], [ %.0.i974130, %101 ], [ %.0.i974130, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i33 ]
-  call fastcc void @_ZN12_GLOBAL__N_19Demangler15parseIdentifierEv(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(96) %0)
+  call fastcc void @_ZN12_GLOBAL__N_19Demangler15parseIdentifierEv(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(96) %0)
   %.sroa.0.0.copyload.i = load i64, ptr %2, align 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %118 = load i8, ptr %5, align 1
@@ -5821,7 +5821,7 @@ _ZN12_GLOBAL__N_19Demangler16demangleDynTraitEv.exit: ; preds = %_ZN12_GLOBAL__N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN12_GLOBAL__N_19Demangler15demangleBackrefIZNS0_12demangleTypeEvE3$_0EEvT_"(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN12_GLOBAL__N_19Demangler15demangleBackrefIZNS0_12demangleTypeEvE3$_0EEvT_"(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr nonnull %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 49
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1

@@ -510,7 +510,7 @@ define hidden range(i32 0, 17) i32 @get_best_guess_timestamp(ptr noundef %0, i32
   %10 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %1) #5
   %11 = add i32 %1, 8
   %12 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %11) #5
-  %13 = call fastcc zeroext i1 @update_best_guess_timestamp(i64 noundef %10, i64 noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  %13 = call fastcc zeroext i1 @update_best_guess_timestamp(i64 noundef %10, i64 noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   %not. = xor i1 %13, true
   %spec.select45 = select i1 %13, i32 16, i32 0
   br label %14
@@ -528,7 +528,7 @@ define hidden range(i32 0, 17) i32 @get_best_guess_timestamp(ptr noundef %0, i32
 20:                                               ; preds = %14
   %21 = zext i32 %18 to i64
   %22 = zext i32 %16 to i64
-  %23 = call fastcc zeroext i1 @update_best_guess_timestamp(i64 noundef %22, i64 noundef %21, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  %23 = call fastcc zeroext i1 @update_best_guess_timestamp(i64 noundef %22, i64 noundef %21, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   %spec.select46 = select i1 %23, i32 8, i32 %.0
   br label %24
 
@@ -538,7 +538,7 @@ define hidden range(i32 0, 17) i32 @get_best_guess_timestamp(ptr noundef %0, i32
   %26 = zext i32 %25 to i64
   %27 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %17) #5
   %28 = zext i32 %27 to i64
-  %29 = call fastcc zeroext i1 @update_best_guess_timestamp(i64 noundef %26, i64 noundef %28, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  %29 = call fastcc zeroext i1 @update_best_guess_timestamp(i64 noundef %26, i64 noundef %28, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   %spec.select47 = select i1 %29, i32 8, i32 %.1
   %30 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %1, i32 noundef 16) #5
   %.not44 = icmp eq i32 %30, 0
@@ -548,7 +548,7 @@ define hidden range(i32 0, 17) i32 @get_best_guess_timestamp(ptr noundef %0, i32
   %32 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %1) #5
   %33 = add i32 %1, 8
   %34 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %33) #5
-  %35 = call fastcc zeroext i1 @update_best_guess_timestamp(i64 noundef %32, i64 noundef %34, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  %35 = call fastcc zeroext i1 @update_best_guess_timestamp(i64 noundef %32, i64 noundef %34, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   %spec.select48 = select i1 %35, i32 16, i32 %spec.select47
   br label %36
 
@@ -565,7 +565,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @update_best_guess_timestamp(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @update_best_guess_timestamp(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca %struct.nstime_t, align 8
   %or.cond = icmp ult i64 %1, 1000000
@@ -590,12 +590,12 @@ define internal fastcc noundef zeroext i1 @update_best_guess_timestamp(i64 nound
   br label %16
 
 16:                                               ; preds = %15, %14
-  %17 = call i32 @nstime_cmp(ptr noundef nonnull %7, ptr noundef %4) #5
+  %17 = call i32 @nstime_cmp(ptr noundef nonnull %7, ptr noundef nonnull %4) #5
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %16
-  call void @nstime_copy(ptr noundef %4, ptr noundef nonnull %7) #5
+  call void @nstime_copy(ptr noundef nonnull %4, ptr noundef nonnull %7) #5
   call void @nstime_copy(ptr noundef %3, ptr noundef nonnull %6) #5
   br label %20
 

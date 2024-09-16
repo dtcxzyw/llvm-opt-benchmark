@@ -1794,7 +1794,7 @@ declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #13
 declare void @enlargeStringInfo(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @pq_discardbytes(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @pq_discardbytes(i64 noundef range(i64 -2147483648, 2147483648) %0) unnamed_addr #0 {
   %.not19 = icmp eq i64 %0, 0
   br i1 %.not19, label %.loopexit, label %.preheader
 

@@ -169,7 +169,7 @@ define hidden void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..v
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$regex_syntax..hir..Hir$C$regex_syntax..hir..Hir$GT$$GT$17h7028b39c71f5de3eE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$regex_syntax..hir..Hir$C$regex_syntax..hir..Hir$GT$$GT$17h7028b39c71f5de3eE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
   %2 = load ptr, ptr %0, align 8, !alias.scope !38, !nonnull !9, !noundef !9
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1091,7 +1091,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
 34:                                               ; preds = %.noexc, %22
   %35 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$regex_syntax..hir..Hir$C$regex_syntax..hir..Hir$GT$$GT$17h7028b39c71f5de3eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #15
+  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$regex_syntax..hir..Hir$C$regex_syntax..hir..Hir$GT$$GT$17h7028b39c71f5de3eE"(ptr noalias noundef align 8 dereferenceable(24) %7) #15
           to label %45 unwind label %43
 
 "_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17hc4ce781941aea24cE.exit": ; preds = %.noexc
@@ -1216,7 +1216,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
 34:                                               ; preds = %.noexc, %22
   %35 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$regex_syntax..hir..Hir$C$regex_syntax..hir..Hir$GT$$GT$17h7028b39c71f5de3eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #15
+  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$regex_syntax..hir..Hir$C$regex_syntax..hir..Hir$GT$$GT$17h7028b39c71f5de3eE"(ptr noalias noundef align 8 dereferenceable(24) %7) #15
           to label %45 unwind label %43
 
 "_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17hc4ce781941aea24cE.exit": ; preds = %.noexc

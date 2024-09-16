@@ -1246,7 +1246,7 @@ declare i32 @sacctmgr_dump_cluster(i32 noundef, ptr noundef) local_unnamed_addr 
 declare void @load_sacctmgr_cfg_file(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_add_it(i32 noundef %0, ptr noundef %1) unnamed_addr #6 {
+define internal fastcc void @_add_it(i32 noundef range(i32 0, 2147483647) %0, ptr noundef %1) unnamed_addr #6 {
   %3 = load i8, ptr @have_db_conn, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %6, label %5
@@ -1399,7 +1399,7 @@ define internal fastcc void @_add_it(i32 noundef %0, ptr noundef %1) unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_archive_it(i32 noundef %0, ptr noundef %1) unnamed_addr #6 {
+define internal fastcc void @_archive_it(i32 noundef range(i32 0, 2147483647) %0, ptr noundef %1) unnamed_addr #6 {
   %3 = load i8, ptr @have_db_conn, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %6, label %5
@@ -1526,7 +1526,7 @@ define internal fastcc void @_clear_it(ptr nocapture noundef readonly %0) unname
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_show_it(i32 noundef %0, ptr noundef %1) unnamed_addr #6 {
+define internal fastcc void @_show_it(i32 noundef range(i32 0, 2147483647) %0, ptr noundef %1) unnamed_addr #6 {
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread, label %4
@@ -1811,7 +1811,7 @@ define internal fastcc void @_show_it(i32 noundef %0, ptr noundef %1) unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_modify_it(i32 noundef %0, ptr noundef %1) unnamed_addr #6 {
+define internal fastcc void @_modify_it(i32 noundef range(i32 0, 2147483647) %0, ptr noundef %1) unnamed_addr #6 {
   %3 = load i8, ptr @have_db_conn, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %6, label %5
@@ -1960,7 +1960,7 @@ define internal fastcc void @_modify_it(i32 noundef %0, ptr noundef %1) unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_delete_it(i32 noundef %0, ptr noundef %1) unnamed_addr #6 {
+define internal fastcc void @_delete_it(i32 noundef range(i32 0, 2147483647) %0, ptr noundef %1) unnamed_addr #6 {
   %3 = load i8, ptr @have_db_conn, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %6, label %5

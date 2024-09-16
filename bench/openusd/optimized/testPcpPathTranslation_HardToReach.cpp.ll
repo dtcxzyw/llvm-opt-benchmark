@@ -650,7 +650,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readnon
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc93.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %212) #15
-  invoke fastcc void @_ZL24_CreateCacheForRootLayerRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %213, ptr noundef nonnull align 8 dereferenceable(32) %211)
+  invoke fastcc void @_ZL24_CreateCacheForRootLayerRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %213, ptr noundef nonnull align 8 dereferenceable(32) %211)
           to label %282 unwind label %289
 
 282:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
@@ -3101,7 +3101,7 @@ _ZL24TestReverseTranslation_1v.exit:              ; preds = %_ZNSt6vectorISt10sh
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i4: ; preds = %.noexc78.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %143) #15
-  invoke fastcc void @_ZL24_CreateCacheForRootLayerRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %144, ptr noundef nonnull align 8 dereferenceable(32) %142)
+  invoke fastcc void @_ZL24_CreateCacheForRootLayerRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %144, ptr noundef nonnull align 8 dereferenceable(32) %142)
           to label %1053 unwind label %1060
 
 1053:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i4
@@ -5027,7 +5027,7 @@ _ZL24TestReverseTranslation_2v.exit:              ; preds = %_ZNSt6vectorISt10sh
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i45: ; preds = %.noexc65.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #15
-  invoke fastcc void @_ZL24_CreateCacheForRootLayerRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %88, ptr noundef nonnull align 8 dereferenceable(32) %86)
+  invoke fastcc void @_ZL24_CreateCacheForRootLayerRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %88, ptr noundef nonnull align 8 dereferenceable(32) %86)
           to label %1665 unwind label %1672
 
 1665:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i45
@@ -7786,7 +7786,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL24_CreateCacheForRootLayerRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL24_CreateCacheForRootLayerRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr", align 8
   %5 = alloca %"class.std::map.63", align 8

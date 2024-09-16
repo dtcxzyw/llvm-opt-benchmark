@@ -369,7 +369,7 @@ add_error.exit598.i:                              ; preds = %179
   br label %.critedge.i
 
 204:                                              ; preds = %179
-  %205 = call fastcc i64 @timelib_get_unsigned_nr(ptr noundef nonnull %8, i32 noundef 12)
+  %205 = call fastcc i64 @timelib_get_unsigned_nr(ptr noundef %8, i32 noundef 12)
   %206 = load ptr, ptr %8, align 8
   %207 = load i8, ptr %206, align 1
   switch i8 %207, label %add_error.exit601.i [
@@ -1013,32 +1013,32 @@ add_error.exit601.i:                              ; preds = %204
   %519 = tail call noalias dereferenceable_or_null(21) ptr @_ecalloc(i64 noundef 1, i64 noundef 21) #14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %519, ptr noundef nonnull align 1 dereferenceable(20) %.sroa.32.0, i64 20, i1 false)
   store ptr %519, ptr %8, align 8
-  %520 = call fastcc i64 @timelib_get_unsigned_nr(ptr noundef nonnull %8, i32 noundef 4)
+  %520 = call fastcc i64 @timelib_get_unsigned_nr(ptr noundef %8, i32 noundef 4)
   store i64 %520, ptr %86, align 8
   %521 = load ptr, ptr %8, align 8
   %522 = getelementptr inbounds i8, ptr %521, i64 1
   store ptr %522, ptr %8, align 8
-  %523 = call fastcc i64 @timelib_get_unsigned_nr(ptr noundef nonnull %8, i32 noundef 2)
+  %523 = call fastcc i64 @timelib_get_unsigned_nr(ptr noundef %8, i32 noundef 2)
   store i64 %523, ptr %88, align 8
   %524 = load ptr, ptr %8, align 8
   %525 = getelementptr inbounds i8, ptr %524, i64 1
   store ptr %525, ptr %8, align 8
-  %526 = call fastcc i64 @timelib_get_unsigned_nr(ptr noundef nonnull %8, i32 noundef 2)
+  %526 = call fastcc i64 @timelib_get_unsigned_nr(ptr noundef %8, i32 noundef 2)
   store i64 %526, ptr %87, align 8
   %527 = load ptr, ptr %8, align 8
   %528 = getelementptr inbounds i8, ptr %527, i64 1
   store ptr %528, ptr %8, align 8
-  %529 = call fastcc i64 @timelib_get_unsigned_nr(ptr noundef nonnull %8, i32 noundef 2)
+  %529 = call fastcc i64 @timelib_get_unsigned_nr(ptr noundef %8, i32 noundef 2)
   store i64 %529, ptr %89, align 8
   %530 = load ptr, ptr %8, align 8
   %531 = getelementptr inbounds i8, ptr %530, i64 1
   store ptr %531, ptr %8, align 8
-  %532 = call fastcc i64 @timelib_get_unsigned_nr(ptr noundef nonnull %8, i32 noundef 2)
+  %532 = call fastcc i64 @timelib_get_unsigned_nr(ptr noundef %8, i32 noundef 2)
   store i64 %532, ptr %90, align 8
   %533 = load ptr, ptr %8, align 8
   %534 = getelementptr inbounds i8, ptr %533, i64 1
   store ptr %534, ptr %8, align 8
-  %535 = call fastcc i64 @timelib_get_unsigned_nr(ptr noundef nonnull %8, i32 noundef 2)
+  %535 = call fastcc i64 @timelib_get_unsigned_nr(ptr noundef %8, i32 noundef 2)
   store i64 %535, ptr %91, align 8
   tail call void @_efree(ptr noundef %519) #10
   %.pre = ptrtoint ptr %518 to i64
@@ -1260,21 +1260,21 @@ add_error.exit601.i:                              ; preds = %204
   %654 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %653) #14
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %654, ptr nonnull align 1 %.sroa.32.0, i64 %reass.sub383, i1 false)
   store ptr %654, ptr %8, align 8
-  %655 = call fastcc i64 @timelib_get_nr(ptr noundef nonnull %8, i32 noundef 4)
+  %655 = call fastcc i64 @timelib_get_nr(ptr noundef %8, i32 noundef 4)
   store i64 %655, ptr %.0.i, align 8
-  %656 = call fastcc i64 @timelib_get_nr(ptr noundef nonnull %8, i32 noundef 2)
+  %656 = call fastcc i64 @timelib_get_nr(ptr noundef %8, i32 noundef 2)
   %657 = getelementptr inbounds i8, ptr %.0.i, i64 8
   store i64 %656, ptr %657, align 8
-  %658 = call fastcc i64 @timelib_get_nr(ptr noundef nonnull %8, i32 noundef 2)
+  %658 = call fastcc i64 @timelib_get_nr(ptr noundef %8, i32 noundef 2)
   %659 = getelementptr inbounds i8, ptr %.0.i, i64 16
   store i64 %658, ptr %659, align 8
-  %660 = call fastcc i64 @timelib_get_nr(ptr noundef nonnull %8, i32 noundef 2)
+  %660 = call fastcc i64 @timelib_get_nr(ptr noundef %8, i32 noundef 2)
   %661 = getelementptr inbounds i8, ptr %.0.i, i64 24
   store i64 %660, ptr %661, align 8
-  %662 = call fastcc i64 @timelib_get_nr(ptr noundef nonnull %8, i32 noundef 2)
+  %662 = call fastcc i64 @timelib_get_nr(ptr noundef %8, i32 noundef 2)
   %663 = getelementptr inbounds i8, ptr %.0.i, i64 32
   store i64 %662, ptr %663, align 8
-  %664 = call fastcc i64 @timelib_get_nr(ptr noundef nonnull %8, i32 noundef 2)
+  %664 = call fastcc i64 @timelib_get_nr(ptr noundef %8, i32 noundef 2)
   %665 = getelementptr inbounds i8, ptr %.0.i, i64 40
   store i64 %664, ptr %665, align 8
   tail call void @_efree(ptr noundef %654) #10
@@ -1408,7 +1408,7 @@ add_error.exit601.i:                              ; preds = %204
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %735, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.32.0, i64 %reass.sub, i1 false)
   %736 = getelementptr inbounds i8, ptr %735, i64 1
   store ptr %736, ptr %8, align 8
-  %737 = call fastcc i64 @timelib_get_unsigned_nr(ptr noundef nonnull %8, i32 noundef 9)
+  %737 = call fastcc i64 @timelib_get_unsigned_nr(ptr noundef %8, i32 noundef 9)
   %738 = trunc i64 %737 to i32
   tail call void @_efree(ptr noundef %735) #10
   br label %scan.exit
@@ -1528,7 +1528,7 @@ declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #6
 declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @timelib_get_unsigned_nr(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i64 @timelib_get_unsigned_nr(ptr nocapture noundef nonnull %0, i32 noundef range(i32 2, 13) %1) unnamed_addr #0 {
   %.promoted = load ptr, ptr %0, align 8
   %3 = load i8, ptr %.promoted, align 1
   %4 = add i8 %3, -58
@@ -1578,116 +1578,112 @@ define internal fastcc i64 @timelib_get_unsigned_nr(ptr nocapture noundef %0, i3
 16:                                               ; preds = %.critedge
   %17 = add i8 %11, -58
   %or.cond30.i = icmp ult i8 %17, -10
-  br i1 %or.cond30.i, label %.critedge.i, label %.preheader.i
+  br i1 %or.cond30.i, label %.critedge.i, label %.lr.ph.preheader.i
 
-.preheader.i:                                     ; preds = %22, %16
-  %.promoted31.i = phi ptr [ %12, %16 ], [ %23, %22 ]
-  %18 = icmp sgt i32 %1, 0
-  br i1 %18, label %.lr.ph.i, label %.critedge2.i
+.lr.ph.preheader.i:                               ; preds = %21, %16
+  %.promoted31.i = phi ptr [ %12, %16 ], [ %22, %21 ]
+  br label %.lr.ph.i
 
-.critedge.i:                                      ; preds = %16, %22
-  %19 = phi i8 [ %24, %22 ], [ %11, %16 ]
-  %20 = phi ptr [ %23, %22 ], [ %12, %16 ]
-  %21 = icmp eq i8 %19, 0
-  br i1 %21, label %timelib_get_nr.exit, label %22
+.critedge.i:                                      ; preds = %16, %21
+  %18 = phi i8 [ %23, %21 ], [ %11, %16 ]
+  %19 = phi ptr [ %22, %21 ], [ %12, %16 ]
+  %20 = icmp eq i8 %18, 0
+  br i1 %20, label %timelib_get_nr.exit, label %21
 
-22:                                               ; preds = %.critedge.i
-  %23 = getelementptr inbounds i8, ptr %20, i64 1
-  store ptr %23, ptr %0, align 8
-  %24 = load i8, ptr %23, align 1
-  %25 = add i8 %24, -58
-  %or.cond.i = icmp ult i8 %25, -10
-  br i1 %or.cond.i, label %.critedge.i, label %.preheader.i
+21:                                               ; preds = %.critedge.i
+  %22 = getelementptr inbounds i8, ptr %19, i64 1
+  store ptr %22, ptr %0, align 8
+  %23 = load i8, ptr %22, align 1
+  %24 = add i8 %23, -58
+  %or.cond.i = icmp ult i8 %24, -10
+  br i1 %or.cond.i, label %.critedge.i, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.034.i = phi i32 [ %28, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %26 = phi ptr [ %27, %.lr.ph.i ], [ %.promoted31.i, %.preheader.i ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 1
-  store ptr %27, ptr %0, align 8
-  %28 = add nuw nsw i32 %.034.i, 1
-  %29 = load i8, ptr %27, align 1
-  %30 = add i8 %29, -48
-  %or.cond26.i = icmp ult i8 %30, 10
-  %31 = icmp slt i32 %28, %1
-  %or.cond27.i = select i1 %or.cond26.i, i1 %31, i1 false
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %.033.i = phi i32 [ %27, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %25 = phi ptr [ %26, %.lr.ph.i ], [ %.promoted31.i, %.lr.ph.preheader.i ]
+  %26 = getelementptr inbounds i8, ptr %25, i64 1
+  store ptr %26, ptr %0, align 8
+  %27 = add nuw nsw i32 %.033.i, 1
+  %28 = load i8, ptr %26, align 1
+  %29 = add i8 %28, -48
+  %or.cond26.i = icmp ult i8 %29, 10
+  %30 = icmp ult i32 %27, %1
+  %or.cond27.i = select i1 %or.cond26.i, i1 %30, i1 false
   br i1 %or.cond27.i, label %.lr.ph.i, label %.critedge2.i
 
-.critedge2.i:                                     ; preds = %.lr.ph.i, %.preheader.i
-  %.lcssa.i = phi ptr [ %.promoted31.i, %.preheader.i ], [ %27, %.lr.ph.i ]
-  %32 = ptrtoint ptr %.lcssa.i to i64
-  %33 = ptrtoint ptr %.promoted31.i to i64
-  %34 = sub i64 %32, %33
-  %35 = add nsw i64 %34, 1
-  %36 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %35) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr nonnull align 1 %.promoted31.i, i64 %34, i1 false)
-  %37 = tail call i64 @strtoll(ptr nocapture noundef %36, ptr noundef null, i32 noundef 10) #10
-  tail call void @_efree(ptr noundef %36) #10
+.critedge2.i:                                     ; preds = %.lr.ph.i
+  %31 = ptrtoint ptr %26 to i64
+  %32 = ptrtoint ptr %.promoted31.i to i64
+  %33 = sub i64 %31, %32
+  %34 = add nsw i64 %33, 1
+  %35 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %34) #14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %35, ptr noundef nonnull align 1 dereferenceable(1) %.promoted31.i, i64 %33, i1 false)
+  %36 = tail call i64 @strtoll(ptr nocapture noundef %35, ptr noundef null, i32 noundef 10) #10
+  tail call void @_efree(ptr noundef %35) #10
   br label %timelib_get_nr.exit
 
 timelib_get_nr.exit:                              ; preds = %.critedge.i, %.critedge2.i
-  %.023.i = phi i64 [ %37, %.critedge2.i ], [ -9999999, %.critedge.i ]
-  %38 = mul i64 %.023.i, %.0
+  %.023.i = phi i64 [ %36, %.critedge2.i ], [ -9999999, %.critedge.i ]
+  %37 = mul i64 %.023.i, %.0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %timelib_get_nr.exit
-  %.016 = phi i64 [ %38, %timelib_get_nr.exit ], [ -9999999, %.lr.ph ]
+  %.016 = phi i64 [ %37, %timelib_get_nr.exit ], [ -9999999, %.lr.ph ]
   ret i64 %.016
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @timelib_get_nr(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i64 @timelib_get_nr(ptr nocapture noundef nonnull %0, i32 noundef range(i32 2, 13) %1) unnamed_addr #0 {
   %.promoted = load ptr, ptr %0, align 8
   %3 = load i8, ptr %.promoted, align 1
   %4 = add i8 %3, -58
   %or.cond30 = icmp ult i8 %4, -10
-  br i1 %or.cond30, label %.critedge, label %.preheader
+  br i1 %or.cond30, label %.critedge, label %.lr.ph.preheader
 
-.preheader:                                       ; preds = %9, %2
-  %.promoted31 = phi ptr [ %.promoted, %2 ], [ %10, %9 ]
-  %5 = icmp sgt i32 %1, 0
-  br i1 %5, label %.lr.ph, label %.critedge2
+.lr.ph.preheader:                                 ; preds = %8, %2
+  %.promoted31 = phi ptr [ %.promoted, %2 ], [ %9, %8 ]
+  br label %.lr.ph
 
-.critedge:                                        ; preds = %2, %9
-  %6 = phi i8 [ %11, %9 ], [ %3, %2 ]
-  %7 = phi ptr [ %10, %9 ], [ %.promoted, %2 ]
-  %8 = icmp eq i8 %6, 0
-  br i1 %8, label %.loopexit, label %9
+.critedge:                                        ; preds = %2, %8
+  %5 = phi i8 [ %10, %8 ], [ %3, %2 ]
+  %6 = phi ptr [ %9, %8 ], [ %.promoted, %2 ]
+  %7 = icmp eq i8 %5, 0
+  br i1 %7, label %.loopexit, label %8
 
-9:                                                ; preds = %.critedge
-  %10 = getelementptr inbounds i8, ptr %7, i64 1
-  store ptr %10, ptr %0, align 8
-  %11 = load i8, ptr %10, align 1
-  %12 = add i8 %11, -58
-  %or.cond = icmp ult i8 %12, -10
-  br i1 %or.cond, label %.critedge, label %.preheader
+8:                                                ; preds = %.critedge
+  %9 = getelementptr inbounds i8, ptr %6, i64 1
+  store ptr %9, ptr %0, align 8
+  %10 = load i8, ptr %9, align 1
+  %11 = add i8 %10, -58
+  %or.cond = icmp ult i8 %11, -10
+  br i1 %or.cond, label %.critedge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.034 = phi i32 [ %15, %.lr.ph ], [ 0, %.preheader ]
-  %13 = phi ptr [ %14, %.lr.ph ], [ %.promoted31, %.preheader ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 1
-  store ptr %14, ptr %0, align 8
-  %15 = add nuw nsw i32 %.034, 1
-  %16 = load i8, ptr %14, align 1
-  %17 = add i8 %16, -48
-  %or.cond26 = icmp ult i8 %17, 10
-  %18 = icmp slt i32 %15, %1
-  %or.cond27 = select i1 %or.cond26, i1 %18, i1 false
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.033 = phi i32 [ %14, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %12 = phi ptr [ %13, %.lr.ph ], [ %.promoted31, %.lr.ph.preheader ]
+  %13 = getelementptr inbounds i8, ptr %12, i64 1
+  store ptr %13, ptr %0, align 8
+  %14 = add nuw nsw i32 %.033, 1
+  %15 = load i8, ptr %13, align 1
+  %16 = add i8 %15, -48
+  %or.cond26 = icmp ult i8 %16, 10
+  %17 = icmp ult i32 %14, %1
+  %or.cond27 = select i1 %or.cond26, i1 %17, i1 false
   br i1 %or.cond27, label %.lr.ph, label %.critedge2
 
-.critedge2:                                       ; preds = %.lr.ph, %.preheader
-  %.lcssa = phi ptr [ %.promoted31, %.preheader ], [ %14, %.lr.ph ]
-  %19 = ptrtoint ptr %.lcssa to i64
-  %20 = ptrtoint ptr %.promoted31 to i64
-  %21 = sub i64 %19, %20
-  %22 = add nsw i64 %21, 1
-  %23 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %22) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr nonnull align 1 %.promoted31, i64 %21, i1 false)
-  %24 = tail call i64 @strtoll(ptr nocapture noundef %23, ptr noundef null, i32 noundef 10) #10
-  tail call void @_efree(ptr noundef %23) #10
+.critedge2:                                       ; preds = %.lr.ph
+  %18 = ptrtoint ptr %13 to i64
+  %19 = ptrtoint ptr %.promoted31 to i64
+  %20 = sub i64 %18, %19
+  %21 = add nsw i64 %20, 1
+  %22 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %21) #14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 1 dereferenceable(1) %.promoted31, i64 %20, i1 false)
+  %23 = tail call i64 @strtoll(ptr nocapture noundef %22, ptr noundef null, i32 noundef 10) #10
+  tail call void @_efree(ptr noundef %22) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.critedge2
-  %.023 = phi i64 [ %24, %.critedge2 ], [ -9999999, %.critedge ]
+  %.023 = phi i64 [ %23, %.critedge2 ], [ -9999999, %.critedge ]
   ret i64 %.023
 }
 

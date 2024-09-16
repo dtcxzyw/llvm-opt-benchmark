@@ -1827,7 +1827,7 @@ if.end138.i:                                      ; preds = %do.end134.i
   br i1 %cmp140.i, label %error.i, label %if.end142.i
 
 if.end142.i:                                      ; preds = %if.end138.i
-  %call143.i = tail call fastcc ptr @create_timezone_from_delta(i32 noundef -1, i32 noundef 60, i32 noundef 1)
+  %call143.i = tail call fastcc ptr @create_timezone_from_delta(i32 noundef -1, i32 noundef 60)
   %cmp146.i = icmp eq ptr %call143.i, null
   br i1 %cmp146.i, label %error.i, label %if.end148.i
 
@@ -1866,7 +1866,7 @@ if.then1.i206.i:                                  ; preds = %if.end.i203.i
   br label %do.end153.i
 
 do.end153.i:                                      ; preds = %if.then1.i206.i, %if.end.i203.i, %if.end152.i
-  %call154.i = tail call fastcc ptr @create_timezone_from_delta(i32 noundef 0, i32 noundef 86340, i32 noundef 0)
+  %call154.i = tail call fastcc ptr @create_timezone_from_delta(i32 noundef 0, i32 noundef 86340)
   %cmp157.i = icmp eq ptr %call154.i, null
   br i1 %cmp157.i, label %error.i, label %if.end159.i
 
@@ -2179,9 +2179,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %or.cond.i = icmp ugt i32 %microseconds, 999999
-  br i1 %or.cond.i, label %if.then.i.i, label %if.end.i
+  br i1 %or.cond.i, label %normalize_pair.exit.i, label %if.end.i
 
-if.then.i.i:                                      ; preds = %if.then
+normalize_pair.exit.i:                            ; preds = %if.then
   %div.i.i.i = sdiv i32 %microseconds, 1000000
   %mul.i.i.neg.i = mul nsw i32 %div.i.i.i, -1000000
   %sub.i.i.i = add i32 %mul.i.i.neg.i, %microseconds
@@ -2193,28 +2193,28 @@ if.then.i.i:                                      ; preds = %if.then
   %add.i.i = add i32 %quo.0.i.i.i, %sub.lobit.i.i.i
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then, %if.then.i.i
-  %seconds.addr.1 = phi i32 [ %add.i.i, %if.then.i.i ], [ %seconds, %if.then ]
-  %microseconds.addr.1 = phi i32 [ %storemerge.i.i.i, %if.then.i.i ], [ %microseconds, %if.then ]
+if.end.i:                                         ; preds = %if.then, %normalize_pair.exit.i
+  %seconds.addr.1 = phi i32 [ %add.i.i, %normalize_pair.exit.i ], [ %seconds, %if.then ]
+  %microseconds.addr.1 = phi i32 [ %storemerge.i.i.i, %normalize_pair.exit.i ], [ %microseconds, %if.then ]
   %or.cond7.i = icmp ugt i32 %seconds.addr.1, 86399
-  br i1 %or.cond7.i, label %if.then.i11.i, label %if.end
+  br i1 %or.cond7.i, label %normalize_pair.exit19.i, label %if.end
 
-if.then.i11.i:                                    ; preds = %if.end.i
-  %div.i.i12.i = sdiv i32 %seconds.addr.1, 86400
-  %mul.i.i13.neg.i = mul nsw i32 %div.i.i12.i, -86400
-  %sub.i.i14.i = add i32 %mul.i.i13.neg.i, %seconds.addr.1
-  %cmp.i.i15.i = icmp slt i32 %sub.i.i14.i, 0
-  %add.i.i16.i = select i1 %cmp.i.i15.i, i32 86400, i32 0
-  %storemerge.i.i17.i = add nsw i32 %add.i.i16.i, %sub.i.i14.i
-  %sub.lobit.i.i18.i = ashr i32 %sub.i.i14.i, 31
-  %quo.0.i.i19.i = add i32 %div.i.i12.i, %days
-  %add.i20.i = add i32 %quo.0.i.i19.i, %sub.lobit.i.i18.i
+normalize_pair.exit19.i:                          ; preds = %if.end.i
+  %div.i.i10.i = sdiv i32 %seconds.addr.1, 86400
+  %mul.i.i11.neg.i = mul nsw i32 %div.i.i10.i, -86400
+  %sub.i.i12.i = add i32 %mul.i.i11.neg.i, %seconds.addr.1
+  %cmp.i.i13.i = icmp slt i32 %sub.i.i12.i, 0
+  %add.i.i14.i = select i1 %cmp.i.i13.i, i32 86400, i32 0
+  %storemerge.i.i15.i = add nsw i32 %add.i.i14.i, %sub.i.i12.i
+  %sub.lobit.i.i16.i = ashr i32 %sub.i.i12.i, 31
+  %quo.0.i.i17.i = add i32 %div.i.i10.i, %days
+  %add.i18.i = add i32 %quo.0.i.i17.i, %sub.lobit.i.i16.i
   br label %if.end
 
-if.end:                                           ; preds = %if.then.i11.i, %if.end.i, %entry
-  %days.addr.0 = phi i32 [ %days, %entry ], [ %add.i20.i, %if.then.i11.i ], [ %days, %if.end.i ]
-  %seconds.addr.0 = phi i32 [ %seconds, %entry ], [ %storemerge.i.i17.i, %if.then.i11.i ], [ %seconds.addr.1, %if.end.i ]
-  %microseconds.addr.0 = phi i32 [ %microseconds, %entry ], [ %microseconds.addr.1, %if.then.i11.i ], [ %microseconds.addr.1, %if.end.i ]
+if.end:                                           ; preds = %normalize_pair.exit19.i, %if.end.i, %entry
+  %days.addr.0 = phi i32 [ %days, %entry ], [ %add.i18.i, %normalize_pair.exit19.i ], [ %days, %if.end.i ]
+  %seconds.addr.0 = phi i32 [ %seconds, %entry ], [ %storemerge.i.i15.i, %normalize_pair.exit19.i ], [ %seconds.addr.1, %if.end.i ]
+  %microseconds.addr.0 = phi i32 [ %microseconds, %entry ], [ %microseconds.addr.1, %normalize_pair.exit19.i ], [ %microseconds.addr.1, %if.end.i ]
   %0 = add i32 %days.addr.0, 999999999
   %or.cond.i7 = icmp ult i32 %0, 1999999999
   br i1 %or.cond.i7, label %if.end2, label %check_delta_day_range.exit.thread
@@ -2752,60 +2752,30 @@ return:                                           ; preds = %create_timezone_fro
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @create_timezone_from_delta(i32 noundef %days, i32 noundef %sec, i32 noundef %normalize) unnamed_addr #0 {
+define internal fastcc ptr @create_timezone_from_delta(i32 noundef range(i32 -1, 1) %days, i32 noundef range(i32 0, 86341) %sec) unnamed_addr #0 {
 entry:
-  %tobool.not.i = icmp ne i32 %normalize, 0
-  %or.cond7.i.i = icmp ugt i32 %sec, 86399
-  %or.cond = and i1 %or.cond7.i.i, %tobool.not.i
-  br i1 %or.cond, label %if.then.i11.i.i, label %if.end.i5
-
-if.then.i11.i.i:                                  ; preds = %entry
-  %div.i.i12.i.i = sdiv i32 %sec, 86400
-  %mul.i.i13.neg.i.i = mul nsw i32 %div.i.i12.i.i, -86400
-  %sub.i.i14.i.i = add i32 %mul.i.i13.neg.i.i, %sec
-  %cmp.i.i15.i.i = icmp slt i32 %sub.i.i14.i.i, 0
-  %add.i.i16.i.i = select i1 %cmp.i.i15.i.i, i32 86400, i32 0
-  %storemerge.i.i17.i.i = add nsw i32 %add.i.i16.i.i, %sub.i.i14.i.i
-  %sub.lobit.i.i18.i.i = ashr i32 %sub.i.i14.i.i, 31
-  %quo.0.i.i19.i.i = add i32 %div.i.i12.i.i, %days
-  %add.i20.i.i = add i32 %quo.0.i.i19.i.i, %sub.lobit.i.i18.i.i
-  br label %if.end.i5
-
-if.end.i5:                                        ; preds = %if.then.i11.i.i, %entry
-  %days.addr.0.i = phi i32 [ %days, %entry ], [ %add.i20.i.i, %if.then.i11.i.i ]
-  %seconds.addr.0.i = phi i32 [ %sec, %entry ], [ %storemerge.i.i17.i.i, %if.then.i11.i.i ]
-  %0 = add i32 %days.addr.0.i, 999999999
-  %or.cond.i7.i = icmp ult i32 %0, 1999999999
-  br i1 %or.cond.i7.i, label %if.end2.i, label %check_delta_day_range.exit.thread.i
-
-check_delta_day_range.exit.thread.i:              ; preds = %if.end.i5
-  %1 = load ptr, ptr @PyExc_OverflowError, align 8
-  %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.269, i32 noundef %days.addr.0.i, i32 noundef 999999999) #15
-  br label %return
-
-if.end2.i:                                        ; preds = %if.end.i5
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
-  %call3.i = tail call ptr %2(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
+  %call3.i = tail call ptr %0(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i = icmp eq ptr %call3.i, null
   br i1 %cmp4.not.i, label %return, label %if.end
 
-if.end:                                           ; preds = %if.end2.i
+if.end:                                           ; preds = %entry
   %hashcode.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   store i64 -1, ptr %hashcode.i, align 8
   %days6.i = getelementptr inbounds i8, ptr %call3.i, i64 24
-  store i32 %days.addr.0.i, ptr %days6.i, align 8
+  store i32 %days, ptr %days6.i, align 8
   %seconds7.i = getelementptr inbounds i8, ptr %call3.i, i64 28
-  store i32 %seconds.addr.0.i, ptr %seconds7.i, align 4
+  store i32 %sec, ptr %seconds7.i, align 4
   %microseconds8.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   store i32 0, ptr %microseconds8.i, align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_TimeZoneType, i64 304), align 8
-  %call.i = tail call ptr %3(ptr noundef nonnull @PyDateTime_TimeZoneType, i64 noundef 0) #15
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_TimeZoneType, i64 304), align 8
+  %call.i = tail call ptr %1(ptr noundef nonnull @PyDateTime_TimeZoneType, i64 noundef 0) #15
   %cmp.i6 = icmp eq ptr %call.i, null
   br i1 %cmp.i6, label %create_timezone.exit, label %if.end.i7
 
 if.end.i7:                                        ; preds = %if.end
-  %4 = load i32, ptr %call3.i, align 8
-  %add.i.i.i = add i32 %4, 1
+  %2 = load i32, ptr %call3.i, align 8
+  %add.i.i.i = add i32 %2, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
   br i1 %cmp.i.i.i, label %_Py_NewRef.exit.i, label %if.end.i.i.i
 
@@ -2821,13 +2791,13 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.e
   br label %create_timezone.exit
 
 create_timezone.exit:                             ; preds = %if.end, %_Py_NewRef.exit.i
-  %5 = load i64, ptr %call3.i, align 8
-  %6 = and i64 %5, 2147483648
-  %cmp.i3.not = icmp eq i64 %6, 0
+  %3 = load i64, ptr %call3.i, align 8
+  %4 = and i64 %3, 2147483648
+  %cmp.i3.not = icmp eq i64 %4, 0
   br i1 %cmp.i3.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %create_timezone.exit
-  %dec.i = add i64 %5, -1
+  %dec.i = add i64 %3, -1
   store i64 %dec.i, ptr %call3.i, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return
@@ -2836,8 +2806,8 @@ if.then1.i:                                       ; preds = %if.end.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call3.i) #15
   br label %return
 
-return:                                           ; preds = %check_delta_day_range.exit.thread.i, %if.end2.i, %if.end.i, %if.then1.i, %create_timezone.exit
-  %retval.0 = phi ptr [ %call.i, %create_timezone.exit ], [ %call.i, %if.then1.i ], [ %call.i, %if.end.i ], [ null, %if.end2.i ], [ null, %check_delta_day_range.exit.thread.i ]
+return:                                           ; preds = %entry, %if.end.i, %if.then1.i, %create_timezone.exit
+  %retval.0 = phi ptr [ %call.i, %create_timezone.exit ], [ %call.i, %if.then1.i ], [ %call.i, %if.end.i ], [ null, %entry ]
   ret ptr %retval.0
 }
 
@@ -3609,9 +3579,9 @@ if.then:                                          ; preds = %land.lhs.true, %PyO
   %7 = load i32, ptr %microseconds9, align 8
   %sub10 = sub i32 %6, %7
   %or.cond.i.i = icmp ugt i32 %sub10, 999999
-  br i1 %or.cond.i.i, label %if.then.i.i.i, label %if.end.i.i
+  br i1 %or.cond.i.i, label %normalize_pair.exit.i.i, label %if.end.i.i
 
-if.then.i.i.i:                                    ; preds = %if.then
+normalize_pair.exit.i.i:                          ; preds = %if.then
   %div.i.i.i.i = sdiv i32 %sub10, 1000000
   %mul.i.i.neg.i.i = mul nsw i32 %div.i.i.i.i, -1000000
   %sub.i.i.i.i = add i32 %mul.i.i.neg.i.i, %sub10
@@ -3623,27 +3593,27 @@ if.then.i.i.i:                                    ; preds = %if.then
   %add.i.i.i = add i32 %quo.0.i.i.i.i, %sub.lobit.i.i.i.i
   br label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.then.i.i.i, %if.then
-  %seconds.addr.1.i = phi i32 [ %add.i.i.i, %if.then.i.i.i ], [ %sub7, %if.then ]
-  %microseconds.addr.1.i = phi i32 [ %storemerge.i.i.i.i, %if.then.i.i.i ], [ %sub10, %if.then ]
+if.end.i.i:                                       ; preds = %normalize_pair.exit.i.i, %if.then
+  %seconds.addr.1.i = phi i32 [ %add.i.i.i, %normalize_pair.exit.i.i ], [ %sub7, %if.then ]
+  %microseconds.addr.1.i = phi i32 [ %storemerge.i.i.i.i, %normalize_pair.exit.i.i ], [ %sub10, %if.then ]
   %or.cond7.i.i = icmp ugt i32 %seconds.addr.1.i, 86399
-  br i1 %or.cond7.i.i, label %if.then.i11.i.i, label %if.end.i17
+  br i1 %or.cond7.i.i, label %normalize_pair.exit19.i.i, label %if.end.i17
 
-if.then.i11.i.i:                                  ; preds = %if.end.i.i
-  %div.i.i12.i.i = sdiv i32 %seconds.addr.1.i, 86400
-  %mul.i.i13.neg.i.i = mul nsw i32 %div.i.i12.i.i, -86400
-  %sub.i.i14.i.i = add i32 %mul.i.i13.neg.i.i, %seconds.addr.1.i
-  %cmp.i.i15.i.i = icmp slt i32 %sub.i.i14.i.i, 0
-  %add.i.i16.i.i = select i1 %cmp.i.i15.i.i, i32 86400, i32 0
-  %storemerge.i.i17.i.i = add nsw i32 %add.i.i16.i.i, %sub.i.i14.i.i
-  %sub.lobit.i.i18.i.i = ashr i32 %sub.i.i14.i.i, 31
-  %quo.0.i.i19.i.i = add i32 %div.i.i12.i.i, %sub
-  %add.i20.i.i = add i32 %quo.0.i.i19.i.i, %sub.lobit.i.i18.i.i
+normalize_pair.exit19.i.i:                        ; preds = %if.end.i.i
+  %div.i.i10.i.i = sdiv i32 %seconds.addr.1.i, 86400
+  %mul.i.i11.neg.i.i = mul nsw i32 %div.i.i10.i.i, -86400
+  %sub.i.i12.i.i = add i32 %mul.i.i11.neg.i.i, %seconds.addr.1.i
+  %cmp.i.i13.i.i = icmp slt i32 %sub.i.i12.i.i, 0
+  %add.i.i14.i.i = select i1 %cmp.i.i13.i.i, i32 86400, i32 0
+  %storemerge.i.i15.i.i = add nsw i32 %add.i.i14.i.i, %sub.i.i12.i.i
+  %sub.lobit.i.i16.i.i = ashr i32 %sub.i.i12.i.i, 31
+  %quo.0.i.i17.i.i = add i32 %div.i.i10.i.i, %sub
+  %add.i18.i.i = add i32 %quo.0.i.i17.i.i, %sub.lobit.i.i16.i.i
   br label %if.end.i17
 
-if.end.i17:                                       ; preds = %if.then.i11.i.i, %if.end.i.i
-  %days.addr.0.i = phi i32 [ %add.i20.i.i, %if.then.i11.i.i ], [ %sub, %if.end.i.i ]
-  %seconds.addr.0.i = phi i32 [ %storemerge.i.i17.i.i, %if.then.i11.i.i ], [ %seconds.addr.1.i, %if.end.i.i ]
+if.end.i17:                                       ; preds = %normalize_pair.exit19.i.i, %if.end.i.i
+  %days.addr.0.i = phi i32 [ %add.i18.i.i, %normalize_pair.exit19.i.i ], [ %sub, %if.end.i.i ]
+  %seconds.addr.0.i = phi i32 [ %storemerge.i.i15.i.i, %normalize_pair.exit19.i.i ], [ %seconds.addr.1.i, %if.end.i.i ]
   %8 = add i32 %days.addr.0.i, 999999999
   %or.cond.i7.i = icmp ult i32 %8, 1999999999
   br i1 %or.cond.i7.i, label %if.end2.i, label %check_delta_day_range.exit.thread.i
@@ -3687,7 +3657,7 @@ if.end13:                                         ; preds = %check_delta_day_ran
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @add_datetime_timedelta(ptr nocapture noundef readonly %date, ptr nocapture noundef readonly %delta, i32 noundef %factor) unnamed_addr #0 {
+define internal fastcc ptr @add_datetime_timedelta(ptr nocapture noundef readonly %date, ptr nocapture noundef readonly %delta, i32 noundef range(i32 -1, 2) %factor) unnamed_addr #0 {
 entry:
   %year = alloca i32, align 4
   %month = alloca i32, align 4
@@ -3761,61 +3731,61 @@ if.then.i.i:                                      ; preds = %entry
 normalize_pair.exit.i:                            ; preds = %entry, %if.then.i.i
   %second.0 = phi i32 [ %add.i.i, %if.then.i.i ], [ %add20, %entry ]
   %microsecond.0 = phi i32 [ %storemerge.i.i.i, %if.then.i.i ], [ %add35, %entry ]
-  %or.cond.i7.i = icmp ult i32 %second.0, 60
-  br i1 %or.cond.i7.i, label %normalize_pair.exit18.i, label %if.then.i8.i
+  %or.cond.i5.i = icmp ult i32 %second.0, 60
+  br i1 %or.cond.i5.i, label %normalize_pair.exit16.i, label %if.then.i6.i
 
-if.then.i8.i:                                     ; preds = %normalize_pair.exit.i
-  %div.i.i9.i = sdiv i32 %second.0, 60
-  %mul.i.i10.neg.i = mul nsw i32 %div.i.i9.i, -60
-  %sub.i.i11.i = add i32 %mul.i.i10.neg.i, %second.0
-  %cmp.i.i12.i = icmp slt i32 %sub.i.i11.i, 0
-  %add.i.i13.i = select i1 %cmp.i.i12.i, i32 60, i32 0
-  %storemerge.i.i14.i = add nsw i32 %add.i.i13.i, %sub.i.i11.i
-  %sub.lobit.i.i15.i = ashr i32 %sub.i.i11.i, 31
-  %quo.0.i.i16.i = add nsw i32 %div.i.i9.i, %conv15
-  %add.i17.i = add nsw i32 %quo.0.i.i16.i, %sub.lobit.i.i15.i
-  br label %normalize_pair.exit18.i
+if.then.i6.i:                                     ; preds = %normalize_pair.exit.i
+  %div.i.i7.i = sdiv i32 %second.0, 60
+  %mul.i.i8.neg.i = mul nsw i32 %div.i.i7.i, -60
+  %sub.i.i9.i = add i32 %mul.i.i8.neg.i, %second.0
+  %cmp.i.i10.i = icmp slt i32 %sub.i.i9.i, 0
+  %add.i.i11.i = select i1 %cmp.i.i10.i, i32 60, i32 0
+  %storemerge.i.i12.i = add nsw i32 %add.i.i11.i, %sub.i.i9.i
+  %sub.lobit.i.i13.i = ashr i32 %sub.i.i9.i, 31
+  %quo.0.i.i14.i = add nsw i32 %div.i.i7.i, %conv15
+  %add.i15.i = add nsw i32 %quo.0.i.i14.i, %sub.lobit.i.i13.i
+  br label %normalize_pair.exit16.i
 
-normalize_pair.exit18.i:                          ; preds = %normalize_pair.exit.i, %if.then.i8.i
-  %minute.0 = phi i32 [ %add.i17.i, %if.then.i8.i ], [ %conv15, %normalize_pair.exit.i ]
-  %second.1 = phi i32 [ %storemerge.i.i14.i, %if.then.i8.i ], [ %second.0, %normalize_pair.exit.i ]
-  %or.cond.i21.i = icmp ult i32 %minute.0, 60
-  br i1 %or.cond.i21.i, label %normalize_pair.exit32.i, label %if.then.i22.i
+normalize_pair.exit16.i:                          ; preds = %normalize_pair.exit.i, %if.then.i6.i
+  %minute.0 = phi i32 [ %add.i15.i, %if.then.i6.i ], [ %conv15, %normalize_pair.exit.i ]
+  %second.1 = phi i32 [ %storemerge.i.i12.i, %if.then.i6.i ], [ %second.0, %normalize_pair.exit.i ]
+  %or.cond.i17.i = icmp ult i32 %minute.0, 60
+  br i1 %or.cond.i17.i, label %normalize_pair.exit28.i, label %if.then.i18.i
 
-if.then.i22.i:                                    ; preds = %normalize_pair.exit18.i
-  %div.i.i23.i = sdiv i32 %minute.0, 60
-  %mul.i.i24.neg.i = mul nsw i32 %div.i.i23.i, -60
-  %sub.i.i25.i = add nsw i32 %mul.i.i24.neg.i, %minute.0
-  %cmp.i.i26.i = icmp slt i32 %sub.i.i25.i, 0
-  %add.i.i27.i = select i1 %cmp.i.i26.i, i32 60, i32 0
-  %storemerge.i.i28.i = add nsw i32 %add.i.i27.i, %sub.i.i25.i
-  %sub.lobit.i.i29.i = ashr i32 %sub.i.i25.i, 31
-  %quo.0.i.i30.i = add nsw i32 %div.i.i23.i, %conv12
-  %add.i31.i = add nsw i32 %quo.0.i.i30.i, %sub.lobit.i.i29.i
-  br label %normalize_pair.exit32.i
+if.then.i18.i:                                    ; preds = %normalize_pair.exit16.i
+  %div.i.i19.i = sdiv i32 %minute.0, 60
+  %mul.i.i20.neg.i = mul nsw i32 %div.i.i19.i, -60
+  %sub.i.i21.i = add nsw i32 %mul.i.i20.neg.i, %minute.0
+  %cmp.i.i22.i = icmp slt i32 %sub.i.i21.i, 0
+  %add.i.i23.i = select i1 %cmp.i.i22.i, i32 60, i32 0
+  %storemerge.i.i24.i = add nsw i32 %add.i.i23.i, %sub.i.i21.i
+  %sub.lobit.i.i25.i = ashr i32 %sub.i.i21.i, 31
+  %quo.0.i.i26.i = add nsw i32 %div.i.i19.i, %conv12
+  %add.i27.i = add nsw i32 %quo.0.i.i26.i, %sub.lobit.i.i25.i
+  br label %normalize_pair.exit28.i
 
-normalize_pair.exit32.i:                          ; preds = %normalize_pair.exit18.i, %if.then.i22.i
-  %hour.0 = phi i32 [ %add.i31.i, %if.then.i22.i ], [ %conv12, %normalize_pair.exit18.i ]
-  %minute.1 = phi i32 [ %storemerge.i.i28.i, %if.then.i22.i ], [ %minute.0, %normalize_pair.exit18.i ]
-  %or.cond.i35.i = icmp ult i32 %hour.0, 24
-  br i1 %or.cond.i35.i, label %normalize_datetime.exit, label %if.then.i36.i
+normalize_pair.exit28.i:                          ; preds = %normalize_pair.exit16.i, %if.then.i18.i
+  %hour.0 = phi i32 [ %add.i27.i, %if.then.i18.i ], [ %conv12, %normalize_pair.exit16.i ]
+  %minute.1 = phi i32 [ %storemerge.i.i24.i, %if.then.i18.i ], [ %minute.0, %normalize_pair.exit16.i ]
+  %or.cond.i29.i = icmp ult i32 %hour.0, 24
+  br i1 %or.cond.i29.i, label %normalize_datetime.exit, label %if.then.i30.i
 
-if.then.i36.i:                                    ; preds = %normalize_pair.exit32.i
-  %div.i.i37.i = sdiv i32 %hour.0, 24
-  %mul.i.i38.neg.i = mul nsw i32 %div.i.i37.i, -24
-  %sub.i.i39.i = add nsw i32 %mul.i.i38.neg.i, %hour.0
-  %cmp.i.i40.i = icmp slt i32 %sub.i.i39.i, 0
-  %add.i.i41.i = select i1 %cmp.i.i40.i, i32 24, i32 0
-  %storemerge.i.i42.i = add nsw i32 %add.i.i41.i, %sub.i.i39.i
-  %sub.lobit.i.i43.i = ashr i32 %sub.i.i39.i, 31
-  %quo.0.i.i44.i = add i32 %div.i.i37.i, %add
-  %add.i45.i = add i32 %quo.0.i.i44.i, %sub.lobit.i.i43.i
-  store i32 %add.i45.i, ptr %day, align 4
+if.then.i30.i:                                    ; preds = %normalize_pair.exit28.i
+  %div.i.i31.i = sdiv i32 %hour.0, 24
+  %mul.i.i32.neg.i = mul nsw i32 %div.i.i31.i, -24
+  %sub.i.i33.i = add nsw i32 %mul.i.i32.neg.i, %hour.0
+  %cmp.i.i34.i = icmp slt i32 %sub.i.i33.i, 0
+  %add.i.i35.i = select i1 %cmp.i.i34.i, i32 24, i32 0
+  %storemerge.i.i36.i = add nsw i32 %add.i.i35.i, %sub.i.i33.i
+  %sub.lobit.i.i37.i = ashr i32 %sub.i.i33.i, 31
+  %quo.0.i.i38.i = add i32 %div.i.i31.i, %add
+  %add.i39.i = add i32 %quo.0.i.i38.i, %sub.lobit.i.i37.i
+  store i32 %add.i39.i, ptr %day, align 4
   br label %normalize_datetime.exit
 
-normalize_datetime.exit:                          ; preds = %normalize_pair.exit32.i, %if.then.i36.i
-  %hour.1 = phi i32 [ %hour.0, %normalize_pair.exit32.i ], [ %storemerge.i.i42.i, %if.then.i36.i ]
-  %call.i = call fastcc range(i32 -1, 1) i32 @normalize_date(ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day)
+normalize_datetime.exit:                          ; preds = %normalize_pair.exit28.i, %if.then.i30.i
+  %hour.1 = phi i32 [ %hour.0, %normalize_pair.exit28.i ], [ %storemerge.i.i36.i, %if.then.i30.i ]
+  %call.i = call fastcc range(i32 -1, 1) i32 @normalize_date(ptr noundef %year, ptr noundef %month, ptr noundef %day)
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -3978,7 +3948,7 @@ return:                                           ; preds = %land.lhs.true, %lan
 declare ptr @PyObject_CallMethod(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @normalize_date(ptr nocapture noundef %year, ptr nocapture noundef %month, ptr nocapture noundef %day) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @normalize_date(ptr nocapture noundef nonnull %year, ptr nocapture noundef nonnull %month, ptr nocapture noundef nonnull %day) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %year, align 4
   %1 = load i32, ptr %month, align 4
@@ -4121,7 +4091,7 @@ ymd_to_ord.exit.i:                                ; preds = %is_leap.exit.thread
 
 if.else22.i:                                      ; preds = %ymd_to_ord.exit.i
   %sub.i = add nsw i32 %add17.i, -1
-  tail call fastcc void @ord_to_ymd(i32 noundef %sub.i, ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day)
+  tail call fastcc void @ord_to_ymd(i32 noundef %sub.i, ptr noundef %year, ptr noundef %month, ptr noundef %day)
   br label %normalize_y_m_d.exit
 
 if.end25.i:                                       ; preds = %if.then12.i, %if.then10.i, %if.else.i, %days_in_month.exit46.i, %days_in_month.exit.i
@@ -4141,7 +4111,7 @@ normalize_y_m_d.exit:                             ; preds = %if.else22.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @ord_to_ymd(i32 noundef %ordinal, ptr nocapture noundef %year, ptr nocapture noundef writeonly %month, ptr nocapture noundef writeonly %day) unnamed_addr #4 {
+define internal fastcc void @ord_to_ymd(i32 noundef %ordinal, ptr nocapture noundef nonnull %year, ptr nocapture noundef nonnull writeonly %month, ptr nocapture noundef nonnull writeonly %day) unnamed_addr #4 {
 entry:
   %dec = add i32 %ordinal, -1
   %div = sdiv i32 %dec, 146097
@@ -4452,9 +4422,9 @@ if.then18:                                        ; preds = %if.end14
   %8 = load i32, ptr %microseconds.i, align 8
   %sub2.i = sub i32 0, %8
   %or.cond.i.i.i = icmp ugt i32 %sub2.i, 999999
-  br i1 %or.cond.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i
+  br i1 %or.cond.i.i.i, label %normalize_pair.exit.i.i.i, label %if.end.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %if.then18
+normalize_pair.exit.i.i.i:                        ; preds = %if.then18
   %div.i.i.i.i.i = sdiv i32 %sub2.i, 1000000
   %mul.i.i.neg.i.i.i = mul nsw i32 %div.i.i.i.i.i, -1000000
   %sub.i.i.i.i.i = sub i32 %mul.i.i.neg.i.i.i, %8
@@ -4466,27 +4436,27 @@ if.then.i.i.i.i:                                  ; preds = %if.then18
   %add.i.i.i.i = add i32 %quo.0.i.i.i.i.i, %sub.lobit.i.i.i.i.i
   br label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.then.i.i.i.i, %if.then18
-  %seconds.addr.1.i.i = phi i32 [ %add.i.i.i.i, %if.then.i.i.i.i ], [ %sub1.i, %if.then18 ]
-  %microseconds.addr.1.i.i = phi i32 [ %storemerge.i.i.i.i.i, %if.then.i.i.i.i ], [ %sub2.i, %if.then18 ]
+if.end.i.i.i:                                     ; preds = %normalize_pair.exit.i.i.i, %if.then18
+  %seconds.addr.1.i.i = phi i32 [ %add.i.i.i.i, %normalize_pair.exit.i.i.i ], [ %sub1.i, %if.then18 ]
+  %microseconds.addr.1.i.i = phi i32 [ %storemerge.i.i.i.i.i, %normalize_pair.exit.i.i.i ], [ %sub2.i, %if.then18 ]
   %or.cond7.i.i.i = icmp ugt i32 %seconds.addr.1.i.i, 86399
-  br i1 %or.cond7.i.i.i, label %if.then.i11.i.i.i, label %if.end.i.i21
+  br i1 %or.cond7.i.i.i, label %normalize_pair.exit19.i.i.i, label %if.end.i.i21
 
-if.then.i11.i.i.i:                                ; preds = %if.end.i.i.i
-  %div.i.i12.i.i.i = sdiv i32 %seconds.addr.1.i.i, 86400
-  %mul.i.i13.neg.i.i.i = mul nsw i32 %div.i.i12.i.i.i, -86400
-  %sub.i.i14.i.i.i = add i32 %mul.i.i13.neg.i.i.i, %seconds.addr.1.i.i
-  %cmp.i.i15.i.i.i = icmp slt i32 %sub.i.i14.i.i.i, 0
-  %add.i.i16.i.i.i = select i1 %cmp.i.i15.i.i.i, i32 86400, i32 0
-  %storemerge.i.i17.i.i.i = add nsw i32 %add.i.i16.i.i.i, %sub.i.i14.i.i.i
-  %sub.lobit.i.i18.i.i.i = ashr i32 %sub.i.i14.i.i.i, 31
-  %quo.0.i.i19.i.i.i = sub i32 %div.i.i12.i.i.i, %4
-  %add.i20.i.i.i = add i32 %quo.0.i.i19.i.i.i, %sub.lobit.i.i18.i.i.i
+normalize_pair.exit19.i.i.i:                      ; preds = %if.end.i.i.i
+  %div.i.i10.i.i.i = sdiv i32 %seconds.addr.1.i.i, 86400
+  %mul.i.i11.neg.i.i.i = mul nsw i32 %div.i.i10.i.i.i, -86400
+  %sub.i.i12.i.i.i = add i32 %mul.i.i11.neg.i.i.i, %seconds.addr.1.i.i
+  %cmp.i.i13.i.i.i = icmp slt i32 %sub.i.i12.i.i.i, 0
+  %add.i.i14.i.i.i = select i1 %cmp.i.i13.i.i.i, i32 86400, i32 0
+  %storemerge.i.i15.i.i.i = add nsw i32 %add.i.i14.i.i.i, %sub.i.i12.i.i.i
+  %sub.lobit.i.i16.i.i.i = ashr i32 %sub.i.i12.i.i.i, 31
+  %quo.0.i.i17.i.i.i = sub i32 %div.i.i10.i.i.i, %4
+  %add.i18.i.i.i = add i32 %quo.0.i.i17.i.i.i, %sub.lobit.i.i16.i.i.i
   br label %if.end.i.i21
 
-if.end.i.i21:                                     ; preds = %if.then.i11.i.i.i, %if.end.i.i.i
-  %days.addr.0.i.i = phi i32 [ %add.i20.i.i.i, %if.then.i11.i.i.i ], [ %sub.i, %if.end.i.i.i ]
-  %seconds.addr.0.i.i = phi i32 [ %storemerge.i.i17.i.i.i, %if.then.i11.i.i.i ], [ %seconds.addr.1.i.i, %if.end.i.i.i ]
+if.end.i.i21:                                     ; preds = %normalize_pair.exit19.i.i.i, %if.end.i.i.i
+  %days.addr.0.i.i = phi i32 [ %add.i18.i.i.i, %normalize_pair.exit19.i.i.i ], [ %sub.i, %if.end.i.i.i ]
+  %seconds.addr.0.i.i = phi i32 [ %storemerge.i.i15.i.i.i, %normalize_pair.exit19.i.i.i ], [ %seconds.addr.1.i.i, %if.end.i.i.i ]
   %9 = add i32 %days.addr.0.i.i, 999999999
   %or.cond.i7.i.i = icmp ult i32 %9, 1999999999
   br i1 %or.cond.i7.i.i, label %if.end2.i.i, label %check_delta_day_range.exit.thread.i.i
@@ -4830,9 +4800,9 @@ entry:
   %2 = load i32, ptr %microseconds, align 8
   %sub2 = sub i32 0, %2
   %or.cond.i.i = icmp ugt i32 %sub2, 999999
-  br i1 %or.cond.i.i, label %if.then.i.i.i, label %if.end.i.i
+  br i1 %or.cond.i.i, label %normalize_pair.exit.i.i, label %if.end.i.i
 
-if.then.i.i.i:                                    ; preds = %entry
+normalize_pair.exit.i.i:                          ; preds = %entry
   %div.i.i.i.i = sdiv i32 %sub2, 1000000
   %mul.i.i.neg.i.i = mul nsw i32 %div.i.i.i.i, -1000000
   %sub.i.i.i.i = sub i32 %mul.i.i.neg.i.i, %2
@@ -4844,27 +4814,27 @@ if.then.i.i.i:                                    ; preds = %entry
   %add.i.i.i = add i32 %quo.0.i.i.i.i, %sub.lobit.i.i.i.i
   br label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.then.i.i.i, %entry
-  %seconds.addr.1.i = phi i32 [ %add.i.i.i, %if.then.i.i.i ], [ %sub1, %entry ]
-  %microseconds.addr.1.i = phi i32 [ %storemerge.i.i.i.i, %if.then.i.i.i ], [ %sub2, %entry ]
+if.end.i.i:                                       ; preds = %normalize_pair.exit.i.i, %entry
+  %seconds.addr.1.i = phi i32 [ %add.i.i.i, %normalize_pair.exit.i.i ], [ %sub1, %entry ]
+  %microseconds.addr.1.i = phi i32 [ %storemerge.i.i.i.i, %normalize_pair.exit.i.i ], [ %sub2, %entry ]
   %or.cond7.i.i = icmp ugt i32 %seconds.addr.1.i, 86399
-  br i1 %or.cond7.i.i, label %if.then.i11.i.i, label %if.end.i
+  br i1 %or.cond7.i.i, label %normalize_pair.exit19.i.i, label %if.end.i
 
-if.then.i11.i.i:                                  ; preds = %if.end.i.i
-  %div.i.i12.i.i = sdiv i32 %seconds.addr.1.i, 86400
-  %mul.i.i13.neg.i.i = mul nsw i32 %div.i.i12.i.i, -86400
-  %sub.i.i14.i.i = add i32 %mul.i.i13.neg.i.i, %seconds.addr.1.i
-  %cmp.i.i15.i.i = icmp slt i32 %sub.i.i14.i.i, 0
-  %add.i.i16.i.i = select i1 %cmp.i.i15.i.i, i32 86400, i32 0
-  %storemerge.i.i17.i.i = add nsw i32 %add.i.i16.i.i, %sub.i.i14.i.i
-  %sub.lobit.i.i18.i.i = ashr i32 %sub.i.i14.i.i, 31
-  %quo.0.i.i19.i.i = sub i32 %div.i.i12.i.i, %0
-  %add.i20.i.i = add i32 %quo.0.i.i19.i.i, %sub.lobit.i.i18.i.i
+normalize_pair.exit19.i.i:                        ; preds = %if.end.i.i
+  %div.i.i10.i.i = sdiv i32 %seconds.addr.1.i, 86400
+  %mul.i.i11.neg.i.i = mul nsw i32 %div.i.i10.i.i, -86400
+  %sub.i.i12.i.i = add i32 %mul.i.i11.neg.i.i, %seconds.addr.1.i
+  %cmp.i.i13.i.i = icmp slt i32 %sub.i.i12.i.i, 0
+  %add.i.i14.i.i = select i1 %cmp.i.i13.i.i, i32 86400, i32 0
+  %storemerge.i.i15.i.i = add nsw i32 %add.i.i14.i.i, %sub.i.i12.i.i
+  %sub.lobit.i.i16.i.i = ashr i32 %sub.i.i12.i.i, 31
+  %quo.0.i.i17.i.i = sub i32 %div.i.i10.i.i, %0
+  %add.i18.i.i = add i32 %quo.0.i.i17.i.i, %sub.lobit.i.i16.i.i
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then.i11.i.i, %if.end.i.i
-  %days.addr.0.i = phi i32 [ %add.i20.i.i, %if.then.i11.i.i ], [ %sub, %if.end.i.i ]
-  %seconds.addr.0.i = phi i32 [ %storemerge.i.i17.i.i, %if.then.i11.i.i ], [ %seconds.addr.1.i, %if.end.i.i ]
+if.end.i:                                         ; preds = %normalize_pair.exit19.i.i, %if.end.i.i
+  %days.addr.0.i = phi i32 [ %add.i18.i.i, %normalize_pair.exit19.i.i ], [ %sub, %if.end.i.i ]
+  %seconds.addr.0.i = phi i32 [ %storemerge.i.i15.i.i, %normalize_pair.exit19.i.i ], [ %seconds.addr.1.i, %if.end.i.i ]
   %3 = add i32 %days.addr.0.i, 999999999
   %or.cond.i7.i = icmp ult i32 %3, 1999999999
   br i1 %or.cond.i7.i, label %if.end2.i, label %check_delta_day_range.exit.thread.i
@@ -5863,7 +5833,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @add_date_timedelta(ptr nocapture noundef readonly %date, i32 %delta.24.val, i32 noundef %negate) unnamed_addr #0 {
+define internal fastcc ptr @add_date_timedelta(ptr nocapture noundef readonly %date, i32 %delta.24.val, i32 noundef range(i32 0, 2) %negate) unnamed_addr #0 {
 entry:
   %year = alloca i32, align 4
   %month = alloca i32, align 4
@@ -5889,7 +5859,7 @@ entry:
   %cond = select i1 %tobool.not, i32 %delta.24.val, i32 %sub
   %add = add i32 %cond, %conv9
   store i32 %add, ptr %day, align 4
-  %call = call fastcc i32 @normalize_date(ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day)
+  %call = call fastcc i32 @normalize_date(ptr noundef %year, ptr noundef %month, ptr noundef %day)
   %cmp = icmp sgt i32 %call, -1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -5966,7 +5936,7 @@ if.then1:                                         ; preds = %if.then
   br label %if.end3
 
 if.else:                                          ; preds = %if.then
-  call fastcc void @ord_to_ymd(i32 noundef %0, ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day)
+  call fastcc void @ord_to_ymd(i32 noundef %0, ptr noundef %year, ptr noundef %month, ptr noundef %day)
   %2 = load i32, ptr %year, align 4
   %3 = load i32, ptr %month, align 4
   %4 = load i32, ptr %day, align 4
@@ -6031,7 +6001,7 @@ if.end4:                                          ; preds = %if.end
   ]
 
 if.then9:                                         ; preds = %if.end4, %if.end4, %if.end4
-  %call10 = call fastcc i32 @parse_isoformat_date(ptr noundef nonnull %call2, i64 noundef %4, ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day)
+  %call10 = call fastcc i32 @parse_isoformat_date(ptr noundef %call2, i64 noundef %4, ptr noundef %year, ptr noundef %month, ptr noundef %day)
   %5 = icmp slt i32 %call10, 0
   br i1 %5, label %invalid_string_error, label %if.end14
 
@@ -6183,7 +6153,7 @@ if.end18:                                         ; preds = %if.end13.i
   %add.i = add nsw i32 %spec.select.i.i, -8
   %sub20.i = add nsw i32 %add.i, %11
   %add21.i = add nsw i32 %sub20.i, %6
-  call fastcc void @ord_to_ymd(i32 noundef %add21.i, ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day)
+  call fastcc void @ord_to_ymd(i32 noundef %add21.i, ptr noundef %year, ptr noundef %month, ptr noundef %day)
   %12 = load i32, ptr %year, align 4
   %13 = load i32, ptr %month, align 4
   %14 = load i32, ptr %day, align 4
@@ -6356,7 +6326,7 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %0 = load ptr, ptr %format, align 8
-  %call4 = call fastcc ptr @wrap_strftime(ptr noundef %self, ptr noundef %0, ptr noundef nonnull %call.i, ptr noundef %self)
+  %call4 = call fastcc ptr @wrap_strftime(ptr noundef %self, ptr noundef %0, ptr noundef %call.i, ptr noundef %self)
   %1 = load i64, ptr %call.i, align 8
   %2 = and i64 %1, 2147483648
   %cmp.i6.not = icmp eq i64 %2, 0
@@ -6937,7 +6907,7 @@ declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr 
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -6, 1) i32 @parse_isoformat_date(ptr noundef %dtstr, i64 noundef %len, ptr nocapture noundef %year, ptr nocapture noundef %month, ptr nocapture noundef %day) unnamed_addr #6 {
+define internal fastcc range(i32 -6, 1) i32 @parse_isoformat_date(ptr noundef nonnull %dtstr, i64 noundef %len, ptr nocapture noundef nonnull %year, ptr nocapture noundef nonnull %month, ptr nocapture noundef nonnull %day) unnamed_addr #6 {
 entry:
   br label %for.body.i
 
@@ -7090,7 +7060,7 @@ if.end13.i:                                       ; preds = %land.rhs.i.i, %if.t
   %add.i54 = add nsw i32 %10, -8
   %sub20.i = add nsw i32 %add.i54, %iso_day.0
   %add21.i = add i32 %sub20.i, %spec.select.i.i
-  tail call fastcc void @ord_to_ymd(i32 noundef %add21.i, ptr noundef nonnull %year, ptr noundef %month, ptr noundef %day)
+  tail call fastcc void @ord_to_ymd(i32 noundef %add21.i, ptr noundef %year, ptr noundef %month, ptr noundef %day)
   br label %return
 
 for.body.i56:                                     ; preds = %if.end, %if.end.i62
@@ -7164,7 +7134,7 @@ declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #1
 declare ptr @_PyImport_GetModuleAttrString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @wrap_strftime(ptr nocapture noundef readonly %object, ptr noundef %format, ptr noundef %timetuple, ptr noundef %tzinfoarg) unnamed_addr #0 {
+define internal fastcc ptr @wrap_strftime(ptr nocapture noundef readonly %object, ptr noundef %format, ptr noundef nonnull %timetuple, ptr noundef %tzinfoarg) unnamed_addr #0 {
 entry:
   %flen = alloca i64, align 8
   %newfmt = alloca ptr, align 8
@@ -7392,7 +7362,7 @@ if.end137:                                        ; preds = %if.end131
   br i1 %cmp140.not, label %if.end144, label %if.then142
 
 if.then142:                                       ; preds = %if.end137
-  %call143 = call ptr (ptr, ...) @PyObject_CallFunctionObjArgs(ptr noundef nonnull %call133, ptr noundef nonnull %call139, ptr noundef %timetuple, ptr noundef null) #15
+  %call143 = call ptr (ptr, ...) @PyObject_CallFunctionObjArgs(ptr noundef nonnull %call133, ptr noundef nonnull %call139, ptr noundef nonnull %timetuple, ptr noundef null) #15
   %13 = load i64, ptr %call139, align 8
   %14 = and i64 %13, 2147483648
   %cmp.i155.not = icmp eq i64 %14, 0
@@ -7597,7 +7567,7 @@ if.then:                                          ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end:                                           ; preds = %get_tzinfo_member.exit
-  %call3 = call fastcc i32 @format_utcoffset(ptr noundef nonnull %buf, ptr noundef %sep, ptr noundef %3, ptr noundef %tzinfoarg)
+  %call3 = call fastcc i32 @format_utcoffset(ptr noundef %buf, ptr noundef %sep, ptr noundef %3, ptr noundef %tzinfoarg)
   %cmp4 = icmp slt i32 %call3, 0
   br i1 %cmp4, label %return, label %if.end6
 
@@ -7855,7 +7825,7 @@ declare i32 @_PyBytes_Resize(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @PyObject_CallFunctionObjArgs(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @format_utcoffset(ptr noundef %buf, ptr noundef %sep, ptr noundef %tzinfo, ptr noundef %tzinfoarg) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @format_utcoffset(ptr noundef nonnull %buf, ptr noundef %sep, ptr noundef %tzinfo, ptr noundef %tzinfoarg) unnamed_addr #0 {
 entry:
   %call.i = tail call fastcc ptr @call_tzinfo_method(ptr noundef %tzinfo, ptr noundef nonnull @.str.23, ptr noundef %tzinfoarg)
   %cmp = icmp eq ptr %call.i, null
@@ -7900,9 +7870,9 @@ if.then5:                                         ; preds = %if.end3
   %4 = load i32, ptr %microseconds.i, align 8
   %sub2.i = sub i32 0, %4
   %or.cond.i.i.i = icmp ugt i32 %sub2.i, 999999
-  br i1 %or.cond.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i
+  br i1 %or.cond.i.i.i, label %normalize_pair.exit.i.i.i, label %if.end.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %if.then5
+normalize_pair.exit.i.i.i:                        ; preds = %if.then5
   %div.i.i.i.i.i = sdiv i32 %sub2.i, 1000000
   %mul.i.i.neg.i.i.i = mul nsw i32 %div.i.i.i.i.i, -1000000
   %sub.i.i.i.i.i = sub i32 %mul.i.i.neg.i.i.i, %4
@@ -7914,27 +7884,27 @@ if.then.i.i.i.i:                                  ; preds = %if.then5
   %add.i.i.i.i = add i32 %quo.0.i.i.i.i.i, %sub.lobit.i.i.i.i.i
   br label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.then.i.i.i.i, %if.then5
-  %seconds.addr.1.i.i = phi i32 [ %add.i.i.i.i, %if.then.i.i.i.i ], [ %sub1.i, %if.then5 ]
-  %microseconds.addr.1.i.i = phi i32 [ %storemerge.i.i.i.i.i, %if.then.i.i.i.i ], [ %sub2.i, %if.then5 ]
+if.end.i.i.i:                                     ; preds = %normalize_pair.exit.i.i.i, %if.then5
+  %seconds.addr.1.i.i = phi i32 [ %add.i.i.i.i, %normalize_pair.exit.i.i.i ], [ %sub1.i, %if.then5 ]
+  %microseconds.addr.1.i.i = phi i32 [ %storemerge.i.i.i.i.i, %normalize_pair.exit.i.i.i ], [ %sub2.i, %if.then5 ]
   %or.cond7.i.i.i = icmp ugt i32 %seconds.addr.1.i.i, 86399
-  br i1 %or.cond7.i.i.i, label %if.then.i11.i.i.i, label %if.end.i.i
+  br i1 %or.cond7.i.i.i, label %normalize_pair.exit19.i.i.i, label %if.end.i.i
 
-if.then.i11.i.i.i:                                ; preds = %if.end.i.i.i
-  %div.i.i12.i.i.i = sdiv i32 %seconds.addr.1.i.i, 86400
-  %mul.i.i13.neg.i.i.i = mul nsw i32 %div.i.i12.i.i.i, -86400
-  %sub.i.i14.i.i.i = add i32 %mul.i.i13.neg.i.i.i, %seconds.addr.1.i.i
-  %cmp.i.i15.i.i.i = icmp slt i32 %sub.i.i14.i.i.i, 0
-  %add.i.i16.i.i.i = select i1 %cmp.i.i15.i.i.i, i32 86400, i32 0
-  %storemerge.i.i17.i.i.i = add nsw i32 %add.i.i16.i.i.i, %sub.i.i14.i.i.i
-  %sub.lobit.i.i18.i.i.i = ashr i32 %sub.i.i14.i.i.i, 31
-  %quo.0.i.i19.i.i.i = sub i32 %div.i.i12.i.i.i, %2
-  %add.i20.i.i.i = add i32 %quo.0.i.i19.i.i.i, %sub.lobit.i.i18.i.i.i
+normalize_pair.exit19.i.i.i:                      ; preds = %if.end.i.i.i
+  %div.i.i10.i.i.i = sdiv i32 %seconds.addr.1.i.i, 86400
+  %mul.i.i11.neg.i.i.i = mul nsw i32 %div.i.i10.i.i.i, -86400
+  %sub.i.i12.i.i.i = add i32 %mul.i.i11.neg.i.i.i, %seconds.addr.1.i.i
+  %cmp.i.i13.i.i.i = icmp slt i32 %sub.i.i12.i.i.i, 0
+  %add.i.i14.i.i.i = select i1 %cmp.i.i13.i.i.i, i32 86400, i32 0
+  %storemerge.i.i15.i.i.i = add nsw i32 %add.i.i14.i.i.i, %sub.i.i12.i.i.i
+  %sub.lobit.i.i16.i.i.i = ashr i32 %sub.i.i12.i.i.i, 31
+  %quo.0.i.i17.i.i.i = sub i32 %div.i.i10.i.i.i, %2
+  %add.i18.i.i.i = add i32 %quo.0.i.i17.i.i.i, %sub.lobit.i.i16.i.i.i
   br label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.then.i11.i.i.i, %if.end.i.i.i
-  %days.addr.0.i.i = phi i32 [ %add.i20.i.i.i, %if.then.i11.i.i.i ], [ %sub.i, %if.end.i.i.i ]
-  %seconds.addr.0.i.i = phi i32 [ %storemerge.i.i17.i.i.i, %if.then.i11.i.i.i ], [ %seconds.addr.1.i.i, %if.end.i.i.i ]
+if.end.i.i:                                       ; preds = %normalize_pair.exit19.i.i.i, %if.end.i.i.i
+  %days.addr.0.i.i = phi i32 [ %add.i18.i.i.i, %normalize_pair.exit19.i.i.i ], [ %sub.i, %if.end.i.i.i ]
+  %seconds.addr.0.i.i = phi i32 [ %storemerge.i.i15.i.i.i, %normalize_pair.exit19.i.i.i ], [ %seconds.addr.1.i.i, %if.end.i.i.i ]
   %5 = add i32 %days.addr.0.i.i, 999999999
   %or.cond.i7.i.i = icmp ult i32 %5, 1999999999
   br i1 %or.cond.i7.i.i, label %if.end2.i.i, label %check_delta_day_range.exit.thread.i.i
@@ -8025,7 +7995,7 @@ Py_DECREF.exit:                                   ; preds = %if.end10, %if.then1
   br i1 %tobool.not, label %if.end17, label %if.then15
 
 if.then15:                                        ; preds = %Py_DECREF.exit
-  %call16 = tail call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef %buf, i64 noundef 100, ptr noundef nonnull @.str.126, i32 noundef %sign.0, i32 noundef %quo.0.i41, ptr noundef %sep, i32 noundef %storemerge.i39, ptr noundef %sep, i32 noundef %storemerge.i, i32 noundef %10) #15
+  %call16 = tail call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %buf, i64 noundef 100, ptr noundef nonnull @.str.126, i32 noundef %sign.0, i32 noundef %quo.0.i41, ptr noundef %sep, i32 noundef %storemerge.i39, ptr noundef %sep, i32 noundef %storemerge.i, i32 noundef %10) #15
   br label %return
 
 if.end17:                                         ; preds = %Py_DECREF.exit
@@ -8033,11 +8003,11 @@ if.end17:                                         ; preds = %Py_DECREF.exit
   br i1 %tobool18.not, label %if.end22, label %if.then19
 
 if.then19:                                        ; preds = %if.end17
-  %call21 = tail call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef %buf, i64 noundef 100, ptr noundef nonnull @.str.127, i32 noundef %sign.0, i32 noundef %quo.0.i41, ptr noundef %sep, i32 noundef %storemerge.i39, ptr noundef %sep, i32 noundef %storemerge.i) #15
+  %call21 = tail call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %buf, i64 noundef 100, ptr noundef nonnull @.str.127, i32 noundef %sign.0, i32 noundef %quo.0.i41, ptr noundef %sep, i32 noundef %storemerge.i39, ptr noundef %sep, i32 noundef %storemerge.i) #15
   br label %return
 
 if.end22:                                         ; preds = %if.end17
-  %call24 = tail call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef %buf, i64 noundef 100, ptr noundef nonnull @.str.128, i32 noundef %sign.0, i32 noundef %quo.0.i41, ptr noundef %sep, i32 noundef %storemerge.i39) #15
+  %call24 = tail call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %buf, i64 noundef 100, ptr noundef nonnull @.str.128, i32 noundef %sign.0, i32 noundef %quo.0.i41, ptr noundef %sep, i32 noundef %storemerge.i39) #15
   br label %return
 
 return:                                           ; preds = %do.end, %entry, %if.end22, %if.then19, %if.then15, %Py_DECREF.exit42
@@ -8060,17 +8030,17 @@ declare i64 @PyUnicode_GetLength(ptr noundef) local_unnamed_addr #1
 declare ptr @PyObject_Str(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @build_struct_time(i32 noundef %y, i32 noundef %m, i32 noundef %d, i32 noundef %hh, i32 noundef %mm, i32 noundef %ss, i32 noundef %dstflag) unnamed_addr #0 {
+define internal fastcc ptr @build_struct_time(i32 noundef range(i32 0, 65536) %y, i32 noundef range(i32 0, 256) %m, i32 noundef range(i32 0, 256) %d, i32 noundef range(i32 0, 256) %hh, i32 noundef range(i32 0, 256) %mm, i32 noundef range(i32 0, 256) %ss, i32 noundef range(i32 -1, 2) %dstflag) unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyImport_GetModuleAttrString(ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.136) #15
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %idxprom.i.i.i = sext i32 %m to i64
+  %idxprom.i.i.i = zext nneg i32 %m to i64
   %arrayidx.i.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i.i
   %0 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.i.i.i = icmp sgt i32 %m, 2
+  %cmp.i.i.i = icmp ugt i32 %m, 2
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %weekday.exit
 
 land.lhs.true.i.i.i:                              ; preds = %if.end
@@ -8079,8 +8049,9 @@ land.lhs.true.i.i.i:                              ; preds = %if.end
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %is_leap.exit.thread.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i
-  %rem1.i.i.i.i = urem i32 %y, 100
-  %cmp2.not.i.i.i.i = icmp eq i32 %rem1.i.i.i.i, 0
+  %rem1.i.i.i.i.lhs.trunc = trunc nuw i32 %y to i16
+  %rem1.i.i.i.i13 = urem i16 %rem1.i.i.i.i.lhs.trunc, 100
+  %cmp2.not.i.i.i.i = icmp eq i16 %rem1.i.i.i.i13, 0
   br i1 %cmp2.not.i.i.i.i, label %is_leap.exit.i.i.i, label %is_leap.exit.thread6.i.i.i
 
 is_leap.exit.thread6.i.i.i:                       ; preds = %land.rhs.i.i.i.i
@@ -8088,8 +8059,8 @@ is_leap.exit.thread6.i.i.i:                       ; preds = %land.rhs.i.i.i.i
   br label %weekday.exit
 
 is_leap.exit.i.i.i:                               ; preds = %land.rhs.i.i.i.i
-  %rem3.i.i.i.i = urem i32 %y, 400
-  %cmp4.i.not.i.i.i = icmp eq i32 %rem3.i.i.i.i, 0
+  %rem3.i.i.i.i14 = urem i16 %rem1.i.i.i.i.lhs.trunc, 400
+  %cmp4.i.not.i.i.i = icmp eq i16 %rem3.i.i.i.i14, 0
   %inc.i.i.i = add i32 %0, 1
   br i1 %cmp4.i.not.i.i.i, label %weekday.exit, label %is_leap.exit.thread.i.i.i
 
@@ -8098,16 +8069,16 @@ is_leap.exit.thread.i.i.i:                        ; preds = %is_leap.exit.i.i.i,
 
 weekday.exit:                                     ; preds = %if.end, %is_leap.exit.thread6.i.i.i, %is_leap.exit.i.i.i, %is_leap.exit.thread.i.i.i
   %days.0.i.i.i = phi i32 [ %0, %if.end ], [ %0, %is_leap.exit.thread.i.i.i ], [ %inc.i.i.i, %is_leap.exit.i.i.i ], [ %inc9.i.i.i, %is_leap.exit.thread6.i.i.i ]
-  %sub.i.i.i = add i32 %y, -1
-  %mul.i.i.i = mul i32 %sub.i.i.i, 365
+  %sub.i.i.i = add nsw i32 %y, -1
+  %mul.i.i.i = mul nsw i32 %sub.i.i.i, 365
   %div.i.i.i = sdiv i32 %sub.i.i.i, 4
   %div1.neg.i.i.i = sdiv i32 %sub.i.i.i, -100
   %div3.i.i.i = sdiv i32 %sub.i.i.i, 400
-  %add.i.i.i = add nsw i32 %div.i.i.i, 6
-  %sub2.i.i.i = add i32 %add.i.i.i, %mul.i.i.i
-  %add4.i.i.i = add i32 %sub2.i.i.i, %div1.neg.i.i.i
-  %add.i.i = add i32 %add4.i.i.i, %div3.i.i.i
-  %add2.i.i = add i32 %add.i.i, %d
+  %add.i.i.i = add nuw nsw i32 %div.i.i.i, 6
+  %sub2.i.i.i = add nsw i32 %add.i.i.i, %mul.i.i.i
+  %add4.i.i.i = add nsw i32 %sub2.i.i.i, %div1.neg.i.i.i
+  %add.i.i = add nsw i32 %add4.i.i.i, %div3.i.i.i
+  %add2.i.i = add nsw i32 %add.i.i, %d
   %add.i = add i32 %add2.i.i, %days.0.i.i.i
   %rem.i = srem i32 %add.i, 7
   br i1 %cmp.i.i.i, label %land.lhs.true.i, label %days_before_month.exit
@@ -8118,8 +8089,9 @@ land.lhs.true.i:                                  ; preds = %weekday.exit
   br i1 %cmp.i.i, label %land.rhs.i.i, label %is_leap.exit.thread.i
 
 land.rhs.i.i:                                     ; preds = %land.lhs.true.i
-  %rem1.i.i = urem i32 %y, 100
-  %cmp2.not.i.i = icmp eq i32 %rem1.i.i, 0
+  %rem1.i.i.lhs.trunc = trunc nuw i32 %y to i16
+  %rem1.i.i15 = urem i16 %rem1.i.i.lhs.trunc, 100
+  %cmp2.not.i.i = icmp eq i16 %rem1.i.i15, 0
   br i1 %cmp2.not.i.i, label %is_leap.exit.i, label %is_leap.exit.thread6.i
 
 is_leap.exit.thread6.i:                           ; preds = %land.rhs.i.i
@@ -8127,8 +8099,8 @@ is_leap.exit.thread6.i:                           ; preds = %land.rhs.i.i
   br label %days_before_month.exit
 
 is_leap.exit.i:                                   ; preds = %land.rhs.i.i
-  %rem3.i.i = urem i32 %y, 400
-  %cmp4.i.not.i = icmp eq i32 %rem3.i.i, 0
+  %rem3.i.i16 = urem i16 %rem1.i.i.lhs.trunc, 400
+  %cmp4.i.not.i = icmp eq i16 %rem3.i.i16, 0
   %inc.i = add i32 %0, 1
   br i1 %cmp4.i.not.i, label %days_before_month.exit, label %is_leap.exit.thread.i
 
@@ -8640,9 +8612,9 @@ ymd_to_ord.exit:                                  ; preds = %if.else52, %is_leap
   %conv90 = zext i8 %30 to i32
   %or91 = or disjoint i32 %or87, %conv90
   %or.cond.i.i = icmp ugt i32 %or91, 999999
-  br i1 %or.cond.i.i, label %if.then.i.i.i, label %if.end.i.i55
+  br i1 %or.cond.i.i, label %normalize_pair.exit.i.i, label %if.end.i.i55
 
-if.then.i.i.i:                                    ; preds = %ymd_to_ord.exit
+normalize_pair.exit.i.i:                          ; preds = %ymd_to_ord.exit
   %div.i.i.i.i62 = udiv i32 %or91, 1000000
   %mul.i.i.neg.i.i = mul nsw i32 %div.i.i.i.i62, -1000000
   %sub.i.i.i.i = add nsw i32 %mul.i.i.neg.i.i, %or91
@@ -8654,27 +8626,27 @@ if.then.i.i.i:                                    ; preds = %ymd_to_ord.exit
   %add.i.i.i = add nsw i32 %quo.0.i.i.i.i, %sub.lobit.i.i.i.i
   br label %if.end.i.i55
 
-if.end.i.i55:                                     ; preds = %if.then.i.i.i, %ymd_to_ord.exit
-  %seconds.addr.1.i = phi i32 [ %add.i.i.i, %if.then.i.i.i ], [ %add78, %ymd_to_ord.exit ]
-  %microseconds.addr.1.i = phi i32 [ %storemerge.i.i.i.i, %if.then.i.i.i ], [ %or91, %ymd_to_ord.exit ]
+if.end.i.i55:                                     ; preds = %normalize_pair.exit.i.i, %ymd_to_ord.exit
+  %seconds.addr.1.i = phi i32 [ %add.i.i.i, %normalize_pair.exit.i.i ], [ %add78, %ymd_to_ord.exit ]
+  %microseconds.addr.1.i = phi i32 [ %storemerge.i.i.i.i, %normalize_pair.exit.i.i ], [ %or91, %ymd_to_ord.exit ]
   %or.cond7.i.i = icmp ugt i32 %seconds.addr.1.i, 86399
-  br i1 %or.cond7.i.i, label %if.then.i11.i.i, label %if.end.i56
+  br i1 %or.cond7.i.i, label %normalize_pair.exit19.i.i, label %if.end.i56
 
-if.then.i11.i.i:                                  ; preds = %if.end.i.i55
-  %div.i.i12.i.i63 = udiv i32 %seconds.addr.1.i, 86400
-  %mul.i.i13.neg.i.i = mul nsw i32 %div.i.i12.i.i63, -86400
-  %sub.i.i14.i.i = add nsw i32 %mul.i.i13.neg.i.i, %seconds.addr.1.i
-  %cmp.i.i15.i.i = icmp slt i32 %sub.i.i14.i.i, 0
-  %add.i.i16.i.i = select i1 %cmp.i.i15.i.i, i32 86400, i32 0
-  %storemerge.i.i17.i.i = add nsw i32 %add.i.i16.i.i, %sub.i.i14.i.i
-  %sub.lobit.i.i18.i.i = ashr i32 %sub.i.i14.i.i, 31
-  %quo.0.i.i19.i.i = add i32 %div.i.i12.i.i63, %add2.i
-  %add.i20.i.i = add i32 %quo.0.i.i19.i.i, %sub.lobit.i.i18.i.i
+normalize_pair.exit19.i.i:                        ; preds = %if.end.i.i55
+  %div.i.i10.i.i63 = udiv i32 %seconds.addr.1.i, 86400
+  %mul.i.i11.neg.i.i = mul nsw i32 %div.i.i10.i.i63, -86400
+  %sub.i.i12.i.i = add nsw i32 %mul.i.i11.neg.i.i, %seconds.addr.1.i
+  %cmp.i.i13.i.i = icmp slt i32 %sub.i.i12.i.i, 0
+  %add.i.i14.i.i = select i1 %cmp.i.i13.i.i, i32 86400, i32 0
+  %storemerge.i.i15.i.i = add nsw i32 %add.i.i14.i.i, %sub.i.i12.i.i
+  %sub.lobit.i.i16.i.i = ashr i32 %sub.i.i12.i.i, 31
+  %quo.0.i.i17.i.i = add i32 %div.i.i10.i.i63, %add2.i
+  %add.i18.i.i = add i32 %quo.0.i.i17.i.i, %sub.lobit.i.i16.i.i
   br label %if.end.i56
 
-if.end.i56:                                       ; preds = %if.then.i11.i.i, %if.end.i.i55
-  %days.addr.0.i = phi i32 [ %add.i20.i.i, %if.then.i11.i.i ], [ %add2.i, %if.end.i.i55 ]
-  %seconds.addr.0.i = phi i32 [ %storemerge.i.i17.i.i, %if.then.i11.i.i ], [ %seconds.addr.1.i, %if.end.i.i55 ]
+if.end.i56:                                       ; preds = %normalize_pair.exit19.i.i, %if.end.i.i55
+  %days.addr.0.i = phi i32 [ %add.i18.i.i, %normalize_pair.exit19.i.i ], [ %add2.i, %if.end.i.i55 ]
+  %seconds.addr.0.i = phi i32 [ %storemerge.i.i15.i.i, %normalize_pair.exit19.i.i ], [ %seconds.addr.1.i, %if.end.i.i55 ]
   %31 = add i32 %days.addr.0.i, 999999999
   %or.cond.i7.i = icmp ult i32 %31, 1999999999
   br i1 %or.cond.i7.i, label %if.end2.i, label %check_delta_day_range.exit.thread.i
@@ -9990,9 +9962,9 @@ ymd_to_ord.exit123:                               ; preds = %ymd_to_ord.exit, %i
   %or121 = or disjoint i32 %or117, %conv120
   %sub122 = sub nsw i32 %or108, %or121
   %or.cond.i.i = icmp ugt i32 %sub122, 999999
-  br i1 %or.cond.i.i, label %if.then.i.i.i, label %if.end.i.i125
+  br i1 %or.cond.i.i, label %normalize_pair.exit.i.i, label %if.end.i.i125
 
-if.then.i.i.i:                                    ; preds = %ymd_to_ord.exit123
+normalize_pair.exit.i.i:                          ; preds = %ymd_to_ord.exit123
   %div.i.i.i.i = sdiv i32 %sub122, 1000000
   %mul.i.i.neg.i.i = mul nsw i32 %div.i.i.i.i, -1000000
   %sub.i.i.i.i = add nsw i32 %mul.i.i.neg.i.i, %sub122
@@ -10004,27 +9976,27 @@ if.then.i.i.i:                                    ; preds = %ymd_to_ord.exit123
   %add.i.i.i = add nsw i32 %quo.0.i.i.i.i, %sub.lobit.i.i.i.i
   br label %if.end.i.i125
 
-if.end.i.i125:                                    ; preds = %if.then.i.i.i, %ymd_to_ord.exit123
-  %seconds.addr.1.i = phi i32 [ %add.i.i.i, %if.then.i.i.i ], [ %add95, %ymd_to_ord.exit123 ]
-  %microseconds.addr.1.i = phi i32 [ %storemerge.i.i.i.i, %if.then.i.i.i ], [ %sub122, %ymd_to_ord.exit123 ]
+if.end.i.i125:                                    ; preds = %normalize_pair.exit.i.i, %ymd_to_ord.exit123
+  %seconds.addr.1.i = phi i32 [ %add.i.i.i, %normalize_pair.exit.i.i ], [ %add95, %ymd_to_ord.exit123 ]
+  %microseconds.addr.1.i = phi i32 [ %storemerge.i.i.i.i, %normalize_pair.exit.i.i ], [ %sub122, %ymd_to_ord.exit123 ]
   %or.cond7.i.i = icmp ugt i32 %seconds.addr.1.i, 86399
-  br i1 %or.cond7.i.i, label %if.then.i11.i.i, label %if.end.i126
+  br i1 %or.cond7.i.i, label %normalize_pair.exit19.i.i, label %if.end.i126
 
-if.then.i11.i.i:                                  ; preds = %if.end.i.i125
-  %div.i.i12.i.i = sdiv i32 %seconds.addr.1.i, 86400
-  %mul.i.i13.neg.i.i = mul nsw i32 %div.i.i12.i.i, -86400
-  %sub.i.i14.i.i = add nsw i32 %mul.i.i13.neg.i.i, %seconds.addr.1.i
-  %cmp.i.i15.i.i = icmp slt i32 %sub.i.i14.i.i, 0
-  %add.i.i16.i.i = select i1 %cmp.i.i15.i.i, i32 86400, i32 0
-  %storemerge.i.i17.i.i = add nsw i32 %add.i.i16.i.i, %sub.i.i14.i.i
-  %sub.lobit.i.i18.i.i = ashr i32 %sub.i.i14.i.i, 31
-  %quo.0.i.i19.i.i = add i32 %div.i.i12.i.i, %sub
-  %add.i20.i.i = add i32 %quo.0.i.i19.i.i, %sub.lobit.i.i18.i.i
+normalize_pair.exit19.i.i:                        ; preds = %if.end.i.i125
+  %div.i.i10.i.i = sdiv i32 %seconds.addr.1.i, 86400
+  %mul.i.i11.neg.i.i = mul nsw i32 %div.i.i10.i.i, -86400
+  %sub.i.i12.i.i = add nsw i32 %mul.i.i11.neg.i.i, %seconds.addr.1.i
+  %cmp.i.i13.i.i = icmp slt i32 %sub.i.i12.i.i, 0
+  %add.i.i14.i.i = select i1 %cmp.i.i13.i.i, i32 86400, i32 0
+  %storemerge.i.i15.i.i = add nsw i32 %add.i.i14.i.i, %sub.i.i12.i.i
+  %sub.lobit.i.i16.i.i = ashr i32 %sub.i.i12.i.i, 31
+  %quo.0.i.i17.i.i = add i32 %div.i.i10.i.i, %sub
+  %add.i18.i.i = add i32 %quo.0.i.i17.i.i, %sub.lobit.i.i16.i.i
   br label %if.end.i126
 
-if.end.i126:                                      ; preds = %if.then.i11.i.i, %if.end.i.i125
-  %days.addr.0.i = phi i32 [ %add.i20.i.i, %if.then.i11.i.i ], [ %sub, %if.end.i.i125 ]
-  %seconds.addr.0.i = phi i32 [ %storemerge.i.i17.i.i, %if.then.i11.i.i ], [ %seconds.addr.1.i, %if.end.i.i125 ]
+if.end.i126:                                      ; preds = %normalize_pair.exit19.i.i, %if.end.i.i125
+  %days.addr.0.i = phi i32 [ %add.i18.i.i, %normalize_pair.exit19.i.i ], [ %sub, %if.end.i.i125 ]
+  %seconds.addr.0.i = phi i32 [ %storemerge.i.i15.i.i, %normalize_pair.exit19.i.i ], [ %seconds.addr.1.i, %if.end.i.i125 ]
   %55 = add i32 %days.addr.0.i, 999999999
   %or.cond.i7.i = icmp ult i32 %55, 1999999999
   br i1 %or.cond.i7.i, label %if.end2.i, label %check_delta_day_range.exit.thread.i
@@ -11036,7 +11008,7 @@ _find_isoformat_datetime_separator.exit:          ; preds = %if.end11, %if.end.i
   store i32 0, ptr %microsecond, align 4
   store i32 0, ptr %tzoffset, align 4
   store i32 0, ptr %tzusec, align 4
-  %call13 = call fastcc i32 @parse_isoformat_date(ptr noundef nonnull %call5, i64 noundef %retval.0.i34, ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day)
+  %call13 = call fastcc i32 @parse_isoformat_date(ptr noundef %call5, i64 noundef %retval.0.i34, ptr noundef %year, ptr noundef %month, ptr noundef %day)
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %land.lhs.true, label %error.thread63
 
@@ -11067,7 +11039,7 @@ if.end31:                                         ; preds = %if.else21, %if.then
   %sub.ptr.sub.neg = sub i64 %sub.ptr.rhs.cast, %sub.ptr.lhs.cast
   %sub = add i64 %sub.ptr.sub.neg, %26
   store i64 %sub, ptr %len, align 8
-  %call30 = call fastcc i32 @parse_isoformat_time(ptr noundef %add.ptr20, i64 noundef %sub, ptr noundef nonnull %hour, ptr noundef nonnull %minute, ptr noundef nonnull %second, ptr noundef nonnull %microsecond, ptr noundef nonnull %tzoffset, ptr noundef nonnull %tzusec)
+  %call30 = call fastcc i32 @parse_isoformat_time(ptr noundef %add.ptr20, i64 noundef %sub, ptr noundef %hour, ptr noundef %minute, ptr noundef %second, ptr noundef %microsecond, ptr noundef %tzoffset, ptr noundef %tzusec)
   %cmp32 = icmp slt i32 %call30, 0
   br i1 %cmp32, label %error.thread63, label %if.end31.if.end35_crit_edge
 
@@ -11838,7 +11810,7 @@ lor.lhs.false66:                                  ; preds = %if.else37
 if.end69:                                         ; preds = %lor.lhs.false66
   %tzinfo = getelementptr inbounds i8, ptr %self, i64 40
   %16 = load ptr, ptr %tzinfo, align 8
-  %call70 = call fastcc i32 @format_utcoffset(ptr noundef nonnull %buffer, ptr noundef nonnull @.str.125, ptr noundef %16, ptr noundef nonnull %self)
+  %call70 = call fastcc i32 @format_utcoffset(ptr noundef %buffer, ptr noundef nonnull @.str.125, ptr noundef %16, ptr noundef nonnull %self)
   %cmp71 = icmp slt i32 %call70, 0
   br i1 %cmp71, label %if.then73, label %if.end74
 
@@ -12421,7 +12393,7 @@ if.end83:                                         ; preds = %_Py_NewRef.exit82, 
   br i1 %cmp84, label %if.then86, label %if.else92
 
 if.then86:                                        ; preds = %if.end83
-  %call87 = call fastcc ptr @local_timezone(ptr noundef nonnull %result.0)
+  %call87 = call fastcc ptr @local_timezone(ptr noundef %result.0)
   store ptr %call87, ptr %tzinfo, align 8
   %cmp88 = icmp eq ptr %call87, null
   br i1 %cmp88, label %if.then90, label %do.body94
@@ -12888,7 +12860,7 @@ declare ptr @PyImport_ImportModule(ptr noundef) local_unnamed_addr #1
 declare ptr @PyObject_CallMethodObjArgs(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -5, 2) i32 @parse_isoformat_time(ptr noundef %dtstr, i64 noundef %dtlen, ptr noundef %hour, ptr noundef %minute, ptr noundef %second, ptr nocapture noundef %microsecond, ptr nocapture noundef writeonly %tzoffset, ptr nocapture noundef %tzmicrosecond) unnamed_addr #8 {
+define internal fastcc range(i32 -5, 2) i32 @parse_isoformat_time(ptr noundef %dtstr, i64 noundef %dtlen, ptr noundef nonnull %hour, ptr noundef nonnull %minute, ptr noundef nonnull %second, ptr nocapture noundef nonnull %microsecond, ptr nocapture noundef nonnull writeonly %tzoffset, ptr nocapture noundef nonnull %tzmicrosecond) unnamed_addr #8 {
 entry:
   %tzhour = alloca i32, align 4
   %tzminute = alloca i32, align 4
@@ -12945,7 +12917,7 @@ if.end33:                                         ; preds = %if.end22
   store i32 0, ptr %tzhour, align 4
   store i32 0, ptr %tzminute, align 4
   store i32 0, ptr %tzsecond, align 4
-  %call38 = call fastcc i32 @parse_hh_mm_ss_ff(ptr noundef %add.ptr27, ptr noundef %add.ptr, ptr noundef nonnull %tzhour, ptr noundef nonnull %tzminute, ptr noundef nonnull %tzsecond, ptr noundef %tzmicrosecond)
+  %call38 = call fastcc i32 @parse_hh_mm_ss_ff(ptr noundef %add.ptr27, ptr noundef %add.ptr, ptr noundef %tzhour, ptr noundef %tzminute, ptr noundef %tzsecond, ptr noundef %tzmicrosecond)
   %3 = load i32, ptr %tzhour, align 4
   %mul = mul i32 %3, 3600
   %4 = load i32, ptr %tzminute, align 4
@@ -12968,7 +12940,7 @@ return:                                           ; preds = %if.then26, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @tzinfo_from_isoformat_results(i32 noundef %rv, i32 noundef %tzoffset, i32 noundef %tz_useconds) unnamed_addr #0 {
+define internal fastcc ptr @tzinfo_from_isoformat_results(i32 noundef range(i32 0, -2147483648) %rv, i32 noundef %tzoffset, i32 noundef %tz_useconds) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %rv, 1
   br i1 %cmp, label %if.then, label %if.else
@@ -12990,9 +12962,9 @@ if.end.i.i:                                       ; preds = %if.then2
 
 if.end:                                           ; preds = %if.then
   %or.cond.i.i = icmp ugt i32 %tz_useconds, 999999
-  br i1 %or.cond.i.i, label %if.then.i.i.i, label %if.end.i.i6
+  br i1 %or.cond.i.i, label %normalize_pair.exit.i.i, label %if.end.i.i6
 
-if.then.i.i.i:                                    ; preds = %if.end
+normalize_pair.exit.i.i:                          ; preds = %if.end
   %div.i.i.i.i = sdiv i32 %tz_useconds, 1000000
   %mul.i.i.neg.i.i = mul nsw i32 %div.i.i.i.i, -1000000
   %sub.i.i.i.i = add i32 %mul.i.i.neg.i.i, %tz_useconds
@@ -13004,26 +12976,26 @@ if.then.i.i.i:                                    ; preds = %if.end
   %add.i.i.i = add i32 %quo.0.i.i.i.i, %sub.lobit.i.i.i.i
   br label %if.end.i.i6
 
-if.end.i.i6:                                      ; preds = %if.then.i.i.i, %if.end
-  %seconds.addr.1.i = phi i32 [ %add.i.i.i, %if.then.i.i.i ], [ %tzoffset, %if.end ]
-  %2 = phi i32 [ %storemerge.i.i.i.i, %if.then.i.i.i ], [ %tz_useconds, %if.end ]
+if.end.i.i6:                                      ; preds = %normalize_pair.exit.i.i, %if.end
+  %seconds.addr.1.i = phi i32 [ %add.i.i.i, %normalize_pair.exit.i.i ], [ %tzoffset, %if.end ]
+  %2 = phi i32 [ %storemerge.i.i.i.i, %normalize_pair.exit.i.i ], [ %tz_useconds, %if.end ]
   %or.cond7.i.i = icmp ugt i32 %seconds.addr.1.i, 86399
   br i1 %or.cond7.i.i, label %if.end.i7, label %if.end2.i
 
 if.end.i7:                                        ; preds = %if.end.i.i6
-  %div.i.i12.i.i = sdiv i32 %seconds.addr.1.i, 86400
-  %mul.i.i13.neg.i.i = mul nsw i32 %div.i.i12.i.i, -86400
-  %sub.i.i14.i.i = add i32 %mul.i.i13.neg.i.i, %seconds.addr.1.i
-  %cmp.i.i15.i.i = icmp slt i32 %sub.i.i14.i.i, 0
-  %add.i.i16.i.i = select i1 %cmp.i.i15.i.i, i32 86400, i32 0
-  %storemerge.i.i17.i.i = add nsw i32 %add.i.i16.i.i, %sub.i.i14.i.i
-  %sub.lobit.i.i18.i.i = ashr i32 %sub.i.i14.i.i, 31
-  %add.i20.i.i = add nsw i32 %sub.lobit.i.i18.i.i, %div.i.i12.i.i
+  %div.i.i10.i.i = sdiv i32 %seconds.addr.1.i, 86400
+  %mul.i.i11.neg.i.i = mul nsw i32 %div.i.i10.i.i, -86400
+  %sub.i.i12.i.i = add i32 %mul.i.i11.neg.i.i, %seconds.addr.1.i
+  %cmp.i.i13.i.i = icmp slt i32 %sub.i.i12.i.i, 0
+  %add.i.i14.i.i = select i1 %cmp.i.i13.i.i, i32 86400, i32 0
+  %storemerge.i.i15.i.i = add nsw i32 %add.i.i14.i.i, %sub.i.i12.i.i
+  %sub.lobit.i.i16.i.i = ashr i32 %sub.i.i12.i.i, 31
+  %add.i18.i.i = add nsw i32 %sub.lobit.i.i16.i.i, %div.i.i10.i.i
   br label %if.end2.i
 
 if.end2.i:                                        ; preds = %if.end.i7, %if.end.i.i6
-  %3 = phi i32 [ %storemerge.i.i17.i.i, %if.end.i7 ], [ %seconds.addr.1.i, %if.end.i.i6 ]
-  %days.addr.0.i23 = phi i32 [ %add.i20.i.i, %if.end.i7 ], [ 0, %if.end.i.i6 ]
+  %3 = phi i32 [ %storemerge.i.i15.i.i, %if.end.i7 ], [ %seconds.addr.1.i, %if.end.i.i6 ]
+  %days.addr.0.i23 = phi i32 [ %add.i18.i.i, %if.end.i7 ], [ 0, %if.end.i.i6 ]
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i = tail call ptr %4(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i = icmp eq ptr %call3.i, null
@@ -13131,7 +13103,7 @@ declare ptr @_PyUnicode_Copy(ptr noundef) local_unnamed_addr #1
 declare i32 @PyUnicode_WriteChar(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -4, 2) i32 @parse_hh_mm_ss_ff(ptr noundef %tstr, ptr noundef %tstr_end, ptr noundef %hour, ptr noundef %minute, ptr noundef %second, ptr nocapture noundef %microsecond) unnamed_addr #8 {
+define internal fastcc range(i32 -4, 2) i32 @parse_hh_mm_ss_ff(ptr noundef %tstr, ptr noundef %tstr_end, ptr noundef nonnull %hour, ptr noundef nonnull %minute, ptr noundef nonnull %second, ptr nocapture noundef nonnull %microsecond) unnamed_addr #8 {
 entry:
   %vals = alloca [3 x ptr], align 16
   store i32 0, ptr %microsecond, align 4
@@ -13310,9 +13282,9 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -967022624018918, 967022623928858) i64 @local_to_seconds(i32 noundef %year, i32 noundef %month, i32 noundef %day, i32 noundef %hour, i32 noundef %minute, i32 noundef %second, i32 noundef %fold) unnamed_addr #0 {
+define internal fastcc range(i64 -943436811112934, 943436813834522) i64 @local_to_seconds(i32 noundef range(i32 0, 65536) %year, i32 noundef range(i32 0, 256) %month, i32 noundef range(i32 0, 256) %day, i32 noundef range(i32 0, 256) %hour, i32 noundef range(i32 0, 256) %minute, i32 noundef range(i32 0, 256) %second, i32 noundef range(i32 0, 256) %fold) unnamed_addr #0 {
 entry:
-  %0 = add i32 %year, -10000
+  %0 = add nsw i32 %year, -10000
   %or.cond.i = icmp ult i32 %0, -9999
   br i1 %or.cond.i, label %if.then.i, label %if.end.i
 
@@ -13322,10 +13294,10 @@ if.then.i:                                        ; preds = %entry
   br label %utc_to_seconds.exit
 
 if.end.i:                                         ; preds = %entry
-  %idxprom.i.i.i = sext i32 %month to i64
+  %idxprom.i.i.i = zext nneg i32 %month to i64
   %arrayidx.i.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i.i
   %2 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.i.i.i = icmp sgt i32 %month, 2
+  %cmp.i.i.i = icmp ugt i32 %month, 2
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %ymd_to_ord.exit.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i
@@ -13362,20 +13334,20 @@ ymd_to_ord.exit.i:                                ; preds = %is_leap.exit.thread
   %div1.neg.i.i8.zext.i = zext nneg i16 %div1.neg.i.i89.i to i32
   %div3.i.i1011.i = udiv i16 %div1.neg.i.i8.lhs.trunc.i, 400
   %div3.i.i10.zext.i = zext nneg i16 %div3.i.i1011.i to i32
-  %add.i.i.i = add i32 %day, %mul.i.i.i
-  %sub2.i.i.i = add i32 %add.i.i.i, %div.i.i6712.i
-  %add4.i.i.i = sub i32 %sub2.i.i.i, %div1.neg.i.i8.zext.i
-  %add.i.i = add i32 %add4.i.i.i, %div3.i.i10.zext.i
+  %add.i.i.i = add nuw nsw i32 %day, %mul.i.i.i
+  %sub2.i.i.i = add nuw nsw i32 %add.i.i.i, %div.i.i6712.i
+  %add4.i.i.i = sub nsw i32 %sub2.i.i.i, %div1.neg.i.i8.zext.i
+  %add.i.i = add nsw i32 %add4.i.i.i, %div3.i.i10.zext.i
   %add2.i.i = add i32 %add.i.i, %days.0.i.i.i
   %conv.i = sext i32 %add2.i.i to i64
   %mul.i = mul nsw i64 %conv.i, 24
-  %conv3.i = sext i32 %hour to i64
+  %conv3.i = zext nneg i32 %hour to i64
   %add.i = add nsw i64 %mul.i, %conv3.i
   %mul4.i = mul nsw i64 %add.i, 60
-  %conv5.i = sext i32 %minute to i64
+  %conv5.i = zext nneg i32 %minute to i64
   %add6.i = add nsw i64 %mul4.i, %conv5.i
   %mul7.i = mul nsw i64 %add6.i, 60
-  %conv8.i = sext i32 %second to i64
+  %conv8.i = zext nneg i32 %second to i64
   %add9.i = add nsw i64 %mul7.i, %conv8.i
   br label %utc_to_seconds.exit
 
@@ -13625,10 +13597,10 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @PyUnicode_AppendAndDel(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @local_timezone(ptr noundef %utc_time) unnamed_addr #0 {
+define internal fastcc ptr @local_timezone(ptr noundef nonnull %utc_time) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @_datetime_global_state.8, align 8
-  %call = tail call ptr @datetime_subtract(ptr noundef %utc_time, ptr noundef %0)
+  %call = tail call ptr @datetime_subtract(ptr noundef nonnull %utc_time, ptr noundef %0)
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
@@ -13756,19 +13728,19 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond7.i.i, label %if.end.i8, label %if.end2.i
 
 if.end.i8:                                        ; preds = %if.end
-  %div.i.i12.i.i = sdiv i32 %conv, 86400
-  %mul.i.i13.neg.i.i = mul nsw i32 %div.i.i12.i.i, -86400
-  %sub.i.i14.i.i = add i32 %mul.i.i13.neg.i.i, %conv
-  %cmp.i.i15.i.i = icmp slt i32 %sub.i.i14.i.i, 0
-  %add.i.i16.i.i = select i1 %cmp.i.i15.i.i, i32 86400, i32 0
-  %storemerge.i.i17.i.i = add nsw i32 %add.i.i16.i.i, %sub.i.i14.i.i
-  %sub.lobit.i.i18.i.i = ashr i32 %sub.i.i14.i.i, 31
-  %add.i20.i.i = add nsw i32 %sub.lobit.i.i18.i.i, %div.i.i12.i.i
+  %div.i.i10.i.i = sdiv i32 %conv, 86400
+  %mul.i.i11.neg.i.i = mul nsw i32 %div.i.i10.i.i, -86400
+  %sub.i.i12.i.i = add i32 %mul.i.i11.neg.i.i, %conv
+  %cmp.i.i13.i.i = icmp slt i32 %sub.i.i12.i.i, 0
+  %add.i.i14.i.i = select i1 %cmp.i.i13.i.i, i32 86400, i32 0
+  %storemerge.i.i15.i.i = add nsw i32 %add.i.i14.i.i, %sub.i.i12.i.i
+  %sub.lobit.i.i16.i.i = ashr i32 %sub.i.i12.i.i, 31
+  %add.i18.i.i = add nsw i32 %sub.lobit.i.i16.i.i, %div.i.i10.i.i
   br label %if.end2.i
 
 if.end2.i:                                        ; preds = %if.end.i8, %if.end
-  %2 = phi i32 [ %storemerge.i.i17.i.i, %if.end.i8 ], [ %conv, %if.end ]
-  %3 = phi i32 [ %add.i20.i.i, %if.end.i8 ], [ 0, %if.end ]
+  %2 = phi i32 [ %storemerge.i.i15.i.i, %if.end.i8 ], [ %conv, %if.end ]
+  %3 = phi i32 [ %add.i18.i.i, %if.end.i8 ], [ 0, %if.end ]
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i = call ptr %4(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i = icmp eq ptr %call3.i, null
@@ -14510,9 +14482,9 @@ if.else38:                                        ; preds = %if.end31
   %conv61 = zext i8 %21 to i32
   %or62 = or disjoint i32 %or58, %conv61
   %or.cond.i.i = icmp ugt i32 %or62, 999999
-  br i1 %or.cond.i.i, label %if.then.i.i.i, label %if.end.i.i45
+  br i1 %or.cond.i.i, label %normalize_pair.exit.i.i, label %if.end.i.i45
 
-if.then.i.i.i:                                    ; preds = %if.else38
+normalize_pair.exit.i.i:                          ; preds = %if.else38
   %div.i.i.i.i55 = udiv i32 %or62, 1000000
   %mul.i.i.neg.i.i = mul nsw i32 %div.i.i.i.i55, -1000000
   %sub.i.i.i.i = add nsw i32 %mul.i.i.neg.i.i, %or62
@@ -14524,26 +14496,26 @@ if.then.i.i.i:                                    ; preds = %if.else38
   %add.i.i.i = add nsw i32 %quo.0.i.i.i.i, %sub.lobit.i.i.i.i
   br label %if.end.i.i45
 
-if.end.i.i45:                                     ; preds = %if.then.i.i.i, %if.else38
-  %seconds.addr.1.i = phi i32 [ %add.i.i.i, %if.then.i.i.i ], [ %add49, %if.else38 ]
-  %microseconds.addr.1.i = phi i32 [ %storemerge.i.i.i.i, %if.then.i.i.i ], [ %or62, %if.else38 ]
+if.end.i.i45:                                     ; preds = %normalize_pair.exit.i.i, %if.else38
+  %seconds.addr.1.i = phi i32 [ %add.i.i.i, %normalize_pair.exit.i.i ], [ %add49, %if.else38 ]
+  %microseconds.addr.1.i = phi i32 [ %storemerge.i.i.i.i, %normalize_pair.exit.i.i ], [ %or62, %if.else38 ]
   %or.cond7.i.i = icmp ugt i32 %seconds.addr.1.i, 86399
   br i1 %or.cond7.i.i, label %if.end.i46, label %if.end2.i
 
 if.end.i46:                                       ; preds = %if.end.i.i45
-  %div.i.i12.i.i56 = udiv i32 %seconds.addr.1.i, 86400
-  %mul.i.i13.neg.i.i = mul nsw i32 %div.i.i12.i.i56, -86400
-  %sub.i.i14.i.i = add nsw i32 %mul.i.i13.neg.i.i, %seconds.addr.1.i
-  %cmp.i.i15.i.i = icmp slt i32 %sub.i.i14.i.i, 0
-  %add.i.i16.i.i = select i1 %cmp.i.i15.i.i, i32 86400, i32 0
-  %storemerge.i.i17.i.i = add nsw i32 %add.i.i16.i.i, %sub.i.i14.i.i
-  %sub.lobit.i.i18.i.i = ashr i32 %sub.i.i14.i.i, 31
-  %add.i20.i.i = add nsw i32 %sub.lobit.i.i18.i.i, %div.i.i12.i.i56
+  %div.i.i10.i.i56 = udiv i32 %seconds.addr.1.i, 86400
+  %mul.i.i11.neg.i.i = mul nsw i32 %div.i.i10.i.i56, -86400
+  %sub.i.i12.i.i = add nsw i32 %mul.i.i11.neg.i.i, %seconds.addr.1.i
+  %cmp.i.i13.i.i = icmp slt i32 %sub.i.i12.i.i, 0
+  %add.i.i14.i.i = select i1 %cmp.i.i13.i.i, i32 86400, i32 0
+  %storemerge.i.i15.i.i = add nsw i32 %add.i.i14.i.i, %sub.i.i12.i.i
+  %sub.lobit.i.i16.i.i = ashr i32 %sub.i.i12.i.i, 31
+  %add.i18.i.i = add nsw i32 %sub.lobit.i.i16.i.i, %div.i.i10.i.i56
   br label %if.end2.i
 
 if.end2.i:                                        ; preds = %if.end.i46, %if.end.i.i45
-  %seconds.addr.0.i52 = phi i32 [ %storemerge.i.i17.i.i, %if.end.i46 ], [ %seconds.addr.1.i, %if.end.i.i45 ]
-  %days.addr.0.i51 = phi i32 [ %add.i20.i.i, %if.end.i46 ], [ 0, %if.end.i.i45 ]
+  %seconds.addr.0.i52 = phi i32 [ %storemerge.i.i15.i.i, %if.end.i46 ], [ %seconds.addr.1.i, %if.end.i.i45 ]
+  %days.addr.0.i51 = phi i32 [ %add.i18.i.i, %if.end.i46 ], [ 0, %if.end.i.i45 ]
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDateTime_DeltaType, i64 304), align 8
   %call3.i = tail call ptr %22(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i = icmp eq ptr %call3.i, null
@@ -15435,7 +15407,7 @@ lor.lhs.false55:                                  ; preds = %lor.lhs.false53
   br i1 %cmp56, label %return, label %if.end59
 
 if.end59:                                         ; preds = %lor.lhs.false55
-  %call61 = call fastcc i32 @format_utcoffset(ptr noundef nonnull %buf, ptr noundef nonnull @.str.125, ptr noundef %11, ptr noundef nonnull @_Py_NoneStruct)
+  %call61 = call fastcc i32 @format_utcoffset(ptr noundef %buf, ptr noundef nonnull @.str.125, ptr noundef %11, ptr noundef nonnull @_Py_NoneStruct)
   %cmp62 = icmp slt i32 %call61, 0
   br i1 %cmp62, label %if.then64, label %if.end65
 
@@ -15490,7 +15462,7 @@ if.end:                                           ; preds = %entry
 
 if.end10:                                         ; preds = %if.end
   %3 = load ptr, ptr %format, align 8
-  %call11 = call fastcc ptr @wrap_strftime(ptr noundef nonnull %self, ptr noundef %3, ptr noundef nonnull %call7, ptr noundef nonnull @_Py_NoneStruct)
+  %call11 = call fastcc ptr @wrap_strftime(ptr noundef nonnull %self, ptr noundef %3, ptr noundef %call7, ptr noundef nonnull @_Py_NoneStruct)
   %4 = load i64, ptr %call7, align 8
   %5 = and i64 %4, 2147483648
   %cmp.i13.not = icmp eq i64 %5, 0
@@ -15751,7 +15723,7 @@ if.end8:                                          ; preds = %if.then7, %if.end4
   store i32 0, ptr %microsecond, align 4
   store i32 0, ptr %tzoffset, align 4
   store i32 0, ptr %tzimicrosecond, align 4
-  %call9 = call fastcc i32 @parse_isoformat_time(ptr noundef %p.0, i64 noundef %5, ptr noundef nonnull %hour, ptr noundef nonnull %minute, ptr noundef nonnull %second, ptr noundef nonnull %microsecond, ptr noundef nonnull %tzoffset, ptr noundef nonnull %tzimicrosecond)
+  %call9 = call fastcc i32 @parse_isoformat_time(ptr noundef %p.0, i64 noundef %5, ptr noundef %hour, ptr noundef %minute, ptr noundef %second, ptr noundef %microsecond, ptr noundef %tzoffset, ptr noundef %tzimicrosecond)
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %invalid_string_error, label %if.end13
 
@@ -16352,7 +16324,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool.not, label %if.end11, label %if.then5
 
 if.then5:                                         ; preds = %if.end4
-  %call7 = call fastcc ptr @accum(ptr noundef nonnull @.str.205, ptr noundef nonnull %call1, ptr noundef nonnull %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848), ptr noundef nonnull %leftover_us)
+  %call7 = call fastcc ptr @accum(ptr noundef nonnull @.str.205, ptr noundef %call1, ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848), ptr noundef %leftover_us)
   %1 = load i64, ptr %call1, align 8
   %2 = and i64 %1, 2147483648
   %cmp.i201.not = icmp eq i64 %2, 0
@@ -16380,7 +16352,7 @@ if.end11:                                         ; preds = %Py_DECREF.exit199, 
 
 if.then13:                                        ; preds = %if.end11
   %4 = load ptr, ptr @_datetime_global_state.0, align 8
-  %call14 = call fastcc ptr @accum(ptr noundef nonnull @.str.203, ptr noundef nonnull %x.0, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %leftover_us)
+  %call14 = call fastcc ptr @accum(ptr noundef nonnull @.str.203, ptr noundef %x.0, ptr noundef %3, ptr noundef %4, ptr noundef %leftover_us)
   %5 = load i64, ptr %x.0, align 8
   %6 = and i64 %5, 2147483648
   %cmp.i204.not = icmp eq i64 %6, 0
@@ -16408,7 +16380,7 @@ if.end18:                                         ; preds = %Py_DECREF.exit190, 
 
 if.then20:                                        ; preds = %if.end18
   %8 = load ptr, ptr @_datetime_global_state.1, align 8
-  %call21 = call fastcc ptr @accum(ptr noundef nonnull @.str.201, ptr noundef nonnull %x.1, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %leftover_us)
+  %call21 = call fastcc ptr @accum(ptr noundef nonnull @.str.201, ptr noundef %x.1, ptr noundef %7, ptr noundef %8, ptr noundef %leftover_us)
   %9 = load i64, ptr %x.1, align 8
   %10 = and i64 %9, 2147483648
   %cmp.i208.not = icmp eq i64 %10, 0
@@ -16436,7 +16408,7 @@ if.end25:                                         ; preds = %Py_DECREF.exit181, 
 
 if.then27:                                        ; preds = %if.end25
   %12 = load ptr, ptr @_datetime_global_state.2, align 8
-  %call28 = call fastcc ptr @accum(ptr noundef nonnull @.str.199, ptr noundef nonnull %x.2, ptr noundef nonnull %11, ptr noundef %12, ptr noundef nonnull %leftover_us)
+  %call28 = call fastcc ptr @accum(ptr noundef nonnull @.str.199, ptr noundef %x.2, ptr noundef %11, ptr noundef %12, ptr noundef %leftover_us)
   %13 = load i64, ptr %x.2, align 8
   %14 = and i64 %13, 2147483648
   %cmp.i212.not = icmp eq i64 %14, 0
@@ -16464,7 +16436,7 @@ if.end32:                                         ; preds = %Py_DECREF.exit172, 
 
 if.then34:                                        ; preds = %if.end32
   %16 = load ptr, ptr @_datetime_global_state.3, align 8
-  %call35 = call fastcc ptr @accum(ptr noundef nonnull @.str.197, ptr noundef nonnull %x.3, ptr noundef nonnull %15, ptr noundef %16, ptr noundef nonnull %leftover_us)
+  %call35 = call fastcc ptr @accum(ptr noundef nonnull @.str.197, ptr noundef %x.3, ptr noundef %15, ptr noundef %16, ptr noundef %leftover_us)
   %17 = load i64, ptr %x.3, align 8
   %18 = and i64 %17, 2147483648
   %cmp.i216.not = icmp eq i64 %18, 0
@@ -16492,7 +16464,7 @@ if.end39:                                         ; preds = %Py_DECREF.exit163, 
 
 if.then41:                                        ; preds = %if.end39
   %20 = load ptr, ptr @_datetime_global_state.4, align 8
-  %call42 = call fastcc ptr @accum(ptr noundef nonnull @.str.262, ptr noundef nonnull %x.4, ptr noundef nonnull %19, ptr noundef %20, ptr noundef nonnull %leftover_us)
+  %call42 = call fastcc ptr @accum(ptr noundef nonnull @.str.262, ptr noundef %x.4, ptr noundef %19, ptr noundef %20, ptr noundef %leftover_us)
   %21 = load i64, ptr %x.4, align 8
   %22 = and i64 %21, 2147483648
   %cmp.i220.not = icmp eq i64 %22, 0
@@ -16520,7 +16492,7 @@ if.end46:                                         ; preds = %Py_DECREF.exit154, 
 
 if.then48:                                        ; preds = %if.end46
   %24 = load ptr, ptr @_datetime_global_state.5, align 8
-  %call49 = call fastcc ptr @accum(ptr noundef nonnull @.str.266, ptr noundef nonnull %x.5, ptr noundef nonnull %23, ptr noundef %24, ptr noundef nonnull %leftover_us)
+  %call49 = call fastcc ptr @accum(ptr noundef nonnull @.str.266, ptr noundef %x.5, ptr noundef %23, ptr noundef %24, ptr noundef %leftover_us)
   %25 = load i64, ptr %x.5, align 8
   %26 = and i64 %25, 2147483648
   %cmp.i224.not = icmp eq i64 %26, 0
@@ -16735,9 +16707,9 @@ if.then:                                          ; preds = %land.lhs.true, %PyO
   %7 = load i32, ptr %microseconds9, align 8
   %add10 = add i32 %7, %6
   %or.cond.i.i = icmp ugt i32 %add10, 999999
-  br i1 %or.cond.i.i, label %if.then.i.i.i, label %if.end.i.i
+  br i1 %or.cond.i.i, label %normalize_pair.exit.i.i, label %if.end.i.i
 
-if.then.i.i.i:                                    ; preds = %if.then
+normalize_pair.exit.i.i:                          ; preds = %if.then
   %div.i.i.i.i = sdiv i32 %add10, 1000000
   %mul.i.i.neg.i.i = mul nsw i32 %div.i.i.i.i, -1000000
   %sub.i.i.i.i = add i32 %mul.i.i.neg.i.i, %add10
@@ -16749,27 +16721,27 @@ if.then.i.i.i:                                    ; preds = %if.then
   %add.i.i.i = add i32 %quo.0.i.i.i.i, %sub.lobit.i.i.i.i
   br label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.then.i.i.i, %if.then
-  %seconds.addr.1.i = phi i32 [ %add.i.i.i, %if.then.i.i.i ], [ %add7, %if.then ]
-  %microseconds.addr.1.i = phi i32 [ %storemerge.i.i.i.i, %if.then.i.i.i ], [ %add10, %if.then ]
+if.end.i.i:                                       ; preds = %normalize_pair.exit.i.i, %if.then
+  %seconds.addr.1.i = phi i32 [ %add.i.i.i, %normalize_pair.exit.i.i ], [ %add7, %if.then ]
+  %microseconds.addr.1.i = phi i32 [ %storemerge.i.i.i.i, %normalize_pair.exit.i.i ], [ %add10, %if.then ]
   %or.cond7.i.i = icmp ugt i32 %seconds.addr.1.i, 86399
-  br i1 %or.cond7.i.i, label %if.then.i11.i.i, label %if.end.i17
+  br i1 %or.cond7.i.i, label %normalize_pair.exit19.i.i, label %if.end.i17
 
-if.then.i11.i.i:                                  ; preds = %if.end.i.i
-  %div.i.i12.i.i = sdiv i32 %seconds.addr.1.i, 86400
-  %mul.i.i13.neg.i.i = mul nsw i32 %div.i.i12.i.i, -86400
-  %sub.i.i14.i.i = add i32 %mul.i.i13.neg.i.i, %seconds.addr.1.i
-  %cmp.i.i15.i.i = icmp slt i32 %sub.i.i14.i.i, 0
-  %add.i.i16.i.i = select i1 %cmp.i.i15.i.i, i32 86400, i32 0
-  %storemerge.i.i17.i.i = add nsw i32 %add.i.i16.i.i, %sub.i.i14.i.i
-  %sub.lobit.i.i18.i.i = ashr i32 %sub.i.i14.i.i, 31
-  %quo.0.i.i19.i.i = add i32 %div.i.i12.i.i, %add
-  %add.i20.i.i = add i32 %quo.0.i.i19.i.i, %sub.lobit.i.i18.i.i
+normalize_pair.exit19.i.i:                        ; preds = %if.end.i.i
+  %div.i.i10.i.i = sdiv i32 %seconds.addr.1.i, 86400
+  %mul.i.i11.neg.i.i = mul nsw i32 %div.i.i10.i.i, -86400
+  %sub.i.i12.i.i = add i32 %mul.i.i11.neg.i.i, %seconds.addr.1.i
+  %cmp.i.i13.i.i = icmp slt i32 %sub.i.i12.i.i, 0
+  %add.i.i14.i.i = select i1 %cmp.i.i13.i.i, i32 86400, i32 0
+  %storemerge.i.i15.i.i = add nsw i32 %add.i.i14.i.i, %sub.i.i12.i.i
+  %sub.lobit.i.i16.i.i = ashr i32 %sub.i.i12.i.i, 31
+  %quo.0.i.i17.i.i = add i32 %div.i.i10.i.i, %add
+  %add.i18.i.i = add i32 %quo.0.i.i17.i.i, %sub.lobit.i.i16.i.i
   br label %if.end.i17
 
-if.end.i17:                                       ; preds = %if.then.i11.i.i, %if.end.i.i
-  %days.addr.0.i = phi i32 [ %add.i20.i.i, %if.then.i11.i.i ], [ %add, %if.end.i.i ]
-  %seconds.addr.0.i = phi i32 [ %storemerge.i.i17.i.i, %if.then.i11.i.i ], [ %seconds.addr.1.i, %if.end.i.i ]
+if.end.i17:                                       ; preds = %normalize_pair.exit19.i.i, %if.end.i.i
+  %days.addr.0.i = phi i32 [ %add.i18.i.i, %normalize_pair.exit19.i.i ], [ %add, %if.end.i.i ]
+  %seconds.addr.0.i = phi i32 [ %storemerge.i.i15.i.i, %normalize_pair.exit19.i.i ], [ %seconds.addr.1.i, %if.end.i.i ]
   %8 = add i32 %days.addr.0.i, 999999999
   %or.cond.i7.i = icmp ult i32 %8, 1999999999
   br i1 %or.cond.i7.i, label %if.end2.i, label %check_delta_day_range.exit.thread.i
@@ -17282,9 +17254,9 @@ if.then:                                          ; preds = %entry
   %2 = load i32, ptr %microseconds.i, align 8
   %sub2.i = sub i32 0, %2
   %or.cond.i.i.i = icmp ugt i32 %sub2.i, 999999
-  br i1 %or.cond.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i
+  br i1 %or.cond.i.i.i, label %normalize_pair.exit.i.i.i, label %if.end.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %if.then
+normalize_pair.exit.i.i.i:                        ; preds = %if.then
   %div.i.i.i.i.i = sdiv i32 %sub2.i, 1000000
   %mul.i.i.neg.i.i.i = mul nsw i32 %div.i.i.i.i.i, -1000000
   %sub.i.i.i.i.i = sub i32 %mul.i.i.neg.i.i.i, %2
@@ -17296,27 +17268,27 @@ if.then.i.i.i.i:                                  ; preds = %if.then
   %add.i.i.i.i = add i32 %quo.0.i.i.i.i.i, %sub.lobit.i.i.i.i.i
   br label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.then.i.i.i.i, %if.then
-  %seconds.addr.1.i.i = phi i32 [ %add.i.i.i.i, %if.then.i.i.i.i ], [ %sub1.i, %if.then ]
-  %microseconds.addr.1.i.i = phi i32 [ %storemerge.i.i.i.i.i, %if.then.i.i.i.i ], [ %sub2.i, %if.then ]
+if.end.i.i.i:                                     ; preds = %normalize_pair.exit.i.i.i, %if.then
+  %seconds.addr.1.i.i = phi i32 [ %add.i.i.i.i, %normalize_pair.exit.i.i.i ], [ %sub1.i, %if.then ]
+  %microseconds.addr.1.i.i = phi i32 [ %storemerge.i.i.i.i.i, %normalize_pair.exit.i.i.i ], [ %sub2.i, %if.then ]
   %or.cond7.i.i.i = icmp ugt i32 %seconds.addr.1.i.i, 86399
-  br i1 %or.cond7.i.i.i, label %if.then.i11.i.i.i, label %if.end.i.i
+  br i1 %or.cond7.i.i.i, label %normalize_pair.exit19.i.i.i, label %if.end.i.i
 
-if.then.i11.i.i.i:                                ; preds = %if.end.i.i.i
-  %div.i.i12.i.i.i = sdiv i32 %seconds.addr.1.i.i, 86400
-  %mul.i.i13.neg.i.i.i = mul nsw i32 %div.i.i12.i.i.i, -86400
-  %sub.i.i14.i.i.i = add i32 %mul.i.i13.neg.i.i.i, %seconds.addr.1.i.i
-  %cmp.i.i15.i.i.i = icmp slt i32 %sub.i.i14.i.i.i, 0
-  %add.i.i16.i.i.i = select i1 %cmp.i.i15.i.i.i, i32 86400, i32 0
-  %storemerge.i.i17.i.i.i = add nsw i32 %add.i.i16.i.i.i, %sub.i.i14.i.i.i
-  %sub.lobit.i.i18.i.i.i = ashr i32 %sub.i.i14.i.i.i, 31
-  %quo.0.i.i19.i.i.i = sub i32 %div.i.i12.i.i.i, %0
-  %add.i20.i.i.i = add i32 %quo.0.i.i19.i.i.i, %sub.lobit.i.i18.i.i.i
+normalize_pair.exit19.i.i.i:                      ; preds = %if.end.i.i.i
+  %div.i.i10.i.i.i = sdiv i32 %seconds.addr.1.i.i, 86400
+  %mul.i.i11.neg.i.i.i = mul nsw i32 %div.i.i10.i.i.i, -86400
+  %sub.i.i12.i.i.i = add i32 %mul.i.i11.neg.i.i.i, %seconds.addr.1.i.i
+  %cmp.i.i13.i.i.i = icmp slt i32 %sub.i.i12.i.i.i, 0
+  %add.i.i14.i.i.i = select i1 %cmp.i.i13.i.i.i, i32 86400, i32 0
+  %storemerge.i.i15.i.i.i = add nsw i32 %add.i.i14.i.i.i, %sub.i.i12.i.i.i
+  %sub.lobit.i.i16.i.i.i = ashr i32 %sub.i.i12.i.i.i, 31
+  %quo.0.i.i17.i.i.i = sub i32 %div.i.i10.i.i.i, %0
+  %add.i18.i.i.i = add i32 %quo.0.i.i17.i.i.i, %sub.lobit.i.i16.i.i.i
   br label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.then.i11.i.i.i, %if.end.i.i.i
-  %days.addr.0.i.i = phi i32 [ %add.i20.i.i.i, %if.then.i11.i.i.i ], [ %sub.i, %if.end.i.i.i ]
-  %seconds.addr.0.i.i = phi i32 [ %storemerge.i.i17.i.i.i, %if.then.i11.i.i.i ], [ %seconds.addr.1.i.i, %if.end.i.i.i ]
+if.end.i.i:                                       ; preds = %normalize_pair.exit19.i.i.i, %if.end.i.i.i
+  %days.addr.0.i.i = phi i32 [ %add.i18.i.i.i, %normalize_pair.exit19.i.i.i ], [ %sub.i, %if.end.i.i.i ]
+  %seconds.addr.0.i.i = phi i32 [ %storemerge.i.i15.i.i.i, %normalize_pair.exit19.i.i.i ], [ %seconds.addr.1.i.i, %if.end.i.i.i ]
   %3 = add i32 %days.addr.0.i.i, 999999999
   %or.cond.i7.i.i = icmp ult i32 %3, 1999999999
   br i1 %or.cond.i7.i.i, label %if.end2.i.i, label %check_delta_day_range.exit.thread.i.i
@@ -17674,7 +17646,7 @@ if.end19:                                         ; preds = %Py_DECREF.exit14.i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @multiply_truedivide_timedelta_float(ptr nocapture noundef readonly %delta, ptr noundef %floatobj, i32 noundef %op) unnamed_addr #0 {
+define internal fastcc ptr @multiply_truedivide_timedelta_float(ptr nocapture noundef readonly %delta, ptr noundef %floatobj, i32 noundef range(i32 0, 2) %op) unnamed_addr #0 {
 entry:
   %self.addr.i.i = alloca ptr, align 8
   %call = tail call fastcc ptr @delta_to_microseconds(ptr noundef %delta)
@@ -17763,8 +17735,8 @@ do.end:                                           ; preds = %if.end.i29, %if.the
   br i1 %cmp6, label %if.then.i36, label %if.end8
 
 if.end8:                                          ; preds = %do.end
-  %tobool.not = icmp eq i32 %op, 0
-  %idxprom10 = zext i1 %tobool.not to i64
+  %lnot.ext = xor i32 %op, 1
+  %idxprom10 = zext nneg i32 %lnot.ext to i64
   %arrayidx11 = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %idxprom10
   %13 = load ptr, ptr %arrayidx11, align 8
   %call.i = call ptr @_PyLong_DivmodNear(ptr noundef nonnull %call5, ptr noundef %13) #15
@@ -18169,7 +18141,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @accum(ptr noundef %tag, ptr noundef %sofar, ptr noundef %num, ptr noundef %factor, ptr nocapture noundef %leftover) unnamed_addr #0 {
+define internal fastcc ptr @accum(ptr noundef %tag, ptr noundef nonnull %sofar, ptr noundef nonnull %num, ptr noundef %factor, ptr nocapture noundef nonnull %leftover) unnamed_addr #0 {
 entry:
   %intpart = alloca double, align 8
   %0 = getelementptr i8, ptr %num, i64 8
@@ -18186,7 +18158,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %call4 = tail call ptr @PyNumber_Add(ptr noundef %sofar, ptr noundef nonnull %call2) #15
+  %call4 = tail call ptr @PyNumber_Add(ptr noundef nonnull %sofar, ptr noundef nonnull %call2) #15
   %3 = load i64, ptr %call2, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i87.not = icmp eq i64 %4, 0
@@ -18250,7 +18222,7 @@ Py_DECREF.exit76:                                 ; preds = %if.end19, %if.then1
   br i1 %cmp21, label %return, label %if.end23
 
 if.end23:                                         ; preds = %Py_DECREF.exit76
-  %call24 = tail call ptr @PyNumber_Add(ptr noundef %sofar, ptr noundef nonnull %call20) #15
+  %call24 = tail call ptr @PyNumber_Add(ptr noundef nonnull %sofar, ptr noundef nonnull %call20) #15
   %8 = load i64, ptr %call20, align 8
   %9 = and i64 %8, 2147483648
   %cmp.i94.not = icmp eq i64 %9, 0

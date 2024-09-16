@@ -341,7 +341,7 @@ lor.lhs.false91:                                  ; preds = %lor.lhs.false84
 if.end99:                                         ; preds = %lor.lhs.false91
   %15 = load i64, ptr %len, align 8
   %conv101 = trunc i64 %15 to i32
-  call fastcc void @pt(ptr noundef nonnull %buf, i32 noundef %conv101)
+  call fastcc void @pt(ptr noundef %buf, i32 noundef %conv101)
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 12424), align 8
   %call103 = call i32 @test_str_eq(ptr noundef nonnull @.str.3, i32 noundef 222, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.28, ptr noundef nonnull @pt.buf, ptr noundef %16) #6
   %tobool104.not = icmp eq i32 %call103, 0
@@ -376,7 +376,7 @@ lor.lhs.false119:                                 ; preds = %lor.lhs.false112
 if.end127:                                        ; preds = %lor.lhs.false119
   %18 = load i64, ptr %len, align 8
   %conv129 = trunc i64 %18 to i32
-  call fastcc void @pt(ptr noundef nonnull %buf, i32 noundef %conv129)
+  call fastcc void @pt(ptr noundef %buf, i32 noundef %conv129)
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 12424), align 8
   %call131 = call i32 @test_str_eq(ptr noundef nonnull @.str.3, i32 noundef 230, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.28, ptr noundef nonnull @pt.buf, ptr noundef %19) #6
   %tobool132.not = icmp eq i32 %call131, 0
@@ -422,7 +422,7 @@ lor.lhs.false155:                                 ; preds = %lor.lhs.false148
 if.end163:                                        ; preds = %lor.lhs.false155
   %22 = load i64, ptr %len, align 8
   %conv165 = trunc i64 %22 to i32
-  call fastcc void @pt(ptr noundef nonnull %buf, i32 noundef %conv165)
+  call fastcc void @pt(ptr noundef %buf, i32 noundef %conv165)
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 12424), align 8
   %call167 = call i32 @test_str_eq(ptr noundef nonnull @.str.3, i32 noundef 240, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.28, ptr noundef nonnull @pt.buf, ptr noundef %23) #6
   %tobool168.not = icmp eq i32 %call167, 0
@@ -460,7 +460,7 @@ lor.lhs.false185:                                 ; preds = %lor.lhs.false178
 if.end193:                                        ; preds = %lor.lhs.false185
   %26 = load i64, ptr %len, align 8
   %conv195 = trunc i64 %26 to i32
-  call fastcc void @pt(ptr noundef nonnull %buf, i32 noundef %conv195)
+  call fastcc void @pt(ptr noundef %buf, i32 noundef %conv195)
   %27 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 16568), align 8
   %call197 = call i32 @test_str_eq(ptr noundef nonnull @.str.3, i32 noundef 250, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.32, ptr noundef nonnull @pt.buf, ptr noundef %27) #6
   %tobool198.not = icmp eq i32 %call197, 0
@@ -498,7 +498,7 @@ lor.lhs.false215:                                 ; preds = %lor.lhs.false208
 if.end223:                                        ; preds = %lor.lhs.false215
   %30 = load i64, ptr %len, align 8
   %conv225 = trunc i64 %30 to i32
-  call fastcc void @pt(ptr noundef nonnull %buf, i32 noundef %conv225)
+  call fastcc void @pt(ptr noundef %buf, i32 noundef %conv225)
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 20712), align 8
   %call227 = call i32 @test_str_eq(ptr noundef nonnull @.str.3, i32 noundef 259, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.35, ptr noundef nonnull @pt.buf, ptr noundef %31) #6
   %tobool228.not = icmp eq i32 %call227, 0
@@ -536,7 +536,7 @@ lor.lhs.false245:                                 ; preds = %lor.lhs.false238
 if.end253:                                        ; preds = %lor.lhs.false245
   %34 = load i64, ptr %len, align 8
   %conv255 = trunc i64 %34 to i32
-  call fastcc void @pt(ptr noundef nonnull %buf, i32 noundef %conv255)
+  call fastcc void @pt(ptr noundef %buf, i32 noundef %conv255)
   %35 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 24856), align 8
   %call257 = call i32 @test_str_eq(ptr noundef nonnull @.str.3, i32 noundef 268, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.38, ptr noundef nonnull @pt.buf, ptr noundef %35) #6
   %tobool258.not = icmp eq i32 %call257, 0
@@ -574,7 +574,7 @@ lor.lhs.false275:                                 ; preds = %lor.lhs.false268
 if.end283:                                        ; preds = %lor.lhs.false275
   %38 = load i64, ptr %len, align 8
   %conv285 = trunc i64 %38 to i32
-  call fastcc void @pt(ptr noundef nonnull %buf, i32 noundef %conv285)
+  call fastcc void @pt(ptr noundef %buf, i32 noundef %conv285)
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 29000), align 8
   %call287 = call i32 @test_str_eq(ptr noundef nonnull @.str.3, i32 noundef 278, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.41, ptr noundef nonnull @pt.buf, ptr noundef %39) #6
   %tobool288.not = icmp eq i32 %call287, 0
@@ -612,7 +612,7 @@ lor.lhs.false305:                                 ; preds = %lor.lhs.false298
 if.end313:                                        ; preds = %lor.lhs.false305
   %42 = load i64, ptr %len, align 8
   %conv315 = trunc i64 %42 to i32
-  call fastcc void @pt(ptr noundef nonnull %buf, i32 noundef %conv315)
+  call fastcc void @pt(ptr noundef %buf, i32 noundef %conv315)
   %43 = load ptr, ptr getelementptr inbounds (i8, ptr @test, i64 33144), align 8
   %call317 = call i32 @test_str_eq(ptr noundef nonnull @.str.3, i32 noundef 289, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.44, ptr noundef nonnull @pt.buf, ptr noundef %43) #6
   %tobool318.not = icmp ne i32 %call317, 0
@@ -738,7 +738,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @CMAC_Final(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @pt(ptr nocapture noundef readonly %md, i32 noundef %len) unnamed_addr #4 {
+define internal fastcc void @pt(ptr nocapture noundef nonnull readonly %md, i32 noundef %len) unnamed_addr #4 {
 entry:
   %cmp4.not = icmp eq i32 %len, 0
   br i1 %cmp4.not, label %for.end, label %for.body.preheader

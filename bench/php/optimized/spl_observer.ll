@@ -3124,7 +3124,7 @@ define hidden void @zim_MultipleIterator_current(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_multiple_iterator_get_all(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @spl_multiple_iterator_get_all(ptr noundef %0, i32 noundef range(i32 1, 3) %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 28

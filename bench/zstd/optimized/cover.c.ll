@@ -203,7 +203,7 @@ if.then16:                                        ; preds = %if.then14
   br label %return
 
 if.end20:                                         ; preds = %if.end12
-  %call22 = call fastcc i64 @COVER_ctx_init(ptr noundef nonnull %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, i32 noundef %1, double noundef 1.000000e+00)
+  %call22 = call fastcc i64 @COVER_ctx_init(ptr noundef %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, i32 noundef %1, double noundef 1.000000e+00)
   %cmp.i17 = icmp ult i64 %call22, -119
   br i1 %cmp.i17, label %if.end26, label %return
 
@@ -320,7 +320,7 @@ if.then38:                                        ; preds = %if.end36
 if.end41:                                         ; preds = %if.then38, %if.end36
   %freqs = getelementptr inbounds i8, ptr %ctx, i64 64
   %30 = load ptr, ptr %freqs, align 8
-  %call42 = call fastcc i64 @COVER_buildDictionary(ptr noundef nonnull %ctx, ptr noundef %30, ptr noundef nonnull %activeDmers, ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, i32 %2, i32 %1)
+  %call42 = call fastcc i64 @COVER_buildDictionary(ptr noundef nonnull %ctx, ptr noundef %30, ptr noundef %activeDmers, ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, i32 %2, i32 %1)
   %add.ptr = getelementptr inbounds i8, ptr %dictBuffer, i64 %call42
   %sub43 = sub i64 %dictBufferCapacity, %call42
   %call45 = call i64 @ZDICT_finalizeDictionary(ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, ptr noundef %add.ptr, i64 noundef %sub43, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %zParams) #23
@@ -390,18 +390,14 @@ return:                                           ; preds = %if.then17.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -72, 1) i64 @COVER_ctx_init(ptr noundef %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, i32 noundef %d, double noundef %splitPoint) unnamed_addr #4 {
+define internal fastcc range(i64 -72, 1) i64 @COVER_ctx_init(ptr noundef nonnull %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef range(i32 1, 0) %nbSamples, i32 noundef %d, double noundef %splitPoint) unnamed_addr #4 {
 entry:
-  %cmp4.not.i = icmp eq i32 %nbSamples, 0
-  br i1 %cmp4.not.i, label %COVER_sum.exit, label %for.body.preheader.i
-
-for.body.preheader.i:                             ; preds = %entry
   %wide.trip.count.i = zext i32 %nbSamples to i64
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %sum.05.i = phi i64 [ 0, %for.body.preheader.i ], [ %add.i, %for.body.i ]
+for.body.i:                                       ; preds = %for.body.i, %entry
+  %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
+  %sum.05.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds i64, ptr %samplesSizes, i64 %indvars.iv.i
   %0 = load i64, ptr %arrayidx.i, align 8
   %add.i = add i64 %0, %sum.05.i
@@ -409,8 +405,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %COVER_sum.exit, label %for.body.i, !llvm.loop !4
 
-COVER_sum.exit:                                   ; preds = %for.body.i, %entry
-  %sum.0.lcssa.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
+COVER_sum.exit:                                   ; preds = %for.body.i
   %cmp = fcmp olt double %splitPoint, 1.000000e+00
   %conv = uitofp i32 %nbSamples to double
   %mul = fmul double %splitPoint, %conv
@@ -421,51 +416,51 @@ COVER_sum.exit:                                   ; preds = %for.body.i, %entry
   br i1 %cmp, label %cond.true10, label %cond.end20
 
 cond.true10:                                      ; preds = %COVER_sum.exit
-  %cmp4.not.i76 = icmp eq i32 %conv1, 0
-  br i1 %cmp4.not.i76, label %cond.true17, label %for.body.preheader.i77
+  %cmp4.not.i = icmp eq i32 %conv1, 0
+  br i1 %cmp4.not.i, label %cond.true17, label %for.body.preheader.i
 
-for.body.preheader.i77:                           ; preds = %cond.true10
-  %wide.trip.count.i78 = zext i32 %conv1 to i64
-  br label %for.body.i79
+for.body.preheader.i:                             ; preds = %cond.true10
+  %wide.trip.count.i76 = zext i32 %conv1 to i64
+  br label %for.body.i77
 
-for.body.i79:                                     ; preds = %for.body.i79, %for.body.preheader.i77
-  %indvars.iv.i80 = phi i64 [ 0, %for.body.preheader.i77 ], [ %indvars.iv.next.i84, %for.body.i79 ]
-  %sum.05.i81 = phi i64 [ 0, %for.body.preheader.i77 ], [ %add.i83, %for.body.i79 ]
-  %arrayidx.i82 = getelementptr inbounds i64, ptr %samplesSizes, i64 %indvars.iv.i80
-  %1 = load i64, ptr %arrayidx.i82, align 8
-  %add.i83 = add i64 %1, %sum.05.i81
-  %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i80, 1
-  %exitcond.not.i85 = icmp eq i64 %indvars.iv.next.i84, %wide.trip.count.i78
-  br i1 %exitcond.not.i85, label %cond.true17, label %for.body.i79, !llvm.loop !4
+for.body.i77:                                     ; preds = %for.body.i77, %for.body.preheader.i
+  %indvars.iv.i78 = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i82, %for.body.i77 ]
+  %sum.05.i79 = phi i64 [ 0, %for.body.preheader.i ], [ %add.i81, %for.body.i77 ]
+  %arrayidx.i80 = getelementptr inbounds i64, ptr %samplesSizes, i64 %indvars.iv.i78
+  %1 = load i64, ptr %arrayidx.i80, align 8
+  %add.i81 = add i64 %1, %sum.05.i79
+  %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i78, 1
+  %exitcond.not.i83 = icmp eq i64 %indvars.iv.next.i82, %wide.trip.count.i76
+  br i1 %exitcond.not.i83, label %cond.true17, label %for.body.i77, !llvm.loop !4
 
-cond.true17:                                      ; preds = %for.body.i79, %cond.true10
-  %idx.ext.pre-phi = phi i64 [ 0, %cond.true10 ], [ %wide.trip.count.i78, %for.body.i79 ]
-  %cond14103 = phi i64 [ 0, %cond.true10 ], [ %add.i83, %for.body.i79 ]
+cond.true17:                                      ; preds = %for.body.i77, %cond.true10
+  %idx.ext.pre-phi = phi i64 [ 0, %cond.true10 ], [ %wide.trip.count.i76, %for.body.i77 ]
+  %cond14100 = phi i64 [ 0, %cond.true10 ], [ %add.i81, %for.body.i77 ]
   %add.ptr = getelementptr inbounds i64, ptr %samplesSizes, i64 %idx.ext.pre-phi
-  %cmp4.not.i88 = icmp eq i32 %nbSamples, %sub
-  br i1 %cmp4.not.i88, label %cond.end20, label %for.body.preheader.i89
+  %cmp4.not.i85 = icmp eq i32 %nbSamples, %sub
+  br i1 %cmp4.not.i85, label %cond.end20, label %for.body.preheader.i86
 
-for.body.preheader.i89:                           ; preds = %cond.true17
-  %wide.trip.count.i90 = zext i32 %cond7 to i64
-  br label %for.body.i91
+for.body.preheader.i86:                           ; preds = %cond.true17
+  %wide.trip.count.i87 = zext i32 %cond7 to i64
+  br label %for.body.i88
 
-for.body.i91:                                     ; preds = %for.body.i91, %for.body.preheader.i89
-  %indvars.iv.i92 = phi i64 [ 0, %for.body.preheader.i89 ], [ %indvars.iv.next.i96, %for.body.i91 ]
-  %sum.05.i93 = phi i64 [ 0, %for.body.preheader.i89 ], [ %add.i95, %for.body.i91 ]
-  %arrayidx.i94 = getelementptr inbounds i64, ptr %add.ptr, i64 %indvars.iv.i92
-  %2 = load i64, ptr %arrayidx.i94, align 8
-  %add.i95 = add i64 %2, %sum.05.i93
-  %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i92, 1
-  %exitcond.not.i97 = icmp eq i64 %indvars.iv.next.i96, %wide.trip.count.i90
-  br i1 %exitcond.not.i97, label %cond.end20, label %for.body.i91, !llvm.loop !4
+for.body.i88:                                     ; preds = %for.body.i88, %for.body.preheader.i86
+  %indvars.iv.i89 = phi i64 [ 0, %for.body.preheader.i86 ], [ %indvars.iv.next.i93, %for.body.i88 ]
+  %sum.05.i90 = phi i64 [ 0, %for.body.preheader.i86 ], [ %add.i92, %for.body.i88 ]
+  %arrayidx.i91 = getelementptr inbounds i64, ptr %add.ptr, i64 %indvars.iv.i89
+  %2 = load i64, ptr %arrayidx.i91, align 8
+  %add.i92 = add i64 %2, %sum.05.i90
+  %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i89, 1
+  %exitcond.not.i94 = icmp eq i64 %indvars.iv.next.i93, %wide.trip.count.i87
+  br i1 %exitcond.not.i94, label %cond.end20, label %for.body.i88, !llvm.loop !4
 
-cond.end20:                                       ; preds = %for.body.i91, %COVER_sum.exit, %cond.true17
-  %cond14102 = phi i64 [ %cond14103, %cond.true17 ], [ %sum.0.lcssa.i, %COVER_sum.exit ], [ %cond14103, %for.body.i91 ]
-  %cond21 = phi i64 [ 0, %cond.true17 ], [ %sum.0.lcssa.i, %COVER_sum.exit ], [ %add.i95, %for.body.i91 ]
+cond.end20:                                       ; preds = %for.body.i88, %COVER_sum.exit, %cond.true17
+  %cond1499 = phi i64 [ %cond14100, %cond.true17 ], [ %add.i, %COVER_sum.exit ], [ %cond14100, %for.body.i88 ]
+  %cond21 = phi i64 [ 0, %cond.true17 ], [ %add.i, %COVER_sum.exit ], [ %add.i92, %for.body.i88 ]
   %3 = tail call i32 @llvm.umax.i32(i32 %d, i32 8)
   %cond29 = zext i32 %3 to i64
-  %cmp30 = icmp ult i64 %sum.0.lcssa.i, %cond29
-  %cmp32 = icmp ugt i64 %sum.0.lcssa.i, 4294967294
+  %cmp30 = icmp ult i64 %add.i, %cond29
+  %cmp32 = icmp ugt i64 %add.i, 4294967294
   %or.cond = or i1 %cmp30, %cmp32
   br i1 %or.cond, label %if.then, label %if.end40
 
@@ -476,7 +471,7 @@ if.then:                                          ; preds = %cond.end20
 
 if.then36:                                        ; preds = %if.then
   %5 = load ptr, ptr @stderr, align 8
-  %shr = lshr i64 %sum.0.lcssa.i, 20
+  %shr = lshr i64 %add.i, 20
   %conv37 = trunc i64 %shr to i32
   %call38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.16, i32 noundef %conv37, i32 noundef 4095) #21
   %6 = load ptr, ptr @stderr, align 8
@@ -523,7 +518,7 @@ if.end60:                                         ; preds = %if.end50
 
 if.end67:                                         ; preds = %if.end60
   %14 = load ptr, ptr @stderr, align 8
-  %conv64 = trunc i64 %cond14102 to i32
+  %conv64 = trunc i64 %cond1499 to i32
   %call65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.19, i32 noundef %cond, i32 noundef %conv64) #21
   %15 = load ptr, ptr @stderr, align 8
   %call66 = tail call i32 @fflush(ptr noundef %15)
@@ -543,16 +538,15 @@ if.end74:                                         ; preds = %if.end60, %if.then7
   store ptr %samplesBuffer, ptr %ctx, align 8
   %samplesSizes76 = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %samplesSizes, ptr %samplesSizes76, align 8
-  %conv77 = zext i32 %nbSamples to i64
   %nbSamples78 = getelementptr inbounds i8, ptr %ctx, i64 24
-  store i64 %conv77, ptr %nbSamples78, align 8
+  store i64 %wide.trip.count.i, ptr %nbSamples78, align 8
   %conv79 = zext i32 %cond to i64
   %nbTrainSamples80 = getelementptr inbounds i8, ptr %ctx, i64 32
   store i64 %conv79, ptr %nbTrainSamples80, align 8
   %conv81 = zext i32 %cond7 to i64
   %nbTestSamples82 = getelementptr inbounds i8, ptr %ctx, i64 40
   store i64 %conv81, ptr %nbTestSamples82, align 8
-  %sub91 = sub i64 %cond14102, %cond29
+  %sub91 = sub i64 %cond1499, %cond29
   %add = add i64 %sub91, 1
   %suffixSize = getelementptr inbounds i8, ptr %ctx, i64 56
   store i64 %add, ptr %suffixSize, align 8
@@ -588,11 +582,11 @@ if.then112:                                       ; preds = %if.then109
   %20 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 35, i64 1, ptr %19) #21
   %21 = load ptr, ptr @stderr, align 8
   %call114 = tail call i32 @fflush(ptr noundef %21)
-  %.pre115 = load ptr, ptr %suffix, align 8
+  %.pre111 = load ptr, ptr %suffix, align 8
   br label %if.end115
 
 if.end115:                                        ; preds = %if.then112, %if.then109
-  %22 = phi ptr [ %.pre115, %if.then112 ], [ %call94, %if.then109 ]
+  %22 = phi ptr [ %.pre111, %if.then112 ], [ %call94, %if.then109 ]
   %tobool1.not.i = icmp eq ptr %22, null
   br i1 %tobool1.not.i, label %if.end5.i, label %if.then2.i
 
@@ -638,15 +632,12 @@ if.end116:                                        ; preds = %lor.lhs.false103
   %d117 = getelementptr inbounds i8, ptr %ctx, i64 80
   store i32 %d, ptr %d117, align 8
   store i64 0, ptr %call101, align 8
-  br i1 %cmp4.not.i, label %for.end, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %if.end116
   %umax = tail call i32 @llvm.umax.i32(i32 %add98, i32 2)
   %wide.trip.count = zext i32 %umax to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+for.body:                                         ; preds = %if.end116, %for.body
+  %indvars.iv = phi i64 [ 1, %if.end116 ], [ %indvars.iv.next, %for.body ]
   %26 = load ptr, ptr %offsets, align 8
   %27 = add nsw i64 %indvars.iv, -1
   %arrayidx123 = getelementptr inbounds i64, ptr %26, i64 %27
@@ -660,7 +651,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond, label %for.end, label %for.body, !llvm.loop !6
 
-for.end:                                          ; preds = %for.body, %if.end116
+for.end:                                          ; preds = %for.body
   %30 = load i32, ptr @g_displayLevel, align 4
   %cmp131 = icmp sgt i32 %30, 1
   br i1 %cmp131, label %if.then133, label %if.end136
@@ -674,16 +665,16 @@ if.then133:                                       ; preds = %for.end
 
 if.end136:                                        ; preds = %if.then133, %for.end
   %34 = load i64, ptr %suffixSize, align 8
-  %cmp141109.not = icmp eq i64 %34, 0
-  br i1 %cmp141109.not, label %for.end149, label %for.body143
+  %cmp141105.not = icmp eq i64 %34, 0
+  br i1 %cmp141105.not, label %for.end149, label %for.body143
 
 for.body143:                                      ; preds = %if.end136, %for.body143
-  %conv139111 = phi i64 [ %conv139, %for.body143 ], [ 0, %if.end136 ]
-  %i137.0110 = phi i32 [ %inc148, %for.body143 ], [ 0, %if.end136 ]
+  %conv139107 = phi i64 [ %conv139, %for.body143 ], [ 0, %if.end136 ]
+  %i137.0106 = phi i32 [ %inc148, %for.body143 ], [ 0, %if.end136 ]
   %35 = load ptr, ptr %suffix, align 8
-  %arrayidx146 = getelementptr inbounds i32, ptr %35, i64 %conv139111
-  store i32 %i137.0110, ptr %arrayidx146, align 4
-  %inc148 = add i32 %i137.0110, 1
+  %arrayidx146 = getelementptr inbounds i32, ptr %35, i64 %conv139107
+  store i32 %i137.0106, ptr %arrayidx146, align 4
+  %inc148 = add i32 %i137.0106, 1
   %conv139 = zext i32 %inc148 to i64
   %36 = load i64, ptr %suffixSize, align 8
   %cmp141 = icmp ugt i64 %36, %conv139
@@ -729,8 +720,8 @@ while.cond2.i:                                    ; preds = %land.rhs.i, %while.
   %num.1.in.i = phi i64 [ %num.1.i, %land.rhs.i ], [ %num.03.i, %while.cond2.preheader.i ]
   %ptr.0.pn.i = phi ptr [ %grpEnd.0.i, %land.rhs.i ], [ %ptr.02.i, %while.cond2.preheader.i ]
   %grpEnd.0.i = getelementptr inbounds i8, ptr %ptr.0.pn.i, i64 4
-  %exitcond.not.i100 = icmp eq i64 %num.1.in.i, %47
-  br i1 %exitcond.not.i100, label %while.end.i, label %land.rhs.i
+  %exitcond.not.i97 = icmp eq i64 %num.1.in.i, %47
+  br i1 %exitcond.not.i97, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond2.i
   %num.1.i = add i64 %num.1.in.i, 1
@@ -836,7 +827,7 @@ return:                                           ; preds = %if.then17.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @COVER_buildDictionary(ptr nocapture noundef readonly %ctx, ptr nocapture noundef %freqs, ptr nocapture noundef readonly %activeDmers, ptr nocapture noundef writeonly %dictBuffer, i64 noundef %dictBufferCapacity, i32 %parameters.0.val, i32 %parameters.4.val) unnamed_addr #4 {
+define internal fastcc i64 @COVER_buildDictionary(ptr nocapture noundef readonly %ctx, ptr nocapture noundef %freqs, ptr nocapture noundef nonnull readonly %activeDmers, ptr nocapture noundef writeonly %dictBuffer, i64 noundef %dictBufferCapacity, i32 %parameters.0.val, i32 %parameters.4.val) unnamed_addr #4 {
 entry:
   %conv = trunc i64 %dictBufferCapacity to i32
   %suffixSize = getelementptr inbounds i8, ptr %ctx, i64 56
@@ -1928,7 +1919,7 @@ if.then105:                                       ; preds = %for.body
   br label %if.end108
 
 if.end108:                                        ; preds = %if.then105, %for.body
-  %call109 = call fastcc i64 @COVER_ctx_init(ptr noundef nonnull %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, i32 noundef %d48.0136, double noundef %cond)
+  %call109 = call fastcc i64 @COVER_ctx_init(ptr noundef %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, i32 noundef %d48.0136, double noundef %cond)
   %cmp.i = icmp ult i64 %call109, -119
   br i1 %cmp.i, label %if.end119, label %if.then112
 
@@ -2325,7 +2316,7 @@ if.end18:                                         ; preds = %if.end9
   %freqs19 = getelementptr inbounds i8, ptr %0, i64 64
   %12 = load ptr, ptr %freqs19, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call4, ptr align 4 %12, i64 %mul, i1 false)
-  %call22 = call fastcc i64 @COVER_buildDictionary(ptr noundef nonnull %0, ptr noundef nonnull %call4, ptr noundef nonnull %activeDmers, ptr noundef nonnull %call, i64 noundef %1, i32 %3, i32 %4)
+  %call22 = call fastcc i64 @COVER_buildDictionary(ptr noundef nonnull %0, ptr noundef nonnull %call4, ptr noundef %activeDmers, ptr noundef nonnull %call, i64 noundef %1, i32 %3, i32 %4)
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %call22
   %sub23 = sub i64 %1, %call22
   %13 = load ptr, ptr %0, align 8

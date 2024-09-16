@@ -567,7 +567,7 @@ sub_1.i.i:                                        ; preds = %sub_0.i.i
   br i1 %.not153.i.i, label %225, label %223
 
 223:                                              ; preds = %221
-  %224 = tail call fastcc i32 @Ver_ParseGate(ptr noundef nonnull %.0.i, ptr noundef %.0.i.i.i, ptr noundef nonnull %222)
+  %224 = tail call fastcc i32 @Ver_ParseGate(ptr noundef nonnull %.0.i, ptr noundef %.0.i.i.i, ptr noundef %222)
   br label %232
 
 225:                                              ; preds = %221, %217
@@ -5365,7 +5365,7 @@ declare i32 @Ver_ParseSkipComments(ptr noundef) local_unnamed_addr #1
 declare i32 @Ver_StreamGetCurPosition(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Ver_ParseSignal(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Ver_ParseSignal(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 6) %2) unnamed_addr #0 {
   %4 = alloca [1000 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -5382,9 +5382,9 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseSignal(ptr noundef %0, ptr 
 .lr.ph:                                           ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 32
   %13 = getelementptr inbounds i8, ptr %0, i64 56
-  %14 = and i32 %2, -3
+  %14 = and i32 %2, 5
   %or.cond9 = icmp eq i32 %14, 1
-  %15 = and i32 %2, -2
+  %15 = and i32 %2, 6
   br label %16
 
 16:                                               ; preds = %.lr.ph, %.backedge
@@ -5649,7 +5649,7 @@ Ver_ParsePrintErrorMessage.exit:                  ; preds = %.backedge, %31, %.l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Ver_ParseGateStandard(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Ver_ParseGateStandard(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 8) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %0, align 8
@@ -5847,7 +5847,7 @@ Ver_ParseFindNet.exit.thread113:                  ; preds = %35, %Ver_ParseFindN
   br i1 %101, label %Ver_ParsePrintErrorMessage.exit, label %35
 
 102:                                              ; preds = %68
-  %103 = and i32 %2, -5
+  %103 = and i32 %2, 3
   %or.cond = icmp eq i32 %103, 3
   br i1 %or.cond, label %104, label %116
 
@@ -5929,69 +5929,56 @@ Ver_ParseFindNet.exit.thread113:                  ; preds = %35, %Ver_ParseFindN
   br label %Ver_ParsePrintErrorMessage.exit
 
 146:                                              ; preds = %116
-  switch i32 %103, label %162 [
-    i32 0, label %147
-    i32 1, label %152
-    i32 2, label %157
+  %147 = getelementptr inbounds i8, ptr %1, i64 256
+  %148 = load ptr, ptr %147, align 8
+  %149 = getelementptr i8, ptr %31, i64 28
+  %.val100 = load i32, ptr %149, align 4
+  %150 = getelementptr inbounds i8, ptr %31, i64 56
+  switch i32 %103, label %default.unreachable [
+    i32 0, label %151
+    i32 1, label %153
+    i32 2, label %155
+    i32 3, label %157
   ]
 
-147:                                              ; preds = %146
-  %148 = getelementptr inbounds i8, ptr %1, i64 256
-  %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr i8, ptr %31, i64 28
-  %.val100 = load i32, ptr %150, align 4
-  %151 = tail call ptr @Hop_CreateAnd(ptr noundef %149, i32 noundef %.val100) #19
-  br label %.sink.split
+151:                                              ; preds = %146
+  %152 = tail call ptr @Hop_CreateAnd(ptr noundef %148, i32 noundef %.val100) #19
+  br label %159
 
-152:                                              ; preds = %146
-  %153 = getelementptr inbounds i8, ptr %1, i64 256
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr i8, ptr %31, i64 28
-  %.val99 = load i32, ptr %155, align 4
-  %156 = tail call ptr @Hop_CreateOr(ptr noundef %154, i32 noundef %.val99) #19
-  br label %.sink.split
+153:                                              ; preds = %146
+  %154 = tail call ptr @Hop_CreateOr(ptr noundef %148, i32 noundef %.val100) #19
+  br label %159
+
+155:                                              ; preds = %146
+  %156 = tail call ptr @Hop_CreateExor(ptr noundef %148, i32 noundef %.val100) #19
+  br label %159
+
+default.unreachable:                              ; preds = %146
+  unreachable
 
 157:                                              ; preds = %146
-  %158 = getelementptr inbounds i8, ptr %1, i64 256
-  %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr i8, ptr %31, i64 28
-  %.val98 = load i32, ptr %160, align 4
-  %161 = tail call ptr @Hop_CreateExor(ptr noundef %159, i32 noundef %.val98) #19
-  br label %.sink.split
+  %158 = tail call ptr @Hop_CreateAnd(ptr noundef %148, i32 noundef %.val100) #19
+  br label %159
 
-162:                                              ; preds = %146
-  br i1 %or.cond, label %163, label %169
+159:                                              ; preds = %153, %157, %155, %151
+  %.sink = phi ptr [ %154, %153 ], [ %158, %157 ], [ %156, %155 ], [ %152, %151 ]
+  store ptr %.sink, ptr %150, align 8
+  %160 = and i32 %2, 6
+  switch i32 %160, label %Ver_ParsePrintErrorMessage.exit [
+    i32 6, label %161
+    i32 4, label %161
+  ]
 
-163:                                              ; preds = %162
-  %164 = getelementptr inbounds i8, ptr %1, i64 256
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr i8, ptr %31, i64 28
-  %.val97 = load i32, ptr %166, align 4
-  %167 = tail call ptr @Hop_CreateAnd(ptr noundef %165, i32 noundef %.val97) #19
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %147, %157, %163, %152
-  %.sink = phi ptr [ %156, %152 ], [ %167, %163 ], [ %161, %157 ], [ %151, %147 ]
-  %168 = getelementptr inbounds i8, ptr %31, i64 56
-  store ptr %.sink, ptr %168, align 8
-  br label %169
-
-169:                                              ; preds = %.sink.split, %162
-  %170 = and i32 %2, -4
-  %switch = icmp eq i32 %170, 4
-  br i1 %switch, label %171, label %Ver_ParsePrintErrorMessage.exit
-
-171:                                              ; preds = %169
-  %172 = getelementptr inbounds i8, ptr %31, i64 56
-  %173 = load ptr, ptr %172, align 8
-  %174 = ptrtoint ptr %173 to i64
-  %175 = xor i64 %174, 1
-  %176 = inttoptr i64 %175 to ptr
-  store ptr %176, ptr %172, align 8
+161:                                              ; preds = %159, %159
+  %162 = getelementptr inbounds i8, ptr %31, i64 56
+  %163 = ptrtoint ptr %.sink to i64
+  %164 = xor i64 %163, 1
+  %165 = inttoptr i64 %164 to ptr
+  store ptr %165, ptr %162, align 8
   br label %Ver_ParsePrintErrorMessage.exit
 
-Ver_ParsePrintErrorMessage.exit:                  ; preds = %98, %29, %145, %142, %97, %94, %64, %61, %28, %25, %169, %171, %3, %106
-  %.0 = phi i32 [ 0, %106 ], [ 0, %3 ], [ 1, %169 ], [ 1, %171 ], [ 0, %25 ], [ 0, %28 ], [ 0, %61 ], [ 0, %64 ], [ 0, %94 ], [ 0, %97 ], [ 0, %142 ], [ 0, %145 ], [ 0, %29 ], [ 0, %98 ]
+Ver_ParsePrintErrorMessage.exit:                  ; preds = %98, %29, %159, %145, %142, %97, %94, %64, %61, %28, %25, %161, %3, %106
+  %.0 = phi i32 [ 0, %106 ], [ 0, %3 ], [ 1, %159 ], [ 1, %161 ], [ 0, %25 ], [ 0, %28 ], [ 0, %61 ], [ 0, %64 ], [ 0, %94 ], [ 0, %97 ], [ 0, %142 ], [ 0, %145 ], [ 0, %29 ], [ 0, %98 ]
   ret i32 %.0
 }
 
@@ -6254,7 +6241,7 @@ Ver_ParseFindNet.exit72.thread78:                 ; preds = %105, %Ver_ParseFind
   br label %Ver_ParsePrintErrorMessage.exit
 
 126:                                              ; preds = %121
-  %127 = tail call fastcc ptr @Ver_ParseCreateLatch(ptr noundef %1, ptr noundef nonnull %.0.i6680, ptr noundef nonnull %.0.i76)
+  %127 = tail call fastcc ptr @Ver_ParseCreateLatch(ptr noundef %1, ptr noundef %.0.i6680, ptr noundef %.0.i76)
   %128 = getelementptr inbounds i8, ptr %127, i64 56
   store ptr inttoptr (i64 1 to ptr), ptr %128, align 8
   br label %Ver_ParsePrintErrorMessage.exit
@@ -7586,10 +7573,10 @@ Ver_ParsePrintErrorMessage.exit:                  ; preds = %13, %136, %70, %68,
 declare ptr @Mio_LibraryReadGateByName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Ver_ParseGate(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Ver_ParseGate(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 @Mio_GateReadPinNum(ptr noundef %2) #19
+  %6 = tail call i32 @Mio_GateReadPinNum(ptr noundef nonnull %2) #19
   %7 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %7, 1
   br i1 %.not, label %27, label %8
@@ -7646,7 +7633,7 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseGate(ptr noundef %0, ptr no
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds i8, ptr %0, i64 80
-  %36 = tail call ptr @Mio_GateReadName(ptr noundef %2) #19
+  %36 = tail call ptr @Mio_GateReadName(ptr noundef nonnull %2) #19
   %37 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) @.str.92, ptr noundef %36) #19
   %38 = getelementptr inbounds i8, ptr %0, i64 76
   store i32 1, ptr %38, align 4
@@ -7685,13 +7672,13 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseGate(ptr noundef %0, ptr no
   %57 = tail call ptr @Abc_NtkCreateObj(ptr noundef %1, i32 noundef 7) #19
   %58 = getelementptr inbounds i8, ptr %57, i64 56
   store ptr %2, ptr %58, align 8
-  %59 = tail call ptr @Mio_GateReadTwin(ptr noundef %2) #19
+  %59 = tail call ptr @Mio_GateReadTwin(ptr noundef nonnull %2) #19
   %.not124 = icmp eq ptr %59, null
   br i1 %.not124, label %64, label %60
 
 60:                                               ; preds = %55
   %61 = tail call ptr @Abc_NtkCreateObj(ptr noundef %1, i32 noundef 7) #19
-  %62 = tail call ptr @Mio_GateReadTwin(ptr noundef %2) #19
+  %62 = tail call ptr @Mio_GateReadTwin(ptr noundef nonnull %2) #19
   %63 = getelementptr inbounds i8, ptr %61, i64 56
   store ptr %62, ptr %63, align 8
   br label %64
@@ -7713,7 +7700,7 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseGate(ptr noundef %0, ptr no
 
 ._crit_edge:                                      ; preds = %158, %64
   %70 = getelementptr inbounds i8, ptr %0, i64 80
-  %71 = tail call ptr @Mio_GateReadName(ptr noundef %2) #19
+  %71 = tail call ptr @Mio_GateReadName(ptr noundef nonnull %2) #19
   %72 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) @.str.93, ptr noundef %71) #19
   tail call void @Ver_ParsePrintErrorMessage(ptr noundef nonnull %0)
   br label %Ver_ParsePrintErrorMessage.exit
@@ -7724,13 +7711,13 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseGate(ptr noundef %0, ptr no
   br i1 %75, label %Ver_ParsePrintErrorMessage.exit, label %76
 
 76:                                               ; preds = %73
-  %77 = tail call i32 @Ver_FindGateInput(ptr noundef %2, ptr noundef nonnull %74)
+  %77 = tail call i32 @Ver_FindGateInput(ptr noundef nonnull %2, ptr noundef nonnull %74)
   %78 = icmp eq i32 %77, -1
   br i1 %78, label %79, label %83
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds i8, ptr %0, i64 80
-  %81 = tail call ptr @Mio_GateReadOutName(ptr noundef %2) #19
+  %81 = tail call ptr @Mio_GateReadOutName(ptr noundef nonnull %2) #19
   %82 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %80, ptr noundef nonnull dereferenceable(1) @.str.94, ptr noundef nonnull %74, ptr noundef %81) #19
   tail call void @Ver_ParsePrintErrorMessage(ptr noundef nonnull %0)
   br label %Ver_ParsePrintErrorMessage.exit
@@ -7742,7 +7729,7 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseGate(ptr noundef %0, ptr no
 
 85:                                               ; preds = %83
   %86 = getelementptr inbounds i8, ptr %0, i64 80
-  %87 = tail call ptr @Mio_GateReadName(ptr noundef %2) #19
+  %87 = tail call ptr @Mio_GateReadName(ptr noundef nonnull %2) #19
   %88 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(1) @.str.95, ptr noundef nonnull %74, ptr noundef %87) #19
   tail call void @Ver_ParsePrintErrorMessage(ptr noundef nonnull %0)
   br label %Ver_ParsePrintErrorMessage.exit
@@ -7792,7 +7779,7 @@ Ver_ParseFindNet.exit.thread145:                  ; preds = %92, %Ver_ParseFindN
 
 105:                                              ; preds = %Ver_ParseFindNet.exit.thread145
   %106 = getelementptr inbounds i8, ptr %0, i64 80
-  %107 = tail call ptr @Mio_GateReadName(ptr noundef %2) #19
+  %107 = tail call ptr @Mio_GateReadName(ptr noundef nonnull %2) #19
   %108 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %106, ptr noundef nonnull dereferenceable(1) @.str.97, ptr noundef nonnull %90, ptr noundef %107) #19
   tail call void @Ver_ParsePrintErrorMessage(ptr noundef nonnull %0)
   br label %Ver_ParsePrintErrorMessage.exit
@@ -7902,7 +7889,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 154:                                              ; preds = %151
   %155 = getelementptr inbounds i8, ptr %0, i64 80
-  %156 = tail call ptr @Mio_GateReadName(ptr noundef %2) #19
+  %156 = tail call ptr @Mio_GateReadName(ptr noundef nonnull %2) #19
   %157 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %155, ptr noundef nonnull dereferenceable(1) @.str.97, ptr noundef nonnull %90, ptr noundef %156) #19
   tail call void @Ver_ParsePrintErrorMessage(ptr noundef nonnull %0)
   br label %Ver_ParsePrintErrorMessage.exit
@@ -7927,7 +7914,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 167:                                              ; preds = %164, %161
   %168 = getelementptr inbounds i8, ptr %0, i64 80
-  %169 = tail call ptr @Mio_GateReadName(ptr noundef %2) #19
+  %169 = tail call ptr @Mio_GateReadName(ptr noundef nonnull %2) #19
   %170 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %168, ptr noundef nonnull dereferenceable(1) @.str.98, ptr noundef %169) #19
   tail call void @Ver_ParsePrintErrorMessage(ptr noundef nonnull %0)
   br label %Ver_ParsePrintErrorMessage.exit
@@ -7953,7 +7940,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 178:                                              ; preds = %171
   %179 = getelementptr inbounds i8, ptr %0, i64 80
-  %180 = tail call ptr @Mio_GateReadName(ptr noundef %2) #19
+  %180 = tail call ptr @Mio_GateReadName(ptr noundef nonnull %2) #19
   %181 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %179, ptr noundef nonnull dereferenceable(1) @.str.99, ptr noundef %180) #19
   tail call void @Ver_ParsePrintErrorMessage(ptr noundef nonnull %0)
   br label %Ver_ParsePrintErrorMessage.exit
@@ -9232,15 +9219,15 @@ declare ptr @Hop_CreateExor(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @Ver_ParseCreateLatch(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @Ver_ParseCreateLatch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 4) #19
-  tail call void @Abc_ObjAddFanin(ptr noundef %4, ptr noundef %1) #19
+  tail call void @Abc_ObjAddFanin(ptr noundef %4, ptr noundef nonnull %1) #19
   %5 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 8) #19
   tail call void @Abc_ObjAddFanin(ptr noundef %5, ptr noundef %4) #19
   %6 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 5) #19
   tail call void @Abc_ObjAddFanin(ptr noundef %6, ptr noundef %5) #19
-  tail call void @Abc_ObjAddFanin(ptr noundef %2, ptr noundef %6) #19
-  %7 = tail call ptr @Abc_ObjName(ptr noundef %2) #19
+  tail call void @Abc_ObjAddFanin(ptr noundef nonnull %2, ptr noundef %6) #19
+  %7 = tail call ptr @Abc_ObjName(ptr noundef nonnull %2) #19
   %8 = tail call ptr @Abc_ObjAssignName(ptr noundef %5, ptr noundef %7, ptr noundef nonnull @.str.66) #19
   %9 = getelementptr inbounds i8, ptr %5, i64 56
   store ptr inttoptr (i64 3 to ptr), ptr %9, align 8
@@ -9366,23 +9353,23 @@ declare void @Abc_DesFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #14
+; Function Attrs: nofree nounwind
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #15
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #15
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #16
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #14
+declare i32 @llvm.abs.i32(i32, i1 immarg) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
@@ -9407,9 +9394,9 @@ attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,unin
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nofree nounwind }
-attributes #16 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #14 = { nofree nounwind }
+attributes #15 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #19 = { nounwind }

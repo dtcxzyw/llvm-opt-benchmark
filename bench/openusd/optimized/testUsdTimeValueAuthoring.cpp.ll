@@ -8581,7 +8581,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1062: ; preds = %293, %297
           to label %303 unwind label %4102
 
 303:                                              ; preds = %302
-  invoke fastcc void @_ZL15_GetEditTargetsRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  invoke fastcc void @_ZL15_GetEditTargetsRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %304 unwind label %4104
 
 304:                                              ; preds = %303
@@ -19699,7 +19699,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit359: ; preds = %165, %169
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit361
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit361: ; preds = %174, %178
-  invoke fastcc void @_ZL15_GetEditTargetsRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(32) %27)
+  invoke fastcc void @_ZL15_GetEditTargetsRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(32) %27)
           to label %182 unwind label %2087
 
 182:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit361
@@ -29439,7 +29439,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeNameB5cxx11
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledB5cxx11EPKc(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL15_GetEditTargetsRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15_GetEditTargetsRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8

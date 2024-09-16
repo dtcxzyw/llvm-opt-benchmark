@@ -1643,7 +1643,7 @@ select.unfold.i.i.i.i:                            ; preds = %217, %184
   store ptr %222, ptr %77, align 8
   store ptr %221, ptr %70, align 8
   store ptr %221, ptr %74, align 8
-  call fastcc void @_ZN12_GLOBAL__N_118SelectOptimizeImpl21getExclBackwardsSliceEPN4llvm11InstructionERSt5stackIS3_St5dequeIS3_SaIS3_EEES3_b(ptr noundef nonnull readonly align 8 dereferenceable(344) %0, ptr noundef nonnull %.034.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %37, ptr noundef nonnull %.sroa.065.0.copyload.i.i.i.i, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_118SelectOptimizeImpl21getExclBackwardsSliceEPN4llvm11InstructionERSt5stackIS3_St5dequeIS3_SaIS3_EEES3_b(ptr noundef nonnull readonly align 8 dereferenceable(344) %0, ptr noundef %.034.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %37, ptr noundef nonnull %.sroa.065.0.copyload.i.i.i.i, i1 noundef zeroext false)
   %223 = load ptr, ptr %74, align 8
   %224 = load ptr, ptr %70, align 8
   %225 = icmp eq ptr %223, %224
@@ -2347,7 +2347,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit.i: ; preds =
   store ptr %518, ptr %422, align 8
   store ptr %517, ptr %415, align 8
   store ptr %517, ptr %419, align 8
-  call fastcc void @_ZN12_GLOBAL__N_118SelectOptimizeImpl21getExclBackwardsSliceEPN4llvm11InstructionERSt5stackIS3_St5dequeIS3_SaIS3_EEES3_b(ptr noundef nonnull readonly align 8 dereferenceable(344) %0, ptr noundef nonnull %.0.i725.i, ptr noundef nonnull align 8 dereferenceable(80) %11, ptr noundef nonnull %.sroa.0662.0.copyload.i, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_118SelectOptimizeImpl21getExclBackwardsSliceEPN4llvm11InstructionERSt5stackIS3_St5dequeIS3_SaIS3_EEES3_b(ptr noundef nonnull readonly align 8 dereferenceable(344) %0, ptr noundef %.0.i725.i, ptr noundef nonnull align 8 dereferenceable(80) %11, ptr noundef nonnull %.sroa.0662.0.copyload.i, i1 noundef zeroext true)
   %519 = load ptr, ptr %420, align 8
   %520 = load ptr, ptr %416, align 8
   %521 = ptrtoint ptr %519 to i64
@@ -3094,7 +3094,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i:               ; preds = %_ZN4llvm16dyn_cast_
   store ptr %864, ptr %432, align 8
   store ptr %863, ptr %425, align 8
   store ptr %863, ptr %429, align 8
-  call fastcc void @_ZN12_GLOBAL__N_118SelectOptimizeImpl21getExclBackwardsSliceEPN4llvm11InstructionERSt5stackIS3_St5dequeIS3_SaIS3_EEES3_b(ptr noundef nonnull readonly align 8 dereferenceable(344) %0, ptr noundef nonnull %.0.i252733738742.i, ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef nonnull %.sroa.0662.0.copyload.i, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_118SelectOptimizeImpl21getExclBackwardsSliceEPN4llvm11InstructionERSt5stackIS3_St5dequeIS3_SaIS3_EEES3_b(ptr noundef nonnull readonly align 8 dereferenceable(344) %0, ptr noundef %.0.i252733738742.i, ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef nonnull %.sroa.0662.0.copyload.i, i1 noundef zeroext true)
   %865 = load ptr, ptr %430, align 8
   %866 = load ptr, ptr %426, align 8
   %867 = ptrtoint ptr %865 to i64
@@ -7120,7 +7120,7 @@ declare i32 @_ZNK4llvm19TargetTransformInfo29getPredictableBranchThresholdEv(ptr
 declare noundef zeroext i1 @_ZN4llvm20extractBranchWeightsERKNS_11InstructionERmS3_(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118SelectOptimizeImpl21getExclBackwardsSliceEPN4llvm11InstructionERSt5stackIS3_St5dequeIS3_SaIS3_EEES3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(344) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118SelectOptimizeImpl21getExclBackwardsSliceEPN4llvm11InstructionERSt5stackIS3_St5dequeIS3_SaIS3_EEES3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(344) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
 .lr.ph31:
   %5 = alloca %"class.llvm::SmallPtrSet.286", align 8
   %6 = alloca %"class.std::queue", align 8

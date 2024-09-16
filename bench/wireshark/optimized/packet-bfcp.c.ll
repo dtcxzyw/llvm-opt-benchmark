@@ -583,7 +583,7 @@ declare ptr @proto_tree_add_item_ret_boolean(ptr noundef, i32 noundef, ptr nound
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bfcp_attributes(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_bfcp_attributes(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -2, 262141) %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #4
   %7 = icmp sgt i32 %6, 1
   %8 = icmp sgt i32 %4, 1

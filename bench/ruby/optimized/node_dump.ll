@@ -2295,11 +2295,11 @@ common.ret4623:                                   ; preds = %2504, %2039, %2032,
   %1130 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.195, i64 noundef 59) #4
   %1131 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1132 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.196, i64 noundef 23) #4
-  tail call fastcc void @dump_array(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef nonnull %3)
+  tail call fastcc void @dump_array(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3)
   br label %common.ret4623
 
 .split:                                           ; preds = %1126
-  tail call fastcc void @dump_array(i64 noundef %0, i64 noundef %1, i32 noundef 0, ptr noundef nonnull %3)
+  tail call fastcc void @dump_array(i64 noundef %0, i64 noundef %1, i32 noundef 0, ptr noundef %3)
   br label %common.ret4623
 
 1133:                                             ; preds = %9
@@ -4545,7 +4545,7 @@ define internal fastcc void @add_id(i64 noundef %0, i64 noundef %1) unnamed_addr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @dump_array(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dump_array(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
 .critedge57:
   %4 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %.not = icmp eq i32 %2, 0

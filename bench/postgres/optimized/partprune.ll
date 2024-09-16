@@ -271,7 +271,7 @@ add_part_relids.exit:                             ; preds = %.split.i, %._crit_e
 
 gen_partprune_steps.exit.i:                       ; preds = %133, %130, %125
   %.0.i.i = phi ptr [ %134, %133 ], [ %.0116.i, %130 ], [ %.0116.i, %125 ]
-  %135 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef nonnull %6, ptr noundef %.0.i.i)
+  %135 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef %6, ptr noundef %.0.i.i)
   %136 = load i8, ptr %22, align 1
   %137 = trunc i8 %136 to i1
   br i1 %137, label %make_partitionedrel_pruneinfo.exit.thread, label %138
@@ -318,7 +318,7 @@ gen_partprune_steps.exit.i:                       ; preds = %133, %130, %125
 
 gen_partprune_steps.exit134.i:                    ; preds = %156, %153, %149
   %.0.i133.i = phi ptr [ %157, %156 ], [ %.0116.i, %153 ], [ %.0116.i, %149 ]
-  %158 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef nonnull %6, ptr noundef %.0.i133.i)
+  %158 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef %6, ptr noundef %.0.i133.i)
   %159 = load i8, ptr %22, align 1
   %160 = trunc i8 %159 to i1
   br i1 %160, label %make_partitionedrel_pruneinfo.exit.thread, label %161
@@ -724,7 +724,7 @@ define dso_local ptr @prune_append_rel_partitions(ptr noundef %0) local_unnamed_
 
 gen_partprune_steps.exit:                         ; preds = %16, %22, %25
   %.0.i = phi ptr [ %26, %25 ], [ %5, %22 ], [ %5, %16 ]
-  %27 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef nonnull %2, ptr noundef %.0.i)
+  %27 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef %2, ptr noundef %.0.i)
   %28 = getelementptr inbounds i8, ptr %2, i64 27
   %29 = load i8, ptr %28, align 1
   %30 = trunc i8 %29 to i1
@@ -2060,7 +2060,7 @@ declare zeroext i1 @expression_tree_walker_impl(ptr noundef, ptr noundef, ptr no
 declare ptr @list_concat_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @gen_partprune_steps_internal(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @gen_partprune_steps_internal(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [6 x ptr], align 16
   %5 = alloca [2 x ptr], align 16
@@ -2196,7 +2196,7 @@ is_orclause.exit:                                 ; preds = %55
   %75 = getelementptr %union.ListCell, ptr %74, i64 %indvars.iv
   %76 = load ptr, ptr %75, align 8
   %77 = call ptr @list_make1_impl(i32 noundef 1, ptr %76) #6
-  %78 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef nonnull %0, ptr noundef %77)
+  %78 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef %0, ptr noundef %77)
   %79 = load i8, ptr %37, align 1
   %80 = trunc i8 %79 to i1
   store i8 0, ptr %37, align 1
@@ -2285,7 +2285,7 @@ is_orclause.exit:                                 ; preds = %55
 118:                                              ; preds = %is_orclause.exit
   %119 = getelementptr inbounds i8, ptr %.0128, i64 8
   %120 = load ptr, ptr %119, align 8
-  %121 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef nonnull %0, ptr noundef %120)
+  %121 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef %0, ptr noundef %120)
   %122 = load i8, ptr %37, align 1
   %123 = trunc i8 %122 to i1
   br i1 %123, label %list_length.exit.thread, label %124
@@ -2483,7 +2483,7 @@ is_notclause.exit.thread.thread.i:                ; preds = %179, %is_notclause.
   %201 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %190, ptr nonnull %195) #6
   %202 = call ptr @makeBoolExpr(i32 noundef 1, ptr noundef %201, i32 noundef -1) #6
   %203 = call ptr @list_make1_impl(i32 noundef 1, ptr %202) #6
-  %204 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef nonnull %0, ptr noundef %203)
+  %204 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef %0, ptr noundef %203)
   %205 = load i8, ptr %37, align 1
   %206 = trunc i8 %205 to i1
   br i1 %206, label %match_clause_to_partition_key.exit.thread230, label %207
@@ -3008,7 +3008,7 @@ list_length.exit160:                              ; preds = %460
 
 list_length.exit160.thread:                       ; preds = %460, %464, %list_length.exit160, %._crit_edge483
   %.1212.i = phi ptr [ %466, %464 ], [ %.0211.i.lcssa, %list_length.exit160 ], [ %.0211.i.lcssa, %._crit_edge483 ], [ null, %460 ]
-  %467 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef nonnull %0, ptr noundef %.1212.i)
+  %467 = call fastcc ptr @gen_partprune_steps_internal(ptr noundef %0, ptr noundef %.1212.i)
   %468 = load i8, ptr %37, align 1
   %469 = trunc i8 %468 to i1
   br i1 %469, label %match_clause_to_partition_key.exit.thread230, label %470
@@ -3795,7 +3795,7 @@ list_head.exit215.i:                              ; preds = %658, %list_head.exi
 list_head.exit.i.i:                               ; preds = %.thread260.i
   %766 = getelementptr inbounds i8, ptr %.5503.i, i64 16
   %767 = load ptr, ptr %766, align 8
-  %768 = call fastcc ptr @get_steps_using_prefix_recurse(ptr noundef nonnull %0, i16 noundef zeroext %620, i1 noundef zeroext %741, ptr noundef %743, i32 noundef %745, ptr noundef null, ptr noundef nonnull readonly %.5503.i, ptr noundef %767, ptr noundef null, ptr noundef null)
+  %768 = call fastcc ptr @get_steps_using_prefix_recurse(ptr noundef %0, i16 noundef zeroext %620, i1 noundef zeroext %741, ptr noundef %743, i32 noundef %745, ptr noundef null, ptr noundef readonly %.5503.i, ptr noundef %767, ptr noundef null, ptr noundef null)
   br label %get_steps_using_prefix.exit.i
 
 get_steps_using_prefix.exit.i:                    ; preds = %list_head.exit.i.i, %747, %628
@@ -3924,7 +3924,7 @@ list_head.exit.i236.i:                            ; preds = %.lr.ph312.i, %list_
   %831 = getelementptr inbounds i8, ptr %828, i64 24
   %832 = load i32, ptr %831, align 8
   %833 = load ptr, ptr %799, align 8
-  %834 = call fastcc ptr @get_steps_using_prefix_recurse(ptr noundef nonnull %0, i16 noundef zeroext 1, i1 noundef zeroext false, ptr noundef %830, i32 noundef %832, ptr noundef %.0118506.lcssa1251, ptr noundef nonnull readonly %793, ptr noundef %833, ptr noundef null, ptr noundef null)
+  %834 = call fastcc ptr @get_steps_using_prefix_recurse(ptr noundef %0, i16 noundef zeroext 1, i1 noundef zeroext false, ptr noundef %830, i32 noundef %832, ptr noundef %.0118506.lcssa1251, ptr noundef readonly %793, ptr noundef %833, ptr noundef null, ptr noundef null)
   %835 = call ptr @list_concat(ptr noundef %.4310.i, ptr noundef %834) #6
   %indvars.iv.next480.i = add nuw nsw i64 %indvars.iv479.i, 1
   %836 = load i32, ptr %777, align 4
@@ -4086,7 +4086,7 @@ declare ptr @makeBoolConst(i1 noundef zeroext, i1 noundef zeroext) local_unnamed
 declare ptr @negate_clause(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_steps_using_prefix_recurse(ptr nocapture noundef %0, i16 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) unnamed_addr #0 {
+define internal fastcc ptr @get_steps_using_prefix_recurse(ptr nocapture noundef nonnull %0, i16 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef nonnull readonly %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) unnamed_addr #0 {
   tail call void @check_stack_depth() #6
   %11 = load ptr, ptr %7, align 8
   %12 = load i32, ptr %11, align 8
@@ -4106,51 +4106,51 @@ define internal fastcc ptr @get_steps_using_prefix_recurse(ptr nocapture noundef
   %24 = lshr exact i64 %23, 3
   %25 = trunc i64 %24 to i32
   %26 = icmp sgt i32 %.val, %25
-  br i1 %20, label %for_each_cell_setup.exit, label %for_each_cell_setup.exit96
+  br i1 %20, label %for_each_cell_setup.exit, label %for_each_cell_setup.exit94
 
 for_each_cell_setup.exit:                         ; preds = %10
-  br i1 %26, label %.lr.ph114.preheader, label %.thread101
+  br i1 %26, label %.lr.ph110.preheader, label %.thread98
 
-.lr.ph114.preheader:                              ; preds = %for_each_cell_setup.exit
-  %sext132 = shl i64 %23, 29
-  %27 = ashr i64 %sext132, 32
-  br label %.lr.ph114
+.lr.ph110.preheader:                              ; preds = %for_each_cell_setup.exit
+  %sext128 = shl i64 %23, 29
+  %27 = ashr i64 %sext128, 32
+  br label %.lr.ph110
 
-28:                                               ; preds = %.lr.ph114
-  %indvars.iv.next127 = add nsw i64 %indvars.iv126, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next127 to i32
+28:                                               ; preds = %.lr.ph110
+  %indvars.iv.next123 = add nsw i64 %indvars.iv122, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next123 to i32
   %exitcond.not = icmp eq i32 %.val, %lftr.wideiv
-  br i1 %exitcond.not, label %.lr.ph118.preheader, label %.lr.ph114, !llvm.loop !27
+  br i1 %exitcond.not, label %.lr.ph114.preheader, label %.lr.ph110, !llvm.loop !27
 
-.lr.ph114:                                        ; preds = %.lr.ph114.preheader, %28
-  %indvars.iv126 = phi i64 [ %27, %.lr.ph114.preheader ], [ %indvars.iv.next127, %28 ]
-  %29 = getelementptr %union.ListCell, ptr %.val84, i64 %indvars.iv126
+.lr.ph110:                                        ; preds = %.lr.ph110.preheader, %28
+  %indvars.iv122 = phi i64 [ %27, %.lr.ph110.preheader ], [ %indvars.iv.next123, %28 ]
+  %29 = getelementptr %union.ListCell, ptr %.val84, i64 %indvars.iv122
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %30, align 8
   %32 = icmp sgt i32 %31, %12
-  br i1 %32, label %for_each_cell_setup.exit90.split.loop.exit136, label %28
+  br i1 %32, label %for_each_cell_setup.exit89.split.loop.exit132, label %28
 
-for_each_cell_setup.exit90.split.loop.exit136:    ; preds = %.lr.ph114
-  %33 = getelementptr %union.ListCell, ptr %.val84, i64 %indvars.iv126
-  br label %.lr.ph118.preheader
+for_each_cell_setup.exit89.split.loop.exit132:    ; preds = %.lr.ph110
+  %33 = getelementptr %union.ListCell, ptr %.val84, i64 %indvars.iv122
+  br label %.lr.ph114.preheader
 
-.lr.ph118.preheader:                              ; preds = %28, %for_each_cell_setup.exit90.split.loop.exit136
-  %.07299 = phi ptr [ %33, %for_each_cell_setup.exit90.split.loop.exit136 ], [ null, %28 ]
-  %sext133 = shl i64 %23, 29
-  %34 = ashr i64 %sext133, 32
-  br label %.lr.ph118
+.lr.ph114.preheader:                              ; preds = %28, %for_each_cell_setup.exit89.split.loop.exit132
+  %.07297 = phi ptr [ %33, %for_each_cell_setup.exit89.split.loop.exit132 ], [ null, %28 ]
+  %sext129 = shl i64 %23, 29
+  %34 = ashr i64 %sext129, 32
+  br label %.lr.ph114
 
-.lr.ph118:                                        ; preds = %.lr.ph118.preheader, %40
-  %indvars.iv129 = phi i64 [ %34, %.lr.ph118.preheader ], [ %indvars.iv.next130, %40 ]
-  %.0117 = phi ptr [ null, %.lr.ph118.preheader ], [ %50, %40 ]
+.lr.ph114:                                        ; preds = %.lr.ph114.preheader, %40
+  %indvars.iv125 = phi i64 [ %34, %.lr.ph114.preheader ], [ %indvars.iv.next126, %40 ]
+  %.0113 = phi ptr [ null, %.lr.ph114.preheader ], [ %50, %40 ]
   %35 = load ptr, ptr %14, align 8
-  %36 = getelementptr %union.ListCell, ptr %35, i64 %indvars.iv129
+  %36 = getelementptr %union.ListCell, ptr %35, i64 %indvars.iv125
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, %12
-  br i1 %39, label %40, label %.thread101
+  br i1 %39, label %40, label %.thread98
 
-40:                                               ; preds = %.lr.ph118
+40:                                               ; preds = %.lr.ph114
   %41 = tail call ptr @list_copy(ptr noundef %8) #6
   %42 = getelementptr inbounds i8, ptr %37, i64 16
   %43 = load ptr, ptr %42, align 8
@@ -4159,20 +4159,20 @@ for_each_cell_setup.exit90.split.loop.exit136:    ; preds = %.lr.ph114
   %46 = getelementptr inbounds i8, ptr %37, i64 24
   %47 = load i32, ptr %46, align 8
   %48 = tail call ptr @lappend_oid(ptr noundef %45, i32 noundef %47) #6
-  %49 = tail call fastcc ptr @get_steps_using_prefix_recurse(ptr noundef %0, i16 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef nonnull %6, ptr noundef %.07299, ptr noundef %44, ptr noundef %48)
-  %50 = tail call ptr @list_concat(ptr noundef %.0117, ptr noundef %49) #6
+  %49 = tail call fastcc ptr @get_steps_using_prefix_recurse(ptr noundef %0, i16 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %.07297, ptr noundef %44, ptr noundef %48)
+  %50 = tail call ptr @list_concat(ptr noundef %.0113, ptr noundef %49) #6
   tail call void @list_free(ptr noundef %44) #6
   tail call void @list_free(ptr noundef %48) #6
-  %indvars.iv.next130 = add nsw i64 %indvars.iv129, 1
+  %indvars.iv.next126 = add nsw i64 %indvars.iv125, 1
   %51 = load i32, ptr %13, align 4
   %52 = sext i32 %51 to i64
-  %53 = icmp slt i64 %indvars.iv.next130, %52
-  br i1 %53, label %.lr.ph118, label %.thread101, !llvm.loop !28
+  %53 = icmp slt i64 %indvars.iv.next126, %52
+  br i1 %53, label %.lr.ph114, label %.thread98, !llvm.loop !28
 
-for_each_cell_setup.exit96:                       ; preds = %10
-  br i1 %26, label %.lr.ph, label %.thread101
+for_each_cell_setup.exit94:                       ; preds = %10
+  br i1 %26, label %.lr.ph, label %.thread98
 
-.lr.ph:                                           ; preds = %for_each_cell_setup.exit96
+.lr.ph:                                           ; preds = %for_each_cell_setup.exit94
   %54 = getelementptr inbounds i8, ptr %0, i64 28
   %55 = select i1 %2, i16 0, i16 %1
   %56 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4182,7 +4182,7 @@ for_each_cell_setup.exit96:                       ; preds = %10
 
 58:                                               ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ %57, %.lr.ph ], [ %indvars.iv.next, %58 ]
-  %.2110 = phi ptr [ null, %.lr.ph ], [ %82, %58 ]
+  %.2106 = phi ptr [ null, %.lr.ph ], [ %82, %58 ]
   %59 = load ptr, ptr %14, align 8
   %60 = getelementptr %union.ListCell, ptr %59, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8
@@ -4214,15 +4214,15 @@ for_each_cell_setup.exit96:                       ; preds = %10
   %80 = load ptr, ptr %56, align 8
   %81 = tail call ptr @lappend(ptr noundef %80, ptr noundef nonnull %72) #6
   store ptr %81, ptr %56, align 8
-  %82 = tail call ptr @lappend(ptr noundef %.2110, ptr noundef nonnull %72) #6
+  %82 = tail call ptr @lappend(ptr noundef %.2106, ptr noundef nonnull %72) #6
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %83 = load i32, ptr %13, align 4
   %84 = sext i32 %83 to i64
   %85 = icmp slt i64 %indvars.iv.next, %84
-  br i1 %85, label %58, label %.thread101, !llvm.loop !29
+  br i1 %85, label %58, label %.thread98, !llvm.loop !29
 
-.thread101:                                       ; preds = %58, %.lr.ph118, %40, %for_each_cell_setup.exit, %for_each_cell_setup.exit96
-  %.1 = phi ptr [ null, %for_each_cell_setup.exit96 ], [ null, %for_each_cell_setup.exit ], [ %.0117, %.lr.ph118 ], [ %50, %40 ], [ %82, %58 ]
+.thread98:                                        ; preds = %58, %.lr.ph114, %40, %for_each_cell_setup.exit, %for_each_cell_setup.exit94
+  %.1 = phi ptr [ null, %for_each_cell_setup.exit94 ], [ null, %for_each_cell_setup.exit ], [ %.0113, %.lr.ph114 ], [ %50, %40 ], [ %82, %58 ]
   ret ptr %.1
 }
 

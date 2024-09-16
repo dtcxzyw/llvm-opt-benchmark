@@ -6286,7 +6286,7 @@ _ZN3tev10ThreadPool6globalEv.exit:                ; preds = %330, %327, %323
   %.sroa.02.0.copyload.i.i = load ptr, ptr %338, align 8, !noalias !20
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.221.0..sroa_idx.i.i, align 8, !noalias !20
   %411 = load i32, ptr %339, align 4, !noalias !20
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_9IpcPacket22interpretAsUpdateImageEvE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_"(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %409, i64 noundef %408, ptr %.sroa.02.0.copyload.i.i, ptr %.sroa.2.0.copyload.i.i, i32 noundef %411, ptr noundef %410)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_9IpcPacket22interpretAsUpdateImageEvE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_"(ptr dead_on_unwind noalias writable align 8 %10, i64 noundef %409, i64 noundef %408, ptr %.sroa.02.0.copyload.i.i, ptr %.sroa.2.0.copyload.i.i, i32 noundef %411, ptr noundef %410)
           to label %412 unwind label %440, !noalias !20
 
 412:                                              ; preds = %406
@@ -49657,7 +49657,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_9IpcPacket22interpretAsUpdateImageEvE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i64 noundef %1, i64 noundef %2, ptr %3, ptr %4, i32 noundef %5, ptr noundef %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_9IpcPacket22interpretAsUpdateImageEvE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 noundef %1, i64 noundef %2, ptr %3, ptr %4, i32 noundef %5, ptr noundef %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.std::__1::coroutine_handle.309", align 8
   %9 = alloca %"class.std::__1::future", align 8
   %10 = alloca %"class.std::__1::future", align 8
@@ -51932,7 +51932,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNKS_9IpcPa
   %.sroa.022.0.copyload = load ptr, ptr %9, align 8
   %.sroa.223.0.copyload = load ptr, ptr %.sroa.223.0..sroa_idx, align 8
   %61 = load i32, ptr %10, align 8
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_9IpcPacket22interpretAsUpdateImageEvE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, i64 noundef %59, i64 noundef %58, ptr %.sroa.022.0.copyload, ptr %.sroa.223.0.copyload, i32 noundef %61, ptr noundef %60)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_9IpcPacket22interpretAsUpdateImageEvE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_"(ptr dead_on_unwind noalias writable align 8 %5, i64 noundef %59, i64 noundef %58, ptr %.sroa.022.0.copyload, ptr %.sroa.223.0.copyload, i32 noundef %61, ptr noundef %60)
           to label %62 unwind label %90
 
 62:                                               ; preds = %56

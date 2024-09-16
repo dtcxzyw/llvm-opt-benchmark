@@ -388,7 +388,7 @@ lpad40:                                           ; preds = %invoke.cont39
   br label %eh.resume.sink.split
 
 if.end45:                                         ; preds = %if.end32
-  %call46 = tail call fastcc noundef zeroext i1 @_ZL9checkModejPP16hs_compile_error(i32 noundef %mode, ptr noundef nonnull %comp_error)
+  %call46 = tail call fastcc noundef zeroext i1 @_ZL9checkModejPP16hs_compile_error(i32 noundef %mode, ptr noundef %comp_error)
   br i1 %call46, label %if.end48, label %if.then47
 
 if.then47:                                        ; preds = %if.end45
@@ -396,7 +396,7 @@ if.then47:                                        ; preds = %if.end45
   br label %return
 
 if.end48:                                         ; preds = %if.end45
-  %call49 = tail call fastcc noundef zeroext i1 @_ZL13checkPlatformPK16hs_platform_infoPP16hs_compile_error(ptr noundef %platform, ptr noundef nonnull %comp_error)
+  %call49 = tail call fastcc noundef zeroext i1 @_ZL13checkPlatformPK16hs_platform_infoPP16hs_compile_error(ptr noundef %platform, ptr noundef %comp_error)
   br i1 %call49, label %if.end51, label %if.then50
 
 if.then50:                                        ; preds = %if.end48
@@ -903,7 +903,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL9checkModejPP16hs_compile_error(i32 noundef %mode, ptr nocapture noundef writeonly %comp_error) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL9checkModejPP16hs_compile_error(i32 noundef %mode, ptr nocapture noundef nonnull writeonly %comp_error) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator", align 1
@@ -1106,7 +1106,7 @@ eh.resume:                                        ; preds = %lpad39, %lpad.i41, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL13checkPlatformPK16hs_platform_infoPP16hs_compile_error(ptr noundef readonly %p, ptr nocapture noundef writeonly %comp_error) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL13checkPlatformPK16hs_platform_infoPP16hs_compile_error(ptr noundef readonly %p, ptr nocapture noundef nonnull writeonly %comp_error) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
@@ -1509,7 +1509,7 @@ lpad52:                                           ; preds = %invoke.cont51
   br label %eh.resume.sink.split
 
 if.end57:                                         ; preds = %if.end44
-  %call58 = tail call fastcc noundef zeroext i1 @_ZL9checkModejPP16hs_compile_error(i32 noundef %mode, ptr noundef nonnull %comp_error)
+  %call58 = tail call fastcc noundef zeroext i1 @_ZL9checkModejPP16hs_compile_error(i32 noundef %mode, ptr noundef %comp_error)
   br i1 %call58, label %if.end60, label %if.then59
 
 if.then59:                                        ; preds = %if.end57
@@ -1517,7 +1517,7 @@ if.then59:                                        ; preds = %if.end57
   br label %return
 
 if.end60:                                         ; preds = %if.end57
-  %call61 = tail call fastcc noundef zeroext i1 @_ZL13checkPlatformPK16hs_platform_infoPP16hs_compile_error(ptr noundef %platform, ptr noundef nonnull %comp_error)
+  %call61 = tail call fastcc noundef zeroext i1 @_ZL13checkPlatformPK16hs_platform_infoPP16hs_compile_error(ptr noundef %platform, ptr noundef %comp_error)
   br i1 %call61, label %if.end63, label %if.then62
 
 if.then62:                                        ; preds = %if.end60

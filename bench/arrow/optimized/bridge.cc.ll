@@ -816,7 +816,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter12ExportFormatERKNS_8DataTypeE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(384) %exporter, ptr noundef nonnull align 8 dereferenceable(72) %call.i2) #26
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter12ExportFormatERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(384) %exporter, ptr noundef nonnull align 8 dereferenceable(72) %call.i2) #26
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -826,7 +826,7 @@ call.i.noexc:                                     ; preds = %entry
 
 _ZN5arrow6StatusD2Ev.exit77.i:                    ; preds = %.noexc
   %children_.i.i1 = getelementptr inbounds i8, ptr %call.i2, i64 48
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportChildrenERKSt6vectorISt10shared_ptrINS_5FieldEESaIS5_EE(ptr noalias nonnull align 8 %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(384) %exporter, ptr noundef nonnull align 8 dereferenceable(24) %children_.i.i1) #26
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportChildrenERKSt6vectorISt10shared_ptrINS_5FieldEESaIS5_EE(ptr noalias align 8 %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(384) %exporter, ptr noundef nonnull align 8 dereferenceable(24) %children_.i.i1) #26
           to label %.noexc3 unwind label %lpad
 
 .noexc3:                                          ; preds = %_ZN5arrow6StatusD2Ev.exit77.i
@@ -835,7 +835,7 @@ _ZN5arrow6StatusD2Ev.exit77.i:                    ; preds = %.noexc
   br i1 %cmp.i78.i, label %_ZN5arrow6StatusD2Ev.exit150.i, label %_ZN5arrow6StatusD2Ev.exit.thread
 
 _ZN5arrow6StatusD2Ev.exit150.i:                   ; preds = %.noexc3
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportMetadataEPKNS_16KeyValueMetadataE(ptr noalias nonnull align 8 %ref.tmp33.i, ptr noundef nonnull align 8 dereferenceable(384) %exporter, ptr noundef null)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportMetadataEPKNS_16KeyValueMetadataE(ptr noalias align 8 %ref.tmp33.i, ptr noundef nonnull align 8 dereferenceable(384) %exporter, ptr noundef null)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit.thread:                 ; preds = %.noexc3, %.noexc
@@ -875,7 +875,7 @@ cleanup12:                                        ; preds = %cleanup12.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter10ExportTypeERKNS_8DataTypeE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(72) %orig_type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter10ExportTypeERKNS_8DataTypeE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(72) %orig_type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp10 = alloca %"class.arrow::Status", align 8
@@ -883,7 +883,7 @@ _ZN5arrow6StatusD2Ev.exit:
   %flags_ = getelementptr inbounds i8, ptr %this, i64 320
   store i64 2, ptr %flags_, align 8
   %call = tail call fastcc noundef ptr @_ZN5arrow12_GLOBAL__N_114SchemaExporter15UnwrapExtensionEPKNS_8DataTypeE(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull %orig_type)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter12ExportFormatERKNS_8DataTypeE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(72) %call)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter12ExportFormatERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(72) %call)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %0 = load ptr, ptr %ref.tmp, align 8, !noalias !19
   store ptr %0, ptr %agg.result, align 8, !alias.scope !19
@@ -892,7 +892,7 @@ _ZN5arrow6StatusD2Ev.exit:
 
 _ZN5arrow6StatusD2Ev.exit77:                      ; preds = %_ZN5arrow6StatusD2Ev.exit
   %children_.i = getelementptr inbounds i8, ptr %call, i64 48
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportChildrenERKSt6vectorISt10shared_ptrINS_5FieldEESaIS5_EE(ptr noalias nonnull align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(24) %children_.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportChildrenERKSt6vectorISt10shared_ptrINS_5FieldEESaIS5_EE(ptr noalias align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(24) %children_.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %1 = load ptr, ptr %ref.tmp10, align 8, !noalias !22
   store ptr %1, ptr %agg.result, align 8, !alias.scope !22
@@ -900,7 +900,7 @@ _ZN5arrow6StatusD2Ev.exit77:                      ; preds = %_ZN5arrow6StatusD2E
   br i1 %cmp.i78, label %_ZN5arrow6StatusD2Ev.exit150, label %return
 
 _ZN5arrow6StatusD2Ev.exit150:                     ; preds = %_ZN5arrow6StatusD2Ev.exit77
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportMetadataEPKNS_16KeyValueMetadataE(ptr noalias nonnull align 8 %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef null)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportMetadataEPKNS_16KeyValueMetadataE(ptr noalias align 8 %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef null)
   %2 = load ptr, ptr %ref.tmp33, align 8, !noalias !25
   store ptr %2, ptr %agg.result, align 8
   br label %return
@@ -1597,7 +1597,7 @@ entry:
   store ptr %child_pointers_.i.i, ptr %data_.i.i2.i.i, align 8
   %dynamic_capacity_.i.i3.i.i = getelementptr inbounds i8, ptr %exporter, i64 312
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %dynamic_capacity_.i.i3.i.i, i8 0, i64 72, i1 false)
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter11ExportFieldERKNS_5FieldE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(384) %exporter, ptr noundef nonnull align 8 dereferenceable(96) %field)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter11ExportFieldERKNS_5FieldE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(384) %exporter, ptr noundef nonnull align 8 dereferenceable(96) %field)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
@@ -1627,7 +1627,7 @@ cleanup12:                                        ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter11ExportFieldERKNS_5FieldE(ptr noalias nocapture align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(96) %field) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter11ExportFieldERKNS_5FieldE(ptr noalias nocapture nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(96) %field) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp16 = alloca %"class.arrow::Status", align 8
@@ -1645,7 +1645,7 @@ _ZN5arrow6StatusD2Ev.exit:
   %type_.i = getelementptr inbounds i8, ptr %field, i64 56
   %1 = load ptr, ptr %type_.i, align 8
   %call6 = tail call fastcc noundef ptr @_ZN5arrow12_GLOBAL__N_114SchemaExporter15UnwrapExtensionEPKNS_8DataTypeE(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef %1)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter12ExportFormatERKNS_8DataTypeE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(72) %call6)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter12ExportFormatERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(72) %call6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   %2 = load ptr, ptr %ref.tmp, align 8, !noalias !54
   store ptr %2, ptr %agg.result, align 8, !alias.scope !54
@@ -1655,7 +1655,7 @@ _ZN5arrow6StatusD2Ev.exit:
 
 _ZN5arrow6StatusD2Ev.exit80:                      ; preds = %_ZN5arrow6StatusD2Ev.exit
   %children_.i = getelementptr inbounds i8, ptr %call6, i64 48
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportChildrenERKSt6vectorISt10shared_ptrINS_5FieldEESaIS5_EE(ptr noalias nonnull align 8 %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(24) %children_.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportChildrenERKSt6vectorISt10shared_ptrINS_5FieldEESaIS5_EE(ptr noalias align 8 %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(24) %children_.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %3 = load ptr, ptr %ref.tmp16, align 8, !noalias !57
   store ptr %3, ptr %agg.result, align 8, !alias.scope !57
@@ -1694,7 +1694,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 
 _ZNK5arrow5Field8metadataEv.exit:                 ; preds = %do.body36, %if.then.i.i.i.i.i.i118, %if.else.i.i.i.i.i.i
   %9 = phi ptr [ %4, %do.body36 ], [ %4, %if.then.i.i.i.i.i.i118 ], [ %.pre, %if.else.i.i.i.i.i.i ]
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportMetadataEPKNS_16KeyValueMetadataE(ptr noalias nonnull align 8 %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef %9)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportMetadataEPKNS_16KeyValueMetadataE(ptr noalias align 8 %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef %9)
           to label %_ZN5arrow6StatusD2Ev.exit154 unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit154:                     ; preds = %_ZNK5arrow5Field8metadataEv.exit
@@ -1851,7 +1851,7 @@ invoke.cont.i:                                    ; preds = %init.i
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %invoke.cont.i, %init.check.i, %entry
   %flags_.i = getelementptr inbounds i8, ptr %exporter, i64 320
   store i64 0, ptr %flags_.i, align 8, !noalias !69
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter12ExportFormatERKNS_8DataTypeE(ptr noalias nonnull align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(384) %exporter, ptr noundef nonnull align 8 dereferenceable(72) @_ZZN5arrow12_GLOBAL__N_114SchemaExporter12ExportSchemaERKNS_6SchemaEE17dummy_struct_type)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter12ExportFormatERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(384) %exporter, ptr noundef nonnull align 8 dereferenceable(72) @_ZZN5arrow12_GLOBAL__N_114SchemaExporter12ExportSchemaERKNS_6SchemaEE17dummy_struct_type)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit.i
@@ -1871,7 +1871,7 @@ _ZN5arrow6StatusD2Ev.exit77.i:                    ; preds = %.noexc
           to label %call11.i.noexc unwind label %lpad
 
 call11.i.noexc:                                   ; preds = %_ZN5arrow6StatusD2Ev.exit77.i
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportChildrenERKSt6vectorISt10shared_ptrINS_5FieldEESaIS5_EE(ptr noalias nonnull align 8 %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(384) %exporter, ptr noundef nonnull align 8 dereferenceable(24) %call11.i1)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportChildrenERKSt6vectorISt10shared_ptrINS_5FieldEESaIS5_EE(ptr noalias align 8 %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(384) %exporter, ptr noundef nonnull align 8 dereferenceable(24) %call11.i1)
           to label %.noexc2 unwind label %lpad
 
 .noexc2:                                          ; preds = %call11.i.noexc
@@ -1885,7 +1885,7 @@ _ZN5arrow6StatusD2Ev.exit150.i:                   ; preds = %.noexc2
 
 call32.i.noexc:                                   ; preds = %_ZN5arrow6StatusD2Ev.exit150.i
   %6 = load ptr, ptr %call32.i3, align 8, !noalias !69
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportMetadataEPKNS_16KeyValueMetadataE(ptr noalias nonnull align 8 %ref.tmp31.i, ptr noundef nonnull align 8 dereferenceable(384) %exporter, ptr noundef %6)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportMetadataEPKNS_16KeyValueMetadataE(ptr noalias align 8 %ref.tmp31.i, ptr noundef nonnull align 8 dereferenceable(384) %exporter, ptr noundef %6)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit.thread:                 ; preds = %.noexc2, %.noexc
@@ -1983,7 +1983,7 @@ if.end14:                                         ; preds = %_ZN5arrow6StatusD2E
   %dynamic_capacity_.i.i6.i.i = getelementptr inbounds i8, ptr %exporter, i64 280
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %dynamic_capacity_.i.i6.i.i, i8 0, i64 96, i1 false)
   %data_.i43 = getelementptr inbounds i8, ptr %array, i64 8
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayExporter6ExportERKSt10shared_ptrINS_9ArrayDataEE(ptr noalias nonnull align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(376) %exporter, ptr noundef nonnull align 8 dereferenceable(16) %data_.i43)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayExporter6ExportERKSt10shared_ptrINS_9ArrayDataEE(ptr noalias align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(376) %exporter, ptr noundef nonnull align 8 dereferenceable(16) %data_.i43)
           to label %_ZN5arrow6StatusD2Ev.exit79 unwind label %lpad18
 
 _ZN5arrow6StatusD2Ev.exit79:                      ; preds = %if.end14
@@ -2098,7 +2098,7 @@ ehcleanup48:                                      ; preds = %lpad18, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayExporter6ExportERKSt10shared_ptrINS_9ArrayDataEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(376) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayExporter6ExportERKSt10shared_ptrINS_9ArrayDataEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(376) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp63 = alloca %"class.std::unique_ptr.60", align 8
   %ref.tmp65 = alloca %"class.arrow::Status", align 8
@@ -2499,7 +2499,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZNKSt14default_del
   %dict_exporter_.val = load ptr, ptr %dict_exporter_, align 8
   %57 = load ptr, ptr %data, align 8
   %dictionary69 = getelementptr inbounds i8, ptr %57, i64 88
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayExporter6ExportERKSt10shared_ptrINS_9ArrayDataEE(ptr noalias nonnull align 8 %ref.tmp65, ptr noundef nonnull align 8 dereferenceable(376) %dict_exporter_.val, ptr noundef nonnull align 8 dereferenceable(16) %dictionary69)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayExporter6ExportERKSt10shared_ptrINS_9ArrayDataEE(ptr noalias align 8 %ref.tmp65, ptr noundef nonnull align 8 dereferenceable(376) %dict_exporter_.val, ptr noundef nonnull align 8 dereferenceable(16) %dictionary69)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
   %58 = load ptr, ptr %ref.tmp65, align 8, !noalias !127
   store ptr %58, ptr %agg.result, align 8, !alias.scope !127
@@ -2630,23 +2630,23 @@ if.then.i176:                                     ; preds = %_ZN5arrow8internal1
   br i1 %cmp8.not.i.i, label %if.else.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.then.i176, %for.body.i.i.i.i.i
-  %__cur.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %this.val4.i, %if.then.i176 ]
-  %__n.addr.05.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %sub.i177, %if.then.i176 ]
-  %data_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %__cur.06.i.i.i.i.i, i8 0, i64 264, i1 false)
-  store ptr %__cur.06.i.i.i.i.i, ptr %data_.i.i.i.i.i.i.i.i.i.i, align 8
-  %children_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 128
-  %data_.i.i2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 216
+  %__cur.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %this.val4.i, %if.then.i176 ]
+  %__n.addr.04.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %sub.i177, %if.then.i176 ]
+  %data_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %__cur.05.i.i.i.i.i, i8 0, i64 264, i1 false)
+  store ptr %__cur.05.i.i.i.i.i, ptr %data_.i.i.i.i.i.i.i.i.i.i, align 8
+  %children_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i, i64 128
+  %data_.i.i2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i, i64 216
   store ptr %children_.i.i.i.i.i.i.i.i, ptr %data_.i.i2.i.i.i.i.i.i.i.i, align 8
-  %child_pointers_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 232
-  %size_.i.i4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 264
+  %child_pointers_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i, i64 232
+  %size_.i.i4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i, i64 264
   store i64 0, ptr %size_.i.i4.i.i.i.i.i.i.i.i, align 8
-  %data_.i.i5.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 272
+  %data_.i.i5.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i, i64 272
   store ptr %child_pointers_.i.i.i.i.i.i.i.i, ptr %data_.i.i5.i.i.i.i.i.i.i.i, align 8
-  %dynamic_capacity_.i.i6.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 280
+  %dynamic_capacity_.i.i6.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i, i64 280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %dynamic_capacity_.i.i6.i.i.i.i.i.i.i.i, i8 0, i64 96, i1 false)
-  %dec.i.i.i.i.i = add i64 %__n.addr.05.i.i.i.i.i, -1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 376
+  %dec.i.i.i.i.i = add i64 %__n.addr.04.i.i.i.i.i, -1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i, i64 376
   %cmp.not.i.i.i.i.i = icmp eq i64 %dec.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN5arrow12_GLOBAL__N_113ArrayExporterEmS2_ET_S4_T0_RSaIT1_E.exit.i.i, label %for.body.i.i.i.i.i, !llvm.loop !144
 
@@ -2669,36 +2669,36 @@ _ZNKSt6vectorIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE12_M_check_lenEmPKc.e
   %mul.i.i.i.i.i = mul nuw nsw i64 %82, 376
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #28
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i167
-  br label %for.body.i.i.i24.i.i
+  br label %for.body.i.i.i23.i.i
 
-for.body.i.i.i24.i.i:                             ; preds = %for.body.i.i.i24.i.i, %_ZNKSt6vectorIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %__cur.06.i.i.i25.i.i = phi ptr [ %incdec.ptr.i.i.i35.i.i, %for.body.i.i.i24.i.i ], [ %add.ptr.i.i, %_ZNKSt6vectorIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
-  %__n.addr.05.i.i.i26.i.i = phi i64 [ %dec.i.i.i34.i.i, %for.body.i.i.i24.i.i ], [ %sub.i177, %_ZNKSt6vectorIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
-  %data_.i.i.i.i.i.i.i.i27.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i25.i.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %__cur.06.i.i.i25.i.i, i8 0, i64 264, i1 false)
-  store ptr %__cur.06.i.i.i25.i.i, ptr %data_.i.i.i.i.i.i.i.i27.i.i, align 8
-  %children_.i.i.i.i.i.i28.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i25.i.i, i64 128
-  %data_.i.i2.i.i.i.i.i.i29.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i25.i.i, i64 216
-  store ptr %children_.i.i.i.i.i.i28.i.i, ptr %data_.i.i2.i.i.i.i.i.i29.i.i, align 8
-  %child_pointers_.i.i.i.i.i.i30.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i25.i.i, i64 232
-  %size_.i.i4.i.i.i.i.i.i31.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i25.i.i, i64 264
-  store i64 0, ptr %size_.i.i4.i.i.i.i.i.i31.i.i, align 8
-  %data_.i.i5.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i25.i.i, i64 272
-  store ptr %child_pointers_.i.i.i.i.i.i30.i.i, ptr %data_.i.i5.i.i.i.i.i.i32.i.i, align 8
-  %dynamic_capacity_.i.i6.i.i.i.i.i.i33.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i25.i.i, i64 280
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %dynamic_capacity_.i.i6.i.i.i.i.i.i33.i.i, i8 0, i64 96, i1 false)
-  %dec.i.i.i34.i.i = add i64 %__n.addr.05.i.i.i26.i.i, -1
-  %incdec.ptr.i.i.i35.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i25.i.i, i64 376
-  %cmp.not.i.i.i36.i.i = icmp eq i64 %dec.i.i.i34.i.i, 0
-  br i1 %cmp.not.i.i.i36.i.i, label %try.cont.i.i, label %for.body.i.i.i24.i.i, !llvm.loop !144
+for.body.i.i.i23.i.i:                             ; preds = %for.body.i.i.i23.i.i, %_ZNKSt6vectorIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %__cur.05.i.i.i24.i.i = phi ptr [ %add.ptr.i.i, %_ZNKSt6vectorIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %incdec.ptr.i.i.i34.i.i, %for.body.i.i.i23.i.i ]
+  %__n.addr.04.i.i.i25.i.i = phi i64 [ %sub.i177, %_ZNKSt6vectorIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %dec.i.i.i33.i.i, %for.body.i.i.i23.i.i ]
+  %data_.i.i.i.i.i.i.i.i26.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i24.i.i, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %__cur.05.i.i.i24.i.i, i8 0, i64 264, i1 false)
+  store ptr %__cur.05.i.i.i24.i.i, ptr %data_.i.i.i.i.i.i.i.i26.i.i, align 8
+  %children_.i.i.i.i.i.i27.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i24.i.i, i64 128
+  %data_.i.i2.i.i.i.i.i.i28.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i24.i.i, i64 216
+  store ptr %children_.i.i.i.i.i.i27.i.i, ptr %data_.i.i2.i.i.i.i.i.i28.i.i, align 8
+  %child_pointers_.i.i.i.i.i.i29.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i24.i.i, i64 232
+  %size_.i.i4.i.i.i.i.i.i30.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i24.i.i, i64 264
+  store i64 0, ptr %size_.i.i4.i.i.i.i.i.i30.i.i, align 8
+  %data_.i.i5.i.i.i.i.i.i31.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i24.i.i, i64 272
+  store ptr %child_pointers_.i.i.i.i.i.i29.i.i, ptr %data_.i.i5.i.i.i.i.i.i31.i.i, align 8
+  %dynamic_capacity_.i.i6.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i24.i.i, i64 280
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %dynamic_capacity_.i.i6.i.i.i.i.i.i32.i.i, i8 0, i64 96, i1 false)
+  %dec.i.i.i33.i.i = add i64 %__n.addr.04.i.i.i25.i.i, -1
+  %incdec.ptr.i.i.i34.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i24.i.i, i64 376
+  %cmp.not.i.i.i35.i.i = icmp eq i64 %dec.i.i.i33.i.i, 0
+  br i1 %cmp.not.i.i.i35.i.i, label %try.cont.i.i, label %for.body.i.i.i23.i.i, !llvm.loop !144
 
-try.cont.i.i:                                     ; preds = %for.body.i.i.i24.i.i
+try.cont.i.i:                                     ; preds = %for.body.i.i.i23.i.i
   %cmp.not1.i.i.i.i.i = icmp eq ptr %this.val.i, %this.val4.i
-  br i1 %cmp.not1.i.i.i.i.i, label %_ZNSt6vectorIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i, label %for.body.i.i.i40.i.i
+  br i1 %cmp.not1.i.i.i.i.i, label %_ZNSt6vectorIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i, label %for.body.i.i.i38.i.i
 
-for.body.i.i.i40.i.i:                             ; preds = %try.cont.i.i, %for.body.i.i.i40.i.i
-  %__cur.03.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i40.i.i ], [ %call5.i.i.i.i.i, %try.cont.i.i ]
-  %__first.addr.02.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i41.i.i, %for.body.i.i.i40.i.i ], [ %this.val.i, %try.cont.i.i ]
+for.body.i.i.i38.i.i:                             ; preds = %try.cont.i.i, %for.body.i.i.i38.i.i
+  %__cur.03.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i38.i.i ], [ %call5.i.i.i.i.i, %try.cont.i.i ]
+  %__first.addr.02.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i39.i.i, %for.body.i.i.i38.i.i ], [ %this.val.i, %try.cont.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !145)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !148)
   tail call fastcc void @_ZN5arrow12_GLOBAL__N_124ExportedArrayPrivateDataC2EOS1_(ptr noundef nonnull align 8 dereferenceable(344) %__cur.03.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(344) %__first.addr.02.i.i.i.i.i) #25, !alias.scope !150
@@ -2721,20 +2721,20 @@ for.body.i.i.i40.i.i:                             ; preds = %try.cont.i.i, %for.
   store ptr %85, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !145, !noalias !148
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %dict_exporter_3.i.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !148, !noalias !145
   tail call fastcc void @_ZN5arrow12_GLOBAL__N_124ExportedArrayPrivateDataD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %__first.addr.02.i.i.i.i.i) #25
-  %incdec.ptr.i.i.i41.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 376
+  %incdec.ptr.i.i.i39.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 376
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 376
-  %cmp.not.i.i.i42.i.i = icmp eq ptr %incdec.ptr.i.i.i41.i.i, %this.val4.i
-  br i1 %cmp.not.i.i.i42.i.i, label %_ZNSt6vectorIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i, label %for.body.i.i.i40.i.i, !llvm.loop !151
+  %cmp.not.i.i.i40.i.i = icmp eq ptr %incdec.ptr.i.i.i39.i.i, %this.val4.i
+  br i1 %cmp.not.i.i.i40.i.i, label %_ZNSt6vectorIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i, label %for.body.i.i.i38.i.i, !llvm.loop !151
 
-_ZNSt6vectorIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i: ; preds = %for.body.i.i.i40.i.i, %try.cont.i.i
-  %tobool.not.i44.i.i = icmp eq ptr %this.val.i, null
-  br i1 %tobool.not.i44.i.i, label %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE13_M_deallocateEPS2_m.exit46.i.i, label %if.then.i45.i.i
+_ZNSt6vectorIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i: ; preds = %for.body.i.i.i38.i.i, %try.cont.i.i
+  %tobool.not.i41.i.i = icmp eq ptr %this.val.i, null
+  br i1 %tobool.not.i41.i.i, label %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE13_M_deallocateEPS2_m.exit43.i.i, label %if.then.i42.i.i
 
-if.then.i45.i.i:                                  ; preds = %_ZNSt6vectorIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i
+if.then.i42.i.i:                                  ; preds = %_ZNSt6vectorIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this.val.i) #27
-  br label %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE13_M_deallocateEPS2_m.exit46.i.i
+  br label %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE13_M_deallocateEPS2_m.exit43.i.i
 
-_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE13_M_deallocateEPS2_m.exit46.i.i: ; preds = %if.then.i45.i.i, %_ZNSt6vectorIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i
+_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE13_M_deallocateEPS2_m.exit43.i.i: ; preds = %if.then.i42.i.i, %_ZNSt6vectorIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i
   store ptr %call5.i.i.i.i.i, ptr %child_exporters_, align 8
   %add.ptr37.i.i = getelementptr inbounds %"struct.arrow::(anonymous namespace)::ArrayExporter", ptr %add.ptr.i.i, i64 %sub.i177
   store ptr %add.ptr37.i.i, ptr %80, align 8
@@ -2762,7 +2762,7 @@ invoke.cont.i.i175:                               ; preds = %for.body.i.i.i
   store ptr %add.ptr.i173, ptr %80, align 8
   br label %_ZNSt6vectorIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE6resizeEm.exit
 
-_ZNSt6vectorIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE6resizeEm.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPN5arrow12_GLOBAL__N_113ArrayExporterEmS2_ET_S4_T0_RSaIT1_E.exit.i.i, %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE13_M_deallocateEPS2_m.exit46.i.i, %if.else.i170, %if.then5.i172, %invoke.cont.i.i175
+_ZNSt6vectorIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE6resizeEm.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPN5arrow12_GLOBAL__N_113ArrayExporterEmS2_ET_S4_T0_RSaIT1_E.exit.i.i, %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EE13_M_deallocateEPS2_m.exit43.i.i, %if.else.i170, %if.then5.i172, %invoke.cont.i.i175
   %86 = load ptr, ptr %data, align 8
   %child_data88318 = getelementptr inbounds i8, ptr %86, i64 64
   %_M_finish.i181319 = getelementptr inbounds i8, ptr %86, i64 72
@@ -2791,7 +2791,7 @@ _ZN5arrow6StatusD2Ev.exit223:                     ; preds = %_ZNSt6vectorIN5arro
   %child_exporters_.val = load ptr, ptr %child_exporters_, align 8
   %add.ptr.i186 = getelementptr inbounds %"struct.arrow::(anonymous namespace)::ArrayExporter", ptr %child_exporters_.val, i64 %i85.0325
   %add.ptr.i187 = getelementptr inbounds %"class.std::shared_ptr.38", ptr %92, i64 %i85.0325
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayExporter6ExportERKSt10shared_ptrINS_9ArrayDataEE(ptr noalias nonnull align 8 %ref.tmp94, ptr noundef nonnull align 8 dereferenceable(376) %add.ptr.i186, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i187)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayExporter6ExportERKSt10shared_ptrINS_9ArrayDataEE(ptr noalias align 8 %ref.tmp94, ptr noundef nonnull align 8 dereferenceable(376) %add.ptr.i186, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i187)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !153)
   %93 = load ptr, ptr %ref.tmp94, align 8, !noalias !153
   store ptr %93, ptr %agg.result, align 8, !alias.scope !153
@@ -3664,7 +3664,7 @@ if.end32:                                         ; preds = %_ZN5arrow6StatusD2E
   %dynamic_capacity_.i.i6.i.i = getelementptr inbounds i8, ptr %exporter, i64 280
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %dynamic_capacity_.i.i6.i.i, i8 0, i64 96, i1 false)
   %data_.i = getelementptr inbounds i8, ptr %9, i64 8
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayExporter6ExportERKSt10shared_ptrINS_9ArrayDataEE(ptr noalias nonnull align 8 %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(376) %exporter, ptr noundef nonnull align 8 dereferenceable(16) %data_.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayExporter6ExportERKSt10shared_ptrINS_9ArrayDataEE(ptr noalias align 8 %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(376) %exporter, ptr noundef nonnull align 8 dereferenceable(16) %data_.i)
           to label %_ZN5arrow6StatusD2Ev.exit86 unwind label %lpad37
 
 _ZN5arrow6StatusD2Ev.exit86:                      ; preds = %if.end32
@@ -4686,7 +4686,7 @@ invoke.cont37:                                    ; preds = %invoke.cont22
   store ptr %child_pointers_.i.i, ptr %data_.i.i5.i.i, align 8
   %dynamic_capacity_.i.i6.i.i = getelementptr inbounds i8, ptr %exporter, i64 280
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %dynamic_capacity_.i.i6.i.i, i8 0, i64 96, i1 false)
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayExporter6ExportERKSt10shared_ptrINS_9ArrayDataEE(ptr noalias nonnull align 8 %ref.tmp47, ptr noundef nonnull align 8 dereferenceable(376) %exporter, ptr noundef nonnull align 8 dereferenceable(16) %data_.i54)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayExporter6ExportERKSt10shared_ptrINS_9ArrayDataEE(ptr noalias align 8 %ref.tmp47, ptr noundef nonnull align 8 dereferenceable(376) %exporter, ptr noundef nonnull align 8 dereferenceable(16) %data_.i54)
           to label %_ZN5arrow6StatusD2Ev.exit94 unwind label %lpad48
 
 _ZN5arrow6StatusD2Ev.exit94:                      ; preds = %invoke.cont37
@@ -5287,7 +5287,7 @@ invoke.cont58:                                    ; preds = %invoke.cont43
   store ptr %child_pointers_.i.i, ptr %data_.i.i5.i.i, align 8
   %dynamic_capacity_.i.i6.i.i = getelementptr inbounds i8, ptr %exporter, i64 280
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %dynamic_capacity_.i.i6.i.i, i8 0, i64 96, i1 false)
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayExporter6ExportERKSt10shared_ptrINS_9ArrayDataEE(ptr noalias nonnull align 8 %ref.tmp68, ptr noundef nonnull align 8 dereferenceable(376) %exporter, ptr noundef nonnull align 8 dereferenceable(16) %data_.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayExporter6ExportERKSt10shared_ptrINS_9ArrayDataEE(ptr noalias align 8 %ref.tmp68, ptr noundef nonnull align 8 dereferenceable(376) %exporter, ptr noundef nonnull align 8 dereferenceable(16) %data_.i)
           to label %_ZN5arrow6StatusD2Ev.exit120 unwind label %lpad70
 
 _ZN5arrow6StatusD2Ev.exit120:                     ; preds = %invoke.cont58
@@ -5691,7 +5691,7 @@ if.end.i:                                         ; preds = %entry
   %recursion_level_.i = getelementptr inbounds i8, ptr %importer, i64 40
   store i64 0, ptr %recursion_level_.i, align 8, !noalias !230
   store ptr %schema, ptr %importer, align 8, !noalias !230
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter8DoImportEv(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(168) %importer)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter8DoImportEv(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(168) %importer)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.end.i, %if.then.i
@@ -6192,7 +6192,7 @@ if.end.i:                                         ; preds = %entry
   %recursion_level_.i = getelementptr inbounds i8, ptr %importer, i64 40
   store i64 0, ptr %recursion_level_.i, align 8, !noalias !242
   store ptr %schema, ptr %importer, align 8, !noalias !242
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter8DoImportEv(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(168) %importer)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter8DoImportEv(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(168) %importer)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.end.i, %if.then.i
@@ -6749,7 +6749,7 @@ if.end.i:                                         ; preds = %entry
   %recursion_level_.i = getelementptr inbounds i8, ptr %importer, i64 40
   store i64 0, ptr %recursion_level_.i, align 8, !noalias !251
   store ptr %schema, ptr %importer, align 8, !noalias !251
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter8DoImportEv(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(168) %importer)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter8DoImportEv(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(168) %importer)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.end.i, %if.then.i
@@ -7489,7 +7489,7 @@ _ZN5arrow12_GLOBAL__N_113ArrayImporterC2ERKSt10shared_ptrINS_8DataTypeEE.exit: ;
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory_mgr_.i, i8 0, i64 16, i1 false)
   %device_type_.i = getelementptr inbounds i8, ptr %importer, i64 112
   store i8 1, ptr %device_type_.i, align 8
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter6ImportEP10ArrowArray(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(113) %importer, ptr noundef %array)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter6ImportEP10ArrowArray(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(113) %importer, ptr noundef %array)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow12_GLOBAL__N_113ArrayImporterC2ERKSt10shared_ptrINS_8DataTypeEE.exit
@@ -7618,7 +7618,7 @@ cleanup11:                                        ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter6ImportEP10ArrowArray(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr nocapture noundef %src) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter6ImportEP10ArrowArray(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr nocapture noundef %src) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %release.i = getelementptr inbounds i8, ptr %src, i64 64
   %0 = load ptr, ptr %release.i, align 8
@@ -7626,7 +7626,7 @@ entry:
   br i1 %cmp.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA34_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(34) @.str.101)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA34_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(34) @.str.101)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -8669,7 +8669,7 @@ do.body:                                          ; preds = %call5.i.i.i3.i.i.i.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory_mgr_.i, i8 0, i64 16, i1 false)
   %device_type_.i = getelementptr inbounds i8, ptr %importer, i64 112
   store i8 1, ptr %device_type_.i, align 8
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter6ImportEP10ArrowArray(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(113) %importer, ptr noundef %array)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter6ImportEP10ArrowArray(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(113) %importer, ptr noundef %array)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad2
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %do.body
@@ -8781,7 +8781,7 @@ _ZN5arrow6StatusD2Ev.exit76:                      ; preds = %_ZN5arrow6StatusD2E
   store ptr null, ptr %_M_refcount4.i.i, align 8
   store ptr %19, ptr %_M_refcount.i.i, align 8
   store ptr null, ptr %schema, align 8
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15MakeRecordBatchESt10shared_ptrINS_6SchemaEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(113) %importer, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15MakeRecordBatchESt10shared_ptrINS_6SchemaEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(113) %importer, ptr noundef %agg.tmp)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit76
@@ -9093,7 +9093,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15MakeRecordBatchESt10shared_ptrINS_6SchemaEE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this, ptr nocapture noundef %schema) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15MakeRecordBatchESt10shared_ptrINS_6SchemaEE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this, ptr nocapture noundef nonnull %schema) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp14 = alloca %"class.arrow::Status", align 8
@@ -9979,7 +9979,7 @@ _ZN5arrow12_GLOBAL__N_113ArrayImporterC2ERKSt10shared_ptrINS_8DataTypeEE.exit: ;
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory_mgr_.i, i8 0, i64 16, i1 false)
   %device_type_.i = getelementptr inbounds i8, ptr %importer, i64 112
   store i8 1, ptr %device_type_.i, align 8
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter6ImportEP16ArrowDeviceArrayRKSt8functionIFNS_6ResultISt10shared_ptrINS_13MemoryManagerEEEEilEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(113) %importer, ptr noundef %array, ptr noundef nonnull align 8 dereferenceable(32) %mapper)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter6ImportEP16ArrowDeviceArrayRKSt8functionIFNS_6ResultISt10shared_ptrINS_13MemoryManagerEEEEilEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(113) %importer, ptr noundef %array, ptr noundef nonnull align 8 dereferenceable(32) %mapper)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow12_GLOBAL__N_113ArrayImporterC2ERKSt10shared_ptrINS_8DataTypeEE.exit
@@ -10108,7 +10108,7 @@ cleanup11:                                        ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter6ImportEP16ArrowDeviceArrayRKSt8functionIFNS_6ResultISt10shared_ptrINS_13MemoryManagerEEEEilEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr nocapture noundef %src, ptr noundef nonnull align 8 dereferenceable(32) %mapper) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter6ImportEP16ArrowDeviceArrayRKSt8functionIFNS_6ResultISt10shared_ptrINS_13MemoryManagerEEEEilEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr nocapture noundef %src, ptr noundef nonnull align 8 dereferenceable(32) %mapper) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i = alloca i32, align 4
   %__args.addr2.i = alloca i64, align 8
@@ -10285,7 +10285,7 @@ _ZNSt10shared_ptrIN5arrow13MemoryManagerEED2Ev.exit: ; preds = %if.end8.sink.spl
   %conv = trunc i32 %26 to i8
   %device_type_ = getelementptr inbounds i8, ptr %this, i64 112
   store i8 %conv, ptr %device_type_, align 8
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter6ImportEP10ArrowArray(ptr noalias nonnull align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull %src)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter6ImportEP10ArrowArray(ptr noalias align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull %src)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZNSt10shared_ptrIN5arrow13MemoryManagerEED2Ev.exit
@@ -10813,7 +10813,7 @@ do.body:                                          ; preds = %call5.i.i.i3.i.i.i.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory_mgr_.i, i8 0, i64 16, i1 false)
   %device_type_.i = getelementptr inbounds i8, ptr %importer, i64 112
   store i8 1, ptr %device_type_.i, align 8
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter6ImportEP16ArrowDeviceArrayRKSt8functionIFNS_6ResultISt10shared_ptrINS_13MemoryManagerEEEEilEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(113) %importer, ptr noundef %array, ptr noundef nonnull align 8 dereferenceable(32) %mapper)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter6ImportEP16ArrowDeviceArrayRKSt8functionIFNS_6ResultISt10shared_ptrINS_13MemoryManagerEEEEilEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(113) %importer, ptr noundef %array, ptr noundef nonnull align 8 dereferenceable(32) %mapper)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad2
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %do.body
@@ -10925,7 +10925,7 @@ _ZN5arrow6StatusD2Ev.exit76:                      ; preds = %_ZN5arrow6StatusD2E
   store ptr null, ptr %_M_refcount4.i.i, align 8
   store ptr %19, ptr %_M_refcount.i.i, align 8
   store ptr null, ptr %schema, align 8
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15MakeRecordBatchESt10shared_ptrINS_6SchemaEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(113) %importer, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15MakeRecordBatchESt10shared_ptrINS_6SchemaEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(113) %importer, ptr noundef %agg.tmp)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit76
@@ -12036,7 +12036,7 @@ if.end.i:                                         ; preds = %entry
           to label %invoke.cont.i unwind label %lpad.i, !noalias !341
 
 invoke.cont.i:                                    ; preds = %if.end.i
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayStreamBatchReader16StatusFromCErrorEP16ArrowArrayStreami(ptr noalias nonnull align 8 %status.i, ptr noundef nonnull %stream, i32 noundef %call1.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayStreamBatchReader16StatusFromCErrorEP16ArrowArrayStreami(ptr noalias align 8 %status.i, ptr noundef nonnull %stream, i32 noundef %call1.i)
           to label %invoke.cont2.i unwind label %lpad.i, !noalias !341
 
 invoke.cont2.i:                                   ; preds = %invoke.cont.i
@@ -12502,7 +12502,7 @@ eh.resume:                                        ; preds = %lpad9, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter12ExportFormatERKNS_8DataTypeE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(72) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter12ExportFormatERKNS_8DataTypeE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(72) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp15 = alloca %"class.std::unique_ptr", align 8
@@ -12529,7 +12529,7 @@ if.then4:                                         ; preds = %if.then
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.then4, %if.then
   %index_type_.i = getelementptr inbounds i8, ptr %type, i64 72
   %3 = load ptr, ptr %index_type_.i, align 8
-  call fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_114SchemaExporterEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull %this)
+  call fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_114SchemaExporterEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef %this)
   call void @llvm.experimental.noalias.scope.decl(metadata !347)
   %4 = load ptr, ptr %ref.tmp, align 8, !noalias !347
   store ptr %4, ptr %agg.result, align 8, !alias.scope !347
@@ -12575,7 +12575,7 @@ _ZN5arrow6StatusD2Ev.exit80:                      ; preds = %if.then.i.i.i.i, %d
   %dict_exporter_.val = load ptr, ptr %dict_exporter_, align 8
   %value_type_.i = getelementptr inbounds i8, ptr %type, i64 88
   %6 = load ptr, ptr %value_type_.i, align 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter10ExportTypeERKNS_8DataTypeE(ptr noalias nonnull align 8 %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(384) %dict_exporter_.val, ptr noundef nonnull align 8 dereferenceable(72) %6)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter10ExportTypeERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(384) %dict_exporter_.val, ptr noundef nonnull align 8 dereferenceable(72) %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !353)
   %7 = load ptr, ptr %ref.tmp19, align 8, !noalias !353
   store ptr %7, ptr %agg.result, align 8, !alias.scope !353
@@ -12583,7 +12583,7 @@ _ZN5arrow6StatusD2Ev.exit80:                      ; preds = %if.then.i.i.i.i, %d
   br i1 %cmp.i81, label %while.end70, label %return
 
 _ZN5arrow6StatusD2Ev.exit153:                     ; preds = %entry
-  call fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_114SchemaExporterEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias nonnull align 8 %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr noundef nonnull %this)
+  call fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_114SchemaExporterEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr noundef %this)
   call void @llvm.experimental.noalias.scope.decl(metadata !356)
   %8 = load ptr, ptr %ref.tmp45, align 8, !noalias !356
   store ptr %8, ptr %agg.result, align 8, !alias.scope !356
@@ -12599,7 +12599,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportChildrenERKSt6vectorISt10shared_ptrINS_5FieldEESaIS5_EE(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(384) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %fields) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportChildrenERKSt6vectorISt10shared_ptrINS_5FieldEESaIS5_EE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(384) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %fields) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %children_ = getelementptr inbounds i8, ptr %this, i64 168
@@ -12715,30 +12715,30 @@ if.then.i13:                                      ; preds = %_ZN5arrow8internal1
   br i1 %cmp8.not.i.i, label %if.else.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.then.i13, %for.body.i.i.i.i.i
-  %__cur.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %this.val4.i, %if.then.i13 ]
-  %__n.addr.05.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %sub.i, %if.then.i13 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %__cur.06.i.i.i.i.i, i8 0, i64 384, i1 false)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__cur.06.i.i.i.i.i) #25
-  %name_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 32
+  %__cur.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %this.val4.i, %if.then.i13 ]
+  %__n.addr.04.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %sub.i, %if.then.i13 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %__cur.05.i.i.i.i.i, i8 0, i64 384, i1 false)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__cur.05.i.i.i.i.i) #25
+  %name_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i.i.i.i.i.i.i) #25
-  %metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 64
+  %metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %metadata_.i.i.i.i.i.i.i.i) #25
-  %children_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 168
-  %size_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 240
+  %children_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i, i64 168
+  %size_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i, i64 240
   store i64 0, ptr %size_.i.i.i.i.i.i.i.i.i.i, align 8
-  %data_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 248
+  %data_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i, i64 248
   store ptr %children_.i.i.i.i.i.i.i.i, ptr %data_.i.i.i.i.i.i.i.i.i.i, align 8
-  %dynamic_capacity_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 256
+  %dynamic_capacity_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i, i64 256
   store i64 0, ptr %dynamic_capacity_.i.i.i.i.i.i.i.i.i.i, align 8
-  %child_pointers_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 264
-  %size_.i.i1.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 296
+  %child_pointers_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i, i64 264
+  %size_.i.i1.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i, i64 296
   store i64 0, ptr %size_.i.i1.i.i.i.i.i.i.i.i, align 8
-  %data_.i.i2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 304
+  %data_.i.i2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i, i64 304
   store ptr %child_pointers_.i.i.i.i.i.i.i.i, ptr %data_.i.i2.i.i.i.i.i.i.i.i, align 8
-  %dynamic_capacity_.i.i3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 312
+  %dynamic_capacity_.i.i3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i, i64 312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %dynamic_capacity_.i.i3.i.i.i.i.i.i.i.i, i8 0, i64 72, i1 false)
-  %dec.i.i.i.i.i = add i64 %__n.addr.05.i.i.i.i.i, -1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 384
+  %dec.i.i.i.i.i = add i64 %__n.addr.04.i.i.i.i.i, -1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i, i64 384
   %cmp.not.i.i.i.i.i = icmp eq i64 %dec.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN5arrow12_GLOBAL__N_114SchemaExporterEmS2_ET_S4_T0_RSaIT1_E.exit.i.i, label %for.body.i.i.i.i.i, !llvm.loop !376
 
@@ -12761,43 +12761,43 @@ _ZNKSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE12_M_check_lenEmPKc.
   %mul.i.i.i.i.i = mul nuw nsw i64 %21, 384
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #28
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i
-  br label %for.body.i.i.i24.i.i
+  br label %for.body.i.i.i23.i.i
 
-for.body.i.i.i24.i.i:                             ; preds = %for.body.i.i.i24.i.i, %_ZNKSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %__cur.06.i.i.i25.i.i = phi ptr [ %incdec.ptr.i.i.i38.i.i, %for.body.i.i.i24.i.i ], [ %add.ptr.i.i, %_ZNKSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
-  %__n.addr.05.i.i.i26.i.i = phi i64 [ %dec.i.i.i37.i.i, %for.body.i.i.i24.i.i ], [ %sub.i, %_ZNKSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %__cur.06.i.i.i25.i.i, i8 0, i64 384, i1 false)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__cur.06.i.i.i25.i.i) #25
-  %name_.i.i.i.i.i.i27.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i25.i.i, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i.i.i.i.i27.i.i) #25
-  %metadata_.i.i.i.i.i.i28.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i25.i.i, i64 64
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %metadata_.i.i.i.i.i.i28.i.i) #25
-  %children_.i.i.i.i.i.i29.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i25.i.i, i64 168
-  %size_.i.i.i.i.i.i.i.i30.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i25.i.i, i64 240
-  store i64 0, ptr %size_.i.i.i.i.i.i.i.i30.i.i, align 8
-  %data_.i.i.i.i.i.i.i.i31.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i25.i.i, i64 248
-  store ptr %children_.i.i.i.i.i.i29.i.i, ptr %data_.i.i.i.i.i.i.i.i31.i.i, align 8
-  %dynamic_capacity_.i.i.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i25.i.i, i64 256
-  store i64 0, ptr %dynamic_capacity_.i.i.i.i.i.i.i.i32.i.i, align 8
-  %child_pointers_.i.i.i.i.i.i33.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i25.i.i, i64 264
-  %size_.i.i1.i.i.i.i.i.i34.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i25.i.i, i64 296
-  store i64 0, ptr %size_.i.i1.i.i.i.i.i.i34.i.i, align 8
-  %data_.i.i2.i.i.i.i.i.i35.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i25.i.i, i64 304
-  store ptr %child_pointers_.i.i.i.i.i.i33.i.i, ptr %data_.i.i2.i.i.i.i.i.i35.i.i, align 8
-  %dynamic_capacity_.i.i3.i.i.i.i.i.i36.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i25.i.i, i64 312
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %dynamic_capacity_.i.i3.i.i.i.i.i.i36.i.i, i8 0, i64 72, i1 false)
-  %dec.i.i.i37.i.i = add i64 %__n.addr.05.i.i.i26.i.i, -1
-  %incdec.ptr.i.i.i38.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i25.i.i, i64 384
-  %cmp.not.i.i.i39.i.i = icmp eq i64 %dec.i.i.i37.i.i, 0
-  br i1 %cmp.not.i.i.i39.i.i, label %try.cont.i.i, label %for.body.i.i.i24.i.i, !llvm.loop !376
+for.body.i.i.i23.i.i:                             ; preds = %for.body.i.i.i23.i.i, %_ZNKSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %__cur.05.i.i.i24.i.i = phi ptr [ %add.ptr.i.i, %_ZNKSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %incdec.ptr.i.i.i37.i.i, %for.body.i.i.i23.i.i ]
+  %__n.addr.04.i.i.i25.i.i = phi i64 [ %sub.i, %_ZNKSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %dec.i.i.i36.i.i, %for.body.i.i.i23.i.i ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %__cur.05.i.i.i24.i.i, i8 0, i64 384, i1 false)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__cur.05.i.i.i24.i.i) #25
+  %name_.i.i.i.i.i.i26.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i24.i.i, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i.i.i.i.i26.i.i) #25
+  %metadata_.i.i.i.i.i.i27.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i24.i.i, i64 64
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %metadata_.i.i.i.i.i.i27.i.i) #25
+  %children_.i.i.i.i.i.i28.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i24.i.i, i64 168
+  %size_.i.i.i.i.i.i.i.i29.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i24.i.i, i64 240
+  store i64 0, ptr %size_.i.i.i.i.i.i.i.i29.i.i, align 8
+  %data_.i.i.i.i.i.i.i.i30.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i24.i.i, i64 248
+  store ptr %children_.i.i.i.i.i.i28.i.i, ptr %data_.i.i.i.i.i.i.i.i30.i.i, align 8
+  %dynamic_capacity_.i.i.i.i.i.i.i.i31.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i24.i.i, i64 256
+  store i64 0, ptr %dynamic_capacity_.i.i.i.i.i.i.i.i31.i.i, align 8
+  %child_pointers_.i.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i24.i.i, i64 264
+  %size_.i.i1.i.i.i.i.i.i33.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i24.i.i, i64 296
+  store i64 0, ptr %size_.i.i1.i.i.i.i.i.i33.i.i, align 8
+  %data_.i.i2.i.i.i.i.i.i34.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i24.i.i, i64 304
+  store ptr %child_pointers_.i.i.i.i.i.i32.i.i, ptr %data_.i.i2.i.i.i.i.i.i34.i.i, align 8
+  %dynamic_capacity_.i.i3.i.i.i.i.i.i35.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i24.i.i, i64 312
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %dynamic_capacity_.i.i3.i.i.i.i.i.i35.i.i, i8 0, i64 72, i1 false)
+  %dec.i.i.i36.i.i = add i64 %__n.addr.04.i.i.i25.i.i, -1
+  %incdec.ptr.i.i.i37.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i24.i.i, i64 384
+  %cmp.not.i.i.i38.i.i = icmp eq i64 %dec.i.i.i36.i.i, 0
+  br i1 %cmp.not.i.i.i38.i.i, label %try.cont.i.i, label %for.body.i.i.i23.i.i, !llvm.loop !376
 
-try.cont.i.i:                                     ; preds = %for.body.i.i.i24.i.i
+try.cont.i.i:                                     ; preds = %for.body.i.i.i23.i.i
   %cmp.not1.i.i.i.i.i = icmp eq ptr %this.val.i, %this.val4.i
-  br i1 %cmp.not1.i.i.i.i.i, label %_ZNSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i, label %for.body.i.i.i43.i.i
+  br i1 %cmp.not1.i.i.i.i.i, label %_ZNSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i, label %for.body.i.i.i41.i.i
 
-for.body.i.i.i43.i.i:                             ; preds = %try.cont.i.i, %for.body.i.i.i43.i.i
-  %__cur.03.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i43.i.i ], [ %call5.i.i.i.i.i, %try.cont.i.i ]
-  %__first.addr.02.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i44.i.i, %for.body.i.i.i43.i.i ], [ %this.val.i, %try.cont.i.i ]
+for.body.i.i.i41.i.i:                             ; preds = %try.cont.i.i, %for.body.i.i.i41.i.i
+  %__cur.03.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i41.i.i ], [ %call5.i.i.i.i.i, %try.cont.i.i ]
+  %__first.addr.02.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i42.i.i, %for.body.i.i.i41.i.i ], [ %this.val.i, %try.cont.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !377)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !380)
   tail call fastcc void @_ZN5arrow12_GLOBAL__N_125ExportedSchemaPrivateDataC2EOS1_(ptr noundef nonnull align 8 dereferenceable(320) %__cur.03.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(320) %__first.addr.02.i.i.i.i.i) #25
@@ -12837,20 +12837,20 @@ for.body.i.i.i43.i.i:                             ; preds = %try.cont.i.i, %for.
   store ptr %28, ptr %_M_end_of_storage.i.i.i.i7.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !377, !noalias !380
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %child_exporters_6.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !380, !noalias !377
   tail call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporterD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %__first.addr.02.i.i.i.i.i) #25
-  %incdec.ptr.i.i.i44.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 384
+  %incdec.ptr.i.i.i42.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 384
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 384
-  %cmp.not.i.i.i45.i.i = icmp eq ptr %incdec.ptr.i.i.i44.i.i, %this.val4.i
-  br i1 %cmp.not.i.i.i45.i.i, label %_ZNSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i, label %for.body.i.i.i43.i.i, !llvm.loop !382
+  %cmp.not.i.i.i43.i.i = icmp eq ptr %incdec.ptr.i.i.i42.i.i, %this.val4.i
+  br i1 %cmp.not.i.i.i43.i.i, label %_ZNSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i, label %for.body.i.i.i41.i.i, !llvm.loop !382
 
-_ZNSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i: ; preds = %for.body.i.i.i43.i.i, %try.cont.i.i
-  %tobool.not.i47.i.i = icmp eq ptr %this.val.i, null
-  br i1 %tobool.not.i47.i.i, label %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE13_M_deallocateEPS2_m.exit49.i.i, label %if.then.i48.i.i
+_ZNSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i: ; preds = %for.body.i.i.i41.i.i, %try.cont.i.i
+  %tobool.not.i44.i.i = icmp eq ptr %this.val.i, null
+  br i1 %tobool.not.i44.i.i, label %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE13_M_deallocateEPS2_m.exit46.i.i, label %if.then.i45.i.i
 
-if.then.i48.i.i:                                  ; preds = %_ZNSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i
+if.then.i45.i.i:                                  ; preds = %_ZNSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this.val.i) #27
-  br label %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE13_M_deallocateEPS2_m.exit49.i.i
+  br label %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE13_M_deallocateEPS2_m.exit46.i.i
 
-_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE13_M_deallocateEPS2_m.exit49.i.i: ; preds = %if.then.i48.i.i, %_ZNSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i
+_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE13_M_deallocateEPS2_m.exit46.i.i: ; preds = %if.then.i45.i.i, %_ZNSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i
   store ptr %call5.i.i.i.i.i, ptr %child_exporters_, align 8
   %add.ptr37.i.i = getelementptr inbounds %"struct.arrow::(anonymous namespace)::SchemaExporter", ptr %add.ptr.i.i, i64 %sub.i
   store ptr %add.ptr37.i.i, ptr %19, align 8
@@ -12878,7 +12878,7 @@ invoke.cont.i.i:                                  ; preds = %for.body.i.i.i
   store ptr %add.ptr.i, ptr %19, align 8
   br label %_ZNSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE6resizeEm.exit
 
-_ZNSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE6resizeEm.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPN5arrow12_GLOBAL__N_114SchemaExporterEmS2_ET_S4_T0_RSaIT1_E.exit.i.i, %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE13_M_deallocateEPS2_m.exit49.i.i, %if.else.i, %if.then5.i, %invoke.cont.i.i
+_ZNSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE6resizeEm.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPN5arrow12_GLOBAL__N_114SchemaExporterEmS2_ET_S4_T0_RSaIT1_E.exit.i.i, %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE13_M_deallocateEPS2_m.exit46.i.i, %if.else.i, %if.then5.i, %invoke.cont.i.i
   %29 = load ptr, ptr %_M_finish.i, align 8
   %30 = load ptr, ptr %fields, align 8
   %cmp65.not = icmp eq ptr %29, %30
@@ -12902,7 +12902,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZNSt6vectorIN5arro
   %add.ptr.i22 = getelementptr inbounds %"struct.arrow::(anonymous namespace)::SchemaExporter", ptr %child_exporters_.val, i64 %i.066
   %add.ptr.i23 = getelementptr inbounds %"class.std::shared_ptr.220", ptr %33, i64 %i.066
   %34 = load ptr, ptr %add.ptr.i23, align 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter11ExportFieldERKNS_5FieldE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(384) %add.ptr.i22, ptr noundef nonnull align 8 dereferenceable(96) %34)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter11ExportFieldERKNS_5FieldE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(384) %add.ptr.i22, ptr noundef nonnull align 8 dereferenceable(96) %34)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !385)
   %35 = load ptr, ptr %ref.tmp, align 8, !noalias !385
   store ptr %35, ptr %agg.result, align 8, !alias.scope !385
@@ -12919,7 +12919,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportMetadataEPKNS_16KeyValueMetadataE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef %orig_metadata) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter14ExportMetadataEPKNS_16KeyValueMetadataE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef %orig_metadata) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.228", align 8
   %ref.tmp16 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12970,7 +12970,7 @@ if.then2:                                         ; preds = %init.end
   br i1 %cmp4, label %invoke.cont7, label %if.end19
 
 invoke.cont7:                                     ; preds = %if.then2
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114EncodeMetadataB5cxx11ERKNS_16KeyValueMetadataE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %spec.store.select)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114EncodeMetadataB5cxx11ERKNS_16KeyValueMetadataE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %spec.store.select)
   %6 = load ptr, ptr %ref.tmp, align 8
   %cmp.i.i18 = icmp eq ptr %6, null
   br i1 %cmp.i.i18, label %cleanup.thread, label %cond.false.i
@@ -13193,7 +13193,7 @@ ehcleanup49:                                      ; preds = %lpad46, %lpad44
   br label %ehcleanup76
 
 for.end:                                          ; preds = %for.inc, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit31
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114EncodeMetadataB5cxx11ERKNS_16KeyValueMetadataE(ptr noalias nonnull align 8 %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(48) %metadata)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114EncodeMetadataB5cxx11ERKNS_16KeyValueMetadataE(ptr noalias align 8 %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(48) %metadata)
           to label %invoke.cont55 unwind label %lpad35.loopexit.split-lp
 
 invoke.cont55:                                    ; preds = %for.end
@@ -13706,7 +13706,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_114SchemaExporterEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr noundef %visitor) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_114SchemaExporterEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr noundef nonnull %visitor) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i693 = alloca %struct._Guard, align 8
   %__guard.i683 = alloca %struct._Guard, align 8
@@ -15096,7 +15096,7 @@ sw.bb40:                                          ; preds = %entry
 
 sw.default.i:                                     ; preds = %sw.bb40
   store i32 %call41.val, ptr %ref.tmp.i271, align 4, !noalias !596
-  call void @_ZN5arrow6Status8FromArgsIJRA33_KcNS_8TimeUnit4typeEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(33) @.str.30, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i271)
+  call void @_ZN5arrow6Status8FromArgsIJRA33_KcNS_8TimeUnit4typeEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(33) @.str.30, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i271)
   br label %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_12DurationTypeE.exit
 
 switch.lookup:                                    ; preds = %sw.bb40
@@ -15247,7 +15247,7 @@ sw.bb46:                                          ; preds = %entry
 
 sw.default.i298:                                  ; preds = %sw.bb46
   store i32 %90, ptr %ref.tmp.i292, align 4, !noalias !622
-  call void @_ZN5arrow6Status8FromArgsIJRA34_KcNS_8TimeUnit4typeEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(34) @.str.37, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i292)
+  call void @_ZN5arrow6Status8FromArgsIJRA34_KcNS_8TimeUnit4typeEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(34) @.str.37, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i292)
   br label %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_13TimestampTypeE.exit
 
 switch.lookup702:                                 ; preds = %sw.bb46
@@ -15279,7 +15279,7 @@ sw.bb3.i300:                                      ; preds = %sw.bb48
 
 sw.default.i302:                                  ; preds = %sw.bb48
   store i32 %call49.val, ptr %ref.tmp.i299, align 4, !noalias !628
-  call void @_ZN5arrow6Status8FromArgsIJRA31_KcNS_8TimeUnit4typeEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(31) @.str.40, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i299)
+  call void @_ZN5arrow6Status8FromArgsIJRA31_KcNS_8TimeUnit4typeEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(31) @.str.40, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i299)
   br label %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_10Time32TypeE.exit
 
 sw.epilog.i301:                                   ; preds = %sw.bb3.i300, %sw.bb48
@@ -15307,7 +15307,7 @@ sw.bb3.i304:                                      ; preds = %sw.bb50
 
 sw.default.i307:                                  ; preds = %sw.bb50
   store i32 %call51.val, ptr %ref.tmp.i303, align 4, !noalias !634
-  call void @_ZN5arrow6Status8FromArgsIJRA31_KcNS_8TimeUnit4typeEEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(31) @.str.43, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i303)
+  call void @_ZN5arrow6Status8FromArgsIJRA31_KcNS_8TimeUnit4typeEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(31) @.str.43, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i303)
   br label %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_10Time64TypeE.exit
 
 sw.epilog.i305:                                   ; preds = %sw.bb3.i304, %sw.bb50
@@ -15892,7 +15892,7 @@ sw.bb80:                                          ; preds = %entry
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %131 = load ptr, ptr %vfn.i.i, align 8, !noalias !739
   call void %131(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !739
-  invoke void @_ZN5arrow6Status8FromArgsIJRA11_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA21_S2_EEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(11) @.str.58, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(21) @.str.59)
+  invoke void @_ZN5arrow6Status8FromArgsIJRA11_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA21_S2_EEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(11) @.str.58, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(21) @.str.59)
           to label %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_8DataTypeE.exit unwind label %lpad.i.i394
 
 lpad.i.i394:                                      ; preds = %sw.bb80
@@ -15975,7 +15975,7 @@ sw.bb84:                                          ; preds = %entry
   %vfn.i.i407 = getelementptr inbounds i8, ptr %vtable.i.i406, i64 32
   %137 = load ptr, ptr %vfn.i.i407, align 8, !noalias !755
   call void %137(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i405, ptr noundef nonnull align 8 dereferenceable(72) %type), !noalias !755
-  invoke void @_ZN5arrow6Status8FromArgsIJRA11_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA21_S2_EEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(11) @.str.58, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i405, ptr noundef nonnull align 1 dereferenceable(21) @.str.59)
+  invoke void @_ZN5arrow6Status8FromArgsIJRA11_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA21_S2_EEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(11) @.str.58, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i405, ptr noundef nonnull align 1 dereferenceable(21) @.str.59)
           to label %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_8DataTypeE.exit409 unwind label %lpad.i.i408
 
 lpad.i.i408:                                      ; preds = %sw.bb84
@@ -15990,7 +15990,7 @@ _ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_8DataTypeE.exit409: ; preds =
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA21_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(21) @.str.5)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA21_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(21) @.str.5)
   br label %return
 
 return:                                           ; preds = %sw.epilog, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_8DataTypeE.exit409, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_17RunEndEncodedTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_8DataTypeE.exit, %sw.bb78, %sw.bb76, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_10StructTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_17FixedSizeListTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_7MapTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_17LargeListViewTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_12ListViewTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_13LargeListTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_8ListTypeE.exit, %sw.bb60, %sw.bb58, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_19DayTimeIntervalTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_17MonthIntervalTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_24MonthDayNanoIntervalTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_10Time64TypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_10Time32TypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_13TimestampTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_10Date64TypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_10Date32TypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_12DurationTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_19FixedSizeBinaryTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_15LargeBinaryTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_15LargeStringTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_14BinaryViewTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_10BinaryTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_14StringViewTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_10StringTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_10DoubleTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_9FloatTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_13HalfFloatTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_10UInt64TypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_9Int64TypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_10UInt32TypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_9Int32TypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_10UInt16TypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_9Int16TypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_9UInt8TypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_8Int8TypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_11BooleanTypeE.exit, %_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_8NullTypeE.exit
@@ -16088,7 +16088,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_11DecimalTypeE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(84) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_11DecimalTypeE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(84) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16359,7 +16359,7 @@ eh.resume:                                        ; preds = %lpad26, %ehcleanup5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_9UnionTypeE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(120) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaExporter5VisitERKNS_9UnionTypeE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(120) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str.56)
@@ -17718,7 +17718,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #13
 declare noundef i64 @_ZNK5arrow16KeyValueMetadata4sizeEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114EncodeMetadataB5cxx11ERKNS_16KeyValueMetadataE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %metadata) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114EncodeMetadataB5cxx11ERKNS_16KeyValueMetadataE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %metadata) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Status", align 8
   %ref.tmp = alloca %"class.arrow::Result.234", align 8
@@ -17934,7 +17934,7 @@ do.body26:                                        ; preds = %do.body26.preheader
           to label %invoke.cont29 unwind label %lpad8.loopexit
 
 invoke.cont29:                                    ; preds = %do.body26
-  invoke fastcc void @"_ZZN5arrow12_GLOBAL__N_114EncodeMetadataB5cxx11ERKNS_16KeyValueMetadataEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noalias nonnull align 8 %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(16) %write_string, ptr noundef nonnull align 8 dereferenceable(32) %call30)
+  invoke fastcc void @"_ZZN5arrow12_GLOBAL__N_114EncodeMetadataB5cxx11ERKNS_16KeyValueMetadataEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noalias align 8 %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(16) %write_string, ptr noundef nonnull align 8 dereferenceable(32) %call30)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad8.loopexit
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont29
@@ -18037,7 +18037,7 @@ _ZN5arrow6StatusD2Ev.exit95:                      ; preds = %_ZN5arrow6StatusD2E
           to label %invoke.cont50 unwind label %lpad8.loopexit
 
 invoke.cont50:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit95
-  invoke fastcc void @"_ZZN5arrow12_GLOBAL__N_114EncodeMetadataB5cxx11ERKNS_16KeyValueMetadataEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noalias nonnull align 8 %ref.tmp48, ptr noundef nonnull align 8 dereferenceable(16) %write_string, ptr noundef nonnull align 8 dereferenceable(32) %call51)
+  invoke fastcc void @"_ZZN5arrow12_GLOBAL__N_114EncodeMetadataB5cxx11ERKNS_16KeyValueMetadataEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noalias align 8 %ref.tmp48, ptr noundef nonnull align 8 dereferenceable(16) %write_string, ptr noundef nonnull align 8 dereferenceable(32) %call51)
           to label %_ZN5arrow6StatusD2Ev.exit132 unwind label %lpad8.loopexit
 
 _ZN5arrow6StatusD2Ev.exit132:                     ; preds = %invoke.cont50
@@ -18625,7 +18625,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5arrow16KeyValueMet
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5arrow12_GLOBAL__N_114EncodeMetadataB5cxx11ERKNS_16KeyValueMetadataEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5arrow12_GLOBAL__N_114EncodeMetadataB5cxx11ERKNS_16KeyValueMetadataEENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Status", align 8
   %ref.tmp = alloca %"class.arrow::Result.234", align 8
@@ -20430,7 +20430,7 @@ _ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_113ArrayExporterESaIS2_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter8DoImportEv(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter8DoImportEv(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i244.i = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i268 = alloca %"class.arrow::Status", align 8
@@ -20514,15 +20514,15 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp8.not.i.i, label %if.else.i.i, label %for.inc.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %if.then.i, %for.inc.i.i.i.i.i
-  %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %this.val4.i, %if.then.i ]
-  %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %sub.i, %if.then.i ]
-  %extension_name.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %__cur.08.i.i.i.i.i, i8 0, i64 168, i1 false)
+  %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %this.val4.i, %if.then.i ]
+  %__n.addr.06.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %sub.i, %if.then.i ]
+  %extension_name.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 104
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %__cur.07.i.i.i.i.i, i8 0, i64 168, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %extension_name.i.i.i.i.i.i.i.i) #25
-  %extension_serialized.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 136
+  %extension_serialized.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %extension_serialized.i.i.i.i.i.i.i.i) #25
-  %dec.i.i.i.i.i = add i64 %__n.addr.07.i.i.i.i.i, -1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 168
+  %dec.i.i.i.i.i = add i64 %__n.addr.06.i.i.i.i.i, -1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 168
   %cmp.not.i.i.i.i.i = icmp eq i64 %dec.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN5arrow12_GLOBAL__N_114SchemaImporterEmS2_ET_S4_T0_RSaIT1_E.exit.i.i, label %for.inc.i.i.i.i.i, !llvm.loop !845
 
@@ -20545,22 +20545,22 @@ _ZNKSt6vectorIN5arrow12_GLOBAL__N_114SchemaImporterESaIS2_EE12_M_check_lenEmPKc.
   %mul.i.i.i.i.i = mul nuw nsw i64 %4, 168
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #28
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i
-  br label %for.inc.i.i.i31.i.i
+  br label %for.inc.i.i.i30.i.i
 
-for.inc.i.i.i31.i.i:                              ; preds = %for.inc.i.i.i31.i.i, %_ZNKSt6vectorIN5arrow12_GLOBAL__N_114SchemaImporterESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %__cur.08.i.i.i32.i.i = phi ptr [ %incdec.ptr.i.i.i37.i.i, %for.inc.i.i.i31.i.i ], [ %add.ptr.i.i, %_ZNKSt6vectorIN5arrow12_GLOBAL__N_114SchemaImporterESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
-  %__n.addr.07.i.i.i33.i.i = phi i64 [ %dec.i.i.i36.i.i, %for.inc.i.i.i31.i.i ], [ %sub.i, %_ZNKSt6vectorIN5arrow12_GLOBAL__N_114SchemaImporterESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
-  %extension_name.i.i.i.i.i.i34.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i32.i.i, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %__cur.08.i.i.i32.i.i, i8 0, i64 168, i1 false)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %extension_name.i.i.i.i.i.i34.i.i) #25
-  %extension_serialized.i.i.i.i.i.i35.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i32.i.i, i64 136
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %extension_serialized.i.i.i.i.i.i35.i.i) #25
-  %dec.i.i.i36.i.i = add i64 %__n.addr.07.i.i.i33.i.i, -1
-  %incdec.ptr.i.i.i37.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i32.i.i, i64 168
-  %cmp.not.i.i.i38.i.i = icmp eq i64 %dec.i.i.i36.i.i, 0
-  br i1 %cmp.not.i.i.i38.i.i, label %invoke.cont.i.i, label %for.inc.i.i.i31.i.i, !llvm.loop !845
+for.inc.i.i.i30.i.i:                              ; preds = %for.inc.i.i.i30.i.i, %_ZNKSt6vectorIN5arrow12_GLOBAL__N_114SchemaImporterESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %__cur.07.i.i.i31.i.i = phi ptr [ %add.ptr.i.i, %_ZNKSt6vectorIN5arrow12_GLOBAL__N_114SchemaImporterESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %incdec.ptr.i.i.i36.i.i, %for.inc.i.i.i30.i.i ]
+  %__n.addr.06.i.i.i32.i.i = phi i64 [ %sub.i, %_ZNKSt6vectorIN5arrow12_GLOBAL__N_114SchemaImporterESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %dec.i.i.i35.i.i, %for.inc.i.i.i30.i.i ]
+  %extension_name.i.i.i.i.i.i33.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i31.i.i, i64 104
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %__cur.07.i.i.i31.i.i, i8 0, i64 168, i1 false)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %extension_name.i.i.i.i.i.i33.i.i) #25
+  %extension_serialized.i.i.i.i.i.i34.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i31.i.i, i64 136
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %extension_serialized.i.i.i.i.i.i34.i.i) #25
+  %dec.i.i.i35.i.i = add i64 %__n.addr.06.i.i.i32.i.i, -1
+  %incdec.ptr.i.i.i36.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i31.i.i, i64 168
+  %cmp.not.i.i.i37.i.i = icmp eq i64 %dec.i.i.i35.i.i, 0
+  br i1 %cmp.not.i.i.i37.i.i, label %invoke.cont.i.i, label %for.inc.i.i.i30.i.i, !llvm.loop !845
 
-invoke.cont.i.i:                                  ; preds = %for.inc.i.i.i31.i.i
+invoke.cont.i.i:                                  ; preds = %for.inc.i.i.i30.i.i
   %cmp.i.i.not6.i.i.i.i.i.i.i = icmp eq ptr %this.val.i, %this.val4.i
   br i1 %cmp.i.i.not6.i.i.i.i.i.i.i, label %try.cont.i.i, label %for.inc.i.i.i.i.i.i.i
 
@@ -20623,14 +20623,14 @@ for.inc.i.i.i.i.i.i.i:                            ; preds = %invoke.cont.i.i, %f
 
 try.cont.i.i:                                     ; preds = %for.inc.i.i.i.i.i.i.i, %invoke.cont.i.i
   tail call fastcc void @_ZSt8_DestroyIPN5arrow12_GLOBAL__N_114SchemaImporterEEvT_S4_(ptr noundef %this.val.i, ptr noundef %this.val4.i)
-  %tobool.not.i42.i.i = icmp eq ptr %this.val.i, null
-  br i1 %tobool.not.i42.i.i, label %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_114SchemaImporterESaIS2_EE13_M_deallocateEPS2_m.exit44.i.i, label %if.then.i43.i.i
+  %tobool.not.i40.i.i = icmp eq ptr %this.val.i, null
+  br i1 %tobool.not.i40.i.i, label %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_114SchemaImporterESaIS2_EE13_M_deallocateEPS2_m.exit42.i.i, label %if.then.i41.i.i
 
-if.then.i43.i.i:                                  ; preds = %try.cont.i.i
+if.then.i41.i.i:                                  ; preds = %try.cont.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this.val.i) #27
-  br label %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_114SchemaImporterESaIS2_EE13_M_deallocateEPS2_m.exit44.i.i
+  br label %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_114SchemaImporterESaIS2_EE13_M_deallocateEPS2_m.exit42.i.i
 
-_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_114SchemaImporterESaIS2_EE13_M_deallocateEPS2_m.exit44.i.i: ; preds = %if.then.i43.i.i, %try.cont.i.i
+_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_114SchemaImporterESaIS2_EE13_M_deallocateEPS2_m.exit42.i.i: ; preds = %if.then.i41.i.i, %try.cont.i.i
   store ptr %call5.i.i.i.i.i, ptr %child_importers_, align 8
   %add.ptr45.i.i = getelementptr inbounds %"struct.arrow::(anonymous namespace)::SchemaImporter", ptr %add.ptr.i.i, i64 %sub.i
   store ptr %add.ptr45.i.i, ptr %2, align 8
@@ -20662,7 +20662,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i20.i
   tail call void @__clang_call_terminate(ptr %15) #32
   unreachable
 
-_ZNSt6vectorIN5arrow12_GLOBAL__N_114SchemaImporterESaIS2_EE6resizeEm.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPN5arrow12_GLOBAL__N_114SchemaImporterEmS2_ET_S4_T0_RSaIT1_E.exit.i.i, %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_114SchemaImporterESaIS2_EE13_M_deallocateEPS2_m.exit44.i.i, %if.else.i, %if.then5.i, %invoke.cont.i21.i
+_ZNSt6vectorIN5arrow12_GLOBAL__N_114SchemaImporterESaIS2_EE6resizeEm.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPN5arrow12_GLOBAL__N_114SchemaImporterEmS2_ET_S4_T0_RSaIT1_E.exit.i.i, %_ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_114SchemaImporterESaIS2_EE13_M_deallocateEPS2_m.exit42.i.i, %if.else.i, %if.then5.i, %invoke.cont.i21.i
   %16 = load ptr, ptr %this, align 8
   %n_children3474 = getelementptr inbounds i8, ptr %16, i64 32
   %17 = load i64, ptr %n_children3474, align 8
@@ -20713,7 +20713,7 @@ if.then4.i:                                       ; preds = %if.end.i
 
 if.end5.i:                                        ; preds = %if.end.i
   store ptr %22, ptr %add.ptr.i21, align 8, !noalias !848
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter8DoImportEv(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(168) %add.ptr.i21)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter8DoImportEv(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(168) %add.ptr.i21)
   br label %_ZN5arrow6StatusD2Ev.exit
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.end5.i, %if.then4.i, %if.then.i22
@@ -20746,7 +20746,7 @@ nrvo.skipdtor.thread.i:                           ; preds = %do.body21
   br label %do.end8.i
 
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %do.body21
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp2.i, i64 0, ptr %26)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp2.i, i64 0, ptr %26)
   %.pr.i = load ptr, ptr %ref.tmp2.i, align 8, !noalias !861
   call void @llvm.experimental.noalias.scope.decl(metadata !863)
   store ptr %.pr.i, ptr %ref.tmp23, align 8, !alias.scope !861
@@ -20798,87 +20798,87 @@ do.end8.i:                                        ; preds = %_ZN5arrow6StatusD2E
 
 sw.bb.i:                                          ; preds = %do.end8.i
   %call11.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow4nullEv()
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call11.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call11.i)
   br label %_ZN5arrow6StatusD2Ev.exit122
 
 sw.bb12.i:                                        ; preds = %do.end8.i
   %call13.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow7booleanEv()
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call13.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call13.i)
   br label %_ZN5arrow6StatusD2Ev.exit122
 
 sw.bb14.i:                                        ; preds = %do.end8.i
   %call15.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow4int8Ev()
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call15.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call15.i)
   br label %_ZN5arrow6StatusD2Ev.exit122
 
 sw.bb16.i:                                        ; preds = %do.end8.i
   %call17.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5uint8Ev()
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call17.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call17.i)
   br label %_ZN5arrow6StatusD2Ev.exit122
 
 sw.bb18.i:                                        ; preds = %do.end8.i
   %call19.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5int16Ev()
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call19.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call19.i)
   br label %_ZN5arrow6StatusD2Ev.exit122
 
 sw.bb20.i:                                        ; preds = %do.end8.i
   %call21.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6uint16Ev()
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call21.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call21.i)
   br label %_ZN5arrow6StatusD2Ev.exit122
 
 sw.bb22.i:                                        ; preds = %do.end8.i
   %call23.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5int32Ev()
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call23.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call23.i)
   br label %_ZN5arrow6StatusD2Ev.exit122
 
 sw.bb24.i:                                        ; preds = %do.end8.i
   %call25.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6uint32Ev()
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call25.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call25.i)
   br label %_ZN5arrow6StatusD2Ev.exit122
 
 sw.bb26.i:                                        ; preds = %do.end8.i
   %call27.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5int64Ev()
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call27.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call27.i)
   br label %_ZN5arrow6StatusD2Ev.exit122
 
 sw.bb28.i:                                        ; preds = %do.end8.i
   %call29.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6uint64Ev()
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call29.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call29.i)
   br label %_ZN5arrow6StatusD2Ev.exit122
 
 sw.bb30.i:                                        ; preds = %do.end8.i
   %call31.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow7float16Ev()
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call31.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call31.i)
   br label %_ZN5arrow6StatusD2Ev.exit122
 
 sw.bb32.i:                                        ; preds = %do.end8.i
   %call33.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow7float32Ev()
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call33.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call33.i)
   br label %_ZN5arrow6StatusD2Ev.exit122
 
 sw.bb34.i:                                        ; preds = %do.end8.i
   %call35.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow7float64Ev()
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call35.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call35.i)
   br label %_ZN5arrow6StatusD2Ev.exit122
 
 sw.bb36.i:                                        ; preds = %do.end8.i
   %call37.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow4utf8Ev()
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call37.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call37.i)
   br label %_ZN5arrow6StatusD2Ev.exit122
 
 sw.bb38.i:                                        ; preds = %do.end8.i
   %call39.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow10large_utf8Ev()
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call39.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call39.i)
   br label %_ZN5arrow6StatusD2Ev.exit122
 
 sw.bb40.i:                                        ; preds = %do.end8.i
   %call41.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6binaryEv()
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call41.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call41.i)
   br label %_ZN5arrow6StatusD2Ev.exit122
 
 sw.bb42.i:                                        ; preds = %do.end8.i
   %call43.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow12large_binaryEv()
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call43.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call43.i)
   br label %_ZN5arrow6StatusD2Ev.exit122
 
 sw.bb44.i:                                        ; preds = %do.end8.i
@@ -20895,7 +20895,7 @@ nrvo.skipdtor.thread.i.i:                         ; preds = %sw.bb44.i
   br label %do.end6.i.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %sw.bb44.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp.i.i, i64 %this.val.i.i.i, ptr nonnull %this.val3.i.i.i), !noalias !867
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp.i.i, i64 %this.val.i.i.i, ptr nonnull %this.val3.i.i.i), !noalias !867
   %.pr.i.i = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !877
   call void @llvm.experimental.noalias.scope.decl(metadata !879)
   store ptr %.pr.i.i, ptr %ref.tmp23, align 8, !alias.scope !877
@@ -20922,17 +20922,17 @@ do.end6.i.i:                                      ; preds = %_ZN5arrow6StatusD2E
 
 sw.bb.i.i:                                        ; preds = %do.end6.i.i
   %call9.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow11binary_viewEv(), !noalias !867
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call9.i.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call9.i.i)
   br label %_ZN5arrow12_GLOBAL__N_114SchemaImporter17ProcessBinaryViewEv.exit.i
 
 sw.bb10.i.i:                                      ; preds = %do.end6.i.i
   %call11.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow9utf8_viewEv(), !noalias !867
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call11.i.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call11.i.i)
   br label %_ZN5arrow12_GLOBAL__N_114SchemaImporter17ProcessBinaryViewEv.exit.i
 
 sw.epilog.i.i:                                    ; preds = %do.end6.i.i
   %f_parser_.val.i.i = load i64, ptr %f_parser_.i, align 8, !noalias !880
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp23, i64 %f_parser_.val.i.i, ptr nonnull %29)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp23, i64 %f_parser_.val.i.i, ptr nonnull %29)
   br label %_ZN5arrow12_GLOBAL__N_114SchemaImporter17ProcessBinaryViewEv.exit.i
 
 _ZN5arrow12_GLOBAL__N_114SchemaImporter17ProcessBinaryViewEv.exit.i: ; preds = %sw.epilog.i.i, %sw.bb10.i.i, %sw.bb.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i
@@ -20963,7 +20963,7 @@ nrvo.skipdtor.thread.i81.i:                       ; preds = %lor.lhs.false.i.i.i
   br label %do.end6.i52.i
 
 _ZN5arrow6StatusD2Ev.exit.i46.i:                  ; preds = %lor.lhs.false.i.i.i, %sw.bb45.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp.i41.i, i64 %this.val.i.i43.i, ptr nonnull %this.val3.i.i.i), !noalias !881
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp.i41.i, i64 %this.val.i.i43.i, ptr nonnull %this.val3.i.i.i), !noalias !881
   %.pr.i48.i = load ptr, ptr %ref.tmp.i41.i, align 8, !noalias !893
   call void @llvm.experimental.noalias.scope.decl(metadata !895)
   store ptr %.pr.i48.i, ptr %ref.tmp23, align 8, !alias.scope !893
@@ -20990,7 +20990,7 @@ invoke.cont.i.i65:                                ; preds = %do.end6.i52.i
   %sub.i.i.i.i = sub nuw i64 %33, %34
   %35 = load ptr, ptr %ref.tmp.sroa.2.0.f_parser_.sroa_idx.i, align 8, !noalias !884
   %add.ptr.i.i.i54.i = getelementptr inbounds i8, ptr %35, i64 %34
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser8ParseIntIiEENS_6ResultIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp7.i.i, ptr noundef nonnull align 8 dereferenceable(24) %f_parser_.i, i64 %sub.i.i.i.i, ptr %add.ptr.i.i.i54.i), !noalias !881
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser8ParseIntIiEENS_6ResultIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp7.i.i, ptr noundef nonnull align 8 dereferenceable(24) %f_parser_.i, i64 %sub.i.i.i.i, ptr %add.ptr.i.i.i54.i), !noalias !881
   %36 = load ptr, ptr %ref.tmp7.i.i, align 8, !noalias !884
   %cmp.i.i.i.i = icmp eq ptr %36, null
   br i1 %cmp.i.i.i.i, label %invoke.cont22.i.i, label %cond.false.i.i.i
@@ -21064,7 +21064,7 @@ invoke.cont22.i.i:                                ; preds = %invoke.cont.i.i65
 if.then24.i.i:                                    ; preds = %invoke.cont22.i.i
   %f_parser_.val.i80.i = load i64, ptr %f_parser_.i, align 8, !noalias !884
   %f_parser_.val4.i.i = load ptr, ptr %ref.tmp.sroa.2.0.f_parser_.sroa_idx.i, align 8, !noalias !884
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp23, i64 %f_parser_.val.i80.i, ptr %f_parser_.val4.i.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp23, i64 %f_parser_.val.i80.i, ptr %f_parser_.val4.i.i)
           to label %cleanup31.i.i unwind label %lpad.i.i
 
 if.end27.i.i:                                     ; preds = %invoke.cont22.i.i
@@ -21346,7 +21346,7 @@ nrvo.skipdtor.thread.i178.i:                      ; preds = %lor.lhs.false.i.i17
   br label %do.end6.i97.i
 
 _ZN5arrow6StatusD2Ev.exit.i91.i:                  ; preds = %lor.lhs.false.i.i173.i, %sw.bb46.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp.i82.i, i64 %this.val.i.i85.i, ptr nonnull %this.val3.i.i.i), !noalias !896
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp.i82.i, i64 %this.val.i.i85.i, ptr nonnull %this.val3.i.i.i), !noalias !896
   %.pr.i93.i = load ptr, ptr %ref.tmp.i82.i, align 8, !noalias !908
   call void @llvm.experimental.noalias.scope.decl(metadata !910)
   store ptr %.pr.i93.i, ptr %ref.tmp23, align 8, !alias.scope !908
@@ -21386,7 +21386,7 @@ _ZN5arrow12_GLOBAL__N_118FormatStringParser9ParseIntsIiEENS_6ResultISt6vectorIT_
 if.end.i48.i.i:                                   ; preds = %_ZN5arrow12_GLOBAL__N_118FormatStringParser4RestEv.exit.i.i
   %sub.i.i.i101.i = sub nuw i64 %83, %84
   %add.ptr.i.i.i102.i = getelementptr inbounds i8, ptr %85, i64 %84
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser5SplitESt17basic_string_viewIcSt11char_traitsIcEEc(ptr noalias nonnull align 8 %parts.i.i.i, i64 %sub.i.i.i101.i, ptr %add.ptr.i.i.i102.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser5SplitESt17basic_string_viewIcSt11char_traitsIcEEc(ptr noalias align 8 %parts.i.i.i, i64 %sub.i.i.i101.i, ptr %add.ptr.i.i.i102.i)
   %size_.i.i.i.i = getelementptr inbounds i8, ptr %parts.i.i.i, i64 32
   %86 = load i64, ptr %size_.i.i.i.i, align 8, !noalias !914
   %cmp.i8.i.i.i = icmp ugt i64 %86, 2305843009213693951
@@ -21433,7 +21433,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   %agg.tmp10.sroa.0.0.copyload.i.i.i = load i64, ptr %__begin3.085.i.i.i, align 8, !noalias !896
   %agg.tmp10.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin3.085.i.i.i, i64 8
   %agg.tmp10.sroa.2.0.copyload.i.i.i = load ptr, ptr %agg.tmp10.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !896
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser8ParseIntIiEENS_6ResultIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %f_parser_.i, i64 %agg.tmp10.sroa.0.0.copyload.i.i.i, ptr %agg.tmp10.sroa.2.0.copyload.i.i.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser8ParseIntIiEENS_6ResultIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %f_parser_.i, i64 %agg.tmp10.sroa.0.0.copyload.i.i.i, ptr %agg.tmp10.sroa.2.0.copyload.i.i.i)
           to label %invoke.cont13.i.i.i unwind label %lpad2.loopexit.i.i.i, !noalias !896
 
 invoke.cont13.i.i.i:                              ; preds = %for.body.i.i.i
@@ -21777,7 +21777,7 @@ invoke.cont23.i.i:                                ; preds = %_ZN5arrow12_GLOBAL_
 if.then27.i.i:                                    ; preds = %invoke.cont23.i.i
   %f_parser_.val.i163.i = load i64, ptr %f_parser_.i, align 8, !noalias !899
   %f_parser_.val4.i164.i = load ptr, ptr %ref.tmp.sroa.2.0.f_parser_.sroa_idx.i, align 8, !noalias !899
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp23, i64 %f_parser_.val.i163.i, ptr %f_parser_.val4.i164.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp23, i64 %f_parser_.val.i163.i, ptr %f_parser_.val4.i164.i)
           to label %cleanup62.i.i unwind label %lpad29.i.i
 
 lpad29.thread.i.i:                                ; preds = %if.else57.invoke.i.i, %if.then50.i.i, %if.then42.i.i
@@ -21990,7 +21990,7 @@ invoke.cont54.i.i:                                ; preds = %if.then50.i.i
 if.else57.invoke.i.i:                             ; preds = %lor.lhs.false.i.i, %if.end31.thread.i.i, %if.end31.i.i
   %f_parser_.val5.i.i = load i64, ptr %f_parser_.i, align 8, !noalias !899
   %f_parser_.val6.i.i = load ptr, ptr %ref.tmp.sroa.2.0.f_parser_.sroa_idx.i, align 8, !noalias !899
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp23, i64 %f_parser_.val5.i.i, ptr %f_parser_.val6.i.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp23, i64 %f_parser_.val5.i.i, ptr %f_parser_.val6.i.i)
           to label %if.then.i.i.i109.i.i unwind label %lpad29.thread.i.i
 
 if.end61.i.i:                                     ; preds = %invoke.cont54.i.i, %if.end8.sink.split.i.i.i.i.i148.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i146.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i138.i, %_ZNSt10shared_ptrIN5arrow8DataTypeEEaSEOS2_.exit.i133.i
@@ -22035,7 +22035,7 @@ nrvo.skipdtor.thread.i275.i:                      ; preds = %sw.bb47.i
   br label %do.end6.i191.i
 
 _ZN5arrow6StatusD2Ev.exit.i185.i:                 ; preds = %sw.bb47.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp.i180.i, i64 %this.val.i.i182.i, ptr nonnull %this.val3.i.i.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp.i180.i, i64 %this.val.i.i182.i, ptr nonnull %this.val3.i.i.i)
   %.pr.i187.i = load ptr, ptr %ref.tmp.i180.i, align 8, !noalias !933
   call void @llvm.experimental.noalias.scope.decl(metadata !935)
   store ptr %.pr.i187.i, ptr %ref.tmp23, align 8, !alias.scope !933
@@ -22077,7 +22077,7 @@ nrvo.skipdtor.thread.i.i.i:                       ; preds = %sw.bb.i269.i
   br label %do.end6.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %sw.bb.i269.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp.i.i179.i, i64 %this.val.i.i.i.i, ptr nonnull %147), !noalias !937
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp.i.i179.i, i64 %this.val.i.i.i.i, ptr nonnull %147), !noalias !937
   %.pr.i.i.i = load ptr, ptr %ref.tmp.i.i179.i, align 8, !noalias !947
   call void @llvm.experimental.noalias.scope.decl(metadata !949)
   store ptr %.pr.i.i.i, ptr %ref.tmp23, align 8, !alias.scope !947
@@ -22104,17 +22104,17 @@ do.end6.i.i.i:                                    ; preds = %_ZN5arrow6StatusD2E
 
 sw.bb.i.i.i:                                      ; preds = %do.end6.i.i.i
   %call9.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6date32Ev(), !noalias !937
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call9.i.i.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call9.i.i.i)
   br label %_ZN5arrow12_GLOBAL__N_114SchemaImporter11ProcessDateEv.exit.i.i
 
 sw.bb10.i.i.i:                                    ; preds = %do.end6.i.i.i
   %call11.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6date64Ev(), !noalias !937
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call11.i.i.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %call11.i.i.i)
   br label %_ZN5arrow12_GLOBAL__N_114SchemaImporter11ProcessDateEv.exit.i.i
 
 sw.epilog.i.i.i:                                  ; preds = %do.end6.i.i.i
   %f_parser_.val.i.i.i = load i64, ptr %f_parser_.i, align 8, !noalias !950
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp23, i64 %f_parser_.val.i.i.i, ptr nonnull %150)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp23, i64 %f_parser_.val.i.i.i, ptr nonnull %150)
   br label %_ZN5arrow12_GLOBAL__N_114SchemaImporter11ProcessDateEv.exit.i.i
 
 _ZN5arrow12_GLOBAL__N_114SchemaImporter11ProcessDateEv.exit.i.i: ; preds = %sw.epilog.i.i.i, %sw.bb10.i.i.i, %sw.bb.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i
@@ -22126,7 +22126,7 @@ sw.bb9.i.i:                                       ; preds = %do.end6.i191.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i40.i.i), !noalias !936
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp11.i.i.i), !noalias !936
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp15.i.i.i), !noalias !936
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser13ParseTimeUnitEv(ptr noalias nonnull align 8 %ref.tmp.i40.i.i, ptr noundef nonnull align 8 dereferenceable(24) %f_parser_.i), !noalias !951
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser13ParseTimeUnitEv(ptr noalias align 8 %ref.tmp.i40.i.i, ptr noundef nonnull align 8 dereferenceable(24) %f_parser_.i), !noalias !951
   %153 = load ptr, ptr %ref.tmp.i40.i.i, align 8, !noalias !954
   %cmp.i.i.i.i222.i = icmp eq ptr %153, null
   br i1 %cmp.i.i.i.i222.i, label %invoke.cont7.i.i.i, label %cond.false.i.i.i.i
@@ -22197,7 +22197,7 @@ if.then10.i.i.i:                                  ; preds = %invoke.cont7.i.i.i
           to label %invoke.cont12.i.i.i unwind label %lpad.i.i.i, !noalias !951
 
 invoke.cont12.i.i.i:                              ; preds = %if.then10.i.i.i
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11.i.i.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11.i.i.i)
           to label %invoke.cont14.i.i.i unwind label %lpad13.i.i.i
 
 invoke.cont14.i.i.i:                              ; preds = %invoke.cont12.i.i.i
@@ -22285,7 +22285,7 @@ if.else.i.i.i:                                    ; preds = %invoke.cont7.i.i.i
           to label %invoke.cont16.i.i.i unwind label %lpad.i.i.i, !noalias !951
 
 invoke.cont16.i.i.i:                              ; preds = %if.else.i.i.i
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15.i.i.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15.i.i.i)
           to label %invoke.cont18.i.i.i unwind label %lpad17.i.i.i
 
 invoke.cont18.i.i.i:                              ; preds = %invoke.cont16.i.i.i
@@ -22468,7 +22468,7 @@ sw.bb10.i220.i:                                   ; preds = %do.end6.i191.i
   call void @llvm.experimental.noalias.scope.decl(metadata !955)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i67.i.i), !noalias !936
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp7.i.i.i), !noalias !936
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser13ParseTimeUnitEv(ptr noalias nonnull align 8 %ref.tmp.i67.i.i, ptr noundef nonnull align 8 dereferenceable(24) %f_parser_.i), !noalias !955
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser13ParseTimeUnitEv(ptr noalias align 8 %ref.tmp.i67.i.i, ptr noundef nonnull align 8 dereferenceable(24) %f_parser_.i), !noalias !955
   %199 = load ptr, ptr %ref.tmp.i67.i.i, align 8, !noalias !958
   %cmp.i.i.i69.i.i = icmp eq ptr %199, null
   br i1 %cmp.i.i.i69.i.i, label %invoke.cont5.i.i.i, label %cond.false.i.i70.i.i
@@ -22535,7 +22535,7 @@ invoke.cont5.i.i.i:                               ; preds = %sw.bb10.i220.i
           to label %invoke.cont8.i.i.i unwind label %lpad.i71.i.i, !noalias !955
 
 invoke.cont8.i.i.i:                               ; preds = %invoke.cont5.i.i.i
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7.i.i.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7.i.i.i)
           to label %invoke.cont10.i.i.i unwind label %lpad9.i.i.i
 
 invoke.cont10.i.i.i:                              ; preds = %invoke.cont8.i.i.i
@@ -22730,7 +22730,7 @@ nrvo.skipdtor.thread.i208.i.i:                    ; preds = %sw.bb11.i.i
   br label %do.end6.i168.i.i
 
 _ZN5arrow6StatusD2Ev.exit.i162.i.i:               ; preds = %sw.bb11.i.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp.i155.i.i, i64 %this.val.i.i159.i.i, ptr nonnull %147), !noalias !959
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp.i155.i.i, i64 %this.val.i.i159.i.i, ptr nonnull %147), !noalias !959
   %.pr.i164.i.i = load ptr, ptr %ref.tmp.i155.i.i, align 8, !noalias !969
   call void @llvm.experimental.noalias.scope.decl(metadata !971)
   store ptr %.pr.i164.i.i, ptr %ref.tmp23, align 8, !alias.scope !969
@@ -22758,7 +22758,7 @@ do.end6.i168.i.i:                                 ; preds = %_ZN5arrow6StatusD2E
 
 sw.bb.i174.i.i:                                   ; preds = %do.end6.i168.i.i
   call void @_ZN5arrow17day_time_intervalEv(ptr nonnull sret(%"class.std::shared_ptr") align 8 %ref.tmp9.i.i.i), !noalias !959
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9.i.i.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i175.i.i
 
 invoke.cont.i.i.i:                                ; preds = %sw.bb.i174.i.i
@@ -22842,7 +22842,7 @@ lpad.i175.i.i:                                    ; preds = %sw.bb.i174.i.i
 
 sw.bb10.i173.i.i:                                 ; preds = %do.end6.i168.i.i
   call void @_ZN5arrow14month_intervalEv(ptr nonnull sret(%"class.std::shared_ptr") align 8 %ref.tmp11.i156.i.i), !noalias !959
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11.i156.i.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11.i156.i.i)
           to label %invoke.cont13.i.i219.i unwind label %lpad12.i.i218.i
 
 invoke.cont13.i.i219.i:                           ; preds = %sw.bb10.i173.i.i
@@ -22926,7 +22926,7 @@ lpad12.i.i218.i:                                  ; preds = %sw.bb10.i173.i.i
 
 sw.bb14.i.i.i:                                    ; preds = %do.end6.i168.i.i
   call void @_ZN5arrow23month_day_nano_intervalEv(ptr nonnull sret(%"class.std::shared_ptr") align 8 %ref.tmp15.i157.i.i), !noalias !959
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15.i157.i.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15.i157.i.i)
           to label %invoke.cont17.i.i.i unwind label %lpad16.i.i.i
 
 invoke.cont17.i.i.i:                              ; preds = %sw.bb14.i.i.i
@@ -23010,7 +23010,7 @@ lpad16.i.i.i:                                     ; preds = %sw.bb14.i.i.i
 
 sw.epilog.i206.i.i:                               ; preds = %do.end6.i168.i.i
   %f_parser_.val.i207.i.i = load i64, ptr %f_parser_.i, align 8, !noalias !972
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp23, i64 %f_parser_.val.i207.i.i, ptr nonnull %233)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp23, i64 %f_parser_.val.i207.i.i, ptr nonnull %233)
   br label %_ZN5arrow12_GLOBAL__N_114SchemaImporter15ProcessIntervalEv.exit.i.i
 
 eh.resume.i.i.i:                                  ; preds = %lpad16.i.i.i, %lpad12.i.i218.i, %lpad.i175.i.i
@@ -23033,7 +23033,7 @@ sw.bb12.i.i:                                      ; preds = %do.end6.i191.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp22.i.i.i), !noalias !936
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp23.i.i.i), !noalias !936
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp28.i.i.i), !noalias !936
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser13ParseTimeUnitEv(ptr noalias nonnull align 8 %ref.tmp.i209.i.i, ptr noundef nonnull align 8 dereferenceable(24) %f_parser_.i), !noalias !973
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser13ParseTimeUnitEv(ptr noalias align 8 %ref.tmp.i209.i.i, ptr noundef nonnull align 8 dereferenceable(24) %f_parser_.i), !noalias !973
   %272 = load ptr, ptr %ref.tmp.i209.i.i, align 8, !noalias !976
   %cmp.i.i.i211.i.i = icmp eq ptr %272, null
   br i1 %cmp.i.i.i211.i.i, label %invoke.cont5.i263.i.i, label %cond.false.i.i212.i.i
@@ -23112,7 +23112,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %invoke.cont5.i263.i
 
 if.then.i.i.i197.i:                               ; preds = %lor.lhs.false.i.i.i.i, %entry.if.then_crit_edge.i.i.i.i
   %this.val3.i.i268.i.i = phi ptr [ %this.val3.pre.i.i.i.i, %entry.if.then_crit_edge.i.i.i.i ], [ %282, %lor.lhs.false.i.i.i.i ]
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp8.i.i.i, i64 %this.val.i.i265.i.i, ptr %this.val3.i.i268.i.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp8.i.i.i, i64 %this.val.i.i265.i.i, ptr %this.val3.i.i268.i.i)
           to label %_ZN5arrow6StatusD2Ev.exit.i269.i.i unwind label %lpad.i213.i.i, !noalias !973
 
 _ZN5arrow6StatusD2Ev.exit.thread.i.i.i:           ; preds = %lor.lhs.false.i.i.i.i
@@ -23448,7 +23448,7 @@ _ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessTimestampEv.exit.i.i: ; preds = 
 
 sw.epilog.i273.i:                                 ; preds = %do.end6.i191.i
   %f_parser_.val.i274.i = load i64, ptr %f_parser_.i, align 8, !noalias !936
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp23, i64 %f_parser_.val.i274.i, ptr nonnull %147)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp23, i64 %f_parser_.val.i274.i, ptr nonnull %147)
   br label %_ZN5arrow12_GLOBAL__N_114SchemaImporter15ProcessTemporalEv.exit.i
 
 _ZN5arrow12_GLOBAL__N_114SchemaImporter15ProcessTemporalEv.exit.i: ; preds = %sw.epilog.i273.i, %_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessTimestampEv.exit.i.i, %_ZN5arrow12_GLOBAL__N_114SchemaImporter15ProcessIntervalEv.exit.i.i, %_ZN5arrow12_GLOBAL__N_114SchemaImporter15ProcessDurationEv.exit.i.i, %_ZN5arrow12_GLOBAL__N_114SchemaImporter11ProcessTimeEv.exit.i.i, %_ZN5arrow12_GLOBAL__N_114SchemaImporter11ProcessDateEv.exit.i.i, %_ZN5arrow6StatusD2Ev.exit.i185.i
@@ -23456,12 +23456,12 @@ _ZN5arrow12_GLOBAL__N_114SchemaImporter15ProcessTemporalEv.exit.i: ; preds = %sw
   br label %_ZN5arrow6StatusD2Ev.exit122
 
 sw.bb48.i:                                        ; preds = %do.end8.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter13ProcessNestedEv(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter13ProcessNestedEv(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(168) %this)
   br label %_ZN5arrow6StatusD2Ev.exit122
 
 sw.epilog.i:                                      ; preds = %do.end8.i
   %f_parser_.val.i = load i64, ptr %f_parser_.i, align 8, !noalias !854
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp23, i64 %f_parser_.val.i, ptr nonnull %this.val3.i.i.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp23, i64 %f_parser_.val.i, ptr nonnull %this.val3.i.i.i)
   br label %_ZN5arrow6StatusD2Ev.exit122
 
 _ZN5arrow6StatusD2Ev.exit122:                     ; preds = %sw.epilog.i, %sw.bb48.i, %_ZN5arrow12_GLOBAL__N_114SchemaImporter15ProcessTemporalEv.exit.i, %_ZN5arrow12_GLOBAL__N_114SchemaImporter14ProcessDecimalEv.exit.i, %_ZN5arrow12_GLOBAL__N_114SchemaImporter22ProcessFixedSizeBinaryEv.exit.i, %_ZN5arrow12_GLOBAL__N_114SchemaImporter17ProcessBinaryViewEv.exit.i, %sw.bb42.i, %sw.bb40.i, %sw.bb38.i, %sw.bb36.i, %sw.bb34.i, %sw.bb32.i, %sw.bb30.i, %sw.bb28.i, %sw.bb26.i, %sw.bb24.i, %sw.bb22.i, %sw.bb20.i, %sw.bb18.i, %sw.bb16.i, %sw.bb14.i, %sw.bb12.i, %sw.bb.i
@@ -23542,7 +23542,7 @@ if.then4.i454:                                    ; preds = %if.end.i448
 
 if.end5.i453:                                     ; preds = %if.end.i448
   store ptr %337, ptr %dict_importer, align 8, !noalias !990
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter8DoImportEv(ptr noalias nonnull align 8 %ref.tmp65, ptr noundef nonnull align 8 dereferenceable(168) %dict_importer)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter8DoImportEv(ptr noalias align 8 %ref.tmp65, ptr noundef nonnull align 8 dereferenceable(168) %dict_importer)
           to label %_ZN5arrow6StatusD2Ev.exit197 unwind label %lpad68
 
 _ZN5arrow6StatusD2Ev.exit197:                     ; preds = %if.then.i447, %if.then4.i454, %if.end5.i453
@@ -25791,7 +25791,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter16ProcessPrimitiveERKSt10shared_ptrINS_8DataTypeEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %n_children.addr.i.i = alloca i64, align 8
@@ -25812,7 +25812,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %this, i64 24
   %this.val3.i = load ptr, ptr %1, align 8, !noalias !1063
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp, i64 %this.val.i, ptr %this.val3.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp, i64 %this.val.i, ptr %this.val3.i)
   %.pr = load ptr, ptr %ref.tmp, align 8, !noalias !1069
   call void @llvm.experimental.noalias.scope.decl(metadata !1069)
   store ptr %.pr, ptr %agg.result, align 8, !alias.scope !1069
@@ -26009,7 +26009,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6binaryEv() lo
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow12large_binaryEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter13ProcessNestedEv(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter13ProcessNestedEv(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i639 = alloca %"class.std::__cxx11::basic_string", align 8
   %n_children.addr.i.i640 = alloca i64, align 8
@@ -26098,7 +26098,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %this, i64 24
   %this.val3.i = load ptr, ptr %1, align 8, !noalias !1087
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp, i64 %this.val.i, ptr %this.val3.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp, i64 %this.val.i, ptr %this.val3.i)
   %.pr = load ptr, ptr %ref.tmp, align 8, !noalias !1093
   call void @llvm.experimental.noalias.scope.decl(metadata !1093)
   store ptr %.pr, ptr %agg.result, align 8, !alias.scope !1093
@@ -26146,7 +26146,7 @@ nrvo.skipdtor.thread.i:                           ; preds = %sw.bb
   br label %do.body7.i
 
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %sw.bb
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp.i, i64 %this.val.i.i, ptr nonnull %3), !noalias !1095
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp.i, i64 %this.val.i.i, ptr nonnull %3), !noalias !1095
   %.pr.i = load ptr, ptr %ref.tmp.i, align 8, !noalias !1105
   call void @llvm.experimental.noalias.scope.decl(metadata !1107)
   store ptr %.pr.i, ptr %agg.result, align 8, !alias.scope !1105
@@ -26200,7 +26200,7 @@ _ZN5arrow6StatusD2Ev.exit84.i:                    ; preds = %if.then.i46.i
 do.end26.i:                                       ; preds = %_ZN5arrow6StatusD2Ev.exit84.i, %nrvo.skipdtor22.thread.i
   %7 = getelementptr inbounds i8, ptr %this, i64 48
   %this.val6.i = load ptr, ptr %7, align 8, !noalias !1095
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter14MakeChildFieldEl(ptr noalias nonnull align 8 %ref.tmp27.i, ptr %this.val6.i, i64 noundef 0), !noalias !1095
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter14MakeChildFieldEl(ptr noalias align 8 %ref.tmp27.i, ptr %this.val6.i, i64 noundef 0), !noalias !1095
   %8 = load ptr, ptr %ref.tmp27.i, align 8, !noalias !1095
   %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %invoke.cont40.i, label %cond.false.i.i
@@ -26552,7 +26552,7 @@ nrvo.skipdtor.thread.i60:                         ; preds = %sw.bb9
   br label %do.body7.i61
 
 _ZN5arrow6StatusD2Ev.exit.i197:                   ; preds = %sw.bb9
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp.i52, i64 %this.val.i.i57, ptr nonnull %3), !noalias !1135
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp.i52, i64 %this.val.i.i57, ptr nonnull %3), !noalias !1135
   %.pr.i199 = load ptr, ptr %ref.tmp.i52, align 8, !noalias !1145
   call void @llvm.experimental.noalias.scope.decl(metadata !1147)
   store ptr %.pr.i199, ptr %agg.result, align 8, !alias.scope !1145
@@ -26602,7 +26602,7 @@ _ZN5arrow6StatusD2Ev.exit84.i69:                  ; preds = %if.then.i46.i65
 do.end26.i72:                                     ; preds = %_ZN5arrow6StatusD2Ev.exit84.i69, %nrvo.skipdtor22.thread.i196
   %55 = getelementptr inbounds i8, ptr %this, i64 48
   %this.val6.i73 = load ptr, ptr %55, align 8, !noalias !1135
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter14MakeChildFieldEl(ptr noalias nonnull align 8 %ref.tmp27.i54, ptr %this.val6.i73, i64 noundef 0), !noalias !1135
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter14MakeChildFieldEl(ptr noalias align 8 %ref.tmp27.i54, ptr %this.val6.i73, i64 noundef 0), !noalias !1135
   %56 = load ptr, ptr %ref.tmp27.i54, align 8, !noalias !1135
   %cmp.i.i.i74 = icmp eq ptr %56, null
   br i1 %cmp.i.i.i74, label %invoke.cont38.i, label %cond.false.i.i75
@@ -26949,7 +26949,7 @@ nrvo.skipdtor28.thread:                           ; preds = %do.body11
   br label %do.end32
 
 _ZN5arrow6StatusD2Ev.exit244:                     ; preds = %do.body11
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp13, i64 %this.val.i201, ptr nonnull %3)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp13, i64 %this.val.i201, ptr nonnull %3)
   %.pr746 = load ptr, ptr %ref.tmp13, align 8, !noalias !1181
   call void @llvm.experimental.noalias.scope.decl(metadata !1181)
   store ptr %.pr746, ptr %agg.result, align 8, !alias.scope !1181
@@ -26975,11 +26975,11 @@ do.end32:                                         ; preds = %_ZN5arrow6StatusD2E
   ]
 
 sw.bb36:                                          ; preds = %do.end32
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter15ProcessListViewINS_12ListViewTypeEEENS_6StatusEv(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter15ProcessListViewINS_12ListViewTypeEEENS_6StatusEv(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this)
   br label %return
 
 sw.bb37:                                          ; preds = %do.end32
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter15ProcessListViewINS_17LargeListViewTypeEEENS_6StatusEv(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter15ProcessListViewINS_17LargeListViewTypeEEENS_6StatusEv(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this)
   br label %return
 
 sw.bb38:                                          ; preds = %do.end6
@@ -27009,7 +27009,7 @@ nrvo.skipdtor.thread.i364:                        ; preds = %lor.lhs.false.i.i
   br label %do.end6.i
 
 _ZN5arrow6StatusD2Ev.exit.i295:                   ; preds = %sw.bb38, %lor.lhs.false.i.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp.i289, i64 %this.val.i.i292, ptr nonnull %3), !noalias !1183
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp.i289, i64 %this.val.i.i292, ptr nonnull %3), !noalias !1183
   %.pr.i297 = load ptr, ptr %ref.tmp.i289, align 8, !noalias !1193
   call void @llvm.experimental.noalias.scope.decl(metadata !1195)
   store ptr %.pr.i297, ptr %agg.result, align 8, !alias.scope !1193
@@ -27036,7 +27036,7 @@ invoke.cont.i:                                    ; preds = %do.end6.i
   %sub.i.i.i = sub nuw i64 %105, %106
   %107 = load ptr, ptr %_M_str.i.i, align 8, !noalias !1183
   %add.ptr.i.i.i299 = getelementptr inbounds i8, ptr %107, i64 %106
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser8ParseIntIiEENS_6ResultIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp7.i, ptr noundef nonnull align 8 dereferenceable(24) %f_parser_, i64 %sub.i.i.i, ptr %add.ptr.i.i.i299), !noalias !1183
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser8ParseIntIiEENS_6ResultIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp7.i, ptr noundef nonnull align 8 dereferenceable(24) %f_parser_, i64 %sub.i.i.i, ptr %add.ptr.i.i.i299), !noalias !1183
   %108 = load ptr, ptr %ref.tmp7.i, align 8, !noalias !1183
   %cmp.i.i.i300 = icmp eq ptr %108, null
   br i1 %cmp.i.i.i300, label %invoke.cont22.i, label %cond.false.i.i301
@@ -27105,7 +27105,7 @@ invoke.cont22.i:                                  ; preds = %invoke.cont.i
 if.then24.i:                                      ; preds = %invoke.cont22.i
   %f_parser_.val.i = load i64, ptr %f_parser_, align 8, !noalias !1183
   %f_parser_.val10.i = load ptr, ptr %_M_str.i.i, align 8, !noalias !1183
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %agg.result, i64 %f_parser_.val.i, ptr %f_parser_.val10.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %agg.result, i64 %f_parser_.val.i, ptr %f_parser_.val10.i)
           to label %cleanup70.i unwind label %lpad.i302
 
 do.body28.i:                                      ; preds = %invoke.cont22.i
@@ -27153,7 +27153,7 @@ _ZN5arrow6StatusD2Ev.exit95.i:                    ; preds = %.noexc.i
 _ZN5arrow6StatusD2Ev.exit133.i:                   ; preds = %_ZN5arrow6StatusD2Ev.exit95.i, %_ZN5arrow6StatusD2Ev.exit95.thread.i
   %120 = getelementptr inbounds i8, ptr %this, i64 48
   %this.val11.i = load ptr, ptr %120, align 8, !noalias !1183
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter14MakeChildFieldEl(ptr noalias nonnull align 8 %ref.tmp49.i, ptr %this.val11.i, i64 noundef 0)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter14MakeChildFieldEl(ptr noalias align 8 %ref.tmp49.i, ptr %this.val11.i, i64 noundef 0)
           to label %invoke.cont50.i unwind label %lpad.i302, !noalias !1183
 
 invoke.cont50.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit133.i
@@ -27590,7 +27590,7 @@ nrvo.skipdtor.thread.i371:                        ; preds = %sw.bb39
   br label %do.end6.i372
 
 _ZN5arrow6StatusD2Ev.exit.i444:                   ; preds = %sw.bb39
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp.i365, i64 %this.val.i.i368, ptr nonnull %3), !noalias !1220
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp.i365, i64 %this.val.i.i368, ptr nonnull %3), !noalias !1220
   %.pr.i446 = load ptr, ptr %ref.tmp.i365, align 8, !noalias !1230
   call void @llvm.experimental.noalias.scope.decl(metadata !1232)
   store ptr %.pr.i446, ptr %agg.result, align 8, !alias.scope !1230
@@ -27599,7 +27599,7 @@ _ZN5arrow6StatusD2Ev.exit.i444:                   ; preds = %sw.bb39
   br i1 %cmp.i.i447, label %do.end6.i372, label %_ZN5arrow12_GLOBAL__N_114SchemaImporter13ProcessStructEv.exit
 
 do.end6.i372:                                     ; preds = %_ZN5arrow6StatusD2Ev.exit.i444, %nrvo.skipdtor.thread.i371
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter15MakeChildFieldsEv(ptr noalias nonnull align 8 %ref.tmp7.i366, ptr noundef nonnull align 8 dereferenceable(168) %this), !noalias !1220
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter15MakeChildFieldsEv(ptr noalias align 8 %ref.tmp7.i366, ptr noundef nonnull align 8 dereferenceable(168) %this), !noalias !1220
   %180 = load ptr, ptr %ref.tmp7.i366, align 8, !noalias !1220
   %cmp.i.i.i373 = icmp eq ptr %180, null
   br i1 %cmp.i.i.i373, label %invoke.cont20.i, label %cond.false.i.i374
@@ -27980,7 +27980,7 @@ nrvo.skipdtor.thread.i458:                        ; preds = %sw.bb40
   br label %do.body7.i459
 
 _ZN5arrow6StatusD2Ev.exit.i541:                   ; preds = %sw.bb40
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp.i450, i64 %this.val.i.i455, ptr nonnull %3), !noalias !1244
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp.i450, i64 %this.val.i.i455, ptr nonnull %3), !noalias !1244
   %.pr.i543 = load ptr, ptr %ref.tmp.i450, align 8, !noalias !1254
   call void @llvm.experimental.noalias.scope.decl(metadata !1256)
   store ptr %.pr.i543, ptr %agg.result, align 8, !alias.scope !1254
@@ -28030,7 +28030,7 @@ _ZN5arrow6StatusD2Ev.exit92.i:                    ; preds = %if.then.i54.i
 do.end26.i465:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit92.i, %nrvo.skipdtor22.thread.i540
   %233 = getelementptr inbounds i8, ptr %this, i64 48
   %this.val14.i = load ptr, ptr %233, align 8, !noalias !1244
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter14MakeChildFieldEl(ptr noalias nonnull align 8 %ref.tmp27.i452, ptr %this.val14.i, i64 noundef 0), !noalias !1244
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter14MakeChildFieldEl(ptr noalias align 8 %ref.tmp27.i452, ptr %this.val14.i, i64 noundef 0), !noalias !1244
   %234 = load ptr, ptr %ref.tmp27.i452, align 8, !noalias !1244
   %cmp.i.i.i466 = icmp eq ptr %234, null
   br i1 %cmp.i.i.i466, label %invoke.cont38.i485, label %cond.false.i.i467
@@ -28966,7 +28966,7 @@ nrvo.skipdtor.thread.i638:                        ; preds = %sw.bb41
   br label %do.end6.i559
 
 _ZN5arrow6StatusD2Ev.exit.i553:                   ; preds = %sw.bb41
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp.i546, i64 %this.val.i.i550, ptr nonnull %3), !noalias !1284
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp.i546, i64 %this.val.i.i550, ptr nonnull %3), !noalias !1284
   %.pr.i555 = load ptr, ptr %ref.tmp.i546, align 8, !noalias !1294
   call void @llvm.experimental.noalias.scope.decl(metadata !1296)
   store ptr %.pr.i555, ptr %agg.result, align 8, !alias.scope !1294
@@ -28996,7 +28996,7 @@ sw.bb9.i:                                         ; preds = %do.end6.i559
 
 sw.default.i:                                     ; preds = %do.end6.i559
   %f_parser_.val.i637 = load i64, ptr %f_parser_, align 8, !noalias !1284
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %agg.result, i64 %f_parser_.val.i637, ptr nonnull %372)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %agg.result, i64 %f_parser_.val.i637, ptr nonnull %372)
   br label %_ZN5arrow12_GLOBAL__N_114SchemaImporter12ProcessUnionEv.exit
 
 do.body11.i:                                      ; preds = %sw.bb9.i, %do.end6.i559
@@ -29020,7 +29020,7 @@ nrvo.skipdtor28.thread.i:                         ; preds = %lor.lhs.false.i.i63
   br label %do.end32.i
 
 _ZN5arrow6StatusD2Ev.exit96.i:                    ; preds = %lor.lhs.false.i.i634, %do.body11.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp13.i, i64 %this.val.i53.i, ptr nonnull %372), !noalias !1284
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp13.i, i64 %this.val.i53.i, ptr nonnull %372), !noalias !1284
   %.pr282.i = load ptr, ptr %ref.tmp13.i, align 8, !noalias !1304
   call void @llvm.experimental.noalias.scope.decl(metadata !1306)
   store ptr %.pr282.i, ptr %agg.result, align 8, !alias.scope !1304
@@ -29060,7 +29060,7 @@ _ZN5arrow12_GLOBAL__N_118FormatStringParser9ParseIntsIaEENS_6ResultISt6vectorIT_
 if.end.i138.i:                                    ; preds = %_ZN5arrow12_GLOBAL__N_118FormatStringParser4RestEv.exit.i
   %sub.i.i.i564 = sub nuw i64 %376, %377
   %add.ptr.i.i137.i = getelementptr inbounds i8, ptr %378, i64 %377
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser5SplitESt17basic_string_viewIcSt11char_traitsIcEEc(ptr noalias nonnull align 8 %parts.i.i, i64 %sub.i.i.i564, ptr %add.ptr.i.i137.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser5SplitESt17basic_string_viewIcSt11char_traitsIcEEc(ptr noalias align 8 %parts.i.i, i64 %sub.i.i.i564, ptr %add.ptr.i.i137.i)
   %size_.i.i.i = getelementptr inbounds i8, ptr %parts.i.i, i64 32
   %379 = load i64, ptr %size_.i.i.i, align 8, !noalias !1310
   %cmp.i8.i.i = icmp slt i64 %379, 0
@@ -29139,7 +29139,7 @@ call.i.i.noexc.i.i:                               ; preds = %_ZN5arrow8internal1
 if.then.i13.i.i:                                  ; preds = %call.i.i.noexc.i.i
   %this.val.i.i.i = load i64, ptr %f_parser_, align 8, !noalias !1314
   %this.val1.i.i.i = load ptr, ptr %_M_str.i.i, align 8, !noalias !1314
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp.i.i.i, i64 %this.val.i.i.i, ptr %this.val1.i.i.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp.i.i.i, i64 %this.val.i.i.i, ptr %this.val1.i.i.i)
           to label %.noexc17.i.i unwind label %lpad3.loopexit.i.i, !noalias !1284
 
 .noexc17.i.i:                                     ; preds = %if.then.i13.i.i
@@ -29572,7 +29572,7 @@ invoke.cont50.i592:                               ; preds = %_ZN5arrow12_GLOBAL_
   %425 = phi ptr [ %.pre769, %_ZN5arrow12_GLOBAL__N_118FormatStringParser9ParseIntsIaEENS_6ResultISt6vectorIT_SaIS5_EEEESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.invoke.cont50.i592_crit_edge ], [ null, %_ZN5arrow12_GLOBAL__N_118FormatStringParser9ParseIntsIaEENS_6ResultISt6vectorIT_SaIS5_EEEESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i ]
   %storage_.i.i.i593 = getelementptr inbounds i8, ptr %ref.tmp33.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %storage_.i.i.i593, i8 0, i64 24, i1 false), !noalias !1316
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter15MakeChildFieldsEv(ptr noalias nonnull align 8 %ref.tmp51.i, ptr noundef nonnull align 8 dereferenceable(168) %this)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter15MakeChildFieldsEv(ptr noalias align 8 %ref.tmp51.i, ptr noundef nonnull align 8 dereferenceable(168) %this)
           to label %invoke.cont53.i unwind label %lpad52.i, !noalias !1284
 
 invoke.cont53.i:                                  ; preds = %invoke.cont50.i592
@@ -29708,7 +29708,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 
 if.then81.i:                                      ; preds = %for.body.i
   %443 = load ptr, ptr %this, align 8, !noalias !1284
-  invoke void @_ZN5arrow6Status8FromArgsIJRA45_KcRPS2_RA2_S2_EEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(45) @.str.93, ptr noundef nonnull align 8 dereferenceable(8) %443, ptr noundef nonnull align 1 dereferenceable(2) @.str.92)
+  invoke void @_ZN5arrow6Status8FromArgsIJRA45_KcRPS2_RA2_S2_EEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(45) @.str.93, ptr noundef nonnull align 8 dereferenceable(8) %443, ptr noundef nonnull align 1 dereferenceable(2) @.str.92)
           to label %cleanup103.i unwind label %lpad71.i
 
 for.end.i:                                        ; preds = %for.cond.i, %for.cond.preheader.i
@@ -29977,7 +29977,7 @@ nrvo.skipdtor.thread.i650:                        ; preds = %sw.bb42
   br label %do.body7.i651
 
 _ZN5arrow6StatusD2Ev.exit.i737:                   ; preds = %sw.bb42
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp.i641, i64 %this.val.i.i647, ptr nonnull %3)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp.i641, i64 %this.val.i.i647, ptr nonnull %3)
   %.pr.i739 = load ptr, ptr %ref.tmp.i641, align 8, !noalias !1345
   call void @llvm.experimental.noalias.scope.decl(metadata !1347)
   store ptr %.pr.i739, ptr %agg.result, align 8, !alias.scope !1345
@@ -30027,7 +30027,7 @@ _ZN5arrow6StatusD2Ev.exit92.i659:                 ; preds = %if.then.i54.i655
 do.end26.i661:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit92.i659, %nrvo.skipdtor22.thread.i736
   %464 = getelementptr inbounds i8, ptr %this, i64 48
   %this.val13.i = load ptr, ptr %464, align 8, !noalias !1335
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter14MakeChildFieldEl(ptr noalias nonnull align 8 %ref.tmp27.i643, ptr %this.val13.i, i64 noundef 0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter14MakeChildFieldEl(ptr noalias align 8 %ref.tmp27.i643, ptr %this.val13.i, i64 noundef 0)
   %465 = load ptr, ptr %ref.tmp27.i643, align 8, !noalias !1335
   %cmp.i.i.i662 = icmp eq ptr %465, null
   br i1 %cmp.i.i.i662, label %invoke.cont38.i683, label %cond.false.i.i663
@@ -30100,7 +30100,7 @@ invoke.cont38.i683:                               ; preds = %do.end26.i661
   store ptr %475, ptr %_M_refcount.i.i.i.i134.i685, align 8, !alias.scope !1372, !noalias !1335
   store ptr null, ptr %storage_.i.i.i684, align 8, !noalias !1371
   %this.val14.i687 = load ptr, ptr %464, align 8, !noalias !1335
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter14MakeChildFieldEl(ptr noalias nonnull align 8 %ref.tmp39.i, ptr %this.val14.i687, i64 noundef 1)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter14MakeChildFieldEl(ptr noalias align 8 %ref.tmp39.i, ptr %this.val14.i687, i64 noundef 1)
           to label %invoke.cont41.i689 unwind label %lpad40.i688
 
 invoke.cont41.i689:                               ; preds = %invoke.cont38.i683
@@ -30490,7 +30490,7 @@ _ZN5arrow12_GLOBAL__N_114SchemaImporter10ProcessREEEv.exit: ; preds = %_ZN5arrow
 sw.epilog43:                                      ; preds = %do.end32, %do.end6
   %f_parser_.val3 = phi ptr [ %101, %do.end32 ], [ %3, %do.end6 ]
   %f_parser_.val = load i64, ptr %f_parser_, align 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %agg.result, i64 %f_parser_.val, ptr nonnull %f_parser_.val3)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %agg.result, i64 %f_parser_.val, ptr nonnull %f_parser_.val3)
   br label %return
 
 return:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit244, %_ZN5arrow6StatusD2Ev.exit, %sw.epilog43, %_ZN5arrow12_GLOBAL__N_114SchemaImporter10ProcessREEEv.exit, %_ZN5arrow12_GLOBAL__N_114SchemaImporter12ProcessUnionEv.exit, %_ZN5arrow12_GLOBAL__N_114SchemaImporter10ProcessMapEv.exit, %_ZN5arrow12_GLOBAL__N_114SchemaImporter13ProcessStructEv.exit, %_ZN5arrow12_GLOBAL__N_114SchemaImporter20ProcessFixedSizeListEv.exit, %sw.bb37, %sw.bb36, %_ZN5arrow12_GLOBAL__N_114SchemaImporter15ProcessListLikeINS_13LargeListTypeEEENS_6StatusEv.exit, %_ZN5arrow12_GLOBAL__N_114SchemaImporter15ProcessListLikeINS_8ListTypeEEENS_6StatusEv.exit
@@ -30498,7 +30498,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %agg.result, i64 %this.0.val, ptr %this.8.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %agg.result, i64 %this.0.val, ptr %this.8.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i = alloca %"class.arrow::util::detail::StringStreamWrapper", align 8
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -30606,7 +30606,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow11binary_viewE
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow9utf8_viewEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser8ParseIntIiEENS_6ResultIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 %v.coerce0, ptr %v.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser8ParseIntIiEENS_6ResultIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 %v.coerce0, ptr %v.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.arrow::internal::StringConverter", align 1
   %value = alloca i32, align 4
@@ -30639,7 +30639,7 @@ if.then:                                          ; preds = %_ZN5arrow8internal1
   %this.val = load i64, ptr %this, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val1 = load ptr, ptr %3, align 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp, i64 %this.val, ptr %this.val1)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp, i64 %this.val, ptr %this.val1)
   call void @_ZN5arrow6ResultIiEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(12) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #25
   %4 = load ptr, ptr %ref.tmp, align 8
   %cmp.not.i = icmp eq ptr %4, null
@@ -31150,7 +31150,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.then.i, %_ZN5arr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser5SplitESt17basic_string_viewIcSt11char_traitsIcEEc(ptr noalias align 8 %agg.result, i64 %v.coerce0, ptr %v.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser5SplitESt17basic_string_viewIcSt11char_traitsIcEEc(ptr noalias nonnull align 8 %agg.result, i64 %v.coerce0, ptr %v.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %size_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 0, ptr %size_.i.i, align 8
@@ -31434,7 +31434,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6date32Ev() lo
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6date64Ev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser13ParseTimeUnitEv(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser13ParseTimeUnitEv(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__s = alloca %"class.arrow::Status", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -31454,7 +31454,7 @@ _ZN5arrow6StatusD2Ev.exit.thread:                 ; preds = %entry
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val3.i = load ptr, ptr %1, align 8, !noalias !1416
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp, i64 %this.val.i, ptr %this.val3.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp, i64 %this.val.i, ptr %this.val3.i)
   %.pr = load ptr, ptr %ref.tmp, align 8, !noalias !1422
   call void @llvm.experimental.noalias.scope.decl(metadata !1422)
   store ptr %.pr, ptr %__s, align 8, !alias.scope !1422
@@ -31593,7 +31593,7 @@ sw.bb13:                                          ; preds = %do.end6
 
 sw.default:                                       ; preds = %do.end6
   %this.val = load i64, ptr %this, align 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp15, i64 %this.val, ptr nonnull %14)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp15, i64 %this.val, ptr nonnull %14)
   call void @_ZN5arrow6ResultINS_8TimeUnit4typeEEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(12) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp15) #25
   %16 = load ptr, ptr %ref.tmp15, align 8
   %cmp.not.i43 = icmp eq ptr %16, null
@@ -31934,7 +31934,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrappe
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32), i64, ptr, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter15ProcessListViewINS_12ListViewTypeEEENS_6StatusEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter15ProcessListViewINS_12ListViewTypeEEENS_6StatusEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %n_children.addr.i = alloca i64, align 8
@@ -31958,7 +31958,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %this, i64 24
   %this.val3.i = load ptr, ptr %1, align 8, !noalias !1427
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp, i64 %this.val.i, ptr %this.val3.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp, i64 %this.val.i, ptr %this.val3.i)
   %.pr = load ptr, ptr %ref.tmp, align 8, !noalias !1433
   call void @llvm.experimental.noalias.scope.decl(metadata !1433)
   store ptr %.pr, ptr %agg.result, align 8, !alias.scope !1433
@@ -32012,7 +32012,7 @@ _ZN5arrow6StatusD2Ev.exit84:                      ; preds = %if.then.i46
 do.end26:                                         ; preds = %nrvo.skipdtor22.thread, %_ZN5arrow6StatusD2Ev.exit84
   %4 = getelementptr inbounds i8, ptr %this, i64 48
   %this.val6 = load ptr, ptr %4, align 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter14MakeChildFieldEl(ptr noalias nonnull align 8 %ref.tmp27, ptr %this.val6, i64 noundef 0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter14MakeChildFieldEl(ptr noalias align 8 %ref.tmp27, ptr %this.val6, i64 noundef 0)
   %5 = load ptr, ptr %ref.tmp27, align 8
   %cmp.i.i = icmp eq ptr %5, null
   br i1 %cmp.i.i, label %invoke.cont38, label %cond.false.i
@@ -32345,7 +32345,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter15ProcessListViewINS_17LargeListViewTypeEEENS_6StatusEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter15ProcessListViewINS_17LargeListViewTypeEEENS_6StatusEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %n_children.addr.i = alloca i64, align 8
@@ -32369,7 +32369,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %this, i64 24
   %this.val3.i = load ptr, ptr %1, align 8, !noalias !1459
-  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias nonnull align 8 %ref.tmp, i64 %this.val.i, ptr %this.val3.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_118FormatStringParser7InvalidEv(ptr noalias align 8 %ref.tmp, i64 %this.val.i, ptr %this.val3.i)
   %.pr = load ptr, ptr %ref.tmp, align 8, !noalias !1465
   call void @llvm.experimental.noalias.scope.decl(metadata !1465)
   store ptr %.pr, ptr %agg.result, align 8, !alias.scope !1465
@@ -32423,7 +32423,7 @@ _ZN5arrow6StatusD2Ev.exit84:                      ; preds = %if.then.i46
 do.end26:                                         ; preds = %nrvo.skipdtor22.thread, %_ZN5arrow6StatusD2Ev.exit84
   %4 = getelementptr inbounds i8, ptr %this, i64 48
   %this.val6 = load ptr, ptr %4, align 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter14MakeChildFieldEl(ptr noalias nonnull align 8 %ref.tmp27, ptr %this.val6, i64 noundef 0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter14MakeChildFieldEl(ptr noalias align 8 %ref.tmp27, ptr %this.val6, i64 noundef 0)
   %5 = load ptr, ptr %ref.tmp27, align 8
   %cmp.i.i = icmp eq ptr %5, null
   br i1 %cmp.i.i, label %invoke.cont38, label %cond.false.i
@@ -32756,7 +32756,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter14MakeChildFieldEl(ptr noalias align 8 %agg.result, ptr nocapture readonly %this.48.val, i64 noundef %child_id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter14MakeChildFieldEl(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %this.48.val, i64 noundef range(i64 -9223372036854775808, 54901024028897475) %child_id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %add.ptr.i = getelementptr inbounds %"struct.arrow::(anonymous namespace)::SchemaImporter", ptr %this.48.val, i64 %child_id
@@ -32854,7 +32854,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i:           ; preds = %if.end8.sink.split.
   br label %return
 
 if.end:                                           ; preds = %entry
-  tail call fastcc void @_ZNK5arrow12_GLOBAL__N_114SchemaImporter9MakeFieldEv(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %add.ptr.i)
+  tail call fastcc void @_ZNK5arrow12_GLOBAL__N_114SchemaImporter9MakeFieldEv(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %add.ptr.i)
   br label %return
 
 return:                                           ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i, %if.then, %if.end
@@ -34299,7 +34299,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 declare void @_ZN5arrow15fixed_size_listERKSt10shared_ptrINS_5FieldEEi(ptr sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter15MakeChildFieldsEv(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter15MakeChildFieldsEv(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fields = alloca %"class.std::vector.16", align 8
   %ref.tmp4 = alloca %"class.arrow::Result.139", align 8
@@ -34355,7 +34355,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %child_importers_.val33 = phi ptr [ %child_importers_.val9, %for.body.lr.ph ], [ %child_importers_.val, %for.inc ]
   %i.032 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter14MakeChildFieldEl(ptr noalias nonnull align 8 %ref.tmp4, ptr %child_importers_.val33, i64 noundef %i.032)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_114SchemaImporter14MakeChildFieldEl(ptr noalias align 8 %ref.tmp4, ptr %child_importers_.val33, i64 noundef %i.032)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %for.body
@@ -37351,7 +37351,7 @@ _ZNSt10shared_ptrIN5arrow12_GLOBAL__N_117ImportedArrayDataEED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter8DoImportEv(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(113) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter8DoImportEv(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(113) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i557.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i547.i = alloca %"class.arrow::Status", align 8
@@ -38057,7 +38057,7 @@ if.end9.i.i.i:                                    ; preds = %if.end8.sink.split.
 
 _ZNSt10shared_ptrIN5arrow12_GLOBAL__N_117ImportedArrayDataEEaSERKS3_.exit: ; preds = %if.end5.i, %if.end9.i.i.i
   store ptr %61, ptr %add.ptr.i.i34, align 8, !noalias !1557
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter8DoImportEv(ptr noalias nonnull align 8 %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(113) %add.ptr.i.i34)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter8DoImportEv(ptr noalias align 8 %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(113) %add.ptr.i.i34)
   br label %_ZN5arrow6StatusD2Ev.exit
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZNSt10shared_ptrIN5arrow12_GLOBAL__N_117ImportedArrayDataEEaSERKS3_.exit, %if.then4.i, %if.then.i35
@@ -38126,7 +38126,7 @@ sw.bb.i:                                          ; preds = %do.body47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp30.i.i), !noalias !1563
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp50.i.i), !noalias !1563
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp74.i.i), !noalias !1563
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i.i78, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !1566
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias align 8 %ref.tmp.i.i78, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !1566
   call void @llvm.experimental.noalias.scope.decl(metadata !1569)
   %83 = load ptr, ptr %ref.tmp.i.i78, align 8, !noalias !1572
   store ptr %83, ptr %ref.tmp49, align 8, !alias.scope !1572
@@ -38142,7 +38142,7 @@ do.end6.i.i:                                      ; preds = %sw.bb.i
   br i1 %cmp.i.i, label %_ZN5arrow6StatusD2Ev.exit78.i.i, label %_ZN5arrow6StatusD2Ev.exit151.i.i
 
 _ZN5arrow6StatusD2Ev.exit78.i.i:                  ; preds = %do.end6.i.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nonnull align 8 %ref.tmp10.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !1566
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias align 8 %ref.tmp10.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !1566
   call void @llvm.experimental.noalias.scope.decl(metadata !1574)
   %86 = load ptr, ptr %ref.tmp10.i.i, align 8, !noalias !1577
   store ptr %86, ptr %ref.tmp49, align 8, !alias.scope !1577
@@ -38151,7 +38151,7 @@ _ZN5arrow6StatusD2Ev.exit78.i.i:                  ; preds = %do.end6.i.i
   br i1 %cmp.i79.i.i, label %if.end78.i.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_8NullTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit151.i.i:                 ; preds = %do.end6.i.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias nonnull align 8 %ref.tmp30.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !1566
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias align 8 %ref.tmp30.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !1566
   call void @llvm.experimental.noalias.scope.decl(metadata !1578)
   %87 = load ptr, ptr %ref.tmp30.i.i, align 8, !noalias !1581
   store ptr %87, ptr %ref.tmp49, align 8, !alias.scope !1581
@@ -38160,7 +38160,7 @@ _ZN5arrow6StatusD2Ev.exit151.i.i:                 ; preds = %do.end6.i.i
   br i1 %cmp.i152.i.i, label %_ZN5arrow6StatusD2Ev.exit224.i.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_8NullTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit224.i.i:                 ; preds = %_ZN5arrow6StatusD2Ev.exit151.i.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nonnull align 8 %ref.tmp50.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !1566
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias align 8 %ref.tmp50.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !1566
   call void @llvm.experimental.noalias.scope.decl(metadata !1582)
   %88 = load ptr, ptr %ref.tmp50.i.i, align 8, !noalias !1585
   store ptr %88, ptr %ref.tmp49, align 8, !alias.scope !1585
@@ -38304,51 +38304,51 @@ _ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_8NullTypeE.exit.i: ; preds = %
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb2.i:                                         ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb4.i:                                         ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb6.i:                                         ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb8.i:                                         ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb10.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb12.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb14.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb16.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb18.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb20.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb22.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb24.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb26.i:                                        ; preds = %do.body47
@@ -38360,7 +38360,7 @@ sw.bb26.i:                                        ; preds = %do.body47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp49.i.i.i), !noalias !1595
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp69.i.i.i), !noalias !1595
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp89.i.i.i), !noalias !1595
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !1596
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias align 8 %ref.tmp.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !1596
   call void @llvm.experimental.noalias.scope.decl(metadata !1597)
   %108 = load ptr, ptr %ref.tmp.i.i.i, align 8, !noalias !1600
   store ptr %108, ptr %ref.tmp49, align 8, !alias.scope !1600
@@ -38369,7 +38369,7 @@ sw.bb26.i:                                        ; preds = %do.body47
   br i1 %cmp.i.i.i.i87, label %_ZN5arrow6StatusD2Ev.exit82.i.i.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_10StringTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit82.i.i.i:                ; preds = %sw.bb26.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias nonnull align 8 %ref.tmp9.i.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 3), !noalias !1596
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias align 8 %ref.tmp9.i.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 3), !noalias !1596
   call void @llvm.experimental.noalias.scope.decl(metadata !1601)
   %109 = load ptr, ptr %ref.tmp9.i.i.i, align 8, !noalias !1604
   store ptr %109, ptr %ref.tmp49, align 8, !alias.scope !1604
@@ -38378,7 +38378,7 @@ _ZN5arrow6StatusD2Ev.exit82.i.i.i:                ; preds = %sw.bb26.i
   br i1 %cmp.i83.i.i.i, label %_ZN5arrow6StatusD2Ev.exit155.i.i.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_10StringTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit155.i.i.i:               ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nonnull align 8 %ref.tmp29.i.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !1596
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias align 8 %ref.tmp29.i.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !1596
   call void @llvm.experimental.noalias.scope.decl(metadata !1605)
   %110 = load ptr, ptr %ref.tmp29.i.i.i, align 8, !noalias !1608
   store ptr %110, ptr %ref.tmp49, align 8, !alias.scope !1608
@@ -38407,7 +38407,7 @@ cond.true.i.i.i.i.i:                              ; preds = %do.body47.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %cond.true.i.i.i.i.i, %do.body47.i.i.i
   %cond.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ 0, %do.body47.i.i.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i.i, i1 noundef zeroext true), !noalias !1617
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i.i, i1 noundef zeroext true), !noalias !1617
   call void @llvm.experimental.noalias.scope.decl(metadata !1618)
   %114 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !1621
   store ptr %114, ptr %ref.tmp49.i.i.i, align 8, !alias.scope !1622, !noalias !1612
@@ -38459,7 +38459,7 @@ _ZN5arrow6StatusD2Ev.exit302.i.i.i:               ; preds = %_ZN5arrow6StatusD2E
   %add.i.i.i.i = add nsw i64 %122, %121
   %add3.i.i.i.i = shl i64 %add.i.i.i.i, 2
   %mul.i.i.i.i89 = add i64 %add3.i.i.i.i, 4
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i.i89, i1 noundef zeroext false), !noalias !1596
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp69.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i.i89, i1 noundef zeroext false), !noalias !1596
   call void @llvm.experimental.noalias.scope.decl(metadata !1634)
   %123 = load ptr, ptr %ref.tmp69.i.i.i, align 8, !noalias !1637
   store ptr %123, ptr %ref.tmp49, align 8, !alias.scope !1637
@@ -38503,7 +38503,7 @@ cond.true.i.i.i.i:                                ; preds = %_ZNK5arrow9ArrayDat
 
 _ZN5arrow6StatusD2Ev.exit378.i.i.i:               ; preds = %cond.true.i.i.i.i, %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i.i.i.i
   %cond.i.i.i.i = phi i64 [ %conv.i.i.i.i, %cond.true.i.i.i.i ], [ 0, %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i.i.i.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp89.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %cond.i.i.i.i, i1 noundef zeroext false), !noalias !1596
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp89.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %cond.i.i.i.i, i1 noundef zeroext false), !noalias !1596
   call void @llvm.experimental.noalias.scope.decl(metadata !1642)
   %133 = load ptr, ptr %ref.tmp89.i.i.i, align 8, !noalias !1645
   store ptr %133, ptr %ref.tmp49, align 8, !alias.scope !1645
@@ -38529,7 +38529,7 @@ _ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_10StringTypeE.exit.i: ; preds 
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb28.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16ImportBinaryViewERKNS_14BinaryViewTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16ImportBinaryViewERKNS_14BinaryViewTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb30.i:                                        ; preds = %do.body47
@@ -38541,7 +38541,7 @@ sw.bb30.i:                                        ; preds = %do.body47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp49.i.i93.i), !noalias !1652
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp69.i.i94.i), !noalias !1652
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp89.i.i95.i), !noalias !1652
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i.i90.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !1653
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias align 8 %ref.tmp.i.i90.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !1653
   call void @llvm.experimental.noalias.scope.decl(metadata !1654)
   %134 = load ptr, ptr %ref.tmp.i.i90.i, align 8, !noalias !1657
   store ptr %134, ptr %ref.tmp49, align 8, !alias.scope !1657
@@ -38550,7 +38550,7 @@ sw.bb30.i:                                        ; preds = %do.body47
   br i1 %cmp.i.i.i96.i, label %_ZN5arrow6StatusD2Ev.exit82.i.i97.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_10BinaryTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit82.i.i97.i:              ; preds = %sw.bb30.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias nonnull align 8 %ref.tmp9.i.i91.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 3), !noalias !1653
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias align 8 %ref.tmp9.i.i91.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 3), !noalias !1653
   call void @llvm.experimental.noalias.scope.decl(metadata !1658)
   %135 = load ptr, ptr %ref.tmp9.i.i91.i, align 8, !noalias !1661
   store ptr %135, ptr %ref.tmp49, align 8, !alias.scope !1661
@@ -38559,7 +38559,7 @@ _ZN5arrow6StatusD2Ev.exit82.i.i97.i:              ; preds = %sw.bb30.i
   br i1 %cmp.i83.i.i98.i, label %_ZN5arrow6StatusD2Ev.exit155.i.i99.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_10BinaryTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit155.i.i99.i:             ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i97.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nonnull align 8 %ref.tmp29.i.i92.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !1653
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias align 8 %ref.tmp29.i.i92.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !1653
   call void @llvm.experimental.noalias.scope.decl(metadata !1662)
   %136 = load ptr, ptr %ref.tmp29.i.i92.i, align 8, !noalias !1665
   store ptr %136, ptr %ref.tmp49, align 8, !alias.scope !1665
@@ -38588,7 +38588,7 @@ cond.true.i.i.i.i147.i:                           ; preds = %do.body47.i.i101.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i.i103.i:             ; preds = %cond.true.i.i.i.i147.i, %do.body47.i.i101.i
   %cond.i.i.i.i104.i = phi i64 [ %add.i.i.i.i.i154.i, %cond.true.i.i.i.i147.i ], [ 0, %do.body47.i.i101.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i.i89.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i104.i, i1 noundef zeroext true), !noalias !1674
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp.i.i.i89.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i104.i, i1 noundef zeroext true), !noalias !1674
   call void @llvm.experimental.noalias.scope.decl(metadata !1675)
   %140 = load ptr, ptr %ref.tmp.i.i.i89.i, align 8, !noalias !1678
   store ptr %140, ptr %ref.tmp49.i.i93.i, align 8, !alias.scope !1679, !noalias !1669
@@ -38640,7 +38640,7 @@ _ZN5arrow6StatusD2Ev.exit302.i.i113.i:            ; preds = %_ZN5arrow6StatusD2E
   %add.i.i.i115.i = add nsw i64 %148, %147
   %add3.i.i.i116.i = shl i64 %add.i.i.i115.i, 2
   %mul.i.i.i117.i = add i64 %add3.i.i.i116.i, 4
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i.i94.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i117.i, i1 noundef zeroext false), !noalias !1653
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp69.i.i94.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i117.i, i1 noundef zeroext false), !noalias !1653
   call void @llvm.experimental.noalias.scope.decl(metadata !1691)
   %149 = load ptr, ptr %ref.tmp69.i.i94.i, align 8, !noalias !1694
   store ptr %149, ptr %ref.tmp49, align 8, !alias.scope !1694
@@ -38684,7 +38684,7 @@ cond.true.i.i.i137.i:                             ; preds = %_ZNK5arrow9ArrayDat
 
 _ZN5arrow6StatusD2Ev.exit378.i.i133.i:            ; preds = %cond.true.i.i.i137.i, %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i.i.i130.i
   %cond.i.i.i134.i = phi i64 [ %conv.i.i.i139.i, %cond.true.i.i.i137.i ], [ 0, %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i.i.i130.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp89.i.i95.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %cond.i.i.i134.i, i1 noundef zeroext false), !noalias !1653
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp89.i.i95.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %cond.i.i.i134.i, i1 noundef zeroext false), !noalias !1653
   call void @llvm.experimental.noalias.scope.decl(metadata !1699)
   %159 = load ptr, ptr %ref.tmp89.i.i95.i, align 8, !noalias !1702
   store ptr %159, ptr %ref.tmp49, align 8, !alias.scope !1702
@@ -38710,7 +38710,7 @@ _ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_10BinaryTypeE.exit.i: ; preds 
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb32.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16ImportBinaryViewERKNS_14BinaryViewTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16ImportBinaryViewERKNS_14BinaryViewTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb34.i:                                        ; preds = %do.body47
@@ -38722,7 +38722,7 @@ sw.bb34.i:                                        ; preds = %do.body47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp49.i.i159.i), !noalias !1709
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp69.i.i160.i), !noalias !1709
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp89.i.i161.i), !noalias !1709
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i.i156.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !1710
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias align 8 %ref.tmp.i.i156.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !1710
   call void @llvm.experimental.noalias.scope.decl(metadata !1711)
   %160 = load ptr, ptr %ref.tmp.i.i156.i, align 8, !noalias !1714
   store ptr %160, ptr %ref.tmp49, align 8, !alias.scope !1714
@@ -38731,7 +38731,7 @@ sw.bb34.i:                                        ; preds = %do.body47
   br i1 %cmp.i.i.i162.i, label %_ZN5arrow6StatusD2Ev.exit82.i.i163.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_15LargeStringTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit82.i.i163.i:             ; preds = %sw.bb34.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias nonnull align 8 %ref.tmp9.i.i157.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 3), !noalias !1710
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias align 8 %ref.tmp9.i.i157.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 3), !noalias !1710
   call void @llvm.experimental.noalias.scope.decl(metadata !1715)
   %161 = load ptr, ptr %ref.tmp9.i.i157.i, align 8, !noalias !1718
   store ptr %161, ptr %ref.tmp49, align 8, !alias.scope !1718
@@ -38740,7 +38740,7 @@ _ZN5arrow6StatusD2Ev.exit82.i.i163.i:             ; preds = %sw.bb34.i
   br i1 %cmp.i83.i.i164.i, label %_ZN5arrow6StatusD2Ev.exit155.i.i165.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_15LargeStringTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit155.i.i165.i:            ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i163.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nonnull align 8 %ref.tmp29.i.i158.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !1710
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias align 8 %ref.tmp29.i.i158.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !1710
   call void @llvm.experimental.noalias.scope.decl(metadata !1719)
   %162 = load ptr, ptr %ref.tmp29.i.i158.i, align 8, !noalias !1722
   store ptr %162, ptr %ref.tmp49, align 8, !alias.scope !1722
@@ -38769,7 +38769,7 @@ cond.true.i.i.i.i211.i:                           ; preds = %do.body47.i.i167.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i.i169.i:             ; preds = %cond.true.i.i.i.i211.i, %do.body47.i.i167.i
   %cond.i.i.i.i170.i = phi i64 [ %add.i.i.i.i.i218.i, %cond.true.i.i.i.i211.i ], [ 0, %do.body47.i.i167.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i.i155.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i170.i, i1 noundef zeroext true), !noalias !1731
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp.i.i.i155.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i170.i, i1 noundef zeroext true), !noalias !1731
   call void @llvm.experimental.noalias.scope.decl(metadata !1732)
   %166 = load ptr, ptr %ref.tmp.i.i.i155.i, align 8, !noalias !1735
   store ptr %166, ptr %ref.tmp49.i.i159.i, align 8, !alias.scope !1736, !noalias !1726
@@ -38821,7 +38821,7 @@ _ZN5arrow6StatusD2Ev.exit302.i.i179.i:            ; preds = %_ZN5arrow6StatusD2E
   %add.i.i.i181.i = add nsw i64 %174, %173
   %add3.i.i.i182.i = shl i64 %add.i.i.i181.i, 3
   %mul.i.i.i183.i = add i64 %add3.i.i.i182.i, 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i.i160.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i183.i, i1 noundef zeroext false), !noalias !1710
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp69.i.i160.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i183.i, i1 noundef zeroext false), !noalias !1710
   call void @llvm.experimental.noalias.scope.decl(metadata !1748)
   %175 = load ptr, ptr %ref.tmp69.i.i160.i, align 8, !noalias !1751
   store ptr %175, ptr %ref.tmp49, align 8, !alias.scope !1751
@@ -38864,7 +38864,7 @@ cond.true.i.i.i202.i:                             ; preds = %_ZNK5arrow9ArrayDat
 
 _ZN5arrow6StatusD2Ev.exit378.i.i198.i:            ; preds = %cond.true.i.i.i202.i, %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i.i.i.i
   %cond.i.i.i199.i = phi i64 [ %184, %cond.true.i.i.i202.i ], [ 0, %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i.i.i.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp89.i.i161.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %cond.i.i.i199.i, i1 noundef zeroext false), !noalias !1710
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp89.i.i161.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %cond.i.i.i199.i, i1 noundef zeroext false), !noalias !1710
   call void @llvm.experimental.noalias.scope.decl(metadata !1756)
   %185 = load ptr, ptr %ref.tmp89.i.i161.i, align 8, !noalias !1759
   store ptr %185, ptr %ref.tmp49, align 8, !alias.scope !1759
@@ -38898,7 +38898,7 @@ sw.bb36.i:                                        ; preds = %do.body47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp49.i.i223.i), !noalias !1766
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp69.i.i224.i), !noalias !1766
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp89.i.i225.i), !noalias !1766
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i.i220.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !1767
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias align 8 %ref.tmp.i.i220.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !1767
   call void @llvm.experimental.noalias.scope.decl(metadata !1768)
   %186 = load ptr, ptr %ref.tmp.i.i220.i, align 8, !noalias !1771
   store ptr %186, ptr %ref.tmp49, align 8, !alias.scope !1771
@@ -38907,7 +38907,7 @@ sw.bb36.i:                                        ; preds = %do.body47
   br i1 %cmp.i.i.i226.i, label %_ZN5arrow6StatusD2Ev.exit82.i.i227.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_15LargeBinaryTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit82.i.i227.i:             ; preds = %sw.bb36.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias nonnull align 8 %ref.tmp9.i.i221.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 3), !noalias !1767
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias align 8 %ref.tmp9.i.i221.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 3), !noalias !1767
   call void @llvm.experimental.noalias.scope.decl(metadata !1772)
   %187 = load ptr, ptr %ref.tmp9.i.i221.i, align 8, !noalias !1775
   store ptr %187, ptr %ref.tmp49, align 8, !alias.scope !1775
@@ -38916,7 +38916,7 @@ _ZN5arrow6StatusD2Ev.exit82.i.i227.i:             ; preds = %sw.bb36.i
   br i1 %cmp.i83.i.i228.i, label %_ZN5arrow6StatusD2Ev.exit155.i.i229.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_15LargeBinaryTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit155.i.i229.i:            ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i227.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nonnull align 8 %ref.tmp29.i.i222.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !1767
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias align 8 %ref.tmp29.i.i222.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !1767
   call void @llvm.experimental.noalias.scope.decl(metadata !1776)
   %188 = load ptr, ptr %ref.tmp29.i.i222.i, align 8, !noalias !1779
   store ptr %188, ptr %ref.tmp49, align 8, !alias.scope !1779
@@ -38945,7 +38945,7 @@ cond.true.i.i.i.i276.i:                           ; preds = %do.body47.i.i231.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i.i233.i:             ; preds = %cond.true.i.i.i.i276.i, %do.body47.i.i231.i
   %cond.i.i.i.i234.i = phi i64 [ %add.i.i.i.i.i283.i, %cond.true.i.i.i.i276.i ], [ 0, %do.body47.i.i231.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i.i219.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i234.i, i1 noundef zeroext true), !noalias !1788
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp.i.i.i219.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i234.i, i1 noundef zeroext true), !noalias !1788
   call void @llvm.experimental.noalias.scope.decl(metadata !1789)
   %192 = load ptr, ptr %ref.tmp.i.i.i219.i, align 8, !noalias !1792
   store ptr %192, ptr %ref.tmp49.i.i223.i, align 8, !alias.scope !1793, !noalias !1783
@@ -38997,7 +38997,7 @@ _ZN5arrow6StatusD2Ev.exit302.i.i243.i:            ; preds = %_ZN5arrow6StatusD2E
   %add.i.i.i245.i = add nsw i64 %200, %199
   %add3.i.i.i246.i = shl i64 %add.i.i.i245.i, 3
   %mul.i.i.i247.i = add i64 %add3.i.i.i246.i, 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i.i224.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i247.i, i1 noundef zeroext false), !noalias !1767
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp69.i.i224.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i247.i, i1 noundef zeroext false), !noalias !1767
   call void @llvm.experimental.noalias.scope.decl(metadata !1805)
   %201 = load ptr, ptr %ref.tmp69.i.i224.i, align 8, !noalias !1808
   store ptr %201, ptr %ref.tmp49, align 8, !alias.scope !1808
@@ -39040,7 +39040,7 @@ cond.true.i.i.i267.i:                             ; preds = %_ZNK5arrow9ArrayDat
 
 _ZN5arrow6StatusD2Ev.exit378.i.i263.i:            ; preds = %cond.true.i.i.i267.i, %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i.i.i260.i
   %cond.i.i.i264.i = phi i64 [ %210, %cond.true.i.i.i267.i ], [ 0, %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i.i.i260.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp89.i.i225.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %cond.i.i.i264.i, i1 noundef zeroext false), !noalias !1767
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp89.i.i225.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %cond.i.i.i264.i, i1 noundef zeroext false), !noalias !1767
   call void @llvm.experimental.noalias.scope.decl(metadata !1813)
   %211 = load ptr, ptr %ref.tmp89.i.i225.i, align 8, !noalias !1816
   store ptr %211, ptr %ref.tmp49, align 8, !alias.scope !1816
@@ -39066,55 +39066,55 @@ _ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_15LargeBinaryTypeE.exit.i: ; p
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb38.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb40.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb42.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb44.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb46.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb48.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb50.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb52.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb54.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb56.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb58.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb60.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb62.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_8ListTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_8ListTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb64.i:                                        ; preds = %do.body47
@@ -39125,7 +39125,7 @@ sw.bb64.i:                                        ; preds = %do.body47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp29.i.i287.i), !noalias !1823
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp49.i.i288.i), !noalias !1823
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp69.i.i289.i), !noalias !1823
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i.i285.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 1), !noalias !1824
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias align 8 %ref.tmp.i.i285.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 1), !noalias !1824
   call void @llvm.experimental.noalias.scope.decl(metadata !1825)
   %212 = load ptr, ptr %ref.tmp.i.i285.i, align 8, !noalias !1828
   store ptr %212, ptr %ref.tmp49, align 8, !alias.scope !1828
@@ -39134,7 +39134,7 @@ sw.bb64.i:                                        ; preds = %do.body47
   br i1 %cmp.i.i.i290.i, label %_ZN5arrow6StatusD2Ev.exit80.i.i.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_13LargeListTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit80.i.i.i:                ; preds = %sw.bb64.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias nonnull align 8 %ref.tmp9.i.i286.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 2), !noalias !1824
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias align 8 %ref.tmp9.i.i286.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 2), !noalias !1824
   call void @llvm.experimental.noalias.scope.decl(metadata !1829)
   %213 = load ptr, ptr %ref.tmp9.i.i286.i, align 8, !noalias !1832
   store ptr %213, ptr %ref.tmp49, align 8, !alias.scope !1832
@@ -39143,7 +39143,7 @@ _ZN5arrow6StatusD2Ev.exit80.i.i.i:                ; preds = %sw.bb64.i
   br i1 %cmp.i81.i.i.i, label %_ZN5arrow6StatusD2Ev.exit153.i.i.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_13LargeListTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit153.i.i.i:               ; preds = %_ZN5arrow6StatusD2Ev.exit80.i.i.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nonnull align 8 %ref.tmp29.i.i287.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !1824
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias align 8 %ref.tmp29.i.i287.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !1824
   call void @llvm.experimental.noalias.scope.decl(metadata !1833)
   %214 = load ptr, ptr %ref.tmp29.i.i287.i, align 8, !noalias !1836
   store ptr %214, ptr %ref.tmp49, align 8, !alias.scope !1836
@@ -39172,7 +39172,7 @@ cond.true.i.i.i.i311.i:                           ; preds = %do.body47.i.i291.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i.i293.i:             ; preds = %cond.true.i.i.i.i311.i, %do.body47.i.i291.i
   %cond.i.i.i.i294.i = phi i64 [ %add.i.i.i.i.i318.i, %cond.true.i.i.i.i311.i ], [ 0, %do.body47.i.i291.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i.i284.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i294.i, i1 noundef zeroext true), !noalias !1845
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp.i.i.i284.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i294.i, i1 noundef zeroext true), !noalias !1845
   call void @llvm.experimental.noalias.scope.decl(metadata !1846)
   %218 = load ptr, ptr %ref.tmp.i.i.i284.i, align 8, !noalias !1849
   store ptr %218, ptr %ref.tmp49.i.i288.i, align 8, !alias.scope !1850, !noalias !1840
@@ -39224,7 +39224,7 @@ _ZN5arrow6StatusD2Ev.exit300.i.i.i:               ; preds = %_ZN5arrow6StatusD2E
   %add.i.i.i303.i = add nsw i64 %226, %225
   %add3.i.i.i304.i = shl i64 %add.i.i.i303.i, 3
   %mul.i.i.i305.i = add i64 %add3.i.i.i304.i, 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i.i289.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i305.i, i1 noundef zeroext false), !noalias !1824
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp69.i.i289.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i305.i, i1 noundef zeroext false), !noalias !1824
   %227 = load ptr, ptr %ref.tmp69.i.i289.i, align 8, !noalias !1862
   br label %return.sink.split.i.i297.i
 
@@ -39250,7 +39250,7 @@ sw.bb66.i:                                        ; preds = %do.body47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp49.i.i323.i), !noalias !1871
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp69.i.i324.i), !noalias !1871
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp89.i.i325.i), !noalias !1871
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i.i320.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 1), !noalias !1872
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias align 8 %ref.tmp.i.i320.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 1), !noalias !1872
   call void @llvm.experimental.noalias.scope.decl(metadata !1873)
   %228 = load ptr, ptr %ref.tmp.i.i320.i, align 8, !noalias !1876
   store ptr %228, ptr %ref.tmp49, align 8, !alias.scope !1876
@@ -39259,7 +39259,7 @@ sw.bb66.i:                                        ; preds = %do.body47
   br i1 %cmp.i.i.i326.i, label %_ZN5arrow6StatusD2Ev.exit82.i.i327.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_12ListViewTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit82.i.i327.i:             ; preds = %sw.bb66.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias nonnull align 8 %ref.tmp9.i.i321.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 3), !noalias !1872
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias align 8 %ref.tmp9.i.i321.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 3), !noalias !1872
   call void @llvm.experimental.noalias.scope.decl(metadata !1877)
   %229 = load ptr, ptr %ref.tmp9.i.i321.i, align 8, !noalias !1880
   store ptr %229, ptr %ref.tmp49, align 8, !alias.scope !1880
@@ -39268,7 +39268,7 @@ _ZN5arrow6StatusD2Ev.exit82.i.i327.i:             ; preds = %sw.bb66.i
   br i1 %cmp.i83.i.i328.i, label %_ZN5arrow6StatusD2Ev.exit155.i.i329.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_12ListViewTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit155.i.i329.i:            ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i327.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nonnull align 8 %ref.tmp29.i.i322.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !1872
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias align 8 %ref.tmp29.i.i322.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !1872
   call void @llvm.experimental.noalias.scope.decl(metadata !1881)
   %230 = load ptr, ptr %ref.tmp29.i.i322.i, align 8, !noalias !1884
   store ptr %230, ptr %ref.tmp49, align 8, !alias.scope !1884
@@ -39297,7 +39297,7 @@ cond.true.i.i.i.i358.i:                           ; preds = %do.body47.i.i331.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i.i333.i:             ; preds = %cond.true.i.i.i.i358.i, %do.body47.i.i331.i
   %cond.i.i.i.i334.i = phi i64 [ %add.i.i.i.i.i365.i, %cond.true.i.i.i.i358.i ], [ 0, %do.body47.i.i331.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i.i319.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i334.i, i1 noundef zeroext true), !noalias !1893
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp.i.i.i319.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i334.i, i1 noundef zeroext true), !noalias !1893
   call void @llvm.experimental.noalias.scope.decl(metadata !1894)
   %234 = load ptr, ptr %ref.tmp.i.i.i319.i, align 8, !noalias !1897
   store ptr %234, ptr %ref.tmp49.i.i323.i, align 8, !alias.scope !1898, !noalias !1888
@@ -39348,7 +39348,7 @@ _ZN5arrow6StatusD2Ev.exit302.i.i343.i:            ; preds = %_ZN5arrow6StatusD2E
   %242 = load i64, ptr %offset.i.i.i344.i, align 8, !noalias !1909
   %add.i.i.i345.i = add nsw i64 %242, %241
   %mul.i.i.i346.i = shl i64 %add.i.i.i345.i, 2
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i.i324.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i346.i, i1 noundef zeroext false), !noalias !1872
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp69.i.i324.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i346.i, i1 noundef zeroext false), !noalias !1872
   call void @llvm.experimental.noalias.scope.decl(metadata !1910)
   %243 = load ptr, ptr %ref.tmp69.i.i324.i, align 8, !noalias !1913
   store ptr %243, ptr %ref.tmp49, align 8, !alias.scope !1913
@@ -39363,7 +39363,7 @@ _ZN5arrow6StatusD2Ev.exit378.i.i348.i:            ; preds = %_ZN5arrow6StatusD2E
   %246 = load i64, ptr %offset.i340.i.i.i, align 8, !noalias !1917
   %add.i341.i.i.i = add nsw i64 %246, %245
   %mul.i342.i.i.i = shl i64 %add.i341.i.i.i, 2
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp89.i.i325.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %mul.i342.i.i.i, i1 noundef zeroext false), !noalias !1872
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp89.i.i325.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %mul.i342.i.i.i, i1 noundef zeroext false), !noalias !1872
   call void @llvm.experimental.noalias.scope.decl(metadata !1918)
   %247 = load ptr, ptr %ref.tmp89.i.i325.i, align 8, !noalias !1921
   store ptr %247, ptr %ref.tmp49, align 8, !alias.scope !1921
@@ -39397,7 +39397,7 @@ sw.bb68.i:                                        ; preds = %do.body47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp49.i.i370.i), !noalias !1928
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp69.i.i371.i), !noalias !1928
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp89.i.i372.i), !noalias !1928
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i.i367.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 1), !noalias !1929
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias align 8 %ref.tmp.i.i367.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 1), !noalias !1929
   call void @llvm.experimental.noalias.scope.decl(metadata !1930)
   %248 = load ptr, ptr %ref.tmp.i.i367.i, align 8, !noalias !1933
   store ptr %248, ptr %ref.tmp49, align 8, !alias.scope !1933
@@ -39406,7 +39406,7 @@ sw.bb68.i:                                        ; preds = %do.body47
   br i1 %cmp.i.i.i373.i, label %_ZN5arrow6StatusD2Ev.exit82.i.i374.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_17LargeListViewTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit82.i.i374.i:             ; preds = %sw.bb68.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias nonnull align 8 %ref.tmp9.i.i368.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 3), !noalias !1929
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias align 8 %ref.tmp9.i.i368.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 3), !noalias !1929
   call void @llvm.experimental.noalias.scope.decl(metadata !1934)
   %249 = load ptr, ptr %ref.tmp9.i.i368.i, align 8, !noalias !1937
   store ptr %249, ptr %ref.tmp49, align 8, !alias.scope !1937
@@ -39415,7 +39415,7 @@ _ZN5arrow6StatusD2Ev.exit82.i.i374.i:             ; preds = %sw.bb68.i
   br i1 %cmp.i83.i.i375.i, label %_ZN5arrow6StatusD2Ev.exit155.i.i376.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_17LargeListViewTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit155.i.i376.i:            ; preds = %_ZN5arrow6StatusD2Ev.exit82.i.i374.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nonnull align 8 %ref.tmp29.i.i369.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !1929
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias align 8 %ref.tmp29.i.i369.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !1929
   call void @llvm.experimental.noalias.scope.decl(metadata !1938)
   %250 = load ptr, ptr %ref.tmp29.i.i369.i, align 8, !noalias !1941
   store ptr %250, ptr %ref.tmp49, align 8, !alias.scope !1941
@@ -39444,7 +39444,7 @@ cond.true.i.i.i.i408.i:                           ; preds = %do.body47.i.i378.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i.i380.i:             ; preds = %cond.true.i.i.i.i408.i, %do.body47.i.i378.i
   %cond.i.i.i.i381.i = phi i64 [ %add.i.i.i.i.i415.i, %cond.true.i.i.i.i408.i ], [ 0, %do.body47.i.i378.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i.i366.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i381.i, i1 noundef zeroext true), !noalias !1950
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp.i.i.i366.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i.i381.i, i1 noundef zeroext true), !noalias !1950
   call void @llvm.experimental.noalias.scope.decl(metadata !1951)
   %254 = load ptr, ptr %ref.tmp.i.i.i366.i, align 8, !noalias !1954
   store ptr %254, ptr %ref.tmp49.i.i370.i, align 8, !alias.scope !1955, !noalias !1945
@@ -39495,7 +39495,7 @@ _ZN5arrow6StatusD2Ev.exit302.i.i390.i:            ; preds = %_ZN5arrow6StatusD2E
   %262 = load i64, ptr %offset.i.i.i391.i, align 8, !noalias !1966
   %add.i.i.i392.i = add nsw i64 %262, %261
   %mul.i.i.i393.i = shl i64 %add.i.i.i392.i, 3
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i.i371.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i393.i, i1 noundef zeroext false), !noalias !1929
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp69.i.i371.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i.i393.i, i1 noundef zeroext false), !noalias !1929
   call void @llvm.experimental.noalias.scope.decl(metadata !1967)
   %263 = load ptr, ptr %ref.tmp69.i.i371.i, align 8, !noalias !1970
   store ptr %263, ptr %ref.tmp49, align 8, !alias.scope !1970
@@ -39510,7 +39510,7 @@ _ZN5arrow6StatusD2Ev.exit378.i.i395.i:            ; preds = %_ZN5arrow6StatusD2E
   %266 = load i64, ptr %offset.i340.i.i396.i, align 8, !noalias !1974
   %add.i341.i.i397.i = add nsw i64 %266, %265
   %mul.i342.i.i398.i = shl i64 %add.i341.i.i397.i, 3
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp89.i.i372.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %mul.i342.i.i398.i, i1 noundef zeroext false), !noalias !1929
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp89.i.i372.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %mul.i342.i.i398.i, i1 noundef zeroext false), !noalias !1929
   call void @llvm.experimental.noalias.scope.decl(metadata !1975)
   %267 = load ptr, ptr %ref.tmp89.i.i372.i, align 8, !noalias !1978
   store ptr %267, ptr %ref.tmp49, align 8, !alias.scope !1978
@@ -39536,7 +39536,7 @@ _ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_17LargeListViewTypeE.exit.i: ;
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb70.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_8ListTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_8ListTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb72.i:                                        ; preds = %do.body47
@@ -39545,7 +39545,7 @@ sw.bb72.i:                                        ; preds = %do.body47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i), !noalias !1563
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp29.i.i), !noalias !1563
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp49.i.i), !noalias !1563
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i417.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 1), !noalias !1979
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias align 8 %ref.tmp.i417.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 1), !noalias !1979
   call void @llvm.experimental.noalias.scope.decl(metadata !1982)
   %268 = load ptr, ptr %ref.tmp.i417.i, align 8, !noalias !1985
   store ptr %268, ptr %ref.tmp49, align 8, !alias.scope !1985
@@ -39554,7 +39554,7 @@ sw.bb72.i:                                        ; preds = %do.body47
   br i1 %cmp.i.i418.i, label %_ZN5arrow6StatusD2Ev.exit78.i419.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_17FixedSizeListTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit78.i419.i:               ; preds = %sw.bb72.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias nonnull align 8 %ref.tmp9.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 1), !noalias !1979
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias align 8 %ref.tmp9.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 1), !noalias !1979
   call void @llvm.experimental.noalias.scope.decl(metadata !1986)
   %269 = load ptr, ptr %ref.tmp9.i.i, align 8, !noalias !1989
   store ptr %269, ptr %ref.tmp49, align 8, !alias.scope !1989
@@ -39563,7 +39563,7 @@ _ZN5arrow6StatusD2Ev.exit78.i419.i:               ; preds = %sw.bb72.i
   br i1 %cmp.i79.i420.i, label %_ZN5arrow6StatusD2Ev.exit151.i421.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_17FixedSizeListTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit151.i421.i:              ; preds = %_ZN5arrow6StatusD2Ev.exit78.i419.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nonnull align 8 %ref.tmp29.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !1979
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias align 8 %ref.tmp29.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !1979
   call void @llvm.experimental.noalias.scope.decl(metadata !1990)
   %270 = load ptr, ptr %ref.tmp29.i.i, align 8, !noalias !1993
   store ptr %270, ptr %ref.tmp49, align 8, !alias.scope !1993
@@ -39592,7 +39592,7 @@ cond.true.i.i.i425.i:                             ; preds = %do.body47.i.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %cond.true.i.i.i425.i, %do.body47.i.i
   %cond.i.i.i424.i = phi i64 [ %add.i.i.i.i429.i, %cond.true.i.i.i425.i ], [ 0, %do.body47.i.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i416.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i424.i, i1 noundef zeroext true), !noalias !2002
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp.i.i416.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i424.i, i1 noundef zeroext true), !noalias !2002
   call void @llvm.experimental.noalias.scope.decl(metadata !2003)
   %274 = load ptr, ptr %ref.tmp.i.i416.i, align 8, !noalias !2006
   store ptr %274, ptr %ref.tmp49.i.i, align 8, !alias.scope !2007, !noalias !1997
@@ -39646,7 +39646,7 @@ sw.bb74.i:                                        ; preds = %do.body47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i431.i), !noalias !1563
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i432.i), !noalias !1563
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp29.i433.i), !noalias !1563
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias nonnull align 8 %ref.tmp.i431.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 1), !noalias !2013
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias align 8 %ref.tmp.i431.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 1), !noalias !2013
   call void @llvm.experimental.noalias.scope.decl(metadata !2016)
   %280 = load ptr, ptr %ref.tmp.i431.i, align 8, !noalias !2019
   store ptr %280, ptr %ref.tmp49, align 8, !alias.scope !2019
@@ -39655,7 +39655,7 @@ sw.bb74.i:                                        ; preds = %do.body47
   br i1 %cmp.i.i434.i, label %_ZN5arrow6StatusD2Ev.exit76.i.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_10StructTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit76.i.i:                  ; preds = %sw.bb74.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nonnull align 8 %ref.tmp9.i432.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !2013
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias align 8 %ref.tmp9.i432.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !2013
   call void @llvm.experimental.noalias.scope.decl(metadata !2020)
   %281 = load ptr, ptr %ref.tmp9.i432.i, align 8, !noalias !2023
   store ptr %281, ptr %ref.tmp49, align 8, !alias.scope !2023
@@ -39684,7 +39684,7 @@ cond.true.i.i.i449.i:                             ; preds = %do.body27.i.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i436.i:               ; preds = %cond.true.i.i.i449.i, %do.body27.i.i
   %cond.i.i.i437.i = phi i64 [ %add.i.i.i.i456.i, %cond.true.i.i.i449.i ], [ 0, %do.body27.i.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i430.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i437.i, i1 noundef zeroext true), !noalias !2032
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp.i.i430.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i437.i, i1 noundef zeroext true), !noalias !2032
   call void @llvm.experimental.noalias.scope.decl(metadata !2033)
   %285 = load ptr, ptr %ref.tmp.i.i430.i, align 8, !noalias !2036
   store ptr %285, ptr %ref.tmp29.i433.i, align 8, !alias.scope !2037, !noalias !2027
@@ -39790,7 +39790,7 @@ do.end6.i464.i:                                   ; preds = %_ZN5arrow6StatusD2E
   br i1 %cmp.i466.i, label %_ZN5arrow6StatusD2Ev.exit87.i.i, label %_ZN5arrow6StatusD2Ev.exit238.i.i
 
 _ZN5arrow6StatusD2Ev.exit87.i.i:                  ; preds = %do.end6.i464.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nonnull align 8 %ref.tmp10.i459.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !2043
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias align 8 %ref.tmp10.i459.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !2043
   call void @llvm.experimental.noalias.scope.decl(metadata !2056)
   %297 = load ptr, ptr %ref.tmp10.i459.i, align 8, !noalias !2059
   store ptr %297, ptr %ref.tmp49, align 8, !alias.scope !2059
@@ -39811,7 +39811,7 @@ cond.true.i.i.i85:                                ; preds = %do.body28.i.i
 
 _ZN5arrow6StatusD2Ev.exit163.i.i:                 ; preds = %cond.true.i.i.i85, %do.body28.i.i
   %cond.i.i.i84 = phi i64 [ %add.i.i.i86, %cond.true.i.i.i85 ], [ 0, %do.body28.i.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp30.i460.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i.i.i84, i1 noundef zeroext false), !noalias !2043
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp30.i460.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i.i.i84, i1 noundef zeroext false), !noalias !2043
   call void @llvm.experimental.noalias.scope.decl(metadata !2064)
   %301 = load ptr, ptr %ref.tmp30.i460.i, align 8, !noalias !2067
   store ptr %301, ptr %ref.tmp49, align 8, !alias.scope !2067
@@ -39819,7 +39819,7 @@ _ZN5arrow6StatusD2Ev.exit163.i.i:                 ; preds = %cond.true.i.i.i85, 
   br i1 %cmp.i164.i.i, label %if.end118.i.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_15SparseUnionTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit238.i.i:                 ; preds = %do.end6.i464.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias nonnull align 8 %ref.tmp50.i461.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 1), !noalias !2043
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias align 8 %ref.tmp50.i461.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 1), !noalias !2043
   call void @llvm.experimental.noalias.scope.decl(metadata !2068)
   %302 = load ptr, ptr %ref.tmp50.i461.i, align 8, !noalias !2071
   store ptr %302, ptr %ref.tmp49, align 8, !alias.scope !2071
@@ -39828,7 +39828,7 @@ _ZN5arrow6StatusD2Ev.exit238.i.i:                 ; preds = %do.end6.i464.i
   br i1 %cmp.i239.i.i, label %_ZN5arrow6StatusD2Ev.exit313.i.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_15SparseUnionTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit313.i.i:                 ; preds = %_ZN5arrow6StatusD2Ev.exit238.i.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nonnull align 8 %ref.tmp70.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !2043
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias align 8 %ref.tmp70.i.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !2043
   call void @llvm.experimental.noalias.scope.decl(metadata !2072)
   %303 = load ptr, ptr %ref.tmp70.i.i, align 8, !noalias !2075
   store ptr %303, ptr %ref.tmp49, align 8, !alias.scope !2075
@@ -39850,7 +39850,7 @@ cond.true.i354.i.i:                               ; preds = %do.body88.i.i
 
 _ZN5arrow6StatusD2Ev.exit394.i.i:                 ; preds = %cond.true.i354.i.i, %do.body88.i.i
   %cond.i353.i.i = phi i64 [ %add.i356.i.i, %cond.true.i354.i.i ], [ 0, %do.body88.i.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp90.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i353.i.i, i1 noundef zeroext false), !noalias !2043
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp90.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i353.i.i, i1 noundef zeroext false), !noalias !2043
   call void @llvm.experimental.noalias.scope.decl(metadata !2080)
   %307 = load ptr, ptr %ref.tmp90.i.i, align 8, !noalias !2083
   store ptr %307, ptr %ref.tmp49, align 8, !alias.scope !2083
@@ -40049,7 +40049,7 @@ do.end6.i533.i:                                   ; preds = %_ZN5arrow6StatusD2E
   br i1 %cmp.i535.i, label %_ZN5arrow6StatusD2Ev.exit91.i.i, label %_ZN5arrow6StatusD2Ev.exit323.i.i
 
 _ZN5arrow6StatusD2Ev.exit91.i.i:                  ; preds = %do.end6.i533.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nonnull align 8 %ref.tmp10.i514.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !2087
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias align 8 %ref.tmp10.i514.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !2087
   call void @llvm.experimental.noalias.scope.decl(metadata !2100)
   %331 = load ptr, ptr %ref.tmp10.i514.i, align 8, !noalias !2103
   store ptr %331, ptr %ref.tmp49, align 8, !alias.scope !2103
@@ -40070,7 +40070,7 @@ cond.true.i.i542.i:                               ; preds = %do.body28.i540.i
 
 _ZN5arrow6StatusD2Ev.exit167.i.i:                 ; preds = %cond.true.i.i542.i, %do.body28.i540.i
   %cond.i.i541.i = phi i64 [ %add.i.i544.i, %cond.true.i.i542.i ], [ 0, %do.body28.i540.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp30.i515.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i.i541.i, i1 noundef zeroext false), !noalias !2087
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp30.i515.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i.i541.i, i1 noundef zeroext false), !noalias !2087
   call void @llvm.experimental.noalias.scope.decl(metadata !2108)
   %335 = load ptr, ptr %ref.tmp30.i515.i, align 8, !noalias !2111
   store ptr %335, ptr %ref.tmp49, align 8, !alias.scope !2111
@@ -40093,7 +40093,7 @@ cond.true.i208.i.i:                               ; preds = %do.body48.i.i
 
 _ZN5arrow6StatusD2Ev.exit248.i.i:                 ; preds = %cond.true.i208.i.i, %do.body48.i.i
   %cond.i207.i.i = phi i64 [ %mul.i.i.i, %cond.true.i208.i.i ], [ 0, %do.body48.i.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp50.i516.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %cond.i207.i.i, i1 noundef zeroext false), !noalias !2087
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp50.i516.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 2, i64 noundef %cond.i207.i.i, i1 noundef zeroext false), !noalias !2087
   call void @llvm.experimental.noalias.scope.decl(metadata !2116)
   %339 = load ptr, ptr %ref.tmp50.i516.i, align 8, !noalias !2119
   store ptr %339, ptr %ref.tmp49, align 8, !alias.scope !2119
@@ -40101,7 +40101,7 @@ _ZN5arrow6StatusD2Ev.exit248.i.i:                 ; preds = %cond.true.i208.i.i,
   br i1 %cmp.i249.i.i, label %if.end158.i.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14DenseUnionTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit323.i.i:                 ; preds = %do.end6.i533.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias nonnull align 8 %ref.tmp70.i517.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 2), !noalias !2087
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias align 8 %ref.tmp70.i517.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 2), !noalias !2087
   call void @llvm.experimental.noalias.scope.decl(metadata !2120)
   %340 = load ptr, ptr %ref.tmp70.i517.i, align 8, !noalias !2123
   store ptr %340, ptr %ref.tmp49, align 8, !alias.scope !2123
@@ -40110,7 +40110,7 @@ _ZN5arrow6StatusD2Ev.exit323.i.i:                 ; preds = %do.end6.i533.i
   br i1 %cmp.i324.i.i, label %_ZN5arrow6StatusD2Ev.exit398.i.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14DenseUnionTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit398.i.i:                 ; preds = %_ZN5arrow6StatusD2Ev.exit323.i.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nonnull align 8 %ref.tmp90.i518.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !2087
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias align 8 %ref.tmp90.i518.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !2087
   call void @llvm.experimental.noalias.scope.decl(metadata !2124)
   %341 = load ptr, ptr %ref.tmp90.i518.i, align 8, !noalias !2127
   store ptr %341, ptr %ref.tmp49, align 8, !alias.scope !2127
@@ -40131,7 +40131,7 @@ cond.true.i439.i.i:                               ; preds = %do.body108.i.i
 
 _ZN5arrow6StatusD2Ev.exit480.i.i:                 ; preds = %cond.true.i439.i.i, %do.body108.i.i
   %cond.i438.i.i = phi i64 [ %add.i441.i.i, %cond.true.i439.i.i ], [ 0, %do.body108.i.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp110.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i438.i.i, i1 noundef zeroext false), !noalias !2087
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp110.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i438.i.i, i1 noundef zeroext false), !noalias !2087
   call void @llvm.experimental.noalias.scope.decl(metadata !2132)
   %345 = load ptr, ptr %ref.tmp110.i.i, align 8, !noalias !2135
   store ptr %345, ptr %ref.tmp49, align 8, !alias.scope !2135
@@ -40154,7 +40154,7 @@ cond.true.i521.i.i:                               ; preds = %do.body128.i.i
 
 _ZN5arrow6StatusD2Ev.exit562.i.i:                 ; preds = %cond.true.i521.i.i, %do.body128.i.i
   %cond.i520.i.i = phi i64 [ %mul.i524.i.i, %cond.true.i521.i.i ], [ 0, %do.body128.i.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp130.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i520.i.i, i1 noundef zeroext false), !noalias !2087
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp130.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i520.i.i, i1 noundef zeroext false), !noalias !2087
   call void @llvm.experimental.noalias.scope.decl(metadata !2140)
   %349 = load ptr, ptr %ref.tmp130.i.i, align 8, !noalias !2143
   store ptr %349, ptr %ref.tmp49, align 8, !alias.scope !2143
@@ -40199,7 +40199,7 @@ _ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14DenseUnionTypeE.exit.i: ; pr
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb80.i:                                        ; preds = %do.body47
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %storage_type.0)
   br label %_ZN5arrow6StatusD2Ev.exit135
 
 sw.bb82.i:                                        ; preds = %do.body47
@@ -40208,7 +40208,7 @@ sw.bb82.i:                                        ; preds = %do.body47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i548.i), !noalias !1563
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp29.i549.i), !noalias !1563
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp48.i.i), !noalias !1563
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i547.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 2), !noalias !2147
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias align 8 %ref.tmp.i547.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 2), !noalias !2147
   call void @llvm.experimental.noalias.scope.decl(metadata !2150)
   %353 = load ptr, ptr %ref.tmp.i547.i, align 8, !noalias !2153
   store ptr %353, ptr %ref.tmp49, align 8, !alias.scope !2153
@@ -40217,7 +40217,7 @@ sw.bb82.i:                                        ; preds = %do.body47
   br i1 %cmp.i.i550.i, label %_ZN5arrow6StatusD2Ev.exit76.i551.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_17RunEndEncodedTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit76.i551.i:               ; preds = %sw.bb82.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias nonnull align 8 %ref.tmp9.i548.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !2147
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias align 8 %ref.tmp9.i548.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !2147
   call void @llvm.experimental.noalias.scope.decl(metadata !2154)
   %354 = load ptr, ptr %ref.tmp9.i548.i, align 8, !noalias !2157
   store ptr %354, ptr %ref.tmp49, align 8, !alias.scope !2157
@@ -40226,7 +40226,7 @@ _ZN5arrow6StatusD2Ev.exit76.i551.i:               ; preds = %sw.bb82.i
   br i1 %cmp.i77.i552.i, label %_ZN5arrow6StatusD2Ev.exit149.i.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_17RunEndEncodedTypeE.exit.i
 
 _ZN5arrow6StatusD2Ev.exit149.i.i:                 ; preds = %_ZN5arrow6StatusD2Ev.exit76.i551.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nonnull align 8 %ref.tmp29.i549.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !2147
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias align 8 %ref.tmp29.i549.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !2147
   call void @llvm.experimental.noalias.scope.decl(metadata !2158)
   %355 = load ptr, ptr %ref.tmp29.i549.i, align 8, !noalias !2161
   store ptr %355, ptr %ref.tmp49, align 8, !alias.scope !2161
@@ -40527,7 +40527,7 @@ if.end9.i.i.i.i:                                  ; preds = %if.end8.sink.split.
 
 _ZNSt10shared_ptrIN5arrow12_GLOBAL__N_117ImportedArrayDataEEaSERKS3_.exit.i: ; preds = %if.end9.i.i.i.i, %if.end5.i251
   store ptr %375, ptr %dict_importer, align 8, !noalias !2175
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter8DoImportEv(ptr noalias nonnull align 8 %ref.tmp85, ptr noundef nonnull align 8 dereferenceable(113) %dict_importer)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter8DoImportEv(ptr noalias align 8 %ref.tmp85, ptr noundef nonnull align 8 dereferenceable(113) %dict_importer)
           to label %_ZN5arrow6StatusD2Ev.exit218 unwind label %lpad88
 
 _ZN5arrow6StatusD2Ev.exit218:                     ; preds = %if.then.i245, %if.then4.i276, %_ZNSt10shared_ptrIN5arrow12_GLOBAL__N_117ImportedArrayDataEEaSERKS3_.exit.i
@@ -41000,7 +41000,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_14FixedWidthTypeE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(72) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
   %ref.tmp.i = alloca %"class.arrow::Status", align 8
@@ -41016,7 +41016,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp49.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp72.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp106.i)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !2193
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef 0), !noalias !2193
   call void @llvm.experimental.noalias.scope.decl(metadata !2196)
   %0 = load ptr, ptr %ref.tmp.i, align 8, !noalias !2199
   store ptr %0, ptr %agg.result, align 8, !alias.scope !2199
@@ -41025,7 +41025,7 @@ entry:
   br i1 %cmp.i.i, label %_ZN5arrow6StatusD2Ev.exit83.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter24ImportFixedSizePrimitiveERKNS_14FixedWidthTypeE.exit
 
 _ZN5arrow6StatusD2Ev.exit83.i:                    ; preds = %entry
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias nonnull align 8 %ref.tmp9.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 2), !noalias !2193
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias align 8 %ref.tmp9.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 2), !noalias !2193
   call void @llvm.experimental.noalias.scope.decl(metadata !2200)
   %1 = load ptr, ptr %ref.tmp9.i, align 8, !noalias !2203
   store ptr %1, ptr %agg.result, align 8, !alias.scope !2203
@@ -41034,7 +41034,7 @@ _ZN5arrow6StatusD2Ev.exit83.i:                    ; preds = %entry
   br i1 %cmp.i84.i, label %_ZN5arrow6StatusD2Ev.exit156.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter24ImportFixedSizePrimitiveERKNS_14FixedWidthTypeE.exit
 
 _ZN5arrow6StatusD2Ev.exit156.i:                   ; preds = %_ZN5arrow6StatusD2Ev.exit83.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nonnull align 8 %ref.tmp29.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !2193
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias align 8 %ref.tmp29.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !2193
   call void @llvm.experimental.noalias.scope.decl(metadata !2204)
   %2 = load ptr, ptr %ref.tmp29.i, align 8, !noalias !2207
   store ptr %2, ptr %agg.result, align 8, !alias.scope !2207
@@ -41063,7 +41063,7 @@ cond.true.i.i.i:                                  ; preds = %do.body47.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %cond.true.i.i.i, %do.body47.i
   %cond.i.i.i = phi i64 [ %add.i.i.i.i, %cond.true.i.i.i ], [ 0, %do.body47.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i, i1 noundef zeroext true), !noalias !2214
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i, i1 noundef zeroext true), !noalias !2214
   call void @llvm.experimental.noalias.scope.decl(metadata !2215)
   %6 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !2218
   store ptr %6, ptr %ref.tmp49.i, align 8, !alias.scope !2219, !noalias !2193
@@ -41139,7 +41139,7 @@ cond.true.i.i:                                    ; preds = %do.body70.i
 
 _ZN5arrow6StatusD2Ev.exit305.i:                   ; preds = %cond.true.i.i, %do.body70.i
   %cond.i.i = phi i64 [ %mul.i.i, %cond.true.i.i ], [ 0, %do.body70.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp72.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i.i, i1 noundef zeroext false), !noalias !2193
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp72.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i.i, i1 noundef zeroext false), !noalias !2193
   call void @llvm.experimental.noalias.scope.decl(metadata !2230)
   %18 = load ptr, ptr %ref.tmp72.i, align 8, !noalias !2233
   store ptr %18, ptr %agg.result, align 8, !alias.scope !2233
@@ -41166,7 +41166,7 @@ cond.true.i309.i:                                 ; preds = %do.body104.i
 
 _ZN5arrow6StatusD2Ev.exit349.i:                   ; preds = %cond.true.i309.i, %do.body104.i
   %cond.i308.i = phi i64 [ %add.i.i313.i, %cond.true.i309.i ], [ 0, %do.body104.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp106.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i308.i, i1 noundef zeroext false), !noalias !2193
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp106.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i308.i, i1 noundef zeroext false), !noalias !2193
   call void @llvm.experimental.noalias.scope.decl(metadata !2237)
   %22 = load ptr, ptr %ref.tmp106.i, align 8, !noalias !2240
   store ptr %22, ptr %agg.result, align 8, !alias.scope !2240
@@ -41193,7 +41193,7 @@ _ZN5arrow12_GLOBAL__N_113ArrayImporter24ImportFixedSizePrimitiveERKNS_14FixedWid
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_8ListTypeE(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(113) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_8ListTypeE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(113) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
   %ref.tmp.i = alloca %"class.arrow::Status", align 8
@@ -41207,7 +41207,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp29.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp49.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp69.i)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 1), !noalias !2241
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 1), !noalias !2241
   call void @llvm.experimental.noalias.scope.decl(metadata !2244)
   %0 = load ptr, ptr %ref.tmp.i, align 8, !noalias !2247
   store ptr %0, ptr %agg.result, align 8, !alias.scope !2247
@@ -41216,7 +41216,7 @@ entry:
   br i1 %cmp.i.i, label %_ZN5arrow6StatusD2Ev.exit80.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter14ImportListLikeINS_8ListTypeEEENS_6StatusERKT_.exit
 
 _ZN5arrow6StatusD2Ev.exit80.i:                    ; preds = %entry
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias nonnull align 8 %ref.tmp9.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 2), !noalias !2241
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias align 8 %ref.tmp9.i, ptr noundef nonnull align 8 dereferenceable(113) %this, i64 noundef 2), !noalias !2241
   call void @llvm.experimental.noalias.scope.decl(metadata !2248)
   %1 = load ptr, ptr %ref.tmp9.i, align 8, !noalias !2251
   store ptr %1, ptr %agg.result, align 8, !alias.scope !2251
@@ -41225,7 +41225,7 @@ _ZN5arrow6StatusD2Ev.exit80.i:                    ; preds = %entry
   br i1 %cmp.i81.i, label %_ZN5arrow6StatusD2Ev.exit153.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter14ImportListLikeINS_8ListTypeEEENS_6StatusERKT_.exit
 
 _ZN5arrow6StatusD2Ev.exit153.i:                   ; preds = %_ZN5arrow6StatusD2Ev.exit80.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nonnull align 8 %ref.tmp29.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !2241
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias align 8 %ref.tmp29.i, ptr noundef nonnull align 8 dereferenceable(113) %this), !noalias !2241
   call void @llvm.experimental.noalias.scope.decl(metadata !2252)
   %2 = load ptr, ptr %ref.tmp29.i, align 8, !noalias !2255
   store ptr %2, ptr %agg.result, align 8, !alias.scope !2255
@@ -41254,7 +41254,7 @@ cond.true.i.i.i:                                  ; preds = %do.body47.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %cond.true.i.i.i, %do.body47.i
   %cond.i.i.i = phi i64 [ %add.i.i.i.i, %cond.true.i.i.i ], [ 0, %do.body47.i ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i, i1 noundef zeroext true), !noalias !2262
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp.i.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i.i, i1 noundef zeroext true), !noalias !2262
   call void @llvm.experimental.noalias.scope.decl(metadata !2263)
   %6 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !2266
   store ptr %6, ptr %ref.tmp49.i, align 8, !alias.scope !2267, !noalias !2241
@@ -41308,7 +41308,7 @@ _ZN5arrow6StatusD2Ev.exit300.i:                   ; preds = %_ZN5arrow6StatusD2E
   %add.i.i = add nsw i64 %14, %13
   %add3.i.i = shl i64 %add.i.i, 2
   %mul.i.i = add i64 %add3.i.i, 4
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp69.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i, i1 noundef zeroext false), !noalias !2241
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp69.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %mul.i.i, i1 noundef zeroext false), !noalias !2241
   %15 = load ptr, ptr %ref.tmp69.i, align 8, !noalias !2278
   br label %return.sink.split.i
 
@@ -41327,7 +41327,7 @@ _ZN5arrow12_GLOBAL__N_113ArrayImporter14ImportListLikeINS_8ListTypeEEENS_6Status
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(113) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(113) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %type_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %type_, align 8
@@ -41594,7 +41594,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPN5arrow12_GLOBAL__N_113ArrayImpor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef %n_buffers) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter15CheckNumBuffersEl(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef range(i64 0, 4) %n_buffers) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %n_buffers.addr = alloca i64, align 8
@@ -41704,7 +41704,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE14_M_insert_rvalEN9__gnu_cxx
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef %n_children) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef range(i64 0, 3) %n_children) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %n_children.addr = alloca i64, align 8
@@ -43150,7 +43150,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef %buffer_id, i64 noundef %buffer_size, i1 noundef zeroext %is_null_bitmap) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef %buffer_id, i64 noundef %buffer_size, i1 noundef zeroext %is_null_bitmap) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i.i.i.i.i = alloca %"class.std::shared_ptr.103", align 8
   %agg.tmp2.i.i.i.i.i.i.i.i = alloca %"class.std::shared_ptr.100", align 8
@@ -43793,7 +43793,7 @@ if.else13:                                        ; preds = %if.else11
   br i1 %cmp14.not, label %if.end16, label %if.then15
 
 if.then15:                                        ; preds = %if.else13
-  tail call void @_ZN5arrow6Status8FromArgsIJRA85_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(85) @.str.111)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA85_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(85) @.str.111)
   br label %return
 
 if.end16:                                         ; preds = %if.else13
@@ -44442,7 +44442,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16ImportBinaryViewERKNS_14BinaryViewTypeE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(113) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16ImportBinaryViewERKNS_14BinaryViewTypeE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(113) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp.i = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -44452,7 +44452,7 @@ _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp35 = alloca %"class.arrow::Status", align 8
   %ref.tmp55 = alloca %"class.arrow::Status", align 8
   %ref.tmp82 = alloca %"class.arrow::Status", align 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef 0)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter16CheckNumChildrenEl(ptr noalias align 8 %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i64 noundef 0)
   call void @llvm.experimental.noalias.scope.decl(metadata !2342)
   %0 = load ptr, ptr %ref.tmp, align 8, !noalias !2342
   store ptr %0, ptr %agg.result, align 8, !alias.scope !2342
@@ -44508,7 +44508,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
   resume { ptr, i32 } %eh.lpad-body
 
 _ZN5arrow6StatusD2Ev.exit83:                      ; preds = %do.end6
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias nonnull align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(113) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter17AllocateArrayDataEv(ptr noalias align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(113) %this)
   call void @llvm.experimental.noalias.scope.decl(metadata !2348)
   %9 = load ptr, ptr %ref.tmp15, align 8, !noalias !2348
   store ptr %9, ptr %agg.result, align 8, !alias.scope !2348
@@ -44537,7 +44537,7 @@ cond.true.i.i:                                    ; preds = %do.body33
 
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %cond.true.i.i, %do.body33
   %cond.i.i = phi i64 [ %add.i.i.i, %cond.true.i.i ], [ 0, %do.body33 ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i, i1 noundef zeroext true), !noalias !2351
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 0, i64 noundef %cond.i.i, i1 noundef zeroext true), !noalias !2351
   call void @llvm.experimental.noalias.scope.decl(metadata !2357)
   %13 = load ptr, ptr %ref.tmp.i, align 8, !noalias !2360
   store ptr %13, ptr %ref.tmp35, align 8, !alias.scope !2360
@@ -44599,7 +44599,7 @@ cond.true.i:                                      ; preds = %do.body53
 
 _ZN5arrow6StatusD2Ev.exit231:                     ; preds = %cond.true.i, %do.body53
   %cond.i = phi i64 [ %mul.i, %cond.true.i ], [ 0, %do.body53 ]
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp55, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i, i1 noundef zeroext false)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp55, ptr noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef 1, i64 noundef %cond.i, i1 noundef zeroext false)
   call void @llvm.experimental.noalias.scope.decl(metadata !2371)
   %22 = load ptr, ptr %ref.tmp55, align 8, !noalias !2371
   store ptr %22, ptr %agg.result, align 8, !alias.scope !2371
@@ -44634,7 +44634,7 @@ _ZN5arrow6StatusD2Ev.exit304:                     ; preds = %do.end72, %for.cond
   %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
   %30 = load i64, ptr %gep, align 8
   %31 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias nonnull align 8 %ref.tmp82, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef %31, i64 noundef %30, i1 noundef zeroext false)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113ArrayImporter12ImportBufferEilb(ptr noalias align 8 %ref.tmp82, ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef %31, i64 noundef %30, i1 noundef zeroext false)
   call void @llvm.experimental.noalias.scope.decl(metadata !2375)
   %32 = load ptr, ptr %ref.tmp82, align 8, !noalias !2375
   store ptr %32, ptr %agg.result, align 8, !alias.scope !2375
@@ -45755,7 +45755,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayStreamBatchReader16StatusFromCErrorEP16ArrowArrayStreami(ptr noalias align 8 %agg.result, ptr noundef %stream, i32 noundef %errno_like) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayStreamBatchReader16StatusFromCErrorEP16ArrowArrayStreami(ptr noalias nonnull align 8 %agg.result, ptr noundef %stream, i32 noundef %errno_like) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::allocator", align 1
@@ -46287,7 +46287,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %get_next = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %get_next, align 8
   %call4 = call noundef i32 %1(ptr noundef nonnull %stream_, ptr noundef nonnull %c_array)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayStreamBatchReader16StatusFromCErrorEP16ArrowArrayStreami(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull %stream_, i32 noundef %call4)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayStreamBatchReader16StatusFromCErrorEP16ArrowArrayStreami(ptr noalias align 8 %ref.tmp, ptr noundef nonnull %stream_, i32 noundef %call4)
   call void @llvm.experimental.noalias.scope.decl(metadata !2421)
   %2 = load ptr, ptr %ref.tmp, align 8, !noalias !2421
   store ptr %2, ptr %agg.result, align 8, !alias.scope !2421

@@ -7648,10 +7648,10 @@ _ZN4llvm14CastIsPossibleINS_11GEPOperatorEPKNS_5ValueEvE10isPossibleERKS4_.exit.
 
 .critedge:                                        ; preds = %100, %101, %107, %.preheader
   %.0.lcssa = phi i32 [ 1, %.preheader ], [ %91, %107 ], [ %.068, %101 ], [ %93, %100 ]
-  %109 = call fastcc { i64, i8 } @_ZL18getOffsetFromIndexPKN4llvm11GEPOperatorEjRKNS_10DataLayoutE(ptr noundef nonnull %.0.i.i48, i32 noundef %.0.lcssa, ptr noundef nonnull align 8 dereferenceable(512) %2)
+  %109 = call fastcc { i64, i8 } @_ZL18getOffsetFromIndexPKN4llvm11GEPOperatorEjRKNS_10DataLayoutE(ptr noundef %.0.i.i48, i32 noundef %.0.lcssa, ptr noundef nonnull align 8 dereferenceable(512) %2)
   %110 = extractvalue { i64, i8 } %109, 0
   %111 = extractvalue { i64, i8 } %109, 1
-  %112 = call fastcc { i64, i8 } @_ZL18getOffsetFromIndexPKN4llvm11GEPOperatorEjRKNS_10DataLayoutE(ptr noundef nonnull %23, i32 noundef %.0.lcssa, ptr noundef nonnull align 8 dereferenceable(512) %2)
+  %112 = call fastcc { i64, i8 } @_ZL18getOffsetFromIndexPKN4llvm11GEPOperatorEjRKNS_10DataLayoutE(ptr noundef %23, i32 noundef %.0.lcssa, ptr noundef nonnull align 8 dereferenceable(512) %2)
   %113 = extractvalue { i64, i8 } %112, 0
   %114 = trunc i8 %111 to i1
   br i1 %114, label %115, label %_ZN4llvm8dyn_castINS_11GEPOperatorEKNS_5ValueEEEDcPT0_.exit51.thread

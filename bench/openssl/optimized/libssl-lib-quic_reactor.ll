@@ -204,6 +204,7 @@ entry:
   %value.i.i = getelementptr inbounds i8, ptr %rtor, i64 8
   %value.i4.i = getelementptr inbounds i8, ptr %rtor, i64 24
   %events18.i.i = getelementptr inbounds i8, ptr %pfds.i.i, i64 4
+  %.sroa.gep32.sroa.gep.i.i = getelementptr inbounds i8, ptr %pfds.i.i, i64 12
   %cmp61.not.i.i = icmp eq ptr %mutex, null
   br label %for.cond
 
@@ -280,50 +281,50 @@ if.end.i:                                         ; preds = %lor.lhs.false4.i3.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %9 = shl nuw nsw i8 %bf.clear.i11, 2
-  %or.i.i19 = or disjoint i8 %9, %bf.clear.i8
-  %or.i.i = zext nneg i8 %or.i.i19 to i16
-  store i16 %or.i.i, ptr %events18.i.i, align 4
+  %or.i.i20 = or disjoint i8 %9, %bf.clear.i8
+  %conv.i.i = zext nneg i8 %or.i.i20 to i16
+  store i16 %conv.i.i, ptr %events18.i.i, align 4
   %cmp4.i.i = icmp slt i32 %.sink.i.i, 0
-  %cmp9.not.i.i = icmp eq i8 %or.i.i19, 0
+  %cmp9.not.i.i = icmp eq i8 %or.i.i20, 0
   %or.cond.i.i = select i1 %cmp4.i.i, i1 true, i1 %cmp9.not.i.i
   br i1 %or.cond.i.i, label %lor.rhs.i.i, label %if.end60.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i
-  %cond.i.i = zext nneg i8 %bf.clear.i8 to i16
-  %tobool.not.i.i = icmp ne i8 %bf.clear.i8, 0
-  store i16 %cond.i.i, ptr %events18.i.i, align 4
+  %conv16.i.i = zext nneg i8 %bf.clear.i8 to i16
+  store i16 %conv16.i.i, ptr %events18.i.i, align 4
   %cmp19.i.i = icmp sgt i32 %.sink.i.i, -1
-  %narrow.i.i = and i1 %tobool.not.i.i, %cmp19.i.i
-  %npfd.1.i.i = zext i1 %narrow.i.i to i64
-  %arrayidx30.i.i = getelementptr inbounds [2 x %struct.pollfd], ptr %pfds.i.i, i64 0, i64 %npfd.1.i.i
-  store i32 %.sink.i7.i, ptr %arrayidx30.i.i, align 8
+  %cmp25.not.i.i = icmp ne i8 %bf.clear.i8, 0
+  %or.cond28.not.not.not41.i.i = and i1 %cmp25.not.i.i, %cmp19.i.i
+  %npfd.1.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %or.cond28.not.not.not41.i.i, i64 8, i64 0
+  %npfd.1.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %pfds.i.i, i64 %npfd.1.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
+  store i32 %.sink.i7.i, ptr %npfd.1.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, align 8
   %10 = shl nuw nsw i8 %bf.clear.i11, 2
   %conv34.i.i = zext nneg i8 %10 to i16
-  %events36.i.i = getelementptr inbounds i8, ptr %arrayidx30.i.i, i64 4
-  store i16 %conv34.i.i, ptr %events36.i.i, align 4
+  %npfd.1.sroa.sel.sroa.sel.i.i = select i1 %or.cond28.not.not.not41.i.i, ptr %.sroa.gep32.sroa.gep.i.i, ptr %events18.i.i
+  store i16 %conv34.i.i, ptr %npfd.1.sroa.sel.sroa.sel.i.i, align 4
   %cmp37.i.i = icmp sgt i32 %.sink.i7.i, -1
   br i1 %cmp37.i.i, label %land.lhs.true39.i.i, label %if.end48.i.i
 
 land.lhs.true39.i.i:                              ; preds = %if.else.i.i
   %tobool32.not.i.i = icmp ne i8 %bf.clear.i11, 0
-  %brmerge.i.i = or i1 %tobool32.not.i.i, %narrow.i.i
-  %11 = and i1 %tobool32.not.i.i, %narrow.i.i
+  %brmerge.i.i = or i1 %tobool32.not.i.i, %or.cond28.not.not.not41.i.i
+  %11 = and i1 %tobool32.not.i.i, %or.cond28.not.not.not41.i.i
   %inc46.mux.i.i = select i1 %11, i64 2, i64 1
   br i1 %brmerge.i.i, label %if.end60.i.i, label %lor.rhs.i.i
 
 if.end48.i.i:                                     ; preds = %if.else.i.i
-  br i1 %narrow.i.i, label %if.end60.i.i, label %lor.rhs.i.i
+  br i1 %or.cond28.not.not.not41.i.i, label %if.end60.i.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.end48.i.i, %land.lhs.true39.i.i, %if.then.i.i
   %cmp.i.not.i.i = icmp eq i64 %retval.sroa.0.0.copyload.i, -1
-  br i1 %cmp.i.not.i.i, label %poll_two_descriptors.exit.thread16, label %if.end60.i.i
+  br i1 %cmp.i.not.i.i, label %poll_two_descriptors.exit.thread17, label %if.end60.i.i
 
-poll_two_descriptors.exit.thread16:               ; preds = %lor.rhs.i.i
+poll_two_descriptors.exit.thread17:               ; preds = %lor.rhs.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pfds.i.i)
   br label %return
 
 if.end60.i.i:                                     ; preds = %lor.rhs.i.i, %if.end48.i.i, %land.lhs.true39.i.i, %if.then.i.i
-  %npfd.035.i.i = phi i64 [ 1, %if.end48.i.i ], [ 0, %lor.rhs.i.i ], [ 1, %if.then.i.i ], [ %inc46.mux.i.i, %land.lhs.true39.i.i ]
+  %npfd.036.i.i = phi i64 [ 1, %if.end48.i.i ], [ 0, %lor.rhs.i.i ], [ 1, %if.then.i.i ], [ %inc46.mux.i.i, %land.lhs.true39.i.i ]
   br i1 %cmp61.not.i.i, label %if.end64.i.i, label %if.then63.i.i
 
 if.then63.i.i:                                    ; preds = %if.end60.i.i
@@ -335,7 +336,7 @@ if.end64.i.i:                                     ; preds = %if.then63.i.i, %if.
   br i1 %cmp.i30.not.i.i, label %do.body.us.i.i, label %do.body.i.i
 
 do.body.us.i.i:                                   ; preds = %if.end64.i.i, %land.rhs.us.i.i
-  %call81.us.i.i = call i32 @poll(ptr noundef nonnull %pfds.i.i, i64 noundef %npfd.035.i.i, i32 noundef -1) #10
+  %call81.us.i.i = call i32 @poll(ptr noundef nonnull %pfds.i.i, i64 noundef %npfd.036.i.i, i32 noundef -1) #10
   %cmp82.us.i.i = icmp eq i32 %call81.us.i.i, -1
   br i1 %cmp82.us.i.i, label %land.rhs.us.i.i, label %do.end.i.i
 
@@ -350,7 +351,7 @@ do.body.i.i:                                      ; preds = %if.end64.i.i, %land
   %retval.sroa.0.0.i.i.i = call i64 @llvm.usub.sat.i64(i64 %retval.sroa.0.0.copyload.i, i64 %call70.i.i)
   %div.i.i = udiv i64 %retval.sroa.0.0.i.i.i, 1000000
   %conv79.i.i = trunc i64 %div.i.i to i32
-  %call81.i.i = call i32 @poll(ptr noundef nonnull %pfds.i.i, i64 noundef %npfd.035.i.i, i32 noundef %conv79.i.i) #10
+  %call81.i.i = call i32 @poll(ptr noundef nonnull %pfds.i.i, i64 noundef %npfd.036.i.i, i32 noundef %conv79.i.i) #10
   %cmp82.i.i = icmp eq i32 %call81.i.i, -1
   br i1 %cmp82.i.i, label %land.rhs.i.i, label %do.end.i.i
 
@@ -373,8 +374,8 @@ poll_two_descriptors.exit:                        ; preds = %do.end.i.i, %if.the
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pfds.i.i)
   br i1 %cmp91.i.i, label %return, label %for.cond
 
-return:                                           ; preds = %lor.lhs.false4.i3.i, %lor.lhs.false.i, %lor.lhs.false4.i.i, %lor.lhs.false.i.i, %poll_two_descriptors.exit, %if.end, %poll_two_descriptors.exit.thread16
-  %retval.0 = phi i32 [ 0, %poll_two_descriptors.exit.thread16 ], [ 0, %lor.lhs.false4.i3.i ], [ 0, %lor.lhs.false.i ], [ 0, %lor.lhs.false4.i.i ], [ 0, %lor.lhs.false.i.i ], [ 0, %poll_two_descriptors.exit ], [ %call2, %if.end ]
+return:                                           ; preds = %lor.lhs.false4.i3.i, %lor.lhs.false.i, %lor.lhs.false4.i.i, %lor.lhs.false.i.i, %poll_two_descriptors.exit, %if.end, %poll_two_descriptors.exit.thread17
+  %retval.0 = phi i32 [ 0, %poll_two_descriptors.exit.thread17 ], [ 0, %lor.lhs.false4.i3.i ], [ 0, %lor.lhs.false.i ], [ 0, %lor.lhs.false4.i.i ], [ 0, %lor.lhs.false.i.i ], [ 0, %poll_two_descriptors.exit ], [ %call2, %if.end ]
   ret i32 %retval.0
 }
 

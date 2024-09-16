@@ -2141,7 +2141,7 @@ return:                                           ; preds = %if.then42, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 6) i32 @do_read(ptr noundef %bev_ssl, i32 noundef %n_to_read) unnamed_addr #0 {
+define internal fastcc range(i32 0, 6) i32 @do_read(ptr noundef %bev_ssl, i32 noundef range(i32 1, 0) %n_to_read) unnamed_addr #0 {
 entry:
   %space = alloca [2 x %struct.iovec], align 16
   %input3 = getelementptr inbounds i8, ptr %bev_ssl, i64 256

@@ -4751,8 +4751,8 @@ _ZN4llvm12VPBasicBlock22getEnclosingLoopRegionEv.exit: ; preds = %50, %55, %59
 
 63:                                               ; preds = %_ZN4llvm12VPBasicBlock22getEnclosingLoopRegionEv.exit
   %64 = load i8, ptr %33, align 8
-  %.not41 = icmp eq i8 %64, 0
-  br i1 %.not41, label %"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.exit", label %"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.exit.thread"
+  %.not.i35 = icmp eq i8 %64, 0
+  br i1 %.not.i35, label %"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.exit", label %"_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.exit.thread"
 
 "_ZZN4llvm12VPBasicBlock7executeEPNS_16VPTransformStateEENK3$_0clEPNS_11VPBlockBaseE.exit": ; preds = %63
   %65 = getelementptr inbounds nuw i8, ptr %31, i64 128

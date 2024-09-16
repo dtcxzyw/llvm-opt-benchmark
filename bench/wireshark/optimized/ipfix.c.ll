@@ -46,7 +46,7 @@ define hidden range(i32 -1, 2) i32 @ipfix_open(ptr noundef %0, ptr noundef %1, p
 15:                                               ; preds = %.lr.ph58, %._crit_edge
   %.03956 = phi i32 [ 0, %.lr.ph58 ], [ %56, %._crit_edge ]
   %16 = load ptr, ptr %0, align 8
-  %17 = call fastcc i32 @ipfix_read_message_header(ptr noundef nonnull %5, ptr noundef %16, ptr noundef %1, ptr noundef %2)
+  %17 = call fastcc i32 @ipfix_read_message_header(ptr noundef %5, ptr noundef %16, ptr noundef %1, ptr noundef %2)
   %.not45 = icmp eq i32 %17, 0
   br i1 %.not45, label %18, label %24
 
@@ -164,8 +164,8 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #1
 declare zeroext i1 @ws_strtoi32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ipfix_read_message_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = tail call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef %0, i32 noundef 16, ptr noundef %2, ptr noundef %3) #5
+define internal fastcc range(i32 0, 2) i32 @ipfix_read_message_header(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+  %5 = tail call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %0, i32 noundef 16, ptr noundef %2, ptr noundef %3) #5
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %32, label %6
 
@@ -237,7 +237,7 @@ define internal range(i32 0, 2) i32 @ipfix_read(ptr nocapture noundef readonly %
   store i64 %9, ptr %5, align 8
   %10 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %11 = call fastcc i32 @ipfix_read_message_header(ptr noundef nonnull %7, ptr noundef %10, ptr noundef %3, ptr noundef %4)
+  %11 = call fastcc i32 @ipfix_read_message_header(ptr noundef %7, ptr noundef %10, ptr noundef %3, ptr noundef %4)
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %ipfix_read_message.exit.thread, label %ipfix_read_message.exit
 
@@ -292,7 +292,7 @@ define internal range(i32 0, 2) i32 @ipfix_seek_read(ptr nocapture noundef reado
 12:                                               ; preds = %6
   %13 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %14 = call fastcc i32 @ipfix_read_message_header(ptr noundef nonnull %7, ptr noundef %13, ptr noundef %4, ptr noundef %5)
+  %14 = call fastcc i32 @ipfix_read_message_header(ptr noundef %7, ptr noundef %13, ptr noundef %4, ptr noundef %5)
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %ipfix_read_message.exit.thread, label %ipfix_read_message.exit
 

@@ -1055,11 +1055,11 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
   %184 = call ptr @proto_tree_add_subtree(ptr noundef %.081, ptr noundef nonnull %.096102105, i32 noundef %159, i32 noundef %181, i32 noundef %183, ptr noundef null, ptr noundef nonnull @.str.249) #9
   %185 = load i32, ptr @hf_tacplus_chap_id, align 4
   %186 = call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %185, ptr noundef nonnull %.096102105, i32 noundef %159, i32 noundef 1, i32 noundef 0) #9
-  %187 = add i32 %159, 1
+  %187 = add nuw nsw i32 %159, 1
   %188 = load i32, ptr @hf_tacplus_chap_challenge, align 4
   %189 = zext i8 %182 to i32
   %190 = call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %188, ptr noundef nonnull %.096102105, i32 noundef %187, i32 noundef %189, i32 noundef 0) #9
-  %191 = add i32 %187, %189
+  %191 = add nuw nsw i32 %187, %189
   %192 = load i32, ptr @hf_tacplus_chap_response, align 4
   %193 = call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %192, ptr noundef nonnull %.096102105, i32 noundef %191, i32 noundef 16, i32 noundef 0) #9
   br label %dissect_tacplus_body.exit
@@ -1076,11 +1076,11 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
   %201 = call ptr @proto_tree_add_subtree(ptr noundef %.081, ptr noundef nonnull %.096102105, i32 noundef %159, i32 noundef %198, i32 noundef %200, ptr noundef null, ptr noundef nonnull @.str.250) #9
   %202 = load i32, ptr @hf_tacplus_mschap_id, align 4
   %203 = call ptr @proto_tree_add_item(ptr noundef %201, i32 noundef %202, ptr noundef nonnull %.096102105, i32 noundef %159, i32 noundef 1, i32 noundef 0) #9
-  %204 = add i32 %159, 1
+  %204 = add nuw nsw i32 %159, 1
   %205 = load i32, ptr @hf_tacplus_mschap_challenge, align 4
   %206 = zext i8 %199 to i32
   %207 = call ptr @proto_tree_add_item(ptr noundef %201, i32 noundef %205, ptr noundef nonnull %.096102105, i32 noundef %204, i32 noundef %206, i32 noundef 0) #9
-  %208 = add i32 %204, %206
+  %208 = add nuw nsw i32 %204, %206
   %209 = load i32, ptr @hf_tacplus_mschap_response, align 4
   %210 = call ptr @proto_tree_add_item(ptr noundef %201, i32 noundef %209, ptr noundef nonnull %.096102105, i32 noundef %208, i32 noundef 49, i32 noundef 0) #9
   br label %dissect_tacplus_body.exit
@@ -1096,10 +1096,10 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
   %217 = call ptr @proto_tree_add_subtree(ptr noundef %.081, ptr noundef nonnull %.096102105, i32 noundef %159, i32 noundef %215, i32 noundef %216, ptr noundef null, ptr noundef nonnull @.str.251) #9
   %218 = load i32, ptr @hf_tacplus_arap_nas_challenge, align 4
   %219 = call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %218, ptr noundef nonnull %.096102105, i32 noundef %159, i32 noundef 8, i32 noundef 0) #9
-  %220 = add i32 %159, 8
+  %220 = add nuw nsw i32 %159, 8
   %221 = load i32, ptr @hf_tacplus_arap_remote_challenge, align 4
   %222 = call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %221, ptr noundef nonnull %.096102105, i32 noundef %220, i32 noundef 8, i32 noundef 0) #9
-  %223 = add i32 %159, 16
+  %223 = add nuw nsw i32 %159, 16
   %224 = load i32, ptr @hf_tacplus_arap_remote_response, align 4
   %225 = call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %224, ptr noundef nonnull %.096102105, i32 noundef %223, i32 noundef 8, i32 noundef 0) #9
   br label %dissect_tacplus_body.exit
@@ -1430,7 +1430,7 @@ declare void @gcry_md_hash_buffer(i32 noundef, ptr noundef, ptr noundef, i64 nou
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @proto_tree_add_tacplus_common_fields(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 8, 1030) i32 @proto_tree_add_tacplus_common_fields(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 3) %2, i32 noundef range(i32 8, 265) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_tacplus_privilege_level, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0) #9
   %7 = add nuw nsw i32 %2, 1
@@ -1455,7 +1455,7 @@ define internal fastcc i32 @proto_tree_add_tacplus_common_fields(ptr noundef %0,
 
 22:                                               ; preds = %18, %4
   %.0 = phi i32 [ %21, %18 ], [ %3, %4 ]
-  %23 = add nuw nsw i32 %2, 4
+  %23 = or disjoint i32 %2, 4
   %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %23) #9
   %25 = zext i8 %24 to i32
   %26 = load i32, ptr @hf_tacplus_port_len, align 4
@@ -1482,7 +1482,7 @@ define internal fastcc i32 @proto_tree_add_tacplus_common_fields(ptr noundef %0,
 38:                                               ; preds = %32
   %39 = load i32, ptr @hf_tacplus_remote_address, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %39, ptr noundef %0, i32 noundef %.1, i32 noundef %35, i32 noundef 0) #9
-  %41 = add i32 %.1, %35
+  %41 = add nuw nsw i32 %.1, %35
   br label %42
 
 42:                                               ; preds = %38, %32
@@ -1497,25 +1497,25 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_tacplus_args_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
-  %6 = icmp sgt i32 %4, 0
-  br i1 %6, label %.lr.ph, label %._crit_edge
+define internal fastcc void @dissect_tacplus_args_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 6, 10) %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
-  %.026 = phi i32 [ %16, %.lr.ph ], [ %2, %5 ]
-  %.02425 = phi i32 [ %17, %.lr.ph ], [ 0, %5 ]
-  %7 = add nsw i32 %.02425, %3
-  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %7) #9
-  %9 = zext i8 %8 to i32
-  %10 = load i32, ptr @hf_tacplus_arg_length, align 4
-  %11 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %10, ptr noundef %0, i32 noundef %7, i32 noundef 1, i32 noundef %9, ptr noundef nonnull @.str.254, i32 noundef %.02425, i32 noundef %9) #9
-  %12 = tail call ptr @wmem_packet_scope() #9
-  %13 = tail call ptr @tvb_get_string_enc(ptr noundef %12, ptr noundef %0, i32 noundef %.026, i32 noundef %9, i32 noundef 0) #9
-  %14 = load i32, ptr @hf_tacplus_arg_value, align 4
-  %15 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %1, i32 noundef %14, ptr noundef %0, i32 noundef %.026, i32 noundef %9, ptr noundef %13, ptr noundef nonnull @.str.255, i32 noundef %.02425, ptr noundef %13) #9
-  %16 = add i32 %.026, %9
-  %17 = add nuw nsw i32 %.02425, 1
-  %exitcond.not = icmp eq i32 %17, %4
+  %.026 = phi i32 [ %15, %.lr.ph ], [ %2, %5 ]
+  %.02425 = phi i32 [ %16, %.lr.ph ], [ 0, %5 ]
+  %6 = add nuw nsw i32 %.02425, %3
+  %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #9
+  %8 = zext i8 %7 to i32
+  %9 = load i32, ptr @hf_tacplus_arg_length, align 4
+  %10 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %8, ptr noundef nonnull @.str.254, i32 noundef %.02425, i32 noundef %8) #9
+  %11 = tail call ptr @wmem_packet_scope() #9
+  %12 = tail call ptr @tvb_get_string_enc(ptr noundef %11, ptr noundef %0, i32 noundef %.026, i32 noundef %8, i32 noundef 0) #9
+  %13 = load i32, ptr @hf_tacplus_arg_value, align 4
+  %14 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %1, i32 noundef %13, ptr noundef %0, i32 noundef %.026, i32 noundef %8, ptr noundef %12, ptr noundef nonnull @.str.255, i32 noundef %.02425, ptr noundef %12) #9
+  %15 = add i32 %.026, %8
+  %16 = add nuw nsw i32 %.02425, 1
+  %exitcond.not = icmp eq i32 %16, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5

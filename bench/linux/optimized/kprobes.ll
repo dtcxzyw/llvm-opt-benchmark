@@ -1537,7 +1537,7 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   br i1 %278, label %280, label %279
 
 279:                                              ; preds = %270
-  call fastcc void @unoptimize_kprobe(ptr noundef nonnull %252, i1 noundef zeroext true)
+  call fastcc void @unoptimize_kprobe(ptr noundef %252, i1 noundef zeroext true)
   br label %280
 
 280:                                              ; preds = %279, %270
@@ -3877,7 +3877,7 @@ declare dso_local i32 @arch_check_optimized_kprobe(ptr noundef) local_unnamed_ad
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @unoptimize_kprobe(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc void @unoptimize_kprobe(ptr noundef nonnull %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @aggr_pre_handler
@@ -3927,7 +3927,7 @@ define internal fastcc void @unoptimize_kprobe(ptr noundef %0, i1 noundef zeroex
 
 30:                                               ; preds = %29
   tail call void @lockdep_assert_cpus_held() #21
-  tail call void @arch_unoptimize_kprobe(ptr noundef %0) #21
+  tail call void @arch_unoptimize_kprobe(ptr noundef nonnull %0) #21
   %31 = load i32, ptr %7, align 8
   %32 = and i32 %31, -5
   store i32 %32, ptr %7, align 8
@@ -3963,7 +3963,7 @@ define internal fastcc void @unoptimize_kprobe(ptr noundef %0, i1 noundef zeroex
 
 46:                                               ; preds = %45
   tail call void @lockdep_assert_cpus_held() #21
-  tail call void @arch_unoptimize_kprobe(ptr noundef %0) #21
+  tail call void @arch_unoptimize_kprobe(ptr noundef nonnull %0) #21
   %47 = load i32, ptr %7, align 8
   %48 = and i32 %47, -5
   store i32 %48, ptr %7, align 8
@@ -4004,7 +4004,7 @@ declare dso_local void @rethook_recycle(ptr noundef) local_unnamed_addr #1
 declare dso_local void @rethook_hook(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -19, 1) i32 @disarm_kprobe(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @disarm_kprobe(ptr noundef nonnull %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 8
@@ -4028,7 +4028,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @disarm_kprobe(ptr noundef 
   br i1 %15, label %16, label %.thread3
 
 16:                                               ; preds = %12, %7
-  tail call void @arch_disarm_kprobe(ptr noundef %0) #21
+  tail call void @arch_disarm_kprobe(ptr noundef nonnull %0) #21
   %17 = getelementptr inbounds i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
   br label %19

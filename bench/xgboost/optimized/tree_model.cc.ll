@@ -34207,7 +34207,7 @@ define linkonce_odr void @_ZNK7xgboost13TextGenerator9IndicatorB5cxx11ERKNS_7Reg
   %32 = getelementptr inbounds i8, ptr %9, i64 64
   %33 = getelementptr inbounds i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8
-  invoke fastcc void @_ZN7xgboost12_GLOBAL__N_114GetFeatureNameB5cxx11ERKNS_10FeatureMapEj(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(48) %34, i32 noundef %31)
+  invoke fastcc void @_ZN7xgboost12_GLOBAL__N_114GetFeatureNameB5cxx11ERKNS_10FeatureMapEj(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(48) %34, i32 noundef %31)
           to label %35 unwind label %73
 
 35:                                               ; preds = %30
@@ -34398,8 +34398,8 @@ define linkonce_odr void @_ZNK7xgboost13TextGenerator11CategoricalB5cxx11ERKNS_7
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN7xgboost12_GLOBAL__N_118GetSplitCategoriesERKNS_7RegTreeEi(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(312) %2, i32 noundef %3)
-  invoke fastcc void @_ZN7xgboost12_GLOBAL__N_114PrintCatsAsSetB5cxx11ERKSt6vectorIiSaIiEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  call fastcc void @_ZN7xgboost12_GLOBAL__N_118GetSplitCategoriesERKNS_7RegTreeEi(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(312) %2, i32 noundef %3)
+  invoke fastcc void @_ZN7xgboost12_GLOBAL__N_114PrintCatsAsSetB5cxx11ERKSt6vectorIiSaIiEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %10 unwind label %28
 
 10:                                               ; preds = %5
@@ -36418,7 +36418,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7xgboost12_GLOBAL__N_114GetFeatureNameB5cxx11ERKNS_10FeatureMapEj(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7xgboost12_GLOBAL__N_114GetFeatureNameB5cxx11ERKNS_10FeatureMapEj(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unique_ptr.64", align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -37465,7 +37465,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7xgboost12_GLOBAL__N_118GetSplitCategoriesERKNS_7RegTreeEi(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %1, i32 noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7xgboost12_GLOBAL__N_118GetSplitCategoriesERKNS_7RegTreeEi(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %1, i32 noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 256
   %5 = getelementptr inbounds i8, ptr %1, i64 264
   %6 = load ptr, ptr %5, align 8, !noalias !193
@@ -37655,7 +37655,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %80, %79
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7xgboost12_GLOBAL__N_114PrintCatsAsSetB5cxx11ERKSt6vectorIiSaIiEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7xgboost12_GLOBAL__N_114PrintCatsAsSetB5cxx11ERKSt6vectorIiSaIiEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
   %4 = getelementptr inbounds i8, ptr %3, i64 16
@@ -37728,7 +37728,7 @@ define internal fastcc void @_ZN7xgboost12_GLOBAL__N_114PrintCatsAsSetB5cxx11ERK
           to label %29 unwind label %.loopexit.split-lp
 
 29:                                               ; preds = %._crit_edge
-  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %3)
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %3)
           to label %30 unwind label %.loopexit.split-lp
 
 30:                                               ; preds = %29
@@ -37786,7 +37786,7 @@ _ZN7xgboost13TreeGenerator4TabsB5cxx11Ej.exit:    ; preds = %24, %7
   %31 = getelementptr inbounds i8, ptr %10, i64 128
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
-  invoke fastcc void @_ZN7xgboost12_GLOBAL__N_114GetFeatureNameB5cxx11ERKNS_10FeatureMapEj(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(48) %33, i32 noundef %22)
+  invoke fastcc void @_ZN7xgboost12_GLOBAL__N_114GetFeatureNameB5cxx11ERKNS_10FeatureMapEj(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(48) %33, i32 noundef %22)
           to label %34 unwind label %81
 
 34:                                               ; preds = %30
@@ -38628,7 +38628,7 @@ define linkonce_odr void @_ZNK7xgboost13JsonGenerator9IndicatorB5cxx11ERKNS_7Reg
   %38 = getelementptr inbounds i8, ptr %9, i64 128
   %39 = getelementptr inbounds i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8
-  invoke fastcc void @_ZN7xgboost12_GLOBAL__N_114GetFeatureNameB5cxx11ERKNS_10FeatureMapEj(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %40, i32 noundef %34)
+  invoke fastcc void @_ZN7xgboost12_GLOBAL__N_114GetFeatureNameB5cxx11ERKNS_10FeatureMapEj(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %40, i32 noundef %34)
           to label %41 unwind label %80
 
 41:                                               ; preds = %37
@@ -38827,7 +38827,7 @@ define linkonce_odr void @_ZNK7xgboost13JsonGenerator11CategoricalB5cxx11ERKNS_7
   %9 = alloca %"class.std::allocator", align 1
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN7xgboost12_GLOBAL__N_118GetSplitCategoriesERKNS_7RegTreeEi(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(312) %2, i32 noundef %3)
+  call fastcc void @_ZN7xgboost12_GLOBAL__N_118GetSplitCategoriesERKNS_7RegTreeEi(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(312) %2, i32 noundef %3)
   %12 = load atomic i8, ptr @_ZGVZNK7xgboost13JsonGenerator11CategoricalB5cxx11ERKNS_7RegTreeEijE17kCategoryTemplateB5cxx11 acquire, align 8
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %14, label %19, !prof !4
@@ -40454,7 +40454,7 @@ define linkonce_odr void @_ZNK7xgboost13JsonGenerator13SplitNodeImplERKNS_7RegTr
   %26 = getelementptr inbounds i8, ptr %10, i64 128
   %27 = getelementptr inbounds i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
-  invoke fastcc void @_ZN7xgboost12_GLOBAL__N_114GetFeatureNameB5cxx11ERKNS_10FeatureMapEj(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(48) %28, i32 noundef %22)
+  invoke fastcc void @_ZN7xgboost12_GLOBAL__N_114GetFeatureNameB5cxx11ERKNS_10FeatureMapEj(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(48) %28, i32 noundef %22)
           to label %29 unwind label %76
 
 29:                                               ; preds = %25
@@ -44299,8 +44299,8 @@ define linkonce_odr void @_ZNK7xgboost17GraphvizGenerator11CategoricalB5cxx11ERK
   br label %23
 
 23:                                               ; preds = %21, %18, %5
-  call fastcc void @_ZN7xgboost12_GLOBAL__N_118GetSplitCategoriesERKNS_7RegTreeEi(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(312) %2, i32 noundef %3)
-  invoke fastcc void @_ZN7xgboost12_GLOBAL__N_114PrintCatsAsSetB5cxx11ERKSt6vectorIiSaIiEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  call fastcc void @_ZN7xgboost12_GLOBAL__N_118GetSplitCategoriesERKNS_7RegTreeEi(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(312) %2, i32 noundef %3)
+  invoke fastcc void @_ZN7xgboost12_GLOBAL__N_114PrintCatsAsSetB5cxx11ERKSt6vectorIiSaIiEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %24 unwind label %118
 
 24:                                               ; preds = %23
@@ -44335,7 +44335,7 @@ _ZNK7xgboost7RegTree10SplitIndexEi.exit:          ; preds = %33, %28
   %40 = getelementptr inbounds i8, ptr %11, i64 64
   %41 = getelementptr inbounds i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8
-  invoke fastcc void @_ZN7xgboost12_GLOBAL__N_114GetFeatureNameB5cxx11ERKNS_10FeatureMapEj(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(48) %42, i32 noundef %.0.i)
+  invoke fastcc void @_ZN7xgboost12_GLOBAL__N_114GetFeatureNameB5cxx11ERKNS_10FeatureMapEj(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(48) %42, i32 noundef %.0.i)
           to label %43 unwind label %120
 
 43:                                               ; preds = %39
@@ -44722,7 +44722,7 @@ _ZNK7xgboost7RegTree9SplitCondEi.exit:            ; preds = %21, %29
 59:                                               ; preds = %57
   %60 = getelementptr inbounds i8, ptr %10, i64 64
   %61 = load ptr, ptr %45, align 8
-  invoke fastcc void @_ZN7xgboost12_GLOBAL__N_114GetFeatureNameB5cxx11ERKNS_10FeatureMapEj(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %61, i32 noundef %.0.i76)
+  invoke fastcc void @_ZN7xgboost12_GLOBAL__N_114GetFeatureNameB5cxx11ERKNS_10FeatureMapEj(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %61, i32 noundef %.0.i76)
           to label %62 unwind label %147
 
 62:                                               ; preds = %59

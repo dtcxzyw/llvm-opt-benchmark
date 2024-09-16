@@ -2101,7 +2101,7 @@ do.cond.i:                                        ; preds = %if.else.i, %if.then
   br i1 %cmp9.i, label %do.body.i, label %send_ascii_command.exit, !llvm.loop !17
 
 send_ascii_command.exit:                          ; preds = %do.cond.i
-  call fastcc void @read_ascii_response(ptr noundef nonnull %buffer, i64 noundef 1024)
+  call fastcc void @read_ascii_response(ptr noundef %buffer, i64 noundef 1024)
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %buffer, ptr noundef nonnull dereferenceable(3) @.str.233, i64 3)
   %cmp = icmp eq i32 %bcmp, 0
   br i1 %cmp, label %do.body.i5, label %if.else5
@@ -2144,7 +2144,7 @@ do.cond.i14:                                      ; preds = %if.else.i12, %if.th
   br i1 %cmp9.i16, label %do.body.i5, label %send_ascii_command.exit23, !llvm.loop !17
 
 send_ascii_command.exit23:                        ; preds = %do.cond.i14
-  call fastcc void @read_ascii_response(ptr noundef nonnull %buffer, i64 noundef 1024)
+  call fastcc void @read_ascii_response(ptr noundef %buffer, i64 noundef 1024)
   %bcmp1 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %buffer, ptr noundef nonnull dereferenceable(12) @.str.236, i64 12)
   %cmp10 = icmp eq i32 %bcmp1, 0
   br i1 %cmp10, label %if.end13, label %if.else12
@@ -2399,7 +2399,7 @@ do.cond.i46:                                      ; preds = %if.else.i44, %if.th
   br i1 %cmp9.i48, label %do.body.i37, label %send_ascii_command.exit55, !llvm.loop !17
 
 send_ascii_command.exit55:                        ; preds = %do.cond.i46
-  call fastcc void @read_ascii_response(ptr noundef nonnull %rsp, i64 noundef 80)
+  call fastcc void @read_ascii_response(ptr noundef %rsp, i64 noundef 80)
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %rsp, ptr noundef nonnull dereferenceable(3) @.str.233, i64 3)
   %cmp25 = icmp eq i32 %bcmp, 0
   br i1 %cmp25, label %if.end29, label %if.else28
@@ -2485,7 +2485,7 @@ do.cond.i86:                                      ; preds = %if.else.i84, %if.th
   br i1 %cmp9.i88, label %do.body.i77, label %send_ascii_command.exit95, !llvm.loop !17
 
 send_ascii_command.exit95:                        ; preds = %do.cond.i86
-  call fastcc void @read_ascii_response(ptr noundef nonnull %rsp, i64 noundef 80)
+  call fastcc void @read_ascii_response(ptr noundef %rsp, i64 noundef 80)
   %bcmp5 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %rsp, ptr noundef nonnull dereferenceable(3) @.str.233, i64 3)
   %cmp36 = icmp eq i32 %bcmp5, 0
   br i1 %cmp36, label %if.end40, label %if.else39
@@ -2637,7 +2637,7 @@ if.then10.i:                                      ; preds = %if.then6.us.i
   unreachable
 
 safe_send.exit:                                   ; preds = %do.cond.us.i
-  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %buffer, i64 noundef 24)
+  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef %buffer, i64 noundef 24)
   br i1 %call.i, label %if.end2.i, label %safe_recv_packet.exit
 
 if.end2.i:                                        ; preds = %safe_send.exit
@@ -2653,11 +2653,11 @@ if.end2.i:                                        ; preds = %safe_send.exit
   store i32 %call11.i, ptr %bodylen.i.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %buffer, i64 24
   %conv.i = zext i32 %call11.i to i64
-  %call16.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i, i64 noundef %conv.i)
+  %call16.i = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i, i64 noundef %conv.i)
   br label %safe_recv_packet.exit
 
 safe_recv_packet.exit:                            ; preds = %safe_send.exit, %if.end2.i
-  call fastcc void @validate_response_header(ptr noundef nonnull %buffer, i8 noundef zeroext 10, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %buffer, i8 noundef zeroext 10, i16 noundef zeroext 0)
   ret i32 1
 }
 
@@ -2867,7 +2867,7 @@ if.then10.i:                                      ; preds = %if.then6.us.i
   unreachable
 
 safe_send.exit:                                   ; preds = %do.cond.us.i
-  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %buffer, i64 noundef 24)
+  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef %buffer, i64 noundef 24)
   br i1 %call.i, label %if.end2.i, label %safe_recv_packet.exit
 
 if.end2.i:                                        ; preds = %safe_send.exit
@@ -2883,11 +2883,11 @@ if.end2.i:                                        ; preds = %safe_send.exit
   store i32 %call11.i, ptr %bodylen.i.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %buffer, i64 24
   %conv.i = zext i32 %call11.i to i64
-  %call16.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i, i64 noundef %conv.i)
+  %call16.i = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i, i64 noundef %conv.i)
   br label %safe_recv_packet.exit
 
 safe_recv_packet.exit:                            ; preds = %safe_send.exit, %if.end2.i
-  call fastcc void @validate_response_header(ptr noundef nonnull %buffer, i8 noundef zeroext 11, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %buffer, i8 noundef zeroext 11, i16 noundef zeroext 0)
   ret i32 1
 }
 
@@ -2990,7 +2990,7 @@ if.then10.i:                                      ; preds = %if.then6.us.i
   unreachable
 
 do.body:                                          ; preds = %do.body.preheader, %safe_recv_packet.exit
-  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %buffer, i64 noundef 24)
+  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef %buffer, i64 noundef 24)
   br i1 %call.i, label %if.end2.i, label %safe_recv_packet.exit
 
 if.end2.i:                                        ; preds = %do.body
@@ -3004,11 +3004,11 @@ if.end2.i:                                        ; preds = %do.body
   %call11.i = call i32 @ntohl(i32 noundef %6) #24
   store i32 %call11.i, ptr %bodylen.i.i, align 8
   %conv.i = zext i32 %call11.i to i64
-  %call16.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i, i64 noundef %conv.i)
+  %call16.i = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i, i64 noundef %conv.i)
   br label %safe_recv_packet.exit
 
 safe_recv_packet.exit:                            ; preds = %do.body, %if.end2.i
-  call fastcc void @validate_response_header(ptr noundef nonnull %buffer, i8 noundef zeroext 16, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %buffer, i8 noundef zeroext 16, i16 noundef zeroext 0)
   %7 = load i16, ptr %keylen8.i.i, align 2
   %cmp.not = icmp eq i16 %7, 0
   br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !20
@@ -3075,7 +3075,7 @@ if.then10.i:                                      ; preds = %if.then6.us.i
   unreachable
 
 safe_send.exit:                                   ; preds = %do.cond.us.i
-  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %buffer, i64 noundef 24)
+  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef %buffer, i64 noundef 24)
   br i1 %call.i, label %if.end2.i, label %safe_recv_packet.exit
 
 if.end2.i:                                        ; preds = %safe_send.exit
@@ -3089,11 +3089,11 @@ if.end2.i:                                        ; preds = %safe_send.exit
   %call11.i = call i32 @ntohl(i32 noundef %6) #24
   store i32 %call11.i, ptr %bodylen.i.i, align 8
   %conv.i = zext i32 %call11.i to i64
-  %call16.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i, i64 noundef %conv.i)
+  %call16.i = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i, i64 noundef %conv.i)
   br label %safe_recv_packet.exit
 
 safe_recv_packet.exit:                            ; preds = %safe_send.exit, %if.end2.i
-  call fastcc void @validate_response_header(ptr noundef nonnull %buffer, i8 noundef zeroext %cmd.04, i16 noundef zeroext 129)
+  call fastcc void @validate_response_header(ptr noundef %buffer, i8 noundef zeroext %cmd.04, i16 noundef zeroext 129)
   %inc = add i8 %cmd.04, 1
   %cmp.not = icmp eq i8 %inc, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !21
@@ -3791,7 +3791,7 @@ declare zeroext i1 @safe_strtoul(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @safe_strtoull(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @start_server(ptr nocapture noundef writeonly %port_out, i1 noundef zeroext %daemon, i32 noundef %timeout) unnamed_addr #0 {
+define internal fastcc i32 @start_server(ptr nocapture noundef writeonly %port_out, i1 noundef zeroext %daemon, i32 noundef range(i32 600, 1001) %timeout) unnamed_addr #0 {
 entry:
   %environment = alloca [80 x i8], align 16
   %pid_file = alloca [80 x i8], align 16
@@ -4333,7 +4333,7 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 declare i32 @crc32c_sw(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_ascii_response(ptr noundef %buffer, i64 noundef %size) unnamed_addr #0 {
+define internal fastcc void @read_ascii_response(ptr noundef nonnull %buffer, i64 noundef range(i64 80, 1025) %size) unnamed_addr #0 {
 entry:
   br label %do.body
 
@@ -4343,7 +4343,7 @@ do.body:                                          ; preds = %do.cond, %entry
   %read = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %read, align 8
   %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 %offset.0
-  %call = tail call i64 %1(ptr noundef %0, ptr noundef %add.ptr, i64 noundef 1) #20
+  %call = tail call i64 %1(ptr noundef %0, ptr noundef nonnull %add.ptr, i64 noundef 1) #20
   switch i64 %call, label %if.else9 [
     i64 -1, label %if.then
     i64 1, label %if.end10
@@ -4478,7 +4478,7 @@ do.end:                                           ; preds = %do.cond.us, %do.con
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @validate_response_header(ptr nocapture noundef readonly %response, i8 noundef zeroext %cmd, i16 noundef zeroext %status) unnamed_addr #0 {
+define internal fastcc void @validate_response_header(ptr nocapture noundef nonnull readonly %response, i8 noundef zeroext %cmd, i16 noundef zeroext %status) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %response, align 8
   %cmp = icmp eq i8 %0, -127
@@ -4859,7 +4859,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @rand() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @safe_recv(ptr noundef %buf, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @safe_recv(ptr noundef nonnull %buf, i64 noundef range(i64 0, 4294967296) %len) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %do.body
@@ -4871,7 +4871,7 @@ do.body:                                          ; preds = %entry, %do.cond
   %1 = load ptr, ptr %read, align 8
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %offset.0
   %sub = sub nsw i64 %len, %offset.0
-  %call = tail call i64 %1(ptr noundef %0, ptr noundef %add.ptr, i64 noundef %sub) #20
+  %call = tail call i64 %1(ptr noundef %0, ptr noundef nonnull %add.ptr, i64 noundef %sub) #20
   switch i64 %call, label %if.end16 [
     i64 -1, label %if.then2
     i64 0, label %land.lhs.true
@@ -4919,7 +4919,7 @@ declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #10
 declare i32 @ntohl(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_quit_impl(i8 noundef zeroext %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_quit_impl(i8 noundef zeroext range(i8 7, 24) %cmd) unnamed_addr #0 {
 entry:
   %buffer = alloca %union.anon.4, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
@@ -4974,7 +4974,7 @@ safe_send.exit:                                   ; preds = %do.cond.us.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %safe_send.exit
-  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %buffer, i64 noundef 24)
+  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef %buffer, i64 noundef 24)
   br i1 %call.i, label %if.end2.i, label %safe_recv_packet.exit
 
 if.end2.i:                                        ; preds = %if.then
@@ -4990,11 +4990,11 @@ if.end2.i:                                        ; preds = %if.then
   store i32 %call11.i, ptr %bodylen.i.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %buffer, i64 24
   %conv.i = zext i32 %call11.i to i64
-  %call16.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i, i64 noundef %conv.i)
+  %call16.i = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i, i64 noundef %conv.i)
   br label %safe_recv_packet.exit
 
 safe_recv_packet.exit:                            ; preds = %if.then, %if.end2.i
-  call fastcc void @validate_response_header(ptr noundef nonnull %buffer, i8 noundef zeroext 7, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %buffer, i8 noundef zeroext 7, i16 noundef zeroext 0)
   br label %if.end
 
 if.end:                                           ; preds = %safe_recv_packet.exit, %safe_send.exit
@@ -5046,7 +5046,7 @@ if.end15:                                         ; preds = %close_conn.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_set_impl(ptr nocapture noundef readonly %key, i8 noundef zeroext %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_set_impl(ptr nocapture noundef readonly %key, i8 noundef zeroext range(i8 1, 18) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.5, align 8
   %receive = alloca %union.anon.5, align 8
@@ -5123,7 +5123,7 @@ do.cond.us.i.us:                                  ; preds = %if.then6.us.i.us, %
   br i1 %cmp21.us.i.us, label %do.body.us.i.us, label %safe_send.exit.us, !llvm.loop !19
 
 safe_send.exit.us:                                ; preds = %do.cond.us.i.us
-  %call.i9.us = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i9.us = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i9.us, label %if.end2.i.us, label %safe_recv_packet.exit.us
 
 if.end2.i.us:                                     ; preds = %safe_send.exit.us
@@ -5137,11 +5137,11 @@ if.end2.i.us:                                     ; preds = %safe_send.exit.us
   %call11.i.us = call i32 @ntohl(i32 noundef %6) #24
   store i32 %call11.i.us, ptr %bodylen.i10, align 8
   %conv.i12.us = zext i32 %call11.i.us to i64
-  %call16.i.us = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i11, i64 noundef %conv.i12.us)
+  %call16.i.us = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i11, i64 noundef %conv.i12.us)
   br label %safe_recv_packet.exit.us
 
 safe_recv_packet.exit.us:                         ; preds = %if.end2.i.us, %safe_send.exit.us
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 1, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 1, i16 noundef zeroext 0)
   %inc.us = add nuw nsw i32 %ii.046.us, 1
   %exitcond51.not = icmp eq i32 %inc.us, 10
   br i1 %exitcond51.not, label %for.end, label %do.body.us.i.preheader.us, !llvm.loop !32
@@ -5237,7 +5237,7 @@ safe_send.exit31:                                 ; preds = %do.cond.us.i22
   br i1 %cmp3, label %if.then19, label %return.sink.split
 
 if.then19:                                        ; preds = %safe_send.exit31
-  %call.i32 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i32 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i32, label %if.end2.i34, label %safe_recv_packet.exit44
 
 if.end2.i34:                                      ; preds = %if.then19
@@ -5251,11 +5251,11 @@ if.end2.i34:                                      ; preds = %if.then19
   %call11.i40 = call i32 @ntohl(i32 noundef %18) #24
   store i32 %call11.i40, ptr %bodylen.i10, align 8
   %conv.i42 = zext i32 %call11.i40 to i64
-  %call16.i43 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i11, i64 noundef %conv.i42)
+  %call16.i43 = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i11, i64 noundef %conv.i42)
   br label %safe_recv_packet.exit44
 
 safe_recv_packet.exit44:                          ; preds = %if.then19, %if.end2.i34
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 1, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 1, i16 noundef zeroext 0)
   %19 = load i64, ptr %cas, align 8
   %20 = load i64, ptr %cas14, align 8
   %cmp26.not = icmp eq i64 %19, %20
@@ -5274,7 +5274,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_add_impl(ptr nocapture noundef readonly %key, i8 noundef zeroext %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_add_impl(ptr nocapture noundef readonly %key, i8 noundef zeroext range(i8 2, 19) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.8, align 8
   %receive = alloca %union.anon.8, align 8
@@ -5352,7 +5352,7 @@ do.cond.us.i.us:                                  ; preds = %if.then6.us.i.us, %
 
 safe_send.exit.us:                                ; preds = %do.cond.us.i.us
   %cmp3.us = icmp eq i32 %ii.024.us, 0
-  %call.i7.us = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i7.us = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   %. = select i1 %cmp3.us, i16 0, i16 2
   br i1 %call.i7.us, label %for.inc.us.sink.split, label %for.inc.us
 
@@ -5367,11 +5367,11 @@ for.inc.us.sink.split:                            ; preds = %safe_send.exit.us
   %call11.i.us = call i32 @ntohl(i32 noundef %6) #24
   store i32 %call11.i.us, ptr %bodylen.i18, align 8
   %conv.i10.us = zext i32 %call11.i.us to i64
-  %call16.i.us = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i20, i64 noundef %conv.i10.us)
+  %call16.i.us = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i20, i64 noundef %conv.i10.us)
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %safe_send.exit.us, %for.inc.us.sink.split
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 2, i16 noundef zeroext %.)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 2, i16 noundef zeroext %.)
   %inc.us = add nuw nsw i32 %ii.024.us, 1
   %exitcond28.not = icmp eq i32 %inc.us, 10
   br i1 %exitcond28.not, label %for.end, label %do.body.us.i.preheader.us, !llvm.loop !33
@@ -5419,7 +5419,7 @@ safe_send.exit:                                   ; preds = %do.cond.us.i
   br i1 %cmp3, label %for.inc, label %if.else
 
 if.else:                                          ; preds = %safe_send.exit
-  %call.i11 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i11 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i11, label %if.end2.i13, label %safe_recv_packet.exit23
 
 if.end2.i13:                                      ; preds = %if.else
@@ -5433,11 +5433,11 @@ if.end2.i13:                                      ; preds = %if.else
   %call11.i19 = call i32 @ntohl(i32 noundef %13) #24
   store i32 %call11.i19, ptr %bodylen.i18, align 8
   %conv.i21 = zext i32 %call11.i19 to i64
-  %call16.i22 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i20, i64 noundef %conv.i21)
+  %call16.i22 = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i20, i64 noundef %conv.i21)
   br label %safe_recv_packet.exit23
 
 safe_recv_packet.exit23:                          ; preds = %if.else, %if.end2.i13
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext %cmd, i16 noundef zeroext 2)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext %cmd, i16 noundef zeroext 2)
   br label %for.inc
 
 for.inc:                                          ; preds = %safe_send.exit, %safe_recv_packet.exit23
@@ -5450,7 +5450,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_replace_impl(ptr nocapture noundef readonly %key, i8 noundef zeroext %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_replace_impl(ptr nocapture noundef readonly %key, i8 noundef zeroext range(i8 3, 20) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.9, align 8
   %receive = alloca %union.anon.9, align 8
@@ -5525,7 +5525,7 @@ if.then10.i:                                      ; preds = %if.then6.us.i
   unreachable
 
 safe_send.exit:                                   ; preds = %do.cond.us.i
-  %call.i13 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i13 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i13, label %if.end2.i, label %safe_recv_packet.exit
 
 if.end2.i:                                        ; preds = %safe_send.exit
@@ -5543,11 +5543,11 @@ if.end2.i:                                        ; preds = %safe_send.exit
   store i32 %call11.i, ptr %bodylen.i14, align 8
   %add.ptr.i15 = getelementptr inbounds i8, ptr %receive, i64 24
   %conv.i16 = zext i32 %call11.i to i64
-  %call16.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i15, i64 noundef %conv.i16)
+  %call16.i = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i15, i64 noundef %conv.i16)
   br label %safe_recv_packet.exit
 
 safe_recv_packet.exit:                            ; preds = %safe_send.exit, %if.end2.i
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext %cmd, i16 noundef zeroext 1)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext %cmd, i16 noundef zeroext 1)
   %call6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #23
   %add1.i18 = add i64 %call6, 40
   %cmp.i19 = icmp ult i64 %add1.i18, 1024
@@ -5611,7 +5611,7 @@ if.then10.i50:                                    ; preds = %if.then6.us.i47
   unreachable
 
 safe_send.exit53:                                 ; preds = %do.cond.us.i44
-  %call.i54 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i54 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i54, label %if.end2.i56, label %safe_recv_packet.exit66
 
 if.end2.i56:                                      ; preds = %safe_send.exit53
@@ -5629,11 +5629,11 @@ if.end2.i56:                                      ; preds = %safe_send.exit53
   store i32 %call11.i62, ptr %bodylen.i61, align 8
   %add.ptr.i63 = getelementptr inbounds i8, ptr %receive, i64 24
   %conv.i64 = zext i32 %call11.i62 to i64
-  %call16.i65 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i63, i64 noundef %conv.i64)
+  %call16.i65 = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i63, i64 noundef %conv.i64)
   br label %safe_recv_packet.exit66
 
 safe_recv_packet.exit66:                          ; preds = %safe_send.exit53, %if.end2.i56
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 2, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 2, i16 noundef zeroext 0)
   %call12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #23
   %add1.i68 = add i64 %call12, 40
   %cmp.i69 = icmp ult i64 %add1.i68, 1024
@@ -5699,7 +5699,7 @@ do.cond.us.i94.us:                                ; preds = %if.then6.us.i97.us,
   br i1 %cmp21.us.i96.us, label %do.body.us.i85.us, label %safe_send.exit103.us, !llvm.loop !19
 
 safe_send.exit103.us:                             ; preds = %do.cond.us.i94.us
-  %call.i104.us = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i104.us = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i104.us, label %if.end2.i106.us, label %safe_recv_packet.exit116.us
 
 if.end2.i106.us:                                  ; preds = %safe_send.exit103.us
@@ -5713,11 +5713,11 @@ if.end2.i106.us:                                  ; preds = %safe_send.exit103.u
   %call11.i112.us = call i32 @ntohl(i32 noundef %22) #24
   store i32 %call11.i112.us, ptr %bodylen.i111, align 8
   %conv.i114.us = zext i32 %call11.i112.us to i64
-  %call16.i115.us = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i113, i64 noundef %conv.i114.us)
+  %call16.i115.us = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i113, i64 noundef %conv.i114.us)
   br label %safe_recv_packet.exit116.us
 
 safe_recv_packet.exit116.us:                      ; preds = %if.end2.i106.us, %safe_send.exit103.us
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 3, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 3, i16 noundef zeroext 0)
   %inc.us = add nuw nsw i32 %ii.0121.us, 1
   %exitcond127.not = icmp eq i32 %inc.us, 10
   br i1 %exitcond127.not, label %for.end, label %do.body.us.i85.preheader.us, !llvm.loop !34
@@ -5778,7 +5778,7 @@ if.end24:                                         ; preds = %if.then22, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_delete_impl(ptr noundef readonly %key, i8 noundef zeroext %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_delete_impl(ptr noundef readonly %key, i8 noundef zeroext range(i8 4, 21) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.10, align 8
   %receive = alloca %union.anon.10, align 8
@@ -5851,7 +5851,7 @@ if.then10.i:                                      ; preds = %if.then6.us.i
   unreachable
 
 safe_send.exit:                                   ; preds = %do.cond.us.i
-  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i, label %if.end2.i, label %safe_recv_packet.exit
 
 if.end2.i:                                        ; preds = %safe_send.exit
@@ -5869,11 +5869,11 @@ if.end2.i:                                        ; preds = %safe_send.exit
   store i32 %call11.i, ptr %bodylen.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %receive, i64 24
   %conv.i = zext i32 %call11.i to i64
-  %call16.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i, i64 noundef %conv.i)
+  %call16.i = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i, i64 noundef %conv.i)
   br label %safe_recv_packet.exit
 
 safe_recv_packet.exit:                            ; preds = %safe_send.exit, %if.end2.i
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext %cmd, i16 noundef zeroext 1)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext %cmd, i16 noundef zeroext 1)
   %call6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #23
   %add1.i = add i64 %call6, 32
   %cmp.i = icmp ult i64 %add1.i, 1024
@@ -5939,7 +5939,7 @@ if.then10.i32:                                    ; preds = %if.then6.us.i29
   unreachable
 
 safe_send.exit35:                                 ; preds = %do.cond.us.i26
-  %call.i36 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i36 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i36, label %if.end2.i38, label %safe_recv_packet.exit48
 
 if.end2.i38:                                      ; preds = %safe_send.exit35
@@ -5957,11 +5957,11 @@ if.end2.i38:                                      ; preds = %safe_send.exit35
   store i32 %call11.i44, ptr %bodylen.i43, align 8
   %add.ptr.i45 = getelementptr inbounds i8, ptr %receive, i64 24
   %conv.i46 = zext i32 %call11.i44 to i64
-  %call16.i47 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i45, i64 noundef %conv.i46)
+  %call16.i47 = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i45, i64 noundef %conv.i46)
   br label %safe_recv_packet.exit48
 
 safe_recv_packet.exit48:                          ; preds = %safe_send.exit35, %if.end2.i38
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 2, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 2, i16 noundef zeroext 0)
   %call12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #23
   %add1.i.i49 = add i64 %call12, 24
   %cmp.i.i50 = icmp ult i64 %add1.i.i49, 1024
@@ -6029,7 +6029,7 @@ safe_send.exit83:                                 ; preds = %do.cond.us.i74
   br i1 %cmp, label %if.then, label %do.body.us.i97.preheader
 
 if.then:                                          ; preds = %safe_send.exit83
-  %call.i84 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i84 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i84, label %if.end2.i86, label %safe_recv_packet.exit96
 
 if.end2.i86:                                      ; preds = %if.then
@@ -6047,11 +6047,11 @@ if.end2.i86:                                      ; preds = %if.then
   store i32 %call11.i92, ptr %bodylen.i91, align 8
   %add.ptr.i93 = getelementptr inbounds i8, ptr %receive, i64 24
   %conv.i94 = zext i32 %call11.i92 to i64
-  %call16.i95 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i93, i64 noundef %conv.i94)
+  %call16.i95 = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i93, i64 noundef %conv.i94)
   br label %safe_recv_packet.exit96
 
 safe_recv_packet.exit96:                          ; preds = %if.then, %if.end2.i86
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 4, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 4, i16 noundef zeroext 0)
   br label %do.body.us.i97.preheader
 
 do.body.us.i97.preheader:                         ; preds = %safe_recv_packet.exit96, %safe_send.exit83
@@ -6091,7 +6091,7 @@ if.then10.i112:                                   ; preds = %if.then6.us.i109
   unreachable
 
 safe_send.exit115:                                ; preds = %do.cond.us.i106
-  %call.i116 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i116 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i116, label %if.end2.i118, label %safe_recv_packet.exit128
 
 if.end2.i118:                                     ; preds = %safe_send.exit115
@@ -6109,16 +6109,16 @@ if.end2.i118:                                     ; preds = %safe_send.exit115
   store i32 %call11.i124, ptr %bodylen.i123, align 8
   %add.ptr.i125 = getelementptr inbounds i8, ptr %receive, i64 24
   %conv.i126 = zext i32 %call11.i124 to i64
-  %call16.i127 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i125, i64 noundef %conv.i126)
+  %call16.i127 = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i125, i64 noundef %conv.i126)
   br label %safe_recv_packet.exit128
 
 safe_recv_packet.exit128:                         ; preds = %safe_send.exit115, %if.end2.i118
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext %cmd, i16 noundef zeroext 1)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext %cmd, i16 noundef zeroext 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_get_impl(ptr noundef readonly %key, i8 noundef zeroext %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_get_impl(ptr noundef readonly %key, i8 noundef zeroext range(i8 0, 36) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.11, align 8
   %receive = alloca %union.anon.11, align 8
@@ -6216,7 +6216,7 @@ if.then10.i:                                      ; preds = %if.then6.us.i
   unreachable
 
 safe_send.exit:                                   ; preds = %do.cond.us.i
-  %call.i24 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i24 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i24, label %if.end2.i, label %safe_recv_packet.exit
 
 if.end2.i:                                        ; preds = %safe_send.exit
@@ -6234,11 +6234,11 @@ if.end2.i:                                        ; preds = %safe_send.exit
   store i32 %call11.i, ptr %bodylen.i25, align 8
   %add.ptr.i26 = getelementptr inbounds i8, ptr %receive, i64 24
   %conv.i27 = zext i32 %call11.i to i64
-  %call16.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i26, i64 noundef %conv.i27)
+  %call16.i = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i26, i64 noundef %conv.i27)
   br label %safe_recv_packet.exit
 
 safe_recv_packet.exit:                            ; preds = %safe_send.exit, %if.end2.i
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext %cmd, i16 noundef zeroext 1)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext %cmd, i16 noundef zeroext 1)
   %call11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #23
   %add1.i29 = add i64 %call11, 32
   %cmp.i30 = icmp ult i64 %add1.i29, 1024
@@ -6303,7 +6303,7 @@ if.then10.i54:                                    ; preds = %if.then6.us.i51
   unreachable
 
 safe_send.exit57:                                 ; preds = %do.cond.us.i48
-  %call.i58 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i58 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i58, label %if.end2.i60, label %safe_recv_packet.exit70
 
 if.end2.i60:                                      ; preds = %safe_send.exit57
@@ -6321,11 +6321,11 @@ if.end2.i60:                                      ; preds = %safe_send.exit57
   store i32 %call11.i66, ptr %bodylen.i65, align 8
   %add.ptr.i67 = getelementptr inbounds i8, ptr %receive, i64 24
   %conv.i68 = zext i32 %call11.i66 to i64
-  %call16.i69 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i67, i64 noundef %conv.i68)
+  %call16.i69 = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i67, i64 noundef %conv.i68)
   br label %safe_recv_packet.exit70
 
 safe_recv_packet.exit70:                          ; preds = %safe_send.exit57, %if.end2.i60
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 2, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 2, i16 noundef zeroext 0)
   %opcode.i76 = getelementptr inbounds i8, ptr %temp, i64 1
   %extlen5.i78 = getelementptr inbounds i8, ptr %temp, i64 4
   %keylen8.i81 = getelementptr inbounds i8, ptr %temp, i64 2
@@ -6426,7 +6426,7 @@ if.then10.i110:                                   ; preds = %if.then6.us.i107
 
 for.body32:                                       ; preds = %for.cond29.preheader, %safe_recv_packet.exit126
   %ii.1132 = phi i32 [ 0, %for.cond29.preheader ], [ %inc36, %safe_recv_packet.exit126 ]
-  %call.i114 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i114 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i114, label %if.end2.i116, label %safe_recv_packet.exit126
 
 if.end2.i116:                                     ; preds = %for.body32
@@ -6440,11 +6440,11 @@ if.end2.i116:                                     ; preds = %for.body32
   %call11.i122 = call i32 @ntohl(i32 noundef %21) #24
   store i32 %call11.i122, ptr %bodylen.i121, align 8
   %conv.i124 = zext i32 %call11.i122 to i64
-  %call16.i125 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i123, i64 noundef %conv.i124)
+  %call16.i125 = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i123, i64 noundef %conv.i124)
   br label %safe_recv_packet.exit126
 
 safe_recv_packet.exit126:                         ; preds = %for.body32, %if.end2.i116
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext %cmd, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext %cmd, i16 noundef zeroext 0)
   %inc36 = add nuw nsw i32 %ii.1132, 1
   %exitcond135.not = icmp eq i32 %inc36, 10
   br i1 %exitcond135.not, label %for.end37, label %for.body32, !llvm.loop !36
@@ -6454,7 +6454,7 @@ for.end37:                                        ; preds = %safe_recv_packet.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_getq_impl(ptr noundef readonly %key, i8 noundef zeroext %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_getq_impl(ptr noundef readonly %key, i8 noundef zeroext range(i8 9, 37) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.13, align 8
   %temp = alloca %union.anon.13, align 8
@@ -6512,7 +6512,8 @@ storage_command.exit:                             ; preds = %entry
   %call.i24 = tail call zeroext i16 @htons(i16 noundef zeroext 24) #24
   %keylen8.i = getelementptr inbounds i8, ptr %temp, i64 2
   store i16 %call.i24, ptr %keylen8.i, align 2
-  %conv11.i = trunc nuw nsw i64 %add.i to i32
+  %1 = trunc nuw nsw i64 %spec.store.select to i32
+  %conv11.i = or disjoint i32 %1, 24
   %call12.i = tail call i32 @htonl(i32 noundef %conv11.i) #24
   %bodylen.i25 = getelementptr inbounds i8, ptr %temp, i64 8
   store i32 %call12.i, ptr %bodylen.i25, align 8
@@ -6580,11 +6581,11 @@ ext_command.exit47:                               ; preds = %if.end20.i, %if.the
 do.body.us.i:                                     ; preds = %do.cond.us.i, %ext_command.exit47
   %offset.0.us.i = phi i64 [ %offset.1.us.i, %do.cond.us.i ], [ 0, %ext_command.exit47 ]
   %sub.us.i = sub i64 %add23, %offset.0.us.i
-  %1 = load ptr, ptr @con, align 8
-  %write.us.i = getelementptr inbounds i8, ptr %1, i64 16
-  %2 = load ptr, ptr %write.us.i, align 8
+  %2 = load ptr, ptr @con, align 8
+  %write.us.i = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = load ptr, ptr %write.us.i, align 8
   %add.ptr.us.i = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i
-  %call3.us.i = call i64 %2(ptr noundef %1, ptr noundef nonnull %add.ptr.us.i, i64 noundef %sub.us.i) #20
+  %call3.us.i = call i64 %3(ptr noundef %2, ptr noundef nonnull %add.ptr.us.i, i64 noundef %sub.us.i) #20
   %cmp4.us.i = icmp eq i64 %call3.us.i, -1
   br i1 %cmp4.us.i, label %if.then6.us.i, label %if.else.us.i
 
@@ -6594,8 +6595,8 @@ if.else.us.i:                                     ; preds = %do.body.us.i
 
 if.then6.us.i:                                    ; preds = %do.body.us.i
   %call7.us.i = tail call ptr @__errno_location() #24
-  %3 = load i32, ptr %call7.us.i, align 4
-  %cmp8.not.us.i = icmp eq i32 %3, 4
+  %4 = load i32, ptr %call7.us.i, align 4
+  %cmp8.not.us.i = icmp eq i32 %4, 4
   br i1 %cmp8.not.us.i, label %do.cond.us.i, label %if.then10.i
 
 do.cond.us.i:                                     ; preds = %if.then6.us.i, %if.else.us.i
@@ -6604,64 +6605,64 @@ do.cond.us.i:                                     ; preds = %if.then6.us.i, %if.
   br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !19
 
 if.then10.i:                                      ; preds = %if.then6.us.i
-  %4 = load ptr, ptr @stderr, align 8
-  %call12.i48 = call ptr @strerror(i32 noundef %3) #20
-  %call13.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.238, ptr noundef %call12.i48) #25
+  %5 = load ptr, ptr @stderr, align 8
+  %call12.i48 = call ptr @strerror(i32 noundef %4) #20
+  %call13.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.238, ptr noundef %call12.i48) #25
   call void @abort() #21
   unreachable
 
 safe_send.exit:                                   ; preds = %do.cond.us.i
-  %call.i49 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i49 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i49, label %if.end2.i, label %safe_recv_packet.exit
 
 if.end2.i:                                        ; preds = %safe_send.exit
   %keylen.i = getelementptr inbounds i8, ptr %receive, i64 2
-  %5 = load i16, ptr %keylen.i, align 2
-  %call3.i = call zeroext i16 @ntohs(i16 noundef zeroext %5) #24
+  %6 = load i16, ptr %keylen.i, align 2
+  %call3.i = call zeroext i16 @ntohs(i16 noundef zeroext %6) #24
   store i16 %call3.i, ptr %keylen.i, align 2
   %status.i = getelementptr inbounds i8, ptr %receive, i64 6
-  %6 = load i16, ptr %status.i, align 2
-  %call7.i = call zeroext i16 @ntohs(i16 noundef zeroext %6) #24
+  %7 = load i16, ptr %status.i, align 2
+  %call7.i = call zeroext i16 @ntohs(i16 noundef zeroext %7) #24
   store i16 %call7.i, ptr %status.i, align 2
   %bodylen.i50 = getelementptr inbounds i8, ptr %receive, i64 8
-  %7 = load i32, ptr %bodylen.i50, align 8
-  %call11.i = call i32 @ntohl(i32 noundef %7) #24
+  %8 = load i32, ptr %bodylen.i50, align 8
+  %call11.i = call i32 @ntohl(i32 noundef %8) #24
   store i32 %call11.i, ptr %bodylen.i50, align 8
   %add.ptr.i51 = getelementptr inbounds i8, ptr %receive, i64 24
   %conv.i52 = zext i32 %call11.i to i64
-  %call16.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i51, i64 noundef %conv.i52)
+  %call16.i = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i51, i64 noundef %conv.i52)
   br label %safe_recv_packet.exit
 
 safe_recv_packet.exit:                            ; preds = %safe_send.exit, %if.end2.i
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 2, i16 noundef zeroext 0)
-  %call.i53 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 2, i16 noundef zeroext 0)
+  %call.i53 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i53, label %if.end2.i55, label %safe_recv_packet.exit65
 
 if.end2.i55:                                      ; preds = %safe_recv_packet.exit
   %keylen.i56 = getelementptr inbounds i8, ptr %receive, i64 2
-  %8 = load i16, ptr %keylen.i56, align 2
-  %call3.i57 = call zeroext i16 @ntohs(i16 noundef zeroext %8) #24
+  %9 = load i16, ptr %keylen.i56, align 2
+  %call3.i57 = call zeroext i16 @ntohs(i16 noundef zeroext %9) #24
   store i16 %call3.i57, ptr %keylen.i56, align 2
   %status.i58 = getelementptr inbounds i8, ptr %receive, i64 6
-  %9 = load i16, ptr %status.i58, align 2
-  %call7.i59 = call zeroext i16 @ntohs(i16 noundef zeroext %9) #24
+  %10 = load i16, ptr %status.i58, align 2
+  %call7.i59 = call zeroext i16 @ntohs(i16 noundef zeroext %10) #24
   store i16 %call7.i59, ptr %status.i58, align 2
   %bodylen.i60 = getelementptr inbounds i8, ptr %receive, i64 8
-  %10 = load i32, ptr %bodylen.i60, align 8
-  %call11.i61 = call i32 @ntohl(i32 noundef %10) #24
+  %11 = load i32, ptr %bodylen.i60, align 8
+  %call11.i61 = call i32 @ntohl(i32 noundef %11) #24
   store i32 %call11.i61, ptr %bodylen.i60, align 8
   %add.ptr.i62 = getelementptr inbounds i8, ptr %receive, i64 24
   %conv.i63 = zext i32 %call11.i61 to i64
-  %call16.i64 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i62, i64 noundef %conv.i63)
+  %call16.i64 = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i62, i64 noundef %conv.i63)
   br label %safe_recv_packet.exit65
 
 safe_recv_packet.exit65:                          ; preds = %safe_recv_packet.exit, %if.end2.i55
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext %cmd, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext %cmd, i16 noundef zeroext 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_incr_impl(ptr nocapture noundef readonly %key, i8 noundef zeroext %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_incr_impl(ptr nocapture noundef readonly %key, i8 noundef zeroext range(i8 5, 22) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.14, align 8
   %receive = alloca %union.anon.14, align 8
@@ -6742,7 +6743,7 @@ do.cond.us.i.us:                                  ; preds = %if.then6.us.i.us, %
   br i1 %cmp21.us.i.us, label %do.body.us.i.us, label %safe_send.exit.us, !llvm.loop !19
 
 safe_send.exit.us:                                ; preds = %do.cond.us.i.us
-  %call.i8.us = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i8.us = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i8.us, label %if.end2.i.us, label %safe_recv_packet.exit.us
 
 if.end2.i.us:                                     ; preds = %safe_send.exit.us
@@ -6756,11 +6757,11 @@ if.end2.i.us:                                     ; preds = %safe_send.exit.us
   %call11.i.us = call i32 @ntohl(i32 noundef %6) #24
   store i32 %call11.i.us, ptr %bodylen.i10, align 8
   %conv.i12.us = zext i32 %call11.i.us to i64
-  %call16.i.us = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i11, i64 noundef %conv.i12.us)
+  %call16.i.us = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i11, i64 noundef %conv.i12.us)
   br label %safe_recv_packet.exit.us
 
 safe_recv_packet.exit.us:                         ; preds = %if.end2.i.us, %safe_send.exit.us
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 5, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 5, i16 noundef zeroext 0)
   %7 = load i64, ptr %add.ptr.i11, align 8
   %call7.us = call i64 @ntohll(i64 noundef %7) #20
   %cmp9.us = icmp eq i64 %call7.us, %indvars.iv
@@ -6835,7 +6836,7 @@ declare i64 @ntohll(i64 noundef) local_unnamed_addr #2
 declare i64 @htonll(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_decr_impl(ptr nocapture noundef readonly %key, i8 noundef zeroext %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_decr_impl(ptr nocapture noundef readonly %key, i8 noundef zeroext range(i8 6, 23) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.19, align 8
   %receive = alloca %union.anon.19, align 8
@@ -6916,7 +6917,7 @@ do.cond.us.i.us:                                  ; preds = %if.then6.us.i.us, %
   br i1 %cmp21.us.i.us, label %do.body.us.i.us, label %safe_send.exit.us, !llvm.loop !19
 
 safe_send.exit.us:                                ; preds = %do.cond.us.i.us
-  %call.i10.us = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i10.us = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i10.us, label %if.end2.i.us, label %safe_recv_packet.exit.us
 
 if.end2.i.us:                                     ; preds = %safe_send.exit.us
@@ -6930,11 +6931,11 @@ if.end2.i.us:                                     ; preds = %safe_send.exit.us
   %call11.i.us = call i32 @ntohl(i32 noundef %6) #24
   store i32 %call11.i.us, ptr %bodylen.i12, align 8
   %conv.i14.us = zext i32 %call11.i.us to i64
-  %call16.i.us = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i13, i64 noundef %conv.i14.us)
+  %call16.i.us = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i13, i64 noundef %conv.i14.us)
   br label %safe_recv_packet.exit.us
 
 safe_recv_packet.exit.us:                         ; preds = %if.end2.i.us, %safe_send.exit.us
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 6, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 6, i16 noundef zeroext 0)
   %7 = load i64, ptr %add.ptr.i13, align 8
   %call7.us = call i64 @ntohll(i64 noundef %7) #20
   %conv8.us = zext nneg i32 %ii.048.us to i64
@@ -7033,7 +7034,7 @@ safe_send.exit33:                                 ; preds = %do.cond.us.i24
   br i1 %cmp3, label %if.then17, label %if.else28
 
 if.then17:                                        ; preds = %safe_send.exit33
-  %call.i34 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i34 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i34, label %if.end2.i36, label %safe_recv_packet.exit46
 
 if.end2.i36:                                      ; preds = %if.then17
@@ -7047,11 +7048,11 @@ if.end2.i36:                                      ; preds = %if.then17
   %call11.i42 = call i32 @ntohl(i32 noundef %18) #24
   store i32 %call11.i42, ptr %bodylen.i12, align 8
   %conv.i44 = zext i32 %call11.i42 to i64
-  %call16.i45 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i13, i64 noundef %conv.i44)
+  %call16.i45 = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i13, i64 noundef %conv.i44)
   br label %safe_recv_packet.exit46
 
 safe_recv_packet.exit46:                          ; preds = %if.then17, %if.end2.i36
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 6, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 6, i16 noundef zeroext 0)
   %19 = load i64, ptr %add.ptr.i13, align 8
   %call22 = call i64 @ntohll(i64 noundef %19) #20
   %cmp23 = icmp eq i64 %call22, 0
@@ -7070,7 +7071,7 @@ if.end30:                                         ; preds = %safe_recv_packet.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_flush_impl(ptr noundef readonly %key, i8 noundef zeroext %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_flush_impl(ptr noundef readonly %key, i8 noundef zeroext range(i8 8, 25) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.21, align 8
   %receive = alloca %union.anon.21, align 8
@@ -7143,7 +7144,7 @@ if.then10.i:                                      ; preds = %if.then6.us.i
   unreachable
 
 safe_send.exit:                                   ; preds = %do.cond.us.i
-  %call.i21 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i21 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i21, label %if.end2.i, label %safe_recv_packet.exit
 
 if.end2.i:                                        ; preds = %safe_send.exit
@@ -7161,11 +7162,11 @@ if.end2.i:                                        ; preds = %safe_send.exit
   store i32 %call11.i, ptr %bodylen.i22, align 8
   %add.ptr.i23 = getelementptr inbounds i8, ptr %receive, i64 24
   %conv.i24 = zext i32 %call11.i to i64
-  %call16.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i23, i64 noundef %conv.i24)
+  %call16.i = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i23, i64 noundef %conv.i24)
   br label %safe_recv_packet.exit
 
 safe_recv_packet.exit:                            ; preds = %safe_send.exit, %if.end2.i
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 2, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 2, i16 noundef zeroext 0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 32, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 %cmd, ptr %opcode.i, align 1
@@ -7215,7 +7216,7 @@ safe_send.exit49:                                 ; preds = %do.cond.us.i40
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %safe_send.exit49
-  %call.i50 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i50 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i50, label %if.end2.i52, label %safe_recv_packet.exit62
 
 if.end2.i52:                                      ; preds = %if.then
@@ -7233,11 +7234,11 @@ if.end2.i52:                                      ; preds = %if.then
   store i32 %call11.i58, ptr %bodylen.i57, align 8
   %add.ptr.i59 = getelementptr inbounds i8, ptr %receive, i64 24
   %conv.i60 = zext i32 %call11.i58 to i64
-  %call16.i61 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i59, i64 noundef %conv.i60)
+  %call16.i61 = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i59, i64 noundef %conv.i60)
   br label %safe_recv_packet.exit62
 
 safe_recv_packet.exit62:                          ; preds = %if.then, %if.end2.i52
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 8, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 8, i16 noundef zeroext 0)
   br label %if.end
 
 if.end:                                           ; preds = %safe_recv_packet.exit62, %safe_send.exit49
@@ -7304,7 +7305,7 @@ if.then10.i78:                                    ; preds = %if.then6.us.i75
   unreachable
 
 safe_send.exit81:                                 ; preds = %do.cond.us.i72
-  %call.i82 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i82 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i82, label %if.end2.i84, label %safe_recv_packet.exit94
 
 if.end2.i84:                                      ; preds = %safe_send.exit81
@@ -7322,11 +7323,11 @@ if.end2.i84:                                      ; preds = %safe_send.exit81
   store i32 %call11.i90, ptr %bodylen.i89, align 8
   %add.ptr.i91 = getelementptr inbounds i8, ptr %receive, i64 24
   %conv.i92 = zext i32 %call11.i90 to i64
-  %call16.i93 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i91, i64 noundef %conv.i92)
+  %call16.i93 = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i91, i64 noundef %conv.i92)
   br label %safe_recv_packet.exit94
 
 safe_recv_packet.exit94:                          ; preds = %safe_send.exit81, %if.end2.i84
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 0, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 0, i16 noundef zeroext 0)
   %call17 = call i32 @sleep(i32 noundef 2) #20
   br label %do.body.us.i95
 
@@ -7364,7 +7365,7 @@ if.then10.i110:                                   ; preds = %if.then6.us.i107
   unreachable
 
 safe_send.exit113:                                ; preds = %do.cond.us.i104
-  %call.i114 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i114 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i114, label %if.end2.i116, label %safe_recv_packet.exit126
 
 if.end2.i116:                                     ; preds = %safe_send.exit113
@@ -7382,11 +7383,11 @@ if.end2.i116:                                     ; preds = %safe_send.exit113
   store i32 %call11.i122, ptr %bodylen.i121, align 8
   %add.ptr.i123 = getelementptr inbounds i8, ptr %receive, i64 24
   %conv.i124 = zext i32 %call11.i122 to i64
-  %call16.i125 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i123, i64 noundef %conv.i124)
+  %call16.i125 = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i123, i64 noundef %conv.i124)
   br label %safe_recv_packet.exit126
 
 safe_recv_packet.exit126:                         ; preds = %safe_send.exit113, %if.end2.i116
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 0, i16 noundef zeroext 1)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 0, i16 noundef zeroext 1)
   %keylen.i165 = getelementptr inbounds i8, ptr %receive, i64 2
   %status.i167 = getelementptr inbounds i8, ptr %receive, i64 6
   %bodylen.i169 = getelementptr inbounds i8, ptr %receive, i64 8
@@ -7456,7 +7457,7 @@ if.then10.i158:                                   ; preds = %if.then6.us.i155
   unreachable
 
 safe_send.exit161:                                ; preds = %do.cond.us.i152
-  %call.i162 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i162 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i162, label %if.end2.i164, label %safe_recv_packet.exit174
 
 if.end2.i164:                                     ; preds = %safe_send.exit161
@@ -7470,11 +7471,11 @@ if.end2.i164:                                     ; preds = %safe_send.exit161
   %call11.i170 = call i32 @ntohl(i32 noundef %36) #24
   store i32 %call11.i170, ptr %bodylen.i169, align 8
   %conv.i172 = zext i32 %call11.i170 to i64
-  %call16.i173 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i171, i64 noundef %conv.i172)
+  %call16.i173 = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i171, i64 noundef %conv.i172)
   br label %safe_recv_packet.exit174
 
 safe_recv_packet.exit174:                         ; preds = %safe_send.exit161, %if.end2.i164
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 2, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 2, i16 noundef zeroext 0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 32, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 %cmd, ptr %opcode.i, align 1
@@ -7529,7 +7530,7 @@ safe_send.exit200:                                ; preds = %do.cond.us.i191
   br i1 %cmp, label %if.then37, label %if.end40
 
 if.then37:                                        ; preds = %safe_send.exit200
-  %call.i201 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i201 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i201, label %if.end2.i203, label %safe_recv_packet.exit213
 
 if.end2.i203:                                     ; preds = %if.then37
@@ -7543,11 +7544,11 @@ if.end2.i203:                                     ; preds = %if.then37
   %call11.i209 = call i32 @ntohl(i32 noundef %43) #24
   store i32 %call11.i209, ptr %bodylen.i169, align 8
   %conv.i211 = zext i32 %call11.i209 to i64
-  %call16.i212 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i171, i64 noundef %conv.i211)
+  %call16.i212 = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i171, i64 noundef %conv.i211)
   br label %safe_recv_packet.exit213
 
 safe_recv_packet.exit213:                         ; preds = %if.then37, %if.end2.i203
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 8, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 8, i16 noundef zeroext 0)
   br label %if.end40
 
 if.end40:                                         ; preds = %safe_recv_packet.exit213, %safe_send.exit200
@@ -7613,7 +7614,7 @@ if.then10.i245:                                   ; preds = %if.then6.us.i242
   unreachable
 
 safe_send.exit248:                                ; preds = %do.cond.us.i239
-  %call.i249 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i249 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i249, label %if.end2.i251, label %safe_recv_packet.exit261
 
 if.end2.i251:                                     ; preds = %safe_send.exit248
@@ -7627,11 +7628,11 @@ if.end2.i251:                                     ; preds = %safe_send.exit248
   %call11.i257 = call i32 @ntohl(i32 noundef %50) #24
   store i32 %call11.i257, ptr %bodylen.i169, align 8
   %conv.i259 = zext i32 %call11.i257 to i64
-  %call16.i260 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i171, i64 noundef %conv.i259)
+  %call16.i260 = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i171, i64 noundef %conv.i259)
   br label %safe_recv_packet.exit261
 
 safe_recv_packet.exit261:                         ; preds = %safe_send.exit248, %if.end2.i251
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 0, i16 noundef zeroext 1)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 0, i16 noundef zeroext 1)
   br i1 %cmp30, label %for.body, label %for.end, !llvm.loop !39
 
 for.end:                                          ; preds = %safe_recv_packet.exit261
@@ -7639,7 +7640,7 @@ for.end:                                          ; preds = %safe_recv_packet.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_concat_impl(ptr noundef readonly %key, i8 noundef zeroext %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_concat_impl(ptr noundef readonly %key, i8 noundef zeroext range(i8 14, 27) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.24, align 8
   %receive = alloca %union.anon.24, align 8
@@ -7716,7 +7717,7 @@ if.then10.i:                                      ; preds = %if.then6.us.i
   unreachable
 
 safe_send.exit:                                   ; preds = %do.cond.us.i
-  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i, label %if.end2.i, label %safe_recv_packet.exit
 
 if.end2.i:                                        ; preds = %safe_send.exit
@@ -7734,11 +7735,11 @@ if.end2.i:                                        ; preds = %safe_send.exit
   store i32 %call11.i, ptr %bodylen.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %receive, i64 24
   %conv.i = zext i32 %call11.i to i64
-  %call16.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i, i64 noundef %conv.i)
+  %call16.i = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i, i64 noundef %conv.i)
   br label %safe_recv_packet.exit
 
 safe_recv_packet.exit:                            ; preds = %safe_send.exit, %if.end2.i
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext %cmd, i16 noundef zeroext 5)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext %cmd, i16 noundef zeroext 5)
   %call7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #23
   %add1.i = add i64 %call7, 37
   %cmp.i = icmp ult i64 %add1.i, 1024
@@ -7806,7 +7807,7 @@ if.then10.i60:                                    ; preds = %if.then6.us.i57
   unreachable
 
 safe_send.exit63:                                 ; preds = %do.cond.us.i54
-  %call.i64 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i64 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i64, label %if.end2.i66, label %safe_recv_packet.exit76
 
 if.end2.i66:                                      ; preds = %safe_send.exit63
@@ -7824,11 +7825,11 @@ if.end2.i66:                                      ; preds = %safe_send.exit63
   store i32 %call11.i72, ptr %bodylen.i71, align 8
   %add.ptr.i73 = getelementptr inbounds i8, ptr %receive, i64 24
   %conv.i74 = zext i32 %call11.i72 to i64
-  %call16.i75 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i73, i64 noundef %conv.i74)
+  %call16.i75 = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i73, i64 noundef %conv.i74)
   br label %safe_recv_packet.exit76
 
 safe_recv_packet.exit76:                          ; preds = %safe_send.exit63, %if.end2.i66
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 2, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 2, i16 noundef zeroext 0)
   %call14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #23
   %add2.i.i78 = add i64 %call14, 29
   %cmp.i.i79 = icmp ult i64 %add2.i.i78, 1024
@@ -7896,12 +7897,11 @@ if.then10.i111:                                   ; preds = %if.then6.us.i108
   unreachable
 
 safe_send.exit114:                                ; preds = %do.cond.us.i105
-  %23 = and i8 %cmd, -2
-  %or.cond = icmp eq i8 %23, 14
+  %or.cond = icmp ult i8 %cmd, 16
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %safe_send.exit114
-  %call.i115 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i115 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i115, label %if.end.sink.split, label %if.end
 
 if.else:                                          ; preds = %safe_send.exit114
@@ -7918,11 +7918,11 @@ if.else:                                          ; preds = %safe_send.exit114
 do.body.us.i135:                                  ; preds = %do.cond.us.i144, %if.else
   %offset.0.us.i136 = phi i64 [ %offset.1.us.i145, %do.cond.us.i144 ], [ 0, %if.else ]
   %sub.us.i137 = sub nuw nsw i64 24, %offset.0.us.i136
-  %24 = load ptr, ptr @con, align 8
-  %write.us.i138 = getelementptr inbounds i8, ptr %24, i64 16
-  %25 = load ptr, ptr %write.us.i138, align 8
+  %23 = load ptr, ptr @con, align 8
+  %write.us.i138 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = load ptr, ptr %write.us.i138, align 8
   %add.ptr.us.i139 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i136
-  %call3.us.i140 = call i64 %25(ptr noundef %24, ptr noundef nonnull %add.ptr.us.i139, i64 noundef %sub.us.i137) #20
+  %call3.us.i140 = call i64 %24(ptr noundef %23, ptr noundef nonnull %add.ptr.us.i139, i64 noundef %sub.us.i137) #20
   %cmp4.us.i141 = icmp eq i64 %call3.us.i140, -1
   br i1 %cmp4.us.i141, label %if.then6.us.i147, label %if.else.us.i142
 
@@ -7932,8 +7932,8 @@ if.else.us.i142:                                  ; preds = %do.body.us.i135
 
 if.then6.us.i147:                                 ; preds = %do.body.us.i135
   %call7.us.i148 = tail call ptr @__errno_location() #24
-  %26 = load i32, ptr %call7.us.i148, align 4
-  %cmp8.not.us.i149 = icmp eq i32 %26, 4
+  %25 = load i32, ptr %call7.us.i148, align 4
+  %cmp8.not.us.i149 = icmp eq i32 %25, 4
   br i1 %cmp8.not.us.i149, label %do.cond.us.i144, label %if.then10.i150
 
 do.cond.us.i144:                                  ; preds = %if.then6.us.i147, %if.else.us.i142
@@ -7942,38 +7942,38 @@ do.cond.us.i144:                                  ; preds = %if.then6.us.i147, %
   br i1 %cmp21.us.i146, label %do.body.us.i135, label %safe_send.exit153, !llvm.loop !19
 
 if.then10.i150:                                   ; preds = %if.then6.us.i147
-  %27 = load ptr, ptr @stderr, align 8
-  %call12.i151 = call ptr @strerror(i32 noundef %26) #20
-  %call13.i152 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.238, ptr noundef %call12.i151) #25
+  %26 = load ptr, ptr @stderr, align 8
+  %call12.i151 = call ptr @strerror(i32 noundef %25) #20
+  %call13.i152 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.238, ptr noundef %call12.i151) #25
   call void @abort() #21
   unreachable
 
 safe_send.exit153:                                ; preds = %do.cond.us.i144
-  %call.i154 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i154 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i154, label %if.end.sink.split, label %if.end
 
 if.end.sink.split:                                ; preds = %safe_send.exit153, %if.then
   %.sink.ph = phi i8 [ %cmd, %if.then ], [ 10, %safe_send.exit153 ]
   %keylen.i157 = getelementptr inbounds i8, ptr %receive, i64 2
-  %28 = load i16, ptr %keylen.i157, align 2
-  %call3.i158 = call zeroext i16 @ntohs(i16 noundef zeroext %28) #24
+  %27 = load i16, ptr %keylen.i157, align 2
+  %call3.i158 = call zeroext i16 @ntohs(i16 noundef zeroext %27) #24
   store i16 %call3.i158, ptr %keylen.i157, align 2
   %status.i159 = getelementptr inbounds i8, ptr %receive, i64 6
-  %29 = load i16, ptr %status.i159, align 2
-  %call7.i160 = call zeroext i16 @ntohs(i16 noundef zeroext %29) #24
+  %28 = load i16, ptr %status.i159, align 2
+  %call7.i160 = call zeroext i16 @ntohs(i16 noundef zeroext %28) #24
   store i16 %call7.i160, ptr %status.i159, align 2
   %bodylen.i161 = getelementptr inbounds i8, ptr %receive, i64 8
-  %30 = load i32, ptr %bodylen.i161, align 8
-  %call11.i162 = call i32 @ntohl(i32 noundef %30) #24
+  %29 = load i32, ptr %bodylen.i161, align 8
+  %call11.i162 = call i32 @ntohl(i32 noundef %29) #24
   store i32 %call11.i162, ptr %bodylen.i161, align 8
   %add.ptr.i163 = getelementptr inbounds i8, ptr %receive, i64 24
   %conv.i164 = zext i32 %call11.i162 to i64
-  %call16.i165 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i163, i64 noundef %conv.i164)
+  %call16.i165 = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i163, i64 noundef %conv.i164)
   br label %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %safe_send.exit153, %if.then
   %.sink = phi i8 [ %cmd, %if.then ], [ 10, %safe_send.exit153 ], [ %.sink.ph, %if.end.sink.split ]
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext %.sink, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext %.sink, i16 noundef zeroext 0)
   %call30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #23
   %add1.i.i167 = add i64 %call30, 24
   %cmp.i.i169 = icmp ult i64 %add1.i.i167, 1024
@@ -8006,11 +8006,11 @@ do.body.us.i185.preheader:                        ; preds = %if.end.i.i171, %if.
 do.body.us.i185:                                  ; preds = %do.body.us.i185.preheader, %do.cond.us.i194
   %offset.0.us.i186 = phi i64 [ %offset.1.us.i195, %do.cond.us.i194 ], [ 0, %do.body.us.i185.preheader ]
   %sub.us.i187 = sub i64 %add1.i.i167, %offset.0.us.i186
-  %31 = load ptr, ptr @con, align 8
-  %write.us.i188 = getelementptr inbounds i8, ptr %31, i64 16
-  %32 = load ptr, ptr %write.us.i188, align 8
+  %30 = load ptr, ptr @con, align 8
+  %write.us.i188 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = load ptr, ptr %write.us.i188, align 8
   %add.ptr.us.i189 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i186
-  %call3.us.i190 = call i64 %32(ptr noundef %31, ptr noundef nonnull %add.ptr.us.i189, i64 noundef %sub.us.i187) #20
+  %call3.us.i190 = call i64 %31(ptr noundef %30, ptr noundef nonnull %add.ptr.us.i189, i64 noundef %sub.us.i187) #20
   %cmp4.us.i191 = icmp eq i64 %call3.us.i190, -1
   br i1 %cmp4.us.i191, label %if.then6.us.i197, label %if.else.us.i192
 
@@ -8020,8 +8020,8 @@ if.else.us.i192:                                  ; preds = %do.body.us.i185
 
 if.then6.us.i197:                                 ; preds = %do.body.us.i185
   %call7.us.i198 = tail call ptr @__errno_location() #24
-  %33 = load i32, ptr %call7.us.i198, align 4
-  %cmp8.not.us.i199 = icmp eq i32 %33, 4
+  %32 = load i32, ptr %call7.us.i198, align 4
+  %cmp8.not.us.i199 = icmp eq i32 %32, 4
   br i1 %cmp8.not.us.i199, label %do.cond.us.i194, label %if.then10.i200
 
 do.cond.us.i194:                                  ; preds = %if.then6.us.i197, %if.else.us.i192
@@ -8030,39 +8030,39 @@ do.cond.us.i194:                                  ; preds = %if.then6.us.i197, %
   br i1 %cmp21.us.i196, label %do.body.us.i185, label %safe_send.exit203, !llvm.loop !19
 
 if.then10.i200:                                   ; preds = %if.then6.us.i197
-  %34 = load ptr, ptr @stderr, align 8
-  %call12.i201 = call ptr @strerror(i32 noundef %33) #20
-  %call13.i202 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.238, ptr noundef %call12.i201) #25
+  %33 = load ptr, ptr @stderr, align 8
+  %call12.i201 = call ptr @strerror(i32 noundef %32) #20
+  %call13.i202 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.238, ptr noundef %call12.i201) #25
   call void @abort() #21
   unreachable
 
 safe_send.exit203:                                ; preds = %do.cond.us.i194
-  %call.i204 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  %call.i204 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
   br i1 %call.i204, label %if.end2.i206, label %safe_recv_packet.exit216
 
 if.end2.i206:                                     ; preds = %safe_send.exit203
   %keylen.i207 = getelementptr inbounds i8, ptr %receive, i64 2
-  %35 = load i16, ptr %keylen.i207, align 2
-  %call3.i208 = call zeroext i16 @ntohs(i16 noundef zeroext %35) #24
+  %34 = load i16, ptr %keylen.i207, align 2
+  %call3.i208 = call zeroext i16 @ntohs(i16 noundef zeroext %34) #24
   store i16 %call3.i208, ptr %keylen.i207, align 2
   %status.i209 = getelementptr inbounds i8, ptr %receive, i64 6
-  %36 = load i16, ptr %status.i209, align 2
-  %call7.i210 = call zeroext i16 @ntohs(i16 noundef zeroext %36) #24
+  %35 = load i16, ptr %status.i209, align 2
+  %call7.i210 = call zeroext i16 @ntohs(i16 noundef zeroext %35) #24
   store i16 %call7.i210, ptr %status.i209, align 2
   %bodylen.i211 = getelementptr inbounds i8, ptr %receive, i64 8
-  %37 = load i32, ptr %bodylen.i211, align 8
-  %call11.i212 = call i32 @ntohl(i32 noundef %37) #24
+  %36 = load i32, ptr %bodylen.i211, align 8
+  %call11.i212 = call i32 @ntohl(i32 noundef %36) #24
   store i32 %call11.i212, ptr %bodylen.i211, align 8
   %add.ptr.i213 = getelementptr inbounds i8, ptr %receive, i64 24
   %conv.i214 = zext i32 %call11.i212 to i64
-  %call16.i215 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i213, i64 noundef %conv.i214)
+  %call16.i215 = call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i213, i64 noundef %conv.i214)
   br label %safe_recv_packet.exit216
 
 safe_recv_packet.exit216:                         ; preds = %safe_send.exit203, %if.end2.i206
-  call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 12, i16 noundef zeroext 0)
+  call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 12, i16 noundef zeroext 0)
   %keylen = getelementptr inbounds i8, ptr %receive, i64 2
-  %38 = load i16, ptr %keylen, align 2
-  %conv35 = zext i16 %38 to i64
+  %37 = load i16, ptr %keylen, align 2
+  %conv35 = zext i16 %37 to i64
   %call36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #23
   %cmp37 = icmp eq i64 %call36, %conv35
   br i1 %cmp37, label %if.end41, label %if.else40
@@ -8073,8 +8073,8 @@ if.else40:                                        ; preds = %safe_recv_packet.ex
 
 if.end41:                                         ; preds = %safe_recv_packet.exit216
   %bodylen = getelementptr inbounds i8, ptr %receive, i64 8
-  %39 = load i32, ptr %bodylen, align 8
-  %conv43 = zext i32 %39 to i64
+  %38 = load i32, ptr %bodylen, align 8
+  %conv43 = zext i32 %38 to i64
   %add46 = add nuw nsw i64 %conv35, 14
   %cmp47 = icmp eq i64 %add46, %conv43
   br i1 %cmp47, label %if.end51, label %if.else50
@@ -8131,7 +8131,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %entry.split
 
 entry.split:                                      ; preds = %entry
-  %call.i = tail call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %call, i64 noundef 24)
+  %call.i = tail call fastcc zeroext i1 @safe_recv(ptr noundef %call, i64 noundef 24)
   br i1 %call.i, label %if.end2.i, label %while.end
 
 if.end2.i:                                        ; preds = %entry.split
@@ -8149,7 +8149,7 @@ if.end2.i:                                        ; preds = %entry.split
   store i32 %call11.i, ptr %bodylen.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call, i64 24
   %conv.i = zext i32 %call11.i to i64
-  %call16.i = tail call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i, i64 noundef %conv.i)
+  %call16.i = tail call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i, i64 noundef %conv.i)
   br i1 %call16.i, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end2.i
@@ -8159,8 +8159,8 @@ while.body.lr.ph:                                 ; preds = %if.end2.i
 while.body:                                       ; preds = %while.body.lr.ph, %if.end2.i10
   %3 = load i8, ptr %opcode, align 1
   %4 = load i16, ptr %status.i, align 2
-  tail call fastcc void @validate_response_header(ptr noundef nonnull %call, i8 noundef zeroext %3, i16 noundef zeroext %4)
-  %call.i8 = tail call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %call, i64 noundef 24)
+  tail call fastcc void @validate_response_header(ptr noundef %call, i8 noundef zeroext %3, i16 noundef zeroext %4)
+  %call.i8 = tail call fastcc zeroext i1 @safe_recv(ptr noundef %call, i64 noundef 24)
   br i1 %call.i8, label %if.end2.i10, label %while.end
 
 if.end2.i10:                                      ; preds = %while.body
@@ -8174,7 +8174,7 @@ if.end2.i10:                                      ; preds = %while.body
   %call11.i16 = tail call i32 @ntohl(i32 noundef %7) #24
   store i32 %call11.i16, ptr %bodylen.i, align 8
   %conv.i18 = zext i32 %call11.i16 to i64
-  %call16.i19 = tail call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i, i64 noundef %conv.i18)
+  %call16.i19 = tail call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i, i64 noundef %conv.i18)
   br i1 %call16.i19, label %while.body, label %while.end, !llvm.loop !40
 
 while.end:                                        ; preds = %while.body, %if.end2.i10, %entry.split, %if.end2.i

@@ -302,7 +302,7 @@ return:                                           ; preds = %for.body, %if.end33
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL11readContourI8_IO_FILETnPFiPT_EXadL_ZNS_9readCharFEPS1_EETnPFiS3_RNS_7Vector2EEXadL_ZNS_10readCoordFES6_S8_EEEEbS3_RNS_7ContourEPKS7_iRb(ptr noundef %input, ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef readonly %first, i32 noundef %terminator, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %colorsSpecified) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL11readContourI8_IO_FILETnPFiPT_EXadL_ZNS_9readCharFEPS1_EETnPFiS3_RNS_7Vector2EEXadL_ZNS_10readCoordFES6_S8_EEEEbS3_RNS_7ContourEPKS7_iRb(ptr noundef %input, ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef readonly %first, i32 noundef range(i32 -1, 126) %terminator, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %colorsSpecified) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca [4 x %"struct.msdfgen::Vector2"], align 16
   %ref.tmp = alloca %"class.msdfgen::EdgeHolder", align 8
@@ -755,7 +755,7 @@ if.then:                                          ; preds = %if.end12.i
   store ptr %8, ptr %input.addr, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
   %call1 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7msdfgen5Shape10addContourEv(ptr noundef nonnull align 8 dereferenceable(25) %output)
-  %call2 = call fastcc noundef zeroext i1 @_ZN7msdfgenL11readContourIPKcTnPFiPT_EXadL_ZNS_9readCharSEPS2_EETnPFiS4_RNS_7Vector2EEXadL_ZNS_10readCoordSES7_S9_EEEEbS4_RNS_7ContourEPKS8_iRb(ptr noundef nonnull %input.addr, ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull %p, i32 noundef -1, ptr noundef nonnull align 1 dereferenceable(1) %locColorsSpec)
+  %call2 = call fastcc noundef zeroext i1 @_ZN7msdfgenL11readContourIPKcTnPFiPT_EXadL_ZNS_9readCharSEPS2_EETnPFiS4_RNS_7Vector2EEXadL_ZNS_10readCoordSES7_S9_EEEEbS4_RNS_7ContourEPKS8_iRb(ptr noundef %input.addr, ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull %p, i32 noundef -1, ptr noundef nonnull align 1 dereferenceable(1) %locColorsSpec)
   br label %return
 
 if.else5:                                         ; preds = %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit
@@ -825,7 +825,7 @@ if.end17:                                         ; preds = %do.body.i16, %_ZN7m
 
 for.body20:                                       ; preds = %if.end17, %_ZN7msdfgen9readCharSEPPKc.exit32
   %call21 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7msdfgen5Shape10addContourEv(ptr noundef nonnull align 8 dereferenceable(25) %output)
-  %call22 = call fastcc noundef zeroext i1 @_ZN7msdfgenL11readContourIPKcTnPFiPT_EXadL_ZNS_9readCharSEPS2_EETnPFiS4_RNS_7Vector2EEXadL_ZNS_10readCoordSES7_S9_EEEEbS4_RNS_7ContourEPKS8_iRb(ptr noundef nonnull %input.addr, ptr noundef nonnull align 8 dereferenceable(24) %call21, ptr noundef null, i32 noundef 125, ptr noundef nonnull align 1 dereferenceable(1) %locColorsSpec)
+  %call22 = call fastcc noundef zeroext i1 @_ZN7msdfgenL11readContourIPKcTnPFiPT_EXadL_ZNS_9readCharSEPS2_EETnPFiS4_RNS_7Vector2EEXadL_ZNS_10readCoordSES7_S9_EEEEbS4_RNS_7ContourEPKS8_iRb(ptr noundef %input.addr, ptr noundef nonnull align 8 dereferenceable(24) %call21, ptr noundef null, i32 noundef 125, ptr noundef nonnull align 1 dereferenceable(1) %locColorsSpec)
   br i1 %call22, label %for.inc25, label %return
 
 for.inc25:                                        ; preds = %for.body20
@@ -877,7 +877,7 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL11readContourIPKcTnPFiPT_EXadL_ZNS_9readCharSEPS2_EETnPFiS4_RNS_7Vector2EEXadL_ZNS_10readCoordSES7_S9_EEEEbS4_RNS_7ContourEPKS8_iRb(ptr nocapture noundef %input, ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef readonly %first, i32 noundef %terminator, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %colorsSpecified) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL11readContourIPKcTnPFiPT_EXadL_ZNS_9readCharSEPS2_EETnPFiS4_RNS_7Vector2EEXadL_ZNS_10readCoordSES7_S9_EEEEbS4_RNS_7ContourEPKS8_iRb(ptr nocapture noundef nonnull %input, ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef readonly %first, i32 noundef range(i32 -1, 126) %terminator, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %colorsSpecified) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %end.i90 = alloca ptr, align 8
   %end.i10.i = alloca ptr, align 8

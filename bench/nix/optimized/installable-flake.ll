@@ -7209,7 +7209,7 @@ _ZN3nix13OrSuggestionsINS_3refINS_10eval_cache10AttrCursorEEEED2Ev.exit: ; preds
 
 232:                                              ; preds = %._crit_edge
   %233 = call ptr @__cxa_allocate_exception(i64 376) #27
-  invoke fastcc void @_ZN3nixL13showAttrPathsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN3nixL13showAttrPathsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %234 unwind label %.thread
 
 234:                                              ; preds = %232
@@ -7486,7 +7486,7 @@ declare void @_ZN3nix13parseAttrPathERNS_9EvalStateESt17basic_string_viewIcSt11c
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN3nix11SuggestionspLERKS0_(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nixL13showAttrPathsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nixL13showAttrPathsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 16

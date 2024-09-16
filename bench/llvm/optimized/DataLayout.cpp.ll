@@ -5066,7 +5066,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %4
   %23 = add i64 %22, %21
   %.not.i = sub i64 0, %21
   %24 = and i64 %23, %.not.i
-  call fastcc void @_ZL15getElementIndexN4llvm8TypeSizeERNS_5APIntE(ptr dead_on_unwind noalias nonnull writable align 8 %5, i64 %24, i8 %18, ptr noundef nonnull align 8 dereferenceable(12) %3)
+  call fastcc void @_ZL15getElementIndexN4llvm8TypeSizeERNS_5APIntE(ptr dead_on_unwind noalias writable align 8 %5, i64 %24, i8 %18, ptr noundef nonnull align 8 dereferenceable(12) %3)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %27 = load i32, ptr %26, align 8
@@ -5164,7 +5164,7 @@ _ZN4llvm5APIntD2Ev.exit43:                        ; preds = %"_ZN9__gnu_cxx5__op
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15getElementIndexN4llvm8TypeSizeERNS_5APIntE(ptr dead_on_unwind noalias writable align 8 %0, i64 %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(12) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL15getElementIndexN4llvm8TypeSizeERNS_5APIntE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i64 %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(12) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
@@ -5217,7 +5217,7 @@ _ZN4llvm7isUIntNEjm.exit:                         ; preds = %15
 
 _ZN4llvm7isUIntNEjm.exit.thread:                  ; preds = %15, %_ZN4llvm7isUIntNEjm.exit
   %28 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #19
-  call void @_ZNK4llvm5APInt4sdivEl(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %3, i64 noundef %28) #19
+  call void @_ZNK4llvm5APInt4sdivEl(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %3, i64 noundef %28) #19
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i32, ptr %30, align 8
@@ -5321,7 +5321,7 @@ define dso_local void @_ZNK4llvm10DataLayout22getGEPIndicesForOffsetERPNS_4TypeE
   %17 = add i64 %16, %15
   %.not.i = sub i64 0, %15
   %18 = and i64 %17, %.not.i
-  call fastcc void @_ZL15getElementIndexN4llvm8TypeSizeERNS_5APIntE(ptr dead_on_unwind noalias nonnull writable align 8 %5, i64 %18, i8 %12, ptr noundef nonnull align 8 dereferenceable(12) %3)
+  call fastcc void @_ZL15getElementIndexN4llvm8TypeSizeERNS_5APIntE(ptr dead_on_unwind noalias writable align 8 %5, i64 %18, i8 %12, ptr noundef nonnull align 8 dereferenceable(12) %3)
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(12) %5)
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8

@@ -284,8 +284,8 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit:           ; preds = %do.body.i
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit
-  call fastcc void @_ZL16MakeAbsolutePathB5cxx11PKc(ptr noalias nonnull align 8 %temp1, ptr noundef %one)
-  invoke fastcc void @_ZL16MakeAbsolutePathB5cxx11PKc(ptr noalias nonnull align 8 %temp2, ptr noundef %second)
+  call fastcc void @_ZL16MakeAbsolutePathB5cxx11PKc(ptr noalias align 8 %temp1, ptr noundef %one)
+  invoke fastcc void @_ZL16MakeAbsolutePathB5cxx11PKc(ptr noalias align 8 %temp2, ptr noundef %second)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end

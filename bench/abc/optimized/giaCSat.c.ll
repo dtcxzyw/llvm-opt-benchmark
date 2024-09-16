@@ -287,7 +287,7 @@ define i32 @Cbs_ManPropagate(ptr nocapture noundef %0, i32 noundef %1) local_unn
   br i1 %or.cond3.i, label %51, label %53
 
 51:                                               ; preds = %49
-  %52 = tail call fastcc i32 @Cbs_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %20, ptr noundef nonnull %25, ptr noundef null)
+  %52 = tail call fastcc i32 @Cbs_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %20, ptr noundef nonnull %25, ptr noundef null)
   br label %Cbs_ManPropagateOne.exit
 
 53:                                               ; preds = %49
@@ -296,11 +296,11 @@ define i32 @Cbs_ManPropagate(ptr nocapture noundef %0, i32 noundef %1) local_unn
   br i1 %or.cond5.i, label %55, label %57
 
 55:                                               ; preds = %53
-  %56 = tail call fastcc i32 @Cbs_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %20, ptr noundef nonnull %37, ptr noundef null)
+  %56 = tail call fastcc i32 @Cbs_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %20, ptr noundef nonnull %37, ptr noundef null)
   br label %Cbs_ManPropagateOne.exit
 
 57:                                               ; preds = %53
-  %58 = tail call fastcc i32 @Cbs_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %20, ptr noundef nonnull %25, ptr noundef nonnull %37)
+  %58 = tail call fastcc i32 @Cbs_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %20, ptr noundef nonnull %25, ptr noundef nonnull %37)
   br label %Cbs_ManPropagateOne.exit
 
 59:                                               ; preds = %48
@@ -342,7 +342,7 @@ define i32 @Cbs_ManPropagate(ptr nocapture noundef %0, i32 noundef %1) local_unn
   br i1 %or.cond9.i, label %82, label %84
 
 82:                                               ; preds = %79
-  %83 = tail call fastcc i32 @Cbs_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %20, ptr noundef nonnull %25, ptr noundef nonnull %37)
+  %83 = tail call fastcc i32 @Cbs_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %20, ptr noundef nonnull %25, ptr noundef nonnull %37)
   br label %Cbs_ManPropagateOne.exit
 
 84:                                               ; preds = %79
@@ -571,7 +571,7 @@ Cbs_VarIsJust.exit.thread:                        ; preds = %.lr.ph96, %147, %Cb
   br label %Cbs_ManPropagateTwo.exit.thread
 
 Cbs_ManPropagateTwo.exit:                         ; preds = %181
-  %208 = tail call fastcc i32 @Cbs_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %142, ptr noundef nonnull %159, ptr noundef nonnull %171)
+  %208 = tail call fastcc i32 @Cbs_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %142, ptr noundef nonnull %159, ptr noundef nonnull %171)
   %.not42 = icmp eq i32 %208, 0
   br i1 %.not42, label %Cbs_ManPropagateTwo.exit.thread, label %.loopexit
 
@@ -1241,7 +1241,7 @@ define internal fastcc void @Cbs_ManCancelUntil(ptr nocapture noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Cbs_ManResolve(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #8 {
+define internal fastcc i32 @Cbs_ManResolve(ptr nocapture noundef %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = getelementptr inbounds i8, ptr %0, i64 108
   %6 = load i32, ptr %5, align 4
@@ -2696,7 +2696,7 @@ declare void @Gia_ManSetPhase(ptr noundef) local_unnamed_addr #12
 declare void @Cec_ManSatAddToStore(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Cbs_ManAnalyze(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #8 {
+define internal fastcc i32 @Cbs_ManAnalyze(ptr nocapture noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4) unnamed_addr #8 {
   %6 = getelementptr inbounds i8, ptr %0, i64 104
   %7 = getelementptr inbounds i8, ptr %0, i64 108
   %8 = load i32, ptr %7, align 4

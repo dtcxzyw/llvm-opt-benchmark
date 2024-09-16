@@ -473,7 +473,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
 
 for.end:                                          ; preds = %for.inc
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %script_name, i64 noundef 64, ptr noundef nonnull @.str.20, i32 noundef %idx) #14
-  %call17 = call fastcc i32 @run_script(ptr noundef nonnull @dyn_frame_types_script, ptr noundef nonnull %script_name, i32 noundef 0, i32 noundef 0)
+  %call17 = call fastcc i32 @run_script(ptr noundef nonnull @dyn_frame_types_script, ptr noundef %script_name, i32 noundef 0, i32 noundef 0)
   ret i32 %call17
 }
 
@@ -497,7 +497,7 @@ if.end:                                           ; preds = %entry
   %idxprom = sext i32 %div2 to i64
   %arrayidx = getelementptr inbounds [78 x ptr], ptr @scripts, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
-  %call6 = call fastcc i32 @run_script(ptr noundef %0, ptr noundef nonnull %script_name, i32 noundef %rem, i32 noundef %rem1)
+  %call6 = call fastcc i32 @run_script(ptr noundef %0, ptr noundef %script_name, i32 noundef %rem, i32 noundef %rem1)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -509,7 +509,7 @@ return:                                           ; preds = %entry, %if.end
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @run_script(ptr noundef %script, ptr noundef %script_name, i32 noundef %free_order, i32 noundef %blocking) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @run_script(ptr noundef %script, ptr noundef nonnull %script_name, i32 noundef range(i32 -1, 2) %free_order, i32 noundef range(i32 -1, 2) %blocking) unnamed_addr #1 {
 entry:
   %rv.i = alloca i32, align 4
   %ina.i = alloca %struct.in_addr, align 4
@@ -852,7 +852,7 @@ if.end231.i:                                      ; preds = %if.end222.i, %if.en
   br label %helper_init.exit
 
 err.i:                                            ; preds = %if.end222.i, %if.end216.i, %if.then211.i, %if.end203.i, %if.end198.i, %if.end187.i, %if.end176.i, %if.end168.i, %if.end162.i, %if.end156.i, %if.end146.i, %if.end140.i, %if.end132.i, %if.end120.i, %if.then113.i, %if.end97.i, %if.end90.i, %if.then83.i, %if.end76.i, %if.end70.i, %if.end63.i, %if.end54.i, %if.end45.i, %if.end37.i, %lor.lhs.false.i, %if.end29.i, %if.end23.i, %if.end15.i, %if.end10.i, %if.end.i, %entry
-  call fastcc void @helper_cleanup(ptr noundef nonnull %h)
+  call fastcc void @helper_cleanup(ptr noundef %h)
   br label %helper_init.exit
 
 helper_init.exit:                                 ; preds = %if.end231.i, %err.i
@@ -865,7 +865,7 @@ helper_init.exit:                                 ; preds = %if.end231.i, %err.i
   br i1 %tobool.not, label %out, label %if.end
 
 if.end:                                           ; preds = %helper_init.exit
-  %call2 = call fastcc i32 @run_script_worker(ptr noundef nonnull %h, ptr noundef %script, ptr noundef %script_name, i32 noundef -1)
+  %call2 = call fastcc i32 @run_script_worker(ptr noundef nonnull %h, ptr noundef %script, ptr noundef nonnull %script_name, i32 noundef -1)
   %call5 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 2027, ptr noundef nonnull @.str.26, i32 noundef %call2) #14
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %out, label %if.end8
@@ -917,7 +917,7 @@ join_threads.exit:                                ; preds = %if.end11.i, %if.end
 
 out:                                              ; preds = %join_threads.exit, %if.end, %helper_init.exit
   %testresult.0 = phi i32 [ 0, %if.end ], [ 0, %helper_init.exit ], [ %spec.select, %join_threads.exit ]
-  call fastcc void @helper_cleanup(ptr noundef nonnull %h)
+  call fastcc void @helper_cleanup(ptr noundef %h)
   ret i32 %testresult.0
 }
 
@@ -3688,7 +3688,7 @@ helper_local_cleanup.exit:                        ; preds = %if.then2.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @helper_cleanup(ptr noundef %h) unnamed_addr #1 {
+define internal fastcc void @helper_cleanup(ptr noundef nonnull %h) unnamed_addr #1 {
 entry:
   %rv.i44 = alloca i32, align 4
   %rv.i = alloca i32, align 4

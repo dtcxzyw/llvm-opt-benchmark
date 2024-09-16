@@ -46,12 +46,12 @@ define hidden ptr @ecache_alloc(ptr noundef %tsdn, ptr noundef %pac, ptr noundef
 entry:
   %commit = alloca i8, align 1
   store i8 1, ptr %commit, align 1
-  %call5 = call fastcc ptr @extent_recycle(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %ehooks, ptr noundef %ecache, ptr noundef %expand_edata, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, ptr noundef nonnull %commit, i1 noundef zeroext %guarded)
+  %call5 = call fastcc ptr @extent_recycle(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %ehooks, ptr noundef %ecache, ptr noundef %expand_edata, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, ptr noundef %commit, i1 noundef zeroext %guarded)
   ret ptr %call5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @extent_recycle(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %ehooks, ptr noundef %ecache, ptr noundef %expand_edata, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, ptr nocapture noundef %commit, i1 noundef zeroext %guarded) unnamed_addr #1 {
+define internal fastcc ptr @extent_recycle(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %ehooks, ptr noundef %ecache, ptr noundef %expand_edata, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, ptr nocapture noundef nonnull %commit, i1 noundef zeroext %guarded) unnamed_addr #1 {
 entry:
   %lock.i.i = getelementptr inbounds i8, ptr %ecache, i64 72
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #9
@@ -414,7 +414,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
   %ecache_retained.i = getelementptr inbounds i8, ptr %pac, i64 38936
-  %call.i = call fastcc ptr @extent_recycle(ptr noundef %tsdn, ptr noundef nonnull %pac, ptr noundef %ehooks, ptr noundef nonnull %ecache_retained.i, ptr noundef %expand_edata, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, ptr noundef nonnull %commit, i1 noundef zeroext %guarded)
+  %call.i = call fastcc ptr @extent_recycle(ptr noundef %tsdn, ptr noundef nonnull %pac, ptr noundef %ehooks, ptr noundef nonnull %ecache_retained.i, ptr noundef %expand_edata, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, ptr noundef %commit, i1 noundef zeroext %guarded)
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %if.else.i, label %extent_alloc_retained.exit.thread20
 
@@ -476,7 +476,7 @@ if.end4.i.i:                                      ; preds = %while.cond.i.i.i
 if.end8.i.i:                                      ; preds = %if.end4.i.i
   store i8 0, ptr %zeroed.i.i, align 1
   store i8 0, ptr %committed.i.i, align 1
-  %call9.i.i = call fastcc ptr @ehooks_alloc(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef null, i64 noundef %storemerge.i.i.i, i64 noundef 4096, ptr noundef nonnull %zeroed.i.i, ptr noundef nonnull %committed.i.i)
+  %call9.i.i = call fastcc ptr @ehooks_alloc(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef null, i64 noundef %storemerge.i.i.i, i64 noundef 4096, ptr noundef %zeroed.i.i, ptr noundef nonnull %committed.i.i)
   %cmp10.i.i = icmp eq ptr %call9.i.i, null
   br i1 %cmp10.i.i, label %if.then11.i.i, label %if.end13.i.i
 
@@ -507,13 +507,13 @@ if.end13.i.i:                                     ; preds = %if.end8.i.i
   store i64 %12, ptr %e_sn.i.i.i.i, align 8
   %18 = and i32 %ecache_retained.val.i.i, -268431361
   %conv.i.masked.masked.i.i.i = zext i32 %18 to i64
-  %shl.i22.i.i.i = select i1 %tobool16.i.i, i64 32768, i64 0
-  %shl.i25.i.i.i = select i1 %tobool17.i.i, i64 8192, i64 0
-  %or.i16.i.i.i = or disjoint i64 %shl.i22.i.i.i, %conv.i.masked.masked.i.i.i
-  %or.i23.masked.i.i.i = or disjoint i64 %or.i16.i.i.i, %shl.i25.i.i.i
-  %and.i17.i.i.i = or i64 %or.i23.masked.i.i.i, %and.i.i.i.i
-  %or.i30.i.i.i = or disjoint i64 %and.i17.i.i.i, 17592429314048
-  store i64 %or.i30.i.i.i, ptr %call5.i.i, align 8
+  %shl.i21.i.i.i = select i1 %tobool16.i.i, i64 32768, i64 0
+  %shl.i24.i.i.i = select i1 %tobool17.i.i, i64 8192, i64 0
+  %or.i16.i.i.i = or disjoint i64 %shl.i21.i.i.i, %conv.i.masked.masked.i.i.i
+  %or.i22.i.i.i = or disjoint i64 %or.i16.i.i.i, %shl.i24.i.i.i
+  %and.i17.i.i.i = or i64 %or.i22.i.i.i, %and.i.i.i.i
+  %or.i29.i.i.i = or disjoint i64 %and.i17.i.i.i, 17592429314048
+  store i64 %or.i29.i.i.i, ptr %call5.i.i, align 8
   %19 = getelementptr i8, ptr %pac, i64 58384
   %pac.val61.i.i = load ptr, ptr %19, align 8
   %call.i.i.i.i = call zeroext i1 @emap_register_boundary(ptr noundef %tsdn, ptr noundef %pac.val61.i.i, ptr noundef nonnull %call5.i.i, i32 noundef 232, i1 noundef zeroext false) #9
@@ -739,7 +739,7 @@ entry:
 if.end:                                           ; preds = %entry
   %add = add i64 %alignment, 4095
   %and = and i64 %add, -4096
-  %call3 = call fastcc ptr @ehooks_alloc(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef %new_addr, i64 noundef %size, i64 noundef %and, ptr noundef nonnull %zero.addr, ptr noundef %commit)
+  %call3 = call fastcc ptr @ehooks_alloc(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef %new_addr, i64 noundef %size, i64 noundef %and, ptr noundef %zero.addr, ptr noundef %commit)
   %cmp4 = icmp eq ptr %call3, null
   br i1 %cmp4, label %return.sink.split, label %if.end7
 
@@ -768,15 +768,15 @@ if.end7:                                          ; preds = %if.end
   %10 = and i32 %ecache_dirty.val, -268431361
   %conv.i.masked.masked.i = zext i32 %10 to i64
   %or.i16.i = or i64 %and.i.i, %conv.i.masked.masked.i
-  %shl.i22.i = select i1 %tobool10, i64 32768, i64 0
-  %shl.i25.i = select i1 %tobool11, i64 8192, i64 0
+  %shl.i21.i = select i1 %tobool10, i64 32768, i64 0
+  %shl.i24.i = select i1 %tobool11, i64 8192, i64 0
   %11 = zext nneg i8 %6 to i64
-  %shl.i29.i = shl nuw nsw i64 %11, 44
-  %or.i23.masked.i = or disjoint i64 %shl.i22.i, %shl.i25.i
-  %and.i17.i = or disjoint i64 %or.i23.masked.i, %shl.i29.i
-  %and.i28.i = or disjoint i64 %and.i17.i, %or.i16.i
-  %or.i30.i = or disjoint i64 %and.i28.i, 243269632
-  store i64 %or.i30.i, ptr %call2, align 8
+  %shl.i28.i = shl nuw nsw i64 %11, 44
+  %or.i22.i = or disjoint i64 %shl.i21.i, %shl.i24.i
+  %and.i17.i = or disjoint i64 %or.i22.i, %shl.i28.i
+  %or.i25.i = or disjoint i64 %and.i17.i, %or.i16.i
+  %or.i29.i = or disjoint i64 %or.i25.i, 243269632
+  store i64 %or.i29.i, ptr %call2, align 8
   %12 = getelementptr i8, ptr %pac, i64 58384
   %pac.val = load ptr, ptr %12, align 8
   %call.i = call zeroext i1 @emap_register_boundary(ptr noundef %tsdn, ptr noundef %pac.val, ptr noundef nonnull %call2, i32 noundef 232, i1 noundef zeroext false) #9
@@ -856,7 +856,7 @@ if.end:                                           ; preds = %malloc_mutex_lock.e
   br i1 %tobool, label %if.else, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %call.i = call fastcc ptr @extent_try_coalesce_impl(ptr noundef %tsdn, ptr noundef readonly %pac, ptr noundef readonly %ehooks, ptr noundef nonnull %ecache, ptr noundef nonnull %edata, ptr noundef nonnull %coalesced_unused)
+  %call.i = call fastcc ptr @extent_try_coalesce_impl(ptr noundef %tsdn, ptr noundef readonly %pac, ptr noundef readonly %ehooks, ptr noundef nonnull %ecache, ptr noundef nonnull %edata, ptr noundef %coalesced_unused)
   br label %label_skip_coalesce
 
 if.else:                                          ; preds = %if.end
@@ -867,7 +867,7 @@ if.else:                                          ; preds = %if.end
 
 do.body7:                                         ; preds = %if.else, %do.body7
   %edata.addr.1 = phi ptr [ %call.i31, %do.body7 ], [ %edata, %if.else ]
-  %call.i31 = call fastcc ptr @extent_try_coalesce_impl(ptr noundef %tsdn, ptr noundef readonly %pac, ptr noundef readonly %ehooks, ptr noundef %ecache, ptr noundef %edata.addr.1, ptr noundef nonnull %coalesced)
+  %call.i31 = call fastcc ptr @extent_try_coalesce_impl(ptr noundef %tsdn, ptr noundef readonly %pac, ptr noundef readonly %ehooks, ptr noundef %ecache, ptr noundef %edata.addr.1, ptr noundef %coalesced)
   %6 = load i8, ptr %coalesced, align 1
   %tobool11 = trunc i8 %6 to i1
   br i1 %tobool11, label %do.body7, label %do.end12, !llvm.loop !7
@@ -1003,7 +1003,7 @@ if.end13:                                         ; preds = %lor.lhs.false
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %coalesced.i)
   %5 = load ptr, ptr %emap.i, align 8
   tail call void @emap_update_edata_state(ptr noundef %tsdn, ptr noundef %5, ptr noundef nonnull %edata.0, i32 noundef 0) #9
-  %call.i.i23 = call fastcc ptr @extent_try_coalesce_impl(ptr noundef %tsdn, ptr noundef readonly %pac, ptr noundef readonly %ehooks, ptr noundef nonnull %ecache, ptr noundef nonnull %edata.0, ptr noundef nonnull %coalesced.i)
+  %call.i.i23 = call fastcc ptr @extent_try_coalesce_impl(ptr noundef %tsdn, ptr noundef readonly %pac, ptr noundef readonly %ehooks, ptr noundef nonnull %ecache, ptr noundef nonnull %edata.0, ptr noundef %coalesced.i)
   %6 = load ptr, ptr %emap.i, align 8
   %7 = load i32, ptr %state.i, align 8
   tail call void @emap_update_edata_state(ptr noundef %tsdn, ptr noundef %6, ptr noundef %call.i.i23, i32 noundef %7) #9
@@ -1398,7 +1398,7 @@ return:                                           ; preds = %extent_dalloc_wrapp
 declare ptr @edata_cache_get(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ehooks_alloc(ptr noundef %tsdn, ptr nocapture noundef readonly %ehooks, ptr noundef %new_addr, i64 noundef %size, i64 noundef %alignment, ptr noundef %zero, ptr noundef %commit) unnamed_addr #1 {
+define internal fastcc ptr @ehooks_alloc(ptr noundef %tsdn, ptr nocapture noundef readonly %ehooks, ptr noundef %new_addr, i64 noundef %size, i64 noundef range(i64 0, -4095) %alignment, ptr noundef nonnull %zero, ptr noundef %commit) unnamed_addr #1 {
 entry:
   %ptr.i = getelementptr inbounds i8, ptr %ehooks, i64 8
   %0 = load atomic i64, ptr %ptr.i acquire, align 8
@@ -1408,7 +1408,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %ehooks.val = load i32, ptr %ehooks, align 8
-  %call2 = tail call ptr @ehooks_default_alloc_impl(ptr noundef %tsdn, ptr noundef %new_addr, i64 noundef %size, i64 noundef %alignment, ptr noundef %zero, ptr noundef %commit, i32 noundef %ehooks.val) #9
+  %call2 = tail call ptr @ehooks_default_alloc_impl(ptr noundef %tsdn, ptr noundef %new_addr, i64 noundef %size, i64 noundef %alignment, ptr noundef nonnull %zero, ptr noundef %commit, i32 noundef %ehooks.val) #9
   br label %if.end10
 
 if.else:                                          ; preds = %entry
@@ -1444,7 +1444,7 @@ if.then.i.i:                                      ; preds = %cond.end.i
 ehooks_pre_reentrancy.exit:                       ; preds = %cond.end.i, %if.then.i.i
   %6 = load ptr, ptr %1, align 8
   %ehooks.val17 = load i32, ptr %ehooks, align 8
-  %call4 = tail call ptr %6(ptr noundef nonnull %1, ptr noundef %new_addr, i64 noundef %size, i64 noundef %alignment, ptr noundef %zero, ptr noundef %commit, i32 noundef %ehooks.val17) #9
+  %call4 = tail call ptr %6(ptr noundef nonnull %1, ptr noundef %new_addr, i64 noundef %size, i64 noundef %alignment, ptr noundef nonnull %zero, ptr noundef %commit, i32 noundef %ehooks.val17) #9
   br i1 %cmp.i.i, label %cond.true.i23, label %cond.end.i19
 
 cond.true.i23:                                    ; preds = %ehooks_pre_reentrancy.exit
@@ -1477,7 +1477,7 @@ if.end10:                                         ; preds = %if.then, %cond.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @ehooks_purge_forced(ptr noundef %tsdn, ptr nocapture noundef readonly %ehooks, ptr noundef %addr, i64 noundef %size, i64 noundef %offset, i64 noundef %length) unnamed_addr #1 {
+define internal fastcc zeroext i1 @ehooks_purge_forced(ptr noundef %tsdn, ptr nocapture noundef readonly %ehooks, ptr noundef %addr, i64 noundef range(i64 0, -4095) %size, i64 noundef %offset, i64 noundef %length) unnamed_addr #1 {
 entry:
   %ptr.i = getelementptr inbounds i8, ptr %ehooks, i64 8
   %0 = load atomic i64, ptr %ptr.i acquire, align 8
@@ -1561,7 +1561,7 @@ return:                                           ; preds = %if.then.i.i13, %con
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @ehooks_purge_lazy(ptr noundef %tsdn, ptr nocapture noundef readonly %ehooks, ptr noundef %addr, i64 noundef %size, i64 noundef %offset, i64 noundef %length) unnamed_addr #1 {
+define internal fastcc zeroext i1 @ehooks_purge_lazy(ptr noundef %tsdn, ptr nocapture noundef readonly %ehooks, ptr noundef %addr, i64 noundef range(i64 0, -4095) %size, i64 noundef %offset, i64 noundef %length) unnamed_addr #1 {
 entry:
   %ptr.i = getelementptr inbounds i8, ptr %ehooks, i64 8
   %0 = load atomic i64, ptr %ptr.i acquire, align 8
@@ -1952,8 +1952,8 @@ if.end7:                                          ; preds = %if.end4
   store i64 %edata.val42, ptr %e_sn.i.i, align 8
   %or.i16.i = and i64 %edata.val41, 962559
   %and.i17.i = or disjoint i64 %or.i16.i, %and.i.i
-  %or.i30.i = or disjoint i64 %and.i17.i, 243269632
-  store i64 %or.i30.i, ptr %call5, align 8
+  %or.i29.i = or disjoint i64 %and.i17.i, 243269632
+  store i64 %or.i29.i, ptr %call5, align 8
   %emap = getelementptr inbounds i8, ptr %pac, i64 58384
   %10 = load ptr, ptr %emap, align 8
   %call14 = call zeroext i1 @emap_split_prepare(ptr noundef %tsdn, ptr noundef %10, ptr noundef nonnull %prepare, ptr noundef nonnull %edata, i64 noundef %size_a, ptr noundef nonnull %call5, i64 noundef %size_b) #9
@@ -2361,7 +2361,7 @@ if.end7:                                          ; preds = %if.then, %if.then3,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @extent_try_coalesce_impl(ptr noundef %tsdn, ptr nocapture noundef readonly %pac, ptr nocapture noundef readonly %ehooks, ptr noundef %ecache, ptr noundef %edata, ptr nocapture noundef writeonly %coalesced) unnamed_addr #1 {
+define internal fastcc ptr @extent_try_coalesce_impl(ptr noundef %tsdn, ptr nocapture noundef readonly %pac, ptr nocapture noundef readonly %ehooks, ptr noundef %ecache, ptr noundef %edata, ptr nocapture noundef nonnull writeonly %coalesced) unnamed_addr #1 {
 entry:
   %emap = getelementptr inbounds i8, ptr %pac, i64 58384
   %state = getelementptr inbounds i8, ptr %ecache, i64 19424

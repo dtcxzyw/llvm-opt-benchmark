@@ -1261,7 +1261,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 1, 4) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #2

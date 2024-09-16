@@ -226,7 +226,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_1
   %cmp.i5 = icmp ugt i32 %5, 1
   %incdec.ptr.i.i.i6 = getelementptr inbounds i8, ptr %4, i64 -16
   %retval.sroa.0.0.i7 = select i1 %cmp.i5, ptr %incdec.ptr.i.i.i6, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E
-  %call19 = call fastcc { i32, i64 } @_ZN6hermes2vmL20constructErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_11HermesValueEEES6_NS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp3, ptr nonnull %retval.sroa.0.0.i, ptr nonnull %retval.sroa.0.0.i7, ptr %retval.0.i.i.i.i.i.i)
+  %call19 = call fastcc { i32, i64 } @_ZN6hermes2vmL20constructErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_11HermesValueEEES6_NS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp3, ptr nonnull %retval.sroa.0.0.i, ptr nonnull %retval.sroa.0.0.i7, ptr %retval.0.i.i.i.i.i.i)
   ret { i32, i64 } %call19
 }
 
@@ -490,7 +490,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_1
   %cmp.i6.i = icmp ugt i32 %agg.tmp.sroa.3.8.copyload, 2
   %incdec.ptr.i.i.i8.i = getelementptr inbounds i8, ptr %1, i64 -24
   %retval.sroa.0.0.i9.i = select i1 %cmp.i6.i, ptr %incdec.ptr.i.i.i8.i, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E
-  %call16.i = call fastcc { i32, i64 } @_ZN6hermes2vmL20constructErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_11HermesValueEEES6_NS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp.i, ptr nonnull %retval.sroa.0.0.i.i, ptr nonnull %retval.sroa.0.0.i9.i, ptr %retval.0.i.i.i.i.i.i)
+  %call16.i = call fastcc { i32, i64 } @_ZN6hermes2vmL20constructErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_11HermesValueEEES6_NS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp.i, ptr nonnull %retval.sroa.0.0.i.i, ptr nonnull %retval.sroa.0.0.i9.i, ptr %retval.0.i.i.i.i.i.i)
   %5 = extractvalue { i32, i64 } %call16.i, 0
   %cmp.i10.i = icmp eq i32 %5, 0
   br i1 %cmp.i10.i, label %_ZN6hermes2vmL29constructAggregateErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_8JSObjectEEE.exit, label %if.end.i
@@ -645,7 +645,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_1
   %cmp.i5 = icmp ugt i32 %5, 1
   %incdec.ptr.i.i.i6 = getelementptr inbounds i8, ptr %4, i64 -16
   %retval.sroa.0.0.i7 = select i1 %cmp.i5, ptr %incdec.ptr.i.i.i6, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E
-  %call19 = call fastcc { i32, i64 } @_ZN6hermes2vmL20constructErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_11HermesValueEEES6_NS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp3, ptr nonnull %retval.sroa.0.0.i, ptr nonnull %retval.sroa.0.0.i7, ptr %retval.0.i.i.i.i.i.i)
+  %call19 = call fastcc { i32, i64 } @_ZN6hermes2vmL20constructErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_11HermesValueEEES6_NS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp3, ptr nonnull %retval.sroa.0.0.i, ptr nonnull %retval.sroa.0.0.i7, ptr %retval.0.i.i.i.i.i.i)
   ret { i32, i64 } %call19
 }
 
@@ -748,7 +748,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_1
   %cmp.i5 = icmp ugt i32 %5, 1
   %incdec.ptr.i.i.i6 = getelementptr inbounds i8, ptr %4, i64 -16
   %retval.sroa.0.0.i7 = select i1 %cmp.i5, ptr %incdec.ptr.i.i.i6, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E
-  %call19 = call fastcc { i32, i64 } @_ZN6hermes2vmL20constructErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_11HermesValueEEES6_NS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp3, ptr nonnull %retval.sroa.0.0.i, ptr nonnull %retval.sroa.0.0.i7, ptr %retval.0.i.i.i.i.i.i)
+  %call19 = call fastcc { i32, i64 } @_ZN6hermes2vmL20constructErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_11HermesValueEEES6_NS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp3, ptr nonnull %retval.sroa.0.0.i, ptr nonnull %retval.sroa.0.0.i7, ptr %retval.0.i.i.i.i.i.i)
   ret { i32, i64 } %call19
 }
 
@@ -851,7 +851,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_1
   %cmp.i5 = icmp ugt i32 %5, 1
   %incdec.ptr.i.i.i6 = getelementptr inbounds i8, ptr %4, i64 -16
   %retval.sroa.0.0.i7 = select i1 %cmp.i5, ptr %incdec.ptr.i.i.i6, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E
-  %call19 = call fastcc { i32, i64 } @_ZN6hermes2vmL20constructErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_11HermesValueEEES6_NS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp3, ptr nonnull %retval.sroa.0.0.i, ptr nonnull %retval.sroa.0.0.i7, ptr %retval.0.i.i.i.i.i.i)
+  %call19 = call fastcc { i32, i64 } @_ZN6hermes2vmL20constructErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_11HermesValueEEES6_NS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp3, ptr nonnull %retval.sroa.0.0.i, ptr nonnull %retval.sroa.0.0.i7, ptr %retval.0.i.i.i.i.i.i)
   ret { i32, i64 } %call19
 }
 
@@ -954,7 +954,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_1
   %cmp.i5 = icmp ugt i32 %5, 1
   %incdec.ptr.i.i.i6 = getelementptr inbounds i8, ptr %4, i64 -16
   %retval.sroa.0.0.i7 = select i1 %cmp.i5, ptr %incdec.ptr.i.i.i6, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E
-  %call19 = call fastcc { i32, i64 } @_ZN6hermes2vmL20constructErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_11HermesValueEEES6_NS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp3, ptr nonnull %retval.sroa.0.0.i, ptr nonnull %retval.sroa.0.0.i7, ptr %retval.0.i.i.i.i.i.i)
+  %call19 = call fastcc { i32, i64 } @_ZN6hermes2vmL20constructErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_11HermesValueEEES6_NS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp3, ptr nonnull %retval.sroa.0.0.i, ptr nonnull %retval.sroa.0.0.i7, ptr %retval.0.i.i.i.i.i.i)
   ret { i32, i64 } %call19
 }
 
@@ -1057,7 +1057,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_1
   %cmp.i5 = icmp ugt i32 %5, 1
   %incdec.ptr.i.i.i6 = getelementptr inbounds i8, ptr %4, i64 -16
   %retval.sroa.0.0.i7 = select i1 %cmp.i5, ptr %incdec.ptr.i.i.i6, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E
-  %call19 = call fastcc { i32, i64 } @_ZN6hermes2vmL20constructErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_11HermesValueEEES6_NS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp3, ptr nonnull %retval.sroa.0.0.i, ptr nonnull %retval.sroa.0.0.i7, ptr %retval.0.i.i.i.i.i.i)
+  %call19 = call fastcc { i32, i64 } @_ZN6hermes2vmL20constructErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_11HermesValueEEES6_NS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp3, ptr nonnull %retval.sroa.0.0.i, ptr nonnull %retval.sroa.0.0.i7, ptr %retval.0.i.i.i.i.i.i)
   ret { i32, i64 } %call19
 }
 
@@ -1160,7 +1160,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_1
   %cmp.i5 = icmp ugt i32 %5, 1
   %incdec.ptr.i.i.i6 = getelementptr inbounds i8, ptr %4, i64 -16
   %retval.sroa.0.0.i7 = select i1 %cmp.i5, ptr %incdec.ptr.i.i.i6, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E
-  %call19 = call fastcc { i32, i64 } @_ZN6hermes2vmL20constructErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_11HermesValueEEES6_NS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp3, ptr nonnull %retval.sroa.0.0.i, ptr nonnull %retval.sroa.0.0.i7, ptr %retval.0.i.i.i.i.i.i)
+  %call19 = call fastcc { i32, i64 } @_ZN6hermes2vmL20constructErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_11HermesValueEEES6_NS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp3, ptr nonnull %retval.sroa.0.0.i, ptr nonnull %retval.sroa.0.0.i7, ptr %retval.0.i.i.i.i.i.i)
   ret { i32, i64 } %call19
 }
 
@@ -1263,7 +1263,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_1
   %cmp.i5 = icmp ugt i32 %5, 1
   %incdec.ptr.i.i.i6 = getelementptr inbounds i8, ptr %4, i64 -16
   %retval.sroa.0.0.i7 = select i1 %cmp.i5, ptr %incdec.ptr.i.i.i6, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E
-  %call19 = call fastcc { i32, i64 } @_ZN6hermes2vmL20constructErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_11HermesValueEEES6_NS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp3, ptr nonnull %retval.sroa.0.0.i, ptr nonnull %retval.sroa.0.0.i7, ptr %retval.0.i.i.i.i.i.i)
+  %call19 = call fastcc { i32, i64 } @_ZN6hermes2vmL20constructErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_11HermesValueEEES6_NS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp3, ptr nonnull %retval.sroa.0.0.i, ptr nonnull %retval.sroa.0.0.i7, ptr %retval.0.i.i.i.i.i.i)
   ret { i32, i64 } %call19
 }
 
@@ -1366,12 +1366,12 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_1
   %cmp.i5 = icmp ugt i32 %5, 1
   %incdec.ptr.i.i.i6 = getelementptr inbounds i8, ptr %4, i64 -16
   %retval.sroa.0.0.i7 = select i1 %cmp.i5, ptr %incdec.ptr.i.i.i6, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E
-  %call19 = call fastcc { i32, i64 } @_ZN6hermes2vmL20constructErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_11HermesValueEEES6_NS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp3, ptr nonnull %retval.sroa.0.0.i, ptr nonnull %retval.sroa.0.0.i7, ptr %retval.0.i.i.i.i.i.i)
+  %call19 = call fastcc { i32, i64 } @_ZN6hermes2vmL20constructErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_11HermesValueEEES6_NS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp3, ptr nonnull %retval.sroa.0.0.i, ptr nonnull %retval.sroa.0.0.i7, ptr %retval.0.i.i.i.i.i.i)
   ret { i32, i64 } %call19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i32, i64 } @_ZN6hermes2vmL20constructErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_11HermesValueEEES6_NS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %args, ptr %message.coerce, ptr %opts.coerce, ptr %prototype.coerce) unnamed_addr #0 {
+define internal fastcc { i32, i64 } @_ZN6hermes2vmL20constructErrorObjectERNS0_7RuntimeENS0_10NativeArgsENS0_6HandleINS0_11HermesValueEEES6_NS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef nonnull readonly %args, ptr %message.coerce, ptr %opts.coerce, ptr %prototype.coerce) unnamed_addr #0 {
 entry:
   %desc = alloca %"struct.hermes::vm::NamedPropertyDescriptor", align 8
   %topGCScope_.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 8

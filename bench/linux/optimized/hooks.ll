@@ -992,7 +992,7 @@ declare dso_local i32 @security_fs_use(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @security_transition_sid(i32 noundef, i32 noundef, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @may_context_mount_sb_relabel(i32 noundef %0, i32 %.0.val, ptr nocapture readonly %.128.val) unnamed_addr #1 align 16 {
+define internal fastcc i32 @may_context_mount_sb_relabel(i32 noundef range(i32 1, 0) %0, i32 %.0.val, ptr nocapture readonly %.128.val) unnamed_addr #1 align 16 {
   %2 = load i32, ptr @selinux_blob_sizes, align 4
   %3 = sext i32 %2 to i64
   %4 = getelementptr i8, ptr %.128.val, i64 %3
@@ -1013,7 +1013,7 @@ define internal fastcc i32 @may_context_mount_sb_relabel(i32 noundef %0, i32 %.0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @may_context_mount_inode_relabel(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readonly %.128.val) unnamed_addr #1 align 16 {
+define internal fastcc i32 @may_context_mount_inode_relabel(i32 noundef range(i32 1, 0) %0, ptr nocapture noundef readonly %1, ptr nocapture readonly %.128.val) unnamed_addr #1 align 16 {
   %3 = load i32, ptr @selinux_blob_sizes, align 4
   %4 = sext i32 %3 to i64
   %5 = getelementptr i8, ptr %.128.val, i64 %4
@@ -1621,7 +1621,7 @@ declare dso_local ptr @d_find_alias(ptr noundef) local_unnamed_addr #2
 declare dso_local ptr @d_find_any_alias(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @inode_doinit_use_xattr(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc i32 @inode_doinit_use_xattr(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 align 16 {
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %6 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3136, i64 noundef 256) #28
   %7 = icmp eq ptr %6, null
@@ -1630,14 +1630,14 @@ define internal fastcc i32 @inode_doinit_use_xattr(ptr noundef %0, ptr noundef %
 8:                                                ; preds = %4
   %9 = getelementptr i8, ptr %6, i64 255
   store i8 0, ptr %9, align 1
-  %10 = tail call i64 @__vfs_getxattr(ptr noundef %1, ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef nonnull %6, i64 noundef 255) #24
+  %10 = tail call i64 @__vfs_getxattr(ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef nonnull %6, i64 noundef 255) #24
   %11 = trunc i64 %10 to i32
   %12 = icmp eq i32 %11, -34
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %8
   tail call void @kfree(ptr noundef nonnull %6) #24
-  %14 = tail call i64 @__vfs_getxattr(ptr noundef %1, ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef null, i64 noundef 0) #24
+  %14 = tail call i64 @__vfs_getxattr(ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef null, i64 noundef 0) #24
   %15 = trunc i64 %14 to i32
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %61, label %17
@@ -1653,7 +1653,7 @@ define internal fastcc i32 @inode_doinit_use_xattr(ptr noundef %0, ptr noundef %
   %23 = and i64 %14, 2147483647
   %24 = getelementptr i8, ptr %20, i64 %23
   store i8 0, ptr %24, align 1
-  %25 = tail call i64 @__vfs_getxattr(ptr noundef %1, ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef nonnull %20, i64 noundef %23) #24
+  %25 = tail call i64 @__vfs_getxattr(ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef nonnull %20, i64 noundef %23) #24
   %26 = trunc i64 %25 to i32
   br label %27
 
@@ -1723,7 +1723,7 @@ define internal fastcc i32 @inode_doinit_use_xattr(ptr noundef %0, ptr noundef %
 declare dso_local void @dput(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @selinux_genfs_get_sid(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc i32 @selinux_genfs_get_sid(ptr noundef nonnull %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) unnamed_addr #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @__get_free_pages(i32 noundef 3264, i32 noundef 0) #24
@@ -1732,7 +1732,7 @@ define internal fastcc i32 @selinux_genfs_get_sid(ptr noundef %0, i16 noundef ze
 
 9:                                                ; preds = %4
   %10 = inttoptr i64 %7 to ptr
-  %11 = tail call ptr @dentry_path_raw(ptr noundef %0, ptr noundef nonnull %10, i32 noundef 4096) #24
+  %11 = tail call ptr @dentry_path_raw(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef 4096) #24
   %12 = icmp ugt ptr %11, inttoptr (i64 -4096 to ptr)
   br i1 %12, label %13, label %16
 
@@ -13260,7 +13260,7 @@ declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 declare dso_local i32 @security_sid_to_context_force(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @may_create(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #1 align 16 {
+define internal fastcc i32 @may_create(ptr noundef %0, ptr noundef %1, i16 noundef zeroext range(i16 7, 15) %2) unnamed_addr #1 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.common_audit_data, align 8
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
@@ -13426,7 +13426,7 @@ selinux_determine_inode_label.exit._crit_edge:    ; preds = %selinux_determine_i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @may_link(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc i32 @may_link(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.common_audit_data, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
@@ -13513,7 +13513,7 @@ define internal fastcc i32 @may_link(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %68, label %69, label %79
 
 69:                                               ; preds = %55
-  switch i32 %2, label %default.unreachable [
+  switch i32 %2, label %default.unreachable1 [
     i32 0, label %72
     i32 1, label %70
     i32 2, label %71
@@ -13525,7 +13525,7 @@ define internal fastcc i32 @may_link(ptr noundef %0, ptr noundef %1, i32 noundef
 71:                                               ; preds = %69
   br label %72
 
-default.unreachable:                              ; preds = %69
+default.unreachable1:                             ; preds = %69
   unreachable
 
 72:                                               ; preds = %71, %70, %69
@@ -13544,7 +13544,7 @@ default.unreachable:                              ; preds = %69
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @audit_inode_permission(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 align 16 {
+define internal fastcc i32 @audit_inode_permission(ptr noundef %0, i32 noundef range(i32 0, 536870912) %1, i32 noundef range(i32 1, 536870912) %2, i32 noundef range(i32 0, 536870912) %3, i32 noundef %4) unnamed_addr #1 align 16 {
   %6 = alloca %struct.common_audit_data, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !5
@@ -13791,7 +13791,7 @@ define internal fastcc i32 @ioctl_has_perm(ptr nocapture readonly %.128.val, ptr
 declare dso_local i32 @avc_has_extended_perms(i32 noundef, i32 noundef, i16 noundef zeroext, i32 noundef, i8 noundef zeroext, i8 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @file_map_prot_check(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc i32 @file_map_prot_check(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 0, 9) %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.common_audit_data, align 8
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
@@ -14014,7 +14014,7 @@ define internal fastcc i32 @selinux_lsm_getattr(i32 noundef %0, ptr noundef %1, 
 declare dso_local i32 @lsm_fill_user_ctx(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @selinux_lsm_setattr(i64 noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc i32 @selinux_lsm_setattr(i64 noundef range(i64 -2147483648, 4294967296) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 align 16 {
   %4 = alloca i32, align 4
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
@@ -14704,7 +14704,7 @@ declare dso_local i32 @selinux_netlbl_socket_connect(ptr noundef, ptr noundef) l
 declare dso_local i32 @selinux_netlbl_socket_setsockopt(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2, i32 noundef %3, ptr noundef writeonly %4) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2, i32 noundef range(i32 0, 2) %3, ptr noundef writeonly %4) unnamed_addr #1 align 16 {
   %6 = alloca i8, align 1
   %7 = alloca %struct.ipv6hdr, align 4
   %8 = alloca i16, align 2
@@ -15435,7 +15435,7 @@ declare dso_local void @selinux_netlbl_inet_csk_clone(ptr noundef, i16 noundef z
 declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #22
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @selinux_add_opt(i32 noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc i32 @selinux_add_opt(i32 noundef range(i32 0, -1) %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #1 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = icmp eq i32 %0, 4
   br i1 %5, label %54, label %6

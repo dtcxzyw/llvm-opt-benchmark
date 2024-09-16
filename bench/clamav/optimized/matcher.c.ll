@@ -164,13 +164,13 @@ define i32 @cli_scan_buff(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr no
   %36 = load ptr, ptr %5, align 8
   %37 = getelementptr inbounds i8, ptr %3, i64 96
   %38 = load ptr, ptr %37, align 8
-  %39 = call fastcc i32 @matcher_run(ptr noundef nonnull %25, ptr noundef %0, i32 noundef %1, ptr noundef nonnull %8, ptr noundef %36, i32 noundef %2, ptr noundef null, i32 noundef %4, ptr noundef null, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef %38, ptr noundef null, ptr noundef null, ptr noundef %3)
+  %39 = call fastcc i32 @matcher_run(ptr noundef nonnull %25, ptr noundef %0, i32 noundef %1, ptr noundef %8, ptr noundef %36, i32 noundef %2, ptr noundef null, i32 noundef %4, ptr noundef null, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef %38, ptr noundef null, ptr noundef null, ptr noundef %3)
   br label %44
 
 40:                                               ; preds = %27
   %41 = getelementptr inbounds i8, ptr %3, i64 96
   %42 = load ptr, ptr %41, align 8
-  %43 = call fastcc i32 @matcher_run(ptr noundef nonnull %25, ptr noundef %0, i32 noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef %2, ptr noundef null, i32 noundef %4, ptr noundef null, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef %42, ptr noundef null, ptr noundef null, ptr noundef %3)
+  %43 = call fastcc i32 @matcher_run(ptr noundef nonnull %25, ptr noundef %0, i32 noundef %1, ptr noundef %8, ptr noundef nonnull %7, i32 noundef %2, ptr noundef null, i32 noundef %4, ptr noundef null, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef %42, ptr noundef null, ptr noundef null, ptr noundef %3)
   call void @cli_ac_freedata(ptr noundef nonnull %7) #12
   br label %44
 
@@ -205,13 +205,13 @@ define i32 @cli_scan_buff(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr no
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %3, i64 96
   %59 = load ptr, ptr %58, align 8
-  %60 = call fastcc i32 @matcher_run(ptr noundef %15, ptr noundef %0, i32 noundef %1, ptr noundef nonnull %8, ptr noundef %57, i32 noundef %2, ptr noundef null, i32 noundef %4, ptr noundef null, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef %59, ptr noundef null, ptr noundef null, ptr noundef %3)
+  %60 = call fastcc i32 @matcher_run(ptr noundef %15, ptr noundef %0, i32 noundef %1, ptr noundef %8, ptr noundef %57, i32 noundef %2, ptr noundef null, i32 noundef %4, ptr noundef null, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef %59, ptr noundef null, ptr noundef null, ptr noundef %3)
   br label %65
 
 61:                                               ; preds = %47
   %62 = getelementptr inbounds i8, ptr %3, i64 96
   %63 = load ptr, ptr %62, align 8
-  %64 = call fastcc i32 @matcher_run(ptr noundef nonnull %15, ptr noundef %0, i32 noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef %2, ptr noundef null, i32 noundef %4, ptr noundef null, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef %63, ptr noundef null, ptr noundef null, ptr noundef %3)
+  %64 = call fastcc i32 @matcher_run(ptr noundef nonnull %15, ptr noundef %0, i32 noundef %1, ptr noundef %8, ptr noundef nonnull %7, i32 noundef %2, ptr noundef null, i32 noundef %4, ptr noundef null, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef %63, ptr noundef null, ptr noundef null, ptr noundef %3)
   call void @cli_ac_freedata(ptr noundef nonnull %7) #12
   br label %65
 
@@ -225,7 +225,7 @@ declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @cli_ac_initdata(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @matcher_run(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15) unnamed_addr #0 {
+define internal fastcc i32 @matcher_run(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9, i32 noundef range(i32 1, 3) %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15) unnamed_addr #0 {
   %17 = alloca %struct.filter_match_info, align 8
   %18 = alloca i32, align 4
   %19 = getelementptr inbounds i8, ptr %0, i64 320
@@ -277,11 +277,11 @@ define internal fastcc i32 @matcher_run(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not180, label %51, label %49
 
 49:                                               ; preds = %46
-  %50 = call i32 @cli_bm_scanbuff(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef null, ptr noundef nonnull %0, i32 noundef %5, ptr noundef %6, ptr noundef %13, ptr noundef %15) #12
+  %50 = call i32 @cli_bm_scanbuff(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %0, i32 noundef %5, ptr noundef %6, ptr noundef %13, ptr noundef %15) #12
   br label %53
 
 51:                                               ; preds = %46
-  %52 = call i32 @cli_bm_scanbuff(ptr noundef %42, i32 noundef %40, ptr noundef %3, ptr noundef null, ptr noundef nonnull %0, i32 noundef %43, ptr noundef %6, ptr noundef %13, ptr noundef %15) #12
+  %52 = call i32 @cli_bm_scanbuff(ptr noundef %42, i32 noundef %40, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %0, i32 noundef %43, ptr noundef %6, ptr noundef %13, ptr noundef %15) #12
   br label %53
 
 53:                                               ; preds = %51, %49
@@ -298,7 +298,7 @@ define internal fastcc i32 @matcher_run(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not183, label %57, label %141
 
 57:                                               ; preds = %53, %54, %39
-  %58 = call i32 @cli_ac_scanbuff(ptr noundef %42, i32 noundef %40, ptr noundef %3, ptr noundef null, ptr noundef %11, ptr noundef nonnull %0, ptr noundef %4, i32 noundef %43, i32 noundef %7, ptr noundef %8, i32 noundef %9, ptr noundef %15) #12
+  %58 = call i32 @cli_ac_scanbuff(ptr noundef %42, i32 noundef %40, ptr noundef nonnull %3, ptr noundef null, ptr noundef %11, ptr noundef nonnull %0, ptr noundef %4, i32 noundef %43, i32 noundef %7, ptr noundef %8, i32 noundef %9, ptr noundef %15) #12
   switch i32 %58, label %62 [
     i32 0, label %65
     i32 1, label %59
@@ -419,7 +419,7 @@ define internal fastcc i32 @matcher_run(ptr noundef %0, ptr noundef %1, i32 noun
 116:                                              ; preds = %111
   %117 = load i64, ptr %101, align 8
   %118 = trunc i64 %117 to i32
-  %119 = call i32 @cli_pcre_scanbuf(ptr noundef nonnull %115, i32 noundef %118, ptr noundef %3, ptr noundef %11, ptr noundef nonnull %0, ptr noundef %4, ptr noundef %14, ptr noundef nonnull %15) #12
+  %119 = call i32 @cli_pcre_scanbuf(ptr noundef nonnull %115, i32 noundef %118, ptr noundef nonnull %3, ptr noundef %11, ptr noundef nonnull %0, ptr noundef %4, ptr noundef %14, ptr noundef nonnull %15) #12
   br label %134
 
 120:                                              ; preds = %95
@@ -448,7 +448,7 @@ define internal fastcc i32 @matcher_run(ptr noundef %0, ptr noundef %1, i32 noun
 131:                                              ; preds = %127
   %132 = add i32 %5, %2
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.65, i32 noundef %43, i32 noundef %40, i32 noundef %132) #12
-  %133 = call i32 @cli_pcre_scanbuf(ptr noundef %42, i32 noundef %40, ptr noundef %3, ptr noundef %11, ptr noundef nonnull %0, ptr noundef %4, ptr noundef %14, ptr noundef nonnull %15) #12
+  %133 = call i32 @cli_pcre_scanbuf(ptr noundef %42, i32 noundef %40, ptr noundef nonnull %3, ptr noundef %11, ptr noundef nonnull %0, ptr noundef %4, ptr noundef %14, ptr noundef nonnull %15) #12
   br label %134
 
 134:                                              ; preds = %116, %131
@@ -1524,7 +1524,7 @@ matchicon.exit:                                   ; preds = %41, %54, %57, %60, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @matchicon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @matchicon(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.icon_groupset, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %30, label %6
@@ -2071,7 +2071,7 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
 214:                                              ; preds = %213
   store ptr null, ptr %16, align 8
   %215 = load ptr, ptr %67, align 8
-  %216 = call fastcc i32 @matcher_run(ptr noundef nonnull %.0238, ptr noundef nonnull %206, i32 noundef %spec.select, ptr noundef nonnull %16, ptr noundef nonnull %10, i32 noundef %.0253510, ptr noundef nonnull %15, i32 noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef %5, ptr noundef %215, ptr noundef %., ptr noundef nonnull %13, ptr noundef nonnull %0)
+  %216 = call fastcc i32 @matcher_run(ptr noundef nonnull %.0238, ptr noundef nonnull %206, i32 noundef %spec.select, ptr noundef %16, ptr noundef nonnull %10, i32 noundef %.0253510, ptr noundef nonnull %15, i32 noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef %5, ptr noundef %215, ptr noundef %., ptr noundef nonnull %13, ptr noundef nonnull %0)
   switch i32 %216, label %217 [
     i32 20, label %.loopexit498
     i32 1, label %.loopexit498
@@ -2084,7 +2084,7 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
 218:                                              ; preds = %217
   store ptr null, ptr %17, align 8
   %219 = load ptr, ptr %67, align 8
-  %220 = call fastcc i32 @matcher_run(ptr noundef %.0241, ptr noundef nonnull %206, i32 noundef %spec.select, ptr noundef nonnull %17, ptr noundef nonnull %9, i32 noundef %.0253510, ptr noundef nonnull %15, i32 noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef %5, ptr noundef %219, ptr noundef null, ptr noundef nonnull %12, ptr noundef nonnull %0)
+  %220 = call fastcc i32 @matcher_run(ptr noundef %.0241, ptr noundef nonnull %206, i32 noundef %spec.select, ptr noundef %17, ptr noundef nonnull %9, i32 noundef %.0253510, ptr noundef nonnull %15, i32 noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef %5, ptr noundef %219, ptr noundef null, ptr noundef nonnull %12, ptr noundef nonnull %0)
   switch i32 %220, label %221 [
     i32 20, label %.loopexit498
     i32 1, label %.loopexit498
@@ -2671,7 +2671,7 @@ intermediates_eval.exit.i:                        ; preds = %68, %.preheader.i.i
 149:                                              ; preds = %147
   %150 = getelementptr inbounds i8, ptr %32, i64 144
   %151 = load ptr, ptr %150, align 8
-  %152 = call fastcc i32 @matchicon(ptr noundef %0, ptr noundef nonnull %22, ptr noundef %142, ptr noundef %151)
+  %152 = call fastcc i32 @matchicon(ptr noundef %0, ptr noundef %22, ptr noundef %142, ptr noundef %151)
   %.not119.i = icmp eq i32 %152, 1
   br i1 %.not119.i, label %153, label %lsig_eval.exit
 

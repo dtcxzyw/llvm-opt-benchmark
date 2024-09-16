@@ -460,7 +460,7 @@ define range(i32 -1, 1) i32 @H5AC_validate_config(ptr noundef %0) local_unnamed_
   br label %85
 
 71:                                               ; preds = %64
-  %72 = call fastcc i32 @H5AC__ext_config_2_int_config(ptr noundef nonnull %0, ptr noundef nonnull %2)
+  %72 = call fastcc i32 @H5AC__ext_config_2_int_config(ptr noundef nonnull %0, ptr noundef %2)
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %74, label %78
 
@@ -2176,7 +2176,7 @@ define range(i32 -1, 1) i32 @H5AC_reset_cache_hit_rate_stats(ptr noundef %0) loc
 declare i32 @H5C_reset_cache_hit_rate_stats(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5AC__ext_config_2_int_config(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @H5AC__ext_config_2_int_config(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 

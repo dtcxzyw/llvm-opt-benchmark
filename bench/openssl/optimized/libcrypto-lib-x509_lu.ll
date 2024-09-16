@@ -1038,7 +1038,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @x509_store_add(ptr nocapture noundef readonly %store, ptr noundef %x, i32 noundef %crl) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @x509_store_add(ptr nocapture noundef readonly %store, ptr noundef %x, i32 noundef range(i32 0, 2) %crl) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %return, label %if.end

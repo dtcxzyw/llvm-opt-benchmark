@@ -2093,7 +2093,7 @@ kafka_is_api_version_supported.exit.thread:       ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_kafka_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_kafka_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %9
 
@@ -9029,7 +9029,7 @@ declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) local_un
 declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_kafka_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef signext %5, ptr nocapture noundef readonly %6, ptr noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_kafka_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, i16 noundef signext %5, ptr nocapture noundef readonly %6, ptr noundef writeonly %7) unnamed_addr #0 {
   %9 = alloca i64, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %35, label %10
@@ -9271,7 +9271,7 @@ define internal fastcc noundef i32 @dissect_kafka_message_set(ptr noundef %0, pt
   store i32 %102, ptr %10, align 4
   %103 = add i32 %87, 4
   %104 = zext nneg i8 %76 to i32
-  %105 = call fastcc i32 @decompress(ptr noundef %0, ptr noundef %1, i32 noundef %103, i32 noundef %102, i32 noundef %104, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %105 = call fastcc i32 @decompress(ptr noundef %0, ptr noundef %1, i32 noundef %103, i32 noundef %102, i32 noundef %104, ptr noundef %8, ptr noundef %9)
   %.not.i25 = icmp eq i32 %105, 0
   br i1 %.not.i25, label %128, label %106
 
@@ -9402,7 +9402,7 @@ dissect_kafka_message_old.exit:                   ; preds = %91, %98, %129
   %190 = add i32 %132, %38
   %191 = sub i32 %190, %189
   %192 = zext nneg i16 %159 to i32
-  %193 = call fastcc i32 @decompress(ptr noundef %0, ptr noundef %1, i32 noundef %189, i32 noundef %191, i32 noundef %192, ptr noundef nonnull %24, ptr noundef nonnull %25)
+  %193 = call fastcc i32 @decompress(ptr noundef %0, ptr noundef %1, i32 noundef %189, i32 noundef %191, i32 noundef %192, ptr noundef %24, ptr noundef %25)
   %.not95.i = icmp eq i32 %193, 0
   br i1 %.not95.i, label %333, label %194
 
@@ -9535,14 +9535,14 @@ dissect_kafka_offset_delta.exit.i.i:              ; preds = %258, %255
   %.0.i54.i.i = phi i32 [ %257, %255 ], [ %259, %258 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   %260 = load i32, ptr @hf_kafka_message_key, align 4
-  %261 = call fastcc i32 @dissect_kafka_bytes_new(ptr noundef %.pre.i, ptr noundef %1, ptr noundef %213, i32 noundef %260, i32 noundef %.0.i54.i.i, ptr noundef nonnull %22)
+  %261 = call fastcc i32 @dissect_kafka_bytes_new(ptr noundef %.pre.i, ptr noundef %1, ptr noundef %213, i32 noundef %260, i32 noundef %.0.i54.i.i, ptr noundef %22)
   %262 = load i32, ptr %22, align 4
   %.not.i97.i = icmp eq i32 %262, 0
   br i1 %.not.i97.i, label %263, label %dissect_kafka_record.exit.i
 
 263:                                              ; preds = %dissect_kafka_offset_delta.exit.i.i
   %264 = load i32, ptr @hf_kafka_message_value, align 4
-  %265 = call fastcc i32 @dissect_kafka_bytes_new(ptr noundef %.pre.i, ptr noundef %1, ptr noundef %213, i32 noundef %264, i32 noundef %261, ptr noundef nonnull %22)
+  %265 = call fastcc i32 @dissect_kafka_bytes_new(ptr noundef %.pre.i, ptr noundef %1, ptr noundef %213, i32 noundef %264, i32 noundef %261, ptr noundef %22)
   %266 = load i32, ptr %22, align 4
   %.not52.i.i = icmp eq i32 %266, 0
   br i1 %.not52.i.i, label %267, label %dissect_kafka_record.exit.i
@@ -9645,7 +9645,7 @@ dissect_kafka_record_headers_header.exit.i.i.i:   ; preds = %311, %291
   %.0.i.i.i.i.i = phi i32 [ %294, %291 ], [ %314, %311 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %315 = load i32, ptr @hf_kafka_record_header_value, align 4
-  %316 = call fastcc i32 @dissect_kafka_bytes_new(ptr noundef %.pre.i, ptr noundef %1, ptr noundef %287, i32 noundef %315, i32 noundef %.0.i.i.i.i.i, ptr noundef nonnull %16)
+  %316 = call fastcc i32 @dissect_kafka_bytes_new(ptr noundef %.pre.i, ptr noundef %1, ptr noundef %287, i32 noundef %315, i32 noundef %.0.i.i.i.i.i, ptr noundef %16)
   %317 = load ptr, ptr %12, align 8
   %318 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %317, ptr noundef nonnull @.str.574, ptr noundef %318) #6
@@ -9795,7 +9795,7 @@ define internal fastcc i32 @dissect_kafka_regular_bytes(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @decompress(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @decompress(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca %struct.LZ4F_frameInfo_t, align 8
   %10 = alloca i64, align 8
@@ -9819,12 +9819,13 @@ define internal fastcc range(i32 0, 2) i32 @decompress(ptr noundef %0, ptr nound
   br label %decompress_zstd.exit
 
 22:                                               ; preds = %18
-  switch i32 %4, label %208 [
-    i32 2, label %23
-    i32 3, label %92
-    i32 4, label %195
-    i32 1, label %201
-    i32 0, label %207
+  %trunc = trunc nuw i32 %4 to i16
+  switch i16 %trunc, label %208 [
+    i16 2, label %23
+    i16 3, label %92
+    i16 4, label %195
+    i16 1, label %201
+    i16 0, label %207
   ]
 
 23:                                               ; preds = %22
@@ -10313,7 +10314,7 @@ declare ptr @proto_tree_add_float(ptr noundef, i32 noundef, ptr noundef, i32 nou
 declare signext i16 @tvb_get_gint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_kafka_bytes_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_kafka_bytes_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   store i32 0, ptr %5, align 4
   %8 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %4, i32 noundef 5, ptr noundef nonnull %7, i32 noundef 8) #6
@@ -11700,7 +11701,7 @@ define internal noundef i32 @dissect_kafka_join_group_request_group_protocols(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_kafka_bytes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_kafka_bytes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %35, label %8

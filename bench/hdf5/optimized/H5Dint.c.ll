@@ -1220,7 +1220,7 @@ H5D__init_space.exit:                             ; preds = %157
   %358 = phi ptr [ %.pre221, %._crit_edge220 ], [ %346, %345 ]
   %359 = getelementptr inbounds i8, ptr %358, i64 48
   %360 = load i64, ptr %359, align 8
-  %361 = call fastcc i32 @H5D__update_oh_info(ptr noundef %0, ptr noundef nonnull %28, i64 noundef %360)
+  %361 = call fastcc i32 @H5D__update_oh_info(ptr noundef %0, ptr noundef %28, i64 noundef %360)
   %362 = icmp slt i32 %361, 0
   br i1 %362, label %363, label %367
 
@@ -1234,7 +1234,7 @@ H5D__init_space.exit:                             ; preds = %157
   %368 = load ptr, ptr %39, align 8
   %369 = getelementptr inbounds i8, ptr %368, i64 48
   %370 = load i64, ptr %369, align 8
-  %371 = call fastcc i32 @H5D__append_flush_setup(ptr noundef nonnull %28, i64 noundef %370)
+  %371 = call fastcc i32 @H5D__append_flush_setup(ptr noundef %28, i64 noundef %370)
   %372 = icmp slt i32 %371, 0
   br i1 %372, label %373, label %377
 
@@ -1726,7 +1726,7 @@ declare zeroext i1 @H5F_has_feature(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @H5D__layout_set_io_ops(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5D__update_oh_info(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5D__update_oh_info(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca [1 x i8], align 1
   %5 = alloca %struct.H5O_fill_t, align 8
   %6 = alloca i64, align 8
@@ -2331,7 +2331,7 @@ H5D__prepare_minimized_oh.exit:                   ; preds = %239, %260
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5D__append_flush_setup(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5D__append_flush_setup(ptr nocapture noundef nonnull readonly %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.H5D_append_flush_t, align 8
   %4 = alloca [32 x i64], align 16
   %5 = alloca [32 x i64], align 16
@@ -2481,7 +2481,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__append_flush_setup(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5D__build_file_prefix(ptr %.0.val, i32 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5D__build_file_prefix(ptr %.0.val, i32 noundef range(i32 0, 3) %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @H5F_get_extpath(ptr noundef %.0.val) #12
   switch i32 %0, label %31 [
@@ -2908,7 +2908,7 @@ define ptr @H5D_open(ptr nocapture noundef readonly %0, i64 noundef %1) local_un
   br label %311
 
 135:                                              ; preds = %128
-  %136 = call fastcc i32 @H5D__append_flush_setup(ptr noundef nonnull %7, i64 noundef %1)
+  %136 = call fastcc i32 @H5D__append_flush_setup(ptr noundef %7, i64 noundef %1)
   %.not.i = icmp eq i32 %136, 0
   br i1 %.not.i, label %141, label %137
 

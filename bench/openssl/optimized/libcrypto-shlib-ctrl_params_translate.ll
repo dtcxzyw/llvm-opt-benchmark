@@ -195,7 +195,7 @@ if.end:                                           ; preds = %if.then, %entry
   store i32 %keytype.addr.0, ptr %keytype1, align 4
   %optype1 = getelementptr inbounds i8, ptr %tmpl, i64 12
   store i32 %optype, ptr %optype1, align 4
-  %call.i = call fastcc ptr @lookup_translation(ptr noundef nonnull %tmpl, ptr noundef nonnull @evp_pkey_ctx_translations, i64 noundef 86)
+  %call.i = call fastcc ptr @lookup_translation(ptr noundef %tmpl, ptr noundef nonnull @evp_pkey_ctx_translations, i64 noundef 86)
   %cmp2 = icmp eq ptr %call.i, null
   br i1 %cmp2, label %if.then3, label %if.end4
 
@@ -912,7 +912,7 @@ entry:
   store ptr %name, ptr %ctrl_str, align 8
   %ctrl_hexstr = getelementptr inbounds i8, ptr %tmpl, i64 32
   store ptr %name, ptr %ctrl_hexstr, align 8
-  %call.i = call fastcc ptr @lookup_translation(ptr noundef nonnull %tmpl, ptr noundef nonnull @evp_pkey_ctx_translations, i64 noundef 86)
+  %call.i = call fastcc ptr @lookup_translation(ptr noundef %tmpl, ptr noundef nonnull @evp_pkey_ctx_translations, i64 noundef 86)
   %cmp3.not = icmp eq ptr %call.i, null
   br i1 %cmp3.not, label %if.end12, label %if.then
 
@@ -992,7 +992,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @evp_pkey_ctx_setget_params_to_ctrl(ptr noundef %pctx, i32 noundef %action_type, ptr noundef %params) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @evp_pkey_ctx_setget_params_to_ctrl(ptr noundef %pctx, i32 noundef range(i32 1, 3) %action_type, ptr noundef %params) unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.translation_ctx_st, align 8
   %tmpl = alloca %struct.translation_st, align 8
@@ -1036,7 +1036,7 @@ for.body:                                         ; preds = %land.rhs.lr.ph, %la
   store i32 %0, ptr %keytype1, align 4
   store i32 %spec.select, ptr %optype5, align 4
   store ptr %5, ptr %param_key, align 8
-  %call.i = call fastcc ptr @lookup_translation(ptr noundef nonnull %tmpl, ptr noundef nonnull @evp_pkey_ctx_translations, i64 noundef 86)
+  %call.i = call fastcc ptr @lookup_translation(ptr noundef %tmpl, ptr noundef nonnull @evp_pkey_ctx_translations, i64 noundef 86)
   %cmp7.not = icmp eq ptr %call.i, null
   br i1 %cmp7.not, label %if.end13, label %if.then
 
@@ -1140,7 +1140,7 @@ for.body.i:                                       ; preds = %land.rhs.lr.ph.i, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %tmpl.i, i8 0, i64 64, i1 false)
   store i32 1, ptr %tmpl.i, align 8
   store ptr %1, ptr %param_key.i, align 8
-  %call.i.i = call fastcc ptr @lookup_translation(ptr noundef nonnull %tmpl.i, ptr noundef nonnull @evp_pkey_translations, i64 noundef 41)
+  %call.i.i = call fastcc ptr @lookup_translation(ptr noundef %tmpl.i, ptr noundef nonnull @evp_pkey_translations, i64 noundef 41)
   %cmp4.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp4.not.i, label %evp_pkey_setget_params_to_ctrl.exit, label %lor.lhs.false.i
 
@@ -1314,12 +1314,8 @@ declare i32 @OSSL_PARAM_set_octet_string(ptr noundef, ptr noundef, i64 noundef) 
 declare i32 @OSSL_PARAM_set_octet_ptr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lookup_translation(ptr nocapture noundef %tmpl, ptr noundef readonly %translations, i64 noundef %translations_num) unnamed_addr #0 {
+define internal fastcc ptr @lookup_translation(ptr nocapture noundef nonnull %tmpl, ptr noundef readonly %translations, i64 noundef range(i64 41, 87) %translations_num) unnamed_addr #0 {
 entry:
-  %cmp47.not = icmp eq i64 %translations_num, 0
-  br i1 %cmp47.not, label %return, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %entry
   %optype12 = getelementptr inbounds i8, ptr %tmpl, i64 12
   %keytype122 = getelementptr inbounds i8, ptr %tmpl, i64 4
   %keytype227 = getelementptr inbounds i8, ptr %tmpl, i64 8
@@ -1329,9 +1325,9 @@ for.body.lr.ph:                                   ; preds = %entry
   %param_key = getelementptr inbounds i8, ptr %tmpl, i64 40
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.048 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr inbounds %struct.translation_st, ptr %translations, i64 %i.048
+for.body:                                         ; preds = %entry, %for.inc
+  %i.047 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
+  %arrayidx = getelementptr inbounds %struct.translation_st, ptr %translations, i64 %i.047
   %keytype1 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %0 = load i32, ptr %keytype1, align 4
   %cmp1 = icmp eq i32 %0, -1
@@ -1454,12 +1450,12 @@ land.lhs.true96:                                  ; preds = %lor.lhs.false
   br i1 %cmp100.not, label %return, label %for.inc
 
 for.inc:                                          ; preds = %if.then44, %land.lhs.true88, %land.lhs.true96, %if.else64, %land.lhs.true68, %if.then35, %land.lhs.true26, %land.lhs.true, %for.body
-  %inc = add nuw i64 %i.048, 1
+  %inc = add nuw nsw i64 %i.047, 1
   %exitcond.not = icmp eq i64 %inc, %translations_num
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !4
 
-return:                                           ; preds = %if.else81, %lor.lhs.false, %land.lhs.true96, %if.then35, %for.inc, %entry, %if.end78
-  %retval.0 = phi ptr [ %arrayidx, %if.end78 ], [ null, %entry ], [ null, %if.else81 ], [ %arrayidx, %lor.lhs.false ], [ %arrayidx, %land.lhs.true96 ], [ %arrayidx, %if.then35 ], [ null, %for.inc ]
+return:                                           ; preds = %for.inc, %if.then35, %land.lhs.true96, %lor.lhs.false, %if.else81, %if.end78
+  %retval.0 = phi ptr [ %arrayidx, %if.end78 ], [ null, %for.inc ], [ %arrayidx, %if.then35 ], [ %arrayidx, %land.lhs.true96 ], [ %arrayidx, %lor.lhs.false ], [ null, %if.else81 ]
   ret ptr %retval.0
 }
 

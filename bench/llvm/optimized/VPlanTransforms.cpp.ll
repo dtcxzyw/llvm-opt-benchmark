@@ -6826,13 +6826,13 @@ _ZN4llvm5VPDef16getVPSingleValueEv.exit.i:        ; preds = %102, %.lr.ph55.i
   br label %136
 
 _ZN4llvm15SmallPtrSetImplIPNS_12VPRecipeBaseEE6insertES2_.exit.i.i: ; preds = %._crit_edge.i.i.i.i, %119
-  %134 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef %spec.select.i.i.i39) #18, !noalias !136
+  %134 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull %spec.select.i.i.i39) #18, !noalias !136
   %.fca.1.extract.i.i.i.i = extractvalue { ptr, i8 } %134, 1
   %135 = trunc i8 %.fca.1.extract.i.i.i.i to i1
   br i1 %135, label %136, label %"_ZZL32sinkRecurrenceUsersAfterPreviousPN4llvm31VPFirstOrderRecurrencePHIRecipeEPNS_12VPRecipeBaseERNS_15VPDominatorTreeEENK3$_1clES3_.exit.thread.i"
 
 136:                                              ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_12VPRecipeBaseEE6insertES2_.exit.i.i, %.critedge8.i.i
-  %137 = call noundef zeroext i1 @_ZN4llvm15VPDominatorTree17properlyDominatesEPKNS_12VPRecipeBaseES3_(ptr noundef nonnull align 8 dereferenceable(140) %4, ptr noundef %storemerge.lcssa, ptr noundef %spec.select.i.i.i39) #18
+  %137 = call noundef zeroext i1 @_ZN4llvm15VPDominatorTree17properlyDominatesEPKNS_12VPRecipeBaseES3_(ptr noundef nonnull align 8 dereferenceable(140) %4, ptr noundef %storemerge.lcssa, ptr noundef nonnull %spec.select.i.i.i39) #18
   br i1 %137, label %"_ZZL32sinkRecurrenceUsersAfterPreviousPN4llvm31VPFirstOrderRecurrencePHIRecipeEPNS_12VPRecipeBaseERNS_15VPDominatorTreeEENK3$_1clES3_.exit.thread.i", label %138
 
 138:                                              ; preds = %136
@@ -7319,7 +7319,7 @@ _ZN4llvm5VPlan19getVectorLoopRegionEv.exit:
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds i8, ptr %16, i64 104
-  call fastcc void @_ZL23collectUsersRecursivelyPN4llvm7VPValueE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull %27)
+  call fastcc void @_ZL23collectUsersRecursivelyPN4llvm7VPValueE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull %27)
   %28 = load ptr, ptr %1, align 8
   %29 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #18
   %30 = getelementptr inbounds ptr, ptr %28, i64 %29
@@ -7390,7 +7390,7 @@ _ZN4llvm11SmallVectorIPNS_6VPUserELj6EED2Ev.exit: ; preds = %34, %._crit_edge, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23collectUsersRecursivelyPN4llvm7VPValueE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL23collectUsersRecursivelyPN4llvm7VPValueE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::SetVector.549", align 8
   %4 = alloca %"class.llvm::SmallVector.555", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -13165,7 +13165,7 @@ _ZL35addVPLaneMaskPhiAndUpdateExitBranchRN4llvm5VPlanEb.exit: ; preds = %_ZN4llv
 
 305:                                              ; preds = %288, %_ZL35addVPLaneMaskPhiAndUpdateExitBranchRN4llvm5VPlanEb.exit
   %.0 = phi ptr [ %222, %_ZL35addVPLaneMaskPhiAndUpdateExitBranchRN4llvm5VPlanEb.exit ], [ %304, %288 ]
-  call fastcc void @_ZL21collectAllHeaderMasksRN4llvm5VPlanE(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(512) %0)
+  call fastcc void @_ZL21collectAllHeaderMasksRN4llvm5VPlanE(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(512) %0)
   %306 = load ptr, ptr %34, align 8
   %307 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #18
   %308 = getelementptr inbounds ptr, ptr %306, i64 %307
@@ -13202,7 +13202,7 @@ _ZN4llvm11SmallVectorIPNS_7VPValueELj6EED2Ev.exit: ; preds = %._crit_edge, %315
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21collectAllHeaderMasksRN4llvm5VPlanE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(512) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL21collectAllHeaderMasksRN4llvm5VPlanE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(512) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::SmallVector.193", align 8
   %4 = alloca %"class.llvm::SmallVector.214", align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
@@ -13905,7 +13905,7 @@ _ZN4llvm8DebugLocD2Ev.exit115:                    ; preds = %_ZNK4llvm12VPRecipe
   %152 = getelementptr inbounds i8, ptr %86, i64 40
   %153 = getelementptr inbounds i8, ptr %138, i64 104
   call void @_ZN4llvm6VPUser10addOperandEPNS_7VPValueE(ptr noundef nonnull align 8 dereferenceable(44) %152, ptr noundef nonnull %153)
-  call fastcc void @_ZL21collectAllHeaderMasksRN4llvm5VPlanE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(512) %0)
+  call fastcc void @_ZL21collectAllHeaderMasksRN4llvm5VPlanE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(512) %0)
   %154 = load ptr, ptr %21, align 8
   %155 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #18
   %156 = getelementptr inbounds ptr, ptr %154, i64 %155
@@ -13991,7 +13991,7 @@ _ZN4llvm5VPlan5setUFEj.exit:                      ; preds = %_ZN4llvm11SmallVect
 193:                                              ; preds = %.lr.ph206, %_ZN4llvm11SmallVectorIPNS_6VPUserELj6EED2Ev.exit
   %.082205 = phi ptr [ %154, %.lr.ph206 ], [ %202, %_ZN4llvm11SmallVectorIPNS_6VPUserELj6EED2Ev.exit ]
   %194 = load ptr, ptr %.082205, align 8
-  call fastcc void @_ZL23collectUsersRecursivelyPN4llvm7VPValueE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef %194)
+  call fastcc void @_ZL23collectUsersRecursivelyPN4llvm7VPValueE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef %194)
   %195 = load ptr, ptr %22, align 8
   %196 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #18
   %197 = getelementptr inbounds ptr, ptr %195, i64 %196
@@ -15344,7 +15344,7 @@ _ZNK4llvm15InterleaveGroupINS_11InstructionEE9getMemberEj.exit.thread: ; preds =
 
 .critedge.sink.split:                             ; preds = %._crit_edge, %172
   %.sink = phi ptr [ %167, %172 ], [ %182, %._crit_edge ]
-  call fastcc void @"_ZZN4llvm15VPlanTransforms27dropPoisonGeneratingRecipesERNS_5VPlanENS_12function_refIFbPNS_10BasicBlockEEEEENK3$_0clEPNS_12VPRecipeBaseE"(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %.sink)
+  call fastcc void @"_ZZN4llvm15VPlanTransforms27dropPoisonGeneratingRecipesERNS_5VPlanENS_12function_refIFbPNS_10BasicBlockEEEEENK3$_0clEPNS_12VPRecipeBaseE"(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %.sink)
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %.lr.ph, %183, %172, %168, %161, %178, %._crit_edge, %176
@@ -15429,7 +15429,7 @@ _ZSteqIPN4llvm11VPBlockBaseESt8optionalINS0_23VPAllSuccessorsIteratorIS2_EEEEbRK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm15VPlanTransforms27dropPoisonGeneratingRecipesERNS_5VPlanENS_12function_refIFbPNS_10BasicBlockEEEEENK3$_0clEPNS_12VPRecipeBaseE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm15VPlanTransforms27dropPoisonGeneratingRecipesERNS_5VPlanENS_12function_refIFbPNS_10BasicBlockEEEEENK3$_0clEPNS_12VPRecipeBaseE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::DebugLoc", align 8
   %4 = alloca %"class.llvm::SmallVector.616", align 8
   %5 = alloca [2 x ptr], align 8

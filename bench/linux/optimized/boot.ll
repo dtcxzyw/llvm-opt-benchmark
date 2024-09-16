@@ -502,8 +502,8 @@ define dso_local range(i32 -2147483648, 1) i32 @acpi_map_cpu(ptr noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @acpi_register_lapic(i32 noundef %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #4 align 16 {
-  %4 = icmp sgt i32 %0, 32767
+define internal fastcc void @acpi_register_lapic(i32 noundef range(i32 0, 65536) %0, i32 noundef range(i32 0, 256) %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #4 align 16 {
+  %4 = icmp ugt i32 %0, 32767
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
@@ -2084,7 +2084,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_int_src_ovr(ptr nounde
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @acpi_sci_ioapic_setup(i8 noundef zeroext %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @acpi_sci_ioapic_setup(i8 noundef zeroext %0, i16 noundef zeroext range(i16 0, 4) %1, i16 noundef zeroext range(i16 0, 4) %2, i32 noundef %3) unnamed_addr #0 section ".init.text" align 16 {
   %5 = icmp eq i16 %2, 0
   %6 = select i1 %5, i16 3, i16 %2
   %7 = icmp eq i16 %1, 0
@@ -2269,7 +2269,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_nmi_src(ptr noundef %0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @mp_override_legacy_irq(i8 noundef zeroext %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef %3) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @mp_override_legacy_irq(i8 noundef zeroext %0, i8 noundef zeroext range(i8 0, 4) %1, i8 noundef zeroext range(i8 0, 4) %2, i32 noundef %3) unnamed_addr #0 section ".init.text" align 16 {
   %5 = icmp ugt i8 %0, 15
   br i1 %5, label %6, label %9
 
@@ -2315,7 +2315,7 @@ define internal fastcc void @mp_override_legacy_irq(i8 noundef zeroext %0, i8 no
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc range(i32 -2147483648, 1) i32 @mp_register_ioapic_irq(i8 noundef zeroext %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef %3) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @mp_register_ioapic_irq(i8 noundef zeroext %0, i8 noundef zeroext range(i8 0, 4) %1, i8 noundef zeroext range(i8 0, 4) %2, i32 noundef %3) unnamed_addr #0 section ".init.text" align 16 {
   %5 = alloca %struct.mpc_intsrc, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
   %6 = tail call i32 @mp_find_ioapic(i32 noundef %3) #18
@@ -2324,33 +2324,32 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mp_register_ioapic_irq(i8 
 
 8:                                                ; preds = %4
   %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.52, i32 noundef %3) #19
-  br label %23
+  br label %22
 
 10:                                               ; preds = %4
   store i64 3, ptr %5, align 8, !annotation !7
   %11 = tail call i32 @mp_find_ioapic_pin(i32 noundef %6, i32 noundef %3) #18
-  %12 = zext nneg i8 %2 to i16
-  %13 = shl nuw nsw i16 %12, 2
-  %14 = zext nneg i8 %1 to i16
-  %15 = or i16 %13, %14
-  %16 = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %15, ptr %16, align 2
-  %17 = getelementptr inbounds i8, ptr %5, i64 5
-  store i8 %0, ptr %17, align 1
-  %18 = tail call i32 @mpc_ioapic_id(i32 noundef %6) #18
-  %19 = trunc i32 %18 to i8
-  %20 = getelementptr inbounds i8, ptr %5, i64 6
-  store i8 %19, ptr %20, align 2
-  %21 = trunc i32 %11 to i8
-  %22 = getelementptr inbounds i8, ptr %5, i64 7
-  store i8 %21, ptr %22, align 1
+  %12 = shl nuw nsw i8 %2, 2
+  %13 = or disjoint i8 %12, %1
+  %14 = zext nneg i8 %13 to i16
+  %15 = getelementptr inbounds i8, ptr %5, i64 2
+  store i16 %14, ptr %15, align 2
+  %16 = getelementptr inbounds i8, ptr %5, i64 5
+  store i8 %0, ptr %16, align 1
+  %17 = tail call i32 @mpc_ioapic_id(i32 noundef %6) #18
+  %18 = trunc i32 %17 to i8
+  %19 = getelementptr inbounds i8, ptr %5, i64 6
+  store i8 %18, ptr %19, align 2
+  %20 = trunc i32 %11 to i8
+  %21 = getelementptr inbounds i8, ptr %5, i64 7
+  store i8 %20, ptr %21, align 1
   call void @mp_save_irq(ptr noundef nonnull %5) #18
-  br label %23
+  br label %22
 
-23:                                               ; preds = %10, %8
-  %24 = phi i32 [ %6, %8 ], [ 0, %10 ]
+22:                                               ; preds = %10, %8
+  %23 = phi i32 [ %6, %8 ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
-  ret i32 %24
+  ret i32 %23
 }
 
 ; Function Attrs: null_pointer_is_valid

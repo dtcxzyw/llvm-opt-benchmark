@@ -12300,7 +12300,7 @@ define void @_ZN8LightGBM11Application7PredictEv(ptr noundef nonnull align 8 der
   br i1 %.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %65
 
 65:                                               ; preds = %56
-  invoke fastcc void @_ZN8LightGBM6CommonL13StringToArrayIiEESt6vectorIT_SaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %60)
+  invoke fastcc void @_ZN8LightGBM6CommonL13StringToArrayIiEESt6vectorIT_SaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %60)
           to label %66 unwind label %77
 
 66:                                               ; preds = %65
@@ -13850,7 +13850,7 @@ _ZNSt10unique_ptrIN8LightGBM17VirtualFileReaderESt14default_deleteIS1_EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8LightGBM6CommonL13StringToArrayIiEESt6vectorIT_SaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8LightGBM6CommonL13StringToArrayIiEESt6vectorIT_SaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14271,7 +14271,7 @@ define internal void @_ZN8LightGBM11Application7PredictEv.omp_outlined(ptr noali
   %indvars.iv28 = phi i64 [ %23, %.lr.ph25 ], [ %indvars.iv.next29, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   %25 = load ptr, ptr %21, align 8
   %26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %25, i64 %indvars.iv28
-  invoke fastcc void @_ZN8LightGBM6CommonL13StringToArrayIiEESt6vectorIT_SaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %26)
+  invoke fastcc void @_ZN8LightGBM6CommonL13StringToArrayIiEESt6vectorIT_SaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %26)
           to label %27 unwind label %57
 
 27:                                               ; preds = %24

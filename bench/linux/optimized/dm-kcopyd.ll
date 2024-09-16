@@ -1472,7 +1472,7 @@ declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #1 se
 declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @kcopyd_put_pages(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @kcopyd_put_pages(ptr nocapture noundef %0, ptr noundef nonnull %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   br label %5
@@ -1489,7 +1489,7 @@ define internal fastcc void @kcopyd_put_pages(ptr nocapture noundef %0, ptr noun
   %12 = getelementptr inbounds i8, ptr %6, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @__free_pages(ptr noundef %13, i32 noundef 0) #9
-  tail call void @kfree(ptr noundef %6) #9
+  tail call void @kfree(ptr noundef nonnull %6) #9
   br label %18
 
 14:                                               ; preds = %5

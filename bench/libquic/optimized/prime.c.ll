@@ -731,7 +731,7 @@ if.end144.us:                                     ; preds = %for.body140.us
   br i1 %tobool146.not.us, label %if.then166, label %if.end148.us
 
 if.end148.us:                                     ; preds = %if.end144.us
-  %call149.us = tail call fastcc i32 @witness(ptr noundef nonnull %call104, ptr noundef %A.0, ptr noundef %call102, ptr noundef %call103, i32 noundef %k.0, ptr noundef nonnull %ctx.1, ptr noundef nonnull %call128)
+  %call149.us = tail call fastcc i32 @witness(ptr noundef %call104, ptr noundef %A.0, ptr noundef %call102, ptr noundef %call103, i32 noundef %k.0, ptr noundef %ctx.1, ptr noundef %call128)
   switch i32 %call149.us, label %if.then166 [
     i32 -1, label %if.then166.loopexit
     i32 0, label %if.end156.us
@@ -754,7 +754,7 @@ if.end144:                                        ; preds = %for.body140
   br i1 %tobool146.not, label %if.then166, label %if.end148
 
 if.end148:                                        ; preds = %if.end144
-  %call149 = tail call fastcc i32 @witness(ptr noundef nonnull %call104, ptr noundef %A.0, ptr noundef %call102, ptr noundef %call103, i32 noundef %k.0, ptr noundef nonnull %ctx.1, ptr noundef nonnull %call128)
+  %call149 = tail call fastcc i32 @witness(ptr noundef %call104, ptr noundef %A.0, ptr noundef %call102, ptr noundef %call103, i32 noundef %k.0, ptr noundef %ctx.1, ptr noundef %call128)
   switch i32 %call149, label %if.then166 [
     i32 -1, label %if.then166.loopexit103
     i32 0, label %if.end156
@@ -866,19 +866,19 @@ declare i32 @BN_pseudo_rand_range(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @BN_add_word(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @witness(ptr noundef %w, ptr noundef %a, ptr noundef %a1, ptr noundef %a1_odd, i32 noundef %k, ptr noundef %ctx, ptr noundef %mont) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @witness(ptr noundef nonnull %w, ptr noundef %a, ptr noundef %a1, ptr noundef %a1_odd, i32 noundef %k, ptr noundef nonnull %ctx, ptr noundef nonnull %mont) unnamed_addr #1 {
 entry:
-  %call = tail call i32 @BN_mod_exp_mont(ptr noundef %w, ptr noundef %w, ptr noundef %a1_odd, ptr noundef %a, ptr noundef %ctx, ptr noundef %mont) #5
+  %call = tail call i32 @BN_mod_exp_mont(ptr noundef nonnull %w, ptr noundef nonnull %w, ptr noundef %a1_odd, ptr noundef %a, ptr noundef nonnull %ctx, ptr noundef nonnull %mont) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @BN_is_one(ptr noundef %w) #5
+  %call1 = tail call i32 @BN_is_one(ptr noundef nonnull %w) #5
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call i32 @BN_cmp(ptr noundef %w, ptr noundef %a1) #5
+  %call5 = tail call i32 @BN_cmp(ptr noundef nonnull %w, ptr noundef %a1) #5
   %cmp = icmp eq i32 %call5, 0
   br i1 %cmp, label %return, label %while.cond
 
@@ -889,17 +889,17 @@ while.cond:                                       ; preds = %if.end4, %if.end16
   br i1 %tobool8.not, label %return, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %call9 = tail call i32 @BN_mod_mul(ptr noundef %w, ptr noundef %w, ptr noundef %w, ptr noundef %a, ptr noundef %ctx) #5
+  %call9 = tail call i32 @BN_mod_mul(ptr noundef nonnull %w, ptr noundef nonnull %w, ptr noundef nonnull %w, ptr noundef %a, ptr noundef nonnull %ctx) #5
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %return, label %if.end12
 
 if.end12:                                         ; preds = %while.body
-  %call13 = tail call i32 @BN_is_one(ptr noundef %w) #5
+  %call13 = tail call i32 @BN_is_one(ptr noundef nonnull %w) #5
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.end12
-  %call17 = tail call i32 @BN_cmp(ptr noundef %w, ptr noundef %a1) #5
+  %call17 = tail call i32 @BN_cmp(ptr noundef nonnull %w, ptr noundef %a1) #5
   %cmp18 = icmp eq i32 %call17, 0
   br i1 %cmp18, label %return, label %while.cond, !llvm.loop !17
 

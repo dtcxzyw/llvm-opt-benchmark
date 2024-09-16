@@ -330,7 +330,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cipso_v4_cache_add(ptr noundef %
 declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define internal fastcc i32 @cipso_v4_map_cache_hash(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc i32 @cipso_v4_map_cache_hash(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #3 align 16 {
   %3 = add nuw nsw i32 %1, -559038737
   %4 = icmp ugt i32 %1, 12
   br i1 %4, label %.preheader, label %.loopexit
@@ -1431,7 +1431,7 @@ define dso_local range(i32 0, 256) i32 @cipso_v4_validate(ptr noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -14, 1) i32 @cipso_v4_map_cat_rbm_valid(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -14, 1) i32 @cipso_v4_map_cat_rbm_valid(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i32 noundef range(i32 -4, 252) %2) unnamed_addr #0 align 16 {
   %4 = shl nuw nsw i32 %2, 3
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4

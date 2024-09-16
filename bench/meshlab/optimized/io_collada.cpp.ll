@@ -56312,7 +56312,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i9:   ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QVectorI7QStringED2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i10, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i9
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags17InstanceEffectTagE, i64 16), ptr %0, align 8
-  invoke fastcc void @_ZN7Collada4TagsL9testSharpERK7QString(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @_ZN7Collada4TagsL9testSharpERK7QString(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %40 unwind label %86
 
 40:                                               ; preds = %_ZN7QStringD2Ev.exit
@@ -60835,7 +60835,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i18:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit23
 
 _ZN7QStringD2Ev.exit23:                           ; preds = %_ZNSt4pairI7QStringS0_ED2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i19, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i18
-  invoke fastcc void @_ZN7Collada4TagsL9testSharpERK7QString(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @_ZN7Collada4TagsL9testSharpERK7QString(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %66 unwind label %153
 
 66:                                               ; preds = %_ZN7QStringD2Ev.exit23
@@ -61806,7 +61806,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZNSt4pairI7QStringS0_ED2Ev.exit
 
 _ZNSt4pairI7QStringS0_ED2Ev.exit:                 ; preds = %_ZN7QStringD2Ev.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i2.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i
-  invoke fastcc void @_ZN7Collada4TagsL9testSharpERK7QString(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @_ZN7Collada4TagsL9testSharpERK7QString(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %62 unwind label %108
 
 62:                                               ; preds = %_ZNSt4pairI7QStringS0_ED2Ev.exit
@@ -62920,7 +62920,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i32: ; preds = %_ZN9QtPrivate8Ref
   br label %_ZNSt4pairI7QStringS0_ED2Ev.exit42
 
 _ZNSt4pairI7QStringS0_ED2Ev.exit42:               ; preds = %_ZN7QStringD2Ev.exit.i31, %_ZN9QtPrivate8RefCount5derefEv.exit.i2.i33, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i32
-  invoke fastcc void @_ZN7Collada4TagsL9testSharpERK7QString(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke fastcc void @_ZN7Collada4TagsL9testSharpERK7QString(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %106 unwind label %152
 
 106:                                              ; preds = %_ZNSt4pairI7QStringS0_ED2Ev.exit42
@@ -64948,7 +64948,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags19InstanceGeometryTagE, i64 16), ptr %0, align 8
-  invoke fastcc void @_ZN7Collada4TagsL9testSharpERK7QString(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @_ZN7Collada4TagsL9testSharpERK7QString(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %19 unwind label %65
 
 19:                                               ; preds = %_ZN7QStringD2Ev.exit
@@ -65339,7 +65339,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZNSt4pairI7QStringS0_ED2Ev.exit
 
 _ZNSt4pairI7QStringS0_ED2Ev.exit:                 ; preds = %_ZN7QStringD2Ev.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i2.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i
-  invoke fastcc void @_ZN7Collada4TagsL9testSharpERK7QString(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @_ZN7Collada4TagsL9testSharpERK7QString(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %62 unwind label %108
 
 62:                                               ; preds = %_ZNSt4pairI7QStringS0_ED2Ev.exit
@@ -66088,7 +66088,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Collada4Tags22InstanceVisualSceneTagE, i64 16), ptr %0, align 8
-  invoke fastcc void @_ZN7Collada4TagsL9testSharpERK7QString(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @_ZN7Collada4TagsL9testSharpERK7QString(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %19 unwind label %65
 
 19:                                               ; preds = %_ZN7QStringD2Ev.exit
@@ -67547,7 +67547,7 @@ _ZN7Collada4Tags11MaterialTagD2Ev.exit:           ; preds = %1, %_ZN9QtPrivate8R
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7Collada4TagsL9testSharpERK7QString(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7Collada4TagsL9testSharpERK7QString(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.62, i32 noundef 0)
   store ptr %4, ptr %3, align 8

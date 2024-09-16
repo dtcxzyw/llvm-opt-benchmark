@@ -806,7 +806,7 @@ _ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10S
   %.sink10.i.i.i.i.i = phi ptr [ %.sroa.4.19.i.i, %106 ], [ %.sroa.4.19.i.i, %114 ], [ %.sroa.4.19.i.i, %99 ], [ %116, %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_N3gmx12_GLOBAL__N_115ValueSerializer10SerializerEESt10_Select1stIS7_ESt4lessIS0_ESaIS7_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread9.i.i.i.i.i ], [ %.sroa.4.19.i.i, %111 ]
   %117 = getelementptr inbounds i8, ptr %.sink10.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull readonly align 8 dereferenceable(32) %.010.i.ptr.i, i64 32, i1 false)
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %98, ptr noundef nonnull %.sink10.i.i.i.i.i, ptr noundef %.sroa.12.0.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN3gmx12_GLOBAL__N_115ValueSerializer13s_serializersE, i64 8)) #18
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %98, ptr noundef nonnull %.sink10.i.i.i.i.i, ptr noundef nonnull %.sroa.12.0.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN3gmx12_GLOBAL__N_115ValueSerializer13s_serializersE, i64 8)) #18
   %118 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3gmx12_GLOBAL__N_115ValueSerializer13s_serializersE, i64 40), align 8
   %119 = add i64 %118, 1
   store i64 %119, ptr getelementptr inbounds (i8, ptr @_ZN3gmx12_GLOBAL__N_115ValueSerializer13s_serializersE, i64 40), align 8
@@ -942,7 +942,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_119SerializationTraitsINS_18KeyValueTr
   %3 = alloca %"class.gmx::KeyValueTreeObjectBuilder", align 8
   %4 = tail call ptr @_ZN3gmx24KeyValueTreeValueBuilder12createObjectEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   store ptr %4, ptr %3, align 8
-  call fastcc void @_ZN3gmx12_GLOBAL__N_119SerializationTraitsINS_18KeyValueTreeObjectEE17deserializeObjectEPNS_25KeyValueTreeObjectBuilderEPNS_11ISerializerE(ptr noundef nonnull %3, ptr noundef %1)
+  call fastcc void @_ZN3gmx12_GLOBAL__N_119SerializationTraitsINS_18KeyValueTreeObjectEE17deserializeObjectEPNS_25KeyValueTreeObjectBuilderEPNS_11ISerializerE(ptr noundef %3, ptr noundef %1)
   ret void
 }
 
@@ -2059,7 +2059,7 @@ _ZN3gmx3Any7castRefINS_18KeyValueTreeObjectEEERT_v.exit: ; preds = %26, %_ZNK3gm
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx12_GLOBAL__N_119SerializationTraitsINS_18KeyValueTreeObjectEE17deserializeObjectEPNS_25KeyValueTreeObjectBuilderEPNS_11ISerializerE(ptr noundef %0, ptr noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmx12_GLOBAL__N_119SerializationTraitsINS_18KeyValueTreeObjectEE17deserializeObjectEPNS_25KeyValueTreeObjectBuilderEPNS_11ISerializerE(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   %4 = alloca %"class.gmx::KeyValueTreeValueBuilder", align 8
   %5 = alloca i32, align 4
@@ -4371,7 +4371,7 @@ define void @_ZN3gmx23deserializeKeyValueTreeEPNS_11ISerializerE(ptr dead_on_unw
   %15 = getelementptr inbounds i8, ptr %3, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false)
   store ptr %3, ptr %4, align 8
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_119SerializationTraitsINS_18KeyValueTreeObjectEE17deserializeObjectEPNS_25KeyValueTreeObjectBuilderEPNS_11ISerializerE(ptr noundef nonnull %4, ptr noundef nonnull %1)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_119SerializationTraitsINS_18KeyValueTreeObjectEE17deserializeObjectEPNS_25KeyValueTreeObjectBuilderEPNS_11ISerializerE(ptr noundef %4, ptr noundef nonnull %1)
           to label %16 unwind label %43
 
 16:                                               ; preds = %10

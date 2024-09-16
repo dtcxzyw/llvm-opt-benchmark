@@ -2890,7 +2890,7 @@ if.end83:                                         ; preds = %if.end82, %if.end72
   br i1 %cmp84.not, label %if.else95, label %if.then86
 
 if.then86:                                        ; preds = %if.end83
-  %call87 = tail call fastcc ptr @load_trusted(ptr noundef nonnull %21, i32 noundef 0, ptr noundef nonnull @.str.372)
+  %call87 = tail call fastcc ptr @load_trusted(ptr noundef %21, i32 noundef 0, ptr noundef nonnull @.str.372)
   %cmp88 = icmp eq ptr %call87, null
   br i1 %cmp88, label %if.then93, label %lor.lhs.false90
 
@@ -3882,7 +3882,7 @@ if.end23.i:                                       ; preds = %if.end23thread-pre-
   br i1 %cmp24.not.i, label %if.end34.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.end23.i
-  %call26.i = call fastcc ptr @load_trusted(ptr noundef nonnull %101, i32 noundef 0, ptr noundef nonnull @.str.431)
+  %call26.i = call fastcc ptr @load_trusted(ptr noundef %101, i32 noundef 0, ptr noundef nonnull @.str.431)
   %cmp27.i = icmp eq ptr %call26.i, null
   br i1 %cmp27.i, label %if.then31.i, label %lor.lhs.false28.i
 
@@ -4967,11 +4967,11 @@ declare i32 @OSSL_CMP_CTX_set1_pkey(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @load_trusted(ptr noundef %input, i32 noundef %for_new_cert, ptr noundef %desc) unnamed_addr #0 {
+define internal fastcc ptr @load_trusted(ptr noundef nonnull %input, i32 noundef range(i32 0, 2) %for_new_cert, ptr noundef %desc) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @opt_otherpass, align 8
   %1 = load ptr, ptr @vpm, align 8
-  %call = tail call ptr @load_certstore(ptr noundef %input, ptr noundef %0, ptr noundef %desc, ptr noundef %1) #13
+  %call = tail call ptr @load_certstore(ptr noundef nonnull %input, ptr noundef %0, ptr noundef %desc, ptr noundef %1) #13
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
@@ -4987,7 +4987,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool2.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %call3 = tail call fastcc i32 @truststore_set_host_etc(ptr noundef nonnull %call, ptr noundef null)
+  %call3 = tail call fastcc i32 @truststore_set_host_etc(ptr noundef %call, ptr noundef null)
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
@@ -5053,9 +5053,9 @@ declare i32 @X509_STORE_CTX_print_verify_cb(i32 noundef, ptr noundef) #1
 declare i32 @X509_STORE_set1_param(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @truststore_set_host_etc(ptr noundef %ts, ptr noundef %host) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @truststore_set_host_etc(ptr noundef nonnull %ts, ptr noundef %host) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @X509_STORE_get0_param(ptr noundef %ts) #13
+  %call = tail call ptr @X509_STORE_get0_param(ptr noundef nonnull %ts) #13
   %call1 = tail call i32 @X509_VERIFY_PARAM_set1_host(ptr noundef %call, ptr noundef null, i64 noundef 0) #13
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -5339,7 +5339,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %call5 = tail call fastcc ptr @load_trusted(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @.str.445)
+  %call5 = tail call fastcc ptr @load_trusted(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.445)
   %cmp6 = icmp eq ptr %call5, null
   br i1 %cmp6, label %err, label %if.end8
 
@@ -5624,7 +5624,7 @@ if.then163:                                       ; preds = %if.end160
   %41 = load ptr, ptr @opt_tls_host, align 8
   %cmp164.not = icmp eq ptr %41, null
   %cond169 = select i1 %cmp164.not, ptr %host, ptr %41
-  %call170 = call fastcc i32 @truststore_set_host_etc(ptr noundef nonnull %trust_store.0, ptr noundef %cond169)
+  %call170 = call fastcc i32 @truststore_set_host_etc(ptr noundef %trust_store.0, ptr noundef %cond169)
   %tobool171.not = icmp eq i32 %call170, 0
   br i1 %tobool171.not, label %err, label %return
 
@@ -5835,7 +5835,7 @@ if.else:                                          ; preds = %if.end106
   br i1 %cmp117.not, label %land.rhs, label %if.end123
 
 if.end123:                                        ; preds = %if.else
-  %call120 = call fastcc ptr @load_trusted(ptr noundef nonnull %34, i32 noundef 0, ptr noundef nonnull @.str.468)
+  %call120 = call fastcc ptr @load_trusted(ptr noundef %34, i32 noundef 0, ptr noundef nonnull @.str.468)
   %cmp121.not = icmp eq ptr %call120, null
   br i1 %cmp121.not, label %if.then129.critedge, label %land.rhs
 

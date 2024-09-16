@@ -1501,7 +1501,7 @@ Amap_ManCleanData.exit:                           ; preds = %37, %._crit_edge
 declare void @Amap_ManMerge(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc float @Amap_CutAreaRef2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc float @Amap_CutAreaRef2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef range(i32 0, 9) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8

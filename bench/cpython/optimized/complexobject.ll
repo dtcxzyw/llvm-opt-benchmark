@@ -1716,7 +1716,7 @@ if.then37:                                        ; preds = %if.else30, %if.then
   br label %if.end44
 
 if.else39:                                        ; preds = %PyObject_TypeCheck.exit34
-  %call40 = call fastcc i32 @to_complex(ptr noundef nonnull %w.addr, ptr noundef nonnull %j34)
+  %call40 = call fastcc i32 @to_complex(ptr noundef %w.addr, ptr noundef %j34)
   %cmp41 = icmp slt i32 %call40, 0
   br i1 %cmp41, label %if.then42, label %if.end44
 
@@ -3465,7 +3465,7 @@ return:                                           ; preds = %land.lhs.true.i15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @to_complex(ptr nocapture noundef %pobj, ptr nocapture noundef writeonly %pc) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @to_complex(ptr nocapture noundef nonnull %pobj, ptr nocapture noundef nonnull writeonly %pc) unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %pobj, align 8
   %1 = getelementptr i8, ptr %0, i64 8

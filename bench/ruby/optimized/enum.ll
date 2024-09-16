@@ -4504,7 +4504,7 @@ declare i64 @rb_check_funcall_default(i64 noundef, i64 noundef, i32 noundef, ptr
 declare i64 @rb_imemo_new(i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rb_uniform_quicksort_intro_2(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @rb_uniform_quicksort_intro_2(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, -1) %2) unnamed_addr #0 {
   %4 = alloca %struct.rb_uniform_sort_data, align 8
   %5 = alloca %struct.rb_uniform_sort_data, align 8
   %6 = ptrtoint ptr %0 to i64
@@ -4961,13 +4961,13 @@ rb_uniform_insertionsort_2.exit:                  ; preds = %176, %.loopexit.i, 
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rb_uniform_heap_down_2(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @rb_uniform_heap_down_2(ptr nocapture noundef %0, i64 noundef range(i64 0, 9223372036854775807) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr %struct.rb_uniform_sort_data, ptr %0, i64 %1
   %.sroa.0.0.copyload = load i64, ptr %4, align 8
   %.sroa.0.0.copyload.fr = freeze i64 %.sroa.0.0.copyload
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %5 = shl i64 %1, 1
+  %5 = shl nuw i64 %1, 1
   %.not.not30 = icmp ult i64 %5, %2
   br i1 %.not.not30, label %.lr.ph, label %._crit_edge
 

@@ -552,7 +552,7 @@ define internal i32 @dissect_mongo_pdu(ptr noundef %0, ptr noundef %1, ptr nound
   %19 = load i32, ptr @hf_mongo_op_code, align 4
   %20 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %19, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef -2147483648) #4
   %21 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 12) #4
-  %22 = call fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1, i32 noundef 16, ptr noundef %12, i32 noundef %21, ptr noundef nonnull %5)
+  %22 = call fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1, i32 noundef 16, ptr noundef %12, i32 noundef %21, ptr noundef %5)
   %23 = icmp eq i32 %21, 1
   %24 = load i32, ptr %6, align 4
   %25 = icmp ne i32 %24, 0
@@ -602,7 +602,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   store i32 %4, ptr %5, align 4
@@ -947,7 +947,7 @@ define internal fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1,
   ]
 
 277:                                              ; preds = %259
-  %278 = tail call fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1, i32 noundef %273, ptr noundef %3, i32 noundef %275, ptr noundef nonnull %5)
+  %278 = tail call fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1, i32 noundef %273, ptr noundef %3, i32 noundef %275, ptr noundef %5)
   br label %dissect_mongo_op_compressed.exit
 
 279:                                              ; preds = %259
@@ -978,7 +978,7 @@ define internal fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1,
   %298 = trunc i64 %297 to i32
   %299 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %290, i32 noundef %298, i32 noundef %298) #4
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %299, ptr noundef nonnull @.str.307) #4
-  %300 = call fastcc i32 @dissect_opcode_types(ptr noundef %299, ptr noundef nonnull %1, i32 noundef 0, ptr noundef %3, i32 noundef %275, ptr noundef nonnull %5)
+  %300 = call fastcc i32 @dissect_opcode_types(ptr noundef %299, ptr noundef nonnull %1, i32 noundef 0, ptr noundef %3, i32 noundef %275, ptr noundef %5)
   br label %309
 
 301:                                              ; preds = %287
@@ -1013,7 +1013,7 @@ define internal fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1,
 
 316:                                              ; preds = %311
   tail call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %313, ptr noundef nonnull @.str.307) #4
-  %317 = tail call fastcc i32 @dissect_opcode_types(ptr noundef nonnull %313, ptr noundef %1, i32 noundef 0, ptr noundef %3, i32 noundef %275, ptr noundef nonnull %5)
+  %317 = tail call fastcc i32 @dissect_opcode_types(ptr noundef nonnull %313, ptr noundef %1, i32 noundef 0, ptr noundef %3, i32 noundef %275, ptr noundef %5)
   br label %318
 
 318:                                              ; preds = %316, %314
@@ -1028,7 +1028,7 @@ define internal fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1,
 
 323:                                              ; preds = %320
   tail call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %322, ptr noundef nonnull @.str.307) #4
-  %324 = tail call fastcc i32 @dissect_opcode_types(ptr noundef nonnull %322, ptr noundef %1, i32 noundef 0, ptr noundef %3, i32 noundef %275, ptr noundef nonnull %5)
+  %324 = tail call fastcc i32 @dissect_opcode_types(ptr noundef nonnull %322, ptr noundef %1, i32 noundef 0, ptr noundef %3, i32 noundef %275, ptr noundef %5)
   br label %329
 
 325:                                              ; preds = %320

@@ -698,8 +698,8 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread.i.i.i.i: ; 
 
 172:                                              ; preds = %170
   %173 = load i8, ptr %157, align 8
-  %.not36.i.i.i.i = icmp eq i8 %173, 61
-  br i1 %.not36.i.i.i.i, label %174, label %213
+  %.not34.i.i.i.i = icmp eq i8 %173, 61
+  br i1 %.not34.i.i.i.i, label %174, label %213
 
 174:                                              ; preds = %172
   %175 = call noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(72) %157) #15
@@ -707,8 +707,8 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread.i.i.i.i: ; 
   %177 = load i16, ptr %176, align 2
   %178 = and i16 %177, 1
   %.not.i.i.i.i.i = icmp ne i16 %178, 0
-  %.not37.i.i.i.i = select i1 %175, i1 true, i1 %.not.i.i.i.i.i
-  br i1 %.not37.i.i.i.i, label %213, label %179
+  %.not35.i.i.i.i = select i1 %175, i1 true, i1 %.not.i.i.i.i.i
+  br i1 %.not35.i.i.i.i, label %213, label %179
 
 179:                                              ; preds = %174
   %180 = load i32, ptr %67, align 8
@@ -743,8 +743,8 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread.i.i.i.i: ; 
   %198 = load i16, ptr %197, align 2
   %199 = and i16 %198, 1
   %.not.i27.i.i.i.i = icmp ne i16 %199, 0
-  %.not34.i.i.i.i = select i1 %196, i1 true, i1 %.not.i27.i.i.i.i
-  br i1 %.not34.i.i.i.i, label %213, label %200
+  %.not33.i.i.i.i = select i1 %196, i1 true, i1 %.not.i27.i.i.i.i
+  br i1 %.not33.i.i.i.i, label %213, label %200
 
 200:                                              ; preds = %195
   %201 = load i32, ptr %67, align 8
@@ -1120,7 +1120,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
 
 352:                                              ; preds = %344
   %353 = load ptr, ptr %70, align 8
-  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_2EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %353, ptr nonnull %42)
+  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_2EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %353, ptr %42)
   br label %632
 
 _ZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEv.exit.i.i: ; preds = %344
@@ -2433,7 +2433,7 @@ declare { ptr, i64 } @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE9getBlocksEv(
 declare noundef nonnull align 8 dereferenceable(144) ptr @_ZN4llvm21LoopAccessInfoManager7getInfoERNS_4LoopE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_2EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118LoopVersioningLICM21legalLoopInstructionsEvE3$_2EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %4 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %5 = alloca %"class.llvm::OptimizationRemarkMissed", align 8

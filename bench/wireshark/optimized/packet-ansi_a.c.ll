@@ -2382,7 +2382,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 {
+define internal fastcc zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 92) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 {
   %8 = load i32, ptr @ansi_a_elem_1_max, align 4
   %9 = add nsw i32 %8, -1
   %.not = icmp ult i32 %3, %9
@@ -7538,7 +7538,7 @@ declare ptr @stat_tap_get_field_data(ptr noundef, i32 noundef, i32 noundef) loca
 declare void @stat_tap_set_field_data(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bsmap_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_bsmap_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
   %5 = alloca %struct.ansi_a_shared_data_t, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 72, i1 false)
@@ -11750,7 +11750,7 @@ define internal void @bsmap_bs_auth_req_ack(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #1 {
+define internal fastcc zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 79) %3, i32 noundef %4, ptr noundef %5) unnamed_addr #1 {
   %7 = load i32, ptr @ansi_a_elem_1_max, align 4
   %8 = add nsw i32 %7, -1
   %.not = icmp ult i32 %3, %8
@@ -11813,7 +11813,7 @@ define internal fastcc zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i16 @elem_t(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc zeroext i16 @elem_t(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 49, 83) %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @ansi_a_elem_1_max, align 4
   %6 = add nsw i32 %5, -1
   %.not = icmp ult i32 %2, %6
@@ -11848,7 +11848,7 @@ define internal fastcc zeroext i16 @elem_t(ptr noundef %0, ptr noundef %1, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dtap_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_dtap_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
   %5 = alloca %struct.ansi_a_shared_data_t, align 8
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %7 = icmp ugt i32 %6, 2
@@ -13961,7 +13961,7 @@ define internal void @dtap_stop_dtmf_ack(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i16 @elem_lv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #1 {
+define internal fastcc zeroext i16 @elem_lv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 86) %3, i32 noundef %4, ptr noundef %5) unnamed_addr #1 {
   %7 = load i32, ptr @ansi_a_elem_1_max, align 4
   %8 = add nsw i32 %7, -1
   %.not = icmp ult i32 %3, %8

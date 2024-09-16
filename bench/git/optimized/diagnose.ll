@@ -432,7 +432,7 @@ for.body:                                         ; preds = %loose_objs_stats.ex
   %36 = load ptr, ptr %arrayidx, align 16
   %recursive = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %37 = load i32, ptr %recursive, align 8
-  %call35 = call fastcc i32 @add_directory_to_archiver(ptr noundef nonnull %archiver_args, ptr noundef %36, i32 noundef %37)
+  %call35 = call fastcc i32 @add_directory_to_archiver(ptr noundef %archiver_args, ptr noundef %36, i32 noundef %37)
   %tobool.not = icmp eq i32 %call35, 0
   br i1 %tobool.not, label %for.cond, label %if.then36
 
@@ -552,7 +552,7 @@ declare i32 @foreach_alt_odb(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @strvec_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @add_directory_to_archiver(ptr noundef %archiver_args, ptr noundef %path, i32 noundef %recurse) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @add_directory_to_archiver(ptr noundef nonnull %archiver_args, ptr noundef %path, i32 noundef %recurse) unnamed_addr #0 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   %abspath = alloca %struct.strbuf, align 8
@@ -612,7 +612,7 @@ if.end12:                                         ; preds = %if.then11, %if.end9
   %4 = phi i64 [ %.pre, %if.then11 ], [ 0, %if.end9 ]
   %len13 = getelementptr inbounds i8, ptr %buf, i64 8
   %buf14 = getelementptr inbounds i8, ptr %buf, i64 16
-  %call15 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %archiver_args, ptr noundef nonnull @.str.39, ptr noundef %3) #12
+  %call15 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %archiver_args, ptr noundef nonnull @.str.39, ptr noundef %3) #12
   %len.i.i = getelementptr inbounds i8, ptr %abspath, i64 8
   %buf.i = getelementptr inbounds i8, ptr %abspath, i64 16
   %tobool37.not = icmp eq i32 %recurse, 0
@@ -689,7 +689,7 @@ strbuf_setlen.exit:                               ; preds = %if.end.i, %if.then4
 
 if.then27:                                        ; preds = %strbuf_setlen.exit
   %13 = load ptr, ptr %buf14, align 8
-  %call29 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %archiver_args, ptr noundef nonnull @.str.40, ptr noundef %13) #12
+  %call29 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %archiver_args, ptr noundef nonnull @.str.40, ptr noundef %13) #12
   br label %land.rhs.critedge
 
 if.then33:                                        ; preds = %strbuf_setlen.exit

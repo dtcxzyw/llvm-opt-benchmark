@@ -536,7 +536,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %30, %33
 .lr.ph.i:                                         ; preds = %131, %.lr.ph.i
   %.0635.i = phi ptr [ %.063.i, %.lr.ph.i ], [ %.0632.i, %131 ]
   %.0644.i = phi i32 [ %141, %.lr.ph.i ], [ %132, %131 ]
-  %140 = call fastcc i32 @dissect_field(ptr noundef %0, i32 noundef %.0644.i, ptr noundef %116, ptr noundef nonnull %.0635.i, i32 noundef %..i, i32 noundef %24)
+  %140 = call fastcc i32 @dissect_field(ptr noundef %0, i32 noundef %.0644.i, ptr noundef %116, ptr noundef %.0635.i, i32 noundef %..i, i32 noundef %24)
   %141 = add i32 %140, %.0644.i
   %142 = getelementptr inbounds i8, ptr %.0635.i, i64 48
   %.063.i = load ptr, ptr %142, align 8
@@ -560,7 +560,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %30, %33
 
 150:                                              ; preds = %147
   %151 = add i32 %146, %132
-  %152 = call fastcc i32 @dissect_field(ptr noundef %0, i32 noundef %151, ptr noundef %116, ptr noundef nonnull %149, i32 noundef %..i, i32 noundef %24)
+  %152 = call fastcc i32 @dissect_field(ptr noundef %0, i32 noundef %151, ptr noundef %116, ptr noundef %149, i32 noundef %..i, i32 noundef %24)
   br label %153
 
 153:                                              ; preds = %150, %147, %143
@@ -1132,7 +1132,7 @@ declare ptr @wmem_file_scope() local_unnamed_addr #1
 declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_field(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_field(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.nstime_t, align 8
   %8 = load i32, ptr @hf_lbmpdm_field, align 4
   %9 = getelementptr inbounds i8, ptr %3, i64 4

@@ -965,7 +965,7 @@ _ZL22reserve_mmapped_memorymPc8MEMFLAGS.exit:     ; preds = %16
 38:                                               ; preds = %37
   %39 = getelementptr inbounds i8, ptr %11, i64 %29
   %40 = getelementptr inbounds i8, ptr %39, i64 %0
-  %41 = call noundef zeroext i1 @_ZN2os14release_memoryEPcm(ptr noundef %40, i64 noundef %34) #28
+  %41 = call noundef zeroext i1 @_ZN2os14release_memoryEPcm(ptr noundef nonnull %40, i64 noundef %34) #28
   br label %_ZL17chop_extra_memorymmPcm.exit
 
 _ZL17chop_extra_memorymmPcm.exit:                 ; preds = %37, %38
@@ -1123,7 +1123,7 @@ define hidden void @_ZN2os5Posix17print_rlimit_infoEP12outputStream(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL12print_rlimitP12outputStreamPKcib(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc void @_ZL12print_rlimitP12outputStreamPKcib(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 0, 10) %2, i1 noundef zeroext %3) unnamed_addr #1 {
   %5 = alloca %struct.rlimit, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.100, ptr noundef %1) #28
   %6 = call i32 @getrlimit64(i32 noundef %2, ptr noundef nonnull %5) #28

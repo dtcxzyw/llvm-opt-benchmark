@@ -1337,8 +1337,8 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h1df388d751b6a139E(ptr no
   %.sroa.4.017 = phi i64 [ %2, %.lr.ph ], [ %22, %20 ]
   %8 = xor i64 %.val.i, -1
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %8, i64 %.sroa.4.017)
-  %.not5.i.i = icmp eq i64 %.val.i, -1
-  br i1 %.not5.i.i, label %._crit_edge, label %.lr.ph.split.us.i.i
+  %cond = icmp eq i64 %.val.i, -1
+  br i1 %cond, label %._crit_edge, label %.lr.ph.split.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %7
   %9 = load i64, ptr %6, align 8, !alias.scope !139, !noalias !144, !noundef !7
@@ -1367,7 +1367,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h1df388d751b6a139E(ptr no
   unreachable
 
 ._crit_edge:                                      ; preds = %20, %7, %3
-  %.0 = phi ptr [ null, %3 ], [ @anon.d07909af76fe9cd4e206baf0847e55b7.24, %7 ], [ null, %20 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %20 ], [ @anon.d07909af76fe9cd4e206baf0847e55b7.24, %7 ]
   ret ptr %.0
 
 20:                                               ; preds = %12
@@ -1988,7 +1988,7 @@ define hidden void @"_ZN4core3ptr128drop_in_place$LT$core..task..poll..Poll$LT$c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$core..net..socket_addr..SocketAddr$GT$$GT$$GT$17he3528bf39b0e7576E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$core..net..socket_addr..SocketAddr$GT$$GT$$GT$17he3528bf39b0e7576E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = load i64, ptr %0, align 8, !range !214, !noundef !7
@@ -3357,7 +3357,7 @@ define internal void @"_ZN4core3ptr41drop_in_place$LT$core..fmt..Arguments$GT$17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$awc..any_body..AnyBody$GT$17h59cd181684e55515E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$awc..any_body..AnyBody$GT$17h59cd181684e55515E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !535, !noundef !7
   %3 = add nsw i64 %2, -3
   %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 2)
@@ -3552,7 +3552,7 @@ define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$awc..connect..ConnectRequest$GT$$GT$17h9919b08bff31de57E"(ptr noalias noundef align 8 dereferenceable(288) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$awc..connect..ConnectRequest$GT$$GT$17h9919b08bff31de57E"(ptr noalias noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !749, !noundef !7
   %3 = icmp eq i64 %2, 6
   br i1 %3, label %"_ZN4core3ptr49drop_in_place$LT$awc..connect..ConnectRequest$GT$17hcc11aa8df950c75dE.exit", label %4
@@ -3608,7 +3608,7 @@ define internal fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..option..Optio
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = getelementptr inbounds i8, ptr %0, i64 88
-  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$actix_http..header..map..HeaderMap$GT$$GT$17h92bb59638779c5beE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %24) #25
+  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$actix_http..header..map..HeaderMap$GT$$GT$17h92bb59638779c5beE"(ptr noalias noundef align 8 dereferenceable(64) %24) #25
           to label %.body.i unwind label %33
 
 "_ZN4core3ptr81drop_in_place$LT$alloc..rc..Rc$LT$actix_http..requests..head..RequestHead$GT$$GT$17h04e66d95cc98e63fE.exit.i.i": ; preds = %21, %.noexc.i.i, %9
@@ -3648,11 +3648,11 @@ define internal fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..option..Optio
 
 .body.i:                                          ; preds = %37, %22
   %eh.lpad-body.i = phi { ptr, i32 } [ %38, %37 ], [ %23, %22 ]
-  invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$awc..any_body..AnyBody$GT$17h59cd181684e55515E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) #25
+  invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$awc..any_body..AnyBody$GT$17h59cd181684e55515E"(ptr noalias noundef align 8 dereferenceable(40) %0) #25
           to label %41 unwind label %39
 
 "_ZN4core3ptr64drop_in_place$LT$actix_http..requests..head..RequestHeadType$GT$17h4eac8e7d6afb3830E.exit.i": ; preds = %.noexc1.i, %"_ZN4core3ptr81drop_in_place$LT$alloc..rc..Rc$LT$actix_http..requests..head..RequestHead$GT$$GT$17h04e66d95cc98e63fE.exit.i.i", %8
-  tail call fastcc void @"_ZN4core3ptr43drop_in_place$LT$awc..any_body..AnyBody$GT$17h59cd181684e55515E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
+  tail call fastcc void @"_ZN4core3ptr43drop_in_place$LT$awc..any_body..AnyBody$GT$17h59cd181684e55515E"(ptr noalias noundef align 8 dereferenceable(40) %0)
   br label %"_ZN4core3ptr49drop_in_place$LT$awc..connect..ConnectRequest$GT$17hcc11aa8df950c75dE.exit"
 
 39:                                               ; preds = %.body.i
@@ -3750,7 +3750,7 @@ common.ret:                                       ; preds = %16, %7, %4, %18, %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$actix_http..header..map..HeaderMap$GT$$GT$17h92bb59638779c5beE"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$actix_http..header..map..HeaderMap$GT$$GT$17h92bb59638779c5beE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !7
   %3 = icmp eq ptr %2, null
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4079,12 +4079,12 @@ common.resume:                                    ; preds = %.body, %44, %13
 .body:                                            ; preds = %24, %34, %48
   %eh.lpad-body = phi { ptr, i32 } [ %49, %48 ], [ %25, %24 ], [ %35, %34 ]
   %50 = getelementptr inbounds i8, ptr %0, i64 24
-  invoke fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$awc..connect..ConnectRequest$GT$$GT$17h9919b08bff31de57E"(ptr noalias noundef nonnull align 8 dereferenceable(288) %50) #25
+  invoke fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$awc..connect..ConnectRequest$GT$$GT$17h9919b08bff31de57E"(ptr noalias noundef align 8 dereferenceable(288) %50) #25
           to label %common.resume unwind label %53
 
 "_ZN4core3ptr906drop_in_place$LT$awc..client..connector..ConnectorServiceFuture$LT$awc..client..connector..TcpConnectorService$LT$awc..client..connector..TcpConnectorInnerService$LT$actix_tls..connect..connector..ConnectorService$GT$$GT$$C$alloc..rc..Rc$LT$dyn$u20$actix_service..Service$LT$awc..client..Connect$GT$$u2b$Error$u20$$u3d$$u20$awc..client..error..ConnectError$u2b$Response$u20$$u3d$$u20$$LP$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$C$actix_http..Protocol$RP$$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$C$actix_http..Protocol$RP$$C$awc..client..error..ConnectError$GT$$GT$$GT$$GT$$C$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17h8b864d3188f97acdE.exit": ; preds = %17, %"_ZN4core3ptr274drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$awc..client..connection..ConnectionType$LT$tokio..net..tcp..stream..TcpStream$GT$$C$awc..client..error..ConnectError$GT$$GT$$GT$$GT$17he53de2394d21e9f4E.exit.i", %"_ZN4core3ptr310drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$awc..client..connection..ConnectionType$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$C$awc..client..error..ConnectError$GT$$GT$$GT$$GT$17h2513043ad54d1abeE.exit.i"
   %51 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$awc..connect..ConnectRequest$GT$$GT$17h9919b08bff31de57E"(ptr noalias noundef nonnull align 8 dereferenceable(288) %51)
+  tail call fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$awc..connect..ConnectRequest$GT$$GT$17h9919b08bff31de57E"(ptr noalias noundef align 8 dereferenceable(288) %51)
   br label %52
 
 52:                                               ; preds = %"_ZN4core3ptr906drop_in_place$LT$awc..client..connector..ConnectorServiceFuture$LT$awc..client..connector..TcpConnectorService$LT$awc..client..connector..TcpConnectorInnerService$LT$actix_tls..connect..connector..ConnectorService$GT$$GT$$C$alloc..rc..Rc$LT$dyn$u20$actix_service..Service$LT$awc..client..Connect$GT$$u2b$Error$u20$$u3d$$u20$awc..client..error..ConnectError$u2b$Response$u20$$u3d$$u20$$LP$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$C$actix_http..Protocol$RP$$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$C$actix_http..Protocol$RP$$C$awc..client..error..ConnectError$GT$$GT$$GT$$GT$$C$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17h8b864d3188f97acdE.exit", %"_ZN4core3ptr473drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$actix_http..responses..head..ResponseHead$C$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$RP$$C$awc..client..error..SendRequestError$GT$$GT$$GT$$GT$17h7e41f8995c9ef89aE.exit", %"_ZN4core3ptr472drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$actix_http..responses..head..ResponseHead$C$actix_codec..framed..Framed$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$C$actix_http..h1..client..ClientCodec$GT$$RP$$C$awc..client..error..SendRequestError$GT$$GT$$GT$$GT$17h360a6abe2891b68fE.exit"
@@ -4248,7 +4248,7 @@ define internal void @"_ZN4core3ptr998drop_in_place$LT$awc..middleware..redirect
 "_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$http..method..Method$GT$$GT$17hd9283c1e7fdd90f9E.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h9130a5aad43283b5E.exit", %21, %31
   %.pn2 = phi { ptr, i32 } [ %32, %31 ], [ %.pn, %21 ], [ %.pn, %"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h9130a5aad43283b5E.exit" ]
   %30 = getelementptr inbounds i8, ptr %0, i64 456
-  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$actix_http..header..map..HeaderMap$GT$$GT$17h92bb59638779c5beE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %30) #25
+  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$actix_http..header..map..HeaderMap$GT$$GT$17h92bb59638779c5beE"(ptr noalias noundef align 8 dereferenceable(64) %30) #25
           to label %41 unwind label %82
 
 31:                                               ; preds = %28
@@ -5176,7 +5176,7 @@ define hidden noundef zeroext i1 @_ZN5bytes5bytes16static_is_unique17h1d728fa32d
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN5tokio3net3tcp6stream9TcpStream11connect_mio28_$u7b$$u7b$closure$u7d$$u7d$17h88cf9128f399fba7E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5tokio3net3tcp6stream9TcpStream11connect_mio28_$u7b$$u7b$closure$u7d$$u7d$17h88cf9128f399fba7E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = alloca { [9 x i8], i8, [6 x i8] }, align 8
   %5 = alloca { ptr, [2 x i64] }, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 36
@@ -12666,7 +12666,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store i64 1, ptr %.sroa.423.0..sroa_idx, align 8
   %.sroa.524.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 16
   store ptr %120, ptr %.sroa.524.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN98_$LT$actix_tls..connect..tcp..TcpConnectorFut$LT$R$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17hb4f92fed48657403E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %42)
+  invoke fastcc void @"_ZN98_$LT$actix_tls..connect..tcp..TcpConnectorFut$LT$R$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17hb4f92fed48657403E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %42)
           to label %201 unwind label %190
 
 201:                                              ; preds = %193
@@ -13265,7 +13265,7 @@ common.resume.sink.split.i:                       ; preds = %355, %351, %333, %3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN98_$LT$actix_tls..connect..tcp..TcpConnectorFut$LT$R$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17hb4f92fed48657403E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #5 {
+define internal fastcc void @"_ZN98_$LT$actix_tls..connect..tcp..TcpConnectorFut$LT$R$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17hb4f92fed48657403E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -14135,7 +14135,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit176
           to label %110 unwind label %50
 
 .body150:                                         ; preds = %273
-  invoke fastcc void @"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$core..net..socket_addr..SocketAddr$GT$$GT$$GT$17he3528bf39b0e7576E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18) #25
+  invoke fastcc void @"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$core..net..socket_addr..SocketAddr$GT$$GT$$GT$17he3528bf39b0e7576E"(ptr noalias noundef align 8 dereferenceable(32) %18) #25
           to label %295 unwind label %293
 
 287:                                              ; preds = %264
@@ -14234,7 +14234,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit176
   unreachable
 
 .body:                                            ; preds = %317
-  invoke fastcc void @"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$core..net..socket_addr..SocketAddr$GT$$GT$$GT$17he3528bf39b0e7576E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #25
+  invoke fastcc void @"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$core..net..socket_addr..SocketAddr$GT$$GT$$GT$17he3528bf39b0e7576E"(ptr noalias noundef align 8 dereferenceable(32) %14) #25
           to label %327 unwind label %293
 
 321:                                              ; preds = %309
@@ -14689,7 +14689,7 @@ common.ret:                                       ; preds = %297, %159, %85
   %141 = phi ptr [ %90, %89 ], [ %94, %135 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !2779
   %142 = getelementptr inbounds i8, ptr %1, i64 88
-  invoke fastcc void @"_ZN5tokio3net3tcp6stream9TcpStream11connect_mio28_$u7b$$u7b$closure$u7d$$u7d$17h88cf9128f399fba7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 %142, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @"_ZN5tokio3net3tcp6stream9TcpStream11connect_mio28_$u7b$$u7b$closure$u7d$$u7d$17h88cf9128f399fba7E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 %142, ptr noalias noundef align 8 dereferenceable(8) %2)
           to label %145 unwind label %143, !noalias !2810
 
 143:                                              ; preds = %139
@@ -14948,7 +14948,7 @@ common.ret:                                       ; preds = %297, %159, %85
   %222 = phi ptr [ %.phi.trans.insert99.i, %198 ], [ %202, %208 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !2838
   %223 = getelementptr inbounds i8, ptr %1, i64 136
-  invoke fastcc void @"_ZN5tokio3net3tcp6stream9TcpStream11connect_mio28_$u7b$$u7b$closure$u7d$$u7d$17h88cf9128f399fba7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 %223, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @"_ZN5tokio3net3tcp6stream9TcpStream11connect_mio28_$u7b$$u7b$closure$u7d$$u7d$17h88cf9128f399fba7E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 %223, ptr noalias noundef align 8 dereferenceable(8) %2)
           to label %226 unwind label %224, !noalias !2848
 
 224:                                              ; preds = %219

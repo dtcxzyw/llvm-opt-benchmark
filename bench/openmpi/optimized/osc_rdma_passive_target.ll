@@ -1485,7 +1485,7 @@ define range(i32 2, 1) i32 @ompi_osc_rdma_lock_all_atomic(i32 noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_lock_acquire_shared(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_lock_acquire_shared(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 1, 4294967297) %2, i64 noundef range(i64 0, 9) %3, i64 noundef range(i64 -9223372036854775808, 4294967296) %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 56
   %8 = load i64, ptr %7, align 8
@@ -2153,7 +2153,7 @@ declare i32 @opal_hash_table_remove_value_uint32(ptr noundef, i32 noundef) local
 declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ompi_osc_rdma_btl_op(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @ompi_osc_rdma_btl_op(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef range(i64 -9223372036854775808, 0) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 1072
   %8 = load i8, ptr %7, align 16
   %9 = trunc i8 %8 to i1
@@ -2368,7 +2368,7 @@ opal_obj_run_destructors.exit87:                  ; preds = %.lr.ph.i84, %92
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_btl_fop(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_btl_fop(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef range(i64 -9223372036854775808, 4294967297) %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 1072
   %10 = load i8, ptr %9, align 16
   %11 = trunc i8 %10 to i1

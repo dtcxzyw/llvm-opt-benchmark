@@ -1972,7 +1972,7 @@ if.else101:                                       ; preds = %cond.end92
 
 if.end108.sink.split:                             ; preds = %cond.end69, %if.else101, %if.then94
   %desc_for_sandbox95.sink39 = phi ptr [ %desc_for_sandbox95, %if.then94 ], [ %desc_for_sandbox102, %if.else101 ], [ %desc_for_sandbox, %cond.end69 ]
-  call fastcc void @"_ZZN4node10contextify17ContextifyContext23PropertyDefinerCallbackEN2v85LocalINS2_4NameEEERKNS2_18PropertyDescriptorERKNS2_20PropertyCallbackInfoINS2_5ValueEEEENK3$_0clEPS6_"(ptr noundef nonnull align 8 dereferenceable(32) %define_prop_on_sandbox, ptr noundef nonnull %desc_for_sandbox95.sink39)
+  call fastcc void @"_ZZN4node10contextify17ContextifyContext23PropertyDefinerCallbackEN2v85LocalINS2_4NameEEERKNS2_18PropertyDescriptorERKNS2_20PropertyCallbackInfoINS2_5ValueEEEENK3$_0clEPS6_"(ptr noundef nonnull align 8 dereferenceable(32) %define_prop_on_sandbox, ptr noundef %desc_for_sandbox95.sink39)
   call void @_ZN2v818PropertyDescriptorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %desc_for_sandbox95.sink39) #21
   br label %if.end108
 
@@ -6357,7 +6357,7 @@ declare ptr @_ZNK2v818PropertyDescriptor3setEv(ptr noundef nonnull align 8 deref
 declare void @_ZN2v818PropertyDescriptorC1ENS_5LocalINS_5ValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8), ptr, ptr) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4node10contextify17ContextifyContext23PropertyDefinerCallbackEN2v85LocalINS2_4NameEEERKNS2_18PropertyDescriptorERKNS2_20PropertyCallbackInfoINS2_5ValueEEEENK3$_0clEPS6_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %desc_for_sandbox) unnamed_addr #3 align 2 {
+define internal fastcc void @"_ZZN4node10contextify17ContextifyContext23PropertyDefinerCallbackEN2v85LocalINS2_4NameEEERKNS2_18PropertyDescriptorERKNS2_20PropertyCallbackInfoINS2_5ValueEEEENK3$_0clEPS6_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull %desc_for_sandbox) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef zeroext i1 @_ZNK2v818PropertyDescriptor14has_enumerableEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #21

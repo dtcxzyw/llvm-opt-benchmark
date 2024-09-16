@@ -282,7 +282,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_esl_header(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_esl_header(ptr noundef %0, i32 noundef range(i32 0, -16) %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #3
   %4 = icmp eq i8 %3, 1
   br i1 %4, label %5, label %29
@@ -333,7 +333,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @modify_times(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @modify_times(ptr noundef %0, i32 noundef range(i32 0, -16) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = alloca %struct.nstime_t, align 8
   %6 = load ptr, ptr @ref_time_frame, align 8

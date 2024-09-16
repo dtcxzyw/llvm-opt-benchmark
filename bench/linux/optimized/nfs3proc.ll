@@ -2238,7 +2238,7 @@ declare dso_local void @nfs_setattr_update_inode(ptr noundef, ptr noundef, ptr n
 declare dso_local void @nfs_zap_acl_cache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -527, -528) i32 @__nfs3_proc_lookup(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %5) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -527, -528) i32 @__nfs3_proc_lookup(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, 4294967296) %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext range(i16 0, 4097) %5) unnamed_addr #0 align 16 {
   %7 = alloca %struct.nfs3_diropargs, align 8
   %8 = alloca %struct.nfs3_diropres, align 8
   %9 = alloca %struct.rpc_message, align 8
@@ -2400,14 +2400,14 @@ declare i32 @llvm.bswap.i32(i32) #7
 declare dso_local i32 @posix_acl_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @nfs3_do_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @nfs3_do_create(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 872
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @rpc_call_sync(ptr noundef %9, ptr noundef %2, i32 noundef 0) #10
+  %10 = tail call i32 @rpc_call_sync(ptr noundef %9, ptr noundef nonnull %2, i32 noundef 0) #10
   %11 = icmp eq i32 %10, -528
   br i1 %11, label %.lr.ph, label %.critedge._crit_edge
 
@@ -2433,7 +2433,7 @@ define internal fastcc ptr @nfs3_do_create(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %24, label %.critedge.backedge, label %.thread
 
 .critedge.backedge:                               ; preds = %21, %16
-  %25 = tail call i32 @rpc_call_sync(ptr noundef %9, ptr noundef %2, i32 noundef 0) #10
+  %25 = tail call i32 @rpc_call_sync(ptr noundef %9, ptr noundef nonnull %2, i32 noundef 0) #10
   %26 = icmp eq i32 %25, -528
   br i1 %26, label %16, label %.critedge._crit_edge, !llvm.loop !6
 

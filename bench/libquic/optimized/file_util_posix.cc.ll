@@ -1678,7 +1678,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %if.end
-  %call4 = invoke fastcc noundef i32 @_ZN4base12_GLOBAL__N_131CreateAndOpenFdForTemporaryFileENS_8FilePathEPS1_(ptr noundef nonnull %agg.tmp, ptr noundef %path)
+  %call4 = invoke fastcc noundef i32 @_ZN4base12_GLOBAL__N_131CreateAndOpenFdForTemporaryFileENS_8FilePathEPS1_(ptr noundef %agg.tmp, ptr noundef %path)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont1
@@ -1707,12 +1707,12 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN4base12_GLOBAL__N_131CreateAndOpenFdForTemporaryFileENS_8FilePathEPS1_(ptr noundef %directory, ptr noundef %path) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN4base12_GLOBAL__N_131CreateAndOpenFdForTemporaryFileENS_8FilePathEPS1_(ptr noundef nonnull %directory, ptr noundef %path) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.base::FilePath", align 8
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN4base12_GLOBAL__N_112TempFileNameB5cxx11Ev(ptr noalias nonnull align 8 %ref.tmp1)
+  call fastcc void @_ZN4base12_GLOBAL__N_112TempFileNameB5cxx11Ev(ptr noalias align 8 %ref.tmp1)
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1)
           to label %invoke.cont unwind label %lpad
 
@@ -1771,7 +1771,7 @@ define dso_local noalias noundef ptr @_ZN4base31CreateAndOpenTemporaryFileInDirE
 entry:
   %agg.tmp = alloca %"class.base::FilePath", align 8
   call void @_ZN4base8FilePathC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %dir)
-  %call = invoke fastcc noundef i32 @_ZN4base12_GLOBAL__N_131CreateAndOpenFdForTemporaryFileENS_8FilePathEPS1_(ptr noundef nonnull %agg.tmp, ptr noundef %path)
+  %call = invoke fastcc noundef i32 @_ZN4base12_GLOBAL__N_131CreateAndOpenFdForTemporaryFileENS_8FilePathEPS1_(ptr noundef %agg.tmp, ptr noundef %path)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1807,7 +1807,7 @@ define dso_local noundef zeroext i1 @_ZN4base24CreateTemporaryFileInDirERKNS_8Fi
 entry:
   %agg.tmp = alloca %"class.base::FilePath", align 8
   call void @_ZN4base8FilePathC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %dir)
-  %call = invoke fastcc noundef i32 @_ZN4base12_GLOBAL__N_131CreateAndOpenFdForTemporaryFileENS_8FilePathEPS1_(ptr noundef nonnull %agg.tmp, ptr noundef %temp_file)
+  %call = invoke fastcc noundef i32 @_ZN4base12_GLOBAL__N_131CreateAndOpenFdForTemporaryFileENS_8FilePathEPS1_(ptr noundef %agg.tmp, ptr noundef %temp_file)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1958,7 +1958,7 @@ lpad:                                             ; preds = %if.end, %entry
   br label %ehcleanup
 
 if.end:                                           ; preds = %entry
-  invoke fastcc void @_ZN4base12_GLOBAL__N_112TempFileNameB5cxx11Ev(ptr noalias nonnull align 8 %ref.tmp)
+  invoke fastcc void @_ZN4base12_GLOBAL__N_112TempFileNameB5cxx11Ev(ptr noalias align 8 %ref.tmp)
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %if.end
@@ -1983,7 +1983,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4base12_GLOBAL__N_112TempFileNameB5cxx11Ev(ptr noalias align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4base12_GLOBAL__N_112TempFileNameB5cxx11Ev(ptr noalias nonnull align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
@@ -3269,7 +3269,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %call = invoke fastcc noundef i32 @_ZN4base12_GLOBAL__N_131CreateAndOpenFdForTemporaryFileENS_8FilePathEPS1_(ptr noundef nonnull %agg.tmp, ptr noundef nonnull %path)
+  %call = invoke fastcc noundef i32 @_ZN4base12_GLOBAL__N_131CreateAndOpenFdForTemporaryFileENS_8FilePathEPS1_(ptr noundef %agg.tmp, ptr noundef nonnull %path)
           to label %invoke.cont7 unwind label %lpad3
 
 invoke.cont7:                                     ; preds = %invoke.cont2

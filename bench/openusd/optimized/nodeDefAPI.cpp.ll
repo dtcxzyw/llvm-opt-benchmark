@@ -2895,7 +2895,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__18UsdShadeNodeD
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_GetSourceAssetAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_GetSourceAssetAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %9 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__14UsdShadeTokensE seq_cst, align 8
   %10 = inttoptr i64 %9 to ptr
   %.not.i.i = icmp eq i64 %9, 0
@@ -3374,7 +3374,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit48: ; preds = %.body, %215
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_GetSourceAssetAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_GetSourceAssetAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::vector.75", align 8
   %5 = alloca [3 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 8
@@ -3811,7 +3811,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_18UsdShadeTokensTypeENS_
   br label %.body
 
 35:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_18UsdShadeTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_GetSourceAssetAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_GetSourceAssetAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %36 unwind label %33
 
 36:                                               ; preds = %35
@@ -4036,7 +4036,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_18UsdShade
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_18UsdShadeTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit38: ; preds = %129, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_18UsdShadeTokensTypeEE3NewEv.exit.i.i.i34, %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit32
   %132 = phi ptr [ %121, %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit32 ], [ %131, %129 ], [ %123, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_18UsdShadeTokensTypeEE3NewEv.exit.i.i.i34 ]
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 224
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_GetSourceAssetAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %133)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_GetSourceAssetAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %133)
           to label %134 unwind label %194
 
 134:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_18UsdShadeTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit38
@@ -4405,7 +4405,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__18UsdShadeNodeD
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L36_GetSourceAssetSubIdentifierAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L36_GetSourceAssetSubIdentifierAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %9 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__14UsdShadeTokensE seq_cst, align 8
   %10 = inttoptr i64 %9 to ptr
   %.not.i.i = icmp eq i64 %9, 0
@@ -4873,7 +4873,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit48: ; preds = %.body, %218
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L36_GetSourceAssetSubIdentifierAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L36_GetSourceAssetSubIdentifierAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::vector.75", align 8
   %5 = alloca [4 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 8
@@ -5371,7 +5371,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_18UsdShadeTokensTypeENS_
   br label %.body
 
 35:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_18UsdShadeTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L36_GetSourceAssetSubIdentifierAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L36_GetSourceAssetSubIdentifierAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %36 unwind label %33
 
 36:                                               ; preds = %35
@@ -5596,7 +5596,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_18UsdShade
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_18UsdShadeTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit38: ; preds = %129, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_18UsdShadeTokensTypeEE3NewEv.exit.i.i.i34, %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit32
   %132 = phi ptr [ %121, %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit32 ], [ %131, %129 ], [ %123, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_18UsdShadeTokensTypeEE3NewEv.exit.i.i.i34 ]
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 224
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L36_GetSourceAssetSubIdentifierAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %133)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L36_GetSourceAssetSubIdentifierAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %133)
           to label %134 unwind label %194
 
 134:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_18UsdShadeTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit38
@@ -5965,7 +5965,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__18UsdShadeNodeD
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetSourceCodeAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetSourceCodeAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %9 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__14UsdShadeTokensE seq_cst, align 8
   %10 = inttoptr i64 %9 to ptr
   %.not.i.i = icmp eq i64 %9, 0
@@ -6428,7 +6428,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit48: ; preds = %.body, %211
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetSourceCodeAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetSourceCodeAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::vector.75", align 8
   %5 = alloca [3 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 8
@@ -6865,7 +6865,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_18UsdShadeTokensTypeENS_
   br label %.body
 
 35:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_18UsdShadeTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetSourceCodeAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetSourceCodeAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %36 unwind label %33
 
 36:                                               ; preds = %35
@@ -7090,7 +7090,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_18UsdShade
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_18UsdShadeTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit38: ; preds = %129, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_18UsdShadeTokensTypeEE3NewEv.exit.i.i.i34, %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit32
   %132 = phi ptr [ %121, %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit32 ], [ %131, %129 ], [ %123, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_18UsdShadeTokensTypeEE3NewEv.exit.i.i.i34 ]
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 224
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetSourceCodeAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %133)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetSourceCodeAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %133)
           to label %134 unwind label %194
 
 134:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_18UsdShadeTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit38
@@ -8348,7 +8348,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_18UsdShadeTokensTypeENS_
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit unwind label %163
 
 _ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit: ; preds = %93
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_GetSdrMetadataB5cxx11ERKNS_7UsdPrimE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_GetSdrMetadataB5cxx11ERKNS_7UsdPrimE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %96 unwind label %165
 
 96:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit
@@ -8602,7 +8602,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit72.thread: ; preds = %206
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit57 unwind label %270
 
 _ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit57: ; preds = %209
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_GetSdrMetadataB5cxx11ERKNS_7UsdPrimE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_GetSdrMetadataB5cxx11ERKNS_7UsdPrimE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %212 unwind label %272
 
 212:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit57
@@ -8796,7 +8796,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC1Ev(ptr nounde
 declare noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__11SdrRegistry22GetShaderNodeFromAssetERKNS_12SdfAssetPathERKSt13unordered_mapINS_7TfTokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_11HashFunctorESt8equal_toIS5_ESaISt4pairIKS5_SB_EEERSG_SM_(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_GetSdrMetadataB5cxx11ERKNS_7UsdPrimE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_GetSdrMetadataB5cxx11ERKNS_7UsdPrimE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticHelper", align 8
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8

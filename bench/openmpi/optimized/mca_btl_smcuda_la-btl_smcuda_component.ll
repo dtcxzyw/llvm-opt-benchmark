@@ -2018,182 +2018,182 @@ opal_obj_run_destructors.exit7:                   ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -18, 1) i32 @create_rndv_file(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -18, 1) i32 @create_rndv_file(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = icmp eq i32 %0, 1
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 292), align 4
-  br i1 %3, label %5, label %46
+  %.not = icmp eq i32 %0, 0
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 292), align 4
+  br i1 %.not, label %45, label %4
 
-5:                                                ; preds = %1
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
-  %7 = tail call i32 @llvm.smin.i32(i32 %6, i32 %4)
-  %8 = sext i32 %7 to i64
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 464), align 16
-  %10 = zext i32 %9 to i64
-  %11 = shl nuw nsw i64 %10, 3
-  %12 = add nuw nsw i64 %11, 640
-  %13 = load i32, ptr @opal_cache_line_size, align 4
-  %14 = shl nsw i32 %13, 2
-  %15 = sext i32 %14 to i64
-  %16 = add nsw i64 %12, %15
-  %17 = mul i64 %16, %8
-  %18 = shl nsw i32 %4, 1
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 288), align 16
-  %20 = add nsw i32 %19, %18
-  %21 = sext i32 %20 to i64
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 336), align 16
-  %23 = shl nsw i32 %13, 1
-  %24 = sext i32 %23 to i64
-  %25 = add i64 %22, %24
-  %26 = mul i64 %25, %21
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 280), align 8
-  %28 = sext i32 %27 to i64
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 344), align 8
-  %30 = add i64 %29, %24
-  %31 = mul i64 %30, %28
-  %32 = add i64 %26, 4208
-  %33 = add i64 %32, %17
-  %34 = add i64 %33, %31
-  %35 = uitofp i64 %34 to double
-  %36 = sitofp i32 %4 to double
-  %37 = fmul double %36, %35
-  %38 = fcmp ogt double %37, 0x43DFFFFFFFFFFFFC
-  br i1 %38, label %get_mpool_res_size.exit.thread10, label %39
+4:                                                ; preds = %1
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
+  %6 = tail call i32 @llvm.smin.i32(i32 %5, i32 %3)
+  %7 = sext i32 %6 to i64
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 464), align 16
+  %9 = zext i32 %8 to i64
+  %10 = shl nuw nsw i64 %9, 3
+  %11 = add nuw nsw i64 %10, 640
+  %12 = load i32, ptr @opal_cache_line_size, align 4
+  %13 = shl nsw i32 %12, 2
+  %14 = sext i32 %13 to i64
+  %15 = add nsw i64 %11, %14
+  %16 = mul i64 %15, %7
+  %17 = shl nsw i32 %3, 1
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 288), align 16
+  %19 = add nsw i32 %18, %17
+  %20 = sext i32 %19 to i64
+  %21 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 336), align 16
+  %22 = shl nsw i32 %12, 1
+  %23 = sext i32 %22 to i64
+  %24 = add i64 %21, %23
+  %25 = mul i64 %24, %20
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 280), align 8
+  %27 = sext i32 %26 to i64
+  %28 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 344), align 8
+  %29 = add i64 %28, %23
+  %30 = mul i64 %29, %27
+  %31 = add i64 %25, 4208
+  %32 = add i64 %31, %16
+  %33 = add i64 %32, %30
+  %34 = uitofp i64 %33 to double
+  %35 = sitofp i32 %3 to double
+  %36 = fmul double %35, %34
+  %37 = fcmp ogt double %36, 0x43DFFFFFFFFFFFFC
+  br i1 %37, label %get_mpool_res_size.exit.thread10, label %38
 
-39:                                               ; preds = %5
-  %40 = sext i32 %4 to i64
-  %41 = mul i64 %34, %40
-  %42 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2392), align 8
-  %spec.store.select = tail call i64 @llvm.umax.i64(i64 %41, i64 %42)
+38:                                               ; preds = %4
+  %39 = sext i32 %3 to i64
+  %40 = mul i64 %33, %39
+  %41 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2392), align 8
+  %spec.store.select = tail call i64 @llvm.umax.i64(i64 %40, i64 %41)
   store i64 %spec.store.select, ptr %2, align 8
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2344), align 8
-  %44 = tail call ptr @mca_common_sm_module_create_and_attach(i64 noundef %spec.store.select, ptr noundef %43, i64 noundef 4208, i64 noundef 8) #14
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %create_and_attach.exit, label %56
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2344), align 8
+  %43 = tail call ptr @mca_common_sm_module_create_and_attach(i64 noundef %spec.store.select, ptr noundef %42, i64 noundef 4208, i64 noundef 8) #14
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %create_and_attach.exit, label %55
 
-create_and_attach.exit:                           ; preds = %39
+create_and_attach.exit:                           ; preds = %38
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.31, i64 noundef %spec.store.select) #14
   br label %get_mpool_res_size.exit.thread10
 
-46:                                               ; preds = %1
-  %47 = sext i32 %4 to i64
-  %48 = mul nsw i64 %47, 18
-  %49 = add nsw i64 %48, 32
-  %50 = load i32, ptr @opal_cache_line_size, align 4
-  %51 = sext i32 %50 to i64
-  %52 = add nsw i64 %49, %51
-  store i64 %52, ptr %2, align 8
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2360), align 8
-  %54 = tail call ptr @mca_common_sm_module_create_and_attach(i64 noundef %52, ptr noundef %53, i64 noundef 32, i64 noundef %51) #14
-  store ptr %54, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 416), align 16
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %create_and_attach.exit46, label %56
+45:                                               ; preds = %1
+  %46 = sext i32 %3 to i64
+  %47 = mul nsw i64 %46, 18
+  %48 = add nsw i64 %47, 32
+  %49 = load i32, ptr @opal_cache_line_size, align 4
+  %50 = sext i32 %49 to i64
+  %51 = add nsw i64 %48, %50
+  store i64 %51, ptr %2, align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2360), align 8
+  %53 = tail call ptr @mca_common_sm_module_create_and_attach(i64 noundef %51, ptr noundef %52, i64 noundef 32, i64 noundef %50) #14
+  store ptr %53, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 416), align 16
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %create_and_attach.exit47, label %55
 
-create_and_attach.exit46:                         ; preds = %46
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.31, i64 noundef %52) #14
+create_and_attach.exit47:                         ; preds = %45
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.31, i64 noundef %51) #14
   br label %get_mpool_res_size.exit.thread10
 
-56:                                               ; preds = %46, %39
-  %.0 = phi ptr [ %44, %39 ], [ %54, %46 ]
-  %.029.in = phi ptr [ getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2352), %39 ], [ getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2368), %46 ]
+55:                                               ; preds = %45, %38
+  %.0 = phi ptr [ %43, %38 ], [ %53, %45 ]
+  %.029.in = phi ptr [ getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2352), %38 ], [ getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2368), %45 ]
   %.029 = load ptr, ptr %.029.in, align 16
-  %57 = tail call i32 (ptr, i32, ...) @open(ptr noundef %.029, i32 noundef 66, i32 noundef 384) #14
-  %58 = icmp eq i32 %57, -1
-  br i1 %58, label %59, label %65
+  %56 = tail call i32 (ptr, i32, ...) @open(ptr noundef %.029, i32 noundef 66, i32 noundef 384) #14
+  %57 = icmp eq i32 %56, -1
+  br i1 %57, label %58, label %64
 
-59:                                               ; preds = %56
-  %60 = tail call ptr @__errno_location() #16
-  %61 = load i32, ptr %60, align 4
-  %62 = load ptr, ptr @opal_show_help, align 8
-  %63 = tail call ptr @strerror(i32 noundef %61) #14
-  %64 = tail call i32 (ptr, ptr, i32, ...) %62(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.28, i32 noundef 1, ptr noundef nonnull @.str.29, ptr noundef %63, i32 noundef %61) #14
+58:                                               ; preds = %55
+  %59 = tail call ptr @__errno_location() #16
+  %60 = load i32, ptr %59, align 4
+  %61 = load ptr, ptr @opal_show_help, align 8
+  %62 = tail call ptr @strerror(i32 noundef %60) #14
+  %63 = tail call i32 (ptr, ptr, i32, ...) %61(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.28, i32 noundef 1, ptr noundef nonnull @.str.29, ptr noundef %62, i32 noundef %60) #14
   br label %get_mpool_res_size.exit.thread10
 
-65:                                               ; preds = %56
-  %66 = getelementptr inbounds i8, ptr %.0, i64 64
-  %67 = tail call i64 @write(i32 noundef %57, ptr noundef nonnull %66, i64 noundef 4136) #14
-  %.not41 = icmp eq i64 %67, 4136
-  br i1 %.not41, label %74, label %68
+64:                                               ; preds = %55
+  %65 = getelementptr inbounds i8, ptr %.0, i64 64
+  %66 = tail call i64 @write(i32 noundef %56, ptr noundef nonnull %65, i64 noundef 4136) #14
+  %.not42 = icmp eq i64 %66, 4136
+  br i1 %.not42, label %73, label %67
 
-68:                                               ; preds = %65
-  %69 = tail call ptr @__errno_location() #16
-  %70 = load i32, ptr %69, align 4
-  %71 = load ptr, ptr @opal_show_help, align 8
-  %72 = tail call ptr @strerror(i32 noundef %70) #14
-  %73 = tail call i32 (ptr, ptr, i32, ...) %71(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.28, i32 noundef 1, ptr noundef nonnull @.str.30, ptr noundef %72, i32 noundef %70) #14
+67:                                               ; preds = %64
+  %68 = tail call ptr @__errno_location() #16
+  %69 = load i32, ptr %68, align 4
+  %70 = load ptr, ptr @opal_show_help, align 8
+  %71 = tail call ptr @strerror(i32 noundef %69) #14
+  %72 = tail call i32 (ptr, ptr, i32, ...) %70(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.28, i32 noundef 1, ptr noundef nonnull @.str.30, ptr noundef %71, i32 noundef %69) #14
   br label %get_mpool_res_size.exit.thread17
 
-74:                                               ; preds = %65
-  br i1 %3, label %75, label %get_mpool_res_size.exit.thread17
+73:                                               ; preds = %64
+  br i1 %.not, label %get_mpool_res_size.exit.thread17, label %74
 
-75:                                               ; preds = %74
-  %76 = call i64 @write(i32 noundef %57, ptr noundef nonnull %2, i64 noundef 8) #14
-  %.not42 = icmp eq i64 %76, 8
-  br i1 %.not42, label %83, label %77
+74:                                               ; preds = %73
+  %75 = call i64 @write(i32 noundef %56, ptr noundef nonnull %2, i64 noundef 8) #14
+  %.not43 = icmp eq i64 %75, 8
+  br i1 %.not43, label %82, label %76
 
-77:                                               ; preds = %75
-  %78 = tail call ptr @__errno_location() #16
-  %79 = load i32, ptr %78, align 4
-  %80 = load ptr, ptr @opal_show_help, align 8
-  %81 = tail call ptr @strerror(i32 noundef %79) #14
-  %82 = tail call i32 (ptr, ptr, i32, ...) %80(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.28, i32 noundef 1, ptr noundef nonnull @.str.30, ptr noundef %81, i32 noundef %79) #14
+76:                                               ; preds = %74
+  %77 = tail call ptr @__errno_location() #16
+  %78 = load i32, ptr %77, align 4
+  %79 = load ptr, ptr @opal_show_help, align 8
+  %80 = tail call ptr @strerror(i32 noundef %78) #14
+  %81 = tail call i32 (ptr, ptr, i32, ...) %79(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.28, i32 noundef 1, ptr noundef nonnull @.str.30, ptr noundef %80, i32 noundef %78) #14
   br label %get_mpool_res_size.exit.thread17
 
-83:                                               ; preds = %75
-  %84 = getelementptr inbounds i8, ptr %.0, i64 8
-  %85 = load i8, ptr @opal_uses_threads, align 1
-  %86 = trunc i8 %85 to i1
-  br i1 %86, label %87, label %90
+82:                                               ; preds = %74
+  %83 = getelementptr inbounds i8, ptr %.0, i64 8
+  %84 = load i8, ptr @opal_uses_threads, align 1
+  %85 = trunc i8 %84 to i1
+  br i1 %85, label %86, label %89
 
-87:                                               ; preds = %83
-  %88 = atomicrmw volatile add ptr %84, i32 -1 monotonic, align 4
-  %89 = add i32 %88, -1
+86:                                               ; preds = %82
+  %87 = atomicrmw volatile add ptr %83, i32 -1 monotonic, align 4
+  %88 = add i32 %87, -1
   br label %opal_thread_add_fetch_32.exit
 
-90:                                               ; preds = %83
-  %91 = load volatile i32, ptr %84, align 4
-  %92 = add nsw i32 %91, -1
-  store volatile i32 %92, ptr %84, align 4
-  %93 = load volatile i32, ptr %84, align 4
+89:                                               ; preds = %82
+  %90 = load volatile i32, ptr %83, align 4
+  %91 = add nsw i32 %90, -1
+  store volatile i32 %91, ptr %83, align 4
+  %92 = load volatile i32, ptr %83, align 4
   br label %opal_thread_add_fetch_32.exit
 
-opal_thread_add_fetch_32.exit:                    ; preds = %87, %90
-  %.0.i47 = phi i32 [ %89, %87 ], [ %93, %90 ]
-  %94 = icmp eq i32 %.0.i47, 0
-  br i1 %94, label %95, label %get_mpool_res_size.exit.thread17
+opal_thread_add_fetch_32.exit:                    ; preds = %86, %89
+  %.0.i48 = phi i32 [ %88, %86 ], [ %92, %89 ]
+  %93 = icmp eq i32 %.0.i48, 0
+  br i1 %93, label %94, label %get_mpool_res_size.exit.thread17
 
-95:                                               ; preds = %opal_thread_add_fetch_32.exit
-  %96 = load ptr, ptr %.0, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 48
+94:                                               ; preds = %opal_thread_add_fetch_32.exit
+  %95 = load ptr, ptr %.0, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 48
+  %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %97, align 8
-  %99 = load ptr, ptr %98, align 8
-  %.not6.i = icmp eq ptr %99, null
+  %.not6.i = icmp eq ptr %98, null
   br i1 %.not6.i, label %get_mpool_res_size.exit.thread23, label %.lr.ph.i
 
-get_mpool_res_size.exit.thread23:                 ; preds = %95
+get_mpool_res_size.exit.thread23:                 ; preds = %94
   tail call void @free(ptr noundef nonnull %.0) #14
   br label %get_mpool_res_size.exit.thread17
 
-.lr.ph.i:                                         ; preds = %95, %.lr.ph.i
-  %100 = phi ptr [ %102, %.lr.ph.i ], [ %99, %95 ]
-  %.07.i = phi ptr [ %101, %.lr.ph.i ], [ %98, %95 ]
-  tail call void %100(ptr noundef nonnull %.0) #14
-  %101 = getelementptr inbounds i8, ptr %.07.i, i64 8
-  %102 = load ptr, ptr %101, align 8
-  %.not.i = icmp eq ptr %102, null
+.lr.ph.i:                                         ; preds = %94, %.lr.ph.i
+  %99 = phi ptr [ %101, %.lr.ph.i ], [ %98, %94 ]
+  %.07.i = phi ptr [ %100, %.lr.ph.i ], [ %97, %94 ]
+  tail call void %99(ptr noundef nonnull %.0) #14
+  %100 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %101 = load ptr, ptr %100, align 8
+  %.not.i = icmp eq ptr %101, null
   br i1 %.not.i, label %get_mpool_res_size.exit, label %.lr.ph.i, !llvm.loop !12
 
 get_mpool_res_size.exit:                          ; preds = %.lr.ph.i
   tail call void @free(ptr noundef nonnull %.0) #14
   br label %get_mpool_res_size.exit.thread17
 
-get_mpool_res_size.exit.thread17:                 ; preds = %get_mpool_res_size.exit, %74, %opal_thread_add_fetch_32.exit, %77, %68, %get_mpool_res_size.exit.thread23
-  %.02722 = phi i32 [ 0, %get_mpool_res_size.exit ], [ 0, %get_mpool_res_size.exit.thread23 ], [ 0, %74 ], [ 0, %opal_thread_add_fetch_32.exit ], [ -11, %77 ], [ -11, %68 ]
-  %103 = tail call i32 @close(i32 noundef %57) #14
+get_mpool_res_size.exit.thread17:                 ; preds = %get_mpool_res_size.exit, %73, %opal_thread_add_fetch_32.exit, %76, %67, %get_mpool_res_size.exit.thread23
+  %.02722 = phi i32 [ 0, %get_mpool_res_size.exit ], [ 0, %get_mpool_res_size.exit.thread23 ], [ 0, %73 ], [ 0, %opal_thread_add_fetch_32.exit ], [ -11, %76 ], [ -11, %67 ]
+  %102 = tail call i32 @close(i32 noundef %56) #14
   br label %get_mpool_res_size.exit.thread10
 
-get_mpool_res_size.exit.thread10:                 ; preds = %5, %create_and_attach.exit46, %59, %create_and_attach.exit, %get_mpool_res_size.exit.thread17
-  %.02714 = phi i32 [ %.02722, %get_mpool_res_size.exit.thread17 ], [ -18, %5 ], [ -1, %create_and_attach.exit46 ], [ -11, %59 ], [ -1, %create_and_attach.exit ]
+get_mpool_res_size.exit.thread10:                 ; preds = %4, %create_and_attach.exit47, %58, %create_and_attach.exit, %get_mpool_res_size.exit.thread17
+  %.02714 = phi i32 [ %.02722, %get_mpool_res_size.exit.thread17 ], [ -18, %4 ], [ -1, %create_and_attach.exit47 ], [ -11, %58 ], [ -1, %create_and_attach.exit ]
   ret i32 %.02714
 }
 

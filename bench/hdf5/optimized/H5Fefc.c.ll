@@ -230,7 +230,7 @@ define ptr @H5F__efc_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 no
   br i1 %.not120, label %.critedge127, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph
-  %85 = call fastcc i32 @H5F__efc_remove_ent(ptr noundef nonnull %0, ptr noundef nonnull %.3141)
+  %85 = call fastcc i32 @H5F__efc_remove_ent(ptr noundef nonnull %0, ptr noundef %.3141)
   %86 = icmp slt i32 %85, 0
   br i1 %86, label %87, label %115
 
@@ -443,7 +443,7 @@ declare ptr @H5SL_search(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @H5SL_create(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5F__efc_remove_ent(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5F__efc_remove_ent(ptr nocapture noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @H5SL_remove(ptr noundef %3, ptr noundef %4) #4
@@ -625,7 +625,7 @@ define range(i32 -1, 1) i32 @H5F__efc_release(ptr nocapture noundef %0) local_un
   br i1 %.not13.i, label %7, label %14
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = tail call fastcc i32 @H5F__efc_remove_ent(ptr noundef %0, ptr noundef nonnull %.01215.i)
+  %8 = tail call fastcc i32 @H5F__efc_remove_ent(ptr noundef %0, ptr noundef %.01215.i)
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %18, label %10
 
@@ -690,7 +690,7 @@ define range(i32 -1, 1) i32 @H5F__efc_destroy(ptr noundef %0) local_unnamed_addr
   br i1 %.not13.i, label %10, label %17
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call fastcc i32 @H5F__efc_remove_ent(ptr noundef %0, ptr noundef nonnull %.01215.i)
+  %11 = tail call fastcc i32 @H5F__efc_remove_ent(ptr noundef %0, ptr noundef %.01215.i)
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %21, label %13
 
@@ -786,7 +786,7 @@ define range(i32 -1, 1) i32 @H5F__efc_try_close(ptr nocapture noundef readonly %
   br i1 %.not13.i, label %16, label %23
 
 16:                                               ; preds = %.lr.ph.i
-  %17 = tail call fastcc i32 @H5F__efc_remove_ent(ptr noundef %7, ptr noundef nonnull %.01215.i)
+  %17 = tail call fastcc i32 @H5F__efc_remove_ent(ptr noundef %7, ptr noundef %.01215.i)
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %27, label %19
 
@@ -840,7 +840,7 @@ H5F__efc_release_real.exit:                       ; preds = %26, %11
   store ptr %5, ptr %2, align 8
   store i32 %38, ptr %8, align 4
   %46 = load ptr, ptr %4, align 8
-  call fastcc void @H5F__efc_try_close_tag1(ptr noundef %46, ptr noundef nonnull %2)
+  call fastcc void @H5F__efc_try_close_tag1(ptr noundef %46, ptr noundef %2)
   %47 = load ptr, ptr %4, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 56
   %49 = load ptr, ptr %48, align 8
@@ -929,7 +929,7 @@ H5F__efc_release_real.exit:                       ; preds = %26, %11
 
 .lr.ph87:                                         ; preds = %82, %.lr.ph87
   %.285 = phi ptr [ %90, %.lr.ph87 ], [ %.250, %82 ]
-  call fastcc void @H5F__efc_try_close_tag2(ptr noundef %.285, ptr noundef nonnull %3)
+  call fastcc void @H5F__efc_try_close_tag2(ptr noundef %.285, ptr noundef %3)
   %87 = getelementptr inbounds i8, ptr %.285, i64 56
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 40
@@ -964,7 +964,7 @@ H5F__efc_release_real.exit:                       ; preds = %26, %11
   br i1 %.not13.i61, label %105, label %112
 
 105:                                              ; preds = %.lr.ph.i59
-  %106 = tail call fastcc i32 @H5F__efc_remove_ent(ptr noundef %96, ptr noundef nonnull %.01215.i60)
+  %106 = tail call fastcc i32 @H5F__efc_remove_ent(ptr noundef %96, ptr noundef %.01215.i60)
   %107 = icmp slt i32 %106, 0
   br i1 %107, label %116, label %108
 
@@ -1020,7 +1020,7 @@ H5F__efc_release_real.exit66:                     ; preds = %115, %100
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5F__efc_try_close_tag1(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #3 {
+define internal fastcc void @H5F__efc_try_close_tag1(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -1103,7 +1103,7 @@ define internal fastcc void @H5F__efc_try_close_tag1(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5F__efc_try_close_tag2(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #3 {
+define internal fastcc void @H5F__efc_try_close_tag2(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8

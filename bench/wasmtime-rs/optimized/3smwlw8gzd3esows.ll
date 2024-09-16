@@ -174,7 +174,7 @@ define hidden void @_ZN20wasmtime_wit_bindgen5types5Types7analyze17hadb345168dc8
   br i1 %73, label %._crit_edge14, label %.lr.ph13
 
 74:                                               ; preds = %52
-  call fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_func17h2bea81c6812dea4bE(ptr align 8 %0, ptr align 8 %1, ptr nonnull align 8 %54, i1 zeroext %55)
+  call fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_func17h2bea81c6812dea4bE(ptr align 8 %0, ptr align 8 %1, ptr align 8 %54, i1 zeroext %55)
   br label %.backedge
 
 .backedge:                                        ; preds = %.lr.ph16, %._crit_edge14, %74, %77
@@ -223,7 +223,7 @@ define hidden void @_ZN20wasmtime_wit_bindgen5types5Types7analyze17hadb345168dc8
   %101 = extractvalue { ptr, ptr } %100, 1
   %102 = icmp ne ptr %101, null
   call void @llvm.assume(i1 %102)
-  call fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_func17h2bea81c6812dea4bE(ptr align 8 %0, ptr align 8 %1, ptr nonnull align 8 %101, i1 zeroext %55)
+  call fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_func17h2bea81c6812dea4bE(ptr align 8 %0, ptr align 8 %1, ptr align 8 %101, i1 zeroext %55)
   %103 = call { ptr, ptr } @"_ZN97_$LT$indexmap..map..iter..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc8b644cac382bf53E"(ptr nonnull align 8 %6)
   %104 = extractvalue { ptr, ptr } %103, 0
   %105 = icmp eq ptr %104, null
@@ -231,7 +231,7 @@ define hidden void @_ZN20wasmtime_wit_bindgen5types5Types7analyze17hadb345168dc8
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_func17h2bea81c6812dea4bE(ptr align 8 %0, ptr align 8 %1, ptr align 8 %2, i1 zeroext %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_func17h2bea81c6812dea4bE(ptr align 8 %0, ptr align 8 %1, ptr nonnull align 8 %2, i1 zeroext %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
@@ -358,7 +358,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_fu
 
 68:                                               ; preds = %65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false)
-  invoke void @_ZN10wit_parser7Results10iter_types17h99cab0120625a1a1E(ptr nonnull sret({ ptr, [1 x i64] }) align 8 %16, ptr align 8 %2)
+  invoke void @_ZN10wit_parser7Results10iter_types17h99cab0120625a1a1E(ptr nonnull sret({ ptr, [1 x i64] }) align 8 %16, ptr nonnull align 8 %2)
           to label %69 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .loopexit:                                        ; preds = %.backedge, %109, %122, %128
@@ -436,7 +436,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_fu
   br i1 %93, label %94, label %95
 
 94:                                               ; preds = %91
-  invoke void @_ZN10wit_parser7Results10iter_types17h99cab0120625a1a1E(ptr nonnull sret({ ptr, [1 x i64] }) align 8 %11, ptr align 8 %2)
+  invoke void @_ZN10wit_parser7Results10iter_types17h99cab0120625a1a1E(ptr nonnull sret({ ptr, [1 x i64] }) align 8 %11, ptr nonnull align 8 %2)
           to label %99 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 95:                                               ; preds = %91

@@ -4467,7 +4467,7 @@ _ZSt14__partial_sortIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iEN9__gnu_cxx5__
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZSt13__adjust_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_19_Vec3iCmpEEEEvT_T0_SA_T1_T2_(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i32 %4) unnamed_addr #16 {
+define internal fastcc void @_ZSt13__adjust_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_19_Vec3iCmpEEEEvT_T0_SA_T1_T2_(ptr nocapture noundef %0, i64 noundef range(i64 0, 384307168202282325) %1, i64 noundef range(i64 -768614336404564650, 768614336404564651) %2, i64 %3, i32 %4) unnamed_addr #16 {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
   %8 = icmp slt i64 %1, %7
@@ -4543,7 +4543,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
   %.sroa.0.sroa.3.0.extract.shift.i = lshr i64 %3, 32
   %.sroa.0.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.0.sroa.3.0.extract.shift.i to i32
-  %48 = icmp sgt i64 %.1, %1
+  %48 = icmp ugt i64 %.1, %1
   br i1 %48, label %.lr.ph.i, label %_ZSt11__push_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iElS1_N9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_19_Vec3iCmpEEEEvT_T0_SA_T1_RT2_.exit
 
 .lr.ph.i:                                         ; preds = %47, %63

@@ -211,7 +211,7 @@ _ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit:  ; preds = %17
   br i1 %.not12, label %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.thread, label %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.thread
 
 _ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.thread: ; preds = %17, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit
-  %25 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126hasPublicMethodInBaseClassEPKN5clang13CXXRecordDeclEPKc(ptr noundef nonnull %16, ptr noundef %1)
+  %25 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126hasPublicMethodInBaseClassEPKN5clang13CXXRecordDeclEPKc(ptr noundef %16, ptr noundef %1)
   %26 = select i1 %25, ptr %16, ptr null
   br label %_ZNK5clang8QualType16getTypePtrOrNullEv.exit.thread
 
@@ -226,7 +226,7 @@ _ZNK5clang8QualType16getTypePtrOrNullEv.exit.thread: ; preds = %_ZNK5clang16CXXB
 declare noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126hasPublicMethodInBaseClassEPKN5clang13CXXRecordDeclEPKc(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126hasPublicMethodInBaseClassEPKN5clang13CXXRecordDeclEPKc(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = tail call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #10
@@ -330,8 +330,8 @@ _ZNK5clang13CXXRecordDecl13getDefinitionEv.exit:  ; preds = %1, %8
   br i1 %.not, label %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit.thread, label %17
 
 17:                                               ; preds = %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit
-  %18 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126hasPublicMethodInBaseClassEPKN5clang13CXXRecordDeclEPKc(ptr noundef nonnull %16, ptr noundef nonnull @.str)
-  %19 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126hasPublicMethodInBaseClassEPKN5clang13CXXRecordDeclEPKc(ptr noundef nonnull %16, ptr noundef nonnull @.str.1)
+  %18 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126hasPublicMethodInBaseClassEPKN5clang13CXXRecordDeclEPKc(ptr noundef %16, ptr noundef nonnull @.str)
+  %19 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126hasPublicMethodInBaseClassEPKN5clang13CXXRecordDeclEPKc(ptr noundef %16, ptr noundef nonnull @.str.1)
   %brmerge.demorgan = and i1 %18, %19
   br i1 %brmerge.demorgan, label %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit.thread, label %20
 
@@ -3124,7 +3124,7 @@ _ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.i.i: ; preds = %18
   br label %"_ZZN5clang14isRefCountableEPKNS_13CXXRecordDeclEENK3$_0clEPKNS_16CXXBaseSpecifierERNS_11CXXBasePathE.exit"
 
 28:                                               ; preds = %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.i.i, %18
-  %29 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126hasPublicMethodInBaseClassEPKN5clang13CXXRecordDeclEPKc(ptr noundef nonnull %17, ptr noundef nonnull @.str)
+  %29 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126hasPublicMethodInBaseClassEPKN5clang13CXXRecordDeclEPKc(ptr noundef %17, ptr noundef nonnull @.str)
   br label %"_ZZN5clang14isRefCountableEPKNS_13CXXRecordDeclEENK3$_0clEPKNS_16CXXBaseSpecifierERNS_11CXXBasePathE.exit"
 
 "_ZZN5clang14isRefCountableEPKNS_13CXXRecordDeclEENK3$_0clEPKNS_16CXXBaseSpecifierERNS_11CXXBasePathE.exit": ; preds = %26, %28
@@ -3191,7 +3191,7 @@ _ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.i.i: ; preds = %18
   br label %"_ZZN5clang14isRefCountableEPKNS_13CXXRecordDeclEENK3$_1clEPKNS_16CXXBaseSpecifierERNS_11CXXBasePathE.exit"
 
 28:                                               ; preds = %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.i.i, %18
-  %29 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126hasPublicMethodInBaseClassEPKN5clang13CXXRecordDeclEPKc(ptr noundef nonnull %17, ptr noundef nonnull @.str.1)
+  %29 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126hasPublicMethodInBaseClassEPKN5clang13CXXRecordDeclEPKc(ptr noundef %17, ptr noundef nonnull @.str.1)
   br label %"_ZZN5clang14isRefCountableEPKNS_13CXXRecordDeclEENK3$_1clEPKNS_16CXXBaseSpecifierERNS_11CXXBasePathE.exit"
 
 "_ZZN5clang14isRefCountableEPKNS_13CXXRecordDeclEENK3$_1clEPKNS_16CXXBaseSpecifierERNS_11CXXBasePathE.exit": ; preds = %26, %28

@@ -529,7 +529,7 @@ define dso_local void @ext4_mb_prefetch_fini(ptr noundef %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_mb_init_group(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ext4_mb_init_group(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 3136, 35905) %2) unnamed_addr #0 align 16 {
   %4 = tail call i32 @__SCT__might_resched() #16
   %5 = tail call ptr @ext4_get_group_info(ptr noundef %0, i32 noundef %1) #16
   %6 = icmp eq ptr %5, null
@@ -3077,7 +3077,7 @@ declare dso_local i32 @ext4_sb_block_valid(ptr noundef, ptr noundef, i64 noundef
 declare dso_local void @__ext4_error(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_mb_mark_context(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly %7) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ext4_mb_mark_context(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 4) %6, ptr noundef writeonly %7) unnamed_addr #0 align 16 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 872
   %11 = load ptr, ptr %10, align 8
@@ -3097,7 +3097,7 @@ define internal fastcc i32 @ext4_mb_mark_context(ptr noundef %0, ptr noundef %1,
 17:                                               ; preds = %14
   %18 = ptrtoint ptr %15 to i64
   %19 = trunc i64 %18 to i32
-  br label %223
+  br label %222
 
 20:                                               ; preds = %14
   store ptr null, ptr %9, align 8, !annotation !11
@@ -3107,23 +3107,23 @@ define internal fastcc i32 @ext4_mb_mark_context(ptr noundef %0, ptr noundef %1,
 22:                                               ; preds = %20
   %23 = tail call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.ext4_mb_mark_context, i32 noundef 3996, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %15, i32 noundef 1) #16
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.thread, label %219
+  br i1 %24, label %.thread, label %218
 
 25:                                               ; preds = %20
   %26 = call ptr @ext4_get_group_desc(ptr noundef %1, i32 noundef %3, ptr noundef nonnull %9) #16
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %219, label %34
+  br i1 %27, label %218, label %34
 
 .thread:                                          ; preds = %22
   %28 = call ptr @ext4_get_group_desc(ptr noundef %1, i32 noundef %3, ptr noundef nonnull %9) #16
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %219, label %30
+  br i1 %29, label %218, label %30
 
 30:                                               ; preds = %.thread
   %31 = load ptr, ptr %9, align 8
   %32 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.ext4_mb_mark_context, i32 noundef 4009, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %31, i32 noundef 1) #16
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %219
+  br i1 %33, label %34, label %218
 
 34:                                               ; preds = %25, %30
   %35 = phi ptr [ %28, %30 ], [ %26, %25 ]
@@ -3422,38 +3422,37 @@ define internal fastcc i32 @ext4_mb_mark_context(ptr noundef %0, ptr noundef %1,
 205:                                              ; preds = %204, %203, %191
   %206 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.ext4_mb_mark_context, i32 noundef 4058, ptr noundef %0, ptr noundef null, ptr noundef %15) #16
   %207 = icmp eq i32 %206, 0
-  br i1 %207, label %208, label %219
+  br i1 %207, label %208, label %218
 
 208:                                              ; preds = %205
   %209 = load ptr, ptr %9, align 8
   %210 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.ext4_mb_mark_context, i32 noundef 4061, ptr noundef %0, ptr noundef null, ptr noundef %209) #16
   %211 = icmp eq i32 %210, 0
-  br i1 %211, label %212, label %219
+  br i1 %211, label %212, label %218
 
 212:                                              ; preds = %208
-  %213 = and i32 %6, 2
-  %214 = icmp eq i32 %213, 0
-  br i1 %214, label %219, label %215
+  %213 = icmp ult i32 %6, 2
+  br i1 %213, label %218, label %214
 
-215:                                              ; preds = %212
-  %216 = call i32 @sync_dirty_buffer(ptr noundef %15) #16
-  %217 = load ptr, ptr %9, align 8
-  %218 = call i32 @sync_dirty_buffer(ptr noundef %217) #16
-  br label %219
+214:                                              ; preds = %212
+  %215 = call i32 @sync_dirty_buffer(ptr noundef %15) #16
+  %216 = load ptr, ptr %9, align 8
+  %217 = call i32 @sync_dirty_buffer(ptr noundef %216) #16
+  br label %218
 
-219:                                              ; preds = %.thread, %215, %212, %208, %205, %30, %25, %22
-  %220 = phi i32 [ %23, %22 ], [ %32, %30 ], [ %206, %205 ], [ %210, %208 ], [ 0, %215 ], [ 0, %212 ], [ -5, %25 ], [ -5, %.thread ]
-  %221 = icmp eq ptr %15, null
-  br i1 %221, label %223, label %222
+218:                                              ; preds = %.thread, %214, %212, %208, %205, %30, %25, %22
+  %219 = phi i32 [ %23, %22 ], [ %32, %30 ], [ %206, %205 ], [ %210, %208 ], [ 0, %214 ], [ 0, %212 ], [ -5, %25 ], [ -5, %.thread ]
+  %220 = icmp eq ptr %15, null
+  br i1 %220, label %222, label %221
 
-222:                                              ; preds = %219
+221:                                              ; preds = %218
   call void @__brelse(ptr noundef nonnull %15) #16
-  br label %223
+  br label %222
 
-223:                                              ; preds = %222, %219, %17
-  %224 = phi i32 [ %19, %17 ], [ %220, %219 ], [ %220, %222 ]
+222:                                              ; preds = %221, %218, %17
+  %223 = phi i32 [ %19, %17 ], [ %219, %218 ], [ %219, %221 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
-  ret i32 %224
+  ret i32 %223
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3811,7 +3810,7 @@ declare dso_local ptr @rb_next(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @ext4_get_group_number(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_mb_load_buddy_gfp(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ext4_mb_load_buddy_gfp(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef range(i32 3136, 35905) %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 872
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 704
@@ -7357,7 +7356,7 @@ ext4_mb_discard_lg_preallocations.exit:           ; preds = %1267, %.loopexit12.
 1534:                                             ; preds = %1531
   %1535 = getelementptr inbounds i8, ptr %1532, i64 8
   %1536 = load ptr, ptr %1535, align 8
-  %1537 = tail call i32 @__SCT__tp_func_ext4_mballoc_alloc(ptr noundef %1536, ptr noundef %251) #16
+  %1537 = tail call i32 @__SCT__tp_func_ext4_mballoc_alloc(ptr noundef %1536, ptr noundef nonnull %251) #16
   br label %1538
 
 1538:                                             ; preds = %1534, %1531
@@ -7396,7 +7395,7 @@ ext4_mb_discard_lg_preallocations.exit:           ; preds = %1267, %.loopexit12.
 1555:                                             ; preds = %1552
   %1556 = getelementptr inbounds i8, ptr %1553, i64 8
   %1557 = load ptr, ptr %1556, align 8
-  %1558 = tail call i32 @__SCT__tp_func_ext4_mballoc_prealloc(ptr noundef %1557, ptr noundef %251) #16
+  %1558 = tail call i32 @__SCT__tp_func_ext4_mballoc_prealloc(ptr noundef %1557, ptr noundef nonnull %251) #16
   br label %1559
 
 1559:                                             ; preds = %1555, %1552
@@ -7419,7 +7418,7 @@ ext4_mb_discard_lg_preallocations.exit:           ; preds = %1267, %.loopexit12.
 
 1568:                                             ; preds = %1566, %1559, %1546, %1545, %1538, %1525, %1524
   %1569 = load ptr, ptr @ext4_ac_cachep, align 8
-  tail call void @kmem_cache_free(ptr noundef %1569, ptr noundef %251) #16
+  tail call void @kmem_cache_free(ptr noundef %1569, ptr noundef nonnull %251) #16
   br label %1570
 
 1570:                                             ; preds = %1568, %253
@@ -7520,7 +7519,7 @@ ext4_mb_discard_lg_preallocations.exit:           ; preds = %1267, %.loopexit12.
 declare dso_local i32 @ext4_claim_free_clusters(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.ext4_free_extent, align 4
   %3 = alloca %struct.ext4_free_extent, align 4
   %4 = alloca %struct.ext4_free_extent, align 4
@@ -9646,7 +9645,7 @@ ext4_mb_try_best_found.exit:                      ; preds = %1209, %1256
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ext4_mb_pa_put_free(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @ext4_mb_pa_put_free(ptr nocapture noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -9691,7 +9690,7 @@ define internal fastcc void @ext4_mb_pa_put_free(ptr nocapture noundef %0) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ext4_discard_allocated_blocks(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @ext4_discard_allocated_blocks(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.ext4_buddy, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
@@ -9831,7 +9830,7 @@ define internal fastcc void @ext4_discard_allocated_blocks(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @ext4_mb_discard_preallocations_should_retry(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @ext4_mb_discard_preallocations_should_retry(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.list_head, align 8
   %5 = alloca %struct.ext4_buddy, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 28
@@ -12553,7 +12552,7 @@ declare void @llvm.assume(i1 noundef) #11
 declare dso_local void @__brelse(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_mb_init_cache(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ext4_mb_init_cache(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 3136, 35905) %2) unnamed_addr #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -13170,7 +13169,7 @@ ext4_mb_generate_from_pa.exit:                    ; preds = %.loopexit.i, %.thre
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 2) i32 @PageUptodate(ptr noundef %0) unnamed_addr #8 align 16 {
+define internal fastcc range(i32 0, 2) i32 @PageUptodate(ptr noundef nonnull %0) unnamed_addr #8 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load volatile i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -14770,7 +14769,7 @@ declare dso_local void @__mark_inode_dirty(ptr noundef, i32 noundef) local_unnam
 declare dso_local ptr @rb_prev(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ext4_mb_use_inode_pa(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ext4_mb_use_inode_pa(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 872
@@ -14865,7 +14864,7 @@ define internal fastcc void @ext4_mb_use_inode_pa(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @ext4_mb_good_group(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @ext4_mb_good_group(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 872
@@ -15384,7 +15383,7 @@ mb_find_order_for_block.exit7:                    ; preds = %199, %213
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ext4_mb_use_best_found(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ext4_mb_use_best_found(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 872
@@ -15662,7 +15661,7 @@ define internal fastcc void @ext4_mb_use_best_found(ptr noundef %0, ptr nocaptur
 174:                                              ; preds = %171
   %175 = getelementptr inbounds i8, ptr %172, i64 8
   %176 = load ptr, ptr %175, align 8
-  %177 = tail call i32 @__SCT__tp_func_ext4_mb_new_group_pa(ptr noundef %176, ptr noundef %0, ptr noundef nonnull %129) #16
+  %177 = tail call i32 @__SCT__tp_func_ext4_mb_new_group_pa(ptr noundef %176, ptr noundef nonnull %0, ptr noundef nonnull %129) #16
   br label %178
 
 178:                                              ; preds = %174, %171
@@ -15891,7 +15890,7 @@ define internal fastcc void @ext4_mb_use_best_found(ptr noundef %0, ptr nocaptur
 305:                                              ; preds = %302
   %306 = getelementptr inbounds i8, ptr %303, i64 8
   %307 = load ptr, ptr %306, align 8
-  %308 = tail call i32 @__SCT__tp_func_ext4_mb_new_inode_pa(ptr noundef %307, ptr noundef %0, ptr noundef nonnull %222) #16
+  %308 = tail call i32 @__SCT__tp_func_ext4_mb_new_inode_pa(ptr noundef %307, ptr noundef nonnull %0, ptr noundef nonnull %222) #16
   br label %309
 
 309:                                              ; preds = %305, %302

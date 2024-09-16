@@ -390,9 +390,9 @@ define i32 @Abc_NodeFanin0Copy2(ptr nocapture noundef readonly %0) local_unnamed
   %10 = getelementptr i8, ptr %0, i64 20
   %.val3 = load i32, ptr %10, align 4
   %11 = lshr i32 %.val3, 10
-  %.lobit = and i32 %11, 1
-  %12 = xor i32 %.lobit, %9
-  ret i32 %12
+  %12 = and i32 %11, 1
+  %13 = xor i32 %12, %9
+  ret i32 %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -414,9 +414,9 @@ define i32 @Abc_NodeFanin1Copy2(ptr nocapture noundef readonly %0) local_unnamed
   %11 = getelementptr i8, ptr %0, i64 20
   %.val3 = load i32, ptr %11, align 4
   %12 = lshr i32 %.val3, 11
-  %.lobit = and i32 %12, 1
-  %13 = xor i32 %.lobit, %10
-  ret i32 %13
+  %13 = and i32 %12, 1
+  %14 = xor i32 %13, %10
+  ret i32 %14
 }
 
 ; Function Attrs: nounwind uwtable
@@ -432,10 +432,10 @@ define noalias noundef ptr @Abc_NtkToMiniAig(ptr noundef %0) local_unnamed_addr 
   %6 = getelementptr inbounds i8, ptr %5, i64 64
   store i32 1, ptr %6, align 8
   %7 = getelementptr i8, ptr %0, i64 56
-  %.val3656 = load ptr, ptr %7, align 8
-  %8 = getelementptr i8, ptr %.val3656, i64 4
-  %.val36.val57 = load i32, ptr %8, align 4
-  %9 = icmp sgt i32 %.val36.val57, 0
+  %.val3654 = load ptr, ptr %7, align 8
+  %8 = getelementptr i8, ptr %.val3654, i64 4
+  %.val36.val55 = load i32, ptr %8, align 4
+  %9 = icmp sgt i32 %.val36.val55, 0
   br i1 %9, label %.lr.ph, label %.critedge.preheader
 
 .lr.ph:                                           ; preds = %1
@@ -446,18 +446,18 @@ define noalias noundef ptr @Abc_NtkToMiniAig(ptr noundef %0) local_unnamed_addr 
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 4
-  %.val3560 = load i32, ptr %13, align 4
-  %14 = icmp sgt i32 %.val3560, 0
-  br i1 %14, label %.lr.ph62, label %.critedge2.preheader
+  %.val3558 = load i32, ptr %13, align 4
+  %14 = icmp sgt i32 %.val3558, 0
+  br i1 %14, label %.lr.ph60, label %.critedge2.preheader
 
-.lr.ph62:                                         ; preds = %.critedge.preheader
+.lr.ph60:                                         ; preds = %.critedge.preheader
   %15 = getelementptr inbounds i8, ptr %2, i64 4
   br label %29
 
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %.val3659 = phi ptr [ %.val3656, %.lr.ph ], [ %.val36, %16 ]
-  %17 = getelementptr i8, ptr %.val3659, i64 8
+  %.val3657 = phi ptr [ %.val3654, %.lr.ph ], [ %.val36, %16 ]
+  %17 = getelementptr i8, ptr %.val3657, i64 8
   %.val37.val = load ptr, ptr %17, align 8
   %18 = getelementptr inbounds ptr, ptr %.val37.val, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
@@ -475,22 +475,22 @@ define noalias noundef ptr @Abc_NtkToMiniAig(ptr noundef %0) local_unnamed_addr 
 
 .critedge2.preheader:                             ; preds = %.critedge, %.critedge.preheader
   %25 = getelementptr i8, ptr %0, i64 64
-  %.val3963 = load ptr, ptr %25, align 8
-  %26 = getelementptr i8, ptr %.val3963, i64 4
-  %.val39.val64 = load i32, ptr %26, align 4
-  %27 = icmp sgt i32 %.val39.val64, 0
-  br i1 %27, label %.lr.ph67, label %.critedge4
+  %.val3961 = load ptr, ptr %25, align 8
+  %26 = getelementptr i8, ptr %.val3961, i64 4
+  %.val39.val62 = load i32, ptr %26, align 4
+  %27 = icmp sgt i32 %.val39.val62, 0
+  br i1 %27, label %.lr.ph65, label %.critedge4
 
-.lr.ph67:                                         ; preds = %.critedge2.preheader
+.lr.ph65:                                         ; preds = %.critedge2.preheader
   %28 = getelementptr inbounds i8, ptr %2, i64 4
   br label %.critedge2
 
-29:                                               ; preds = %.lr.ph62, %.critedge
-  %30 = phi ptr [ %12, %.lr.ph62 ], [ %62, %.critedge ]
-  %indvars.iv69 = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next70, %.critedge ]
+29:                                               ; preds = %.lr.ph60, %.critedge
+  %30 = phi ptr [ %12, %.lr.ph60 ], [ %64, %.critedge ]
+  %indvars.iv67 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next68, %.critedge ]
   %31 = getelementptr i8, ptr %30, i64 8
   %.val.val = load ptr, ptr %31, align 8
-  %32 = getelementptr inbounds ptr, ptr %.val.val, i64 %indvars.iv69
+  %32 = getelementptr inbounds ptr, ptr %.val.val, i64 %indvars.iv67
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.critedge, label %35
@@ -517,87 +517,87 @@ define noalias noundef ptr @Abc_NtkToMiniAig(ptr noundef %0) local_unnamed_addr 
   %45 = getelementptr inbounds i8, ptr %44, i64 64
   %46 = load i32, ptr %45, align 8
   %47 = lshr i32 %.val38, 10
-  %.lobit.i = and i32 %47, 1
-  %48 = xor i32 %46, %.lobit.i
-  %49 = getelementptr i8, ptr %.val2.i, i64 4
-  %.val2.val.i45 = load i32, ptr %49, align 4
-  %50 = sext i32 %.val2.val.i45 to i64
-  %51 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %50
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 64
-  %54 = load i32, ptr %53, align 8
-  %55 = lshr i32 %.val38, 11
-  %.lobit.i48 = and i32 %55, 1
-  %56 = xor i32 %54, %.lobit.i48
-  %57 = load i32, ptr %15, align 4
-  %58 = icmp slt i32 %48, %56
-  br i1 %58, label %59, label %60
+  %48 = and i32 %47, 1
+  %49 = xor i32 %46, %48
+  %50 = getelementptr i8, ptr %.val2.i, i64 4
+  %.val2.val.i45 = load i32, ptr %50, align 4
+  %51 = sext i32 %.val2.val.i45 to i64
+  %52 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %51
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 64
+  %55 = load i32, ptr %54, align 8
+  %56 = lshr i32 %.val38, 11
+  %57 = and i32 %56, 1
+  %58 = xor i32 %55, %57
+  %59 = load i32, ptr %15, align 4
+  %60 = icmp slt i32 %49, %58
+  br i1 %60, label %61, label %62
 
-59:                                               ; preds = %38
-  tail call fastcc void @Mini_AigPush(ptr noundef nonnull %2, i32 noundef %48, i32 noundef %56)
+61:                                               ; preds = %38
+  tail call fastcc void @Mini_AigPush(ptr noundef nonnull %2, i32 noundef %49, i32 noundef %58)
   br label %Mini_AigAnd.exit
 
-60:                                               ; preds = %38
-  tail call fastcc void @Mini_AigPush(ptr noundef nonnull %2, i32 noundef %56, i32 noundef %48)
+62:                                               ; preds = %38
+  tail call fastcc void @Mini_AigPush(ptr noundef nonnull %2, i32 noundef %58, i32 noundef %49)
   br label %Mini_AigAnd.exit
 
-Mini_AigAnd.exit:                                 ; preds = %59, %60
-  %61 = getelementptr inbounds i8, ptr %33, i64 64
-  store i32 %57, ptr %61, align 8
+Mini_AigAnd.exit:                                 ; preds = %61, %62
+  %63 = getelementptr inbounds i8, ptr %33, i64 64
+  store i32 %59, ptr %63, align 8
   %.pre = load ptr, ptr %11, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %Mini_AigAnd.exit, %35, %29
-  %62 = phi ptr [ %.pre, %Mini_AigAnd.exit ], [ %30, %35 ], [ %30, %29 ]
-  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  %63 = getelementptr i8, ptr %62, i64 4
-  %.val35 = load i32, ptr %63, align 4
-  %64 = sext i32 %.val35 to i64
-  %65 = icmp slt i64 %indvars.iv.next70, %64
-  br i1 %65, label %29, label %.critedge2.preheader, !llvm.loop !7
+  %64 = phi ptr [ %.pre, %Mini_AigAnd.exit ], [ %30, %35 ], [ %30, %29 ]
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %65 = getelementptr i8, ptr %64, i64 4
+  %.val35 = load i32, ptr %65, align 4
+  %66 = sext i32 %.val35 to i64
+  %67 = icmp slt i64 %indvars.iv.next68, %66
+  br i1 %67, label %29, label %.critedge2.preheader, !llvm.loop !7
 
-.critedge2:                                       ; preds = %.lr.ph67, %.critedge2
-  %indvars.iv72 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next73, %.critedge2 ]
-  %.val3966 = phi ptr [ %.val3963, %.lr.ph67 ], [ %.val39, %.critedge2 ]
-  %66 = getelementptr i8, ptr %.val3966, i64 8
-  %.val40.val = load ptr, ptr %66, align 8
-  %67 = getelementptr inbounds ptr, ptr %.val40.val, i64 %indvars.iv72
-  %68 = load ptr, ptr %67, align 8
-  %.val.i49 = load ptr, ptr %68, align 8
-  %69 = getelementptr i8, ptr %68, i64 32
-  %.val2.i50 = load ptr, ptr %69, align 8
-  %70 = getelementptr i8, ptr %.val.i49, i64 32
-  %.val.val.i51 = load ptr, ptr %70, align 8
-  %.val2.val.i52 = load i32, ptr %.val2.i50, align 4
-  %71 = getelementptr i8, ptr %.val.val.i51, i64 8
-  %.val.val.val.i53 = load ptr, ptr %71, align 8
-  %72 = sext i32 %.val2.val.i52 to i64
-  %73 = getelementptr inbounds ptr, ptr %.val.val.val.i53, i64 %72
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 64
-  %76 = load i32, ptr %75, align 8
-  %77 = getelementptr i8, ptr %68, i64 20
-  %.val3.i54 = load i32, ptr %77, align 4
-  %78 = lshr i32 %.val3.i54, 10
-  %.lobit.i55 = and i32 %78, 1
-  %79 = xor i32 %.lobit.i55, %76
-  %80 = load i32, ptr %28, align 4
-  tail call fastcc void @Mini_AigPush(ptr noundef nonnull %2, i32 noundef %79, i32 noundef 2147483647)
-  %81 = getelementptr inbounds i8, ptr %68, i64 64
-  store i32 %80, ptr %81, align 8
-  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+.critedge2:                                       ; preds = %.lr.ph65, %.critedge2
+  %indvars.iv70 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next71, %.critedge2 ]
+  %.val3964 = phi ptr [ %.val3961, %.lr.ph65 ], [ %.val39, %.critedge2 ]
+  %68 = getelementptr i8, ptr %.val3964, i64 8
+  %.val40.val = load ptr, ptr %68, align 8
+  %69 = getelementptr inbounds ptr, ptr %.val40.val, i64 %indvars.iv70
+  %70 = load ptr, ptr %69, align 8
+  %.val.i48 = load ptr, ptr %70, align 8
+  %71 = getelementptr i8, ptr %70, i64 32
+  %.val2.i49 = load ptr, ptr %71, align 8
+  %72 = getelementptr i8, ptr %.val.i48, i64 32
+  %.val.val.i50 = load ptr, ptr %72, align 8
+  %.val2.val.i51 = load i32, ptr %.val2.i49, align 4
+  %73 = getelementptr i8, ptr %.val.val.i50, i64 8
+  %.val.val.val.i52 = load ptr, ptr %73, align 8
+  %74 = sext i32 %.val2.val.i51 to i64
+  %75 = getelementptr inbounds ptr, ptr %.val.val.val.i52, i64 %74
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 64
+  %78 = load i32, ptr %77, align 8
+  %79 = getelementptr i8, ptr %70, i64 20
+  %.val3.i53 = load i32, ptr %79, align 4
+  %80 = lshr i32 %.val3.i53, 10
+  %81 = and i32 %80, 1
+  %82 = xor i32 %81, %78
+  %83 = load i32, ptr %28, align 4
+  tail call fastcc void @Mini_AigPush(ptr noundef nonnull %2, i32 noundef %82, i32 noundef 2147483647)
+  %84 = getelementptr inbounds i8, ptr %70, i64 64
+  store i32 %83, ptr %84, align 8
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %.val39 = load ptr, ptr %25, align 8
-  %82 = getelementptr i8, ptr %.val39, i64 4
-  %.val39.val = load i32, ptr %82, align 4
-  %83 = sext i32 %.val39.val to i64
-  %84 = icmp slt i64 %indvars.iv.next73, %83
-  br i1 %84, label %.critedge2, label %.critedge4, !llvm.loop !8
+  %85 = getelementptr i8, ptr %.val39, i64 4
+  %.val39.val = load i32, ptr %85, align 4
+  %86 = sext i32 %.val39.val to i64
+  %87 = icmp slt i64 %indvars.iv.next71, %86
+  br i1 %87, label %.critedge2, label %.critedge4, !llvm.loop !8
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge2.preheader
-  %85 = getelementptr i8, ptr %0, i64 128
-  %.val41 = load i32, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 %.val41, ptr %86, align 8
+  %88 = getelementptr i8, ptr %0, i64 128
+  %.val41 = load i32, ptr %88, align 8
+  %89 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %.val41, ptr %89, align 8
   ret ptr %2
 }
 

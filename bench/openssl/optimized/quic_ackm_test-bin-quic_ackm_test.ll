@@ -187,7 +187,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %pn_table_len.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %pn_table_len.i, align 8
-  %call3.i = call fastcc i32 @helper_init(ptr noundef nonnull %h.i, i64 noundef %1)
+  %call3.i = call fastcc i32 @helper_init(ptr noundef %h.i, i64 noundef %1)
   %call4.i = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 352, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef %call3.i, i32 noundef 1) #9
   %tobool.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool.not.i, label %err.i, label %if.end6.i
@@ -401,7 +401,7 @@ if.end137.i:                                      ; preds = %if.end131.i
   %45 = load ptr, ptr %h.i, align 8
   %call139.i = call ptr @ossl_ackm_get0_probe_request(ptr noundef %45) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %probe.i, ptr noundef nonnull align 4 dereferenceable(20) %call139.i, i64 20, i1 false)
-  %call140.i = call fastcc i32 @test_probe_counts(ptr noundef nonnull %probe.i, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %call140.i = call fastcc i32 @test_probe_counts(ptr noundef %probe.i, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %call141.i = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 429, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.6, i32 noundef %call140.i, i32 noundef 1) #9
   %tobool142.not.i = icmp eq i32 %call141.i, 0
   br i1 %tobool142.not.i, label %err.i, label %if.end144.i
@@ -449,14 +449,14 @@ if.then175.i:                                     ; preds = %for.body170.i
   br i1 %cmp179.i, label %if.then181.i, label %if.else187.i
 
 if.then181.i:                                     ; preds = %if.then175.i
-  %call182.i = call fastcc i32 @test_probe_counts(ptr noundef nonnull %probe.i, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %call182.i = call fastcc i32 @test_probe_counts(ptr noundef %probe.i, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %call183.i = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 453, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.6, i32 noundef %call182.i, i32 noundef 1) #9
   %tobool184.not.i = icmp ne i32 %call183.i, 0
   %spec.select.i = zext i1 %tobool184.not.i to i32
   br label %err.i
 
 if.else187.i:                                     ; preds = %if.then175.i, %for.body170.i
-  %call194.i = call fastcc i32 @test_probe_counts(ptr noundef nonnull %probe.i, i32 noundef %conv189.i, i32 noundef %conv191.i, i32 noundef %conv193.i)
+  %call194.i = call fastcc i32 @test_probe_counts(ptr noundef %probe.i, i32 noundef %conv189.i, i32 noundef %conv191.i, i32 noundef %conv193.i)
   %call195.i = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 459, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.6, i32 noundef %call194.i, i32 noundef 1) #9
   %tobool196.not.i = icmp eq i32 %call195.i, 0
   %inc201.i = add nuw nsw i64 %i.365.i, 1
@@ -464,7 +464,7 @@ if.else187.i:                                     ; preds = %if.then175.i, %for.
 
 err.i:                                            ; preds = %if.end14.i, %for.body.i, %if.else187.i, %if.end100.i, %if.end86.i, %for.body76.i, %for.cond73.i, %if.end53.i, %if.end47.i, %for.body41.i, %for.cond38.i, %if.then181.i, %if.end154.i, %if.then147.i, %if.end137.i, %if.end131.i, %if.then121.i, %for.cond73.preheader.i, %if.then64.i, %if.else.i, %for.cond38.preheader.i, %if.then31.i, %if.end.i
   %testresult.0.i = phi i32 [ 0, %if.then31.i ], [ 0, %if.then64.i ], [ 0, %if.end154.i ], [ 0, %if.then147.i ], [ 0, %if.end137.i ], [ 0, %if.end131.i ], [ 0, %if.then121.i ], [ 0, %if.end.i ], [ 0, %if.else.i ], [ 1, %for.cond38.preheader.i ], [ 1, %for.cond73.preheader.i ], [ %spec.select.i, %if.then181.i ], [ 1, %for.cond38.i ], [ 0, %if.end53.i ], [ 0, %if.end47.i ], [ 0, %for.body41.i ], [ 1, %for.cond73.i ], [ 0, %if.end100.i ], [ 0, %if.end86.i ], [ 0, %for.body76.i ], [ 0, %if.else187.i ], [ 0, %for.body.i ], [ 0, %if.end14.i ]
-  call fastcc void @helper_destroy(ptr noundef nonnull %h.i)
+  call fastcc void @helper_destroy(ptr noundef %h.i)
   br label %test_tx_ack_case_actual.exit
 
 test_tx_ack_case_actual.exit:                     ; preds = %if.then.i, %err.i
@@ -507,7 +507,7 @@ for.inc:                                          ; preds = %for.cond, %if.then
   br label %for.cond, !llvm.loop !9
 
 for.end:                                          ; preds = %for.cond
-  %call = call fastcc i32 @helper_init(ptr noundef nonnull %h, i64 noundef %num_pkts.0)
+  %call = call fastcc i32 @helper_init(ptr noundef %h, i64 noundef %num_pkts.0)
   %call3 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 532, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.6, i32 noundef %call, i32 noundef 1) #9
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %err, label %for.cond6.preheader
@@ -690,7 +690,7 @@ for.inc115:                                       ; preds = %for.cond74, %for.co
 
 err:                                              ; preds = %for.body8, %for.cond17, %sw.bb54, %if.end98, %if.end85, %for.body76, %for.body25, %for.end
   %testresult.0 = phi i32 [ 0, %for.end ], [ 0, %for.body25 ], [ 0, %for.body76 ], [ 0, %if.end85 ], [ 0, %if.end98 ], [ 1, %for.cond17 ], [ 0, %sw.bb54 ], [ 0, %for.body8 ]
-  call fastcc void @helper_destroy(ptr noundef nonnull %h)
+  call fastcc void @helper_destroy(ptr noundef %h)
   ret i32 %testresult.0
 }
 
@@ -715,7 +715,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %rx_ack.i, i8 0, i64 56, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rx_ack_range.i, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ack_deadline.i, i8 -1, i64 24, i1 false)
-  %call2.i = call fastcc i32 @helper_init(ptr noundef nonnull %h.i, i64 noundef 0)
+  %call2.i = call fastcc i32 @helper_init(ptr noundef %h.i, i64 noundef 0)
   %call3.i = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 921, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.6, i32 noundef %call2.i, i32 noundef 1) #9
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %if.then236.i, label %if.end.i
@@ -1065,7 +1065,7 @@ test_rx_ack_actual.exit:                          ; preds = %sw.bb224.i, %for.in
   %testresult.096.i = phi i32 [ 0, %if.then236.i ], [ 1, %for.cond24.preheader.i ], [ 1, %for.inc231.i ], [ 1, %sw.bb224.i ]
   %pkts.094.i = phi ptr [ %pkts.0.ph.i, %if.then236.i ], [ %call19.i, %for.cond24.preheader.i ], [ %call19.i, %for.inc231.i ], [ %call19.i, %sw.bb224.i ]
   %txs.092.i = phi ptr [ %txs.0.ph.i, %if.then236.i ], [ %call13.i, %for.cond24.preheader.i ], [ %call13.i, %for.inc231.i ], [ %call13.i, %sw.bb224.i ]
-  call fastcc void @helper_destroy(ptr noundef nonnull %h.i)
+  call fastcc void @helper_destroy(ptr noundef %h.i)
   call void @CRYPTO_free(ptr noundef %pkts.094.i, ptr noundef nonnull @.str.3, i32 noundef 1077) #9
   call void @CRYPTO_free(ptr noundef %txs.092.i, ptr noundef nonnull @.str.3, i32 noundef 1078) #9
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %h.i)
@@ -1084,7 +1084,7 @@ declare i32 @test_skip(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed
 declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @helper_init(ptr noundef %h, i64 noundef %num_pkts) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @helper_init(ptr noundef nonnull %h, i64 noundef %num_pkts) unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %h, i8 0, i64 80, i1 false)
   store i64 123000000000, ptr @fake_time.0, align 8
@@ -1134,7 +1134,7 @@ if.else:                                          ; preds = %if.end16
   br label %if.end29
 
 if.then28:                                        ; preds = %if.then18, %if.end8, %if.end, %entry
-  tail call fastcc void @helper_destroy(ptr noundef nonnull %h)
+  tail call fastcc void @helper_destroy(ptr noundef %h)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then18, %if.else, %if.then28
@@ -1201,7 +1201,7 @@ declare i32 @test_int_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare ptr @ossl_ackm_get0_probe_request(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_probe_counts(ptr nocapture noundef readonly %p, i32 noundef %pto_initial, i32 noundef %pto_handshake, i32 noundef %pto_app) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_probe_counts(ptr nocapture noundef nonnull readonly %p, i32 noundef range(i32 0, 2) %pto_initial, i32 noundef range(i32 0, 2) %pto_handshake, i32 noundef range(i32 0, 2) %pto_app) unnamed_addr #0 {
 entry:
   %anti_deadlock_handshake1 = getelementptr inbounds i8, ptr %p, i64 4
   %0 = load i32, ptr %anti_deadlock_handshake1, align 4
@@ -1247,7 +1247,7 @@ declare i32 @ossl_ackm_on_handshake_confirmed(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_ackm_on_timeout(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @helper_destroy(ptr noundef %h) unnamed_addr #0 {
+define internal fastcc void @helper_destroy(ptr noundef nonnull %h) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %h, align 8
   %cmp.not = icmp eq ptr %0, null

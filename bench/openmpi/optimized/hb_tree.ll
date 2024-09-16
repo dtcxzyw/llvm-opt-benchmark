@@ -1675,7 +1675,7 @@ define i32 @ompi_coll_libnbc_hb_tree_height(ptr nocapture noundef readonly %0) l
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call fastcc i32 @node_height(ptr noundef nonnull %2)
+  %4 = tail call fastcc i32 @node_height(ptr noundef %2)
   br label %5
 
 5:                                                ; preds = %1, %3
@@ -1684,14 +1684,14 @@ define i32 @ompi_coll_libnbc_hb_tree_height(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @node_height(ptr nocapture noundef readonly %0) unnamed_addr #5 {
+define internal fastcc i32 @node_height(ptr nocapture noundef nonnull readonly %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call fastcc i32 @node_height(ptr noundef nonnull %3)
+  %5 = tail call fastcc i32 @node_height(ptr noundef %3)
   %6 = add i32 %5, 1
   br label %7
 
@@ -1703,7 +1703,7 @@ define internal fastcc i32 @node_height(ptr nocapture noundef readonly %0) unnam
   br i1 %.not8, label %14, label %11
 
 11:                                               ; preds = %7
-  %12 = tail call fastcc i32 @node_height(ptr noundef nonnull %10)
+  %12 = tail call fastcc i32 @node_height(ptr noundef %10)
   %13 = add i32 %12, 1
   br label %14
 
@@ -1720,7 +1720,7 @@ define i32 @ompi_coll_libnbc_hb_tree_mheight(ptr nocapture noundef readonly %0) 
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call fastcc i32 @node_mheight(ptr noundef nonnull %2)
+  %4 = tail call fastcc i32 @node_mheight(ptr noundef %2)
   br label %5
 
 5:                                                ; preds = %1, %3
@@ -1729,14 +1729,14 @@ define i32 @ompi_coll_libnbc_hb_tree_mheight(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @node_mheight(ptr nocapture noundef readonly %0) unnamed_addr #5 {
+define internal fastcc i32 @node_mheight(ptr nocapture noundef nonnull readonly %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call fastcc i32 @node_mheight(ptr noundef nonnull %3)
+  %5 = tail call fastcc i32 @node_mheight(ptr noundef %3)
   %6 = add i32 %5, 1
   br label %7
 
@@ -1748,7 +1748,7 @@ define internal fastcc i32 @node_mheight(ptr nocapture noundef readonly %0) unna
   br i1 %.not8, label %14, label %11
 
 11:                                               ; preds = %7
-  %12 = tail call fastcc i32 @node_mheight(ptr noundef nonnull %10)
+  %12 = tail call fastcc i32 @node_mheight(ptr noundef %10)
   %13 = add i32 %12, 1
   br label %14
 
@@ -1765,7 +1765,7 @@ define i32 @ompi_coll_libnbc_hb_tree_pathlen(ptr nocapture noundef readonly %0) 
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call fastcc i32 @node_pathlen(ptr noundef nonnull %2, i32 noundef 1)
+  %4 = tail call fastcc i32 @node_pathlen(ptr noundef %2, i32 noundef 1)
   br label %5
 
 5:                                                ; preds = %1, %3
@@ -1774,7 +1774,7 @@ define i32 @ompi_coll_libnbc_hb_tree_pathlen(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @node_pathlen(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc i32 @node_pathlen(ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #5 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %12, %2
@@ -1788,7 +1788,7 @@ tailrecurse:                                      ; preds = %12, %2
 
 5:                                                ; preds = %tailrecurse
   %6 = add i32 %.tr13, 1
-  %7 = tail call fastcc i32 @node_pathlen(ptr noundef nonnull %4, i32 noundef %6)
+  %7 = tail call fastcc i32 @node_pathlen(ptr noundef %4, i32 noundef %6)
   %8 = add i32 %7, %.tr13
   br label %9
 

@@ -4245,7 +4245,7 @@ Vec_IntPush.exit183:                              ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc i32 @Bac_ObjAlloc(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #10 {
+define internal fastcc i32 @Bac_ObjAlloc(ptr nocapture noundef %0, i32 noundef range(i32 -64, 128) %1, i32 noundef %2) unnamed_addr #10 {
   %4 = getelementptr i8, ptr %0, i64 84
   %.val = load i32, ptr %4, align 4
   switch i32 %1, label %65 [
@@ -4388,7 +4388,7 @@ thread-pre-split:                                 ; preds = %59, %Vec_IntGrow.ex
 65:                                               ; preds = %thread-pre-split, %3
   %66 = phi i32 [ %.pr, %thread-pre-split ], [ %.val, %3 ]
   %67 = getelementptr inbounds i8, ptr %0, i64 80
-  %.tr = trunc i32 %1 to i8
+  %.tr = trunc nsw i32 %1 to i8
   %68 = shl i8 %.tr, 1
   %69 = load i32, ptr %67, align 8
   %70 = icmp eq i32 %66, %69

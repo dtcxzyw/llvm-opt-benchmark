@@ -6834,7 +6834,7 @@ declare { i64, i64 } @_ZN5folly2io4zlib18defaultZlibOptionsEv() local_unnamed_ad
 declare void @_ZN5folly2io4zlib14getStreamCodecENS1_7OptionsEi(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.23") align 8, i64, i64, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZSt11make_uniqueIN5folly2io12_GLOBAL__N_116LZMA2StreamCodecEJRiRNS1_9CodecTypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, i32 %__args.0.val, i32 %__args1.0.val) unnamed_addr #22 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11make_uniqueIN5folly2io12_GLOBAL__N_116LZMA2StreamCodecEJRiRNS1_9CodecTypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, i32 %__args.0.val, i32 %__args1.0.val) unnamed_addr #22 personality ptr @__gxx_personality_v0 {
 entry:
   %level.addr.i = alloca i32, align 4
   %ref.tmp28.i = alloca %"class.std::__cxx11::basic_string", align 8

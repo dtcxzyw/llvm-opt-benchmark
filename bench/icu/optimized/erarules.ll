@@ -741,7 +741,7 @@ if.end8:                                          ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.end8
   %cmp1.i = icmp eq i32 %7, -2147483391
-  br i1 %cmp1.i, label %if.end15.thread100, label %if.end15.thread82
+  br i1 %cmp1.i, label %if.end15.thread98, label %if.end15.thread80
 
 if.else8.i:                                       ; preds = %if.end8
   %cmp9.i = icmp sgt i32 %year, 32767
@@ -752,48 +752,48 @@ if.else11.i:                                      ; preds = %if.else8.i
   %shl1.i.i = shl nuw nsw i32 %month, 8
   %or.i.i = or disjoint i32 %shl1.i.i, %shl.i.i
   %or2.i.i = or disjoint i32 %or.i.i, %day
-  %or.cond45.not = icmp sgt i32 %7, %or2.i.i
-  br i1 %or.cond45.not, label %if.end15.thread, label %if.end15
+  %or.cond43.not = icmp sgt i32 %7, %or2.i.i
+  br i1 %or.cond43.not, label %if.end15.thread, label %if.end15
 
 if.end15:                                         ; preds = %if.else8.i, %if.else11.i
-  %sub47 = add nsw i32 %4, -1
-  %cmp1648 = icmp slt i32 %5, %sub47
-  br i1 %cmp1648, label %while.body.lr.ph.split, label %return
+  %sub45 = add nsw i32 %4, -1
+  %cmp1646 = icmp slt i32 %5, %sub45
+  br i1 %cmp1646, label %while.body.lr.ph.split, label %return
 
-if.end15.thread100:                               ; preds = %if.then.i
-  %sub47101 = add nsw i32 %4, -1
-  %cmp1648102 = icmp slt i32 %5, %sub47101
-  br i1 %cmp1648102, label %while.body.us.preheader, label %return
+if.end15.thread98:                                ; preds = %if.then.i
+  %sub4599 = add nsw i32 %4, -1
+  %cmp1646100 = icmp slt i32 %5, %sub4599
+  br i1 %cmp1646100, label %while.body.us.preheader, label %return
 
-if.end15.thread82:                                ; preds = %if.then.i
-  %cmp164885 = icmp sgt i32 %4, 1
-  br i1 %cmp164885, label %while.body.us.preheader, label %return
+if.end15.thread80:                                ; preds = %if.then.i
+  %cmp164683 = icmp sgt i32 %4, 1
+  br i1 %cmp164683, label %while.body.us.preheader, label %return
 
-while.body.us.preheader:                          ; preds = %if.end15.thread100, %if.end15.thread82
-  %low.150.us.ph = phi i32 [ %5, %if.end15.thread100 ], [ 0, %if.end15.thread82 ]
+while.body.us.preheader:                          ; preds = %if.end15.thread98, %if.end15.thread80
+  %low.148.us.ph = phi i32 [ %5, %if.end15.thread98 ], [ 0, %if.end15.thread80 ]
   br label %while.body.us
 
 if.end15.thread:                                  ; preds = %if.else11.i
-  %cmp164870 = icmp sgt i32 %4, 1
-  br i1 %cmp164870, label %while.body.lr.ph.split.thread, label %return
+  %cmp164668 = icmp sgt i32 %4, 1
+  br i1 %cmp164668, label %while.body.lr.ph.split.thread, label %return
 
 while.body.lr.ph.split.thread:                    ; preds = %if.end15.thread
-  %shl.i.i2375 = shl nsw i32 %year, 16
-  %shl1.i.i2476 = shl nuw nsw i32 %month, 8
-  %or.i.i2577 = or disjoint i32 %shl1.i.i2476, %shl.i.i2375
+  %shl.i.i2373 = shl nsw i32 %year, 16
+  %shl1.i.i2474 = shl nuw nsw i32 %month, 8
+  %or.i.i2575 = or disjoint i32 %shl1.i.i2474, %shl.i.i2373
   br label %while.body.preheader
 
 while.body.us:                                    ; preds = %while.body.us.preheader, %while.body.us
-  %low.150.us = phi i32 [ %div.low.1.us, %while.body.us ], [ %low.150.us.ph, %while.body.us.preheader ]
-  %high.049.us = phi i32 [ %high.0.div.us, %while.body.us ], [ %4, %while.body.us.preheader ]
-  %add.us = add nsw i32 %low.150.us, %high.049.us
+  %low.148.us = phi i32 [ %div.low.1.us, %while.body.us ], [ %low.148.us.ph, %while.body.us.preheader ]
+  %high.047.us = phi i32 [ %high.0.div.us, %while.body.us ], [ %4, %while.body.us.preheader ]
+  %add.us = add nsw i32 %low.148.us, %high.047.us
   %div.us = sdiv i32 %add.us, 2
   %conv18.us = sext i32 %div.us to i64
   %arrayidx.i18.us = getelementptr inbounds i32, ptr %6, i64 %conv18.us
   %8 = load i32, ptr %arrayidx.i18.us, align 4
   %cmp1.i33.us = icmp eq i32 %8, -2147483391
-  %high.0.div.us = select i1 %cmp1.i33.us, i32 %high.049.us, i32 %div.us
-  %div.low.1.us = select i1 %cmp1.i33.us, i32 %div.us, i32 %low.150.us
+  %high.0.div.us = select i1 %cmp1.i33.us, i32 %high.047.us, i32 %div.us
+  %div.low.1.us = select i1 %cmp1.i33.us, i32 %div.us, i32 %low.148.us
   %sub.us = add nsw i32 %high.0.div.us, -1
   %cmp16.us = icmp slt i32 %div.low.1.us, %sub.us
   br i1 %cmp16.us, label %while.body.us, label %return, !llvm.loop !8
@@ -803,38 +803,38 @@ while.body.lr.ph.split:                           ; preds = %if.end15
   %shl.i.i23 = shl nsw i32 %year, 16
   %or.i.i25 = or disjoint i32 %shl1.i.i24, %shl.i.i23
   %cmp9.i21 = icmp sgt i32 %year, 32767
-  br i1 %cmp9.i21, label %while.body.us51, label %while.body.preheader
+  br i1 %cmp9.i21, label %while.body.us49, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %while.body.lr.ph.split.thread, %while.body.lr.ph.split
-  %low.0718099 = phi i32 [ 0, %while.body.lr.ph.split.thread ], [ %5, %while.body.lr.ph.split ]
-  %or.i.i2577.pn = phi i32 [ %or.i.i2577, %while.body.lr.ph.split.thread ], [ %or.i.i25, %while.body.lr.ph.split ]
-  %or2.i.i268198 = or disjoint i32 %or.i.i2577.pn, %day
+  %low.0697897 = phi i32 [ 0, %while.body.lr.ph.split.thread ], [ %5, %while.body.lr.ph.split ]
+  %or.i.i2575.pn = phi i32 [ %or.i.i2575, %while.body.lr.ph.split.thread ], [ %or.i.i25, %while.body.lr.ph.split ]
+  %or2.i.i267996 = or disjoint i32 %or.i.i2575.pn, %day
   br label %while.body
 
-while.body.us51:                                  ; preds = %while.body.lr.ph.split, %while.body.us51
-  %low.150.us52 = phi i32 [ %div.us55, %while.body.us51 ], [ %5, %while.body.lr.ph.split ]
-  %add.us54 = add nsw i32 %low.150.us52, %4
-  %div.us55 = sdiv i32 %add.us54, 2
-  %cmp16.us63 = icmp slt i32 %div.us55, %sub47
-  br i1 %cmp16.us63, label %while.body.us51, label %return, !llvm.loop !8
+while.body.us49:                                  ; preds = %while.body.lr.ph.split, %while.body.us49
+  %low.148.us50 = phi i32 [ %div.us53, %while.body.us49 ], [ %5, %while.body.lr.ph.split ]
+  %add.us52 = add nsw i32 %low.148.us50, %4
+  %div.us53 = sdiv i32 %add.us52, 2
+  %cmp16.us61 = icmp slt i32 %div.us53, %sub45
+  br i1 %cmp16.us61, label %while.body.us49, label %return, !llvm.loop !8
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
-  %low.150 = phi i32 [ %div.low.1, %while.body ], [ %low.0718099, %while.body.preheader ]
-  %high.049 = phi i32 [ %high.0.div, %while.body ], [ %4, %while.body.preheader ]
-  %add = add nsw i32 %low.150, %high.049
+  %low.148 = phi i32 [ %div.low.1, %while.body ], [ %low.0697897, %while.body.preheader ]
+  %high.047 = phi i32 [ %high.0.div, %while.body ], [ %4, %while.body.preheader ]
+  %add = add nsw i32 %low.148, %high.047
   %div = sdiv i32 %add, 2
   %conv18 = sext i32 %div to i64
   %arrayidx.i18 = getelementptr inbounds i32, ptr %6, i64 %conv18
   %9 = load i32, ptr %arrayidx.i18, align 4
-  %spec.select46.not = icmp sgt i32 %9, %or2.i.i268198
-  %high.0.div = select i1 %spec.select46.not, i32 %div, i32 %high.049
-  %div.low.1 = select i1 %spec.select46.not, i32 %low.150, i32 %div
+  %spec.select44.not = icmp sgt i32 %9, %or2.i.i267996
+  %high.0.div = select i1 %spec.select44.not, i32 %div, i32 %high.047
+  %div.low.1 = select i1 %spec.select44.not, i32 %low.148, i32 %div
   %sub = add nsw i32 %high.0.div, -1
   %cmp16 = icmp slt i32 %div.low.1, %sub
   br i1 %cmp16, label %while.body, label %return, !llvm.loop !8
 
-return:                                           ; preds = %while.body, %while.body.us51, %while.body.us, %if.end15.thread100, %if.end15.thread82, %if.end15.thread, %if.end15, %entry, %if.then7
-  %retval.0 = phi i32 [ -1, %if.then7 ], [ -1, %entry ], [ %5, %if.end15 ], [ 0, %if.end15.thread ], [ 0, %if.end15.thread82 ], [ %5, %if.end15.thread100 ], [ %div.low.1.us, %while.body.us ], [ %div.us55, %while.body.us51 ], [ %div.low.1, %while.body ]
+return:                                           ; preds = %while.body, %while.body.us49, %while.body.us, %if.end15.thread98, %if.end15.thread80, %if.end15.thread, %if.end15, %entry, %if.then7
+  %retval.0 = phi i32 [ -1, %if.then7 ], [ -1, %entry ], [ %5, %if.end15 ], [ 0, %if.end15.thread ], [ 0, %if.end15.thread80 ], [ %5, %if.end15.thread98 ], [ %div.low.1.us, %while.body.us ], [ %div.us53, %while.body.us49 ], [ %div.low.1, %while.body ]
   ret i32 %retval.0
 }
 

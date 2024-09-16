@@ -88,7 +88,7 @@ define i32 @ompi_osc_rdma_compare_and_swap(ptr noundef %0, ptr noundef %1, ptr n
   %34 = alloca ptr, align 8
   %35 = getelementptr inbounds i8, ptr %6, i64 272
   %36 = load ptr, ptr %35, align 8
-  %37 = call fastcc ptr @ompi_osc_rdma_module_sync_lookup(ptr noundef %36, i32 noundef %4, ptr noundef nonnull %34)
+  %37 = call fastcc ptr @ompi_osc_rdma_module_sync_lookup(ptr noundef %36, i32 noundef %4, ptr noundef %34)
   %38 = icmp eq ptr %37, null
   br i1 %38, label %584, label %39
 
@@ -1264,7 +1264,7 @@ ompi_osc_rdma_peer_accumulate_cleanup.exit:       ; preds = %578, %580
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ompi_osc_rdma_module_sync_lookup(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @ompi_osc_rdma_module_sync_lookup(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1403,7 +1403,7 @@ ompi_osc_rdma_module_peer.exit28:                 ; preds = %ompi_osc_module_get
   br label %.critedge
 
 61:                                               ; preds = %3
-  %62 = tail call zeroext i1 @ompi_osc_rdma_sync_pscw_peer(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #13
+  %62 = tail call zeroext i1 @ompi_osc_rdma_sync_pscw_peer(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #13
   br i1 %62, label %.critedge, label %63
 
 63:                                               ; preds = %61, %3
@@ -1443,7 +1443,7 @@ define internal fastcc i32 @ompi_osc_rdma_rget_accumulate_internal(ptr %.272.val
   %29 = alloca i64, align 8
   %30 = alloca ptr, align 8
   %31 = alloca ptr, align 8
-  %32 = call fastcc ptr @ompi_osc_rdma_module_sync_lookup(ptr noundef %.272.val, i32 noundef %6, ptr noundef nonnull %31)
+  %32 = call fastcc ptr @ompi_osc_rdma_module_sync_lookup(ptr noundef %.272.val, i32 noundef %6, ptr noundef %31)
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.thread12, label %34
 
@@ -2074,7 +2074,7 @@ opal_obj_new.exit.i:                              ; preds = %.lr.ph.i.i.i, %288,
   br i1 %.not179.i, label %.split.i107, label %.split167.i
 
 .split.i107:                                      ; preds = %333
-  %334 = call fastcc i32 @ompi_osc_rdma_gacc_contig(ptr noundef nonnull %32, ptr noundef %.2159.i, i32 noundef %.0161.i, ptr noundef %.0163.i, ptr noundef %3, i32 noundef %4, ptr noundef null, ptr noundef null, ptr noundef %213, i64 noundef %312, ptr noundef %.06, i32 noundef %8, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull %.0162.i)
+  %334 = call fastcc i32 @ompi_osc_rdma_gacc_contig(ptr noundef %32, ptr noundef %.2159.i, i32 noundef %.0161.i, ptr noundef %.0163.i, ptr noundef %3, i32 noundef %4, ptr noundef null, ptr noundef null, ptr noundef %213, i64 noundef %312, ptr noundef %.06, i32 noundef %8, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull %.0162.i)
   br label %341
 
 .split167.i:                                      ; preds = %333
@@ -2083,7 +2083,7 @@ opal_obj_new.exit.i:                              ; preds = %.lr.ph.i.i.i, %288,
   %337 = ptrtoint ptr %3 to i64
   %338 = add nsw i64 %336, %337
   %339 = inttoptr i64 %338 to ptr
-  %340 = call fastcc i32 @ompi_osc_rdma_gacc_contig(ptr noundef nonnull %32, ptr noundef %.2159.i, i32 noundef %.0161.i, ptr noundef %.0163.i, ptr noundef %339, i32 noundef %4, ptr noundef nonnull %5, ptr noundef null, ptr noundef %213, i64 noundef %312, ptr noundef %.06, i32 noundef %8, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull %.0162.i)
+  %340 = call fastcc i32 @ompi_osc_rdma_gacc_contig(ptr noundef %32, ptr noundef %.2159.i, i32 noundef %.0161.i, ptr noundef %.0163.i, ptr noundef %339, i32 noundef %4, ptr noundef nonnull %5, ptr noundef null, ptr noundef %213, i64 noundef %312, ptr noundef %.06, i32 noundef %8, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull %.0162.i)
   br label %341
 
 341:                                              ; preds = %.split167.i, %.split.i107
@@ -2435,7 +2435,7 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %490, %488, %460
   %501 = trunc nuw nsw i64 %500 to i32
   %502 = load ptr, ptr %445, align 16
   %503 = ptrtoint ptr %502 to i64
-  %504 = call fastcc i32 @ompi_osc_rdma_gacc_contig(ptr noundef nonnull %32, ptr noundef %496, i32 noundef %501, ptr noundef %497, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %..i, ptr noundef %213, i64 noundef %503, ptr noundef %.06, i32 noundef %501, ptr noundef %497, ptr noundef %10, ptr noundef nonnull %.2.i)
+  %504 = call fastcc i32 @ompi_osc_rdma_gacc_contig(ptr noundef %32, ptr noundef %496, i32 noundef %501, ptr noundef %497, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %..i, ptr noundef %213, i64 noundef %503, ptr noundef %.06, i32 noundef %501, ptr noundef %497, ptr noundef %10, ptr noundef nonnull %.2.i)
   switch i32 %504, label %505 [
     i32 0, label %opal_thread_add_fetch_32.exit._crit_edge.i
     i32 -2, label %522
@@ -2833,7 +2833,7 @@ declare i32 @ompi_osc_rdma_find_dynamic_region(ptr noundef, ptr noundef, i64 nou
 declare i32 @opal_progress() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ompi_osc_rdma_btl_cswap(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc i32 @ompi_osc_rdma_btl_cswap(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef range(i32 0, 4) %7, ptr noundef %8) unnamed_addr #0 {
   %10 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_osc_rdma_pending_op_t_class, i64 56), align 8
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #15
   %12 = load i32, ptr @opal_class_init_epoch, align 4
@@ -3474,7 +3474,7 @@ define internal void @ompi_osc_rdma_cas_put_complete(ptr nocapture readnone %0, 
 declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_btl_op(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_btl_op(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef range(i32 0, 4) %7, i1 noundef zeroext %8) unnamed_addr #0 {
   %10 = getelementptr inbounds i8, ptr %0, i64 1072
   %11 = load i8, ptr %10, align 16
   %12 = trunc i8 %11 to i1
@@ -3704,7 +3704,7 @@ opal_obj_run_destructors.exit87:                  ; preds = %.lr.ph.i84, %104
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_btl_fop(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef %7, ptr noundef %8, i1 noundef zeroext %9) unnamed_addr #0 {
+define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_btl_fop(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef range(i32 0, 4) %7, ptr noundef %8, i1 noundef zeroext %9) unnamed_addr #0 {
   %11 = getelementptr inbounds i8, ptr %0, i64 1072
   %12 = load i8, ptr %11, align 16
   %13 = trunc i8 %12 to i1
@@ -4211,7 +4211,7 @@ ompi_osc_rdma_peer_accumulate_cleanup.exit:       ; preds = %29, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ompi_osc_rdma_gacc_contig(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i64 noundef %9, ptr noundef %10, i32 noundef %11, ptr noundef %12, ptr noundef readonly %13, ptr noundef %14) unnamed_addr #0 {
+define internal fastcc i32 @ompi_osc_rdma_gacc_contig(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i64 noundef %9, ptr noundef %10, i32 noundef %11, ptr noundef %12, ptr noundef readonly %13, ptr noundef %14) unnamed_addr #0 {
   %16 = alloca i32, align 4
   %17 = alloca i64, align 8
   %18 = alloca i32, align 4
@@ -4898,7 +4898,7 @@ ompi_osc_rdma_gacc_amo.exit:                      ; preds = %293, %294
   br i1 %.not108, label %324, label %326
 
 324:                                              ; preds = %323
-  %325 = call i32 @ompi_osc_rdma_put_contig(ptr noundef %0, ptr noundef nonnull %8, i64 noundef %9, ptr noundef %10, ptr noundef %1, i64 noundef %43, ptr noundef nonnull %14) #13
+  %325 = call i32 @ompi_osc_rdma_put_contig(ptr noundef nonnull %0, ptr noundef nonnull %8, i64 noundef %9, ptr noundef %10, ptr noundef %1, i64 noundef %43, ptr noundef nonnull %14) #13
   br label %345
 
 326:                                              ; preds = %323
@@ -4934,7 +4934,7 @@ ompi_osc_rdma_gacc_amo.exit:                      ; preds = %293, %294
   br label %340
 
 340:                                              ; preds = %338, %331
-  %341 = call i32 @ompi_osc_rdma_put_contig(ptr noundef %0, ptr noundef nonnull %8, i64 noundef %9, ptr noundef %10, ptr noundef nonnull %301, i64 noundef %43, ptr noundef nonnull %14) #13
+  %341 = call i32 @ompi_osc_rdma_put_contig(ptr noundef nonnull %0, ptr noundef nonnull %8, i64 noundef %9, ptr noundef %10, ptr noundef nonnull %301, i64 noundef %43, ptr noundef nonnull %14) #13
   br label %345
 
 342:                                              ; preds = %326
@@ -4942,7 +4942,7 @@ ompi_osc_rdma_gacc_amo.exit:                      ; preds = %293, %294
   br label %345
 
 343:                                              ; preds = %296
-  %344 = call i32 @ompi_osc_rdma_put_contig(ptr noundef %0, ptr noundef %8, i64 noundef %9, ptr noundef %10, ptr noundef %1, i64 noundef %43, ptr noundef nonnull %14) #13
+  %344 = call i32 @ompi_osc_rdma_put_contig(ptr noundef nonnull %0, ptr noundef %8, i64 noundef %9, ptr noundef %10, ptr noundef %1, i64 noundef %43, ptr noundef nonnull %14) #13
   br label %345
 
 345:                                              ; preds = %ompi_osc_rdma_gacc_amo.exit, %336, %303, %300, %343, %342, %340, %324
@@ -4959,7 +4959,7 @@ declare i32 @opal_convertor_unpack(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare i32 @ompi_osc_rdma_put_contig(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4

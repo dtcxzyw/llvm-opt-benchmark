@@ -2260,7 +2260,7 @@ declare void @lua_remove(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @lua_replace(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @luaRedisGenericCommand(ptr noundef %lua, i32 noundef %raise_error) unnamed_addr #0 {
+define internal fastcc i32 @luaRedisGenericCommand(ptr noundef %lua, i32 noundef range(i32 0, 2) %raise_error) unnamed_addr #0 {
 entry:
   %parser.i = alloca %struct.ReplyParser, align 8
   %err = alloca ptr, align 8

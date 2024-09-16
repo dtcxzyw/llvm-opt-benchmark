@@ -4833,7 +4833,7 @@ define i32 @jobacct_storage_p_job_start(ptr noundef %0, ptr noundef %1) local_un
 
 22:                                               ; preds = %15, %20
   %23 = call i32 @slurmdbd_agent_send(i16 noundef zeroext 10496, ptr noundef nonnull %3) #14
-  call fastcc void @_partial_free_dbd_job_start(ptr noundef nonnull %5)
+  call fastcc void @_partial_free_dbd_job_start(ptr noundef %5)
   %.lobit = ashr i32 %23, 31
   br label %84
 
@@ -4848,7 +4848,7 @@ define i32 @jobacct_storage_p_job_start(ptr noundef %0, ptr noundef %1) local_un
   br i1 %28, label %29, label %83
 
 29:                                               ; preds = %26
-  call fastcc void @_partial_free_dbd_job_start(ptr noundef nonnull %5)
+  call fastcc void @_partial_free_dbd_job_start(ptr noundef %5)
   br label %84
 
 30:                                               ; preds = %24
@@ -4946,7 +4946,7 @@ _sending_script_env.exit:                         ; preds = %73, %77
 
 83:                                               ; preds = %33, %_sending_script_env.exit, %26
   %.0 = phi i32 [ %25, %26 ], [ 0, %33 ], [ %82, %_sending_script_env.exit ]
-  call fastcc void @_partial_free_dbd_job_start(ptr noundef nonnull %5)
+  call fastcc void @_partial_free_dbd_job_start(ptr noundef %5)
   br label %84
 
 84:                                               ; preds = %22, %2, %83, %29
@@ -5261,8 +5261,8 @@ define internal fastcc range(i32 -1, 1) i32 @_setup_job_start_msg(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_partial_free_dbd_job_start(ptr noundef %0) unnamed_addr #0 {
-  tail call void @slurm_xfree(ptr noundef %0) #14
+define internal fastcc void @_partial_free_dbd_job_start(ptr noundef nonnull %0) unnamed_addr #0 {
+  tail call void @slurm_xfree(ptr noundef nonnull %0) #14
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @slurm_xfree(ptr noundef nonnull %2) #14
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -6423,7 +6423,7 @@ define internal void @_partial_destroy_dbd_job_start(ptr noundef %0) #0 {
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call fastcc void @_partial_free_dbd_job_start(ptr noundef nonnull %0)
+  tail call fastcc void @_partial_free_dbd_job_start(ptr noundef %0)
   call void @slurm_xfree(ptr noundef nonnull %2) #14
   br label %4
 

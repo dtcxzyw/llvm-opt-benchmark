@@ -2363,7 +2363,7 @@ define internal fastcc void @_init_grp_used_tres_run_secs(i64 noundef %0) unname
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %23, i64 392
   %74 = load i32, ptr %73, align 8
-  call fastcc void @_handle_qos_tres_run_secs(ptr noundef null, ptr noundef nonnull readonly %5, i32 noundef %74, ptr noundef %47)
+  call fastcc void @_handle_qos_tres_run_secs(ptr noundef null, ptr noundef readonly %5, i32 noundef %74, ptr noundef %47)
   %75 = getelementptr inbounds i8, ptr %23, i64 664
   %76 = load ptr, ptr %75, align 8
   %.not.i = icmp eq ptr %76, null
@@ -2378,7 +2378,7 @@ define internal fastcc void @_init_grp_used_tres_run_secs(i64 noundef %0) unname
 
 81:                                               ; preds = %77
   %82 = load i32, ptr %73, align 8
-  call fastcc void @_handle_qos_tres_run_secs(ptr noundef null, ptr noundef nonnull readonly %5, i32 noundef %82, ptr noundef %79)
+  call fastcc void @_handle_qos_tres_run_secs(ptr noundef null, ptr noundef readonly %5, i32 noundef %82, ptr noundef %79)
   br label %83
 
 83:                                               ; preds = %81, %77, %._crit_edge
@@ -2388,7 +2388,7 @@ define internal fastcc void @_init_grp_used_tres_run_secs(i64 noundef %0) unname
 .lr.ph.i:                                         ; preds = %83, %.lr.ph.i
   %.020.i = phi ptr [ %88, %.lr.ph.i ], [ %72, %83 ]
   %84 = load i32, ptr %73, align 8
-  call fastcc void @_handle_assoc_tres_run_secs(ptr noundef null, ptr noundef nonnull readonly %5, i32 noundef %84, ptr noundef nonnull %.020.i)
+  call fastcc void @_handle_assoc_tres_run_secs(ptr noundef null, ptr noundef readonly %5, i32 noundef %84, ptr noundef %.020.i)
   %85 = getelementptr inbounds i8, ptr %.020.i, i64 312
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 72
@@ -3610,7 +3610,7 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
   %139 = fadd x86_fp80 %138, %135
   store x86_fp80 %139, ptr %137, align 16
   %140 = load i32, ptr %133, align 8
-  call fastcc void @_handle_qos_tres_run_secs(ptr noundef nonnull %., ptr noundef nonnull %8, i32 noundef %140, ptr noundef nonnull %92)
+  call fastcc void @_handle_qos_tres_run_secs(ptr noundef nonnull %., ptr noundef %8, i32 noundef %140, ptr noundef nonnull %92)
   br label %141
 
 141:                                              ; preds = %.sink.split, %.loopexit
@@ -3649,7 +3649,7 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
   %160 = fadd x86_fp80 %159, %156
   store x86_fp80 %160, ptr %158, align 16
   %161 = load i32, ptr %154, align 8
-  call fastcc void @_handle_qos_tres_run_secs(ptr noundef nonnull %.218, ptr noundef nonnull %8, i32 noundef %161, ptr noundef nonnull %146)
+  call fastcc void @_handle_qos_tres_run_secs(ptr noundef nonnull %.218, ptr noundef %8, i32 noundef %161, ptr noundef nonnull %146)
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %144, %141
@@ -3703,7 +3703,7 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
 
 193:                                              ; preds = %176, %179, %164
   %194 = load i32, ptr %163, align 8
-  call fastcc void @_handle_assoc_tres_run_secs(ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef %194, ptr noundef nonnull %.0140191)
+  call fastcc void @_handle_assoc_tres_run_secs(ptr noundef nonnull %9, ptr noundef %8, i32 noundef %194, ptr noundef %.0140191)
   %195 = load ptr, ptr %165, align 8
   %196 = getelementptr inbounds i8, ptr %195, i64 72
   %197 = load ptr, ptr %196, align 8
@@ -4969,7 +4969,7 @@ declare i32 @list_is_empty(ptr noundef) local_unnamed_addr #1
 declare void @assoc_mgr_normalize_assoc_shares(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_handle_qos_tres_run_secs(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @_handle_qos_tres_run_secs(ptr noundef readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit, label %5
 
@@ -5134,7 +5134,7 @@ define internal fastcc void @_handle_qos_tres_run_secs(ptr noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_handle_assoc_tres_run_secs(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @_handle_assoc_tres_run_secs(ptr noundef readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = load i16, ptr @accounting_enforce, align 2
   %6 = and i16 %5, 2
   %.not = icmp ne i16 %6, 0

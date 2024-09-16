@@ -424,7 +424,7 @@ define hidden noundef ptr @_ZN4core3ops8function6FnOnce9call_once17he14584fe2c9f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$$LP$core..option..Option$LT$typst_syntax..package..PackageSpec$GT$$C$typst_syntax..path..VirtualPath$RP$$GT$17h80c8d17531b76350E"(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$$LP$core..option..Option$LT$typst_syntax..package..PackageSpec$GT$$C$typst_syntax..path..VirtualPath$RP$$GT$17h80c8d17531b76350E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !11, !alias.scope !82, !noundef !12
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$typst_syntax..package..PackageSpec$GT$$GT$17h0f9605a63c6d7350E.llvm.2808647571845796349.exit", label %4
@@ -2669,7 +2669,7 @@ select.unfold:                                    ; preds = %"_ZN95_$LT$hashbrow
           to label %"_ZN4core3ptr91drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$typst_syntax..file..Interner$GT$$GT$17hcfd8caab5cd07680E.exit31" unwind label %.body.thread83
 
 "_ZN4core3ptr91drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$typst_syntax..file..Interner$GT$$GT$17hcfd8caab5cd07680E.exit28": ; preds = %.loopexit100, %132
-  call fastcc void @"_ZN4core3ptr125drop_in_place$LT$$LP$core..option..Option$LT$typst_syntax..package..PackageSpec$GT$$C$typst_syntax..path..VirtualPath$RP$$GT$17h80c8d17531b76350E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %13)
+  call fastcc void @"_ZN4core3ptr125drop_in_place$LT$$LP$core..option..Option$LT$typst_syntax..package..PackageSpec$GT$$C$typst_syntax..path..VirtualPath$RP$$GT$17h80c8d17531b76350E"(ptr noalias noundef align 8 dereferenceable(80) %13)
   br label %137
 
 137:                                              ; preds = %"_ZN4core3ptr92drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$typst_syntax..file..Interner$GT$$GT$17h6438dae26bfa93c4E.exit", %"_ZN4core3ptr91drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$typst_syntax..file..Interner$GT$$GT$17hcfd8caab5cd07680E.exit28"
@@ -2808,7 +2808,7 @@ _ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h01ce5007a136bf6dE.exit: 
 174:                                              ; preds = %173
   %175 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$$LP$core..option..Option$LT$typst_syntax..package..PackageSpec$GT$$C$typst_syntax..path..VirtualPath$RP$$GT$17h80c8d17531b76350E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %11) #28
+  invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$$LP$core..option..Option$LT$typst_syntax..package..PackageSpec$GT$$C$typst_syntax..path..VirtualPath$RP$$GT$17h80c8d17531b76350E"(ptr noalias noundef align 8 dereferenceable(80) %11) #28
           to label %.body14 unwind label %176
 
 176:                                              ; preds = %174
@@ -3193,7 +3193,7 @@ _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.llvm.18157932453617260866.exit
 
 .thread:                                          ; preds = %158, %36, %30, %125, %.loopexit.split-lp97, %.body.thread83, %20
   %.pn79 = phi { ptr, i32 } [ %eh.lpad-body15, %20 ], [ %lpad.thr_comm, %.body.thread83 ], [ %lpad.phi99, %.loopexit.split-lp97 ], [ %lpad.phi99, %125 ], [ %31, %30 ], [ %31, %36 ], [ %159, %158 ]
-  invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$$LP$core..option..Option$LT$typst_syntax..package..PackageSpec$GT$$C$typst_syntax..path..VirtualPath$RP$$GT$17h80c8d17531b76350E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %13) #28
+  invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$$LP$core..option..Option$LT$typst_syntax..package..PackageSpec$GT$$C$typst_syntax..path..VirtualPath$RP$$GT$17h80c8d17531b76350E"(ptr noalias noundef align 8 dereferenceable(80) %13) #28
           to label %336 unwind label %334
 }
 
@@ -3330,7 +3330,7 @@ _ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h01ce5007a136bf6dE.exit: 
 46:                                               ; preds = %45
   %47 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$$LP$core..option..Option$LT$typst_syntax..package..PackageSpec$GT$$C$typst_syntax..path..VirtualPath$RP$$GT$17h80c8d17531b76350E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %5) #28
+  invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$$LP$core..option..Option$LT$typst_syntax..package..PackageSpec$GT$$C$typst_syntax..path..VirtualPath$RP$$GT$17h80c8d17531b76350E"(ptr noalias noundef align 8 dereferenceable(80) %5) #28
           to label %.body7 unwind label %48
 
 48:                                               ; preds = %46

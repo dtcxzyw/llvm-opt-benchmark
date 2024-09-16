@@ -27549,7 +27549,7 @@ define dso_local noundef zeroext i1 @_ZN5clang12PCHValidator23ReadPreprocessorOp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL24checkPreprocessorOptionsRKN5clang19PreprocessorOptionsES2_N4llvm9StringRefEbPNS_17DiagnosticsEngineERNS_11FileManagerERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11LangOptionsE16OptionValidation(ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %0, ptr noundef nonnull align 8 dereferenceable(376) %1, ptr %2, i64 %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL24checkPreprocessorOptionsRKN5clang19PreprocessorOptionsES2_N4llvm9StringRefEbPNS_17DiagnosticsEngineERNS_11FileManagerERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11LangOptionsE16OptionValidation(ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %0, ptr noundef nonnull align 8 dereferenceable(376) %1, ptr %2, i64 %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %7, i32 noundef range(i32 0, 3) %8) unnamed_addr #0 {
   %10 = alloca %"class.std::allocator.2", align 1
   %11 = alloca %"class.std::allocator.2", align 1
   %12 = alloca %"class.std::allocator.2", align 1
@@ -31913,7 +31913,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %18, %_ZN4llvm5Error
   %24 = load i64, ptr %.sroa.015.027.i, align 8, !noalias !222
   store i64 %24, ptr %6, align 8, !noalias !222
   store ptr null, ptr %.sroa.015.027.i, align 8, !noalias !222
-  call fastcc void @"_ZN4llvm15handleErrorImplIZNK5clang9ASTReader5ErrorEONS_5ErrorEE3$_0JEEES3_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS7_EEOT_DpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull %6, ptr noundef nonnull readonly align 8 dereferenceable(8) %9), !noalias !222
+  call fastcc void @"_ZN4llvm15handleErrorImplIZNK5clang9ASTReader5ErrorEONS_5ErrorEE3$_0JEEES3_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS7_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %6, ptr noundef nonnull readonly align 8 dereferenceable(8) %9), !noalias !222
   call void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %3, ptr noundef nonnull %4, ptr noundef nonnull %5), !noalias !222
   %25 = load ptr, ptr %3, align 8, !noalias !222
   store ptr null, ptr %3, align 8, !noalias !222
@@ -31961,7 +31961,7 @@ _ZN4llvm5ErrorD2Ev.exit8.i:                       ; preds = %38, %_ZNSt10unique_
 43:                                               ; preds = %13
   %44 = ptrtoint ptr %12 to i64
   store i64 %44, ptr %7, align 8, !noalias !222
-  call fastcc void @"_ZN4llvm15handleErrorImplIZNK5clang9ASTReader5ErrorEONS_5ErrorEE3$_0JEEES3_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS7_EEOT_DpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull %7, ptr noundef nonnull readonly align 8 dereferenceable(8) %9)
+  call fastcc void @"_ZN4llvm15handleErrorImplIZNK5clang9ASTReader5ErrorEONS_5ErrorEE3$_0JEEES3_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS7_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(8) %9)
   %45 = load ptr, ptr %7, align 8, !noalias !222
   %.not.i9.i = icmp eq ptr %45, null
   br i1 %.not.i9.i, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i10.i
@@ -34871,7 +34871,7 @@ _ZNK5clang6SrcMgr12ContentCache17getBufferIfLoadedEv.exit.thread: ; preds = %194
 _ZNK5clang12FileEntryRef7getNameEv.exit:          ; preds = %197
   %202 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
   %203 = load i64, ptr %.0.i.i, align 8
-  call fastcc void @"_ZZN5clang9ASTReader13ReadSLocEntryEiENK3$_0clERN4llvm15BitstreamCursorENS2_9StringRefE"(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(344) %49, ptr nonnull %202, i64 %203)
+  call fastcc void @"_ZZN5clang9ASTReader13ReadSLocEntryEiENK3$_0clERN4llvm15BitstreamCursorENS2_9StringRefE"(ptr dead_on_unwind noalias writable align 8 %13, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(344) %49, ptr nonnull %202, i64 %203)
   %204 = load ptr, ptr %13, align 8
   %.not152 = icmp eq ptr %204, null
   br i1 %.not152, label %_ZN4llvm5ErrorD2Ev.exit98, label %205
@@ -34948,7 +34948,7 @@ _ZNK5clang13serialization10ModuleFile8isModuleEv.exit: ; preds = %228, %231, %21
 
 _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %_ZNK5clang13serialization10ModuleFile8isModuleEv.exit, %233
   %235 = phi i64 [ %234, %233 ], [ 0, %_ZNK5clang13serialization10ModuleFile8isModuleEv.exit ]
-  call fastcc void @"_ZZN5clang9ASTReader13ReadSLocEntryEiENK3$_0clERN4llvm15BitstreamCursorENS2_9StringRefE"(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(344) %49, ptr %217, i64 %235)
+  call fastcc void @"_ZZN5clang9ASTReader13ReadSLocEntryEiENK3$_0clERN4llvm15BitstreamCursorENS2_9StringRefE"(ptr dead_on_unwind noalias writable align 8 %15, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(344) %49, ptr %217, i64 %235)
   %236 = load ptr, ptr %15, align 8
   %.not150 = icmp eq ptr %236, null
   br i1 %.not150, label %_ZN4llvm5ErrorD2Ev.exit98, label %237
@@ -35471,7 +35471,7 @@ _ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit: ; preds = %.preheader
   br label %187
 
 186:                                              ; preds = %._crit_edge135
-  call fastcc void @"_ZZN5clang9ASTReader12getInputFileERNS_13serialization10ModuleFileEjbENK3$_0clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(48) %24)
+  call fastcc void @"_ZZN5clang9ASTReader12getInputFileERNS_13serialization10ModuleFileEjbENK3$_0clEv"(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(48) %24)
   br label %187
 
 187:                                              ; preds = %186, %183
@@ -35496,7 +35496,7 @@ _ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit: ; preds = %.preheader
   br i1 %or.cond, label %200, label %201
 
 200:                                              ; preds = %195
-  call fastcc void @"_ZZN5clang9ASTReader12getInputFileERNS_13serialization10ModuleFileEjbENK3$_1clEZNS0_12getInputFileES3_jbE6Change"(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull byval(%struct.Change) align 8 %25)
+  call fastcc void @"_ZZN5clang9ASTReader12getInputFileERNS_13serialization10ModuleFileEjbENK3$_1clEZNS0_12getInputFileES3_jbE6Change"(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull byval(%struct.Change) align 8 %25)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %26, i64 40, i1 false)
   br label %201
 
@@ -35515,7 +35515,7 @@ _ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit: ; preds = %.preheader
   br i1 %or.cond5, label %208, label %209
 
 208:                                              ; preds = %203
-  call fastcc void @"_ZZN5clang9ASTReader12getInputFileERNS_13serialization10ModuleFileEjbENK3$_1clEZNS0_12getInputFileES3_jbE6Change"(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull byval(%struct.Change) align 8 %25)
+  call fastcc void @"_ZZN5clang9ASTReader12getInputFileERNS_13serialization10ModuleFileEjbENK3$_1clEZNS0_12getInputFileES3_jbE6Change"(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull byval(%struct.Change) align 8 %25)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %27, i64 40, i1 false)
   %.pre = load i32, ptr %25, align 8
   br label %209
@@ -36116,7 +36116,7 @@ _ZN5clangeqERKNS_12FileEntryRefES2_.exit:         ; preds = %_ZNK5clang12FileEnt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang9ASTReader13ReadSLocEntryEiENK3$_0clERN4llvm15BitstreamCursorENS2_9StringRefE"(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang9ASTReader13ReadSLocEntryEiENK3$_0clERN4llvm15BitstreamCursorENS2_9StringRefE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr %2, i64 %3) unnamed_addr #0 align 2 {
 _ZN4llvm15BitstreamCursor8ReadCodeEv.exit:
   %4 = alloca %"class.llvm::Expected.3366", align 8
   %5 = alloca %"class.llvm::SmallVector.529", align 8
@@ -36271,7 +36271,7 @@ _ZN4llvm5ErrorD2Ev.exit27:                        ; preds = %51
   store ptr %2, ptr %15, align 8
   %76 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %3, ptr %76, align 8
-  call void @_ZN4llvm12MemoryBuffer16getMemBufferCopyENS_9StringRefERKNS_5TwineE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.1398") align 8 %0, ptr %72, i64 %73, ptr noundef nonnull align 8 dereferenceable(34) %15) #35
+  call void @_ZN4llvm12MemoryBuffer16getMemBufferCopyENS_9StringRefERKNS_5TwineE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.1398") align 8 %0, ptr %72, i64 %73, ptr noundef nonnull align 8 dereferenceable(34) %15) #35
   br label %_ZN4llvm5ErrorD2Ev.exit26
 
 _ZN4llvm5ErrorD2Ev.exit26:                        ; preds = %68, %_ZN4llvm5ErrorD2Ev.exit25, %_ZN4llvm5ErrorD2Ev.exit27
@@ -36290,7 +36290,7 @@ _ZN4llvm5ErrorD2Ev.exit26:                        ; preds = %68, %_ZN4llvm5Error
   %84 = add i64 %83, -1
   %85 = load ptr, ptr %6, align 8
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %83, i64 %84)
-  call void @_ZN4llvm12MemoryBuffer12getMemBufferENS_9StringRefES1_b(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.1398") align 8 %0, ptr %85, i64 %.sroa.speculated.i.i, ptr %2, i64 %3, i1 noundef zeroext true) #35
+  call void @_ZN4llvm12MemoryBuffer12getMemBufferENS_9StringRefES1_b(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.1398") align 8 %0, ptr %85, i64 %.sroa.speculated.i.i, ptr %2, i64 %3, i1 noundef zeroext true) #35
   br label %_ZN4llvm11SmallVectorIhLj0EED2Ev.exit
 
 86:                                               ; preds = %38
@@ -41978,7 +41978,7 @@ _ZNK4llvm6detail12DenseSetImplIPKN5clang9FileEntryENS_8DenseMapIS5_NS0_13DenseSe
 declare ptr @_ZN5clang13SourceManager26bypassFileContentsOverrideENS_12FileEntryRefE(ptr noundef nonnull align 8 dereferenceable(696), ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang9ASTReader12getInputFileERNS_13serialization10ModuleFileEjbENK3$_0clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang9ASTReader12getInputFileERNS_13serialization10ModuleFileEjbENK3$_0clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
   %3 = alloca %struct.Change, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -42157,7 +42157,7 @@ _ZNK5clang12FileEntryRef19getModificationTimeEv.exit19: ; preds = %.preheader
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang9ASTReader12getInputFileERNS_13serialization10ModuleFileEjbENK3$_1clEZNS0_12getInputFileES3_jbE6Change"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef readonly byval(%struct.Change) align 8 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang9ASTReader12getInputFileERNS_13serialization10ModuleFileEjbENK3$_1clEZNS0_12getInputFileES3_jbE6Change"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef readonly byval(%struct.Change) align 8 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::ErrorOr.2312", align 8
   %5 = alloca %"class.std::optional.1550", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -48475,7 +48475,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   %290 = shl i64 %289, 3
   %291 = getelementptr inbounds nuw i8, ptr %256, i64 424
   store i64 %290, ptr %291, align 8
-  call fastcc void @_ZL27doesntStartWithASTFileMagicRN4llvm15BitstreamCursorE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(344) %257)
+  call fastcc void @_ZL27doesntStartWithASTFileMagicRN4llvm15BitstreamCursorE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(344) %257)
   %292 = load ptr, ptr %19, align 8
   %.not191 = icmp eq ptr %292, null
   br i1 %.not191, label %_ZN4llvm5ErrorD2Ev.exit134.preheader, label %310
@@ -59985,7 +59985,7 @@ declare noundef i32 @_ZN5clang17ExternalASTSource19incrementGenerationERNS_10AST
 declare void @_ZN5clang13serialization13ModuleManager13removeModulesEN4llvm16pointee_iteratorIPSt10unique_ptrINS0_10ModuleFileESt14default_deleteIS5_EES5_EE(ptr noundef nonnull align 8 dereferenceable(288), ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL17SkipCursorToBlockRN4llvm15BitstreamCursorEj(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL17SkipCursorToBlockRN4llvm15BitstreamCursorEj(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef range(i32 15, 20) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::Error", align 8
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %class.anon.3441, align 1
@@ -61545,7 +61545,7 @@ define internal void @_ZL20readASTFileSignatureN4llvm9StringRefE(ptr dead_on_unw
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %25, i64 noundef 8) #35
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 336
   store ptr null, ptr %26, align 8
-  call fastcc void @_ZL27doesntStartWithASTFileMagicRN4llvm15BitstreamCursorE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(344) %15)
+  call fastcc void @_ZL27doesntStartWithASTFileMagicRN4llvm15BitstreamCursorE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(344) %15)
   %27 = load ptr, ptr %16, align 8
   %.not63 = icmp eq ptr %27, null
   br i1 %.not63, label %_ZN4llvm5ErrorD2Ev.exit12, label %28
@@ -61809,7 +61809,7 @@ _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %111, %_ZN4llvm8Expe
 declare void @_ZN4llvm15MemoryBufferRefC1ERKNS_12MemoryBufferE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL27doesntStartWithASTFileMagicRN4llvm15BitstreamCursorE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL27doesntStartWithASTFileMagicRN4llvm15BitstreamCursorE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.2", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -61829,7 +61829,7 @@ define internal fastcc void @_ZL27doesntStartWithASTFileMagicRN4llvm15BitstreamC
   %14 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #35, !noalias !1081
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %6) #35, !noalias !1081
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.430, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.430, i64 40)), !noalias !1081
-  call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 84, ptr nonnull %13) #35
+  call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 84, ptr nonnull %13) #35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #35
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
@@ -61876,7 +61876,7 @@ define internal fastcc void @_ZL27doesntStartWithASTFileMagicRN4llvm15BitstreamC
   %31 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #35, !noalias !1084
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %4) #35, !noalias !1084
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.431, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.431, i64 38)), !noalias !1084
-  call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 84, ptr nonnull %30) #35
+  call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 84, ptr nonnull %30) #35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #35
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -62109,7 +62109,7 @@ define dso_local noundef i32 @_ZN5clang9ASTReader28readUnhashedControlBlockImplE
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull %29, i64 noundef 8) #35
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 336
   store ptr null, ptr %30, align 8
-  call fastcc void @_ZL27doesntStartWithASTFileMagicRN4llvm15BitstreamCursorE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(344) %16)
+  call fastcc void @_ZL27doesntStartWithASTFileMagicRN4llvm15BitstreamCursorE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(344) %16)
   %31 = load ptr, ptr %17, align 8
   %.not88 = icmp eq ptr %31, null
   br i1 %.not88, label %_ZN4llvm5ErrorD2Ev.exit64, label %32
@@ -67866,7 +67866,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZN5clang17Diagnost
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull %97, i64 noundef 8) #35
   %98 = getelementptr inbounds nuw i8, ptr %18, i64 336
   store ptr null, ptr %98, align 8
-  call fastcc void @_ZL27doesntStartWithASTFileMagicRN4llvm15BitstreamCursorE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(344) %18)
+  call fastcc void @_ZL27doesntStartWithASTFileMagicRN4llvm15BitstreamCursorE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(344) %18)
   %99 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %99, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit31, label %100
@@ -68587,7 +68587,7 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull %92, i64 noundef 8) #35
   %93 = getelementptr inbounds nuw i8, ptr %44, i64 336
   store ptr null, ptr %93, align 8
-  call fastcc void @_ZL27doesntStartWithASTFileMagicRN4llvm15BitstreamCursorE(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(344) %44)
+  call fastcc void @_ZL27doesntStartWithASTFileMagicRN4llvm15BitstreamCursorE(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(344) %44)
   %94 = load ptr, ptr %45, align 8
   %.not273 = icmp eq ptr %94, null
   br i1 %.not273, label %_ZN4llvm5ErrorD2Ev.exit137, label %95
@@ -88981,7 +88981,7 @@ define dso_local void @_ZN5clang9ASTReader29PassInterestingDeclToConsumerEPNS_4D
   %.not = or i1 %.not5, %6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load ptr, ptr %7, align 8
-  br i1 %.not, label %37, label %9
+  br i1 %.not, label %_ZL26PassObjCImplDeclToConsumerPN5clang12ObjCImplDeclEPNS_11ASTConsumerE.exit, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 48
@@ -89039,21 +89039,11 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_14ObjCMethodDeclEEppEv.exit.i:
   %.not.i = icmp eq ptr %.sroa.011.2.i, null
   br i1 %.not.i, label %_ZL26PassObjCImplDeclToConsumerPN5clang12ObjCImplDeclEPNS_11ASTConsumerE.exit, label %.lr.ph.i
 
-_ZL26PassObjCImplDeclToConsumerPN5clang12ObjCImplDeclEPNS_11ASTConsumerE.exit: ; preds = %16, %_ZN5clang11DeclContext22specific_decl_iteratorINS_14ObjCMethodDeclEEppEv.exit.i, %9
+_ZL26PassObjCImplDeclToConsumerPN5clang12ObjCImplDeclEPNS_11ASTConsumerE.exit: ; preds = %16, %_ZN5clang11DeclContext22specific_decl_iteratorINS_14ObjCMethodDeclEEppEv.exit.i, %2, %9
   %34 = load ptr, ptr %8, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 40
   %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr %1) #35
-  br label %41
-
-37:                                               ; preds = %2
-  %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 40
-  %40 = load ptr, ptr %39, align 8
-  tail call void %40(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr nonnull %1) #35
-  br label %41
-
-41:                                               ; preds = %37, %_ZL26PassObjCImplDeclToConsumerPN5clang12ObjCImplDeclEPNS_11ASTConsumerE.exit
+  tail call void %36(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr nonnull %1) #35
   ret void
 }
 
@@ -142577,7 +142567,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang9ASTReader20PendingVisibleUpdateELb1EE1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm15handleErrorImplIZNK5clang9ASTReader5ErrorEONS_5ErrorEE3$_0JEEES3_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS7_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm15handleErrorImplIZNK5clang9ASTReader5ErrorEONS_5ErrorEE3$_0JEEES3_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS7_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %5, align 8

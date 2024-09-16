@@ -1613,7 +1613,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_lorawan_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_lorawan_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [16 x i8], align 16
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #9
@@ -1698,12 +1698,12 @@ define internal fastcc i32 @dissect_lorawan_data(ptr noundef %0, ptr noundef %1,
 
 .thread:                                          ; preds = %50, %47
   %.2148 = add i32 %.1, %42
-  br label %120
+  br label %121
 
 get_session_key.exit:                             ; preds = %51
   %56 = icmp ne ptr %52, null
   %or.cond5 = and i1 %43, %56
-  br i1 %or.cond5, label %57, label %97
+  br i1 %or.cond5, label %57, label %98
 
 57:                                               ; preds = %get_session_key.exit
   %58 = add i8 %40, 11
@@ -1720,129 +1720,133 @@ get_session_key.exit:                             ; preds = %51
   %.in.in = getelementptr inbounds i8, ptr %52, i64 %.in.in.v
   %.in = load ptr, ptr %.in.in, align 8
   %68 = load ptr, ptr %.in, align 8
-  %.not137 = icmp eq i32 %3, 0
-  %69 = zext i1 %.not137 to i8
+  %69 = trunc nuw nsw i32 %3 to i8
+  %70 = xor i8 %69, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i8 1, ptr %6, align 16
-  %70 = getelementptr inbounds i8, ptr %6, i64 1
-  %71 = getelementptr inbounds i8, ptr %6, i64 5
-  store i32 0, ptr %70, align 1
-  store i8 %69, ptr %71, align 1
-  %72 = getelementptr inbounds i8, ptr %6, i64 6
-  %73 = getelementptr inbounds i8, ptr %6, i64 10
-  %74 = getelementptr inbounds i8, ptr %6, i64 15
-  %75 = getelementptr inbounds i8, ptr %6, i64 14
-  store i8 0, ptr %75, align 2
-  store i8 1, ptr %74, align 1
-  store i32 %17, ptr %72, align 2
-  store i32 %24, ptr %73, align 2
-  %76 = call i32 @gcry_cipher_open(ptr noundef nonnull %5, i32 noundef 7, i32 noundef 6, i32 noundef 0) #9
-  %.not.i140 = icmp eq i32 %76, 0
-  br i1 %.not.i140, label %77, label %decrypt_lorawan_frame_payload.exit.thread
+  %71 = getelementptr inbounds i8, ptr %6, i64 1
+  %72 = getelementptr inbounds i8, ptr %6, i64 5
+  store i32 0, ptr %71, align 1
+  store i8 %70, ptr %72, align 1
+  %73 = getelementptr inbounds i8, ptr %6, i64 6
+  %74 = getelementptr inbounds i8, ptr %6, i64 10
+  %75 = getelementptr inbounds i8, ptr %6, i64 15
+  %76 = getelementptr inbounds i8, ptr %6, i64 14
+  store i8 0, ptr %76, align 2
+  store i8 1, ptr %75, align 1
+  store i32 %17, ptr %73, align 2
+  store i32 %24, ptr %74, align 2
+  %77 = call i32 @gcry_cipher_open(ptr noundef nonnull %5, i32 noundef 7, i32 noundef 6, i32 noundef 0) #9
+  %.not.i140 = icmp eq i32 %77, 0
+  br i1 %.not.i140, label %78, label %decrypt_lorawan_frame_payload.exit.thread
 
-77:                                               ; preds = %57
-  %78 = load ptr, ptr %5, align 8
-  %79 = call i32 @gcry_cipher_setkey(ptr noundef %78, ptr noundef %68, i64 noundef 16) #9
-  %.not7.i = icmp eq i32 %79, 0
-  %80 = load ptr, ptr %5, align 8
-  br i1 %.not7.i, label %81, label %decrypt_lorawan_frame_payload.exit.thread.sink.split
+78:                                               ; preds = %57
+  %79 = load ptr, ptr %5, align 8
+  %80 = call i32 @gcry_cipher_setkey(ptr noundef %79, ptr noundef %68, i64 noundef 16) #9
+  %.not7.i = icmp eq i32 %80, 0
+  %81 = load ptr, ptr %5, align 8
+  br i1 %.not7.i, label %82, label %decrypt_lorawan_frame_payload.exit.thread.sink.split
 
-81:                                               ; preds = %77
-  %82 = call i32 @gcry_cipher_setctr(ptr noundef %80, ptr noundef nonnull %6, i64 noundef 16) #9
-  %.not8.i = icmp eq i32 %82, 0
-  %83 = load ptr, ptr %5, align 8
+82:                                               ; preds = %78
+  %83 = call i32 @gcry_cipher_setctr(ptr noundef %81, ptr noundef nonnull %6, i64 noundef 16) #9
+  %.not8.i = icmp eq i32 %83, 0
+  %84 = load ptr, ptr %5, align 8
   br i1 %.not8.i, label %decrypt_lorawan_frame_payload.exit, label %decrypt_lorawan_frame_payload.exit.thread.sink.split
 
-decrypt_lorawan_frame_payload.exit.thread.sink.split: ; preds = %81, %77
-  %.sink = phi ptr [ %80, %77 ], [ %83, %81 ]
+decrypt_lorawan_frame_payload.exit.thread.sink.split: ; preds = %82, %78
+  %.sink = phi ptr [ %81, %78 ], [ %84, %82 ]
   call void @gcry_cipher_close(ptr noundef %.sink) #9
   br label %decrypt_lorawan_frame_payload.exit.thread
 
 decrypt_lorawan_frame_payload.exit.thread:        ; preds = %decrypt_lorawan_frame_payload.exit.thread.sink.split, %57
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %95
+  br label %96
 
-decrypt_lorawan_frame_payload.exit:               ; preds = %81
-  %84 = call i32 @gcry_cipher_encrypt(ptr noundef %83, ptr noundef %63, i64 noundef %62, ptr noundef %65, i64 noundef %62) #9
-  %.not9.i.not = icmp eq i32 %84, 0
-  %85 = load ptr, ptr %5, align 8
-  call void @gcry_cipher_close(ptr noundef %85) #9
+decrypt_lorawan_frame_payload.exit:               ; preds = %82
+  %85 = call i32 @gcry_cipher_encrypt(ptr noundef %84, ptr noundef %63, i64 noundef %62, ptr noundef %65, i64 noundef %62) #9
+  %.not9.i.not = icmp eq i32 %85, 0
+  %86 = load ptr, ptr %5, align 8
+  call void @gcry_cipher_close(ptr noundef %86) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br i1 %.not9.i.not, label %86, label %95
+  br i1 %.not9.i.not, label %87, label %96
 
-86:                                               ; preds = %decrypt_lorawan_frame_payload.exit
-  %87 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %63, i32 noundef %42, i32 noundef %42) #9
-  call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %87, ptr noundef nonnull @.str.297) #9
-  %88 = load i32, ptr @ett_lorawan_frame_payload_decrypted, align 4
-  %89 = call ptr @proto_item_add_subtree(ptr noundef %.0, i32 noundef %88) #9
-  br i1 %.0131, label %90, label %92
+87:                                               ; preds = %decrypt_lorawan_frame_payload.exit
+  %88 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %63, i32 noundef %42, i32 noundef %42) #9
+  call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %88, ptr noundef nonnull @.str.297) #9
+  %89 = load i32, ptr @ett_lorawan_frame_payload_decrypted, align 4
+  %90 = call ptr @proto_item_add_subtree(ptr noundef %.0, i32 noundef %89) #9
+  br i1 %.0131, label %91, label %93
 
-90:                                               ; preds = %86
-  %91 = call fastcc i32 @dissect_lorawan_mac_commands(ptr noundef %87, ptr noundef %2, i32 noundef %3)
-  %.2150 = add i32 %91, %.1
-  br label %._crit_edge
+91:                                               ; preds = %87
+  %92 = call fastcc i32 @dissect_lorawan_mac_commands(ptr noundef %88, ptr noundef %2, i32 noundef %3)
+  %.2150 = add i32 %92, %.1
+  br label %99
 
-92:                                               ; preds = %86
-  %93 = load i32, ptr @hf_lorawan_frame_payload_decrypted_type, align 4
-  %94 = call ptr @proto_tree_add_bytes(ptr noundef %89, i32 noundef %93, ptr noundef %87, i32 noundef 0, i32 noundef %42, ptr noundef %63) #9
+93:                                               ; preds = %87
+  %94 = load i32, ptr @hf_lorawan_frame_payload_decrypted_type, align 4
+  %95 = call ptr @proto_tree_add_bytes(ptr noundef %90, i32 noundef %94, ptr noundef %88, i32 noundef 0, i32 noundef %42, ptr noundef %63) #9
   %.2153 = add i32 %.1, %42
-  br label %._crit_edge
+  br label %99
 
-95:                                               ; preds = %decrypt_lorawan_frame_payload.exit.thread, %decrypt_lorawan_frame_payload.exit
-  %96 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_lorawan_decrypting_error, ptr noundef %0, i32 noundef %.1, i32 noundef 4, ptr noundef nonnull @.str.298) #9
+96:                                               ; preds = %decrypt_lorawan_frame_payload.exit.thread, %decrypt_lorawan_frame_payload.exit
+  %97 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_lorawan_decrypting_error, ptr noundef %0, i32 noundef %.1, i32 noundef 4, ptr noundef nonnull @.str.298) #9
   %.2154 = add i32 %.1, %42
-  br label %._crit_edge
+  br label %99
 
-97:                                               ; preds = %get_session_key.exit
+98:                                               ; preds = %get_session_key.exit
   %.2 = add i32 %.1, %42
-  br i1 %56, label %._crit_edge, label %120
+  br i1 %56, label %._crit_edge, label %121
 
-._crit_edge:                                      ; preds = %97, %95, %92, %90
-  %.2152 = phi i32 [ %.2150, %90 ], [ %.2153, %92 ], [ %.2154, %95 ], [ %.2, %97 ]
-  %98 = getelementptr inbounds i8, ptr %1, i64 408
-  %99 = load ptr, ptr %98, align 8
-  %100 = add i32 %.2152, 16
-  %101 = sext i32 %100 to i64
-  %102 = call noalias ptr @wmem_alloc0(ptr noundef %99, i64 noundef %101) #9
-  store i8 73, ptr %102, align 1
-  %.not139 = icmp eq i32 %3, 0
-  %103 = zext i1 %.not139 to i8
-  %104 = getelementptr i8, ptr %102, i64 5
-  store i8 %103, ptr %104, align 1
-  %105 = getelementptr i8, ptr %102, i64 6
-  store i32 %17, ptr %105, align 1
-  %106 = getelementptr i8, ptr %102, i64 10
-  store i32 %24, ptr %106, align 1
-  %107 = trunc i32 %.2152 to i8
-  %108 = getelementptr i8, ptr %102, i64 15
-  store i8 %107, ptr %108, align 1
-  %109 = getelementptr i8, ptr %102, i64 16
-  %110 = sext i32 %.2152 to i64
-  %111 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %109, i32 noundef 0, i64 noundef %110) #9
-  %112 = load i32, ptr @hf_lorawan_mic_type, align 4
-  %113 = load i32, ptr @hf_lorawan_mic_status_type, align 4
-  %114 = trunc i32 %100 to i8
-  %115 = getelementptr inbounds i8, ptr %52, i64 32
-  %116 = load ptr, ptr %115, align 8
+._crit_edge:                                      ; preds = %98
+  %.pre = trunc nuw nsw i32 %3 to i8
+  %.pre157 = xor i8 %.pre, 1
+  br label %99
+
+99:                                               ; preds = %._crit_edge, %96, %93, %91
+  %.pre-phi158 = phi i8 [ %.pre157, %._crit_edge ], [ %70, %96 ], [ %70, %93 ], [ %70, %91 ]
+  %.2152 = phi i32 [ %.2, %._crit_edge ], [ %.2154, %96 ], [ %.2153, %93 ], [ %.2150, %91 ]
+  %100 = getelementptr inbounds i8, ptr %1, i64 408
+  %101 = load ptr, ptr %100, align 8
+  %102 = add i32 %.2152, 16
+  %103 = sext i32 %102 to i64
+  %104 = call noalias ptr @wmem_alloc0(ptr noundef %101, i64 noundef %103) #9
+  store i8 73, ptr %104, align 1
+  %105 = getelementptr i8, ptr %104, i64 5
+  store i8 %.pre-phi158, ptr %105, align 1
+  %106 = getelementptr i8, ptr %104, i64 6
+  store i32 %17, ptr %106, align 1
+  %107 = getelementptr i8, ptr %104, i64 10
+  store i32 %24, ptr %107, align 1
+  %108 = trunc i32 %.2152 to i8
+  %109 = getelementptr i8, ptr %104, i64 15
+  store i8 %108, ptr %109, align 1
+  %110 = getelementptr i8, ptr %104, i64 16
+  %111 = sext i32 %.2152 to i64
+  %112 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %110, i32 noundef 0, i64 noundef %111) #9
+  %113 = load i32, ptr @hf_lorawan_mic_type, align 4
+  %114 = load i32, ptr @hf_lorawan_mic_status_type, align 4
+  %115 = trunc i32 %102 to i8
+  %116 = getelementptr inbounds i8, ptr %52, i64 32
   %117 = load ptr, ptr %116, align 8
-  %118 = call fastcc i32 @calculate_mic(ptr noundef nonnull %102, i8 noundef zeroext %114, ptr noundef %117)
-  %119 = call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %.2152, i32 noundef %112, i32 noundef %113, ptr noundef nonnull @ei_lorawan_mic, ptr noundef %1, i32 noundef %118, i32 noundef -2147483648, i32 noundef 1) #9
-  br label %125
+  %118 = load ptr, ptr %117, align 8
+  %119 = call fastcc i32 @calculate_mic(ptr noundef nonnull %104, i8 noundef zeroext %115, ptr noundef %118)
+  %120 = call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %.2152, i32 noundef %113, i32 noundef %114, ptr noundef nonnull @ei_lorawan_mic, ptr noundef %1, i32 noundef %119, i32 noundef -2147483648, i32 noundef 1) #9
+  br label %126
 
-120:                                              ; preds = %.thread, %97
-  %.2149 = phi i32 [ %.2148, %.thread ], [ %.2, %97 ]
-  %121 = load i32, ptr @hf_lorawan_mic_type, align 4
-  %122 = load i32, ptr @hf_lorawan_mic_status_type, align 4
-  %123 = tail call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %.2149, i32 noundef %121, i32 noundef %122, ptr noundef null, ptr noundef %1, i32 noundef 0, i32 noundef -2147483648, i32 noundef 0) #9
-  %124 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %123, ptr noundef nonnull @ei_lorawan_missing_keys) #9
-  br label %125
+121:                                              ; preds = %.thread, %98
+  %.2149 = phi i32 [ %.2148, %.thread ], [ %.2, %98 ]
+  %122 = load i32, ptr @hf_lorawan_mic_type, align 4
+  %123 = load i32, ptr @hf_lorawan_mic_status_type, align 4
+  %124 = tail call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %.2149, i32 noundef %122, i32 noundef %123, ptr noundef null, ptr noundef %1, i32 noundef 0, i32 noundef -2147483648, i32 noundef 0) #9
+  %125 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %124, ptr noundef nonnull @ei_lorawan_missing_keys) #9
+  br label %126
 
-125:                                              ; preds = %120, %._crit_edge
-  %126 = call i32 @tvb_captured_length(ptr noundef %0) #9
-  ret i32 %126
+126:                                              ; preds = %121, %99
+  %127 = call i32 @tvb_captured_length(ptr noundef %0) #9
+  ret i32 %127
 }
 
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -1938,7 +1942,7 @@ declare i32 @gcry_cipher_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noun
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_lorawan_mac_commands(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_lorawan_mac_commands(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_lorawan_mac_commands_type, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #9
   %6 = load i32, ptr @ett_lorawan_mac_commands, align 4

@@ -6605,7 +6605,7 @@ invoke.cont72.i.i.i.i.i:                          ; preds = %for.body.i114.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i.i.i.i, i64 16, i1 false)
   %agg.tmp88.sroa.0.0.copyload.i.i.i.i.i = load <2 x float>, ptr %T_maj.i.i.i.i.i, align 8
   %agg.tmp88.sroa.2.0.copyload.i.i.i.i.i = load <2 x float>, ptr %agg.tmp88.sroa.2.0.T_maj.sroa_idx.i.i.i.i.i, align 8
-  %call90.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_"(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i.i.i.i, ptr noundef nonnull %agg.tmp82.i.i.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp88.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp88.sroa.2.0.copyload.i.i.i.i.i)
+  %call90.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_"(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i.i.i.i, ptr noundef %agg.tmp82.i.i.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp88.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp88.sroa.2.0.copyload.i.i.i.i.i)
   br i1 %call90.i.i.i.i.i, label %if.end92.i.i.i.i.i, label %while.end120.i.i.i.i.i
 
 if.end92.i.i.i.i.i:                               ; preds = %invoke.cont72.i.i.i.i.i
@@ -7065,7 +7065,7 @@ invoke.cont84.i.i.i.i.i:                          ; preds = %invoke.cont71.i.i.i
   %agg.tmp83.sroa.2.0.copyload.i.i.i.i.i = load <2 x float>, ptr %agg.tmp83.sroa.2.0.sigma_maj86.sroa_idx.i.i.i.i.i, align 4
   %agg.tmp87.sroa.0.0.copyload.i.i.i.i.i = load <2 x float>, ptr %T_maj.i.i16.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i.i.i.i, align 8
-  %call89.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_"(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i13.i.i.i, ptr noundef nonnull %agg.tmp81.i.i.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i.i.i.i)
+  %call89.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_"(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i13.i.i.i, ptr noundef %agg.tmp81.i.i.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i.i.i.i)
   br i1 %call89.i.i.i.i.i, label %if.end91.i.i.i.i.i, label %cleanup.loopexit245.i.i.i.i.i
 
 if.end91.i.i.i.i.i:                               ; preds = %invoke.cont84.i.i.i.i.i
@@ -7532,7 +7532,7 @@ invoke.cont84.i.i339.i.i.i:                       ; preds = %invoke.cont71.i.i32
   %agg.tmp83.sroa.2.0.copyload.i.i341.i.i.i = load <2 x float>, ptr %agg.tmp83.sroa.2.0.sigma_maj86.sroa_idx.i.i193.i.i.i, align 4
   %agg.tmp87.sroa.0.0.copyload.i.i342.i.i.i = load <2 x float>, ptr %T_maj.i.i130.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i343.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i194.i.i.i, align 8
-  %call89.i.i344.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_"(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i127.i.i.i, ptr noundef nonnull %agg.tmp81.i.i137.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i340.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i341.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i342.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i343.i.i.i)
+  %call89.i.i344.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_"(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i127.i.i.i, ptr noundef %agg.tmp81.i.i137.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i340.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i341.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i342.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i343.i.i.i)
   br i1 %call89.i.i344.i.i.i, label %if.end91.i.i347.i.i.i, label %cleanup.loopexit245.i.i345.i.i.i
 
 if.end91.i.i347.i.i.i:                            ; preds = %invoke.cont84.i.i339.i.i.i
@@ -7973,7 +7973,7 @@ invoke.cont71.i.i608.i.i.i:                       ; preds = %for.body.i114.i.i60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i478.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i479.i.i.i, i64 16, i1 false)
   %agg.tmp87.sroa.0.0.copyload.i.i617.i.i.i = load <2 x float>, ptr %T_maj.i.i417.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i618.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i480.i.i.i, align 8
-  %call89.i.i619.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_"(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i414.i.i.i, ptr noundef nonnull %agg.tmp81.i.i423.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i490.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i491.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i617.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i618.i.i.i)
+  %call89.i.i619.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_"(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i414.i.i.i, ptr noundef %agg.tmp81.i.i423.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i490.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i491.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i617.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i618.i.i.i)
   br i1 %call89.i.i619.i.i.i, label %if.end91.i.i626.i.i.i, label %while.end119.i.i620.i.i.i
 
 if.end91.i.i626.i.i.i:                            ; preds = %invoke.cont71.i.i608.i.i.i
@@ -8429,7 +8429,7 @@ invoke.cont84.i.i897.i.i.i:                       ; preds = %invoke.cont71.i.i88
   %agg.tmp83.sroa.2.0.copyload.i.i899.i.i.i = load <2 x float>, ptr %agg.tmp83.sroa.2.0.sigma_maj86.sroa_idx.i.i751.i.i.i, align 4
   %agg.tmp87.sroa.0.0.copyload.i.i900.i.i.i = load <2 x float>, ptr %T_maj.i.i688.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i901.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i752.i.i.i, align 8
-  %call89.i.i902.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_"(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i685.i.i.i, ptr noundef nonnull %agg.tmp81.i.i695.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i898.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i899.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i900.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i901.i.i.i)
+  %call89.i.i902.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_"(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i685.i.i.i, ptr noundef %agg.tmp81.i.i695.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i898.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i899.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i900.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i901.i.i.i)
   br i1 %call89.i.i902.i.i.i, label %if.end91.i.i905.i.i.i, label %cleanup.loopexit245.i.i903.i.i.i
 
 if.end91.i.i905.i.i.i:                            ; preds = %invoke.cont84.i.i897.i.i.i
@@ -15983,7 +15983,7 @@ invoke.cont71.i.i.i.i.i:                          ; preds = %for.body.i114.i.i.i
   %86 = load i64, ptr %phase3.i.i.i.i.i.i, align 8
   store i64 %86, ptr %phase.i.i.i.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i.i.i.i, i64 16, i1 false)
-  %call89.i.i.i.i.i44 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp2038, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i.i.i.i, float %add6.i.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp81.i.i.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i.i.i.i)
+  %call89.i.i.i.i.i44 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp2038, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i.i.i.i, float %add6.i.i.i.i.i.i.i, ptr noundef %agg.tmp81.i.i.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i.i.i.i)
   br i1 %call89.i.i.i.i.i44, label %if.end91.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i"
 
 if.end91.i.i.i.i.i:                               ; preds = %invoke.cont71.i.i.i.i.i
@@ -16412,7 +16412,7 @@ invoke.cont71.i.i99.i.i.i:                        ; preds = %for.body.i113.i.i.i
 
 invoke.cont84.i.i.i.i.i:                          ; preds = %invoke.cont71.i.i99.i.i.i
   %agg.tmp83.sroa.0.0.copyload.i.i.i.i.i = load <2 x float>, ptr %sigma_maj.i.i.i.i.i, align 4
-  %call89.i.i108.i.i.i49 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp2038, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i105.i.i.i, float %add6.i.i.i.i103.i.i.i, ptr noundef nonnull %agg.tmp81.i.i21.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i.i.i.i)
+  %call89.i.i108.i.i.i49 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp2038, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i105.i.i.i, float %add6.i.i.i.i103.i.i.i, ptr noundef %agg.tmp81.i.i21.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i.i.i.i)
   br i1 %call89.i.i108.i.i.i49, label %if.end91.i.i109.i.i.i, label %cleanup.loopexit245.i.i.i.i.i
 
 if.end91.i.i109.i.i.i:                            ; preds = %invoke.cont84.i.i.i.i.i
@@ -17038,7 +17038,7 @@ _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit58.i:     ; preds = %for.body.i.i47.i
 
 invoke.cont84.i.i360.i.i.i:                       ; preds = %.noexc53
   %agg.tmp83.sroa.0.0.copyload.i.i361.i.i.i = load <2 x float>, ptr %sigma_maj.i.i205.i.i.i, align 4
-  %call89.i.i365.i.i.i54 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp2038, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i358.i.i.i, float %add6.i.i.i.i356.i.i.i, ptr noundef nonnull %agg.tmp81.i.i160.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i361.i.i.i)
+  %call89.i.i365.i.i.i54 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp2038, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i358.i.i.i, float %add6.i.i.i.i356.i.i.i, ptr noundef %agg.tmp81.i.i160.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i361.i.i.i)
   br i1 %call89.i.i365.i.i.i54, label %if.end91.i.i368.i.i.i, label %cleanup.loopexit245.i.i366.i.i.i
 
 if.end91.i.i368.i.i.i:                            ; preds = %invoke.cont84.i.i360.i.i.i
@@ -17460,7 +17460,7 @@ invoke.cont71.i.i627.i.i.i:                       ; preds = %for.body.i114.i.i62
   %256 = load i64, ptr %phase3.i.i.i495.i.i.i, align 8
   store i64 %256, ptr %phase.i.i.i494.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i496.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i497.i.i.i, i64 16, i1 false)
-  %call89.i.i638.i.i.i57 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp2038, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i635.i.i.i, float %add6.i.i.i.i633.i.i.i, ptr noundef nonnull %agg.tmp81.i.i443.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i508.i.i.i)
+  %call89.i.i638.i.i.i57 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp2038, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i635.i.i.i, float %add6.i.i.i.i633.i.i.i, ptr noundef %agg.tmp81.i.i443.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i508.i.i.i)
   br i1 %call89.i.i638.i.i.i57, label %if.end91.i.i645.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i"
 
 if.end91.i.i645.i.i.i:                            ; preds = %invoke.cont71.i.i627.i.i.i
@@ -17889,7 +17889,7 @@ invoke.cont71.i.i903.i.i.i:                       ; preds = %for.body.i113.i.i89
 
 invoke.cont84.i.i913.i.i.i:                       ; preds = %invoke.cont71.i.i903.i.i.i
   %agg.tmp83.sroa.0.0.copyload.i.i914.i.i.i = load <2 x float>, ptr %sigma_maj.i.i758.i.i.i, align 4
-  %call89.i.i918.i.i.i62 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp2038, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i911.i.i.i, float %add6.i.i.i.i909.i.i.i, ptr noundef nonnull %agg.tmp81.i.i713.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i914.i.i.i)
+  %call89.i.i918.i.i.i62 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp2038, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i911.i.i.i, float %add6.i.i.i.i909.i.i.i, ptr noundef %agg.tmp81.i.i713.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i914.i.i.i)
   br i1 %call89.i.i918.i.i.i62, label %if.end91.i.i921.i.i.i, label %cleanup.loopexit245.i.i919.i.i.i
 
 if.end91.i.i921.i.i.i:                            ; preds = %invoke.cont84.i.i913.i.i.i
@@ -19480,7 +19480,7 @@ invoke.cont71.i.i.i.i.i:                          ; preds = %for.body.i114.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i.i.i.i, i64 16, i1 false)
   %agg.tmp87.sroa.0.0.copyload.i.i.i.i.i = load <2 x float>, ptr %T_maj.i.i.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i.i.i.i, align 8
-  %call89.i.i.i.i.i86 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(120) %agg.tmp1880, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i.i.i.i, float %add6.i.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp81.i.i.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i.i.i.i)
+  %call89.i.i.i.i.i86 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(120) %agg.tmp1880, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i.i.i.i, float %add6.i.i.i.i.i.i.i, ptr noundef %agg.tmp81.i.i.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i.i.i.i)
   br i1 %call89.i.i.i.i.i86, label %if.end91.i.i.i.i.i, label %while.end119.i.i.i.i.i
 
 if.end91.i.i.i.i.i:                               ; preds = %invoke.cont71.i.i.i.i.i
@@ -19936,7 +19936,7 @@ invoke.cont84.i.i.i.i.i:                          ; preds = %invoke.cont71.i.i99
   %agg.tmp83.sroa.2.0.copyload.i.i.i.i.i = load <2 x float>, ptr %agg.tmp83.sroa.2.0.sigma_maj86.sroa_idx.i.i.i.i.i, align 4
   %agg.tmp87.sroa.0.0.copyload.i.i106.i.i.i = load <2 x float>, ptr %T_maj.i.i15.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i107.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i70.i.i.i, align 8
-  %call89.i.i108.i.i.i91 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(120) %agg.tmp1880, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i105.i.i.i, float %add6.i.i.i.i103.i.i.i, ptr noundef nonnull %agg.tmp81.i.i21.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i106.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i107.i.i.i)
+  %call89.i.i108.i.i.i91 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(120) %agg.tmp1880, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i105.i.i.i, float %add6.i.i.i.i103.i.i.i, ptr noundef %agg.tmp81.i.i21.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i106.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i107.i.i.i)
   br i1 %call89.i.i108.i.i.i91, label %if.end91.i.i109.i.i.i, label %cleanup.loopexit245.i.i.i.i.i
 
 if.end91.i.i109.i.i.i:                            ; preds = %invoke.cont84.i.i.i.i.i
@@ -20585,7 +20585,7 @@ invoke.cont84.i.i360.i.i.i:                       ; preds = %.noexc95
   %agg.tmp83.sroa.2.0.copyload.i.i362.i.i.i = load <2 x float>, ptr %agg.tmp83.sroa.2.0.sigma_maj86.sroa_idx.i.i214.i.i.i, align 4
   %agg.tmp87.sroa.0.0.copyload.i.i363.i.i.i = load <2 x float>, ptr %T_maj.i.i153.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i364.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i215.i.i.i, align 8
-  %call89.i.i365.i.i.i96 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(120) %agg.tmp1880, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i358.i.i.i, float %add6.i.i.i.i356.i.i.i, ptr noundef nonnull %agg.tmp81.i.i160.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i361.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i362.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i363.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i364.i.i.i)
+  %call89.i.i365.i.i.i96 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(120) %agg.tmp1880, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i358.i.i.i, float %add6.i.i.i.i356.i.i.i, ptr noundef %agg.tmp81.i.i160.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i361.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i362.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i363.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i364.i.i.i)
   br i1 %call89.i.i365.i.i.i96, label %if.end91.i.i368.i.i.i, label %cleanup.loopexit245.i.i366.i.i.i
 
 if.end91.i.i368.i.i.i:                            ; preds = %invoke.cont84.i.i360.i.i.i
@@ -21025,7 +21025,7 @@ invoke.cont71.i.i627.i.i.i:                       ; preds = %for.body.i114.i.i62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i496.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i497.i.i.i, i64 16, i1 false)
   %agg.tmp87.sroa.0.0.copyload.i.i636.i.i.i = load <2 x float>, ptr %T_maj.i.i437.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i637.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i498.i.i.i, align 8
-  %call89.i.i638.i.i.i99 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(120) %agg.tmp1880, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i635.i.i.i, float %add6.i.i.i.i633.i.i.i, ptr noundef nonnull %agg.tmp81.i.i443.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i508.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i509.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i636.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i637.i.i.i)
+  %call89.i.i638.i.i.i99 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(120) %agg.tmp1880, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i635.i.i.i, float %add6.i.i.i.i633.i.i.i, ptr noundef %agg.tmp81.i.i443.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i508.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i509.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i636.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i637.i.i.i)
   br i1 %call89.i.i638.i.i.i99, label %if.end91.i.i645.i.i.i, label %while.end119.i.i639.i.i.i
 
 if.end91.i.i645.i.i.i:                            ; preds = %invoke.cont71.i.i627.i.i.i
@@ -21481,7 +21481,7 @@ invoke.cont84.i.i913.i.i.i:                       ; preds = %invoke.cont71.i.i90
   %agg.tmp83.sroa.2.0.copyload.i.i915.i.i.i = load <2 x float>, ptr %agg.tmp83.sroa.2.0.sigma_maj86.sroa_idx.i.i767.i.i.i, align 4
   %agg.tmp87.sroa.0.0.copyload.i.i916.i.i.i = load <2 x float>, ptr %T_maj.i.i706.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i917.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i768.i.i.i, align 8
-  %call89.i.i918.i.i.i104 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(120) %agg.tmp1880, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i911.i.i.i, float %add6.i.i.i.i909.i.i.i, ptr noundef nonnull %agg.tmp81.i.i713.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i914.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i915.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i916.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i917.i.i.i)
+  %call89.i.i918.i.i.i104 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(120) %agg.tmp1880, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i911.i.i.i, float %add6.i.i.i.i909.i.i.i, ptr noundef %agg.tmp81.i.i713.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i914.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i915.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i916.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i917.i.i.i)
   br i1 %call89.i.i918.i.i.i104, label %if.end91.i.i921.i.i.i, label %cleanup.loopexit245.i.i919.i.i.i
 
 if.end91.i.i921.i.i.i:                            ; preds = %invoke.cont84.i.i913.i.i.i
@@ -25030,7 +25030,7 @@ invoke.cont71.i.i.i.i.i:                          ; preds = %for.body.i114.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i.i.i.i, i64 16, i1 false)
   %agg.tmp87.sroa.0.0.copyload.i.i.i.i.i = load <2 x float>, ptr %T_maj.i.i.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i.i.i.i, align 8
-  %call89.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp159312, ptr noundef nonnull %agg.tmp81.i.i.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i.i.i.i)
+  %call89.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp159312, ptr noundef %agg.tmp81.i.i.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i.i.i.i)
   br i1 %call89.i.i.i.i.i, label %if.end91.i.i.i.i.i, label %while.end119.i.i.i.i.i
 
 if.end91.i.i.i.i.i:                               ; preds = %invoke.cont71.i.i.i.i.i
@@ -25489,7 +25489,7 @@ invoke.cont84.i.i.i.i.i:                          ; preds = %invoke.cont71.i.i99
   %agg.tmp83.sroa.2.0.copyload.i.i.i.i.i = load <2 x float>, ptr %agg.tmp83.sroa.2.0.sigma_maj86.sroa_idx.i.i.i.i.i, align 4
   %agg.tmp87.sroa.0.0.copyload.i.i106.i.i.i = load <2 x float>, ptr %T_maj.i.i15.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i107.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i70.i.i.i, align 8
-  %call89.i.i108.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp159312, ptr noundef nonnull %agg.tmp81.i.i21.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i106.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i107.i.i.i)
+  %call89.i.i108.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp159312, ptr noundef %agg.tmp81.i.i21.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i106.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i107.i.i.i)
   br i1 %call89.i.i108.i.i.i, label %if.end91.i.i109.i.i.i, label %cleanup.loopexit245.i.i.i.i.i
 
 if.end91.i.i109.i.i.i:                            ; preds = %invoke.cont84.i.i.i.i.i
@@ -25955,7 +25955,7 @@ invoke.cont84.i.i360.i.i.i:                       ; preds = %invoke.cont71.i.i35
   %agg.tmp83.sroa.2.0.copyload.i.i362.i.i.i = load <2 x float>, ptr %agg.tmp83.sroa.2.0.sigma_maj86.sroa_idx.i.i214.i.i.i, align 4
   %agg.tmp87.sroa.0.0.copyload.i.i363.i.i.i = load <2 x float>, ptr %T_maj.i.i153.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i364.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i215.i.i.i, align 8
-  %call89.i.i365.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp159312, ptr noundef nonnull %agg.tmp81.i.i160.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i361.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i362.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i363.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i364.i.i.i)
+  %call89.i.i365.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp159312, ptr noundef %agg.tmp81.i.i160.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i361.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i362.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i363.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i364.i.i.i)
   br i1 %call89.i.i365.i.i.i, label %if.end91.i.i368.i.i.i, label %cleanup.loopexit245.i.i366.i.i.i
 
 if.end91.i.i368.i.i.i:                            ; preds = %invoke.cont84.i.i360.i.i.i
@@ -26395,7 +26395,7 @@ invoke.cont71.i.i627.i.i.i:                       ; preds = %for.body.i114.i.i62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i496.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i497.i.i.i, i64 16, i1 false)
   %agg.tmp87.sroa.0.0.copyload.i.i636.i.i.i = load <2 x float>, ptr %T_maj.i.i437.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i637.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i498.i.i.i, align 8
-  %call89.i.i638.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp159312, ptr noundef nonnull %agg.tmp81.i.i443.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i508.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i509.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i636.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i637.i.i.i)
+  %call89.i.i638.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp159312, ptr noundef %agg.tmp81.i.i443.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i508.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i509.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i636.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i637.i.i.i)
   br i1 %call89.i.i638.i.i.i, label %if.end91.i.i645.i.i.i, label %while.end119.i.i639.i.i.i
 
 if.end91.i.i645.i.i.i:                            ; preds = %invoke.cont71.i.i627.i.i.i
@@ -26850,7 +26850,7 @@ invoke.cont84.i.i913.i.i.i:                       ; preds = %invoke.cont71.i.i90
   %agg.tmp83.sroa.2.0.copyload.i.i915.i.i.i = load <2 x float>, ptr %agg.tmp83.sroa.2.0.sigma_maj86.sroa_idx.i.i767.i.i.i, align 4
   %agg.tmp87.sroa.0.0.copyload.i.i916.i.i.i = load <2 x float>, ptr %T_maj.i.i706.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i917.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i768.i.i.i, align 8
-  %call89.i.i918.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp159312, ptr noundef nonnull %agg.tmp81.i.i713.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i914.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i915.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i916.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i917.i.i.i)
+  %call89.i.i918.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp159312, ptr noundef %agg.tmp81.i.i713.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i914.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i915.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i916.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i917.i.i.i)
   br i1 %call89.i.i918.i.i.i, label %if.end91.i.i921.i.i.i, label %cleanup.loopexit245.i.i919.i.i.i
 
 if.end91.i.i921.i.i.i:                            ; preds = %invoke.cont84.i.i913.i.i.i
@@ -29719,7 +29719,7 @@ invoke.cont71.i.i.i.i.i:                          ; preds = %for.body.i114.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i.i.i.i, i64 16, i1 false)
   %agg.tmp87.sroa.0.0.copyload.i.i.i.i.i = load <2 x float>, ptr %T_maj.i.i.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i.i.i.i, align 8
-  %call89.i.i.i.i.i40 = call fastcc noundef zeroext i1 @"_ZZN4pbrt10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(88) %agg.tmp2134, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i.i.i.i, float %add6.i.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp81.i.i.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i.i.i.i)
+  %call89.i.i.i.i.i40 = call fastcc noundef zeroext i1 @"_ZZN4pbrt10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(88) %agg.tmp2134, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i.i.i.i, float %add6.i.i.i.i.i.i.i, ptr noundef %agg.tmp81.i.i.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i.i.i.i)
   br i1 %call89.i.i.i.i.i40, label %if.end91.i.i.i.i.i, label %while.end119.i.i.i.i.i
 
 if.end91.i.i.i.i.i:                               ; preds = %invoke.cont71.i.i.i.i.i
@@ -30178,7 +30178,7 @@ invoke.cont84.i.i.i.i.i:                          ; preds = %invoke.cont71.i.i99
   %agg.tmp83.sroa.2.0.copyload.i.i.i.i.i = load <2 x float>, ptr %agg.tmp83.sroa.2.0.sigma_maj86.sroa_idx.i.i.i.i.i, align 4
   %agg.tmp87.sroa.0.0.copyload.i.i106.i.i.i = load <2 x float>, ptr %T_maj.i.i15.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i107.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i70.i.i.i, align 8
-  %call89.i.i108.i.i.i45 = call fastcc noundef zeroext i1 @"_ZZN4pbrt10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(88) %agg.tmp2134, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i105.i.i.i, float %add6.i.i.i.i103.i.i.i, ptr noundef nonnull %agg.tmp81.i.i21.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i106.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i107.i.i.i)
+  %call89.i.i108.i.i.i45 = call fastcc noundef zeroext i1 @"_ZZN4pbrt10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(88) %agg.tmp2134, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i105.i.i.i, float %add6.i.i.i.i103.i.i.i, ptr noundef %agg.tmp81.i.i21.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i106.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i107.i.i.i)
   br i1 %call89.i.i108.i.i.i45, label %if.end91.i.i109.i.i.i, label %cleanup.loopexit245.i.i.i.i.i
 
 if.end91.i.i109.i.i.i:                            ; preds = %invoke.cont84.i.i.i.i.i
@@ -30645,7 +30645,7 @@ invoke.cont84.i.i360.i.i.i:                       ; preds = %invoke.cont71.i.i35
   %agg.tmp83.sroa.2.0.copyload.i.i362.i.i.i = load <2 x float>, ptr %agg.tmp83.sroa.2.0.sigma_maj86.sroa_idx.i.i214.i.i.i, align 4
   %agg.tmp87.sroa.0.0.copyload.i.i363.i.i.i = load <2 x float>, ptr %T_maj.i.i153.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i364.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i215.i.i.i, align 8
-  %call89.i.i365.i.i.i50 = call fastcc noundef zeroext i1 @"_ZZN4pbrt10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(88) %agg.tmp2134, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i358.i.i.i, float %add6.i.i.i.i356.i.i.i, ptr noundef nonnull %agg.tmp81.i.i160.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i361.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i362.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i363.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i364.i.i.i)
+  %call89.i.i365.i.i.i50 = call fastcc noundef zeroext i1 @"_ZZN4pbrt10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(88) %agg.tmp2134, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i358.i.i.i, float %add6.i.i.i.i356.i.i.i, ptr noundef %agg.tmp81.i.i160.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i361.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i362.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i363.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i364.i.i.i)
   br i1 %call89.i.i365.i.i.i50, label %if.end91.i.i368.i.i.i, label %cleanup.loopexit245.i.i366.i.i.i
 
 if.end91.i.i368.i.i.i:                            ; preds = %invoke.cont84.i.i360.i.i.i
@@ -31086,7 +31086,7 @@ invoke.cont71.i.i627.i.i.i:                       ; preds = %for.body.i114.i.i62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i496.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i497.i.i.i, i64 16, i1 false)
   %agg.tmp87.sroa.0.0.copyload.i.i636.i.i.i = load <2 x float>, ptr %T_maj.i.i437.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i637.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i498.i.i.i, align 8
-  %call89.i.i638.i.i.i53 = call fastcc noundef zeroext i1 @"_ZZN4pbrt10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(88) %agg.tmp2134, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i635.i.i.i, float %add6.i.i.i.i633.i.i.i, ptr noundef nonnull %agg.tmp81.i.i443.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i508.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i509.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i636.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i637.i.i.i)
+  %call89.i.i638.i.i.i53 = call fastcc noundef zeroext i1 @"_ZZN4pbrt10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(88) %agg.tmp2134, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i635.i.i.i, float %add6.i.i.i.i633.i.i.i, ptr noundef %agg.tmp81.i.i443.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i508.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i509.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i636.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i637.i.i.i)
   br i1 %call89.i.i638.i.i.i53, label %if.end91.i.i645.i.i.i, label %while.end119.i.i639.i.i.i
 
 if.end91.i.i645.i.i.i:                            ; preds = %invoke.cont71.i.i627.i.i.i
@@ -31541,7 +31541,7 @@ invoke.cont84.i.i913.i.i.i:                       ; preds = %invoke.cont71.i.i90
   %agg.tmp83.sroa.2.0.copyload.i.i915.i.i.i = load <2 x float>, ptr %agg.tmp83.sroa.2.0.sigma_maj86.sroa_idx.i.i767.i.i.i, align 4
   %agg.tmp87.sroa.0.0.copyload.i.i916.i.i.i = load <2 x float>, ptr %T_maj.i.i706.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i917.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i768.i.i.i, align 8
-  %call89.i.i918.i.i.i58 = call fastcc noundef zeroext i1 @"_ZZN4pbrt10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(88) %agg.tmp2134, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i911.i.i.i, float %add6.i.i.i.i909.i.i.i, ptr noundef nonnull %agg.tmp81.i.i713.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i914.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i915.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i916.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i917.i.i.i)
+  %call89.i.i918.i.i.i58 = call fastcc noundef zeroext i1 @"_ZZN4pbrt10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(88) %agg.tmp2134, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i911.i.i.i, float %add6.i.i.i.i909.i.i.i, ptr noundef %agg.tmp81.i.i713.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i914.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i915.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i916.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i917.i.i.i)
   br i1 %call89.i.i918.i.i.i58, label %if.end91.i.i921.i.i.i, label %cleanup.loopexit245.i.i919.i.i.i
 
 if.end91.i.i921.i.i.i:                            ; preds = %invoke.cont84.i.i913.i.i.i
@@ -73756,7 +73756,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit52: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %mp, <2 x float> %sigma_maj.coerce0, <2 x float> %sigma_maj.coerce1, <2 x float> %T_maj.coerce0, <2 x float> %T_maj.coerce1) unnamed_addr #26 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly %mp, <2 x float> %sigma_maj.coerce0, <2 x float> %sigma_maj.coerce1, <2 x float> %T_maj.coerce0, <2 x float> %T_maj.coerce1) unnamed_addr #26 align 2 {
 entry:
   %ret.i60 = alloca %"class.pbrt::SampledSpectrum", align 8
   %ret.i46 = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -83328,7 +83328,7 @@ ehcleanup42:                                      ; preds = %ehcleanup27, %lpad
 declare void @_ZNK4pbrt12LightSampler8ToStringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, <2 x float> %p.coerce0, float %p.coerce1, ptr nocapture noundef readonly %mp, <2 x float> %sigma_maj.coerce0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, <2 x float> %p.coerce0, float %p.coerce1, ptr nocapture noundef nonnull readonly %mp, <2 x float> %sigma_maj.coerce0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 for.body.preheader.i:
   %pdf.i.i.i.i.i = alloca float, align 4
   %retval.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -83587,7 +83587,7 @@ return:                                           ; preds = %if.else40, %_ZN4pst
 declare { <2 x float>, float } @_ZN4pbrt22SampleHenyeyGreensteinENS_7Vector3IfEEfNS_6Point2IfEEPf(<2 x float>, float, float noundef, <2 x float>, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, <2 x float> %p.coerce0, float %p.coerce1, ptr nocapture noundef readonly %mp, <2 x float> %sigma_maj.coerce0, <2 x float> %sigma_maj.coerce1, <2 x float> %T_maj.coerce0, <2 x float> %T_maj.coerce1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, <2 x float> %p.coerce0, float %p.coerce1, ptr nocapture noundef nonnull readonly %mp, <2 x float> %sigma_maj.coerce0, <2 x float> %sigma_maj.coerce1, <2 x float> %T_maj.coerce0, <2 x float> %T_maj.coerce1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ret.i430 = alloca %"class.pbrt::SampledSpectrum", align 8
   %ret.i416 = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -85750,7 +85750,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %mp, <2 x float> %sigma_maj.coerce0, <2 x float> %sigma_maj.coerce1, <2 x float> %T_maj.coerce0, <2 x float> %T_maj.coerce1) unnamed_addr #26 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly %mp, <2 x float> %sigma_maj.coerce0, <2 x float> %sigma_maj.coerce1, <2 x float> %T_maj.coerce0, <2 x float> %T_maj.coerce1) unnamed_addr #26 align 2 {
 entry:
   %ret.i135 = alloca %"class.pbrt::SampledSpectrum", align 8
   %ret.i118 = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -86728,7 +86728,7 @@ ehcleanup42:                                      ; preds = %ehcleanup27, %lpad
 declare void @_ZNK4pbrt8Spectrum8ToStringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN4pbrt10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, <2 x float> %p.coerce0, float %p.coerce1, ptr nocapture noundef readonly %mp, <2 x float> %sigma_maj.coerce0, <2 x float> %sigma_maj.coerce1, <2 x float> %T_maj.coerce0, <2 x float> %T_maj.coerce1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZN4pbrt10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, <2 x float> %p.coerce0, float %p.coerce1, ptr nocapture noundef nonnull readonly %mp, <2 x float> %sigma_maj.coerce0, <2 x float> %sigma_maj.coerce1, <2 x float> %T_maj.coerce0, <2 x float> %T_maj.coerce1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 for.body.preheader.i:
   %ret.i142 = alloca %"class.pbrt::SampledSpectrum", align 8
   %ret.i128 = alloca %"class.pbrt::SampledSpectrum", align 8

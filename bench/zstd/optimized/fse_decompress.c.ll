@@ -329,13 +329,13 @@ if.end43.i.i:                                     ; preds = %if.end23.i.i
   br i1 %tobool47.i.not.i, label %if.end50.i.i, label %if.then48.i.i
 
 if.then48.i.i:                                    ; preds = %if.end43.i.i
-  %call.i7.i = call fastcc i64 @BIT_initDStream(ptr noundef nonnull %bitD.i.i, ptr noundef %add.ptr7.i.i, i64 noundef %sub.i.i)
+  %call.i7.i = call fastcc i64 @BIT_initDStream(ptr noundef %bitD.i.i, ptr noundef %add.ptr7.i.i, i64 noundef %sub.i.i)
   %cmp.i202.i = icmp ult i64 %call.i7.i, -119
   br i1 %cmp.i202.i, label %if.end.i9.i, label %FSE_decompress_wksp_body_default.exit
 
 if.end.i9.i:                                      ; preds = %if.then48.i.i
-  call fastcc void @FSE_initDState(ptr noundef nonnull %state1.i.i, ptr noundef nonnull %bitD.i.i, ptr noundef nonnull %add.ptr.i.i)
-  call fastcc void @FSE_initDState(ptr noundef nonnull %state2.i.i, ptr noundef nonnull %bitD.i.i, ptr noundef nonnull %add.ptr.i.i)
+  call fastcc void @FSE_initDState(ptr noundef %state1.i.i, ptr noundef %bitD.i.i, ptr noundef nonnull %add.ptr.i.i)
+  call fastcc void @FSE_initDState(ptr noundef %state2.i.i, ptr noundef %bitD.i.i, ptr noundef nonnull %add.ptr.i.i)
   %bitsConsumed.i393.i = getelementptr inbounds i8, ptr %bitD.i.i, i64 8
   %bitsConsumed.i393.promoted.i = load i32, ptr %bitsConsumed.i393.i, align 8
   %bitD.i.promoted.i = load i64, ptr %bitD.i.i, align 8
@@ -658,13 +658,13 @@ while.end.i.i:                                    ; preds = %cond.true101.i.i, %
   br label %FSE_decompress_wksp_body_default.exit
 
 if.end50.i.i:                                     ; preds = %if.end43.i.i
-  %call.i32.i = call fastcc i64 @BIT_initDStream(ptr noundef nonnull %bitD.i26.i, ptr noundef %add.ptr7.i.i, i64 noundef %sub.i.i)
+  %call.i32.i = call fastcc i64 @BIT_initDStream(ptr noundef %bitD.i26.i, ptr noundef %add.ptr7.i.i, i64 noundef %sub.i.i)
   %cmp.i368.i = icmp ult i64 %call.i32.i, -119
   br i1 %cmp.i368.i, label %if.end.i35.i, label %FSE_decompress_wksp_body_default.exit
 
 if.end.i35.i:                                     ; preds = %if.end50.i.i
-  call fastcc void @FSE_initDState(ptr noundef nonnull %state1.i27.i, ptr noundef nonnull %bitD.i26.i, ptr noundef nonnull %add.ptr.i.i)
-  call fastcc void @FSE_initDState(ptr noundef nonnull %state2.i28.i, ptr noundef nonnull %bitD.i26.i, ptr noundef nonnull %add.ptr.i.i)
+  call fastcc void @FSE_initDState(ptr noundef %state1.i27.i, ptr noundef %bitD.i26.i, ptr noundef nonnull %add.ptr.i.i)
+  call fastcc void @FSE_initDState(ptr noundef %state2.i28.i, ptr noundef %bitD.i26.i, ptr noundef nonnull %add.ptr.i.i)
   %bitsConsumed.i231.i = getelementptr inbounds i8, ptr %bitD.i26.i, i64 8
   %bitsConsumed.i231.promoted.i = load i32, ptr %bitsConsumed.i231.i, align 8
   %bitD.i26.promoted.i = load i64, ptr %bitD.i26.i, align 8
@@ -1076,13 +1076,13 @@ if.end43.i:                                       ; preds = %if.end23.i
   br i1 %tobool47.i.not, label %if.end50.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %if.end43.i
-  %call.i7 = call fastcc i64 @BIT_initDStream(ptr noundef nonnull %bitD.i, ptr noundef %add.ptr7.i, i64 noundef %sub.i)
+  %call.i7 = call fastcc i64 @BIT_initDStream(ptr noundef %bitD.i, ptr noundef %add.ptr7.i, i64 noundef %sub.i)
   %cmp.i202 = icmp ult i64 %call.i7, -119
   br i1 %cmp.i202, label %if.end.i9, label %FSE_decompress_wksp_body.exit
 
 if.end.i9:                                        ; preds = %if.then48.i
-  call fastcc void @FSE_initDState(ptr noundef nonnull %state1.i, ptr noundef nonnull %bitD.i, ptr noundef nonnull %add.ptr.i)
-  call fastcc void @FSE_initDState(ptr noundef nonnull %state2.i, ptr noundef nonnull %bitD.i, ptr noundef nonnull %add.ptr.i)
+  call fastcc void @FSE_initDState(ptr noundef %state1.i, ptr noundef %bitD.i, ptr noundef nonnull %add.ptr.i)
+  call fastcc void @FSE_initDState(ptr noundef %state2.i, ptr noundef %bitD.i, ptr noundef nonnull %add.ptr.i)
   %bitsConsumed.i393 = getelementptr inbounds i8, ptr %bitD.i, i64 8
   %bitsConsumed.i393.promoted = load i32, ptr %bitsConsumed.i393, align 8
   %bitD.i.promoted = load i64, ptr %bitD.i, align 8
@@ -1405,13 +1405,13 @@ while.end.i:                                      ; preds = %cond.true101.i, %co
   br label %FSE_decompress_wksp_body.exit
 
 if.end50.i:                                       ; preds = %if.end43.i
-  %call.i32 = call fastcc i64 @BIT_initDStream(ptr noundef nonnull %bitD.i26, ptr noundef %add.ptr7.i, i64 noundef %sub.i)
+  %call.i32 = call fastcc i64 @BIT_initDStream(ptr noundef %bitD.i26, ptr noundef %add.ptr7.i, i64 noundef %sub.i)
   %cmp.i368 = icmp ult i64 %call.i32, -119
   br i1 %cmp.i368, label %if.end.i35, label %FSE_decompress_wksp_body.exit
 
 if.end.i35:                                       ; preds = %if.end50.i
-  call fastcc void @FSE_initDState(ptr noundef nonnull %state1.i27, ptr noundef nonnull %bitD.i26, ptr noundef nonnull %add.ptr.i)
-  call fastcc void @FSE_initDState(ptr noundef nonnull %state2.i28, ptr noundef nonnull %bitD.i26, ptr noundef nonnull %add.ptr.i)
+  call fastcc void @FSE_initDState(ptr noundef %state1.i27, ptr noundef %bitD.i26, ptr noundef nonnull %add.ptr.i)
+  call fastcc void @FSE_initDState(ptr noundef %state2.i28, ptr noundef %bitD.i26, ptr noundef nonnull %add.ptr.i)
   %bitsConsumed.i231 = getelementptr inbounds i8, ptr %bitD.i26, i64 8
   %bitsConsumed.i231.promoted = load i32, ptr %bitsConsumed.i231, align 8
   %bitD.i26.promoted = load i64, ptr %bitD.i26, align 8
@@ -1750,7 +1750,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3
 declare i64 @FSE_readNCount_bmi2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture noundef writeonly %bitD, ptr noundef %srcBuffer, i64 noundef %srcSize) unnamed_addr #5 {
+define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture noundef nonnull writeonly %bitD, ptr noundef %srcBuffer, i64 noundef %srcSize) unnamed_addr #5 {
 entry:
   %cmp = icmp eq i64 %srcSize, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1897,7 +1897,7 @@ return:                                           ; preds = %if.end70, %cond.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @FSE_initDState(ptr nocapture noundef writeonly %DStatePtr, ptr nocapture noundef %bitD, ptr noundef %dt) unnamed_addr #6 {
+define internal fastcc void @FSE_initDState(ptr nocapture noundef nonnull writeonly %DStatePtr, ptr nocapture noundef nonnull %bitD, ptr noundef %dt) unnamed_addr #6 {
 entry:
   %0 = load i16, ptr %dt, align 2
   %conv = zext i16 %0 to i32

@@ -8473,7 +8473,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
 .loopexit567:                                     ; preds = %.lr.ph.i.i.i.i.i.i302, %.noexc7.i300
   %.0.lcssa.i.i.i.i.i.i307 = phi ptr [ %2623, %.noexc7.i300 ], [ %2628, %.lr.ph.i.i.i.i.i.i302 ]
   store ptr %.0.lcssa.i.i.i.i.i.i307, ptr %197, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(1272) %70, ptr noundef nonnull %20, ptr noundef nonnull %21)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(1272) %70, ptr noundef %20, ptr noundef %21)
           to label %2630 unwind label %2684
 
 2630:                                             ; preds = %.loopexit567
@@ -9002,7 +9002,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i109.i: ; preds 
           to label %2803 unwind label %2832
 
 2803:                                             ; preds = %.thread.i84
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(1272) %70, ptr noundef nonnull %25, ptr noundef nonnull %26)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(1272) %70, ptr noundef %25, ptr noundef %26)
           to label %2804 unwind label %2834
 
 2804:                                             ; preds = %2803
@@ -10451,7 +10451,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i326, %.noexc7.i324
   %.0.lcssa.i.i.i.i.i.i331 = phi ptr [ %3317, %.noexc7.i324 ], [ %3322, %.lr.ph.i.i.i.i.i.i326 ]
   store ptr %.0.lcssa.i.i.i.i.i.i331, ptr %223, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(1272) %70, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(1272) %70, ptr noundef %13, ptr noundef %14)
           to label %3324 unwind label %3382
 
 3324:                                             ; preds = %.loopexit
@@ -84343,7 +84343,7 @@ _ZNK5Yosys7hashlib4poolINS1_INS_5RTLIL8IdStringENS0_8hash_opsIS3_EEEENS4_IS6_EEE
   %.0.i.i = phi i32 [ %377, %.noexc176 ], [ %380, %379 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker8add_tagsEN5Yosys5RTLIL7SigSpecENS0_7tag_setE(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %17, i32 %.0.i.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker8add_tagsEN5Yosys5RTLIL7SigSpecENS0_7tag_setE(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %17, i32 %.0.i.i)
           to label %382 unwind label %455
 
 382:                                              ; preds = %381
@@ -84431,7 +84431,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %_ZSt8_DestroyIPN5Yo
           to label %412 unwind label %457
 
 412:                                              ; preds = %411
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12forward_tagsEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %19, ptr noundef nonnull %20)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12forward_tagsEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %19, ptr noundef %20)
           to label %413 unwind label %459
 
 413:                                              ; preds = %412
@@ -84988,7 +84988,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit244:             ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %652 unwind label %693
 
 652:                                              ; preds = %651
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12forward_tagsEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %24, ptr noundef nonnull %25)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12forward_tagsEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %24, ptr noundef %25)
           to label %653 unwind label %695
 
 653:                                              ; preds = %652
@@ -85897,7 +85897,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit345:             ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %1039 unwind label %1122
 
 1039:                                             ; preds = %1038
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12forward_tagsEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %35, ptr noundef nonnull %36)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12forward_tagsEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %35, ptr noundef %36)
           to label %1040 unwind label %1124
 
 1040:                                             ; preds = %1039
@@ -86003,7 +86003,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit371:              ; preds = %_ZSt8_DestroyIPN5Yo
           to label %1068 unwind label %1127
 
 1068:                                             ; preds = %1067
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12forward_tagsEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %37, ptr noundef nonnull %38)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12forward_tagsEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %37, ptr noundef %38)
           to label %1069 unwind label %1129
 
 1069:                                             ; preds = %1068
@@ -86492,7 +86492,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit443:             ; preds = %_ZZN12_GLOBAL__N_11
           to label %1253 unwind label %1352
 
 1253:                                             ; preds = %1252
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12forward_tagsEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %42, ptr noundef nonnull %43)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12forward_tagsEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %42, ptr noundef %43)
           to label %1254 unwind label %1354
 
 1254:                                             ; preds = %1253
@@ -86598,7 +86598,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit469:              ; preds = %_ZSt8_DestroyIPN5Yo
           to label %1282 unwind label %1357
 
 1282:                                             ; preds = %1281
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12forward_tagsEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %44, ptr noundef nonnull %45)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12forward_tagsEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %44, ptr noundef %45)
           to label %1283 unwind label %1359
 
 1283:                                             ; preds = %1282
@@ -86704,7 +86704,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit495:              ; preds = %_ZSt8_DestroyIPN5Yo
           to label %1311 unwind label %1362
 
 1311:                                             ; preds = %1310
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12forward_tagsEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %46, ptr noundef nonnull %47)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12forward_tagsEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %46, ptr noundef %47)
           to label %1312 unwind label %1364
 
 1312:                                             ; preds = %1311
@@ -86975,7 +86975,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i532: ; preds = 
   br i1 %1419, label %1411, label %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.thread577, !llvm.loop !223
 
 _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.thread577: ; preds = %1416, %1367, %._crit_edge.i.i535
-  call fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE17_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %48)
+  call fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE17_clEv(ptr dead_on_unwind noalias writable align 4 %48)
   %1420 = load i32, ptr %1370, align 4
   %1421 = load i32, ptr %48, align 4
   %1422 = icmp eq i32 %1420, %1421
@@ -87007,7 +87007,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit
           to label %1435 unwind label %1439
 
 1435:                                             ; preds = %1433
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12forward_tagsEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %50, ptr noundef nonnull %51)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12forward_tagsEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %50, ptr noundef %51)
           to label %1436 unwind label %1441
 
 1436:                                             ; preds = %1435
@@ -87046,56 +87046,56 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit
   br label %common.resume
 
 1446:                                             ; preds = %_ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit.thread577
-  call fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE18_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %52)
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE19_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %53)
+  call fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE18_clEv(ptr dead_on_unwind noalias writable align 4 %52)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE19_clEv(ptr dead_on_unwind noalias writable align 4 %53)
           to label %1447 unwind label %1495
 
 1447:                                             ; preds = %1446
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE20_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %54)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE20_clEv(ptr dead_on_unwind noalias writable align 4 %54)
           to label %1448 unwind label %1497
 
 1448:                                             ; preds = %1447
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE21_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %55)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE21_clEv(ptr dead_on_unwind noalias writable align 4 %55)
           to label %1449 unwind label %1499
 
 1449:                                             ; preds = %1448
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE22_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %56)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE22_clEv(ptr dead_on_unwind noalias writable align 4 %56)
           to label %1450 unwind label %1501
 
 1450:                                             ; preds = %1449
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE23_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %57)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE23_clEv(ptr dead_on_unwind noalias writable align 4 %57)
           to label %1451 unwind label %1503
 
 1451:                                             ; preds = %1450
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE24_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %58)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE24_clEv(ptr dead_on_unwind noalias writable align 4 %58)
           to label %1452 unwind label %1505
 
 1452:                                             ; preds = %1451
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE25_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %59)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE25_clEv(ptr dead_on_unwind noalias writable align 4 %59)
           to label %1453 unwind label %1507
 
 1453:                                             ; preds = %1452
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE26_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %60)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE26_clEv(ptr dead_on_unwind noalias writable align 4 %60)
           to label %1454 unwind label %1509
 
 1454:                                             ; preds = %1453
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE27_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %61)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE27_clEv(ptr dead_on_unwind noalias writable align 4 %61)
           to label %1455 unwind label %1511
 
 1455:                                             ; preds = %1454
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE28_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %62)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE28_clEv(ptr dead_on_unwind noalias writable align 4 %62)
           to label %1456 unwind label %1513
 
 1456:                                             ; preds = %1455
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE29_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %63)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE29_clEv(ptr dead_on_unwind noalias writable align 4 %63)
           to label %1457 unwind label %1515
 
 1457:                                             ; preds = %1456
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE30_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %64)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE30_clEv(ptr dead_on_unwind noalias writable align 4 %64)
           to label %1458 unwind label %1517
 
 1458:                                             ; preds = %1457
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE31_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %65)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE31_clEv(ptr dead_on_unwind noalias writable align 4 %65)
           to label %1459 unwind label %1519
 
 1459:                                             ; preds = %1458
@@ -87302,52 +87302,52 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_EEEbDpT_
 1533:                                             ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_EEEbDpT_.exit
   %1534 = call fastcc i32 @_ZN12_GLOBAL__N_112DftTagWorker4tagsEPN5Yosys5RTLIL4CellE(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %1369)
   call fastcc void @_ZN12_GLOBAL__N_112DftTagWorker8add_tagsEPN5Yosys5RTLIL4CellENS0_7tag_setE(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %1369, i32 %1534)
-  call fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE32_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %66)
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE33_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %67)
+  call fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE32_clEv(ptr dead_on_unwind noalias writable align 4 %66)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE33_clEv(ptr dead_on_unwind noalias writable align 4 %67)
           to label %1535 unwind label %1576
 
 1535:                                             ; preds = %1533
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE34_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %68)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE34_clEv(ptr dead_on_unwind noalias writable align 4 %68)
           to label %1536 unwind label %1578
 
 1536:                                             ; preds = %1535
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE35_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %69)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE35_clEv(ptr dead_on_unwind noalias writable align 4 %69)
           to label %1537 unwind label %1580
 
 1537:                                             ; preds = %1536
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE36_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %70)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE36_clEv(ptr dead_on_unwind noalias writable align 4 %70)
           to label %1538 unwind label %1582
 
 1538:                                             ; preds = %1537
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE37_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %71)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE37_clEv(ptr dead_on_unwind noalias writable align 4 %71)
           to label %1539 unwind label %1584
 
 1539:                                             ; preds = %1538
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE38_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %72)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE38_clEv(ptr dead_on_unwind noalias writable align 4 %72)
           to label %1540 unwind label %1586
 
 1540:                                             ; preds = %1539
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE39_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %73)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE39_clEv(ptr dead_on_unwind noalias writable align 4 %73)
           to label %1541 unwind label %1588
 
 1541:                                             ; preds = %1540
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE40_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %74)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE40_clEv(ptr dead_on_unwind noalias writable align 4 %74)
           to label %1542 unwind label %1590
 
 1542:                                             ; preds = %1541
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE41_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %75)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE41_clEv(ptr dead_on_unwind noalias writable align 4 %75)
           to label %1543 unwind label %1592
 
 1543:                                             ; preds = %1542
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE42_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %76)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE42_clEv(ptr dead_on_unwind noalias writable align 4 %76)
           to label %1544 unwind label %1594
 
 1544:                                             ; preds = %1543
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE43_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %77)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE43_clEv(ptr dead_on_unwind noalias writable align 4 %77)
           to label %1545 unwind label %1596
 
 1545:                                             ; preds = %1544
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE44_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %78)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE44_clEv(ptr dead_on_unwind noalias writable align 4 %78)
           to label %1546 unwind label %1598
 
 1546:                                             ; preds = %1545
@@ -88742,7 +88742,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i: ; preds = %43, %.lr.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12forward_tagsEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12forward_tagsEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #4 align 2 {
   %4 = load i32, ptr %1, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -88906,7 +88906,7 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EEaSEOS4_.exit: ; preds = %_ZNSt6vectorI
 declare noundef nonnull align 8 dereferenceable(49) ptr @_ZN5Yosys5RTLIL21builtin_ff_cell_typesEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE17_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE17_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE17_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -89491,7 +89491,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys5RTLIL7Sig
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE18_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE18_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE18_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -89537,7 +89537,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE19_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE19_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE19_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -89583,7 +89583,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE20_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE20_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE20_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -89629,7 +89629,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE21_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE21_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE21_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -89675,7 +89675,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE22_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE22_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE22_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -89721,7 +89721,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE23_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE23_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE23_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -89767,7 +89767,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE24_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE24_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE24_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -89813,7 +89813,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE25_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE25_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE25_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -89859,7 +89859,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE26_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE26_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE26_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -89905,7 +89905,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE27_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE27_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE27_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -89951,7 +89951,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE28_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE28_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE28_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -89997,7 +89997,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE29_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE29_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE29_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -90043,7 +90043,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE30_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE30_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE30_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -90089,7 +90089,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE31_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE31_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE31_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -90842,7 +90842,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker8add_tagsEPN5Yosys5R
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %21, i64 8
   call void @_ZN5Yosys5RTLIL7SigSpecC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %24)
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker8add_tagsEN5Yosys5RTLIL7SigSpecENS0_7tag_setE(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %4, i32 %2)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker8add_tagsEN5Yosys5RTLIL7SigSpecENS0_7tag_setE(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %4, i32 %2)
           to label %25 unwind label %36
 
 25:                                               ; preds = %23
@@ -90904,7 +90904,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %35, %_ZSt8_DestroyI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE32_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE32_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE32_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -90950,7 +90950,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE33_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE33_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE33_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -90996,7 +90996,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE34_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE34_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE34_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -91042,7 +91042,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE35_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE35_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE35_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -91088,7 +91088,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE36_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE36_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE36_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -91134,7 +91134,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE37_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE37_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE37_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -91180,7 +91180,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE38_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE38_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE38_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -91226,7 +91226,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE39_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE39_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE39_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -91272,7 +91272,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE40_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE40_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE40_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -91318,7 +91318,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE41_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE41_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE41_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -91364,7 +91364,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE42_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE42_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE42_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -91410,7 +91410,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE43_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE43_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE43_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -91456,7 +91456,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE44_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE44_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker14propagate_tagsEPN5Yosys5RTLIL4CellEENKUlvE44_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -94863,7 +94863,7 @@ _ZNK5Yosys7hashlib4dictISt4pairIN12_GLOBAL__N_112DftTagWorker7tag_setES5_ES5_NS0
 declare noundef zeroext i1 @_ZNK5Yosys5RTLIL4Cell5inputERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc i32 @_ZN12_GLOBAL__N_112DftTagWorker4tagsEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %1) unnamed_addr #4 align 2 {
+define internal fastcc i32 @_ZN12_GLOBAL__N_112DftTagWorker4tagsEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %1) unnamed_addr #4 align 2 {
   %3 = load i32, ptr %1, align 8
   %.not18 = icmp eq i32 %3, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -94923,7 +94923,7 @@ declare noundef zeroext i1 @_ZNK5Yosys5RTLIL4Cell6outputERKNS0_8IdStringE(ptr no
 declare void @_ZNK5Yosys5RTLIL6Module14selected_cellsEv(ptr dead_on_unwind writable sret(%"class.std::vector.572") align 8, ptr noundef nonnull align 8 dereferenceable(560)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1272) %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1272) %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca %"struct.std::pair.605", align 8
   %7 = alloca %"struct.Yosys::RTLIL::IdString", align 4
@@ -95427,7 +95427,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i:          ; preds = %250, %249
           to label %264 unwind label %321
 
 264:                                              ; preds = %263
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %1, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %1, ptr noundef %7, ptr noundef %8, ptr noundef %9)
           to label %265 unwind label %323
 
 265:                                              ; preds = %264
@@ -95654,7 +95654,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit33.i:            ; preds = %_ZN5Yosys5RTLIL7Sig
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit37.i:        ; preds = %331, %330
   store i32 %66, ptr %15, align 4
   %337 = load ptr, ptr %5, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellE(ptr noundef nonnull align 8 dereferenceable(1272) %1, ptr noundef nonnull %15, ptr noundef %337)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellE(ptr noundef nonnull align 8 dereferenceable(1272) %1, ptr noundef %15, ptr noundef %337)
           to label %338 unwind label %410
 
 338:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit37.i
@@ -96573,7 +96573,7 @@ _ZNK5Yosys7hashlib4dictISt4pairINS_5RTLIL8IdStringENS3_6SigBitEES5_NS0_8hash_ops
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %6 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %7 = alloca %"struct.std::pair.566", align 8
@@ -97138,7 +97138,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %.loopexit, %235, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellE(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellE(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Yosys::RTLIL::Const", align 8
   %5 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %6 = alloca %"struct.Yosys::RTLIL::IdString", align 4
@@ -97698,7 +97698,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZZN12_GLOBAL__N_11
           to label %498 unwind label %675
 
 498:                                              ; preds = %497
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %15, ptr noundef nonnull %16)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %15, ptr noundef %16)
           to label %499 unwind label %677
 
 499:                                              ; preds = %498
@@ -97822,11 +97822,11 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit737:             ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %541 unwind label %692
 
 541:                                              ; preds = %540
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoNotEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %24, ptr noundef nonnull align 8 dereferenceable(64) %534)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoNotEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(64) %534)
           to label %542 unwind label %694
 
 542:                                              ; preds = %541
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(64) %23)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(64) %23)
           to label %543 unwind label %696
 
 543:                                              ; preds = %542
@@ -98064,7 +98064,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit767:             ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %624 unwind label %709
 
 624:                                              ; preds = %623
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %30, ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(64) %532)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(64) %532)
           to label %625 unwind label %711
 
 625:                                              ; preds = %624
@@ -98382,7 +98382,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit793:             ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %726 unwind label %797
 
 726:                                              ; preds = %725
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %35, ptr noundef %36, ptr noundef %37)
           to label %727 unwind label %799
 
 727:                                              ; preds = %726
@@ -99195,11 +99195,11 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit874:             ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %1075 unwind label %1160
 
 1075:                                             ; preds = %1074
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %46, ptr noundef nonnull %47)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %46, ptr noundef %47)
           to label %1076 unwind label %1162
 
 1076:                                             ; preds = %1075
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %43, ptr noundef nonnull %44, ptr noundef nonnull %45)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %43, ptr noundef %44, ptr noundef %45)
           to label %1077 unwind label %1164
 
 1077:                                             ; preds = %1076
@@ -100767,7 +100767,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1033:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %1755 unwind label %1811
 
 1755:                                             ; preds = %1754
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoNotEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %62, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %63, ptr noundef nonnull align 8 dereferenceable(64) %55)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoNotEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %62, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %63, ptr noundef nonnull align 8 dereferenceable(64) %55)
           to label %1756 unwind label %1813
 
 1756:                                             ; preds = %1755
@@ -100968,7 +100968,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1059:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %1822 unwind label %1878
 
 1822:                                             ; preds = %1821
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoNotEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %68, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %69, ptr noundef nonnull align 8 dereferenceable(64) %56)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoNotEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %68, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %69, ptr noundef nonnull align 8 dereferenceable(64) %56)
           to label %1823 unwind label %1880
 
 1823:                                             ; preds = %1822
@@ -101171,7 +101171,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1085:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %1894 unwind label %2401
 
 1894:                                             ; preds = %1893
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker16tag_group_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %74, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %75, ptr noundef nonnull %76)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker16tag_group_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %74, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %75, ptr noundef %76)
           to label %1895 unwind label %2403
 
 1895:                                             ; preds = %1894
@@ -101270,7 +101270,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1102:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %1932 unwind label %2406
 
 1932:                                             ; preds = %1931
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker16tag_group_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %77, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %78, ptr noundef nonnull %79)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker16tag_group_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %77, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %78, ptr noundef %79)
           to label %1933 unwind label %2408
 
 1933:                                             ; preds = %1932
@@ -101369,7 +101369,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1119:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %1970 unwind label %2411
 
 1970:                                             ; preds = %1969
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %80, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %81, ptr noundef nonnull %82)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %80, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %81, ptr noundef %82)
           to label %1971 unwind label %2413
 
 1971:                                             ; preds = %1970
@@ -101467,7 +101467,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1136:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %2007 unwind label %2416
 
 2007:                                             ; preds = %2006
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %83, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %84, ptr noundef nonnull %85)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %83, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %84, ptr noundef %85)
           to label %2008 unwind label %2418
 
 2008:                                             ; preds = %2007
@@ -101560,7 +101560,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1153:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %2038 unwind label %2425
 
 2038:                                             ; preds = %2037
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %86, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %87, ptr noundef nonnull align 8 dereferenceable(64) %55, ptr noundef nonnull align 8 dereferenceable(64) %74)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %86, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %87, ptr noundef nonnull align 8 dereferenceable(64) %55, ptr noundef nonnull align 8 dereferenceable(64) %74)
           to label %2039 unwind label %2427
 
 2039:                                             ; preds = %2038
@@ -101718,7 +101718,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1179:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %2092 unwind label %2436
 
 2092:                                             ; preds = %2091
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %92, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %93, ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(64) %77)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %92, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %93, ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(64) %77)
           to label %2093 unwind label %2438
 
 2093:                                             ; preds = %2092
@@ -101876,7 +101876,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1205:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %2146 unwind label %2447
 
 2146:                                             ; preds = %2145
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %98, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %99, ptr noundef nonnull align 8 dereferenceable(64) %80, ptr noundef nonnull align 8 dereferenceable(64) %56)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %98, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %99, ptr noundef nonnull align 8 dereferenceable(64) %80, ptr noundef nonnull align 8 dereferenceable(64) %56)
           to label %2147 unwind label %2449
 
 2147:                                             ; preds = %2146
@@ -102034,7 +102034,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1231:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %2200 unwind label %2458
 
 2200:                                             ; preds = %2199
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %104, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %105, ptr noundef nonnull align 8 dereferenceable(64) %83, ptr noundef nonnull align 8 dereferenceable(64) %55)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %104, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %105, ptr noundef nonnull align 8 dereferenceable(64) %83, ptr noundef nonnull align 8 dereferenceable(64) %55)
           to label %2201 unwind label %2460
 
 2201:                                             ; preds = %2200
@@ -102192,7 +102192,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1257:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %2254 unwind label %2469
 
 2254:                                             ; preds = %2253
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %110, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %111, ptr noundef nonnull align 8 dereferenceable(64) %80, ptr noundef nonnull align 8 dereferenceable(64) %83)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %110, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %111, ptr noundef nonnull align 8 dereferenceable(64) %80, ptr noundef nonnull align 8 dereferenceable(64) %83)
           to label %2255 unwind label %2471
 
 2255:                                             ; preds = %2254
@@ -102252,7 +102252,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1259:            ; preds = %2255, %2260, %2267
           to label %2280 unwind label %2478
 
 2280:                                             ; preds = %2279
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %116, ptr noundef nonnull %117, ptr noundef nonnull %118)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %116, ptr noundef %117, ptr noundef %118)
           to label %2281 unwind label %2480
 
 2281:                                             ; preds = %2280
@@ -103599,7 +103599,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1422:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %2766 unwind label %2967
 
 2766:                                             ; preds = %2765
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %126, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %127, ptr noundef nonnull %128)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %126, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %127, ptr noundef %128)
           to label %2767 unwind label %2969
 
 2767:                                             ; preds = %2766
@@ -103697,7 +103697,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1439:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %2803 unwind label %2972
 
 2803:                                             ; preds = %2802
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %129, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %130, ptr noundef nonnull %131)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %129, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %130, ptr noundef %131)
           to label %2804 unwind label %2974
 
 2804:                                             ; preds = %2803
@@ -103790,7 +103790,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1456:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %2834 unwind label %2981
 
 2834:                                             ; preds = %2833
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %132, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %133, ptr noundef nonnull align 8 dereferenceable(64) %126, ptr noundef nonnull align 8 dereferenceable(64) %129)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %132, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %133, ptr noundef nonnull align 8 dereferenceable(64) %126, ptr noundef nonnull align 8 dereferenceable(64) %129)
           to label %2835 unwind label %2983
 
 2835:                                             ; preds = %2834
@@ -103850,7 +103850,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1458:            ; preds = %2835, %2840, %2847
           to label %2860 unwind label %2990
 
 2860:                                             ; preds = %2859
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %138, ptr noundef nonnull %139, ptr noundef nonnull %140)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %138, ptr noundef %139, ptr noundef %140)
           to label %2861 unwind label %2992
 
 2861:                                             ; preds = %2860
@@ -104671,7 +104671,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1576:            ; preds = %_ZZN12_GLOBAL__N_11
           to label %3161 unwind label %4031
 
 3161:                                             ; preds = %3160
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker16tag_group_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %145, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %146, ptr noundef nonnull %147)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker16tag_group_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %145, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %146, ptr noundef %147)
           to label %3162 unwind label %4033
 
 3162:                                             ; preds = %3161
@@ -104770,7 +104770,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1593:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %3199 unwind label %4036
 
 3199:                                             ; preds = %3198
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker16tag_group_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %148, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %149, ptr noundef nonnull %150)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker16tag_group_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %148, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %149, ptr noundef %150)
           to label %3200 unwind label %4038
 
 3200:                                             ; preds = %3199
@@ -104869,7 +104869,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1610:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %3237 unwind label %4041
 
 3237:                                             ; preds = %3236
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker16tag_group_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %151, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %152, ptr noundef nonnull %153)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker16tag_group_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %151, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %152, ptr noundef %153)
           to label %3238 unwind label %4043
 
 3238:                                             ; preds = %3237
@@ -105062,7 +105062,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1627:            ; preds = %_ZN5Yosys5RTLIL7Sig
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i:          ; preds = %3294, %3292
   store i32 %3293, ptr %5, align 4, !noalias !860
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoNotEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %160, ptr noundef nonnull readonly align 8 dereferenceable(1272) %0, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(64) %3107)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoNotEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %160, ptr noundef nonnull readonly align 8 dereferenceable(1272) %0, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(64) %3107)
           to label %3300 unwind label %3315
 
 3300:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i
@@ -105122,7 +105122,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i:          ; preds = %3294, %3292
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit23.i:        ; preds = %3321, %3319
   store i32 %3320, ptr %6, align 4, !noalias !860
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoNotEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %160, ptr noundef nonnull readonly align 8 dereferenceable(1272) %0, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(64) %3106)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoNotEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %160, ptr noundef nonnull readonly align 8 dereferenceable(1272) %0, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(64) %3106)
           to label %3327 unwind label %3342
 
 3327:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit23.i
@@ -105253,11 +105253,11 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit27.i:        ; preds = %3347, %3344
           to label %3378 unwind label %4064
 
 3378:                                             ; preds = %3377
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %166, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %167, ptr noundef nonnull align 8 dereferenceable(64) %145, ptr noundef nonnull align 8 dereferenceable(64) %148)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %166, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %167, ptr noundef nonnull align 8 dereferenceable(64) %145, ptr noundef nonnull align 8 dereferenceable(64) %148)
           to label %3379 unwind label %4066
 
 3379:                                             ; preds = %3378
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %154, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %155, ptr noundef nonnull align 8 dereferenceable(64) %160, ptr noundef nonnull align 8 dereferenceable(64) %166)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %154, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %155, ptr noundef nonnull align 8 dereferenceable(64) %160, ptr noundef nonnull align 8 dereferenceable(64) %166)
           to label %3380 unwind label %4068
 
 3380:                                             ; preds = %3379
@@ -105482,11 +105482,11 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1670:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %3457 unwind label %4090
 
 3457:                                             ; preds = %3456
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoNotEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %178, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %179, ptr noundef nonnull align 8 dereferenceable(64) %143)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoNotEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %178, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %179, ptr noundef nonnull align 8 dereferenceable(64) %143)
           to label %3458 unwind label %4092
 
 3458:                                             ; preds = %3457
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %172, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %173, ptr noundef nonnull align 8 dereferenceable(64) %178, ptr noundef nonnull align 8 dereferenceable(64) %151)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %172, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %173, ptr noundef nonnull align 8 dereferenceable(64) %178, ptr noundef nonnull align 8 dereferenceable(64) %151)
           to label %3459 unwind label %4094
 
 3459:                                             ; preds = %3458
@@ -105617,7 +105617,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1687:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %3505 unwind label %4107
 
 3505:                                             ; preds = %3504
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %184, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %185, ptr noundef nonnull align 8 dereferenceable(64) %143, ptr noundef nonnull align 8 dereferenceable(64) %151)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %184, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %185, ptr noundef nonnull align 8 dereferenceable(64) %143, ptr noundef nonnull align 8 dereferenceable(64) %151)
           to label %3506 unwind label %4109
 
 3506:                                             ; preds = %3505
@@ -105673,7 +105673,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1689:            ; preds = %3506, %3511, %3518
           to label %3530 unwind label %4114
 
 3530:                                             ; preds = %3529
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %190, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %191, ptr noundef nonnull %192)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %190, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %191, ptr noundef %192)
           to label %3531 unwind label %4116
 
 3531:                                             ; preds = %3530
@@ -105771,7 +105771,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1706:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %3567 unwind label %4119
 
 3567:                                             ; preds = %3566
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %193, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %194, ptr noundef nonnull %195)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %193, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %194, ptr noundef %195)
           to label %3568 unwind label %4121
 
 3568:                                             ; preds = %3567
@@ -105869,7 +105869,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1723:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %3604 unwind label %4124
 
 3604:                                             ; preds = %3603
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %196, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %197, ptr noundef nonnull %198)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %196, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %197, ptr noundef %198)
           to label %3605 unwind label %4126
 
 3605:                                             ; preds = %3604
@@ -105962,7 +105962,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1740:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %3635 unwind label %4133
 
 3635:                                             ; preds = %3634
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %199, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %200, ptr noundef nonnull align 8 dereferenceable(64) %190, ptr noundef nonnull align 8 dereferenceable(64) %172)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %199, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %200, ptr noundef nonnull align 8 dereferenceable(64) %190, ptr noundef nonnull align 8 dereferenceable(64) %172)
           to label %3636 unwind label %4135
 
 3636:                                             ; preds = %3635
@@ -106120,7 +106120,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1766:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %3689 unwind label %4144
 
 3689:                                             ; preds = %3688
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %205, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %206, ptr noundef nonnull align 8 dereferenceable(64) %193, ptr noundef nonnull align 8 dereferenceable(64) %184)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %205, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %206, ptr noundef nonnull align 8 dereferenceable(64) %193, ptr noundef nonnull align 8 dereferenceable(64) %184)
           to label %3690 unwind label %4146
 
 3690:                                             ; preds = %3689
@@ -106278,7 +106278,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1792:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %3743 unwind label %4155
 
 3743:                                             ; preds = %3742
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %211, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %212, ptr noundef nonnull align 8 dereferenceable(64) %196, ptr noundef nonnull align 8 dereferenceable(64) %154)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %211, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %212, ptr noundef nonnull align 8 dereferenceable(64) %196, ptr noundef nonnull align 8 dereferenceable(64) %154)
           to label %3744 unwind label %4157
 
 3744:                                             ; preds = %3743
@@ -106450,11 +106450,11 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1818:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %3800 unwind label %4172
 
 3800:                                             ; preds = %3799
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %223, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %224, ptr noundef nonnull align 8 dereferenceable(64) %190, ptr noundef nonnull align 8 dereferenceable(64) %193)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %223, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %224, ptr noundef nonnull align 8 dereferenceable(64) %190, ptr noundef nonnull align 8 dereferenceable(64) %193)
           to label %3801 unwind label %4174
 
 3801:                                             ; preds = %3800
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %217, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %218, ptr noundef nonnull align 8 dereferenceable(64) %196, ptr noundef nonnull align 8 dereferenceable(64) %223)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %217, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %218, ptr noundef nonnull align 8 dereferenceable(64) %196, ptr noundef nonnull align 8 dereferenceable(64) %223)
           to label %3802 unwind label %4176
 
 3802:                                             ; preds = %3801
@@ -106594,7 +106594,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1835:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %3855 unwind label %4187
 
 3855:                                             ; preds = %3854
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %229, ptr noundef nonnull %230, ptr noundef nonnull %231)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %229, ptr noundef %230, ptr noundef %231)
           to label %3856 unwind label %4189
 
 3856:                                             ; preds = %3855
@@ -108180,7 +108180,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2036:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %4369 unwind label %4466
 
 4369:                                             ; preds = %4368
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker16tag_group_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %237, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %238, ptr noundef nonnull %239)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker16tag_group_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %237, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %238, ptr noundef %239)
           to label %4370 unwind label %4468
 
 4370:                                             ; preds = %4369
@@ -108205,7 +108205,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2036:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %4379 unwind label %4471
 
 4379:                                             ; preds = %4378
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker16tag_group_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %240, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %241, ptr noundef nonnull %242)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker16tag_group_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %240, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %241, ptr noundef %242)
           to label %4380 unwind label %4473
 
 4380:                                             ; preds = %4379
@@ -108230,7 +108230,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2036:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %4389 unwind label %4476
 
 4389:                                             ; preds = %4388
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %243, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %244, ptr noundef nonnull %245)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %243, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %244, ptr noundef %245)
           to label %4390 unwind label %4478
 
 4390:                                             ; preds = %4389
@@ -108255,7 +108255,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2036:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %4399 unwind label %4481
 
 4399:                                             ; preds = %4398
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %246, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %247, ptr noundef nonnull %248)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %246, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %247, ptr noundef %248)
           to label %4400 unwind label %4483
 
 4400:                                             ; preds = %4399
@@ -108275,7 +108275,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2036:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %4403 unwind label %4490
 
 4403:                                             ; preds = %4402
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %249, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %250, ptr noundef nonnull align 8 dereferenceable(64) %237, ptr noundef nonnull align 8 dereferenceable(64) %240)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %249, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %250, ptr noundef nonnull align 8 dereferenceable(64) %237, ptr noundef nonnull align 8 dereferenceable(64) %240)
           to label %4404 unwind label %4492
 
 4404:                                             ; preds = %4403
@@ -108298,7 +108298,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2036:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %4407 unwind label %4501
 
 4407:                                             ; preds = %4406
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %255, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %256, ptr noundef nonnull align 8 dereferenceable(64) %235, ptr noundef nonnull align 8 dereferenceable(64) %249)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %255, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %256, ptr noundef nonnull align 8 dereferenceable(64) %235, ptr noundef nonnull align 8 dereferenceable(64) %249)
           to label %4408 unwind label %4503
 
 4408:                                             ; preds = %4407
@@ -108321,7 +108321,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2036:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %4411 unwind label %4512
 
 4411:                                             ; preds = %4410
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %261, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %262, ptr noundef nonnull align 8 dereferenceable(64) %236, ptr noundef nonnull align 8 dereferenceable(64) %249)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %261, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %262, ptr noundef nonnull align 8 dereferenceable(64) %236, ptr noundef nonnull align 8 dereferenceable(64) %249)
           to label %4412 unwind label %4514
 
 4412:                                             ; preds = %4411
@@ -108344,7 +108344,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2036:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %4415 unwind label %4523
 
 4415:                                             ; preds = %4414
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoEqEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %267, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %268, ptr noundef nonnull align 8 dereferenceable(64) %255, ptr noundef nonnull align 8 dereferenceable(64) %261)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoEqEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %267, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %268, ptr noundef nonnull align 8 dereferenceable(64) %255, ptr noundef nonnull align 8 dereferenceable(64) %261)
           to label %4416 unwind label %4525
 
 4416:                                             ; preds = %4415
@@ -108399,11 +108399,11 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2036:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %4427 unwind label %4543
 
 4427:                                             ; preds = %4426
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12autoReduceOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %279, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %280, ptr noundef nonnull align 8 dereferenceable(64) %285)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12autoReduceOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %279, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %280, ptr noundef nonnull align 8 dereferenceable(64) %285)
           to label %4428 unwind label %4545
 
 4428:                                             ; preds = %4427
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %273, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %274, ptr noundef nonnull align 8 dereferenceable(64) %267, ptr noundef nonnull align 8 dereferenceable(64) %279)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %273, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %274, ptr noundef nonnull align 8 dereferenceable(64) %267, ptr noundef nonnull align 8 dereferenceable(64) %279)
           to label %4429 unwind label %4547
 
 4429:                                             ; preds = %4428
@@ -108504,7 +108504,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2057:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %4460 unwind label %4566
 
 4460:                                             ; preds = %4459
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %287, ptr noundef nonnull %288, ptr noundef nonnull %289)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %287, ptr noundef %288, ptr noundef %289)
           to label %4461 unwind label %4568
 
 4461:                                             ; preds = %4460
@@ -108951,16 +108951,16 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2057:             ; preds = %_ZSt8_DestroyIPN5Yo
 
 4583:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2036
   %4584 = getelementptr inbounds i8, ptr %4342, i64 76
-  call fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE38_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %290)
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE39_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %291)
+  call fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE38_clEv(ptr dead_on_unwind noalias writable align 4 %290)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE39_clEv(ptr dead_on_unwind noalias writable align 4 %291)
           to label %4585 unwind label %4623
 
 4585:                                             ; preds = %4583
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE40_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %292)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE40_clEv(ptr dead_on_unwind noalias writable align 4 %292)
           to label %4586 unwind label %4625
 
 4586:                                             ; preds = %4585
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE41_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %293)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE41_clEv(ptr dead_on_unwind noalias writable align 4 %293)
           to label %4587 unwind label %4627
 
 4587:                                             ; preds = %4586
@@ -109030,11 +109030,11 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_EEEbDpT_.exit2061: ; preds = %4587
           to label %4614 unwind label %4633
 
 4614:                                             ; preds = %4613
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE42_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %296)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE42_clEv(ptr dead_on_unwind noalias writable align 4 %296)
           to label %4615 unwind label %4633
 
 4615:                                             ; preds = %4614
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE43_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %297)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE43_clEv(ptr dead_on_unwind noalias writable align 4 %297)
           to label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2063 unwind label %4635
 
 _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2063: ; preds = %4615
@@ -109114,7 +109114,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2063: ; preds = %4615
           to label %4646 unwind label %4743
 
 4646:                                             ; preds = %4645
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker16tag_group_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %298, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %299, ptr noundef nonnull %300)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker16tag_group_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %298, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %299, ptr noundef %300)
           to label %4647 unwind label %4745
 
 4647:                                             ; preds = %4646
@@ -109139,7 +109139,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2063: ; preds = %4615
           to label %4656 unwind label %4748
 
 4656:                                             ; preds = %4655
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker16tag_group_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %301, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %302, ptr noundef nonnull %303)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker16tag_group_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %301, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %302, ptr noundef %303)
           to label %4657 unwind label %4750
 
 4657:                                             ; preds = %4656
@@ -109164,7 +109164,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2063: ; preds = %4615
           to label %4666 unwind label %4753
 
 4666:                                             ; preds = %4665
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %304, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %305, ptr noundef nonnull %306)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %304, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %305, ptr noundef %306)
           to label %4667 unwind label %4755
 
 4667:                                             ; preds = %4666
@@ -109189,7 +109189,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2063: ; preds = %4615
           to label %4676 unwind label %4758
 
 4676:                                             ; preds = %4675
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %307, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %308, ptr noundef nonnull %309)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %307, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %308, ptr noundef %309)
           to label %4677 unwind label %4760
 
 4677:                                             ; preds = %4676
@@ -109209,7 +109209,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2063: ; preds = %4615
           to label %4680 unwind label %4767
 
 4680:                                             ; preds = %4679
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %310, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %311, ptr noundef nonnull align 8 dereferenceable(64) %298, ptr noundef nonnull align 8 dereferenceable(64) %301)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %310, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %311, ptr noundef nonnull align 8 dereferenceable(64) %298, ptr noundef nonnull align 8 dereferenceable(64) %301)
           to label %4681 unwind label %4769
 
 4681:                                             ; preds = %4680
@@ -109232,7 +109232,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2063: ; preds = %4615
           to label %4684 unwind label %4778
 
 4684:                                             ; preds = %4683
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %316, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %317, ptr noundef nonnull align 8 dereferenceable(64) %294, ptr noundef nonnull align 8 dereferenceable(64) %310)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %316, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %317, ptr noundef nonnull align 8 dereferenceable(64) %294, ptr noundef nonnull align 8 dereferenceable(64) %310)
           to label %4685 unwind label %4780
 
 4685:                                             ; preds = %4684
@@ -109269,11 +109269,11 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2063: ; preds = %4615
           to label %4691 unwind label %4795
 
 4691:                                             ; preds = %4690
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoNotEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %328, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %329, ptr noundef nonnull align 8 dereferenceable(64) %310)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoNotEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %328, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %329, ptr noundef nonnull align 8 dereferenceable(64) %310)
           to label %4692 unwind label %4797
 
 4692:                                             ; preds = %4691
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %322, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %323, ptr noundef nonnull align 8 dereferenceable(64) %295, ptr noundef nonnull align 8 dereferenceable(64) %328)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %322, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %323, ptr noundef nonnull align 8 dereferenceable(64) %295, ptr noundef nonnull align 8 dereferenceable(64) %328)
           to label %4693 unwind label %4799
 
 4693:                                             ; preds = %4692
@@ -109302,7 +109302,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2063: ; preds = %4615
           to label %4696 unwind label %4812
 
 4696:                                             ; preds = %4695
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoGeEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %334, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %335, ptr noundef nonnull align 8 dereferenceable(64) %316, ptr noundef nonnull align 8 dereferenceable(64) %322)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoGeEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %334, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %335, ptr noundef nonnull align 8 dereferenceable(64) %316, ptr noundef nonnull align 8 dereferenceable(64) %322)
           to label %4697 unwind label %4814
 
 4697:                                             ; preds = %4696
@@ -109357,11 +109357,11 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit2063: ; preds = %4615
           to label %4708 unwind label %4832
 
 4708:                                             ; preds = %4707
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12autoReduceOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %346, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %347, ptr noundef nonnull align 8 dereferenceable(64) %352)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12autoReduceOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %346, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %347, ptr noundef nonnull align 8 dereferenceable(64) %352)
           to label %4709 unwind label %4834
 
 4709:                                             ; preds = %4708
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %340, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %341, ptr noundef nonnull align 8 dereferenceable(64) %334, ptr noundef nonnull align 8 dereferenceable(64) %346)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %340, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %341, ptr noundef nonnull align 8 dereferenceable(64) %334, ptr noundef nonnull align 8 dereferenceable(64) %346)
           to label %4710 unwind label %4836
 
 4710:                                             ; preds = %4709
@@ -109462,7 +109462,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2084:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %4741 unwind label %4855
 
 4741:                                             ; preds = %4740
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %354, ptr noundef nonnull %355, ptr noundef nonnull %356)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %354, ptr noundef %355, ptr noundef %356)
           to label %4742 unwind label %4857
 
 4742:                                             ; preds = %4741
@@ -109930,16 +109930,16 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2084:             ; preds = %_ZSt8_DestroyIPN5Yo
   br label %common.resume
 
 4872:                                             ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_EEEbDpT_.exit2061
-  call fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE44_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %357)
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE45_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %358)
+  call fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE44_clEv(ptr dead_on_unwind noalias writable align 4 %357)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE45_clEv(ptr dead_on_unwind noalias writable align 4 %358)
           to label %4873 unwind label %4924
 
 4873:                                             ; preds = %4872
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE46_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %359)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE46_clEv(ptr dead_on_unwind noalias writable align 4 %359)
           to label %4874 unwind label %4926
 
 4874:                                             ; preds = %4873
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE47_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %360)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE47_clEv(ptr dead_on_unwind noalias writable align 4 %360)
           to label %4875 unwind label %4928
 
 4875:                                             ; preds = %4874
@@ -109993,7 +109993,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_EEEbDpT_.exit2088: ; preds = %4875
           to label %4896 unwind label %4932
 
 4896:                                             ; preds = %4895
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker16tag_group_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %362, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %363, ptr noundef nonnull %364)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker16tag_group_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %362, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %363, ptr noundef %364)
           to label %4897 unwind label %4934
 
 4897:                                             ; preds = %4896
@@ -110018,21 +110018,21 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_EEEbDpT_.exit2088: ; preds = %4875
           to label %4906 unwind label %4937
 
 4906:                                             ; preds = %4905
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %365, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %366, ptr noundef nonnull %367)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %365, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %366, ptr noundef %367)
           to label %4907 unwind label %4939
 
 4907:                                             ; preds = %4906
   call void @_ZN5Yosys5RTLIL7SigSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %367) #22
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %366) #22
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE48_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %368)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE48_clEv(ptr dead_on_unwind noalias writable align 4 %368)
           to label %4908 unwind label %4942
 
 4908:                                             ; preds = %4907
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE49_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %369)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE49_clEv(ptr dead_on_unwind noalias writable align 4 %369)
           to label %4909 unwind label %4944
 
 4909:                                             ; preds = %4908
-  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE50_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %370)
+  invoke fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE50_clEv(ptr dead_on_unwind noalias writable align 4 %370)
           to label %4910 unwind label %4946
 
 4910:                                             ; preds = %4909
@@ -110073,7 +110073,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_EEEbDpT_.exit2094: ; preds = %4910
           to label %4921 unwind label %4953
 
 4921:                                             ; preds = %4920
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoNotEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %371, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %372, ptr noundef nonnull align 8 dereferenceable(64) %361)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoNotEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %371, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %372, ptr noundef nonnull align 8 dereferenceable(64) %361)
           to label %4922 unwind label %4955
 
 4922:                                             ; preds = %4921
@@ -110217,7 +110217,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_EEEbDpT_.exit2094: ; preds = %4910
           to label %4963 unwind label %4994
 
 4963:                                             ; preds = %4962
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %377, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %378, ptr noundef nonnull align 8 dereferenceable(64) %361, ptr noundef nonnull align 8 dereferenceable(64) %362)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %377, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %378, ptr noundef nonnull align 8 dereferenceable(64) %361, ptr noundef nonnull align 8 dereferenceable(64) %362)
           to label %4964 unwind label %4996
 
 4964:                                             ; preds = %4963
@@ -110240,7 +110240,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_EEEbDpT_.exit2094: ; preds = %4910
           to label %4967 unwind label %5005
 
 4967:                                             ; preds = %4966
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker13autoReduceAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %383, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %384, ptr noundef nonnull align 8 dereferenceable(64) %377)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker13autoReduceAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %383, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %384, ptr noundef nonnull align 8 dereferenceable(64) %377)
           to label %4968 unwind label %5007
 
 4968:                                             ; preds = %4967
@@ -110263,7 +110263,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_EEEbDpT_.exit2094: ; preds = %4910
           to label %4971 unwind label %5016
 
 4971:                                             ; preds = %4970
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12autoReduceOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %389, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %390, ptr noundef nonnull align 8 dereferenceable(64) %365)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12autoReduceOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %389, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %390, ptr noundef nonnull align 8 dereferenceable(64) %365)
           to label %4972 unwind label %5018
 
 4972:                                             ; preds = %4971
@@ -110286,7 +110286,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_EEEbDpT_.exit2094: ; preds = %4910
           to label %4975 unwind label %5027
 
 4975:                                             ; preds = %4974
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %395, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %396, ptr noundef nonnull align 8 dereferenceable(64) %383, ptr noundef nonnull align 8 dereferenceable(64) %389)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %395, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %396, ptr noundef nonnull align 8 dereferenceable(64) %383, ptr noundef nonnull align 8 dereferenceable(64) %389)
           to label %4976 unwind label %5029
 
 4976:                                             ; preds = %4975
@@ -110323,7 +110323,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_EEEbDpT_.exit2094: ; preds = %4910
           to label %4988 unwind label %5038
 
 4988:                                             ; preds = %4987
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %401, ptr noundef nonnull %402, ptr noundef nonnull %403)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %401, ptr noundef %402, ptr noundef %403)
           to label %4989 unwind label %5040
 
 4989:                                             ; preds = %4988
@@ -110560,7 +110560,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_EEEbDpT_.exit2094: ; preds = %4910
   br i1 %.not, label %5054, label %.thread2247
 
 5054:                                             ; preds = %5051
-  call fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE51_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %404)
+  call fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE51_clEv(ptr dead_on_unwind noalias writable align 4 %404)
   %5055 = load i32, ptr %4584, align 4
   %5056 = load i32, ptr %404, align 4
   %5057 = icmp eq i32 %5055, %5056
@@ -110620,7 +110620,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_EEEbDpT_.exit2094: ; preds = %4910
           to label %5089 unwind label %5097
 
 5089:                                             ; preds = %5087
-  %5090 = invoke fastcc i32 @_ZN12_GLOBAL__N_112DftTagWorker4tagsEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %406)
+  %5090 = invoke fastcc i32 @_ZN12_GLOBAL__N_112DftTagWorker4tagsEN5Yosys5RTLIL7SigSpecE(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %406)
           to label %5091 unwind label %5099
 
 5091:                                             ; preds = %5089
@@ -110710,7 +110710,7 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit: ; preds = %5092
           to label %5121 unwind label %5169
 
 5121:                                             ; preds = %5120
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %414, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %415, ptr noundef nonnull %416)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %414, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %415, ptr noundef %416)
           to label %5122 unwind label %5171
 
 5122:                                             ; preds = %5121
@@ -110799,7 +110799,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %_ZN5Yosys5RTLIL5Con
           to label %5152 unwind label %5191
 
 5152:                                             ; preds = %5151
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %424, ptr noundef nonnull %425, ptr noundef nonnull %426)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %424, ptr noundef %425, ptr noundef %426)
           to label %5153 unwind label %5193
 
 5153:                                             ; preds = %5152
@@ -111001,7 +111001,7 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit2107: ; preds = %5198
           to label %5217 unwind label %5226
 
 5217:                                             ; preds = %5216
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %427, ptr noundef nonnull %428, ptr noundef nonnull %429)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %427, ptr noundef %428, ptr noundef %429)
           to label %5218 unwind label %5228
 
 5218:                                             ; preds = %5217
@@ -111134,7 +111134,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit2113:               ; preds = %5233, %5230, %5224
           to label %5272 unwind label %5309
 
 5272:                                             ; preds = %5270
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %432, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %433, ptr noundef nonnull %434)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %432, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %433, ptr noundef %434)
           to label %5273 unwind label %5311
 
 5273:                                             ; preds = %5272
@@ -111313,7 +111313,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2143:             ; preds = %5308, %_ZSt8_Destro
           to label %5318 unwind label %5406
 
 5318:                                             ; preds = %5317
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12autoReduceOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %436, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %437, ptr noundef nonnull align 8 dereferenceable(64) %431)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12autoReduceOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %436, ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %437, ptr noundef nonnull align 8 dereferenceable(64) %431)
           to label %5319 unwind label %5408
 
 5319:                                             ; preds = %5318
@@ -111414,7 +111414,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2143:             ; preds = %5308, %_ZSt8_Destro
           to label %5366 unwind label %5418
 
 5366:                                             ; preds = %5364
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull %442, ptr noundef nonnull %443, ptr noundef nonnull %444)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker15emit_tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %442, ptr noundef %443, ptr noundef %444)
           to label %5367 unwind label %5420
 
 5367:                                             ; preds = %5366
@@ -112409,7 +112409,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4dictISt4pairINS0_5RTLIL8IdStringENS4_6SigBit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -112454,7 +112454,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %18, %21
           to label %27 unwind label %44
 
 27:                                               ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit
-  invoke void @_ZN5Yosys5RTLIL6Module3AndENS0_8IdStringERKNS0_7SigSpecES5_bRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 %0, ptr noundef nonnull align 8 dereferenceable(560) %19, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke void @_ZN5Yosys5RTLIL6Module3AndENS0_8IdStringERKNS0_7SigSpecES5_bRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 %0, ptr noundef nonnull align 8 dereferenceable(560) %19, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %28 unwind label %46
 
 28:                                               ; preds = %27
@@ -112515,7 +112515,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys5RTLIL8IdS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoNotEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(64) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker7autoNotEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull align 8 dereferenceable(64) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.Yosys::RTLIL::Const", align 8
   %6 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -112599,7 +112599,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %27, %30
           to label %36 unwind label %53
 
 36:                                               ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit
-  invoke void @_ZN5Yosys5RTLIL6Module3NotENS0_8IdStringERKNS0_7SigSpecEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 %0, ptr noundef nonnull align 8 dereferenceable(560) %28, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke void @_ZN5Yosys5RTLIL6Module3NotENS0_8IdStringERKNS0_7SigSpecEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 %0, ptr noundef nonnull align 8 dereferenceable(560) %28, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %37 unwind label %55
 
 37:                                               ; preds = %36
@@ -112659,7 +112659,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit18:                 ; preds = %26, %23, %57
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -112704,7 +112704,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %18, %21
           to label %27 unwind label %44
 
 27:                                               ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit
-  invoke void @_ZN5Yosys5RTLIL6Module2OrENS0_8IdStringERKNS0_7SigSpecES5_bRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 %0, ptr noundef nonnull align 8 dereferenceable(560) %19, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke void @_ZN5Yosys5RTLIL6Module2OrENS0_8IdStringERKNS0_7SigSpecES5_bRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 %0, ptr noundef nonnull align 8 dereferenceable(560) %19, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %28 unwind label %46
 
 28:                                               ; preds = %27
@@ -112765,7 +112765,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys5RTLIL8IdS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker16tag_group_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1272) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker16tag_group_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1272) %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca %"struct.Yosys::RTLIL::Const", align 8
   %7 = alloca %"struct.std::pair.540", align 8
@@ -113017,7 +113017,7 @@ _ZSt9make_pairIRN5Yosys5RTLIL8IdStringERNS1_7SigSpecEESt4pairINSt25__strip_refer
           to label %152 unwind label %184
 
 152:                                              ; preds = %151
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(1272) %1, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker10tag_signalEN5Yosys5RTLIL8IdStringENS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(1272) %1, ptr noundef %9, ptr noundef %10)
           to label %153 unwind label %186
 
 153:                                              ; preds = %152
@@ -113147,7 +113147,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %194 unwind label %238
 
 194:                                              ; preds = %193
-  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(1272) %1, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %8)
+  invoke fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(1272) %1, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %8)
           to label %195 unwind label %240
 
 195:                                              ; preds = %194
@@ -113565,7 +113565,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %82, %79, %314, %103
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoEqEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoEqEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -113692,7 +113692,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %._crit_edge, %59
           to label %65 unwind label %82
 
 65:                                               ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit
-  invoke void @_ZN5Yosys5RTLIL6Module2EqENS0_8IdStringERKNS0_7SigSpecES5_bRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 %0, ptr noundef nonnull align 8 dereferenceable(560) %57, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke void @_ZN5Yosys5RTLIL6Module2EqENS0_8IdStringERKNS0_7SigSpecES5_bRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 %0, ptr noundef nonnull align 8 dereferenceable(560) %57, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %66 unwind label %84
 
 66:                                               ; preds = %65
@@ -113753,7 +113753,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys5RTLIL8IdS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12autoReduceOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(64) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker12autoReduceOrEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull align 8 dereferenceable(64) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %6 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -114003,7 +114003,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %85, %88
           to label %94 unwind label %111
 
 94:                                               ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit
-  invoke void @_ZN5Yosys5RTLIL6Module8ReduceOrENS0_8IdStringERKNS0_7SigSpecEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 %0, ptr noundef nonnull align 8 dereferenceable(560) %86, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke void @_ZN5Yosys5RTLIL6Module8ReduceOrENS0_8IdStringERKNS0_7SigSpecEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 %0, ptr noundef nonnull align 8 dereferenceable(560) %86, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %95 unwind label %113
 
 95:                                               ; preds = %94
@@ -114065,7 +114065,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %107, %100, %95, %84
 declare void @_ZN5Yosys5RTLIL7SigSpecC1ESt16initializer_listIS1_E(ptr noundef nonnull align 8 dereferenceable(64), ptr, i64) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE38_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE38_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE38_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -114111,7 +114111,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE39_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE39_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE39_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -114157,7 +114157,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE40_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE40_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE40_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -114203,7 +114203,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE41_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE41_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE41_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -114249,7 +114249,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE42_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE42_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE42_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -114295,7 +114295,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE43_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE43_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE43_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -114440,7 +114440,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %34, %_ZNSt6vectorIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoGeEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker6autoGeEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecES6_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -114477,7 +114477,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %14, %17
           to label %23 unwind label %40
 
 23:                                               ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit
-  invoke void @_ZN5Yosys5RTLIL6Module2GeENS0_8IdStringERKNS0_7SigSpecES5_bRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 %0, ptr noundef nonnull align 8 dereferenceable(560) %15, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke void @_ZN5Yosys5RTLIL6Module2GeENS0_8IdStringERKNS0_7SigSpecES5_bRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 %0, ptr noundef nonnull align 8 dereferenceable(560) %15, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %24 unwind label %42
 
 24:                                               ; preds = %23
@@ -114537,7 +114537,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys5RTLIL8IdS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE44_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE44_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE44_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -114583,7 +114583,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE45_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE45_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE45_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -114629,7 +114629,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE46_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE46_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE46_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -114675,7 +114675,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE47_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE47_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE47_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -114721,7 +114721,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE48_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE48_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE48_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -114767,7 +114767,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE49_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE49_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE49_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -114813,7 +114813,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE50_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE50_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE50_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15
@@ -114859,7 +114859,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker13autoReduceAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(64) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112DftTagWorker13autoReduceAndEN5Yosys5RTLIL8IdStringERKNS2_7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull align 8 dereferenceable(64) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %6 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -115109,7 +115109,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %85, %88
           to label %94 unwind label %111
 
 94:                                               ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit
-  invoke void @_ZN5Yosys5RTLIL6Module9ReduceAndENS0_8IdStringERKNS0_7SigSpecEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 %0, ptr noundef nonnull align 8 dereferenceable(560) %86, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke void @_ZN5Yosys5RTLIL6Module9ReduceAndENS0_8IdStringERKNS0_7SigSpecEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 %0, ptr noundef nonnull align 8 dereferenceable(560) %86, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %95 unwind label %113
 
 95:                                               ; preds = %94
@@ -115169,7 +115169,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %107, %100, %95, %84
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE51_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE51_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112DftTagWorker12process_cellEN5Yosys5RTLIL8IdStringEPNS2_4CellEENKUlvE51_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !15

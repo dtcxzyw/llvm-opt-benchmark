@@ -66,12 +66,12 @@ define void @BZ2_blockSort(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %33 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 33, i64 1, ptr %32) #9
   br label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %21, %31
+.lr.ph.preheader.i:                               ; preds = %31, %21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(262148) %15, i8 0, i64 262148, i1 false)
-  %34 = load i8, ptr %13, align 1
-  %35 = zext i8 %34 to i32
-  %36 = add nsw i32 %17, -1
-  %37 = zext nneg i32 %36 to i64
+  %34 = add nsw i32 %17, -1
+  %35 = load i8, ptr %13, align 1
+  %36 = zext i8 %35 to i32
+  %37 = zext nneg i32 %34 to i64
   br label %.lr.ph.i
 
 .preheader326.i:                                  ; preds = %.lr.ph.i
@@ -80,7 +80,7 @@ define void @BZ2_blockSort(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %37, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.0278391.i = phi i32 [ %35, %.lr.ph.preheader.i ], [ %75, %.lr.ph.i ]
+  %.0278391.i = phi i32 [ %36, %.lr.ph.preheader.i ], [ %75, %.lr.ph.i ]
   %39 = getelementptr inbounds i16, ptr %26, i64 %indvars.iv.i
   store i16 0, ptr %39, align 2
   %40 = getelementptr inbounds i8, ptr %13, i64 %indvars.iv.i
@@ -370,7 +370,7 @@ split.i:                                          ; preds = %208, %192
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %586
   %211 = phi i32 [ %469, %586 ], [ %29, %._crit_edge.i ]
-  %.pr.i190 = phi i32 [ %.pr.i191, %586 ], [ %29, %._crit_edge.i ]
+  %.pr.i189 = phi i32 [ %.pr.i190, %586 ], [ %29, %._crit_edge.i ]
   %indvars.iv536.i = phi i64 [ %indvars.iv.next537.i, %586 ], [ 0, %._crit_edge.i ]
   %.0291436.i = phi i32 [ %.3294.i, %586 ], [ 0, %._crit_edge.i ]
   %212 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %indvars.iv536.i
@@ -383,7 +383,7 @@ split.i:                                          ; preds = %208, %192
 
 217:                                              ; preds = %468, %.preheader.i
   %218 = phi i32 [ %211, %.preheader.i ], [ %469, %468 ]
-  %.pr.i189 = phi i32 [ %.pr.i190, %.preheader.i ], [ %.pr.i191, %468 ]
+  %.pr.i188 = phi i32 [ %.pr.i189, %.preheader.i ], [ %.pr.i190, %468 ]
   %indvars.iv518.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next519.i, %468 ]
   %.1292415.i = phi i32 [ %.0291436.i, %.preheader.i ], [ %.3294.i, %468 ]
   %.not316.i = icmp eq i64 %indvars.iv518.i, %216
@@ -425,14 +425,14 @@ split.i:                                          ; preds = %208, %192
 
 .preheader.i.i:                                   ; preds = %.backedge.i.i, %234
   %235 = phi i32 [ %218, %234 ], [ %238, %.backedge.i.i ]
-  %.pr.i188 = phi i32 [ %.pr.i189, %234 ], [ %.pr.i, %.backedge.i.i ]
+  %.pr.i187 = phi i32 [ %.pr.i188, %234 ], [ %.pr.i, %.backedge.i.i ]
   %.0239330.i.i = phi i32 [ 1, %234 ], [ %.0239.be.i.i, %.backedge.i.i ]
   %236 = zext nneg i32 %.0239330.i.i to i64
   br label %237
 
 237:                                              ; preds = %mainSimpleSort.exit.i.i, %.preheader.i.i
   %238 = phi i32 [ %235, %.preheader.i.i ], [ %314, %mainSimpleSort.exit.i.i ]
-  %.pr.i = phi i32 [ %.pr.i188, %.preheader.i.i ], [ %314, %mainSimpleSort.exit.i.i ]
+  %.pr.i = phi i32 [ %.pr.i187, %.preheader.i.i ], [ %314, %mainSimpleSort.exit.i.i ]
   %indvars.iv.i.i = phi i64 [ %236, %.preheader.i.i ], [ %indvars.iv.next.i.i, %mainSimpleSort.exit.i.i ]
   %239 = icmp ult i64 %indvars.iv.i.i, 98
   br i1 %239, label %241, label %240
@@ -503,7 +503,7 @@ split.i:                                          ; preds = %208, %192
   %270 = getelementptr inbounds i32, ptr %11, i64 %269
   %271 = load i32, ptr %270, align 4
   %272 = add i32 %271, %247
-  %273 = call fastcc zeroext i8 @mainGtU(i32 noundef %272, i32 noundef %265, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %26, i32 noundef %17, ptr noundef nonnull %9)
+  %273 = call fastcc zeroext i8 @mainGtU(i32 noundef %272, i32 noundef %265, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %26, i32 noundef %17, ptr noundef %9)
   %.not112.i.i.i = icmp eq i8 %273, 0
   %.pre.i.i.i = sext i32 %.0100.i.i.i to i64
   br i1 %.not112.i.i.i, label %split135.i.i.i, label %274
@@ -536,7 +536,7 @@ split135.i.i.i:                                   ; preds = %274, %267
   %286 = getelementptr inbounds i32, ptr %11, i64 %285
   %287 = load i32, ptr %286, align 4
   %288 = add i32 %287, %247
-  %289 = call fastcc zeroext i8 @mainGtU(i32 noundef %288, i32 noundef %281, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %26, i32 noundef %17, ptr noundef nonnull %9)
+  %289 = call fastcc zeroext i8 @mainGtU(i32 noundef %288, i32 noundef %281, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %26, i32 noundef %17, ptr noundef %9)
   %.not115.i.i.i = icmp eq i8 %289, 0
   %.pre136.i.i.i = sext i32 %.2.i.i.i to i64
   br i1 %.not115.i.i.i, label %split133.i.i.i, label %290
@@ -569,7 +569,7 @@ split133.i.i.i:                                   ; preds = %290, %283
   %303 = getelementptr inbounds i32, ptr %11, i64 %302
   %304 = load i32, ptr %303, align 4
   %305 = add i32 %304, %247
-  %306 = call fastcc zeroext i8 @mainGtU(i32 noundef %305, i32 noundef %298, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %26, i32 noundef %17, ptr noundef nonnull %9)
+  %306 = call fastcc zeroext i8 @mainGtU(i32 noundef %305, i32 noundef %298, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %26, i32 noundef %17, ptr noundef %9)
   %.not117.i.i.i = icmp eq i8 %306, 0
   %.pre138.i.i.i = sext i32 %.4.i.i.i to i64
   br i1 %.not117.i.i.i, label %split.i.i.i, label %307
@@ -930,11 +930,11 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
 
 mainQSort3.exit.i:                                ; preds = %.backedge.i.i, %mainSimpleSort.exit.i.i
   %459 = phi i32 [ %314, %mainSimpleSort.exit.i.i ], [ %238, %.backedge.i.i ]
-  %.pr.i193 = phi i32 [ %314, %mainSimpleSort.exit.i.i ], [ %.pr.i, %.backedge.i.i ]
+  %.pr.i192 = phi i32 [ %314, %mainSimpleSort.exit.i.i ], [ %.pr.i, %.backedge.i.i ]
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4)
-  %460 = icmp slt i32 %.pr.i193, 0
+  %460 = icmp slt i32 %.pr.i192, 0
   br i1 %460, label %mainSort.exit, label %mainQSort3.exit._crit_edge.i
 
 mainQSort3.exit._crit_edge.i:                     ; preds = %mainQSort3.exit.i
@@ -946,7 +946,7 @@ mainQSort3.exit._crit_edge.i:                     ; preds = %mainQSort3.exit.i
 
 464:                                              ; preds = %mainQSort3.exit._crit_edge.i, %222, %219
   %465 = phi i32 [ %218, %219 ], [ %459, %mainQSort3.exit._crit_edge.i ], [ %218, %222 ]
-  %.pr.i192 = phi i32 [ %.pr.i189, %219 ], [ %.pr.i193, %mainQSort3.exit._crit_edge.i ], [ %.pr.i189, %222 ]
+  %.pr.i191 = phi i32 [ %.pr.i188, %219 ], [ %.pr.i192, %mainQSort3.exit._crit_edge.i ], [ %.pr.i188, %222 ]
   %466 = phi i32 [ %220, %219 ], [ %.pre.i, %mainQSort3.exit._crit_edge.i ], [ %220, %222 ]
   %.2293.i = phi i32 [ %.1292415.i, %219 ], [ %463, %mainQSort3.exit._crit_edge.i ], [ %.1292415.i, %222 ]
   %467 = or i32 %466, 2097152
@@ -955,7 +955,7 @@ mainQSort3.exit._crit_edge.i:                     ; preds = %mainQSort3.exit.i
 
 468:                                              ; preds = %464, %217
   %469 = phi i32 [ %465, %464 ], [ %218, %217 ]
-  %.pr.i191 = phi i32 [ %.pr.i192, %464 ], [ %.pr.i189, %217 ]
+  %.pr.i190 = phi i32 [ %.pr.i191, %464 ], [ %.pr.i188, %217 ]
   %.3294.i = phi i32 [ %.2293.i, %464 ], [ %.1292415.i, %217 ]
   %indvars.iv.next519.i = add nuw nsw i64 %indvars.iv518.i, 1
   %exitcond521.not.i = icmp eq i64 %indvars.iv.next519.i, 256
@@ -1103,8 +1103,8 @@ mainQSort3.exit._crit_edge.i:                     ; preds = %mainQSort3.exit.i
 
 547:                                              ; preds = %._crit_edge429.i
   %548 = icmp eq i32 %.lcssa386.i, 0
-  %549 = icmp eq i32 %.lcssa387.i, %36
-  %or.cond.i = and i1 %548, %549
+  %549 = icmp eq i32 %.lcssa387.i, %34
+  %or.cond.i = select i1 %548, i1 %549, i1 false
   br i1 %or.cond.i, label %.preheader, label %550
 
 550:                                              ; preds = %547
@@ -1261,20 +1261,20 @@ mainSort.exit:                                    ; preds = %mainQSort3.exit.i, 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %621
-  %indvars.iv185 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next186, %621 ]
-  %617 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv185
+  %indvars.iv184 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next185, %621 ]
+  %617 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv184
   %618 = load i32, ptr %617, align 4
   %619 = icmp eq i32 %618, 0
   br i1 %619, label %.thread, label %621
 
 .thread:                                          ; preds = %.lr.ph
-  %620 = trunc nuw nsw i64 %indvars.iv185 to i32
+  %620 = trunc nuw nsw i64 %indvars.iv184 to i32
   store i32 %620, ptr %614, align 8
   br label %622
 
 621:                                              ; preds = %.lr.ph
-  %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count
+  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %621, %613
@@ -2119,7 +2119,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare void @BZ2_bz__AssertH__fail(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef %5) unnamed_addr #3 {
+define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 10000, -2147483648) %4, ptr nocapture noundef nonnull %5) unnamed_addr #3 {
   %7 = zext i32 %0 to i64
   %8 = getelementptr inbounds i8, ptr %2, i64 %7
   %9 = load i8, ptr %8, align 1

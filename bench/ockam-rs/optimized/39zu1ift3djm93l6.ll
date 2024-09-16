@@ -200,7 +200,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..mutex..Mutex$LT$tokio..net..tcp..split_owned..OwnedWriteHalf$GT$$GT$$GT$17hb3ec4a7939f162ebE"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..mutex..Mutex$LT$tokio..net..tcp..split_owned..OwnedWriteHalf$GT$$GT$$GT$17hb3ec4a7939f162ebE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %2 = load ptr, ptr %0, align 8, !alias.scope !23, !nonnull !13, !noundef !13
   %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !23
@@ -1853,7 +1853,7 @@ define hidden void @_ZN9mitm_node15tcp_interceptor8registry15TcpMitmRegistry13ad
 56:                                               ; preds = %29
   %57 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..mutex..Mutex$LT$tokio..net..tcp..split_owned..OwnedWriteHalf$GT$$GT$$GT$17hb3ec4a7939f162ebE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6) #14
+  invoke fastcc void @"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..mutex..Mutex$LT$tokio..net..tcp..split_owned..OwnedWriteHalf$GT$$GT$$GT$17hb3ec4a7939f162ebE"(ptr noalias noundef align 8 dereferenceable(8) %6) #14
           to label %.body unwind label %58, !noalias !130
 
 58:                                               ; preds = %56
@@ -1968,7 +1968,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14529172514207159973.exit.t
 
 90:                                               ; preds = %.thread24, %21
   %lpad.phi27 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread24 ], [ %lpad.thr_comm.split-lp, %21 ]
-  invoke fastcc void @"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..mutex..Mutex$LT$tokio..net..tcp..split_owned..OwnedWriteHalf$GT$$GT$$GT$17hb3ec4a7939f162ebE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9) #14
+  invoke fastcc void @"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..mutex..Mutex$LT$tokio..net..tcp..split_owned..OwnedWriteHalf$GT$$GT$$GT$17hb3ec4a7939f162ebE"(ptr noalias noundef align 8 dereferenceable(8) %9) #14
           to label %.thread unwind label %81
 }
 

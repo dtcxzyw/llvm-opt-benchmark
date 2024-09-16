@@ -82,7 +82,7 @@ for.body.preheader:                               ; preds = %if.then2
 for.end:                                          ; preds = %for.body.preheader, %if.then2
   %finished = getelementptr inbounds i8, ptr %ctx, i64 88
   store i8 1, ptr %finished, align 8
-  tail call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %buffer, i64 noundef 16)
+  tail call fastcc void @poly1305_blocks(ptr noundef %ctx, ptr noundef nonnull readonly %buffer, i64 noundef 16)
   br label %if.end8
 
 if.end8:                                          ; preds = %for.end, %if.end
@@ -281,7 +281,7 @@ if.end25:                                         ; preds = %for.end
   %conv17 = trunc nuw i64 %spec.select to i32
   %sub18 = sub i32 %bytes, %conv17
   %buffer26 = getelementptr inbounds i8, ptr %ctx, i64 72
-  tail call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %buffer26, i64 noundef 16)
+  tail call fastcc void @poly1305_blocks(ptr noundef %ctx, ptr noundef nonnull readonly %buffer26, i64 noundef 16)
   store i64 0, ptr %leftover, align 8
   br label %if.end28
 
@@ -294,7 +294,7 @@ if.end28:                                         ; preds = %if.end25, %if.end5
 if.then31:                                        ; preds = %if.end28
   %4 = and i32 %bytes.addr.0, -16
   %and = zext i32 %4 to i64
-  tail call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef %m.addr.0, i64 noundef %and)
+  tail call fastcc void @poly1305_blocks(ptr noundef %ctx, ptr noundef %m.addr.0, i64 noundef %and)
   %add.ptr39 = getelementptr inbounds i8, ptr %m.addr.0, i64 %and
   %sub41 = and i32 %bytes.addr.0, 15
   br label %if.end42
@@ -334,7 +334,7 @@ return:                                           ; preds = %if.end42, %for.end5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @poly1305_blocks(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %m, i64 noundef %bytes) unnamed_addr #1 {
+define internal fastcc void @poly1305_blocks(ptr nocapture noundef nonnull %ctx, ptr nocapture noundef readonly %m, i64 noundef range(i64 0, 4294967281) %bytes) unnamed_addr #1 {
 entry:
   %finished = getelementptr inbounds i8, ptr %ctx, i64 88
   %0 = load i8, ptr %finished, align 8
@@ -520,7 +520,7 @@ if.end28.i:                                       ; preds = %for.end.i
   %conv17.i = trunc nuw nsw i64 %spec.select.i to i32
   %sub18.i = sub nuw nsw i32 16, %conv17.i
   %buffer26.i = getelementptr inbounds i8, ptr %ctx, i64 72
-  tail call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %buffer26.i, i64 noundef 16)
+  tail call fastcc void @poly1305_blocks(ptr noundef %ctx, ptr noundef nonnull readonly %buffer26.i, i64 noundef 16)
   store i64 0, ptr %leftover.i, align 8
   %cmp29.i = icmp eq i64 %0, 16
   br i1 %cmp29.i, label %if.then31.i, label %if.end42.i
@@ -530,7 +530,7 @@ if.then31.i:                                      ; preds = %lor.lhs.false.i, %i
   %bytes.addr.0.i6 = phi i32 [ %sub18.i, %if.end28.i ], [ 16, %lor.lhs.false.i ]
   %4 = and i32 %bytes.addr.0.i6, 16
   %and.i = zext nneg i32 %4 to i64
-  call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull %m.addr.0.i7, i64 noundef %and.i)
+  call fastcc void @poly1305_blocks(ptr noundef %ctx, ptr noundef nonnull %m.addr.0.i7, i64 noundef %and.i)
   %add.ptr39.i = getelementptr inbounds i8, ptr %m.addr.0.i7, i64 %and.i
   %sub41.i = and i32 %bytes.addr.0.i6, 15
   br label %if.end42.i
@@ -624,7 +624,7 @@ if.end28.i:                                       ; preds = %for.end.i
   %conv17.i = trunc nuw nsw i64 %spec.select.i to i32
   %sub18.i = sub nuw nsw i32 16, %conv17.i
   %buffer26.i = getelementptr inbounds i8, ptr %ctx, i64 72
-  tail call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %buffer26.i, i64 noundef 16)
+  tail call fastcc void @poly1305_blocks(ptr noundef %ctx, ptr noundef nonnull readonly %buffer26.i, i64 noundef 16)
   store i64 0, ptr %leftover.i, align 8
   %cmp29.i = icmp eq i64 %0, 16
   br i1 %cmp29.i, label %if.then31.i, label %if.end42.i
@@ -634,7 +634,7 @@ if.then31.i:                                      ; preds = %lor.lhs.false.i, %i
   %bytes.addr.0.i5 = phi i32 [ %sub18.i, %if.end28.i ], [ 16, %lor.lhs.false.i ]
   %4 = and i32 %bytes.addr.0.i5, 16
   %and.i = zext nneg i32 %4 to i64
-  call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull %m.addr.0.i6, i64 noundef %and.i)
+  call fastcc void @poly1305_blocks(ptr noundef %ctx, ptr noundef nonnull %m.addr.0.i6, i64 noundef %and.i)
   %add.ptr39.i = getelementptr inbounds i8, ptr %m.addr.0.i6, i64 %and.i
   %sub41.i = and i32 %bytes.addr.0.i5, 15
   br label %if.end42.i

@@ -2235,7 +2235,7 @@ if.then96:                                        ; preds = %if.end93
 if.end101:                                        ; preds = %if.end93
   %arrayidx102 = getelementptr inbounds i8, ptr %call85, i64 %call81
   store i8 0, ptr %arrayidx102, align 1
-  %call103 = call fastcc i32 @pubkey_pem_to_der(ptr noundef nonnull %call85, ptr noundef nonnull %pem_ptr, ptr noundef nonnull %pem_len)
+  %call103 = call fastcc i32 @pubkey_pem_to_der(ptr noundef %call85, ptr noundef %pem_ptr, ptr noundef %pem_len)
   %tobool104.not = icmp eq i32 %call103, 0
   %21 = load i64, ptr %pem_len, align 8
   %cmp107 = icmp eq i64 %pubkeylen, %21
@@ -2294,7 +2294,7 @@ declare i64 @curlx_sotouz(i64 noundef) local_unnamed_addr #4
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pubkey_pem_to_der(ptr noundef %pem, ptr noundef %der, ptr noundef %der_len) unnamed_addr #2 {
+define internal fastcc i32 @pubkey_pem_to_der(ptr noundef nonnull %pem, ptr noundef nonnull %der, ptr noundef nonnull %der_len) unnamed_addr #2 {
 entry:
   %call = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %pem, ptr noundef nonnull dereferenceable(1) @.str.11) #19
   %tobool1.not = icmp eq ptr %call, null
@@ -2361,7 +2361,7 @@ while.end:                                        ; preds = %if.end35, %while.co
   %stripped_pem_count.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %stripped_pem_count.1, %if.end35 ]
   %arrayidx37 = getelementptr inbounds i8, ptr %call17, i64 %stripped_pem_count.0.lcssa
   store i8 0, ptr %arrayidx37, align 1
-  %call38 = tail call i32 @Curl_base64_decode(ptr noundef nonnull %call17, ptr noundef %der, ptr noundef %der_len) #18
+  %call38 = tail call i32 @Curl_base64_decode(ptr noundef nonnull %call17, ptr noundef nonnull %der, ptr noundef nonnull %der_len) #18
   %4 = load ptr, ptr @Curl_cfree, align 8
   tail call void %4(ptr noundef nonnull %call17) #18
   br label %return

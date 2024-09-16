@@ -5497,7 +5497,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendIPKcvEERS4_T_S9_.exi
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility14WriteAssetPathERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_StringFromAssetPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_StringFromAssetPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -5536,7 +5536,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility4PutsERNS_14Sdf_TextOutp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_StringFromAssetPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_StringFromAssetPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext 64, i64 noundef 0) #18
   %.not.not = icmp eq i64 %3, -1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
@@ -5828,21 +5828,21 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility17StringFro
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
-  %13 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L24_StringFromVtValueHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPS6_RKNS_7VtValueE(ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %13 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L24_StringFromVtValueHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPS6_RKNS_7VtValueE(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %14 unwind label %.loopexit.split-lp
 
 14:                                               ; preds = %2
   br i1 %13, label %93, label %15
 
 15:                                               ; preds = %14
-  %16 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L24_StringFromVtValueHelperINS_7TfTokenEEEbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7VtValueE(ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %16 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L24_StringFromVtValueHelperINS_7TfTokenEEEbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7VtValueE(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %17 unwind label %.loopexit.split-lp
 
 17:                                               ; preds = %15
   br i1 %16, label %93, label %18
 
 18:                                               ; preds = %17
-  %19 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L24_StringFromVtValueHelperINS_12SdfAssetPathEEEbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7VtValueE(ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %19 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L24_StringFromVtValueHelperINS_12SdfAssetPathEEEbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7VtValueE(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %20 unwind label %.loopexit.split-lp
 
 20:                                               ; preds = %18
@@ -5914,7 +5914,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_17SdfPathExpres
           to label %.noexc13 unwind label %.loopexit.split-lp
 
 .noexc13:                                         ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_17SdfPathExpressionEEERKT_v.exit.i
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_17SdfPathExpressionE.exit.i unwind label %47
 
 common.resume.i:                                  ; preds = %89, %87, %82, %76, %47
@@ -6027,7 +6027,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_17S
           to label %.noexc17 unwind label %.loopexit.split-lp
 
 .noexc17:                                         ; preds = %75
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_17SdfPathExpressionE.exit.i.i unwind label %76
 
 76:                                               ; preds = %.noexc17
@@ -6058,7 +6058,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_17SdfPathEx
           to label %.noexc19 unwind label %.loopexit
 
 .noexc19:                                         ; preds = %.noexc18
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_17SdfPathExpressionE.exit23.i.i unwind label %82
 
 82:                                               ; preds = %.noexc19
@@ -9172,21 +9172,21 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %336, %
 
 346:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #18
-  %347 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L24_StringFromVtValueHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPS6_RKNS_7VtValueE(ptr noundef nonnull %27, ptr noundef nonnull align 8 dereferenceable(16) %178)
+  %347 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L24_StringFromVtValueHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPS6_RKNS_7VtValueE(ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(16) %178)
           to label %348 unwind label %359
 
 348:                                              ; preds = %346
   br i1 %347, label %355, label %349
 
 349:                                              ; preds = %348
-  %350 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L24_StringFromVtValueHelperINS_7TfTokenEEEbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7VtValueE(ptr noundef nonnull %27, ptr noundef nonnull align 8 dereferenceable(16) %178)
+  %350 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L24_StringFromVtValueHelperINS_7TfTokenEEEbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7VtValueE(ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(16) %178)
           to label %351 unwind label %359
 
 351:                                              ; preds = %349
   br i1 %350, label %355, label %352
 
 352:                                              ; preds = %351
-  %353 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L24_StringFromVtValueHelperINS_12SdfAssetPathEEEbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7VtValueE(ptr noundef nonnull %27, ptr noundef nonnull align 8 dereferenceable(16) %178)
+  %353 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L24_StringFromVtValueHelperINS_12SdfAssetPathEEEbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7VtValueE(ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(16) %178)
           to label %354 unwind label %359
 
 354:                                              ; preds = %352
@@ -9651,7 +9651,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__22Sdf_ValueTypeNamesType20Ge
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L24_StringFromVtValueHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPS6_RKNS_7VtValueE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L24_StringFromVtValueHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPS6_RKNS_7VtValueE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9700,7 +9700,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINSt7__cxx1112basic_stri
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_v.exit: ; preds = %19, %25
   %.0.i.i = phi ptr [ %24, %19 ], [ %26, %25 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i)
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i)
   %27 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEbv.exit.thread
@@ -9765,7 +9765,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINSt7__
   br i1 %.not20.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_StringFromVtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPS6_RKNS_7VtArrayIT_EE.exit, label %50
 
 50:                                               ; preds = %48
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %47)
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %47)
   %51 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %52 unwind label %58
 
@@ -9778,7 +9778,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINSt7__
   %.024.i = phi i64 [ %57, %56 ], [ 1, %52 ]
   %53 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.14)
   %54 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %47, i64 %.024.i
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %54)
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %54)
   %55 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %56 unwind label %60
 
@@ -9816,7 +9816,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINSt7__cxx11
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L24_StringFromVtValueHelperINS_7TfTokenEEEbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7VtValueE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L24_StringFromVtValueHelperINS_7TfTokenEEEbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7VtValueE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10028,7 +10028,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7TfToken
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L24_StringFromVtValueHelperINS_12SdfAssetPathEEEbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7VtValueE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L24_StringFromVtValueHelperINS_12SdfAssetPathEEEbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7VtValueE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10088,7 +10088,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_12SdfAssetPathEEEbv.
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_12SdfAssetPathEEERKT_v.exit: ; preds = %23, %29
   %.0.i.i = phi ptr [ %28, %23 ], [ %30, %29 ]
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_StringFromAssetPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_StringFromAssetPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i)
   %31 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_12SdfAssetPathEEEEEbv.exit.thread20
@@ -10165,7 +10165,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_12S
   br i1 %.not20.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_StringFromVtArrayINS_12SdfAssetPathEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7VtArrayIT_EE.exit, label %59
 
 59:                                               ; preds = %57
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_StringFromAssetPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %56)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_StringFromAssetPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %56)
   %60 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %61 unwind label %67
 
@@ -10178,7 +10178,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_12S
   %.024.i = phi i64 [ %66, %65 ], [ 1, %61 ]
   %62 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.14)
   %63 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", ptr %56, i64 %.024.i
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_StringFromAssetPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %63)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_StringFromAssetPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %63)
   %64 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %65 unwind label %69
 
@@ -12542,7 +12542,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 
 6:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_StringFromAssetPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_StringFromAssetPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %7 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__14Sdf_TextOutput5WriteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility14WriteAssetPathERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.loopexit.split-lp.i
 
@@ -12907,7 +12907,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 
 15:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_StringFromAssetPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_StringFromAssetPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %16 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__14Sdf_TextOutput5WriteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility14WriteAssetPathERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.loopexit.split-lp.i
 

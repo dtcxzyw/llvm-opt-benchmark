@@ -724,7 +724,7 @@ display_pivots.exit:                              ; preds = %230, %225
   %.0107148 = phi double [ %255, %253 ], [ 0.000000e+00, %.preheader141 ]
   %.0109147 = phi double [ %260, %253 ], [ 0.000000e+00, %.preheader141 ]
   tail call void @tm_get_time() #16
-  call fastcc void @next_bucket_elem(ptr noundef %.0133, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @next_bucket_elem(ptr noundef %.0133, ptr noundef %6, ptr noundef %7)
   %243 = load i32, ptr @verbose_level, align 4
   %244 = icmp sgt i32 %243, 5
   %.pre = load i32, ptr %6, align 4
@@ -756,7 +756,7 @@ display_pivots.exit:                              ; preds = %230, %225
 
 .lr.ph:                                           ; preds = %.preheader143, %.lr.ph
   %.3146 = phi i32 [ %spec.select117, %.lr.ph ], [ 0, %.preheader143 ]
-  call fastcc void @next_bucket_elem(ptr noundef %.0133, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @next_bucket_elem(ptr noundef %.0133, ptr noundef %6, ptr noundef %7)
   %262 = zext nneg i32 %.3146 to i64
   %263 = getelementptr inbounds %struct._tm_tree_t, ptr %2, i64 %262
   %264 = load i32, ptr %6, align 4
@@ -797,7 +797,7 @@ display_pivots.exit:                              ; preds = %230, %225
   br i1 %277, label %.lr.ph154, label %._crit_edge
 
 .lr.ph154:                                        ; preds = %.thread135, %.lr.ph154
-  call fastcc void @next_bucket_elem(ptr noundef %.0133, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @next_bucket_elem(ptr noundef %.0133, ptr noundef %6, ptr noundef %7)
   %278 = load i32, ptr %6, align 4
   %279 = load i32, ptr %7, align 4
   %280 = call i32 @tm_try_add_edge(ptr noundef %1, ptr noundef null, i32 noundef %3, i32 noundef %278, i32 noundef %279, ptr noundef nonnull %8)
@@ -1013,7 +1013,7 @@ declare hidden void @tm_get_time() local_unnamed_addr #4
 declare hidden double @tm_time_diff() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @next_bucket_elem(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc void @next_bucket_elem(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
@@ -1245,7 +1245,7 @@ define internal range(i32 -1, 2) i32 @tab_cmp(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @dfs(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5, i32 noundef %6) unnamed_addr #10 {
+define internal fastcc void @dfs(i32 noundef %0, i32 noundef range(i32 -1073741823, 1073741825) %1, i32 noundef range(i32 -2147483648, 2147483647) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5, i32 noundef range(i32 -2147483648, 2147483647) %6) unnamed_addr #10 {
   %8 = icmp eq i32 %5, %6
   br i1 %8, label %tailrecurse._crit_edge, label %tailrecurse
 

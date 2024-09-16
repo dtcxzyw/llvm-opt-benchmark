@@ -834,7 +834,7 @@ list_length.exit.i:                               ; preds = %gistfixsplit.exit
   br i1 %.not.i123, label %gistinserttuples.exit, label %223
 
 223:                                              ; preds = %221
-  call fastcc void @gistfinishsplit(ptr noundef nonnull readonly %14, ptr noundef nonnull %211, ptr noundef %3, ptr noundef nonnull %222, i1 noundef zeroext false) #10
+  call fastcc void @gistfinishsplit(ptr noundef readonly %14, ptr noundef nonnull %211, ptr noundef %3, ptr noundef nonnull %222, i1 noundef zeroext false) #10
   br label %gistinserttuples.exit
 
 gistinserttuples.exit:                            ; preds = %221, %223
@@ -869,7 +869,7 @@ gistfinishsplit.exit:                             ; preds = %225, %gistfixsplit.
   %237 = load i16, ptr %116, align 2
   %238 = load i32, ptr %231, align 8
   %239 = load i32, ptr %230, align 8
-  %240 = call fastcc zeroext i1 @gistinserttuples(ptr noundef nonnull readonly %14, ptr noundef %236, ptr noundef %3, ptr noundef nonnull %8, i32 noundef 2, i16 noundef zeroext %237, i32 noundef %238, i32 noundef %239, i1 noundef zeroext true, i1 noundef zeroext false) #11
+  %240 = call fastcc zeroext i1 @gistinserttuples(ptr noundef readonly %14, ptr noundef %236, ptr noundef %3, ptr noundef nonnull %8, i32 noundef 2, i16 noundef zeroext %237, i32 noundef %238, i32 noundef %239, i1 noundef zeroext true, i1 noundef zeroext false) #11
   store i16 0, ptr %116, align 2
   %241 = getelementptr inbounds i8, ptr %103, i64 24
   store i8 1, ptr %241, align 8
@@ -1024,7 +1024,7 @@ BufferGetPage.exit117:                            ; preds = %300, %306
   br i1 %.not.i.i, label %gistinserttuple.exit, label %324
 
 324:                                              ; preds = %314
-  call fastcc void @gistfinishsplit(ptr noundef nonnull readonly %14, ptr noundef nonnull %.1.lcssa, ptr noundef %3, ptr noundef nonnull %323, i1 noundef zeroext false) #11
+  call fastcc void @gistfinishsplit(ptr noundef readonly %14, ptr noundef nonnull %.1.lcssa, ptr noundef %3, ptr noundef nonnull %323, i1 noundef zeroext false) #11
   br label %gistinserttuple.exit
 
 gistinserttuple.exit:                             ; preds = %314, %324
@@ -1154,7 +1154,7 @@ BufferGetPage.exit119:                            ; preds = %342, %348
   br i1 %.not.i.i120, label %gistinserttuple.exit121, label %391
 
 391:                                              ; preds = %380
-  call fastcc void @gistfinishsplit(ptr noundef nonnull readonly %14, ptr noundef nonnull %.1.lcssa, ptr noundef %3, ptr noundef nonnull %390, i1 noundef zeroext false) #11
+  call fastcc void @gistfinishsplit(ptr noundef readonly %14, ptr noundef nonnull %.1.lcssa, ptr noundef %3, ptr noundef nonnull %390, i1 noundef zeroext false) #11
   br label %gistinserttuple.exit121
 
 gistinserttuple.exit121:                          ; preds = %380, %391
@@ -2419,7 +2419,7 @@ define dso_local void @freeGISTstate(ptr nocapture noundef readonly %0) local_un
 declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gistfinishsplit(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @gistfinishsplit(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca [2 x ptr], align 16
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
@@ -2459,7 +2459,7 @@ list_length.exit:                                 ; preds = %5
   %27 = getelementptr inbounds i8, ptr %20, i64 8
   %28 = load i32, ptr %24, align 8
   %29 = load i32, ptr %20, align 8
-  %30 = tail call fastcc zeroext i1 @gistinserttuples(ptr noundef nonnull %0, ptr noundef %26, ptr noundef %2, ptr noundef nonnull %27, i32 noundef 1, i16 noundef zeroext 0, i32 noundef %28, i32 noundef %29, i1 noundef zeroext false, i1 noundef zeroext false)
+  %30 = tail call fastcc zeroext i1 @gistinserttuples(ptr noundef %0, ptr noundef %26, ptr noundef %2, ptr noundef nonnull %27, i32 noundef 1, i16 noundef zeroext 0, i32 noundef %28, i32 noundef %29, i1 noundef zeroext false, i1 noundef zeroext false)
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %18
@@ -2492,7 +2492,7 @@ list_length.exit:                                 ; preds = %5
   %46 = load i16, ptr %45, align 2
   %47 = load i32, ptr %37, align 8
   %48 = load i32, ptr %36, align 8
-  %49 = call fastcc zeroext i1 @gistinserttuples(ptr noundef nonnull %0, ptr noundef %44, ptr noundef %2, ptr noundef nonnull %6, i32 noundef 2, i16 noundef zeroext %46, i32 noundef %47, i32 noundef %48, i1 noundef zeroext true, i1 noundef zeroext %4)
+  %49 = call fastcc zeroext i1 @gistinserttuples(ptr noundef %0, ptr noundef %44, ptr noundef %2, ptr noundef nonnull %6, i32 noundef 2, i16 noundef zeroext %46, i32 noundef %47, i32 noundef %48, i1 noundef zeroext true, i1 noundef zeroext %4)
   store i16 0, ptr %45, align 2
   %50 = getelementptr inbounds i8, ptr %1, i64 24
   store i8 1, ptr %50, align 8
@@ -2917,7 +2917,7 @@ declare ptr @list_delete_first(ptr noundef) local_unnamed_addr #1
 declare ptr @lcons(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @gistinserttuples(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8, i1 noundef zeroext %9) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @gistinserttuples(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 3) %4, i16 noundef zeroext %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8, i1 noundef zeroext %9) unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 4
@@ -2956,7 +2956,7 @@ define internal fastcc noundef zeroext i1 @gistinserttuples(ptr nocapture nounde
   br i1 %.not, label %32, label %31
 
 31:                                               ; preds = %29
-  tail call fastcc void @gistfinishsplit(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %30, i1 noundef zeroext %8)
+  tail call fastcc void @gistfinishsplit(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %30, i1 noundef zeroext %8)
   br label %35
 
 32:                                               ; preds = %29

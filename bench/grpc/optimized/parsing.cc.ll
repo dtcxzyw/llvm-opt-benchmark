@@ -770,7 +770,7 @@ sw.bb29.i.invoke:                                 ; preds = %sw.bb.i, %sw.bb2.i,
   %45 = phi ptr [ @.str.23, %sw.bb29.i ], [ @.str.20, %sw.bb21.i ], [ @.str.14, %sw.bb10.i ], [ @.str.14, %sw.bb2.i ], [ @.str.12, %sw.bb.i ]
   %46 = phi ptr [ %ref.tmp32.i, %sw.bb29.i ], [ %ref.tmp24.i, %sw.bb21.i ], [ %ref.tmp13.i, %sw.bb10.i ], [ %ref.tmp5.i, %sw.bb2.i ], [ %ref.tmp.i209, %sw.bb.i ]
   %47 = phi i64 [ 1, %sw.bb29.i ], [ 1, %sw.bb21.i ], [ 3, %sw.bb10.i ], [ 3, %sw.bb2.i ], [ 1, %sw.bb.i ]
-  invoke fastcc void @_ZN12_GLOBAL__N_119MakeFrameTypeStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEhSt16initializer_listINS_9KnownFlagEE(ptr noalias nonnull align 8 %ref.tmp160, i64 %44, ptr nonnull %45, i8 noundef zeroext %43, ptr nonnull %46, i64 %47)
+  invoke fastcc void @_ZN12_GLOBAL__N_119MakeFrameTypeStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEhSt16initializer_listINS_9KnownFlagEE(ptr noalias align 8 %ref.tmp160, i64 %44, ptr nonnull %45, i8 noundef zeroext %43, ptr nonnull %46, i64 %47)
           to label %invoke.cont163 unwind label %lpad
 
 sw.bb37.i:                                        ; preds = %if.then159
@@ -782,7 +782,7 @@ sw.bb40.i:                                        ; preds = %if.then159
 sw.bb40.i.invoke:                                 ; preds = %if.then159, %sw.bb37.i, %sw.bb40.i
   %48 = phi i64 [ 13, %sw.bb40.i ], [ 6, %sw.bb37.i ], [ 10, %if.then159 ]
   %49 = phi ptr [ @.str.26, %sw.bb40.i ], [ @.str.25, %sw.bb37.i ], [ @.str.19, %if.then159 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_119MakeFrameTypeStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEhSt16initializer_listINS_9KnownFlagEE(ptr noalias nonnull align 8 %ref.tmp160, i64 %48, ptr nonnull %49, i8 noundef zeroext %43, ptr null, i64 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_119MakeFrameTypeStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEhSt16initializer_listINS_9KnownFlagEE(ptr noalias align 8 %ref.tmp160, i64 %48, ptr nonnull %49, i8 noundef zeroext %43, ptr null, i64 0)
           to label %invoke.cont163 unwind label %lpad
 
 sw.default.i:                                     ; preds = %if.then159
@@ -808,7 +808,7 @@ call.i.i.noexc:                                   ; preds = %sw.default.i
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44.i) #21, !noalias !10
   %51 = extractvalue { i64, ptr } %call.i, 0
   %52 = extractvalue { i64, ptr } %call.i, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_119MakeFrameTypeStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEhSt16initializer_listINS_9KnownFlagEE(ptr noalias nonnull align 8 %ref.tmp160, i64 %51, ptr %52, i8 noundef zeroext %43, ptr null, i64 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_119MakeFrameTypeStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEhSt16initializer_listINS_9KnownFlagEE(ptr noalias align 8 %ref.tmp160, i64 %51, ptr %52, i8 noundef zeroext %43, ptr null, i64 0)
           to label %invoke.cont.i210 unwind label %lpad.i
 
 invoke.cont.i210:                                 ; preds = %.noexc219
@@ -1686,7 +1686,7 @@ _ZL22init_data_frame_parserP21grpc_chttp2_transport.exit.i: ; preds = %_ZN4absl1
 
 sw.bb51.i.invoke:                                 ; preds = %if.end48.i, %if.end29.i
   %160 = phi i32 [ 1, %if.end29.i ], [ 0, %if.end48.i ]
-  invoke fastcc void @_ZL24init_header_frame_parserP21grpc_chttp2_transportiRm(ptr noalias nonnull align 8 %ref.tmp172, ptr noundef nonnull %t, i32 noundef %160, ptr noundef nonnull align 8 dereferenceable(8) %requests_started)
+  invoke fastcc void @_ZL24init_header_frame_parserP21grpc_chttp2_transportiRm(ptr noalias align 8 %ref.tmp172, ptr noundef nonnull %t, i32 noundef %160, ptr noundef nonnull align 8 dereferenceable(8) %requests_started)
           to label %invoke.cont173 unwind label %lpad
 
 sw.bb52.i:                                        ; preds = %if.end48.i
@@ -2455,7 +2455,7 @@ if.then184:                                       ; preds = %if.end181
           to label %invoke.cont187 unwind label %lpad
 
 invoke.cont187:                                   ; preds = %if.then184
-  invoke fastcc void @_ZL17parse_frame_sliceP21grpc_chttp2_transportRK10grpc_slicei(ptr noalias nonnull align 8 %ref.tmp185, ptr noundef nonnull %t, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp186, i32 noundef 1)
+  invoke fastcc void @_ZL17parse_frame_sliceP21grpc_chttp2_transportRK10grpc_slicei(ptr noalias align 8 %ref.tmp185, ptr noundef nonnull %t, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp186, i32 noundef 1)
           to label %invoke.cont188 unwind label %lpad
 
 invoke.cont188:                                   ; preds = %invoke.cont187
@@ -2567,7 +2567,7 @@ if.then243:                                       ; preds = %sw.bb236
           to label %invoke.cont253 unwind label %lpad
 
 invoke.cont253:                                   ; preds = %if.then243
-  invoke fastcc void @_ZL17parse_frame_sliceP21grpc_chttp2_transportRK10grpc_slicei(ptr noalias nonnull align 8 %ref.tmp244, ptr noundef nonnull %t, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp245, i32 noundef 1)
+  invoke fastcc void @_ZL17parse_frame_sliceP21grpc_chttp2_transportRK10grpc_slicei(ptr noalias align 8 %ref.tmp244, ptr noundef nonnull %t, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp245, i32 noundef 1)
           to label %invoke.cont254 unwind label %lpad
 
 invoke.cont254:                                   ; preds = %invoke.cont253
@@ -2607,7 +2607,7 @@ if.then274:                                       ; preds = %if.else267
           to label %invoke.cont284 unwind label %lpad
 
 invoke.cont284:                                   ; preds = %if.then274
-  invoke fastcc void @_ZL17parse_frame_sliceP21grpc_chttp2_transportRK10grpc_slicei(ptr noalias nonnull align 8 %ref.tmp278, ptr noundef nonnull %t, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp279, i32 noundef 1)
+  invoke fastcc void @_ZL17parse_frame_sliceP21grpc_chttp2_transportRK10grpc_slicei(ptr noalias align 8 %ref.tmp278, ptr noundef nonnull %t, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp279, i32 noundef 1)
           to label %invoke.cont285 unwind label %lpad
 
 invoke.cont285:                                   ; preds = %invoke.cont284
@@ -2643,7 +2643,7 @@ if.else303:                                       ; preds = %if.else267
           to label %invoke.cont313 unwind label %lpad
 
 invoke.cont313:                                   ; preds = %if.else303
-  invoke fastcc void @_ZL17parse_frame_sliceP21grpc_chttp2_transportRK10grpc_slicei(ptr noalias nonnull align 8 %ref.tmp304, ptr noundef nonnull %t, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp305, i32 noundef 0)
+  invoke fastcc void @_ZL17parse_frame_sliceP21grpc_chttp2_transportRK10grpc_slicei(ptr noalias align 8 %ref.tmp304, ptr noundef nonnull %t, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp305, i32 noundef 0)
           to label %invoke.cont314 unwind label %lpad
 
 invoke.cont314:                                   ; preds = %invoke.cont313
@@ -2794,7 +2794,7 @@ declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) l
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17parse_frame_sliceP21grpc_chttp2_transportRK10grpc_slicei(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %t, ptr noundef nonnull align 8 dereferenceable(32) %slice, i32 noundef %is_last) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17parse_frame_sliceP21grpc_chttp2_transportRK10grpc_slicei(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %t, ptr noundef nonnull align 8 dereferenceable(32) %slice, i32 noundef range(i32 0, 2) %is_last) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %err = alloca %"class.absl::lts_20230802::Status", align 8
   %unused = alloca i64, align 8
@@ -3421,7 +3421,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #13
 declare void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119MakeFrameTypeStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEhSt16initializer_listINS_9KnownFlagEE(ptr noalias align 8 %agg.result, i64 %frame_type.coerce0, ptr %frame_type.coerce1, i8 noundef zeroext %flags, ptr readonly %known_flags.coerce0, i64 %known_flags.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_119MakeFrameTypeStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEhSt16initializer_listINS_9KnownFlagEE(ptr noalias nonnull align 8 %agg.result, i64 %frame_type.coerce0, ptr %frame_type.coerce1, i8 noundef zeroext %flags, ptr readonly %known_flags.coerce0, i64 %known_flags.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i.i.i = alloca [32 x i8], align 16
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -3636,7 +3636,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
 declare noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEiPc(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL24init_header_frame_parserP21grpc_chttp2_transportiRm(ptr noalias align 8 %agg.result, ptr noundef %t, i32 noundef %is_continuation, ptr nocapture noundef nonnull align 8 dereferenceable(8) %requests_started) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL24init_header_frame_parserP21grpc_chttp2_transportiRm(ptr noalias nonnull align 8 %agg.result, ptr noundef %t, i32 noundef range(i32 0, 2) %is_continuation, ptr nocapture noundef nonnull align 8 dereferenceable(8) %requests_started) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %struct.grpc_slice, align 8
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
@@ -3986,7 +3986,7 @@ if.then83:                                        ; preds = %if.then81
 
 if.else86:                                        ; preds = %if.then81
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp88, i8 0, i64 24, i1 false)
-  invoke void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i32 noundef 2, i64 25, ptr nonnull @.str.39, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull %agg.tmp88)
+  invoke void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i32 noundef 2, i64 25, ptr nonnull @.str.39, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull %agg.tmp88)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.else86
@@ -4502,7 +4502,7 @@ land.lhs.true305:                                 ; preds = %if.then297, %do.bod
 
 if.then308:                                       ; preds = %land.lhs.true305
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp311, i8 0, i64 24, i1 false)
-  invoke void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i32 noundef 2, i64 56, ptr nonnull @.str.50, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp310, ptr noundef nonnull %agg.tmp311)
+  invoke void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i32 noundef 2, i64 56, ptr nonnull @.str.50, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp310, ptr noundef nonnull %agg.tmp311)
           to label %invoke.cont313 unwind label %lpad312
 
 invoke.cont313:                                   ; preds = %if.then308
@@ -4599,7 +4599,7 @@ declare noundef zeroext i1 @_ZN4absl12lts_2023080219str_format_internal13FormatA
 declare void @_ZN9grpc_core20Chttp2PingRatePolicy17ReceivedDataFrameEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %t, i8 noundef zeroext %priority_type, i1 noundef zeroext %is_eoh) unnamed_addr #3 {
+define internal fastcc void @_ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %t, i8 noundef zeroext range(i8 0, 2) %priority_type, i1 noundef zeroext %is_eoh) unnamed_addr #3 {
 entry:
   %hpack_parser = getelementptr inbounds i8, ptr %t, i64 2352
   %parser1 = getelementptr inbounds i8, ptr %t, i64 2928

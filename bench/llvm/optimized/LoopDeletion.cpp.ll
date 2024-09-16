@@ -695,7 +695,7 @@ _ZL16deleteLoopIfDeadPN4llvm4LoopERNS_13DominatorTreeERNS_15ScalarEvolutionERNS_
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull %237, i64 noundef 4) #15
   call void @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE16getExitingBlocksERNS_15SmallVectorImplIPS1_EE(ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef nonnull align 8 dereferenceable(16) %27) #15
   store i8 0, ptr %28, align 1
-  %238 = call fastcc noundef zeroext i1 @_ZL10isLoopDeadPN4llvm4LoopERNS_15ScalarEvolutionERNS_15SmallVectorImplIPNS_10BasicBlockEEES6_RbS6_RNS_8LoopInfoE(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(1392) %54, ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull %63, ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull %59, ptr noundef nonnull align 8 dereferenceable(144) %56)
+  %238 = call fastcc noundef zeroext i1 @_ZL10isLoopDeadPN4llvm4LoopERNS_15ScalarEvolutionERNS_15SmallVectorImplIPNS_10BasicBlockEEES6_RbS6_RNS_8LoopInfoE(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(1392) %54, ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull %63, ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef %59, ptr noundef nonnull align 8 dereferenceable(144) %56)
   br i1 %238, label %248, label %244
 
 239:                                              ; preds = %62
@@ -707,7 +707,7 @@ _ZL16deleteLoopIfDeadPN4llvm4LoopERNS_13DominatorTreeERNS_15ScalarEvolutionERNS_
 
 242:                                              ; preds = %239
   store i8 0, ptr %28, align 1
-  %243 = call fastcc noundef zeroext i1 @_ZL10isLoopDeadPN4llvm4LoopERNS_15ScalarEvolutionERNS_15SmallVectorImplIPNS_10BasicBlockEEES6_RbS6_RNS_8LoopInfoE(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(1392) %54, ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef null, ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull %59, ptr noundef nonnull align 8 dereferenceable(144) %56)
+  %243 = call fastcc noundef zeroext i1 @_ZL10isLoopDeadPN4llvm4LoopERNS_15ScalarEvolutionERNS_15SmallVectorImplIPNS_10BasicBlockEEES6_RbS6_RNS_8LoopInfoE(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(1392) %54, ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef null, ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef %59, ptr noundef nonnull align 8 dereferenceable(144) %56)
   br i1 %243, label %248, label %244
 
 244:                                              ; preds = %242, %.split.i
@@ -1809,8 +1809,8 @@ _ZL28canProveExitOnFirstIterationPN4llvm4LoopERNS_13DominatorTreeERNS_8LoopInfoE
   br label %.thread
 
 778:                                              ; preds = %303, %317, %_ZL28canProveExitOnFirstIterationPN4llvm4LoopERNS_13DominatorTreeERNS_8LoopInfoE.exit.i, %_ZL28canProveExitOnFirstIterationPN4llvm4LoopERNS_13DominatorTreeERNS_8LoopInfoE.exit.thread.i
-  %.not50 = icmp eq i32 %.0.i43, 1
-  br i1 %.not50, label %_ZN4llvm10LPMUpdater17markLoopAsDeletedERNS_4LoopENS_9StringRefE.exit, label %779
+  %.not50 = icmp eq i32 %.0.i43, 0
+  br i1 %.not50, label %779, label %_ZN4llvm10LPMUpdater17markLoopAsDeletedERNS_4LoopENS_9StringRefE.exit
 
 779:                                              ; preds = %778
   %780 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1924,7 +1924,7 @@ declare void @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE16getExitingBlocksERN
 declare noundef zeroext i1 @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE15hasNoExitBlocksEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL10isLoopDeadPN4llvm4LoopERNS_15ScalarEvolutionERNS_15SmallVectorImplIPNS_10BasicBlockEEES6_RbS6_RNS_8LoopInfoE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(1392) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef readonly %5, ptr noundef nonnull align 8 dereferenceable(144) %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL10isLoopDeadPN4llvm4LoopERNS_15ScalarEvolutionERNS_15SmallVectorImplIPNS_10BasicBlockEEES6_RbS6_RNS_8LoopInfoE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(1392) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull readonly %5, ptr noundef nonnull align 8 dereferenceable(144) %6) unnamed_addr #0 {
   %8 = alloca %"class.llvm::LoopBlocksRPO", align 8
   %9 = alloca %"class.llvm::SmallVector.157", align 8
   %.not = icmp eq ptr %3, null

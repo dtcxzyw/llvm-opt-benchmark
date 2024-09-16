@@ -302,7 +302,7 @@ entry:
 declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @self_test_events(ptr noundef %params, ptr nocapture noundef %arg, ptr noundef %title, i32 noundef %corrupt) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @self_test_events(ptr noundef %params, ptr nocapture noundef %arg, ptr noundef %title, i32 noundef range(i32 0, 2) %corrupt) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %arg, align 4
   %cmp = icmp eq i32 %0, 0

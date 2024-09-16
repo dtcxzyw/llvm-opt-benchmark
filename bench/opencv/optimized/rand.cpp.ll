@@ -82,7 +82,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define noundef double @_ZN2cv3RNG8gaussianEd(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca float, align 4
-  call fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %0)
+  call fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr noundef nonnull %3, i32 noundef 1, ptr noundef %0)
   %4 = load float, ptr %3, align 4
   %5 = fpext float %4 to double
   %6 = fmul double %1, %5
@@ -90,7 +90,7 @@ define noundef double @_ZN2cv3RNG8gaussianEd(ptr nocapture noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8
   %.b72 = load i1, ptr @_ZZN2cvL13randn_0_1_32fEPfiPmE11initialized, align 1
   br i1 %.b72, label %30, label %5
@@ -1627,7 +1627,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit520:   ; preds = %500, %.noexc519
   %590 = sub nsw i32 %483, %.12353661.us664
   %.sroa.speculated.us665 = call i32 @llvm.smin.i32(i32 %.sroa.speculated540, i32 %590)
   %591 = mul nsw i32 %.sroa.speculated.us665, %67
-  call fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr noundef %.0362, i32 noundef %591, ptr noundef nonnull %0)
+  call fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr noundef %.0362, i32 noundef %591, ptr noundef %0)
   %592 = load ptr, ptr %32, align 8
   invoke void %.0370(ptr noundef %.0362, ptr noundef %592, i32 noundef %.sroa.speculated.us665, i32 noundef %67, ptr noundef %.0382, ptr noundef %.0384, i1 noundef zeroext %.0387)
           to label %593 unwind label %.loopexit.split.split.us

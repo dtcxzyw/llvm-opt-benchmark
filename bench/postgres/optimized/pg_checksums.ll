@@ -507,22 +507,22 @@ sub_154:                                          ; preds = %.tail.thread, %.thr
   br i1 %.b4349, label %124, label %132
 
 124:                                              ; preds = %123
-  %125 = call fastcc i64 @scan_directory(ptr noundef nonnull %.2, ptr noundef nonnull @.str.30, i1 noundef zeroext true)
+  %125 = call fastcc i64 @scan_directory(ptr noundef %.2, ptr noundef nonnull @.str.30, i1 noundef zeroext true)
   store i64 %125, ptr @total_size, align 8
-  %126 = call fastcc i64 @scan_directory(ptr noundef nonnull %.2, ptr noundef nonnull @.str.31, i1 noundef zeroext true)
+  %126 = call fastcc i64 @scan_directory(ptr noundef %.2, ptr noundef nonnull @.str.31, i1 noundef zeroext true)
   %127 = load i64, ptr @total_size, align 8
   %128 = add i64 %127, %126
   store i64 %128, ptr @total_size, align 8
-  %129 = call fastcc i64 @scan_directory(ptr noundef nonnull %.2, ptr noundef nonnull @.str.32, i1 noundef zeroext true)
+  %129 = call fastcc i64 @scan_directory(ptr noundef %.2, ptr noundef nonnull @.str.32, i1 noundef zeroext true)
   %130 = load i64, ptr @total_size, align 8
   %131 = add i64 %130, %129
   store i64 %131, ptr @total_size, align 8
   br label %132
 
 132:                                              ; preds = %124, %123
-  %133 = call fastcc i64 @scan_directory(ptr noundef nonnull %.2, ptr noundef nonnull @.str.30, i1 noundef zeroext false)
-  %134 = call fastcc i64 @scan_directory(ptr noundef nonnull %.2, ptr noundef nonnull @.str.31, i1 noundef zeroext false)
-  %135 = call fastcc i64 @scan_directory(ptr noundef nonnull %.2, ptr noundef nonnull @.str.32, i1 noundef zeroext false)
+  %133 = call fastcc i64 @scan_directory(ptr noundef %.2, ptr noundef nonnull @.str.30, i1 noundef zeroext false)
+  %134 = call fastcc i64 @scan_directory(ptr noundef %.2, ptr noundef nonnull @.str.31, i1 noundef zeroext false)
+  %135 = call fastcc i64 @scan_directory(ptr noundef %.2, ptr noundef nonnull @.str.32, i1 noundef zeroext false)
   %.b4250 = load i1, ptr @showprogress, align 1
   br i1 %.b4250, label %136, label %155
 
@@ -698,14 +698,14 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #7
 declare ptr @get_controlfile(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @scan_directory(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc i64 @scan_directory(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [1024 x i8], align 16
   %6 = alloca %struct.stat, align 8
   %7 = alloca [1024 x i8], align 16
   %8 = alloca [1024 x i8], align 16
   %9 = alloca %struct.stat, align 8
-  %10 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.65, ptr noundef %0, ptr noundef %1) #12
+  %10 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.65, ptr noundef nonnull %0, ptr noundef %1) #12
   %11 = call ptr @opendir(ptr noundef nonnull %4)
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %15, label %skipfile.exit.preheader
@@ -854,7 +854,7 @@ skipfile.exit.backedge:                           ; preds = %.preheader, %.tail,
   br i1 %2, label %skipfile.exit.outer, label %73
 
 73:                                               ; preds = %70
-  call fastcc void @scan_file(ptr noundef nonnull %5, i32 noundef %.0)
+  call fastcc void @scan_file(ptr noundef %5, i32 noundef %.0)
   br label %skipfile.exit.outer
 
 74:                                               ; preds = %38, %38
@@ -875,12 +875,12 @@ skipfile.exit.backedge:                           ; preds = %.preheader, %.tail,
 
 82:                                               ; preds = %77
   %83 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 1024, ptr noundef nonnull @.str.65, ptr noundef nonnull %4, ptr noundef nonnull %17) #12
-  %84 = call fastcc i64 @scan_directory(ptr noundef nonnull %8, ptr noundef nonnull @.str.74, i1 noundef zeroext %2)
+  %84 = call fastcc i64 @scan_directory(ptr noundef %8, ptr noundef nonnull @.str.74, i1 noundef zeroext %2)
   %85 = add i64 %84, %.031.ph58
   br label %skipfile.exit.outer
 
 86:                                               ; preds = %74
-  %87 = call fastcc i64 @scan_directory(ptr noundef nonnull %4, ptr noundef nonnull %17, i1 noundef zeroext %2)
+  %87 = call fastcc i64 @scan_directory(ptr noundef %4, ptr noundef nonnull %17, i1 noundef zeroext %2)
   %88 = add i64 %87, %.031.ph58
   br label %skipfile.exit.outer
 
@@ -989,18 +989,18 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @scan_file(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @scan_file(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #1 {
   %3 = alloca [32 x i32], align 16
   %4 = alloca %union.PGIOAlignedBlock, align 4096
   %5 = load i32, ptr @mode, align 4
   %6 = icmp eq i32 %5, 2
   %7 = select i1 %6, i32 2, i32 0
-  %8 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef %7, i32 noundef 0) #12
+  %8 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %0, i32 noundef %7, i32 noundef 0) #12
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.79, ptr noundef %0) #12
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.79, ptr noundef nonnull %0) #12
   tail call void @exit(i32 noundef 1) #15
   unreachable
 
@@ -1028,12 +1028,12 @@ define internal fastcc void @scan_file(ptr noundef %0, i32 noundef %1) unnamed_a
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %20
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.80, i32 noundef %.0, ptr noundef %0) #12
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.80, i32 noundef %.0, ptr noundef nonnull %0) #12
   tail call void @exit(i32 noundef 1) #15
   unreachable
 
 23:                                               ; preds = %20
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.81, i32 noundef %.0, ptr noundef %0, i32 noundef %19, i32 noundef 8192) #12
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.81, i32 noundef %.0, ptr noundef nonnull %0, i32 noundef %19, i32 noundef 8192) #12
   tail call void @exit(i32 noundef 1) #15
   unreachable
 
@@ -1136,7 +1136,7 @@ pg_checksum_page.exit:                            ; preds = %.preheader.i.i
   br i1 %66, label %67, label %68
 
 67:                                               ; preds = %62
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.82, ptr noundef %0, i32 noundef %.0, i32 noundef %60, i32 noundef %61) #12
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.82, ptr noundef nonnull %0, i32 noundef %.0, i32 noundef %60, i32 noundef %61) #12
   br label %68
 
 68:                                               ; preds = %67, %62
@@ -1156,7 +1156,7 @@ pg_checksum_page.exit:                            ; preds = %.preheader.i.i
   br i1 %75, label %76, label %77
 
 76:                                               ; preds = %73
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.83, i32 noundef %.0, ptr noundef %0) #12
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.83, i32 noundef %.0, ptr noundef nonnull %0) #12
   tail call void @exit(i32 noundef 1) #15
   unreachable
 
@@ -1172,12 +1172,12 @@ pg_checksum_page.exit:                            ; preds = %.preheader.i.i
   br i1 %82, label %83, label %84
 
 83:                                               ; preds = %81
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.84, i32 noundef %.0, ptr noundef %0) #12
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.84, i32 noundef %.0, ptr noundef nonnull %0) #12
   tail call void @exit(i32 noundef 1) #15
   unreachable
 
 84:                                               ; preds = %81
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.85, i32 noundef %.0, ptr noundef %0, i32 noundef %80, i32 noundef 8192) #12
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.85, i32 noundef %.0, ptr noundef nonnull %0, i32 noundef %80, i32 noundef 8192) #12
   tail call void @exit(i32 noundef 1) #15
   unreachable
 
@@ -1205,7 +1205,7 @@ pg_checksum_page.exit:                            ; preds = %.preheader.i.i
   br i1 %92, label %93, label %94
 
 93:                                               ; preds = %90
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.86, ptr noundef %0) #12
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.86, ptr noundef nonnull %0) #12
   %.pr = load i32, ptr @mode, align 4
   br label %94
 
@@ -1215,7 +1215,7 @@ pg_checksum_page.exit:                            ; preds = %.preheader.i.i
   br i1 %96, label %97, label %98
 
 97:                                               ; preds = %94
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.87, ptr noundef %0) #12
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.87, ptr noundef nonnull %0) #12
   br label %98
 
 98:                                               ; preds = %94, %97, %89

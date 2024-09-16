@@ -1771,7 +1771,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.val.val = load ptr, ptr %.val, align 8
   %54 = getelementptr i8, ptr %.val, i64 8
   %.val.val70 = load ptr, ptr %54, align 8
-  %55 = invoke fastcc noundef i32 @_ZL16search_atomtypesPK22PreprocessingAtomTypesPiN3gmx8ArrayRefIiEEiNS4_IK17InteractionOfTypeEEi(ptr %.val.val, ptr %.val.val70, ptr noundef nonnull %7, ptr %.sroa.0105.0, i32 noundef %51, i64 %53, i32 noundef %.)
+  %55 = invoke fastcc noundef i32 @_ZL16search_atomtypesPK22PreprocessingAtomTypesPiN3gmx8ArrayRefIiEEiNS4_IK17InteractionOfTypeEEi(ptr %.val.val, ptr %.val.val70, ptr noundef %7, ptr %.sroa.0105.0, i32 noundef %51, i64 %53, i32 noundef %.)
           to label %56 unwind label %.loopexit.split-lp128
 
 56:                                               ; preds = %47
@@ -1789,7 +1789,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.val64.val = load ptr, ptr %.val64, align 8
   %66 = getelementptr i8, ptr %.val64, i64 8
   %.val64.val69 = load ptr, ptr %66, align 8
-  %67 = invoke fastcc noundef i32 @_ZL16search_atomtypesPK22PreprocessingAtomTypesPiN3gmx8ArrayRefIiEEiNS4_IK17InteractionOfTypeEEi(ptr %.val64.val, ptr %.val64.val69, ptr noundef nonnull %7, ptr %.sroa.0105.0, i32 noundef %63, i64 %65, i32 noundef %.)
+  %67 = invoke fastcc noundef i32 @_ZL16search_atomtypesPK22PreprocessingAtomTypesPiN3gmx8ArrayRefIiEEiNS4_IK17InteractionOfTypeEEi(ptr %.val64.val, ptr %.val64.val69, ptr noundef %7, ptr %.sroa.0105.0, i32 noundef %63, i64 %65, i32 noundef %.)
           to label %68 unwind label %.loopexit.split-lp128
 
 68:                                               ; preds = %56
@@ -1823,7 +1823,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.val66.val = load ptr, ptr %.val66, align 8
   %84 = getelementptr i8, ptr %.val66, i64 8
   %.val66.val68 = load ptr, ptr %84, align 8
-  %85 = invoke fastcc noundef i32 @_ZL16search_atomtypesPK22PreprocessingAtomTypesPiN3gmx8ArrayRefIiEEiNS4_IK17InteractionOfTypeEEi(ptr %.val66.val, ptr %.val66.val68, ptr noundef nonnull %7, ptr %.sroa.0105.0, i32 noundef %79, i64 %83, i32 noundef %.)
+  %85 = invoke fastcc noundef i32 @_ZL16search_atomtypesPK22PreprocessingAtomTypesPiN3gmx8ArrayRefIiEEiNS4_IK17InteractionOfTypeEEi(ptr %.val66.val, ptr %.val66.val68, ptr noundef %7, ptr %.sroa.0105.0, i32 noundef %79, i64 %83, i32 noundef %.)
           to label %86 unwind label %.loopexit127
 
 86:                                               ; preds = %81
@@ -2128,7 +2128,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit90:                  ; preds = %188, %187
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL16search_atomtypesPK22PreprocessingAtomTypesPiN3gmx8ArrayRefIiEEiNS4_IK17InteractionOfTypeEEi(ptr %.0.val.0.val, ptr %.0.val.8.val, ptr nocapture noundef %0, ptr nocapture %1, i32 noundef %2, i64 %.0.val1, i32 noundef %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL16search_atomtypesPK22PreprocessingAtomTypesPiN3gmx8ArrayRefIiEEiNS4_IK17InteractionOfTypeEEi(ptr %.0.val.0.val, ptr %.0.val.8.val, ptr nocapture noundef nonnull %0, ptr nocapture %1, i32 noundef %2, i64 %.0.val1, i32 noundef range(i32 37, 39) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %6 = load i32, ptr %0, align 4
   %7 = zext nneg i32 %3 to i64

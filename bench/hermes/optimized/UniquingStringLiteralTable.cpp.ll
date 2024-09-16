@@ -781,7 +781,7 @@ while.body.i.i.i.i:                               ; preds = %if.end.i.i, %if.end
   %storemerge27.i.i.in.in.i.i = phi i64 [ %storemerge27.i.i.i.i, %if.end4.i.i.i.i ], [ %sub.ptr.div.i.i.i115, %if.end.i.i ]
   %storemerge27.i.i.in.i.i = add nuw nsw i64 %storemerge27.i.i.in.in.i.i, 1
   %storemerge27.i.i.i.i = lshr i64 %storemerge27.i.i.in.i.i, 1
-  %mul.i.i.i.i116 = shl nuw nsw i64 %storemerge27.i.i.i.i, 5
+  %mul.i.i.i.i116 = shl i64 %storemerge27.i.i.i.i, 5
   %call.i.i.i.i117 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i.i.i.i116, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #25
   %cmp2.not.i.i.i.i = icmp eq ptr %call.i.i.i.i117, null
   br i1 %cmp2.not.i.i.i.i, label %if.end4.i.i.i.i, label %if.then.i.i.i118
@@ -4149,7 +4149,7 @@ while.end:                                        ; preds = %_ZSt27__unguarded_p
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef readonly byval(%struct.Index) align 8 %__value) unnamed_addr #12 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE5IndexSt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef range(i64 -288230376151711744, 288230376151711744) %__len, ptr nocapture noundef readonly byval(%struct.Index) align 8 %__value) unnamed_addr #12 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -4775,7 +4775,7 @@ while.end:                                        ; preds = %_ZSt27__unguarded_p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE11KindedEntrySt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, i64 %__value.coerce0, i32 %__value.coerce1) unnamed_addr #14 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES4_bE11KindedEntrySt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef range(i64 -768614336404564650, 768614336404564651) %__len, i64 %__value.coerce0, i32 %__value.coerce1) unnamed_addr #14 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2

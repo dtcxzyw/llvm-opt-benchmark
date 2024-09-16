@@ -1559,7 +1559,7 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_gryphon_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_gryphon_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -2929,7 +2929,7 @@ define internal fastcc void @eventnum(ptr noundef %0, ptr noundef %1) unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 20, 25) i32 @resp_time(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 20, 25) i32 @resp_time(ptr noundef %0, i32 noundef range(i32 12, 17) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %1) #4
   %6 = udiv i64 %5, 100000
@@ -2946,7 +2946,7 @@ define internal fastcc range(i32 20, 25) i32 @resp_time(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 16, 21) i32 @speed(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 16, 21) i32 @speed(ptr noundef %0, i32 noundef range(i32 12, 17) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_gryphon_speed_baud_rate_index, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #4
   %6 = load i32, ptr @hf_gryphon_reserved, align 4
@@ -2999,7 +2999,7 @@ define internal fastcc range(i32 20, 132113) i32 @cmd_setfilt(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 16, 21) i32 @resp_addfilt(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 16, 21) i32 @resp_addfilt(ptr noundef %0, i32 noundef range(i32 12, 17) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_gryphon_addfilt_handle, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #4
   %6 = load i32, ptr @hf_gryphon_reserved, align 4
@@ -3010,7 +3010,7 @@ define internal fastcc range(i32 16, 21) i32 @resp_addfilt(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmd_addfilt(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @cmd_addfilt(ptr noundef %0, i32 noundef range(i32 12, 17) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @ett_gryphon_flags, align 4
   %5 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %4, ptr noundef null, ptr noundef nonnull @.str.30) #4
   %6 = load i32, ptr @hf_gryphon_addfilt_pass, align 4
@@ -3079,7 +3079,7 @@ define internal fastcc void @cmd_modfilt(ptr noundef %0, ptr noundef %1) unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 16, 21) i32 @dfiltmode(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 16, 21) i32 @dfiltmode(ptr noundef %0, i32 noundef range(i32 12, 17) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_gryphon_dfiltmode, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #4
   %6 = load i32, ptr @hf_gryphon_reserved, align 4
@@ -3090,7 +3090,7 @@ define internal fastcc range(i32 16, 21) i32 @dfiltmode(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 16, 21) i32 @filtmode(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 16, 21) i32 @filtmode(ptr noundef %0, i32 noundef range(i32 12, 17) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_gryphon_filtmode, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #4
   %6 = load i32, ptr @hf_gryphon_reserved, align 4
@@ -3110,7 +3110,7 @@ define internal fastcc void @cmd_register(ptr noundef %0, ptr noundef %1) unname
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 20, 25) i32 @blm_mode(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 20, 25) i32 @blm_mode(ptr noundef %0, i32 noundef range(i32 12, 17) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_gryphon_blm_mode, align 4
   %6 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %4) #4
@@ -3353,7 +3353,7 @@ define internal fastcc noundef i32 @cmd_cnvt_destroy_session(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmd_addresp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @cmd_addresp(ptr noundef %0, i32 noundef range(i32 12, 17) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_gryphon_addresp_flags, align 4
@@ -3479,7 +3479,7 @@ define internal fastcc i32 @cmd_addresp(ptr noundef %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 16, 21) i32 @resp_addresp(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 16, 21) i32 @resp_addresp(ptr noundef %0, i32 noundef range(i32 12, 17) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_gryphon_addresp_handle, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #4
   %6 = load i32, ptr @hf_gryphon_reserved, align 4
@@ -3613,7 +3613,7 @@ define internal fastcc i32 @cmd_start(ptr noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 12, 21) i32 @resp_start(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 12, 21) i32 @resp_start(ptr noundef %0, i32 noundef range(i32 12, 17) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1) #4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %6, label %13
@@ -4396,7 +4396,7 @@ define internal fastcc noundef i32 @cmd_usdt_register_non_legacy(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 13, 18) i32 @cmd_bits_in(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 13, 18) i32 @cmd_bits_in(ptr noundef %0, i32 noundef range(i32 12, 17) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #4
   %.not = icmp eq i8 %4, 0
   %5 = load i32, ptr @hf_gryphon_bit_in_digital_data, align 4
@@ -4417,7 +4417,7 @@ define internal fastcc range(i32 13, 18) i32 @cmd_bits_in(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 13, 18) i32 @cmd_bits_out(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 13, 18) i32 @cmd_bits_out(ptr noundef %0, i32 noundef range(i32 12, 17) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #4
   %.not = icmp eq i8 %4, 0
   %5 = load i32, ptr @hf_gryphon_bit_out_digital_data, align 4
@@ -4438,7 +4438,7 @@ define internal fastcc range(i32 13, 18) i32 @cmd_bits_out(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmd_init_strat(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @cmd_init_strat(ptr noundef %0, i32 noundef range(i32 12, 17) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1) #4
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1) #4
   %6 = load i32, ptr @hf_gryphon_init_strat_reset_limit, align 4
@@ -4647,7 +4647,7 @@ declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmd_ioctl_details(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @cmd_ioctl_details(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 1, -2147483648) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   switch i32 %3, label %246 [
     i32 297795613, label %.loopexit

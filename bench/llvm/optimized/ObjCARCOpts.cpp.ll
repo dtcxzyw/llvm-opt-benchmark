@@ -5642,7 +5642,7 @@ _ZN4llvm7objcarc17GetRCIdentityRootEPNS_5ValueE.exit.i: ; preds = %_ZN4llvm7objc
   store i32 4, ptr %2294, align 8
   store i32 0, ptr %2295, align 4
   store i32 0, ptr %2296, align 8
-  %2333 = call noundef ptr @_ZN4llvm7objcarc20findSingleDependencyENS0_14DependenceKindEPKNS_5ValueEPNS_10BasicBlockEPNS_11InstructionERNS0_18ProvenanceAnalysisE(i32 noundef 0, ptr noundef nonnull %2315, ptr noundef %2301, ptr noundef %spec.select.i.i.i50, ptr noundef nonnull align 8 dereferenceable(56) %67) #19
+  %2333 = call noundef ptr @_ZN4llvm7objcarc20findSingleDependencyENS0_14DependenceKindEPKNS_5ValueEPNS_10BasicBlockEPNS_11InstructionERNS0_18ProvenanceAnalysisE(i32 noundef 0, ptr noundef nonnull %2315, ptr noundef nonnull %2301, ptr noundef nonnull %spec.select.i.i.i50, ptr noundef nonnull align 8 dereferenceable(56) %67) #19
   %.not.i.i.i30.i = icmp eq ptr %2333, null
   br i1 %.not.i.i.i30.i, label %_ZN4llvm16dyn_cast_or_nullINS_8CallInstENS_11InstructionEEEDaPT0_.exit.thread.i.i, label %2334
 
@@ -13003,7 +13003,7 @@ _ZN12_GLOBAL__N_17BBState9MergePredERKS0_.exit.i: ; preds = %_ZN4llvm7objcarc15T
   %1903 = getelementptr inbounds i8, ptr %.sroa.0101.0143.i, i64 -24
   %1904 = select i1 %1902, ptr null, ptr %1903
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %1905 = call noundef i32 @_ZN4llvm7objcarc14GetARCInstKindEPKNS_5ValueE(ptr noundef %1904) #19
+  %1905 = call noundef i32 @_ZN4llvm7objcarc14GetARCInstKindEPKNS_5ValueE(ptr noundef nonnull %1904) #19
   %.val48.i.i = load ptr, ptr %30, align 8
   %.val49.i.i = load i32, ptr %1501, align 8
   %1906 = icmp eq i32 %.val49.i.i, 0
@@ -13190,7 +13190,7 @@ _ZN4llvm7objcarc20GetArgRCIdentityRootEPNS_5ValueE.exit.i.i: ; preds = %_ZN4llvm
   store ptr %1963, ptr %8, align 8
   %1981 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN4llvm13BlotMapVectorIPKNS_5ValueENS_7objcarc15TopDownPtrStateEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %1899, ptr noundef nonnull align 8 dereferenceable(8) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %1982 = call noundef zeroext i1 @_ZN4llvm7objcarc15TopDownPtrState11InitTopDownENS0_11ARCInstKindEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %1981, i32 noundef %1905, ptr noundef %1904) #19
+  %1982 = call noundef zeroext i1 @_ZN4llvm7objcarc15TopDownPtrState11InitTopDownENS0_11ARCInstKindEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %1981, i32 noundef %1905, ptr noundef nonnull %1904) #19
   br label %2061
 
 .preheader.i.i:                                   ; preds = %.loopexit70.i.i, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i.i53.i.i
@@ -13245,7 +13245,7 @@ _ZN4llvm7objcarc20GetArgRCIdentityRootEPNS_5ValueE.exit58.i.i: ; preds = %_ZN4ll
   store ptr %1989, ptr %7, align 8
   %2007 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN4llvm13BlotMapVectorIPKNS_5ValueENS_7objcarc15TopDownPtrStateEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %1899, ptr noundef nonnull align 8 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %2008 = call noundef zeroext i1 @_ZN4llvm7objcarc15TopDownPtrState16MatchWithReleaseERNS0_14ARCMDKindCacheEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %2007, ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef %1904) #19
+  %2008 = call noundef zeroext i1 @_ZN4llvm7objcarc15TopDownPtrState16MatchWithReleaseERNS0_14ARCMDKindCacheEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %2007, ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull %1904) #19
   br i1 %2008, label %2009, label %2061
 
 2009:                                             ; preds = %_ZN4llvm7objcarc20GetArgRCIdentityRootEPNS_5ValueE.exit58.i.i
@@ -13367,11 +13367,11 @@ _ZN4llvm7objcarc6RRInfoaSERKS1_.exit.i.i:         ; preds = %2051, %_ZN4llvm12De
 2064:                                             ; preds = %.lr.ph81.i.i
   %2065 = getelementptr inbounds nuw i8, ptr %.sroa.061.080.i.i, i64 8
   %2066 = load ptr, ptr %1504, align 8
-  %2067 = call noundef zeroext i1 @_ZN4llvm7objcarc15TopDownPtrState28HandlePotentialAlterRefCountEPNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindERKNS0_21BundledRetainClaimRVsE(ptr noundef nonnull align 8 dereferenceable(128) %2065, ptr noundef %1904, ptr noundef %2062, ptr noundef nonnull align 8 dereferenceable(56) %1503, i32 noundef %1905, ptr noundef nonnull align 8 dereferenceable(25) %2066) #19
+  %2067 = call noundef zeroext i1 @_ZN4llvm7objcarc15TopDownPtrState28HandlePotentialAlterRefCountEPNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindERKNS0_21BundledRetainClaimRVsE(ptr noundef nonnull align 8 dereferenceable(128) %2065, ptr noundef nonnull %1904, ptr noundef %2062, ptr noundef nonnull align 8 dereferenceable(56) %1503, i32 noundef %1905, ptr noundef nonnull align 8 dereferenceable(25) %2066) #19
   br i1 %2067, label %2069, label %2068
 
 2068:                                             ; preds = %2064
-  call void @_ZN4llvm7objcarc15TopDownPtrState18HandlePotentialUseEPNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindE(ptr noundef nonnull align 8 dereferenceable(128) %2065, ptr noundef %1904, ptr noundef %2062, ptr noundef nonnull align 8 dereferenceable(56) %1503, i32 noundef %1905) #19
+  call void @_ZN4llvm7objcarc15TopDownPtrState18HandlePotentialUseEPNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindE(ptr noundef nonnull align 8 dereferenceable(128) %2065, ptr noundef nonnull %1904, ptr noundef %2062, ptr noundef nonnull align 8 dereferenceable(56) %1503, i32 noundef %1905) #19
   br label %2069
 
 2069:                                             ; preds = %2068, %2064, %.lr.ph81.i.i

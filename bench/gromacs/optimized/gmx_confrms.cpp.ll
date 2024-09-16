@@ -716,7 +716,7 @@ _ZL12find_res_endiiPKiPK7t_atoms.exit188.i:       ; preds = %297, %.critedge.loo
   br label %302
 
 302:                                              ; preds = %300, %_ZL12find_res_endiiPKiPK7t_atoms.exit188.i
-  %303 = call fastcc noundef i32 @_ZL28find_next_match_atoms_in_resPiPKiiPPPcS_S1_iS4_(ptr noundef nonnull %3, ptr noundef nonnull %149, i32 noundef %.0.lcssa.i176.i, ptr noundef %154, ptr noundef nonnull %4, ptr noundef nonnull %150, i32 noundef %.0.lcssa.i181.i, ptr noundef %158)
+  %303 = call fastcc noundef i32 @_ZL28find_next_match_atoms_in_resPiPKiiPPPcS_S1_iS4_(ptr noundef %3, ptr noundef nonnull %149, i32 noundef %.0.lcssa.i176.i, ptr noundef %154, ptr noundef %4, ptr noundef nonnull %150, i32 noundef %.0.lcssa.i181.i, ptr noundef %158)
   %304 = load ptr, ptr @debug, align 8
   %.not150.i = icmp eq ptr %304, null
   br i1 %.not150.i, label %323, label %305
@@ -1242,7 +1242,7 @@ _ZL12find_res_endiiPKiPK7t_atoms.exit233.i:       ; preds = %548, %.critedge.loo
   br label %553
 
 553:                                              ; preds = %551, %_ZL12find_res_endiiPKiPK7t_atoms.exit233.i
-  %554 = call fastcc noundef i32 @_ZL28find_next_match_atoms_in_resPiPKiiPPPcS_S1_iS4_(ptr noundef nonnull %3, ptr noundef nonnull %149, i32 noundef %.0.lcssa.i217.i, ptr noundef %154, ptr noundef nonnull %4, ptr noundef nonnull %150, i32 noundef %.0.lcssa.i226.i, ptr noundef %158)
+  %554 = call fastcc noundef i32 @_ZL28find_next_match_atoms_in_resPiPKiiPPPcS_S1_iS4_(ptr noundef %3, ptr noundef nonnull %149, i32 noundef %.0.lcssa.i217.i, ptr noundef %154, ptr noundef %4, ptr noundef nonnull %150, i32 noundef %.0.lcssa.i226.i, ptr noundef %158)
   %555 = load ptr, ptr @debug, align 8
   %.not156.i = icmp eq ptr %555, null
   br i1 %.not156.i, label %.thread272.i, label %556
@@ -2733,7 +2733,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv
 declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef i32 @_ZL28find_next_match_atoms_in_resPiPKiiPPPcS_S1_iS4_(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #10 {
+define internal fastcc noundef i32 @_ZL28find_next_match_atoms_in_resPiPKiiPPPcS_S1_iS4_(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #10 {
   %9 = load i32, ptr %0, align 4
   %10 = sub nsw i32 %2, %9
   %11 = load i32, ptr %4, align 4

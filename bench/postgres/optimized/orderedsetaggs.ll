@@ -1087,7 +1087,7 @@ declare void @deconstruct_array_builtin(ptr noundef, i32 noundef, ptr noundef, p
 declare ptr @construct_empty_array(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @setup_pct_info(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc ptr @setup_pct_info(i32 noundef range(i32 1, 0) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = sext i32 %0 to i64
   %7 = shl nsw i64 %6, 5
   %8 = tail call ptr @palloc(i64 noundef %7) #10
@@ -1215,7 +1215,7 @@ define dso_local i64 @percentile_cont_float8_multi_final(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @percentile_cont_multi_final_common(ptr nocapture noundef %0, i32 noundef %1, i16 noundef signext %2, i1 noundef zeroext %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i64 @percentile_cont_multi_final_common(ptr nocapture noundef %0, i32 noundef range(i32 701, 1187) %1, i16 noundef signext range(i16 8, 17) %2, i1 noundef zeroext %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1686,12 +1686,12 @@ declare void @ProcessInterrupts() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @hypothetical_rank_final(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = call fastcc i64 @hypothetical_rank_common(ptr noundef %0, i32 noundef -1, ptr noundef nonnull %2)
+  %3 = call fastcc i64 @hypothetical_rank_common(ptr noundef %0, i32 noundef -1, ptr noundef %2)
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @hypothetical_rank_common(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i64 @hypothetical_rank_common(ptr nocapture noundef readonly %0, i32 noundef range(i32 -1, 2) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 30
   %5 = load i16, ptr %4, align 2
   %6 = sext i16 %5 to i32
@@ -1851,7 +1851,7 @@ slot_getattr.exit._crit_edge:                     ; preds = %80, %slot_getattr.e
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @hypothetical_percent_rank_final(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = call fastcc i64 @hypothetical_rank_common(ptr noundef %0, i32 noundef -1, ptr noundef nonnull %2)
+  %3 = call fastcc i64 @hypothetical_rank_common(ptr noundef %0, i32 noundef -1, ptr noundef %2)
   %4 = load i64, ptr %2, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %12, label %6
@@ -1872,7 +1872,7 @@ define dso_local i64 @hypothetical_percent_rank_final(ptr nocapture noundef read
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @hypothetical_cume_dist_final(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = call fastcc i64 @hypothetical_rank_common(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
+  %3 = call fastcc i64 @hypothetical_rank_common(ptr noundef %0, i32 noundef 1, ptr noundef %2)
   %4 = sitofp i64 %3 to double
   %5 = load i64, ptr %2, align 8
   %6 = add i64 %5, 1
@@ -2228,7 +2228,7 @@ slot_getattr.exit._crit_edge:                     ; preds = %168, %slot_getattr.
 declare ptr @CreateStandaloneExprContext() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hypothetical_check_argtypes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @hypothetical_check_argtypes(ptr nocapture noundef readonly %0, i32 noundef range(i32 -16384, 16384) %1, ptr noundef readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %4
 
@@ -2266,7 +2266,7 @@ define internal fastcc void @hypothetical_check_argtypes(ptr nocapture noundef r
 15:                                               ; preds = %.preheader
   %16 = load ptr, ptr %0, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = trunc nuw i64 %indvars.iv.next to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.next to i32
   %18 = tail call i32 @get_fn_expr_argtype(ptr noundef %16, i32 noundef %17) #10
   %19 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %8, i64 0, i64 %indvars.iv, i32 2
   %20 = load i32, ptr %19, align 4

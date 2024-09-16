@@ -361,7 +361,7 @@ if.end:                                           ; preds = %vhost_svq_more_used
   br i1 %cmp, label %return, label %do.body
 
 do.end:                                           ; preds = %do.body, %vhost_svq_more_used.exit
-  %call9 = call fastcc ptr @vhost_svq_get_buf(ptr noundef nonnull %svq, ptr noundef nonnull %r)
+  %call9 = call fastcc ptr @vhost_svq_get_buf(ptr noundef nonnull %svq, ptr noundef %r)
   %4 = load i32, ptr %r, align 4
   %conv10 = zext i32 %4 to i64
   %add = add i64 %len.010, %conv10
@@ -376,7 +376,7 @@ return:                                           ; preds = %do.end, %if.end, %e
 declare i64 @g_get_monotonic_time() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @vhost_svq_get_buf(ptr nocapture noundef %svq, ptr nocapture noundef writeonly %len) unnamed_addr #0 {
+define internal fastcc ptr @vhost_svq_get_buf(ptr nocapture noundef %svq, ptr nocapture noundef nonnull writeonly %len) unnamed_addr #0 {
 entry:
   %used1 = getelementptr inbounds i8, ptr %svq, i64 24
   %0 = load ptr, ptr %used1, align 8
@@ -852,7 +852,7 @@ if.then.i:                                        ; preds = %do.body
   br label %vhost_svq_disable_notification.exit
 
 vhost_svq_disable_notification.exit:              ; preds = %do.body, %if.then.i
-  %call31 = call fastcc ptr @vhost_svq_get_buf(ptr noundef nonnull %svq, ptr noundef nonnull %len)
+  %call31 = call fastcc ptr @vhost_svq_get_buf(ptr noundef nonnull %svq, ptr noundef %len)
   %tobool.not32 = icmp eq ptr %call31, null
   br i1 %tobool.not32, label %while.end, label %if.end
 
@@ -885,7 +885,7 @@ cleanup:                                          ; preds = %if.end
   %inc = add nuw i32 %i.033, 1
   tail call void @virtqueue_fill(ptr noundef %0, ptr noundef nonnull %call34, i32 noundef %8, i32 noundef %i.033) #11
   tail call void @g_free(ptr noundef nonnull %call34) #11
-  %call = call fastcc ptr @vhost_svq_get_buf(ptr noundef nonnull %svq, ptr noundef nonnull %len)
+  %call = call fastcc ptr @vhost_svq_get_buf(ptr noundef nonnull %svq, ptr noundef %len)
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %while.end, label %if.end
 
@@ -995,9 +995,9 @@ entry:
   %desc = getelementptr inbounds i8, ptr %svq, i64 8
   %1 = load ptr, ptr %desc, align 8
   %cmp = icmp eq i64 %num, 0
-  br i1 %cmp, label %return, label %for.body.lr.ph.i
+  br i1 %cmp, label %return, label %if.end
 
-for.body.lr.ph.i:                                 ; preds = %entry
+if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %needle.i)
   %translated_addr.i = getelementptr inbounds i8, ptr %needle.i, i64 8
   %size.i = getelementptr inbounds i8, ptr %needle.i, i64 16
@@ -1006,14 +1006,14 @@ for.body.lr.ph.i:                                 ; preds = %entry
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %if.end17.i
-  %inc.i = add nuw i64 %i.027.i, 1
+  %inc.i = add nuw i64 %i.026.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %num
   br i1 %exitcond.not.i, label %vhost_svq_translate_addr.exit, label %for.body.i, !llvm.loop !17
 
-for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
-  %i.027.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
+for.body.i:                                       ; preds = %for.cond.i, %if.end
+  %i.026.i = phi i64 [ 0, %if.end ], [ %inc.i, %for.cond.i ]
   store i64 0, ptr %needle.i, align 8
-  %arrayidx.i = getelementptr %struct.iovec, ptr %iovec, i64 %i.027.i
+  %arrayidx.i = getelementptr %struct.iovec, ptr %iovec, i64 %i.026.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %3 = ptrtoint ptr %2 to i64
   store i64 %3, ptr %translated_addr.i, align 8
@@ -1044,7 +1044,7 @@ if.end17.i:                                       ; preds = %for.body.i
   %sub.i = sub i64 %8, %9
   %10 = load i64, ptr %call.i, align 1
   %add.i = add i64 %sub.i, %10
-  %arrayidx21.i = getelementptr i64, ptr %sg, i64 %i.027.i
+  %arrayidx21.i = getelementptr i64, ptr %sg, i64 %i.026.i
   store i64 %add.i, ptr %arrayidx21.i, align 8
   %11 = load i64, ptr %iov_len.i, align 8
   %sub26.i = add i64 %11, -1

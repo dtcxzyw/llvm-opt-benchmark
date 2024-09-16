@@ -772,7 +772,7 @@ define dso_local zeroext i1 @bxt_ddi_phy_verify_state(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef zeroext i1 @__phy_reg_verify_state(ptr noundef %0, i32 noundef %1, i32 %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ...) unnamed_addr #0 align 16 {
+define internal noundef zeroext i1 @__phy_reg_verify_state(ptr noundef %0, i32 noundef %1, i32 range(i32 1445924, 1442649) %2, i32 noundef range(i32 32770, 268435457) %3, i32 noundef %4, ptr noundef %5, ...) unnamed_addr #0 align 16 {
   %7 = alloca %struct.va_format, align 8
   %8 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6

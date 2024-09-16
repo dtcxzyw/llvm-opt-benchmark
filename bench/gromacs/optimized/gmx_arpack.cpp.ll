@@ -1458,7 +1458,7 @@ sub_0.i:                                          ; preds = %713, %._crit_edge.i
 
 723:                                              ; preds = %.tail.i
   store i16 16723, ptr %50, align 2
-  call fastcc void @_ZL7dsortr_PKcPiS1_PdS2_(ptr noundef nonnull %50, ptr noundef nonnull %46, ptr noundef nonnull %298, ptr noundef nonnull %190, ptr noundef nonnull %193)
+  call fastcc void @_ZL7dsortr_PKcPiS1_PdS2_(ptr noundef nonnull %50, ptr noundef %46, ptr noundef nonnull %298, ptr noundef nonnull %190, ptr noundef nonnull %193)
   %724 = load i32, ptr %177, align 4
   %725 = icmp sgt i32 %724, 1
   br i1 %725, label %726, label %753
@@ -1522,7 +1522,7 @@ sub_0.i:                                          ; preds = %713, %._crit_edge.i
   br label %.tail16.thread.i
 
 .tail16.thread.i:                                 ; preds = %.tail16.thread.i.sink.split, %.tail8.i, %.tail4.i, %.tail.i, %sub_0.i
-  call fastcc void @_ZL7dsortr_PKcPiS1_PdS2_(ptr noundef nonnull %50, ptr noundef nonnull %46, ptr noundef nonnull %298, ptr noundef nonnull %190, ptr noundef nonnull %193)
+  call fastcc void @_ZL7dsortr_PKcPiS1_PdS2_(ptr noundef nonnull %50, ptr noundef %46, ptr noundef nonnull %298, ptr noundef nonnull %190, ptr noundef nonnull %193)
   br label %753
 
 753:                                              ; preds = %.tail16.thread.i, %726, %723
@@ -1552,7 +1552,7 @@ sub_0.i:                                          ; preds = %713, %._crit_edge.i
 
 ._crit_edge69.i:                                  ; preds = %.lr.ph68.i, %753
   store i16 16716, ptr %50, align 2
-  call fastcc void @_ZL7dsortr_PKcPiS1_PdS2_(ptr noundef nonnull %50, ptr noundef nonnull %46, ptr noundef nonnull %665, ptr noundef nonnull %193, ptr noundef nonnull %190)
+  call fastcc void @_ZL7dsortr_PKcPiS1_PdS2_(ptr noundef nonnull %50, ptr noundef %46, ptr noundef nonnull %665, ptr noundef nonnull %193, ptr noundef nonnull %190)
   %764 = load i32, ptr %665, align 4
   %.not38170.i = icmp slt i32 %764, 1
   br i1 %.not38170.i, label %sub_021.i, label %.lr.ph73.preheader.i
@@ -1594,7 +1594,7 @@ sub_021.i:                                        ; preds = %.lr.ph73.i, %._crit
 
 .tail20.thread.i:                                 ; preds = %778, %.tail20.i, %sub_021.i
   %.sink219.i = phi ptr [ %50, %778 ], [ %3, %sub_021.i ], [ %3, %.tail20.i ]
-  call fastcc void @_ZL7dsortr_PKcPiS1_PdS2_(ptr noundef nonnull %.sink219.i, ptr noundef nonnull %46, ptr noundef nonnull %679, ptr noundef nonnull %190, ptr noundef nonnull %193)
+  call fastcc void @_ZL7dsortr_PKcPiS1_PdS2_(ptr noundef nonnull %.sink219.i, ptr noundef %46, ptr noundef nonnull %679, ptr noundef nonnull %190, ptr noundef nonnull %193)
   %779 = load i32, ptr %2, align 4
   %780 = mul nsw i32 %779, 3
   %781 = sext i32 %780 to i64
@@ -3101,7 +3101,7 @@ _ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.exit:              ; preds = %.loopexit.i, %289
 
 .loopexit730:                                     ; preds = %.lr.ph, %.lr.ph749, %.lr.ph755, %340, %331, %323, %339
   call void @dcopy_(ptr noundef nonnull %33, ptr noundef nonnull %320, ptr noundef nonnull %25, ptr noundef %3, ptr noundef nonnull %25)
-  call fastcc void @_ZL7dsortr_PKcPiS1_PdS2_(ptr noundef nonnull @.str.2, ptr noundef nonnull %25, ptr noundef nonnull %33, ptr noundef nonnull %320, ptr noundef nonnull %322)
+  call fastcc void @_ZL7dsortr_PKcPiS1_PdS2_(ptr noundef nonnull @.str.2, ptr noundef %25, ptr noundef nonnull %33, ptr noundef nonnull %320, ptr noundef nonnull %322)
   %349 = load i32, ptr %0, align 4
   %.not573 = icmp eq i32 %349, 0
   br i1 %.not573, label %374, label %350
@@ -3186,7 +3186,7 @@ _ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.exit631:           ; preds = %.loopexit.i617, %35
   %379 = fdiv double %126, %121
   store double %379, ptr %28, align 8
   call void @dscal_(ptr noundef nonnull %13, ptr noundef nonnull %28, ptr noundef nonnull %378, ptr noundef nonnull %25)
-  call fastcc void @_ZL7dsortr_PKcPiS1_PdS2_(ptr noundef nonnull @.str.2, ptr noundef nonnull %25, ptr noundef nonnull %33, ptr noundef %3, ptr noundef nonnull %378)
+  call fastcc void @_ZL7dsortr_PKcPiS1_PdS2_(ptr noundef nonnull @.str.2, ptr noundef %25, ptr noundef nonnull %33, ptr noundef %3, ptr noundef nonnull %378)
   br label %380
 
 380:                                              ; preds = %_ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.exit631, %374, %_ZL7dsesrt_PKcPiS1_PdS1_S2_S1_.exit, %313
@@ -3511,7 +3511,7 @@ declare void @dcopy_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare void @dsteqr_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL7dsortr_PKcPiS1_PdS2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #2 {
+define internal fastcc void @_ZL7dsortr_PKcPiS1_PdS2_(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #2 {
 sub_0:
   %5 = load i32, ptr %2, align 4
   %6 = sdiv i32 %5, 2
@@ -5246,7 +5246,7 @@ sub_0.i:                                          ; preds = %727, %._crit_edge.i
 
 737:                                              ; preds = %.tail.i
   store i16 16723, ptr %50, align 2
-  call fastcc void @_ZL7ssortr_PKcPiS1_PfS2_(ptr noundef nonnull %50, ptr noundef nonnull %46, ptr noundef nonnull %298, ptr noundef nonnull %190, ptr noundef nonnull %193)
+  call fastcc void @_ZL7ssortr_PKcPiS1_PfS2_(ptr noundef nonnull %50, ptr noundef %46, ptr noundef nonnull %298, ptr noundef nonnull %190, ptr noundef nonnull %193)
   %738 = load i32, ptr %177, align 4
   %739 = icmp sgt i32 %738, 1
   br i1 %739, label %740, label %767
@@ -5310,7 +5310,7 @@ sub_0.i:                                          ; preds = %727, %._crit_edge.i
   br label %.tail16.thread.i
 
 .tail16.thread.i:                                 ; preds = %.tail16.thread.i.sink.split, %.tail8.i, %.tail4.i, %.tail.i, %sub_0.i
-  call fastcc void @_ZL7ssortr_PKcPiS1_PfS2_(ptr noundef nonnull %50, ptr noundef nonnull %46, ptr noundef nonnull %298, ptr noundef nonnull %190, ptr noundef nonnull %193)
+  call fastcc void @_ZL7ssortr_PKcPiS1_PfS2_(ptr noundef nonnull %50, ptr noundef %46, ptr noundef nonnull %298, ptr noundef nonnull %190, ptr noundef nonnull %193)
   br label %767
 
 767:                                              ; preds = %.tail16.thread.i, %740, %737
@@ -5340,7 +5340,7 @@ sub_0.i:                                          ; preds = %727, %._crit_edge.i
 
 ._crit_edge69.i:                                  ; preds = %.lr.ph68.i, %767
   store i16 16716, ptr %50, align 2
-  call fastcc void @_ZL7ssortr_PKcPiS1_PfS2_(ptr noundef nonnull %50, ptr noundef nonnull %46, ptr noundef nonnull %679, ptr noundef nonnull %193, ptr noundef nonnull %190)
+  call fastcc void @_ZL7ssortr_PKcPiS1_PfS2_(ptr noundef nonnull %50, ptr noundef %46, ptr noundef nonnull %679, ptr noundef nonnull %193, ptr noundef nonnull %190)
   %778 = load i32, ptr %679, align 4
   %.not38170.i = icmp slt i32 %778, 1
   br i1 %.not38170.i, label %sub_021.i, label %.lr.ph73.preheader.i
@@ -5382,7 +5382,7 @@ sub_021.i:                                        ; preds = %.lr.ph73.i, %._crit
 
 .tail20.thread.i:                                 ; preds = %792, %.tail20.i, %sub_021.i
   %.sink219.i = phi ptr [ %50, %792 ], [ %3, %sub_021.i ], [ %3, %.tail20.i ]
-  call fastcc void @_ZL7ssortr_PKcPiS1_PfS2_(ptr noundef nonnull %.sink219.i, ptr noundef nonnull %46, ptr noundef nonnull %693, ptr noundef nonnull %190, ptr noundef nonnull %193)
+  call fastcc void @_ZL7ssortr_PKcPiS1_PfS2_(ptr noundef nonnull %.sink219.i, ptr noundef %46, ptr noundef nonnull %693, ptr noundef nonnull %190, ptr noundef nonnull %193)
   %793 = load i32, ptr %2, align 4
   %794 = mul nsw i32 %793, 3
   %795 = sext i32 %794 to i64
@@ -6898,7 +6898,7 @@ _ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.exit:              ; preds = %.loopexit.i, %289
 
 .loopexit728:                                     ; preds = %.lr.ph, %.lr.ph747, %.lr.ph753, %346, %334, %323, %345
   call void @scopy_(ptr noundef nonnull %33, ptr noundef nonnull %320, ptr noundef nonnull %25, ptr noundef %3, ptr noundef nonnull %25)
-  call fastcc void @_ZL7ssortr_PKcPiS1_PfS2_(ptr noundef nonnull @.str.2, ptr noundef nonnull %25, ptr noundef nonnull %33, ptr noundef nonnull %320, ptr noundef nonnull %322)
+  call fastcc void @_ZL7ssortr_PKcPiS1_PfS2_(ptr noundef nonnull @.str.2, ptr noundef %25, ptr noundef nonnull %33, ptr noundef nonnull %320, ptr noundef nonnull %322)
   %358 = load i32, ptr %0, align 4
   %.not573 = icmp eq i32 %358, 0
   br i1 %.not573, label %383, label %359
@@ -6983,7 +6983,7 @@ _ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.exit631:           ; preds = %.loopexit.i617, %35
   %388 = fdiv float %126, %121
   store float %388, ptr %28, align 4
   call void @sscal_(ptr noundef nonnull %13, ptr noundef nonnull %28, ptr noundef nonnull %387, ptr noundef nonnull %25)
-  call fastcc void @_ZL7ssortr_PKcPiS1_PfS2_(ptr noundef nonnull @.str.2, ptr noundef nonnull %25, ptr noundef nonnull %33, ptr noundef %3, ptr noundef nonnull %387)
+  call fastcc void @_ZL7ssortr_PKcPiS1_PfS2_(ptr noundef nonnull @.str.2, ptr noundef %25, ptr noundef nonnull %33, ptr noundef %3, ptr noundef nonnull %387)
   br label %389
 
 389:                                              ; preds = %_ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.exit631, %383, %_ZL7ssesrt_PKcPiS1_PfS1_S2_S1_.exit, %313
@@ -7318,7 +7318,7 @@ declare void @scopy_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare void @ssteqr_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL7ssortr_PKcPiS1_PfS2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #2 {
+define internal fastcc void @_ZL7ssortr_PKcPiS1_PfS2_(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #2 {
 sub_0:
   %5 = load i32, ptr %2, align 4
   %6 = sdiv i32 %5, 2
@@ -8543,7 +8543,7 @@ sub_0:
   %17 = load i32, ptr %3, align 4
   %18 = add nsw i32 %17, %16
   store i32 %18, ptr %8, align 4
-  call fastcc void @_ZL7dsortr_PKcPiS1_PdS2_(ptr noundef nonnull @.str.2, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %4, ptr noundef %5)
+  call fastcc void @_ZL7dsortr_PKcPiS1_PdS2_(ptr noundef nonnull @.str.2, ptr noundef %7, ptr noundef nonnull %8, ptr noundef %4, ptr noundef %5)
   %19 = load i32, ptr %2, align 4
   %20 = icmp sgt i32 %19, 1
   br i1 %20, label %21, label %37
@@ -8573,7 +8573,7 @@ sub_0:
   %35 = load i32, ptr %3, align 4
   %36 = add nsw i32 %35, %34
   store i32 %36, ptr %8, align 4
-  call fastcc void @_ZL7dsortr_PKcPiS1_PdS2_(ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %4, ptr noundef %5)
+  call fastcc void @_ZL7dsortr_PKcPiS1_PdS2_(ptr noundef nonnull %1, ptr noundef %7, ptr noundef nonnull %8, ptr noundef %4, ptr noundef %5)
   br label %37
 
 37:                                               ; preds = %15, %21, %.tail.thread
@@ -8587,7 +8587,7 @@ sub_0:
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %40
-  call fastcc void @_ZL7dsortr_PKcPiS1_PdS2_(ptr noundef nonnull @.str.1, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %4)
+  call fastcc void @_ZL7dsortr_PKcPiS1_PdS2_(ptr noundef nonnull @.str.1, ptr noundef %7, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %4)
   call void @dcopy_(ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %7, ptr noundef %6, ptr noundef nonnull %7)
   br label %44
 
@@ -9562,7 +9562,7 @@ sub_0:
   %17 = load i32, ptr %3, align 4
   %18 = add nsw i32 %17, %16
   store i32 %18, ptr %8, align 4
-  call fastcc void @_ZL7ssortr_PKcPiS1_PfS2_(ptr noundef nonnull @.str.2, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %4, ptr noundef %5)
+  call fastcc void @_ZL7ssortr_PKcPiS1_PfS2_(ptr noundef nonnull @.str.2, ptr noundef %7, ptr noundef nonnull %8, ptr noundef %4, ptr noundef %5)
   %19 = load i32, ptr %2, align 4
   %20 = icmp sgt i32 %19, 1
   br i1 %20, label %21, label %37
@@ -9592,7 +9592,7 @@ sub_0:
   %35 = load i32, ptr %3, align 4
   %36 = add nsw i32 %35, %34
   store i32 %36, ptr %8, align 4
-  call fastcc void @_ZL7ssortr_PKcPiS1_PfS2_(ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %4, ptr noundef %5)
+  call fastcc void @_ZL7ssortr_PKcPiS1_PfS2_(ptr noundef nonnull %1, ptr noundef %7, ptr noundef nonnull %8, ptr noundef %4, ptr noundef %5)
   br label %37
 
 37:                                               ; preds = %15, %21, %.tail.thread
@@ -9606,7 +9606,7 @@ sub_0:
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %40
-  call fastcc void @_ZL7ssortr_PKcPiS1_PfS2_(ptr noundef nonnull @.str.1, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %4)
+  call fastcc void @_ZL7ssortr_PKcPiS1_PfS2_(ptr noundef nonnull @.str.1, ptr noundef %7, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %4)
   call void @scopy_(ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %7, ptr noundef %6, ptr noundef nonnull %7)
   br label %44
 

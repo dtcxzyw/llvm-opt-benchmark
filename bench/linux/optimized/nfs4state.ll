@@ -1302,7 +1302,7 @@ define dso_local void @nfs4_close_state(ptr noundef %0, i32 noundef %1) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__nfs4_close(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @__nfs4_close(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 68
@@ -5025,7 +5025,7 @@ declare i64 @llvm.read_register.i64(metadata) #14
 declare void @llvm.write_register.i64(metadata, i64) #15
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -2147483648, 1) i32 @nfs4_handle_reclaim_lease_error(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -2147483648, 1) i32 @nfs4_handle_reclaim_lease_error(ptr noundef %0, i32 noundef range(i32 -2147483648, 0) %1) unnamed_addr #0 align 16 {
   switch i32 %1, label %75 [
     i32 -10063, label %3
     i32 -10022, label %9
@@ -5536,7 +5536,7 @@ nfs4_state_mark_reclaim_helper.exit8:             ; preds = %.loopexit10.i7, %54
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nfs4_try_migration(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @nfs4_try_migration(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @alloc_pages(i32 noundef 3264, i32 noundef 0) #17
   %5 = tail call noalias align 4096 dereferenceable_or_null(91904) ptr @kmalloc_large(i64 noundef 91904, i32 noundef 3264) #22
@@ -5559,7 +5559,7 @@ define internal fastcc i32 @nfs4_try_migration(ptr noundef %0, ptr noundef %1) u
   %17 = getelementptr inbounds i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr i8, ptr %18, i64 -424
-  %20 = tail call i32 @nfs4_proc_get_locations(ptr noundef %0, ptr noundef %19, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef %1) #17
+  %20 = tail call i32 @nfs4_proc_get_locations(ptr noundef %0, ptr noundef %19, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %1) #17
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %.thread
 

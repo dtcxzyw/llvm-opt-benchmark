@@ -471,7 +471,7 @@ if.then35:                                        ; preds = %if.end32
 
 if.end37:                                         ; preds = %if.end32
   %9 = load ptr, ptr %argv, align 8
-  %call38 = call fastcc ptr @get_repo_path(ptr noundef %9, ptr noundef nonnull %is_bundle)
+  %call38 = call fastcc ptr @get_repo_path(ptr noundef %9, ptr noundef %is_bundle)
   %tobool39.not = icmp eq ptr %call38, null
   br i1 %tobool39.not, label %if.else, label %do.body
 
@@ -973,7 +973,7 @@ if.end239:                                        ; preds = %if.end234, %if.then
   %url = getelementptr inbounds i8, ptr %call240, i64 40
   %70 = load ptr, ptr %url, align 8
   %71 = load ptr, ptr %70, align 8
-  %call243 = call fastcc ptr @get_repo_path(ptr noundef %71, ptr noundef nonnull %is_bundle)
+  %call243 = call fastcc ptr @get_repo_path(ptr noundef %71, ptr noundef %is_bundle)
   %72 = load i32, ptr @option_local, align 4
   %cmp244 = icmp ne i32 %72, 0
   %tobool246 = icmp ne ptr %call243, null
@@ -2182,7 +2182,7 @@ if.then79.i.i:                                    ; preds = %if.end74.i.i
   unreachable
 
 if.then85.i.i:                                    ; preds = %while.cond.i.i
-  call fastcc void @strbuf_setlen(ptr noundef nonnull %src.i, i64 noundef %conv22.i.i)
+  call fastcc void @strbuf_setlen(ptr noundef %src.i, i64 noundef %conv22.i.i)
   %call87.i.i = call fastcc ptr @_(ptr noundef nonnull @.str.194)
   %228 = load ptr, ptr %buf1.i.i, align 8
   call void (ptr, ...) @die(ptr noundef %call87.i.i, ptr noundef %228) #18
@@ -2342,8 +2342,8 @@ write_remote_refs.exit.i:                         ; preds = %for.end.i.i
   br i1 %or.cond.i311, label %if.end13.i, label %for.body.i7.i
 
 for.body.i7.i:                                    ; preds = %write_remote_refs.exit.i, %for.inc.i12.i
-  %ref.010.i.i = phi ptr [ %247, %for.inc.i12.i ], [ %call367, %write_remote_refs.exit.i ]
-  %name.i8.i = getelementptr inbounds i8, ptr %ref.010.i.i, i64 176
+  %ref.09.i.i = phi ptr [ %247, %for.inc.i12.i ], [ %call367, %write_remote_refs.exit.i ]
+  %name.i8.i = getelementptr inbounds i8, ptr %ref.09.i.i, i64 176
   %call.i9.i = call i32 @starts_with(ptr noundef nonnull %name.i8.i, ptr noundef nonnull @.str.64) #17
   %tobool1.not.i10.i = icmp eq i32 %call.i9.i, 0
   br i1 %tobool1.not.i10.i, label %for.inc.i12.i, label %if.end.i.i312
@@ -2362,7 +2362,7 @@ ends_with.exit.i.i:                               ; preds = %if.end.i.i312
 
 if.end7.i.i:                                      ; preds = %ends_with.exit.i.i, %if.end.i.i312
   %246 = load ptr, ptr @the_repository, align 8
-  %old_oid.i11.i = getelementptr inbounds i8, ptr %ref.010.i.i, i64 8
+  %old_oid.i11.i = getelementptr inbounds i8, ptr %ref.09.i.i, i64 8
   %call8.i.i = call i32 @repo_has_object_file_with_flags(ptr noundef %246, ptr noundef nonnull %old_oid.i11.i, i32 noundef 24) #17
   %tobool9.not.i.i = icmp eq i32 %call8.i.i, 0
   br i1 %tobool9.not.i.i, label %for.inc.i12.i, label %if.end11.i.i
@@ -2372,7 +2372,7 @@ if.end11.i.i:                                     ; preds = %if.end7.i.i
   br label %for.inc.i12.i
 
 for.inc.i12.i:                                    ; preds = %if.end11.i.i, %if.end7.i.i, %ends_with.exit.i.i, %for.body.i7.i
-  %247 = load ptr, ptr %ref.010.i.i, align 8
+  %247 = load ptr, ptr %ref.09.i.i, align 8
   %tobool.not.i13.i = icmp eq ptr %247, null
   br i1 %tobool.not.i13.i, label %if.end13.i, label %for.body.i7.i, !llvm.loop !14
 
@@ -2948,7 +2948,7 @@ declare i32 @ref_storage_format_by_name(ptr noundef) local_unnamed_addr #2
 declare void @die(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_repo_path(ptr noundef %repo, ptr nocapture noundef writeonly %is_bundle) unnamed_addr #0 {
+define internal fastcc ptr @get_repo_path(ptr noundef %repo, ptr nocapture noundef nonnull writeonly %is_bundle) unnamed_addr #0 {
 entry:
   %st.i = alloca %struct.stat, align 8
   %signature.i = alloca [8 x i8], align 1
@@ -3256,7 +3256,7 @@ declare i32 @valid_remote_name(ptr noundef) local_unnamed_addr #2
 declare void @git_config_set(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @strbuf_setlen(ptr nocapture noundef %sb, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc void @strbuf_setlen(ptr nocapture noundef nonnull %sb, i64 noundef %len) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %sb, align 8
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 1)

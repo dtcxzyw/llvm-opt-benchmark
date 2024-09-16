@@ -362,7 +362,7 @@ getBytes.exit139:                                 ; preds = %73
   %143 = zext i1 %142 to i32
   %144 = getelementptr inbounds i8, ptr %26, i64 92
   store i32 %143, ptr %144, align 4
-  %145 = call fastcc i32 @startChild(ptr noundef nonnull %0, ptr noundef nonnull %26, ptr noundef nonnull %35)
+  %145 = call fastcc i32 @startChild(ptr noundef nonnull %0, ptr noundef %26, ptr noundef %35)
   %146 = icmp slt i32 %145, 0
   br i1 %146, label %147, label %155
 
@@ -631,7 +631,7 @@ xmalloc.exit:                                     ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @startChild(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @startChild(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca [36 x i8], align 16
@@ -646,7 +646,7 @@ define internal fastcc i32 @startChild(ptr noundef %0, ptr noundef %1, ptr nound
   ]
 
 11:                                               ; preds = %3
-  %12 = tail call fastcc i32 @vforkChild(ptr noundef nonnull %1)
+  %12 = tail call fastcc i32 @vforkChild(ptr noundef %1)
   br label %forkChild.exit
 
 13:                                               ; preds = %3
@@ -857,7 +857,7 @@ arraysize.exit89.i:                               ; preds = %._crit_edge.i86.i, 
 
 102:                                              ; preds = %101
   %103 = load ptr, ptr @environ, align 8
-  %104 = call i32 @posix_spawn(ptr noundef nonnull %4, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef %103) #13
+  %104 = call i32 @posix_spawn(ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef %103) #13
   %.not.i = icmp eq i32 %104, 0
   br i1 %.not.i, label %105, label %spawnChild.exit
 
@@ -1127,7 +1127,7 @@ declare ptr @JNU_NewStringPlatform(ptr noundef, ptr noundef) local_unnamed_addr 
 declare ptr @JNU_NewObjectByName(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @vforkChild(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @vforkChild(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = call i32 @vfork() #17
   store volatile i32 %3, ptr %2, align 4
@@ -1136,7 +1136,7 @@ define internal fastcc i32 @vforkChild(ptr noundef %0) unnamed_addr #0 {
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = call i32 @childProcess(ptr noundef %0) #13
+  %6 = call i32 @childProcess(ptr noundef nonnull %0) #13
   br label %7
 
 7:                                                ; preds = %5, %1

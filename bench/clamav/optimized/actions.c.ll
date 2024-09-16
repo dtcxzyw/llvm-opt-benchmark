@@ -133,7 +133,7 @@ define internal void @action_move(ptr noundef %0) #0 {
   br i1 %5, label %.thread29, label %6
 
 6:                                                ; preds = %1
-  %7 = call fastcc i32 @getdest(ptr noundef nonnull %0, ptr noundef nonnull %4)
+  %7 = call fastcc i32 @getdest(ptr noundef nonnull %0, ptr noundef %4)
   %8 = icmp slt i32 %7, 0
   %.pre = load ptr, ptr %4, align 8
   br i1 %8, label %37, label %9
@@ -153,7 +153,7 @@ traverse_rename.exit.thread:                      ; preds = %9
   br label %35
 
 12:                                               ; preds = %9
-  %13 = call fastcc i32 @traverse_to(ptr noundef nonnull %0, ptr noundef nonnull %2)
+  %13 = call fastcc i32 @traverse_to(ptr noundef %0, ptr noundef %2)
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %16, label %14
 
@@ -223,11 +223,11 @@ traverse_rename.exit:                             ; preds = %32, %33
   br i1 %.not21, label %51, label %41
 
 41:                                               ; preds = %37
-  %42 = call fastcc i32 @traverse_unlink(ptr noundef nonnull %.pre)
+  %42 = call fastcc i32 @traverse_unlink(ptr noundef %.pre)
   br label %51
 
 43:                                               ; preds = %35
-  %44 = call fastcc i32 @traverse_unlink(ptr noundef nonnull %0)
+  %44 = call fastcc i32 @traverse_unlink(ptr noundef %0)
   %.not20 = icmp eq i32 %44, 0
   br i1 %.not20, label %.critedge, label %45
 
@@ -265,7 +265,7 @@ traverse_rename.exit:                             ; preds = %32, %33
 ; Function Attrs: nounwind uwtable
 define internal void @action_copy(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  %3 = call fastcc i32 @getdest(ptr noundef %0, ptr noundef nonnull %2)
+  %3 = call fastcc i32 @getdest(ptr noundef %0, ptr noundef %2)
   %4 = icmp slt i32 %3, 0
   %.pr = load ptr, ptr %2, align 8
   br i1 %4, label %thread-pre-split, label %5
@@ -284,7 +284,7 @@ thread-pre-split:                                 ; preds = %1, %5
   br i1 %.not8, label %13, label %10
 
 10:                                               ; preds = %thread-pre-split
-  %11 = tail call fastcc i32 @traverse_unlink(ptr noundef nonnull %.pr)
+  %11 = tail call fastcc i32 @traverse_unlink(ptr noundef %.pr)
   br label %13
 
 .thread:                                          ; preds = %5
@@ -320,7 +320,7 @@ define internal void @action_remove(ptr noundef %0) #0 {
   br i1 %2, label %11, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call fastcc i32 @traverse_unlink(ptr noundef nonnull %0)
+  %4 = tail call fastcc i32 @traverse_unlink(ptr noundef %0)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %5
 
@@ -343,7 +343,7 @@ define internal void @action_remove(ptr noundef %0) #0 {
 declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @getdest(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @getdest(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = tail call noalias ptr @strdup(ptr noundef %0) #11
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
@@ -413,12 +413,12 @@ define internal fastcc range(i32 -1, -2147483648) i32 @getdest(ptr nocapture nou
 declare i32 @filecopy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @traverse_unlink(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @traverse_unlink(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   store i32 -1, ptr %2, align 4
   store ptr null, ptr %3, align 8
-  %4 = call fastcc i32 @traverse_to(ptr noundef %0, ptr noundef nonnull %2)
+  %4 = call fastcc i32 @traverse_to(ptr noundef %0, ptr noundef %2)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
@@ -428,12 +428,12 @@ define internal fastcc range(i32 -1, 1) i32 @traverse_unlink(ptr noundef %0) unn
 
 7:                                                ; preds = %1
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
-  %9 = call i32 @cli_basename(ptr noundef %0, i64 noundef %8, ptr noundef nonnull %3) #11
+  %9 = call i32 @cli_basename(ptr noundef nonnull %0, i64 noundef %8, ptr noundef nonnull %3) #11
   %.not12 = icmp eq i32 %9, 0
   br i1 %.not12, label %12, label %10
 
 10:                                               ; preds = %7
-  %11 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.23, ptr noundef %0, i32 noundef %9) #11
+  %11 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.23, ptr noundef nonnull %0, i32 noundef %9) #11
   br label %21
 
 12:                                               ; preds = %7
@@ -447,7 +447,7 @@ define internal fastcc range(i32 -1, 1) i32 @traverse_unlink(ptr noundef %0) unn
   %17 = tail call ptr @__errno_location() #13
   %18 = load i32, ptr %17, align 4
   %19 = call ptr @strerror(i32 noundef %18) #11
-  %20 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.24, ptr noundef %0, ptr noundef %19) #11
+  %20 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.24, ptr noundef nonnull %0, ptr noundef %19) #11
   br label %21
 
 21:                                               ; preds = %12, %16, %10, %5
@@ -500,9 +500,9 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @traverse_to(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @traverse_to(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = alloca [2048 x ptr], align 16
-  %4 = tail call noalias ptr @strdup(ptr noundef %0) #11
+  %4 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #11
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread.thread55, label %7
 

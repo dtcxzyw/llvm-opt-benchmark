@@ -243,7 +243,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_asf_payloads(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_asf_payloads(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 12, 21) %3, i32 noundef range(i32 -11, 252) %4) unnamed_addr #0 {
   %6 = icmp sgt i32 %4, 3
   br i1 %6, label %.lr.ph, label %.loopexit
 

@@ -1618,7 +1618,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2d
   br i1 %185, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2dEEEEEbv.exit.thread48, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2dEEEEEbv.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2dEEEEEbv.exit.thread48: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIdEEEEbv.exit.thread.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2dEEEEEbv.exit
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_7GfVec2dENS_7GfVec2fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %12, ptr noundef nonnull %17)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_7GfVec2dENS_7GfVec2fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %12, ptr noundef %17)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2dEEEEEbv.exit.thread: ; preds = %121, %183, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIdEEEEbv.exit.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2dEEEEEbv.exit
@@ -1626,7 +1626,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2d
   br i1 %186, label %187, label %188
 
 187:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2dEEEEEbv.exit.thread
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_7GfVec3dENS_7GfVec3fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %12, ptr noundef nonnull %17)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_7GfVec3dENS_7GfVec3fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %12, ptr noundef %17)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
 
 188:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2dEEEEEbv.exit.thread
@@ -1634,7 +1634,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2d
   br i1 %189, label %190, label %191
 
 190:                                              ; preds = %188
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_7GfVec4dENS_7GfVec4fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %12, ptr noundef nonnull %17)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_7GfVec4dENS_7GfVec4fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %12, ptr noundef %17)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
 
 191:                                              ; preds = %188
@@ -1642,7 +1642,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2d
   br i1 %192, label %193, label %194
 
 193:                                              ; preds = %191
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_10GfMatrix2dENS_10GfMatrix2fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %12, ptr noundef nonnull %17)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_10GfMatrix2dENS_10GfMatrix2fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %12, ptr noundef %17)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
 
 194:                                              ; preds = %191
@@ -1650,7 +1650,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2d
   br i1 %195, label %196, label %197
 
 196:                                              ; preds = %194
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_10GfMatrix3dENS_10GfMatrix3fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %12, ptr noundef nonnull %17)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_10GfMatrix3dENS_10GfMatrix3fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %12, ptr noundef %17)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
 
 197:                                              ; preds = %194
@@ -1658,7 +1658,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2d
   br i1 %198, label %199, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
 
 199:                                              ; preds = %197
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_10GfMatrix4dENS_10GfMatrix4fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %12, ptr noundef nonnull %17)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_10GfMatrix4dENS_10GfMatrix4fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %12, ptr noundef %17)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
 
 200:                                              ; preds = %117
@@ -1772,7 +1772,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit: 
   br i1 %246, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.thread50, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.thread50: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_7GfVec2dENS_7GfVec2fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %12, ptr noundef nonnull %17)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_7GfVec2dENS_7GfVec2fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %12, ptr noundef %17)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.thread: ; preds = %200, %244, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit
@@ -1780,7 +1780,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.t
   br i1 %247, label %248, label %249
 
 248:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.thread
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_7GfVec3dENS_7GfVec3fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %12, ptr noundef nonnull %17)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_7GfVec3dENS_7GfVec3fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %12, ptr noundef %17)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
 
 249:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.thread
@@ -1788,7 +1788,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.t
   br i1 %250, label %251, label %252
 
 251:                                              ; preds = %249
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_7GfVec4dENS_7GfVec4fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %12, ptr noundef nonnull %17)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_7GfVec4dENS_7GfVec4fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %12, ptr noundef %17)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
 
 252:                                              ; preds = %249
@@ -1796,7 +1796,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.t
   br i1 %253, label %254, label %255
 
 254:                                              ; preds = %252
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_10GfMatrix2dENS_10GfMatrix2fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %12, ptr noundef nonnull %17)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_10GfMatrix2dENS_10GfMatrix2fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %12, ptr noundef %17)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
 
 255:                                              ; preds = %252
@@ -1804,7 +1804,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.t
   br i1 %256, label %257, label %258
 
 257:                                              ; preds = %255
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_10GfMatrix3dENS_10GfMatrix3fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %12, ptr noundef nonnull %17)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_10GfMatrix3dENS_10GfMatrix3fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %12, ptr noundef %17)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
 
 258:                                              ; preds = %255
@@ -1812,7 +1812,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.t
   br i1 %259, label %260, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
 
 260:                                              ; preds = %258
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_10GfMatrix4dENS_10GfMatrix4fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %12, ptr noundef nonnull %17)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_10GfMatrix4dENS_10GfMatrix4fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %12, ptr noundef %17)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %55, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit27, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_7GfVec2dEEEEEbv.exit.thread48, %190, %196, %199, %197, %193, %187, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayIdfEEvPNS_7VtValueEPNS_11HdTupleTypeE.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2dEEEbv.exit.thread50, %251, %257, %260, %258, %254, %248, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatIdfEEvPNS_7VtValueEPNS_11HdTupleTypeE.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIbEEEEbv.exit.thread
@@ -1883,7 +1883,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiED1Ev(ptr noundef n
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbED1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_7GfVec2dENS_7GfVec2fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_7GfVec2dENS_7GfVec2fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.25", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2054,7 +2054,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_7VtArrayINS_7GfVec3dEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_7GfVec3dENS_7GfVec3fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_7GfVec3dENS_7GfVec3fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.35", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2230,7 +2230,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_7VtArrayINS_7GfVec4dEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_7GfVec4dENS_7GfVec4fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_7GfVec4dENS_7GfVec4fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.45", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2411,7 +2411,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_7VtArrayINS_10GfMatrix
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_10GfMatrix2dENS_10GfMatrix2fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_10GfMatrix2dENS_10GfMatrix2fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.55", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2f", align 4
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
@@ -2580,7 +2580,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_7VtArrayINS_10GfMatrix
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_10GfMatrix3dENS_10GfMatrix3fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_10GfMatrix3dENS_10GfMatrix3fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.67", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", align 4
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
@@ -2749,7 +2749,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_7VtArrayINS_10GfMatrix
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_10GfMatrix4dENS_10GfMatrix4fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConvertDoubleToFloatArrayINS_10GfMatrix4dENS_10GfMatrix4fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.78", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", align 4
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
@@ -2888,7 +2888,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %_ZN32pxrInter
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_7GfVec2dENS_7GfVec2fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_7GfVec2dENS_7GfVec2fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -2997,7 +2997,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_7GfVec3dEEEbv.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_7GfVec3dENS_7GfVec3fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_7GfVec3dENS_7GfVec3fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -3116,7 +3116,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_7GfVec4dEEEbv.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_7GfVec4dENS_7GfVec4fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_7GfVec4dENS_7GfVec4fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -3240,7 +3240,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_10GfMatrix2dEEEbv.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_10GfMatrix2dENS_10GfMatrix2fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_10GfMatrix2dENS_10GfMatrix2fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2f", align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3349,7 +3349,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_10GfMatrix3dEEEbv.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_10GfMatrix3dENS_10GfMatrix3fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_10GfMatrix3dENS_10GfMatrix3fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3458,7 +3458,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7_TypeIsINS_10GfMatrix4dEEEbv.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_10GfMatrix4dENS_10GfMatrix4fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_ConvertDoubleToFloatINS_10GfMatrix4dENS_10GfMatrix4fEEEvPNS_7VtValueEPNS_11HdTupleTypeE(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

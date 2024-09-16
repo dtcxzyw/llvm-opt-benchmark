@@ -1477,7 +1477,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
   br label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i
 
 _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i
-  invoke fastcc void @_ZN5boost6detail22depth_first_visit_implIN3ue28NGHolderENS2_12_GLOBAL__N_112DetectCyclesENS2_15small_color_mapINS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRKmS8_EEEENS0_9nontruth2EEEvRKT_NS_12graph_traitsISH_E17vertex_descriptorERT0_T1_T2_(ptr %agg.tmp3.sroa.0.0.copyload, i64 %agg.tmp3.sroa.2.0.copyload, ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp6, ptr noundef nonnull %agg.tmp14.i)
+  invoke fastcc void @_ZN5boost6detail22depth_first_visit_implIN3ue28NGHolderENS2_12_GLOBAL__N_112DetectCyclesENS2_15small_color_mapINS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRKmS8_EEEENS0_9nontruth2EEEvRKT_NS_12graph_traitsISH_E17vertex_descriptorERT0_T1_T2_(ptr %agg.tmp3.sroa.0.0.copyload, i64 %agg.tmp3.sroa.2.0.copyload, ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp6, ptr noundef %agg.tmp14.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i
@@ -1615,7 +1615,7 @@ if.else.i.i.i.i.i.i47.i:                          ; preds = %if.then.i.i.i.i42.i
   br label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit48.i
 
 _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit48.i: ; preds = %if.else.i.i.i.i.i.i47.i, %if.then.i.i.i.i.i.i45.i, %if.then29.i
-  invoke fastcc void @_ZN5boost6detail22depth_first_visit_implIN3ue28NGHolderENS2_12_GLOBAL__N_112DetectCyclesENS2_15small_color_mapINS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRKmS8_EEEENS0_9nontruth2EEEvRKT_NS_12graph_traitsISH_E17vertex_descriptorERT0_T1_T2_(ptr nonnull %ui.sroa.0.193.i, i64 %29, ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp6, ptr noundef nonnull %agg.tmp32.i)
+  invoke fastcc void @_ZN5boost6detail22depth_first_visit_implIN3ue28NGHolderENS2_12_GLOBAL__N_112DetectCyclesENS2_15small_color_mapINS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRKmS8_EEEENS0_9nontruth2EEEvRKT_NS_12graph_traitsISH_E17vertex_descriptorERT0_T1_T2_(ptr nonnull %ui.sroa.0.193.i, i64 %29, ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp6, ptr noundef %agg.tmp32.i)
           to label %invoke.cont35.i unwind label %lpad34.i
 
 invoke.cont35.i:                                  ; preds = %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit48.i
@@ -1994,7 +1994,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
   br label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i
 
 _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  invoke fastcc void @_ZN5boost6detail22depth_first_visit_implIN3ue28NGHolderENS2_12_GLOBAL__N_112DetectCyclesENS2_15small_color_mapINS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRKmS8_EEEENS0_9nontruth2EEEvRKT_NS_12graph_traitsISH_E17vertex_descriptorERT0_T1_T2_(ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp15, ptr noundef nonnull %agg.tmp2.i)
+  invoke fastcc void @_ZN5boost6detail22depth_first_visit_implIN3ue28NGHolderENS2_12_GLOBAL__N_112DetectCyclesENS2_15small_color_mapINS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRKmS8_EEEENS0_9nontruth2EEEvRKT_NS_12graph_traitsISH_E17vertex_descriptorERT0_T1_T2_(ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp15, ptr noundef %agg.tmp2.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i
@@ -11152,7 +11152,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost6detail22depth_first_visit_implIN3ue28NGHolderENS2_12_GLOBAL__N_112DetectCyclesENS2_15small_color_mapINS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRKmS8_EEEENS0_9nontruth2EEEvRKT_NS_12graph_traitsISH_E17vertex_descriptorERT0_T1_T2_(ptr %u.coerce0, i64 %u.coerce1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vis, ptr nocapture noundef readonly %color) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost6detail22depth_first_visit_implIN3ue28NGHolderENS2_12_GLOBAL__N_112DetectCyclesENS2_15small_color_mapINS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRKmS8_EEEENS0_9nontruth2EEEvRKT_NS_12graph_traitsISH_E17vertex_descriptorERT0_T1_T2_(ptr %u.coerce0, i64 %u.coerce1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vis, ptr nocapture noundef nonnull readonly %color) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 if.else.i.i90:
   %stack = alloca %"class.std::vector.271", align 8
   %ref.tmp26 = alloca %"struct.std::pair.276", align 8

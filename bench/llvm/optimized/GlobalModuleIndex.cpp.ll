@@ -9676,7 +9676,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIKccEEvPT_S5_PT0_PNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL12emitRecordIDjPKcRN4llvm15BitstreamWriterERNS1_15SmallVectorImplImEE(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL12emitRecordIDjPKcRN4llvm15BitstreamWriterERNS1_15SmallVectorImplImEE(i32 noundef range(i32 0, 3) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 {
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #25
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %6, align 8
@@ -11884,7 +11884,7 @@ declare void @_ZN4llvm22report_bad_alloc_errorEPKcb(ptr noundef, i1 noundef zero
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN12_GLOBAL__N_126IdentifierIndexWriterTraitEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm31OnDiskChainedHashTableGeneratorIN12_GLOBAL__N_126IdentifierIndexWriterTraitEE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 16) #33
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN4llvm11safe_callocEmm.exit
@@ -11914,7 +11914,7 @@ _ZN4llvm11safe_callocEmm.exit:                    ; preds = %2, %7
 
 .lr.ph17:                                         ; preds = %_ZN4llvm11safe_callocEmm.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %14 = add i64 %1, 4294967295
+  %14 = add nuw nsw i64 %1, 4294967295
   br label %15
 
 15:                                               ; preds = %.lr.ph17, %._crit_edge

@@ -1633,7 +1633,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare void @_ZNK5Yosys5RTLIL6Design16selected_modulesEv(ptr dead_on_unwind writable sret(%"class.std::vector.13") align 8, ptr noundef nonnull align 8 dereferenceable(376)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117EquivStructWorkerC2EPN5Yosys5RTLIL6ModuleEbbRKNS1_7hashlib4poolINS2_8IdStringENS5_8hash_opsIS7_EEEEi(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(49) %4, i32 noundef %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_117EquivStructWorkerC2EPN5Yosys5RTLIL6ModuleEbbRKNS1_7hashlib4poolINS2_8IdStringENS5_8hash_opsIS7_EEEEi(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(49) %4, i32 noundef range(i32 -2147483647, -2147483648) %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca [75 x i32], align 4
   %8 = alloca %"class.std::allocator.5", align 1
   %9 = alloca [75 x i32], align 4
@@ -7141,7 +7141,7 @@ _ZSteqISt4pairIN5Yosys5RTLIL8IdStringENS2_5ConstEESaIS5_EEbRKSt6vectorIT_T0_ESC_
   br i1 %2473, label %.lr.ph.i976, label %.thread, !llvm.loop !76
 
 .loopexit3212:                                    ; preds = %2458, %2468
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS0_8hash_opsIS4_EEE6insertERKS4_(ptr dead_on_unwind noalias nonnull writable align 8 %101, ptr noundef nonnull align 8 dereferenceable(49) %128, ptr noundef nonnull align 8 dereferenceable(80) %93)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS0_8hash_opsIS4_EEE6insertERKS4_(ptr dead_on_unwind noalias writable align 8 %101, ptr noundef nonnull align 8 dereferenceable(49) %128, ptr noundef nonnull align 8 dereferenceable(80) %93)
           to label %.thread unwind label %.loopexit.split-lp3215.loopexit.split-lp.loopexit
 
 .loopexit3240:                                    ; preds = %1626, %1718
@@ -8270,7 +8270,7 @@ _ZNK5Yosys7hashlib4dictIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS0_4poo
   br i1 %2962, label %2964, label %2963
 
 2963:                                             ; preds = %2961
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS0_8hash_opsIS4_EEE6insertERKS4_(ptr dead_on_unwind noalias nonnull writable align 8 %102, ptr noundef nonnull align 8 dereferenceable(49) %127, ptr noundef nonnull align 8 dereferenceable(80) %93)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS0_8hash_opsIS4_EEE6insertERKS4_(ptr dead_on_unwind noalias writable align 8 %102, ptr noundef nonnull align 8 dereferenceable(49) %127, ptr noundef nonnull align 8 dereferenceable(80) %93)
           to label %2964 unwind label %.loopexit.split-lp3266.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 2964:                                             ; preds = %2963, %2961
@@ -22002,7 +22002,7 @@ _ZNSt11_Tuple_implILm0EJN5Yosys5RTLIL8IdStringEiNS1_6SigBitEEED2Ev.exit: ; preds
 declare noundef zeroext i1 @_ZNK5Yosys5RTLIL4Cell6outputERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS0_8hash_opsIS4_EEE6insertERKS4_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 8 dereferenceable(80) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS0_8hash_opsIS4_EEE6insertERKS4_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 8 dereferenceable(80) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8

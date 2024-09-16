@@ -961,7 +961,7 @@ define dso_local void @intel_pmdemand_pre_plane_update(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_pmdemand_program_params(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_pmdemand_program_params(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 2688
   tail call void @mutex_lock(ptr noundef %5) #11
   %6 = getelementptr inbounds i8, ptr %0, i64 7368

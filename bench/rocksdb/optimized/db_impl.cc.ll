@@ -35965,7 +35965,7 @@ if.then.i.i:                                      ; preds = %invoke.cont4
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %num_keys, i1 true)
   %sub.i3.i.i = shl nuw nsw i64 %0, 1
   %mul.i.i = xor i64 %sub.i3.i.i, 126
-  call fastcc void @_ZSt16__introsort_loopIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_SD_T0_T1_(ptr noundef nonnull %agg.tmp.i.i, ptr noundef nonnull %agg.tmp1.i.i, i64 noundef %mul.i.i)
+  call fastcc void @_ZSt16__introsort_loopIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_SD_T0_T1_(ptr noundef %agg.tmp.i.i, ptr noundef %agg.tmp1.i.i, i64 noundef %mul.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp1.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp12.i.i.i)
@@ -35980,7 +35980,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i
   store ptr %sorted_keys, ptr %agg.tmp1.i.i.i, align 8, !alias.scope !273
   %index_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 8
   store i64 16, ptr %index_.i.i.i.i.i, align 8, !alias.scope !273
-  call fastcc void @_ZSt16__insertion_sortIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_SD_T0_(ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i)
+  call fastcc void @_ZSt16__insertion_sortIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_SD_T0_(ptr noundef %agg.tmp.i.i.i, ptr noundef %agg.tmp1.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i)
   %__i.sroa.2.0.agg.tmp.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 8
   br label %invoke.cont4.i.i.i.i
@@ -35989,7 +35989,7 @@ invoke.cont4.i.i.i.i:                             ; preds = %invoke.cont4.i.i.i.
   %__i.sroa.2.05.i.i.i.i = phi i64 [ 16, %invoke.cont.i.i.i ], [ %inc.i.i.i.i.i, %invoke.cont4.i.i.i.i ]
   store ptr %sorted_keys, ptr %agg.tmp.i.i.i.i, align 8
   store i64 %__i.sroa.2.05.i.i.i.i, ptr %__i.sroa.2.0.agg.tmp.sroa_idx.i.i.i.i, align 8
-  call fastcc void @_ZSt25__unguarded_linear_insertIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EEN9__gnu_cxx5__ops14_Val_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_T0_(ptr noundef nonnull %agg.tmp.i.i.i.i)
+  call fastcc void @_ZSt25__unguarded_linear_insertIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EEN9__gnu_cxx5__ops14_Val_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_T0_(ptr noundef %agg.tmp.i.i.i.i)
   %inc.i.i.i.i.i = add nuw nsw i64 %__i.sroa.2.05.i.i.i.i, 1
   %cmp.i.i.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i.i, %num_keys
   br i1 %cmp.i.i.not.i.i.i.i, label %invoke.cont9.i.i.i, label %invoke.cont4.i.i.i.i, !llvm.loop !276
@@ -36005,7 +36005,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   store ptr %sorted_keys, ptr %agg.tmp13.i.i.i, align 8
   %agg.tmp7.sroa.2.0.agg.tmp13.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp13.i.i.i, i64 8
   store i64 %num_keys, ptr %agg.tmp7.sroa.2.0.agg.tmp13.i.sroa_idx.i.i, align 8
-  call fastcc void @_ZSt16__insertion_sortIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_SD_T0_(ptr noundef nonnull %agg.tmp12.i.i.i, ptr noundef nonnull %agg.tmp13.i.i.i)
+  call fastcc void @_ZSt16__insertion_sortIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_SD_T0_(ptr noundef %agg.tmp12.i.i.i, ptr noundef %agg.tmp13.i.i.i)
   br label %invoke.cont10.i.i
 
 invoke.cont10.i.i:                                ; preds = %if.else.i.i.i, %invoke.cont9.i.i.i
@@ -88525,7 +88525,7 @@ if.end11:                                         ; preds = %if.else, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt16__introsort_loopIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_SD_T0_T1_(ptr nocapture noundef readonly %__first, ptr nocapture noundef %__last, i64 noundef %__depth_limit) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt16__introsort_loopIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_SD_T0_T1_(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull %__last, i64 noundef %__depth_limit) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i8.i = alloca %"class.rocksdb::autovector<rocksdb::KeyContext *, 32>::iterator_impl", align 8
   %agg.tmp.i.i.i = alloca %"class.rocksdb::autovector<rocksdb::KeyContext *, 32>::iterator_impl", align 8
@@ -88573,7 +88573,7 @@ if.end.i.i.i:                                     ; preds = %while.body
   %6 = load ptr, ptr %retval.0.i.i.i45.i.i, align 8
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %agg.tmp.i.i.i, align 8
   store i64 %agg.tmp4.sroa.2.0.copyload.fr.i88, ptr %agg.tmp.sroa.3.0.agg.tmp.i.sroa_idx.i.i, align 8
-  call fastcc void @_ZSt13__adjust_heapIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_T0_SE_T1_T2_(ptr noundef nonnull %agg.tmp.i.i.i, i64 noundef %div12.i.i.i, i64 noundef %sub.i89, ptr noundef %6)
+  call fastcc void @_ZSt13__adjust_heapIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_T0_SE_T1_T2_(ptr noundef %agg.tmp.i.i.i, i64 noundef %div12.i.i.i, i64 noundef %sub.i89, ptr noundef %6)
   br label %if.end8.split.i.i.i
 
 if.end8.split.i.i.i:                              ; preds = %if.end.i.i.i, %if.end8.split.i.i.i
@@ -88590,7 +88590,7 @@ if.end8.split.i.i.i:                              ; preds = %if.end.i.i.i, %if.e
   %10 = load ptr, ptr %retval.0.i.i.i.i.i, align 8
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %agg.tmp.i.i.i, align 8
   store i64 %agg.tmp4.sroa.2.0.copyload.fr.i88, ptr %agg.tmp.sroa.3.0.agg.tmp.i.sroa_idx.i.i, align 8
-  call fastcc void @_ZSt13__adjust_heapIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_T0_SE_T1_T2_(ptr noundef nonnull %agg.tmp.i.i.i, i64 noundef %dec.i.i.i, i64 noundef %sub.i89, ptr noundef %10)
+  call fastcc void @_ZSt13__adjust_heapIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_T0_SE_T1_T2_(ptr noundef %agg.tmp.i.i.i, i64 noundef %dec.i.i.i, i64 noundef %sub.i89, ptr noundef %10)
   %cmp6.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp6.i.i.i, label %invoke.cont.i.i, label %if.end8.split.i.i.i, !llvm.loop !745
 
@@ -88626,7 +88626,7 @@ while.body.i.us.i:                                ; preds = %while.body.lr.ph.i.
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %agg.tmp.i.i8.i, align 8
   store i64 %agg.tmp4.sroa.2.0.copyload.fr.i88, ptr %agg.tmp.sroa.3.0.agg.tmp.i.sroa_idx.i10.i, align 8
   %sub.i.i.i24.us.i = sub i64 %dec.i.i11.us.i, %agg.tmp4.sroa.2.0.copyload.fr.i88
-  call fastcc void @_ZSt13__adjust_heapIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_T0_SE_T1_T2_(ptr noundef nonnull %agg.tmp.i.i8.i, i64 noundef 0, i64 noundef %sub.i.i.i24.us.i, ptr noundef %15)
+  call fastcc void @_ZSt13__adjust_heapIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_T0_SE_T1_T2_(ptr noundef %agg.tmp.i.i8.i, i64 noundef 0, i64 noundef %sub.i.i.i24.us.i, ptr noundef %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i8.i)
   %cmp.i.us.i = icmp sgt i64 %sub.i.i.i24.us.i, 1
   br i1 %cmp.i.us.i, label %while.body.i.us.i, label %while.end, !llvm.loop !746
@@ -88651,7 +88651,7 @@ while.body.i.i:                                   ; preds = %while.body.lr.ph.i.
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %agg.tmp.i.i8.i, align 8
   store i64 %agg.tmp4.sroa.2.0.copyload.fr.i88, ptr %agg.tmp.sroa.3.0.agg.tmp.i.sroa_idx.i10.i, align 8
   %sub.i.i.i24.i = sub i64 %dec.i.i11.i, %agg.tmp4.sroa.2.0.copyload.fr.i88
-  call fastcc void @_ZSt13__adjust_heapIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_T0_SE_T1_T2_(ptr noundef nonnull %agg.tmp.i.i8.i, i64 noundef 0, i64 noundef %sub.i.i.i24.i, ptr noundef %20)
+  call fastcc void @_ZSt13__adjust_heapIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_T0_SE_T1_T2_(ptr noundef %agg.tmp.i.i8.i, i64 noundef 0, i64 noundef %sub.i.i.i24.i, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i8.i)
   %cmp.i.i = icmp sgt i64 %sub.i.i.i24.i, 1
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !746
@@ -89113,7 +89113,7 @@ invoke.cont9:                                     ; preds = %while.end14.i.i
   store ptr %agg.tmp5.sroa.0.0.copyload, ptr %agg.tmp10, align 8
   store i64 %agg.tmp11.sroa.4.1.i, ptr %__cut.sroa.3.0.agg.tmp10.sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %__last, i64 16, i1 false)
-  call fastcc void @_ZSt16__introsort_loopIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_SD_T0_T1_(ptr noundef nonnull %agg.tmp10, ptr noundef nonnull %agg.tmp11, i64 noundef %dec)
+  call fastcc void @_ZSt16__introsort_loopIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_SD_T0_T1_(ptr noundef %agg.tmp10, ptr noundef %agg.tmp11, i64 noundef %dec)
   store ptr %agg.tmp5.sroa.0.0.copyload, ptr %__last, align 8
   store i64 %agg.tmp11.sroa.4.1.i, ptr %index_.i, align 8
   %153 = load i64, ptr %index_2.i, align 8
@@ -89127,7 +89127,7 @@ while.end:                                        ; preds = %invoke.cont9, %whil
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_T0_SE_T1_T2_(ptr nocapture noundef readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef %__value) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_T0_SE_T1_T2_(ptr nocapture noundef nonnull readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef %__value) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -89364,7 +89364,7 @@ invoke.cont38:                                    ; preds = %invoke.cont8.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt16__insertion_sortIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_SD_T0_(ptr nocapture noundef readonly %__first, ptr nocapture noundef readonly %__last) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt16__insertion_sortIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_SD_T0_(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__last) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp19 = alloca %"class.rocksdb::autovector<rocksdb::KeyContext *, 32>::iterator_impl", align 8
   %index_.i = getelementptr inbounds i8, ptr %__first, i64 8
@@ -89509,7 +89509,7 @@ invoke.cont15:                                    ; preds = %invoke.cont15.loope
 invoke.cont23:                                    ; preds = %if.else.i.i, %if.end14.i.i
   store ptr %2, ptr %agg.tmp19, align 8
   store i64 %__i.sroa.6.040, ptr %__i.sroa.6.0.agg.tmp19.sroa_idx, align 8
-  call fastcc void @_ZSt25__unguarded_linear_insertIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EEN9__gnu_cxx5__ops14_Val_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_T0_(ptr noundef nonnull %agg.tmp19)
+  call fastcc void @_ZSt25__unguarded_linear_insertIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EEN9__gnu_cxx5__ops14_Val_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_T0_(ptr noundef %agg.tmp19)
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont23, %invoke.cont15
@@ -89523,7 +89523,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt25__unguarded_linear_insertIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EEN9__gnu_cxx5__ops14_Val_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_T0_(ptr nocapture noundef %__last) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt25__unguarded_linear_insertIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EEN9__gnu_cxx5__ops14_Val_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_T0_(ptr nocapture noundef nonnull %__last) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %__last, align 8
   %index_.i = getelementptr inbounds i8, ptr %__last, i64 8

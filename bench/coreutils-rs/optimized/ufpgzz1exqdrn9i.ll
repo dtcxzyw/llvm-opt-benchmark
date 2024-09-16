@@ -211,7 +211,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %15
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef ptr @_ZN3std2io5Write9write_fmt17hba0d211c276ad44cE(ptr noalias noundef nonnull align 1 %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef ptr @_ZN3std2io5Write9write_fmt17hba0d211c276ad44cE(ptr noalias noundef nonnull align 1 %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = alloca { ptr, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -520,7 +520,7 @@ define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_
   store ptr %2, ptr %12, align 8, !alias.scope !76, !noalias !79
   %13 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %13, align 8, !alias.scope !76, !noalias !79
-  %14 = invoke fastcc noundef ptr @_ZN3std2io5Write9write_fmt17hba0d211c276ad44cE(ptr noalias noundef nonnull align 1 %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  %14 = invoke fastcc noundef ptr @_ZN3std2io5Write9write_fmt17hba0d211c276ad44cE(ptr noalias noundef nonnull align 1 %2, ptr noalias nocapture noundef align 8 dereferenceable(48) %4)
           to label %15 unwind label %.body
 
 15:                                               ; preds = %7

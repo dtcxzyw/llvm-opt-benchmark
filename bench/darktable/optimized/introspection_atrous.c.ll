@@ -638,7 +638,7 @@ define void @tiling_callback(ptr nocapture noundef readnone %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2147483646) i32 @get_scales(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, float %.104.val, <2 x i32> %.144.val) unnamed_addr #8 {
+define internal fastcc range(i32 -2147483648, 2147483646) i32 @get_scales(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, float %.104.val, <2 x i32> %.144.val) unnamed_addr #8 {
   %6 = alloca [20 x float], align 16
   %7 = alloca [20 x float], align 16
   %8 = alloca [20 x float], align 16

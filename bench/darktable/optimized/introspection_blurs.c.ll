@@ -1832,7 +1832,7 @@ declare ptr @dt_alloc_aligned(i64 noundef) local_unnamed_addr #3
 declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @blur_2D_Bspline(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) unnamed_addr #16 {
+define internal fastcc void @blur_2D_Bspline(ptr noalias nocapture noundef nonnull readonly %0, ptr noalias nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) unnamed_addr #16 {
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %.loopexit26, label %6
 
@@ -2083,7 +2083,7 @@ define internal fastcc void @blur_2D_Bspline(ptr noalias nocapture noundef reado
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @create_motion_kernel(ptr noalias nocapture noundef writeonly %0, i64 noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #17 {
+define internal fastcc void @create_motion_kernel(ptr noalias nocapture noundef nonnull writeonly %0, i64 noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #17 {
   %6 = fmul reassoc nsz arcp contract afn float %3, 5.000000e-01
   %7 = fmul reassoc nsz arcp contract afn float %4, %4
   %8 = fmul reassoc nsz arcp contract afn float %7, %6

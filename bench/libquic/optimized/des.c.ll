@@ -282,7 +282,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @DES_encrypt2(ptr nocapture noundef %data, ptr noundef readonly %ks, i32 noundef %enc) unnamed_addr #1 {
+define internal fastcc void @DES_encrypt2(ptr nocapture noundef %data, ptr noundef readonly %ks, i32 noundef range(i32 0, 2) %enc) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %data, align 4
   %arrayidx1 = getelementptr inbounds i8, ptr %data, i64 4
@@ -2040,7 +2040,7 @@ entry:
   %1 = load i32, ptr %incdec.ptr9, align 1
   %arrayidx27 = getelementptr inbounds i8, ptr %ll, i64 4
   store i32 %1, ptr %arrayidx27, align 4
-  call fastcc void @DES_encrypt1(ptr noundef nonnull %ll, ptr noundef %schedule, i32 noundef %is_encrypt)
+  call fastcc void @DES_encrypt1(ptr noundef %ll, ptr noundef %schedule, i32 noundef %is_encrypt)
   %2 = load i32, ptr %ll, align 4
   %conv30 = trunc i32 %2 to i8
   %incdec.ptr31 = getelementptr inbounds i8, ptr %out_block, i64 1
@@ -2076,7 +2076,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @DES_encrypt1(ptr nocapture noundef %data, ptr noundef readonly %ks, i32 noundef %enc) unnamed_addr #1 {
+define internal fastcc void @DES_encrypt1(ptr nocapture noundef nonnull %data, ptr noundef readonly %ks, i32 noundef %enc) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %data, align 4
   %arrayidx1 = getelementptr inbounds i8, ptr %data, i64 4
@@ -3843,7 +3843,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 %xor, ptr %tin, align 4
   %xor54 = xor i32 %3, %tout1.0217
   store i32 %xor54, ptr %arrayidx55, align 4
-  call fastcc void @DES_encrypt1(ptr noundef nonnull %tin, ptr noundef %schedule, i32 noundef 1)
+  call fastcc void @DES_encrypt1(ptr noundef %tin, ptr noundef %schedule, i32 noundef 1)
   %4 = load i32, ptr %tin, align 4
   %conv58 = trunc i32 %4 to i8
   %incdec.ptr59 = getelementptr inbounds i8, ptr %out.addr.0214, i64 1
@@ -3991,7 +3991,7 @@ sw.epilog:                                        ; preds = %sw.bb116, %if.then8
   %xor127 = xor i32 %tin1.7, %tout1.0.lcssa
   %arrayidx128 = getelementptr inbounds i8, ptr %tin, i64 4
   store i32 %xor127, ptr %arrayidx128, align 4
-  call fastcc void @DES_encrypt1(ptr noundef nonnull %tin, ptr noundef %schedule, i32 noundef 1)
+  call fastcc void @DES_encrypt1(ptr noundef %tin, ptr noundef %schedule, i32 noundef 1)
   %13 = load i32, ptr %tin, align 4
   %conv132 = trunc i32 %13 to i8
   %incdec.ptr133 = getelementptr inbounds i8, ptr %out.addr.0.lcssa, i64 1
@@ -4084,7 +4084,7 @@ for.body225:                                      ; preds = %for.body225.lr.ph, 
   %shl253 = shl nuw i32 %conv252, 24
   %or254 = or disjoint i32 %or250, %shl253
   store i32 %or254, ptr %arrayidx255, align 4
-  call fastcc void @DES_encrypt1(ptr noundef nonnull %tin, ptr noundef %schedule, i32 noundef 0)
+  call fastcc void @DES_encrypt1(ptr noundef %tin, ptr noundef %schedule, i32 noundef 0)
   %23 = load i32, ptr %tin, align 4
   %xor258 = xor i32 %23, %xor0.0226
   %24 = load i32, ptr %arrayidx255, align 4
@@ -4161,7 +4161,7 @@ if.then296:                                       ; preds = %for.end293
   %or325 = or disjoint i32 %or321, %shl324
   %arrayidx326 = getelementptr inbounds i8, ptr %tin, i64 4
   store i32 %or325, ptr %arrayidx326, align 4
-  call fastcc void @DES_encrypt1(ptr noundef nonnull %tin, ptr noundef %schedule, i32 noundef 0)
+  call fastcc void @DES_encrypt1(ptr noundef %tin, ptr noundef %schedule, i32 noundef 0)
   %33 = load i32, ptr %tin, align 4
   %xor329 = xor i32 %33, %xor0.0.lcssa
   %34 = load i32, ptr %arrayidx326, align 4

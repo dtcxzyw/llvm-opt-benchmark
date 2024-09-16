@@ -125,7 +125,7 @@ define internal fastcc zeroext i1 @dfs(ptr noundef %0, ptr noundef %1, i1 nounde
   br i1 %41, label %.sink.split, label %44
 
 .sink.split:                                      ; preds = %37, %39, %34
-  tail call fastcc void @addRevEdge(ptr noundef %0, ptr noundef nonnull %.04350)
+  tail call fastcc void @addRevEdge(ptr noundef %0, ptr noundef %.04350)
   %42 = load i64, ptr %3, align 8
   %43 = add i64 %42, 1
   store i64 %43, ptr %3, align 8
@@ -183,7 +183,7 @@ declare i32 @agisstrict(ptr noundef) local_unnamed_addr #1
 declare ptr @agedge(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addRevEdge(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @addRevEdge(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, 3
   %5 = icmp eq i32 %4, 2

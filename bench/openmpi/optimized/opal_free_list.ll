@@ -324,7 +324,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %41
   br i1 %.not.i.i, label %opal_free_list_allocation_release.exit, label %.lr.ph.i.i13, !llvm.loop !6
 
 opal_free_list_allocation_release.exit:           ; preds = %.lr.ph.i.i13, %77
-  tail call void @free(ptr noundef %52) #8
+  tail call void @free(ptr noundef nonnull %52) #8
   %85 = load volatile i64, ptr %35, align 8
   %86 = icmp eq i64 %85, 0
   br i1 %86, label %._crit_edge, label %49, !llvm.loop !8
@@ -845,7 +845,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i145, %138
   br i1 %.not.i.i, label %opal_free_list_allocation_release.exit, label %.lr.ph.i.i, !llvm.loop !6
 
 opal_free_list_allocation_release.exit:           ; preds = %.lr.ph.i.i, %190
-  call void @free(ptr noundef %52) #8
+  call void @free(ptr noundef nonnull %52) #8
   br label %201
 
 opal_obj_run_destructors.exit.thread:             ; preds = %opal_lifo_push_atomic.exit, %opal_obj_run_constructors.exit, %opal_obj_run_destructors.exit

@@ -1705,7 +1705,7 @@ define hidden void @"_ZN4core3ptr105drop_in_place$LT$core..cell..Ref$LT$core..op
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr105drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$tokio..process..imp..pidfd_reaper..Pidfd$GT$$GT$17h945a70478754d991E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr105drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$tokio..process..imp..pidfd_reaper..Pidfd$GT$$GT$17h945a70478754d991E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca i32, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !339)
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4056,7 +4056,7 @@ define hidden void @"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$tok
 7:                                                ; preds = %5
   %8 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$tokio..process..imp..pidfd_reaper..Pidfd$GT$$GT$17h945a70478754d991E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #32
+  invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$tokio..process..imp..pidfd_reaper..Pidfd$GT$$GT$17h945a70478754d991E"(ptr noalias noundef align 8 dereferenceable(32) %0) #32
           to label %11 unwind label %9
 
 9:                                                ; preds = %7
@@ -4069,7 +4069,7 @@ define hidden void @"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$tok
   resume { ptr, i32 } %8
 
 "_ZN4core3ptr99drop_in_place$LT$tokio..process..imp..pidfd_reaper..PidfdReaperInner$LT$std..process..Child$GT$$GT$17h19ed9648adad6159E.llvm.700930863383756518.exit": ; preds = %5
-  tail call fastcc void @"_ZN4core3ptr105drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$tokio..process..imp..pidfd_reaper..Pidfd$GT$$GT$17h945a70478754d991E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call fastcc void @"_ZN4core3ptr105drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$tokio..process..imp..pidfd_reaper..Pidfd$GT$$GT$17h945a70478754d991E"(ptr noalias noundef align 8 dereferenceable(32) %0)
   br label %4
 }
 
@@ -4666,7 +4666,7 @@ define hidden void @"_ZN4core3ptr135drop_in_place$LT$tokio..process..imp..pidfd_
 9:                                                ; preds = %7
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$tokio..process..imp..pidfd_reaper..Pidfd$GT$$GT$17h945a70478754d991E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #32
+  invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$tokio..process..imp..pidfd_reaper..Pidfd$GT$$GT$17h945a70478754d991E"(ptr noalias noundef align 8 dereferenceable(32) %0) #32
           to label %common.resume unwind label %11
 
 11:                                               ; preds = %9
@@ -4680,7 +4680,7 @@ common.resume:                                    ; preds = %2, %9
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr99drop_in_place$LT$tokio..process..imp..pidfd_reaper..PidfdReaperInner$LT$std..process..Child$GT$$GT$17h19ed9648adad6159E.llvm.700930863383756518.exit.i": ; preds = %7
-  tail call fastcc void @"_ZN4core3ptr105drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$tokio..process..imp..pidfd_reaper..Pidfd$GT$$GT$17h945a70478754d991E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call fastcc void @"_ZN4core3ptr105drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$tokio..process..imp..pidfd_reaper..Pidfd$GT$$GT$17h945a70478754d991E"(ptr noalias noundef align 8 dereferenceable(32) %0)
   br label %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$tokio..process..imp..pidfd_reaper..PidfdReaperInner$LT$std..process..Child$GT$$GT$$GT$17hdd0d86fbfc9b37f8E.llvm.700930863383756518.exit"
 
 "_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$tokio..process..imp..pidfd_reaper..PidfdReaperInner$LT$std..process..Child$GT$$GT$$GT$17hdd0d86fbfc9b37f8E.llvm.700930863383756518.exit": ; preds = %4, %"_ZN4core3ptr99drop_in_place$LT$tokio..process..imp..pidfd_reaper..PidfdReaperInner$LT$std..process..Child$GT$$GT$17h19ed9648adad6159E.llvm.700930863383756518.exit.i"
@@ -14732,7 +14732,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$tokio..process..imp..Child$G
 14:                                               ; preds = %12
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$tokio..process..imp..pidfd_reaper..Pidfd$GT$$GT$17h945a70478754d991E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #32
+  invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$tokio..process..imp..pidfd_reaper..Pidfd$GT$$GT$17h945a70478754d991E"(ptr noalias noundef align 8 dereferenceable(32) %0) #32
           to label %common.resume.i unwind label %16
 
 16:                                               ; preds = %14
@@ -14746,7 +14746,7 @@ common.resume.i:                                  ; preds = %14, %7
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN4core3ptr99drop_in_place$LT$tokio..process..imp..pidfd_reaper..PidfdReaperInner$LT$std..process..Child$GT$$GT$17h19ed9648adad6159E.llvm.700930863383756518.exit.i.i": ; preds = %12
-  tail call fastcc void @"_ZN4core3ptr105drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$tokio..process..imp..pidfd_reaper..Pidfd$GT$$GT$17h945a70478754d991E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call fastcc void @"_ZN4core3ptr105drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$tokio..process..imp..pidfd_reaper..Pidfd$GT$$GT$17h945a70478754d991E"(ptr noalias noundef align 8 dereferenceable(32) %0)
   br label %"_ZN4core3ptr135drop_in_place$LT$tokio..process..imp..pidfd_reaper..PidfdReaper$LT$std..process..Child$C$tokio..process..imp..GlobalOrphanQueue$GT$$GT$17hc9b6f7bbeacb2292E.llvm.700930863383756518.exit"
 
 18:                                               ; preds = %7
@@ -25301,11 +25301,11 @@ define hidden void @"_ZN4core3ptr99drop_in_place$LT$tokio..process..imp..pidfd_r
 3:                                                ; preds = %1
   %4 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$tokio..process..imp..pidfd_reaper..Pidfd$GT$$GT$17h945a70478754d991E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #32
+  invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$tokio..process..imp..pidfd_reaper..Pidfd$GT$$GT$17h945a70478754d991E"(ptr noalias noundef align 8 dereferenceable(32) %0) #32
           to label %8 unwind label %6
 
 5:                                                ; preds = %1
-  tail call fastcc void @"_ZN4core3ptr105drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$tokio..process..imp..pidfd_reaper..Pidfd$GT$$GT$17h945a70478754d991E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call fastcc void @"_ZN4core3ptr105drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$tokio..process..imp..pidfd_reaper..Pidfd$GT$$GT$17h945a70478754d991E"(ptr noalias noundef align 8 dereferenceable(32) %0)
   ret void
 
 6:                                                ; preds = %3
@@ -32215,7 +32215,7 @@ define hidden void @"_ZN101_$LT$tokio..process..imp..pidfd_reaper..PidfdReaper$L
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.0..sroa_idx5, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.0..sroa_idx, i64 56, i1 false)
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, ptr noundef nonnull align 8 dereferenceable(28) %9, i64 28, i1 false)
-  invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$tokio..process..imp..pidfd_reaper..Pidfd$GT$$GT$17h945a70478754d991E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
+  invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$tokio..process..imp..pidfd_reaper..Pidfd$GT$$GT$17h945a70478754d991E"(ptr noalias noundef align 8 dereferenceable(32) %4)
           to label %10 unwind label %.body.thread27
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.700930863383756518.exit.i.i.i.i.i.i.i.i.i", %27

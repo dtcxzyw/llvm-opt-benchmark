@@ -762,7 +762,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cmpp_msg_id(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @cmpp_msg_id(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 12, 90) %3) unnamed_addr #0 {
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %2, ptr noundef %1, i32 noundef %3, i32 noundef 8, i32 noundef 0) #3
   %6 = load i32, ptr @ett_msg_id, align 4
   %7 = tail call ptr @proto_item_add_subtree(ptr noundef %5, i32 noundef %6) #3

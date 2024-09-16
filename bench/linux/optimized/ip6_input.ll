@@ -1976,14 +1976,14 @@ declare i16 @llvm.bswap.i16(i16) #4
 declare dso_local i32 @ipv6_parse_hopopts(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @skb_orphan(ptr noundef %0) unnamed_addr #5 align 16 {
+define internal fastcc void @skb_orphan(ptr noundef nonnull %0) unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
-  tail call void %3(ptr noundef %0) #7
+  tail call void %3(ptr noundef nonnull %0) #7
   store ptr null, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %6, align 8

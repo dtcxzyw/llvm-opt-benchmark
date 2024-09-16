@@ -755,7 +755,7 @@ _ZN9grpc_core5SliceD2Ev.exit24:                   ; preds = %invoke.cont11, %if.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value_slice, i8 0, i64 32, i1 false), !noalias !39
   %11 = load i8, ptr %this, align 8
   %tobool = trunc i8 %11 to i1
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueC2ENS_5SliceEb(ptr noundef nonnull align 8 dereferenceable(72) %emit, ptr noundef nonnull %agg.tmp12, i1 noundef zeroext %tobool)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueC2ENS_5SliceEb(ptr noundef nonnull align 8 dereferenceable(72) %emit, ptr noundef %agg.tmp12, i1 noundef zeroext %tobool)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %_ZN9grpc_core5SliceD2Ev.exit24
@@ -952,7 +952,7 @@ eh.resume:                                        ; preds = %ehcleanup27, %lpad.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueC2ENS_5SliceEb(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef %value, i1 noundef zeroext %use_true_binary_metadata) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueC2ENS_5SliceEb(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull %value, i1 noundef zeroext %use_true_binary_metadata) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.sroa.4.i = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %hpack_length.i = alloca i32, align 4
@@ -1238,7 +1238,7 @@ _ZN9grpc_core5SliceD2Ev.exit25:                   ; preds = %invoke.cont12, %if.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value_slice, i8 0, i64 32, i1 false), !noalias !67
   %13 = load i8, ptr %this, align 8
   %tobool = trunc i8 %13 to i1
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueC2ENS_5SliceEb(ptr noundef nonnull align 8 dereferenceable(72) %emit, ptr noundef nonnull %agg.tmp13, i1 noundef zeroext %tobool)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueC2ENS_5SliceEb(ptr noundef nonnull align 8 dereferenceable(72) %emit, ptr noundef %agg.tmp13, i1 noundef zeroext %tobool)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %_ZN9grpc_core5SliceD2Ev.exit25
@@ -1456,7 +1456,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value_slice, i8 0, i64 32, i1 false), !noalias !75
   %0 = load i8, ptr %this, align 8
   %tobool = trunc i8 %0 to i1
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueC2ENS_5SliceEb(ptr noundef nonnull align 8 dereferenceable(72) %emit, ptr noundef nonnull %agg.tmp, i1 noundef zeroext %tobool)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueC2ENS_5SliceEb(ptr noundef nonnull align 8 dereferenceable(72) %emit, ptr noundef %agg.tmp, i1 noundef zeroext %tobool)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry

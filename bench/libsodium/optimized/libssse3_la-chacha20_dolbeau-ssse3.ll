@@ -66,7 +66,7 @@ if.end:                                           ; preds = %entry
   %arrayidx17.i = getelementptr inbounds i8, ptr %ctx, i64 60
   store i32 %add.ptr14.val.i, ptr %arrayidx17.i, align 4
   tail call void @llvm.memset.p0.i64(ptr align 1 %c, i8 0, i64 %clen, i1 false)
-  call fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull %ctx, ptr noundef %c, ptr noundef %c, i64 noundef %clen)
+  call fastcc void @chacha20_encrypt_bytes(ptr noundef %ctx, ptr noundef %c, ptr noundef %c, i64 noundef %clen)
   call void @sodium_memzero(ptr noundef nonnull %ctx, i64 noundef 64) #5
   br label %return
 
@@ -134,7 +134,7 @@ if.end:                                           ; preds = %entry
   %arrayidx11.i = getelementptr inbounds i8, ptr %ctx, i64 60
   store i32 %add.ptr8.val.i, ptr %arrayidx11.i, align 4
   tail call void @llvm.memset.p0.i64(ptr align 1 %c, i8 0, i64 %clen, i1 false)
-  call fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull %ctx, ptr noundef %c, ptr noundef %c, i64 noundef %clen)
+  call fastcc void @chacha20_encrypt_bytes(ptr noundef %ctx, ptr noundef %c, ptr noundef %c, i64 noundef %clen)
   call void @sodium_memzero(ptr noundef nonnull %ctx, i64 noundef 64) #5
   br label %return
 
@@ -202,7 +202,7 @@ if.end:                                           ; preds = %entry
   %add.ptr14.val.i = load i32, ptr %add.ptr14.i, align 1
   %arrayidx17.i = getelementptr inbounds i8, ptr %ctx, i64 60
   store i32 %add.ptr14.val.i, ptr %arrayidx17.i, align 4
-  call fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull %ctx, ptr noundef %m, ptr noundef %c, i64 noundef %mlen)
+  call fastcc void @chacha20_encrypt_bytes(ptr noundef %ctx, ptr noundef %m, ptr noundef %c, i64 noundef %mlen)
   call void @sodium_memzero(ptr noundef nonnull %ctx, i64 noundef 64) #5
   br label %return
 
@@ -269,7 +269,7 @@ if.end:                                           ; preds = %entry
   %add.ptr8.val.i = load i32, ptr %add.ptr8.i, align 1
   %arrayidx11.i = getelementptr inbounds i8, ptr %ctx, i64 60
   store i32 %add.ptr8.val.i, ptr %arrayidx11.i, align 4
-  call fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull %ctx, ptr noundef %m, ptr noundef %c, i64 noundef %mlen)
+  call fastcc void @chacha20_encrypt_bytes(ptr noundef %ctx, ptr noundef %m, ptr noundef %c, i64 noundef %mlen)
   call void @sodium_memzero(ptr noundef nonnull %ctx, i64 noundef 64) #5
   br label %return
 
@@ -281,7 +281,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc void @chacha20_encrypt_bytes(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %m, ptr nocapture noundef writeonly %c, i64 noundef %bytes) unnamed_addr #2 {
+define internal fastcc void @chacha20_encrypt_bytes(ptr nocapture noundef nonnull %ctx, ptr nocapture noundef readonly %m, ptr nocapture noundef writeonly %c, i64 noundef range(i64 1, 0) %bytes) unnamed_addr #2 {
 entry:
   %partialblock = alloca [64 x i8], align 16
   %cmp = icmp ugt i64 %bytes, 255

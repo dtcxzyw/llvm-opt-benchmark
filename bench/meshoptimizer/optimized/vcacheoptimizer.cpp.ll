@@ -416,9 +416,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17TriangleAdjacencyEPKjmmR17meshopt_Allocator(ptr nocapture noundef nonnull align 8 dereferenceable(24) %adjacency, ptr nocapture noundef readonly %indices, i64 noundef %index_count, i64 noundef %vertex_count, ptr nocapture noundef nonnull align 8 dereferenceable(200) %allocator) unnamed_addr #0 {
+define internal fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17TriangleAdjacencyEPKjmmR17meshopt_Allocator(ptr nocapture noundef nonnull align 8 dereferenceable(24) %adjacency, ptr nocapture noundef readonly %indices, i64 noundef range(i64 1, 0) %index_count, i64 noundef range(i64 1, 0) %vertex_count, ptr nocapture noundef nonnull align 8 dereferenceable(200) %allocator) unnamed_addr #0 {
 entry:
-  %div = udiv i64 %index_count, 3
   %0 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i = icmp ugt i64 %vertex_count, 4611686018427387903
   %mul.i = shl i64 %vertex_count, 2
@@ -454,58 +453,51 @@ entry:
   store ptr %call.i52, ptr %data, align 8
   %6 = load ptr, ptr %adjacency, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %6, i8 0, i64 %mul.i, i1 false)
-  %cmp56.not = icmp eq i64 %index_count, 0
-  br i1 %cmp56.not, label %for.cond8.preheader, label %for.body
-
-for.cond8.preheader:                              ; preds = %for.body, %entry
-  %cmp958.not = icmp eq i64 %vertex_count, 0
-  br i1 %cmp958.not, label %for.cond19.preheader, label %for.body10
+  br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
-  %i.057 = phi i64 [ %inc6, %for.body ], [ 0, %entry ]
+  %i.056 = phi i64 [ 0, %entry ], [ %inc6, %for.body ]
   %7 = load ptr, ptr %adjacency, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %indices, i64 %i.057
+  %arrayidx = getelementptr inbounds i32, ptr %indices, i64 %i.056
   %8 = load i32, ptr %arrayidx, align 4
   %idxprom = zext i32 %8 to i64
   %arrayidx5 = getelementptr inbounds i32, ptr %7, i64 %idxprom
   %9 = load i32, ptr %arrayidx5, align 4
   %inc = add i32 %9, 1
   store i32 %inc, ptr %arrayidx5, align 4
-  %inc6 = add nuw i64 %i.057, 1
+  %inc6 = add nuw i64 %i.056, 1
   %exitcond.not = icmp eq i64 %inc6, %index_count
-  br i1 %exitcond.not, label %for.cond8.preheader, label %for.body, !llvm.loop !16
+  br i1 %exitcond.not, label %for.body10, label %for.body, !llvm.loop !16
 
-for.cond19.preheader:                             ; preds = %for.body10, %for.cond8.preheader
-  %cmp2061.not = icmp ult i64 %index_count, 3
-  br i1 %cmp2061.not, label %for.cond58.preheader, label %for.body21
+for.cond19.preheader:                             ; preds = %for.body10
+  %div = udiv i64 %index_count, 3
+  %cmp2059.not = icmp ult i64 %index_count, 3
+  br i1 %cmp2059.not, label %for.body60.preheader, label %for.body21
 
-for.body10:                                       ; preds = %for.cond8.preheader, %for.body10
-  %offset.060 = phi i32 [ %add, %for.body10 ], [ 0, %for.cond8.preheader ]
-  %i7.059 = phi i64 [ %inc16, %for.body10 ], [ 0, %for.cond8.preheader ]
+for.body10:                                       ; preds = %for.body, %for.body10
+  %offset.058 = phi i32 [ %add, %for.body10 ], [ 0, %for.body ]
+  %i7.057 = phi i64 [ %inc16, %for.body10 ], [ 0, %for.body ]
   %10 = load ptr, ptr %offsets, align 8
-  %arrayidx12 = getelementptr inbounds i32, ptr %10, i64 %i7.059
-  store i32 %offset.060, ptr %arrayidx12, align 4
+  %arrayidx12 = getelementptr inbounds i32, ptr %10, i64 %i7.057
+  store i32 %offset.058, ptr %arrayidx12, align 4
   %11 = load ptr, ptr %adjacency, align 8
-  %arrayidx14 = getelementptr inbounds i32, ptr %11, i64 %i7.059
+  %arrayidx14 = getelementptr inbounds i32, ptr %11, i64 %i7.057
   %12 = load i32, ptr %arrayidx14, align 4
-  %add = add i32 %12, %offset.060
-  %inc16 = add nuw i64 %i7.059, 1
-  %exitcond65.not = icmp eq i64 %inc16, %vertex_count
-  br i1 %exitcond65.not, label %for.cond19.preheader, label %for.body10, !llvm.loop !17
-
-for.cond58.preheader:                             ; preds = %for.body21, %for.cond19.preheader
-  br i1 %cmp958.not, label %for.end67, label %for.body60
+  %add = add i32 %12, %offset.058
+  %inc16 = add nuw i64 %i7.057, 1
+  %exitcond62.not = icmp eq i64 %inc16, %vertex_count
+  br i1 %exitcond62.not, label %for.cond19.preheader, label %for.body10, !llvm.loop !17
 
 for.body21:                                       ; preds = %for.cond19.preheader, %for.body21
-  %i18.062 = phi i64 [ %inc55, %for.body21 ], [ 0, %for.cond19.preheader ]
-  %arrayidx24.idx = mul i64 %i18.062, 12
+  %i18.060 = phi i64 [ %inc55, %for.body21 ], [ 0, %for.cond19.preheader ]
+  %arrayidx24.idx = mul i64 %i18.060, 12
   %arrayidx24 = getelementptr inbounds i8, ptr %indices, i64 %arrayidx24.idx
   %13 = load i32, ptr %arrayidx24, align 4
   %arrayidx27 = getelementptr i8, ptr %arrayidx24, i64 4
   %14 = load i32, ptr %arrayidx27, align 4
   %arrayidx30 = getelementptr i8, ptr %arrayidx24, i64 8
   %15 = load i32, ptr %arrayidx30, align 4
-  %conv = trunc i64 %i18.062 to i32
+  %conv = trunc i64 %i18.060 to i32
   %16 = load ptr, ptr %data, align 8
   %17 = load ptr, ptr %offsets, align 8
   %idxprom33 = zext i32 %13 to i64
@@ -536,25 +528,28 @@ for.body21:                                       ; preds = %for.cond19.preheade
   %idxprom52 = zext i32 %24 to i64
   %arrayidx53 = getelementptr inbounds i32, ptr %22, i64 %idxprom52
   store i32 %conv, ptr %arrayidx53, align 4
-  %inc55 = add nuw nsw i64 %i18.062, 1
-  %exitcond66.not = icmp eq i64 %inc55, %div
-  br i1 %exitcond66.not, label %for.cond58.preheader, label %for.body21, !llvm.loop !18
+  %inc55 = add nuw nsw i64 %i18.060, 1
+  %exitcond63.not = icmp eq i64 %inc55, %div
+  br i1 %exitcond63.not, label %for.body60.preheader, label %for.body21, !llvm.loop !18
 
-for.body60:                                       ; preds = %for.cond58.preheader, %for.body60
-  %i57.064 = phi i64 [ %inc66, %for.body60 ], [ 0, %for.cond58.preheader ]
+for.body60.preheader:                             ; preds = %for.body21, %for.cond19.preheader
+  br label %for.body60
+
+for.body60:                                       ; preds = %for.body60.preheader, %for.body60
+  %i57.061 = phi i64 [ %inc66, %for.body60 ], [ 0, %for.body60.preheader ]
   %25 = load ptr, ptr %adjacency, align 8
-  %arrayidx62 = getelementptr inbounds i32, ptr %25, i64 %i57.064
+  %arrayidx62 = getelementptr inbounds i32, ptr %25, i64 %i57.061
   %26 = load i32, ptr %arrayidx62, align 4
   %27 = load ptr, ptr %offsets, align 8
-  %arrayidx64 = getelementptr inbounds i32, ptr %27, i64 %i57.064
+  %arrayidx64 = getelementptr inbounds i32, ptr %27, i64 %i57.061
   %28 = load i32, ptr %arrayidx64, align 4
   %sub = sub i32 %28, %26
   store i32 %sub, ptr %arrayidx64, align 4
-  %inc66 = add nuw i64 %i57.064, 1
-  %exitcond67.not = icmp eq i64 %inc66, %vertex_count
-  br i1 %exitcond67.not, label %for.end67, label %for.body60, !llvm.loop !19
+  %inc66 = add nuw i64 %i57.061, 1
+  %exitcond64.not = icmp eq i64 %inc66, %vertex_count
+  br i1 %exitcond64.not, label %for.end67, label %for.body60, !llvm.loop !19
 
-for.end67:                                        ; preds = %for.body60, %for.cond58.preheader
+for.end67:                                        ; preds = %for.body60
   ret void
 }
 

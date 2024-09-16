@@ -790,7 +790,7 @@ define dso_local void @llvm_emit_for_stmt(ptr noundef %0, ptr nocapture noundef 
   br i1 %90, label %91, label %92
 
 91:                                               ; preds = %85
-  call fastcc void @llvm_emit_decl_expr_list(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %78, i1 noundef zeroext true)
+  call fastcc void @llvm_emit_decl_expr_list(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %78, i1 noundef zeroext true)
   br label %93
 
 92:                                               ; preds = %85
@@ -1170,7 +1170,7 @@ define dso_local void @llvm_emit_panic(ptr noundef %0, ptr noundef %1, i64 %2, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_decl_expr_list(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_decl_expr_list(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.BEValue, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -1209,7 +1209,7 @@ define internal fastcc void @llvm_emit_decl_expr_list(ptr noundef %0, ptr nounde
   %18 = getelementptr inbounds ptr, ptr %17, i64 %.052
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
-  call void @llvm_emit_expr(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %19) #9
+  call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %19) #9
   %21 = getelementptr inbounds i8, ptr %19, i64 16
   %22 = load i16, ptr %21, align 8
   %23 = and i16 %22, 255
@@ -1249,11 +1249,11 @@ define internal fastcc void @llvm_emit_decl_expr_list(ptr noundef %0, ptr nounde
   %45 = load ptr, ptr %44, align 8
   %46 = call ptr @LLVMConstInt(ptr noundef %45, i64 noundef 1, i32 noundef 0) #9
   %47 = load ptr, ptr @type_bool, align 8
-  call void @llvm_value_set(ptr noundef %1, ptr noundef %46, ptr noundef %47) #9
+  call void @llvm_value_set(ptr noundef nonnull %1, ptr noundef %46, ptr noundef %47) #9
   br label %56
 
 48:                                               ; preds = %38, %35
-  call void @llvm_value_set_address_abi_aligned(ptr noundef %1, ptr noundef %37, ptr noundef %36) #9
+  call void @llvm_value_set_address_abi_aligned(ptr noundef nonnull %1, ptr noundef %37, ptr noundef %36) #9
   br label %49
 
 49:                                               ; preds = %48, %._crit_edge
@@ -1269,7 +1269,7 @@ define internal fastcc void @llvm_emit_decl_expr_list(ptr noundef %0, ptr nounde
 53:                                               ; preds = %50
   %54 = call i32 @cast_to_bool_kind(ptr noundef nonnull %51) #9
   %55 = load ptr, ptr @type_bool, align 8
-  call void @llvm_emit_cast(ptr noundef %0, i32 noundef %54, ptr noundef nonnull %19, ptr noundef %1, ptr noundef %55, ptr noundef nonnull %51) #9
+  call void @llvm_emit_cast(ptr noundef %0, i32 noundef %54, ptr noundef nonnull %19, ptr noundef nonnull %1, ptr noundef %55, ptr noundef nonnull %51) #9
   br label %56
 
 56:                                               ; preds = %50, %53, %49, %43
@@ -1461,17 +1461,17 @@ define dso_local void @llvm_emit_stmt(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %74, label %75, label %76
 
 75:                                               ; preds = %71
-  call fastcc void @llvm_emit_decl_expr_list(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %65, i1 noundef zeroext false)
+  call fastcc void @llvm_emit_decl_expr_list(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %65, i1 noundef zeroext false)
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %9) #9
   call void @llvm_emit_int_comp_zero(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef 18) #9
   call void @llvm_emit_cond_br(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %.072.i, ptr noundef %.074.i) #9
   call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %.072.i) #9
   call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %.072.i) #9
-  call fastcc void @llvm_emit_switch_body(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %47, i1 noundef zeroext false)
+  call fastcc void @llvm_emit_switch_body(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull %47, i1 noundef zeroext false)
   br label %.sink.split
 
 76:                                               ; preds = %71
-  call fastcc void @llvm_emit_decl_expr_list(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %65, i1 noundef zeroext true)
+  call fastcc void @llvm_emit_decl_expr_list(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %65, i1 noundef zeroext true)
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %9) #9
   %77 = call zeroext i1 @llvm_value_is_const(ptr noundef nonnull %9) #9
   %.not81.i = icmp ne ptr %.072.i, %.074.i
@@ -2130,7 +2130,7 @@ define dso_local void @llvm_emit_switch(ptr noundef %0, ptr nocapture noundef %1
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr @type_typeid, align 8
   %19 = icmp eq ptr %17, %18
-  call fastcc void @llvm_emit_decl_expr_list(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %14, i1 noundef zeroext false)
+  call fastcc void @llvm_emit_decl_expr_list(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %14, i1 noundef zeroext false)
   br label %36
 
 20:                                               ; preds = %8
@@ -2159,7 +2159,7 @@ define dso_local void @llvm_emit_switch(ptr noundef %0, ptr nocapture noundef %1
 
 36:                                               ; preds = %30, %12
   %37 = phi i1 [ false, %30 ], [ %19, %12 ]
-  call fastcc void @llvm_emit_switch_body(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %1, i1 noundef zeroext %37)
+  call fastcc void @llvm_emit_switch_body(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %1, i1 noundef zeroext %37)
   %38 = load ptr, ptr %4, align 8
   %.not29 = icmp eq ptr %38, null
   br i1 %.not29, label %40, label %39
@@ -2173,7 +2173,7 @@ define dso_local void @llvm_emit_switch(ptr noundef %0, ptr nocapture noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_switch_body(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_switch_body(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.BEValue, align 8
   %6 = alloca %struct.BEValue, align 8
   %7 = alloca %struct.BEValue, align 8
@@ -2278,7 +2278,7 @@ define internal fastcc void @llvm_emit_switch_body(ptr noundef %0, ptr noundef %
   call void @llvm_value_set_address_abi_aligned(ptr noundef nonnull %10, ptr noundef %55, ptr noundef %27) #9
   %56 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %10, ptr %56, align 8
-  %57 = call ptr @llvm_store(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %1) #9
+  %57 = call ptr @llvm_store(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %1) #9
   call void @llvm_emit_br(ptr noundef %0, ptr noundef %45) #9
   call void @llvm_emit_block(ptr noundef %0, ptr noundef %45) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)

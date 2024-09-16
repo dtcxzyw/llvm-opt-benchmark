@@ -1343,7 +1343,7 @@ if.end36.i:                                       ; preds = %if.end36.critedge.i
   %on_flow_controlled_cbs.i.i = getelementptr inbounds i8, ptr %51, i64 2128
   %flow_controlled_bytes_flowed.i.i = getelementptr inbounds i8, ptr %51, i64 208
   store i64 0, ptr %agg.tmp.i.i, align 8, !alias.scope !25
-  %call.i49.i = invoke fastcc noundef zeroext i1 @_ZL11update_listP21grpc_chttp2_transportP18grpc_chttp2_streamlPP20grpc_chttp2_write_cbPlN4absl12lts_202308026StatusE(ptr noundef %write_context.val.i, ptr noundef nonnull %51, i64 noundef %sub.i.i, ptr noundef nonnull %on_flow_controlled_cbs.i.i, ptr noundef nonnull %flow_controlled_bytes_flowed.i.i, ptr noundef nonnull %agg.tmp.i.i)
+  %call.i49.i = invoke fastcc noundef zeroext i1 @_ZL11update_listP21grpc_chttp2_transportP18grpc_chttp2_streamlPP20grpc_chttp2_write_cbPlN4absl12lts_202308026StatusE(ptr noundef %write_context.val.i, ptr noundef nonnull %51, i64 noundef %sub.i.i, ptr noundef nonnull %on_flow_controlled_cbs.i.i, ptr noundef nonnull %flow_controlled_bytes_flowed.i.i, ptr noundef %agg.tmp.i.i)
           to label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i unwind label %lpad.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %if.end36.i
@@ -2418,7 +2418,7 @@ if.then.i.i51:                                    ; preds = %if.then81
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit:       ; preds = %if.then81, %if.then.i.i51
-  %call86 = invoke fastcc noundef zeroext i1 @_ZL11update_listP21grpc_chttp2_transportP18grpc_chttp2_streamlPP20grpc_chttp2_write_cbPlN4absl12lts_202308026StatusE(ptr noundef %t, ptr noundef nonnull %29, i64 noundef %30, ptr noundef nonnull %on_write_finished_cbs, ptr noundef nonnull %flow_controlled_bytes_written, ptr noundef nonnull %agg.tmp83)
+  %call86 = invoke fastcc noundef zeroext i1 @_ZL11update_listP21grpc_chttp2_transportP18grpc_chttp2_streamlPP20grpc_chttp2_write_cbPlN4absl12lts_202308026StatusE(ptr noundef %t, ptr noundef nonnull %29, i64 noundef %30, ptr noundef nonnull %on_write_finished_cbs, ptr noundef nonnull %flow_controlled_bytes_written, ptr noundef %agg.tmp83)
           to label %invoke.cont85 unwind label %lpad84
 
 invoke.cont85:                                    ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
@@ -2528,7 +2528,7 @@ _ZN9grpc_core13RefCountedPtrI21grpc_chttp2_transportED2Ev.exit: ; preds = %entry
 declare noundef zeroext i1 @_Z35grpc_chttp2_list_pop_writing_streamP21grpc_chttp2_transportPP18grpc_chttp2_stream(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL11update_listP21grpc_chttp2_transportP18grpc_chttp2_streamlPP20grpc_chttp2_write_cbPlN4absl12lts_202308026StatusE(ptr noundef %t, ptr noundef %s, i64 noundef %send_bytes, ptr nocapture noundef %list, ptr nocapture noundef %ctr, ptr nocapture noundef readonly %error) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL11update_listP21grpc_chttp2_transportP18grpc_chttp2_streamlPP20grpc_chttp2_write_cbPlN4absl12lts_202308026StatusE(ptr noundef %t, ptr noundef %s, i64 noundef %send_bytes, ptr nocapture noundef %list, ptr nocapture noundef %ctr, ptr nocapture noundef nonnull readonly %error) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8

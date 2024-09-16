@@ -139,7 +139,7 @@ define i32 @ompi_attr_create_predefined_keyvals() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @create_comm(i32 noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc i32 @create_comm(i32 noundef range(i32 0, 13) %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = select i1 %1, ptr @OMPI_C_MPI_COMM_DUP_FN, ptr @OMPI_C_MPI_COMM_NULL_COPY_FN
   store i32 %0, ptr %3, align 4
@@ -153,7 +153,7 @@ define internal fastcc i32 @create_comm(i32 noundef %0, i1 noundef zeroext %1) u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @create_win(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @create_win(i32 noundef range(i32 7, 12) %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = call i32 @ompi_attr_create_keyval(i32 noundef 3, ptr nonnull @OMPI_C_MPI_WIN_NULL_COPY_FN, ptr nonnull @OMPI_C_MPI_WIN_NULL_DELETE_FN, ptr noundef nonnull %2, ptr noundef null, i32 noundef 1, ptr noundef null) #3

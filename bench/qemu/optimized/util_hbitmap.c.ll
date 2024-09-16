@@ -808,8 +808,8 @@ hb_set_elem.exit37.i:                             ; preds = %if.end.i.i
   store i64 %or.i35.i, ptr %arrayidx29.i, align 8
   %cmp8.i36.i = icmp ne i64 %16, %or.i35.i
   %or3429.i = or i1 %changed.0.i, %cmp8.i36.i
-  %cmp37.i = icmp ne i32 %level.tr.i, 0
-  %brmerge.not.i = select i1 %cmp37.i, i1 %or3429.i, i1 false
+  %cmp37.not.i = icmp ne i32 %level.tr.i, 0
+  %brmerge.not.i = select i1 %cmp37.not.i, i1 %or3429.i, i1 false
   %sub42.i = add nsw i32 %level.tr.i, -1
   br i1 %brmerge.not.i, label %tailrecurse.i, label %hb_set_between.exit
 
@@ -1108,8 +1108,8 @@ hb_reset_elem.exit37.i:                           ; preds = %if.end.i.i
   %19 = select i1 %cmp8.not.i33.i, i1 %cmp10.i36.i, i1 false
   store i64 %and9.i35.i, ptr %arrayidx25.i, align 8
   %changed.3.i = select i1 %19, i1 true, i1 %changed.0.i
-  %cmp30.i = icmp ne i32 %level.tr.i, 0
-  %brmerge.not.i = select i1 %cmp30.i, i1 %changed.3.i, i1 false
+  %cmp30.not.i = icmp ne i32 %level.tr.i, 0
+  %brmerge.not.i = select i1 %cmp30.not.i, i1 %changed.3.i, i1 false
   br i1 %brmerge.not.i, label %if.then34.i, label %hb_reset_between.exit
 
 if.then34.i:                                      ; preds = %hb_reset_elem.exit37.i
@@ -1232,7 +1232,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  call fastcc void @serialization_chunk(ptr noundef %hb, i64 noundef %start, i64 noundef %count, ptr noundef nonnull %cur, ptr noundef nonnull %el_count)
+  call fastcc void @serialization_chunk(ptr noundef %hb, i64 noundef %start, i64 noundef %count, ptr noundef %cur, ptr noundef %el_count)
   %0 = load i64, ptr %el_count, align 8
   %mul = shl i64 %0, 3
   br label %return
@@ -1243,7 +1243,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @serialization_chunk(ptr nocapture noundef readonly %hb, i64 noundef %start, i64 noundef %count, ptr nocapture noundef writeonly %first_el, ptr nocapture noundef writeonly %el_count) unnamed_addr #0 {
+define internal fastcc void @serialization_chunk(ptr nocapture noundef readonly %hb, i64 noundef %start, i64 noundef range(i64 1, 0) %count, ptr nocapture noundef nonnull writeonly %first_el, ptr nocapture noundef nonnull writeonly %el_count) unnamed_addr #0 {
 entry:
   %add = add i64 %start, -1
   %sub = add i64 %add, %count
@@ -1314,7 +1314,7 @@ entry:
   br i1 %tobool.not, label %while.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  call fastcc void @serialization_chunk(ptr noundef %hb, i64 noundef %start, i64 noundef %count, ptr noundef nonnull %cur, ptr noundef nonnull %el_count)
+  call fastcc void @serialization_chunk(ptr noundef %hb, i64 noundef %start, i64 noundef %count, ptr noundef %cur, ptr noundef %el_count)
   %0 = load ptr, ptr %cur, align 8
   %1 = load i64, ptr %el_count, align 8
   %add.ptr = getelementptr i64, ptr %0, i64 %1
@@ -1345,7 +1345,7 @@ entry:
   br i1 %tobool.not, label %if.end4, label %if.end
 
 if.end:                                           ; preds = %entry
-  call fastcc void @serialization_chunk(ptr noundef %hb, i64 noundef %start, i64 noundef %count, ptr noundef nonnull %cur, ptr noundef nonnull %el_count)
+  call fastcc void @serialization_chunk(ptr noundef %hb, i64 noundef %start, i64 noundef %count, ptr noundef %cur, ptr noundef %el_count)
   %0 = load ptr, ptr %cur, align 8
   %1 = load i64, ptr %el_count, align 8
   %add.ptr = getelementptr i64, ptr %0, i64 %1
@@ -1512,7 +1512,7 @@ entry:
   br i1 %tobool.not, label %if.end3, label %if.end
 
 if.end:                                           ; preds = %entry
-  call fastcc void @serialization_chunk(ptr noundef %hb, i64 noundef %start, i64 noundef %count, ptr noundef nonnull %first, ptr noundef nonnull %el_count)
+  call fastcc void @serialization_chunk(ptr noundef %hb, i64 noundef %start, i64 noundef %count, ptr noundef %first, ptr noundef %el_count)
   %0 = load ptr, ptr %first, align 8
   %1 = load i64, ptr %el_count, align 8
   %mul = shl i64 %1, 3
@@ -1597,7 +1597,7 @@ entry:
   br i1 %tobool.not, label %if.end3, label %if.end
 
 if.end:                                           ; preds = %entry
-  call fastcc void @serialization_chunk(ptr noundef %hb, i64 noundef %start, i64 noundef %count, ptr noundef nonnull %first, ptr noundef nonnull %el_count)
+  call fastcc void @serialization_chunk(ptr noundef %hb, i64 noundef %start, i64 noundef %count, ptr noundef %first, ptr noundef %el_count)
   %0 = load ptr, ptr %first, align 8
   %1 = load i64, ptr %el_count, align 8
   %mul = shl i64 %1, 3

@@ -2456,7 +2456,7 @@ _ZN2cm11uv_pipe_ptrC2Ev.exit87:                   ; preds = %_ZN2cm11uv_pipe_ptr
           to label %92 unwind label %.loopexit.split-lp
 
 92:                                               ; preds = %88
-  invoke fastcc void @"_ZZN13cmSystemTools16RunSingleCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPS6_SB_PiPKcNS_12OutputOptionENSt6chrono8durationIdSt5ratioILl1ELl1EEEEN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiSB_RS0_IcS5_EiPFvRKS6_ERb"(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef %91, ptr noundef %.0, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef 1, ptr noundef nonnull @_ZN13cmSystemTools6StdoutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef nonnull align 1 dereferenceable(1) %19)
+  invoke fastcc void @"_ZZN13cmSystemTools16RunSingleCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPS6_SB_PiPKcNS_12OutputOptionENSt6chrono8durationIdSt5ratioILl1ELl1EEEEN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiSB_RS0_IcS5_EiPFvRKS6_ERb"(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef %91, ptr noundef %.0, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef 1, ptr noundef nonnull @_ZN13cmSystemTools6StdoutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef nonnull align 1 dereferenceable(1) %19)
           to label %_ZNSt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteIS0_EED2Ev.exit unwind label %.loopexit.split-lp
 
 _ZNSt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteIS0_EED2Ev.exit: ; preds = %92
@@ -2479,7 +2479,7 @@ _ZNSt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteIS0_EED2Ev.exit: ; pre
           to label %100 unwind label %.loopexit.split-lp
 
 100:                                              ; preds = %98
-  invoke fastcc void @"_ZZN13cmSystemTools16RunSingleCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPS6_SB_PiPKcNS_12OutputOptionENSt6chrono8durationIdSt5ratioILl1ELl1EEEEN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiSB_RS0_IcS5_EiPFvRKS6_ERb"(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 noundef %99, ptr noundef %.041, ptr noundef nonnull align 8 dereferenceable(24) %17, i32 noundef 2, ptr noundef nonnull @_ZN13cmSystemTools6StderrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef nonnull align 1 dereferenceable(1) %21)
+  invoke fastcc void @"_ZZN13cmSystemTools16RunSingleCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPS6_SB_PiPKcNS_12OutputOptionENSt6chrono8durationIdSt5ratioILl1ELl1EEEEN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiSB_RS0_IcS5_EiPFvRKS6_ERb"(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 noundef %99, ptr noundef %.041, ptr noundef nonnull align 8 dereferenceable(24) %17, i32 noundef 2, ptr noundef nonnull @_ZN13cmSystemTools6StderrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef nonnull align 1 dereferenceable(1) %21)
           to label %_ZNSt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteIS0_EED2Ev.exit95 unwind label %.loopexit.split-lp
 
 _ZNSt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteIS0_EED2Ev.exit95: ; preds = %100
@@ -2954,7 +2954,7 @@ declare noundef i32 @_ZN2cm12uv_timer_ptr5startEPFvP10uv_timer_sEmm(ptr noundef 
 declare void @_ZN15cmProcessOutputC1ENS_8EncodingEj(ptr noundef nonnull align 1 dereferenceable(1), i32 noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN13cmSystemTools16RunSingleCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPS6_SB_PiPKcNS_12OutputOptionENSt6chrono8durationIdSt5ratioILl1ELl1EEEEN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiSB_RS0_IcS5_EiPFvRKS6_ERb"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %6, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %8) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN13cmSystemTools16RunSingleCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPS6_SB_PiPKcNS_12OutputOptionENSt6chrono8durationIdSt5ratioILl1ELl1EEEEN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiSB_RS0_IcS5_EiPFvRKS6_ERb"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef range(i32 1, 3) %6, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %8) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %10 = icmp slt i32 %3, 0
   br i1 %10, label %11, label %12
 
@@ -9829,7 +9829,7 @@ define dso_local void @_ZN13cmSystemTools14EnsureStdPipesEv() local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13EnsureStdPipei(i32 noundef %0) unnamed_addr #4 {
+define internal fastcc void @_ZL13EnsureStdPipei(i32 noundef range(i32 0, 3) %0) unnamed_addr #4 {
   %2 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %0, i32 noundef 1)
   %.not = icmp eq i32 %2, -1
   br i1 %.not, label %3, label %16

@@ -153,7 +153,7 @@ HIST_count_simple.exit:                           ; preds = %15, %HIST_count_sim
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef %4, ptr nocapture noundef %5) unnamed_addr #1 {
+define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef range(i32 0, 2) %4, ptr nocapture noundef %5) unnamed_addr #1 {
   %.ptr = getelementptr i8, ptr %2, i64 %3
   %7 = load i32, ptr %1, align 4
   %8 = add i32 %7, 1

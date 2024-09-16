@@ -858,7 +858,7 @@ if.then8:                                         ; preds = %cond.false, %valida
 
 if.end9:                                          ; preds = %if.then8, %cond.false, %validate_branchname.exit
   %tobool16.not = phi i1 [ false, %if.then8 ], [ true, %validate_branchname.exit ], [ true, %cond.false ]
-  call fastcc void @dwim_branch_start(ptr noundef %r, ptr noundef %start_name, i32 noundef %track, ptr noundef nonnull %real_ref, ptr noundef nonnull %oid)
+  call fastcc void @dwim_branch_start(ptr noundef %r, ptr noundef %start_name, i32 noundef %track, ptr noundef %real_ref, ptr noundef nonnull %oid)
   %tobool10.not = icmp eq i32 %dry_run, 0
   br i1 %tobool10.not, label %if.end12, label %if.end9.cleanup_crit_edge
 
@@ -948,7 +948,7 @@ cleanup:                                          ; preds = %if.end9.cleanup_cri
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dwim_branch_start(ptr noundef %r, ptr noundef %start_name, i32 noundef %track, ptr nocapture noundef writeonly %out_real_ref, ptr noundef writeonly %out_oid) unnamed_addr #0 {
+define internal fastcc void @dwim_branch_start(ptr noundef %r, ptr noundef %start_name, i32 noundef %track, ptr nocapture noundef nonnull writeonly %out_real_ref, ptr noundef writeonly %out_oid) unnamed_addr #0 {
 entry:
   %oid = alloca %struct.object_id, align 4
   %real_ref = alloca ptr, align 8
@@ -1341,7 +1341,7 @@ define dso_local void @dwim_and_setup_tracking(ptr noundef %r, ptr noundef %new_
 entry:
   %real_orig_ref = alloca ptr, align 8
   store ptr null, ptr %real_orig_ref, align 8
-  call fastcc void @dwim_branch_start(ptr noundef %r, ptr noundef %orig_ref, i32 noundef %track, ptr noundef nonnull %real_orig_ref, ptr noundef null)
+  call fastcc void @dwim_branch_start(ptr noundef %r, ptr noundef %orig_ref, i32 noundef %track, ptr noundef %real_orig_ref, ptr noundef null)
   %0 = load ptr, ptr %real_orig_ref, align 8
   tail call fastcc void @setup_tracking(ptr noundef %new_ref, ptr noundef %0, i32 noundef %track, i32 noundef %quiet)
   tail call void @free(ptr noundef %0) #13
@@ -1355,7 +1355,7 @@ entry:
   %super_oid = alloca %struct.object_id, align 4
   %submodule_entry_list = alloca %struct.submodule_entry_list, align 8
   store ptr null, ptr %branch_point, align 8
-  call fastcc void @dwim_branch_start(ptr noundef %r, ptr noundef %start_commitish, i32 noundef 0, ptr noundef nonnull %branch_point, ptr noundef nonnull %super_oid)
+  call fastcc void @dwim_branch_start(ptr noundef %r, ptr noundef %start_commitish, i32 noundef 0, ptr noundef %branch_point, ptr noundef nonnull %super_oid)
   %tobool.not = icmp eq ptr %tracking_name, null
   %0 = load ptr, ptr %branch_point, align 8
   %spec.select = select i1 %tobool.not, ptr %0, ptr %tracking_name
@@ -1516,7 +1516,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #6
 declare i32 @common_exit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @submodule_create_branch(ptr nocapture noundef readonly %r, ptr %submodule.8.val, ptr noundef %name, ptr noundef %start_oid, ptr noundef %tracking_name, i32 noundef %force, i32 noundef %reflog, i32 noundef %quiet, i32 noundef %track, i32 noundef %dry_run) unnamed_addr #0 {
+define internal fastcc i32 @submodule_create_branch(ptr nocapture noundef readonly %r, ptr %submodule.8.val, ptr noundef %name, ptr noundef %start_oid, ptr noundef %tracking_name, i32 noundef %force, i32 noundef %reflog, i32 noundef %quiet, i32 noundef %track, i32 noundef range(i32 0, 2) %dry_run) unnamed_addr #0 {
 entry:
   %child = alloca %struct.child_process, align 8
   %child_err = alloca %struct.strbuf, align 8
@@ -1730,7 +1730,7 @@ if.end:                                           ; preds = %for.body
 if.then9:                                         ; preds = %if.end, %for.body.us, %for.body.lr.ph.split.us
   %.us-phi = phi i64 [ 0, %for.body.lr.ph.split.us ], [ %indvars.iv.next22, %for.body.us ], [ %indvars.iv, %if.end ]
   %arrayidx.le = getelementptr inbounds ptr, ptr %call, i64 %.us-phi
-  call fastcc void @skip_prefix(ptr noundef %branch, ptr noundef nonnull %branch.addr)
+  call fastcc void @skip_prefix(ptr noundef %branch, ptr noundef %branch.addr)
   %call11 = tail call fastcc ptr @_(ptr noundef nonnull @.str.15)
   %4 = load ptr, ptr %branch.addr, align 8
   %5 = load ptr, ptr %arrayidx.le, align 8
@@ -1755,7 +1755,7 @@ declare ptr @get_worktrees() local_unnamed_addr #2
 declare i32 @is_shared_symref(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @skip_prefix(ptr noundef %str, ptr nocapture noundef writeonly %out) unnamed_addr #8 {
+define internal fastcc void @skip_prefix(ptr noundef %str, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #8 {
 entry:
   %scevgep = getelementptr i8, ptr %str, i64 11
   br label %do.body

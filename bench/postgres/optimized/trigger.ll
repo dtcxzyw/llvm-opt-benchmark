@@ -2358,7 +2358,7 @@ define dso_local { i64, i32 } @renametrig(ptr nocapture noundef readonly %0) loc
   %43 = getelementptr inbounds i8, ptr %0, i64 40
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %18, align 8
-  call fastcc void @renametrig_internal(ptr noundef %15, ptr noundef nonnull %6, ptr noundef nonnull %22, ptr noundef %44, ptr noundef %45)
+  call fastcc void @renametrig_internal(ptr noundef %15, ptr noundef nonnull %6, ptr noundef %22, ptr noundef %44, ptr noundef %45)
   %46 = load ptr, ptr %7, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 115
   %48 = load i8, ptr %47, align 1
@@ -2495,7 +2495,7 @@ declare ptr @relation_open(i32 noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @get_partition_parent(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @renametrig_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @renametrig_internal(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = alloca [2 x %struct.ScanKeyData], align 16
   %7 = getelementptr inbounds i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -2606,7 +2606,7 @@ define internal fastcc void @renametrig_partition(ptr noundef %0, i32 noundef %1
 
 20:                                               ; preds = %11
   %21 = call ptr @table_open(i32 noundef %1, i32 noundef 0) #15
-  call fastcc void @renametrig_internal(ptr noundef %0, ptr noundef %21, ptr noundef nonnull %10, ptr noundef %3, ptr noundef %4)
+  call fastcc void @renametrig_internal(ptr noundef %0, ptr noundef %21, ptr noundef %10, ptr noundef %3, ptr noundef %4)
   %22 = getelementptr inbounds i8, ptr %21, i64 56
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 115
@@ -3035,7 +3035,7 @@ define dso_local void @RelationBuildTriggers(ptr nocapture noundef %0) local_unn
 
 91:                                               ; preds = %88
   %92 = load ptr, ptr %11, align 8
-  %93 = call fastcc i64 @fastgetattr(ptr noundef nonnull %13, i32 noundef 16, ptr noundef %92, ptr noundef nonnull %3)
+  %93 = call fastcc i64 @fastgetattr(ptr noundef %13, i32 noundef 16, ptr noundef %92, ptr noundef %3)
   %94 = inttoptr i64 %93 to ptr
   %95 = call ptr @pg_detoast_datum_packed(ptr noundef %94) #15
   %96 = load i8, ptr %3, align 1
@@ -3094,7 +3094,7 @@ define dso_local void @RelationBuildTriggers(ptr nocapture noundef %0) local_unn
 
 .loopexit:                                        ; preds = %.lr.ph, %104, %124
   %126 = load ptr, ptr %11, align 8
-  %127 = call fastcc i64 @fastgetattr(ptr noundef nonnull %13, i32 noundef 18, ptr noundef %126, ptr noundef nonnull %3)
+  %127 = call fastcc i64 @fastgetattr(ptr noundef %13, i32 noundef 18, ptr noundef %126, ptr noundef %3)
   %128 = load i8, ptr %3, align 1
   %129 = trunc i8 %128 to i1
   br i1 %129, label %133, label %130
@@ -3109,7 +3109,7 @@ define dso_local void @RelationBuildTriggers(ptr nocapture noundef %0) local_unn
   %134 = getelementptr inbounds i8, ptr %27, i64 72
   store ptr %.sink, ptr %134, align 8
   %135 = load ptr, ptr %11, align 8
-  %136 = call fastcc i64 @fastgetattr(ptr noundef nonnull %13, i32 noundef 19, ptr noundef %135, ptr noundef nonnull %3)
+  %136 = call fastcc i64 @fastgetattr(ptr noundef %13, i32 noundef 19, ptr noundef %135, ptr noundef %3)
   %137 = load i8, ptr %3, align 1
   %138 = trunc i8 %137 to i1
   br i1 %138, label %142, label %139
@@ -3124,7 +3124,7 @@ define dso_local void @RelationBuildTriggers(ptr nocapture noundef %0) local_unn
   %143 = getelementptr inbounds i8, ptr %27, i64 80
   store ptr %.sink145, ptr %143, align 8
   %144 = load ptr, ptr %11, align 8
-  %145 = call fastcc i64 @fastgetattr(ptr noundef nonnull %13, i32 noundef 17, ptr noundef %144, ptr noundef nonnull %3)
+  %145 = call fastcc i64 @fastgetattr(ptr noundef %13, i32 noundef 17, ptr noundef %144, ptr noundef %3)
   %146 = load i8, ptr %3, align 1
   %147 = trunc i8 %146 to i1
   br i1 %147, label %151, label %148
@@ -3411,7 +3411,7 @@ declare i64 @nameout(ptr noundef) #2
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef range(i32 16, 20) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -3887,7 +3887,7 @@ define dso_local void @ExecBSInsertTriggers(ptr noundef %0, ptr nocapture nounde
   %47 = getelementptr inbounds i8, ptr %46, i64 40
   %48 = load ptr, ptr %47, align 8
   %49 = trunc nuw nsw i64 %indvars.iv to i32
-  %50 = call fastcc ptr @ExecCallTriggerFunc(ptr noundef nonnull %3, i32 noundef %49, ptr noundef %40, ptr noundef %41, ptr noundef %48)
+  %50 = call fastcc ptr @ExecCallTriggerFunc(ptr noundef %3, i32 noundef %49, ptr noundef %40, ptr noundef %41, ptr noundef %48)
   %.not23 = icmp eq ptr %50, null
   br i1 %.not23, label %55, label %51
 
@@ -3911,7 +3911,7 @@ define dso_local void @ExecBSInsertTriggers(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @before_stmt_triggers_fired(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @before_stmt_triggers_fired(i32 noundef %0, i32 noundef range(i32 2, 5) %1) unnamed_addr #0 {
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %8
@@ -4177,7 +4177,7 @@ ExecQual.exit:                                    ; preds = %61
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ExecCallTriggerFunc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @ExecCallTriggerFunc(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %union.anon.2, align 8
   %7 = alloca %struct.PgStat_FunctionCallUsage, align 8
   %8 = alloca [1 x %struct.__jmp_buf_tag], align 16
@@ -4302,7 +4302,7 @@ define dso_local void @ExecASInsertTriggers(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @AfterTriggerSaveEvent(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef readonly %10, i1 noundef zeroext %11) unnamed_addr #0 {
+define internal fastcc void @AfterTriggerSaveEvent(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 4) %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef readonly %10, i1 noundef zeroext %11) unnamed_addr #0 {
   %13 = alloca %struct.AfterTriggerEventData, align 4
   %14 = alloca %struct.AfterTriggerSharedData, align 8
   %15 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4417,7 +4417,7 @@ AfterTriggerEnlargeQueryState.exit:               ; preds = %.lr.ph.i, %46, %28
 
 GetAfterTriggersTransitionTable.exit:             ; preds = %67, %.sink.split.i
   %.0.i = phi ptr [ null, %67 ], [ %75, %.sink.split.i ]
-  tail call fastcc void @TransitionTableAddTuple(ptr noundef nonnull %10, ptr noundef %1, ptr noundef nonnull %6, ptr noundef null, ptr noundef %.0.i)
+  tail call fastcc void @TransitionTableAddTuple(ptr noundef %10, ptr noundef %1, ptr noundef %6, ptr noundef null, ptr noundef %.0.i)
   br label %76
 
 76:                                               ; preds = %GetAfterTriggersTransitionTable.exit, %59, %55
@@ -4457,7 +4457,7 @@ GetAfterTriggersTransitionTable.exit:             ; preds = %67, %.sink.split.i
 
 GetAfterTriggersTransitionTable.exit181:          ; preds = %87, %.sink.split.i179
   %.0.i178 = phi ptr [ null, %87 ], [ %95, %.sink.split.i179 ]
-  tail call fastcc void @TransitionTableAddTuple(ptr noundef nonnull %10, ptr noundef %1, ptr noundef nonnull %7, ptr noundef %57, ptr noundef %.0.i178)
+  tail call fastcc void @TransitionTableAddTuple(ptr noundef %10, ptr noundef %1, ptr noundef %7, ptr noundef %57, ptr noundef %.0.i178)
   br label %96
 
 96:                                               ; preds = %GetAfterTriggersTransitionTable.exit181, %78, %76
@@ -4465,7 +4465,7 @@ GetAfterTriggersTransitionTable.exit181:          ; preds = %87, %.sink.split.i1
   br i1 %97, label %._crit_edge.thread, label %98
 
 98:                                               ; preds = %96
-  switch i32 %4, label %default.unreachable [
+  switch i32 %4, label %default.unreachable206 [
     i32 1, label %99
     i32 0, label %103
     i32 2, label %107
@@ -4519,7 +4519,7 @@ GetAfterTriggersTransitionTable.exit181:          ; preds = %87, %.sink.split.i1
   br i1 %.not165, label %.critedge.thread, label %._crit_edge.thread
 
 .critedge:                                        ; preds = %AfterTriggerEnlargeQueryState.exit
-  switch i32 %4, label %default.unreachable [
+  switch i32 %4, label %default.unreachable206 [
     i32 0, label %.critedge.thread200
     i32 1, label %.critedge.thread201
     i32 2, label %.critedge.thread
@@ -4656,7 +4656,7 @@ GetAfterTriggersTransitionTable.exit181:          ; preds = %87, %.sink.split.i1
   store i16 0, ptr %191, align 2
   br label %192
 
-default.unreachable:                              ; preds = %98, %.critedge
+default.unreachable206:                           ; preds = %.critedge, %98
   unreachable
 
 192:                                              ; preds = %165, %156, %141, %126, %185
@@ -4782,7 +4782,7 @@ default.unreachable:                              ; preds = %98, %.critedge
 
 256:                                              ; preds = %255
   %257 = icmp eq ptr %.0147203, null
-  br i1 %257, label %258, label %.sink.split208
+  br i1 %257, label %258, label %.sink.split209
 
 258:                                              ; preds = %256
   %259 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
@@ -4791,7 +4791,7 @@ default.unreachable:                              ; preds = %98, %.critedge
   %262 = getelementptr %struct.AfterTriggersQueryData, ptr %259, i64 %261, i32 1
   %263 = load ptr, ptr %262, align 8
   %264 = icmp eq ptr %263, null
-  br i1 %264, label %265, label %.sink.split208
+  br i1 %264, label %265, label %.sink.split209
 
 265:                                              ; preds = %258
   %266 = load ptr, ptr @CurTransactionContext, align 8
@@ -4809,16 +4809,16 @@ default.unreachable:                              ; preds = %98, %.critedge
   %274 = sext i32 %273 to i64
   %275 = getelementptr %struct.AfterTriggersQueryData, ptr %272, i64 %274, i32 1
   store ptr %271, ptr %275, align 8
-  br label %.sink.split208
+  br label %.sink.split209
 
-.sink.split208:                                   ; preds = %256, %265, %258
-  %.sink209 = phi i32 [ 536870912, %258 ], [ 536870912, %265 ], [ 0, %256 ]
+.sink.split209:                                   ; preds = %256, %265, %258
+  %.sink210 = phi i32 [ 536870912, %258 ], [ 536870912, %265 ], [ 0, %256 ]
   %.2.ph = phi ptr [ %263, %258 ], [ %271, %265 ], [ %.0147203, %256 ]
-  store i32 %.sink209, ptr %13, align 4
+  store i32 %.sink210, ptr %13, align 4
   br label %276
 
-276:                                              ; preds = %.sink.split208, %255
-  %.2 = phi ptr [ %.0147203, %255 ], [ %.2.ph, %.sink.split208 ]
+276:                                              ; preds = %.sink.split209, %255
+  %.2 = phi ptr [ %.0147203, %255 ], [ %.2.ph, %.sink.split209 ]
   br i1 %switch, label %277, label %301
 
 277:                                              ; preds = %276
@@ -5053,7 +5053,7 @@ define dso_local noundef zeroext i1 @ExecBRInsertTriggers(ptr noundef %0, ptr no
   %43 = getelementptr inbounds i8, ptr %42, i64 40
   %44 = load ptr, ptr %43, align 8
   %45 = trunc nuw nsw i64 %indvars.iv to i32
-  %46 = call fastcc ptr @ExecCallTriggerFunc(ptr noundef nonnull %5, i32 noundef %45, ptr noundef %36, ptr noundef %37, ptr noundef %44)
+  %46 = call fastcc ptr @ExecCallTriggerFunc(ptr noundef %5, i32 noundef %45, ptr noundef %36, ptr noundef %37, ptr noundef %44)
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %52
 
@@ -5240,7 +5240,7 @@ define dso_local noundef zeroext i1 @ExecIRInsertTriggers(ptr noundef %0, ptr no
   %43 = getelementptr inbounds i8, ptr %42, i64 40
   %44 = load ptr, ptr %43, align 8
   %45 = trunc nuw nsw i64 %indvars.iv to i32
-  %46 = call fastcc ptr @ExecCallTriggerFunc(ptr noundef nonnull %5, i32 noundef %45, ptr noundef %36, ptr noundef %37, ptr noundef %44)
+  %46 = call fastcc ptr @ExecCallTriggerFunc(ptr noundef %5, i32 noundef %45, ptr noundef %36, ptr noundef %37, ptr noundef %44)
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %52
 
@@ -5355,7 +5355,7 @@ define dso_local void @ExecBSDeleteTriggers(ptr noundef %0, ptr nocapture nounde
   %47 = getelementptr inbounds i8, ptr %46, i64 40
   %48 = load ptr, ptr %47, align 8
   %49 = trunc nuw nsw i64 %indvars.iv to i32
-  %50 = call fastcc ptr @ExecCallTriggerFunc(ptr noundef nonnull %3, i32 noundef %49, ptr noundef %40, ptr noundef %41, ptr noundef %48)
+  %50 = call fastcc ptr @ExecCallTriggerFunc(ptr noundef %3, i32 noundef %49, ptr noundef %40, ptr noundef %41, ptr noundef %48)
   %.not23 = icmp eq ptr %50, null
   br i1 %.not23, label %55, label %51
 
@@ -5494,7 +5494,7 @@ define dso_local noundef zeroext i1 @ExecBRDeleteTriggers(ptr noundef %0, ptr no
   %59 = getelementptr inbounds i8, ptr %58, i64 40
   %60 = load ptr, ptr %59, align 8
   %61 = trunc nuw nsw i64 %indvars.iv to i32
-  %62 = call fastcc ptr @ExecCallTriggerFunc(ptr noundef nonnull %9, i32 noundef %61, ptr noundef %52, ptr noundef %53, ptr noundef %60)
+  %62 = call fastcc ptr @ExecCallTriggerFunc(ptr noundef %9, i32 noundef %61, ptr noundef %52, ptr noundef %53, ptr noundef %60)
   %63 = icmp eq ptr %62, null
   br i1 %63, label %._crit_edge, label %64
 
@@ -5847,7 +5847,7 @@ define dso_local noundef zeroext i1 @ExecIRDeleteTriggers(ptr noundef %0, ptr no
   %40 = getelementptr inbounds i8, ptr %39, i64 40
   %41 = load ptr, ptr %40, align 8
   %42 = trunc nuw nsw i64 %indvars.iv to i32
-  %43 = call fastcc ptr @ExecCallTriggerFunc(ptr noundef nonnull %4, i32 noundef %42, ptr noundef %33, ptr noundef %34, ptr noundef %41)
+  %43 = call fastcc ptr @ExecCallTriggerFunc(ptr noundef %4, i32 noundef %42, ptr noundef %33, ptr noundef %34, ptr noundef %41)
   %44 = icmp eq ptr %43, null
   br i1 %44, label %._crit_edge, label %45
 
@@ -5949,7 +5949,7 @@ define dso_local void @ExecBSUpdateTriggers(ptr noundef %0, ptr noundef %1) loca
   %49 = getelementptr inbounds i8, ptr %48, i64 40
   %50 = load ptr, ptr %49, align 8
   %51 = trunc nuw nsw i64 %indvars.iv to i32
-  %52 = call fastcc ptr @ExecCallTriggerFunc(ptr noundef nonnull %3, i32 noundef %51, ptr noundef %42, ptr noundef %43, ptr noundef %50)
+  %52 = call fastcc ptr @ExecCallTriggerFunc(ptr noundef %3, i32 noundef %51, ptr noundef %42, ptr noundef %43, ptr noundef %50)
   %.not27 = icmp eq ptr %52, null
   br i1 %.not27, label %57, label %53
 
@@ -6127,7 +6127,7 @@ define dso_local noundef zeroext i1 @ExecBRUpdateTriggers(ptr noundef %0, ptr no
   %78 = getelementptr inbounds i8, ptr %77, i64 40
   %79 = load ptr, ptr %78, align 8
   %80 = trunc nuw nsw i64 %indvars.iv to i32
-  %81 = call fastcc ptr @ExecCallTriggerFunc(ptr noundef nonnull %11, i32 noundef %80, ptr noundef %71, ptr noundef %72, ptr noundef %79)
+  %81 = call fastcc ptr @ExecCallTriggerFunc(ptr noundef %11, i32 noundef %80, ptr noundef %71, ptr noundef %72, ptr noundef %79)
   %82 = icmp eq ptr %81, null
   br i1 %82, label %83, label %90
 
@@ -6379,7 +6379,7 @@ define dso_local noundef zeroext i1 @ExecIRUpdateTriggers(ptr noundef %0, ptr no
   %47 = getelementptr inbounds i8, ptr %46, i64 40
   %48 = load ptr, ptr %47, align 8
   %49 = trunc nuw nsw i64 %indvars.iv to i32
-  %50 = call fastcc ptr @ExecCallTriggerFunc(ptr noundef nonnull %6, i32 noundef %49, ptr noundef %40, ptr noundef %41, ptr noundef %48)
+  %50 = call fastcc ptr @ExecCallTriggerFunc(ptr noundef %6, i32 noundef %49, ptr noundef %40, ptr noundef %41, ptr noundef %48)
   %51 = icmp eq ptr %50, null
   br i1 %51, label %._crit_edge, label %52
 
@@ -6478,7 +6478,7 @@ define dso_local void @ExecBSTruncateTriggers(ptr noundef %0, ptr nocapture noun
   %42 = getelementptr inbounds i8, ptr %41, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = trunc nuw nsw i64 %indvars.iv to i32
-  %45 = call fastcc ptr @ExecCallTriggerFunc(ptr noundef nonnull %3, i32 noundef %44, ptr noundef %35, ptr noundef %36, ptr noundef %43)
+  %45 = call fastcc ptr @ExecCallTriggerFunc(ptr noundef %3, i32 noundef %44, ptr noundef %35, ptr noundef %36, ptr noundef %43)
   %.not22 = icmp eq ptr %45, null
   br i1 %.not22, label %50, label %46
 
@@ -7990,7 +7990,7 @@ table_tuple_fetch_row_version.exit117.i:          ; preds = %205
 
 269:                                              ; preds = %266, %260
   call void @MemoryContextReset(ptr noundef %13) #15
-  %270 = call fastcc ptr @ExecCallTriggerFunc(ptr noundef nonnull %5, i32 noundef %111, ptr noundef %.294, ptr noundef null, ptr noundef %13)
+  %270 = call fastcc ptr @ExecCallTriggerFunc(ptr noundef %5, i32 noundef %111, ptr noundef %.294, ptr noundef null, ptr noundef %13)
   %.not107.i = icmp eq ptr %270, null
   %271 = load ptr, ptr %16, align 8
   %.not108.i = icmp eq ptr %270, %271
@@ -9722,7 +9722,7 @@ declare void @list_free_deep(ptr noundef) local_unnamed_addr #2
 declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @TransitionTableAddTuple(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @TransitionTableAddTuple(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %28, label %7
 
@@ -9763,12 +9763,12 @@ GetAfterTriggersStoreSlot.exit:                   ; preds = %11, %16
   %23 = phi ptr [ %22, %16 ], [ %15, %11 ]
   %24 = getelementptr inbounds i8, ptr %10, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call ptr @execute_attr_map_slot(ptr noundef %25, ptr noundef %2, ptr noundef %23) #15
+  %26 = tail call ptr @execute_attr_map_slot(ptr noundef %25, ptr noundef nonnull %2, ptr noundef %23) #15
   tail call void @tuplestore_puttupleslot(ptr noundef nonnull %4, ptr noundef %23) #15
   br label %28
 
 27:                                               ; preds = %9
-  tail call void @tuplestore_puttupleslot(ptr noundef nonnull %4, ptr noundef %2) #15
+  tail call void @tuplestore_puttupleslot(ptr noundef nonnull %4, ptr noundef nonnull %2) #15
   br label %28
 
 28:                                               ; preds = %GetAfterTriggersStoreSlot.exit, %27, %5, %8
@@ -9776,7 +9776,7 @@ GetAfterTriggersStoreSlot.exit:                   ; preds = %11, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cancel_prior_stmt_triggers(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @cancel_prior_stmt_triggers(i32 noundef %0, i32 noundef range(i32 2, 5) %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 {
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
   %6 = sext i32 %5 to i64

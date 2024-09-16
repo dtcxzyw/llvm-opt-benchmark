@@ -187,7 +187,7 @@ if.end4:                                          ; preds = %lor.lhs.false
   %4 = load i64, ptr %update_index7, align 8
   %sub = sub i64 %4, %2
   store i64 %sub, ptr %update_index7, align 8
-  %call = call fastcc i32 @writer_add_record(ptr noundef nonnull %w, ptr noundef nonnull %rec)
+  %call = call fastcc i32 @writer_add_record(ptr noundef nonnull %w, ptr noundef %rec)
   %cmp8 = icmp slt i32 %call, 0
   br i1 %cmp8, label %return, label %if.end10
 
@@ -211,7 +211,7 @@ if.then14:                                        ; preds = %land.lhs.true
   %call17 = call i32 @hash_size(i32 noundef %5) #13
   %conv = sext i32 %call17 to i64
   call void @strbuf_add(ptr noundef nonnull %h, ptr noundef %call15, i64 noundef %conv) #13
-  call fastcc void @writer_index_hash(ptr noundef nonnull %w, ptr noundef nonnull %h)
+  call fastcc void @writer_index_hash(ptr noundef nonnull %w, ptr noundef %h)
   call void @strbuf_release(ptr noundef nonnull %h) #13
   br label %if.end18
 
@@ -234,7 +234,7 @@ if.then28:                                        ; preds = %land.lhs.true25
   %call33 = call i32 @hash_size(i32 noundef %6) #13
   %conv34 = sext i32 %call33 to i64
   call void @strbuf_add(ptr noundef nonnull %h29, ptr noundef %call30, i64 noundef %conv34) #13
-  call fastcc void @writer_index_hash(ptr noundef nonnull %w, ptr noundef nonnull %h29)
+  call fastcc void @writer_index_hash(ptr noundef nonnull %w, ptr noundef %h29)
   call void @strbuf_release(ptr noundef nonnull %h29) #13
   br label %return
 
@@ -244,11 +244,11 @@ return:                                           ; preds = %if.end18, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @writer_add_record(ptr noundef %w, ptr noundef %rec) unnamed_addr #0 {
+define internal fastcc i32 @writer_add_record(ptr noundef %w, ptr noundef nonnull %rec) unnamed_addr #0 {
 entry:
   %key = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %key, ptr noundef nonnull align 8 dereferenceable(24) @__const.writer_add_record.key, i64 24, i1 false)
-  call void @reftable_record_key(ptr noundef %rec, ptr noundef nonnull %key) #13
+  call void @reftable_record_key(ptr noundef nonnull %rec, ptr noundef nonnull %key) #13
   %last_key = getelementptr inbounds i8, ptr %w, i64 24
   %call = call i32 @strbuf_cmp(ptr noundef nonnull %last_key, ptr noundef nonnull %key) #13
   %cmp = icmp sgt i32 %call, -1
@@ -274,7 +274,7 @@ strbuf_setlen.exit:                               ; preds = %if.end, %if.then4.i
   br i1 %tobool.not, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %strbuf_setlen.exit
-  %call4 = call zeroext i8 @reftable_record_type(ptr noundef %rec) #13
+  %call4 = call zeroext i8 @reftable_record_type(ptr noundef nonnull %rec) #13
   %next.i = getelementptr inbounds i8, ptr %w, i64 48
   %2 = load i64, ptr %next.i, align 8
   %cmp.i = icmp eq i64 %2, 0
@@ -311,7 +311,7 @@ writer_reinit_block_writer.exit:                  ; preds = %if.then3, %if.then.
 
 if.end5:                                          ; preds = %writer_reinit_block_writer.exit, %strbuf_setlen.exit
   %9 = phi ptr [ %block_writer_data.i, %writer_reinit_block_writer.exit ], [ %1, %strbuf_setlen.exit ]
-  %call7 = call i32 @block_writer_add(ptr noundef nonnull %9, ptr noundef %rec) #13
+  %call7 = call i32 @block_writer_add(ptr noundef nonnull %9, ptr noundef nonnull %rec) #13
   %cmp8 = icmp eq i32 %call7, 0
   br i1 %cmp8, label %done, label %if.end10
 
@@ -321,7 +321,7 @@ if.end10:                                         ; preds = %if.end5
   br i1 %cmp12, label %done, label %if.end14
 
 if.end14:                                         ; preds = %if.end10
-  %call15 = call zeroext i8 @reftable_record_type(ptr noundef %rec) #13
+  %call15 = call zeroext i8 @reftable_record_type(ptr noundef nonnull %rec) #13
   %next.i15 = getelementptr inbounds i8, ptr %w, i64 48
   %10 = load i64, ptr %next.i15, align 8
   %cmp.i16 = icmp eq i64 %10, 0
@@ -354,7 +354,7 @@ writer_reinit_block_writer.exit33:                ; preds = %if.end14, %if.then.
   %16 = load i32, ptr %restart_interval.i25, align 4
   %restart_interval7.i26 = getelementptr inbounds i8, ptr %w, i64 136
   store i32 %16, ptr %restart_interval7.i26, align 8
-  %call17 = call i32 @block_writer_add(ptr noundef nonnull %block_writer_data.i19, ptr noundef %rec) #13
+  %call17 = call i32 @block_writer_add(ptr noundef nonnull %block_writer_data.i19, ptr noundef nonnull %rec) #13
   %cmp18 = icmp eq i32 %call17, -1
   %spec.store.select = select i1 %cmp18, i32 -11, i32 %call17
   br label %done
@@ -372,7 +372,7 @@ declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare i32 @hash_size(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @writer_index_hash(ptr noundef %w, ptr noundef %hash) unnamed_addr #0 {
+define internal fastcc void @writer_index_hash(ptr noundef %w, ptr noundef nonnull %hash) unnamed_addr #0 {
 entry:
   %want = alloca %struct.obj_index_tree_node, align 8
   %next = getelementptr inbounds i8, ptr %w, i64 48
@@ -531,7 +531,7 @@ if.end7.i:                                        ; preds = %if.then.i, %land.lh
   %sub.i = sub i64 %3, %conv8.i
   store i64 %sub.i, ptr %next.i, align 8
   store i32 0, ptr %pending_padding.i, align 8
-  %call10.i = call fastcc i32 @writer_add_record(ptr noundef nonnull %w, ptr noundef nonnull %rec.i)
+  %call10.i = call fastcc i32 @writer_add_record(ptr noundef nonnull %w, ptr noundef %rec.i)
   br label %reftable_writer_add_log_verbatim.exit
 
 reftable_writer_add_log_verbatim.exit:            ; preds = %if.then.i, %if.end7.i
@@ -643,7 +643,7 @@ if.end7.i23:                                      ; preds = %if.then.i30, %land.
   %sub.i27 = sub i64 %17, %conv8.i25
   store i64 %sub.i27, ptr %next.i26, align 8
   store i32 0, ptr %pending_padding.i24, align 8
-  %call10.i28 = call fastcc i32 @writer_add_record(ptr noundef nonnull %w, ptr noundef nonnull %rec.i16)
+  %call10.i28 = call fastcc i32 @writer_add_record(ptr noundef nonnull %w, ptr noundef %rec.i16)
   br label %reftable_writer_add_log_verbatim.exit33
 
 reftable_writer_add_log_verbatim.exit33:          ; preds = %if.then.i30, %if.end7.i23

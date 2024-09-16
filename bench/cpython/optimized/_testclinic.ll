@@ -2880,7 +2880,7 @@ for.body54.i:                                     ; preds = %for.end35.i, %for.b
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body54.i ], [ 0, %for.end35.i ]
   %arrayidx57.i = getelementptr [14 x ptr], ptr %out.i, i64 0, i64 %indvars.iv13.i
   %158 = load ptr, ptr %arrayidx57.i, align 8
-  tail call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call36.i, i64 noundef %indvars.iv13.i, ptr noundef %158)
+  tail call fastcc void @PyTuple_SET_ITEM(ptr noundef %call36.i, i64 noundef %indvars.iv13.i, ptr noundef %158)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 14
   br i1 %exitcond16.not.i, label %char_converter_impl.exit, label %for.body54.i, !llvm.loop !8
@@ -3111,7 +3111,7 @@ for.body43.i:                                     ; preds = %for.end24.i, %for.b
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body43.i ], [ 0, %for.end24.i ]
   %arrayidx46.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv13.i
   %14 = load ptr, ptr %arrayidx46.i, align 8
-  tail call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call25.i, i64 noundef %indvars.iv13.i, ptr noundef %14)
+  tail call fastcc void @PyTuple_SET_ITEM(ptr noundef %call25.i, i64 noundef %indvars.iv13.i, ptr noundef %14)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
   br i1 %exitcond16.not.i, label %unsigned_char_converter_impl.exit, label %for.body43.i, !llvm.loop !12
@@ -3435,7 +3435,7 @@ for.body46.i:                                     ; preds = %for.end27.i, %for.b
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body46.i ], [ 0, %for.end27.i ]
   %arrayidx49.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv13.i
   %12 = load ptr, ptr %arrayidx49.i, align 8
-  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call28.i, i64 noundef %indvars.iv13.i, ptr noundef %12)
+  call fastcc void @PyTuple_SET_ITEM(ptr noundef %call28.i, i64 noundef %indvars.iv13.i, ptr noundef %12)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
   br i1 %exitcond16.not.i, label %unsigned_short_converter_impl.exit, label %for.body46.i, !llvm.loop !16
@@ -3737,7 +3737,7 @@ for.body46.i:                                     ; preds = %for.end27.i, %for.b
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body46.i ], [ 0, %for.end27.i ]
   %arrayidx49.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv13.i
   %25 = load ptr, ptr %arrayidx49.i, align 8
-  tail call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call28.i, i64 noundef %indvars.iv13.i, ptr noundef %25)
+  tail call fastcc void @PyTuple_SET_ITEM(ptr noundef %call28.i, i64 noundef %indvars.iv13.i, ptr noundef %25)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
   br i1 %exitcond16.not.i, label %int_converter_impl.exit, label %for.body46.i, !llvm.loop !20
@@ -3923,7 +3923,7 @@ for.body46.i:                                     ; preds = %for.end27.i, %for.b
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body46.i ], [ 0, %for.end27.i ]
   %arrayidx49.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv13.i
   %13 = load ptr, ptr %arrayidx49.i, align 8
-  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call28.i, i64 noundef %indvars.iv13.i, ptr noundef %13)
+  call fastcc void @PyTuple_SET_ITEM(ptr noundef %call28.i, i64 noundef %indvars.iv13.i, ptr noundef %13)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
   br i1 %exitcond16.not.i, label %unsigned_int_converter_impl.exit, label %for.body46.i, !llvm.loop !24
@@ -4232,7 +4232,7 @@ for.body40.i:                                     ; preds = %for.end23.i, %for.b
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body40.i ], [ 0, %for.end23.i ]
   %arrayidx42.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv13.i
   %15 = load ptr, ptr %arrayidx42.i, align 8
-  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call24.i, i64 noundef %indvars.iv13.i, ptr noundef %15)
+  call fastcc void @PyTuple_SET_ITEM(ptr noundef %call24.i, i64 noundef %indvars.iv13.i, ptr noundef %15)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
   br i1 %exitcond16.not.i, label %unsigned_long_converter_impl.exit, label %for.body40.i, !llvm.loop !28
@@ -4541,7 +4541,7 @@ for.body40.i:                                     ; preds = %for.end23.i, %for.b
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body40.i ], [ 0, %for.end23.i ]
   %arrayidx42.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv13.i
   %15 = load ptr, ptr %arrayidx42.i, align 8
-  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call24.i, i64 noundef %indvars.iv13.i, ptr noundef %15)
+  call fastcc void @PyTuple_SET_ITEM(ptr noundef %call24.i, i64 noundef %indvars.iv13.i, ptr noundef %15)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
   br i1 %exitcond16.not.i, label %unsigned_long_long_converter_impl.exit, label %for.body40.i, !llvm.loop !32
@@ -4774,7 +4774,7 @@ for.body40.i:                                     ; preds = %for.end23.i, %for.b
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body40.i ], [ 0, %for.end23.i ]
   %arrayidx42.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv13.i
   %15 = load ptr, ptr %arrayidx42.i, align 8
-  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call24.i, i64 noundef %indvars.iv13.i, ptr noundef %15)
+  call fastcc void @PyTuple_SET_ITEM(ptr noundef %call24.i, i64 noundef %indvars.iv13.i, ptr noundef %15)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
   br i1 %exitcond16.not.i, label %py_ssize_t_converter_impl.exit, label %for.body40.i, !llvm.loop !36
@@ -4957,7 +4957,7 @@ for.body40.i:                                     ; preds = %for.end23.i, %for.b
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body40.i ], [ 0, %for.end23.i ]
   %arrayidx42.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv13.i
   %13 = load ptr, ptr %arrayidx42.i, align 8
-  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call24.i, i64 noundef %indvars.iv13.i, ptr noundef %13)
+  call fastcc void @PyTuple_SET_ITEM(ptr noundef %call24.i, i64 noundef %indvars.iv13.i, ptr noundef %13)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
   br i1 %exitcond16.not.i, label %slice_index_converter_impl.exit, label %for.body40.i, !llvm.loop !40
@@ -5548,7 +5548,7 @@ for.body.i:                                       ; preds = %if.end33.i, %for.bo
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %if.end33.i ]
   %arrayidx42.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv.i
   %4 = load ptr, ptr %arrayidx42.i, align 8
-  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call37.i, i64 noundef %indvars.iv.i, ptr noundef %4)
+  call fastcc void @PyTuple_SET_ITEM(ptr noundef %call37.i, i64 noundef %indvars.iv.i, ptr noundef %4)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %str_converter_impl.exit, label %for.body.i, !llvm.loop !41
@@ -5677,7 +5677,7 @@ for.body.i:                                       ; preds = %if.end33.i, %for.bo
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %if.end33.i ]
   %arrayidx42.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv.i
   %4 = load ptr, ptr %arrayidx42.i, align 8
-  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call37.i, i64 noundef %indvars.iv.i, ptr noundef %4)
+  call fastcc void @PyTuple_SET_ITEM(ptr noundef %call37.i, i64 noundef %indvars.iv.i, ptr noundef %4)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %str_converter_encoding_impl.exit, label %for.body.i, !llvm.loop !43
@@ -5853,9 +5853,9 @@ for.inc32.i:                                      ; preds = %if.then1.i.i, %if.e
 
 for.body39.i:                                     ; preds = %for.end22.i
   %out.i.sroa.0.0.out.i.sroa.0.0. = load ptr, ptr %out.i.sroa.0, align 16
-  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call23.i, i64 noundef 0, ptr noundef %out.i.sroa.0.0.out.i.sroa.0.0.)
+  call fastcc void @PyTuple_SET_ITEM(ptr noundef %call23.i, i64 noundef 0, ptr noundef %out.i.sroa.0.0.out.i.sroa.0.0.)
   %out.i.sroa.8.0.out.i.sroa.8.0. = load ptr, ptr %out.i.sroa.8, align 8
-  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call23.i, i64 noundef 1, ptr noundef %out.i.sroa.8.0.out.i.sroa.8.0.)
+  call fastcc void @PyTuple_SET_ITEM(ptr noundef %call23.i, i64 noundef 1, ptr noundef %out.i.sroa.8.0.out.i.sroa.8.0.)
   br label %py_buffer_converter_impl.exit
 
 py_buffer_converter_impl.exit:                    ; preds = %for.inc32.i, %for.body39.i, %for.cond15.preheader.i, %for.body17.i, %if.end.i48.i, %if.then1.i51.i
@@ -7050,7 +7050,7 @@ if.end.i.i:                                       ; preds = %for.body
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %for.body, %if.end.i.i
-  tail call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call1, i64 noundef %i.017, ptr noundef nonnull %1)
+  tail call fastcc void @PyTuple_SET_ITEM(ptr noundef %call1, i64 noundef %i.017, ptr noundef nonnull %1)
   %exitcond.not = icmp eq i64 %add, %sub
   br i1 %exitcond.not, label %exit, label %for.body, !llvm.loop !47
 
@@ -7471,7 +7471,7 @@ if.end.i.i:                                       ; preds = %for.body
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %for.body, %if.end.i.i
-  tail call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call1, i64 noundef %i.016, ptr noundef nonnull %0)
+  tail call fastcc void @PyTuple_SET_ITEM(ptr noundef %call1, i64 noundef %i.016, ptr noundef nonnull %0)
   %inc = add nuw nsw i64 %i.016, 1
   %exitcond.not = icmp eq i64 %inc, %nargs
   br i1 %exitcond.not, label %if.then.i, label %for.body, !llvm.loop !48
@@ -8915,7 +8915,7 @@ exit:                                             ; preds = %if.then9, %if.end3,
 declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pack_arguments_newref(i32 noundef %argc, ...) unnamed_addr #0 {
+define internal ptr @pack_arguments_newref(i32 noundef range(i32 1, 6) %argc, ...) unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   %call = tail call ptr @PyErr_Occurred() #9
@@ -8927,23 +8927,19 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %conv = zext i32 %argc to i64
+  %conv = zext nneg i32 %argc to i64
   %call1 = tail call ptr @PyTuple_New(i64 noundef %conv) #9
   %tobool2.not = icmp eq ptr %call1, null
   br i1 %tobool2.not, label %return, label %if.end
 
 if.end:                                           ; preds = %cond.end
   call void @llvm.va_start.p0(ptr nonnull %vargs)
-  %cmp14 = icmp sgt i32 %argc, 0
-  br i1 %cmp14, label %for.body.lr.ph, label %for.end
-
-for.body.lr.ph:                                   ; preds = %if.end
   %overflow_arg_area_p = getelementptr inbounds i8, ptr %vargs, i64 8
   %0 = getelementptr inbounds i8, ptr %vargs, i64 16
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %_Py_NewRef.exit
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_Py_NewRef.exit ]
+for.body:                                         ; preds = %if.end, %_Py_NewRef.exit
+  %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %_Py_NewRef.exit ]
   %gp_offset = load i32, ptr %vargs, align 16
   %fits_in_gp = icmp ult i32 %gp_offset, 41
   br i1 %fits_in_gp, label %vaarg.in_reg, label %vaarg.in_mem
@@ -9005,12 +9001,12 @@ if.end.i.i:                                       ; preds = %if.end13
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end13, %if.end.i.i
-  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call1, i64 noundef %indvars.iv, ptr noundef nonnull %arg.0)
+  call fastcc void @PyTuple_SET_ITEM(ptr noundef %call1, i64 noundef %indvars.iv, ptr noundef nonnull %arg.0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !49
 
-for.end:                                          ; preds = %_Py_NewRef.exit, %if.end
+for.end:                                          ; preds = %_Py_NewRef.exit
   call void @llvm.va_end.p0(ptr nonnull %vargs)
   br label %return
 
@@ -9031,7 +9027,7 @@ declare i32 @_PyObject_IsFreed(ptr noundef) local_unnamed_addr #1
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @PyTuple_SET_ITEM(ptr nocapture noundef %op, i64 noundef %index, ptr noundef %value) unnamed_addr #0 {
+define internal fastcc void @PyTuple_SET_ITEM(ptr nocapture noundef nonnull %op, i64 noundef %index, ptr noundef %value) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8

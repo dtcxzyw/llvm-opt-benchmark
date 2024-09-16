@@ -2032,7 +2032,7 @@ _ZL15center_moleculeN3gmx8ArrayRefINS_11BasicVectorIfEEEE.exit: ; preds = %.lr.p
   %220 = getelementptr inbounds i8, ptr %0, i64 196
   %221 = getelementptr inbounds i8, ptr %0, i64 208
   %222 = load i32, ptr %221, align 8
-  invoke fastcc void @_ZL11insert_molsiiiffP7t_atomsP8t_symtabPSt6vectorIN3gmx11BasicVectorIfEESaIS6_EERKSt3setIiSt4lessIiESaIiEERKS_NS4_8ArrayRefIS6_EE7PbcTypePA3_fRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKf12RotationType(i32 noundef %202, i32 noundef %204, i32 noundef %206, float noundef %208, float noundef %210, ptr noundef nonnull %18, ptr noundef nonnull %211, ptr noundef nonnull %212, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(72) %8, ptr %213, ptr %219, i32 noundef %.07, ptr noundef nonnull %86, ptr noundef nonnull align 8 dereferenceable(32) %166, ptr noundef nonnull %220, i32 noundef %222)
+  invoke fastcc void @_ZL11insert_molsiiiffP7t_atomsP8t_symtabPSt6vectorIN3gmx11BasicVectorIfEESaIS6_EERKSt3setIiSt4lessIiESaIiEERKS_NS4_8ArrayRefIS6_EE7PbcTypePA3_fRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKf12RotationType(i32 noundef %202, i32 noundef %204, i32 noundef %206, float noundef %208, float noundef %210, ptr noundef %18, ptr noundef %211, ptr noundef %212, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(72) %8, ptr %213, ptr %219, i32 noundef %.07, ptr noundef %86, ptr noundef nonnull align 8 dereferenceable(32) %166, ptr noundef %220, i32 noundef %222)
           to label %223 unwind label %153
 
 223:                                              ; preds = %200
@@ -3853,7 +3853,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
 declare void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind writable sret(%struct.t_atoms) align 8, ptr noundef nonnull align 8 dereferenceable(768)) local_unnamed_addr #4
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @_ZL11insert_molsiiiffP7t_atomsP8t_symtabPSt6vectorIN3gmx11BasicVectorIfEESaIS6_EERKSt3setIiSt4lessIiESaIiEERKS_NS4_8ArrayRefIS6_EE7PbcTypePA3_fRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKf12RotationType(i32 noundef %0, i32 noundef %1, i32 noundef %2, float noundef %3, float noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(72) %9, ptr %.0.val, ptr %.8.val, i32 noundef %10, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr nocapture noundef readonly %13, i32 noundef %14) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11insert_molsiiiffP7t_atomsP8t_symtabPSt6vectorIN3gmx11BasicVectorIfEESaIS6_EERKSt3setIiSt4lessIiESaIiEERKS_NS4_8ArrayRefIS6_EE7PbcTypePA3_fRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKf12RotationType(i32 noundef %0, i32 noundef %1, i32 noundef %2, float noundef %3, float noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(72) %9, ptr %.0.val, ptr %.8.val, i32 noundef %10, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr nocapture noundef nonnull readonly %13, i32 noundef %14) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
   %16 = alloca %"class.gmx::AnalysisNeighborhoodPositions", align 8
   %17 = alloca %"class.gmx::AnalysisNeighborhoodPairSearch", align 8
   %18 = alloca %"class.gmx::AnalysisNeighborhoodPair", align 4
@@ -3879,7 +3879,7 @@ define internal fastcc void @_ZL11insert_molsiiiffP7t_atomsP8t_symtabPSt6vectorI
   %38 = load ptr, ptr @stderr, align 8
   %39 = tail call i64 @fwrite(ptr nonnull @.str.95, i64 39, i64 1, ptr %38) #27
   call void @_ZN14AtomPropertiesC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22)
-  invoke void @_Z22makeExclusionDistancesPK7t_atomsP14AtomPropertiesff(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.141") align 8 %23, ptr noundef %5, ptr noundef nonnull %22, float noundef %3, float noundef %4)
+  invoke void @_Z22makeExclusionDistancesPK7t_atomsP14AtomPropertiesff(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.141") align 8 %23, ptr noundef nonnull %5, ptr noundef nonnull %22, float noundef %3, float noundef %4)
           to label %40 unwind label %68
 
 40:                                               ; preds = %15
@@ -4063,7 +4063,7 @@ _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET_S7_S7_.
   store i64 %142, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
   %144 = getelementptr inbounds i8, ptr %26, i64 48
   store i32 0, ptr %144, align 8
-  invoke void @_Z7set_pbcP5t_pbc7PbcTypePA3_Kf(ptr noundef nonnull %27, i32 noundef %10, ptr noundef %11)
+  invoke void @_Z7set_pbcP5t_pbc7PbcTypePA3_Kf(ptr noundef nonnull %27, i32 noundef %10, ptr noundef nonnull %11)
           to label %145 unwind label %83
 
 145:                                              ; preds = %89
@@ -4130,7 +4130,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %151, %154
 
 168:                                              ; preds = %164, %145
   %.093 = phi i32 [ %150, %164 ], [ %0, %145 ]
-  invoke void @_ZN3gmx12AtomsBuilderC1EP7t_atomsP8t_symtab(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef %5, ptr noundef %6)
+  invoke void @_ZN3gmx12AtomsBuilderC1EP7t_atomsP8t_symtab(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull %5, ptr noundef nonnull %6)
           to label %169 unwind label %83
 
 169:                                              ; preds = %168

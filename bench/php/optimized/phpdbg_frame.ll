@@ -193,7 +193,7 @@ define hidden ptr @phpdbg_compile_stackframe(ptr noundef %0) local_unnamed_addr 
   %.1337 = phi ptr [ %74, %.lr.ph ], [ %10, %.preheader ]
   %.1271336 = phi i32 [ %75, %.lr.ph ], [ 0, %.preheader ]
   %73 = load ptr, ptr %4, align 8
-  call fastcc void @phpdbg_append_individual_arg(ptr noundef nonnull %3, i32 noundef %.1271336, ptr noundef %73, ptr noundef nonnull %.1337)
+  call fastcc void @phpdbg_append_individual_arg(ptr noundef %3, i32 noundef %.1271336, ptr noundef %73, ptr noundef nonnull %.1337)
   %74 = getelementptr inbounds i8, ptr %.1337, i64 16
   %75 = add nuw i32 %.1271336, 1
   %exitcond.not = icmp eq i32 %75, %7
@@ -220,7 +220,7 @@ define hidden ptr @phpdbg_compile_stackframe(ptr noundef %0) local_unnamed_addr 
   %.2339 = phi ptr [ %87, %.lr.ph341 ], [ %.0, %84 ]
   %.2272338 = phi i32 [ %88, %.lr.ph341 ], [ %.0270, %84 ]
   %86 = load ptr, ptr %4, align 8
-  call fastcc void @phpdbg_append_individual_arg(ptr noundef nonnull %3, i32 noundef %.2272338, ptr noundef %86, ptr noundef %.2339)
+  call fastcc void @phpdbg_append_individual_arg(ptr noundef %3, i32 noundef %.2272338, ptr noundef %86, ptr noundef %.2339)
   %87 = getelementptr inbounds i8, ptr %.2339, i64 16
   %88 = add i32 %.2272338, 1
   %exitcond345.not = icmp eq i32 %88, %9
@@ -410,7 +410,7 @@ define hidden ptr @phpdbg_compile_stackframe(ptr noundef %0) local_unnamed_addr 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @phpdbg_append_individual_arg(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @phpdbg_append_individual_arg(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq i32 %1, 0
@@ -930,7 +930,7 @@ define hidden void @phpdbg_dump_backtrace(i64 noundef %0) local_unnamed_addr #0 
 
 40:                                               ; preds = %.lr.ph
   %41 = call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %39, ptr noundef nonnull @.str.10, i32 noundef %.094105) #9
-  call fastcc void @phpdbg_dump_prototype(ptr noundef nonnull %38)
+  call fastcc void @phpdbg_dump_prototype(ptr noundef %38)
   %42 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %43 = load ptr, ptr %.0107, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 24
@@ -941,7 +941,7 @@ define hidden void @phpdbg_dump_backtrace(i64 noundef %0) local_unnamed_addr #0 
 
 48:                                               ; preds = %.lr.ph
   %49 = call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %39, ptr noundef nonnull @.str.12) #9
-  call fastcc void @phpdbg_dump_prototype(ptr noundef nonnull %38)
+  call fastcc void @phpdbg_dump_prototype(ptr noundef %38)
   %50 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %51 = call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %50, ptr noundef nonnull @.str.13) #9
   br label %52
@@ -1051,7 +1051,7 @@ declare ptr @zend_hash_get_current_data_ex(ptr noundef, ptr noundef) local_unnam
 declare i32 @phpdbg_out_internal(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @phpdbg_dump_prototype(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @phpdbg_dump_prototype(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %.sroa.0 = alloca i64, align 8
   %2 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %3 = load ptr, ptr %0, align 8

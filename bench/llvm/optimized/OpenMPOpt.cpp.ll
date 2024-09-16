@@ -72983,7 +72983,7 @@ declare { ptr, i8 } @_ZN4llvm10Attributor20getAssumedSimplifiedERKNS_10IRPositio
 declare noundef zeroext i1 @_ZNK4llvm8CallBase14isIndirectCallEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN12_GLOBAL__N_114AAHeapToSharedEEEPKT_NS_10IRPositionEPKNS_17AbstractAttributeENS_10DepClassTyEbb(ptr noundef nonnull align 8 dereferenceable(4296) %0, i64 %1, ptr %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN12_GLOBAL__N_114AAHeapToSharedEEEPKT_NS_10IRPositionEPKNS_17AbstractAttributeENS_10DepClassTyEbb(ptr noundef nonnull align 8 dereferenceable(4296) %0, i64 %1, ptr %2, ptr noundef %3, i32 noundef range(i32 1, 3) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::pair.629", align 8
   %7 = alloca %"class.llvm::PointerIntPair.512", align 8
   %8 = alloca %"struct.llvm::IRPosition", align 8
@@ -74335,7 +74335,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i: ; preds = %_ZNK4
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %8)
   %166 = load ptr, ptr %52, align 8, !noalias !1437
   call void @_ZN4llvm18OptimizationRemarkC1EPKcNS_9StringRefEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(432) %8, ptr noundef %166, ptr nonnull @.str.322, i64 6, ptr noundef nonnull %76) #26, !noalias !1437
-  call fastcc void @_ZZN12_GLOBAL__N_122AAHeapToSharedFunction8manifestERN4llvm10AttributorEENKUlNS1_18OptimizationRemarkEE_clES4_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull readonly align 8 dereferenceable(8) %15, ptr noundef nonnull %8), !noalias !1437
+  call fastcc void @_ZZN12_GLOBAL__N_122AAHeapToSharedFunction8manifestERN4llvm10AttributorEENKUlNS1_18OptimizationRemarkEE_clES4_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull readonly align 8 dereferenceable(8) %15, ptr noundef %8), !noalias !1437
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %7, ptr nonnull @.str.324, i64 2) #26, !noalias !1437
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %7, ptr nonnull @.str.322, i64 6) #26, !noalias !1437
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %7, ptr nonnull @.str.325, i64 1) #26, !noalias !1437
@@ -77288,7 +77288,7 @@ declare noundef ptr @_ZNK4llvm11Instruction9getModuleEv(ptr noundef nonnull alig
 declare noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_122AAHeapToSharedFunction8manifestERN4llvm10AttributorEENKUlNS1_18OptimizationRemarkEE_clES4_(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN12_GLOBAL__N_122AAHeapToSharedFunction8manifestERN4llvm10AttributorEENKUlNS1_18OptimizationRemarkEE_clES4_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %5 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   tail call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %2, ptr nonnull @.str.326, i64 34) #26
@@ -84023,7 +84023,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_3UseERNS_8Func
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN12_GLOBAL__N_112AAKernelInfoEEEPKT_NS_10IRPositionEPKNS_17AbstractAttributeENS_10DepClassTyEbb(ptr noundef nonnull align 8 dereferenceable(4296) %0, i64 %1, ptr %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN12_GLOBAL__N_112AAKernelInfoEEEPKT_NS_10IRPositionEPKNS_17AbstractAttributeENS_10DepClassTyEbb(ptr noundef nonnull align 8 dereferenceable(4296) %0, i64 %1, ptr %2, ptr noundef %3, i32 noundef range(i32 0, 3) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = alloca %"struct.std::pair.629", align 8
   %8 = alloca %"class.llvm::PointerIntPair.512", align 8
   %9 = alloca %"struct.llvm::IRPosition", align 8
@@ -96020,7 +96020,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i: ; preds = %_ZNK4
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %57)
   %144 = load ptr, ptr %74, align 8, !noalias !1710
   call void @_ZN4llvm26OptimizationRemarkAnalysisC1EPKcNS_9StringRefEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(432) %57, ptr noundef %144, ptr nonnull @.str.347, i64 6, ptr noundef nonnull %92) #26, !noalias !1710
-  call fastcc void @_ZZN12_GLOBAL__N_120AAKernelInfoFunction16changeToSPMDModeERN4llvm10AttributorERNS1_12ChangeStatusEENKUlNS1_26OptimizationRemarkAnalysisEE_clES6_(ptr dead_on_unwind noalias nonnull writable align 8 %56, ptr noundef nonnull readonly align 8 dereferenceable(8) %60, ptr noundef nonnull %57), !noalias !1710
+  call fastcc void @_ZZN12_GLOBAL__N_120AAKernelInfoFunction16changeToSPMDModeERN4llvm10AttributorERNS1_12ChangeStatusEENKUlNS1_26OptimizationRemarkAnalysisEE_clES6_(ptr dead_on_unwind noalias writable align 8 %56, ptr noundef nonnull readonly align 8 dereferenceable(8) %60, ptr noundef %57), !noalias !1710
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %56, ptr nonnull @.str.324, i64 2) #26, !noalias !1710
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %56, ptr nonnull @.str.347, i64 6) #26, !noalias !1710
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %56, ptr nonnull @.str.325, i64 1) #26, !noalias !1710
@@ -98665,7 +98665,7 @@ _ZNK4llvm10Attributor10emitRemarkINS_18OptimizationRemarkERZN12_GLOBAL__N_120AAK
 declare void @_ZN4llvm14GlobalVariable14setInitializerEPNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(81), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_120AAKernelInfoFunction16changeToSPMDModeERN4llvm10AttributorERNS1_12ChangeStatusEENKUlNS1_26OptimizationRemarkAnalysisEE_clES6_(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN12_GLOBAL__N_120AAKernelInfoFunction16changeToSPMDModeERN4llvm10AttributorERNS1_12ChangeStatusEENKUlNS1_26OptimizationRemarkAnalysisEE_clES6_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %2, ptr nonnull @.str.349, i64 63) #26
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
@@ -104127,7 +104127,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i: ; preds = %_ZNK4
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 4272
   %89 = load ptr, ptr %88, align 8, !noalias !1881
   call void @_ZN4llvm18OptimizationRemarkC1EPKcNS_9StringRefEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef %89, ptr nonnull @.str.400, i64 6, ptr noundef nonnull %.0.i) #26, !noalias !1881
-  call fastcc void @_ZZN12_GLOBAL__N_133AAFoldRuntimeCallCallSiteReturned8manifestERN4llvm10AttributorEENKUlNS1_18OptimizationRemarkEE_clES4_(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noundef nonnull %4), !noalias !1881
+  call fastcc void @_ZZN12_GLOBAL__N_133AAFoldRuntimeCallCallSiteReturned8manifestERN4llvm10AttributorEENKUlNS1_18OptimizationRemarkEE_clES4_(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noundef %4), !noalias !1881
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %3, ptr nonnull @.str.324, i64 2) #26, !noalias !1881
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %3, ptr nonnull @.str.400, i64 6) #26, !noalias !1881
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %3, ptr nonnull @.str.325, i64 1) #26, !noalias !1881
@@ -105040,7 +105040,7 @@ _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %44, %52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_133AAFoldRuntimeCallCallSiteReturned8manifestERN4llvm10AttributorEENKUlNS1_18OptimizationRemarkEE_clES4_(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN12_GLOBAL__N_133AAFoldRuntimeCallCallSiteReturned8manifestERN4llvm10AttributorEENKUlNS1_18OptimizationRemarkEE_clES4_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %5 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %6 = load ptr, ptr %1, align 8
@@ -105513,7 +105513,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i: ; preds = %_ZN4llvm16dyn_cast_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN12_GLOBAL__N_112AAICVTrackerEEEPKT_NS_10IRPositionEPKNS_17AbstractAttributeENS_10DepClassTyEbb(ptr noundef nonnull align 8 dereferenceable(4296) %0, i64 %1, ptr %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForIN12_GLOBAL__N_112AAICVTrackerEEEPKT_NS_10IRPositionEPKNS_17AbstractAttributeENS_10DepClassTyEbb(ptr noundef nonnull align 8 dereferenceable(4296) %0, i64 %1, ptr %2, ptr noundef %3, i32 noundef range(i32 0, 3) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::pair.629", align 8
   %7 = alloca %"class.llvm::PointerIntPair.512", align 8
   %8 = alloca %"struct.llvm::IRPosition", align 8
@@ -114148,7 +114148,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i.i: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %8)
   call void @_ZN4llvm18OptimizationRemarkC1EPKcNS_9StringRefEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(432) %8, ptr noundef nonnull @.str.54, ptr nonnull @.str.437, i64 6, ptr noundef nonnull %16) #26, !noalias !1995
-  call fastcc void @_ZZZN12_GLOBAL__N_19OpenMPOpt23deduplicateRuntimeCallsERN4llvm8FunctionERNS_19OMPInformationCache19RuntimeFunctionInfoEPNS1_5ValueEENKUlRNS1_3UseES3_E_clESA_S3_ENKUlNS1_18OptimizationRemarkEE_clESC_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noundef nonnull %8), !noalias !1995
+  call fastcc void @_ZZZN12_GLOBAL__N_19OpenMPOpt23deduplicateRuntimeCallsERN4llvm8FunctionERNS_19OMPInformationCache19RuntimeFunctionInfoEPNS1_5ValueEENKUlRNS1_3UseES3_E_clESA_S3_ENKUlNS1_18OptimizationRemarkEE_clESC_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noundef %8), !noalias !1995
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %7, ptr nonnull @.str.324, i64 2) #26, !noalias !1995
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %7, ptr nonnull @.str.437, i64 6) #26, !noalias !1995
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %7, ptr nonnull @.str.325, i64 1) #26, !noalias !1995
@@ -114303,7 +114303,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i21.i: ; preds = %_
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %5)
   call void @_ZN4llvm18OptimizationRemarkC1EPKcNS_9StringRefEPKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(432) %5, ptr noundef nonnull @.str.54, ptr nonnull @.str.437, i64 6, ptr noundef %59) #26, !noalias !1998
-  call fastcc void @_ZZZN12_GLOBAL__N_19OpenMPOpt23deduplicateRuntimeCallsERN4llvm8FunctionERNS_19OMPInformationCache19RuntimeFunctionInfoEPNS1_5ValueEENKUlRNS1_3UseES3_E_clESA_S3_ENKUlNS1_18OptimizationRemarkEE_clESC_(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noundef nonnull %5), !noalias !1998
+  call fastcc void @_ZZZN12_GLOBAL__N_19OpenMPOpt23deduplicateRuntimeCallsERN4llvm8FunctionERNS_19OMPInformationCache19RuntimeFunctionInfoEPNS1_5ValueEENKUlRNS1_3UseES3_E_clESA_S3_ENKUlNS1_18OptimizationRemarkEE_clESC_(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noundef %5), !noalias !1998
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %4, ptr nonnull @.str.324, i64 2) #26, !noalias !1998
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %4, ptr nonnull @.str.437, i64 6) #26, !noalias !1998
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %4, ptr nonnull @.str.325, i64 1) #26, !noalias !1998
@@ -114453,7 +114453,7 @@ _ZZN12_GLOBAL__N_19OpenMPOpt23deduplicateRuntimeCallsERN4llvm8FunctionERNS_19OMP
 declare void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZZN12_GLOBAL__N_19OpenMPOpt23deduplicateRuntimeCallsERN4llvm8FunctionERNS_19OMPInformationCache19RuntimeFunctionInfoEPNS1_5ValueEENKUlRNS1_3UseES3_E_clESA_S3_ENKUlNS1_18OptimizationRemarkEE_clESC_(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZZN12_GLOBAL__N_19OpenMPOpt23deduplicateRuntimeCallsERN4llvm8FunctionERNS_19OMPInformationCache19RuntimeFunctionInfoEPNS1_5ValueEENKUlRNS1_3UseES3_E_clESA_S3_ENKUlNS1_18OptimizationRemarkEE_clESC_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %5 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   tail call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %2, ptr nonnull @.str.438, i64 20) #26

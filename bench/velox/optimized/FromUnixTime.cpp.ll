@@ -15932,7 +15932,7 @@ declare double @llvm.floor.f64(double) #14
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_120FromUnixtimeFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E0_EEvPKmiibSP_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_120FromUnixtimeFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E0_EEvPKmiibSP_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
 entry:
   %timezoneName.i = alloca %"struct.facebook::velox::StringView", align 8
   %0 = load i8, ptr %this, align 8

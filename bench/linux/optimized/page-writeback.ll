@@ -1271,7 +1271,7 @@ declare i64 @llvm.read_register.i64(metadata) #4
 declare void @llvm.write_register.i64(metadata, i64) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -11, 1) i32 @balance_dirty_pages(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -11, 1) i32 @balance_dirty_pages(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca %struct.dirty_throttle_control, align 8

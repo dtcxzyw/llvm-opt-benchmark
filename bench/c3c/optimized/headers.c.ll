@@ -791,7 +791,7 @@ define dso_local void @header_gen(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %.not222, label %66, label %67
 
 66:                                               ; preds = %.lr.ph237
-  call fastcc void @header_gen_global_var(ptr noundef %7, ptr noundef %8, ptr noundef nonnull %3, ptr noundef nonnull %62)
+  call fastcc void @header_gen_global_var(ptr noundef %7, ptr noundef %8, ptr noundef %3, ptr noundef nonnull %62)
   br label %67
 
 67:                                               ; preds = %.lr.ph237, %66
@@ -863,7 +863,7 @@ define dso_local void @header_gen(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %.not219, label %88, label %89
 
 88:                                               ; preds = %.lr.ph249
-  call fastcc void @header_gen_global_var(ptr noundef %7, ptr noundef %8, ptr noundef nonnull %3, ptr noundef nonnull %84)
+  call fastcc void @header_gen_global_var(ptr noundef %7, ptr noundef %8, ptr noundef %3, ptr noundef nonnull %84)
   br label %89
 
 89:                                               ; preds = %.lr.ph249, %88
@@ -928,7 +928,7 @@ define dso_local void @header_gen(ptr nocapture noundef readonly %0, i32 noundef
   %indvars.iv338 = phi i64 [ 0, %.lr.ph261.preheader ], [ %indvars.iv.next339, %.lr.ph261 ]
   %105 = getelementptr inbounds ptr, ptr %101, i64 %indvars.iv338
   %106 = load ptr, ptr %105, align 8
-  call fastcc void @header_gen_function(ptr noundef %7, ptr noundef %8, ptr noundef nonnull %3, ptr noundef %106)
+  call fastcc void @header_gen_function(ptr noundef %7, ptr noundef %8, ptr noundef %3, ptr noundef %106)
   %indvars.iv.next339 = add nuw nsw i64 %indvars.iv338, 1
   %exitcond342.not = icmp eq i64 %indvars.iv.next339, %wide.trip.count341
   br i1 %exitcond342.not, label %._crit_edge262, label %.lr.ph261, !llvm.loop !22
@@ -1008,7 +1008,7 @@ define dso_local void @header_gen(ptr nocapture noundef readonly %0, i32 noundef
   %indvars.iv353 = phi i64 [ 0, %.lr.ph273.preheader ], [ %indvars.iv.next354, %.lr.ph273 ]
   %132 = getelementptr inbounds ptr, ptr %128, i64 %indvars.iv353
   %133 = load ptr, ptr %132, align 8
-  call fastcc void @header_gen_function(ptr noundef %7, ptr noundef %8, ptr noundef nonnull %3, ptr noundef %133)
+  call fastcc void @header_gen_function(ptr noundef %7, ptr noundef %8, ptr noundef %3, ptr noundef %133)
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
   %exitcond357.not = icmp eq i64 %indvars.iv.next354, %wide.trip.count356
   br i1 %exitcond357.not, label %._crit_edge274, label %.lr.ph273, !llvm.loop !26
@@ -1042,7 +1042,7 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @header_gen_global_var(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @header_gen_global_var(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 268435456
@@ -1277,7 +1277,7 @@ define internal fastcc void @header_gen_global_var(ptr noundef %0, ptr noundef %
 
 122:                                              ; preds = %120, %115
   %123 = load ptr, ptr %9, align 8
-  tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %1, ptr noundef %2, ptr noundef %123)
+  tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %123)
   %124 = load ptr, ptr %9, align 8
   tail call fastcc void @header_print_type(ptr noundef %0, ptr noundef %124)
   %125 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1290,7 +1290,7 @@ define internal fastcc void @header_gen_global_var(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @header_gen_function(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @header_gen_function(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 268435456
@@ -1331,14 +1331,14 @@ define internal fastcc void @header_gen_function(ptr noundef %0, ptr noundef %1,
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %16, i64 56
   %28 = load ptr, ptr %27, align 8
-  tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %1, ptr noundef %2, ptr noundef %28)
+  tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %28)
   %29 = load ptr, ptr @type_anyfault, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %12, %26, %24
   %.065 = phi ptr [ %29, %26 ], [ %16, %24 ], [ null, %12 ], [ null, %8 ]
   %.064 = phi ptr [ %28, %26 ], [ null, %24 ], [ null, %12 ], [ null, %8 ]
-  tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %1, ptr noundef %2, ptr noundef %.065)
+  tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %.065)
   tail call fastcc void @header_print_type(ptr noundef %0, ptr noundef %.065)
   %30 = getelementptr inbounds i8, ptr %3, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -1398,7 +1398,7 @@ define internal fastcc void @header_gen_function(ptr noundef %0, ptr noundef %1,
   %56 = load ptr, ptr %55, align 8
   tail call fastcc void @header_print_type(ptr noundef %0, ptr noundef %56)
   %57 = load ptr, ptr %55, align 8
-  tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %1, ptr noundef %2, ptr noundef %57)
+  tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %57)
   %58 = load ptr, ptr %53, align 8
   %.not77.us = icmp eq ptr %58, null
   br i1 %.not77.us, label %61, label %59
@@ -1428,7 +1428,7 @@ define internal fastcc void @header_gen_function(ptr noundef %0, ptr noundef %1,
   %68 = load ptr, ptr %67, align 8
   tail call fastcc void @header_print_type(ptr noundef %0, ptr noundef %68)
   %69 = load ptr, ptr %67, align 8
-  tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %1, ptr noundef %2, ptr noundef %69)
+  tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %69)
   %70 = load ptr, ptr %63, align 8
   %.not77 = icmp eq ptr %70, null
   br i1 %.not77, label %73, label %71

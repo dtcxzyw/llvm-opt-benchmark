@@ -10280,7 +10280,7 @@ call2.i.i.noexc:                                  ; preds = %if.then.i.i2391
   %870 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %call2.i.i2412, i1 true)
   %sub.i.i.i = shl nuw nsw i64 %870, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  invoke fastcc void @"_ZSt16__introsort_loopIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEElN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_T0_T1_"(ptr noundef nonnull %agg.tmp.i.i2383, ptr noundef nonnull %agg.tmp1.i.i2384, i64 noundef %mul.i.i)
+  invoke fastcc void @"_ZSt16__introsort_loopIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEElN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_T0_T1_"(ptr noundef %agg.tmp.i.i2383, ptr noundef %agg.tmp1.i.i2384, i64 noundef %mul.i.i)
           to label %.noexc2413 unwind label %lpad2793.loopexit.split-lp
 
 .noexc2413:                                       ; preds = %call2.i.i.noexc
@@ -10317,7 +10317,7 @@ if.then.i.i.i:                                    ; preds = %call.i8.i.i.noexc
           to label %call.i.i.i.i.noexc2415 unwind label %lpad2793.loopexit.split-lp
 
 call.i.i.i.i.noexc2415:                           ; preds = %if.then.i.i.i
-  invoke fastcc void @"_ZSt16__insertion_sortIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_T0_"(ptr noundef nonnull %agg.tmp.i.i.i2381, ptr noundef nonnull %agg.tmp1.i.i.i2382)
+  invoke fastcc void @"_ZSt16__insertion_sortIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_T0_"(ptr noundef %agg.tmp.i.i.i2381, ptr noundef %agg.tmp1.i.i.i2382)
           to label %.noexc2417 unwind label %lpad2793.loopexit.split-lp
 
 .noexc2417:                                       ; preds = %call.i.i.i.i.noexc2415
@@ -10356,7 +10356,7 @@ for.body.i.i.i.i:                                 ; preds = %call.i.i.i.i.i2404.
   %877 = load ptr, ptr %__i.i.i.i.i, align 8
   store ptr %877, ptr %agg.tmp.i.i.i.i2380, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i1.i.i.i.i2398, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i8.i.i.i, i64 24, i1 false)
-  invoke fastcc void @"_ZSt25__unguarded_linear_insertIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_T0_"(ptr noundef nonnull %agg.tmp.i.i.i.i2380)
+  invoke fastcc void @"_ZSt25__unguarded_linear_insertIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_T0_"(ptr noundef %agg.tmp.i.i.i.i2380)
           to label %.noexc2420 unwind label %lpad2793.loopexit
 
 .noexc2420:                                       ; preds = %for.body.i.i.i.i
@@ -10405,7 +10405,7 @@ if.else.i.i.i:                                    ; preds = %call.i8.i.i.noexc
   store ptr %882, ptr %agg.tmp7.i.i.i, align 8
   %m_it.i12.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7.i.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i12.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i6.i.i, i64 24, i1 false)
-  invoke fastcc void @"_ZSt16__insertion_sortIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_T0_"(ptr noundef nonnull %agg.tmp6.i.i.i, ptr noundef nonnull %agg.tmp7.i.i.i)
+  invoke fastcc void @"_ZSt16__insertion_sortIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_T0_"(ptr noundef %agg.tmp6.i.i.i, ptr noundef %agg.tmp7.i.i.i)
           to label %"_ZSt22__final_insertion_sortIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_T0_.exit.i.i" unwind label %lpad2793.loopexit.split-lp
 
 "_ZSt22__final_insertion_sortIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_T0_.exit.i.i": ; preds = %if.else.i.i.i, %"_ZSt26__unguarded_insertion_sortIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_T0_.exit.i.i.i"
@@ -30235,7 +30235,7 @@ while.body.i.i.i:                                 ; preds = %_ZN8nlohmann16json_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__value.i.i.i, i64 16, i1 false)
   store i8 0, ptr %__value.i.i.i, align 8
   store ptr null, ptr %m_value.i5.i.i.i, align 8
-  invoke fastcc void @"_ZSt13__adjust_heapIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEElSG_N9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_T0_SO_T1_T2_"(ptr noundef nonnull %agg.tmp.i.i.i, i64 noundef %__parent.0.i.i.i, i64 noundef %call1.i.i.i, ptr noundef nonnull %agg.tmp3.i.i.i)
+  invoke fastcc void @"_ZSt13__adjust_heapIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEElSG_N9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_T0_SO_T1_T2_"(ptr noundef %agg.tmp.i.i.i, i64 noundef %__parent.0.i.i.i, i64 noundef %call1.i.i.i, ptr noundef %agg.tmp3.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %while.body.i.i.i
@@ -30372,7 +30372,7 @@ if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__op
   %20 = load ptr, ptr %__i.i.i, align 8
   store ptr %20, ptr %agg.tmp7.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i15.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i3.i.i, i64 24, i1 false)
-  call fastcc void @"_ZSt10__pop_heapIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_SN_RT0_"(ptr noundef nonnull %agg.tmp5.i.i, ptr noundef nonnull %agg.tmp6.i.i, ptr noundef nonnull %agg.tmp7.i.i)
+  call fastcc void @"_ZSt10__pop_heapIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_SN_RT0_"(ptr noundef %agg.tmp5.i.i, ptr noundef %agg.tmp6.i.i, ptr noundef %agg.tmp7.i.i)
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit.i.i"
@@ -30469,7 +30469,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vector
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i2.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i7.i, i64 24, i1 false)
   store ptr %25, ptr %agg.tmp3.i11.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i4.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i7.i, i64 24, i1 false)
-  call fastcc void @"_ZSt10__pop_heapIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_SN_RT0_"(ptr noundef nonnull %agg.tmp.i9.i, ptr noundef nonnull %agg.tmp2.i10.i, ptr noundef nonnull %agg.tmp3.i11.i)
+  call fastcc void @"_ZSt10__pop_heapIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_SN_RT0_"(ptr noundef %agg.tmp.i9.i, ptr noundef %agg.tmp2.i10.i, ptr noundef %agg.tmp3.i11.i)
   %call.i18.i = call noundef i64 @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEmiERKSG_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp5.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp4.i)
   %cmp.i.i = icmp sgt i64 %call.i18.i, 1
   br i1 %cmp.i.i, label %while.body.i.i, label %"_ZSt14__partial_sortIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_SN_T0_.exit", !llvm.loop !730
@@ -30493,14 +30493,14 @@ if.end:                                           ; preds = %while.body
   %31 = load ptr, ptr %__last, align 8
   store ptr %31, ptr %agg.tmp6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i11, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i12, i64 24, i1 false)
-  call fastcc void @"_ZSt27__unguarded_partition_pivotIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEET_SN_SN_T0_"(ptr noalias nonnull align 8 %__cut, ptr noundef nonnull %agg.tmp5, ptr noundef nonnull %agg.tmp6)
+  call fastcc void @"_ZSt27__unguarded_partition_pivotIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEET_SN_SN_T0_"(ptr noalias align 8 %__cut, ptr noundef %agg.tmp5, ptr noundef %agg.tmp6)
   %32 = load ptr, ptr %__cut, align 8
   store ptr %32, ptr %agg.tmp8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i13, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i14, i64 24, i1 false)
   %33 = load ptr, ptr %__last, align 8
   store ptr %33, ptr %agg.tmp9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i15, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i12, i64 24, i1 false)
-  call fastcc void @"_ZSt16__introsort_loopIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEElN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_T0_T1_"(ptr noundef nonnull %agg.tmp8, ptr noundef nonnull %agg.tmp9, i64 noundef %dec)
+  call fastcc void @"_ZSt16__introsort_loopIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEElN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_T0_T1_"(ptr noundef %agg.tmp8, ptr noundef %agg.tmp9, i64 noundef %dec)
   store ptr %32, ptr %__last, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i12, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i14, i64 24, i1 false)
   %call = call noundef i64 @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEmiERKSG_(ptr noundef nonnull align 8 dereferenceable(32) %__last, ptr noundef nonnull align 8 dereferenceable(32) %__first)
@@ -30512,7 +30512,7 @@ while.end:                                        ; preds = %if.end, %entry, %"_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt27__unguarded_partition_pivotIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEET_SN_SN_T0_"(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull %__first, ptr noundef nonnull %__last) unnamed_addr #2 {
+define internal fastcc void @"_ZSt27__unguarded_partition_pivotIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEET_SN_SN_T0_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull %__first, ptr noundef nonnull %__last) unnamed_addr #2 {
 entry:
   %agg.tmp.i19 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp2.i20 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
@@ -31331,7 +31331,7 @@ sw.default.i66.i:                                 ; preds = %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt10__pop_heapIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_SN_RT0_"(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull %__result) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt10__pop_heapIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_SN_RT0_"(ptr noundef nonnull %__first, ptr noundef nonnull %__last, ptr noundef nonnull %__result) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__value = alloca %"class.nlohmann::json_abi_v3_11_3::basic_json", align 8
   %agg.tmp = alloca %"class.nlohmann::json_abi_v3_11_3::basic_json", align 8
@@ -31388,7 +31388,7 @@ invoke.cont7:                                     ; preds = %_ZN8nlohmann16json_
   store i8 0, ptr %__value, align 8
   %m_value.i4 = getelementptr inbounds i8, ptr %__value, i64 8
   store ptr null, ptr %m_value.i4, align 8
-  invoke fastcc void @"_ZSt13__adjust_heapIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEElSG_N9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_T0_SO_T1_T2_"(ptr noundef nonnull %agg.tmp6, i64 noundef 0, i64 noundef %call8, ptr noundef nonnull %agg.tmp9)
+  invoke fastcc void @"_ZSt13__adjust_heapIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEElSG_N9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_T0_SO_T1_T2_"(ptr noundef %agg.tmp6, i64 noundef 0, i64 noundef %call8, ptr noundef %agg.tmp9)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont7
@@ -31443,7 +31443,7 @@ ehcleanup:                                        ; preds = %lpad11, %lpad2, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEElSG_N9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_T0_SO_T1_T2_"(ptr nocapture noundef readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef %__value) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEElSG_N9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_T0_SO_T1_T2_"(ptr nocapture noundef nonnull readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef nonnull %__value) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp1.i = alloca %"class.nlohmann::json_abi_v3_11_3::basic_json", align 8
@@ -32095,7 +32095,7 @@ if.else:                                          ; preds = %"_ZN9__gnu_cxx5__op
   %24 = load ptr, ptr %__i, align 8
   store ptr %24, ptr %agg.tmp15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i20, ptr noundef nonnull align 8 dereferenceable(24) %m_it.i.i, i64 24, i1 false)
-  call fastcc void @"_ZSt25__unguarded_linear_insertIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_T0_"(ptr noundef nonnull %agg.tmp15)
+  call fastcc void @"_ZSt25__unguarded_linear_insertIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_T0_"(ptr noundef %agg.tmp15)
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit, %if.else

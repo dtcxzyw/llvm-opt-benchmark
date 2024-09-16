@@ -18524,13 +18524,11 @@ declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @replicationFeedSlaves(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @propagateNow(i32 noundef %dbid, ptr noundef %argv, i32 noundef %argc, i32 noundef %target) unnamed_addr #0 {
+define internal fastcc void @propagateNow(i32 noundef %dbid, ptr noundef %argv, i32 noundef %argc, i32 noundef range(i32 1, 0) %target) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4296), align 8
   %tobool.i = icmp eq i32 %0, 0
-  %cmp.i = icmp eq i32 %target, 0
-  %or.cond.i = or i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %if.end15, label %lor.lhs.false1.i
+  br i1 %tobool.i, label %if.end15, label %lor.lhs.false1.i
 
 lor.lhs.false1.i:                                 ; preds = %entry
   %1 = load volatile i32, ptr getelementptr inbounds (i8, ptr @server, i64 1900), align 4

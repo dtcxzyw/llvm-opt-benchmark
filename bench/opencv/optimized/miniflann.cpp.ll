@@ -7124,7 +7124,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv5flann12runKn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv5flannL18createIndicesDistsERKNS_12_OutputArrayES3_RNS_3MatES5_iiii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv5flannL18createIndicesDistsERKNS_12_OutputArrayES3_RNS_3MatES5_iiii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 4, 6) %7) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::Mat", align 8
   %10 = alloca %"class.cv::Mat", align 8
   %11 = alloca %"class.cv::Mat", align 8

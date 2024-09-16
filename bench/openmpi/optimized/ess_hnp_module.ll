@@ -688,7 +688,7 @@ define internal range(i32 -43, 1) i32 @rte_init(i32 %0, ptr noundef %1) #0 {
 .lr.ph.i:                                         ; preds = %259, %.lr.ph.i
   %265 = phi ptr [ %267, %.lr.ph.i ], [ %264, %259 ]
   %.07.i = phi ptr [ %266, %.lr.ph.i ], [ %263, %259 ]
-  call void %265(ptr noundef %.0128221233) #10
+  call void %265(ptr noundef nonnull %.0128221233) #10
   %266 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %267 = load ptr, ptr %266, align 8
   %.not.i = icmp eq ptr %267, null

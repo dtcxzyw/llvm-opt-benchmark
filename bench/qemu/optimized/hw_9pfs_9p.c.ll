@@ -10230,7 +10230,7 @@ declare i32 @v9fs_co_link(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 declare i32 @v9fs_co_mkdir(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_v9fs_mkdir_return(i16 noundef zeroext %tag, i8 noundef zeroext %id, i8 noundef zeroext %type, i32 noundef %version, i64 noundef %path, i32 noundef %err) unnamed_addr #0 {
+define internal fastcc void @trace_v9fs_mkdir_return(i16 noundef zeroext %tag, i8 noundef zeroext %id, i8 noundef zeroext %type, i32 noundef %version, i64 noundef %path, i32 noundef range(i32 7, -2147483641) %err) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)

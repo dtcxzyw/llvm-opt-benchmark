@@ -2133,7 +2133,7 @@ thread-pre-split.i:                               ; preds = %140, %138
   %167 = getelementptr inbounds i8, ptr %.043124.i.i, i64 4
   %168 = getelementptr inbounds i8, ptr %.043124.i.i, i64 16
   %or.cond.i.i = icmp ult i32 %162, 2
-  %169 = and i32 %162, -3
+  %169 = and i32 %162, 1
   %or.cond3.i.i = icmp eq i32 %169, 0
   br i1 %or.cond.i.i, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
 
@@ -2881,7 +2881,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 declare void @XLogPrefetcherBeginRead(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ReadRecord(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc ptr @ReadRecord(ptr noundef %0, i32 noundef range(i32 15, 24) %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca [64 x i8], align 16
   %7 = zext i1 %2 to i8
@@ -6335,7 +6335,7 @@ declare i64 @GetWalRcvFlushRecPtr(ptr noundef, ptr noundef) local_unnamed_addr #
 declare ptr @readTimeLineHistory(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @XLogFileRead(i64 noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 -1, -2147483648) i32 @XLogFileRead(i64 noundef %0, i32 noundef %1, i32 noundef range(i32 1, 4) %2, i1 noundef zeroext %3) unnamed_addr #1 {
   %5 = alloca [64 x i8], align 16
   %6 = alloca [80 x i8], align 16
   %7 = alloca [1024 x i8], align 16

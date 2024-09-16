@@ -212,7 +212,7 @@ declare dso_local ptr @fsnotify_find_mark(ptr noundef, ptr noundef) local_unname
 declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @dnotify_recalc_inode_mask(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @dnotify_recalc_inode_mask(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -502,7 +502,7 @@ declare dso_local ptr @lookup_fdget_rcu(i32 noundef) local_unnamed_addr #1
 declare dso_local void @__f_setown(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc noundef range(i32 -17, 1) i32 @attach_dn(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -17, 1) i32 @attach_dn(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 134217728, 1073741824) %5) unnamed_addr #3 align 16 {
   %7 = getelementptr inbounds i8, ptr %1, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null

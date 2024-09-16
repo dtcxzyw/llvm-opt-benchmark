@@ -1739,7 +1739,7 @@ define i32 @dissect_dcom_BSTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   br label %39
 
 31:                                               ; preds = %9
-  %32 = call fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef %25, i32 noundef %27, ptr noundef %7, i32 noundef %8, ptr noundef nonnull %13)
+  %32 = call fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef %25, i32 noundef %27, ptr noundef %7, i32 noundef %8, ptr noundef %13)
   %33 = sub i32 %32, %25
   %34 = call ptr @proto_tree_add_string(ptr noundef %18, i32 noundef %6, ptr noundef %0, i32 noundef %25, i32 noundef %33, ptr noundef %7) #11
   %35 = load i32, ptr %13, align 4
@@ -2214,7 +2214,7 @@ define i32 @dissect_dcom_indexed_LPWSTR(ptr noundef %0, i32 noundef %1, ptr noun
   %26 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %spec.select.i, ptr noundef %4, ptr noundef %5, i32 noundef %25, ptr noundef nonnull %13) #11
   %27 = load i32, ptr %13, align 4
   %28 = shl i32 %27, 1
-  %29 = call fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef %26, i32 noundef %28, ptr noundef %7, i32 noundef %8, ptr noundef nonnull %14)
+  %29 = call fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef %26, i32 noundef %28, ptr noundef %7, i32 noundef %8, ptr noundef %14)
   %30 = sub i32 %29, %26
   %31 = call ptr @proto_tree_add_string(ptr noundef %19, i32 noundef %6, ptr noundef %0, i32 noundef %26, i32 noundef %30, ptr noundef %7) #11
   %.not51 = icmp eq i32 %9, -1
@@ -2244,7 +2244,7 @@ define i32 @dissect_dcom_indexed_LPWSTR(ptr noundef %0, i32 noundef %1, ptr noun
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4, ptr nocapture noundef %5) unnamed_addr #1 {
+define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #1 {
   store i32 1, ptr %5, align 4
   %7 = tail call i32 @llvm.usub.sat.i32(i32 %2, i32 1)
   %.not = icmp eq i32 %4, 0
@@ -2428,7 +2428,7 @@ define hidden i32 @dissect_dcom_DUALSTRINGARRAY(ptr noundef %0, i32 noundef %1, 
   %41 = call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40) #11
   %42 = load i32, ptr @hf_dcom_dualstringarray_string_tower_id, align 4
   %43 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %.0107, ptr noundef %2, ptr noundef %41, ptr noundef %4, ptr noundef %5, i32 noundef %42, ptr noundef nonnull %12) #11
-  %44 = call fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef %43, i32 noundef 1000, ptr noundef nonnull %11, i32 noundef 1000, ptr noundef nonnull %15)
+  %44 = call fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef %43, i32 noundef 1000, ptr noundef nonnull %11, i32 noundef 1000, ptr noundef %15)
   %45 = load i32, ptr @hf_dcom_dualstringarray_string_network_addr, align 4
   %46 = sub i32 %44, %43
   %47 = call ptr @proto_tree_add_string(ptr noundef %41, i32 noundef %45, ptr noundef %0, i32 noundef %43, i32 noundef %46, ptr noundef nonnull %11) #11
@@ -2508,7 +2508,7 @@ define hidden i32 @dissect_dcom_DUALSTRINGARRAY(ptr noundef %0, i32 noundef %1, 
   %78 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %.1111, ptr noundef %2, ptr noundef %76, ptr noundef %4, ptr noundef %5, i32 noundef %77, ptr noundef nonnull %13) #11
   %79 = load i32, ptr @hf_dcom_dualstringarray_security_authz_svc, align 4
   %80 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %78, ptr noundef %2, ptr noundef %76, ptr noundef %4, ptr noundef %5, i32 noundef %79, ptr noundef nonnull %14) #11
-  %81 = call fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef %80, i32 noundef 1000, ptr noundef nonnull %11, i32 noundef 1000, ptr noundef nonnull %15)
+  %81 = call fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef %80, i32 noundef 1000, ptr noundef nonnull %11, i32 noundef 1000, ptr noundef %15)
   %82 = load i32, ptr @hf_dcom_dualstringarray_security_princ_name, align 4
   %83 = sub i32 %81, %80
   %84 = call ptr @proto_tree_add_string(ptr noundef %76, i32 noundef %82, ptr noundef %0, i32 noundef %80, i32 noundef %83, ptr noundef nonnull %11) #11

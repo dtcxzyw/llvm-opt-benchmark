@@ -310,7 +310,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 declare dso_local i32 @ext4_num_base_meta_blocks(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -117, 1) i32 @add_system_zone(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -117, 1) i32 @add_system_zone(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2, i32 noundef range(i32 2, 1) %3) unnamed_addr #2 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %25, label %.preheader
@@ -361,7 +361,7 @@ define internal fastcc noundef range(i32 -117, 1) i32 @add_system_zone(ptr nound
   %35 = getelementptr inbounds i8, ptr %29, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   store ptr %29, ptr %27, align 8
-  tail call void @rb_insert_color(ptr noundef nonnull %29, ptr noundef %0) #7
+  tail call void @rb_insert_color(ptr noundef nonnull %29, ptr noundef nonnull %0) #7
   %36 = tail call ptr @rb_prev(ptr noundef nonnull %29) #7
   %37 = icmp eq ptr %36, null
   br i1 %37, label %57, label %38
@@ -390,7 +390,7 @@ define internal fastcc noundef range(i32 -117, 1) i32 @add_system_zone(ptr nound
   %54 = load i32, ptr %33, align 8
   %55 = add i32 %54, %53
   store i32 %55, ptr %33, align 8
-  tail call void @rb_erase(ptr noundef nonnull %36, ptr noundef %0) #7
+  tail call void @rb_erase(ptr noundef nonnull %36, ptr noundef nonnull %0) #7
   %56 = load ptr, ptr @ext4_system_zone_cachep, align 8
   tail call void @kmem_cache_free(ptr noundef %56, ptr noundef nonnull %36) #7
   br label %57
@@ -422,7 +422,7 @@ define internal fastcc noundef range(i32 -117, 1) i32 @add_system_zone(ptr nound
   %75 = load i32, ptr %74, align 8
   %76 = add i32 %75, %62
   store i32 %76, ptr %33, align 8
-  tail call void @rb_erase(ptr noundef nonnull %58, ptr noundef %0) #7
+  tail call void @rb_erase(ptr noundef nonnull %58, ptr noundef nonnull %0) #7
   %77 = load ptr, ptr @ext4_system_zone_cachep, align 8
   tail call void @kmem_cache_free(ptr noundef %77, ptr noundef nonnull %58) #7
   br label %.loopexit

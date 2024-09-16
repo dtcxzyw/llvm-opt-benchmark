@@ -265,7 +265,7 @@ fmap_readn.exit.thread:                           ; preds = %43, %.loopexit, %fm
 
 48:                                               ; preds = %fmap_readn.exit
   %49 = sub i64 %18, %.092
-  %50 = call fastcc i32 @gpt_validate_header(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %4, i64 noundef %.092)
+  %50 = call fastcc i32 @gpt_validate_header(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %4, i64 noundef %.092)
   %.not66 = icmp eq i32 %50, 0
   br i1 %.not66, label %63, label %51
 
@@ -297,7 +297,7 @@ fmap_readn.exit85.thread:                         ; preds = %55, %51, %fmap_read
   br label %106
 
 60:                                               ; preds = %fmap_readn.exit85
-  %61 = call fastcc i32 @gpt_validate_header(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
+  %61 = call fastcc i32 @gpt_validate_header(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
   %.not71 = icmp eq i32 %61, 0
   br i1 %.not71, label %80, label %62
 
@@ -329,7 +329,7 @@ fmap_readn.exit90:                                ; preds = %67
   br i1 %.not67, label %72, label %.sink.split
 
 72:                                               ; preds = %fmap_readn.exit90
-  %73 = call fastcc i32 @gpt_validate_header(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
+  %73 = call fastcc i32 @gpt_validate_header(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
   %.not68 = icmp eq i32 %73, 0
   br i1 %.not68, label %74, label %.sink.split
 
@@ -371,12 +371,12 @@ fmap_readn.exit90:                                ; preds = %67
   br i1 %.not73, label %96, label %92
 
 92:                                               ; preds = %86
-  %93 = call fastcc i32 @gpt_partition_intersection(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %4, i64 noundef %.092)
+  %93 = call fastcc i32 @gpt_partition_intersection(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %4, i64 noundef %.092)
   %.not74 = icmp eq i32 %93, 0
   br i1 %.not74, label %94, label %106
 
 94:                                               ; preds = %92
-  %95 = call fastcc i32 @gpt_partition_intersection(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
+  %95 = call fastcc i32 @gpt_partition_intersection(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
   %.not75 = icmp eq i32 %95, 0
   br i1 %.not75, label %96, label %106
 
@@ -389,25 +389,25 @@ fmap_readn.exit90:                                ; preds = %67
 
 97:                                               ; preds = %96
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16) #7
-  %98 = call fastcc i32 @gpt_scan_partitions(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %4, i64 noundef %.092)
+  %98 = call fastcc i32 @gpt_scan_partitions(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %4, i64 noundef %.092)
   %.not79 = icmp eq i32 %98, 0
   br i1 %.not79, label %105, label %106
 
 99:                                               ; preds = %96
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17) #7
-  %100 = call fastcc i32 @gpt_scan_partitions(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
+  %100 = call fastcc i32 @gpt_scan_partitions(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
   %.not78 = icmp eq i32 %100, 0
   br i1 %.not78, label %105, label %106
 
 101:                                              ; preds = %96
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18) #7
-  %102 = call fastcc i32 @gpt_scan_partitions(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %4, i64 noundef %.092)
+  %102 = call fastcc i32 @gpt_scan_partitions(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %4, i64 noundef %.092)
   %.not76 = icmp eq i32 %102, 0
   br i1 %.not76, label %103, label %106
 
 103:                                              ; preds = %101
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.19) #7
-  %104 = call fastcc i32 @gpt_scan_partitions(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
+  %104 = call fastcc i32 @gpt_scan_partitions(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
   %.not77 = icmp eq i32 %104, 0
   br i1 %.not77, label %105, label %106
 
@@ -427,7 +427,7 @@ declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #2
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @gpt_validate_header(ptr nocapture noundef readonly %0, ptr noundef byval(%struct.gpt_header) align 8 %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @gpt_validate_header(ptr nocapture noundef nonnull readonly %0, ptr noundef byval(%struct.gpt_header) align 8 %1, i64 noundef range(i64 1, 0) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 88
@@ -601,7 +601,7 @@ define internal fastcc range(i32 0, 27) i32 @gpt_validate_header(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @gpt_partition_intersection(ptr noundef %0, ptr nocapture noundef readonly byval(%struct.gpt_header) align 8 %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @gpt_partition_intersection(ptr noundef nonnull %0, ptr nocapture noundef readonly byval(%struct.gpt_header) align 8 %1, i64 noundef range(i64 1, 0) %2) unnamed_addr #0 {
   %4 = alloca %struct.partition_intersection_list, align 8
   %5 = alloca %struct.gpt_partition_entry, align 1
   %6 = alloca i32, align 4
@@ -709,7 +709,7 @@ fmap_readn.exit.thread:                           ; preds = %32, %28, %fmap_read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @gpt_scan_partitions(ptr noundef %0, ptr nocapture noundef readonly byval(%struct.gpt_header) align 8 %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @gpt_scan_partitions(ptr noundef nonnull %0, ptr nocapture noundef readonly byval(%struct.gpt_header) align 8 %1, i64 noundef range(i64 1, 0) %2) unnamed_addr #0 {
   %4 = alloca %struct.gpt_partition_entry, align 1
   %5 = load i64, ptr %1, align 8
   %6 = tail call i64 @llvm.bswap.i64(i64 %5)

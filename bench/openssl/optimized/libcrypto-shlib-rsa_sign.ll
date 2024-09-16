@@ -133,7 +133,7 @@ if.then9:                                         ; preds = %if.then6
 
 if.else:                                          ; preds = %if.end
   %conv11 = zext i32 %m_len to i64
-  %call12 = call fastcc i32 @encode_pkcs1(ptr noundef nonnull %tmps, ptr noundef nonnull %encoded_len, i32 noundef %type, ptr noundef %m, i64 noundef %conv11)
+  %call12 = call fastcc i32 @encode_pkcs1(ptr noundef %tmps, ptr noundef %encoded_len, i32 noundef %type, ptr noundef %m, i64 noundef %conv11)
   %tobool.not = icmp eq i32 %call12, 0
   %.pre14 = load ptr, ptr %tmps, align 8
   %.pre15 = load i64, ptr %encoded_len, align 8
@@ -184,7 +184,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @encode_pkcs1(ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, i32 noundef %type, ptr nocapture noundef readonly %m, i64 noundef %m_len) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @encode_pkcs1(ptr nocapture noundef nonnull writeonly %out, ptr nocapture noundef nonnull writeonly %out_len, i32 noundef range(i32 115, 114) %type, ptr nocapture noundef readonly %m, i64 noundef range(i64 0, 4294967296) %m_len) unnamed_addr #1 {
 entry:
   switch i32 %type, label %if.then2 [
     i32 0, label %if.then
@@ -262,7 +262,7 @@ if.then2:                                         ; preds = %entry
 if.end3:                                          ; preds = %entry, %sw.bb14.i, %sw.bb13.i, %sw.bb12.i, %sw.bb11.i, %sw.bb10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %return.sink.split.i
   %di_prefix_len.0.ph = phi i64 [ 14, %return.sink.split.i ], [ 18, %sw.bb2.i ], [ 15, %sw.bb3.i ], [ 15, %sw.bb4.i ], [ 19, %sw.bb5.i ], [ 19, %sw.bb6.i ], [ 19, %sw.bb7.i ], [ 19, %sw.bb8.i ], [ 19, %sw.bb9.i ], [ 19, %sw.bb10.i ], [ 19, %sw.bb11.i ], [ 19, %sw.bb12.i ], [ 19, %sw.bb13.i ], [ 19, %sw.bb14.i ], [ 18, %entry ]
   %retval.0.i.ph = phi ptr [ @digestinfo_mdc2_der, %return.sink.split.i ], [ @digestinfo_md5_der, %sw.bb2.i ], [ @digestinfo_ripemd160_der, %sw.bb3.i ], [ @digestinfo_sha1_der, %sw.bb4.i ], [ @digestinfo_sha224_der, %sw.bb5.i ], [ @digestinfo_sha256_der, %sw.bb6.i ], [ @digestinfo_sha384_der, %sw.bb7.i ], [ @digestinfo_sha512_der, %sw.bb8.i ], [ @digestinfo_sha512_224_der, %sw.bb9.i ], [ @digestinfo_sha512_256_der, %sw.bb10.i ], [ @digestinfo_sha3_224_der, %sw.bb11.i ], [ @digestinfo_sha3_256_der, %sw.bb12.i ], [ @digestinfo_sha3_384_der, %sw.bb13.i ], [ @digestinfo_sha3_512_der, %sw.bb14.i ], [ @digestinfo_md4_der, %entry ]
-  %add = add i64 %di_prefix_len.0.ph, %m_len
+  %add = add nuw nsw i64 %di_prefix_len.0.ph, %m_len
   %call4 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add, ptr noundef nonnull @.str, i32 noundef 260) #5
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %return, label %if.end7
@@ -490,7 +490,7 @@ if.end80:                                         ; preds = %if.else64, %if.end7
   %m_len.addr.0 = phi i32 [ %retval.0.i.ph, %if.end77 ], [ %m_len, %if.else64 ]
   %m.addr.0 = phi ptr [ %add.ptr79, %if.end77 ], [ %m, %if.else64 ]
   %conv81 = zext i32 %m_len.addr.0 to i64
-  %call82 = call fastcc i32 @encode_pkcs1(ptr noundef nonnull %encoded, ptr noundef nonnull %encoded_len, i32 noundef %type, ptr noundef %m.addr.0, i64 noundef %conv81)
+  %call82 = call fastcc i32 @encode_pkcs1(ptr noundef %encoded, ptr noundef %encoded_len, i32 noundef %type, ptr noundef %m.addr.0, i64 noundef %conv81)
   %tobool.not = icmp eq i32 %call82, 0
   %.pre = load i64, ptr %encoded_len, align 8
   br i1 %tobool.not, label %err, label %if.end84

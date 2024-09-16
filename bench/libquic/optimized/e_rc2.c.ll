@@ -214,7 +214,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @EVP_CIPHER_CTX_key_length(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @RC2_cbc_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %length, ptr nocapture noundef readonly %ks, ptr nocapture noundef %iv, i32 noundef %encrypt) unnamed_addr #2 {
+define internal fastcc void @RC2_cbc_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef range(i64 1, 65537) %length, ptr nocapture noundef readonly %ks, ptr nocapture noundef %iv, i32 noundef %encrypt) unnamed_addr #2 {
 entry:
   %tin = alloca [2 x i32], align 4
   %tobool.not = icmp eq i32 %encrypt, 0
@@ -226,11 +226,11 @@ entry:
   %incdec.ptr208 = getelementptr inbounds i8, ptr %iv, i64 5
   %1 = load i32, ptr %incdec.ptr204, align 1
   %incdec.ptr210 = getelementptr inbounds i8, ptr %iv, i64 6
-  %cmp225224 = icmp sgt i64 %length, 7
+  %cmp225224 = icmp ugt i64 %length, 7
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  br i1 %cmp225224, label %for.body.lr.ph, label %for.end
+  br i1 %cmp225224, label %for.body.lr.ph, label %if.then89
 
 for.body.lr.ph:                                   ; preds = %if.then
   %arrayidx55 = getelementptr inbounds i8, ptr %tin, i64 4
@@ -251,7 +251,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %xor54 = xor i32 %3, %tout1.0218
   store i32 %xor, ptr %tin, align 4
   store i32 %xor54, ptr %arrayidx55, align 4
-  call fastcc void @RC2_encrypt(ptr noundef nonnull %tin, ptr noundef %ks)
+  call fastcc void @RC2_encrypt(ptr noundef %tin, ptr noundef %ks)
   %4 = load i32, ptr %tin, align 4
   %conv57 = trunc i32 %4 to i8
   %incdec.ptr58 = getelementptr inbounds i8, ptr %out.addr.0215, i64 1
@@ -284,38 +284,38 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv84 = trunc nuw i32 %shr82 to i8
   %incdec.ptr85 = getelementptr inbounds i8, ptr %out.addr.0215, i64 8
   store i8 %conv84, ptr %incdec.ptr81, align 1
-  %cmp = icmp ugt i64 %l.0.in219, 15
+  %cmp = icmp ugt i64 %l.0, 7
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
-for.end:                                          ; preds = %for.body, %if.then
-  %out.addr.0.lcssa = phi ptr [ %out, %if.then ], [ %incdec.ptr85, %for.body ]
-  %in.addr.0.lcssa = phi ptr [ %in, %if.then ], [ %incdec.ptr50, %for.body ]
-  %tout0.0.lcssa = phi i32 [ %0, %if.then ], [ %4, %for.body ]
-  %tout1.0.lcssa = phi i32 [ %1, %if.then ], [ %5, %for.body ]
-  %l.0.in.lcssa = phi i64 [ %length, %if.then ], [ %l.0, %for.body ]
-  %cmp87.not = icmp eq i64 %l.0.in.lcssa, 0
+for.end:                                          ; preds = %for.body
+  %cmp87.not = icmp eq i64 %l.0, 0
   br i1 %cmp87.not, label %for.end.if.end_crit_edge, label %if.then89
 
 for.end.if.end_crit_edge:                         ; preds = %for.end
-  %.pre = trunc i32 %tout0.0.lcssa to i8
-  %.pre236 = lshr i32 %tout0.0.lcssa, 8
+  %.pre = trunc i32 %4 to i8
+  %.pre236 = lshr i32 %4, 8
   %.pre237 = trunc i32 %.pre236 to i8
-  %.pre238 = lshr i32 %tout0.0.lcssa, 16
+  %.pre238 = lshr i32 %4, 16
   %.pre239 = trunc i32 %.pre238 to i8
-  %.pre240 = lshr i32 %tout0.0.lcssa, 24
+  %.pre240 = lshr i32 %4, 24
   %.pre241 = trunc nuw i32 %.pre240 to i8
-  %.pre242 = trunc i32 %tout1.0.lcssa to i8
-  %.pre243 = lshr i32 %tout1.0.lcssa, 8
+  %.pre242 = trunc i32 %5 to i8
+  %.pre243 = lshr i32 %5, 8
   %.pre244 = trunc i32 %.pre243 to i8
-  %.pre245 = lshr i32 %tout1.0.lcssa, 16
+  %.pre245 = lshr i32 %5, 16
   %.pre246 = trunc i32 %.pre245 to i8
-  %.pre247 = lshr i32 %tout1.0.lcssa, 24
+  %.pre247 = lshr i32 %5, 24
   %.pre248 = trunc nuw i32 %.pre247 to i8
   br label %if.end
 
-if.then89:                                        ; preds = %for.end
-  %add.ptr90 = getelementptr inbounds i8, ptr %in.addr.0.lcssa, i64 %l.0.in.lcssa
-  switch i64 %l.0.in.lcssa, label %default.unreachable [
+if.then89:                                        ; preds = %if.then, %for.end
+  %l.0.in.lcssa259 = phi i64 [ %l.0, %for.end ], [ %length, %if.then ]
+  %tout1.0.lcssa258 = phi i32 [ %5, %for.end ], [ %1, %if.then ]
+  %tout0.0.lcssa257 = phi i32 [ %4, %for.end ], [ %0, %if.then ]
+  %in.addr.0.lcssa256 = phi ptr [ %incdec.ptr50, %for.end ], [ %in, %if.then ]
+  %out.addr.0.lcssa255 = phi ptr [ %incdec.ptr85, %for.end ], [ %out, %if.then ]
+  %add.ptr90 = getelementptr inbounds i8, ptr %in.addr.0.lcssa256, i64 %l.0.in.lcssa259
+  switch i64 %l.0.in.lcssa259, label %default.unreachable [
     i64 1, label %sw.epilog
     i64 7, label %sw.bb95
     i64 6, label %sw.bb100
@@ -393,39 +393,39 @@ sw.epilog:                                        ; preds = %sw.bb118, %if.then8
   %12 = load i8, ptr %incdec.ptr124, align 1
   %conv125 = zext i8 %12 to i32
   %or126 = or i32 %tin0.3, %conv125
-  %xor127 = xor i32 %or126, %tout0.0.lcssa
-  %xor128 = xor i32 %tin1.7, %tout1.0.lcssa
+  %xor127 = xor i32 %or126, %tout0.0.lcssa257
+  %xor128 = xor i32 %tin1.7, %tout1.0.lcssa258
   store i32 %xor127, ptr %tin, align 4
   %arrayidx130 = getelementptr inbounds i8, ptr %tin, i64 4
   store i32 %xor128, ptr %arrayidx130, align 4
-  call fastcc void @RC2_encrypt(ptr noundef nonnull %tin, ptr noundef %ks)
+  call fastcc void @RC2_encrypt(ptr noundef %tin, ptr noundef %ks)
   %13 = load i32, ptr %tin, align 4
   %conv134 = trunc i32 %13 to i8
-  %incdec.ptr135 = getelementptr inbounds i8, ptr %out.addr.0.lcssa, i64 1
-  store i8 %conv134, ptr %out.addr.0.lcssa, align 1
+  %incdec.ptr135 = getelementptr inbounds i8, ptr %out.addr.0.lcssa255, i64 1
+  store i8 %conv134, ptr %out.addr.0.lcssa255, align 1
   %shr136 = lshr i32 %13, 8
   %conv138 = trunc i32 %shr136 to i8
-  %incdec.ptr139 = getelementptr inbounds i8, ptr %out.addr.0.lcssa, i64 2
+  %incdec.ptr139 = getelementptr inbounds i8, ptr %out.addr.0.lcssa255, i64 2
   store i8 %conv138, ptr %incdec.ptr135, align 1
   %shr140 = lshr i32 %13, 16
   %conv142 = trunc i32 %shr140 to i8
-  %incdec.ptr143 = getelementptr inbounds i8, ptr %out.addr.0.lcssa, i64 3
+  %incdec.ptr143 = getelementptr inbounds i8, ptr %out.addr.0.lcssa255, i64 3
   store i8 %conv142, ptr %incdec.ptr139, align 1
   %shr144 = lshr i32 %13, 24
   %conv146 = trunc nuw i32 %shr144 to i8
-  %incdec.ptr147 = getelementptr inbounds i8, ptr %out.addr.0.lcssa, i64 4
+  %incdec.ptr147 = getelementptr inbounds i8, ptr %out.addr.0.lcssa255, i64 4
   store i8 %conv146, ptr %incdec.ptr143, align 1
   %14 = load i32, ptr %arrayidx130, align 4
   %conv150 = trunc i32 %14 to i8
-  %incdec.ptr151 = getelementptr inbounds i8, ptr %out.addr.0.lcssa, i64 5
+  %incdec.ptr151 = getelementptr inbounds i8, ptr %out.addr.0.lcssa255, i64 5
   store i8 %conv150, ptr %incdec.ptr147, align 1
   %shr152 = lshr i32 %14, 8
   %conv154 = trunc i32 %shr152 to i8
-  %incdec.ptr155 = getelementptr inbounds i8, ptr %out.addr.0.lcssa, i64 6
+  %incdec.ptr155 = getelementptr inbounds i8, ptr %out.addr.0.lcssa255, i64 6
   store i8 %conv154, ptr %incdec.ptr151, align 1
   %shr156 = lshr i32 %14, 16
   %conv158 = trunc i32 %shr156 to i8
-  %incdec.ptr159 = getelementptr inbounds i8, ptr %out.addr.0.lcssa, i64 7
+  %incdec.ptr159 = getelementptr inbounds i8, ptr %out.addr.0.lcssa255, i64 7
   store i8 %conv158, ptr %incdec.ptr155, align 1
   %shr160 = lshr i32 %14, 24
   %conv162 = trunc nuw i32 %shr160 to i8
@@ -451,7 +451,7 @@ if.end:                                           ; preds = %for.end.if.end_crit
   br label %if.end407
 
 if.else:                                          ; preds = %entry
-  br i1 %cmp225224, label %for.body227.lr.ph, label %for.end295
+  br i1 %cmp225224, label %for.body227.lr.ph, label %if.then298
 
 for.body227.lr.ph:                                ; preds = %if.else
   %arrayidx257 = getelementptr inbounds i8, ptr %tin, i64 4
@@ -492,7 +492,7 @@ for.body227:                                      ; preds = %for.body227.lr.ph, 
   %shl255 = shl nuw i32 %conv254, 24
   %or256 = or disjoint i32 %or252, %shl255
   store i32 %or256, ptr %arrayidx257, align 4
-  call fastcc void @RC2_decrypt(ptr noundef nonnull %tin, ptr noundef %ks)
+  call fastcc void @RC2_decrypt(ptr noundef %tin, ptr noundef %ks)
   %23 = load i32, ptr %tin, align 4
   %xor260 = xor i32 %23, %xor0.0227
   %24 = load i32, ptr %arrayidx257, align 4
@@ -527,28 +527,28 @@ for.body227:                                      ; preds = %for.body227.lr.ph, 
   %conv291 = trunc nuw i32 %shr289 to i8
   %incdec.ptr292 = getelementptr inbounds i8, ptr %out.addr.1225, i64 8
   store i8 %conv291, ptr %incdec.ptr288, align 1
-  %cmp225 = icmp ugt i64 %l.1.in229, 15
+  %cmp225 = icmp ugt i64 %l.1, 7
   br i1 %cmp225, label %for.body227, label %for.end295, !llvm.loop !14
 
-for.end295:                                       ; preds = %for.body227, %if.else
-  %out.addr.1.lcssa = phi ptr [ %out, %if.else ], [ %incdec.ptr292, %for.body227 ]
-  %in.addr.8.lcssa = phi ptr [ %in, %if.else ], [ %incdec.ptr253, %for.body227 ]
-  %xor0.0.lcssa = phi i32 [ %0, %if.else ], [ %or241, %for.body227 ]
-  %xor1.0.lcssa = phi i32 [ %1, %if.else ], [ %or256, %for.body227 ]
-  %l.1.in.lcssa = phi i64 [ %length, %if.else ], [ %l.1, %for.body227 ]
-  %cmp296.not = icmp eq i64 %l.1.in.lcssa, 0
+for.end295:                                       ; preds = %for.body227
+  %cmp296.not = icmp eq i64 %l.1, 0
   br i1 %cmp296.not, label %if.end376, label %if.then298
 
-if.then298:                                       ; preds = %for.end295
-  %25 = load i16, ptr %in.addr.8.lcssa, align 1
+if.then298:                                       ; preds = %if.else, %for.end295
+  %l.1.in.lcssa270 = phi i64 [ %l.1, %for.end295 ], [ %length, %if.else ]
+  %xor1.0.lcssa269 = phi i32 [ %or256, %for.end295 ], [ %1, %if.else ]
+  %xor0.0.lcssa268 = phi i32 [ %or241, %for.end295 ], [ %0, %if.else ]
+  %in.addr.8.lcssa267 = phi ptr [ %incdec.ptr253, %for.end295 ], [ %in, %if.else ]
+  %out.addr.1.lcssa266 = phi ptr [ %incdec.ptr292, %for.end295 ], [ %out, %if.else ]
+  %25 = load i16, ptr %in.addr.8.lcssa267, align 1
   %26 = zext i16 %25 to i32
-  %incdec.ptr301 = getelementptr inbounds i8, ptr %in.addr.8.lcssa, i64 2
-  %incdec.ptr305 = getelementptr inbounds i8, ptr %in.addr.8.lcssa, i64 3
+  %incdec.ptr301 = getelementptr inbounds i8, ptr %in.addr.8.lcssa267, i64 2
+  %incdec.ptr305 = getelementptr inbounds i8, ptr %in.addr.8.lcssa267, i64 3
   %27 = load i8, ptr %incdec.ptr301, align 1
   %conv306 = zext i8 %27 to i32
   %shl307 = shl nuw nsw i32 %conv306, 16
   %or308 = or disjoint i32 %shl307, %26
-  %incdec.ptr309 = getelementptr inbounds i8, ptr %in.addr.8.lcssa, i64 4
+  %incdec.ptr309 = getelementptr inbounds i8, ptr %in.addr.8.lcssa267, i64 4
   %28 = load i8, ptr %incdec.ptr305, align 1
   %conv310 = zext i8 %28 to i32
   %shl311 = shl nuw i32 %conv310, 24
@@ -556,8 +556,8 @@ if.then298:                                       ; preds = %for.end295
   store i32 %or312, ptr %tin, align 4
   %29 = load i16, ptr %incdec.ptr309, align 1
   %30 = zext i16 %29 to i32
-  %incdec.ptr316 = getelementptr inbounds i8, ptr %in.addr.8.lcssa, i64 6
-  %incdec.ptr320 = getelementptr inbounds i8, ptr %in.addr.8.lcssa, i64 7
+  %incdec.ptr316 = getelementptr inbounds i8, ptr %in.addr.8.lcssa267, i64 6
+  %incdec.ptr320 = getelementptr inbounds i8, ptr %in.addr.8.lcssa267, i64 7
   %31 = load i8, ptr %incdec.ptr316, align 1
   %conv321 = zext i8 %31 to i32
   %shl322 = shl nuw nsw i32 %conv321, 16
@@ -568,13 +568,13 @@ if.then298:                                       ; preds = %for.end295
   %or327 = or disjoint i32 %or323, %shl326
   %arrayidx328 = getelementptr inbounds i8, ptr %tin, i64 4
   store i32 %or327, ptr %arrayidx328, align 4
-  call fastcc void @RC2_decrypt(ptr noundef nonnull %tin, ptr noundef %ks)
+  call fastcc void @RC2_decrypt(ptr noundef %tin, ptr noundef %ks)
   %33 = load i32, ptr %tin, align 4
-  %xor331 = xor i32 %33, %xor0.0.lcssa
+  %xor331 = xor i32 %33, %xor0.0.lcssa268
   %34 = load i32, ptr %arrayidx328, align 4
-  %xor333 = xor i32 %34, %xor1.0.lcssa
-  %add.ptr335 = getelementptr inbounds i8, ptr %out.addr.1.lcssa, i64 %l.1.in.lcssa
-  switch i64 %l.1.in.lcssa, label %default.unreachable [
+  %xor333 = xor i32 %34, %xor1.0.lcssa269
+  %add.ptr335 = getelementptr inbounds i8, ptr %out.addr.1.lcssa266, i64 %l.1.in.lcssa270
+  switch i64 %l.1.in.lcssa270, label %default.unreachable [
     i64 1, label %sw.bb371
     i64 7, label %sw.bb342
     i64 6, label %sw.bb347
@@ -638,8 +638,8 @@ sw.bb371:                                         ; preds = %if.then298, %sw.bb3
   br label %if.end376
 
 if.end376:                                        ; preds = %sw.bb371, %for.end295
-  %xor0.1 = phi i32 [ %or312, %sw.bb371 ], [ %xor0.0.lcssa, %for.end295 ]
-  %xor1.1 = phi i32 [ %or327, %sw.bb371 ], [ %xor1.0.lcssa, %for.end295 ]
+  %xor0.1 = phi i32 [ %or312, %sw.bb371 ], [ %or241, %for.end295 ]
+  %xor1.1 = phi i32 [ %or327, %sw.bb371 ], [ %or256, %for.end295 ]
   %conv378 = trunc i32 %xor0.1 to i8
   store i8 %conv378, ptr %iv, align 1
   %shr380 = lshr i32 %xor0.1, 8
@@ -671,7 +671,7 @@ if.end407:                                        ; preds = %if.end376, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @RC2_encrypt(ptr nocapture noundef %d, ptr nocapture noundef readonly %key) unnamed_addr #4 {
+define internal fastcc void @RC2_encrypt(ptr nocapture noundef nonnull %d, ptr nocapture noundef readonly %key) unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %d, align 4
   %shr = lshr i32 %0, 16
@@ -801,7 +801,7 @@ for.end:                                          ; preds = %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @RC2_decrypt(ptr nocapture noundef %d, ptr nocapture noundef readonly %key) unnamed_addr #4 {
+define internal fastcc void @RC2_decrypt(ptr nocapture noundef nonnull %d, ptr nocapture noundef readonly %key) unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %d, align 4
   %shr = lshr i32 %0, 16

@@ -1250,7 +1250,7 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2c0b4b4725c578faE"(ptr %.0.val, ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2c0b4b4725c578faE"(ptr %.0.val, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca i32, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !434)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1448,7 +1448,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h26d61fbd40625b00E.exit: ; preds = 
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hffc6f59b128fcdc8E"(ptr %.0.val, ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hffc6f59b128fcdc8E"(ptr %.0.val, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca i32, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !467)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2945,7 +2945,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2c0b4b4725c578faE"(ptr nonnull %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5)
+  call fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2c0b4b4725c578faE"(ptr nonnull %1, ptr noalias nocapture noundef align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %10
 
@@ -3030,7 +3030,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
   %.sroa.0.18.i.i.i = phi ptr [ %43, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i" ], [ %17, %30 ], [ %33, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h768176926c7dfe8eE.exit15.i.i.i.i.i" ], [ %23, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h768176926c7dfe8eE.exit13.i.i.i.i.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !884
   call void @_ZN6uucore8features13quoting_style11EscapedChar5new_c17hf1f2fa33bddfc411E(ptr noalias nocapture noundef nonnull sret({ { [2 x i32], i32, [1 x i32] } }) align 8 dereferenceable(16) %3, i32 noundef %52, i8 noundef %15), !noalias !887
-  call fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2c0b4b4725c578faE"(ptr nonnull %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3), !noalias !884
+  call fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2c0b4b4725c578faE"(ptr nonnull %1, ptr noalias nocapture noundef align 8 dereferenceable(16) %3), !noalias !884
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !884
   %53 = icmp eq ptr %.sroa.0.18.i.i.i, %.sroa.4.0.copyload
   br i1 %53, label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4cb01fb6ffda2d0aE.exit", label %16
@@ -3045,7 +3045,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
   %57 = getelementptr inbounds i8, ptr %0, i64 40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false)
-  call fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2c0b4b4725c578faE"(ptr nonnull %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4)
+  call fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2c0b4b4725c578faE"(ptr nonnull %1, ptr noalias nocapture noundef align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %58
 
@@ -3067,7 +3067,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hffc6f59b128fcdc8E"(ptr nonnull %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5)
+  call fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hffc6f59b128fcdc8E"(ptr nonnull %1, ptr noalias nocapture noundef align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %10
 
@@ -3150,7 +3150,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !901
   store i32 %spec.select.i.i.i.i.i, ptr %3, align 8, !noalias !904
   store i32 1114113, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i.i.i, align 8, !noalias !904
-  call fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hffc6f59b128fcdc8E"(ptr nonnull %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3), !noalias !901
+  call fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hffc6f59b128fcdc8E"(ptr nonnull %1, ptr noalias nocapture noundef align 8 dereferenceable(16) %3), !noalias !901
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !901
   %55 = icmp eq ptr %.sroa.0.16.i.i.i, %13
   br i1 %55, label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he3de58e7f54d2ea4E.exit", label %17
@@ -3165,7 +3165,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
   %59 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false)
-  call fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hffc6f59b128fcdc8E"(ptr nonnull %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4)
+  call fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hffc6f59b128fcdc8E"(ptr nonnull %1, ptr noalias nocapture noundef align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %60
 
@@ -5546,7 +5546,7 @@ _ZN6uucore8features6format4spec5Flags5parse17h50c788586d8df07dE.exit: ; preds = 
   %19 = trunc nuw i8 %.sroa.5.0.lcssa.i to i1
   %. = select i1 %19, i8 2, i8 0
   %.070 = select i1 %18, i8 1, i8 %.
-  %20 = call fastcc { i64, i64 } @_ZN6uucore8features6format4spec22eat_asterisk_or_number17h9a90975ebd819f2aE(ptr nonnull %4, i64 %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
+  %20 = call fastcc { i64, i64 } @_ZN6uucore8features6format4spec22eat_asterisk_or_number17h9a90975ebd819f2aE(ptr nonnull %4, i64 %6, ptr noalias noundef align 8 dereferenceable(8) %3)
   %21 = extractvalue { i64, i64 } %20, 0
   %22 = extractvalue { i64, i64 } %20, 1
   %23 = load i64, ptr %3, align 8, !noundef !9
@@ -5562,7 +5562,7 @@ _ZN6uucore8features6format4spec5Flags5parse17h50c788586d8df07dE.exit: ; preds = 
 28:                                               ; preds = %24
   %29 = add nuw i64 %23, 1
   store i64 %29, ptr %3, align 8
-  %30 = call fastcc { i64, i64 } @_ZN6uucore8features6format4spec22eat_asterisk_or_number17h9a90975ebd819f2aE(ptr nonnull %4, i64 %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
+  %30 = call fastcc { i64, i64 } @_ZN6uucore8features6format4spec22eat_asterisk_or_number17h9a90975ebd819f2aE(ptr nonnull %4, i64 %6, ptr noalias noundef align 8 dereferenceable(8) %3)
   %31 = extractvalue { i64, i64 } %30, 0
   %32 = icmp eq i64 %31, 2
   %33 = extractvalue { i64, i64 } %30, 1
@@ -5794,7 +5794,7 @@ _ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit119: ; preds =
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { i64, i64 } @_ZN6uucore8features6format4spec22eat_asterisk_or_number17h9a90975ebd819f2aE(ptr %.0.val, i64 %.8.val, ptr noalias nocapture noundef align 8 dereferenceable(8) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc { i64, i64 } @_ZN6uucore8features6format4spec22eat_asterisk_or_number17h9a90975ebd819f2aE(ptr %.0.val, i64 %.8.val, ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca i8, align 1
   %3 = alloca { i64, { i8, [1 x i8] }, [6 x i8] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8

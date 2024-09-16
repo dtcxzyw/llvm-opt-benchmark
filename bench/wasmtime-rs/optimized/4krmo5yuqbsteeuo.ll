@@ -2006,7 +2006,7 @@ define hidden noundef i64 @"_ZN56_$LT$usize$u20$as$u20$core..iter..traits..accum
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ext..IoExt$GT$4peek17h85e5a0160f721715E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 4 dereferenceable(4) %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ext..IoExt$GT$4peek17h85e5a0160f721715E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { i8, [15 x i8] }, align 8
   %6 = alloca { i8, [15 x i8] }, align 8
   %7 = alloca i32, align 4
@@ -2058,7 +2058,7 @@ _ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit.thread: ;
 
 "_ZN59_$LT$T$u20$as$u20$io_lifetimes..portability..AsFilelike$GT$16as_filelike_view17hda4c258163a7362bE.exit": ; preds = %20
   store i32 %21, ptr %7, align 4
-  invoke fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ext..IoExt$GT$4peek17hef6e53bfa5428028E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull align 1 %2, i64 noundef %3)
+  invoke fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ext..IoExt$GT$4peek17hef6e53bfa5428028E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %8, ptr noalias noundef readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull align 1 %2, i64 noundef %3)
           to label %27 unwind label %25
 
 25:                                               ; preds = %"_ZN59_$LT$T$u20$as$u20$io_lifetimes..portability..AsFilelike$GT$16as_filelike_view17hda4c258163a7362bE.exit"
@@ -2140,7 +2140,7 @@ _ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit37.thread:
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ext..IoExt$GT$4peek17hef6e53bfa5428028E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 4 dereferenceable(4) %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ext..IoExt$GT$4peek17hef6e53bfa5428028E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { i8, [15 x i8] }, align 8
   %6 = alloca { i8, [15 x i8] }, align 8
   %7 = alloca i32, align 4
@@ -2192,7 +2192,7 @@ _ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit.thread: ;
 
 "_ZN59_$LT$T$u20$as$u20$io_lifetimes..portability..AsFilelike$GT$16as_filelike_view17h6cb415f2f957a08fE.exit": ; preds = %20
   store i32 %21, ptr %7, align 4
-  invoke fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ext..IoExt$GT$4peek17hef6e53bfa5428028E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull align 1 %2, i64 noundef %3)
+  invoke fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ext..IoExt$GT$4peek17hef6e53bfa5428028E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %8, ptr noalias noundef readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull align 1 %2, i64 noundef %3)
           to label %27 unwind label %25
 
 25:                                               ; preds = %"_ZN59_$LT$T$u20$as$u20$io_lifetimes..portability..AsFilelike$GT$16as_filelike_view17h6cb415f2f957a08fE.exit"
@@ -6490,7 +6490,7 @@ default.unreachable8:                             ; preds = %3
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !72, !noundef !4
   %12 = getelementptr inbounds i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !4
-  invoke fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ext..IoExt$GT$4peek17h85e5a0160f721715E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %9, ptr noalias noundef nonnull align 1 %11, i64 noundef %13)
+  invoke fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ext..IoExt$GT$4peek17h85e5a0160f721715E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %4, ptr noalias noundef readonly align 4 dereferenceable(4) %9, ptr noalias noundef nonnull align 1 %11, i64 noundef %13)
           to label %16 unwind label %14
 
 14:                                               ; preds = %8
@@ -6949,7 +6949,7 @@ _ZN4core4iter6traits8iterator8Iterator3sum17h02840b3a954c4747E.exit: ; preds = %
   %.val35 = load ptr, ptr %64, align 8, !noundef !4
   %65 = getelementptr i8, ptr %64, i64 8
   %.val36 = load i64, ptr %65, align 8, !noundef !4
-  invoke fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ext..IoExt$GT$4peek17h85e5a0160f721715E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %11, ptr noalias noundef nonnull align 1 %.val35, i64 noundef %.val36)
+  invoke fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ext..IoExt$GT$4peek17h85e5a0160f721715E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %6, ptr noalias noundef readonly align 4 dereferenceable(4) %11, ptr noalias noundef nonnull align 1 %.val35, i64 noundef %.val36)
           to label %66 unwind label %60
 
 66:                                               ; preds = %62

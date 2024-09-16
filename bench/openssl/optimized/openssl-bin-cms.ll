@@ -1741,7 +1741,7 @@ if.end655:                                        ; preds = %if.then648, %if.end
 
 if.then657:                                       ; preds = %if.end655
   %call658 = call ptr @CMS_get1_certs(ptr noundef nonnull %call643) #2
-  %call659 = call fastcc i32 @save_certs(ptr noundef nonnull %certsoutfile.0.lcssa1514167617361855, ptr noundef %call658)
+  %call659 = call fastcc i32 @save_certs(ptr noundef %certsoutfile.0.lcssa1514167617361855, ptr noundef %call658)
   %tobool660.not = icmp eq i32 %call659, 0
   br i1 %tobool660.not, label %if.then661, label %if.end663
 
@@ -2016,7 +2016,7 @@ if.end846:                                        ; preds = %if.then844, %if.end
   br i1 %cmp369, label %if.end856, label %land.lhs.true848
 
 land.lhs.true848:                                 ; preds = %if.end846
-  %call849 = call fastcc ptr @make_receipt_request(ptr noundef nonnull %rr_to.1.lcssa1571164117701822, i32 noundef %rr_allorfirst.0.lcssa1546165217591833, ptr noundef %rr_from.1.lcssa1566164217691823)
+  %call849 = call fastcc ptr @make_receipt_request(ptr noundef %rr_to.1.lcssa1571164117701822, i32 noundef %rr_allorfirst.0.lcssa1546165217591833, ptr noundef %rr_from.1.lcssa1566164217691823)
   %cmp850 = icmp eq ptr %call849, null
   br i1 %cmp850, label %if.then851, label %if.end856
 
@@ -2290,7 +2290,7 @@ if.else1037:                                      ; preds = %if.then1027
 
 if.then1050:                                      ; preds = %if.then1031
   %call1051 = call ptr @CMS_get0_signers(ptr noundef nonnull %cms.2) #2
-  %call1052 = call fastcc i32 @save_certs(ptr noundef nonnull %signerfile.4, ptr noundef %call1051)
+  %call1052 = call fastcc i32 @save_certs(ptr noundef %signerfile.4, ptr noundef %call1051)
   %tobool1053.not = icmp eq i32 %call1052, 0
   br i1 %tobool1053.not, label %if.then1054, label %if.end1056
 
@@ -2307,7 +2307,7 @@ if.end1058:                                       ; preds = %if.end1056, %if.the
   br i1 %rr_print.0.lcssa1545165317581834, label %if.end1146, label %if.then1060
 
 if.then1060:                                      ; preds = %if.end1058
-  call fastcc void @receipt_request_print(ptr noundef nonnull %cms.2)
+  call fastcc void @receipt_request_print(ptr noundef %cms.2)
   br label %if.end1146
 
 if.then1065:                                      ; preds = %if.else988
@@ -2686,9 +2686,9 @@ declare ptr @BIO_new_file(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @CMS_get1_certs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @save_certs(ptr noundef %signerfile, ptr noundef %signers) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @save_certs(ptr noundef nonnull %signerfile, ptr noundef %signers) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @BIO_new_file(ptr noundef %signerfile, ptr noundef nonnull @.str.316) #2
+  %call = tail call ptr @BIO_new_file(ptr noundef nonnull %signerfile, ptr noundef nonnull @.str.316) #2
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %for.cond.preheader
 
@@ -2829,7 +2829,7 @@ declare ptr @CMS_sign_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32
 declare i32 @CMS_set1_eContentType(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @make_receipt_request(ptr noundef %rr_to, i32 noundef %rr_allorfirst, ptr noundef %rr_from) unnamed_addr #0 {
+define internal fastcc ptr @make_receipt_request(ptr noundef nonnull %rr_to, i32 noundef %rr_allorfirst, ptr noundef %rr_from) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @make_names_stack(ptr noundef %rr_to)
   %cmp = icmp eq ptr %call, null
@@ -2840,7 +2840,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end7, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call3 = tail call fastcc ptr @make_names_stack(ptr noundef nonnull %rr_from)
+  %call3 = tail call fastcc ptr @make_names_stack(ptr noundef %rr_from)
   %cmp4 = icmp eq ptr %call3, null
   br i1 %cmp4, label %err, label %if.end7
 
@@ -2897,14 +2897,14 @@ declare ptr @CMS_get0_signers(ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @receipt_request_print(ptr noundef %cms) unnamed_addr #0 {
+define internal fastcc void @receipt_request_print(ptr noundef nonnull %cms) unnamed_addr #0 {
 entry:
   %rr = alloca ptr, align 8
   %allorfirst = alloca i32, align 4
   %rto = alloca ptr, align 8
   %rlist = alloca ptr, align 8
   %scid = alloca ptr, align 8
-  %call = tail call ptr @CMS_get0_SignerInfos(ptr noundef %cms) #2
+  %call = tail call ptr @CMS_get0_SignerInfos(ptr noundef nonnull %cms) #2
   %call26 = tail call i32 @OPENSSL_sk_num(ptr noundef %call) #2
   %cmp8 = icmp sgt i32 %call26, 0
   br i1 %cmp8, label %for.body, label %for.end
@@ -3102,26 +3102,26 @@ for.end16:                                        ; preds = %for.inc14, %entry
 declare i32 @GENERAL_NAME_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @make_names_stack(ptr noundef %ns) unnamed_addr #0 {
+define internal fastcc ptr @make_names_stack(ptr noundef nonnull %ns) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OPENSSL_sk_new_null() #2
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %err, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %call212 = tail call i32 @OPENSSL_sk_num(ptr noundef %ns) #2
+  %call212 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %ns) #2
   %cmp313 = icmp sgt i32 %call212, 0
   br i1 %cmp313, label %for.body, label %return
 
 for.cond:                                         ; preds = %if.end18
   %inc = add nuw nsw i32 %i.014, 1
-  %call2 = tail call i32 @OPENSSL_sk_num(ptr noundef %ns) #2
+  %call2 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %ns) #2
   %cmp3 = icmp slt i32 %inc, %call2
   br i1 %cmp3, label %for.body, label %return, !llvm.loop !18
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.014 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
-  %call5 = tail call ptr @OPENSSL_sk_value(ptr noundef %ns, i32 noundef %i.014) #2
+  %call5 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %ns, i32 noundef %i.014) #2
   %call6 = tail call ptr @a2i_GENERAL_NAME(ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 1, ptr noundef %call5, i32 noundef 0) #2
   %cmp7 = icmp eq ptr %call6, null
   br i1 %cmp7, label %err, label %if.end9

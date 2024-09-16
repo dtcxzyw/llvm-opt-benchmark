@@ -685,7 +685,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   store ptr %315, ptr %13, align 8
   %316 = icmp eq i8 %312, 45
   %317 = zext i1 %316 to i32
-  %318 = call fastcc i32 @find_text_end(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %.3617, i32 noundef %317)
+  %318 = call fastcc i32 @find_text_end(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %.3617, i32 noundef %317)
   %.not718 = icmp eq i32 %318, 0
   br i1 %.not718, label %319, label %.loopexit828.loopexit923
 
@@ -702,7 +702,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 325:                                              ; preds = %322
   %326 = getelementptr inbounds i8, ptr %320, i64 1
   store ptr %326, ptr %13, align 8
-  %327 = call fastcc i32 @find_text_end(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %.3617, i32 noundef 1)
+  %327 = call fastcc i32 @find_text_end(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %.3617, i32 noundef 1)
   %.not719 = icmp eq i32 %327, 0
   br i1 %.not719, label %328, label %.loopexit828.loopexit923
 
@@ -1724,7 +1724,7 @@ declare i32 @_pcre2_valid_utf_8(ptr noundef, i64 noundef, ptr noundef) local_unn
 declare i32 @php_pcre2_match(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @find_text_end(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @find_text_end(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

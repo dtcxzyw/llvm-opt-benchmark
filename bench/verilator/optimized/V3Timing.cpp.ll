@@ -7375,7 +7375,7 @@ define linkonce_odr dso_local void @_ZNK24TimingSuspendableVisitor13SuspendDepVt
   %11 = icmp eq i32 %.val5, %10
   %12 = trunc i64 %.val6 to i32
   %13 = xor i32 %12, -1
-  %14 = select i1 %11, i32 %13, i32 127
+  %14 = select i1 %11, i32 %13, i32 63
   %15 = and i32 %14, 2
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %16, label %22
@@ -7970,7 +7970,7 @@ define linkonce_odr dso_local void @_ZNK24TimingSuspendableVisitor15NeedsProcDep
   %12 = icmp eq i32 %.val7, %11
   %13 = trunc i64 %.val8 to i32
   %14 = xor i32 %13, -1
-  %15 = select i1 %12, i32 %14, i32 127
+  %15 = select i1 %12, i32 %14, i32 63
   %16 = and i32 %15, 32
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %23
@@ -10656,7 +10656,7 @@ define linkonce_odr dso_local void @_ZN20TimingControlVisitor5visitEP9AstAlways(
   %30 = icmp eq i32 %.val40, %29
   %31 = trunc i64 %.val41 to i32
   %32 = xor i32 %31, -1
-  %33 = select i1 %30, i32 %32, i32 127
+  %33 = select i1 %30, i32 %32, i32 63
   %34 = and i32 %33, 32
   %.not.i45 = icmp eq i32 %34, 0
   br i1 %.not.i45, label %35, label %39
@@ -11268,7 +11268,7 @@ define linkonce_odr dso_local void @_ZN20TimingControlVisitor5visitEP8AstCFunc(p
   %17 = icmp eq i32 %.val31, %16
   %18 = trunc i64 %.val32 to i32
   %19 = xor i32 %18, -1
-  %20 = select i1 %17, i32 %19, i32 127
+  %20 = select i1 %17, i32 %19, i32 63
   %21 = and i32 %20, 32
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %22, label %28
@@ -14348,7 +14348,7 @@ define linkonce_odr dso_local void @_ZN20TimingControlVisitor5visitEP10AstInitia
   %14 = icmp eq i32 %.val9.i, %13
   %15 = trunc i64 %.val10.i to i32
   %16 = xor i32 %15, -1
-  %17 = select i1 %14, i32 %16, i32 127
+  %17 = select i1 %14, i32 %16, i32 63
   %18 = and i32 %17, 1
   %.not.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i, label %19, label %25
@@ -14963,7 +14963,7 @@ define linkonce_odr dso_local void @_ZN20TimingControlVisitor5visitEP16AstNodePr
   %12 = icmp eq i32 %.val9, %11
   %13 = trunc i64 %.val10 to i32
   %14 = xor i32 %13, -1
-  %15 = select i1 %12, i32 %14, i32 127
+  %15 = select i1 %12, i32 %14, i32 63
   %16 = and i32 %15, 1
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %23

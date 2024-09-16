@@ -136,17 +136,17 @@ _ZL15crc32c_multiplyjj.exit.i:                    ; preds = %._crit_edge.i.i
   store i32 %.1.i.i, ptr %12, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 31
-  br i1 %exitcond.not.i, label %.lr.ph.i, label %2, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZL18crc32c_init_pow_2kv.exit, label %2, !llvm.loop !8
 
-.lr.ph.i:                                         ; preds = %_ZL15crc32c_multiplyjj.exit.i, %_ZL15crc32c_multiplyjj.exit.i27
+_ZL18crc32c_init_pow_2kv.exit:                    ; preds = %_ZL15crc32c_multiplyjj.exit.i, %_ZL15crc32c_multiplyjj.exit.i27
   %indvars.iv.i17 = phi i64 [ %indvars.iv.next.i28, %_ZL15crc32c_multiplyjj.exit.i27 ], [ 0, %_ZL15crc32c_multiplyjj.exit.i ]
-  %.01015.i = phi i32 [ %.1.i, %_ZL15crc32c_multiplyjj.exit.i27 ], [ -2147483648, %_ZL15crc32c_multiplyjj.exit.i ]
-  %.01114.i = phi i32 [ %25, %_ZL15crc32c_multiplyjj.exit.i27 ], [ 16384, %_ZL15crc32c_multiplyjj.exit.i ]
-  %13 = and i32 %.01114.i, 1
+  %.01014.i = phi i32 [ %.1.i, %_ZL15crc32c_multiplyjj.exit.i27 ], [ -2147483648, %_ZL15crc32c_multiplyjj.exit.i ]
+  %.01113.i = phi i32 [ %25, %_ZL15crc32c_multiplyjj.exit.i27 ], [ 16384, %_ZL15crc32c_multiplyjj.exit.i ]
+  %13 = and i32 %.01113.i, 1
   %.not12.i = icmp eq i32 %13, 0
   br i1 %.not12.i, label %_ZL15crc32c_multiplyjj.exit.i27, label %14
 
-14:                                               ; preds = %.lr.ph.i
+14:                                               ; preds = %_ZL18crc32c_init_pow_2kv.exit
   %15 = getelementptr inbounds [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i17
   %16 = load i32, ptr %15, align 4
   br label %._crit_edge.i.i18
@@ -157,7 +157,7 @@ _ZL15crc32c_multiplyjj.exit.i:                    ; preds = %._crit_edge.i.i
   %.01315.i.i21 = phi i32 [ 0, %14 ], [ %.1.i.i23, %._crit_edge.i.i18 ]
   %17 = trunc nuw nsw i64 %indvars.iv.i.i20 to i32
   %18 = lshr exact i32 -2147483648, %17
-  %19 = and i32 %18, %.01015.i
+  %19 = and i32 %18, %.01014.i
   %.not.i.i22 = icmp eq i32 %19, 0
   %20 = select i1 %.not.i.i22, i32 0, i32 %.pre.i.i19
   %.1.i.i23 = xor i32 %20, %.01315.i.i21
@@ -170,295 +170,295 @@ _ZL15crc32c_multiplyjj.exit.i:                    ; preds = %._crit_edge.i.i
   %exitcond.not.i.i26 = icmp eq i64 %24, 32
   br i1 %exitcond.not.i.i26, label %_ZL15crc32c_multiplyjj.exit.i27, label %._crit_edge.i.i18, !llvm.loop !6
 
-_ZL15crc32c_multiplyjj.exit.i27:                  ; preds = %._crit_edge.i.i18, %.lr.ph.i
-  %.1.i = phi i32 [ %.01015.i, %.lr.ph.i ], [ %.1.i.i23, %._crit_edge.i.i18 ]
-  %25 = lshr i32 %.01114.i, 1
+_ZL15crc32c_multiplyjj.exit.i27:                  ; preds = %._crit_edge.i.i18, %_ZL18crc32c_init_pow_2kv.exit
+  %.1.i = phi i32 [ %.01014.i, %_ZL18crc32c_init_pow_2kv.exit ], [ %.1.i.i23, %._crit_edge.i.i18 ]
+  %25 = lshr i32 %.01113.i, 1
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i17, 1
   %exitcond = icmp eq i64 %indvars.iv.next.i28, 15
-  br i1 %exitcond, label %_ZL14crc32c_f_pow_nj.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond, label %_ZL14crc32c_f_pow_nj.exit, label %_ZL18crc32c_init_pow_2kv.exit, !llvm.loop !9
 
 _ZL14crc32c_f_pow_nj.exit:                        ; preds = %_ZL15crc32c_multiplyjj.exit.i27
   store i32 %.1.i, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, align 16
-  br label %.lr.ph.i29
+  br label %26
 
-.lr.ph.i29:                                       ; preds = %_ZL15crc32c_multiplyjj.exit.i43, %_ZL14crc32c_f_pow_nj.exit
-  %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i45, %_ZL15crc32c_multiplyjj.exit.i43 ], [ 0, %_ZL14crc32c_f_pow_nj.exit ]
-  %.01015.i31 = phi i32 [ %.1.i44, %_ZL15crc32c_multiplyjj.exit.i43 ], [ -2147483648, %_ZL14crc32c_f_pow_nj.exit ]
-  %.01114.i32 = phi i32 [ %38, %_ZL15crc32c_multiplyjj.exit.i43 ], [ 32768, %_ZL14crc32c_f_pow_nj.exit ]
-  %26 = and i32 %.01114.i32, 1
-  %.not12.i33 = icmp eq i32 %26, 0
-  br i1 %.not12.i33, label %_ZL15crc32c_multiplyjj.exit.i43, label %27
+26:                                               ; preds = %_ZL15crc32c_multiplyjj.exit.i42, %_ZL14crc32c_f_pow_nj.exit
+  %indvars.iv.i29 = phi i64 [ 0, %_ZL14crc32c_f_pow_nj.exit ], [ %indvars.iv.next.i44, %_ZL15crc32c_multiplyjj.exit.i42 ]
+  %.01014.i30 = phi i32 [ -2147483648, %_ZL14crc32c_f_pow_nj.exit ], [ %.1.i43, %_ZL15crc32c_multiplyjj.exit.i42 ]
+  %.01113.i31 = phi i32 [ 32768, %_ZL14crc32c_f_pow_nj.exit ], [ %39, %_ZL15crc32c_multiplyjj.exit.i42 ]
+  %27 = and i32 %.01113.i31, 1
+  %.not12.i32 = icmp eq i32 %27, 0
+  br i1 %.not12.i32, label %_ZL15crc32c_multiplyjj.exit.i42, label %28
 
-27:                                               ; preds = %.lr.ph.i29
-  %28 = getelementptr inbounds [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i30
-  %29 = load i32, ptr %28, align 4
-  br label %._crit_edge.i.i34
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i29
+  %30 = load i32, ptr %29, align 4
+  br label %._crit_edge.i.i33
 
-._crit_edge.i.i34:                                ; preds = %._crit_edge.i.i34, %27
-  %.pre.i.i35 = phi i32 [ %29, %27 ], [ %.sink.i.i41, %._crit_edge.i.i34 ]
-  %indvars.iv.i.i36 = phi i64 [ 0, %27 ], [ %37, %._crit_edge.i.i34 ]
-  %.01315.i.i37 = phi i32 [ 0, %27 ], [ %.1.i.i39, %._crit_edge.i.i34 ]
-  %30 = trunc nuw nsw i64 %indvars.iv.i.i36 to i32
-  %31 = lshr exact i32 -2147483648, %30
-  %32 = and i32 %31, %.01015.i31
-  %.not.i.i38 = icmp eq i32 %32, 0
-  %33 = select i1 %.not.i.i38, i32 0, i32 %.pre.i.i35
-  %.1.i.i39 = xor i32 %33, %.01315.i.i37
-  %34 = and i32 %.pre.i.i35, 1
-  %.not14.i.i40 = icmp eq i32 %34, 0
-  %35 = lshr i32 %.pre.i.i35, 1
-  %36 = xor i32 %35, -2097792136
-  %.sink.i.i41 = select i1 %.not14.i.i40, i32 %35, i32 %36
-  %37 = add nuw nsw i64 %indvars.iv.i.i36, 1
-  %exitcond.not.i.i42 = icmp eq i64 %37, 32
-  br i1 %exitcond.not.i.i42, label %_ZL15crc32c_multiplyjj.exit.i43, label %._crit_edge.i.i34, !llvm.loop !6
+._crit_edge.i.i33:                                ; preds = %._crit_edge.i.i33, %28
+  %.pre.i.i34 = phi i32 [ %30, %28 ], [ %.sink.i.i40, %._crit_edge.i.i33 ]
+  %indvars.iv.i.i35 = phi i64 [ 0, %28 ], [ %38, %._crit_edge.i.i33 ]
+  %.01315.i.i36 = phi i32 [ 0, %28 ], [ %.1.i.i38, %._crit_edge.i.i33 ]
+  %31 = trunc nuw nsw i64 %indvars.iv.i.i35 to i32
+  %32 = lshr exact i32 -2147483648, %31
+  %33 = and i32 %32, %.01014.i30
+  %.not.i.i37 = icmp eq i32 %33, 0
+  %34 = select i1 %.not.i.i37, i32 0, i32 %.pre.i.i34
+  %.1.i.i38 = xor i32 %34, %.01315.i.i36
+  %35 = and i32 %.pre.i.i34, 1
+  %.not14.i.i39 = icmp eq i32 %35, 0
+  %36 = lshr i32 %.pre.i.i34, 1
+  %37 = xor i32 %36, -2097792136
+  %.sink.i.i40 = select i1 %.not14.i.i39, i32 %36, i32 %37
+  %38 = add nuw nsw i64 %indvars.iv.i.i35, 1
+  %exitcond.not.i.i41 = icmp eq i64 %38, 32
+  br i1 %exitcond.not.i.i41, label %_ZL15crc32c_multiplyjj.exit.i42, label %._crit_edge.i.i33, !llvm.loop !6
 
-_ZL15crc32c_multiplyjj.exit.i43:                  ; preds = %._crit_edge.i.i34, %.lr.ph.i29
-  %.1.i44 = phi i32 [ %.01015.i31, %.lr.ph.i29 ], [ %.1.i.i39, %._crit_edge.i.i34 ]
-  %38 = lshr i32 %.01114.i32, 1
-  %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i30, 1
-  %exitcond126 = icmp eq i64 %indvars.iv.next.i45, 16
-  br i1 %exitcond126, label %_ZL14crc32c_f_pow_nj.exit47, label %.lr.ph.i29, !llvm.loop !9
+_ZL15crc32c_multiplyjj.exit.i42:                  ; preds = %._crit_edge.i.i33, %26
+  %.1.i43 = phi i32 [ %.01014.i30, %26 ], [ %.1.i.i38, %._crit_edge.i.i33 ]
+  %39 = lshr i32 %.01113.i31, 1
+  %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i29, 1
+  %exitcond121 = icmp eq i64 %indvars.iv.next.i44, 16
+  br i1 %exitcond121, label %_ZL14crc32c_f_pow_nj.exit46, label %26, !llvm.loop !9
 
-_ZL14crc32c_f_pow_nj.exit47:                      ; preds = %_ZL15crc32c_multiplyjj.exit.i43
-  store i32 %.1.i44, ptr getelementptr inbounds (i8, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 4), align 4
-  br label %.lr.ph.i48
+_ZL14crc32c_f_pow_nj.exit46:                      ; preds = %_ZL15crc32c_multiplyjj.exit.i42
+  store i32 %.1.i43, ptr getelementptr inbounds (i8, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 4), align 4
+  br label %40
 
-.lr.ph.i48:                                       ; preds = %_ZL15crc32c_multiplyjj.exit.i62, %_ZL14crc32c_f_pow_nj.exit47
-  %indvars.iv.i49 = phi i64 [ %indvars.iv.next.i64, %_ZL15crc32c_multiplyjj.exit.i62 ], [ 0, %_ZL14crc32c_f_pow_nj.exit47 ]
-  %.01015.i50 = phi i32 [ %.1.i63, %_ZL15crc32c_multiplyjj.exit.i62 ], [ -2147483648, %_ZL14crc32c_f_pow_nj.exit47 ]
-  %.01114.i51 = phi i32 [ %51, %_ZL15crc32c_multiplyjj.exit.i62 ], [ 4736, %_ZL14crc32c_f_pow_nj.exit47 ]
-  %39 = and i32 %.01114.i51, 1
-  %.not12.i52 = icmp eq i32 %39, 0
-  br i1 %.not12.i52, label %_ZL15crc32c_multiplyjj.exit.i62, label %40
+40:                                               ; preds = %_ZL15crc32c_multiplyjj.exit.i60, %_ZL14crc32c_f_pow_nj.exit46
+  %indvars.iv.i47 = phi i64 [ 0, %_ZL14crc32c_f_pow_nj.exit46 ], [ %indvars.iv.next.i62, %_ZL15crc32c_multiplyjj.exit.i60 ]
+  %.01014.i48 = phi i32 [ -2147483648, %_ZL14crc32c_f_pow_nj.exit46 ], [ %.1.i61, %_ZL15crc32c_multiplyjj.exit.i60 ]
+  %.01113.i49 = phi i32 [ 4736, %_ZL14crc32c_f_pow_nj.exit46 ], [ %53, %_ZL15crc32c_multiplyjj.exit.i60 ]
+  %41 = and i32 %.01113.i49, 1
+  %.not12.i50 = icmp eq i32 %41, 0
+  br i1 %.not12.i50, label %_ZL15crc32c_multiplyjj.exit.i60, label %42
 
-40:                                               ; preds = %.lr.ph.i48
-  %41 = getelementptr inbounds [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i49
-  %42 = load i32, ptr %41, align 4
-  br label %._crit_edge.i.i53
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i47
+  %44 = load i32, ptr %43, align 4
+  br label %._crit_edge.i.i51
 
-._crit_edge.i.i53:                                ; preds = %._crit_edge.i.i53, %40
-  %.pre.i.i54 = phi i32 [ %42, %40 ], [ %.sink.i.i60, %._crit_edge.i.i53 ]
-  %indvars.iv.i.i55 = phi i64 [ 0, %40 ], [ %50, %._crit_edge.i.i53 ]
-  %.01315.i.i56 = phi i32 [ 0, %40 ], [ %.1.i.i58, %._crit_edge.i.i53 ]
-  %43 = trunc nuw nsw i64 %indvars.iv.i.i55 to i32
-  %44 = lshr exact i32 -2147483648, %43
-  %45 = and i32 %44, %.01015.i50
-  %.not.i.i57 = icmp eq i32 %45, 0
-  %46 = select i1 %.not.i.i57, i32 0, i32 %.pre.i.i54
-  %.1.i.i58 = xor i32 %46, %.01315.i.i56
-  %47 = and i32 %.pre.i.i54, 1
-  %.not14.i.i59 = icmp eq i32 %47, 0
-  %48 = lshr i32 %.pre.i.i54, 1
-  %49 = xor i32 %48, -2097792136
-  %.sink.i.i60 = select i1 %.not14.i.i59, i32 %48, i32 %49
-  %50 = add nuw nsw i64 %indvars.iv.i.i55, 1
-  %exitcond.not.i.i61 = icmp eq i64 %50, 32
-  br i1 %exitcond.not.i.i61, label %_ZL15crc32c_multiplyjj.exit.i62, label %._crit_edge.i.i53, !llvm.loop !6
+._crit_edge.i.i51:                                ; preds = %._crit_edge.i.i51, %42
+  %.pre.i.i52 = phi i32 [ %44, %42 ], [ %.sink.i.i58, %._crit_edge.i.i51 ]
+  %indvars.iv.i.i53 = phi i64 [ 0, %42 ], [ %52, %._crit_edge.i.i51 ]
+  %.01315.i.i54 = phi i32 [ 0, %42 ], [ %.1.i.i56, %._crit_edge.i.i51 ]
+  %45 = trunc nuw nsw i64 %indvars.iv.i.i53 to i32
+  %46 = lshr exact i32 -2147483648, %45
+  %47 = and i32 %46, %.01014.i48
+  %.not.i.i55 = icmp eq i32 %47, 0
+  %48 = select i1 %.not.i.i55, i32 0, i32 %.pre.i.i52
+  %.1.i.i56 = xor i32 %48, %.01315.i.i54
+  %49 = and i32 %.pre.i.i52, 1
+  %.not14.i.i57 = icmp eq i32 %49, 0
+  %50 = lshr i32 %.pre.i.i52, 1
+  %51 = xor i32 %50, -2097792136
+  %.sink.i.i58 = select i1 %.not14.i.i57, i32 %50, i32 %51
+  %52 = add nuw nsw i64 %indvars.iv.i.i53, 1
+  %exitcond.not.i.i59 = icmp eq i64 %52, 32
+  br i1 %exitcond.not.i.i59, label %_ZL15crc32c_multiplyjj.exit.i60, label %._crit_edge.i.i51, !llvm.loop !6
 
-_ZL15crc32c_multiplyjj.exit.i62:                  ; preds = %._crit_edge.i.i53, %.lr.ph.i48
-  %.1.i63 = phi i32 [ %.01015.i50, %.lr.ph.i48 ], [ %.1.i.i58, %._crit_edge.i.i53 ]
-  %51 = lshr i32 %.01114.i51, 1
-  %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i49, 1
-  %exitcond127 = icmp eq i64 %indvars.iv.next.i64, 13
-  br i1 %exitcond127, label %_ZL14crc32c_f_pow_nj.exit66, label %.lr.ph.i48, !llvm.loop !9
+_ZL15crc32c_multiplyjj.exit.i60:                  ; preds = %._crit_edge.i.i51, %40
+  %.1.i61 = phi i32 [ %.01014.i48, %40 ], [ %.1.i.i56, %._crit_edge.i.i51 ]
+  %53 = lshr i32 %.01113.i49, 1
+  %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i47, 1
+  %exitcond122 = icmp eq i64 %indvars.iv.next.i62, 13
+  br i1 %exitcond122, label %_ZL14crc32c_f_pow_nj.exit64, label %40, !llvm.loop !9
 
-_ZL14crc32c_f_pow_nj.exit66:                      ; preds = %_ZL15crc32c_multiplyjj.exit.i62
-  store i32 %.1.i63, ptr getelementptr inbounds (i8, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 8), align 8
-  br label %.lr.ph.i67
+_ZL14crc32c_f_pow_nj.exit64:                      ; preds = %_ZL15crc32c_multiplyjj.exit.i60
+  store i32 %.1.i61, ptr getelementptr inbounds (i8, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 8), align 8
+  br label %54
 
-.lr.ph.i67:                                       ; preds = %_ZL15crc32c_multiplyjj.exit.i81, %_ZL14crc32c_f_pow_nj.exit66
-  %indvars.iv.i68 = phi i64 [ %indvars.iv.next.i83, %_ZL15crc32c_multiplyjj.exit.i81 ], [ 0, %_ZL14crc32c_f_pow_nj.exit66 ]
-  %.01015.i69 = phi i32 [ %.1.i82, %_ZL15crc32c_multiplyjj.exit.i81 ], [ -2147483648, %_ZL14crc32c_f_pow_nj.exit66 ]
-  %.01114.i70 = phi i32 [ %64, %_ZL15crc32c_multiplyjj.exit.i81 ], [ 9472, %_ZL14crc32c_f_pow_nj.exit66 ]
-  %52 = and i32 %.01114.i70, 1
-  %.not12.i71 = icmp eq i32 %52, 0
-  br i1 %.not12.i71, label %_ZL15crc32c_multiplyjj.exit.i81, label %53
+54:                                               ; preds = %_ZL15crc32c_multiplyjj.exit.i78, %_ZL14crc32c_f_pow_nj.exit64
+  %indvars.iv.i65 = phi i64 [ 0, %_ZL14crc32c_f_pow_nj.exit64 ], [ %indvars.iv.next.i80, %_ZL15crc32c_multiplyjj.exit.i78 ]
+  %.01014.i66 = phi i32 [ -2147483648, %_ZL14crc32c_f_pow_nj.exit64 ], [ %.1.i79, %_ZL15crc32c_multiplyjj.exit.i78 ]
+  %.01113.i67 = phi i32 [ 9472, %_ZL14crc32c_f_pow_nj.exit64 ], [ %67, %_ZL15crc32c_multiplyjj.exit.i78 ]
+  %55 = and i32 %.01113.i67, 1
+  %.not12.i68 = icmp eq i32 %55, 0
+  br i1 %.not12.i68, label %_ZL15crc32c_multiplyjj.exit.i78, label %56
 
-53:                                               ; preds = %.lr.ph.i67
-  %54 = getelementptr inbounds [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i68
-  %55 = load i32, ptr %54, align 4
-  br label %._crit_edge.i.i72
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i65
+  %58 = load i32, ptr %57, align 4
+  br label %._crit_edge.i.i69
 
-._crit_edge.i.i72:                                ; preds = %._crit_edge.i.i72, %53
-  %.pre.i.i73 = phi i32 [ %55, %53 ], [ %.sink.i.i79, %._crit_edge.i.i72 ]
-  %indvars.iv.i.i74 = phi i64 [ 0, %53 ], [ %63, %._crit_edge.i.i72 ]
-  %.01315.i.i75 = phi i32 [ 0, %53 ], [ %.1.i.i77, %._crit_edge.i.i72 ]
-  %56 = trunc nuw nsw i64 %indvars.iv.i.i74 to i32
-  %57 = lshr exact i32 -2147483648, %56
-  %58 = and i32 %57, %.01015.i69
-  %.not.i.i76 = icmp eq i32 %58, 0
-  %59 = select i1 %.not.i.i76, i32 0, i32 %.pre.i.i73
-  %.1.i.i77 = xor i32 %59, %.01315.i.i75
-  %60 = and i32 %.pre.i.i73, 1
-  %.not14.i.i78 = icmp eq i32 %60, 0
-  %61 = lshr i32 %.pre.i.i73, 1
-  %62 = xor i32 %61, -2097792136
-  %.sink.i.i79 = select i1 %.not14.i.i78, i32 %61, i32 %62
-  %63 = add nuw nsw i64 %indvars.iv.i.i74, 1
-  %exitcond.not.i.i80 = icmp eq i64 %63, 32
-  br i1 %exitcond.not.i.i80, label %_ZL15crc32c_multiplyjj.exit.i81, label %._crit_edge.i.i72, !llvm.loop !6
+._crit_edge.i.i69:                                ; preds = %._crit_edge.i.i69, %56
+  %.pre.i.i70 = phi i32 [ %58, %56 ], [ %.sink.i.i76, %._crit_edge.i.i69 ]
+  %indvars.iv.i.i71 = phi i64 [ 0, %56 ], [ %66, %._crit_edge.i.i69 ]
+  %.01315.i.i72 = phi i32 [ 0, %56 ], [ %.1.i.i74, %._crit_edge.i.i69 ]
+  %59 = trunc nuw nsw i64 %indvars.iv.i.i71 to i32
+  %60 = lshr exact i32 -2147483648, %59
+  %61 = and i32 %60, %.01014.i66
+  %.not.i.i73 = icmp eq i32 %61, 0
+  %62 = select i1 %.not.i.i73, i32 0, i32 %.pre.i.i70
+  %.1.i.i74 = xor i32 %62, %.01315.i.i72
+  %63 = and i32 %.pre.i.i70, 1
+  %.not14.i.i75 = icmp eq i32 %63, 0
+  %64 = lshr i32 %.pre.i.i70, 1
+  %65 = xor i32 %64, -2097792136
+  %.sink.i.i76 = select i1 %.not14.i.i75, i32 %64, i32 %65
+  %66 = add nuw nsw i64 %indvars.iv.i.i71, 1
+  %exitcond.not.i.i77 = icmp eq i64 %66, 32
+  br i1 %exitcond.not.i.i77, label %_ZL15crc32c_multiplyjj.exit.i78, label %._crit_edge.i.i69, !llvm.loop !6
 
-_ZL15crc32c_multiplyjj.exit.i81:                  ; preds = %._crit_edge.i.i72, %.lr.ph.i67
-  %.1.i82 = phi i32 [ %.01015.i69, %.lr.ph.i67 ], [ %.1.i.i77, %._crit_edge.i.i72 ]
-  %64 = lshr i32 %.01114.i70, 1
-  %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i68, 1
-  %exitcond128 = icmp eq i64 %indvars.iv.next.i83, 14
-  br i1 %exitcond128, label %_ZL14crc32c_f_pow_nj.exit85, label %.lr.ph.i67, !llvm.loop !9
+_ZL15crc32c_multiplyjj.exit.i78:                  ; preds = %._crit_edge.i.i69, %54
+  %.1.i79 = phi i32 [ %.01014.i66, %54 ], [ %.1.i.i74, %._crit_edge.i.i69 ]
+  %67 = lshr i32 %.01113.i67, 1
+  %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i65, 1
+  %exitcond123 = icmp eq i64 %indvars.iv.next.i80, 14
+  br i1 %exitcond123, label %_ZL14crc32c_f_pow_nj.exit82, label %54, !llvm.loop !9
 
-_ZL14crc32c_f_pow_nj.exit85:                      ; preds = %_ZL15crc32c_multiplyjj.exit.i81
-  store i32 %.1.i82, ptr getelementptr inbounds (i8, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 12), align 4
-  br label %.lr.ph.i86
+_ZL14crc32c_f_pow_nj.exit82:                      ; preds = %_ZL15crc32c_multiplyjj.exit.i78
+  store i32 %.1.i79, ptr getelementptr inbounds (i8, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 12), align 4
+  br label %68
 
-.lr.ph.i86:                                       ; preds = %_ZL15crc32c_multiplyjj.exit.i100, %_ZL14crc32c_f_pow_nj.exit85
-  %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i102, %_ZL15crc32c_multiplyjj.exit.i100 ], [ 0, %_ZL14crc32c_f_pow_nj.exit85 ]
-  %.01015.i88 = phi i32 [ %.1.i101, %_ZL15crc32c_multiplyjj.exit.i100 ], [ -2147483648, %_ZL14crc32c_f_pow_nj.exit85 ]
-  %.01114.i89 = phi i32 [ %77, %_ZL15crc32c_multiplyjj.exit.i100 ], [ 576, %_ZL14crc32c_f_pow_nj.exit85 ]
-  %65 = and i32 %.01114.i89, 1
-  %.not12.i90 = icmp eq i32 %65, 0
-  br i1 %.not12.i90, label %_ZL15crc32c_multiplyjj.exit.i100, label %66
+68:                                               ; preds = %_ZL15crc32c_multiplyjj.exit.i96, %_ZL14crc32c_f_pow_nj.exit82
+  %indvars.iv.i83 = phi i64 [ 0, %_ZL14crc32c_f_pow_nj.exit82 ], [ %indvars.iv.next.i98, %_ZL15crc32c_multiplyjj.exit.i96 ]
+  %.01014.i84 = phi i32 [ -2147483648, %_ZL14crc32c_f_pow_nj.exit82 ], [ %.1.i97, %_ZL15crc32c_multiplyjj.exit.i96 ]
+  %.01113.i85 = phi i32 [ 576, %_ZL14crc32c_f_pow_nj.exit82 ], [ %81, %_ZL15crc32c_multiplyjj.exit.i96 ]
+  %69 = and i32 %.01113.i85, 1
+  %.not12.i86 = icmp eq i32 %69, 0
+  br i1 %.not12.i86, label %_ZL15crc32c_multiplyjj.exit.i96, label %70
 
-66:                                               ; preds = %.lr.ph.i86
-  %67 = getelementptr inbounds [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i87
-  %68 = load i32, ptr %67, align 4
-  br label %._crit_edge.i.i91
+70:                                               ; preds = %68
+  %71 = getelementptr inbounds [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i83
+  %72 = load i32, ptr %71, align 4
+  br label %._crit_edge.i.i87
 
-._crit_edge.i.i91:                                ; preds = %._crit_edge.i.i91, %66
-  %.pre.i.i92 = phi i32 [ %68, %66 ], [ %.sink.i.i98, %._crit_edge.i.i91 ]
-  %indvars.iv.i.i93 = phi i64 [ 0, %66 ], [ %76, %._crit_edge.i.i91 ]
-  %.01315.i.i94 = phi i32 [ 0, %66 ], [ %.1.i.i96, %._crit_edge.i.i91 ]
-  %69 = trunc nuw nsw i64 %indvars.iv.i.i93 to i32
-  %70 = lshr exact i32 -2147483648, %69
-  %71 = and i32 %70, %.01015.i88
-  %.not.i.i95 = icmp eq i32 %71, 0
-  %72 = select i1 %.not.i.i95, i32 0, i32 %.pre.i.i92
-  %.1.i.i96 = xor i32 %72, %.01315.i.i94
-  %73 = and i32 %.pre.i.i92, 1
-  %.not14.i.i97 = icmp eq i32 %73, 0
-  %74 = lshr i32 %.pre.i.i92, 1
-  %75 = xor i32 %74, -2097792136
-  %.sink.i.i98 = select i1 %.not14.i.i97, i32 %74, i32 %75
-  %76 = add nuw nsw i64 %indvars.iv.i.i93, 1
-  %exitcond.not.i.i99 = icmp eq i64 %76, 32
-  br i1 %exitcond.not.i.i99, label %_ZL15crc32c_multiplyjj.exit.i100, label %._crit_edge.i.i91, !llvm.loop !6
+._crit_edge.i.i87:                                ; preds = %._crit_edge.i.i87, %70
+  %.pre.i.i88 = phi i32 [ %72, %70 ], [ %.sink.i.i94, %._crit_edge.i.i87 ]
+  %indvars.iv.i.i89 = phi i64 [ 0, %70 ], [ %80, %._crit_edge.i.i87 ]
+  %.01315.i.i90 = phi i32 [ 0, %70 ], [ %.1.i.i92, %._crit_edge.i.i87 ]
+  %73 = trunc nuw nsw i64 %indvars.iv.i.i89 to i32
+  %74 = lshr exact i32 -2147483648, %73
+  %75 = and i32 %74, %.01014.i84
+  %.not.i.i91 = icmp eq i32 %75, 0
+  %76 = select i1 %.not.i.i91, i32 0, i32 %.pre.i.i88
+  %.1.i.i92 = xor i32 %76, %.01315.i.i90
+  %77 = and i32 %.pre.i.i88, 1
+  %.not14.i.i93 = icmp eq i32 %77, 0
+  %78 = lshr i32 %.pre.i.i88, 1
+  %79 = xor i32 %78, -2097792136
+  %.sink.i.i94 = select i1 %.not14.i.i93, i32 %78, i32 %79
+  %80 = add nuw nsw i64 %indvars.iv.i.i89, 1
+  %exitcond.not.i.i95 = icmp eq i64 %80, 32
+  br i1 %exitcond.not.i.i95, label %_ZL15crc32c_multiplyjj.exit.i96, label %._crit_edge.i.i87, !llvm.loop !6
 
-_ZL15crc32c_multiplyjj.exit.i100:                 ; preds = %._crit_edge.i.i91, %.lr.ph.i86
-  %.1.i101 = phi i32 [ %.01015.i88, %.lr.ph.i86 ], [ %.1.i.i96, %._crit_edge.i.i91 ]
-  %77 = lshr i32 %.01114.i89, 1
-  %indvars.iv.next.i102 = add nuw nsw i64 %indvars.iv.i87, 1
-  %exitcond129 = icmp eq i64 %indvars.iv.next.i102, 10
-  br i1 %exitcond129, label %_ZL14crc32c_f_pow_nj.exit104, label %.lr.ph.i86, !llvm.loop !9
+_ZL15crc32c_multiplyjj.exit.i96:                  ; preds = %._crit_edge.i.i87, %68
+  %.1.i97 = phi i32 [ %.01014.i84, %68 ], [ %.1.i.i92, %._crit_edge.i.i87 ]
+  %81 = lshr i32 %.01113.i85, 1
+  %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i83, 1
+  %exitcond124 = icmp eq i64 %indvars.iv.next.i98, 10
+  br i1 %exitcond124, label %_ZL14crc32c_f_pow_nj.exit100, label %68, !llvm.loop !9
 
-_ZL14crc32c_f_pow_nj.exit104:                     ; preds = %_ZL15crc32c_multiplyjj.exit.i100
-  store i32 %.1.i101, ptr getelementptr inbounds (i8, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 16), align 16
-  br label %.lr.ph.i105
+_ZL14crc32c_f_pow_nj.exit100:                     ; preds = %_ZL15crc32c_multiplyjj.exit.i96
+  store i32 %.1.i97, ptr getelementptr inbounds (i8, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 16), align 16
+  br label %82
 
-.lr.ph.i105:                                      ; preds = %_ZL15crc32c_multiplyjj.exit.i119, %_ZL14crc32c_f_pow_nj.exit104
-  %indvars.iv.i106 = phi i64 [ %indvars.iv.next.i121, %_ZL15crc32c_multiplyjj.exit.i119 ], [ 0, %_ZL14crc32c_f_pow_nj.exit104 ]
-  %.01015.i107 = phi i32 [ %.1.i120, %_ZL15crc32c_multiplyjj.exit.i119 ], [ -2147483648, %_ZL14crc32c_f_pow_nj.exit104 ]
-  %.01114.i108 = phi i32 [ %90, %_ZL15crc32c_multiplyjj.exit.i119 ], [ 1152, %_ZL14crc32c_f_pow_nj.exit104 ]
-  %78 = and i32 %.01114.i108, 1
-  %.not12.i109 = icmp eq i32 %78, 0
-  br i1 %.not12.i109, label %_ZL15crc32c_multiplyjj.exit.i119, label %79
+82:                                               ; preds = %_ZL15crc32c_multiplyjj.exit.i114, %_ZL14crc32c_f_pow_nj.exit100
+  %indvars.iv.i101 = phi i64 [ 0, %_ZL14crc32c_f_pow_nj.exit100 ], [ %indvars.iv.next.i116, %_ZL15crc32c_multiplyjj.exit.i114 ]
+  %.01014.i102 = phi i32 [ -2147483648, %_ZL14crc32c_f_pow_nj.exit100 ], [ %.1.i115, %_ZL15crc32c_multiplyjj.exit.i114 ]
+  %.01113.i103 = phi i32 [ 1152, %_ZL14crc32c_f_pow_nj.exit100 ], [ %95, %_ZL15crc32c_multiplyjj.exit.i114 ]
+  %83 = and i32 %.01113.i103, 1
+  %.not12.i104 = icmp eq i32 %83, 0
+  br i1 %.not12.i104, label %_ZL15crc32c_multiplyjj.exit.i114, label %84
 
-79:                                               ; preds = %.lr.ph.i105
-  %80 = getelementptr inbounds [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i106
-  %81 = load i32, ptr %80, align 4
-  br label %._crit_edge.i.i110
+84:                                               ; preds = %82
+  %85 = getelementptr inbounds [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i101
+  %86 = load i32, ptr %85, align 4
+  br label %._crit_edge.i.i105
 
-._crit_edge.i.i110:                               ; preds = %._crit_edge.i.i110, %79
-  %.pre.i.i111 = phi i32 [ %81, %79 ], [ %.sink.i.i117, %._crit_edge.i.i110 ]
-  %indvars.iv.i.i112 = phi i64 [ 0, %79 ], [ %89, %._crit_edge.i.i110 ]
-  %.01315.i.i113 = phi i32 [ 0, %79 ], [ %.1.i.i115, %._crit_edge.i.i110 ]
-  %82 = trunc nuw nsw i64 %indvars.iv.i.i112 to i32
-  %83 = lshr exact i32 -2147483648, %82
-  %84 = and i32 %83, %.01015.i107
-  %.not.i.i114 = icmp eq i32 %84, 0
-  %85 = select i1 %.not.i.i114, i32 0, i32 %.pre.i.i111
-  %.1.i.i115 = xor i32 %85, %.01315.i.i113
-  %86 = and i32 %.pre.i.i111, 1
-  %.not14.i.i116 = icmp eq i32 %86, 0
-  %87 = lshr i32 %.pre.i.i111, 1
-  %88 = xor i32 %87, -2097792136
-  %.sink.i.i117 = select i1 %.not14.i.i116, i32 %87, i32 %88
-  %89 = add nuw nsw i64 %indvars.iv.i.i112, 1
-  %exitcond.not.i.i118 = icmp eq i64 %89, 32
-  br i1 %exitcond.not.i.i118, label %_ZL15crc32c_multiplyjj.exit.i119, label %._crit_edge.i.i110, !llvm.loop !6
+._crit_edge.i.i105:                               ; preds = %._crit_edge.i.i105, %84
+  %.pre.i.i106 = phi i32 [ %86, %84 ], [ %.sink.i.i112, %._crit_edge.i.i105 ]
+  %indvars.iv.i.i107 = phi i64 [ 0, %84 ], [ %94, %._crit_edge.i.i105 ]
+  %.01315.i.i108 = phi i32 [ 0, %84 ], [ %.1.i.i110, %._crit_edge.i.i105 ]
+  %87 = trunc nuw nsw i64 %indvars.iv.i.i107 to i32
+  %88 = lshr exact i32 -2147483648, %87
+  %89 = and i32 %88, %.01014.i102
+  %.not.i.i109 = icmp eq i32 %89, 0
+  %90 = select i1 %.not.i.i109, i32 0, i32 %.pre.i.i106
+  %.1.i.i110 = xor i32 %90, %.01315.i.i108
+  %91 = and i32 %.pre.i.i106, 1
+  %.not14.i.i111 = icmp eq i32 %91, 0
+  %92 = lshr i32 %.pre.i.i106, 1
+  %93 = xor i32 %92, -2097792136
+  %.sink.i.i112 = select i1 %.not14.i.i111, i32 %92, i32 %93
+  %94 = add nuw nsw i64 %indvars.iv.i.i107, 1
+  %exitcond.not.i.i113 = icmp eq i64 %94, 32
+  br i1 %exitcond.not.i.i113, label %_ZL15crc32c_multiplyjj.exit.i114, label %._crit_edge.i.i105, !llvm.loop !6
 
-_ZL15crc32c_multiplyjj.exit.i119:                 ; preds = %._crit_edge.i.i110, %.lr.ph.i105
-  %.1.i120 = phi i32 [ %.01015.i107, %.lr.ph.i105 ], [ %.1.i.i115, %._crit_edge.i.i110 ]
-  %90 = lshr i32 %.01114.i108, 1
-  %indvars.iv.next.i121 = add nuw nsw i64 %indvars.iv.i106, 1
-  %exitcond130 = icmp eq i64 %indvars.iv.next.i121, 11
-  br i1 %exitcond130, label %_ZL14crc32c_f_pow_nj.exit123, label %.lr.ph.i105, !llvm.loop !9
+_ZL15crc32c_multiplyjj.exit.i114:                 ; preds = %._crit_edge.i.i105, %82
+  %.1.i115 = phi i32 [ %.01014.i102, %82 ], [ %.1.i.i110, %._crit_edge.i.i105 ]
+  %95 = lshr i32 %.01113.i103, 1
+  %indvars.iv.next.i116 = add nuw nsw i64 %indvars.iv.i101, 1
+  %exitcond125 = icmp eq i64 %indvars.iv.next.i116, 11
+  br i1 %exitcond125, label %_ZL14crc32c_f_pow_nj.exit118, label %82, !llvm.loop !9
 
-_ZL14crc32c_f_pow_nj.exit123:                     ; preds = %_ZL15crc32c_multiplyjj.exit.i119
-  store i32 %.1.i120, ptr getelementptr inbounds (i8, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 20), align 4
+_ZL14crc32c_f_pow_nj.exit118:                     ; preds = %_ZL15crc32c_multiplyjj.exit.i114
+  store i32 %.1.i115, ptr getelementptr inbounds (i8, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 20), align 4
   br i1 %0, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %_ZL14crc32c_f_pow_nj.exit123, %129
-  %indvars.iv = phi i64 [ %indvars.iv.next, %129 ], [ 0, %_ZL14crc32c_f_pow_nj.exit123 ]
-  %91 = load atomic i8, ptr @_ZGVZN12StubRoutines3x8621generate_CRC32C_tableEbE7X_CONST acquire, align 8
-  %92 = icmp eq i8 %91, 0
-  br i1 %92, label %93, label %98, !prof !10
+.preheader:                                       ; preds = %_ZL14crc32c_f_pow_nj.exit118, %134
+  %indvars.iv = phi i64 [ %indvars.iv.next, %134 ], [ 0, %_ZL14crc32c_f_pow_nj.exit118 ]
+  %96 = load atomic i8, ptr @_ZGVZN12StubRoutines3x8621generate_CRC32C_tableEbE7X_CONST acquire, align 8
+  %97 = icmp eq i8 %96, 0
+  br i1 %97, label %98, label %103, !prof !10
 
-93:                                               ; preds = %.preheader
-  %94 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12StubRoutines3x8621generate_CRC32C_tableEbE7X_CONST) #5
-  %.not = icmp eq i32 %94, 0
-  br i1 %.not, label %98, label %95
+98:                                               ; preds = %.preheader
+  %99 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12StubRoutines3x8621generate_CRC32C_tableEbE7X_CONST) #5
+  %.not = icmp eq i32 %99, 0
+  br i1 %.not, label %103, label %100
 
-95:                                               ; preds = %93
-  %96 = getelementptr inbounds [6 x i32], ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 0, i64 %indvars.iv
-  %97 = load i32, ptr %96, align 4
-  store i32 %97, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE7X_CONST, align 4
+100:                                              ; preds = %98
+  %101 = getelementptr inbounds [6 x i32], ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 0, i64 %indvars.iv
+  %102 = load i32, ptr %101, align 4
+  store i32 %102, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE7X_CONST, align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12StubRoutines3x8621generate_CRC32C_tableEbE7X_CONST) #5
-  br label %98
+  br label %103
 
-98:                                               ; preds = %95, %93, %.preheader
-  %99 = load i32, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE7X_CONST, align 4
-  %100 = zext i32 %99 to i64
-  %101 = shl nuw nsw i64 %indvars.iv, 8
-  br label %102
+103:                                              ; preds = %100, %98, %.preheader
+  %104 = load i32, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE7X_CONST, align 4
+  %105 = zext i32 %104 to i64
+  %106 = shl nuw nsw i64 %indvars.iv, 8
+  br label %107
 
-102:                                              ; preds = %98, %102
-  %.0124 = phi i64 [ 0, %98 ], [ %128, %102 ]
-  %103 = trunc i64 %.0124 to i1
-  %104 = select i1 %103, i64 %100, i64 0
-  %105 = and i64 %.0124, 2
-  %106 = mul nuw nsw i64 %105, %100
-  %107 = xor i64 %104, %106
-  %108 = and i64 %.0124, 4
-  %109 = mul nuw nsw i64 %108, %100
-  %110 = xor i64 %107, %109
-  %111 = and i64 %.0124, 8
-  %112 = mul nuw nsw i64 %111, %100
-  %113 = xor i64 %110, %112
-  %114 = and i64 %.0124, 16
-  %115 = mul nuw nsw i64 %114, %100
-  %116 = xor i64 %113, %115
-  %117 = and i64 %.0124, 32
-  %118 = mul nuw nsw i64 %117, %100
-  %119 = xor i64 %116, %118
-  %120 = and i64 %.0124, 64
-  %121 = mul nuw nsw i64 %120, %100
-  %122 = xor i64 %119, %121
-  %123 = and i64 %.0124, 128
-  %124 = mul nuw nsw i64 %123, %100
-  %125 = xor i64 %122, %124
-  %126 = or disjoint i64 %.0124, %101
-  %127 = getelementptr inbounds [1536 x i64], ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE15pclmulqdq_table, i64 0, i64 %126
-  store i64 %125, ptr %127, align 8
-  %128 = add nuw nsw i64 %.0124, 1
-  %exitcond131.not = icmp eq i64 %128, 256
-  br i1 %exitcond131.not, label %129, label %102, !llvm.loop !11
+107:                                              ; preds = %103, %107
+  %.0119 = phi i64 [ 0, %103 ], [ %133, %107 ]
+  %108 = trunc i64 %.0119 to i1
+  %109 = select i1 %108, i64 %105, i64 0
+  %110 = and i64 %.0119, 2
+  %111 = mul nuw nsw i64 %110, %105
+  %112 = xor i64 %109, %111
+  %113 = and i64 %.0119, 4
+  %114 = mul nuw nsw i64 %113, %105
+  %115 = xor i64 %112, %114
+  %116 = and i64 %.0119, 8
+  %117 = mul nuw nsw i64 %116, %105
+  %118 = xor i64 %115, %117
+  %119 = and i64 %.0119, 16
+  %120 = mul nuw nsw i64 %119, %105
+  %121 = xor i64 %118, %120
+  %122 = and i64 %.0119, 32
+  %123 = mul nuw nsw i64 %122, %105
+  %124 = xor i64 %121, %123
+  %125 = and i64 %.0119, 64
+  %126 = mul nuw nsw i64 %125, %105
+  %127 = xor i64 %124, %126
+  %128 = and i64 %.0119, 128
+  %129 = mul nuw nsw i64 %128, %105
+  %130 = xor i64 %127, %129
+  %131 = or disjoint i64 %.0119, %106
+  %132 = getelementptr inbounds [1536 x i64], ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE15pclmulqdq_table, i64 0, i64 %131
+  store i64 %130, ptr %132, align 8
+  %133 = add nuw nsw i64 %.0119, 1
+  %exitcond126.not = icmp eq i64 %133, 256
+  br i1 %exitcond126.not, label %134, label %107, !llvm.loop !11
 
-129:                                              ; preds = %102
+134:                                              ; preds = %107
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond133.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond133.not, label %.loopexit, label %.preheader, !llvm.loop !12
+  %exitcond128.not = icmp eq i64 %indvars.iv.next, 6
+  br i1 %exitcond128.not, label %.loopexit, label %.preheader, !llvm.loop !12
 
-.loopexit:                                        ; preds = %129, %_ZL14crc32c_f_pow_nj.exit123
-  %storemerge = phi ptr [ @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, %_ZL14crc32c_f_pow_nj.exit123 ], [ @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE15pclmulqdq_table, %129 ]
+.loopexit:                                        ; preds = %134, %_ZL14crc32c_f_pow_nj.exit118
+  %storemerge = phi ptr [ @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, %_ZL14crc32c_f_pow_nj.exit118 ], [ @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE15pclmulqdq_table, %134 ]
   store ptr %storemerge, ptr @_ZN12StubRoutines3x8613_crc32c_tableE, align 8
   ret void
 }

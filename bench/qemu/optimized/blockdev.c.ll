@@ -1741,7 +1741,7 @@ if.end35:                                         ; preds = %if.end34, %if.end20
   br i1 %cmp37.not, label %if.end44, label %if.then39
 
 if.then39:                                        ; preds = %if.end35
-  %call40 = call fastcc i32 @parse_block_error_action(ptr noundef nonnull %call36, i1 noundef zeroext false, ptr noundef nonnull %error)
+  %call40 = call fastcc i32 @parse_block_error_action(ptr noundef %call36, i1 noundef zeroext false, ptr noundef %error)
   %11 = load ptr, ptr %error, align 8
   %tobool41.not = icmp eq ptr %11, null
   br i1 %tobool41.not, label %if.end44, label %if.then42
@@ -1757,7 +1757,7 @@ if.end44:                                         ; preds = %if.then39, %if.end3
   br i1 %cmp46.not, label %if.end53, label %if.then48
 
 if.then48:                                        ; preds = %if.end44
-  %call49 = call fastcc i32 @parse_block_error_action(ptr noundef nonnull %call45, i1 noundef zeroext true, ptr noundef nonnull %error)
+  %call49 = call fastcc i32 @parse_block_error_action(ptr noundef %call45, i1 noundef zeroext true, ptr noundef %error)
   %12 = load ptr, ptr %error, align 8
   %tobool50.not = icmp eq ptr %12, null
   br i1 %tobool50.not, label %if.end53, label %if.then51
@@ -3206,7 +3206,7 @@ if.then79.i.i:                                    ; preds = %if.end77.i.i
   br i1 %cmp81.i.i, label %unref.i.i, label %if.end85.i.i
 
 if.end85.i.i:                                     ; preds = %if.then79.i.i, %if.end77.i.i
-  %call87.i.i = call fastcc ptr @do_backup_common(ptr noundef nonnull %44, ptr noundef nonnull %call5.i.i, ptr noundef nonnull %call67.i.i, ptr noundef %block_job_txn.0, ptr noundef nonnull %local_err)
+  %call87.i.i = call fastcc ptr @do_backup_common(ptr noundef nonnull %44, ptr noundef %call5.i.i, ptr noundef %call67.i.i, ptr noundef %block_job_txn.0, ptr noundef %local_err)
   %job.i.i = getelementptr inbounds i8, ptr %call.i33.i, i64 8
   store ptr %call87.i.i, ptr %job.i.i, align 8
   br label %unref.i.i
@@ -3254,7 +3254,7 @@ if.end12.i.i:                                     ; preds = %if.end7.i.i
   call void @aio_context_acquire(ptr noundef %call8.i.i) #15
   store ptr %call2.i.i, ptr %call.i44.i, align 8
   call void @bdrv_drained_begin(ptr noundef nonnull %call2.i.i) #15
-  %call16.i.i = call fastcc ptr @do_backup_common(ptr noundef nonnull %64, ptr noundef nonnull %call2.i.i, ptr noundef nonnull %call4.i.i, ptr noundef %block_job_txn.0, ptr noundef nonnull %local_err)
+  %call16.i.i = call fastcc ptr @do_backup_common(ptr noundef nonnull %64, ptr noundef %call2.i.i, ptr noundef %call4.i.i, ptr noundef %block_job_txn.0, ptr noundef %local_err)
   %job.i51.i = getelementptr inbounds i8, ptr %call.i44.i, i64 8
   store ptr %call16.i.i, ptr %job.i51.i, align 8
   call void @aio_context_release(ptr noundef %call8.i.i) #15
@@ -3931,7 +3931,7 @@ if.then106:                                       ; preds = %if.end88
   br label %out
 
 if.end107:                                        ; preds = %if.end88
-  call fastcc void @trace_qmp_block_stream(ptr noundef nonnull %call22)
+  call fastcc void @trace_qmp_block_stream(ptr noundef %call22)
   br label %out
 
 out:                                              ; preds = %if.end107, %if.then106, %if.then87
@@ -3960,7 +3960,7 @@ declare void @bdrv_graph_rdunlock_main_loop() local_unnamed_addr #1
 declare void @stream_start(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_qmp_block_stream(ptr noundef %bs) unnamed_addr #0 {
+define internal fastcc void @trace_qmp_block_stream(ptr noundef nonnull %bs) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -3988,11 +3988,11 @@ if.then8.i:                                       ; preds = %if.then.i
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.239, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %bs) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.239, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %bs) #15
   br label %_nocheck__trace_qmp_block_stream.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.240, ptr noundef %bs) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.240, ptr noundef nonnull %bs) #15
   br label %_nocheck__trace_qmp_block_stream.exit
 
 _nocheck__trace_qmp_block_stream.exit:            ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -4631,7 +4631,7 @@ if.end94:                                         ; preds = %land.end
   %auto_dismiss = getelementptr inbounds i8, ptr %arg, i64 123
   %48 = load i8, ptr %auto_dismiss, align 1
   %tobool109 = trunc i8 %48 to i1
-  call fastcc void @blockdev_mirror_common(ptr noundef %28, ptr noundef nonnull %call, ptr noundef nonnull %call76, ptr noundef %29, i32 noundef %30, i32 noundef %., i1 noundef zeroext %27, i1 noundef zeroext %tobool98, i64 noundef %32, i1 noundef zeroext %tobool99, i32 noundef %34, i1 noundef zeroext %tobool100, i64 noundef %36, i1 noundef zeroext %tobool101, i32 noundef %38, i1 noundef zeroext %tobool102, i32 noundef %40, i1 noundef zeroext %tobool103, i1 noundef zeroext %tobool104, ptr noundef null, i1 noundef zeroext %tobool105, i32 noundef %44, i1 noundef zeroext %tobool106, i1 noundef zeroext %tobool107, i1 noundef zeroext %tobool108, i1 noundef zeroext %tobool109, ptr noundef %errp)
+  call fastcc void @blockdev_mirror_common(ptr noundef %28, ptr noundef %call, ptr noundef %call76, ptr noundef %29, i32 noundef %30, i32 noundef %., i1 noundef zeroext %27, i1 noundef zeroext %tobool98, i64 noundef %32, i1 noundef zeroext %tobool99, i32 noundef %34, i1 noundef zeroext %tobool100, i64 noundef %36, i1 noundef zeroext %tobool101, i32 noundef %38, i1 noundef zeroext %tobool102, i32 noundef %40, i1 noundef zeroext %tobool103, i1 noundef zeroext %tobool104, ptr noundef null, i1 noundef zeroext %tobool105, i32 noundef %44, i1 noundef zeroext %tobool106, i1 noundef zeroext %tobool107, i1 noundef zeroext %tobool108, i1 noundef zeroext %tobool109, ptr noundef %errp)
   call void @bdrv_unref(ptr noundef nonnull %call76) #15
   br label %out
 
@@ -4659,7 +4659,7 @@ declare i32 @bdrv_has_zero_init(ptr noundef) #1
 declare i32 @bdrv_try_change_aio_context(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @blockdev_mirror_common(ptr noundef %job_id, ptr noundef %bs, ptr noundef %target, ptr noundef %replaces, i32 noundef %sync, i32 noundef %backing_mode, i1 noundef zeroext %zero_target, i1 noundef zeroext %has_speed, i64 noundef %speed, i1 noundef zeroext %has_granularity, i32 noundef %granularity, i1 noundef zeroext %has_buf_size, i64 noundef %buf_size, i1 noundef zeroext %has_on_source_error, i32 noundef %on_source_error, i1 noundef zeroext %has_on_target_error, i32 noundef %on_target_error, i1 noundef zeroext %has_unmap, i1 noundef zeroext %unmap, ptr noundef %filter_node_name, i1 noundef zeroext %has_copy_mode, i32 noundef %copy_mode, i1 noundef zeroext %has_auto_finalize, i1 noundef zeroext %auto_finalize, i1 noundef zeroext %has_auto_dismiss, i1 noundef zeroext %auto_dismiss, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc void @blockdev_mirror_common(ptr noundef %job_id, ptr noundef nonnull %bs, ptr noundef nonnull %target, ptr noundef %replaces, i32 noundef %sync, i32 noundef range(i32 0, 3) %backing_mode, i1 noundef zeroext %zero_target, i1 noundef zeroext %has_speed, i64 noundef %speed, i1 noundef zeroext %has_granularity, i32 noundef %granularity, i1 noundef zeroext %has_buf_size, i64 noundef %buf_size, i1 noundef zeroext %has_on_source_error, i32 noundef %on_source_error, i1 noundef zeroext %has_on_target_error, i32 noundef %on_target_error, i1 noundef zeroext %has_unmap, i1 noundef zeroext %unmap, ptr noundef %filter_node_name, i1 noundef zeroext %has_copy_mode, i32 noundef %copy_mode, i1 noundef zeroext %has_auto_finalize, i1 noundef zeroext %auto_finalize, i1 noundef zeroext %has_auto_dismiss, i1 noundef zeroext %auto_dismiss, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #15
   br i1 %call, label %do.end, label %if.else
@@ -4703,15 +4703,15 @@ if.then50:                                        ; preds = %if.end48
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end51:                                         ; preds = %if.end48
-  %call52 = tail call zeroext i1 @bdrv_op_is_blocked(ptr noundef %bs, i32 noundef 11, ptr noundef %errp) #15
+  %call52 = tail call zeroext i1 @bdrv_op_is_blocked(ptr noundef nonnull %bs, i32 noundef 11, ptr noundef %errp) #15
   br i1 %call52, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end54
 
 if.end54:                                         ; preds = %if.end51
-  %call55 = tail call zeroext i1 @bdrv_op_is_blocked(ptr noundef %target, i32 noundef 12, ptr noundef %errp) #15
+  %call55 = tail call zeroext i1 @bdrv_op_is_blocked(ptr noundef nonnull %target, i32 noundef 12, ptr noundef %errp) #15
   br i1 %call55, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end57
 
 if.end57:                                         ; preds = %if.end54
-  %call58 = tail call ptr @bdrv_backing_chain_next(ptr noundef %bs) #15
+  %call58 = tail call ptr @bdrv_backing_chain_next(ptr noundef nonnull %bs) #15
   %tobool59 = icmp eq ptr %call58, null
   %cmp61 = icmp eq i32 %sync, 0
   %or.cond1 = and i1 %cmp61, %tobool59
@@ -4720,14 +4720,14 @@ if.end57:                                         ; preds = %if.end54
   br i1 %tobool64.not, label %if.then65, label %if.then72
 
 if.then65:                                        ; preds = %if.end57
-  %call66 = tail call ptr @bdrv_skip_implicit_filters(ptr noundef %bs) #15
+  %call66 = tail call ptr @bdrv_skip_implicit_filters(ptr noundef nonnull %bs) #15
   %cmp67.not = icmp eq ptr %call66, %bs
   %node_name = getelementptr inbounds i8, ptr %call66, i64 16600
   br i1 %cmp67.not, label %if.end103, label %if.then72
 
 if.then72:                                        ; preds = %if.end57, %if.then65
   %replaces.addr.0.ph = phi ptr [ %node_name, %if.then65 ], [ %replaces, %if.end57 ]
-  %call73 = tail call i64 @bdrv_getlength(ptr noundef %bs) #15
+  %call73 = tail call i64 @bdrv_getlength(ptr noundef nonnull %bs) #15
   %cmp74 = icmp slt i64 %call73, 0
   br i1 %cmp74, label %if.then75, label %if.end77
 
@@ -4738,12 +4738,12 @@ if.then75:                                        ; preds = %if.then72
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end77:                                         ; preds = %if.then72
-  %call78 = tail call ptr @check_to_replace_node(ptr noundef %bs, ptr noundef nonnull %replaces.addr.0.ph, ptr noundef %errp) #15
+  %call78 = tail call ptr @check_to_replace_node(ptr noundef nonnull %bs, ptr noundef nonnull %replaces.addr.0.ph, ptr noundef %errp) #15
   %tobool79.not = icmp eq ptr %call78, null
   br i1 %tobool79.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end81
 
 if.end81:                                         ; preds = %if.end77
-  %call82 = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #15
+  %call82 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs) #15
   %call83 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %call78) #15
   %cmp84.not = icmp eq ptr %call83, %call82
   br i1 %cmp84.not, label %if.end87.thread, label %if.then91
@@ -4779,7 +4779,7 @@ if.then101:                                       ; preds = %if.end98
 
 if.end103:                                        ; preds = %if.then65, %if.end98
   %replaces.addr.047 = phi ptr [ %replaces.addr.0.ph, %if.end98 ], [ null, %if.then65 ]
-  tail call void @mirror_start(ptr noundef %job_id, ptr noundef %bs, ptr noundef %target, ptr noundef %replaces.addr.047, i32 noundef %job_flags.1, i64 noundef %spec.select, i32 noundef %granularity.addr.0, i64 noundef %buf_size.addr.0, i32 noundef %spec.store.select, i32 noundef %backing_mode, i1 noundef zeroext %zero_target, i32 noundef %on_source_error.addr.0, i32 noundef %on_target_error.addr.0, i1 noundef zeroext %unmap.addr.0, ptr noundef %filter_node_name, i32 noundef %copy_mode.addr.0, ptr noundef %errp) #15
+  tail call void @mirror_start(ptr noundef %job_id, ptr noundef nonnull %bs, ptr noundef nonnull %target, ptr noundef %replaces.addr.047, i32 noundef %job_flags.1, i64 noundef %spec.select, i32 noundef %granularity.addr.0, i64 noundef %buf_size.addr.0, i32 noundef %spec.store.select, i32 noundef %backing_mode, i1 noundef zeroext %zero_target, i32 noundef %on_source_error.addr.0, i32 noundef %on_target_error.addr.0, i1 noundef zeroext %unmap.addr.0, ptr noundef %filter_node_name, i32 noundef %copy_mode.addr.0, ptr noundef %errp) #15
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end77, %if.end54, %if.end51, %if.end103, %if.then101, %if.then95, %if.then75, %if.then50, %if.then47
@@ -4811,7 +4811,7 @@ if.end13:                                         ; preds = %if.end
 
 if.end20:                                         ; preds = %if.end13
   %cmp = icmp eq i32 %sync, 1
-  tail call fastcc void @blockdev_mirror_common(ptr noundef %job_id, ptr noundef nonnull %call, ptr noundef nonnull %call10, ptr noundef %replaces, i32 noundef %sync, i32 noundef 2, i1 noundef zeroext %cmp, i1 noundef zeroext %has_speed, i64 noundef %speed, i1 noundef zeroext %has_granularity, i32 noundef %granularity, i1 noundef zeroext %has_buf_size, i64 noundef %buf_size, i1 noundef zeroext %has_on_source_error, i32 noundef %on_source_error, i1 noundef zeroext %has_on_target_error, i32 noundef %on_target_error, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %filter_node_name, i1 noundef zeroext %has_copy_mode, i32 noundef %copy_mode, i1 noundef zeroext %has_auto_finalize, i1 noundef zeroext %auto_finalize, i1 noundef zeroext %has_auto_dismiss, i1 noundef zeroext %auto_dismiss, ptr noundef %errp)
+  tail call fastcc void @blockdev_mirror_common(ptr noundef %job_id, ptr noundef %call, ptr noundef %call10, ptr noundef %replaces, i32 noundef %sync, i32 noundef 2, i1 noundef zeroext %cmp, i1 noundef zeroext %has_speed, i64 noundef %speed, i1 noundef zeroext %has_granularity, i32 noundef %granularity, i1 noundef zeroext %has_buf_size, i64 noundef %buf_size, i1 noundef zeroext %has_on_source_error, i32 noundef %on_source_error, i1 noundef zeroext %has_on_target_error, i32 noundef %on_target_error, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %filter_node_name, i1 noundef zeroext %has_copy_mode, i32 noundef %copy_mode, i1 noundef zeroext %has_auto_finalize, i1 noundef zeroext %auto_finalize, i1 noundef zeroext %has_auto_dismiss, i1 noundef zeroext %auto_dismiss, ptr noundef %errp)
   br label %out
 
 out:                                              ; preds = %if.end13, %if.end20
@@ -5928,7 +5928,7 @@ entry:
 declare i32 @qdict_haskey(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 4) i32 @parse_block_error_action(ptr noundef %buf, i1 noundef zeroext %is_read, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 4) i32 @parse_block_error_action(ptr noundef nonnull %buf, i1 noundef zeroext %is_read, ptr noundef nonnull %errp) unnamed_addr #0 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull dereferenceable(7) @.str.197) #19
   %tobool.not = icmp eq i32 %call, 0
@@ -5954,7 +5954,7 @@ if.else9:                                         ; preds = %if.else5
 
 if.else13:                                        ; preds = %if.else9
   %cond = select i1 %is_read, ptr @.str.202, ptr @.str.203
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 331, ptr noundef nonnull @__func__.parse_block_error_action, ptr noundef nonnull @.str.201, ptr noundef %buf, ptr noundef nonnull %cond) #15
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.1, i32 noundef 331, ptr noundef nonnull @__func__.parse_block_error_action, ptr noundef nonnull @.str.201, ptr noundef nonnull %buf, ptr noundef nonnull %cond) #15
   br label %return
 
 return:                                           ; preds = %if.else9, %if.else5, %land.lhs.true, %entry, %if.else13
@@ -6108,7 +6108,7 @@ declare ptr @bdrv_cow_child(ptr noundef) local_unnamed_addr #1
 declare i32 @bdrv_append(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @do_backup_common(ptr nocapture noundef %backup, ptr noundef %bs, ptr noundef %target_bs, ptr noundef %txn, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc ptr @do_backup_common(ptr nocapture noundef %backup, ptr noundef nonnull %bs, ptr noundef nonnull %target_bs, ptr noundef %txn, ptr noundef nonnull %errp) unnamed_addr #0 {
 entry:
   %perf = alloca %struct.BackupPerf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %perf, ptr noundef nonnull align 8 dereferenceable(32) @__const.do_backup_common.perf, i64 32, i1 false)
@@ -6237,7 +6237,7 @@ if.then40:                                        ; preds = %if.end37
 
 if.then42:                                        ; preds = %if.then40
   %call = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MirrorSyncMode_lookup, i32 noundef %13) #15
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2790, ptr noundef nonnull @__func__.do_backup_common, ptr noundef nonnull @.str.226, ptr noundef %call) #15
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.1, i32 noundef 2790, ptr noundef nonnull @__func__.do_backup_common, ptr noundef nonnull @.str.226, ptr noundef %call) #15
   br label %return
 
 if.end45:                                         ; preds = %if.then40
@@ -6260,7 +6260,7 @@ if.then51:                                        ; preds = %land.lhs.true
   %call52 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @BitmapSyncMode_lookup, i32 noundef 0) #15
   %17 = load i32, ptr %sync, align 8
   %call54 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MirrorSyncMode_lookup, i32 noundef %17) #15
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2801, ptr noundef nonnull @__func__.do_backup_common, ptr noundef nonnull @.str.227, ptr noundef %call52, ptr noundef %call54) #15
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.1, i32 noundef 2801, ptr noundef nonnull @__func__.do_backup_common, ptr noundef nonnull @.str.227, ptr noundef %call52, ptr noundef %call54) #15
   br label %return
 
 if.end55:                                         ; preds = %land.lhs.true, %if.then48
@@ -6275,13 +6275,13 @@ if.end59:                                         ; preds = %if.end37
 
 if.then62:                                        ; preds = %if.end45, %if.end55, %if.end59
   %bitmap609 = getelementptr inbounds i8, ptr %backup, i64 32
-  %call64 = tail call ptr @bdrv_find_dirty_bitmap(ptr noundef %bs, ptr noundef nonnull %14) #15
+  %call64 = tail call ptr @bdrv_find_dirty_bitmap(ptr noundef nonnull %bs, ptr noundef nonnull %14) #15
   %tobool65.not = icmp eq ptr %call64, null
   br i1 %tobool65.not, label %if.then66, label %if.end68
 
 if.then66:                                        ; preds = %if.then62
   %18 = load ptr, ptr %bitmap609, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2812, ptr noundef nonnull @__func__.do_backup_common, ptr noundef nonnull @.str.228, ptr noundef %18) #15
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.1, i32 noundef 2812, ptr noundef nonnull @__func__.do_backup_common, ptr noundef nonnull @.str.228, ptr noundef %18) #15
   br label %return
 
 if.end68:                                         ; preds = %if.then62
@@ -6291,11 +6291,11 @@ if.end68:                                         ; preds = %if.then62
   br i1 %tobool70, label %if.end72, label %if.then71
 
 if.then71:                                        ; preds = %if.end68
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2817, ptr noundef nonnull @__func__.do_backup_common, ptr noundef nonnull @.str.229) #15
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.1, i32 noundef 2817, ptr noundef nonnull @__func__.do_backup_common, ptr noundef nonnull @.str.229) #15
   br label %return
 
 if.end72:                                         ; preds = %if.end68
-  %call73 = tail call i32 @bdrv_dirty_bitmap_check(ptr noundef nonnull %call64, i32 noundef 5, ptr noundef %errp) #15
+  %call73 = tail call i32 @bdrv_dirty_bitmap_check(ptr noundef nonnull %call64, i32 noundef 5, ptr noundef nonnull %errp) #15
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %if.end76, label %return
 
@@ -6306,7 +6306,7 @@ if.end76:                                         ; preds = %if.end72
 
 if.then79:                                        ; preds = %if.end76
   %call81 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MirrorSyncMode_lookup, i32 noundef 2) #15
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2827, ptr noundef nonnull @__func__.do_backup_common, ptr noundef nonnull @.str.230, ptr noundef %call81) #15
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.1, i32 noundef 2827, ptr noundef nonnull @__func__.do_backup_common, ptr noundef nonnull @.str.230, ptr noundef %call81) #15
   br label %return
 
 if.end82:                                         ; preds = %if.end76
@@ -6321,7 +6321,7 @@ if.then88:                                        ; preds = %if.end82
   %call90 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @BitmapSyncMode_lookup, i32 noundef 1) #15
   %22 = load i32, ptr %sync, align 8
   %call92 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MirrorSyncMode_lookup, i32 noundef %22) #15
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2837, ptr noundef nonnull @__func__.do_backup_common, ptr noundef nonnull @.str.231, ptr noundef %call90, ptr noundef %call92) #15
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.1, i32 noundef 2837, ptr noundef nonnull @__func__.do_backup_common, ptr noundef nonnull @.str.231, ptr noundef %call90, ptr noundef %call92) #15
   br label %return
 
 if.end94:                                         ; preds = %if.end82
@@ -6343,7 +6343,7 @@ land.lhs.true97.if.end101_crit_edge:              ; preds = %land.lhs.true97
   br label %if.end101
 
 if.then100:                                       ; preds = %land.lhs.true97
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2843, ptr noundef nonnull @__func__.do_backup_common, ptr noundef nonnull @.str.232) #15
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.1, i32 noundef 2843, ptr noundef nonnull @__func__.do_backup_common, ptr noundef nonnull @.str.232) #15
   br label %return
 
 if.end101:                                        ; preds = %land.lhs.true97.if.end101_crit_edge, %if.end94
@@ -6371,7 +6371,7 @@ if.end101:                                        ; preds = %land.lhs.true97.if.
   %33 = load i32, ptr %on_source_error116, align 4
   %on_target_error117 = getelementptr inbounds i8, ptr %backup, i64 60
   %34 = load i32, ptr %on_target_error117, align 4
-  %call118 = call ptr @backup_job_create(ptr noundef %29, ptr noundef %bs, ptr noundef %target_bs, i64 noundef %30, i32 noundef %26, ptr noundef %bmap.04, i32 noundef %25, i1 noundef zeroext %tobool115, ptr noundef %32, ptr noundef nonnull %perf, i32 noundef %33, i32 noundef %34, i32 noundef %job_flags.1, ptr noundef null, ptr noundef null, ptr noundef %txn, ptr noundef %errp) #15
+  %call118 = call ptr @backup_job_create(ptr noundef %29, ptr noundef nonnull %bs, ptr noundef nonnull %target_bs, i64 noundef %30, i32 noundef %26, ptr noundef %bmap.04, i32 noundef %25, i1 noundef zeroext %tobool115, ptr noundef %32, ptr noundef nonnull %perf, i32 noundef %33, i32 noundef %34, i32 noundef %job_flags.1, ptr noundef null, ptr noundef null, ptr noundef %txn, ptr noundef nonnull %errp) #15
   br label %return
 
 return:                                           ; preds = %if.end72, %if.end101, %if.then100, %if.then88, %if.then79, %if.then71, %if.then66, %if.then51, %if.then42

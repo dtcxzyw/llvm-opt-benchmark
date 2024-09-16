@@ -234,7 +234,7 @@ if.end95:                                         ; preds = %if.end95.sink.split
   store i8 0, ptr %level_x, align 4
   %level_y = getelementptr inbounds i8, ptr %cinfo, i64 21
   store i8 0, ptr %level_y, align 1
-  %call96 = call fastcc i32 @extract_chunk_table(ptr noundef nonnull %ctxt, ptr noundef nonnull %5, ptr noundef nonnull %ctable, ptr noundef nonnull %chunkmin)
+  %call96 = call fastcc i32 @extract_chunk_table(ptr noundef %ctxt, ptr noundef nonnull %5, ptr noundef %ctable, ptr noundef %chunkmin)
   %cmp97.not = icmp eq i32 %call96, 0
   br i1 %cmp97.not, label %if.end100, label %return
 
@@ -454,7 +454,7 @@ return:                                           ; preds = %if.end268, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_chunk_table(ptr noundef %ctxt, ptr noundef %part, ptr nocapture noundef writeonly %chunktable, ptr nocapture noundef writeonly %chunkminoffset) unnamed_addr #0 {
+define internal fastcc i32 @extract_chunk_table(ptr noundef nonnull %ctxt, ptr noundef %part, ptr nocapture noundef nonnull writeonly %chunktable, ptr nocapture noundef nonnull writeonly %chunkminoffset) unnamed_addr #0 {
 entry:
   %chunkoff = alloca i64, align 8
   %nread = alloca i64, align 8
@@ -482,7 +482,7 @@ if.then:                                          ; preds = %entry
 if.then5:                                         ; preds = %if.then
   %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
   %5 = load ptr, ptr %report_error, align 8
-  %call = tail call i32 %5(ptr noundef %ctxt, i32 noundef 3, ptr noundef nonnull @.str.34) #6
+  %call = tail call i32 %5(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.34) #6
   br label %return
 
 if.end:                                           ; preds = %if.then
@@ -566,7 +566,7 @@ for.end:                                          ; preds = %for.body
   br i1 %18, label %if.then47, label %if.end61
 
 if.then47:                                        ; preds = %for.end
-  %call48 = call fastcc i32 @reconstruct_chunk_table(ptr noundef %ctxt, ptr noundef nonnull %part, ptr noundef nonnull %call16)
+  %call48 = call fastcc i32 @reconstruct_chunk_table(ptr noundef %ctxt, ptr noundef nonnull %part, ptr noundef %call16)
   %cmp49.not = icmp eq i32 %call48, 0
   br i1 %cmp49.not, label %if.end61, label %land.lhs.true51
 
@@ -610,7 +610,7 @@ return:                                           ; preds = %if.end73, %if.then5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @compute_chunk_unpack_size(i32 noundef %y, i32 noundef %width, i32 noundef %height, i32 noundef %lpc, ptr nocapture noundef readonly %part) unnamed_addr #1 {
+define internal fastcc i64 @compute_chunk_unpack_size(i32 noundef %y, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 -32768, 32768) %lpc, ptr nocapture noundef readonly %part) unnamed_addr #1 {
 entry:
   %chan_has_line_sampling = getelementptr inbounds i8, ptr %part, i64 242
   %0 = load i16, ptr %chan_has_line_sampling, align 2
@@ -811,7 +811,7 @@ if.then22:                                        ; preds = %if.end15, %if.end15
 
 if.end25:                                         ; preds = %if.end15
   store i32 0, ptr %cidx, align 4
-  %call26 = call fastcc i32 @validate_and_compute_tile_chunk_off(ptr noundef nonnull %ctxt, ptr noundef nonnull %5, i32 noundef %tilex, i32 noundef %tiley, i32 noundef %levelx, i32 noundef %levely, ptr noundef nonnull %cidx)
+  %call26 = call fastcc i32 @validate_and_compute_tile_chunk_off(ptr noundef nonnull %ctxt, ptr noundef nonnull %5, i32 noundef %tilex, i32 noundef %tiley, i32 noundef %levelx, i32 noundef %levely, ptr noundef %cidx)
   %cmp27.not = icmp eq i32 %call26, 0
   br i1 %cmp27.not, label %if.end30, label %return
 
@@ -942,7 +942,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %if.end77
   %unpacksize.0.lcssa = phi i64 [ 0, %if.end77 ], [ %add89, %for.body ]
-  %call90 = call fastcc i32 @extract_chunk_table(ptr noundef nonnull %ctxt, ptr noundef %5, ptr noundef nonnull %ctable, ptr noundef nonnull %chunkmin)
+  %call90 = call fastcc i32 @extract_chunk_table(ptr noundef %ctxt, ptr noundef %5, ptr noundef %ctable, ptr noundef %chunkmin)
   %cmp91.not = icmp eq i32 %call90, 0
   br i1 %cmp91.not, label %if.end94, label %return
 
@@ -1229,7 +1229,7 @@ return:                                           ; preds = %if.end321, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @validate_and_compute_tile_chunk_off(ptr noundef %ctxt, ptr nocapture noundef readonly %part, i32 noundef %tilex, i32 noundef %tiley, i32 noundef %levelx, i32 noundef %levely, ptr nocapture noundef writeonly %chunkoffout) unnamed_addr #0 {
+define internal fastcc i32 @validate_and_compute_tile_chunk_off(ptr noundef %ctxt, ptr nocapture noundef readonly %part, i32 noundef %tilex, i32 noundef %tiley, i32 noundef %levelx, i32 noundef %levely, ptr nocapture noundef nonnull writeonly %chunkoffout) unnamed_addr #0 {
 entry:
   %tiles = getelementptr inbounds i8, ptr %part, i64 96
   %0 = load ptr, ptr %tiles, align 8
@@ -2080,7 +2080,7 @@ if.end26:                                         ; preds = %if.end15
 
 if.end29:                                         ; preds = %if.end15
   store i32 0, ptr %cidx, align 4
-  %call30 = call fastcc i32 @validate_and_compute_tile_chunk_off(ptr noundef nonnull %ctxt, ptr noundef nonnull %3, i32 noundef %tilex, i32 noundef %tiley, i32 noundef %levelx, i32 noundef %levely, ptr noundef nonnull %cidx)
+  %call30 = call fastcc i32 @validate_and_compute_tile_chunk_off(ptr noundef nonnull %ctxt, ptr noundef nonnull %3, i32 noundef %tilex, i32 noundef %tiley, i32 noundef %levelx, i32 noundef %levely, ptr noundef %cidx)
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end34, label %if.then33
 
@@ -2272,7 +2272,7 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end7:                                          ; preds = %if.end3
-  %call8 = tail call fastcc i32 @write_scan_chunk(ptr noundef nonnull %ctxt, i32 noundef %part_index, ptr noundef nonnull %3, i32 noundef %y, ptr noundef %packed_data, i64 noundef %packed_size, i64 noundef 0, ptr noundef null, i64 noundef 0)
+  %call8 = tail call fastcc i32 @write_scan_chunk(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef nonnull %3, i32 noundef %y, ptr noundef %packed_data, i64 noundef %packed_size, i64 noundef 0, ptr noundef null, i64 noundef 0)
   %call.i22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
   br label %return
 
@@ -2282,7 +2282,7 @@ return:                                           ; preds = %entry, %if.end7, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_scan_chunk(ptr noundef %pctxt, i32 noundef %part_index, ptr nocapture noundef %part, i32 noundef %y, ptr noundef %packed_data, i64 noundef %packed_size, i64 noundef %unpacked_size, ptr noundef %sample_data, i64 noundef %sample_data_size) unnamed_addr #0 {
+define internal fastcc i32 @write_scan_chunk(ptr noundef nonnull %pctxt, i32 noundef range(i32 0, -2147483648) %part_index, ptr nocapture noundef %part, i32 noundef %y, ptr noundef %packed_data, i64 noundef %packed_size, i64 noundef %unpacked_size, ptr noundef %sample_data, i64 noundef %sample_data_size) unnamed_addr #0 {
 entry:
   %data = alloca [3 x i32], align 4
   %ctable = alloca ptr, align 8
@@ -2473,7 +2473,7 @@ if.end126.sink.split:                             ; preds = %if.else117, %if.the
 
 if.end126:                                        ; preds = %if.end126.sink.split, %if.else117, %if.then109
   %wrcnt.0 = phi i64 [ 8, %if.then109 ], [ 4, %if.else117 ], [ %wrcnt.0.ph, %if.end126.sink.split ]
-  %call127 = call fastcc i32 @alloc_chunk_table(ptr noundef nonnull %pctxt, ptr noundef nonnull %part, ptr noundef nonnull %ctable)
+  %call127 = call fastcc i32 @alloc_chunk_table(ptr noundef %pctxt, ptr noundef nonnull %part, ptr noundef %ctable)
   %cmp128.not = icmp eq i32 %call127, 0
   br i1 %cmp128.not, label %if.end131, label %return
 
@@ -2618,7 +2618,7 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end7:                                          ; preds = %if.end3
-  %call8 = tail call fastcc i32 @write_scan_chunk(ptr noundef nonnull %ctxt, i32 noundef %part_index, ptr noundef nonnull %3, i32 noundef %y, ptr noundef %packed_data, i64 noundef %packed_size, i64 noundef %unpacked_size, ptr noundef %sample_data, i64 noundef %sample_data_size)
+  %call8 = tail call fastcc i32 @write_scan_chunk(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef nonnull %3, i32 noundef %y, ptr noundef %packed_data, i64 noundef %packed_size, i64 noundef %unpacked_size, ptr noundef %sample_data, i64 noundef %sample_data_size)
   %call.i22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
   br label %return
 
@@ -2671,7 +2671,7 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end7:                                          ; preds = %if.end3
-  %call8 = tail call fastcc i32 @write_tile_chunk(ptr noundef nonnull %ctxt, i32 noundef %part_index, ptr noundef nonnull %3, i32 noundef %tilex, i32 noundef %tiley, i32 noundef %levelx, i32 noundef %levely, ptr noundef %packed_data, i64 noundef %packed_size, i64 noundef 0, ptr noundef null, i64 noundef 0)
+  %call8 = tail call fastcc i32 @write_tile_chunk(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef nonnull %3, i32 noundef %tilex, i32 noundef %tiley, i32 noundef %levelx, i32 noundef %levely, ptr noundef %packed_data, i64 noundef %packed_size, i64 noundef 0, ptr noundef null, i64 noundef 0)
   %call.i22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
   br label %return
 
@@ -2681,7 +2681,7 @@ return:                                           ; preds = %entry, %if.end7, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_tile_chunk(ptr noundef %pctxt, i32 noundef %part_index, ptr nocapture noundef %part, i32 noundef %tilex, i32 noundef %tiley, i32 noundef %levelx, i32 noundef %levely, ptr noundef %packed_data, i64 noundef %packed_size, i64 noundef %unpacked_size, ptr noundef %sample_data, i64 noundef %sample_data_size) unnamed_addr #0 {
+define internal fastcc i32 @write_tile_chunk(ptr noundef nonnull %pctxt, i32 noundef range(i32 0, -2147483648) %part_index, ptr nocapture noundef %part, i32 noundef %tilex, i32 noundef %tiley, i32 noundef %levelx, i32 noundef %levely, ptr noundef %packed_data, i64 noundef %packed_size, i64 noundef %unpacked_size, ptr noundef %sample_data, i64 noundef %sample_data_size) unnamed_addr #0 {
 entry:
   %data = alloca [6 x i32], align 16
   %cidx = alloca i32, align 4
@@ -2775,7 +2775,7 @@ if.then49:                                        ; preds = %land.lhs.true44
 
 if.end52:                                         ; preds = %land.lhs.true44, %if.end39
   store i32 -1, ptr %cidx, align 4
-  %call53 = call fastcc i32 @validate_and_compute_tile_chunk_off(ptr noundef nonnull %pctxt, ptr noundef nonnull %part, i32 noundef %tilex, i32 noundef %tiley, i32 noundef %levelx, i32 noundef %levely, ptr noundef nonnull %cidx)
+  %call53 = call fastcc i32 @validate_and_compute_tile_chunk_off(ptr noundef nonnull %pctxt, ptr noundef nonnull %part, i32 noundef %tilex, i32 noundef %tiley, i32 noundef %levelx, i32 noundef %levely, ptr noundef %cidx)
   %cmp54.not = icmp eq i32 %call53, 0
   br i1 %cmp54.not, label %if.end57, label %return
 
@@ -2854,7 +2854,7 @@ if.then96:                                        ; preds = %if.end80
 
 if.end100:                                        ; preds = %if.then96, %if.end80
   %wrcnt.1 = phi i32 [ %inc97, %if.then96 ], [ %inc90, %if.end80 ]
-  %call101 = call fastcc i32 @alloc_chunk_table(ptr noundef nonnull %pctxt, ptr noundef nonnull %part, ptr noundef nonnull %ctable)
+  %call101 = call fastcc i32 @alloc_chunk_table(ptr noundef %pctxt, ptr noundef nonnull %part, ptr noundef %ctable)
   %cmp102.not = icmp eq i32 %call101, 0
   br i1 %cmp102.not, label %if.end105, label %return
 
@@ -2991,7 +2991,7 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end7:                                          ; preds = %if.end3
-  %call8 = tail call fastcc i32 @write_tile_chunk(ptr noundef nonnull %ctxt, i32 noundef %part_index, ptr noundef nonnull %3, i32 noundef %tilex, i32 noundef %tiley, i32 noundef %levelx, i32 noundef %levely, ptr noundef %packed_data, i64 noundef %packed_size, i64 noundef %unpacked_size, ptr noundef %sample_data, i64 noundef %sample_data_size)
+  %call8 = tail call fastcc i32 @write_tile_chunk(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef nonnull %3, i32 noundef %tilex, i32 noundef %tiley, i32 noundef %levelx, i32 noundef %levely, ptr noundef %packed_data, i64 noundef %packed_size, i64 noundef %unpacked_size, ptr noundef %sample_data, i64 noundef %sample_data_size)
   %call.i22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
   br label %return
 
@@ -3053,7 +3053,7 @@ if.end17:                                         ; preds = %if.end, %if.end
   %level_y = getelementptr inbounds i8, ptr %encode, i64 45
   %10 = load i8, ptr %level_y, align 1
   %conv8 = zext i8 %10 to i32
-  %call9 = call fastcc i32 @validate_and_compute_tile_chunk_off(ptr noundef nonnull %pctxt, ptr noundef nonnull %part, i32 noundef %7, i32 noundef %8, i32 noundef %conv, i32 noundef %conv8, ptr noundef nonnull %cidx)
+  %call9 = call fastcc i32 @validate_and_compute_tile_chunk_off(ptr noundef nonnull %pctxt, ptr noundef nonnull %part, i32 noundef %7, i32 noundef %8, i32 noundef %conv, i32 noundef %conv8, ptr noundef %cidx)
   %cmp18 = icmp eq i32 %call9, 0
   br i1 %cmp18, label %if.then20thread-pre-split, label %return
 
@@ -3103,7 +3103,7 @@ return:                                           ; preds = %if.end17, %if.else3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @reconstruct_chunk_table(ptr noundef %ctxt, ptr noundef readonly %part, ptr nocapture noundef %chunktable) unnamed_addr #0 {
+define internal fastcc i32 @reconstruct_chunk_table(ptr noundef nonnull %ctxt, ptr noundef readonly %part, ptr nocapture noundef nonnull %chunktable) unnamed_addr #0 {
 entry:
   %leader.i49 = alloca %struct.priv_chunk_leader, align 8
   %cidx.i = alloca i32, align 4
@@ -3156,7 +3156,7 @@ while.end:                                        ; preds = %while.body
   %idxprom16 = zext nneg i32 %sub15 to i64
   %arrayidx17 = getelementptr inbounds ptr, ptr %0, i64 %idxprom16
   %10 = load ptr, ptr %arrayidx17, align 8
-  %call = call fastcc i32 @extract_chunk_table(ptr noundef nonnull %ctxt, ptr noundef %10, ptr noundef nonnull %curctable, ptr noundef nonnull %chunk_start)
+  %call = call fastcc i32 @extract_chunk_table(ptr noundef %ctxt, ptr noundef %10, ptr noundef %curctable, ptr noundef %chunk_start)
   %cmp18.not = icmp eq i32 %call, 0
   br i1 %cmp18.not, label %if.end21, label %return
 
@@ -3185,7 +3185,7 @@ for.body:                                         ; preds = %for.body.preheader,
 for.end:                                          ; preds = %for.body, %if.end21
   %spec.store.select64.lcssa = phi i64 [ %12, %if.end21 ], [ %spec.store.select, %for.body ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %leader.i)
-  %call.i = call fastcc i32 @extract_chunk_leader(ptr noundef %ctxt, ptr noundef nonnull readonly %10, i32 noundef %sub15, i64 noundef %spec.store.select64.lcssa, ptr noundef nonnull %offset_start, ptr noundef nonnull %leader.i)
+  %call.i = call fastcc i32 @extract_chunk_leader(ptr noundef %ctxt, ptr noundef nonnull readonly %10, i32 noundef %sub15, i64 noundef %spec.store.select64.lcssa, ptr noundef %offset_start, ptr noundef %leader.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %leader.i)
   %cmp37.not = icmp eq i32 %call.i, 0
   br i1 %cmp37.not, label %if.end41, label %return
@@ -3229,7 +3229,7 @@ for.body47:                                       ; preds = %for.body47.lr.ph, %
   %computed_ci.0 = select i1 %cmp60, i32 %sub65, i32 %21
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %leader.i49)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cidx.i)
-  %call.i50 = call fastcc i32 @extract_chunk_leader(ptr noundef %ctxt, ptr noundef nonnull readonly %part, i32 noundef %partnum.0.lcssa96, i64 noundef %spec.store.select60, ptr noundef nonnull %offset_start, ptr noundef nonnull %leader.i49)
+  %call.i50 = call fastcc i32 @extract_chunk_leader(ptr noundef %ctxt, ptr noundef nonnull readonly %part, i32 noundef %partnum.0.lcssa96, i64 noundef %spec.store.select60, ptr noundef %offset_start, ptr noundef %leader.i49)
   %cmp.not.i = icmp eq i32 %call.i50, 0
   br i1 %cmp.not.i, label %if.end.i, label %read_and_validate_chunk_leader.exit.thread56
 
@@ -3260,7 +3260,7 @@ if.then4.i:                                       ; preds = %if.end.i, %if.end.i
 if.then12.i:                                      ; preds = %if.then4.i
   %26 = load ptr, ptr %print_error.i, align 8
   %conv17.i = sext i16 %25 to i32
-  %call18.i = call i32 (ptr, i32, ptr, ...) %26(ptr noundef %ctxt, i32 noundef 22, ptr noundef nonnull @.str.40, i64 noundef %div.i, i32 noundef %23, i32 noundef %24, i32 noundef %conv17.i) #6
+  %call18.i = call i32 (ptr, i32, ptr, ...) %26(ptr noundef nonnull %ctxt, i32 noundef 22, ptr noundef nonnull @.str.40, i64 noundef %div.i, i32 noundef %23, i32 noundef %24, i32 noundef %conv17.i) #6
   br label %read_and_validate_chunk_leader.exit
 
 read_and_validate_chunk_leader.exit.thread:       ; preds = %if.then4.i
@@ -3275,7 +3275,7 @@ if.else.i:                                        ; preds = %if.end.i
   %28 = load i32, ptr %tile_y.i, align 8
   %29 = load i32, ptr %level_x.i, align 4
   %30 = load i32, ptr %level_y.i, align 8
-  %call21.i = call fastcc i32 @validate_and_compute_tile_chunk_off(ptr noundef %ctxt, ptr noundef nonnull readonly %part, i32 noundef %27, i32 noundef %28, i32 noundef %29, i32 noundef %30, ptr noundef nonnull %cidx.i)
+  %call21.i = call fastcc i32 @validate_and_compute_tile_chunk_off(ptr noundef nonnull %ctxt, ptr noundef nonnull readonly %part, i32 noundef %27, i32 noundef %28, i32 noundef %29, i32 noundef %30, ptr noundef %cidx.i)
   %31 = load i32, ptr %cidx.i, align 4
   br label %read_and_validate_chunk_leader.exit
 
@@ -3319,7 +3319,7 @@ return:                                           ; preds = %read_and_validate_c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_chunk_leader(ptr noundef %ctxt, ptr nocapture noundef readonly %part, i32 noundef %partnum, i64 noundef %offset, ptr nocapture noundef writeonly %next_offset, ptr noundef %leaderdata) unnamed_addr #0 {
+define internal fastcc i32 @extract_chunk_leader(ptr noundef nonnull %ctxt, ptr nocapture noundef readonly %part, i32 noundef %partnum, i64 noundef %offset, ptr nocapture noundef nonnull writeonly %next_offset, ptr noundef nonnull %leaderdata) unnamed_addr #0 {
 entry:
   %data = alloca [6 x i32], align 16
   %nextoffset = alloca i64, align 8
@@ -3489,7 +3489,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #3
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @alloc_chunk_table(ptr noundef %ctxt, ptr nocapture noundef %part, ptr nocapture noundef writeonly %chunktable) unnamed_addr #0 {
+define internal fastcc i32 @alloc_chunk_table(ptr noundef nonnull %ctxt, ptr nocapture noundef %part, ptr nocapture noundef nonnull writeonly %chunktable) unnamed_addr #0 {
 entry:
   %chunk_table = getelementptr inbounds i8, ptr %part, i64 256
   %0 = load atomic i64, ptr %chunk_table seq_cst, align 8

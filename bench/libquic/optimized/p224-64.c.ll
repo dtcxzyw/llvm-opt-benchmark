@@ -3074,7 +3074,7 @@ if.then113:                                       ; preds = %for.body111
   %arrayidx139 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 %sub
   %arrayidx145 = getelementptr inbounds i8, ptr %arrayidx139, i64 32
   %arrayidx150 = getelementptr inbounds i8, ptr %arrayidx139, i64 64
-  call fastcc void @point_add(ptr noundef nonnull %arrayidx154, ptr noundef nonnull %arrayidx159, ptr noundef nonnull %arrayidx163, ptr noundef nonnull %arrayidx94, ptr noundef nonnull %arrayidx100, ptr noundef nonnull %arrayidx105, i32 noundef 0, ptr noundef %arrayidx139, ptr noundef nonnull %arrayidx145, ptr noundef nonnull %arrayidx150)
+  call fastcc void @point_add(ptr noundef %arrayidx154, ptr noundef %arrayidx159, ptr noundef %arrayidx163, ptr noundef %arrayidx94, ptr noundef %arrayidx100, ptr noundef %arrayidx105, i32 noundef 0, ptr noundef %arrayidx139, ptr noundef %arrayidx145, ptr noundef %arrayidx150)
   br label %for.inc
 
 if.else152:                                       ; preds = %for.body111
@@ -3082,7 +3082,7 @@ if.else152:                                       ; preds = %for.body111
   %arrayidx166 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 %div104
   %arrayidx172 = getelementptr inbounds i8, ptr %arrayidx166, i64 32
   %arrayidx177 = getelementptr inbounds i8, ptr %arrayidx166, i64 64
-  call fastcc void @point_double(ptr noundef nonnull %arrayidx154, ptr noundef nonnull %arrayidx159, ptr noundef nonnull %arrayidx163, ptr noundef nonnull %arrayidx166, ptr noundef nonnull %arrayidx172, ptr noundef nonnull %arrayidx177)
+  call fastcc void @point_double(ptr noundef %arrayidx154, ptr noundef %arrayidx159, ptr noundef %arrayidx163, ptr noundef %arrayidx166, ptr noundef %arrayidx172, ptr noundef %arrayidx177)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then113, %if.else152
@@ -3167,7 +3167,7 @@ for.cond.i:                                       ; preds = %if.end188.i, %if.en
   br i1 %tobool.not.i203, label %if.then.i214, label %if.end.i204
 
 if.then.i214:                                     ; preds = %for.cond.i
-  call fastcc void @point_double(ptr noundef nonnull %nq.i, ptr noundef nonnull %arrayidx2.i199, ptr noundef nonnull %arrayidx4.i200, ptr noundef nonnull %nq.i, ptr noundef nonnull %arrayidx2.i199, ptr noundef nonnull %arrayidx4.i200)
+  call fastcc void @point_double(ptr noundef %nq.i, ptr noundef %arrayidx2.i199, ptr noundef %arrayidx4.i200, ptr noundef %nq.i, ptr noundef %arrayidx2.i199, ptr noundef %arrayidx4.i200)
   br label %if.end.i204
 
 if.end.i204:                                      ; preds = %if.then.i214, %for.cond.i
@@ -3219,16 +3219,16 @@ get_bit.exit94.i:                                 ; preds = %if.end.i204
   br label %for.body.i.i211
 
 for.body.i.i211:                                  ; preds = %for.inc16.i.i, %get_bit.exit94.i
-  %i.018.i.i = phi i64 [ %inc17.i.i, %for.inc16.i.i ], [ 0, %get_bit.exit94.i ]
-  %arrayidx2.i.i212 = getelementptr inbounds [3 x [4 x i64]], ptr getelementptr inbounds (i8, ptr @g_pre_comp, i64 1536), i64 %i.018.i.i
-  %xor.i.i = xor i64 %i.018.i.i, %or33.i
+  %i.017.i.i = phi i64 [ 0, %get_bit.exit94.i ], [ %inc17.i.i, %for.inc16.i.i ]
+  %arrayidx2.i.i212 = getelementptr inbounds [3 x [4 x i64]], ptr getelementptr inbounds (i8, ptr @g_pre_comp, i64 1536), i64 %i.017.i.i
+  %xor.i.i = xor i64 %i.017.i.i, %or33.i
   %shr.i95.i = lshr i64 %xor.i.i, 4
   %or.i.i = or i64 %shr.i95.i, %xor.i.i
   %shr5.i.i = lshr i64 %or.i.i, 2
   %or6.i.i = or i64 %shr5.i.i, %or.i.i
   %or6.fr.i.i = freeze i64 %or6.i.i
-  %and19.i.i = and i64 %or6.fr.i.i, 3
-  %38 = icmp eq i64 %and19.i.i, 0
+  %and18.i.i = and i64 %or6.fr.i.i, 3
+  %38 = icmp eq i64 %and18.i.i, 0
   br i1 %38, label %for.body11.us.i.i, label %for.inc16.i.i
 
 for.body11.us.i.i:                                ; preds = %for.body.i.i211, %for.body11.us.i.i
@@ -3244,15 +3244,15 @@ for.body11.us.i.i:                                ; preds = %for.body.i.i211, %f
   br i1 %exitcond.not.i.i213, label %for.inc16.i.i, label %for.body11.us.i.i, !llvm.loop !18
 
 for.inc16.i.i:                                    ; preds = %for.body11.us.i.i, %for.body.i.i211
-  %inc17.i.i = add nuw nsw i64 %i.018.i.i, 1
-  %exitcond21.not.i.i = icmp eq i64 %inc17.i.i, 16
-  br i1 %exitcond21.not.i.i, label %select_point.exit.i, label %for.body.i.i211, !llvm.loop !19
+  %inc17.i.i = add nuw nsw i64 %i.017.i.i, 1
+  %exitcond20.not.i.i = icmp eq i64 %inc17.i.i, 16
+  br i1 %exitcond20.not.i.i, label %select_point.exit.i, label %for.body.i.i211, !llvm.loop !19
 
 select_point.exit.i:                              ; preds = %for.inc16.i.i
   br i1 %tobool.not.i203, label %if.then36.i, label %if.else.i
 
 if.then36.i:                                      ; preds = %select_point.exit.i
-  call fastcc void @point_add(ptr noundef nonnull %nq.i, ptr noundef nonnull %arrayidx2.i199, ptr noundef nonnull %arrayidx4.i200, ptr noundef nonnull %nq.i, ptr noundef nonnull %arrayidx2.i199, ptr noundef nonnull %arrayidx4.i200, i32 noundef 1, ptr noundef nonnull %tmp.i, ptr noundef nonnull %arrayidx51.i, ptr noundef nonnull %arrayidx53.i)
+  call fastcc void @point_add(ptr noundef %nq.i, ptr noundef %arrayidx2.i199, ptr noundef %arrayidx4.i200, ptr noundef %nq.i, ptr noundef %arrayidx2.i199, ptr noundef %arrayidx4.i200, i32 noundef 1, ptr noundef %tmp.i, ptr noundef %arrayidx51.i, ptr noundef %arrayidx53.i)
   br label %if.end57.i
 
 if.else.i:                                        ; preds = %select_point.exit.i
@@ -3296,16 +3296,16 @@ if.end57.i:                                       ; preds = %if.else.i, %if.then
   br label %for.body.i132.i
 
 for.body.i132.i:                                  ; preds = %for.inc16.i142.i, %if.end57.i
-  %i.018.i133.i = phi i64 [ %inc17.i143.i, %for.inc16.i142.i ], [ 0, %if.end57.i ]
-  %arrayidx2.i134.i = getelementptr inbounds [3 x [4 x i64]], ptr @g_pre_comp, i64 %i.018.i133.i
-  %xor.i135.i = xor i64 %i.018.i133.i, %or77.i
+  %i.017.i133.i = phi i64 [ 0, %if.end57.i ], [ %inc17.i143.i, %for.inc16.i142.i ]
+  %arrayidx2.i134.i = getelementptr inbounds [3 x [4 x i64]], ptr @g_pre_comp, i64 %i.017.i133.i
+  %xor.i135.i = xor i64 %i.017.i133.i, %or77.i
   %shr.i136.i = lshr i64 %xor.i135.i, 4
   %or.i137.i = or i64 %shr.i136.i, %xor.i135.i
   %shr5.i138.i = lshr i64 %or.i137.i, 2
   %or6.i139.i = or i64 %shr5.i138.i, %or.i137.i
   %or6.fr.i140.i = freeze i64 %or6.i139.i
-  %and19.i141.i = and i64 %or6.fr.i140.i, 3
-  %49 = icmp eq i64 %and19.i141.i, 0
+  %and18.i141.i = and i64 %or6.fr.i140.i, 3
+  %49 = icmp eq i64 %and18.i141.i, 0
   br i1 %49, label %for.body11.us.i145.i, label %for.inc16.i142.i
 
 for.body11.us.i145.i:                             ; preds = %for.body.i132.i, %for.body11.us.i145.i
@@ -3321,12 +3321,12 @@ for.body11.us.i145.i:                             ; preds = %for.body.i132.i, %f
   br i1 %exitcond.not.i151.i, label %for.inc16.i142.i, label %for.body11.us.i145.i, !llvm.loop !18
 
 for.inc16.i142.i:                                 ; preds = %for.body11.us.i145.i, %for.body.i132.i
-  %inc17.i143.i = add nuw nsw i64 %i.018.i133.i, 1
-  %exitcond21.not.i144.i = icmp eq i64 %inc17.i143.i, 16
-  br i1 %exitcond21.not.i144.i, label %select_point.exit152.i, label %for.body.i132.i, !llvm.loop !19
+  %inc17.i143.i = add nuw nsw i64 %i.017.i133.i, 1
+  %exitcond20.not.i144.i = icmp eq i64 %inc17.i143.i, 16
+  br i1 %exitcond20.not.i144.i, label %select_point.exit152.i, label %for.body.i132.i, !llvm.loop !19
 
 select_point.exit152.i:                           ; preds = %for.inc16.i142.i
-  call fastcc void @point_add(ptr noundef nonnull %nq.i, ptr noundef nonnull %arrayidx2.i199, ptr noundef nonnull %arrayidx4.i200, ptr noundef nonnull %nq.i, ptr noundef nonnull %arrayidx2.i199, ptr noundef nonnull %arrayidx4.i200, i32 noundef 1, ptr noundef nonnull %tmp.i, ptr noundef nonnull %arrayidx51.i, ptr noundef nonnull %arrayidx53.i)
+  call fastcc void @point_add(ptr noundef %nq.i, ptr noundef %arrayidx2.i199, ptr noundef %arrayidx4.i200, ptr noundef %nq.i, ptr noundef %arrayidx2.i199, ptr noundef %arrayidx4.i200, i32 noundef 1, ptr noundef %tmp.i, ptr noundef %arrayidx51.i, ptr noundef %arrayidx53.i)
   br label %if.end97.i
 
 if.end97.i:                                       ; preds = %select_point.exit152.i, %if.end.i204
@@ -3454,16 +3454,16 @@ get_bit.exit206.i:                                ; preds = %if.end.i199.i, %get
   br label %for.body.i207.i
 
 for.body.i207.i:                                  ; preds = %for.inc16.i217.i, %get_bit.exit206.i
-  %i.018.i208.i = phi i64 [ %inc17.i218.i, %for.inc16.i217.i ], [ 0, %get_bit.exit206.i ]
-  %arrayidx2.i209.i = getelementptr inbounds [3 x [4 x i64]], ptr %pre_comp.1, i64 %i.018.i208.i
-  %xor.i210.i = xor i64 %i.018.i208.i, %conv151.i
+  %i.017.i208.i = phi i64 [ 0, %get_bit.exit206.i ], [ %inc17.i218.i, %for.inc16.i217.i ]
+  %arrayidx2.i209.i = getelementptr inbounds [3 x [4 x i64]], ptr %pre_comp.1, i64 %i.017.i208.i
+  %xor.i210.i = xor i64 %i.017.i208.i, %conv151.i
   %shr.i211.i = lshr i64 %xor.i210.i, 4
   %or.i212.i = or i64 %shr.i211.i, %xor.i210.i
   %shr5.i213.i = lshr i64 %or.i212.i, 2
   %or6.i214.i = or i64 %shr5.i213.i, %or.i212.i
   %or6.fr.i215.i = freeze i64 %or6.i214.i
-  %and19.i216.i = and i64 %or6.fr.i215.i, 3
-  %70 = icmp eq i64 %and19.i216.i, 0
+  %and18.i216.i = and i64 %or6.fr.i215.i, 3
+  %70 = icmp eq i64 %and18.i216.i, 0
   br i1 %70, label %for.body11.us.i220.i, label %for.inc16.i217.i
 
 for.body11.us.i220.i:                             ; preds = %for.body.i207.i, %for.body11.us.i220.i
@@ -3479,9 +3479,9 @@ for.body11.us.i220.i:                             ; preds = %for.body.i207.i, %f
   br i1 %exitcond.not.i226.i, label %for.inc16.i217.i, label %for.body11.us.i220.i, !llvm.loop !18
 
 for.inc16.i217.i:                                 ; preds = %for.body11.us.i220.i, %for.body.i207.i
-  %inc17.i218.i = add nuw nsw i64 %i.018.i208.i, 1
-  %exitcond21.not.i219.i = icmp eq i64 %inc17.i218.i, 17
-  br i1 %exitcond21.not.i219.i, label %select_point.exit227.i, label %for.body.i207.i, !llvm.loop !19
+  %inc17.i218.i = add nuw nsw i64 %i.017.i208.i, 1
+  %exitcond20.not.i219.i = icmp eq i64 %inc17.i218.i, 17
+  br i1 %exitcond20.not.i219.i, label %select_point.exit227.i, label %for.body.i207.i, !llvm.loop !19
 
 select_point.exit227.i:                           ; preds = %for.inc16.i217.i
   %73 = load i64, ptr %arrayidx51.i, align 16
@@ -3520,7 +3520,7 @@ copy_conditional.exit.i:                          ; preds = %for.body.i230.i
   br i1 %tobool164.not.i, label %if.then165.i, label %if.else184.i
 
 if.then165.i:                                     ; preds = %copy_conditional.exit.i
-  call fastcc void @point_add(ptr noundef nonnull %nq.i, ptr noundef nonnull %arrayidx2.i199, ptr noundef nonnull %arrayidx4.i200, ptr noundef nonnull %nq.i, ptr noundef nonnull %arrayidx2.i199, ptr noundef nonnull %arrayidx4.i200, i32 noundef 0, ptr noundef nonnull %tmp.i, ptr noundef nonnull %arrayidx51.i, ptr noundef nonnull %arrayidx53.i)
+  call fastcc void @point_add(ptr noundef %nq.i, ptr noundef %arrayidx2.i199, ptr noundef %arrayidx4.i200, ptr noundef %nq.i, ptr noundef %arrayidx2.i199, ptr noundef %arrayidx4.i200, i32 noundef 0, ptr noundef %tmp.i, ptr noundef %arrayidx51.i, ptr noundef %arrayidx53.i)
   br label %if.end188.i
 
 if.else184.i:                                     ; preds = %copy_conditional.exit.i
@@ -3866,7 +3866,7 @@ declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 declare i32 @BN_nnmod(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @point_add(ptr nocapture noundef %x3, ptr nocapture noundef writeonly %y3, ptr nocapture noundef writeonly %z3, ptr nocapture noundef readonly %x1, ptr nocapture noundef readonly %y1, ptr nocapture noundef readonly %z1, i32 noundef %mixed, ptr nocapture noundef readonly %x2, ptr nocapture noundef readonly %y2, ptr nocapture noundef readonly %z2) unnamed_addr #5 {
+define internal fastcc void @point_add(ptr nocapture noundef nonnull %x3, ptr nocapture noundef nonnull writeonly %y3, ptr nocapture noundef nonnull writeonly %z3, ptr nocapture noundef nonnull readonly %x1, ptr nocapture noundef nonnull readonly %y1, ptr nocapture noundef nonnull readonly %z1, i32 noundef range(i32 0, 2) %mixed, ptr nocapture noundef nonnull readonly %x2, ptr nocapture noundef nonnull readonly %y2, ptr nocapture noundef nonnull readonly %z2) unnamed_addr #5 {
 entry:
   %x_out = alloca [4 x i64], align 16
   %y_out = alloca [4 x i64], align 16
@@ -4622,7 +4622,7 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %or.cond2, label %if.end48, label %if.then47
 
 if.then47:                                        ; preds = %if.end
-  tail call fastcc void @point_double(ptr noundef %x3, ptr noundef %y3, ptr noundef %z3, ptr noundef nonnull %x1, ptr noundef nonnull %y1, ptr noundef nonnull %z1)
+  tail call fastcc void @point_double(ptr noundef %x3, ptr noundef %y3, ptr noundef %z3, ptr noundef %x1, ptr noundef %y1, ptr noundef %z1)
   br label %return
 
 if.end48:                                         ; preds = %if.end
@@ -5326,7 +5326,7 @@ return:                                           ; preds = %copy_conditional.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @point_double(ptr nocapture noundef %x_out, ptr nocapture noundef writeonly %y_out, ptr nocapture noundef writeonly %z_out, ptr nocapture noundef readonly %x_in, ptr nocapture noundef readonly %y_in, ptr nocapture noundef readonly %z_in) unnamed_addr #6 {
+define internal fastcc void @point_double(ptr nocapture noundef nonnull %x_out, ptr nocapture noundef nonnull writeonly %y_out, ptr nocapture noundef nonnull writeonly %z_out, ptr nocapture noundef nonnull readonly %x_in, ptr nocapture noundef nonnull readonly %y_in, ptr nocapture noundef nonnull readonly %z_in) unnamed_addr #6 {
 entry:
   %0 = load i64, ptr %x_in, align 8
   %arrayidx2.i = getelementptr inbounds i8, ptr %x_in, i64 8

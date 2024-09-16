@@ -107,7 +107,7 @@ define hidden i32 @mbedtls_ctr_drbg_update(ptr noundef %0, ptr nocapture noundef
   br i1 %6, label %32, label %7
 
 7:                                                ; preds = %3
-  %8 = call fastcc i32 @block_cipher_df(ptr noundef nonnull %5, ptr noundef %1, i64 noundef %2)
+  %8 = call fastcc i32 @block_cipher_df(ptr noundef %5, ptr noundef %1, i64 noundef %2)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %31
 
@@ -186,7 +186,7 @@ ctr_drbg_update_internal.exit:                    ; preds = %16, %27, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @block_cipher_df(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #2 {
+define internal fastcc i32 @block_cipher_df(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #2 {
   %4 = alloca [416 x i8], align 16
   %5 = alloca [48 x i8], align 16
   %6 = alloca [32 x i8], align 16
@@ -310,7 +310,7 @@ define internal fastcc i32 @block_cipher_df(ptr noundef %0, ptr nocapture nounde
   br i1 %.not65, label %55, label %54
 
 54:                                               ; preds = %.loopexit
-  call void @mbedtls_platform_zeroize(ptr noundef %0, i64 noundef 48) #13
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 48) #13
   br label %55
 
 55:                                               ; preds = %.loopexit, %54, %3
@@ -325,7 +325,7 @@ define hidden i32 @mbedtls_ctr_drbg_reseed(ptr noundef %0, ptr noundef %1, i64 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mbedtls_ctr_drbg_reseed_internal(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 {
+define internal fastcc i32 @mbedtls_ctr_drbg_reseed_internal(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef range(i64 0, 2147483648) %3) unnamed_addr #2 {
   %5 = alloca [48 x i8], align 16
   %6 = alloca [384 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -383,7 +383,7 @@ define internal fastcc i32 @mbedtls_ctr_drbg_reseed_internal(ptr noundef %0, ptr
 
 36:                                               ; preds = %33, %30
   %.1 = phi i64 [ %35, %33 ], [ %.030, %30 ]
-  %37 = call fastcc i32 @block_cipher_df(ptr noundef nonnull %6, ptr noundef nonnull %6, i64 noundef %.1)
+  %37 = call fastcc i32 @block_cipher_df(ptr noundef %6, ptr noundef nonnull %6, i64 noundef %.1)
   %.not42 = icmp eq i32 %37, 0
   br i1 %.not42, label %38, label %61
 
@@ -550,7 +550,7 @@ define hidden i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef %0, ptr nocaptur
   br i1 %.not46, label %.thread, label %25
 
 25:                                               ; preds = %24
-  %26 = call fastcc i32 @block_cipher_df(ptr noundef nonnull %8, ptr noundef %3, i64 noundef %4)
+  %26 = call fastcc i32 @block_cipher_df(ptr noundef %8, ptr noundef %3, i64 noundef %4)
   %.not47 = icmp eq i32 %26, 0
   br i1 %.not47, label %27, label %.loopexit
 

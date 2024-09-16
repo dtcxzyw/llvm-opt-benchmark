@@ -394,9 +394,9 @@ declare dso_local ptr @find_task_by_vpid(i32 noundef) local_unnamed_addr #3
 declare dso_local zeroext i1 @ptrace_may_access(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @get_file_raw_ptr(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc ptr @get_file_raw_ptr(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #5
-  %3 = tail call ptr @task_lookup_fdget_rcu(ptr noundef %0, i32 noundef %1) #5
+  %3 = tail call ptr @task_lookup_fdget_rcu(ptr noundef nonnull %0, i32 noundef %1) #5
   tail call void @__rcu_read_unlock() #5
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -410,7 +410,7 @@ define internal fastcc ptr @get_file_raw_ptr(ptr noundef %0, i32 noundef %1) unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @kcmp_epoll_target(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @kcmp_epoll_target(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.kcmp_epoll_slot, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false), !annotation !14
@@ -421,7 +421,7 @@ define internal fastcc i32 @kcmp_epoll_target(ptr noundef %0, ptr noundef %1, i6
 8:                                                ; preds = %4
   %9 = trunc i64 %2 to i32
   call void @__rcu_read_lock() #5
-  %10 = call ptr @task_lookup_fdget_rcu(ptr noundef %0, i32 noundef %9) #5
+  %10 = call ptr @task_lookup_fdget_rcu(ptr noundef nonnull %0, i32 noundef %9) #5
   call void @__rcu_read_unlock() #5
   %11 = icmp eq ptr %10, null
   br i1 %11, label %41, label %12
@@ -429,7 +429,7 @@ define internal fastcc i32 @kcmp_epoll_target(ptr noundef %0, ptr noundef %1, i6
 12:                                               ; preds = %8
   call void @fput(ptr noundef nonnull %10) #5
   %13 = load i32, ptr %5, align 4
-  %14 = call ptr @fget_task(ptr noundef %1, i32 noundef %13) #5
+  %14 = call ptr @fget_task(ptr noundef nonnull %1, i32 noundef %13) #5
   %15 = icmp eq ptr %14, null
   br i1 %15, label %41, label %16
 

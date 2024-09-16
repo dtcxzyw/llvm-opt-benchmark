@@ -412,7 +412,7 @@ sio_create_filename.exit:                         ; preds = %141, %.critedge5.i,
   %151 = getelementptr inbounds i8, ptr %1, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = tail call ptr @io_time_set(ptr noundef %152, i32 noundef 10, i32 noundef 0) #18
-  %154 = call fastcc i32 @do_fopen(ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef nonnull %17, i32 noundef 3)
+  %154 = call fastcc i32 @do_fopen(ptr noundef nonnull %0, ptr noundef %28, ptr noundef %17, i32 noundef 3)
   %155 = icmp eq i32 %154, 0
   br i1 %155, label %159, label %156
 
@@ -687,7 +687,7 @@ sio_create_filename.exit:                         ; preds = %141, %.critedge5.i,
   %280 = load ptr, ptr %151, align 8
   %281 = call ptr @io_time_set(ptr noundef %280, i32 noundef 12, i32 noundef 0) #18
   %282 = add nsw i32 %32, -1
-  %283 = call fastcc i32 @dset_write(i32 noundef %282, ptr noundef nonnull readonly %17, ptr noundef nonnull readonly %0, ptr noundef nonnull %62)
+  %283 = call fastcc i32 @dset_write(i32 noundef %282, ptr noundef readonly %17, ptr noundef nonnull readonly %0, ptr noundef %62)
   %284 = icmp slt i32 %283, 0
   br i1 %284, label %285, label %288
 
@@ -863,7 +863,7 @@ do_write.exit:                                    ; preds = %318, %327
 363:                                              ; preds = %358
   %364 = load ptr, ptr %151, align 8
   %365 = call ptr @io_time_set(ptr noundef %364, i32 noundef 11, i32 noundef 0) #18
-  %366 = call fastcc i32 @do_fopen(ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef nonnull %17, i32 noundef 4)
+  %366 = call fastcc i32 @do_fopen(ptr noundef nonnull %0, ptr noundef %28, ptr noundef %17, i32 noundef 4)
   %367 = icmp eq i32 %366, 0
   br i1 %367, label %371, label %368
 
@@ -1047,7 +1047,7 @@ do_write.exit:                                    ; preds = %318, %327
   %445 = load ptr, ptr %151, align 8
   %446 = call ptr @io_time_set(ptr noundef %445, i32 noundef 13, i32 noundef 0) #18
   %447 = add nsw i32 %32, -1
-  %448 = call fastcc i32 @dset_read(i32 noundef %447, ptr noundef nonnull readonly %17, ptr noundef nonnull readonly %0, ptr noundef nonnull %62)
+  %448 = call fastcc i32 @dset_read(i32 noundef %447, ptr noundef readonly %17, ptr noundef nonnull readonly %0, ptr noundef %62)
   %449 = icmp slt i32 %448, 0
   br i1 %449, label %450, label %453
 
@@ -1241,7 +1241,7 @@ do_fclose.exit91:                                 ; preds = %506, %514
   br i1 %switch, label %538, label %540
 
 538:                                              ; preds = %537
-  %539 = call i32 @remove(ptr noundef %28) #18
+  %539 = call i32 @remove(ptr noundef nonnull %28) #18
   br label %do_cleanupfile.exit
 
 540:                                              ; preds = %537
@@ -1252,7 +1252,7 @@ do_fclose.exit91:                                 ; preds = %506, %514
   br i1 %544, label %.preheader.i97, label %553
 
 .preheader.i97:                                   ; preds = %540
-  %545 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %526, i64 noundef 4102, ptr noundef %28, i32 noundef 0) #18
+  %545 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %526, i64 noundef 4102, ptr noundef nonnull %28, i32 noundef 0) #18
   %546 = call i32 @access(ptr noundef nonnull %526, i32 noundef 0) #18
   %547 = icmp slt i32 %546, 0
   br i1 %547, label %.loopexit.i93, label %.lr.ph.i98
@@ -1261,7 +1261,7 @@ do_fclose.exit91:                                 ; preds = %506, %514
   %.02329.i = phi i32 [ %549, %.lr.ph.i98 ], [ 0, %.preheader.i97 ]
   %548 = call i32 @remove(ptr noundef nonnull %526) #18
   %549 = add nuw nsw i32 %.02329.i, 1
-  %550 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %526, i64 noundef 4102, ptr noundef %28, i32 noundef %549) #18
+  %550 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %526, i64 noundef 4102, ptr noundef nonnull %28, i32 noundef %549) #18
   %551 = call i32 @access(ptr noundef nonnull %526, i32 noundef 0) #18
   %552 = icmp slt i32 %551, 0
   br i1 %552, label %.loopexit.i93, label %.lr.ph.i98
@@ -1288,14 +1288,14 @@ do_fclose.exit91:                                 ; preds = %506, %514
   %564 = getelementptr inbounds i8, ptr @.str.50, i64 %indvars.iv.i94
   %565 = load i8, ptr %564, align 1
   %566 = sext i8 %565 to i32
-  %567 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %526, i64 noundef 4102, ptr noundef nonnull @.str.54, ptr noundef %28, i32 noundef %566) #18
+  %567 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %526, i64 noundef 4102, ptr noundef nonnull @.str.54, ptr noundef nonnull %28, i32 noundef %566) #18
   %568 = call i32 @remove(ptr noundef nonnull %526) #18
   %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i94, 1
   %exitcond.not.i96 = icmp eq i64 %indvars.iv.next.i95, 7
   br i1 %exitcond.not.i96, label %.loopexit.i93, label %.preheader26.i
 
 .loopexit.i93.sink.split:                         ; preds = %561, %556
-  %569 = call i32 @remove(ptr noundef %28) #18
+  %569 = call i32 @remove(ptr noundef nonnull %28) #18
   br label %.loopexit.i93
 
 .loopexit.i93:                                    ; preds = %.preheader26.i, %.lr.ph.i98, %.loopexit.i93.sink.split, %556, %.preheader.i97
@@ -1371,7 +1371,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocaptur
 declare ptr @io_time_set(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @do_fopen(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @do_fopen(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef range(i32 3, 5) %3) unnamed_addr #0 {
   %5 = load i32, ptr %0, align 8
   switch i32 %5, label %48 [
     i32 0, label %6
@@ -1382,14 +1382,14 @@ define internal fastcc range(i32 -1, 1) i32 @do_fopen(ptr nocapture noundef read
   %7 = and i32 %3, 3
   %.not27 = icmp eq i32 %7, 0
   %. = select i1 %.not27, i32 0, i32 578
-  %8 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %1, i32 noundef %., i32 noundef 384) #18
+  %8 = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull %1, i32 noundef %., i32 noundef 384) #18
   store i32 %8, ptr %2, align 8
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %51
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr @stderr, align 8
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.48, ptr noundef %1) #17
+  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.48, ptr noundef nonnull %1) #17
   br label %51
 
 13:                                               ; preds = %4
@@ -1435,11 +1435,11 @@ define internal fastcc range(i32 -1, 1) i32 @do_fopen(ptr nocapture noundef read
   br i1 %.not26, label %41, label %39
 
 39:                                               ; preds = %34
-  %40 = tail call i64 @H5Fcreate(ptr noundef %1, i32 noundef 2, i64 noundef %22, i64 noundef %38) #18
+  %40 = tail call i64 @H5Fcreate(ptr noundef nonnull %1, i32 noundef 2, i64 noundef %22, i64 noundef %38) #18
   br label %43
 
 41:                                               ; preds = %34
-  %42 = tail call i64 @H5Fopen(ptr noundef %1, i32 noundef 0, i64 noundef %38) #18
+  %42 = tail call i64 @H5Fopen(ptr noundef nonnull %1, i32 noundef 0, i64 noundef %38) #18
   br label %43
 
 43:                                               ; preds = %41, %39
@@ -1450,7 +1450,7 @@ define internal fastcc range(i32 -1, 1) i32 @do_fopen(ptr nocapture noundef read
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr @stderr, align 8
-  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.49, ptr noundef %1) #17
+  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.49, ptr noundef nonnull %1) #17
   br label %51
 
 48:                                               ; preds = %4
@@ -1615,7 +1615,7 @@ declare i64 @H5Dcreate2(i64 noundef, ptr noundef, i64 noundef, i64 noundef, i64 
 declare i32 @H5Pclose(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @dset_write(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dset_write(i32 noundef range(i32 -2147483648, 2147483647) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca [32 x i64], align 16
   %6 = alloca [32 x i64], align 16
   %7 = sext i32 %0 to i64
@@ -1771,7 +1771,7 @@ define internal fastcc range(i32 -1, 1) i32 @dset_write(i32 noundef %0, ptr noca
   %85 = load i64, ptr @h5mem_space_id, align 8
   %86 = load i64, ptr @h5dset_space_id, align 8
   %87 = load i64, ptr @h5dxpl, align 8
-  %88 = call i32 @H5Dwrite(i64 noundef %82, i64 noundef %84, i64 noundef %85, i64 noundef %86, i64 noundef %87, ptr noundef %3) #18
+  %88 = call i32 @H5Dwrite(i64 noundef %82, i64 noundef %84, i64 noundef %85, i64 noundef %86, i64 noundef %87, ptr noundef nonnull %3) #18
   %89 = icmp sgt i32 %88, -1
   br i1 %89, label %96, label %90
 
@@ -1802,7 +1802,7 @@ declare i32 @H5Dclose(i64 noundef) local_unnamed_addr #1
 declare i32 @H5Sclose(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @posix_buffer_write(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @posix_buffer_write(i32 noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = add nsw i32 %5, -1
@@ -1936,7 +1936,7 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 declare i64 @H5Dopen2(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @dset_read(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dset_read(i32 noundef range(i32 -2147483648, 2147483647) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds [32 x i32], ptr @order, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
@@ -2013,7 +2013,7 @@ define internal fastcc range(i32 -1, 1) i32 @dset_read(i32 noundef %0, ptr nocap
   %42 = load i64, ptr @h5mem_space_id, align 8
   %43 = load i64, ptr @h5dset_space_id, align 8
   %44 = load i64, ptr @h5dxpl, align 8
-  %45 = tail call i32 @H5Dread(i64 noundef %39, i64 noundef %41, i64 noundef %42, i64 noundef %43, i64 noundef %44, ptr noundef %3) #18
+  %45 = tail call i32 @H5Dread(i64 noundef %39, i64 noundef %41, i64 noundef %42, i64 noundef %43, i64 noundef %44, ptr noundef nonnull %3) #18
   %46 = icmp sgt i32 %45, -1
   br i1 %46, label %53, label %47
 
@@ -2040,7 +2040,7 @@ define internal fastcc range(i32 -1, 1) i32 @dset_read(i32 noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @posix_buffer_read(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @posix_buffer_read(i32 noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = add nsw i32 %5, -1

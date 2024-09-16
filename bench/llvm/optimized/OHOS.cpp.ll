@@ -1193,7 +1193,7 @@ _ZN4llvm11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj16EE
   store ptr %55, ptr %54, align 8
   %303 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i64 3, ptr %303, align 8
-  call fastcc void @_ZL8makePathRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(16) %54)
+  call fastcc void @_ZL8makePathRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(16) %54)
   %304 = getelementptr inbounds i8, ptr %55, i64 96
   br label %314
 
@@ -1236,7 +1236,7 @@ _ZN4llvm11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj16EE
   store ptr %62, ptr %61, align 8
   %321 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i64 2, ptr %321, align 8
-  call fastcc void @_ZL8makePathRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %60, ptr noundef nonnull align 8 dereferenceable(16) %61)
+  call fastcc void @_ZL8makePathRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr dead_on_unwind noalias writable align 8 %60, ptr noundef nonnull align 8 dereferenceable(16) %61)
   %322 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store i8 4, ptr %322, align 8
   %323 = getelementptr inbounds nuw i8, ptr %59, i64 33
@@ -1274,7 +1274,7 @@ _ZN4llvm11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj16EE
   store ptr %66, ptr %65, align 8
   %337 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i64 5, ptr %337, align 8
-  call fastcc void @_ZL8makePathRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %64, ptr noundef nonnull align 8 dereferenceable(16) %65)
+  call fastcc void @_ZL8makePathRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr dead_on_unwind noalias writable align 8 %64, ptr noundef nonnull align 8 dereferenceable(16) %65)
   %338 = getelementptr inbounds nuw i8, ptr %63, i64 32
   store i8 4, ptr %338, align 8
   %339 = getelementptr inbounds nuw i8, ptr %63, i64 33
@@ -1303,7 +1303,7 @@ _ZN4llvm11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj16EE
   store ptr %72, ptr %71, align 8
   %348 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i64 3, ptr %348, align 8
-  call fastcc void @_ZL8makePathRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %70, ptr noundef nonnull align 8 dereferenceable(16) %71)
+  call fastcc void @_ZL8makePathRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr dead_on_unwind noalias writable align 8 %70, ptr noundef nonnull align 8 dereferenceable(16) %71)
   %349 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store i8 4, ptr %349, align 8
   %350 = getelementptr inbounds nuw i8, ptr %69, i64 33
@@ -1751,7 +1751,7 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL8makePathRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL8makePathRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"class.llvm::SmallString.171", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -2400,7 +2400,7 @@ define hidden void @_ZNK5clang6driver10toolchains4OHOS28AddClangCXXStdlibInclude
   store ptr %6, ptr %5, align 8
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 3, ptr %37, align 8
-  call fastcc void @_ZL8makePathRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  call fastcc void @_ZL8makePathRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   %38 = getelementptr inbounds i8, ptr %6, i64 96
   br label %39
 
@@ -2431,7 +2431,7 @@ define hidden void @_ZNK5clang6driver10toolchains4OHOS28AddClangCXXStdlibInclude
   store ptr %11, ptr %10, align 8
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 4, ptr %50, align 8
-  call fastcc void @_ZL8makePathRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  call fastcc void @_ZL8makePathRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
   %51 = getelementptr inbounds i8, ptr %11, i64 128
   br label %52
 
@@ -2472,7 +2472,7 @@ define hidden void @_ZNK5clang6driver10toolchains4OHOS28AddClangCXXStdlibInclude
   store ptr %18, ptr %17, align 8
   %69 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 3, ptr %69, align 8
-  call fastcc void @_ZL8makePathRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(16) %17)
+  call fastcc void @_ZL8makePathRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(16) %17)
   %70 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i8 4, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %15, i64 33
@@ -2629,7 +2629,7 @@ define hidden void @_ZNK5clang6driver10toolchains4OHOS14computeSysRootB5cxx11Ev(
   store ptr %5, ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 4, ptr %29, align 8
-  call fastcc void @_ZL8makePathRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  call fastcc void @_ZL8makePathRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
   %30 = getelementptr inbounds i8, ptr %5, i64 128
   br label %31
 
@@ -2669,7 +2669,7 @@ define hidden void @_ZNK5clang6driver10toolchains4OHOS14computeSysRootB5cxx11Ev(
   store ptr %12, ptr %11, align 8
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 2, ptr %43, align 8
-  call fastcc void @_ZL8makePathRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
+  call fastcc void @_ZL8makePathRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
   %44 = getelementptr inbounds i8, ptr %12, i64 64
   br label %45
 
@@ -3279,7 +3279,7 @@ define hidden void @_ZNK5clang6driver10toolchains4OHOS23getArchSpecificLibPathsB
   store ptr %6, ptr %5, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 3, ptr %18, align 8
-  call fastcc void @_ZL8makePathRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  call fastcc void @_ZL8makePathRKSt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   %19 = getelementptr inbounds i8, ptr %6, i64 96

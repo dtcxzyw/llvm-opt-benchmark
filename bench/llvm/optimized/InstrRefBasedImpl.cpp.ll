@@ -38458,7 +38458,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEmNS_12DenseMap
   %.val94 = load i64, ptr %168, align 8
   store ptr %167, ptr %13, align 8
   store i64 %.val94, ptr %163, align 8
-  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEN15LiveDebugValues10ValueIDNumENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6insertEOSt4pairIS4_S6_E(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(16) %13)
+  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEN15LiveDebugValues10ValueIDNumENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6insertEOSt4pairIS4_S6_E(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(16) %13)
   %169 = getelementptr inbounds i8, ptr %.072235, i64 40
   %.not78 = icmp eq ptr %169, %.sroa.3.0.i.i
   br i1 %.not78, label %._crit_edge238, label %164
@@ -39741,7 +39741,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEN15LiveDebugVa
   %.val102 = load ptr, ptr %806, align 8
   store ptr %.val102, ptr %16, align 8
   store i64 %700, ptr %686, align 8
-  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEN15LiveDebugValues10ValueIDNumENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6insertEOSt4pairIS4_S6_E(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(16) %16)
+  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEN15LiveDebugValues10ValueIDNumENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6insertEOSt4pairIS4_S6_E(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(16) %16)
   %807 = getelementptr inbounds i8, ptr %.074250, i64 8
   %.not80 = icmp eq ptr %807, %682
   br i1 %.not80, label %.loopexit, label %687
@@ -45096,7 +45096,7 @@ _ZN4llvm11SmallVectorIPNS_14SSAUpdaterImplIN12_GLOBAL__N_113LDVSSAUpdaterEE6BBIn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEN15LiveDebugValues10ValueIDNumENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6insertEOSt4pairIS4_S6_E(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_111LDVSSABlockEN15LiveDebugValues10ValueIDNumENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6insertEOSt4pairIS4_S6_E(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !681)
   %.val7.i = load ptr, ptr %1, align 8, !noalias !681
@@ -62852,7 +62852,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEjNS_12DenseMapInfoI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm17MachineBasicBlockElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZN15LiveDebugValues16InstrRefBasedLDV8mlocJoinERS1_RNS0_11SmallPtrSetIS3_Lj16EEERNS8_14FuncValueTableERNS0_11SmallVectorINS8_10ValueIDNumELj0EEEE3$_0EEEvT_T0_SN_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr nocapture readonly %4) unnamed_addr #14 {
+define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm17MachineBasicBlockElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZN15LiveDebugValues16InstrRefBasedLDV8mlocJoinERS1_RNS0_11SmallPtrSetIS3_Lj16EEERNS8_14FuncValueTableERNS0_11SmallVectorINS8_10ValueIDNumELj0EEEE3$_0EEEvT_T0_SN_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 576460752303423487) %1, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %2, ptr noundef %3, ptr nocapture readonly %4) unnamed_addr #14 {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
   %8 = icmp slt i64 %1, %7

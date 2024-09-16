@@ -2990,11 +2990,11 @@ if.end.i.i:                                       ; preds = %land.rhs.i
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %invoke.cont65, %land.rhs.i, %if.end.i.i
   %23 = phi i1 [ false, %invoke.cont65 ], [ %22, %if.end.i.i ], [ true, %land.rhs.i ]
-  invoke fastcc void @_ZN12_GLOBAL__N_111ToOctStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp70, ptr noundef nonnull align 8 dereferenceable(32) %equivalent_wire_format)
+  invoke fastcc void @_ZN12_GLOBAL__N_111ToOctStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp70, ptr noundef nonnull align 8 dereferenceable(32) %equivalent_wire_format)
           to label %invoke.cont71 unwind label %lpad43
 
 invoke.cont71:                                    ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  invoke fastcc void @_ZN12_GLOBAL__N_111ToOctStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp72, ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_111ToOctStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp72, ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i.i)
           to label %invoke.cont74 unwind label %lpad73
 
 invoke.cont74:                                    ; preds = %invoke.cont71
@@ -3413,7 +3413,7 @@ ehcleanup:                                        ; preds = %lpad6, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111ToOctStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %binary_string) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111ToOctStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %binary_string) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)

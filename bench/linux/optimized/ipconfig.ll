@@ -2360,7 +2360,7 @@ define internal range(i32 0, 2) i32 @ic_bootp_recv(ptr noundef %0, ptr noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @pskb_may_pull(ptr noundef %0, i32 noundef %1) unnamed_addr #9 align 16 {
+define internal fastcc zeroext i1 @pskb_may_pull(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #9 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 116
@@ -2375,7 +2375,7 @@ define internal fastcc zeroext i1 @pskb_may_pull(ptr noundef %0, i32 noundef %1)
 
 11:                                               ; preds = %9
   %12 = sub i32 %1, %7
-  %13 = tail call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %12) #17
+  %13 = tail call ptr @__pskb_pull_tail(ptr noundef nonnull %0, i32 noundef %12) #17
   %14 = icmp ne ptr %13, null
   br label %15
 

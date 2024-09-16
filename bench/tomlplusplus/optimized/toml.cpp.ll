@@ -22524,7 +22524,7 @@ lpad:                                             ; preds = %sw.bb9
 
 sw.bb13:                                          ; preds = %entry, %entry
   %call14 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #47
-  invoke fastcc void @_ZN4toml2v34impl7impl_ex6parser12parse_stringEv(ptr noalias nonnull align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(3496) %this)
+  invoke fastcc void @_ZN4toml2v34impl7impl_ex6parser12parse_stringEv(ptr noalias align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(3496) %this)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %sw.bb13
@@ -28062,7 +28062,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #31
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4toml2v34impl7impl_ex6parser12parse_stringEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(3496) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4toml2v34impl7impl_ex6parser12parse_stringEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(3496) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ps_1686.sroa.3 = alloca %"class.std::basic_string_view", align 8
   %ref.tmp = alloca %"class.std::basic_string_view", align 8
@@ -33929,7 +33929,7 @@ if.else:                                          ; preds = %while.cond, %_ZN4to
 if.then16:                                        ; preds = %if.else, %if.else
   %begin_pos.sroa.0.0.copyload = load i64, ptr %position.i, align 8
   store i8 1, ptr %recording_whitespace, align 1
-  invoke fastcc void @_ZN4toml2v34impl7impl_ex6parser12parse_stringEv(ptr noalias nonnull align 8 %str, ptr noundef nonnull align 8 dereferenceable(3496) %this)
+  invoke fastcc void @_ZN4toml2v34impl7impl_ex6parser12parse_stringEv(ptr noalias align 8 %str, ptr noundef nonnull align 8 dereferenceable(3496) %this)
           to label %invoke.cont19 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont19:                                    ; preds = %if.then16

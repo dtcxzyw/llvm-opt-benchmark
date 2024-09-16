@@ -50,7 +50,7 @@ define hidden void @zif_microtime(ptr noundef %0, ptr noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_php_gettimeofday(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_php_gettimeofday(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca %struct.timeval, align 8
   store i8 0, ptr %4, align 1

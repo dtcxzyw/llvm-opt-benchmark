@@ -1082,7 +1082,7 @@ define internal i32 @dissect_mqtt(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 96:                                               ; preds = %74
   %97 = load i32, ptr @hf_mqtt_property, align 4
-  %98 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %93, i32 noundef %97, ptr noundef nonnull %11)
+  %98 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %93, i32 noundef %97, ptr noundef %11)
   %99 = add i32 %98, %93
   br label %100
 
@@ -1108,7 +1108,7 @@ define internal i32 @dissect_mqtt(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 114:                                              ; preds = %111
   %115 = load i32, ptr @hf_mqtt_will_property, align 4
-  %116 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %108, i32 noundef %115, ptr noundef nonnull %12)
+  %116 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %108, i32 noundef %115, ptr noundef %12)
   %117 = add i32 %116, %108
   br label %118
 
@@ -1226,7 +1226,7 @@ dissect_mqtt_reason_code.exit:                    ; preds = %174, %171
 
 185:                                              ; preds = %dissect_mqtt_reason_code.exit
   %186 = load i32, ptr @hf_mqtt_property, align 4
-  %187 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %182, i32 noundef %186, ptr noundef nonnull %11)
+  %187 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %182, i32 noundef %186, ptr noundef %11)
   %188 = add i32 %187, %182
   br label %.loopexit
 
@@ -1271,7 +1271,7 @@ dissect_mqtt_reason_code.exit:                    ; preds = %174, %171
 
 213:                                              ; preds = %210
   %214 = load i32, ptr @hf_mqtt_property, align 4
-  %215 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %.7, i32 noundef %214, ptr noundef nonnull %11)
+  %215 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %.7, i32 noundef %214, ptr noundef %11)
   %216 = add i32 %215, %.7
   %217 = getelementptr inbounds i8, ptr %11, i64 8
   %218 = load i32, ptr %217, align 8
@@ -1581,7 +1581,7 @@ mqtt_user_decode_message.exit:                    ; preds = %275, %.preheader.i,
 
 379:                                              ; preds = %371
   %380 = load i32, ptr @hf_mqtt_property, align 4
-  %381 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %374, i32 noundef %380, ptr noundef nonnull %11)
+  %381 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %374, i32 noundef %380, ptr noundef %11)
   %382 = add i32 %381, %374
   br label %383
 
@@ -1651,7 +1651,7 @@ mqtt_user_decode_message.exit:                    ; preds = %275, %.preheader.i,
 
 422:                                              ; preds = %414
   %423 = load i32, ptr @hf_mqtt_property, align 4
-  %424 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %417, i32 noundef %423, ptr noundef nonnull %11)
+  %424 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %417, i32 noundef %423, ptr noundef %11)
   %425 = add i32 %424, %417
   br label %426
 
@@ -1700,7 +1700,7 @@ mqtt_user_decode_message.exit:                    ; preds = %275, %.preheader.i,
 
 451:                                              ; preds = %443
   %452 = load i32, ptr @hf_mqtt_property, align 4
-  %453 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %446, i32 noundef %452, ptr noundef nonnull %11)
+  %453 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %446, i32 noundef %452, ptr noundef %11)
   %454 = add i32 %453, %446
   br label %455
 
@@ -1758,7 +1758,7 @@ dissect_mqtt_reason_code.exit390:                 ; preds = %473, %477
 
 484:                                              ; preds = %dissect_mqtt_reason_code.exit390
   %485 = load i32, ptr @hf_mqtt_property, align 4
-  %486 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %482, i32 noundef %485, ptr noundef nonnull %11)
+  %486 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %482, i32 noundef %485, ptr noundef %11)
   %487 = add i32 %486, %482
   br label %.loopexit
 
@@ -1775,7 +1775,7 @@ dissect_mqtt_reason_code.exit390:                 ; preds = %473, %477
 
 496:                                              ; preds = %488
   %497 = load i32, ptr @hf_mqtt_property, align 4
-  %498 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %491, i32 noundef %497, ptr noundef nonnull %11)
+  %498 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %491, i32 noundef %497, ptr noundef %11)
   %499 = add i32 %498, %491
   %500 = call i32 @tvb_reported_length(ptr noundef %0) #6
   %501 = icmp ult i32 %499, %500
@@ -1818,7 +1818,7 @@ dissect_mqtt_reason_code.exit394:                 ; preds = %511, %515
 
 522:                                              ; preds = %dissect_mqtt_reason_code.exit394
   %523 = load i32, ptr @hf_mqtt_property, align 4
-  %524 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %520, i32 noundef %523, ptr noundef nonnull %11)
+  %524 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %520, i32 noundef %523, ptr noundef %11)
   %525 = add i32 %524, %520
   br label %.loopexit
 
@@ -1877,7 +1877,7 @@ declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef,
 declare ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -1979,7 +1979,7 @@ define internal fastcc noundef i32 @dissect_mqtt_properties(ptr noundef %0, ptr 
 56:                                               ; preds = %26
   %57 = load i32, ptr @hf_mqtt_prop_content_type, align 4
   %58 = call ptr @wmem_packet_scope() #6
-  %59 = call ptr @proto_tree_add_item_ret_string_and_length(ptr noundef %19, i32 noundef %57, ptr noundef %0, i32 noundef %29, i32 noundef 2, i32 noundef 2, ptr noundef %58, ptr noundef %4, ptr noundef nonnull %12) #6
+  %59 = call ptr @proto_tree_add_item_ret_string_and_length(ptr noundef %19, i32 noundef %57, ptr noundef %0, i32 noundef %29, i32 noundef 2, i32 noundef 2, ptr noundef %58, ptr noundef nonnull %4, ptr noundef nonnull %12) #6
   %60 = load i32, ptr %12, align 4
   %61 = add i32 %60, %29
   br label %91

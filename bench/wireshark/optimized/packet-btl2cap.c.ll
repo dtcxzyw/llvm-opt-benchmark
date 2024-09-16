@@ -3265,7 +3265,7 @@ proto_item_set_generated.exit577:                 ; preds = %1347, %1344, %1340,
 1359:                                             ; preds = %1356, %1355
   %.0 = phi i32 [ %1358, %1356 ], [ 0, %1355 ]
   %1360 = load i32, ptr %1310, align 8
-  %1361 = call fastcc i32 @dissect_le_frame(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %81, i16 noundef zeroext %106, i16 noundef zeroext %1307, i32 noundef %1360, i16 noundef zeroext %.0502, ptr noundef nonnull %.0501, ptr noundef nonnull %121, i32 noundef %.0)
+  %1361 = call fastcc i32 @dissect_le_frame(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %81, i16 noundef zeroext %106, i16 noundef zeroext %1307, i32 noundef %1360, i16 noundef zeroext %.0502, ptr noundef %.0501, ptr noundef nonnull %121, i32 noundef %.0)
   br label %.loopexit
 
 1362:                                             ; preds = %proto_item_set_generated.exit577
@@ -3279,7 +3279,7 @@ proto_item_set_generated.exit577:                 ; preds = %1347, %1344, %1340,
   br label %.loopexit
 
 1366:                                             ; preds = %1362
-  %1367 = call fastcc i32 @dissect_i_frame(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %81, ptr noundef nonnull %1280, i16 noundef zeroext %.0502, ptr noundef nonnull %.0501, ptr noundef nonnull %121)
+  %1367 = call fastcc i32 @dissect_i_frame(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %81, ptr noundef %1280, i16 noundef zeroext %.0502, ptr noundef %.0501, ptr noundef nonnull %121)
   br label %.loopexit
 
 1368:                                             ; preds = %1300, %1296, %1288, %1284, %1281, %.thread581
@@ -3352,7 +3352,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483640, 65548) i32 @dissect_connrequest(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly %6, ptr noundef readonly %7) unnamed_addr #1 {
+define internal fastcc range(i32 -2147483640, 65548) i32 @dissect_connrequest(ptr noundef %0, i32 noundef range(i32 -2147483644, 65543) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef readonly %6, ptr noundef readonly %7) unnamed_addr #1 {
   %9 = alloca [6 x %struct._wmem_tree_key_t], align 16
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -3703,7 +3703,7 @@ proto_item_set_generated.exit130:                 ; preds = %211, %208, %205, %p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483636, 65551) i32 @dissect_connresponse(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef readonly %4) unnamed_addr #1 {
+define internal fastcc range(i32 -2147483636, 65551) i32 @dissect_connresponse(ptr noundef %0, i32 noundef range(i32 -2147483644, 65543) %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef readonly %4) unnamed_addr #1 {
   %6 = alloca [6 x %struct._wmem_tree_key_t], align 16
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -3912,7 +3912,7 @@ define internal fastcc range(i32 -2147483636, 65551) i32 @dissect_connresponse(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483640, 65547) i32 @dissect_disconnrequestresponse(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef readonly %6, i32 noundef %7) unnamed_addr #1 {
+define internal fastcc range(i32 -2147483640, 65547) i32 @dissect_disconnrequestresponse(ptr noundef %0, i32 noundef range(i32 -2147483644, 65543) %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef readonly %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #1 {
   %9 = alloca [6 x %struct._wmem_tree_key_t], align 16
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -4722,7 +4722,7 @@ proto_item_set_generated.exit:                    ; preds = %60, %61, %64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_le_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6, i16 noundef zeroext %7, ptr nocapture noundef %8, ptr noundef %9, i32 noundef %10) unnamed_addr #1 {
+define internal fastcc i32 @dissect_le_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6, i16 noundef zeroext %7, ptr nocapture noundef nonnull %8, ptr noundef %9, i32 noundef %10) unnamed_addr #1 {
   %12 = alloca %struct._uuid_t, align 2
   %13 = getelementptr inbounds i8, ptr %1, i64 80
   %14 = load ptr, ptr %13, align 8
@@ -5002,7 +5002,7 @@ proto_item_set_generated.exit:                    ; preds = %125, %122, %121, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_i_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, ptr noundef %7) unnamed_addr #1 {
+define internal fastcc i32 @dissect_i_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, i16 noundef zeroext %5, ptr nocapture noundef nonnull readonly %6, ptr noundef %7) unnamed_addr #1 {
 switch.lookup:
   %8 = alloca %struct._uuid_t, align 2
   %9 = getelementptr inbounds i8, ptr %4, i64 20
@@ -5420,7 +5420,7 @@ declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #0
 declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_options(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4) unnamed_addr #1 {
+define internal fastcc i32 @dissect_options(ptr noundef %0, i32 noundef range(i32 -2147483640, 65549) %1, ptr noundef %2, i32 noundef range(i32 -6, 65532) %3, ptr noundef writeonly %4) unnamed_addr #1 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %6
 

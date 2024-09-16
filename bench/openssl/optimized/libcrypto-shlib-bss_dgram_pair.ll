@@ -750,7 +750,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @dgram_pair_write_actual(ptr noundef %bio, ptr noundef readonly %buf, i64 noundef %sz, ptr noundef readonly %local, ptr noundef readonly %peer, i32 noundef %is_multi) unnamed_addr #1 {
+define internal fastcc noundef i64 @dgram_pair_write_actual(ptr noundef %bio, ptr noundef readonly %buf, i64 noundef %sz, ptr noundef readonly %local, ptr noundef readonly %peer, i32 noundef range(i32 0, 2) %is_multi) unnamed_addr #1 {
 entry:
   %hdr = alloca %struct.dgram_hdr, align 8
   %ptr = getelementptr inbounds i8, ptr %bio, i64 64
@@ -883,8 +883,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @dgram_pair_write_inner(ptr nocapture noundef %b, ptr nocapture noundef readonly %buf, i64 noundef %sz) unnamed_addr #1 {
 entry:
-  %cmp.not44 = icmp eq i64 %sz, 0
-  br i1 %cmp.not44, label %while.end, label %while.body.lr.ph
+  %cmp.not43 = icmp eq i64 %sz, 0
+  br i1 %cmp.not43, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %rbuf = getelementptr inbounds i8, ptr %b, i64 8
@@ -895,15 +895,15 @@ while.body.lr.ph:                                 ; preds = %entry
   %req_buf_len = getelementptr inbounds i8, ptr %b, i64 48
   %arrayidx18.i = getelementptr inbounds i8, ptr %b, i64 40
   %.pre = load i64, ptr %len1.i, align 8
-  %.pre56 = load i64, ptr %idx2.i, align 8
+  %.pre55 = load i64, ptr %idx2.i, align 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %ring_buf_push_pop.exit
-  %0 = phi i64 [ %.pre56, %while.body.lr.ph ], [ %18, %ring_buf_push_pop.exit ]
-  %1 = phi i64 [ %.pre, %while.body.lr.ph ], [ %15, %ring_buf_push_pop.exit ]
-  %buf.addr.048 = phi ptr [ %buf, %while.body.lr.ph ], [ %add.ptr, %ring_buf_push_pop.exit ]
-  %total_written.046 = phi i64 [ 0, %while.body.lr.ph ], [ %add16, %ring_buf_push_pop.exit ]
-  %sz.addr.045 = phi i64 [ %sz, %while.body.lr.ph ], [ %sub, %ring_buf_push_pop.exit ]
+  %0 = phi i64 [ %.pre55, %while.body.lr.ph ], [ %19, %ring_buf_push_pop.exit ]
+  %1 = phi i64 [ %.pre, %while.body.lr.ph ], [ %16, %ring_buf_push_pop.exit ]
+  %buf.addr.047 = phi ptr [ %buf, %while.body.lr.ph ], [ %add.ptr, %ring_buf_push_pop.exit ]
+  %total_written.045 = phi i64 [ 0, %while.body.lr.ph ], [ %add16, %ring_buf_push_pop.exit ]
+  %sz.addr.044 = phi i64 [ %sz, %while.body.lr.ph ], [ %sub, %ring_buf_push_pop.exit ]
   %sub.i = sub i64 %1, %0
   %2 = load i64, ptr %count.i, align 8
   %sub4.i = sub i64 %1, %2
@@ -921,37 +921,37 @@ if.then:                                          ; preds = %while.body
 
 if.end:                                           ; preds = %if.then
   %5 = load i64, ptr %req_buf_len, align 8
-  %add = add i64 %5, %sz.addr.045
-  %cmp6.i = icmp ult i64 %5, %add
-  br i1 %cmp6.i, label %while.body.i, label %compute_rbuf_growth.exit
+  %add = add i64 %5, %sz.addr.044
+  %cmp5.i = icmp ult i64 %5, %add
+  br i1 %cmp5.i, label %while.body.i, label %compute_rbuf_growth.exit
 
 while.body.i:                                     ; preds = %if.end, %if.end3.i
-  %current.addr.07.i = phi i64 [ %spec.store.select.i, %if.end3.i ], [ %5, %if.end ]
-  %cmp1.i = icmp ugt i64 %current.addr.07.i, 9223372036854775806
+  %current.addr.06.i = phi i64 [ %spec.store.select.i, %if.end3.i ], [ %5, %if.end ]
+  %cmp1.i = icmp ugt i64 %current.addr.06.i, 9223372036854775806
   br i1 %cmp1.i, label %while.end, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.i
-  %6 = icmp ugt i64 %current.addr.07.i, 2305843009213693951
+  %6 = icmp ugt i64 %current.addr.06.i, 2305843009213693951
   br i1 %6, label %if.then.i33.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i
-  %7 = shl nuw i64 %current.addr.07.i, 3
+  %7 = shl nuw i64 %current.addr.06.i, 3
   %div.i.i = udiv i64 %7, 5
   br label %if.end3.i
 
 if.then.i33.i.i:                                  ; preds = %if.end.i
-  %rem.i.i = urem i64 %current.addr.07.i, 5
+  %div9.i.i = udiv i64 %current.addr.06.i, 5
+  %8 = shl nuw i64 %div9.i.i, 3
+  %rem.i.i = urem i64 %current.addr.06.i, 5
   %rem.tr.i.i = trunc nuw nsw i64 %rem.i.i to i8
   %.lhs.trunc.i.i = shl nuw nsw i8 %rem.tr.i.i, 3
-  %8 = udiv i8 %.lhs.trunc.i.i, 5
-  %.zext.i.i = zext nneg i8 %8 to i64
-  %div9.i.i = udiv i64 %current.addr.07.i, 5
-  %retval.0.i28.i.i = shl nuw i64 %div9.i.i, 3
-  %9 = add nuw i64 %retval.0.i28.i.i, %.zext.i.i
+  %9 = udiv i8 %.lhs.trunc.i.i, 5
+  %.zext.i.i = zext nneg i8 %9 to i64
+  %10 = add nuw i64 %8, %.zext.i.i
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then.i33.i.i, %if.then3.i.i
-  %retval.0.i.i = phi i64 [ %div.i.i, %if.then3.i.i ], [ %9, %if.then.i33.i.i ]
+  %retval.0.i.i = phi i64 [ %div.i.i, %if.then3.i.i ], [ %10, %if.then.i33.i.i ]
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %retval.0.i.i, i64 9223372036854775807)
   %cmp.i = icmp ult i64 %spec.store.select.i, %add
   br i1 %cmp.i, label %while.body.i, label %lor.lhs.false, !llvm.loop !7
@@ -961,56 +961,56 @@ compute_rbuf_growth.exit:                         ; preds = %if.end
   br i1 %cmp4, label %while.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3.i, %compute_rbuf_growth.exit
-  %retval.0.i38 = phi i64 [ %5, %compute_rbuf_growth.exit ], [ %spec.store.select.i, %if.end3.i ]
+  %retval.0.i37 = phi i64 [ %5, %compute_rbuf_growth.exit ], [ %spec.store.select.i, %if.end3.i ]
   %cmp.i15 = icmp eq ptr %3, null
   br i1 %cmp.i15, label %if.then.i, label %if.end.i16
 
 if.then.i:                                        ; preds = %lor.lhs.false
-  %call.i.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef %retval.0.i38, ptr noundef nonnull @.str.1, i32 noundef 37) #8
+  %call.i.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef %retval.0.i37, ptr noundef nonnull @.str.1, i32 noundef 37) #8
   store ptr %call.i.i, ptr %rbuf, align 8
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %while.end, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i
-  store i64 %retval.0.i38, ptr %len1.i, align 8
+  store i64 %retval.0.i37, ptr %len1.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %count.i, i8 0, i64 24, i1 false)
   br label %if.end9
 
 if.end.i16:                                       ; preds = %lor.lhs.false
-  %cmp1.i17 = icmp eq i64 %retval.0.i38, %1
+  %cmp1.i17 = icmp eq i64 %retval.0.i37, %1
   br i1 %cmp1.i17, label %if.end9, label %if.end3.i18
 
 if.end3.i18:                                      ; preds = %if.end.i16
   %cmp4.not.i = icmp ne i64 %2, 0
-  %cmp6.i20 = icmp ult i64 %retval.0.i38, %1
-  %or.cond.i = and i1 %cmp4.not.i, %cmp6.i20
+  %cmp6.i = icmp ult i64 %retval.0.i37, %1
+  %or.cond.i = and i1 %cmp4.not.i, %cmp6.i
   br i1 %or.cond.i, label %while.end, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end3.i18
-  %call10.i = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %3, i64 noundef %retval.0.i38, ptr noundef nonnull @.str.1, i32 noundef 134) #8
+  %call10.i = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %3, i64 noundef %retval.0.i37, ptr noundef nonnull @.str.1, i32 noundef 134) #8
   %cmp11.i = icmp eq ptr %call10.i, null
   br i1 %cmp11.i, label %while.end, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end8.i
-  %10 = load i64, ptr %count.i, align 8
-  %cmp15.not.i = icmp eq i64 %10, 0
+  %11 = load i64, ptr %count.i, align 8
+  %cmp15.not.i = icmp eq i64 %11, 0
   br i1 %cmp15.not.i, label %if.else.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.end13.i
-  %11 = load i64, ptr %idx2.i, align 8
-  %12 = load i64, ptr %arrayidx18.i, align 8
-  %cmp19.not.i = icmp ugt i64 %11, %12
+  %12 = load i64, ptr %idx2.i, align 8
+  %13 = load i64, ptr %arrayidx18.i, align 8
+  %cmp19.not.i = icmp ugt i64 %12, %13
   br i1 %cmp19.not.i, label %if.end39.i, label %if.then20.i
 
 if.then20.i:                                      ; preds = %if.then16.i
-  %13 = load i64, ptr %len1.i, align 8
-  %sub.i21 = sub i64 %retval.0.i38, %13
-  %add.ptr.i22 = getelementptr inbounds i8, ptr %call10.i, i64 %12
-  %add.ptr24.i = getelementptr inbounds i8, ptr %add.ptr.i22, i64 %sub.i21
-  %sub31.i = sub i64 %13, %12
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr24.i, ptr nonnull align 1 %add.ptr.i22, i64 %sub31.i, i1 false)
-  %14 = load i64, ptr %arrayidx18.i, align 8
-  %add.i = add i64 %14, %sub.i21
+  %14 = load i64, ptr %len1.i, align 8
+  %sub.i20 = sub i64 %retval.0.i37, %14
+  %add.ptr.i21 = getelementptr inbounds i8, ptr %call10.i, i64 %13
+  %add.ptr24.i = getelementptr inbounds i8, ptr %add.ptr.i21, i64 %sub.i20
+  %sub31.i = sub i64 %14, %13
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr24.i, ptr nonnull align 1 %add.ptr.i21, i64 %sub31.i, i1 false)
+  %15 = load i64, ptr %arrayidx18.i, align 8
+  %add.i = add i64 %15, %sub.i20
   store i64 %add.i, ptr %arrayidx18.i, align 8
   br label %if.end39.i
 
@@ -1020,47 +1020,47 @@ if.else.i:                                        ; preds = %if.end13.i
 
 if.end39.i:                                       ; preds = %if.else.i, %if.then20.i, %if.then16.i
   store ptr %call10.i, ptr %rbuf, align 8
-  store i64 %retval.0.i38, ptr %len1.i, align 8
+  store i64 %retval.0.i37, ptr %len1.i, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end39.i, %if.end.i16, %if.end.i.i
-  store i64 %retval.0.i38, ptr %req_buf_len, align 8
+  store i64 %retval.0.i37, ptr %req_buf_len, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end9, %while.body
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %spec.select.i, i64 %sz.addr.045)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %buf.addr.048, i64 %spec.select, i1 false)
-  %15 = load i64, ptr %len1.i, align 8
-  %16 = load i64, ptr %idx2.i, align 8
-  %sub.i25 = sub i64 %15, %16
-  %cmp.not.i = icmp ugt i64 %spec.select, %sub.i25
-  br i1 %cmp.not.i, label %ring_buf_push_pop.exit, label %if.end.i26
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %spec.select.i, i64 %sz.addr.044)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %buf.addr.047, i64 %spec.select, i1 false)
+  %16 = load i64, ptr %len1.i, align 8
+  %17 = load i64, ptr %idx2.i, align 8
+  %sub.i24 = sub i64 %16, %17
+  %cmp.not.i = icmp ugt i64 %spec.select, %sub.i24
+  br i1 %cmp.not.i, label %ring_buf_push_pop.exit, label %if.end.i25
 
-if.end.i26:                                       ; preds = %if.end11
-  %17 = load i64, ptr %count.i, align 8
-  %add.i27 = add i64 %17, %spec.select
-  %cmp12.not.i = icmp ugt i64 %add.i27, %15
-  br i1 %cmp12.not.i, label %ring_buf_push_pop.exit, label %if.else.i28
+if.end.i25:                                       ; preds = %if.end11
+  %18 = load i64, ptr %count.i, align 8
+  %add.i26 = add i64 %18, %spec.select
+  %cmp12.not.i = icmp ugt i64 %add.i26, %16
+  br i1 %cmp12.not.i, label %ring_buf_push_pop.exit, label %if.else.i27
 
-if.else.i28:                                      ; preds = %if.end.i26
-  %add2720.i = add i64 %16, %spec.select
-  %cmp2921.i = icmp eq i64 %add2720.i, %15
+if.else.i27:                                      ; preds = %if.end.i25
+  %add2720.i = add i64 %17, %spec.select
+  %cmp2921.i = icmp eq i64 %add2720.i, %16
   %spec.store.select22.i = select i1 %cmp2921.i, i64 0, i64 %add2720.i
   store i64 %spec.store.select22.i, ptr %idx2.i, align 8
-  store i64 %add.i27, ptr %count.i, align 8
+  store i64 %add.i26, ptr %count.i, align 8
   br label %ring_buf_push_pop.exit
 
-ring_buf_push_pop.exit:                           ; preds = %if.end11, %if.end.i26, %if.else.i28
-  %18 = phi i64 [ %16, %if.end11 ], [ %16, %if.end.i26 ], [ %spec.store.select22.i, %if.else.i28 ]
-  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.048, i64 %spec.select
-  %sub = sub i64 %sz.addr.045, %spec.select
-  %add16 = add i64 %spec.select, %total_written.046
+ring_buf_push_pop.exit:                           ; preds = %if.end11, %if.end.i25, %if.else.i27
+  %19 = phi i64 [ %17, %if.end11 ], [ %17, %if.end.i25 ], [ %spec.store.select22.i, %if.else.i27 ]
+  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.047, i64 %spec.select
+  %sub = sub i64 %sz.addr.044, %spec.select
+  %add16 = add i64 %spec.select, %total_written.045
   %cmp.not = icmp eq i64 %sub, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !8
 
 while.end:                                        ; preds = %ring_buf_push_pop.exit, %if.then, %compute_rbuf_growth.exit, %if.end3.i18, %if.end8.i, %if.then.i, %while.body.i, %entry
-  %total_written.043 = phi i64 [ 0, %entry ], [ %total_written.046, %while.body.i ], [ %add16, %ring_buf_push_pop.exit ], [ %total_written.046, %if.then ], [ %total_written.046, %compute_rbuf_growth.exit ], [ %total_written.046, %if.end3.i18 ], [ %total_written.046, %if.end8.i ], [ %total_written.046, %if.then.i ]
-  ret i64 %total_written.043
+  %total_written.042 = phi i64 [ 0, %entry ], [ %total_written.045, %while.body.i ], [ %add16, %ring_buf_push_pop.exit ], [ %total_written.045, %if.then ], [ %total_written.045, %compute_rbuf_growth.exit ], [ %total_written.045, %if.end3.i18 ], [ %total_written.045, %if.end8.i ], [ %total_written.045, %if.then.i ]
+  ret i64 %total_written.042
 }
 
 declare void @BIO_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -1073,7 +1073,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @dgram_pair_read_actual(ptr noundef %bio, ptr noundef %buf, i64 noundef %sz, ptr noundef writeonly %local, ptr noundef writeonly %peer, i32 noundef %is_multi) unnamed_addr #1 {
+define internal fastcc noundef i64 @dgram_pair_read_actual(ptr noundef %bio, ptr noundef %buf, i64 noundef %sz, ptr noundef writeonly %local, ptr noundef writeonly %peer, i32 noundef range(i32 0, 2) %is_multi) unnamed_addr #1 {
 entry:
   %hdr = alloca %struct.dgram_hdr, align 8
   %ptr = getelementptr inbounds i8, ptr %bio, i64 64
@@ -1147,14 +1147,14 @@ while.body.i:                                     ; preds = %if.end11.i, %if.end
   %sz.addr.032.i = phi i64 [ 232, %if.end44 ], [ %sub.i, %if.end11.i ]
   %buf.addr.031.i = phi ptr [ %hdr, %if.end44 ], [ %add.ptr.i, %if.end11.i ]
   %sub.i.i = sub i64 %10, %9
-  %spec.select15.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %8)
-  %cmp1.i = icmp eq i64 %spec.select15.i.i, 0
+  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %8)
+  %cmp1.i = icmp eq i64 %spec.select.i.i, 0
   br i1 %cmp1.i, label %dgram_pair_read_inner.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %while.body.i
   %11 = load ptr, ptr %rbuf, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 %9
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %spec.select15.i.i, i64 %sz.addr.032.i)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %spec.select.i.i, i64 %sz.addr.032.i)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf.addr.031.i, ptr align 1 %add.ptr.i.i, i64 %spec.select.i, i1 false)
   %12 = load i64, ptr %len1.i.i, align 8
   %13 = load i64, ptr %arrayidx, align 8
@@ -1264,7 +1264,7 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %b, i64 40
-  %count11.i = getelementptr inbounds i8, ptr %b, i64 24
+  %count.i = getelementptr inbounds i8, ptr %b, i64 24
   %.pre = load i64, ptr %len1.i, align 8
   %.pre35 = load i64, ptr %arrayidx.i, align 8
   br label %while.body
@@ -1276,15 +1276,15 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sz.addr.032 = phi i64 [ %sz, %while.body.lr.ph ], [ %sub, %if.end11 ]
   %buf.addr.031 = phi ptr [ %buf, %while.body.lr.ph ], [ %buf.addr.1, %if.end11 ]
   %sub.i = sub i64 %1, %0
-  %2 = load i64, ptr %count11.i, align 8
-  %spec.select15.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %2)
+  %2 = load i64, ptr %count.i, align 8
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %2)
   %3 = load ptr, ptr %rbuf, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %0
-  %cmp1 = icmp eq i64 %spec.select15.i, 0
+  %cmp1 = icmp eq i64 %spec.select.i, 0
   br i1 %cmp1, label %while.end, label %if.end
 
 if.end:                                           ; preds = %while.body
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %spec.select15.i, i64 %sz.addr.032)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %spec.select.i, i64 %sz.addr.032)
   %cmp5.not = icmp eq ptr %buf.addr.031, null
   br i1 %cmp5.not, label %if.then38.i19, label %if.then6
 
@@ -1297,7 +1297,7 @@ if.then6:                                         ; preds = %if.end
   br i1 %cmp.not.i, label %ring_buf_push_pop.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
-  %6 = load i64, ptr %count11.i, align 8
+  %6 = load i64, ptr %count.i, align 8
   %cmp8.not.i = icmp ugt i64 %spec.select, %6
   br i1 %cmp8.not.i, label %ring_buf_push_pop.exit, label %if.then38.i
 
@@ -1307,7 +1307,7 @@ if.then38.i:                                      ; preds = %if.end.i
   %spec.store.select.i = select i1 %cmp29.i, i64 0, i64 %add27.i
   store i64 %spec.store.select.i, ptr %arrayidx.i, align 8
   %sub40.i = sub nuw i64 %6, %spec.select
-  store i64 %sub40.i, ptr %count11.i, align 8
+  store i64 %sub40.i, ptr %count.i, align 8
   br label %ring_buf_push_pop.exit
 
 ring_buf_push_pop.exit:                           ; preds = %if.then6, %if.end.i, %if.then38.i
@@ -1321,7 +1321,7 @@ if.then38.i19:                                    ; preds = %if.end
   %spec.store.select.i22 = select i1 %cmp29.i21, i64 0, i64 %add27.i20
   store i64 %spec.store.select.i22, ptr %arrayidx.i, align 8
   %sub40.i23 = sub nuw i64 %2, %spec.select
-  store i64 %sub40.i23, ptr %count11.i, align 8
+  store i64 %sub40.i23, ptr %count.i, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then38.i19, %ring_buf_push_pop.exit
@@ -1524,14 +1524,14 @@ while.body.i.i:                                   ; preds = %if.end11.i.i, %if.e
   %sz.addr.032.i.i = phi i64 [ 232, %if.end7.i ], [ %sub.i.i45, %if.end11.i.i ]
   %buf.addr.031.i.i = phi ptr [ %hdr.i, %if.end7.i ], [ %add.ptr.i.i43, %if.end11.i.i ]
   %sub.i.i.i = sub i64 %.pre.i.i, %22
-  %spec.select15.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %23)
-  %cmp1.i.i42 = icmp eq i64 %spec.select15.i.i.i, 0
+  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %23)
+  %cmp1.i.i42 = icmp eq i64 %spec.select.i.i.i, 0
   br i1 %cmp1.i.i42, label %dgram_pair_read_inner.exit.i, label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %while.body.i.i
   %24 = load ptr, ptr %rbuf.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %24, i64 %22
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %spec.select15.i.i.i, i64 %sz.addr.032.i.i)
+  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %spec.select.i.i.i, i64 %sz.addr.032.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf.addr.031.i.i, ptr align 1 %add.ptr.i.i.i, i64 %spec.select.i.i, i1 false)
   %add27.i.i.i = add i64 %22, %spec.select.i.i
   %cmp29.i.i.i = icmp eq i64 %add27.i.i.i, %.pre.i.i

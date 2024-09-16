@@ -432,7 +432,7 @@ gv_calloc.exit:                                   ; preds = %94
   %114 = load ptr, ptr %110, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 168
   store i32 -1, ptr %115, align 8
-  %116 = tail call fastcc double @setEdgeLen(ptr noundef nonnull %0, ptr noundef nonnull %.198151, ptr noundef %79)
+  %116 = tail call fastcc double @setEdgeLen(ptr noundef nonnull %0, ptr noundef %.198151, ptr noundef %79)
   %117 = fadd double %.093152, %116
   %118 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.198151) #20
   %.not109 = icmp eq ptr %118, null
@@ -490,7 +490,7 @@ gv_calloc.exit117:                                ; preds = %125
   %143 = getelementptr inbounds i8, ptr %142, i64 164
   %144 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %144, ptr %143, align 4
-  %145 = tail call fastcc double @setEdgeLen(ptr noundef nonnull %0, ptr noundef nonnull %.299146, ptr noundef %79)
+  %145 = tail call fastcc double @setEdgeLen(ptr noundef nonnull %0, ptr noundef %.299146, ptr noundef %79)
   %146 = fadd double %.295147, %145
   %147 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.299146) #20
   %.not107 = icmp eq ptr %147, null
@@ -512,7 +512,7 @@ gv_calloc.exit117:                                ; preds = %125
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds i8, ptr %152, i64 164
   store i32 %.2159, ptr %153, align 4
-  %154 = tail call fastcc double @setEdgeLen(ptr noundef %0, ptr noundef nonnull %.3100157, ptr noundef %79)
+  %154 = tail call fastcc double @setEdgeLen(ptr noundef %0, ptr noundef %.3100157, ptr noundef %79)
   %155 = fadd double %.3158, %154
   %156 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.3100157) #20
   %.not106 = icmp eq ptr %156, null
@@ -747,9 +747,9 @@ declare ptr @agget(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare double @atof(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @setEdgeLen(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 {
+define internal fastcc double @setEdgeLen(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #3 {
   %4 = alloca double, align 8
-  %5 = tail call ptr @agfstout(ptr noundef %0, ptr noundef %1) #20
+  %5 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %1) #20
   %.not19 = icmp eq ptr %5, null
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 

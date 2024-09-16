@@ -1840,7 +1840,7 @@ if.else.i:                                        ; preds = %invoke.cont14
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit: ; preds = %if.then.i25, %if.else.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10) #21
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_116CdsResourceParseERKNS_15XdsResourceType13DecodeContextEPK31envoy_config_cluster_v3_Cluster(ptr noalias nonnull align 8 %cds_resource, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef nonnull %add.ptr.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_116CdsResourceParseERKNS_15XdsResourceType13DecodeContextEPK31envoy_config_cluster_v3_Cluster(ptr noalias align 8 %cds_resource, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %add.ptr.i.i.i)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit
@@ -2065,7 +2065,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_116CdsResourceParseERKNS_15XdsResourceType13DecodeContextEPK31envoy_config_cluster_v3_Cluster(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr nocapture noundef readonly %cluster) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_116CdsResourceParseERKNS_15XdsResourceType13DecodeContextEPK31envoy_config_cluster_v3_Cluster(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr nocapture noundef nonnull readonly %cluster) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %field.i260 = alloca %"class.grpc_core::ValidationErrors::ScopedField", align 8
   %extension.i = alloca %"class.std::optional.378", align 8
@@ -2870,7 +2870,7 @@ cleanup117.i:                                     ; preds = %invoke.cont35.i
   %cmp.not.i124.i = icmp eq ptr %.pre.i, null
   br i1 %cmp.not.i124.i, label %cleanup119.i, label %if.then.i125.i
 
-if.then.i125.i:                                   ; preds = %if.then.i121.i, %cleanup117.i
+if.then.i125.i:                                   ; preds = %cleanup117.i, %if.then.i121.i
   %78 = phi ptr [ %.pre.i, %cleanup117.i ], [ %errors, %if.then.i121.i ]
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %78)
           to label %cleanup119.i unwind label %terminate.lpad.i126.i
@@ -3082,8 +3082,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.i.i.i145, label %if.else62, label %if.then46
 
 if.then46:                                        ; preds = %invoke.cont36, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i133, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  %str.sroa.4.0.i556 = phi ptr [ %str.sroa.4.0.i, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i133 ], [ %str.sroa.4.0.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ %retval.sroa.0.0.copyload32.i, %invoke.cont36 ]
-  %str.sroa.0.0.i555 = phi i64 [ %str.sroa.0.0.i, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i133 ], [ 52, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ %retval.sroa.9.0.copyload33.i, %invoke.cont36 ]
+  %str.sroa.4.0.i555 = phi ptr [ %str.sroa.4.0.i, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i133 ], [ %str.sroa.4.0.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ %retval.sroa.0.0.copyload32.i, %invoke.cont36 ]
+  %str.sroa.0.0.i554 = phi i64 [ %str.sroa.0.0.i, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i133 ], [ 52, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ %retval.sroa.9.0.copyload33.i, %invoke.cont36 ]
   store ptr %errors, ptr %field47, align 8
   invoke void @_ZN9grpc_core16ValidationErrors9PushFieldESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 9, ptr nonnull @.str.24)
           to label %invoke.cont54 unwind label %lpad26
@@ -3092,9 +3092,9 @@ invoke.cont54:                                    ; preds = %if.then46
   store i64 32, ptr %ref.tmp52, align 8
   %99 = getelementptr inbounds i8, ptr %ref.tmp52, i64 8
   store ptr @.str.25, ptr %99, align 8
-  store i64 %str.sroa.0.0.i555, ptr %ref.tmp55, align 8
+  store i64 %str.sroa.0.0.i554, ptr %ref.tmp55, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp55, i64 8
-  store ptr %str.sroa.4.0.i556, ptr %pc.sroa.2.0.piece_.sroa_idx.i, align 8
+  store ptr %str.sroa.4.0.i555, ptr %pc.sroa.2.0.piece_.sroa_idx.i, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp55)
           to label %invoke.cont58 unwind label %lpad53
 
@@ -5297,17 +5297,17 @@ envoy_config_cluster_v3_CircuitBreakers_thresholds.exit: ; preds = %invoke.cont1
   %369 = load i64, ptr %367, align 8
   %and.i.i = and i64 %369, -8
   %370 = inttoptr i64 %and.i.i to ptr
-  %cmp136546.not = icmp eq i64 %368, 0
-  br i1 %cmp136546.not, label %invoke.cont151, label %invoke.cont137
+  %cmp136545.not = icmp eq i64 %368, 0
+  br i1 %cmp136545.not, label %invoke.cont151, label %invoke.cont137
 
 for.cond:                                         ; preds = %invoke.cont137
-  %inc = add nuw i64 %i.0547, 1
+  %inc = add nuw i64 %i.0546, 1
   %exitcond.not = icmp eq i64 %inc, %368
   br i1 %exitcond.not, label %invoke.cont151, label %invoke.cont137, !llvm.loop !81
 
 invoke.cont137:                                   ; preds = %envoy_config_cluster_v3_CircuitBreakers_thresholds.exit, %for.cond
-  %i.0547 = phi i64 [ %inc, %for.cond ], [ 0, %envoy_config_cluster_v3_CircuitBreakers_thresholds.exit ]
-  %arrayidx = getelementptr inbounds ptr, ptr %370, i64 %i.0547
+  %i.0546 = phi i64 [ %inc, %for.cond ], [ 0, %envoy_config_cluster_v3_CircuitBreakers_thresholds.exit ]
+  %arrayidx = getelementptr inbounds ptr, ptr %370, i64 %i.0546
   %371 = load ptr, ptr %arrayidx, align 8
   %add.ptr.i.i329 = getelementptr inbounds i8, ptr %371, i64 4
   %372 = load i32, ptr %add.ptr.i.i329, align 1
@@ -5776,12 +5776,12 @@ envoy_config_core_v3_HealthStatusSet_statuses.exit: ; preds = %invoke.cont350
   %453 = load i64, ptr %451, align 8
   %and.i.i454 = and i64 %453, -8
   %454 = inttoptr i64 %and.i.i454 to ptr
-  %cmp356548.not = icmp eq i64 %452, 0
-  br i1 %cmp356548.not, label %if.then.i463, label %for.body357
+  %cmp356547.not = icmp eq i64 %452, 0
+  br i1 %cmp356547.not, label %if.then.i463, label %for.body357
 
 for.body357:                                      ; preds = %envoy_config_core_v3_HealthStatusSet_statuses.exit, %for.inc370
-  %i354.0549 = phi i64 [ %inc371, %for.inc370 ], [ 0, %envoy_config_core_v3_HealthStatusSet_statuses.exit ]
-  %arrayidx358 = getelementptr inbounds i32, ptr %454, i64 %i354.0549
+  %i354.0548 = phi i64 [ %inc371, %for.inc370 ], [ 0, %envoy_config_core_v3_HealthStatusSet_statuses.exit ]
+  %arrayidx358 = getelementptr inbounds i32, ptr %454, i64 %i354.0548
   %455 = load i32, ptr %arrayidx358, align 4
   %call360 = invoke i64 @_ZN9grpc_core15XdsHealthStatus7FromUpbEj(i32 noundef %455)
           to label %invoke.cont359 unwind label %lpad351
@@ -5810,9 +5810,9 @@ lpad351:                                          ; preds = %if.then364, %for.bo
   br label %ehcleanup375
 
 for.inc370:                                       ; preds = %if.then364, %invoke.cont359
-  %inc371 = add nuw i64 %i354.0549, 1
-  %exitcond551.not = icmp eq i64 %inc371, %452
-  br i1 %exitcond551.not, label %if.then.i463, label %for.body357, !llvm.loop !82
+  %inc371 = add nuw i64 %i354.0548, 1
+  %exitcond550.not = icmp eq i64 %inc371, %452
+  br i1 %exitcond550.not, label %if.then.i463, label %for.body357, !llvm.loop !82
 
 if.then.i463:                                     ; preds = %for.inc370, %invoke.cont350, %envoy_config_core_v3_HealthStatusSet_statuses.exit
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %errors)

@@ -1939,7 +1939,7 @@ invoke.cont:                                      ; preds = %_ZN4pbrtL8toStringB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.result, i64 %s.coerce0, ptr %s.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.result, i64 %s.coerce0, ptr %s.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #33
@@ -4753,7 +4753,7 @@ _ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; pr
   br i1 %cmp5.i.i, label %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit486, label %if.then.i475
 
 if.then.i475:                                     ; preds = %_ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i, %land.lhs.true.i.i, %invoke.cont238
-  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i470, i64 %agg.tmp.sroa.0.0.copyload.i471, ptr %agg.tmp.sroa.2.0.copyload.i473)
+  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i470, i64 %agg.tmp.sroa.0.0.copyload.i471, ptr %agg.tmp.sroa.2.0.copyload.i473)
           to label %.noexc480 unwind label %lpad237
 
 .noexc480:                                        ; preds = %if.then.i475
@@ -4888,7 +4888,7 @@ _ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i545: ;
   br i1 %cmp5.i.i548, label %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit561, label %if.then.i539
 
 if.then.i539:                                     ; preds = %_ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i545, %land.lhs.true.i.i543, %invoke.cont267
-  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i534, i64 %agg.tmp.sroa.0.0.copyload.i535, ptr %agg.tmp.sroa.2.0.copyload.i537)
+  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i534, i64 %agg.tmp.sroa.0.0.copyload.i535, ptr %agg.tmp.sroa.2.0.copyload.i537)
           to label %.noexc554 unwind label %lpad266
 
 .noexc554:                                        ; preds = %if.then.i539
@@ -5023,7 +5023,7 @@ _ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i621: ;
   br i1 %cmp5.i.i624, label %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit637, label %if.then.i615
 
 if.then.i615:                                     ; preds = %_ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i621, %land.lhs.true.i.i619, %invoke.cont296
-  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i610, i64 %agg.tmp.sroa.0.0.copyload.i611, ptr %agg.tmp.sroa.2.0.copyload.i613)
+  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i610, i64 %agg.tmp.sroa.0.0.copyload.i611, ptr %agg.tmp.sroa.2.0.copyload.i613)
           to label %.noexc630 unwind label %lpad295
 
 .noexc630:                                        ; preds = %if.then.i615
@@ -5246,7 +5246,7 @@ _ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i810: ;
   br i1 %cmp5.i.i813, label %invoke.cont385, label %if.then.i804
 
 if.then.i804:                                     ; preds = %_ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i810, %land.lhs.true.i.i808, %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit798
-  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i799, i64 %agg.tmp.sroa.0.0.copyload.i800, ptr %agg.tmp.sroa.2.0.copyload.i802)
+  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i799, i64 %agg.tmp.sroa.0.0.copyload.i800, ptr %agg.tmp.sroa.2.0.copyload.i802)
           to label %.noexc819 unwind label %lpad26.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc819:                                        ; preds = %if.then.i804
@@ -5631,7 +5631,7 @@ _ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i928: ;
   br i1 %cmp5.i.i931, label %invoke.cont469, label %if.then.i922
 
 if.then.i922:                                     ; preds = %_ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i928, %land.lhs.true.i.i926, %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit916
-  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i917, i64 %agg.tmp.sroa.0.0.copyload.i918, ptr %agg.tmp.sroa.2.0.copyload.i920)
+  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i917, i64 %agg.tmp.sroa.0.0.copyload.i918, ptr %agg.tmp.sroa.2.0.copyload.i920)
           to label %.noexc937 unwind label %lpad26.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc937:                                        ; preds = %if.then.i922
@@ -6301,7 +6301,7 @@ _ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i1248: 
   br i1 %cmp5.i.i1251, label %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit1264, label %if.then.i1242
 
 if.then.i1242:                                    ; preds = %_ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i1248, %land.lhs.true.i.i1246, %invoke.cont675
-  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i1237, i64 %agg.tmp.sroa.0.0.copyload.i1238, ptr %agg.tmp.sroa.2.0.copyload.i1240)
+  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i1237, i64 %agg.tmp.sroa.0.0.copyload.i1238, ptr %agg.tmp.sroa.2.0.copyload.i1240)
           to label %.noexc1257 unwind label %lpad674
 
 .noexc1257:                                       ; preds = %if.then.i1242
@@ -6615,7 +6615,7 @@ _ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i1420: 
   br i1 %cmp5.i.i1423, label %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit1436, label %if.then.i1414
 
 if.then.i1414:                                    ; preds = %_ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i1420, %land.lhs.true.i.i1418, %invoke.cont762
-  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i1409, i64 %agg.tmp.sroa.0.0.copyload.i1410, ptr %agg.tmp.sroa.2.0.copyload.i1412)
+  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i1409, i64 %agg.tmp.sroa.0.0.copyload.i1410, ptr %agg.tmp.sroa.2.0.copyload.i1412)
           to label %.noexc1429 unwind label %lpad761
 
 .noexc1429:                                       ; preds = %if.then.i1414
@@ -6787,7 +6787,7 @@ _ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i1517: 
   br i1 %cmp5.i.i1520, label %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit1533, label %if.then.i1511
 
 if.then.i1511:                                    ; preds = %_ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i1517, %land.lhs.true.i.i1515, %invoke.cont796
-  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i1506, i64 %agg.tmp.sroa.0.0.copyload.i1507, ptr %agg.tmp.sroa.2.0.copyload.i1509)
+  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i1506, i64 %agg.tmp.sroa.0.0.copyload.i1507, ptr %agg.tmp.sroa.2.0.copyload.i1509)
           to label %.noexc1526 unwind label %lpad795
 
 .noexc1526:                                       ; preds = %if.then.i1511
@@ -6927,7 +6927,7 @@ _ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i1615: 
   br i1 %cmp5.i.i1618, label %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit1631, label %if.then.i1609
 
 if.then.i1609:                                    ; preds = %_ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i1615, %land.lhs.true.i.i1613, %invoke.cont840
-  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i1604, i64 %agg.tmp.sroa.0.0.copyload.i1605, ptr %agg.tmp.sroa.2.0.copyload.i1607)
+  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i1604, i64 %agg.tmp.sroa.0.0.copyload.i1605, ptr %agg.tmp.sroa.2.0.copyload.i1607)
           to label %.noexc1624 unwind label %lpad839
 
 .noexc1624:                                       ; preds = %if.then.i1609
@@ -7062,7 +7062,7 @@ _ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i1691: 
   br i1 %cmp5.i.i1694, label %invoke.cont871, label %if.then.i1685
 
 if.then.i1685:                                    ; preds = %_ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i1691, %land.lhs.true.i.i1689, %invoke.cont869
-  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i1680, i64 %agg.tmp.sroa.0.0.copyload.i1681, ptr %agg.tmp.sroa.2.0.copyload.i1683)
+  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i1680, i64 %agg.tmp.sroa.0.0.copyload.i1681, ptr %agg.tmp.sroa.2.0.copyload.i1683)
           to label %.noexc1700 unwind label %lpad868
 
 .noexc1700:                                       ; preds = %if.then.i1685
@@ -8106,7 +8106,7 @@ _ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i2381: 
   br i1 %cmp5.i.i2384, label %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit2397, label %if.then.i2375
 
 if.then.i2375:                                    ; preds = %_ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i2381, %land.lhs.true.i.i2379, %invoke.cont1259
-  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i2370, i64 %agg.tmp.sroa.0.0.copyload.i2371, ptr %agg.tmp.sroa.2.0.copyload.i2373)
+  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i2370, i64 %agg.tmp.sroa.0.0.copyload.i2371, ptr %agg.tmp.sroa.2.0.copyload.i2373)
           to label %.noexc2390 unwind label %lpad1258
 
 .noexc2390:                                       ; preds = %if.then.i2375
@@ -8193,7 +8193,7 @@ _ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i2430: 
   br i1 %cmp5.i.i2433, label %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit2446, label %if.then.i2424
 
 if.then.i2424:                                    ; preds = %_ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i2430, %land.lhs.true.i.i2428, %invoke.cont1272
-  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i2419, i64 %agg.tmp.sroa.0.0.copyload.i2420, ptr %agg.tmp.sroa.2.0.copyload.i2422)
+  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i2419, i64 %agg.tmp.sroa.0.0.copyload.i2420, ptr %agg.tmp.sroa.2.0.copyload.i2422)
           to label %.noexc2439 unwind label %lpad1271
 
 .noexc2439:                                       ; preds = %if.then.i2424
@@ -8282,7 +8282,7 @@ _ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i2483: 
   br i1 %cmp5.i.i2486, label %invoke.cont1287, label %if.then.i2477
 
 if.then.i2477:                                    ; preds = %_ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i2483, %land.lhs.true.i.i2481, %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit2471
-  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i2472, i64 %agg.tmp.sroa.0.0.copyload.i2473, ptr %agg.tmp.sroa.2.0.copyload.i2475)
+  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i2472, i64 %agg.tmp.sroa.0.0.copyload.i2473, ptr %agg.tmp.sroa.2.0.copyload.i2475)
           to label %.noexc2492 unwind label %lpad1281.loopexit.split-lp
 
 .noexc2492:                                       ; preds = %if.then.i2477
@@ -8359,7 +8359,7 @@ invoke.cont1293:                                  ; preds = %invoke.cont.i2511, 
   store i64 %15, ptr %ref.tmp1296, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN4pbrt5TokenEPKcEZNS0_5parseEPNS0_12ParserTargetESt10unique_ptrINS0_9TokenizerESt14default_deleteISA_EEE3$_4E9_M_invokeERKSt9_Any_dataS3_OS5_", ptr %_M_invoker.i2515, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN4pbrt5TokenEPKcEZNS0_5parseEPNS0_12ParserTargetESt10unique_ptrINS0_9TokenizerESt14default_deleteISA_EEE3$_4E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %_M_manager.i.i2514, align 8
-  invoke fastcc void @"_ZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEE"(ptr noalias nonnull align 8 %params, ptr noundef nonnull %agg.tmp1291, ptr %agg.tmp1294.sroa.0.0.copyload, i1 noundef zeroext %tobool1295, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1296)
+  invoke fastcc void @"_ZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEE"(ptr noalias align 8 %params, ptr noundef %agg.tmp1291, ptr %agg.tmp1294.sroa.0.0.copyload, i1 noundef zeroext %tobool1295, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1296)
           to label %invoke.cont1299 unwind label %lpad1298
 
 invoke.cont1299:                                  ; preds = %invoke.cont1293
@@ -8923,7 +8923,7 @@ _ZNSt6vectorISt4pairIPN4pbrt8AsyncJobIiEEPNS1_17BasicSceneBuilderEESaIS7_EED2Ev.
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_1clEMS0_FvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISI_EEEENS_7FileLocEESO_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 %apiFunc.coerce0, ptr nocapture noundef readonly byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_1clEMS0_FvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISI_EEEENS_7FileLocEESO_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 range(i64 9, 282) %apiFunc.coerce0, ptr nocapture noundef readonly byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i6 = alloca %"class.std::allocator", align 1
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8985,7 +8985,7 @@ _ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; pr
 
 if.then.i5:                                       ; preds = %_ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i, %land.lhs.true.i.i, %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit
   %loc.i = getelementptr inbounds i8, ptr %t, i64 16
-  call fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i, i64 %agg.tmp.sroa.0.0.copyload.i, ptr %agg.tmp.sroa.2.0.copyload.i)
+  call fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i, i64 %agg.tmp.sroa.0.0.copyload.i, ptr %agg.tmp.sroa.2.0.copyload.i)
   invoke void @_ZN4pbrt9ErrorExitIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKNS_7FileLocEPKcDpOT_(ptr noundef nonnull %loc.i, ptr noundef nonnull @.str.300, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #32
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -9077,7 +9077,7 @@ invoke.cont6:                                     ; preds = %invoke.cont.i14, %_
   store i64 %24, ptr %ref.tmp8, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN4pbrt5TokenEPKcEZZNS0_5parseEPNS0_12ParserTargetESt10unique_ptrINS0_9TokenizerESt14default_deleteISA_EEENK3$_1clEMS7_FvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13InlinedVectorIPNS0_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISP_EEEENS0_7FileLocEESV_EUlS3_S5_E_E9_M_invokeERKSt9_Any_dataS3_OS5_", ptr %_M_invoker.i16, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN4pbrt5TokenEPKcEZZNS0_5parseEPNS0_12ParserTargetESt10unique_ptrINS0_9TokenizerESt14default_deleteISA_EEENK3$_1clEMS7_FvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13InlinedVectorIPNS0_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISP_EEEENS0_7FileLocEESV_EUlS3_S5_E_E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation", ptr %_M_manager.i.i15, align 8
-  invoke fastcc void @"_ZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEE"(ptr noalias nonnull align 8 %parameterVector, ptr noundef nonnull %agg.tmp4, ptr %agg.tmp7.sroa.0.0.copyload, i1 noundef zeroext %tobool, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8)
+  invoke fastcc void @"_ZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEE"(ptr noalias align 8 %parameterVector, ptr noundef %agg.tmp4, ptr %agg.tmp7.sroa.0.0.copyload, i1 noundef zeroext %tobool, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont6
@@ -9468,7 +9468,7 @@ if.end58:                                         ; preds = %invoke.cont55, %if.
 if.then60:                                        ; preds = %if.end58
   %agg.tmp63.sroa.0.0.copyload = load i64, ptr %t, align 8
   %agg.tmp63.sroa.2.0.copyload = load ptr, ptr %_M_str.i255465, align 8
-  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp62, i64 %agg.tmp63.sroa.0.0.copyload, ptr %agg.tmp63.sroa.2.0.copyload)
+  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp62, i64 %agg.tmp63.sroa.0.0.copyload, ptr %agg.tmp63.sroa.2.0.copyload)
           to label %invoke.cont65 unwind label %lpad32
 
 invoke.cont65:                                    ; preds = %if.then60
@@ -9688,7 +9688,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEE"(ptr noalias align 8 %agg.result, ptr noundef %nextToken, ptr nocapture %ungetToken.coerce, i1 noundef zeroext %formatting, ptr noundef nonnull align 8 dereferenceable(32) %errorCallback) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEE"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %nextToken, ptr nocapture %ungetToken.coerce, i1 noundef zeroext %formatting, ptr noundef nonnull align 8 dereferenceable(32) %errorCallback) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i236 = alloca %"class.std::__cxx11::basic_string", align 8
   %__args.addr.i138 = alloca i32, align 4
@@ -9893,7 +9893,7 @@ _ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; pr
   br i1 %cmp5.i.i, label %invoke.cont20, label %if.then.i41
 
 if.then.i41:                                      ; preds = %_ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i, %land.lhs.true.i.i, %invoke.cont18
-  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i, i64 %agg.tmp.sroa.0.0.copyload.i, ptr %agg.tmp.sroa.2.0.copyload.i)
+  invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i, i64 %agg.tmp.sroa.0.0.copyload.i, ptr %agg.tmp.sroa.2.0.copyload.i)
           to label %.noexc44 unwind label %lpad1.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc44:                                         ; preds = %if.then.i41
@@ -20973,7 +20973,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
 
 if.then:                                          ; preds = %invoke.cont6
   store float 1.000000e+00, ptr %totalScale, align 4
-  %call = invoke fastcc noundef zeroext i1 @_ZN4pbrtL17upgradeRGBToScaleEPNS_19ParameterDictionaryEPKcPf(ptr noundef nonnull %dict, ptr noundef nonnull @.str.113, ptr noundef nonnull %totalScale)
+  %call = invoke fastcc noundef zeroext i1 @_ZN4pbrtL17upgradeRGBToScaleEPNS_19ParameterDictionaryEPKcPf(ptr noundef %dict, ptr noundef nonnull @.str.113, ptr noundef %totalScale)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %if.then
@@ -21127,7 +21127,7 @@ if.then42:                                        ; preds = %invoke.cont36
   br i1 %cmp.i58, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then42
-  %call46 = invoke fastcc noundef zeroext i1 @_ZN4pbrtL17upgradeRGBToScaleEPNS_19ParameterDictionaryEPKcPf(ptr noundef nonnull %dict, ptr noundef nonnull @.str.247, ptr noundef nonnull %totalScale)
+  %call46 = invoke fastcc noundef zeroext i1 @_ZN4pbrtL17upgradeRGBToScaleEPNS_19ParameterDictionaryEPKcPf(ptr noundef %dict, ptr noundef nonnull @.str.247, ptr noundef %totalScale)
           to label %invoke.cont45 unwind label %lpad7
 
 invoke.cont45:                                    ; preds = %land.lhs.true
@@ -21232,7 +21232,7 @@ if.else:                                          ; preds = %invoke.cont45, %if.
   br i1 %cmp.i71, label %land.lhs.true60, label %if.end76
 
 land.lhs.true60:                                  ; preds = %if.else
-  %call62 = invoke fastcc noundef zeroext i1 @_ZN4pbrtL17upgradeRGBToScaleEPNS_19ParameterDictionaryEPKcPf(ptr noundef nonnull %dict, ptr noundef nonnull @.str.250, ptr noundef nonnull %totalScale)
+  %call62 = invoke fastcc noundef zeroext i1 @_ZN4pbrtL17upgradeRGBToScaleEPNS_19ParameterDictionaryEPKcPf(ptr noundef %dict, ptr noundef nonnull @.str.250, ptr noundef %totalScale)
           to label %invoke.cont61 unwind label %lpad7
 
 invoke.cont61:                                    ; preds = %land.lhs.true60
@@ -21889,7 +21889,7 @@ eh.resume:                                        ; preds = %ehcleanup139, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4pbrtL17upgradeRGBToScaleEPNS_19ParameterDictionaryEPKcPf(ptr noundef %dict, ptr noundef %name, ptr nocapture noundef %totalScale) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4pbrtL17upgradeRGBToScaleEPNS_19ParameterDictionaryEPKcPf(ptr noundef nonnull %dict, ptr noundef %name, ptr nocapture noundef nonnull %totalScale) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.std::vector.106", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -22243,7 +22243,7 @@ _ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_alloca
   br i1 %tobool, label %if.then, label %if.else44
 
 if.then:                                          ; preds = %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEED2Ev.exit
-  %call = invoke fastcc noundef zeroext i1 @_ZN4pbrtL17upgradeRGBToScaleEPNS_19ParameterDictionaryEPKcPf(ptr noundef nonnull %dict, ptr noundef nonnull @.str.113, ptr noundef nonnull %totalScale)
+  %call = invoke fastcc noundef zeroext i1 @_ZN4pbrtL17upgradeRGBToScaleEPNS_19ParameterDictionaryEPKcPf(ptr noundef %dict, ptr noundef nonnull @.str.113, ptr noundef %totalScale)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %if.then
@@ -31240,7 +31240,7 @@ _ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; pr
 
 if.then.i31:                                      ; preds = %_ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i, %land.lhs.true.i.i, %sw.epilog
   %loc.i = getelementptr inbounds i8, ptr %t, i64 16
-  call fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i, i64 %agg.tmp.sroa.0.0.copyload.i, ptr %agg.tmp.sroa.2.0.copyload.i)
+  call fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i, i64 %agg.tmp.sroa.0.0.copyload.i, ptr %agg.tmp.sroa.2.0.copyload.i)
   invoke void @_ZN4pbrt9ErrorExitIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKNS_7FileLocEPKcDpOT_(ptr noundef nonnull %loc.i, ptr noundef nonnull @.str.300, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #32
           to label %invoke.cont.i unwind label %lpad.i
 

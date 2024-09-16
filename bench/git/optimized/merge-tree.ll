@@ -456,7 +456,7 @@ if.then178:                                       ; preds = %land.lhs.true175
   %35 = load ptr, ptr %arrayidx173, align 8
   %buf184 = getelementptr inbounds i8, ptr %35, i64 16
   %36 = load ptr, ptr %buf184, align 8
-  %call185 = call fastcc i32 @real_merge(ptr noundef nonnull %o, ptr noundef nonnull %28, ptr noundef %34, ptr noundef %36, ptr noundef %prefix)
+  %call185 = call fastcc i32 @real_merge(ptr noundef %o, ptr noundef nonnull %28, ptr noundef %34, ptr noundef %36, ptr noundef %prefix)
   br label %if.end205
 
 land.lhs.true187:                                 ; preds = %sub_1, %if.end157, %if.end157.tail, %if.end167
@@ -469,7 +469,7 @@ if.then190:                                       ; preds = %land.lhs.true187
   %38 = load ptr, ptr %call.i.i, align 8
   %buf192 = getelementptr inbounds i8, ptr %38, i64 16
   %39 = load ptr, ptr %buf192, align 8
-  %call195 = call fastcc i32 @real_merge(ptr noundef nonnull %o, ptr noundef null, ptr noundef %39, ptr noundef nonnull %20, ptr noundef %prefix)
+  %call195 = call fastcc i32 @real_merge(ptr noundef %o, ptr noundef null, ptr noundef %39, ptr noundef nonnull %20, ptr noundef %prefix)
   br label %if.end205
 
 if.else196:                                       ; preds = %land.lhs.true169, %land.lhs.true172, %land.lhs.true175, %land.lhs.true187
@@ -557,7 +557,7 @@ if.then237:                                       ; preds = %if.end233
   %46 = load ptr, ptr %argv, align 8
   %arrayidx239 = getelementptr inbounds i8, ptr %argv, i64 8
   %47 = load ptr, ptr %arrayidx239, align 8
-  %call240 = call fastcc i32 @real_merge(ptr noundef nonnull %o, ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %prefix)
+  %call240 = call fastcc i32 @real_merge(ptr noundef %o, ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %prefix)
   br label %return
 
 if.else241:                                       ; preds = %if.end233
@@ -736,15 +736,15 @@ show_result_list.exit.i.i:                        ; preds = %do.body.i.i.i
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i.i.i.i, %show_result_list.exit.i.i
-  %entry.addr.06.i.i.i.i = phi ptr [ %61, %if.end.i.i.i.i ], [ %walk.014.i.i, %show_result_list.exit.i.i ]
-  %stage.i.i4.i.i = getelementptr inbounds i8, ptr %entry.addr.06.i.i.i.i, i64 16
+  %entry.addr.05.i.i.i.i = phi ptr [ %walk.014.i.i, %show_result_list.exit.i.i ], [ %61, %if.end.i.i.i.i ]
+  %stage.i.i4.i.i = getelementptr inbounds i8, ptr %entry.addr.05.i.i.i.i, i64 16
   %bf.load.i.i5.i.i = load i8, ptr %stage.i.i4.i.i, align 8
   %bf.clear.i.i6.i.i = and i8 %bf.load.i.i5.i.i, 3
   %cmp.i.i7.i.i = icmp eq i8 %bf.clear.i.i6.i.i, 2
   br i1 %cmp.i.i7.i.i, label %origin.exit.i.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %while.body.i.i.i.i
-  %link.i.i8.i.i = getelementptr inbounds i8, ptr %entry.addr.06.i.i.i.i, i64 8
+  %link.i.i8.i.i = getelementptr inbounds i8, ptr %entry.addr.05.i.i.i.i, i64 8
   %61 = load ptr, ptr %link.i.i8.i.i, align 8
   %tobool.not.i.i9.i.i = icmp eq ptr %61, null
   br i1 %tobool.not.i.i9.i.i, label %origin.exit.thread.i.i.i, label %while.body.i.i.i.i, !llvm.loop !9
@@ -756,7 +756,7 @@ origin.exit.thread.i.i.i:                         ; preds = %if.end.i.i.i.i
 
 origin.exit.i.i.i:                                ; preds = %while.body.i.i.i.i
   %62 = load ptr, ptr @the_repository, align 8
-  %blob.i.i.i.i = getelementptr inbounds i8, ptr %entry.addr.06.i.i.i.i, i64 32
+  %blob.i.i.i.i = getelementptr inbounds i8, ptr %entry.addr.05.i.i.i.i, i64 32
   %63 = load ptr, ptr %blob.i.i.i.i, align 8
   %oid.i.i.i.i = getelementptr inbounds i8, ptr %63, i64 4
   %call.i.i.i.i = call ptr @repo_read_object_file(ptr noundef %62, ptr noundef nonnull %oid.i.i.i.i, ptr noundef nonnull %type.i.i.i.i, ptr noundef nonnull %size.i.i.i) #13
@@ -936,7 +936,7 @@ declare void @strbuf_rtrim(ptr noundef) local_unnamed_addr #3
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @real_merge(ptr noundef %o, ptr noundef %merge_base, ptr noundef %branch1, ptr noundef %branch2, ptr noundef %prefix) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @real_merge(ptr noundef nonnull %o, ptr noundef %merge_base, ptr noundef %branch1, ptr noundef %branch2, ptr noundef %prefix) unnamed_addr #0 {
 entry:
   %result = alloca %struct.merge_result, align 8
   %opt = alloca %struct.merge_options, align 8

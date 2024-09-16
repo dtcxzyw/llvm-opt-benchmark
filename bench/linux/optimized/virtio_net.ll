@@ -2544,7 +2544,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_virtnet_set_queues(ptr no
 declare dso_local void @sg_init_one(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @virtnet_send_command(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr noundef %3) unnamed_addr #3 align 16 {
+define internal fastcc zeroext i1 @virtnet_send_command(ptr noundef %0, i8 noundef zeroext range(i8 0, 7) %1, i8 noundef zeroext range(i8 0, 3) %2, ptr noundef %3) unnamed_addr #3 align 16 {
   %5 = alloca [4 x ptr], align 16
   %6 = alloca %struct.scatterlist, align 8
   %7 = alloca %struct.scatterlist, align 8
@@ -4998,7 +4998,7 @@ define internal i32 @virtnet_xdp_xmit(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @try_fill_recv(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc zeroext i1 @try_fill_recv(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 2080, 3265) %2) unnamed_addr #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = getelementptr inbounds i8, ptr %0, i64 50
   %6 = getelementptr inbounds i8, ptr %1, i64 632
@@ -5708,7 +5708,7 @@ declare dso_local zeroext i1 @virtqueue_kick_prepare(ptr noundef) local_unnamed_
 declare dso_local zeroext i1 @virtqueue_notify(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @virtnet_rq_alloc(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc ptr @virtnet_rq_alloc(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 2080, 3265) %2) unnamed_addr #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 640
   %5 = tail call zeroext i1 @skb_page_frag_refill(i32 noundef %1, ptr noundef %4, i32 noundef %2) #26
   br i1 %5, label %6, label %113, !prof !20
@@ -9246,7 +9246,7 @@ declare dso_local void @xdp_do_flush() local_unnamed_addr #1
 declare dso_local i32 @_raw_spin_trylock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @receive_buf(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef %5, ptr noundef %6) unnamed_addr #3 align 16 {
+define internal fastcc void @receive_buf(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef %5, ptr noundef %6) unnamed_addr #3 align 16 {
   %8 = alloca %struct.flow_keys_basic, align 4
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -9262,7 +9262,7 @@ define internal fastcc void @receive_buf(ptr nocapture noundef readonly %0, ptr 
 18:                                               ; preds = %7
   %19 = getelementptr inbounds i8, ptr %12, i64 640
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, ptr elementtype(i64) %19) #26, !srcloc !58
-  tail call fastcc void @virtnet_rq_free_buf(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  tail call fastcc void @virtnet_rq_free_buf(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2)
   br label %.thread41
 
 20:                                               ; preds = %7
@@ -9772,7 +9772,7 @@ define internal fastcc void @receive_buf(ptr nocapture noundef readonly %0, ptr 
   br i1 %352, label %376, label %353
 
 353:                                              ; preds = %349
-  %354 = tail call fastcc ptr @page_to_skb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef %3, i32 noundef 4096, i32 noundef 0)
+  %354 = tail call fastcc ptr @page_to_skb(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3, i32 noundef 4096, i32 noundef 0)
   %355 = getelementptr inbounds i8, ptr %6, i64 8
   %356 = load i8, ptr %13, align 2
   %357 = zext i8 %356 to i32
@@ -9908,7 +9908,7 @@ define internal fastcc void @receive_buf(ptr nocapture noundef readonly %0, ptr 
   %440 = add i32 %439, 1581
   %441 = and i32 %440, -64
   %442 = add i32 %441, 320
-  %443 = tail call ptr @build_skb(ptr noundef %2, i32 noundef %442) #26
+  %443 = tail call ptr @build_skb(ptr noundef nonnull %2, i32 noundef %442) #26
   %444 = icmp eq ptr %443, null
   br i1 %444, label %.thread39, label %445, !prof !40
 
@@ -10162,7 +10162,7 @@ define internal fastcc void @receive_buf(ptr nocapture noundef readonly %0, ptr 
   br i1 %600, label %.thread49, label %601
 
 .thread49:                                        ; preds = %588, %594, %598
-  call fastcc void @virtio_net_hdr_set_proto(ptr noundef nonnull %463, ptr noundef %464)
+  call fastcc void @virtio_net_hdr_set_proto(ptr noundef %463, ptr noundef %464)
   br label %610
 
 601:                                              ; preds = %598
@@ -10407,7 +10407,7 @@ declare dso_local zeroext i16 @eth_type_trans(ptr noundef, ptr noundef) local_un
 declare dso_local i32 @napi_gro_receive(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @receive_mergeable_xdp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr nocapture noundef %7, ptr noundef %8) unnamed_addr #3 align 16 {
+define internal fastcc ptr @receive_mergeable_xdp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6, ptr nocapture noundef %7, ptr noundef %8) unnamed_addr #3 align 16 {
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
@@ -11154,7 +11154,7 @@ define internal fastcc ptr @receive_mergeable_xdp(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @page_to_skb(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #3 align 16 {
+define internal fastcc ptr @page_to_skb(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 4194304) %5, i32 noundef %6) unnamed_addr #3 align 16 {
   %8 = load i64, ptr @vmemmap_base, align 8
   %9 = ptrtoint ptr %2 to i64
   %10 = sub i64 %9, %8
@@ -11589,7 +11589,7 @@ define internal fastcc void @mergeable_buf_free(ptr nocapture noundef readonly %
 declare dso_local void @__rcu_read_lock() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 1, 5) i32 @virtnet_xdp_handler(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 1, 5) i32 @virtnet_xdp_handler(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4) unnamed_addr #3 align 16 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @bpf_stats_enabled_key, i32 2) #26
@@ -11774,7 +11774,7 @@ define internal fastcc noundef range(i32 1, 5) i32 @virtnet_xdp_handler(ptr noun
 115:                                              ; preds = %.thread
   %116 = getelementptr inbounds i8, ptr %4, i64 40
   tail call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %116, ptr elementtype(i64) %116) #26, !srcloc !63
-  %117 = tail call i32 @xdp_do_redirect(ptr noundef %2, ptr noundef %1, ptr noundef %0) #26
+  %117 = tail call i32 @xdp_do_redirect(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %0) #26
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %119, label %.thread6
 
@@ -11785,7 +11785,7 @@ define internal fastcc noundef range(i32 1, 5) i32 @virtnet_xdp_handler(ptr noun
   br label %.thread6
 
 122:                                              ; preds = %.thread
-  tail call void @bpf_warn_invalid_xdp_action(ptr noundef %2, ptr noundef %0, i32 noundef %44) #26
+  tail call void @bpf_warn_invalid_xdp_action(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %44) #26
   br label %123
 
 123:                                              ; preds = %122, %.thread
@@ -11811,7 +11811,7 @@ define internal fastcc noundef range(i32 1, 5) i32 @virtnet_xdp_handler(ptr noun
 133:                                              ; preds = %130
   %134 = getelementptr inbounds i8, ptr %131, i64 8
   %135 = load ptr, ptr %134, align 8
-  %136 = tail call i32 @__SCT__tp_func_xdp_exception(ptr noundef %135, ptr noundef %2, ptr noundef %0, i32 noundef %44) #26
+  %136 = tail call i32 @__SCT__tp_func_xdp_exception(ptr noundef %135, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %44) #26
   br label %137
 
 137:                                              ; preds = %133, %130
@@ -11838,7 +11838,7 @@ define internal fastcc noundef range(i32 1, 5) i32 @virtnet_xdp_handler(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @xdp_linearize_page(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) unnamed_addr #3 align 16 {
+define internal fastcc ptr @xdp_linearize_page(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 64, 512) %4, ptr nocapture noundef %5) unnamed_addr #3 align 16 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr %5, align 4
   %9 = add nuw nsw i32 %4, -3777
@@ -12115,7 +12115,7 @@ declare dso_local void @__free_pages(ptr noundef, i32 noundef) local_unnamed_add
 declare dso_local void @xdp_return_frame_rx_napi(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_xdp_exception(ptr noundef %0, ptr noundef %1) unnamed_addr #11 align 16 {
+define internal fastcc void @trace_xdp_exception(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #11 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_xdp_exception, i64 8), i32 2) #26
           to label %23 [label %3], !srcloc !45
 
@@ -12138,7 +12138,7 @@ define internal fastcc void @trace_xdp_exception(ptr noundef %0, ptr noundef %1)
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @__SCT__tp_func_xdp_exception(ptr noundef %14, ptr noundef %0, ptr noundef %1, i32 noundef 3) #26
+  %15 = tail call i32 @__SCT__tp_func_xdp_exception(ptr noundef %14, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 3) #26
   br label %16
 
 16:                                               ; preds = %12, %9
@@ -12190,7 +12190,7 @@ declare void @llvm.write_register.i64(metadata, i64) #22
 declare dso_local ptr @build_skb(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc void @xdp_update_skb_shared_info(ptr nocapture noundef %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #23 align 16 {
+define internal fastcc void @xdp_update_skb_shared_info(ptr nocapture noundef nonnull %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #23 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 188
@@ -12236,7 +12236,7 @@ declare dso_local ptr @__napi_alloc_skb(ptr noundef, i32 noundef, i32 noundef) l
 declare dso_local ptr @__alloc_skb(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @receive_small_xdp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef %7, ptr noundef %8) unnamed_addr #3 align 16 {
+define internal fastcc ptr @receive_small_xdp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef range(i32 0, 1519) %6, ptr nocapture noundef %7, ptr noundef %8) unnamed_addr #3 align 16 {
   %10 = alloca %struct.xdp_buff, align 8
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -12513,7 +12513,7 @@ define internal fastcc ptr @receive_small_xdp(ptr noundef %0, ptr nocapture noun
 declare dso_local zeroext i1 @skb_partial_csum_set(ptr noundef, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc void @virtio_net_hdr_set_proto(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #24 align 16 {
+define internal fastcc void @virtio_net_hdr_set_proto(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #24 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 176
   %4 = load i16, ptr %3, align 8
   %5 = icmp eq i16 %4, 0

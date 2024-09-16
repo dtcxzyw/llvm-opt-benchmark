@@ -1204,7 +1204,7 @@ declare void @DH_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @DH_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dh_gen_init_base(ptr noundef %provctx, i32 noundef %selection, ptr noundef %params, i32 noundef %type) unnamed_addr #0 {
+define internal fastcc ptr @dh_gen_init_base(ptr noundef %provctx, i32 noundef %selection, ptr noundef %params, i32 noundef range(i32 0, 4097) %type) unnamed_addr #0 {
 entry:
   %call = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #7
   %call1 = tail call i32 @ossl_prov_is_running() #7

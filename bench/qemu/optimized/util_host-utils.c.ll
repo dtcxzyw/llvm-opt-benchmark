@@ -186,7 +186,7 @@ if.end:                                           ; preds = %if.then20, %if.then
   %dlo.0.off64 = phi i64 [ %retval.sroa.2.0.extract.trunc.i132, %if.then20 ], [ %extract.t49, %if.then19 ]
   %divisor.addr.0 = phi i128 [ %shl.i, %if.then20 ], [ %divisor.sroa.0.0.insert.insert, %if.then19 ]
   store i128 0, ptr %phigh, align 16
-  %call41 = call fastcc { i64, i64 } @udiv256_qrnnd(ptr noundef nonnull %rem, i64 noundef %.off0229, i64 noundef %.off64232, i64 noundef %dlo.0.off0, i64 noundef %dlo.0.off64, i128 noundef %divisor.addr.0)
+  %call41 = call fastcc { i64, i64 } @udiv256_qrnnd(ptr noundef %rem, i64 noundef %.off0229, i64 noundef %.off64232, i64 noundef %dlo.0.off0, i64 noundef %dlo.0.off64, i128 noundef %divisor.addr.0)
   br label %if.end83
 
 if.else43:                                        ; preds = %clz128.exit
@@ -212,7 +212,7 @@ if.then45:                                        ; preds = %if.else43
   %retval.sroa.2.0.extract.shift.i200 = lshr i128 %shl.i198, 64
   %retval.sroa.2.0.extract.trunc.i201 = trunc nuw i128 %retval.sroa.2.0.extract.shift.i200 to i64
   %coerce68.sroa.0.0.extract.trunc = trunc i128 %or.i187 to i64
-  %call69 = call fastcc { i64, i64 } @udiv256_qrnnd(ptr noundef nonnull %dhi, i64 noundef %retval.sroa.0.0.extract.trunc.i152, i64 noundef %retval.sroa.2.0.extract.trunc.i154, i64 noundef %coerce68.sroa.0.0.extract.trunc, i64 noundef %retval.sroa.2.0.extract.trunc.i190, i128 noundef %shl.i140)
+  %call69 = call fastcc { i64, i64 } @udiv256_qrnnd(ptr noundef %dhi, i64 noundef %retval.sroa.0.0.extract.trunc.i152, i64 noundef %retval.sroa.2.0.extract.trunc.i154, i64 noundef %coerce68.sroa.0.0.extract.trunc, i64 noundef %retval.sroa.2.0.extract.trunc.i190, i128 noundef %shl.i140)
   %5 = extractvalue { i64, i64 } %call69, 0
   %6 = extractvalue { i64, i64 } %call69, 1
   %coerce70.sroa.2.0.insert.ext = zext i64 %6 to i128
@@ -244,7 +244,7 @@ if.end78:                                         ; preds = %if.else71, %if.then
   %dlo.1.off64 = phi i64 [ %extract.t40, %if.else71 ], [ %retval.sroa.2.0.extract.trunc.i201, %if.then45 ]
   %divisor.addr.1 = phi i128 [ %divisor.sroa.0.0.insert.insert, %if.else71 ], [ %shl.i140, %if.then45 ]
   store i128 %storemerge, ptr %phigh, align 16
-  %call81 = call fastcc { i64, i64 } @udiv256_qrnnd(ptr noundef nonnull %rem, i64 noundef %.off0, i64 noundef %.off64, i64 noundef %dlo.1.off0, i64 noundef %dlo.1.off64, i128 noundef %divisor.addr.1)
+  %call81 = call fastcc { i64, i64 } @udiv256_qrnnd(ptr noundef %rem, i64 noundef %.off0, i64 noundef %.off64, i64 noundef %dlo.1.off0, i64 noundef %dlo.1.off64, i128 noundef %divisor.addr.1)
   br label %if.end83
 
 if.end83:                                         ; preds = %if.end78, %if.end
@@ -273,7 +273,7 @@ return:                                           ; preds = %if.end83, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal fastcc { i64, i64 } @udiv256_qrnnd(ptr nocapture noundef writeonly %r, i64 noundef %n1.coerce0, i64 noundef %n1.coerce1, i64 noundef %n0.coerce0, i64 noundef %n0.coerce1, i128 noundef %d) unnamed_addr #1 {
+define internal fastcc { i64, i64 } @udiv256_qrnnd(ptr nocapture noundef nonnull writeonly %r, i64 noundef %n1.coerce0, i64 noundef %n1.coerce1, i64 noundef %n0.coerce0, i64 noundef %n0.coerce1, i128 noundef %d) unnamed_addr #1 {
 entry:
   %coerce.sroa.2.0.extract.shift = lshr i128 %d, 64
   %coerce.sroa.2.0.extract.trunc = trunc nuw i128 %coerce.sroa.2.0.extract.shift to i64

@@ -1181,7 +1181,7 @@ default.unreachable24:                            ; preds = %24
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @yyunput(i32 noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #1 {
+define internal fastcc void @yyunput(i32 noundef range(i32 -128, 128) %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 48

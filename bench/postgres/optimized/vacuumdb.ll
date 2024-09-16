@@ -671,7 +671,7 @@ escape_quotes.exit:                               ; preds = %94
   %191 = trunc nuw i8 %.042 to i1
   %192 = trunc nuw i8 %.046 to i1
   %193 = trunc nuw i8 %.044 to i1
-  call fastcc void @vacuum_all_databases(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext %191, i32 noundef %187, ptr noundef %17, i1 noundef zeroext %192, i1 noundef zeroext %193)
+  call fastcc void @vacuum_all_databases(ptr noundef %4, ptr noundef %5, i1 noundef zeroext %191, i32 noundef %187, ptr noundef %17, i1 noundef zeroext %192, i1 noundef zeroext %193)
   br label %.loopexit
 
 194:                                              ; preds = %186
@@ -706,7 +706,7 @@ escape_quotes.exit:                               ; preds = %94
 206:                                              ; preds = %.preheader, %206
   %.0132 = phi i32 [ 0, %.preheader ], [ %208, %206 ]
   %207 = load i32, ptr %7, align 4
-  call fastcc void @vacuum_one_database(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %.0132, ptr noundef nonnull %6, i32 noundef %207, ptr noundef %17, i1 noundef zeroext %204, i1 noundef zeroext %205)
+  call fastcc void @vacuum_one_database(ptr noundef %4, ptr noundef %5, i32 noundef %.0132, ptr noundef nonnull %6, i32 noundef %207, ptr noundef %17, i1 noundef zeroext %204, i1 noundef zeroext %205)
   %208 = add nuw nsw i32 %.0132, 1
   %exitcond.not = icmp eq i32 %208, 3
   br i1 %exitcond.not, label %.loopexit, label %206, !llvm.loop !7
@@ -715,7 +715,7 @@ escape_quotes.exit:                               ; preds = %94
   %210 = load i32, ptr %7, align 4
   %211 = trunc nuw i8 %.046 to i1
   %212 = trunc nuw i8 %.044 to i1
-  call fastcc void @vacuum_one_database(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef -1, ptr noundef nonnull %6, i32 noundef %210, ptr noundef %17, i1 noundef zeroext %211, i1 noundef zeroext %212)
+  call fastcc void @vacuum_one_database(ptr noundef %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %6, i32 noundef %210, ptr noundef %17, i1 noundef zeroext %211, i1 noundef zeroext %212)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %206, %209, %190
@@ -873,8 +873,8 @@ define dso_local void @check_objfilter() local_unnamed_addr #3 {
 declare void @setup_cancel_handler(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vacuum_all_databases(ptr noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #3 {
-  %8 = tail call ptr @connectMaintenanceDatabase(ptr noundef %0, ptr noundef %4, i1 noundef zeroext %5) #9
+define internal fastcc void @vacuum_all_databases(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #3 {
+  %8 = tail call ptr @connectMaintenanceDatabase(ptr noundef nonnull %0, ptr noundef %4, i1 noundef zeroext %5) #9
   %9 = tail call ptr @executeQuery(ptr noundef %8, ptr noundef nonnull @.str.119, i1 noundef zeroext %5) #9
   tail call void @PQfinish(ptr noundef %8) #9
   br i1 %2, label %.preheader35, label %.preheader36
@@ -934,7 +934,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #6
 declare ptr @get_user_name_or_exit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vacuum_one_database(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #3 {
+define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, i32 noundef range(i32 -2147483648, 3) %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #3 {
   %9 = alloca %struct.PQExpBufferData, align 8
   %10 = alloca %struct.PQExpBufferData, align 8
   %11 = alloca %struct.PQExpBufferData, align 8
@@ -942,7 +942,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef %0, ptr nocapture n
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %15 = tail call ptr @connectDatabase(ptr noundef %0, ptr noundef %5, i1 noundef zeroext %6, i1 noundef zeroext false, i1 noundef zeroext true) #9
+  %15 = tail call ptr @connectDatabase(ptr noundef nonnull %0, ptr noundef %5, i1 noundef zeroext %6, i1 noundef zeroext false, i1 noundef zeroext true) #9
   %16 = getelementptr inbounds i8, ptr %1, i64 5
   %17 = load i8, ptr %16, align 1
   %18 = trunc i8 %17 to i1
@@ -1368,7 +1368,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef %0, ptr nocapture n
 
 191:                                              ; preds = %._crit_edge178, %187
   %.0129 = phi ptr [ %190, %187 ], [ null, %._crit_edge178 ]
-  %192 = call ptr @ParallelSlotsSetup(i32 noundef %spec.store.select, ptr noundef %0, ptr noundef %5, i1 noundef zeroext %6, ptr noundef %.0129) #9
+  %192 = call ptr @ParallelSlotsSetup(i32 noundef %spec.store.select, ptr noundef nonnull %0, ptr noundef %5, i1 noundef zeroext %6, ptr noundef %.0129) #9
   call void @ParallelSlotsAdoptConn(ptr noundef %192, ptr noundef %15) #9
   call void @initPQExpBuffer(ptr noundef nonnull %9) #9
   %193 = load ptr, ptr %12, align 8

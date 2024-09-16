@@ -114,7 +114,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZN18cranelift_frontend6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN18cranelift_frontend6switch6Switch21build_search_branches17h9a016f6a8e4f7787E(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 16 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN18cranelift_frontend6switch6Switch21build_search_branches17h9a016f6a8e4f7787E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 16 %3, i64 noundef range(i64 0, 4) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %8 = alloca { i8, [15 x i8] }, align 8
@@ -237,7 +237,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit: 
   br label %69
 
 68:                                               ; preds = %51
-  tail call fastcc void @_ZN18cranelift_frontend6switch6Switch16build_jump_table17h82c237a1b44e9d09E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, i128 noundef 0, ptr noalias noundef nonnull readonly align 4 %.val19, i64 noundef %.val20)
+  tail call fastcc void @_ZN18cranelift_frontend6switch6Switch16build_jump_table17h82c237a1b44e9d09E(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, i128 noundef 0, ptr noalias noundef nonnull readonly align 4 %.val19, i64 noundef %.val20)
   br label %69
 
 69:                                               ; preds = %_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit26, %_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit31, %_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit, %68
@@ -247,7 +247,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit: 
 70:                                               ; preds = %46
   %.val = load ptr, ptr %47, align 8, !nonnull !12, !noundef !12
   %71 = load i32, ptr %.val, align 4, !noundef !12
-  %72 = tail call fastcc noundef i32 @_ZN18cranelift_frontend6switch13icmp_imm_u12817h4cb438042d9b7ba9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef 0, i32 noundef %1, i128 noundef %42)
+  %72 = tail call fastcc noundef i32 @_ZN18cranelift_frontend6switch13icmp_imm_u12817h4cb438042d9b7ba9E(ptr noalias noundef align 8 dereferenceable(24) %0, i8 noundef 0, i32 noundef %1, i128 noundef %42)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   %73 = load i32, ptr %17, align 4, !alias.scope !55, !noundef !12
   %.not.i.i25 = icmp eq i32 %73, -1
@@ -277,7 +277,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit26
   br label %69
 
 83:                                               ; preds = %46
-  %84 = tail call fastcc noundef i32 @_ZN18cranelift_frontend6switch13icmp_imm_u12817h4cb438042d9b7ba9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef 7, i32 noundef %1, i128 noundef %42)
+  %84 = tail call fastcc noundef i32 @_ZN18cranelift_frontend6switch13icmp_imm_u12817h4cb438042d9b7ba9E(ptr noalias noundef align 8 dereferenceable(24) %0, i8 noundef 7, i32 noundef %1, i128 noundef %42)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %85 = load ptr, ptr %0, align 8, !alias.scope !78, !nonnull !12, !align !26, !noundef !12
   %86 = tail call noundef align 8 dereferenceable(776) ptr @"_ZN88_$LT$cranelift_codegen..ir..function..Function$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h515952f88407bff7E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %85), !noalias !78
@@ -338,7 +338,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   store i32 %87, ptr %17, align 4, !alias.scope !122
   %108 = load ptr, ptr %47, align 8, !nonnull !12, !noundef !12
-  tail call fastcc void @_ZN18cranelift_frontend6switch6Switch16build_jump_table17h82c237a1b44e9d09E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, i128 noundef %42, ptr noalias noundef nonnull readonly align 4 %108, i64 noundef %.val18)
+  tail call fastcc void @_ZN18cranelift_frontend6switch6Switch16build_jump_table17h82c237a1b44e9d09E(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, i128 noundef %42, ptr noalias noundef nonnull readonly align 4 %108, i64 noundef %.val18)
   br label %69
 
 109:                                              ; preds = %69
@@ -366,7 +366,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit31
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN18cranelift_frontend6switch6Switch16build_jump_table17h82c237a1b44e9d09E(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, i128 noundef %3, ptr noalias noundef nonnull readonly align 4 %4, i64 noundef %5) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN18cranelift_frontend6switch6Switch16build_jump_table17h82c237a1b44e9d09E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, i128 noundef %3, ptr noalias noundef nonnull readonly align 4 %4, i64 noundef %5) unnamed_addr #1 personality ptr @rust_eh_personality {
   %7 = alloca { i8, [15 x i8] }, align 8
   %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %9 = alloca { i8, [15 x i8] }, align 8
@@ -1363,7 +1363,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit.i
           to label %209 unwind label %.loopexit.split-lp.i16
 
 207:                                              ; preds = %202
-  invoke fastcc void @_ZN18cranelift_frontend6switch6Switch21build_search_branches17h9a016f6a8e4f7787E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef nonnull readonly align 16 %188, i64 noundef %190)
+  invoke fastcc void @_ZN18cranelift_frontend6switch6Switch21build_search_branches17h9a016f6a8e4f7787E(ptr noalias noundef align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef nonnull readonly align 16 %188, i64 noundef %190)
           to label %_ZN18cranelift_frontend6switch6Switch17build_search_tree17h4d8d965e8cd512e0E.exit unwind label %311
 
 .loopexit.i24:                                    ; preds = %300, %291, %.noexc35.i, %283, %.noexc31.i, %279, %.noexc29.i, %.noexc28.i, %.noexc27.i, %.noexc26.i, %.noexc25.i, %.noexc24.i, %270, %_ZN18cranelift_frontend8frontend15FunctionBuilder12create_block17hfb9886d520218984E.exit20.i, %262, %.noexc17.i, %_ZN18cranelift_frontend8frontend15FunctionBuilder12create_block17hfb9886d520218984E.exit.i, %252, %.noexc13.i, %241, %240
@@ -1467,7 +1467,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit.i
   br i1 %239, label %240, label %241
 
 240:                                              ; preds = %238
-  invoke fastcc void @_ZN18cranelift_frontend6switch6Switch21build_search_branches17h9a016f6a8e4f7787E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef nonnull readonly align 16 %.sroa.7.0.copyload.i, i64 noundef %.sroa.8.0.copyload.i)
+  invoke fastcc void @_ZN18cranelift_frontend6switch6Switch21build_search_branches17h9a016f6a8e4f7787E(ptr noalias noundef align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef nonnull readonly align 16 %.sroa.7.0.copyload.i, i64 noundef %.sroa.8.0.copyload.i)
           to label %._crit_edge.i27 unwind label %.loopexit.i24
 
 ._crit_edge.i27:                                  ; preds = %240
@@ -1525,7 +1525,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder12create_block17hfb9886d5202189
 
 _ZN18cranelift_frontend8frontend15FunctionBuilder12create_block17hfb9886d520218984E.exit20.i: ; preds = %262, %.noexc18.i
   %265 = load i128, ptr %243, align 16, !noundef !12
-  %266 = invoke fastcc noundef i32 @_ZN18cranelift_frontend6switch13icmp_imm_u12817h4cb438042d9b7ba9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i8 noundef 7, i32 noundef %2, i128 noundef %265)
+  %266 = invoke fastcc noundef i32 @_ZN18cranelift_frontend6switch13icmp_imm_u12817h4cb438042d9b7ba9E(ptr noalias noundef align 8 dereferenceable(24) %1, i8 noundef 7, i32 noundef %2, i128 noundef %265)
           to label %267 unwind label %.loopexit.i24
 
 267:                                              ; preds = %_ZN18cranelift_frontend8frontend15FunctionBuilder12create_block17hfb9886d520218984E.exit20.i
@@ -1746,7 +1746,7 @@ _ZN18cranelift_frontend6switch6Switch17build_search_tree17h4d8d965e8cd512e0E.exi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN18cranelift_frontend6switch13icmp_imm_u12817h4cb438042d9b7ba9E(ptr noalias noundef align 8 dereferenceable(24) %0, i8 noundef %1, i32 noundef %2, i128 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef i32 @_ZN18cranelift_frontend6switch13icmp_imm_u12817h4cb438042d9b7ba9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef range(i8 0, 8) %1, i32 noundef %2, i128 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { i8, [15 x i8] }, align 8
   %6 = alloca { i8, [15 x i8] }, align 8
   %7 = alloca { i8, [15 x i8] }, align 8

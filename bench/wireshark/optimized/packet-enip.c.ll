@@ -3364,7 +3364,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_tcpip_port_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_tcpip_port_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -3372,67 +3372,67 @@ define internal fastcc noundef i32 @dissect_tcpip_port_information(ptr noundef %
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %10, ptr noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %7) #11
   %12 = add i32 %4, 1
   %13 = load i32, ptr %7, align 4
-  %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %.not44 = icmp eq i32 %13, 0
+  br i1 %.not44, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %14 = icmp eq i32 %5, 1
-  br label %15
+  %.not = icmp eq i32 %5, 0
+  br label %14
 
-15:                                               ; preds = %.lr.ph, %45
-  %.043 = phi i32 [ %12, %.lr.ph ], [ %.2, %45 ]
-  %.04142 = phi i32 [ 0, %.lr.ph ], [ %46, %45 ]
-  %16 = load i32, ptr @ett_cmd_data, align 4
-  %17 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %3, i32 noundef %.043, i32 noundef 0, i32 noundef %16, ptr noundef nonnull %8, ptr noundef nonnull @.str.749) #11
-  br i1 %14, label %18, label %28
+14:                                               ; preds = %.lr.ph, %44
+  %.043 = phi i32 [ %12, %.lr.ph ], [ %.2, %44 ]
+  %.04142 = phi i32 [ 0, %.lr.ph ], [ %45, %44 ]
+  %15 = load i32, ptr @ett_cmd_data, align 4
+  %16 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %3, i32 noundef %.043, i32 noundef 0, i32 noundef %15, ptr noundef nonnull %8, ptr noundef nonnull @.str.749) #11
+  br i1 %.not, label %27, label %17
 
-18:                                               ; preds = %15
-  %19 = call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %.043) #11
-  %20 = call ptr @wmem_packet_scope() #11
-  %21 = add i32 %.043, 1
-  %22 = zext i8 %19 to i32
-  %23 = call ptr @tvb_get_string_enc(ptr noundef %20, ptr noundef %3, i32 noundef %21, i32 noundef %22, i32 noundef 0) #11
-  %24 = load i32, ptr @hf_tcpip_port_name, align 4
-  %25 = call i32 @dissect_cip_string_type(ptr noundef %0, ptr noundef %17, ptr noundef %2, ptr noundef %3, i32 noundef %.043, i32 noundef %24, i32 noundef 218) #11
-  %26 = add i32 %25, %.043
-  %27 = load ptr, ptr %8, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef nonnull @.str.750, ptr noundef %23) #11
-  br label %28
+17:                                               ; preds = %14
+  %18 = call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %.043) #11
+  %19 = call ptr @wmem_packet_scope() #11
+  %20 = add i32 %.043, 1
+  %21 = zext i8 %18 to i32
+  %22 = call ptr @tvb_get_string_enc(ptr noundef %19, ptr noundef %3, i32 noundef %20, i32 noundef %21, i32 noundef 0) #11
+  %23 = load i32, ptr @hf_tcpip_port_name, align 4
+  %24 = call i32 @dissect_cip_string_type(ptr noundef %0, ptr noundef %16, ptr noundef %2, ptr noundef %3, i32 noundef %.043, i32 noundef %23, i32 noundef 218) #11
+  %25 = add i32 %24, %.043
+  %26 = load ptr, ptr %8, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %26, ptr noundef nonnull @.str.750, ptr noundef %22) #11
+  br label %27
 
-28:                                               ; preds = %18, %15
-  %.1 = phi i32 [ %26, %18 ], [ %.043, %15 ]
-  %29 = load i32, ptr @hf_tcpip_port_number, align 4
-  %30 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %17, i32 noundef %29, ptr noundef %3, i32 noundef %.1, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %9) #11
-  %31 = add i32 %.1, 2
-  %32 = load ptr, ptr %8, align 8
-  %33 = load i32, ptr %9, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef nonnull @.str.751, i32 noundef %33) #11
-  %34 = load i32, ptr @hf_tcpip_port_protocol, align 4
-  %35 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %34, ptr noundef %3, i32 noundef %31, i32 noundef 1, i32 noundef -2147483648) #11
-  %36 = add i32 %.1, 3
-  %37 = load i32, ptr @hf_tcpip_port_admin_state, align 4
-  %38 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %37, ptr noundef %3, i32 noundef %36, i32 noundef 1, i32 noundef -2147483648) #11
-  %39 = add i32 %.1, 4
-  br i1 %14, label %40, label %45
+27:                                               ; preds = %17, %14
+  %.1 = phi i32 [ %25, %17 ], [ %.043, %14 ]
+  %28 = load i32, ptr @hf_tcpip_port_number, align 4
+  %29 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %16, i32 noundef %28, ptr noundef %3, i32 noundef %.1, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %9) #11
+  %30 = add i32 %.1, 2
+  %31 = load ptr, ptr %8, align 8
+  %32 = load i32, ptr %9, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %31, ptr noundef nonnull @.str.751, i32 noundef %32) #11
+  %33 = load i32, ptr @hf_tcpip_port_protocol, align 4
+  %34 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %33, ptr noundef %3, i32 noundef %30, i32 noundef 1, i32 noundef -2147483648) #11
+  %35 = add i32 %.1, 3
+  %36 = load i32, ptr @hf_tcpip_port_admin_state, align 4
+  %37 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %36, ptr noundef %3, i32 noundef %35, i32 noundef 1, i32 noundef -2147483648) #11
+  %38 = add i32 %.1, 4
+  br i1 %.not, label %44, label %39
 
-40:                                               ; preds = %28
-  %41 = load i32, ptr @hf_tcpip_port_admin_capability, align 4
-  %42 = load i32, ptr @ett_tcpip_admin_capability, align 4
-  %43 = call ptr @proto_tree_add_bitmask(ptr noundef %17, ptr noundef %3, i32 noundef %39, i32 noundef %41, i32 noundef %42, ptr noundef nonnull @dissect_tcpip_port_information.capability, i32 noundef -2147483648) #11
-  %44 = add i32 %.1, 5
-  br label %45
+39:                                               ; preds = %27
+  %40 = load i32, ptr @hf_tcpip_port_admin_capability, align 4
+  %41 = load i32, ptr @ett_tcpip_admin_capability, align 4
+  %42 = call ptr @proto_tree_add_bitmask(ptr noundef %16, ptr noundef %3, i32 noundef %38, i32 noundef %40, i32 noundef %41, ptr noundef nonnull @dissect_tcpip_port_information.capability, i32 noundef -2147483648) #11
+  %43 = add i32 %.1, 5
+  br label %44
 
-45:                                               ; preds = %28, %40
-  %.2 = phi i32 [ %44, %40 ], [ %39, %28 ]
-  %46 = add nuw i32 %.04142, 1
-  %47 = load i32, ptr %7, align 4
-  %48 = icmp ult i32 %46, %47
-  br i1 %48, label %15, label %._crit_edge, !llvm.loop !14
+44:                                               ; preds = %27, %39
+  %.2 = phi i32 [ %43, %39 ], [ %38, %27 ]
+  %45 = add nuw i32 %.04142, 1
+  %46 = load i32, ptr %7, align 4
+  %47 = icmp ult i32 %45, %46
+  br i1 %47, label %14, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %45, %6
-  %.0.lcssa = phi i32 [ %12, %6 ], [ %.2, %45 ]
-  %49 = sub i32 %.0.lcssa, %4
-  ret i32 %49
+._crit_edge:                                      ; preds = %44, %6
+  %.0.lcssa = phi i32 [ %12, %6 ], [ %.2, %44 ]
+  %48 = sub i32 %.0.lcssa, %4
+  ret i32 %48
 }
 
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -3690,7 +3690,7 @@ declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_cpf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 {
+define internal fastcc void @dissect_cpf(ptr noundef %0, i32 noundef range(i32 0, 65536) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef range(i32 0, 31) %8, i32 noundef %9) unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
@@ -4727,7 +4727,7 @@ dissect_item_sockaddr_info.exit:                  ; preds = %.sink.split.i151, %
   br i1 %.not51.i, label %584, label %586
 
 584:                                              ; preds = %580
-  %585 = call fastcc ptr @create_connection_id_list(ptr noundef nonnull %581)
+  %585 = call fastcc ptr @create_connection_id_list(ptr noundef %581)
   br label %586
 
 586:                                              ; preds = %584, %580
@@ -5150,7 +5150,7 @@ copy_address_wmem.exit:                           ; preds = %37, %.thread, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @create_connection_id_list(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc ptr @create_connection_id_list(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = tail call ptr @wmem_file_scope() #11
   %3 = tail call noalias ptr @wmem_alloc(ptr noundef %2, i64 noundef 16) #11
   %4 = tail call ptr @wmem_file_scope() #11
@@ -5161,7 +5161,7 @@ define internal fastcc ptr @create_connection_id_list(ptr noundef %0) unnamed_ad
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %7, ptr %8, align 8
   %9 = load i32, ptr @proto_enip, align 4
-  tail call void @conversation_add_proto_data(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %3) #11
+  tail call void @conversation_add_proto_data(ptr noundef nonnull %0, i32 noundef %9, ptr noundef nonnull %3) #11
   ret ptr %3
 }
 

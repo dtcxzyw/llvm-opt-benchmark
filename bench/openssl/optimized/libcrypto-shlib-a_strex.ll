@@ -53,7 +53,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @X509_NAME_print(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_name_ex(ptr nocapture noundef readonly %io_ch, ptr noundef %arg, ptr noundef %n, i32 noundef %indent, i64 noundef %flags) unnamed_addr #0 {
+define internal fastcc i32 @do_name_ex(ptr nocapture noundef readonly %io_ch, ptr noundef %arg, ptr noundef %n, i32 noundef %indent, i64 noundef range(i64 1, 0) %flags) unnamed_addr #0 {
 entry:
   %objtmp = alloca [80 x i8], align 16
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %indent, i32 0)
@@ -695,7 +695,7 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 declare ptr @ASN1_tag2str(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @do_buf(ptr noundef %buf, i32 noundef %buflen, i32 noundef %type, i16 noundef zeroext %flags, ptr noundef %quotes, ptr nocapture noundef readonly %io_ch, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @do_buf(ptr noundef %buf, i32 noundef %buflen, i32 noundef %type, i16 noundef zeroext range(i16 0, 1040) %flags, ptr noundef %quotes, ptr nocapture noundef readonly %io_ch, ptr noundef %arg) unnamed_addr #0 {
 entry:
   %c = alloca i64, align 8
   %utfbuf = alloca [6 x i8], align 1
@@ -960,7 +960,7 @@ declare i32 @UTF8_getc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr
 declare i32 @UTF8_putc(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 11) i32 @do_esc_char(i64 noundef %c, i16 noundef zeroext %flags, ptr noundef writeonly %do_quotes, ptr nocapture noundef readonly %io_ch, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 11) i32 @do_esc_char(i64 noundef %c, i16 noundef zeroext range(i16 0, 2048) %flags, ptr noundef writeonly %do_quotes, ptr nocapture noundef readonly %io_ch, ptr noundef %arg) unnamed_addr #0 {
 entry:
   %chtmp = alloca i8, align 1
   %tmphex = alloca [19 x i8], align 16

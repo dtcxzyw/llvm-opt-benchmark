@@ -145,7 +145,7 @@ if.end:                                           ; preds = %if.end6.i, %if.then
 declare i32 @LZ4_compressBound(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @LZ4HC_compress_generic(ptr noundef %ctx, ptr noundef %src, ptr noundef %dst, ptr nocapture noundef %srcSizePtr, i32 noundef %dstCapacity, i32 noundef %cLevel, i32 noundef %limit) unnamed_addr #1 {
+define internal fastcc i32 @LZ4HC_compress_generic(ptr noundef %ctx, ptr noundef %src, ptr noundef %dst, ptr nocapture noundef %srcSizePtr, i32 noundef %dstCapacity, i32 noundef %cLevel, i32 noundef range(i32 0, 3) %limit) unnamed_addr #1 {
 entry:
   %pattern.addr.i2619.i = alloca i32, align 4
   %pattern.addr.i2585.i = alloca i32, align 4
@@ -5659,7 +5659,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @LZ4_compressHC_continue_generic(ptr noundef %LZ4_streamHCPtr, ptr noundef %src, ptr noundef %dst, ptr nocapture noundef %srcSizePtr, i32 noundef %dstCapacity, i32 noundef %limit) unnamed_addr #1 {
+define internal fastcc i32 @LZ4_compressHC_continue_generic(ptr noundef %LZ4_streamHCPtr, ptr noundef %src, ptr noundef %dst, ptr nocapture noundef %srcSizePtr, i32 noundef %dstCapacity, i32 noundef range(i32 0, 3) %limit) unnamed_addr #1 {
 entry:
   %prefixStart = getelementptr inbounds i8, ptr %LZ4_streamHCPtr, i64 262152
   %0 = load ptr, ptr %prefixStart, align 8
@@ -6570,7 +6570,7 @@ LZ4_resetStreamHC_fast.exit:                      ; preds = %if.then.i, %if.end6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @LZ4HC_compress_generic_noDictCtx(ptr nocapture noundef %ctx, ptr noundef %src, ptr noundef %dst, ptr nocapture noundef %srcSizePtr, i32 noundef %dstCapacity, i32 noundef %cLevel, i32 noundef %limit) unnamed_addr #1 {
+define internal fastcc i32 @LZ4HC_compress_generic_noDictCtx(ptr nocapture noundef %ctx, ptr noundef %src, ptr noundef %dst, ptr nocapture noundef %srcSizePtr, i32 noundef %dstCapacity, i32 noundef %cLevel, i32 noundef range(i32 0, 3) %limit) unnamed_addr #1 {
 entry:
   %pattern.addr.i2572 = alloca i32, align 4
   %pattern.addr.i2538 = alloca i32, align 4
@@ -10890,7 +10890,7 @@ LZ4HC_compress_generic_internal.exit:             ; preds = %if.end18.i, %if.the
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @LZ4HC_compress_optimal(ptr nocapture noundef %ctx, ptr noundef %source, ptr noundef %dst, ptr nocapture noundef %srcSizePtr, i32 noundef %dstCapacity, i32 noundef %nbSearches, i64 noundef %sufficient_len, i32 noundef %limit, i32 noundef %fullUpdate, i32 noundef %dict, i32 noundef %favorDecSpeed) unnamed_addr #1 {
+define internal fastcc i32 @LZ4HC_compress_optimal(ptr nocapture noundef %ctx, ptr noundef %source, ptr noundef %dst, ptr nocapture noundef %srcSizePtr, i32 noundef %dstCapacity, i32 noundef %nbSearches, i64 noundef range(i64 0, 4294967296) %sufficient_len, i32 noundef range(i32 0, 3) %limit, i32 noundef range(i32 0, 2) %fullUpdate, i32 noundef range(i32 0, 2) %dict, i32 noundef range(i32 0, 2) %favorDecSpeed) unnamed_addr #1 {
 entry:
   %pattern.addr.i2501 = alloca i32, align 4
   %pattern.addr.i2467 = alloca i32, align 4
@@ -10933,7 +10933,7 @@ while.body.lr.ph.lr.ph:                           ; preds = %if.end
   %iEnd32.i = ptrtoint ptr %add.ptr3 to i64
   %add.ptr8.i = getelementptr inbounds i8, ptr %pattern.addr.i, i64 3
   %add.ptr8.i2091 = getelementptr inbounds i8, ptr %pattern.addr.i2075, i64 3
-  %cmp353.i.i1949 = icmp eq i32 %dict, 1
+  %cmp353.i.i1949 = icmp ne i32 %dict, 0
   %tobool104.not = icmp eq i32 %fullUpdate, 0
   %add.ptr8.i2270 = getelementptr inbounds i8, ptr %pattern.addr.i2254, i64 3
   %add.ptr8.i2304 = getelementptr inbounds i8, ptr %pattern.addr.i2288, i64 3

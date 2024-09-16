@@ -140,7 +140,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %i.018.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %call5.i = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call9, i32 noundef %i.018.i) #4
-  %call6.i = tail call fastcc i32 @set_dist_point_name(ptr noundef nonnull %call1.i.i, ptr noundef %ctx, ptr noundef %call5.i)
+  %call6.i = tail call fastcc i32 @set_dist_point_name(ptr noundef %call1.i.i, ptr noundef %ctx, ptr noundef %call5.i)
   %cmp7.i = icmp sgt i32 %call6.i, 0
   br i1 %cmp7.i, label %for.inc.i, label %if.end9.i
 
@@ -158,7 +158,7 @@ if.end12.i:                                       ; preds = %if.end9.i
 if.then15.i:                                      ; preds = %if.end12.i
   %value.i = getelementptr inbounds i8, ptr %call5.i, i64 16
   %3 = load ptr, ptr %value.i, align 8
-  %call16.i = tail call fastcc i32 @set_reasons(ptr noundef nonnull %reasons.i, ptr noundef %3)
+  %call16.i = tail call fastcc i32 @set_reasons(ptr noundef %reasons.i, ptr noundef %3)
   %tobool.not.i = icmp eq i32 %call16.i, 0
   br i1 %tobool.not.i, label %crldp_from_section.exit.thread, label %for.inc.i
 
@@ -294,7 +294,7 @@ if.end:                                           ; preds = %if.then, %for.body
   br i1 %tobool.not, label %if.end9, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  tail call fastcc void @print_distpoint(ptr noundef %out, ptr noundef nonnull %0, i32 noundef %indent)
+  tail call fastcc void @print_distpoint(ptr noundef %out, ptr noundef %0, i32 noundef %indent)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then6, %if.end
@@ -570,7 +570,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %0 = load ptr, ptr %name6, align 8
   %value = getelementptr inbounds i8, ptr %call5, i64 16
   %1 = load ptr, ptr %value, align 8
-  %call7 = tail call fastcc i32 @set_dist_point_name(ptr noundef nonnull %call1.i, ptr noundef %ctx, ptr noundef %call5)
+  %call7 = tail call fastcc i32 @set_dist_point_name(ptr noundef %call1.i, ptr noundef %ctx, ptr noundef %call5)
   %cmp8 = icmp sgt i32 %call7, 0
   br i1 %cmp8, label %for.inc, label %if.end10
 
@@ -624,7 +624,7 @@ if.else43:                                        ; preds = %if.else35
   br i1 %cmp45, label %if.then46, label %if.else51
 
 if.then46:                                        ; preds = %if.else43
-  %call47 = tail call fastcc i32 @set_reasons(ptr noundef nonnull %onlysomereasons, ptr noundef %1)
+  %call47 = tail call fastcc i32 @set_reasons(ptr noundef %onlysomereasons, ptr noundef %1)
   %tobool48.not = icmp eq i32 %call47, 0
   br i1 %tobool48.not, label %err, label %for.inc
 
@@ -662,7 +662,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @print_distpoint(ptr noundef %out, ptr noundef nonnull %0, i32 noundef %indent)
+  tail call fastcc void @print_distpoint(ptr noundef %out, ptr noundef %0, i32 noundef %indent)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -902,7 +902,7 @@ declare void @GENERAL_NAMES_free(ptr noundef) local_unnamed_addr #2
 declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @set_dist_point_name(ptr nocapture noundef %pdp, ptr noundef %ctx, ptr nocapture noundef readonly %cnf) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @set_dist_point_name(ptr nocapture noundef nonnull %pdp, ptr noundef %ctx, ptr nocapture noundef readonly %cnf) unnamed_addr #1 {
 entry:
   %name = getelementptr inbounds i8, ptr %cnf, i64 8
   %0 = load ptr, ptr %name, align 8
@@ -1021,7 +1021,7 @@ return:                                           ; preds = %if.then42, %if.else
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @set_reasons(ptr nocapture noundef %preas, ptr noundef %value) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @set_reasons(ptr nocapture noundef nonnull %preas, ptr noundef %value) unnamed_addr #1 {
 entry:
   %call = tail call ptr @X509V3_parse_list(ptr noundef %value) #4
   %cmp = icmp eq ptr %call, null
@@ -1195,7 +1195,7 @@ declare i32 @X509V3_get_value_bool(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_distpoint(ptr noundef %out, ptr nocapture noundef readonly %dpn, i32 noundef %indent) unnamed_addr #1 {
+define internal fastcc void @print_distpoint(ptr noundef %out, ptr nocapture noundef nonnull readonly %dpn, i32 noundef %indent) unnamed_addr #1 {
 entry:
   %ntmp = alloca %struct.X509_name_st, align 8
   %0 = load i32, ptr %dpn, align 8

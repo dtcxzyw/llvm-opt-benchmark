@@ -128,7 +128,7 @@ define dso_local noundef i32 @cluster_account_by_user(i32 noundef %0, ptr nocapt
   call void @slurmdb_init_cluster_cond(ptr noundef nonnull %9, i1 noundef zeroext false) #10
   %18 = getelementptr inbounds i8, ptr %15, i64 102
   store i16 1, ptr %18, align 2
-  call fastcc void @_set_assoc_cond(ptr noundef nonnull %10, i32 noundef %0, ptr noundef %1, ptr noundef %15, ptr noundef %16)
+  call fastcc void @_set_assoc_cond(ptr noundef %10, i32 noundef %0, ptr noundef %1, ptr noundef %15, ptr noundef %16)
   %19 = call i32 @list_count(ptr noundef %16) #10
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %.sink.split, label %22
@@ -166,7 +166,7 @@ define dso_local noundef i32 @cluster_account_by_user(i32 noundef %0, ptr nocapt
   br i1 %.not50, label %30, label %29
 
 29:                                               ; preds = %27
-  call fastcc void @_merge_cluster_reps(ptr noundef nonnull %26)
+  call fastcc void @_merge_cluster_reps(ptr noundef %26)
   br label %30
 
 30:                                               ; preds = %29, %27
@@ -603,7 +603,7 @@ declare void @destroy_print_field(ptr noundef) #1
 declare void @slurmdb_init_cluster_cond(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_assoc_cond(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_set_assoc_cond(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = load i32, ptr @all_clusters_flag, align 4
@@ -1300,13 +1300,13 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 declare ptr @slurmdb_report_cluster_account_by_user(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_merge_cluster_reps(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call i32 @list_count(ptr noundef %0) #10
+define internal fastcc void @_merge_cluster_reps(ptr noundef nonnull %0) unnamed_addr #0 {
+  %2 = tail call i32 @list_count(ptr noundef nonnull %0) #10
   %3 = icmp slt i32 %2, 2
   br i1 %3, label %36, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @list_iterator_create(ptr noundef %0) #10
+  %5 = tail call ptr @list_iterator_create(ptr noundef nonnull %0) #10
   %6 = tail call ptr @list_next(ptr noundef %5) #10
   %.not3340 = icmp eq ptr %6, null
   br i1 %.not3340, label %.outer._crit_edge, label %.lr.ph
@@ -1439,7 +1439,7 @@ define dso_local noundef i32 @cluster_user_by_account(i32 noundef %0, ptr nocapt
   %16 = tail call ptr @list_create(ptr noundef nonnull @destroy_print_field) #10
   store ptr %16, ptr @print_fields_list, align 8
   call void @slurmdb_init_cluster_cond(ptr noundef nonnull %8, i1 noundef zeroext false) #10
-  call fastcc void @_set_assoc_cond(ptr noundef nonnull %9, i32 noundef %0, ptr noundef %1, ptr noundef %14, ptr noundef %15)
+  call fastcc void @_set_assoc_cond(ptr noundef %9, i32 noundef %0, ptr noundef %1, ptr noundef %14, ptr noundef %15)
   %17 = call i32 @list_count(ptr noundef %15) #10
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %.sink.split, label %20
@@ -1477,7 +1477,7 @@ define dso_local noundef i32 @cluster_user_by_account(i32 noundef %0, ptr nocapt
   br i1 %.not40, label %28, label %27
 
 27:                                               ; preds = %25
-  call fastcc void @_merge_cluster_reps(ptr noundef nonnull %24)
+  call fastcc void @_merge_cluster_reps(ptr noundef %24)
   br label %28
 
 28:                                               ; preds = %27, %25
@@ -1862,7 +1862,7 @@ define dso_local noundef i32 @cluster_user_by_wckey(i32 noundef %0, ptr nocaptur
   %16 = tail call ptr @list_create(ptr noundef nonnull @destroy_print_field) #10
   store ptr %16, ptr @print_fields_list, align 8
   call void @slurmdb_init_cluster_cond(ptr noundef nonnull %8, i1 noundef zeroext false) #10
-  call fastcc void @_set_wckey_cond(ptr noundef nonnull %9, i32 noundef %0, ptr noundef %1, ptr noundef %14, ptr noundef %15)
+  call fastcc void @_set_wckey_cond(ptr noundef %9, i32 noundef %0, ptr noundef %1, ptr noundef %14, ptr noundef %15)
   %17 = call i32 @list_count(ptr noundef %15) #10
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %.sink.split, label %20
@@ -1900,7 +1900,7 @@ define dso_local noundef i32 @cluster_user_by_wckey(i32 noundef %0, ptr nocaptur
   br i1 %.not40, label %28, label %27
 
 27:                                               ; preds = %25
-  call fastcc void @_merge_cluster_reps(ptr noundef nonnull %24)
+  call fastcc void @_merge_cluster_reps(ptr noundef %24)
   br label %28
 
 28:                                               ; preds = %27, %25
@@ -2265,7 +2265,7 @@ _cluster_user_by_wckey_tres_report.exit:          ; preds = %176, %83
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_wckey_cond(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_set_wckey_cond(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = load i32, ptr @all_clusters_flag, align 4
@@ -3458,7 +3458,7 @@ define dso_local noundef i32 @cluster_wckey_by_user(i32 noundef %0, ptr nocaptur
   %15 = tail call ptr @list_create(ptr noundef nonnull @destroy_print_field) #10
   store ptr %15, ptr @print_fields_list, align 8
   call void @slurmdb_init_cluster_cond(ptr noundef nonnull %7, i1 noundef zeroext false) #10
-  call fastcc void @_set_wckey_cond(ptr noundef nonnull %8, i32 noundef %0, ptr noundef %1, ptr noundef %13, ptr noundef %14)
+  call fastcc void @_set_wckey_cond(ptr noundef %8, i32 noundef %0, ptr noundef %1, ptr noundef %13, ptr noundef %14)
   %16 = call i32 @list_count(ptr noundef %14) #10
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %.sink.split, label %19
@@ -3496,7 +3496,7 @@ define dso_local noundef i32 @cluster_wckey_by_user(i32 noundef %0, ptr nocaptur
   br i1 %.not45, label %27, label %26
 
 26:                                               ; preds = %24
-  call fastcc void @_merge_cluster_reps(ptr noundef nonnull %23)
+  call fastcc void @_merge_cluster_reps(ptr noundef %23)
   br label %27
 
 27:                                               ; preds = %26, %24

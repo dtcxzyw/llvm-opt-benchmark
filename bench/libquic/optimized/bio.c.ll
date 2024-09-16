@@ -247,7 +247,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @bio_io(ptr noundef %bio, ptr noundef %buf, i32 noundef %len, i64 noundef %method_offset, i32 noundef %callback_flags, ptr nocapture noundef %num) unnamed_addr #0 {
+define internal fastcc i32 @bio_io(ptr noundef %bio, ptr noundef %buf, i32 noundef %len, i64 noundef range(i64 16, 41) %method_offset, i32 noundef range(i32 2, 6) %callback_flags, ptr nocapture noundef %num) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %bio, null
   br i1 %cmp.not, label %if.then4, label %land.lhs.true
@@ -314,7 +314,7 @@ if.end28:                                         ; preds = %if.end15, %if.then2
   br i1 %cmp30.not, label %return, label %if.then32
 
 if.then32:                                        ; preds = %if.end28
-  %or = or i32 %callback_flags, 128
+  %or = or disjoint i32 %callback_flags, 128
   %conv34 = sext i32 %i.030 to i64
   %call35 = tail call i64 %5(ptr noundef nonnull %bio, i32 noundef %or, ptr noundef %buf, i32 noundef %len, i64 noundef 0, i64 noundef %conv34) #17
   %conv36 = trunc i64 %call35 to i32

@@ -1468,11 +1468,11 @@ tcaphash_cont_matching.exit:                      ; preds = %357, %344, %find_tc
   br label %863
 
 497:                                              ; preds = %19
-  %498 = tail call fastcc ptr @tcaphash_end_matching(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3)
+  %498 = tail call fastcc ptr @tcaphash_end_matching(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3)
   br label %863
 
 499:                                              ; preds = %19
-  %500 = tail call fastcc ptr @tcaphash_end_matching(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3)
+  %500 = tail call fastcc ptr @tcaphash_end_matching(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3)
   br label %863
 
 501:                                              ; preds = %19, %19
@@ -2133,7 +2133,7 @@ tcaphash_ansi_matching.exit:                      ; preds = %proto_item_set_gene
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @tcaphash_end_matching(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc ptr @tcaphash_end_matching(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca %struct.tcaphash_end_info_key_t, align 4
   %6 = alloca %struct.tcaphash_begin_info_key_t, align 4
   %7 = alloca %struct.nstime_t, align 8
@@ -2388,7 +2388,7 @@ proto_item_set_generated.exit67:                  ; preds = %122, %127, %130
   br label %proto_item_set_generated.exit70
 
 proto_item_set_generated.exit70:                  ; preds = %find_tcaphash_end.exit, %141, %138, %proto_item_set_generated.exit67, %proto_item_set_generated.exit64
-  call void @tcapsrt_close(ptr noundef nonnull %.049, ptr noundef %1)
+  call void @tcapsrt_close(ptr noundef nonnull %.049, ptr noundef nonnull %1)
   br label %.thread85
 
 .thread85:                                        ; preds = %90, %75, %proto_item_set_generated.exit70

@@ -5087,7 +5087,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull al
 declare void @_ZN4llvm5RegexD1Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111NsanMemOpFnC2ERN4llvm6ModuleENS1_8ArrayRefINS1_9StringRefEEES5_m(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr nocapture readonly %2, i64 %3, ptr %4, i64 %5, i64 noundef %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111NsanMemOpFnC2ERN4llvm6ModuleENS1_8ArrayRefINS1_9StringRefEEES5_m(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr nocapture readonly %2, i64 %3, ptr %4, i64 %5, i64 noundef range(i64 2, 4) %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::AttributeList", align 8
   %9 = alloca [2 x ptr], align 8
   %10 = alloca [1 x ptr], align 8

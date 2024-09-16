@@ -4042,7 +4042,7 @@ declare ptr @proto_tree_add_ether(ptr noundef, i32 noundef, ptr noundef, i32 nou
 declare ptr @proto_tree_add_ipv4(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dissect_snmp_variable_date_and_time(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @dissect_snmp_variable_date_and_time(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 8, 0) %5) unnamed_addr #0 {
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %3, i32 noundef %4) #11
   %8 = add i32 %4, 2
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %8) #11
@@ -5182,7 +5182,7 @@ declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 
 declare ptr @gcry_strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @snmp_usm_priv_aes_common(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @snmp_usm_priv_aes_common(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 noundef range(i32 7, 10) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca [16 x i8], align 16
   store ptr null, ptr %6, align 8

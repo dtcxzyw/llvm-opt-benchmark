@@ -342,7 +342,7 @@ pgsl_cs_to_rlcmac_cs.exit:                        ; preds = %68, %74
   store i32 %.0.i, ptr %78, align 4
   %79 = load i32, ptr %6, align 4
   %80 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %70, i32 noundef %79) #6
-  call fastcc void @dissect_gprs_data(ptr noundef %80, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %9)
+  call fastcc void @dissect_gprs_data(ptr noundef %80, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0, ptr noundef %9)
   br label %132
 
 81:                                               ; preds = %4
@@ -402,7 +402,7 @@ pgsl_cs_to_rlcmac_cs.exit145:                     ; preds = %105, %114
   store i32 %.0.i144, ptr %118, align 4
   %119 = load i32, ptr %6, align 4
   %120 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 11, i32 noundef %119) #6
-  call fastcc void @dissect_gprs_data(ptr noundef %120, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %9)
+  call fastcc void @dissect_gprs_data(ptr noundef %120, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef %9)
   br label %132
 
 121:                                              ; preds = %4
@@ -458,7 +458,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_gprs_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_gprs_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   %sub_handles.1.val = load ptr, ptr @sub_handles.1, align 16
   %sub_handles.0.val = load ptr, ptr @sub_handles.0, align 16
@@ -473,10 +473,10 @@ define internal fastcc void @dissect_gprs_data(ptr noundef %0, ptr noundef %1, p
   ]
 
 8:                                                ; preds = %5
-  tail call fastcc void @dissect_pgsl_access_burst(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
-  tail call fastcc void @dissect_pgsl_access_burst(ptr noundef %0, i32 noundef 5, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
-  tail call fastcc void @dissect_pgsl_access_burst(ptr noundef %0, i32 noundef 10, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
-  tail call fastcc void @dissect_pgsl_access_burst(ptr noundef %0, i32 noundef 15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
+  tail call fastcc void @dissect_pgsl_access_burst(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef %4)
+  tail call fastcc void @dissect_pgsl_access_burst(ptr noundef %0, i32 noundef 5, ptr noundef %1, ptr noundef %2, ptr noundef %4)
+  tail call fastcc void @dissect_pgsl_access_burst(ptr noundef %0, i32 noundef 10, ptr noundef %1, ptr noundef %2, ptr noundef %4)
+  tail call fastcc void @dissect_pgsl_access_burst(ptr noundef %0, i32 noundef 15, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   br label %.thread
 
 9:                                                ; preds = %5, %5, %5
@@ -539,7 +539,7 @@ define internal fastcc void @dissect_gprs_data(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_pgsl_access_burst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_pgsl_access_burst(ptr noundef %0, i32 noundef range(i32 0, 16) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -577,7 +577,7 @@ define internal fastcc void @dissect_pgsl_access_burst(ptr noundef %0, i32 nound
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.129, i32 noundef %34, i32 noundef %24, ptr noundef %36) #6
   %37 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %33, i32 noundef 2) #6
   %38 = load ptr, ptr @sub_handles.0, align 16
-  %39 = call i32 @call_dissector_with_data(ptr noundef %38, ptr noundef %37, ptr noundef %2, ptr noundef %12, ptr noundef %4) #6
+  %39 = call i32 @call_dissector_with_data(ptr noundef %38, ptr noundef %37, ptr noundef %2, ptr noundef %12, ptr noundef nonnull %4) #6
   br label %42
 
 40:                                               ; preds = %5

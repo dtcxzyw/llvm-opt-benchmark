@@ -3581,7 +3581,7 @@ define dso_local range(i32 -2147483648, 1) i32 @pci_enable_device_io(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @pci_enable_device_flags(ptr noundef %0, i64 noundef %1) unnamed_addr #5 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @pci_enable_device_flags(ptr noundef %0, i64 noundef range(i64 256, 769) %1) unnamed_addr #5 align 16 {
   %3 = alloca i16, align 2
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   %5 = load i32, ptr %4, align 8
@@ -6887,7 +6887,7 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_region(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -16, 1) i32 @__pci_request_region(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #5 align 16 {
+define internal fastcc noundef range(i32 -16, 1) i32 @__pci_request_region(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 134217729) %3) unnamed_addr #5 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 920
   %6 = sext i32 %1 to i64
   %7 = getelementptr [11 x %struct.resource], ptr %5, i64 0, i64 %6
@@ -8205,7 +8205,7 @@ define dso_local noundef range(i32 -25, 1) i32 @pcie_flr(ptr noundef %0) #5 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -25, 1) i32 @pci_dev_wait(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #5 align 16 {
+define internal fastcc noundef range(i32 -25, 1) i32 @pci_dev_wait(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -2147482647, 60001) %2) unnamed_addr #5 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 100
   %6 = load i8, ptr %5, align 4
@@ -8473,7 +8473,7 @@ pcie_wait_for_link_delay.exit:                    ; preds = %23, %.thread.i, %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @pcie_wait_for_link_delay(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #5 align 16 {
+define internal fastcc noundef zeroext i1 @pcie_wait_for_link_delay(ptr noundef %0, i1 noundef zeroext %1, i32 noundef range(i32 1, -2147483648) %2) unnamed_addr #5 align 16 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds i8, ptr %0, i64 1689
   %6 = load i40, ptr %5, align 1
@@ -11734,7 +11734,7 @@ declare dso_local i32 @__pm_runtime_resume(ptr noundef, i32 noundef) local_unnam
 declare dso_local void @usleep_range_state(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @pci_set_low_power_state(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #5 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @pci_set_low_power_state(ptr noundef %0, i32 noundef range(i32 1, 4) %1, i1 noundef zeroext %2) unnamed_addr #5 align 16 {
   %4 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #27
   %5 = getelementptr inbounds i8, ptr %0, i64 156
@@ -11798,7 +11798,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @pci_set_low_power_state(pt
 42:                                               ; preds = %.thread
   %43 = and i16 %29, -4
   %44 = trunc nuw nsw i32 %1 to i16
-  %45 = or i16 %43, %44
+  %45 = or disjoint i16 %43, %44
   store i16 %45, ptr %4, align 2
   %46 = load i8, ptr %5, align 4
   %47 = zext i8 %46 to i32
@@ -12175,7 +12175,7 @@ declare dso_local void @pcie_aspm_powersave_config_link(ptr noundef) local_unnam
 declare dso_local void @pci_fixup_device(i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @pci_enable_bridge(ptr noundef %0) unnamed_addr #5 align 16 {
+define internal fastcc void @pci_enable_bridge(ptr noundef nonnull %0) unnamed_addr #5 align 16 {
   %2 = alloca i16, align 2
   %3 = alloca i16, align 2
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12211,14 +12211,14 @@ define internal fastcc void @pci_enable_bridge(ptr noundef %0) unnamed_addr #5 a
 22:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #27
   store i16 0, ptr %3, align 2, !annotation !8
-  %23 = call i32 @pci_read_config_word(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %3) #27
+  %23 = call i32 @pci_read_config_word(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull %3) #27
   %24 = load i16, ptr %3, align 2
   %25 = or i16 %24, 4
   %26 = icmp eq i16 %25, %24
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %22
-  %28 = call i32 @pci_write_config_word(ptr noundef %0, i32 noundef 4, i16 noundef zeroext %25) #27
+  %28 = call i32 @pci_write_config_word(ptr noundef nonnull %0, i32 noundef 4, i16 noundef zeroext %25) #27
   br label %29
 
 29:                                               ; preds = %27, %22
@@ -12229,7 +12229,7 @@ define internal fastcc void @pci_enable_bridge(ptr noundef %0) unnamed_addr #5 a
   br label %48
 
 32:                                               ; preds = %.thread
-  %33 = tail call fastcc i32 @pci_enable_device_flags(ptr noundef %0, i64 noundef 768), !range !17
+  %33 = tail call fastcc i32 @pci_enable_device_flags(ptr noundef nonnull %0, i64 noundef 768), !range !17
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %37, label %35
 
@@ -12241,14 +12241,14 @@ define internal fastcc void @pci_enable_bridge(ptr noundef %0) unnamed_addr #5 a
 37:                                               ; preds = %35, %32
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #27
   store i16 0, ptr %2, align 2, !annotation !8
-  %38 = call i32 @pci_read_config_word(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %2) #27
+  %38 = call i32 @pci_read_config_word(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull %2) #27
   %39 = load i16, ptr %2, align 2
   %40 = or i16 %39, 4
   %41 = icmp eq i16 %40, %39
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %37
-  %43 = call i32 @pci_write_config_word(ptr noundef %0, i32 noundef 4, i16 noundef zeroext %40) #27
+  %43 = call i32 @pci_write_config_word(ptr noundef nonnull %0, i32 noundef 4, i16 noundef zeroext %40) #27
   br label %44
 
 44:                                               ; preds = %42, %37
@@ -12260,7 +12260,7 @@ define internal fastcc void @pci_enable_bridge(ptr noundef %0) unnamed_addr #5 a
   br label %48
 
 48:                                               ; preds = %44, %29
-  call void @pcibios_set_master(ptr noundef %0)
+  call void @pcibios_set_master(ptr noundef nonnull %0)
   br label %49
 
 49:                                               ; preds = %48, %17

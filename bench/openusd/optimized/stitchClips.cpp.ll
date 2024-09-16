@@ -727,7 +727,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
           to label %25 unwind label %231
 
 25:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEptEv.exit
-  %26 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_OpenClipLayersEPSt6vectorINS_8TfRefPtrINS_8SdfLayerEEESaIS4_EERKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EERKNS_7SdfPathE(ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %24)
+  %26 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_OpenClipLayersEPSt6vectorINS_8TfRefPtrINS_8SdfLayerEEESaIS4_EERKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EERKNS_7SdfPathE(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %24)
           to label %27 unwind label %231
 
 27:                                               ; preds = %25
@@ -827,7 +827,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_35UsdClips
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPISetNames_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit.i: ; preds = %58, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_35UsdClipsAPISetNames_StaticTokenTypeEE3NewEv.exit.i.i.i.i, %48
   %61 = phi ptr [ %50, %48 ], [ %60, %58 ], [ %52, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_35UsdClipsAPISetNames_StaticTokenTypeEE3NewEv.exit.i.i.i.i ]
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_AggregateDataFromClipsERKNS_8TfRefPtrINS_8SdfLayerEEERKSt6vectorIS3_SaIS3_EERKNS_7SdfPathERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull readonly align 8 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %61)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_AggregateDataFromClipsERKNS_8TfRefPtrINS_8SdfLayerEEERKSt6vectorIS3_SaIS3_EERKNS_7SdfPathERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull readonly align 8 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %61)
           to label %62 unwind label %184
 
 62:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPISetNames_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit.i
@@ -1486,7 +1486,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer5ClearEv(ptr noundef nonnull align 8 dereferenceable(557)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_OpenClipLayersEPSt6vectorINS_8TfRefPtrINS_8SdfLayerEEESaIS4_EERKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EERKNS_7SdfPathE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_OpenClipLayersEPSt6vectorINS_8TfRefPtrINS_8SdfLayerEEESaIS4_EERKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EERKNS_7SdfPathE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfHandle", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -1959,7 +1959,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
           to label %24 unwind label %125
 
 24:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEptEv.exit
-  %25 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_OpenClipLayersEPSt6vectorINS_8TfRefPtrINS_8SdfLayerEEESaIS4_EERKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EERKNS_7SdfPathE(ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(8) %23)
+  %25 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_OpenClipLayersEPSt6vectorINS_8TfRefPtrINS_8SdfLayerEEESaIS4_EERKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EERKNS_7SdfPathE(ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(8) %23)
           to label %26 unwind label %125
 
 26:                                               ; preds = %24
@@ -3288,7 +3288,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 414:                                              ; preds = %413
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, i8 0, i64 24, i1 false)
-  %415 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_OpenClipLayersEPSt6vectorINS_8TfRefPtrINS_8SdfLayerEEESaIS4_EERKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EERKNS_7SdfPathE(ptr noundef nonnull %86, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %2)
+  %415 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_OpenClipLayersEPSt6vectorINS_8TfRefPtrINS_8SdfLayerEEESaIS4_EERKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EERKNS_7SdfPathE(ptr noundef %86, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %416 unwind label %1566
 
 416:                                              ; preds = %414
@@ -3353,7 +3353,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   %.sink.i32.sroa.gep123.i = getelementptr inbounds nuw i8, ptr %18, i64 24
   %.sink.i32.sroa.gep126.i = getelementptr inbounds nuw i8, ptr %19, i64 32
   %.sink.i32.sroa.gep128.i = getelementptr inbounds nuw i8, ptr %18, i64 32
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_AggregateDataFromClipsERKNS_8TfRefPtrINS_8SdfLayerEEERKSt6vectorIS3_SaIS3_EERKNS_7SdfPathERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %56, ptr noundef nonnull readonly align 8 dereferenceable(24) %86, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull readonly align 8 dereferenceable(8) %6)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_AggregateDataFromClipsERKNS_8TfRefPtrINS_8SdfLayerEEERKSt6vectorIS3_SaIS3_EERKNS_7SdfPathERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %56, ptr noundef nonnull readonly align 8 dereferenceable(24) %86, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull readonly align 8 dereferenceable(8) %6)
           to label %.noexc.i102 unwind label %1547
 
 .noexc.i102:                                      ; preds = %.noexc106
@@ -4082,7 +4082,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_35UsdClips
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit.i.i.i: ; preds = %713, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_35UsdClipsAPIInfoKeys_StaticTokenTypeEE3NewEv.exit.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEC2INS_9TfWeakPtrES1_EERKNS_15TfWeakPtrFacadeIT_T0_EEPNSt9enable_ifIXsr3std14is_convertibleIPS7_PS1_EE5valueEvE4typeE.exit.i.i.i
   %716 = phi ptr [ %705, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEC2INS_9TfWeakPtrES1_EERKNS_15TfWeakPtrFacadeIT_T0_EEPNSt9enable_ifIXsr3std14is_convertibleIPS7_PS1_EE5valueEvE4typeE.exit.i.i.i ], [ %715, %713 ], [ %707, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_35UsdClipsAPIInfoKeys_StaticTokenTypeEE3NewEv.exit.i.i.i.i.i.i ]
   %.val.i.i.i = load ptr, ptr %51, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_7GfVec2dEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias nonnull writable align 8 %50, ptr %.val.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %716, ptr noundef nonnull readonly align 8 dereferenceable(8) %6)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_7GfVec2dEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias writable align 8 %50, ptr %.val.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %716, ptr noundef nonnull readonly align 8 dereferenceable(8) %6)
           to label %717 unwind label %748
 
 717:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit.i.i.i
@@ -4423,7 +4423,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_St
   %841 = phi ptr [ %830, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEC2INS_9TfWeakPtrES1_EERKNS_15TfWeakPtrFacadeIT_T0_EEPNSt9enable_ifIXsr3std14is_convertibleIPS7_PS1_EE5valueEvE4typeE.exit.i112.i.i ], [ %840, %838 ], [ %832, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_35UsdClipsAPIInfoKeys_StaticTokenTypeEE3NewEv.exit.i.i.i.i129.i.i ]
   %842 = getelementptr inbounds nuw i8, ptr %841, i64 8
   %.val.i115.i.i = load ptr, ptr %44, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_12SdfAssetPathEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias nonnull writable align 8 %43, ptr %.val.i115.i.i, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %842, ptr noundef nonnull readonly align 8 dereferenceable(8) %6)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_12SdfAssetPathEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias writable align 8 %43, ptr %.val.i115.i.i, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %842, ptr noundef nonnull readonly align 8 dereferenceable(8) %6)
           to label %843 unwind label %881
 
 843:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit.i114.i.i
@@ -4626,7 +4626,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
           to label %908 unwind label %.loopexit.i.i.i
 
 908:                                              ; preds = %906
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_GetRelativePathIfPossibleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_(ptr dead_on_unwind noalias nonnull writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(32) %901, ptr noundef nonnull align 8 dereferenceable(32) %907, ptr noundef nonnull align 8 dereferenceable(32) %46)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_GetRelativePathIfPossibleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(32) %901, ptr noundef nonnull align 8 dereferenceable(32) %907, ptr noundef nonnull align 8 dereferenceable(32) %46)
           to label %909 unwind label %.loopexit.i.i.i
 
 909:                                              ; preds = %908
@@ -5088,7 +5088,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit12.i.i.i:
           to label %.noexc160.i.i unwind label %1184
 
 .noexc160.i.i:                                    ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit12.i.i.i
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_GetRelativePathIfPossibleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(32) %1055, ptr noundef nonnull align 8 dereferenceable(32) %1057, ptr noundef nonnull align 8 dereferenceable(32) %1058)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_GetRelativePathIfPossibleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(32) %1055, ptr noundef nonnull align 8 dereferenceable(32) %1057, ptr noundef nonnull align 8 dereferenceable(32) %1058)
           to label %.noexc161.i.i unwind label %1184
 
 .noexc161.i.i:                                    ; preds = %.noexc160.i.i
@@ -5521,7 +5521,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
           to label %1207 unwind label %609
 
 1207:                                             ; preds = %1205
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_GetRelativePathIfPossibleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_(ptr dead_on_unwind noalias nonnull writable align 8 %65, ptr noundef nonnull align 8 dereferenceable(32) %1192, ptr noundef nonnull align 8 dereferenceable(32) %1197, ptr noundef nonnull align 8 dereferenceable(32) %1206)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_GetRelativePathIfPossibleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_(ptr dead_on_unwind noalias writable align 8 %65, ptr noundef nonnull align 8 dereferenceable(32) %1192, ptr noundef nonnull align 8 dereferenceable(32) %1197, ptr noundef nonnull align 8 dereferenceable(32) %1206)
           to label %1208 unwind label %609
 
 1208:                                             ; preds = %1207
@@ -5844,7 +5844,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_St
   %1311 = phi ptr [ %1300, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEC2INS_9TfWeakPtrES1_EERKNS_15TfWeakPtrFacadeIT_T0_EEPNSt9enable_ifIXsr3std14is_convertibleIPS7_PS1_EE5valueEvE4typeE.exit.i27.i ], [ %1310, %1308 ], [ %1302, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_35UsdClipsAPIInfoKeys_StaticTokenTypeEE3NewEv.exit.i.i.i.i.i ]
   %1312 = getelementptr inbounds nuw i8, ptr %1311, i64 80
   %.val.i29.i = load ptr, ptr %25, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_7GfVec2dEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr %.val.i29.i, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %1312, ptr noundef nonnull readonly align 8 dereferenceable(8) %6)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_7GfVec2dEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias writable align 8 %24, ptr %.val.i29.i, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %1312, ptr noundef nonnull readonly align 8 dereferenceable(8) %6)
           to label %1313 unwind label %1376
 
 1313:                                             ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit.i.i
@@ -7520,7 +7520,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
           to label %83 unwind label %385
 
 83:                                               ; preds = %81
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_GetRelativePathIfPossibleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %82)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_GetRelativePathIfPossibleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %82)
           to label %84 unwind label %385
 
 84:                                               ; preds = %83
@@ -7601,7 +7601,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
           to label %108 unwind label %387
 
 108:                                              ; preds = %106
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_GetRelativePathIfPossibleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %107)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_GetRelativePathIfPossibleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %107)
           to label %109 unwind label %387
 
 109:                                              ; preds = %108
@@ -8652,7 +8652,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__20SdfCreatePrimInLayerERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS_7SdfPathE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfHandle") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_GetRelativePathIfPossibleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_GetRelativePathIfPossibleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13114,7 +13114,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_St
   %355 = phi ptr [ %344, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_StitchClipPrimPathERKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenE.exit.i.i ], [ %354, %352 ], [ %346, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_35UsdClipsAPIInfoKeys_StaticTokenTypeEE3NewEv.exit.i.i.i.i27.i.i ]
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 8
   %.val.i23.i.i = load ptr, ptr %49, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_12SdfAssetPathEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr %.val.i23.i.i, ptr noundef nonnull align 4 dereferenceable(8) %.88.val, ptr noundef nonnull align 8 dereferenceable(8) %356, ptr noundef nonnull readonly align 8 dereferenceable(8) %50)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_12SdfAssetPathEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias writable align 8 %28, ptr %.val.i23.i.i, ptr noundef nonnull align 4 dereferenceable(8) %.88.val, ptr noundef nonnull align 8 dereferenceable(8) %356, ptr noundef nonnull readonly align 8 dereferenceable(8) %50)
           to label %.noexc56.i unwind label %.loopexit.i
 
 .noexc56.i:                                       ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit.i22.i.i
@@ -13187,7 +13187,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_St
           to label %374 unwind label %.loopexit5.i
 
 374:                                              ; preds = %372
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_GetRelativePathIfPossibleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(32) %365, ptr noundef nonnull align 8 dereferenceable(32) %369, ptr noundef nonnull align 8 dereferenceable(32) %373)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_GetRelativePathIfPossibleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(32) %365, ptr noundef nonnull align 8 dereferenceable(32) %369, ptr noundef nonnull align 8 dereferenceable(32) %373)
           to label %375 unwind label %.loopexit5.i
 
 375:                                              ; preds = %374
@@ -13394,7 +13394,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_35UsdClips
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit.i29.i.i: ; preds = %435, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_35UsdClipsAPIInfoKeys_StaticTokenTypeEE3NewEv.exit.i.i.i.i46.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_StitchClipAssetPathERKNS_8TfRefPtrINS_8SdfLayerEEES5_RKNS_7SdfPathERKNS_7TfTokenE.exit.i.i
   %438 = phi ptr [ %427, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_StitchClipAssetPathERKNS_8TfRefPtrINS_8SdfLayerEEES5_RKNS_7SdfPathERKNS_7TfTokenE.exit.i.i ], [ %437, %435 ], [ %429, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_35UsdClipsAPIInfoKeys_StaticTokenTypeEE3NewEv.exit.i.i.i.i46.i.i ]
   %.val17.i.i.i = load ptr, ptr %49, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_7GfVec2dEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr %.val17.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %.88.val, ptr noundef nonnull align 8 dereferenceable(8) %438, ptr noundef nonnull readonly align 8 dereferenceable(8) %50)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_7GfVec2dEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias writable align 8 %19, ptr %.val17.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %.88.val, ptr noundef nonnull align 8 dereferenceable(8) %438, ptr noundef nonnull readonly align 8 dereferenceable(8) %50)
           to label %.noexc58.i unwind label %.loopexit.i
 
 .noexc58.i:                                       ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit.i29.i.i
@@ -13434,7 +13434,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_St
   %451 = phi ptr [ %440, %.noexc58.i ], [ %450, %448 ], [ %442, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_35UsdClipsAPIInfoKeys_StaticTokenTypeEE3NewEv.exit.i.i.i20.i.i.i ]
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 8
   %.val.i30.i.i = load ptr, ptr %49, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_12SdfAssetPathEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr %.val.i30.i.i, ptr noundef nonnull align 4 dereferenceable(8) %.88.val, ptr noundef nonnull align 8 dereferenceable(8) %452, ptr noundef nonnull readonly align 8 dereferenceable(8) %50)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_12SdfAssetPathEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias writable align 8 %20, ptr %.val.i30.i.i, ptr noundef nonnull align 4 dereferenceable(8) %.88.val, ptr noundef nonnull align 8 dereferenceable(8) %452, ptr noundef nonnull readonly align 8 dereferenceable(8) %50)
           to label %453 unwind label %.loopexit10.i
 
 453:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit21.i.i.i
@@ -13789,7 +13789,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_St
   %582 = phi ptr [ %571, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_StitchClipActiveERKNS_8TfRefPtrINS_8SdfLayerEEES5_RKNS_7SdfPathERKNS_7TfTokenE.exit.i.i ], [ %581, %579 ], [ %573, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_35UsdClipsAPIInfoKeys_StaticTokenTypeEE3NewEv.exit.i.i.i.i72.i.i ]
   %583 = getelementptr inbounds nuw i8, ptr %582, i64 80
   %.val.i49.i.i = load ptr, ptr %49, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_7GfVec2dEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr %.val.i49.i.i, ptr noundef nonnull align 4 dereferenceable(8) %.88.val, ptr noundef nonnull align 8 dereferenceable(8) %583, ptr noundef nonnull readonly align 8 dereferenceable(8) %50)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_7GfVec2dEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias writable align 8 %13, ptr %.val.i49.i.i, ptr noundef nonnull align 4 dereferenceable(8) %.88.val, ptr noundef nonnull align 8 dereferenceable(8) %583, ptr noundef nonnull readonly align 8 dereferenceable(8) %50)
           to label %.noexc60.i unwind label %.loopexit.i
 
 .noexc60.i:                                       ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit.i48.i.i
@@ -15405,7 +15405,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfToken15_GetEmptyStringB5cxx11Ev() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_12SdfAssetPathEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr %.0.val, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_12SdfAssetPathEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %.0.val, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
@@ -16906,7 +16906,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIF
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_12SdfAssetPathE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_7GfVec2dEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_7GfVec2dEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
@@ -17762,9 +17762,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_St
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   %.val34.i = load ptr, ptr %0, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_12SdfAssetPathEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %.val34.i, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull readonly align 8 dereferenceable(8) %21, ptr noundef nonnull readonly align 8 dereferenceable(8) %3)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_12SdfAssetPathEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias writable align 8 %5, ptr %.val34.i, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull readonly align 8 dereferenceable(8) %21, ptr noundef nonnull readonly align 8 dereferenceable(8) %3)
   %.val.i = load ptr, ptr %1, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_12SdfAssetPathEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val.i, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull readonly align 8 dereferenceable(8) %21, ptr noundef nonnull readonly align 8 dereferenceable(8) %3)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_12SdfAssetPathEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val.i, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull readonly align 8 dereferenceable(8) %21, ptr noundef nonnull readonly align 8 dereferenceable(8) %3)
           to label %22 unwind label %31
 
 22:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdClipsAPIInfoKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
@@ -18137,9 +18137,9 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.134", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.134", align 8
   %.val34 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_7GfVec2dEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val34, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_7GfVec2dEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val34, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.val = load ptr, ptr %1, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_7GfVec2dEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.val, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GetUnboxedValueINS_7VtArrayINS_7GfVec2dEEEEET_RKNS_8TfRefPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7TfTokenESG_(ptr dead_on_unwind noalias writable align 8 %7, ptr %.val, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %9 unwind label %22
 
 9:                                                ; preds = %5

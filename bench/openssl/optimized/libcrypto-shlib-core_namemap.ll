@@ -521,7 +521,7 @@ if.end8:                                          ; preds = %lor.lhs.false
   br i1 %tobool.not, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end8
-  %call12 = tail call fastcc i32 @namemap_add_name(ptr noundef nonnull %namemap.addr.0, i32 noundef %number, ptr noundef nonnull %name)
+  %call12 = tail call fastcc i32 @namemap_add_name(ptr noundef %namemap.addr.0, i32 noundef %number, ptr noundef %name)
   %2 = load ptr, ptr %lock, align 8
   %call14 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %2) #7
   br label %return
@@ -534,7 +534,7 @@ return:                                           ; preds = %if.end8, %if.end, %
 declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @namemap_add_name(ptr nocapture noundef %namemap, i32 noundef %number, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc i32 @namemap_add_name(ptr nocapture noundef nonnull %namemap, i32 noundef %number, ptr noundef nonnull %name) unnamed_addr #0 {
 entry:
   %namenum_tmpl.i = alloca %struct.NAMENUM_ENTRY, align 8
   %0 = getelementptr i8, ptr %namemap, i64 16
@@ -564,7 +564,7 @@ if.end:                                           ; preds = %namemap_name2num.ex
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %call5 = call noalias ptr @CRYPTO_strdup(ptr noundef %name, ptr noundef nonnull @.str, i32 noundef 260) #7
+  %call5 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %name, ptr noundef nonnull @.str, i32 noundef 260) #7
   store ptr %call5, ptr %call1, align 8
   %cmp7 = icmp eq ptr %call5, null
   br i1 %cmp7, label %namenum_free.exit, label %if.end9
@@ -723,7 +723,7 @@ for.body43:                                       ; preds = %for.cond40.preheade
   %call45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %p.145) #8
   %add.ptr46 = getelementptr inbounds i8, ptr %p.145, i64 %call45
   %add.ptr47 = getelementptr inbounds i8, ptr %add.ptr46, i64 1
-  %call48 = call fastcc i32 @namemap_add_name(ptr noundef nonnull %namemap, i32 noundef %number.addr.346, ptr noundef nonnull %p.145)
+  %call48 = call fastcc i32 @namemap_add_name(ptr noundef %namemap, i32 noundef %number.addr.346, ptr noundef %p.145)
   %cmp49 = icmp eq i32 %number.addr.346, 0
   br i1 %cmp49, label %for.inc58, label %if.else52
 
@@ -903,7 +903,7 @@ if.end8.i:                                        ; preds = %lor.lhs.false.i
   br i1 %tobool.not.i, label %ossl_namemap_add_name.exit, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end8.i
-  %call12.i = tail call fastcc i32 @namemap_add_name(ptr noundef nonnull %namemap.addr.0.i, i32 noundef 0, ptr noundef nonnull %call)
+  %call12.i = tail call fastcc i32 @namemap_add_name(ptr noundef %namemap.addr.0.i, i32 noundef 0, ptr noundef %call)
   %2 = load ptr, ptr %lock.i, align 8
   %call14.i = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %2) #7
   br label %ossl_namemap_add_name.exit
@@ -937,7 +937,7 @@ if.end8.i25:                                      ; preds = %lor.lhs.false.i21
   br i1 %tobool.not.i28, label %if.end, label %if.end11.i29
 
 if.end11.i29:                                     ; preds = %if.end8.i25
-  %call12.i30 = tail call fastcc i32 @namemap_add_name(ptr noundef nonnull %namemap.addr.0.i19, i32 noundef %retval.0.i, ptr noundef nonnull %call2)
+  %call12.i30 = tail call fastcc i32 @namemap_add_name(ptr noundef %namemap.addr.0.i19, i32 noundef %retval.0.i, ptr noundef %call2)
   %5 = load ptr, ptr %lock.i26, align 8
   %call14.i31 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %5) #7
   br label %if.end
@@ -976,7 +976,7 @@ if.end8.i44:                                      ; preds = %lor.lhs.false.i40
   br i1 %tobool.not.i47, label %ossl_namemap_add_name.exit54, label %if.end11.i48
 
 if.end11.i48:                                     ; preds = %if.end8.i44
-  %call12.i49 = tail call fastcc i32 @namemap_add_name(ptr noundef nonnull %namemap.addr.0.i38, i32 noundef %num.0, ptr noundef nonnull %call6)
+  %call12.i49 = tail call fastcc i32 @namemap_add_name(ptr noundef %namemap.addr.0.i38, i32 noundef %num.0, ptr noundef %call6)
   %8 = load ptr, ptr %lock.i45, align 8
   %call14.i50 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %8) #7
   br label %ossl_namemap_add_name.exit54
@@ -1010,7 +1010,7 @@ if.end8.i63:                                      ; preds = %lor.lhs.false.i59
   br i1 %tobool.not.i66, label %ossl_namemap_add_name.exit73, label %if.end11.i67
 
 if.end11.i67:                                     ; preds = %if.end8.i63
-  %call12.i68 = tail call fastcc i32 @namemap_add_name(ptr noundef nonnull %namemap.addr.0.i57, i32 noundef %retval.0.i51, ptr noundef nonnull %call8)
+  %call12.i68 = tail call fastcc i32 @namemap_add_name(ptr noundef %namemap.addr.0.i57, i32 noundef %retval.0.i51, ptr noundef %call8)
   %11 = load ptr, ptr %lock.i64, align 8
   %call14.i69 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %11) #7
   br label %ossl_namemap_add_name.exit73
@@ -1049,7 +1049,7 @@ if.end8.i82:                                      ; preds = %if.end.i75
   br i1 %tobool.not.i85, label %if.end20, label %if.end11.i86
 
 if.end11.i86:                                     ; preds = %if.end8.i82
-  %call12.i87 = call fastcc i32 @namemap_add_name(ptr noundef nonnull %namemap.addr.0.i76, i32 noundef %retval.0.i70, ptr noundef nonnull %txtoid)
+  %call12.i87 = call fastcc i32 @namemap_add_name(ptr noundef %namemap.addr.0.i76, i32 noundef %retval.0.i70, ptr noundef %txtoid)
   %14 = load ptr, ptr %lock.i83, align 8
   %call14.i88 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %14) #7
   br label %if.end20
@@ -1083,7 +1083,7 @@ if.end8.i101:                                     ; preds = %lor.lhs.false.i97
   br i1 %tobool.not.i104, label %if.end24, label %if.end11.i105
 
 if.end11.i105:                                    ; preds = %if.end8.i101
-  %call12.i106 = call fastcc i32 @namemap_add_name(ptr noundef nonnull %namemap.addr.0.i95, i32 noundef %num.1, ptr noundef nonnull %pem_name)
+  %call12.i106 = call fastcc i32 @namemap_add_name(ptr noundef %namemap.addr.0.i95, i32 noundef %num.1, ptr noundef %pem_name)
   %17 = load ptr, ptr %lock.i102, align 8
   %call14.i107 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %17) #7
   br label %if.end24

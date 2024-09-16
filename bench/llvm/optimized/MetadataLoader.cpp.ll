@@ -5689,7 +5689,7 @@ _ZNKSt8functionIFPN4llvm4TypeEjEEclEj.exit1162:   ; preds = %298
   %319 = getelementptr inbounds i8, ptr %318, i64 8
   %320 = load i64, ptr %319, align 8
   %321 = trunc i64 %320 to i32
-  %322 = call fastcc noundef ptr @_ZL14getValueFwdRefRN4llvm22BitcodeReaderValueListEjPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(64) %317, i32 noundef %321, ptr noundef nonnull %308, i32 noundef %301)
+  %322 = call fastcc noundef ptr @_ZL14getValueFwdRefRN4llvm22BitcodeReaderValueListEjPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(64) %317, i32 noundef %321, ptr noundef %308, i32 noundef %301)
   %.not1102 = icmp eq ptr %322, null
   br i1 %.not1102, label %323, label %326
 
@@ -21459,8 +21459,8 @@ _ZN4llvm14MetadataLoader18MetadataLoaderImpl19lazyLoadOneMDStringEj.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL14getValueFwdRefRN4llvm22BitcodeReaderValueListEjPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = tail call noundef ptr @_ZN4llvm22BitcodeReaderValueList14getValueFwdRefEjPNS_4TypeEjPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null) #24
+define internal fastcc noundef ptr @_ZL14getValueFwdRefRN4llvm22BitcodeReaderValueListEjPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
+  %5 = tail call noundef ptr @_ZN4llvm22BitcodeReaderValueList14getValueFwdRefEjPNS_4TypeEjPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef null) #24
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %26
 
@@ -21490,7 +21490,7 @@ define internal fastcc noundef ptr @_ZL14getValueFwdRefRN4llvm22BitcodeReaderVal
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %20
-  %25 = tail call noundef ptr @_ZN4llvm10UndefValue3getEPNS_4TypeE(ptr noundef %2) #24
+  %25 = tail call noundef ptr @_ZN4llvm10UndefValue3getEPNS_4TypeE(ptr noundef nonnull %2) #24
   br label %26
 
 26:                                               ; preds = %6, %16, %20, %4, %24

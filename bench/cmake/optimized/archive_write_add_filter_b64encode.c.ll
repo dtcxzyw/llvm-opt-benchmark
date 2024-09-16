@@ -377,9 +377,9 @@ declare ptr @archive_string_ensure(ptr noundef, i64 noundef) local_unnamed_addr 
 declare void @archive_string_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @la_b64_encode(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @la_b64_encode(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 1, 0) %2) unnamed_addr #0 {
   %4 = icmp ugt i64 %2, 2
-  br i1 %4, label %.lr.ph, label %._crit_edge
+  br i1 %4, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.037 = phi i64 [ %40, %.lr.ph ], [ %2, %3 ]
@@ -423,57 +423,57 @@ define internal fastcc void @la_b64_encode(ptr noundef %0, ptr nocapture noundef
   %41 = icmp ugt i64 %40, 2
   br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.035.lcssa = phi ptr [ %1, %3 ], [ %39, %.lr.ph ]
-  %.0.lcssa = phi i64 [ %2, %3 ], [ %40, %.lr.ph ]
-  %.not = icmp eq i64 %.0.lcssa, 0
-  br i1 %.not, label %75, label %42
+._crit_edge:                                      ; preds = %.lr.ph
+  %.not = icmp eq i64 %40, 0
+  br i1 %.not, label %74, label %._crit_edge.thread
 
-42:                                               ; preds = %._crit_edge
-  %43 = load i8, ptr %.035.lcssa, align 1
-  %44 = lshr i8 %43, 2
-  %45 = zext nneg i8 %44 to i64
-  %46 = getelementptr inbounds [64 x i8], ptr @base64, i64 0, i64 %45
-  %47 = load i8, ptr %46, align 1
-  %48 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %47) #6
-  %49 = load i8, ptr %.035.lcssa, align 1
-  %50 = shl i8 %49, 4
-  %51 = and i8 %50, 48
-  %52 = icmp eq i64 %.0.lcssa, 1
-  br i1 %52, label %53, label %58
+._crit_edge.thread:                               ; preds = %3, %._crit_edge
+  %.0.lcssa44 = phi i64 [ %40, %._crit_edge ], [ %2, %3 ]
+  %.035.lcssa43 = phi ptr [ %39, %._crit_edge ], [ %1, %3 ]
+  %42 = load i8, ptr %.035.lcssa43, align 1
+  %43 = lshr i8 %42, 2
+  %44 = zext nneg i8 %43 to i64
+  %45 = getelementptr inbounds [64 x i8], ptr @base64, i64 0, i64 %44
+  %46 = load i8, ptr %45, align 1
+  %47 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %46) #6
+  %48 = load i8, ptr %.035.lcssa43, align 1
+  %49 = shl i8 %48, 4
+  %50 = and i8 %49, 48
+  %51 = icmp eq i64 %.0.lcssa44, 1
+  br i1 %51, label %52, label %57
 
-53:                                               ; preds = %42
-  %54 = zext nneg i8 %51 to i64
-  %55 = getelementptr inbounds [64 x i8], ptr @base64, i64 0, i64 %54
-  %56 = load i8, ptr %55, align 16
-  %57 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %56) #6
+52:                                               ; preds = %._crit_edge.thread
+  %53 = zext nneg i8 %50 to i64
+  %54 = getelementptr inbounds [64 x i8], ptr @base64, i64 0, i64 %53
+  %55 = load i8, ptr %54, align 16
+  %56 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %55) #6
   br label %.sink.split
 
-58:                                               ; preds = %42
-  %59 = getelementptr inbounds i8, ptr %.035.lcssa, i64 1
-  %60 = load i8, ptr %59, align 1
-  %61 = lshr i8 %60, 4
-  %62 = or disjoint i8 %61, %51
-  %63 = zext nneg i8 %62 to i64
-  %64 = getelementptr inbounds [64 x i8], ptr @base64, i64 0, i64 %63
-  %65 = load i8, ptr %64, align 1
-  %66 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %65) #6
-  %67 = load i8, ptr %59, align 1
-  %68 = shl i8 %67, 2
-  %69 = and i8 %68, 60
-  %70 = zext nneg i8 %69 to i64
-  %71 = getelementptr inbounds [64 x i8], ptr @base64, i64 0, i64 %70
-  %72 = load i8, ptr %71, align 4
+57:                                               ; preds = %._crit_edge.thread
+  %58 = getelementptr inbounds i8, ptr %.035.lcssa43, i64 1
+  %59 = load i8, ptr %58, align 1
+  %60 = lshr i8 %59, 4
+  %61 = or disjoint i8 %60, %50
+  %62 = zext nneg i8 %61 to i64
+  %63 = getelementptr inbounds [64 x i8], ptr @base64, i64 0, i64 %62
+  %64 = load i8, ptr %63, align 1
+  %65 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %64) #6
+  %66 = load i8, ptr %58, align 1
+  %67 = shl i8 %66, 2
+  %68 = and i8 %67, 60
+  %69 = zext nneg i8 %68 to i64
+  %70 = getelementptr inbounds [64 x i8], ptr @base64, i64 0, i64 %69
+  %71 = load i8, ptr %70, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %58, %53
-  %.sink = phi i8 [ 61, %53 ], [ %72, %58 ]
-  %73 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %.sink) #6
-  %74 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 61) #6
-  br label %75
+.sink.split:                                      ; preds = %57, %52
+  %.sink = phi i8 [ 61, %52 ], [ %71, %57 ]
+  %72 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %.sink) #6
+  %73 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 61) #6
+  br label %74
 
-75:                                               ; preds = %.sink.split, %._crit_edge
-  %76 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 10) #6
+74:                                               ; preds = %.sink.split, %._crit_edge
+  %75 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 10) #6
   ret void
 }
 

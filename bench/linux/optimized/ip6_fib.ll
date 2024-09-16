@@ -2243,7 +2243,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @fib6_repair_tree(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc ptr @fib6_repair_tree(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 34
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 1
@@ -4993,7 +4993,7 @@ define internal noundef range(i32 0, 2) i32 @fib6_dump_node(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @fib6_dump_table(ptr noundef %0, ptr %.24.val.48.val, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @fib6_dump_table(ptr noundef nonnull %0, ptr %.24.val.48.val, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 96
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr

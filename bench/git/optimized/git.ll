@@ -481,7 +481,7 @@ if.end8:                                          ; preds = %do.cond.i
   store ptr %incdec.ptr, ptr %argv.addr, align 8
   %dec = add nsw i32 %argc, -1
   store i32 %dec, ptr %argc.addr, align 4
-  %call9 = call fastcc i32 @handle_options(ptr noundef nonnull %argv.addr, ptr noundef nonnull %argc.addr, ptr noundef null)
+  %call9 = call fastcc i32 @handle_options(ptr noundef %argv.addr, ptr noundef %argc.addr, ptr noundef null)
   %3 = load i32, ptr %argc.addr, align 4
   %tobool10.not = icmp eq i32 %3, 0
   br i1 %tobool10.not, label %if.then11, label %if.end17
@@ -648,7 +648,7 @@ for.body.i.i9:                                    ; preds = %for.cond.i.i14, %if
   br i1 %tobool.not.i.i13, label %if.then15.i, label %for.cond.i.i14
 
 if.then15.i:                                      ; preds = %for.body.i.i9
-  %call16.i17 = call fastcc i32 @run_builtin(ptr noundef nonnull %add.ptr.i.i11, i32 noundef %argc.addr.0.i, ptr noundef %argv.addr.0.i)
+  %call16.i17 = call fastcc i32 @run_builtin(ptr noundef %add.ptr.i.i11, i32 noundef %argc.addr.0.i, ptr noundef %argv.addr.0.i)
   %call17.i = call i32 @common_exit(ptr noundef nonnull @.str.1, i32 noundef 724, i32 noundef %call16.i17) #15
   call void @exit(i32 noundef %call17.i) #17
   unreachable
@@ -998,7 +998,7 @@ if.then35.i.i:                                    ; preds = %if.end31.i.i
   unreachable
 
 if.end39.i.i:                                     ; preds = %if.end31.i.i
-  %call40.i.i = call fastcc i32 @handle_options(ptr noundef nonnull %new_argv.i.i, ptr noundef nonnull %count.i.i, ptr noundef nonnull %envchanged.i.i)
+  %call40.i.i = call fastcc i32 @handle_options(ptr noundef %new_argv.i.i, ptr noundef %count.i.i, ptr noundef nonnull %envchanged.i.i)
   %79 = load i32, ptr %envchanged.i.i, align 4
   %tobool41.not.i.i = icmp eq i32 %79, 0
   br i1 %tobool41.not.i.i, label %if.end44.i.i, label %if.then42.i.i
@@ -1234,7 +1234,7 @@ for.body.i:                                       ; preds = %for.cond.i, %if.end
   br i1 %tobool.not.i, label %if.then15, label %for.cond.i
 
 if.then15:                                        ; preds = %for.body.i
-  %call16 = call fastcc i32 @run_builtin(ptr noundef nonnull %add.ptr.i, i32 noundef %argc.addr.0, ptr noundef %argv.addr.0)
+  %call16 = call fastcc i32 @run_builtin(ptr noundef %add.ptr.i, i32 noundef %argc.addr.0, ptr noundef %argv.addr.0)
   %call17 = call i32 @common_exit(ptr noundef nonnull @.str.1, i32 noundef 724, i32 noundef %call16) #15
   call void @exit(i32 noundef %call17) #17
   unreachable
@@ -1269,7 +1269,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @handle_options(ptr nocapture noundef %argv, ptr nocapture noundef %argc, ptr noundef writeonly %envchanged) unnamed_addr #0 {
+define internal fastcc i32 @handle_options(ptr nocapture noundef nonnull %argv, ptr nocapture noundef nonnull %argc, ptr noundef writeonly %envchanged) unnamed_addr #0 {
 entry:
   %list = alloca %struct.string_list, align 8
   %0 = load ptr, ptr %argv, align 8
@@ -1929,7 +1929,7 @@ if.then268:                                       ; preds = %if.then265
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %list, i8 0, i64 40, i1 false)
   %79 = getelementptr inbounds i8, ptr %list, i64 24
   store i8 1, ptr %79, align 8
-  call fastcc void @list_builtins(ptr noundef nonnull %list, i32 noundef 32)
+  call fastcc void @list_builtins(ptr noundef %list, i32 noundef 32)
   %nr = getelementptr inbounds i8, ptr %list, i64 8
   %80 = load i64, ptr %nr, align 8
   %cmp270207.not = icmp eq i64 %80, 0
@@ -2360,7 +2360,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @strvec_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @run_builtin(ptr nocapture noundef readonly %p, i32 noundef %argc, ptr noundef %argv) unnamed_addr #0 {
+define internal fastcc i32 @run_builtin(ptr nocapture noundef nonnull readonly %p, i32 noundef %argc, ptr noundef %argv) unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
   %nongit_ok = alloca i32, align 4
@@ -2638,7 +2638,7 @@ declare i32 @chdir(ptr noundef) local_unnamed_addr #8
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @list_builtins(ptr noundef %out, i32 noundef %exclude_option) unnamed_addr #0 {
+define internal fastcc void @list_builtins(ptr noundef nonnull %out, i32 noundef range(i32 0, 33) %exclude_option) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %exclude_option, 0
   br i1 %tobool.not, label %for.body.us, label %for.body
@@ -2647,7 +2647,7 @@ for.body.us:                                      ; preds = %entry, %for.body.us
   %indvars.iv9 = phi i64 [ %indvars.iv.next10, %for.body.us ], [ 0, %entry ]
   %arrayidx4.us = getelementptr inbounds [141 x %struct.cmd_struct], ptr @commands, i64 0, i64 %indvars.iv9
   %0 = load ptr, ptr %arrayidx4.us, align 8
-  %call.us = tail call ptr @string_list_append(ptr noundef %out, ptr noundef %0) #15
+  %call.us = tail call ptr @string_list_append(ptr noundef nonnull %out, ptr noundef %0) #15
   %indvars.iv.next10 = add nuw nsw i64 %indvars.iv9, 1
   %exitcond12.not = icmp eq i64 %indvars.iv.next10, 141
   br i1 %exitcond12.not, label %for.end, label %for.body.us, !llvm.loop !14
@@ -2663,7 +2663,7 @@ for.body:                                         ; preds = %entry, %for.inc
 if.end:                                           ; preds = %for.body
   %arrayidx4 = getelementptr inbounds [141 x %struct.cmd_struct], ptr @commands, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx4, align 8
-  %call = tail call ptr @string_list_append(ptr noundef %out, ptr noundef %2) #15
+  %call = tail call ptr @string_list_append(ptr noundef nonnull %out, ptr noundef %2) #15
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end

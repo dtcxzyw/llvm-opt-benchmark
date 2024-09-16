@@ -330,7 +330,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h33c5f342f7e17fb1E
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17hc4c67b5dcb3f935aE(ptr noundef nonnull align 4 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17hc4c67b5dcb3f935aE(ptr noundef nonnull align 4 %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [0 x { ptr, ptr }], align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { ptr, ptr }, align 8
@@ -1441,7 +1441,7 @@ define internal fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Resul
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tokio..runtime..scheduler..Handle$GT$$GT$17h0647e3c83bc6f7c2E"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #5 {
+define internal fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tokio..runtime..scheduler..Handle$GT$$GT$17h0647e3c83bc6f7c2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 {
   %2 = load i64, ptr %0, align 8, !range !75, !noundef !10
   %3 = icmp eq i64 %2, 2
   br i1 %3, label %"_ZN4core3ptr54drop_in_place$LT$tokio..runtime..scheduler..Handle$GT$17h9b41ce396e51ab7eE.llvm.11424388141523703806.exit", label %4
@@ -3480,7 +3480,7 @@ define void @"_ZN5tokio7runtime7context7current50_$LT$impl$u20$tokio..runtime..c
 18:                                               ; preds = %29
   %19 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tokio..runtime..scheduler..Handle$GT$$GT$17h0647e3c83bc6f7c2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #28
+  invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tokio..runtime..scheduler..Handle$GT$$GT$17h0647e3c83bc6f7c2E"(ptr noalias noundef align 8 dereferenceable(16) %5) #28
           to label %41 unwind label %39
 
 20:                                               ; preds = %13, %15
@@ -12042,7 +12042,7 @@ _ZN5tokio6signal8registry7globals17ha8d0471c501c522bE.exit: ; preds = %26, %29
   store ptr %34, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !1955
   store ptr %4, ptr %3, align 8, !noalias !1955
-  invoke fastcc void @_ZN3std10sys_common4once5futex4Once4call17hc4c67b5dcb3f935aE(ptr noundef nonnull align 4 %38, ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
+  invoke fastcc void @_ZN3std10sys_common4once5futex4Once4call17hc4c67b5dcb3f935aE(ptr noundef nonnull align 4 %38, ptr noalias noundef align 8 dereferenceable(8) %3)
           to label %.noexc unwind label %55
 
 .noexc:                                           ; preds = %41

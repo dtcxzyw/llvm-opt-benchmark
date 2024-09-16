@@ -2344,7 +2344,7 @@ define linkonce_odr noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8rawspeed12_GLOBAL__N_14nameB5cxx11ERKN4pugi8xml_nodeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef ptr @_ZNK4pugi8xml_node4nameEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %4, ptr %0, align 8, !tbaa !6
@@ -4485,7 +4485,7 @@ define hidden void @_ZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeE(ptr noun
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeEENK3$_0clEPKc"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nonnull %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeEENK3$_0clEPKc"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nonnull %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::basic_string_view", align 8
   %6 = alloca %"class.std::vector", align 8

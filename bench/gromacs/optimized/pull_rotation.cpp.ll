@@ -3217,7 +3217,7 @@ _ZL14allocate_slabsP13gmx_enfrotgrpP8_IO_FILEb.exit.i: ; preds = %.noexc181, %.n
   store i32 %1056, ptr %1057, align 4
   %1058 = load ptr, ptr %558, align 8
   %1059 = load ptr, ptr %414, align 8
-  invoke fastcc void @_ZL16get_slab_centersP13gmx_enfrotgrpN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEEPffP8_IO_FILEbb(ptr noundef nonnull %.sroa.0279.0354, ptr %1058, ptr noundef %1059, float noundef -1.000000e+00, ptr noundef %283, i1 noundef zeroext %294, i1 noundef zeroext true)
+  invoke fastcc void @_ZL16get_slab_centersP13gmx_enfrotgrpN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEEPffP8_IO_FILEbb(ptr noundef %.sroa.0279.0354, ptr %1058, ptr noundef %1059, float noundef -1.000000e+00, ptr noundef %283, i1 noundef zeroext %294, i1 noundef zeroext true)
           to label %.noexc186 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc186:                                        ; preds = %.noexc185
@@ -4955,7 +4955,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3gmx11BasicVectorIfEESt6vectorIS4_Sa
 declare double @llvm.fmuladd.f64(double, double, double) #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16get_slab_centersP13gmx_enfrotgrpN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEEPffP8_IO_FILEbb(ptr nocapture noundef readonly %0, ptr nocapture readonly %1, ptr nocapture noundef readonly %2, float noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16get_slab_centersP13gmx_enfrotgrpN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEEPffP8_IO_FILEbb(ptr nocapture noundef nonnull readonly %0, ptr nocapture readonly %1, ptr nocapture noundef readonly %2, float noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 256
   %10 = load i32, ptr %9, align 8
@@ -8026,7 +8026,7 @@ _ZL17do_radial_motion2P13gmx_enfrotgrpN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEEPA3
 
 2093:                                             ; preds = %2090, %2070
   %2094 = phi i1 [ true, %2070 ], [ %2092, %2090 ]
-  call fastcc void @_ZL11do_flexiblebP10gmx_enfrotP13gmx_enfrotgrpN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEPA3_Kfdbb(i1 noundef zeroext %2094, ptr noundef %1, ptr noundef nonnull %.sroa.0201.0250, ptr %3, ptr noundef %2, double noundef %392, i1 noundef zeroext %24, i1 noundef zeroext %34)
+  call fastcc void @_ZL11do_flexiblebP10gmx_enfrotP13gmx_enfrotgrpN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEPA3_Kfdbb(i1 noundef zeroext %2094, ptr noundef %1, ptr noundef %.sroa.0201.0250, ptr %3, ptr noundef %2, double noundef %392, i1 noundef zeroext %24, i1 noundef zeroext %34)
   br label %2110
 
 2095:                                             ; preds = %.loopexit, %.loopexit
@@ -8047,7 +8047,7 @@ _ZL17do_radial_motion2P13gmx_enfrotgrpN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEEPA3
 
 2104:                                             ; preds = %2101, %2095
   %2105 = phi i1 [ true, %2095 ], [ %2103, %2101 ]
-  call fastcc void @_ZL11do_flexiblebP10gmx_enfrotP13gmx_enfrotgrpN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEPA3_Kfdbb(i1 noundef zeroext %2105, ptr noundef %1, ptr noundef nonnull %.sroa.0201.0250, ptr %3, ptr noundef %2, double noundef %392, i1 noundef zeroext %24, i1 noundef zeroext %34)
+  call fastcc void @_ZL11do_flexiblebP10gmx_enfrotP13gmx_enfrotgrpN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEPA3_Kfdbb(i1 noundef zeroext %2105, ptr noundef %1, ptr noundef %.sroa.0201.0250, ptr %3, ptr noundef %2, double noundef %392, i1 noundef zeroext %24, i1 noundef zeroext %34)
   br label %2110
 
 2106:                                             ; preds = %.loopexit
@@ -8086,7 +8086,7 @@ declare void @_Z24ddReopenBalanceRegionCpuPK12gmx_domdec_t(ptr noundef) local_un
 declare void @_Z11translate_xPA3_fiPKf(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11do_flexiblebP10gmx_enfrotP13gmx_enfrotgrpN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEPA3_Kfdbb(i1 noundef zeroext %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readonly %3, ptr nocapture noundef readonly %4, double noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11do_flexiblebP10gmx_enfrotP13gmx_enfrotgrpN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEPA3_Kfdbb(i1 noundef zeroext %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2, ptr nocapture readonly %3, ptr nocapture noundef readonly %4, double noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca [3 x float], align 4
   %10 = alloca [3 x float], align 4
   %11 = alloca [3 x float], align 4
@@ -8646,7 +8646,7 @@ _ZL27get_firstlast_atom_per_slabPK13gmx_enfrotgrp.exit: ; preds = %301
   %313 = fptrunc double %5 to float
   %314 = getelementptr inbounds i8, ptr %1, i64 40
   %315 = load ptr, ptr %314, align 8
-  tail call fastcc void @_ZL16get_slab_centersP13gmx_enfrotgrpN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEEPffP8_IO_FILEbb(ptr noundef nonnull %2, ptr %310, ptr noundef %312, float noundef %313, ptr noundef %315, i1 noundef zeroext %7, i1 noundef zeroext false)
+  tail call fastcc void @_ZL16get_slab_centersP13gmx_enfrotgrpN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEEPffP8_IO_FILEbb(ptr noundef %2, ptr %310, ptr noundef %312, float noundef %313, ptr noundef %315, i1 noundef zeroext %7, i1 noundef zeroext false)
   %316 = load i32, ptr %208, align 4
   %317 = load i32, ptr %199, align 8
   %.not131 = icmp slt i32 %316, %317
@@ -9031,7 +9031,7 @@ _ZL18shift_single_coordPA3_KfPfPKi.exit.i:        ; preds = %592, %._crit_edge.i
   %598 = load float, ptr %524, align 4
   %599 = tail call float @llvm.fmuladd.f32(float %.sink30.i.i, float %598, float %568)
   store float %599, ptr %519, align 4
-  %600 = call fastcc noundef i32 @_ZL25get_single_atom_gaussiansPfP13gmx_enfrotgrp(ptr noundef nonnull %22, ptr noundef nonnull readonly %2)
+  %600 = call fastcc noundef i32 @_ZL25get_single_atom_gaussiansPfP13gmx_enfrotgrp(ptr noundef %22, ptr noundef readonly %2)
   %601 = icmp sgt i32 %600, 0
   br i1 %601, label %.lr.ph235.i, label %._crit_edge.i64
 
@@ -9798,7 +9798,7 @@ _ZL18shift_single_coordPA3_KfPfPKi.exit.i84:      ; preds = %1191, %._crit_edge.
   %1197 = load float, ptr %1107, align 4
   %1198 = tail call float @llvm.fmuladd.f32(float %.sink30.i.i85, float %1197, float %1167)
   store float %1198, ptr %1102, align 4
-  %1199 = call fastcc noundef i32 @_ZL25get_single_atom_gaussiansPfP13gmx_enfrotgrp(ptr noundef nonnull %12, ptr noundef nonnull readonly %2)
+  %1199 = call fastcc noundef i32 @_ZL25get_single_atom_gaussiansPfP13gmx_enfrotgrp(ptr noundef %12, ptr noundef readonly %2)
   %1200 = icmp sgt i32 %1199, 0
   br i1 %1200, label %.lr.ph279.i, label %._crit_edge.i86
 
@@ -10379,7 +10379,7 @@ _ZL14flex_fit_angleP13gmx_enfrotgrp.exit:         ; preds = %1558, %._crit_edge.
   %1618 = getelementptr inbounds i8, ptr %1614, i64 8
   %1619 = load i32, ptr %1618, align 8
   %1620 = getelementptr inbounds i8, ptr %2, i64 108
-  %1621 = call fastcc noundef float @_ZL18opt_angle_analyticPA3_fS0_PfiPKfS3_S1_(ptr noundef %1616, ptr noundef %.023.i, ptr noundef %1617, i32 noundef %1619, ptr noundef nonnull %1620, ptr noundef nonnull %11, ptr noundef nonnull %182)
+  %1621 = call fastcc noundef float @_ZL18opt_angle_analyticPA3_fS0_PfiPKfS3_S1_(ptr noundef %1616, ptr noundef %.023.i, ptr noundef %1617, i32 noundef %1619, ptr noundef %1620, ptr noundef %11, ptr noundef %182)
   %1622 = fneg float %1621
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11)
   %1623 = getelementptr inbounds i8, ptr %2, i64 224
@@ -10658,7 +10658,7 @@ _ZL14flex_fit_angleP13gmx_enfrotgrp.exit:         ; preds = %1558, %._crit_edge.
   %1814 = load ptr, ptr %1749, align 8
   %1815 = load ptr, ptr %1747, align 8
   %1816 = load i32, ptr %1741, align 8
-  %1817 = call fastcc noundef float @_ZL18opt_angle_analyticPA3_fS0_PfiPKfS3_S1_(ptr noundef %1813, ptr noundef %1814, ptr noundef %1815, i32 noundef %1816, ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef nonnull %182)
+  %1817 = call fastcc noundef float @_ZL18opt_angle_analyticPA3_fS0_PfiPKfS3_S1_(ptr noundef %1813, ptr noundef %1814, ptr noundef %1815, i32 noundef %1816, ptr noundef %10, ptr noundef %9, ptr noundef %182)
   %1818 = fneg float %1817
   %1819 = load i32, ptr %1741, align 8
   %1820 = fpext float %1818 to double
@@ -11026,7 +11026,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP16sort_along_vec_tlN9__gnu
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc noundef i32 @_ZL25get_single_atom_gaussiansPfP13gmx_enfrotgrp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #20 {
+define internal fastcc noundef i32 @_ZL25get_single_atom_gaussiansPfP13gmx_enfrotgrp(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #20 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 92
@@ -11176,7 +11176,7 @@ declare noundef zeroext i1 @_Z11gmx_numzerod(double noundef) local_unnamed_addr 
 declare float @llvm.rint.f32(float) #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZL18opt_angle_analyticPA3_fS0_PfiPKfS3_S1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6) unnamed_addr #3 {
+define internal fastcc noundef float @_ZL18opt_angle_analyticPA3_fS0_PfiPKfS3_S1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull %6) unnamed_addr #3 {
   %8 = alloca i32, align 4
   %9 = alloca [3 x float], align 4
   %10 = alloca [3 x double], align 16
@@ -11820,7 +11820,7 @@ _ZL18free_square_matrixPPdi.exit148:              ; preds = %301
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12align_with_zPA3_fiPf(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #3 {
+define internal fastcc void @_ZL12align_with_zPA3_fiPf(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #3 {
   %4 = alloca [3 x [3 x float]], align 16
   %5 = sext i32 %1 to i64
   %6 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.148, ptr noundef nonnull @.str.2, i32 noundef 1346, i64 noundef %5, i64 noundef 12)

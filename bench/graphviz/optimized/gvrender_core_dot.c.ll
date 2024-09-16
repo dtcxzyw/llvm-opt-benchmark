@@ -3512,7 +3512,7 @@ agxbfree.exit:                                    ; preds = %agxbfree.exit.sink.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xdot_gradient_fillcolor(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @xdot_gradient_fillcolor(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 0) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca [2 x %struct.pointf_s], align 16
   %6 = alloca %struct.agxbuf, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3774,18 +3774,18 @@ agxbput.exit:                                     ; preds = %129, %134
   br i1 %142, label %144, label %146
 
 144:                                              ; preds = %agxbput.exit
-  call fastcc void @xdot_color_stop(ptr noundef nonnull %6, float noundef %141, ptr noundef nonnull %143)
+  call fastcc void @xdot_color_stop(ptr noundef %6, float noundef %141, ptr noundef nonnull %143)
   %145 = load float, ptr %140, align 4
   br label %147
 
 146:                                              ; preds = %agxbput.exit
-  call fastcc void @xdot_color_stop(ptr noundef nonnull %6, float noundef 0.000000e+00, ptr noundef nonnull %143)
+  call fastcc void @xdot_color_stop(ptr noundef %6, float noundef 0.000000e+00, ptr noundef nonnull %143)
   br label %147
 
 147:                                              ; preds = %146, %144
   %.sink68 = phi float [ 1.000000e+00, %146 ], [ %145, %144 ]
   %148 = getelementptr inbounds i8, ptr %8, i64 112
-  call fastcc void @xdot_color_stop(ptr noundef nonnull %6, float noundef %.sink68, ptr noundef nonnull %148)
+  call fastcc void @xdot_color_stop(ptr noundef %6, float noundef %.sink68, ptr noundef nonnull %148)
   %.val.i.i37 = load i8, ptr %119, align 1
   switch i8 %.val.i.i37, label %151 [
     i8 -1, label %agxblen.exit.thread.i
@@ -3967,9 +3967,9 @@ declare double @llvm.fmuladd.f64(double, double, double) #13
 declare double @sin(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xdot_color_stop(ptr nocapture noundef %0, float noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @xdot_color_stop(ptr nocapture noundef nonnull %0, float noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = fpext float %1 to double
-  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef %0, ptr noundef nonnull @.str.49, double noundef %4)
+  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %0, ptr noundef nonnull @.str.49, double noundef %4)
   %5 = getelementptr i8, ptr %0, i64 31
   %.val.i.i = load i8, ptr %5, align 1
   %.not.i.i = icmp eq i8 %.val.i.i, -1

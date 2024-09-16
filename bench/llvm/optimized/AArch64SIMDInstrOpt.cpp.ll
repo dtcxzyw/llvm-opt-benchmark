@@ -1120,7 +1120,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_11MCInstrDescELb1EE9push_backES3_.exit20.
   %338 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %100) #15
   %339 = add i64 %338, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %100, i64 noundef %339) #15
-  %340 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64SIMDInstrOpt17shouldReplaceInstEPN4llvm15MachineFunctionEPKNS1_11MCInstrDescERNS1_15SmallVectorImplIS6_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull %314, ptr noundef nonnull align 8 dereferenceable(16) %100)
+  %340 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64SIMDInstrOpt17shouldReplaceInstEPN4llvm15MachineFunctionEPKNS1_11MCInstrDescERNS1_15SmallVectorImplIS6_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef %314, ptr noundef nonnull align 8 dereferenceable(16) %100)
   br i1 %340, label %394, label %393
 
 341:                                              ; preds = %308
@@ -1204,7 +1204,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_11MCInstrDescELb1EE9push_backES3_.exit22.
   br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_11MCInstrDescELb1EE9push_backES3_.exit22.i, %.lr.ph19.i
-  %386 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64SIMDInstrOpt17shouldReplaceInstEPN4llvm15MachineFunctionEPKNS1_11MCInstrDescERNS1_15SmallVectorImplIS6_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull %363, ptr noundef nonnull align 8 dereferenceable(16) %100)
+  %386 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64SIMDInstrOpt17shouldReplaceInstEPN4llvm15MachineFunctionEPKNS1_11MCInstrDescERNS1_15SmallVectorImplIS6_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef %363, ptr noundef nonnull align 8 dereferenceable(16) %100)
   br i1 %386, label %387, label %389
 
 387:                                              ; preds = %._crit_edge.i
@@ -1393,7 +1393,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_11MCInstrDescELb1EE9push_backES3_.exit69.
   %447 = zext i16 %445 to i64
   %448 = sub nsw i64 0, %447
   %449 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %446, i64 %448
-  %450 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64SIMDInstrOpt17shouldReplaceInstEPN4llvm15MachineFunctionEPKNS1_11MCInstrDescERNS1_15SmallVectorImplIS6_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull %449, ptr noundef nonnull align 8 dereferenceable(16) %90)
+  %450 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64SIMDInstrOpt17shouldReplaceInstEPN4llvm15MachineFunctionEPKNS1_11MCInstrDescERNS1_15SmallVectorImplIS6_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef %449, ptr noundef nonnull align 8 dereferenceable(16) %90)
   br i1 %450, label %451, label %_ZN4llvm8DebugLocD2Ev.exit99.i.us.us
 
 451:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_11MCInstrDescELb1EE9push_backES3_.exit69.i.us.us
@@ -2703,7 +2703,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i: ; preds = %864, %85
   %878 = zext i16 %874 to i64
   %879 = sub nsw i64 0, %878
   %880 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %877, i64 %879
-  %881 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64SIMDInstrOpt17shouldReplaceInstEPN4llvm15MachineFunctionEPKNS1_11MCInstrDescERNS1_15SmallVectorImplIS6_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull %880, ptr noundef nonnull align 8 dereferenceable(16) %54)
+  %881 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64SIMDInstrOpt17shouldReplaceInstEPN4llvm15MachineFunctionEPKNS1_11MCInstrDescERNS1_15SmallVectorImplIS6_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef %880, ptr noundef nonnull align 8 dereferenceable(16) %54)
   br i1 %881, label %882, label %_ZN4llvm8DebugLocD2Ev.exit104.i
 
 882:                                              ; preds = %._crit_edge.i54
@@ -4139,7 +4139,7 @@ declare noundef zeroext i1 @_ZNK4llvm16TargetSchedModel18hasInstrSchedModelEv(pt
 declare void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64SIMDInstrOpt17shouldReplaceInstEPN4llvm15MachineFunctionEPKNS1_11MCInstrDescERNS1_15SmallVectorImplIS6_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64SIMDInstrOpt17shouldReplaceInstEPN4llvm15MachineFunctionEPKNS1_11MCInstrDescERNS1_15SmallVectorImplIS6_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::tuple.262", align 8
   %5 = alloca %"class.std::tuple.265", align 1
   %6 = alloca %"class.std::tuple.262", align 8

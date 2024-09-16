@@ -7061,7 +7061,7 @@ declare dso_local i32 @intel_plane_pixel_rate(ptr noundef, ptr noundef) local_un
 declare dso_local zeroext i1 @intel_fb_is_rc_ccs_cc_modifier(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @skl_plane_aux_dist(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc i32 @skl_plane_aux_dist(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 184
@@ -7840,7 +7840,7 @@ declare dso_local void @intel_fb_plane_get_subsampling(ptr noundef, ptr noundef,
 declare dso_local i32 @skl_ccs_to_main_plane(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @skl_check_main_ccs_coordinates(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 align 16 {
+define internal fastcc noundef zeroext i1 @skl_check_main_ccs_coordinates(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 1, 0) %4) unnamed_addr #2 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4

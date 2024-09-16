@@ -10,31 +10,29 @@ define zeroext i8 @crc5_usb_11bit_input(i16 noundef zeroext %0) local_unnamed_ad
   %2 = zext i16 %0 to i32
   br label %3
 
-3:                                                ; preds = %13, %1
-  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %13 ]
-  %.01012.i = phi i8 [ 2, %1 ], [ %.1.i, %13 ]
+3:                                                ; preds = %12, %1
+  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %12 ]
+  %.01012.i = phi i8 [ 2, %1 ], [ %.1.i, %12 ]
   %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %5 = shl nuw nsw i32 1, %4
   %6 = and i32 %5, %2
   %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %13, label %7
+  br i1 %.not.i, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = shl i64 %indvars.iv.i, 32
-  %sext = add nuw nsw i64 %8, 34359738368
-  %9 = ashr exact i64 %sext, 32
-  %10 = getelementptr [19 x i8], ptr @crc5_usb_bits.bvals, i64 0, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %12 = xor i8 %11, %.01012.i
-  br label %13
+  %8 = add nuw nsw i64 %indvars.iv.i, 8
+  %9 = getelementptr [19 x i8], ptr @crc5_usb_bits.bvals, i64 0, i64 %8
+  %10 = load i8, ptr %9, align 1
+  %11 = xor i8 %10, %.01012.i
+  br label %12
 
-13:                                               ; preds = %7, %3
-  %.1.i = phi i8 [ %12, %7 ], [ %.01012.i, %3 ]
+12:                                               ; preds = %7, %3
+  %.1.i = phi i8 [ %11, %7 ], [ %.01012.i, %3 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 11
   br i1 %exitcond.not.i, label %crc5_usb_bits.exit, label %3, !llvm.loop !4
 
-crc5_usb_bits.exit:                               ; preds = %13
+crc5_usb_bits.exit:                               ; preds = %12
   ret i8 %.1.i
 }
 
@@ -42,30 +40,28 @@ crc5_usb_bits.exit:                               ; preds = %13
 define zeroext i8 @crc5_usb_19bit_input(i32 noundef %0) local_unnamed_addr #0 {
   br label %2
 
-2:                                                ; preds = %11, %1
-  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %11 ]
-  %.01012.i = phi i8 [ 29, %1 ], [ %.1.i, %11 ]
+2:                                                ; preds = %10, %1
+  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %10 ]
+  %.01012.i = phi i8 [ 29, %1 ], [ %.1.i, %10 ]
   %3 = trunc nuw nsw i64 %indvars.iv.i to i32
   %4 = shl nuw nsw i32 1, %3
   %5 = and i32 %4, %0
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %11, label %6
+  br i1 %.not.i, label %10, label %6
 
 6:                                                ; preds = %2
-  %sext = shl i64 %indvars.iv.i, 32
-  %7 = ashr exact i64 %sext, 32
-  %8 = getelementptr [19 x i8], ptr @crc5_usb_bits.bvals, i64 0, i64 %7
-  %9 = load i8, ptr %8, align 1
-  %10 = xor i8 %9, %.01012.i
-  br label %11
+  %7 = getelementptr [19 x i8], ptr @crc5_usb_bits.bvals, i64 0, i64 %indvars.iv.i
+  %8 = load i8, ptr %7, align 1
+  %9 = xor i8 %8, %.01012.i
+  br label %10
 
-11:                                               ; preds = %6, %2
-  %.1.i = phi i8 [ %10, %6 ], [ %.01012.i, %2 ]
+10:                                               ; preds = %6, %2
+  %.1.i = phi i8 [ %9, %6 ], [ %.01012.i, %2 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 19
   br i1 %exitcond.not.i, label %crc5_usb_bits.exit, label %2, !llvm.loop !4
 
-crc5_usb_bits.exit:                               ; preds = %11
+crc5_usb_bits.exit:                               ; preds = %10
   ret i8 %.1.i
 }
 

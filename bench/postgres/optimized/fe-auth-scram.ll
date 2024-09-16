@@ -409,7 +409,7 @@ read_attr_value.exit50.i:                         ; preds = %124, %128
   br label %read_server_first_message.exit.thread
 
 147:                                              ; preds = %140
-  %148 = call fastcc ptr @read_attr_value(ptr noundef nonnull %16, i8 noundef signext 105, ptr noundef nonnull %85)
+  %148 = call fastcc ptr @read_attr_value(ptr noundef %16, i8 noundef signext 105, ptr noundef nonnull %85)
   %149 = icmp eq ptr %148, null
   br i1 %149, label %read_server_first_message.exit.thread, label %150
 
@@ -1080,7 +1080,7 @@ declare void @appendPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_add
 declare void @termPQExpBuffer(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @read_attr_value(ptr nocapture noundef %0, i8 noundef signext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @read_attr_value(ptr nocapture noundef nonnull %0, i8 noundef signext range(i8 101, 119) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i8, ptr %4, align 1
   %6 = zext nneg i8 %1 to i32

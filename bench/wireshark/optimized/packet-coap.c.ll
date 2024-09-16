@@ -1776,7 +1776,7 @@ declare i64 @wmem_strbuf_get_len(ptr noundef) local_unnamed_addr #0
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_coap_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc i32 @dissect_coap_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 3) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.nstime_t, align 8
   %8 = tail call ptr @wmem_file_scope() #9

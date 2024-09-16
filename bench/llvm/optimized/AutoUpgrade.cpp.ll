@@ -4103,7 +4103,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit445
 
 .critedge312.thread:                              ; preds = %.thread
   %457 = load ptr, ptr %27, align 8
-  %458 = call fastcc noundef ptr @_ZL23upgradeX86IntrinsicCallN4llvm9StringRefEPNS_8CallBaseEPNS_8FunctionERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE(ptr %.sroa.0973.51171, i64 %.sroa.44.51174, ptr noundef %457, ptr noundef nonnull %142, ptr noundef nonnull align 8 dereferenceable(144) %29)
+  %458 = call fastcc noundef ptr @_ZL23upgradeX86IntrinsicCallN4llvm9StringRefEPNS_8CallBaseEPNS_8FunctionERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE(ptr %.sroa.0973.51171, i64 %.sroa.44.51174, ptr noundef %457, ptr noundef %142, ptr noundef nonnull align 8 dereferenceable(144) %29)
   br label %699
 
 .critedge312:                                     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread1015
@@ -4654,7 +4654,7 @@ _ZL23upgradeARMIntrinsicCallN4llvm9StringRefEPNS_8CallBaseEPNS_8FunctionERNS_9IR
 
 679:                                              ; preds = %678
   %680 = load ptr, ptr %27, align 8
-  %681 = call fastcc noundef ptr @_ZL26upgradeAMDGCNIntrinsicCallN4llvm9StringRefEPNS_8CallBaseEPNS_8FunctionERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE(ptr %.sroa.0973.51170, i64 %.sroa.44.511731179, ptr noundef %680, ptr noundef nonnull %142, ptr noundef nonnull align 8 dereferenceable(144) %29)
+  %681 = call fastcc noundef ptr @_ZL26upgradeAMDGCNIntrinsicCallN4llvm9StringRefEPNS_8CallBaseEPNS_8FunctionERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE(ptr %.sroa.0973.51170, i64 %.sroa.44.511731179, ptr noundef %680, ptr noundef %142, ptr noundef nonnull align 8 dereferenceable(144) %29)
   br label %699
 
 .thread1206:                                      ; preds = %678
@@ -15999,7 +15999,7 @@ _ZN4llvm11SmallVectorIPNS_8MetadataELj1EED2Ev.exit: ; preds = %1716, %_ZNK4llvm9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL26upgradeAMDGCNIntrinsicCallN4llvm9StringRefEPNS_8CallBaseEPNS_8FunctionERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE(ptr nocapture readonly %0, i64 %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(144) %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL26upgradeAMDGCNIntrinsicCallN4llvm9StringRefEPNS_8CallBaseEPNS_8FunctionERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE(ptr nocapture readonly %0, i64 %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(144) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %.not.i.i = icmp ugt i64 %1, 6
@@ -19522,7 +19522,7 @@ declare noundef ptr @_ZNK4llvm11NamedMDNode10getOperandEj(ptr noundef nonnull al
 declare { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm18UpgradeModuleFlagsERNS_6ModuleEENK3$_0clENS0_15ModFlagBehaviorE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm18UpgradeModuleFlagsERNS_6ModuleEENK3$_0clENS0_15ModFlagBehaviorE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef range(i32 7, 9) %1) unnamed_addr #0 align 2 {
   %3 = alloca [3 x ptr], align 16
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
@@ -25998,7 +25998,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit211:     ; preds = %_ZN4llvmeqENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL25upgradeX86MaskedFPComparePN4llvm8FunctionEjRS1_(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL25upgradeX86MaskedFPComparePN4llvm8FunctionEjRS1_(ptr noundef %0, i32 noundef range(i32 1, 0) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -26039,7 +26039,7 @@ define internal fastcc noundef zeroext i1 @_ZL25upgradeX86MaskedFPComparePN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL23upgradeX86BF16IntrinsicPN4llvm8FunctionEjRS1_(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL23upgradeX86BF16IntrinsicPN4llvm8FunctionEjRS1_(ptr noundef %0, i32 noundef range(i32 1, 0) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -26094,7 +26094,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %3, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL25upgradeX86BF16DPIntrinsicPN4llvm8FunctionEjRS1_(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL25upgradeX86BF16DPIntrinsicPN4llvm8FunctionEjRS1_(ptr noundef %0, i32 noundef range(i32 1, 0) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -28068,7 +28068,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL26upgradeX86BinaryIntrinsicsRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERNS_8CallBaseEj(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL26upgradeX86BinaryIntrinsicsRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERNS_8CallBaseEj(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef range(i32 304, 363) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [2 x ptr], align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -29489,7 +29489,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm13IRBuilderBase7getInt1Eb(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL21upgradeX86MaskedShiftRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERNS_8CallBaseEj(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL21upgradeX86MaskedShiftRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEERNS_8CallBaseEj(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef range(i32 12970, 13996) %2) unnamed_addr #0 {
   %4 = alloca [2 x ptr], align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = tail call noundef ptr @_ZNK4llvm11Instruction9getModuleEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #20

@@ -4410,7 +4410,7 @@ _ZNSt6vectorIN9Stockfish4MoveESaIS1_EE9push_backERKS1_.exit: ; preds = %752, %_Z
   br i1 %.not718, label %819, label %818
 
 818:                                              ; preds = %.loopexit.thread
-  call fastcc void @_ZN9Stockfish12_GLOBAL__N_116update_all_statsERKNS_8PositionEPNS_6Search5StackERNS4_6WorkerENS_4MoveEiiNS_6SquareEPS9_iSB_ii(ptr noundef nonnull align 8 dereferenceable(865) %1, ptr noundef %2, ptr noundef nonnull align 64 dereferenceable(9583776) %0, i16 %.sroa.0622.1871, i32 noundef %.1680868, i32 noundef %4, i32 noundef %66, ptr noundef nonnull %10, i32 noundef %.0458.ph759859, ptr noundef nonnull %9, i32 noundef %.0456.ph755860, i32 noundef %.3.ph747861)
+  call fastcc void @_ZN9Stockfish12_GLOBAL__N_116update_all_statsERKNS_8PositionEPNS_6Search5StackERNS4_6WorkerENS_4MoveEiiNS_6SquareEPS9_iSB_ii(ptr noundef nonnull align 8 dereferenceable(865) %1, ptr noundef %2, ptr noundef nonnull align 64 dereferenceable(9583776) %0, i16 %.sroa.0622.1871, i32 noundef %.1680868, i32 noundef %4, i32 noundef %66, ptr noundef %10, i32 noundef %.0458.ph759859, ptr noundef %9, i32 noundef %.0456.ph755860, i32 noundef %.3.ph747861)
   br label %883
 
 819:                                              ; preds = %.loopexit.thread
@@ -8263,7 +8263,7 @@ _ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_
   br i1 %.not1104, label %1036, label %1035
 
 1035:                                             ; preds = %1034
-  call fastcc void @_ZN9Stockfish12_GLOBAL__N_116update_all_statsERKNS_8PositionEPNS_6Search5StackERNS4_6WorkerENS_4MoveEiiNS_6SquareEPS9_iSB_ii(ptr noundef nonnull align 8 dereferenceable(865) %1, ptr noundef %2, ptr noundef nonnull align 64 dereferenceable(9583776) %0, i16 %.sroa.0906.1, i32 noundef %.3635, i32 noundef %.sroa.speculated898, i32 noundef %103, ptr noundef nonnull %9, i32 noundef %.06491126, ptr noundef nonnull %8, i32 noundef %.06471123, i32 noundef %.3)
+  call fastcc void @_ZN9Stockfish12_GLOBAL__N_116update_all_statsERKNS_8PositionEPNS_6Search5StackERNS4_6WorkerENS_4MoveEiiNS_6SquareEPS9_iSB_ii(ptr noundef nonnull align 8 dereferenceable(865) %1, ptr noundef %2, ptr noundef nonnull align 64 dereferenceable(9583776) %0, i16 %.sroa.0906.1, i32 noundef %.3635, i32 noundef %.sroa.speculated898, i32 noundef %103, ptr noundef %9, i32 noundef %.06491126, ptr noundef %8, i32 noundef %.06471123, i32 noundef %.3)
   br label %1073
 
 1036:                                             ; preds = %1034
@@ -9893,7 +9893,7 @@ _ZN9Stockfish12_GLOBAL__N_19update_pvEPNS_4MoveES1_PKS1_.exit: ; preds = %.lr.ph
   br i1 %.not907, label %840, label %839
 
 839:                                              ; preds = %838
-  call fastcc void @_ZN9Stockfish12_GLOBAL__N_116update_all_statsERKNS_8PositionEPNS_6Search5StackERNS4_6WorkerENS_4MoveEiiNS_6SquareEPS9_iSB_ii(ptr noundef nonnull align 8 dereferenceable(865) %1, ptr noundef %2, ptr noundef nonnull align 64 dereferenceable(9583776) %0, i16 %.sroa.0738.1, i32 noundef %.2844, i32 noundef %.sroa.speculated692, i32 noundef %104, ptr noundef nonnull %10, i32 noundef %.0502927, ptr noundef nonnull %9, i32 noundef %.0500924, i32 noundef %.3918)
+  call fastcc void @_ZN9Stockfish12_GLOBAL__N_116update_all_statsERKNS_8PositionEPNS_6Search5StackERNS4_6WorkerENS_4MoveEiiNS_6SquareEPS9_iSB_ii(ptr noundef nonnull align 8 dereferenceable(865) %1, ptr noundef %2, ptr noundef nonnull align 64 dereferenceable(9583776) %0, i16 %.sroa.0738.1, i32 noundef %.2844, i32 noundef %.sroa.speculated692, i32 noundef %104, ptr noundef %10, i32 noundef %.0502927, ptr noundef %9, i32 noundef %.0500924, i32 noundef %.3918)
   br label %875
 
 840:                                              ; preds = %838
@@ -10063,7 +10063,7 @@ _ZNK9Stockfish8Position7captureENS_4MoveE.exit.thread: ; preds = %796, %625, %92
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN9Stockfish12_GLOBAL__N_116update_all_statsERKNS_8PositionEPNS_6Search5StackERNS4_6WorkerENS_4MoveEiiNS_6SquareEPS9_iSB_ii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(865) %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull align 64 dereferenceable(9583776) %2, i16 %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, i32 noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, i32 noundef %11) unnamed_addr #13 {
+define internal fastcc void @_ZN9Stockfish12_GLOBAL__N_116update_all_statsERKNS_8PositionEPNS_6Search5StackERNS4_6WorkerENS_4MoveEiiNS_6SquareEPS9_iSB_ii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(865) %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull align 64 dereferenceable(9583776) %2, i16 %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef nonnull readonly %7, i32 noundef %8, ptr nocapture noundef nonnull readonly %9, i32 noundef %10, i32 noundef %11) unnamed_addr #13 {
   %13 = getelementptr inbounds i8, ptr %0, i64 860
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds i8, ptr %2, i64 18432

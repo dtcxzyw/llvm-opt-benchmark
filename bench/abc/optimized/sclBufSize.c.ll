@@ -924,7 +924,7 @@ Abc_ObjIsBarBuf.exit.thread.thread:               ; preds = %Abc_ObjIsBarBuf.exi
 
 Abc_NtkComputeEdgeDept.exit:                      ; preds = %Abc_ObjIsBarBuf.exit.thread.thread, %82
   %.0.i.i.i = phi ptr [ %84, %82 ], [ null, %Abc_ObjIsBarBuf.exit.thread.thread ]
-  call fastcc void @Scl_LibPinArrival(ptr noundef %.0.i.i.i, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %7)
+  call fastcc void @Scl_LibPinArrival(ptr noundef %.0.i.i.i, ptr noundef %4, ptr noundef %6, ptr noundef %3, ptr noundef %5, ptr noundef %7)
   %85 = load float, ptr %13, align 4
   %86 = fpext float %85 to double
   %87 = load float, ptr %5, align 8
@@ -1144,7 +1144,7 @@ Abc_ObjIsBarBuf.exit.thread.thread:               ; preds = %Abc_ObjIsBarBuf.exi
 
 Abc_NtkComputeEdgeDept.exit:                      ; preds = %Abc_ObjIsBarBuf.exit.thread.thread, %82
   %.0.i.i.i = phi ptr [ %84, %82 ], [ null, %Abc_ObjIsBarBuf.exit.thread.thread ]
-  call fastcc void @Scl_LibPinArrival(ptr noundef %.0.i.i.i, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %7)
+  call fastcc void @Scl_LibPinArrival(ptr noundef %.0.i.i.i, ptr noundef %4, ptr noundef %6, ptr noundef %3, ptr noundef %5, ptr noundef %7)
   %85 = load float, ptr %13, align 4
   %86 = fpext float %85 to double
   %87 = load float, ptr %5, align 8
@@ -2592,7 +2592,7 @@ Abc_NtkComputeNodeLoad.exit:                      ; preds = %260, %.critedge2
 
 Abc_NtkComputeEdgeDept.exit:                      ; preds = %Abc_NtkComputeNodeLoad.exit, %330
   %.0.i.i.i = phi ptr [ %332, %330 ], [ null, %Abc_NtkComputeNodeLoad.exit ]
-  call fastcc void @Scl_LibPinArrival(ptr noundef %.0.i.i.i, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %9)
+  call fastcc void @Scl_LibPinArrival(ptr noundef %.0.i.i.i, ptr noundef %6, ptr noundef %8, ptr noundef %5, ptr noundef %7, ptr noundef %9)
   %333 = getelementptr inbounds i8, ptr %7, i64 4
   %334 = load float, ptr %333, align 4
   %335 = fpext float %334 to double
@@ -3580,8 +3580,8 @@ Abc_ObjIsBarBuf.exit235.thread:                   ; preds = %384, %392, %394, %A
 
 Scl_LibHandleInputDriver.exit:                    ; preds = %422, %439
   %.sink.i = phi ptr [ %441, %439 ], [ null, %422 ]
-  call fastcc void @Scl_LibPinArrival(ptr noundef %.sink.i, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %9)
-  call fastcc void @Scl_LibPinArrival(ptr noundef %.sink.i, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull readonly %12, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @Scl_LibPinArrival(ptr noundef %.sink.i, ptr noundef %5, ptr noundef %6, ptr noundef %4, ptr noundef %7, ptr noundef %9)
+  call fastcc void @Scl_LibPinArrival(ptr noundef %.sink.i, ptr noundef %5, ptr noundef %6, ptr noundef readonly %12, ptr noundef %8, ptr noundef %11)
   %442 = load float, ptr %41, align 4
   %443 = load float, ptr %42, align 4
   %444 = fsub float %442, %443
@@ -3835,7 +3835,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Scl_LibPinArrival(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #13 {
+define internal fastcc void @Scl_LibPinArrival(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #13 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %47 [

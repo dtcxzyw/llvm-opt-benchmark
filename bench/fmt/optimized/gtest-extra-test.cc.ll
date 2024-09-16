@@ -974,7 +974,7 @@ declare noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_N
 declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_122single_evaluation_testEE19GetSetUpCaseOrSuiteEPKci(i32 noundef %line_num) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_122single_evaluation_testEE19GetSetUpCaseOrSuiteEPKci(i32 noundef range(i32 52, 158) %line_num) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -1016,7 +1016,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_122single_evaluation_testEE22GetTearDownCaseOrSuiteEPKci(i32 noundef %line_num) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_122single_evaluation_testEE22GetTearDownCaseOrSuiteEPKci(i32 noundef range(i32 52, 158) %line_num) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)

@@ -182,15 +182,15 @@ define dso_local i64 @sha224_bytea(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cryptohash_internal(i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @cryptohash_internal(i32 noundef range(i32 2, 6) %0, ptr noundef %1) unnamed_addr #0 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -2
   %2 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.cryptohash_internal, i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   %3 = sext i32 %switch.tableidx to i64
-  %switch.gep35 = getelementptr inbounds [4 x ptr], ptr @switch.table.cryptohash_internal.1, i64 0, i64 %3
-  %switch.load36 = load ptr, ptr %switch.gep35, align 8
+  %switch.gep36 = getelementptr inbounds [4 x ptr], ptr @switch.table.cryptohash_internal.1, i64 0, i64 %3
+  %switch.load37 = load ptr, ptr %switch.gep36, align 8
   %4 = add nuw nsw i32 %switch.load, 4
   %5 = zext nneg i32 %4 to i64
   %6 = tail call ptr @palloc0(i64 noundef %5) #4
@@ -240,7 +240,7 @@ switch.lookup:
   %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %36)
   %37 = tail call ptr @pg_cryptohash_error(ptr noundef %32) #4
-  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef nonnull %switch.load36, ptr noundef %37) #4
+  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef nonnull %switch.load37, ptr noundef %37) #4
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 120, ptr noundef nonnull @__func__.cryptohash_internal) #4
   unreachable
 
@@ -257,7 +257,7 @@ switch.lookup:
   %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %45)
   %46 = tail call ptr @pg_cryptohash_error(ptr noundef %32) #4
-  %47 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef nonnull %switch.load36, ptr noundef %46) #4
+  %47 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef nonnull %switch.load37, ptr noundef %46) #4
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 123, ptr noundef nonnull @__func__.cryptohash_internal) #4
   unreachable
 
@@ -272,7 +272,7 @@ switch.lookup:
   %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %54)
   %55 = tail call ptr @pg_cryptohash_error(ptr noundef %32) #4
-  %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, ptr noundef nonnull %switch.load36, ptr noundef %55) #4
+  %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, ptr noundef nonnull %switch.load37, ptr noundef %55) #4
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 127, ptr noundef nonnull @__func__.cryptohash_internal) #4
   unreachable
 

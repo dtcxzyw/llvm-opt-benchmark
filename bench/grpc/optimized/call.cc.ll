@@ -2737,7 +2737,7 @@ invoke.cont76:                                    ; preds = %if.then73
           to label %invoke.cont78 unwind label %lpad77
 
 invoke.cont78:                                    ; preds = %invoke.cont76
-  invoke fastcc void @"_ZZN9grpc_core15FilterStackCall6CreateEP21grpc_call_create_argsPP9grpc_callENK3$_0clEPN4absl12lts_202308026StatusES9_"(ptr noundef nonnull %agg.result, ptr noundef nonnull %agg.tmp74)
+  invoke fastcc void @"_ZZN9grpc_core15FilterStackCall6CreateEP21grpc_call_create_argsPP9grpc_callENK3$_0clEPN4absl12lts_202308026StatusES9_"(ptr noundef nonnull %agg.result, ptr noundef %agg.tmp74)
           to label %invoke.cont80 unwind label %lpad79
 
 invoke.cont80:                                    ; preds = %invoke.cont78
@@ -2821,7 +2821,7 @@ if.end81:                                         ; preds = %if.then.i.i103, %_Z
           to label %invoke.cont94 unwind label %lpad
 
 invoke.cont94:                                    ; preds = %if.end81
-  invoke fastcc void @"_ZZN9grpc_core15FilterStackCall6CreateEP21grpc_call_create_argsPP9grpc_callENK3$_0clEPN4absl12lts_202308026StatusES9_"(ptr noundef nonnull %agg.result, ptr noundef nonnull %agg.tmp93)
+  invoke fastcc void @"_ZZN9grpc_core15FilterStackCall6CreateEP21grpc_call_create_argsPP9grpc_callENK3$_0clEPN4absl12lts_202308026StatusES9_"(ptr noundef nonnull %agg.result, ptr noundef %agg.tmp93)
           to label %invoke.cont96 unwind label %lpad95
 
 invoke.cont96:                                    ; preds = %invoke.cont94
@@ -3265,7 +3265,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN9grpc_core15FilterStackCall6CreateEP21grpc_call_create_argsPP9grpc_callENK3$_0clEPN4absl12lts_202308026StatusES9_"(ptr nocapture noundef %composite, ptr nocapture noundef readonly %new_err) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN9grpc_core15FilterStackCall6CreateEP21grpc_call_create_argsPP9grpc_callENK3$_0clEPN4absl12lts_202308026StatusES9_"(ptr nocapture noundef %composite, ptr nocapture noundef nonnull readonly %new_err) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp4 = alloca %"class.grpc_core::DebugLocation", align 1
@@ -5617,7 +5617,7 @@ if.end27:                                         ; preds = %_ZNK9grpc_core11Met
   store ptr %b, ptr %encoding_.i, align 8
   %is_client_.i88 = getelementptr inbounds i8, ptr %encoder, i64 16
   store i8 %frombool.i, ptr %is_client_.i88, align 8
-  call fastcc void @_ZNK9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEE6EncodeINS_12_GLOBAL__N_119PublishToAppEncoderEEEvPT_(ptr noundef nonnull align 8 dereferenceable(568) %b, ptr noundef nonnull %encoder)
+  call fastcc void @_ZNK9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEE6EncodeINS_12_GLOBAL__N_119PublishToAppEncoderEEEvPT_(ptr noundef nonnull align 8 dereferenceable(568) %b, ptr noundef %encoder)
   br label %return
 
 return:                                           ; preds = %if.end4, %if.end, %_ZNK9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEE5countEv.exit, %if.end27
@@ -5679,7 +5679,7 @@ _ZNK9grpc_core15metadata_detail10UnknownMap4sizeEv.exit: ; preds = %for.body.i.i
 declare ptr @gpr_realloc(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEE6EncodeINS_12_GLOBAL__N_119PublishToAppEncoderEEEvPT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(568) %this, ptr nocapture noundef readonly %encoder) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEE6EncodeINS_12_GLOBAL__N_119PublishToAppEncoderEEEvPT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(568) %this, ptr nocapture noundef nonnull readonly %encoder) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i.i25.i.i = alloca %struct.grpc_slice, align 8
   %agg.tmp.i.i.i.i.i17.i.i = alloca %struct.grpc_slice, align 8
@@ -16464,7 +16464,7 @@ if.end:                                           ; preds = %_ZNK9grpc_core11Met
   store ptr %md, ptr %encoding_.i, align 8
   %is_client_.i = getelementptr inbounds i8, ptr %encoder, i64 16
   store i8 %frombool.i, ptr %is_client_.i, align 8
-  call fastcc void @_ZNK9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEE6EncodeINS_12_GLOBAL__N_119PublishToAppEncoderEEEvPT_(ptr noundef nonnull align 8 dereferenceable(568) %md, ptr noundef nonnull %encoder)
+  call fastcc void @_ZNK9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEE6EncodeINS_12_GLOBAL__N_119PublishToAppEncoderEEEvPT_(ptr noundef nonnull align 8 dereferenceable(568) %md, ptr noundef %encoder)
   ret void
 }
 
@@ -29842,7 +29842,7 @@ if.then.i9:                                       ; preds = %if.end5.i
   unreachable
 
 invoke.cont11:                                    ; preds = %if.end5.i
-  call fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_16PromiseBasedCall16StartSendMessageERK7grpc_opRKNS4_10CompletionEPNS_10PipeSenderISt10unique_ptrINS_7MessageENS0_13PooledDeleterEEEERNS2_11BulkSpawnerEE3$_0ZNS4_16StartSendMessageES7_SA_SH_SJ_E3$_1EEEEvPT_"(ptr noundef nonnull %this)
+  call fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_16PromiseBasedCall16StartSendMessageERK7grpc_opRKNS4_10CompletionEPNS_10PipeSenderISt10unique_ptrINS_7MessageENS0_13PooledDeleterEEEERNS2_11BulkSpawnerEE3$_0ZNS4_16StartSendMessageES7_SA_SH_SJ_E3$_1EEEEvPT_"(ptr noundef %this)
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont6, %invoke.cont11
@@ -29862,12 +29862,12 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit:  ; preds = %entry
-  tail call fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_16PromiseBasedCall16StartSendMessageERK7grpc_opRKNS4_10CompletionEPNS_10PipeSenderISt10unique_ptrINS_7MessageENS0_13PooledDeleterEEEERNS2_11BulkSpawnerEE3$_0ZNS4_16StartSendMessageES7_SA_SH_SJ_E3$_1EEEEvPT_"(ptr noundef nonnull %this)
+  tail call fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_16PromiseBasedCall16StartSendMessageERK7grpc_opRKNS4_10CompletionEPNS_10PipeSenderISt10unique_ptrINS_7MessageENS0_13PooledDeleterEEEERNS2_11BulkSpawnerEE3$_0ZNS4_16StartSendMessageES7_SA_SH_SJ_E3$_1EEEEvPT_"(ptr noundef %this)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_16PromiseBasedCall16StartSendMessageERK7grpc_opRKNS4_10CompletionEPNS_10PipeSenderISt10unique_ptrINS_7MessageENS0_13PooledDeleterEEEERNS2_11BulkSpawnerEE3$_0ZNS4_16StartSendMessageES7_SA_SH_SJ_E3$_1EEEEvPT_"(ptr noundef %p) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_16PromiseBasedCall16StartSendMessageERK7grpc_opRKNS4_10CompletionEPNS_10PipeSenderISt10unique_ptrINS_7MessageENS0_13PooledDeleterEEEERNS2_11BulkSpawnerEE3$_0ZNS4_16StartSendMessageES7_SA_SH_SJ_E3$_1EEEEvPT_"(ptr noundef nonnull %p) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %started_.i = getelementptr inbounds i8, ptr %p, i64 73
   %0 = load i8, ptr %started_.i, align 1
@@ -30882,7 +30882,7 @@ cleanup:                                          ; preds = %.noexc.i.i
   br label %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit
 
 _ZN9grpc_core8DestructISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEvPT_.exit.i: ; preds = %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit
-  call fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_22ClientPromiseBasedCall12StartPromiseESt10unique_ptrI19grpc_metadata_batchNS0_13PooledDeleterEERKNS_16PromiseBasedCall10CompletionERNS2_11BulkSpawnerEE3$_1ZNS4_12StartPromiseES8_SC_SE_E3$_2EEEEvPT_"(ptr noundef nonnull %this)
+  call fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_22ClientPromiseBasedCall12StartPromiseESt10unique_ptrI19grpc_metadata_batchNS0_13PooledDeleterEERKNS_16PromiseBasedCall10CompletionERNS2_11BulkSpawnerEE3$_1ZNS4_12StartPromiseES8_SC_SE_E3$_2EEEEvPT_"(ptr noundef %this)
   br label %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit
 
 _ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit: ; preds = %cleanup, %_ZN9grpc_core8DestructISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEvPT_.exit.i
@@ -30908,12 +30908,12 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit:  ; preds = %entry
-  tail call fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_22ClientPromiseBasedCall12StartPromiseESt10unique_ptrI19grpc_metadata_batchNS0_13PooledDeleterEERKNS_16PromiseBasedCall10CompletionERNS2_11BulkSpawnerEE3$_1ZNS4_12StartPromiseES8_SC_SE_E3$_2EEEEvPT_"(ptr noundef nonnull %this)
+  tail call fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_22ClientPromiseBasedCall12StartPromiseESt10unique_ptrI19grpc_metadata_batchNS0_13PooledDeleterEERKNS_16PromiseBasedCall10CompletionERNS2_11BulkSpawnerEE3$_1ZNS4_12StartPromiseES8_SC_SE_E3$_2EEEEvPT_"(ptr noundef %this)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_22ClientPromiseBasedCall12StartPromiseESt10unique_ptrI19grpc_metadata_batchNS0_13PooledDeleterEERKNS_16PromiseBasedCall10CompletionERNS2_11BulkSpawnerEE3$_1ZNS4_12StartPromiseES8_SC_SE_E3$_2EEEEvPT_"(ptr noundef %p) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_22ClientPromiseBasedCall12StartPromiseESt10unique_ptrI19grpc_metadata_batchNS0_13PooledDeleterEERKNS_16PromiseBasedCall10CompletionERNS2_11BulkSpawnerEE3$_1ZNS4_12StartPromiseES8_SC_SE_E3$_2EEEEvPT_"(ptr noundef nonnull %p) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %started_.i = getelementptr inbounds i8, ptr %p, i64 104
   %0 = load i8, ptr %started_.i, align 8
@@ -39846,7 +39846,7 @@ if.then.i6:                                       ; preds = %if.end.i
   unreachable
 
 invoke.cont11:                                    ; preds = %if.end.i
-  call fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_22ServerPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS_16PromiseBasedCall10CompletionEE3$_0ZNS4_11CommitBatchES7_mSB_E3$_1EEEEvPT_"(ptr noundef nonnull %this)
+  call fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_22ServerPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS_16PromiseBasedCall10CompletionEE3$_0ZNS4_11CommitBatchES7_mSB_E3$_1EEEEvPT_"(ptr noundef %this)
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont6, %invoke.cont11
@@ -39866,12 +39866,12 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit:  ; preds = %entry
-  tail call fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_22ServerPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS_16PromiseBasedCall10CompletionEE3$_0ZNS4_11CommitBatchES7_mSB_E3$_1EEEEvPT_"(ptr noundef nonnull %this)
+  tail call fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_22ServerPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS_16PromiseBasedCall10CompletionEE3$_0ZNS4_11CommitBatchES7_mSB_E3$_1EEEEvPT_"(ptr noundef %this)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_22ServerPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS_16PromiseBasedCall10CompletionEE3$_0ZNS4_11CommitBatchES7_mSB_E3$_1EEEEvPT_"(ptr noundef %p) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_22ServerPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS_16PromiseBasedCall10CompletionEE3$_0ZNS4_11CommitBatchES7_mSB_E3$_1EEEEvPT_"(ptr noundef nonnull %p) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %started_.i = getelementptr inbounds i8, ptr %p, i64 73
   %0 = load i8, ptr %started_.i, align 1

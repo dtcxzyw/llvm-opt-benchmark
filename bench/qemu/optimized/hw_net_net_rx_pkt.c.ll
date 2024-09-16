@@ -227,14 +227,14 @@ if.end5:                                          ; preds = %if.end, %if.then2
   %tci6 = getelementptr inbounds i8, ptr %pkt, i64 48
   store i16 %1, ptr %tci6, align 8
   %conv7 = zext i16 %0 to i64
-  call fastcc void @net_rx_pkt_pull_data(ptr noundef nonnull %pkt, ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %conv7)
+  call fastcc void @net_rx_pkt_pull_data(ptr noundef %pkt, ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %conv7)
   ret void
 }
 
 declare i64 @eth_strip_vlan(ptr noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @net_rx_pkt_pull_data(ptr noundef %pkt, ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %ploff) unnamed_addr #0 {
+define internal fastcc void @net_rx_pkt_pull_data(ptr noundef nonnull %pkt, ptr noundef %iov, i32 noundef %iovcnt, i64 noundef range(i64 0, 65536) %ploff) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call i64 @iov_size(ptr noundef %iov, i32 noundef %iovcnt) #11
@@ -407,7 +407,7 @@ if.end:                                           ; preds = %entry
   store i16 %0, ptr %tci1, align 8
   %1 = load i16, ptr %ploff, align 2
   %conv2 = zext i16 %1 to i64
-  call fastcc void @net_rx_pkt_pull_data(ptr noundef nonnull %pkt, ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %conv2)
+  call fastcc void @net_rx_pkt_pull_data(ptr noundef %pkt, ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %conv2)
   ret void
 }
 
@@ -653,7 +653,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_net_rx_pkt_rss_ip4.exit:                    ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  call fastcc void @_net_rx_rss_prepare_ip4(ptr noundef nonnull %rss_input, ptr noundef nonnull %pkt, ptr noundef nonnull %rss_length)
+  call fastcc void @_net_rx_rss_prepare_ip4(ptr noundef %rss_input, ptr noundef nonnull %pkt, ptr noundef %rss_length)
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
@@ -711,8 +711,8 @@ if.else.i.i39:                                    ; preds = %if.then.i.i37
 
 trace_net_rx_pkt_rss_ip4_tcp.exit:                ; preds = %if.end9, %land.lhs.true5.i.i34, %if.then8.i.i40, %if.else.i.i39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i30)
-  call fastcc void @_net_rx_rss_prepare_ip4(ptr noundef nonnull %rss_input, ptr noundef nonnull %pkt, ptr noundef nonnull %rss_length)
-  call fastcc void @_net_rx_rss_prepare_tcp(ptr noundef nonnull %rss_input, ptr noundef nonnull %pkt, ptr noundef nonnull %rss_length)
+  call fastcc void @_net_rx_rss_prepare_ip4(ptr noundef %rss_input, ptr noundef nonnull %pkt, ptr noundef %rss_length)
+  call fastcc void @_net_rx_rss_prepare_tcp(ptr noundef %rss_input, ptr noundef nonnull %pkt, ptr noundef %rss_length)
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %entry
@@ -770,8 +770,8 @@ if.else.i.i53:                                    ; preds = %if.then.i.i51
 
 trace_net_rx_pkt_rss_ip6_tcp.exit:                ; preds = %if.end22, %land.lhs.true5.i.i48, %if.then8.i.i54, %if.else.i.i53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i44)
-  call fastcc void @_net_rx_rss_prepare_ip6(ptr noundef nonnull %rss_input, ptr noundef nonnull %pkt, i1 noundef zeroext false, ptr noundef nonnull %rss_length)
-  call fastcc void @_net_rx_rss_prepare_tcp(ptr noundef nonnull %rss_input, ptr noundef nonnull %pkt, ptr noundef nonnull %rss_length)
+  call fastcc void @_net_rx_rss_prepare_ip6(ptr noundef %rss_input, ptr noundef nonnull %pkt, i1 noundef zeroext false, ptr noundef %rss_length)
+  call fastcc void @_net_rx_rss_prepare_tcp(ptr noundef %rss_input, ptr noundef nonnull %pkt, ptr noundef %rss_length)
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %entry
@@ -819,7 +819,7 @@ if.else.i.i67:                                    ; preds = %if.then.i.i65
 
 trace_net_rx_pkt_rss_ip6.exit:                    ; preds = %if.end30, %land.lhs.true5.i.i62, %if.then8.i.i68, %if.else.i.i67
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i58)
-  call fastcc void @_net_rx_rss_prepare_ip6(ptr noundef nonnull %rss_input, ptr noundef nonnull %pkt, i1 noundef zeroext false, ptr noundef nonnull %rss_length)
+  call fastcc void @_net_rx_rss_prepare_ip6(ptr noundef %rss_input, ptr noundef nonnull %pkt, i1 noundef zeroext false, ptr noundef %rss_length)
   br label %sw.epilog
 
 sw.bb32:                                          ; preds = %entry
@@ -867,7 +867,7 @@ if.else.i.i81:                                    ; preds = %if.then.i.i79
 
 trace_net_rx_pkt_rss_ip6_ex.exit:                 ; preds = %if.end37, %land.lhs.true5.i.i76, %if.then8.i.i82, %if.else.i.i81
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i72)
-  call fastcc void @_net_rx_rss_prepare_ip6(ptr noundef nonnull %rss_input, ptr noundef nonnull %pkt, i1 noundef zeroext true, ptr noundef nonnull %rss_length)
+  call fastcc void @_net_rx_rss_prepare_ip6(ptr noundef %rss_input, ptr noundef nonnull %pkt, i1 noundef zeroext true, ptr noundef %rss_length)
   br label %sw.epilog
 
 sw.bb39:                                          ; preds = %entry
@@ -925,8 +925,8 @@ if.else.i.i95:                                    ; preds = %if.then.i.i93
 
 trace_net_rx_pkt_rss_ip6_ex_tcp.exit:             ; preds = %if.end50, %land.lhs.true5.i.i90, %if.then8.i.i96, %if.else.i.i95
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i86)
-  call fastcc void @_net_rx_rss_prepare_ip6(ptr noundef nonnull %rss_input, ptr noundef nonnull %pkt, i1 noundef zeroext true, ptr noundef nonnull %rss_length)
-  call fastcc void @_net_rx_rss_prepare_tcp(ptr noundef nonnull %rss_input, ptr noundef nonnull %pkt, ptr noundef nonnull %rss_length)
+  call fastcc void @_net_rx_rss_prepare_ip6(ptr noundef %rss_input, ptr noundef nonnull %pkt, i1 noundef zeroext true, ptr noundef %rss_length)
+  call fastcc void @_net_rx_rss_prepare_tcp(ptr noundef %rss_input, ptr noundef nonnull %pkt, ptr noundef %rss_length)
   br label %sw.epilog
 
 sw.bb53:                                          ; preds = %entry
@@ -984,8 +984,8 @@ if.else.i.i109:                                   ; preds = %if.then.i.i107
 
 trace_net_rx_pkt_rss_ip4_udp.exit:                ; preds = %if.end64, %land.lhs.true5.i.i104, %if.then8.i.i110, %if.else.i.i109
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i100)
-  call fastcc void @_net_rx_rss_prepare_ip4(ptr noundef nonnull %rss_input, ptr noundef nonnull %pkt, ptr noundef nonnull %rss_length)
-  call fastcc void @_net_rx_rss_prepare_udp(ptr noundef nonnull %rss_input, ptr noundef nonnull %pkt, ptr noundef nonnull %rss_length)
+  call fastcc void @_net_rx_rss_prepare_ip4(ptr noundef %rss_input, ptr noundef nonnull %pkt, ptr noundef %rss_length)
+  call fastcc void @_net_rx_rss_prepare_udp(ptr noundef %rss_input, ptr noundef nonnull %pkt, ptr noundef %rss_length)
   br label %sw.epilog
 
 sw.bb67:                                          ; preds = %entry
@@ -1043,8 +1043,8 @@ if.else.i.i123:                                   ; preds = %if.then.i.i121
 
 trace_net_rx_pkt_rss_ip6_udp.exit:                ; preds = %if.end78, %land.lhs.true5.i.i118, %if.then8.i.i124, %if.else.i.i123
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i114)
-  call fastcc void @_net_rx_rss_prepare_ip6(ptr noundef nonnull %rss_input, ptr noundef nonnull %pkt, i1 noundef zeroext false, ptr noundef nonnull %rss_length)
-  call fastcc void @_net_rx_rss_prepare_udp(ptr noundef nonnull %rss_input, ptr noundef nonnull %pkt, ptr noundef nonnull %rss_length)
+  call fastcc void @_net_rx_rss_prepare_ip6(ptr noundef %rss_input, ptr noundef nonnull %pkt, i1 noundef zeroext false, ptr noundef %rss_length)
+  call fastcc void @_net_rx_rss_prepare_udp(ptr noundef %rss_input, ptr noundef nonnull %pkt, ptr noundef %rss_length)
   br label %sw.epilog
 
 sw.bb81:                                          ; preds = %entry
@@ -1102,8 +1102,8 @@ if.else.i.i137:                                   ; preds = %if.then.i.i135
 
 trace_net_rx_pkt_rss_ip6_ex_udp.exit:             ; preds = %if.end92, %land.lhs.true5.i.i132, %if.then8.i.i138, %if.else.i.i137
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i128)
-  call fastcc void @_net_rx_rss_prepare_ip6(ptr noundef nonnull %rss_input, ptr noundef nonnull %pkt, i1 noundef zeroext true, ptr noundef nonnull %rss_length)
-  call fastcc void @_net_rx_rss_prepare_udp(ptr noundef nonnull %rss_input, ptr noundef nonnull %pkt, ptr noundef nonnull %rss_length)
+  call fastcc void @_net_rx_rss_prepare_ip6(ptr noundef %rss_input, ptr noundef nonnull %pkt, i1 noundef zeroext true, ptr noundef %rss_length)
+  call fastcc void @_net_rx_rss_prepare_udp(ptr noundef %rss_input, ptr noundef nonnull %pkt, ptr noundef %rss_length)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -1197,7 +1197,7 @@ trace_net_rx_pkt_rss_hash.exit:                   ; preds = %net_toeplitz_add.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @_net_rx_rss_prepare_ip4(ptr nocapture noundef writeonly %rss_input, ptr noundef %pkt, ptr nocapture noundef %bytes_written) unnamed_addr #0 {
+define internal fastcc void @_net_rx_rss_prepare_ip4(ptr nocapture noundef nonnull writeonly %rss_input, ptr noundef %pkt, ptr nocapture noundef nonnull %bytes_written) unnamed_addr #0 {
 entry:
   %_now.i.i.i4 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -1290,7 +1290,7 @@ _net_rx_rss_add_chunk.exit20:                     ; preds = %_net_rx_rss_add_chu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @_net_rx_rss_prepare_tcp(ptr nocapture noundef writeonly %rss_input, ptr noundef %pkt, ptr nocapture noundef %bytes_written) unnamed_addr #0 {
+define internal fastcc void @_net_rx_rss_prepare_tcp(ptr nocapture noundef nonnull writeonly %rss_input, ptr noundef %pkt, ptr nocapture noundef nonnull %bytes_written) unnamed_addr #0 {
 entry:
   %_now.i.i.i4 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -1383,7 +1383,7 @@ _net_rx_rss_add_chunk.exit20:                     ; preds = %_net_rx_rss_add_chu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @_net_rx_rss_prepare_ip6(ptr nocapture noundef writeonly %rss_input, ptr noundef %pkt, i1 noundef zeroext %ipv6ex, ptr nocapture noundef %bytes_written) unnamed_addr #0 {
+define internal fastcc void @_net_rx_rss_prepare_ip6(ptr nocapture noundef nonnull writeonly %rss_input, ptr noundef %pkt, i1 noundef zeroext %ipv6ex, ptr nocapture noundef nonnull %bytes_written) unnamed_addr #0 {
 entry:
   %_now.i.i.i9 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -1500,7 +1500,7 @@ _net_rx_rss_add_chunk.exit25:                     ; preds = %cond.end8, %land.lh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @_net_rx_rss_prepare_udp(ptr nocapture noundef writeonly %rss_input, ptr noundef %pkt, ptr nocapture noundef %bytes_written) unnamed_addr #0 {
+define internal fastcc void @_net_rx_rss_prepare_udp(ptr nocapture noundef nonnull writeonly %rss_input, ptr noundef %pkt, ptr nocapture noundef nonnull %bytes_written) unnamed_addr #0 {
 entry:
   %_now.i.i.i4 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8

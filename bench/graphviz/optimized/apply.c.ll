@@ -19,7 +19,7 @@ switch.lookup:
 
 9:                                                ; preds = %switch.lookup
   %10 = icmp ne i32 %4, 0
-  tail call fastcc void @rec_apply(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %switch.load, i1 noundef zeroext %10)
+  tail call fastcc void @rec_apply(ptr noundef %0, ptr noundef %8, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %switch.load, i1 noundef zeroext %10)
   br label %11
 
 11:                                               ; preds = %switch.lookup, %9
@@ -63,11 +63,11 @@ define internal ptr @subedge_search(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_apply(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @rec_apply(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5) unnamed_addr #0 {
   br i1 %5, label %7, label %8
 
 7:                                                ; preds = %6
-  tail call void %2(ptr noundef %0, ptr noundef %1, ptr noundef %3) #3
+  tail call void %2(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %3) #3
   br label %8
 
 8:                                                ; preds = %7, %6
@@ -77,12 +77,12 @@ define internal fastcc void @rec_apply(ptr noundef %0, ptr noundef %1, ptr nocap
 
 .lr.ph:                                           ; preds = %8, %12
   %.024 = phi ptr [ %13, %12 ], [ %9, %8 ]
-  %10 = tail call ptr %4(ptr noundef nonnull %.024, ptr noundef %1) #3, !callees !4
+  %10 = tail call ptr %4(ptr noundef nonnull %.024, ptr noundef nonnull %1) #3, !callees !4
   %.not22 = icmp eq ptr %10, null
   br i1 %.not22, label %12, label %11
 
 11:                                               ; preds = %.lr.ph
-  tail call fastcc void @rec_apply(ptr noundef nonnull %.024, ptr noundef nonnull %10, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5)
+  tail call fastcc void @rec_apply(ptr noundef nonnull %.024, ptr noundef %10, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5)
   br label %12
 
 12:                                               ; preds = %.lr.ph, %11
@@ -94,7 +94,7 @@ define internal fastcc void @rec_apply(ptr noundef %0, ptr noundef %1, ptr nocap
   br i1 %5, label %15, label %14
 
 14:                                               ; preds = %._crit_edge
-  tail call void %2(ptr noundef %0, ptr noundef %1, ptr noundef %3) #3
+  tail call void %2(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %3) #3
   br label %15
 
 15:                                               ; preds = %14, %._crit_edge

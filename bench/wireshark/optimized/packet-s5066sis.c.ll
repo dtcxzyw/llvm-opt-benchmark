@@ -884,7 +884,7 @@ define internal i32 @dissect_s5066_common(ptr noundef %0, ptr noundef %1, ptr no
   %302 = load i32, ptr @hf_s5066_20_size, align 4
   %303 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %302, ptr noundef %0, i32 noundef %301, i32 noundef 2, i32 noundef 0) #3
   %304 = add nuw nsw i32 %.0, 14
-  %305 = call fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %304, ptr noundef %37, i8 noundef zeroext %270, ptr noundef nonnull %5)
+  %305 = call fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %304, ptr noundef %37, i8 noundef zeroext %270, ptr noundef %5)
   br label %614
 
 306:                                              ; preds = %29
@@ -943,7 +943,7 @@ define internal i32 @dissect_s5066_common(ptr noundef %0, ptr noundef %1, ptr no
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %353, ptr noundef nonnull @.str.260) #3
   %355 = load i32, ptr @hf_s5066_21_nrx_blocks, align 4
   %356 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %355, ptr noundef %0, i32 noundef %354, i32 noundef 2, i32 noundef 0) #3
-  %357 = add nuw nsw i32 %.0, 19
+  %357 = or disjoint i32 %35, 16
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %356, ptr noundef nonnull @.str.260) #3
   br label %358
 
@@ -1002,7 +1002,7 @@ define internal i32 @dissect_s5066_common(ptr noundef %0, ptr noundef %1, ptr no
 dissect_s5066_21.exit:                            ; preds = %.lr.ph98.i, %358, %._crit_edge.i
   %.1.i = phi i32 [ %.0.i, %358 ], [ %.393.i, %._crit_edge.i ], [ %.3.i, %.lr.ph98.i ]
   %380 = and i8 %309, 15
-  %381 = call fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %.1.i, ptr noundef %37, i8 noundef zeroext %380, ptr noundef nonnull %5)
+  %381 = call fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %.1.i, ptr noundef %37, i8 noundef zeroext %380, ptr noundef %5)
   br label %614
 
 382:                                              ; preds = %29
@@ -1033,7 +1033,7 @@ dissect_s5066_21.exit:                            ; preds = %.lr.ph98.i, %358, %
   %407 = load i32, ptr @hf_s5066_22_data, align 4
   %408 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %407, ptr noundef %0, i32 noundef %406, i32 noundef %403, i32 noundef 0) #3
   %409 = add nuw nsw i32 %406, %403
-  %410 = call fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %409, ptr noundef %37, i8 noundef zeroext %386, ptr noundef nonnull %5)
+  %410 = call fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %409, ptr noundef %37, i8 noundef zeroext %386, ptr noundef %5)
   br label %614
 
 411:                                              ; preds = %29
@@ -1064,7 +1064,7 @@ dissect_s5066_21.exit:                            ; preds = %.lr.ph98.i, %358, %
   %436 = load i32, ptr @hf_s5066_23_data, align 4
   %437 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %436, ptr noundef %0, i32 noundef %435, i32 noundef %432, i32 noundef 0) #3
   %438 = add nuw nsw i32 %435, %432
-  %439 = call fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %438, ptr noundef %37, i8 noundef zeroext %415, ptr noundef nonnull %5)
+  %439 = call fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %438, ptr noundef %37, i8 noundef zeroext %415, ptr noundef %5)
   br label %614
 
 440:                                              ; preds = %29
@@ -1106,7 +1106,7 @@ dissect_s5066_21.exit:                            ; preds = %.lr.ph98.i, %358, %
   %476 = load i32, ptr @hf_s5066_24_size, align 4
   %477 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %476, ptr noundef %0, i32 noundef %475, i32 noundef 2, i32 noundef 0) #3
   %478 = add nuw nsw i32 %.0, 14
-  %479 = call fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %478, ptr noundef %37, i8 noundef zeroext %444, ptr noundef nonnull %5)
+  %479 = call fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %478, ptr noundef %37, i8 noundef zeroext %444, ptr noundef %5)
   br label %614
 
 480:                                              ; preds = %29
@@ -1165,7 +1165,7 @@ dissect_s5066_21.exit:                            ; preds = %.lr.ph98.i, %358, %
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %527, ptr noundef nonnull @.str.260) #3
   %529 = load i32, ptr @hf_s5066_25_nrx_blocks, align 4
   %530 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %529, ptr noundef %0, i32 noundef %528, i32 noundef 2, i32 noundef 0) #3
-  %531 = add nuw nsw i32 %.0, 19
+  %531 = or disjoint i32 %35, 16
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %530, ptr noundef nonnull @.str.260) #3
   br label %532
 
@@ -1224,7 +1224,7 @@ dissect_s5066_21.exit:                            ; preds = %.lr.ph98.i, %358, %
 dissect_s5066_25.exit:                            ; preds = %.lr.ph98.i139, %532, %._crit_edge.i134
   %.1.i125 = phi i32 [ %.0.i124, %532 ], [ %.393.i137, %._crit_edge.i134 ], [ %.3.i143, %.lr.ph98.i139 ]
   %554 = and i8 %483, 15
-  %555 = call fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %.1.i125, ptr noundef %37, i8 noundef zeroext %554, ptr noundef nonnull %5)
+  %555 = call fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %.1.i125, ptr noundef %37, i8 noundef zeroext %554, ptr noundef %5)
   br label %614
 
 556:                                              ; preds = %29
@@ -1255,7 +1255,7 @@ dissect_s5066_25.exit:                            ; preds = %.lr.ph98.i139, %532
   %581 = load i32, ptr @hf_s5066_26_data, align 4
   %582 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %581, ptr noundef %0, i32 noundef %580, i32 noundef %577, i32 noundef 0) #3
   %583 = add nuw nsw i32 %580, %577
-  %584 = call fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %583, ptr noundef %37, i8 noundef zeroext %560, ptr noundef nonnull %5)
+  %584 = call fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %583, ptr noundef %37, i8 noundef zeroext %560, ptr noundef %5)
   br label %614
 
 585:                                              ; preds = %29
@@ -1286,7 +1286,7 @@ dissect_s5066_25.exit:                            ; preds = %.lr.ph98.i139, %532
   %610 = load i32, ptr @hf_s5066_27_data, align 4
   %611 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %610, ptr noundef %0, i32 noundef %609, i32 noundef %606, i32 noundef 0) #3
   %612 = add nuw nsw i32 %609, %606
-  %613 = call fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %612, ptr noundef %37, i8 noundef zeroext %589, ptr noundef nonnull %5)
+  %613 = call fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %612, ptr noundef %37, i8 noundef zeroext %589, ptr noundef %5)
   br label %614
 
 614:                                              ; preds = %585, %556, %dissect_s5066_25.exit, %440, %411, %382, %dissect_s5066_21.exit, %266, %259, %252, %245, %222, %202, %179, %156, %133, %110, %97, %77, %73, %69, %60, %38, %29
@@ -1341,37 +1341,37 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_ipv4(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
-  switch i8 %3, label %25 [
-    i8 7, label %6
-    i8 6, label %6
-    i8 2, label %6
-  ]
+define internal fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 16) %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+  %6 = and i8 %3, 11
+  %or.cond = icmp eq i8 %6, 2
+  %7 = icmp eq i8 %3, 7
+  %or.cond5 = or i1 %7, %or.cond
+  br i1 %or.cond5, label %8, label %27
 
-6:                                                ; preds = %5, %5, %5
-  %7 = load i32, ptr @ett_s5066_client_transport_header, align 4
-  %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 6, i32 noundef %7, ptr noundef null, ptr noundef nonnull @.str.259) #3
-  %9 = load i32, ptr @hf_s5066_ctl_conn_id, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #3
-  %11 = load i32, ptr @hf_s5066_ctl_reserved, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %11, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #3
-  %13 = add i32 %1, 1
-  %14 = load i32, ptr @hf_s5066_ctl_updu_id, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %14, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef 0) #3
-  %16 = add i32 %1, 2
-  %17 = load i32, ptr @hf_s5066_ctl_updu_segment, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef 2, i32 noundef 0) #3
-  %19 = add i32 %1, 4
-  %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %19) #3
-  %21 = zext i16 %20 to i32
-  store i32 %21, ptr %4, align 4
-  %22 = load i32, ptr @hf_s5066_ctl_app_id, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %22, ptr noundef %0, i32 noundef %19, i32 noundef 2, i32 noundef 0) #3
-  %24 = add i32 %1, 6
-  br label %25
+8:                                                ; preds = %5
+  %9 = load i32, ptr @ett_s5066_client_transport_header, align 4
+  %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 6, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.259) #3
+  %11 = load i32, ptr @hf_s5066_ctl_conn_id, align 4
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #3
+  %13 = load i32, ptr @hf_s5066_ctl_reserved, align 4
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #3
+  %15 = add i32 %1, 1
+  %16 = load i32, ptr @hf_s5066_ctl_updu_id, align 4
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %16, ptr noundef %0, i32 noundef %15, i32 noundef 1, i32 noundef 0) #3
+  %18 = add i32 %1, 2
+  %19 = load i32, ptr @hf_s5066_ctl_updu_segment, align 4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 2, i32 noundef 0) #3
+  %21 = add i32 %1, 4
+  %22 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %21) #3
+  %23 = zext i16 %22 to i32
+  store i32 %23, ptr %4, align 4
+  %24 = load i32, ptr @hf_s5066_ctl_app_id, align 4
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %24, ptr noundef %0, i32 noundef %21, i32 noundef 2, i32 noundef 0) #3
+  %26 = add i32 %1, 6
+  br label %27
 
-25:                                               ; preds = %5, %6
-  %.0 = phi i32 [ %24, %6 ], [ %1, %5 ]
+27:                                               ; preds = %5, %8
+  %.0 = phi i32 [ %26, %8 ], [ %1, %5 ]
   ret i32 %.0
 }
 

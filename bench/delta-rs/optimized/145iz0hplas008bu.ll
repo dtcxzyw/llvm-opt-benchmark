@@ -1373,7 +1373,7 @@ define hidden void @"_ZN15deltalake_mount4file23MountFileStorageBackend16path_to
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15deltalake_mount4file23MountFileStorageBackend18path_to_filesystem17h74c9688f3908f5f4E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr %.8.val, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN15deltalake_mount4file23MountFileStorageBackend18path_to_filesystem17h74c9688f3908f5f4E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr %.8.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -4291,7 +4291,7 @@ common.ret:                                       ; preds = %121, %17
   %22 = getelementptr inbounds i8, ptr %1, i64 24
   %23 = getelementptr i8, ptr %19, i64 8
   %.val11 = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
-  invoke fastcc void @_ZN15deltalake_mount4file23MountFileStorageBackend18path_to_filesystem17h74c9688f3908f5f4E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %22, ptr nonnull %.val11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21)
+  invoke fastcc void @_ZN15deltalake_mount4file23MountFileStorageBackend18path_to_filesystem17h74c9688f3908f5f4E(ptr noalias nocapture noundef align 8 dereferenceable(24) %22, ptr nonnull %.val11, ptr noalias noundef readonly align 8 dereferenceable(24) %21)
           to label %27 unwind label %25
 
 24:                                               ; preds = %136, %149, %175, %31, %25
@@ -4309,7 +4309,7 @@ common.ret:                                       ; preds = %121, %17
   %29 = load ptr, ptr %28, align 8, !nonnull !4, !align !13, !noundef !4
   %30 = getelementptr inbounds i8, ptr %1, i64 48
   %.val = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
-  invoke fastcc void @_ZN15deltalake_mount4file23MountFileStorageBackend18path_to_filesystem17h74c9688f3908f5f4E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %30, ptr nonnull %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29)
+  invoke fastcc void @_ZN15deltalake_mount4file23MountFileStorageBackend18path_to_filesystem17h74c9688f3908f5f4E(ptr noalias nocapture noundef align 8 dereferenceable(24) %30, ptr nonnull %.val, ptr noalias noundef readonly align 8 dereferenceable(24) %29)
           to label %.thread unwind label %31
 
 31:                                               ; preds = %27

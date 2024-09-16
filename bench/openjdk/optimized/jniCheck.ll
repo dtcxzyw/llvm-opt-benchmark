@@ -15256,7 +15256,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN20ThreadInVMfrom
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20checkInstanceFieldIDP10JavaThreadP9_jfieldIDP8_jobjecti(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL20checkInstanceFieldIDP10JavaThreadP9_jfieldIDP8_jobjecti(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 4, 13) %3) unnamed_addr #0 {
   %5 = alloca %class.fieldDescriptor, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %6, i8 0, i64 22, i1 false)
@@ -23391,7 +23391,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN20ThreadInVMfrom
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18checkStaticFieldIDP10JavaThreadP9_jfieldIDP7_jclassi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL18checkStaticFieldIDP10JavaThreadP9_jfieldIDP7_jclassi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 4, 13) %3) unnamed_addr #0 {
   %5 = alloca %class.fieldDescriptor, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %6, i8 0, i64 22, i1 false)
@@ -29776,7 +29776,7 @@ _ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit: ; preds = 
   br i1 %.not24, label %78, label %76
 
 76:                                               ; preds = %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit
-  %77 = tail call fastcc noundef ptr @_ZL25check_jni_wrap_copy_arrayP10JavaThreadP7_jarrayPv(ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull %75)
+  %77 = tail call fastcc noundef ptr @_ZL25check_jni_wrap_copy_arrayP10JavaThreadP7_jarrayPv(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %75)
   br label %78
 
 78:                                               ; preds = %76, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit
@@ -29814,7 +29814,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %78, %84
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL25check_jni_wrap_copy_arrayP10JavaThreadP7_jarrayPv(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL25check_jni_wrap_copy_arrayP10JavaThreadP7_jarrayPv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %5 = trunc i8 %4 to i1
   %6 = getelementptr inbounds i8, ptr %0, i64 1092
@@ -29907,7 +29907,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %35, %45
   %49 = and i32 %48, 63
   %50 = shl i32 %33, %49
   %51 = sext i32 %50 to i64
-  %52 = tail call noundef ptr @_ZN13GuardedMemory9wrap_copyEPKvmS1_(ptr noundef %2, i64 noundef %51, ptr noundef %2) #11
+  %52 = tail call noundef ptr @_ZN13GuardedMemory9wrap_copyEPKvmS1_(ptr noundef nonnull %2, i64 noundef %51, ptr noundef nonnull %2) #11
   %53 = getelementptr inbounds i8, ptr %0, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %53) #11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
@@ -30082,7 +30082,7 @@ _ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit: ; preds = 
   br i1 %.not24, label %78, label %76
 
 76:                                               ; preds = %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit
-  %77 = tail call fastcc noundef ptr @_ZL25check_jni_wrap_copy_arrayP10JavaThreadP7_jarrayPv(ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull %75)
+  %77 = tail call fastcc noundef ptr @_ZL25check_jni_wrap_copy_arrayP10JavaThreadP7_jarrayPv(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %75)
   br label %78
 
 78:                                               ; preds = %76, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit
@@ -30286,7 +30286,7 @@ _ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit: ; preds = 
   br i1 %.not24, label %78, label %76
 
 76:                                               ; preds = %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit
-  %77 = tail call fastcc noundef ptr @_ZL25check_jni_wrap_copy_arrayP10JavaThreadP7_jarrayPv(ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull %75)
+  %77 = tail call fastcc noundef ptr @_ZL25check_jni_wrap_copy_arrayP10JavaThreadP7_jarrayPv(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %75)
   br label %78
 
 78:                                               ; preds = %76, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit
@@ -30490,7 +30490,7 @@ _ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit: ; preds = 
   br i1 %.not24, label %78, label %76
 
 76:                                               ; preds = %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit
-  %77 = tail call fastcc noundef ptr @_ZL25check_jni_wrap_copy_arrayP10JavaThreadP7_jarrayPv(ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull %75)
+  %77 = tail call fastcc noundef ptr @_ZL25check_jni_wrap_copy_arrayP10JavaThreadP7_jarrayPv(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %75)
   br label %78
 
 78:                                               ; preds = %76, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit
@@ -30694,7 +30694,7 @@ _ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit: ; preds = 
   br i1 %.not24, label %78, label %76
 
 76:                                               ; preds = %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit
-  %77 = tail call fastcc noundef ptr @_ZL25check_jni_wrap_copy_arrayP10JavaThreadP7_jarrayPv(ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull %75)
+  %77 = tail call fastcc noundef ptr @_ZL25check_jni_wrap_copy_arrayP10JavaThreadP7_jarrayPv(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %75)
   br label %78
 
 78:                                               ; preds = %76, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit
@@ -30898,7 +30898,7 @@ _ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit: ; preds = 
   br i1 %.not24, label %78, label %76
 
 76:                                               ; preds = %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit
-  %77 = tail call fastcc noundef ptr @_ZL25check_jni_wrap_copy_arrayP10JavaThreadP7_jarrayPv(ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull %75)
+  %77 = tail call fastcc noundef ptr @_ZL25check_jni_wrap_copy_arrayP10JavaThreadP7_jarrayPv(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %75)
   br label %78
 
 78:                                               ; preds = %76, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit
@@ -31102,7 +31102,7 @@ _ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit: ; preds = 
   br i1 %.not24, label %78, label %76
 
 76:                                               ; preds = %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit
-  %77 = tail call fastcc noundef ptr @_ZL25check_jni_wrap_copy_arrayP10JavaThreadP7_jarrayPv(ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull %75)
+  %77 = tail call fastcc noundef ptr @_ZL25check_jni_wrap_copy_arrayP10JavaThreadP7_jarrayPv(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %75)
   br label %78
 
 78:                                               ; preds = %76, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit
@@ -31306,7 +31306,7 @@ _ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit: ; preds = 
   br i1 %.not24, label %78, label %76
 
 76:                                               ; preds = %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit
-  %77 = tail call fastcc noundef ptr @_ZL25check_jni_wrap_copy_arrayP10JavaThreadP7_jarrayPv(ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull %75)
+  %77 = tail call fastcc noundef ptr @_ZL25check_jni_wrap_copy_arrayP10JavaThreadP7_jarrayPv(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %75)
   br label %78
 
 78:                                               ; preds = %76, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit
@@ -31558,7 +31558,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN10JNIHandles16re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL27check_wrapped_array_releaseP10JavaThreadPKcPvS3_ih(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL27check_wrapped_array_releaseP10JavaThreadPKcPvS3_ih(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext range(i8 0, 2) %5) unnamed_addr #0 {
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca %class.FormatBuffer, align 8
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %7)
@@ -37622,7 +37622,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not24, label %53, label %51
 
 51:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %52 = tail call fastcc noundef ptr @_ZL25check_jni_wrap_copy_arrayP10JavaThreadP7_jarrayPv(ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull %50)
+  %52 = tail call fastcc noundef ptr @_ZL25check_jni_wrap_copy_arrayP10JavaThreadP7_jarrayPv(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %50)
   br label %53
 
 53:                                               ; preds = %51, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit

@@ -6150,7 +6150,7 @@ _ZNK4llvm15SmallVectorImplIN5clang6format10ParenStateEEltERKS4_.exit.thread: ; p
   br i1 %or.cond.not.not, label %361, label %362
 
 361:                                              ; preds = %351
-  call fastcc void @_ZN5clang6format12_GLOBAL__N_123OptimizingLineFormatter19addNextStateToQueueEjPNS2_9StateNodeEbPjPSt14priority_queueISt4pairIS7_IjjES4_EN4llvm11SmallVectorIS9_Lj3EEESt7greaterIS9_EE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %52, ptr noundef nonnull %54, i1 noundef zeroext false, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  call fastcc void @_ZN5clang6format12_GLOBAL__N_123OptimizingLineFormatter19addNextStateToQueueEjPNS2_9StateNodeEbPjPSt14priority_queueISt4pairIS7_IjjES4_EN4llvm11SmallVectorIS9_Lj3EEESt7greaterIS9_EE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %52, ptr noundef nonnull %54, i1 noundef zeroext false, ptr noundef %7, ptr noundef %8)
   br label %362
 
 362:                                              ; preds = %351, %361
@@ -6159,7 +6159,7 @@ _ZNK4llvm15SmallVectorImplIN5clang6format10ParenStateEEltERKS4_.exit.thread: ; p
   br i1 %or.cond3, label %364, label %.backedge
 
 364:                                              ; preds = %362
-  call fastcc void @_ZN5clang6format12_GLOBAL__N_123OptimizingLineFormatter19addNextStateToQueueEjPNS2_9StateNodeEbPjPSt14priority_queueISt4pairIS7_IjjES4_EN4llvm11SmallVectorIS9_Lj3EEESt7greaterIS9_EE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %52, ptr noundef nonnull %54, i1 noundef zeroext true, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  call fastcc void @_ZN5clang6format12_GLOBAL__N_123OptimizingLineFormatter19addNextStateToQueueEjPNS2_9StateNodeEbPjPSt14priority_queueISt4pairIS7_IjjES4_EN4llvm11SmallVectorIS9_Lj3EEESt7greaterIS9_EE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %52, ptr noundef nonnull %54, i1 noundef zeroext true, ptr noundef %7, ptr noundef %8)
   br label %.backedge
 
 .backedge:                                        ; preds = %290, %364, %362, %_ZNK4llvm15SmallVectorImplIN5clang6format10ParenStateEEltERKS4_.exit, %274, %270, %268, %261, %254, %247, %238, %233
@@ -6375,7 +6375,7 @@ _ZSt9push_heapIPSt4pairIS0_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineForm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6format12_GLOBAL__N_123OptimizingLineFormatter19addNextStateToQueueEjPNS2_9StateNodeEbPjPSt14priority_queueISt4pairIS7_IjjES4_EN4llvm11SmallVectorIS9_Lj3EEESt7greaterIS9_EE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang6format12_GLOBAL__N_123OptimizingLineFormatter19addNextStateToQueueEjPNS2_9StateNodeEbPjPSt14priority_queueISt4pairIS7_IjjES4_EN4llvm11SmallVectorIS9_Lj3EEESt7greaterIS9_EE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 align 2 {
   %7 = alloca i32, align 4
   store i32 %1, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8

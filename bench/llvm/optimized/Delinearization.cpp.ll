@@ -4047,7 +4047,7 @@ _ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i18.i.i:  ; preds = %"_ZN9__gnu_cxx5__op
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_SG_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #8 {
+define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_SG_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 576460752303423487) %1, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %2, ptr noundef %3) unnamed_addr #8 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6
@@ -4129,14 +4129,14 @@ _ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i:        ; preds = %16, %.lr.ph
 
 .lr.ph.i:                                         ; preds = %44
   %.0.in1.i = add nsw i64 %.128, -1
-  %.02.i = sdiv i64 %.0.in1.i, 2
+  %.021013.i = lshr i64 %.0.in1.i, 1
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.not4.i2.i.i.i = icmp eq ptr %3, null
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 40
   br i1 %.not4.i2.i.i.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %56
-  %.04.us.i = phi i64 [ %.0.us.i, %56 ], [ %.02.i, %.lr.ph.i ]
+  %.04.us.i = phi i64 [ %.0.us.i, %56 ], [ %.021013.i, %.lr.ph.i ]
   %.0133.us.i = phi i64 [ %.04.us.i, %56 ], [ %.128, %.lr.ph.i ]
   %48 = getelementptr inbounds ptr, ptr %0, i64 %.04.us.i
   %.val.us.i = load ptr, ptr %48, align 8
@@ -4163,7 +4163,7 @@ _ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.us.i:   ; preds = %.lr.ph.split.us.i
   br i1 %58, label %.lr.ph.split.us.i, label %"_ZSt11__push_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !71
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %72
-  %.04.i = phi i64 [ %.0.i, %72 ], [ %.02.i, %.lr.ph.i ]
+  %.04.i = phi i64 [ %.0.i, %72 ], [ %.021013.i, %.lr.ph.i ]
   %.0133.i = phi i64 [ %.04.i, %72 ], [ %.128, %.lr.ph.i ]
   %59 = getelementptr inbounds ptr, ptr %0, i64 %.04.i
   %.val.i = load ptr, ptr %59, align 8

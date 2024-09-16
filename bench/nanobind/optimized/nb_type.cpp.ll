@@ -1341,7 +1341,7 @@ _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %.thread419
   %288 = getelementptr inbounds i8, ptr %287, i64 8
   %289 = load ptr, ptr %288, align 8
   %290 = load ptr, ptr %287, align 8
-  %291 = invoke fastcc noundef ptr @_ZN8nanobind6detailL22nb_type_from_metaclassEP11_typeobjectP7_objectP11PyType_Spec(ptr noundef %289, ptr noundef %290, ptr noundef nonnull %8)
+  %291 = invoke fastcc noundef ptr @_ZN8nanobind6detailL22nb_type_from_metaclassEP11_typeobjectP7_objectP11PyType_Spec(ptr noundef %289, ptr noundef %290, ptr noundef %8)
           to label %292 unwind label %322
 
 292:                                              ; preds = %275
@@ -1441,7 +1441,7 @@ _ZN8nanobind6detailL10nb_type_tpEm.exit:          ; preds = %_ZL10_Py_DECREFP7_o
   call void @llvm.lifetime.end.p0(i64 38, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  %325 = invoke fastcc noundef ptr @_ZN8nanobind6detailL22nb_type_from_metaclassEP11_typeobjectP7_objectP11PyType_Spec(ptr noundef nonnull %.018.i, ptr noundef %.0249404, ptr noundef nonnull %16)
+  %325 = invoke fastcc noundef ptr @_ZN8nanobind6detailL22nb_type_from_metaclassEP11_typeobjectP7_objectP11PyType_Spec(ptr noundef nonnull %.018.i, ptr noundef %.0249404, ptr noundef %16)
           to label %326 unwind label %427
 
 326:                                              ; preds = %_ZN8nanobind6detailL10nb_type_tpEm.exit
@@ -2500,7 +2500,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %12, %9, %7, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8nanobind6detailL22nb_type_from_metaclassEP11_typeobjectP7_objectP11PyType_Spec(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZN8nanobind6detailL22nb_type_from_metaclassEP11_typeobjectP7_objectP11PyType_Spec(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = load ptr, ptr %2, align 8
   %5 = tail call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 46) #27
   %.not = icmp eq ptr %5, null
@@ -3022,7 +3022,7 @@ _ZNKSt9type_infoeqERKS_.exit.backedge.i:          ; preds = %98, %96
 122:                                              ; preds = %120
   %123 = getelementptr inbounds i8, ptr %.037.i, i64 8
   %124 = load ptr, ptr %119, align 8
-  %125 = tail call noundef zeroext i1 %121(ptr noundef %124, ptr noundef %1, ptr noundef %3) #28
+  %125 = tail call noundef zeroext i1 %121(ptr noundef %124, ptr noundef %1, ptr noundef nonnull %3) #28
   br i1 %125, label %_ZNKSt9type_infoeqERKS_.exit.thread.i, label %120, !llvm.loop !59
 
 _ZNKSt9type_infoeqERKS_.exit.thread.i:            ; preds = %98, %91, %87, %114, %122

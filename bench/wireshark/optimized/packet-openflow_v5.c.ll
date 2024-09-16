@@ -4300,7 +4300,7 @@ dissect_openflow_port_stats_v5.exit:              ; preds = %dissect_openflow_po
   %367 = tail call ptr @proto_tree_add_item(ptr noundef %318, i32 noundef %366, ptr noundef %0, i32 noundef %365, i32 noundef 4, i32 noundef 0) #4
   %368 = add nsw i32 %.051.i, 12
   %369 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %318, ptr noundef %1, ptr noundef nonnull @ei_openflow_v5_queue_stats_prop_undecoded, ptr noundef %0, i32 noundef %368, i32 noundef %47, ptr noundef nonnull @.str.1423) #4
-  %370 = add i32 %.051.i, %350
+  %370 = add nsw i32 %.051.i, %350
   br label %dissect_openflow_queue_stats_prop_v5.exit.i
 
 371:                                              ; preds = %.lr.ph.i150
@@ -4313,7 +4313,7 @@ dissect_openflow_port_stats_v5.exit:              ; preds = %dissect_openflow_po
 
 375:                                              ; preds = %371
   %376 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %318, ptr noundef %1, ptr noundef nonnull @ei_openflow_v5_queue_stats_prop_undecoded, ptr noundef %0, i32 noundef %357, i32 noundef %46, ptr noundef nonnull @.str.981) #4
-  %377 = add i32 %.051.i, %350
+  %377 = add nsw i32 %.051.i, %350
   br label %dissect_openflow_queue_stats_prop_v5.exit.i
 
 dissect_openflow_queue_stats_prop_v5.exit.i:      ; preds = %375, %373, %362, %360
@@ -4859,7 +4859,7 @@ dissect_openflow_meter_config_v5.exit:            ; preds = %.lr.ph.i160, %.lr.p
   %806 = add nsw i32 %.030.i, 16
   %807 = add nsw i32 %769, -16
   %808 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %762, ptr noundef %1, ptr noundef nonnull @ei_openflow_v5_queue_desc_prop_undecoded, ptr noundef %0, i32 noundef %806, i32 noundef %807, ptr noundef nonnull @.str.1435) #4
-  %809 = add i32 %.030.i, %769
+  %809 = add nsw i32 %.030.i, %769
   br label %dissect_openflow_queue_desc_prop_v5.exit.i
 
 810:                                              ; preds = %780
@@ -4874,7 +4874,7 @@ dissect_openflow_meter_config_v5.exit:            ; preds = %.lr.ph.i160, %.lr.p
 815:                                              ; preds = %810
   %816 = add nsw i32 %769, -8
   %817 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %762, ptr noundef %1, ptr noundef nonnull @ei_openflow_v5_queue_desc_prop_undecoded, ptr noundef %0, i32 noundef %775, i32 noundef %816, ptr noundef nonnull @.str.987) #4
-  %818 = add i32 %.030.i, %769
+  %818 = add nsw i32 %.030.i, %769
   br label %dissect_openflow_queue_desc_prop_v5.exit.i
 
 dissect_openflow_queue_desc_prop_v5.exit.i:       ; preds = %815, %812, %800, %797, %788, %781, %777
@@ -5842,7 +5842,7 @@ dissect_openflow_action_header_v5.exit:           ; preds = %5, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_openflow_instruction_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_openflow_instruction_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 131069) %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3) #4
   %7 = add nsw i32 %3, 2
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #4
@@ -5880,32 +5880,32 @@ dissect_openflow_instruction_header_v5.exit:      ; preds = %5, %19
 23:                                               ; preds = %dissect_openflow_instruction_header_v5.exit
   %24 = load i32, ptr @hf_openflow_v5_instruction_goto_table_table_id, align 4
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %24, ptr noundef %0, i32 noundef %.0.i, i32 noundef 1, i32 noundef 0) #4
-  %26 = add i32 %.0.i, 1
+  %26 = add nsw i32 %.0.i, 1
   %27 = load i32, ptr @hf_openflow_v5_instruction_goto_table_pad, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %27, ptr noundef %0, i32 noundef %26, i32 noundef 3, i32 noundef 0) #4
-  %29 = add i32 %.0.i, 4
+  %29 = add nsw i32 %.0.i, 4
   br label %.loopexit
 
 30:                                               ; preds = %dissect_openflow_instruction_header_v5.exit
   %31 = load i32, ptr @hf_openflow_v5_instruction_write_metadata_pad, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %31, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #4
-  %33 = add i32 %.0.i, 4
+  %33 = add nsw i32 %.0.i, 4
   %34 = load i32, ptr @hf_openflow_v5_instruction_write_metadata_value, align 4
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef 8, i32 noundef 0) #4
-  %36 = add i32 %.0.i, 12
+  %36 = add nsw i32 %.0.i, 12
   %37 = load i32, ptr @hf_openflow_v5_instruction_write_metadata_mask, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %37, ptr noundef %0, i32 noundef %36, i32 noundef 8, i32 noundef 0) #4
-  %39 = add i32 %.0.i, 20
+  %39 = add nsw i32 %.0.i, 20
   br label %.loopexit
 
 40:                                               ; preds = %dissect_openflow_instruction_header_v5.exit, %dissect_openflow_instruction_header_v5.exit, %dissect_openflow_instruction_header_v5.exit
   %41 = load i32, ptr @hf_openflow_v5_instruction_actions_pad, align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %41, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #4
-  %43 = add i32 %.0.i, 4
+  %43 = add nsw i32 %.0.i, 4
   %44 = zext i16 %spec.store.select to i32
   %45 = add nsw i32 %44, -8
-  %46 = add i32 %45, %43
-  %47 = icmp slt i32 %43, %46
+  %46 = add nsw i32 %45, %43
+  %47 = icmp ugt i16 %8, 8
   br i1 %47, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %40, %.lr.ph
@@ -5917,7 +5917,7 @@ dissect_openflow_instruction_header_v5.exit:      ; preds = %5, %19
 50:                                               ; preds = %dissect_openflow_instruction_header_v5.exit
   %51 = load i32, ptr @hf_openflow_v5_instruction_meter_meter_id, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %51, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #4
-  %53 = add i32 %.0.i, 4
+  %53 = add nsw i32 %.0.i, 4
   br label %.loopexit
 
 54:                                               ; preds = %dissect_openflow_instruction_header_v5.exit
@@ -5933,14 +5933,14 @@ dissect_openflow_instruction_header_v5.exit:      ; preds = %5, %19
   %60 = zext i16 %spec.store.select to i32
   %61 = add nsw i32 %60, -8
   %62 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %11, ptr noundef %1, ptr noundef nonnull @ei_openflow_v5_instruction_undecoded, ptr noundef %0, i32 noundef %.0.i, i32 noundef %61, ptr noundef nonnull @.str.1400) #4
-  %63 = add i32 %.0.i, %61
+  %63 = add nsw i32 %.0.i, %61
   br label %.loopexit
 
 64:                                               ; preds = %dissect_openflow_instruction_header_v5.exit
   %65 = zext i16 %spec.store.select to i32
   %66 = add nsw i32 %65, -4
   %67 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %11, ptr noundef %1, ptr noundef nonnull @ei_openflow_v5_instruction_undecoded, ptr noundef %0, i32 noundef %.0.i, i32 noundef %66, ptr noundef nonnull @.str.959) #4
-  %68 = add i32 %.0.i, %66
+  %68 = add nsw i32 %.0.i, %66
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %40, %64, %59, %56, %50, %30, %23
@@ -5949,7 +5949,7 @@ dissect_openflow_instruction_header_v5.exit:      ; preds = %5, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_openflow_bucket_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_openflow_bucket_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 131069) %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @ett_openflow_v5_bucket, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.1401) #4
@@ -5974,8 +5974,8 @@ define internal fastcc i32 @dissect_openflow_bucket_v5(ptr noundef %0, ptr nound
   %25 = call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %24, ptr noundef %0, i32 noundef %23, i32 noundef 4, i32 noundef 0) #4
   %26 = add nsw i32 %3, 16
   %27 = zext i16 %spec.store.select to i32
-  %28 = add i32 %3, %27
-  %29 = icmp slt i32 %26, %28
+  %28 = add nsw i32 %3, %27
+  %29 = icmp ugt i16 %9, 16
   br i1 %29, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
@@ -6079,7 +6079,7 @@ define internal fastcc noundef i32 @dissect_openflow_tablemod_prop_v5(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_openflow_table_features_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_openflow_table_features_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 65535) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @ett_openflow_v5_table_features, align 4
@@ -6124,50 +6124,50 @@ define internal fastcc i32 @dissect_openflow_table_features_v5(ptr noundef %0, p
   br i1 %43, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %dissect_openflow_table_feature_prop_v5.exit
-  %.057 = phi i32 [ %.6.i, %dissect_openflow_table_feature_prop_v5.exit ], [ %42, %4 ]
+  %.059 = phi i32 [ %.6.i, %dissect_openflow_table_feature_prop_v5.exit ], [ %42, %4 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %44 = load i32, ptr @ett_openflow_v5_table_feature_prop, align 4
-  %45 = call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %.057, i32 noundef -1, i32 noundef %44, ptr noundef nonnull %5, ptr noundef nonnull @.str.1408) #4
-  %46 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.057) #4
+  %45 = call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %.059, i32 noundef -1, i32 noundef %44, ptr noundef nonnull %5, ptr noundef nonnull @.str.1408) #4
+  %46 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.059) #4
   %47 = load i32, ptr @hf_openflow_v5_table_feature_prop_type, align 4
-  %48 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %47, ptr noundef %0, i32 noundef %.057, i32 noundef 2, i32 noundef 0) #4
-  %49 = add nsw i32 %.057, 2
+  %48 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %47, ptr noundef %0, i32 noundef %.059, i32 noundef 2, i32 noundef 0) #4
+  %49 = add nsw i32 %.059, 2
   %50 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %49) #4
   %51 = load ptr, ptr %5, align 8
   %52 = zext i16 %50 to i32
   call void @proto_item_set_len(ptr noundef %51, i32 noundef %52) #4
   %53 = load i32, ptr @hf_openflow_v5_table_feature_prop_length, align 4
   %54 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %53, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #4
-  %55 = add nsw i32 %.057, 4
+  %55 = add nsw i32 %.059, 4
   %spec.store.select.i = call i16 @llvm.umax.i16(i16 %50, i16 4)
   %56 = zext i16 %spec.store.select.i to i32
-  %57 = add i32 %.057, %56
-  switch i16 %46, label %139 [
+  %57 = add nsw i32 %.059, %56
+  switch i16 %46, label %141 [
     i16 0, label %59
     i16 1, label %59
     i16 2, label %79
     i16 3, label %79
-    i16 4, label %84
-    i16 5, label %84
-    i16 6, label %84
-    i16 7, label %84
-    i16 8, label %104
-    i16 10, label %104
-    i16 12, label %104
-    i16 13, label %104
-    i16 14, label %104
-    i16 15, label %104
+    i16 4, label %85
+    i16 5, label %85
+    i16 6, label %85
+    i16 7, label %85
+    i16 8, label %105
+    i16 10, label %105
+    i16 12, label %105
+    i16 13, label %105
+    i16 14, label %105
+    i16 15, label %105
     i16 16, label %.preheader.i
-    i16 -2, label %130
-    i16 -1, label %130
+    i16 -2, label %132
+    i16 -1, label %132
   ]
 
 .preheader.i:                                     ; preds = %.lr.ph
-  %58 = icmp slt i32 %55, %57
+  %58 = icmp ugt i16 %50, 4
   br i1 %58, label %.lr.ph.i, label %.loopexit.i
 
 59:                                               ; preds = %.lr.ph, %.lr.ph
-  %60 = icmp slt i32 %55, %57
+  %60 = icmp ugt i16 %50, 4
   br i1 %60, label %.lr.ph119.i, label %.loopexit.i
 
 .lr.ph119.i:                                      ; preds = %59, %dissect_openflow_instruction_header_v5.exit.i
@@ -6200,126 +6200,126 @@ dissect_openflow_instruction_header_v5.exit.i:    ; preds = %71, %.lr.ph119.i
   br i1 %78, label %.lr.ph119.i, label %.loopexit.i, !llvm.loop !42
 
 79:                                               ; preds = %.lr.ph, %.lr.ph
-  %80 = icmp slt i32 %55, %57
+  %80 = icmp ugt i16 %50, 4
   br i1 %80, label %.lr.ph116.i, label %.loopexit.i
 
 .lr.ph116.i:                                      ; preds = %79, %.lr.ph116.i
   %.2115.i = phi i32 [ %83, %.lr.ph116.i ], [ %55, %79 ]
   %81 = load i32, ptr @hf_openflow_v5_table_feature_prop_next_tables_next_table_id, align 4
   %82 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %81, ptr noundef %0, i32 noundef %.2115.i, i32 noundef 1, i32 noundef 0) #4
-  %83 = add i32 %.2115.i, 1
-  %exitcond127.not.i = icmp eq i32 %83, %57
-  br i1 %exitcond127.not.i, label %.loopexit.i, label %.lr.ph116.i, !llvm.loop !43
+  %83 = add nsw i32 %.2115.i, 1
+  %84 = icmp slt i32 %83, %57
+  br i1 %84, label %.lr.ph116.i, label %.loopexit.i, !llvm.loop !43
 
-84:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %85 = icmp slt i32 %55, %57
-  br i1 %85, label %.lr.ph113.i, label %.loopexit.i
+85:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  %86 = icmp ugt i16 %50, 4
+  br i1 %86, label %.lr.ph113.i, label %.loopexit.i
 
-.lr.ph113.i:                                      ; preds = %84, %dissect_openflow_action_header_v5.exit.i
-  %.3112.i = phi i32 [ %.0.i103.i, %dissect_openflow_action_header_v5.exit.i ], [ %55, %84 ]
-  %86 = load i32, ptr @ett_openflow_v5_table_feature_prop_action_id, align 4
-  %87 = call ptr @proto_tree_add_subtree(ptr noundef %45, ptr noundef %0, i32 noundef %.3112.i, i32 noundef -1, i32 noundef %86, ptr noundef nonnull %5, ptr noundef nonnull @.str.1410) #4
-  %88 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.3112.i) #4
-  %89 = load i32, ptr @hf_openflow_v5_action_type, align 4
-  %90 = call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %89, ptr noundef %0, i32 noundef %.3112.i, i32 noundef 2, i32 noundef 0) #4
-  %91 = add i32 %.3112.i, 2
-  %92 = load i32, ptr @hf_openflow_v5_action_length, align 4
-  %93 = call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %92, ptr noundef %0, i32 noundef %91, i32 noundef 2, i32 noundef 0) #4
-  %94 = add i32 %.3112.i, 4
-  %95 = icmp eq i16 %88, -1
-  br i1 %95, label %96, label %dissect_openflow_action_header_v5.exit.i
+.lr.ph113.i:                                      ; preds = %85, %dissect_openflow_action_header_v5.exit.i
+  %.3112.i = phi i32 [ %.0.i103.i, %dissect_openflow_action_header_v5.exit.i ], [ %55, %85 ]
+  %87 = load i32, ptr @ett_openflow_v5_table_feature_prop_action_id, align 4
+  %88 = call ptr @proto_tree_add_subtree(ptr noundef %45, ptr noundef %0, i32 noundef %.3112.i, i32 noundef -1, i32 noundef %87, ptr noundef nonnull %5, ptr noundef nonnull @.str.1410) #4
+  %89 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.3112.i) #4
+  %90 = load i32, ptr @hf_openflow_v5_action_type, align 4
+  %91 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %90, ptr noundef %0, i32 noundef %.3112.i, i32 noundef 2, i32 noundef 0) #4
+  %92 = add i32 %.3112.i, 2
+  %93 = load i32, ptr @hf_openflow_v5_action_length, align 4
+  %94 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %93, ptr noundef %0, i32 noundef %92, i32 noundef 2, i32 noundef 0) #4
+  %95 = add i32 %.3112.i, 4
+  %96 = icmp eq i16 %89, -1
+  br i1 %96, label %97, label %dissect_openflow_action_header_v5.exit.i
 
-96:                                               ; preds = %.lr.ph113.i
-  %97 = load i32, ptr @hf_openflow_v5_action_experimenter_experimenter, align 4
-  %98 = call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %97, ptr noundef %0, i32 noundef %94, i32 noundef 4, i32 noundef 0) #4
-  %99 = add i32 %.3112.i, 8
+97:                                               ; preds = %.lr.ph113.i
+  %98 = load i32, ptr @hf_openflow_v5_action_experimenter_experimenter, align 4
+  %99 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %98, ptr noundef %0, i32 noundef %95, i32 noundef 4, i32 noundef 0) #4
+  %100 = add i32 %.3112.i, 8
   br label %dissect_openflow_action_header_v5.exit.i
 
-dissect_openflow_action_header_v5.exit.i:         ; preds = %96, %.lr.ph113.i
-  %.0.i103.i = phi i32 [ %99, %96 ], [ %94, %.lr.ph113.i ]
-  %100 = load ptr, ptr %5, align 8
-  %101 = and i32 %.3112.i, 65535
-  %102 = sub i32 %.0.i103.i, %101
-  call void @proto_item_set_len(ptr noundef %100, i32 noundef %102) #4
-  %103 = icmp slt i32 %.0.i103.i, %57
-  br i1 %103, label %.lr.ph113.i, label %.loopexit.i, !llvm.loop !44
+dissect_openflow_action_header_v5.exit.i:         ; preds = %97, %.lr.ph113.i
+  %.0.i103.i = phi i32 [ %100, %97 ], [ %95, %.lr.ph113.i ]
+  %101 = load ptr, ptr %5, align 8
+  %102 = and i32 %.3112.i, 65535
+  %103 = sub i32 %.0.i103.i, %102
+  call void @proto_item_set_len(ptr noundef %101, i32 noundef %103) #4
+  %104 = icmp slt i32 %.0.i103.i, %57
+  br i1 %104, label %.lr.ph113.i, label %.loopexit.i, !llvm.loop !44
 
-104:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %105 = icmp slt i32 %55, %57
-  br i1 %105, label %.lr.ph110.i, label %.loopexit.i
+105:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  %106 = icmp ugt i16 %50, 4
+  br i1 %106, label %.lr.ph110.i, label %.loopexit.i
 
-.lr.ph110.i:                                      ; preds = %104, %.lr.ph110.i
-  %.4109.i = phi i32 [ %122, %.lr.ph110.i ], [ %55, %104 ]
-  %106 = load i32, ptr @ett_openflow_v5_table_feature_prop_oxm_id, align 4
-  %107 = call ptr @proto_tree_add_subtree(ptr noundef %45, ptr noundef %0, i32 noundef %.4109.i, i32 noundef -1, i32 noundef %106, ptr noundef nonnull %5, ptr noundef nonnull @.str.1411) #4
-  %108 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.4109.i) #4
-  %109 = load i32, ptr @hf_openflow_v5_oxm_class, align 4
-  %110 = call ptr @proto_tree_add_item(ptr noundef %107, i32 noundef %109, ptr noundef %0, i32 noundef %.4109.i, i32 noundef 2, i32 noundef 0) #4
-  %111 = icmp eq i16 %108, -32768
-  %112 = shl i32 %.4109.i, 3
-  %113 = add i32 %112, 16
+.lr.ph110.i:                                      ; preds = %105, %.lr.ph110.i
+  %.4109.i = phi i32 [ %123, %.lr.ph110.i ], [ %55, %105 ]
+  %107 = load i32, ptr @ett_openflow_v5_table_feature_prop_oxm_id, align 4
+  %108 = call ptr @proto_tree_add_subtree(ptr noundef %45, ptr noundef %0, i32 noundef %.4109.i, i32 noundef -1, i32 noundef %107, ptr noundef nonnull %5, ptr noundef nonnull @.str.1411) #4
+  %109 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.4109.i) #4
+  %110 = load i32, ptr @hf_openflow_v5_oxm_class, align 4
+  %111 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %110, ptr noundef %0, i32 noundef %.4109.i, i32 noundef 2, i32 noundef 0) #4
+  %112 = icmp eq i16 %109, -32768
+  %113 = shl i32 %.4109.i, 3
+  %114 = add i32 %113, 16
   %hf_openflow_v5_oxm_field_basic.val.i.i = load i32, ptr @hf_openflow_v5_oxm_field_basic, align 4
   %hf_openflow_v5_oxm_field.val.i.i = load i32, ptr @hf_openflow_v5_oxm_field, align 4
-  %114 = select i1 %111, i32 %hf_openflow_v5_oxm_field_basic.val.i.i, i32 %hf_openflow_v5_oxm_field.val.i.i
-  %115 = call ptr @proto_tree_add_bits_item(ptr noundef %107, i32 noundef %114, ptr noundef %0, i32 noundef %113, i32 noundef 7, i32 noundef 0) #4
-  %116 = load i32, ptr @hf_openflow_v5_oxm_hm, align 4
-  %117 = or disjoint i32 %113, 7
-  %118 = call ptr @proto_tree_add_bits_item(ptr noundef %107, i32 noundef %116, ptr noundef %0, i32 noundef %117, i32 noundef 1, i32 noundef 0) #4
-  %119 = add i32 %.4109.i, 3
-  %120 = load i32, ptr @hf_openflow_v5_oxm_length, align 4
-  %121 = call ptr @proto_tree_add_item(ptr noundef %107, i32 noundef %120, ptr noundef %0, i32 noundef %119, i32 noundef 1, i32 noundef 0) #4
-  %122 = add i32 %.4109.i, 4
-  %123 = load ptr, ptr %5, align 8
-  %124 = and i32 %.4109.i, 65535
-  %125 = sub i32 %122, %124
-  call void @proto_item_set_len(ptr noundef %123, i32 noundef %125) #4
-  %126 = icmp slt i32 %122, %57
-  br i1 %126, label %.lr.ph110.i, label %.loopexit.i, !llvm.loop !45
+  %115 = select i1 %112, i32 %hf_openflow_v5_oxm_field_basic.val.i.i, i32 %hf_openflow_v5_oxm_field.val.i.i
+  %116 = call ptr @proto_tree_add_bits_item(ptr noundef %108, i32 noundef %115, ptr noundef %0, i32 noundef %114, i32 noundef 7, i32 noundef 0) #4
+  %117 = load i32, ptr @hf_openflow_v5_oxm_hm, align 4
+  %118 = or disjoint i32 %114, 7
+  %119 = call ptr @proto_tree_add_bits_item(ptr noundef %108, i32 noundef %117, ptr noundef %0, i32 noundef %118, i32 noundef 1, i32 noundef 0) #4
+  %120 = add nsw i32 %.4109.i, 3
+  %121 = load i32, ptr @hf_openflow_v5_oxm_length, align 4
+  %122 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %121, ptr noundef %0, i32 noundef %120, i32 noundef 1, i32 noundef 0) #4
+  %123 = add nsw i32 %.4109.i, 4
+  %124 = load ptr, ptr %5, align 8
+  %125 = and i32 %.4109.i, 65535
+  %126 = sub i32 %123, %125
+  call void @proto_item_set_len(ptr noundef %124, i32 noundef %126) #4
+  %127 = icmp slt i32 %123, %57
+  br i1 %127, label %.lr.ph110.i, label %.loopexit.i, !llvm.loop !45
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.5108.i = phi i32 [ %129, %.lr.ph.i ], [ %55, %.preheader.i ]
-  %127 = load i32, ptr @hf_openflow_v5_table_feature_prop_table_sync_from_table_id, align 4
-  %128 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %127, ptr noundef %0, i32 noundef %.5108.i, i32 noundef 1, i32 noundef 0) #4
-  %129 = add i32 %.5108.i, 1
-  %exitcond.not.i = icmp eq i32 %129, %57
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !46
+  %.5108.i = phi i32 [ %130, %.lr.ph.i ], [ %55, %.preheader.i ]
+  %128 = load i32, ptr @hf_openflow_v5_table_feature_prop_table_sync_from_table_id, align 4
+  %129 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %128, ptr noundef %0, i32 noundef %.5108.i, i32 noundef 1, i32 noundef 0) #4
+  %130 = add nsw i32 %.5108.i, 1
+  %131 = icmp slt i32 %130, %57
+  br i1 %131, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !46
 
-130:                                              ; preds = %.lr.ph, %.lr.ph
-  %131 = load i32, ptr @hf_openflow_v5_table_feature_prop_experimenter_experimenter, align 4
-  %132 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %131, ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef 0) #4
-  %133 = add nsw i32 %.057, 8
-  %134 = load i32, ptr @hf_openflow_v5_table_feature_prop_experimenter_exp_type, align 4
-  %135 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %134, ptr noundef %0, i32 noundef %133, i32 noundef 4, i32 noundef 0) #4
-  %136 = add nsw i32 %.057, 12
-  %137 = add nsw i32 %56, -12
-  %138 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %45, ptr noundef %1, ptr noundef nonnull @ei_openflow_v5_table_feature_prop_undecoded, ptr noundef %0, i32 noundef %136, i32 noundef %137, ptr noundef nonnull @.str.1412) #4
+132:                                              ; preds = %.lr.ph, %.lr.ph
+  %133 = load i32, ptr @hf_openflow_v5_table_feature_prop_experimenter_experimenter, align 4
+  %134 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %133, ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef 0) #4
+  %135 = add nsw i32 %.059, 8
+  %136 = load i32, ptr @hf_openflow_v5_table_feature_prop_experimenter_exp_type, align 4
+  %137 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %136, ptr noundef %0, i32 noundef %135, i32 noundef 4, i32 noundef 0) #4
+  %138 = add nsw i32 %.059, 12
+  %139 = add nsw i32 %56, -12
+  %140 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %45, ptr noundef %1, ptr noundef nonnull @ei_openflow_v5_table_feature_prop_undecoded, ptr noundef %0, i32 noundef %138, i32 noundef %139, ptr noundef nonnull @.str.1412) #4
   br label %.loopexit.i
 
-139:                                              ; preds = %.lr.ph
-  %140 = add nsw i32 %56, -4
-  %141 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %45, ptr noundef %1, ptr noundef nonnull @ei_openflow_v5_table_feature_prop_undecoded, ptr noundef %0, i32 noundef %55, i32 noundef %140, ptr noundef nonnull @.str.1413) #4
+141:                                              ; preds = %.lr.ph
+  %142 = add nsw i32 %56, -4
+  %143 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %45, ptr noundef %1, ptr noundef nonnull @ei_openflow_v5_table_feature_prop_undecoded, ptr noundef %0, i32 noundef %55, i32 noundef %142, ptr noundef nonnull @.str.1413) #4
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph110.i, %dissect_openflow_action_header_v5.exit.i, %.lr.ph116.i, %dissect_openflow_instruction_header_v5.exit.i, %139, %130, %104, %84, %79, %59, %.preheader.i
-  %.1.i = phi i32 [ %57, %139 ], [ %57, %130 ], [ %55, %59 ], [ %55, %79 ], [ %55, %84 ], [ %55, %104 ], [ %55, %.preheader.i ], [ %.0.i.i, %dissect_openflow_instruction_header_v5.exit.i ], [ %57, %.lr.ph116.i ], [ %.0.i103.i, %dissect_openflow_action_header_v5.exit.i ], [ %122, %.lr.ph110.i ], [ %57, %.lr.ph.i ]
-  %142 = add i16 %spec.store.select.i, 7
-  %143 = and i16 %142, -8
-  %.not.i = icmp eq i16 %143, %spec.store.select.i
-  br i1 %.not.i, label %dissect_openflow_table_feature_prop_v5.exit, label %144
+.loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph110.i, %dissect_openflow_action_header_v5.exit.i, %.lr.ph116.i, %dissect_openflow_instruction_header_v5.exit.i, %141, %132, %105, %85, %79, %59, %.preheader.i
+  %.1.i = phi i32 [ %57, %141 ], [ %57, %132 ], [ %55, %59 ], [ %55, %79 ], [ %55, %85 ], [ %55, %105 ], [ %55, %.preheader.i ], [ %.0.i.i, %dissect_openflow_instruction_header_v5.exit.i ], [ %83, %.lr.ph116.i ], [ %.0.i103.i, %dissect_openflow_action_header_v5.exit.i ], [ %123, %.lr.ph110.i ], [ %130, %.lr.ph.i ]
+  %144 = add i16 %spec.store.select.i, 7
+  %145 = and i16 %144, -8
+  %.not.i = icmp eq i16 %145, %spec.store.select.i
+  br i1 %.not.i, label %dissect_openflow_table_feature_prop_v5.exit, label %146
 
-144:                                              ; preds = %.loopexit.i
-  %145 = sub i16 %143, %spec.store.select.i
-  %146 = zext i16 %145 to i32
-  %147 = load i32, ptr @hf_openflow_v5_table_feature_prop_pad, align 4
-  %148 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %147, ptr noundef %0, i32 noundef %.1.i, i32 noundef %146, i32 noundef 0) #4
-  %149 = add i32 %.1.i, %146
+146:                                              ; preds = %.loopexit.i
+  %147 = sub i16 %145, %spec.store.select.i
+  %148 = zext i16 %147 to i32
+  %149 = load i32, ptr @hf_openflow_v5_table_feature_prop_pad, align 4
+  %150 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %149, ptr noundef %0, i32 noundef %.1.i, i32 noundef %148, i32 noundef 0) #4
+  %151 = add i32 %.1.i, %148
   br label %dissect_openflow_table_feature_prop_v5.exit
 
-dissect_openflow_table_feature_prop_v5.exit:      ; preds = %.loopexit.i, %144
-  %.6.i = phi i32 [ %149, %144 ], [ %.1.i, %.loopexit.i ]
+dissect_openflow_table_feature_prop_v5.exit:      ; preds = %.loopexit.i, %146
+  %.6.i = phi i32 [ %151, %146 ], [ %.1.i, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %150 = icmp slt i32 %.6.i, %11
-  br i1 %150, label %.lr.ph, label %._crit_edge, !llvm.loop !47
+  %152 = icmp slt i32 %.6.i, %11
+  br i1 %152, label %.lr.ph, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %dissect_openflow_table_feature_prop_v5.exit, %4
   %.0.lcssa = phi i32 [ %42, %4 ], [ %.6.i, %dissect_openflow_table_feature_prop_v5.exit ]
@@ -6366,7 +6366,7 @@ define internal fastcc noundef i32 @dissect_openflow_table_desc_v5(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_openflow_meter_band_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 196604) i32 @dissect_openflow_meter_band_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 131069) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @ett_openflow_v5_meter_band, align 4
   %7 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %6, ptr noundef nonnull %5, ptr noundef nonnull @.str.1430) #4
@@ -6431,7 +6431,7 @@ define internal fastcc i32 @dissect_openflow_meter_band_v5(ptr noundef %0, ptr n
 
 47:                                               ; preds = %44, %38, %32, %29
   %.pn = phi i32 [ %14, %44 ], [ %14, %38 ], [ 16, %32 ], [ 16, %29 ]
-  %.061 = add i32 %.pn, %3
+  %.061 = add nsw i32 %.pn, %3
   br label %48
 
 48:                                               ; preds = %47, %25
@@ -6440,7 +6440,7 @@ define internal fastcc i32 @dissect_openflow_meter_band_v5(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483647, 131066) i32 @dissect_openflow_bundle_prop_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483647, 131066) i32 @dissect_openflow_bundle_prop_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 65535) %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3) #4
   %7 = add nsw i32 %3, 2
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #4

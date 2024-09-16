@@ -4075,7 +4075,7 @@ for.body295:                                      ; preds = %invoke.cont289, %fo
   br i1 %exitcond334.not, label %for.end300, label %for.body295, !llvm.loop !112
 
 for.end300:                                       ; preds = %for.body295
-  invoke fastcc void @"_ZZN4pbrt15RealisticCamera6CreateERKNS_19ParameterDictionaryERKNS_15CameraTransformENS_4FilmENS_6MediumEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clENSC_4spanIKNS_6Point2IfEEEE"(ptr noalias nonnull align 8 %ref.tmp301, ptr noundef nonnull align 8 dereferenceable(16) %rasterize, ptr nonnull %vert, i64 5)
+  invoke fastcc void @"_ZZN4pbrt15RealisticCamera6CreateERKNS_19ParameterDictionaryERKNS_15CameraTransformENS_4FilmENS_6MediumEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clENSC_4spanIKNS_6Point2IfEEEE"(ptr noalias align 8 %ref.tmp301, ptr noundef nonnull align 8 dereferenceable(16) %rasterize, ptr nonnull %vert, i64 5)
           to label %invoke.cont304 unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont304:                                   ; preds = %for.end300
@@ -4135,7 +4135,7 @@ while.body.i.i:                                   ; preds = %for.end346, %while.
   br i1 %cmp1.i.i, label %while.body.i.i, label %invoke.cont351, !llvm.loop !114
 
 invoke.cont351:                                   ; preds = %while.body.i.i
-  invoke fastcc void @"_ZZN4pbrt15RealisticCamera6CreateERKNS_19ParameterDictionaryERKNS_15CameraTransformENS_4FilmENS_6MediumEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clENSC_4spanIKNS_6Point2IfEEEE"(ptr noalias nonnull align 8 %ref.tmp352, ptr noundef nonnull align 8 dereferenceable(16) %rasterize, ptr nonnull %vert313, i64 10)
+  invoke fastcc void @"_ZZN4pbrt15RealisticCamera6CreateERKNS_19ParameterDictionaryERKNS_15CameraTransformENS_4FilmENS_6MediumEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clENSC_4spanIKNS_6Point2IfEEEE"(ptr noalias align 8 %ref.tmp352, ptr noundef nonnull align 8 dereferenceable(16) %rasterize, ptr nonnull %vert313, i64 10)
           to label %invoke.cont354 unwind label %lpad71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont354:                                   ; preds = %invoke.cont351
@@ -11841,7 +11841,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4pbrt15RealisticCamera6CreateERKNS_19ParameterDictionaryERKNS_15CameraTransformENS_4FilmENS_6MediumEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clENSC_4spanIKNS_6Point2IfEEEE"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readonly %vert.coerce0, i64 %vert.coerce1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt15RealisticCamera6CreateERKNS_19ParameterDictionaryERKNS_15CameraTransformENS_4FilmENS_6MediumEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clENSC_4spanIKNS_6Point2IfEEEE"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readonly %vert.coerce0, i64 %vert.coerce1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
   %ref.tmp4 = alloca %"class.std::allocator", align 1

@@ -15109,7 +15109,7 @@ _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit:   ; preds = %6, %1, %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExtractReducePass11IsRightTypeEPN5Yosys5RTLIL4CellENS0_8GateTypeE(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExtractReducePass11IsRightTypeEPN5Yosys5RTLIL4CellENS0_8GateTypeE(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %4 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 76

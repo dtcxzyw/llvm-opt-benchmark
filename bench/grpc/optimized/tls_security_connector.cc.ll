@@ -2789,7 +2789,7 @@ entry:
   %on_peer_checked_ = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %on_peer_checked, ptr %on_peer_checked_, align 8
   %request_2 = getelementptr inbounds i8, ptr %this, i64 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_126PendingVerifierRequestInitEPKc8tsi_peerP42grpc_tls_custom_verification_check_request(ptr noundef %target_name, ptr %peer.coerce0, i64 %peer.coerce1, ptr noundef nonnull %request_2)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_126PendingVerifierRequestInitEPKc8tsi_peerP42grpc_tls_custom_verification_check_request(ptr noundef %target_name, ptr %peer.coerce0, i64 %peer.coerce1, ptr noundef %request_2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2824,7 +2824,7 @@ _ZN9grpc_core13RefCountedPtrINS_27TlsChannelSecurityConnectorEED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_126PendingVerifierRequestInitEPKc8tsi_peerP42grpc_tls_custom_verification_check_request(ptr noundef %target_name, ptr nocapture readonly %peer.coerce0, i64 %peer.coerce1, ptr nocapture noundef %request) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_126PendingVerifierRequestInitEPKc8tsi_peerP42grpc_tls_custom_verification_check_request(ptr noundef %target_name, ptr nocapture readonly %peer.coerce0, i64 %peer.coerce1, ptr nocapture noundef nonnull %request) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %target_name, ptr %request, align 8
   %cmp2364.not = icmp eq i64 %peer.coerce1, 0
@@ -3567,7 +3567,7 @@ _ZNSt6vectorIPcSaIS0_EED2Ev.exit257:              ; preds = %_ZNSt6vectorIPcSaIS
 define void @_ZN9grpc_core27TlsChannelSecurityConnector29ChannelPendingVerifierRequestD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %request_ = getelementptr inbounds i8, ptr %this, i64 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_129PendingVerifierRequestDestroyEP42grpc_tls_custom_verification_check_request(ptr noundef nonnull %request_)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_129PendingVerifierRequestDestroyEP42grpc_tls_custom_verification_check_request(ptr noundef %request_)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -3600,7 +3600,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_129PendingVerifierRequestDestroyEP42grpc_tls_custom_verification_check_request(ptr nocapture noundef readonly %request) unnamed_addr #3 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_129PendingVerifierRequestDestroyEP42grpc_tls_custom_verification_check_request(ptr nocapture noundef nonnull readonly %request) unnamed_addr #3 {
 entry:
   %peer_info = getelementptr inbounds i8, ptr %request, i64 8
   %0 = load ptr, ptr %peer_info, align 8
@@ -6324,7 +6324,7 @@ entry:
   %on_peer_checked_ = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %on_peer_checked, ptr %on_peer_checked_, align 8
   %request_2 = getelementptr inbounds i8, ptr %this, i64 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_126PendingVerifierRequestInitEPKc8tsi_peerP42grpc_tls_custom_verification_check_request(ptr noundef null, ptr %peer.coerce0, i64 %peer.coerce1, ptr noundef nonnull %request_2)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_126PendingVerifierRequestInitEPKc8tsi_peerP42grpc_tls_custom_verification_check_request(ptr noundef null, ptr %peer.coerce0, i64 %peer.coerce1, ptr noundef %request_2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -6362,7 +6362,7 @@ _ZN9grpc_core13RefCountedPtrINS_26TlsServerSecurityConnectorEED2Ev.exit: ; preds
 define void @_ZN9grpc_core26TlsServerSecurityConnector28ServerPendingVerifierRequestD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %request_ = getelementptr inbounds i8, ptr %this, i64 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_129PendingVerifierRequestDestroyEP42grpc_tls_custom_verification_check_request(ptr noundef nonnull %request_)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_129PendingVerifierRequestDestroyEP42grpc_tls_custom_verification_check_request(ptr noundef %request_)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry

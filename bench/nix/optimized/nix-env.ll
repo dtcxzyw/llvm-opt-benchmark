@@ -17579,7 +17579,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   br i1 %256, label %257, label %260
 
 257:                                              ; preds = %255, %253
-  invoke fastcc void @_ZL7needArgRSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERNS0_4listIS5_SaIS5_EEERKS5_(ptr dead_on_unwind noalias nonnull writable align 8 %65, ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %64)
+  invoke fastcc void @_ZL7needArgRSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERNS0_4listIS5_SaIS5_EEERKS5_(ptr dead_on_unwind noalias writable align 8 %65, ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %64)
           to label %258 unwind label %234
 
 258:                                              ; preds = %257
@@ -17842,7 +17842,7 @@ _ZNSt7__cxx114listIN3nix11PackageInfoE19traceable_allocatorIS2_EED2Ev.exit.threa
 333:                                              ; preds = %328
   %334 = getelementptr inbounds i8, ptr %0, i64 88
   %335 = load ptr, ptr %334, align 8
-  invoke fastcc void @_ZL15loadDerivationsRN3nix9EvalStateERKNS_10SourcePathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_8BindingsERKSA_RNS5_4listINS_11PackageInfoE19traceable_allocatorISG_EEE(ptr noundef nonnull align 8 dereferenceable(1248) %329, ptr noundef nonnull align 8 dereferenceable(48) %331, ptr noundef nonnull %73, ptr noundef nonnull align 8 dereferenceable(16) %335, ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(24) %70)
+  invoke fastcc void @_ZL15loadDerivationsRN3nix9EvalStateERKNS_10SourcePathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_8BindingsERKSA_RNS5_4listINS_11PackageInfoE19traceable_allocatorISG_EEE(ptr noundef nonnull align 8 dereferenceable(1248) %329, ptr noundef nonnull align 8 dereferenceable(48) %331, ptr noundef %73, ptr noundef nonnull align 8 dereferenceable(16) %335, ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(24) %70)
           to label %336 unwind label %343
 
 336:                                              ; preds = %333
@@ -17876,7 +17876,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit512: ; preds = %_Z
 
 .thread1764:                                      ; preds = %_ZNSt7__cxx114listIN3nix11PackageInfoE19traceable_allocatorIS2_EED2Ev.exit, %_ZNSt7__cxx114listIN3nix11PackageInfoE19traceable_allocatorIS2_EED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit512
   %. = select i1 %294, ptr %71, ptr %70
-  invoke fastcc void @_ZL16filterBySelectorRN3nix9EvalStateERKNSt7__cxx114listINS_11PackageInfoE19traceable_allocatorIS4_EEERKNS3_INS2_12basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEb(ptr dead_on_unwind noalias nonnull writable align 8 %74, ptr noundef nonnull align 8 dereferenceable(24) %., ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL16filterBySelectorRN3nix9EvalStateERKNSt7__cxx114listINS_11PackageInfoE19traceable_allocatorIS4_EEERKNS3_INS2_12basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEb(ptr dead_on_unwind noalias writable align 8 %74, ptr noundef nonnull align 8 dereferenceable(24) %., ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext false)
           to label %347 unwind label %322
 
 347:                                              ; preds = %.thread1764
@@ -27726,7 +27726,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i21: ; preds = %_ZNSt11char_traitsI
 
 13:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i21
   store i32 3, ptr %0, align 8
-  call fastcc void @_ZL7needArgRSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERNS0_4listIS5_SaIS5_EEERKS5_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  call fastcc void @_ZL7needArgRSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERNS0_4listIS5_SaIS5_EEERKS5_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 40
@@ -27862,7 +27862,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL7needArgRSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERNS0_4listIS5_SaIS5_EEERKS5_(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readnone align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL7needArgRSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERNS0_4listIS5_SaIS5_EEERKS5_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readnone align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = load ptr, ptr %1, align 8
@@ -36823,7 +36823,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %45
           to label %63 unwind label %112
 
 63:                                               ; preds = %60
-  invoke fastcc void @_ZL15loadDerivationsRN3nix9EvalStateERKNS_10SourcePathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_8BindingsERKSA_RNS5_4listINS_11PackageInfoE19traceable_allocatorISG_EEE(ptr noundef nonnull align 8 dereferenceable(1248) %0, ptr noundef nonnull align 8 dereferenceable(48) %58, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  invoke fastcc void @_ZL15loadDerivationsRN3nix9EvalStateERKNS_10SourcePathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_8BindingsERKSA_RNS5_4listINS_11PackageInfoE19traceable_allocatorISG_EEE(ptr noundef nonnull align 8 dereferenceable(1248) %0, ptr noundef nonnull align 8 dereferenceable(48) %58, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %64 unwind label %114
 
 64:                                               ; preds = %63
@@ -36864,7 +36864,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i98
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i99, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i98
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #31
-  invoke fastcc void @_ZL16filterBySelectorRN3nix9EvalStateERKNSt7__cxx114listINS_11PackageInfoE19traceable_allocatorIS4_EEERKNS3_INS2_12basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEb(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %4)
+  invoke fastcc void @_ZL16filterBySelectorRN3nix9EvalStateERKNSt7__cxx114listINS_11PackageInfoE19traceable_allocatorIS4_EEERKNS3_INS2_12basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEb(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %4)
           to label %77 unwind label %110
 
 77:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100
@@ -37912,7 +37912,7 @@ _ZN3nix9StorePathD2Ev.exit159:                    ; preds = %_ZNKSt7__cxx1112bas
 409:                                              ; preds = %5
   %410 = getelementptr inbounds i8, ptr %1, i64 24
   call void @_ZN3nix14queryInstalledERNS_9EvalStateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::list.275") align 8 %37, ptr noundef nonnull align 8 dereferenceable(1248) %0, ptr noundef nonnull align 8 dereferenceable(32) %410)
-  invoke fastcc void @_ZL16filterBySelectorRN3nix9EvalStateERKNSt7__cxx114listINS_11PackageInfoE19traceable_allocatorIS4_EEERKNS3_INS2_12basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEb(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %4)
+  invoke fastcc void @_ZL16filterBySelectorRN3nix9EvalStateERKNSt7__cxx114listINS_11PackageInfoE19traceable_allocatorIS4_EEERKNS3_INS2_12basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEb(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %4)
           to label %411 unwind label %444
 
 411:                                              ; preds = %409
@@ -38812,7 +38812,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15loadDerivationsRN3nix9EvalStateERKNS_10SourcePathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_8BindingsERKSA_RNS5_4listINS_11PackageInfoE19traceable_allocatorISG_EEE(ptr noundef nonnull align 8 dereferenceable(1248) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15loadDerivationsRN3nix9EvalStateERKNS_10SourcePathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_8BindingsERKSA_RNS5_4listINS_11PackageInfoE19traceable_allocatorISG_EEE(ptr noundef nonnull align 8 dereferenceable(1248) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.nix::Value", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   call fastcc void @_ZL14loadSourceExprRN3nix9EvalStateERKNS_10SourcePathERNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1248) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(24) %7)
@@ -38912,7 +38912,7 @@ _ZNSt7__cxx114listIN3nix11PackageInfoE19traceable_allocatorIS2_EE5eraseESt20_Lis
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16filterBySelectorRN3nix9EvalStateERKNSt7__cxx114listINS_11PackageInfoE19traceable_allocatorIS4_EEERKNS3_INS2_12basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16filterBySelectorRN3nix9EvalStateERKNSt7__cxx114listINS_11PackageInfoE19traceable_allocatorIS4_EEERKNS3_INS2_12basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"struct.boost::io::detail::put_holder", align 8
@@ -41489,7 +41489,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   %810 = load ptr, ptr %809, align 8
   %811 = getelementptr inbounds i8, ptr %.sroa.014.0206, i64 56
   %812 = load i64, ptr %811, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_114searchByPrefixERKNSt7__cxx114listIN3nix11PackageInfoE19traceable_allocatorIS3_EEESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 %812, ptr %810)
+  invoke fastcc void @_ZN12_GLOBAL__N_114searchByPrefixERKNSt7__cxx114listIN3nix11PackageInfoE19traceable_allocatorIS3_EEESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 %812, ptr %810)
           to label %813 unwind label %.loopexit.split-lp49.loopexit.split-lp
 
 813:                                              ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit.thread
@@ -42545,7 +42545,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_15MatchESaIS1_EED2Ev.exit: ; preds = %_ZSt8_De
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114searchByPrefixERKNSt7__cxx114listIN3nix11PackageInfoE19traceable_allocatorIS3_EEESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 %2, ptr %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114searchByPrefixERKNSt7__cxx114listIN3nix11PackageInfoE19traceable_allocatorIS3_EEESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 %2, ptr %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.nix::DrvName", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8

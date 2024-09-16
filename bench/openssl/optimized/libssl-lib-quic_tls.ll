@@ -396,7 +396,7 @@ return:                                           ; preds = %entry, %if.end131, 
 declare i32 @ERR_set_mark() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @raise_error(ptr nocapture noundef %qtls, i64 noundef %error_code, ptr noundef %error_msg, i32 noundef %src_line) unnamed_addr #0 {
+define internal fastcc void @raise_error(ptr nocapture noundef %qtls, i64 noundef range(i64 1, 377) %error_code, ptr noundef %error_msg, i32 noundef range(i32 746, 821) %src_line) unnamed_addr #0 {
 entry:
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %src_line, ptr noundef nonnull @__func__.ossl_quic_tls_tick) #9

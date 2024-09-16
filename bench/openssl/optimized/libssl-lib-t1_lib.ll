@@ -2740,7 +2740,7 @@ if.end180:                                        ; preds = %if.else.i91, %if.en
   %arrayidx187 = getelementptr inbounds i8, ptr %sigalgstr, i64 1
   store i8 %conv186, ptr %arrayidx187, align 1
   %45 = load ptr, ptr %4, align 8
-  %call190 = call fastcc i32 @sigalg_security_bits(ptr noundef %45, ptr noundef nonnull %.lu.0.i)
+  %call190 = call fastcc i32 @sigalg_security_bits(ptr noundef %45, ptr noundef %.lu.0.i)
   %cmp191 = icmp eq i32 %call190, 0
   br i1 %cmp191, label %if.then203, label %lor.lhs.false193
 
@@ -2839,18 +2839,14 @@ return:                                           ; preds = %for.inc.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sigalg_security_bits(ptr noundef %ctx, ptr noundef readonly %lu) unnamed_addr #2 {
+define internal fastcc i32 @sigalg_security_bits(ptr noundef %ctx, ptr nocapture noundef nonnull readonly %lu) unnamed_addr #2 {
 entry:
-  %cmp.i = icmp eq ptr %lu, null
-  br i1 %cmp.i, label %return, label %if.end.i
-
-if.end.i:                                         ; preds = %entry
   %hash.i = getelementptr inbounds i8, ptr %lu, i64 12
   %0 = load i32, ptr %hash.i, align 4
   %cmp1.i = icmp eq i32 %0, 0
   br i1 %cmp1.i, label %if.else14, label %if.else.i
 
-if.else.i:                                        ; preds = %if.end.i
+if.else.i:                                        ; preds = %entry
   %hash_idx.i = getelementptr inbounds i8, ptr %lu, i64 16
   %1 = load i32, ptr %hash_idx.i, align 8
   %call.i = tail call ptr @ssl_md(ptr noundef %ctx, i32 noundef %1) #15
@@ -2873,7 +2869,7 @@ if.then7:                                         ; preds = %if.then1
 if.then10:                                        ; preds = %if.then1
   br label %return
 
-if.else14:                                        ; preds = %if.end.i
+if.else14:                                        ; preds = %entry
   %sigalg = getelementptr inbounds i8, ptr %lu, i64 8
   %2 = load i16, ptr %sigalg, align 8
   %switch.selectcmp = icmp eq i16 %2, 2056
@@ -2908,8 +2904,8 @@ if.then36:                                        ; preds = %land.lhs.true31
   %6 = load i32, ptr %secbits39, align 8
   br label %return
 
-return:                                           ; preds = %if.else14, %if.then1, %if.then10, %if.then7, %if.else.i, %entry, %if.end26, %land.lhs.true, %land.lhs.true31, %if.then36
-  %retval.0 = phi i32 [ %6, %if.then36 ], [ 0, %land.lhs.true31 ], [ 0, %land.lhs.true ], [ %secbits.0, %if.end26 ], [ 0, %entry ], [ 0, %if.else.i ], [ %call2, %if.then1 ], [ 39, %if.then10 ], [ 67, %if.then7 ], [ 128, %if.else14 ]
+return:                                           ; preds = %if.else14, %if.then1, %if.then10, %if.then7, %if.else.i, %if.end26, %land.lhs.true, %land.lhs.true31, %if.then36
+  %retval.0 = phi i32 [ %6, %if.then36 ], [ 0, %land.lhs.true31 ], [ 0, %land.lhs.true ], [ %secbits.0, %if.end26 ], [ 0, %if.else.i ], [ %call2, %if.then1 ], [ 39, %if.then10 ], [ 67, %if.then7 ], [ 128, %if.else14 ]
   ret i32 %retval.0
 }
 
@@ -4700,7 +4696,7 @@ if.end36:                                         ; preds = %if.end13, %if.end13
 if.end40:                                         ; preds = %if.end36
   %sig41 = getelementptr inbounds i8, ptr %lu, i64 20
   %12 = load i32, ptr %sig41, align 4
-  switch i32 %12, label %if.end.i.i [
+  switch i32 %12, label %if.end121 [
     i32 979, label %if.then52
     i32 980, label %if.then52
     i32 811, label %if.then52
@@ -4719,25 +4715,25 @@ land.lhs.true55:                                  ; preds = %if.then52
   %16 = load i32, ptr %enc_flags59, align 8
   %and60 = and i32 %16, 8
   %tobool61.not = icmp eq i32 %and60, 0
-  br i1 %tobool61.not, label %land.lhs.true62, label %if.end.i.i
+  br i1 %tobool61.not, label %land.lhs.true62, label %if.end121
 
 land.lhs.true62:                                  ; preds = %land.lhs.true55
   %17 = load i32, ptr %14, align 8
   %cmp66 = icmp slt i32 %17, 772
   %cmp72.not = icmp eq i32 %17, 65536
   %or.cond43 = or i1 %cmp66, %cmp72.not
-  br i1 %or.cond43, label %if.end.i.i, label %return
+  br i1 %or.cond43, label %if.end121, label %return
 
 land.lhs.true78:                                  ; preds = %if.then52
   %18 = load i32, ptr %14, align 8
   %cmp82 = icmp eq i32 %18, 65536
-  br i1 %cmp82, label %land.lhs.true84, label %if.end.i.i
+  br i1 %cmp82, label %land.lhs.true84, label %if.end121
 
 land.lhs.true84:                                  ; preds = %land.lhs.true78
   %max_ver = getelementptr inbounds i8, ptr %s, i64 932
   %19 = load i32, ptr %max_ver, align 4
   %cmp87 = icmp sgt i32 %19, 771
-  br i1 %cmp87, label %if.then89, label %if.end.i.i
+  br i1 %cmp87, label %if.then89, label %if.end121
 
 if.then89:                                        ; preds = %land.lhs.true84
   %min_ver92 = getelementptr inbounds i8, ptr %s, i64 928
@@ -4777,16 +4773,16 @@ for.inc:                                          ; preds = %if.end110, %for.bod
 for.end:                                          ; preds = %if.end110, %cond.end
   %i.0.lcssa = phi i32 [ 0, %cond.end ], [ %i.050, %if.end110 ]
   %cmp116 = icmp eq i32 %i.0.lcssa, %call102
-  br i1 %cmp116, label %return, label %if.end.i.i
+  br i1 %cmp116, label %return, label %if.end121
 
-if.end.i.i:                                       ; preds = %land.lhs.true55, %land.lhs.true62, %for.end, %land.lhs.true84, %land.lhs.true78, %if.end40
+if.end121:                                        ; preds = %land.lhs.true55, %land.lhs.true62, %if.end40, %land.lhs.true78, %land.lhs.true84, %for.end
   %22 = load ptr, ptr %ctx, align 8
   %hash.i.i = getelementptr inbounds i8, ptr %lu, i64 12
   %23 = load i32, ptr %hash.i.i, align 4
   %cmp1.i.i = icmp eq i32 %23, 0
   br i1 %cmp1.i.i, label %if.else14.i, label %if.else.i.i
 
-if.else.i.i:                                      ; preds = %if.end.i.i
+if.else.i.i:                                      ; preds = %if.end121
   %hash_idx.i.i = getelementptr inbounds i8, ptr %lu, i64 16
   %24 = load i32, ptr %hash_idx.i.i, align 8
   %call.i.i = tail call ptr @ssl_md(ptr noundef %22, i32 noundef %24) #15
@@ -4809,7 +4805,7 @@ if.then7.i:                                       ; preds = %if.then1.i
 if.then10.i:                                      ; preds = %if.then1.i
   br label %sigalg_security_bits.exit
 
-if.else14.i:                                      ; preds = %if.end.i.i
+if.else14.i:                                      ; preds = %if.end121
   %sigalg.i = getelementptr inbounds i8, ptr %lu, i64 8
   %25 = load i16, ptr %sigalg.i, align 8
   %switch.selectcmp.i = icmp eq i16 %25, 2056
@@ -5560,8 +5556,8 @@ if.else:                                          ; preds = %if.end6
   br i1 %cmp31, label %return, label %if.end34
 
 if.end34:                                         ; preds = %if.else
-  call fastcc void @get_sigorhash(ptr noundef nonnull %sig_alg, ptr noundef nonnull %hash_alg, ptr noundef nonnull %etmp)
-  call fastcc void @get_sigorhash(ptr noundef nonnull %sig_alg, ptr noundef nonnull %hash_alg, ptr noundef nonnull %incdec.ptr29)
+  call fastcc void @get_sigorhash(ptr noundef %sig_alg, ptr noundef %hash_alg, ptr noundef %etmp)
+  call fastcc void @get_sigorhash(ptr noundef %sig_alg, ptr noundef %hash_alg, ptr noundef %incdec.ptr29)
   %4 = load i32, ptr %sig_alg, align 4
   %cmp36 = icmp eq i32 %4, 0
   %5 = load i32, ptr %hash_alg, align 4
@@ -6663,7 +6659,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @tls1_check_sig_alg(ptr nocapture noundef readonly %s, ptr noundef %x, i32 noundef %default_nid) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @tls1_check_sig_alg(ptr nocapture noundef readonly %s, ptr noundef %x, i32 noundef range(i32 -1, 987) %default_nid) unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %default_nid, -1
   br i1 %cmp, label %return, label %if.end
@@ -6799,7 +6795,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #0
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @tls1_check_cert_param(ptr noundef %s, ptr noundef %x, i32 noundef %check_ee_md) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @tls1_check_cert_param(ptr noundef %s, ptr noundef %x, i32 noundef range(i32 0, 2) %check_ee_md) unnamed_addr #2 {
 entry:
   %gname.i.i = alloca [50 x i8], align 16
   %call = tail call ptr @X509_get0_pubkey(ptr noundef %x) #15
@@ -9115,7 +9111,7 @@ declare ptr @SSL_get_ciphers(ptr noundef) local_unnamed_addr #0
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_sigorhash(ptr nocapture noundef writeonly %psig, ptr nocapture noundef writeonly %phash, ptr noundef %str) unnamed_addr #2 {
+define internal fastcc void @get_sigorhash(ptr nocapture noundef nonnull writeonly %psig, ptr nocapture noundef nonnull writeonly %phash, ptr noundef nonnull %str) unnamed_addr #2 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %str, ptr noundef nonnull dereferenceable(4) @.str.8) #16
   %cmp = icmp eq i32 %call, 0
@@ -9158,13 +9154,13 @@ if.then13:                                        ; preds = %if.else10
   br label %if.end22
 
 if.else14:                                        ; preds = %if.else10
-  %call15 = tail call i32 @OBJ_sn2nid(ptr noundef %str) #15
+  %call15 = tail call i32 @OBJ_sn2nid(ptr noundef nonnull %str) #15
   store i32 %call15, ptr %phash, align 4
   %cmp16 = icmp eq i32 %call15, 0
   br i1 %cmp16, label %if.then17, label %if.end22
 
 if.then17:                                        ; preds = %if.else14
-  %call18 = tail call i32 @OBJ_ln2nid(ptr noundef %str) #15
+  %call18 = tail call i32 @OBJ_ln2nid(ptr noundef nonnull %str) #15
   store i32 %call18, ptr %phash, align 4
   br label %if.end22
 

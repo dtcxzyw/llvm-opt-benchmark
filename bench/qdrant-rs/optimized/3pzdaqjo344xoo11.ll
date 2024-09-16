@@ -1713,7 +1713,7 @@ _ZN5alloc11collections5btree3mem7replace17h1833d521f991c30bE.llvm.81959396836305
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noalias noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E(i64 noundef %0) unnamed_addr #5 {
+define internal fastcc noalias noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E(i64 noundef range(i64 24, 49) %0) unnamed_addr #5 {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %3 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %0, i64 noundef 8) #21
   %4 = icmp eq ptr %3, null
@@ -1735,7 +1735,7 @@ define hidden { ptr, i64 } @"_ZN79_$LT$std..path..Path$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0dff1cd8308af2b0E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 %.0.val) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0dff1cd8308af2b0E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef range(i64 12, 14) %2, i64 %.0.val) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = alloca { [40 x i8] }, align 1
   %5 = alloca [6 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !264)
@@ -1856,7 +1856,7 @@ _ZN10serde_json3ser9Formatter12begin_string17h785f0624fd0eb9a2E.exit.i.i.i.i.i: 
   %58 = getelementptr inbounds i8, ptr %1, i64 %.sroa.8.0.ph.i.i.i.i.i.i
   %59 = load i8, ptr %58, align 1, !alias.scope !320, !noalias !318, !noundef !4
   %60 = icmp sgt i8 %59, -65
-  %61 = sub nuw i64 %2, %.sroa.8.0.ph.i.i.i.i.i.i
+  %61 = sub nuw nsw i64 %2, %.sroa.8.0.ph.i.i.i.i.i.i
   br i1 %60, label %63, label %62
 
 62:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i.i.i.i.i.i", %57
@@ -2029,7 +2029,7 @@ _ZN10serde_json3ser9Formatter17write_char_escape17hec36e38c1964fadfE.exit.i.i.i.
 
 128:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit7.i.i.i.i.i.i.i", %84
   %129 = getelementptr inbounds i8, ptr %1, i64 %.sroa.8.0.ph.i.i.i.i.i.i
-  %130 = sub i64 %.sroa.8.0.i.i.i.i.i.i, %.sroa.8.0.ph.i.i.i.i.i.i
+  %130 = sub nsw i64 %.sroa.8.0.i.i.i.i.i.i, %.sroa.8.0.ph.i.i.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !363)
   call void @llvm.experimental.noalias.scope.decl(metadata !366)
   %131 = load i64, ptr %6, align 8, !alias.scope !369, !noalias !370, !noundef !4
@@ -3416,14 +3416,14 @@ _ZN10serde_json3ser9Formatter12begin_object17hfa940585c1f49633E.exit.i.i: ; pred
   %17 = getelementptr inbounds i8, ptr %3, i64 8
   store i8 1, ptr %17, align 8
   %.val = load i64, ptr %0, align 8
-  %18 = call fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0dff1cd8308af2b0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 @anon.20b2b994cad5c991457c4b7e848f440a.53.llvm.8195939683630598414, i64 noundef 13, i64 %.val)
+  %18 = call fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0dff1cd8308af2b0E"(ptr noalias noundef align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 @anon.20b2b994cad5c991457c4b7e848f440a.53.llvm.8195939683630598414, i64 noundef 13, i64 %.val)
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h706a833cbaec3675E.exit"
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %.val21 = load i64, ptr %21, align 8
-  %22 = call fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0dff1cd8308af2b0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 @anon.20b2b994cad5c991457c4b7e848f440a.54.llvm.8195939683630598414, i64 noundef 12, i64 %.val21)
+  %22 = call fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0dff1cd8308af2b0E"(ptr noalias noundef align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 @anon.20b2b994cad5c991457c4b7e848f440a.54.llvm.8195939683630598414, i64 noundef 12, i64 %.val21)
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h706a833cbaec3675E.exit"
 

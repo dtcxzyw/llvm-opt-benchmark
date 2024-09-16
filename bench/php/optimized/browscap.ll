@@ -85,7 +85,7 @@ define hidden range(i32 -1, 1) i32 @OnChangeBrowscap(ptr nocapture noundef readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @browscap_bdata_dtor(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @browscap_bdata_dtor(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %54, label %4
@@ -240,7 +240,7 @@ define hidden range(i32 -1, 1) i32 @zm_startup_browscap(i32 noundef %0, i32 noun
 declare ptr @zend_ini_string_ex(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @browscap_read_file(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @browscap_read_file(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca %struct._zend_file_handle, align 8
   %5 = alloca %struct._browscap_parser_ctx, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
@@ -605,7 +605,7 @@ browscap_get_minimum_length.exit:                 ; preds = %91
   br i1 %.not206, label %99, label %.loopexit262
 
 .critedge217:                                     ; preds = %99, %.preheader
-  %111 = call fastcc i32 @browser_reg_compare(ptr noundef nonnull %85, ptr noundef %65, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %111 = call fastcc i32 @browser_reg_compare(ptr noundef nonnull %85, ptr noundef %65, ptr noundef %8, ptr noundef %9)
   %.not208 = icmp ne i32 %111, 0
   %112 = getelementptr inbounds i8, ptr %.0185267, i64 32
   %.not205 = icmp eq ptr %112, %75
@@ -1150,7 +1150,7 @@ declare zeroext i1 @zend_is_auto_global(ptr noundef) local_unnamed_addr #1
 declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @browser_reg_compare(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @browser_reg_compare(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = load ptr, ptr %2, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16

@@ -1642,7 +1642,7 @@ if.then.i214:                                     ; preds = %for.body.i211
 
 if.end.i216:                                      ; preds = %if.then.i214, %for.body.i211
   %35 = phi ptr [ %call.i215, %if.then.i214 ], [ %.pre.i213, %for.body.i211 ]
-  %call2.i = call fastcc ptr @read_macro_arg_one(ptr noundef nonnull %tok.addr.i208, ptr noundef %35, i1 noundef zeroext false)
+  %call2.i = call fastcc ptr @read_macro_arg_one(ptr noundef %tok.addr.i208, ptr noundef %35, i1 noundef zeroext false)
   store ptr %call2.i, ptr %cur.014.i, align 8
   %name.i217 = getelementptr inbounds i8, ptr %pp.015.i, i64 8
   %36 = load ptr, ptr %name.i217, align 8
@@ -1689,7 +1689,7 @@ if.then14.i:                                      ; preds = %if.else.i223
 
 if.end16.i:                                       ; preds = %if.then14.i, %if.else.i223
   %38 = phi ptr [ %call15.i, %if.then14.i ], [ %.pre17.i, %if.else.i223 ]
-  %call17.i = call fastcc ptr @read_macro_arg_one(ptr noundef nonnull %tok.addr.i208, ptr noundef %38, i1 noundef zeroext true)
+  %call17.i = call fastcc ptr @read_macro_arg_one(ptr noundef %tok.addr.i208, ptr noundef %38, i1 noundef zeroext true)
   %.pre16.pre.i = load ptr, ptr %tok.addr.i208, align 8
   br label %if.end18.i
 
@@ -2305,7 +2305,7 @@ if.then123.i:                                     ; preds = %land.lhs.true120.i
   %128 = load ptr, ptr %next121.i, align 8
   %next126.i = getelementptr inbounds i8, ptr %128, i64 8
   %129 = load ptr, ptr %next126.i, align 8
-  %call127.i = call fastcc ptr @read_macro_arg_one(ptr noundef nonnull %tok.addr.i148, ptr noundef %129, i1 noundef zeroext true)
+  %call127.i = call fastcc ptr @read_macro_arg_one(ptr noundef %tok.addr.i148, ptr noundef %129, i1 noundef zeroext true)
   br i1 %tobool.not7.i105.i338, label %if.end140.i, label %for.body.i144.i
 
 for.body.i144.i:                                  ; preds = %if.then123.i, %for.inc.i147.i
@@ -2574,7 +2574,7 @@ if.end6:                                          ; preds = %is_hash.exit
 if.then9:                                         ; preds = %if.end6
   %next11 = getelementptr inbounds i8, ptr %167, i64 8
   %168 = load ptr, ptr %next11, align 8
-  %call12 = call fastcc ptr @read_include_filename(ptr noundef nonnull %tok.addr, ptr noundef %168, ptr noundef nonnull %is_dquote)
+  %call12 = call fastcc ptr @read_include_filename(ptr noundef %tok.addr, ptr noundef %168, ptr noundef %is_dquote)
   %169 = load i8, ptr %call12, align 1
   %cmp13.not = icmp eq i8 %169, 47
   br i1 %cmp13.not, label %search_include_paths.exit, label %land.lhs.true
@@ -2660,7 +2660,7 @@ if.end34:                                         ; preds = %if.end6
 if.then36:                                        ; preds = %if.end34
   %next38 = getelementptr inbounds i8, ptr %167, i64 8
   %185 = load ptr, ptr %next38, align 8
-  %call39 = call fastcc ptr @read_include_filename(ptr noundef nonnull %tok.addr, ptr noundef %185, ptr noundef nonnull %ignore)
+  %call39 = call fastcc ptr @read_include_filename(ptr noundef %tok.addr, ptr noundef %185, ptr noundef %ignore)
   %186 = load i32, ptr @include_next_idx, align 4
   %187 = load i32, ptr getelementptr inbounds (i8, ptr @include_paths, i64 12), align 4
   %cmp2.i = icmp slt i32 %186, %187
@@ -2966,7 +2966,7 @@ if.end67:                                         ; preds = %if.end54
   br i1 %call68, label %if.then69, label %if.end77
 
 if.then69:                                        ; preds = %if.end67
-  %call70 = call fastcc i64 @eval_const_expr(ptr noundef nonnull %tok.addr, ptr noundef %167)
+  %call70 = call fastcc i64 @eval_const_expr(ptr noundef %tok.addr, ptr noundef %167)
   %tobool71 = icmp ne i64 %call70, 0
   %frombool.i49 = zext i1 %tobool71 to i8
   %call.i50 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #15
@@ -3140,7 +3140,7 @@ if.end116:                                        ; preds = %lor.lhs.false
   br i1 %tobool118, label %if.else, label %land.lhs.true119
 
 land.lhs.true119:                                 ; preds = %if.end116
-  %call120 = call fastcc i64 @eval_const_expr(ptr noundef nonnull %tok.addr, ptr noundef %167)
+  %call120 = call fastcc i64 @eval_const_expr(ptr noundef %tok.addr, ptr noundef %167)
   %tobool121.not = icmp eq i64 %call120, 0
   br i1 %tobool121.not, label %land.lhs.true119.if.else_crit_edge, label %if.then122
 
@@ -3267,7 +3267,7 @@ if.end153:                                        ; preds = %if.end144
 if.then155:                                       ; preds = %if.end153
   %next156 = getelementptr inbounds i8, ptr %167, i64 8
   %278 = load ptr, ptr %next156, align 8
-  call fastcc void @read_line_marker(ptr noundef nonnull %tok.addr, ptr noundef %278)
+  call fastcc void @read_line_marker(ptr noundef %tok.addr, ptr noundef %278)
   br label %while.cond.backedge
 
 if.end157:                                        ; preds = %if.end153
@@ -3276,7 +3276,7 @@ if.end157:                                        ; preds = %if.end153
   br i1 %cmp159, label %if.then161, label %if.end162
 
 if.then161:                                       ; preds = %if.end157
-  call fastcc void @read_line_marker(ptr noundef nonnull %tok.addr, ptr noundef nonnull %167)
+  call fastcc void @read_line_marker(ptr noundef %tok.addr, ptr noundef nonnull %167)
   br label %while.cond.backedge
 
 if.end162:                                        ; preds = %if.end157
@@ -3387,7 +3387,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @read_include_filename(ptr nocapture noundef writeonly %rest, ptr noundef %tok, ptr nocapture noundef writeonly %is_dquote) unnamed_addr #0 {
+define internal fastcc ptr @read_include_filename(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok, ptr nocapture noundef nonnull writeonly %is_dquote) unnamed_addr #0 {
 entry:
   %head.i = alloca %struct.Token, align 16
   %tok2 = alloca ptr, align 8
@@ -3541,7 +3541,7 @@ copy_line.exit:                                   ; preds = %for.body.i, %if.the
   %21 = load ptr, ptr %next4.i, align 8
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %head.i)
   %call22 = tail call fastcc ptr @preprocess2(ptr noundef %21)
-  %call23 = call fastcc ptr @read_include_filename(ptr noundef nonnull %tok2, ptr noundef %call22, ptr noundef %is_dquote)
+  %call23 = call fastcc ptr @read_include_filename(ptr noundef %tok2, ptr noundef %call22, ptr noundef %is_dquote)
   br label %return
 
 if.end24:                                         ; preds = %if.end16
@@ -3760,7 +3760,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 declare noalias ptr @strndup(ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @eval_const_expr(ptr nocapture noundef writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc i64 @eval_const_expr(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %head.i.i = alloca %struct.Token, align 16
   %tok.addr.i = alloca ptr, align 8
@@ -4033,7 +4033,7 @@ while.end:                                        ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_line_marker(ptr nocapture noundef writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc void @read_line_marker(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %head.i = alloca %struct.Token, align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %head.i)
@@ -4138,7 +4138,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @skip(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @read_macro_arg_one(ptr nocapture noundef writeonly %rest, ptr noundef %tok, i1 noundef zeroext %read_rest) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @read_macro_arg_one(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok, i1 noundef zeroext %read_rest) unnamed_addr #0 {
 entry:
   %head = alloca %struct.Token, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %head, i8 0, i64 128, i1 false)

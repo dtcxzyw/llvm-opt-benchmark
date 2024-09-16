@@ -965,7 +965,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @migrate_send_rp_message(ptr noundef %mis, i32 noundef %message_type, i16 noundef zeroext %len, ptr noundef %data) unnamed_addr #0 {
+define internal fastcc i32 @migrate_send_rp_message(ptr noundef %mis, i32 noundef range(i32 1, 8) %message_type, i16 noundef zeroext %len, ptr noundef %data) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -2250,7 +2250,7 @@ populate_time_info.exit.i:                        ; preds = %if.else8.i.i, %migr
   %19 = load i64, ptr %expected_downtime.i.i, align 8
   %expected_downtime9.i.i = getelementptr inbounds i8, ptr %call, i64 %.sink17.i.i
   store i64 %19, ptr %expected_downtime9.i.i, align 8
-  tail call fastcc void @populate_ram_info(ptr noundef nonnull %call, ptr noundef nonnull %4)
+  tail call fastcc void @populate_ram_info(ptr noundef nonnull %call, ptr noundef %4)
   %call.i.i = tail call i32 @blk_mig_active() #19
   %tobool.not.i36.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i36.i, label %populate_disk_info.exit.i, label %if.then.i37.i
@@ -2344,7 +2344,7 @@ populate_time_info.exit70.i:                      ; preds = %if.else8.i60.i, %mi
   %30 = load i64, ptr %expected_downtime.i65.i, align 8
   %expected_downtime9.i66.i = getelementptr inbounds i8, ptr %call, i64 %.sink17.i63.i
   store i64 %30, ptr %expected_downtime9.i66.i, align 8
-  tail call fastcc void @populate_ram_info(ptr noundef nonnull %call, ptr noundef nonnull %4)
+  tail call fastcc void @populate_ram_info(ptr noundef nonnull %call, ptr noundef %4)
   tail call void @migration_populate_vfio_info(ptr noundef nonnull %call) #19
   br label %sw.epilog.i6
 
@@ -3099,7 +3099,7 @@ if.end2:                                          ; preds = %if.end
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.end2
-  call fastcc void @qemu_start_incoming_migration(ptr noundef %uri, i1 noundef zeroext %has_channels, ptr noundef %channels, ptr noundef nonnull %local_err)
+  call fastcc void @qemu_start_incoming_migration(ptr noundef %uri, i1 noundef zeroext %has_channels, ptr noundef %channels, ptr noundef %local_err)
   %0 = load ptr, ptr %local_err, align 8
   %tobool7.not = icmp eq ptr %0, null
   br i1 %tobool7.not, label %if.end12, label %if.then8
@@ -3126,7 +3126,7 @@ declare zeroext i1 @runstate_check(i32 noundef) local_unnamed_addr #1
 declare zeroext i1 @yank_register_instance(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qemu_start_incoming_migration(ptr noundef %uri, i1 noundef zeroext %has_channels, ptr noundef readonly %channels, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc void @qemu_start_incoming_migration(ptr noundef %uri, i1 noundef zeroext %has_channels, ptr noundef readonly %channels, ptr noundef nonnull %errp) unnamed_addr #0 {
 entry:
   %channel = alloca ptr, align 8
   store ptr null, ptr %channel, align 8
@@ -3144,7 +3144,7 @@ migration_incoming_get_current.exit:              ; preds = %entry
   br i1 %brmerge.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %migration_incoming_get_current.exit
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 529, ptr noundef nonnull @__func__.qemu_start_incoming_migration, ptr noundef nonnull @.str.78) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.2, i32 noundef 529, ptr noundef nonnull @__func__.qemu_start_incoming_migration, ptr noundef nonnull @.str.78) #19
   br label %cleanup
 
 if.else:                                          ; preds = %migration_incoming_get_current.exit
@@ -3157,7 +3157,7 @@ if.then3:                                         ; preds = %if.else
   br i1 %tobool4.not, label %if.end, label %if.then5
 
 if.then5:                                         ; preds = %if.then3
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 534, ptr noundef nonnull @__func__.qemu_start_incoming_migration, ptr noundef nonnull @.str.36) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.2, i32 noundef 534, ptr noundef nonnull @__func__.qemu_start_incoming_migration, ptr noundef nonnull @.str.36) #19
   br label %cleanup
 
 if.end:                                           ; preds = %if.then3
@@ -3168,11 +3168,11 @@ if.else7:                                         ; preds = %if.else
   br i1 %tobool.not, label %if.then9, label %if.else14
 
 if.then9:                                         ; preds = %if.else7
-  %call10 = call zeroext i1 @migrate_uri_parse(ptr noundef nonnull %uri, ptr noundef nonnull %channel, ptr noundef %errp)
+  %call10 = call zeroext i1 @migrate_uri_parse(ptr noundef nonnull %uri, ptr noundef nonnull %channel, ptr noundef nonnull %errp)
   br i1 %call10, label %if.end17, label %cleanup
 
 if.else14:                                        ; preds = %if.else7
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 546, ptr noundef nonnull @__func__.qemu_start_incoming_migration, ptr noundef nonnull @.str.79) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.2, i32 noundef 546, ptr noundef nonnull @__func__.qemu_start_incoming_migration, ptr noundef nonnull @.str.79) #19
   br label %cleanup
 
 if.end17:                                         ; preds = %if.then9, %if.end
@@ -3199,7 +3199,7 @@ land.lhs.true1.i:                                 ; preds = %land.lhs.true.i
   br i1 %switch.i.i, label %if.end20, label %migration_channels_and_transport_compatible.exit
 
 migration_channels_and_transport_compatible.exit: ; preds = %land.lhs.true1.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 145, ptr noundef nonnull @__func__.migration_channels_and_transport_compatible, ptr noundef nonnull @.str.80) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.2, i32 noundef 145, ptr noundef nonnull @__func__.migration_channels_and_transport_compatible, ptr noundef nonnull @.str.80) #19
   br label %cleanup
 
 if.end20:                                         ; preds = %land.lhs.true1.i, %land.lhs.true.i, %migration_needs_multiple_sockets.exit.i
@@ -3223,28 +3223,28 @@ if.then21:                                        ; preds = %if.end20
   ]
 
 if.then28:                                        ; preds = %if.then21, %if.then21, %if.then21
-  tail call void @socket_start_incoming_migration(ptr noundef nonnull %u, ptr noundef %errp) #19
+  tail call void @socket_start_incoming_migration(ptr noundef nonnull %u, ptr noundef nonnull %errp) #19
   br label %cleanup
 
 if.then32:                                        ; preds = %if.then21
   %u33 = getelementptr inbounds i8, ptr %addr.0, i64 16
   %5 = load ptr, ptr %u33, align 8
-  tail call void @fd_start_incoming_migration(ptr noundef %5, ptr noundef %errp) #19
+  tail call void @fd_start_incoming_migration(ptr noundef %5, ptr noundef nonnull %errp) #19
   br label %cleanup
 
 if.then39:                                        ; preds = %if.end20
   %u40 = getelementptr inbounds i8, ptr %addr.0, i64 8
   %6 = load ptr, ptr %u40, align 8
-  tail call void @exec_start_incoming_migration(ptr noundef %6, ptr noundef %errp) #19
+  tail call void @exec_start_incoming_migration(ptr noundef %6, ptr noundef nonnull %errp) #19
   br label %cleanup
 
 if.then44:                                        ; preds = %if.end20
   %u45 = getelementptr inbounds i8, ptr %addr.0, i64 8
-  tail call void @file_start_incoming_migration(ptr noundef nonnull %u45, ptr noundef %errp) #19
+  tail call void @file_start_incoming_migration(ptr noundef nonnull %u45, ptr noundef nonnull %errp) #19
   br label %cleanup
 
 if.else46:                                        ; preds = %if.end20
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 588, ptr noundef nonnull @__func__.qemu_start_incoming_migration, ptr noundef nonnull @.str.19, ptr noundef %uri) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.2, i32 noundef 588, ptr noundef nonnull @__func__.qemu_start_incoming_migration, ptr noundef nonnull @.str.19, ptr noundef %uri) #19
   br label %cleanup
 
 cleanup:                                          ; preds = %migration_channels_and_transport_compatible.exit, %if.then32, %if.then28, %if.then44, %if.else46, %if.then39, %if.then21, %if.then9, %if.else14, %if.then5, %if.then
@@ -3314,7 +3314,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %migration_incoming_transport_cleanup.exit
 
 migration_incoming_transport_cleanup.exit:        ; preds = %if.end.i, %if.then4.i
-  tail call fastcc void @qemu_start_incoming_migration(ptr noundef %uri, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull %errp)
+  tail call fastcc void @qemu_start_incoming_migration(ptr noundef %uri, i1 noundef zeroext false, ptr noundef null, ptr noundef %errp)
   br label %return
 
 return:                                           ; preds = %migration_incoming_transport_cleanup.exit, %if.then1
@@ -4094,7 +4094,7 @@ return:                                           ; preds = %migrate_get_current
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @migration_update_counters(ptr nocapture noundef %s, i64 noundef %current_time) unnamed_addr #0 {
+define internal fastcc void @migration_update_counters(ptr nocapture noundef %s, i64 noundef range(i64 -9223372036854, 9223372036855) %current_time) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %iteration_start_time = getelementptr inbounds i8, ptr %s, i64 504
@@ -5380,7 +5380,7 @@ trace_migration_completion_vm_stop.exit.i.i.i:    ; preds = %if.else.i.i.i.i.i, 
   br i1 %cmp.i.i.i, label %migration_completion_precopy.exit.thread.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %trace_migration_completion_vm_stop.exit.i.i.i
-  %call2.i.i.i = call fastcc i32 @migration_maybe_pause(ptr noundef nonnull %opaque, ptr noundef nonnull %current_active_state.i.i, i32 noundef 12)
+  %call2.i.i.i = call fastcc i32 @migration_maybe_pause(ptr noundef nonnull %opaque, ptr noundef %current_active_state.i.i, i32 noundef 12)
   %cmp3.i.i.i = icmp slt i32 %call2.i.i.i, 0
   br i1 %cmp3.i.i.i, label %migration_completion_precopy.exit.thread.i.i, label %migration_completion_precopy.exit.i.i
 
@@ -5755,7 +5755,7 @@ migration_stop_vm.exit.i.i:                       ; preds = %if.else.i.i.i.i71.i
   br i1 %cmp.i.i, label %if.end69.critedge.i.i, label %if.end12.i61.i
 
 if.end12.i61.i:                                   ; preds = %migration_stop_vm.exit.i.i
-  %call13.i62.i = call fastcc i32 @migration_maybe_pause(ptr noundef nonnull %opaque, ptr noundef nonnull %cur_state.i.i, i32 noundef 5)
+  %call13.i62.i = call fastcc i32 @migration_maybe_pause(ptr noundef nonnull %opaque, ptr noundef %cur_state.i.i, i32 noundef 5)
   %cmp14.i.i = icmp slt i32 %call13.i62.i, 0
   br i1 %cmp14.i.i, label %if.end69.critedge.i.i, label %if.end16.i.i
 
@@ -6400,7 +6400,7 @@ declare void @qemu_savevm_non_migratable_list(ptr noundef) local_unnamed_addr #1
 declare ptr @error_get_pretty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @populate_ram_info(ptr noundef %info, ptr nocapture noundef readonly %s) unnamed_addr #0 {
+define internal fastcc void @populate_ram_info(ptr noundef %info, ptr nocapture noundef nonnull readonly %s) unnamed_addr #0 {
 entry:
   %call = tail call i64 @qemu_target_page_size() #19
   %call1 = tail call noalias dereferenceable_or_null(144) ptr @g_malloc0(i64 noundef 144) #23
@@ -7071,7 +7071,7 @@ sw.bb57:                                          ; preds = %if.end46
   %add.ptr.val = load i32, ptr %add.ptr74, align 8
   %32 = call i32 @llvm.bswap.i32(i32 %add.ptr.val)
   %conv62 = sext i32 %32 to i64
-  call fastcc void @migrate_handle_rp_req_pages(ptr noundef null, i64 noundef %31, i64 noundef %conv62, ptr noundef nonnull %err)
+  call fastcc void @migrate_handle_rp_req_pages(ptr noundef null, i64 noundef %31, i64 noundef %conv62, ptr noundef %err)
   %33 = load ptr, ptr %err, align 8
   %tobool63.not = icmp eq ptr %33, null
   br i1 %tobool63.not, label %while.cond.outer.backedge, label %if.then118
@@ -7105,7 +7105,7 @@ if.then87:                                        ; preds = %if.end83
   br label %out
 
 if.end89:                                         ; preds = %if.end83
-  call fastcc void @migrate_handle_rp_req_pages(ptr noundef nonnull %arrayidx90, i64 noundef %start.2, i64 noundef %len.2, ptr noundef nonnull %err)
+  call fastcc void @migrate_handle_rp_req_pages(ptr noundef nonnull %arrayidx90, i64 noundef %start.2, i64 noundef %len.2, ptr noundef %err)
   %37 = load ptr, ptr %err, align 8
   %tobool91.not = icmp eq ptr %37, null
   br i1 %tobool91.not, label %while.cond.outer.backedge, label %if.then118
@@ -7350,7 +7350,7 @@ declare i32 @qemu_file_get_error_obj(ptr noundef, ptr noundef) local_unnamed_add
 declare i64 @qemu_get_buffer(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @migrate_handle_rp_req_pages(ptr noundef %rbname, i64 noundef %start, i64 noundef %len, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc void @migrate_handle_rp_req_pages(ptr noundef %rbname, i64 noundef %start, i64 noundef range(i64 -2147483648, 2147483648) %len, ptr noundef nonnull %errp) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call i32 @getpagesize() #25
@@ -7399,11 +7399,11 @@ lor.lhs.false:                                    ; preds = %trace_migrate_handl
   br i1 %cmp2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %trace_migrate_handle_rp_req_pages.exit
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 2092, ptr noundef nonnull @__func__.migrate_handle_rp_req_pages, ptr noundef nonnull @.str.132, i64 noundef %start, i64 noundef %len) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.2, i32 noundef 2092, ptr noundef nonnull @__func__.migrate_handle_rp_req_pages, ptr noundef nonnull @.str.132, i64 noundef %start, i64 noundef %len) #19
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call3 = tail call i32 @ram_save_queue_pages(ptr noundef %rbname, i64 noundef %start, i64 noundef %len, ptr noundef %errp) #19
+  %call3 = tail call i32 @ram_save_queue_pages(ptr noundef %rbname, i64 noundef %start, i64 noundef %len, ptr noundef nonnull %errp) #19
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -7912,7 +7912,7 @@ declare zeroext i1 @migrate_switchover_ack() local_unnamed_addr #1
 declare zeroext i1 @runstate_is_running() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -22, 1) i32 @migration_maybe_pause(ptr noundef %s, ptr nocapture noundef %current_active_state, i32 noundef %new_state) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @migration_maybe_pause(ptr noundef %s, ptr nocapture noundef nonnull %current_active_state, i32 noundef range(i32 5, 13) %new_state) unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @migrate_pause_before_switchover() #19
   br i1 %call, label %while.cond.preheader, label %return

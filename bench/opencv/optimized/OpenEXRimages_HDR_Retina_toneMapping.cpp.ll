@@ -338,7 +338,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
           to label %122 unwind label %124
 
 122:                                              ; preds = %121
-  invoke fastcc void @_ZL4helpNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %3)
+  invoke fastcc void @_ZL4helpNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %3)
           to label %123 unwind label %126
 
 123:                                              ; preds = %122
@@ -448,7 +448,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
           to label %170 unwind label %184
 
 170:                                              ; preds = %169
-  invoke fastcc void @_ZL4helpNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %8)
+  invoke fastcc void @_ZL4helpNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %8)
           to label %171 unwind label %186
 
 171:                                              ; preds = %170
@@ -583,7 +583,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
           to label %217 unwind label %237
 
 217:                                              ; preds = %216
-  invoke fastcc void @_ZL4helpNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %21)
+  invoke fastcc void @_ZL4helpNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %21)
           to label %218 unwind label %239
 
 218:                                              ; preds = %217
@@ -1508,7 +1508,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL4helpNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0) unnamed_addr #4 {
+define internal fastcc void @_ZL4helpNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %0) unnamed_addr #4 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.50)
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)

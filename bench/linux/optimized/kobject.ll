@@ -1032,7 +1032,7 @@ define dso_local void @kobject_del(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__kobject_del(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @__kobject_del(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1043,7 +1043,7 @@ define internal fastcc void @__kobject_del(ptr noundef %0) unnamed_addr #0 align
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  tail call void @sysfs_remove_groups(ptr noundef %0, ptr noundef %9) #13
+  tail call void @sysfs_remove_groups(ptr noundef nonnull %0, ptr noundef %9) #13
   br label %10
 
 10:                                               ; preds = %7, %1
@@ -1054,11 +1054,11 @@ define internal fastcc void @__kobject_del(ptr noundef %0) unnamed_addr #0 align
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %10
-  %16 = tail call i32 @kobject_uevent(ptr noundef %0, i32 noundef 1) #13
+  %16 = tail call i32 @kobject_uevent(ptr noundef nonnull %0, i32 noundef 1) #13
   br label %17
 
 17:                                               ; preds = %15, %10
-  tail call void @sysfs_remove_dir(ptr noundef %0) #13
+  tail call void @sysfs_remove_dir(ptr noundef nonnull %0) #13
   tail call void @kernfs_put(ptr noundef %3) #13
   %18 = load i8, ptr %11, align 4
   %19 = and i8 %18, -3
@@ -2004,7 +2004,7 @@ declare dso_local void @sysfs_remove_groups(ptr noundef, ptr noundef) local_unna
 declare dso_local void @sysfs_remove_dir(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @kobj_kset_leave(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @kobj_kset_leave(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

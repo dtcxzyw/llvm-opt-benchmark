@@ -1158,15 +1158,15 @@ if.then18:                                        ; preds = %if.end9
   ]
 
 sw.bb:                                            ; preds = %if.then18
-  call fastcc void @process_mget_command(ptr noundef %c, ptr noundef nonnull %tokens, i64 noundef %inc35.i)
+  call fastcc void @process_mget_command(ptr noundef %c, ptr noundef %tokens, i64 noundef %inc35.i)
   br label %return
 
 sw.bb24:                                          ; preds = %if.then18
-  call fastcc void @process_mset_command(ptr noundef %c, ptr noundef nonnull %tokens, i64 noundef %inc35.i)
+  call fastcc void @process_mset_command(ptr noundef %c, ptr noundef %tokens, i64 noundef %inc35.i)
   br label %return
 
 sw.bb26:                                          ; preds = %if.then18
-  call fastcc void @process_mdelete_command(ptr noundef %c, ptr noundef nonnull %tokens, i64 noundef %inc35.i)
+  call fastcc void @process_mdelete_command(ptr noundef %c, ptr noundef %tokens, i64 noundef %inc35.i)
   br label %return
 
 sw.bb28:                                          ; preds = %if.then18
@@ -1175,11 +1175,11 @@ sw.bb28:                                          ; preds = %if.then18
   br label %return
 
 sw.bb29:                                          ; preds = %if.then18
-  call fastcc void @process_marithmetic_command(ptr noundef %c, ptr noundef nonnull %tokens, i64 noundef %inc35.i)
+  call fastcc void @process_marithmetic_command(ptr noundef %c, ptr noundef %tokens, i64 noundef %inc35.i)
   br label %return
 
 sw.bb31:                                          ; preds = %if.then18
-  call fastcc void @process_meta_command(ptr noundef %c, ptr noundef nonnull %tokens, i64 noundef %inc35.i)
+  call fastcc void @process_meta_command(ptr noundef %c, ptr noundef %tokens, i64 noundef %inc35.i)
   br label %return
 
 sw.default:                                       ; preds = %if.then18
@@ -1211,7 +1211,7 @@ do.end:                                           ; preds = %do.body
   br i1 %cmp44, label %if.then46, label %if.else48
 
 if.then46:                                        ; preds = %do.end
-  call fastcc void @process_get_command(ptr noundef %c, ptr noundef nonnull %tokens, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @process_get_command(ptr noundef %c, ptr noundef %tokens, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %return
 
 if.else48:                                        ; preds = %do.end
@@ -1220,7 +1220,7 @@ if.else48:                                        ; preds = %do.end
   br i1 %cmp52, label %if.then54, label %if.else56
 
 if.then54:                                        ; preds = %if.else48
-  call fastcc void @process_get_command(ptr noundef %c, ptr noundef nonnull %tokens, i1 noundef zeroext true, i1 noundef zeroext false)
+  call fastcc void @process_get_command(ptr noundef %c, ptr noundef %tokens, i1 noundef zeroext true, i1 noundef zeroext false)
   br label %return
 
 if.else56:                                        ; preds = %if.else48
@@ -1229,7 +1229,7 @@ if.else56:                                        ; preds = %if.else48
   br i1 %cmp60, label %if.then62, label %if.else64
 
 if.then62:                                        ; preds = %if.else56
-  call fastcc void @process_get_command(ptr noundef %c, ptr noundef nonnull %tokens, i1 noundef zeroext false, i1 noundef zeroext true)
+  call fastcc void @process_get_command(ptr noundef %c, ptr noundef %tokens, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %return
 
 if.else64:                                        ; preds = %if.else56
@@ -1238,7 +1238,7 @@ if.else64:                                        ; preds = %if.else56
   br i1 %cmp68, label %if.then70, label %if.else72
 
 if.then70:                                        ; preds = %if.else64
-  call fastcc void @process_get_command(ptr noundef %c, ptr noundef nonnull %tokens, i1 noundef zeroext true, i1 noundef zeroext true)
+  call fastcc void @process_get_command(ptr noundef %c, ptr noundef %tokens, i1 noundef zeroext true, i1 noundef zeroext true)
   br label %return
 
 if.else72:                                        ; preds = %if.else64
@@ -1260,7 +1260,7 @@ if.then95:                                        ; preds = %land.lhs.true87
   br label %return
 
 do.end97:                                         ; preds = %land.lhs.true87
-  call fastcc void @process_update_command(ptr noundef %c, ptr noundef nonnull %tokens, i64 noundef %inc35.i, i32 noundef 2, i1 noundef zeroext false)
+  call fastcc void @process_update_command(ptr noundef %c, ptr noundef %tokens, i64 noundef %inc35.i, i32 noundef 2, i1 noundef zeroext false)
   br label %return
 
 if.else99:                                        ; preds = %if.then81
@@ -1269,7 +1269,7 @@ if.else99:                                        ; preds = %if.then81
   br i1 %cmp103, label %if.then105, label %if.else107
 
 if.then105:                                       ; preds = %if.else99
-  call fastcc void @process_stat(ptr noundef %c, ptr noundef nonnull %tokens, i64 noundef %inc35.i)
+  call fastcc void @process_stat(ptr noundef %c, ptr noundef %tokens, i64 noundef %inc35.i)
   br label %return
 
 if.else107:                                       ; preds = %if.else99
@@ -1289,7 +1289,7 @@ if.else115:                                       ; preds = %if.else107
   br i1 %cmp119, label %if.then121, label %if.else123
 
 if.then121:                                       ; preds = %if.else115
-  call fastcc void @process_slabs_command(ptr noundef %c, ptr noundef nonnull %tokens, i64 noundef %inc35.i)
+  call fastcc void @process_slabs_command(ptr noundef %c, ptr noundef %tokens, i64 noundef %inc35.i)
   br label %return
 
 if.else123:                                       ; preds = %if.else115
@@ -1317,7 +1317,7 @@ if.then153:                                       ; preds = %do.body147
   br label %return
 
 do.end155:                                        ; preds = %do.body147
-  call fastcc void @process_update_command(ptr noundef %c, ptr noundef nonnull %tokens, i64 noundef %inc35.i, i32 noundef %comm.0, i1 noundef zeroext false)
+  call fastcc void @process_update_command(ptr noundef %c, ptr noundef %tokens, i64 noundef %inc35.i, i32 noundef %comm.0, i1 noundef zeroext false)
   br label %return
 
 if.else157:                                       ; preds = %lor.lhs.false139
@@ -1339,7 +1339,7 @@ if.then177:                                       ; preds = %land.lhs.true169
   br label %return
 
 do.end179:                                        ; preds = %land.lhs.true169
-  call fastcc void @process_update_command(ptr noundef %c, ptr noundef nonnull %tokens, i64 noundef %inc35.i, i32 noundef 6, i1 noundef zeroext true)
+  call fastcc void @process_update_command(ptr noundef %c, ptr noundef %tokens, i64 noundef %inc35.i, i32 noundef 6, i1 noundef zeroext true)
   br label %return
 
 if.else181:                                       ; preds = %if.then163
@@ -1357,7 +1357,7 @@ if.then194:                                       ; preds = %do.body188
   br label %return
 
 do.end196:                                        ; preds = %do.body188
-  call fastcc void @process_memlimit_command(ptr noundef %c, ptr noundef nonnull %tokens, i64 noundef %inc35.i)
+  call fastcc void @process_memlimit_command(ptr noundef %c, ptr noundef %tokens, i64 noundef %inc35.i)
   br label %return
 
 if.else198:                                       ; preds = %if.else181
@@ -1379,7 +1379,7 @@ if.then218:                                       ; preds = %do.body212
   br label %return
 
 do.end220:                                        ; preds = %do.body212
-  call fastcc void @process_arithmetic_command(ptr noundef %c, ptr noundef nonnull %tokens, i64 noundef %inc35.i, i1 noundef zeroext true)
+  call fastcc void @process_arithmetic_command(ptr noundef %c, ptr noundef %tokens, i64 noundef %inc35.i, i1 noundef zeroext true)
   br label %return
 
 if.else222:                                       ; preds = %if.then205
@@ -1401,7 +1401,7 @@ if.then241:                                       ; preds = %do.body235
   br label %return
 
 do.end243:                                        ; preds = %do.body235
-  call fastcc void @process_delete_command(ptr noundef %c, ptr noundef nonnull %tokens, i64 noundef %inc35.i)
+  call fastcc void @process_delete_command(ptr noundef %c, ptr noundef %tokens, i64 noundef %inc35.i)
   br label %return
 
 if.else245:                                       ; preds = %if.then228
@@ -1419,7 +1419,7 @@ if.then258:                                       ; preds = %do.body252
   br label %return
 
 do.end260:                                        ; preds = %do.body252
-  call fastcc void @process_arithmetic_command(ptr noundef %c, ptr noundef nonnull %tokens, i64 noundef %inc35.i, i1 noundef zeroext false)
+  call fastcc void @process_arithmetic_command(ptr noundef %c, ptr noundef %tokens, i64 noundef %inc35.i, i1 noundef zeroext false)
   br label %return
 
 if.else262:                                       ; preds = %if.else245
@@ -1452,7 +1452,7 @@ if.then297:                                       ; preds = %do.body291
   br label %return
 
 do.end299:                                        ; preds = %do.body291
-  call fastcc void @process_touch_command(ptr noundef %c, ptr noundef nonnull %tokens, i64 noundef %inc35.i)
+  call fastcc void @process_touch_command(ptr noundef %c, ptr noundef %tokens, i64 noundef %inc35.i)
   br label %return
 
 if.else301:                                       ; preds = %if.then284
@@ -1480,7 +1480,7 @@ if.then324:                                       ; preds = %do.body318
   br label %return
 
 do.end326:                                        ; preds = %do.body318
-  call fastcc void @process_update_command(ptr noundef %c, ptr noundef nonnull %tokens, i64 noundef %inc35.i, i32 noundef %comm.1, i1 noundef zeroext false)
+  call fastcc void @process_update_command(ptr noundef %c, ptr noundef %tokens, i64 noundef %inc35.i, i32 noundef %comm.1, i1 noundef zeroext false)
   br label %return
 
 if.else328:                                       ; preds = %lor.lhs.false310
@@ -1497,7 +1497,7 @@ if.then338:                                       ; preds = %do.body335
   br label %return
 
 do.end340:                                        ; preds = %do.body335
-  call fastcc void @process_get_command(ptr noundef %c, ptr noundef nonnull %tokens, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @process_get_command(ptr noundef %c, ptr noundef %tokens, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %return
 
 if.else342:                                       ; preds = %if.else328
@@ -1514,7 +1514,7 @@ if.then355:                                       ; preds = %do.body349
   br label %return
 
 do.end357:                                        ; preds = %do.body349
-  call fastcc void @process_flush_all_command(ptr noundef %c, ptr noundef nonnull %tokens, i64 noundef %inc35.i)
+  call fastcc void @process_flush_all_command(ptr noundef %c, ptr noundef %tokens, i64 noundef %inc35.i)
   br label %return
 
 if.else359:                                       ; preds = %if.else342
@@ -1545,7 +1545,7 @@ if.else373:                                       ; preds = %if.else366
   br i1 %cmp377, label %if.then379, label %if.else381
 
 if.then379:                                       ; preds = %if.else373
-  call fastcc void @process_lru_crawler_command(ptr noundef %c, ptr noundef nonnull %tokens, i64 noundef %inc35.i)
+  call fastcc void @process_lru_crawler_command(ptr noundef %c, ptr noundef %tokens, i64 noundef %inc35.i)
   br label %return
 
 if.else381:                                       ; preds = %if.else373
@@ -1554,7 +1554,7 @@ if.else381:                                       ; preds = %if.else373
   br i1 %cmp385, label %if.then387, label %if.else389
 
 if.then387:                                       ; preds = %if.else381
-  call fastcc void @process_watch_command(ptr noundef %c, ptr noundef nonnull %tokens, i64 noundef %inc35.i)
+  call fastcc void @process_watch_command(ptr noundef %c, ptr noundef %tokens, i64 noundef %inc35.i)
   br label %return
 
 if.else389:                                       ; preds = %if.else381
@@ -1572,7 +1572,7 @@ if.then402:                                       ; preds = %do.body396
   br label %return
 
 do.end404:                                        ; preds = %do.body396
-  call fastcc void @process_verbosity_command(ptr noundef %c, ptr noundef nonnull %tokens, i64 noundef %inc35.i)
+  call fastcc void @process_verbosity_command(ptr noundef %c, ptr noundef %tokens, i64 noundef %inc35.i)
   br label %return
 
 if.else406:                                       ; preds = %if.else389
@@ -1589,7 +1589,7 @@ if.then416:                                       ; preds = %do.body413
   br label %return
 
 do.end418:                                        ; preds = %do.body413
-  call fastcc void @process_lru_command(ptr noundef %c, ptr noundef nonnull %tokens, i64 noundef %inc35.i)
+  call fastcc void @process_lru_command(ptr noundef %c, ptr noundef %tokens, i64 noundef %inc35.i)
   br label %return
 
 if.else420:                                       ; preds = %if.else406
@@ -1615,7 +1615,7 @@ if.then437:                                       ; preds = %do.body434
   br label %return
 
 do.end439:                                        ; preds = %do.body434
-  call fastcc void @process_extstore_command(ptr noundef %c, ptr noundef nonnull %tokens, i64 noundef %inc35.i)
+  call fastcc void @process_extstore_command(ptr noundef %c, ptr noundef %tokens, i64 noundef %inc35.i)
   br label %return
 
 if.else441:                                       ; preds = %if.else427
@@ -1642,7 +1642,7 @@ return:                                           ; preds = %sw.default, %sw.bb3
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_mget_command(ptr noundef %c, ptr nocapture noundef %tokens, i64 noundef %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_mget_command(ptr noundef %c, ptr nocapture noundef nonnull %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %of = alloca %struct._meta_flags, align 8
   %hv = alloca i32, align 4
@@ -1680,7 +1680,7 @@ if.then6:                                         ; preds = %if.end4
   br label %return
 
 if.end7:                                          ; preds = %if.end4
-  %call = call fastcc i32 @_meta_flag_preparse(ptr noundef nonnull %tokens, i64 noundef 2, ptr noundef nonnull %of, ptr noundef nonnull %errstr)
+  %call = call fastcc i32 @_meta_flag_preparse(ptr noundef %tokens, i64 noundef 2, ptr noundef %of, ptr noundef %errstr)
   %cmp8.not = icmp eq i32 %call, 0
   br i1 %cmp8.not, label %if.end10, label %if.then9
 
@@ -2395,7 +2395,7 @@ return:                                           ; preds = %if.end401, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_mset_command(ptr noundef %c, ptr nocapture noundef %tokens, i64 noundef %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_mset_command(ptr noundef %c, ptr nocapture noundef nonnull %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %of = alloca %struct._meta_flags, align 8
   %errstr = alloca ptr, align 8
@@ -2463,7 +2463,7 @@ if.then18:                                        ; preds = %if.end15
 if.end19:                                         ; preds = %if.end15
   %add = add nuw nsw i32 %3, 2
   store i32 %add, ptr %vlen, align 4
-  %call20 = call fastcc i32 @_meta_flag_preparse(ptr noundef nonnull %tokens, i64 noundef 3, ptr noundef nonnull %of, ptr noundef nonnull %errstr)
+  %call20 = call fastcc i32 @_meta_flag_preparse(ptr noundef %tokens, i64 noundef 3, ptr noundef %of, ptr noundef %errstr)
   %cmp21.not = icmp eq i32 %call20, 0
   br i1 %cmp21.not, label %for.body.preheader, label %error
 
@@ -2766,7 +2766,7 @@ return:                                           ; preds = %error, %if.end196, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_mdelete_command(ptr noundef %c, ptr nocapture noundef %tokens, i64 noundef %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_mdelete_command(ptr noundef %c, ptr nocapture noundef nonnull %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %hv = alloca i32, align 4
   %of = alloca %struct._meta_flags, align 8
@@ -2804,7 +2804,7 @@ if.then6:                                         ; preds = %if.end4
   br label %return
 
 if.end7:                                          ; preds = %if.end4
-  %call = call fastcc i32 @_meta_flag_preparse(ptr noundef nonnull %tokens, i64 noundef 2, ptr noundef nonnull %of, ptr noundef nonnull %errstr)
+  %call = call fastcc i32 @_meta_flag_preparse(ptr noundef %tokens, i64 noundef 2, ptr noundef %of, ptr noundef %errstr)
   %cmp8.not = icmp eq i32 %call, 0
   br i1 %cmp8.not, label %if.end10, label %if.then9
 
@@ -3076,7 +3076,7 @@ return:                                           ; preds = %if.then25, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_marithmetic_command(ptr noundef %c, ptr nocapture noundef %tokens, i64 noundef %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_marithmetic_command(ptr noundef %c, ptr nocapture noundef nonnull %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %of = alloca %struct._meta_flags, align 8
   %errstr = alloca ptr, align 8
@@ -3119,7 +3119,7 @@ if.then6:                                         ; preds = %if.end4
   br label %return
 
 if.end7:                                          ; preds = %if.end4
-  %call = call fastcc i32 @_meta_flag_preparse(ptr noundef nonnull %tokens, i64 noundef 2, ptr noundef nonnull %of, ptr noundef nonnull %errstr)
+  %call = call fastcc i32 @_meta_flag_preparse(ptr noundef %tokens, i64 noundef 2, ptr noundef %of, ptr noundef %errstr)
   %cmp8.not = icmp eq i32 %call, 0
   br i1 %cmp8.not, label %if.end10, label %if.then9
 
@@ -3575,7 +3575,7 @@ return:                                           ; preds = %if.end283, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_meta_command(ptr noundef %c, ptr nocapture noundef readonly %tokens, i64 noundef %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_meta_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %overflow = alloca i8, align 1
   %cmp = icmp ult i64 %ntokens, 3
@@ -3761,7 +3761,7 @@ return:                                           ; preds = %if.end115, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_get_command(ptr noundef %c, ptr nocapture noundef %tokens, i1 noundef zeroext %return_cas, i1 noundef zeroext %should_touch) unnamed_addr #0 {
+define internal fastcc void @process_get_command(ptr noundef %c, ptr nocapture noundef nonnull %tokens, i1 noundef zeroext %return_cas, i1 noundef zeroext %should_touch) unnamed_addr #0 {
 entry:
   %exptime_int = alloca i32, align 4
   %overflow = alloca i8, align 1
@@ -4232,7 +4232,7 @@ if.end212:                                        ; preds = %if.then208, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_update_command(ptr noundef %c, ptr nocapture noundef readonly %tokens, i64 noundef %ntokens, i32 noundef %comm, i1 noundef zeroext %handle_cas) unnamed_addr #0 {
+define internal fastcc void @process_update_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 2, 0) %ntokens, i32 noundef range(i32 1, 7) %comm, i1 noundef zeroext %handle_cas) unnamed_addr #0 {
 entry:
   %flags = alloca i32, align 4
   %exptime_int = alloca i32, align 4
@@ -4465,7 +4465,7 @@ return:                                           ; preds = %do.end, %if.then78,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_stat(ptr noundef %c, ptr nocapture noundef readonly %tokens, i64 noundef %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_stat(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %bytes = alloca i32, align 4
   %id = alloca i32, align 4
@@ -4643,7 +4643,7 @@ if.end86:                                         ; preds = %if.else64, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_shutdown_command(ptr noundef %c, ptr nocapture readonly %tokens.16.val, i64 noundef %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_shutdown_command(ptr noundef %c, ptr nocapture readonly %tokens.16.val, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr getelementptr inbounds (i8, ptr @settings, i64 168), align 8
   %tobool = trunc i8 %0 to i1
@@ -4687,7 +4687,7 @@ if.end10:                                         ; preds = %if.then5, %if.else8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_slabs_command(ptr noundef %c, ptr nocapture noundef readonly %tokens, i64 noundef %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_slabs_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %level.i = alloca i32, align 4
   %ratio.i = alloca double, align 8
@@ -4856,7 +4856,7 @@ if.end32:                                         ; preds = %process_slabs_autom
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_memlimit_command(ptr noundef %c, ptr nocapture noundef readonly %tokens, i64 noundef %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_memlimit_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %memlimit = alloca i32, align 4
   %conv.i = shl i64 %ntokens, 32
@@ -4917,7 +4917,7 @@ if.end19:                                         ; preds = %if.else6, %if.then9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_arithmetic_command(ptr noundef %c, ptr nocapture noundef readonly %tokens, i64 noundef %ntokens, i1 noundef zeroext %incr) unnamed_addr #0 {
+define internal fastcc void @process_arithmetic_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 2, 0) %ntokens, i1 noundef zeroext %incr) unnamed_addr #0 {
 entry:
   %temp = alloca [24 x i8], align 16
   %delta = alloca i64, align 8
@@ -5006,7 +5006,7 @@ sw.epilog:                                        ; preds = %sw.bb13, %sw.bb12, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_delete_command(ptr noundef %c, ptr nocapture noundef readonly %tokens, i64 noundef %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_delete_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 3, 6) %ntokens) unnamed_addr #0 {
 entry:
   %hv = alloca i32, align 4
   %cmp = icmp ugt i64 %ntokens, 3
@@ -5027,9 +5027,9 @@ sub_1:                                            ; preds = %if.then
 
 if.then.tail:                                     ; preds = %if.then, %sub_1
   %cmp1 = phi i1 [ false, %if.then ], [ %4, %sub_1 ]
-  %conv.i = shl i64 %ntokens, 32
-  %sext.i = add i64 %conv.i, -8589934592
-  %5 = ashr exact i64 %sext.i, 28
+  %conv.i = shl nuw nsw i64 %ntokens, 32
+  %sext.i = add nsw i64 %conv.i, -8589934592
+  %5 = lshr exact i64 %sext.i, 28
   %arrayidx.i = getelementptr inbounds i8, ptr %tokens, i64 %5
   %6 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
@@ -5049,10 +5049,8 @@ set_noreply_maybe.exit:                           ; preds = %if.then.tail, %land
   %noreply5.i = getelementptr inbounds i8, ptr %c, i64 364
   %7 = load i8, ptr %noreply5.i, align 4
   %tobool6.i = trunc i8 %7 to i1
-  switch i64 %ntokens, label %if.then12 [
-    i64 4, label %land.lhs.true
-    i64 5, label %land.lhs.true7
-  ]
+  %switch = icmp eq i64 %ntokens, 4
+  br i1 %switch, label %land.lhs.true, label %land.lhs.true7
 
 land.lhs.true:                                    ; preds = %set_noreply_maybe.exit
   %brmerge = select i1 %cmp1, i1 true, i1 %tobool6.i
@@ -5062,7 +5060,7 @@ land.lhs.true7:                                   ; preds = %set_noreply_maybe.e
   %spec.select.old = select i1 %cmp1, i1 %tobool6.i, i1 false
   br i1 %spec.select.old, label %if.end13, label %if.then12
 
-if.then12:                                        ; preds = %land.lhs.true, %set_noreply_maybe.exit, %land.lhs.true7
+if.then12:                                        ; preds = %land.lhs.true, %land.lhs.true7
   tail call void @out_string(ptr noundef nonnull %c, ptr noundef nonnull @.str.118) #12
   br label %return
 
@@ -5218,7 +5216,7 @@ return:                                           ; preds = %if.then1, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_touch_command(ptr noundef %c, ptr nocapture noundef readonly %tokens, i64 noundef %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_touch_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %exptime_int = alloca i32, align 4
   store i32 0, ptr %exptime_int, align 4
@@ -5316,13 +5314,13 @@ if.end41:                                         ; preds = %if.else, %if.then12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_flush_all_command(ptr noundef %c, ptr nocapture noundef readonly %tokens, i64 noundef %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_flush_all_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 2, 5) %ntokens) unnamed_addr #0 {
 entry:
   %exptime = alloca i32, align 4
   store i32 0, ptr %exptime, align 4
-  %conv.i = shl i64 %ntokens, 32
-  %sext.i = add i64 %conv.i, -8589934592
-  %0 = ashr exact i64 %sext.i, 28
+  %conv.i = shl nuw nsw i64 %ntokens, 32
+  %sext.i = add nsw i64 %conv.i, -8589934592
+  %0 = lshr exact i64 %sext.i, 28
   %arrayidx.i = getelementptr inbounds i8, ptr %tokens, i64 %0
   %1 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
@@ -5422,7 +5420,7 @@ return:                                           ; preds = %if.end29, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_lru_crawler_command(ptr noundef %c, ptr nocapture noundef readonly %tokens, i64 noundef %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_lru_crawler_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %tocrawl = alloca i32, align 4
   %tosleep = alloca i32, align 4
@@ -5718,7 +5716,7 @@ if.end151:                                        ; preds = %if.else127, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_watch_command(ptr noundef %c, ptr nocapture noundef readonly %tokens, i64 noundef %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_watch_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %conv.i = shl i64 %ntokens, 32
   %sext.i = add i64 %conv.i, -8589934592
@@ -5858,7 +5856,7 @@ sw.epilog:                                        ; preds = %sw.bb129, %sw.bb128
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_verbosity_command(ptr noundef %c, ptr nocapture noundef readonly %tokens, i64 noundef %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_verbosity_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %level = alloca i32, align 4
   %conv.i = shl i64 %ntokens, 32
@@ -5898,7 +5896,7 @@ return:                                           ; preds = %set_noreply_maybe.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_lru_command(ptr noundef %c, ptr nocapture noundef readonly %tokens, i64 noundef %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_lru_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 3, 0) %ntokens) unnamed_addr #0 {
 entry:
   %pct_hot = alloca i32, align 4
   %pct_warm = alloca i32, align 4
@@ -6094,7 +6092,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_extstore_command(ptr noundef %c, ptr nocapture noundef readonly %tokens, i64 noundef %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_extstore_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 3, 0) %ntokens) unnamed_addr #0 {
 entry:
   %clsid = alloca i32, align 4
   %limit = alloca i32, align 4
@@ -6282,13 +6280,12 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 declare void @out_errstring(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_meta_flag_preparse(ptr nocapture noundef %tokens, i64 noundef %start, ptr noundef %of, ptr nocapture noundef writeonly %errstr) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_meta_flag_preparse(ptr nocapture noundef nonnull %tokens, i64 noundef range(i64 2, 4) %start, ptr noundef nonnull %of, ptr nocapture noundef nonnull writeonly %errstr) unnamed_addr #0 {
 entry:
   %tmp_int = alloca i32, align 4
   %seen = alloca [127 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(127) %seen, i8 0, i64 127, i1 false)
-  %idxprom71 = and i64 %start, 4294967295
-  %arrayidx72 = getelementptr inbounds %struct.token_s, ptr %tokens, i64 %idxprom71
+  %arrayidx72 = getelementptr inbounds %struct.token_s, ptr %tokens, i64 %start
   %length73 = getelementptr inbounds i8, ptr %arrayidx72, i64 8
   %0 = load i64, ptr %length73, align 8
   %cmp.not74 = icmp eq i64 %0, 0

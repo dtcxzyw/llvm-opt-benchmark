@@ -243,7 +243,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   br i1 %102, label %105, label %106
 
 105:                                              ; preds = %101
-  call fastcc void @report_binding(ptr noundef nonnull %6, i32 noundef %104)
+  call fastcc void @report_binding(ptr noundef %6, i32 noundef %104)
   br label %192
 
 106:                                              ; preds = %101
@@ -373,7 +373,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
 171:                                              ; preds = %168
   %172 = getelementptr inbounds i8, ptr %8, i64 400
   %173 = load i32, ptr %172, align 8
-  call fastcc void @report_binding(ptr noundef nonnull %6, i32 noundef %173)
+  call fastcc void @report_binding(ptr noundef %6, i32 noundef %173)
   br label %.thread
 
 .thread:                                          ; preds = %141, %163, %171, %168, %166
@@ -447,7 +447,7 @@ declare void @prte_rtc_base_send_error_show_help(i32 noundef, i32 noundef, ptr n
 declare zeroext i1 @prte_get_attribute(ptr noundef, i16 noundef zeroext, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @report_binding(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @report_binding(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 784
   %4 = tail call zeroext i1 @prte_get_attribute(ptr noundef nonnull %3, i16 noundef zeroext 279, ptr noundef null, i16 noundef zeroext 1) #6
   %5 = tail call noalias ptr @hwloc_bitmap_alloc() #6

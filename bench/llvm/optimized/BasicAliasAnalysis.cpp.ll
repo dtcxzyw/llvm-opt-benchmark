@@ -1435,7 +1435,7 @@ _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE26getSequentialElementStrideERKN
   store i32 %269, ptr %41, align 4
   store i32 %270, ptr %42, align 8
   store i8 %271, ptr %43, align 4
-  call fastcc void @_ZL19GetLinearExpressionRKN12_GLOBAL__N_111CastedValueERKN4llvm10DataLayoutEjPNS3_15AssumptionCacheEPNS3_13DominatorTreeE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(21) %13, i32 noundef 0)
+  call fastcc void @_ZL19GetLinearExpressionRKN12_GLOBAL__N_111CastedValueERKN4llvm10DataLayoutEjPNS3_15AssumptionCacheEPNS3_13DominatorTreeE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(21) %13, i32 noundef 0)
   %272 = and i64 %.pn14.i154, 4294967295
   store i32 %149, ptr %44, align 8
   br i1 %158, label %273, label %275
@@ -1450,7 +1450,7 @@ _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE26getSequentialElementStrideERKN
   br label %_ZN4llvm5APIntC2Ejmbb.exit163
 
 _ZN4llvm5APIntC2Ejmbb.exit163:                    ; preds = %273, %275
-  call fastcc void @_ZNK12_GLOBAL__N_116LinearExpression3mulERKN4llvm5APIntEbb(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(58) %12, ptr noundef nonnull align 8 dereferenceable(12) %15, i1 noundef zeroext %261, i1 noundef zeroext %259)
+  call fastcc void @_ZNK12_GLOBAL__N_116LinearExpression3mulERKN4llvm5APIntEbb(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(58) %12, ptr noundef nonnull align 8 dereferenceable(12) %15, i1 noundef zeroext %261, i1 noundef zeroext %259)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %12, ptr noundef nonnull align 8 dereferenceable(21) %14, i64 21, i1 false)
   %276 = load i32, ptr %47, align 8
   %277 = icmp ult i32 %276, 65
@@ -2034,7 +2034,7 @@ declare void @_ZNK4llvm5APInt11sextOrTruncEj(ptr dead_on_unwind writable sret(%"
 declare noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntpLERKS0_(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19GetLinearExpressionRKN12_GLOBAL__N_111CastedValueERKN4llvm10DataLayoutEjPNS3_15AssumptionCacheEPNS3_13DominatorTreeE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(21) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL19GetLinearExpressionRKN12_GLOBAL__N_111CastedValueERKN4llvm10DataLayoutEjPNS3_15AssumptionCacheEPNS3_13DominatorTreeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(21) %1, i32 noundef range(i32 0, 7) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::TypeSize", align 8
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca %"class.llvm::TypeSize", align 8
@@ -2122,7 +2122,7 @@ _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %46, %47
   br label %_ZN4llvm5APIntC2ERKS0_.exit
 
 _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %53, %55
-  call fastcc void @_ZNK12_GLOBAL__N_111CastedValue12evaluateWithEN4llvm5APIntE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(21) %1, ptr noundef nonnull %9)
+  call fastcc void @_ZNK12_GLOBAL__N_111CastedValue12evaluateWithEN4llvm5APIntE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(21) %1, ptr noundef %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2240,7 +2240,7 @@ _ZN4llvm5APIntD2Ev.exit81:                        ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZN4llvm5APIntC2ERKS0_.exit85
 
 _ZN4llvm5APIntC2ERKS0_.exit85:                    ; preds = %106, %108
-  call fastcc void @_ZNK12_GLOBAL__N_111CastedValue12evaluateWithEN4llvm5APIntE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(21) %1, ptr noundef nonnull %11)
+  call fastcc void @_ZNK12_GLOBAL__N_111CastedValue12evaluateWithEN4llvm5APIntE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(21) %1, ptr noundef %11)
   %109 = load i32, ptr %102, align 8
   %110 = icmp ugt i32 %109, 64
   br i1 %110, label %111, label %_ZN4llvm5APIntD2Ev.exit86
@@ -2345,7 +2345,7 @@ _ZNK12_GLOBAL__N_111CastedValue17canDistributeOverEbb.exit.thread: ; preds = %_Z
   %151 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %151, align 4, !alias.scope !31
   %152 = add nuw nsw i32 %2, 1
-  call fastcc void @_ZL19GetLinearExpressionRKN12_GLOBAL__N_111CastedValueERKN4llvm10DataLayoutEjPNS3_15AssumptionCacheEPNS3_13DominatorTreeE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(21) %14, i32 noundef %152)
+  call fastcc void @_ZL19GetLinearExpressionRKN12_GLOBAL__N_111CastedValueERKN4llvm10DataLayoutEjPNS3_15AssumptionCacheEPNS3_13DominatorTreeE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(21) %14, i32 noundef %152)
   %153 = call fastcc noundef nonnull align 8 dereferenceable(58) ptr @_ZN12_GLOBAL__N_116LinearExpressionaSEOS0_(ptr noundef nonnull align 8 dereferenceable(58) %12, ptr noundef nonnull align 8 dereferenceable(58) %13)
   call fastcc void @_ZN12_GLOBAL__N_116LinearExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(58) %13) #22
   %154 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -2376,7 +2376,7 @@ _ZNK12_GLOBAL__N_111CastedValue17canDistributeOverEbb.exit.thread: ; preds = %_Z
   %170 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %170, align 4, !alias.scope !34
   %171 = add nuw nsw i32 %2, 1
-  call fastcc void @_ZL19GetLinearExpressionRKN12_GLOBAL__N_111CastedValueERKN4llvm10DataLayoutEjPNS3_15AssumptionCacheEPNS3_13DominatorTreeE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(21) %16, i32 noundef %171)
+  call fastcc void @_ZL19GetLinearExpressionRKN12_GLOBAL__N_111CastedValueERKN4llvm10DataLayoutEjPNS3_15AssumptionCacheEPNS3_13DominatorTreeE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(21) %16, i32 noundef %171)
   %172 = call fastcc noundef nonnull align 8 dereferenceable(58) ptr @_ZN12_GLOBAL__N_116LinearExpressionaSEOS0_(ptr noundef nonnull align 8 dereferenceable(58) %12, ptr noundef nonnull align 8 dereferenceable(58) %15)
   call fastcc void @_ZN12_GLOBAL__N_116LinearExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(58) %15) #22
   %173 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -2405,10 +2405,10 @@ _ZNK12_GLOBAL__N_111CastedValue17canDistributeOverEbb.exit.thread: ; preds = %_Z
   %187 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %187, align 4, !alias.scope !37
   %188 = add nuw nsw i32 %2, 1
-  call fastcc void @_ZL19GetLinearExpressionRKN12_GLOBAL__N_111CastedValueERKN4llvm10DataLayoutEjPNS3_15AssumptionCacheEPNS3_13DominatorTreeE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(21) %19, i32 noundef %188)
+  call fastcc void @_ZL19GetLinearExpressionRKN12_GLOBAL__N_111CastedValueERKN4llvm10DataLayoutEjPNS3_15AssumptionCacheEPNS3_13DominatorTreeE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(21) %19, i32 noundef %188)
   %189 = trunc nuw i8 %spec.select79 to i1
   %190 = trunc nuw i8 %spec.select to i1
-  call fastcc void @_ZNK12_GLOBAL__N_116LinearExpression3mulERKN4llvm5APIntEbb(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(58) %18, ptr noundef nonnull align 8 dereferenceable(12) %10, i1 noundef zeroext %189, i1 noundef zeroext %190)
+  call fastcc void @_ZNK12_GLOBAL__N_116LinearExpression3mulERKN4llvm5APIntEbb(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(58) %18, ptr noundef nonnull align 8 dereferenceable(12) %10, i1 noundef zeroext %189, i1 noundef zeroext %190)
   %191 = call fastcc noundef nonnull align 8 dereferenceable(58) ptr @_ZN12_GLOBAL__N_116LinearExpressionaSEOS0_(ptr noundef nonnull align 8 dereferenceable(58) %12, ptr noundef nonnull align 8 dereferenceable(58) %17)
   call fastcc void @_ZN12_GLOBAL__N_116LinearExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(58) %17) #22
   call fastcc void @_ZN12_GLOBAL__N_116LinearExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(58) %18) #22
@@ -2444,7 +2444,7 @@ _ZNK12_GLOBAL__N_111CastedValue17canDistributeOverEbb.exit.thread: ; preds = %_Z
   %209 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i8 %205, ptr %209, align 4, !alias.scope !40
   %210 = add nuw nsw i32 %2, 1
-  call fastcc void @_ZL19GetLinearExpressionRKN12_GLOBAL__N_111CastedValueERKN4llvm10DataLayoutEjPNS3_15AssumptionCacheEPNS3_13DominatorTreeE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(21) %21, i32 noundef %210)
+  call fastcc void @_ZL19GetLinearExpressionRKN12_GLOBAL__N_111CastedValueERKN4llvm10DataLayoutEjPNS3_15AssumptionCacheEPNS3_13DominatorTreeE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(21) %21, i32 noundef %210)
   %211 = call fastcc noundef nonnull align 8 dereferenceable(58) ptr @_ZN12_GLOBAL__N_116LinearExpressionaSEOS0_(ptr noundef nonnull align 8 dereferenceable(58) %12, ptr noundef nonnull align 8 dereferenceable(58) %20)
   call fastcc void @_ZN12_GLOBAL__N_116LinearExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(58) %20) #22
   %212 = call noundef i64 @_ZNK4llvm5APInt15getLimitedValueEm(ptr noundef nonnull align 8 dereferenceable(12) %10, i64 noundef -1)
@@ -2684,7 +2684,7 @@ _ZN4llvm5APIntD2Ev.exit82:                        ; preds = %265, %262, %_ZN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_116LinearExpression3mulERKN4llvm5APIntEbb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(58) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_116LinearExpression3mulERKN4llvm5APIntEbb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(58) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 57
@@ -8870,12 +8870,12 @@ _ZNK12_GLOBAL__N_111CastedValue14hasSameCastsAsERKS0_.exit.thread55: ; preds = %
   store ptr %87, ptr %11, align 8
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %94, i8 0, i64 13, i1 false)
-  call fastcc void @_ZL19GetLinearExpressionRKN12_GLOBAL__N_111CastedValueERKN4llvm10DataLayoutEjPNS3_15AssumptionCacheEPNS3_13DominatorTreeE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(21) %11, i32 noundef 0)
+  call fastcc void @_ZL19GetLinearExpressionRKN12_GLOBAL__N_111CastedValueERKN4llvm10DataLayoutEjPNS3_15AssumptionCacheEPNS3_13DominatorTreeE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(21) %11, i32 noundef 0)
   %95 = load ptr, ptr %40, align 8
   store ptr %95, ptr %13, align 8
   %96 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %96, i8 0, i64 13, i1 false)
-  call fastcc void @_ZL19GetLinearExpressionRKN12_GLOBAL__N_111CastedValueERKN4llvm10DataLayoutEjPNS3_15AssumptionCacheEPNS3_13DominatorTreeE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(21) %13, i32 noundef 0)
+  call fastcc void @_ZL19GetLinearExpressionRKN12_GLOBAL__N_111CastedValueERKN4llvm10DataLayoutEjPNS3_15AssumptionCacheEPNS3_13DominatorTreeE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(21) %13, i32 noundef 0)
   %97 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %98 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %99 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -11013,7 +11013,7 @@ define internal fastcc noundef i32 @_ZNK12_GLOBAL__N_111CastedValue11getBitWidth
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_111CastedValue12evaluateWithEN4llvm5APIntE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(21) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_111CastedValue12evaluateWithEN4llvm5APIntE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(21) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8

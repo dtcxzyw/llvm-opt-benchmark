@@ -252,7 +252,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.020.us.i = phi i32 [ %70, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
   %69 = call ptr @PQgetvalue(ptr noundef %66, i32 noundef %.020.us.i, i32 noundef 0) #8
   store ptr %69, ptr %56, align 8
-  call fastcc void @cluster_one_database(ptr noundef nonnull %4, ptr noundef null, ptr noundef %8, i1 noundef zeroext %63, i1 noundef zeroext %64)
+  call fastcc void @cluster_one_database(ptr noundef %4, ptr noundef null, ptr noundef %8, i1 noundef zeroext %63, i1 noundef zeroext %64)
   %70 = add nuw nsw i32 %.020.us.i, 1
   %71 = call i32 @PQntuples(ptr noundef %66) #8
   %72 = icmp slt i32 %70, %71
@@ -265,7 +265,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %75 = load ptr, ptr @stdout, align 8
   %76 = call i32 @fflush(ptr noundef %75)
   store ptr %73, ptr %56, align 8
-  call fastcc void @cluster_one_database(ptr noundef nonnull %4, ptr noundef null, ptr noundef %8, i1 noundef zeroext %63, i1 noundef zeroext %64)
+  call fastcc void @cluster_one_database(ptr noundef %4, ptr noundef null, ptr noundef %8, i1 noundef zeroext %63, i1 noundef zeroext %64)
   %77 = add nuw nsw i32 %.020.i, 1
   %78 = call i32 @PQntuples(ptr noundef %66) #8
   %79 = icmp slt i32 %77, %78
@@ -304,13 +304,13 @@ cluster_all_databases.exit:                       ; preds = %.lr.ph.split.i, %.l
 .preheader:                                       ; preds = %87, %.preheader
   %.080 = phi ptr [ %92, %.preheader ], [ %88, %87 ]
   %91 = getelementptr inbounds i8, ptr %.080, i64 9
-  call fastcc void @cluster_one_database(ptr noundef nonnull %4, ptr noundef nonnull %91, ptr noundef %8, i1 noundef zeroext %89, i1 noundef zeroext %90)
+  call fastcc void @cluster_one_database(ptr noundef %4, ptr noundef nonnull %91, ptr noundef %8, i1 noundef zeroext %89, i1 noundef zeroext %90)
   %92 = load ptr, ptr %.080, align 8
   %.not66 = icmp eq ptr %92, null
   br i1 %.not66, label %.loopexit, label %.preheader, !llvm.loop !8
 
 93:                                               ; preds = %87
-  call fastcc void @cluster_one_database(ptr noundef nonnull %4, ptr noundef null, ptr noundef %8, i1 noundef zeroext %89, i1 noundef zeroext %90)
+  call fastcc void @cluster_one_database(ptr noundef %4, ptr noundef null, ptr noundef %8, i1 noundef zeroext %89, i1 noundef zeroext %90)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %93, %cluster_all_databases.exit
@@ -376,9 +376,9 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #6
 declare ptr @get_user_name_or_exit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cluster_one_database(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #3 {
+define internal fastcc void @cluster_one_database(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #3 {
   %6 = alloca %struct.PQExpBufferData, align 8
-  %7 = tail call ptr @connectDatabase(ptr noundef %0, ptr noundef %2, i1 noundef zeroext %4, i1 noundef zeroext false, i1 noundef zeroext true) #8
+  %7 = tail call ptr @connectDatabase(ptr noundef nonnull %0, ptr noundef %2, i1 noundef zeroext %4, i1 noundef zeroext false, i1 noundef zeroext true) #8
   call void @initPQExpBuffer(ptr noundef nonnull %6) #8
   call void @appendPQExpBufferStr(ptr noundef nonnull %6, ptr noundef nonnull @.str.21) #8
   br i1 %3, label %8, label %9

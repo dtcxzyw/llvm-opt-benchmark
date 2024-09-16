@@ -1110,7 +1110,7 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEclE
           to label %35 unwind label %48
 
 35:                                               ; preds = %29
-  %36 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L14Tf_WalkDirsRecERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8functionIFbS7_PSt6vectorIS5_SaIS5_EERKSB_EEbRKS8_IFvS7_S7_EEbPNS_9TfHashSetINS_9Tf_FileIdENS_6TfHashESt8equal_toISO_ESaISO_EEE(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4, ptr noundef nonnull %8)
+  %36 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L14Tf_WalkDirsRecERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8functionIFbS7_PSt6vectorIS5_SaIS5_EERKSB_EEbRKS8_IFvS7_S7_EEbPNS_9TfHashSetINS_9Tf_FileIdENS_6TfHashESt8equal_toISO_ESaISO_EEE(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4, ptr noundef %8)
           to label %37 unwind label %50
 
 37:                                               ; preds = %35
@@ -1167,7 +1167,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfHashSetINS_9Tf_FileIdENS_6TfHashESt8equa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L14Tf_WalkDirsRecERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8functionIFbS7_PSt6vectorIS5_SaIS5_EERKSB_EEbRKS8_IFvS7_S7_EEbPNS_9TfHashSetINS_9Tf_FileIdENS_6TfHashESt8equal_toISO_ESaISO_EEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L14Tf_WalkDirsRecERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8functionIFbS7_PSt6vectorIS5_SaIS5_EERKSB_EEbRKS8_IFvS7_S7_EEbPNS_9TfHashSetINS_9Tf_FileIdENS_6TfHashESt8equal_toISO_ESaISO_EEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4, ptr noundef nonnull %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"struct.std::__detail::_AllocNode", align 8

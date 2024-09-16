@@ -435,7 +435,7 @@ filter_decrypt.exit.thread.i:                     ; preds = %50
   br i1 %.not99.i.i, label %166, label %167
 
 166:                                              ; preds = %163
-  call void @pdfobj_flag(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 8) #10
+  call void @pdfobj_flag(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 8) #10
   br label %167
 
 167:                                              ; preds = %166, %163
@@ -656,7 +656,7 @@ filter_decrypt.exit.thread.i:                     ; preds = %50
 258:                                              ; preds = %255
   %259 = getelementptr inbounds i8, ptr %79, i64 1
   %260 = add i32 %78, -1
-  call void @pdfobj_flag(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 7) #10
+  call void @pdfobj_flag(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 7) #10
   %.not.i151.i = icmp eq i32 %260, 0
   br i1 %.not.i151.i, label %filter_flatedecode.exit.i, label %261
 
@@ -750,7 +750,7 @@ decode_nextlinestart.exit.thread.i.i:             ; preds = %275, %decode_nextli
   br label %filter_flatedecode.exit.i
 
 286:                                              ; preds = %decode_nextlinestart.exit.thread.i.i
-  call void @pdfobj_flag(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6) #10
+  call void @pdfobj_flag(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 6) #10
   br label %287
 
 287:                                              ; preds = %286, %decode_nextlinestart.exit.i.i
@@ -866,13 +866,13 @@ decode_nextlinestart.exit.thread.i.i:             ; preds = %275, %decode_nextli
   br i1 %334, label %.thread10.i.i, label %.thread12.i.i
 
 .thread10.i.i:                                    ; preds = %333
-  call void @pdfobj_flag(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6) #10
+  call void @pdfobj_flag(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 6) #10
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.55) #10
   %335 = call i32 @inflateEnd(ptr noundef nonnull %13) #10
   br label %.thread14.i.i
 
 .thread12.i.i:                                    ; preds = %333
-  call void @pdfobj_flag(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 5) #10
+  call void @pdfobj_flag(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 5) #10
   %336 = call i32 @inflateEnd(ptr noundef nonnull %13) #10
   br label %349
 
@@ -1020,7 +1020,7 @@ filter_flatedecode.exit.i:                        ; preds = %.thread14.i.i, %.th
   br i1 %.not41.i156.i, label %391, label %392
 
 391:                                              ; preds = %388
-  call void @pdfobj_flag(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 8) #10
+  call void @pdfobj_flag(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 8) #10
   br label %392
 
 392:                                              ; preds = %391, %388
@@ -1100,7 +1100,7 @@ filter_flatedecode.exit.i:                        ; preds = %.thread14.i.i, %.th
 .loopexit.i160.i:                                 ; preds = %419, %.preheader.i157.i, %395
   %.029.i.i = phi i32 [ 2, %395 ], [ 2, %.preheader.i157.i ], [ %.2.i.i, %419 ]
   %421 = load i32, ptr %69, align 8
-  %422 = call ptr @decrypt_any(ptr noundef %0, i32 noundef %421, ptr noundef %79, ptr noundef nonnull %12, i32 noundef %.029.i.i) #10
+  %422 = call ptr @decrypt_any(ptr noundef nonnull %0, i32 noundef %421, ptr noundef %79, ptr noundef nonnull %12, i32 noundef %.029.i.i) #10
   %.not41.i161.i = icmp eq ptr %422, null
   br i1 %.not41.i161.i, label %423, label %424
 
@@ -1199,7 +1199,7 @@ filter_decrypt.exit164.i:                         ; preds = %424, %423
 457:                                              ; preds = %.loopexit.i168.i
   %458 = getelementptr inbounds i8, ptr %79, i64 1
   %459 = add i32 %78, -1
-  call void @pdfobj_flag(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 7) #10
+  call void @pdfobj_flag(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 7) #10
   %.not125.i.i = icmp eq i32 %459, 0
   br i1 %.not125.i.i, label %filter_lzwdecode.exit.i, label %460
 
@@ -1300,7 +1300,7 @@ decode_nextlinestart.exit.thread.i187.i:          ; preds = %476, %decode_nextli
   br label %filter_lzwdecode.exit.i
 
 487:                                              ; preds = %decode_nextlinestart.exit.thread.i187.i
-  call void @pdfobj_flag(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6) #10
+  call void @pdfobj_flag(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 6) #10
   br label %488
 
 488:                                              ; preds = %487, %decode_nextlinestart.exit.i186.i
@@ -1416,13 +1416,13 @@ decode_nextlinestart.exit.thread.i187.i:          ; preds = %476, %decode_nextli
   br i1 %535, label %.thread147.i.i, label %.thread149.i.i
 
 .thread147.i.i:                                   ; preds = %534
-  call void @pdfobj_flag(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6) #10
+  call void @pdfobj_flag(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 6) #10
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.55) #10
   %536 = call i32 @lzwInflateEnd(ptr noundef nonnull %10) #10
   br label %.thread151.i.i
 
 .thread149.i.i:                                   ; preds = %534
-  call void @pdfobj_flag(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 5) #10
+  call void @pdfobj_flag(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 5) #10
   %537 = call i32 @lzwInflateEnd(ptr noundef nonnull %10) #10
   br label %550
 
@@ -1619,7 +1619,7 @@ filter_ascii85decode.exit.i:                      ; preds = %filter_ascii85decod
   store i64 %604, ptr %605, align 8
   store ptr null, ptr %35, align 8
   store i32 0, ptr %37, align 8
-  %606 = call i32 @pdf_find_and_parse_objs_in_objstm(ptr noundef %0, ptr noundef nonnull %8) #10
+  %606 = call i32 @pdf_find_and_parse_objs_in_objstm(ptr noundef nonnull %0, ptr noundef nonnull %8) #10
   %.not138.i = icmp eq i32 %606, 0
   br i1 %.not138.i, label %608, label %607
 

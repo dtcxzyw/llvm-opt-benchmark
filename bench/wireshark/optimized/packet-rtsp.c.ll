@@ -468,7 +468,7 @@ dissect_rtspinterleaved.exit:                     ; preds = %65, %78, %112
   %121 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.063, i32 noundef -1, ptr noundef nonnull %22, i32 noundef 0) #10
   %122 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.063, i32 noundef %121) #10
   %123 = sext i32 %121 to i64
-  %124 = call fastcc i32 @is_rtsp_request_or_reply(ptr noundef %122, i64 noundef %123, ptr noundef nonnull %23)
+  %124 = call fastcc i32 @is_rtsp_request_or_reply(ptr noundef %122, i64 noundef %123, ptr noundef %23)
   %.not.i20 = icmp eq i32 %124, 0
   br i1 %.not.i20, label %149, label %125
 
@@ -559,7 +559,7 @@ dissect_rtspinterleaved.exit:                     ; preds = %65, %78, %112
   %168 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.0253387.i, i32 noundef %163) #10
   %169 = zext nneg i32 %163 to i64
   %170 = getelementptr i8, ptr %168, i64 %169
-  %171 = call fastcc i32 @is_rtsp_request_or_reply(ptr noundef %168, i64 noundef %169, ptr noundef nonnull %24)
+  %171 = call fastcc i32 @is_rtsp_request_or_reply(ptr noundef %168, i64 noundef %169, ptr noundef %24)
   %172 = icmp ne i32 %171, 0
   %173 = icmp eq i32 %163, 0
   %or.cond.i21 = or i1 %173, %172
@@ -910,7 +910,7 @@ process_rtsp_reply.exit.i:                        ; preds = %278, %295, %.lr.ph5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
   %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %169, i64 255)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr readonly align 1 %168, i64 %spec.store.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %8, ptr noundef nonnull readonly align 1 dereferenceable(1) %168, i64 %spec.store.select.i.i, i1 false)
   %329 = getelementptr [256 x i8], ptr %8, i64 0, i64 %spec.store.select.i.i
   store i8 0, ptr %329, align 1
   %330 = load i8, ptr %40, align 2
@@ -1318,7 +1318,7 @@ rtsp_create_conversation.exit.i:                  ; preds = %483, %482, %478, %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %spec.store.select.i309.i = call i64 @llvm.umin.i64(i64 %169, i64 255)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr readonly align 1 %168, i64 %spec.store.select.i309.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %5, ptr noundef nonnull readonly align 1 dereferenceable(1) %168, i64 %spec.store.select.i309.i, i1 false)
   %522 = getelementptr [256 x i8], ptr %5, i64 0, i64 %spec.store.select.i309.i
   store i8 0, ptr %522, align 1
   %523 = load i8, ptr %37, align 1
@@ -1521,7 +1521,7 @@ rtsp_get_content_length.exit.i:                   ; preds = %542, %537, %.crited
   %614 = call i32 @tvb_find_line_end(ptr noundef %613, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %22, i32 noundef 0) #10
   %615 = call ptr @tvb_get_ptr(ptr noundef %613, i32 noundef 0, i32 noundef %614) #10
   %616 = sext i32 %614 to i64
-  %617 = call fastcc i32 @is_rtsp_request_or_reply(ptr noundef %615, i64 noundef %616, ptr noundef nonnull %23)
+  %617 = call fastcc i32 @is_rtsp_request_or_reply(ptr noundef %615, i64 noundef %616, ptr noundef %23)
   %.not293.i = icmp eq i32 %617, 0
   br i1 %.not293.i, label %618, label %.thread333.i
 
@@ -1774,7 +1774,7 @@ declare i32 @tvb_find_line_end(ptr noundef, i32 noundef, i32 noundef, ptr nounde
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_rtsp_request_or_reply(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_rtsp_request_or_reply(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca [4 x i8], align 1

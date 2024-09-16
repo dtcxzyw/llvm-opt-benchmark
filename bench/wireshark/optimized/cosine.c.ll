@@ -162,7 +162,7 @@ cosine_seek_next_packet.exit:                     ; preds = %19, %21
 26:                                               ; preds = %cosine_seek_next_packet.exit
   store i64 %11, ptr %5, align 8
   %27 = load ptr, ptr %0, align 8
-  %28 = call fastcc i32 @parse_cosine_packet(ptr noundef %27, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4)
+  %28 = call fastcc i32 @parse_cosine_packet(ptr noundef %27, ptr noundef %1, ptr noundef %2, ptr noundef %8, ptr noundef %3, ptr noundef %4)
   br label %29
 
 29:                                               ; preds = %cosine_seek_next_packet.exit.thread, %cosine_seek_next_packet.exit, %26
@@ -194,7 +194,7 @@ define internal range(i32 0, 2) i32 @cosine_seek_read(ptr nocapture noundef read
   br label %22
 
 20:                                               ; preds = %12
-  %21 = call fastcc i32 @parse_cosine_packet(ptr noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %4, ptr noundef %5)
+  %21 = call fastcc i32 @parse_cosine_packet(ptr noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef %7, ptr noundef %4, ptr noundef %5)
   br label %22
 
 22:                                               ; preds = %6, %20, %17
@@ -227,7 +227,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_cosine_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_cosine_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr nocapture noundef writeonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [16 x i32], align 16
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -251,12 +251,12 @@ define internal fastcc range(i32 0, 2) i32 @parse_cosine_packet(ptr noundef %0, 
   %27 = getelementptr inbounds i8, ptr %1, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %23, i8 0, i64 128, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %24, i8 0, i64 6, i1 false)
-  %28 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #9
+  %28 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #9
   %29 = icmp eq i32 %28, 7
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %6
-  %31 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %3, ptr noundef nonnull @.str.4, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %24, ptr noundef nonnull %23, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22) #9
+  %31 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.4, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %24, ptr noundef nonnull %23, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22) #9
   %.not64 = icmp eq i32 %31, 17
   br i1 %.not64, label %39, label %32
 
@@ -267,7 +267,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_cosine_packet(ptr noundef %0, 
   br label %168
 
 34:                                               ; preds = %6
-  %35 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %3, ptr noundef nonnull @.str.6, ptr noundef nonnull %24, ptr noundef nonnull %23, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22) #9
+  %35 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.6, ptr noundef nonnull %24, ptr noundef nonnull %23, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22) #9
   %.not = icmp eq i32 %35, 10
   br i1 %.not, label %38, label %36
 
@@ -461,7 +461,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_cosine_packet(ptr noundef %0, 
 135:                                              ; preds = %.lr.ph, %165
   %.092 = phi i32 [ 0, %.lr.ph ], [ %166, %165 ]
   %.06191 = phi i32 [ 0, %.lr.ph ], [ %167, %165 ]
-  %136 = call ptr @file_gets(ptr noundef %3, i32 noundef 240, ptr noundef %0) #9
+  %136 = call ptr @file_gets(ptr noundef nonnull %3, i32 noundef 240, ptr noundef %0) #9
   %137 = icmp eq ptr %136, null
   br i1 %137, label %138, label %141
 

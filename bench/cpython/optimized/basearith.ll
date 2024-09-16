@@ -1016,7 +1016,7 @@ if.then:                                          ; preds = %entry
   %arrayidx3 = getelementptr i8, ptr %1, i64 -8
   %2 = load i64, ptr %arrayidx3, align 8
   %sub = sub i64 19, %sub.i
-  call fastcc void @_mpd_divmod_pow10(ptr noundef nonnull %h, ptr noundef nonnull %lprev, i64 noundef %2, i64 noundef %sub)
+  call fastcc void @_mpd_divmod_pow10(ptr noundef %h, ptr noundef %lprev, i64 noundef %2, i64 noundef %sub)
   %3 = load i64, ptr %h, align 8
   %cmp4.not = icmp eq i64 %3, 0
   br i1 %cmp4.not, label %if.end, label %if.then5
@@ -1039,7 +1039,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %4 = phi i64 [ %7, %for.body ], [ %lprev.promoted, %if.end ]
   %arrayidx9 = getelementptr i64, ptr %src, i64 %m.addr.023
   %5 = load i64, ptr %arrayidx9, align 8
-  call fastcc void @_mpd_divmod_pow10(ptr noundef nonnull %h, ptr noundef nonnull %l, i64 noundef %5, i64 noundef %sub)
+  call fastcc void @_mpd_divmod_pow10(ptr noundef %h, ptr noundef %l, i64 noundef %5, i64 noundef %sub)
   %mul = mul i64 %4, %0
   %6 = load i64, ptr %h, align 8
   %add = add i64 %mul, %6
@@ -1074,7 +1074,7 @@ if.end21:                                         ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @_mpd_divmod_pow10(ptr nocapture noundef writeonly %q, ptr nocapture noundef writeonly %r, i64 noundef %v, i64 noundef %exp) unnamed_addr #3 {
+define internal fastcc void @_mpd_divmod_pow10(ptr nocapture noundef nonnull writeonly %q, ptr nocapture noundef nonnull writeonly %r, i64 noundef %v, i64 noundef %exp) unnamed_addr #3 {
 entry:
   %cmp = icmp ult i64 %exp, 10
   br i1 %cmp, label %if.then, label %if.else37
@@ -1297,10 +1297,10 @@ if.then:                                          ; preds = %entry
   %0 = load i64, ptr %arrayidx, align 8
   %arrayidx1 = getelementptr i64, ptr %src, i64 %div.i
   %1 = load i64, ptr %arrayidx1, align 8
-  call fastcc void @_mpd_divmod_pow10(ptr noundef nonnull %hprev, ptr noundef nonnull %rest, i64 noundef %1, i64 noundef %sub.i)
+  call fastcc void @_mpd_divmod_pow10(ptr noundef %hprev, ptr noundef %rest, i64 noundef %1, i64 noundef %sub.i)
   %2 = load i64, ptr %rest, align 8
   %sub2 = add i64 %sub.i, -1
-  call fastcc void @_mpd_divmod_pow10(ptr noundef nonnull %rnd, ptr noundef nonnull %rest, i64 noundef %2, i64 noundef %sub2)
+  call fastcc void @_mpd_divmod_pow10(ptr noundef %rnd, ptr noundef %rest, i64 noundef %2, i64 noundef %sub2)
   %3 = load i64, ptr %rest, align 8
   %cmp3 = icmp eq i64 %3, 0
   %cmp4 = icmp ugt i64 %shift, 18
@@ -1337,7 +1337,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %8 = phi i64 [ %11, %for.body ], [ %hprev.promoted, %for.body.preheader ]
   %arrayidx8 = getelementptr i64, ptr %src, i64 %i.041
   %9 = load i64, ptr %arrayidx8, align 8
-  call fastcc void @_mpd_divmod_pow10(ptr noundef nonnull %h, ptr noundef nonnull %l, i64 noundef %9, i64 noundef %sub.i)
+  call fastcc void @_mpd_divmod_pow10(ptr noundef %h, ptr noundef %l, i64 noundef %9, i64 noundef %sub.i)
   %10 = load i64, ptr %l, align 8
   %mul = mul i64 %10, %0
   %add9 = add i64 %mul, %8

@@ -681,7 +681,7 @@ define void @gvprintf(ptr noundef %0, ptr nocapture noundef readonly %1, ...) lo
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %5 = call fastcc i32 @vagxbprint(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %4)
+  %5 = call fastcc i32 @vagxbprint(ptr noundef nonnull %3, ptr noundef %1, ptr noundef %4)
   %6 = icmp slt i32 %5, 0
   call void @llvm.va_end.p0(ptr nonnull %4)
   br i1 %6, label %7, label %agxbsizeof.exit.i.i
@@ -1022,16 +1022,16 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare i32 @deflateEnd(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @vagxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @vagxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_copy.p0(ptr nonnull %4, ptr %2)
+  call void @llvm.va_copy.p0(ptr nonnull %4, ptr nonnull %2)
   %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %4) #20
   call void @llvm.va_end.p0(ptr nonnull %4)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %3
-  call void @llvm.va_end.p0(ptr %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   br label %42
 
 8:                                                ; preds = %3
@@ -1085,7 +1085,7 @@ agxblen.exit:                                     ; preds = %agxbsizeof.exit, %1
 
 agxbnext.exit:                                    ; preds = %22, %25
   %30 = phi ptr [ %24, %22 ], [ %29, %25 ]
-  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef %1, ptr noundef %2) #20
+  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef %1, ptr noundef nonnull %2) #20
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %33, label %42
 
@@ -1286,7 +1286,7 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %63
 define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = call fastcc i32 @vagxbprint(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @vagxbprint(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
@@ -1296,7 +1296,7 @@ define void @gvprintpointf(ptr noundef %0, double %1, double %2) local_unnamed_a
 agxbsizeof.exit.i.i:
   %3 = alloca %struct.agxbuf, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  call fastcc void @gvprintnum(ptr noundef nonnull %3, double noundef %1)
+  call fastcc void @gvprintnum(ptr noundef %3, double noundef %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 31
   %.val.i.i.i = load i8, ptr %4, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
@@ -1351,7 +1351,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #21
   %24 = call i64 @gvwrite(ptr noundef %0, ptr noundef %22, i64 noundef %23)
   %25 = call i64 @gvwrite(ptr noundef %0, ptr noundef nonnull @.str.13, i64 noundef 1)
-  call fastcc void @gvprintnum(ptr noundef nonnull %3, double noundef %2)
+  call fastcc void @gvprintnum(ptr noundef %3, double noundef %2)
   %.val.i.i.i8 = load i8, ptr %4, align 1
   %.not.i.i.i9 = icmp eq i8 %.val.i.i.i8, -1
   %26 = load i64, ptr %5, align 8
@@ -1424,7 +1424,7 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit23, %48
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gvprintnum(ptr nocapture noundef %0, double noundef %1) unnamed_addr #0 {
+define internal fastcc void @gvprintnum(ptr nocapture noundef nonnull %0, double noundef %1) unnamed_addr #0 {
   %3 = fcmp olt double %1, -1.000000e+15
   br i1 %3, label %4, label %32
 
@@ -1470,7 +1470,7 @@ agxblen.exit.i.i:                                 ; preds = %10, %agxbsizeof.exi
 19:                                               ; preds = %18
   %20 = zext i8 %.val.i25.i.i to i64
   %21 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr nonnull readonly align 16 @maxnegnumstr, i64 %5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull readonly align 16 @maxnegnumstr, i64 %5, i1 false)
   %22 = trunc i64 %5 to i8
   %23 = load i8, ptr %8, align 1
   %24 = add i8 %23, %22
@@ -1534,7 +1534,7 @@ agxblen.exit.i.i23:                               ; preds = %40, %agxbsizeof.exi
 49:                                               ; preds = %48
   %50 = zext i8 %.val.i25.i.i26 to i64
   %51 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %50
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr nonnull readonly align 1 getelementptr inbounds (i8, ptr @maxnegnumstr, i64 1), i64 %35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull readonly align 1 getelementptr inbounds (i8, ptr @maxnegnumstr, i64 1), i64 %35, i1 false)
   %52 = trunc i64 %35 to i8
   %53 = load i8, ptr %38, align 1
   %54 = add i8 %53, %52
@@ -1553,7 +1553,7 @@ agxblen.exit.i.i23:                               ; preds = %40, %agxbsizeof.exi
   br label %agxbput.exit
 
 62:                                               ; preds = %32
-  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef %0, ptr noundef nonnull @.str.21, double noundef %1)
+  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, double noundef %1)
   %63 = getelementptr i8, ptr %0, i64 31
   %.val.i.i = load i8, ptr %63, align 1
   %.not.i.i = icmp eq i8 %.val.i.i, -1
@@ -1817,7 +1817,7 @@ agxblen.exit.i.i38:                               ; preds = %150, %agxbsizeof.ex
 159:                                              ; preds = %158
   %160 = zext i8 %.val.i25.i.i41 to i64
   %161 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %161, ptr nonnull readonly align 1 %.0.i33, i64 %146, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %161, ptr nonnull readonly align 1 %.0.i33, i64 %146, i1 false)
   %162 = trunc i64 %146 to i8
   %163 = load i8, ptr %63, align 1
   %164 = add i8 %163, %162

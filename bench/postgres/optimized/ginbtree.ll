@@ -356,7 +356,7 @@ declare i32 @ReadBuffer(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @CheckForSerializableConflictIn(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ginFinishOldSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @ginFinishOldSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #0 {
   %5 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #5
   br i1 %5, label %6, label %14
 

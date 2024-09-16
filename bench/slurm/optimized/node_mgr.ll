@@ -5450,7 +5450,7 @@ make_node_avail.exit556:                          ; preds = %496, %.thread584.th
 581:                                              ; preds = %579
   %582 = getelementptr inbounds i8, ptr %90, i64 384
   %583 = load i32, ptr %582, align 8
-  call fastcc void @_drain_node(ptr noundef nonnull %90, ptr noundef nonnull @.str.41, i32 noundef %583)
+  call fastcc void @_drain_node(ptr noundef %90, ptr noundef nonnull @.str.41, i32 noundef %583)
   %.pre679 = load i32, ptr %316, align 8
   br label %584
 
@@ -5757,7 +5757,7 @@ update_node_active_features.exit:                 ; preds = %701, %690, %.loopex
 
 716:                                              ; preds = %.thread612
   %717 = load ptr, ptr %12, align 8
-  %718 = call fastcc i32 @_update_node_gres(ptr noundef %717, ptr noundef nonnull %715)
+  %718 = call fastcc i32 @_update_node_gres(ptr noundef %717, ptr noundef %715)
   %719 = icmp eq i32 %718, 0
   br i1 %719, label %.thread619, label %.thread617
 
@@ -5834,7 +5834,7 @@ define dso_local i32 @update_node_active_features(ptr noundef %0, ptr noundef %1
   br label %17
 
 17:                                               ; preds = %12, %3
-  call fastcc void @_update_node_features_post(ptr noundef %0, ptr noundef nonnull @update_node_active_features.last_active_features, ptr noundef %1, ptr noundef nonnull @update_node_active_features.last_node_bitmap, ptr noundef nonnull %4, i32 noundef %2, ptr noundef nonnull @.str.53)
+  call fastcc void @_update_node_features_post(ptr noundef %0, ptr noundef nonnull @update_node_active_features.last_active_features, ptr noundef %1, ptr noundef nonnull @update_node_active_features.last_node_bitmap, ptr noundef %4, i32 noundef %2, ptr noundef nonnull @.str.53)
   %18 = load ptr, ptr %4, align 8
   %.not11 = icmp eq ptr %18, null
   br i1 %.not11, label %20, label %19
@@ -6008,7 +6008,7 @@ define internal fastcc void @_make_node_unavail(ptr nocapture noundef %0) unname
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_drain_node(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_drain_node(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call i64 @time(ptr noundef null) #16
   %5 = getelementptr inbounds i8, ptr %0, i64 304
   %6 = load i32, ptr %5, align 8
@@ -6235,7 +6235,7 @@ _update_config_ptr.exit:                          ; preds = %.lr.ph.i, %46
   br label %74
 
 74:                                               ; preds = %._crit_edge, %72, %3
-  call fastcc void @_update_node_features_post(ptr noundef %0, ptr noundef nonnull @update_node_avail_features.last_avail_features, ptr noundef %1, ptr noundef nonnull @update_node_avail_features.last_node_bitmap, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull @.str.54)
+  call fastcc void @_update_node_features_post(ptr noundef %0, ptr noundef nonnull @update_node_avail_features.last_avail_features, ptr noundef %1, ptr noundef nonnull @update_node_avail_features.last_node_bitmap, ptr noundef %5, i32 noundef %2, ptr noundef nonnull @.str.54)
   %75 = load ptr, ptr %5, align 8
   %.not52 = icmp eq ptr %75, null
   br i1 %.not52, label %77, label %76
@@ -6250,7 +6250,7 @@ _update_config_ptr.exit:                          ; preds = %.lr.ph.i, %46
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_update_node_gres(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @_update_node_gres(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -6332,7 +6332,7 @@ define internal fastcc i32 @_update_node_gres(ptr noundef %0, ptr noundef %1) un
   %46 = getelementptr inbounds i8, ptr %35, i64 498
   %47 = load i16, ptr %46, align 2
   %48 = zext i16 %47 to i32
-  %49 = call i32 @gres_node_reconfig(ptr noundef %37, ptr noundef %1, ptr noundef nonnull %38, ptr noundef nonnull %39, i1 noundef zeroext %42, i32 noundef %45, i32 noundef %48) #16
+  %49 = call i32 @gres_node_reconfig(ptr noundef %37, ptr noundef nonnull %1, ptr noundef nonnull %38, ptr noundef nonnull %39, i1 noundef zeroext %42, i32 noundef %45, i32 noundef %48) #16
   %.not75 = icmp eq i32 %49, 0
   br i1 %.not75, label %56, label %50
 
@@ -6511,7 +6511,7 @@ _update_config_ptr.exit:                          ; preds = %.lr.ph.i, %90
   br i1 %122, label %123, label %124
 
 123:                                              ; preds = %119
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.154, ptr noundef nonnull @__func__._update_node_gres, ptr noundef %120, ptr noundef %1) #16
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.154, ptr noundef nonnull @__func__._update_node_gres, ptr noundef %120, ptr noundef nonnull %1) #16
   br label %124
 
 124:                                              ; preds = %119, %123
@@ -6951,7 +6951,7 @@ declare void @update_feature_list(ptr noundef, ptr noundef, ptr noundef) local_u
 declare i32 @node_features_g_node_update(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_update_node_features_post(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @_update_node_features_post(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = icmp eq i32 %5, 0
   br i1 %9, label %10, label %14
@@ -7154,7 +7154,7 @@ define dso_local range(i32 0, 2019) i32 @drain_nodes(ptr noundef %0, ptr noundef
 
 21:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %17) #16
-  tail call fastcc void @_drain_node(ptr noundef nonnull %18, ptr noundef %1, i32 noundef %2)
+  tail call fastcc void @_drain_node(ptr noundef %18, ptr noundef %1, i32 noundef %2)
   %22 = tail call ptr @hostlist_shift(ptr noundef nonnull %12) #16
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
@@ -7785,7 +7785,7 @@ _valid_reported_active_features.exit.thread:      ; preds = %_valid_reported_act
   br i1 %305, label %306, label %.thread523
 
 306:                                              ; preds = %300
-  call fastcc void @_split_node_config(ptr noundef nonnull %23, ptr noundef nonnull %20)
+  call fastcc void @_split_node_config(ptr noundef %23, ptr noundef nonnull %20)
   br label %.thread523
 
 .thread523:                                       ; preds = %.thread520, %.thread, %285, %287, %292, %297, %300, %306, %233
@@ -8863,7 +8863,7 @@ declare i32 @gres_node_config_validate(ptr noundef, ptr noundef, ptr noundef, pt
 declare i32 @slurm_select_cr_type() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_split_node_config(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_split_node_config(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -12520,7 +12520,7 @@ define internal i32 @_build_node_callback(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %or.cond3, label %117, label %.thread
 
 117:                                              ; preds = %113
-  %118 = call fastcc i32 @_delete_node_ptr(ptr noundef nonnull %115)
+  %118 = call fastcc i32 @_delete_node_ptr(ptr noundef %115)
   br label %.thread
 
 .thread:                                          ; preds = %66, %61, %117, %113
@@ -12882,7 +12882,7 @@ _delete_node.exit.thread:                         ; preds = %.lr.ph
   br label %22
 
 _delete_node.exit:                                ; preds = %.lr.ph
-  %21 = tail call fastcc i32 @_delete_node_ptr(ptr noundef nonnull %19)
+  %21 = tail call fastcc i32 @_delete_node_ptr(ptr noundef %19)
   %.not37 = icmp eq i32 %21, 0
   br i1 %.not37, label %28, label %22
 
@@ -13013,7 +13013,7 @@ declare i32 @list_delete_item(ptr noundef) local_unnamed_addr #2
 declare i32 @gres_g_node_config_load(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2029) i32 @_delete_node_ptr(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2029) i32 @_delete_node_ptr(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 304
   %4 = load i32, ptr %3, align 8

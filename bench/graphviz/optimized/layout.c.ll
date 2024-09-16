@@ -123,7 +123,7 @@ fdp_init_graph.exit:                              ; preds = %gv_alloc.exit.i, %2
   %46 = call i32 @getPackInfo(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 4, ptr noundef nonnull %45) #22
   %47 = getelementptr inbounds i8, ptr %2, i64 56
   store i32 %46, ptr %47, align 8
-  %48 = call fastcc i32 @layout(ptr noundef nonnull %0, ptr noundef nonnull %2)
+  %48 = call fastcc i32 @layout(ptr noundef nonnull %0, ptr noundef %2)
   %.not.i = icmp eq i32 %48, 0
   br i1 %.not.i, label %49, label %fdpLayout.exit
 
@@ -559,7 +559,7 @@ declare void @fdp_initParams(ptr noundef) local_unnamed_addr #1
 declare void @fdp_init_node_edge(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #2 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef range(i64 1, 65) %1) unnamed_addr #2 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
@@ -681,7 +681,7 @@ gv_realloc.exit:                                  ; preds = %12, %19, %21
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @layout(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @layout(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.boxf, align 8
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
@@ -2319,8 +2319,8 @@ finalCC.exit:                                     ; preds = %.loopexit.i, %800, 
 
 .lr.ph39.i:                                       ; preds = %949, %._crit_edge35.i
   %.02237.i = phi ptr [ %952, %._crit_edge35.i ], [ %951, %949 ]
-  %952 = call ptr @agnxtnode(ptr noundef %32, ptr noundef nonnull %.02237.i) #22
-  %953 = call ptr @agfstout(ptr noundef %32, ptr noundef nonnull %.02237.i) #22
+  %952 = call ptr @agnxtnode(ptr noundef nonnull %32, ptr noundef nonnull %.02237.i) #22
+  %953 = call ptr @agfstout(ptr noundef nonnull %32, ptr noundef nonnull %.02237.i) #22
   %.not2731.i = icmp eq ptr %953, null
   br i1 %.not2731.i, label %._crit_edge35.i, label %.lr.ph34.i
 
@@ -2332,7 +2332,7 @@ finalCC.exit:                                     ; preds = %.loopexit.i, %800, 
   %957 = load ptr, ptr %956, align 8
   call void @free(ptr noundef %957) #22
   %958 = call i32 @agdelrec(ptr noundef nonnull %.032.i, ptr noundef nonnull @.str.17) #22
-  %959 = call ptr @agnxtout(ptr noundef %32, ptr noundef nonnull %.032.i) #22
+  %959 = call ptr @agnxtout(ptr noundef nonnull %32, ptr noundef nonnull %.032.i) #22
   %.not27.i = icmp eq ptr %959, null
   br i1 %.not27.i, label %._crit_edge35.i, label %.lr.ph34.i
 
@@ -2351,7 +2351,7 @@ finalCC.exit:                                     ; preds = %.loopexit.i, %800, 
   br i1 %.not26.i119, label %freeDerivedGraph.exit, label %.lr.ph39.i
 
 freeDerivedGraph.exit:                            ; preds = %._crit_edge35.i, %949
-  %968 = call i32 @agclose(ptr noundef %32) #22
+  %968 = call i32 @agclose(ptr noundef nonnull %32) #22
   call void @free(ptr noundef %471) #22
   %969 = load i8, ptr @Verbose, align 1
   %.not99 = icmp eq i8 %969, 0

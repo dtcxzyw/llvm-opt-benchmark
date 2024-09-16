@@ -4370,7 +4370,7 @@ if.then24.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.then21.i.i.i.i.i
   %debug_ranges.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i, i64 4304
   %12 = load ptr, ptr %debug_ranges.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !47
   %add.ptr28.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 %ranges.sroa.4.0.i.i.i.i.i.i.i.i.i.i.i.i.ph103
-  call fastcc void @_ZN4mold3elfL16read_debug_rangeINS0_7PPC64V1EEESt6vectorISt4pairImmESaIS5_EEPNSt11conditionalIXsrT_5is_64ENS8_IXsrS9_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS8_IXsrS9_5is_leENSA_IjLi4EEENSC_IjLi4EEEE4typeEE4typeEm(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %add.ptr28.i.i.i.i.i.i.i.i.i.i.i.i, i64 noundef %low_pc.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i.i.ph111)
+  call fastcc void @_ZN4mold3elfL16read_debug_rangeINS0_7PPC64V1EEESt6vectorISt4pairImmESaIS5_EEPNSt11conditionalIXsrT_5is_64ENS8_IXsrS9_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS8_IXsrS9_5is_leENSA_IjLi4EEENSC_IjLi4EEEE4typeEE4typeEm(ptr noalias align 8 %ref.tmp.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %add.ptr28.i.i.i.i.i.i.i.i.i.i.i.i, i64 noundef %low_pc.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i.i.ph111)
   br label %_ZN4mold3elfL19read_address_rangesINS0_7PPC64V1ENS0_14CuHdrDwarf2_32IS2_EEEESt6vectorISt4pairImmESaIS7_EERNS0_7ContextIT_EERKNS0_8CompunitE.exit.i.i.i.i.i.i.i.i.i.i.i
 
 if.end30.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then21.i.i.i.i.i.i.i.i.i.i.i.i
@@ -4382,7 +4382,7 @@ if.end30.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then21.i.i.i.i.i
 
 if.then34.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.end30.i.i.i.i.i.i.i.i.i.i.i.i
   %add.ptr36.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 %ranges.sroa.4.0.i.i.i.i.i.i.i.i.i.i.i.i.ph103
-  call fastcc void @_ZN4mold3elfL18read_rnglist_rangeINS0_7PPC64V1EEEvRSt6vectorISt4pairImmESaIS5_EEPhPNSt11conditionalIXsrT_5is_64ENSA_IXsrSB_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENSA_IXsrSB_5is_leENSC_IjLi4EEENSE_IjLi4EEEE4typeEE4typeEm(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %add.ptr36.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %addrx.0.i.i.i.i.i.i.i.i.i.i.i.i.ph118, i64 noundef %low_pc.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i.i.ph111)
+  call fastcc void @_ZN4mold3elfL18read_rnglist_rangeINS0_7PPC64V1EEEvRSt6vectorISt4pairImmESaIS5_EEPhPNSt11conditionalIXsrT_5is_64ENSA_IXsrSB_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENSA_IXsrSB_5is_leENSC_IjLi4EEENSE_IjLi4EEEE4typeEE4typeEm(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %add.ptr36.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %addrx.0.i.i.i.i.i.i.i.i.i.i.i.i.ph118, i64 noundef %low_pc.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i.i.ph111)
   br label %_ZN4mold3elfL19read_address_rangesINS0_7PPC64V1ENS0_14CuHdrDwarf2_32IS2_EEEESt6vectorISt4pairImmESaIS7_EERNS0_7ContextIT_EERKNS0_8CompunitE.exit.i.i.i.i.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.end30.i.i.i.i.i.i.i.i.i.i.i.i
@@ -4415,7 +4415,7 @@ for.body.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i.i.i.i.
   %16 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i44.i.i.i.i.i.i.i.i.i.i.i.i)
   %idx.ext.i.i.i.i.i.i.i.i.i.i.i.i = zext i32 %16 to i64
   %add.ptr50.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr43.i.i.i.i.i.i.i.i.i.i.i.i, i64 %idx.ext.i.i.i.i.i.i.i.i.i.i.i.i
-  call fastcc void @_ZN4mold3elfL18read_rnglist_rangeINS0_7PPC64V1EEEvRSt6vectorISt4pairImmESaIS5_EEPhPNSt11conditionalIXsrT_5is_64ENSA_IXsrSB_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENSA_IXsrSB_5is_leENSC_IjLi4EEENSE_IjLi4EEEE4typeEE4typeEm(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %add.ptr50.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %addrx.0.i.i.i.i.i.i.i.i.i.i.i.i.ph118, i64 noundef %low_pc.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i.i.ph111)
+  call fastcc void @_ZN4mold3elfL18read_rnglist_rangeINS0_7PPC64V1EEEvRSt6vectorISt4pairImmESaIS5_EEPhPNSt11conditionalIXsrT_5is_64ENSA_IXsrSB_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENSA_IXsrSB_5is_leENSC_IjLi4EEENSE_IjLi4EEEE4typeEE4typeEm(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %add.ptr50.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %addrx.0.i.i.i.i.i.i.i.i.i.i.i.i.ph118, i64 noundef %low_pc.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i.i.ph111)
   %inc.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %i.012.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %inc.i.i.i.i.i.i.i.i.i.i.i.i, %umax.i.i.i.i.i.i.i.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4mold3elfL19read_address_rangesINS0_7PPC64V1ENS0_14CuHdrDwarf2_32IS2_EEEESt6vectorISt4pairImmESaIS7_EERNS0_7ContextIT_EERKNS0_8CompunitE.exit.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !52
@@ -4684,7 +4684,7 @@ if.then24.i104.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %if.then21.i76.i.i.i
   %debug_ranges.i105.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i, i64 4304
   %32 = load ptr, ptr %debug_ranges.i105.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !53
   %add.ptr28.i106.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 %ranges.sroa.4.0.i25.i.i.i.i.i.i.i.i.i.i.i.ph126
-  call fastcc void @_ZN4mold3elfL16read_debug_rangeINS0_7PPC64V1EEESt6vectorISt4pairImmESaIS5_EEPNSt11conditionalIXsrT_5is_64ENS8_IXsrS9_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS8_IXsrS9_5is_leENSA_IjLi4EEENSC_IjLi4EEEE4typeEE4typeEm(ptr noalias nonnull align 8 %ref.tmp3.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %add.ptr28.i106.i.i.i.i.i.i.i.i.i.i.i, i64 noundef %low_pc.sroa.3.0.i27.i.i.i.i.i.i.i.i.i.i.i.ph134)
+  call fastcc void @_ZN4mold3elfL16read_debug_rangeINS0_7PPC64V1EEESt6vectorISt4pairImmESaIS5_EEPNSt11conditionalIXsrT_5is_64ENS8_IXsrS9_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS8_IXsrS9_5is_leENSA_IjLi4EEENSC_IjLi4EEEE4typeEE4typeEm(ptr noalias align 8 %ref.tmp3.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %add.ptr28.i106.i.i.i.i.i.i.i.i.i.i.i, i64 noundef %low_pc.sroa.3.0.i27.i.i.i.i.i.i.i.i.i.i.i.ph134)
   br label %_ZN4mold3elfL19read_address_rangesINS0_7PPC64V1ENS0_14CuHdrDwarf5_32IS2_EEEESt6vectorISt4pairImmESaIS7_EERNS0_7ContextIT_EERKNS0_8CompunitE.exit.i.i.i.i.i.i.i.i.i.i.i
 
 if.end30.i80.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.then21.i76.i.i.i.i.i.i.i.i.i.i.i
@@ -4696,7 +4696,7 @@ if.end30.i80.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.then21.i76.i.i.i
 
 if.then34.i102.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %if.end30.i80.i.i.i.i.i.i.i.i.i.i.i
   %add.ptr36.i103.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 %ranges.sroa.4.0.i25.i.i.i.i.i.i.i.i.i.i.i.ph126
-  call fastcc void @_ZN4mold3elfL18read_rnglist_rangeINS0_7PPC64V1EEEvRSt6vectorISt4pairImmESaIS5_EEPhPNSt11conditionalIXsrT_5is_64ENSA_IXsrSB_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENSA_IXsrSB_5is_leENSC_IjLi4EEENSE_IjLi4EEEE4typeEE4typeEm(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp3.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %add.ptr36.i103.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %addrx.0.i30.i.i.i.i.i.i.i.i.i.i.i.ph141, i64 noundef %low_pc.sroa.3.0.i27.i.i.i.i.i.i.i.i.i.i.i.ph134)
+  call fastcc void @_ZN4mold3elfL18read_rnglist_rangeINS0_7PPC64V1EEEvRSt6vectorISt4pairImmESaIS5_EEPhPNSt11conditionalIXsrT_5is_64ENSA_IXsrSB_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENSA_IXsrSB_5is_leENSC_IjLi4EEENSE_IjLi4EEEE4typeEE4typeEm(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp3.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %add.ptr36.i103.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %addrx.0.i30.i.i.i.i.i.i.i.i.i.i.i.ph141, i64 noundef %low_pc.sroa.3.0.i27.i.i.i.i.i.i.i.i.i.i.i.ph134)
   br label %_ZN4mold3elfL19read_address_rangesINS0_7PPC64V1ENS0_14CuHdrDwarf5_32IS2_EEEESt6vectorISt4pairImmESaIS7_EERNS0_7ContextIT_EERKNS0_8CompunitE.exit.i.i.i.i.i.i.i.i.i.i.i
 
 if.else.i83.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.end30.i80.i.i.i.i.i.i.i.i.i.i.i
@@ -4729,7 +4729,7 @@ for.body.i92.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %for.body.i92.i.i.i.
   %36 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i44.i95.i.i.i.i.i.i.i.i.i.i.i)
   %idx.ext.i96.i.i.i.i.i.i.i.i.i.i.i = zext i32 %36 to i64
   %add.ptr50.i97.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr43.i86.i.i.i.i.i.i.i.i.i.i.i, i64 %idx.ext.i96.i.i.i.i.i.i.i.i.i.i.i
-  call fastcc void @_ZN4mold3elfL18read_rnglist_rangeINS0_7PPC64V1EEEvRSt6vectorISt4pairImmESaIS5_EEPhPNSt11conditionalIXsrT_5is_64ENSA_IXsrSB_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENSA_IXsrSB_5is_leENSC_IjLi4EEENSE_IjLi4EEEE4typeEE4typeEm(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp3.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %add.ptr50.i97.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %addrx.0.i30.i.i.i.i.i.i.i.i.i.i.i.ph141, i64 noundef %low_pc.sroa.3.0.i27.i.i.i.i.i.i.i.i.i.i.i.ph134)
+  call fastcc void @_ZN4mold3elfL18read_rnglist_rangeINS0_7PPC64V1EEEvRSt6vectorISt4pairImmESaIS5_EEPhPNSt11conditionalIXsrT_5is_64ENSA_IXsrSB_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENSA_IXsrSB_5is_leENSC_IjLi4EEENSE_IjLi4EEEE4typeEE4typeEm(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp3.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %add.ptr50.i97.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %addrx.0.i30.i.i.i.i.i.i.i.i.i.i.i.ph141, i64 noundef %low_pc.sroa.3.0.i27.i.i.i.i.i.i.i.i.i.i.i.ph134)
   %inc.i98.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %i.012.i93.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i99.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %inc.i98.i.i.i.i.i.i.i.i.i.i.i, %umax.i91.i.i.i.i.i.i.i.i.i.i.i
   br i1 %exitcond.not.i99.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4mold3elfL19read_address_rangesINS0_7PPC64V1ENS0_14CuHdrDwarf5_32IS2_EEEESt6vectorISt4pairImmESaIS7_EERNS0_7ContextIT_EERKNS0_8CompunitE.exit.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i92.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !57
@@ -4998,7 +4998,7 @@ if.then24.i247.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %if.then21.i220.i.i.
   %debug_ranges.i248.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i, i64 4304
   %52 = load ptr, ptr %debug_ranges.i248.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !58
   %add.ptr28.i249.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %52, i64 %ranges.sroa.4.0.i169.i.i.i.i.i.i.i.i.i.i.i.ph149
-  call fastcc void @_ZN4mold3elfL16read_debug_rangeINS0_7PPC64V1EEESt6vectorISt4pairImmESaIS5_EEPNSt11conditionalIXsrT_5is_64ENS8_IXsrS9_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS8_IXsrS9_5is_leENSA_IjLi4EEENSC_IjLi4EEEE4typeEE4typeEm(ptr noalias nonnull align 8 %ref.tmp7.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %add.ptr28.i249.i.i.i.i.i.i.i.i.i.i.i, i64 noundef %low_pc.sroa.3.0.i171.i.i.i.i.i.i.i.i.i.i.i.ph157)
+  call fastcc void @_ZN4mold3elfL16read_debug_rangeINS0_7PPC64V1EEESt6vectorISt4pairImmESaIS5_EEPNSt11conditionalIXsrT_5is_64ENS8_IXsrS9_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS8_IXsrS9_5is_leENSA_IjLi4EEENSC_IjLi4EEEE4typeEE4typeEm(ptr noalias align 8 %ref.tmp7.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %add.ptr28.i249.i.i.i.i.i.i.i.i.i.i.i, i64 noundef %low_pc.sroa.3.0.i171.i.i.i.i.i.i.i.i.i.i.i.ph157)
   br label %_ZN4mold3elfL19read_address_rangesINS0_7PPC64V1ENS0_14CuHdrDwarf2_64IS2_EEEESt6vectorISt4pairImmESaIS7_EERNS0_7ContextIT_EERKNS0_8CompunitE.exit.i.i.i.i.i.i.i.i.i.i.i
 
 if.end30.i224.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.then21.i220.i.i.i.i.i.i.i.i.i.i.i
@@ -5010,7 +5010,7 @@ if.end30.i224.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.then21.i220.i.i.
 
 if.then34.i245.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %if.end30.i224.i.i.i.i.i.i.i.i.i.i.i
   %add.ptr36.i246.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %53, i64 %ranges.sroa.4.0.i169.i.i.i.i.i.i.i.i.i.i.i.ph149
-  call fastcc void @_ZN4mold3elfL18read_rnglist_rangeINS0_7PPC64V1EEEvRSt6vectorISt4pairImmESaIS5_EEPhPNSt11conditionalIXsrT_5is_64ENSA_IXsrSB_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENSA_IXsrSB_5is_leENSC_IjLi4EEENSE_IjLi4EEEE4typeEE4typeEm(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %add.ptr36.i246.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %addrx.0.i174.i.i.i.i.i.i.i.i.i.i.i.ph164, i64 noundef %low_pc.sroa.3.0.i171.i.i.i.i.i.i.i.i.i.i.i.ph157)
+  call fastcc void @_ZN4mold3elfL18read_rnglist_rangeINS0_7PPC64V1EEEvRSt6vectorISt4pairImmESaIS5_EEPhPNSt11conditionalIXsrT_5is_64ENSA_IXsrSB_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENSA_IXsrSB_5is_leENSC_IjLi4EEENSE_IjLi4EEEE4typeEE4typeEm(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %add.ptr36.i246.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %addrx.0.i174.i.i.i.i.i.i.i.i.i.i.i.ph164, i64 noundef %low_pc.sroa.3.0.i171.i.i.i.i.i.i.i.i.i.i.i.ph157)
   br label %_ZN4mold3elfL19read_address_rangesINS0_7PPC64V1ENS0_14CuHdrDwarf2_64IS2_EEEESt6vectorISt4pairImmESaIS7_EERNS0_7ContextIT_EERKNS0_8CompunitE.exit.i.i.i.i.i.i.i.i.i.i.i
 
 if.else.i227.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.end30.i224.i.i.i.i.i.i.i.i.i.i.i
@@ -5042,7 +5042,7 @@ for.body.i236.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %for.body.i236.i.i.i
   %x.0.copyload.i44.i239.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %arrayidx.i238.i.i.i.i.i.i.i.i.i.i.i, align 1
   %56 = call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i44.i239.i.i.i.i.i.i.i.i.i.i.i)
   %add.ptr50.i240.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr43.i230.i.i.i.i.i.i.i.i.i.i.i, i64 %56
-  call fastcc void @_ZN4mold3elfL18read_rnglist_rangeINS0_7PPC64V1EEEvRSt6vectorISt4pairImmESaIS5_EEPhPNSt11conditionalIXsrT_5is_64ENSA_IXsrSB_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENSA_IXsrSB_5is_leENSC_IjLi4EEENSE_IjLi4EEEE4typeEE4typeEm(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %add.ptr50.i240.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %addrx.0.i174.i.i.i.i.i.i.i.i.i.i.i.ph164, i64 noundef %low_pc.sroa.3.0.i171.i.i.i.i.i.i.i.i.i.i.i.ph157)
+  call fastcc void @_ZN4mold3elfL18read_rnglist_rangeINS0_7PPC64V1EEEvRSt6vectorISt4pairImmESaIS5_EEPhPNSt11conditionalIXsrT_5is_64ENSA_IXsrSB_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENSA_IXsrSB_5is_leENSC_IjLi4EEENSE_IjLi4EEEE4typeEE4typeEm(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %add.ptr50.i240.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %addrx.0.i174.i.i.i.i.i.i.i.i.i.i.i.ph164, i64 noundef %low_pc.sroa.3.0.i171.i.i.i.i.i.i.i.i.i.i.i.ph157)
   %inc.i241.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %i.012.i237.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i242.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %inc.i241.i.i.i.i.i.i.i.i.i.i.i, %umax.i235.i.i.i.i.i.i.i.i.i.i.i
   br i1 %exitcond.not.i242.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4mold3elfL19read_address_rangesINS0_7PPC64V1ENS0_14CuHdrDwarf2_64IS2_EEEESt6vectorISt4pairImmESaIS7_EERNS0_7ContextIT_EERKNS0_8CompunitE.exit.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i236.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !62
@@ -5311,7 +5311,7 @@ if.then24.i390.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %if.then21.i363.i.i.
   %debug_ranges.i391.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i, i64 4304
   %72 = load ptr, ptr %debug_ranges.i391.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !63
   %add.ptr28.i392.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %72, i64 %ranges.sroa.4.0.i312.i.i.i.i.i.i.i.i.i.i.i.ph172
-  call fastcc void @_ZN4mold3elfL16read_debug_rangeINS0_7PPC64V1EEESt6vectorISt4pairImmESaIS5_EEPNSt11conditionalIXsrT_5is_64ENS8_IXsrS9_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS8_IXsrS9_5is_leENSA_IjLi4EEENSC_IjLi4EEEE4typeEE4typeEm(ptr noalias nonnull align 8 %ref.tmp11.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %add.ptr28.i392.i.i.i.i.i.i.i.i.i.i.i, i64 noundef %low_pc.sroa.3.0.i314.i.i.i.i.i.i.i.i.i.i.i.ph180)
+  call fastcc void @_ZN4mold3elfL16read_debug_rangeINS0_7PPC64V1EEESt6vectorISt4pairImmESaIS5_EEPNSt11conditionalIXsrT_5is_64ENS8_IXsrS9_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS8_IXsrS9_5is_leENSA_IjLi4EEENSC_IjLi4EEEE4typeEE4typeEm(ptr noalias align 8 %ref.tmp11.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %add.ptr28.i392.i.i.i.i.i.i.i.i.i.i.i, i64 noundef %low_pc.sroa.3.0.i314.i.i.i.i.i.i.i.i.i.i.i.ph180)
   br label %_ZN4mold3elfL19read_address_rangesINS0_7PPC64V1ENS0_14CuHdrDwarf5_64IS2_EEEESt6vectorISt4pairImmESaIS7_EERNS0_7ContextIT_EERKNS0_8CompunitE.exit.i.i.i.i.i.i.i.i.i.i.i
 
 if.end30.i367.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.then21.i363.i.i.i.i.i.i.i.i.i.i.i
@@ -5323,7 +5323,7 @@ if.end30.i367.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.then21.i363.i.i.
 
 if.then34.i388.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %if.end30.i367.i.i.i.i.i.i.i.i.i.i.i
   %add.ptr36.i389.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %73, i64 %ranges.sroa.4.0.i312.i.i.i.i.i.i.i.i.i.i.i.ph172
-  call fastcc void @_ZN4mold3elfL18read_rnglist_rangeINS0_7PPC64V1EEEvRSt6vectorISt4pairImmESaIS5_EEPhPNSt11conditionalIXsrT_5is_64ENSA_IXsrSB_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENSA_IXsrSB_5is_leENSC_IjLi4EEENSE_IjLi4EEEE4typeEE4typeEm(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %add.ptr36.i389.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %addrx.0.i317.i.i.i.i.i.i.i.i.i.i.i.ph187, i64 noundef %low_pc.sroa.3.0.i314.i.i.i.i.i.i.i.i.i.i.i.ph180)
+  call fastcc void @_ZN4mold3elfL18read_rnglist_rangeINS0_7PPC64V1EEEvRSt6vectorISt4pairImmESaIS5_EEPhPNSt11conditionalIXsrT_5is_64ENSA_IXsrSB_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENSA_IXsrSB_5is_leENSC_IjLi4EEENSE_IjLi4EEEE4typeEE4typeEm(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %add.ptr36.i389.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %addrx.0.i317.i.i.i.i.i.i.i.i.i.i.i.ph187, i64 noundef %low_pc.sroa.3.0.i314.i.i.i.i.i.i.i.i.i.i.i.ph180)
   br label %_ZN4mold3elfL19read_address_rangesINS0_7PPC64V1ENS0_14CuHdrDwarf5_64IS2_EEEESt6vectorISt4pairImmESaIS7_EERNS0_7ContextIT_EERKNS0_8CompunitE.exit.i.i.i.i.i.i.i.i.i.i.i
 
 if.else.i370.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.end30.i367.i.i.i.i.i.i.i.i.i.i.i
@@ -5355,7 +5355,7 @@ for.body.i379.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %for.body.i379.i.i.i
   %x.0.copyload.i44.i382.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %arrayidx.i381.i.i.i.i.i.i.i.i.i.i.i, align 1
   %76 = call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i44.i382.i.i.i.i.i.i.i.i.i.i.i)
   %add.ptr50.i383.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr43.i373.i.i.i.i.i.i.i.i.i.i.i, i64 %76
-  call fastcc void @_ZN4mold3elfL18read_rnglist_rangeINS0_7PPC64V1EEEvRSt6vectorISt4pairImmESaIS5_EEPhPNSt11conditionalIXsrT_5is_64ENSA_IXsrSB_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENSA_IXsrSB_5is_leENSC_IjLi4EEENSE_IjLi4EEEE4typeEE4typeEm(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %add.ptr50.i383.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %addrx.0.i317.i.i.i.i.i.i.i.i.i.i.i.ph187, i64 noundef %low_pc.sroa.3.0.i314.i.i.i.i.i.i.i.i.i.i.i.ph180)
+  call fastcc void @_ZN4mold3elfL18read_rnglist_rangeINS0_7PPC64V1EEEvRSt6vectorISt4pairImmESaIS5_EEPhPNSt11conditionalIXsrT_5is_64ENSA_IXsrSB_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENSA_IXsrSB_5is_leENSC_IjLi4EEENSE_IjLi4EEEE4typeEE4typeEm(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %add.ptr50.i383.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %addrx.0.i317.i.i.i.i.i.i.i.i.i.i.i.ph187, i64 noundef %low_pc.sroa.3.0.i314.i.i.i.i.i.i.i.i.i.i.i.ph180)
   %inc.i384.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %i.012.i380.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i385.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %inc.i384.i.i.i.i.i.i.i.i.i.i.i, %umax.i378.i.i.i.i.i.i.i.i.i.i.i
   br i1 %exitcond.not.i385.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4mold3elfL19read_address_rangesINS0_7PPC64V1ENS0_14CuHdrDwarf5_64IS2_EEEESt6vectorISt4pairImmESaIS7_EERNS0_7ContextIT_EERKNS0_8CompunitE.exit.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i379.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !67
@@ -6022,7 +6022,7 @@ return:                                           ; preds = %do.body.i, %entry, 
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4mold3elfL16read_debug_rangeINS0_7PPC64V1EEESt6vectorISt4pairImmESaIS5_EEPNSt11conditionalIXsrT_5is_64ENS8_IXsrS9_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS8_IXsrS9_5is_leENSA_IjLi4EEENSC_IjLi4EEEE4typeEE4typeEm(ptr noalias nocapture align 8 %agg.result, ptr nocapture noundef readonly %range, i64 noundef %base) unnamed_addr #4 {
+define internal fastcc void @_ZN4mold3elfL16read_debug_rangeINS0_7PPC64V1EEESt6vectorISt4pairImmESaIS5_EEPNSt11conditionalIXsrT_5is_64ENS8_IXsrS9_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS8_IXsrS9_5is_leENSA_IjLi4EEENSC_IjLi4EEEE4typeEE4typeEm(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %range, i64 noundef %base) unnamed_addr #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %_M_finish.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6145,7 +6145,7 @@ nrvo.skipdtor:                                    ; preds = %lor.rhs
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4mold3elfL18read_rnglist_rangeINS0_7PPC64V1EEEvRSt6vectorISt4pairImmESaIS5_EEPhPNSt11conditionalIXsrT_5is_64ENSA_IXsrSB_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENSA_IXsrSB_5is_leENSC_IjLi4EEENSE_IjLi4EEEE4typeEE4typeEm(ptr noundef nonnull align 8 dereferenceable(24) %vec, ptr nocapture noundef readonly %p, ptr noundef %addrx, i64 noundef %base) unnamed_addr #4 {
+define internal fastcc void @_ZN4mold3elfL18read_rnglist_rangeINS0_7PPC64V1EEEvRSt6vectorISt4pairImmESaIS5_EEPhPNSt11conditionalIXsrT_5is_64ENSA_IXsrSB_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENSA_IXsrSB_5is_leENSC_IjLi4EEENSE_IjLi4EEEE4typeEE4typeEm(ptr noundef nonnull align 8 dereferenceable(24) %vec, ptr nocapture noundef nonnull readonly %p, ptr noundef %addrx, i64 noundef %base) unnamed_addr #4 {
 entry:
   %ref.tmp = alloca i64, align 8
   %_M_finish.i162 = getelementptr inbounds i8, ptr %vec, i64 8

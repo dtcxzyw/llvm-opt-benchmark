@@ -478,7 +478,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_translate_block.exit:                       ; preds = %restart_translate, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %13 = load ptr, ptr %host_pc, align 8
-  %call30 = call fastcc i32 @setjmp_gen_code(ptr noundef %add.ptr.i, ptr noundef nonnull %call9153, i64 noundef %pc, ptr noundef %13, ptr noundef nonnull %max_insns)
+  %call30 = call fastcc i32 @setjmp_gen_code(ptr noundef %add.ptr.i, ptr noundef nonnull %call9153, i64 noundef %pc, ptr noundef %13, ptr noundef %max_insns)
   %cmp31 = icmp slt i32 %call30, 0
   br i1 %cmp31, label %if.then39, label %if.end93
 
@@ -959,7 +959,7 @@ declare void @mmap_unlock() local_unnamed_addr #2
 declare void @cpu_loop_exit(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @setjmp_gen_code(ptr noundef %env, ptr noundef %tb, i64 noundef %pc, ptr noundef %host_pc, ptr noundef %max_insns) unnamed_addr #0 {
+define internal fastcc i32 @setjmp_gen_code(ptr noundef %env, ptr noundef %tb, i64 noundef %pc, ptr noundef %host_pc, ptr noundef nonnull %max_insns) unnamed_addr #0 {
 entry:
   %0 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
@@ -975,7 +975,7 @@ if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %0, align 8
   %cpu = getelementptr inbounds i8, ptr %3, i64 176
   store ptr %add.ptr.i, ptr %cpu, align 8
-  call void @gen_intermediate_code(ptr noundef %add.ptr.i, ptr noundef %tb, ptr noundef %max_insns, i64 noundef %pc, ptr noundef %host_pc) #13
+  call void @gen_intermediate_code(ptr noundef %add.ptr.i, ptr noundef %tb, ptr noundef nonnull %max_insns, i64 noundef %pc, ptr noundef %host_pc) #13
   %size = getelementptr inbounds i8, ptr %tb, i64 24
   %4 = load i16, ptr %size, align 8
   %cmp5.not = icmp eq i16 %4, 0

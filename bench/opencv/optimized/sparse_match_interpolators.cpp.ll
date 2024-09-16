@@ -5734,7 +5734,7 @@ _ZN2cv8ximgprocL16verifyHypothesisEPiPfiPNS0_11SparseMatchEffRNS_3MatES6_Rf.exit
   %.0104.lcssa = phi i32 [ 0, %386 ], [ %.1, %431 ]
   %435 = getelementptr inbounds i8, ptr %.lcssa165, i64 440
   %436 = load float, ptr %435, align 8
-  invoke fastcc void @_ZN2cv8ximgprocL29weightedLeastSquaresAffineFitEPiPfifPKNS0_11SparseMatchERNS_3MatE(ptr noundef nonnull %49, ptr noundef nonnull %51, i32 noundef %.0104.lcssa, float noundef %436, ptr noundef %.pre227, ptr noundef nonnull align 8 dereferenceable(96) %388)
+  invoke fastcc void @_ZN2cv8ximgprocL29weightedLeastSquaresAffineFitEPiPfifPKNS0_11SparseMatchERNS_3MatE(ptr noundef %49, ptr noundef %51, i32 noundef %.0104.lcssa, float noundef %436, ptr noundef %.pre227, ptr noundef nonnull align 8 dereferenceable(96) %388)
           to label %._crit_edge190._crit_edge unwind label %.loopexit.split-lp.loopexit
 
 ._crit_edge190._crit_edge:                        ; preds = %._crit_edge190
@@ -5761,7 +5761,7 @@ _ZN2cv8ximgprocL16verifyHypothesisEPiPfiPNS0_11SparseMatchEffRNS_3MatES6_Rf.exit
 declare void @_ZN2cv3hal6exp32fEPKfPfi(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv8ximgprocL29weightedLeastSquaresAffineFitEPiPfifPKNS0_11SparseMatchERNS_3MatE(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, float noundef %3, ptr nocapture noundef readonly %4, ptr noundef nonnull align 8 dereferenceable(96) %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv8ximgprocL29weightedLeastSquaresAffineFitEPiPfifPKNS0_11SparseMatchERNS_3MatE(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, float noundef %3, ptr nocapture noundef readonly %4, ptr noundef nonnull align 8 dereferenceable(96) %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %7 = alloca [6 x [6 x double]], align 16
   %8 = alloca [6 x double], align 16
   %9 = alloca %"class.cv::Mat", align 8
@@ -7498,7 +7498,7 @@ _ZNSt6vectorIS_IN2cv8ximgproc4nodeESaIS2_EESaIS4_EE6resizeEm.exit: ; preds = %_Z
   store i64 %591, ptr %57, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc19RICInterpolatorImpl11interpolateERKNS0_11_InputArrayES9_S9_S9_RKNS0_12_OutputArrayEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %589, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc19RICInterpolatorImpl11interpolateERKNS0_11_InputArrayES9_S9_S9_RKNS0_12_OutputArrayEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %588, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %56, ptr noundef nonnull %57)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %56, ptr noundef %57)
           to label %592 unwind label %678
 
 592:                                              ; preds = %586
@@ -11002,7 +11002,7 @@ _ZNSt6vectorIN2cv8ximgproc4nodeESaIS2_EE9push_backEOS2_.exit593: ; preds = %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::ParallelLoopBodyLambdaWrapper", align 8
   %4 = alloca %"class.std::function", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -12722,7 +12722,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
   store ptr %39, ptr %16, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS0_3MatERSt6vectorIiSaIiEERS9_IfSaIfEEiRKS9_INS5_11SparseMatchESaISG_EES8_E3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %41, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS0_3MatERSt6vectorIiSaIiEERS9_IfSaIfEEiRKS9_INS5_11SparseMatchESaISG_EES8_E3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %38, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef nonnull %16)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef %16)
           to label %42 unwind label %86
 
 42:                                               ; preds = %40
@@ -12778,7 +12778,7 @@ _ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit:        ; preds = %42, %44
   store ptr %51, ptr %18, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS0_3MatERSt6vectorIiSaIiEERS9_IfSaIfEEiRKS9_INS5_11SparseMatchESaISG_EES8_E3$_1E9_M_invokeERKSt9_Any_dataS3_", ptr %53, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS0_3MatERSt6vectorIiSaIiEERS9_IfSaIfEEiRKS9_INS5_11SparseMatchESaISG_EES8_E3$_1E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %50, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %17, ptr noundef nonnull %18)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %17, ptr noundef %18)
           to label %54 unwind label %94
 
 54:                                               ; preds = %52
@@ -12831,7 +12831,7 @@ _ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit28:      ; preds = %54, %56
   store ptr %68, ptr %20, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS0_3MatERSt6vectorIiSaIiEERS9_IfSaIfEEiRKS9_INS5_11SparseMatchESaISG_EES8_E3$_2E9_M_invokeERKSt9_Any_dataS3_", ptr %70, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc19RICInterpolatorImpl15PropagateModelsEiRNS0_3MatERSt6vectorIiSaIiEERS9_IfSaIfEEiRKS9_INS5_11SparseMatchESaISG_EES8_E3$_2E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %67, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %19, ptr noundef nonnull %20)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %19, ptr noundef %20)
           to label %71 unwind label %102
 
 71:                                               ; preds = %69
@@ -16966,7 +16966,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i.i.i:         ; preds = %_ZSt6fill_nIPfmfET_
 98:                                               ; preds = %._crit_edge.i.i.i
   %99 = load ptr, ptr %21, align 8
   %100 = load ptr, ptr %99, align 8
-  invoke fastcc void @_ZN2cv8ximgprocL29weightedLeastSquaresAffineFitEPiPfifPKNS0_11SparseMatchERNS_3MatE(ptr noundef nonnull %.sroa.058.1109114.i.i.i, ptr noundef nonnull %.sroa.0.1.i.i.i, i32 noundef %.1.i.i.i, float noundef 0x3F847AE140000000, ptr noundef nonnull %100, ptr noundef nonnull align 8 dereferenceable(96) %7)
+  invoke fastcc void @_ZN2cv8ximgprocL29weightedLeastSquaresAffineFitEPiPfifPKNS0_11SparseMatchERNS_3MatE(ptr noundef %.sroa.058.1109114.i.i.i, ptr noundef %.sroa.0.1.i.i.i, i32 noundef %.1.i.i.i, float noundef 0x3F847AE140000000, ptr noundef nonnull %100, ptr noundef nonnull align 8 dereferenceable(96) %7)
           to label %101 unwind label %91
 
 101:                                              ; preds = %98

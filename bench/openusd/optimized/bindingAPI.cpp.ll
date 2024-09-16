@@ -4430,7 +4430,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread80: ; preds = %
   br i1 %44, label %46, label %277
 
 46:                                               ; preds = %45, %38
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_GetFirstTargetPrimForRelERKNS_15UsdRelationshipERKSt6vectorINS_7SdfPathESaIS5_EE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_GetFirstTargetPrimForRelERKNS_15UsdRelationshipERKSt6vectorINS_7SdfPathESaIS5_EE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %47 unwind label %210
 
 47:                                               ; preds = %46
@@ -5148,7 +5148,7 @@ declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__15UsdRelations
 declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__15UsdRelationship18HasAuthoredTargetsEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_GetFirstTargetPrimForRelERKNS_15UsdRelationshipERKSt6vectorINS_7SdfPathESaIS5_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_GetFirstTargetPrimForRelERKNS_15UsdRelationshipERKSt6vectorINS_7SdfPathESaIS5_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
@@ -5345,7 +5345,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8UsdSta
 
 108:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
-  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__8UsdStage13GetPrimAtPathERKNS_7SdfPathE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdPrim") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1282) %103, ptr noundef nonnull align 4 dereferenceable(8) %97)
+  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__8UsdStage13GetPrimAtPathERKNS_7SdfPathE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdPrim") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1282) %103, ptr noundef nonnull align 4 dereferenceable(8) %97)
           to label %109 unwind label %132
 
 109:                                              ; preds = %108
@@ -6813,7 +6813,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread75: ; preds = %
   br i1 %43, label %45, label %276
 
 45:                                               ; preds = %44, %37
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_GetFirstTargetPrimForRelERKNS_15UsdRelationshipERKSt6vectorINS_7SdfPathESaIS5_EE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_GetFirstTargetPrimForRelERKNS_15UsdRelationshipERKSt6vectorINS_7SdfPathESaIS5_EE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %46 unwind label %269
 
 46:                                               ; preds = %45

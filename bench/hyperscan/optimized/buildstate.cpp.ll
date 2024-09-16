@@ -1329,7 +1329,7 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i, %for
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EEC2ERKS3_.exit: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.thread
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %invoke.cont.i.thread ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
-  invoke fastcc void @_ZN3ue212_GLOBAL__N_122GlushkovBuildStateImpl17connectSuccessorsERKNS_12PositionInfoESt6vectorIS2_SaIS2_EE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 4 dereferenceable(8) %__begin1.sroa.0.018, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN3ue212_GLOBAL__N_122GlushkovBuildStateImpl17connectSuccessorsERKNS_12PositionInfoESt6vectorIS2_SaIS2_EE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 4 dereferenceable(8) %__begin1.sroa.0.018, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EEC2ERKS3_.exit
@@ -1820,7 +1820,7 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i, %for
 invoke.cont6:                                     ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.thread
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %invoke.cont.i.thread ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i.i27, align 8
-  invoke fastcc void @_ZN3ue212_GLOBAL__N_122GlushkovBuildStateImpl17connectSuccessorsERKNS_12PositionInfoESt6vectorIS2_SaIS2_EE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 4 dereferenceable(8) %__begin1.sroa.0.085, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN3ue212_GLOBAL__N_122GlushkovBuildStateImpl17connectSuccessorsERKNS_12PositionInfoESt6vectorIS2_SaIS2_EE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 4 dereferenceable(8) %__begin1.sroa.0.085, ptr noundef %agg.tmp)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont6
@@ -2437,7 +2437,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeIjSt4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue212_GLOBAL__N_122GlushkovBuildStateImpl17connectSuccessorsERKNS_12PositionInfoESt6vectorIS2_SaIS2_EE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 4 dereferenceable(8) %from, ptr nocapture noundef %tolist) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue212_GLOBAL__N_122GlushkovBuildStateImpl17connectSuccessorsERKNS_12PositionInfoESt6vectorIS2_SaIS2_EE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 4 dereferenceable(8) %from, ptr nocapture noundef nonnull %tolist) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.41", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.44", align 1

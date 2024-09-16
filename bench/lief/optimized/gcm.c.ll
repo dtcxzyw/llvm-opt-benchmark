@@ -731,15 +731,15 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
   %38 = getelementptr inbounds i8, ptr %0, i64 384
   %39 = call i32 @mbedtls_cipher_update(ptr noundef nonnull %0, ptr noundef nonnull %38, i64 noundef 16, ptr noundef nonnull %9, ptr noundef nonnull %8) #10
   %.not.i = icmp eq i32 %39, 0
-  br i1 %.not.i, label %.lr.ph.i, label %gcm_mask.exit
+  br i1 %.not.i, label %.preheader.i, label %gcm_mask.exit
 
-.lr.ph.i:                                         ; preds = %36
+.preheader.i:                                     ; preds = %36
   %40 = getelementptr inbounds i8, ptr %0, i64 416
   %41 = getelementptr inbounds i8, ptr %0, i64 400
   br label %42
 
-42:                                               ; preds = %65, %.lr.ph.i
-  %.029.i = phi i64 [ 0, %.lr.ph.i ], [ %66, %65 ]
+42:                                               ; preds = %65, %.preheader.i
+  %.029.i = phi i64 [ 0, %.preheader.i ], [ %66, %65 ]
   %43 = load i32, ptr %40, align 8
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %._crit_edge.i
@@ -824,9 +824,9 @@ gcm_mask.exit:                                    ; preds = %36
   br label %83
 
 83:                                               ; preds = %.lr.ph, %112
-  %.1119 = phi ptr [ %.069, %.lr.ph ], [ %115, %112 ]
-  %.171118 = phi ptr [ %.070, %.lr.ph ], [ %114, %112 ]
-  %.173117 = phi i64 [ %.072, %.lr.ph ], [ %113, %112 ]
+  %.1118 = phi ptr [ %.069, %.lr.ph ], [ %115, %112 ]
+  %.171117 = phi ptr [ %.070, %.lr.ph ], [ %114, %112 ]
+  %.173116 = phi i64 [ %.072, %.lr.ph ], [ %113, %112 ]
   br label %84
 
 84:                                               ; preds = %84, %83
@@ -846,48 +846,48 @@ gcm_incr.exit:                                    ; preds = %84
   store i64 0, ptr %7, align 8
   %89 = call i32 @mbedtls_cipher_update(ptr noundef nonnull %0, ptr noundef nonnull %80, i64 noundef 16, ptr noundef nonnull %9, ptr noundef nonnull %7) #10
   %.not.i94 = icmp eq i32 %89, 0
-  br i1 %.not.i94, label %.preheader.i96, label %gcm_mask.exit103
+  br i1 %.not.i94, label %.preheader.i96, label %gcm_mask.exit102
 
 .preheader.i96:                                   ; preds = %gcm_incr.exit, %110
-  %.029.i98 = phi i64 [ %111, %110 ], [ 0, %gcm_incr.exit ]
+  %.029.i97 = phi i64 [ %111, %110 ], [ 0, %gcm_incr.exit ]
   %90 = load i32, ptr %81, align 8
   %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %._crit_edge.i99
+  br i1 %91, label %92, label %._crit_edge.i98
 
 92:                                               ; preds = %.preheader.i96
-  %93 = getelementptr inbounds i8, ptr %.171118, i64 %.029.i98
+  %93 = getelementptr inbounds i8, ptr %.171117, i64 %.029.i97
   %94 = load i8, ptr %93, align 1
-  %95 = getelementptr inbounds [16 x i8], ptr %82, i64 0, i64 %.029.i98
+  %95 = getelementptr inbounds [16 x i8], ptr %82, i64 0, i64 %.029.i97
   %96 = load i8, ptr %95, align 1
   %97 = xor i8 %96, %94
   store i8 %97, ptr %95, align 1
-  br label %._crit_edge.i99
+  br label %._crit_edge.i98
 
-._crit_edge.i99:                                  ; preds = %.preheader.i96, %92
-  %98 = getelementptr inbounds i8, ptr %9, i64 %.029.i98
+._crit_edge.i98:                                  ; preds = %.preheader.i96, %92
+  %98 = getelementptr inbounds i8, ptr %9, i64 %.029.i97
   %99 = load i8, ptr %98, align 1
-  %100 = getelementptr inbounds i8, ptr %.171118, i64 %.029.i98
+  %100 = getelementptr inbounds i8, ptr %.171117, i64 %.029.i97
   %101 = load i8, ptr %100, align 1
   %102 = xor i8 %101, %99
-  %103 = getelementptr inbounds i8, ptr %.1119, i64 %.029.i98
+  %103 = getelementptr inbounds i8, ptr %.1118, i64 %.029.i97
   store i8 %102, ptr %103, align 1
   %104 = load i32, ptr %81, align 8
   %105 = icmp eq i32 %104, 1
   br i1 %105, label %106, label %110
 
-106:                                              ; preds = %._crit_edge.i99
-  %107 = getelementptr inbounds [16 x i8], ptr %82, i64 0, i64 %.029.i98
+106:                                              ; preds = %._crit_edge.i98
+  %107 = getelementptr inbounds [16 x i8], ptr %82, i64 0, i64 %.029.i97
   %108 = load i8, ptr %107, align 1
   %109 = xor i8 %108, %102
   store i8 %109, ptr %107, align 1
   br label %110
 
-110:                                              ; preds = %106, %._crit_edge.i99
-  %111 = add nuw nsw i64 %.029.i98, 1
-  %exitcond.not.i102 = icmp eq i64 %111, 16
-  br i1 %exitcond.not.i102, label %112, label %.preheader.i96, !llvm.loop !16
+110:                                              ; preds = %106, %._crit_edge.i98
+  %111 = add nuw nsw i64 %.029.i97, 1
+  %exitcond.not.i101 = icmp eq i64 %111, 16
+  br i1 %exitcond.not.i101, label %112, label %.preheader.i96, !llvm.loop !16
 
-gcm_mask.exit103:                                 ; preds = %gcm_incr.exit
+gcm_mask.exit102:                                 ; preds = %gcm_incr.exit
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %125
@@ -895,9 +895,9 @@ gcm_mask.exit103:                                 ; preds = %gcm_incr.exit
 112:                                              ; preds = %110
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call fastcc void @gcm_mult(ptr noundef nonnull %0, ptr noundef nonnull %82, ptr noundef nonnull %82)
-  %113 = add i64 %.173117, -16
-  %114 = getelementptr inbounds i8, ptr %.171118, i64 16
-  %115 = getelementptr inbounds i8, ptr %.1119, i64 16
+  %113 = add i64 %.173116, -16
+  %114 = getelementptr inbounds i8, ptr %.171117, i64 16
+  %115 = getelementptr inbounds i8, ptr %.1118, i64 16
   %116 = icmp ugt i64 %113, 15
   br i1 %116, label %83, label %._crit_edge, !llvm.loop !18
 
@@ -909,59 +909,55 @@ gcm_mask.exit103:                                 ; preds = %gcm_incr.exit
   br i1 %.not86, label %124, label %117
 
 117:                                              ; preds = %._crit_edge
-  %invariant.gep.i104 = getelementptr i8, ptr %0, i64 383
+  %invariant.gep.i103 = getelementptr i8, ptr %0, i64 383
   br label %118
 
 118:                                              ; preds = %118, %117
-  %.03.i105 = phi i64 [ 16, %117 ], [ %121, %118 ]
-  %gep.i106 = getelementptr i8, ptr %invariant.gep.i104, i64 %.03.i105
-  %119 = load i8, ptr %gep.i106, align 1
+  %.03.i104 = phi i64 [ 16, %117 ], [ %121, %118 ]
+  %gep.i105 = getelementptr i8, ptr %invariant.gep.i103, i64 %.03.i104
+  %119 = load i8, ptr %gep.i105, align 1
   %120 = add i8 %119, 1
-  store i8 %120, ptr %gep.i106, align 1
-  %.not.i107 = icmp eq i8 %120, 0
-  %121 = add nsw i64 %.03.i105, -1
+  store i8 %120, ptr %gep.i105, align 1
+  %.not.i106 = icmp eq i8 %120, 0
+  %121 = add nsw i64 %.03.i104, -1
   %122 = icmp ugt i64 %121, 12
-  %or.cond.i108 = select i1 %.not.i107, i1 %122, i1 false
-  br i1 %or.cond.i108, label %118, label %gcm_incr.exit109, !llvm.loop !17
+  %or.cond.i107 = select i1 %.not.i106, i1 %122, i1 false
+  br i1 %or.cond.i107, label %118, label %gcm_incr.exit108, !llvm.loop !17
 
-gcm_incr.exit109:                                 ; preds = %118
-  %123 = call fastcc i32 @gcm_mask(ptr noundef nonnull %0, ptr noundef nonnull %9, i64 noundef 0, i64 noundef %.173.lcssa, ptr noundef %.171.lcssa, ptr noundef %.1.lcssa)
+gcm_incr.exit108:                                 ; preds = %118
+  %123 = call fastcc i32 @gcm_mask(ptr noundef nonnull %0, ptr noundef %9, i64 noundef 0, i64 noundef %.173.lcssa, ptr noundef %.171.lcssa, ptr noundef %.1.lcssa)
   %.not87 = icmp eq i32 %123, 0
   br i1 %.not87, label %124, label %125
 
-124:                                              ; preds = %gcm_incr.exit109, %._crit_edge
+124:                                              ; preds = %gcm_incr.exit108, %._crit_edge
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16) #10
   br label %125
 
-125:                                              ; preds = %gcm_mask.exit103, %gcm_mask.exit, %gcm_incr.exit109, %19, %13, %11, %6, %124
-  %.068 = phi i32 [ 0, %124 ], [ -22, %6 ], [ 0, %11 ], [ -20, %13 ], [ -20, %19 ], [ %39, %gcm_mask.exit ], [ %89, %gcm_mask.exit103 ], [ %123, %gcm_incr.exit109 ]
+125:                                              ; preds = %gcm_mask.exit102, %gcm_mask.exit, %gcm_incr.exit108, %19, %13, %11, %6, %124
+  %.068 = phi i32 [ 0, %124 ], [ -22, %6 ], [ 0, %11 ], [ -20, %13 ], [ -20, %19 ], [ %39, %gcm_mask.exit ], [ %89, %gcm_mask.exit102 ], [ %123, %gcm_incr.exit108 ]
   ret i32 %.068
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @gcm_mask(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #2 {
+define internal fastcc i32 @gcm_mask(ptr noundef %0, ptr noundef nonnull %1, i64 noundef range(i64 0, 16) %2, i64 noundef range(i64 1, 17) %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #2 {
   %7 = alloca i64, align 8
   store i64 0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 384
-  %9 = call i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 16, ptr noundef %1, ptr noundef nonnull %7) #10
+  %9 = call i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 16, ptr noundef nonnull %1, ptr noundef nonnull %7) #10
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.preheader, label %12
 
 .preheader:                                       ; preds = %6
-  %.not30 = icmp eq i64 %3, 0
-  br i1 %.not30, label %.loopexit, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.preheader
   %10 = getelementptr inbounds i8, ptr %0, i64 416
   %11 = getelementptr inbounds i8, ptr %0, i64 400
   br label %13
 
 12:                                               ; preds = %6
-  call void @mbedtls_platform_zeroize(ptr noundef %1, i64 noundef 16) #10
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %1, i64 noundef 16) #10
   br label %.loopexit
 
-13:                                               ; preds = %.lr.ph, %36
-  %.029 = phi i64 [ 0, %.lr.ph ], [ %37, %36 ]
+13:                                               ; preds = %.preheader, %36
+  %.029 = phi i64 [ 0, %.preheader ], [ %37, %36 ]
   %14 = load i32, ptr %10, align 8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %._crit_edge
@@ -1005,8 +1001,8 @@ define internal fastcc i32 @gcm_mask(ptr noundef %0, ptr noundef %1, i64 noundef
   %exitcond.not = icmp eq i64 %37, %3
   br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !16
 
-.loopexit:                                        ; preds = %36, %.preheader, %12
-  %.027 = phi i32 [ %9, %12 ], [ 0, %.preheader ], [ 0, %36 ]
+.loopexit:                                        ; preds = %36, %12
+  %.027 = phi i32 [ %9, %12 ], [ 0, %36 ]
   ret i32 %.027
 }
 

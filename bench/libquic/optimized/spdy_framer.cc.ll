@@ -7352,7 +7352,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3netL6WriteZERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_10ZDataClassEP10z_stream_s(ptr noundef nonnull align 8 dereferenceable(16) %data, i32 noundef %clas, ptr noundef %out) unnamed_addr #0 {
+define internal fastcc void @_ZN3netL6WriteZERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_10ZDataClassEP10z_stream_s(ptr noundef nonnull align 8 dereferenceable(16) %data, i32 noundef range(i32 0, 3) %clas, ptr noundef %out) unnamed_addr #0 {
 entry:
   %clas1 = getelementptr inbounds i8, ptr %out, i64 112
   %0 = load i32, ptr %clas1, align 8

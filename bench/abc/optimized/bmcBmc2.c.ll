@@ -180,7 +180,7 @@ Abc_Clock.exit:                                   ; preds = %3, %9
   %16 = sub nsw i32 %.val87.val, %.val88
   %17 = sdiv i32 800000000, %16
   %18 = add nsw i32 %17, 1
-  %19 = call noundef i32 @llvm.smin.i32(i32 %18, i32 %1)
+  %19 = call range(i32 -2147483648, 800000002) i32 @llvm.smin.i32(i32 %18, i32 %1)
   %20 = ashr i32 %16, 4
   %21 = and i32 %16, 15
   %22 = icmp ne i32 %21, 0
@@ -2733,10 +2733,10 @@ define range(i32 -1, 2) i32 @Saig_BmcSolveTargets(ptr nocapture noundef %0, i32 
   %59 = sext i32 %.val60 to i64
   %60 = getelementptr inbounds i32, ptr %.val.i.i, i64 %59
   %61 = load i32, ptr %60, align 4
-  %62 = shl nsw i32 %61, 1
-  %63 = trunc i64 %53 to i32
-  %64 = and i32 %63, 1
-  %65 = or disjoint i32 %62, %64
+  %62 = trunc i64 %53 to i32
+  %63 = and i32 %62, 1
+  %64 = shl nsw i32 %61, 1
+  %65 = or disjoint i32 %64, %63
   store i32 %65, ptr %4, align 4
   %66 = load ptr, ptr %21, align 8
   %.not54 = icmp eq ptr %66, null
@@ -3469,7 +3469,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

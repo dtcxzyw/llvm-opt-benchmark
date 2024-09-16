@@ -12910,7 +12910,6 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.
 invoke.cont172:                                   ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc, %do.end168
   %shape.sroa.0.1 = phi ptr [ %call5.i.i.i.i2.i.i76, %call5.i.i.i.i2.i.i.noexc ], [ %call5.i.i.i.i2.i.i76, %if.end.i.i.i.i.i.i.i ], [ null, %do.end168 ]
   %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %do.end168 ]
-  %conv173 = zext nneg i8 %12 to i32
   %switch.tableidx = add nsw i8 %12, -1
   %17 = sext i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [11 x i64], ptr @switch.table._ZN4pbrt6TensorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, i64 0, i64 %17
@@ -12992,7 +12991,8 @@ do.body231:                                       ; preds = %do.body219
   br i1 %cmp234.not, label %if.then201.invoke, label %do.end241
 
 do.end241:                                        ; preds = %do.body231
-  store i32 %conv173, ptr %ref.tmp242, align 8
+  %conv244 = zext nneg i8 %12 to i32
+  store i32 %conv244, ptr %ref.tmp242, align 8
   store i64 %21, ptr %offset245, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__first.addr.0.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %shape.sroa.0.1 to i64

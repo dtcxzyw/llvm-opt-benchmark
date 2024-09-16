@@ -3317,7 +3317,7 @@ reverse_edge2.exit:                               ; preds = %22, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dfscc(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dfscc(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -2147483647, -2147483648) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 172
@@ -3369,7 +3369,7 @@ define internal fastcc void @dfscc(ptr noundef %0, ptr noundef %1, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setMinMax(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @setMinMax(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 236

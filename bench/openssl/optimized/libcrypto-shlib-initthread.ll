@@ -86,7 +86,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @init_thread_deregister(ptr noundef readnone %index, i32 noundef %all) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @init_thread_deregister(ptr noundef readnone %index, i32 noundef range(i32 0, 2) %all) unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @tevent_register_runonce, ptr noundef nonnull @create_global_tevent_register_ossl_) #2
   %tobool.i = icmp eq i32 %call.i, 0

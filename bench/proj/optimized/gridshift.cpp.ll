@@ -738,7 +738,7 @@ define internal void @_ZL23pj_gridshift_forward_3d6PJ_LPZP8PJconsts(ptr dead_on_
   %16 = load double, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   store double %16, ptr %17, align 8
-  call fastcc void @_ZN12_GLOBAL__N_113gridshiftData5applyEP8PJconsts12PJ_DIRECTION6PJ_XYZ(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(192) %7, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %0)
+  call fastcc void @_ZN12_GLOBAL__N_113gridshiftData5applyEP8PJconsts12PJ_DIRECTION6PJ_XYZ(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(192) %7, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %18 = getelementptr inbounds i8, ptr %7, i64 176
   %19 = load double, ptr %18, align 8
@@ -782,7 +782,7 @@ define internal void @_ZL23pj_gridshift_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on_
   %18 = load double, ptr %17, align 8
   %19 = fsub double %18, %16
   store double %19, ptr %17, align 8
-  call fastcc void @_ZN12_GLOBAL__N_113gridshiftData5applyEP8PJconsts12PJ_DIRECTION6PJ_XYZ(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(192) %7, ptr noundef nonnull %2, i32 noundef -1, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %1)
+  call fastcc void @_ZN12_GLOBAL__N_113gridshiftData5applyEP8PJconsts12PJ_DIRECTION6PJ_XYZ(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(192) %7, ptr noundef nonnull %2, i32 noundef -1, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %1)
   %20 = load double, ptr %5, align 8
   store double %20, ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1530,7 +1530,7 @@ declare void @_Z16proj_coord_errorv(ptr dead_on_unwind writable sret(%union.PJ_C
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113gridshiftData5applyEP8PJconsts12PJ_DIRECTION6PJ_XYZ(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef byval(%struct.PJ_XYZ) align 8 %4) unnamed_addr #5 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_113gridshiftData5applyEP8PJconsts12PJ_DIRECTION6PJ_XYZ(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 2) %3, ptr nocapture noundef byval(%struct.PJ_XYZ) align 8 %4) unnamed_addr #5 align 2 {
   %6 = alloca i8, align 1
   %7 = alloca %struct.PJ_XYZ, align 8
   %8 = alloca i8, align 1
@@ -1636,7 +1636,7 @@ _ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char
   %53 = trunc i8 %52 to i1
   %54 = select i1 %51, i1 true, i1 %53
   %55 = xor i1 %54, true
-  call fastcc void @_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %49, ptr noundef nonnull align 8 dereferenceable(32) %12, i1 noundef zeroext %55, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %4, i32 noundef %3, ptr noundef nonnull %.127, ptr noundef %.180, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  call fastcc void @_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %49, ptr noundef nonnull align 8 dereferenceable(32) %12, i1 noundef zeroext %55, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %4, i32 noundef %3, ptr noundef %.127, ptr noundef %.180, ptr noundef nonnull align 1 dereferenceable(1) %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %56 = load i8, ptr %8, align 1
   %57 = trunc i8 %56 to i1
@@ -1768,7 +1768,7 @@ _ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112bas
 
 _ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit.i: ; preds = %102, %118, %113, %97
   %.sroa.0.0.i.i = phi double [ %74, %118 ], [ %.fr120, %113 ], [ %.fr120, %97 ], [ %75, %102 ]
-  call fastcc void @_ZN12_GLOBAL__N_113gridshiftData16grid_interpolateEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE5PJ_XYPKN5osgeo4proj16GenericShiftGridERb(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %98, ptr noundef nonnull align 8 dereferenceable(32) %68, double %.sroa.0.0.i.i, double %72, ptr noundef nonnull %88, ptr noundef nonnull align 1 dereferenceable(1) %6), !noalias !13
+  call fastcc void @_ZN12_GLOBAL__N_113gridshiftData16grid_interpolateEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE5PJ_XYPKN5osgeo4proj16GenericShiftGridERb(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %98, ptr noundef nonnull align 8 dereferenceable(32) %68, double %.sroa.0.0.i.i, double %72, ptr noundef %88, ptr noundef nonnull align 1 dereferenceable(1) %6), !noalias !13
   %119 = load ptr, ptr %88, align 8, !noalias !13
   %120 = getelementptr inbounds i8, ptr %119, i64 32
   %121 = load ptr, ptr %120, align 8, !noalias !13
@@ -1852,7 +1852,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4, ptr nocapture noundef readonly byval(%struct.PJ_XYZ) align 8 %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %9) unnamed_addr #5 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_113gridshiftData19grid_apply_internalEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb6PJ_XYZ12PJ_DIRECTIONPKN5osgeo4proj16GenericShiftGridEPNSE_19GenericShiftGridSetERb(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4, ptr nocapture noundef readonly byval(%struct.PJ_XYZ) align 8 %5, i32 noundef range(i32 -1, 2) %6, ptr noundef nonnull %7, ptr noundef %8, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %9) unnamed_addr #5 align 2 {
   %11 = alloca i8, align 1
   %12 = alloca %struct.PJ_XYZ, align 8
   store i8 0, ptr %9, align 1
@@ -1904,7 +1904,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113gridshiftData19grid_apply_intern
 _ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12ExtentAndResE.exit: ; preds = %16, %31, %33, %38
   %.sroa.0.0.i = phi double [ %32, %31 ], [ %39, %38 ], [ %13, %33 ], [ %13, %16 ]
   store i8 0, ptr %11, align 1
-  call fastcc void @_ZN12_GLOBAL__N_113gridshiftData16grid_interpolateEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE5PJ_XYPKN5osgeo4proj16GenericShiftGridERb(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, double %.sroa.0.0.i, double %.sroa.271.0.copyload, ptr noundef nonnull %7, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  call fastcc void @_ZN12_GLOBAL__N_113gridshiftData16grid_interpolateEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE5PJ_XYPKN5osgeo4proj16GenericShiftGridERb(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, double %.sroa.0.0.i, double %.sroa.271.0.copyload, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %11)
   %40 = load ptr, ptr %7, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 32
   %42 = load ptr, ptr %41, align 8
@@ -1992,7 +1992,7 @@ _ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12E
   %.sroa.023.0 = phi double [ %.sroa.023.1, %151 ], [ %.sroa.0.0.i, %.preheader ]
   %.sroa.525.0 = phi double [ %.sroa.525.1, %151 ], [ %.sroa.271.0.copyload, %.preheader ]
   %.0 = phi ptr [ %.1, %151 ], [ %7, %.preheader ]
-  call fastcc void @_ZN12_GLOBAL__N_113gridshiftData16grid_interpolateEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE5PJ_XYPKN5osgeo4proj16GenericShiftGridERb(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, double %.sroa.013.1, double %.sroa.8.1, ptr noundef nonnull %.0, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  call fastcc void @_ZN12_GLOBAL__N_113gridshiftData16grid_interpolateEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE5PJ_XYPKN5osgeo4proj16GenericShiftGridERb(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, double %.sroa.013.1, double %.sroa.8.1, ptr noundef %.0, ptr noundef nonnull align 1 dereferenceable(1) %11)
   %87 = load ptr, ptr %.0, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 32
   %89 = load ptr, ptr %88, align 8
@@ -2180,7 +2180,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare noundef ptr @_ZNK5osgeo4proj19GenericShiftGridSet6gridAtERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdd(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(32), double noundef, double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113gridshiftData16grid_interpolateEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE5PJ_XYPKN5osgeo4proj16GenericShiftGridERb(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, double %4, double %5, ptr noundef %6, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %7) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113gridshiftData16grid_interpolateEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE5PJ_XYPKN5osgeo4proj16GenericShiftGridERb(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, double %4, double %5, ptr noundef nonnull %6, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %7) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8

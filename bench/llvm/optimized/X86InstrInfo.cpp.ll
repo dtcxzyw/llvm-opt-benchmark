@@ -18767,7 +18767,7 @@ declare noundef zeroext i1 @_ZN4llvm3X865isRCLEj(i32 noundef) local_unnamed_addr
 declare noundef zeroext i1 @_ZN4llvm3X865isRCREj(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL15canConvert2Copyj(i32 noundef %0) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZL15canConvert2Copyj(i32 noundef range(i32 1, 0) %0) unnamed_addr #3 {
   switch i32 %0, label %3 [
     i32 614, label %2
     i32 616, label %2
@@ -19819,7 +19819,7 @@ _ZN4llvm11getRegStateERKNS_14MachineOperandE.exit: ; preds = %361, %372
   %405 = load ptr, ptr %404, align 8
   %406 = getelementptr inbounds i8, ptr %405, i64 -432480
   %407 = getelementptr inbounds i8, ptr %405, i64 -176032
-  call fastcc void @_ZL15expandNOVLXLoadRN4llvm19MachineInstrBuilderEPKNS_18TargetRegisterInfoERKNS_11MCInstrDescES7_j(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull %403, ptr noundef nonnull align 8 dereferenceable(32) %406, ptr noundef nonnull align 8 dereferenceable(32) %407, i32 noundef 9)
+  call fastcc void @_ZL15expandNOVLXLoadRN4llvm19MachineInstrBuilderEPKNS_18TargetRegisterInfoERKNS_11MCInstrDescES7_j(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef %403, ptr noundef nonnull align 8 dereferenceable(32) %406, ptr noundef nonnull align 8 dereferenceable(32) %407, i32 noundef 9)
   br label %632
 
 408:                                              ; preds = %2
@@ -19828,7 +19828,7 @@ _ZN4llvm11getRegStateERKNS_14MachineOperandE.exit: ; preds = %361, %372
   %411 = load ptr, ptr %410, align 8
   %412 = getelementptr inbounds i8, ptr %411, i64 -447776
   %413 = getelementptr inbounds i8, ptr %411, i64 -176032
-  call fastcc void @_ZL15expandNOVLXLoadRN4llvm19MachineInstrBuilderEPKNS_18TargetRegisterInfoERKNS_11MCInstrDescES7_j(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull %409, ptr noundef nonnull align 8 dereferenceable(32) %412, ptr noundef nonnull align 8 dereferenceable(32) %413, i32 noundef 9)
+  call fastcc void @_ZL15expandNOVLXLoadRN4llvm19MachineInstrBuilderEPKNS_18TargetRegisterInfoERKNS_11MCInstrDescES7_j(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef %409, ptr noundef nonnull align 8 dereferenceable(32) %412, ptr noundef nonnull align 8 dereferenceable(32) %413, i32 noundef 9)
   br label %632
 
 414:                                              ; preds = %2
@@ -19837,7 +19837,7 @@ _ZN4llvm11getRegStateERKNS_14MachineOperandE.exit: ; preds = %361, %372
   %417 = load ptr, ptr %416, align 8
   %418 = getelementptr inbounds i8, ptr %417, i64 -431296
   %419 = getelementptr inbounds i8, ptr %417, i64 -176416
-  call fastcc void @_ZL15expandNOVLXLoadRN4llvm19MachineInstrBuilderEPKNS_18TargetRegisterInfoERKNS_11MCInstrDescES7_j(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull %415, ptr noundef nonnull align 8 dereferenceable(32) %418, ptr noundef nonnull align 8 dereferenceable(32) %419, i32 noundef 10)
+  call fastcc void @_ZL15expandNOVLXLoadRN4llvm19MachineInstrBuilderEPKNS_18TargetRegisterInfoERKNS_11MCInstrDescES7_j(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef %415, ptr noundef nonnull align 8 dereferenceable(32) %418, ptr noundef nonnull align 8 dereferenceable(32) %419, i32 noundef 10)
   br label %632
 
 420:                                              ; preds = %2
@@ -19846,7 +19846,7 @@ _ZN4llvm11getRegStateERKNS_14MachineOperandE.exit: ; preds = %361, %372
   %423 = load ptr, ptr %422, align 8
   %424 = getelementptr inbounds i8, ptr %423, i64 -446592
   %425 = getelementptr inbounds i8, ptr %423, i64 -176416
-  call fastcc void @_ZL15expandNOVLXLoadRN4llvm19MachineInstrBuilderEPKNS_18TargetRegisterInfoERKNS_11MCInstrDescES7_j(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull %421, ptr noundef nonnull align 8 dereferenceable(32) %424, ptr noundef nonnull align 8 dereferenceable(32) %425, i32 noundef 10)
+  call fastcc void @_ZL15expandNOVLXLoadRN4llvm19MachineInstrBuilderEPKNS_18TargetRegisterInfoERKNS_11MCInstrDescES7_j(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef %421, ptr noundef nonnull align 8 dereferenceable(32) %424, ptr noundef nonnull align 8 dereferenceable(32) %425, i32 noundef 10)
   br label %632
 
 426:                                              ; preds = %2
@@ -19855,7 +19855,7 @@ _ZN4llvm11getRegStateERKNS_14MachineOperandE.exit: ; preds = %361, %372
   %429 = load ptr, ptr %428, align 8
   %430 = getelementptr inbounds i8, ptr %429, i64 -432448
   %431 = getelementptr inbounds i8, ptr %429, i64 -283136
-  call fastcc void @_ZL16expandNOVLXStoreRN4llvm19MachineInstrBuilderEPKNS_18TargetRegisterInfoERKNS_11MCInstrDescES7_j(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull %427, ptr noundef nonnull align 8 dereferenceable(32) %430, ptr noundef nonnull align 8 dereferenceable(32) %431, i32 noundef 9)
+  call fastcc void @_ZL16expandNOVLXStoreRN4llvm19MachineInstrBuilderEPKNS_18TargetRegisterInfoERKNS_11MCInstrDescES7_j(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef %427, ptr noundef nonnull align 8 dereferenceable(32) %430, ptr noundef nonnull align 8 dereferenceable(32) %431, i32 noundef 9)
   br label %632
 
 432:                                              ; preds = %2
@@ -19864,7 +19864,7 @@ _ZN4llvm11getRegStateERKNS_14MachineOperandE.exit: ; preds = %361, %372
   %435 = load ptr, ptr %434, align 8
   %436 = getelementptr inbounds i8, ptr %435, i64 -447744
   %437 = getelementptr inbounds i8, ptr %435, i64 -283136
-  call fastcc void @_ZL16expandNOVLXStoreRN4llvm19MachineInstrBuilderEPKNS_18TargetRegisterInfoERKNS_11MCInstrDescES7_j(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull %433, ptr noundef nonnull align 8 dereferenceable(32) %436, ptr noundef nonnull align 8 dereferenceable(32) %437, i32 noundef 9)
+  call fastcc void @_ZL16expandNOVLXStoreRN4llvm19MachineInstrBuilderEPKNS_18TargetRegisterInfoERKNS_11MCInstrDescES7_j(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef %433, ptr noundef nonnull align 8 dereferenceable(32) %436, ptr noundef nonnull align 8 dereferenceable(32) %437, i32 noundef 9)
   br label %632
 
 438:                                              ; preds = %2
@@ -19873,7 +19873,7 @@ _ZN4llvm11getRegStateERKNS_14MachineOperandE.exit: ; preds = %361, %372
   %441 = load ptr, ptr %440, align 8
   %442 = getelementptr inbounds i8, ptr %441, i64 -431264
   %443 = getelementptr inbounds i8, ptr %441, i64 -283776
-  call fastcc void @_ZL16expandNOVLXStoreRN4llvm19MachineInstrBuilderEPKNS_18TargetRegisterInfoERKNS_11MCInstrDescES7_j(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull %439, ptr noundef nonnull align 8 dereferenceable(32) %442, ptr noundef nonnull align 8 dereferenceable(32) %443, i32 noundef 10)
+  call fastcc void @_ZL16expandNOVLXStoreRN4llvm19MachineInstrBuilderEPKNS_18TargetRegisterInfoERKNS_11MCInstrDescES7_j(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef %439, ptr noundef nonnull align 8 dereferenceable(32) %442, ptr noundef nonnull align 8 dereferenceable(32) %443, i32 noundef 10)
   br label %632
 
 444:                                              ; preds = %2
@@ -19882,7 +19882,7 @@ _ZN4llvm11getRegStateERKNS_14MachineOperandE.exit: ; preds = %361, %372
   %447 = load ptr, ptr %446, align 8
   %448 = getelementptr inbounds i8, ptr %447, i64 -446560
   %449 = getelementptr inbounds i8, ptr %447, i64 -283776
-  call fastcc void @_ZL16expandNOVLXStoreRN4llvm19MachineInstrBuilderEPKNS_18TargetRegisterInfoERKNS_11MCInstrDescES7_j(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull %445, ptr noundef nonnull align 8 dereferenceable(32) %448, ptr noundef nonnull align 8 dereferenceable(32) %449, i32 noundef 10)
+  call fastcc void @_ZL16expandNOVLXStoreRN4llvm19MachineInstrBuilderEPKNS_18TargetRegisterInfoERKNS_11MCInstrDescES7_j(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef %445, ptr noundef nonnull align 8 dereferenceable(32) %448, ptr noundef nonnull align 8 dereferenceable(32) %449, i32 noundef 10)
   br label %632
 
 450:                                              ; preds = %2
@@ -20454,7 +20454,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15expandNOVLXLoadRN4llvm19MachineInstrBuilderEPKNS_18TargetRegisterInfoERKNS_11MCInstrDescES7_j(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @_ZL15expandNOVLXLoadRN4llvm19MachineInstrBuilderEPKNS_18TargetRegisterInfoERKNS_11MCInstrDescES7_j(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef range(i32 9, 11) %4) unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -20489,7 +20489,7 @@ define internal fastcc void @_ZL15expandNOVLXLoadRN4llvm19MachineInstrBuilderEPK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16expandNOVLXStoreRN4llvm19MachineInstrBuilderEPKNS_18TargetRegisterInfoERKNS_11MCInstrDescES7_j(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @_ZL16expandNOVLXStoreRN4llvm19MachineInstrBuilderEPKNS_18TargetRegisterInfoERKNS_11MCInstrDescES7_j(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef range(i32 9, 11) %4) unnamed_addr #1 {
   %6 = alloca %"class.llvm::MachineOperand", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -22933,7 +22933,7 @@ _ZL10makeM0InstRKN4llvm15TargetInstrInfoEjNS_8ArrayRefINS_14MachineOperandEEENS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL8fuseInstRN4llvm15MachineFunctionEjjNS_8ArrayRefINS_14MachineOperandEEENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERS6_RKNS_15TargetInstrInfoEi(ptr noundef nonnull align 8 dereferenceable(1041) %0, i32 noundef %1, i32 noundef %2, ptr %3, i64 %4, ptr %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %6, ptr noundef nonnull align 8 dereferenceable(80) %7, i32 noundef %8) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL8fuseInstRN4llvm15MachineFunctionEjjNS_8ArrayRefINS_14MachineOperandEEENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERS6_RKNS_15TargetInstrInfoEi(ptr noundef nonnull align 8 dereferenceable(1041) %0, i32 noundef %1, i32 noundef %2, ptr %3, i64 %4, ptr %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %6, ptr noundef nonnull align 8 dereferenceable(80) %7, i32 noundef range(i32 0, 13) %8) unnamed_addr #1 {
   %10 = alloca %"class.llvm::DebugLoc", align 8
   %11 = alloca %"class.llvm::MachineInstrBuilder", align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 8
@@ -25661,7 +25661,7 @@ _ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit: ; preds = %_ZNK4llvm12X86Instr
 _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %126, %132, %134, %137
   %.sroa.0.0.i = phi ptr [ %81, %132 ], [ %139, %137 ], [ null, %126 ], [ null, %134 ]
   %.sroa.7.0.i = phi i64 [ 1, %132 ], [ %141, %137 ], [ 0, %126 ], [ 0, %134 ]
-  call fastcc void @_ZL15extractLoadMMOsN4llvm8ArrayRefIPNS_17MachineMemOperandEEERNS_15MachineFunctionE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr %.sroa.0.0.i, i64 %.sroa.7.0.i, ptr noundef nonnull align 8 dereferenceable(1041) %1)
+  call fastcc void @_ZL15extractLoadMMOsN4llvm8ArrayRefIPNS_17MachineMemOperandEEERNS_15MachineFunctionE(ptr dead_on_unwind noalias writable align 8 %17, ptr %.sroa.0.0.i, i64 %.sroa.7.0.i, ptr noundef nonnull align 8 dereferenceable(1041) %1)
   %142 = load i16, ptr %31, align 4
   %143 = and i16 %142, 7168
   %.not165 = icmp eq i16 %143, 0
@@ -26264,7 +26264,7 @@ _ZNK4llvm12X86InstrInfo11getRegClassERKNS_11MCInstrDescEjPKNS_18TargetRegisterIn
 _ZNK4llvm12MachineInstr11memoperandsEv.exit206:   ; preds = %_ZNK4llvm12X86InstrInfo11getRegClassERKNS_11MCInstrDescEjPKNS_18TargetRegisterInfoERKNS_15MachineFunctionE.exit199, %398, %400, %403
   %.sroa.0.0.i200 = phi ptr [ %81, %398 ], [ %405, %403 ], [ null, %_ZNK4llvm12X86InstrInfo11getRegClassERKNS_11MCInstrDescEjPKNS_18TargetRegisterInfoERKNS_15MachineFunctionE.exit199 ], [ null, %400 ]
   %.sroa.7.0.i201 = phi i64 [ 1, %398 ], [ %407, %403 ], [ 0, %_ZNK4llvm12X86InstrInfo11getRegClassERKNS_11MCInstrDescEjPKNS_18TargetRegisterInfoERKNS_15MachineFunctionE.exit199 ], [ 0, %400 ]
-  call fastcc void @_ZL16extractStoreMMOsN4llvm8ArrayRefIPNS_17MachineMemOperandEEERNS_15MachineFunctionE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr %.sroa.0.0.i200, i64 %.sroa.7.0.i201, ptr noundef nonnull align 8 dereferenceable(1041) %1)
+  call fastcc void @_ZL16extractStoreMMOsN4llvm8ArrayRefIPNS_17MachineMemOperandEEERNS_15MachineFunctionE(ptr dead_on_unwind noalias writable align 8 %22, ptr %.sroa.0.0.i200, i64 %.sroa.7.0.i201, ptr noundef nonnull align 8 dereferenceable(1041) %1)
   %408 = getelementptr inbounds nuw i8, ptr %80, i64 288
   %409 = load ptr, ptr %408, align 8
   %410 = getelementptr inbounds nuw i8, ptr %80, i64 272
@@ -27157,7 +27157,7 @@ _ZNSt6vectorIN4llvm7SDValueESaIS1_EE9push_backERKS1_.exit178: ; preds = %188, %_
 _ZNK4llvm13MachineSDNode11memoperandsEv.exit:     ; preds = %209, %239, %241
   %.sroa.0.0.i = phi ptr [ %244, %241 ], [ %240, %239 ], [ null, %209 ]
   %.sroa.5.0.i = phi i64 [ %245, %241 ], [ 1, %239 ], [ 0, %209 ]
-  call fastcc void @_ZL15extractLoadMMOsN4llvm8ArrayRefIPNS_17MachineMemOperandEEERNS_15MachineFunctionE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr %.sroa.0.0.i, i64 %.sroa.5.0.i, ptr noundef nonnull align 8 dereferenceable(1041) %37)
+  call fastcc void @_ZL15extractLoadMMOsN4llvm8ArrayRefIPNS_17MachineMemOperandEEERNS_15MachineFunctionE(ptr dead_on_unwind noalias writable align 8 %9, ptr %.sroa.0.0.i, i64 %.sroa.5.0.i, ptr noundef nonnull align 8 dereferenceable(1041) %37)
   %246 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #29
   %247 = icmp eq ptr %.0.i, @_ZN4llvm3X8613VR128RegClassE
   %or.cond = and i1 %247, %246
@@ -27971,7 +27971,7 @@ _ZNSt6vectorIN4llvm7SDValueESaIS1_EE9push_backERKS1_.exit243: ; preds = %559, %_
 _ZNK4llvm13MachineSDNode11memoperandsEv.exit249:  ; preds = %_ZNSt6vectorIN4llvm7SDValueESaIS1_EE9push_backERKS1_.exit243, %584, %586
   %.sroa.0.0.i244 = phi ptr [ %589, %586 ], [ %585, %584 ], [ null, %_ZNSt6vectorIN4llvm7SDValueESaIS1_EE9push_backERKS1_.exit243 ]
   %.sroa.5.0.i245 = phi i64 [ %590, %586 ], [ 1, %584 ], [ 0, %_ZNSt6vectorIN4llvm7SDValueESaIS1_EE9push_backERKS1_.exit243 ]
-  call fastcc void @_ZL16extractStoreMMOsN4llvm8ArrayRefIPNS_17MachineMemOperandEEERNS_15MachineFunctionE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr %.sroa.0.0.i244, i64 %.sroa.5.0.i245, ptr noundef nonnull align 8 dereferenceable(1041) %37)
+  call fastcc void @_ZL16extractStoreMMOsN4llvm8ArrayRefIPNS_17MachineMemOperandEEERNS_15MachineFunctionE(ptr dead_on_unwind noalias writable align 8 %13, ptr %.sroa.0.0.i244, i64 %.sroa.5.0.i245, ptr noundef nonnull align 8 dereferenceable(1041) %37)
   %591 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #29
   %592 = icmp eq ptr %.0.i, @_ZN4llvm3X8613VR128RegClassE
   %or.cond4 = and i1 %592, %591
@@ -28740,8 +28740,8 @@ _ZL15AdjustBlendMaskjjjPj.exit.i.preheader:       ; preds = %33
   br label %_ZL15AdjustBlendMaskjjjPj.exit.i
 
 _ZL15AdjustBlendMaskjjjPj.exit.i:                 ; preds = %_ZL15AdjustBlendMaskjjjPj.exit.i.preheader, %48
-  %.03447.i22.i26 = phi i32 [ %49, %48 ], [ 0, %_ZL15AdjustBlendMaskjjjPj.exit.i.preheader ]
-  %45 = shl nuw i32 %.03447.i22.i26, 1
+  %.03453.i26.i26 = phi i32 [ %49, %48 ], [ 0, %_ZL15AdjustBlendMaskjjjPj.exit.i.preheader ]
+  %45 = shl nuw nsw i32 %.03453.i26.i26, 1
   %46 = lshr i32 %44, %45
   %47 = and i32 %46, 3
   switch i32 %47, label %"_ZZNK4llvm12X86InstrInfo24getExecutionDomainCustomERKNS_12MachineInstrEENK3$_0clEjb.exit" [
@@ -28750,9 +28750,9 @@ _ZL15AdjustBlendMaskjjjPj.exit.i:                 ; preds = %_ZL15AdjustBlendMas
   ]
 
 48:                                               ; preds = %_ZL15AdjustBlendMaskjjjPj.exit.i, %_ZL15AdjustBlendMaskjjjPj.exit.i
-  %49 = add nuw nsw i32 %.03447.i22.i26, 1
-  %.not39.i25.i30 = icmp eq i32 %49, 2
-  br i1 %.not39.i25.i30, label %"_ZZNK4llvm12X86InstrInfo24getExecutionDomainCustomERKNS_12MachineInstrEENK3$_0clEjb.exit", label %_ZL15AdjustBlendMaskjjjPj.exit.i, !llvm.loop !585
+  %49 = add nuw nsw i32 %.03453.i26.i26, 1
+  %.not39.i29.i30 = icmp eq i32 %49, 2
+  br i1 %.not39.i29.i30, label %"_ZZNK4llvm12X86InstrInfo24getExecutionDomainCustomERKNS_12MachineInstrEENK3$_0clEjb.exit", label %_ZL15AdjustBlendMaskjjjPj.exit.i, !llvm.loop !585
 
 50:                                               ; preds = %2, %2, %2, %2
   %51 = add nsw i32 %9, -1
@@ -28772,21 +28772,21 @@ _ZL15AdjustBlendMaskjjjPj.exit.i37.preheader:     ; preds = %50
   br label %_ZL15AdjustBlendMaskjjjPj.exit.i37
 
 _ZL15AdjustBlendMaskjjjPj.exit.i37:               ; preds = %_ZL15AdjustBlendMaskjjjPj.exit.i37.preheader, %65
-  %.03447.i22.i38 = phi i32 [ %66, %65 ], [ 0, %_ZL15AdjustBlendMaskjjjPj.exit.i37.preheader ]
-  %62 = shl nuw i32 %.03447.i22.i38, 1
+  %.03453.i26.i38 = phi i32 [ %66, %65 ], [ 0, %_ZL15AdjustBlendMaskjjjPj.exit.i37.preheader ]
+  %62 = shl nuw nsw i32 %.03453.i26.i38, 1
   %63 = lshr i32 %61, %62
   %64 = and i32 %63, 3
-  switch i32 %64, label %_ZL15AdjustBlendMaskjjjPj.exit26.i41 [
+  switch i32 %64, label %_ZL15AdjustBlendMaskjjjPj.exit30.i41 [
     i32 3, label %65
     i32 0, label %65
   ]
 
 65:                                               ; preds = %_ZL15AdjustBlendMaskjjjPj.exit.i37, %_ZL15AdjustBlendMaskjjjPj.exit.i37
-  %66 = add nuw nsw i32 %.03447.i22.i38, 1
-  %.not39.i25.i42 = icmp eq i32 %66, 4
-  br i1 %.not39.i25.i42, label %_ZL15AdjustBlendMaskjjjPj.exit26.i41, label %_ZL15AdjustBlendMaskjjjPj.exit.i37, !llvm.loop !585
+  %66 = add nuw nsw i32 %.03453.i26.i38, 1
+  %.not39.i29.i42 = icmp eq i32 %66, 4
+  br i1 %.not39.i29.i42, label %_ZL15AdjustBlendMaskjjjPj.exit30.i41, label %_ZL15AdjustBlendMaskjjjPj.exit.i37, !llvm.loop !585
 
-_ZL15AdjustBlendMaskjjjPj.exit26.i41:             ; preds = %65, %_ZL15AdjustBlendMaskjjjPj.exit.i37
+_ZL15AdjustBlendMaskjjjPj.exit30.i41:             ; preds = %65, %_ZL15AdjustBlendMaskjjjPj.exit.i37
   %67 = phi i16 [ 2, %_ZL15AdjustBlendMaskjjjPj.exit.i37 ], [ 6, %65 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %69 = load ptr, ptr %68, align 8
@@ -28815,8 +28815,8 @@ _ZL15AdjustBlendMaskjjjPj.exit26.i41:             ; preds = %65, %_ZL15AdjustBle
   br label %87
 
 87:                                               ; preds = %91, %83
-  %.03447.i.i47 = phi i32 [ 0, %83 ], [ %92, %91 ]
-  %88 = shl nuw i32 %.03447.i.i47, 1
+  %.03453.i.i47 = phi i32 [ 0, %83 ], [ %92, %91 ]
+  %88 = shl nuw nsw i32 %.03453.i.i47, 1
   %89 = lshr i32 %86, %88
   %90 = and i32 %89, 3
   switch i32 %90, label %_ZL15AdjustBlendMaskjjjPj.exit.i50 [
@@ -28825,7 +28825,7 @@ _ZL15AdjustBlendMaskjjjPj.exit26.i41:             ; preds = %65, %_ZL15AdjustBle
   ]
 
 91:                                               ; preds = %87, %87
-  %92 = add nuw nsw i32 %.03447.i.i47, 1
+  %92 = add nuw nsw i32 %.03453.i.i47, 1
   %.not39.i.i57 = icmp eq i32 %92, 4
   br i1 %.not39.i.i57, label %_ZL15AdjustBlendMaskjjjPj.exit.i50, label %87, !llvm.loop !585
 
@@ -28834,25 +28834,25 @@ _ZL15AdjustBlendMaskjjjPj.exit.i50:               ; preds = %87, %91
   br label %94
 
 94:                                               ; preds = %98, %_ZL15AdjustBlendMaskjjjPj.exit.i50
-  %.03447.i22.i51 = phi i32 [ 0, %_ZL15AdjustBlendMaskjjjPj.exit.i50 ], [ %99, %98 ]
-  %95 = shl i32 %.03447.i22.i51, 2
+  %.03453.i26.i51 = phi i32 [ 0, %_ZL15AdjustBlendMaskjjjPj.exit.i50 ], [ %99, %98 ]
+  %95 = shl nuw nsw i32 %.03453.i26.i51, 2
   %96 = lshr i32 %86, %95
   %97 = and i32 %96, 15
-  switch i32 %97, label %_ZL15AdjustBlendMaskjjjPj.exit26.i54 [
+  switch i32 %97, label %_ZL15AdjustBlendMaskjjjPj.exit30.i54 [
     i32 15, label %98
     i32 0, label %98
   ]
 
 98:                                               ; preds = %94, %94
-  %99 = add nuw nsw i32 %.03447.i22.i51, 1
-  %.not39.i25.i55 = icmp eq i32 %99, 2
-  br i1 %.not39.i25.i55, label %.loopexit.i56, label %94, !llvm.loop !585
+  %99 = add nuw nsw i32 %.03453.i26.i51, 1
+  %.not39.i29.i55 = icmp eq i32 %99, 2
+  br i1 %.not39.i29.i55, label %.loopexit.i56, label %94, !llvm.loop !585
 
 .loopexit.i56:                                    ; preds = %98
   %100 = or disjoint i16 %93, 4
-  br label %_ZL15AdjustBlendMaskjjjPj.exit26.i54
+  br label %_ZL15AdjustBlendMaskjjjPj.exit30.i54
 
-_ZL15AdjustBlendMaskjjjPj.exit26.i54:             ; preds = %94, %.loopexit.i56
+_ZL15AdjustBlendMaskjjjPj.exit30.i54:             ; preds = %94, %.loopexit.i56
   %101 = phi i16 [ %100, %.loopexit.i56 ], [ %93, %94 ]
   %102 = or i16 %101, 8
   br label %"_ZZNK4llvm12X86InstrInfo24getExecutionDomainCustomERKNS_12MachineInstrEENK3$_0clEjb.exit"
@@ -28939,8 +28939,8 @@ _ZL15AdjustBlendMaskjjjPj.exit26.i54:             ; preds = %94, %.loopexit.i56
 158:                                              ; preds = %2
   br label %"_ZZNK4llvm12X86InstrInfo24getExecutionDomainCustomERKNS_12MachineInstrEENK3$_0clEjb.exit"
 
-"_ZZNK4llvm12X86InstrInfo24getExecutionDomainCustomERKNS_12MachineInstrEENK3$_0clEjb.exit": ; preds = %_ZL15AdjustBlendMaskjjjPj.exit.i, %48, %10, %_ZL15AdjustBlendMaskjjjPj.exit26.i41, %.preheader85.preheader, %_ZL15AdjustBlendMaskjjjPj.exit26.i54, %74, %50, %33, %19, %2, %154, %129, %120, %109, %103, %158, %.critedge2, %.critedge
-  %.0 = phi i16 [ 0, %158 ], [ 0, %.critedge2 ], [ 14, %.critedge ], [ 0, %103 ], [ 0, %109 ], [ 0, %120 ], [ 0, %129 ], [ 6, %154 ], [ 6, %2 ], [ 0, %19 ], [ 0, %33 ], [ 0, %50 ], [ %102, %_ZL15AdjustBlendMaskjjjPj.exit26.i54 ], [ 0, %74 ], [ %spec.select, %.preheader85.preheader ], [ %spec.select81, %_ZL15AdjustBlendMaskjjjPj.exit26.i41 ], [ %spec.select88, %10 ], [ 14, %48 ], [ 10, %_ZL15AdjustBlendMaskjjjPj.exit.i ]
+"_ZZNK4llvm12X86InstrInfo24getExecutionDomainCustomERKNS_12MachineInstrEENK3$_0clEjb.exit": ; preds = %_ZL15AdjustBlendMaskjjjPj.exit.i, %48, %10, %_ZL15AdjustBlendMaskjjjPj.exit30.i41, %.preheader85.preheader, %_ZL15AdjustBlendMaskjjjPj.exit30.i54, %74, %50, %33, %19, %2, %154, %129, %120, %109, %103, %158, %.critedge2, %.critedge
+  %.0 = phi i16 [ 0, %158 ], [ 0, %.critedge2 ], [ 14, %.critedge ], [ 0, %103 ], [ 0, %109 ], [ 0, %120 ], [ 0, %129 ], [ 6, %154 ], [ 6, %2 ], [ 0, %19 ], [ 0, %33 ], [ 0, %50 ], [ %102, %_ZL15AdjustBlendMaskjjjPj.exit30.i54 ], [ 0, %74 ], [ %spec.select, %.preheader85.preheader ], [ %spec.select81, %_ZL15AdjustBlendMaskjjjPj.exit30.i41 ], [ %spec.select88, %10 ], [ 14, %48 ], [ 10, %_ZL15AdjustBlendMaskjjjPj.exit.i ]
   ret i16 %.0
 }
 
@@ -29222,7 +29222,7 @@ _ZL12lookupAVX512jjN4llvm8ArrayRefIA4_tEE.exit:   ; preds = %.lr.ph.split.i, %54
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK4llvm12X86InstrInfo24setExecutionDomainCustomERNS_12MachineInstrEjENK3$_0clEjb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 {
+define internal fastcc void @"_ZZNK4llvm12X86InstrInfo24setExecutionDomainCustomERNS_12MachineInstrEjENK3$_0clEjb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef range(i32 2, 17) %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
@@ -29237,7 +29237,7 @@ define internal fastcc void @"_ZZNK4llvm12X86InstrInfo24setExecutionDomainCustom
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 255
   %17 = icmp eq i32 %16, 1
-  br i1 %17, label %18, label %198
+  br i1 %17, label %18, label %194
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -29294,295 +29294,306 @@ _ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit:          ; preds = %.lr.ph.i, %45, %.lr
   %48 = load i32, ptr %47, align 4
   switch i32 %48, label %_ZL15AdjustBlendMaskjjjPj.exit [
     i32 1, label %49
-    i32 2, label %79
-    i32 3, label %109
+    i32 2, label %78
+    i32 3, label %107
   ]
 
 49:                                               ; preds = %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit
   %50 = select i1 %2, i32 8, i32 4
-  %51 = add nsw i32 %50, -1
-  %52 = and i32 %51, %1
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %69
+  %.lhs.trunc.i = trunc nuw nsw i32 %1 to i8
+  %.rhs.trunc.i = trunc nuw nsw i32 %50 to i8
+  %51 = add nuw nsw i8 %.rhs.trunc.i, 31
+  %52 = and i8 %51, %.lhs.trunc.i
+  %53 = icmp eq i8 %52, 0
+  br i1 %53, label %54, label %68
 
 54:                                               ; preds = %49
-  %55 = select i1 %2, i32 3, i32 2
-  %56 = lshr i32 %1, %55
-  %notmask38.i = shl nsw i32 -1, %56
-  %57 = xor i32 %notmask38.i, -1
-  br label %58
+  %55 = udiv i8 %.lhs.trunc.i, %.rhs.trunc.i
+  %.zext44.i = zext nneg i8 %55 to i32
+  %notmask38.i = shl nsw i32 -1, %.zext44.i
+  %56 = xor i32 %notmask38.i, -1
+  br label %57
 
-58:                                               ; preds = %67, %54
-  %.03348.i = phi i32 [ 0, %54 ], [ %.1.i, %67 ]
-  %.03447.i = phi i32 [ 0, %54 ], [ %68, %67 ]
-  %59 = mul i32 %.03447.i, %56
-  %60 = lshr i32 %26, %59
-  %61 = and i32 %60, %57
-  %62 = icmp eq i32 %61, %57
-  br i1 %62, label %63, label %66
+57:                                               ; preds = %66, %54
+  %.03354.i = phi i32 [ 0, %54 ], [ %.1.i, %66 ]
+  %.03453.i = phi i32 [ 0, %54 ], [ %67, %66 ]
+  %58 = mul nuw nsw i32 %.03453.i, %.zext44.i
+  %59 = lshr i32 %26, %58
+  %60 = and i32 %59, %56
+  %61 = icmp eq i32 %60, %56
+  br i1 %61, label %62, label %65
 
-63:                                               ; preds = %58
-  %64 = shl nuw i32 1, %.03447.i
-  %65 = or i32 %64, %.03348.i
-  br label %67
+62:                                               ; preds = %57
+  %63 = shl nuw i32 1, %.03453.i
+  %64 = or i32 %63, %.03354.i
+  br label %66
 
-66:                                               ; preds = %58
-  %.not41.i = icmp eq i32 %61, 0
-  br i1 %.not41.i, label %67, label %_ZL15AdjustBlendMaskjjjPj.exit
+65:                                               ; preds = %57
+  %.not41.i = icmp eq i32 %60, 0
+  br i1 %.not41.i, label %66, label %_ZL15AdjustBlendMaskjjjPj.exit
 
-67:                                               ; preds = %66, %63
-  %.1.i = phi i32 [ %65, %63 ], [ %.03348.i, %66 ]
-  %68 = add i32 %.03447.i, 1
-  %.not39.i = icmp eq i32 %68, %50
-  br i1 %.not39.i, label %_ZL15AdjustBlendMaskjjjPj.exit, label %58, !llvm.loop !585
+66:                                               ; preds = %65, %62
+  %.1.i = phi i32 [ %64, %62 ], [ %.03354.i, %65 ]
+  %67 = add nuw nsw i32 %.03453.i, 1
+  %.not39.i = icmp eq i32 %67, %50
+  br i1 %.not39.i, label %_ZL15AdjustBlendMaskjjjPj.exit, label %57, !llvm.loop !585
 
-69:                                               ; preds = %49
-  %70 = udiv i32 %50, %1
-  %notmask.i = shl nsw i32 -1, %70
-  %71 = xor i32 %notmask.i, -1
-  br label %72
+68:                                               ; preds = %49
+  %69 = udiv i8 %.rhs.trunc.i, %.lhs.trunc.i
+  %.zext47.i = zext nneg i8 %69 to i32
+  %notmask.i = shl nsw i32 -1, %.zext47.i
+  %70 = xor i32 %notmask.i, -1
+  br label %71
 
-72:                                               ; preds = %72, %69
-  %.046.i = phi i32 [ 0, %69 ], [ %78, %72 ]
-  %.345.i = phi i32 [ 0, %69 ], [ %.4.i, %72 ]
-  %73 = shl nuw i32 1, %.046.i
-  %74 = and i32 %73, %26
-  %.not37.i = icmp eq i32 %74, 0
-  %75 = mul i32 %.046.i, %70
-  %76 = shl i32 %71, %75
-  %77 = select i1 %.not37.i, i32 0, i32 %76
-  %.4.i = or i32 %77, %.345.i
-  %78 = add i32 %.046.i, 1
-  %.not.i29 = icmp eq i32 %78, %1
-  br i1 %.not.i29, label %_ZL15AdjustBlendMaskjjjPj.exit, label %72, !llvm.loop !586
+71:                                               ; preds = %71, %68
+  %.052.i = phi i32 [ 0, %68 ], [ %77, %71 ]
+  %.351.i = phi i32 [ 0, %68 ], [ %.4.i, %71 ]
+  %72 = shl nuw i32 1, %.052.i
+  %73 = and i32 %72, %26
+  %.not37.i = icmp eq i32 %73, 0
+  %74 = mul nuw nsw i32 %.052.i, %.zext47.i
+  %75 = shl i32 %70, %74
+  %76 = select i1 %.not37.i, i32 0, i32 %75
+  %.4.i = or i32 %76, %.351.i
+  %77 = add nuw nsw i32 %.052.i, 1
+  %.not.i29 = icmp eq i32 %77, %1
+  br i1 %.not.i29, label %_ZL15AdjustBlendMaskjjjPj.exit, label %71, !llvm.loop !586
 
-79:                                               ; preds = %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit
-  %80 = select i1 %2, i32 4, i32 2
-  %81 = add nsw i32 %80, -1
-  %82 = and i32 %81, %1
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %84, label %99
+78:                                               ; preds = %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit
+  %79 = select i1 %2, i32 4, i32 2
+  %.lhs.trunc.i30 = trunc nuw nsw i32 %1 to i8
+  %.rhs.trunc.i31 = trunc nuw nsw i32 %79 to i8
+  %80 = add nuw nsw i8 %.rhs.trunc.i31, 31
+  %81 = and i8 %80, %.lhs.trunc.i30
+  %82 = icmp eq i8 %81, 0
+  br i1 %82, label %83, label %97
 
-84:                                               ; preds = %79
-  %85 = select i1 %2, i32 2, i32 1
-  %86 = lshr i32 %1, %85
-  %notmask38.i39 = shl nsw i32 -1, %86
-  %87 = xor i32 %notmask38.i39, -1
-  br label %88
+83:                                               ; preds = %78
+  %84 = udiv i8 %.lhs.trunc.i30, %.rhs.trunc.i31
+  %.zext44.i42 = zext nneg i8 %84 to i32
+  %notmask38.i43 = shl nsw i32 -1, %.zext44.i42
+  %85 = xor i32 %notmask38.i43, -1
+  br label %86
 
-88:                                               ; preds = %97, %84
-  %.03348.i40 = phi i32 [ 0, %84 ], [ %.1.i43, %97 ]
-  %.03447.i41 = phi i32 [ 0, %84 ], [ %98, %97 ]
-  %89 = mul i32 %.03447.i41, %86
-  %90 = lshr i32 %26, %89
-  %91 = and i32 %90, %87
-  %92 = icmp eq i32 %91, %87
-  br i1 %92, label %93, label %96
+86:                                               ; preds = %95, %83
+  %.03354.i44 = phi i32 [ 0, %83 ], [ %.1.i47, %95 ]
+  %.03453.i45 = phi i32 [ 0, %83 ], [ %96, %95 ]
+  %87 = mul nuw nsw i32 %.03453.i45, %.zext44.i42
+  %88 = lshr i32 %26, %87
+  %89 = and i32 %88, %85
+  %90 = icmp eq i32 %89, %85
+  br i1 %90, label %91, label %94
 
-93:                                               ; preds = %88
-  %94 = shl nuw i32 1, %.03447.i41
-  %95 = or i32 %94, %.03348.i40
-  br label %97
+91:                                               ; preds = %86
+  %92 = shl nuw i32 1, %.03453.i45
+  %93 = or i32 %92, %.03354.i44
+  br label %95
 
-96:                                               ; preds = %88
-  %.not41.i42 = icmp eq i32 %91, 0
-  br i1 %.not41.i42, label %97, label %_ZL15AdjustBlendMaskjjjPj.exit
+94:                                               ; preds = %86
+  %.not41.i46 = icmp eq i32 %89, 0
+  br i1 %.not41.i46, label %95, label %_ZL15AdjustBlendMaskjjjPj.exit
 
-97:                                               ; preds = %96, %93
-  %.1.i43 = phi i32 [ %95, %93 ], [ %.03348.i40, %96 ]
-  %98 = add i32 %.03447.i41, 1
-  %.not39.i44 = icmp eq i32 %98, %80
-  br i1 %.not39.i44, label %_ZL15AdjustBlendMaskjjjPj.exit, label %88, !llvm.loop !585
+95:                                               ; preds = %94, %91
+  %.1.i47 = phi i32 [ %93, %91 ], [ %.03354.i44, %94 ]
+  %96 = add nuw nsw i32 %.03453.i45, 1
+  %.not39.i48 = icmp eq i32 %96, %79
+  br i1 %.not39.i48, label %_ZL15AdjustBlendMaskjjjPj.exit, label %86, !llvm.loop !585
 
-99:                                               ; preds = %79
-  %100 = udiv i32 %80, %1
-  %notmask.i30 = shl nsw i32 -1, %100
-  %101 = xor i32 %notmask.i30, -1
-  br label %102
+97:                                               ; preds = %78
+  %98 = udiv i8 %.rhs.trunc.i31, %.lhs.trunc.i30
+  %.zext47.i32 = zext nneg i8 %98 to i32
+  %notmask.i33 = shl nsw i32 -1, %.zext47.i32
+  %99 = xor i32 %notmask.i33, -1
+  br label %100
 
-102:                                              ; preds = %102, %99
-  %.046.i31 = phi i32 [ 0, %99 ], [ %108, %102 ]
-  %.345.i32 = phi i32 [ 0, %99 ], [ %.4.i34, %102 ]
-  %103 = shl nuw i32 1, %.046.i31
-  %104 = and i32 %103, %26
-  %.not37.i33 = icmp eq i32 %104, 0
-  %105 = mul i32 %.046.i31, %100
-  %106 = shl i32 %101, %105
-  %107 = select i1 %.not37.i33, i32 0, i32 %106
-  %.4.i34 = or i32 %107, %.345.i32
-  %108 = add i32 %.046.i31, 1
-  %.not.i35 = icmp eq i32 %108, %1
-  br i1 %.not.i35, label %_ZL15AdjustBlendMaskjjjPj.exit, label %102, !llvm.loop !586
+100:                                              ; preds = %100, %97
+  %.052.i34 = phi i32 [ 0, %97 ], [ %106, %100 ]
+  %.351.i35 = phi i32 [ 0, %97 ], [ %.4.i37, %100 ]
+  %101 = shl nuw i32 1, %.052.i34
+  %102 = and i32 %101, %26
+  %.not37.i36 = icmp eq i32 %102, 0
+  %103 = mul nuw nsw i32 %.052.i34, %.zext47.i32
+  %104 = shl i32 %99, %103
+  %105 = select i1 %.not37.i36, i32 0, i32 %104
+  %.4.i37 = or i32 %105, %.351.i35
+  %106 = add nuw nsw i32 %.052.i34, 1
+  %.not.i38 = icmp eq i32 %106, %1
+  br i1 %.not.i38, label %_ZL15AdjustBlendMaskjjjPj.exit, label %100, !llvm.loop !586
 
-109:                                              ; preds = %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit
-  %110 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 304
-  %113 = load i32, ptr %112, align 8
-  %114 = icmp sgt i32 %113, 7
-  br i1 %114, label %115, label %152
+107:                                              ; preds = %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 304
+  %111 = load i32, ptr %110, align 8
+  %112 = icmp sgt i32 %111, 7
+  br i1 %112, label %113, label %149
 
-115:                                              ; preds = %109
-  %116 = zext i1 %2 to i32
-  %117 = lshr i32 %1, %116
-  %.not22 = icmp eq i32 %117, 8
-  br i1 %.not22, label %_ZL15AdjustBlendMaskjjjPj.exit, label %.lr.ph.i47
+113:                                              ; preds = %107
+  %114 = zext i1 %2 to i32
+  %115 = lshr i32 %1, %114
+  %.not22 = icmp eq i32 %115, 8
+  br i1 %.not22, label %_ZL15AdjustBlendMaskjjjPj.exit, label %.lr.ph.i51
 
-.lr.ph.i47:                                       ; preds = %115, %122
-  %.01013.i48.idx = phi i64 [ %.01013.i48.add, %122 ], [ 0, %115 ]
-  %.01013.i48.ptr = getelementptr inbounds i8, ptr @_ZL26ReplaceableBlendAVX2Instrs, i64 %.01013.i48.idx
-  %118 = getelementptr inbounds [3 x i16], ptr %.01013.i48.ptr, i64 0, i64 %35
-  %119 = load i16, ptr %118, align 2
-  %120 = zext i16 %119 to i32
-  %121 = icmp eq i32 %29, %120
-  br i1 %121, label %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit51, label %122
+.lr.ph.i51:                                       ; preds = %113, %120
+  %.01013.i52.idx = phi i64 [ %.01013.i52.add, %120 ], [ 0, %113 ]
+  %.01013.i52.ptr = getelementptr inbounds i8, ptr @_ZL26ReplaceableBlendAVX2Instrs, i64 %.01013.i52.idx
+  %116 = getelementptr inbounds [3 x i16], ptr %.01013.i52.ptr, i64 0, i64 %35
+  %117 = load i16, ptr %116, align 2
+  %118 = zext i16 %117 to i32
+  %119 = icmp eq i32 %29, %118
+  br i1 %119, label %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit55, label %120
 
-122:                                              ; preds = %.lr.ph.i47
-  %.01013.i48.add = add nuw nsw i64 %.01013.i48.idx, 6
-  %.not.i49 = icmp eq i64 %.01013.i48.add, 24
-  br i1 %.not.i49, label %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit51, label %.lr.ph.i47
+120:                                              ; preds = %.lr.ph.i51
+  %.01013.i52.add = add nuw nsw i64 %.01013.i52.idx, 6
+  %.not.i53 = icmp eq i64 %.01013.i52.add, 24
+  br i1 %.not.i53, label %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit55, label %.lr.ph.i51
 
-_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit51:        ; preds = %.lr.ph.i47, %122
-  %.0.i50 = phi ptr [ null, %122 ], [ %.01013.i48.ptr, %.lr.ph.i47 ]
-  %123 = select i1 %2, i32 8, i32 4
-  %124 = add nsw i32 %123, -1
-  %125 = and i32 %124, %1
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %142
+_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit55:        ; preds = %.lr.ph.i51, %120
+  %.0.i54 = phi ptr [ null, %120 ], [ %.01013.i52.ptr, %.lr.ph.i51 ]
+  %121 = select i1 %2, i32 8, i32 4
+  %.lhs.trunc.i56 = trunc nuw nsw i32 %1 to i8
+  %.rhs.trunc.i57 = trunc nuw nsw i32 %121 to i8
+  %122 = add nuw nsw i8 %.rhs.trunc.i57, 31
+  %123 = and i8 %122, %.lhs.trunc.i56
+  %124 = icmp eq i8 %123, 0
+  br i1 %124, label %125, label %139
 
-127:                                              ; preds = %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit51
-  %128 = select i1 %2, i32 3, i32 2
-  %129 = lshr i32 %1, %128
-  %notmask38.i61 = shl nsw i32 -1, %129
-  %130 = xor i32 %notmask38.i61, -1
-  br label %131
+125:                                              ; preds = %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit55
+  %126 = udiv i8 %.lhs.trunc.i56, %.rhs.trunc.i57
+  %.zext44.i68 = zext nneg i8 %126 to i32
+  %notmask38.i69 = shl nsw i32 -1, %.zext44.i68
+  %127 = xor i32 %notmask38.i69, -1
+  br label %128
 
-131:                                              ; preds = %140, %127
-  %.03348.i62 = phi i32 [ 0, %127 ], [ %.1.i65, %140 ]
-  %.03447.i63 = phi i32 [ 0, %127 ], [ %141, %140 ]
-  %132 = mul i32 %.03447.i63, %129
-  %133 = lshr i32 %26, %132
-  %134 = and i32 %133, %130
-  %135 = icmp eq i32 %134, %130
-  br i1 %135, label %136, label %139
+128:                                              ; preds = %137, %125
+  %.03354.i70 = phi i32 [ 0, %125 ], [ %.1.i73, %137 ]
+  %.03453.i71 = phi i32 [ 0, %125 ], [ %138, %137 ]
+  %129 = mul nuw nsw i32 %.03453.i71, %.zext44.i68
+  %130 = lshr i32 %26, %129
+  %131 = and i32 %130, %127
+  %132 = icmp eq i32 %131, %127
+  br i1 %132, label %133, label %136
 
-136:                                              ; preds = %131
-  %137 = shl nuw i32 1, %.03447.i63
-  %138 = or i32 %137, %.03348.i62
-  br label %140
+133:                                              ; preds = %128
+  %134 = shl nuw i32 1, %.03453.i71
+  %135 = or i32 %134, %.03354.i70
+  br label %137
 
-139:                                              ; preds = %131
-  %.not41.i64 = icmp eq i32 %134, 0
-  br i1 %.not41.i64, label %140, label %_ZL15AdjustBlendMaskjjjPj.exit
+136:                                              ; preds = %128
+  %.not41.i72 = icmp eq i32 %131, 0
+  br i1 %.not41.i72, label %137, label %_ZL15AdjustBlendMaskjjjPj.exit
 
-140:                                              ; preds = %139, %136
-  %.1.i65 = phi i32 [ %138, %136 ], [ %.03348.i62, %139 ]
-  %141 = add i32 %.03447.i63, 1
-  %.not39.i66 = icmp eq i32 %141, %123
-  br i1 %.not39.i66, label %_ZL15AdjustBlendMaskjjjPj.exit, label %131, !llvm.loop !585
+137:                                              ; preds = %136, %133
+  %.1.i73 = phi i32 [ %135, %133 ], [ %.03354.i70, %136 ]
+  %138 = add nuw nsw i32 %.03453.i71, 1
+  %.not39.i74 = icmp eq i32 %138, %121
+  br i1 %.not39.i74, label %_ZL15AdjustBlendMaskjjjPj.exit, label %128, !llvm.loop !585
 
-142:                                              ; preds = %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit51
-  %143 = udiv i32 %123, %1
-  %notmask.i52 = shl nsw i32 -1, %143
-  %144 = xor i32 %notmask.i52, -1
-  br label %145
+139:                                              ; preds = %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit55
+  %140 = udiv i8 %.rhs.trunc.i57, %.lhs.trunc.i56
+  %.zext47.i58 = zext nneg i8 %140 to i32
+  %notmask.i59 = shl nsw i32 -1, %.zext47.i58
+  %141 = xor i32 %notmask.i59, -1
+  br label %142
 
-145:                                              ; preds = %145, %142
-  %.046.i53 = phi i32 [ 0, %142 ], [ %151, %145 ]
-  %.345.i54 = phi i32 [ 0, %142 ], [ %.4.i56, %145 ]
-  %146 = shl nuw i32 1, %.046.i53
-  %147 = and i32 %146, %26
-  %.not37.i55 = icmp eq i32 %147, 0
-  %148 = mul i32 %.046.i53, %143
-  %149 = shl i32 %144, %148
-  %150 = select i1 %.not37.i55, i32 0, i32 %149
-  %.4.i56 = or i32 %150, %.345.i54
-  %151 = add i32 %.046.i53, 1
-  %.not.i57 = icmp eq i32 %151, %1
-  br i1 %.not.i57, label %_ZL15AdjustBlendMaskjjjPj.exit, label %145, !llvm.loop !586
+142:                                              ; preds = %142, %139
+  %.052.i60 = phi i32 [ 0, %139 ], [ %148, %142 ]
+  %.351.i61 = phi i32 [ 0, %139 ], [ %.4.i63, %142 ]
+  %143 = shl nuw i32 1, %.052.i60
+  %144 = and i32 %143, %26
+  %.not37.i62 = icmp eq i32 %144, 0
+  %145 = mul nuw nsw i32 %.052.i60, %.zext47.i58
+  %146 = shl i32 %141, %145
+  %147 = select i1 %.not37.i62, i32 0, i32 %146
+  %.4.i63 = or i32 %147, %.351.i61
+  %148 = add nuw nsw i32 %.052.i60, 1
+  %.not.i64 = icmp eq i32 %148, %1
+  br i1 %.not.i64, label %_ZL15AdjustBlendMaskjjjPj.exit, label %142, !llvm.loop !586
 
-152:                                              ; preds = %109
-  %153 = and i32 %1, 7
-  %154 = icmp eq i32 %153, 0
-  br i1 %154, label %155, label %169
+149:                                              ; preds = %107
+  %.lhs.trunc.i76 = trunc nuw nsw i32 %1 to i8
+  %150 = and i8 %.lhs.trunc.i76, 7
+  %151 = icmp eq i8 %150, 0
+  br i1 %151, label %152, label %165
 
-155:                                              ; preds = %152
-  %156 = lshr exact i32 %1, 3
-  %notmask38.i77 = shl nsw i32 -1, %156
-  %157 = xor i32 %notmask38.i77, -1
-  br label %158
+152:                                              ; preds = %149
+  %.zext44.i87 = lshr i32 %1, 3
+  %notmask38.i88 = shl nsw i32 -1, %.zext44.i87
+  %153 = xor i32 %notmask38.i88, -1
+  br label %154
 
-158:                                              ; preds = %167, %155
-  %.03348.i78 = phi i32 [ 0, %155 ], [ %.1.i81, %167 ]
-  %.03447.i79 = phi i32 [ 0, %155 ], [ %168, %167 ]
-  %159 = mul nuw i32 %.03447.i79, %156
-  %160 = lshr i32 %26, %159
-  %161 = and i32 %160, %157
-  %162 = icmp eq i32 %161, %157
-  br i1 %162, label %163, label %166
+154:                                              ; preds = %163, %152
+  %.03354.i89 = phi i32 [ 0, %152 ], [ %.1.i92, %163 ]
+  %.03453.i90 = phi i32 [ 0, %152 ], [ %164, %163 ]
+  %155 = mul nuw nsw i32 %.03453.i90, %.zext44.i87
+  %156 = lshr i32 %26, %155
+  %157 = and i32 %156, %153
+  %158 = icmp eq i32 %157, %153
+  br i1 %158, label %159, label %162
 
-163:                                              ; preds = %158
-  %164 = shl nuw i32 1, %.03447.i79
-  %165 = or i32 %164, %.03348.i78
-  br label %167
+159:                                              ; preds = %154
+  %160 = shl nuw i32 1, %.03453.i90
+  %161 = or i32 %160, %.03354.i89
+  br label %163
 
-166:                                              ; preds = %158
-  %.not41.i80 = icmp eq i32 %161, 0
-  br i1 %.not41.i80, label %167, label %_ZL15AdjustBlendMaskjjjPj.exit
+162:                                              ; preds = %154
+  %.not41.i91 = icmp eq i32 %157, 0
+  br i1 %.not41.i91, label %163, label %_ZL15AdjustBlendMaskjjjPj.exit
 
-167:                                              ; preds = %166, %163
-  %.1.i81 = phi i32 [ %165, %163 ], [ %.03348.i78, %166 ]
-  %168 = add nuw nsw i32 %.03447.i79, 1
-  %.not39.i82 = icmp eq i32 %168, 8
-  br i1 %.not39.i82, label %_ZL15AdjustBlendMaskjjjPj.exit, label %158, !llvm.loop !585
+163:                                              ; preds = %162, %159
+  %.1.i92 = phi i32 [ %161, %159 ], [ %.03354.i89, %162 ]
+  %164 = add nuw nsw i32 %.03453.i90, 1
+  %.not39.i93 = icmp eq i32 %164, 8
+  br i1 %.not39.i93, label %_ZL15AdjustBlendMaskjjjPj.exit, label %154, !llvm.loop !585
 
-169:                                              ; preds = %152
-  %170 = udiv i32 8, %1
-  %notmask.i68 = shl nsw i32 -1, %170
-  %171 = xor i32 %notmask.i68, -1
-  br label %172
+165:                                              ; preds = %149
+  %166 = udiv i8 8, %.lhs.trunc.i76
+  %.zext47.i77 = zext nneg i8 %166 to i32
+  %notmask.i78 = shl nsw i32 -1, %.zext47.i77
+  %167 = xor i32 %notmask.i78, -1
+  br label %168
 
-172:                                              ; preds = %172, %169
-  %.046.i69 = phi i32 [ 0, %169 ], [ %178, %172 ]
-  %.345.i70 = phi i32 [ 0, %169 ], [ %.4.i72, %172 ]
-  %173 = shl nuw i32 1, %.046.i69
-  %174 = and i32 %173, %26
-  %.not37.i71 = icmp eq i32 %174, 0
-  %175 = mul i32 %.046.i69, %170
-  %176 = shl i32 %171, %175
-  %177 = select i1 %.not37.i71, i32 0, i32 %176
-  %.4.i72 = or i32 %177, %.345.i70
-  %178 = add i32 %.046.i69, 1
-  %.not.i73 = icmp eq i32 %178, %1
-  br i1 %.not.i73, label %_ZL15AdjustBlendMaskjjjPj.exit, label %172, !llvm.loop !586
+168:                                              ; preds = %168, %165
+  %.052.i79 = phi i32 [ 0, %165 ], [ %174, %168 ]
+  %.351.i80 = phi i32 [ 0, %165 ], [ %.4.i82, %168 ]
+  %169 = shl nuw i32 1, %.052.i79
+  %170 = and i32 %169, %26
+  %.not37.i81 = icmp eq i32 %170, 0
+  %171 = mul nuw nsw i32 %.052.i79, %.zext47.i77
+  %172 = shl i32 %167, %171
+  %173 = select i1 %.not37.i81, i32 0, i32 %172
+  %.4.i82 = or i32 %173, %.351.i80
+  %174 = add nuw nsw i32 %.052.i79, 1
+  %.not.i83 = icmp eq i32 %174, %1
+  br i1 %.not.i83, label %_ZL15AdjustBlendMaskjjjPj.exit, label %168, !llvm.loop !586
 
-_ZL15AdjustBlendMaskjjjPj.exit:                   ; preds = %172, %166, %167, %145, %139, %140, %102, %96, %97, %72, %66, %67, %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit, %115
-  %.088 = phi i32 [ %26, %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit ], [ %26, %115 ], [ %.1.i, %67 ], [ %26, %66 ], [ %.4.i, %72 ], [ %.1.i43, %97 ], [ %26, %96 ], [ %.4.i34, %102 ], [ %.1.i65, %140 ], [ %26, %139 ], [ %.4.i56, %145 ], [ %.1.i81, %167 ], [ %26, %166 ], [ %.4.i72, %172 ]
-  %.1 = phi ptr [ %.0, %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit ], [ %.0, %115 ], [ %.0, %67 ], [ %.0, %66 ], [ %.0, %72 ], [ %.0, %97 ], [ %.0, %96 ], [ %.0, %102 ], [ %.0.i50, %140 ], [ %.0.i50, %139 ], [ %.0.i50, %145 ], [ %.0, %167 ], [ %.0, %166 ], [ %.0, %172 ]
-  %179 = getelementptr inbounds i8, ptr %5, i64 8
-  %180 = add i32 %48, -1
-  %181 = zext i32 %180 to i64
-  %182 = getelementptr inbounds i16, ptr %.1, i64 %181
-  %183 = load i16, ptr %182, align 2
-  %184 = load ptr, ptr %179, align 8
-  %185 = zext i16 %183 to i64
-  %186 = sub nsw i64 0, %185
-  %187 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %184, i64 %186
-  tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %6, ptr noundef nonnull align 8 dereferenceable(32) %187) #29
-  %188 = load ptr, ptr %0, align 8
-  %189 = load ptr, ptr %7, align 8
-  %190 = load i32, ptr %189, align 4
-  %191 = add i32 %190, -1
-  %192 = getelementptr inbounds nuw i8, ptr %188, i64 32
-  %193 = load ptr, ptr %192, align 8
-  %194 = zext i32 %191 to i64
-  %195 = and i32 %.088, 255
-  %196 = zext nneg i32 %195 to i64
-  %197 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %193, i64 %194, i32 3
-  store i64 %196, ptr %197, align 8
-  br label %198
+_ZL15AdjustBlendMaskjjjPj.exit:                   ; preds = %168, %162, %163, %142, %136, %137, %100, %94, %95, %71, %65, %66, %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit, %113
+  %.099 = phi i32 [ %26, %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit ], [ %26, %113 ], [ %.1.i, %66 ], [ %26, %65 ], [ %.4.i, %71 ], [ %.1.i47, %95 ], [ %26, %94 ], [ %.4.i37, %100 ], [ %.1.i73, %137 ], [ %26, %136 ], [ %.4.i63, %142 ], [ %.1.i92, %163 ], [ %26, %162 ], [ %.4.i82, %168 ]
+  %.1 = phi ptr [ %.0, %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit ], [ %.0, %113 ], [ %.0, %66 ], [ %.0, %65 ], [ %.0, %71 ], [ %.0, %95 ], [ %.0, %94 ], [ %.0, %100 ], [ %.0.i54, %137 ], [ %.0.i54, %136 ], [ %.0.i54, %142 ], [ %.0, %163 ], [ %.0, %162 ], [ %.0, %168 ]
+  %175 = getelementptr inbounds i8, ptr %5, i64 8
+  %176 = add i32 %48, -1
+  %177 = zext i32 %176 to i64
+  %178 = getelementptr inbounds i16, ptr %.1, i64 %177
+  %179 = load i16, ptr %178, align 2
+  %180 = load ptr, ptr %175, align 8
+  %181 = zext i16 %179 to i64
+  %182 = sub nsw i64 0, %181
+  %183 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %180, i64 %182
+  tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %6, ptr noundef nonnull align 8 dereferenceable(32) %183) #29
+  %184 = load ptr, ptr %0, align 8
+  %185 = load ptr, ptr %7, align 8
+  %186 = load i32, ptr %185, align 4
+  %187 = add i32 %186, -1
+  %188 = getelementptr inbounds nuw i8, ptr %184, i64 32
+  %189 = load ptr, ptr %188, align 8
+  %190 = zext i32 %187 to i64
+  %191 = and i32 %.099, 255
+  %192 = zext nneg i32 %191 to i64
+  %193 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %189, i64 %190, i32 3
+  store i64 %192, ptr %193, align 8
+  br label %194
 
-198:                                              ; preds = %_ZL15AdjustBlendMaskjjjPj.exit, %3
+194:                                              ; preds = %_ZL15AdjustBlendMaskjjjPj.exit, %3
   ret void
 }
 
@@ -36498,7 +36509,7 @@ _ZNK4llvm19MachineInstrBuilder15setMMRAMetadataEPNS_6MDNodeE.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11addOperandsRN4llvm19MachineInstrBuilderENS_8ArrayRefINS_14MachineOperandEEEi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1, i64 %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @_ZL11addOperandsRN4llvm19MachineInstrBuilderENS_8ArrayRefINS_14MachineOperandEEEi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1, i64 %2, i32 noundef range(i32 0, 13) %3) unnamed_addr #1 {
   %5 = alloca %"class.llvm::MachineOperand", align 8
   %6 = alloca %"class.llvm::MachineOperand", align 8
   %7 = alloca %"class.llvm::MachineOperand", align 8
@@ -36561,7 +36572,7 @@ define internal fastcc void @_ZL11addOperandsRN4llvm19MachineInstrBuilderENS_8Ar
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %28, ptr noundef nonnull align 8 dereferenceable(1041) %29, ptr noundef nonnull align 8 dereferenceable(32) %7) #29
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  %30 = sext i32 %3 to i64
+  %30 = zext nneg i32 %3 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %31 = load ptr, ptr %23, align 8
   %32 = load ptr, ptr %0, align 8

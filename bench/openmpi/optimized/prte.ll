@@ -784,7 +784,7 @@ pmix_cmd_line_get_param.exit656:                  ; preds = %.lr.ph.i651
   br label %pmix_cmd_line_get_param.exit656.thread
 
 pmix_cmd_line_get_param.exit656.thread:           ; preds = %263, %258, %pmix_cmd_line_get_param.exit656
-  %269 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %18, ptr noundef nonnull @.str.34)
+  %269 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %18, ptr noundef nonnull @.str.34)
   br i1 %269, label %270, label %271
 
 270:                                              ; preds = %pmix_cmd_line_get_param.exit656.thread
@@ -792,7 +792,7 @@ pmix_cmd_line_get_param.exit656.thread:           ; preds = %263, %258, %pmix_cm
   br label %271
 
 271:                                              ; preds = %270, %pmix_cmd_line_get_param.exit656.thread
-  %272 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %18, ptr noundef nonnull @.str.35)
+  %272 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %18, ptr noundef nonnull @.str.35)
   br i1 %272, label %273, label %274
 
 273:                                              ; preds = %271
@@ -800,7 +800,7 @@ pmix_cmd_line_get_param.exit656.thread:           ; preds = %263, %258, %pmix_cm
   br label %274
 
 274:                                              ; preds = %273, %271
-  %275 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %18, ptr noundef nonnull @.str.36)
+  %275 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %18, ptr noundef nonnull @.str.36)
   br i1 %275, label %276, label %277
 
 276:                                              ; preds = %274
@@ -808,7 +808,7 @@ pmix_cmd_line_get_param.exit656.thread:           ; preds = %263, %258, %pmix_cm
   br label %277
 
 277:                                              ; preds = %276, %274
-  %278 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %18, ptr noundef nonnull @.str.37)
+  %278 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %18, ptr noundef nonnull @.str.37)
   br i1 %278, label %279, label %285
 
 279:                                              ; preds = %277
@@ -821,7 +821,7 @@ pmix_cmd_line_get_param.exit656.thread:           ; preds = %263, %258, %pmix_cm
   br label %289
 
 285:                                              ; preds = %277
-  %286 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %18, ptr noundef nonnull @.str.38)
+  %286 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %18, ptr noundef nonnull @.str.38)
   br i1 %286, label %287, label %289
 
 287:                                              ; preds = %285
@@ -829,11 +829,11 @@ pmix_cmd_line_get_param.exit656.thread:           ; preds = %263, %258, %pmix_cm
   br label %289
 
 289:                                              ; preds = %285, %287, %279
-  %290 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %18, ptr noundef nonnull @.str.39)
+  %290 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %18, ptr noundef nonnull @.str.39)
   %not.962 = xor i1 %290, true
   %. = zext i1 %not.962 to i8
   store i8 %., ptr getelementptr inbounds (i8, ptr @prte_state_base, i64 4), align 4
-  %291 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %18, ptr noundef nonnull @.str.40)
+  %291 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %18, ptr noundef nonnull @.str.40)
   br i1 %291, label %292, label %294
 
 292:                                              ; preds = %289
@@ -922,7 +922,7 @@ pmix_cmd_line_get_param.exit680:                  ; preds = %.lr.ph.i675
 
 pmix_cmd_line_get_param.exit680.thread:           ; preds = %320, %pmix_cmd_line_get_param.exit672.thread, %pmix_cmd_line_get_param.exit680
   store i8 1, ptr @prte_persistent, align 1
-  %326 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %18, ptr noundef nonnull @.str.37)
+  %326 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %18, ptr noundef nonnull @.str.37)
   br i1 %326, label %370, label %327
 
 327:                                              ; preds = %pmix_cmd_line_get_param.exit680.thread
@@ -1196,7 +1196,7 @@ pmix_cmd_line_get_param.exit688.thread:           ; preds = %399, %391, %pmix_cm
   br i1 %.not569, label %453, label %451
 
 451:                                              ; preds = %.loopexit978
-  %452 = call fastcc i32 @prep_singleton(ptr noundef nonnull %450)
+  %452 = call fastcc i32 @prep_singleton(ptr noundef %450)
   br label %453
 
 453:                                              ; preds = %451, %.loopexit978
@@ -2246,7 +2246,7 @@ pmix_cmd_line_get_param.exit812:                  ; preds = %.lr.ph.i807
   br label %pmix_cmd_line_get_param.exit812.thread
 
 pmix_cmd_line_get_param.exit812.thread:           ; preds = %923, %pmix_cmd_line_get_param.exit804.thread, %pmix_cmd_line_get_param.exit812
-  %929 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %18, ptr noundef nonnull @.str.95)
+  %929 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %18, ptr noundef nonnull @.str.95)
   br i1 %929, label %930, label %932
 
 930:                                              ; preds = %pmix_cmd_line_get_param.exit812.thread
@@ -2296,7 +2296,7 @@ pmix_cmd_line_get_param.exit820:                  ; preds = %.lr.ph.i815
   br i1 %.not593, label %pmix_cmd_line_get_param.exit820.thread, label %.lr.ph1038, !llvm.loop !18
 
 pmix_cmd_line_get_param.exit820.thread:           ; preds = %937, %.lr.ph1038, %pmix_cmd_line_get_param.exit820, %932
-  %952 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %18, ptr noundef nonnull @.str.99)
+  %952 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %18, ptr noundef nonnull @.str.99)
   br i1 %952, label %953, label %955
 
 953:                                              ; preds = %pmix_cmd_line_get_param.exit820.thread
@@ -2304,7 +2304,7 @@ pmix_cmd_line_get_param.exit820.thread:           ; preds = %937, %.lr.ph1038, %
   br label %955
 
 955:                                              ; preds = %953, %pmix_cmd_line_get_param.exit820.thread
-  %956 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %18, ptr noundef nonnull @.str.101)
+  %956 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %18, ptr noundef nonnull @.str.101)
   br i1 %956, label %957, label %959
 
 957:                                              ; preds = %955
@@ -2354,7 +2354,7 @@ pmix_cmd_line_get_param.exit828:                  ; preds = %.loopexit973
   br label %975
 
 975:                                              ; preds = %973, %.loopexit973
-  %976 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %18, ptr noundef nonnull @.str.107)
+  %976 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %18, ptr noundef nonnull @.str.107)
   br i1 %976, label %977, label %979
 
 977:                                              ; preds = %975
@@ -2362,7 +2362,7 @@ pmix_cmd_line_get_param.exit828:                  ; preds = %.loopexit973
   br label %979
 
 979:                                              ; preds = %977, %975
-  %980 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %18, ptr noundef nonnull @.str.109)
+  %980 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %18, ptr noundef nonnull @.str.109)
   br i1 %980, label %981, label %983
 
 981:                                              ; preds = %979
@@ -3534,7 +3534,7 @@ declare i32 @prun_common(ptr noundef, ptr noundef, i32 noundef, ptr noundef) loc
 declare i32 @PMIx_Setenv(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #10 {
+define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 240
   %4 = getelementptr inbounds i8, ptr %0, i64 360
   %.09.i = load ptr, ptr %4, align 8
@@ -3670,9 +3670,9 @@ define internal void @signal_forward_callback(i32 noundef %0, i16 signext %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -6, 1) i32 @prep_singleton(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 -6, 1) i32 @prep_singleton(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = alloca [4097 x i8], align 16
-  %3 = tail call noalias ptr @strdup(ptr noundef %0) #20
+  %3 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #20
   %4 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 46) #21
   store i8 0, ptr %4, align 1
   %5 = getelementptr inbounds i8, ptr %4, i64 1

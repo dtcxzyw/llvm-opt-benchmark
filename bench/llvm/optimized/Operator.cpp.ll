@@ -845,7 +845,7 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %65
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
 _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %86, %94
-  %95 = call fastcc noundef zeroext i1 @"_ZZN4llvm11GEPOperator24accumulateConstantOffsetEPNS_4TypeENS_8ArrayRefIPKNS_5ValueEEERKNS_10DataLayoutERNS_5APIntENS_12function_refIFbRS4_SC_EEEENK3$_0clESB_m"(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %10, i64 noundef 1)
+  %95 = call fastcc noundef zeroext i1 @"_ZZN4llvm11GEPOperator24accumulateConstantOffsetEPNS_4TypeENS_8ArrayRefIPKNS_5ValueEEERKNS_10DataLayoutERNS_5APIntENS_12function_refIFbRS4_SC_EEEENK3$_0clESB_m"(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10, i64 noundef 1)
   %96 = load i32, ptr %46, align 8
   %97 = icmp ugt i32 %96, 64
   br i1 %97, label %98, label %_ZN4llvm5APIntD2Ev.exit52
@@ -919,7 +919,7 @@ _ZNK4llvm25generic_gep_type_iteratorIPKPKNS_5ValueEE26getSequentialElementStride
   store i64 %.pn14.i, ptr %13, align 8
   store i8 %.pn12.i, ptr %.sroa.25.0..sroa_idx, align 8
   %125 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %13) #9
-  %126 = call fastcc noundef zeroext i1 @"_ZZN4llvm11GEPOperator24accumulateConstantOffsetEPNS_4TypeENS_8ArrayRefIPKNS_5ValueEEERKNS_10DataLayoutERNS_5APIntENS_12function_refIFbRS4_SC_EEEENK3$_0clESB_m"(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %12, i64 noundef %125)
+  %126 = call fastcc noundef zeroext i1 @"_ZZN4llvm11GEPOperator24accumulateConstantOffsetEPNS_4TypeENS_8ArrayRefIPKNS_5ValueEEERKNS_10DataLayoutERNS_5APIntENS_12function_refIFbRS4_SC_EEEENK3$_0clESB_m"(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %12, i64 noundef %125)
   %127 = load i32, ptr %47, align 8
   %128 = icmp ugt i32 %127, 64
   br i1 %128, label %129, label %_ZN4llvm5APIntD2Ev.exit54
@@ -1008,7 +1008,7 @@ _ZNK4llvm25generic_gep_type_iteratorIPKPKNS_5ValueEE26getSequentialElementStride
   store i64 %.pn14.i64, ptr %16, align 8
   store i8 %.pn12.i66, ptr %.sroa.2.0..sroa_idx, align 8
   %162 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %16) #9
-  %163 = call fastcc noundef zeroext i1 @"_ZZN4llvm11GEPOperator24accumulateConstantOffsetEPNS_4TypeENS_8ArrayRefIPKNS_5ValueEEERKNS_10DataLayoutERNS_5APIntENS_12function_refIFbRS4_SC_EEEENK3$_0clESB_m"(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %15, i64 noundef %162)
+  %163 = call fastcc noundef zeroext i1 @"_ZZN4llvm11GEPOperator24accumulateConstantOffsetEPNS_4TypeENS_8ArrayRefIPKNS_5ValueEEERKNS_10DataLayoutERNS_5APIntENS_12function_refIFbRS4_SC_EEEENK3$_0clESB_m"(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %15, i64 noundef %162)
   %164 = load i32, ptr %44, align 8
   %165 = icmp ugt i32 %164, 64
   br i1 %165, label %166, label %_ZN4llvm5APIntD2Ev.exit72
@@ -1455,7 +1455,7 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %59
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
 _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %80, %88
-  call fastcc void @"_ZZNK4llvm11GEPOperator13collectOffsetERKNS_10DataLayoutEjRNS_9MapVectorIPNS_5ValueENS_5APIntENS_8DenseMapIS6_jNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEENS_11SmallVectorISt4pairIS6_S7_ELj0EEEEERS7_ENK3$_0clES7_m"(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8, i64 noundef 1)
+  call fastcc void @"_ZZNK4llvm11GEPOperator13collectOffsetERKNS_10DataLayoutEjRNS_9MapVectorIPNS_5ValueENS_5APIntENS_8DenseMapIS6_jNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEENS_11SmallVectorISt4pairIS6_S7_ELj0EEEEERS7_ENK3$_0clES7_m"(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8, i64 noundef 1)
   %89 = load i32, ptr %40, align 8
   %90 = icmp ult i32 %89, 65
   %91 = load ptr, ptr %8, align 8
@@ -1520,7 +1520,7 @@ _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE26getSequentialElementStrideERKN
   store i64 %.pn14.i, ptr %11, align 8
   store i8 %.pn12.i, ptr %.sroa.210.0..sroa_idx, align 8
   %116 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %11) #9
-  call fastcc void @"_ZZNK4llvm11GEPOperator13collectOffsetERKNS_10DataLayoutEjRNS_9MapVectorIPNS_5ValueENS_5APIntENS_8DenseMapIS6_jNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEENS_11SmallVectorISt4pairIS6_S7_ELj0EEEEERS7_ENK3$_0clES7_m"(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %10, i64 noundef %116)
+  call fastcc void @"_ZZNK4llvm11GEPOperator13collectOffsetERKNS_10DataLayoutEjRNS_9MapVectorIPNS_5ValueENS_5APIntENS_8DenseMapIS6_jNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEENS_11SmallVectorISt4pairIS6_S7_ELj0EEEEERS7_ENK3$_0clES7_m"(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %10, i64 noundef %116)
   %117 = load i32, ptr %41, align 8
   %118 = icmp ult i32 %117, 65
   %119 = load ptr, ptr %10, align 8

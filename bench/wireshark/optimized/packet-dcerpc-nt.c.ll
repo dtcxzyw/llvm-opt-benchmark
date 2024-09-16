@@ -1369,7 +1369,7 @@ define hidden i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_nt_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly %7, ptr noundef writeonly %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) unnamed_addr #0 {
+define internal fastcc i32 @dissect_nt_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly %7, ptr noundef writeonly %8, i32 noundef %9, i32 noundef %10, i32 noundef range(i32 0, 2) %11) unnamed_addr #0 {
   %13 = alloca %struct.pol_hash_key, align 1
   %14 = alloca ptr, align 8
   %15 = alloca %struct._e_ctx_hnd, align 4
@@ -1380,8 +1380,8 @@ define internal fastcc i32 @dissect_nt_hnd(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not, label %18, label %83
 
 18:                                               ; preds = %12
-  %switch = icmp eq i32 %11, 0
-  br i1 %switch, label %19, label %30
+  %trunc = trunc nuw i32 %11 to i1
+  br i1 %trunc, label %30, label %19
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds i8, ptr %4, i64 32

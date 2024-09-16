@@ -510,7 +510,7 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
   br i1 %114, label %115, label %182
 
 115:                                              ; preds = %111
-  invoke fastcc void @_ZN12_GLOBAL__N_117read_control_fileERKN5vcpkg18ReadOnlyFilesystemEONS0_4PathE(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 8 dereferenceable(32) %32)
+  invoke fastcc void @_ZN12_GLOBAL__N_117read_control_fileERKN5vcpkg18ReadOnlyFilesystemEONS0_4PathE(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 8 dereferenceable(32) %32)
           to label %116 unwind label %107
 
 116:                                              ; preds = %115
@@ -764,7 +764,7 @@ _ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESa
   br label %250
 
 182:                                              ; preds = %111
-  invoke fastcc void @_ZN12_GLOBAL__N_113read_manifestERKN5vcpkg18ReadOnlyFilesystemEONS0_4PathE(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 8 dereferenceable(32) %32)
+  invoke fastcc void @_ZN12_GLOBAL__N_113read_manifestERKN5vcpkg18ReadOnlyFilesystemEONS0_4PathE(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 8 dereferenceable(32) %32)
           to label %183 unwind label %107
 
 183:                                              ; preds = %182
@@ -1148,7 +1148,7 @@ _ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev.exit: ; preds = %_ZN5vcpkg8Opti
   br i1 %274, label %291, label %_ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev.exit93
 
 291:                                              ; preds = %290
-  invoke fastcc void @_ZN12_GLOBAL__N_113read_manifestERKN5vcpkg18ReadOnlyFilesystemEONS0_4PathE(ptr dead_on_unwind noalias nonnull writable align 8 %42, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 8 dereferenceable(32) %38)
+  invoke fastcc void @_ZN12_GLOBAL__N_113read_manifestERKN5vcpkg18ReadOnlyFilesystemEONS0_4PathE(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 8 dereferenceable(32) %38)
           to label %292 unwind label %.loopexit330
 
 292:                                              ; preds = %291
@@ -1178,7 +1178,7 @@ _ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev.exit93: ; preds = %296, %293, %
   br i1 %brmerge60, label %_ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev.exit94, label %299
 
 299:                                              ; preds = %_ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev.exit93
-  invoke fastcc void @_ZN12_GLOBAL__N_117read_control_fileERKN5vcpkg18ReadOnlyFilesystemEONS0_4PathE(ptr dead_on_unwind noalias nonnull writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 8 dereferenceable(32) %37)
+  invoke fastcc void @_ZN12_GLOBAL__N_117read_control_fileERKN5vcpkg18ReadOnlyFilesystemEONS0_4PathE(ptr dead_on_unwind noalias writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 8 dereferenceable(32) %37)
           to label %300 unwind label %.loopexit330
 
 300:                                              ; preds = %299
@@ -2365,7 +2365,7 @@ _ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE9push_backEOS1_.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117read_control_fileERKN5vcpkg18ReadOnlyFilesystemEONS0_4PathE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_117read_control_fileERKN5vcpkg18ReadOnlyFilesystemEONS0_4PathE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.vcpkg::LineInfo", align 8
   %5 = alloca %"struct.vcpkg::LineInfo", align 8
   %6 = alloca %"class.fmt::v10::format_arg_store", align 16
@@ -2807,7 +2807,7 @@ _ZN5vcpkg7details15OptionalStorageIN12_GLOBAL__N_17ToWriteELb0EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113read_manifestERKN5vcpkg18ReadOnlyFilesystemEONS0_4PathE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113read_manifestERKN5vcpkg18ReadOnlyFilesystemEONS0_4PathE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.vcpkg::LineInfo", align 8
   %5 = alloca %"struct.vcpkg::msg::TagArg", align 8
   %6 = alloca %"struct.vcpkg::msg::TagArg", align 8

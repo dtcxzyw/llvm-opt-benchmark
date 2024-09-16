@@ -2367,7 +2367,7 @@ define range(i32 -1, -2147483648) i32 @H5VLattr_optional_op(ptr noundef %0, ptr 
   %30 = tail call i32 @H5E_clear_stack() #6
   %.not = icmp eq i64 %6, 0
   %spec.select = select i1 %.not, ptr null, ptr %9
-  %31 = call fastcc i32 @H5VL__common_optional_op(i64 noundef %3, i32 noundef 7, ptr noundef nonnull @H5VL__attr_optional, ptr noundef %4, i64 noundef %5, ptr noundef %spec.select, ptr noundef nonnull %8)
+  %31 = call fastcc i32 @H5VL__common_optional_op(i64 noundef %3, i32 noundef 7, ptr noundef nonnull @H5VL__attr_optional, ptr noundef %4, i64 noundef %5, ptr noundef %spec.select, ptr noundef %8)
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %37
 
@@ -2414,7 +2414,7 @@ define range(i32 -1, -2147483648) i32 @H5VLattr_optional_op(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @H5VL__common_optional_op(i64 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @H5VL__common_optional_op(i64 noundef %0, i32 noundef range(i32 1, 8) %1, ptr nocapture noundef readonly %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = tail call ptr @H5I_object_verify(i64 noundef %0, i32 noundef %1) #6
   store ptr %8, ptr %6, align 8
   %9 = icmp eq ptr %8, null
@@ -3905,7 +3905,7 @@ define range(i32 -1, 1) i32 @H5VLdataset_optional_op(ptr noundef %0, ptr noundef
   %30 = tail call i32 @H5E_clear_stack() #6
   %.not = icmp eq i64 %6, 0
   %spec.select = select i1 %.not, ptr null, ptr %9
-  %31 = call fastcc i32 @H5VL__common_optional_op(i64 noundef %3, i32 noundef 5, ptr noundef nonnull @H5VL__dataset_optional, ptr noundef %4, i64 noundef %5, ptr noundef %spec.select, ptr noundef nonnull %8)
+  %31 = call fastcc i32 @H5VL__common_optional_op(i64 noundef %3, i32 noundef 5, ptr noundef nonnull @H5VL__dataset_optional, ptr noundef %4, i64 noundef %5, ptr noundef %spec.select, ptr noundef %8)
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %37
 
@@ -5980,7 +5980,7 @@ define range(i32 -1, 1) i32 @H5VLfile_optional_op(ptr noundef %0, ptr noundef %1
   %30 = tail call i32 @H5E_clear_stack() #6
   %.not = icmp eq i64 %6, 0
   %spec.select = select i1 %.not, ptr null, ptr %9
-  %31 = call fastcc i32 @H5VL__common_optional_op(i64 noundef %3, i32 noundef 1, ptr noundef nonnull @H5VL__file_optional, ptr noundef %4, i64 noundef %5, ptr noundef %spec.select, ptr noundef nonnull %8)
+  %31 = call fastcc i32 @H5VL__common_optional_op(i64 noundef %3, i32 noundef 1, ptr noundef nonnull @H5VL__file_optional, ptr noundef %4, i64 noundef %5, ptr noundef %spec.select, ptr noundef %8)
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %37
 
@@ -6828,7 +6828,7 @@ define range(i32 -1, -2147483648) i32 @H5VLgroup_optional_op(ptr noundef %0, ptr
   %30 = tail call i32 @H5E_clear_stack() #6
   %.not = icmp eq i64 %6, 0
   %spec.select = select i1 %.not, ptr null, ptr %9
-  %31 = call fastcc i32 @H5VL__common_optional_op(i64 noundef %3, i32 noundef 2, ptr noundef nonnull @H5VL__group_optional, ptr noundef %4, i64 noundef %5, ptr noundef %spec.select, ptr noundef nonnull %8)
+  %31 = call fastcc i32 @H5VL__common_optional_op(i64 noundef %3, i32 noundef 2, ptr noundef nonnull @H5VL__group_optional, ptr noundef %4, i64 noundef %5, ptr noundef %spec.select, ptr noundef %8)
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %37
 

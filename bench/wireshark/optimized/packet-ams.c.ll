@@ -466,13 +466,13 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ams(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 64) i32 @dissect_ams(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_amstcp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 64) i32 @dissect_amstcp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %6 = icmp ult i32 %5, 6
   br i1 %6, label %9, label %7
@@ -500,7 +500,7 @@ declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr n
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 64) i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 7) %3) unnamed_addr #0 {
   %5 = alloca [200 x i8], align 16
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -516,7 +516,7 @@ define internal fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture nounde
   br i1 %.not467, label %.thread477, label %12
 
 .thread477:                                       ; preds = %11
-  %.0460472 = add nuw nsw i32 %3, 32
+  %.0460472 = or disjoint i32 %3, 32
   br label %395
 
 12:                                               ; preds = %11
@@ -547,7 +547,7 @@ define internal fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture nounde
   %37 = add nuw nsw i32 %3, 6
   %38 = load i32, ptr @hf_ams_targetport, align 4
   %39 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %38, ptr noundef %0, i32 noundef %37, i32 noundef 2, i32 noundef -2147483648) #3
-  %40 = add nuw nsw i32 %3, 8
+  %40 = or disjoint i32 %3, 8
   %41 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %40) #3
   %42 = zext i8 %41 to i32
   %43 = add nuw nsw i32 %3, 9
@@ -571,7 +571,7 @@ define internal fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture nounde
   %61 = add nuw nsw i32 %3, 14
   %62 = load i32, ptr @hf_ams_senderport, align 4
   %63 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %62, ptr noundef %0, i32 noundef %61, i32 noundef 2, i32 noundef -2147483648) #3
-  %64 = add nuw nsw i32 %3, 16
+  %64 = or disjoint i32 %3, 16
   %65 = load i32, ptr @hf_ams_cmdid, align 4
   %66 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %65, ptr noundef %0, i32 noundef %64, i32 noundef 2, i32 noundef -2147483648) #3
   %67 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %64) #3
@@ -603,7 +603,7 @@ define internal fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture nounde
   %93 = load i32, ptr @hf_ams_cbdata, align 4
   %94 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %93, ptr noundef %0, i32 noundef %92, i32 noundef 4, i32 noundef -2147483648) #3
   %95 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %92) #3
-  %96 = add nuw nsw i32 %3, 24
+  %96 = or disjoint i32 %3, 24
   %97 = load i32, ptr @hf_ams_errorcode, align 4
   %98 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %97, ptr noundef %0, i32 noundef %96, i32 noundef 4, i32 noundef -2147483648) #3
   %99 = add nuw nsw i32 %3, 28
@@ -611,7 +611,7 @@ define internal fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture nounde
   %101 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %100, ptr noundef %0, i32 noundef %99, i32 noundef 4, i32 noundef -2147483648) #3
   %102 = zext i16 %91 to i32
   %.not485 = icmp eq i32 %95, 0
-  %.0460 = add nuw nsw i32 %3, 32
+  %.0460 = or disjoint i32 %3, 32
   %103 = and i32 %102, 4
   %.not = icmp eq i32 %103, 0
   %104 = and i32 %102, 1
@@ -651,7 +651,7 @@ define internal fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture nounde
   %119 = add nuw nsw i32 %3, 36
   %120 = load i32, ptr @hf_ams_adsindexoffset, align 4
   %121 = call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %120, ptr noundef %0, i32 noundef %119, i32 noundef 4, i32 noundef -2147483648) #3
-  %122 = add nuw nsw i32 %3, 40
+  %122 = or disjoint i32 %3, 40
   %123 = load i32, ptr @hf_ams_adscblength, align 4
   %124 = call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %123, ptr noundef %0, i32 noundef %122, i32 noundef 4, i32 noundef -2147483648) #3
   %125 = add nuw nsw i32 %3, 44
@@ -674,7 +674,7 @@ define internal fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture nounde
   %137 = add nuw nsw i32 %3, 36
   %138 = load i32, ptr @hf_ams_adsindexoffset, align 4
   %139 = call ptr @proto_tree_add_item(ptr noundef %134, i32 noundef %138, ptr noundef %0, i32 noundef %137, i32 noundef 4, i32 noundef -2147483648) #3
-  %140 = add nuw nsw i32 %3, 40
+  %140 = or disjoint i32 %3, 40
   %141 = load i32, ptr @hf_ams_adscblength, align 4
   %142 = call ptr @proto_tree_add_item(ptr noundef %134, i32 noundef %141, ptr noundef %0, i32 noundef %140, i32 noundef 4, i32 noundef -2147483648) #3
   %143 = add nuw nsw i32 %3, 44
@@ -700,13 +700,13 @@ define internal fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture nounde
   %158 = add nuw nsw i32 %3, 36
   %159 = load i32, ptr @hf_ams_adsindexoffset, align 4
   %160 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %159, ptr noundef %0, i32 noundef %158, i32 noundef 4, i32 noundef -2147483648) #3
-  %161 = add nuw nsw i32 %3, 40
+  %161 = or disjoint i32 %3, 40
   %162 = load i32, ptr @hf_ams_adscbreadlength, align 4
   %163 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %162, ptr noundef %0, i32 noundef %161, i32 noundef 4, i32 noundef -2147483648) #3
   %164 = add nuw nsw i32 %3, 44
   %165 = load i32, ptr @hf_ams_adscbwritelength, align 4
   %166 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %165, ptr noundef %0, i32 noundef %164, i32 noundef 4, i32 noundef -2147483648) #3
-  %167 = add nuw nsw i32 %3, 48
+  %167 = or disjoint i32 %3, 48
   %168 = load i32, ptr @hf_ams_adsdata, align 4
   %169 = sub i32 %6, %167
   %170 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %168, ptr noundef %0, i32 noundef %167, i32 noundef %169, i32 noundef 0) #3
@@ -751,7 +751,7 @@ define internal fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture nounde
   %197 = add nuw nsw i32 %3, 36
   %198 = load i32, ptr @hf_ams_adscblength, align 4
   %199 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %198, ptr noundef %0, i32 noundef %197, i32 noundef 4, i32 noundef -2147483648) #3
-  %200 = add nuw nsw i32 %3, 40
+  %200 = or disjoint i32 %3, 40
   %201 = load i32, ptr @hf_ams_adsdata, align 4
   %202 = sub i32 %6, %200
   %203 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %201, ptr noundef %0, i32 noundef %200, i32 noundef %202, i32 noundef 0) #3
@@ -793,19 +793,19 @@ define internal fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture nounde
   %227 = add nuw nsw i32 %3, 36
   %228 = load i32, ptr @hf_ams_adsindexoffset, align 4
   %229 = call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %228, ptr noundef %0, i32 noundef %227, i32 noundef 4, i32 noundef -2147483648) #3
-  %230 = add nuw nsw i32 %3, 40
+  %230 = or disjoint i32 %3, 40
   %231 = load i32, ptr @hf_ams_adscblength, align 4
   %232 = call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %231, ptr noundef %0, i32 noundef %230, i32 noundef 4, i32 noundef -2147483648) #3
   %233 = add nuw nsw i32 %3, 44
   %234 = load i32, ptr @hf_ams_adstransmode, align 4
   %235 = call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %234, ptr noundef %0, i32 noundef %233, i32 noundef 4, i32 noundef -2147483648) #3
-  %236 = add nuw nsw i32 %3, 48
+  %236 = or disjoint i32 %3, 48
   %237 = load i32, ptr @hf_ams_adsmaxdelay, align 4
   %238 = call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %237, ptr noundef %0, i32 noundef %236, i32 noundef 4, i32 noundef -2147483648) #3
   %239 = add nuw nsw i32 %3, 52
   %240 = load i32, ptr @hf_ams_adscycletime, align 4
   %241 = call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %240, ptr noundef %0, i32 noundef %239, i32 noundef 4, i32 noundef -2147483648) #3
-  %242 = add nuw nsw i32 %3, 56
+  %242 = or disjoint i32 %3, 56
   br label %401
 
 243:                                              ; preds = %107
@@ -841,7 +841,7 @@ define internal fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture nounde
   %265 = add nuw nsw i32 %3, 36
   %266 = load i32, ptr @hf_ams_adsnoteblocksstamps, align 4
   %267 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %266, ptr noundef %0, i32 noundef %265, i32 noundef 4, i32 noundef -2147483648) #3
-  %268 = add nuw nsw i32 %3, 40
+  %268 = or disjoint i32 %3, 40
   br label %401
 
 269:                                              ; preds = %106
@@ -873,7 +873,7 @@ define internal fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture nounde
   %281 = add nuw nsw i32 %3, 36
   %282 = load i32, ptr @hf_ams_adscblength, align 4
   %283 = call ptr @proto_tree_add_item(ptr noundef %278, i32 noundef %282, ptr noundef %0, i32 noundef %281, i32 noundef 4, i32 noundef -2147483648) #3
-  %284 = add nuw nsw i32 %3, 40
+  %284 = or disjoint i32 %3, 40
   %285 = load i32, ptr @hf_ams_adsdata, align 4
   %286 = sub i32 %6, %284
   %287 = call ptr @proto_tree_add_item(ptr noundef %278, i32 noundef %285, ptr noundef %0, i32 noundef %284, i32 noundef %286, i32 noundef 0) #3
@@ -912,7 +912,7 @@ define internal fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture nounde
   %310 = add nuw nsw i32 %3, 36
   %311 = load i32, ptr @hf_ams_adscblength, align 4
   %312 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %311, ptr noundef %0, i32 noundef %310, i32 noundef 4, i32 noundef -2147483648) #3
-  %313 = add nuw nsw i32 %3, 40
+  %313 = or disjoint i32 %3, 40
   %314 = load i32, ptr @hf_ams_adsdata, align 4
   %315 = sub i32 %6, %313
   %316 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %314, ptr noundef %0, i32 noundef %313, i32 noundef %315, i32 noundef 0) #3
@@ -979,7 +979,7 @@ define internal fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture nounde
   %362 = call ptr @proto_tree_add_item(ptr noundef %353, i32 noundef %360, ptr noundef %0, i32 noundef %358, i32 noundef 1, i32 noundef -2147483648) #3
   %363 = load i32, ptr @hf_ams_adsversionbuild, align 4
   %364 = call ptr @proto_tree_add_item(ptr noundef %353, i32 noundef %363, ptr noundef %0, i32 noundef %361, i32 noundef 2, i32 noundef -2147483648) #3
-  %365 = add nuw nsw i32 %3, 40
+  %365 = or disjoint i32 %3, 40
   %366 = load i32, ptr @hf_ams_adsdevicename, align 4
   %367 = sub i32 %6, %365
   %368 = call ptr @proto_tree_add_item(ptr noundef %353, i32 noundef %366, ptr noundef %0, i32 noundef %365, i32 noundef %367, i32 noundef 0) #3

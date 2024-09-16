@@ -25,7 +25,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ossl_obj_find_sigid_algs(i32 noundef %signid, ptr noundef writeonly %pdig_nid, ptr noundef writeonly %ppkey_nid, i32 noundef %lock) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ossl_obj_find_sigid_algs(i32 noundef %signid, ptr noundef writeonly %pdig_nid, ptr noundef writeonly %ppkey_nid, i32 noundef range(i32 0, 2) %lock) unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.nid_triple, align 4
   %cmp = icmp eq i32 %signid, 0

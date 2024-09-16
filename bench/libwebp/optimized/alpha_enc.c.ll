@@ -256,7 +256,7 @@ GetFilterMap.exit.i.i:                            ; preds = %78, %GetNumColors.e
   br i1 %.not52.i.i, label %103, label %95
 
 95:                                               ; preds = %93
-  %96 = call fastcc i32 @EncodeAlphaInternal(ptr noundef nonnull %37, i32 noundef %22, i32 noundef %24, i32 noundef %18, i32 noundef %.04561.i.i, i32 noundef %28, i32 noundef %9, ptr noundef nonnull %90, ptr noundef nonnull %5)
+  %96 = call fastcc i32 @EncodeAlphaInternal(ptr noundef %37, i32 noundef %22, i32 noundef %24, i32 noundef %18, i32 noundef %.04561.i.i, i32 noundef %28, i32 noundef %9, ptr noundef nonnull %90, ptr noundef %5)
   %.not53.i.i = icmp eq i32 %96, 0
   br i1 %.not53.i.i, label %102, label %97
 
@@ -290,7 +290,7 @@ GetFilterMap.exit.i.i:                            ; preds = %78, %GetNumColors.e
 
 110:                                              ; preds = %GetFilterMap.exit.i.i, %GetFilterMap.exit.thread.i.i
   %111 = phi ptr [ %60, %GetFilterMap.exit.thread.i.i ], [ %86, %GetFilterMap.exit.i.i ]
-  %112 = call fastcc i32 @EncodeAlphaInternal(ptr noundef nonnull %37, i32 noundef %22, i32 noundef %24, i32 noundef %18, i32 noundef 0, i32 noundef %28, i32 noundef %9, ptr noundef null, ptr noundef nonnull %4)
+  %112 = call fastcc i32 @EncodeAlphaInternal(ptr noundef %37, i32 noundef %22, i32 noundef %24, i32 noundef %18, i32 noundef 0, i32 noundef %28, i32 noundef %9, ptr noundef null, ptr noundef %4)
   br label %113
 
 113:                                              ; preds = %110, %109
@@ -539,7 +539,7 @@ declare i32 @QuantizeLevels(ptr noundef, i32 noundef, i32 noundef, i32 noundef, 
 declare void @VP8FiltersInit() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6, ptr noundef %7, ptr noundef nonnull %8) unnamed_addr #0 {
   %10 = alloca %struct.WebPConfig, align 4
   %11 = alloca %struct.WebPPicture, align 8
   %12 = alloca i8, align 1
@@ -553,13 +553,13 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef %0, 
   br i1 %.not, label %20, label %19
 
 19:                                               ; preds = %9
-  tail call void %18(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %1, ptr noundef %7) #5
+  tail call void %18(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %1, ptr noundef %7) #5
   br label %20
 
 20:                                               ; preds = %9, %19
   %.050 = phi ptr [ %7, %19 ], [ %0, %9 ]
   %.not58 = icmp eq i32 %3, 0
-  br i1 %.not58, label %74, label %21
+  br i1 %.not58, label %75, label %21
 
 21:                                               ; preds = %20
   %22 = lshr i64 %15, 3
@@ -568,7 +568,6 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef %0, 
   br i1 %.not59, label %.thread, label %24
 
 24:                                               ; preds = %21
-  %.not60 = icmp eq i32 %5, 0
   call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11)
   %25 = call i32 @WebPPictureInitInternal(ptr noundef nonnull %11, i32 noundef 528) #5
@@ -607,21 +606,22 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef %0, 
   store i32 1, ptr %42, align 4
   %43 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 %6, ptr %43, align 4
-  %44 = icmp eq i32 %6, 6
-  %or.cond.i = and i1 %.not60, %44
-  %45 = sitofp i32 %6 to float
-  %46 = fmul float %45, 8.000000e+00
-  %47 = select i1 %or.cond.i, float 1.000000e+02, float %46
-  %48 = getelementptr inbounds i8, ptr %10, i64 4
-  store float %47, ptr %48, align 4
-  %49 = call i32 @VP8LEncodeStream(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13) #5
+  %44 = icmp eq i32 %5, 0
+  %45 = icmp eq i32 %6, 6
+  %or.cond.i = and i1 %44, %45
+  %46 = sitofp i32 %6 to float
+  %47 = fmul float %46, 8.000000e+00
+  %48 = select i1 %or.cond.i, float 1.000000e+02, float %47
+  %49 = getelementptr inbounds i8, ptr %10, i64 4
+  store float %48, ptr %49, align 4
+  %50 = call i32 @VP8LEncodeStream(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13) #5
   call void @WebPPictureFree(ptr noundef nonnull %11) #5
-  %.not17.i = icmp ne i32 %49, 0
-  %50 = getelementptr inbounds i8, ptr %13, i64 40
-  %51 = load i32, ptr %50, align 8
-  %.not18.i = icmp eq i32 %51, 0
+  %.not17.i = icmp ne i32 %50, 0
+  %51 = getelementptr inbounds i8, ptr %13, i64 40
+  %52 = load i32, ptr %51, align 8
+  %.not18.i = icmp eq i32 %52, 0
   %or.cond = select i1 %.not17.i, i1 %.not18.i, i1 false
-  br i1 %or.cond, label %52, label %.critedge.i
+  br i1 %or.cond, label %53, label %.critedge.i
 
 .critedge.i:                                      ; preds = %41
   call void @VP8LBitWriterWipeOut(ptr noundef nonnull %13) #5
@@ -632,102 +632,102 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef %0, 
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11)
   br label %.thread
 
-52:                                               ; preds = %41
+53:                                               ; preds = %41
   call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11)
-  %53 = call ptr @VP8LBitWriterFinish(ptr noundef nonnull %13) #5
-  %54 = load i32, ptr %50, align 8
-  %.not61 = icmp eq i32 %54, 0
-  br i1 %.not61, label %57, label %55
+  %54 = call ptr @VP8LBitWriterFinish(ptr noundef nonnull %13) #5
+  %55 = load i32, ptr %51, align 8
+  %.not61 = icmp eq i32 %55, 0
+  br i1 %.not61, label %58, label %56
 
-55:                                               ; preds = %52
+56:                                               ; preds = %53
   call void @VP8LBitWriterWipeOut(ptr noundef nonnull %13) #5
-  %56 = getelementptr inbounds i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %56, i8 0, i64 48, i1 false)
-  br label %100
+  %57 = getelementptr inbounds i8, ptr %8, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %57, i8 0, i64 48, i1 false)
+  br label %101
 
-57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %13, i64 24
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %13, i64 16
-  %61 = load ptr, ptr %60, align 8
-  %62 = ptrtoint ptr %59 to i64
-  %63 = ptrtoint ptr %61 to i64
-  %64 = sub i64 %62, %63
-  %65 = getelementptr inbounds i8, ptr %13, i64 8
-  %66 = load i32, ptr %65, align 8
-  %67 = add nsw i32 %66, 7
-  %68 = ashr i32 %67, 3
-  %69 = sext i32 %68 to i64
-  %70 = add nsw i64 %64, %69
-  %71 = icmp ugt i64 %70, %15
-  br i1 %71, label %72, label %74
+58:                                               ; preds = %53
+  %59 = getelementptr inbounds i8, ptr %13, i64 24
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %13, i64 16
+  %62 = load ptr, ptr %61, align 8
+  %63 = ptrtoint ptr %60 to i64
+  %64 = ptrtoint ptr %62 to i64
+  %65 = sub i64 %63, %64
+  %66 = getelementptr inbounds i8, ptr %13, i64 8
+  %67 = load i32, ptr %66, align 8
+  %68 = add nsw i32 %67, 7
+  %69 = ashr i32 %68, 3
+  %70 = sext i32 %69 to i64
+  %71 = add nsw i64 %65, %70
+  %72 = icmp ugt i64 %71, %15
+  br i1 %72, label %73, label %75
 
-72:                                               ; preds = %57
+73:                                               ; preds = %58
   call void @VP8LBitWriterWipeOut(ptr noundef nonnull %13) #5
-  br label %74
+  br label %75
 
 .thread:                                          ; preds = %21, %.thread67
   call void @VP8LBitWriterWipeOut(ptr noundef nonnull %13) #5
-  %73 = getelementptr inbounds i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %73, i8 0, i64 48, i1 false)
-  br label %100
+  %74 = getelementptr inbounds i8, ptr %8, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %74, i8 0, i64 48, i1 false)
+  br label %101
 
-74:                                               ; preds = %57, %20, %72
-  %75 = phi ptr [ %.050, %72 ], [ %.050, %20 ], [ %53, %57 ]
-  %.049768995 = phi i32 [ 0, %72 ], [ 0, %20 ], [ 1, %57 ]
-  %76 = phi i1 [ true, %72 ], [ true, %20 ], [ false, %57 ]
-  %77 = phi i64 [ %15, %72 ], [ %15, %20 ], [ %70, %57 ]
-  %78 = shl i32 %4, 2
-  %79 = or disjoint i32 %.049768995, %78
-  %80 = trunc i32 %79 to i8
+75:                                               ; preds = %58, %20, %73
+  %76 = phi ptr [ %.050, %73 ], [ %.050, %20 ], [ %54, %58 ]
+  %.049768995 = phi i32 [ 0, %73 ], [ 0, %20 ], [ 1, %58 ]
+  %77 = phi i1 [ true, %73 ], [ true, %20 ], [ false, %58 ]
+  %78 = phi i64 [ %15, %73 ], [ %15, %20 ], [ %71, %58 ]
+  %79 = shl i32 %4, 2
+  %80 = or disjoint i32 %.049768995, %79
+  %81 = trunc i32 %80 to i8
   %.not62 = icmp eq i32 %5, 0
-  %81 = or i8 %80, 16
-  %storemerge = select i1 %.not62, i8 %80, i8 %81
+  %82 = or i8 %81, 16
+  %storemerge = select i1 %.not62, i8 %81, i8 %82
   store i8 %storemerge, ptr %12, align 1
-  %82 = getelementptr inbounds i8, ptr %8, i64 8
-  %83 = add i64 %77, 1
-  %84 = call i32 @VP8BitWriterInit(ptr noundef nonnull %82, i64 noundef %83) #5
-  %.not63.not = icmp eq i32 %84, 0
-  br i1 %.not63.not, label %.critedge, label %85
+  %83 = getelementptr inbounds i8, ptr %8, i64 8
+  %84 = add i64 %78, 1
+  %85 = call i32 @VP8BitWriterInit(ptr noundef nonnull %83, i64 noundef %84) #5
+  %.not63.not = icmp eq i32 %85, 0
+  br i1 %.not63.not, label %.critedge, label %86
 
-85:                                               ; preds = %74
-  %86 = call i32 @VP8BitWriterAppend(ptr noundef nonnull %82, ptr noundef nonnull %12, i64 noundef 1) #5
-  %.not98 = icmp eq i32 %86, 0
-  br i1 %.not98, label %.critedge, label %87
+86:                                               ; preds = %75
+  %87 = call i32 @VP8BitWriterAppend(ptr noundef nonnull %83, ptr noundef nonnull %12, i64 noundef 1) #5
+  %.not98 = icmp eq i32 %87, 0
+  br i1 %.not98, label %.critedge, label %88
 
-87:                                               ; preds = %85
-  %88 = call i32 @VP8BitWriterAppend(ptr noundef nonnull %82, ptr noundef %75, i64 noundef %77) #5
-  %89 = icmp ne i32 %88, 0
+88:                                               ; preds = %86
+  %89 = call i32 @VP8BitWriterAppend(ptr noundef nonnull %83, ptr noundef %76, i64 noundef %78) #5
+  %90 = icmp ne i32 %89, 0
   br label %.critedge
 
-.critedge:                                        ; preds = %74, %87, %85
-  %90 = phi i1 [ false, %85 ], [ %89, %87 ], [ false, %74 ]
-  br i1 %76, label %92, label %91
+.critedge:                                        ; preds = %75, %88, %86
+  %91 = phi i1 [ false, %86 ], [ %90, %88 ], [ false, %75 ]
+  br i1 %77, label %93, label %92
 
-91:                                               ; preds = %.critedge
+92:                                               ; preds = %.critedge
   call void @VP8LBitWriterWipeOut(ptr noundef nonnull %13) #5
-  br label %92
+  br label %93
 
-92:                                               ; preds = %91, %.critedge
-  br i1 %90, label %93, label %97
+93:                                               ; preds = %92, %.critedge
+  br i1 %91, label %94, label %98
 
-93:                                               ; preds = %92
-  %94 = getelementptr inbounds i8, ptr %8, i64 48
-  %95 = load i32, ptr %94, align 8
-  %.not66 = icmp eq i32 %95, 0
-  %96 = zext i1 %.not66 to i32
-  br label %97
+94:                                               ; preds = %93
+  %95 = getelementptr inbounds i8, ptr %8, i64 48
+  %96 = load i32, ptr %95, align 8
+  %.not66 = icmp eq i32 %96, 0
+  %97 = zext i1 %.not66 to i32
+  br label %98
 
-97:                                               ; preds = %93, %92
-  %98 = phi i32 [ 0, %92 ], [ %96, %93 ]
-  %99 = getelementptr i8, ptr %8, i64 32
-  %.val = load i64, ptr %99, align 8
+98:                                               ; preds = %94, %93
+  %99 = phi i32 [ 0, %93 ], [ %97, %94 ]
+  %100 = getelementptr i8, ptr %8, i64 32
+  %.val = load i64, ptr %100, align 8
   store i64 %.val, ptr %8, align 8
-  br label %100
+  br label %101
 
-100:                                              ; preds = %97, %.thread, %55
-  %.048 = phi i32 [ 0, %55 ], [ %98, %97 ], [ 0, %.thread ]
+101:                                              ; preds = %98, %.thread, %56
+  %.048 = phi i32 [ 0, %56 ], [ %99, %98 ], [ 0, %.thread ]
   ret i32 %.048
 }
 

@@ -2546,7 +2546,7 @@ declare i32 @EVP_PKEY_keygen_init(ptr noundef) local_unnamed_addr #3
 declare i32 @EVP_PKEY_keygen(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef %line, ptr noundef %type, ptr noundef %pkey, i32 noundef %selection, ptr noundef %output_type, ptr noundef %output_structure, ptr noundef %pass, ptr noundef %pcipher, ptr nocapture noundef readonly %encode_cb, ptr nocapture noundef readonly %test_cb, ptr nocapture noundef readonly %check_cb, ptr nocapture noundef readonly %dump_cb, i32 noundef %flags) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef range(i32 555, 871) %line, ptr noundef %type, ptr noundef %pkey, i32 noundef range(i32 4, 136) %selection, ptr noundef %output_type, ptr noundef %output_structure, ptr noundef %pass, ptr noundef %pcipher, ptr nocapture noundef readonly %encode_cb, ptr nocapture noundef readonly %test_cb, ptr nocapture noundef readonly %check_cb, ptr nocapture noundef readonly %dump_cb, i32 noundef range(i32 0, 3) %flags) unnamed_addr #1 {
 entry:
   %encoded = alloca ptr, align 8
   %encoded_len = alloca i64, align 8
@@ -2568,8 +2568,7 @@ entry:
   br i1 %tobool.not, label %if.then100, label %if.end
 
 if.end:                                           ; preds = %entry
-  %and = and i32 %flags, 2
-  %cmp2 = icmp ne i32 %and, 0
+  %cmp2 = icmp ugt i32 %flags, 1
   %.b = load i1, ptr @is_fips, align 4
   %or.cond = select i1 %cmp2, i1 %.b, i1 false
   %0 = load i32, ptr @is_fips_3_0_0, align 4
@@ -2678,10 +2677,7 @@ land.lhs.true94:                                  ; preds = %if.end88
   br i1 %tobool96.not, label %if.then100, label %if.end115
 
 end:                                              ; preds = %if.end
-  %and8 = and i32 %flags, 1
-  %tobool9.not = icmp eq i32 %and8, 0
-  %cond = select i1 %tobool9.not, ptr null, ptr %type
-  %call10 = call fastcc i32 @decode_EVP_PKEY_prov(ptr noundef nonnull @.str.30, i32 noundef %line, ptr noundef nonnull %pkey2, ptr noundef %1, i64 noundef %2, ptr noundef %output_type, ptr noundef %output_structure, ptr noundef %cond, i32 noundef %selection, ptr noundef %pass)
+  %call10 = call fastcc i32 @decode_EVP_PKEY_prov(ptr noundef nonnull @.str.30, i32 noundef %line, ptr noundef nonnull %pkey2, ptr noundef %1, i64 noundef %2, ptr noundef %output_type, ptr noundef %output_structure, ptr noundef null, i32 noundef %selection, ptr noundef %pass)
   %call13 = call i32 @test_false(ptr noundef nonnull @.str.30, i32 noundef 183, ptr noundef nonnull @.str.228, i32 noundef %call10) #7
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %if.then100, label %if.end115

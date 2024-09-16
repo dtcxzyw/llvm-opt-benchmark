@@ -500,7 +500,7 @@ define ptr @pmix_show_help_vstring(ptr noundef %0, ptr noundef %1, i32 noundef %
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
-  %7 = call fastcc i32 @load_array(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %1)
+  %7 = call fastcc i32 @load_array(ptr noundef %6, ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %39
 
@@ -608,7 +608,7 @@ array2string.exit:                                ; preds = %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @load_array(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @load_array(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = alloca [1024 x i8], align 16
@@ -850,7 +850,7 @@ localgetline.exit:                                ; preds = %.lr.ph, %77
 
 93:                                               ; preds = %91, %89
   %.039.i = phi ptr [ %92, %91 ], [ null, %89 ]
-  %94 = call fastcc i32 @load_array(ptr noundef nonnull %5, ptr noundef nonnull %86, ptr noundef %.039.i)
+  %94 = call fastcc i32 @load_array(ptr noundef %5, ptr noundef nonnull %86, ptr noundef %.039.i)
   %.not49.i = icmp eq i32 %94, 0
   br i1 %.not49.i, label %96, label %95
 
@@ -931,7 +931,7 @@ localgetline.exit:                                ; preds = %.lr.ph, %77
   %114 = load ptr, ptr %5, align 8
   %115 = getelementptr inbounds ptr, ptr %114, i64 %indvars.iv90
   %116 = load ptr, ptr %115, align 8
-  %117 = call i32 @PMIx_Argv_append_nosize(ptr noundef %0, ptr noundef %116) #18
+  %117 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %0, ptr noundef %116) #18
   %indvars.iv.next91 = add nsw i64 %indvars.iv90, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next91 to i32
   %exitcond.not = icmp eq i32 %113, %lftr.wideiv

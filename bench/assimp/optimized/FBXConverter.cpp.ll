@@ -5435,20 +5435,20 @@ if.then:                                          ; preds = %_ZN6Assimp3FBX12FBX
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i2)
   br label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %if.then, %while.body.i
-  %node.addr.011.i = phi ptr [ %2, %while.body.i ], [ %parent, %if.then ]
-  %nodeName.010.i = phi ptr [ %data.i.i, %while.body.i ], [ null, %if.then ]
-  %length.09.i = phi i64 [ %conv.i, %while.body.i ], [ 0, %if.then ]
-  %tobool1.not.i = icmp eq ptr %nodeName.010.i, null
-  %cmp.i = icmp eq i64 %length.09.i, 0
+land.rhs.i:                                       ; preds = %while.body.i, %if.then
+  %node.addr.010.i = phi ptr [ %parent, %if.then ], [ %2, %while.body.i ]
+  %nodeName.09.i = phi ptr [ null, %if.then ], [ %data.i.i, %while.body.i ]
+  %length.08.i = phi i64 [ 0, %if.then ], [ %conv.i, %while.body.i ]
+  %tobool1.not.i = icmp eq ptr %nodeName.09.i, null
+  %cmp.i = icmp eq i64 %length.08.i, 0
   %0 = select i1 %tobool1.not.i, i1 true, i1 %cmp.i
   br i1 %0, label %while.body.i, label %if.end.i3
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %data.i.i = getelementptr inbounds i8, ptr %node.addr.011.i, i64 4
-  %1 = load i32, ptr %node.addr.011.i, align 8, !noalias !34
+  %data.i.i = getelementptr inbounds i8, ptr %node.addr.010.i, i64 4
+  %1 = load i32, ptr %node.addr.010.i, align 8, !noalias !34
   %conv.i = zext i32 %1 to i64
-  %mParent.i = getelementptr inbounds i8, ptr %node.addr.011.i, i64 1096
+  %mParent.i = getelementptr inbounds i8, ptr %node.addr.010.i, i64 1096
   %2 = load ptr, ptr %mParent.i, align 8, !noalias !34
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !37
@@ -5462,8 +5462,8 @@ if.then.i4:                                       ; preds = %while.end.i
   br label %invoke.cont
 
 if.end.i3:                                        ; preds = %land.rhs.i, %while.end.i
-  %nodeName.0.lcssa.i9 = phi ptr [ %data.i.i, %while.end.i ], [ %nodeName.010.i, %land.rhs.i ]
-  %length.0.lcssa.i8 = phi i64 [ %conv.i, %while.end.i ], [ %length.09.i, %land.rhs.i ]
+  %nodeName.0.lcssa.i9 = phi ptr [ %data.i.i, %while.end.i ], [ %nodeName.09.i, %land.rhs.i ]
+  %length.0.lcssa.i8 = phi i64 [ %conv.i, %while.end.i ], [ %length.08.i, %land.rhs.i ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i2) #25, !noalias !34
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %nodeName.0.lcssa.i9, i64 noundef %length.0.lcssa.i8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i2)
           to label %invoke.cont.i unwind label %lpad.i

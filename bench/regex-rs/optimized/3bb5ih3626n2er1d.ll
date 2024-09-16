@@ -1042,7 +1042,7 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$rege
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #17 {
+define internal fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #17 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !20, !noundef !20
   %4 = load ptr, ptr %0, align 8, !alias.scope !306, !nonnull !20, !noundef !20
@@ -10569,7 +10569,7 @@ select.unfold:                                    ; preds = %45, %41, %43
   store ptr %51, ptr %5, align 8, !noalias !1761
   %55 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %54, ptr %55, align 8, !noalias !1761
-  %56 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  %56 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef align 8 dereferenceable(16) %5)
   %.fca.0.extract30.i.i96 = extractvalue { i32, i32 } %56, 0
   %switch36.i.i97 = icmp eq i32 %.fca.0.extract30.i.i96, 0
   %.fca.1.extract31.i.i98 = extractvalue { i32, i32 } %56, 1
@@ -10689,7 +10689,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread92:
   store ptr %96, ptr %7, align 8, !noalias !1768
   %100 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %99, ptr %100, align 8, !noalias !1768
-  %101 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  %101 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef align 8 dereferenceable(16) %7)
   %.fca.0.extract30.i.i = extractvalue { i32, i32 } %101, 0
   %switch36.i.i = icmp eq i32 %.fca.0.extract30.i.i, 0
   %.fca.1.extract31.i.i = extractvalue { i32, i32 } %101, 1
@@ -10776,7 +10776,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit67.thread70: ; pred
   store ptr %128, ptr %9, align 8, !noalias !1769
   %132 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %131, ptr %132, align 8, !noalias !1769
-  %133 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  %133 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef align 8 dereferenceable(16) %9)
   %.fca.0.extract30.i57 = extractvalue { i32, i32 } %133, 0
   %switch36.i58 = icmp eq i32 %.fca.0.extract30.i57, 0
   %.fca.1.extract31.i59 = extractvalue { i32, i32 } %133, 1
@@ -10827,7 +10827,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread74: ; preds 
   store ptr %149, ptr %11, align 8, !noalias !1772
   %153 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %152, ptr %153, align 8, !noalias !1772
-  %154 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 dereferenceable(16) %11)
+  %154 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef align 8 dereferenceable(16) %11)
   %.fca.0.extract30.i = extractvalue { i32, i32 } %154, 0
   %switch36.i = icmp eq i32 %.fca.0.extract30.i, 0
   %.fca.1.extract31.i = extractvalue { i32, i32 } %154, 1
@@ -11681,7 +11681,7 @@ select.unfold:                                    ; preds = %41, %37, %39
   store ptr %47, ptr %5, align 8, !noalias !1822
   %51 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %50, ptr %51, align 8, !noalias !1822
-  %52 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  %52 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef align 8 dereferenceable(16) %5)
   %.fca.0.extract30.i.i40 = extractvalue { i32, i32 } %52, 0
   %switch36.i.i41 = icmp eq i32 %.fca.0.extract30.i.i40, 0
   %.fca.1.extract31.i.i42 = extractvalue { i32, i32 } %52, 1
@@ -11796,7 +11796,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread53:
   store ptr %91, ptr %7, align 8, !noalias !1829
   %95 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %94, ptr %95, align 8, !noalias !1829
-  %96 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  %96 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef align 8 dereferenceable(16) %7)
   %.fca.0.extract30.i.i = extractvalue { i32, i32 } %96, 0
   %switch36.i.i = icmp eq i32 %.fca.0.extract30.i.i, 0
   %.fca.1.extract31.i.i = extractvalue { i32, i32 } %96, 1
@@ -11902,7 +11902,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit43.thread22: ; pred
   store ptr %28, ptr %5, align 8, !noalias !1830
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %31, ptr %32, align 8, !noalias !1830
-  %33 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  %33 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef align 8 dereferenceable(16) %5)
   %.fca.0.extract30.i33 = extractvalue { i32, i32 } %33, 0
   %switch36.i34 = icmp eq i32 %.fca.0.extract30.i33, 0
   %.fca.1.extract31.i35 = extractvalue { i32, i32 } %33, 1
@@ -11948,7 +11948,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread26: ; preds 
   store ptr %48, ptr %7, align 8, !noalias !1833
   %52 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %51, ptr %52, align 8, !noalias !1833
-  %53 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  %53 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef align 8 dereferenceable(16) %7)
   %.fca.0.extract30.i = extractvalue { i32, i32 } %53, 0
   %switch36.i = icmp eq i32 %.fca.0.extract30.i, 0
   %.fca.1.extract31.i = extractvalue { i32, i32 } %53, 1

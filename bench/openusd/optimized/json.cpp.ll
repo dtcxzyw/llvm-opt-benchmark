@@ -942,7 +942,7 @@ _ZN3pxr9rapidjson15GenericDocumentINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12
   store i64 1, ptr %40, align 8
   store ptr %26, ptr %19, align 8
   store ptr %26, ptr %20, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_JsValueToImplValueIN3pxr9rapidjson19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEENS2_12GenericValueINS2_4UTF8IcEES5_EERKNS_7JsValueERT_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %26)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_JsValueToImplValueIN3pxr9rapidjson19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEENS2_12GenericValueINS2_4UTF8IcEES5_EERKNS_7JsValueERT_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %26)
           to label %41 unwind label %65
 
 41:                                               ; preds = %_ZN3pxr9rapidjson15GenericDocumentINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEES5_EC2EPS6_mPS5_.exit
@@ -1021,7 +1021,7 @@ _ZN3pxr9rapidjson15GenericDocumentINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_JsValueToImplValueIN3pxr9rapidjson19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEENS2_12GenericValueINS2_4UTF8IcEES5_EERKNS_7JsValueERT_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_JsValueToImplValueIN3pxr9rapidjson19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEENS2_12GenericValueINS2_4UTF8IcEES5_EERKNS_7JsValueERT_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pxr::rapidjson::GenericStringRef", align 8
   %5 = alloca %"class.pxr::rapidjson::GenericValue", align 8
   %6 = alloca %"class.pxr::rapidjson::GenericValue", align 8
@@ -1167,7 +1167,7 @@ _ZN3pxr9rapidjson19MemoryPoolAllocatorINS0_12CrtAllocatorEE6MallocEm.exit.i: ; p
   %72 = getelementptr inbounds i8, ptr %.0.i, i64 %71
   store i8 0, ptr %72, align 1
   %73 = getelementptr inbounds nuw i8, ptr %.sroa.022.038, i64 64
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_JsValueToImplValueIN3pxr9rapidjson19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEENS2_12GenericValueINS2_4UTF8IcEES5_EERKNS_7JsValueERT_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_JsValueToImplValueIN3pxr9rapidjson19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEENS2_12GenericValueINS2_4UTF8IcEES5_EERKNS_7JsValueERT_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %74 = load i32, ptr %0, align 8
   %75 = load i32, ptr %21, align 4
   %.not.i.i.i = icmp ult i32 %74, %75
@@ -1249,7 +1249,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_ToImplObjectValueIN3pxr9rapidjson19Memo
   %114 = phi i32 [ 0, %.lr.ph ], [ %136, %134 ]
   %.pre.i = phi i32 [ 0, %.lr.ph ], [ %140, %134 ]
   %.sroa.026.036 = phi ptr [ %107, %.lr.ph ], [ %143, %134 ]
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_JsValueToImplValueIN3pxr9rapidjson19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEENS2_12GenericValueINS2_4UTF8IcEES5_EERKNS_7JsValueERT_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.026.036, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_JsValueToImplValueIN3pxr9rapidjson19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEENS2_12GenericValueINS2_4UTF8IcEES5_EERKNS_7JsValueERT_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.026.036, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.not.i18 = icmp ult i32 %.pre.i, %114
   br i1 %.not.i18, label %._crit_edge, label %115
 
@@ -1856,7 +1856,7 @@ _ZN3pxr9rapidjson15GenericDocumentINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12
   store i64 1, ptr %29, align 8
   store ptr %15, ptr %8, align 8
   store ptr %15, ptr %9, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_JsValueToImplValueIN3pxr9rapidjson19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEENS2_12GenericValueINS2_4UTF8IcEES5_EERKNS_7JsValueERT_(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %15)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_JsValueToImplValueIN3pxr9rapidjson19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEENS2_12GenericValueINS2_4UTF8IcEES5_EERKNS_7JsValueERT_(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %15)
           to label %30 unwind label %109
 
 30:                                               ; preds = %_ZN3pxr9rapidjson15GenericDocumentINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEES5_EC2EPS6_mPS5_.exit

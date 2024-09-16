@@ -1749,16 +1749,16 @@ jhash2.exit:                                      ; preds = %.loopexit.i, %62
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @bucket_table_alloc(i64 noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef ptr @bucket_table_alloc(i64 noundef range(i64 0, 4294967296) %0, i32 noundef range(i32 10272, 36033) %1) unnamed_addr #0 align 16 {
   %3 = shl nuw nsw i64 %0, 3
-  %4 = add nuw i64 %3, 64
+  %4 = add nuw nsw i64 %3, 64
   %5 = or i32 %1, 256
   %6 = tail call noalias ptr @kvmalloc_node(i64 noundef %4, i32 noundef %5, i32 noundef -1) #17
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %45
 
 8:                                                ; preds = %2
-  %9 = and i32 %1, -32769
+  %9 = and i32 %1, 32767
   %10 = icmp eq i32 %9, 3264
   %11 = icmp ult i64 %0, 1024
   %or.cond = or i1 %11, %10
@@ -2923,7 +2923,7 @@ declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #3
 declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @nested_table_free(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @nested_table_free(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %14, label %5

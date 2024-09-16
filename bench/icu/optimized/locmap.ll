@@ -1240,7 +1240,7 @@ if.else:                                          ; preds = %if.end9
   br i1 %cmp14.not, label %if.else16, label %if.end21
 
 if.else16:                                        ; preds = %if.else
-  %call19 = tail call fastcc noundef i32 @_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode(ptr noundef nonnull %arrayidx, ptr noundef nonnull %posixID, ptr noundef %status)
+  %call19 = tail call fastcc noundef i32 @_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode(ptr noundef nonnull %arrayidx, ptr noundef %posixID, ptr noundef %status)
   br label %return
 
 if.end21:                                         ; preds = %if.else, %if.end9
@@ -1385,7 +1385,7 @@ return:                                           ; preds = %_ZL9getHostIDPK13IL
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode(ptr nocapture noundef readonly %this_0, ptr nocapture noundef readonly %posixID, ptr nocapture noundef writeonly %status) unnamed_addr #10 {
+define internal fastcc noundef i32 @_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode(ptr nocapture noundef readonly %this_0, ptr nocapture noundef nonnull readonly %posixID, ptr nocapture noundef writeonly %status) unnamed_addr #10 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %posixID) #15
   %call.fr = freeze i64 %call

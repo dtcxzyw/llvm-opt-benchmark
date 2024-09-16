@@ -2821,7 +2821,7 @@ for.body31:                                       ; preds = %for.cond29.preheade
           to label %invoke.cont32 unwind label %lpad11.loopexit
 
 invoke.cont32:                                    ; preds = %for.body31
-  invoke fastcc void @_ZN6google8protobuf8internalL16SubMessagePrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_15FieldDescriptorEi(ptr noalias nonnull align 8 %ref.tmp34, ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr noundef nonnull %14, i32 noundef %j.059)
+  invoke fastcc void @_ZN6google8protobuf8internalL16SubMessagePrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_15FieldDescriptorEi(ptr noalias align 8 %ref.tmp34, ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr noundef nonnull %14, i32 noundef %j.059)
           to label %invoke.cont35 unwind label %lpad11.loopexit
 
 invoke.cont35:                                    ; preds = %invoke.cont32
@@ -2860,7 +2860,7 @@ if.else:                                          ; preds = %invoke.cont24
           to label %invoke.cont42 unwind label %lpad11.loopexit.split-lp.loopexit
 
 invoke.cont42:                                    ; preds = %if.else
-  invoke fastcc void @_ZN6google8protobuf8internalL16SubMessagePrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_15FieldDescriptorEi(ptr noalias nonnull align 8 %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr noundef nonnull %14, i32 noundef -1)
+  invoke fastcc void @_ZN6google8protobuf8internalL16SubMessagePrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_15FieldDescriptorEi(ptr noalias align 8 %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr noundef nonnull %14, i32 noundef -1)
           to label %invoke.cont45 unwind label %lpad11.loopexit.split-lp.loopexit
 
 invoke.cont45:                                    ; preds = %invoke.cont42

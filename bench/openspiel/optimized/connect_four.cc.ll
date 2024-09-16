@@ -1048,7 +1048,7 @@ _ZN10open_spiel12connect_four12_GLOBAL__N_113PlayerToStateEi.exit: ; preds = %4,
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
-  call fastcc void @_ZN10open_spiel12connect_four12_GLOBAL__N_113StateToStringB5cxx11ENS0_9CellStateE(ptr dead_on_unwind noalias nonnull writable align 8 %9, i32 noundef %.0.i)
+  call fastcc void @_ZN10open_spiel12connect_four12_GLOBAL__N_113StateToStringB5cxx11ENS0_9CellStateE(ptr dead_on_unwind noalias writable align 8 %9, i32 noundef %.0.i)
   %24 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #24
   %25 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #24
   store ptr %24, ptr %8, align 8
@@ -1097,7 +1097,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 declare void @_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel12connect_four12_GLOBAL__N_113StateToStringB5cxx11ENS0_9CellStateE(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel12connect_four12_GLOBAL__N_113StateToStringB5cxx11ENS0_9CellStateE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
@@ -1651,7 +1651,7 @@ define void @_ZNK10open_spiel12connect_four16ConnectFourState8ToStringB5cxx11Ev(
   %7 = add nuw nsw i64 %indvars.iv, %5
   %8 = getelementptr inbounds [42 x i32], ptr %4, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
-  invoke fastcc void @_ZN10open_spiel12connect_four12_GLOBAL__N_113StateToStringB5cxx11ENS0_9CellStateE(ptr dead_on_unwind noalias nonnull writable align 8 %3, i32 noundef %9)
+  invoke fastcc void @_ZN10open_spiel12connect_four12_GLOBAL__N_113StateToStringB5cxx11ENS0_9CellStateE(ptr dead_on_unwind noalias writable align 8 %3, i32 noundef %9)
           to label %10 unwind label %.loopexit
 
 10:                                               ; preds = %6

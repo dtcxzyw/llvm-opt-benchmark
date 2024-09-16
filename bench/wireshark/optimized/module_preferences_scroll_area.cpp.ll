@@ -2636,7 +2636,7 @@ _ZN7QStringD2Ev.exit418:                          ; preds = %283, %_ZN17QArrayDa
           to label %295 unwind label %307
 
 295:                                              ; preds = %293
-  invoke fastcc void @_ZL17title_to_shortcutPKc(ptr dead_on_unwind noalias nonnull writable align 8 %49, ptr noundef %294)
+  invoke fastcc void @_ZL17title_to_shortcutPKc(ptr dead_on_unwind noalias writable align 8 %49, ptr noundef %294)
           to label %296 unwind label %307
 
 296:                                              ; preds = %295
@@ -2800,7 +2800,7 @@ _ZN7QStringD2Ev.exit431:                          ; preds = %332, %_ZN17QArrayDa
 
 349:                                              ; preds = %346
   %350 = load ptr, ptr %347, align 8
-  invoke fastcc void @_ZL17title_to_shortcutPKc(ptr dead_on_unwind noalias nonnull writable align 8 %52, ptr noundef %350)
+  invoke fastcc void @_ZL17title_to_shortcutPKc(ptr dead_on_unwind noalias writable align 8 %52, ptr noundef %350)
           to label %351 unwind label %402
 
 351:                                              ; preds = %349
@@ -4843,7 +4843,7 @@ _ZN7QStringD2Ev.exit654:                          ; preds = %1016, %_ZN17QArrayD
 
 1033:                                             ; preds = %1030
   %1034 = load ptr, ptr %1031, align 8
-  invoke fastcc void @_ZL17title_to_shortcutPKc(ptr dead_on_unwind noalias nonnull writable align 8 %86, ptr noundef %1034)
+  invoke fastcc void @_ZL17title_to_shortcutPKc(ptr dead_on_unwind noalias writable align 8 %86, ptr noundef %1034)
           to label %1035 unwind label %1086
 
 1035:                                             ; preds = %1033
@@ -8346,7 +8346,7 @@ declare void @_ZN12QFontMetricsD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN10QBoxLayout9addLayoutEP7QLayouti(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17title_to_shortcutPKc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17title_to_shortcutPKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8

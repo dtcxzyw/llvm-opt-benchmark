@@ -797,7 +797,7 @@ if.then20:                                        ; preds = %if.end16
 
 if.end28:                                         ; preds = %if.then20
   %call29 = tail call i32 @OBJ_obj2nid(ptr noundef %call23) #2
-  %call30 = tail call fastcc ptr @process_genm_itav(ptr noundef nonnull %call, i32 noundef %call29, ptr noundef %call22)
+  %call30 = tail call fastcc ptr @process_genm_itav(ptr noundef %call, i32 noundef %call29, ptr noundef %call22)
   %cmp31.not = icmp eq ptr %call30, null
   br i1 %cmp31.not, label %if.end36, label %land.lhs.true
 
@@ -1135,7 +1135,7 @@ declare ptr @OSSL_CMP_ITAV_get0_type(ptr noundef) local_unnamed_addr #1
 declare ptr @OPENSSL_sk_new_reserve(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @process_genm_itav(ptr nocapture noundef readonly %ctx, i32 noundef %req_nid, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc ptr @process_genm_itav(ptr nocapture noundef nonnull readonly %ctx, i32 noundef %req_nid, ptr noundef %req) unnamed_addr #0 {
 entry:
   switch i32 %req_nid, label %sw.default [
     i32 1223, label %sw.bb

@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.a6d557859d0675d687d6045e54bc0e3d.17 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.a6d557859d0675d687d6045e54bc0e3d.16, [8 x i8] c"'\00\00\00\00\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hafeb39eca2020507E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hafeb39eca2020507E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !4, !noundef !5
@@ -249,7 +249,7 @@ define noundef i64 @_ZN6common3cpu12get_num_cpus17h977909401643c6caE() unnamed_a
   resume { ptr, i32 } %.pn
 
 54:                                               ; preds = %30
-  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hafeb39eca2020507E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #13
+  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hafeb39eca2020507E"(ptr noalias noundef align 8 dereferenceable(32) %5) #13
           to label %53 unwind label %39
 }
 

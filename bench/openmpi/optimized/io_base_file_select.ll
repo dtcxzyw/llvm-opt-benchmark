@@ -439,7 +439,7 @@ declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @check_components(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @check_components(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = load i64, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 56), align 8

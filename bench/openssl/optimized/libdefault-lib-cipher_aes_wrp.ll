@@ -729,7 +729,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare void @ossl_cipher_generic_initkey(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @aes_wrap_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef %enc) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @aes_wrap_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef range(i32 0, 2) %enc) unnamed_addr #0 {
 entry:
   %keylen.i = alloca i64, align 8
   %call = tail call i32 @ossl_prov_is_running() #3
@@ -740,8 +740,7 @@ if.end:                                           ; preds = %entry
   %enc1 = getelementptr inbounds i8, ptr %vctx, i64 108
   %0 = trunc nuw nsw i32 %enc to i8
   %bf.load = load i8, ptr %enc1, align 4
-  %bf.value = shl i8 %0, 1
-  %bf.shl = and i8 %bf.value, 2
+  %bf.shl = shl nuw nsw i8 %0, 1
   %bf.clear = and i8 %bf.load, -3
   %bf.set = or disjoint i8 %bf.clear, %bf.shl
   store i8 %bf.set, ptr %enc1, align 4

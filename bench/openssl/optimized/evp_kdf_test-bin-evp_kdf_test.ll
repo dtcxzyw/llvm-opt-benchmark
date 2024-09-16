@@ -581,7 +581,7 @@ define internal range(i32 0, 2) i32 @test_kdf_kbkdf_invalid_digest() #0 {
 entry:
   %r = alloca i32, align 4
   store i32 32, ptr %r, align 4
-  %call = call fastcc ptr @construct_kbkdf_params(ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, ptr noundef nonnull @test_kdf_kbkdf_invalid_digest.key, i64 noundef 1, ptr noundef nonnull %r)
+  %call = call fastcc ptr @construct_kbkdf_params(ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, ptr noundef nonnull @test_kdf_kbkdf_invalid_digest.key, i64 noundef 1, ptr noundef %r)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 1108, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -619,7 +619,7 @@ define internal range(i32 0, 2) i32 @test_kdf_kbkdf_invalid_mac() #0 {
 entry:
   %r = alloca i32, align 4
   store i32 32, ptr %r, align 4
-  %call = call fastcc ptr @construct_kbkdf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.86, ptr noundef nonnull @test_kdf_kbkdf_invalid_mac.key, i64 noundef 1, ptr noundef nonnull %r)
+  %call = call fastcc ptr @construct_kbkdf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.86, ptr noundef nonnull @test_kdf_kbkdf_invalid_mac.key, i64 noundef 1, ptr noundef %r)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 1131, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -657,7 +657,7 @@ define internal range(i32 0, 2) i32 @test_kdf_kbkdf_invalid_r() #0 {
 entry:
   %r = alloca i32, align 4
   store i32 31, ptr %r, align 4
-  %call = call fastcc ptr @construct_kbkdf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.87, ptr noundef nonnull @test_kdf_kbkdf_invalid_r.key, i64 noundef 1, ptr noundef nonnull %r)
+  %call = call fastcc ptr @construct_kbkdf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.87, ptr noundef nonnull @test_kdf_kbkdf_invalid_r.key, i64 noundef 1, ptr noundef %r)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 1154, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -697,7 +697,7 @@ entry:
   %r = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %result, i8 0, i64 32, i1 false)
   store i32 32, ptr %r, align 4
-  %call = call fastcc ptr @construct_kbkdf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.87, ptr noundef nonnull @test_kdf_kbkdf_zero_output_size.key, i64 noundef 1, ptr noundef nonnull %r)
+  %call = call fastcc ptr @construct_kbkdf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.87, ptr noundef nonnull @test_kdf_kbkdf_zero_output_size.key, i64 noundef 1, ptr noundef %r)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 1227, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -743,7 +743,7 @@ entry:
   %r = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %result, i8 0, i64 32, i1 false)
   store i32 32, ptr %r, align 4
-  %call = call fastcc ptr @construct_kbkdf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.87, ptr noundef nonnull @test_kdf_kbkdf_empty_key.key, i64 noundef 0, ptr noundef nonnull %r)
+  %call = call fastcc ptr @construct_kbkdf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.87, ptr noundef nonnull @test_kdf_kbkdf_empty_key.key, i64 noundef 0, ptr noundef %r)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 1179, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -789,7 +789,7 @@ entry:
   %r = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %result, i8 0, i64 32, i1 false)
   store i32 32, ptr %r, align 4
-  %call = call fastcc ptr @construct_kbkdf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.87, ptr noundef nonnull @test_kdf_kbkdf_1byte_key.key, i64 noundef 1, ptr noundef nonnull %r)
+  %call = call fastcc ptr @construct_kbkdf_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.87, ptr noundef nonnull @test_kdf_kbkdf_1byte_key.key, i64 noundef 1, ptr noundef %r)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 1204, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1711,7 +1711,7 @@ entry:
   store i32 4096, ptr %iterations, align 4
   store i32 0, ptr %mode, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(25) %expected, ptr noundef nonnull align 16 dereferenceable(25) @__const.test_kdf_pbkdf2.expected, i64 25, i1 false)
-  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef nonnull %iterations, ptr noundef nonnull %mode)
+  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef %iterations, ptr noundef %mode)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 588, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false
@@ -1752,7 +1752,7 @@ entry:
   %mode = alloca i32, align 4
   store i32 4096, ptr %iterations, align 4
   store i32 0, ptr %mode, align 4
-  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef nonnull %iterations, ptr noundef nonnull %mode)
+  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef %iterations, ptr noundef %mode)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 614, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false
@@ -1795,7 +1795,7 @@ entry:
   %mode = alloca i32, align 4
   store i32 4096, ptr %iterations, align 4
   store i32 0, ptr %mode, align 4
-  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef nonnull %iterations, ptr noundef nonnull %mode)
+  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef %iterations, ptr noundef %mode)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 645, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false
@@ -1832,7 +1832,7 @@ entry:
   %mode = alloca i32, align 4
   store i32 4096, ptr %iterations, align 4
   store i32 0, ptr %mode, align 4
-  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.140, ptr noundef nonnull %iterations, ptr noundef nonnull %mode)
+  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.140, ptr noundef %iterations, ptr noundef %mode)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 671, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false
@@ -1869,7 +1869,7 @@ entry:
   %mode = alloca i32, align 4
   store i32 1, ptr %iterations, align 4
   store i32 0, ptr %mode, align 4
-  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef nonnull %iterations, ptr noundef nonnull %mode)
+  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef %iterations, ptr noundef %mode)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 696, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false
@@ -1910,7 +1910,7 @@ entry:
   %tmp14 = alloca %struct.ossl_param_st, align 8
   store i32 4096, ptr %iterations, align 4
   store i32 1, ptr %mode, align 4
-  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.140, ptr noundef nonnull %iterations, ptr noundef nonnull %mode)
+  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.140, ptr noundef %iterations, ptr noundef %mode)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 723, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false
@@ -1977,7 +1977,7 @@ entry:
   %tmp14 = alloca %struct.ossl_param_st, align 8
   store i32 1, ptr %iterations, align 4
   store i32 1, ptr %mode, align 4
-  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef nonnull %iterations, ptr noundef nonnull %mode)
+  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef %iterations, ptr noundef %mode)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 760, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false
@@ -2040,7 +2040,7 @@ entry:
   %mode = alloca i32, align 4
   store i32 4096, ptr %iterations, align 4
   store i32 0, ptr %mode, align 4
-  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.59, ptr noundef nonnull %iterations, ptr noundef nonnull %mode)
+  %call = call fastcc ptr @construct_pbkdf2_params(ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.59, ptr noundef %iterations, ptr noundef %mode)
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 795, ptr noundef nonnull @.str.60, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false
@@ -2806,7 +2806,7 @@ declare void @EVP_KDF_free(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @construct_kbkdf_params(ptr noundef %digest, ptr noundef %mac, ptr noundef %key, i64 noundef %keylen, ptr noundef %r) unnamed_addr #0 {
+define internal fastcc noalias ptr @construct_kbkdf_params(ptr noundef %digest, ptr noundef %mac, ptr noundef %key, i64 noundef range(i64 0, 2) %keylen, ptr noundef nonnull %r) unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.ossl_param_st, align 8
   %tmp2 = alloca %struct.ossl_param_st, align 8
@@ -2840,7 +2840,7 @@ if.end:                                           ; preds = %entry
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp11, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.89, i64 noundef 4) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr7, ptr noundef nonnull align 8 dereferenceable(40) %tmp11, i64 40, i1 false)
   %incdec.ptr13 = getelementptr inbounds i8, ptr %call, i64 280
-  call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp14, ptr noundef nonnull @.str.92, ptr noundef %r) #6
+  call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp14, ptr noundef nonnull @.str.92, ptr noundef nonnull %r) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr10, ptr noundef nonnull align 8 dereferenceable(40) %tmp14, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp15) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr13, ptr noundef nonnull align 8 dereferenceable(40) %tmp15, i64 40, i1 false)
@@ -2932,7 +2932,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @construct_hkdf_params(ptr noundef %digest, ptr noundef %key, i64 noundef %keylen, ptr noundef %salt, ptr noundef %info) unnamed_addr #0 {
+define internal fastcc noalias ptr @construct_hkdf_params(ptr noundef %digest, ptr noundef %key, i64 noundef range(i64 0, 7) %keylen, ptr noundef %salt, ptr noundef %info) unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.ossl_param_st, align 8
   %tmp5 = alloca %struct.ossl_param_st, align 8
@@ -2988,7 +2988,7 @@ return:                                           ; preds = %entry, %if.end16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_kdf_hkdf_gettables(i32 noundef %expand_only, i32 noundef %has_digest) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_kdf_hkdf_gettables(i32 noundef range(i32 0, 2) %expand_only, i32 noundef range(i32 0, 2) %has_digest) unnamed_addr #0 {
 entry:
   %sz = alloca i64, align 8
   %params_get = alloca [2 x %struct.ossl_param_st], align 16
@@ -3085,7 +3085,7 @@ declare void @OSSL_PARAM_construct_size_t(ptr sret(%struct.ossl_param_st) align 
 declare i32 @EVP_KDF_CTX_get_params(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_kdf_hkdf_set_invalid_param(ptr noundef %key, i32 noundef %type) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_kdf_hkdf_set_invalid_param(ptr noundef %key, i32 noundef range(i32 4, 6) %type) unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %buf = alloca [2 x i8], align 1
@@ -3130,7 +3130,7 @@ end:                                              ; preds = %if.end5, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @construct_pbkdf2_params(ptr noundef %digest, ptr noundef %salt, ptr noundef %iter, ptr noundef %mode) unnamed_addr #0 {
+define internal fastcc noalias ptr @construct_pbkdf2_params(ptr noundef %digest, ptr noundef %salt, ptr noundef nonnull %iter, ptr noundef nonnull %mode) unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.ossl_param_st, align 8
   %tmp3 = alloca %struct.ossl_param_st, align 8
@@ -3151,13 +3151,13 @@ if.end:                                           ; preds = %entry
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp3, ptr noundef nonnull @.str.69, ptr noundef %salt, i64 noundef %call4) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp3, i64 40, i1 false)
   %incdec.ptr5 = getelementptr inbounds i8, ptr %call, i64 120
-  call void @OSSL_PARAM_construct_uint(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp6, ptr noundef nonnull @.str.70, ptr noundef %iter) #6
+  call void @OSSL_PARAM_construct_uint(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp6, ptr noundef nonnull @.str.70, ptr noundef nonnull %iter) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr2, ptr noundef nonnull align 8 dereferenceable(40) %tmp6, i64 40, i1 false)
   %incdec.ptr7 = getelementptr inbounds i8, ptr %call, i64 160
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp8, ptr noundef nonnull @.str.71, ptr noundef %digest, i64 noundef 0) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr5, ptr noundef nonnull align 8 dereferenceable(40) %tmp8, i64 40, i1 false)
   %incdec.ptr9 = getelementptr inbounds i8, ptr %call, i64 200
-  call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp10, ptr noundef nonnull @.str.137, ptr noundef %mode) #6
+  call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp10, ptr noundef nonnull @.str.137, ptr noundef nonnull %mode) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr7, ptr noundef nonnull align 8 dereferenceable(40) %tmp10, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp11) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr9, ptr noundef nonnull align 8 dereferenceable(40) %tmp11, i64 40, i1 false)

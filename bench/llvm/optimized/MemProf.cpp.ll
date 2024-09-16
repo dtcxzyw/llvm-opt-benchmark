@@ -6791,7 +6791,7 @@ _ZNSt4pairImN4llvm11SmallVectorImLj6EEEEC2EOS3_.exit.i.i.i: ; preds = %47, %42
   br label %_ZNSt4pairImN4llvm11SmallVectorImLj6EEEEC2EOS3_.exit15.i.i.i
 
 _ZNSt4pairImN4llvm11SmallVectorImLj6EEEEC2EOS3_.exit15.i.i.i: ; preds = %51, %_ZNSt4pairImN4llvm11SmallVectorImLj6EEEEC2EOS3_.exit.i.i.i
-  call fastcc void @"_ZSt13__adjust_heapIPSt4pairImN4llvm11SmallVectorImLj6EEEElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_7memprof25CallStackRadixTreeBuilder5buildEONS1_9MapVectorImS3_NS1_8DenseMapImjNS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImjEEEENS2_IS4_Lj0EEEEERKSI_RNSC_ImNS9_9FrameStatESE_NSG_ImSO_EEEEE3$_0EEEvT_T0_SV_T1_T2_"(ptr noundef nonnull %0, i64 noundef %.013.i.i.i, i64 noundef %35, ptr noundef nonnull %19, ptr %3)
+  call fastcc void @"_ZSt13__adjust_heapIPSt4pairImN4llvm11SmallVectorImLj6EEEElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_7memprof25CallStackRadixTreeBuilder5buildEONS1_9MapVectorImS3_NS1_8DenseMapImjNS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImjEEEENS2_IS4_Lj0EEEEERKSI_RNSC_ImNS9_9FrameStatESE_NSG_ImSO_EEEEE3$_0EEEvT_T0_SV_T1_T2_"(ptr noundef nonnull %0, i64 noundef %.013.i.i.i, i64 noundef %35, ptr noundef %19, ptr %3)
   %53 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %40) #16
   %54 = load ptr, ptr %40, align 8
   %55 = icmp eq ptr %54, %41
@@ -6859,7 +6859,7 @@ _ZNSt4pairImN4llvm11SmallVectorImLj6EEEEC2EOS3_.exit.i: ; preds = %70, %.lr.ph.i
   br label %_ZNSt4pairImN4llvm11SmallVectorImLj6EEEEC2EOS3_.exit7.i
 
 _ZNSt4pairImN4llvm11SmallVectorImLj6EEEEC2EOS3_.exit7.i: ; preds = %79, %_ZNSt4pairImN4llvm11SmallVectorImLj6EEEEC2EOS3_.exit.i
-  call fastcc void @"_ZSt13__adjust_heapIPSt4pairImN4llvm11SmallVectorImLj6EEEElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_7memprof25CallStackRadixTreeBuilder5buildEONS1_9MapVectorImS3_NS1_8DenseMapImjNS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImjEEEENS2_IS4_Lj0EEEEERKSI_RNSC_ImNS9_9FrameStatESE_NSG_ImSO_EEEEE3$_0EEEvT_T0_SV_T1_T2_"(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %76, ptr noundef nonnull %13, ptr %3)
+  call fastcc void @"_ZSt13__adjust_heapIPSt4pairImN4llvm11SmallVectorImLj6EEEElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_7memprof25CallStackRadixTreeBuilder5buildEONS1_9MapVectorImS3_NS1_8DenseMapImjNS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImjEEEENS2_IS4_Lj0EEEEERKSI_RNSC_ImNS9_9FrameStatESE_NSG_ImSO_EEEEE3$_0EEEvT_T0_SV_T1_T2_"(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %76, ptr noundef %13, ptr %3)
   %81 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %64) #16
   %82 = load ptr, ptr %64, align 8
   %83 = icmp eq ptr %82, %65
@@ -11543,7 +11543,7 @@ _ZSt4swapIN4llvm11SmallVectorImLj6EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairImN4llvm11SmallVectorImLj6EEEElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_7memprof25CallStackRadixTreeBuilder5buildEONS1_9MapVectorImS3_NS1_8DenseMapImjNS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImjEEEENS2_IS4_Lj0EEEEERKSI_RNSC_ImNS9_9FrameStatESE_NSG_ImSO_EEEEE3$_0EEEvT_T0_SV_T1_T2_"(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr %4) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairImN4llvm11SmallVectorImLj6EEEElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_7memprof25CallStackRadixTreeBuilder5buildEONS1_9MapVectorImS3_NS1_8DenseMapImjNS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImjEEEENS2_IS4_Lj0EEEEERKSI_RNSC_ImNS9_9FrameStatESE_NSG_ImSO_EEEEE3$_0EEEvT_T0_SV_T1_T2_"(ptr noundef %0, i64 noundef range(i64 0, 64051194700380387) %1, i64 noundef range(i64 -128102389400760775, 128102389400760776) %2, ptr noundef nonnull %3, ptr %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8

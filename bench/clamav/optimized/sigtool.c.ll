@@ -780,7 +780,7 @@ hexdump.exit:                                     ; preds = %57, %._crit_edge.i
   br i1 %.not80, label %69, label %67
 
 67:                                               ; preds = %63
-  %68 = tail call fastcc i32 @hashsig(ptr noundef nonnull %15, i32 noundef 0, i32 noundef 1)
+  %68 = tail call fastcc i32 @hashsig(ptr noundef %15, i32 noundef 0, i32 noundef 1)
   br label %229
 
 69:                                               ; preds = %63
@@ -791,7 +791,7 @@ hexdump.exit:                                     ; preds = %57, %._crit_edge.i
   br i1 %.not81, label %75, label %73
 
 73:                                               ; preds = %69
-  %74 = tail call fastcc i32 @hashsig(ptr noundef nonnull %15, i32 noundef 0, i32 noundef 2)
+  %74 = tail call fastcc i32 @hashsig(ptr noundef %15, i32 noundef 0, i32 noundef 2)
   br label %229
 
 75:                                               ; preds = %69
@@ -802,7 +802,7 @@ hexdump.exit:                                     ; preds = %57, %._crit_edge.i
   br i1 %.not82, label %81, label %79
 
 79:                                               ; preds = %75
-  %80 = tail call fastcc i32 @hashsig(ptr noundef nonnull %15, i32 noundef 0, i32 noundef 3)
+  %80 = tail call fastcc i32 @hashsig(ptr noundef %15, i32 noundef 0, i32 noundef 3)
   br label %229
 
 81:                                               ; preds = %75
@@ -813,7 +813,7 @@ hexdump.exit:                                     ; preds = %57, %._crit_edge.i
   br i1 %.not83, label %87, label %85
 
 85:                                               ; preds = %81
-  %86 = tail call fastcc i32 @hashsig(ptr noundef nonnull %15, i32 noundef 1, i32 noundef 1)
+  %86 = tail call fastcc i32 @hashsig(ptr noundef %15, i32 noundef 1, i32 noundef 1)
   br label %229
 
 87:                                               ; preds = %81
@@ -824,7 +824,7 @@ hexdump.exit:                                     ; preds = %57, %._crit_edge.i
   br i1 %.not84, label %93, label %91
 
 91:                                               ; preds = %87
-  %92 = tail call fastcc i32 @hashsig(ptr noundef nonnull %15, i32 noundef 2, i32 noundef 1)
+  %92 = tail call fastcc i32 @hashsig(ptr noundef %15, i32 noundef 2, i32 noundef 1)
   br label %229
 
 93:                                               ; preds = %87
@@ -835,7 +835,7 @@ hexdump.exit:                                     ; preds = %57, %._crit_edge.i
   br i1 %.not85, label %99, label %97
 
 97:                                               ; preds = %93
-  %98 = tail call fastcc i32 @fuzzy_img(ptr noundef nonnull %15)
+  %98 = tail call fastcc i32 @fuzzy_img(ptr noundef %15)
   br label %229
 
 99:                                               ; preds = %93
@@ -846,7 +846,7 @@ hexdump.exit:                                     ; preds = %57, %._crit_edge.i
   br i1 %.not86, label %105, label %103
 
 103:                                              ; preds = %99
-  %104 = tail call fastcc i32 @htmlnorm(ptr noundef nonnull %15)
+  %104 = tail call fastcc i32 @htmlnorm(ptr noundef %15)
   br label %229
 
 105:                                              ; preds = %99
@@ -857,7 +857,7 @@ hexdump.exit:                                     ; preds = %57, %._crit_edge.i
   br i1 %.not87, label %111, label %109
 
 109:                                              ; preds = %105
-  %110 = tail call fastcc i32 @asciinorm(ptr noundef nonnull %15)
+  %110 = tail call fastcc i32 @asciinorm(ptr noundef %15)
   br label %229
 
 111:                                              ; preds = %105
@@ -868,7 +868,7 @@ hexdump.exit:                                     ; preds = %57, %._crit_edge.i
   br i1 %.not88, label %117, label %115
 
 115:                                              ; preds = %111
-  %116 = tail call fastcc i32 @utf16decode(ptr noundef nonnull %15)
+  %116 = tail call fastcc i32 @utf16decode(ptr noundef %15)
   br label %229
 
 117:                                              ; preds = %111
@@ -879,7 +879,7 @@ hexdump.exit:                                     ; preds = %57, %._crit_edge.i
   br i1 %.not89, label %123, label %121
 
 121:                                              ; preds = %117
-  %122 = tail call fastcc i32 @build(ptr noundef nonnull %15)
+  %122 = tail call fastcc i32 @build(ptr noundef %15)
   br label %229
 
 123:                                              ; preds = %117
@@ -890,7 +890,7 @@ hexdump.exit:                                     ; preds = %57, %._crit_edge.i
   br i1 %.not90, label %129, label %127
 
 127:                                              ; preds = %123
-  %128 = tail call fastcc i32 @unpack(ptr noundef nonnull %15)
+  %128 = tail call fastcc i32 @unpack(ptr noundef %15)
   br label %229
 
 129:                                              ; preds = %123
@@ -901,7 +901,7 @@ hexdump.exit:                                     ; preds = %57, %._crit_edge.i
   br i1 %.not91, label %135, label %133
 
 133:                                              ; preds = %129
-  %134 = tail call fastcc i32 @unpack(ptr noundef nonnull %15)
+  %134 = tail call fastcc i32 @unpack(ptr noundef %15)
   br label %229
 
 135:                                              ; preds = %129
@@ -912,7 +912,7 @@ hexdump.exit:                                     ; preds = %57, %._crit_edge.i
   br i1 %.not92, label %141, label %139
 
 139:                                              ; preds = %135
-  %140 = tail call fastcc i32 @cvdinfo(ptr noundef nonnull %15)
+  %140 = tail call fastcc i32 @cvdinfo(ptr noundef %15)
   br label %229
 
 141:                                              ; preds = %135
@@ -923,7 +923,7 @@ hexdump.exit:                                     ; preds = %57, %._crit_edge.i
   br i1 %.not93, label %147, label %145
 
 145:                                              ; preds = %141
-  %146 = tail call fastcc i32 @listsigs(ptr noundef nonnull %15, i32 noundef 0)
+  %146 = tail call fastcc i32 @listsigs(ptr noundef %15, i32 noundef 0)
   br label %229
 
 147:                                              ; preds = %141
@@ -934,7 +934,7 @@ hexdump.exit:                                     ; preds = %57, %._crit_edge.i
   br i1 %.not94, label %153, label %151
 
 151:                                              ; preds = %147
-  %152 = tail call fastcc i32 @listsigs(ptr noundef nonnull %15, i32 noundef 1)
+  %152 = tail call fastcc i32 @listsigs(ptr noundef %15, i32 noundef 1)
   br label %229
 
 153:                                              ; preds = %147
@@ -956,7 +956,7 @@ hexdump.exit:                                     ; preds = %57, %._crit_edge.i
   br i1 %.not96, label %165, label %163
 
 163:                                              ; preds = %159
-  %164 = tail call fastcc i32 @testsigs(ptr noundef nonnull %15)
+  %164 = tail call fastcc i32 @testsigs(ptr noundef %15)
   br label %229
 
 165:                                              ; preds = %159
@@ -974,7 +974,7 @@ hexdump.exit:                                     ; preds = %57, %._crit_edge.i
   br i1 %.not98, label %175, label %173
 
 173:                                              ; preds = %169, %165
-  %174 = tail call fastcc i32 @vbadump(ptr noundef nonnull %15)
+  %174 = tail call fastcc i32 @vbadump(ptr noundef %15)
   br label %229
 
 175:                                              ; preds = %169
@@ -985,7 +985,7 @@ hexdump.exit:                                     ; preds = %57, %._crit_edge.i
   br i1 %.not99, label %181, label %179
 
 179:                                              ; preds = %175
-  %180 = tail call fastcc i32 @makediff(ptr noundef nonnull %15)
+  %180 = tail call fastcc i32 @makediff(ptr noundef %15)
   br label %229
 
 181:                                              ; preds = %175
@@ -996,7 +996,7 @@ hexdump.exit:                                     ; preds = %57, %._crit_edge.i
   br i1 %.not100, label %187, label %185
 
 185:                                              ; preds = %181
-  %186 = tail call fastcc i32 @compareone(ptr noundef nonnull %15)
+  %186 = tail call fastcc i32 @compareone(ptr noundef %15)
   br label %229
 
 187:                                              ; preds = %181
@@ -1007,7 +1007,7 @@ hexdump.exit:                                     ; preds = %57, %._crit_edge.i
   br i1 %.not101, label %193, label %191
 
 191:                                              ; preds = %187
-  %192 = tail call fastcc i32 @dumpcerts(ptr noundef nonnull %15)
+  %192 = tail call fastcc i32 @dumpcerts(ptr noundef %15)
   br label %229
 
 193:                                              ; preds = %187
@@ -1018,7 +1018,7 @@ hexdump.exit:                                     ; preds = %57, %._crit_edge.i
   br i1 %.not102, label %199, label %197
 
 197:                                              ; preds = %193
-  %198 = tail call fastcc i32 @rundiff(ptr noundef nonnull %15)
+  %198 = tail call fastcc i32 @rundiff(ptr noundef %15)
   br label %229
 
 199:                                              ; preds = %193
@@ -1063,11 +1063,11 @@ hexdump.exit:                                     ; preds = %57, %._crit_edge.i
   br i1 %218, label %224, label %226
 
 224:                                              ; preds = %214
-  %225 = tail call fastcc i32 @verifydiff(ptr noundef nonnull %15, ptr noundef %221, ptr noundef null, ptr noundef %223)
+  %225 = tail call fastcc i32 @verifydiff(ptr noundef %15, ptr noundef %221, ptr noundef null, ptr noundef %223)
   br label %229
 
 226:                                              ; preds = %214
-  %227 = tail call fastcc i32 @verifydiff(ptr noundef nonnull %15, ptr noundef %221, ptr noundef %223, ptr noundef null)
+  %227 = tail call fastcc i32 @verifydiff(ptr noundef %15, ptr noundef %221, ptr noundef %223, ptr noundef null)
   br label %229
 
 228:                                              ; preds = %199
@@ -1181,7 +1181,7 @@ define internal fastcc void @help() unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @hashsig(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @hashsig(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 3) %1, i32 noundef range(i32 1, 4) %2) unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   %5 = alloca %struct.cli_ctx_tag, align 8
   %6 = alloca %struct.cl_scan_options, align 4
@@ -1502,7 +1502,7 @@ hashpe.exit:                                      ; preds = %121, %122
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @fuzzy_img(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @fuzzy_img(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.image_fuzzy_hash, align 8
   %4 = alloca %struct.stat, align 8
@@ -1680,8 +1680,8 @@ fuzzy_img_file.exit:                              ; preds = %75, %76
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @htmlnorm(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.20) #25
+define internal fastcc range(i32 -1, 1) i32 @htmlnorm(ptr noundef nonnull %0) unnamed_addr #0 {
+  %2 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.20) #25
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 (ptr, i32, ...) @open(ptr noundef %4, i32 noundef 0) #25
@@ -1689,7 +1689,7 @@ define internal fastcc range(i32 -1, 1) i32 @htmlnorm(ptr noundef %0) unnamed_ad
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.20) #25
+  %8 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.20) #25
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.133, ptr noundef %10) #25
@@ -1933,9 +1933,9 @@ destroy_ctx.exit:                                 ; preds = %112, %.thread, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @asciinorm(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @asciinorm(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %struct.text_norm_state, align 8
-  %3 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.21) #25
+  %3 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.21) #25
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 (ptr, i32, ...) @open(ptr noundef %5, i32 noundef 0) #25
@@ -2050,9 +2050,9 @@ define internal fastcc range(i32 -1, 1) i32 @asciinorm(ptr noundef %0) unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @utf16decode(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @utf16decode(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [512 x i8], align 16
-  %3 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.22) #25
+  %3 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.22) #25
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 (ptr, i32, ...) @open(ptr noundef %5, i32 noundef 0) #25
@@ -2136,7 +2136,7 @@ define internal fastcc range(i32 -1, 1) i32 @utf16decode(ptr noundef %0) unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 51) i32 @build(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 51) i32 @build(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca [4096 x i8], align 16
   %4 = alloca [4096 x i8], align 16
@@ -2156,14 +2156,14 @@ define internal fastcc range(i32 -1, 51) i32 @build(ptr noundef %0) unnamed_addr
   %18 = alloca [4096 x i8], align 16
   %19 = alloca i64, align 8
   store i32 0, ptr %7, align 4
-  %20 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.155) #25
+  %20 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.155) #25
   %21 = getelementptr inbounds i8, ptr %20, i64 32
   %22 = load i32, ptr %21, align 8
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %23, label %28
 
 23:                                               ; preds = %1
-  %24 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.156) #25
+  %24 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.156) #25
   %25 = getelementptr inbounds i8, ptr %24, i64 32
   %26 = load i32, ptr %25, align 8
   %.not329 = icmp eq i32 %26, 0
@@ -2174,14 +2174,14 @@ define internal fastcc range(i32 -1, 51) i32 @build(ptr noundef %0) unnamed_addr
   br label %512
 
 28:                                               ; preds = %23, %1
-  %29 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.158) #25
+  %29 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.158) #25
   %30 = getelementptr inbounds i8, ptr %29, i64 36
   %31 = load i32, ptr %30, align 4
   %.not330 = icmp eq i32 %31, 0
   br i1 %.not330, label %36, label %32
 
 32:                                               ; preds = %28
-  %33 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.158) #25
+  %33 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.158) #25
   %34 = getelementptr inbounds i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   br label %36
@@ -2197,7 +2197,7 @@ define internal fastcc range(i32 -1, 51) i32 @build(ptr noundef %0) unnamed_addr
   br label %512
 
 40:                                               ; preds = %36
-  %41 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.23) #25
+  %41 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.23) #25
   %42 = getelementptr inbounds i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #31
@@ -2230,7 +2230,7 @@ getdbname.exit:                                   ; preds = %49, %51
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %17, ptr noundef nonnull dereferenceable(9) @.str.161, i64 9)
   %.not331 = icmp eq i32 %bcmp, 0
   %57 = xor i1 %.not331, true
-  %58 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.162) #25
+  %58 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.162) #25
   %59 = getelementptr inbounds i8, ptr %58, i64 32
   %60 = load i32, ptr %59, align 8
   %.not332 = icmp ne i32 %60, 0
@@ -2456,7 +2456,7 @@ getdbname.exit:                                   ; preds = %49, %51
   br label %138
 
 138:                                              ; preds = %137, %.loopexit392
-  %139 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.173) #25
+  %139 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.173) #25
   %140 = getelementptr inbounds i8, ptr %139, i64 24
   %141 = load i64, ptr %140, align 8
   %142 = trunc i64 %141 to i32
@@ -2796,7 +2796,7 @@ getdbname.exit:                                   ; preds = %49, %51
   br i1 %exitcond.not.i, label %283, label %.preheader65.i
 
 283:                                              ; preds = %282
-  %284 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.162) #25
+  %284 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.162) #25
   %285 = getelementptr inbounds i8, ptr %284, i64 32
   %286 = load i32, ptr %285, align 8
   %.not55.i = icmp eq i32 %286, 0
@@ -2852,7 +2852,7 @@ getdbname.exit:                                   ; preds = %49, %51
   br i1 %exitcond78.i, label %.loopexit.i, label %.critedge.i
 
 .loopexit.i:                                      ; preds = %303, %283
-  %306 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.156) #25
+  %306 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.156) #25
   %307 = getelementptr inbounds i8, ptr %306, i64 32
   %308 = load i32, ptr %307, align 8
   %.not57.i = icmp eq i32 %308, 0
@@ -2887,7 +2887,7 @@ getdbname.exit:                                   ; preds = %49, %51
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %320 = call i32 @cl_finish_hash(ptr noundef nonnull %310, ptr noundef nonnull %5) #25
-  %321 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.155) #25
+  %321 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.155) #25
   %322 = getelementptr inbounds i8, ptr %321, i64 16
   %323 = load ptr, ptr %322, align 8
   %324 = call ptr @cli_getdsig(ptr noundef %323, ptr noundef nonnull %13, ptr noundef nonnull %5, i32 noundef 32, i16 noundef zeroext 3) #25
@@ -3190,14 +3190,14 @@ getdbname.exit:                                   ; preds = %49, %51
   %404 = getelementptr inbounds i8, ptr %11, i64 %403
   %405 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %404, ptr noundef nonnull dereferenceable(1) @.str.210, ptr noundef nonnull %398) #25
   call void @free(ptr noundef nonnull %398) #25
-  %406 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.156) #25
+  %406 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.156) #25
   %407 = getelementptr inbounds i8, ptr %406, i64 32
   %408 = load i32, ptr %407, align 8
   %.not362 = icmp eq i32 %408, 0
   br i1 %.not362, label %409, label %421
 
 409:                                              ; preds = %402
-  %410 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.155) #25
+  %410 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.155) #25
   %411 = getelementptr inbounds i8, ptr %410, i64 16
   %412 = load ptr, ptr %411, align 8
   %413 = call ptr @cli_getdsig(ptr noundef %412, ptr noundef nonnull %13, ptr noundef nonnull %10, i32 noundef 16, i16 noundef zeroext 1) #25
@@ -3243,7 +3243,7 @@ getdbname.exit:                                   ; preds = %49, %51
   br i1 %433, label %.lr.ph438, label %._crit_edge439
 
 ._crit_edge439:                                   ; preds = %.lr.ph438, %424
-  %434 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.23) #25
+  %434 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.23) #25
   %435 = getelementptr inbounds i8, ptr %434, i64 16
   %436 = load ptr, ptr %435, align 8
   %437 = call noalias ptr @fopen(ptr noundef %436, ptr noundef nonnull @.str.214)
@@ -3307,7 +3307,7 @@ getdbname.exit:                                   ; preds = %49, %51
 464:                                              ; preds = %456
   call void @free(ptr noundef %336) #25
   call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.218, ptr noundef %436) #25
-  %465 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.156) #25
+  %465 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.156) #25
   %466 = getelementptr inbounds i8, ptr %465, i64 32
   %467 = load i32, ptr %466, align 8
   %.not367 = icmp eq i32 %467, 0
@@ -3317,7 +3317,7 @@ getdbname.exit:                                   ; preds = %49, %51
   br i1 %.not354, label %473, label %469
 
 469:                                              ; preds = %468
-  %470 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.219) #25
+  %470 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.219) #25
   %471 = getelementptr inbounds i8, ptr %470, i64 32
   %472 = load i32, ptr %471, align 8
   %.not368 = icmp eq i32 %472, 0
@@ -3328,7 +3328,7 @@ getdbname.exit:                                   ; preds = %49, %51
   br label %512
 
 474:                                              ; preds = %469
-  %475 = call ptr @createTempDir(ptr noundef %0)
+  %475 = call ptr @createTempDir(ptr noundef nonnull %0)
   %.not369 = icmp eq ptr %475, null
   br i1 %.not369, label %512, label %476
 
@@ -3339,7 +3339,7 @@ getdbname.exit:                                   ; preds = %49, %51
 
 478:                                              ; preds = %476
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.221, ptr noundef nonnull %14) #25
-  call void @removeTempDir(ptr noundef %0, ptr noundef nonnull %475)
+  call void @removeTempDir(ptr noundef nonnull %0, ptr noundef nonnull %475)
   call void @free(ptr noundef nonnull %475) #25
   %479 = call i32 @unlink(ptr noundef %436) #25
   br label %512
@@ -3349,7 +3349,7 @@ getdbname.exit:                                   ; preds = %49, %51
   %482 = getelementptr inbounds i8, ptr %14, i64 511
   store i8 0, ptr %482, align 1
   call void @free(ptr noundef nonnull %475) #25
-  %483 = call ptr @createTempDir(ptr noundef %0)
+  %483 = call ptr @createTempDir(ptr noundef nonnull %0)
   %.not371 = icmp eq ptr %483, null
   br i1 %.not371, label %512, label %484
 
@@ -3360,7 +3360,7 @@ getdbname.exit:                                   ; preds = %49, %51
 
 486:                                              ; preds = %484
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.221, ptr noundef %436) #25
-  call void @removeTempDir(ptr noundef %0, ptr noundef nonnull %483)
+  call void @removeTempDir(ptr noundef nonnull %0, ptr noundef nonnull %483)
   call void @free(ptr noundef nonnull %483) #25
   %487 = call i32 @cli_rmdirs(ptr noundef nonnull %14) #25
   %488 = call i32 @unlink(ptr noundef %436) #25
@@ -3369,8 +3369,8 @@ getdbname.exit:                                   ; preds = %49, %51
 489:                                              ; preds = %484
   %490 = load i32, ptr %8, align 4
   %491 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 50, ptr noundef nonnull @.str.222, ptr noundef nonnull %17, i32 noundef %490) #25
-  %492 = call fastcc i32 @diffdirs(ptr noundef nonnull %14, ptr noundef nonnull %483, ptr noundef nonnull %15)
-  call void @removeTempDir(ptr noundef %0, ptr noundef nonnull %483)
+  %492 = call fastcc i32 @diffdirs(ptr noundef %14, ptr noundef %483, ptr noundef %15)
+  call void @removeTempDir(ptr noundef nonnull %0, ptr noundef nonnull %483)
   call void @free(ptr noundef nonnull %483) #25
   %493 = icmp eq i32 %492, -1
   br i1 %493, label %494, label %497
@@ -3402,7 +3402,7 @@ getdbname.exit:                                   ; preds = %49, %51
   br label %512
 
 507:                                              ; preds = %497
-  %508 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.155) #25
+  %508 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.155) #25
   %509 = getelementptr inbounds i8, ptr %508, i64 16
   %510 = load ptr, ptr %509, align 8
   %511 = call zeroext i1 @script2cdiff(ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef %510) #25
@@ -3416,23 +3416,23 @@ getdbname.exit:                                   ; preds = %49, %51
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @unpack(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @unpack(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [512 x i8], align 16
-  %3 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.158) #25
+  %3 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.158) #25
   %4 = getelementptr inbounds i8, ptr %3, i64 36
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.158) #25
+  %7 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.158) #25
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   br label %10
 
 10:                                               ; preds = %6, %1
   %.0 = phi ptr [ %9, %6 ], [ null, %1 ]
-  %11 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.25) #25
+  %11 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #25
   %12 = getelementptr inbounds i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 8
   %.not19 = icmp eq i32 %13, 0
@@ -3442,7 +3442,7 @@ define internal fastcc range(i32 -1, 1) i32 @unpack(ptr noundef %0) unnamed_addr
   %15 = tail call ptr @freshdbdir() #25
   %.not20 = icmp eq ptr %.0, null
   %16 = select i1 %.not20, ptr %15, ptr %.0
-  %17 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.25) #25
+  %17 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #25
   %18 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 512, ptr noundef nonnull @.str.179, ptr noundef %16, ptr noundef %19) #25
@@ -3451,7 +3451,7 @@ define internal fastcc range(i32 -1, 1) i32 @unpack(ptr noundef %0) unnamed_addr
   br i1 %.not21, label %32, label %22
 
 22:                                               ; preds = %14
-  %23 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.25) #25
+  %23 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #25
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 512, ptr noundef nonnull @.str.180, ptr noundef %16, ptr noundef %25) #25
@@ -3460,7 +3460,7 @@ define internal fastcc range(i32 -1, 1) i32 @unpack(ptr noundef %0) unnamed_addr
   br i1 %.not22, label %32, label %28
 
 28:                                               ; preds = %22
-  %29 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.25) #25
+  %29 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #25
   %30 = getelementptr inbounds i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.286, ptr noundef %31, ptr noundef %16) #25
@@ -3472,7 +3472,7 @@ define internal fastcc range(i32 -1, 1) i32 @unpack(ptr noundef %0) unnamed_addr
   br label %39
 
 33:                                               ; preds = %10
-  %34 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.24) #25
+  %34 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.24) #25
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %36, i64 noundef 512) #25
@@ -3504,8 +3504,8 @@ define internal fastcc range(i32 -1, 1) i32 @unpack(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @cvdinfo(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.26) #25
+define internal fastcc range(i32 -1, 1) i32 @cvdinfo(ptr noundef nonnull %0) unnamed_addr #0 {
+  %2 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.26) #25
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @cl_cvdhead(ptr noundef %4) #25
@@ -3543,7 +3543,7 @@ define internal fastcc range(i32 -1, 1) i32 @cvdinfo(ptr noundef %0) unnamed_add
   %20 = getelementptr inbounds i8, ptr %5, i64 40
   %21 = load ptr, ptr %20, align 8
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.295, ptr noundef %21) #25
-  %22 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.26) #25
+  %22 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.26) #25
   %23 = getelementptr inbounds i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @cli_strbcasestr(ptr noundef %24, ptr noundef nonnull @.str.175) #25
@@ -3589,17 +3589,17 @@ define internal fastcc range(i32 -1, 1) i32 @cvdinfo(ptr noundef %0) unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @listsigs(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @listsigs(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %4 = alloca %struct.regex_t, align 8
-  %5 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.158) #25
+  %5 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.158) #25
   %6 = getelementptr inbounds i8, ptr %5, i64 36
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.158) #25
+  %9 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.158) #25
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   br label %12
@@ -3610,7 +3610,7 @@ define internal fastcc range(i32 -1, 1) i32 @listsigs(ptr noundef %0, i32 nounde
   br i1 %13, label %14, label %39
 
 14:                                               ; preds = %12
-  %15 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.27) #25
+  %15 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.27) #25
   %16 = getelementptr inbounds i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @access(ptr noundef %17, i32 noundef 4) #25
@@ -3655,7 +3655,7 @@ define internal fastcc range(i32 -1, 1) i32 @listsigs(ptr noundef %0, i32 nounde
   br label %49
 
 39:                                               ; preds = %12
-  %40 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.28) #25
+  %40 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.28) #25
   %41 = getelementptr inbounds i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = call i32 @cli_regcomp(ptr noundef nonnull %4, ptr noundef %42, i32 noundef 5) #25
@@ -3701,7 +3701,7 @@ define internal fastcc range(i32 -1, 1) i32 @decodesigs() unnamed_addr #0 {
   br i1 %.not1, label %12, label %9
 
 9:                                                ; preds = %7
-  %10 = call fastcc i32 @decodesig(ptr noundef nonnull %1, i32 noundef -1)
+  %10 = call fastcc i32 @decodesig(ptr noundef %1, i32 noundef -1)
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %12, label %4
 
@@ -3711,7 +3711,7 @@ define internal fastcc range(i32 -1, 1) i32 @decodesigs() unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @testsigs(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @testsigs(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [32769 x i8], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
@@ -3764,7 +3764,7 @@ define internal fastcc range(i32 -1, 1) i32 @testsigs(ptr noundef %0) unnamed_ad
   br i1 %.not17, label %31, label %28
 
 28:                                               ; preds = %26
-  %29 = call fastcc i32 @decodesig(ptr noundef nonnull %2, i32 noundef %18)
+  %29 = call fastcc i32 @decodesig(ptr noundef %2, i32 noundef %18)
   %30 = icmp eq i32 %29, -1
   br i1 %30, label %31, label %.preheader
 
@@ -3780,7 +3780,7 @@ define internal fastcc range(i32 -1, 1) i32 @testsigs(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @vbadump(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @vbadump(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
@@ -3807,7 +3807,7 @@ define internal fastcc range(i32 0, 3) i32 @vbadump(ptr noundef %0) unnamed_addr
 
 15:                                               ; preds = %11
   tail call void @cl_engine_set_clcb_vba(ptr noundef nonnull %12, ptr noundef nonnull @vba_callback) #25
-  %16 = tail call ptr @createTempDir(ptr noundef %0)
+  %16 = tail call ptr @createTempDir(ptr noundef nonnull %0)
   %17 = icmp eq ptr %16, null
   br i1 %17, label %removeTempDir.exit, label %18
 
@@ -3864,7 +3864,7 @@ setTempDir.exit:                                  ; preds = %18
   %42 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 -1, ptr %42, align 4
   %43 = call i32 @cl_engine_set_num(ptr noundef nonnull %12, i32 noundef 14, i64 noundef 1) #25
-  %44 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.31) #25
+  %44 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.31) #25
   %45 = getelementptr inbounds i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
@@ -3880,7 +3880,7 @@ setTempDir.exit:                                  ; preds = %18
   br label %54
 
 48:                                               ; preds = %41
-  %49 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.32) #25
+  %49 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.32) #25
   %50 = getelementptr inbounds i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -3948,7 +3948,7 @@ scanfile.exit:                                    ; preds = %.thread.i, %73, %74
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %75 = getelementptr inbounds i8, ptr %12, i64 32
   %76 = load ptr, ptr %75, align 8
-  %77 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #25
+  %77 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str) #25
   %78 = getelementptr inbounds i8, ptr %77, i64 32
   %79 = load i32, ptr %78, align 8
   %.not.i27 = icmp eq i32 %79, 0
@@ -3966,7 +3966,7 @@ removeTempDir.exit:                               ; preds = %15, %80, %scanfile.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @makediff(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @makediff(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [32 x i8], align 16
   %3 = alloca [39 x i8], align 16
   %4 = alloca [32 x i8], align 16
@@ -4077,9 +4077,9 @@ removeTempDir.exit:                               ; preds = %38, %45
   br label %73
 
 56:                                               ; preds = %49
-  %57 = call fastcc ptr @getdbname(ptr noundef %54, ptr noundef nonnull %4)
+  %57 = call fastcc ptr @getdbname(ptr noundef %54, ptr noundef %4)
   %58 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull @.str.222, ptr noundef nonnull %4, i32 noundef %16) #25
-  %59 = call fastcc i32 @diffdirs(ptr noundef nonnull %32, ptr noundef nonnull %48, ptr noundef nonnull %2)
+  %59 = call fastcc i32 @diffdirs(ptr noundef %32, ptr noundef %48, ptr noundef %2)
   call void @removeTempDir(ptr noundef nonnull %0, ptr noundef nonnull %32)
   call void @removeTempDir(ptr noundef nonnull %0, ptr noundef nonnull %48)
   call void @free(ptr noundef nonnull %32) #25
@@ -4091,7 +4091,7 @@ removeTempDir.exit:                               ; preds = %38, %45
   %62 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.33) #25
   %63 = getelementptr inbounds i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  %65 = call fastcc i32 @verifydiff(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %64, ptr noundef null)
+  %65 = call fastcc i32 @verifydiff(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %64, ptr noundef null)
   %66 = icmp eq i32 %65, -1
   br i1 %66, label %67, label %73
 
@@ -4116,7 +4116,7 @@ removeTempDir.exit:                               ; preds = %38, %45
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @compareone(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @compareone(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -4142,14 +4142,14 @@ define internal fastcc range(i32 -1, 1) i32 @compareone(ptr noundef %0) unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @dumpcerts(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dumpcerts(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   %3 = alloca %struct.cli_ctx_tag, align 8
   %4 = alloca %struct.cl_scan_options, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %3, i8 0, i64 192, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, i8 0, i64 20, i1 false)
   store ptr null, ptr @logg_file, align 8
-  %5 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.35) #25
+  %5 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.35) #25
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -4326,8 +4326,8 @@ define internal fastcc range(i32 -1, 1) i32 @dumpcerts(ptr noundef %0) unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rundiff(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.36) #25
+define internal fastcc i32 @rundiff(ptr noundef nonnull %0) unnamed_addr #0 {
+  %2 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.36) #25
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.509) #31
@@ -4372,7 +4372,7 @@ define internal fastcc i32 @rundiff(ptr noundef %0) unnamed_addr #0 {
 declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @verifydiff(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @verifydiff(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.stat, align 8
   %6 = alloca [512 x i8], align 16
   %7 = alloca [512 x i8], align 16
@@ -4392,7 +4392,7 @@ define internal fastcc range(i32 -1, 1) i32 @verifydiff(ptr noundef %0, ptr noun
 
 13:                                               ; preds = %10, %4
   %.0 = phi i16 [ 1, %4 ], [ 0, %10 ]
-  %14 = tail call ptr @createTempDir(ptr noundef %0)
+  %14 = tail call ptr @createTempDir(ptr noundef nonnull %0)
   %.not54 = icmp eq ptr %14, null
   br i1 %.not54, label %111, label %15
 
@@ -4407,7 +4407,7 @@ define internal fastcc range(i32 -1, 1) i32 @verifydiff(ptr noundef %0, ptr noun
 
 18:                                               ; preds = %16
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.523, ptr noundef nonnull %2) #25
-  %19 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #25
+  %19 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str) #25
   %20 = getelementptr inbounds i8, ptr %19, i64 32
   %21 = load i32, ptr %20, align 8
   %.not.i = icmp eq i32 %21, 0
@@ -4477,7 +4477,7 @@ sub_0.i:                                          ; preds = %.lr.ph.i
 
 .tail19.thread.i:                                 ; preds = %.tail.i, %.tail19.i, %sub_0.i
   %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 512, ptr noundef nonnull @.str.269, ptr noundef %3, ptr noundef nonnull %35) #25
-  %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 512, ptr noundef nonnull @.str.269, ptr noundef %14, ptr noundef nonnull %35) #25
+  %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 512, ptr noundef nonnull @.str.269, ptr noundef nonnull %14, ptr noundef nonnull %35) #25
   %45 = call i32 @filecopy(ptr noundef nonnull %6, ptr noundef nonnull %7) #25
   %46 = icmp eq i32 %45, -1
   br i1 %46, label %dircopy.exit, label %.backedge.i
@@ -4490,7 +4490,7 @@ dircopy.exit.thread74:                            ; preds = %.backedge.i, %.preh
   br label %55
 
 dircopy.exit:                                     ; preds = %.tail19.thread.i
-  %48 = call i32 @cli_rmdirs(ptr noundef %14) #25
+  %48 = call i32 @cli_rmdirs(ptr noundef nonnull %14) #25
   %49 = call i32 @closedir(ptr noundef nonnull %30)
   br label %dircopy.exit.thread
 
@@ -4499,7 +4499,7 @@ dircopy.exit.thread:                              ; preds = %29, %27, %dircopy.e
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7)
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.524, ptr noundef %3, ptr noundef nonnull %14) #25
-  %50 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #25
+  %50 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str) #25
   %51 = getelementptr inbounds i8, ptr %50, i64 32
   %52 = load i32, ptr %51, align 8
   %.not.i60 = icmp eq i32 %52, 0
@@ -4520,7 +4520,7 @@ removeTempDir.exit61:                             ; preds = %dircopy.exit.thread
 
 57:                                               ; preds = %55
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.525) #25
-  %58 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #25
+  %58 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str) #25
   %59 = getelementptr inbounds i8, ptr %58, i64 32
   %60 = load i32, ptr %59, align 8
   %.not.i62 = icmp eq i32 %60, 0
@@ -4541,7 +4541,7 @@ removeTempDir.exit63:                             ; preds = %57, %61
 
 66:                                               ; preds = %63
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.526, ptr noundef %1) #25
-  %67 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #25
+  %67 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str) #25
   %68 = getelementptr inbounds i8, ptr %67, i64 32
   %69 = load i32, ptr %68, align 8
   %.not.i64 = icmp eq i32 %69, 0
@@ -4562,7 +4562,7 @@ removeTempDir.exit65:                             ; preds = %66, %70
 
 75:                                               ; preds = %72
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.527, ptr noundef nonnull %14) #25
-  %76 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #25
+  %76 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str) #25
   %77 = getelementptr inbounds i8, ptr %76, i64 32
   %78 = load i32, ptr %77, align 8
   %.not.i66 = icmp eq i32 %78, 0
@@ -4593,7 +4593,7 @@ removeTempDir.exit67:                             ; preds = %75, %79
   br label %89
 
 89:                                               ; preds = %88, %85
-  %90 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #25
+  %90 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str) #25
   %91 = getelementptr inbounds i8, ptr %90, i64 32
   %92 = load i32, ptr %91, align 8
   %.not.i68 = icmp eq i32 %92, 0
@@ -4620,7 +4620,7 @@ removeTempDir.exit69:                             ; preds = %89, %93
   br label %102
 
 102:                                              ; preds = %101, %96
-  %103 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #25
+  %103 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str) #25
   %104 = getelementptr inbounds i8, ptr %103, i64 32
   %105 = load i32, ptr %104, align 8
   %.not.i70 = icmp eq i32 %105, 0
@@ -4750,7 +4750,7 @@ declare ptr @cli_utf16toascii(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @getdbname(ptr noundef %0, ptr noundef returned %1) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @getdbname(ptr noundef %0, ptr noundef nonnull returned %1) unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31
   %4 = trunc i64 %3 to i32
   %5 = tail call i32 @cli_strbcasestr(ptr noundef %0, ptr noundef nonnull @.str.175) #25
@@ -4775,7 +4775,7 @@ define internal fastcc nonnull ptr @getdbname(ptr noundef %0, ptr noundef return
   %.0 = phi i32 [ %11, %10 ], [ %4, %8 ]
   %13 = tail call i32 @llvm.smin.i32(i32 %.0, i32 31)
   %14 = sext i32 %13 to i64
-  %15 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %0, i64 noundef %14) #25
+  %15 = tail call ptr @strncpy(ptr noundef nonnull %1, ptr noundef %0, i64 noundef %14) #25
   %16 = getelementptr inbounds i8, ptr %1, i64 %14
   store i8 0, ptr %16, align 1
   ret ptr %1
@@ -4878,7 +4878,7 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 declare i32 @cl_cvdunpack(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @diffdirs(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @diffdirs(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca [512 x i8], align 16
   %5 = alloca [1024 x i8], align 16
   %6 = call ptr @getcwd(ptr noundef nonnull %4, i64 noundef 512) #25
@@ -4890,26 +4890,26 @@ define internal fastcc range(i32 -1, 1) i32 @diffdirs(ptr noundef %0, ptr nounde
   br label %74
 
 8:                                                ; preds = %3
-  %9 = call noalias ptr @fopen(ptr noundef %2, ptr noundef nonnull @.str.214)
+  %9 = call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.214)
   %.not37 = icmp eq ptr %9, null
   br i1 %.not37, label %10, label %11
 
 10:                                               ; preds = %8
-  call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.265, ptr noundef %2) #25
+  call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.265, ptr noundef nonnull %2) #25
   br label %74
 
 11:                                               ; preds = %8
-  %12 = call i32 @chdir(ptr noundef %1) #25
+  %12 = call i32 @chdir(ptr noundef nonnull %1) #25
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
-  call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.266, ptr noundef %1) #25
+  call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.266, ptr noundef nonnull %1) #25
   %15 = call i32 @fclose(ptr noundef nonnull %9)
   br label %74
 
 16:                                               ; preds = %11
-  %17 = call ptr @opendir(ptr noundef %1)
+  %17 = call ptr @opendir(ptr noundef nonnull %1)
   %18 = icmp eq ptr %17, null
   br i1 %18, label %20, label %.preheader60
 
@@ -4919,7 +4919,7 @@ define internal fastcc range(i32 -1, 1) i32 @diffdirs(ptr noundef %0, ptr nounde
   br i1 %.not3862, label %._crit_edge, label %.lr.ph
 
 20:                                               ; preds = %16
-  call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.267, ptr noundef %1) #25
+  call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.267, ptr noundef nonnull %1) #25
   %21 = call i32 @fclose(ptr noundef nonnull %9)
   br label %74
 
@@ -4959,7 +4959,7 @@ sub_149:                                          ; preds = %.tail
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 
 .tail47.thread:                                   ; preds = %sub_0, %sub_149, %.tail47
-  %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1024, ptr noundef nonnull @.str.269, ptr noundef %0, ptr noundef nonnull %24) #25
+  %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1024, ptr noundef nonnull @.str.269, ptr noundef nonnull %0, ptr noundef nonnull %24) #25
   %36 = call fastcc i32 @compare(ptr noundef nonnull %5, ptr noundef nonnull %24, ptr noundef nonnull %9)
   %37 = icmp eq i32 %36, -1
   br i1 %37, label %38, label %.backedge61
@@ -4975,13 +4975,13 @@ sub_149:                                          ; preds = %.tail
 
 42:                                               ; preds = %41, %38
   %43 = call i32 @fclose(ptr noundef nonnull %9)
-  %44 = call i32 @unlink(ptr noundef %2) #25
+  %44 = call i32 @unlink(ptr noundef nonnull %2) #25
   %45 = call i32 @closedir(ptr noundef nonnull %17)
   br label %74
 
 ._crit_edge:                                      ; preds = %.backedge61, %.preheader60
   %46 = call i32 @closedir(ptr noundef nonnull %17)
-  %47 = call ptr @opendir(ptr noundef %0)
+  %47 = call ptr @opendir(ptr noundef nonnull %0)
   %48 = icmp eq ptr %47, null
   br i1 %48, label %50, label %.preheader
 
@@ -4991,7 +4991,7 @@ sub_149:                                          ; preds = %.tail
   br i1 %.not3963, label %._crit_edge65, label %.lr.ph64
 
 50:                                               ; preds = %._crit_edge
-  call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.267, ptr noundef %0) #25
+  call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.267, ptr noundef nonnull %0) #25
   %51 = call i32 @fclose(ptr noundef nonnull %9)
   br label %74
 
@@ -5031,7 +5031,7 @@ sub_157:                                          ; preds = %.tail51
   br i1 %.not39, label %._crit_edge65, label %.lr.ph64
 
 .tail55.thread:                                   ; preds = %sub_052, %sub_157, %.tail55
-  %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1024, ptr noundef nonnull @.str.269, ptr noundef %1, ptr noundef nonnull %54) #25
+  %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1024, ptr noundef nonnull @.str.269, ptr noundef nonnull %1, ptr noundef nonnull %54) #25
   %66 = call i32 @access(ptr noundef nonnull %5, i32 noundef 4) #25
   %.not43 = icmp eq i32 %66, 0
   br i1 %.not43, label %.backedge, label %67
@@ -5043,7 +5043,7 @@ sub_157:                                          ; preds = %.tail51
 ._crit_edge65:                                    ; preds = %.backedge, %.preheader
   %69 = call i32 @closedir(ptr noundef nonnull %47)
   %70 = call i32 @fclose(ptr noundef nonnull %9)
-  call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.271, ptr noundef %2) #25
+  call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.271, ptr noundef nonnull %2) #25
   %71 = call i32 @chdir(ptr noundef nonnull %4) #25
   %72 = icmp eq i32 %71, -1
   br i1 %72, label %73, label %74
@@ -5611,7 +5611,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #11
 declare i32 @cl_cvdverify(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @listdir(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @listdir(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @opendir(ptr noundef %1)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %7, label %.preheader
@@ -5810,7 +5810,7 @@ sub_173:                                          ; preds = %.tail
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @listdb(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @listdb(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.207)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
@@ -5849,7 +5849,7 @@ define internal fastcc range(i32 -1, 1) i32 @listdb(ptr noundef %0, ptr noundef 
 17:                                               ; preds = %15
   tail call void @free(ptr noundef nonnull %8) #25
   %18 = tail call i32 @fclose(ptr noundef nonnull %4)
-  %19 = tail call ptr @createTempDir(ptr noundef %0)
+  %19 = tail call ptr @createTempDir(ptr noundef nonnull %0)
   %.not167 = icmp eq ptr %19, null
   br i1 %.not167, label %167, label %20
 
@@ -5860,7 +5860,7 @@ define internal fastcc range(i32 -1, 1) i32 @listdb(ptr noundef %0, ptr noundef 
 
 22:                                               ; preds = %20
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.330, ptr noundef %1) #25
-  %23 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #25
+  %23 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str) #25
   %24 = getelementptr inbounds i8, ptr %23, i64 32
   %25 = load i32, ptr %24, align 8
   %.not.i = icmp eq i32 %25, 0
@@ -5881,12 +5881,12 @@ removeTempDir.exit:                               ; preds = %22, %26
 
 31:                                               ; preds = %28
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.331, ptr noundef %1) #25
-  tail call void @removeTempDir(ptr noundef %0, ptr noundef nonnull %19)
+  tail call void @removeTempDir(ptr noundef nonnull %0, ptr noundef nonnull %19)
   tail call void @free(ptr noundef nonnull %19) #25
   br label %167
 
 32:                                               ; preds = %28
-  tail call void @removeTempDir(ptr noundef %0, ptr noundef nonnull %19)
+  tail call void @removeTempDir(ptr noundef nonnull %0, ptr noundef nonnull %19)
   tail call void @free(ptr noundef nonnull %19) #25
   br label %167
 
@@ -6317,7 +6317,7 @@ declare ptr @cli_strtok(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @decodesig(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @decodesig(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [2 x ptr], align 16
   %4 = alloca [68 x ptr], align 16
   %5 = alloca [4 x ptr], align 16
@@ -6916,7 +6916,7 @@ decodecdb.exit:                                   ; preds = %120, %124, %149, %1
   ]
 
 252:                                              ; preds = %251, %251, %251
-  call fastcc void @decodeftm(ptr noundef nonnull %4, i32 noundef %89)
+  call fastcc void @decodeftm(ptr noundef %4, i32 noundef %89)
   br label %.loopexit
 
 253:                                              ; preds = %251, %244, %242
@@ -7365,7 +7365,7 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
   br label %99
 
 99:                                               ; preds = %96, %98, %97, %93, %94
-  %100 = call fastcc ptr @decodehexspecial(ptr noundef %.0165284, ptr noundef nonnull %2)
+  %100 = call fastcc ptr @decodehexspecial(ptr noundef %.0165284, ptr noundef %2)
   %.not223 = icmp eq ptr %100, null
   br i1 %.not223, label %101, label %102
 
@@ -7529,7 +7529,7 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
   br label %174
 
 152:                                              ; preds = %.lr.ph300
-  %153 = call fastcc ptr @decodehexspecial(ptr noundef nonnull %149, ptr noundef nonnull %2)
+  %153 = call fastcc ptr @decodehexspecial(ptr noundef nonnull %149, ptr noundef %2)
   %.not217 = icmp eq ptr %153, null
   br i1 %.not217, label %154, label %155
 
@@ -7565,7 +7565,7 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not216, label %.loopexit, label %.lr.ph300
 
 165:                                              ; preds = %141
-  %166 = call fastcc ptr @decodehexspecial(ptr noundef %0, ptr noundef nonnull %2)
+  %166 = call fastcc ptr @decodehexspecial(ptr noundef %0, ptr noundef %2)
   %.not213 = icmp eq ptr %166, null
   br i1 %.not213, label %167, label %168
 
@@ -7601,7 +7601,7 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @matchsig(ptr noundef %0, ptr noundef readnone %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @matchsig(ptr noundef %0, ptr noundef readnone %1, i32 noundef range(i32 0, -1) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.stat, align 8
   %6 = alloca %struct.cli_ctx_tag, align 8
@@ -7804,7 +7804,7 @@ declare i64 @cli_strtokenize(ptr noundef, i8 noundef signext, i64 noundef, ptr n
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decodeftm(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @decodeftm(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 6, 9) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.471, ptr noundef %4) #25
@@ -7854,7 +7854,7 @@ declare i32 @cli_isnumber(ptr noundef) local_unnamed_addr #1
 declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @decodehexspecial(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @decodehexspecial(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call noalias ptr @strdup(ptr noundef %0) #25
   %.not = icmp eq ptr %4, null
@@ -7911,7 +7911,7 @@ define internal fastcc noalias noundef ptr @decodehexspecial(ptr noundef %0, ptr
 
 23:                                               ; preds = %18, %22, %16
   %.not203 = phi i1 [ false, %22 ], [ true, %18 ], [ true, %16 ]
-  %24 = call fastcc ptr @decodehexstr(ptr noundef nonnull %.0180, ptr noundef nonnull %3)
+  %24 = call fastcc ptr @decodehexstr(ptr noundef nonnull %.0180, ptr noundef %3)
   %.not198 = icmp eq ptr %24, null
   br i1 %.not198, label %25, label %26
 
@@ -8282,7 +8282,7 @@ get_paren_end.exit:                               ; preds = %36
   br i1 %.not217, label %174, label %16
 
 174:                                              ; preds = %172
-  %175 = call fastcc ptr @decodehexstr(ptr noundef nonnull %42, ptr noundef nonnull %3)
+  %175 = call fastcc ptr @decodehexstr(ptr noundef nonnull %42, ptr noundef %3)
   %.not218 = icmp eq ptr %175, null
   br i1 %.not218, label %176, label %177
 
@@ -8310,7 +8310,7 @@ get_paren_end.exit:                               ; preds = %36
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @decodehexstr(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @decodehexstr(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31
   %4 = lshr i64 %3, 1
   %5 = trunc i64 %4 to i32

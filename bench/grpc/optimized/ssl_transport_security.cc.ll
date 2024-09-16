@@ -223,7 +223,7 @@ if.end7.thread:                                   ; preds = %if.end
   br label %if.end10
 
 if.then9:                                         ; preds = %if.end
-  %call6 = tail call fastcc noundef i32 @_ZL14peer_from_x509P7x509_stiP8tsi_peer(ptr noundef nonnull %call3, i32 noundef 0, ptr noundef %peer)
+  %call6 = tail call fastcc noundef i32 @_ZL14peer_from_x509P7x509_stiP8tsi_peer(ptr noundef %call3, i32 noundef 0, ptr noundef %peer)
   tail call void @X509_free(ptr noundef nonnull %call3)
   br label %if.end10
 
@@ -247,18 +247,18 @@ declare ptr @PEM_read_bio_X509(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL14peer_from_x509P7x509_stiP8tsi_peer(ptr noundef %cert, i32 noundef %include_certificate_type, ptr noundef %peer) unnamed_addr #3 {
+define internal fastcc noundef i32 @_ZL14peer_from_x509P7x509_stiP8tsi_peer(ptr noundef nonnull %cert, i32 noundef range(i32 0, 2) %include_certificate_type, ptr noundef %peer) unnamed_addr #3 {
 entry:
   %contents.i = alloca ptr, align 8
   %common_name.i = alloca ptr, align 8
   %current_insert_index = alloca i32, align 4
-  %call = tail call ptr @X509_get_ext_d2i(ptr noundef %cert, i32 noundef 85, ptr noundef null, ptr noundef null)
+  %call = tail call ptr @X509_get_ext_d2i(ptr noundef nonnull %cert, i32 noundef 85, ptr noundef null, ptr noundef null)
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %do.end.thread, label %cond.end
 
 do.end.thread:                                    ; preds = %entry
-  %tobool.not.not51 = icmp eq i32 %include_certificate_type, 0
-  %add52 = select i1 %tobool.not.not51, i64 3, i64 4
+  %narrow53 = add nuw nsw i32 %include_certificate_type, 3
+  %add656 = zext nneg i32 %narrow53 to i64
   br label %for.end
 
 cond.end:                                         ; preds = %entry
@@ -272,18 +272,18 @@ if.then:                                          ; preds = %cond.end
   unreachable
 
 do.end:                                           ; preds = %cond.end
-  %tobool.not.not = icmp eq i32 %include_certificate_type, 0
-  %add = select i1 %tobool.not.not, i64 3, i64 4
+  %narrow = add nuw nsw i32 %include_certificate_type, 3
   %conv5 = and i64 %call.i, 2147483647
-  %add6 = add nuw nsw i64 %add, %conv5
-  %cmp746.not = icmp eq i32 %conv, 0
-  br i1 %cmp746.not, label %for.end, label %for.body
+  %narrow34 = add nuw i32 %narrow, %conv
+  %add6 = zext i32 %narrow34 to i64
+  %cmp747.not = icmp eq i32 %conv, 0
+  br i1 %cmp747.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %do.end, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %do.end ]
-  %property_count.047 = phi i64 [ %property_count.1, %for.inc ], [ %add6, %do.end ]
-  %call.i34 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call, i64 noundef %indvars.iv)
-  %0 = load i32, ptr %call.i34, align 8
+  %property_count.048 = phi i64 [ %property_count.1, %for.inc ], [ %add6, %do.end ]
+  %call.i35 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call, i64 noundef %indvars.iv)
+  %0 = load i32, ptr %call.i35, align 8
   switch i32 %0, label %for.inc [
     i32 6, label %if.then19
     i32 2, label %if.then19
@@ -292,26 +292,26 @@ for.body:                                         ; preds = %do.end, %for.inc
   ]
 
 if.then19:                                        ; preds = %for.body, %for.body, %for.body, %for.body
-  %add20 = add i64 %property_count.047, 1
+  %add20 = add i64 %property_count.048, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then19
-  %property_count.1 = phi i64 [ %add20, %if.then19 ], [ %property_count.047, %for.body ]
+  %property_count.1 = phi i64 [ %add20, %if.then19 ], [ %property_count.048, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv5
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %do.end.thread, %do.end
-  %conv558 = phi i64 [ 0, %do.end ], [ 0, %do.end.thread ], [ %conv5, %for.inc ]
-  %tobool.not.not57 = phi i1 [ %tobool.not.not, %do.end ], [ %tobool.not.not51, %do.end.thread ], [ %tobool.not.not, %for.inc ]
+  %conv560 = phi i64 [ 0, %do.end ], [ 0, %do.end.thread ], [ %conv5, %for.inc ]
   %cmp59 = phi i1 [ false, %do.end ], [ false, %do.end.thread ], [ true, %for.inc ]
-  %property_count.0.lcssa = phi i64 [ %add6, %do.end ], [ %add52, %do.end.thread ], [ %property_count.1, %for.inc ]
+  %property_count.0.lcssa = phi i64 [ %add6, %do.end ], [ %add656, %do.end.thread ], [ %property_count.1, %for.inc ]
   %call22 = tail call noundef i32 @_Z18tsi_construct_peermP8tsi_peer(i64 noundef %property_count.0.lcssa, ptr noundef %peer)
   %cmp23.not = icmp eq i32 %call22, 0
   br i1 %cmp23.not, label %if.end25, label %return
 
 if.end25:                                         ; preds = %for.end
-  br i1 %tobool.not.not57, label %if.end34, label %if.then28
+  %tobool.not.not59 = icmp eq i32 %include_certificate_type, 0
+  br i1 %tobool.not.not59, label %if.end34, label %if.then28
 
 if.then28:                                        ; preds = %if.end25
   %1 = load ptr, ptr %peer, align 8
@@ -338,7 +338,7 @@ if.end42:                                         ; preds = %if.end34
   %idxprom45 = zext nneg i32 %inc36 to i64
   %arrayidx46 = getelementptr inbounds %struct.tsi_peer_property, ptr %4, i64 %idxprom45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %common_name.i)
-  %call.i.i = tail call ptr @X509_get_subject_name(ptr noundef %cert)
+  %call.i.i = tail call ptr @X509_get_subject_name(ptr noundef nonnull %cert)
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -415,9 +415,9 @@ if.end50:                                         ; preds = %_ZL35peer_property_
   %idxprom53 = zext nneg i32 %inc44 to i64
   %arrayidx54 = getelementptr inbounds %struct.tsi_peer_property, ptr %7, i64 %idxprom53
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %contents.i)
-  %call.i35 = call ptr @BIO_s_mem()
-  %call1.i = call ptr @BIO_new(ptr noundef %call.i35)
-  %call2.i = call i32 @PEM_write_bio_X509(ptr noundef %call1.i, ptr noundef %cert)
+  %call.i36 = call ptr @BIO_s_mem()
+  %call1.i = call ptr @BIO_new(ptr noundef %call.i36)
+  %call2.i = call i32 @PEM_write_bio_X509(ptr noundef %call1.i, ptr noundef nonnull %cert)
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit.thread, label %if.end.i
 
@@ -441,7 +441,7 @@ _ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit: ; preds = %if.end.i
   br i1 %or.cond, label %if.then60, label %do.end67
 
 if.then60:                                        ; preds = %_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit
-  %call62 = call fastcc noundef i32 @_ZL40add_subject_alt_names_properties_to_peerP8tsi_peerP21stack_st_GENERAL_NAMEmPi(ptr noundef nonnull %peer, ptr noundef %call, i64 noundef %conv558, ptr noundef nonnull %current_insert_index)
+  %call62 = call fastcc noundef i32 @_ZL40add_subject_alt_names_properties_to_peerP8tsi_peerP21stack_st_GENERAL_NAMEmPi(ptr noundef nonnull %peer, ptr noundef %call, i64 noundef %conv560, ptr noundef %current_insert_index)
   br label %do.end67
 
 do.end67:                                         ; preds = %_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit.thread, %_ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit.thread, %if.then60, %_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit, %_ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit, %if.end34, %if.then28
@@ -818,7 +818,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 13) i32 @_ZL25create_tsi_ssl_handshakerP10ssl_ctx_stiPKcmmP26tsi_ssl_handshaker_factoryPP14tsi_handshaker(ptr noundef %ctx, i32 noundef %is_client, ptr noundef %server_name_indication, i64 noundef %network_bio_buf_size, i64 noundef %ssl_bio_buf_size, ptr noundef %factory, ptr nocapture noundef writeonly %handshaker) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 13) i32 @_ZL25create_tsi_ssl_handshakerP10ssl_ctx_stiPKcmmP26tsi_ssl_handshaker_factoryPP14tsi_handshaker(ptr noundef %ctx, i32 noundef range(i32 0, 2) %is_client, ptr noundef %server_name_indication, i64 noundef %network_bio_buf_size, i64 noundef %ssl_bio_buf_size, ptr noundef %factory, ptr nocapture noundef writeonly %handshaker) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %session.i = alloca %"class.std::unique_ptr", align 8
   %network_io = alloca ptr, align 8
@@ -3717,10 +3717,10 @@ declare noundef i32 @_Z18tsi_construct_peermP8tsi_peer(i64 noundef, ptr noundef)
 declare noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL31peer_property_from_x509_subjectP7x509_stP17tsi_peer_propertyb(ptr noundef %cert, ptr noundef %property, i1 noundef zeroext %is_verified_root_cert) unnamed_addr #3 {
+define internal fastcc noundef i32 @_ZL31peer_property_from_x509_subjectP7x509_stP17tsi_peer_propertyb(ptr noundef nonnull %cert, ptr noundef %property, i1 noundef zeroext %is_verified_root_cert) unnamed_addr #3 {
 entry:
   %contents = alloca ptr, align 8
-  %call = tail call ptr @X509_get_subject_name(ptr noundef %cert)
+  %call = tail call ptr @X509_get_subject_name(ptr noundef nonnull %cert)
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -3754,7 +3754,7 @@ return:                                           ; preds = %if.end8, %if.then6,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL40add_subject_alt_names_properties_to_peerP8tsi_peerP21stack_st_GENERAL_NAMEmPi(ptr nocapture noundef readonly %peer, ptr noundef %subject_alt_names, i64 noundef %subject_alt_name_count, ptr nocapture noundef %current_insert_index) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL40add_subject_alt_names_properties_to_peerP8tsi_peerP21stack_st_GENERAL_NAMEmPi(ptr nocapture noundef readonly %peer, ptr noundef %subject_alt_names, i64 noundef range(i64 -2147483648, 2147483648) %subject_alt_name_count, ptr nocapture noundef nonnull %current_insert_index) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca ptr, align 8
   %property_name = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4288,7 +4288,7 @@ _ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1
   br i1 %cmp2158, label %while.body22, label %while.end
 
 while.body22:                                     ; preds = %_ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %if.end26
-  %call23 = call fastcc noundef i32 @_ZL34ssl_handshaker_write_output_bufferP14tsi_handshakerPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %self, ptr noundef nonnull %bytes_written, ptr noundef %error)
+  %call23 = call fastcc noundef i32 @_ZL34ssl_handshaker_write_output_bufferP14tsi_handshakerPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %self, ptr noundef %bytes_written, ptr noundef %error)
   %cmp24.not = icmp eq i32 %call23, 0
   br i1 %cmp24.not, label %if.end26, label %return
 
@@ -4311,7 +4311,7 @@ if.end29:                                         ; preds = %land.lhs.true14, %w
   br i1 %cmp30.not, label %if.end32, label %return
 
 if.end32:                                         ; preds = %if.end10, %if.end29
-  %call33 = call fastcc noundef i32 @_ZL34ssl_handshaker_write_output_bufferP14tsi_handshakerPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %self, ptr noundef nonnull %bytes_written, ptr noundef %error)
+  %call33 = call fastcc noundef i32 @_ZL34ssl_handshaker_write_output_bufferP14tsi_handshakerPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %self, ptr noundef %bytes_written, ptr noundef %error)
   %cmp34.not = icmp eq i32 %call33, 0
   br i1 %cmp34.not, label %if.end36, label %return
 
@@ -4349,7 +4349,7 @@ if.then39:                                        ; preds = %_ZL25ssl_handshaker
 if.else:                                          ; preds = %if.end36, %if.then.i50, %_ZL25ssl_handshaker_get_resultP18tsi_ssl_handshaker.exit
   store ptr null, ptr %unused_bytes, align 8
   store i64 0, ptr %unused_bytes_size, align 8
-  %call40 = call fastcc noundef i32 @_ZL19ssl_bytes_remainingP18tsi_ssl_handshakerPPhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %self, ptr noundef nonnull %unused_bytes, ptr noundef nonnull %unused_bytes_size, ptr noundef %error)
+  %call40 = call fastcc noundef i32 @_ZL19ssl_bytes_remainingP18tsi_ssl_handshakerPPhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %self, ptr noundef %unused_bytes, ptr noundef %unused_bytes_size, ptr noundef %error)
   %cmp41.not = icmp eq i32 %call40, 0
   br i1 %cmp41.not, label %if.end43, label %return
 
@@ -4386,7 +4386,7 @@ return:                                           ; preds = %while.body22, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 8) i32 @_ZL34ssl_handshaker_write_output_bufferP14tsi_handshakerPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef %self, ptr nocapture noundef %bytes_written, ptr noundef %error) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 8) i32 @_ZL34ssl_handshaker_write_output_bufferP14tsi_handshakerPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef %self, ptr nocapture noundef nonnull %bytes_written, ptr noundef %error) unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %bytes_written, align 8
   %outgoing_bytes_buffer_size = getelementptr inbounds i8, ptr %self, i64 48
@@ -4570,7 +4570,7 @@ return:                                           ; preds = %if.else, %sw.bb, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 8) i32 @_ZL19ssl_bytes_remainingP18tsi_ssl_handshakerPPhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readonly %impl, ptr nocapture noundef %bytes_remaining, ptr nocapture noundef writeonly %bytes_remaining_size, ptr noundef %error) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 8) i32 @_ZL19ssl_bytes_remainingP18tsi_ssl_handshakerPPhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readonly %impl, ptr nocapture noundef nonnull %bytes_remaining, ptr nocapture noundef nonnull writeonly %bytes_remaining_size, ptr noundef %error) unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %impl, null
   br i1 %cmp, label %if.then, label %if.end6
@@ -4627,7 +4627,7 @@ return:                                           ; preds = %if.then20, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZL28ssl_handshaker_result_createP18tsi_ssl_handshakerPhmPP21tsi_handshaker_resultPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %handshaker, ptr noundef %unused_bytes, i64 noundef %unused_bytes_size, ptr nocapture noundef writeonly %handshaker_result, ptr noundef %error) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZL28ssl_handshaker_result_createP18tsi_ssl_handshakerPhmPP21tsi_handshaker_resultPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %handshaker, ptr noundef %unused_bytes, i64 noundef %unused_bytes_size, ptr nocapture noundef nonnull writeonly %handshaker_result, ptr noundef %error) unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %handshaker, null
   br i1 %cmp, label %if.then, label %lor.lhs.false2
@@ -4707,7 +4707,7 @@ entry:
   br i1 %cmp.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call fastcc noundef i32 @_ZL14peer_from_x509P7x509_stiP8tsi_peer(ptr noundef nonnull %call, i32 noundef 1, ptr noundef %peer)
+  %call1 = tail call fastcc noundef i32 @_ZL14peer_from_x509P7x509_stiP8tsi_peer(ptr noundef %call, i32 noundef 1, ptr noundef %peer)
   tail call void @X509_free(ptr noundef nonnull %call)
   %cmp2.not = icmp eq i32 %call1, 0
   br i1 %cmp2.not, label %if.end4, label %return
@@ -4839,7 +4839,7 @@ if.end78:                                         ; preds = %if.end67
 if.then82:                                        ; preds = %if.end78
   %27 = load ptr, ptr %peer, align 8
   %arrayidx85 = getelementptr inbounds %struct.tsi_peer_property, ptr %27, i64 %inc80
-  %call86 = call fastcc noundef i32 @_ZL31peer_property_from_x509_subjectP7x509_stP17tsi_peer_propertyb(ptr noundef nonnull %call13, ptr noundef %arrayidx85, i1 noundef zeroext true)
+  %call86 = call fastcc noundef i32 @_ZL31peer_property_from_x509_subjectP7x509_stP17tsi_peer_propertyb(ptr noundef %call13, ptr noundef %arrayidx85, i1 noundef zeroext true)
   %cmp87.not = icmp eq i32 %call86, 0
   br i1 %cmp87.not, label %if.end89, label %if.then88
 

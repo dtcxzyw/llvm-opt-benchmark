@@ -475,7 +475,7 @@ if.end153:                                        ; preds = %if.end148
 if.end158:                                        ; preds = %if.end153
   %29 = load ptr, ptr %call114, align 8
   %call160 = call ptr @get_ui_method() #4
-  %call161 = call fastcc i32 @process(ptr noundef %29, ptr noundef %call160, ptr noundef nonnull %pw_cb_data, i32 noundef %expected.0, i32 noundef %criterion.0, ptr noundef %search.1, i32 noundef %text.0, i32 noundef %noout.0, i32 noundef %recursive.0, i32 noundef 0, ptr noundef nonnull %call155, ptr noundef %call1, ptr noundef %call)
+  %call161 = call fastcc i32 @process(ptr noundef %29, ptr noundef %call160, ptr noundef %pw_cb_data, i32 noundef %expected.0, i32 noundef %criterion.0, ptr noundef %search.1, i32 noundef %text.0, i32 noundef %noout.0, i32 noundef %recursive.0, i32 noundef 0, ptr noundef %call155, ptr noundef %call1, ptr noundef %call)
   br label %end
 
 end:                                              ; preds = %sw.bb106, %if.end44, %if.end29, %if.end153, %if.end158, %if.then151, %if.then145, %if.then140, %if.then135, %if.then130, %if.then124, %if.then97, %if.then91, %if.then87, %if.then82, %if.then76, %if.then72, %if.then64, %if.then58, %if.then54, %if.then42, %if.then38, %if.then27, %if.then23, %if.then, %sw.bb4, %opthelp
@@ -554,10 +554,10 @@ declare i32 @app_passwd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @bio_open_default(ptr noundef, i8 noundef signext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @process(ptr noundef %uri, ptr noundef %uimeth, ptr noundef %uidata, i32 noundef %expected, i32 noundef %criterion, ptr noundef %search, i32 noundef %text, i32 noundef %noout, i32 noundef %recursive, i32 noundef %indent, ptr noundef %out, ptr noundef %prog, ptr noundef %libctx) unnamed_addr #0 {
+define internal fastcc i32 @process(ptr noundef %uri, ptr noundef %uimeth, ptr noundef nonnull %uidata, i32 noundef %expected, i32 noundef range(i32 0, 5) %criterion, ptr noundef %search, i32 noundef range(i32 0, 2) %text, i32 noundef range(i32 0, 2) %noout, i32 noundef range(i32 0, 2) %recursive, i32 noundef %indent, ptr noundef nonnull %out, ptr noundef %prog, ptr noundef %libctx) unnamed_addr #0 {
 entry:
   %call = tail call ptr @app_get0_propq() #4
-  %call1 = tail call ptr @OSSL_STORE_open_ex(ptr noundef %uri, ptr noundef %libctx, ptr noundef %call, ptr noundef %uimeth, ptr noundef %uidata, ptr noundef null, ptr noundef null, ptr noundef null) #4
+  %call1 = tail call ptr @OSSL_STORE_open_ex(ptr noundef %uri, ptr noundef %libctx, ptr noundef %call, ptr noundef %uimeth, ptr noundef nonnull %uidata, ptr noundef null, ptr noundef null, ptr noundef null) #4
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -722,7 +722,7 @@ sw.bb69:                                          ; preds = %if.end62
 
 if.then71:                                        ; preds = %sw.bb69
   %call72 = tail call ptr @OSSL_STORE_INFO_get0_PARAMS(ptr noundef nonnull %call21.lcssa) #4
-  %call73 = tail call i32 @EVP_PKEY_print_params(ptr noundef %out, ptr noundef %call72, i32 noundef 0, ptr noundef null) #4
+  %call73 = tail call i32 @EVP_PKEY_print_params(ptr noundef nonnull %out, ptr noundef %call72, i32 noundef 0, ptr noundef null) #4
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then71, %sw.bb69
@@ -730,7 +730,7 @@ if.end74:                                         ; preds = %if.then71, %sw.bb69
 
 if.then76:                                        ; preds = %if.end74
   %call77 = tail call ptr @OSSL_STORE_INFO_get0_PARAMS(ptr noundef nonnull %call21.lcssa) #4
-  %call78 = tail call i32 @PEM_write_bio_Parameters(ptr noundef %out, ptr noundef %call77) #4
+  %call78 = tail call i32 @PEM_write_bio_Parameters(ptr noundef nonnull %out, ptr noundef %call77) #4
   br label %sw.epilog
 
 sw.bb80:                                          ; preds = %if.end62
@@ -738,7 +738,7 @@ sw.bb80:                                          ; preds = %if.end62
 
 if.then82:                                        ; preds = %sw.bb80
   %call83 = tail call ptr @OSSL_STORE_INFO_get0_PUBKEY(ptr noundef nonnull %call21.lcssa) #4
-  %call84 = tail call i32 @EVP_PKEY_print_public(ptr noundef %out, ptr noundef %call83, i32 noundef 0, ptr noundef null) #4
+  %call84 = tail call i32 @EVP_PKEY_print_public(ptr noundef nonnull %out, ptr noundef %call83, i32 noundef 0, ptr noundef null) #4
   br label %if.end85
 
 if.end85:                                         ; preds = %if.then82, %sw.bb80
@@ -746,7 +746,7 @@ if.end85:                                         ; preds = %if.then82, %sw.bb80
 
 if.then87:                                        ; preds = %if.end85
   %call88 = tail call ptr @OSSL_STORE_INFO_get0_PUBKEY(ptr noundef nonnull %call21.lcssa) #4
-  %call89 = tail call i32 @PEM_write_bio_PUBKEY(ptr noundef %out, ptr noundef %call88) #4
+  %call89 = tail call i32 @PEM_write_bio_PUBKEY(ptr noundef nonnull %out, ptr noundef %call88) #4
   br label %sw.epilog
 
 sw.bb91:                                          ; preds = %if.end62
@@ -754,7 +754,7 @@ sw.bb91:                                          ; preds = %if.end62
 
 if.then93:                                        ; preds = %sw.bb91
   %call94 = tail call ptr @OSSL_STORE_INFO_get0_PKEY(ptr noundef nonnull %call21.lcssa) #4
-  %call95 = tail call i32 @EVP_PKEY_print_private(ptr noundef %out, ptr noundef %call94, i32 noundef 0, ptr noundef null) #4
+  %call95 = tail call i32 @EVP_PKEY_print_private(ptr noundef nonnull %out, ptr noundef %call94, i32 noundef 0, ptr noundef null) #4
   br label %if.end96
 
 if.end96:                                         ; preds = %if.then93, %sw.bb91
@@ -762,7 +762,7 @@ if.end96:                                         ; preds = %if.then93, %sw.bb91
 
 if.then98:                                        ; preds = %if.end96
   %call99 = tail call ptr @OSSL_STORE_INFO_get0_PKEY(ptr noundef nonnull %call21.lcssa) #4
-  %call100 = tail call i32 @PEM_write_bio_PrivateKey(ptr noundef %out, ptr noundef %call99, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null) #4
+  %call100 = tail call i32 @PEM_write_bio_PrivateKey(ptr noundef nonnull %out, ptr noundef %call99, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null) #4
   br label %sw.epilog
 
 sw.bb102:                                         ; preds = %if.end62
@@ -770,7 +770,7 @@ sw.bb102:                                         ; preds = %if.end62
 
 if.then104:                                       ; preds = %sw.bb102
   %call105 = tail call ptr @OSSL_STORE_INFO_get0_CERT(ptr noundef nonnull %call21.lcssa) #4
-  %call106 = tail call i32 @X509_print(ptr noundef %out, ptr noundef %call105) #4
+  %call106 = tail call i32 @X509_print(ptr noundef nonnull %out, ptr noundef %call105) #4
   br label %if.end107
 
 if.end107:                                        ; preds = %if.then104, %sw.bb102
@@ -778,7 +778,7 @@ if.end107:                                        ; preds = %if.then104, %sw.bb1
 
 if.then109:                                       ; preds = %if.end107
   %call110 = tail call ptr @OSSL_STORE_INFO_get0_CERT(ptr noundef nonnull %call21.lcssa) #4
-  %call111 = tail call i32 @PEM_write_bio_X509(ptr noundef %out, ptr noundef %call110) #4
+  %call111 = tail call i32 @PEM_write_bio_X509(ptr noundef nonnull %out, ptr noundef %call110) #4
   br label %sw.epilog
 
 sw.bb113:                                         ; preds = %if.end62
@@ -786,7 +786,7 @@ sw.bb113:                                         ; preds = %if.end62
 
 if.then115:                                       ; preds = %sw.bb113
   %call116 = tail call ptr @OSSL_STORE_INFO_get0_CRL(ptr noundef nonnull %call21.lcssa) #4
-  %call117 = tail call i32 @X509_CRL_print(ptr noundef %out, ptr noundef %call116) #4
+  %call117 = tail call i32 @X509_CRL_print(ptr noundef nonnull %out, ptr noundef %call116) #4
   br label %if.end118
 
 if.end118:                                        ; preds = %if.then115, %sw.bb113
@@ -794,7 +794,7 @@ if.end118:                                        ; preds = %if.then115, %sw.bb1
 
 if.then120:                                       ; preds = %if.end118
   %call121 = tail call ptr @OSSL_STORE_INFO_get0_CRL(ptr noundef nonnull %call21.lcssa) #4
-  %call122 = tail call i32 @PEM_write_bio_X509_CRL(ptr noundef %out, ptr noundef %call121) #4
+  %call122 = tail call i32 @PEM_write_bio_X509_CRL(ptr noundef nonnull %out, ptr noundef %call121) #4
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end62
@@ -811,7 +811,7 @@ sw.epilog:                                        ; preds = %if.end118, %if.then
 
 for.end:                                          ; preds = %if.then34, %if.then34.us, %if.end42, %if.end46
   %ret.2 = phi i32 [ %.us-phi89, %if.end42 ], [ %inc49, %if.end46 ], [ %ret.187.us, %if.then34.us ], [ %ret.187, %if.then34 ]
-  tail call void (i32, ptr, ptr, ...) @indent_printf(i32 noundef %indent, ptr noundef %out, ptr noundef nonnull @.str.72, i32 noundef %items.0.ph)
+  tail call void (i32, ptr, ptr, ...) @indent_printf(i32 noundef %indent, ptr noundef nonnull %out, ptr noundef nonnull @.str.72, i32 noundef %items.0.ph)
   br label %end2
 
 end2:                                             ; preds = %for.end, %if.then18, %if.then13, %if.then6

@@ -1564,7 +1564,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4push17h4fce27c
 28:                                               ; preds = %27
   %29 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17h7d8a65c57c57c176E"(ptr noalias noundef nonnull align 8 dereferenceable(232) %4) #20
+  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17h7d8a65c57c57c176E"(ptr noalias noundef align 8 dereferenceable(232) %4) #20
           to label %.body unwind label %30, !noalias !433
 
 30:                                               ; preds = %28
@@ -1579,7 +1579,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4push17h4fce27c
 33:                                               ; preds = %18
   %34 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17h7d8a65c57c57c176E"(ptr noalias noundef nonnull align 8 dereferenceable(232) %6) #20
+  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17h7d8a65c57c57c176E"(ptr noalias noundef align 8 dereferenceable(232) %6) #20
           to label %.body unwind label %35, !noalias !428
 
 35:                                               ; preds = %33
@@ -1617,7 +1617,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4push17h4fce27c
 46:                                               ; preds = %45
   %47 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17h7d8a65c57c57c176E"(ptr noalias noundef nonnull align 8 dereferenceable(232) %3)
+  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17h7d8a65c57c57c176E"(ptr noalias noundef align 8 dereferenceable(232) %3)
           to label %50 unwind label %48
 
 48:                                               ; preds = %46
@@ -1643,7 +1643,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4push17h4fce27c
 
 52:                                               ; preds = %50, %37
   %eh.lpad-body.ph = phi { ptr, i32 } [ %47, %50 ], [ %38, %37 ]
-  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17h7d8a65c57c57c176E"(ptr noalias noundef nonnull align 8 dereferenceable(232) %1) #20
+  invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17h7d8a65c57c57c176E"(ptr noalias noundef align 8 dereferenceable(232) %1) #20
           to label %.body unwind label %53
 
 53:                                               ; preds = %52
@@ -1723,7 +1723,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4push17h57bd25a
 28:                                               ; preds = %27
   %29 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$syn..path..GenericArgument$GT$17h3ddb8359966adf44E"(ptr noalias noundef nonnull align 8 dereferenceable(328) %4) #20
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$syn..path..GenericArgument$GT$17h3ddb8359966adf44E"(ptr noalias noundef align 8 dereferenceable(328) %4) #20
           to label %.body unwind label %30, !noalias !450
 
 30:                                               ; preds = %28
@@ -1738,7 +1738,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4push17h57bd25a
 33:                                               ; preds = %18
   %34 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$syn..path..GenericArgument$GT$17h3ddb8359966adf44E"(ptr noalias noundef nonnull align 8 dereferenceable(328) %6) #20
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$syn..path..GenericArgument$GT$17h3ddb8359966adf44E"(ptr noalias noundef align 8 dereferenceable(328) %6) #20
           to label %.body unwind label %35, !noalias !445
 
 35:                                               ; preds = %33
@@ -1776,7 +1776,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4push17h57bd25a
 46:                                               ; preds = %45
   %47 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$syn..path..GenericArgument$GT$17h3ddb8359966adf44E"(ptr noalias noundef nonnull align 8 dereferenceable(328) %3)
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$syn..path..GenericArgument$GT$17h3ddb8359966adf44E"(ptr noalias noundef align 8 dereferenceable(328) %3)
           to label %50 unwind label %48
 
 48:                                               ; preds = %46
@@ -1802,7 +1802,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4push17h57bd25a
 
 52:                                               ; preds = %50, %37
   %eh.lpad-body.ph = phi { ptr, i32 } [ %47, %50 ], [ %38, %37 ]
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$syn..path..GenericArgument$GT$17h3ddb8359966adf44E"(ptr noalias noundef nonnull align 8 dereferenceable(328) %1) #20
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$syn..path..GenericArgument$GT$17h3ddb8359966adf44E"(ptr noalias noundef align 8 dereferenceable(328) %1) #20
           to label %.body unwind label %53
 
 53:                                               ; preds = %52
@@ -2065,7 +2065,7 @@ define internal void @"_ZN4core3ptr104drop_in_place$LT$syn..punctuated..PrivateI
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17h7d8a65c57c57c176E"(ptr noalias noundef align 8 dereferenceable(232) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17h7d8a65c57c57c176E"(ptr noalias noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !494, !noundef !7
   %3 = add nsw i64 %2, -2
   %4 = icmp ult i64 %3, 15
@@ -2262,7 +2262,7 @@ common.resume:                                    ; preds = %56, %45, %34, %25, 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$syn..path..GenericArgument$GT$17h3ddb8359966adf44E"(ptr noalias noundef align 8 dereferenceable(328) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$syn..path..GenericArgument$GT$17h3ddb8359966adf44E"(ptr noalias noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !523, !noundef !7
   %4 = add nsw i64 %3, -17
@@ -2345,7 +2345,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr90drop
 
 32:                                               ; preds = %1
   %33 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17h7d8a65c57c57c176E"(ptr noalias noundef nonnull align 8 dereferenceable(232) %33)
+  tail call fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17h7d8a65c57c57c176E"(ptr noalias noundef align 8 dereferenceable(232) %33)
   br label %"_ZN4core3ptr44drop_in_place$LT$syn..lifetime..Lifetime$GT$17ha61d28f13b4b39d3E.exit"
 
 34:                                               ; preds = %1
@@ -4696,7 +4696,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$7or_else17h557b0043d57ff4d7
   br i1 %34, label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$syn..path..GenericArgument$GT$$GT$17ha879a00777a29b64E.exit", label %35
 
 35:                                               ; preds = %31
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$syn..path..GenericArgument$GT$17h3ddb8359966adf44E"(ptr noalias noundef nonnull align 8 dereferenceable(328) %1)
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$syn..path..GenericArgument$GT$17h3ddb8359966adf44E"(ptr noalias noundef align 8 dereferenceable(328) %1)
           to label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$syn..path..GenericArgument$GT$$GT$17ha879a00777a29b64E.exit" unwind label %40
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17he38558f7b069bda9E.exit": ; preds = %3
@@ -4712,7 +4712,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$7or_else17h557b0043d57ff4d7
   br i1 %38, label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$syn..path..GenericArgument$GT$$GT$17ha879a00777a29b64E.exit6", label %39
 
 39:                                               ; preds = %36
-  tail call fastcc void @"_ZN4core3ptr47drop_in_place$LT$syn..path..GenericArgument$GT$17h3ddb8359966adf44E"(ptr noalias noundef nonnull align 8 dereferenceable(328) %1)
+  tail call fastcc void @"_ZN4core3ptr47drop_in_place$LT$syn..path..GenericArgument$GT$17h3ddb8359966adf44E"(ptr noalias noundef align 8 dereferenceable(328) %1)
   br label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$syn..path..GenericArgument$GT$$GT$17ha879a00777a29b64E.exit6"
 
 "_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$syn..path..GenericArgument$GT$$GT$17ha879a00777a29b64E.exit": ; preds = %31, %35

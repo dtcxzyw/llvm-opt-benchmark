@@ -68,7 +68,7 @@ define dso_local void @extract_restriction_or_clauses(ptr noundef %0) local_unna
   br i1 %37, label %38, label %64
 
 38:                                               ; preds = %36
-  %39 = call fastcc ptr @extract_or_clause(ptr noundef %34, ptr noundef nonnull %17)
+  %39 = call fastcc ptr @extract_or_clause(ptr noundef %34, ptr noundef %17)
   %.not28 = icmp eq ptr %39, null
   br i1 %.not28, label %64, label %40
 
@@ -148,7 +148,7 @@ declare zeroext i1 @restriction_is_or_clause(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @join_clause_is_movable_to(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @extract_or_clause(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @extract_or_clause(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8

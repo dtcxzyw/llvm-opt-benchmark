@@ -1387,7 +1387,7 @@ define hidden void @_ZN22ThreadLocalAllocBuffer23set_back_allocation_endEv(ptr n
 declare void @_ZN13ExceptionMarkC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL20create_perf_variablePKcN8PerfData5UnitsEP10JavaThread(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZL20create_perf_variablePKcN8PerfData5UnitsEP10JavaThread(ptr noundef %0, i32 noundef range(i32 1, 3) %1, ptr noundef %2) unnamed_addr #3 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 800

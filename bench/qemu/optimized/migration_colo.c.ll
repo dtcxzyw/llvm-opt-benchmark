@@ -609,7 +609,7 @@ if.end5.i:                                        ; preds = %if.end.i
   %2 = load ptr, ptr %rp_state.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i.i)
   store ptr null, ptr %local_err.i.i, align 8
-  %call.i.i = call fastcc i32 @colo_receive_message(ptr noundef %2, ptr noundef nonnull %local_err.i.i)
+  %call.i.i = call fastcc i32 @colo_receive_message(ptr noundef %2, ptr noundef %local_err.i.i)
   %3 = load ptr, ptr %local_err.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -721,7 +721,7 @@ if.end30.i:                                       ; preds = %if.end25.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i23.i)
   store ptr null, ptr %local_err.i23.i, align 8
   %15 = load ptr, ptr %to_dst_file.i, align 8
-  call fastcc void @colo_send_message(ptr noundef %15, i32 noundef 1, ptr noundef nonnull %local_err.i23.i)
+  call fastcc void @colo_send_message(ptr noundef %15, i32 noundef 1, ptr noundef %local_err.i23.i)
   %16 = load ptr, ptr %local_err.i23.i, align 8
   %tobool.not.i24.i = icmp eq ptr %16, null
   br i1 %tobool.not.i24.i, label %if.end.i25.i, label %if.then55.i.i
@@ -730,7 +730,7 @@ if.end.i25.i:                                     ; preds = %if.end30.i
   %17 = load ptr, ptr %rp_state.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i.i.i)
   store ptr null, ptr %local_err.i.i.i, align 8
-  %call.i.i26.i = call fastcc i32 @colo_receive_message(ptr noundef %17, ptr noundef nonnull %local_err.i.i.i)
+  %call.i.i26.i = call fastcc i32 @colo_receive_message(ptr noundef %17, ptr noundef %local_err.i.i.i)
   %18 = load ptr, ptr %local_err.i.i.i, align 8
   %tobool.not.i.i27.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i27.i, label %if.end.i.i.i, label %if.then.i.i28.i
@@ -819,7 +819,7 @@ if.then14.i.i:                                    ; preds = %if.end12.i.i
 
 if.end15.i.i:                                     ; preds = %if.end12.i.i
   %27 = load ptr, ptr %to_dst_file.i, align 8
-  call fastcc void @colo_send_message(ptr noundef %27, i32 noundef 3, ptr noundef nonnull %local_err.i23.i)
+  call fastcc void @colo_send_message(ptr noundef %27, i32 noundef 3, ptr noundef %local_err.i23.i)
   %28 = load ptr, ptr %local_err.i23.i, align 8
   %tobool17.not.i.i = icmp eq ptr %28, null
   br i1 %tobool17.not.i.i, label %if.end19.i.i, label %if.then18.i.i
@@ -848,7 +848,7 @@ if.end26.i.i:                                     ; preds = %if.then25.i.i, %if.
   %call28.i.i = call i32 @qemu_fflush(ptr noundef %call13.i) #6
   %30 = load ptr, ptr %to_dst_file.i, align 8
   %31 = load i64, ptr %usage.i.i, align 8
-  call fastcc void @colo_send_message_value(ptr noundef %30, i64 noundef %31, ptr noundef nonnull %local_err.i23.i)
+  call fastcc void @colo_send_message_value(ptr noundef %30, i64 noundef %31, ptr noundef %local_err.i23.i)
   %32 = load ptr, ptr %local_err.i23.i, align 8
   %tobool31.not.i.i = icmp eq ptr %32, null
   br i1 %tobool31.not.i.i, label %if.end33.i.i, label %if.then55.i.i
@@ -865,7 +865,7 @@ if.end33.i.i:                                     ; preds = %if.end26.i.i
 
 if.end40.i.i:                                     ; preds = %if.end33.i.i
   %37 = load ptr, ptr %rp_state.i, align 8
-  call fastcc void @colo_receive_check_message(ptr noundef %37, i32 noundef 5, ptr noundef nonnull %local_err.i23.i)
+  call fastcc void @colo_receive_check_message(ptr noundef %37, i32 noundef 5, ptr noundef %local_err.i23.i)
   %38 = load ptr, ptr %local_err.i23.i, align 8
   %tobool43.not.i.i = icmp eq ptr %38, null
   br i1 %tobool43.not.i.i, label %if.end45.i.i, label %if.then55.i.i
@@ -879,7 +879,7 @@ if.end45.i.i:                                     ; preds = %if.end40.i.i
 
 if.end48.i.i:                                     ; preds = %if.end45.i.i
   %40 = load ptr, ptr %rp_state.i, align 8
-  call fastcc void @colo_receive_check_message(ptr noundef %40, i32 noundef 6, ptr noundef nonnull %local_err.i23.i)
+  call fastcc void @colo_receive_check_message(ptr noundef %40, i32 noundef 6, ptr noundef %local_err.i23.i)
   %41 = load ptr, ptr %local_err.i23.i, align 8
   %tobool51.not.i.i = icmp eq ptr %41, null
   br i1 %tobool51.not.i.i, label %if.end53.i.i, label %if.then55.i.i
@@ -1185,7 +1185,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_colo_vm_state_change.exit:                  ; preds = %if.end11, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %11 = load ptr, ptr %to_src_file, align 8
-  call fastcc void @colo_send_message(ptr noundef %11, i32 noundef 0, ptr noundef nonnull %local_err)
+  call fastcc void @colo_send_message(ptr noundef %11, i32 noundef 0, ptr noundef %local_err)
   %12 = load ptr, ptr %local_err, align 8
   %tobool13.not = icmp eq ptr %12, null
   br i1 %tobool13.not, label %while.cond.preheader, label %out
@@ -1206,7 +1206,7 @@ while.body:                                       ; preds = %while.cond
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i)
   store ptr null, ptr %local_err.i, align 8
   %14 = load ptr, ptr %opaque, align 8
-  %call.i15 = call fastcc i32 @colo_receive_message(ptr noundef %14, ptr noundef nonnull %local_err.i)
+  %call.i15 = call fastcc i32 @colo_receive_message(ptr noundef %14, ptr noundef %local_err.i)
   %15 = load ptr, ptr %local_err.i, align 8
   %tobool.not.i = icmp eq ptr %15, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -1259,7 +1259,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
 trace_colo_vm_state_change.exit.i.i:              ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %sw.bb.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i)
   %22 = load ptr, ptr %to_src_file, align 8
-  call fastcc void @colo_send_message(ptr noundef %22, i32 noundef 2, ptr noundef nonnull %local_err.i.i)
+  call fastcc void @colo_send_message(ptr noundef %22, i32 noundef 2, ptr noundef %local_err.i.i)
   %23 = load ptr, ptr %local_err.i.i, align 8
   %tobool.not.i.i17 = icmp eq ptr %23, null
   br i1 %tobool.not.i.i17, label %if.end.i.i, label %if.then.i.i18
@@ -1272,7 +1272,7 @@ if.end.i.i:                                       ; preds = %trace_colo_vm_state
   %24 = load ptr, ptr %opaque, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i.i.i)
   store ptr null, ptr %local_err.i.i.i, align 8
-  %call.i.i.i = call fastcc i32 @colo_receive_message(ptr noundef %24, ptr noundef nonnull %local_err.i.i.i)
+  %call.i.i.i = call fastcc i32 @colo_receive_message(ptr noundef %24, ptr noundef %local_err.i.i.i)
   %25 = load ptr, ptr %local_err.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
@@ -1318,7 +1318,7 @@ if.end7.i.i:                                      ; preds = %if.end3.i.i
   store ptr null, ptr %local_err.i38.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i.i.i.i)
   store ptr null, ptr %local_err.i.i.i.i, align 8
-  %call.i.i.i.i = call fastcc i32 @colo_receive_message(ptr noundef %28, ptr noundef nonnull %local_err.i.i.i.i)
+  %call.i.i.i.i = call fastcc i32 @colo_receive_message(ptr noundef %28, ptr noundef %local_err.i.i.i.i)
   %29 = load ptr, ptr %local_err.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i39.i.i
@@ -1400,7 +1400,7 @@ if.end25.i.i:                                     ; preds = %if.end19.i.i
   %call.i44.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call6, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #6
   %call27.i.i = call i64 @qio_channel_io_seek(ptr noundef %call.i44.i.i, i64 noundef 0, i32 noundef 0, ptr noundef null) #6
   %36 = load ptr, ptr %to_src_file, align 8
-  call fastcc void @colo_send_message(ptr noundef %36, i32 noundef 5, ptr noundef nonnull %local_err.i.i)
+  call fastcc void @colo_send_message(ptr noundef %36, i32 noundef 5, ptr noundef %local_err.i.i)
   %37 = load ptr, ptr %local_err.i.i, align 8
   %tobool29.not.i.i = icmp eq ptr %37, null
   br i1 %tobool29.not.i.i, label %if.end31.i.i, label %if.then30.i.i
@@ -1470,7 +1470,7 @@ if.end44.i.i:                                     ; preds = %if.end41.i.i
 
 if.end48.i.i:                                     ; preds = %if.end44.i.i
   %41 = load ptr, ptr %to_src_file, align 8
-  call fastcc void @colo_send_message(ptr noundef %41, i32 noundef 6, ptr noundef nonnull %local_err.i.i)
+  call fastcc void @colo_send_message(ptr noundef %41, i32 noundef 6, ptr noundef %local_err.i.i)
   %42 = load ptr, ptr %local_err.i.i, align 8
   call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef %42) #6
   br label %colo_incoming_process_checkpoint.exit.i
@@ -1590,17 +1590,17 @@ entry:
 declare void @colo_compare_register_notifier(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @colo_receive_check_message(ptr noundef %f, i32 noundef %expect_msg, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc void @colo_receive_check_message(ptr noundef %f, i32 noundef range(i32 0, 7) %expect_msg, ptr noundef nonnull %errp) unnamed_addr #0 {
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
-  %call = call fastcc i32 @colo_receive_message(ptr noundef %f, ptr noundef nonnull %local_err)
+  %call = call fastcc i32 @colo_receive_message(ptr noundef %f, ptr noundef %local_err)
   %0 = load ptr, ptr %local_err, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %0) #6
+  call void @error_propagate(ptr noundef nonnull %errp, ptr noundef nonnull %0) #6
   br label %if.end2
 
 if.end:                                           ; preds = %entry
@@ -1608,7 +1608,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end2, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 375, ptr noundef nonnull @__func__.colo_receive_check_message, ptr noundef nonnull @.str.14, i32 noundef %call, i32 noundef %expect_msg) #6
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.1, i32 noundef 375, ptr noundef nonnull @__func__.colo_receive_check_message, ptr noundef nonnull @.str.14, i32 noundef %call, i32 noundef %expect_msg) #6
   br label %if.end2
 
 if.end2:                                          ; preds = %if.then1, %if.end, %if.then
@@ -1679,7 +1679,7 @@ declare void @colo_compare_unregister_notifier(ptr noundef) local_unnamed_addr #
 declare void @qemu_event_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @colo_receive_message(ptr noundef %f, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc i32 @colo_receive_message(ptr noundef %f, ptr noundef nonnull %errp) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call i32 @qemu_get_be32(ptr noundef %f) #6
@@ -1689,7 +1689,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub i32 0, %call1
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 351, ptr noundef nonnull @__func__.colo_receive_message, i32 noundef %sub, ptr noundef nonnull @.str.15) #6
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.1, i32 noundef 351, ptr noundef nonnull @__func__.colo_receive_message, i32 noundef %sub, ptr noundef nonnull @.str.15) #6
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1697,7 +1697,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 355, ptr noundef nonnull @__func__.colo_receive_message, ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.colo_receive_message) #6
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.1, i32 noundef 355, ptr noundef nonnull @__func__.colo_receive_message, ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.colo_receive_message) #6
   br label %return
 
 if.end4:                                          ; preds = %if.end
@@ -1758,7 +1758,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @colo_send_message(ptr noundef %f, i32 noundef %msg, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc void @colo_send_message(ptr noundef %f, i32 noundef range(i32 0, 7) %msg, ptr noundef nonnull %errp) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %msg) #6
@@ -1768,7 +1768,7 @@ entry:
 
 if.then2:                                         ; preds = %entry
   %sub = sub i32 0, %call
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 319, ptr noundef nonnull @__func__.colo_send_message, i32 noundef %sub, ptr noundef nonnull @.str.23) #6
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.1, i32 noundef 319, ptr noundef nonnull @__func__.colo_send_message, i32 noundef %sub, ptr noundef nonnull @.str.23) #6
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then2, %entry
@@ -1823,17 +1823,17 @@ declare void @qemu_savevm_live_state(ptr noundef) local_unnamed_addr #1
 declare i32 @qemu_fflush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @colo_send_message_value(ptr noundef %f, i64 noundef %value, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc void @colo_send_message_value(ptr noundef %f, i64 noundef %value, ptr noundef nonnull %errp) unnamed_addr #0 {
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
-  call fastcc void @colo_send_message(ptr noundef %f, i32 noundef 4, ptr noundef nonnull %local_err)
+  call fastcc void @colo_send_message(ptr noundef %f, i32 noundef 4, ptr noundef %local_err)
   %0 = load ptr, ptr %local_err, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %0) #6
+  call void @error_propagate(ptr noundef nonnull %errp, ptr noundef nonnull %0) #6
   br label %if.end3
 
 if.end:                                           ; preds = %entry
@@ -1845,7 +1845,7 @@ if.end:                                           ; preds = %entry
 if.then1:                                         ; preds = %if.end
   %sub = sub i32 0, %call
   %call2 = call ptr @qapi_enum_lookup(ptr noundef nonnull @COLOMessage_lookup, i32 noundef 4) #6
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 339, ptr noundef nonnull @__func__.colo_send_message_value, i32 noundef %sub, ptr noundef nonnull @.str.26, ptr noundef %call2) #6
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.1, i32 noundef 339, ptr noundef nonnull @__func__.colo_send_message_value, i32 noundef %sub, ptr noundef nonnull @.str.26, ptr noundef %call2) #6
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then1, %if.end, %if.then

@@ -1036,7 +1036,7 @@ define dso_local noundef zeroext i1 @fib_info_nh_uses_dev(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nofree norecurse nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @nexthop_uses_dev(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #5 align 16 {
+define internal fastcc noundef zeroext i1 @nexthop_uses_dev(ptr noundef nonnull %0, ptr noundef readonly %1) unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 102
   %4 = load i8, ptr %3, align 2, !range !8, !noundef !9
   %5 = icmp eq i8 %4, 0

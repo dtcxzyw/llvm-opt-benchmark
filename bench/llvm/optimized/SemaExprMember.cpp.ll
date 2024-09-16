@@ -3904,7 +3904,7 @@ _ZNK5clang14ObjCObjectType8isObjCIdEv.exit621:    ; preds = %_ZNK5clang21ObjCObj
   %669 = or disjoint i64 %668, 1
   store i64 %669, ptr %49, align 8
   %670 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %671 = call fastcc noundef ptr @_ZL24FindGetterSetterNameDeclPKN5clang21ObjCObjectPointerTypeEPNS_14IdentifierInfoERKNS_8SelectorERNS_10ASTContextE(ptr noundef nonnull %610, ptr noundef %.0.i613, ptr noundef nonnull align 8 dereferenceable(8) %49)
+  %671 = call fastcc noundef ptr @_ZL24FindGetterSetterNameDeclPKN5clang21ObjCObjectPointerTypeEPNS_14IdentifierInfoERKNS_8SelectorERNS_10ASTContextE(ptr noundef %610, ptr noundef %.0.i613, ptr noundef nonnull align 8 dereferenceable(8) %49)
   %.not498 = icmp eq ptr %671, null
   br i1 %.not498, label %707, label %672
 
@@ -3941,7 +3941,7 @@ _ZNK5clang14ObjCObjectType8isObjCIdEv.exit621:    ; preds = %_ZNK5clang21ObjCObj
   %690 = getelementptr inbounds nuw i8, ptr %688, i64 680
   %691 = call i64 @_ZN5clang13SelectorTable23constructSetterSelectorERNS_15IdentifierTableERS0_PKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(128) %689, ptr noundef nonnull align 8 dereferenceable(8) %690, ptr noundef %.0.i613) #17
   store i64 %691, ptr %50, align 8
-  %692 = call fastcc noundef ptr @_ZL24FindGetterSetterNameDeclPKN5clang21ObjCObjectPointerTypeEPNS_14IdentifierInfoERKNS_8SelectorERNS_10ASTContextE(ptr noundef nonnull %610, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(8) %50)
+  %692 = call fastcc noundef ptr @_ZL24FindGetterSetterNameDeclPKN5clang21ObjCObjectPointerTypeEPNS_14IdentifierInfoERKNS_8SelectorERNS_10ASTContextE(ptr noundef %610, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(8) %50)
   %.not501 = icmp eq ptr %692, null
   br i1 %.not501, label %698, label %693
 
@@ -4985,7 +4985,7 @@ _ZNK5clang12LookupResult12getFoundDeclEv.exit:    ; preds = %256, %264
   ]
 
 293:                                              ; preds = %292
-  %294 = call fastcc i64 @_ZL22BuildMSPropertyRefExprRN5clang4SemaEPNS_4ExprEbRKNS_12CXXScopeSpecEPNS_14MSPropertyDeclERKNS_19DeclarationNameInfoE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %.1, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %42)
+  %294 = call fastcc i64 @_ZL22BuildMSPropertyRefExprRN5clang4SemaEPNS_4ExprEbRKNS_12CXXScopeSpecEPNS_14MSPropertyDeclERKNS_19DeclarationNameInfoE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %.1, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %42)
   br label %372
 
 295:                                              ; preds = %292
@@ -6589,7 +6589,7 @@ declare noundef ptr @_ZN5clang4Sema16BuildCXXThisExprENS_14SourceLocationENS_8Qu
 declare noundef zeroext i1 @_ZN5clang4Sema17DiagnoseUseOfDeclEPNS_9NamedDeclEN4llvm8ArrayRefINS_14SourceLocationEEEPKNS_17ObjCInterfaceDeclEbbPS7_b(ptr noundef nonnull align 8 dereferenceable(17560), ptr noundef, ptr, i64, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i64 @_ZL22BuildMSPropertyRefExprRN5clang4SemaEPNS_4ExprEbRKNS_12CXXScopeSpecEPNS_14MSPropertyDeclERKNS_19DeclarationNameInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17560) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5) unnamed_addr #0 {
+define internal fastcc noundef i64 @_ZL22BuildMSPropertyRefExprRN5clang4SemaEPNS_4ExprEbRKNS_12CXXScopeSpecEPNS_14MSPropertyDeclERKNS_19DeclarationNameInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17560) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr @_ZN5clang4StmtnwEmRKNS_10ASTContextEj(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(23096) %8, i32 noundef 8) #17
@@ -11114,7 +11114,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4sema17FunctionScopeInfo9WeakUseTyELb1E
 declare i64 @_ZN5clang4Sema23DefaultLvalueConversionEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(17560), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL24FindGetterSetterNameDeclPKN5clang21ObjCObjectPointerTypeEPNS_14IdentifierInfoERKNS_8SelectorERNS_10ASTContextE(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL24FindGetterSetterNameDeclPKN5clang21ObjCObjectPointerTypeEPNS_14IdentifierInfoERKNS_8SelectorERNS_10ASTContextE(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %4, align 8
   %5 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -16

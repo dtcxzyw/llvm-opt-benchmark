@@ -1011,7 +1011,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup8
 
 invoke.cont:                                      ; preds = %.noexc
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_110signaturesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_110signaturesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -1192,7 +1192,7 @@ ehcleanup8:                                       ; preds = %lpad, %lpad.i, %ehc
 declare noundef zeroext i1 @_ZN8facebook5velox4exec30registerStatefulVectorFunctionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10shared_ptrINS1_17FunctionSignatureEESaISD_EESt8functionIFSB_INS1_14VectorFunctionEES9_RKSA_INS1_17VectorFunctionArgESaISJ_EERKNS0_4core11QueryConfigEEENS1_22VectorFunctionMetadataEb(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, i8, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_110signaturesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %returnTypeTemplate) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_110signaturesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %returnTypeTemplate) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i63 = alloca %"class.fmt::v8::format_arg_store", align 16
   %ref.tmp.i51 = alloca %"class.fmt::v8::format_arg_store", align 16
@@ -1597,7 +1597,7 @@ call5.i.i.i3.i.i.i.i.i.i.noexc:                   ; preds = %_ZNSt10shared_ptrIN
 if.end9.i.i:                                      ; preds = %if.end.i.i
   %cmp10.i.i = icmp ne ptr %11, null
   %cond.i.i = select i1 %cmp10.i.i, ptr %11, ptr %12
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIbEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %constantSet.i.i, ptr noundef %cond.i.i)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIbEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %constantSet.i.i, ptr noundef %cond.i.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.end9.i.i
@@ -1726,7 +1726,7 @@ call5.i.i.i3.i.i.i.i.i65.i.noexc:                 ; preds = %_ZNSt10shared_ptrIN
 if.end9.i34.i:                                    ; preds = %if.end.i28.i
   %cmp10.i35.i = icmp ne ptr %23, null
   %cond.i36.i = select i1 %cmp10.i35.i, ptr %23, ptr %24
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIiEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %constantSet.i22.i, ptr noundef %cond.i36.i)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIiEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %constantSet.i22.i, ptr noundef %cond.i36.i)
           to label %.noexc6 unwind label %lpad
 
 .noexc6:                                          ; preds = %if.end9.i34.i
@@ -1836,7 +1836,7 @@ call5.i.i.i3.i.i.i.i.i112.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
 if.end9.i81.i:                                    ; preds = %if.end.i75.i
   %cmp10.i82.i = icmp ne ptr %35, null
   %cond.i83.i = select i1 %cmp10.i82.i, ptr %35, ptr %36
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIaEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %constantSet.i69.i, ptr noundef %cond.i83.i)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIaEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %constantSet.i69.i, ptr noundef %cond.i83.i)
           to label %.noexc8 unwind label %lpad
 
 .noexc8:                                          ; preds = %if.end9.i81.i
@@ -1946,7 +1946,7 @@ call5.i.i.i3.i.i.i.i.i159.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
 if.end9.i128.i:                                   ; preds = %if.end.i122.i
   %cmp10.i129.i = icmp ne ptr %47, null
   %cond.i130.i = select i1 %cmp10.i129.i, ptr %47, ptr %48
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIsEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %constantSet.i116.i, ptr noundef %cond.i130.i)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIsEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %constantSet.i116.i, ptr noundef %cond.i130.i)
           to label %.noexc10 unwind label %lpad
 
 .noexc10:                                         ; preds = %if.end9.i128.i
@@ -2056,7 +2056,7 @@ call5.i.i.i3.i.i.i.i.i206.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
 if.end9.i175.i:                                   ; preds = %if.end.i169.i
   %cmp10.i176.i = icmp ne ptr %59, null
   %cond.i177.i = select i1 %cmp10.i176.i, ptr %59, ptr %60
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIlEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %constantSet.i163.i, ptr noundef %cond.i177.i)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIlEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %constantSet.i163.i, ptr noundef %cond.i177.i)
           to label %.noexc12 unwind label %lpad
 
 .noexc12:                                         ; preds = %if.end9.i175.i
@@ -2166,7 +2166,7 @@ call5.i.i.i3.i.i.i.i.i253.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
 if.end9.i222.i:                                   ; preds = %if.end.i216.i
   %cmp10.i223.i = icmp ne ptr %71, null
   %cond.i224.i = select i1 %cmp10.i223.i, ptr %71, ptr %72
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetInEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %constantSet.i210.i, ptr noundef %cond.i224.i)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetInEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %constantSet.i210.i, ptr noundef %cond.i224.i)
           to label %.noexc14 unwind label %lpad
 
 .noexc14:                                         ; preds = %if.end9.i222.i
@@ -2276,7 +2276,7 @@ call5.i.i.i3.i.i.i.i.i300.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
 if.end9.i269.i:                                   ; preds = %if.end.i263.i
   %cmp10.i270.i = icmp ne ptr %83, null
   %cond.i271.i = select i1 %cmp10.i270.i, ptr %83, ptr %84
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIfEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %constantSet.i257.i, ptr noundef %cond.i271.i)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIfEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %constantSet.i257.i, ptr noundef %cond.i271.i)
           to label %.noexc16 unwind label %lpad
 
 .noexc16:                                         ; preds = %if.end9.i269.i
@@ -2386,7 +2386,7 @@ call5.i.i.i3.i.i.i.i.i347.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
 if.end9.i316.i:                                   ; preds = %if.end.i310.i
   %cmp10.i317.i = icmp ne ptr %95, null
   %cond.i318.i = select i1 %cmp10.i317.i, ptr %95, ptr %96
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIdEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %constantSet.i304.i, ptr noundef %cond.i318.i)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIdEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %constantSet.i304.i, ptr noundef %cond.i318.i)
           to label %.noexc18 unwind label %lpad
 
 .noexc18:                                         ; preds = %if.end9.i316.i
@@ -2496,7 +2496,7 @@ call5.i.i.i3.i.i.i.i.i394.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
 if.end9.i363.i:                                   ; preds = %if.end.i357.i
   %cmp10.i364.i = icmp ne ptr %107, null
   %cond.i365.i = select i1 %cmp10.i364.i, ptr %107, ptr %108
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetINS0_10StringViewEEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %constantSet.i351.i, ptr noundef %cond.i365.i)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetINS0_10StringViewEEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %constantSet.i351.i, ptr noundef %cond.i365.i)
           to label %.noexc20 unwind label %lpad
 
 .noexc20:                                         ; preds = %if.end9.i363.i
@@ -2606,7 +2606,7 @@ call5.i.i.i3.i.i.i.i.i444.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
 if.end9.i410.i:                                   ; preds = %if.end.i404.i
   %cmp10.i411.i = icmp ne ptr %119, null
   %cond.i412.i = select i1 %cmp10.i411.i, ptr %119, ptr %120
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetINS0_10StringViewEEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %constantSet.i398.i, ptr noundef %cond.i412.i)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetINS0_10StringViewEEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %constantSet.i398.i, ptr noundef %cond.i412.i)
           to label %.noexc22 unwind label %lpad
 
 .noexc22:                                         ; preds = %if.end9.i410.i
@@ -2716,7 +2716,7 @@ call5.i.i.i3.i.i.i.i.i491.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
 if.end9.i460.i:                                   ; preds = %if.end.i454.i
   %cmp10.i461.i = icmp ne ptr %131, null
   %cond.i462.i = select i1 %cmp10.i461.i, ptr %131, ptr %132
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetINS0_9TimestampEEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %constantSet.i448.i, ptr noundef %cond.i462.i)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetINS0_9TimestampEEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %constantSet.i448.i, ptr noundef %cond.i462.i)
           to label %.noexc24 unwind label %lpad
 
 .noexc24:                                         ; preds = %if.end9.i460.i
@@ -3010,7 +3010,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup8
 
 invoke.cont:                                      ; preds = %.noexc
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_110signaturesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_110signaturesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -3278,7 +3278,7 @@ if.end.i.i:                                       ; preds = %sw.bb.i
   br i1 %cmp3.not.i.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbEEED2Ev.exit49.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIbEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp5.i.i, ptr noundef nonnull %11)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIbEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp5.i.i, ptr noundef nonnull %11)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then4.i.i
@@ -3398,7 +3398,7 @@ if.end.i28.i:                                     ; preds = %sw.bb3.i
   br i1 %cmp3.not.i30.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiEEED2Ev.exit49.i.i, label %if.then4.i31.i
 
 if.then4.i31.i:                                   ; preds = %if.end.i28.i
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIiEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp5.i22.i, ptr noundef nonnull %22)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIiEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp5.i22.i, ptr noundef nonnull %22)
           to label %.noexc5 unwind label %lpad
 
 .noexc5:                                          ; preds = %if.then4.i31.i
@@ -3499,7 +3499,7 @@ if.end.i68.i:                                     ; preds = %sw.bb4.i
   br i1 %cmp3.not.i70.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaEEED2Ev.exit49.i.i, label %if.then4.i71.i
 
 if.then4.i71.i:                                   ; preds = %if.end.i68.i
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIaEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp5.i62.i, ptr noundef nonnull %33)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIaEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp5.i62.i, ptr noundef nonnull %33)
           to label %.noexc7 unwind label %lpad
 
 .noexc7:                                          ; preds = %if.then4.i71.i
@@ -3600,7 +3600,7 @@ if.end.i108.i:                                    ; preds = %sw.bb5.i
   br i1 %cmp3.not.i110.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsEEED2Ev.exit49.i.i, label %if.then4.i111.i
 
 if.then4.i111.i:                                  ; preds = %if.end.i108.i
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIsEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp5.i102.i, ptr noundef nonnull %44)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIsEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp5.i102.i, ptr noundef nonnull %44)
           to label %.noexc9 unwind label %lpad
 
 .noexc9:                                          ; preds = %if.then4.i111.i
@@ -3701,7 +3701,7 @@ if.end.i148.i:                                    ; preds = %sw.bb6.i
   br i1 %cmp3.not.i150.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElEEED2Ev.exit49.i.i, label %if.then4.i151.i
 
 if.then4.i151.i:                                  ; preds = %if.end.i148.i
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIlEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp5.i142.i, ptr noundef nonnull %55)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIlEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp5.i142.i, ptr noundef nonnull %55)
           to label %.noexc11 unwind label %lpad
 
 .noexc11:                                         ; preds = %if.then4.i151.i
@@ -3802,7 +3802,7 @@ if.end.i188.i:                                    ; preds = %sw.bb7.i
   br i1 %cmp3.not.i190.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnEEED2Ev.exit49.i.i, label %if.then4.i191.i
 
 if.then4.i191.i:                                  ; preds = %if.end.i188.i
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetInEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp5.i182.i, ptr noundef nonnull %66)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetInEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp5.i182.i, ptr noundef nonnull %66)
           to label %.noexc13 unwind label %lpad
 
 .noexc13:                                         ; preds = %if.then4.i191.i
@@ -3903,7 +3903,7 @@ if.end.i228.i:                                    ; preds = %sw.bb8.i
   br i1 %cmp3.not.i230.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfEEED2Ev.exit49.i.i, label %if.then4.i231.i
 
 if.then4.i231.i:                                  ; preds = %if.end.i228.i
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIfEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp5.i222.i, ptr noundef nonnull %77)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIfEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp5.i222.i, ptr noundef nonnull %77)
           to label %.noexc15 unwind label %lpad
 
 .noexc15:                                         ; preds = %if.then4.i231.i
@@ -4004,7 +4004,7 @@ if.end.i268.i:                                    ; preds = %sw.bb9.i
   br i1 %cmp3.not.i270.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdEEED2Ev.exit49.i.i, label %if.then4.i271.i
 
 if.then4.i271.i:                                  ; preds = %if.end.i268.i
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIdEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp5.i262.i, ptr noundef nonnull %88)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIdEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp5.i262.i, ptr noundef nonnull %88)
           to label %.noexc17 unwind label %lpad
 
 .noexc17:                                         ; preds = %if.then4.i271.i
@@ -4105,7 +4105,7 @@ if.end.i308.i:                                    ; preds = %sw.bb10.i
   br i1 %cmp3.not.i310.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_10StringViewEEEED2Ev.exit49.i.i, label %if.then4.i311.i
 
 if.then4.i311.i:                                  ; preds = %if.end.i308.i
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetINS0_10StringViewEEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp5.i302.i, ptr noundef nonnull %99)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetINS0_10StringViewEEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp5.i302.i, ptr noundef nonnull %99)
           to label %.noexc19 unwind label %lpad
 
 .noexc19:                                         ; preds = %if.then4.i311.i
@@ -4206,7 +4206,7 @@ if.end.i348.i:                                    ; preds = %sw.bb11.i
   br i1 %cmp3.not.i350.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_10StringViewEEEED2Ev.exit49.i380.i, label %if.then4.i351.i
 
 if.then4.i351.i:                                  ; preds = %if.end.i348.i
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetINS0_10StringViewEEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp5.i342.i, ptr noundef nonnull %110)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetINS0_10StringViewEEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp5.i342.i, ptr noundef nonnull %110)
           to label %.noexc21 unwind label %lpad
 
 .noexc21:                                         ; preds = %if.then4.i351.i
@@ -4307,7 +4307,7 @@ if.end.i391.i:                                    ; preds = %sw.bb12.i
   br i1 %cmp3.not.i393.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_9TimestampEEEED2Ev.exit49.i.i, label %if.then4.i394.i
 
 if.then4.i394.i:                                  ; preds = %if.end.i391.i
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetINS0_9TimestampEEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp5.i385.i, ptr noundef nonnull %121)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetINS0_9TimestampEEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp5.i385.i, ptr noundef nonnull %121)
           to label %.noexc23 unwind label %lpad
 
 .noexc23:                                         ; preds = %if.then4.i394.i
@@ -4502,7 +4502,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup8
 
 invoke.cont:                                      ; preds = %.noexc
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_110signaturesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_110signaturesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -4770,7 +4770,7 @@ if.end.i.i:                                       ; preds = %sw.bb.i
   br i1 %cmp3.not.i.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbEEED2Ev.exit49.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIbEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp5.i.i, ptr noundef nonnull %11)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIbEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp5.i.i, ptr noundef nonnull %11)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then4.i.i
@@ -4890,7 +4890,7 @@ if.end.i28.i:                                     ; preds = %sw.bb3.i
   br i1 %cmp3.not.i30.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiEEED2Ev.exit49.i.i, label %if.then4.i31.i
 
 if.then4.i31.i:                                   ; preds = %if.end.i28.i
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIiEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp5.i22.i, ptr noundef nonnull %22)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIiEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp5.i22.i, ptr noundef nonnull %22)
           to label %.noexc5 unwind label %lpad
 
 .noexc5:                                          ; preds = %if.then4.i31.i
@@ -4991,7 +4991,7 @@ if.end.i68.i:                                     ; preds = %sw.bb4.i
   br i1 %cmp3.not.i70.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaEEED2Ev.exit49.i.i, label %if.then4.i71.i
 
 if.then4.i71.i:                                   ; preds = %if.end.i68.i
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIaEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp5.i62.i, ptr noundef nonnull %33)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIaEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp5.i62.i, ptr noundef nonnull %33)
           to label %.noexc7 unwind label %lpad
 
 .noexc7:                                          ; preds = %if.then4.i71.i
@@ -5092,7 +5092,7 @@ if.end.i108.i:                                    ; preds = %sw.bb5.i
   br i1 %cmp3.not.i110.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsEEED2Ev.exit49.i.i, label %if.then4.i111.i
 
 if.then4.i111.i:                                  ; preds = %if.end.i108.i
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIsEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp5.i102.i, ptr noundef nonnull %44)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIsEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp5.i102.i, ptr noundef nonnull %44)
           to label %.noexc9 unwind label %lpad
 
 .noexc9:                                          ; preds = %if.then4.i111.i
@@ -5193,7 +5193,7 @@ if.end.i148.i:                                    ; preds = %sw.bb6.i
   br i1 %cmp3.not.i150.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElEEED2Ev.exit49.i.i, label %if.then4.i151.i
 
 if.then4.i151.i:                                  ; preds = %if.end.i148.i
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIlEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp5.i142.i, ptr noundef nonnull %55)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIlEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp5.i142.i, ptr noundef nonnull %55)
           to label %.noexc11 unwind label %lpad
 
 .noexc11:                                         ; preds = %if.then4.i151.i
@@ -5294,7 +5294,7 @@ if.end.i188.i:                                    ; preds = %sw.bb7.i
   br i1 %cmp3.not.i190.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnEEED2Ev.exit49.i.i, label %if.then4.i191.i
 
 if.then4.i191.i:                                  ; preds = %if.end.i188.i
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetInEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp5.i182.i, ptr noundef nonnull %66)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetInEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp5.i182.i, ptr noundef nonnull %66)
           to label %.noexc13 unwind label %lpad
 
 .noexc13:                                         ; preds = %if.then4.i191.i
@@ -5395,7 +5395,7 @@ if.end.i228.i:                                    ; preds = %sw.bb8.i
   br i1 %cmp3.not.i230.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfEEED2Ev.exit49.i.i, label %if.then4.i231.i
 
 if.then4.i231.i:                                  ; preds = %if.end.i228.i
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIfEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp5.i222.i, ptr noundef nonnull %77)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIfEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp5.i222.i, ptr noundef nonnull %77)
           to label %.noexc15 unwind label %lpad
 
 .noexc15:                                         ; preds = %if.then4.i231.i
@@ -5496,7 +5496,7 @@ if.end.i268.i:                                    ; preds = %sw.bb9.i
   br i1 %cmp3.not.i270.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdEEED2Ev.exit49.i.i, label %if.then4.i271.i
 
 if.then4.i271.i:                                  ; preds = %if.end.i268.i
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIdEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp5.i262.i, ptr noundef nonnull %88)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIdEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp5.i262.i, ptr noundef nonnull %88)
           to label %.noexc17 unwind label %lpad
 
 .noexc17:                                         ; preds = %if.then4.i271.i
@@ -5597,7 +5597,7 @@ if.end.i308.i:                                    ; preds = %sw.bb10.i
   br i1 %cmp3.not.i310.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_10StringViewEEEED2Ev.exit49.i.i, label %if.then4.i311.i
 
 if.then4.i311.i:                                  ; preds = %if.end.i308.i
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetINS0_10StringViewEEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp5.i302.i, ptr noundef nonnull %99)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetINS0_10StringViewEEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp5.i302.i, ptr noundef nonnull %99)
           to label %.noexc19 unwind label %lpad
 
 .noexc19:                                         ; preds = %if.then4.i311.i
@@ -5698,7 +5698,7 @@ if.end.i348.i:                                    ; preds = %sw.bb11.i
   br i1 %cmp3.not.i350.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_10StringViewEEEED2Ev.exit49.i380.i, label %if.then4.i351.i
 
 if.then4.i351.i:                                  ; preds = %if.end.i348.i
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetINS0_10StringViewEEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp5.i342.i, ptr noundef nonnull %110)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetINS0_10StringViewEEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp5.i342.i, ptr noundef nonnull %110)
           to label %.noexc21 unwind label %lpad
 
 .noexc21:                                         ; preds = %if.then4.i351.i
@@ -5799,7 +5799,7 @@ if.end.i391.i:                                    ; preds = %sw.bb12.i
   br i1 %cmp3.not.i393.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_9TimestampEEEED2Ev.exit49.i.i, label %if.then4.i394.i
 
 if.then4.i394.i:                                  ; preds = %if.end.i391.i
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetINS0_9TimestampEEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %ref.tmp5.i385.i, ptr noundef nonnull %121)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetINS0_9TimestampEEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %ref.tmp5.i385.i, ptr noundef nonnull %121)
           to label %.noexc23 unwind label %lpad
 
 .noexc23:                                         ; preds = %if.then4.i394.i
@@ -7870,7 +7870,7 @@ _ZNSt12__shared_ptrIKN8facebook5velox4TypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
 declare noundef zeroext i1 @_ZNK8facebook5velox4Type10kindEqualsERKSt10shared_ptrIKS1_E(ptr noundef nonnull align 8 dereferenceable(17), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIbEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %agg.result, ptr noundef readonly %baseVector) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIbEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %agg.result, ptr noundef readonly %baseVector) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %found.i.i = alloca i32, align 4
   %agg.tmp.i.i = alloca %class.anon.173, align 8
@@ -13225,7 +13225,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_d
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIiEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %agg.result, ptr noundef readonly %baseVector) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIiEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %agg.result, ptr noundef readonly %baseVector) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %found.i.i = alloca i32, align 4
   %agg.tmp.i.i = alloca %class.anon.173, align 8
@@ -16531,7 +16531,7 @@ return:                                           ; preds = %_ZN5folly3f146detai
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIaEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %agg.result, ptr noundef readonly %baseVector) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIaEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %agg.result, ptr noundef readonly %baseVector) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %found.i.i = alloca i32, align 4
   %agg.tmp.i.i = alloca %class.anon.173, align 8
@@ -19816,7 +19816,7 @@ return:                                           ; preds = %_ZN5folly3f146detai
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIsEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %agg.result, ptr noundef readonly %baseVector) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIsEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %agg.result, ptr noundef readonly %baseVector) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %found.i.i = alloca i32, align 4
   %agg.tmp.i.i = alloca %class.anon.173, align 8
@@ -23108,7 +23108,7 @@ return:                                           ; preds = %_ZN5folly3f146detai
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIlEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %agg.result, ptr noundef readonly %baseVector) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIlEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %agg.result, ptr noundef readonly %baseVector) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %found.i.i = alloca i32, align 4
   %agg.tmp.i.i = alloca %class.anon.173, align 8
@@ -26400,7 +26400,7 @@ return:                                           ; preds = %_ZN5folly3f146detai
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetInEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %agg.result, ptr noundef readonly %baseVector) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetInEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %agg.result, ptr noundef readonly %baseVector) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %found.i.i = alloca i32, align 4
   %agg.tmp.i.i = alloca %class.anon.173, align 8
@@ -29690,7 +29690,7 @@ return:                                           ; preds = %while.body.i, %_ZN5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIfEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %agg.result, ptr noundef readonly %baseVector) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIfEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %agg.result, ptr noundef readonly %baseVector) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %found.i.i = alloca i32, align 4
   %agg.tmp.i.i = alloca %class.anon.173, align 8
@@ -32853,7 +32853,7 @@ return:                                           ; preds = %_ZN5folly3f146detai
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIdEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %agg.result, ptr noundef readonly %baseVector) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetIdEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %agg.result, ptr noundef readonly %baseVector) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %found.i.i = alloca i32, align 4
   %agg.tmp.i.i = alloca %class.anon.173, align 8
@@ -36004,7 +36004,7 @@ return:                                           ; preds = %_ZN5folly3f146detai
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetINS0_10StringViewEEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %agg.result, ptr noundef readonly %baseVector) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetINS0_10StringViewEEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %agg.result, ptr noundef readonly %baseVector) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %found.i.i = alloca i32, align 4
   %agg.tmp.i.i = alloca %class.anon.173, align 8
@@ -39382,7 +39382,7 @@ return:                                           ; preds = %if.end.i.i.i, %if.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetINS0_9TimestampEEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias align 8 %agg.result, ptr noundef readonly %baseVector) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_136validateConstantVectorAndGenerateSetINS0_9TimestampEEENS2_11SetWithNullIT_EEPKNS0_10BaseVectorE(ptr noalias nonnull align 8 %agg.result, ptr noundef readonly %baseVector) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %found.i.i = alloca i32, align 4
   %agg.tmp.i.i = alloca %class.anon.173, align 8

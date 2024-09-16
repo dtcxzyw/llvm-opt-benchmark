@@ -247,7 +247,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @CRYPTO_library_init() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_verify(ptr noundef %sig, i64 noundef %sig_len, i32 noundef %expect) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_verify(ptr noundef %sig, i64 noundef range(i64 46, 50) %sig_len, i32 noundef range(i32 -1, 2) %expect) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @DSA_new() #7
   %tobool.not.i = icmp eq ptr %call.i, null

@@ -1315,7 +1315,7 @@ define range(i32 -1, 1) i32 @H5G_obj_remove(ptr noundef %0, ptr noundef %1, ptr 
   br label %47
 
 40:                                               ; preds = %18, %26
-  %41 = call fastcc i32 @H5G__obj_remove_update_linfo(ptr noundef nonnull %0, ptr noundef nonnull %4)
+  %41 = call fastcc i32 @H5G__obj_remove_update_linfo(ptr noundef nonnull %0, ptr noundef %4)
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %43, label %47
 
@@ -1339,7 +1339,7 @@ declare i32 @H5G__compact_remove(ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @H5G__stab_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5G__obj_remove_update_linfo(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5G__obj_remove_update_linfo(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.H5O_ginfo_t, align 4
   %4 = alloca %struct.H5G_link_table_t, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -1614,7 +1614,7 @@ define range(i32 -1, 1) i32 @H5G_obj_remove_by_idx(ptr noundef %0, ptr noundef %
   br label %60
 
 53:                                               ; preds = %26, %34
-  %54 = call fastcc i32 @H5G__obj_remove_update_linfo(ptr noundef %0, ptr noundef nonnull %6)
+  %54 = call fastcc i32 @H5G__obj_remove_update_linfo(ptr noundef %0, ptr noundef %6)
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %56, label %60
 

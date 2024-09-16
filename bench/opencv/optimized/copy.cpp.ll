@@ -154,330 +154,330 @@ define void @_ZN2cv15scalarToRawDataERKNS_7Scalar_IdEEPvii(ptr nocapture noundef
 20:                                               ; preds = %4
   %21 = and i32 %2, 7
   %wide.trip.count.i = zext nneg i32 %10 to i64
-  switch i32 %21, label %default.unreachable142 [
-    i32 0, label %.lr.ph.i
-    i32 1, label %.lr.ph.i52
-    i32 2, label %.lr.ph.i64
-    i32 3, label %.lr.ph.i76
-    i32 4, label %.lr.ph.i88
-    i32 5, label %.lr.ph.i100
-    i32 6, label %.lr.ph.i112
-    i32 7, label %.lr.ph.i124
+  switch i32 %21, label %default.unreachable135 [
+    i32 0, label %.preheader
+    i32 1, label %.preheader144
+    i32 2, label %.preheader146
+    i32 3, label %.preheader148
+    i32 4, label %.preheader150
+    i32 5, label %.preheader152
+    i32 6, label %.preheader154
+    i32 7, label %.preheader156
   ]
 
-.preheader.i:                                     ; preds = %.lr.ph.i
+.preheader.i:                                     ; preds = %.preheader
   %22 = icmp slt i32 %10, %3
-  br i1 %22, label %.lr.ph16.preheader.i, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
+  br i1 %22, label %.lr.ph.preheader.i, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
 
-.lr.ph16.preheader.i:                             ; preds = %.preheader.i
-  %wide.trip.count22.i = zext i32 %3 to i64
-  br label %.lr.ph16.i
+.lr.ph.preheader.i:                               ; preds = %.preheader.i
+  %23 = sext i32 %3 to i64
+  br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %20, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %20 ]
-  %23 = getelementptr inbounds [4 x double], ptr %0, i64 0, i64 %indvars.iv.i
-  %24 = load double, ptr %23, align 8
-  %25 = insertelement <2 x double> poison, double %24, i64 0
-  %26 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %25)
-  %27 = call i32 @llvm.smax.i32(i32 %26, i32 0)
-  %28 = call i32 @llvm.umin.i32(i32 %27, i32 255)
-  %29 = trunc nuw i32 %28 to i8
-  %30 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
-  store i8 %29, ptr %30, align 1
+.preheader:                                       ; preds = %20, %.preheader
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %20 ]
+  %24 = getelementptr inbounds [4 x double], ptr %0, i64 0, i64 %indvars.iv.i
+  %25 = load double, ptr %24, align 8
+  %26 = insertelement <2 x double> poison, double %25, i64 0
+  %27 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %26)
+  %28 = call i32 @llvm.smax.i32(i32 %27, i32 0)
+  %29 = call i32 @llvm.umin.i32(i32 %28, i32 255)
+  %30 = trunc nuw i32 %29 to i8
+  %31 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  store i8 %30, ptr %31, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %.preheader.i, label %.preheader, !llvm.loop !4
 
-.lr.ph16.i:                                       ; preds = %.lr.ph16.i, %.lr.ph16.preheader.i
-  %indvars.iv19.i = phi i64 [ %wide.trip.count.i, %.lr.ph16.preheader.i ], [ %indvars.iv.next20.i, %.lr.ph16.i ]
-  %31 = sub nuw nsw i64 %indvars.iv19.i, %wide.trip.count.i
-  %32 = getelementptr inbounds i8, ptr %1, i64 %31
-  %33 = load i8, ptr %32, align 1
-  %34 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv19.i
-  store i8 %33, ptr %34, align 1
-  %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
-  %exitcond23.not.i = icmp eq i64 %indvars.iv.next20.i, %wide.trip.count22.i
-  br i1 %exitcond23.not.i, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, label %.lr.ph16.i, !llvm.loop !6
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %indvars.iv20.i = phi i64 [ %wide.trip.count.i, %.lr.ph.preheader.i ], [ %indvars.iv.next21.i, %.lr.ph.i ]
+  %32 = sub nuw nsw i64 %indvars.iv20.i, %wide.trip.count.i
+  %33 = getelementptr inbounds i8, ptr %1, i64 %32
+  %34 = load i8, ptr %33, align 1
+  %35 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv20.i
+  store i8 %34, ptr %35, align 1
+  %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
+  %36 = icmp slt i64 %indvars.iv.next21.i, %23
+  br i1 %36, label %.lr.ph.i, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, !llvm.loop !6
 
-.preheader.i44:                                   ; preds = %.lr.ph.i52
-  %35 = icmp slt i32 %10, %3
-  br i1 %35, label %.lr.ph16.preheader.i45, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
+.preheader.i50:                                   ; preds = %.preheader144
+  %37 = icmp slt i32 %10, %3
+  br i1 %37, label %.lr.ph.preheader.i51, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
 
-.lr.ph16.preheader.i45:                           ; preds = %.preheader.i44
-  %wide.trip.count22.i46 = zext i32 %3 to i64
-  br label %.lr.ph16.i47
+.lr.ph.preheader.i51:                             ; preds = %.preheader.i50
+  %38 = sext i32 %3 to i64
+  br label %.lr.ph.i52
 
-.lr.ph.i52:                                       ; preds = %20, %.lr.ph.i52
-  %indvars.iv.i53 = phi i64 [ %indvars.iv.next.i54, %.lr.ph.i52 ], [ 0, %20 ]
-  %36 = getelementptr inbounds [4 x double], ptr %0, i64 0, i64 %indvars.iv.i53
-  %37 = load double, ptr %36, align 8
-  %38 = insertelement <2 x double> poison, double %37, i64 0
-  %39 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %38)
-  %40 = call i32 @llvm.smax.i32(i32 %39, i32 -128)
-  %41 = call i32 @llvm.smin.i32(i32 %40, i32 127)
-  %42 = trunc nsw i32 %41 to i8
-  %43 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i53
-  store i8 %42, ptr %43, align 1
-  %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
-  %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, %wide.trip.count.i
-  br i1 %exitcond.not.i55, label %.preheader.i44, label %.lr.ph.i52, !llvm.loop !7
+.preheader144:                                    ; preds = %20, %.preheader144
+  %indvars.iv.i46 = phi i64 [ %indvars.iv.next.i47, %.preheader144 ], [ 0, %20 ]
+  %39 = getelementptr inbounds [4 x double], ptr %0, i64 0, i64 %indvars.iv.i46
+  %40 = load double, ptr %39, align 8
+  %41 = insertelement <2 x double> poison, double %40, i64 0
+  %42 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %41)
+  %43 = call i32 @llvm.smax.i32(i32 %42, i32 -128)
+  %44 = call i32 @llvm.smin.i32(i32 %43, i32 127)
+  %45 = trunc nsw i32 %44 to i8
+  %46 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i46
+  store i8 %45, ptr %46, align 1
+  %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i46, 1
+  %exitcond.not.i48 = icmp eq i64 %indvars.iv.next.i47, %wide.trip.count.i
+  br i1 %exitcond.not.i48, label %.preheader.i50, label %.preheader144, !llvm.loop !7
 
-.lr.ph16.i47:                                     ; preds = %.lr.ph16.i47, %.lr.ph16.preheader.i45
-  %indvars.iv19.i48 = phi i64 [ %wide.trip.count.i, %.lr.ph16.preheader.i45 ], [ %indvars.iv.next20.i49, %.lr.ph16.i47 ]
-  %44 = sub nuw nsw i64 %indvars.iv19.i48, %wide.trip.count.i
-  %45 = getelementptr inbounds i8, ptr %1, i64 %44
-  %46 = load i8, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv19.i48
-  store i8 %46, ptr %47, align 1
-  %indvars.iv.next20.i49 = add nuw nsw i64 %indvars.iv19.i48, 1
-  %exitcond23.not.i50 = icmp eq i64 %indvars.iv.next20.i49, %wide.trip.count22.i46
-  br i1 %exitcond23.not.i50, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, label %.lr.ph16.i47, !llvm.loop !8
+.lr.ph.i52:                                       ; preds = %.lr.ph.i52, %.lr.ph.preheader.i51
+  %indvars.iv20.i53 = phi i64 [ %wide.trip.count.i, %.lr.ph.preheader.i51 ], [ %indvars.iv.next21.i54, %.lr.ph.i52 ]
+  %47 = sub nuw nsw i64 %indvars.iv20.i53, %wide.trip.count.i
+  %48 = getelementptr inbounds i8, ptr %1, i64 %47
+  %49 = load i8, ptr %48, align 1
+  %50 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv20.i53
+  store i8 %49, ptr %50, align 1
+  %indvars.iv.next21.i54 = add nuw nsw i64 %indvars.iv20.i53, 1
+  %51 = icmp slt i64 %indvars.iv.next21.i54, %38
+  br i1 %51, label %.lr.ph.i52, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, !llvm.loop !8
 
-.preheader.i56:                                   ; preds = %.lr.ph.i64
-  %48 = icmp slt i32 %10, %3
-  br i1 %48, label %.lr.ph16.preheader.i57, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
+.preheader.i61:                                   ; preds = %.preheader146
+  %52 = icmp slt i32 %10, %3
+  br i1 %52, label %.lr.ph.preheader.i62, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
 
-.lr.ph16.preheader.i57:                           ; preds = %.preheader.i56
-  %wide.trip.count22.i58 = zext i32 %3 to i64
-  br label %.lr.ph16.i59
+.lr.ph.preheader.i62:                             ; preds = %.preheader.i61
+  %53 = sext i32 %3 to i64
+  br label %.lr.ph.i63
 
-.lr.ph.i64:                                       ; preds = %20, %.lr.ph.i64
-  %indvars.iv.i65 = phi i64 [ %indvars.iv.next.i66, %.lr.ph.i64 ], [ 0, %20 ]
-  %49 = getelementptr inbounds [4 x double], ptr %0, i64 0, i64 %indvars.iv.i65
-  %50 = load double, ptr %49, align 8
-  %51 = insertelement <2 x double> poison, double %50, i64 0
-  %52 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %51)
-  %53 = call i32 @llvm.smax.i32(i32 %52, i32 0)
-  %54 = call i32 @llvm.umin.i32(i32 %53, i32 65535)
-  %55 = trunc nuw i32 %54 to i16
-  %56 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv.i65
-  store i16 %55, ptr %56, align 2
-  %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i65, 1
-  %exitcond.not.i67 = icmp eq i64 %indvars.iv.next.i66, %wide.trip.count.i
-  br i1 %exitcond.not.i67, label %.preheader.i56, label %.lr.ph.i64, !llvm.loop !9
+.preheader146:                                    ; preds = %20, %.preheader146
+  %indvars.iv.i57 = phi i64 [ %indvars.iv.next.i58, %.preheader146 ], [ 0, %20 ]
+  %54 = getelementptr inbounds [4 x double], ptr %0, i64 0, i64 %indvars.iv.i57
+  %55 = load double, ptr %54, align 8
+  %56 = insertelement <2 x double> poison, double %55, i64 0
+  %57 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %56)
+  %58 = call i32 @llvm.smax.i32(i32 %57, i32 0)
+  %59 = call i32 @llvm.umin.i32(i32 %58, i32 65535)
+  %60 = trunc nuw i32 %59 to i16
+  %61 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv.i57
+  store i16 %60, ptr %61, align 2
+  %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i57, 1
+  %exitcond.not.i59 = icmp eq i64 %indvars.iv.next.i58, %wide.trip.count.i
+  br i1 %exitcond.not.i59, label %.preheader.i61, label %.preheader146, !llvm.loop !9
 
-.lr.ph16.i59:                                     ; preds = %.lr.ph16.i59, %.lr.ph16.preheader.i57
-  %indvars.iv19.i60 = phi i64 [ %wide.trip.count.i, %.lr.ph16.preheader.i57 ], [ %indvars.iv.next20.i61, %.lr.ph16.i59 ]
-  %57 = sub nuw nsw i64 %indvars.iv19.i60, %wide.trip.count.i
-  %58 = getelementptr inbounds i16, ptr %1, i64 %57
-  %59 = load i16, ptr %58, align 2
-  %60 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv19.i60
-  store i16 %59, ptr %60, align 2
-  %indvars.iv.next20.i61 = add nuw nsw i64 %indvars.iv19.i60, 1
-  %exitcond23.not.i62 = icmp eq i64 %indvars.iv.next20.i61, %wide.trip.count22.i58
-  br i1 %exitcond23.not.i62, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, label %.lr.ph16.i59, !llvm.loop !10
+.lr.ph.i63:                                       ; preds = %.lr.ph.i63, %.lr.ph.preheader.i62
+  %indvars.iv20.i64 = phi i64 [ %wide.trip.count.i, %.lr.ph.preheader.i62 ], [ %indvars.iv.next21.i65, %.lr.ph.i63 ]
+  %62 = sub nuw nsw i64 %indvars.iv20.i64, %wide.trip.count.i
+  %63 = getelementptr inbounds i16, ptr %1, i64 %62
+  %64 = load i16, ptr %63, align 2
+  %65 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv20.i64
+  store i16 %64, ptr %65, align 2
+  %indvars.iv.next21.i65 = add nuw nsw i64 %indvars.iv20.i64, 1
+  %66 = icmp slt i64 %indvars.iv.next21.i65, %53
+  br i1 %66, label %.lr.ph.i63, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, !llvm.loop !10
 
-.preheader.i68:                                   ; preds = %.lr.ph.i76
-  %61 = icmp slt i32 %10, %3
-  br i1 %61, label %.lr.ph16.preheader.i69, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
+.preheader.i72:                                   ; preds = %.preheader148
+  %67 = icmp slt i32 %10, %3
+  br i1 %67, label %.lr.ph.preheader.i73, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
 
-.lr.ph16.preheader.i69:                           ; preds = %.preheader.i68
-  %wide.trip.count22.i70 = zext i32 %3 to i64
-  br label %.lr.ph16.i71
+.lr.ph.preheader.i73:                             ; preds = %.preheader.i72
+  %68 = sext i32 %3 to i64
+  br label %.lr.ph.i74
 
-.lr.ph.i76:                                       ; preds = %20, %.lr.ph.i76
-  %indvars.iv.i77 = phi i64 [ %indvars.iv.next.i78, %.lr.ph.i76 ], [ 0, %20 ]
-  %62 = getelementptr inbounds [4 x double], ptr %0, i64 0, i64 %indvars.iv.i77
-  %63 = load double, ptr %62, align 8
-  %64 = insertelement <2 x double> poison, double %63, i64 0
-  %65 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %64)
-  %66 = call i32 @llvm.smax.i32(i32 %65, i32 -32768)
-  %67 = call i32 @llvm.smin.i32(i32 %66, i32 32767)
-  %68 = trunc nsw i32 %67 to i16
-  %69 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv.i77
-  store i16 %68, ptr %69, align 2
-  %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i77, 1
-  %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, %wide.trip.count.i
-  br i1 %exitcond.not.i79, label %.preheader.i68, label %.lr.ph.i76, !llvm.loop !11
+.preheader148:                                    ; preds = %20, %.preheader148
+  %indvars.iv.i68 = phi i64 [ %indvars.iv.next.i69, %.preheader148 ], [ 0, %20 ]
+  %69 = getelementptr inbounds [4 x double], ptr %0, i64 0, i64 %indvars.iv.i68
+  %70 = load double, ptr %69, align 8
+  %71 = insertelement <2 x double> poison, double %70, i64 0
+  %72 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %71)
+  %73 = call i32 @llvm.smax.i32(i32 %72, i32 -32768)
+  %74 = call i32 @llvm.smin.i32(i32 %73, i32 32767)
+  %75 = trunc nsw i32 %74 to i16
+  %76 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv.i68
+  store i16 %75, ptr %76, align 2
+  %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i68, 1
+  %exitcond.not.i70 = icmp eq i64 %indvars.iv.next.i69, %wide.trip.count.i
+  br i1 %exitcond.not.i70, label %.preheader.i72, label %.preheader148, !llvm.loop !11
 
-.lr.ph16.i71:                                     ; preds = %.lr.ph16.i71, %.lr.ph16.preheader.i69
-  %indvars.iv19.i72 = phi i64 [ %wide.trip.count.i, %.lr.ph16.preheader.i69 ], [ %indvars.iv.next20.i73, %.lr.ph16.i71 ]
-  %70 = sub nuw nsw i64 %indvars.iv19.i72, %wide.trip.count.i
-  %71 = getelementptr inbounds i16, ptr %1, i64 %70
-  %72 = load i16, ptr %71, align 2
-  %73 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv19.i72
-  store i16 %72, ptr %73, align 2
-  %indvars.iv.next20.i73 = add nuw nsw i64 %indvars.iv19.i72, 1
-  %exitcond23.not.i74 = icmp eq i64 %indvars.iv.next20.i73, %wide.trip.count22.i70
-  br i1 %exitcond23.not.i74, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, label %.lr.ph16.i71, !llvm.loop !12
+.lr.ph.i74:                                       ; preds = %.lr.ph.i74, %.lr.ph.preheader.i73
+  %indvars.iv20.i75 = phi i64 [ %wide.trip.count.i, %.lr.ph.preheader.i73 ], [ %indvars.iv.next21.i76, %.lr.ph.i74 ]
+  %77 = sub nuw nsw i64 %indvars.iv20.i75, %wide.trip.count.i
+  %78 = getelementptr inbounds i16, ptr %1, i64 %77
+  %79 = load i16, ptr %78, align 2
+  %80 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv20.i75
+  store i16 %79, ptr %80, align 2
+  %indvars.iv.next21.i76 = add nuw nsw i64 %indvars.iv20.i75, 1
+  %81 = icmp slt i64 %indvars.iv.next21.i76, %68
+  br i1 %81, label %.lr.ph.i74, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, !llvm.loop !12
 
-.preheader.i80:                                   ; preds = %.lr.ph.i88
-  %74 = icmp slt i32 %10, %3
-  br i1 %74, label %.lr.ph16.preheader.i81, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
+.preheader.i83:                                   ; preds = %.preheader150
+  %82 = icmp slt i32 %10, %3
+  br i1 %82, label %.lr.ph.preheader.i84, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
 
-.lr.ph16.preheader.i81:                           ; preds = %.preheader.i80
-  %wide.trip.count22.i82 = zext i32 %3 to i64
-  br label %.lr.ph16.i83
+.lr.ph.preheader.i84:                             ; preds = %.preheader.i83
+  %83 = sext i32 %3 to i64
+  br label %.lr.ph.i85
 
-.lr.ph.i88:                                       ; preds = %20, %.lr.ph.i88
-  %indvars.iv.i89 = phi i64 [ %indvars.iv.next.i90, %.lr.ph.i88 ], [ 0, %20 ]
-  %75 = getelementptr inbounds [4 x double], ptr %0, i64 0, i64 %indvars.iv.i89
-  %76 = load double, ptr %75, align 8
-  %77 = insertelement <2 x double> poison, double %76, i64 0
-  %78 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %77)
-  %79 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i89
-  store i32 %78, ptr %79, align 4
-  %indvars.iv.next.i90 = add nuw nsw i64 %indvars.iv.i89, 1
-  %exitcond.not.i91 = icmp eq i64 %indvars.iv.next.i90, %wide.trip.count.i
-  br i1 %exitcond.not.i91, label %.preheader.i80, label %.lr.ph.i88, !llvm.loop !13
+.preheader150:                                    ; preds = %20, %.preheader150
+  %indvars.iv.i79 = phi i64 [ %indvars.iv.next.i80, %.preheader150 ], [ 0, %20 ]
+  %84 = getelementptr inbounds [4 x double], ptr %0, i64 0, i64 %indvars.iv.i79
+  %85 = load double, ptr %84, align 8
+  %86 = insertelement <2 x double> poison, double %85, i64 0
+  %87 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %86)
+  %88 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i79
+  store i32 %87, ptr %88, align 4
+  %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i79, 1
+  %exitcond.not.i81 = icmp eq i64 %indvars.iv.next.i80, %wide.trip.count.i
+  br i1 %exitcond.not.i81, label %.preheader.i83, label %.preheader150, !llvm.loop !13
 
-.lr.ph16.i83:                                     ; preds = %.lr.ph16.i83, %.lr.ph16.preheader.i81
-  %indvars.iv19.i84 = phi i64 [ %wide.trip.count.i, %.lr.ph16.preheader.i81 ], [ %indvars.iv.next20.i85, %.lr.ph16.i83 ]
-  %80 = sub nuw nsw i64 %indvars.iv19.i84, %wide.trip.count.i
-  %81 = getelementptr inbounds i32, ptr %1, i64 %80
-  %82 = load i32, ptr %81, align 4
-  %83 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv19.i84
-  store i32 %82, ptr %83, align 4
-  %indvars.iv.next20.i85 = add nuw nsw i64 %indvars.iv19.i84, 1
-  %exitcond23.not.i86 = icmp eq i64 %indvars.iv.next20.i85, %wide.trip.count22.i82
-  br i1 %exitcond23.not.i86, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, label %.lr.ph16.i83, !llvm.loop !14
+.lr.ph.i85:                                       ; preds = %.lr.ph.i85, %.lr.ph.preheader.i84
+  %indvars.iv20.i86 = phi i64 [ %wide.trip.count.i, %.lr.ph.preheader.i84 ], [ %indvars.iv.next21.i87, %.lr.ph.i85 ]
+  %89 = sub nuw nsw i64 %indvars.iv20.i86, %wide.trip.count.i
+  %90 = getelementptr inbounds i32, ptr %1, i64 %89
+  %91 = load i32, ptr %90, align 4
+  %92 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv20.i86
+  store i32 %91, ptr %92, align 4
+  %indvars.iv.next21.i87 = add nuw nsw i64 %indvars.iv20.i86, 1
+  %93 = icmp slt i64 %indvars.iv.next21.i87, %83
+  br i1 %93, label %.lr.ph.i85, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, !llvm.loop !14
 
-.preheader.i92:                                   ; preds = %.lr.ph.i100
-  %84 = icmp slt i32 %10, %3
-  br i1 %84, label %.lr.ph16.preheader.i93, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
+.preheader.i94:                                   ; preds = %.preheader152
+  %94 = icmp slt i32 %10, %3
+  br i1 %94, label %.lr.ph.preheader.i95, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
 
-.lr.ph16.preheader.i93:                           ; preds = %.preheader.i92
-  %wide.trip.count22.i94 = zext i32 %3 to i64
-  br label %.lr.ph16.i95
+.lr.ph.preheader.i95:                             ; preds = %.preheader.i94
+  %95 = sext i32 %3 to i64
+  br label %.lr.ph.i96
 
-.lr.ph.i100:                                      ; preds = %20, %.lr.ph.i100
-  %indvars.iv.i101 = phi i64 [ %indvars.iv.next.i102, %.lr.ph.i100 ], [ 0, %20 ]
-  %85 = getelementptr inbounds [4 x double], ptr %0, i64 0, i64 %indvars.iv.i101
-  %86 = load double, ptr %85, align 8
-  %87 = fptrunc double %86 to float
-  %88 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i101
-  store float %87, ptr %88, align 4
+.preheader152:                                    ; preds = %20, %.preheader152
+  %indvars.iv.i90 = phi i64 [ %indvars.iv.next.i91, %.preheader152 ], [ 0, %20 ]
+  %96 = getelementptr inbounds [4 x double], ptr %0, i64 0, i64 %indvars.iv.i90
+  %97 = load double, ptr %96, align 8
+  %98 = fptrunc double %97 to float
+  %99 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i90
+  store float %98, ptr %99, align 4
+  %indvars.iv.next.i91 = add nuw nsw i64 %indvars.iv.i90, 1
+  %exitcond.not.i92 = icmp eq i64 %indvars.iv.next.i91, %wide.trip.count.i
+  br i1 %exitcond.not.i92, label %.preheader.i94, label %.preheader152, !llvm.loop !15
+
+.lr.ph.i96:                                       ; preds = %.lr.ph.i96, %.lr.ph.preheader.i95
+  %indvars.iv20.i97 = phi i64 [ %wide.trip.count.i, %.lr.ph.preheader.i95 ], [ %indvars.iv.next21.i98, %.lr.ph.i96 ]
+  %100 = sub nuw nsw i64 %indvars.iv20.i97, %wide.trip.count.i
+  %101 = getelementptr inbounds float, ptr %1, i64 %100
+  %102 = load float, ptr %101, align 4
+  %103 = getelementptr inbounds float, ptr %1, i64 %indvars.iv20.i97
+  store float %102, ptr %103, align 4
+  %indvars.iv.next21.i98 = add nuw nsw i64 %indvars.iv20.i97, 1
+  %104 = icmp slt i64 %indvars.iv.next21.i98, %95
+  br i1 %104, label %.lr.ph.i96, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, !llvm.loop !16
+
+.preheader.i105:                                  ; preds = %.preheader154
+  %105 = icmp slt i32 %10, %3
+  br i1 %105, label %.lr.ph.preheader.i106, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
+
+.lr.ph.preheader.i106:                            ; preds = %.preheader.i105
+  %106 = sext i32 %3 to i64
+  br label %.lr.ph.i107
+
+.preheader154:                                    ; preds = %20, %.preheader154
+  %indvars.iv.i101 = phi i64 [ %indvars.iv.next.i102, %.preheader154 ], [ 0, %20 ]
+  %107 = getelementptr inbounds [4 x double], ptr %0, i64 0, i64 %indvars.iv.i101
+  %108 = load double, ptr %107, align 8
+  %109 = getelementptr inbounds double, ptr %1, i64 %indvars.iv.i101
+  store double %108, ptr %109, align 8
   %indvars.iv.next.i102 = add nuw nsw i64 %indvars.iv.i101, 1
   %exitcond.not.i103 = icmp eq i64 %indvars.iv.next.i102, %wide.trip.count.i
-  br i1 %exitcond.not.i103, label %.preheader.i92, label %.lr.ph.i100, !llvm.loop !15
+  br i1 %exitcond.not.i103, label %.preheader.i105, label %.preheader154, !llvm.loop !17
 
-.lr.ph16.i95:                                     ; preds = %.lr.ph16.i95, %.lr.ph16.preheader.i93
-  %indvars.iv19.i96 = phi i64 [ %wide.trip.count.i, %.lr.ph16.preheader.i93 ], [ %indvars.iv.next20.i97, %.lr.ph16.i95 ]
-  %89 = sub nuw nsw i64 %indvars.iv19.i96, %wide.trip.count.i
-  %90 = getelementptr inbounds float, ptr %1, i64 %89
-  %91 = load float, ptr %90, align 4
-  %92 = getelementptr inbounds float, ptr %1, i64 %indvars.iv19.i96
-  store float %91, ptr %92, align 4
-  %indvars.iv.next20.i97 = add nuw nsw i64 %indvars.iv19.i96, 1
-  %exitcond23.not.i98 = icmp eq i64 %indvars.iv.next20.i97, %wide.trip.count22.i94
-  br i1 %exitcond23.not.i98, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, label %.lr.ph16.i95, !llvm.loop !16
-
-.preheader.i104:                                  ; preds = %.lr.ph.i112
-  %93 = icmp slt i32 %10, %3
-  br i1 %93, label %.lr.ph16.preheader.i105, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
-
-.lr.ph16.preheader.i105:                          ; preds = %.preheader.i104
-  %wide.trip.count22.i106 = zext i32 %3 to i64
-  br label %.lr.ph16.i107
-
-.lr.ph.i112:                                      ; preds = %20, %.lr.ph.i112
-  %indvars.iv.i113 = phi i64 [ %indvars.iv.next.i114, %.lr.ph.i112 ], [ 0, %20 ]
-  %94 = getelementptr inbounds [4 x double], ptr %0, i64 0, i64 %indvars.iv.i113
-  %95 = load double, ptr %94, align 8
-  %96 = getelementptr inbounds double, ptr %1, i64 %indvars.iv.i113
-  store double %95, ptr %96, align 8
-  %indvars.iv.next.i114 = add nuw nsw i64 %indvars.iv.i113, 1
-  %exitcond.not.i115 = icmp eq i64 %indvars.iv.next.i114, %wide.trip.count.i
-  br i1 %exitcond.not.i115, label %.preheader.i104, label %.lr.ph.i112, !llvm.loop !17
-
-.lr.ph16.i107:                                    ; preds = %.lr.ph16.i107, %.lr.ph16.preheader.i105
-  %indvars.iv19.i108 = phi i64 [ %wide.trip.count.i, %.lr.ph16.preheader.i105 ], [ %indvars.iv.next20.i109, %.lr.ph16.i107 ]
-  %97 = sub nuw nsw i64 %indvars.iv19.i108, %wide.trip.count.i
-  %98 = getelementptr inbounds double, ptr %1, i64 %97
-  %99 = load double, ptr %98, align 8
-  %100 = getelementptr inbounds double, ptr %1, i64 %indvars.iv19.i108
-  store double %99, ptr %100, align 8
-  %indvars.iv.next20.i109 = add nuw nsw i64 %indvars.iv19.i108, 1
-  %exitcond23.not.i110 = icmp eq i64 %indvars.iv.next20.i109, %wide.trip.count22.i106
-  br i1 %exitcond23.not.i110, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, label %.lr.ph16.i107, !llvm.loop !18
+.lr.ph.i107:                                      ; preds = %.lr.ph.i107, %.lr.ph.preheader.i106
+  %indvars.iv20.i108 = phi i64 [ %wide.trip.count.i, %.lr.ph.preheader.i106 ], [ %indvars.iv.next21.i109, %.lr.ph.i107 ]
+  %110 = sub nuw nsw i64 %indvars.iv20.i108, %wide.trip.count.i
+  %111 = getelementptr inbounds double, ptr %1, i64 %110
+  %112 = load double, ptr %111, align 8
+  %113 = getelementptr inbounds double, ptr %1, i64 %indvars.iv20.i108
+  store double %112, ptr %113, align 8
+  %indvars.iv.next21.i109 = add nuw nsw i64 %indvars.iv20.i108, 1
+  %114 = icmp slt i64 %indvars.iv.next21.i109, %106
+  br i1 %114, label %.lr.ph.i107, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, !llvm.loop !18
 
 .preheader.i116:                                  ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.i
-  %101 = icmp slt i32 %10, %3
-  br i1 %101, label %.lr.ph16.preheader.i117, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
+  %115 = icmp slt i32 %10, %3
+  br i1 %115, label %.lr.ph.preheader.i117, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
 
-.lr.ph16.preheader.i117:                          ; preds = %.preheader.i116
-  %wide.trip.count22.i118 = zext i32 %3 to i64
-  br label %.lr.ph16.i119
+.lr.ph.preheader.i117:                            ; preds = %.preheader.i116
+  %116 = sext i32 %3 to i64
+  br label %.lr.ph.i118
 
-.lr.ph.i124:                                      ; preds = %20, %_ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.i
-  %indvars.iv.i125 = phi i64 [ %indvars.iv.next.i126, %_ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.i ], [ 0, %20 ]
-  %102 = getelementptr inbounds [4 x double], ptr %0, i64 0, i64 %indvars.iv.i125
-  %103 = load double, ptr %102, align 8
-  %104 = fptrunc double %103 to float
-  %105 = call float @llvm.fabs.f32(float %104)
-  %106 = bitcast float %105 to i32
-  %107 = icmp ugt i32 %106, 1199570943
-  br i1 %107, label %108, label %111
+.preheader156:                                    ; preds = %20, %_ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.i
+  %indvars.iv.i112 = phi i64 [ %indvars.iv.next.i113, %_ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.i ], [ 0, %20 ]
+  %117 = getelementptr inbounds [4 x double], ptr %0, i64 0, i64 %indvars.iv.i112
+  %118 = load double, ptr %117, align 8
+  %119 = fptrunc double %118 to float
+  %120 = call float @llvm.fabs.f32(float %119)
+  %121 = bitcast float %120 to i32
+  %122 = icmp ugt i32 %121, 1199570943
+  br i1 %122, label %123, label %126
 
-108:                                              ; preds = %.lr.ph.i124
-  %109 = icmp ugt i32 %106, 2139095040
-  %110 = select i1 %109, i16 32256, i16 31744
+123:                                              ; preds = %.preheader156
+  %124 = icmp ugt i32 %121, 2139095040
+  %125 = select i1 %124, i16 32256, i16 31744
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.i
 
-111:                                              ; preds = %.lr.ph.i124
-  %112 = icmp ult i32 %106, 947912704
-  br i1 %112, label %113, label %117
+126:                                              ; preds = %.preheader156
+  %127 = icmp ult i32 %121, 947912704
+  br i1 %127, label %128, label %132
 
-113:                                              ; preds = %111
-  %114 = fadd float %105, 5.000000e-01
-  %115 = bitcast float %114 to i32
-  %116 = trunc i32 %115 to i16
+128:                                              ; preds = %126
+  %129 = fadd float %120, 5.000000e-01
+  %130 = bitcast float %129 to i32
+  %131 = trunc i32 %130 to i16
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.i
 
-117:                                              ; preds = %111
-  %118 = add nuw nsw i32 %106, 134221823
-  %119 = lshr i32 %106, 13
-  %120 = and i32 %119, 1
-  %121 = add nuw nsw i32 %118, %120
-  %122 = lshr i32 %121, 13
-  %123 = trunc i32 %122 to i16
+132:                                              ; preds = %126
+  %133 = add nuw nsw i32 %121, 134221823
+  %134 = lshr i32 %121, 13
+  %135 = and i32 %134, 1
+  %136 = add nuw nsw i32 %133, %135
+  %137 = lshr i32 %136, 13
+  %138 = trunc i32 %137 to i16
   br label %_ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.i
 
-_ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.i:   ; preds = %117, %113, %108
-  %124 = phi i16 [ %116, %113 ], [ %123, %117 ], [ %110, %108 ]
-  %125 = bitcast float %104 to i32
-  %126 = lshr i32 %125, 16
-  %127 = trunc nuw i32 %126 to i16
-  %128 = and i16 %127, -32768
-  %129 = or i16 %124, %128
-  %130 = getelementptr inbounds %"class.cv::hfloat", ptr %1, i64 %indvars.iv.i125
-  store i16 %129, ptr %130, align 2
-  %indvars.iv.next.i126 = add nuw nsw i64 %indvars.iv.i125, 1
-  %exitcond.not.i127 = icmp eq i64 %indvars.iv.next.i126, %wide.trip.count.i
-  br i1 %exitcond.not.i127, label %.preheader.i116, label %.lr.ph.i124, !llvm.loop !19
+_ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.i:   ; preds = %132, %128, %123
+  %139 = phi i16 [ %131, %128 ], [ %138, %132 ], [ %125, %123 ]
+  %140 = bitcast float %119 to i32
+  %141 = lshr i32 %140, 16
+  %142 = trunc nuw i32 %141 to i16
+  %143 = and i16 %142, -32768
+  %144 = or i16 %139, %143
+  %145 = getelementptr inbounds %"class.cv::hfloat", ptr %1, i64 %indvars.iv.i112
+  store i16 %144, ptr %145, align 2
+  %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i112, 1
+  %exitcond.not.i114 = icmp eq i64 %indvars.iv.next.i113, %wide.trip.count.i
+  br i1 %exitcond.not.i114, label %.preheader.i116, label %.preheader156, !llvm.loop !19
 
-.lr.ph16.i119:                                    ; preds = %.lr.ph16.i119, %.lr.ph16.preheader.i117
-  %indvars.iv19.i120 = phi i64 [ %wide.trip.count.i, %.lr.ph16.preheader.i117 ], [ %indvars.iv.next20.i121, %.lr.ph16.i119 ]
-  %131 = sub nuw nsw i64 %indvars.iv19.i120, %wide.trip.count.i
-  %132 = getelementptr inbounds %"class.cv::hfloat", ptr %1, i64 %131
-  %133 = getelementptr inbounds %"class.cv::hfloat", ptr %1, i64 %indvars.iv19.i120
-  %134 = load i16, ptr %132, align 2
-  store i16 %134, ptr %133, align 2
-  %indvars.iv.next20.i121 = add nuw nsw i64 %indvars.iv19.i120, 1
-  %exitcond23.not.i122 = icmp eq i64 %indvars.iv.next20.i121, %wide.trip.count22.i118
-  br i1 %exitcond23.not.i122, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, label %.lr.ph16.i119, !llvm.loop !20
+.lr.ph.i118:                                      ; preds = %.lr.ph.i118, %.lr.ph.preheader.i117
+  %indvars.iv20.i119 = phi i64 [ %wide.trip.count.i, %.lr.ph.preheader.i117 ], [ %indvars.iv.next21.i120, %.lr.ph.i118 ]
+  %146 = sub nuw nsw i64 %indvars.iv20.i119, %wide.trip.count.i
+  %147 = getelementptr inbounds %"class.cv::hfloat", ptr %1, i64 %146
+  %148 = getelementptr inbounds %"class.cv::hfloat", ptr %1, i64 %indvars.iv20.i119
+  %149 = load i16, ptr %147, align 2
+  store i16 %149, ptr %148, align 2
+  %indvars.iv.next21.i120 = add nuw nsw i64 %indvars.iv20.i119, 1
+  %150 = icmp slt i64 %indvars.iv.next21.i120, %116
+  br i1 %150, label %.lr.ph.i118, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, !llvm.loop !20
 
-default.unreachable142:                           ; preds = %20
+default.unreachable135:                           ; preds = %20
   unreachable
 
-_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit: ; preds = %.lr.ph16.i119, %.lr.ph16.i107, %.lr.ph16.i95, %.lr.ph16.i83, %.lr.ph16.i71, %.lr.ph16.i59, %.lr.ph16.i47, %.lr.ph16.i, %.preheader.i116, %.preheader.i104, %.preheader.i92, %.preheader.i80, %.preheader.i68, %.preheader.i56, %.preheader.i44, %.preheader.i
-  %135 = getelementptr inbounds i8, ptr %5, i64 8
-  %136 = load i32, ptr %135, align 8
-  %.not.i = icmp eq i32 %136, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %137
+_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit: ; preds = %.lr.ph.i118, %.lr.ph.i107, %.lr.ph.i96, %.lr.ph.i85, %.lr.ph.i74, %.lr.ph.i63, %.lr.ph.i52, %.lr.ph.i, %.preheader.i116, %.preheader.i105, %.preheader.i94, %.preheader.i83, %.preheader.i72, %.preheader.i61, %.preheader.i50, %.preheader.i
+  %151 = getelementptr inbounds i8, ptr %5, i64 8
+  %152 = load i32, ptr %151, align 8
+  %.not.i = icmp eq i32 %152, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %153
 
-137:                                              ; preds = %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
+153:                                              ; preds = %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %5)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %138
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %154
 
-138:                                              ; preds = %137
-  %139 = landingpad { ptr, i32 }
+154:                                              ; preds = %153
+  %155 = landingpad { ptr, i32 }
           catch ptr null
-  %140 = extractvalue { ptr, i32 } %139, 0
-  call void @__clang_call_terminate(ptr %140) #20
+  %156 = extractvalue { ptr, i32 } %155, 0
+  call void @__clang_call_terminate(ptr %156) #20
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, %137
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, %153
   ret void
 }
 

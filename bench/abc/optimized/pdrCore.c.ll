@@ -2142,7 +2142,7 @@ Pdr_ManSortByPriority.exit261:                    ; preds = %._crit_edge.i258, %
 
 295:                                              ; preds = %294
   %296 = load i32, ptr %225, align 4
-  call fastcc void @Hash_IntWriteEntry(ptr noundef nonnull %139, i32 noundef %296)
+  call fastcc void @Hash_IntWriteEntry(ptr noundef %139, i32 noundef %296)
   br label %297
 
 297:                                              ; preds = %295, %294
@@ -2564,7 +2564,7 @@ declare ptr @Pdr_ManCubeToLits(ptr noundef, i32 noundef, ptr noundef, i32 nounde
 declare i32 @sat_solver_addclause(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Hash_IntWriteEntry(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc void @Hash_IntWriteEntry(ptr nocapture noundef nonnull %0, i32 noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4

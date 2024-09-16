@@ -1564,7 +1564,7 @@ declare void @list_commands(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @list_guides_help() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @list_config_help(i32 noundef %type) unnamed_addr #0 {
+define internal fastcc void @list_config_help(i32 noundef range(i32 0, 3) %type) unnamed_addr #0 {
 for.body.preheader:
   %slot_expansions = alloca [11 x %struct.slot_expansion], align 16
   %keys = alloca %struct.string_list, align 8

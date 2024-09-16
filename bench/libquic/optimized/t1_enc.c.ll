@@ -630,7 +630,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 declare i32 @ssl_get_algorithm_prf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @tls1_P_hash(ptr nocapture noundef %out, i64 noundef %out_len, ptr noundef %md, ptr noundef %secret, i64 noundef %secret_len, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len, ptr noundef %seed3, i64 noundef %seed3_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @tls1_P_hash(ptr nocapture noundef %out, i64 noundef range(i64 1, 0) %out_len, ptr noundef %md, ptr noundef %secret, i64 noundef %secret_len, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len, ptr noundef %seed3, i64 noundef %seed3_len) unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.hmac_ctx_st, align 8
   %ctx_tmp = alloca %struct.hmac_ctx_st, align 8
@@ -719,19 +719,19 @@ if.end40:                                         ; preds = %lor.lhs.false35
   %1 = load i32, ptr %len, align 4
   %conv41 = zext i32 %1 to i64
   %cmp42 = icmp ult i64 %out_len.addr.0, %conv41
-  br i1 %cmp42, label %if.then44, label %if.end46
+  br i1 %cmp42, label %if.end46.thread, label %if.end46
 
-if.then44:                                        ; preds = %if.end40
+if.end46.thread:                                  ; preds = %if.end40
   %conv45 = trunc nuw i64 %out_len.addr.0 to i32
   store i32 %conv45, ptr %len, align 4
-  br label %if.end46
+  br label %for.body.preheader
 
-if.end46:                                         ; preds = %if.then44, %if.end40
-  %2 = phi i32 [ %conv45, %if.then44 ], [ %1, %if.end40 ]
-  %cmp4817.not = icmp eq i32 %2, 0
+if.end46:                                         ; preds = %if.end40
+  %cmp4817.not = icmp eq i32 %1, 0
   br i1 %cmp4817.not, label %for.end, label %for.body.preheader
 
-for.body.preheader:                               ; preds = %if.end46
+for.body.preheader:                               ; preds = %if.end46.thread, %if.end46
+  %2 = phi i32 [ %conv45, %if.end46.thread ], [ %1, %if.end46 ]
   %wide.trip.count = zext i32 %2 to i64
   br label %for.body
 

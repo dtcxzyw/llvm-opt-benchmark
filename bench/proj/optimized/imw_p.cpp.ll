@@ -385,7 +385,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #3
 ; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL15imw_p_e_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
   %4 = alloca double, align 8
-  %5 = call fastcc { double, double } @_ZL7loc_for5PJ_LPP8PJconstsPd(double %0, double %1, ptr noundef %2, ptr noundef nonnull %4)
+  %5 = call fastcc { double, double } @_ZL7loc_for5PJ_LPP8PJconstsPd(double %0, double %1, ptr noundef %2, ptr noundef %4)
   ret { double, double } %5
 }
 
@@ -410,7 +410,7 @@ define internal { double, double } @_ZL15imw_p_e_inverse5PJ_XYP8PJconsts(double 
   %.0 = phi i32 [ 0, %3 ], [ %43, %.critedge2.backedge ]
   %.sroa.6.0 = phi double [ %10, %3 ], [ %.sroa.6.1, %.critedge2.backedge ]
   %.sroa.018.0 = phi double [ %12, %3 ], [ %.sroa.018.1, %.critedge2.backedge ]
-  %14 = call fastcc { double, double } @_ZL7loc_for5PJ_LPP8PJconstsPd(double %.sroa.018.0, double %.sroa.6.0, ptr noundef %2, ptr noundef nonnull %4)
+  %14 = call fastcc { double, double } @_ZL7loc_for5PJ_LPP8PJconstsPd(double %.sroa.018.0, double %.sroa.6.0, ptr noundef %2, ptr noundef %4)
   %15 = extractvalue { double, double } %14, 0
   %16 = extractvalue { double, double } %14, 1
   %17 = load double, ptr %4, align 8
@@ -503,7 +503,7 @@ declare double @sin(double noundef) local_unnamed_addr #4
 declare double @tan(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { double, double } @_ZL7loc_for5PJ_LPP8PJconstsPd(double %0, double %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc { double, double } @_ZL7loc_for5PJ_LPP8PJconstsPd(double %0, double %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = fcmp oeq double %1, 0.000000e+00

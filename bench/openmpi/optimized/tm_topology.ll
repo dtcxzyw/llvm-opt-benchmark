@@ -1455,7 +1455,7 @@ topology_constraints_cpy.exit:                    ; preds = %topology_numbering_
   %67 = load ptr, ptr %66, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %65, ptr align 8 %67, i64 %64, i1 false)
   %68 = add nsw i32 %31, -2
-  call fastcc void @optimize_arity(ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef %68)
+  call fastcc void @optimize_arity(ptr noundef %2, ptr noundef %4, ptr noundef %3, i32 noundef %68)
   %69 = load ptr, ptr %2, align 8
   %70 = load i32, ptr %3, align 4
   %71 = tail call ptr @tm_build_synthetic_topology(ptr noundef %69, ptr noundef null, i32 noundef %70, ptr noundef %49, i32 noundef %44)
@@ -1568,7 +1568,7 @@ tm_display_arity.exit27:                          ; preds = %103, %90
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @optimize_arity(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #3 {
+define internal fastcc void @optimize_arity(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, i32 noundef %3) unnamed_addr #3 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = icmp slt i32 %3, 0
@@ -1751,7 +1751,7 @@ tailrecurse:                                      ; preds = %52
   %95 = load i32, ptr %.sink, align 4
   %96 = icmp eq i32 %95, %.sink186
   %.tr98104.lcssa. = select i1 %96, i32 %.tr98104, i32 %.sink184
-  call fastcc void @optimize_arity(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %2, i32 noundef %.tr98104.lcssa.)
+  call fastcc void @optimize_arity(ptr noundef %5, ptr noundef %6, ptr noundef %2, i32 noundef %.tr98104.lcssa.)
   %97 = load ptr, ptr %5, align 8
   store ptr %97, ptr %0, align 8
   %98 = load ptr, ptr %6, align 8

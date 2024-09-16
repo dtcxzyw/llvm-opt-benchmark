@@ -749,14 +749,14 @@ define hidden noundef nonnull align 8 ptr @_ZN4core3ops8function6FnOnce9call_onc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$lsp_server..msg..Message$C$serde_json..error..Error$GT$$GT$17h785be60d0be7e407E"(ptr noalias noundef align 8 dereferenceable(200) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$lsp_server..msg..Message$C$serde_json..error..Error$GT$$GT$17h785be60d0be7e407E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = load i64, ptr %0, align 8, !range !118, !noundef !12
   %.not = icmp eq i64 %3, -9223372036854775804
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %0)
+  tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef align 8 dereferenceable(200) %0)
   br label %19
 
 5:                                                ; preds = %1
@@ -831,7 +831,7 @@ define internal void @"_ZN4core3ptr28drop_in_place$LT$$RF$i32$GT$17ha322af9ce8a0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef align 8 dereferenceable(200) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !73, !noundef !12
   %4 = add i64 %3, 9223372036854775807
@@ -901,7 +901,7 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Me
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !118, !noundef !12
@@ -1051,7 +1051,7 @@ define internal void @"_ZN4core3ptr55drop_in_place$LT$$RF$lsp_server..msg..Respo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i8, ptr %0, align 8, !range !186, !noundef !12
@@ -1189,7 +1189,7 @@ define internal void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$se
   ret void
 
 5:                                                ; preds = %1
-  tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
+  tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %0)
   br label %4
 }
 
@@ -1204,7 +1204,7 @@ define internal void @"_ZN4core3ptr83drop_in_place$LT$$RF$core..option..Option$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr99drop_in_place$LT$core..result..Result$LT$lsp_server..msg..IdRepr$C$serde_json..error..Error$GT$$GT$17h4b5c64ad2fc3fbc5E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr99drop_in_place$LT$core..result..Result$LT$lsp_server..msg..IdRepr$C$serde_json..error..Error$GT$$GT$17h4b5c64ad2fc3fbc5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !209, !noundef !12
@@ -2489,7 +2489,7 @@ _ZN10lsp_server3msg12Notification7is_exit17ha4d320aa32c19713E.exit.thread.i: ; p
   br label %95
 
 116:                                              ; preds = %95
-  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %24), !noalias !356
+  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef align 8 dereferenceable(200) %24), !noalias !356
   br label %117
 
 117:                                              ; preds = %130, %116, %95, %95
@@ -2499,7 +2499,7 @@ _ZN10lsp_server3msg12Notification7is_exit17ha4d320aa32c19713E.exit.thread.i: ; p
 118:                                              ; preds = %120
   %119 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %13) #28
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef align 8 dereferenceable(200) %13) #28
           to label %.thread79.i unwind label %99, !noalias !356
 
 120:                                              ; preds = %_ZN10lsp_server3msg12Notification7is_exit17ha4d320aa32c19713E.exit.i, %53
@@ -2530,12 +2530,12 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit52.i: ; preds = %120
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %.sroa.43.0..sroa_idx.i, align 8, !alias.scope !356, !noalias !401
   store i64 -9223372036854775807, ptr %0, align 8, !alias.scope !356, !noalias !401
-  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %13), !noalias !356
+  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef align 8 dereferenceable(200) %13), !noalias !356
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %13), !noalias !359
   br label %_ZN10lsp_server10Connection22initialize_start_while17h7bcabfc7d653dc08E.exit
 
 123:                                              ; preds = %101
-  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %24), !noalias !356
+  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef align 8 dereferenceable(200) %24), !noalias !356
   br label %_ZN10lsp_server10Connection22initialize_start_while17h7bcabfc7d653dc08E.exit
 
 .thread.i:                                        ; preds = %111, %.body.i, %.thread89.loopexit.split-lp.i, %.thread89.loopexit.i
@@ -2549,7 +2549,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit52.i: ; preds = %120
   ]
 
 125:                                              ; preds = %.thread.i
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %24) #28
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef align 8 dereferenceable(200) %24) #28
           to label %.thread79.i unwind label %99, !noalias !356
 
 126:                                              ; preds = %.thread.i
@@ -2753,7 +2753,7 @@ _ZN10lsp_server3msg8Response6new_ok17h772ee999589a55cdE.exit: ; preds = %_ZN10se
   br i1 %.not.i, label %common.resume, label %53
 
 53:                                               ; preds = %50
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %13)
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef align 8 dereferenceable(200) %13)
           to label %common.resume unwind label %67
 
 _ZN10lsp_server3msg12Notification14is_initialized17h54ade8569db91a92E.exit: ; preds = %47
@@ -2773,7 +2773,7 @@ _ZN10lsp_server3msg12Notification14is_initialized17h54ade8569db91a92E.exit: ; pr
   br i1 %.not.i5, label %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$lsp_server..msg..Message$C$crossbeam_channel..err..RecvError$GT$$GT$17h99b934ea0c657e7dE.exit6", label %60
 
 60:                                               ; preds = %58
-  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %13)
+  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef align 8 dereferenceable(200) %13)
   br label %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$lsp_server..msg..Message$C$crossbeam_channel..err..RecvError$GT$$GT$17h99b934ea0c657e7dE.exit6"
 
 "_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$lsp_server..msg..Message$C$crossbeam_channel..err..RecvError$GT$$GT$17h99b934ea0c657e7dE.exit6": ; preds = %58, %60
@@ -2856,7 +2856,7 @@ define void @_ZN10lsp_server10Connection10initialize17h4fcc57b0d3879efdE(ptr noa
 
 18:                                               ; preds = %.thread57, %77, %72, %19
   %.pn32.pn = phi { ptr, i32 } [ %.pn30, %77 ], [ %.pn30, %72 ], [ %20, %19 ], [ %73, %.thread57 ]
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2) #28
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %2) #28
           to label %78 unwind label %75
 
 19:                                               ; preds = %3
@@ -2906,7 +2906,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
 "_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h3ff537450c9b5d95E.exit": ; preds = %40, %31
   %.pn30 = phi { ptr, i32 } [ %32, %31 ], [ %.pn, %40 ]
   %.1 = phi i1 [ %.026, %31 ], [ true, %40 ]
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %16) #28
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %16) #28
           to label %72 unwind label %75
 
 31:                                               ; preds = %33, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit"
@@ -3030,7 +3030,7 @@ _ZN10serde_json5value8to_value17h21d798ddfc1a42a3E.exit: ; preds = %43
   br i1 %63, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit", label %64
 
 64:                                               ; preds = %60
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %12)
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %12)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit" unwind label %41
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit": ; preds = %60, %64
@@ -3065,11 +3065,11 @@ _ZN10serde_json5value8to_value17h21d798ddfc1a42a3E.exit: ; preds = %43
   %.sroa.222.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.222.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.222, i64 24, i1 false)
   store i64 -9223372036854775803, ptr %0, align 8
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %16)
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %16)
           to label %74 unwind label %.thread57
 
 71:                                               ; preds = %29, %74, %68
-  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef align 8 dereferenceable(72) %2)
   ret void
 
 72:                                               ; preds = %"_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h3ff537450c9b5d95E.exit"
@@ -3261,7 +3261,7 @@ _ZN10lsp_server3msg7Request11is_shutdown17ha16fd688b2c50ee9E.exit.thread: ; pred
   br i1 %.not.i, label %"_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$lsp_server..msg..Message$C$crossbeam_channel..err..RecvTimeoutError$GT$$GT$17h59f32670dc1ee6d6E.exit", label %59
 
 59:                                               ; preds = %56
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %11)
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef align 8 dereferenceable(200) %11)
           to label %"_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$lsp_server..msg..Message$C$crossbeam_channel..err..RecvTimeoutError$GT$$GT$17h59f32670dc1ee6d6E.exit" unwind label %81
 
 _ZN10lsp_server3msg12Notification7is_exit17ha4d320aa32c19713E.exit: ; preds = %53
@@ -3272,7 +3272,7 @@ _ZN10lsp_server3msg12Notification7is_exit17ha4d320aa32c19713E.exit: ; preds = %5
   br i1 %62, label %"_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$lsp_server..msg..Message$C$crossbeam_channel..err..RecvTimeoutError$GT$$GT$17h59f32670dc1ee6d6E.exit36", label %64
 
 "_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$lsp_server..msg..Message$C$crossbeam_channel..err..RecvTimeoutError$GT$$GT$17h59f32670dc1ee6d6E.exit36": ; preds = %_ZN10lsp_server3msg12Notification7is_exit17ha4d320aa32c19713E.exit
-  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %11)
+  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef align 8 dereferenceable(200) %11)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %11)
   %63 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %63, align 8
@@ -3314,7 +3314,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %64
   br i1 %.not.i39, label %"_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$lsp_server..msg..Message$C$crossbeam_channel..err..RecvTimeoutError$GT$$GT$17h59f32670dc1ee6d6E.exit40", label %68
 
 68:                                               ; preds = %66
-  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %11)
+  call fastcc void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E"(ptr noalias noundef align 8 dereferenceable(200) %11)
   br label %"_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$lsp_server..msg..Message$C$crossbeam_channel..err..RecvTimeoutError$GT$$GT$17h59f32670dc1ee6d6E.exit40"
 
 "_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$lsp_server..msg..Message$C$crossbeam_channel..err..RecvTimeoutError$GT$$GT$17h59f32670dc1ee6d6E.exit40": ; preds = %66, %68
@@ -3442,7 +3442,7 @@ define hidden void @"_ZN10lsp_server3msg1_77_$LT$impl$u20$serde..de..Deserialize
 29:                                               ; preds = %64, %60, %58, %46, %42, %40, %21, %17, %15, %74, %70, %54, %33
   %30 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #28
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef align 8 dereferenceable(32) %11) #28
           to label %81 unwind label %79
 
 31:                                               ; preds = %17, %21
@@ -3464,7 +3464,7 @@ define hidden void @"_ZN10lsp_server3msg1_77_$LT$impl$u20$serde..de..Deserialize
   store ptr %34, ptr %35, align 8, !alias.scope !635, !noalias !632
   store i64 -9223372036854775804, ptr %9, align 8, !alias.scope !635, !noalias !632
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %8)
-  invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$lsp_server..msg..Message$C$serde_json..error..Error$GT$$GT$17h785be60d0be7e407E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %9)
+  invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$lsp_server..msg..Message$C$serde_json..error..Error$GT$$GT$17h785be60d0be7e407E"(ptr noalias noundef align 8 dereferenceable(200) %9)
           to label %38 unwind label %29
 
 36:                                               ; preds = %31
@@ -3477,7 +3477,7 @@ define hidden void @"_ZN10lsp_server3msg1_77_$LT$impl$u20$serde..de..Deserialize
   br label %37
 
 37:                                               ; preds = %73, %55, %36
-  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
+  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef align 8 dereferenceable(32) %11)
   br label %78
 
 38:                                               ; preds = %33
@@ -3542,7 +3542,7 @@ define hidden void @"_ZN10lsp_server3msg1_77_$LT$impl$u20$serde..de..Deserialize
   br i1 %.not19, label %54, label %55
 
 54:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb4ceb11f64c94294E.exit.thread", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb4ceb11f64c94294E.exit"
-  invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$lsp_server..msg..Message$C$serde_json..error..Error$GT$$GT$17h785be60d0be7e407E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %7)
+  invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$lsp_server..msg..Message$C$serde_json..error..Error$GT$$GT$17h785be60d0be7e407E"(ptr noalias noundef align 8 dereferenceable(200) %7)
           to label %56 unwind label %29
 
 55:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb4ceb11f64c94294E.exit"
@@ -3602,7 +3602,7 @@ define hidden void @"_ZN10lsp_server3msg1_77_$LT$impl$u20$serde..de..Deserialize
   store ptr %71, ptr %72, align 8, !alias.scope !657, !noalias !654
   store i64 -9223372036854775804, ptr %5, align 8, !alias.scope !657, !noalias !654
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
-  invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$lsp_server..msg..Message$C$serde_json..error..Error$GT$$GT$17h785be60d0be7e407E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %5)
+  invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$lsp_server..msg..Message$C$serde_json..error..Error$GT$$GT$17h785be60d0be7e407E"(ptr noalias noundef align 8 dereferenceable(200) %5)
           to label %74 unwind label %29
 
 73:                                               ; preds = %68
@@ -3623,7 +3623,7 @@ define hidden void @"_ZN10lsp_server3msg1_77_$LT$impl$u20$serde..de..Deserialize
   %77 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %75, ptr %77, align 8
   store i64 -9223372036854775804, ptr %0, align 8
-  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
+  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef align 8 dereferenceable(32) %11)
   br label %78
 
 78:                                               ; preds = %25, %37, %76
@@ -3948,7 +3948,7 @@ define hidden void @"_ZN10lsp_server3msg1_76_$LT$impl$u20$serde..de..Deserialize
 14:                                               ; preds = %35, %33, %26, %19, %10
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #28
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef align 8 dereferenceable(32) %8) #28
           to label %42 unwind label %40
 
 16:                                               ; preds = %10
@@ -3965,7 +3965,7 @@ define hidden void @"_ZN10lsp_server3msg1_76_$LT$impl$u20$serde..de..Deserialize
   store ptr %21, ptr %18, align 8, !alias.scope !707, !noalias !710
   store i64 -9223372036854775807, ptr %7, align 8, !alias.scope !707, !noalias !710
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$core..result..Result$LT$lsp_server..msg..IdRepr$C$serde_json..error..Error$GT$$GT$17h4b5c64ad2fc3fbc5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$core..result..Result$LT$lsp_server..msg..IdRepr$C$serde_json..error..Error$GT$$GT$17h4b5c64ad2fc3fbc5E"(ptr noalias noundef align 8 dereferenceable(24) %7)
           to label %26 unwind label %14
 
 22:                                               ; preds = %16
@@ -3979,7 +3979,7 @@ define hidden void @"_ZN10lsp_server3msg1_76_$LT$impl$u20$serde..de..Deserialize
   br label %25
 
 25:                                               ; preds = %34, %22
-  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
+  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef align 8 dereferenceable(32) %8)
   br label %39
 
 26:                                               ; preds = %19
@@ -4013,7 +4013,7 @@ define hidden void @"_ZN10lsp_server3msg1_76_$LT$impl$u20$serde..de..Deserialize
   br i1 %.not18, label %33, label %34
 
 33:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h3a57eedb4902429aE.exit.thread", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h3a57eedb4902429aE.exit"
-  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$core..result..Result$LT$lsp_server..msg..IdRepr$C$serde_json..error..Error$GT$$GT$17h4b5c64ad2fc3fbc5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
+  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$core..result..Result$LT$lsp_server..msg..IdRepr$C$serde_json..error..Error$GT$$GT$17h4b5c64ad2fc3fbc5E"(ptr noalias noundef align 8 dereferenceable(24) %5)
           to label %35 unwind label %14
 
 34:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h3a57eedb4902429aE.exit"
@@ -4030,7 +4030,7 @@ define hidden void @"_ZN10lsp_server3msg1_76_$LT$impl$u20$serde..de..Deserialize
   %38 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %36, ptr %38, align 8
   store i64 -9223372036854775807, ptr %0, align 8
-  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
+  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h24cd63d88b8f2c3eE"(ptr noalias noundef align 8 dereferenceable(32) %8)
   br label %39
 
 39:                                               ; preds = %11, %25, %37

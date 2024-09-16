@@ -4027,7 +4027,7 @@ invoke.cont23:                                    ; preds = %if.then.i.i.i.i25, 
   %38 = load ptr, ptr %vector_.i, align 8
   %39 = load ptr, ptr %valueVector_.i, align 8
   %40 = call noundef ptr @__dynamic_cast(ptr nonnull %39, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox11ArrayVectorE, i64 0) #24
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_122MapFromEntriesFunction9applyFlatERKNS0_17SelectivityVectorEPKNS0_11ArrayVectorERKSt10shared_ptrIKNS0_4TypeEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %38, ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_122MapFromEntriesFunction9applyFlatERKNS0_17SelectivityVectorEPKNS0_11ArrayVectorERKSt10shared_ptrIKNS0_4TypeEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %38, ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont29 unwind label %lpad14
 
 invoke.cont29:                                    ; preds = %invoke.cont23
@@ -4586,7 +4586,7 @@ ehcleanup:                                        ; preds = %lpad34, %lpad14
 
 if.else:                                          ; preds = %if.end
   %122 = tail call noundef ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox11ArrayVectorE, i64 0) #24
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_122MapFromEntriesFunction9applyFlatERKNS0_17SelectivityVectorEPKNS0_11ArrayVectorERKSt10shared_ptrIKNS0_4TypeEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp37, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef %122, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_122MapFromEntriesFunction9applyFlatERKNS0_17SelectivityVectorEPKNS0_11ArrayVectorERKSt10shared_ptrIKNS0_4TypeEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp37, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef %122, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %if.else
@@ -4877,7 +4877,7 @@ entry:
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_122MapFromEntriesFunction9applyFlatERKNS0_17SelectivityVectorEPKNS0_11ArrayVectorERKSt10shared_ptrIKNS0_4TypeEERNS0_4exec7EvalCtxE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef %inputArray, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_122MapFromEntriesFunction9applyFlatERKNS0_17SelectivityVectorEPKNS0_11ArrayVectorERKSt10shared_ptrIKNS0_4TypeEERNS0_4exec7EvalCtxE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef %inputArray, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i15.i.i.i.i.i.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp13.i.i.i.i.i.i.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -14261,7 +14261,7 @@ declare void @_ZN8facebook5velox4exec7EvalCtx22setVeloxExceptionErrorEiRKNSt15__
 declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_122MapFromEntriesFunction9applyFlatERKNS0_17SelectivityVectorEPKNS0_11ArrayVectorERKSt10shared_ptrIKNS0_4TypeEERS4_EUliE1_EEvSB_T_EUlSN_E_EEvPKmiibSN_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_122MapFromEntriesFunction9applyFlatERKNS0_17SelectivityVectorEPKNS0_11ArrayVectorERKSt10shared_ptrIKNS0_4TypeEERS4_EUliE1_EEvSB_T_EUlSN_E_EEvPKmiibSN_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8

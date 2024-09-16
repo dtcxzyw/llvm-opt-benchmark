@@ -95,7 +95,7 @@ if.then5.i:                                       ; preds = %if.end.i
 
 if.end7.i:                                        ; preds = %if.end.i
   %4 = load ptr, ptr %check_buffer.i, align 8
-  %bcmp.i = tail call i32 @bcmp(ptr readonly %buf, ptr %4, i64 %conv.i)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %buf, ptr noundef nonnull dereferenceable(1) %4, i64 %conv.i)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i, label %if.end, label %if.then11.i
 

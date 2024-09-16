@@ -309,7 +309,7 @@ readFully.exit.thread:                            ; preds = %34, %32, %readFully
 
 61:                                               ; preds = %readFully.exit.thread
   store i32 %1, ptr %15, align 8
-  %62 = tail call fastcc i64 @readCEN(ptr noundef nonnull %7, i32 noundef -1)
+  %62 = tail call fastcc i64 @readCEN(ptr noundef %7, i32 noundef -1)
   %63 = icmp slt i64 %62, 0
   br i1 %63, label %64, label %69
 
@@ -474,7 +474,7 @@ freeCEN.exit:                                     ; preds = %16, %._crit_edge.i.
 declare i64 @lseek64(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @readCEN(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i64 @readCEN(ptr nocapture noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
   %4 = alloca [4 x i8], align 1
   %5 = alloca [128 x i8], align 16
@@ -1945,7 +1945,7 @@ define hidden zeroext range(i8 0, 2) i8 @equals(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @newEntry(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @newEntry(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #25
   %5 = icmp eq ptr %4, null
   br i1 %5, label %344, label %6
@@ -3240,7 +3240,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @readCENHeader(i64 %.16.val, i32 %.72.val, i64 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @readCENHeader(i64 %.16.val, i32 %.72.val, i64 noundef %0, i32 noundef range(i32 160, 8193) %1) unnamed_addr #0 {
   %3 = zext nneg i32 %1 to i64
   %4 = sub nsw i64 %.16.val, %0
   %5 = icmp slt i64 %4, %3

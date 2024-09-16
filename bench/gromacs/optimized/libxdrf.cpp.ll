@@ -410,7 +410,7 @@ _ZL9sizeofinti.exit468:                           ; preds = %.lr.ph.i465, %_ZL9s
   br i1 %213, label %.lr.ph.i470, label %_ZL9sizeofinti.exit473, !llvm.loop !7
 
 214:                                              ; preds = %181
-  %215 = call fastcc noundef i32 @_ZL10sizeofintsiPKj(ptr noundef nonnull %11)
+  %215 = call fastcc noundef i32 @_ZL10sizeofintsiPKj(ptr noundef %11)
   br label %_ZL9sizeofinti.exit473
 
 _ZL9sizeofinti.exit473:                           ; preds = %.lr.ph.i470, %_ZL9sizeofinti.exit468, %214
@@ -802,7 +802,7 @@ _ZL8sendbitsP10DataBufferii.exit484:              ; preds = %385, %387
   br label %_ZL8sendbitsP10DataBufferii.exit493
 
 430:                                              ; preds = %308
-  call fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr noundef nonnull %16, i32 noundef %.0380, ptr noundef nonnull %11, ptr noundef nonnull %14)
+  call fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr noundef %16, i32 noundef %.0380, ptr noundef %11, ptr noundef %14)
   br label %_ZL8sendbitsP10DataBufferii.exit493
 
 _ZL8sendbitsP10DataBufferii.exit493:              ; preds = %423, %421, %430
@@ -1044,7 +1044,7 @@ _ZL8sendbitsP10DataBufferii.exit505:              ; preds = %_ZL8sendbitsP10Data
   %indvars.iv671 = phi i64 [ 0, %.lr.ph621.preheader ], [ %indvars.iv.next672, %.lr.ph621 ]
   %563 = load i32, ptr %10, align 4
   %564 = getelementptr inbounds [30 x i32], ptr %14, i64 0, i64 %indvars.iv671
-  call fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr noundef nonnull %16, i32 noundef %563, ptr noundef nonnull %12, ptr noundef nonnull %564)
+  call fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr noundef %16, i32 noundef %563, ptr noundef %12, ptr noundef %564)
   %indvars.iv.next672 = add nuw nsw i64 %indvars.iv671, 3
   %565 = icmp ult i64 %indvars.iv.next672, %562
   br i1 %565, label %.lr.ph621, label %._crit_edge622, !llvm.loop !11
@@ -1354,7 +1354,7 @@ _ZL9sizeofinti.exit524:                           ; preds = %.lr.ph.i521, %_ZL9s
   br i1 %725, label %.lr.ph.i527, label %_ZL9sizeofinti.exit530, !llvm.loop !7
 
 726:                                              ; preds = %689
-  %727 = call fastcc noundef i32 @_ZL10sizeofintsiPKj(ptr noundef nonnull %11)
+  %727 = call fastcc noundef i32 @_ZL10sizeofintsiPKj(ptr noundef %11)
   br label %_ZL9sizeofinti.exit530
 
 _ZL9sizeofinti.exit530:                           ; preds = %.lr.ph.i527, %_ZL9sizeofinti.exit524, %726
@@ -1480,16 +1480,16 @@ _ZL9sizeofinti.exit530:                           ; preds = %.lr.ph.i527, %_ZL9s
   br i1 %783, label %788, label %793
 
 788:                                              ; preds = %784
-  %789 = call fastcc noundef i32 @_ZL11receivebitsP10DataBufferi(ptr noundef nonnull %16, i32 noundef %.sroa.0244.1)
+  %789 = call fastcc noundef i32 @_ZL11receivebitsP10DataBufferi(ptr noundef %16, i32 noundef %.sroa.0244.1)
   store i32 %789, ptr %787, align 4
-  %790 = call fastcc noundef i32 @_ZL11receivebitsP10DataBufferi(ptr noundef nonnull %16, i32 noundef %.sroa.5.1)
+  %790 = call fastcc noundef i32 @_ZL11receivebitsP10DataBufferi(ptr noundef %16, i32 noundef %.sroa.5.1)
   %791 = getelementptr inbounds i8, ptr %787, i64 4
   store i32 %790, ptr %791, align 4
-  %792 = call fastcc noundef i32 @_ZL11receivebitsP10DataBufferi(ptr noundef nonnull %16, i32 noundef %.sroa.10.1)
+  %792 = call fastcc noundef i32 @_ZL11receivebitsP10DataBufferi(ptr noundef %16, i32 noundef %.sroa.10.1)
   br label %794
 
 793:                                              ; preds = %784
-  call fastcc void @_ZL11receiveintsP10DataBufferiiPKjPi(ptr noundef nonnull %16, i32 noundef %.1381, ptr noundef nonnull %11, ptr noundef %787)
+  call fastcc void @_ZL11receiveintsP10DataBufferiiPKjPi(ptr noundef %16, i32 noundef %.1381, ptr noundef %11, ptr noundef %787)
   %.pre687 = load i32, ptr %13, align 4
   %.phi.trans.insert688 = getelementptr inbounds i8, ptr %787, i64 8
   %.pre689 = load i32, ptr %.phi.trans.insert688, align 4
@@ -1593,7 +1593,7 @@ _ZL11receivebitsP10DataBufferi.exit543:           ; preds = %824, %826
   %.2388633 = phi ptr [ %.1387640, %844 ], [ %884, %872 ]
   %.1416632 = phi i32 [ 0, %844 ], [ %885, %872 ]
   %849 = load i32, ptr %10, align 4
-  call fastcc void @_ZL11receiveintsP10DataBufferiiPKjPi(ptr noundef nonnull %16, i32 noundef %849, ptr noundef nonnull %12, ptr noundef nonnull %845)
+  call fastcc void @_ZL11receiveintsP10DataBufferiiPKjPi(ptr noundef %16, i32 noundef %849, ptr noundef %12, ptr noundef %845)
   %850 = load i32, ptr %13, align 4
   %851 = add nsw i32 %850, 1
   store i32 %851, ptr %13, align 4
@@ -1750,7 +1750,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i32 @_ZL10sizeofintsiPKj(ptr nocapture noundef readonly %0) unnamed_addr #9 {
+define internal fastcc noundef i32 @_ZL10sizeofintsiPKj(ptr nocapture noundef nonnull readonly %0) unnamed_addr #9 {
   %2 = alloca [32 x i32], align 16
   store i32 1, ptr %2, align 16
   br label %.preheader31
@@ -1827,7 +1827,7 @@ define internal fastcc noundef i32 @_ZL10sizeofintsiPKj(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #10 {
+define internal fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #10 {
   %5 = alloca [32 x i32], align 16
   %6 = load i32, ptr %3, align 4
   br label %7
@@ -2173,7 +2173,7 @@ declare noundef i32 @_Z9xdr_int64P3XDRPl(ptr noundef, ptr noundef) local_unnamed
 declare noundef i32 @_Z10xdr_opaqueP3XDRPcj(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZL11receivebitsP10DataBufferi(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #11 {
+define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZL11receivebitsP10DataBufferi(ptr nocapture noundef nonnull %0, i32 noundef %1) unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 12
@@ -2255,7 +2255,7 @@ define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZL11receivebitsP1
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL11receiveintsP10DataBufferiiPKjPi(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #10 {
+define internal fastcc void @_ZL11receiveintsP10DataBufferiiPKjPi(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #10 {
   %5 = alloca [32 x i32], align 16
   %6 = icmp sgt i32 %1, 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -2486,7 +2486,7 @@ define noundef range(i32 -1, 1) i32 @_Z18xdr_xtc_seek_frameiP8_IO_FILEP3XDRi(i32
   br label %20
 
 20:                                               ; preds = %.backedge, %18
-  %21 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %21 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef %6)
   switch i32 %21, label %.backedge [
     i32 1, label %22
     i32 -1, label %25
@@ -2576,7 +2576,7 @@ define internal fastcc noundef range(i64 -9223372036854775808, 92233720368547758
   br label %7
 
 7:                                                ; preds = %7, %3
-  %8 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %8 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %4, ptr noundef %5)
   switch i32 %8, label %7 [
     i32 1, label %9
     i32 -1, label %.loopexit
@@ -2595,7 +2595,7 @@ define internal fastcc noundef range(i64 -9223372036854775808, 92233720368547758
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -1, 2) i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #2 {
+define internal fastcc noundef range(i32 -1, 2) i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #2 {
   %6 = alloca [3 x i32], align 4
   %7 = alloca [10 x float], align 16
   %8 = tail call noundef i64 @_Z9gmx_ftellP8_IO_FILE(ptr noundef %0)
@@ -2741,7 +2741,7 @@ define noundef range(i32 -2, 1) i32 @_Z17xdr_xtc_seek_timefP8_IO_FILEP3XDRib(flo
   br i1 %.not103, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %17
-  %23 = call fastcc noundef float @_ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8)
+  %23 = call fastcc noundef float @_ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %8)
   %24 = load i8, ptr %8, align 1
   %25 = trunc i8 %24 to i1
   br i1 %25, label %.lr.ph, label %.loopexit
@@ -2780,7 +2780,7 @@ define noundef range(i32 -2, 1) i32 @_Z17xdr_xtc_seek_timefP8_IO_FILEP3XDRib(flo
   br label %39
 
 39:                                               ; preds = %39, %37
-  %40 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %6)
+  %40 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %7, ptr noundef %6)
   switch i32 %40, label %39 [
     i32 1, label %41
     i32 -1, label %43
@@ -2876,7 +2876,7 @@ _ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit.thread: ; preds = %34, %41, 
   br i1 %79, label %.thread, label %80
 
 80:                                               ; preds = %78
-  %81 = call fastcc noundef float @_ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8)
+  %81 = call fastcc noundef float @_ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %8)
   %82 = fcmp une float %81, %26
   br i1 %82, label %83, label %88
 
@@ -2886,7 +2886,7 @@ _ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit.thread: ; preds = %34, %41, 
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %83
-  %87 = call fastcc noundef float @_ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8)
+  %87 = call fastcc noundef float @_ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %8)
   br label %88
 
 88:                                               ; preds = %83, %86, %80
@@ -2901,7 +2901,7 @@ _ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit.thread: ; preds = %34, %41, 
   %.3 = phi i64 [ %.294, %73 ], [ %.193110, %88 ]
   %.291 = phi i64 [ %.190, %73 ], [ %.089111, %88 ]
   %.188 = phi i64 [ %76, %73 ], [ %.087112, %88 ]
-  %93 = call fastcc noundef float @_ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8)
+  %93 = call fastcc noundef float @_ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %8)
   %94 = load i8, ptr %8, align 1
   %95 = trunc i8 %94 to i1
   br i1 %95, label %.lr.ph, label %.loopexit, !llvm.loop !35
@@ -2926,7 +2926,7 @@ _ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit.thread: ; preds = %34, %41, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #2 {
+define internal fastcc noundef float @_ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #2 {
   %5 = alloca float, align 4
   %6 = alloca i32, align 4
   store i8 0, ptr %3, align 1
@@ -2953,7 +2953,7 @@ define internal fastcc noundef float @_ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb
   br label %18
 
 18:                                               ; preds = %18, %16
-  %19 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  %19 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %6, ptr noundef %5)
   switch i32 %19, label %18 [
     i32 1, label %20
     i32 -1, label %25
@@ -3013,7 +3013,7 @@ define internal fastcc noundef float @_ZL26xtc_get_current_frame_timeP8_IO_FILEP
   br i1 %8, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %4, %17
-  %9 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %9 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %5, ptr noundef %6)
   switch i32 %9, label %17 [
     i32 1, label %10
     i32 -1, label %15
@@ -3102,7 +3102,7 @@ define noundef i32 @_Z29xdr_xtc_get_last_frame_numberP8_IO_FILEP3XDRiPb(ptr noun
   br i1 %13, label %_ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %11, %22
-  %14 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %14 = call fastcc noundef i32 @_ZL19xtc_at_header_startP8_IO_FILEP3XDRiPiPf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %5, ptr noundef %6)
   switch i32 %14, label %22 [
     i32 1, label %15
     i32 -1, label %20

@@ -504,7 +504,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i13: 
 105:                                              ; preds = %102
   %106 = load ptr, ptr %7, align 8
   %107 = load ptr, ptr %11, align 8
-  invoke fastcc void @_ZN10open_spiel12_GLOBAL__N_18PlayGameERKNS_4GameEPNS_10algorithms9ISMCTSBotEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE(ptr noundef nonnull align 8 dereferenceable(280) %106, ptr noundef %107, ptr noundef nonnull %6)
+  invoke fastcc void @_ZN10open_spiel12_GLOBAL__N_18PlayGameERKNS_4GameEPNS_10algorithms9ISMCTSBotEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE(ptr noundef nonnull align 8 dereferenceable(280) %106, ptr noundef %107, ptr noundef %6)
           to label %108 unwind label %192
 
 108:                                              ; preds = %105
@@ -851,7 +851,7 @@ define internal fastcc void @_ZN10open_spiel12_GLOBAL__N_119ISMCTSTest_PlayGameE
 59:                                               ; preds = %57
   %60 = load ptr, ptr %2, align 8
   %61 = load ptr, ptr %6, align 8
-  invoke fastcc void @_ZN10open_spiel12_GLOBAL__N_18PlayGameERKNS_4GameEPNS_10algorithms9ISMCTSBotEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE(ptr noundef nonnull align 8 dereferenceable(280) %60, ptr noundef %61, ptr noundef nonnull %11)
+  invoke fastcc void @_ZN10open_spiel12_GLOBAL__N_18PlayGameERKNS_4GameEPNS_10algorithms9ISMCTSBotEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE(ptr noundef nonnull align 8 dereferenceable(280) %60, ptr noundef %61, ptr noundef %11)
           to label %62 unwind label %87
 
 62:                                               ; preds = %59
@@ -882,7 +882,7 @@ define internal fastcc void @_ZN10open_spiel12_GLOBAL__N_119ISMCTSTest_PlayGameE
 71:                                               ; preds = %69
   %72 = load ptr, ptr %2, align 8
   %73 = load ptr, ptr %12, align 8
-  invoke fastcc void @_ZN10open_spiel12_GLOBAL__N_18PlayGameERKNS_4GameEPNS_10algorithms9ISMCTSBotEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE(ptr noundef nonnull align 8 dereferenceable(280) %72, ptr noundef %73, ptr noundef nonnull %11)
+  invoke fastcc void @_ZN10open_spiel12_GLOBAL__N_18PlayGameERKNS_4GameEPNS_10algorithms9ISMCTSBotEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE(ptr noundef nonnull align 8 dereferenceable(280) %72, ptr noundef %73, ptr noundef %11)
           to label %74 unwind label %89
 
 74:                                               ; preds = %71
@@ -1276,7 +1276,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel12_GLOBAL__N_18PlayGameERKNS_4GameEPNS_10algorithms9ISMCTSBotEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel12_GLOBAL__N_18PlayGameERKNS_4GameEPNS_10algorithms9ISMCTSBotEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::debian2::AlphaNum", align 8
   %5 = alloca %"class.std::unique_ptr.30", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

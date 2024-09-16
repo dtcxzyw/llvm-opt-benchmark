@@ -1044,7 +1044,7 @@ declare i32 @i2a_ASN1_OBJECT(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_qualifiers(ptr noundef %out, ptr noundef %quals, i32 noundef %indent) unnamed_addr #1 {
+define internal fastcc void @print_qualifiers(ptr noundef %out, ptr noundef %quals, i32 noundef range(i32 -2147483646, -2147483648) %indent) unnamed_addr #1 {
 entry:
   %call117 = tail call i32 @OPENSSL_sk_num(ptr noundef %quals) #4
   %cmp18 = icmp sgt i32 %call117, 0

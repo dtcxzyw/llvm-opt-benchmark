@@ -783,7 +783,7 @@ ginVacuumPostingTreeLeaves.exit.thread.i:         ; preds = %.thread.i63, %ginVa
   call void @LockBufferForCleanup(i32 noundef %361) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i8 1, ptr %104, align 8
-  %362 = call fastcc zeroext i1 @ginScanToDelete(ptr noundef nonnull %8, i32 noundef %284, i1 noundef zeroext true, ptr noundef nonnull %5, i16 noundef zeroext 0)
+  %362 = call fastcc zeroext i1 @ginScanToDelete(ptr noundef %8, i32 noundef %284, i1 noundef zeroext true, ptr noundef nonnull %5, i16 noundef zeroext 0)
   %363 = load ptr, ptr %5, align 8
   %.not17.i = icmp eq ptr %363, null
   br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i61
@@ -1155,7 +1155,7 @@ declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_ad
 declare void @LockBufferForCleanup(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ginScanToDelete(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ginScanToDelete(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %struct.ginxlogDeletePage, align 4
   br i1 %2, label %13, label %7
 
@@ -1251,7 +1251,7 @@ BufferGetPage.exit:                               ; preds = %27, %33
   %60 = shl nuw i32 %59, 16
   %61 = zext i16 %.val65 to i32
   %62 = or disjoint i32 %60, %61
-  %63 = tail call fastcc zeroext i1 @ginScanToDelete(ptr noundef nonnull %0, i32 noundef %62, i1 noundef zeroext false, ptr noundef %.068, i16 noundef zeroext %.05678)
+  %63 = tail call fastcc zeroext i1 @ginScanToDelete(ptr noundef %0, i32 noundef %62, i1 noundef zeroext false, ptr noundef %.068, i16 noundef zeroext %.05678)
   %64 = sext i1 %63 to i16
   %spec.select = add i16 %.05678, 1
   %65 = add i16 %spec.select, %64

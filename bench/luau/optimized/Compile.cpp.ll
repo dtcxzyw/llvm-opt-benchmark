@@ -2710,7 +2710,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   store i32 1, ptr %.sroa.14.0..sroa_idx.i, align 4
   store ptr @_ZL19annotateInstructionPvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii, ptr %.sroa.15.0..sroa_idx.i, align 8
   store ptr %6, ptr %.sroa.17.0..sroa_idx.i, align 8
-  invoke fastcc void @_ZL18getCodegenAssemblyPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau7CodeGen15AssemblyOptionsEPNSA_13LoweringStatsE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull %269, ptr noundef nonnull align 8 dereferenceable(32) %256, ptr noundef nonnull byval(%"struct.Luau::CodeGen::AssemblyOptions") align 8 %15, ptr noundef nonnull %225)
+  invoke fastcc void @_ZL18getCodegenAssemblyPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau7CodeGen15AssemblyOptionsEPNSA_13LoweringStatsE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull %269, ptr noundef nonnull align 8 dereferenceable(32) %256, ptr noundef nonnull byval(%"struct.Luau::CodeGen::AssemblyOptions") align 8 %15, ptr noundef %225)
           to label %376 unwind label %360
 
 376:                                              ; preds = %375
@@ -2734,7 +2734,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   store i32 1, ptr %.sroa.14.0..sroa_idx114.i, align 4
   store ptr @_ZL19annotateInstructionPvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii, ptr %.sroa.15.0..sroa_idx116.i, align 8
   store ptr %6, ptr %.sroa.17.0..sroa_idx118.i, align 8
-  invoke fastcc void @_ZL18getCodegenAssemblyPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau7CodeGen15AssemblyOptionsEPNSA_13LoweringStatsE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull %269, ptr noundef nonnull align 8 dereferenceable(32) %256, ptr noundef nonnull byval(%"struct.Luau::CodeGen::AssemblyOptions") align 8 %17, ptr noundef nonnull %225)
+  invoke fastcc void @_ZL18getCodegenAssemblyPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau7CodeGen15AssemblyOptionsEPNSA_13LoweringStatsE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull %269, ptr noundef nonnull align 8 dereferenceable(32) %256, ptr noundef nonnull byval(%"struct.Luau::CodeGen::AssemblyOptions") align 8 %17, ptr noundef %225)
           to label %380 unwind label %360
 
 380:                                              ; preds = %379
@@ -3890,7 +3890,7 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL18getCodegenAssemblyPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau7CodeGen15AssemblyOptionsEPNSA_13LoweringStatsE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef readonly byval(%"struct.Luau::CodeGen::AssemblyOptions") align 8 %3, ptr noundef %4) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL18getCodegenAssemblyPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau7CodeGen15AssemblyOptionsEPNSA_13LoweringStatsE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef readonly byval(%"struct.Luau::CodeGen::AssemblyOptions") align 8 %3, ptr noundef nonnull %4) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %6 = alloca %struct._Guard, align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = tail call noundef ptr @_Z13luaL_newstatev()
@@ -3904,7 +3904,7 @@ define internal fastcc void @_ZL18getCodegenAssemblyPKcRKNSt7__cxx1112basic_stri
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %12
-  invoke void @_ZN4Luau7CodeGen11getAssemblyB5cxx11EP9lua_StateiNS0_15AssemblyOptionsEPNS0_13LoweringStatsE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %8, i32 noundef -1, ptr noundef nonnull byval(%"struct.Luau::CodeGen::AssemblyOptions") align 8 %3, ptr noundef %4)
+  invoke void @_ZN4Luau7CodeGen11getAssemblyB5cxx11EP9lua_StateiNS0_15AssemblyOptionsEPNS0_13LoweringStatsE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %8, i32 noundef -1, ptr noundef nonnull byval(%"struct.Luau::CodeGen::AssemblyOptions") align 8 %3, ptr noundef nonnull %4)
           to label %31 unwind label %15
 
 15:                                               ; preds = %14, %5

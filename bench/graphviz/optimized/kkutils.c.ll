@@ -535,7 +535,7 @@ define internal range(i32 -1, 2) i32 @cmp(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #6 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef range(i64 4, 9) %1) unnamed_addr #6 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 

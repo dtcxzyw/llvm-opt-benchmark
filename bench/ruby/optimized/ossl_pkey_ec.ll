@@ -644,7 +644,7 @@ define internal i64 @ossl_ec_key_get_public_key(i64 noundef %0) #0 {
 
 13:                                               ; preds = %9
   %14 = tail call ptr @EC_KEY_get0_group(ptr noundef %10) #6
-  %15 = tail call fastcc i64 @ec_point_new(ptr noundef nonnull %11, ptr noundef %14)
+  %15 = tail call fastcc i64 @ec_point_new(ptr noundef %11, ptr noundef %14)
   br label %16
 
 16:                                               ; preds = %9, %13
@@ -1171,7 +1171,7 @@ define internal i64 @ossl_ec_group_get_generator(i64 noundef %0) #0 {
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call fastcc i64 @ec_point_new(ptr noundef nonnull %7, ptr noundef nonnull %2)
+  %9 = tail call fastcc i64 @ec_point_new(ptr noundef %7, ptr noundef nonnull %2)
   br label %10
 
 10:                                               ; preds = %6, %8
@@ -2408,10 +2408,10 @@ declare i64 @ossl_bn_new(ptr noundef) local_unnamed_addr #1
 declare ptr @EC_KEY_get0_public_key(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ec_point_new(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i64 @ec_point_new(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i64, ptr @cEC_POINT, align 8
   %4 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %3, ptr noundef null, ptr noundef nonnull @ossl_ec_point_type) #6
-  %5 = tail call ptr @EC_POINT_dup(ptr noundef %0, ptr noundef %1) #6
+  %5 = tail call ptr @EC_POINT_dup(ptr noundef nonnull %0, ptr noundef %1) #6
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
@@ -2529,7 +2529,7 @@ declare i64 @EC_GROUP_set_seed(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare i32 @EC_GROUP_get_degree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ossl_ec_group_to_string(i64 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i64 @ossl_ec_group_to_string(i64 noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -2551,8 +2551,8 @@ define internal fastcc i64 @ossl_ec_group_to_string(i64 noundef %0, i32 noundef 
   unreachable
 
 12:                                               ; preds = %7
-  %switch = icmp eq i32 %1, 0
-  br i1 %switch, label %13, label %15
+  %trunc = trunc nuw i32 %1 to i1
+  br i1 %trunc, label %15, label %13
 
 13:                                               ; preds = %12
   %14 = tail call i32 @PEM_write_bio_ECPKParameters(ptr noundef nonnull %9, ptr noundef nonnull %3) #6

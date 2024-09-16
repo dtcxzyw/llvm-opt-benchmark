@@ -153,7 +153,7 @@ is_escape.exit.thread.us:                         ; preds = %21, %25, %24
   %30 = icmp ult i32 %29, -26
   %31 = add nsw i32 %18, -58
   %32 = icmp ult i32 %31, -10
-  %.not115.us = and i1 %32, %30
+  %.not115.us = select i1 %30, i1 %32, i1 false
   %33 = icmp ne i8 %17, 95
   %or.cond5.not112.us = and i1 %33, %.not115.us
   %34 = icmp sgt i8 %17, -1
@@ -285,7 +285,7 @@ is_escape.exit.thread:                            ; preds = %48, %54, %52, %51
   %66 = icmp ult i32 %65, -26
   %67 = add nsw i32 %45, -58
   %68 = icmp ult i32 %67, -10
-  %.not115 = and i1 %68, %66
+  %.not115 = select i1 %66, i1 %68, i1 false
   %69 = icmp ne i8 %.073120, 95
   %or.cond5.not112 = and i1 %69, %.not115
   %70 = icmp sgt i8 %.073120, -1
@@ -316,7 +316,7 @@ is_escape.exit:                                   ; preds = %54, %54, %54, %54, 
   %78 = icmp ult i32 %77, 26
   %79 = add nsw i32 %45, -48
   %80 = icmp ult i32 %79, 10
-  %81 = or i1 %80, %78
+  %81 = select i1 %78, i1 true, i1 %80
   %82 = add i8 %.073120, -45
   %83 = icmp ult i8 %82, 2
   %or.cond5.i = or i1 %83, %81
@@ -333,7 +333,7 @@ is_escape.exit:                                   ; preds = %54, %54, %54, %54, 
   %91 = icmp ult i32 %90, 26
   %92 = add nsw i32 %88, -48
   %93 = icmp ult i32 %92, 10
-  %94 = or i1 %93, %91
+  %94 = select i1 %91, i1 true, i1 %93
   %95 = add i8 %72, -45
   %96 = icmp ult i8 %95, 2
   %or.cond5.i103 = or i1 %96, %94
@@ -351,7 +351,7 @@ is_escape.exit:                                   ; preds = %54, %54, %54, %54, 
   %103 = icmp ult i32 %102, 26
   %104 = add nsw i32 %45, -48
   %105 = icmp ult i32 %104, 10
-  %106 = or i1 %105, %103
+  %106 = select i1 %103, i1 true, i1 %105
   %107 = add i8 %.073120, -45
   %108 = icmp ult i8 %107, 2
   %or.cond5.i104 = or i1 %108, %106
@@ -368,7 +368,7 @@ is_escape.exit:                                   ; preds = %54, %54, %54, %54, 
   %116 = icmp ult i32 %115, 26
   %117 = add nsw i32 %113, -48
   %118 = icmp ult i32 %117, 10
-  %119 = or i1 %118, %116
+  %119 = select i1 %116, i1 true, i1 %118
   %120 = add i8 %72, -45
   %121 = icmp ult i8 %120, 2
   %or.cond5.i105 = or i1 %121, %119
@@ -1158,7 +1158,7 @@ irrelevant_subgraph.exit.thread88:                ; preds = %.loopexit.i83, %irr
 
 165:                                              ; preds = %.loopexit.i69
   %166 = load ptr, ptr @Tailport, align 8
-  %167 = tail call fastcc i32 @write_port(ptr noundef nonnull %.04498, ptr noundef %1, ptr noundef %166)
+  %167 = tail call fastcc i32 @write_port(ptr noundef %.04498, ptr noundef %1, ptr noundef %166)
   %168 = icmp eq i32 %167, -1
   br i1 %168, label %write_node.exit.thread, label %169
 
@@ -1183,7 +1183,7 @@ irrelevant_subgraph.exit.thread88:                ; preds = %.loopexit.i83, %irr
 
 180:                                              ; preds = %177
   %181 = load ptr, ptr @Headport, align 8
-  %182 = tail call fastcc i32 @write_port(ptr noundef nonnull %.04498, ptr noundef %1, ptr noundef %181)
+  %182 = tail call fastcc i32 @write_port(ptr noundef %.04498, ptr noundef %1, ptr noundef %181)
   %183 = icmp eq i32 %182, -1
   br i1 %183, label %write_node.exit.thread, label %184
 
@@ -1636,7 +1636,7 @@ define internal fastcc range(i32 -1, 1) i32 @write_subgs(ptr noundef %0, ptr nou
 
 .lr.ph:                                           ; preds = %2, %29
   %.016 = phi ptr [ %30, %29 ], [ %3, %2 ]
-  %4 = tail call fastcc zeroext i1 @irrelevant_subgraph(ptr noundef nonnull %.016)
+  %4 = tail call fastcc zeroext i1 @irrelevant_subgraph(ptr noundef %.016)
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %.lr.ph
@@ -1698,14 +1698,14 @@ write_trl.exit.thread:                            ; preds = %7, %10, %write_trl.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @write_node_test(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @write_node_test(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, 268435456) %2) unnamed_addr #0 {
   %4 = tail call ptr @agfstsubg(ptr noundef %0) #9
   %.not9.not.i = icmp eq ptr %4, null
   br i1 %.not9.not.i, label %.loopexit17, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %8
   %.010.i = phi ptr [ %9, %8 ], [ %4, %3 ]
-  %5 = tail call fastcc zeroext i1 @irrelevant_subgraph(ptr noundef nonnull %.010.i)
+  %5 = tail call fastcc zeroext i1 @irrelevant_subgraph(ptr noundef %.010.i)
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %.lr.ph.i
@@ -1731,7 +1731,7 @@ define internal fastcc noundef zeroext i1 @write_node_test(ptr noundef %0, ptr n
   br i1 %.not11.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %14
-  %16 = trunc i64 %2 to i32
+  %16 = trunc nuw nsw i64 %2 to i32
   br label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %21, %.lr.ph.preheader.i
@@ -1798,8 +1798,8 @@ not_default_attrs.exit:                           ; preds = %6, %.lr.ph.i9, %42,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @irrelevant_subgraph(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call ptr @agnameof(ptr noundef %0) #9
+define internal fastcc zeroext i1 @irrelevant_subgraph(ptr noundef nonnull %0) unnamed_addr #0 {
+  %2 = tail call ptr @agnameof(ptr noundef nonnull %0) #9
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
 
@@ -1809,18 +1809,18 @@ define internal fastcc zeroext i1 @irrelevant_subgraph(ptr noundef %0) unnamed_a
   br i1 %.not29, label %5, label %.loopexit36
 
 5:                                                ; preds = %3, %1
-  %6 = tail call ptr @agattrrec(ptr noundef %0) #9
+  %6 = tail call ptr @agattrrec(ptr noundef nonnull %0) #9
   %.not30 = icmp eq ptr %6, null
   br i1 %.not30, label %.loopexit, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call ptr @agparent(ptr noundef %0) #9
+  %8 = tail call ptr @agparent(ptr noundef nonnull %0) #9
   %9 = tail call ptr @agattrrec(ptr noundef %8) #9
   %.not31 = icmp eq ptr %9, null
   br i1 %.not31, label %.loopexit, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @agroot(ptr noundef %0) #9
+  %11 = tail call ptr @agroot(ptr noundef nonnull %0) #9
   %12 = tail call ptr @agattrrec(ptr noundef %11) #9
   %13 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
@@ -1860,7 +1860,7 @@ define internal fastcc zeroext i1 @irrelevant_subgraph(ptr noundef %0) unnamed_a
   br i1 %exitcond.not, label %.loopexit, label %20
 
 .loopexit:                                        ; preds = %29, %10, %7, %5
-  %30 = tail call ptr @agdatadict(ptr noundef %0, i1 noundef zeroext false) #9
+  %30 = tail call ptr @agdatadict(ptr noundef nonnull %0, i1 noundef zeroext false) #9
   %.not32 = icmp eq ptr %30, null
   br i1 %.not32, label %.loopexit36, label %31
 
@@ -2164,13 +2164,13 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare ptr @agsubedge(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @write_port(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @write_port(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_write_canonstr.exit.thread, label %4
 
 4:                                                ; preds = %3
-  %5 = tail call ptr @agraphof(ptr noundef %0) #9
-  %6 = tail call ptr @agxget(ptr noundef %0, ptr noundef nonnull %2) #9
+  %5 = tail call ptr @agraphof(ptr noundef nonnull %0) #9
+  %6 = tail call ptr @agxget(ptr noundef nonnull %0, ptr noundef nonnull %2) #9
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %_write_canonstr.exit.thread, label %9

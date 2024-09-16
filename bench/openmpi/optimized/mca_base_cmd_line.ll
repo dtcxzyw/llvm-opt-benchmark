@@ -81,7 +81,7 @@ define range(i32 -1, 1) i32 @mca_base_cmd_line_process_args(ptr noundef %0, ptr 
   %.037 = phi i32 [ %15, %14 ], [ 0, %11 ]
   %16 = call ptr @opal_cmd_line_get_param(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %.037, i32 noundef 0) #7
   %17 = call ptr @opal_cmd_line_get_param(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %.037, i32 noundef 1) #7
-  %18 = call fastcc i32 @process_arg(ptr noundef %16, ptr noundef %17, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %18 = call fastcc i32 @process_arg(ptr noundef %16, ptr noundef %17, ptr noundef %6, ptr noundef %7)
   %.not29 = icmp eq i32 %18, 0
   br i1 %.not29, label %14, label %.loopexit
 
@@ -141,7 +141,7 @@ add_to_env.exit:                                  ; preds = %add_to_env.exit.loo
   %.138 = phi i32 [ %36, %35 ], [ 0, %._crit_edge.thread ]
   %37 = call ptr @opal_cmd_line_get_param(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %.138, i32 noundef 0) #7
   %38 = call ptr @opal_cmd_line_get_param(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %.138, i32 noundef 1) #7
-  %39 = call fastcc i32 @process_arg(ptr noundef %37, ptr noundef %38, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %39 = call fastcc i32 @process_arg(ptr noundef %37, ptr noundef %38, ptr noundef %6, ptr noundef %7)
   %.not28 = icmp eq i32 %39, 0
   br i1 %.not28, label %35, label %.loopexit
 
@@ -195,7 +195,7 @@ declare zeroext i1 @opal_cmd_line_is_taken(ptr noundef, ptr noundef) local_unnam
 declare i32 @opal_cmd_line_get_ninsts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @process_arg(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @process_arg(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = load i8, ptr %1, align 1
   %6 = icmp eq i8 %5, 34
   br i1 %6, label %7, label %19
@@ -253,7 +253,7 @@ define internal fastcc range(i32 -1, 1) i32 @process_arg(ptr noundef %0, ptr noc
 
 .critedge:                                        ; preds = %24, %.lr.ph.split, %21
   %32 = tail call i32 @opal_argv_append_nosize(ptr noundef nonnull %2, ptr noundef %0) #7
-  %33 = tail call i32 @opal_argv_append_nosize(ptr noundef %3, ptr noundef %.0) #7
+  %33 = tail call i32 @opal_argv_append_nosize(ptr noundef nonnull %3, ptr noundef %.0) #7
   br label %34
 
 34:                                               ; preds = %.critedge, %.split

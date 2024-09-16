@@ -5388,7 +5388,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #0
 declare dso_local i32 @mutex_lock_killable(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @pcpu_find_block_fit(ptr noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #1 align 16 {
+define internal fastcc i32 @pcpu_find_block_fit(ptr noundef %0, i32 noundef %1, i64 noundef range(i64 1, 4611686018427387904) %2, i1 noundef zeroext %3) unnamed_addr #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 4
   %7 = trunc i64 %2 to i32
@@ -5702,7 +5702,7 @@ pcpu_next_fit_region.exit6:                       ; preds = %147, %188, %182, %.
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -1, -3) i32 @pcpu_alloc_area(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -1, -3) i32 @pcpu_alloc_area(ptr noundef %0, i32 noundef %1, i64 noundef range(i64 1, 4611686018427387904) %2, i32 noundef range(i32 0, -2147483648) %3) unnamed_addr #1 align 16 {
   %5 = add nsw i64 %2, -1
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 16
@@ -5960,7 +5960,7 @@ define internal fastcc range(i32 -1, -3) i32 @pcpu_alloc_area(ptr noundef %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @pcpu_create_chunk(i32 noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc ptr @pcpu_create_chunk(i32 noundef range(i32 0, 76993) %0) unnamed_addr #1 align 16 {
   %2 = load i64, ptr @pcpu_chunk_struct_size, align 8
   %3 = tail call zeroext i1 @slab_is_available() #23
   br i1 %3, label %4, label %.thread, !prof !13
@@ -6235,7 +6235,7 @@ define internal fastcc ptr @pcpu_create_chunk(i32 noundef %0) unnamed_addr #1 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @pcpu_populate_chunk(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @pcpu_populate_chunk(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 76993) %3) unnamed_addr #1 align 16 {
   %5 = load ptr, ptr @pcpu_get_pages.pages, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %.thread
@@ -7043,7 +7043,7 @@ declare dso_local void @__bitmap_set(ptr noundef, i32 noundef, i32 noundef) loca
 declare dso_local void @__bitmap_clear(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @pcpu_block_refresh_hint(ptr %.72.val, ptr nocapture %.80.val, i32 noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc void @pcpu_block_refresh_hint(ptr %.72.val, ptr nocapture %.80.val, i32 noundef range(i32 -2097152, 2097152) %0) unnamed_addr #1 align 16 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr %struct.pcpu_block_md, ptr %.80.val, i64 %2
   %4 = shl nsw i64 %2, 4

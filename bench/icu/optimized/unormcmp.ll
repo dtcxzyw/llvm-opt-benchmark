@@ -104,7 +104,7 @@ invoke.cont30:                                    ; preds = %if.then29
   store ptr %n2.0, ptr %norm2.i, align 8
   %set.i = getelementptr inbounds i8, ptr %fn2, i64 16
   store ptr %call31, ptr %set.i, align 8
-  %call35 = invoke fastcc noundef signext i8 @_ZL10_normalizePKN6icu_7511Normalizer2EPKDsiRNS_13UnicodeStringEP10UErrorCode(ptr noundef nonnull %fn2, ptr noundef nonnull %s1, i32 noundef %length1, ptr noundef nonnull align 8 dereferenceable(64) %fcd1, ptr noundef nonnull %pErrorCode)
+  %call35 = invoke fastcc noundef signext i8 @_ZL10_normalizePKN6icu_7511Normalizer2EPKDsiRNS_13UnicodeStringEP10UErrorCode(ptr noundef nonnull %fn2, ptr noundef %s1, i32 noundef %length1, ptr noundef nonnull align 8 dereferenceable(64) %fcd1, ptr noundef nonnull %pErrorCode)
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %invoke.cont30
@@ -151,7 +151,7 @@ lpad33:                                           ; preds = %if.end42, %invoke.c
 if.end42:                                         ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit, %invoke.cont34
   %length1.addr.1 = phi i32 [ %length1, %invoke.cont34 ], [ %cond.i, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
   %s1.addr.1 = phi ptr [ %s1, %invoke.cont34 ], [ %retval.0.i, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
-  %call44 = invoke fastcc noundef signext i8 @_ZL10_normalizePKN6icu_7511Normalizer2EPKDsiRNS_13UnicodeStringEP10UErrorCode(ptr noundef nonnull %fn2, ptr noundef nonnull %s2, i32 noundef %length2, ptr noundef nonnull align 8 dereferenceable(64) %fcd2, ptr noundef nonnull %pErrorCode)
+  %call44 = invoke fastcc noundef signext i8 @_ZL10_normalizePKN6icu_7511Normalizer2EPKDsiRNS_13UnicodeStringEP10UErrorCode(ptr noundef nonnull %fn2, ptr noundef %s2, i32 noundef %length2, ptr noundef nonnull align 8 dereferenceable(64) %fcd2, ptr noundef nonnull %pErrorCode)
           to label %invoke.cont43 unwind label %lpad33
 
 invoke.cont43:                                    ; preds = %if.end42
@@ -196,7 +196,7 @@ if.end51:                                         ; preds = %_ZNK6icu_7513Unicod
   br label %if.end72
 
 if.else52:                                        ; preds = %if.end26
-  %call54 = invoke fastcc noundef signext i8 @_ZL10_normalizePKN6icu_7511Normalizer2EPKDsiRNS_13UnicodeStringEP10UErrorCode(ptr noundef %n2.0, ptr noundef nonnull %s1, i32 noundef %length1, ptr noundef nonnull align 8 dereferenceable(64) %fcd1, ptr noundef nonnull %pErrorCode)
+  %call54 = invoke fastcc noundef signext i8 @_ZL10_normalizePKN6icu_7511Normalizer2EPKDsiRNS_13UnicodeStringEP10UErrorCode(ptr noundef %n2.0, ptr noundef %s1, i32 noundef %length1, ptr noundef nonnull align 8 dereferenceable(64) %fcd1, ptr noundef nonnull %pErrorCode)
           to label %invoke.cont53 unwind label %lpad16.loopexit.split-lp
 
 invoke.cont53:                                    ; preds = %if.else52
@@ -237,7 +237,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit69:    ; preds = %if.then56, %if.then
 if.end61:                                         ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit69, %invoke.cont53
   %length1.addr.2 = phi i32 [ %length1, %invoke.cont53 ], [ %cond.i74, %_ZNK6icu_7513UnicodeString9getBufferEv.exit69 ]
   %s1.addr.2 = phi ptr [ %s1, %invoke.cont53 ], [ %retval.0.i61, %_ZNK6icu_7513UnicodeString9getBufferEv.exit69 ]
-  %call63 = invoke fastcc noundef signext i8 @_ZL10_normalizePKN6icu_7511Normalizer2EPKDsiRNS_13UnicodeStringEP10UErrorCode(ptr noundef %n2.0, ptr noundef nonnull %s2, i32 noundef %length2, ptr noundef nonnull align 8 dereferenceable(64) %fcd2, ptr noundef nonnull %pErrorCode)
+  %call63 = invoke fastcc noundef signext i8 @_ZL10_normalizePKN6icu_7511Normalizer2EPKDsiRNS_13UnicodeStringEP10UErrorCode(ptr noundef %n2.0, ptr noundef %s2, i32 noundef %length2, ptr noundef nonnull align 8 dereferenceable(64) %fcd2, ptr noundef nonnull %pErrorCode)
           to label %invoke.cont62 unwind label %lpad16.loopexit.split-lp
 
 invoke.cont62:                                    ; preds = %if.end61
@@ -1008,7 +1008,7 @@ declare noundef ptr @_ZN6icu_7518Normalizer2Factory14getFCDInstanceER10UErrorCod
 declare ptr @uniset_getUnicode32Instance_75(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL10_normalizePKN6icu_7511Normalizer2EPKDsiRNS_13UnicodeStringEP10UErrorCode(ptr noundef %n2, ptr noundef %s, i32 noundef %length, ptr noundef nonnull align 8 dereferenceable(64) %normalized, ptr noundef %pErrorCode) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL10_normalizePKN6icu_7511Normalizer2EPKDsiRNS_13UnicodeStringEP10UErrorCode(ptr noundef %n2, ptr noundef nonnull %s, i32 noundef range(i32 -1, -2147483648) %length, ptr noundef nonnull align 8 dereferenceable(64) %normalized, ptr noundef %pErrorCode) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %str = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8

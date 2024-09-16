@@ -656,22 +656,22 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal9ParseTimeERKNSt7__cxx111
   %8 = load i8, ptr %7, align 1
   %9 = add i8 %8, -48
   %10 = icmp ult i8 %9, 10
-  br i1 %10, label %.preheader.i, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+  br i1 %10, label %.preheader.preheader.i, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-.preheader.i:                                     ; preds = %3
+.preheader.preheader.i:                           ; preds = %3
   %scevgep.i = getelementptr i8, ptr %7, i64 4
-  br label %.lr.ph.i
+  br label %.preheader.i
 
-.lr.ph.i:                                         ; preds = %14, %.preheader.i
-  %.021.i = phi i32 [ %19, %14 ], [ 0, %.preheader.i ]
-  %.01520.i = phi i32 [ %18, %14 ], [ 0, %.preheader.i ]
-  %.01719.i = phi ptr [ %20, %14 ], [ %7, %.preheader.i ]
+.preheader.i:                                     ; preds = %14, %.preheader.preheader.i
+  %.021.i = phi i32 [ %19, %14 ], [ 0, %.preheader.preheader.i ]
+  %.01520.i = phi i32 [ %18, %14 ], [ 0, %.preheader.preheader.i ]
+  %.01719.i = phi ptr [ %20, %14 ], [ %7, %.preheader.preheader.i ]
   %11 = load i8, ptr %.01719.i, align 1
   %12 = add i8 %11, -48
   %13 = icmp ult i8 %12, 10
-  br i1 %13, label %14, label %._crit_edge.i
+  br i1 %13, label %14, label %21
 
-14:                                               ; preds = %.lr.ph.i
+14:                                               ; preds = %.preheader.i
   %15 = mul nsw i32 %.01520.i, 10
   %16 = zext nneg i8 %11 to i32
   %17 = add i32 %15, -48
@@ -679,323 +679,323 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal9ParseTimeERKNSt7__cxx111
   %19 = add nuw nsw i32 %.021.i, 1
   %20 = getelementptr inbounds i8, ptr %.01719.i, i64 1
   %exitcond.not.i = icmp eq i32 %19, 4
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %21, label %.preheader.i, !llvm.loop !12
 
-._crit_edge.i:                                    ; preds = %14, %.lr.ph.i
-  %.017.lcssa.i = phi ptr [ %.01719.i, %.lr.ph.i ], [ %scevgep.i, %14 ]
-  %.015.lcssa.i = phi i32 [ %.01520.i, %.lr.ph.i ], [ %18, %14 ]
-  %21 = add i32 %.015.lcssa.i, -10000
-  %or.cond.i = icmp ult i32 %21, -9999
+21:                                               ; preds = %14, %.preheader.i
+  %.017.lcssa.i = phi ptr [ %.01719.i, %.preheader.i ], [ %scevgep.i, %14 ]
+  %.015.lcssa.i = phi i32 [ %.01520.i, %.preheader.i ], [ %18, %14 ]
+  %22 = add i32 %.015.lcssa.i, -10000
+  %or.cond.i = icmp ult i32 %22, -9999
   br i1 %or.cond.i, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit
 
-_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit: ; preds = %._crit_edge.i
+_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit: ; preds = %21
   store i32 %.015.lcssa.i, ptr %4, align 4
-  %22 = icmp eq ptr %.017.lcssa.i, null
-  br i1 %22, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %23
+  %23 = icmp eq ptr %.017.lcssa.i, null
+  br i1 %23, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %24
 
-23:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit
-  %24 = load i8, ptr %.017.lcssa.i, align 1
-  %.not = icmp eq i8 %24, 45
-  br i1 %.not, label %25, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+24:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit
+  %25 = load i8, ptr %.017.lcssa.i, align 1
+  %.not = icmp eq i8 %25, 45
+  br i1 %.not, label %26, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %.017.lcssa.i, i64 1
-  %27 = getelementptr inbounds i8, ptr %4, i64 4
-  %28 = load i8, ptr %26, align 1
-  %29 = add i8 %28, -48
-  %30 = icmp ult i8 %29, 10
-  br i1 %30, label %.preheader.i46, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds i8, ptr %.017.lcssa.i, i64 1
+  %28 = getelementptr inbounds i8, ptr %4, i64 4
+  %29 = load i8, ptr %27, align 1
+  %30 = add i8 %29, -48
+  %31 = icmp ult i8 %30, 10
+  br i1 %31, label %.preheader.preheader.i46, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-.preheader.i46:                                   ; preds = %25
+.preheader.preheader.i46:                         ; preds = %26
   %scevgep.i47 = getelementptr i8, ptr %.017.lcssa.i, i64 3
-  br label %.lr.ph.i48
+  br label %.preheader.i48
 
-.lr.ph.i48:                                       ; preds = %34, %.preheader.i46
-  %.021.i49 = phi i32 [ %39, %34 ], [ 0, %.preheader.i46 ]
-  %.01520.i50 = phi i32 [ %38, %34 ], [ 0, %.preheader.i46 ]
-  %.01719.i51 = phi ptr [ %40, %34 ], [ %26, %.preheader.i46 ]
-  %31 = load i8, ptr %.01719.i51, align 1
-  %32 = add i8 %31, -48
-  %33 = icmp ult i8 %32, 10
-  br i1 %33, label %34, label %._crit_edge.i52
+.preheader.i48:                                   ; preds = %35, %.preheader.preheader.i46
+  %.021.i49 = phi i32 [ %40, %35 ], [ 0, %.preheader.preheader.i46 ]
+  %.01520.i50 = phi i32 [ %39, %35 ], [ 0, %.preheader.preheader.i46 ]
+  %.01719.i51 = phi ptr [ %41, %35 ], [ %27, %.preheader.preheader.i46 ]
+  %32 = load i8, ptr %.01719.i51, align 1
+  %33 = add i8 %32, -48
+  %34 = icmp ult i8 %33, 10
+  br i1 %34, label %35, label %42
 
-34:                                               ; preds = %.lr.ph.i48
-  %35 = mul nsw i32 %.01520.i50, 10
-  %36 = zext nneg i8 %31 to i32
-  %37 = add i32 %35, -48
-  %38 = add i32 %37, %36
-  %39 = add nuw nsw i32 %.021.i49, 1
-  %40 = getelementptr inbounds i8, ptr %.01719.i51, i64 1
-  %exitcond.not.i58 = icmp eq i32 %39, 2
-  br i1 %exitcond.not.i58, label %._crit_edge.i52, label %.lr.ph.i48, !llvm.loop !12
+35:                                               ; preds = %.preheader.i48
+  %36 = mul nsw i32 %.01520.i50, 10
+  %37 = zext nneg i8 %32 to i32
+  %38 = add i32 %36, -48
+  %39 = add i32 %38, %37
+  %40 = add nuw nsw i32 %.021.i49, 1
+  %41 = getelementptr inbounds i8, ptr %.01719.i51, i64 1
+  %exitcond.not.i57 = icmp eq i32 %40, 2
+  br i1 %exitcond.not.i57, label %42, label %.preheader.i48, !llvm.loop !12
 
-._crit_edge.i52:                                  ; preds = %34, %.lr.ph.i48
-  %.017.lcssa.i53 = phi ptr [ %.01719.i51, %.lr.ph.i48 ], [ %scevgep.i47, %34 ]
-  %.015.lcssa.i54 = phi i32 [ %.01520.i50, %.lr.ph.i48 ], [ %38, %34 ]
-  %41 = add i32 %.015.lcssa.i54, -13
-  %or.cond.i57 = icmp ult i32 %41, -12
-  br i1 %or.cond.i57, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit59
+42:                                               ; preds = %35, %.preheader.i48
+  %.017.lcssa.i52 = phi ptr [ %.01719.i51, %.preheader.i48 ], [ %scevgep.i47, %35 ]
+  %.015.lcssa.i53 = phi i32 [ %.01520.i50, %.preheader.i48 ], [ %39, %35 ]
+  %43 = add i32 %.015.lcssa.i53, -13
+  %or.cond.i56 = icmp ult i32 %43, -12
+  br i1 %or.cond.i56, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit58
 
-_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit59: ; preds = %._crit_edge.i52
-  store i32 %.015.lcssa.i54, ptr %27, align 4
-  %42 = icmp eq ptr %.017.lcssa.i53, null
-  br i1 %42, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %43
+_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit58: ; preds = %42
+  store i32 %.015.lcssa.i53, ptr %28, align 4
+  %44 = icmp eq ptr %.017.lcssa.i52, null
+  br i1 %44, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %45
 
-43:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit59
-  %44 = load i8, ptr %.017.lcssa.i53, align 1
-  %.not41 = icmp eq i8 %44, 45
-  br i1 %.not41, label %45, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+45:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit58
+  %46 = load i8, ptr %.017.lcssa.i52, align 1
+  %.not41 = icmp eq i8 %46, 45
+  br i1 %.not41, label %47, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %.017.lcssa.i53, i64 1
-  %47 = getelementptr inbounds i8, ptr %4, i64 8
-  %48 = load i8, ptr %46, align 1
-  %49 = add i8 %48, -48
-  %50 = icmp ult i8 %49, 10
-  br i1 %50, label %.preheader.i61, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds i8, ptr %.017.lcssa.i52, i64 1
+  %49 = getelementptr inbounds i8, ptr %4, i64 8
+  %50 = load i8, ptr %48, align 1
+  %51 = add i8 %50, -48
+  %52 = icmp ult i8 %51, 10
+  br i1 %52, label %.preheader.preheader.i60, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-.preheader.i61:                                   ; preds = %45
-  %scevgep.i62 = getelementptr i8, ptr %.017.lcssa.i53, i64 3
-  br label %.lr.ph.i63
+.preheader.preheader.i60:                         ; preds = %47
+  %scevgep.i61 = getelementptr i8, ptr %.017.lcssa.i52, i64 3
+  br label %.preheader.i62
 
-.lr.ph.i63:                                       ; preds = %54, %.preheader.i61
-  %.021.i64 = phi i32 [ %59, %54 ], [ 0, %.preheader.i61 ]
-  %.01520.i65 = phi i32 [ %58, %54 ], [ 0, %.preheader.i61 ]
-  %.01719.i66 = phi ptr [ %60, %54 ], [ %46, %.preheader.i61 ]
-  %51 = load i8, ptr %.01719.i66, align 1
-  %52 = add i8 %51, -48
-  %53 = icmp ult i8 %52, 10
-  br i1 %53, label %54, label %._crit_edge.i67
+.preheader.i62:                                   ; preds = %56, %.preheader.preheader.i60
+  %.021.i63 = phi i32 [ %61, %56 ], [ 0, %.preheader.preheader.i60 ]
+  %.01520.i64 = phi i32 [ %60, %56 ], [ 0, %.preheader.preheader.i60 ]
+  %.01719.i65 = phi ptr [ %62, %56 ], [ %48, %.preheader.preheader.i60 ]
+  %53 = load i8, ptr %.01719.i65, align 1
+  %54 = add i8 %53, -48
+  %55 = icmp ult i8 %54, 10
+  br i1 %55, label %56, label %63
 
-54:                                               ; preds = %.lr.ph.i63
-  %55 = mul nsw i32 %.01520.i65, 10
-  %56 = zext nneg i8 %51 to i32
-  %57 = add i32 %55, -48
-  %58 = add i32 %57, %56
-  %59 = add nuw nsw i32 %.021.i64, 1
-  %60 = getelementptr inbounds i8, ptr %.01719.i66, i64 1
-  %exitcond.not.i73 = icmp eq i32 %59, 2
-  br i1 %exitcond.not.i73, label %._crit_edge.i67, label %.lr.ph.i63, !llvm.loop !12
+56:                                               ; preds = %.preheader.i62
+  %57 = mul nsw i32 %.01520.i64, 10
+  %58 = zext nneg i8 %53 to i32
+  %59 = add i32 %57, -48
+  %60 = add i32 %59, %58
+  %61 = add nuw nsw i32 %.021.i63, 1
+  %62 = getelementptr inbounds i8, ptr %.01719.i65, i64 1
+  %exitcond.not.i71 = icmp eq i32 %61, 2
+  br i1 %exitcond.not.i71, label %63, label %.preheader.i62, !llvm.loop !12
 
-._crit_edge.i67:                                  ; preds = %54, %.lr.ph.i63
-  %.017.lcssa.i68 = phi ptr [ %.01719.i66, %.lr.ph.i63 ], [ %scevgep.i62, %54 ]
-  %.015.lcssa.i69 = phi i32 [ %.01520.i65, %.lr.ph.i63 ], [ %58, %54 ]
-  %61 = add i32 %.015.lcssa.i69, -32
-  %or.cond.i72 = icmp ult i32 %61, -31
-  br i1 %or.cond.i72, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit74
+63:                                               ; preds = %56, %.preheader.i62
+  %.017.lcssa.i66 = phi ptr [ %.01719.i65, %.preheader.i62 ], [ %scevgep.i61, %56 ]
+  %.015.lcssa.i67 = phi i32 [ %.01520.i64, %.preheader.i62 ], [ %60, %56 ]
+  %64 = add i32 %.015.lcssa.i67, -32
+  %or.cond.i70 = icmp ult i32 %64, -31
+  br i1 %or.cond.i70, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit72
 
-_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit74: ; preds = %._crit_edge.i67
-  store i32 %.015.lcssa.i69, ptr %47, align 4
-  %62 = icmp eq ptr %.017.lcssa.i68, null
-  br i1 %62, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %63
+_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit72: ; preds = %63
+  store i32 %.015.lcssa.i67, ptr %49, align 4
+  %65 = icmp eq ptr %.017.lcssa.i66, null
+  br i1 %65, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %66
 
-63:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit74
-  %64 = load i8, ptr %.017.lcssa.i68, align 1
-  %.not42 = icmp eq i8 %64, 84
-  br i1 %.not42, label %65, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+66:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit72
+  %67 = load i8, ptr %.017.lcssa.i66, align 1
+  %.not42 = icmp eq i8 %67, 84
+  br i1 %.not42, label %68, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-65:                                               ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %.017.lcssa.i68, i64 1
-  %67 = getelementptr inbounds i8, ptr %4, i64 12
-  %68 = load i8, ptr %66, align 1
-  %69 = add i8 %68, -48
-  %70 = icmp ult i8 %69, 10
-  br i1 %70, label %.preheader.i76, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
-
-.preheader.i76:                                   ; preds = %65
-  %scevgep.i77 = getelementptr i8, ptr %.017.lcssa.i68, i64 3
-  br label %.lr.ph.i78
-
-.lr.ph.i78:                                       ; preds = %74, %.preheader.i76
-  %.021.i79 = phi i32 [ %79, %74 ], [ 0, %.preheader.i76 ]
-  %.01520.i80 = phi i32 [ %78, %74 ], [ 0, %.preheader.i76 ]
-  %.01719.i81 = phi ptr [ %80, %74 ], [ %66, %.preheader.i76 ]
-  %71 = load i8, ptr %.01719.i81, align 1
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds i8, ptr %.017.lcssa.i66, i64 1
+  %70 = getelementptr inbounds i8, ptr %4, i64 12
+  %71 = load i8, ptr %69, align 1
   %72 = add i8 %71, -48
   %73 = icmp ult i8 %72, 10
-  br i1 %73, label %74, label %._crit_edge.i82
+  br i1 %73, label %.preheader.preheader.i74, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-74:                                               ; preds = %.lr.ph.i78
-  %75 = mul nsw i32 %.01520.i80, 10
-  %76 = zext nneg i8 %71 to i32
-  %77 = add i32 %75, -48
-  %78 = add i32 %77, %76
-  %79 = add nuw nsw i32 %.021.i79, 1
-  %80 = getelementptr inbounds i8, ptr %.01719.i81, i64 1
-  %exitcond.not.i88 = icmp eq i32 %79, 2
-  br i1 %exitcond.not.i88, label %._crit_edge.i82, label %.lr.ph.i78, !llvm.loop !12
+.preheader.preheader.i74:                         ; preds = %68
+  %scevgep.i75 = getelementptr i8, ptr %.017.lcssa.i66, i64 3
+  br label %.preheader.i76
 
-._crit_edge.i82:                                  ; preds = %74, %.lr.ph.i78
-  %.017.lcssa.i83 = phi ptr [ %.01719.i81, %.lr.ph.i78 ], [ %scevgep.i77, %74 ]
-  %.015.lcssa.i84 = phi i32 [ %.01520.i80, %.lr.ph.i78 ], [ %78, %74 ]
-  %or.cond.i87 = icmp ugt i32 %.015.lcssa.i84, 23
-  br i1 %or.cond.i87, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit89
+.preheader.i76:                                   ; preds = %77, %.preheader.preheader.i74
+  %.021.i77 = phi i32 [ %82, %77 ], [ 0, %.preheader.preheader.i74 ]
+  %.01520.i78 = phi i32 [ %81, %77 ], [ 0, %.preheader.preheader.i74 ]
+  %.01719.i79 = phi ptr [ %83, %77 ], [ %69, %.preheader.preheader.i74 ]
+  %74 = load i8, ptr %.01719.i79, align 1
+  %75 = add i8 %74, -48
+  %76 = icmp ult i8 %75, 10
+  br i1 %76, label %77, label %84
 
-_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit89: ; preds = %._crit_edge.i82
-  store i32 %.015.lcssa.i84, ptr %67, align 4
-  %81 = icmp eq ptr %.017.lcssa.i83, null
-  br i1 %81, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %82
+77:                                               ; preds = %.preheader.i76
+  %78 = mul nsw i32 %.01520.i78, 10
+  %79 = zext nneg i8 %74 to i32
+  %80 = add i32 %78, -48
+  %81 = add i32 %80, %79
+  %82 = add nuw nsw i32 %.021.i77, 1
+  %83 = getelementptr inbounds i8, ptr %.01719.i79, i64 1
+  %exitcond.not.i85 = icmp eq i32 %82, 2
+  br i1 %exitcond.not.i85, label %84, label %.preheader.i76, !llvm.loop !12
 
-82:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit89
-  %83 = load i8, ptr %.017.lcssa.i83, align 1
-  %.not43 = icmp eq i8 %83, 58
-  br i1 %.not43, label %84, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+84:                                               ; preds = %77, %.preheader.i76
+  %.017.lcssa.i80 = phi ptr [ %.01719.i79, %.preheader.i76 ], [ %scevgep.i75, %77 ]
+  %.015.lcssa.i81 = phi i32 [ %.01520.i78, %.preheader.i76 ], [ %81, %77 ]
+  %or.cond.i84 = icmp ugt i32 %.015.lcssa.i81, 23
+  br i1 %or.cond.i84, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit86
 
-84:                                               ; preds = %82
-  %85 = getelementptr inbounds i8, ptr %.017.lcssa.i83, i64 1
-  %86 = getelementptr inbounds i8, ptr %4, i64 16
-  %87 = load i8, ptr %85, align 1
-  %88 = add i8 %87, -48
-  %89 = icmp ult i8 %88, 10
-  br i1 %89, label %.preheader.i91, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit86: ; preds = %84
+  store i32 %.015.lcssa.i81, ptr %70, align 4
+  %85 = icmp eq ptr %.017.lcssa.i80, null
+  br i1 %85, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %86
 
-.preheader.i91:                                   ; preds = %84
-  %scevgep.i92 = getelementptr i8, ptr %.017.lcssa.i83, i64 3
-  br label %.lr.ph.i93
+86:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit86
+  %87 = load i8, ptr %.017.lcssa.i80, align 1
+  %.not43 = icmp eq i8 %87, 58
+  br i1 %.not43, label %88, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-.lr.ph.i93:                                       ; preds = %93, %.preheader.i91
-  %.021.i94 = phi i32 [ %98, %93 ], [ 0, %.preheader.i91 ]
-  %.01520.i95 = phi i32 [ %97, %93 ], [ 0, %.preheader.i91 ]
-  %.01719.i96 = phi ptr [ %99, %93 ], [ %85, %.preheader.i91 ]
-  %90 = load i8, ptr %.01719.i96, align 1
-  %91 = add i8 %90, -48
-  %92 = icmp ult i8 %91, 10
-  br i1 %92, label %93, label %._crit_edge.i97
+88:                                               ; preds = %86
+  %89 = getelementptr inbounds i8, ptr %.017.lcssa.i80, i64 1
+  %90 = getelementptr inbounds i8, ptr %4, i64 16
+  %91 = load i8, ptr %89, align 1
+  %92 = add i8 %91, -48
+  %93 = icmp ult i8 %92, 10
+  br i1 %93, label %.preheader.preheader.i88, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-93:                                               ; preds = %.lr.ph.i93
-  %94 = mul nsw i32 %.01520.i95, 10
-  %95 = zext nneg i8 %90 to i32
-  %96 = add i32 %94, -48
-  %97 = add i32 %96, %95
-  %98 = add nuw nsw i32 %.021.i94, 1
-  %99 = getelementptr inbounds i8, ptr %.01719.i96, i64 1
-  %exitcond.not.i103 = icmp eq i32 %98, 2
-  br i1 %exitcond.not.i103, label %._crit_edge.i97, label %.lr.ph.i93, !llvm.loop !12
+.preheader.preheader.i88:                         ; preds = %88
+  %scevgep.i89 = getelementptr i8, ptr %.017.lcssa.i80, i64 3
+  br label %.preheader.i90
 
-._crit_edge.i97:                                  ; preds = %93, %.lr.ph.i93
-  %.017.lcssa.i98 = phi ptr [ %.01719.i96, %.lr.ph.i93 ], [ %scevgep.i92, %93 ]
-  %.015.lcssa.i99 = phi i32 [ %.01520.i95, %.lr.ph.i93 ], [ %97, %93 ]
-  %or.cond.i102 = icmp ugt i32 %.015.lcssa.i99, 59
-  br i1 %or.cond.i102, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit104
+.preheader.i90:                                   ; preds = %97, %.preheader.preheader.i88
+  %.021.i91 = phi i32 [ %102, %97 ], [ 0, %.preheader.preheader.i88 ]
+  %.01520.i92 = phi i32 [ %101, %97 ], [ 0, %.preheader.preheader.i88 ]
+  %.01719.i93 = phi ptr [ %103, %97 ], [ %89, %.preheader.preheader.i88 ]
+  %94 = load i8, ptr %.01719.i93, align 1
+  %95 = add i8 %94, -48
+  %96 = icmp ult i8 %95, 10
+  br i1 %96, label %97, label %104
 
-_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit104: ; preds = %._crit_edge.i97
-  store i32 %.015.lcssa.i99, ptr %86, align 4
-  %100 = icmp eq ptr %.017.lcssa.i98, null
-  br i1 %100, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %101
+97:                                               ; preds = %.preheader.i90
+  %98 = mul nsw i32 %.01520.i92, 10
+  %99 = zext nneg i8 %94 to i32
+  %100 = add i32 %98, -48
+  %101 = add i32 %100, %99
+  %102 = add nuw nsw i32 %.021.i91, 1
+  %103 = getelementptr inbounds i8, ptr %.01719.i93, i64 1
+  %exitcond.not.i99 = icmp eq i32 %102, 2
+  br i1 %exitcond.not.i99, label %104, label %.preheader.i90, !llvm.loop !12
 
-101:                                              ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit104
-  %102 = load i8, ptr %.017.lcssa.i98, align 1
-  %.not44 = icmp eq i8 %102, 58
-  br i1 %.not44, label %103, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+104:                                              ; preds = %97, %.preheader.i90
+  %.017.lcssa.i94 = phi ptr [ %.01719.i93, %.preheader.i90 ], [ %scevgep.i89, %97 ]
+  %.015.lcssa.i95 = phi i32 [ %.01520.i92, %.preheader.i90 ], [ %101, %97 ]
+  %or.cond.i98 = icmp ugt i32 %.015.lcssa.i95, 59
+  br i1 %or.cond.i98, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit100
 
-103:                                              ; preds = %101
-  %104 = getelementptr inbounds i8, ptr %.017.lcssa.i98, i64 1
-  %105 = getelementptr inbounds i8, ptr %4, i64 20
-  %106 = load i8, ptr %104, align 1
-  %107 = add i8 %106, -48
-  %108 = icmp ult i8 %107, 10
-  br i1 %108, label %.preheader.i106, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit100: ; preds = %104
+  store i32 %.015.lcssa.i95, ptr %90, align 4
+  %105 = icmp eq ptr %.017.lcssa.i94, null
+  br i1 %105, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %106
 
-.preheader.i106:                                  ; preds = %103
-  %scevgep.i107 = getelementptr i8, ptr %.017.lcssa.i98, i64 3
-  br label %.lr.ph.i108
+106:                                              ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit100
+  %107 = load i8, ptr %.017.lcssa.i94, align 1
+  %.not44 = icmp eq i8 %107, 58
+  br i1 %.not44, label %108, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-.lr.ph.i108:                                      ; preds = %112, %.preheader.i106
-  %.021.i109 = phi i32 [ %117, %112 ], [ 0, %.preheader.i106 ]
-  %.01520.i110 = phi i32 [ %116, %112 ], [ 0, %.preheader.i106 ]
-  %.01719.i111 = phi ptr [ %118, %112 ], [ %104, %.preheader.i106 ]
-  %109 = load i8, ptr %.01719.i111, align 1
-  %110 = add i8 %109, -48
-  %111 = icmp ult i8 %110, 10
-  br i1 %111, label %112, label %._crit_edge.i112
+108:                                              ; preds = %106
+  %109 = getelementptr inbounds i8, ptr %.017.lcssa.i94, i64 1
+  %110 = getelementptr inbounds i8, ptr %4, i64 20
+  %111 = load i8, ptr %109, align 1
+  %112 = add i8 %111, -48
+  %113 = icmp ult i8 %112, 10
+  br i1 %113, label %.preheader.preheader.i102, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-112:                                              ; preds = %.lr.ph.i108
-  %113 = mul nsw i32 %.01520.i110, 10
-  %114 = zext nneg i8 %109 to i32
-  %115 = add i32 %113, -48
-  %116 = add i32 %115, %114
-  %117 = add nuw nsw i32 %.021.i109, 1
-  %118 = getelementptr inbounds i8, ptr %.01719.i111, i64 1
-  %exitcond.not.i118 = icmp eq i32 %117, 2
-  br i1 %exitcond.not.i118, label %._crit_edge.i112, label %.lr.ph.i108, !llvm.loop !12
+.preheader.preheader.i102:                        ; preds = %108
+  %scevgep.i103 = getelementptr i8, ptr %.017.lcssa.i94, i64 3
+  br label %.preheader.i104
 
-._crit_edge.i112:                                 ; preds = %112, %.lr.ph.i108
-  %.017.lcssa.i113 = phi ptr [ %.01719.i111, %.lr.ph.i108 ], [ %scevgep.i107, %112 ]
-  %.015.lcssa.i114 = phi i32 [ %.01520.i110, %.lr.ph.i108 ], [ %116, %112 ]
-  %or.cond.i117 = icmp ugt i32 %.015.lcssa.i114, 59
-  br i1 %or.cond.i117, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit119
+.preheader.i104:                                  ; preds = %117, %.preheader.preheader.i102
+  %.021.i105 = phi i32 [ %122, %117 ], [ 0, %.preheader.preheader.i102 ]
+  %.01520.i106 = phi i32 [ %121, %117 ], [ 0, %.preheader.preheader.i102 ]
+  %.01719.i107 = phi ptr [ %123, %117 ], [ %109, %.preheader.preheader.i102 ]
+  %114 = load i8, ptr %.01719.i107, align 1
+  %115 = add i8 %114, -48
+  %116 = icmp ult i8 %115, 10
+  br i1 %116, label %117, label %124
 
-_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit119: ; preds = %._crit_edge.i112
-  store i32 %.015.lcssa.i114, ptr %105, align 4
-  %119 = icmp eq ptr %.017.lcssa.i113, null
-  br i1 %119, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %120
+117:                                              ; preds = %.preheader.i104
+  %118 = mul nsw i32 %.01520.i106, 10
+  %119 = zext nneg i8 %114 to i32
+  %120 = add i32 %118, -48
+  %121 = add i32 %120, %119
+  %122 = add nuw nsw i32 %.021.i105, 1
+  %123 = getelementptr inbounds i8, ptr %.01719.i107, i64 1
+  %exitcond.not.i113 = icmp eq i32 %122, 2
+  br i1 %exitcond.not.i113, label %124, label %.preheader.i104, !llvm.loop !12
 
-120:                                              ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit119
-  %121 = call noundef zeroext i1 @_ZN6google8protobuf8internal17DateTimeToSecondsERKNS1_8DateTimeEPl(ptr noundef nonnull align 4 dereferenceable(24) %4, ptr noundef %1)
-  br i1 %121, label %122, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+124:                                              ; preds = %117, %.preheader.i104
+  %.017.lcssa.i108 = phi ptr [ %.01719.i107, %.preheader.i104 ], [ %scevgep.i103, %117 ]
+  %.015.lcssa.i109 = phi i32 [ %.01520.i106, %.preheader.i104 ], [ %121, %117 ]
+  %or.cond.i112 = icmp ugt i32 %.015.lcssa.i109, 59
+  br i1 %or.cond.i112, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit114
 
-122:                                              ; preds = %120
-  %123 = load i8, ptr %.017.lcssa.i113, align 1
-  %124 = icmp eq i8 %123, 46
-  br i1 %124, label %125, label %129
+_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit114: ; preds = %124
+  store i32 %.015.lcssa.i109, ptr %110, align 4
+  %125 = icmp eq ptr %.017.lcssa.i108, null
+  br i1 %125, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %126
 
-125:                                              ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %.017.lcssa.i113, i64 1
-  %127 = tail call fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_110ParseNanosEPKcPi(ptr noundef nonnull %126, ptr noundef %2)
-  %128 = icmp eq ptr %127, null
-  br i1 %128, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %130
+126:                                              ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit114
+  %127 = call noundef zeroext i1 @_ZN6google8protobuf8internal17DateTimeToSecondsERKNS1_8DateTimeEPl(ptr noundef nonnull align 4 dereferenceable(24) %4, ptr noundef %1)
+  br i1 %127, label %128, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-129:                                              ; preds = %122
+128:                                              ; preds = %126
+  %129 = load i8, ptr %.017.lcssa.i108, align 1
+  %130 = icmp eq i8 %129, 46
+  br i1 %130, label %131, label %135
+
+131:                                              ; preds = %128
+  %132 = getelementptr inbounds i8, ptr %.017.lcssa.i108, i64 1
+  %133 = tail call fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_110ParseNanosEPKcPi(ptr noundef %132, ptr noundef %2)
+  %134 = icmp eq ptr %133, null
+  br i1 %134, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %136
+
+135:                                              ; preds = %128
   store i32 0, ptr %2, align 4
-  br label %130
+  br label %136
 
-130:                                              ; preds = %125, %129
-  %.0 = phi ptr [ %127, %125 ], [ %.017.lcssa.i113, %129 ]
-  %131 = load i8, ptr %.0, align 1
-  switch i8 %131, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread [
-    i8 90, label %132
-    i8 43, label %134
-    i8 45, label %142
+136:                                              ; preds = %131, %135
+  %.0 = phi ptr [ %133, %131 ], [ %.017.lcssa.i108, %135 ]
+  %137 = load i8, ptr %.0, align 1
+  switch i8 %137, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread [
+    i8 90, label %138
+    i8 43, label %140
+    i8 45, label %148
   ]
 
-132:                                              ; preds = %130
-  %133 = getelementptr inbounds i8, ptr %.0, i64 1
-  br label %150
+138:                                              ; preds = %136
+  %139 = getelementptr inbounds i8, ptr %.0, i64 1
+  br label %156
 
-134:                                              ; preds = %130
-  %135 = getelementptr inbounds i8, ptr %.0, i64 1
-  %136 = call fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119ParseTimezoneOffsetEPKcPl(ptr noundef nonnull %135, ptr noundef nonnull %5)
-  %137 = icmp eq ptr %136, null
-  br i1 %137, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %138
+140:                                              ; preds = %136
+  %141 = getelementptr inbounds i8, ptr %.0, i64 1
+  %142 = call fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119ParseTimezoneOffsetEPKcPl(ptr noundef %141, ptr noundef %5)
+  %143 = icmp eq ptr %142, null
+  br i1 %143, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %144
 
-138:                                              ; preds = %134
-  %139 = load i64, ptr %5, align 8
-  %140 = load i64, ptr %1, align 8
-  %141 = sub nsw i64 %140, %139
-  store i64 %141, ptr %1, align 8
-  br label %150
+144:                                              ; preds = %140
+  %145 = load i64, ptr %5, align 8
+  %146 = load i64, ptr %1, align 8
+  %147 = sub nsw i64 %146, %145
+  store i64 %147, ptr %1, align 8
+  br label %156
 
-142:                                              ; preds = %130
-  %143 = getelementptr inbounds i8, ptr %.0, i64 1
-  %144 = call fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119ParseTimezoneOffsetEPKcPl(ptr noundef nonnull %143, ptr noundef nonnull %6)
-  %145 = icmp eq ptr %144, null
-  br i1 %145, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %146
+148:                                              ; preds = %136
+  %149 = getelementptr inbounds i8, ptr %.0, i64 1
+  %150 = call fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119ParseTimezoneOffsetEPKcPl(ptr noundef %149, ptr noundef %6)
+  %151 = icmp eq ptr %150, null
+  br i1 %151, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %152
 
-146:                                              ; preds = %142
-  %147 = load i64, ptr %6, align 8
-  %148 = load i64, ptr %1, align 8
-  %149 = add nsw i64 %148, %147
-  store i64 %149, ptr %1, align 8
-  br label %150
+152:                                              ; preds = %148
+  %153 = load i64, ptr %6, align 8
+  %154 = load i64, ptr %1, align 8
+  %155 = add nsw i64 %154, %153
+  store i64 %155, ptr %1, align 8
+  br label %156
 
-150:                                              ; preds = %138, %146, %132
-  %.1 = phi ptr [ %133, %132 ], [ %136, %138 ], [ %144, %146 ]
-  %151 = load i8, ptr %.1, align 1
-  %152 = icmp eq i8 %151, 0
+156:                                              ; preds = %144, %152, %138
+  %.1 = phi ptr [ %139, %138 ], [ %142, %144 ], [ %150, %152 ]
+  %157 = load i8, ptr %.1, align 1
+  %158 = icmp eq i8 %157, 0
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread: ; preds = %._crit_edge.i112, %103, %._crit_edge.i97, %84, %._crit_edge.i82, %65, %._crit_edge.i67, %45, %._crit_edge.i52, %25, %._crit_edge.i, %3, %130, %142, %134, %125, %120, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit119, %101, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit104, %82, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit89, %63, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit74, %43, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit59, %23, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit, %150
-  %.030 = phi i1 [ %152, %150 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit ], [ false, %23 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit59 ], [ false, %43 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit74 ], [ false, %63 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit89 ], [ false, %82 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit104 ], [ false, %101 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit119 ], [ false, %120 ], [ false, %125 ], [ false, %134 ], [ false, %142 ], [ false, %130 ], [ false, %3 ], [ false, %._crit_edge.i ], [ false, %25 ], [ false, %._crit_edge.i52 ], [ false, %45 ], [ false, %._crit_edge.i67 ], [ false, %65 ], [ false, %._crit_edge.i82 ], [ false, %84 ], [ false, %._crit_edge.i97 ], [ false, %103 ], [ false, %._crit_edge.i112 ]
+_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread: ; preds = %124, %108, %104, %88, %84, %68, %63, %47, %42, %26, %21, %3, %136, %148, %140, %131, %126, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit114, %106, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit100, %86, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit86, %66, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit72, %45, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit58, %24, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit, %156
+  %.030 = phi i1 [ %158, %156 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit ], [ false, %24 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit58 ], [ false, %45 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit72 ], [ false, %66 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit86 ], [ false, %86 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit100 ], [ false, %106 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit114 ], [ false, %126 ], [ false, %131 ], [ false, %140 ], [ false, %148 ], [ false, %136 ], [ false, %3 ], [ false, %21 ], [ false, %26 ], [ false, %42 ], [ false, %47 ], [ false, %63 ], [ false, %68 ], [ false, %84 ], [ false, %88 ], [ false, %104 ], [ false, %108 ], [ false, %124 ]
   ret i1 %.030
 }
 
@@ -1003,7 +1003,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread: ; pred
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_110ParseNanosEPKcPi(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #4 {
+define internal fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_110ParseNanosEPKcPi(ptr noundef nonnull readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #4 {
   %3 = load i8, ptr %0, align 1
   %4 = add i8 %3, -48
   %5 = icmp ult i8 %4, 10
@@ -1050,26 +1050,26 @@ define internal fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_110
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119ParseTimezoneOffsetEPKcPl(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #4 {
+define internal fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119ParseTimezoneOffsetEPKcPl(ptr noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #4 {
   %3 = load i8, ptr %0, align 1
   %4 = add i8 %3, -48
   %5 = icmp ult i8 %4, 10
-  br i1 %5, label %.preheader.i, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+  br i1 %5, label %.preheader.preheader.i, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-.preheader.i:                                     ; preds = %2
+.preheader.preheader.i:                           ; preds = %2
   %scevgep.i = getelementptr i8, ptr %0, i64 2
-  br label %.lr.ph.i
+  br label %.preheader.i
 
-.lr.ph.i:                                         ; preds = %9, %.preheader.i
-  %.021.i = phi i32 [ %14, %9 ], [ 0, %.preheader.i ]
-  %.01520.i = phi i32 [ %13, %9 ], [ 0, %.preheader.i ]
-  %.01719.i = phi ptr [ %15, %9 ], [ %0, %.preheader.i ]
+.preheader.i:                                     ; preds = %9, %.preheader.preheader.i
+  %.021.i = phi i32 [ %14, %9 ], [ 0, %.preheader.preheader.i ]
+  %.01520.i = phi i32 [ %13, %9 ], [ 0, %.preheader.preheader.i ]
+  %.01719.i = phi ptr [ %15, %9 ], [ %0, %.preheader.preheader.i ]
   %6 = load i8, ptr %.01719.i, align 1
   %7 = add i8 %6, -48
   %8 = icmp ult i8 %7, 10
-  br i1 %8, label %9, label %._crit_edge.i
+  br i1 %8, label %9, label %16
 
-9:                                                ; preds = %.lr.ph.i
+9:                                                ; preds = %.preheader.i
   %10 = mul nsw i32 %.01520.i, 10
   %11 = zext nneg i8 %6 to i32
   %12 = add i32 %10, -48
@@ -1077,69 +1077,69 @@ define internal fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119
   %14 = add nuw nsw i32 %.021.i, 1
   %15 = getelementptr inbounds i8, ptr %.01719.i, i64 1
   %exitcond.not.i = icmp eq i32 %14, 2
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %16, label %.preheader.i, !llvm.loop !12
 
-._crit_edge.i:                                    ; preds = %9, %.lr.ph.i
-  %.017.lcssa.i = phi ptr [ %.01719.i, %.lr.ph.i ], [ %scevgep.i, %9 ]
-  %.015.lcssa.i = phi i32 [ %.01520.i, %.lr.ph.i ], [ %13, %9 ]
+16:                                               ; preds = %9, %.preheader.i
+  %.017.lcssa.i = phi ptr [ %.01719.i, %.preheader.i ], [ %scevgep.i, %9 ]
+  %.015.lcssa.i = phi i32 [ %.01520.i, %.preheader.i ], [ %13, %9 ]
   %or.cond.i = icmp ugt i32 %.015.lcssa.i, 23
-  %16 = icmp eq ptr %.017.lcssa.i, null
-  %or.cond = or i1 %16, %or.cond.i
-  br i1 %or.cond, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %17
+  %17 = icmp eq ptr %.017.lcssa.i, null
+  %or.cond = or i1 %17, %or.cond.i
+  br i1 %or.cond, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %18
 
-17:                                               ; preds = %._crit_edge.i
-  %18 = load i8, ptr %.017.lcssa.i, align 1
-  %.not = icmp eq i8 %18, 58
-  br i1 %.not, label %19, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+18:                                               ; preds = %16
+  %19 = load i8, ptr %.017.lcssa.i, align 1
+  %.not = icmp eq i8 %19, 58
+  br i1 %.not, label %20, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %.017.lcssa.i, i64 1
-  %21 = load i8, ptr %20, align 1
-  %22 = add i8 %21, -48
-  %23 = icmp ult i8 %22, 10
-  br i1 %23, label %.preheader.i9, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds i8, ptr %.017.lcssa.i, i64 1
+  %22 = load i8, ptr %21, align 1
+  %23 = add i8 %22, -48
+  %24 = icmp ult i8 %23, 10
+  br i1 %24, label %.preheader.preheader.i9, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-.preheader.i9:                                    ; preds = %19
+.preheader.preheader.i9:                          ; preds = %20
   %scevgep.i10 = getelementptr i8, ptr %.017.lcssa.i, i64 3
-  br label %.lr.ph.i11
+  br label %.preheader.i11
 
-.lr.ph.i11:                                       ; preds = %27, %.preheader.i9
-  %.021.i12 = phi i32 [ %32, %27 ], [ 0, %.preheader.i9 ]
-  %.01520.i13 = phi i32 [ %31, %27 ], [ 0, %.preheader.i9 ]
-  %.01719.i14 = phi ptr [ %33, %27 ], [ %20, %.preheader.i9 ]
-  %24 = load i8, ptr %.01719.i14, align 1
-  %25 = add i8 %24, -48
-  %26 = icmp ult i8 %25, 10
-  br i1 %26, label %27, label %._crit_edge.i15
+.preheader.i11:                                   ; preds = %28, %.preheader.preheader.i9
+  %.021.i12 = phi i32 [ %33, %28 ], [ 0, %.preheader.preheader.i9 ]
+  %.01520.i13 = phi i32 [ %32, %28 ], [ 0, %.preheader.preheader.i9 ]
+  %.01719.i14 = phi ptr [ %34, %28 ], [ %21, %.preheader.preheader.i9 ]
+  %25 = load i8, ptr %.01719.i14, align 1
+  %26 = add i8 %25, -48
+  %27 = icmp ult i8 %26, 10
+  br i1 %27, label %28, label %35
 
-27:                                               ; preds = %.lr.ph.i11
-  %28 = mul nsw i32 %.01520.i13, 10
-  %29 = zext nneg i8 %24 to i32
-  %30 = add i32 %28, -48
-  %31 = add i32 %30, %29
-  %32 = add nuw nsw i32 %.021.i12, 1
-  %33 = getelementptr inbounds i8, ptr %.01719.i14, i64 1
-  %exitcond.not.i21 = icmp eq i32 %32, 2
-  br i1 %exitcond.not.i21, label %._crit_edge.i15, label %.lr.ph.i11, !llvm.loop !12
+28:                                               ; preds = %.preheader.i11
+  %29 = mul nsw i32 %.01520.i13, 10
+  %30 = zext nneg i8 %25 to i32
+  %31 = add i32 %29, -48
+  %32 = add i32 %31, %30
+  %33 = add nuw nsw i32 %.021.i12, 1
+  %34 = getelementptr inbounds i8, ptr %.01719.i14, i64 1
+  %exitcond.not.i20 = icmp eq i32 %33, 2
+  br i1 %exitcond.not.i20, label %35, label %.preheader.i11, !llvm.loop !12
 
-._crit_edge.i15:                                  ; preds = %27, %.lr.ph.i11
-  %.017.lcssa.i16 = phi ptr [ %.01719.i14, %.lr.ph.i11 ], [ %scevgep.i10, %27 ]
-  %.015.lcssa.i17 = phi i32 [ %.01520.i13, %.lr.ph.i11 ], [ %31, %27 ]
-  %or.cond.i20 = icmp ugt i32 %.015.lcssa.i17, 59
-  %34 = icmp eq ptr %.017.lcssa.i16, null
-  %or.cond30 = or i1 %34, %or.cond.i20
-  br i1 %or.cond30, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %35
+35:                                               ; preds = %28, %.preheader.i11
+  %.017.lcssa.i15 = phi ptr [ %.01719.i14, %.preheader.i11 ], [ %scevgep.i10, %28 ]
+  %.015.lcssa.i16 = phi i32 [ %.01520.i13, %.preheader.i11 ], [ %32, %28 ]
+  %or.cond.i19 = icmp ugt i32 %.015.lcssa.i16, 59
+  %36 = icmp eq ptr %.017.lcssa.i15, null
+  %or.cond29 = or i1 %36, %or.cond.i19
+  br i1 %or.cond29, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %37
 
-35:                                               ; preds = %._crit_edge.i15
-  %36 = mul nuw nsw i32 %.015.lcssa.i, 60
-  %37 = add nuw nsw i32 %.015.lcssa.i17, %36
-  %38 = mul nuw nsw i32 %37, 60
-  %39 = zext nneg i32 %38 to i64
-  store i64 %39, ptr %1, align 8
+37:                                               ; preds = %35
+  %38 = mul nuw nsw i32 %.015.lcssa.i, 60
+  %39 = add nuw nsw i32 %.015.lcssa.i16, %38
+  %40 = mul nuw nsw i32 %39, 60
+  %41 = zext nneg i32 %40 to i64
+  store i64 %41, ptr %1, align 8
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread: ; preds = %._crit_edge.i15, %19, %._crit_edge.i, %2, %17, %35
-  %.0 = phi ptr [ %.017.lcssa.i16, %35 ], [ null, %17 ], [ null, %2 ], [ null, %._crit_edge.i ], [ null, %19 ], [ null, %._crit_edge.i15 ]
+_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread: ; preds = %35, %20, %16, %2, %18, %37
+  %.0 = phi ptr [ %.017.lcssa.i15, %37 ], [ null, %18 ], [ null, %2 ], [ null, %16 ], [ null, %20 ], [ null, %35 ]
   ret ptr %.0
 }
 

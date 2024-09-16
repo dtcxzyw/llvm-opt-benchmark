@@ -925,7 +925,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13MCParserUtils25parseAssignmentExp
 
 39:                                               ; preds = %30
   %40 = load ptr, ptr %5, align 8
-  %41 = call fastcc noundef zeroext i1 @_ZN4llvm13MCParserUtilsL24isSymbolUsedInExpressionEPKNS_8MCSymbolEPKNS_6MCExprE(ptr noundef nonnull %38, ptr noundef %40)
+  %41 = call fastcc noundef zeroext i1 @_ZN4llvm13MCParserUtilsL24isSymbolUsedInExpressionEPKNS_8MCSymbolEPKNS_6MCExprE(ptr noundef %38, ptr noundef %40)
   br i1 %41, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %50
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %39
@@ -1177,7 +1177,7 @@ declare noundef zeroext i1 @_ZN4llvm11MCAsmParser8parseEOLEv(ptr noundef nonnull
 declare noundef ptr @_ZNK4llvm9MCContext12lookupSymbolERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432), ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4llvm13MCParserUtilsL24isSymbolUsedInExpressionEPKNS_8MCSymbolEPKNS_6MCExprE(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @_ZN4llvm13MCParserUtilsL24isSymbolUsedInExpressionEPKNS_8MCSymbolEPKNS_6MCExprE(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2
@@ -7923,7 +7923,7 @@ _ZN12_GLOBAL__N_114HLASMAsmParser16lexLeadingSpacesEv.exit.i30: ; preds = %_ZN4l
   br label %_ZN4llvm8AsmTokenC2ERKS0_.exit6.i
 
 _ZN4llvm8AsmTokenC2ERKS0_.exit6.i:                ; preds = %278, %276
-  %279 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser37parseAndMatchAndEmitTargetInstructionERNS_18ParseStatementInfoEN4llvm9StringRefENS3_8AsmTokenENS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr %.sroa.01.0.copyload.i, i64 %.sroa.2.0.copyload.i32, ptr noundef nonnull %8, ptr %235)
+  %279 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser37parseAndMatchAndEmitTargetInstructionERNS_18ParseStatementInfoEN4llvm9StringRefENS3_8AsmTokenENS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr %.sroa.01.0.copyload.i, i64 %.sroa.2.0.copyload.i32, ptr noundef %8, ptr %235)
   %280 = load i32, ptr %273, align 8
   %281 = icmp ugt i32 %280, 64
   br i1 %281, label %282, label %_ZN4llvm8AsmTokenD2Ev.exit.i
@@ -9324,7 +9324,7 @@ _ZN4llvm8AsmTokenD2Ev.exit:                       ; preds = %414, %411, %395, %3
 
 507:                                              ; preds = %501
   %.sroa.0122.0.copyload = load ptr, ptr %46, align 8
-  %508 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser16handleMacroEntryEPN4llvm10MCAsmMacroENS1_5SMLocE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %506, ptr %.sroa.0122.0.copyload)
+  %508 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser16handleMacroEntryEPN4llvm10MCAsmMacroENS1_5SMLocE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef %506, ptr %.sroa.0122.0.copyload)
   br label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
 
 509:                                              ; preds = %501, %498
@@ -10471,7 +10471,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit257.thread357:   ; preds = %895, %_ZN4llvmeqENS
 
 _ZN4llvm8AsmTokenC2ERKS0_.exit258:                ; preds = %918, %920
   %.sroa.0.0.copyload = load ptr, ptr %46, align 8
-  %921 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser37parseAndMatchAndEmitTargetInstructionERNS_18ParseStatementInfoEN4llvm9StringRefENS3_8AsmTokenENS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr %.sroa.02.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef nonnull %70, ptr %.sroa.0.0.copyload)
+  %921 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser37parseAndMatchAndEmitTargetInstructionERNS_18ParseStatementInfoEN4llvm9StringRefENS3_8AsmTokenENS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr %.sroa.02.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef %70, ptr %.sroa.0.0.copyload)
   %922 = load i32, ptr %915, align 8
   %923 = icmp ugt i32 %922, 64
   br i1 %923, label %924, label %_ZN12_GLOBAL__N_19AsmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocEb.exit
@@ -12291,13 +12291,13 @@ _ZN4llvm9MCContext19getMCDwarfLineTableEj.exit:   ; preds = %65, %.critedge.i.i
 declare void @_ZN4llvm20MCGenDwarfLabelEntry4MakeEPNS_8MCSymbolEPNS_10MCStreamerERNS_9SourceMgrERNS_5SMLocE(ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser15parseAssignmentEN4llvm9StringRefENS0_14AssignmentKindE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr %1, i64 %2, i32 noundef %3) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser15parseAssignmentEN4llvm9StringRefENS0_14AssignmentKindE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr %1, i64 %2, i32 noundef range(i32 0, 4) %3) unnamed_addr #3 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4llvm11MCAsmParser6getTokEv(ptr noundef nonnull align 8 dereferenceable(34) %0) #28
   %9 = tail call ptr @_ZNK4llvm8AsmToken6getLocEv(ptr noundef nonnull align 8 dereferenceable(40) %8) #28
-  %10 = and i32 %3, -3
+  %10 = and i32 %3, 1
   %11 = icmp eq i32 %10, 0
   %12 = call noundef zeroext i1 @_ZN4llvm13MCParserUtils25parseAssignmentExpressionENS_9StringRefEbRNS_11MCAsmParserERPNS_8MCSymbolERPKNS_6MCExprE(ptr %1, i64 %2, i1 noundef zeroext %11, ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   br i1 %12, label %53, label %13
@@ -12315,7 +12315,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser15parseAss
   br i1 %19, label %53, label %20
 
 20:                                               ; preds = %15
-  switch i32 %3, label %default.unreachable [
+  switch i32 %3, label %default.unreachable12 [
     i32 2, label %21
     i32 0, label %28
     i32 1, label %28
@@ -12371,7 +12371,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser15parseAss
   call void %52(ptr noundef nonnull align 8 dereferenceable(288) %49, ptr noundef nonnull %14, ptr noundef nonnull %41) #28
   br label %53
 
-default.unreachable:                              ; preds = %20
+default.unreachable12:                            ; preds = %20
   unreachable
 
 53:                                               ; preds = %21, %28, %47, %15, %13, %4, %43
@@ -12406,7 +12406,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm9MCContext11lookupMacroENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser16handleMacroEntryEPN4llvm10MCAsmMacroENS1_5SMLocE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef %1, ptr %2) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser16handleMacroEntryEPN4llvm10MCAsmMacroENS1_5SMLocE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, ptr %2) unnamed_addr #3 align 2 {
   %4 = alloca %"struct.llvm::SourceMgr::SrcBuffer", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -12450,7 +12450,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser16handleMa
 
 32:                                               ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %33 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseMacroArgumentsEPKN4llvm10MCAsmMacroERSt6vectorIS5_INS1_8AsmTokenESaIS6_EESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  %33 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseMacroArgumentsEPKN4llvm10MCAsmMacroERSt6vectorIS5_INS1_8AsmTokenESaIS6_EESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %8)
   br i1 %33, label %_ZN4llvm11SmallStringILj256EED2Ev.exit, label %34
 
 34:                                               ; preds = %32
@@ -12867,7 +12867,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNK4llvm9StringMapISt4pairIPNS_20MCAsm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveSetEN4llvm9StringRefENS0_14AssignmentKindE(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveSetEN4llvm9StringRefENS0_14AssignmentKindE(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -12914,7 +12914,7 @@ declare noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEsingleEv() local
 declare noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseDirectiveAlignEbj(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseDirectiveAlignEbj(ptr noundef nonnull align 8 dereferenceable(928) %0, i1 noundef zeroext %1, i32 noundef range(i32 1, 5) %2) unnamed_addr #3 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.llvm::SMLoc", align 8
   %6 = alloca i64, align 8
@@ -21242,7 +21242,7 @@ _ZNSt8optionalISt4pairIbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveDCBEN4llvm9StringRefEj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr %1, i64 %2, i32 noundef %3) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDirectiveDCBEN4llvm9StringRefEj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr %1, i64 %2, i32 noundef range(i32 1, 5) %3) unnamed_addr #3 align 2 {
   %5 = alloca %"class.llvm::SMLoc", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca i64, align 8
@@ -21256,14 +21256,14 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser17parseDir
   %15 = getelementptr inbounds i8, ptr %14, i64 264
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(928) %0) #28
-  br i1 %17, label %86, label %18
+  br i1 %17, label %84, label %18
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 256
   %21 = load ptr, ptr %20, align 8
   %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull align 8 dereferenceable(8) %7) #28
-  br i1 %22, label %86, label %23
+  br i1 %22, label %84, label %23
 
 23:                                               ; preds = %18
   %24 = load i64, ptr %7, align 8
@@ -21291,7 +21291,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit39:                ; preds = %23
   %33 = getelementptr inbounds i8, ptr %32, i64 168
   %34 = load ptr, ptr %33, align 8
   %35 = call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr %13, ptr noundef nonnull align 8 dereferenceable(34) %8, ptr null, ptr null) #28
-  br label %86
+  br label %84
 
 36:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
@@ -21302,7 +21302,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit39:                ; preds = %23
   store i8 3, ptr %37, align 8
   %39 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser10parseTokenENS_8AsmToken9TokenKindERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(34) %0, i32 noundef 26, ptr noundef nonnull align 8 dereferenceable(34) %6) #28
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  br i1 %39, label %86, label %40
+  br i1 %39, label %84, label %40
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %0, align 8
@@ -21317,95 +21317,85 @@ _ZN4llvmplERKNS_5TwineES2_.exit39:                ; preds = %23
   %48 = load ptr, ptr %47, align 8
   %49 = call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %5) #28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %49, label %86, label %50
+  br i1 %49, label %84, label %50
 
 50:                                               ; preds = %40
   %51 = load ptr, ptr %10, align 8
   %52 = load i8, ptr %51, align 8
   %.not = icmp eq i8 %52, 1
-  br i1 %.not, label %53, label %77
+  br i1 %.not, label %_ZN4llvm7isUIntNEjm.exit, label %75
 
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %55 = load i64, ptr %54, align 8
-  %56 = shl nuw nsw i32 %3, 3
-  %57 = icmp ugt i32 %3, 7
-  br i1 %57, label %_ZN4llvm7isUIntNEjm.exit.thread, label %_ZN4llvm7isUIntNEjm.exit
+_ZN4llvm7isUIntNEjm.exit:                         ; preds = %50
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %54 = load i64, ptr %53, align 8
+  %55 = shl nuw nsw i32 %3, 3
+  %narrow.i = sub nuw nsw i32 64, %55
+  %56 = zext nneg i32 %narrow.i to i64
+  %57 = lshr i64 -1, %56
+  %.not48 = icmp ugt i64 %54, %57
+  br i1 %.not48, label %58, label %_ZN4llvm7isUIntNEjm.exit.thread
 
-_ZN4llvm7isUIntNEjm.exit:                         ; preds = %53
-  %58 = icmp eq i32 %3, 0
-  %narrow.i = sub nuw nsw i32 64, %56
-  %59 = zext nneg i32 %narrow.i to i64
-  %60 = lshr i64 -1, %59
-  %.0.i.i40 = select i1 %58, i64 0, i64 %60
-  %.not47 = icmp ugt i64 %55, %.0.i.i40
-  br i1 %.not47, label %61, label %_ZN4llvm7isUIntNEjm.exit.thread
+58:                                               ; preds = %_ZN4llvm7isUIntNEjm.exit
+  %59 = zext nneg i32 %55 to i64
+  %60 = add nsw i64 %59, -1
+  %.neg.i.i = shl nsw i64 -1, %60
+  %.not.i = icmp sle i64 %.neg.i.i, %54
+  %61 = xor i64 %.neg.i.i, -1
+  %62 = icmp sle i64 %54, %61
+  %or.cond = and i1 %.not.i, %62
+  br i1 %or.cond, label %_ZN4llvm7isUIntNEjm.exit.thread, label %_ZN4llvm6isIntNEjl.exit.thread
 
-61:                                               ; preds = %_ZN4llvm7isUIntNEjm.exit
-  %62 = zext nneg i32 %56 to i64
-  %63 = add nsw i64 %62, -1
-  %.neg.i.i = shl nsw i64 -1, %63
-  %.0.i.i41 = select i1 %58, i64 0, i64 %.neg.i.i
-  %.not.i = icmp sgt i64 %.0.i.i41, %55
-  br i1 %.not.i, label %_ZN4llvm6isIntNEjl.exit.thread, label %_ZN4llvm6isIntNEjl.exit
-
-_ZN4llvm6isIntNEjl.exit:                          ; preds = %61
-  %64 = xor i64 %.neg.i.i, -1
-  %.0.i6.i = select i1 %58, i64 0, i64 %64
-  %.not48 = icmp sgt i64 %55, %.0.i6.i
-  br i1 %.not48, label %_ZN4llvm6isIntNEjl.exit.thread, label %_ZN4llvm7isUIntNEjm.exit.thread
-
-_ZN4llvm6isIntNEjl.exit.thread:                   ; preds = %61, %_ZN4llvm6isIntNEjl.exit
-  %65 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %66 = getelementptr inbounds nuw i8, ptr %11, i64 33
-  store i8 1, ptr %66, align 1
+_ZN4llvm6isIntNEjl.exit.thread:                   ; preds = %58
+  %63 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %11, i64 33
+  store i8 1, ptr %64, align 1
   store ptr @.str.371, ptr %11, align 8
-  store i8 3, ptr %65, align 8
-  %67 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr %45, ptr noundef nonnull align 8 dereferenceable(34) %11, ptr null, ptr null) #28
-  br label %86
+  store i8 3, ptr %63, align 8
+  %65 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr %45, ptr noundef nonnull align 8 dereferenceable(34) %11, ptr null, ptr null) #28
+  br label %84
 
-_ZN4llvm7isUIntNEjm.exit.thread:                  ; preds = %53, %_ZN4llvm6isIntNEjl.exit, %_ZN4llvm7isUIntNEjm.exit
-  %68 = load i64, ptr %7, align 8
-  %.not2452 = icmp eq i64 %68, 0
+_ZN4llvm7isUIntNEjm.exit.thread:                  ; preds = %58, %_ZN4llvm7isUIntNEjm.exit
+  %66 = load i64, ptr %7, align 8
+  %.not2452 = icmp eq i64 %66, 0
   br i1 %.not2452, label %.loopexit, label %.lr.ph54
 
 .lr.ph54:                                         ; preds = %_ZN4llvm7isUIntNEjm.exit.thread, %.lr.ph54
-  %.02053 = phi i64 [ %76, %.lr.ph54 ], [ 0, %_ZN4llvm7isUIntNEjm.exit.thread ]
-  %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 56
+  %.02053 = phi i64 [ %74, %.lr.ph54 ], [ 0, %_ZN4llvm7isUIntNEjm.exit.thread ]
+  %67 = load ptr, ptr %0, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 56
+  %69 = load ptr, ptr %68, align 8
+  %70 = call noundef nonnull align 8 dereferenceable(288) ptr %69(ptr noundef nonnull align 8 dereferenceable(928) %0) #28
   %71 = load ptr, ptr %70, align 8
-  %72 = call noundef nonnull align 8 dereferenceable(288) ptr %71(ptr noundef nonnull align 8 dereferenceable(928) %0) #28
+  %72 = getelementptr inbounds i8, ptr %71, i64 520
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 520
-  %75 = load ptr, ptr %74, align 8
-  call void %75(ptr noundef nonnull align 8 dereferenceable(288) %72, i64 noundef %55, i32 noundef %3) #28
-  %76 = add nuw i64 %.02053, 1
-  %.not24 = icmp eq i64 %76, %68
+  call void %73(ptr noundef nonnull align 8 dereferenceable(288) %70, i64 noundef %54, i32 noundef %3) #28
+  %74 = add nuw i64 %.02053, 1
+  %.not24 = icmp eq i64 %74, %66
   br i1 %.not24, label %.loopexit, label %.lr.ph54, !llvm.loop !375
 
-77:                                               ; preds = %50
-  %78 = load i64, ptr %7, align 8
-  %.not2350 = icmp eq i64 %78, 0
+75:                                               ; preds = %50
+  %76 = load i64, ptr %7, align 8
+  %.not2350 = icmp eq i64 %76, 0
   br i1 %.not2350, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %77, %.lr.ph
-  %.02151 = phi i64 [ %84, %.lr.ph ], [ 0, %77 ]
-  %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 56
-  %81 = load ptr, ptr %80, align 8
-  %82 = call noundef nonnull align 8 dereferenceable(288) ptr %81(ptr noundef nonnull align 8 dereferenceable(928) %0) #28
-  %83 = load ptr, ptr %10, align 8
-  call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(288) %82, ptr noundef %83, i32 noundef %3, ptr %45) #28
-  %84 = add nuw i64 %.02151, 1
-  %.not23 = icmp eq i64 %84, %78
+.lr.ph:                                           ; preds = %75, %.lr.ph
+  %.02151 = phi i64 [ %82, %.lr.ph ], [ 0, %75 ]
+  %77 = load ptr, ptr %0, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 56
+  %79 = load ptr, ptr %78, align 8
+  %80 = call noundef nonnull align 8 dereferenceable(288) ptr %79(ptr noundef nonnull align 8 dereferenceable(928) %0) #28
+  %81 = load ptr, ptr %10, align 8
+  call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(288) %80, ptr noundef %81, i32 noundef %3, ptr %45) #28
+  %82 = add nuw i64 %.02151, 1
+  %.not23 = icmp eq i64 %82, %76
   br i1 %.not23, label %.loopexit, label %.lr.ph, !llvm.loop !376
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph54, %77, %_ZN4llvm7isUIntNEjm.exit.thread
-  %85 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8parseEOLEv(ptr noundef nonnull align 8 dereferenceable(34) %0) #28
-  br label %86
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph54, %75, %_ZN4llvm7isUIntNEjm.exit.thread
+  %83 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8parseEOLEv(ptr noundef nonnull align 8 dereferenceable(34) %0) #28
+  br label %84
 
-86:                                               ; preds = %40, %36, %4, %18, %.loopexit, %_ZN4llvm6isIntNEjl.exit.thread, %_ZN4llvmplERKNS_5TwineES2_.exit39
-  %.0 = phi i1 [ false, %_ZN4llvmplERKNS_5TwineES2_.exit39 ], [ %85, %.loopexit ], [ %67, %_ZN4llvm6isIntNEjl.exit.thread ], [ true, %18 ], [ true, %4 ], [ true, %36 ], [ true, %40 ]
+84:                                               ; preds = %40, %36, %4, %18, %.loopexit, %_ZN4llvm6isIntNEjl.exit.thread, %_ZN4llvmplERKNS_5TwineES2_.exit39
+  %.0 = phi i1 [ false, %_ZN4llvmplERKNS_5TwineES2_.exit39 ], [ %83, %.loopexit ], [ %65, %_ZN4llvm6isIntNEjl.exit.thread ], [ true, %18 ], [ true, %4 ], [ true, %36 ], [ true, %40 ]
   ret i1 %.0
 }
 
@@ -21540,7 +21530,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %66, %63, %.loopexit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser16parseDirectiveDSEN4llvm9StringRefEj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr %1, i64 %2, i32 noundef %3) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser16parseDirectiveDSEN4llvm9StringRefEj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr %1, i64 %2, i32 noundef range(i32 1, 13) %3) unnamed_addr #3 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -22306,7 +22296,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(121) ptr @_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser37parseAndMatchAndEmitTargetInstructionERNS_18ParseStatementInfoEN4llvm9StringRefENS3_8AsmTokenENS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr %2, i64 %3, ptr noundef %4, ptr %5) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser37parseAndMatchAndEmitTargetInstructionERNS_18ParseStatementInfoEN4llvm9StringRefENS3_8AsmTokenENS3_5SMLocE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr %2, i64 %3, ptr noundef nonnull %4, ptr %5) unnamed_addr #3 align 2 {
   %7 = alloca %"class.llvm::Expected", align 8
   %8 = alloca %"class.llvm::StringRef", align 8
   %9 = alloca %"class.std::optional.292", align 8
@@ -32985,7 +32975,7 @@ declare noundef i64 @_ZN4llvm8AsmLexer10peekTokensENS_15MutableArrayRefINS_8AsmT
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser13parseBinOpRHSEjRPKN4llvm6MCExprERNS1_5SMLocE(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser13parseBinOpRHSEjRPKN4llvm6MCExprERNS1_5SMLocE(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef range(i32 1, 7) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #3 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4

@@ -11890,7 +11890,7 @@ define i32 @gres_job_state_validate(ptr noundef %0, ptr noundef readonly %1, ptr
 75:                                               ; preds = %74
   store ptr null, ptr %21, align 8
   %76 = load ptr, ptr %15, align 8
-  %77 = call fastcc ptr @_get_next_job_gres(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef %76, ptr noundef nonnull %21, ptr noundef nonnull %18)
+  %77 = call fastcc ptr @_get_next_job_gres(ptr noundef nonnull %0, ptr noundef %19, ptr noundef %76, ptr noundef %21, ptr noundef %18)
   %.not254397 = icmp eq ptr %77, null
   br i1 %.not254397, label %.loopexit312, label %.lr.ph
 
@@ -11906,7 +11906,7 @@ define i32 @gres_job_state_validate(ptr noundef %0, ptr noundef readonly %1, ptr
   %85 = getelementptr inbounds i8, ptr %80, i64 64
   store i16 %84, ptr %85, align 8
   %86 = load ptr, ptr %15, align 8
-  %87 = call fastcc ptr @_get_next_job_gres(ptr noundef null, ptr noundef nonnull %19, ptr noundef %86, ptr noundef nonnull %21, ptr noundef nonnull %18)
+  %87 = call fastcc ptr @_get_next_job_gres(ptr noundef null, ptr noundef %19, ptr noundef %86, ptr noundef %21, ptr noundef %18)
   %.not254 = icmp eq ptr %87, null
   br i1 %.not254, label %.loopexit312, label %.lr.ph, !llvm.loop !114
 
@@ -11916,7 +11916,7 @@ define i32 @gres_job_state_validate(ptr noundef %0, ptr noundef readonly %1, ptr
 88:                                               ; preds = %.loopexit312
   store ptr null, ptr %22, align 8
   %89 = load ptr, ptr %15, align 8
-  %90 = call fastcc ptr @_get_next_job_gres(ptr noundef nonnull %2, ptr noundef nonnull %19, ptr noundef %89, ptr noundef nonnull %22, ptr noundef nonnull %18)
+  %90 = call fastcc ptr @_get_next_job_gres(ptr noundef nonnull %2, ptr noundef %19, ptr noundef %89, ptr noundef %22, ptr noundef %18)
   %.not255398 = icmp eq ptr %90, null
   br i1 %.not255398, label %.loopexit311, label %.lr.ph400
 
@@ -11949,7 +11949,7 @@ define i32 @gres_job_state_validate(ptr noundef %0, ptr noundef readonly %1, ptr
   %105 = getelementptr inbounds i8, ptr %99, i64 64
   store i16 %104, ptr %105, align 8
   %106 = load ptr, ptr %15, align 8
-  %107 = call fastcc ptr @_get_next_job_gres(ptr noundef null, ptr noundef nonnull %19, ptr noundef %106, ptr noundef nonnull %22, ptr noundef nonnull %18)
+  %107 = call fastcc ptr @_get_next_job_gres(ptr noundef null, ptr noundef %19, ptr noundef %106, ptr noundef %22, ptr noundef %18)
   %.not255 = icmp eq ptr %107, null
   br i1 %.not255, label %.loopexit311, label %.lr.ph400, !llvm.loop !115
 
@@ -11960,7 +11960,7 @@ define i32 @gres_job_state_validate(ptr noundef %0, ptr noundef readonly %1, ptr
 108:                                              ; preds = %.loopexit311
   store ptr null, ptr %23, align 8
   %109 = load ptr, ptr %15, align 8
-  %110 = call fastcc ptr @_get_next_job_gres(ptr noundef nonnull %3, ptr noundef nonnull %19, ptr noundef %109, ptr noundef nonnull %23, ptr noundef nonnull %18)
+  %110 = call fastcc ptr @_get_next_job_gres(ptr noundef nonnull %3, ptr noundef %19, ptr noundef %109, ptr noundef %23, ptr noundef %18)
   %.not256401 = icmp eq ptr %110, null
   br i1 %.not256401, label %.loopexit310, label %.lr.ph403
 
@@ -12005,7 +12005,7 @@ define i32 @gres_job_state_validate(ptr noundef %0, ptr noundef readonly %1, ptr
   %131 = getelementptr inbounds i8, ptr %119, i64 64
   store i16 %130, ptr %131, align 8
   %132 = load ptr, ptr %15, align 8
-  %133 = call fastcc ptr @_get_next_job_gres(ptr noundef null, ptr noundef nonnull %19, ptr noundef %132, ptr noundef nonnull %23, ptr noundef nonnull %18)
+  %133 = call fastcc ptr @_get_next_job_gres(ptr noundef null, ptr noundef %19, ptr noundef %132, ptr noundef %23, ptr noundef %18)
   %.not256 = icmp eq ptr %133, null
   br i1 %.not256, label %.loopexit310, label %.lr.ph403, !llvm.loop !116
 
@@ -12016,7 +12016,7 @@ define i32 @gres_job_state_validate(ptr noundef %0, ptr noundef readonly %1, ptr
 134:                                              ; preds = %.loopexit310
   store ptr null, ptr %24, align 8
   %135 = load ptr, ptr %15, align 8
-  %136 = call fastcc ptr @_get_next_job_gres(ptr noundef nonnull %4, ptr noundef nonnull %19, ptr noundef %135, ptr noundef nonnull %24, ptr noundef nonnull %18)
+  %136 = call fastcc ptr @_get_next_job_gres(ptr noundef nonnull %4, ptr noundef %19, ptr noundef %135, ptr noundef %24, ptr noundef %18)
   %.not257405 = icmp eq ptr %136, null
   br i1 %.not257405, label %.loopexit309, label %.lr.ph407
 
@@ -12089,7 +12089,7 @@ define i32 @gres_job_state_validate(ptr noundef %0, ptr noundef readonly %1, ptr
   %170 = getelementptr inbounds i8, ptr %145, i64 64
   store i16 %169, ptr %170, align 8
   %171 = load ptr, ptr %15, align 8
-  %172 = call fastcc ptr @_get_next_job_gres(ptr noundef null, ptr noundef nonnull %19, ptr noundef %171, ptr noundef nonnull %24, ptr noundef nonnull %18)
+  %172 = call fastcc ptr @_get_next_job_gres(ptr noundef null, ptr noundef %19, ptr noundef %171, ptr noundef %24, ptr noundef %18)
   %.not257 = icmp eq ptr %172, null
   br i1 %.not257, label %.loopexit309, label %.lr.ph407, !llvm.loop !117
 
@@ -12100,7 +12100,7 @@ define i32 @gres_job_state_validate(ptr noundef %0, ptr noundef readonly %1, ptr
 173:                                              ; preds = %.loopexit309
   store ptr null, ptr %25, align 8
   %174 = load ptr, ptr %15, align 8
-  %175 = call fastcc ptr @_get_next_job_gres(ptr noundef nonnull %5, ptr noundef nonnull %19, ptr noundef %174, ptr noundef nonnull %25, ptr noundef nonnull %18)
+  %175 = call fastcc ptr @_get_next_job_gres(ptr noundef nonnull %5, ptr noundef %19, ptr noundef %174, ptr noundef %25, ptr noundef %18)
   %.not258409 = icmp eq ptr %175, null
   br i1 %.not258409, label %.loopexit308, label %.lr.ph411
 
@@ -12145,7 +12145,7 @@ define i32 @gres_job_state_validate(ptr noundef %0, ptr noundef readonly %1, ptr
   %196 = getelementptr inbounds i8, ptr %184, i64 64
   store i16 %195, ptr %196, align 8
   %197 = load ptr, ptr %15, align 8
-  %198 = call fastcc ptr @_get_next_job_gres(ptr noundef null, ptr noundef nonnull %19, ptr noundef %197, ptr noundef nonnull %25, ptr noundef nonnull %18)
+  %198 = call fastcc ptr @_get_next_job_gres(ptr noundef null, ptr noundef %19, ptr noundef %197, ptr noundef %25, ptr noundef %18)
   %.not258 = icmp eq ptr %198, null
   br i1 %.not258, label %.loopexit308, label %.lr.ph411, !llvm.loop !118
 
@@ -12156,7 +12156,7 @@ define i32 @gres_job_state_validate(ptr noundef %0, ptr noundef readonly %1, ptr
 199:                                              ; preds = %.loopexit308
   store ptr null, ptr %26, align 8
   %200 = load ptr, ptr %15, align 8
-  %201 = call fastcc ptr @_get_next_job_gres(ptr noundef nonnull %6, ptr noundef nonnull %19, ptr noundef %200, ptr noundef nonnull %26, ptr noundef nonnull %18)
+  %201 = call fastcc ptr @_get_next_job_gres(ptr noundef nonnull %6, ptr noundef %19, ptr noundef %200, ptr noundef %26, ptr noundef %18)
   %.not259413 = icmp eq ptr %201, null
   br i1 %.not259413, label %.loopexit307, label %.lr.ph414
 
@@ -12171,7 +12171,7 @@ define i32 @gres_job_state_validate(ptr noundef %0, ptr noundef readonly %1, ptr
   %208 = getelementptr inbounds i8, ptr %204, i64 64
   store i16 %207, ptr %208, align 8
   %209 = load ptr, ptr %15, align 8
-  %210 = call fastcc ptr @_get_next_job_gres(ptr noundef null, ptr noundef nonnull %19, ptr noundef %209, ptr noundef nonnull %26, ptr noundef nonnull %18)
+  %210 = call fastcc ptr @_get_next_job_gres(ptr noundef null, ptr noundef %19, ptr noundef %209, ptr noundef %26, ptr noundef %18)
   %.not259 = icmp eq ptr %210, null
   br i1 %.not259, label %.loopexit307.thread, label %.lr.ph414, !llvm.loop !119
 
@@ -12230,7 +12230,7 @@ define i32 @gres_job_state_validate(ptr noundef %0, ptr noundef readonly %1, ptr
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %28, ptr noundef nonnull @.str.67, i32 noundef %232) #25
   %233 = load ptr, ptr %28, align 8
   %234 = load ptr, ptr %15, align 8
-  %235 = call fastcc ptr @_get_next_job_gres(ptr noundef %233, ptr noundef nonnull %19, ptr noundef %234, ptr noundef nonnull %27, ptr noundef nonnull %18)
+  %235 = call fastcc ptr @_get_next_job_gres(ptr noundef %233, ptr noundef %19, ptr noundef %234, ptr noundef %27, ptr noundef %18)
   %.not264415 = icmp eq ptr %235, null
   br i1 %.not264415, label %._crit_edge, label %.lr.ph416
 
@@ -12249,7 +12249,7 @@ define i32 @gres_job_state_validate(ptr noundef %0, ptr noundef readonly %1, ptr
   %.288 = call i64 @llvm.umax.i64(i64 %244, i64 %241)
   store i64 %.288, ptr %243, align 8
   %245 = load ptr, ptr %15, align 8
-  %246 = call fastcc ptr @_get_next_job_gres(ptr noundef null, ptr noundef nonnull %19, ptr noundef %245, ptr noundef nonnull %27, ptr noundef nonnull %18)
+  %246 = call fastcc ptr @_get_next_job_gres(ptr noundef null, ptr noundef %19, ptr noundef %245, ptr noundef %27, ptr noundef %18)
   %.not264 = icmp eq ptr %246, null
   br i1 %.not264, label %._crit_edge, label %.lr.ph416, !llvm.loop !120
 
@@ -12961,7 +12961,7 @@ _set_over_list.exit.thread:                       ; preds = %543, %541, %551, %_
 declare void @slurm_option_update_tres_per_task_cpu(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_next_job_gres(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #2 {
+define internal fastcc ptr @_get_next_job_gres(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #2 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.gres_search_key, align 4
   %8 = alloca ptr, align 8
@@ -13000,7 +13000,7 @@ define internal fastcc ptr @_get_next_job_gres(ptr noundef %0, ptr nocapture nou
   br i1 %21, label %.sink.split, label %22
 
 22:                                               ; preds = %18
-  %23 = call fastcc i32 @_get_next_gres(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull @_get_next_job_gres.prev_save_ptr)
+  %23 = call fastcc i32 @_get_next_gres(ptr noundef %0, ptr noundef %8, ptr noundef %6, ptr noundef %1, ptr noundef nonnull @_get_next_job_gres.prev_save_ptr)
   %24 = icmp ne i32 %23, 0
   %25 = load i32, ptr %6, align 4
   %26 = icmp eq i32 %25, -2
@@ -19293,7 +19293,7 @@ _parse_accel_bind_type.exit:                      ; preds = %49, %51
   %83 = load ptr, ptr %8, align 8
   %84 = load ptr, ptr %9, align 8
   %85 = trunc nuw nsw i64 %indvars.iv98 to i32
-  %86 = call fastcc i32 @_get_usable_gres(i32 noundef %85, i32 noundef %4, ptr noundef %3, ptr noundef nonnull %10, ptr noundef %83, i1 noundef zeroext true, ptr noundef %5, ptr noundef %84, ptr noundef null)
+  %86 = call fastcc i32 @_get_usable_gres(i32 noundef %85, i32 noundef %4, ptr noundef %3, ptr noundef %10, ptr noundef %83, i1 noundef zeroext true, ptr noundef %5, ptr noundef %84, ptr noundef null)
   %87 = icmp eq i32 %86, -1
   br i1 %87, label %114, label %88
 
@@ -19471,7 +19471,7 @@ _accumulate_job_gres_alloc.exit:                  ; preds = %17, %29, %22, %19, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, i1 noundef zeroext %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr noundef %8) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef %4, i1 noundef zeroext %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr noundef %8) unnamed_addr #2 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -19560,7 +19560,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i3
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds i8, ptr %.086, i64 8
-  %53 = call fastcc ptr @_get_usable_gres_map_or_mask(ptr noundef nonnull %52, i32 noundef %1, ptr noundef nonnull %4, i1 noundef zeroext true, i1 noundef zeroext %5)
+  %53 = call fastcc ptr @_get_usable_gres_map_or_mask(ptr noundef %52, i32 noundef %1, ptr noundef %4, i1 noundef zeroext true, i1 noundef zeroext %5)
   br label %282
 
 54:                                               ; preds = %49
@@ -19570,7 +19570,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i3
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds i8, ptr %.086, i64 9
-  %58 = call fastcc ptr @_get_usable_gres_map_or_mask(ptr noundef nonnull %57, i32 noundef %1, ptr noundef nonnull %4, i1 noundef zeroext false, i1 noundef zeroext %5)
+  %58 = call fastcc ptr @_get_usable_gres_map_or_mask(ptr noundef %57, i32 noundef %1, ptr noundef %4, i1 noundef zeroext false, i1 noundef zeroext %5)
   br label %282
 
 59:                                               ; preds = %54
@@ -19580,7 +19580,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i3
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds i8, ptr %.086, i64 4
-  %63 = call fastcc ptr @_get_usable_gres_map_or_mask(ptr noundef nonnull %62, i32 noundef %1, ptr noundef nonnull %4, i1 noundef zeroext true, i1 noundef zeroext %5)
+  %63 = call fastcc ptr @_get_usable_gres_map_or_mask(ptr noundef %62, i32 noundef %1, ptr noundef %4, i1 noundef zeroext true, i1 noundef zeroext %5)
   br label %282
 
 64:                                               ; preds = %59
@@ -19590,7 +19590,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i3
 
 66:                                               ; preds = %64
   %67 = getelementptr inbounds i8, ptr %.086, i64 5
-  %68 = call fastcc ptr @_get_usable_gres_map_or_mask(ptr noundef nonnull %67, i32 noundef %1, ptr noundef nonnull %4, i1 noundef zeroext false, i1 noundef zeroext %5)
+  %68 = call fastcc ptr @_get_usable_gres_map_or_mask(ptr noundef %67, i32 noundef %1, ptr noundef %4, i1 noundef zeroext false, i1 noundef zeroext %5)
   br label %282
 
 69:                                               ; preds = %64
@@ -19615,7 +19615,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i3
   %78 = getelementptr inbounds i8, ptr %.086, i64 7
   %79 = call i64 @strtoul(ptr nocapture noundef nonnull %78, ptr noundef null, i32 noundef 10) #25
   %80 = trunc i64 %79 to i32
-  %81 = call fastcc ptr @_get_single_usable_gres(i32 noundef %0, i32 noundef %80, i32 noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %4)
+  %81 = call fastcc ptr @_get_single_usable_gres(i32 noundef %0, i32 noundef %80, i32 noundef %1, ptr noundef nonnull %6, ptr noundef %4)
   br label %282
 
 82:                                               ; preds = %69
@@ -19666,7 +19666,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i3
 107:                                              ; preds = %99, %98
   %108 = getelementptr inbounds i8, ptr %.086, i64 9
   %109 = call i64 @strtoul(ptr nocapture noundef nonnull %108, ptr noundef null, i32 noundef 10) #25
-  %110 = call fastcc ptr @_get_gres_per_task(ptr noundef nonnull %4, i64 noundef %109, ptr noundef nonnull %6, i32 noundef %16, i32 noundef %1)
+  %110 = call fastcc ptr @_get_gres_per_task(ptr noundef %4, i64 noundef %109, ptr noundef nonnull %6, i32 noundef %16, i32 noundef %1)
   br label %282
 
 111:                                              ; preds = %96
@@ -19723,7 +19723,7 @@ _filter_shared_gres_per_task.exit66.us.i:         ; preds = %138, %_filter_share
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 48
   %135 = load ptr, ptr %134, align 8
-  %136 = call fastcc ptr @_get_closest_usable_gres(i32 noundef %120, ptr noundef %4, ptr noundef %135)
+  %136 = call fastcc ptr @_get_closest_usable_gres(i32 noundef %120, ptr noundef nonnull %4, ptr noundef %135)
   store ptr %136, ptr %10, align 8
   %.not32.us.i = icmp eq ptr %136, null
   br i1 %.not32.us.i, label %138, label %137
@@ -19750,7 +19750,7 @@ _filter_shared_gres_per_task.exit66.us.i:         ; preds = %138, %_filter_share
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 48
   %144 = load ptr, ptr %143, align 8
-  %145 = call fastcc ptr @_get_closest_usable_gres(i32 noundef %120, ptr noundef %4, ptr noundef %144)
+  %145 = call fastcc ptr @_get_closest_usable_gres(i32 noundef %120, ptr noundef nonnull %4, ptr noundef %144)
   store ptr %145, ptr %10, align 8
   %146 = icmp eq i64 %indvars.iv.i, %128
   %147 = call i64 @bit_ffs_from_bit(ptr noundef %145, i64 noundef 0) #25
@@ -19813,7 +19813,7 @@ _filter_shared_gres_per_task.exit66.us.i:         ; preds = %138, %_filter_share
   br i1 %146, label %.lr.ph.split.us.split.us.i42.preheader.i, label %.lr.ph.split.split.us.i37.preheader.i
 
 .lr.ph.split.split.us.i37.preheader.i:            ; preds = %.lr.ph.i35.i, %.lr.ph.split.split.us.i.preheader.i
-  %174 = call i64 @bit_ffs_from_bit(ptr noundef %4, i64 noundef 0) #25
+  %174 = call i64 @bit_ffs_from_bit(ptr noundef nonnull %4, i64 noundef 0) #25
   %175 = and i64 %174, 2147483648
   %176 = icmp eq i64 %175, 0
   br i1 %176, label %.lr.ph.split.split.us.backedge.i39.i, label %.lr.ph.i49.thread152.i
@@ -19823,7 +19823,7 @@ _filter_shared_gres_per_task.exit66.us.i:         ; preds = %138, %_filter_share
   br label %.lr.ph.split.split.i.preheader.i
 
 .lr.ph.split.us.split.us.i42.preheader.i:         ; preds = %.lr.ph.i35.i, %.lr.ph.split.us.split.us.i.preheader.i
-  %178 = call i64 @bit_ffs_from_bit(ptr noundef %4, i64 noundef 0) #25
+  %178 = call i64 @bit_ffs_from_bit(ptr noundef nonnull %4, i64 noundef 0) #25
   %179 = and i64 %178, 2147483648
   %180 = icmp eq i64 %179, 0
   br i1 %180, label %.lr.ph.split.us.split.us.backedge.i45.i, label %.lr.ph.i49.thread.i
@@ -19835,7 +19835,7 @@ _filter_shared_gres_per_task.exit66.us.i:         ; preds = %138, %_filter_share
 .lr.ph.split.us.split.us.i42.i:                   ; preds = %.lr.ph.split.us.split.us.backedge.i45.i
   %.025.us.us.be.i46.i = add nuw nsw i64 %186, 1
   %182 = and i64 %.025.us.us.be.i46.i, 4294967295
-  %183 = call i64 @bit_ffs_from_bit(ptr noundef %4, i64 noundef %182) #25
+  %183 = call i64 @bit_ffs_from_bit(ptr noundef nonnull %4, i64 noundef %182) #25
   %184 = and i64 %183, 2147483648
   %185 = icmp eq i64 %184, 0
   br i1 %185, label %.lr.ph.split.us.split.us.backedge.i45.i, label %.lr.ph.i49.i, !llvm.loop !193
@@ -19858,7 +19858,7 @@ _filter_shared_gres_per_task.exit66.us.i:         ; preds = %138, %_filter_share
 .lr.ph.split.split.us.i37.i:                      ; preds = %.lr.ph.split.split.us.backedge.i39.i
   %.025.us27.be.i40.i = add nuw nsw i64 %198, 1
   %194 = and i64 %.025.us27.be.i40.i, 4294967295
-  %195 = call i64 @bit_ffs_from_bit(ptr noundef %4, i64 noundef %194) #25
+  %195 = call i64 @bit_ffs_from_bit(ptr noundef nonnull %4, i64 noundef %194) #25
   %196 = and i64 %195, 2147483648
   %197 = icmp eq i64 %196, 0
   br i1 %197, label %.lr.ph.split.split.us.backedge.i39.i, label %.lr.ph.i49.i, !llvm.loop !193
@@ -19956,7 +19956,7 @@ _filter_shared_gres_per_task.exit52.i:            ; preds = %.lr.ph.split.split.
   %.21.i = phi i64 [ %.22.i, %249 ], [ %.2.i, %_filter_shared_gres_per_task.exit52.i ]
   %.025.us.i62.i = phi i64 [ %250, %249 ], [ 0, %_filter_shared_gres_per_task.exit52.i ]
   %237 = and i64 %.025.us.i62.i, 4294967295
-  %238 = call i64 @bit_ffs_from_bit(ptr noundef %4, i64 noundef %237) #25
+  %238 = call i64 @bit_ffs_from_bit(ptr noundef nonnull %4, i64 noundef %237) #25
   %239 = and i64 %238, 2147483648
   %240 = icmp eq i64 %239, 0
   br i1 %240, label %241, label %_filter_shared_gres_per_task.exit66thread-pre-split.i
@@ -19986,7 +19986,7 @@ _filter_shared_gres_per_task.exit52.i:            ; preds = %.lr.ph.split.split.
   %.19.i = phi i64 [ %.20.i, %263 ], [ %.2.i, %_filter_shared_gres_per_task.exit52.i ]
   %.025.i57.i = phi i64 [ %264, %263 ], [ 0, %_filter_shared_gres_per_task.exit52.i ]
   %251 = and i64 %.025.i57.i, 4294967295
-  %252 = call i64 @bit_ffs_from_bit(ptr noundef %4, i64 noundef %251) #25
+  %252 = call i64 @bit_ffs_from_bit(ptr noundef nonnull %4, i64 noundef %251) #25
   %253 = and i64 %252, 2147483648
   %254 = icmp eq i64 %253, 0
   br i1 %254, label %255, label %_filter_shared_gres_per_task.exit66thread-pre-split.i
@@ -20288,7 +20288,7 @@ define i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, ptr noundef
 
 33:                                               ; preds = %31
   store ptr null, ptr %21, align 8
-  %34 = call fastcc ptr @_get_next_step_gres(ptr noundef nonnull %0, ptr noundef nonnull %20, ptr noundef %32, ptr noundef nonnull %21, ptr noundef nonnull %19)
+  %34 = call fastcc ptr @_get_next_step_gres(ptr noundef nonnull %0, ptr noundef %20, ptr noundef %32, ptr noundef %21, ptr noundef %19)
   %.not135181 = icmp eq ptr %34, null
   br i1 %.not135181, label %.loopexit176, label %.lr.ph
 
@@ -20330,7 +20330,7 @@ define i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, ptr noundef
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %37, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = call fastcc ptr @_get_next_step_gres(ptr noundef null, ptr noundef nonnull %20, ptr noundef %32, ptr noundef nonnull %21, ptr noundef nonnull %19)
+  %53 = call fastcc ptr @_get_next_step_gres(ptr noundef null, ptr noundef %20, ptr noundef %32, ptr noundef %21, ptr noundef %19)
   %.not135 = icmp eq ptr %53, null
   br i1 %.not135, label %.loopexit176, label %.lr.ph, !llvm.loop !196
 
@@ -20343,7 +20343,7 @@ define i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, ptr noundef
 
 54:                                               ; preds = %.loopexit176
   store ptr null, ptr %22, align 8
-  %55 = call fastcc ptr @_get_next_step_gres(ptr noundef nonnull %1, ptr noundef nonnull %20, ptr noundef %32, ptr noundef nonnull %22, ptr noundef nonnull %19)
+  %55 = call fastcc ptr @_get_next_step_gres(ptr noundef nonnull %1, ptr noundef %20, ptr noundef %32, ptr noundef %22, ptr noundef %19)
   %.not137185 = icmp eq ptr %55, null
   br i1 %.not137185, label %.loopexit175, label %.lr.ph186
 
@@ -20358,7 +20358,7 @@ define i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, ptr noundef
   %62 = load i64, ptr %61, align 8
   %. = tail call i64 @llvm.umax.i64(i64 %62, i64 %59)
   store i64 %., ptr %61, align 8
-  %63 = call fastcc ptr @_get_next_step_gres(ptr noundef null, ptr noundef nonnull %20, ptr noundef %32, ptr noundef nonnull %22, ptr noundef nonnull %19)
+  %63 = call fastcc ptr @_get_next_step_gres(ptr noundef null, ptr noundef %20, ptr noundef %32, ptr noundef %22, ptr noundef %19)
   %.not137 = icmp eq ptr %63, null
   br i1 %.not137, label %.loopexit175, label %.lr.ph186, !llvm.loop !197
 
@@ -20368,7 +20368,7 @@ define i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, ptr noundef
 
 64:                                               ; preds = %.loopexit175
   store ptr null, ptr %23, align 8
-  %65 = call fastcc ptr @_get_next_step_gres(ptr noundef nonnull %2, ptr noundef nonnull %20, ptr noundef %32, ptr noundef nonnull %23, ptr noundef nonnull %19)
+  %65 = call fastcc ptr @_get_next_step_gres(ptr noundef nonnull %2, ptr noundef %20, ptr noundef %32, ptr noundef %23, ptr noundef %19)
   %.not139187 = icmp eq ptr %65, null
   br i1 %.not139187, label %.loopexit174, label %.lr.ph188
 
@@ -20388,7 +20388,7 @@ define i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, ptr noundef
   %75 = mul i64 %71, %66
   %.158 = tail call i64 @llvm.umax.i64(i64 %74, i64 %75)
   store i64 %.158, ptr %73, align 8
-  %76 = call fastcc ptr @_get_next_step_gres(ptr noundef null, ptr noundef nonnull %20, ptr noundef %32, ptr noundef nonnull %23, ptr noundef nonnull %19)
+  %76 = call fastcc ptr @_get_next_step_gres(ptr noundef null, ptr noundef %20, ptr noundef %32, ptr noundef %23, ptr noundef %19)
   %.not139 = icmp eq ptr %76, null
   br i1 %.not139, label %.loopexit174, label %67, !llvm.loop !198
 
@@ -20398,7 +20398,7 @@ define i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, ptr noundef
 
 77:                                               ; preds = %.loopexit174
   store ptr null, ptr %24, align 8
-  %78 = call fastcc ptr @_get_next_step_gres(ptr noundef nonnull %3, ptr noundef nonnull %20, ptr noundef %32, ptr noundef nonnull %24, ptr noundef nonnull %19)
+  %78 = call fastcc ptr @_get_next_step_gres(ptr noundef nonnull %3, ptr noundef %20, ptr noundef %32, ptr noundef %24, ptr noundef %19)
   %.not141189 = icmp eq ptr %78, null
   br i1 %.not141189, label %.loopexit173, label %.lr.ph190
 
@@ -20409,7 +20409,7 @@ define i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, ptr noundef
   %82 = load i64, ptr %20, align 8
   %83 = getelementptr inbounds i8, ptr %81, i64 40
   store i64 %82, ptr %83, align 8
-  %84 = call fastcc ptr @_get_next_step_gres(ptr noundef null, ptr noundef nonnull %20, ptr noundef %32, ptr noundef nonnull %24, ptr noundef nonnull %19)
+  %84 = call fastcc ptr @_get_next_step_gres(ptr noundef null, ptr noundef %20, ptr noundef %32, ptr noundef %24, ptr noundef %19)
   %.not141 = icmp eq ptr %84, null
   br i1 %.not141, label %.loopexit173, label %.lr.ph190, !llvm.loop !199
 
@@ -20419,7 +20419,7 @@ define i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, ptr noundef
 
 85:                                               ; preds = %.loopexit173
   store ptr null, ptr %25, align 8
-  %86 = call fastcc ptr @_get_next_step_gres(ptr noundef nonnull %4, ptr noundef nonnull %20, ptr noundef %32, ptr noundef nonnull %25, ptr noundef nonnull %19)
+  %86 = call fastcc ptr @_get_next_step_gres(ptr noundef nonnull %4, ptr noundef %20, ptr noundef %32, ptr noundef %25, ptr noundef %19)
   %.not143191 = icmp eq ptr %86, null
   br i1 %.not143191, label %.loopexit172, label %.lr.ph192
 
@@ -20446,7 +20446,7 @@ define i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, ptr noundef
   %99 = load i64, ptr %98, align 8
   %.159 = tail call i64 @llvm.umax.i64(i64 %99, i64 %97)
   store i64 %.159, ptr %98, align 8
-  %100 = call fastcc ptr @_get_next_step_gres(ptr noundef null, ptr noundef nonnull %20, ptr noundef %32, ptr noundef nonnull %25, ptr noundef nonnull %19)
+  %100 = call fastcc ptr @_get_next_step_gres(ptr noundef null, ptr noundef %20, ptr noundef %32, ptr noundef %25, ptr noundef %19)
   %.not143 = icmp eq ptr %100, null
   br i1 %.not143, label %.loopexit172, label %.lr.ph192, !llvm.loop !200
 
@@ -20456,7 +20456,7 @@ define i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, ptr noundef
 
 101:                                              ; preds = %.loopexit172
   store ptr null, ptr %26, align 8
-  %102 = call fastcc ptr @_get_next_step_gres(ptr noundef nonnull %5, ptr noundef nonnull %20, ptr noundef %32, ptr noundef nonnull %26, ptr noundef nonnull %19)
+  %102 = call fastcc ptr @_get_next_step_gres(ptr noundef nonnull %5, ptr noundef %20, ptr noundef %32, ptr noundef %26, ptr noundef %19)
   %.not145193 = icmp eq ptr %102, null
   br i1 %.not145193, label %.loopexit, label %.lr.ph194
 
@@ -20467,7 +20467,7 @@ define i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, ptr noundef
   %106 = load i64, ptr %20, align 8
   %107 = getelementptr inbounds i8, ptr %105, i64 56
   store i64 %106, ptr %107, align 8
-  %108 = call fastcc ptr @_get_next_step_gres(ptr noundef null, ptr noundef nonnull %20, ptr noundef %32, ptr noundef nonnull %26, ptr noundef nonnull %19)
+  %108 = call fastcc ptr @_get_next_step_gres(ptr noundef null, ptr noundef %20, ptr noundef %32, ptr noundef %26, ptr noundef %19)
   %.not145 = icmp eq ptr %108, null
   br i1 %.not145, label %.loopexit, label %.lr.ph194, !llvm.loop !201
 
@@ -20508,7 +20508,7 @@ define i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .preheader.i:                                     ; preds = %113
   %118 = load ptr, ptr %18, align 8
-  %119 = call fastcc ptr @_get_next_step_gres(ptr noundef %118, ptr noundef nonnull %15, ptr noundef %32, ptr noundef nonnull %17, ptr noundef nonnull %16)
+  %119 = call fastcc ptr @_get_next_step_gres(ptr noundef %118, ptr noundef %15, ptr noundef %32, ptr noundef %17, ptr noundef %16)
   %.not4851.i = icmp eq ptr %119, null
   br i1 %.not4851.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -20541,7 +20541,7 @@ define i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, ptr noundef
   %135 = load i64, ptr %134, align 8
   %..i = call i64 @llvm.umax.i64(i64 %135, i64 %131)
   store i64 %..i, ptr %134, align 8
-  %136 = call fastcc ptr @_get_next_step_gres(ptr noundef null, ptr noundef nonnull %15, ptr noundef %32, ptr noundef nonnull %17, ptr noundef nonnull %16)
+  %136 = call fastcc ptr @_get_next_step_gres(ptr noundef null, ptr noundef %15, ptr noundef %32, ptr noundef %17, ptr noundef %16)
   %.not48.i = icmp eq ptr %136, null
   br i1 %.not48.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !202
 
@@ -20804,7 +20804,7 @@ thread-pre-split:                                 ; preds = %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_next_step_gres(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #2 {
+define internal fastcc ptr @_get_next_step_gres(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #2 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.gres_search_key, align 4
   %8 = alloca ptr, align 8
@@ -20843,7 +20843,7 @@ define internal fastcc ptr @_get_next_step_gres(ptr noundef %0, ptr nocapture no
   br i1 %21, label %.sink.split, label %22
 
 22:                                               ; preds = %18
-  %23 = call fastcc i32 @_get_next_gres(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull @_get_next_step_gres.prev_save_ptr)
+  %23 = call fastcc i32 @_get_next_gres(ptr noundef %0, ptr noundef %8, ptr noundef %6, ptr noundef %1, ptr noundef nonnull @_get_next_step_gres.prev_save_ptr)
   %24 = icmp ne i32 %23, 0
   %25 = load i32, ptr %6, align 4
   %26 = icmp eq i32 %25, -2
@@ -23988,7 +23988,7 @@ _accumulate_step_gres_alloc.exit:                 ; preds = %.lr.ph.i, %54, %75,
   %110 = load ptr, ptr %5, align 8
   %111 = load ptr, ptr %6, align 8
   %112 = trunc nuw nsw i64 %indvars.iv to i32
-  %113 = call fastcc i32 @_get_usable_gres(i32 noundef %112, i32 noundef %1, ptr noundef %109, ptr noundef nonnull %4, ptr noundef %110, i1 noundef zeroext false, ptr noundef %0, ptr noundef %111, ptr noundef nonnull %7)
+  %113 = call fastcc i32 @_get_usable_gres(i32 noundef %112, i32 noundef %1, ptr noundef %109, ptr noundef %4, ptr noundef %110, i1 noundef zeroext false, ptr noundef %0, ptr noundef %111, ptr noundef nonnull %7)
   %114 = icmp eq i32 %113, -1
   br i1 %114, label %115, label %119
 
@@ -27041,7 +27041,7 @@ declare void @bit_and(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @bit_set_count(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_get_next_gres(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #2 {
+define internal fastcc i32 @_get_next_gres(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef %4) unnamed_addr #2 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -27406,7 +27406,7 @@ declare i64 @bit_ffs_from_bit(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_usable_gres_map_or_mask(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #2 {
+define internal fastcc ptr @_get_usable_gres_map_or_mask(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #2 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -27417,7 +27417,7 @@ define internal fastcc ptr @_get_usable_gres_map_or_mask(ptr noundef %0, i32 nou
   br i1 %.not, label %_translate_step_to_global_device_index.exit, label %.lr.ph65
 
 .lr.ph65:                                         ; preds = %5
-  %10 = tail call i64 @bit_size(ptr noundef %2) #25
+  %10 = tail call i64 @bit_size(ptr noundef nonnull %2) #25
   %11 = trunc i64 %10 to i32
   %not. = xor i1 %3, true
   %12 = zext i1 %not. to i32
@@ -27557,9 +27557,9 @@ gres_use_local_device_index.exit:                 ; preds = %.loopexit55, %55, %
   br i1 %4, label %64, label %79
 
 64:                                               ; preds = %63
-  %65 = call i64 @bit_size(ptr noundef %2) #25
+  %65 = call i64 @bit_size(ptr noundef nonnull %2) #25
   %66 = call ptr @bit_alloc(i64 noundef %65) #25
-  %67 = call i64 @bit_fls(ptr noundef %2) #25
+  %67 = call i64 @bit_fls(ptr noundef nonnull %2) #25
   %68 = and i64 %67, 2147483648
   %.not20.not.i = icmp eq i64 %68, 0
   br i1 %.not20.not.i, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -27572,7 +27572,7 @@ gres_use_local_device_index.exit:                 ; preds = %.loopexit55, %55, %
 .lr.ph.i:                                         ; preds = %77, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %77 ]
   %.022.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %77 ]
-  %70 = call i32 @bit_test(ptr noundef %2, i64 noundef %indvars.iv.i) #25
+  %70 = call i32 @bit_test(ptr noundef nonnull %2, i64 noundef %indvars.iv.i) #25
   %.not18.i = icmp eq i32 %70, 0
   br i1 %.not18.i, label %77, label %71
 
@@ -27605,13 +27605,13 @@ gres_use_local_device_index.exit:                 ; preds = %.loopexit55, %55, %
   br label %_translate_step_to_global_device_index.exit
 
 79:                                               ; preds = %63
-  call void @bit_and(ptr noundef %54, ptr noundef %2) #25
+  call void @bit_and(ptr noundef %54, ptr noundef nonnull %2) #25
   %80 = load ptr, ptr %6, align 8
   call void @bit_consolidate(ptr noundef %80) #25
   br label %_translate_step_to_global_device_index.exit
 
 81:                                               ; preds = %gres_use_local_device_index.exit
-  call void @bit_and(ptr noundef %54, ptr noundef %2) #25
+  call void @bit_and(ptr noundef %54, ptr noundef nonnull %2) #25
   %.pre = load ptr, ptr %6, align 8
   br label %_translate_step_to_global_device_index.exit
 
@@ -27621,11 +27621,11 @@ _translate_step_to_global_device_index.exit:      ; preds = %78, %._crit_edge.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_single_usable_gres(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #2 {
+define internal fastcc ptr @_get_single_usable_gres(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #2 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = tail call i32 @bit_set_count(ptr noundef %4) #25
+  %9 = tail call i32 @bit_set_count(ptr noundef nonnull %4) #25
   %10 = icmp slt i32 %9, 2
   br i1 %10, label %11, label %20
 
@@ -27645,7 +27645,7 @@ define internal fastcc ptr @_get_single_usable_gres(i32 noundef %0, i32 noundef 
   br label %18
 
 18:                                               ; preds = %11, %14, %17
-  %19 = tail call ptr @bit_copy(ptr noundef %4) #25
+  %19 = tail call ptr @bit_copy(ptr noundef nonnull %4) #25
   br label %164
 
 20:                                               ; preds = %5
@@ -27653,17 +27653,17 @@ define internal fastcc ptr @_get_single_usable_gres(i32 noundef %0, i32 noundef 
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %20
-  %23 = tail call ptr @bit_copy(ptr noundef %4) #25
+  %23 = tail call ptr @bit_copy(ptr noundef nonnull %4) #25
   store ptr %23, ptr %7, align 8
   br label %.loopexit
 
 24:                                               ; preds = %20
-  %25 = tail call i64 @bit_size(ptr noundef %4) #25
+  %25 = tail call i64 @bit_size(ptr noundef nonnull %4) #25
   %26 = sext i32 %1 to i64
   %27 = mul nsw i64 %25, %26
   %28 = tail call ptr @bit_alloc(i64 noundef %27) #25
   store ptr %28, ptr %7, align 8
-  %29 = tail call i64 @bit_ffs_from_bit(ptr noundef %4, i64 noundef 0) #25
+  %29 = tail call i64 @bit_ffs_from_bit(ptr noundef nonnull %4, i64 noundef 0) #25
   %30 = trunc i64 %29 to i32
   %31 = icmp sgt i32 %30, -1
   br i1 %31, label %.lr.ph, label %.loopexit
@@ -27680,7 +27680,7 @@ define internal fastcc ptr @_get_single_usable_gres(i32 noundef %0, i32 noundef 
   tail call void @bit_nset(ptr noundef %28, i64 noundef %35, i64 noundef %39) #25
   %40 = add i64 %33, 1
   %41 = and i64 %40, 4294967295
-  %42 = tail call i64 @bit_ffs_from_bit(ptr noundef %4, i64 noundef %41) #25
+  %42 = tail call i64 @bit_ffs_from_bit(ptr noundef nonnull %4, i64 noundef %41) #25
   %43 = trunc i64 %42 to i32
   %44 = icmp sgt i32 %43, -1
   br i1 %44, label %.lr.ph, label %.loopexit, !llvm.loop !261
@@ -27941,7 +27941,7 @@ _assign_gres_to_task.exit:                        ; preds = %131, %134, %137, %1
 
 142:                                              ; preds = %141, %._crit_edge
   store ptr null, ptr %7, align 8
-  %143 = call i64 @bit_size(ptr noundef %4) #25
+  %143 = call i64 @bit_size(ptr noundef nonnull %4) #25
   %144 = call ptr @bit_alloc(i64 noundef %143) #25
   %145 = icmp slt i32 %.035.lcssa, 0
   br i1 %145, label %146, label %151
@@ -27949,7 +27949,7 @@ _assign_gres_to_task.exit:                        ; preds = %131, %134, %137, %1
 146:                                              ; preds = %142
   %147 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.332, ptr noundef nonnull @__func__._get_single_usable_gres, i32 noundef %2) #25
   %148 = srem i32 %2, %9
-  %149 = call i64 @bit_get_bit_num(ptr noundef %4, i32 noundef %148) #25
+  %149 = call i64 @bit_get_bit_num(ptr noundef nonnull %4, i32 noundef %148) #25
   %150 = trunc i64 %149 to i32
   br label %151
 
@@ -28146,13 +28146,13 @@ declare void @bit_consolidate(ptr noundef) local_unnamed_addr #4
 declare void @bit_nset(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_gres_per_task(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
+define internal fastcc ptr @_get_gres_per_task(ptr noundef nonnull %0, i64 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = tail call i64 @bit_size(ptr noundef %0) #25
+  %9 = tail call i64 @bit_size(ptr noundef nonnull %0) #25
   %10 = tail call ptr @bit_alloc(i64 noundef %9) #25
-  %11 = tail call ptr @bit_copy(ptr noundef %0) #25
+  %11 = tail call ptr @bit_copy(ptr noundef nonnull %0) #25
   store ptr %11, ptr %7, align 8
   %.not26 = icmp slt i32 %4, 0
   br i1 %.not26, label %.loopexit, label %.lr.ph
@@ -28181,7 +28181,7 @@ define internal fastcc ptr @_get_gres_per_task(ptr noundef %0, i64 noundef %1, p
   store ptr %21, ptr %8, align 8
   %22 = load ptr, ptr %7, align 8
   %23 = icmp eq i64 %indvars.iv, %13
-  call fastcc void @_filter_gres_per_task(ptr noundef %21, ptr noundef %22, ptr noundef %10, ptr noundef nonnull %6, i1 noundef zeroext %23)
+  call fastcc void @_filter_gres_per_task(ptr noundef %21, ptr noundef %22, ptr noundef %10, ptr noundef %6, i1 noundef zeroext %23)
   %24 = load ptr, ptr %8, align 8
   %.not18 = icmp eq ptr %24, null
   br i1 %.not18, label %26, label %25
@@ -28197,7 +28197,7 @@ define internal fastcc ptr @_get_gres_per_task(ptr noundef %0, i64 noundef %1, p
   br i1 %.not19, label %.thread24, label %27
 
 27:                                               ; preds = %26
-  call fastcc void @_filter_gres_per_task(ptr noundef %22, ptr noundef %22, ptr noundef %10, ptr noundef nonnull %6, i1 noundef zeroext %23)
+  call fastcc void @_filter_gres_per_task(ptr noundef %22, ptr noundef %22, ptr noundef %10, ptr noundef %6, i1 noundef zeroext %23)
   %.pr23 = load i64, ptr %6, align 8
   %.not20 = icmp eq i64 %.pr23, 0
   br i1 %.not20, label %.thread24, label %28
@@ -28240,7 +28240,7 @@ declare i32 @bit_super_set(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @bit_overlap_any(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_filter_gres_per_task(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i1 noundef zeroext %4) unnamed_addr #2 {
+define internal fastcc void @_filter_gres_per_task(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #2 {
   %6 = load i64, ptr %3, align 8
   %.not10 = icmp eq i64 %6, 0
   br i1 %.not10, label %.critedge, label %.lr.ph

@@ -1257,7 +1257,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13TagESt6vect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13TagESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%"class.(anonymous namespace)::Tag") align 8 %3) unnamed_addr #1 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_13TagESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef range(i64 -230584300921369395, 230584300921369396) %2, ptr nocapture noundef readonly byval(%"class.(anonymous namespace)::Tag") align 8 %3) unnamed_addr #1 {
   %5 = alloca %"class.std::tuple.73", align 8
   %6 = alloca %"class.std::tuple.73", align 8
   %7 = alloca %"class.std::tuple.73", align 8

@@ -1508,7 +1508,7 @@ if.then433.i:                                     ; preds = %while.body39.i543.i
   br i1 %cmp435.i, label %if.then437.i, label %if.else457.i
 
 if.then437.i:                                     ; preds = %if.then433.i
-  %call439.i = call fastcc ptr @local__get_field_(ptr noundef nonnull %line.i, i32 noundef 0)
+  %call439.i = call fastcc ptr @local__get_field_(ptr noundef %line.i, i32 noundef 0)
   %cmp440.i = icmp eq ptr %call439.i, null
   br i1 %cmp440.i, label %if.then2, label %if.end443.i
 
@@ -1560,17 +1560,17 @@ if.then461.i:                                     ; preds = %if.else457.i
   br i1 %tobool463.not.i, label %if.end465.i, label %if.then2
 
 if.end465.i:                                      ; preds = %if.then461.i
-  %call466.i = call fastcc ptr @local__get_field_(ptr noundef nonnull %line.i, i32 noundef 0)
+  %call466.i = call fastcc ptr @local__get_field_(ptr noundef %line.i, i32 noundef 0)
   %cmp467.i = icmp eq ptr %call466.i, null
   br i1 %cmp467.i, label %if.then2, label %if.end470.i
 
 if.end470.i:                                      ; preds = %if.end465.i
-  %call471.i = call fastcc i32 @local__parse_int_(ptr noundef nonnull %call466.i)
+  %call471.i = call fastcc i32 @local__parse_int_(ptr noundef %call466.i)
   %cmp472.i = icmp slt i32 %call471.i, 0
   br i1 %cmp472.i, label %if.then2, label %if.end475.i
 
 if.end475.i:                                      ; preds = %if.end470.i
-  %call476.i = call fastcc ptr @local__get_field_(ptr noundef nonnull %line.i, i32 noundef 0)
+  %call476.i = call fastcc ptr @local__get_field_(ptr noundef %line.i, i32 noundef 0)
   %cmp477.i = icmp eq ptr %call476.i, null
   br i1 %cmp477.i, label %if.then2, label %if.end480.i
 
@@ -1866,7 +1866,7 @@ declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) loca
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @local__get_field_(ptr nocapture noundef %s, i32 noundef %allow_quotes) unnamed_addr #7 {
+define internal fastcc ptr @local__get_field_(ptr nocapture noundef nonnull %s, i32 noundef range(i32 0, 2) %allow_quotes) unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %s, align 8
   %cmp = icmp eq ptr %0, null
@@ -1958,7 +1958,7 @@ declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unna
 declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @local__parse_int_(ptr nocapture noundef readonly %s) unnamed_addr #9 {
+define internal fastcc range(i32 -1, -2147483648) i32 @local__parse_int_(ptr nocapture noundef nonnull readonly %s) unnamed_addr #9 {
 entry:
   %0 = load i8, ptr %s, align 1
   %cmp.i = icmp eq i8 %0, 0

@@ -113,7 +113,7 @@ if.then3:                                         ; preds = %if.end, %land.lhs.t
   br label %return
 
 if.end4:                                          ; preds = %land.lhs.true23.i
-  call fastcc void @_ZL8res_initP12ResourceDataPhPKviP10UErrorCode(ptr noundef nonnull %pResData, ptr noundef nonnull %formatVersion, ptr noundef %inBytes, i32 noundef %length, ptr noundef nonnull %errorCode)
+  call fastcc void @_ZL8res_initP12ResourceDataPhPKviP10UErrorCode(ptr noundef nonnull %pResData, ptr noundef %formatVersion, ptr noundef %inBytes, i32 noundef %length, ptr noundef nonnull %errorCode)
   br label %return
 
 return:                                           ; preds = %entry, %if.end4, %if.then3
@@ -191,7 +191,7 @@ land.end37:                                       ; preds = %land.rhs, %land.rhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL8res_initP12ResourceDataPhPKviP10UErrorCode(ptr nocapture noundef %pResData, ptr nocapture noundef readonly %formatVersion, ptr noundef %inBytes, i32 noundef %length, ptr nocapture noundef writeonly %errorCode) unnamed_addr #0 {
+define internal fastcc void @_ZL8res_initP12ResourceDataPhPKviP10UErrorCode(ptr nocapture noundef %pResData, ptr nocapture noundef nonnull readonly %formatVersion, ptr noundef %inBytes, i32 noundef %length, ptr nocapture noundef writeonly %errorCode) unnamed_addr #0 {
 entry:
   %pRoot = getelementptr inbounds i8, ptr %pResData, i64 8
   store ptr %inBytes, ptr %pRoot, align 8
@@ -441,7 +441,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call4 = call ptr @udata_getMemory_75(ptr noundef %call)
-  call fastcc void @_ZL8res_initP12ResourceDataPhPKviP10UErrorCode(ptr noundef nonnull %pResData, ptr noundef nonnull %formatVersion, ptr noundef %call4, i32 noundef -1, ptr noundef nonnull %errorCode)
+  call fastcc void @_ZL8res_initP12ResourceDataPhPKviP10UErrorCode(ptr noundef nonnull %pResData, ptr noundef %formatVersion, ptr noundef %call4, i32 noundef -1, ptr noundef nonnull %errorCode)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1384,12 +1384,12 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"class.icu_75::ResourceArray") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(29) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  %call2 = call fastcc noundef i32 @_ZN12_GLOBAL__N_114getStringArrayEPK12ResourceDataRKN6icu_7513ResourceArrayEPNS3_13UnicodeStringEiR10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(21) %ref.tmp, ptr noundef %dest, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call2 = call fastcc noundef i32 @_ZN12_GLOBAL__N_114getStringArrayEPK12ResourceDataRKN6icu_7513ResourceArrayEPNS3_13UnicodeStringEiR10UErrorCode(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(21) %ref.tmp, ptr noundef %dest, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   ret i32 %call2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_114getStringArrayEPK12ResourceDataRKN6icu_7513ResourceArrayEPNS3_13UnicodeStringEiR10UErrorCode(ptr nocapture noundef readonly %pResData, ptr nocapture noundef nonnull readonly align 8 dereferenceable(21) %array, ptr noundef %dest, i32 noundef %capacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_114getStringArrayEPK12ResourceDataRKN6icu_7513ResourceArrayEPNS3_13UnicodeStringEiR10UErrorCode(ptr nocapture noundef nonnull readonly %pResData, ptr nocapture noundef nonnull readonly align 8 dereferenceable(21) %array, ptr noundef %dest, i32 noundef %capacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %0 = load i32, ptr %errorCode, align 4
@@ -1594,7 +1594,7 @@ if.then:                                          ; preds = %entry
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %3 = load ptr, ptr %vfn, align 8
   call void %3(ptr nonnull sret(%"class.icu_75::ResourceArray") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(29) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  %call4 = call fastcc noundef i32 @_ZN12_GLOBAL__N_114getStringArrayEPK12ResourceDataRKN6icu_7513ResourceArrayEPNS3_13UnicodeStringEiR10UErrorCode(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(21) %ref.tmp, ptr noundef %dest, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call4 = call fastcc noundef i32 @_ZN12_GLOBAL__N_114getStringArrayEPK12ResourceDataRKN6icu_7513ResourceArrayEPNS3_13UnicodeStringEiR10UErrorCode(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(21) %ref.tmp, ptr noundef %dest, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -3634,7 +3634,7 @@ if.end181:                                        ; preds = %if.end176, %if.then
   %add.ptr179.sink = phi ptr [ %add.ptr179, %if.end176 ], [ %resort, %if.then154 ]
   %resort180 = getelementptr inbounds i8, ptr %tempTable, i64 16
   store ptr %add.ptr179.sink, ptr %resort180, align 8
-  call fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9TempTableP10UErrorCode(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr65, ptr noundef %add.ptr99, i32 noundef %call66, ptr noundef null, ptr noundef nonnull %tempTable, ptr noundef nonnull %pErrorCode)
+  call fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9TempTableP10UErrorCode(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr65, ptr noundef %add.ptr99, i32 noundef %call66, ptr noundef null, ptr noundef %tempTable, ptr noundef %pErrorCode)
   %25 = load i32, ptr %pErrorCode, align 4
   %cmp.i119 = icmp slt i32 %25, 1
   br i1 %cmp.i119, label %if.end185, label %if.then184
@@ -3696,7 +3696,7 @@ declare i32 @udata_swapInvStringBlock_75(ptr noundef, ptr noundef, i32 noundef, 
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9TempTableP10UErrorCode(ptr noundef %ds, ptr noundef %inBundle, ptr noundef %outBundle, i32 noundef %res, ptr noundef %key, ptr noundef %pTempTable, ptr noundef %pErrorCode) unnamed_addr #0 {
+define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9TempTableP10UErrorCode(ptr noundef %ds, ptr noundef %inBundle, ptr noundef %outBundle, i32 noundef %res, ptr noundef %key, ptr noundef nonnull %pTempTable, ptr noundef nonnull %pErrorCode) unnamed_addr #0 {
 entry:
   %shr = lshr i32 %res, 28
   switch i32 %shr, label %sw.epilog [
@@ -3745,13 +3745,13 @@ sw.bb16:                                          ; preds = %if.else, %if.else
   %call = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %2)
   %swapArray32 = getelementptr inbounds i8, ptr %ds, i64 56
   %3 = load ptr, ptr %swapArray32, align 8
-  %call17 = tail call noundef i32 %3(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef 4, ptr noundef nonnull %add.ptr13, ptr noundef %pErrorCode)
+  %call17 = tail call noundef i32 %3(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef 4, ptr noundef nonnull %add.ptr13, ptr noundef nonnull %pErrorCode)
   %swapArray16 = getelementptr inbounds i8, ptr %ds, i64 48
   %4 = load ptr, ptr %swapArray16, align 8
   %add.ptr18 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %mul = shl nsw i32 %call, 1
   %add.ptr19 = getelementptr inbounds i8, ptr %add.ptr13, i64 4
-  %call20 = tail call noundef i32 %4(ptr noundef %ds, ptr noundef nonnull %add.ptr18, i32 noundef %mul, ptr noundef nonnull %add.ptr19, ptr noundef %pErrorCode)
+  %call20 = tail call noundef i32 %4(ptr noundef %ds, ptr noundef nonnull %add.ptr18, i32 noundef %mul, ptr noundef nonnull %add.ptr19, ptr noundef nonnull %pErrorCode)
   br label %sw.epilog276
 
 sw.bb21:                                          ; preds = %if.else
@@ -3759,7 +3759,7 @@ sw.bb21:                                          ; preds = %if.else
   %call22 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %5)
   %swapArray3223 = getelementptr inbounds i8, ptr %ds, i64 56
   %6 = load ptr, ptr %swapArray3223, align 8
-  %call24 = tail call noundef i32 %6(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef 4, ptr noundef nonnull %add.ptr13, ptr noundef %pErrorCode)
+  %call24 = tail call noundef i32 %6(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef 4, ptr noundef nonnull %add.ptr13, ptr noundef nonnull %pErrorCode)
   %cmp25.not = icmp eq ptr %key, null
   br i1 %cmp25.not, label %sw.epilog276, label %land.lhs.true
 
@@ -3789,7 +3789,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 if.then33:                                        ; preds = %cond.end
   %add.ptr34 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %add.ptr35 = getelementptr inbounds i8, ptr %add.ptr13, i64 4
-  %call36 = tail call i32 @ucol_swap_75(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr34, i32 noundef %call22, ptr noundef nonnull %add.ptr35, ptr noundef %pErrorCode)
+  %call36 = tail call i32 @ucol_swap_75(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr34, i32 noundef %call22, ptr noundef nonnull %add.ptr35, ptr noundef nonnull %pErrorCode)
   br label %sw.epilog276
 
 if.then41:                                        ; preds = %if.else
@@ -3802,7 +3802,7 @@ if.then41:                                        ; preds = %if.else
   %10 = load ptr, ptr %swapArray1644, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 2
   %incdec.ptr45 = getelementptr inbounds i8, ptr %add.ptr13, i64 2
-  %call46 = tail call noundef i32 %10(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef 2, ptr noundef nonnull %add.ptr13, ptr noundef %pErrorCode)
+  %call46 = tail call noundef i32 %10(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef 2, ptr noundef nonnull %add.ptr13, ptr noundef nonnull %pErrorCode)
   %add47 = add nuw nsw i32 %conv43, 2
   %div238 = lshr i32 %add47, 1
   br label %if.end57
@@ -3814,7 +3814,7 @@ if.else49:                                        ; preds = %if.else
   %12 = load ptr, ptr %swapArray3251, align 8
   %incdec.ptr52 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %incdec.ptr53 = getelementptr inbounds i8, ptr %add.ptr13, i64 4
-  %call54 = tail call noundef i32 %12(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef 4, ptr noundef nonnull %add.ptr13, ptr noundef %pErrorCode)
+  %call54 = tail call noundef i32 %12(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef 4, ptr noundef nonnull %add.ptr13, ptr noundef nonnull %pErrorCode)
   %add55 = add nsw i32 %call50, 1
   br label %if.end57
 
@@ -3918,18 +3918,18 @@ if.then103:                                       ; preds = %if.then101
   %swapArray16104 = getelementptr inbounds i8, ptr %ds, i64 48
   %24 = load ptr, ptr %swapArray16104, align 8
   %mul105 = shl nsw i32 %count.0, 1
-  %call106 = tail call noundef i32 %24(ptr noundef nonnull %ds, ptr noundef nonnull %pKey16.0, i32 noundef %mul105, ptr noundef %qKey16.0, ptr noundef %pErrorCode)
+  %call106 = tail call noundef i32 %24(ptr noundef nonnull %ds, ptr noundef nonnull %pKey16.0, i32 noundef %mul105, ptr noundef %qKey16.0, ptr noundef nonnull %pErrorCode)
   %swapArray32107 = getelementptr inbounds i8, ptr %ds, i64 56
   %25 = load ptr, ptr %swapArray32107, align 8
   %mul108 = shl nsw i32 %count.0, 2
-  %call109 = tail call noundef i32 %25(ptr noundef nonnull %ds, ptr noundef %add.ptr62, i32 noundef %mul108, ptr noundef %add.ptr64, ptr noundef %pErrorCode)
+  %call109 = tail call noundef i32 %25(ptr noundef nonnull %ds, ptr noundef %add.ptr62, i32 noundef %mul108, ptr noundef %add.ptr64, ptr noundef nonnull %pErrorCode)
   br label %sw.epilog276
 
 if.else110:                                       ; preds = %if.then101
   %swapArray32111 = getelementptr inbounds i8, ptr %ds, i64 56
   %26 = load ptr, ptr %swapArray32111, align 8
   %mul113 = shl nsw i32 %count.0, 3
-  %call114 = tail call noundef i32 %26(ptr noundef nonnull %ds, ptr noundef %pKey32.0, i32 noundef %mul113, ptr noundef %qKey32.0, ptr noundef %pErrorCode)
+  %call114 = tail call noundef i32 %26(ptr noundef nonnull %ds, ptr noundef %pKey32.0, i32 noundef %mul113, ptr noundef %qKey32.0, ptr noundef nonnull %pErrorCode)
   br label %sw.epilog276
 
 if.end116:                                        ; preds = %lor.lhs.false
@@ -3991,7 +3991,7 @@ if.end153:                                        ; preds = %for.body121, %for.b
   %rows154 = getelementptr inbounds i8, ptr %pTempTable, i64 8
   %36 = load ptr, ptr %rows154, align 8
   %37 = load ptr, ptr %pTempTable, align 8
-  tail call void @uprv_sortArray_75(ptr noundef %36, i32 noundef %count.0, i32 noundef 8, ptr noundef nonnull @_ZL16ures_compareRowsPKvS0_S0_, ptr noundef %37, i8 noundef signext 0, ptr noundef %pErrorCode)
+  tail call void @uprv_sortArray_75(ptr noundef %36, i32 noundef %count.0, i32 noundef 8, ptr noundef nonnull @_ZL16ures_compareRowsPKvS0_S0_, ptr noundef %37, i8 noundef signext 0, ptr noundef nonnull %pErrorCode)
   %38 = load i32, ptr %pErrorCode, align 4
   %cmp.i239 = icmp slt i32 %38, 1
   br i1 %cmp.i239, label %if.end158, label %if.then157
@@ -4136,7 +4136,7 @@ sw.bb244:                                         ; preds = %if.else
   %52 = load ptr, ptr %swapArray32248, align 8
   %incdec.ptr249 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %incdec.ptr250 = getelementptr inbounds i8, ptr %add.ptr13, i64 4
-  %call251 = tail call noundef i32 %52(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef 4, ptr noundef nonnull %add.ptr13, ptr noundef %pErrorCode)
+  %call251 = tail call noundef i32 %52(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef 4, ptr noundef nonnull %add.ptr13, ptr noundef nonnull %pErrorCode)
   %cmp253258 = icmp sgt i32 %call247, 0
   br i1 %cmp253258, label %for.body254.lr.ph, label %for.end265
 
@@ -4169,7 +4169,7 @@ for.inc263:                                       ; preds = %for.body254
 for.end265:                                       ; preds = %for.inc263, %sw.bb244
   %57 = load ptr, ptr %swapArray32248, align 8
   %mul267 = shl nsw i32 %call247, 2
-  %call268 = tail call noundef i32 %57(ptr noundef nonnull %ds, ptr noundef nonnull %incdec.ptr249, i32 noundef %mul267, ptr noundef nonnull %incdec.ptr250, ptr noundef %pErrorCode)
+  %call268 = tail call noundef i32 %57(ptr noundef nonnull %ds, ptr noundef nonnull %incdec.ptr249, i32 noundef %mul267, ptr noundef nonnull %incdec.ptr250, ptr noundef nonnull %pErrorCode)
   br label %sw.epilog276
 
 sw.bb269:                                         ; preds = %if.else
@@ -4179,7 +4179,7 @@ sw.bb269:                                         ; preds = %if.else
   %59 = load ptr, ptr %swapArray32271, align 8
   %add272 = shl i32 %call270, 2
   %mul273 = add i32 %add272, 4
-  %call274 = tail call noundef i32 %59(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef %mul273, ptr noundef nonnull %add.ptr13, ptr noundef %pErrorCode)
+  %call274 = tail call noundef i32 %59(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef %mul273, ptr noundef nonnull %add.ptr13, ptr noundef nonnull %pErrorCode)
   br label %sw.epilog276
 
 sw.default275:                                    ; preds = %if.else

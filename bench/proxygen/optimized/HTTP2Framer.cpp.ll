@@ -2844,7 +2844,7 @@ _ZN5folly8OptionalIhEC2ERKS1_.exit:               ; preds = %cond.end, %invoke.c
   %3 = load i64, ptr %data, align 8
   store i64 %3, ptr %agg.tmp24, align 8
   store ptr null, ptr %data, align 8
-  %call26 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %conv22, i8 noundef zeroext 0, i8 noundef zeroext %spec.select, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp23, ptr noundef nonnull %agg.tmp24, i1 noundef zeroext %reuseIOBufHeadroom) #25
+  %call26 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %conv22, i8 noundef zeroext 0, i8 noundef zeroext %spec.select, i32 noundef %stream, ptr noundef %agg.tmp, ptr noundef %agg.tmp23, ptr noundef %agg.tmp24, i1 noundef zeroext %reuseIOBufHeadroom) #25
   %4 = load ptr, ptr %agg.tmp24, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -2916,7 +2916,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i, %cond.t
 declare noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i64 0, 4294967296) i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %length, i8 noundef zeroext %type, i8 noundef zeroext %flags, i32 noundef %stream, ptr nocapture noundef readonly %padding, ptr nocapture noundef readonly %priority, ptr noundef %payload, i1 noundef zeroext %reuseIOBufHeadroom) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i64 0, 4294967296) i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %length, i8 noundef zeroext range(i8 -16, 11) %type, i8 noundef zeroext range(i8 0, 5) %flags, i32 noundef %stream, ptr nocapture noundef nonnull readonly %padding, ptr nocapture noundef nonnull readonly %priority, ptr noundef nonnull %payload, i1 noundef zeroext %reuseIOBufHeadroom) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %comb.i.i = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %appender = alloca %"class.folly::io::QueueAppender", align 8
@@ -2967,12 +2967,11 @@ if.end.i:                                         ; preds = %while.end45.i, %if.
 if.end111.i:                                      ; preds = %_ZN5folly8OptionalIhEC2ERKS1_.exit, %if.end.i
   %headerSize.0 = phi i64 [ %add72.i, %if.end.i ], [ %conv, %_ZN5folly8OptionalIhEC2ERKS1_.exit ]
   %length.addr.0.i = phi i32 [ %length.addr.1.i, %if.end.i ], [ %length, %_ZN5folly8OptionalIhEC2ERKS1_.exit ]
-  %8 = and i8 %flags, -9
+  %8 = or disjoint i8 %flags, 8
   %tobool.i.i.i.mask = and i8 %1, 1
   %add148.i = zext nneg i8 %tobool.i.i.i.mask to i64
   %headerSize.1 = add nuw nsw i64 %headerSize.0, %add148.i
-  %masksel = select i1 %tobool.i.i.i, i8 8, i8 0
-  %flags.addr.0 = or disjoint i8 %8, %masksel
+  %flags.addr.0 = select i1 %tobool.i.i.i, i8 %8, i8 %flags
   %length.addr.2.i = add i32 %length.addr.0.i, %add147.i
   %and190.i = shl i32 %length.addr.2.i, 8
   %conv191.i = zext i8 %type to i32
@@ -3759,7 +3758,7 @@ invoke.cont2.i8:                                  ; preds = %_ZN5folly8OptionalI
   br label %_ZN5folly8OptionalIN8proxygen5http214PriorityUpdateEEC2ERKS4_.exit
 
 _ZN5folly8OptionalIN8proxygen5http214PriorityUpdateEEC2ERKS4_.exit: ; preds = %_ZN5folly8OptionalIhEC2ERKS1_.exit, %invoke.cont2.i8
-  %call27 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderEPhmjNS0_9FrameTypeEhjN5folly8OptionalIhEENS5_INS0_14PriorityUpdateEEE(ptr noundef %header, i64 noundef %headerLen, i32 noundef %conv, i8 noundef zeroext 1, i8 noundef zeroext %flags.2, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp26) #25
+  %call27 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderEPhmjNS0_9FrameTypeEhjN5folly8OptionalIhEENS5_INS0_14PriorityUpdateEEE(ptr noundef %header, i64 noundef %headerLen, i32 noundef %conv, i8 noundef zeroext 1, i8 noundef zeroext %flags.2, i32 noundef %stream, ptr noundef %agg.tmp, ptr noundef %agg.tmp26) #25
   %3 = load i8, ptr %hasValue.i.i.i, align 1
   %tobool.i.i.i11 = trunc i8 %3 to i1
   br i1 %tobool.i.i.i11, label %_ZNR5folly8OptionalIhEdeEv.exit.i, label %invoke.cont29
@@ -3818,7 +3817,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i64 0, 4294967296) i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderEPhmjNS0_9FrameTypeEhjN5folly8OptionalIhEENS5_INS0_14PriorityUpdateEEE(ptr nocapture noundef writeonly %buf, i64 noundef %bufLen, i32 noundef %length, i8 noundef zeroext %type, i8 noundef zeroext %flags, i32 noundef %stream, ptr nocapture noundef readonly %padding, ptr nocapture noundef readonly %priority) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i64 0, 4294967296) i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderEPhmjNS0_9FrameTypeEhjN5folly8OptionalIhEENS5_INS0_14PriorityUpdateEEE(ptr nocapture noundef writeonly %buf, i64 noundef %bufLen, i32 noundef %length, i8 noundef zeroext range(i8 -5, 6) %type, i8 noundef zeroext %flags, i32 noundef %stream, ptr nocapture noundef nonnull readonly %padding, ptr nocapture noundef nonnull readonly %priority) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %comb.i.i61 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %comb.i.i44 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
@@ -4252,7 +4251,7 @@ invoke.cont2.i17:                                 ; preds = %_ZN5folly8OptionalI
   br label %_ZN5folly8OptionalIN8proxygen5http214PriorityUpdateEEC2ERKS4_.exit
 
 _ZN5folly8OptionalIN8proxygen5http214PriorityUpdateEEC2ERKS4_.exit: ; preds = %_ZN5folly8OptionalIhEC2ERKS1_.exit, %invoke.cont2.i17
-  %call117 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderEPhmjNS0_9FrameTypeEhjN5folly8OptionalIhEENS5_INS0_14PriorityUpdateEEE(ptr noundef %header, i64 noundef %headerLen, i32 noundef %conv114, i8 noundef zeroext -5, i8 noundef zeroext %flags.3, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp116) #25
+  %call117 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderEPhmjNS0_9FrameTypeEhjN5folly8OptionalIhEENS5_INS0_14PriorityUpdateEEE(ptr noundef %header, i64 noundef %headerLen, i32 noundef %conv114, i8 noundef zeroext -5, i8 noundef zeroext %flags.3, i32 noundef %stream, ptr noundef %agg.tmp, ptr noundef %agg.tmp116) #25
   %6 = load i32, ptr @_ZN8proxygen5http216kFrameHeaderSizeE, align 4
   %idx.ext = zext i32 %6 to i64
   %add.ptr = getelementptr inbounds i8, ptr %header, i64 %idx.ext
@@ -4497,7 +4496,7 @@ entry:
   store i64 %priority.coerce1, ptr %priority.sroa.2.0.agg.tmp16.sroa_idx, align 8
   store i8 1, ptr %hasValue.i.i1, align 8
   store ptr null, ptr %agg.tmp17, align 8
-  %call18 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %0, i8 noundef zeroext 2, i8 noundef zeroext 0, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp16, ptr noundef nonnull %agg.tmp17, i1 noundef zeroext true) #25
+  %call18 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %0, i8 noundef zeroext 2, i8 noundef zeroext 0, i32 noundef %stream, ptr noundef %agg.tmp, ptr noundef %agg.tmp16, ptr noundef %agg.tmp17, i1 noundef zeroext true) #25
   %1 = load ptr, ptr %agg.tmp17, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -4529,7 +4528,7 @@ entry:
   %hasValue.i.i3 = getelementptr inbounds i8, ptr %agg.tmp16, i64 16
   store i8 0, ptr %hasValue.i.i3, align 8
   store ptr null, ptr %agg.tmp17, align 8
-  %call18 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %0, i8 noundef zeroext 3, i8 noundef zeroext 0, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp16, ptr noundef nonnull %agg.tmp17, i1 noundef zeroext true) #25
+  %call18 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %0, i8 noundef zeroext 3, i8 noundef zeroext 0, i32 noundef %stream, ptr noundef %agg.tmp, ptr noundef %agg.tmp16, ptr noundef %agg.tmp17, i1 noundef zeroext true) #25
   %1 = load ptr, ptr %agg.tmp17, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -4759,7 +4758,7 @@ entry:
   %hasValue.i.i6 = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
   store i8 0, ptr %hasValue.i.i6, align 8
   store ptr null, ptr %agg.tmp2, align 8
-  %call3 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %conv, i8 noundef zeroext 4, i8 noundef zeroext 0, i32 noundef 0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1, ptr noundef nonnull %agg.tmp2, i1 noundef zeroext true) #25
+  %call3 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %conv, i8 noundef zeroext 4, i8 noundef zeroext 0, i32 noundef 0, ptr noundef %agg.tmp, ptr noundef %agg.tmp1, ptr noundef %agg.tmp2, i1 noundef zeroext true) #25
   %6 = load ptr, ptr %agg.tmp2, align 8
   %cmp.not.i = icmp eq ptr %6, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -5065,7 +5064,7 @@ entry:
   %hasValue.i.i1 = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
   store i8 0, ptr %hasValue.i.i1, align 8
   store ptr null, ptr %agg.tmp2, align 8
-  %call = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef 0, i8 noundef zeroext 4, i8 noundef zeroext 1, i32 noundef 0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1, ptr noundef nonnull %agg.tmp2, i1 noundef zeroext true) #25
+  %call = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef 0, i8 noundef zeroext 4, i8 noundef zeroext 1, i32 noundef 0, ptr noundef %agg.tmp, ptr noundef %agg.tmp1, ptr noundef %agg.tmp2, i1 noundef zeroext true) #25
   %0 = load ptr, ptr %agg.tmp2, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -5108,7 +5107,7 @@ _ZN5folly8OptionalIhEC2ERKS1_.exit:               ; preds = %entry, %invoke.cont
   store i8 0, ptr %agg.tmp108, align 8
   %hasValue.i.i3 = getelementptr inbounds i8, ptr %agg.tmp108, i64 16
   store i8 0, ptr %hasValue.i.i3, align 8
-  %call109 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderEPhmjNS0_9FrameTypeEhjN5folly8OptionalIhEENS5_INS0_14PriorityUpdateEEE(ptr noundef %header, i64 noundef %headerLen, i32 noundef %conv106, i8 noundef zeroext 5, i8 noundef zeroext %conv107, i32 noundef %associatedStream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp108) #25
+  %call109 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderEPhmjNS0_9FrameTypeEhjN5folly8OptionalIhEENS5_INS0_14PriorityUpdateEEE(ptr noundef %header, i64 noundef %headerLen, i32 noundef %conv106, i8 noundef zeroext 5, i8 noundef zeroext %conv107, i32 noundef %associatedStream, ptr noundef %agg.tmp, ptr noundef %agg.tmp108) #25
   %call110 = tail call i32 @htonl(i32 noundef %promisedStream) #26
   %4 = load i32, ptr @_ZN8proxygen5http216kFrameHeaderSizeE, align 4
   %idx.ext = zext i32 %4 to i64
@@ -5190,7 +5189,7 @@ entry:
   %hasValue.i.i2 = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
   store i8 0, ptr %hasValue.i.i2, align 8
   store ptr null, ptr %agg.tmp2, align 8
-  %call = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %0, i8 noundef zeroext 6, i8 noundef zeroext %conv, i32 noundef 0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1, ptr noundef nonnull %agg.tmp2, i1 noundef zeroext true) #25
+  %call = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %0, i8 noundef zeroext 6, i8 noundef zeroext %conv, i32 noundef 0, ptr noundef %agg.tmp, ptr noundef %agg.tmp1, ptr noundef %agg.tmp2, i1 noundef zeroext true) #25
   %1 = load ptr, ptr %agg.tmp2, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -5248,7 +5247,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   %hasValue.i.i4 = getelementptr inbounds i8, ptr %agg.tmp20, i64 16
   store i8 0, ptr %hasValue.i.i4, align 8
   store ptr null, ptr %agg.tmp21, align 8
-  %call22 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %add, i8 noundef zeroext 7, i8 noundef zeroext 0, i32 noundef 0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp20, ptr noundef nonnull %agg.tmp21, i1 noundef zeroext true) #25
+  %call22 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %add, i8 noundef zeroext 7, i8 noundef zeroext 0, i32 noundef 0, ptr noundef %agg.tmp, ptr noundef %agg.tmp20, ptr noundef %agg.tmp21, i1 noundef zeroext true) #25
   %2 = load ptr, ptr %agg.tmp21, align 8
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -5521,7 +5520,7 @@ entry:
   %hasValue.i.i2 = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
   store i8 0, ptr %hasValue.i.i2, align 8
   store ptr null, ptr %agg.tmp2, align 8
-  %call = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %0, i8 noundef zeroext 8, i8 noundef zeroext 0, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1, ptr noundef nonnull %agg.tmp2, i1 noundef zeroext true) #25
+  %call = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %0, i8 noundef zeroext 8, i8 noundef zeroext 0, i32 noundef %stream, ptr noundef %agg.tmp, ptr noundef %agg.tmp1, ptr noundef %agg.tmp2, i1 noundef zeroext true) #25
   %1 = load ptr, ptr %agg.tmp2, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -5727,7 +5726,7 @@ invoke.cont17:                                    ; preds = %entry
   %1 = load i64, ptr %headers, align 8
   store i64 %1, ptr %agg.tmp21, align 8
   store ptr null, ptr %headers, align 8
-  %call22 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %conv, i8 noundef zeroext 9, i8 noundef zeroext %conv19, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp20, ptr noundef nonnull %agg.tmp21, i1 noundef zeroext true) #25
+  %call22 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %conv, i8 noundef zeroext 9, i8 noundef zeroext %conv19, i32 noundef %stream, ptr noundef %agg.tmp, ptr noundef %agg.tmp20, ptr noundef %agg.tmp21, i1 noundef zeroext true) #25
   %2 = load ptr, ptr %agg.tmp21, align 8
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -5786,7 +5785,7 @@ entry:
   %hasValue.i.i17 = getelementptr inbounds i8, ptr %agg.tmp8, i64 16
   store i8 0, ptr %hasValue.i.i17, align 8
   store ptr null, ptr %agg.tmp9, align 8
-  %call10 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %conv7, i8 noundef zeroext 10, i8 noundef zeroext 0, i32 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp8, ptr noundef nonnull %agg.tmp9, i1 noundef zeroext true) #25
+  %call10 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %queue, i32 noundef %conv7, i8 noundef zeroext 10, i8 noundef zeroext 0, i32 noundef %stream, ptr noundef %agg.tmp, ptr noundef %agg.tmp8, ptr noundef %agg.tmp9, i1 noundef zeroext true) #25
   %5 = load ptr, ptr %agg.tmp9, align 8
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -6440,7 +6439,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   %hasValue.i.i4 = getelementptr inbounds i8, ptr %agg.tmp5, i64 16
   store i8 0, ptr %hasValue.i.i4, align 8
   store ptr null, ptr %agg.tmp6, align 8
-  %call7 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i32 noundef %cond, i8 noundef zeroext -16, i8 noundef zeroext 0, i32 noundef 0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp5, ptr noundef nonnull %agg.tmp6, i1 noundef zeroext true) #25
+  %call7 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i32 noundef %cond, i8 noundef zeroext -16, i8 noundef zeroext 0, i32 noundef 0, ptr noundef %agg.tmp, ptr noundef %agg.tmp5, ptr noundef %agg.tmp6, i1 noundef zeroext true) #25
   %4 = load ptr, ptr %agg.tmp6, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -6654,7 +6653,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   %hasValue.i.i5 = getelementptr inbounds i8, ptr %agg.tmp7, i64 16
   store i8 0, ptr %hasValue.i.i5, align 8
   store ptr null, ptr %agg.tmp8, align 8
-  %call9 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i32 noundef %cond, i8 noundef zeroext -15, i8 noundef zeroext %spec.select, i32 noundef 0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp7, ptr noundef nonnull %agg.tmp8, i1 noundef zeroext true) #25
+  %call9 = call fastcc noundef i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderERN5folly10IOBufQueueEjNS0_9FrameTypeEhjNS2_8OptionalIhEENS6_INS0_14PriorityUpdateEEESt10unique_ptrINS2_5IOBufESt14default_deleteISB_EEb(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i32 noundef %cond, i8 noundef zeroext -15, i8 noundef zeroext %spec.select, i32 noundef 0, ptr noundef %agg.tmp, ptr noundef %agg.tmp7, ptr noundef %agg.tmp8, i1 noundef zeroext true) #25
   %4 = load ptr, ptr %agg.tmp8, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i

@@ -3357,7 +3357,7 @@ declare void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(28))
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127X86FixupVectorConstantsPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_12MachineInstrEENK3$_0clENS1_8ArrayRefIZNS0_18processInstructionES3_S5_S7_E10FixupEntryEEjj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef range(i32 0, 513) %3, i32 noundef range(i32 0, 8) %4) unnamed_addr #0 align 2 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -3456,11 +3456,11 @@ _ZNKSt8functionIFPN4llvm8ConstantEPKS1_jjjEEclES4_jjj.exit: ; preds = %26
   %58 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %55, i64 %57
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %50, ptr noundef nonnull align 8 dereferenceable(32) %58) #16
   %59 = load ptr, ptr %0, align 8
-  %60 = add nuw nsw i32 %4, 3
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %62 = load ptr, ptr %61, align 8
-  %63 = zext i32 %60 to i64
-  %64 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %62, i64 %63, i32 3
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  %61 = load ptr, ptr %60, align 8
+  %62 = zext nneg i32 %4 to i64
+  %63 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %61, i64 %62
+  %64 = getelementptr inbounds i8, ptr %63, i64 112
   store i32 %49, ptr %64, align 8
   br label %.loopexit
 
@@ -3514,7 +3514,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %4, %16
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call fastcc void @_ZL19extractConstantBitsPKN4llvm8ConstantE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull %0), !noalias !6
+  call fastcc void @_ZL19extractConstantBitsPKN4llvm8ConstantE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %0), !noalias !6
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %27 = load i8, ptr %26, align 8, !noalias !6
   %28 = trunc i8 %27 to i1
@@ -3674,7 +3674,7 @@ define internal noundef ptr @_ZL15rebuildSplatCstPKN4llvm8ConstantEjjj(ptr nound
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !noalias !9
-  call fastcc void @_ZL19extractConstantBitsPKN4llvm8ConstantE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull %0), !noalias !9
+  call fastcc void @_ZL19extractConstantBitsPKN4llvm8ConstantE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %0), !noalias !9
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %15 = load i8, ptr %14, align 8, !noalias !9
   %16 = trunc i8 %15 to i1
@@ -3823,7 +3823,7 @@ _ZN4llvm5APInt7getZeroEj.exit.i:                  ; preds = %68, %67
   br i1 %.not36.i, label %92, label %75
 
 75:                                               ; preds = %71
-  call fastcc void @_ZL19extractConstantBitsPKN4llvm8ConstantE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull %74), !noalias !9
+  call fastcc void @_ZL19extractConstantBitsPKN4llvm8ConstantE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull %74), !noalias !9
   %76 = load i8, ptr %69, align 8, !noalias !9
   %77 = trunc i8 %76 to i1
   br i1 %77, label %78, label %82
@@ -4454,7 +4454,7 @@ declare void @_ZNK4llvm5APInt11zextOrTruncEj(ptr dead_on_unwind writable sret(%"
 declare noundef ptr @_ZN4llvm11ConstantInt3getERNS_11LLVMContextERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19extractConstantBitsPKN4llvm8ConstantE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL19extractConstantBitsPKN4llvm8ConstantE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::TypeSize", align 8
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
@@ -4616,7 +4616,7 @@ _ZL23getSplatValueAllowUndefPKN4llvm14ConstantVectorE.exit: ; preds = %71
   br i1 %.not58, label %_ZL23getSplatValueAllowUndefPKN4llvm14ConstantVectorE.exit.thread, label %73
 
 73:                                               ; preds = %_ZL23getSplatValueAllowUndefPKN4llvm14ConstantVectorE.exit
-  call fastcc void @_ZL19extractConstantBitsPKN4llvm8ConstantE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull %.1.i)
+  call fastcc void @_ZL19extractConstantBitsPKN4llvm8ConstantE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull %.1.i)
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %75 = load i8, ptr %74, align 8
   %76 = trunc i8 %75 to i1
@@ -4701,7 +4701,7 @@ _ZN4llvm5APInt7getZeroEj.exit65:                  ; preds = %95, %96
   %109 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %108
   %110 = getelementptr inbounds %"class.llvm::Use", ptr %109, i64 %indvars.iv
   %111 = load ptr, ptr %110, align 8
-  call fastcc void @_ZL19extractConstantBitsPKN4llvm8ConstantE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef %111)
+  call fastcc void @_ZL19extractConstantBitsPKN4llvm8ConstantE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef %111)
   %112 = load i8, ptr %99, align 8
   %113 = trunc i8 %112 to i1
   br i1 %113, label %115, label %114
@@ -5194,7 +5194,7 @@ define internal fastcc noundef ptr @_ZL13rebuildExtCstPKN4llvm8ConstantEbjjj(ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call fastcc void @_ZL19extractConstantBitsPKN4llvm8ConstantE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %0), !noalias !39
+  call fastcc void @_ZL19extractConstantBitsPKN4llvm8ConstantE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %0), !noalias !39
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %14 = load i8, ptr %13, align 8, !noalias !39
   %15 = trunc i8 %14 to i1

@@ -1092,7 +1092,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Fcreate(ptr noundef %0, i32 no
   br label %.thread31
 
 39:                                               ; preds = %32
-  %40 = tail call fastcc i32 @H5F__post_open_api_common(ptr noundef nonnull %33, ptr noundef null)
+  %40 = tail call fastcc i32 @H5F__post_open_api_common(ptr noundef %33, ptr noundef null)
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %42, label %47
 
@@ -1263,11 +1263,11 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5F__create_api_
 declare ptr @H5VL_vol_object(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5F__post_open_api_common(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5F__post_open_api_common(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.H5VL_optional_args_t, align 8
   store i64 0, ptr %3, align 8
-  %5 = call i32 @H5VL_introspect_opt_query(ptr noundef %0, i32 noundef 6, i32 noundef 28, ptr noundef nonnull %3) #4
+  %5 = call i32 @H5VL_introspect_opt_query(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 28, ptr noundef nonnull %3) #4
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %11
 
@@ -1288,7 +1288,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__post_open_api_common(ptr nound
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr null, ptr %15, align 8
   %16 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
-  %17 = call i32 @H5VL_file_optional(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %16, ptr noundef %1) #4
+  %17 = call i32 @H5VL_file_optional(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %16, ptr noundef %1) #4
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %23
 
@@ -1392,7 +1392,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Fcreate_async(ptr noundef %0, 
 
 62:                                               ; preds = %46, %44
   store ptr null, ptr %9, align 8
-  %63 = call fastcc i32 @H5F__post_open_api_common(ptr noundef nonnull %38, ptr noundef %spec.select)
+  %63 = call fastcc i32 @H5F__post_open_api_common(ptr noundef %38, ptr noundef %spec.select)
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %65, label %69
 
@@ -1496,7 +1496,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Fopen(ptr noundef %0, i32 noun
   br label %.thread30
 
 38:                                               ; preds = %31
-  %39 = tail call fastcc i32 @H5F__post_open_api_common(ptr noundef nonnull %32, ptr noundef null)
+  %39 = tail call fastcc i32 @H5F__post_open_api_common(ptr noundef %32, ptr noundef null)
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %41, label %46
 
@@ -1741,7 +1741,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Fopen_async(ptr noundef %0, pt
 
 61:                                               ; preds = %45, %43
   store ptr null, ptr %8, align 8
-  %62 = call fastcc i32 @H5F__post_open_api_common(ptr noundef nonnull %37, ptr noundef %spec.select)
+  %62 = call fastcc i32 @H5F__post_open_api_common(ptr noundef %37, ptr noundef %spec.select)
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %64, label %68
 
@@ -2921,7 +2921,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Freopen(i64 noundef %0) local_
   br label %.thread28
 
 36:                                               ; preds = %29
-  %37 = tail call fastcc i32 @H5F__post_open_api_common(ptr noundef nonnull %30, ptr noundef null)
+  %37 = tail call fastcc i32 @H5F__post_open_api_common(ptr noundef %30, ptr noundef null)
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %39, label %44
 
@@ -3096,7 +3096,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Freopen_async(ptr noundef %0, 
 
 59:                                               ; preds = %43, %41
   store ptr null, ptr %6, align 8
-  %60 = call fastcc i32 @H5F__post_open_api_common(ptr noundef nonnull %35, ptr noundef %spec.select)
+  %60 = call fastcc i32 @H5F__post_open_api_common(ptr noundef %35, ptr noundef %spec.select)
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %62, label %66
 

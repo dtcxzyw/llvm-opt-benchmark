@@ -17135,12 +17135,12 @@ _ZStneIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %28
   br i1 %.not7.i.i.i.i.i.i.not, label %_ZStneIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread10, label %_ZStneIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread
 
 _ZStneIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread: ; preds = %13, %_ZStneIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit
-  invoke fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIjSaIjEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIjSaIjEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %29 unwind label %34
 
 29:                                               ; preds = %_ZStneIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread
   %30 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
-  invoke fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIjSaIjEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %14)
+  invoke fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIjSaIjEE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %14)
           to label %31 unwind label %36
 
 31:                                               ; preds = %29
@@ -17185,12 +17185,12 @@ _ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %51
   br i1 %.not7.i.i.i.i.i.i9.not, label %_ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.thread11, label %_ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.thread
 
 _ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.thread: ; preds = %_ZStneIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread10, %_ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit
-  invoke fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIhSaIhEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  invoke fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %52 unwind label %34
 
 52:                                               ; preds = %_ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.thread
   %53 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
-  invoke fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIhSaIhEE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %54 unwind label %57
 
 54:                                               ; preds = %52
@@ -17334,7 +17334,7 @@ declare noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648finalizeEv(
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIjSaIjEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIjSaIjEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.21", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
@@ -17433,7 +17433,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIhSaIhEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.21", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16

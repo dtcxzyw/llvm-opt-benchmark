@@ -401,7 +401,7 @@ define dso_local range(i64 -22, -9223372036854775808) i64 @dcache_dir_lseek(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @scan_positives(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef ptr @scan_positives(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 1, 9223372036854775806) %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 96

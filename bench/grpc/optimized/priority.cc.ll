@@ -4080,7 +4080,7 @@ invoke.cont40:                                    ; preds = %if.then.i, %if.else
   %ignore_reresolution_requests = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 72
   %53 = load i8, ptr %ignore_reresolution_requests, align 8
   %tobool = trunc i8 %53 to i1
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_110PriorityLb13ChildPriority12UpdateLockedENS_13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEEEb(ptr noalias nonnull align 8 %status, ptr noundef nonnull align 8 dereferenceable(120) %second.val, ptr noundef nonnull %agg.tmp36, i1 noundef zeroext %tobool)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_110PriorityLb13ChildPriority12UpdateLockedENS_13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEEEb(ptr noalias align 8 %status, ptr noundef nonnull align 8 dereferenceable(120) %second.val, ptr noundef %agg.tmp36, i1 noundef zeroext %tobool)
           to label %invoke.cont44 unwind label %lpad43
 
 invoke.cont44:                                    ; preds = %invoke.cont40
@@ -4766,7 +4766,7 @@ if.end:                                           ; preds = %if.then.i.i.i.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110PriorityLb13ChildPriority12UpdateLockedENS_13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEEEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef %config, i1 noundef zeroext %ignore_reresolution_requests) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110PriorityLb13ChildPriority12UpdateLockedENS_13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEEEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull %config, i1 noundef zeroext %ignore_reresolution_requests) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lb_policy_args.i = alloca %"struct.grpc_core::LoadBalancingPolicy::Args", align 8
   %ref.tmp13.i = alloca %"class.std::unique_ptr.301", align 8
@@ -5467,7 +5467,7 @@ _ZN9grpc_core19LoadBalancingPolicy10UpdateArgsC2EOS1_.exit: ; preds = %invoke.co
   %vtable = load ptr, ptr %87, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %94 = load ptr, ptr %vfn, align 8
-  invoke void %94(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %87, ptr noundef nonnull %agg.tmp)
+  invoke void %94(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %87, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont85 unwind label %lpad84
 
 invoke.cont85:                                    ; preds = %_ZN9grpc_core19LoadBalancingPolicy10UpdateArgsC2EOS1_.exit
@@ -6044,7 +6044,7 @@ invoke.cont11.i.i:                                ; preds = %if.then.i.i64, %inv
   call void @llvm.experimental.noalias.scope.decl(metadata !76)
   %38 = atomicrmw add ptr %refs_.i.i.i, i64 1 monotonic, align 8, !noalias !79
   store ptr %call.i66, ptr %ref.tmp10.i.i, align 8, !alias.scope !76, !noalias !73
-  invoke fastcc void @_ZN9grpc_core14MakeOrphanableINS_12_GLOBAL__N_110PriorityLb13ChildPriority13FailoverTimerEJNS_13RefCountedPtrIS3_EEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_(ptr noalias nonnull align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp10.i.i)
+  invoke fastcc void @_ZN9grpc_core14MakeOrphanableINS_12_GLOBAL__N_110PriorityLb13ChildPriority13FailoverTimerEJNS_13RefCountedPtrIS3_EEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_(ptr noalias align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp10.i.i)
           to label %invoke.cont13.i.i unwind label %lpad12.i.i, !noalias !73
 
 invoke.cont13.i.i:                                ; preds = %invoke.cont11.i.i
@@ -6251,7 +6251,7 @@ _ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEEC2ERKS3_.exit: ; p
   %ignore_reresolution_requests = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 72
   %66 = load i8, ptr %ignore_reresolution_requests, align 8
   %tobool = trunc i8 %66 to i1
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_110PriorityLb13ChildPriority12UpdateLockedENS_13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEEEb(ptr noalias nonnull align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(120) %call22.val32, ptr noundef nonnull %agg.tmp37, i1 noundef zeroext %tobool)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_110PriorityLb13ChildPriority12UpdateLockedENS_13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEEEb(ptr noalias align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(120) %call22.val32, ptr noundef %agg.tmp37, i1 noundef zeroext %tobool)
           to label %invoke.cont42 unwind label %lpad41
 
 invoke.cont42:                                    ; preds = %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEEC2ERKS3_.exit
@@ -8484,7 +8484,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %picker, align 8
   store ptr %1, ptr %agg.tmp, align 8
   store ptr null, ptr %picker, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_110PriorityLb13ChildPriority31OnConnectivityStateUpdateLockedE23grpc_connectivity_stateRKN4absl12lts_202308026StatusENS_13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEEE(ptr noundef nonnull align 8 dereferenceable(120) %priority_.val1, i32 noundef %state, ptr noundef nonnull align 8 dereferenceable(8) %status, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_110PriorityLb13ChildPriority31OnConnectivityStateUpdateLockedE23grpc_connectivity_stateRKN4absl12lts_202308026StatusENS_13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEEE(ptr noundef nonnull align 8 dereferenceable(120) %priority_.val1, i32 noundef %state, ptr noundef nonnull align 8 dereferenceable(8) %status, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -8691,7 +8691,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110PriorityLb13ChildPriority31OnConnectivityStateUpdateLockedE23grpc_connectivity_stateRKN4absl12lts_202308026StatusENS_13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %state, ptr noundef nonnull align 8 dereferenceable(8) %status, ptr nocapture noundef %picker) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_110PriorityLb13ChildPriority31OnConnectivityStateUpdateLockedE23grpc_connectivity_stateRKN4absl12lts_202308026StatusENS_13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %state, ptr noundef nonnull align 8 dereferenceable(8) %status, ptr nocapture noundef nonnull %picker) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp16 = alloca %"class.std::unique_ptr.237", align 8
@@ -8820,7 +8820,7 @@ if.then15:                                        ; preds = %land.lhs.true
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %17 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !90
   store ptr %this, ptr %ref.tmp17, align 8, !alias.scope !90
-  invoke fastcc void @_ZN9grpc_core14MakeOrphanableINS_12_GLOBAL__N_110PriorityLb13ChildPriority13FailoverTimerEJNS_13RefCountedPtrIS3_EEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_(ptr noalias nonnull align 8 %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17)
+  invoke fastcc void @_ZN9grpc_core14MakeOrphanableINS_12_GLOBAL__N_110PriorityLb13ChildPriority13FailoverTimerEJNS_13RefCountedPtrIS3_EEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_(ptr noalias align 8 %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %if.then15
@@ -8959,7 +8959,7 @@ eh.resume:                                        ; preds = %if.then.i.i25, %if.
 declare noundef ptr @_ZN9grpc_core21ConnectivityStateNameE23grpc_connectivity_state(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core14MakeOrphanableINS_12_GLOBAL__N_110PriorityLb13ChildPriority13FailoverTimerEJNS_13RefCountedPtrIS3_EEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(8) %args) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core14MakeOrphanableINS_12_GLOBAL__N_110PriorityLb13ChildPriority13FailoverTimerEJNS_13RefCountedPtrIS3_EEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(8) %args) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp29.i = alloca %"class.absl::lts_20230802::AnyInvocable.259", align 16
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
@@ -9725,7 +9725,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then4.i.i.i.i, %
   %child_priority_12.val.i.i.i.i = load ptr, ptr %child_priority_12.i.i.i.i, align 8
   call void @_ZN4absl12lts_202308026StatusC1ENS0_10StatusCodeESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i, i32 noundef 14, i64 20, ptr nonnull @.str.45)
   store ptr null, ptr %agg.tmp14.i.i.i.i, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_110PriorityLb13ChildPriority31OnConnectivityStateUpdateLockedE23grpc_connectivity_stateRKN4absl12lts_202308026StatusENS_13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEEE(ptr noundef nonnull align 8 dereferenceable(120) %child_priority_12.val.i.i.i.i, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i, ptr noundef nonnull %agg.tmp14.i.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_110PriorityLb13ChildPriority31OnConnectivityStateUpdateLockedE23grpc_connectivity_stateRKN4absl12lts_202308026StatusENS_13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEEE(ptr noundef nonnull align 8 dereferenceable(120) %child_priority_12.val.i.i.i.i, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i, ptr noundef %agg.tmp14.i.i.i.i)
           to label %invoke.cont16.i.i.i.i unwind label %lpad15.i.i.i.i
 
 invoke.cont16.i.i.i.i:                            ; preds = %if.end.i.i.i.i

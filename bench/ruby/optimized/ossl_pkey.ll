@@ -2520,7 +2520,7 @@ declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @ossl_obj2bio(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @pkey_generate(i32 noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @pkey_generate(i32 noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [2 x i64], align 16
   %6 = alloca i64, align 8
@@ -2622,95 +2622,94 @@ define internal fastcc i64 @pkey_generate(i32 noundef %0, ptr noundef %1, i32 no
 50:                                               ; preds = %42, %39
   %51 = getelementptr inbounds i8, ptr %8, i64 20
   %52 = trunc nuw nsw i32 %2 to i8
-  %53 = shl i8 %52, 1
-  %54 = and i8 %53, 2
+  %53 = shl nuw nsw i8 %52, 1
   store ptr %.0, ptr %8, align 8
-  %55 = call i32 @rb_block_given_p() #8
-  %56 = trunc i32 %55 to i8
-  %57 = and i8 %56, 1
-  %58 = or disjoint i8 %54, %57
-  store i8 %58, ptr %51, align 4
+  %54 = call i32 @rb_block_given_p() #8
+  %55 = trunc i32 %54 to i8
+  %56 = and i8 %55, 1
+  %57 = or disjoint i8 %53, %56
+  store i8 %57, ptr %51, align 4
   call void @EVP_PKEY_CTX_set_app_data(ptr noundef nonnull %.0, ptr noundef nonnull %8) #8
   call void @EVP_PKEY_CTX_set_cb(ptr noundef nonnull %.0, ptr noundef nonnull @pkey_gen_cb) #8
-  %59 = load i8, ptr %51, align 4
-  %60 = and i8 %59, 1
-  %.not28 = icmp eq i8 %60, 0
-  br i1 %.not28, label %75, label %61
+  %58 = load i8, ptr %51, align 4
+  %59 = and i8 %58, 1
+  %.not28 = icmp eq i8 %59, 0
+  br i1 %.not28, label %74, label %60
 
-61:                                               ; preds = %50
-  %62 = and i8 %59, 2
-  %.not.i = icmp eq i8 %62, 0
-  br i1 %.not.i, label %68, label %63
+60:                                               ; preds = %50
+  %61 = and i8 %58, 2
+  %.not.i = icmp eq i8 %61, 0
+  br i1 %.not.i, label %67, label %62
 
-63:                                               ; preds = %61
-  %64 = load ptr, ptr %8, align 8
-  %65 = getelementptr inbounds i8, ptr %8, i64 8
-  %66 = call i32 @EVP_PKEY_paramgen(ptr noundef %64, ptr noundef nonnull %65) #8
-  %67 = icmp slt i32 %66, 1
-  br i1 %67, label %pkey_blocking_gen.exit, label %._crit_edge.i
+62:                                               ; preds = %60
+  %63 = load ptr, ptr %8, align 8
+  %64 = getelementptr inbounds i8, ptr %8, i64 8
+  %65 = call i32 @EVP_PKEY_paramgen(ptr noundef %63, ptr noundef nonnull %64) #8
+  %66 = icmp slt i32 %65, 1
+  br i1 %66, label %pkey_blocking_gen.exit, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %63
+._crit_edge.i:                                    ; preds = %62
   %.pre.i = load i8, ptr %51, align 4
-  br label %68
+  br label %67
 
-68:                                               ; preds = %._crit_edge.i, %61
-  %69 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %59, %61 ]
-  %70 = and i8 %69, 2
-  %.not9.i = icmp eq i8 %70, 0
-  br i1 %.not9.i, label %71, label %pkey_blocking_gen.exit
+67:                                               ; preds = %._crit_edge.i, %60
+  %68 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %58, %60 ]
+  %69 = and i8 %68, 2
+  %.not9.i = icmp eq i8 %69, 0
+  br i1 %.not9.i, label %70, label %pkey_blocking_gen.exit
 
-71:                                               ; preds = %68
-  %72 = load ptr, ptr %8, align 8
-  %73 = getelementptr inbounds i8, ptr %8, i64 8
-  %74 = call i32 @EVP_PKEY_keygen(ptr noundef %72, ptr noundef nonnull %73) #8
+70:                                               ; preds = %67
+  %71 = load ptr, ptr %8, align 8
+  %72 = getelementptr inbounds i8, ptr %8, i64 8
+  %73 = call i32 @EVP_PKEY_keygen(ptr noundef %71, ptr noundef nonnull %72) #8
   br label %pkey_blocking_gen.exit
 
-75:                                               ; preds = %50
-  %76 = call ptr @rb_thread_call_without_gvl(ptr noundef nonnull @pkey_blocking_gen, ptr noundef nonnull %8, ptr noundef nonnull @pkey_blocking_gen_stop, ptr noundef nonnull %8) #8
+74:                                               ; preds = %50
+  %75 = call ptr @rb_thread_call_without_gvl(ptr noundef nonnull @pkey_blocking_gen, ptr noundef nonnull %8, ptr noundef nonnull @pkey_blocking_gen_stop, ptr noundef nonnull %8) #8
   br label %pkey_blocking_gen.exit
 
-pkey_blocking_gen.exit:                           ; preds = %71, %68, %63, %75
+pkey_blocking_gen.exit:                           ; preds = %70, %67, %62, %74
   call void @EVP_PKEY_CTX_free(ptr noundef nonnull %.0) #8
-  %77 = getelementptr inbounds i8, ptr %8, i64 8
-  %78 = load ptr, ptr %77, align 8
-  %.not29 = icmp eq ptr %78, null
-  br i1 %.not29, label %79, label %87
+  %76 = getelementptr inbounds i8, ptr %8, i64 8
+  %77 = load ptr, ptr %76, align 8
+  %.not29 = icmp eq ptr %77, null
+  br i1 %.not29, label %78, label %86
 
-79:                                               ; preds = %pkey_blocking_gen.exit
-  %80 = getelementptr inbounds i8, ptr %8, i64 16
-  %81 = load i32, ptr %80, align 8
-  %.not30 = icmp eq i32 %81, 0
-  br i1 %.not30, label %84, label %82
+78:                                               ; preds = %pkey_blocking_gen.exit
+  %79 = getelementptr inbounds i8, ptr %8, i64 16
+  %80 = load i32, ptr %79, align 8
+  %.not30 = icmp eq i32 %80, 0
+  br i1 %.not30, label %83, label %81
 
-82:                                               ; preds = %79
+81:                                               ; preds = %78
   call void @ossl_clear_error() #8
-  %83 = load i32, ptr %80, align 8
-  call void @rb_jump_tag(i32 noundef %83) #9
+  %82 = load i32, ptr %79, align 8
+  call void @rb_jump_tag(i32 noundef %82) #9
   unreachable
 
-84:                                               ; preds = %79
-  %85 = load i64, ptr @ePKeyError, align 8
-  %86 = select i1 %.not26, ptr @.str.48, ptr @.str.47
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %85, ptr noundef nonnull %86) #9
+83:                                               ; preds = %78
+  %84 = load i64, ptr @ePKeyError, align 8
+  %85 = select i1 %.not26, ptr @.str.48, ptr @.str.47
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %84, ptr noundef nonnull %85) #9
   unreachable
 
-87:                                               ; preds = %pkey_blocking_gen.exit
+86:                                               ; preds = %pkey_blocking_gen.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %88 = ptrtoint ptr %78 to i64
-  %89 = call i64 @rb_protect(ptr noundef nonnull @pkey_new0, i64 noundef %88, ptr noundef nonnull %4) #8
-  %90 = load i32, ptr %4, align 4
-  %.not.i31 = icmp eq i32 %90, 0
-  br i1 %.not.i31, label %ossl_pkey_new.exit, label %91
+  %87 = ptrtoint ptr %77 to i64
+  %88 = call i64 @rb_protect(ptr noundef nonnull @pkey_new0, i64 noundef %87, ptr noundef nonnull %4) #8
+  %89 = load i32, ptr %4, align 4
+  %.not.i31 = icmp eq i32 %89, 0
+  br i1 %.not.i31, label %ossl_pkey_new.exit, label %90
 
-91:                                               ; preds = %87
-  call void @EVP_PKEY_free(ptr noundef nonnull %78) #8
-  %92 = load i32, ptr %4, align 4
-  call void @rb_jump_tag(i32 noundef %92) #9
+90:                                               ; preds = %86
+  call void @EVP_PKEY_free(ptr noundef nonnull %77) #8
+  %91 = load i32, ptr %4, align 4
+  call void @rb_jump_tag(i32 noundef %91) #9
   unreachable
 
-ossl_pkey_new.exit:                               ; preds = %87
+ossl_pkey_new.exit:                               ; preds = %86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  ret i64 %89
+  ret i64 %88
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -3050,7 +3049,7 @@ declare i32 @EVP_PKEY_print_public(ptr noundef, ptr noundef, i32 noundef, ptr no
 declare i32 @EVP_PKEY_print_params(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @do_pkcs8_export(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @do_pkcs8_export(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #8

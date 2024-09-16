@@ -473,7 +473,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_rsa_simple(i32 noundef %idx, i32 noundef %en_pad_type, i32 noundef %de_pad_type, ptr noundef writeonly %ctext_ex, ptr noundef writeonly %clen, ptr noundef writeonly %retkey) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_rsa_simple(i32 noundef %idx, i32 noundef range(i32 1, 5) %en_pad_type, i32 noundef range(i32 1, 5) %de_pad_type, ptr noundef writeonly %ctext_ex, ptr noundef writeonly %clen, ptr noundef writeonly %retkey) unnamed_addr #0 {
 entry:
   %ptext = alloca [256 x i8], align 16
   %ctext = alloca [256 x i8], align 16
@@ -626,7 +626,7 @@ declare i32 @test_uint_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i3
 declare i32 @RSA_security_bits(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @load_key(i32 noundef %priv) unnamed_addr #0 {
+define internal fastcc noundef ptr @load_key(i32 noundef range(i32 0, 2) %priv) unnamed_addr #0 {
 entry:
   %call = tail call ptr @RSA_new() #4
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 559, ptr noundef nonnull @.str.28, ptr noundef %call) #4

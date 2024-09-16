@@ -309,7 +309,7 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 5) %3, i32 noundef %4, i32 noundef range(i32 24576, 34692) %5) unnamed_addr #0 {
   %7 = add nuw nsw i32 %3, 12
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #4
   %9 = getelementptr inbounds i8, ptr %1, i64 8
@@ -338,7 +338,7 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
   %30 = add nuw nsw i32 %3, 4
   %31 = load i32, ptr @hf_mint_header_dstid, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 4, i32 noundef 0) #4
-  %33 = add nuw nsw i32 %3, 8
+  %33 = or disjoint i32 %3, 8
   %34 = load i32, ptr @hf_mint_header_srcid, align 4
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef 4, i32 noundef 0) #4
   %36 = load i32, ptr @hf_mint_header_dstdataport, align 4
@@ -346,7 +346,7 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
   %38 = add nuw nsw i32 %3, 14
   %39 = load i32, ptr @hf_mint_header_srcdataport, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %39, ptr noundef %0, i32 noundef %38, i32 noundef 2, i32 noundef 0) #4
-  %41 = add nuw nsw i32 %3, 16
+  %41 = or disjoint i32 %3, 16
   switch i16 %8, label %191 [
     i16 1, label %42
     i16 2, label %56
@@ -405,7 +405,7 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
   %81 = tail call ptr @proto_item_add_subtree(ptr noundef %79, i32 noundef %80) #4
   %82 = load i32, ptr @hf_mint_control_32zerobytes, align 4
   %83 = tail call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %82, ptr noundef %0, i32 noundef %41, i32 noundef 32, i32 noundef 0) #4
-  %84 = add nuw nsw i32 %3, 48
+  %84 = or disjoint i32 %3, 48
   %85 = load i32, ptr @hf_mint_router_unknown1, align 4
   %86 = tail call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %85, ptr noundef %0, i32 noundef %84, i32 noundef 1, i32 noundef 0) #4
   %87 = add nuw nsw i32 %3, 49
@@ -422,7 +422,7 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
   %98 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %97) #4
   %99 = load i32, ptr @hf_mint_router_message_type, align 4
   %100 = tail call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %99, ptr noundef %0, i32 noundef %97, i32 noundef 4, i32 noundef 0) #4
-  %101 = add nuw nsw i32 %3, 56
+  %101 = or disjoint i32 %3, 56
   %102 = load i32, ptr @hf_mint_router_header_sender, align 4
   %103 = tail call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %102, ptr noundef %0, i32 noundef %101, i32 noundef 4, i32 noundef 0) #4
   %104 = add nuw nsw i32 %3, 60
@@ -530,7 +530,7 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
   %154 = tail call ptr @proto_item_add_subtree(ptr noundef %152, i32 noundef %153) #4
   %155 = load i32, ptr @hf_mint_control_32zerobytes, align 4
   %156 = tail call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %155, ptr noundef %0, i32 noundef %41, i32 noundef 32, i32 noundef 0) #4
-  %157 = add nuw nsw i32 %3, 48
+  %157 = or disjoint i32 %3, 48
   %158 = sub i32 %4, %157
   %159 = load i32, ptr @hf_mint_neighbor_unknown, align 4
   %160 = and i32 %158, 65535
@@ -546,7 +546,7 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
   %168 = tail call ptr @proto_item_add_subtree(ptr noundef %166, i32 noundef %167) #4
   %169 = load i32, ptr @hf_mint_control_32zerobytes, align 4
   %170 = tail call ptr @proto_tree_add_item(ptr noundef %168, i32 noundef %169, ptr noundef %0, i32 noundef %41, i32 noundef 32, i32 noundef 0) #4
-  %171 = add nuw nsw i32 %3, 48
+  %171 = or disjoint i32 %3, 48
   %172 = load i32, ptr @hf_mint_mlcp_message, align 4
   %173 = tail call ptr @proto_tree_add_item(ptr noundef %168, i32 noundef %172, ptr noundef %0, i32 noundef %171, i32 noundef 2, i32 noundef 0) #4
   %174 = add nuw nsw i32 %3, 50
@@ -576,10 +576,11 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
 
 191:                                              ; preds = %6
   %192 = sub i32 %4, %41
-  switch i32 %5, label %194 [
-    i32 24576, label %195
-    i32 34691, label %195
-    i32 24577, label %193
+  %trunc = trunc nuw i32 %5 to i16
+  switch i16 %trunc, label %194 [
+    i16 24576, label %195
+    i16 -30845, label %195
+    i16 24577, label %193
   ]
 
 193:                                              ; preds = %191
@@ -625,7 +626,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_eth_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_eth_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 18, 31) %3, i32 noundef range(i32 -3, -18) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4

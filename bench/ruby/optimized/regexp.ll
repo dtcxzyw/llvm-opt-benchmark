@@ -34,7 +34,7 @@ tailrecurse.i:                                    ; preds = %18, %5
   br i1 %.not.i, label %9, label %pm_regexp_parse_expression.exit.thread.i
 
 9:                                                ; preds = %tailrecurse.i
-  %10 = call fastcc zeroext i1 @pm_regexp_parse_item(ptr noundef nonnull %6)
+  %10 = call fastcc zeroext i1 @pm_regexp_parse_item(ptr noundef %6)
   br i1 %10, label %.preheader.i.i, label %pm_regexp_parse_pattern.exit
 
 .preheader.i.i:                                   ; preds = %9, %13
@@ -51,7 +51,7 @@ tailrecurse.i:                                    ; preds = %18, %5
   ]
 
 13:                                               ; preds = %11
-  %14 = call fastcc zeroext i1 @pm_regexp_parse_item(ptr noundef nonnull %6)
+  %14 = call fastcc zeroext i1 @pm_regexp_parse_item(ptr noundef %6)
   br i1 %14, label %.preheader.i.i, label %pm_regexp_parse_pattern.exit, !llvm.loop !7
 
 pm_regexp_parse_expression.exit.thread.i:         ; preds = %11, %11, %.preheader.i.i, %tailrecurse.i
@@ -76,7 +76,7 @@ pm_regexp_parse_pattern.exit:                     ; preds = %9, %pm_regexp_parse
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @pm_regexp_parse_item(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @pm_regexp_parse_item(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %struct.pm_regexp_options_t, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -108,7 +108,7 @@ define internal fastcc noundef zeroext i1 @pm_regexp_parse_item(ptr noundef %0) 
   br label %13
 
 13:                                               ; preds = %11, %8
-  tail call fastcc void @pm_regexp_parse_quantifier(ptr noundef nonnull %0)
+  tail call fastcc void @pm_regexp_parse_quantifier(ptr noundef %0)
   br label %154
 
 14:                                               ; preds = %1
@@ -226,7 +226,7 @@ define internal fastcc noundef zeroext i1 @pm_regexp_parse_item(ptr noundef %0) 
   br i1 %61, label %.lr.ph93, label %pm_regexp_parse_group.exit.thread, !llvm.loop !9
 
 62:                                               ; preds = %34, %30
-  %63 = tail call fastcc zeroext i1 @pm_regexp_char_find(ptr noundef nonnull %0, i8 noundef zeroext 41)
+  %63 = tail call fastcc zeroext i1 @pm_regexp_char_find(ptr noundef %0, i8 noundef zeroext 41)
   br i1 %63, label %.lr.ph91, label %pm_regexp_parse_group.exit.thread
 
 .lr.ph91:                                         ; preds = %62, %70
@@ -242,7 +242,7 @@ define internal fastcc noundef zeroext i1 @pm_regexp_parse_item(ptr noundef %0) 
   br i1 %69, label %70, label %.loopexit
 
 70:                                               ; preds = %67
-  %71 = tail call fastcc zeroext i1 @pm_regexp_char_find(ptr noundef nonnull %0, i8 noundef zeroext 41)
+  %71 = tail call fastcc zeroext i1 @pm_regexp_char_find(ptr noundef %0, i8 noundef zeroext 41)
   br i1 %71, label %.lr.ph91, label %pm_regexp_parse_group.exit.thread, !llvm.loop !10
 
 72:                                               ; preds = %22, %22, %22, %22, %22
@@ -269,29 +269,29 @@ define internal fastcc noundef zeroext i1 @pm_regexp_parse_item(ptr noundef %0) 
   br label %pm_regexp_char_accept.exit41.thread
 
 80:                                               ; preds = %76
-  %81 = tail call fastcc zeroext i1 @pm_regexp_char_find(ptr noundef nonnull %0, i8 noundef zeroext 62)
+  %81 = tail call fastcc zeroext i1 @pm_regexp_char_find(ptr noundef %0, i8 noundef zeroext 62)
   br i1 %81, label %82, label %pm_regexp_parse_group.exit.thread
 
 82:                                               ; preds = %80
   %83 = load ptr, ptr %3, align 8
   %84 = getelementptr i8, ptr %83, i64 -1
-  tail call fastcc void @pm_regexp_parser_named_capture(ptr noundef nonnull %0, ptr noundef nonnull %75, ptr noundef %84)
+  tail call fastcc void @pm_regexp_parser_named_capture(ptr noundef %0, ptr noundef nonnull %75, ptr noundef %84)
   br label %pm_regexp_char_accept.exit41.thread
 
 85:                                               ; preds = %22
   %86 = getelementptr i8, ptr %4, i64 3
   store ptr %86, ptr %3, align 8
-  %87 = tail call fastcc zeroext i1 @pm_regexp_char_find(ptr noundef nonnull %0, i8 noundef zeroext 39)
+  %87 = tail call fastcc zeroext i1 @pm_regexp_char_find(ptr noundef %0, i8 noundef zeroext 39)
   br i1 %87, label %88, label %pm_regexp_parse_group.exit.thread
 
 88:                                               ; preds = %85
   %89 = load ptr, ptr %3, align 8
   %90 = getelementptr i8, ptr %89, i64 -1
-  tail call fastcc void @pm_regexp_parser_named_capture(ptr noundef nonnull %0, ptr noundef %86, ptr noundef %90)
+  tail call fastcc void @pm_regexp_parser_named_capture(ptr noundef %0, ptr noundef %86, ptr noundef %90)
   br label %pm_regexp_char_accept.exit41.thread
 
 91:                                               ; preds = %22
-  %92 = tail call fastcc zeroext i1 @pm_regexp_char_find(ptr noundef nonnull %0, i8 noundef zeroext 41)
+  %92 = tail call fastcc zeroext i1 @pm_regexp_char_find(ptr noundef %0, i8 noundef zeroext 41)
   br i1 %92, label %pm_regexp_char_accept.exit41.thread, label %pm_regexp_parse_group.exit.thread
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %101
@@ -388,7 +388,7 @@ pm_regexp_char_accept.exit41.thread:              ; preds = %.lr.ph, %.lr.ph, %.
   br i1 %.not80.i, label %.critedge6.i, label %.lr.ph142, !llvm.loop !13
 
 .lr.ph142:                                        ; preds = %.lr.ph86.preheader, %.lr.ph86
-  %113 = tail call fastcc zeroext i1 @pm_regexp_parse_item(ptr noundef nonnull %0)
+  %113 = tail call fastcc zeroext i1 @pm_regexp_parse_item(ptr noundef %0)
   br i1 %113, label %.preheader56, label %pm_regexp_parse_group.exit.thread
 
 .preheader56:                                     ; preds = %.lr.ph142, %116
@@ -405,7 +405,7 @@ pm_regexp_char_accept.exit41.thread:              ; preds = %.lr.ph, %.lr.ph, %.
   ]
 
 116:                                              ; preds = %114
-  %117 = tail call fastcc zeroext i1 @pm_regexp_parse_item(ptr noundef nonnull %0)
+  %117 = tail call fastcc zeroext i1 @pm_regexp_parse_item(ptr noundef %0)
   br i1 %117, label %.preheader56, label %pm_regexp_parse_group.exit.thread, !llvm.loop !7
 
 118:                                              ; preds = %114
@@ -441,17 +441,17 @@ pm_regexp_parse_group.exit.thread:                ; preds = %101, %96, %94, %105
 
 .loopexit:                                        ; preds = %67, %.lr.ph91, %.loopexit.sink.split
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  tail call fastcc void @pm_regexp_parse_quantifier(ptr noundef nonnull %0)
+  tail call fastcc void @pm_regexp_parse_quantifier(ptr noundef %0)
   br label %154
 
 124:                                              ; preds = %1
   %125 = getelementptr i8, ptr %4, i64 1
   store ptr %125, ptr %3, align 8
-  %126 = tail call fastcc zeroext i1 @pm_regexp_parse_lbracket(ptr noundef nonnull %0)
+  %126 = tail call fastcc zeroext i1 @pm_regexp_parse_lbracket(ptr noundef %0)
   br i1 %126, label %127, label %154
 
 127:                                              ; preds = %124
-  tail call fastcc void @pm_regexp_parse_quantifier(ptr noundef nonnull %0)
+  tail call fastcc void @pm_regexp_parse_quantifier(ptr noundef %0)
   br label %154
 
 128:                                              ; preds = %1
@@ -490,7 +490,7 @@ pm_regexp_parse_group.exit.thread:                ; preds = %101, %96, %94, %105
   %152 = load ptr, ptr %3, align 8
   %153 = getelementptr i8, ptr %152, i64 %.0
   store ptr %153, ptr %3, align 8
-  tail call fastcc void @pm_regexp_parse_quantifier(ptr noundef nonnull %0)
+  tail call fastcc void @pm_regexp_parse_quantifier(ptr noundef %0)
   br label %154
 
 154:                                              ; preds = %pm_regexp_parse_group.exit.thread, %149, %124, %127, %.loopexit, %151, %13, %6
@@ -499,7 +499,7 @@ pm_regexp_parse_group.exit.thread:                ; preds = %101, %96, %94, %105
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @pm_regexp_parse_quantifier(ptr nocapture noundef %0) unnamed_addr #1 {
+define internal fastcc void @pm_regexp_parse_quantifier(ptr nocapture noundef nonnull %0) unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 16
@@ -618,7 +618,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @pm_regexp_parse_lbracket(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @pm_regexp_parse_lbracket(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 2
@@ -746,7 +746,7 @@ pm_regexp_char_accept.exit:                       ; preds = %47, %48, %51
   ]
 
 57:                                               ; preds = %54
-  %58 = tail call fastcc zeroext i1 @pm_regexp_parse_lbracket(ptr noundef nonnull %0)
+  %58 = tail call fastcc zeroext i1 @pm_regexp_parse_lbracket(ptr noundef %0)
   %.val9.i.pre = load ptr, ptr %2, align 8
   %.val10.i.pre = load ptr, ptr %5, align 8
   br label %62
@@ -794,7 +794,7 @@ pm_regexp_char_expect.exit:                       ; preds = %pm_regexp_char_expe
 declare i64 @pm_encoding_utf_8_char_width(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @pm_regexp_char_find(ptr nocapture noundef %0, i8 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @pm_regexp_char_find(ptr nocapture noundef nonnull %0, i8 noundef zeroext range(i8 39, 63) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 16
@@ -827,7 +827,7 @@ define internal fastcc noundef zeroext i1 @pm_regexp_char_find(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pm_regexp_parser_named_capture(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @pm_regexp_parser_named_capture(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.pm_string_t, align 8
   call void @pm_string_shared_init(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2) #5
   %5 = getelementptr inbounds i8, ptr %0, i64 24

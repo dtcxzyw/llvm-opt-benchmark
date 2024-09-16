@@ -63,7 +63,7 @@ define dso_local ptr @unicode_normalize(i32 noundef %0, ptr nocapture noundef re
 .lr.ph142:                                        ; preds = %24, %.lr.ph142
   %26 = phi i32 [ %28, %.lr.ph142 ], [ %25, %24 ]
   %.169140 = phi ptr [ %27, %.lr.ph142 ], [ %1, %24 ]
-  call fastcc void @decompose_code(i32 noundef %26, i1 noundef zeroext %10, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  call fastcc void @decompose_code(i32 noundef %26, i1 noundef zeroext %10, ptr noundef %7, ptr noundef %8)
   %27 = getelementptr i8, ptr %.169140, i64 4
   %28 = load i32, ptr %27, align 4
   %.not84 = icmp eq i32 %28, 0
@@ -570,7 +570,7 @@ get_code_decomposition.exit:                      ; preds = %44, %46
 declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @decompose_code(i32 noundef %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #3 {
+define internal fastcc void @decompose_code(i32 noundef %0, i1 noundef zeroext %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #3 {
   %5 = alloca i32, align 4
   %6 = add i32 %0, -44032
   %or.cond = icmp ult i32 %6, 11172

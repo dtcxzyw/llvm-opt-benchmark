@@ -2306,7 +2306,7 @@ entry:
   %ref.tmp11.i = alloca %"class.std::shared_ptr", align 8
   %ref.tmp19.i = alloca %"class.std::shared_ptr", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.48", align 8
-  call fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_119getBatchIteratorPtrERKSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS9_EERKSt10shared_ptrIKNS0_4TypeEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(16) %type)
+  call fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_119getBatchIteratorPtrERKSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS9_EERKSt10shared_ptrIKNS0_4TypeEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(16) %type)
   %dataIterator.val.i = load ptr, ptr %ref.tmp, align 8, !noalias !24
   %type_.i = getelementptr inbounds i8, ptr %dataIterator.val.i, i64 24
   %2 = load ptr, ptr %type_.i, align 8, !noalias !25
@@ -6952,7 +6952,7 @@ if.then10.i:                                      ; preds = %if.else.i
   %610 = getelementptr i8, ptr %dataIterator.val.i, i64 16
   %call2.val.i17 = load i64, ptr %610, align 8, !noalias !210
   store i64 %call2.val.i17, ptr %numArrays.i, align 8, !noalias !210
-  invoke fastcc void @_ZN8facebook5velox3row21UnsafeRowDeserializer23populateMetadataVectorsERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolEm(ptr noalias nonnull align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %pool, i64 noundef %call2.val.i17)
+  invoke fastcc void @_ZN8facebook5velox3row21UnsafeRowDeserializer23populateMetadataVectorsERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolEm(ptr noalias align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %pool, i64 noundef %call2.val.i17)
           to label %.noexc62 unwind label %lpad
 
 .noexc62:                                         ; preds = %if.then10.i
@@ -7135,7 +7135,7 @@ if.then14.i:                                      ; preds = %if.else.i
   %628 = getelementptr i8, ptr %dataIterator.val.i, i64 16
   %call2.val.i = load i64, ptr %628, align 8, !noalias !219
   store i64 %call2.val.i, ptr %numMaps.i, align 8, !noalias !219
-  invoke fastcc void @_ZN8facebook5velox3row21UnsafeRowDeserializer23populateMetadataVectorsERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolEm(ptr noalias nonnull align 8 %1, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %pool, i64 noundef %call2.val.i)
+  invoke fastcc void @_ZN8facebook5velox3row21UnsafeRowDeserializer23populateMetadataVectorsERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolEm(ptr noalias align 8 %1, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %pool, i64 noundef %call2.val.i)
           to label %.noexc11 unwind label %lpad
 
 .noexc11:                                         ; preds = %if.then14.i
@@ -8006,7 +8006,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_119getBatchIteratorPtrERKSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS9_EERKSt10shared_ptrIKNS0_4TypeEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %data, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_119getBatchIteratorPtrERKSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS9_EERKSt10shared_ptrIKNS0_4TypeEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %data, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp37.i = alloca %"class.std::shared_ptr.48", align 8
   %ref.tmp39.i = alloca %"class.std::shared_ptr.29", align 8
@@ -8760,7 +8760,7 @@ invoke.cont45.i:                                  ; preds = %_ZNSt10shared_ptrIK
   store ptr null, ptr %_M_refcount4.i.i.i, align 8
   store ptr %97, ptr %_M_refcount.i.i63.i, align 8
   store ptr null, ptr %ref.tmp40.i, align 8
-  invoke fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_119getBatchIteratorPtrERKSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS9_EERKSt10shared_ptrIKNS0_4TypeEE(ptr noalias nonnull align 8 %ref.tmp37.i, ptr noundef nonnull align 8 dereferenceable(24) %keyArray_.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp39.i)
+  invoke fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_119getBatchIteratorPtrERKSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS9_EERKSt10shared_ptrIKNS0_4TypeEE(ptr noalias align 8 %ref.tmp37.i, ptr noundef nonnull align 8 dereferenceable(24) %keyArray_.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp39.i)
           to label %invoke.cont47.i unwind label %lpad46.i
 
 invoke.cont47.i:                                  ; preds = %invoke.cont45.i
@@ -9212,7 +9212,7 @@ invoke.cont62.i:                                  ; preds = %_ZNSt10shared_ptrIK
   store ptr null, ptr %_M_refcount4.i.i223.i, align 8
   store ptr %166, ptr %_M_refcount.i.i222.i, align 8
   store ptr null, ptr %ref.tmp54.i, align 8
-  invoke fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_119getBatchIteratorPtrERKSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS9_EERKSt10shared_ptrIKNS0_4TypeEE(ptr noalias nonnull align 8 %ref.tmp51.i, ptr noundef nonnull align 8 dereferenceable(24) %valueArray_.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp53.i)
+  invoke fastcc void @_ZN8facebook5velox3row12_GLOBAL__N_119getBatchIteratorPtrERKSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS9_EERKSt10shared_ptrIKNS0_4TypeEE(ptr noalias align 8 %ref.tmp51.i, ptr noundef nonnull align 8 dereferenceable(24) %valueArray_.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp53.i)
           to label %invoke.cont64.i unwind label %lpad63.i
 
 invoke.cont64.i:                                  ; preds = %invoke.cont62.i
@@ -42650,7 +42650,7 @@ eh.resume:                                        ; preds = %lpad23, %lpad18
 declare void @_ZNK8facebook5velox9RowVector27updateContainsLazyNotLoadedEv(ptr noundef nonnull align 8 dereferenceable(138)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox3row21UnsafeRowDeserializer23populateMetadataVectorsERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolEm(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dataIterator, ptr noundef %pool, i64 noundef %size) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox3row21UnsafeRowDeserializer23populateMetadataVectorsERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolEm(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dataIterator, ptr noundef %pool, i64 noundef %size) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %offsets = alloca %"class.boost::intrusive_ptr", align 8
   %lengths = alloca %"class.boost::intrusive_ptr", align 8

@@ -7876,7 +7876,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4find
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4JsonL9appendHexERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4JsonL9appendHexERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.50)
@@ -7911,7 +7911,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
 
 15:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i
   store i8 %13, ptr %14, align 1
-  %16 = or disjoint i32 %10, 1
+  %16 = or i32 %9, 1
   %17 = zext nneg i32 %16 to i64
   %18 = getelementptr inbounds [513 x i8], ptr @_ZN4JsonL4hex2E, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1, !noalias !43
@@ -7920,7 +7920,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
 
 21:                                               ; preds = %15
   store i8 %19, ptr %20, align 1
-  %22 = shl i32 %1, 1
+  %22 = shl nuw nsw i32 %1, 1
   %23 = and i32 %22, 510
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds [513 x i8], ptr @_ZN4JsonL4hex2E, i64 0, i64 %24

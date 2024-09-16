@@ -1238,7 +1238,7 @@ define noalias noundef ptr @Cudd_bddConstrainDecomp(ptr noundef %0, ptr noundef 
   br i1 %25, label %.lr.ph44, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %22, %15
-  %26 = tail call fastcc i32 @cuddBddConstrainDecomp(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %7)
+  %26 = tail call fastcc i32 @cuddBddConstrainDecomp(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7)
   %27 = load i32, ptr %14, align 8
   %28 = icmp eq i32 %27, 1
   br i1 %28, label %15, label %29, !llvm.loop !10
@@ -1297,7 +1297,7 @@ define noalias noundef ptr @Cudd_bddConstrainDecomp(ptr noundef %0, ptr noundef 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cuddBddConstrainDecomp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cuddBddConstrainDecomp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
@@ -1962,7 +1962,7 @@ define ptr @cuddBddLICompaction(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %15, label %.sink.split, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call fastcc i32 @cuddBddLICMarkEdges(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %11, ptr noundef nonnull %14)
+  %17 = tail call fastcc i32 @cuddBddLICMarkEdges(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %11, ptr noundef %14)
   %18 = icmp eq i32 %17, -1
   %19 = tail call i32 @st__foreach(ptr noundef nonnull %14, ptr noundef nonnull @MarkCacheCleanUp, ptr noundef null) #8
   br i1 %18, label %.sink.split.sink.split, label %20
@@ -1974,7 +1974,7 @@ define ptr @cuddBddLICompaction(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %22, label %.sink.split, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call fastcc ptr @cuddBddLICBuildResult(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %21, ptr noundef nonnull %11)
+  %24 = tail call fastcc ptr @cuddBddLICBuildResult(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %21, ptr noundef %11)
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %16, %23
@@ -2670,7 +2670,7 @@ define internal range(i32 0, -2147483648) i32 @MarkCacheHash(ptr nocapture nound
 declare void @st__free_table(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cuddBddLICMarkEdges(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @cuddBddLICMarkEdges(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2708,7 +2708,7 @@ define internal fastcc i32 @cuddBddLICMarkEdges(ptr noundef %0, ptr noundef %1, 
   store ptr %23, ptr %24, align 8
   %29 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %2, ptr %29, align 8
-  %30 = call i32 @st__lookup_int(ptr noundef %4, ptr noundef nonnull %24, ptr noundef nonnull %6) #8
+  %30 = call i32 @st__lookup_int(ptr noundef nonnull %4, ptr noundef nonnull %24, ptr noundef nonnull %6) #8
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %35, label %31
 
@@ -2810,7 +2810,7 @@ define internal fastcc i32 @cuddBddLICMarkEdges(ptr noundef %0, ptr noundef %1, 
   br i1 %.not89, label %100, label %81
 
 81:                                               ; preds = %80
-  %82 = call i32 @st__find_or_add(ptr noundef %3, ptr noundef nonnull %23, ptr noundef nonnull %7) #8
+  %82 = call i32 @st__find_or_add(ptr noundef nonnull %3, ptr noundef nonnull %23, ptr noundef nonnull %7) #8
   switch i32 %82, label %99 [
     i32 0, label %83
     i32 1, label %89
@@ -2847,7 +2847,7 @@ define internal fastcc i32 @cuddBddLICMarkEdges(ptr noundef %0, ptr noundef %1, 
   store i32 %101, ptr %6, align 4
   %102 = sext i32 %101 to i64
   %103 = inttoptr i64 %102 to ptr
-  %104 = call i32 @st__insert(ptr noundef %4, ptr noundef nonnull %24, ptr noundef %103) #8
+  %104 = call i32 @st__insert(ptr noundef nonnull %4, ptr noundef nonnull %24, ptr noundef %103) #8
   %105 = icmp eq i32 %104, -10000
   br i1 %105, label %106, label %107
 
@@ -2893,7 +2893,7 @@ define internal noundef i32 @MarkCacheCleanUp(ptr noundef %0, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cuddBddLICBuildResult(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @cuddBddLICBuildResult(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2909,7 +2909,7 @@ define internal fastcc ptr @cuddBddLICBuildResult(ptr noundef %0, ptr noundef %1
   br i1 %16, label %112, label %17
 
 17:                                               ; preds = %4
-  %18 = call i32 @st__lookup(ptr noundef %2, ptr noundef nonnull %14, ptr noundef nonnull %5) #8
+  %18 = call i32 @st__lookup(ptr noundef nonnull %2, ptr noundef nonnull %14, ptr noundef nonnull %5) #8
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %25, label %19
 
@@ -2922,7 +2922,7 @@ define internal fastcc ptr @cuddBddLICBuildResult(ptr noundef %0, ptr noundef %1
   br label %112
 
 25:                                               ; preds = %17
-  %26 = call i32 @st__lookup_int(ptr noundef %3, ptr noundef nonnull %14, ptr noundef nonnull %6) #8
+  %26 = call i32 @st__lookup_int(ptr noundef nonnull %3, ptr noundef nonnull %14, ptr noundef nonnull %6) #8
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %112, label %28
 
@@ -3066,7 +3066,7 @@ define internal fastcc ptr @cuddBddLICBuildResult(ptr noundef %0, ptr noundef %1
   %95 = add i32 %94, -1
   store i32 %95, ptr %93, align 4
   %96 = load ptr, ptr %5, align 8
-  %97 = call i32 @st__insert(ptr noundef %2, ptr noundef nonnull %14, ptr noundef %96) #8
+  %97 = call i32 @st__insert(ptr noundef nonnull %2, ptr noundef nonnull %14, ptr noundef %96) #8
   %98 = icmp eq i32 %97, -10000
   %99 = load ptr, ptr %5, align 8
   %100 = ptrtoint ptr %99 to i64

@@ -193,7 +193,7 @@ lexbor_avl_node_make.exit:                        ; preds = %9, %11
 
 .lr.ph56:                                         ; preds = %.lr.ph56.preheader, %.lr.ph56
   %.354 = phi ptr [ %33, %.lr.ph56 ], [ %8, %.lr.ph56.preheader ]
-  %33 = tail call fastcc ptr @lexbor_avl_node_balance(ptr noundef nonnull %.354, ptr noundef nonnull %1)
+  %33 = tail call fastcc ptr @lexbor_avl_node_balance(ptr noundef %.354, ptr noundef nonnull %1)
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %.loopexit, label %.lr.ph56
 
@@ -203,7 +203,7 @@ lexbor_avl_node_make.exit:                        ; preds = %9, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @lexbor_avl_node_balance(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #4 {
+define internal fastcc ptr @lexbor_avl_node_balance(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -1111,7 +1111,7 @@ define internal fastcc void @lexbor_avl_rotate_for_delete(ptr noundef readonly %
 
 .lr.ph:                                           ; preds = %62, %.lr.ph
   %.271 = phi ptr [ %63, %.lr.ph ], [ %.1, %62 ]
-  %63 = tail call fastcc ptr @lexbor_avl_node_balance(ptr noundef nonnull %.271, ptr noundef %2)
+  %63 = tail call fastcc ptr @lexbor_avl_node_balance(ptr noundef %.271, ptr noundef %2)
   %.not69 = icmp eq ptr %63, null
   br i1 %.not69, label %._crit_edge, label %.lr.ph
 

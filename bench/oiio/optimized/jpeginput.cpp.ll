@@ -1612,7 +1612,7 @@ if.then124:                                       ; preds = %invoke.cont111
   br label %if.then115.invoke
 
 if.end130:                                        ; preds = %if.then115.invoke, %invoke.cont111
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L17comp_info_to_attrB5cxx11ERK22jpeg_decompress_struct(ptr noalias nonnull align 8 %subsampling, ptr noundef nonnull align 8 dereferenceable(656) %m_cinfo)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L17comp_info_to_attrB5cxx11ERK22jpeg_decompress_struct(ptr noalias align 8 %subsampling, ptr noundef nonnull align 8 dereferenceable(656) %m_cinfo)
           to label %invoke.cont132 unwind label %lpad5.loopexit.split-lp
 
 invoke.cont132:                                   ; preds = %if.end130
@@ -2331,7 +2331,7 @@ _ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EED2Ev.exit: ; preds = %_ZNSt6
 declare void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEES4_(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L17comp_info_to_attrB5cxx11ERK22jpeg_decompress_struct(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(656) %cinfo) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L17comp_info_to_attrB5cxx11ERK22jpeg_decompress_struct(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(656) %cinfo) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 cond.true.i.i.i:
   %ref.tmp = alloca %"class.std::allocator.12", align 1
   %ref.tmp34 = alloca %"class.std::allocator.12", align 1

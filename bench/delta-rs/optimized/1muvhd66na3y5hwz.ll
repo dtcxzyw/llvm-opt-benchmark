@@ -589,7 +589,7 @@ define hidden void @"_ZN4core3ptr137drop_in_place$LT$tokio..util..sync_wrapper..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr142drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$deltalake_core..kernel..models..schema..MetadataValue$GT$$GT$17h7036b7f20b5bc68dE"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #3 {
+define internal fastcc void @"_ZN4core3ptr142drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$deltalake_core..kernel..models..schema..MetadataValue$GT$$GT$17h7036b7f20b5bc68dE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 {
   %2 = alloca { i64, [2 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !151)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !154)
@@ -2715,7 +2715,7 @@ common.resume:                                    ; preds = %55, %17, %6
 33:                                               ; preds = %31
   %34 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i8, [15 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] }], ptr %28, i64 0, i64 %.0.i.i
   %35 = add i64 %.0.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$deltalake_core..kernel..models..schema..StructField$GT$17h36b3c9739078fccbE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %34)
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$deltalake_core..kernel..models..schema..StructField$GT$17h36b3c9739078fccbE"(ptr noalias noundef align 8 dereferenceable(96) %34)
           to label %31 unwind label %38, !noalias !1249
 
 36:                                               ; preds = %40, %38
@@ -2731,7 +2731,7 @@ common.resume:                                    ; preds = %55, %17, %6
 40:                                               ; preds = %36
   %41 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i8, [15 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] }], ptr %28, i64 0, i64 %.1.i.i
   %42 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$deltalake_core..kernel..models..schema..StructField$GT$17h36b3c9739078fccbE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %41) #19
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$deltalake_core..kernel..models..schema..StructField$GT$17h36b3c9739078fccbE"(ptr noalias noundef align 8 dereferenceable(96) %41) #19
           to label %36 unwind label %43, !noalias !1249
 
 43:                                               ; preds = %40
@@ -2830,7 +2830,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$deltalake_core..kernel..mode
 13:                                               ; preds = %11
   %14 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i8, [15 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] }], ptr %8, i64 0, i64 %.0.i.i
   %15 = add i64 %.0.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$deltalake_core..kernel..models..schema..StructField$GT$17h36b3c9739078fccbE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %14)
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$deltalake_core..kernel..models..schema..StructField$GT$17h36b3c9739078fccbE"(ptr noalias noundef align 8 dereferenceable(96) %14)
           to label %11 unwind label %18, !noalias !1316
 
 16:                                               ; preds = %20, %18
@@ -2846,7 +2846,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$deltalake_core..kernel..mode
 20:                                               ; preds = %16
   %21 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i8, [15 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] }], ptr %8, i64 0, i64 %.1.i.i
   %22 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$deltalake_core..kernel..models..schema..StructField$GT$17h36b3c9739078fccbE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %21) #19
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$deltalake_core..kernel..models..schema..StructField$GT$17h36b3c9739078fccbE"(ptr noalias noundef align 8 dereferenceable(96) %21) #19
           to label %16 unwind label %23, !noalias !1316
 
 23:                                               ; preds = %20
@@ -2905,7 +2905,7 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$alloc..raw_vec..RawVec$LT$al
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$deltalake_core..kernel..models..schema..StructField$GT$17h36b3c9739078fccbE"(ptr noalias noundef align 8 dereferenceable(96) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$deltalake_core..kernel..models..schema..StructField$GT$17h36b3c9739078fccbE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { i64, [2 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1351)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1354)
@@ -2930,7 +2930,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$deltalake_core..ker
   %9 = landingpad { ptr, i32 }
           cleanup
   %10 = getelementptr inbounds i8, ptr %0, i64 40
-  invoke fastcc void @"_ZN4core3ptr142drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$deltalake_core..kernel..models..schema..MetadataValue$GT$$GT$17h7036b7f20b5bc68dE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %10) #19
+  invoke fastcc void @"_ZN4core3ptr142drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$deltalake_core..kernel..models..schema..MetadataValue$GT$$GT$17h7036b7f20b5bc68dE"(ptr noalias noundef align 8 dereferenceable(48) %10) #19
           to label %32 unwind label %30
 
 11:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4a738b5e8f2dfe73E.exit"
@@ -3204,7 +3204,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$$u5b$deltalake_core..kernel.
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = getelementptr inbounds i8, ptr %8, i64 40
-  invoke fastcc void @"_ZN4core3ptr142drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$deltalake_core..kernel..models..schema..MetadataValue$GT$$GT$17h7036b7f20b5bc68dE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %17) #19
+  invoke fastcc void @"_ZN4core3ptr142drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$deltalake_core..kernel..models..schema..MetadataValue$GT$$GT$17h7036b7f20b5bc68dE"(ptr noalias noundef align 8 dereferenceable(48) %17) #19
           to label %.body unwind label %35
 
 18:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4a738b5e8f2dfe73E.exit"
@@ -3278,7 +3278,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$$u5b$deltalake_core..kernel.
 42:                                               ; preds = %38
   %43 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i8, [15 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] }], ptr %0, i64 0, i64 %.1
   %44 = add i64 %.1, 1
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$deltalake_core..kernel..models..schema..StructField$GT$17h36b3c9739078fccbE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %43) #19
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$deltalake_core..kernel..models..schema..StructField$GT$17h36b3c9739078fccbE"(ptr noalias noundef align 8 dereferenceable(96) %43) #19
           to label %38 unwind label %46
 
 45:                                               ; preds = %38
@@ -4126,7 +4126,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 8:                                                ; preds = %6
   %9 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i8, [15 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] }], ptr %3, i64 0, i64 %.0.i
   %10 = add i64 %.0.i, 1
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$deltalake_core..kernel..models..schema..StructField$GT$17h36b3c9739078fccbE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %9)
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$deltalake_core..kernel..models..schema..StructField$GT$17h36b3c9739078fccbE"(ptr noalias noundef align 8 dereferenceable(96) %9)
           to label %6 unwind label %13
 
 11:                                               ; preds = %15, %13
@@ -4142,7 +4142,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i8, [15 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] }], ptr %3, i64 0, i64 %.1.i
   %17 = add i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$deltalake_core..kernel..models..schema..StructField$GT$17h36b3c9739078fccbE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %16) #19
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$deltalake_core..kernel..models..schema..StructField$GT$17h36b3c9739078fccbE"(ptr noalias noundef align 8 dereferenceable(96) %16) #19
           to label %11 unwind label %19
 
 18:                                               ; preds = %11

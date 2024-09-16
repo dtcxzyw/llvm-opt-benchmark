@@ -436,7 +436,7 @@ define noundef ptr @decNumberToString(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @decToString(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i8 noundef zeroext %2) unnamed_addr #5 {
+define internal fastcc void @decToString(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %.ptr = getelementptr inbounds i8, ptr %0, i64 10
@@ -1595,7 +1595,7 @@ decBiStr.exit:                                    ; preds = %40, %50
 
 193:                                              ; preds = %187
   store i32 0, ptr %5, align 4
-  call fastcc void @decSetCoeff(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.0200330, i32 noundef %.4195, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @decSetCoeff(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.0200330, i32 noundef %.4195, ptr noundef %5, ptr noundef %6)
   br label %.sink.split346
 
 194:                                              ; preds = %187
@@ -1618,7 +1618,7 @@ decBiStr.exit:                                    ; preds = %40, %50
   br label %.sink.split346
 
 .sink.split346:                                   ; preds = %204, %193
-  call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %5, ptr noundef %6)
   br label %205
 
 205:                                              ; preds = %.sink.split346, %198
@@ -1672,7 +1672,7 @@ decStatus.exit:                                   ; preds = %.thread.thread, %21
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @decSetCoeff(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc void @decSetCoeff(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = load i32, ptr %1, align 4
   %8 = sub nsw i32 %3, %7
   %9 = icmp slt i32 %8, 1
@@ -1967,7 +1967,7 @@ define internal fastcc void @decSetCoeff(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decFinalize(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #3 {
+define internal fastcc void @decFinalize(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #3 {
   %5 = alloca %struct.decNumber, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 4
@@ -2014,7 +2014,7 @@ define internal fastcc void @decFinalize(ptr noundef %0, ptr nocapture noundef r
 
 28:                                               ; preds = %24
   call fastcc void @decApplyRound(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %25, ptr noundef %3)
-  call fastcc void @decSetSubnormal(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
+  call fastcc void @decSetSubnormal(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
   br label %66
 
 thread-pre-split:                                 ; preds = %4
@@ -2112,7 +2112,7 @@ define noundef ptr @decNumberAbs(ptr noundef returned %0, ptr noundef %1, ptr no
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i8, ptr %11, align 4
   %13 = and i8 %12, -128
-  %14 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %13, ptr noundef nonnull %5)
+  %14 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %13, ptr noundef %5)
   %15 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %27, label %16
@@ -2151,7 +2151,7 @@ decStatus.exit:                                   ; preds = %16, %20, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i8 noundef zeroext %4, ptr nocapture noundef %5) unnamed_addr #3 {
+define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i8 noundef zeroext range(i8 0, -127) %4, ptr nocapture noundef nonnull %5) unnamed_addr #3 {
   %7 = alloca i32, align 4
   %8 = alloca [31 x i16], align 16
   %9 = load i32, ptr %3, align 4
@@ -2235,7 +2235,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
   store i32 %53, ptr %54, align 4
   %55 = getelementptr inbounds i8, ptr %2, i64 10
   %56 = load i32, ptr %2, align 4
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %55, i32 noundef %56, ptr noundef nonnull %7, ptr noundef %5)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %55, i32 noundef %56, ptr noundef %7, ptr noundef %5)
   %57 = load i8, ptr %51, align 4
   %58 = xor i8 %57, %4
   store i8 %58, ptr %51, align 4
@@ -2311,7 +2311,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
   br label %95
 
 95:                                               ; preds = %78, %89, %72, %77, %76
-  call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef %5)
+  call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %7, ptr noundef %5)
   br label %.thread339
 
 96:                                               ; preds = %43, %39
@@ -2339,7 +2339,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
   %111 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %110, ptr %111, align 4
   %112 = load i32, ptr %1, align 4
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %40, i32 noundef %112, ptr noundef nonnull %7, ptr noundef %5)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %40, i32 noundef %112, ptr noundef %7, ptr noundef %5)
   %113 = load i32, ptr %111, align 4
   %114 = sub nsw i32 %107, %113
   %115 = icmp slt i32 %114, 0
@@ -2373,7 +2373,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
   br label %132
 
 132:                                              ; preds = %125, %105
-  call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef %5)
+  call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %7, ptr noundef %5)
   br label %.thread339
 
 133:                                              ; preds = %100, %96
@@ -2522,7 +2522,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
   store i32 %210, ptr %211, align 4
   %212 = getelementptr inbounds i8, ptr %.1250, i64 10
   %213 = load i32, ptr %.1250, align 4
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %212, i32 noundef %213, ptr noundef nonnull %7, ptr noundef %5)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %212, i32 noundef %213, ptr noundef %7, ptr noundef %5)
   %214 = icmp sgt i32 %205, 0
   br i1 %214, label %215, label %221
 
@@ -2546,7 +2546,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
   br label %225
 
 225:                                              ; preds = %222, %221
-  call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef %5)
+  call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %7, ptr noundef %5)
   br label %.thread339
 
 226:                                              ; preds = %197
@@ -2771,7 +2771,7 @@ decGetDigits.exit:                                ; preds = %337, %339, %323, %3
 
 346:                                              ; preds = %decGetDigits.exit, %314
   %347 = phi i32 [ %.1.i, %decGetDigits.exit ], [ %313, %314 ]
-  call fastcc void @decSetCoeff(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %.0264, i32 noundef %347, ptr noundef nonnull %7, ptr noundef %5)
+  call fastcc void @decSetCoeff(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %.0264, i32 noundef %347, ptr noundef %7, ptr noundef %5)
   %.pre = load i32, ptr %0, align 4
   br label %348
 
@@ -2841,7 +2841,7 @@ decGetDigits.exit:                                ; preds = %337, %339, %323, %3
 decGetDigits.exit333:                             ; preds = %371, %373, %356, %375, %377
   %.1.i331 = phi i32 [ %.018.i327, %375 ], [ %spec.select.i330, %377 ], [ %363, %356 ], [ 1, %371 ], [ %368, %373 ]
   store i32 %.1.i331, ptr %0, align 4
-  call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef %5)
+  call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %7, ptr noundef %5)
   %379 = load i16, ptr %.ptr344, align 2
   %380 = icmp eq i16 %379, 0
   br i1 %380, label %381, label %398
@@ -2891,7 +2891,7 @@ decGetDigits.exit333:                             ; preds = %371, %373, %356, %3
 define noundef ptr @decNumberAdd(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 0, ptr noundef nonnull %5)
+  %6 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 0, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
@@ -3218,7 +3218,7 @@ define noundef ptr @decNumberCompare(ptr noundef returned %0, ptr noundef %1, pt
   br label %decCompareOp.exit.thread
 
 decCompareOp.exit:                                ; preds = %4
-  %22 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef readonly %3, ptr noundef nonnull %5)
+  %22 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef readonly %3, ptr noundef %5)
   %.pr.pre = load i32, ptr %5, align 4
   %.not = icmp eq i32 %.pr.pre, 0
   br i1 %.not, label %decCompareOp.exit.thread, label %23
@@ -3258,7 +3258,7 @@ decCompareOp.exit.thread:                         ; preds = %21, %19, %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @decCompareOp(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i8 noundef zeroext %4, ptr nocapture noundef %5) unnamed_addr #3 {
+define internal fastcc noundef ptr @decCompareOp(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i8 noundef zeroext range(i8 1, 9) %4, ptr nocapture noundef nonnull %5) unnamed_addr #3 {
   %7 = alloca i32, align 4
   %8 = icmp eq i8 %4, 4
   %9 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3431,7 +3431,7 @@ decUnitCompare.exit:                              ; preds = %75, %71, %70, %35, 
   br label %149
 
 85:                                               ; preds = %._crit_edge
-  %86 = add i8 %4, -7
+  %86 = add nsw i8 %4, -7
   %or.cond = icmp ult i8 %86, 2
   %.184 = zext i1 %or.cond to i8
   %87 = tail call fastcc i32 @decCompare(ptr noundef nonnull %1, ptr noundef nonnull %2, i8 noundef zeroext %.184)
@@ -3579,8 +3579,8 @@ decUnitCompare.exit:                              ; preds = %75, %71, %70, %35, 
   store i32 %145, ptr %146, align 4
   %147 = getelementptr inbounds i8, ptr %140, i64 10
   %148 = load i32, ptr %140, align 4
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef readonly %3, ptr noundef nonnull %147, i32 noundef %148, ptr noundef nonnull %7, ptr noundef %5)
-  call fastcc void @decFinalize(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %5)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef readonly %3, ptr noundef nonnull %147, i32 noundef %148, ptr noundef %7, ptr noundef %5)
+  call fastcc void @decFinalize(ptr noundef %0, ptr noundef %3, ptr noundef %7, ptr noundef %5)
   br label %149
 
 149:                                              ; preds = %.thread.thread159, %.thread144, %.thread, %112, %116, %105, %138, %89
@@ -3626,7 +3626,7 @@ define noundef ptr @decNumberCompareSignal(ptr noundef returned %0, ptr noundef 
 
 decCompareOp.exit:                                ; preds = %4
   store i32 1073741952, ptr %5, align 4
-  %22 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef readonly %3, ptr noundef nonnull %5)
+  %22 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef readonly %3, ptr noundef %5)
   %.pr.pre = load i32, ptr %5, align 4
   %.not = icmp eq i32 %.pr.pre, 0
   br i1 %.not, label %decCompareOp.exit.thread, label %23
@@ -3669,7 +3669,7 @@ decCompareOp.exit.thread:                         ; preds = %21, %19, %.thread.i
 define noundef ptr @decNumberCompareTotal(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = call fastcc ptr @decCompareOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 4, ptr noundef nonnull %5)
+  %6 = call fastcc ptr @decCompareOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 4, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
@@ -3919,7 +3919,7 @@ decNumberCopy.exit67:                             ; preds = %.decNumberCopy.exit
 114:                                              ; preds = %decNumberCopy.exit67, %61
   %.040 = phi ptr [ %.0, %decNumberCopy.exit67 ], [ %2, %61 ]
   %.1 = phi ptr [ %.2, %decNumberCopy.exit67 ], [ null, %61 ]
-  %115 = call fastcc ptr @decCompareOp(ptr noundef %0, ptr noundef nonnull %.039, ptr noundef nonnull %.040, ptr noundef %3, i8 noundef zeroext 4, ptr noundef nonnull %7)
+  %115 = call fastcc ptr @decCompareOp(ptr noundef %0, ptr noundef nonnull %.039, ptr noundef nonnull %.040, ptr noundef %3, i8 noundef zeroext 4, ptr noundef %7)
   br label %116
 
 116:                                              ; preds = %114, %83
@@ -4048,7 +4048,7 @@ define noundef ptr @decNumberCopy(ptr noundef returned writeonly %0, ptr noundef
 define noundef ptr @decNumberDivide(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = call fastcc ptr @decDivideOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext -128, ptr noundef nonnull %5)
+  %6 = call fastcc ptr @decDivideOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext -128, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
@@ -4087,7 +4087,7 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @decDivideOp(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i8 noundef zeroext %4, ptr nocapture noundef %5) unnamed_addr #3 {
+define internal fastcc noundef ptr @decDivideOp(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i8 noundef zeroext range(i8 16, -127) %4, ptr nocapture noundef nonnull %5) unnamed_addr #3 {
   %7 = alloca [17 x i16], align 16
   %8 = alloca [25 x i16], align 16
   %9 = alloca i32, align 4
@@ -4159,7 +4159,7 @@ define internal fastcc noundef ptr @decDivideOp(ptr noundef returned %0, ptr nou
   store i32 %43, ptr %44, align 4
   %45 = getelementptr inbounds i8, ptr %1, i64 10
   %46 = load i32, ptr %1, align 4
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %45, i32 noundef %46, ptr noundef nonnull %9, ptr noundef %5)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %45, i32 noundef %46, ptr noundef %9, ptr noundef %5)
   br label %58
 
 47:                                               ; preds = %38
@@ -4185,7 +4185,7 @@ define internal fastcc noundef ptr @decDivideOp(ptr noundef returned %0, ptr nou
   br label %58
 
 58:                                               ; preds = %47, %50, %41
-  call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %9, ptr noundef %5)
+  call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %9, ptr noundef %5)
   br label %.thread.thread
 
 59:                                               ; preds = %6
@@ -4284,7 +4284,7 @@ define internal fastcc noundef ptr @decDivideOp(ptr noundef returned %0, ptr nou
   store i8 %18, ptr %109, align 4
   %110 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %107, ptr %110, align 4
-  call fastcc void @decFinalize(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %9, ptr noundef %5)
+  call fastcc void @decFinalize(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %9, ptr noundef %5)
   br label %.thread.thread
 
 111:                                              ; preds = %101
@@ -4365,8 +4365,8 @@ thread-pre-split:                                 ; preds = %93, %98
   %150 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %149, ptr %150, align 4
   %151 = load i32, ptr %1, align 4
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %.ptr531, i32 noundef %151, ptr noundef nonnull %9, ptr noundef %5)
-  call fastcc void @decFinalize(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %9, ptr noundef %5)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %.ptr531, i32 noundef %151, ptr noundef %9, ptr noundef %5)
+  call fastcc void @decFinalize(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %9, ptr noundef %5)
   br label %.thread.thread
 
 152:                                              ; preds = %142, %143, %thread-pre-split
@@ -4949,7 +4949,7 @@ thread-pre-split:                                 ; preds = %93, %98
   store i32 %spec.select579, ptr %428, align 4
   %430 = and i8 %420, -128
   store i8 %430, ptr %427, align 4
-  call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %9, ptr noundef %5)
+  call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %9, ptr noundef %5)
   br label %532
 
 431:                                              ; preds = %419
@@ -5133,8 +5133,8 @@ thread-pre-split:                                 ; preds = %93, %98
   %530 = and i8 %.0461, -128
   %531 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %530, ptr %531, align 4
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %.4, i32 noundef %.6, ptr noundef nonnull %9, ptr noundef %5)
-  call fastcc void @decFinalize(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %9, ptr noundef %5)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %.4, i32 noundef %.6, ptr noundef %9, ptr noundef %5)
+  call fastcc void @decFinalize(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %9, ptr noundef %5)
   br label %532
 
 532:                                              ; preds = %._crit_edge649.thread, %502, %473, %424, %415
@@ -5161,7 +5161,7 @@ thread-pre-split:                                 ; preds = %93, %98
 define noundef ptr @decNumberDivideInteger(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = call fastcc ptr @decDivideOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 32, ptr noundef nonnull %5)
+  %6 = call fastcc ptr @decDivideOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 32, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
@@ -5248,7 +5248,7 @@ define noundef ptr @decNumberExp(ptr noundef returned %0, ptr noundef %1, ptr no
   br i1 %32, label %33, label %.thread
 
 33:                                               ; preds = %28, %18
-  %34 = call fastcc ptr @decExpOp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %4)
+  %34 = call fastcc ptr @decExpOp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %4)
   %.pr = load i32, ptr %4, align 4
   %.not8 = icmp eq i32 %.pr, 0
   br i1 %.not8, label %46, label %.thread
@@ -5288,7 +5288,7 @@ decStatus.exit:                                   ; preds = %.thread, %39, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #3 {
+define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #3 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %struct.decContext, align 4
@@ -5661,8 +5661,8 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
 
 205:                                              ; preds = %216, %194
   %206 = call fastcc ptr @decAddOp(ptr noundef nonnull %.1169, ptr noundef nonnull %.1169, ptr noundef nonnull %.1174, ptr noundef nonnull %7, i8 noundef zeroext 0, ptr noundef %3)
-  %207 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.1174, ptr noundef nonnull %.1174, ptr noundef nonnull %.0167, ptr noundef nonnull %8, ptr noundef nonnull %5)
-  %208 = call fastcc ptr @decDivideOp(ptr noundef nonnull %.1174, ptr noundef nonnull %.1174, ptr noundef nonnull %13, ptr noundef nonnull %8, i8 noundef zeroext -128, ptr noundef nonnull %5)
+  %207 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.1174, ptr noundef nonnull %.1174, ptr noundef nonnull %.0167, ptr noundef nonnull %8, ptr noundef %5)
+  %208 = call fastcc ptr @decDivideOp(ptr noundef nonnull %.1174, ptr noundef nonnull %.1174, ptr noundef nonnull %13, ptr noundef nonnull %8, i8 noundef zeroext -128, ptr noundef %5)
   %209 = load i32, ptr %.1169, align 4
   %210 = load i32, ptr %197, align 4
   %211 = add nsw i32 %210, %209
@@ -5676,7 +5676,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   br i1 %or.cond, label %216, label %218
 
 216:                                              ; preds = %205
-  %217 = call fastcc ptr @decAddOp(ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %9, i8 noundef zeroext 0, ptr noundef nonnull %5)
+  %217 = call fastcc ptr @decAddOp(ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %9, i8 noundef zeroext 0, ptr noundef %5)
   br label %205
 
 218:                                              ; preds = %205
@@ -5745,7 +5745,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   br i1 %245, label %.loopexit, label %248
 
 .thread234:                                       ; preds = %241
-  %246 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0173228, ptr noundef nonnull %.0173228, ptr noundef nonnull %.0168231, ptr noundef nonnull %7, ptr noundef nonnull %3)
+  %246 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0173228, ptr noundef nonnull %.0173228, ptr noundef nonnull %.0168231, ptr noundef nonnull %7, ptr noundef %3)
   %247 = icmp eq i32 %.0160, 31
   br i1 %247, label %.loopexit, label %.thread237
 
@@ -5755,7 +5755,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
 
 .thread237:                                       ; preds = %.thread234, %248
   %.1236240 = phi i32 [ %.0161, %248 ], [ 1, %.thread234 ]
-  %249 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0173228, ptr noundef nonnull %.0173228, ptr noundef nonnull %.0173228, ptr noundef nonnull %7, ptr noundef nonnull %3)
+  %249 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0173228, ptr noundef nonnull %.0173228, ptr noundef nonnull %.0173228, ptr noundef nonnull %7, ptr noundef %3)
   br label %250
 
 250:                                              ; preds = %248, %.thread237
@@ -5802,8 +5802,8 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   %271 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %270, ptr %271, align 4
   %272 = load i32, ptr %.2, align 4
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %7, ptr noundef nonnull %252, i32 noundef %272, ptr noundef nonnull %6, ptr noundef %3)
-  call fastcc void @decFinalize(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %6, ptr noundef %3)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %7, ptr noundef nonnull %252, i32 noundef %272, ptr noundef %6, ptr noundef %3)
+  call fastcc void @decFinalize(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %6, ptr noundef %3)
   br label %decNumberCopy.exit
 
 decNumberCopy.exit:                               ; preds = %264, %191, %168
@@ -6019,7 +6019,7 @@ decCheckMath.exit55.thread:                       ; preds = %86, %81, %decCheckM
 114:                                              ; preds = %108, %105
   %.1 = phi ptr [ null, %105 ], [ %112, %108 ]
   %.0 = phi ptr [ %8, %105 ], [ %112, %108 ]
-  %115 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %6)
+  %115 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef %6)
   %116 = load i32, ptr %6, align 4
   %117 = and i32 %116, 128
   %.not42 = icmp eq i32 %117, 0
@@ -6052,7 +6052,7 @@ decCheckMath.exit55.thread:                       ; preds = %86, %81, %decCheckM
 
 128:                                              ; preds = %124, %114
   %.030 = phi ptr [ %9, %124 ], [ %3, %114 ]
-  %129 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %.0, ptr noundef nonnull %.030, ptr noundef nonnull %4, i8 noundef zeroext 0, ptr noundef nonnull %6)
+  %129 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %.0, ptr noundef nonnull %.030, ptr noundef nonnull %4, i8 noundef zeroext 0, ptr noundef %6)
   br label %130
 
 130:                                              ; preds = %128, %120
@@ -6107,7 +6107,7 @@ decStatus.exit:                                   ; preds = %.thread.thread, %13
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4) unnamed_addr #3 {
+define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull %4) unnamed_addr #3 {
   %6 = alloca i32, align 4
   %7 = alloca [49 x i16], align 16
   %8 = alloca [10 x i32], align 16
@@ -6668,8 +6668,8 @@ decGetDigits.exit:                                ; preds = %263, %265, %.loopex
   %.0241 = select i1 %281, i32 -1999999998, i32 %276
   %282 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.0241, ptr %282, align 4
-  call fastcc void @decSetCoeff(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %.0242407, i32 noundef %.1.i, ptr noundef nonnull %6, ptr noundef %4)
-  call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %6, ptr noundef %4)
+  call fastcc void @decSetCoeff(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %.0242407, i32 noundef %.1.i, ptr noundef %6, ptr noundef %4)
+  call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %6, ptr noundef %4)
   br label %283
 
 283:                                              ; preds = %decGetDigits.exit, %92
@@ -6942,7 +6942,7 @@ define noundef ptr @decNumberLn(ptr noundef returned %0, ptr noundef %1, ptr nou
   br i1 %32, label %33, label %.thread
 
 33:                                               ; preds = %28, %18
-  %34 = call fastcc ptr @decLnOp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %4)
+  %34 = call fastcc ptr @decLnOp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %4)
   %.pr = load i32, ptr %4, align 4
   %.not8 = icmp eq i32 %.pr, 0
   br i1 %.not8, label %46, label %.thread
@@ -6982,7 +6982,7 @@ decStatus.exit:                                   ; preds = %.thread, %39, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #3 {
+define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #3 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [4 x %struct.decNumber], align 16
@@ -7391,7 +7391,7 @@ decNumberFromInt32.exit206:                       ; preds = %.lr.ph.i200, %176, 
   %.1.i.i.i199 = phi i32 [ %.018.i.i.lcssa.i194, %.lr.ph.i.i._crit_edge.i193 ], [ %spec.select.i.i.i197, %193 ], [ %184, %176 ], [ 1, %.lr.ph.i200 ]
   store i32 %.1.i.i.i199, ptr %.0, align 4
   store i32 -6, ptr %171, align 4
-  %195 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0147, ptr noundef nonnull %.0147, ptr noundef nonnull %.0, ptr noundef nonnull %11, ptr noundef nonnull %5)
+  %195 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0147, ptr noundef nonnull %.0147, ptr noundef nonnull %.0, ptr noundef nonnull %11, ptr noundef %5)
   store i32 0, ptr %6, align 4
   store i32 2, ptr %11, align 4
   %196 = getelementptr inbounds i8, ptr %11, i64 12
@@ -7401,7 +7401,7 @@ decNumberFromInt32.exit206:                       ; preds = %.lr.ph.i200, %176, 
   %198 = load i32, ptr %68, align 4
   store i32 %198, ptr %171, align 4
   %199 = load i32, ptr %1, align 4
-  call fastcc void @decSetCoeff(ptr noundef nonnull %.0, ptr noundef nonnull readonly %11, ptr noundef nonnull %53, i32 noundef %199, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  call fastcc void @decSetCoeff(ptr noundef nonnull %.0, ptr noundef nonnull readonly %11, ptr noundef nonnull %53, i32 noundef %199, ptr noundef %6, ptr noundef %5)
   store i32 0, ptr %171, align 4
   %200 = call fastcc i32 @decGetInt(ptr noundef nonnull %.0)
   %201 = icmp slt i32 %200, 10
@@ -7485,7 +7485,7 @@ decNumberFromUInt32.exit.i224:                    ; preds = %.lr.ph.i226, %229, 
   store i8 -128, ptr %170, align 4
   store i32 16, ptr %11, align 4
   store i32 3, ptr %196, align 4
-  %233 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0147, ptr noundef nonnull %.0147, ptr noundef nonnull %.0, ptr noundef nonnull %11, i8 noundef zeroext 0, ptr noundef nonnull %5)
+  %233 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0147, ptr noundef nonnull %.0147, ptr noundef nonnull %.0, ptr noundef nonnull %11, i8 noundef zeroext 0, ptr noundef %5)
   %234 = getelementptr inbounds i8, ptr %9, i64 8
   store i8 0, ptr %234, align 4
   %235 = getelementptr inbounds i8, ptr %9, i64 4
@@ -7523,12 +7523,12 @@ decNumberFromUInt32.exit.i224:                    ; preds = %.lr.ph.i226, %229, 
   %250 = load i8, ptr %142, align 4
   %251 = xor i8 %250, -128
   store i8 %251, ptr %142, align 4
-  %252 = call fastcc ptr @decExpOp(ptr noundef nonnull %.0, ptr noundef nonnull %.0147, ptr noundef nonnull %12, ptr noundef nonnull %5)
+  %252 = call fastcc ptr @decExpOp(ptr noundef nonnull %.0, ptr noundef nonnull %.0147, ptr noundef nonnull %12, ptr noundef %5)
   %253 = load i8, ptr %142, align 4
   %254 = xor i8 %253, -128
   store i8 %254, ptr %142, align 4
-  %255 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0, ptr noundef nonnull %.0, ptr noundef nonnull %1, ptr noundef nonnull %12, ptr noundef nonnull %5)
-  %256 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0, ptr noundef nonnull %.0, ptr noundef nonnull %9, ptr noundef nonnull %12, i8 noundef zeroext -128, ptr noundef nonnull %5)
+  %255 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0, ptr noundef nonnull %.0, ptr noundef nonnull %1, ptr noundef nonnull %12, ptr noundef %5)
+  %256 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0, ptr noundef nonnull %.0, ptr noundef nonnull %9, ptr noundef nonnull %12, i8 noundef zeroext -128, ptr noundef %5)
   %257 = load i16, ptr %.ptr17.i.i182, align 2
   %258 = icmp eq i16 %257, 0
   %.pre258 = load i32, ptr %.0, align 4
@@ -7615,7 +7615,7 @@ decCompareOp.exit.thread265:                      ; preds = %288
   br label %decCompareOp.exit.thread
 
 decCompareOp.exit:                                ; preds = %283
-  %300 = call fastcc ptr @decNaNs(ptr noundef nonnull %10, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull readonly %11, ptr noundef nonnull %5)
+  %300 = call fastcc ptr @decNaNs(ptr noundef nonnull %10, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull readonly %11, ptr noundef %5)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 10
   %.pre260 = load i16, ptr %.phi.trans.insert, align 2
   %301 = icmp eq i16 %.pre260, 0
@@ -7649,7 +7649,7 @@ decCompareOp.exit.thread:                         ; preds = %299, %297, %decComp
   br label %313
 
 313:                                              ; preds = %304, %306, %310, %264
-  %314 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0147, ptr noundef nonnull %.0147, ptr noundef nonnull %.0, ptr noundef nonnull %11, i8 noundef zeroext 0, ptr noundef nonnull %5)
+  %314 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0147, ptr noundef nonnull %.0147, ptr noundef nonnull %.0, ptr noundef nonnull %11, i8 noundef zeroext 0, ptr noundef %5)
   br i1 %248, label %249, label %315
 
 315:                                              ; preds = %313
@@ -7693,8 +7693,8 @@ decCompareOp.exit.thread:                         ; preds = %299, %297, %decComp
   %331 = load i32, ptr %143, align 4
   %332 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %331, ptr %332, align 4
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %11, ptr noundef nonnull %.ptr17.i.i, i32 noundef %327, ptr noundef nonnull %6, ptr noundef %3)
-  call fastcc void @decFinalize(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %6, ptr noundef %3)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %11, ptr noundef nonnull %.ptr17.i.i, i32 noundef %327, ptr noundef %6, ptr noundef %3)
+  call fastcc void @decFinalize(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %6, ptr noundef %3)
   br label %decNumberCopy.exit
 
 decNumberCopy.exit:                               ; preds = %326, %134
@@ -8006,7 +8006,7 @@ decNumberFromInt32.exit51:                        ; preds = %88, %decNumberFromU
   store i16 0, ptr %118, align 2
   %119 = load i32, ptr %90, align 4
   store i32 %119, ptr %117, align 4
-  %120 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %2, i8 noundef zeroext 0, ptr noundef nonnull %5)
+  %120 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %2, i8 noundef zeroext 0, ptr noundef %5)
   %121 = load i32, ptr %5, align 4
   %.not.i = icmp eq i32 %121, 0
   br i1 %.not.i, label %decNumberPlus.exit, label %122
@@ -8046,7 +8046,7 @@ decNumberPlus.exit:                               ; preds = %decNumberFromInt32.
   br label %decNumberFromInt32.exit.thread
 
 decNumberFromInt32.exit:                          ; preds = %3
-  %133 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %2, ptr noundef nonnull %6)
+  %133 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %2, ptr noundef %6)
   %.pr.pre = load i32, ptr %6, align 4
   %.not25 = icmp eq i32 %.pr.pre, 0
   br i1 %.not25, label %decNumberFromInt32.exit.thread, label %134
@@ -8085,7 +8085,7 @@ decNumberFromInt32.exit.thread:                   ; preds = %decNumberPlus.exit,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @decNaNs(ptr noundef returned %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4) unnamed_addr #9 {
+define internal fastcc noundef ptr @decNaNs(ptr noundef returned %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull %4) unnamed_addr #9 {
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 4
   %8 = zext i8 %7 to i32
@@ -8449,7 +8449,7 @@ define noundef ptr @decNumberPlus(ptr noundef returned %0, ptr noundef %1, ptr n
   %9 = getelementptr inbounds i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %7, align 4
-  %11 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 0, ptr noundef nonnull %5)
+  %11 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 0, ptr noundef %5)
   %12 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %24, label %13
@@ -8568,7 +8568,7 @@ define noundef ptr @decNumberLog10(ptr noundef returned %0, ptr noundef %1, ptr 
   %51 = load i32, ptr %26, align 4
   %52 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %51, ptr %52, align 4
-  call fastcc void @decSetCoeff(ptr noundef nonnull %8, ptr noundef nonnull readonly %9, ptr noundef nonnull %45, i32 noundef %.pre107, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  call fastcc void @decSetCoeff(ptr noundef nonnull %8, ptr noundef nonnull readonly %9, ptr noundef nonnull %45, i32 noundef %.pre107, ptr noundef %10, ptr noundef %11)
   %53 = load i32, ptr %11, align 4
   %54 = and i32 %53, 32
   %.not81 = icmp eq i32 %54, 0
@@ -8672,8 +8672,8 @@ decNumberFromInt32.exit:                          ; preds = %decNumberFromUInt32
   %89 = load i32, ptr %52, align 4
   %90 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %89, ptr %90, align 4
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %2, ptr noundef nonnull %55, i32 noundef %86, ptr noundef nonnull %10, ptr noundef nonnull %4)
-  call fastcc void @decFinalize(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %10, ptr noundef nonnull %4)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %2, ptr noundef nonnull %55, i32 noundef %86, ptr noundef %10, ptr noundef %4)
+  call fastcc void @decFinalize(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %10, ptr noundef %4)
   br label %.thread
 
 91:                                               ; preds = %44, %49, %40
@@ -8718,7 +8718,7 @@ decNumberFromInt32.exit:                          ; preds = %decNumberFromUInt32
   store i32 -999999, ptr %114, align 4
   %115 = getelementptr inbounds i8, ptr %9, i64 24
   store i8 0, ptr %115, align 4
-  %116 = call fastcc ptr @decLnOp(ptr noundef nonnull %.063, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull %4)
+  %116 = call fastcc ptr @decLnOp(ptr noundef nonnull %.063, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef %4)
   %117 = load i32, ptr %4, align 4
   %118 = and i32 %117, 221
   %.not82 = icmp ne i32 %118, 0
@@ -8843,10 +8843,10 @@ decNumberFromInt32.exit:                          ; preds = %decNumberFromUInt32
   store i16 10, ptr %185, align 2
   store i32 2, ptr %8, align 16
   store i32 %162, ptr %9, align 4
-  %186 = call fastcc ptr @decLnOp(ptr noundef nonnull %.0, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %5)
+  %186 = call fastcc ptr @decLnOp(ptr noundef nonnull %.0, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %5)
   %187 = load i32, ptr %2, align 4
   store i32 %187, ptr %9, align 4
-  %188 = call fastcc ptr @decDivideOp(ptr noundef %0, ptr noundef nonnull %.063, ptr noundef nonnull %.0, ptr noundef nonnull %9, i8 noundef zeroext -128, ptr noundef nonnull %4)
+  %188 = call fastcc ptr @decDivideOp(ptr noundef %0, ptr noundef nonnull %.063, ptr noundef nonnull %.0, ptr noundef nonnull %9, i8 noundef zeroext -128, ptr noundef %4)
   br label %decNumberCopy.exit
 
 decNumberCopy.exit:                               ; preds = %.lr.ph.preheader.i, %133, %131, %112, %180, %182
@@ -8912,7 +8912,7 @@ declare ptr @decContextDefault(ptr noundef, i32 noundef) local_unnamed_addr #4
 define noundef ptr @decNumberMax(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = call fastcc ptr @decCompareOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 2, ptr noundef nonnull %5)
+  %6 = call fastcc ptr @decCompareOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
@@ -8954,7 +8954,7 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 define noundef ptr @decNumberMaxMag(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = call fastcc ptr @decCompareOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 7, ptr noundef nonnull %5)
+  %6 = call fastcc ptr @decCompareOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 7, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
@@ -8996,7 +8996,7 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 define noundef ptr @decNumberMin(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = call fastcc ptr @decCompareOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 3, ptr noundef nonnull %5)
+  %6 = call fastcc ptr @decCompareOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 3, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
@@ -9038,7 +9038,7 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 define noundef ptr @decNumberMinMag(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = call fastcc ptr @decCompareOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 8, ptr noundef nonnull %5)
+  %6 = call fastcc ptr @decCompareOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 8, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
@@ -9090,7 +9090,7 @@ define noundef ptr @decNumberMinus(ptr noundef returned %0, ptr noundef %1, ptr 
   %9 = getelementptr inbounds i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %7, align 4
-  %11 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2, i8 noundef zeroext -128, ptr noundef nonnull %5)
+  %11 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2, i8 noundef zeroext -128, ptr noundef %5)
   %12 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %24, label %13
@@ -9187,7 +9187,7 @@ decSetMaxValue.exit:                              ; preds = %.lr.ph.i, %11
   store i32 -1000000000, ptr %32, align 4
   %34 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 6, ptr %34, align 4
-  %35 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5, i8 noundef zeroext -128, ptr noundef nonnull %6)
+  %35 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5, i8 noundef zeroext -128, ptr noundef %6)
   %36 = load i32, ptr %6, align 4
   %37 = and i32 %36, 1073741952
   %.not = icmp eq i32 %37, 0
@@ -9319,7 +9319,7 @@ decSetMaxValue.exit:                              ; preds = %.lr.ph.i, %10
   store i32 -1000000000, ptr %31, align 4
   %33 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 0, ptr %33, align 4
-  %34 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5, i8 noundef zeroext 0, ptr noundef nonnull %6)
+  %34 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5, i8 noundef zeroext 0, ptr noundef %6)
   %35 = load i32, ptr %6, align 4
   %36 = and i32 %35, 1073741952
   %.not = icmp eq i32 %36, 0
@@ -9375,7 +9375,7 @@ define noundef ptr @decNumberNextToward(ptr noundef returned %0, ptr noundef %1,
   br i1 %.not35, label %17, label %15
 
 15:                                               ; preds = %11, %4
-  %16 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %7)
+  %16 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %7)
   br label %decNumberIsNormal.exit.thread
 
 17:                                               ; preds = %11
@@ -9489,7 +9489,7 @@ decNumberCopySign.exit:                           ; preds = %.lr.ph.i.i, %19, %2
   %68 = getelementptr inbounds i8, ptr %5, i64 10
   store i16 1, ptr %68, align 2
   store i32 -1000000000, ptr %67, align 4
-  %69 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %6, i8 noundef zeroext %.0, ptr noundef nonnull %7)
+  %69 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %6, i8 noundef zeroext %.0, ptr noundef %7)
   %70 = getelementptr inbounds i8, ptr %0, i64 8
   %71 = load i8, ptr %70, align 4
   %72 = and i8 %71, 112
@@ -9554,7 +9554,7 @@ decStatus.exit:                                   ; preds = %83, %87, %.thread47
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @decCompare(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #3 {
+define internal fastcc i32 @decCompare(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 10
   %5 = load i16, ptr %4, align 2
   %6 = icmp eq i16 %5, 0
@@ -10102,7 +10102,7 @@ define noundef ptr @decNumberOr(ptr noundef returned %0, ptr noundef readonly %1
 define noundef ptr @decNumberMultiply(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = call fastcc ptr @decMultiplyOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  %6 = call fastcc ptr @decMultiplyOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
@@ -10168,7 +10168,7 @@ define noundef ptr @decNumberPower(ptr noundef returned %0, ptr noundef %1, ptr 
   br i1 %or.cond208, label %24, label %22
 
 22:                                               ; preds = %20
-  %23 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %6)
+  %23 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %6)
   br label %.thread236
 
 24:                                               ; preds = %20
@@ -10474,7 +10474,7 @@ decCheckMath.exit221.thread:                      ; preds = %125, %120
   ]
 
 173:                                              ; preds = %172, %172, %172
-  %174 = call fastcc ptr @decLnOp(ptr noundef nonnull %.0160, ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull %6)
+  %174 = call fastcc ptr @decLnOp(ptr noundef nonnull %.0160, ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef %6)
   %175 = getelementptr inbounds i8, ptr %.0160, i64 10
   %176 = load i16, ptr %175, align 2
   %177 = icmp eq i16 %176, 0
@@ -10510,8 +10510,8 @@ decCheckMath.exit221.thread:                      ; preds = %125, %120
   br label %246
 
 195:                                              ; preds = %181, %178, %173
-  %196 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0160, ptr noundef nonnull %.0160, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %6)
-  %197 = call fastcc ptr @decExpOp(ptr noundef nonnull %.0160, ptr noundef nonnull %.0160, ptr noundef nonnull %7, ptr noundef nonnull %6)
+  %196 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0160, ptr noundef nonnull %.0160, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef %6)
+  %197 = call fastcc ptr @decExpOp(ptr noundef nonnull %.0160, ptr noundef nonnull %.0160, ptr noundef nonnull %7, ptr noundef %6)
   br label %246
 
 198:                                              ; preds = %172
@@ -10528,7 +10528,7 @@ decCheckMath.exit221.thread:                      ; preds = %125, %120
 
 203:                                              ; preds = %198
   %204 = call ptr @decNumberCopy(ptr noundef nonnull %8, ptr noundef nonnull %.0160)
-  %205 = call fastcc ptr @decDivideOp(ptr noundef nonnull %.0160, ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %7, i8 noundef zeroext -128, ptr noundef nonnull %6)
+  %205 = call fastcc ptr @decDivideOp(ptr noundef nonnull %.0160, ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %7, i8 noundef zeroext -128, ptr noundef %6)
   br i1 %168, label %206, label %212
 
 206:                                              ; preds = %203
@@ -10594,7 +10594,7 @@ decCheckMath.exit221.thread:                      ; preds = %125, %120
   br i1 %235, label %split, label %238
 
 .thread:                                          ; preds = %231
-  %236 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0160, ptr noundef nonnull %.0160, ptr noundef %.0152, ptr noundef nonnull %7, ptr noundef nonnull %6)
+  %236 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0160, ptr noundef nonnull %.0160, ptr noundef %.0152, ptr noundef nonnull %7, ptr noundef %6)
   %237 = icmp eq i32 %.0167, 31
   br i1 %237, label %.thread._crit_edge, label %.thread226
 
@@ -10609,7 +10609,7 @@ decCheckMath.exit221.thread:                      ; preds = %125, %120
 
 .thread226:                                       ; preds = %.thread, %238
   %.1165225229 = phi i8 [ %.0164, %238 ], [ 1, %.thread ]
-  %239 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0160, ptr noundef nonnull %.0160, ptr noundef nonnull %.0160, ptr noundef nonnull %7, ptr noundef nonnull %6)
+  %239 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0160, ptr noundef nonnull %.0160, ptr noundef nonnull %.0160, ptr noundef nonnull %7, ptr noundef %6)
   br label %240
 
 240:                                              ; preds = %238, %.thread226
@@ -10627,7 +10627,7 @@ split.thread:                                     ; preds = %219, %227, %split
   %243 = and i8 %242, 127
   %244 = or disjoint i8 %243, %spec.select211
   store i8 %244, ptr %199, align 4
-  call fastcc void @decFinalize(ptr noundef nonnull %.0160, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @decFinalize(ptr noundef nonnull %.0160, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %6)
   %245 = call ptr @decNumberCopy(ptr noundef %0, ptr noundef nonnull %.0160)
   br label %255
 
@@ -10643,8 +10643,8 @@ split.thread:                                     ; preds = %219, %227, %split
   store i32 %251, ptr %252, align 4
   %253 = getelementptr inbounds i8, ptr %.0160, i64 10
   %254 = load i32, ptr %.0160, align 4
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %253, i32 noundef %254, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  call fastcc void @decFinalize(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef nonnull %253, i32 noundef %254, ptr noundef %5, ptr noundef %6)
+  call fastcc void @decFinalize(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %6)
   br label %255
 
 255:                                              ; preds = %246, %split.thread, %209
@@ -11036,7 +11036,7 @@ define internal fastcc i32 @decGetInt(ptr nocapture noundef readonly %0) unnamed
 define noundef ptr @decNumberQuantize(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = call fastcc ptr @decQuantizeOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 1, ptr noundef nonnull %5)
+  %6 = call fastcc ptr @decQuantizeOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 1, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
@@ -11075,7 +11075,7 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @decQuantizeOp(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i8 noundef zeroext %4, ptr nocapture noundef %5) unnamed_addr #3 {
+define internal fastcc noundef ptr @decQuantizeOp(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i8 noundef zeroext range(i8 0, 2) %4, ptr nocapture noundef nonnull %5) unnamed_addr #3 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.decContext, align 4
   %9 = load i32, ptr %3, align 4
@@ -11257,7 +11257,7 @@ define internal fastcc noundef ptr @decQuantizeOp(ptr noundef returned %0, ptr n
   %99 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %98, ptr %99, align 4
   %100 = load i32, ptr %1, align 4
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull %75, i32 noundef %100, ptr noundef nonnull %7, ptr noundef %5)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull %75, i32 noundef %100, ptr noundef %7, ptr noundef %5)
   %101 = load i32, ptr %7, align 4
   call fastcc void @decApplyRound(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %101, ptr noundef %5)
   store i32 0, ptr %7, align 4
@@ -11324,7 +11324,7 @@ define internal fastcc noundef ptr @decQuantizeOp(ptr noundef returned %0, ptr n
   br label %decNumberCopy.exit
 
 137:                                              ; preds = %127
-  call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef %5)
+  call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %7, ptr noundef %5)
   %138 = load i32, ptr %5, align 4
   %139 = and i32 %138, -8193
   store i32 %139, ptr %5, align 4
@@ -11354,7 +11354,7 @@ define noundef ptr @decNumberReduce(ptr noundef returned %0, ptr noundef %1, ptr
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %3
-  %11 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %2, ptr noundef nonnull %4)
+  %11 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %2, ptr noundef %4)
   br label %20
 
 12:                                               ; preds = %3
@@ -11366,9 +11366,9 @@ define noundef ptr @decNumberReduce(ptr noundef returned %0, ptr noundef %1, ptr
   store i32 %15, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %1, i64 10
   %18 = load i32, ptr %1, align 4
-  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef readonly %2, ptr noundef nonnull %17, i32 noundef %18, ptr noundef nonnull %5, ptr noundef nonnull %4)
-  call fastcc void @decFinalize(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %4)
-  %19 = call fastcc ptr @decTrim(ptr noundef %0, ptr noundef %2, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef nonnull %6)
+  call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef readonly %2, ptr noundef nonnull %17, i32 noundef %18, ptr noundef %5, ptr noundef %4)
+  call fastcc void @decFinalize(ptr noundef %0, ptr noundef %2, ptr noundef %5, ptr noundef %4)
+  %19 = call fastcc ptr @decTrim(ptr noundef %0, ptr noundef %2, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef %6)
   br label %20
 
 20:                                               ; preds = %12, %10
@@ -11410,7 +11410,7 @@ decStatus.exit:                                   ; preds = %22, %26, %28
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @decTrim(ptr noundef returned %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i8 noundef zeroext %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @decTrim(ptr noundef returned %0, ptr nocapture noundef readonly %1, i8 noundef zeroext range(i8 0, 2) %2, i8 noundef zeroext range(i8 0, 2) %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   store i32 0, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i8, ptr %6, align 4
@@ -11582,7 +11582,7 @@ define internal fastcc noundef ptr @decTrim(ptr noundef returned %0, ptr nocaptu
 define noundef ptr @decNumberRescale(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = call fastcc ptr @decQuantizeOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 0, ptr noundef nonnull %5)
+  %6 = call fastcc ptr @decQuantizeOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 0, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
@@ -11624,7 +11624,7 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 define noundef ptr @decNumberRemainder(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = call fastcc ptr @decDivideOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 64, ptr noundef nonnull %5)
+  %6 = call fastcc ptr @decDivideOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 64, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
@@ -11666,7 +11666,7 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 define noundef ptr @decNumberRemainderNear(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = call fastcc ptr @decDivideOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 16, ptr noundef nonnull %5)
+  %6 = call fastcc ptr @decDivideOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 16, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
@@ -12021,7 +12021,7 @@ decReverse.exit137:                               ; preds = %.lr.ph.i134, %decRe
   br label %.thread
 
 177:                                              ; preds = %4, %10
-  %178 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %6)
+  %178 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %6)
   %.pr.pre = load i32, ptr %6, align 4
   %.not129 = icmp eq i32 %.pr.pre, 0
   br i1 %.not129, label %.thread, label %179
@@ -12297,7 +12297,7 @@ define noundef ptr @decNumberScaleB(ptr noundef returned %0, ptr noundef %1, ptr
   br i1 %.not36, label %17, label %15
 
 15:                                               ; preds = %10, %4
-  %16 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  %16 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   br label %47
 
 17:                                               ; preds = %10
@@ -12352,7 +12352,7 @@ define noundef ptr @decNumberScaleB(ptr noundef returned %0, ptr noundef %1, ptr
   %storemerge = select i1 %or.cond, i32 %., i32 %41
   store i32 %storemerge, ptr %39, align 4
   store i32 0, ptr %6, align 4
-  call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %6, ptr noundef %5)
   br label %47
 
 47:                                               ; preds = %33, %38, %15
@@ -12530,7 +12530,7 @@ define noundef ptr @decNumberShift(ptr noundef returned %0, ptr noundef %1, ptr 
   br label %.thread
 
 74:                                               ; preds = %4, %9
-  %75 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  %75 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   %.pr65.pre = load i32, ptr %5, align 4
   %.not64 = icmp eq i32 %.pr65.pre, 0
   br i1 %.not64, label %.thread, label %76
@@ -12767,7 +12767,7 @@ define noundef ptr @decNumberSquareRoot(ptr noundef returned %0, ptr noundef %1,
   br i1 %50, label %.lr.ph.i, label %.thread318, !llvm.loop !22
 
 51:                                               ; preds = %21
-  %52 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %2, ptr noundef nonnull %9)
+  %52 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %2, ptr noundef %9)
   br label %.thread318
 
 53:                                               ; preds = %3
@@ -12842,7 +12842,7 @@ define noundef ptr @decNumberSquareRoot(ptr noundef returned %0, ptr noundef %1,
 decNumberCopy.exit248:                            ; preds = %.lr.ph.i245, %63, %65
   %89 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %56, ptr %89, align 4
-  call fastcc void @decFinalize(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  call fastcc void @decFinalize(ptr noundef %0, ptr noundef %2, ptr noundef %8, ptr noundef %9)
   br label %.thread318
 
 90:                                               ; preds = %60, %53
@@ -13019,8 +13019,8 @@ decNumberCopy.exit260:                            ; preds = %.decNumberCopy.exit
   store i16 %.sink336, ptr %177, align 2
   %178 = getelementptr inbounds i8, ptr %.0194, i64 10
   store i16 %.sink, ptr %178, align 2
-  %179 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0194, ptr noundef nonnull %.0194, ptr noundef nonnull %.0195, ptr noundef nonnull %5, ptr noundef nonnull %10)
-  %180 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0194, ptr noundef nonnull %.0194, ptr noundef nonnull %15, ptr noundef nonnull %5, i8 noundef zeroext 0, ptr noundef nonnull %10)
+  %179 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0194, ptr noundef nonnull %.0194, ptr noundef nonnull %.0195, ptr noundef nonnull %5, ptr noundef %10)
+  %180 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0194, ptr noundef nonnull %.0194, ptr noundef nonnull %15, ptr noundef nonnull %5, i8 noundef zeroext 0, ptr noundef %10)
   %181 = getelementptr inbounds i8, ptr %7, i64 8
   store i8 0, ptr %181, align 4
   %182 = getelementptr inbounds i8, ptr %7, i64 4
@@ -13040,9 +13040,9 @@ decNumberCopy.exit260:                            ; preds = %.decNumberCopy.exit
   %186 = add nsw i32 %185, -2
   %187 = call i32 @llvm.smin.i32(i32 %186, i32 %96)
   store i32 %187, ptr %5, align 4
-  %188 = call fastcc ptr @decDivideOp(ptr noundef %.0193, ptr noundef nonnull %.0195, ptr noundef nonnull %.0194, ptr noundef nonnull %5, i8 noundef zeroext -128, ptr noundef nonnull %10)
-  %189 = call fastcc ptr @decAddOp(ptr noundef %.0193, ptr noundef %.0193, ptr noundef nonnull %.0194, ptr noundef nonnull %5, i8 noundef zeroext 0, ptr noundef nonnull %10)
-  %190 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0194, ptr noundef %.0193, ptr noundef nonnull %15, ptr noundef nonnull %5, ptr noundef nonnull %10)
+  %188 = call fastcc ptr @decDivideOp(ptr noundef %.0193, ptr noundef nonnull %.0195, ptr noundef nonnull %.0194, ptr noundef nonnull %5, i8 noundef zeroext -128, ptr noundef %10)
+  %189 = call fastcc ptr @decAddOp(ptr noundef %.0193, ptr noundef %.0193, ptr noundef nonnull %.0194, ptr noundef nonnull %5, i8 noundef zeroext 0, ptr noundef %10)
+  %190 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0194, ptr noundef %.0193, ptr noundef nonnull %15, ptr noundef nonnull %5, ptr noundef %10)
   %191 = load i32, ptr %5, align 4
   %192 = icmp slt i32 %191, %96
   br i1 %192, label %.lr.ph, label %._crit_edge, !llvm.loop !52
@@ -13058,8 +13058,8 @@ decNumberCopy.exit260:                            ; preds = %.decNumberCopy.exit
   store i32 0, ptr %8, align 4
   store i32 %196, ptr %176, align 4
   %197 = load i32, ptr %.0194, align 4
-  call fastcc void @decSetCoeff(ptr noundef nonnull %.0194, ptr noundef nonnull readonly %6, ptr noundef nonnull %178, i32 noundef %197, ptr noundef nonnull %8, ptr noundef nonnull %11)
-  call fastcc void @decFinalize(ptr noundef nonnull %.0194, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %11)
+  call fastcc void @decSetCoeff(ptr noundef nonnull %.0194, ptr noundef nonnull readonly %6, ptr noundef nonnull %178, i32 noundef %197, ptr noundef %8, ptr noundef %11)
+  call fastcc void @decFinalize(ptr noundef nonnull %.0194, ptr noundef nonnull %6, ptr noundef %8, ptr noundef %11)
   %198 = load i32, ptr %11, align 4
   %199 = and i32 %198, 512
   %.not221 = icmp eq i32 %199, 0
@@ -13130,10 +13130,10 @@ decNumberCopy.exit260:                            ; preds = %.decNumberCopy.exit
   %235 = load i32, ptr %.0194, align 4
   %236 = xor i32 %235, -1
   store i32 %236, ptr %175, align 4
-  %237 = call fastcc ptr @decAddOp(ptr noundef %.0193, ptr noundef nonnull %.0194, ptr noundef nonnull %15, ptr noundef nonnull %5, i8 noundef zeroext -128, ptr noundef nonnull %10)
+  %237 = call fastcc ptr @decAddOp(ptr noundef %.0193, ptr noundef nonnull %.0194, ptr noundef nonnull %15, ptr noundef nonnull %5, i8 noundef zeroext -128, ptr noundef %10)
   %238 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 1, ptr %238, align 4
-  %239 = call fastcc ptr @decMultiplyOp(ptr noundef %.0193, ptr noundef %.0193, ptr noundef %.0193, ptr noundef nonnull %5, ptr noundef nonnull %10)
+  %239 = call fastcc ptr @decMultiplyOp(ptr noundef %.0193, ptr noundef %.0193, ptr noundef %.0193, ptr noundef nonnull %5, ptr noundef %10)
   %240 = getelementptr inbounds i8, ptr %.0195, i64 8
   %241 = load i8, ptr %240, align 4
   %242 = getelementptr inbounds i8, ptr %.0193, i64 8
@@ -13144,7 +13144,7 @@ decNumberCopy.exit260:                            ; preds = %.decNumberCopy.exit
   br i1 %.not116.i, label %248, label %246
 
 246:                                              ; preds = %229
-  %247 = call fastcc ptr @decNaNs(ptr noundef nonnull %.0193, ptr noundef nonnull %.0195, ptr noundef nonnull %.0193, ptr noundef nonnull readonly %5, ptr noundef nonnull %10)
+  %247 = call fastcc ptr @decNaNs(ptr noundef nonnull %.0193, ptr noundef nonnull %.0195, ptr noundef nonnull %.0193, ptr noundef nonnull readonly %5, ptr noundef %10)
   br label %decCompareOp.exit
 
 248:                                              ; preds = %229
@@ -13179,9 +13179,9 @@ decCompareOp.exit:                                ; preds = %246, %251, %.thread
   br i1 %.not222, label %259, label %.sink.split
 
 259:                                              ; preds = %decCompareOp.exit
-  %260 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0193, ptr noundef nonnull %.0194, ptr noundef nonnull %15, ptr noundef nonnull %5, i8 noundef zeroext 0, ptr noundef nonnull %10)
+  %260 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0193, ptr noundef nonnull %.0194, ptr noundef nonnull %15, ptr noundef nonnull %5, i8 noundef zeroext 0, ptr noundef %10)
   store i32 5, ptr %238, align 4
-  %261 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0193, ptr noundef nonnull %.0193, ptr noundef nonnull %.0193, ptr noundef nonnull %5, ptr noundef nonnull %10)
+  %261 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0193, ptr noundef nonnull %.0193, ptr noundef nonnull %.0193, ptr noundef nonnull %5, ptr noundef %10)
   %262 = load i8, ptr %242, align 4
   %263 = load i8, ptr %240, align 4
   %264 = or i8 %263, %262
@@ -13190,7 +13190,7 @@ decCompareOp.exit:                                ; preds = %246, %251, %.thread
   br i1 %.not116.i274, label %268, label %266
 
 266:                                              ; preds = %259
-  %267 = call fastcc ptr @decNaNs(ptr noundef nonnull %.0193, ptr noundef nonnull %.0193, ptr noundef nonnull %.0195, ptr noundef nonnull readonly %5, ptr noundef nonnull %10)
+  %267 = call fastcc ptr @decNaNs(ptr noundef nonnull %.0193, ptr noundef nonnull %.0193, ptr noundef nonnull %.0195, ptr noundef nonnull readonly %5, ptr noundef %10)
   br label %decCompareOp.exit276
 
 268:                                              ; preds = %259
@@ -13235,7 +13235,7 @@ decCompareOp.exit276:                             ; preds = %266, %271, %.thread
   %280 = add nsw i32 %279, 1
   store i32 %280, ptr %175, align 4
   store i16 1, ptr %177, align 2
-  %281 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0194, ptr noundef nonnull %.0194, ptr noundef nonnull %15, ptr noundef nonnull %5, i8 noundef zeroext %.sink351, ptr noundef nonnull %10)
+  %281 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0194, ptr noundef nonnull %.0194, ptr noundef nonnull %15, ptr noundef nonnull %5, i8 noundef zeroext %.sink351, ptr noundef %10)
   %282 = getelementptr inbounds i8, ptr %6, i64 8
   %283 = load i32, ptr %282, align 4
   %284 = sub nsw i32 %283, %194
@@ -13244,7 +13244,7 @@ decCompareOp.exit276:                             ; preds = %266, %271, %.thread
   %286 = load i32, ptr %285, align 4
   %287 = sub nsw i32 %286, %194
   store i32 %287, ptr %285, align 4
-  %288 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0194, ptr noundef nonnull %7, ptr noundef nonnull %.0194, ptr noundef nonnull %6, i8 noundef zeroext 0, ptr noundef nonnull %10)
+  %288 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0194, ptr noundef nonnull %7, ptr noundef nonnull %.0194, ptr noundef nonnull %6, i8 noundef zeroext 0, ptr noundef %10)
   br label %289
 
 289:                                              ; preds = %.sink.split, %decCompareOp.exit276
@@ -13414,7 +13414,7 @@ decTrim.exit:                                     ; preds = %decNumberCopy.exit2
 
 371:                                              ; preds = %decTrim.exit
   store i32 0, ptr %16, align 4
-  %372 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0193, ptr noundef nonnull %.0193, ptr noundef nonnull %.0193, ptr noundef nonnull %5, ptr noundef nonnull %16)
+  %372 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0193, ptr noundef nonnull %.0193, ptr noundef nonnull %.0193, ptr noundef nonnull %5, ptr noundef %16)
   %373 = load i32, ptr %16, align 4
   %374 = and i32 %373, 512
   %.not224 = icmp eq i32 %374, 0
@@ -13427,7 +13427,7 @@ decTrim.exit:                                     ; preds = %decNumberCopy.exit2
   br label %437
 
 378:                                              ; preds = %371
-  %379 = call fastcc ptr @decCompareOp(ptr noundef nonnull %15, ptr noundef nonnull %.0193, ptr noundef nonnull %1, ptr noundef nonnull %5, i8 noundef zeroext 1, ptr noundef nonnull %16)
+  %379 = call fastcc ptr @decCompareOp(ptr noundef nonnull %15, ptr noundef nonnull %.0193, ptr noundef nonnull %1, ptr noundef nonnull %5, i8 noundef zeroext 1, ptr noundef %16)
   %380 = load i16, ptr %177, align 2
   %381 = icmp eq i16 %380, 0
   %382 = load i32, ptr %15, align 4
@@ -13673,7 +13673,7 @@ decStatus.exit:                                   ; preds = %.thread318.thread, 
 define noundef ptr @decNumberSubtract(ptr noundef returned %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext -128, ptr noundef nonnull %5)
+  %6 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext -128, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
@@ -13788,7 +13788,7 @@ define noundef ptr @decNumberToIntegralExact(ptr noundef returned %0, ptr nounde
   br i1 %40, label %.lr.ph.i, label %decNumberCopy.exit32, !llvm.loop !22
 
 41:                                               ; preds = %12
-  %42 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %2, ptr noundef nonnull %7)
+  %42 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %2, ptr noundef %7)
   br label %decNumberCopy.exit
 
 43:                                               ; preds = %3
@@ -13868,7 +13868,7 @@ define noundef ptr @decNumberToIntegralExact(ptr noundef returned %0, ptr nounde
   store i16 0, ptr %78, align 2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  %79 = call fastcc ptr @decQuantizeOp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %6, i8 noundef zeroext 1, ptr noundef nonnull %4)
+  %79 = call fastcc ptr @decQuantizeOp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %6, i8 noundef zeroext 1, ptr noundef %4)
   %80 = load i32, ptr %4, align 4
   %.not.i = icmp eq i32 %80, 0
   br i1 %.not.i, label %decNumberQuantize.exit, label %81
@@ -14540,7 +14540,7 @@ define noundef ptr @decNumberTrim(ptr noundef returned %0) local_unnamed_addr #3
   %2 = alloca i32, align 4
   %3 = alloca %struct.decContext, align 4
   %4 = call ptr @decContextDefault(ptr noundef nonnull %3, i32 noundef 0) #18
-  %5 = call fastcc ptr @decTrim(ptr noundef %0, ptr noundef nonnull %3, i8 noundef zeroext 0, i8 noundef zeroext 1, ptr noundef nonnull %2)
+  %5 = call fastcc ptr @decTrim(ptr noundef %0, ptr noundef nonnull %3, i8 noundef zeroext 0, i8 noundef zeroext 1, ptr noundef %2)
   ret ptr %0
 }
 
@@ -14550,7 +14550,7 @@ define noundef nonnull ptr @decNumberVersion() local_unnamed_addr #13 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @decUnitAddSub(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @decUnitAddSub(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 715827883) %3, i32 noundef range(i32 -715827882, 715827883) %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = sext i32 %1 to i64
   %9 = getelementptr inbounds i16, ptr %5, i64 %8
   %10 = zext nneg i32 %3 to i64
@@ -14839,7 +14839,7 @@ define internal fastcc i32 @decUnitAddSub(ptr noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @decUnitCompare(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc range(i32 -2147483648, 2) i32 @decUnitCompare(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 715827883) %3, i32 noundef %4) unnamed_addr #3 {
   %6 = alloca [25 x i16], align 16
   %7 = icmp eq i32 %4, 0
   br i1 %7, label %8, label %23
@@ -14912,9 +14912,9 @@ define internal fastcc range(i32 -2147483648, 2) i32 @decUnitCompare(ptr noundef
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %.thread79
-  %43 = add nuw nsw i32 %.pre-phi, 2
-  %44 = zext nneg i32 %43 to i64
-  %45 = shl nuw nsw i64 %44, 1
+  %43 = shl nuw i32 %.pre-phi, 1
+  %44 = add nuw i32 %43, 4
+  %45 = zext i32 %44 to i64
   %46 = tail call noalias ptr @malloc(i64 noundef %45) #19
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.loopexit, label %48
@@ -14972,7 +14972,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @decUnitCompare(ptr noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @decApplyRound(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #14 {
+define internal fastcc void @decApplyRound(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #14 {
   %5 = icmp eq i32 %2, 0
   br i1 %5, label %.thread, label %6
 
@@ -15276,7 +15276,7 @@ define internal fastcc void @decApplyRound(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @decSetOverflow(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @decSetOverflow(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, -128
@@ -15395,7 +15395,7 @@ decSetMaxValue.exit:                              ; preds = %.lr.ph.i, %.critedg
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #14 {
+define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #14 {
   %5 = alloca %struct.decContext, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 4
@@ -15459,9 +15459,9 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr nocapture nound
   %43 = load i32, ptr %42, align 4
   %44 = sub nsw i32 %43, %33
   store i32 %44, ptr %42, align 4
-  call fastcc void @decSetCoeff(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %10, i32 noundef %40, ptr noundef %2, ptr noundef nonnull %3)
+  call fastcc void @decSetCoeff(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %10, i32 noundef %40, ptr noundef %2, ptr noundef %3)
   %45 = load i32, ptr %2, align 4
-  call fastcc void @decApplyRound(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %45, ptr noundef nonnull %3)
+  call fastcc void @decApplyRound(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %45, ptr noundef %3)
   %46 = load i32, ptr %3, align 4
   %47 = and i32 %46, 32
   %.not = icmp eq i32 %47, 0

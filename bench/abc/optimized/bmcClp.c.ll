@@ -4634,7 +4634,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_StrFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_StrFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483644, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -9011,8 +9011,8 @@ Vec_IntPush.exit213:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %.not150, label %.thread311, label %278
 
 .thread311:                                       ; preds = %.critedge
-  %275 = trunc i64 %indvars.iv308 to i32
-  %276 = sub i32 5, %275
+  %275 = trunc nuw nsw i64 %indvars.iv308 to i32
+  %276 = xor i32 %275, 5
   %277 = call i32 @Bmc_CollapseExpand(ptr noundef %0, ptr noundef null, ptr noundef nonnull %34, ptr noundef nonnull %42, ptr noundef nonnull %50, i32 noundef %3, i32 noundef %4, i32 noundef %276)
   br label %303
 
@@ -9033,8 +9033,8 @@ Vec_IntPush.exit213:                              ; preds = %.Vec_IntGrow.exit10
 287:                                              ; preds = %278, %281
   %.0.i214 = phi i64 [ %286, %281 ], [ -1, %278 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %288 = trunc i64 %indvars.iv308 to i32
-  %289 = sub i32 5, %288
+  %288 = trunc nuw nsw i64 %indvars.iv308 to i32
+  %289 = xor i32 %288, 5
   %290 = call i32 @Bmc_CollapseExpand(ptr noundef %0, ptr noundef null, ptr noundef nonnull %34, ptr noundef nonnull %42, ptr noundef nonnull %50, i32 noundef %3, i32 noundef %4, i32 noundef %289)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %291 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #15

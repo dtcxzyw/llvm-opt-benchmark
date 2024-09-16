@@ -1268,7 +1268,7 @@ _get_assoc_mgr_assoc_list.exit:                   ; preds = %80
   br label %_get_assoc_mgr_wckey_list.exit.thread
 
 125:                                              ; preds = %116
-  call fastcc void @_post_wckey_list(ptr noundef nonnull %117)
+  call fastcc void @_post_wckey_list(ptr noundef %117)
   call void @assoc_mgr_unlock(ptr noundef nonnull @__const._refresh_assoc_wckey_list.locks)
   br label %_get_assoc_mgr_wckey_list.exit.thread
 
@@ -1373,7 +1373,7 @@ declare i32 @get_log_level() local_unnamed_addr #1
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_assoc_mgr_tres_list(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_assoc_mgr_tres_list(ptr noundef %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #0 {
   %3 = alloca %struct.slurmdb_tres_cond_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
   %4 = tail call i32 @getuid() #20
@@ -8390,7 +8390,7 @@ _delete_assoc_hash.exit:                          ; preds = %_delete_assoc_hash.
   %544 = load ptr, ptr %543, align 8
   store ptr %544, ptr %.246.i.lcssa, align 8
   %545 = load ptr, ptr @assoc_mgr_assoc_list, align 8
-  %546 = tail call ptr @list_remove_first(ptr noundef %545, ptr noundef nonnull @slurm_find_ptr_in_list, ptr noundef %33) #20
+  %546 = tail call ptr @list_remove_first(ptr noundef %545, ptr noundef nonnull @slurm_find_ptr_in_list, ptr noundef nonnull %33) #20
   %547 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 32), align 8
   %.not397 = icmp eq ptr %547, null
   br i1 %.not397, label %552, label %548
@@ -8405,11 +8405,11 @@ _delete_assoc_hash.exit:                          ; preds = %_delete_assoc_hash.
 
 551:                                              ; preds = %549, %548
   %.2302 = phi ptr [ %.0300.ph599, %548 ], [ %550, %549 ]
-  tail call void @list_append(ptr noundef %.2302, ptr noundef %33) #20
+  tail call void @list_append(ptr noundef %.2302, ptr noundef nonnull %33) #20
   br label %.outer
 
 552:                                              ; preds = %_delete_assoc_hash.exit
-  tail call void @slurmdb_destroy_assoc_rec(ptr noundef %33) #20
+  tail call void @slurmdb_destroy_assoc_rec(ptr noundef nonnull %33) #20
   br label %.outer
 
 553:                                              ; preds = %.loopexit528
@@ -8704,12 +8704,12 @@ select.unfold37._crit_edge.i495:                  ; preds = %.critedge.i487, %se
   %657 = getelementptr inbounds i8, ptr %.lcssa826, i64 16
   %658 = load ptr, ptr %657, align 8
   store ptr %658, ptr %.246.i491.lcssa, align 8
-  tail call fastcc void @_set_assoc_parent_and_user(ptr noundef nonnull %577)
+  tail call fastcc void @_set_assoc_parent_and_user(ptr noundef %577)
   br label %660
 
 659:                                              ; preds = %634, %._crit_edge613
   %.1 = phi i1 [ %633, %._crit_edge613 ], [ %spec.select460518, %634 ]
-  tail call fastcc void @_set_assoc_parent_and_user(ptr noundef nonnull %577)
+  tail call fastcc void @_set_assoc_parent_and_user(ptr noundef %577)
   br i1 %.1, label %660, label %683
 
 660:                                              ; preds = %.thread519, %659
@@ -8798,7 +8798,7 @@ _add_potential_coord_children.exit:               ; preds = %.lr.ph624, %692
   br i1 %.not381, label %701, label %_set_children_level_shares.exit
 
 701:                                              ; preds = %699
-  %702 = tail call fastcc i32 @_get_children_level_shares(ptr noundef nonnull %686)
+  %702 = tail call fastcc i32 @_get_children_level_shares(ptr noundef %686)
   %.val = load ptr, ptr %695, align 8
   %703 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %703, align 8
@@ -11450,7 +11450,7 @@ _set_assoc_norm_priority.exit:                    ; preds = %32, %34
 declare void @slurmdb_sort_hierarchical_assoc_list(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_assoc_parent_and_user(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_set_assoc_parent_and_user(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr @assoc_mgr_assoc_list, align 8
   %.not = icmp eq ptr %3, null
@@ -11491,7 +11491,7 @@ define internal fastcc void @_set_assoc_parent_and_user(ptr noundef %0) unnamed_
   br i1 %.not76, label %87, label %21
 
 21:                                               ; preds = %18
-  %22 = tail call fastcc ptr @_find_assoc_parent(ptr noundef nonnull %0, i1 noundef zeroext true)
+  %22 = tail call fastcc ptr @_find_assoc_parent(ptr noundef %0, i1 noundef zeroext true)
   %23 = load ptr, ptr %7, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 72
   store ptr %22, ptr %24, align 8
@@ -11515,7 +11515,7 @@ define internal fastcc void @_set_assoc_parent_and_user(ptr noundef %0) unnamed_
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %33
-  %38 = tail call fastcc ptr @_find_assoc_parent(ptr noundef nonnull %0, i1 noundef zeroext false)
+  %38 = tail call fastcc ptr @_find_assoc_parent(ptr noundef %0, i1 noundef zeroext false)
   br label %.sink.split109
 
 39:                                               ; preds = %33
@@ -11525,7 +11525,7 @@ define internal fastcc void @_set_assoc_parent_and_user(ptr noundef %0) unnamed_
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %39
-  %44 = tail call fastcc ptr @_find_assoc_parent(ptr noundef nonnull %27, i1 noundef zeroext false)
+  %44 = tail call fastcc ptr @_find_assoc_parent(ptr noundef %27, i1 noundef zeroext false)
   br label %.sink.split109
 
 .sink.split109:                                   ; preds = %28, %43, %37
@@ -11778,7 +11778,7 @@ define internal fastcc void @_set_assoc_parent_and_user(ptr noundef %0) unnamed_
 declare i32 @list_is_empty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_get_children_level_shares(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc i32 @_get_children_level_shares(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 312
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -11806,7 +11806,7 @@ define internal fastcc i32 @_get_children_level_shares(ptr nocapture noundef rea
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %.lr.ph
-  %16 = tail call fastcc i32 @_get_children_level_shares(ptr noundef nonnull %11)
+  %16 = tail call fastcc i32 @_get_children_level_shares(ptr noundef %11)
   br label %17
 
 17:                                               ; preds = %.lr.ph, %15
@@ -12907,7 +12907,7 @@ _refresh_assoc_wckey_list.exit.thread:            ; preds = %190
   br label %_running_cache.exit
 
 192:                                              ; preds = %190
-  call fastcc void @_post_wckey_list(ptr noundef nonnull %187)
+  call fastcc void @_post_wckey_list(ptr noundef %187)
   call void @assoc_mgr_lock(ptr noundef nonnull @__const._refresh_assoc_wckey_list.locks)
   %193 = load ptr, ptr @assoc_mgr_wckey_list, align 8
   %.not12.i = icmp eq ptr %193, null
@@ -14604,7 +14604,7 @@ define internal fastcc void @_post_assoc_list() unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %2, %_add_assoc_hash.exit
   %6 = phi ptr [ %29, %_add_assoc_hash.exit ], [ %5, %2 ]
-  tail call fastcc void @_set_assoc_parent_and_user(ptr noundef nonnull %6)
+  tail call fastcc void @_set_assoc_parent_and_user(ptr noundef %6)
   %7 = getelementptr inbounds i8, ptr %6, i64 132
   %8 = load i32, ptr %7, align 4
   %9 = load ptr, ptr @assoc_hash_id, align 8
@@ -14680,7 +14680,7 @@ _add_assoc_hash.exit:                             ; preds = %12, %15
   br i1 %.not19, label %._crit_edge29, label %.lr.ph28, !llvm.loop !116
 
 40:                                               ; preds = %37
-  %41 = tail call fastcc i32 @_get_children_level_shares(ptr noundef nonnull %32)
+  %41 = tail call fastcc i32 @_get_children_level_shares(ptr noundef %32)
   %.val = load ptr, ptr %33, align 8
   %42 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %42, align 8
@@ -16556,9 +16556,9 @@ declare ptr @acct_storage_g_get_assocs(ptr noundef, i32 noundef, ptr noundef) lo
 declare ptr @acct_storage_g_get_wckeys(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_post_wckey_list(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_post_wckey_list(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
-  %3 = tail call ptr @list_iterator_create(ptr noundef %0) #20
+  %3 = tail call ptr @list_iterator_create(ptr noundef nonnull %0) #20
   %4 = tail call ptr @list_next(ptr noundef %3) #20
   %.not9 = icmp eq ptr %4, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -16793,7 +16793,7 @@ define internal range(i32 0, 2) i32 @_find_nondirect_acct_by_name(ptr nocapture 
 declare void @slurmdb_merge_grp_node_usage(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_find_assoc_parent(ptr noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc ptr @_find_assoc_parent(ptr noundef nonnull readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 300
   br i1 %1, label %.split.us, label %.split
 

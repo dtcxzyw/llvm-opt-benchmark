@@ -1305,7 +1305,7 @@ declare dso_local ptr @xprt_switch_alloc(ptr noundef, i32 noundef) local_unnamed
 declare dso_local void @xprt_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rpc_clnt_set_transport(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @rpc_clnt_set_transport(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 44
   tail call void @_raw_spin_lock(ptr noundef %4) #20
   %5 = getelementptr inbounds i8, ptr %1, i64 1032
@@ -4136,8 +4136,8 @@ declare dso_local void @rpc_init_rtt(ptr noundef, i64 noundef) local_unnamed_add
 declare dso_local void @rpc_sysfs_client_setup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @refcount_inc(ptr noundef %0) unnamed_addr #11 align 16 {
-  %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 1, ptr elementtype(i32) %0) #20, !srcloc !57
+define internal fastcc void @refcount_inc(ptr noundef nonnull %0) unnamed_addr #11 align 16 {
+  %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 1, ptr nonnull elementtype(i32) %0) #20, !srcloc !57
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %8, label %4, !prof !7
 
@@ -4149,7 +4149,7 @@ define internal fastcc void @refcount_inc(ptr noundef %0) unnamed_addr #11 align
 
 8:                                                ; preds = %4, %1
   %9 = phi i32 [ 2, %1 ], [ 1, %4 ]
-  tail call void @refcount_warn_saturate(ptr noundef %0, i32 noundef %9) #20
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %0, i32 noundef %9) #20
   br label %10
 
 10:                                               ; preds = %8, %4
@@ -4157,7 +4157,7 @@ define internal fastcc void @refcount_inc(ptr noundef %0) unnamed_addr #11 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_rpc_clnt_new(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #11 align 16 {
+define internal fastcc void @trace_rpc_clnt_new(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #11 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rpc_clnt_new, i64 8), i32 2) #20
           to label %24 [label %4], !srcloc !17
 
@@ -4180,7 +4180,7 @@ define internal fastcc void @trace_rpc_clnt_new(ptr noundef %0, ptr noundef %1, 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @__SCT__tp_func_rpc_clnt_new(ptr noundef %15, ptr noundef %0, ptr noundef %1, ptr noundef %2) #20
+  %16 = tail call i32 @__SCT__tp_func_rpc_clnt_new(ptr noundef %15, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #20
   br label %17
 
 17:                                               ; preds = %13, %10

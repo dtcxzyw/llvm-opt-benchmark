@@ -815,7 +815,7 @@ interval_remove.exit:                             ; preds = %.thread17.i, %180
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc noundef ptr @memtype_match(i64 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef ptr @memtype_match(i64 noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 align 16 {
   %4 = add i64 %1, -1
   %5 = load ptr, ptr @memtype_rbroot, align 8
   %6 = icmp eq ptr %5, null
@@ -882,7 +882,7 @@ define internal fastcc noundef ptr @memtype_match(i64 noundef %0, i64 noundef %1
 
 42:                                               ; preds = %40
   %43 = icmp eq i32 %2, 0
-  %44 = icmp eq i32 %2, 1
+  %44 = icmp ne i32 %2, 0
   br label %45
 
 45:                                               ; preds = %.loopexit, %42

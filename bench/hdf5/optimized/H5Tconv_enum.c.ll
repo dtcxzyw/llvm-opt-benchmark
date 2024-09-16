@@ -92,7 +92,7 @@ define range(i32 -1, 1) i32 @H5T__conv_enum(ptr noundef %0, ptr noundef %1, ptr 
   br label %.loopexit
 
 38:                                               ; preds = %29
-  %39 = tail call fastcc i32 @H5T__conv_enum_init(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
+  %39 = tail call fastcc i32 @H5T__conv_enum_init(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3)
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %41, label %.loopexit
 
@@ -165,7 +165,7 @@ define range(i32 -1, 1) i32 @H5T__conv_enum(ptr noundef %0, ptr noundef %1, ptr 
   br label %.loopexit
 
 83:                                               ; preds = %74
-  %84 = tail call fastcc i32 @H5T__conv_enum_init(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %84 = tail call fastcc i32 @H5T__conv_enum_init(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %86, label %90
 
@@ -428,7 +428,7 @@ define range(i32 -1, 1) i32 @H5T__conv_enum(ptr noundef %0, ptr noundef %1, ptr 
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_init(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_init(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 16
@@ -461,14 +461,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_init(ptr noundef %0,
 
 22:                                               ; preds = %18, %15
   %23 = load ptr, ptr %7, align 8
-  %24 = tail call i32 @H5T_cmp(ptr noundef %0, ptr noundef %23, i1 noundef zeroext false) #10
+  %24 = tail call i32 @H5T_cmp(ptr noundef nonnull %0, ptr noundef %23, i1 noundef zeroext false) #10
   %.not159 = icmp eq i32 %24, 0
   br i1 %.not159, label %25, label %29
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %7, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 @H5T_cmp(ptr noundef %1, ptr noundef %27, i1 noundef zeroext false) #10
+  %28 = tail call i32 @H5T_cmp(ptr noundef nonnull %1, ptr noundef %27, i1 noundef zeroext false) #10
   %.not160 = icmp eq i32 %28, 0
   br i1 %.not160, label %.thread170, label %29
 
@@ -507,7 +507,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_init(ptr noundef %0,
   br label %169
 
 48:                                               ; preds = %41, %38
-  %49 = tail call ptr @H5T_copy(ptr noundef %0, i32 noundef 1) #10
+  %49 = tail call ptr @H5T_copy(ptr noundef nonnull %0, i32 noundef 1) #10
   store ptr %49, ptr %.1.ph, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %55
@@ -519,7 +519,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_init(ptr noundef %0,
   br label %169
 
 55:                                               ; preds = %48
-  %56 = tail call ptr @H5T_copy(ptr noundef %1, i32 noundef 1) #10
+  %56 = tail call ptr @H5T_copy(ptr noundef nonnull %1, i32 noundef 1) #10
   store ptr %56, ptr %39, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %62

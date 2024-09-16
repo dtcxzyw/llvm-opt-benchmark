@@ -40,7 +40,7 @@ define dso_local i32 @kill_proc_tree(i32 noundef %0, i32 noundef %1) local_unnam
   br i1 %8, label %54, label %9
 
 9:                                                ; preds = %2
-  %10 = tail call fastcc ptr @_get_list(i32 noundef %0, ptr noundef null, ptr noundef nonnull %7)
+  %10 = tail call fastcc ptr @_get_list(i32 noundef %0, ptr noundef null, ptr noundef %7)
   %.not15.i = icmp eq ptr %10, null
   br i1 %.not15.i, label %_kill_proclist.exit, label %.lr.ph.i
 
@@ -407,7 +407,7 @@ _get_myname.exit.thread:                          ; preds = %21, %27, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_list(i32 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc ptr @_get_list(i32 noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = srem i32 %0, 64
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds ptr, ptr %2, i64 %5
@@ -618,7 +618,7 @@ define dso_local range(i32 -1, 1) i32 @proctrack_linuxproc_get_pids(i32 noundef 
   br i1 %13, label %72, label %14
 
 14:                                               ; preds = %3
-  %15 = tail call fastcc ptr @_get_list(i32 noundef %0, ptr noundef null, ptr noundef nonnull %12)
+  %15 = tail call fastcc ptr @_get_list(i32 noundef %0, ptr noundef null, ptr noundef %12)
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %30
 

@@ -74,7 +74,7 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %22
-  %26 = tail call fastcc i32 @indexOfColumn(ptr noundef nonnull %23, ptr noundef %0)
+  %26 = tail call fastcc i32 @indexOfColumn(ptr noundef %23, ptr noundef %0)
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %121, label %28
 
@@ -85,7 +85,7 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %28
-  %32 = tail call fastcc i32 @indexOfColumn(ptr noundef nonnull %29, ptr noundef %0)
+  %32 = tail call fastcc i32 @indexOfColumn(ptr noundef %29, ptr noundef %0)
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %121, label %34
 
@@ -131,7 +131,7 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   br i1 %48, label %.lr.ph, label %.loopexit, !llvm.loop !5
 
 49:                                               ; preds = %37
-  %50 = tail call fastcc i32 @indexOfColumn(ptr noundef nonnull %38, ptr noundef %0)
+  %50 = tail call fastcc i32 @indexOfColumn(ptr noundef %38, ptr noundef %0)
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %121, label %.loopexit
 
@@ -142,7 +142,7 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   br i1 %53, label %57, label %54
 
 54:                                               ; preds = %.loopexit
-  %55 = tail call fastcc i32 @indexOfColumn(ptr noundef nonnull %52, ptr noundef %0)
+  %55 = tail call fastcc i32 @indexOfColumn(ptr noundef %52, ptr noundef %0)
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %121, label %57
 
@@ -188,7 +188,7 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   store ptr %70, ptr %3, align 8
   store i32 %65, ptr %61, align 8
   store ptr %.0.us, ptr %62, align 8
-  call fastcc void @avlInsertNode(ptr noundef nonnull %4, ptr noundef nonnull %15, ptr noundef nonnull byval(%struct._pivot_field) align 8 %3)
+  call fastcc void @avlInsertNode(ptr noundef %4, ptr noundef nonnull %15, ptr noundef nonnull byval(%struct._pivot_field) align 8 %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %75 = load i32, ptr %4, align 8
   %76 = icmp sgt i32 %75, 1600
@@ -210,7 +210,7 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   %83 = load i32, ptr %5, align 8
   store i32 %83, ptr %63, align 8
   store ptr null, ptr %64, align 8
-  call fastcc void @avlInsertNode(ptr noundef nonnull %5, ptr noundef nonnull %10, ptr noundef nonnull byval(%struct._pivot_field) align 8 %2)
+  call fastcc void @avlInsertNode(ptr noundef %5, ptr noundef nonnull %10, ptr noundef nonnull byval(%struct._pivot_field) align 8 %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %84 = add nuw nsw i32 %.06489.us, 1
   %85 = tail call i32 @PQntuples(ptr noundef %0) #10
@@ -234,7 +234,7 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   store ptr %92, ptr %3, align 8
   store i32 %87, ptr %61, align 8
   store ptr null, ptr %62, align 8
-  call fastcc void @avlInsertNode(ptr noundef nonnull %4, ptr noundef nonnull %15, ptr noundef nonnull byval(%struct._pivot_field) align 8 %3)
+  call fastcc void @avlInsertNode(ptr noundef %4, ptr noundef nonnull %15, ptr noundef nonnull byval(%struct._pivot_field) align 8 %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %93 = load i32, ptr %4, align 8
   %94 = icmp sgt i32 %93, 1600
@@ -262,7 +262,7 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   %101 = load i32, ptr %5, align 8
   store i32 %101, ptr %63, align 8
   store ptr null, ptr %64, align 8
-  call fastcc void @avlInsertNode(ptr noundef nonnull %5, ptr noundef nonnull %10, ptr noundef nonnull byval(%struct._pivot_field) align 8 %2)
+  call fastcc void @avlInsertNode(ptr noundef %5, ptr noundef nonnull %10, ptr noundef nonnull byval(%struct._pivot_field) align 8 %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %102 = add nuw nsw i32 %.06489, 1
   %103 = tail call i32 @PQntuples(ptr noundef %0) #10
@@ -279,9 +279,9 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   %111 = mul nsw i64 %110, 24
   %112 = tail call ptr @pg_malloc(i64 noundef %111) #10
   %113 = load ptr, ptr %15, align 8
-  %114 = call fastcc i32 @avlCollectFields(ptr noundef nonnull %4, ptr noundef %113, ptr noundef %109, i32 noundef 0)
+  %114 = call fastcc i32 @avlCollectFields(ptr noundef %4, ptr noundef %113, ptr noundef %109, i32 noundef 0)
   %115 = load ptr, ptr %10, align 8
-  %116 = call fastcc i32 @avlCollectFields(ptr noundef nonnull %5, ptr noundef %115, ptr noundef %112, i32 noundef 0)
+  %116 = call fastcc i32 @avlCollectFields(ptr noundef %5, ptr noundef %115, ptr noundef %112, i32 noundef 0)
   %117 = icmp sgt i32 %.065.fr, -1
   br i1 %117, label %118, label %119
 
@@ -299,8 +299,8 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   %.071 = phi i1 [ false, %17 ], [ false, %21 ], [ false, %36 ], [ false, %44 ], [ false, %.split.us ], [ %120, %119 ], [ false, %54 ], [ false, %49 ], [ false, %31 ], [ false, %25 ]
   %.070 = phi ptr [ null, %17 ], [ null, %21 ], [ null, %36 ], [ null, %44 ], [ null, %.split.us ], [ %109, %119 ], [ null, %54 ], [ null, %49 ], [ null, %31 ], [ null, %25 ]
   %.069 = phi ptr [ null, %17 ], [ null, %21 ], [ null, %36 ], [ null, %44 ], [ null, %.split.us ], [ %112, %119 ], [ null, %54 ], [ null, %49 ], [ null, %31 ], [ null, %25 ]
-  call fastcc void @avlFree(ptr noundef nonnull %4, ptr noundef %123)
-  call fastcc void @avlFree(ptr noundef nonnull %5, ptr noundef %122)
+  call fastcc void @avlFree(ptr noundef %4, ptr noundef %123)
+  call fastcc void @avlFree(ptr noundef %5, ptr noundef %122)
   call void @pg_free(ptr noundef %.070) #10
   call void @pg_free(ptr noundef %.069) #10
   ret i1 %.071
@@ -313,7 +313,7 @@ declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_u
 declare i32 @PQnfields(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @indexOfColumn(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @indexOfColumn(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %16, label %4
@@ -392,7 +392,7 @@ declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_add
 declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @avlCollectFields(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc i32 @avlCollectFields(ptr nocapture noundef nonnull readonly %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %1, %6
@@ -403,7 +403,7 @@ tailrecurse:                                      ; preds = %4, %tailrecurse
   %.tr1518 = phi ptr [ %14, %tailrecurse ], [ %1, %4 ]
   %8 = getelementptr inbounds i8, ptr %.tr1518, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call fastcc i32 @avlCollectFields(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %2, i32 noundef %.tr1719)
+  %10 = tail call fastcc i32 @avlCollectFields(ptr noundef %0, ptr noundef %9, ptr noundef %2, i32 noundef %.tr1719)
   %11 = sext i32 %10 to i64
   %12 = getelementptr %struct._pivot_field, ptr %2, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %.tr1518, i64 24, i1 false)
@@ -508,7 +508,7 @@ define internal fastcc void @rankSort(i32 noundef %0, ptr nocapture noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, -2147483648) %3, i32 noundef %4, ptr noundef %5, i32 noundef range(i32 0, -2147483648) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca %struct.printQueryOpt, align 8
   %10 = alloca %struct.printTableContent, align 8
   %11 = alloca %struct._pivot_field, align 8
@@ -747,7 +747,7 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @avlFree(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @avlFree(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -756,7 +756,7 @@ define internal fastcc void @avlFree(ptr noundef %0, ptr noundef %1) unnamed_add
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %2
-  tail call fastcc void @avlFree(ptr noundef nonnull %0, ptr noundef %4)
+  tail call fastcc void @avlFree(ptr noundef %0, ptr noundef %4)
   %8 = load ptr, ptr %3, align 8
   tail call void @pg_free(ptr noundef %8) #10
   %.pre = load ptr, ptr %5, align 8
@@ -770,7 +770,7 @@ define internal fastcc void @avlFree(ptr noundef %0, ptr noundef %1) unnamed_add
   br i1 %.not18, label %15, label %13
 
 13:                                               ; preds = %9
-  tail call fastcc void @avlFree(ptr noundef nonnull %0, ptr noundef %12)
+  tail call fastcc void @avlFree(ptr noundef %0, ptr noundef %12)
   %14 = load ptr, ptr %11, align 8
   tail call void @pg_free(ptr noundef %14) #10
   br label %15
@@ -852,7 +852,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @avlInsertNode(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly byval(%struct._pivot_field) align 8 %2) unnamed_addr #0 {
+define internal fastcc void @avlInsertNode(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1, ptr nocapture noundef readonly byval(%struct._pivot_field) align 8 %2) unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -910,7 +910,7 @@ pivotFieldCompare.exit:                           ; preds = %19, %22
 26:                                               ; preds = %24, %.thread
   %27 = phi i64 [ 40, %.thread ], [ 32, %24 ]
   %28 = getelementptr i8, ptr %4, i64 %27
-  tail call fastcc void @avlInsertNode(ptr noundef nonnull %0, ptr noundef %28, ptr noundef nonnull byval(%struct._pivot_field) align 8 %2)
+  tail call fastcc void @avlInsertNode(ptr noundef %0, ptr noundef %28, ptr noundef nonnull byval(%struct._pivot_field) align 8 %2)
   %29 = load ptr, ptr %1, align 8
   %30 = getelementptr i8, ptr %29, i64 32
   %.val.i = load ptr, ptr %30, align 8

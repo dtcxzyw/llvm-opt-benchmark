@@ -137,7 +137,7 @@ isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %33(ptr noundef nonnull %6, ptr noundef %7, ptr noundef %34, i64 noundef 0) #14
-  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %6, ptr noundef nonnull %18)
+  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %6, ptr noundef %18)
   br label %getX11InputMethodData.exit.thread
 
 getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRefInList.exit
@@ -1170,7 +1170,7 @@ createXIC.exit:                                   ; preds = %setXICFocus.exit.i,
   br label %destroyX11InputMethodData.exit
 
 destroyX11InputMethodData.exit:                   ; preds = %.thread99, %347, %354
-  call fastcc void @freeX11InputMethodData(ptr noundef null, ptr noundef nonnull %77)
+  call fastcc void @freeX11InputMethodData(ptr noundef null, ptr noundef %77)
   %355 = load ptr, ptr %0, align 8
   %356 = getelementptr inbounds i8, ptr %355, i64 1824
   %357 = load ptr, ptr %356, align 8
@@ -1315,7 +1315,7 @@ define void @Java_sun_awt_X11_XInputMethod_setXICFocusNative(ptr noundef %0, ptr
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %49(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %50, i64 noundef 0) #14
-  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %0, ptr noundef nonnull %34)
+  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %0, ptr noundef %34)
   br label %getX11InputMethodData.exit.thread
 
 getX11InputMethodData.exit:                       ; preds = %28
@@ -1470,7 +1470,7 @@ setXICFocus.exit:                                 ; preds = %111, %116, %117
   br i1 %.not91, label %129, label %126
 
 126:                                              ; preds = %123
-  tail call fastcc void @onoffStatusWindow(ptr noundef nonnull %34, i32 noundef 1)
+  tail call fastcc void @onoffStatusWindow(ptr noundef %34, i32 noundef 1)
   br label %129
 
 onoffStatusWindow.exit:                           ; preds = %75
@@ -1543,7 +1543,7 @@ setXICFocus.exit96:                               ; preds = %onoffStatusWindow.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @onoffStatusWindow(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @onoffStatusWindow(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 {
   %3 = alloca %struct.XWindowAttributes, align 8
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
@@ -1788,7 +1788,7 @@ isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %52(ptr noundef nonnull %0, ptr noundef %26, ptr noundef %53, i64 noundef 0) #14
-  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %0, ptr noundef nonnull %37)
+  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %0, ptr noundef %37)
   br label %isX11InputMethodGRefInList.exit.thread
 
 getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRefInList.exit
@@ -1978,7 +1978,7 @@ define void @Java_sun_awt_X11InputMethodBase_disposeXIC(ptr noundef %0, ptr noun
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %46(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %47, i64 noundef 0) #14
-  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %0, ptr noundef nonnull %31)
+  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %0, ptr noundef %31)
   br label %getX11InputMethodData.exit.thread
 
 getX11InputMethodData.exit:                       ; preds = %25
@@ -2074,7 +2074,7 @@ getX11InputMethodData.exit.thread:                ; preds = %43, %35, %getX11Inp
   br label %destroyX11InputMethodData.exit
 
 destroyX11InputMethodData.exit:                   ; preds = %82, %85, %93
-  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %0, ptr noundef nonnull %31)
+  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %0, ptr noundef %31)
   tail call void (...) @awt_output_flush() #14
   %94 = load ptr, ptr %0, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 120
@@ -2193,7 +2193,7 @@ define ptr @Java_sun_awt_X11InputMethodBase_resetXIC(ptr noundef %0, ptr noundef
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %46(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %47, i64 noundef 0) #14
-  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %0, ptr noundef nonnull %31)
+  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %0, ptr noundef %31)
   br label %getX11InputMethodData.exit.thread
 
 getX11InputMethodData.exit:                       ; preds = %25
@@ -2442,7 +2442,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11InputMethodBase_setComposition
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %58(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %59, i64 noundef 0) #14
-  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %0, ptr noundef nonnull %43)
+  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %0, ptr noundef %43)
   br label %getX11InputMethodData.exit.thread
 
 getX11InputMethodData.exit:                       ; preds = %37
@@ -2772,7 +2772,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11InputMethodBase_isCompositionE
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %47(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %48, i64 noundef 0) #14
-  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %0, ptr noundef nonnull %32)
+  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %0, ptr noundef %32)
   br label %getX11InputMethodData.exit.thread
 
 getX11InputMethodData.exit:                       ; preds = %26
@@ -3008,7 +3008,7 @@ isX11InputMethodGRefInList.exit.i:                ; preds = %.lr.ph.i.i
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %59(ptr noundef nonnull %32, ptr noundef %33, ptr noundef %60, i64 noundef 0) #14
-  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %32, ptr noundef nonnull %44)
+  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %32, ptr noundef %44)
   br label %adjustStatusWindow.exit
 
 getX11InputMethodData.exit.i:                     ; preds = %isX11InputMethodGRefInList.exit.i
@@ -3175,7 +3175,7 @@ adjustStatusWindow.exit:                          ; preds = %35, %30, %48, %56, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @freeX11InputMethodData(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #2 {
+define internal fastcc void @freeX11InputMethodData(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3387,7 +3387,7 @@ define internal void @DestroyXIMCallback(ptr nocapture readnone %0, ptr nocaptur
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %52(ptr noundef nonnull %5, ptr noundef %31, ptr noundef %53, i64 noundef 0) #14
-  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %5, ptr noundef nonnull %37)
+  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %5, ptr noundef %37)
   br label %getX11InputMethodData.exit.thread
 
 getX11InputMethodData.exit:                       ; preds = %.lr.ph
@@ -3575,7 +3575,7 @@ isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %58(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %59, i64 noundef 0) #14
-  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %6, ptr noundef nonnull %43)
+  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %6, ptr noundef %43)
   br label %getX11InputMethodData.exit.thread
 
 getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRefInList.exit
@@ -3812,7 +3812,7 @@ isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %60(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %61, i64 noundef 0) #14
-  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %6, ptr noundef nonnull %45)
+  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %6, ptr noundef %45)
   br label %getX11InputMethodData.exit.thread
 
 getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRefInList.exit
@@ -4123,7 +4123,7 @@ isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %57(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %58, i64 noundef 0) #14
-  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %5, ptr noundef nonnull %42)
+  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %5, ptr noundef %42)
   br label %onoffStatusWindow.exit
 
 getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRefInList.exit
@@ -4293,7 +4293,7 @@ isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %57(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %58, i64 noundef 0) #14
-  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %5, ptr noundef nonnull %42)
+  tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %5, ptr noundef %42)
   br label %onoffStatusWindow.exit
 
 getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRefInList.exit
@@ -4331,7 +4331,7 @@ getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRe
   store i8 0, ptr %76, align 1
   %77 = getelementptr inbounds i8, ptr %62, i64 208
   store i32 1, ptr %77, align 8
-  tail call fastcc void @onoffStatusWindow(ptr noundef nonnull %42, i32 noundef 1)
+  tail call fastcc void @onoffStatusWindow(ptr noundef %42, i32 noundef 1)
   tail call void @paintStatusWindow(ptr noundef nonnull %62)
   br label %onoffStatusWindow.exit
 

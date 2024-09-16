@@ -6098,7 +6098,7 @@ _ZNSt6vectorI17PreprocessResidueSaIS0_EE2atEm.exit: ; preds = %.lr.ph384
 479:                                              ; preds = %473
   %480 = lshr exact i64 %477, 3
   %481 = trunc i64 %480 to i32
-  call fastcc void @_ZL17add_atom_to_restpP17PreprocessResidueP8t_symtabiPK13MoleculePatch(ptr noundef nonnull %339, ptr noundef %7, i32 noundef %481, ptr noundef nonnull %.sroa.0175.0377)
+  call fastcc void @_ZL17add_atom_to_restpP17PreprocessResidueP8t_symtabiPK13MoleculePatch(ptr noundef %339, ptr noundef %7, i32 noundef %481, ptr noundef %.sroa.0175.0377)
   br label %528
 
 482:                                              ; preds = %473
@@ -6383,7 +6383,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
 declare noundef i32 @_ZNK13MoleculePatch4typeEv(ptr noundef nonnull align 8 dereferenceable(256)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17add_atom_to_restpP17PreprocessResidueP8t_symtabiPK13MoleculePatch(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17add_atom_to_restpP17PreprocessResidueP8t_symtabiPK13MoleculePatch(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca ptr, align 8
@@ -9261,7 +9261,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   %557 = sub i64 %555, %556
   %558 = lshr exact i64 %557, 3
   %559 = trunc i64 %558 to i32
-  invoke fastcc void @_ZL17add_atom_to_restpP17PreprocessResidueP8t_symtabiPK13MoleculePatch(ptr noundef nonnull %79, ptr noundef %5, i32 noundef %559, ptr noundef nonnull %.sroa.0235.0486.i)
+  invoke fastcc void @_ZL17add_atom_to_restpP17PreprocessResidueP8t_symtabiPK13MoleculePatch(ptr noundef %79, ptr noundef %5, i32 noundef %559, ptr noundef %.sroa.0235.0486.i)
           to label %.thread.i unwind label %.loopexit279.loopexit.split-lp.i
 
 560:                                              ; preds = %380, %.thread254.i, %357, %327
@@ -10708,7 +10708,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit113.i:
 313:                                              ; preds = %308
   %314 = sext i32 %.085153.i to i64
   %315 = getelementptr inbounds %struct.PreprocessResidue, ptr %270, i64 %314
-  %316 = invoke fastcc noundef i32 @_ZL13missing_atomsPK17PreprocessResidueiP7t_atomsiiRKN3gmx8MDLoggerE(ptr noundef nonnull %315, i32 noundef %.085153.i, ptr noundef nonnull readonly %3, i32 noundef %.094149.i, i32 noundef %312, ptr noundef nonnull readonly align 8 dereferenceable(40) %24)
+  %316 = invoke fastcc noundef i32 @_ZL13missing_atomsPK17PreprocessResidueiP7t_atomsiiRKN3gmx8MDLoggerE(ptr noundef %315, i32 noundef %.085153.i, ptr noundef nonnull readonly %3, i32 noundef %.094149.i, i32 noundef %312, ptr noundef nonnull readonly align 8 dereferenceable(40) %24)
           to label %.noexc122 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc122:                                        ; preds = %313
@@ -10855,7 +10855,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit113.i:
   %.084.lcssa.i = phi i32 [ 0, %.noexc121 ], [ %392, %._crit_edge.loopexit.i120 ]
   %393 = sext i32 %.085.lcssa.i to i64
   %394 = getelementptr inbounds %struct.PreprocessResidue, ptr %270, i64 %393
-  %395 = invoke fastcc noundef i32 @_ZL13missing_atomsPK17PreprocessResidueiP7t_atomsiiRKN3gmx8MDLoggerE(ptr noundef nonnull %394, i32 noundef %.085.lcssa.i, ptr noundef nonnull readonly %3, i32 noundef %.094.lcssa.i, i32 noundef %.084.lcssa.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %24)
+  %395 = invoke fastcc noundef i32 @_ZL13missing_atomsPK17PreprocessResidueiP7t_atomsiiRKN3gmx8MDLoggerE(ptr noundef %394, i32 noundef %.085.lcssa.i, ptr noundef nonnull readonly %3, i32 noundef %.094.lcssa.i, i32 noundef %.084.lcssa.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %24)
           to label %396 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 396:                                              ; preds = %._crit_edge.i114

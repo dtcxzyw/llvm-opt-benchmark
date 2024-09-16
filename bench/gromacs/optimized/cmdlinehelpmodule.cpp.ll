@@ -663,7 +663,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i.i:      ; preds = %84, %81
           to label %122 unwind label %.loopexit.split-lp.i.i, !noalias !5
 
 122:                                              ; preds = %121
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_116initProgramLinksEPNS_9HelpLinksERKNS_25CommandLineHelpModuleImplE(ptr noundef nonnull %78, ptr noundef nonnull align 8 dereferenceable(168) %66)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_116initProgramLinksEPNS_9HelpLinksERKNS_25CommandLineHelpModuleImplE(ptr noundef %78, ptr noundef nonnull align 8 dereferenceable(168) %66)
           to label %126 unwind label %.loopexit.split-lp.i.i, !noalias !5
 
 123:                                              ; preds = %120, %112, %.loopexit.split-lp.i.i, %.loopexit.i.i
@@ -1068,7 +1068,7 @@ _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_111IHelpExportESt14default_deleteIS2_EED2Ev.
 
 262:                                              ; preds = %261
   %263 = load ptr, ptr %33, align 8
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_116initProgramLinksEPNS_9HelpLinksERKNS_25CommandLineHelpModuleImplE(ptr noundef nonnull %27, ptr noundef nonnull align 8 dereferenceable(168) %263)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_116initProgramLinksEPNS_9HelpLinksERKNS_25CommandLineHelpModuleImplE(ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(168) %263)
           to label %264 unwind label %304
 
 264:                                              ; preds = %262
@@ -2620,7 +2620,7 @@ declare void @_ZN3gmx10TextWriterC1EPNS_16TextOutputStreamE(ptr noundef nonnull 
 declare void @_ZN3gmx9HelpLinksC1ENS_16HelpOutputFormatE(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx12_GLOBAL__N_116initProgramLinksEPNS_9HelpLinksERKNS_25CommandLineHelpModuleImplE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmx12_GLOBAL__N_116initProgramLinksEPNS_9HelpLinksERKNS_25CommandLineHelpModuleImplE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

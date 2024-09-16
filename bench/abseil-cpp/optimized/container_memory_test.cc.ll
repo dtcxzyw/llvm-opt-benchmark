@@ -977,7 +977,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_17FixtureEE19GetSetUpCaseOrSuiteEPKci(i32 noundef %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_17FixtureEE19GetSetUpCaseOrSuiteEPKci(i32 noundef range(i32 110, 121) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -1019,7 +1019,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_17FixtureEE22GetTearDownCaseOrSuiteEPKci(i32 noundef %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_17FixtureEE22GetTearDownCaseOrSuiteEPKci(i32 noundef range(i32 110, 121) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -11818,7 +11818,7 @@ _ZN7testing8internal8EqHelper7CompareIccTnPNSt9enable_ifIXoontsr3std11is_integra
   store ptr %ref.tmp3, ptr %agg.tmp.i.i.i, align 8, !alias.scope !294
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
   store ptr %ref.tmp4, ptr %second.i.i.i.i.i.i, align 8, !alias.scope !294
-  call fastcc void @"_ZN4absl18container_internal15memory_internal17DecomposePairImplIRZNS0_12_GLOBAL__N_131DecomposePair_Decomposable_Test8TestBodyEvE3$_0OiSt5tupleIJOdEEEEDTclclsr3stdE7declvalIT_EEclsr3stdE7declvalIRKT0_EEL_ZSt19piecewise_constructEclsr3stdE7declvalIS8_IJSC_EEEEclsr3stdE7declvalIT1_EEEEOSB_St4pairISF_SG_E"(ptr noundef nonnull %agg.tmp.i.i.i)
+  call fastcc void @"_ZN4absl18container_internal15memory_internal17DecomposePairImplIRZNS0_12_GLOBAL__N_131DecomposePair_Decomposable_Test8TestBodyEvE3$_0OiSt5tupleIJOdEEEEDTclclsr3stdE7declvalIT_EEclsr3stdE7declvalIRKT0_EEL_ZSt19piecewise_constructEclsr3stdE7declvalIS8_IJSC_EEEEclsr3stdE7declvalIT1_EEEEOSB_St4pairISF_SG_E"(ptr noundef %agg.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i)
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
   %.pre = load i8, ptr %gtest_ar, align 8
@@ -11919,7 +11919,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store ptr %ref.tmp18, ptr %agg.tmp.i.i.i16, align 8, !alias.scope !297
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i16, i64 8
   store ptr %9, ptr %second.i.i.i.i.i.i.i, align 8, !alias.scope !297
-  call fastcc void @"_ZN4absl18container_internal15memory_internal17DecomposePairImplIRZNS0_12_GLOBAL__N_131DecomposePair_Decomposable_Test8TestBodyEvE3$_0OiSt5tupleIJOdEEEEDTclclsr3stdE7declvalIT_EEclsr3stdE7declvalIRKT0_EEL_ZSt19piecewise_constructEclsr3stdE7declvalIS8_IJSC_EEEEclsr3stdE7declvalIT1_EEEEOSB_St4pairISF_SG_E"(ptr noundef nonnull %agg.tmp.i.i.i16)
+  call fastcc void @"_ZN4absl18container_internal15memory_internal17DecomposePairImplIRZNS0_12_GLOBAL__N_131DecomposePair_Decomposable_Test8TestBodyEvE3$_0OiSt5tupleIJOdEEEEDTclclsr3stdE7declvalIT_EEclsr3stdE7declvalIRKT0_EEL_ZSt19piecewise_constructEclsr3stdE7declvalIS8_IJSC_EEEEclsr3stdE7declvalIT1_EEEEOSB_St4pairISF_SG_E"(ptr noundef %agg.tmp.i.i.i16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i16)
   store i8 65, ptr %ref.tmp17, align 1
   %10 = load i8, ptr %ref.tmp16, align 1, !noalias !302
@@ -12033,7 +12033,7 @@ _ZN7testing8internal8EqHelper7CompareIccTnPNSt9enable_ifIXoontsr3std11is_integra
   %second.i.i.i.i.i.i43 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i42, i64 8
   %22 = ptrtoint ptr %ref.tmp45 to i64
   store i64 %22, ptr %second.i.i.i.i.i.i43, align 8, !alias.scope !313
-  call fastcc void @"_ZN4absl18container_internal15memory_internal17DecomposePairImplIRZNS0_12_GLOBAL__N_131DecomposePair_Decomposable_Test8TestBodyEvE3$_0OiSt5tupleIJOdEEEEDTclclsr3stdE7declvalIT_EEclsr3stdE7declvalIRKT0_EEL_ZSt19piecewise_constructEclsr3stdE7declvalIS8_IJSC_EEEEclsr3stdE7declvalIT1_EEEEOSB_St4pairISF_SG_E"(ptr noundef nonnull %agg.tmp.i.i.i42)
+  call fastcc void @"_ZN4absl18container_internal15memory_internal17DecomposePairImplIRZNS0_12_GLOBAL__N_131DecomposePair_Decomposable_Test8TestBodyEvE3$_0OiSt5tupleIJOdEEEEDTclclsr3stdE7declvalIT_EEclsr3stdE7declvalIRKT0_EEL_ZSt19piecewise_constructEclsr3stdE7declvalIS8_IJSC_EEEEclsr3stdE7declvalIT1_EEEEOSB_St4pairISF_SG_E"(ptr noundef %agg.tmp.i.i.i42)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i42)
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar40)
   %.pre69 = load i8, ptr %gtest_ar40, align 8
@@ -12135,7 +12135,7 @@ eh.resume:                                        ; preds = %lpad52, %_ZN7testin
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN4absl18container_internal15memory_internal17DecomposePairImplIRZNS0_12_GLOBAL__N_131DecomposePair_Decomposable_Test8TestBodyEvE3$_0OiSt5tupleIJOdEEEEDTclclsr3stdE7declvalIT_EEclsr3stdE7declvalIRKT0_EEL_ZSt19piecewise_constructEclsr3stdE7declvalIS8_IJSC_EEEEclsr3stdE7declvalIT1_EEEEOSB_St4pairISF_SG_E"(ptr nocapture noundef readonly %p) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN4absl18container_internal15memory_internal17DecomposePairImplIRZNS0_12_GLOBAL__N_131DecomposePair_Decomposable_Test8TestBodyEvE3$_0OiSt5tupleIJOdEEEEDTclclsr3stdE7declvalIT_EEclsr3stdE7declvalIRKT0_EEL_ZSt19piecewise_constructEclsr3stdE7declvalIS8_IJSC_EEEEclsr3stdE7declvalIT1_EEEEOSB_St4pairISF_SG_E"(ptr nocapture noundef nonnull readonly %p) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar.i = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp4.i = alloca %"class.testing::Message", align 8

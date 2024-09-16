@@ -304,7 +304,7 @@ define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$alloc..vec..in_pla
 23:                                               ; preds = %19
   %24 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i8, [23 x i8] } }], ptr %.0.val, i64 0, i64 %.1.i.i
   %25 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$$LP$alloc..string..String$C$nom..error..VerboseErrorKind$RP$$GT$17hc42087fc2d90126bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %24) #12
+  invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$$LP$alloc..string..String$C$nom..error..VerboseErrorKind$RP$$GT$17hc42087fc2d90126bE"(ptr noalias noundef align 8 dereferenceable(48) %24) #12
           to label %19 unwind label %27
 
 26:                                               ; preds = %19
@@ -376,7 +376,7 @@ define internal fastcc void @"_ZN4core3ptr131drop_in_place$LT$alloc..vec..in_pla
 23:                                               ; preds = %19
   %24 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, { i8, [23 x i8] } }], ptr %.0.val, i64 0, i64 %.1.i.i
   %25 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr85drop_in_place$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$nom..error..VerboseErrorKind$RP$$GT$17h095cc7a8d2e1b564E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %24) #12
+  invoke fastcc void @"_ZN4core3ptr85drop_in_place$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$nom..error..VerboseErrorKind$RP$$GT$17h095cc7a8d2e1b564E"(ptr noalias noundef align 8 dereferenceable(48) %24) #12
           to label %19 unwind label %27
 
 26:                                               ; preds = %19
@@ -449,7 +449,7 @@ define hidden void @"_ZN4core3ptr641drop_in_place$LT$core..iter..traits..iterato
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr81drop_in_place$LT$$LP$alloc..string..String$C$nom..error..VerboseErrorKind$RP$$GT$17hc42087fc2d90126bE"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr81drop_in_place$LT$$LP$alloc..string..String$C$nom..error..VerboseErrorKind$RP$$GT$17hc42087fc2d90126bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !113
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h607f29a7f26bd4e3E.llvm.3482039573647521366"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
@@ -475,7 +475,7 @@ define internal fastcc void @"_ZN4core3ptr81drop_in_place$LT$$LP$alloc..string..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr85drop_in_place$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$nom..error..VerboseErrorKind$RP$$GT$17h095cc7a8d2e1b564E"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr85drop_in_place$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$nom..error..VerboseErrorKind$RP$$GT$17h095cc7a8d2e1b564E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !122
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h607f29a7f26bd4e3E.llvm.3482039573647521366"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)

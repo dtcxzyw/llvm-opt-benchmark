@@ -4432,7 +4432,7 @@ if.end:                                           ; preds = %entry
   %call15 = call ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef %9, i32 noundef 0) #20
   store i32 256, ptr %naddrttls, align 4
   store i32 -1, ptr %type, align 4
-  %call25 = call fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_117ParseGeneralReplyEPNS_11EnvironmentEPKhiPiN2v85LocalINS7_5ArrayEEEPvS6_(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %conv, ptr noundef nonnull %type, ptr %call15, ptr noundef nonnull %addrttls, ptr noundef nonnull %naddrttls)
+  %call25 = call fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_117ParseGeneralReplyEPNS_11EnvironmentEPKhiPiN2v85LocalINS7_5ArrayEEEPvS6_(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %conv, ptr noundef %type, ptr %call15, ptr noundef nonnull %addrttls, ptr noundef nonnull %naddrttls)
   %call27 = call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %call15) #20
   %or.cond = icmp ugt i32 %call25, 1
   br i1 %or.cond, label %cleanup, label %if.end30
@@ -4638,7 +4638,7 @@ for.inc294:                                       ; preds = %_ZNK2v85MaybeIbE5Ch
 if.end297:                                        ; preds = %for.inc294, %for.inc, %for.cond185.preheader, %for.cond.preheader
   store i32 256, ptr %naddr6ttls, align 4
   store i32 28, ptr %type, align 4
-  %call305 = call fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_117ParseGeneralReplyEPNS_11EnvironmentEPKhiPiN2v85LocalINS7_5ArrayEEEPvS6_(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %conv, ptr noundef nonnull %type, ptr nonnull %call15, ptr noundef nonnull %addr6ttls, ptr noundef nonnull %naddr6ttls)
+  %call305 = call fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_117ParseGeneralReplyEPNS_11EnvironmentEPKhiPiN2v85LocalINS7_5ArrayEEEPvS6_(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %conv, ptr noundef %type, ptr nonnull %call15, ptr noundef nonnull %addr6ttls, ptr noundef nonnull %naddr6ttls)
   %call307 = call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %call15) #20
   %or.cond1 = icmp ugt i32 %call305, 1
   br i1 %or.cond1, label %cleanup, label %do.body313
@@ -4779,7 +4779,7 @@ for.end495:                                       ; preds = %for.inc493, %for.co
 if.end505:                                        ; preds = %for.end495
   store i32 2, ptr %type, align 4
   %call507 = call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %call15) #20
-  %call512 = call fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_117ParseGeneralReplyEPNS_11EnvironmentEPKhiPiN2v85LocalINS7_5ArrayEEEPvS6_(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %conv, ptr noundef nonnull %type, ptr nonnull %call15, ptr noundef null, ptr noundef null)
+  %call512 = call fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_117ParseGeneralReplyEPNS_11EnvironmentEPKhiPiN2v85LocalINS7_5ArrayEEEPvS6_(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %conv, ptr noundef %type, ptr nonnull %call15, ptr noundef null, ptr noundef null)
   %or.cond3 = icmp ugt i32 %call512, 1
   br i1 %or.cond3, label %cleanup, label %for.cond519.preheader
 
@@ -4878,7 +4878,7 @@ if.end642:                                        ; preds = %for.end632
 if.end652:                                        ; preds = %if.end642
   store i32 12, ptr %type, align 4
   %call654 = call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %call15) #20
-  %call659 = call fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_117ParseGeneralReplyEPNS_11EnvironmentEPKhiPiN2v85LocalINS7_5ArrayEEEPvS6_(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %conv, ptr noundef nonnull %type, ptr nonnull %call15, ptr noundef null, ptr noundef null)
+  %call659 = call fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_117ParseGeneralReplyEPNS_11EnvironmentEPKhiPiN2v85LocalINS7_5ArrayEEEPvS6_(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %conv, ptr noundef %type, ptr nonnull %call15, ptr noundef null, ptr noundef null)
   %or.cond6 = icmp ugt i32 %call659, 1
   br i1 %or.cond6, label %cleanup, label %for.cond666.preheader
 
@@ -4971,7 +4971,7 @@ for.end779:                                       ; preds = %for.inc777, %for.co
 
 if.end789:                                        ; preds = %for.end779
   store ptr null, ptr %soa_record, align 8
-  %call790 = call fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_113ParseSoaReplyEPNS_11EnvironmentEPhiPN2v85LocalINS5_6ObjectEEE(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %conv, ptr noundef nonnull %soa_record)
+  %call790 = call fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_113ParseSoaReplyEPNS_11EnvironmentEPhiPN2v85LocalINS5_6ObjectEEE(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %conv, ptr noundef %soa_record)
   %or.cond8 = icmp ugt i32 %call790, 1
   br i1 %or.cond8, label %cleanup, label %if.end795
 
@@ -5020,7 +5020,7 @@ declare void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 de
 declare ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_117ParseGeneralReplyEPNS_11EnvironmentEPKhiPiN2v85LocalINS7_5ArrayEEEPvS6_(ptr nocapture noundef readonly %env, ptr noundef %buf, i32 noundef %len, ptr nocapture noundef %type, ptr %ret.coerce, ptr noundef %addrttls, ptr noundef %naddrttls) unnamed_addr #3 {
+define internal fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_117ParseGeneralReplyEPNS_11EnvironmentEPKhiPiN2v85LocalINS7_5ArrayEEEPvS6_(ptr nocapture noundef readonly %env, ptr noundef %buf, i32 noundef %len, ptr nocapture noundef nonnull %type, ptr %ret.coerce, ptr noundef %addrttls, ptr noundef %naddrttls) unnamed_addr #3 {
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %host = alloca ptr, align 8
@@ -6145,7 +6145,7 @@ cleanup:                                          ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_113ParseSoaReplyEPNS_11EnvironmentEPhiPN2v85LocalINS5_6ObjectEEE(ptr nocapture noundef readonly %env, ptr noundef %buf, i32 noundef %len, ptr nocapture noundef writeonly %ret) unnamed_addr #3 {
+define internal fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_113ParseSoaReplyEPNS_11EnvironmentEPhiPN2v85LocalINS5_6ObjectEEE(ptr nocapture noundef readonly %env, ptr noundef %buf, i32 noundef %len, ptr nocapture noundef nonnull writeonly %ret) unnamed_addr #3 {
 entry:
   %handle_scope = alloca %"class.v8::EscapableHandleScope", align 8
   %name_temp = alloca ptr, align 8
@@ -6953,7 +6953,7 @@ if.end:                                           ; preds = %entry
   %9 = load ptr, ptr %isolate_.i, align 8
   %call17 = call ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef %9, i32 noundef 0) #20
   store i32 1, ptr %type, align 4
-  %call25 = call fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_117ParseGeneralReplyEPNS_11EnvironmentEPKhiPiN2v85LocalINS7_5ArrayEEEPvS6_(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %conv, ptr noundef nonnull %type, ptr %call17, ptr noundef nonnull %addrttls, ptr noundef nonnull %naddrttls)
+  %call25 = call fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_117ParseGeneralReplyEPNS_11EnvironmentEPKhiPiN2v85LocalINS7_5ArrayEEEPvS6_(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %conv, ptr noundef %type, ptr %call17, ptr noundef nonnull %addrttls, ptr noundef nonnull %naddrttls)
   %cmp.not = icmp eq i32 %call25, 0
   br i1 %cmp.not, label %if.end27, label %cleanup
 
@@ -6977,14 +6977,14 @@ land.lhs.true.i.i.i:                              ; preds = %if.end27
   store i64 %conv29, ptr %capacity_.i.i.i, align 8
   %11 = load i64, ptr %ttls.i, align 8
   %cmp13.not.i.i.i = icmp eq i64 %11, 0
-  br i1 %cmp13.not.i.i.i, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.thread.i, label %if.then14.i.i.i
+  br i1 %cmp13.not.i.i.i, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.i.thread, label %if.then14.i.i.i
 
 if.then14.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   %mul.i.i.i = shl i64 %11, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call10.i.i.i, ptr nonnull align 8 %buf_st_.ptr.i.i.i, i64 %mul.i.i.i, i1 false)
-  br label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.thread.i
+  br label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.i.thread
 
-_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.thread.i: ; preds = %if.then14.i.i.i, %land.lhs.true.i.i.i
+_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.i.thread: ; preds = %if.then14.i.i.i, %land.lhs.true.i.i.i
   store i64 %conv29, ptr %ttls.i, align 8
   br label %for.body.i.preheader
 
@@ -6993,7 +6993,7 @@ _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.i: ; preds = %
   %cmp10.not.i = icmp eq i32 %10, 0
   br i1 %cmp10.not.i, label %for.end.i, label %for.body.i.preheader
 
-for.body.i.preheader:                             ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.i, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.thread.i
+for.body.i.preheader:                             ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.i.thread, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit.i
@@ -7017,16 +7017,12 @@ _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit.i: ; preds = %
   store ptr %call1.i, ptr %arrayidx.i.i, align 8
   %inc.i = add nuw i64 %i.011.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %conv29
-  br i1 %exitcond.not.i, label %for.end.i.loopexit, label %for.body.i, !llvm.loop !37
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !37
 
-for.end.i.loopexit:                               ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit.i
-  %.pre = load ptr, ptr %buf_.i.i.i, align 8
-  br label %for.end.i
-
-for.end.i:                                        ; preds = %for.end.i.loopexit, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.i
-  %16 = phi ptr [ %.pre, %for.end.i.loopexit ], [ %buf_st_.ptr.i.i.i, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.i ]
-  %17 = load ptr, ptr %isolate_.i, align 8
-  %call10.i = call ptr @_ZN2v85Array3NewEPNS_7IsolateEPNS_5LocalINS_5ValueEEEm(ptr noundef %17, ptr noundef %16, i64 noundef %conv29) #20
+for.end.i:                                        ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit.i, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.i
+  %16 = load ptr, ptr %isolate_.i, align 8
+  %17 = load ptr, ptr %buf_.i.i.i, align 8
+  %call10.i = call ptr @_ZN2v85Array3NewEPNS_7IsolateEPNS_5LocalINS_5ValueEEEm(ptr noundef %16, ptr noundef %17, i64 noundef %conv29) #20
   %18 = load ptr, ptr %buf_.i.i.i, align 8
   %cmp.i.i.i.i = icmp ne ptr %18, null
   %cmp.i.i9.i = icmp ne ptr %18, %buf_st_.ptr.i.i.i
@@ -7258,7 +7254,7 @@ if.end:                                           ; preds = %entry
   %9 = load ptr, ptr %isolate_.i, align 8
   %call17 = call ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef %9, i32 noundef 0) #20
   store i32 28, ptr %type, align 4
-  %call25 = call fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_117ParseGeneralReplyEPNS_11EnvironmentEPKhiPiN2v85LocalINS7_5ArrayEEEPvS6_(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %conv, ptr noundef nonnull %type, ptr %call17, ptr noundef nonnull %addrttls, ptr noundef nonnull %naddrttls)
+  %call25 = call fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_117ParseGeneralReplyEPNS_11EnvironmentEPKhiPiN2v85LocalINS7_5ArrayEEEPvS6_(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %conv, ptr noundef %type, ptr %call17, ptr noundef nonnull %addrttls, ptr noundef nonnull %naddrttls)
   %cmp.not = icmp eq i32 %call25, 0
   br i1 %cmp.not, label %if.end27, label %cleanup
 
@@ -7282,14 +7278,14 @@ land.lhs.true.i.i.i:                              ; preds = %if.end27
   store i64 %conv29, ptr %capacity_.i.i.i, align 8
   %11 = load i64, ptr %ttls.i, align 8
   %cmp13.not.i.i.i = icmp eq i64 %11, 0
-  br i1 %cmp13.not.i.i.i, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.thread.i, label %if.then14.i.i.i
+  br i1 %cmp13.not.i.i.i, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.i.thread, label %if.then14.i.i.i
 
 if.then14.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   %mul.i.i.i = shl i64 %11, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call10.i.i.i, ptr nonnull align 8 %buf_st_.ptr.i.i.i, i64 %mul.i.i.i, i1 false)
-  br label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.thread.i
+  br label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.i.thread
 
-_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.thread.i: ; preds = %if.then14.i.i.i, %land.lhs.true.i.i.i
+_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.i.thread: ; preds = %if.then14.i.i.i, %land.lhs.true.i.i.i
   store i64 %conv29, ptr %ttls.i, align 8
   br label %for.body.i.preheader
 
@@ -7298,7 +7294,7 @@ _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.i: ; preds = %
   %cmp10.not.i = icmp eq i32 %10, 0
   br i1 %cmp10.not.i, label %for.end.i, label %for.body.i.preheader
 
-for.body.i.preheader:                             ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.i, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.thread.i
+for.body.i.preheader:                             ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.i.thread, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit.i
@@ -7322,16 +7318,12 @@ _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit.i: ; preds = %
   store ptr %call1.i, ptr %arrayidx.i.i, align 8
   %inc.i = add nuw i64 %i.011.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %conv29
-  br i1 %exitcond.not.i, label %for.end.i.loopexit, label %for.body.i, !llvm.loop !38
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !38
 
-for.end.i.loopexit:                               ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit.i
-  %.pre = load ptr, ptr %buf_.i.i.i, align 8
-  br label %for.end.i
-
-for.end.i:                                        ; preds = %for.end.i.loopexit, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.i
-  %16 = phi ptr [ %.pre, %for.end.i.loopexit ], [ %buf_st_.ptr.i.i.i, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.i ]
-  %17 = load ptr, ptr %isolate_.i, align 8
-  %call10.i = call ptr @_ZN2v85Array3NewEPNS_7IsolateEPNS_5LocalINS_5ValueEEEm(ptr noundef %17, ptr noundef %16, i64 noundef %conv29) #20
+for.end.i:                                        ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit.i, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEC2Em.exit.i
+  %16 = load ptr, ptr %isolate_.i, align 8
+  %17 = load ptr, ptr %buf_.i.i.i, align 8
+  %call10.i = call ptr @_ZN2v85Array3NewEPNS_7IsolateEPNS_5LocalINS_5ValueEEEm(ptr noundef %16, ptr noundef %17, i64 noundef %conv29) #20
   %18 = load ptr, ptr %buf_.i.i.i, align 8
   %cmp.i.i.i.i = icmp ne ptr %18, null
   %cmp.i.i9.i = icmp ne ptr %18, %buf_st_.ptr.i.i.i
@@ -7776,7 +7768,7 @@ if.end:                                           ; preds = %entry
   %9 = load ptr, ptr %isolate_.i, align 8
   %call15 = call ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef %9, i32 noundef 0) #20
   store i32 5, ptr %type, align 4
-  %call23 = call fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_117ParseGeneralReplyEPNS_11EnvironmentEPKhiPiN2v85LocalINS7_5ArrayEEEPvS6_(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %conv, ptr noundef nonnull %type, ptr %call15, ptr noundef null, ptr noundef null)
+  %call23 = call fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_117ParseGeneralReplyEPNS_11EnvironmentEPKhiPiN2v85LocalINS7_5ArrayEEEPvS6_(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %conv, ptr noundef %type, ptr %call15, ptr noundef null, ptr noundef null)
   %cmp.not = icmp eq i32 %call23, 0
   br i1 %cmp.not, label %if.end25, label %cleanup
 
@@ -8212,7 +8204,7 @@ if.end:                                           ; preds = %entry
   store i32 2, ptr %type, align 4
   %9 = load ptr, ptr %isolate_.i, align 8
   %call15 = call ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef %9, i32 noundef 0) #20
-  %call23 = call fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_117ParseGeneralReplyEPNS_11EnvironmentEPKhiPiN2v85LocalINS7_5ArrayEEEPvS6_(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %conv, ptr noundef nonnull %type, ptr %call15, ptr noundef null, ptr noundef null)
+  %call23 = call fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_117ParseGeneralReplyEPNS_11EnvironmentEPKhiPiN2v85LocalINS7_5ArrayEEEPvS6_(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %conv, ptr noundef %type, ptr %call15, ptr noundef null, ptr noundef null)
   %cmp.not = icmp eq i32 %call23, 0
   br i1 %cmp.not, label %if.end25, label %cleanup
 
@@ -8865,7 +8857,7 @@ if.end:                                           ; preds = %entry
   store i32 12, ptr %type, align 4
   %9 = load ptr, ptr %isolate_.i, align 8
   %call15 = call ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef %9, i32 noundef 0) #20
-  %call23 = call fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_117ParseGeneralReplyEPNS_11EnvironmentEPKhiPiN2v85LocalINS7_5ArrayEEEPvS6_(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %conv, ptr noundef nonnull %type, ptr %call15, ptr noundef null, ptr noundef null)
+  %call23 = call fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_117ParseGeneralReplyEPNS_11EnvironmentEPKhiPiN2v85LocalINS7_5ArrayEEEPvS6_(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %conv, ptr noundef %type, ptr %call15, ptr noundef null, ptr noundef null)
   %cmp.not = icmp eq i32 %call23, 0
   br i1 %cmp.not, label %if.end25, label %cleanup
 

@@ -1495,7 +1495,7 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_gitcomp(ptr noundef readonly %opts, i32 noundef %show_all) unnamed_addr #0 {
+define internal fastcc void @show_gitcomp(ptr noundef readonly %opts, i32 noundef range(i32 0, 2) %show_all) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %opts, align 8
   %cmp.not20 = icmp eq i32 %0, 0
@@ -1787,7 +1787,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @usage_with_options_internal(ptr noundef readonly %ctx, ptr noundef readonly %usagestr, ptr nocapture noundef readonly %opts, i32 noundef %full, i32 noundef %err) unnamed_addr #0 {
+define internal fastcc void @usage_with_options_internal(ptr noundef readonly %ctx, ptr noundef readonly %usagestr, ptr nocapture noundef readonly %opts, i32 noundef range(i32 0, 2) %full, i32 noundef range(i32 0, 2) %err) unnamed_addr #0 {
 entry:
   %list = alloca %struct.string_list, align 8
   %tobool.not = icmp eq i32 %err, 0
@@ -3881,7 +3881,7 @@ declare i32 @starts_with(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @show_negated_gitcomp(ptr nocapture noundef readonly %opts, i32 noundef %show_all, i32 noundef %nr_noopts) unnamed_addr #12 {
+define internal fastcc void @show_negated_gitcomp(ptr nocapture noundef readonly %opts, i32 noundef range(i32 0, 2) %show_all, i32 noundef %nr_noopts) unnamed_addr #12 {
 entry:
   %0 = load i32, ptr %opts, align 8
   %cmp.not14 = icmp eq i32 %0, 0

@@ -3026,31 +3026,31 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit196.i
 
 _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit196.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i195.i, %959, %946, %928
-  invoke fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef nonnull @.str.75, ptr noundef nonnull %124)
+  invoke fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef nonnull @.str.75, ptr noundef %124)
           to label %964 unwind label %989
 
 964:                                              ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit196.i
-  invoke fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef nonnull @.str.76, ptr noundef nonnull %124)
+  invoke fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef nonnull @.str.76, ptr noundef %124)
           to label %965 unwind label %989
 
 965:                                              ; preds = %964
-  invoke fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef nonnull @.str.77, ptr noundef nonnull %124)
+  invoke fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef nonnull @.str.77, ptr noundef %124)
           to label %966 unwind label %989
 
 966:                                              ; preds = %965
-  invoke fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef nonnull @.str.78, ptr noundef nonnull %124)
+  invoke fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef nonnull @.str.78, ptr noundef %124)
           to label %967 unwind label %989
 
 967:                                              ; preds = %966
-  invoke fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef nonnull @.str.75, ptr noundef nonnull %124)
+  invoke fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef nonnull @.str.75, ptr noundef %124)
           to label %968 unwind label %989
 
 968:                                              ; preds = %967
-  invoke fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef nonnull @.str.76, ptr noundef nonnull %124)
+  invoke fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef nonnull @.str.76, ptr noundef %124)
           to label %969 unwind label %989
 
 969:                                              ; preds = %968
-  invoke fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef nonnull @.str.77, ptr noundef nonnull %124)
+  invoke fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef nonnull @.str.77, ptr noundef %124)
           to label %970 unwind label %989
 
 970:                                              ; preds = %969
@@ -3125,7 +3125,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit196.i: ; preds = %_ZNSt16_Sp_cou
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %72)
   store i8 0, ptr %128, align 1
   store i8 0, ptr %129, align 1
-  invoke fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef nonnull @.str.78, ptr noundef nonnull %124)
+  invoke fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef nonnull @.str.78, ptr noundef %124)
           to label %994 unwind label %989
 
 994:                                              ; preds = %993
@@ -8740,15 +8740,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit571: ;
   br label %.thread
 
 1177:                                             ; preds = %1163
-  invoke fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef nonnull @.str.155, ptr noundef nonnull %6)
+  invoke fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef nonnull @.str.155, ptr noundef %6)
           to label %1178 unwind label %357
 
 1178:                                             ; preds = %1177
-  invoke fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef nonnull @.str.175, ptr noundef nonnull %6)
+  invoke fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef nonnull @.str.175, ptr noundef %6)
           to label %1179 unwind label %357
 
 1179:                                             ; preds = %1178
-  invoke fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef nonnull @.str.176, ptr noundef nonnull %6)
+  invoke fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef nonnull @.str.176, ptr noundef %6)
           to label %1180 unwind label %357
 
 1180:                                             ; preds = %1179
@@ -9633,7 +9633,7 @@ _ZNSt14_Function_base13_Base_managerIPFvRKN10open_spiel5StateEEE10_M_managerERSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZN10open_spiel5chess12_GLOBAL__N_15PerftERKNS0_10ChessBoardEi(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 noundef %1) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @_ZN10open_spiel5chess12_GLOBAL__N_15PerftERKNS0_10ChessBoardEi(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 noundef range(i32 1, 6) %1) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.10", align 8
   %4 = alloca %"class.std::function.15", align 8
   %5 = alloca %"class.open_spiel::chess::ChessBoard", align 8
@@ -9840,7 +9840,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef i64 @_ZN10open_spiel5chess12_GLOBAL__N_15PerftEPKci(ptr noundef %0, i32 noundef %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @_ZN10open_spiel5chess12_GLOBAL__N_15PerftEPKci(ptr noundef %0, i32 noundef range(i32 1, 6) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::debian2::optional.18", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -11600,7 +11600,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef %0, ptr noundef %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel5chess12_GLOBAL__N_112ApplySANMoveEPKcPNS0_10ChessStateE(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::debian2::optional.40", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1

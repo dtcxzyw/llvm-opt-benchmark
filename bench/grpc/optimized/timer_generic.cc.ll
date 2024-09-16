@@ -778,7 +778,7 @@ if.then.i.i:                                      ; preds = %if.end46
   br label %invoke.cont50
 
 invoke.cont50:                                    ; preds = %if.then.i.i, %if.end46
-  %call54 = invoke fastcc noundef i32 @_ZL23run_some_expired_timersN9grpc_core9TimestampEPS0_N4absl12lts_202308026StatusE(i64 %call.i, ptr noundef %next, ptr noundef nonnull %agg.tmp48)
+  %call54 = invoke fastcc noundef i32 @_ZL23run_some_expired_timersN9grpc_core9TimestampEPS0_N4absl12lts_202308026StatusE(i64 %call.i, ptr noundef %next, ptr noundef %agg.tmp48)
           to label %invoke.cont53 unwind label %lpad52
 
 invoke.cont53:                                    ; preds = %invoke.cont50
@@ -1000,7 +1000,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %call7 = invoke fastcc noundef i32 @_ZL23run_some_expired_timersN9grpc_core9TimestampEPS0_N4absl12lts_202308026StatusE(i64 9223372036854775807, ptr noundef null, ptr noundef nonnull %agg.tmp1)
+  %call7 = invoke fastcc noundef i32 @_ZL23run_some_expired_timersN9grpc_core9TimestampEPS0_N4absl12lts_202308026StatusE(i64 9223372036854775807, ptr noundef null, ptr noundef %agg.tmp1)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont
@@ -1244,7 +1244,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZL23run_some_expired_timersN9grpc_core9TimestampEPS0_N4absl12lts_202308026StatusE(i64 %now.coerce, ptr noundef %next, ptr nocapture noundef readonly %error) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZL23run_some_expired_timersN9grpc_core9TimestampEPS0_N4absl12lts_202308026StatusE(i64 %now.coerce, ptr noundef %next, ptr nocapture noundef nonnull readonly %error) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp2.i = alloca %"class.absl::lts_20230802::Status", align 8

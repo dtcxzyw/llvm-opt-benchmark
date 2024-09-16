@@ -737,7 +737,7 @@ define void @pmix_pgpu_base_deregister_nspace(ptr noundef %0) local_unnamed_addr
 .lr.ph.i:                                         ; preds = %47, %.lr.ph.i
   %53 = phi ptr [ %55, %.lr.ph.i ], [ %52, %47 ]
   %.07.i = phi ptr [ %54, %.lr.ph.i ], [ %51, %47 ]
-  tail call void %53(ptr noundef %.039) #11
+  tail call void %53(ptr noundef nonnull %.039) #11
   %54 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %55 = load ptr, ptr %54, align 8
   %.not.i = icmp eq ptr %55, null

@@ -2140,7 +2140,7 @@ define internal void @"_ZN4core3ptr63drop_in_place$LT$$RF$object_store..path..pa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$deltalake_mount..file..LocalFileSystemError$GT$17h9d95156adf239ff6E"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$deltalake_mount..file..LocalFileSystemError$GT$17h9d95156adf239ff6E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -3295,7 +3295,7 @@ default.unreachable11:                            ; preds = %2
   br label %60
 
 76:                                               ; preds = %60
-  tail call fastcc void @"_ZN4core3ptr64drop_in_place$LT$deltalake_mount..file..LocalFileSystemError$GT$17h9d95156adf239ff6E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  tail call fastcc void @"_ZN4core3ptr64drop_in_place$LT$deltalake_mount..file..LocalFileSystemError$GT$17h9d95156adf239ff6E"(ptr noalias noundef align 8 dereferenceable(64) %1)
   br label %77
 
 77:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3b9ee244134b8beeE.exit10", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3b9ee244134b8beeE.exit", %76, %60, %60, %60
@@ -3350,7 +3350,7 @@ default.unreachable11:                            ; preds = %2
   br label %77
 
 98:                                               ; preds = %.body
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$deltalake_mount..file..LocalFileSystemError$GT$17h9d95156adf239ff6E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1) #30
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$deltalake_mount..file..LocalFileSystemError$GT$17h9d95156adf239ff6E"(ptr noalias noundef align 8 dereferenceable(64) %1) #30
           to label %99 unwind label %102
 
 99:                                               ; preds = %.invoke, %98, %.body, %.body, %.body

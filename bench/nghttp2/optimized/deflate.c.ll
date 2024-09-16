@@ -69,10 +69,10 @@ if.then5:                                         ; preds = %if.end
 if.end8:                                          ; preds = %if.end
   %2 = load ptr, ptr %deflater, align 8
   %3 = load ptr, ptr %inflater, align 8
-  call fastcc void @deflate(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %nva1, i64 noundef 5)
+  call fastcc void @deflate(ptr noundef %2, ptr noundef %3, ptr noundef %nva1, i64 noundef 5)
   %4 = load ptr, ptr %deflater, align 8
   %5 = load ptr, ptr %inflater, align 8
-  call fastcc void @deflate(ptr noundef %4, ptr noundef %5, ptr noundef nonnull %nva2, i64 noundef 6)
+  call fastcc void @deflate(ptr noundef %4, ptr noundef %5, ptr noundef %nva2, i64 noundef 6)
   %6 = load ptr, ptr %inflater, align 8
   call void @nghttp2_hd_inflate_del(ptr noundef %6) #9
   %7 = load ptr, ptr %deflater, align 8
@@ -96,38 +96,33 @@ declare void @exit(i32 noundef) local_unnamed_addr #4
 declare i32 @nghttp2_hd_inflate_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @deflate(ptr noundef %deflater, ptr noundef %inflater, ptr noundef %nva, i64 noundef %nvlen) unnamed_addr #0 {
+define internal fastcc void @deflate(ptr noundef %deflater, ptr noundef %inflater, ptr noundef nonnull %nva, i64 noundef range(i64 5, 7) %nvlen) unnamed_addr #0 {
 entry:
   %nv.i = alloca %struct.nghttp2_nv, align 8
   %inflate_flags.i = alloca i32, align 4
-  %cmp48.not = icmp eq i64 %nvlen, 0
-  br i1 %cmp48.not, label %for.end.thread, label %for.body
-
-for.end.thread:                                   ; preds = %entry
-  %call60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i64 noundef 0)
-  br label %for.end18
+  br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
-  %sum.050 = phi i64 [ %add2, %for.body ], [ 0, %entry ]
-  %i.049 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds %struct.nghttp2_nv, ptr %nva, i64 %i.049
+  %sum.049 = phi i64 [ 0, %entry ], [ %add2, %for.body ]
+  %i.048 = phi i64 [ 0, %entry ], [ %inc, %for.body ]
+  %arrayidx = getelementptr inbounds %struct.nghttp2_nv, ptr %nva, i64 %i.048
   %namelen = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %0 = load i64, ptr %namelen, align 8
   %valuelen = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %1 = load i64, ptr %valuelen, align 8
-  %add = add i64 %0, %sum.050
+  %add = add i64 %0, %sum.049
   %add2 = add i64 %add, %1
-  %inc = add nuw nsw i64 %i.049, 1
+  %inc = add nuw nsw i64 %i.048, 1
   %exitcond.not = icmp eq i64 %inc, %nvlen
-  br i1 %exitcond.not, label %for.body5.preheader, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
-for.body5.preheader:                              ; preds = %for.body
+for.end:                                          ; preds = %for.body
   %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i64 noundef %add2)
   br label %for.body5
 
-for.body5:                                        ; preds = %for.body5.preheader, %for.body5
-  %i.152 = phi i64 [ %inc17, %for.body5 ], [ 0, %for.body5.preheader ]
-  %arrayidx6 = getelementptr inbounds %struct.nghttp2_nv, ptr %nva, i64 %i.152
+for.body5:                                        ; preds = %for.end, %for.body5
+  %i.150 = phi i64 [ 0, %for.end ], [ %inc17, %for.body5 ]
+  %arrayidx6 = getelementptr inbounds %struct.nghttp2_nv, ptr %nva, i64 %i.150
   %2 = load ptr, ptr %arrayidx6, align 8
   %namelen8 = getelementptr inbounds i8, ptr %arrayidx6, i64 16
   %3 = load i64, ptr %namelen8, align 8
@@ -141,15 +136,14 @@ for.body5:                                        ; preds = %for.body5.preheader
   %7 = load ptr, ptr @stdout, align 8
   %call14 = tail call i64 @fwrite(ptr noundef %5, i64 noundef 1, i64 noundef %6, ptr noundef %7)
   %putchar43 = tail call i32 @putchar(i32 10)
-  %inc17 = add nuw i64 %i.152, 1
-  %exitcond57.not = icmp eq i64 %inc17, %nvlen
-  br i1 %exitcond57.not, label %for.end18, label %for.body5, !llvm.loop !7
+  %inc17 = add nuw nsw i64 %i.150, 1
+  %exitcond55.not = icmp eq i64 %inc17, %nvlen
+  br i1 %exitcond55.not, label %for.end18, label %for.body5, !llvm.loop !7
 
-for.end18:                                        ; preds = %for.body5, %for.end.thread
-  %sum.0.lcssa61 = phi i64 [ 0, %for.end.thread ], [ %add2, %for.body5 ]
-  %call19 = tail call i64 @nghttp2_hd_deflate_bound(ptr noundef %deflater, ptr noundef %nva, i64 noundef %nvlen) #9
+for.end18:                                        ; preds = %for.body5
+  %call19 = tail call i64 @nghttp2_hd_deflate_bound(ptr noundef %deflater, ptr noundef nonnull %nva, i64 noundef %nvlen) #9
   %call20 = tail call noalias ptr @malloc(i64 noundef %call19) #12
-  %call21 = tail call i64 @nghttp2_hd_deflate_hd(ptr noundef %deflater, ptr noundef %call20, i64 noundef %call19, ptr noundef %nva, i64 noundef %nvlen) #9
+  %call21 = tail call i64 @nghttp2_hd_deflate_hd(ptr noundef %deflater, ptr noundef %call20, i64 noundef %call19, ptr noundef nonnull %nva, i64 noundef %nvlen) #9
   %cmp22 = icmp slt i64 %call21, 0
   br i1 %cmp22, label %if.then, label %if.end
 
@@ -163,31 +157,31 @@ if.then:                                          ; preds = %for.end18
   unreachable
 
 if.end:                                           ; preds = %for.end18
-  %cmp25 = icmp eq i64 %sum.0.lcssa61, 0
+  %cmp25 = icmp eq i64 %add2, 0
   %conv27 = uitofp nneg i64 %call21 to double
-  %conv28 = uitofp i64 %sum.0.lcssa61 to double
+  %conv28 = uitofp i64 %add2 to double
   %div = fdiv double %conv27, %conv28
   %cond = select i1 %cmp25, double 0.000000e+00, double %div
   %call29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i64 noundef %call21, double noundef %cond)
-  %cmp3153.not = icmp eq i64 %call21, 0
-  br i1 %cmp3153.not, label %for.end51, label %for.body33
+  %cmp3151.not = icmp eq i64 %call21, 0
+  br i1 %cmp3151.not, label %for.end51, label %for.body33
 
 for.body33:                                       ; preds = %if.end, %for.inc49
-  %i.254 = phi i64 [ %add42, %for.inc49 ], [ 0, %if.end ]
-  %and = and i64 %i.254, 15
+  %i.252 = phi i64 [ %add42, %for.inc49 ], [ 0, %if.end ]
+  %and = and i64 %i.252, 15
   %cmp34 = icmp eq i64 %and, 0
   br i1 %cmp34, label %if.then36, label %if.end38
 
 if.then36:                                        ; preds = %for.body33
-  %call37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i64 noundef %i.254)
+  %call37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i64 noundef %i.252)
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then36, %for.body33
-  %arrayidx39 = getelementptr inbounds i8, ptr %call20, i64 %i.254
+  %arrayidx39 = getelementptr inbounds i8, ptr %call20, i64 %i.252
   %9 = load i8, ptr %arrayidx39, align 1
   %conv40 = zext i8 %9 to i32
   %call41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %conv40)
-  %add42 = add nuw i64 %i.254, 1
+  %add42 = add nuw i64 %i.252, 1
   %and43 = and i64 %add42, 15
   %cmp44 = icmp eq i64 %and43, 0
   br i1 %cmp44, label %if.then46, label %for.inc49
@@ -197,8 +191,8 @@ if.then46:                                        ; preds = %if.end38
   br label %for.inc49
 
 for.inc49:                                        ; preds = %if.end38, %if.then46
-  %exitcond58.not = icmp eq i64 %add42, %call21
-  br i1 %exitcond58.not, label %for.end51, label %for.body33, !llvm.loop !8
+  %exitcond56.not = icmp eq i64 %add42, %call21
+  br i1 %exitcond56.not, label %for.end51, label %for.body33, !llvm.loop !8
 
 for.end51:                                        ; preds = %for.inc49, %if.end
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)

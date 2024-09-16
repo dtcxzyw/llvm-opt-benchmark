@@ -516,7 +516,7 @@ define internal range(i32 -1, 1) i32 @H5D__virtual_read(ptr nocapture readnone %
   %13 = getelementptr inbounds i8, ptr %1, i64 184
   %14 = load ptr, ptr %13, align 8
   %.val = load ptr, ptr %1, align 8
-  %15 = call fastcc i32 @H5D__virtual_pre_io(ptr %.val, ptr noundef nonnull %8, ptr noundef %12, ptr noundef %14, ptr noundef nonnull %3)
+  %15 = call fastcc i32 @H5D__virtual_pre_io(ptr %.val, ptr noundef nonnull %8, ptr noundef %12, ptr noundef %14, ptr noundef %3)
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %20, label %.preheader89
 
@@ -795,7 +795,7 @@ define internal range(i32 -1, 1) i32 @H5D__virtual_write(ptr nocapture readnone 
   %12 = getelementptr inbounds i8, ptr %1, i64 184
   %13 = load ptr, ptr %12, align 8
   %.val = load ptr, ptr %1, align 8
-  %14 = call fastcc i32 @H5D__virtual_pre_io(ptr %.val, ptr noundef nonnull %7, ptr noundef %11, ptr noundef %13, ptr noundef nonnull %3)
+  %14 = call fastcc i32 @H5D__virtual_pre_io(ptr %.val, ptr noundef nonnull %7, ptr noundef %11, ptr noundef %13, ptr noundef %3)
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %20
 
@@ -2566,7 +2566,7 @@ define range(i32 -1, 1) i32 @H5D_virtual_parse_source_name(ptr noundef %0, ptr n
   %25 = ptrtoint ptr %10 to i64
   %26 = ptrtoint ptr %.04282 to i64
   %27 = sub i64 %25, %26
-  %28 = call fastcc i32 @H5D__virtual_str_append(ptr noundef %.04282, i64 noundef %27, ptr noundef nonnull %6, ptr noundef nonnull %20, ptr noundef nonnull %7)
+  %28 = call fastcc i32 @H5D__virtual_str_append(ptr noundef %.04282, i64 noundef %27, ptr noundef %6, ptr noundef nonnull %20, ptr noundef %7)
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %30, label %._crit_edge87
 
@@ -2594,7 +2594,7 @@ define range(i32 -1, 1) i32 @H5D_virtual_parse_source_name(ptr noundef %0, ptr n
   %41 = ptrtoint ptr %.04282 to i64
   %reass.sub = sub i64 %40, %41
   %42 = add i64 %reass.sub, 1
-  %43 = call fastcc i32 @H5D__virtual_str_append(ptr noundef %.04282, i64 noundef %42, ptr noundef nonnull %6, ptr noundef nonnull %20, ptr noundef nonnull %7)
+  %43 = call fastcc i32 @H5D__virtual_str_append(ptr noundef %.04282, i64 noundef %42, ptr noundef %6, ptr noundef nonnull %20, ptr noundef %7)
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %45, label %49
 
@@ -2656,7 +2656,7 @@ define range(i32 -1, 1) i32 @H5D_virtual_parse_source_name(ptr noundef %0, ptr n
   %73 = ptrtoint ptr %0 to i64
   %.neg = add i64 %8, %73
   %74 = sub i64 %.neg, %72
-  %75 = call fastcc i32 @H5D__virtual_str_append(ptr noundef nonnull %56, i64 noundef %74, ptr noundef nonnull %6, ptr noundef nonnull %71, ptr noundef nonnull %7)
+  %75 = call fastcc i32 @H5D__virtual_str_append(ptr noundef nonnull %56, i64 noundef %74, ptr noundef %6, ptr noundef nonnull %71, ptr noundef %7)
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %77, label %..thread_crit_edge
 
@@ -2705,7 +2705,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare noalias ptr @H5FL_reg_calloc(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_str_append(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_str_append(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %17
@@ -4617,7 +4617,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_pre_io(ptr nocapture readonly %.0.val, ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_pre_io(ptr nocapture readonly %.0.val, ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca [32 x i64], align 16
   %6 = alloca [32 x i64], align 16
   %7 = alloca i8, align 1

@@ -2312,7 +2312,7 @@ tailrecurse.backedge:                             ; preds = %102, %90
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_generate_introspection_global(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc ptr @llvm_generate_introspection_global(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 21) %3, ptr noundef %4, i64 noundef range(i64 0, 4294967296) %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca [7 x ptr], align 16
   %10 = tail call ptr @type_find_parent_type(ptr noundef %2) #6
   %.not = icmp eq ptr %6, null

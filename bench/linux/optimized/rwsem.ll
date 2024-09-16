@@ -621,7 +621,7 @@ define dso_local void @downgrade_write(ptr noundef %0) #1 align 16 {
 declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @rwsem_down_read_slowpath(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #1 section ".sched.text" align 16 {
+define internal fastcc noundef ptr @rwsem_down_read_slowpath(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 1, 259) %2) unnamed_addr #1 section ".sched.text" align 16 {
   %4 = alloca %struct.rwsem_waiter, align 8
   %5 = alloca %struct.wake_q_head, align 8
   %6 = ashr i64 %1, 8
@@ -1019,7 +1019,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rwsem_mark_wake(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc void @rwsem_mark_wake(ptr noundef %0, i32 noundef range(i32 0, 3) %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1217,7 +1217,7 @@ declare dso_local i32 @__SCT__tp_func_contention_begin(ptr noundef, ptr noundef,
 declare dso_local i32 @__SCT__tp_func_contention_end(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @rwsem_down_write_slowpath(ptr noundef %0, i32 noundef %1) unnamed_addr #1 section ".sched.text" align 16 {
+define internal fastcc noundef ptr @rwsem_down_write_slowpath(ptr noundef %0, i32 noundef range(i32 2, 259) %1) unnamed_addr #1 section ".sched.text" align 16 {
   %3 = alloca %struct.rwsem_waiter, align 8
   %4 = alloca %struct.wake_q_head, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #9

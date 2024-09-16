@@ -2573,11 +2573,11 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %789
   br i1 %.not226, label %.critedge235.thread, label %792
 
 792:                                              ; preds = %_ZNK10RegionNode14has_unique_phiEv.exit
-  %793 = call fastcc noundef zeroext i1 @_ZL18check_phi_clippingP7PhiNodeRP7ConNodeRjS3_S4_RP4NodeS4_(ptr noundef nonnull %.1.i, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %793 = call fastcc noundef zeroext i1 @_ZL18check_phi_clippingP7PhiNodeRP7ConNodeRjS3_S4_RP4NodeS4_(ptr noundef %.1.i, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %9)
   br i1 %793, label %794, label %.critedge235.thread
 
 794:                                              ; preds = %792
-  %795 = call fastcc noundef zeroext i1 @_ZL17check_if_clippingPK10RegionNodeRP6IfNodeS4_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %795 = call fastcc noundef zeroext i1 @_ZL17check_if_clippingPK10RegionNodeRP6IfNodeS4_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %10)
   br i1 %795, label %796, label %.critedge235.thread
 
 796:                                              ; preds = %794
@@ -2614,7 +2614,7 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %789
   %815 = trunc i8 %814 to i1
   %..i314 = select i1 %815, ptr %1, ptr null
   %816 = load i32, ptr %9, align 4
-  %817 = call fastcc noundef zeroext i1 @_ZL22check_convf2i_clippingP7PhiNodejRP11ConvF2INodeP4NodeS5_(ptr noundef nonnull %.1.i, i32 noundef %816, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %798, ptr noundef %804)
+  %817 = call fastcc noundef zeroext i1 @_ZL22check_convf2i_clippingP7PhiNodejRP11ConvF2INodeP4NodeS5_(ptr noundef %.1.i, i32 noundef %816, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %798, ptr noundef %804)
   br i1 %817, label %818, label %.critedge235.thread
 
 818:                                              ; preds = %812
@@ -3564,7 +3564,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %102, %100, %2, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL18check_phi_clippingP7PhiNodeRP7ConNodeRjS3_S4_RP4NodeS4_(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %6) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZL18check_phi_clippingP7PhiNodeRP7ConNodeRjS3_S4_RP4NodeS4_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %6) unnamed_addr #2 {
   store ptr null, ptr %1, align 8
   store ptr null, ptr %3, align 8
   store ptr null, ptr %5, align 8
@@ -3715,7 +3715,7 @@ _ZNK4Node7get_intEv.exit56:                       ; preds = %61
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL17check_if_clippingPK10RegionNodeRP6IfNodeS4_(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZL17check_if_clippingPK10RegionNodeRP6IfNodeS4_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #2 {
   store ptr null, ptr %2, align 8
   store ptr null, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3922,7 +3922,7 @@ _ZNK4Node7get_intEv.exit:                         ; preds = %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL22check_convf2i_clippingP7PhiNodejRP11ConvF2INodeP4NodeS5_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZL22check_convf2i_clippingP7PhiNodejRP11ConvF2INodeP4NodeS5_(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #2 {
   store ptr null, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -8266,18 +8266,18 @@ _ZNK7PhiNode14is_diamond_phiEv.exit:              ; preds = %_ZNK10RegionNode10i
   br i1 %346, label %.thread594.thread, label %347
 
 347:                                              ; preds = %345, %343
-  %348 = tail call fastcc noundef ptr @_ZL10is_x2logicP8PhaseGVNP7PhiNodei(ptr noundef nonnull %1, ptr noundef nonnull %0, i32 noundef %..i532)
+  %348 = tail call fastcc noundef ptr @_ZL10is_x2logicP8PhaseGVNP7PhiNodei(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %..i532)
   %349 = icmp eq ptr %348, null
   br i1 %349, label %350, label %.thread594
 
 350:                                              ; preds = %347
-  %351 = tail call fastcc noundef ptr @_ZL11is_absoluteP8PhaseGVNP7PhiNodei(ptr noundef nonnull %1, ptr noundef nonnull %0, i32 noundef %..i532)
+  %351 = tail call fastcc noundef ptr @_ZL11is_absoluteP8PhaseGVNP7PhiNodei(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %..i532)
   %352 = icmp eq ptr %351, null
   %brmerge504.not = and i1 %2, %352
   br i1 %brmerge504.not, label %353, label %355
 
 353:                                              ; preds = %350
-  %354 = tail call fastcc noundef ptr @_ZL11is_cond_addP8PhaseGVNP7PhiNodei(ptr noundef nonnull %1, ptr noundef nonnull %0, i32 noundef %..i532)
+  %354 = tail call fastcc noundef ptr @_ZL11is_cond_addP8PhaseGVNP7PhiNodei(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %..i532)
   br label %355
 
 355:                                              ; preds = %350, %353
@@ -8309,7 +8309,7 @@ _ZNK7PhiNode14is_diamond_phiEv.exit.thread:       ; preds = %320, %306, %311, %3
   br i1 %2, label %.thread598, label %361
 
 .thread598:                                       ; preds = %341, %_ZNK7PhiNode14is_diamond_phiEv.exit.thread
-  %360 = tail call fastcc noundef ptr @_ZL15split_flow_pathP8PhaseGVNP7PhiNode(ptr noundef nonnull %1, ptr noundef nonnull %0)
+  %360 = tail call fastcc noundef ptr @_ZL15split_flow_pathP8PhaseGVNP7PhiNode(ptr noundef nonnull %1, ptr noundef %0)
   %.not471 = icmp eq ptr %360, null
   br i1 %.not471, label %361, label %.critedge
 
@@ -10579,7 +10579,7 @@ _ZN18ConstraintCastNodeC2EP4NodeS1_PK4TypeNS_14DependencyTypeEPK9TypeTuple.exit:
 declare noundef ptr @_ZN18ConstraintCastNode18make_cast_for_typeEP4NodeS1_PK4TypeNS_14DependencyTypeEPK9TypeTuple(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL10is_x2logicP8PhaseGVNP7PhiNodei(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL10is_x2logicP8PhaseGVNP7PhiNodei(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 112
@@ -10663,7 +10663,7 @@ define internal fastcc noundef ptr @_ZL10is_x2logicP8PhaseGVNP7PhiNodei(ptr noun
   br i1 %72, label %73, label %142
 
 73:                                               ; preds = %63
-  %74 = add i32 %2, -1
+  %74 = add nsw i32 %2, -1
   br label %75
 
 75:                                               ; preds = %73, %11
@@ -10794,8 +10794,8 @@ _ZN4NodenwEm.exit47:                              ; preds = %131, %133
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL11is_absoluteP8PhaseGVNP7PhiNodei(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #2 {
-  %4 = sub nuw nsw i32 3, %2
+define internal fastcc noundef ptr @_ZL11is_absoluteP8PhaseGVNP7PhiNodei(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #2 {
+  %4 = xor i32 %2, 3
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -10927,14 +10927,14 @@ switch.lookup:                                    ; preds = %switch.hole_check
 83:                                               ; preds = %switch.lookup, %76
   %.070 = phi ptr [ %62, %76 ], [ %75, %switch.lookup ]
   %84 = load ptr, ptr %5, align 8
-  %85 = zext i32 %.072 to i64
+  %85 = zext nneg i32 %.072 to i64
   %86 = getelementptr inbounds ptr, ptr %84, i64 %85
   %87 = load ptr, ptr %86, align 8
   %.not = icmp eq ptr %87, %.070
   br i1 %.not, label %88, label %207
 
 88:                                               ; preds = %83
-  %89 = sub nuw nsw i32 3, %.072
+  %89 = xor i32 %.072, 3
   %90 = zext nneg i32 %89 to i64
   %91 = getelementptr inbounds ptr, ptr %84, i64 %90
   %92 = load ptr, ptr %91, align 8
@@ -11145,7 +11145,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL11is_cond_addP8PhaseGVNP7PhiNodei(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL11is_cond_addP8PhaseGVNP7PhiNodei(ptr noundef %0, ptr noundef nonnull readonly %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -11171,7 +11171,7 @@ define internal fastcc noundef ptr @_ZL11is_cond_addP8PhaseGVNP7PhiNodei(ptr nou
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds ptr, ptr %23, i64 %26
   %.not.i = icmp eq i32 %25, 0
-  br i1 %.not.i, label %_ZNK10RegionNode14has_unique_phiEv.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZNK10RegionNode14has_unique_phiEv.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %35
   %.0912.i = phi ptr [ %36, %35 ], [ %23, %3 ]
@@ -11185,7 +11185,7 @@ define internal fastcc noundef ptr @_ZL11is_cond_addP8PhaseGVNP7PhiNodei(ptr nou
 
 33:                                               ; preds = %.lr.ph.i
   %34 = icmp eq ptr %.01011.i, null
-  br i1 %34, label %35, label %_ZNK10RegionNode14has_unique_phiEv.exit
+  br i1 %34, label %35, label %_ZNK10RegionNode14has_unique_phiEv.exit.thread
 
 35:                                               ; preds = %33, %.lr.ph.i
   %.1.i = phi ptr [ %.01011.i, %.lr.ph.i ], [ %28, %33 ]
@@ -11193,16 +11193,15 @@ define internal fastcc noundef ptr @_ZL11is_cond_addP8PhaseGVNP7PhiNodei(ptr nou
   %37 = icmp ult ptr %36, %27
   br i1 %37, label %.lr.ph.i, label %_ZNK10RegionNode14has_unique_phiEv.exit, !llvm.loop !9
 
-_ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %33, %35, %3
-  %.0.i = phi ptr [ null, %3 ], [ null, %33 ], [ %.1.i, %35 ]
-  %.not = icmp eq ptr %.0.i, %1
-  br i1 %.not, label %38, label %120
+_ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %35
+  %.not = icmp eq ptr %.1.i, %1
+  br i1 %.not, label %38, label %_ZNK10RegionNode14has_unique_phiEv.exit.thread
 
 38:                                               ; preds = %_ZNK10RegionNode14has_unique_phiEv.exit
   %39 = getelementptr inbounds i8, ptr %10, i64 32
   %40 = load i32, ptr %39, align 8
   %.not43 = icmp eq i32 %40, 1
-  br i1 %.not43, label %41, label %120
+  br i1 %.not43, label %41, label %_ZNK10RegionNode14has_unique_phiEv.exit.thread
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds i8, ptr %8, i64 16
@@ -11210,20 +11209,20 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %33, %35, %3
   %44 = getelementptr inbounds i8, ptr %43, i64 32
   %45 = load i32, ptr %44, align 8
   %.not44 = icmp eq i32 %45, 1
-  br i1 %.not44, label %46, label %120
+  br i1 %.not44, label %46, label %_ZNK10RegionNode14has_unique_phiEv.exit.thread
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds i8, ptr %17, i64 52
   %48 = load i32, ptr %47, align 4
   %.not45 = icmp eq i32 %48, 3
-  br i1 %.not45, label %49, label %120
+  br i1 %.not45, label %49, label %_ZNK10RegionNode14has_unique_phiEv.exit.thread
 
 49:                                               ; preds = %46
   %50 = load ptr, ptr %21, align 8
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noundef i32 %51(ptr noundef nonnull align 8 dereferenceable(52) %21) #10
   %.not46 = icmp eq i32 %52, 81
-  br i1 %.not46, label %53, label %120
+  br i1 %.not46, label %53, label %_ZNK10RegionNode14has_unique_phiEv.exit.thread
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds i8, ptr %21, i64 8
@@ -11233,10 +11232,10 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %33, %35, %3
   %58 = getelementptr inbounds i8, ptr %55, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %4, align 8
-  %61 = zext i32 %2 to i64
+  %61 = zext nneg i32 %2 to i64
   %62 = getelementptr inbounds ptr, ptr %60, i64 %61
   %63 = load ptr, ptr %62, align 8
-  %64 = sub nuw nsw i32 3, %2
+  %64 = xor i32 %2, 3
   %65 = zext nneg i32 %64 to i64
   %66 = getelementptr inbounds ptr, ptr %60, i64 %65
   %67 = load ptr, ptr %66, align 8
@@ -11244,7 +11243,7 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %33, %35, %3
   %69 = load ptr, ptr %68, align 8
   %70 = tail call noundef i32 %69(ptr noundef nonnull align 8 dereferenceable(52) %63) #10
   %.not47 = icmp eq i32 %70, 23
-  br i1 %.not47, label %71, label %120
+  br i1 %.not47, label %71, label %_ZNK10RegionNode14has_unique_phiEv.exit.thread
 
 71:                                               ; preds = %53
   %72 = getelementptr inbounds i8, ptr %63, i64 8
@@ -11258,15 +11257,15 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %33, %35, %3
 
 79:                                               ; preds = %71
   %80 = icmp eq ptr %67, %78
-  br i1 %80, label %81, label %120
+  br i1 %80, label %81, label %_ZNK10RegionNode14has_unique_phiEv.exit.thread
 
 81:                                               ; preds = %71, %79
   %.037 = phi ptr [ %75, %79 ], [ %78, %71 ]
   %82 = getelementptr inbounds i8, ptr %59, i64 48
   %83 = load i32, ptr %82, align 8
   %84 = and i32 %83, 16
-  %.not49 = icmp eq i32 %84, 0
-  br i1 %.not49, label %100, label %85
+  %.not51 = icmp eq i32 %84, 0
+  br i1 %.not51, label %100, label %85
 
 85:                                               ; preds = %81
   %86 = getelementptr inbounds i8, ptr %0, i64 40
@@ -11286,8 +11285,8 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %33, %35, %3
   %97 = getelementptr inbounds i8, ptr %.037, i64 48
   %98 = load i32, ptr %97, align 8
   %99 = and i32 %98, 16
-  %.not50 = icmp eq i32 %99, 0
-  br i1 %.not50, label %100, label %120
+  %.not52 = icmp eq i32 %99, 0
+  br i1 %.not52, label %100, label %_ZNK10RegionNode14has_unique_phiEv.exit.thread
 
 100:                                              ; preds = %96, %85, %81
   %101 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 56) #10
@@ -11320,22 +11319,22 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %33, %35, %3
   %115 = tail call noundef ptr %114(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef %108) #10
   %116 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 56) #10
   %117 = icmp eq ptr %116, null
-  br i1 %117, label %120, label %118
+  br i1 %117, label %_ZNK10RegionNode14has_unique_phiEv.exit.thread, label %118
 
 118:                                              ; preds = %112
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %116, ptr noundef null, ptr noundef %115, ptr noundef %67) #10
   %119 = getelementptr inbounds i8, ptr %116, i64 44
   store i32 2048, ptr %119, align 4
   store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV8AddINode, i64 16), ptr %116, align 8
-  br label %120
+  br label %_ZNK10RegionNode14has_unique_phiEv.exit.thread
 
-120:                                              ; preds = %112, %118, %96, %79, %53, %49, %46, %41, %38, %_ZNK10RegionNode14has_unique_phiEv.exit
-  %.0 = phi ptr [ null, %_ZNK10RegionNode14has_unique_phiEv.exit ], [ null, %38 ], [ null, %41 ], [ null, %46 ], [ null, %49 ], [ null, %53 ], [ null, %79 ], [ null, %96 ], [ %116, %118 ], [ null, %112 ]
+_ZNK10RegionNode14has_unique_phiEv.exit.thread:   ; preds = %33, %3, %112, %118, %96, %79, %53, %49, %46, %41, %38, %_ZNK10RegionNode14has_unique_phiEv.exit
+  %.0 = phi ptr [ null, %_ZNK10RegionNode14has_unique_phiEv.exit ], [ null, %38 ], [ null, %41 ], [ null, %46 ], [ null, %49 ], [ null, %53 ], [ null, %79 ], [ null, %96 ], [ %116, %118 ], [ null, %112 ], [ null, %3 ], [ null, %33 ]
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL15split_flow_pathP8PhaseGVNP7PhiNode(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL15split_flow_pathP8PhaseGVNP7PhiNode(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 277
@@ -11519,7 +11518,7 @@ _ZN4Node17may_be_loop_entryEPS_.exit.thread:      ; preds = %88, %93, %86, %_ZN4
   br label %117
 
 117:                                              ; preds = %115, %109
-  tail call fastcc void @_ZL10split_onceP12PhaseIterGVNP4NodeS2_S2_S2_(ptr noundef %..i, ptr noundef nonnull %1, ptr noundef %68, ptr noundef %69, ptr noundef %113)
+  tail call fastcc void @_ZL10split_onceP12PhaseIterGVNP4NodeS2_S2_S2_(ptr noundef %..i, ptr noundef %1, ptr noundef %68, ptr noundef %69, ptr noundef %113)
   %118 = getelementptr inbounds i8, ptr %69, i64 16
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds i8, ptr %69, i64 32
@@ -11542,7 +11541,7 @@ _ZN4Node17may_be_loop_entryEPS_.exit.thread:      ; preds = %88, %93, %86, %_ZN4
 
 129:                                              ; preds = %.lr.ph101
   %130 = tail call noundef ptr @_ZN7PhiNode10make_blankEP4NodeS1_(ptr noundef %113, ptr noundef nonnull %124)
-  tail call fastcc void @_ZL10split_onceP12PhaseIterGVNP4NodeS2_S2_S2_(ptr noundef %..i, ptr noundef nonnull %1, ptr noundef %68, ptr noundef nonnull %124, ptr noundef %130)
+  tail call fastcc void @_ZL10split_onceP12PhaseIterGVNP4NodeS2_S2_S2_(ptr noundef %..i, ptr noundef %1, ptr noundef %68, ptr noundef nonnull %124, ptr noundef %130)
   br label %131
 
 131:                                              ; preds = %.lr.ph101, %129
@@ -11553,7 +11552,7 @@ _ZN4Node17may_be_loop_entryEPS_.exit.thread:      ; preds = %88, %93, %86, %_ZN4
 ._crit_edge102:                                   ; preds = %131, %117
   %134 = getelementptr inbounds i8, ptr %..i, i64 32
   %135 = load ptr, ptr %134, align 8
-  %136 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %135, ptr noundef %1) #10
+  %136 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %135, ptr noundef nonnull %1) #10
   %137 = load i32, ptr %23, align 8
   %.2103 = add i32 %137, -1
   %.not82104 = icmp eq i32 %.2103, 0
@@ -13901,7 +13900,7 @@ _ZN4Node8init_reqEjPS_.exit:                      ; preds = %2, %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10split_onceP12PhaseIterGVNP4NodeS2_S2_S2_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2, ptr noundef %3, ptr noundef %4) unnamed_addr #2 {
+define internal fastcc void @_ZL10split_onceP12PhaseIterGVNP4NodeS2_S2_S2_(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef readnone %2, ptr noundef %3, ptr noundef %4) unnamed_addr #2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %3) #10

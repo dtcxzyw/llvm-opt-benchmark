@@ -729,7 +729,7 @@ define ptr @crtmgr_verify_crt(ptr nocapture noundef readonly %0, ptr nocapture n
 17:                                               ; preds = %15
   %18 = load ptr, ptr %4, align 8
   %19 = load i32, ptr %5, align 8
-  %20 = tail call fastcc i32 @crtmgr_rsa_verify(ptr noundef nonnull %.03550, ptr noundef %18, i32 noundef %19, ptr noundef nonnull %6)
+  %20 = tail call fastcc i32 @crtmgr_rsa_verify(ptr noundef %.03550, ptr noundef %18, i32 noundef %19, ptr noundef nonnull %6)
   %.not40 = icmp eq i32 %20, 0
   br i1 %.not40, label %21, label %34
 
@@ -778,7 +778,7 @@ define ptr @crtmgr_verify_crt(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @crtmgr_rsa_verify(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @crtmgr_rsa_verify(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 328
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @BN_num_bits(ptr noundef %6) #10
@@ -793,7 +793,7 @@ define internal fastcc range(i32 0, 2) i32 @crtmgr_rsa_verify(ptr nocapture noun
 
 13:                                               ; preds = %switch.hole_check, %4
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.5, i32 noundef %2) #10
-  br label %131
+  br label %132
 
 switch.hole_check:                                ; preds = %4
   %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
@@ -812,7 +812,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 17:                                               ; preds = %switch.lookup
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #10
-  br label %131
+  br label %132
 
 18:                                               ; preds = %switch.lookup
   %19 = load ptr, ptr %5, align 8
@@ -857,7 +857,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 40:                                               ; preds = %36
   %41 = icmp ult i32 %22, 11
-  br i1 %41, label %63, label %42
+  br i1 %41, label %64, label %42
 
 42:                                               ; preds = %40
   %43 = icmp eq i32 %22, %37
@@ -888,7 +888,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 53:                                               ; preds = %51
   %54 = add nsw i32 %.029.i.i, -1
   %55 = icmp sgt i32 %.029.i.i, 1
-  br i1 %55, label %.lr.ph.i.i, label %.sink.split.i
+  br i1 %55, label %.lr.ph.i.i, label %.loopexit.thread56.i.i
 
 .lr.ph.i.i:                                       ; preds = %53, %57
   %.0.pn47.i.i = phi ptr [ %.148.i.i, %57 ], [ %.0.i.i, %53 ]
@@ -908,217 +908,224 @@ switch.lookup:                                    ; preds = %switch.hole_check
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i
   %59 = getelementptr inbounds i8, ptr %.0.pn47.i.i, i64 2
   %60 = icmp eq i32 %.02746.i.i, %54
-  br i1 %60, label %.sink.split.i, label %61
+  br i1 %60, label %.sink.split.i, label %62
 
-61:                                               ; preds = %.loopexit.i.i
-  %62 = icmp ult i32 %.02746.i.i, 8
-  br i1 %62, label %.sink.split.i, label %64
+.loopexit.thread56.i.i:                           ; preds = %53
+  %61 = icmp eq i32 %54, 0
+  br i1 %61, label %.sink.split.i, label %.thread.i.i
 
-.sink.split.i:                                    ; preds = %57, %.lr.ph.i.i, %61, %.loopexit.i.i, %53, %51, %49, %44
-  %.str.25.sink.i = phi ptr [ @.str.25, %44 ], [ @.str.26, %51 ], [ @.str.26, %49 ], [ @.str.27, %.loopexit.i.i ], [ @.str.25, %61 ], [ @.str.25, %53 ], [ @.str.27, %.lr.ph.i.i ], [ @.str.27, %57 ]
+62:                                               ; preds = %.loopexit.i.i
+  %63 = icmp ult i32 %.02746.i.i, 8
+  br i1 %63, label %.thread.i.i, label %65
+
+.thread.i.i:                                      ; preds = %62, %.loopexit.thread56.i.i
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %57, %.lr.ph.i.i, %.thread.i.i, %.loopexit.thread56.i.i, %.loopexit.i.i, %51, %49, %44
+  %.str.25.sink.i = phi ptr [ @.str.25, %.thread.i.i ], [ @.str.25, %44 ], [ @.str.26, %51 ], [ @.str.26, %49 ], [ @.str.27, %.loopexit.thread56.i.i ], [ @.str.27, %.loopexit.i.i ], [ @.str.27, %.lr.ph.i.i ], [ @.str.27, %57 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.25.sink.i, ptr noundef nonnull @__func__._padding_check_PKCS1_type_1) #10
-  br label %63
+  br label %64
 
-63:                                               ; preds = %.sink.split.i, %40
+64:                                               ; preds = %.sink.split.i, %40
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24) #10
   br label %crtmgr_get_recov_data.exit
 
-64:                                               ; preds = %61
+65:                                               ; preds = %62
   %.neg.i.i = xor i32 %.02746.i.i, -1
-  %65 = add i32 %54, %.neg.i.i
+  %66 = add i32 %54, %.neg.i.i
   br label %crtmgr_get_recov_data.exit
 
-crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, %39, %63, %64
-  %.087 = phi ptr [ null, %18 ], [ null, %24 ], [ null, %26 ], [ null, %35 ], [ null, %39 ], [ null, %63 ], [ %59, %64 ]
-  %.086 = phi ptr [ null, %18 ], [ null, %24 ], [ null, %26 ], [ null, %35 ], [ null, %39 ], [ null, %63 ], [ %28, %64 ]
-  %.085 = phi i32 [ 0, %18 ], [ 0, %24 ], [ 0, %26 ], [ 0, %35 ], [ 0, %39 ], [ 0, %63 ], [ %65, %64 ]
-  %.028.i = phi ptr [ null, %18 ], [ null, %24 ], [ null, %26 ], [ %28, %35 ], [ %28, %39 ], [ %28, %63 ], [ null, %64 ]
-  %.027.i = phi ptr [ null, %18 ], [ null, %24 ], [ %25, %26 ], [ %25, %35 ], [ %25, %39 ], [ %25, %63 ], [ %25, %64 ]
-  %.not = phi i1 [ false, %18 ], [ false, %24 ], [ false, %26 ], [ false, %35 ], [ false, %39 ], [ false, %63 ], [ true, %64 ]
+crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, %39, %64, %65
+  %.087 = phi ptr [ null, %18 ], [ null, %24 ], [ null, %26 ], [ null, %35 ], [ null, %39 ], [ null, %64 ], [ %59, %65 ]
+  %.086 = phi ptr [ null, %18 ], [ null, %24 ], [ null, %26 ], [ null, %35 ], [ null, %39 ], [ null, %64 ], [ %28, %65 ]
+  %.085 = phi i32 [ 0, %18 ], [ 0, %24 ], [ 0, %26 ], [ 0, %35 ], [ 0, %39 ], [ 0, %64 ], [ %66, %65 ]
+  %.028.i = phi ptr [ null, %18 ], [ null, %24 ], [ null, %26 ], [ %28, %35 ], [ %28, %39 ], [ %28, %64 ], [ null, %65 ]
+  %.027.i = phi ptr [ null, %18 ], [ null, %24 ], [ %25, %26 ], [ %25, %35 ], [ %25, %39 ], [ %25, %64 ], [ %25, %65 ]
+  %.not = phi i1 [ false, %18 ], [ false, %24 ], [ false, %26 ], [ false, %35 ], [ false, %39 ], [ false, %64 ], [ true, %65 ]
   tail call void @BN_CTX_free(ptr noundef %23) #10
   tail call void @BN_free(ptr noundef %.027.i) #10
   tail call void @free(ptr noundef %.028.i) #10
-  br i1 %.not, label %66, label %131
+  br i1 %.not, label %67, label %132
 
-66:                                               ; preds = %crtmgr_get_recov_data.exit
+67:                                               ; preds = %crtmgr_get_recov_data.exit
   %.not57 = icmp sgt i32 %.085, %switch.load
-  br i1 %.not57, label %68, label %67
+  br i1 %.not57, label %69, label %68
 
-67:                                               ; preds = %66
+68:                                               ; preds = %67
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7) #10
-  br label %130
+  br label %131
 
-68:                                               ; preds = %66
-  %69 = load i8, ptr %.087, align 1
-  %.not58 = icmp eq i8 %69, 48
-  br i1 %.not58, label %70, label %75
+69:                                               ; preds = %67
+  %70 = load i8, ptr %.087, align 1
+  %.not58 = icmp eq i8 %70, 48
+  br i1 %.not58, label %71, label %76
 
-70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %.087, i64 1
-  %72 = load i8, ptr %71, align 1
-  %73 = zext i8 %72 to i32
-  %74 = add nsw i32 %.085, -2
-  %.not59 = icmp eq i32 %74, %73
-  br i1 %.not59, label %76, label %75
+71:                                               ; preds = %69
+  %72 = getelementptr inbounds i8, ptr %.087, i64 1
+  %73 = load i8, ptr %72, align 1
+  %74 = zext i8 %73 to i32
+  %75 = add nsw i32 %.085, -2
+  %.not59 = icmp eq i32 %75, %74
+  br i1 %.not59, label %77, label %76
 
-75:                                               ; preds = %70, %68
+76:                                               ; preds = %71, %69
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.8) #10
-  br label %130
+  br label %131
 
-76:                                               ; preds = %70
-  %77 = getelementptr inbounds i8, ptr %.087, i64 2
-  %78 = load i8, ptr %77, align 1
-  %.not60 = icmp eq i8 %78, 48
-  br i1 %.not60, label %80, label %79
+77:                                               ; preds = %71
+  %78 = getelementptr inbounds i8, ptr %.087, i64 2
+  %79 = load i8, ptr %78, align 1
+  %.not60 = icmp eq i8 %79, 48
+  br i1 %.not60, label %81, label %80
 
-79:                                               ; preds = %76
+80:                                               ; preds = %77
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9) #10
-  br label %130
+  br label %131
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %.087, i64 3
-  %82 = load i8, ptr %81, align 1
-  %83 = zext i8 %82 to i32
-  %84 = add nsw i32 %.085, -4
-  %85 = icmp slt i32 %84, %83
-  br i1 %85, label %86, label %87
+81:                                               ; preds = %77
+  %82 = getelementptr inbounds i8, ptr %.087, i64 3
+  %83 = load i8, ptr %82, align 1
+  %84 = zext i8 %83 to i32
+  %85 = add nsw i32 %.085, -4
+  %86 = icmp slt i32 %85, %84
+  br i1 %86, label %87, label %88
 
-86:                                               ; preds = %80
+87:                                               ; preds = %81
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10) #10
-  br label %130
+  br label %131
 
-87:                                               ; preds = %80
-  switch i8 %82, label %107 [
-    i8 9, label %88
-    i8 12, label %92
-    i8 13, label %96
+88:                                               ; preds = %81
+  switch i8 %83, label %108 [
+    i8 9, label %89
+    i8 12, label %93
+    i8 13, label %97
   ]
-
-88:                                               ; preds = %87
-  %.not66 = icmp eq i32 %2, 1
-  br i1 %.not66, label %89, label %91
 
 89:                                               ; preds = %88
-  %90 = getelementptr inbounds i8, ptr %.087, i64 4
-  %bcmp67 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %90, ptr noundef nonnull dereferenceable(9) @.str.11, i64 9)
+  %.not66 = icmp eq i32 %2, 1
+  br i1 %.not66, label %90, label %92
+
+90:                                               ; preds = %89
+  %91 = getelementptr inbounds i8, ptr %.087, i64 4
+  %bcmp67 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %91, ptr noundef nonnull dereferenceable(9) @.str.11, i64 9)
   %.not68 = icmp eq i32 %bcmp67, 0
-  br i1 %.not68, label %108, label %91
+  br i1 %.not68, label %109, label %92
 
-91:                                               ; preds = %89, %88
+92:                                               ; preds = %90, %89
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.12) #10
-  br label %130
+  br label %131
 
-92:                                               ; preds = %87
+93:                                               ; preds = %88
   %.not64 = icmp eq i32 %2, 2
-  br i1 %.not64, label %93, label %95
+  br i1 %.not64, label %94, label %96
 
-93:                                               ; preds = %92
-  %94 = getelementptr inbounds i8, ptr %.087, i64 4
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %94, ptr noundef nonnull dereferenceable(12) @.str.13, i64 12)
+94:                                               ; preds = %93
+  %95 = getelementptr inbounds i8, ptr %.087, i64 4
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %95, ptr noundef nonnull dereferenceable(12) @.str.13, i64 12)
   %.not65 = icmp eq i32 %bcmp, 0
-  br i1 %.not65, label %108, label %95
+  br i1 %.not65, label %109, label %96
 
-95:                                               ; preds = %93, %92
+96:                                               ; preds = %94, %93
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.12) #10
-  br label %130
+  br label %131
 
-96:                                               ; preds = %87
-  switch i32 %2, label %106 [
-    i32 5, label %97
-    i32 6, label %100
-    i32 7, label %103
+97:                                               ; preds = %88
+  switch i32 %2, label %107 [
+    i32 5, label %98
+    i32 6, label %101
+    i32 7, label %104
   ]
 
-97:                                               ; preds = %96
-  %98 = getelementptr inbounds i8, ptr %.087, i64 4
-  %bcmp90 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %98, ptr noundef nonnull dereferenceable(13) @.str.14, i64 13)
+98:                                               ; preds = %97
+  %99 = getelementptr inbounds i8, ptr %.087, i64 4
+  %bcmp90 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %99, ptr noundef nonnull dereferenceable(13) @.str.14, i64 13)
   %.not63 = icmp eq i32 %bcmp90, 0
-  br i1 %.not63, label %108, label %99
+  br i1 %.not63, label %109, label %100
 
-99:                                               ; preds = %97
+100:                                              ; preds = %98
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15) #10
-  br label %130
+  br label %131
 
-100:                                              ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %.087, i64 4
-  %bcmp89 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %101, ptr noundef nonnull dereferenceable(13) @.str.16, i64 13)
+101:                                              ; preds = %97
+  %102 = getelementptr inbounds i8, ptr %.087, i64 4
+  %bcmp89 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %102, ptr noundef nonnull dereferenceable(13) @.str.16, i64 13)
   %.not62 = icmp eq i32 %bcmp89, 0
-  br i1 %.not62, label %108, label %102
+  br i1 %.not62, label %109, label %103
 
-102:                                              ; preds = %100
+103:                                              ; preds = %101
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17) #10
-  br label %130
+  br label %131
 
-103:                                              ; preds = %96
-  %104 = getelementptr inbounds i8, ptr %.087, i64 4
-  %bcmp88 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %104, ptr noundef nonnull dereferenceable(13) @.str.18, i64 13)
+104:                                              ; preds = %97
+  %105 = getelementptr inbounds i8, ptr %.087, i64 4
+  %bcmp88 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %105, ptr noundef nonnull dereferenceable(13) @.str.18, i64 13)
   %.not61 = icmp eq i32 %bcmp88, 0
-  br i1 %.not61, label %108, label %105
+  br i1 %.not61, label %109, label %106
 
-105:                                              ; preds = %103
+106:                                              ; preds = %104
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.19) #10
-  br label %130
+  br label %131
 
-106:                                              ; preds = %96
+107:                                              ; preds = %97
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.12) #10
-  br label %130
+  br label %131
 
-107:                                              ; preds = %87
+108:                                              ; preds = %88
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.12) #10
-  br label %130
+  br label %131
 
-108:                                              ; preds = %93, %97, %103, %100, %89
-  %109 = sub nsw i32 %84, %83
-  %110 = icmp slt i32 %109, 2
-  br i1 %110, label %122, label %111
+109:                                              ; preds = %94, %98, %104, %101, %90
+  %110 = sub nsw i32 %85, %84
+  %111 = icmp slt i32 %110, 2
+  br i1 %111, label %123, label %112
 
-111:                                              ; preds = %108
-  %112 = add nuw nsw i32 %83, 4
-  %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds i8, ptr %.087, i64 %113
-  %115 = load i8, ptr %114, align 1
-  %.not69 = icmp eq i8 %115, 4
-  br i1 %.not69, label %116, label %122
+112:                                              ; preds = %109
+  %113 = add nuw nsw i32 %84, 4
+  %114 = zext nneg i32 %113 to i64
+  %115 = getelementptr inbounds i8, ptr %.087, i64 %114
+  %116 = load i8, ptr %115, align 1
+  %.not69 = icmp eq i8 %116, 4
+  br i1 %.not69, label %117, label %123
 
-116:                                              ; preds = %111
-  %117 = zext nneg i8 %82 to i64
-  %118 = getelementptr inbounds i8, ptr %.087, i64 %117
-  %119 = getelementptr inbounds i8, ptr %118, i64 5
-  %120 = load i8, ptr %119, align 1
-  %121 = zext i8 %120 to i32
-  %.not70 = icmp eq i32 %switch.load, %121
-  br i1 %.not70, label %123, label %122
+117:                                              ; preds = %112
+  %118 = zext nneg i8 %83 to i64
+  %119 = getelementptr inbounds i8, ptr %.087, i64 %118
+  %120 = getelementptr inbounds i8, ptr %119, i64 5
+  %121 = load i8, ptr %120, align 1
+  %122 = zext i8 %121 to i32
+  %.not70 = icmp eq i32 %switch.load, %122
+  br i1 %.not70, label %124, label %123
 
-122:                                              ; preds = %116, %111, %108
+123:                                              ; preds = %117, %112, %109
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.20) #10
-  br label %130
+  br label %131
 
-123:                                              ; preds = %116
-  %124 = add nsw i32 %109, -2
-  %.not71 = icmp eq i32 %124, %switch.load
-  br i1 %.not71, label %126, label %125
+124:                                              ; preds = %117
+  %125 = add nsw i32 %110, -2
+  %.not71 = icmp eq i32 %125, %switch.load
+  br i1 %.not71, label %127, label %126
 
-125:                                              ; preds = %123
+126:                                              ; preds = %124
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.21) #10
-  br label %130
+  br label %131
 
-126:                                              ; preds = %123
-  %127 = getelementptr inbounds i8, ptr %118, i64 6
-  %128 = zext nneg i32 %switch.load to i64
-  %bcmp72 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %127, ptr noundef nonnull dereferenceable(1) %3, i64 %128)
+127:                                              ; preds = %124
+  %128 = getelementptr inbounds i8, ptr %119, i64 6
+  %129 = zext nneg i32 %switch.load to i64
+  %bcmp72 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(1) %3, i64 %129)
   %.not73 = icmp eq i32 %bcmp72, 0
-  br i1 %.not73, label %129, label %130
+  br i1 %.not73, label %130, label %131
 
-129:                                              ; preds = %126
+130:                                              ; preds = %127
   tail call void @free(ptr noundef %.086) #10
-  br label %131
+  br label %132
 
-130:                                              ; preds = %126, %125, %122, %107, %106, %105, %102, %99, %95, %91, %86, %79, %75, %67
+131:                                              ; preds = %127, %126, %123, %108, %107, %106, %103, %100, %96, %92, %87, %80, %76, %68
   tail call void @free(ptr noundef %.086) #10
-  br label %131
+  br label %132
 
-131:                                              ; preds = %crtmgr_get_recov_data.exit, %130, %129, %17, %13
-  %.0 = phi i32 [ 1, %17 ], [ 1, %130 ], [ 0, %129 ], [ 1, %13 ], [ 1, %crtmgr_get_recov_data.exit ]
+132:                                              ; preds = %crtmgr_get_recov_data.exit, %131, %130, %17, %13
+  %.0 = phi i32 [ 1, %17 ], [ 1, %131 ], [ 0, %130 ], [ 1, %13 ], [ 1, %crtmgr_get_recov_data.exit ]
   ret i32 %.0
 }
 
@@ -1177,7 +1184,7 @@ define ptr @crtmgr_verify_pkcs7(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %.not33, label %25, label %28
 
 25:                                               ; preds = %23
-  %26 = tail call fastcc i32 @crtmgr_rsa_verify(ptr noundef nonnull %.02537, ptr noundef nonnull %12, i32 noundef %5, ptr noundef %6)
+  %26 = tail call fastcc i32 @crtmgr_rsa_verify(ptr noundef %.02537, ptr noundef nonnull %12, i32 noundef %5, ptr noundef %6)
   %.not34 = icmp eq i32 %26, 0
   br i1 %.not34, label %._crit_edge, label %27
 

@@ -4060,7 +4060,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 76:                                               ; preds = %74
   %77 = load i32, ptr %9, align 4
-  call fastcc void @_ZN4JsonL15codePointToUTF8B5cxx11Ej(ptr dead_on_unwind noalias nonnull writable align 8 %10, i32 noundef %77)
+  call fastcc void @_ZN4JsonL15codePointToUTF8B5cxx11Ej(ptr dead_on_unwind noalias writable align 8 %10, i32 noundef %77)
   %78 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %79 unwind label %80
 
@@ -10919,7 +10919,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 76:                                               ; preds = %74
   %77 = load i32, ptr %9, align 4
-  call fastcc void @_ZN4JsonL15codePointToUTF8B5cxx11Ej(ptr dead_on_unwind noalias nonnull writable align 8 %10, i32 noundef %77)
+  call fastcc void @_ZN4JsonL15codePointToUTF8B5cxx11Ej(ptr dead_on_unwind noalias writable align 8 %10, i32 noundef %77)
   %78 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %79 unwind label %80
 

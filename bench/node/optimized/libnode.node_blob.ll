@@ -588,7 +588,7 @@ if.end44:                                         ; preds = %for.body
 
 if.then47:                                        ; preds = %if.end44
   %call55 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %call36) #22
-  call fastcc void @"_ZZN4node4Blob3NewERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clENS1_5LocalINS1_11ArrayBufferEEEmm"(ptr noalias nonnull align 8 %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(8) %entryFromArrayBuffer, ptr nonnull %call36, i64 noundef %call55, i64 noundef 0)
+  call fastcc void @"_ZZN4node4Blob3NewERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clENS1_5LocalINS1_11ArrayBufferEEEmm"(ptr noalias align 8 %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(8) %entryFromArrayBuffer, ptr nonnull %call36, i64 noundef %call55, i64 noundef 0)
   %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.349", ptr %entries.sroa.0.1, i64 %i.0153
   %26 = load ptr, ptr %ref.tmp52, align 8
   store ptr null, ptr %ref.tmp52, align 8
@@ -625,7 +625,7 @@ if.then63:                                        ; preds = %if.else
   %call71 = call ptr @_ZN2v815ArrayBufferView6BufferEv(ptr noundef nonnull align 1 dereferenceable(1) %call36) #22
   %call76 = call noundef i64 @_ZN2v815ArrayBufferView10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %call36) #22
   %call78 = call noundef i64 @_ZN2v815ArrayBufferView10ByteOffsetEv(ptr noundef nonnull align 1 dereferenceable(1) %call36) #22
-  call fastcc void @"_ZZN4node4Blob3NewERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clENS1_5LocalINS1_11ArrayBufferEEEmm"(ptr noalias nonnull align 8 %ref.tmp68, ptr noundef nonnull align 8 dereferenceable(8) %entryFromArrayBuffer, ptr %call71, i64 noundef %call76, i64 noundef %call78)
+  call fastcc void @"_ZZN4node4Blob3NewERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clENS1_5LocalINS1_11ArrayBufferEEEmm"(ptr noalias align 8 %ref.tmp68, ptr noundef nonnull align 8 dereferenceable(8) %entryFromArrayBuffer, ptr %call71, i64 noundef %call76, i64 noundef %call78)
   %add.ptr.i29 = getelementptr inbounds %"class.std::unique_ptr.349", ptr %entries.sroa.0.1, i64 %i.0153
   %30 = load ptr, ptr %ref.tmp68, align 8
   store ptr null, ptr %ref.tmp68, align 8
@@ -4010,7 +4010,7 @@ declare ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEEj(ptr noundef nonnull ali
 declare noundef zeroext i1 @_ZNK2v85Value13IsArrayBufferEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4node4Blob3NewERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clENS1_5LocalINS1_11ArrayBufferEEEmm"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nonnull %buf.coerce, i64 noundef %byte_length, i64 noundef %byte_offset) unnamed_addr #3 align 2 {
+define internal fastcc void @"_ZZN4node4Blob3NewERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clENS1_5LocalINS1_11ArrayBufferEEEmm"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nonnull %buf.coerce, i64 noundef %byte_length, i64 noundef %byte_offset) unnamed_addr #3 align 2 {
 entry:
   %store = alloca %"class.std::shared_ptr.451", align 8
   %agg.tmp11 = alloca %"class.std::shared_ptr.451", align 8
@@ -4049,7 +4049,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit: ; preds = %if.then, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  call void @_ZN4node9DataQueue35CreateInMemoryEntryFromBackingStoreESt10shared_ptrIN2v812BackingStoreEEmm(ptr sret(%"class.std::unique_ptr.349") align 8 %agg.result, ptr noundef nonnull %agg.tmp11, i64 noundef %byte_offset, i64 noundef %byte_length) #22
+  call void @_ZN4node9DataQueue35CreateInMemoryEntryFromBackingStoreESt10shared_ptrIN2v812BackingStoreEEmm(ptr nonnull sret(%"class.std::unique_ptr.349") align 8 %agg.result, ptr noundef nonnull %agg.tmp11, i64 noundef %byte_offset, i64 noundef %byte_length) #22
   %5 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i10 = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i10, label %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit, label %if.then.i.i.i11
@@ -4233,7 +4233,7 @@ if.else.i.i.i.i.i57:                              ; preds = %if.then.i.i.i52
   br label %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit58
 
 _ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit58: ; preds = %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit, %if.then.i.i.i.i.i55, %if.else.i.i.i.i.i57
-  call void @_ZN4node9DataQueue35CreateInMemoryEntryFromBackingStoreESt10shared_ptrIN2v812BackingStoreEEmm(ptr sret(%"class.std::unique_ptr.349") align 8 %agg.result, ptr noundef nonnull %agg.tmp21, i64 noundef 0, i64 noundef %byte_length) #22
+  call void @_ZN4node9DataQueue35CreateInMemoryEntryFromBackingStoreESt10shared_ptrIN2v812BackingStoreEEmm(ptr nonnull sret(%"class.std::unique_ptr.349") align 8 %agg.result, ptr noundef nonnull %agg.tmp21, i64 noundef 0, i64 noundef %byte_length) #22
   %34 = load ptr, ptr %_M_refcount.i.i49, align 8
   %cmp.not.i.i.i60 = icmp eq ptr %34, null
   br i1 %cmp.not.i.i.i60, label %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit90, label %if.then.i.i.i61

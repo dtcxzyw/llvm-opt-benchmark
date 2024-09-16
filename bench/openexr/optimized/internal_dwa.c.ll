@@ -69,17 +69,17 @@ entry:
   br i1 %cmp, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
-  %call2 = call fastcc i32 @DwaCompressor_construct(ptr noundef nonnull %dwaa, i32 noundef 1, ptr noundef %encode, ptr noundef null)
+  %call2 = call fastcc i32 @DwaCompressor_construct(ptr noundef %dwaa, i32 noundef 1, ptr noundef %encode, ptr noundef null)
   %cmp3 = icmp eq i32 %call2, 0
   br i1 %cmp3, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then
-  %call5 = call fastcc i32 @DwaCompressor_compress(ptr noundef nonnull %dwaa)
+  %call5 = call fastcc i32 @DwaCompressor_compress(ptr noundef %dwaa)
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
   %rv.1 = phi i32 [ %call5, %if.then4 ], [ %call2, %if.then ]
-  call fastcc void @DwaCompressor_destroy(ptr noundef nonnull %dwaa)
+  call fastcc void @DwaCompressor_destroy(ptr noundef %dwaa)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %entry
@@ -92,7 +92,7 @@ declare i32 @internal_encode_alloc_buffer(ptr noundef, i32 noundef, ptr noundef,
 declare i64 @internal_exr_huf_compress_spare_bytes() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @DwaCompressor_construct(ptr noundef %me, i32 noundef %acCompression, ptr noundef %encode, ptr noundef %decode) unnamed_addr #0 {
+define internal fastcc i32 @DwaCompressor_construct(ptr noundef nonnull %me, i32 noundef range(i32 0, 2) %acCompression, ptr noundef %encode, ptr noundef %decode) unnamed_addr #0 {
 entry:
   %.b.i = load i1, ptr @initializeFuncs.done, align 4
   br i1 %.b.i, label %initializeFuncs.exit, label %if.end.i
@@ -398,7 +398,7 @@ return:                                           ; preds = %cond.end77, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @DwaCompressor_compress(ptr nocapture noundef %me) unnamed_addr #0 {
+define internal fastcc i32 @DwaCompressor_compress(ptr nocapture noundef nonnull %me) unnamed_addr #0 {
 entry:
   %planarUncBuffer.i = alloca [3 x ptr], align 16
   %outBufferSize = alloca i64, align 8
@@ -413,7 +413,7 @@ entry:
   store ptr @sDefaultChannelRules, ptr %_channelRules, align 8
   %_channelRuleCount = getelementptr inbounds i8, ptr %me, i64 80
   store i64 15, ptr %_channelRuleCount, align 8
-  %call = call fastcc i32 @DwaCompressor_initializeBuffers(ptr noundef %me, ptr noundef nonnull %outBufferSize)
+  %call = call fastcc i32 @DwaCompressor_initializeBuffers(ptr noundef %me, ptr noundef %outBufferSize)
   %0 = load ptr, ptr %me, align 8
   %compressed_alloc_size = getelementptr inbounds i8, ptr %0, i64 176
   %1 = load i64, ptr %compressed_alloc_size, align 8
@@ -965,7 +965,7 @@ LossyDctEncoderCsc_construct.exit:                ; preds = %for.body.i.i
   store i32 3, ptr %_channel_encode_data_count.i, align 8
   %98 = load ptr, ptr %alloc_fn123, align 8
   %99 = load ptr, ptr %free_fn124, align 8
-  %call125 = call fastcc i32 @LossyDctEncoder_execute(ptr noundef %98, ptr noundef %99, ptr noundef nonnull %enc)
+  %call125 = call fastcc i32 @LossyDctEncoder_execute(ptr noundef %98, ptr noundef %99, ptr noundef %enc)
   %100 = load i64, ptr %add.ptr20, align 8
   %101 = load i64, ptr %_numAcComp.i.i, align 8
   %add127 = add i64 %101, %100
@@ -1050,10 +1050,10 @@ sw.bb:                                            ; preds = %if.end174
   %120 = load i32, ptr %width182, align 4
   %height183 = getelementptr inbounds i8, ptr %114, i64 8
   %121 = load i32, ptr %height183, align 8
-  call fastcc void @LossyDctEncoder_construct(ptr noundef nonnull %enc175, float noundef %div180, ptr noundef nonnull %arrayidx169, ptr noundef %packedAcEnd.2290, ptr noundef %packedDcEnd.2289, ptr noundef %spec.store.select, i32 noundef %120, i32 noundef %121)
+  call fastcc void @LossyDctEncoder_construct(ptr noundef %enc175, float noundef %div180, ptr noundef nonnull %arrayidx169, ptr noundef %packedAcEnd.2290, ptr noundef %packedDcEnd.2289, ptr noundef %spec.store.select, i32 noundef %120, i32 noundef %121)
   %122 = load ptr, ptr %alloc_fn188, align 8
   %123 = load ptr, ptr %free_fn189, align 8
-  %call190 = call fastcc i32 @LossyDctEncoder_execute(ptr noundef %122, ptr noundef %123, ptr noundef nonnull %enc175)
+  %call190 = call fastcc i32 @LossyDctEncoder_execute(ptr noundef %122, ptr noundef %123, ptr noundef %enc175)
   %124 = load i64, ptr %add.ptr20, align 8
   %125 = load i64, ptr %_numAcComp192, align 8
   %add193 = add i64 %125, %124
@@ -1398,7 +1398,7 @@ return:                                           ; preds = %if.then7.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @DwaCompressor_destroy(ptr nocapture noundef readonly %me) unnamed_addr #0 {
+define internal fastcc void @DwaCompressor_destroy(ptr nocapture noundef nonnull readonly %me) unnamed_addr #0 {
 entry:
   %_packedAcBuffer = getelementptr inbounds i8, ptr %me, i64 88
   %0 = load ptr, ptr %_packedAcBuffer, align 8
@@ -1591,17 +1591,17 @@ entry:
   br i1 %cmp, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
-  %call2 = call fastcc i32 @DwaCompressor_construct(ptr noundef nonnull %dwab, i32 noundef 0, ptr noundef %encode, ptr noundef null)
+  %call2 = call fastcc i32 @DwaCompressor_construct(ptr noundef %dwab, i32 noundef 0, ptr noundef %encode, ptr noundef null)
   %cmp3 = icmp eq i32 %call2, 0
   br i1 %cmp3, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then
-  %call5 = call fastcc i32 @DwaCompressor_compress(ptr noundef nonnull %dwab)
+  %call5 = call fastcc i32 @DwaCompressor_compress(ptr noundef %dwab)
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
   %rv.1 = phi i32 [ %call5, %if.then4 ], [ %call2, %if.then ]
-  call fastcc void @DwaCompressor_destroy(ptr noundef nonnull %dwab)
+  call fastcc void @DwaCompressor_destroy(ptr noundef %dwab)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %entry
@@ -1621,17 +1621,17 @@ entry:
   br i1 %cmp, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
-  %call2 = call fastcc i32 @DwaCompressor_construct(ptr noundef nonnull %dwaa, i32 noundef 0, ptr noundef null, ptr noundef %decode)
+  %call2 = call fastcc i32 @DwaCompressor_construct(ptr noundef %dwaa, i32 noundef 0, ptr noundef null, ptr noundef %decode)
   %cmp3 = icmp eq i32 %call2, 0
   br i1 %cmp3, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then
-  %call5 = call fastcc i32 @DwaCompressor_uncompress(ptr noundef nonnull %dwaa, ptr noundef %compressed_data, i64 noundef %comp_buf_size, ptr noundef %uncompressed_data, i64 noundef %uncompressed_size)
+  %call5 = call fastcc i32 @DwaCompressor_uncompress(ptr noundef %dwaa, ptr noundef %compressed_data, i64 noundef %comp_buf_size, ptr noundef %uncompressed_data, i64 noundef %uncompressed_size)
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
   %rv.1 = phi i32 [ %call5, %if.then4 ], [ %call2, %if.then ]
-  call fastcc void @DwaCompressor_destroy(ptr noundef nonnull %dwaa)
+  call fastcc void @DwaCompressor_destroy(ptr noundef %dwaa)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %entry
@@ -1644,7 +1644,7 @@ declare i32 @internal_decode_alloc_buffer(ptr noundef, i32 noundef, ptr noundef,
 declare i64 @internal_exr_huf_decompress_spare_bytes() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @DwaCompressor_uncompress(ptr nocapture noundef %me, ptr noundef %inPtr, i64 noundef %iSize, ptr nocapture noundef writeonly %uncompressed_data, i64 noundef %uncompressed_size) unnamed_addr #0 {
+define internal fastcc i32 @DwaCompressor_uncompress(ptr nocapture noundef nonnull %me, ptr noundef %inPtr, i64 noundef %iSize, ptr nocapture noundef writeonly %uncompressed_data, i64 noundef %uncompressed_size) unnamed_addr #0 {
 entry:
   %suffix.i31.i = alloca [129 x i8], align 16
   %suffix.i.i = alloca [129 x i8], align 16
@@ -1934,7 +1934,7 @@ Classifier_read.exit76.i:                         ; preds = %if.end8.i41.i, %for
 
 if.end51:                                         ; preds = %Classifier_read.exit76.i, %if.then46, %if.then21.i
   %dataPtr.0 = phi ptr [ %add.ptr14, %if.then46 ], [ %add.ptr8.i, %if.then21.i ], [ %add.ptr8.i, %Classifier_read.exit76.i ]
-  %call52 = call fastcc i32 @DwaCompressor_initializeBuffers(ptr noundef %me, ptr noundef nonnull %outBufferSize)
+  %call52 = call fastcc i32 @DwaCompressor_initializeBuffers(ptr noundef %me, ptr noundef %outBufferSize)
   %cmp53.not = icmp eq i32 %call52, 0
   br i1 %cmp53.not, label %if.end55, label %return
 
@@ -1976,7 +1976,7 @@ if.end84:                                         ; preds = %if.end55
   br i1 %cmp85, label %return, label %if.end87
 
 if.end87:                                         ; preds = %if.end84
-  tail call fastcc void @DwaCompressor_setupChannelData(ptr noundef nonnull %me)
+  tail call fastcc void @DwaCompressor_setupChannelData(ptr noundef %me)
   %cmp89.not = icmp eq i64 %counters.sroa.3.0.copyload, 0
   br i1 %cmp89.not, label %if.end101, label %if.then90
 
@@ -2344,7 +2344,7 @@ if.end256:                                        ; preds = %lor.lhs.false248
   store i32 3, ptr %_channel_decode_data_count.i, align 8
   %93 = load ptr, ptr %alloc_fn284, align 8
   %94 = load ptr, ptr %free_fn285, align 8
-  %call286 = call fastcc i32 @LossyDctDecoder_execute(ptr noundef %93, ptr noundef %94, ptr noundef nonnull %decoder)
+  %call286 = call fastcc i32 @LossyDctDecoder_execute(ptr noundef %93, ptr noundef %94, ptr noundef %decoder)
   %95 = load i64, ptr %decoder, align 8
   %96 = load i64, ptr %_packedDcCount, align 8
   %97 = load ptr, ptr %_channelData236, align 8
@@ -2429,7 +2429,7 @@ LossyDctDecoder_construct.exit:                   ; preds = %sw.bb333, %if.then.
   store i32 1, ptr %_channel_decode_data_count.i275, align 8
   %111 = load ptr, ptr %alloc_fn346, align 8
   %112 = load ptr, ptr %free_fn347, align 8
-  %call348 = call fastcc i32 @LossyDctDecoder_execute(ptr noundef %111, ptr noundef %112, ptr noundef nonnull %decoder334)
+  %call348 = call fastcc i32 @LossyDctDecoder_execute(ptr noundef %111, ptr noundef %112, ptr noundef %decoder334)
   %113 = load i64, ptr %decoder334, align 8
   %mul351 = shl i64 %113, 1
   %add.ptr352 = getelementptr inbounds i8, ptr %packedAcBufferEnd.2329, i64 %mul351
@@ -2650,17 +2650,17 @@ entry:
   br i1 %cmp, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
-  %call2 = call fastcc i32 @DwaCompressor_construct(ptr noundef nonnull %dwaa, i32 noundef 0, ptr noundef null, ptr noundef %decode)
+  %call2 = call fastcc i32 @DwaCompressor_construct(ptr noundef %dwaa, i32 noundef 0, ptr noundef null, ptr noundef %decode)
   %cmp3 = icmp eq i32 %call2, 0
   br i1 %cmp3, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then
-  %call5 = call fastcc i32 @DwaCompressor_uncompress(ptr noundef nonnull %dwaa, ptr noundef %compressed_data, i64 noundef %comp_buf_size, ptr noundef %uncompressed_data, i64 noundef %uncompressed_size)
+  %call5 = call fastcc i32 @DwaCompressor_uncompress(ptr noundef %dwaa, ptr noundef %compressed_data, i64 noundef %comp_buf_size, ptr noundef %uncompressed_data, i64 noundef %uncompressed_size)
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
   %rv.1 = phi i32 [ %call5, %if.then4 ], [ %call2, %if.then ]
-  call fastcc void @DwaCompressor_destroy(ptr noundef nonnull %dwaa)
+  call fastcc void @DwaCompressor_destroy(ptr noundef %dwaa)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %entry
@@ -5587,37 +5587,37 @@ entry:
   %in.i = alloca [8 x <4 x float>], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %in.i)
   %0 = load <4 x float>, ptr %data, align 16
-  %shufp5.i = shufflevector <4 x float> %0, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp9.i = shufflevector <4 x float> %0, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp13.i = shufflevector <4 x float> %0, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx15.i = getelementptr inbounds i8, ptr %data, i64 16
-  %1 = load <4 x float>, ptr %arrayidx15.i, align 16
-  %shufp17.i = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp21.i = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp25.i = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp29.i = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
+  %shufp2881.i = shufflevector <4 x float> %0, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
+  %shufp2885.i = shufflevector <4 x float> %0, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
+  %shufp2889.i = shufflevector <4 x float> %0, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
+  %arrayidx2891.i = getelementptr inbounds i8, ptr %data, i64 16
+  %1 = load <4 x float>, ptr %arrayidx2891.i, align 16
+  %shufp2893.i = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
+  %shufp2897.i = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
+  %shufp2901.i = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
+  %shufp2905.i = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
   %2 = fmul <4 x float> %0, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i4030.i = fmul <4 x float> %shufp9.i, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i4027.i = fmul <4 x float> %shufp17.i, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i4024.i = fmul <4 x float> %shufp25.i, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i4021.i = fmul <4 x float> %shufp5.i, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i4018.i = fmul <4 x float> %shufp13.i, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i4015.i = fmul <4 x float> %shufp21.i, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i4012.i = fmul <4 x float> %shufp29.i, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
+  %mul.i3190.i = fmul <4 x float> %shufp2885.i, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
+  %mul.i3187.i = fmul <4 x float> %shufp2893.i, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
+  %mul.i3184.i = fmul <4 x float> %shufp2901.i, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
+  %mul.i3181.i = fmul <4 x float> %shufp2881.i, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
+  %mul.i3178.i = fmul <4 x float> %shufp2889.i, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
+  %mul.i3175.i = fmul <4 x float> %shufp2897.i, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
+  %mul.i3172.i = fmul <4 x float> %shufp2905.i, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
   %3 = fadd <4 x float> %2, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i5120.i = shufflevector <4 x float> %3, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i5117.i = fadd <4 x float> %mul.i4030.i, %add.i5120.i
-  %add.i5114.i = fadd <4 x float> %mul.i4027.i, %add.i5117.i
-  %add.i5111.i = fadd <4 x float> %mul.i4024.i, %add.i5114.i
-  %add.i5108.i = fadd <4 x float> %mul.i4021.i, zeroinitializer
-  %add.i5105.i = fadd <4 x float> %mul.i4018.i, %add.i5108.i
-  %add.i5102.i = fadd <4 x float> %mul.i4015.i, %add.i5105.i
-  %add.i5099.i = fadd <4 x float> %mul.i4012.i, %add.i5102.i
-  %add.i5096.i = fadd <4 x float> %add.i5111.i, %add.i5099.i
-  store <4 x float> %add.i5096.i, ptr %data, align 16
-  %sub.i5266.i = fsub <4 x float> %add.i5111.i, %add.i5099.i
-  %shufp78.i = shufflevector <4 x float> %sub.i5266.i, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %shufp78.i, ptr %arrayidx15.i, align 16
+  %add.i4175.i = shufflevector <4 x float> %3, <4 x float> poison, <4 x i32> zeroinitializer
+  %add.i4172.i = fadd <4 x float> %mul.i3190.i, %add.i4175.i
+  %add.i4169.i = fadd <4 x float> %mul.i3187.i, %add.i4172.i
+  %add.i4166.i = fadd <4 x float> %mul.i3184.i, %add.i4169.i
+  %add.i4163.i = fadd <4 x float> %mul.i3181.i, zeroinitializer
+  %add.i4160.i = fadd <4 x float> %mul.i3178.i, %add.i4163.i
+  %add.i4157.i = fadd <4 x float> %mul.i3175.i, %add.i4160.i
+  %add.i4154.i = fadd <4 x float> %mul.i3172.i, %add.i4157.i
+  %add.i4151.i = fadd <4 x float> %add.i4166.i, %add.i4154.i
+  store <4 x float> %add.i4151.i, ptr %data, align 16
+  %sub.i5161.i = fsub <4 x float> %add.i4166.i, %add.i4154.i
+  %shufp2955.i = shufflevector <4 x float> %sub.i5161.i, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
+  store <4 x float> %shufp2955.i, ptr %arrayidx2891.i, align 16
   %arrayidx2963.i = getelementptr inbounds i8, ptr %in.i, i64 32
   %arrayidx2969.i = getelementptr inbounds i8, ptr %in.i, i64 96
   %arrayidx2975.i = getelementptr inbounds i8, ptr %in.i, i64 16
@@ -5736,18 +5736,14 @@ dctInverse8x8_sse2.exit:                          ; preds = %for.end.i
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @dctInverse8x8_scalar(ptr nocapture noundef %data, i32 noundef %zeroedRows) unnamed_addr #3 {
+define internal fastcc void @dctInverse8x8_scalar(ptr nocapture noundef %data, i32 noundef range(i32 0, 8) %zeroedRows) unnamed_addr #3 {
 entry:
-  %cmp176.not = icmp eq i32 %zeroedRows, 8
-  br i1 %cmp176.not, label %for.body133.preheader, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %entry
-  %sub = sub i32 8, %zeroedRows
-  %wide.trip.count = zext i32 %sub to i64
+  %sub = sub nuw nsw i32 8, %zeroedRows
+  %wide.trip.count = zext nneg i32 %sub to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+for.body:                                         ; preds = %entry, %for.body
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %add.ptr.idx = shl nsw i64 %indvars.iv, 5
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %add.ptr.idx
   %arrayidx = getelementptr inbounds i8, ptr %add.ptr, i64 8
@@ -5813,36 +5809,33 @@ for.body:                                         ; preds = %for.body.preheader,
   store float %sub129, ptr %arrayidx31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.body133.preheader, label %for.body, !llvm.loop !53
+  br i1 %exitcond.not, label %for.body133, label %for.body, !llvm.loop !53
 
-for.body133.preheader:                            ; preds = %for.body, %entry
-  br label %for.body133
-
-for.body133:                                      ; preds = %for.body133.preheader, %for.body133
-  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %for.body133 ], [ 0, %for.body133.preheader ]
-  %20 = or disjoint i64 %indvars.iv181, 16
+for.body133:                                      ; preds = %for.body, %for.body133
+  %indvars.iv180 = phi i64 [ %indvars.iv.next181, %for.body133 ], [ 0, %for.body ]
+  %20 = or disjoint i64 %indvars.iv180, 16
   %arrayidx135 = getelementptr inbounds float, ptr %data, i64 %20
   %21 = load float, ptr %arrayidx135, align 4
   %mul136 = fmul float %21, 0x3FDD906C20000000
   %mul141 = fmul float %21, 0x3FC87DE660000000
-  %22 = or disjoint i64 %indvars.iv181, 48
+  %22 = or disjoint i64 %indvars.iv180, 48
   %arrayidx145 = getelementptr inbounds float, ptr %data, i64 %22
   %23 = load float, ptr %arrayidx145, align 4
   %mul146 = fmul float %23, 0x3FDD906C20000000
   %mul151 = fmul float %23, 0x3FC87DE660000000
-  %24 = or disjoint i64 %indvars.iv181, 8
+  %24 = or disjoint i64 %indvars.iv180, 8
   %arrayidx155 = getelementptr inbounds float, ptr %data, i64 %24
   %25 = load float, ptr %arrayidx155, align 4
-  %26 = or disjoint i64 %indvars.iv181, 24
+  %26 = or disjoint i64 %indvars.iv180, 24
   %arrayidx159 = getelementptr inbounds float, ptr %data, i64 %26
   %27 = load float, ptr %arrayidx159, align 4
   %mul160 = fmul float %27, 0x3FDA9B66C0000000
   %28 = tail call float @llvm.fmuladd.f32(float %25, float 0x3FDF6297E0000000, float %mul160)
-  %29 = or disjoint i64 %indvars.iv181, 40
+  %29 = or disjoint i64 %indvars.iv180, 40
   %arrayidx163 = getelementptr inbounds float, ptr %data, i64 %29
   %30 = load float, ptr %arrayidx163, align 4
   %31 = tail call float @llvm.fmuladd.f32(float %30, float 0x3FD1C73CA0000000, float %28)
-  %32 = or disjoint i64 %indvars.iv181, 56
+  %32 = or disjoint i64 %indvars.iv180, 56
   %arrayidx167 = getelementptr inbounds float, ptr %data, i64 %32
   %33 = load float, ptr %arrayidx167, align 4
   %34 = tail call float @llvm.fmuladd.f32(float %33, float 0x3FB8F8C160000000, float %31)
@@ -5858,9 +5851,9 @@ for.body133:                                      ; preds = %for.body133.prehead
   %41 = tail call float @llvm.fmuladd.f32(float %25, float 0x3FB8F8C160000000, float %neg216)
   %42 = tail call float @llvm.fmuladd.f32(float %30, float 0x3FDA9B66C0000000, float %41)
   %43 = tail call float @llvm.fmuladd.f32(float %33, float 0xBFDF6297E0000000, float %42)
-  %arrayidx228 = getelementptr inbounds float, ptr %data, i64 %indvars.iv181
+  %arrayidx228 = getelementptr inbounds float, ptr %data, i64 %indvars.iv180
   %44 = load float, ptr %arrayidx228, align 4
-  %45 = or disjoint i64 %indvars.iv181, 32
+  %45 = or disjoint i64 %indvars.iv180, 32
   %arrayidx231 = getelementptr inbounds float, ptr %data, i64 %45
   %46 = load float, ptr %arrayidx231, align 4
   %add232 = fadd float %44, %46
@@ -5889,9 +5882,9 @@ for.body133:                                      ; preds = %for.body133.prehead
   store float %sub304, ptr %arrayidx145, align 4
   %sub310 = fsub float %add253, %34
   store float %sub310, ptr %arrayidx167, align 4
-  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
-  %exitcond191.not = icmp eq i64 %indvars.iv.next182, 8
-  br i1 %exitcond191.not, label %for.end316, label %for.body133, !llvm.loop !54
+  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
+  %exitcond190.not = icmp eq i64 %indvars.iv.next181, 8
+  br i1 %exitcond190.not, label %for.end316, label %for.body133, !llvm.loop !54
 
 for.end316:                                       ; preds = %for.body133
   ret void
@@ -5901,42 +5894,42 @@ for.end316:                                       ; preds = %for.body133
 declare float @llvm.fmuladd.f32(float, float, float) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @dctInverse8x8_sse2(ptr nocapture noundef %data, i32 noundef %zeroedRows) unnamed_addr #5 {
+define internal fastcc void @dctInverse8x8_sse2(ptr nocapture noundef %data, i32 noundef range(i32 0, 8) %zeroedRows) unnamed_addr #5 {
 entry:
   %in = alloca [8 x <4 x float>], align 16
   %0 = load <4 x float>, ptr %data, align 16
-  %shufp5 = shufflevector <4 x float> %0, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp9 = shufflevector <4 x float> %0, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp13 = shufflevector <4 x float> %0, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx15 = getelementptr inbounds i8, ptr %data, i64 16
-  %1 = load <4 x float>, ptr %arrayidx15, align 16
-  %shufp17 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp21 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp25 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp29 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
+  %shufp2881 = shufflevector <4 x float> %0, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
+  %shufp2885 = shufflevector <4 x float> %0, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
+  %shufp2889 = shufflevector <4 x float> %0, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
+  %arrayidx2891 = getelementptr inbounds i8, ptr %data, i64 16
+  %1 = load <4 x float>, ptr %arrayidx2891, align 16
+  %shufp2893 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> zeroinitializer
+  %shufp2897 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
+  %shufp2901 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
+  %shufp2905 = shufflevector <4 x float> %1, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
   %2 = fmul <4 x float> %0, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i4030 = fmul <4 x float> %shufp9, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i4027 = fmul <4 x float> %shufp17, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i4024 = fmul <4 x float> %shufp25, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i4021 = fmul <4 x float> %shufp5, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i4018 = fmul <4 x float> %shufp13, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i4015 = fmul <4 x float> %shufp21, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i4012 = fmul <4 x float> %shufp29, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
+  %mul.i3190 = fmul <4 x float> %shufp2885, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
+  %mul.i3187 = fmul <4 x float> %shufp2893, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
+  %mul.i3184 = fmul <4 x float> %shufp2901, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
+  %mul.i3181 = fmul <4 x float> %shufp2881, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
+  %mul.i3178 = fmul <4 x float> %shufp2889, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
+  %mul.i3175 = fmul <4 x float> %shufp2897, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
+  %mul.i3172 = fmul <4 x float> %shufp2905, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
   %3 = fadd <4 x float> %2, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i5120 = shufflevector <4 x float> %3, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i5117 = fadd <4 x float> %mul.i4030, %add.i5120
-  %add.i5114 = fadd <4 x float> %mul.i4027, %add.i5117
-  %add.i5111 = fadd <4 x float> %mul.i4024, %add.i5114
-  %add.i5108 = fadd <4 x float> %mul.i4021, zeroinitializer
-  %add.i5105 = fadd <4 x float> %mul.i4018, %add.i5108
-  %add.i5102 = fadd <4 x float> %mul.i4015, %add.i5105
-  %add.i5099 = fadd <4 x float> %mul.i4012, %add.i5102
-  %add.i5096 = fadd <4 x float> %add.i5111, %add.i5099
-  store <4 x float> %add.i5096, ptr %data, align 16
-  %sub.i5266 = fsub <4 x float> %add.i5111, %add.i5099
-  %shufp78 = shufflevector <4 x float> %sub.i5266, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %shufp78, ptr %arrayidx15, align 16
-  switch i32 %zeroedRows, label %sw.default [
+  %add.i4175 = shufflevector <4 x float> %3, <4 x float> poison, <4 x i32> zeroinitializer
+  %add.i4172 = fadd <4 x float> %mul.i3190, %add.i4175
+  %add.i4169 = fadd <4 x float> %mul.i3187, %add.i4172
+  %add.i4166 = fadd <4 x float> %mul.i3184, %add.i4169
+  %add.i4163 = fadd <4 x float> %mul.i3181, zeroinitializer
+  %add.i4160 = fadd <4 x float> %mul.i3178, %add.i4163
+  %add.i4157 = fadd <4 x float> %mul.i3175, %add.i4160
+  %add.i4154 = fadd <4 x float> %mul.i3172, %add.i4157
+  %add.i4151 = fadd <4 x float> %add.i4166, %add.i4154
+  store <4 x float> %add.i4151, ptr %data, align 16
+  %sub.i5161 = fsub <4 x float> %add.i4166, %add.i4154
+  %shufp2955 = shufflevector <4 x float> %sub.i5161, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
+  store <4 x float> %shufp2955, ptr %arrayidx2891, align 16
+  switch i32 %zeroedRows, label %default.unreachable [
     i32 7, label %sw.epilog
     i32 1, label %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split
     i32 2, label %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split
@@ -5944,7 +5937,11 @@ entry:
     i32 4, label %sw.epilog.sink.split.sink.split.sink.split
     i32 5, label %sw.epilog.sink.split.sink.split
     i32 6, label %sw.epilog.sink.split
+    i32 0, label %sw.default
   ]
+
+default.unreachable:                              ; preds = %entry
+  unreachable
 
 sw.default:                                       ; preds = %entry
   %arrayidx80 = getelementptr inbounds i8, ptr %data, i64 32
@@ -6356,7 +6353,7 @@ for.end3106:                                      ; preds = %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @DwaCompressor_initializeBuffers(ptr nocapture noundef %me, ptr nocapture noundef writeonly %bufferSize) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @DwaCompressor_initializeBuffers(ptr nocapture noundef nonnull %me, ptr nocapture noundef nonnull writeonly %bufferSize) unnamed_addr #0 {
 entry:
   %planarUncBufferSize = alloca [3 x i64], align 16
   %_numScanLines = getelementptr inbounds i8, ptr %me, i64 20
@@ -6909,7 +6906,7 @@ return:                                           ; preds = %for.body51, %for.in
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @DwaCompressor_setupChannelData(ptr nocapture noundef readonly %me) unnamed_addr #7 {
+define internal fastcc void @DwaCompressor_setupChannelData(ptr nocapture noundef nonnull readonly %me) unnamed_addr #7 {
 entry:
   %planarUncBuffer = alloca [3 x ptr], align 16
   %_planarUncBuffer = getelementptr inbounds i8, ptr %me, i64 136
@@ -7087,7 +7084,7 @@ return:                                           ; preds = %if.then, %if.end15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @LossyDctEncoder_execute(ptr nocapture noundef readonly %alloc_fn, ptr nocapture noundef readonly %free_fn, ptr nocapture noundef %e) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @LossyDctEncoder_execute(ptr nocapture noundef readonly %alloc_fn, ptr nocapture noundef readonly %free_fn, ptr nocapture noundef nonnull %e) unnamed_addr #8 {
 entry:
   %chanData = alloca [3 x ptr], align 16
   %halfZigCoef = alloca [64 x i16], align 16
@@ -8021,7 +8018,7 @@ return:                                           ; preds = %for.end243, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @LossyDctEncoder_construct(ptr nocapture noundef writeonly %e, float noundef %quantBaseError, ptr noundef %rowPtrs, ptr noundef %packedAc, ptr noundef %packedDc, ptr noundef %toNonlinear, i32 noundef %width, i32 noundef %height) unnamed_addr #9 {
+define internal fastcc void @LossyDctEncoder_construct(ptr nocapture noundef nonnull writeonly %e, float noundef %quantBaseError, ptr noundef %rowPtrs, ptr noundef %packedAc, ptr noundef %packedDc, ptr noundef %toNonlinear, i32 noundef %width, i32 noundef %height) unnamed_addr #9 {
 entry:
   %_quantBaseError.i = getelementptr inbounds i8, ptr %e, i64 60
   store float %quantBaseError, ptr %_quantBaseError.i, align 4
@@ -8122,7 +8119,7 @@ declare void @internal_zip_reconstruct_bytes(ptr noundef, ptr noundef, i64 nound
 declare i64 @internal_rle_decompress(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 24) i32 @LossyDctDecoder_execute(ptr nocapture noundef readonly %alloc_fn, ptr nocapture noundef readonly %free_fn, ptr nocapture noundef %d) unnamed_addr #8 {
+define internal fastcc range(i32 0, 24) i32 @LossyDctDecoder_execute(ptr nocapture noundef readonly %alloc_fn, ptr nocapture noundef readonly %free_fn, ptr nocapture noundef nonnull %d) unnamed_addr #8 {
 entry:
   %chanData = alloca [3 x ptr], align 16
   %currDcComp = alloca [3 x ptr], align 16

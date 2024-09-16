@@ -1303,7 +1303,7 @@ _ZN5faiss11IndexFlat1DC2ERKS0_.exit:              ; preds = %.noexc5.i.thread, %
   br i1 %112, label %116, label %113
 
 113:                                              ; preds = %105
-  %114 = tail call fastcc noundef ptr @_ZN5faiss12_GLOBAL__N_119clone_InvertedListsEPKNS_13InvertedListsE(ptr noundef nonnull %111)
+  %114 = tail call fastcc noundef ptr @_ZN5faiss12_GLOBAL__N_119clone_InvertedListsEPKNS_13InvertedListsE(ptr noundef %111)
   %115 = getelementptr inbounds i8, ptr %109, i64 144
   store i8 1, ptr %115, align 8
   br label %116
@@ -10588,10 +10588,10 @@ define linkonce_odr void @_ZN5faiss19MultiIndexQuantizerC2ERKS0_(ptr noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN5faiss12_GLOBAL__N_119clone_InvertedListsEPKNS_13InvertedListsE(ptr noundef %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN5faiss12_GLOBAL__N_119clone_InvertedListsEPKNS_13InvertedListsE(ptr noundef nonnull %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = tail call ptr @__dynamic_cast(ptr %0, ptr nonnull @_ZTIN5faiss13InvertedListsE, ptr nonnull @_ZTIN5faiss18ArrayInvertedListsE, i64 0) #22
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss13InvertedListsE, ptr nonnull @_ZTIN5faiss18ArrayInvertedListsE, i64 0) #22
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
 
@@ -10607,7 +10607,7 @@ define internal fastcc noundef nonnull ptr @_ZN5faiss12_GLOBAL__N_119clone_Inver
   br label %77
 
 9:                                                ; preds = %1
-  %10 = tail call ptr @__dynamic_cast(ptr %0, ptr nonnull @_ZTIN5faiss13InvertedListsE, ptr nonnull @_ZTIN5faiss18BlockInvertedListsE, i64 0) #22
+  %10 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss13InvertedListsE, ptr nonnull @_ZTIN5faiss18BlockInvertedListsE, i64 0) #22
   %.not29 = icmp eq ptr %10, null
   br i1 %.not29, label %44, label %11
 

@@ -316,7 +316,7 @@ lor.lhs.false136:                                 ; preds = %land.lhs.true133
   br i1 %tobool140.not, label %err.sink.split, label %if.end142
 
 if.end142:                                        ; preds = %lor.lhs.false136, %if.end130
-  %call143 = tail call fastcc i32 @ec_point_ladder_pre(ptr noundef nonnull %group, ptr noundef nonnull %r, ptr noundef nonnull %call12, ptr noundef nonnull %call10, ptr noundef %ctx)
+  %call143 = tail call fastcc i32 @ec_point_ladder_pre(ptr noundef nonnull %group, ptr noundef nonnull %r, ptr noundef %call12, ptr noundef %call10, ptr noundef %ctx)
   %tobool144.not = icmp eq i32 %call143, 0
   br i1 %tobool144.not, label %err.sink.split, label %for.cond.preheader
 
@@ -354,7 +354,7 @@ for.body:                                         ; preds = %for.cond
   %35 = load i32, ptr %Z_is_one161, align 8
   %xor166 = xor i32 %35, %and
   store i32 %xor166, ptr %Z_is_one161, align 8
-  %call168 = tail call fastcc i32 @ec_point_ladder_step(ptr noundef %group, ptr noundef nonnull %r, ptr noundef %call12, ptr noundef nonnull %call10, ptr noundef %ctx)
+  %call168 = tail call fastcc i32 @ec_point_ladder_step(ptr noundef %group, ptr noundef nonnull %r, ptr noundef %call12, ptr noundef %call10, ptr noundef %ctx)
   %tobool169.not = icmp eq i32 %call168, 0
   br i1 %tobool169.not, label %err.sink.split, label %for.cond, !llvm.loop !6
 
@@ -454,7 +454,7 @@ declare i32 @BN_is_bit_set(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @BN_consttime_swap(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ec_point_ladder_pre(ptr noundef %group, ptr noundef %r, ptr noundef %s, ptr noundef %p, ptr noundef %ctx) unnamed_addr #1 {
+define internal fastcc i32 @ec_point_ladder_pre(ptr noundef %group, ptr noundef %r, ptr noundef nonnull %s, ptr noundef nonnull %p, ptr noundef %ctx) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %group, align 8
   %ladder_pre = getelementptr inbounds i8, ptr %0, i64 416
@@ -463,16 +463,16 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 %1(ptr noundef nonnull %group, ptr noundef %r, ptr noundef %s, ptr noundef %p, ptr noundef %ctx) #6
+  %call = tail call i32 %1(ptr noundef nonnull %group, ptr noundef %r, ptr noundef nonnull %s, ptr noundef nonnull %p, ptr noundef %ctx) #6
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call3 = tail call i32 @EC_POINT_copy(ptr noundef %s, ptr noundef %p) #6
+  %call3 = tail call i32 @EC_POINT_copy(ptr noundef nonnull %s, ptr noundef nonnull %p) #6
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call4 = tail call i32 @EC_POINT_dbl(ptr noundef nonnull %group, ptr noundef %r, ptr noundef %s, ptr noundef %ctx) #6
+  %call4 = tail call i32 @EC_POINT_dbl(ptr noundef nonnull %group, ptr noundef %r, ptr noundef nonnull %s, ptr noundef %ctx) #6
   %tobool5.not = icmp ne i32 %call4, 0
   %spec.select = zext i1 %tobool5.not to i32
   br label %return
@@ -483,7 +483,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ec_point_ladder_step(ptr noundef %group, ptr noundef %r, ptr noundef %s, ptr noundef %p, ptr noundef %ctx) unnamed_addr #1 {
+define internal fastcc i32 @ec_point_ladder_step(ptr noundef %group, ptr noundef %r, ptr noundef nonnull %s, ptr noundef nonnull %p, ptr noundef %ctx) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %group, align 8
   %ladder_step = getelementptr inbounds i8, ptr %0, i64 424
@@ -492,11 +492,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 %1(ptr noundef nonnull %group, ptr noundef %r, ptr noundef %s, ptr noundef %p, ptr noundef %ctx) #6
+  %call = tail call i32 %1(ptr noundef nonnull %group, ptr noundef %r, ptr noundef nonnull %s, ptr noundef nonnull %p, ptr noundef %ctx) #6
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call3 = tail call i32 @EC_POINT_add(ptr noundef nonnull %group, ptr noundef %s, ptr noundef %r, ptr noundef %s, ptr noundef %ctx) #6
+  %call3 = tail call i32 @EC_POINT_add(ptr noundef nonnull %group, ptr noundef nonnull %s, ptr noundef %r, ptr noundef nonnull %s, ptr noundef %ctx) #6
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 

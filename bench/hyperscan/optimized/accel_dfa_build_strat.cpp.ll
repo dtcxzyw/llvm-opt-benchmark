@@ -286,7 +286,7 @@ invoke.cont2:                                     ; preds = %entry
   %conv = zext i16 %this_idx to i64
   %1 = load ptr, ptr %states, align 8
   %add.ptr.i = getelementptr inbounds %"struct.ue2::dstate", ptr %1, i64 %conv
-  invoke fastcc void @_ZN3ue2L23reverse_alpha_remappingERKNS_7raw_dfaE(ptr noalias nonnull align 8 %rev_map, ptr noundef nonnull align 8 dereferenceable(560) %call)
+  invoke fastcc void @_ZN3ue2L23reverse_alpha_remappingERKNS_7raw_dfaE(ptr noalias align 8 %rev_map, ptr noundef nonnull align 8 dereferenceable(560) %call)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
@@ -871,7 +871,7 @@ invoke.cont162:                                   ; preds = %do.end158
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %ref.tmp19.i.i), !noalias !36
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %next_gen.i.i), !noalias !36
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp51.i.i), !noalias !36
-  invoke fastcc void @_ZN3ue2L23reverse_alpha_remappingERKNS_7raw_dfaE(ptr noalias nonnull align 8 %rev_map.i.i, ptr noundef nonnull readonly align 8 dereferenceable(560) %call)
+  invoke fastcc void @_ZN3ue2L23reverse_alpha_remappingERKNS_7raw_dfaE(ptr noalias align 8 %rev_map.i.i, ptr noundef nonnull readonly align 8 dereferenceable(560) %call)
           to label %.noexc176 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp
 
 .noexc176:                                        ; preds = %invoke.cont162
@@ -3138,7 +3138,7 @@ _ZN3ue211AccelSchemeD2Ev.exit240:                 ; preds = %ehcleanup187, %if.t
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L23reverse_alpha_remappingERKNS_7raw_dfaE(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %rdfa) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L23reverse_alpha_remappingERKNS_7raw_dfaE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %rdfa) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %alpha_size = getelementptr inbounds i8, ptr %rdfa, i64 44
   %0 = load i16, ptr %alpha_size, align 4

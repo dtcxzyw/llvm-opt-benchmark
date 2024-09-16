@@ -550,7 +550,7 @@ define internal i32 @sky2_probe(ptr noundef %0, ptr nocapture readnone %1) #2 al
   %171 = zext i8 %170 to i32
   call void (ptr, ptr, ...) @_dev_info(ptr noundef %25, ptr noundef nonnull @.str.11, ptr noundef nonnull %4, i32 noundef %171) #24
   call fastcc void @sky2_reset(ptr noundef nonnull %57)
-  %172 = call fastcc ptr @sky2_init_netdev(ptr noundef nonnull %57, i32 noundef 0, i32 noundef %37, i32 noundef %47)
+  %172 = call fastcc ptr @sky2_init_netdev(ptr noundef %57, i32 noundef 0, i32 noundef %37, i32 noundef %47)
   %173 = icmp eq ptr %172, null
   br i1 %173, label %247, label %174
 
@@ -577,7 +577,7 @@ define internal i32 @sky2_probe(ptr noundef %0, ptr nocapture readnone %1) #2 al
   br i1 %186, label %187, label %192
 
 187:                                              ; preds = %184
-  %188 = call fastcc i32 @sky2_test_msi(ptr noundef nonnull %57)
+  %188 = call fastcc i32 @sky2_test_msi(ptr noundef %57)
   %189 = icmp eq i32 %188, 0
   br i1 %189, label %192, label %190
 
@@ -617,7 +617,7 @@ define internal i32 @sky2_probe(ptr noundef %0, ptr nocapture readnone %1) #2 al
   br i1 %207, label %208, label %226
 
 208:                                              ; preds = %205
-  %209 = call fastcc ptr @sky2_init_netdev(ptr noundef nonnull %57, i32 noundef 1, i32 noundef %37, i32 noundef %47)
+  %209 = call fastcc ptr @sky2_init_netdev(ptr noundef %57, i32 noundef 1, i32 noundef %37, i32 noundef %47)
   %210 = icmp eq ptr %209, null
   br i1 %210, label %237, label %211
 
@@ -631,7 +631,7 @@ define internal i32 @sky2_probe(ptr noundef %0, ptr nocapture readnone %1) #2 al
   br label %235
 
 215:                                              ; preds = %211
-  %216 = call fastcc i32 @sky2_setup_irq(ptr noundef nonnull %57, ptr noundef %61)
+  %216 = call fastcc i32 @sky2_setup_irq(ptr noundef %57, ptr noundef %61)
   %217 = icmp eq i32 %216, 0
   br i1 %217, label %218, label %234
 
@@ -1653,7 +1653,7 @@ thread-pre-split.thread:                          ; preds = %128, %186, %thread-
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @sky2_init_netdev(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc ptr @sky2_init_netdev(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 33) %3) unnamed_addr #2 align 16 {
   %5 = alloca [6 x i8], align 1
   %6 = alloca [6 x i8], align 1
   %7 = alloca %struct.sockaddr, align 2
@@ -1874,7 +1874,7 @@ declare dso_local i32 @dmi_check_system(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @pci_enable_msi(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @sky2_test_msi(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc i32 @sky2_test_msi(ptr noundef nonnull %0) unnamed_addr #2 align 16 {
   %2 = alloca %struct.wait_queue_entry, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1882,7 +1882,7 @@ define internal fastcc i32 @sky2_test_msi(ptr noundef %0) unnamed_addr #2 align 
   tail call void @__init_waitqueue_head(ptr noundef %5, ptr noundef nonnull @.str.60, ptr noundef nonnull @sky2_test_msi.__key) #23
   %6 = getelementptr inbounds i8, ptr %4, i64 916
   %7 = load i32, ptr %6, align 4
-  %8 = tail call i32 @request_threaded_irq(i32 noundef %7, ptr noundef nonnull @sky2_test_intr, ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %0) #23
+  %8 = tail call i32 @request_threaded_irq(i32 noundef %7, ptr noundef nonnull @sky2_test_intr, ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull %0) #23
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %13, label %10
 
@@ -1962,7 +1962,7 @@ define internal fastcc i32 @sky2_test_msi(ptr noundef %0) unnamed_addr #2 align 
   %54 = getelementptr i8, ptr %53, i64 12
   %55 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %54) #23, !srcloc !12
   %56 = load i32, ptr %6, align 4
-  %57 = call ptr @free_irq(i32 noundef %56, ptr noundef %0) #23
+  %57 = call ptr @free_irq(i32 noundef %56, ptr noundef nonnull %0) #23
   br label %58
 
 58:                                               ; preds = %49, %10
@@ -3002,7 +3002,7 @@ declare dso_local i32 @register_netdev(ptr noundef) local_unnamed_addr #1
 declare dso_local void @netif_carrier_off(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @sky2_setup_irq(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc i32 @sky2_setup_irq(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 916
@@ -3012,7 +3012,7 @@ define internal fastcc i32 @sky2_setup_irq(ptr noundef %0, ptr noundef %1) unnam
   %9 = shl i64 %8, 7
   %10 = and i64 %9, 128
   %11 = xor i64 %10, 128
-  %12 = tail call i32 @request_threaded_irq(i32 noundef %6, ptr noundef nonnull @sky2_intr, ptr noundef null, i64 noundef %11, ptr noundef %1, ptr noundef %0) #23
+  %12 = tail call i32 @request_threaded_irq(i32 noundef %6, ptr noundef nonnull @sky2_intr, ptr noundef null, i64 noundef %11, ptr noundef %1, ptr noundef nonnull %0) #23
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %17, label %14
 
@@ -3253,7 +3253,7 @@ declare dso_local ptr @dma_alloc_attrs(ptr noundef, i64 noundef, ptr noundef, i3
 declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @sky2_us2clk(i8 %.440.val, i32 noundef %0) unnamed_addr #11 align 16 {
+define internal fastcc noundef i32 @sky2_us2clk(i8 %.440.val, i32 noundef range(i32 1, 0) %0) unnamed_addr #11 align 16 {
   switch i8 %.440.val, label %5 [
     i8 -74, label %6
     i8 -76, label %6
@@ -10491,7 +10491,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @sky2_alloc_rx_skbs(ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @sky2_rx_alloc(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc ptr @sky2_rx_alloc(ptr nocapture noundef readonly %0, i32 noundef range(i32 2080, 3265) %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 166
@@ -10643,7 +10643,7 @@ define internal fastcc ptr @sky2_rx_alloc(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @sky2_rx_map_skb(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @sky2_rx_map_skb(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 65536) %2) unnamed_addr #2 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 184
   %6 = getelementptr inbounds i8, ptr %4, i64 200
@@ -10826,7 +10826,7 @@ declare dso_local i64 @dma_map_page_attrs(ptr noundef, ptr noundef, i64 noundef,
 declare dso_local zeroext i8 @pci_find_capability(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @sky2_ramset(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc void @sky2_ramset(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef range(i32 0, 1431655774) %2, i32 noundef range(i32 -1431655773, 1431655774) %3) unnamed_addr #2 align 16 {
   %5 = shl nuw nsw i32 %2, 7
   %6 = shl nsw i32 %3, 7
   %7 = add nsw i32 %5, -1
@@ -13403,7 +13403,7 @@ define internal fastcc void @sky2_err_intr(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @sky2_phy_intr(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @sky2_phy_intr(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 416
   %4 = zext nneg i32 %1 to i64
   %5 = getelementptr [2 x ptr], ptr %3, i64 0, i64 %4
@@ -13418,14 +13418,14 @@ define internal fastcc void @sky2_phy_intr(ptr nocapture noundef readonly %0, i3
 12:                                               ; preds = %2
   %13 = getelementptr i8, ptr %6, i64 2328
   tail call void @_raw_spin_lock(ptr noundef %13) #23
-  %14 = shl i32 %1, 12
-  %15 = add i32 %14, 10368
+  %14 = shl nuw nsw i32 %1, 12
+  %15 = or disjoint i32 %14, 10368
   %16 = load ptr, ptr %0, align 8
-  %17 = zext i32 %15 to i64
+  %17 = zext nneg i32 %15 to i64
   %18 = getelementptr i8, ptr %16, i64 %17
   tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 1248, ptr elementtype(i16) %18) #23, !srcloc !13
-  %19 = add i32 %14, 10372
-  %20 = zext i32 %19 to i64
+  %19 = or disjoint i32 %14, 10372
+  %20 = zext nneg i32 %19 to i64
   br label %21
 
 21:                                               ; preds = %34, %12
@@ -13974,7 +13974,7 @@ gm_phy_write.exit:                                ; preds = %317, %323, %332
 declare dso_local zeroext i1 @napi_complete_done(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @sky2_hw_error(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc void @sky2_hw_error(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 416
   %5 = zext nneg i32 %1 to i64
   %6 = getelementptr [2 x ptr], ptr %4, i64 0, i64 %5
@@ -14003,7 +14003,7 @@ define internal fastcc void @sky2_hw_error(ptr nocapture noundef readonly %0, i3
 
 18:                                               ; preds = %17, %14
   %19 = shl nuw nsw i32 %1, 6
-  %20 = or i32 %19, 416
+  %20 = or disjoint i32 %19, 416
   %21 = load ptr, ptr %0, align 8
   %22 = zext nneg i32 %20 to i64
   %23 = getelementptr i8, ptr %21, i64 %22
@@ -14026,7 +14026,7 @@ define internal fastcc void @sky2_hw_error(ptr nocapture noundef readonly %0, i3
 
 31:                                               ; preds = %30, %27
   %32 = shl nuw nsw i32 %1, 6
-  %33 = or i32 %32, 416
+  %33 = or disjoint i32 %32, 416
   %34 = load ptr, ptr %0, align 8
   %35 = zext nneg i32 %33 to i64
   %36 = getelementptr i8, ptr %34, i64 %35

@@ -419,7 +419,7 @@ sw.bb53:                                          ; preds = %if.end52, %if.end52
   br i1 %cmp54, label %if.then91.thread75, label %if.else
 
 if.else:                                          ; preds = %sw.bb53
-  %call56 = tail call fastcc ptr @process_cert_request(ptr noundef nonnull %srv_ctx, ptr noundef nonnull %req)
+  %call56 = tail call fastcc ptr @process_cert_request(ptr noundef %srv_ctx, ptr noundef %req)
   br label %err
 
 sw.bb58:                                          ; preds = %if.end52
@@ -429,7 +429,7 @@ sw.bb58:                                          ; preds = %if.end52
   br i1 %cmp59, label %if.then91.thread75, label %if.else61
 
 if.else61:                                        ; preds = %sw.bb58
-  %call62 = tail call fastcc ptr @process_rr(ptr noundef nonnull %srv_ctx, ptr noundef nonnull %req)
+  %call62 = tail call fastcc ptr @process_rr(ptr noundef %srv_ctx, ptr noundef %req)
   br label %err
 
 sw.bb64:                                          ; preds = %if.end52
@@ -439,7 +439,7 @@ sw.bb64:                                          ; preds = %if.end52
   br i1 %cmp65, label %if.then91.thread75, label %if.else67
 
 if.else67:                                        ; preds = %sw.bb64
-  %call68 = tail call fastcc ptr @process_genm(ptr noundef nonnull %srv_ctx, ptr noundef nonnull %req)
+  %call68 = tail call fastcc ptr @process_genm(ptr noundef %srv_ctx, ptr noundef %req)
   br label %err
 
 sw.bb70:                                          ; preds = %if.end52
@@ -449,7 +449,7 @@ sw.bb70:                                          ; preds = %if.end52
   br i1 %cmp71, label %if.then91.thread75, label %if.else73
 
 if.else73:                                        ; preds = %sw.bb70
-  %call74 = tail call fastcc ptr @process_error(ptr noundef nonnull %srv_ctx, ptr noundef nonnull %req)
+  %call74 = tail call fastcc ptr @process_error(ptr noundef %srv_ctx, ptr noundef %req)
   br label %err
 
 sw.bb76:                                          ; preds = %if.end52
@@ -459,7 +459,7 @@ sw.bb76:                                          ; preds = %if.end52
   br i1 %cmp77, label %if.then91.thread75, label %if.else79
 
 if.else79:                                        ; preds = %sw.bb76
-  %call80 = tail call fastcc ptr @process_certConf(ptr noundef nonnull %srv_ctx, ptr noundef nonnull %req)
+  %call80 = tail call fastcc ptr @process_certConf(ptr noundef %srv_ctx, ptr noundef %req)
   br label %err
 
 sw.bb82:                                          ; preds = %if.end52
@@ -469,7 +469,7 @@ sw.bb82:                                          ; preds = %if.end52
   br i1 %cmp83, label %if.then91.thread75, label %if.else85
 
 if.else85:                                        ; preds = %sw.bb82
-  %call86 = tail call fastcc ptr @process_pollReq(ptr noundef nonnull %srv_ctx, ptr noundef nonnull %req)
+  %call86 = tail call fastcc ptr @process_pollReq(ptr noundef %srv_ctx, ptr noundef %req)
   br label %err
 
 err:                                              ; preds = %if.else, %if.else61, %if.else67, %if.else73, %if.else79, %if.else85
@@ -666,7 +666,7 @@ return:                                           ; preds = %if.end7, %land.lhs.
 declare i32 @ossl_cmp_hdr_get_protection_nid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @process_cert_request(ptr noundef %srv_ctx, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc ptr @process_cert_request(ptr noundef nonnull %srv_ctx, ptr noundef nonnull %req) unnamed_addr #0 {
 entry:
   %certOut = alloca ptr, align 8
   %chainOut = alloca ptr, align 8
@@ -680,7 +680,7 @@ entry:
   br i1 %cmp1.not.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @OSSL_CMP_MSG_get_bodytype(ptr noundef %req) #2
+  %call = tail call i32 @OSSL_CMP_MSG_get_bodytype(ptr noundef nonnull %req) #2
   %1 = icmp ult i32 %call, 8
   br i1 %1, label %switch.hole_check, label %sw.default
 
@@ -700,7 +700,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %2 = zext nneg i32 %call to i64
   %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table.process_cert_request, i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
-  %call7 = tail call i32 @OSSL_CMP_MSG_get_bodytype(ptr noundef %req) #2
+  %call7 = tail call i32 @OSSL_CMP_MSG_get_bodytype(ptr noundef nonnull %req) #2
   %cmp8 = icmp eq i32 %call7, 4
   %body = getelementptr inbounds i8, ptr %req, i64 8
   %3 = load ptr, ptr %body, align 8
@@ -835,7 +835,7 @@ return:                                           ; preds = %if.then35, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @process_rr(ptr noundef %srv_ctx, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc ptr @process_rr(ptr noundef nonnull %srv_ctx, ptr noundef nonnull %req) unnamed_addr #0 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %srv_ctx, i64 8
   %0 = load ptr, ptr %ctx, align 8
@@ -919,7 +919,7 @@ return:                                           ; preds = %land.lhs.true23, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @process_genm(ptr noundef %srv_ctx, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc ptr @process_genm(ptr noundef nonnull %srv_ctx, ptr noundef nonnull %req) unnamed_addr #0 {
 entry:
   %itavs = alloca ptr, align 8
   %ctx = getelementptr inbounds i8, ptr %srv_ctx, i64 8
@@ -934,7 +934,7 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %body, align 8
   %value = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %value, align 8
-  %call = call i32 %1(ptr noundef nonnull %srv_ctx, ptr noundef %req, ptr noundef %3, ptr noundef nonnull %itavs) #2
+  %call = call i32 %1(ptr noundef nonnull %srv_ctx, ptr noundef nonnull %req, ptr noundef %3, ptr noundef nonnull %itavs) #2
   %tobool5.not = icmp eq i32 %call, 0
   br i1 %tobool5.not, label %return, label %if.end7
 
@@ -952,7 +952,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @process_error(ptr noundef %srv_ctx, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc ptr @process_error(ptr noundef nonnull %srv_ctx, ptr noundef nonnull %req) unnamed_addr #0 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %srv_ctx, i64 8
   %0 = load ptr, ptr %ctx, align 8
@@ -971,7 +971,7 @@ if.end:                                           ; preds = %entry
   %5 = load ptr, ptr %errorCode, align 8
   %errorDetails = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %errorDetails, align 8
-  tail call void %3(ptr noundef nonnull %srv_ctx, ptr noundef %req, ptr noundef %4, ptr noundef %5, ptr noundef %6) #2
+  tail call void %3(ptr noundef nonnull %srv_ctx, ptr noundef nonnull %req, ptr noundef %4, ptr noundef %5, ptr noundef %6) #2
   %7 = load ptr, ptr %ctx, align 8
   %call = tail call ptr @ossl_cmp_pkiconf_new(ptr noundef %7) #2
   %cmp6 = icmp eq ptr %call, null
@@ -989,7 +989,7 @@ return:                                           ; preds = %if.end, %if.then8, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @process_certConf(ptr noundef %srv_ctx, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc ptr @process_certConf(ptr noundef nonnull %srv_ctx, ptr noundef nonnull %req) unnamed_addr #0 {
 entry:
   %ctx1 = getelementptr inbounds i8, ptr %srv_ctx, i64 8
   %0 = load ptr, ptr %ctx1, align 8
@@ -1089,7 +1089,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @process_pollReq(ptr noundef %srv_ctx, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc ptr @process_pollReq(ptr noundef nonnull %srv_ctx, ptr noundef nonnull %req) unnamed_addr #0 {
 entry:
   %certReq = alloca ptr, align 8
   %check_after = alloca i64, align 8
@@ -1142,7 +1142,7 @@ if.end20:                                         ; preds = %if.end16
   br i1 %cmp21.not, label %if.else, label %if.then23
 
 if.then23:                                        ; preds = %if.end20
-  %call24 = call fastcc ptr @process_cert_request(ptr noundef nonnull %srv_ctx, ptr noundef nonnull %6)
+  %call24 = call fastcc ptr @process_cert_request(ptr noundef %srv_ctx, ptr noundef %6)
   %7 = load ptr, ptr %certReq, align 8
   call void @OSSL_CMP_MSG_free(ptr noundef %7) #2
   br label %return

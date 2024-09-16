@@ -1604,7 +1604,7 @@ return:                                           ; preds = %if.end818, %raxSetD
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @raxLowWalk(ptr noundef %rax, ptr nocapture noundef readonly %s, i64 noundef %len, ptr noundef writeonly %stopnode, ptr noundef writeonly %plink, ptr nocapture noundef writeonly %splitpos, ptr noundef %ts) unnamed_addr #1 {
+define internal fastcc i64 @raxLowWalk(ptr noundef %rax, ptr nocapture noundef readonly %s, i64 noundef %len, ptr noundef writeonly %stopnode, ptr noundef writeonly %plink, ptr nocapture noundef nonnull writeonly %splitpos, ptr noundef %ts) unnamed_addr #1 {
 entry:
   %h.054 = load ptr, ptr %rax, align 8
   %bf.load55 = load i32, ptr %h.054, align 4
@@ -1837,7 +1837,7 @@ entry:
   %oom.i = getelementptr inbounds i8, ptr %ts, i64 280
   store i32 0, ptr %oom.i, align 8
   store i32 0, ptr %splitpos, align 4
-  %call = call fastcc i64 @raxLowWalk(ptr noundef %rax, ptr noundef %s, i64 noundef %len, ptr noundef nonnull %h, ptr noundef null, ptr noundef nonnull %splitpos, ptr noundef nonnull %ts)
+  %call = call fastcc i64 @raxLowWalk(ptr noundef %rax, ptr noundef %s, i64 noundef %len, ptr noundef nonnull %h, ptr noundef null, ptr noundef %splitpos, ptr noundef nonnull %ts)
   %cmp.not = icmp eq i64 %call, %len
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
@@ -4070,7 +4070,7 @@ raxGetData.exit:                                  ; preds = %cond.end, %if.end.i
 if.end67:                                         ; preds = %if.end42
   %stack178 = getelementptr inbounds i8, ptr %it, i64 184
   store i32 0, ptr %splitpos, align 4
-  %call71 = call fastcc i64 @raxLowWalk(ptr noundef nonnull %2, ptr noundef %ele.tr, i64 noundef %len.tr, ptr noundef nonnull %node, ptr noundef null, ptr noundef nonnull %splitpos, ptr noundef nonnull %stack178)
+  %call71 = call fastcc i64 @raxLowWalk(ptr noundef nonnull %2, ptr noundef %ele.tr, i64 noundef %len.tr, ptr noundef nonnull %node, ptr noundef null, ptr noundef %splitpos, ptr noundef nonnull %stack178)
   %oom = getelementptr inbounds i8, ptr %it, i64 464
   %18 = load i32, ptr %oom, align 8
   %tobool73.not = icmp eq i32 %18, 0

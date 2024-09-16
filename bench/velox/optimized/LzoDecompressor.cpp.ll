@@ -440,7 +440,7 @@ if.else173:                                       ; preds = %if.else149
   %29 = xor i64 %sub.ptr.rhs.cast176, -1
   %sub178 = add i64 %sub.ptr.lhs.cast175, %29
   %conv180 = zext nneg i8 %6 to i64
-  invoke fastcc void @_ZN8facebook5velox6common11compressionL5toHexB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp179, i64 noundef %conv180)
+  invoke fastcc void @_ZN8facebook5velox6common11compressionL5toHexB5cxx11Em(ptr noalias align 8 %ref.tmp179, i64 noundef %conv180)
           to label %invoke.cont182 unwind label %ehcleanup187.thread
 
 invoke.cont182:                                   ; preds = %if.else173
@@ -823,7 +823,7 @@ entry:
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox6common11compressionL5toHexB5cxx11Em(ptr noalias align 8 %agg.result, i64 noundef %val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox6common11compressionL5toHexB5cxx11Em(ptr noalias nonnull align 8 %agg.result, i64 noundef range(i64 0, 256) %val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %out = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %out)
@@ -839,7 +839,7 @@ invoke.cont1:                                     ; preds = %invoke.cont
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont1
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %out)
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %out)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -854,7 +854,7 @@ lpad:                                             ; preds = %invoke.cont3, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox6common11compression12_GLOBAL__N_123MalformedInputExceptionC2ElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %off, ptr noundef nonnull align 8 dereferenceable(32) %msg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox6common11compression12_GLOBAL__N_123MalformedInputExceptionC2ElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %off, ptr noundef nonnull align 8 dereferenceable(32) %msg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca ptr, align 8
   %val.addr.i = alloca i64, align 8

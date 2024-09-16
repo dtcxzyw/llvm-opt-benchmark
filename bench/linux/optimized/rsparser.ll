@@ -1234,14 +1234,15 @@ declare dso_local zeroext i1 @acpi_dev_resource_memory(ptr noundef, ptr noundef)
 declare dso_local zeroext i1 @acpi_dev_resource_io(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 256) i32 @dma_flags(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 256) i32 @dma_flags(ptr noundef %0, i32 noundef range(i32 0, 256) %1, i32 noundef range(i32 0, 256) %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 align 16 {
   %5 = icmp eq i32 %2, 0
   %6 = select i1 %5, i32 0, i32 4
-  switch i32 %1, label %13 [
-    i32 0, label %14
-    i32 1, label %7
-    i32 2, label %9
-    i32 3, label %11
+  %trunc = trunc nuw i32 %1 to i8
+  switch i8 %trunc, label %13 [
+    i8 0, label %14
+    i8 1, label %7
+    i8 2, label %9
+    i8 3, label %11
   ]
 
 7:                                                ; preds = %4
@@ -1262,10 +1263,11 @@ define internal fastcc range(i32 0, 256) i32 @dma_flags(ptr noundef %0, i32 noun
 
 14:                                               ; preds = %13, %11, %9, %7, %4
   %15 = phi i32 [ %6, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %4 ]
-  switch i32 %3, label %20 [
-    i32 0, label %22
-    i32 1, label %16
-    i32 2, label %18
+  %trunc1 = trunc nuw i32 %3 to i8
+  switch i8 %trunc1, label %20 [
+    i8 0, label %22
+    i8 1, label %16
+    i8 2, label %18
   ]
 
 16:                                               ; preds = %14

@@ -243,7 +243,7 @@ define hidden i64 @plpgsql_exec_function(ptr noundef %0, ptr noundef %1, ptr nou
   %11 = zext i1 %5 to i8
   %12 = getelementptr inbounds i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8
-  call fastcc void @plpgsql_estate_setup(ptr noundef nonnull %7, ptr noundef %0, ptr noundef %13, ptr noundef %2, ptr noundef %3)
+  call fastcc void @plpgsql_estate_setup(ptr noundef %7, ptr noundef %0, ptr noundef %13, ptr noundef %2, ptr noundef %3)
   %14 = getelementptr inbounds i8, ptr %7, i64 152
   store ptr %4, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %7, i64 47
@@ -257,7 +257,7 @@ define hidden i64 @plpgsql_exec_function(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %8, ptr @error_context_stack, align 8
   %19 = getelementptr inbounds i8, ptr %7, i64 224
   store ptr @.str, ptr %19, align 8
-  call fastcc void @copy_plpgsql_datums(ptr noundef nonnull %7, ptr noundef %0)
+  call fastcc void @copy_plpgsql_datums(ptr noundef %7, ptr noundef %0)
   store ptr @.str.1, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 64
   %21 = load i32, ptr %20, align 8
@@ -448,7 +448,7 @@ exec_eval_cleanup.exit:                           ; preds = %58, %80, %78, %61, 
   br label %120
 
 120:                                              ; preds = %119, %117
-  %121 = call fastcc i32 @exec_stmt_block(ptr noundef nonnull %7, ptr noundef %110)
+  %121 = call fastcc i32 @exec_stmt_block(ptr noundef %7, ptr noundef %110)
   %122 = load ptr, ptr @plpgsql_plugin_ptr, align 8
   %123 = load ptr, ptr %122, align 8
   %.not14.i = icmp eq ptr %123, null
@@ -590,12 +590,12 @@ exec_toplevel_block.exit:                         ; preds = %120, %124, %127
 
 191:                                              ; preds = %189
   %192 = load ptr, ptr %10, align 8
-  call fastcc void @coerce_function_result_tuple(ptr noundef nonnull %7, ptr noundef %192)
+  call fastcc void @coerce_function_result_tuple(ptr noundef %7, ptr noundef %192)
   br label %233
 
 193:                                              ; preds = %189
   %194 = load ptr, ptr %10, align 8
-  call fastcc void @coerce_function_result_tuple(ptr noundef nonnull %7, ptr noundef %194)
+  call fastcc void @coerce_function_result_tuple(ptr noundef %7, ptr noundef %194)
   %195 = getelementptr inbounds i8, ptr %7, i64 24
   %196 = load i64, ptr %195, align 8
   %197 = load i32, ptr %9, align 4
@@ -711,7 +711,7 @@ exec_eval_cleanup.exit79:                         ; preds = %240, %248, %249
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @plpgsql_estate_setup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @plpgsql_estate_setup(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.HASHCTL, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 536
   store ptr %0, ptr %7, align 8
@@ -866,7 +866,7 @@ define internal fastcc void @plpgsql_estate_setup(ptr noundef %0, ptr noundef %1
   store ptr %91, ptr %92, align 8
   %93 = getelementptr inbounds i8, ptr %0, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %93, i8 0, i64 56, i1 false)
-  call fastcc void @plpgsql_create_econtext(ptr noundef nonnull %0)
+  call fastcc void @plpgsql_create_econtext(ptr noundef %0)
   %94 = load ptr, ptr @plpgsql_plugin_ptr, align 8
   %95 = load ptr, ptr %94, align 8
   %.not75 = icmp eq ptr %95, null
@@ -985,7 +985,7 @@ define internal void @plpgsql_exec_error_callback(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @copy_plpgsql_datums(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @copy_plpgsql_datums(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 108
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64
@@ -1779,7 +1779,7 @@ declare i64 @SPI_datumTransfer(i64 noundef, i1 noundef zeroext, i32 noundef) loc
 declare i32 @get_call_result_type(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @coerce_function_result_tuple(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @coerce_function_result_tuple(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.HeapTupleData, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
@@ -2142,7 +2142,7 @@ define hidden ptr @plpgsql_exec_trigger(ptr noundef %0, ptr noundef %1) local_un
   %3 = alloca %struct.PLpgSQL_execstate, align 8
   %4 = alloca %struct.ErrorContextCallback, align 8
   %5 = alloca %struct.HeapTupleData, align 8
-  call fastcc void @plpgsql_estate_setup(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef null)
+  call fastcc void @plpgsql_estate_setup(ptr noundef %3, ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef null)
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2154,7 +2154,7 @@ define hidden ptr @plpgsql_exec_trigger(ptr noundef %0, ptr noundef %1) local_un
   store ptr %4, ptr @error_context_stack, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 224
   store ptr @.str, ptr %10, align 8
-  call fastcc void @copy_plpgsql_datums(ptr noundef nonnull %3, ptr noundef %0)
+  call fastcc void @copy_plpgsql_datums(ptr noundef %3, ptr noundef %0)
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 64
@@ -2335,7 +2335,7 @@ default.unreachable:                              ; preds = %37
   br label %105
 
 105:                                              ; preds = %104, %102
-  %106 = call fastcc i32 @exec_stmt_block(ptr noundef nonnull %3, ptr noundef %95)
+  %106 = call fastcc i32 @exec_stmt_block(ptr noundef %3, ptr noundef %95)
   %107 = load ptr, ptr @plpgsql_plugin_ptr, align 8
   %108 = load ptr, ptr %107, align 8
   %.not14.i = icmp eq ptr %108, null
@@ -2573,7 +2573,7 @@ declare void @DecrTupleDescRefCount(ptr noundef) local_unnamed_addr #1
 define hidden void @plpgsql_exec_event_trigger(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PLpgSQL_execstate, align 8
   %4 = alloca %struct.ErrorContextCallback, align 8
-  call fastcc void @plpgsql_estate_setup(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef null)
+  call fastcc void @plpgsql_estate_setup(ptr noundef %3, ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef null)
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2585,7 +2585,7 @@ define hidden void @plpgsql_exec_event_trigger(ptr noundef %0, ptr noundef %1) l
   store ptr %4, ptr @error_context_stack, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 224
   store ptr @.str, ptr %9, align 8
-  call fastcc void @copy_plpgsql_datums(ptr noundef nonnull %3, ptr noundef %0)
+  call fastcc void @copy_plpgsql_datums(ptr noundef %3, ptr noundef %0)
   %10 = load ptr, ptr @plpgsql_plugin_ptr, align 8
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
@@ -2633,7 +2633,7 @@ define hidden void @plpgsql_exec_event_trigger(ptr noundef %0, ptr noundef %1) l
   br label %29
 
 29:                                               ; preds = %28, %26
-  %30 = call fastcc i32 @exec_stmt_block(ptr noundef nonnull %3, ptr noundef %19)
+  %30 = call fastcc i32 @exec_stmt_block(ptr noundef %3, ptr noundef %19)
   %31 = load ptr, ptr @plpgsql_plugin_ptr, align 8
   %32 = load ptr, ptr %31, align 8
   %.not14.i = icmp eq ptr %32, null
@@ -3090,7 +3090,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @ProcessInterrupts() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exec_stmt_block(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i32 @exec_stmt_block(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %5 = alloca i16, align 2
@@ -3268,11 +3268,11 @@ get_stmt_mcontext.exit:                           ; preds = %82, %92
 
 101:                                              ; preds = %get_stmt_mcontext.exit
   store ptr %4, ptr @PG_exception_stack, align 8
-  call fastcc void @plpgsql_create_econtext(ptr noundef nonnull %0)
+  call fastcc void @plpgsql_create_econtext(ptr noundef %0)
   store ptr null, ptr %7, align 8
   %102 = getelementptr inbounds i8, ptr %1, i64 24
   %103 = load ptr, ptr %102, align 8
-  %104 = call fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef %103)
+  %104 = call fastcc i32 @exec_stmts(ptr noundef %0, ptr noundef %103)
   store volatile i32 %104, ptr %3, align 4
   store ptr @.str.24, ptr %7, align 8
   %.0..0..0..0.50 = load volatile i32, ptr %3, align 4
@@ -3440,12 +3440,12 @@ exception_matches_conditions.exit:                ; preds = %153, %161, %141
   %175 = call ptr @unpack_sql_state(i32 noundef %.fr) #11
   %176 = call ptr @cstring_to_text(ptr noundef %175) #11
   %177 = ptrtoint ptr %176 to i64
-  call fastcc void @assign_simple_var(ptr noundef readonly %0, ptr noundef %169, i64 noundef %177, i1 noundef zeroext false, i1 noundef zeroext true)
+  call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef %169, i64 noundef %177, i1 noundef zeroext false, i1 noundef zeroext true)
   %178 = getelementptr inbounds i8, ptr %126, i64 56
   %179 = load ptr, ptr %178, align 8
   %180 = call ptr @cstring_to_text(ptr noundef %179) #11
   %181 = ptrtoint ptr %180 to i64
-  call fastcc void @assign_simple_var(ptr noundef readonly %0, ptr noundef %174, i64 noundef %181, i1 noundef zeroext false, i1 noundef zeroext true)
+  call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef %174, i64 noundef %181, i1 noundef zeroext false, i1 noundef zeroext true)
   store ptr %126, ptr %87, align 8
   store ptr null, ptr %7, align 8
   %182 = getelementptr inbounds i8, ptr %143, i64 16
@@ -3469,7 +3469,7 @@ exception_matches_conditions.exit:                ; preds = %153, %161, %141
   store ptr null, ptr %7, align 8
   %189 = getelementptr inbounds i8, ptr %1, i64 24
   %190 = load ptr, ptr %189, align 8
-  %191 = call fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef %190)
+  %191 = call fastcc i32 @exec_stmts(ptr noundef %0, ptr noundef %190)
   store volatile i32 %191, ptr %3, align 4
   br label %192
 
@@ -3824,7 +3824,7 @@ define internal void @exec_assign_expr(ptr nocapture noundef %0, ptr noundef %1,
   br label %18
 
 18:                                               ; preds = %16, %3
-  %19 = call fastcc i64 @exec_eval_expr(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %19 = call fastcc i64 @exec_eval_expr(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %6)
   %20 = load i8, ptr %4, align 1
   %21 = trunc i8 %20 to i1
   %22 = load i32, ptr %5, align 4
@@ -3862,7 +3862,7 @@ declare void @BeginInternalSubTransaction(ptr noundef) local_unnamed_addr #1
 declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @plpgsql_create_econtext(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @plpgsql_create_econtext(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3932,7 +3932,7 @@ define internal fastcc void @plpgsql_create_econtext(ptr nocapture noundef %0) u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exec_stmts(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -4151,7 +4151,7 @@ define internal fastcc i32 @exec_stmts(ptr noundef %0, ptr noundef readonly %1) 
   br label %703
 
 150:                                              ; preds = %146
-  %151 = call fastcc i32 @exec_stmt_block(ptr noundef nonnull %0, ptr noundef nonnull %137)
+  %151 = call fastcc i32 @exec_stmt_block(ptr noundef %0, ptr noundef nonnull %137)
   br label %exec_stmt_perform.exit
 
 152:                                              ; preds = %146
@@ -4382,7 +4382,7 @@ list_length.exit59.thread.i.i:                    ; preds = %list_length.exit59.
   %267 = getelementptr inbounds i8, ptr %263, i64 8
   %268 = load i32, ptr %267, align 4
   %269 = add i32 %268, -1
-  call fastcc void @exec_check_assignable(ptr noundef nonnull readonly %0, i32 noundef %269)
+  call fastcc void @exec_check_assignable(ptr noundef readonly %0, i32 noundef %269)
   %270 = load ptr, ptr %246, align 8
   %271 = add i32 %.06.i.i, 1
   %272 = getelementptr i32, ptr %270, i64 %261
@@ -4494,7 +4494,7 @@ setup_param_list.exit.i:                          ; preds = %299, %295
 
 322:                                              ; preds = %318
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, i8 0, i64 16, i1 false)
-  call fastcc void @plpgsql_create_econtext(ptr noundef nonnull %0)
+  call fastcc void @plpgsql_create_econtext(ptr noundef %0)
   br label %323
 
 323:                                              ; preds = %322, %318
@@ -4866,7 +4866,7 @@ exec_stmt_call.exit:                              ; preds = %345, %347
   %515 = load ptr, ptr %514, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %516 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %515, ptr noundef nonnull %69, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %516 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %515, ptr noundef nonnull %69, ptr noundef nonnull %7, ptr noundef %8)
   %517 = load i32, ptr %7, align 4
   %518 = load i32, ptr %8, align 4
   %519 = call i64 @exec_cast_value(ptr noundef nonnull %0, i64 noundef %516, ptr noundef nonnull %69, i32 noundef %517, i32 noundef %518, i32 noundef 16, i32 noundef -1)
@@ -4932,7 +4932,7 @@ exec_eval_cleanup.exit192:                        ; preds = %522, %524
   %546 = load ptr, ptr %545, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %547 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %546, ptr noundef nonnull %69, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %547 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %546, ptr noundef nonnull %69, ptr noundef nonnull %9, ptr noundef %10)
   %548 = load i32, ptr %9, align 4
   %549 = load i32, ptr %10, align 4
   %550 = call i64 @exec_cast_value(ptr noundef nonnull %0, i64 noundef %547, ptr noundef nonnull %69, i32 noundef %548, i32 noundef %549, i32 noundef 16, i32 noundef -1)
@@ -4976,7 +4976,7 @@ exec_eval_cleanup.exit:                           ; preds = %553, %555
 exec_stmt_if.exit:                                ; preds = %529, %.split549, %._crit_edge547.split.us
   %.sink886 = phi ptr [ %530, %529 ], [ %560, %.split549 ], [ %561, %._crit_edge547.split.us ]
   %562 = load ptr, ptr %.sink886, align 8
-  %563 = call fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef %562)
+  %563 = call fastcc i32 @exec_stmts(ptr noundef %0, ptr noundef %562)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %69)
   br label %exec_stmt_perform.exit
 
@@ -4990,7 +4990,7 @@ exec_stmt_if.exit:                                ; preds = %529, %.split549, %.
   br i1 %.not.i103, label %exec_eval_cleanup.exit205, label %567
 
 567:                                              ; preds = %564
-  %568 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef nonnull %566, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %68)
+  %568 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef nonnull %566, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef %68)
   %569 = load ptr, ptr %81, align 8
   %570 = getelementptr inbounds i8, ptr %137, i64 24
   %571 = load i32, ptr %570, align 8
@@ -5074,7 +5074,7 @@ exec_eval_cleanup.exit205:                        ; preds = %595, %593, %564
   %612 = load ptr, ptr %611, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %613 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %612, ptr noundef nonnull %66, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %613 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %612, ptr noundef nonnull %66, ptr noundef nonnull %5, ptr noundef %6)
   %614 = load i32, ptr %5, align 4
   %615 = load i32, ptr %6, align 4
   %616 = call i64 @exec_cast_value(ptr noundef nonnull %0, i64 noundef %613, ptr noundef nonnull %66, i32 noundef %614, i32 noundef %615, i32 noundef 16, i32 noundef -1)
@@ -5251,7 +5251,7 @@ assign_simple_var.exit:                           ; preds = %659, %682, %683
 exec_stmt_case.exit:                              ; preds = %657, %699
   %.sink887 = phi ptr [ %658, %657 ], [ %700, %699 ]
   %701 = load ptr, ptr %.sink887, align 8
-  %702 = call fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef %701)
+  %702 = call fastcc i32 @exec_stmts(ptr noundef %0, ptr noundef %701)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %66)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %67)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %68)
@@ -5319,7 +5319,7 @@ exec_stmt_case.exit:                              ; preds = %657, %699
   %729 = load ptr, ptr %725, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %730 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %729, ptr noundef nonnull %65, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %730 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %729, ptr noundef nonnull %65, ptr noundef nonnull %3, ptr noundef %4)
   %731 = load i32, ptr %3, align 4
   %732 = load i32, ptr %4, align 4
   %733 = call i64 @exec_cast_value(ptr noundef nonnull %0, i64 noundef %730, ptr noundef nonnull %65, i32 noundef %731, i32 noundef %732, i32 noundef 16, i32 noundef -1)
@@ -5354,7 +5354,7 @@ exec_eval_cleanup.exit208:                        ; preds = %736, %738
 
 743:                                              ; preds = %exec_eval_cleanup.exit208
   %744 = load ptr, ptr %726, align 8
-  %745 = call fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef %744)
+  %745 = call fastcc i32 @exec_stmts(ptr noundef %0, ptr noundef %744)
   switch i32 %745, label %.backedge1045 [
     i32 2, label %exec_stmt_while.exit
     i32 1, label %746
@@ -5422,7 +5422,7 @@ exec_stmt_while.exit:                             ; preds = %exec_eval_cleanup.e
   %772 = load ptr, ptr %771, align 8
   %773 = getelementptr inbounds i8, ptr %137, i64 32
   %774 = load ptr, ptr %773, align 8
-  %775 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %774, ptr noundef nonnull %62, ptr noundef nonnull %63, ptr noundef nonnull %64)
+  %775 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %774, ptr noundef nonnull %62, ptr noundef nonnull %63, ptr noundef %64)
   %776 = load i32, ptr %63, align 4
   %777 = load i32, ptr %64, align 4
   %778 = getelementptr inbounds i8, ptr %772, i64 32
@@ -5469,7 +5469,7 @@ exec_stmt_while.exit:                             ; preds = %exec_eval_cleanup.e
 exec_eval_cleanup.exit217:                        ; preds = %795, %797
   %800 = getelementptr inbounds i8, ptr %137, i64 40
   %801 = load ptr, ptr %800, align 8
-  %802 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %801, ptr noundef nonnull %62, ptr noundef nonnull %63, ptr noundef nonnull %64)
+  %802 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %801, ptr noundef nonnull %62, ptr noundef nonnull %63, ptr noundef %64)
   %803 = load i32, ptr %63, align 4
   %804 = load i32, ptr %64, align 4
   %805 = load ptr, ptr %778, align 8
@@ -5519,7 +5519,7 @@ exec_eval_cleanup.exit214:                        ; preds = %821, %823
   br i1 %.not.i112, label %858, label %828
 
 828:                                              ; preds = %exec_eval_cleanup.exit214
-  %829 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef nonnull %827, ptr noundef nonnull %62, ptr noundef nonnull %63, ptr noundef nonnull %64)
+  %829 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef nonnull %827, ptr noundef nonnull %62, ptr noundef nonnull %63, ptr noundef %64)
   %830 = load i32, ptr %63, align 4
   %831 = load i32, ptr %64, align 4
   %832 = load ptr, ptr %778, align 8
@@ -5602,7 +5602,7 @@ exec_eval_cleanup.exit211:                        ; preds = %848, %850
 
 870:                                              ; preds = %868, %866
   %871 = sext i32 %.065.i to i64
-  call fastcc void @assign_simple_var(ptr noundef %0, ptr noundef %772, i64 noundef %871, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef %772, i64 noundef %871, i1 noundef zeroext false, i1 noundef zeroext false)
   %872 = load ptr, ptr %860, align 8
   %873 = call fastcc i32 @exec_stmts(ptr noundef %0, ptr noundef %872)
   switch i32 %873, label %892 [
@@ -5690,7 +5690,7 @@ exec_stmt_fori.exit:                              ; preds = %exec_stmt_fori.exit
   %905 = sext i32 %904 to i64
   %906 = getelementptr ptr, ptr %903, i64 %905
   %907 = load ptr, ptr %906, align 8
-  call fastcc void @assign_simple_var(ptr noundef readonly %0, ptr noundef %907, i64 noundef %.163.i, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef %907, i64 noundef %.163.i, i1 noundef zeroext false, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %62)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %63)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %64)
@@ -5702,7 +5702,7 @@ exec_stmt_fori.exit:                              ; preds = %exec_stmt_fori.exit
   %910 = load ptr, ptr %909, align 8
   %911 = call fastcc i32 @exec_run_select(ptr noundef nonnull %0, ptr noundef %910, i64 noundef 0, ptr noundef nonnull %61)
   %912 = load ptr, ptr %61, align 8
-  %913 = call fastcc i32 @exec_for_query(ptr noundef nonnull %0, ptr noundef nonnull %137, ptr noundef %912, i1 noundef zeroext true)
+  %913 = call fastcc i32 @exec_for_query(ptr noundef %0, ptr noundef nonnull %137, ptr noundef %912, i1 noundef zeroext true)
   %914 = load ptr, ptr %61, align 8
   call void @SPI_cursor_close(ptr noundef %914) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61)
@@ -5788,7 +5788,7 @@ get_stmt_mcontext.exit:                           ; preds = %925, %928
   %958 = getelementptr ptr, ptr %956, i64 %957
   %959 = load ptr, ptr %958, align 8
   store ptr %959, ptr %120, align 8
-  call fastcc void @exec_stmt_execsql(ptr noundef nonnull %0, ptr noundef nonnull %60)
+  call fastcc void @exec_stmt_execsql(ptr noundef %0, ptr noundef nonnull %60)
   br label %966
 
 960:                                              ; preds = %942
@@ -5856,7 +5856,7 @@ setup_param_list.exit:                            ; preds = %975, %979
 
 996:                                              ; preds = %994
   %997 = load i32, ptr %917, align 8
-  call fastcc void @exec_check_assignable(ptr noundef nonnull %0, i32 noundef %997)
+  call fastcc void @exec_check_assignable(ptr noundef %0, i32 noundef %997)
   %998 = load ptr, ptr %987, align 8
   %999 = call ptr @cstring_to_text(ptr noundef %998) #11
   %1000 = ptrtoint ptr %999 to i64
@@ -5893,7 +5893,7 @@ exec_eval_cleanup.exit224:                        ; preds = %1004, %1006
   br label %1010
 
 1010:                                             ; preds = %1009, %exec_eval_cleanup.exit224
-  %1011 = call fastcc i32 @exec_for_query(ptr noundef nonnull %0, ptr noundef nonnull %137, ptr noundef nonnull %987, i1 noundef zeroext false)
+  %1011 = call fastcc i32 @exec_for_query(ptr noundef %0, ptr noundef nonnull %137, ptr noundef nonnull %987, i1 noundef zeroext false)
   call void @SPI_cursor_close(ptr noundef nonnull %987) #11
   br i1 %995, label %1012, label %exec_stmt_forc.exit
 
@@ -5961,7 +5961,7 @@ exec_stmt_forc.exit:                              ; preds = %1010, %assign_simpl
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %59)
   %1042 = getelementptr inbounds i8, ptr %137, i64 32
   %1043 = load ptr, ptr %1042, align 8
-  %1044 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %1043, ptr noundef nonnull %59, ptr noundef nonnull %56, ptr noundef nonnull %57)
+  %1044 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %1043, ptr noundef nonnull %59, ptr noundef nonnull %56, ptr noundef %57)
   store i64 %1044, ptr %58, align 8
   %1045 = load i8, ptr %59, align 1
   %1046 = trunc i8 %1045 to i1
@@ -6121,7 +6121,7 @@ exec_eval_cleanup.exit228:                        ; preds = %1072, %1074
   %1126 = load i64, ptr %58, align 8
   %1127 = load i8, ptr %59, align 1
   %1128 = trunc i8 %1127 to i1
-  call void @exec_assign_value(ptr noundef %0, ptr noundef nonnull %1097, i64 noundef %1126, i1 noundef zeroext %1128, i32 noundef %.056.i, i32 noundef %.0.i119)
+  call void @exec_assign_value(ptr noundef nonnull %0, ptr noundef nonnull %1097, i64 noundef %1126, i1 noundef zeroext %1128, i32 noundef %.056.i, i32 noundef %.0.i119)
   %1129 = load i32, ptr %1077, align 4
   %1130 = icmp sgt i32 %1129, 0
   br i1 %1130, label %1131, label %1134
@@ -6199,7 +6199,7 @@ exec_stmt_foreach_a.exit:                         ; preds = %1151, %1149, %1134,
   %1161 = sext i32 %1160 to i64
   %1162 = getelementptr ptr, ptr %1159, i64 %1161
   %1163 = load ptr, ptr %1162, align 8
-  call fastcc void @assign_simple_var(ptr noundef readonly %0, ptr noundef %1163, i64 noundef %.1.i120, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef %1163, i64 noundef %.1.i120, i1 noundef zeroext false, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %57)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58)
@@ -6216,7 +6216,7 @@ exec_stmt_foreach_a.exit:                         ; preds = %1151, %1149, %1134,
 1167:                                             ; preds = %1164
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %53)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %54)
-  %1168 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef nonnull %1166, ptr noundef nonnull %55, ptr noundef nonnull %53, ptr noundef nonnull %54)
+  %1168 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef nonnull %1166, ptr noundef nonnull %55, ptr noundef nonnull %53, ptr noundef %54)
   %1169 = load i32, ptr %53, align 4
   %1170 = load i32, ptr %54, align 4
   %1171 = call i64 @exec_cast_value(ptr noundef nonnull %0, i64 noundef %1168, ptr noundef nonnull %55, i32 noundef %1169, i32 noundef %1170, i32 noundef 16, i32 noundef -1)
@@ -6368,7 +6368,7 @@ exec_stmt_exit.exit:                              ; preds = %exec_eval_cleanup.e
   br i1 %.not.i127, label %1254, label %1240
 
 1240:                                             ; preds = %1237
-  %1241 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef nonnull %1239, ptr noundef nonnull %113, ptr noundef nonnull %114, ptr noundef nonnull %52)
+  %1241 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef nonnull %1239, ptr noundef nonnull %113, ptr noundef nonnull %114, ptr noundef %52)
   store i64 %1241, ptr %112, align 8
   %1242 = load i8, ptr %106, align 4
   %1243 = trunc i8 %1242 to i1
@@ -6440,7 +6440,7 @@ exec_stmt_return.exit:                            ; preds = %1187, %1201, %1213,
   br i1 %1271, label %1272, label %1273
 
 1272:                                             ; preds = %1269
-  call fastcc void @exec_init_tuple_store(ptr noundef nonnull %0)
+  call fastcc void @exec_init_tuple_store(ptr noundef %0)
   br label %1273
 
 1273:                                             ; preds = %1272, %1269
@@ -6618,7 +6618,7 @@ expanded_record_get_tupdesc.exit.i:               ; preds = %1339, %1331
   br i1 %.not.i128, label %1432, label %1368
 
 1368:                                             ; preds = %1365
-  %1369 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef nonnull %1367, ptr noundef nonnull %47, ptr noundef nonnull %48, ptr noundef nonnull %49)
+  %1369 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef nonnull %1367, ptr noundef nonnull %47, ptr noundef nonnull %48, ptr noundef %49)
   store i64 %1369, ptr %46, align 8
   %1370 = load i8, ptr %106, align 4
   %1371 = trunc i8 %1370 to i1
@@ -6804,7 +6804,7 @@ get_stmt_mcontext.exit.i:                         ; preds = %1447, %1444
   br i1 %1459, label %1460, label %1461
 
 1460:                                             ; preds = %1457
-  call fastcc void @exec_init_tuple_store(ptr noundef nonnull %0)
+  call fastcc void @exec_init_tuple_store(ptr noundef %0)
   %.pre.i142 = load ptr, ptr %97, align 8
   br label %1461
 
@@ -6875,7 +6875,7 @@ setup_param_list.exit.i136:                       ; preds = %1480, %1476
 1495:                                             ; preds = %1461
   %1496 = getelementptr inbounds i8, ptr %137, i64 24
   %1497 = load ptr, ptr %1496, align 8
-  %1498 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %1497, ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef nonnull %42)
+  %1498 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %1497, ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef %42)
   %1499 = load i8, ptr %40, align 1
   %1500 = trunc i8 %1499 to i1
   br i1 %1500, label %1501, label %1505
@@ -6928,7 +6928,7 @@ exec_eval_cleanup.exit.i141:                      ; preds = %1516, %1514
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %103, i8 0, i64 32, i1 false)
   %1519 = getelementptr inbounds i8, ptr %137, i64 32
   %1520 = load ptr, ptr %1519, align 8
-  %1521 = call fastcc ptr @exec_eval_using_params(ptr noundef nonnull %0, ptr noundef %1520)
+  %1521 = call fastcc ptr @exec_eval_using_params(ptr noundef %0, ptr noundef %1520)
   store ptr %1521, ptr %43, align 8
   %1522 = load i8, ptr %94, align 2
   %1523 = and i8 %1522, 1
@@ -7118,7 +7118,7 @@ list_head.exit.i:                                 ; preds = %1588, %1584
 
 1605:                                             ; preds = %1600
   %1606 = load ptr, ptr %.0118.i, align 8
-  %1607 = call fastcc i64 @exec_eval_expr(ptr noundef %0, ptr noundef %1606, ptr noundef nonnull %33, ptr noundef nonnull %31, ptr noundef nonnull %32)
+  %1607 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %1606, ptr noundef nonnull %33, ptr noundef nonnull %31, ptr noundef %32)
   %1608 = load i8, ptr %33, align 1
   %1609 = trunc i8 %1608 to i1
   br i1 %1609, label %1616, label %1610
@@ -7229,7 +7229,7 @@ exec_eval_cleanup.exit.i150:                      ; preds = %1631, %1628, %1626,
   %1648 = load ptr, ptr %1647, align 8
   %1649 = getelementptr inbounds i8, ptr %1648, i64 8
   %1650 = load ptr, ptr %1649, align 8
-  %1651 = call fastcc i64 @exec_eval_expr(ptr noundef %0, ptr noundef %1650, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %36)
+  %1651 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %1650, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef %36)
   %1652 = load i8, ptr %34, align 1
   %1653 = trunc i8 %1652 to i1
   br i1 %1653, label %1654, label %1658
@@ -7596,7 +7596,7 @@ exec_stmt_raise.exit:                             ; preds = %1755, %1784
   %1790 = load ptr, ptr %1789, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
-  %1791 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %1790, ptr noundef nonnull %23, ptr noundef nonnull %21, ptr noundef nonnull %22)
+  %1791 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %1790, ptr noundef nonnull %23, ptr noundef nonnull %21, ptr noundef %22)
   %1792 = load i32, ptr %21, align 4
   %1793 = load i32, ptr %22, align 4
   %1794 = call i64 @exec_cast_value(ptr noundef nonnull %0, i64 noundef %1791, ptr noundef nonnull %23, i32 noundef %1792, i32 noundef %1793, i32 noundef 16, i32 noundef -1)
@@ -7636,7 +7636,7 @@ exec_eval_cleanup.exit.i160:                      ; preds = %1799, %1797
   br i1 %.not.i162, label %1815, label %1807
 
 1807:                                             ; preds = %1804
-  %1808 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef nonnull %1806, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25)
+  %1808 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef nonnull %1806, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef %25)
   %1809 = load i8, ptr %23, align 1
   %1810 = trunc i8 %1809 to i1
   br i1 %1810, label %1815, label %1811
@@ -7676,7 +7676,7 @@ exec_stmt_assert.exit:                            ; preds = %1785, %exec_eval_cl
   br label %exec_stmt_perform.exit
 
 1823:                                             ; preds = %146
-  call fastcc void @exec_stmt_execsql(ptr noundef nonnull %0, ptr noundef nonnull %137)
+  call fastcc void @exec_stmt_execsql(ptr noundef %0, ptr noundef nonnull %137)
   br label %exec_stmt_perform.exit
 
 1824:                                             ; preds = %146
@@ -7698,7 +7698,7 @@ get_stmt_mcontext.exit.i165:                      ; preds = %1827, %1824
   %1830 = phi ptr [ %1829, %1827 ], [ %1825, %1824 ]
   %1831 = getelementptr inbounds i8, ptr %137, i64 16
   %1832 = load ptr, ptr %1831, align 8
-  %1833 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %1832, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19)
+  %1833 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %1832, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef %19)
   %1834 = load i8, ptr %17, align 1
   %1835 = trunc i8 %1834 to i1
   br i1 %1835, label %1836, label %1840
@@ -7750,7 +7750,7 @@ get_stmt_mcontext.exit.i165:                      ; preds = %1827, %1824
 exec_eval_cleanup.exit.i170:                      ; preds = %1851, %1849
   %1854 = getelementptr inbounds i8, ptr %137, i64 40
   %1855 = load ptr, ptr %1854, align 8
-  %1856 = call fastcc ptr @exec_eval_using_params(ptr noundef nonnull %0, ptr noundef %1855)
+  %1856 = call fastcc ptr @exec_eval_using_params(ptr noundef %0, ptr noundef %1855)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %95, i8 0, i64 32, i1 false)
   store ptr %1856, ptr %20, align 8
   %1857 = load i8, ptr %94, align 2
@@ -7856,7 +7856,7 @@ exec_eval_cleanup.exit.i170:                      ; preds = %1851, %1849
   br i1 %1906, label %1907, label %1909
 
 1907:                                             ; preds = %1902
-  %1908 = call fastcc ptr @format_preparedparamsdata(ptr noundef nonnull %0, ptr noundef %1856)
+  %1908 = call fastcc ptr @format_preparedparamsdata(ptr noundef %0, ptr noundef %1856)
   br label %1909
 
 1909:                                             ; preds = %1907, %1902
@@ -7890,7 +7890,7 @@ exec_eval_cleanup.exit.i170:                      ; preds = %1851, %1849
   br i1 %1924, label %1925, label %1927
 
 1925:                                             ; preds = %1920
-  %1926 = call fastcc ptr @format_preparedparamsdata(ptr noundef nonnull %0, ptr noundef %1856)
+  %1926 = call fastcc ptr @format_preparedparamsdata(ptr noundef %0, ptr noundef %1856)
   br label %1927
 
 1927:                                             ; preds = %1925, %1920
@@ -7955,8 +7955,8 @@ exec_stmt_dynexecute.exit:                        ; preds = %1877, %1942, %1944
   %1950 = load ptr, ptr %1949, align 8
   %1951 = getelementptr inbounds i8, ptr %137, i64 48
   %1952 = load ptr, ptr %1951, align 8
-  %1953 = call fastcc ptr @exec_dynquery_with_params(ptr noundef nonnull %0, ptr noundef %1950, ptr noundef %1952, ptr noundef null, i32 noundef 4)
-  %1954 = call fastcc i32 @exec_for_query(ptr noundef nonnull %0, ptr noundef nonnull %137, ptr noundef nonnull %1953, i1 noundef zeroext true)
+  %1953 = call fastcc ptr @exec_dynquery_with_params(ptr noundef %0, ptr noundef %1950, ptr noundef %1952, ptr noundef null, i32 noundef 4)
+  %1954 = call fastcc i32 @exec_for_query(ptr noundef %0, ptr noundef nonnull %137, ptr noundef nonnull %1953, i1 noundef zeroext true)
   call void @SPI_cursor_close(ptr noundef nonnull %1953) #11
   br label %exec_stmt_perform.exit
 
@@ -8036,13 +8036,13 @@ get_stmt_mcontext.exit.i173:                      ; preds = %1968, %1965
   %1997 = load ptr, ptr %1996, align 8
   %1998 = getelementptr inbounds i8, ptr %137, i64 16
   %1999 = load i32, ptr %1998, align 8
-  %2000 = call fastcc ptr @exec_dynquery_with_params(ptr noundef nonnull %0, ptr noundef nonnull %1994, ptr noundef %1997, ptr noundef %.058.i175, i32 noundef %1999)
+  %2000 = call fastcc ptr @exec_dynquery_with_params(ptr noundef %0, ptr noundef nonnull %1994, ptr noundef %1997, ptr noundef %.058.i175, i32 noundef %1999)
   %2001 = icmp eq ptr %.058.i175, null
   br i1 %2001, label %2002, label %exec_stmt_open.exit
 
 2002:                                             ; preds = %1995
   %2003 = load i32, ptr %1957, align 4
-  call fastcc void @exec_check_assignable(ptr noundef nonnull %0, i32 noundef %2003)
+  call fastcc void @exec_check_assignable(ptr noundef %0, i32 noundef %2003)
   %2004 = load ptr, ptr %2000, align 8
   %2005 = call ptr @cstring_to_text(ptr noundef %2004) #11
   %2006 = ptrtoint ptr %2005 to i64
@@ -8082,7 +8082,7 @@ get_stmt_mcontext.exit.i173:                      ; preds = %1968, %1965
   %2023 = getelementptr ptr, ptr %2021, i64 %2022
   %2024 = load ptr, ptr %2023, align 8
   store ptr %2024, ptr %92, align 8
-  call fastcc void @exec_stmt_execsql(ptr noundef nonnull %0, ptr noundef nonnull %14)
+  call fastcc void @exec_stmt_execsql(ptr noundef %0, ptr noundef nonnull %14)
   br label %2031
 
 2025:                                             ; preds = %2007
@@ -8152,7 +8152,7 @@ setup_param_list.exit.i178:                       ; preds = %2044, %2040
 
 2062:                                             ; preds = %2060
   %2063 = load i32, ptr %1957, align 4
-  call fastcc void @exec_check_assignable(ptr noundef nonnull %0, i32 noundef %2063)
+  call fastcc void @exec_check_assignable(ptr noundef %0, i32 noundef %2063)
   %2064 = load ptr, ptr %2053, align 8
   %2065 = call ptr @cstring_to_text(ptr noundef %2064) #11
   %2066 = ptrtoint ptr %2065 to i64
@@ -8249,7 +8249,7 @@ exec_stmt_open.exit:                              ; preds = %1995, %2002, %exec_
 2112:                                             ; preds = %2109
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  %2113 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef nonnull %2111, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %2113 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef nonnull %2111, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef %12)
   %2114 = load i32, ptr %11, align 4
   %2115 = load i32, ptr %12, align 4
   %2116 = call i64 @exec_cast_value(ptr noundef nonnull %0, i64 noundef %2113, ptr noundef nonnull %13, i32 noundef %2114, i32 noundef %2115, i32 noundef 23, i32 noundef -1)
@@ -8432,7 +8432,7 @@ exec_stmt_close.exit:                             ; preds = %2186
 
 exec_stmt_commit.exit:                            ; preds = %2204, %2205
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, i8 0, i64 16, i1 false)
-  call fastcc void @plpgsql_create_econtext(ptr noundef nonnull %0)
+  call fastcc void @plpgsql_create_econtext(ptr noundef %0)
   br label %exec_stmt_perform.exit
 
 2206:                                             ; preds = %146
@@ -8451,7 +8451,7 @@ exec_stmt_commit.exit:                            ; preds = %2204, %2205
 
 exec_stmt_rollback.exit:                          ; preds = %2209, %2210
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, i8 0, i64 16, i1 false)
-  call fastcc void @plpgsql_create_econtext(ptr noundef nonnull %0)
+  call fastcc void @plpgsql_create_econtext(ptr noundef %0)
   br label %exec_stmt_perform.exit
 
 2211:                                             ; preds = %146
@@ -8477,7 +8477,7 @@ exec_stmt_perform.exit:                           ; preds = %720, %718, %703, %7
   br i1 %.not89, label %2221, label %2220
 
 2220:                                             ; preds = %2217
-  call void %2219(ptr noundef %0, ptr noundef nonnull %137) #11
+  call void %2219(ptr noundef nonnull %0, ptr noundef nonnull %137) #11
   %.pre = load ptr, ptr @plpgsql_plugin_ptr, align 8
   br label %2221
 
@@ -8769,7 +8769,7 @@ exec_simple_check_plan.exit:                      ; preds = %21, %list_length.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @exec_eval_expr(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc i64 @exec_eval_expr(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -9248,7 +9248,7 @@ declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #
 declare i32 @get_typsubscript(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 5, 11) i32 @exec_run_select(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 5, 11) i32 @exec_run_select(ptr nocapture noundef %0, ptr noundef %1, i64 noundef range(i64 0, 3) %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -9402,7 +9402,7 @@ declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @GetCurrentSubTransactionId() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exec_stmt_execsql(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @exec_stmt_execsql(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @plpgsql_extra_errors, align 4
@@ -9419,7 +9419,7 @@ define internal fastcc void @exec_stmt_execsql(ptr nocapture noundef %0, ptr noc
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %2
-  tail call fastcc void @exec_prepare_plan(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 2048)
+  tail call fastcc void @exec_prepare_plan(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef 2048)
   br label %14
 
 14:                                               ; preds = %13, %2
@@ -9648,7 +9648,7 @@ setup_param_list.exit:                            ; preds = %33, %37
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %129
-  %135 = tail call fastcc ptr @format_expr_params(ptr noundef nonnull %0, ptr noundef nonnull %4)
+  %135 = tail call fastcc ptr @format_expr_params(ptr noundef %0, ptr noundef nonnull %4)
   br label %136
 
 136:                                              ; preds = %129, %134
@@ -9689,7 +9689,7 @@ setup_param_list.exit:                            ; preds = %33, %37
   br i1 %155, label %156, label %158
 
 156:                                              ; preds = %151
-  %157 = tail call fastcc ptr @format_expr_params(ptr noundef nonnull %0, ptr noundef nonnull %4)
+  %157 = tail call fastcc ptr @format_expr_params(ptr noundef %0, ptr noundef nonnull %4)
   %.pre = load i8, ptr %144, align 1
   br label %158
 
@@ -9800,7 +9800,7 @@ declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exec_check_assignable(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @exec_check_assignable(ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   br label %tailrecurse
@@ -9861,7 +9861,7 @@ declare ptr @plpgsql_build_datatype(i32 noundef, i32 noundef, i32 noundef, ptr n
 declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @exec_for_query(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @exec_for_query(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 24
@@ -10106,7 +10106,7 @@ compatible_tupdescs.exit:                         ; preds = %115, %110, %105, %1
 
 exec_eval_cleanup.exit93:                         ; preds = %127, %129
   %132 = load ptr, ptr %35, align 8
-  %133 = tail call fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef %132)
+  %133 = tail call fastcc i32 @exec_stmts(ptr noundef %0, ptr noundef %132)
   switch i32 %133, label %152 [
     i32 2, label %.loopexit
     i32 1, label %134
@@ -10971,7 +10971,7 @@ declare i64 @HeapTupleHeaderGetDatum(ptr noundef) local_unnamed_addr #1
 declare i64 @expanded_record_fetch_field(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exec_init_tuple_store(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @exec_init_tuple_store(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -11066,7 +11066,7 @@ define internal fastcc ptr @convert_value_to_string(ptr %.200.val.40.val, i64 no
 declare ptr @MemoryContextStrdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @exec_eval_using_params(ptr nocapture noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @exec_eval_using_params(ptr nocapture noundef nonnull %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i16, align 2
   %5 = alloca i8, align 1
@@ -11115,7 +11115,7 @@ get_stmt_mcontext.exit:                           ; preds = %list_length.exit, %
   store i16 1, ptr %29, align 2
   %30 = getelementptr inbounds i8, ptr %28, i64 8
   %31 = getelementptr inbounds i8, ptr %28, i64 12
-  %32 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %27, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %3)
+  %32 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %27, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef %3)
   store i64 %32, ptr %28, align 8
   %33 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %16, ptr @CurrentMemoryContext, align 8
@@ -11216,7 +11216,7 @@ declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @err_generic_string(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @format_expr_params(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @format_expr_params(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
   %5 = alloca %struct.StringInfoData, align 8
@@ -11310,7 +11310,7 @@ declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr
 declare void @appendStringInfoStringQuoted(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @format_preparedparamsdata(ptr nocapture noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @format_preparedparamsdata(ptr nocapture noundef nonnull readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
   %5 = alloca %struct.StringInfoData, align 8
@@ -11388,7 +11388,7 @@ define internal fastcc ptr @format_preparedparamsdata(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @exec_dynquery_with_params(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc nonnull ptr @exec_dynquery_with_params(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
@@ -11409,7 +11409,7 @@ define internal fastcc nonnull ptr @exec_dynquery_with_params(ptr nocapture noun
 
 get_stmt_mcontext.exit:                           ; preds = %5, %15
   %19 = phi ptr [ %18, %15 ], [ %13, %5 ]
-  %20 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %20 = call fastcc i64 @exec_eval_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %10)
   %21 = load i8, ptr %8, align 1
   %22 = trunc i8 %21 to i1
   br i1 %22, label %23, label %27
@@ -11463,7 +11463,7 @@ get_stmt_mcontext.exit:                           ; preds = %5, %15
 exec_eval_cleanup.exit:                           ; preds = %38, %40
   %43 = getelementptr inbounds i8, ptr %11, i64 8
   store i64 0, ptr %43, align 8
-  %44 = call fastcc ptr @exec_eval_using_params(ptr noundef nonnull %0, ptr noundef %2)
+  %44 = call fastcc ptr @exec_eval_using_params(ptr noundef %0, ptr noundef %2)
   store ptr %44, ptr %11, align 8
   %45 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 %4, ptr %45, align 8

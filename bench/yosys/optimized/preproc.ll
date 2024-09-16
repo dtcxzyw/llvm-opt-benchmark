@@ -975,7 +975,7 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.
           to label %76 unwind label %.loopexit.split-lp281
 
 76:                                               ; preds = %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit113
-  invoke fastcc void @_ZN5YosysL10input_fileERSiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %33)
+  invoke fastcc void @_ZN5YosysL10input_fileERSiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %33)
           to label %77 unwind label %112
 
 77:                                               ; preds = %76
@@ -1013,7 +1013,7 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.
   %.059601 = phi i32 [ 0, %.lr.ph602 ], [ %.261, %860 ]
   %.066600 = phi i32 [ 0, %.lr.ph602 ], [ %.268, %860 ]
   %.073599 = phi i8 [ 0, %.lr.ph602 ], [ %.174, %860 ]
-  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %34, i1 noundef zeroext false)
+  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %34, i1 noundef zeroext false)
           to label %103 unwind label %.loopexit280
 
 103:                                              ; preds = %102
@@ -1195,7 +1195,7 @@ tailrecurse.backedge.i:                           ; preds = %.noexc219, %143
 
 _ZN5YosysL11skip_spacesB5cxx11Ev.exit:            ; preds = %135, %.noexc219, %tailrecurse.backedge.i, %157
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #22
-  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %36, i1 noundef zeroext true)
+  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %36, i1 noundef zeroext true)
           to label %160 unwind label %.loopexit.split-lp276.loopexit
 
 160:                                              ; preds = %_ZN5YosysL11skip_spacesB5cxx11Ev.exit
@@ -1382,7 +1382,7 @@ tailrecurse.backedge.i222:                        ; preds = %.noexc223, %201
 
 _ZN5YosysL11skip_spacesB5cxx11Ev.exit121:         ; preds = %193, %.noexc223, %tailrecurse.backedge.i222, %215
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #22
-  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %38, i1 noundef zeroext true)
+  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %38, i1 noundef zeroext true)
           to label %218 unwind label %.loopexit.split-lp276.loopexit
 
 218:                                              ; preds = %_ZN5YosysL11skip_spacesB5cxx11Ev.exit121
@@ -1505,7 +1505,7 @@ _ZNK5Yosys12define_map_t4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
 
 _ZN5YosysL11skip_spacesB5cxx11Ev.exit142:         ; preds = %246, %248
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #22
-  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %40, i1 noundef zeroext true)
+  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %40, i1 noundef zeroext true)
           to label %251 unwind label %.loopexit.split-lp276.loopexit
 
 251:                                              ; preds = %_ZN5YosysL11skip_spacesB5cxx11Ev.exit142
@@ -1661,7 +1661,7 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_bac
 
 _ZN5YosysL11skip_spacesB5cxx11Ev.exit165:         ; preds = %291, %293
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #22
-  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %42, i1 noundef zeroext true)
+  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %42, i1 noundef zeroext true)
           to label %.preheader271 unwind label %.loopexit.split-lp276.loopexit
 
 .preheader271:                                    ; preds = %_ZN5YosysL11skip_spacesB5cxx11Ev.exit165, %299
@@ -1672,7 +1672,7 @@ _ZN5YosysL11skip_spacesB5cxx11Ev.exit165:         ; preds = %291, %293
   br i1 %296, label %298, label %.preheader265
 
 298:                                              ; preds = %297
-  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %43, i1 noundef zeroext false)
+  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %43, i1 noundef zeroext false)
           to label %299 unwind label %.loopexit.split-lp267.loopexit
 
 299:                                              ; preds = %298
@@ -1993,7 +1993,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_.exi
           to label %416 unwind label %.loopexit.split-lp
 
 416:                                              ; preds = %415
-  invoke fastcc void @_ZN5YosysL10input_fileERSiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull %56)
+  invoke fastcc void @_ZN5YosysL10input_fileERSiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef %56)
           to label %417 unwind label %419
 
 417:                                              ; preds = %416
@@ -2073,7 +2073,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 
 _ZN5YosysL11skip_spacesB5cxx11Ev.exit183:         ; preds = %429, %431
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #22
-  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %58, i1 noundef zeroext true)
+  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %58, i1 noundef zeroext true)
           to label %434 unwind label %.loopexit.split-lp276.loopexit
 
 434:                                              ; preds = %_ZN5YosysL11skip_spacesB5cxx11Ev.exit183
@@ -2306,7 +2306,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_tra
 
 _ZN5YosysL11skip_spacesB5cxx11Ev.exit.i:          ; preds = %502, %504
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #22
-  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %22, i1 noundef zeroext true)
+  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %22, i1 noundef zeroext true)
           to label %507 unwind label %.loopexit.split-lp.loopexit.split-lp.i.loopexit
 
 507:                                              ; preds = %_ZN5YosysL11skip_spacesB5cxx11Ev.exit.i
@@ -2380,7 +2380,7 @@ _ZN5YosysL11skip_spacesB5cxx11Ev.exit48.i:        ; preds = %511, %513
   %.027.i = phi i1 [ false, %_ZN5YosysL11skip_spacesB5cxx11Ev.exit48.i ], [ %.128.i, %_ZNSt4pairIiN5Yosys9arg_map_tEED2Ev.exit.i ]
   %.023.i = phi i32 [ 0, %_ZN5YosysL11skip_spacesB5cxx11Ev.exit48.i ], [ %.124.i, %_ZNSt4pairIiN5Yosys9arg_map_tEED2Ev.exit.i ]
   %.121.i = phi i32 [ %spec.select.i, %_ZN5YosysL11skip_spacesB5cxx11Ev.exit48.i ], [ %.222.i, %_ZNSt4pairIiN5Yosys9arg_map_tEED2Ev.exit.i ]
-  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %24, i1 noundef zeroext false)
+  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %24, i1 noundef zeroext false)
           to label %518 unwind label %.loopexit.split-lp.loopexit.i
 
 518:                                              ; preds = %517
@@ -2489,7 +2489,7 @@ _ZN5YosysL11skip_spacesB5cxx11Ev.exit.i.i:        ; preds = %533, %535
 
 538:                                              ; preds = %_ZN5YosysL11skip_spacesB5cxx11Ev.exit18.i.i, %_ZN5YosysL11skip_spacesB5cxx11Ev.exit.i.i
   %.0112.i.i = phi i32 [ 0, %_ZN5YosysL11skip_spacesB5cxx11Ev.exit.i.i ], [ %.1.i.i, %_ZN5YosysL11skip_spacesB5cxx11Ev.exit18.i.i ]
-  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i1 noundef zeroext false)
+  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %11, i1 noundef zeroext false)
           to label %539 unwind label %.loopexit.i49.i, !noalias !18
 
 539:                                              ; preds = %538
@@ -3430,12 +3430,12 @@ _ZN5YosysL11read_defineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN
 
 819:                                              ; preds = %816
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #22
-  invoke fastcc void @_ZN5YosysL11skip_spacesB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %64)
+  invoke fastcc void @_ZN5YosysL11skip_spacesB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %64)
           to label %820 unwind label %825
 
 820:                                              ; preds = %819
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #22
-  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %65, i1 noundef zeroext true)
+  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %65, i1 noundef zeroext true)
           to label %821 unwind label %825
 
 821:                                              ; preds = %820
@@ -3464,7 +3464,7 @@ _ZN5YosysL11read_defineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN
   br i1 %829, label %830, label %841
 
 830:                                              ; preds = %827
-  invoke fastcc void @_ZN5YosysL11skip_spacesB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %66)
+  invoke fastcc void @_ZN5YosysL11skip_spacesB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %66)
           to label %831 unwind label %.loopexit.split-lp276.loopexit
 
 831:                                              ; preds = %830
@@ -3478,7 +3478,7 @@ _ZN5YosysL11read_defineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN
   br i1 %.not246, label %.critedge, label %834
 
 834:                                              ; preds = %.lr.ph
-  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %67, i1 noundef zeroext true)
+  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %67, i1 noundef zeroext true)
           to label %835 unwind label %.loopexit275
 
 835:                                              ; preds = %834
@@ -3668,7 +3668,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5YosysL10input_fileERSiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5YosysL10input_fileERSiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca [513 x i8], align 16
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.3", align 1
@@ -3683,7 +3683,7 @@ define internal fastcc void @_ZN5YosysL10input_fileERSiNSt7__cxx1112basic_string
           to label %12 unwind label %35
 
 12:                                               ; preds = %2
-  invoke fastcc void @_ZN5YosysL12insert_inputENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %4)
+  invoke fastcc void @_ZN5YosysL12insert_inputENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %4)
           to label %13 unwind label %37
 
 13:                                               ; preds = %12
@@ -3830,7 +3830,7 @@ define internal fastcc void @_ZN5YosysL10input_fileERSiNSt7__cxx1112basic_string
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %0, i1 noundef zeroext %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %0, i1 noundef zeroext %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.3", align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
@@ -4291,7 +4291,7 @@ define internal fastcc noundef zeroext i1 @_ZN5YosysL16try_expand_macroERNS_12de
   br i1 %.not115, label %.sink.split119, label %.lr.ph114
 
 .lr.ph114:                                        ; preds = %26, %46
-  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %6, i1 noundef zeroext false)
+  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %6, i1 noundef zeroext false)
           to label %28 unwind label %37
 
 28:                                               ; preds = %.lr.ph114
@@ -4314,7 +4314,7 @@ define internal fastcc noundef zeroext i1 @_ZN5YosysL16try_expand_macroERNS_12de
   br label %.body
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %.noexc
-  invoke fastcc void @_ZN5YosysL12insert_inputENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %7)
+  invoke fastcc void @_ZN5YosysL12insert_inputENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %7)
           to label %.sink.split119.sink.split.sink.split unwind label %39
 
 35:                                               ; preds = %25
@@ -4492,7 +4492,7 @@ _ZNK5Yosys12define_map_t4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
           to label %83 unwind label %.loopexit.i, !llvm.loop !11
 
 _ZN5YosysL11skip_spacesB5cxx11Ev.exit:            ; preds = %85, %86
-  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i1 noundef zeroext false)
+  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %12, i1 noundef zeroext false)
           to label %89 unwind label %112
 
 89:                                               ; preds = %_ZN5YosysL11skip_spacesB5cxx11Ev.exit
@@ -4717,7 +4717,7 @@ _ZNSt5stackISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys1
           to label %169 unwind label %175
 
 169:                                              ; preds = %_ZNSt5stackISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys13define_body_tEESt5dequeIS9_SaIS9_EEE4pushEOS9_.exit
-  invoke fastcc void @_ZN5YosysL12insert_inputENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %18)
+  invoke fastcc void @_ZN5YosysL12insert_inputENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %18)
           to label %170 unwind label %177
 
 170:                                              ; preds = %169
@@ -4777,7 +4777,7 @@ _ZNK5Yosys12define_map_t4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
           to label %185 unwind label %112
 
 185:                                              ; preds = %184
-  invoke fastcc void @_ZN5YosysL12insert_inputENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %20)
+  invoke fastcc void @_ZN5YosysL12insert_inputENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %20)
           to label %186 unwind label %189
 
 186:                                              ; preds = %185
@@ -4786,7 +4786,7 @@ _ZNK5Yosys12define_map_t4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
           to label %187 unwind label %112
 
 187:                                              ; preds = %186
-  invoke fastcc void @_ZN5YosysL12insert_inputENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %21)
+  invoke fastcc void @_ZN5YosysL12insert_inputENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %21)
           to label %188 unwind label %191
 
 188:                                              ; preds = %187
@@ -4810,7 +4810,7 @@ _ZNK5Yosys12define_map_t4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
           to label %194 unwind label %112
 
 194:                                              ; preds = %193
-  invoke fastcc void @_ZN5YosysL12insert_inputENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %22)
+  invoke fastcc void @_ZN5YosysL12insert_inputENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %22)
           to label %195 unwind label %196
 
 195:                                              ; preds = %194
@@ -5688,7 +5688,7 @@ _ZNSt6vectorIN5Yosys11macro_arg_tESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5YosysL12insert_inputENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5YosysL12insert_inputENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = load i64, ptr @_ZN5YosysL18input_buffer_charpE, align 8
   %.not = icmp eq i64 %3, 0
@@ -5852,7 +5852,7 @@ _ZN5YosysL11skip_spacesB5cxx11Ev.exit:            ; preds = %8, %10
   br label %15
 
 15:                                               ; preds = %.critedge, %_ZN5YosysL11skip_spacesB5cxx11Ev.exit
-  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %4, i1 noundef zeroext true)
+  invoke fastcc void @_ZN5YosysL10next_tokenB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %4, i1 noundef zeroext true)
           to label %16 unwind label %36
 
 16:                                               ; preds = %15

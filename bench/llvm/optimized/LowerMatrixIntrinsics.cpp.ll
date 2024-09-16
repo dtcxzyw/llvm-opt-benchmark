@@ -6179,7 +6179,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_17IntrinsicID
   store i32 %2623, ptr %109, align 4
   store i32 %2629, ptr %2437, align 4
   store i8 1, ptr %2438, align 4
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias nonnull writable align 8 %108, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %2551, ptr noundef nonnull align 4 dereferenceable(9) %109, ptr noundef nonnull align 8 dereferenceable(144) %105)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias writable align 8 %108, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %2551, ptr noundef nonnull align 4 dereferenceable(9) %109, ptr noundef nonnull align 8 dereferenceable(144) %105)
   %2645 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_5ValueEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef nonnull align 8 dereferenceable(16) %108)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %2424, ptr noundef nonnull align 8 dereferenceable(17) %2439, i64 17, i1 false)
   %2646 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %108) #18
@@ -6198,7 +6198,7 @@ _ZN12_GLOBAL__N_121LowerMatrixIntrinsics8MatrixTyD2Ev.exit.i: ; preds = %2649, %
   %2651 = icmp eq i32 %2650, 0
   %2652 = zext i1 %2651 to i8
   store i8 %2652, ptr %2442, align 4
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias nonnull writable align 8 %110, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull %storemerge198.i, ptr noundef nonnull align 4 dereferenceable(9) %111, ptr noundef nonnull align 8 dereferenceable(144) %105)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias writable align 8 %110, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull %storemerge198.i, ptr noundef nonnull align 4 dereferenceable(9) %111, ptr noundef nonnull align 8 dereferenceable(144) %105)
   %2653 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_5ValueEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 8 dereferenceable(16) %110)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %2427, ptr noundef nonnull align 8 dereferenceable(17) %2443, i64 17, i1 false)
   %2654 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %110) #18
@@ -6210,7 +6210,7 @@ _ZN12_GLOBAL__N_121LowerMatrixIntrinsics8MatrixTyD2Ev.exit.i: ; preds = %2649, %
   store i32 %2623, ptr %113, align 4
   store i32 %2629, ptr %2429, align 4
   store i8 0, ptr %2430, align 4
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias nonnull writable align 8 %112, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull %storemerge198.i, ptr noundef nonnull align 4 dereferenceable(9) %113, ptr noundef nonnull align 8 dereferenceable(144) %105)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias writable align 8 %112, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull %storemerge198.i, ptr noundef nonnull align 4 dereferenceable(9) %113, ptr noundef nonnull align 8 dereferenceable(144) %105)
   %2658 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_5ValueEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef nonnull align 8 dereferenceable(16) %112)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %2424, ptr noundef nonnull align 8 dereferenceable(17) %2431, i64 17, i1 false)
   %2659 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %112) #18
@@ -6229,7 +6229,7 @@ _ZN12_GLOBAL__N_121LowerMatrixIntrinsics8MatrixTyD2Ev.exit119.i: ; preds = %2662
   %2664 = icmp eq i32 %2663, 0
   %2665 = zext i1 %2664 to i8
   store i8 %2665, ptr %2434, align 4
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias nonnull writable align 8 %114, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %2553, ptr noundef nonnull align 4 dereferenceable(9) %115, ptr noundef nonnull align 8 dereferenceable(144) %105)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias writable align 8 %114, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %2553, ptr noundef nonnull align 4 dereferenceable(9) %115, ptr noundef nonnull align 8 dereferenceable(144) %105)
   %2666 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_5ValueEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 8 dereferenceable(16) %114)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %2427, ptr noundef nonnull align 8 dereferenceable(17) %2435, i64 17, i1 false)
   %2667 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %114) #18
@@ -6644,7 +6644,7 @@ _ZN12_GLOBAL__N_121LowerMatrixIntrinsics8MatrixTyD2Ev.exit148.i: ; preds = %2838
 
 _ZN12_GLOBAL__N_121LowerMatrixIntrinsics8MatrixTyC2ERKS1_.exit.i: ; preds = %2840, %_ZN12_GLOBAL__N_121LowerMatrixIntrinsics8MatrixTyD2Ev.exit148.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %2462, ptr noundef nonnull align 8 dereferenceable(17) %2463, i64 17, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16finalizeLoweringEPN4llvm11InstructionENS0_8MatrixTyERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull %2540, ptr noundef nonnull %118, ptr noundef nonnull align 8 dereferenceable(144) %105)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16finalizeLoweringEPN4llvm11InstructionENS0_8MatrixTyERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull %2540, ptr noundef %118, ptr noundef nonnull align 8 dereferenceable(144) %105)
   %2842 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %118) #18
   %2843 = load ptr, ptr %118, align 8
   %2844 = icmp eq ptr %2843, %2461
@@ -7532,7 +7532,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit43.i.i: ; preds = %3257, %._crit_edge.
   %3267 = icmp eq i32 %3266, 0
   %3268 = zext i1 %3267 to i8
   store i8 %3268, ptr %2526, align 8
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics10loadMatrixEPN4llvm5ValueENS1_10MaybeAlignEbNS_12_GLOBAL__N_19ShapeInfoES3_S3_S6_PNS1_4TypeERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull readonly align 8 dereferenceable(304) %0, ptr noundef %3132, i16 0, i1 noundef zeroext false, ptr noundef nonnull byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %11, ptr noundef %3263, ptr noundef %3264, ptr noundef nonnull byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %12, ptr noundef %3148, ptr noundef nonnull align 8 dereferenceable(144) %6)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics10loadMatrixEPN4llvm5ValueENS1_10MaybeAlignEbNS_12_GLOBAL__N_19ShapeInfoES3_S3_S6_PNS1_4TypeERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull readonly align 8 dereferenceable(304) %0, ptr noundef %3132, i16 0, i1 noundef zeroext false, ptr noundef nonnull byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %11, ptr noundef %3263, ptr noundef %3264, ptr noundef nonnull byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %12, ptr noundef %3148, ptr noundef nonnull align 8 dereferenceable(144) %6)
   %3269 = load ptr, ptr %2518, align 8
   %3270 = load ptr, ptr %2527, align 8
   %3271 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL8TileSize, i64 128), align 8
@@ -7542,7 +7542,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit43.i.i: ; preds = %3257, %._crit_edge.
   %3273 = icmp eq i32 %3272, 0
   %3274 = zext i1 %3273 to i8
   store i8 %3274, ptr %2529, align 8
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics10loadMatrixEPN4llvm5ValueENS1_10MaybeAlignEbNS_12_GLOBAL__N_19ShapeInfoES3_S3_S6_PNS1_4TypeERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull readonly align 8 dereferenceable(304) %0, ptr noundef %3133, i16 0, i1 noundef zeroext false, ptr noundef nonnull byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %16, ptr noundef %3269, ptr noundef %3270, ptr noundef nonnull byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %14, ptr noundef %3148, ptr noundef nonnull align 8 dereferenceable(144) %6)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics10loadMatrixEPN4llvm5ValueENS1_10MaybeAlignEbNS_12_GLOBAL__N_19ShapeInfoES3_S3_S6_PNS1_4TypeERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull readonly align 8 dereferenceable(304) %0, ptr noundef %3133, i16 0, i1 noundef zeroext false, ptr noundef nonnull byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %16, ptr noundef %3269, ptr noundef %3270, ptr noundef nonnull byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %14, ptr noundef %3148, ptr noundef nonnull align 8 dereferenceable(144) %6)
   %3275 = load i8, ptr %2540, align 8
   %3276 = icmp ult i8 %3275, 29
   br i1 %3276, label %_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16getFastMathFlagsEPN4llvm11InstructionE.exit.i.i529, label %3277
@@ -8035,7 +8035,7 @@ _ZN12_GLOBAL__N_121LowerMatrixIntrinsics8MatrixTyD2Ev.exit114.us.i: ; preds = %3
   %3480 = zext i1 %3479 to i8
   store i8 %3480, ptr %2487, align 8
   %.sroa.0200.0.insert.insert.us.i = or disjoint i16 %.sroa.0200.0.insert.ext.us.i, 256
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics10loadMatrixEPN4llvm5ValueENS1_10MaybeAlignEbNS_12_GLOBAL__N_19ShapeInfoES3_S3_S6_PNS1_4TypeERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull readonly align 8 dereferenceable(304) %0, ptr noundef %3132, i16 %.sroa.0200.0.insert.insert.us.i, i1 noundef zeroext %3470, ptr noundef nonnull byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %20, ptr noundef %3473, ptr noundef %3477, ptr noundef nonnull byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %21, ptr noundef %3131, ptr noundef nonnull align 8 dereferenceable(144) %17)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics10loadMatrixEPN4llvm5ValueENS1_10MaybeAlignEbNS_12_GLOBAL__N_19ShapeInfoES3_S3_S6_PNS1_4TypeERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull readonly align 8 dereferenceable(304) %0, ptr noundef %3132, i16 %.sroa.0200.0.insert.insert.us.i, i1 noundef zeroext %3470, ptr noundef nonnull byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %20, ptr noundef %3473, ptr noundef %3477, ptr noundef nonnull byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %21, ptr noundef %3131, ptr noundef nonnull align 8 dereferenceable(144) %17)
   %3481 = load i16, ptr %3421, align 2
   %3482 = lshr i16 %3481, 1
   %.sroa.0198.0.insert.ext.us.i = and i16 %3482, 63
@@ -8057,7 +8057,7 @@ _ZN12_GLOBAL__N_121LowerMatrixIntrinsics8MatrixTyD2Ev.exit114.us.i: ; preds = %3
   %3493 = zext i1 %3492 to i8
   store i8 %3493, ptr %2489, align 8
   %.sroa.0198.0.insert.insert.us.i = or disjoint i16 %.sroa.0198.0.insert.ext.us.i, 256
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics10loadMatrixEPN4llvm5ValueENS1_10MaybeAlignEbNS_12_GLOBAL__N_19ShapeInfoES3_S3_S6_PNS1_4TypeERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull readonly align 8 dereferenceable(304) %0, ptr noundef %3133, i16 %.sroa.0198.0.insert.insert.us.i, i1 noundef zeroext %3484, ptr noundef nonnull byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %23, ptr noundef %3487, ptr noundef %3490, ptr noundef nonnull byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %24, ptr noundef %3131, ptr noundef nonnull align 8 dereferenceable(144) %17)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics10loadMatrixEPN4llvm5ValueENS1_10MaybeAlignEbNS_12_GLOBAL__N_19ShapeInfoES3_S3_S6_PNS1_4TypeERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull readonly align 8 dereferenceable(304) %0, ptr noundef %3133, i16 %.sroa.0198.0.insert.insert.us.i, i1 noundef zeroext %3484, ptr noundef nonnull byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %23, ptr noundef %3487, ptr noundef %3490, ptr noundef nonnull byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %24, ptr noundef %3131, ptr noundef nonnull align 8 dereferenceable(144) %17)
   %3494 = load i8, ptr %2540, align 8
   %3495 = icmp ult i8 %3494, 29
   br i1 %3495, label %_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16getFastMathFlagsEPN4llvm11InstructionE.exit.us.i, label %3496
@@ -8218,7 +8218,7 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i500
 
 3553:                                             ; preds = %._crit_edge.i.i.i506, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i496
-  %3554 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %181, ptr noundef %spec.select.i.i158.i) #18, !noalias !141
+  %3554 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %181, ptr noundef nonnull %spec.select.i.i158.i) #18, !noalias !141
   %.pre.i.i497 = load ptr, ptr %181, align 8, !noalias !15
   %.pre8.i.i499 = load i32, ptr %1788, align 4, !noalias !15
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i500
@@ -8764,7 +8764,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i17.i: ; preds =
   store i32 %3847, ptr %3696, align 4
   store i8 %3839, ptr %3697, align 4
   %3848 = load ptr, ptr %3820, align 8
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias nonnull writable align 8 %96, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %3848, ptr noundef nonnull align 4 dereferenceable(9) %94, ptr noundef nonnull align 8 dereferenceable(144) %93)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias writable align 8 %96, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %3848, ptr noundef nonnull align 4 dereferenceable(9) %94, ptr noundef nonnull align 8 dereferenceable(144) %93)
   %3849 = load i32, ptr %3815, align 4
   %3850 = and i32 %3849, 134217727
   %3851 = zext nneg i32 %3850 to i64
@@ -8772,7 +8772,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i17.i: ; preds =
   %3853 = getelementptr inbounds %"class.llvm::Use", ptr %3763, i64 %3852
   %3854 = getelementptr inbounds i8, ptr %3853, i64 32
   %3855 = load ptr, ptr %3854, align 8
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias nonnull writable align 8 %97, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %3855, ptr noundef nonnull align 4 dereferenceable(9) %95, ptr noundef nonnull align 8 dereferenceable(144) %93)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias writable align 8 %97, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %3855, ptr noundef nonnull align 4 dereferenceable(9) %95, ptr noundef nonnull align 8 dereferenceable(144) %93)
   call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics8MatrixTyC2EjjPN4llvm4TypeE(ptr noundef nonnull align 8 dereferenceable(161) %98, i32 noundef %3830, i32 noundef %3847, ptr noundef %3814)
   %3856 = load i8, ptr %3763, align 8
   %3857 = icmp ult i8 %3856, 29
@@ -8860,7 +8860,7 @@ _ZN12_GLOBAL__N_121LowerMatrixIntrinsics16getFastMathFlagsEPN4llvm11InstructionE
 
 _ZN12_GLOBAL__N_121LowerMatrixIntrinsics8MatrixTyC2ERKS1_.exit.i.i: ; preds = %3882, %_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16getFastMathFlagsEPN4llvm11InstructionE.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %3699, ptr noundef nonnull align 8 dereferenceable(17) %3700, i64 17, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16finalizeLoweringEPN4llvm11InstructionENS0_8MatrixTyERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull %3763, ptr noundef nonnull %99, ptr noundef nonnull align 8 dereferenceable(144) %93)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16finalizeLoweringEPN4llvm11InstructionENS0_8MatrixTyERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull %3763, ptr noundef %99, ptr noundef nonnull align 8 dereferenceable(144) %93)
   %3884 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %99) #18
   %3885 = load ptr, ptr %99, align 8
   %3886 = icmp eq ptr %3885, %3698
@@ -8986,7 +8986,7 @@ _ZN12_GLOBAL__N_121LowerMatrixIntrinsics13LowerMultiplyEPN4llvm8CallInstE.exit.i
   %3935 = icmp eq i32 %3934, 0
   %3936 = zext i1 %3935 to i8
   store i8 %3936, ptr %3669, align 4
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias nonnull writable align 8 %89, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull %3915, ptr noundef nonnull align 4 dereferenceable(9) %88, ptr noundef nonnull align 8 dereferenceable(144) %87)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias writable align 8 %89, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull %3915, ptr noundef nonnull align 4 dereferenceable(9) %88, ptr noundef nonnull align 8 dereferenceable(144) %87)
   %.val19.i.i = load i8, ptr %3670, align 8
   %3937 = trunc i8 %.val19.i.i to i1
   %3938 = select i1 %3937, i32 %3927, i32 %3933
@@ -9160,7 +9160,7 @@ _ZN12_GLOBAL__N_121LowerMatrixIntrinsics8MatrixTy9addVectorEPN4llvm5ValueE.exit.
 
 _ZN12_GLOBAL__N_121LowerMatrixIntrinsics8MatrixTyC2ERKS1_.exit.i23.i: ; preds = %4012, %._crit_edge49.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %3679, ptr noundef nonnull align 8 dereferenceable(17) %3653, i64 17, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16finalizeLoweringEPN4llvm11InstructionENS0_8MatrixTyERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull %3763, ptr noundef nonnull %92, ptr noundef nonnull align 8 dereferenceable(144) %87)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16finalizeLoweringEPN4llvm11InstructionENS0_8MatrixTyERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull %3763, ptr noundef %92, ptr noundef nonnull align 8 dereferenceable(144) %87)
   %4014 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %92) #18
   %4015 = load ptr, ptr %92, align 8
   %4016 = icmp eq ptr %4015, %3678
@@ -9450,8 +9450,8 @@ _ZN4llvm8ValueMapIPNS_5ValueEN12_GLOBAL__N_112_GLOBAL__N_19ShapeInfoENS_14ValueM
   %4170 = icmp eq i32 %4169, 0
   %4171 = zext i1 %4170 to i8
   store i8 %4171, ptr %3721, align 8
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias nonnull writable align 8 %78, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %4164, ptr noundef nonnull align 4 dereferenceable(9) %4168, ptr noundef nonnull align 8 dereferenceable(144) %76)
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias nonnull writable align 8 %79, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %4166, ptr noundef nonnull align 4 dereferenceable(9) %4168, ptr noundef nonnull align 8 dereferenceable(144) %76)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias writable align 8 %78, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %4164, ptr noundef nonnull align 4 dereferenceable(9) %4168, ptr noundef nonnull align 8 dereferenceable(144) %76)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias writable align 8 %79, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %4166, ptr noundef nonnull align 4 dereferenceable(9) %4168, ptr noundef nonnull align 8 dereferenceable(144) %76)
   %4172 = load i8, ptr %3763, align 8
   %4173 = icmp ult i8 %4172, 29
   br i1 %4173, label %_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16getFastMathFlagsEPN4llvm11InstructionE.exit.i290, label %4174
@@ -9793,7 +9793,7 @@ _ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getNumOpsEPN4llvm4TypeE.exit.i: ; preds
 
 _ZN12_GLOBAL__N_121LowerMatrixIntrinsics8MatrixTyC2ERKS1_.exit.i297: ; preds = %4309, %_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getNumOpsEPN4llvm4TypeE.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %3738, ptr noundef nonnull align 8 dereferenceable(17) %3720, i64 17, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16finalizeLoweringEPN4llvm11InstructionENS0_8MatrixTyERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull %3763, ptr noundef nonnull %80, ptr noundef nonnull align 8 dereferenceable(144) %76)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16finalizeLoweringEPN4llvm11InstructionENS0_8MatrixTyERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull %3763, ptr noundef %80, ptr noundef nonnull align 8 dereferenceable(144) %76)
   %4311 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %80) #18
   %4312 = load ptr, ptr %80, align 8
   %4313 = icmp eq ptr %4312, %3737
@@ -9942,7 +9942,7 @@ _ZN4llvm8ValueMapIPNS_5ValueEN12_GLOBAL__N_112_GLOBAL__N_19ShapeInfoENS_14ValueM
   %4367 = icmp eq i32 %4366, 0
   %4368 = zext i1 %4367 to i8
   store i8 %4368, ptr %3756, align 8
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias nonnull writable align 8 %65, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %4363, ptr noundef nonnull align 4 dereferenceable(9) %4365, ptr noundef nonnull align 8 dereferenceable(144) %63)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias writable align 8 %65, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %4363, ptr noundef nonnull align 4 dereferenceable(9) %4365, ptr noundef nonnull align 8 dereferenceable(144) %63)
   %4369 = load i8, ptr %3763, align 8
   %4370 = icmp ult i8 %4369, 29
   br i1 %4370, label %_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16getFastMathFlagsEPN4llvm11InstructionE.exit.i333, label %4371
@@ -10117,7 +10117,7 @@ _ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getNumOpsEPN4llvm4TypeE.exit.i346: ; pr
 
 _ZN12_GLOBAL__N_121LowerMatrixIntrinsics8MatrixTyC2ERKS1_.exit.i350: ; preds = %4441, %_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getNumOpsEPN4llvm4TypeE.exit.i346
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %3760, ptr noundef nonnull align 8 dereferenceable(17) %3755, i64 17, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16finalizeLoweringEPN4llvm11InstructionENS0_8MatrixTyERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull %3763, ptr noundef nonnull %66, ptr noundef nonnull align 8 dereferenceable(144) %63)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16finalizeLoweringEPN4llvm11InstructionENS0_8MatrixTyERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull %3763, ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(144) %63)
   %4443 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %66) #18
   %4444 = load ptr, ptr %66, align 8
   %4445 = icmp eq ptr %4444, %3759
@@ -11704,7 +11704,7 @@ _ZN4llvm8DebugLocD2Ev.exit89.i:                   ; preds = %_ZN4llvm8DebugLocD2
   store i32 8, ptr %4972, align 8
   store i32 0, ptr %4973, align 4
   store i32 0, ptr %4974, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_121LowerMatrixIntrinsics15RemarkGenerator10sumOpInfosEPN4llvm5ValueERNS2_15SmallPtrSetImplIS4_EERKNS2_14SmallSetVectorIS4_Lj32EEERNS2_8DenseMapIS4_NS2_11SmallPtrSetIS4_Lj2EEENS2_12DenseMapInfoIS4_vEENS2_6detail12DenseMapPairIS4_SE_EEEE(ptr dead_on_unwind noalias nonnull writable align 4 %48, ptr noundef nonnull readonly align 8 dereferenceable(32) %183, ptr noundef %5167, ptr noundef nonnull align 8 dereferenceable(28) %47, ptr noundef nonnull align 8 dereferenceable(296) %41, ptr noundef nonnull align 8 dereferenceable(20) %43)
+  call fastcc void @_ZNK12_GLOBAL__N_121LowerMatrixIntrinsics15RemarkGenerator10sumOpInfosEPN4llvm5ValueERNS2_15SmallPtrSetImplIS4_EERKNS2_14SmallSetVectorIS4_Lj32EEERNS2_8DenseMapIS4_NS2_11SmallPtrSetIS4_Lj2EEENS2_12DenseMapInfoIS4_vEENS2_6detail12DenseMapPairIS4_SE_EEEE(ptr dead_on_unwind noalias writable align 4 %48, ptr noundef nonnull readonly align 8 dereferenceable(32) %183, ptr noundef %5167, ptr noundef nonnull align 8 dereferenceable(28) %47, ptr noundef nonnull align 8 dereferenceable(296) %41, ptr noundef nonnull align 8 dereferenceable(20) %43)
   %.sroa.0.0.copyload.i = load i32, ptr %48, align 4
   %.sroa.3.0.copyload.i = load i32, ptr %.sroa.3.0..sroa_idx.i, align 4
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i415, align 4
@@ -13301,7 +13301,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_18ValueMapCallbackVHIPNS_5ValueEN12_GLOBA
   store ptr %1, ptr %5, align 8, !alias.scope !221
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %60, ptr noundef nonnull readonly align 4 dereferenceable(12) %4, i64 12, i1 false)
-  call fastcc void @_ZN4llvm8ValueMapIPNS_5ValueEN12_GLOBAL__N_112_GLOBAL__N_19ShapeInfoENS_14ValueMapConfigIS2_NS_3sys10SmartMutexILb0EEEEEE6insertEOSt4pairIS2_S5_E(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(57) %59, ptr noundef nonnull align 8 dereferenceable(20) %5)
+  call fastcc void @_ZN4llvm8ValueMapIPNS_5ValueEN12_GLOBAL__N_112_GLOBAL__N_19ShapeInfoENS_14ValueMapConfigIS2_NS_3sys10SmartMutexILb0EEEEEE6insertEOSt4pairIS2_S5_E(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(57) %59, ptr noundef nonnull align 8 dereferenceable(20) %5)
   %.pre = load ptr, ptr %11, align 8
   br label %_ZNSt11unique_lockIN4llvm3sys10SmartMutexILb0EEEED2Ev.exit18
 
@@ -13329,7 +13329,7 @@ declare void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull
 declare void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm8ValueMapIPNS_5ValueEN12_GLOBAL__N_112_GLOBAL__N_19ShapeInfoENS_14ValueMapConfigIS2_NS_3sys10SmartMutexILb0EEEEEE6insertEOSt4pairIS2_S5_E(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(57) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm8ValueMapIPNS_5ValueEN12_GLOBAL__N_112_GLOBAL__N_19ShapeInfoENS_14ValueMapConfigIS2_NS_3sys10SmartMutexILb0EEEEEE6insertEOSt4pairIS2_S5_E(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(57) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::pair", align 8
   %5 = alloca %"class.llvm::ValueMapCallbackVH", align 8
   %6 = load ptr, ptr %2, align 8
@@ -14085,7 +14085,7 @@ _ZN4llvm8ValueMapIPNS_5ValueEN12_GLOBAL__N_112_GLOBAL__N_19ShapeInfoENS_14ValueM
   store i64 %2, ptr %83, align 8
   %.sroa.639.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
   store i8 %3, ptr %.sroa.639.0..sroa_idx, align 8
-  call fastcc void @_ZN4llvm8ValueMapIPNS_5ValueEN12_GLOBAL__N_112_GLOBAL__N_19ShapeInfoENS_14ValueMapConfigIS2_NS_3sys10SmartMutexILb0EEEEEE6insertEOSt4pairIS2_S5_E(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(57) %32, ptr noundef nonnull align 8 dereferenceable(20) %5)
+  call fastcc void @_ZN4llvm8ValueMapIPNS_5ValueEN12_GLOBAL__N_112_GLOBAL__N_19ShapeInfoENS_14ValueMapConfigIS2_NS_3sys10SmartMutexILb0EEEEEE6insertEOSt4pairIS2_S5_E(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(57) %32, ptr noundef nonnull align 8 dereferenceable(20) %5)
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %64, %58, %4, %_ZN12_GLOBAL__N_121LowerMatrixIntrinsics17supportsShapeInfoEPN4llvm5ValueE.exit, %82
@@ -14525,7 +14525,7 @@ _ZN12_GLOBAL__N_121LowerMatrixIntrinsics17supportsShapeInfoEPN4llvm5ValueE.exit:
   store ptr %2, ptr %4, align 8
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %69, ptr noundef nonnull readonly align 4 dereferenceable(12) %68, i64 12, i1 false)
-  call fastcc void @_ZN4llvm8ValueMapIPNS_5ValueEN12_GLOBAL__N_112_GLOBAL__N_19ShapeInfoENS_14ValueMapConfigIS2_NS_3sys10SmartMutexILb0EEEEEE6insertEOSt4pairIS2_S5_E(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(57) %6, ptr noundef nonnull align 8 dereferenceable(20) %4)
+  call fastcc void @_ZN4llvm8ValueMapIPNS_5ValueEN12_GLOBAL__N_112_GLOBAL__N_19ShapeInfoENS_14ValueMapConfigIS2_NS_3sys10SmartMutexILb0EEEEEE6insertEOSt4pairIS2_S5_E(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(57) %6, ptr noundef nonnull align 8 dereferenceable(20) %4)
   br label %_ZN12_GLOBAL__N_121LowerMatrixIntrinsics17supportsShapeInfoEPN4llvm5ValueE.exit.thread
 
 _ZN12_GLOBAL__N_121LowerMatrixIntrinsics17supportsShapeInfoEPN4llvm5ValueE.exit.thread: ; preds = %_ZN4llvm8ValueMapIPNS_5ValueEN12_GLOBAL__N_112_GLOBAL__N_19ShapeInfoENS_14ValueMapConfigIS2_NS_3sys10SmartMutexILb0EEEEEE5eraseENS_16ValueMapIteratorINS_8DenseMapINS_18ValueMapCallbackVHIS2_S5_SA_EES5_NS_12DenseMapInfoISF_vEENS_6detail12DenseMapPairISF_S5_EEEES2_EE.exit, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i, %_ZN12_GLOBAL__N_121LowerMatrixIntrinsics17supportsShapeInfoEPN4llvm5ValueE.exit, %67, %_ZN4llvm8ValueMapIPNS_5ValueEN12_GLOBAL__N_112_GLOBAL__N_19ShapeInfoENS_14ValueMapConfigIS2_NS_3sys10SmartMutexILb0EEEEEE4findERKS2_.exit
@@ -17188,7 +17188,7 @@ declare noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef no
 declare i32 @_ZNK4llvm11Instruction16getFastMathFlagsEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(304) %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %3, ptr noundef nonnull align 8 dereferenceable(144) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(304) %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %3, ptr noundef nonnull align 8 dereferenceable(144) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::SmallVector.393", align 8
   %7 = alloca %"class.llvm::SmallVector.406", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -18171,7 +18171,7 @@ _ZN4llvm13IRBuilderBase20CreateExtractElementEPNS_5ValueES2_RKNS_5TwineE.exit.us
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16finalizeLoweringEPN4llvm11InstructionENS0_8MatrixTyERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(144) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16finalizeLoweringEPN4llvm11InstructionENS0_8MatrixTyERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(144) %3) unnamed_addr #0 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca %"struct.std::pair.177", align 8
   %7 = alloca %"struct.std::pair.404", align 8
@@ -20437,7 +20437,7 @@ _ZSt14__partial_sortIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZN
 declare i32 @_ZN4llvm9AAResults5aliasERKNS_14MemoryLocationES3_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics21getNonAliasingPointerEPN4llvm8LoadInstEPNS1_9StoreInstEPNS1_8CallInstE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics21getNonAliasingPointerEPN4llvm8LoadInstEPNS1_9StoreInstEPNS1_8CallInstE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::MemoryLocation", align 8
@@ -20463,8 +20463,8 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics21ge
   %27 = alloca %"class.llvm::cfg::Update", align 8
   %28 = alloca %"class.llvm::cfg::Update", align 8
   %29 = alloca %"class.llvm::cfg::Update", align 8
-  call void @_ZN4llvm14MemoryLocation3getEPKNS_9StoreInstE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MemoryLocation") align 8 %7, ptr noundef %2) #18
-  call void @_ZN4llvm14MemoryLocation3getEPKNS_8LoadInstE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MemoryLocation") align 8 %8, ptr noundef %1) #18
+  call void @_ZN4llvm14MemoryLocation3getEPKNS_9StoreInstE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MemoryLocation") align 8 %7, ptr noundef nonnull %2) #18
+  call void @_ZN4llvm14MemoryLocation3getEPKNS_8LoadInstE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MemoryLocation") align 8 %8, ptr noundef nonnull %1) #18
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 @_ZN4llvm9AAResults5aliasERKNS_14MemoryLocationES3_(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %7) #18
@@ -21183,7 +21183,7 @@ _ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_10BasicBlockEEELj4EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics10loadMatrixEPN4llvm5ValueENS1_10MaybeAlignEbNS_12_GLOBAL__N_19ShapeInfoES3_S3_S6_PNS1_4TypeERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %1, ptr noundef %2, i16 %3, i1 noundef zeroext %4, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %8, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(144) %10) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics10loadMatrixEPN4llvm5ValueENS1_10MaybeAlignEbNS_12_GLOBAL__N_19ShapeInfoES3_S3_S6_PNS1_4TypeERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %1, ptr noundef %2, i16 %3, i1 noundef zeroext %4, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %8, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(144) %10) unnamed_addr #0 align 2 {
   %12 = alloca %"class.llvm::Twine", align 8
   %13 = alloca %"class.llvm::Twine", align 8
   %14 = alloca ptr, align 8
@@ -21502,7 +21502,7 @@ _ZN12_GLOBAL__N_121LowerMatrixIntrinsics8MatrixTyC2ERKS1_.exit: ; preds = %_ZNK1
   %107 = load ptr, ptr %23, align 8
   %108 = call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %107) #18
   %109 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %108, i64 noundef %22, i1 noundef zeroext false) #18
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics11storeMatrixEPN4llvm4TypeENS0_8MatrixTyEPNS1_5ValueENS1_10MaybeAlignES6_bRNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %100, ptr noundef nonnull %18, ptr noundef %75, i16 %3, ptr noundef %109, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(144) %9)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics11storeMatrixEPN4llvm4TypeENS0_8MatrixTyEPNS1_5ValueENS1_10MaybeAlignES6_bRNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %100, ptr noundef %18, ptr noundef %75, i16 %3, ptr noundef %109, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(144) %9)
   %110 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #18
   %111 = load ptr, ptr %17, align 8
   %112 = getelementptr inbounds i8, ptr %17, i64 16
@@ -22361,7 +22361,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics10loadMatrixEPN4llvm4TypeEPNS1_5ValueENS1_10MaybeAlignES5_bNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %1, ptr %.24.val, ptr noundef %2, i16 %3, ptr noundef %4, i1 noundef zeroext %5, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %6, ptr noundef nonnull align 8 dereferenceable(144) %7) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics10loadMatrixEPN4llvm4TypeEPNS1_5ValueENS1_10MaybeAlignES5_bNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %1, ptr %.24.val, ptr noundef %2, i16 %3, ptr noundef %4, i1 noundef zeroext %5, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %6, ptr noundef nonnull align 8 dereferenceable(144) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.(anonymous namespace)::LowerMatrixIntrinsics::MatrixTy", align 8
   %10 = alloca %"class.llvm::Twine", align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -22870,7 +22870,7 @@ declare noundef ptr @_ZNK4llvm13TargetExtType13getLayoutTypeEv(ptr noundef nonnu
 declare noundef nonnull align 4 dereferenceable(16) ptr @_ZNK4llvm10DataLayout14getPointerSpecEj(ptr noundef nonnull align 8 dereferenceable(512), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics11storeMatrixEPN4llvm4TypeENS0_8MatrixTyEPNS1_5ValueENS1_10MaybeAlignES6_bRNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3, ptr noundef %4, i16 %5, ptr noundef %6, i1 noundef zeroext %7, ptr noundef nonnull align 8 dereferenceable(144) %8) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics11storeMatrixEPN4llvm4TypeENS0_8MatrixTyEPNS1_5ValueENS1_10MaybeAlignES6_bRNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3, ptr noundef %4, i16 %5, ptr noundef %6, i1 noundef zeroext %7, ptr noundef nonnull align 8 dereferenceable(144) %8) unnamed_addr #0 align 2 {
   %10 = alloca %"class.(anonymous namespace)::LowerMatrixIntrinsics::MatrixTy", align 8
   %11 = load ptr, ptr %3, align 8
   %12 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
@@ -23074,8 +23074,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9LowerLoadE
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr i8, ptr %25, i64 24
   %.val = load ptr, ptr %26, align 8
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics10loadMatrixEPN4llvm4TypeEPNS1_5ValueENS1_10MaybeAlignES5_bNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr %.val, ptr noundef %2, i16 %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef nonnull byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %6, ptr noundef nonnull align 8 dereferenceable(144) %8)
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16finalizeLoweringEPN4llvm11InstructionENS0_8MatrixTyERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(144) %8)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics10loadMatrixEPN4llvm4TypeEPNS1_5ValueENS1_10MaybeAlignES5_bNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr %.val, ptr noundef %2, i16 %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef nonnull byval(%"struct.(anonymous namespace)::(anonymous namespace)::ShapeInfo") align 8 %6, ptr noundef nonnull align 8 dereferenceable(144) %8)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16finalizeLoweringEPN4llvm11InstructionENS0_8MatrixTyERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull %1, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(144) %8)
   %27 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #18
   %28 = load ptr, ptr %9, align 8
   %29 = getelementptr inbounds i8, ptr %9, i64 16
@@ -23138,7 +23138,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics10LowerStor
   store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTVN4llvm14ConstantFolderE, i64 16), ptr %14, align 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm24IRBuilderDefaultInserterE, i64 16), ptr %15, align 8
   call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull %1)
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(9) %7, ptr noundef nonnull align 8 dereferenceable(144) %9)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics9getMatrixEPN4llvm5ValueERKNS_12_GLOBAL__N_19ShapeInfoERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(9) %7, ptr noundef nonnull align 8 dereferenceable(144) %9)
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %12, i64 16
@@ -23154,8 +23154,8 @@ _ZN12_GLOBAL__N_121LowerMatrixIntrinsics8MatrixTyC2ERKS1_.exit: ; preds = %8, %3
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 144
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %33, ptr noundef nonnull align 8 dereferenceable(17) %34, i64 17, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics11storeMatrixEPN4llvm4TypeENS0_8MatrixTyEPNS1_5ValueENS1_10MaybeAlignES6_bRNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %28, ptr noundef nonnull %12, ptr noundef %3, i16 %4, ptr noundef %5, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(144) %9)
-  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16finalizeLoweringEPN4llvm11InstructionENS0_8MatrixTyERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull %1, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(144) %9)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics11storeMatrixEPN4llvm4TypeENS0_8MatrixTyEPNS1_5ValueENS1_10MaybeAlignES6_bRNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %28, ptr noundef %12, ptr noundef %3, i16 %4, ptr noundef %5, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(144) %9)
+  call fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics16finalizeLoweringEPN4llvm11InstructionENS0_8MatrixTyERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull %1, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(144) %9)
   %35 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #18
   %36 = load ptr, ptr %11, align 8
   %37 = getelementptr inbounds i8, ptr %11, i64 16
@@ -23687,7 +23687,7 @@ _ZNK4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj32EEENS_8DenseSetIS2_NS_12D
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_121LowerMatrixIntrinsics15RemarkGenerator10sumOpInfosEPN4llvm5ValueERNS2_15SmallPtrSetImplIS4_EERKNS2_14SmallSetVectorIS4_Lj32EEERNS2_8DenseMapIS4_NS2_11SmallPtrSetIS4_Lj2EEENS2_12DenseMapInfoIS4_vEENS2_6detail12DenseMapPairIS4_SE_EEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(296) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_121LowerMatrixIntrinsics15RemarkGenerator10sumOpInfosEPN4llvm5ValueERNS2_15SmallPtrSetImplIS4_EERKNS2_14SmallSetVectorIS4_Lj32EEERNS2_8DenseMapIS4_NS2_11SmallPtrSetIS4_Lj2EEENS2_12DenseMapInfoIS4_vEENS2_6detail12DenseMapPairIS4_SE_EEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(296) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"struct.std::pair.517", align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 8
@@ -24071,7 +24071,7 @@ _ZN4llvm4User14operand_valuesEv.exit:             ; preds = %176, %179
   %.sroa.7.172 = phi i32 [ %.sroa.7.0.copyload., %.lr.ph ], [ %200, %193 ]
   %.sroa.5.171 = phi i32 [ %.sroa.5.0.copyload., %.lr.ph ], [ %198, %193 ]
   %194 = load ptr, ptr %.sroa.015.078, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_121LowerMatrixIntrinsics15RemarkGenerator10sumOpInfosEPN4llvm5ValueERNS2_15SmallPtrSetImplIS4_EERKNS2_14SmallSetVectorIS4_Lj32EEERNS2_8DenseMapIS4_NS2_11SmallPtrSetIS4_Lj2EEENS2_12DenseMapInfoIS4_vEENS2_6detail12DenseMapPairIS4_SE_EEEE(ptr dead_on_unwind noalias nonnull writable align 4 %7, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %194, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(296) %4, ptr noundef nonnull align 8 dereferenceable(20) %5)
+  call fastcc void @_ZNK12_GLOBAL__N_121LowerMatrixIntrinsics15RemarkGenerator10sumOpInfosEPN4llvm5ValueERNS2_15SmallPtrSetImplIS4_EERKNS2_14SmallSetVectorIS4_Lj32EEERNS2_8DenseMapIS4_NS2_11SmallPtrSetIS4_Lj2EEENS2_12DenseMapInfoIS4_vEENS2_6detail12DenseMapPairIS4_SE_EEEE(ptr dead_on_unwind noalias writable align 4 %7, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %194, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(296) %4, ptr noundef nonnull align 8 dereferenceable(20) %5)
   %195 = load i32, ptr %7, align 4
   %196 = add i32 %195, %.sroa.021.174
   %197 = load i32, ptr %186, align 4

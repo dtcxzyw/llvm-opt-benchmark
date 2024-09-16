@@ -235,7 +235,7 @@ declare void @slurm_set_addr(ptr noundef, i16 noundef zeroext, ptr noundef) loca
 declare ptr @build_alloc_msg(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_srun_agent_launch(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @_srun_agent_launch(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4002, 7010) %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5) unnamed_addr #0 {
   %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 64, ptr noundef nonnull @__func__._srun_agent_launch) #6
   store i32 1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 4

@@ -245,8 +245,8 @@ while.cond:                                       ; preds = %if.end15, %for.body
   ]
 
 if.else:                                          ; preds = %while.cond
-  %idxprom.i = zext i8 %2 to i64
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i
+  %conv.i = zext i8 %2 to i64
+  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %4 = shl i8 %3, 3
   %5 = and i8 %4, 32
@@ -293,8 +293,8 @@ if.then32:                                        ; preds = %if.then29
 
 if.else36:                                        ; preds = %while.cond23
   %incdec.ptr37 = getelementptr inbounds i8, ptr %p.2, i64 1
-  %idxprom.i25 = zext i8 %7 to i64
-  %arrayidx.i26 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i25
+  %conv.i25 = zext i8 %7 to i64
+  %arrayidx.i26 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i25
   %9 = load i8, ptr %arrayidx.i26, align 1
   %10 = shl i8 %9, 3
   %11 = and i8 %10, 32
@@ -661,8 +661,8 @@ land.lhs.true:                                    ; preds = %land.lhs.true.prehe
   ]
 
 for.body:                                         ; preds = %land.lhs.true
-  %idxprom.i = zext i8 %1 to i64
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i
+  %conv.i = zext i8 %1 to i64
+  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i
   %2 = load i8, ptr %arrayidx.i, align 1
   %3 = shl i8 %2, 3
   %4 = and i8 %3, 32
@@ -2046,7 +2046,7 @@ if.then78:                                        ; preds = %do.cond.i67, %if.en
 
 if.else:                                          ; preds = %do.body.i63
   store ptr %scevgep93, ptr %buffer.addr, align 8
-  %call83 = call fastcc i32 @fsck_ident(ptr noundef nonnull %buffer.addr, ptr noundef %oid, i32 noundef 4, ptr noundef %options)
+  %call83 = call fastcc i32 @fsck_ident(ptr noundef %buffer.addr, ptr noundef %oid, i32 noundef 4, ptr noundef %options)
   %.pre95 = load ptr, ptr %buffer.addr, align 8
   br label %if.end84
 
@@ -2072,7 +2072,7 @@ done:                                             ; preds = %if.then89, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @report(ptr noundef %options, ptr noundef %oid, i32 noundef %object_type, i32 noundef %msg_id, ptr noundef %fmt, ...) unnamed_addr #0 {
+define internal i32 @report(ptr noundef %options, ptr noundef %oid, i32 noundef %object_type, i32 noundef range(i32 0, 58) %msg_id, ptr noundef %fmt, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %sb = alloca %struct.strbuf, align 8
@@ -2080,7 +2080,7 @@ entry:
   %msg_type.i = getelementptr inbounds i8, ptr %options, i64 24
   %0 = load ptr, ptr %msg_type.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  %idxprom.i = zext i32 %msg_id to i64
+  %idxprom.i = zext nneg i32 %msg_id to i64
   br i1 %tobool.not.i, label %if.then.i, label %if.end5.i
 
 if.then.i:                                        ; preds = %entry
@@ -2150,7 +2150,7 @@ declare i32 @type_from_string_gently(ptr noundef, i64 noundef, i32 noundef) loca
 declare i32 @check_refname_format(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @fsck_ident(ptr nocapture noundef %ident, ptr noundef %oid, i32 noundef %type, ptr noundef %options) unnamed_addr #0 {
+define internal fastcc i32 @fsck_ident(ptr nocapture noundef nonnull %ident, ptr noundef %oid, i32 noundef range(i32 1, 5) %type, ptr noundef %options) unnamed_addr #0 {
 entry:
   %end = alloca ptr, align 8
   %0 = load ptr, ptr %ident, align 8
@@ -2851,7 +2851,7 @@ for.cond.backedge.i.i:                            ; preds = %do.cond.i.i.i, %if.
 
 if.then55.i.i:                                    ; preds = %if.end52.i.i
   store i64 %dec.i.i.i, ptr %nr.i.i.i, align 8
-  call fastcc void @name_stack_push(ptr noundef nonnull %df_dup_candidates.i, ptr noundef nonnull %36)
+  call fastcc void @name_stack_push(ptr noundef %df_dup_candidates.i, ptr noundef %36)
   br label %verify_ordered.exit.i
 
 verify_ordered.exit.loopexit.i:                   ; preds = %for.cond.backedge.i.i, %name_stack_pop.exit.i.i
@@ -3187,7 +3187,7 @@ do.cond.i54.i:                                    ; preds = %do.body.i50.i
 while.body41.i:                                   ; preds = %do.body.i50.i
   store ptr %scevgep108.i, ptr %buffer.addr.i, align 8
   %inc.i = add i32 %author_count.0.i, 1
-  %call42.i = call fastcc i32 @fsck_ident(ptr noundef nonnull %buffer.addr.i, ptr noundef %oid, i32 noundef 1, ptr noundef %options)
+  %call42.i = call fastcc i32 @fsck_ident(ptr noundef %buffer.addr.i, ptr noundef %oid, i32 noundef 1, ptr noundef %options)
   %tobool43.not.i = icmp eq i32 %call42.i, 0
   br i1 %tobool43.not.i, label %while.cond34.i, label %fsck_commit.exit, !llvm.loop !26
 
@@ -3238,7 +3238,7 @@ if.then64.i:                                      ; preds = %do.cond.i64.i, %if.
 
 if.end66.i:                                       ; preds = %do.body.i60.i
   store ptr %scevgep110.i, ptr %buffer.addr.i, align 8
-  %call67.i = call fastcc i32 @fsck_ident(ptr noundef nonnull %buffer.addr.i, ptr noundef %oid, i32 noundef 1, ptr noundef %options)
+  %call67.i = call fastcc i32 @fsck_ident(ptr noundef %buffer.addr.i, ptr noundef %oid, i32 noundef 1, ptr noundef %options)
   %tobool68.not.i = icmp eq i32 %call67.i, 0
   br i1 %tobool68.not.i, label %if.end70.i, label %fsck_commit.exit
 
@@ -3473,7 +3473,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @fsck_blobs(ptr noundef %blobs_found, ptr noundef %blobs_done, i32 noundef %msg_missing, i32 noundef %msg_type, ptr noundef %options, ptr noundef %blob_type) unnamed_addr #0 {
+define internal fastcc i32 @fsck_blobs(ptr noundef %blobs_found, ptr noundef %blobs_done, i32 noundef range(i32 29, 38) %msg_missing, i32 noundef range(i32 30, 41) %msg_type, ptr noundef %options, ptr noundef %blob_type) unnamed_addr #0 {
 entry:
   %type = alloca i32, align 4
   %size = alloca i64, align 8
@@ -3901,22 +3901,22 @@ do.cond.i37.i.i:                                  ; preds = %do.body.i33.i.i
   br i1 %cmp.i40.i.i, label %do.body.i33.i.i, label %if.end.i9.i, !llvm.loop !22
 
 if.end.i9.i:                                      ; preds = %do.cond.i37.i.i
-  %call6.i.i = call i32 @starts_with(ptr noundef %value, ptr noundef nonnull @.str.136) #16
+  %call6.i.i = call i32 @starts_with(ptr noundef nonnull %value, ptr noundef nonnull @.str.136) #16
   %tobool.not.i10.i = icmp eq i32 %call6.i.i, 0
   br i1 %tobool.not.i10.i, label %lor.lhs.false7.i.i, label %if.then24.i
 
 lor.lhs.false7.i.i:                               ; preds = %if.end.i9.i
-  %call8.i.i = call i32 @starts_with(ptr noundef %value, ptr noundef nonnull @.str.137) #16
+  %call8.i.i = call i32 @starts_with(ptr noundef nonnull %value, ptr noundef nonnull @.str.137) #16
   %tobool9.not.i.i = icmp eq i32 %call8.i.i, 0
   br i1 %tobool9.not.i.i, label %lor.lhs.false10.i.i, label %if.then24.i
 
 lor.lhs.false10.i.i:                              ; preds = %lor.lhs.false7.i.i
-  %call11.i.i = call i32 @starts_with(ptr noundef %value, ptr noundef nonnull @.str.138) #16
+  %call11.i.i = call i32 @starts_with(ptr noundef nonnull %value, ptr noundef nonnull @.str.138) #16
   %tobool12.not.i.i = icmp eq i32 %call11.i.i, 0
   br i1 %tobool12.not.i.i, label %lor.lhs.false13.i.i, label %if.then24.i
 
 lor.lhs.false13.i.i:                              ; preds = %lor.lhs.false10.i.i
-  %call14.i.i = call i32 @starts_with(ptr noundef %value, ptr noundef nonnull @.str.139) #16
+  %call14.i.i = call i32 @starts_with(ptr noundef nonnull %value, ptr noundef nonnull @.str.139) #16
   %tobool15.not.i.i = icmp eq i32 %call14.i.i, 0
   br i1 %tobool15.not.i.i, label %check_submodule_url.exit.thread28, label %if.then24.i
 
@@ -4065,7 +4065,7 @@ declare i32 @update_tree_entry_gently(ptr noundef) local_unnamed_addr #1
 declare ptr @null_oid() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @name_stack_push(ptr nocapture noundef %stack, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc void @name_stack_push(ptr nocapture noundef nonnull %stack, ptr noundef nonnull %name) unnamed_addr #0 {
 entry:
   %nr = getelementptr inbounds i8, ptr %stack, i64 8
   %0 = load i64, ptr %nr, align 8

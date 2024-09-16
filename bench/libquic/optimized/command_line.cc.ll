@@ -633,7 +633,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 
 invoke.cont7:                                     ; preds = %cond.end
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #17
-  call fastcc void @_ZN4base12_GLOBAL__N_126AppendSwitchesAndArgumentsEPNS_11CommandLineERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(24) %argv)
+  call fastcc void @_ZN4base12_GLOBAL__N_126AppendSwitchesAndArgumentsEPNS_11CommandLineERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef %this, ptr noundef nonnull align 8 dereferenceable(24) %argv)
   ret void
 
 lpad6:                                            ; preds = %cond.end
@@ -1341,7 +1341,7 @@ declare void @_ZN4base8FilePathC1ENS_16BasicStringPieceINSt7__cxx1112basic_strin
 declare void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4base12_GLOBAL__N_126AppendSwitchesAndArgumentsEPNS_11CommandLineERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef %command_line, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %argv) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4base12_GLOBAL__N_126AppendSwitchesAndArgumentsEPNS_11CommandLineERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull %command_line, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %argv) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %arg = alloca %"class.std::__cxx11::basic_string", align 8
   %switch_string = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1378,7 +1378,7 @@ invoke.cont4:                                     ; preds = %for.body
   br i1 %and6, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %invoke.cont4
-  %call10 = invoke fastcc noundef zeroext i1 @_ZN4base12_GLOBAL__N_18IsSwitchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS6_S9_(ptr noundef nonnull align 8 dereferenceable(32) %arg, ptr noundef nonnull %switch_string, ptr noundef nonnull %switch_value)
+  %call10 = invoke fastcc noundef zeroext i1 @_ZN4base12_GLOBAL__N_18IsSwitchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS6_S9_(ptr noundef nonnull align 8 dereferenceable(32) %arg, ptr noundef %switch_string, ptr noundef %switch_value)
           to label %invoke.cont9 unwind label %lpad3
 
 invoke.cont9:                                     ; preds = %land.lhs.true
@@ -2637,7 +2637,7 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %5
 
 if.end:                                           ; preds = %invoke.cont, %entry
-  call fastcc void @_ZN4base12_GLOBAL__N_126AppendSwitchesAndArgumentsEPNS_11CommandLineERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(24) %other)
+  call fastcc void @_ZN4base12_GLOBAL__N_126AppendSwitchesAndArgumentsEPNS_11CommandLineERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef %this, ptr noundef nonnull align 8 dereferenceable(24) %other)
   ret void
 }
 
@@ -2941,7 +2941,7 @@ if.end:                                           ; preds = %invoke.cont15, %inv
   br i1 %and5, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end
-  %call19 = invoke fastcc noundef zeroext i1 @_ZN4base12_GLOBAL__N_18IsSwitchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS6_S9_(ptr noundef nonnull align 8 dereferenceable(32) %arg, ptr noundef nonnull %switch_string, ptr noundef nonnull %switch_value)
+  %call19 = invoke fastcc noundef zeroext i1 @_ZN4base12_GLOBAL__N_18IsSwitchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS6_S9_(ptr noundef nonnull align 8 dereferenceable(32) %arg, ptr noundef %switch_string, ptr noundef %switch_value)
           to label %invoke.cont18 unwind label %lpad4
 
 invoke.cont18:                                    ; preds = %land.lhs.true
@@ -3010,7 +3010,7 @@ ehcleanup38:                                      ; preds = %ehcleanup35, %lpad
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4base12_GLOBAL__N_18IsSwitchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS6_S9_(ptr noundef nonnull align 8 dereferenceable(32) %string, ptr noundef nonnull %switch_string, ptr noundef %switch_value) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN4base12_GLOBAL__N_18IsSwitchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS6_S9_(ptr noundef nonnull align 8 dereferenceable(32) %string, ptr noundef nonnull %switch_string, ptr noundef nonnull %switch_value) unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -421,8 +421,8 @@ declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) loca
 declare dso_local zeroext i1 @asymmetric_key_id_same(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef nonnull ptr @__key_get(ptr noundef returned %0) unnamed_addr #6 align 16 {
-  %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 1, ptr elementtype(i32) %0) #7, !srcloc !5
+define internal fastcc noundef nonnull ptr @__key_get(ptr noundef nonnull returned %0) unnamed_addr #6 align 16 {
+  %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 1, ptr nonnull elementtype(i32) %0) #7, !srcloc !5
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %8, label %4, !prof !6
 
@@ -434,7 +434,7 @@ define internal fastcc noundef nonnull ptr @__key_get(ptr noundef returned %0) u
 
 8:                                                ; preds = %4, %1
   %9 = phi i32 [ 2, %1 ], [ 1, %4 ]
-  tail call void @refcount_warn_saturate(ptr noundef %0, i32 noundef %9) #7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %0, i32 noundef %9) #7
   br label %10
 
 10:                                               ; preds = %8, %4

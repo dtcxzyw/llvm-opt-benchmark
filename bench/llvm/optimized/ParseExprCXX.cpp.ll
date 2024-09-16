@@ -19312,7 +19312,7 @@ declare void @_ZN5clang6Parser20ParseCXX11AttributesERNS_16ParsedAttributesE(ptr
 declare void @_ZN5clang6Parser15ParseAttributesEjRNS_16ParsedAttributesEPNS0_18LateParsedAttrListE(ptr noundef nonnull align 8 dereferenceable(2936), i32 noundef, ptr noundef nonnull align 8 dereferenceable(144), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZL30tryConsumeLambdaSpecifierTokenRN5clang6ParserERNS_14SourceLocationES3_S3_S3_S3_ENK3$_0clES3_i"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZL30tryConsumeLambdaSpecifierTokenRN5clang6ParserERNS_14SourceLocationES3_S3_S3_S3_ENK3$_0clES3_i"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::DiagnosticBuilder", align 8
   %5 = alloca %"class.clang::FixItHint", align 8
   %6 = load i32, ptr %1, align 4
@@ -19337,7 +19337,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %7
 
 _ZNK5clang17DiagnosticBuilderlsIiEERKS0_RKT_.exit: ; preds = %7, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i
   %15 = phi ptr [ %14, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i ], [ %11, %7 ]
-  %16 = sext i32 %2 to i64
+  %16 = zext nneg i32 %2 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %18 = load i8, ptr %15, align 8
   %19 = zext i8 %18 to i64

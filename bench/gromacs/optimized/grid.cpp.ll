@@ -2822,7 +2822,7 @@ define void @_ZN5Nbnxm4Grid22sortColumnsCpuGeometryEPNS_11GridSetDataEiN3gmx8Arr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5NbnxmL10sort_atomsEibibPiiN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEEffiNS2_IiEE(i32 noundef %0, i1 noundef zeroext %1, ptr nocapture noundef %2, i32 noundef %3, i64 %.0.val, float noundef %4, float noundef %5, i32 noundef %6, i64 %.0.val1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5NbnxmL10sort_atomsEibibPiiN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEEffiNS2_IiEE(i32 noundef range(i32 0, 3) %0, i1 noundef zeroext %1, ptr nocapture noundef %2, i32 noundef %3, i64 %.0.val, float noundef %4, float noundef %5, i32 noundef %6, i64 %.0.val1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator", align 1
   %10 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -2834,7 +2834,7 @@ define internal fastcc void @_ZN5NbnxmL10sort_atomsEibibPiiN3gmx8ArrayRefIKNS1_1
   %14 = sitofp i32 %13 to float
   %15 = fmul float %5, %14
   %16 = inttoptr i64 %.0.val to ptr
-  %17 = sext i32 %0 to i64
+  %17 = zext nneg i32 %0 to i64
   %invariant.gep56 = getelementptr [3 x float], ptr %16, i64 0, i64 %17
   %18 = inttoptr i64 %.0.val1 to ptr
   %wide.trip.count = zext nneg i32 %3 to i64
@@ -2872,7 +2872,7 @@ define internal fastcc void @_ZN5NbnxmL10sort_atomsEibibPiiN3gmx8ArrayRefIKNS1_1
   %33 = phi i32 [ %47, %.critedge2 ], [ %29, %19 ]
   %indvars.iv81 = add i32 %indvars.iv81.in, 1
   %34 = zext nneg i32 %33 to i64
-  %gep = getelementptr %"class.gmx::BasicVector", ptr %invariant.gep56, i64 %34
+  %gep = getelementptr inbounds %"class.gmx::BasicVector", ptr %invariant.gep56, i64 %34
   %35 = load float, ptr %gep, align 4
   %36 = fcmp ogt float %23, %35
   br i1 %36, label %.critedge2, label %37

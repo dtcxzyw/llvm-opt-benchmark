@@ -512,7 +512,7 @@ define internal fastcc void @not_found(ptr nocapture noundef readonly %0) unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @huge_pte_lock(i32 %.40.val, ptr noundef %0, ptr noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc noundef ptr @huge_pte_lock(i32 %.40.val, ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #3 align 16 {
   %3 = icmp eq i32 %.40.val, 9
   br i1 %3, label %4, label %18
 

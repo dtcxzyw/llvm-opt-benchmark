@@ -1582,7 +1582,7 @@ if.then857:                                       ; preds = %for.end
   br i1 %or.cond333, label %if.then863, label %if.end895
 
 if.then863:                                       ; preds = %if.then857
-  %call864 = call fastcc noundef i32 @_ZL7forwardPN3zmq13socket_base_tES1_S1_PNS_5msg_tER12stats_socketS5_(ptr noundef %frontend_, ptr noundef %backend_, ptr noundef %capture_, ptr noundef nonnull %msg, ptr noundef nonnull align 8 dereferenceable(16) %recv.i, ptr noundef nonnull align 8 dereferenceable(16) %backend.i)
+  %call864 = call fastcc noundef i32 @_ZL7forwardPN3zmq13socket_base_tES1_S1_PNS_5msg_tER12stats_socketS5_(ptr noundef %frontend_, ptr noundef %backend_, ptr noundef %capture_, ptr noundef %msg, ptr noundef nonnull align 8 dereferenceable(16) %recv.i, ptr noundef nonnull align 8 dereferenceable(16) %backend.i)
   %cmp866 = icmp slt i32 %call864, 0
   br i1 %cmp866, label %delete.notnull870, label %if.end895
 
@@ -1641,7 +1641,7 @@ land.lhs.true897:                                 ; preds = %if.end895
   br i1 %tobool898, label %if.then899, label %if.end935
 
 if.then899:                                       ; preds = %land.lhs.true897
-  %call904 = call fastcc noundef i32 @_ZL7forwardPN3zmq13socket_base_tES1_S1_PNS_5msg_tER12stats_socketS5_(ptr noundef %backend_, ptr noundef %frontend_, ptr noundef %capture_, ptr noundef nonnull %msg, ptr noundef nonnull align 8 dereferenceable(16) %recv21.i, ptr noundef nonnull align 8 dereferenceable(16) %stats)
+  %call904 = call fastcc noundef i32 @_ZL7forwardPN3zmq13socket_base_tES1_S1_PNS_5msg_tER12stats_socketS5_(ptr noundef %backend_, ptr noundef %frontend_, ptr noundef %capture_, ptr noundef %msg, ptr noundef nonnull align 8 dereferenceable(16) %recv21.i, ptr noundef nonnull align 8 dereferenceable(16) %stats)
   %cmp906 = icmp slt i32 %call904, 0
   br i1 %cmp906, label %delete.notnull910, label %if.then939
 
@@ -1888,7 +1888,7 @@ declare noundef i32 @_ZN3zmq15socket_poller_t4waitEP18zmq_poller_event_til(ptr n
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @_ZL7forwardPN3zmq13socket_base_tES1_S1_PNS_5msg_tER12stats_socketS5_(ptr noundef %from_, ptr noundef %to_, ptr noundef %capture_, ptr noundef %msg_, ptr nocapture noundef nonnull align 8 dereferenceable(16) %recving, ptr nocapture noundef nonnull align 8 dereferenceable(16) %sending) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL7forwardPN3zmq13socket_base_tES1_S1_PNS_5msg_tER12stats_socketS5_(ptr noundef %from_, ptr noundef %to_, ptr noundef %capture_, ptr noundef nonnull %msg_, ptr nocapture noundef nonnull align 8 dereferenceable(16) %recving, ptr nocapture noundef nonnull align 8 dereferenceable(16) %sending) unnamed_addr #0 {
 entry:
   %ctrl.i = alloca %"class.zmq::msg_t", align 8
   %more = alloca i32, align 4
@@ -1903,7 +1903,7 @@ while.body.preheader.us:                          ; preds = %entry, %for.inc.spl
   br label %while.body.us.us
 
 while.body.us.us:                                 ; preds = %if.end20.us.us, %while.body.preheader.us
-  %call.us.us = call noundef i32 @_ZN3zmq13socket_base_t4recvEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %from_, ptr noundef %msg_, i32 noundef 1)
+  %call.us.us = call noundef i32 @_ZN3zmq13socket_base_t4recvEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %from_, ptr noundef nonnull %msg_, i32 noundef 1)
   %cmp1.us.us = icmp slt i32 %call.us.us, 0
   br i1 %cmp1.us.us, label %if.then, label %if.end6.us.us
 
@@ -1949,7 +1949,7 @@ while.body.preheader:                             ; preds = %entry, %for.inc.spl
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end20
-  %call = call noundef i32 @_ZN3zmq13socket_base_t4recvEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %from_, ptr noundef %msg_, i32 noundef 1)
+  %call = call noundef i32 @_ZN3zmq13socket_base_t4recvEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %from_, ptr noundef nonnull %msg_, i32 noundef 1)
   %cmp1 = icmp slt i32 %call, 0
   br i1 %cmp1, label %if.then, label %if.end6
 

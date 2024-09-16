@@ -198,7 +198,7 @@ readArgFile.exit.thread.i:                        ; preds = %50
   store ptr %3, ptr %47, align 8
   %54 = getelementptr inbounds i8, ptr %3, i64 %51
   store ptr %54, ptr %48, align 8
-  %55 = call fastcc ptr @nextToken(ptr noundef nonnull %4)
+  %55 = call fastcc ptr @nextToken(ptr noundef %4)
   %.not1819.i.i = icmp eq ptr %55, null
   br i1 %.not1819.i.i, label %.loopexit.i.i, label %.lr.ph.i.i
 
@@ -286,7 +286,7 @@ sub_1.i.i.i:                                      ; preds = %sub_0.i.i.i
 
 checkArg.exit.i.i:                                ; preds = %88, %84, %78, %74, %.tail.i.i.i, %sub_1.i.i.i, %sub_0.i.i.i
   call void @JLI_List_add(ptr noundef %45, ptr noundef nonnull %.020.i.i) #12
-  %90 = call fastcc ptr @nextToken(ptr noundef nonnull %4)
+  %90 = call fastcc ptr @nextToken(ptr noundef %4)
   %.not18.i.i = icmp eq ptr %90, null
   br i1 %.not18.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
@@ -838,7 +838,7 @@ declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #5
 declare void @JLI_List_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @nextToken(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc ptr @nextToken(ptr nocapture noundef nonnull %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

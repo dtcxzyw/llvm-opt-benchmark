@@ -792,7 +792,7 @@ if.then24.i:                                      ; preds = %pickNaN.exit.i, %39
 
 parts64_addsub.exit:                              ; preds = %lor.lhs.false.i.i108, %if.then24.i, %39, %if.then6.i.i, %if.then3.i, %if.then8.i, %if.end7.i, %parts64_sub_normal.exit.thread, %if.then91.i, %if.else.i, %if.end49.i, %return_b.i, %if.then83.i, %if.end55.i, %if.then25.i
   %retval.i.0 = phi ptr [ %pa, %if.then25.i ], [ %pb, %return_b.i ], [ %pa, %if.end55.i ], [ %pa, %if.then83.i ], [ %pa, %if.end49.i ], [ %pa, %if.else.i ], [ %pa, %if.then91.i ], [ %pa, %parts64_sub_normal.exit.thread ], [ %pa, %if.end7.i ], [ %pa, %if.then8.i ], [ %pa, %if.then3.i ], [ %.ph.i125, %if.then24.i ], [ %pb, %39 ], [ %pa, %if.then6.i.i ], [ %spec.select, %lor.lhs.false.i.i108 ]
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %retval.i.0, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %retval.i.0, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 1
   %42 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i111 = zext i8 %42 to i64
@@ -1752,7 +1752,7 @@ if.then24.i.i:                                    ; preds = %pickNaN.exit.i.i.if
 
 parts64_addsub.exit:                              ; preds = %pickNaN.exit.i.i, %parts64_sub_normal.exit.thread, %if.then25.i, %if.end49.i, %if.end55.i, %if.else.i, %if.end7.i.i, %if.then8.i.i37, %if.then83.i, %do.body.i, %return_b.i, %if.then3.i.i, %if.then6.i.i.i, %lor.lhs.false.i.i.i, %36, %if.then24.i.i
   %retval.0.i = phi ptr [ %pa, %if.then25.i ], [ %pb, %return_b.i ], [ %pa, %if.end55.i ], [ %pa, %if.then83.i ], [ %pa, %if.end49.i ], [ %pa, %if.else.i ], [ %pa, %do.body.i ], [ %pa, %if.end7.i.i ], [ %pa, %if.then8.i.i37 ], [ %pa, %if.then3.i.i ], [ %.ph.i47.i, %if.then24.i.i ], [ %pb, %36 ], [ %pa, %if.then6.i.i.i ], [ %spec.select.i, %lor.lhs.false.i.i.i ], [ %pa, %parts64_sub_normal.exit.thread ], [ %pb, %pickNaN.exit.i.i ]
-  %call1 = call fastcc i64 @float64r32_round_pack_canonical(ptr noundef nonnull %retval.0.i, ptr noundef %status)
+  %call1 = call fastcc i64 @float64r32_round_pack_canonical(ptr noundef %retval.0.i, ptr noundef %status)
   ret i64 %call1
 }
 
@@ -2280,7 +2280,7 @@ if.then24.i:                                      ; preds = %pickNaN.exit.i, %39
 
 parts64_addsub.exit:                              ; preds = %lor.lhs.false.i.i, %if.then24.i, %39, %if.then6.i.i, %if.then3.i, %if.then8.i100, %if.end7.i, %parts64_sub_normal.exit.thread, %if.then91.i, %if.else.i, %if.end49.i, %return_b.i, %if.then83.i, %if.end55.i, %if.then25.i
   %retval.i.0 = phi ptr [ %pa, %if.then25.i ], [ %pb, %return_b.i ], [ %pa, %if.end55.i ], [ %pa, %if.then83.i ], [ %pa, %if.end49.i ], [ %pa, %if.else.i ], [ %pa, %if.then91.i ], [ %pa, %parts64_sub_normal.exit.thread ], [ %pa, %if.end7.i ], [ %pa, %if.then8.i100 ], [ %pa, %if.then3.i ], [ %.ph.i141, %if.then24.i ], [ %pb, %39 ], [ %pa, %if.then6.i.i ], [ %spec.select, %lor.lhs.false.i.i ]
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %retval.i.0, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %retval.i.0, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
   %sign.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 1
   %42 = load i8, ptr %sign.i.i, align 1
   %conv.i.i124 = zext i8 %42 to i64
@@ -2333,7 +2333,7 @@ entry:
   store i64 %and.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pa, ptr noundef %status, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pa, ptr noundef %status, ptr noundef nonnull @float128_params)
   %shr.i16.i47 = lshr i64 %b.coerce1, 48
   %1 = trunc nuw nsw i64 %shr.i16.i47 to i32
   %conv.i48 = and i32 %1, 32767
@@ -2349,7 +2349,7 @@ entry:
   store i64 %and.i.i51, ptr %.compoundliteral.sroa.4.0..sroa_idx.i54, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i55 = getelementptr inbounds i8, ptr %pb, i64 16
   store i64 %b.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i55, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pb, ptr noundef %status, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pb, ptr noundef %status, ptr noundef nonnull @float128_params)
   %2 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i52, align 1
   %3 = trunc i8 %2 to i1
   %tobool3.i = xor i1 %subtract, %3
@@ -2373,7 +2373,7 @@ if.then.i:                                        ; preds = %entry
   ]
 
 if.then20.i:                                      ; preds = %if.then.i
-  %call.i9 = call fastcc zeroext i1 @parts128_sub_normal(ptr noundef nonnull %pa, ptr noundef nonnull %pb)
+  %call.i9 = call fastcc zeroext i1 @parts128_sub_normal(ptr noundef %pa, ptr noundef %pb)
   br i1 %call.i9, label %parts128_addsub.exitthread-pre-split, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.then.i, %if.then20.i
@@ -2419,7 +2419,7 @@ if.else.i:                                        ; preds = %entry
   ]
 
 if.then65.i:                                      ; preds = %if.else.i
-  call fastcc void @parts128_add_normal(ptr noundef nonnull %pa, ptr noundef nonnull %pb)
+  call fastcc void @parts128_add_normal(ptr noundef %pa, ptr noundef %pb)
   br label %parts128_addsub.exitthread-pre-split
 
 if.end70.i:                                       ; preds = %if.else.i
@@ -2567,7 +2567,7 @@ parts128_addsub.exit:                             ; preds = %parts128_addsub.exi
 
 if.then.i63:                                      ; preds = %if.then91.i, %parts128_addsub.exit
   %retval.i7.084 = phi ptr [ %retval.i7.0, %parts128_addsub.exit ], [ %pa, %if.then91.i ]
-  call fastcc void @parts128_uncanon_normal(ptr noundef nonnull %retval.i7.084, ptr noundef %status, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_uncanon_normal(ptr noundef %retval.i7.084, ptr noundef %status, ptr noundef nonnull @float128_params)
   %exp.i65.phi.trans.insert = getelementptr inbounds i8, ptr %retval.i7.084, i64 4
   %.pre = load i32, ptr %exp.i65.phi.trans.insert, align 4
   %22 = zext i32 %.pre to i64
@@ -2697,7 +2697,7 @@ floatx80_unpack_canonical.exit42:                 ; preds = %sw.bb.i14
   br label %return
 
 lor.lhs.false:                                    ; preds = %if.end.i19
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pa, ptr noundef nonnull %status, ptr noundef nonnull @floatx80_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pa, ptr noundef nonnull %status, ptr noundef nonnull @floatx80_params)
   %.pre = load i8, ptr %floatx80_rounding_precision.i12, align 1
   %switch85 = icmp ult i8 %.pre, 3
   br i1 %switch85, label %sw.bb.i, label %sw.default.i
@@ -2729,7 +2729,7 @@ if.end.i:                                         ; preds = %sw.bb.i
   br i1 %cmp.i.not, label %if.else.i7, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pb, ptr noundef nonnull %status, ptr noundef nonnull @floatx80_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pb, ptr noundef nonnull %status, ptr noundef nonnull @floatx80_params)
   %.pre131 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i94, align 1
   %.pre132 = load i8, ptr %pb, align 8
   br label %if.end
@@ -2775,7 +2775,7 @@ if.then.i68:                                      ; preds = %if.end
   ]
 
 if.then20.i:                                      ; preds = %if.then.i68
-  %call.i73 = call fastcc zeroext i1 @parts128_sub_normal(ptr noundef nonnull %pa, ptr noundef nonnull %pb)
+  %call.i73 = call fastcc zeroext i1 @parts128_sub_normal(ptr noundef %pa, ptr noundef %pb)
   br i1 %call.i73, label %parts128_addsub.exitthread-pre-split, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.then.i68, %if.then20.i
@@ -2822,7 +2822,7 @@ if.else.i67:                                      ; preds = %if.end
   ]
 
 if.then65.i:                                      ; preds = %if.else.i67
-  call fastcc void @parts128_add_normal(ptr noundef nonnull %pa, ptr noundef nonnull %pb)
+  call fastcc void @parts128_add_normal(ptr noundef %pa, ptr noundef %pb)
   br label %parts128_addsub.exitthread-pre-split
 
 if.end70.i:                                       ; preds = %if.else.i67
@@ -3007,7 +3007,7 @@ sw.bb.i50:                                        ; preds = %parts128_addsub.exi
   br i1 %cmp.i52, label %if.then.i55, label %if.else.i53
 
 if.then.i55:                                      ; preds = %sw.bb.i50
-  call fastcc void @parts128_uncanon_normal(ptr noundef nonnull %retval.i58.0123, ptr noundef nonnull %status, ptr noundef %arrayidx.i124)
+  call fastcc void @parts128_uncanon_normal(ptr noundef %retval.i58.0123, ptr noundef nonnull %status, ptr noundef %arrayidx.i124)
   %frac_hi.i56 = getelementptr inbounds i8, ptr %retval.i58.0123, i64 8
   %35 = load i64, ptr %frac_hi.i56, align 8
   %exp4.i = getelementptr inbounds i8, ptr %retval.i58.0123, i64 4
@@ -3032,7 +3032,7 @@ if.else.i53:                                      ; preds = %sw.bb.i50
   %or.i107 = or i64 %retval.i58.0.val, %conv1.i
   %40 = getelementptr inbounds i8, ptr %p64.i, i64 8
   store i64 %or.i107, ptr %40, align 8
-  call fastcc void @parts64_uncanon_normal(ptr noundef nonnull %p64.i, ptr noundef nonnull %status, ptr noundef %arrayidx.i124)
+  call fastcc void @parts64_uncanon_normal(ptr noundef %p64.i, ptr noundef nonnull %status, ptr noundef %arrayidx.i124)
   %41 = load i64, ptr %40, align 8
   br label %if.end.i54
 
@@ -3398,7 +3398,7 @@ if.else.i:                                        ; preds = %if.end51.i
 
 parts64_mul.exit:                                 ; preds = %lor.lhs.false.i.i79, %if.then24.i, %20, %if.then6.i.i, %if.then3.i, %if.then54.i, %if.then46.i, %if.then31.i, %if.end.i
   %retval.i.0 = phi ptr [ %pa, %if.end.i ], [ %pa, %if.then31.i ], [ %pa, %if.then46.i ], [ %pa, %if.then54.i ], [ %pa, %if.then3.i ], [ %.ph.i93, %if.then24.i ], [ %pb, %20 ], [ %pa, %if.then6.i.i ], [ %spec.select99, %lor.lhs.false.i.i79 ]
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %retval.i.0, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %retval.i.0, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 1
   %23 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i81 = zext i8 %23 to i64
@@ -3418,7 +3418,7 @@ parts64_mul.exit:                                 ; preds = %lor.lhs.false.i.i79
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc nonnull ptr @parts64_mul(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc nonnull ptr @parts64_mul(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr nocapture noundef %s) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32
@@ -4009,7 +4009,7 @@ if.else.i.i:                                      ; preds = %if.end51.i.i
 
 soft_f32_mul.exit:                                ; preds = %pickNaN.exit.i.i, %if.end.i.i, %if.then31.i.i, %if.then3.i.i, %if.then6.i.i.i, %lor.lhs.false.i.i.i, %34, %if.then24.i.i, %if.then46.i.i, %if.then54.i.i
   %retval.i.0.i = phi ptr [ %pa.i, %if.end.i.i ], [ %pa.i, %if.then31.i.i ], [ %pa.i, %if.then46.i.i ], [ %pa.i, %if.then54.i.i ], [ %pa.i, %if.then3.i.i ], [ %.ph.i109.i, %if.then24.i.i ], [ %pb.i, %34 ], [ %pa.i, %if.then6.i.i.i ], [ %spec.select115.i, %lor.lhs.false.i.i.i ], [ %pb.i, %pickNaN.exit.i.i ]
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %retval.i.0.i, ptr noundef nonnull %s, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %retval.i.0.i, ptr noundef nonnull %s, ptr noundef nonnull @float32_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 1
   %36 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i95.i = zext i8 %36 to i64
@@ -4443,7 +4443,7 @@ if.else.i.i:                                      ; preds = %if.end51.i.i
 
 soft_f64_mul.exit:                                ; preds = %pickNaN.exit.i.i, %if.end.i.i, %if.then31.i.i, %if.then3.i.i, %if.then6.i.i.i, %lor.lhs.false.i.i.i, %32, %if.then24.i.i, %if.then46.i.i, %if.then54.i.i
   %retval.i.0.i = phi ptr [ %pa.i, %if.end.i.i ], [ %pa.i, %if.then31.i.i ], [ %pa.i, %if.then46.i.i ], [ %pa.i, %if.then54.i.i ], [ %pa.i, %if.then3.i.i ], [ %.ph.i107.i, %if.then24.i.i ], [ %pb.i, %32 ], [ %pa.i, %if.then6.i.i.i ], [ %spec.select113.i, %lor.lhs.false.i.i.i ], [ %pb.i, %pickNaN.exit.i.i ]
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %retval.i.0.i, ptr noundef nonnull %s, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef %retval.i.0.i, ptr noundef nonnull %s, ptr noundef nonnull @float64_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 1
   %34 = load i8, ptr %sign.i.i.i, align 1
   %35 = and i8 %34, 1
@@ -4623,13 +4623,13 @@ if.else49.i.i14:                                  ; preds = %lor.lhs.false.i.i12
   br label %float64_unpack_canonical.exit35
 
 float64_unpack_canonical.exit35:                  ; preds = %if.then8.i.i30, %if.then10.i.i28, %frac64_normalize.exit.i.i24, %if.then33.i.i31, %if.then47.i.i18, %if.else49.i.i14
-  %call = call fastcc ptr @parts64_mul(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %status)
-  %call1 = call fastcc i64 @float64r32_round_pack_canonical(ptr noundef nonnull %call, ptr noundef %status)
+  %call = call fastcc ptr @parts64_mul(ptr noundef %pa, ptr noundef %pb, ptr noundef %status)
+  %call1 = call fastcc i64 @float64r32_round_pack_canonical(ptr noundef %call, ptr noundef %status)
   ret i64 %call1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @float64r32_round_pack_canonical(ptr nocapture noundef %p, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc i64 @float64r32_round_pack_canonical(ptr nocapture noundef nonnull %p, ptr nocapture noundef %s) unnamed_addr #3 {
 entry:
   tail call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %s, ptr noundef nonnull @float32_params)
   %0 = load i8, ptr %p, align 8
@@ -5024,7 +5024,7 @@ if.else.i:                                        ; preds = %if.end51.i
 
 parts64_mul.exit:                                 ; preds = %lor.lhs.false.i.i, %if.then24.i, %20, %if.then6.i.i, %if.then3.i, %if.then54.i, %if.then46.i, %if.then31.i, %if.end.i
   %retval.i.0 = phi ptr [ %pa, %if.end.i ], [ %pa, %if.then31.i ], [ %pa, %if.then46.i ], [ %pa, %if.then54.i ], [ %pa, %if.then3.i ], [ %.ph.i109, %if.then24.i ], [ %pb, %20 ], [ %pa, %if.then6.i.i ], [ %spec.select115, %lor.lhs.false.i.i ]
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %retval.i.0, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %retval.i.0, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
   %sign.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 1
   %23 = load i8, ptr %sign.i.i, align 1
   %conv.i.i95 = zext i8 %23 to i64
@@ -5063,7 +5063,7 @@ entry:
   store i64 %and.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pa, ptr noundef %status, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pa, ptr noundef %status, ptr noundef nonnull @float128_params)
   %shr.i16.i45 = lshr i64 %b.coerce1, 48
   %1 = trunc nuw nsw i64 %shr.i16.i45 to i32
   %conv.i46 = and i32 %1, 32767
@@ -5079,7 +5079,7 @@ entry:
   store i64 %and.i.i49, ptr %.compoundliteral.sroa.4.0..sroa_idx.i52, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i53 = getelementptr inbounds i8, ptr %pb, i64 16
   store i64 %b.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i53, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pb, ptr noundef %status, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pb, ptr noundef %status, ptr noundef nonnull @float128_params)
   %2 = load i8, ptr %pa, align 8
   %conv.i = zext nneg i8 %2 to i32
   %shl.i = shl nuw i32 1, %conv.i
@@ -5314,7 +5314,7 @@ parts128_mul.exit:                                ; preds = %lor.lhs.false.i.i, 
   ]
 
 if.then.i71:                                      ; preds = %parts128_mul.exit
-  call fastcc void @parts128_uncanon_normal(ptr noundef nonnull %retval.i.0, ptr noundef %status, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_uncanon_normal(ptr noundef %retval.i.0, ptr noundef %status, ptr noundef nonnull @float128_params)
   %.pre = load i32, ptr %retval.i.0.sroa.phi, align 4
   %48 = zext i32 %.pre to i64
   %49 = shl i64 %48, 48
@@ -5374,7 +5374,7 @@ parts128_uncanon.exit:                            ; preds = %if.then.i71, %sw.bb
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc { i64, i64 } @float128_round_pack_canonical(ptr nocapture noundef %p, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc { i64, i64 } @float128_round_pack_canonical(ptr nocapture noundef nonnull %p, ptr nocapture noundef %s) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %p, align 8
   switch i8 %0, label %do.body21.i [
@@ -5386,7 +5386,7 @@ entry:
   ]
 
 if.then.i:                                        ; preds = %entry
-  tail call fastcc void @parts128_uncanon_normal(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float128_params)
+  tail call fastcc void @parts128_uncanon_normal(ptr noundef %p, ptr noundef %s, ptr noundef nonnull @float128_params)
   %exp.i2.phi.trans.insert = getelementptr inbounds i8, ptr %p, i64 4
   %.pre = load i32, ptr %exp.i2.phi.trans.insert, align 4
   %frac_hi.i.phi.trans.insert = getelementptr inbounds i8, ptr %p, i64 8
@@ -5519,7 +5519,7 @@ floatx80_unpack_canonical.exit57:                 ; preds = %sw.bb.i29
   br label %return
 
 lor.lhs.false:                                    ; preds = %if.end.i34
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pa, ptr noundef nonnull %status, ptr noundef nonnull @floatx80_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pa, ptr noundef nonnull %status, ptr noundef nonnull @floatx80_params)
   %.pre = load i8, ptr %floatx80_rounding_precision.i27, align 1
   %switch80 = icmp ult i8 %.pre, 3
   br i1 %switch80, label %sw.bb.i, label %sw.default.i
@@ -5551,7 +5551,7 @@ if.end.i15:                                       ; preds = %sw.bb.i
   br i1 %cmp.i17.not, label %if.else.i19, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i15
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pb, ptr noundef nonnull %status, ptr noundef nonnull @floatx80_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pb, ptr noundef nonnull %status, ptr noundef nonnull @floatx80_params)
   %.pr = load i8, ptr %pb, align 8
   %.pre135 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i90, align 1
   br label %if.end
@@ -5841,7 +5841,7 @@ sw.bb.i66:                                        ; preds = %parts128_mul.exit
   br i1 %cmp.i68, label %if.then.i74, label %if.else.i69
 
 if.then.i74:                                      ; preds = %sw.bb.i66
-  call fastcc void @parts128_uncanon_normal(ptr noundef nonnull %retval.i5.0, ptr noundef nonnull %status, ptr noundef %arrayidx.i)
+  call fastcc void @parts128_uncanon_normal(ptr noundef %retval.i5.0, ptr noundef nonnull %status, ptr noundef %arrayidx.i)
   %58 = load i64, ptr %retval.i5.0.sroa.phi168, align 8
   br label %if.end.i73
 
@@ -5860,7 +5860,7 @@ if.else.i69:                                      ; preds = %sw.bb.i66
   %or.i112 = or i64 %retval.i5.0.val, %conv1.i
   %61 = getelementptr inbounds i8, ptr %p64.i, i64 8
   store i64 %or.i112, ptr %61, align 8
-  call fastcc void @parts64_uncanon_normal(ptr noundef nonnull %p64.i, ptr noundef nonnull %status, ptr noundef %arrayidx.i)
+  call fastcc void @parts64_uncanon_normal(ptr noundef %p64.i, ptr noundef nonnull %status, ptr noundef %arrayidx.i)
   %62 = load i64, ptr %61, align 8
   br label %if.end.i73
 
@@ -5915,7 +5915,7 @@ return:                                           ; preds = %floatx80_unpack_can
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr nocapture noundef %p, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr nocapture noundef nonnull %p, ptr nocapture noundef %s) unnamed_addr #3 {
 entry:
   %p64 = alloca %struct.FloatParts64, align 8
   %floatx80_rounding_precision = getelementptr inbounds i8, ptr %s, i64 3
@@ -5936,7 +5936,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %sw.bb
-  tail call fastcc void @parts128_uncanon_normal(ptr noundef nonnull %p, ptr noundef nonnull %s, ptr noundef %arrayidx)
+  tail call fastcc void @parts128_uncanon_normal(ptr noundef %p, ptr noundef nonnull %s, ptr noundef %arrayidx)
   %frac_hi = getelementptr inbounds i8, ptr %p, i64 8
   %2 = load i64, ptr %frac_hi, align 8
   %exp4 = getelementptr inbounds i8, ptr %p, i64 4
@@ -5961,7 +5961,7 @@ if.else:                                          ; preds = %sw.bb
   %or.i = or i64 %p.val, %conv1.i
   %7 = getelementptr inbounds i8, ptr %p64, i64 8
   store i64 %or.i, ptr %7, align 8
-  call fastcc void @parts64_uncanon_normal(ptr noundef nonnull %p64, ptr noundef nonnull %s, ptr noundef %arrayidx)
+  call fastcc void @parts64_uncanon_normal(ptr noundef %p64, ptr noundef nonnull %s, ptr noundef %arrayidx)
   %8 = load i64, ptr %7, align 8
   br label %if.end
 
@@ -6347,11 +6347,11 @@ if.then142.i:                                     ; preds = %if.end137.i
   br i1 %cmp151.i, label %if.then153.i, label %if.else154.i
 
 if.then153.i:                                     ; preds = %if.then142.i
-  call fastcc void @parts128_add_normal(ptr noundef nonnull %p_widen.i, ptr noundef nonnull %c_widen.i)
+  call fastcc void @parts128_add_normal(ptr noundef %p_widen.i, ptr noundef %c_widen.i)
   br label %if.end159.i
 
 if.else154.i:                                     ; preds = %if.then142.i
-  %call155.i = call fastcc zeroext i1 @parts128_sub_normal(ptr noundef nonnull %p_widen.i, ptr noundef nonnull %c_widen.i)
+  %call155.i = call fastcc zeroext i1 @parts128_sub_normal(ptr noundef %p_widen.i, ptr noundef %c_widen.i)
   br i1 %call155.i, label %if.end159.i, label %return_sub_zero.i
 
 if.end159.i:                                      ; preds = %if.then153.i, %if.else154.i, %if.end137.i
@@ -6421,7 +6421,7 @@ d_nan.i:                                          ; preds = %if.then57.i, %if.en
   br label %parts64_muladd.exit
 
 parts64_muladd.exit:                              ; preds = %finish_sign.i, %if.then174.i, %d_nan.i, %parts64_pick_nan_muladd.exit
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %pa, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %pa, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %43 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i144 = zext i8 %43 to i64
   %shl.i.i.i145 = shl nuw nsw i64 %conv.i.i.i144, 15
@@ -6438,7 +6438,7 @@ parts64_muladd.exit:                              ; preds = %finish_sign.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc nonnull ptr @parts64_muladd(ptr noundef returned %a, ptr nocapture noundef readonly %b, ptr nocapture noundef %c, i32 noundef %flags, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc noundef nonnull ptr @parts64_muladd(ptr noundef nonnull returned %a, ptr nocapture noundef nonnull readonly %b, ptr nocapture noundef nonnull %c, i32 noundef %flags, ptr nocapture noundef %s) unnamed_addr #3 {
 entry:
   %p_widen = alloca %struct.FloatParts128, align 8
   %c_widen = alloca %struct.FloatParts128, align 8
@@ -6643,11 +6643,11 @@ if.then142:                                       ; preds = %if.end137
   br i1 %cmp151, label %if.then153, label %if.else154
 
 if.then153:                                       ; preds = %if.then142
-  call fastcc void @parts128_add_normal(ptr noundef nonnull %p_widen, ptr noundef nonnull %c_widen)
+  call fastcc void @parts128_add_normal(ptr noundef %p_widen, ptr noundef %c_widen)
   br label %if.end159
 
 if.else154:                                       ; preds = %if.then142
-  %call155 = call fastcc zeroext i1 @parts128_sub_normal(ptr noundef nonnull %p_widen, ptr noundef nonnull %c_widen)
+  %call155 = call fastcc zeroext i1 @parts128_sub_normal(ptr noundef %p_widen, ptr noundef %c_widen)
   br i1 %call155, label %if.end159, label %return_sub_zero
 
 if.end159:                                        ; preds = %if.then153, %if.else154, %if.end137
@@ -7214,11 +7214,11 @@ if.then142.i.i:                                   ; preds = %if.end137.i.i
   br i1 %cmp151.i.i, label %if.then153.i.i, label %if.else154.i.i
 
 if.then153.i.i:                                   ; preds = %if.then142.i.i
-  call fastcc void @parts128_add_normal(ptr noundef nonnull %p_widen.i.i, ptr noundef nonnull %c_widen.i.i)
+  call fastcc void @parts128_add_normal(ptr noundef %p_widen.i.i, ptr noundef %c_widen.i.i)
   br label %if.end159.i.i
 
 if.else154.i.i:                                   ; preds = %if.then142.i.i
-  %call155.i.i = call fastcc zeroext i1 @parts128_sub_normal(ptr noundef nonnull %p_widen.i.i, ptr noundef nonnull %c_widen.i.i)
+  %call155.i.i = call fastcc zeroext i1 @parts128_sub_normal(ptr noundef %p_widen.i.i, ptr noundef %c_widen.i.i)
   br i1 %call155.i.i, label %if.end159.i.i, label %return_sub_zero.i.i
 
 if.end159.i.i:                                    ; preds = %if.else154.i.i, %if.then153.i.i, %if.end137.i.i
@@ -7287,7 +7287,7 @@ d_nan.i.i:                                        ; preds = %if.then57.i.i, %if.
   br label %soft_f32_muladd.exit
 
 soft_f32_muladd.exit:                             ; preds = %46, %finish_sign.i.i, %if.then174.i.i, %d_nan.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %pa.i, ptr noundef nonnull %s, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %pa.i, ptr noundef nonnull %s, ptr noundef nonnull @float32_params)
   %66 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i161.i = zext i8 %66 to i64
   %shl.i.i162.i = shl nuw nsw i64 %conv.i.i161.i, 31
@@ -7816,11 +7816,11 @@ if.then142.i.i:                                   ; preds = %if.end137.i.i
   br i1 %cmp151.i.i, label %if.then153.i.i, label %if.else154.i.i
 
 if.then153.i.i:                                   ; preds = %if.then142.i.i
-  call fastcc void @parts128_add_normal(ptr noundef nonnull %p_widen.i.i, ptr noundef nonnull %c_widen.i.i)
+  call fastcc void @parts128_add_normal(ptr noundef %p_widen.i.i, ptr noundef %c_widen.i.i)
   br label %if.end159.i.i
 
 if.else154.i.i:                                   ; preds = %if.then142.i.i
-  %call155.i.i = call fastcc zeroext i1 @parts128_sub_normal(ptr noundef nonnull %p_widen.i.i, ptr noundef nonnull %c_widen.i.i)
+  %call155.i.i = call fastcc zeroext i1 @parts128_sub_normal(ptr noundef %p_widen.i.i, ptr noundef %c_widen.i.i)
   br i1 %call155.i.i, label %if.end159.i.i, label %return_sub_zero.i.i
 
 if.end159.i.i:                                    ; preds = %if.else154.i.i, %if.then153.i.i, %if.end137.i.i
@@ -7889,7 +7889,7 @@ d_nan.i.i:                                        ; preds = %if.then57.i.i, %if.
   br label %soft_f64_muladd.exit
 
 soft_f64_muladd.exit:                             ; preds = %43, %finish_sign.i.i, %if.then174.i.i, %d_nan.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %pa.i, ptr noundef nonnull %s, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef %pa.i, ptr noundef nonnull %s, ptr noundef nonnull @float64_params)
   %63 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %64 = and i8 %63, 1
   %conv.i.i162.i = zext nneg i8 %64 to i64
@@ -8149,8 +8149,8 @@ if.else49.i.i47:                                  ; preds = %lor.lhs.false.i.i45
   br label %float64_unpack_canonical.exit68
 
 float64_unpack_canonical.exit68:                  ; preds = %if.then8.i.i63, %if.then10.i.i61, %frac64_normalize.exit.i.i57, %if.then33.i.i64, %if.then47.i.i51, %if.else49.i.i47
-  %call = call fastcc ptr @parts64_muladd(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef nonnull %pc, i32 noundef %flags, ptr noundef %status)
-  %call1 = call fastcc i64 @float64r32_round_pack_canonical(ptr noundef nonnull %pa, ptr noundef %status)
+  %call = call fastcc ptr @parts64_muladd(ptr noundef %pa, ptr noundef %pb, ptr noundef %pc, i32 noundef %flags, ptr noundef %status)
+  %call1 = call fastcc i64 @float64r32_round_pack_canonical(ptr noundef %pa, ptr noundef %status)
   ret i64 %call1
 }
 
@@ -8499,11 +8499,11 @@ if.then142.i:                                     ; preds = %if.end137.i
   br i1 %cmp151.i, label %if.then153.i, label %if.else154.i
 
 if.then153.i:                                     ; preds = %if.then142.i
-  call fastcc void @parts128_add_normal(ptr noundef nonnull %p_widen.i, ptr noundef nonnull %c_widen.i)
+  call fastcc void @parts128_add_normal(ptr noundef %p_widen.i, ptr noundef %c_widen.i)
   br label %if.end159.i
 
 if.else154.i:                                     ; preds = %if.then142.i
-  %call155.i = call fastcc zeroext i1 @parts128_sub_normal(ptr noundef nonnull %p_widen.i, ptr noundef nonnull %c_widen.i)
+  %call155.i = call fastcc zeroext i1 @parts128_sub_normal(ptr noundef %p_widen.i, ptr noundef %c_widen.i)
   br i1 %call155.i, label %if.end159.i, label %return_sub_zero.i
 
 if.end159.i:                                      ; preds = %if.then153.i, %if.else154.i, %if.end137.i
@@ -8573,7 +8573,7 @@ d_nan.i:                                          ; preds = %if.then57.i, %if.en
   br label %parts64_muladd.exit
 
 parts64_muladd.exit:                              ; preds = %finish_sign.i, %if.then174.i, %d_nan.i, %parts64_pick_nan_muladd.exit
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %pa, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %pa, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
   %43 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i, align 1
   %conv.i.i160 = zext i8 %43 to i64
   %shl.i.i161 = shl nuw nsw i64 %conv.i.i160, 15
@@ -8612,7 +8612,7 @@ entry:
   store i64 %and.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pa, ptr noundef %status, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pa, ptr noundef %status, ptr noundef nonnull @float128_params)
   %shr.i16.i70 = lshr i64 %b.coerce1, 48
   %1 = trunc nuw nsw i64 %shr.i16.i70 to i32
   %conv.i71 = and i32 %1, 32767
@@ -8628,7 +8628,7 @@ entry:
   store i64 %and.i.i74, ptr %.compoundliteral.sroa.4.0..sroa_idx.i77, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i78 = getelementptr inbounds i8, ptr %pb, i64 16
   store i64 %b.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i78, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pb, ptr noundef %status, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pb, ptr noundef %status, ptr noundef nonnull @float128_params)
   %shr.i16.i79 = lshr i64 %c.coerce1, 48
   %2 = trunc nuw nsw i64 %shr.i16.i79 to i32
   %conv.i80 = and i32 %2, 32767
@@ -8644,7 +8644,7 @@ entry:
   store i64 %and.i.i83, ptr %.compoundliteral.sroa.4.0..sroa_idx.i86, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i87 = getelementptr inbounds i8, ptr %pc, i64 16
   store i64 %c.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i87, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pc, ptr noundef %status, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pc, ptr noundef %status, ptr noundef nonnull @float128_params)
   %3 = load i8, ptr %pa, align 8
   %conv.i = zext nneg i8 %3 to i32
   %shl.i = shl nuw i32 1, %conv.i
@@ -8881,11 +8881,11 @@ if.then142.i:                                     ; preds = %if.end137.i
   br i1 %cmp151.i, label %if.then153.i, label %if.else154.i
 
 if.then153.i:                                     ; preds = %if.then142.i
-  call fastcc void @parts256_add_normal(ptr noundef nonnull %p_widen.i, ptr noundef nonnull %c_widen.i)
+  call fastcc void @parts256_add_normal(ptr noundef %p_widen.i, ptr noundef %c_widen.i)
   br label %if.end159.i
 
 if.else154.i:                                     ; preds = %if.then142.i
-  %call155.i = call fastcc zeroext i1 @parts256_sub_normal(ptr noundef nonnull %p_widen.i, ptr noundef nonnull %c_widen.i)
+  %call155.i = call fastcc zeroext i1 @parts256_sub_normal(ptr noundef %p_widen.i, ptr noundef %c_widen.i)
   br i1 %call155.i, label %if.end159.i, label %return_sub_zero.i
 
 if.end159.i:                                      ; preds = %if.then153.i, %if.else154.i, %if.end137.i
@@ -8956,7 +8956,7 @@ parts128_muladd.exit:                             ; preds = %finish_sign.i, %if.
   ]
 
 if.then.i112:                                     ; preds = %parts128_muladd.exit
-  call fastcc void @parts128_uncanon_normal(ptr noundef nonnull %pa, ptr noundef %status, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_uncanon_normal(ptr noundef %pa, ptr noundef %status, ptr noundef nonnull @float128_params)
   %.pre = load i32, ptr %.compoundliteral.sroa.33.0..sroa_idx.i, align 4
   %.pre169 = load i64, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
   %.pre170 = load i64, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
@@ -9165,8 +9165,8 @@ if.else49.i.i.i13:                                ; preds = %lor.lhs.false.i.i.i
   br label %float16_unpack_canonical.exit34
 
 float16_unpack_canonical.exit34:                  ; preds = %if.then8.i.i.i29, %if.then10.i.i.i27, %frac64_normalize.exit.i.i.i23, %if.then33.i.i.i30, %if.then47.i.i.i17, %if.else49.i.i.i13
-  %call = call fastcc ptr @parts64_div(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %status)
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %call, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  %call = call fastcc ptr @parts64_div(ptr noundef %pa, ptr noundef %pb, ptr noundef %status)
+  call fastcc void @parts64_uncanon(ptr noundef %call, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
   %12 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i35 = zext i8 %12 to i64
@@ -9186,7 +9186,7 @@ float16_unpack_canonical.exit34:                  ; preds = %if.then8.i.i.i29, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc nonnull ptr @parts64_div(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc nonnull ptr @parts64_div(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr nocapture noundef %s) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32
@@ -9776,7 +9776,7 @@ d_nan.i.i:                                        ; preds = %if.then37.i.i, %par
 
 soft_f32_div.exit:                                ; preds = %pickNaN.exit.i.i, %if.then.i.i10, %if.then3.i.i, %if.then6.i.i.i, %lor.lhs.false.i.i.i, %31, %if.then24.i.i, %if.end48.i.i, %if.end48.i.i, %if.then68.i.i, %if.then75.i.i, %d_nan.i.i
   %retval.i.0.i = phi ptr [ %pa.i, %if.then.i.i10 ], [ %pa.i, %d_nan.i.i ], [ %pa.i, %if.then68.i.i ], [ %pa.i, %if.then75.i.i ], [ %pa.i, %if.end48.i.i ], [ %pa.i, %if.end48.i.i ], [ %pa.i, %if.then3.i.i ], [ %.ph.i107.i, %if.then24.i.i ], [ %pb.i, %31 ], [ %pa.i, %if.then6.i.i.i ], [ %spec.select113.i, %lor.lhs.false.i.i.i ], [ %pb.i, %pickNaN.exit.i.i ]
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %retval.i.0.i, ptr noundef nonnull %s, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %retval.i.0.i, ptr noundef nonnull %s, ptr noundef nonnull @float32_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 1
   %33 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i = zext i8 %33 to i64
@@ -10204,7 +10204,7 @@ d_nan.i.i:                                        ; preds = %if.then37.i.i, %par
 
 soft_f64_div.exit:                                ; preds = %pickNaN.exit.i.i, %if.then.i.i9, %if.then3.i.i, %if.then6.i.i.i, %lor.lhs.false.i.i.i, %31, %if.then24.i.i, %if.end48.i.i, %if.end48.i.i, %if.then68.i.i, %if.then75.i.i, %d_nan.i.i
   %retval.i.0.i = phi ptr [ %pa.i, %if.then.i.i9 ], [ %pa.i, %d_nan.i.i ], [ %pa.i, %if.then68.i.i ], [ %pa.i, %if.then75.i.i ], [ %pa.i, %if.end48.i.i ], [ %pa.i, %if.end48.i.i ], [ %pa.i, %if.then3.i.i ], [ %.ph.i105.i, %if.then24.i.i ], [ %pb.i, %31 ], [ %pa.i, %if.then6.i.i.i ], [ %spec.select111.i, %lor.lhs.false.i.i.i ], [ %pb.i, %pickNaN.exit.i.i ]
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %retval.i.0.i, ptr noundef nonnull %s, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef %retval.i.0.i, ptr noundef nonnull %s, ptr noundef nonnull @float64_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 1
   %33 = load i8, ptr %sign.i.i.i, align 1
   %34 = and i8 %33, 1
@@ -10384,8 +10384,8 @@ if.else49.i.i14:                                  ; preds = %lor.lhs.false.i.i12
   br label %float64_unpack_canonical.exit35
 
 float64_unpack_canonical.exit35:                  ; preds = %if.then8.i.i30, %if.then10.i.i28, %frac64_normalize.exit.i.i24, %if.then33.i.i31, %if.then47.i.i18, %if.else49.i.i14
-  %call = call fastcc ptr @parts64_div(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %status)
-  %call1 = call fastcc i64 @float64r32_round_pack_canonical(ptr noundef nonnull %call, ptr noundef %status)
+  %call = call fastcc ptr @parts64_div(ptr noundef %pa, ptr noundef %pb, ptr noundef %status)
+  %call1 = call fastcc i64 @float64r32_round_pack_canonical(ptr noundef %call, ptr noundef %status)
   ret i64 %call1
 }
 
@@ -10700,7 +10700,7 @@ d_nan.i:                                          ; preds = %parts64_canonicaliz
 
 parts64_div.exit:                                 ; preds = %lor.lhs.false.i.i, %if.then24.i, %19, %if.then6.i.i, %if.then3.i, %if.end48.i, %if.end48.i, %d_nan.i, %if.then75.i, %if.then68.i, %if.then.i
   %retval.i.0 = phi ptr [ %pa, %if.then.i ], [ %pa, %d_nan.i ], [ %pa, %if.then68.i ], [ %pa, %if.then75.i ], [ %pa, %if.end48.i ], [ %pa, %if.end48.i ], [ %pa, %if.then3.i ], [ %.ph.i107, %if.then24.i ], [ %pb, %19 ], [ %pa, %if.then6.i.i ], [ %spec.select113, %lor.lhs.false.i.i ]
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %retval.i.0, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %retval.i.0, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
   %sign.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 1
   %24 = load i8, ptr %sign.i.i, align 1
   %conv.i.i93 = zext i8 %24 to i64
@@ -10739,7 +10739,7 @@ entry:
   store i64 %and.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pa, ptr noundef %status, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pa, ptr noundef %status, ptr noundef nonnull @float128_params)
   %shr.i16.i43 = lshr i64 %b.coerce1, 48
   %1 = trunc nuw nsw i64 %shr.i16.i43 to i32
   %conv.i44 = and i32 %1, 32767
@@ -10755,7 +10755,7 @@ entry:
   store i64 %and.i.i47, ptr %.compoundliteral.sroa.4.0..sroa_idx.i50, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i51 = getelementptr inbounds i8, ptr %pb, i64 16
   store i64 %b.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i51, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pb, ptr noundef %status, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pb, ptr noundef %status, ptr noundef nonnull @float128_params)
   %2 = load i8, ptr %pa, align 8
   %conv.i = zext nneg i8 %2 to i32
   %shl.i = shl nuw i32 1, %conv.i
@@ -10782,7 +10782,7 @@ if.then.i:                                        ; preds = %entry
   %7 = load i32, ptr %.compoundliteral.sroa.33.0..sroa_idx.i49, align 4
   %pb.val = load i64, ptr %.compoundliteral.sroa.4.0..sroa_idx.i50, align 8
   %pb.val41 = load i64, ptr %.compoundliteral.sroa.5.0..sroa_idx.i51, align 8
-  %call.i9 = call fastcc zeroext i1 @frac128_div(ptr noundef nonnull %pa, i64 %pb.val, i64 %pb.val41)
+  %call.i9 = call fastcc zeroext i1 @frac128_div(ptr noundef %pa, i64 %pb.val, i64 %pb.val41)
   %conv17.i.neg79 = sext i1 %call.i9 to i32
   %8 = load i32, ptr %.compoundliteral.sroa.33.0..sroa_idx.i, align 4
   %add.i.neg = sub i32 %conv17.i.neg79, %7
@@ -10930,7 +10930,7 @@ parts128_div.exit:                                ; preds = %lor.lhs.false.i.i, 
   ]
 
 if.then.i61:                                      ; preds = %parts128_div.exit
-  call fastcc void @parts128_uncanon_normal(ptr noundef nonnull %retval.i7.0, ptr noundef %status, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_uncanon_normal(ptr noundef %retval.i7.0, ptr noundef %status, ptr noundef nonnull @float128_params)
   %.pre = load i32, ptr %retval.i7.0.sroa.phi, align 4
   %22 = zext i32 %.pre to i64
   %23 = shl i64 %22, 48
@@ -11045,7 +11045,7 @@ floatx80_unpack_canonical.exit:                   ; preds = %sw.epilog.i
   br label %return
 
 lor.lhs.false:                                    ; preds = %if.end.i
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pa, ptr noundef nonnull %status, ptr noundef nonnull @floatx80_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pa, ptr noundef nonnull %status, ptr noundef nonnull @floatx80_params)
   %.pre = load i8, ptr %floatx80_rounding_precision.i, align 1
   %switch.i6 = icmp ult i8 %.pre, 3
   br i1 %switch.i6, label %sw.epilog.i8, label %do.body.i7
@@ -11077,7 +11077,7 @@ if.end.i14:                                       ; preds = %sw.epilog.i8
   br i1 %cmp.not.i22, label %if.else.i24, label %if.then10.i23
 
 if.then10.i23:                                    ; preds = %if.end.i14
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pb, ptr noundef nonnull %status, ptr noundef nonnull @floatx80_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pb, ptr noundef nonnull %status, ptr noundef nonnull @floatx80_params)
   %.pr = load i8, ptr %pb, align 8
   %.pre36 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i18, align 1
   br label %if.end
@@ -11122,7 +11122,7 @@ if.then.i32:                                      ; preds = %if.end
   %14 = load i32, ptr %.compoundliteral.sroa.32.0..sroa_idx.i.i19, align 4
   %b.val.i = load i64, ptr %.ph.i40.i.sroa.gep, align 8
   %b.val33.i = load i64, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i21, align 8
-  %call.i = call fastcc zeroext i1 @frac128_div(ptr noundef nonnull %pa, i64 %b.val.i, i64 %b.val33.i)
+  %call.i = call fastcc zeroext i1 @frac128_div(ptr noundef %pa, i64 %b.val.i, i64 %b.val33.i)
   %conv17.neg36.i = sext i1 %call.i to i32
   %15 = load i32, ptr %.compoundliteral.sroa.32.0..sroa_idx.i.i, align 4
   %add.neg.i = sub i32 %conv17.neg36.i, %14
@@ -11273,7 +11273,7 @@ d_nan.i:                                          ; preds = %if.then37.i, %if.en
 
 parts128_div.exit:                                ; preds = %pickNaN.exit.i.i, %if.then.i32, %if.then3.i.i, %if.then6.i.i.i, %lor.lhs.false.i.i.i, %24, %if.then24.i.i, %if.end48.i, %if.end48.i, %if.then68.i, %do.end.i, %d_nan.i
   %retval.0.i = phi ptr [ %pa, %if.then.i32 ], [ %pa, %d_nan.i ], [ %pa, %if.then68.i ], [ %pa, %do.end.i ], [ %pa, %if.end48.i ], [ %pa, %if.end48.i ], [ %pa, %if.then3.i.i ], [ %.ph.i40.i, %if.then24.i.i ], [ %pb, %24 ], [ %pa, %if.then6.i.i.i ], [ %spec.select.i, %lor.lhs.false.i.i.i ], [ %pb, %pickNaN.exit.i.i ]
-  %call4 = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %status)
+  %call4 = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef %retval.0.i, ptr noundef nonnull %status)
   %28 = extractvalue { i64, i16 } %call4, 0
   %29 = extractvalue { i64, i16 } %call4, 1
   br label %return
@@ -11443,8 +11443,8 @@ if.else49.i.i15:                                  ; preds = %lor.lhs.false.i.i13
   br label %float32_unpack_canonical.exit36
 
 float32_unpack_canonical.exit36:                  ; preds = %if.then8.i.i31, %if.then10.i.i29, %frac64_normalize.exit.i.i25, %if.then33.i.i32, %if.then47.i.i19, %if.else49.i.i15
-  %call = call fastcc ptr @parts64_modrem(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %status)
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %call, ptr noundef %status, ptr noundef nonnull @float32_params)
+  %call = call fastcc ptr @parts64_modrem(ptr noundef %pa, ptr noundef %pb, ptr noundef %status)
+  call fastcc void @parts64_uncanon(ptr noundef %call, ptr noundef %status, ptr noundef nonnull @float32_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
   %8 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i = zext i8 %8 to i64
@@ -11464,7 +11464,7 @@ float32_unpack_canonical.exit36:                  ; preds = %if.then8.i.i31, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc nonnull ptr @parts64_modrem(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc nonnull ptr @parts64_modrem(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr nocapture noundef %s) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32
@@ -12100,8 +12100,8 @@ if.else49.i.i14:                                  ; preds = %lor.lhs.false.i.i12
   br label %float64_unpack_canonical.exit35
 
 float64_unpack_canonical.exit35:                  ; preds = %if.then8.i.i30, %if.then10.i.i28, %frac64_normalize.exit.i.i24, %if.then33.i.i31, %if.then47.i.i18, %if.else49.i.i14
-  %call = call fastcc ptr @parts64_modrem(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %status)
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %call, ptr noundef %status, ptr noundef nonnull @float64_params)
+  %call = call fastcc ptr @parts64_modrem(ptr noundef %pa, ptr noundef %pb, ptr noundef %status)
+  call fastcc void @parts64_uncanon(ptr noundef %call, ptr noundef %status, ptr noundef nonnull @float64_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
   %8 = load i8, ptr %sign.i.i.i, align 1
   %9 = and i8 %8, 1
@@ -12140,7 +12140,7 @@ entry:
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pa, ptr noundef %status, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pa, ptr noundef %status, ptr noundef nonnull @float128_params)
   %shr.i16.i.i4 = lshr i64 %b.coerce1, 48
   %1 = trunc nuw nsw i64 %shr.i16.i.i4 to i32
   %conv.i.i5 = and i32 %1, 32767
@@ -12156,14 +12156,14 @@ entry:
   store i64 %and.i.i.i8, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i11, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i.i12 = getelementptr inbounds i8, ptr %pb, i64 16
   store i64 %b.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i12, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pb, ptr noundef %status, ptr noundef nonnull @float128_params)
-  %call = call fastcc ptr @parts128_modrem(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef null, ptr noundef %status)
-  %call1 = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef nonnull %call, ptr noundef %status)
+  call fastcc void @parts128_canonicalize(ptr noundef %pb, ptr noundef %status, ptr noundef nonnull @float128_params)
+  %call = call fastcc ptr @parts128_modrem(ptr noundef %pa, ptr noundef %pb, ptr noundef null, ptr noundef %status)
+  %call1 = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef %call, ptr noundef %status)
   ret { i64, i64 } %call1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc nonnull ptr @parts128_modrem(ptr noundef %a, ptr noundef %b, ptr noundef writeonly %mod_quot, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc nonnull ptr @parts128_modrem(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef writeonly %mod_quot, ptr nocapture noundef %s) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32
@@ -12472,15 +12472,15 @@ shortShift192Left.exit.i:                         ; preds = %estimateDiv128To64.
   %58 = add i64 %.neg270.i, %conv.i1.i.i127.neg285.i
   %59 = add i64 %58, %conv.i3.neg.i129.i
   %shl2.i130.i = shl i64 %7, %sh_prom263.i
-  %cmp.i132.i = icmp sgt i32 %sub29261.i, 0
+  %cmp.not.i132.i = icmp eq i32 %sub29261.i, 0
   %conv.i.i = and i32 %exp_diff.1.lcssa.i, 63
   %sh_prom6.i.i = zext nneg i32 %conv.i.i to i64
-  %shr.i135.i = lshr i64 %8, %sh_prom6.i.i
-  %shr9.i137.i = lshr i64 %7, %sh_prom6.i.i
-  %or.i136.i = select i1 %cmp.i132.i, i64 %shr.i135.i, i64 0
-  %z1.0.i.i = or i64 %or.i136.i, %shl2.i130.i
-  %z0.0.i.i = select i1 %cmp.i132.i, i64 %shr9.i137.i, i64 0
-  %shl.i134.i = shl i64 %8, %sh_prom263.i
+  %shr.i133.i = lshr i64 %8, %sh_prom6.i.i
+  %shr9.i135.i = lshr i64 %7, %sh_prom6.i.i
+  %or.i134.i = select i1 %cmp.not.i132.i, i64 0, i64 %shr.i133.i
+  %z1.0.i.i = or i64 %or.i134.i, %shl2.i130.i
+  %z0.0.i.i = select i1 %cmp.not.i132.i, i64 0, i64 %shr9.i135.i
+  %shl.i138.i = shl i64 %8, %sh_prom263.i
   br label %while.cond37.i
 
 while.cond37.i:                                   ; preds = %while.body39.i, %shortShift192Left.exit.i
@@ -12506,12 +12506,12 @@ if.then3.i.i:                                     ; preds = %if.end.i143.i
   br i1 %cmp4.i.i, label %while.body39.i, label %while.end40.i
 
 le192.exit.i:                                     ; preds = %if.end.i143.i
-  %cmp6.i.not.i = icmp ugt i64 %shl.i134.i, %a2.1.i
+  %cmp6.i.not.i = icmp ugt i64 %shl.i138.i, %a2.1.i
   br i1 %cmp6.i.not.i, label %while.end40.i, label %while.body39.i
 
 while.body39.i:                                   ; preds = %le192.exit.i, %if.then3.i.i, %if.then.i140.i
   %inc.i = add i64 %q.1.i, 1
-  %60 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %a2.1.i, i64 %shl.i134.i)
+  %60 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %a2.1.i, i64 %shl.i138.i)
   %61 = extractvalue { i64, i1 } %60, 1
   %conv.i1.i144.i = zext i1 %61 to i64
   %62 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %a1.3.i, i64 %z1.0.i.i)
@@ -12541,7 +12541,7 @@ if.end50.i:                                       ; preds = %while.end40.i, %whi
   %a2.2.i = phi i64 [ %a2.1.i, %while.end40.i ], [ %a2.0.lcssa.i, %while.end.i ]
   %t0.0.i = phi i64 [ %z0.0.i.i, %while.end40.i ], [ %7, %while.end.i ]
   %t1.0.i = phi i64 [ %z1.0.i.i, %while.end40.i ], [ %8, %while.end.i ]
-  %t2.0.i = phi i64 [ %shl.i134.i, %while.end40.i ], [ 0, %while.end.i ]
+  %t2.0.i = phi i64 [ %shl.i138.i, %while.end40.i ], [ 0, %while.end.i ]
   %q.2.i = phi i64 [ %q.1.i, %while.end40.i ], [ %q.0.lcssa.i, %while.end.i ]
   %quot.1.i = phi i64 [ %add49.i, %while.end40.i ], [ %quot.0.lcssa.i, %while.end.i ]
   %tobool51.not.i = icmp eq ptr %mod_quot, null
@@ -12615,23 +12615,23 @@ if.then69.i:                                      ; preds = %if.end63.i
   %cast.i.i = trunc nuw nsw i64 %85 to i32
   %shl2.i160.i = shl i64 %a1.5.i, %85
   %shl4.i161.i = shl i64 %a0.5.i, %85
-  %cmp.i162.not.i = icmp eq i64 %85, 0
-  br i1 %cmp.i162.not.i, label %shortShift192Left.exit174.i, label %if.then.i167.i
+  %cmp.not.i162.i = icmp eq i64 %85, 0
+  br i1 %cmp.not.i162.i, label %shortShift192Left.exit174.i, label %if.then.i163.i
 
-if.then.i167.i:                                   ; preds = %if.then69.i
+if.then.i163.i:                                   ; preds = %if.then69.i
   %86 = sub nsw i64 0, %85
-  %conv.i168.i = and i64 %86, 63
-  %shr.i170.i = lshr i64 %a2.3.i, %conv.i168.i
-  %or.i171.i = or i64 %shr.i170.i, %shl2.i160.i
-  %shr9.i172.i = lshr i64 %a1.5.i, %conv.i168.i
-  %or10.i173.i = or i64 %shr9.i172.i, %shl4.i161.i
+  %conv.i164.i = and i64 %86, 63
+  %shr.i166.i = lshr i64 %a2.3.i, %conv.i164.i
+  %or.i167.i = or i64 %shr.i166.i, %shl2.i160.i
+  %shr9.i168.i = lshr i64 %a1.5.i, %conv.i164.i
+  %or10.i169.i = or i64 %shr9.i168.i, %shl4.i161.i
   br label %shortShift192Left.exit174.i
 
-shortShift192Left.exit174.i:                      ; preds = %if.then.i167.i, %if.then69.i
-  %z1.0.i164.i = phi i64 [ %or.i171.i, %if.then.i167.i ], [ %shl2.i160.i, %if.then69.i ]
-  %z0.0.i165.i = phi i64 [ %or10.i173.i, %if.then.i167.i ], [ %shl4.i161.i, %if.then69.i ]
-  %shl.i166.i = shl i64 %a2.3.i, %85
-  %87 = icmp ne i64 %shl.i166.i, 0
+shortShift192Left.exit174.i:                      ; preds = %if.then.i163.i, %if.then69.i
+  %z1.0.i171.i = phi i64 [ %or.i167.i, %if.then.i163.i ], [ %shl2.i160.i, %if.then69.i ]
+  %z0.0.i172.i = phi i64 [ %or10.i169.i, %if.then.i163.i ], [ %shl4.i161.i, %if.then69.i ]
+  %shl.i173.i = shl i64 %a2.3.i, %85
+  %87 = icmp ne i64 %shl.i173.i, 0
   %88 = zext i1 %87 to i64
   br label %if.end98.i
 
@@ -12675,8 +12675,8 @@ if.else95.i:                                      ; preds = %if.else82.i
   br label %return
 
 if.end98.i:                                       ; preds = %if.then90.i, %shortShift128Left.exit.i, %shortShift192Left.exit174.i
-  %a0.6.i = phi i64 [ %shl93.i, %if.then90.i ], [ %cond.i185.i, %shortShift128Left.exit.i ], [ %z0.0.i165.i, %shortShift192Left.exit174.i ]
-  %a1.6.i = phi i64 [ 0, %if.then90.i ], [ %shl.i177.i, %shortShift128Left.exit.i ], [ %z1.0.i164.i, %shortShift192Left.exit174.i ]
+  %a0.6.i = phi i64 [ %shl93.i, %if.then90.i ], [ %cond.i185.i, %shortShift128Left.exit.i ], [ %z0.0.i172.i, %shortShift192Left.exit174.i ]
+  %a1.6.i = phi i64 [ 0, %if.then90.i ], [ %shl.i177.i, %shortShift128Left.exit.i ], [ %z1.0.i171.i, %shortShift192Left.exit174.i ]
   %a2.4.i = phi i64 [ 0, %if.then90.i ], [ 0, %shortShift128Left.exit.i ], [ %88, %shortShift192Left.exit174.i ]
   %shift.0.i = phi i32 [ %add94.i, %if.then90.i ], [ %add81.i, %shortShift128Left.exit.i ], [ %cast.i.i, %shortShift192Left.exit174.i ]
   %91 = load i32, ptr %exp1.i, align 4
@@ -12902,7 +12902,7 @@ floatx80_unpack_canonical.exit:                   ; preds = %sw.epilog.i
   br label %return
 
 lor.lhs.false:                                    ; preds = %if.end.i
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pa, ptr noundef nonnull %status, ptr noundef nonnull @floatx80_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pa, ptr noundef nonnull %status, ptr noundef nonnull @floatx80_params)
   %.pre = load i8, ptr %floatx80_rounding_precision.i, align 1
   %switch.i7 = icmp ult i8 %.pre, 3
   br i1 %switch.i7, label %sw.epilog.i9, label %do.body.i8
@@ -12935,7 +12935,7 @@ if.end.i15:                                       ; preds = %sw.epilog.i9
   br i1 %cmp.not.i23, label %if.else.i25, label %if.then10.i24
 
 if.then10.i24:                                    ; preds = %if.end.i15
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pb, ptr noundef nonnull %status, ptr noundef nonnull @floatx80_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pb, ptr noundef nonnull %status, ptr noundef nonnull @floatx80_params)
   br label %if.end
 
 if.else.i25:                                      ; preds = %if.end.i15
@@ -12957,8 +12957,8 @@ floatx80_unpack_canonical.exit30:                 ; preds = %sw.epilog.i9
 
 if.end:                                           ; preds = %if.then10.i24, %if.else.i25
   %cond = select i1 %mod, ptr %quotient, ptr null
-  %call3 = call fastcc ptr @parts128_modrem(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %cond, ptr noundef nonnull %status)
-  %call4 = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef nonnull %call3, ptr noundef nonnull %status)
+  %call3 = call fastcc ptr @parts128_modrem(ptr noundef %pa, ptr noundef %pb, ptr noundef %cond, ptr noundef nonnull %status)
+  %call4 = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef %call3, ptr noundef nonnull %status)
   %9 = extractvalue { i64, i16 } %call4, 0
   %10 = extractvalue { i64, i16 } %call4, 1
   br label %return
@@ -13105,7 +13105,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %parts64_float_to_float.exit
 
 parts64_float_to_float.exit:                      ; preds = %if.then33.i.i, %frac64_normalize.exit.i.i, %if.then47.i.i, %if.then10.i.i, %if.then8.i.i, %if.then.i.i6, %if.else.i.i5, %sw.bb1.i.i, %if.then4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %s, ptr noundef nonnull @float32_params)
   %9 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i7 = zext i8 %9 to i64
   %shl.i.i.i8 = shl nuw nsw i64 %conv.i.i.i7, 31
@@ -13239,7 +13239,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %parts64_float_to_float.exit
 
 parts64_float_to_float.exit:                      ; preds = %if.then33.i.i, %frac64_normalize.exit.i.i, %if.then47.i.i, %if.then10.i.i, %if.then8.i.i, %if.then.i.i6, %if.else.i.i5, %sw.bb1.i.i, %if.then4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %s, ptr noundef nonnull @float64_params)
   %9 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %10 = and i8 %9, 1
   %conv.i.i.i7 = zext nneg i8 %10 to i64
@@ -13421,7 +13421,7 @@ default.unreachable:                              ; preds = %if.else
 
 if.end:                                           ; preds = %sw.bb3.i, %sw.bb1.i, %if.else, %if.else, %if.then4.i.i, %sw.bb1.i.i, %if.else.i.i7, %if.then.i.i8, %if.then
   %float16_params_ahp.sink = phi ptr [ @float16_params, %if.then ], [ @float16_params, %if.then.i.i8 ], [ @float16_params, %if.else.i.i7 ], [ @float16_params, %sw.bb1.i.i ], [ @float16_params, %if.then4.i.i ], [ @float16_params_ahp, %if.else ], [ @float16_params_ahp, %if.else ], [ @float16_params_ahp, %sw.bb1.i ], [ @float16_params_ahp, %sw.bb3.i ]
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull readonly %float16_params_ahp.sink)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %s, ptr noundef nonnull readonly %float16_params_ahp.sink)
   %12 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i11 = zext i8 %12 to i64
   %shl.i.i.i12 = shl nuw nsw i64 %conv.i.i.i11, 15
@@ -13576,7 +13576,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %soft_float32_to_float64.exit
 
 soft_float32_to_float64.exit:                     ; preds = %if.then8.i.i, %if.then10.i.i, %frac64_normalize.exit.i.i, %if.then47.i.i, %parts64_canonicalize.exit.i, %if.then.i10.i, %if.else.i9.i, %sw.bb1.i.i, %if.then4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %s, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %s, ptr noundef nonnull @float64_params)
   %9 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %10 = and i8 %9, 1
   %conv.i.i.i = zext nneg i8 %10 to i64
@@ -13762,7 +13762,7 @@ default.unreachable:                              ; preds = %if.else
 
 if.end:                                           ; preds = %sw.bb3.i, %sw.bb1.i, %if.else, %if.else, %if.then4.i.i, %sw.bb1.i.i, %if.else.i.i7, %if.then.i.i8, %if.then
   %float16_params_ahp.sink = phi ptr [ @float16_params, %if.then ], [ @float16_params, %if.then.i.i8 ], [ @float16_params, %if.else.i.i7 ], [ @float16_params, %sw.bb1.i.i ], [ @float16_params, %if.then4.i.i ], [ @float16_params_ahp, %if.else ], [ @float16_params_ahp, %if.else ], [ @float16_params_ahp, %sw.bb1.i ], [ @float16_params_ahp, %sw.bb3.i ]
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull readonly %float16_params_ahp.sink)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %s, ptr noundef nonnull readonly %float16_params_ahp.sink)
   %12 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i12 = zext i8 %12 to i64
   %shl.i.i.i13 = shl nuw nsw i64 %conv.i.i.i12, 15
@@ -13892,7 +13892,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %parts64_float_to_float.exit
 
 parts64_float_to_float.exit:                      ; preds = %float64_unpack_canonical.exit, %if.then47.i.i, %frac64_normalize.exit.i.i, %if.then10.i.i, %if.then8.i.i, %if.then.i.i5, %if.else.i.i4, %sw.bb1.i.i, %if.then4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %s, ptr noundef nonnull @float32_params)
   %7 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i6 = zext i8 %7 to i64
   %shl.i.i.i7 = shl nuw nsw i64 %conv.i.i.i6, 31
@@ -14024,7 +14024,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %parts64_float_to_float.exit
 
 parts64_float_to_float.exit:                      ; preds = %bfloat16_unpack_canonical.exit, %if.then47.i.i, %frac64_normalize.exit.i.i, %if.then10.i.i, %if.then8.i.i, %if.then.i.i5, %if.else.i.i4, %sw.bb1.i.i, %if.then4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %s, ptr noundef nonnull @float32_params)
   %9 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i6 = zext i8 %9 to i64
   %shl.i.i.i7 = shl nuw nsw i64 %conv.i.i.i6, 31
@@ -14156,7 +14156,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %parts64_float_to_float.exit
 
 parts64_float_to_float.exit:                      ; preds = %bfloat16_unpack_canonical.exit, %if.then47.i.i, %frac64_normalize.exit.i.i, %if.then10.i.i, %if.then8.i.i, %if.then.i.i5, %if.else.i.i4, %sw.bb1.i.i, %if.then4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %s, ptr noundef nonnull @float64_params)
   %9 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %10 = and i8 %9, 1
   %conv.i.i.i6 = zext nneg i8 %10 to i64
@@ -14287,7 +14287,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %parts64_float_to_float.exit
 
 parts64_float_to_float.exit:                      ; preds = %float32_unpack_canonical.exit, %if.then47.i.i, %frac64_normalize.exit.i.i, %if.then10.i.i, %if.then8.i.i, %if.then.i.i5, %if.else.i.i4, %sw.bb1.i.i, %if.then4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %s, ptr noundef nonnull @bfloat16_params)
   %7 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i = zext i8 %7 to i64
   %shl.i.i.i6 = shl nuw nsw i64 %conv.i.i.i, 15
@@ -14417,7 +14417,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %parts64_float_to_float.exit
 
 parts64_float_to_float.exit:                      ; preds = %float64_unpack_canonical.exit, %if.then47.i.i, %frac64_normalize.exit.i.i, %if.then10.i.i, %if.then8.i.i, %if.then.i.i5, %if.else.i.i4, %sw.bb1.i.i, %if.then4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %s, ptr noundef nonnull @bfloat16_params)
   %7 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i6 = zext i8 %7 to i64
   %shl.i.i.i7 = shl nuw nsw i64 %conv.i.i.i6, 15
@@ -14453,7 +14453,7 @@ entry:
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p128, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %p128, ptr noundef %s, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %p128, ptr noundef %s, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p128, align 8
   store i8 %1, ptr %p64, align 8
   %2 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
@@ -14529,7 +14529,7 @@ do.body.i.i:                                      ; preds = %if.then7.i
   unreachable
 
 parts_float_to_float_narrow.exit:                 ; preds = %if.then.i, %if.else.i, %if.then.i.i, %if.else.i.i, %sw.bb1.i.i, %if.then4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p64, ptr noundef %s, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p64, ptr noundef %s, ptr noundef nonnull @float32_params)
   %10 = load i8, ptr %sign2.i, align 1
   %conv.i.i.i = zext i8 %10 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 31
@@ -14566,7 +14566,7 @@ entry:
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p128, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %p128, ptr noundef %s, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %p128, ptr noundef %s, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p128, align 8
   store i8 %1, ptr %p64, align 8
   %2 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
@@ -14642,7 +14642,7 @@ do.body.i.i:                                      ; preds = %if.then7.i
   unreachable
 
 parts_float_to_float_narrow.exit:                 ; preds = %if.then.i, %if.else.i, %if.then.i.i, %if.else.i.i, %sw.bb1.i.i, %if.then4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p64, ptr noundef %s, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p64, ptr noundef %s, ptr noundef nonnull @float64_params)
   %10 = load i8, ptr %sign2.i, align 1
   %11 = and i8 %10, 1
   %conv.i.i.i = zext nneg i8 %11 to i64
@@ -14774,7 +14774,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %parts_float_to_float_widen.exit
 
 parts_float_to_float_widen.exit:                  ; preds = %float32_unpack_canonical.exit.thread, %if.then.i.i5, %if.else.i.i4, %sw.bb1.i.i, %if.then4.i.i
-  %call = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef nonnull %p128, ptr noundef %s)
+  %call = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef %p128, ptr noundef %s)
   ret { i64, i64 } %call
 }
 
@@ -14892,7 +14892,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %parts_float_to_float_widen.exit
 
 parts_float_to_float_widen.exit:                  ; preds = %float64_unpack_canonical.exit.thread, %if.then.i.i5, %if.else.i.i4, %sw.bb1.i.i, %if.then4.i.i
-  %call = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef nonnull %p128, ptr noundef %s)
+  %call = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef %p128, ptr noundef %s)
   ret { i64, i64 } %call
 }
 
@@ -14949,7 +14949,7 @@ if.then.thread:                                   ; preds = %if.end.i
   br label %if.else.i4
 
 if.then:                                          ; preds = %if.end.i
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %p128, ptr noundef nonnull %s, ptr noundef nonnull @floatx80_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %p128, ptr noundef nonnull %s, ptr noundef nonnull @floatx80_params)
   %.pr = load i8, ptr %p128, align 8
   %.pre = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.pre7 = load i32, ptr %.compoundliteral.sroa.32.0..sroa_idx.i.i, align 4
@@ -15041,7 +15041,7 @@ if.else:                                          ; preds = %sw.epilog.i
   br label %if.end
 
 if.end:                                           ; preds = %if.then4.i.i, %sw.bb1.i.i, %if.else.i.i, %if.then.i.i, %if.else.i4, %if.then.i5, %if.else
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p64, ptr noundef nonnull %s, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p64, ptr noundef nonnull %s, ptr noundef nonnull @float32_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %p64, i64 1
   %12 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i = zext i8 %12 to i64
@@ -15113,7 +15113,7 @@ if.then.thread:                                   ; preds = %if.end.i
   br label %if.else.i4
 
 if.then:                                          ; preds = %if.end.i
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %p128, ptr noundef nonnull %s, ptr noundef nonnull @floatx80_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %p128, ptr noundef nonnull %s, ptr noundef nonnull @floatx80_params)
   %.pr = load i8, ptr %p128, align 8
   %.pre = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.pre7 = load i32, ptr %.compoundliteral.sroa.32.0..sroa_idx.i.i, align 4
@@ -15205,7 +15205,7 @@ if.else:                                          ; preds = %sw.epilog.i
   br label %if.end
 
 if.end:                                           ; preds = %if.then4.i.i, %sw.bb1.i.i, %if.else.i.i, %if.then.i.i, %if.else.i4, %if.then.i5, %if.else
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p64, ptr noundef nonnull %s, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p64, ptr noundef nonnull %s, ptr noundef nonnull @float64_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %p64, i64 1
   %12 = load i8, ptr %sign.i.i.i, align 1
   %13 = and i8 %12, 1
@@ -15261,7 +15261,7 @@ if.end.i:                                         ; preds = %sw.epilog.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef nonnull %s, ptr noundef nonnull @floatx80_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %p, ptr noundef nonnull %s, ptr noundef nonnull @floatx80_params)
   %.pr = load i8, ptr %p, align 8
   br label %if.then
 
@@ -15341,7 +15341,7 @@ if.else:                                          ; preds = %sw.epilog.i
   br label %if.end
 
 if.end:                                           ; preds = %if.then4.i.i, %sw.bb1.i.i, %if.else.i.i, %if.then.i.i, %if.then, %if.else
-  %call1 = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef nonnull %p, ptr noundef nonnull %s)
+  %call1 = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef %p, ptr noundef nonnull %s)
   ret { i64, i64 } %call1
 }
 
@@ -15460,7 +15460,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %parts_float_to_float_widen.exit
 
 parts_float_to_float_widen.exit:                  ; preds = %float32_unpack_canonical.exit.thread, %if.then.i.i5, %if.else.i.i4, %sw.bb1.i.i, %if.then4.i.i
-  %call = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef nonnull %p128, ptr noundef %s)
+  %call = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef %p128, ptr noundef %s)
   ret { i64, i16 } %call
 }
 
@@ -15578,7 +15578,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %parts_float_to_float_widen.exit
 
 parts_float_to_float_widen.exit:                  ; preds = %float64_unpack_canonical.exit.thread, %if.then.i.i5, %if.else.i.i4, %sw.bb1.i.i, %if.then4.i.i
-  %call = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef nonnull %p128, ptr noundef %s)
+  %call = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef %p128, ptr noundef %s)
   ret { i64, i16 } %call
 }
 
@@ -15601,7 +15601,7 @@ entry:
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %p, ptr noundef %s, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p, align 8
   %cmp.i.i = icmp ugt i8 %1, 3
   br i1 %cmp.i.i, label %if.then.i, label %parts128_float_to_float.exit
@@ -15655,7 +15655,7 @@ do.body.i.i:                                      ; preds = %if.then.i
   unreachable
 
 parts128_float_to_float.exit:                     ; preds = %entry, %if.then.i.i, %if.else.i.i, %sw.bb1.i.i, %if.then4.i.i
-  %call = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef nonnull %p, ptr noundef %s)
+  %call = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef %p, ptr noundef %s)
   ret { i64, i16 } %call
 }
 
@@ -15776,7 +15776,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
 sw.bb2.i:                                         ; preds = %float16_unpack_canonical.exit.thread, %float16_unpack_canonical.exit.thread7
   %.in = getelementptr inbounds i8, ptr %s, i64 2
   %9 = load i8, ptr %.in, align 2
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %9, i32 noundef 0, i32 noundef 10)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %9, i32 noundef 0, i32 noundef 10)
   br i1 %call.i, label %if.then.i, label %parts64_round_to_int.exit
 
 if.then.i:                                        ; preds = %sw.bb2.i
@@ -15786,7 +15786,7 @@ if.then.i:                                        ; preds = %sw.bb2.i
   br label %parts64_round_to_int.exit
 
 parts64_round_to_int.exit:                        ; preds = %if.then47.i.i.i, %if.then10.i.i.i, %if.then8.i.i.i, %if.then.i.i, %if.else.i.i, %sw.bb1.i.i, %if.then4.i.i, %sw.bb2.i, %if.then.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %s, ptr noundef nonnull readonly @float16_params)
   %11 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i, align 1
   %conv.i.i.i.i4 = zext i8 %11 to i64
   %shl.i.i.i.i5 = shl nuw nsw i64 %conv.i.i.i.i4, 15
@@ -15919,7 +15919,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
 sw.bb2.i:                                         ; preds = %float32_unpack_canonical.exit.thread, %float32_unpack_canonical.exit.thread9
   %.in = getelementptr inbounds i8, ptr %s, i64 2
   %7 = load i8, ptr %.in, align 2
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %7, i32 noundef 0, i32 noundef 23)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %7, i32 noundef 0, i32 noundef 23)
   br i1 %call.i, label %if.then.i, label %parts64_round_to_int.exit
 
 if.then.i:                                        ; preds = %sw.bb2.i
@@ -15929,7 +15929,7 @@ if.then.i:                                        ; preds = %sw.bb2.i
   br label %parts64_round_to_int.exit
 
 parts64_round_to_int.exit:                        ; preds = %if.then47.i.i, %if.then10.i.i, %if.then8.i.i, %if.then.i.i6, %if.else.i.i5, %sw.bb1.i.i, %if.then4.i.i, %sw.bb2.i, %if.then.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %s, ptr noundef nonnull @float32_params)
   %9 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i = zext i8 %9 to i64
   %shl.i.i.i7 = shl nuw nsw i64 %conv.i.i.i, 31
@@ -16061,7 +16061,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
 sw.bb2.i:                                         ; preds = %float64_unpack_canonical.exit.thread, %float64_unpack_canonical.exit.thread10
   %.in = getelementptr inbounds i8, ptr %s, i64 2
   %7 = load i8, ptr %.in, align 2
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %7, i32 noundef 0, i32 noundef 52)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %7, i32 noundef 0, i32 noundef 52)
   br i1 %call.i, label %if.then.i, label %parts64_round_to_int.exit
 
 if.then.i:                                        ; preds = %sw.bb2.i
@@ -16071,7 +16071,7 @@ if.then.i:                                        ; preds = %sw.bb2.i
   br label %parts64_round_to_int.exit
 
 parts64_round_to_int.exit:                        ; preds = %if.then47.i.i, %if.then10.i.i, %if.then8.i.i, %if.then.i.i6, %if.else.i.i5, %sw.bb1.i.i, %if.then4.i.i, %sw.bb2.i, %if.then.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %s, ptr noundef nonnull @float64_params)
   %9 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %10 = and i8 %9, 1
   %conv.i.i.i7 = zext nneg i8 %10 to i64
@@ -16205,7 +16205,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
 sw.bb2.i:                                         ; preds = %bfloat16_unpack_canonical.exit.thread, %bfloat16_unpack_canonical.exit.thread10
   %.in = getelementptr inbounds i8, ptr %s, i64 2
   %9 = load i8, ptr %.in, align 2
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %9, i32 noundef 0, i32 noundef 7)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %9, i32 noundef 0, i32 noundef 7)
   br i1 %call.i, label %if.then.i, label %parts64_round_to_int.exit
 
 if.then.i:                                        ; preds = %sw.bb2.i
@@ -16215,7 +16215,7 @@ if.then.i:                                        ; preds = %sw.bb2.i
   br label %parts64_round_to_int.exit
 
 parts64_round_to_int.exit:                        ; preds = %if.then47.i.i, %if.then10.i.i, %if.then8.i.i, %if.then.i.i6, %if.else.i.i5, %sw.bb1.i.i, %if.then4.i.i, %sw.bb2.i, %if.then.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %s, ptr noundef nonnull @bfloat16_params)
   %11 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i7 = zext i8 %11 to i64
   %shl.i.i.i8 = shl nuw nsw i64 %conv.i.i.i7, 15
@@ -16250,7 +16250,7 @@ entry:
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %p, ptr noundef %s, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p, align 8
   switch i8 %1, label %do.body.i [
     i8 2, label %sw.bb2.i
@@ -16301,7 +16301,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
 sw.bb2.i:                                         ; preds = %entry
   %float_rounding_mode = getelementptr inbounds i8, ptr %s, i64 2
   %6 = load i8, ptr %float_rounding_mode, align 2
-  %call.i = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %6, i32 noundef 112)
+  %call.i = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %6, i32 noundef 112)
   br i1 %call.i, label %if.then.i, label %parts128_round_to_int.exit
 
 if.then.i:                                        ; preds = %sw.bb2.i
@@ -16315,7 +16315,7 @@ do.body.i:                                        ; preds = %entry
   unreachable
 
 parts128_round_to_int.exit:                       ; preds = %entry, %entry, %if.then.i.i, %if.else.i.i, %sw.bb1.i.i, %if.then4.i.i, %sw.bb2.i, %if.then.i
-  %call = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef nonnull %p, ptr noundef nonnull %s)
+  %call = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef %p, ptr noundef nonnull %s)
   ret { i64, i64 } %call
 }
 
@@ -16356,7 +16356,7 @@ if.end.i:                                         ; preds = %sw.epilog.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef nonnull %status, ptr noundef nonnull @floatx80_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %p, ptr noundef nonnull %status, ptr noundef nonnull @floatx80_params)
   %.pr = load i8, ptr %p, align 8
   br label %if.end
 
@@ -16432,7 +16432,7 @@ sw.bb2.i:                                         ; preds = %if.end
   %11 = load i8, ptr %float_rounding_mode, align 2
   %frac_size.i = getelementptr [3 x %struct.FloatFmt], ptr @floatx80_params, i64 0, i64 %idxprom, i32 4
   %12 = load i32, ptr %frac_size.i, align 8
-  %call.i = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %11, i32 noundef %12)
+  %call.i = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %11, i32 noundef %12)
   br i1 %call.i, label %if.then.i7, label %parts128_round_to_int.exit
 
 if.then.i7:                                       ; preds = %sw.bb2.i
@@ -16446,7 +16446,7 @@ do.body.i9:                                       ; preds = %if.end
   unreachable
 
 parts128_round_to_int.exit:                       ; preds = %if.end, %if.end, %if.then.i.i, %if.else.i.i, %sw.bb1.i.i, %if.then4.i.i, %sw.bb2.i, %if.then.i7
-  %call2 = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef nonnull %p, ptr noundef nonnull %status)
+  %call2 = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef %p, ptr noundef nonnull %status)
   %14 = extractvalue { i64, i16 } %call2, 0
   %15 = extractvalue { i64, i16 } %call2, 1
   br label %return
@@ -16529,7 +16529,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i.i
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %float16_unpack_canonical.exit.thread, %float16_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   %spec.select.i = select i1 %call.i, i16 16, i16 0
   %6 = load i32, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i, align 4
   %cmp.i = icmp slt i32 %6, 64
@@ -16639,7 +16639,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i.i
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %float16_unpack_canonical.exit.thread, %float16_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   %spec.select.i = select i1 %call.i, i16 16, i16 0
   %6 = load i32, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i, align 4
   %cmp.i = icmp slt i32 %6, 64
@@ -16749,7 +16749,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i.i
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %float16_unpack_canonical.exit.thread, %float16_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   %spec.select.i = select i1 %call.i, i16 16, i16 0
   %6 = load i32, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i, align 4
   %cmp.i = icmp slt i32 %6, 64
@@ -16853,7 +16853,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i.i
   br label %parts64_float_to_sint.exit.sink.split
 
 sw.bb6.i:                                         ; preds = %float16_unpack_canonical.exit.thread, %float16_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   %spec.select.i = select i1 %call.i, i16 16, i16 0
   %5 = load i32, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i.i, align 4
   %cmp.i = icmp slt i32 %5, 64
@@ -16962,7 +16962,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %float32_unpack_canonical.exit.thread, %float32_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   %spec.select.i = select i1 %call.i, i16 16, i16 0
   %4 = load i32, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
   %cmp.i = icmp slt i32 %4, 64
@@ -17072,7 +17072,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %float32_unpack_canonical.exit.thread, %float32_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   %spec.select.i = select i1 %call.i, i16 16, i16 0
   %4 = load i32, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
   %cmp.i = icmp slt i32 %4, 64
@@ -17176,7 +17176,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i
   br label %parts64_float_to_sint.exit.sink.split
 
 sw.bb6.i:                                         ; preds = %float32_unpack_canonical.exit.thread, %float32_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   %spec.select.i = select i1 %call.i, i16 16, i16 0
   %3 = load i32, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
   %cmp.i = icmp slt i32 %3, 64
@@ -17284,7 +17284,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %float64_unpack_canonical.exit.thread, %float64_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   %spec.select.i = select i1 %call.i, i16 16, i16 0
   %4 = load i32, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
   %cmp.i = icmp slt i32 %4, 64
@@ -17393,7 +17393,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %float64_unpack_canonical.exit.thread, %float64_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   %spec.select.i = select i1 %call.i, i16 16, i16 0
   %4 = load i32, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
   %cmp.i = icmp slt i32 %4, 64
@@ -17496,7 +17496,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i
   br label %parts64_float_to_sint.exit.sink.split
 
 sw.bb6.i:                                         ; preds = %float64_unpack_canonical.exit.thread, %float64_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   %spec.select.i = select i1 %call.i, i16 16, i16 0
   %3 = load i32, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
   %cmp.i = icmp slt i32 %3, 64
@@ -17606,7 +17606,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %bfloat16_unpack_canonical.exit.thread, %bfloat16_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   %spec.select.i = select i1 %call.i, i16 16, i16 0
   %6 = load i32, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
   %cmp.i = icmp slt i32 %6, 64
@@ -17717,7 +17717,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %bfloat16_unpack_canonical.exit.thread, %bfloat16_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   %spec.select.i = select i1 %call.i, i16 16, i16 0
   %6 = load i32, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
   %cmp.i = icmp slt i32 %6, 64
@@ -17828,7 +17828,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %bfloat16_unpack_canonical.exit.thread, %bfloat16_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   %spec.select.i = select i1 %call.i, i16 16, i16 0
   %6 = load i32, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
   %cmp.i = icmp slt i32 %6, 64
@@ -17933,7 +17933,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i
   br label %parts64_float_to_sint.exit.sink.split
 
 sw.bb6.i:                                         ; preds = %bfloat16_unpack_canonical.exit.thread, %bfloat16_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   %spec.select.i = select i1 %call.i, i16 16, i16 0
   %5 = load i32, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
   %cmp.i = icmp slt i32 %5, 64
@@ -18090,7 +18090,7 @@ entry:
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %p, ptr noundef %s, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p, align 8
   switch i8 %1, label %do.body.i [
     i8 5, label %sw.bb.i
@@ -18110,7 +18110,7 @@ sw.bb3.i:                                         ; preds = %entry
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %entry
-  %call.i = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef 126)
+  %call.i = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef 126)
   %spec.select.i = select i1 %call.i, i16 16, i16 0
   %3 = load i32, ptr %.compoundliteral.sroa.33.0..sroa_idx.i.i, align 4
   %cmp.i = icmp slt i32 %3, 64
@@ -18182,7 +18182,7 @@ entry:
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %p, ptr noundef %s, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p, align 8
   switch i8 %1, label %do.body.i [
     i8 5, label %sw.bb.i
@@ -18202,7 +18202,7 @@ sw.bb3.i:                                         ; preds = %entry
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %entry
-  %call.i = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef 126)
+  %call.i = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef 126)
   %spec.select.i = select i1 %call.i, i16 16, i16 0
   %3 = load i32, ptr %.compoundliteral.sroa.33.0..sroa_idx.i.i, align 4
   %cmp.i = icmp slt i32 %3, 64
@@ -18273,7 +18273,7 @@ entry:
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %p, ptr noundef %s, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p, align 8
   switch i8 %1, label %do.body [
     i8 5, label %sw.bb
@@ -18295,7 +18295,7 @@ sw.bb3:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %entry
-  %call13 = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef 126)
+  %call13 = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef 126)
   %spec.select = select i1 %call13, i16 16, i16 0
   %3 = load i32, ptr %.compoundliteral.sroa.33.0..sroa_idx.i.i, align 4
   %cmp = icmp slt i32 %3, 127
@@ -18417,7 +18417,7 @@ if.end.i:                                         ; preds = %sw.epilog.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef nonnull %s, ptr noundef nonnull @floatx80_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %p, ptr noundef nonnull %s, ptr noundef nonnull @floatx80_params)
   %.pr.pre = load i8, ptr %p, align 8
   br label %if.end
 
@@ -18459,7 +18459,7 @@ sw.bb3.i:                                         ; preds = %if.end
   br label %sw.epilog.i3
 
 sw.bb6.i:                                         ; preds = %if.end
-  %call.i = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef 126)
+  %call.i = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef 126)
   %spec.select.i = select i1 %call.i, i16 16, i16 0
   %exp.i = getelementptr inbounds i8, ptr %p, i64 4
   %7 = load i32, ptr %exp.i, align 4
@@ -18552,7 +18552,7 @@ if.end.i:                                         ; preds = %sw.epilog.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef nonnull %s, ptr noundef nonnull @floatx80_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %p, ptr noundef nonnull %s, ptr noundef nonnull @floatx80_params)
   %.pr.pre = load i8, ptr %p, align 8
   br label %if.end
 
@@ -18594,7 +18594,7 @@ sw.bb3.i:                                         ; preds = %if.end
   br label %sw.epilog.i3
 
 sw.bb6.i:                                         ; preds = %if.end
-  %call.i = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef 126)
+  %call.i = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef 126)
   %spec.select.i = select i1 %call.i, i16 16, i16 0
   %exp.i = getelementptr inbounds i8, ptr %p, i64 4
   %7 = load i32, ptr %exp.i, align 4
@@ -18860,7 +18860,7 @@ float64_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
   br label %parts64_float_to_sint_modulo.exit.sink.split
 
 sw.bb5.i:                                         ; preds = %float64_unpack_canonical.exit.thread, %float64_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef 0, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef 0, i32 noundef 62)
   %spec.select.i = select i1 %call.i, i16 16, i16 0
   %3 = load i32, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
   %cmp.i = icmp slt i32 %3, 64
@@ -18978,7 +18978,7 @@ float64_unpack_canonical.exit:                    ; preds = %lor.lhs.false.i.i
   br label %parts64_float_to_sint_modulo.exit.sink.split
 
 sw.bb5.i:                                         ; preds = %float64_unpack_canonical.exit.thread, %float64_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef 0, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef 0, i32 noundef 62)
   %spec.select.i = select i1 %call.i, i16 16, i16 0
   %3 = load i32, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
   %cmp.i = icmp slt i32 %3, 64
@@ -19103,7 +19103,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i.i
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %float16_unpack_canonical.exit.thread, %float16_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   br i1 %call.i, label %if.then.i, label %if.end11.i
 
 if.then.i:                                        ; preds = %sw.bb6.i
@@ -19216,7 +19216,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i.i
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %float16_unpack_canonical.exit.thread, %float16_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   br i1 %call.i, label %if.then.i, label %if.end11.i
 
 if.then.i:                                        ; preds = %sw.bb6.i
@@ -19329,7 +19329,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i.i
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %float16_unpack_canonical.exit.thread, %float16_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   br i1 %call.i, label %if.then.i, label %if.end11.i
 
 if.then.i:                                        ; preds = %sw.bb6.i
@@ -19437,7 +19437,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i.i
   br label %parts64_float_to_uint.exit.sink.split
 
 sw.bb6.i:                                         ; preds = %float16_unpack_canonical.exit.thread, %float16_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   br i1 %call.i, label %if.then.i, label %if.end11.i
 
 if.then.i:                                        ; preds = %sw.bb6.i
@@ -19546,7 +19546,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %float32_unpack_canonical.exit.thread, %float32_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   br i1 %call.i, label %if.then.i, label %if.end11.i
 
 if.then.i:                                        ; preds = %sw.bb6.i
@@ -19659,7 +19659,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %float32_unpack_canonical.exit.thread, %float32_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   br i1 %call.i, label %if.then.i, label %if.end11.i
 
 if.then.i:                                        ; preds = %sw.bb6.i
@@ -19767,7 +19767,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i
   br label %parts64_float_to_uint.exit.sink.split
 
 sw.bb6.i:                                         ; preds = %float32_unpack_canonical.exit.thread, %float32_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   br i1 %call.i, label %if.then.i, label %if.end11.i
 
 if.then.i:                                        ; preds = %sw.bb6.i
@@ -19875,7 +19875,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %float64_unpack_canonical.exit.thread, %float64_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   br i1 %call.i, label %if.then.i, label %if.end11.i
 
 if.then.i:                                        ; preds = %sw.bb6.i
@@ -19987,7 +19987,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %float64_unpack_canonical.exit.thread, %float64_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   br i1 %call.i, label %if.then.i, label %if.end11.i
 
 if.then.i:                                        ; preds = %sw.bb6.i
@@ -20092,7 +20092,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i
   br label %parts64_float_to_uint.exit.sink.split
 
 sw.bb6.i:                                         ; preds = %float64_unpack_canonical.exit.thread, %float64_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   br i1 %call.i, label %if.then.i, label %if.end11.i
 
 if.then.i:                                        ; preds = %sw.bb6.i
@@ -20202,7 +20202,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %bfloat16_unpack_canonical.exit.thread, %bfloat16_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   br i1 %call.i, label %if.then.i, label %if.end11.i
 
 if.then.i:                                        ; preds = %sw.bb6.i
@@ -20316,7 +20316,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %bfloat16_unpack_canonical.exit.thread, %bfloat16_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   br i1 %call.i, label %if.then.i, label %if.end11.i
 
 if.then.i:                                        ; preds = %sw.bb6.i
@@ -20430,7 +20430,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %bfloat16_unpack_canonical.exit.thread, %bfloat16_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   br i1 %call.i, label %if.then.i, label %if.end11.i
 
 if.then.i:                                        ; preds = %sw.bb6.i
@@ -20539,7 +20539,7 @@ sw.bb3.i:                                         ; preds = %lor.lhs.false.i.i
   br label %parts64_float_to_uint.exit.sink.split
 
 sw.bb6.i:                                         ; preds = %bfloat16_unpack_canonical.exit.thread, %bfloat16_unpack_canonical.exit.thread3
-  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
+  %call.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef 62)
   br i1 %call.i, label %if.then.i, label %if.end11.i
 
 if.then.i:                                        ; preds = %sw.bb6.i
@@ -20700,7 +20700,7 @@ sw.bb3.i.i:                                       ; preds = %lor.lhs.false.i.i.i
   br label %parts64_float_to_uint.exit.sink.split.i
 
 sw.bb6.i.i:                                       ; preds = %float32_unpack_canonical.exit.thread.i, %float32_unpack_canonical.exit.thread3.i
-  %call.i.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p.i, i8 noundef zeroext %0, i32 noundef 0, i32 noundef 62)
+  %call.i.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p.i, i8 noundef zeroext %0, i32 noundef 0, i32 noundef 62)
   br i1 %call.i.i, label %if.then.i.i, label %if.end11.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb6.i.i
@@ -20823,7 +20823,7 @@ sw.bb3.i.i:                                       ; preds = %lor.lhs.false.i.i.i
   br label %parts64_float_to_uint.exit.sink.split.i
 
 sw.bb6.i.i:                                       ; preds = %float64_unpack_canonical.exit.thread.i, %float64_unpack_canonical.exit.thread3.i
-  %call.i.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull %p.i, i8 noundef zeroext %0, i32 noundef 0, i32 noundef 62)
+  %call.i.i = call fastcc zeroext i1 @parts64_round_to_int_normal(ptr noundef %p.i, i8 noundef zeroext %0, i32 noundef 0, i32 noundef 62)
   br i1 %call.i.i, label %if.then.i.i, label %if.end11.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb6.i.i
@@ -20891,7 +20891,7 @@ entry:
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %p, ptr noundef %s, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p, align 8
   switch i8 %1, label %do.body.i [
     i8 5, label %sw.bb.i
@@ -20911,7 +20911,7 @@ sw.bb3.i:                                         ; preds = %entry
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %entry
-  %call.i = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef 126)
+  %call.i = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef 126)
   br i1 %call.i, label %if.then.i, label %if.end11.i
 
 if.then.i:                                        ; preds = %sw.bb6.i
@@ -20986,7 +20986,7 @@ entry:
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %p, ptr noundef %s, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p, align 8
   switch i8 %1, label %do.body.i [
     i8 5, label %sw.bb.i
@@ -21008,7 +21008,7 @@ sw.bb3.i:                                         ; preds = %entry
   br label %sw.epilog.i
 
 sw.bb6.i:                                         ; preds = %entry
-  %call.i = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef 126)
+  %call.i = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef 126)
   br i1 %call.i, label %if.then.i, label %if.end11.i
 
 if.then.i:                                        ; preds = %sw.bb6.i
@@ -21079,7 +21079,7 @@ entry:
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef %s, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %p, ptr noundef %s, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p, align 8
   switch i8 %1, label %do.body [
     i8 5, label %sw.bb
@@ -21101,7 +21101,7 @@ sw.bb3:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %entry
-  %call13 = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef nonnull %p, i8 noundef zeroext %rmode, i32 noundef 126)
+  %call13 = call fastcc zeroext i1 @parts128_round_to_int_normal(ptr noundef %p, i8 noundef zeroext %rmode, i32 noundef 126)
   br i1 %call13, label %if.then, label %if.end20
 
 if.then:                                          ; preds = %sw.bb12
@@ -21516,7 +21516,7 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
   br label %parts64_sint_to_float.exit
 
 parts64_sint_to_float.exit:                       ; preds = %if.then.i, %if.end4.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
@@ -21576,7 +21576,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -21637,7 +21637,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -21694,7 +21694,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -21752,7 +21752,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -21810,7 +21810,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -21868,7 +21868,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_float16_scalbn.exit
 
 int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -21980,7 +21980,7 @@ if.then:                                          ; preds = %can_use_fpu.exit
   br label %return
 
 if.end:                                           ; preds = %if.end4.i9, %if.then.i18, %if.end4.i, %if.then.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %status, ptr noundef nonnull @float32_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
   %8 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i = zext i8 %8 to i64
@@ -22073,7 +22073,7 @@ if.then.i:                                        ; preds = %can_use_fpu.exit.i
   br label %int64_to_float32_scalbn.exit
 
 if.end.i:                                         ; preds = %if.end4.i9.i, %if.then.i18.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float32_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %6 to i64
@@ -22152,7 +22152,7 @@ if.then.i:                                        ; preds = %can_use_fpu.exit.i
   br label %int64_to_float32_scalbn.exit
 
 if.end.i:                                         ; preds = %if.end4.i9.i, %if.then.i18.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float32_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %6 to i64
@@ -22231,7 +22231,7 @@ if.then.i:                                        ; preds = %can_use_fpu.exit.i
   br label %int64_to_float32_scalbn.exit
 
 if.end.i:                                         ; preds = %if.end4.i9.i, %if.then.i18.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float32_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %6 to i64
@@ -22347,7 +22347,7 @@ if.then:                                          ; preds = %can_use_fpu.exit
   br label %return
 
 if.end:                                           ; preds = %if.end4.i9, %if.then.i18, %if.end4.i, %if.then.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %status, ptr noundef nonnull @float64_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
   %8 = load i8, ptr %sign.i.i.i, align 1
   %9 = and i8 %8, 1
@@ -22440,7 +22440,7 @@ if.then.i:                                        ; preds = %can_use_fpu.exit.i
   br label %int64_to_float64_scalbn.exit
 
 if.end.i:                                         ; preds = %if.end4.i9.i, %if.then.i18.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float64_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %7 = and i8 %6, 1
@@ -22519,7 +22519,7 @@ if.then.i:                                        ; preds = %can_use_fpu.exit.i
   br label %int64_to_float64_scalbn.exit
 
 if.end.i:                                         ; preds = %if.end4.i9.i, %if.then.i18.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float64_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %7 = and i8 %6, 1
@@ -22598,7 +22598,7 @@ if.then.i:                                        ; preds = %can_use_fpu.exit.i
   br label %int64_to_float64_scalbn.exit
 
 if.end.i:                                         ; preds = %if.end4.i9.i, %if.then.i18.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float64_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %7 = and i8 %6, 1
@@ -22661,7 +22661,7 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
   br label %parts64_sint_to_float.exit
 
 parts64_sint_to_float.exit:                       ; preds = %if.then.i, %if.end4.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
   %2 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i = zext i8 %2 to i64
@@ -22721,7 +22721,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_bfloat16_scalbn.exit
 
 int64_to_bfloat16_scalbn.exit:                    ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
@@ -22782,7 +22782,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_bfloat16_scalbn.exit
 
 int64_to_bfloat16_scalbn.exit:                    ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
@@ -22843,7 +22843,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_bfloat16_scalbn.exit
 
 int64_to_bfloat16_scalbn.exit:                    ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
@@ -22900,7 +22900,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_bfloat16_scalbn.exit
 
 int64_to_bfloat16_scalbn.exit:                    ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
@@ -22958,7 +22958,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_bfloat16_scalbn.exit
 
 int64_to_bfloat16_scalbn.exit:                    ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
@@ -23016,7 +23016,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_bfloat16_scalbn.exit
 
 int64_to_bfloat16_scalbn.exit:                    ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
@@ -23074,7 +23074,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_bfloat16_scalbn.exit
 
 int64_to_bfloat16_scalbn.exit:                    ; preds = %if.then.i.i, %if.end4.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
@@ -23162,7 +23162,7 @@ if.else:                                          ; preds = %entry
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else, %if.end15
-  %call25 = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef nonnull %p, ptr noundef %status)
+  %call25 = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef %p, ptr noundef %status)
   ret { i64, i64 } %call25
 }
 
@@ -23205,7 +23205,7 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
   br label %parts128_sint_to_float.exit
 
 parts128_sint_to_float.exit:                      ; preds = %if.then.i, %if.end4.i
-  %call = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef nonnull %p, ptr noundef %status)
+  %call = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef %p, ptr noundef %status)
   ret { i64, i64 } %call
 }
 
@@ -23247,7 +23247,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_float128.exit
 
 int64_to_float128.exit:                           ; preds = %if.then.i.i, %if.end4.i.i
-  %call.i = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef nonnull %p.i, ptr noundef %status)
+  %call.i = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef %p.i, ptr noundef %status)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %p.i)
   ret { i64, i64 } %call.i
 }
@@ -23288,7 +23288,7 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
   br label %parts128_sint_to_float.exit
 
 parts128_sint_to_float.exit:                      ; preds = %if.then.i, %if.end4.i
-  %call = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef nonnull %p, ptr noundef %status)
+  %call = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef %p, ptr noundef %status)
   ret { i64, i16 } %call
 }
 
@@ -23330,7 +23330,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %int64_to_floatx80.exit
 
 int64_to_floatx80.exit:                           ; preds = %if.then.i.i, %if.end4.i.i
-  %call.i = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef nonnull %p.i, ptr noundef %status)
+  %call.i = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef %p.i, ptr noundef %status)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %p.i)
   ret { i64, i16 } %call.i
 }
@@ -23360,7 +23360,7 @@ if.else.i:                                        ; preds = %entry
 parts64_uint_to_float.exit:                       ; preds = %entry, %if.else.i
   %.sink.i = phi i8 [ 2, %if.else.i ], [ 1, %entry ]
   store i8 %.sink.i, ptr %p, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
@@ -23406,7 +23406,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -23453,7 +23453,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -23496,7 +23496,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -23540,7 +23540,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -23584,7 +23584,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -23628,7 +23628,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i64
@@ -23710,7 +23710,7 @@ if.end.sink.split:                                ; preds = %if.else.i, %if.else
 if.end:                                           ; preds = %if.end.sink.split, %land.lhs.true.split, %entry.split
   %storemerge = phi i8 [ 1, %entry.split ], [ 1, %land.lhs.true.split ], [ 2, %if.end.sink.split ]
   store i8 %storemerge, ptr %p, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %status, ptr noundef nonnull @float32_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
   %7 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i = zext i8 %7 to i64
@@ -23797,7 +23797,7 @@ if.end.sink.split.i:                              ; preds = %if.else.i7.i, %if.e
 if.end.i:                                         ; preds = %if.end.sink.split.i, %land.lhs.true.split.i, %entry.split.i
   %storemerge.i = phi i8 [ 1, %entry.split.i ], [ 1, %land.lhs.true.split.i ], [ 2, %if.end.sink.split.i ]
   store i8 %storemerge.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull @float32_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %7 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %7 to i64
@@ -23885,7 +23885,7 @@ if.end.sink.split.i:                              ; preds = %if.else.i7.i, %if.e
 if.end.i:                                         ; preds = %if.end.sink.split.i, %land.lhs.true.split.i, %entry.split.i
   %storemerge.i = phi i8 [ 1, %entry.split.i ], [ 1, %land.lhs.true.split.i ], [ 2, %if.end.sink.split.i ]
   store i8 %storemerge.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull @float32_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %7 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %7 to i64
@@ -23949,7 +23949,7 @@ if.then.i:                                        ; preds = %can_use_fpu.exit.i
 if.end.i:                                         ; preds = %if.else.i7.i, %land.lhs.true.split.i
   %storemerge.i = phi i8 [ 1, %land.lhs.true.split.i ], [ 2, %if.else.i7.i ]
   store i8 %storemerge.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float32_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %6 to i64
@@ -24014,7 +24014,7 @@ if.then.i:                                        ; preds = %can_use_fpu.exit.i
 if.end.i:                                         ; preds = %if.else.i7.i, %land.lhs.true.split.i
   %storemerge.i = phi i8 [ 1, %land.lhs.true.split.i ], [ 2, %if.else.i7.i ]
   store i8 %storemerge.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float32_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %6 to i64
@@ -24079,7 +24079,7 @@ if.then.i:                                        ; preds = %can_use_fpu.exit.i
 if.end.i:                                         ; preds = %if.else.i7.i, %land.lhs.true.split.i
   %storemerge.i = phi i8 [ 1, %land.lhs.true.split.i ], [ 2, %if.else.i7.i ]
   store i8 %storemerge.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float32_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %6 to i64
@@ -24165,7 +24165,7 @@ if.end.sink.split:                                ; preds = %if.else.i, %if.else
 if.end:                                           ; preds = %if.end.sink.split, %land.lhs.true.split, %entry.split
   %storemerge = phi i8 [ 1, %entry.split ], [ 1, %land.lhs.true.split ], [ 2, %if.end.sink.split ]
   store i8 %storemerge, ptr %p, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %status, ptr noundef nonnull @float64_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
   %7 = load i8, ptr %sign.i.i.i, align 1
   %8 = and i8 %7, 1
@@ -24252,7 +24252,7 @@ if.end.sink.split.i:                              ; preds = %if.else.i7.i, %if.e
 if.end.i:                                         ; preds = %if.end.sink.split.i, %land.lhs.true.split.i, %entry.split.i
   %storemerge.i = phi i8 [ 1, %entry.split.i ], [ 1, %land.lhs.true.split.i ], [ 2, %if.end.sink.split.i ]
   store i8 %storemerge.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull @float64_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %7 = load i8, ptr %sign.i.i.i.i, align 1
   %8 = and i8 %7, 1
@@ -24340,7 +24340,7 @@ if.end.sink.split.i:                              ; preds = %if.else.i7.i, %if.e
 if.end.i:                                         ; preds = %if.end.sink.split.i, %land.lhs.true.split.i, %entry.split.i
   %storemerge.i = phi i8 [ 1, %entry.split.i ], [ 1, %land.lhs.true.split.i ], [ 2, %if.end.sink.split.i ]
   store i8 %storemerge.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull @float64_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %7 = load i8, ptr %sign.i.i.i.i, align 1
   %8 = and i8 %7, 1
@@ -24404,7 +24404,7 @@ if.then.i:                                        ; preds = %can_use_fpu.exit.i
 if.end.i:                                         ; preds = %if.else.i7.i, %land.lhs.true.split.i
   %storemerge.i = phi i8 [ 1, %land.lhs.true.split.i ], [ 2, %if.else.i7.i ]
   store i8 %storemerge.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float64_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %7 = and i8 %6, 1
@@ -24469,7 +24469,7 @@ if.then.i:                                        ; preds = %can_use_fpu.exit.i
 if.end.i:                                         ; preds = %if.else.i7.i, %land.lhs.true.split.i
   %storemerge.i = phi i8 [ 1, %land.lhs.true.split.i ], [ 2, %if.else.i7.i ]
   store i8 %storemerge.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float64_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %7 = and i8 %6, 1
@@ -24534,7 +24534,7 @@ if.then.i:                                        ; preds = %can_use_fpu.exit.i
 if.end.i:                                         ; preds = %if.else.i7.i, %land.lhs.true.split.i
   %storemerge.i = phi i8 [ 1, %land.lhs.true.split.i ], [ 2, %if.else.i7.i ]
   store i8 %storemerge.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef nonnull %status, ptr noundef nonnull @float64_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %6 = load i8, ptr %sign.i.i.i.i, align 1
   %7 = and i8 %6, 1
@@ -24583,7 +24583,7 @@ if.else.i:                                        ; preds = %entry
 parts64_uint_to_float.exit:                       ; preds = %entry, %if.else.i
   %.sink.i = phi i8 [ 2, %if.else.i ], [ 1, %entry ]
   store i8 %.sink.i, ptr %p, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %p, i64 1
   %2 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i = zext i8 %2 to i64
@@ -24629,7 +24629,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_bfloat16_scalbn.exit:                   ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
@@ -24676,7 +24676,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_bfloat16_scalbn.exit:                   ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
@@ -24723,7 +24723,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_bfloat16_scalbn.exit:                   ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
@@ -24766,7 +24766,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_bfloat16_scalbn.exit:                   ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
@@ -24810,7 +24810,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_bfloat16_scalbn.exit:                   ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
@@ -24854,7 +24854,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_bfloat16_scalbn.exit:                   ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
@@ -24898,7 +24898,7 @@ if.else.i.i:                                      ; preds = %entry
 uint64_to_bfloat16_scalbn.exit:                   ; preds = %entry, %if.else.i.i
   %.sink.i.i = phi i8 [ 2, %if.else.i.i ], [ 1, %entry ]
   store i8 %.sink.i.i, ptr %p.i, align 8
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %p.i, i64 1
   %2 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
@@ -24940,7 +24940,7 @@ if.else.i:                                        ; preds = %entry
 parts128_uint_to_float.exit:                      ; preds = %entry, %if.else.i
   %.sink.i = phi i8 [ 2, %if.else.i ], [ 1, %entry ]
   store i8 %.sink.i, ptr %p, align 8
-  %call = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef nonnull %p, ptr noundef %status)
+  %call = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef %p, ptr noundef %status)
   ret { i64, i64 } %call
 }
 
@@ -24990,7 +24990,7 @@ if.else:                                          ; preds = %entry
   br label %if.end17
 
 if.end17:                                         ; preds = %if.else, %if.end
-  %call18 = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef nonnull %p, ptr noundef %status)
+  %call18 = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef %p, ptr noundef %status)
   ret { i64, i64 } %call18
 }
 
@@ -25002,7 +25002,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @float16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s, i32 noundef %flags) unnamed_addr #3 {
+define internal fastcc zeroext i16 @float16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s, i32 noundef range(i32 0, 10) %flags) unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts64, align 8
   %pb = alloca %struct.FloatParts64, align 8
@@ -25158,8 +25158,8 @@ if.else49.i.i.i13:                                ; preds = %lor.lhs.false.i.i.i
   br label %float16_unpack_canonical.exit34
 
 float16_unpack_canonical.exit34:                  ; preds = %if.then8.i.i.i29, %if.then10.i.i.i27, %frac64_normalize.exit.i.i.i23, %if.then33.i.i.i30, %if.then47.i.i.i17, %if.else49.i.i.i13
-  %call = call fastcc ptr @parts64_minmax(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %s, i32 noundef %flags)
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %call, ptr noundef %s, ptr noundef nonnull readonly @float16_params)
+  %call = call fastcc ptr @parts64_minmax(ptr noundef %pa, ptr noundef %pb, ptr noundef %s, i32 noundef %flags)
+  call fastcc void @parts64_uncanon(ptr noundef %call, ptr noundef %s, ptr noundef nonnull readonly @float16_params)
   %sign.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
   %12 = load i8, ptr %sign.i.i.i.i, align 1
   %conv.i.i.i.i35 = zext i8 %12 to i64
@@ -25235,7 +25235,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @bfloat16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s, i32 noundef %flags) unnamed_addr #3 {
+define internal fastcc zeroext i16 @bfloat16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s, i32 noundef range(i32 0, 10) %flags) unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts64, align 8
   %pb = alloca %struct.FloatParts64, align 8
@@ -25393,8 +25393,8 @@ if.else49.i.i14:                                  ; preds = %lor.lhs.false.i.i12
   br label %bfloat16_unpack_canonical.exit35
 
 bfloat16_unpack_canonical.exit35:                 ; preds = %if.then8.i.i30, %if.then10.i.i28, %frac64_normalize.exit.i.i24, %if.then33.i.i31, %if.then47.i.i18, %if.else49.i.i14
-  %call = call fastcc ptr @parts64_minmax(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %s, i32 noundef %flags)
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %call, ptr noundef %s, ptr noundef nonnull @bfloat16_params)
+  %call = call fastcc ptr @parts64_minmax(ptr noundef %pa, ptr noundef %pb, ptr noundef %s, i32 noundef %flags)
+  call fastcc void @parts64_uncanon(ptr noundef %call, ptr noundef %s, ptr noundef nonnull @bfloat16_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
   %12 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i36 = zext i8 %12 to i64
@@ -25470,7 +25470,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @float32_minmax(i32 noundef %a, i32 noundef %b, ptr nocapture noundef %s, i32 noundef %flags) unnamed_addr #3 {
+define internal fastcc i32 @float32_minmax(i32 noundef %a, i32 noundef %b, ptr nocapture noundef %s, i32 noundef range(i32 0, 10) %flags) unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts64, align 8
   %pb = alloca %struct.FloatParts64, align 8
@@ -25626,8 +25626,8 @@ if.else49.i.i15:                                  ; preds = %lor.lhs.false.i.i13
   br label %float32_unpack_canonical.exit36
 
 float32_unpack_canonical.exit36:                  ; preds = %if.then8.i.i31, %if.then10.i.i29, %frac64_normalize.exit.i.i25, %if.then33.i.i32, %if.then47.i.i19, %if.else49.i.i15
-  %call = call fastcc ptr @parts64_minmax(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %s, i32 noundef %flags)
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %call, ptr noundef %s, ptr noundef nonnull @float32_params)
+  %call = call fastcc ptr @parts64_minmax(ptr noundef %pa, ptr noundef %pb, ptr noundef %s, i32 noundef %flags)
+  call fastcc void @parts64_uncanon(ptr noundef %call, ptr noundef %s, ptr noundef nonnull @float32_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
   %8 = load i8, ptr %sign.i.i.i, align 1
   %conv.i.i.i = zext i8 %8 to i64
@@ -25703,7 +25703,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @float64_minmax(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %s, i32 noundef %flags) unnamed_addr #3 {
+define internal fastcc i64 @float64_minmax(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %s, i32 noundef range(i32 0, 10) %flags) unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts64, align 8
   %pb = alloca %struct.FloatParts64, align 8
@@ -25857,8 +25857,8 @@ if.else49.i.i14:                                  ; preds = %lor.lhs.false.i.i12
   br label %float64_unpack_canonical.exit35
 
 float64_unpack_canonical.exit35:                  ; preds = %if.then8.i.i30, %if.then10.i.i28, %frac64_normalize.exit.i.i24, %if.then33.i.i31, %if.then47.i.i18, %if.else49.i.i14
-  %call = call fastcc ptr @parts64_minmax(ptr noundef nonnull %pa, ptr noundef nonnull %pb, ptr noundef %s, i32 noundef %flags)
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %call, ptr noundef %s, ptr noundef nonnull @float64_params)
+  %call = call fastcc ptr @parts64_minmax(ptr noundef %pa, ptr noundef %pb, ptr noundef %s, i32 noundef %flags)
+  call fastcc void @parts64_uncanon(ptr noundef %call, ptr noundef %s, ptr noundef nonnull @float64_params)
   %sign.i.i.i = getelementptr inbounds i8, ptr %call, i64 1
   %8 = load i8, ptr %sign.i.i.i, align 1
   %9 = and i8 %8, 1
@@ -25934,7 +25934,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc { i64, i64 } @float128_minmax(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr nocapture noundef %s, i32 noundef %flags) unnamed_addr #3 {
+define internal fastcc { i64, i64 } @float128_minmax(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr nocapture noundef %s, i32 noundef range(i32 0, 10) %flags) unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts128, align 8
   %pb = alloca %struct.FloatParts128, align 8
@@ -25953,7 +25953,7 @@ entry:
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %pa, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pa, ptr noundef %s, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pa, ptr noundef %s, ptr noundef nonnull @float128_params)
   %shr.i16.i.i4 = lshr i64 %b.coerce1, 48
   %1 = trunc nuw nsw i64 %shr.i16.i.i4 to i32
   %conv.i.i5 = and i32 %1, 32767
@@ -25969,7 +25969,7 @@ entry:
   store i64 %and.i.i.i8, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i11, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i.i12 = getelementptr inbounds i8, ptr %pb, i64 16
   store i64 %b.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i12, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pb, ptr noundef %s, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pb, ptr noundef %s, ptr noundef nonnull @float128_params)
   %2 = load i8, ptr %pa, align 8
   %conv.i = zext nneg i8 %2 to i32
   %shl.i = shl nuw i32 1, %conv.i
@@ -25999,8 +25999,7 @@ if.then14.i:                                      ; preds = %if.then.i
   br label %parts128_minmax.exit
 
 if.end.i:                                         ; preds = %if.then.i
-  %and17.i = and i32 %flags, 8
-  %tobool18.not.i = icmp eq i32 %and17.i, 0
+  %tobool18.not.i = icmp ult i32 %flags, 8
   %or.cond36.i = or i1 %tobool18.not.i, %tobool10.not.i
   %or.cond37.i = or i1 %tobool13.not.i, %or.cond36.i
   br i1 %or.cond37.i, label %if.end33.i, label %if.then25.i
@@ -26212,7 +26211,7 @@ if.end88.i:                                       ; preds = %if.else.i, %if.then
 
 parts128_minmax.exit:                             ; preds = %pickNaN.exit.i.i, %if.then14.i, %if.then25.i, %if.then3.i.i, %if.then6.i.i.i, %lor.lhs.false.i.i.i, %15, %if.then24.i.i, %if.end88.i
   %retval.0.i = phi ptr [ %cond32.i, %if.then25.i ], [ %cond.i, %if.then14.i ], [ %cond99.i, %if.end88.i ], [ %pa, %if.then3.i.i ], [ %.ph.i52.i, %if.then24.i.i ], [ %pb, %15 ], [ %pa, %if.then6.i.i.i ], [ %spec.select57.i, %lor.lhs.false.i.i.i ], [ %pb, %pickNaN.exit.i.i ]
-  %call1 = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef nonnull %retval.0.i, ptr noundef %s)
+  %call1 = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef %retval.0.i, ptr noundef %s)
   ret { i64, i64 } %call1
 }
 
@@ -27320,7 +27319,7 @@ entry:
   store i64 %and.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %pa, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pa, ptr noundef %s, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pa, ptr noundef %s, ptr noundef nonnull @float128_params)
   %shr.i16.i30 = lshr i64 %b.coerce1, 48
   %1 = trunc nuw nsw i64 %shr.i16.i30 to i32
   %conv.i31 = and i32 %1, 32767
@@ -27336,7 +27335,7 @@ entry:
   store i64 %and.i.i34, ptr %.compoundliteral.sroa.4.0..sroa_idx.i37, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i38 = getelementptr inbounds i8, ptr %pb, i64 16
   store i64 %b.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i38, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pb, ptr noundef %s, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pb, ptr noundef %s, ptr noundef nonnull @float128_params)
   %2 = load i8, ptr %pa, align 8
   %conv.i = zext nneg i8 %2 to i32
   %shl.i = shl nuw i32 1, %conv.i
@@ -27540,7 +27539,7 @@ floatx80_unpack_canonical.exit37:                 ; preds = %sw.bb.i9
   br label %return
 
 lor.lhs.false:                                    ; preds = %if.end.i14
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pa, ptr noundef nonnull %s, ptr noundef nonnull @floatx80_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pa, ptr noundef nonnull %s, ptr noundef nonnull @floatx80_params)
   %.pre = load i8, ptr %floatx80_rounding_precision.i7, align 1
   %switch49 = icmp ult i8 %.pre, 3
   br i1 %switch49, label %sw.bb.i, label %sw.default.i
@@ -27573,7 +27572,7 @@ if.end.i:                                         ; preds = %sw.bb.i
   br i1 %cmp.i.not, label %if.else.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %pb, ptr noundef nonnull %s, ptr noundef nonnull @floatx80_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %pb, ptr noundef nonnull %s, ptr noundef nonnull @floatx80_params)
   %.pr = load i8, ptr %pb, align 8
   br label %if.end
 
@@ -27856,7 +27855,7 @@ sw.bb2.i:                                         ; preds = %float16_unpack_cano
   br label %parts64_scalbn.exit
 
 parts64_scalbn.exit:                              ; preds = %if.then47.i.i.i, %if.then10.i.i.i, %if.then8.i.i.i, %if.then.i.i, %if.else.i.i, %sw.bb1.i.i, %if.then4.i.i, %sw.bb2.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %10 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i.i, align 1
   %conv.i.i.i.i3 = zext i8 %10 to i64
   %shl.i.i.i.i4 = shl nuw nsw i64 %conv.i.i.i.i3, 15
@@ -27993,7 +27992,7 @@ sw.bb2.i:                                         ; preds = %float32_unpack_cano
   br label %parts64_scalbn.exit
 
 parts64_scalbn.exit:                              ; preds = %if.then47.i.i, %if.then10.i.i, %if.then8.i.i, %if.then.i.i5, %if.else.i.i4, %sw.bb1.i.i, %if.then4.i.i, %sw.bb2.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %status, ptr noundef nonnull @float32_params)
   %8 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i = zext i8 %8 to i64
   %shl.i.i.i6 = shl nuw nsw i64 %conv.i.i.i, 31
@@ -28129,7 +28128,7 @@ sw.bb2.i:                                         ; preds = %float64_unpack_cano
   br label %parts64_scalbn.exit
 
 parts64_scalbn.exit:                              ; preds = %if.then47.i.i, %if.then10.i.i, %if.then8.i.i, %if.then.i.i5, %if.else.i.i4, %sw.bb1.i.i, %if.then4.i.i, %sw.bb2.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %status, ptr noundef nonnull @float64_params)
   %8 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %9 = and i8 %8, 1
   %conv.i.i.i6 = zext nneg i8 %9 to i64
@@ -28267,7 +28266,7 @@ sw.bb2.i:                                         ; preds = %bfloat16_unpack_can
   br label %parts64_scalbn.exit
 
 parts64_scalbn.exit:                              ; preds = %if.then47.i.i, %if.then10.i.i, %if.then8.i.i, %if.then.i.i5, %if.else.i.i4, %sw.bb1.i.i, %if.then4.i.i, %sw.bb2.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
   %10 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i6 = zext i8 %10 to i64
   %shl.i.i.i7 = shl nuw nsw i64 %conv.i.i.i6, 15
@@ -28302,7 +28301,7 @@ entry:
   store i64 %and.i.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %p, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %p, ptr noundef %status, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p, align 8
   switch i8 %1, label %do.body.i [
     i8 2, label %sw.bb2.i
@@ -28363,7 +28362,7 @@ do.body.i:                                        ; preds = %entry
   unreachable
 
 parts128_scalbn.exit:                             ; preds = %entry, %entry, %if.then.i.i, %if.else.i.i, %sw.bb1.i.i, %if.then4.i.i, %sw.bb2.i
-  %call = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef nonnull %p, ptr noundef %status)
+  %call = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef %p, ptr noundef %status)
   ret { i64, i64 } %call
 }
 
@@ -28404,7 +28403,7 @@ if.end.i:                                         ; preds = %sw.epilog.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef nonnull %status, ptr noundef nonnull @floatx80_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %p, ptr noundef nonnull %status, ptr noundef nonnull @floatx80_params)
   %.pr = load i8, ptr %p, align 8
   br label %if.end
 
@@ -28486,7 +28485,7 @@ do.body.i5:                                       ; preds = %if.end
   unreachable
 
 parts128_scalbn.exit:                             ; preds = %if.end, %if.end, %if.then.i.i, %if.else.i.i, %sw.bb1.i.i, %if.then4.i.i, %sw.bb2.i
-  %call2 = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef nonnull %p, ptr noundef nonnull %status)
+  %call2 = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef %p, ptr noundef nonnull %status)
   %11 = extractvalue { i64, i16 } %call2, 0
   %12 = extractvalue { i64, i16 } %call2, 1
   br label %return
@@ -28696,7 +28695,7 @@ d_nan.i:                                          ; preds = %if.end16.i, %float1
   br label %parts64_sqrt.exit
 
 parts64_sqrt.exit:                                ; preds = %if.then10.i.i, %if.then8.i.i, %if.then4.i, %sw.bb1.i, %if.else.i55, %if.then.i, %if.then124.i, %if.else.i, %float16a_unpack_canonical.exit.thread62, %d_nan.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %status, ptr noundef nonnull readonly @float16_params)
   %16 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i59 = zext i8 %16 to i64
   %shl.i.i.i60 = shl nuw nsw i64 %conv.i.i.i59, 15
@@ -28964,7 +28963,7 @@ d_nan.i.i:                                        ; preds = %if.end16.i.i, %part
   br label %soft_f32_sqrt.exit
 
 soft_f32_sqrt.exit:                               ; preds = %if.then8.i.i, %if.then10.i.i, %parts64_canonicalize.exit.thread71.i, %if.then.i65.i, %if.else.i64.i, %sw.bb1.i.i, %if.then4.i.i, %if.then124.i.i, %if.else.i.i, %d_nan.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %s, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef nonnull %s, ptr noundef nonnull @float32_params)
   %20 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i = zext i8 %20 to i64
   %shl.i.i69.i = shl nuw nsw i64 %conv.i.i.i, 31
@@ -29250,7 +29249,7 @@ d_nan.i.i:                                        ; preds = %if.end16.i.i, %part
   br label %soft_f64_sqrt.exit
 
 soft_f64_sqrt.exit:                               ; preds = %if.then8.i.i, %if.then10.i.i, %parts64_canonicalize.exit.thread86.i, %if.then.i64.i, %if.else.i63.i, %sw.bb1.i.i, %if.then4.i.i, %if.then124.i.i, %if.else.i.i, %d_nan.i.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p.i, ptr noundef nonnull %s, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p.i, ptr noundef nonnull %s, ptr noundef nonnull @float64_params)
   %20 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %21 = and i8 %20, 1
   %conv.i.i81.i = zext nneg i8 %21 to i64
@@ -29479,7 +29478,7 @@ d_nan.i:                                          ; preds = %if.end16.i, %float6
   br label %parts64_sqrt.exit
 
 parts64_sqrt.exit:                                ; preds = %if.then10.i.i, %if.then8.i.i, %if.then.i.i5, %if.else.i.i4, %sw.bb1.i.i, %if.then4.i.i, %float64_unpack_canonical.exit.thread8, %if.then124.i, %if.else.i, %d_nan.i
-  %call = call fastcc i64 @float64r32_round_pack_canonical(ptr noundef nonnull %p, ptr noundef %status)
+  %call = call fastcc i64 @float64r32_round_pack_canonical(ptr noundef %p, ptr noundef %status)
   ret i64 %call
 }
 
@@ -29681,7 +29680,7 @@ d_nan.i:                                          ; preds = %if.end16.i, %parts6
   br label %parts64_sqrt.exit
 
 parts64_sqrt.exit:                                ; preds = %if.then10.i, %if.then8.i, %if.then4.i, %sw.bb1.i, %if.else.i64, %if.then.i65, %if.then124.i, %if.else.i, %parts64_canonicalize.exit.thread72, %d_nan.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %status, ptr noundef nonnull @bfloat16_params)
   %16 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i, align 1
   %conv.i.i69 = zext i8 %16 to i64
   %shl.i.i70 = shl nuw nsw i64 %conv.i.i69, 15
@@ -29716,7 +29715,7 @@ entry:
   store i64 %and.i.i, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
   %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 16
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %p, ptr noundef %status, ptr noundef nonnull @float128_params)
   %1 = load i8, ptr %p, align 8
   switch i8 %1, label %sw.default.i [
     i8 2, label %if.end16.i
@@ -30084,7 +30083,7 @@ parts128_sqrt.exit:                               ; preds = %if.then76.i, %if.el
   ]
 
 if.then.i147:                                     ; preds = %parts128_sqrt.exit
-  call fastcc void @parts128_uncanon_normal(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float128_params)
+  call fastcc void @parts128_uncanon_normal(ptr noundef %p, ptr noundef %status, ptr noundef nonnull @float128_params)
   %.pre203 = load i32, ptr %.compoundliteral.sroa.33.0..sroa_idx.i, align 4
   %.pre204 = load i64, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
   %.pre205 = load i64, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
@@ -30160,7 +30159,7 @@ if.end.i:                                         ; preds = %sw.epilog.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef nonnull %s, ptr noundef nonnull @floatx80_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %p, ptr noundef nonnull %s, ptr noundef nonnull @floatx80_params)
   %.pr = load i8, ptr %p, align 8
   br label %if.end
 
@@ -30546,7 +30545,7 @@ d_nan.i:                                          ; preds = %if.end16.i, %sw.bb7
   br label %parts128_sqrt.exit
 
 parts128_sqrt.exit:                               ; preds = %if.end, %if.then.i.i, %if.else.i.i, %sw.bb1.i.i, %if.then4.i.i, %sw.bb7.i, %if.then76.i, %if.else78.i, %d_nan.i
-  %call2 = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef nonnull %p, ptr noundef nonnull %s)
+  %call2 = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef %p, ptr noundef nonnull %s)
   %126 = extractvalue { i64, i16 } %call2, 0
   %127 = extractvalue { i64, i16 } %call2, 1
   br label %return
@@ -30639,8 +30638,8 @@ if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   br label %float32_unpack_canonical.exit
 
 float32_unpack_canonical.exit:                    ; preds = %if.then8.i.i, %if.then10.i.i, %frac64_normalize.exit.i.i, %if.then33.i.i, %if.then47.i.i, %if.else49.i.i
-  call fastcc void @parts64_log2(ptr noundef nonnull %p, ptr noundef %status, i32 23)
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_log2(ptr noundef %p, ptr noundef %status, i32 23)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %status, ptr noundef nonnull @float32_params)
   %4 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i = zext i8 %4 to i64
   %shl.i.i.i3 = shl nuw nsw i64 %conv.i.i.i, 31
@@ -30657,7 +30656,7 @@ float32_unpack_canonical.exit:                    ; preds = %if.then8.i.i, %if.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parts64_log2(ptr nocapture noundef %a, ptr nocapture noundef %s, i32 %fmt.16.val) unnamed_addr #3 {
+define internal fastcc void @parts64_log2(ptr nocapture noundef nonnull %a, ptr nocapture noundef %s, i32 %fmt.16.val) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   switch i8 %0, label %do.body [
@@ -31209,8 +31208,8 @@ if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   br label %float64_unpack_canonical.exit
 
 float64_unpack_canonical.exit:                    ; preds = %if.then8.i.i, %if.then10.i.i, %frac64_normalize.exit.i.i, %if.then33.i.i, %if.then47.i.i, %if.else49.i.i
-  call fastcc void @parts64_log2(ptr noundef nonnull %p, ptr noundef %status, i32 52)
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %p, ptr noundef %status, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_log2(ptr noundef %p, ptr noundef %status, i32 52)
+  call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %status, ptr noundef nonnull @float64_params)
   %4 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %5 = and i8 %4, 1
   %conv.i.i.i3 = zext nneg i8 %5 to i64
@@ -32001,7 +32000,7 @@ if.then4.i:                                       ; preds = %sw.bb1.i
   br label %parts64_return_nan.exit
 
 parts64_return_nan.exit:                          ; preds = %if.then.i, %if.else.i, %sw.bb1.i, %if.then4.i
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %xp, ptr noundef nonnull %status, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %xp, ptr noundef nonnull %status, ptr noundef nonnull @float32_params)
   %7 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %conv.i.i.i = zext i8 %7 to i64
   %shl.i.i.i14 = shl nuw nsw i64 %conv.i.i.i, 31
@@ -32032,7 +32031,7 @@ if.end:                                           ; preds = %float32_unpack_cano
   store i8 2, ptr %tp, align 8
   store i32 -1, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i16, align 4
   store i64 -5660435428506896384, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i17, align 8
-  %call10 = call fastcc ptr @parts64_mul(ptr noundef nonnull %xp, ptr noundef nonnull %tp, ptr noundef nonnull %status)
+  %call10 = call fastcc ptr @parts64_mul(ptr noundef %xp, ptr noundef %tp, ptr noundef nonnull %status)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %xp, ptr noundef nonnull align 8 dereferenceable(16) %call10, i64 16, i1 false)
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %xnp, ptr noundef nonnull align 8 dereferenceable(16) %call10, i64 16, i1 false)
   %.compoundliteral.i.sroa.2.0..sroa_idx.i.i19 = getelementptr inbounds i8, ptr %rp, i64 1
@@ -32122,16 +32121,16 @@ if.else49.i.i32:                                  ; preds = %lor.lhs.false.i.i30
   br label %float64_unpack_canonical.exit
 
 float64_unpack_canonical.exit:                    ; preds = %if.then8.i.i48, %if.then10.i.i46, %frac64_normalize.exit.i.i42, %if.then33.i.i49, %if.then47.i.i36, %if.else49.i.i32
-  %call13 = call fastcc ptr @parts64_muladd(ptr noundef nonnull %tp, ptr noundef nonnull %xnp, ptr noundef nonnull %rp, i32 noundef 0, ptr noundef nonnull %status)
+  %call13 = call fastcc ptr @parts64_muladd(ptr noundef %tp, ptr noundef %xnp, ptr noundef %rp, i32 noundef 0, ptr noundef nonnull %status)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rp, ptr noundef nonnull align 8 dereferenceable(16) %tp, i64 16, i1 false)
-  %call14 = call fastcc ptr @parts64_mul(ptr noundef nonnull %xnp, ptr noundef nonnull %xp, ptr noundef nonnull %status)
+  %call14 = call fastcc ptr @parts64_mul(ptr noundef %xnp, ptr noundef %xp, ptr noundef nonnull %status)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %xnp, ptr noundef nonnull align 8 dereferenceable(16) %call14, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %float64_unpack_canonical.exit
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %rp, ptr noundef nonnull %status, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %rp, ptr noundef nonnull %status, ptr noundef nonnull @float32_params)
   %20 = load i8, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i19, align 1
   %conv.i.i.i54 = zext i8 %20 to i64
   %shl.i.i.i55 = shl nuw nsw i64 %conv.i.i.i54, 31
@@ -32188,7 +32187,7 @@ if.end.i:                                         ; preds = %sw.epilog.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  call fastcc void @parts128_canonicalize(ptr noundef nonnull %p, ptr noundef nonnull %status, ptr noundef nonnull @floatx80_params)
+  call fastcc void @parts128_canonicalize(ptr noundef %p, ptr noundef nonnull %status, ptr noundef nonnull @floatx80_params)
   br label %if.end
 
 if.else.i:                                        ; preds = %if.end.i
@@ -32209,7 +32208,7 @@ if.then:                                          ; preds = %sw.epilog.i
   br label %return
 
 if.end:                                           ; preds = %if.then10.i, %if.else.i
-  %call2 = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef nonnull %p, ptr noundef nonnull %status)
+  %call2 = call fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef %p, ptr noundef nonnull %status)
   %5 = extractvalue { i64, i16 } %call2, 0
   %6 = extractvalue { i64, i16 } %call2, 1
   br label %return
@@ -32736,7 +32735,7 @@ if.then24.i:                                      ; preds = %pickNaN.exit.i, %35
 
 parts64_addsub.exit:                              ; preds = %lor.lhs.false.i.i, %if.then24.i, %35, %if.then6.i.i, %if.then3.i, %if.then8.i101, %if.end7.i, %parts64_sub_normal.exit.thread, %if.then91.i, %if.else.i, %if.end49.i, %return_b.i, %if.then83.i, %if.end55.i, %if.then25.i
   %retval.i.0 = phi ptr [ %pa, %if.then25.i ], [ %pb, %return_b.i ], [ %pa, %if.end55.i ], [ %pa, %if.then83.i ], [ %pa, %if.end49.i ], [ %pa, %if.else.i ], [ %pa, %if.then91.i ], [ %pa, %parts64_sub_normal.exit.thread ], [ %pa, %if.end7.i ], [ %pa, %if.then8.i101 ], [ %pa, %if.then3.i ], [ %.ph.i141, %if.then24.i ], [ %pb, %35 ], [ %pa, %if.then6.i.i ], [ %spec.select, %lor.lhs.false.i.i ]
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %retval.i.0, ptr noundef %status, ptr noundef nonnull @float32_params)
+  call fastcc void @parts64_uncanon(ptr noundef %retval.i.0, ptr noundef %status, ptr noundef nonnull @float32_params)
   %sign.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 1
   %38 = load i8, ptr %sign.i.i, align 1
   %conv.i.i = zext i8 %38 to i64
@@ -33261,7 +33260,7 @@ if.then24.i:                                      ; preds = %pickNaN.exit.i, %35
 
 parts64_addsub.exit:                              ; preds = %lor.lhs.false.i.i, %if.then24.i, %35, %if.then6.i.i, %if.then3.i, %if.then8.i101, %if.end7.i, %parts64_sub_normal.exit.thread, %if.then91.i, %if.else.i, %if.end49.i, %return_b.i, %if.then83.i, %if.end55.i, %if.then25.i
   %retval.i.0 = phi ptr [ %pa, %if.then25.i ], [ %pb, %return_b.i ], [ %pa, %if.end55.i ], [ %pa, %if.then83.i ], [ %pa, %if.end49.i ], [ %pa, %if.else.i ], [ %pa, %if.then91.i ], [ %pa, %parts64_sub_normal.exit.thread ], [ %pa, %if.end7.i ], [ %pa, %if.then8.i101 ], [ %pa, %if.then3.i ], [ %.ph.i140, %if.then24.i ], [ %pb, %35 ], [ %pa, %if.then6.i.i ], [ %spec.select, %lor.lhs.false.i.i ]
-  call fastcc void @parts64_uncanon(ptr noundef nonnull %retval.i.0, ptr noundef %status, ptr noundef nonnull @float64_params)
+  call fastcc void @parts64_uncanon(ptr noundef %retval.i.0, ptr noundef %status, ptr noundef nonnull @float64_params)
   %sign.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 1
   %38 = load i8, ptr %sign.i.i, align 1
   %39 = and i8 %38, 1
@@ -33281,7 +33280,7 @@ parts64_addsub.exit:                              ; preds = %lor.lhs.false.i.i, 
 }
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @parts128_sub_normal(ptr nocapture noundef %a, ptr nocapture noundef %b) unnamed_addr #11 {
+define internal fastcc noundef zeroext i1 @parts128_sub_normal(ptr nocapture noundef nonnull %a, ptr nocapture noundef nonnull %b) unnamed_addr #11 {
 entry:
   %exp = getelementptr inbounds i8, ptr %a, i64 4
   %0 = load i32, ptr %exp, align 4
@@ -33502,7 +33501,7 @@ return:                                           ; preds = %if.end29, %if.then2
 }
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc void @parts128_add_normal(ptr nocapture noundef %a, ptr nocapture noundef %b) unnamed_addr #11 {
+define internal fastcc void @parts128_add_normal(ptr nocapture noundef nonnull %a, ptr nocapture noundef nonnull %b) unnamed_addr #11 {
 entry:
   %exp = getelementptr inbounds i8, ptr %a, i64 4
   %0 = load i32, ptr %exp, align 4
@@ -33651,7 +33650,7 @@ if.end10:                                         ; preds = %if.then8, %if.end7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parts64_uncanon(ptr nocapture noundef %p, ptr nocapture noundef %s, ptr nocapture noundef readonly %fmt) unnamed_addr #3 {
+define internal fastcc void @parts64_uncanon(ptr nocapture noundef nonnull %p, ptr nocapture noundef %s, ptr nocapture noundef readonly %fmt) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %p, align 8
   switch i8 %0, label %do.body21 [
@@ -33663,7 +33662,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @parts64_uncanon_normal(ptr noundef nonnull %p, ptr noundef %s, ptr noundef %fmt)
+  tail call fastcc void @parts64_uncanon_normal(ptr noundef %p, ptr noundef %s, ptr noundef %fmt)
   br label %if.end23
 
 sw.bb:                                            ; preds = %entry
@@ -33725,7 +33724,7 @@ if.end23:                                         ; preds = %do.end18, %do.end, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parts64_uncanon_normal(ptr nocapture noundef %p, ptr nocapture noundef %s, ptr nocapture noundef readonly %fmt) unnamed_addr #3 {
+define internal fastcc void @parts64_uncanon_normal(ptr nocapture noundef nonnull %p, ptr nocapture noundef %s, ptr nocapture noundef readonly %fmt) unnamed_addr #3 {
 entry:
   %exp_max1 = getelementptr inbounds i8, ptr %fmt, i64 12
   %0 = load i32, ptr %exp_max1, align 4
@@ -34058,7 +34057,7 @@ if.end186:                                        ; preds = %land.end, %if.end11
 }
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc void @parts128_canonicalize(ptr nocapture noundef %p, ptr nocapture noundef %status, ptr nocapture noundef readonly %fmt) unnamed_addr #11 {
+define internal fastcc void @parts128_canonicalize(ptr nocapture noundef nonnull %p, ptr nocapture noundef %status, ptr nocapture noundef readonly %fmt) unnamed_addr #11 {
 entry:
   %exp = getelementptr inbounds i8, ptr %p, i64 4
   %0 = load i32, ptr %exp, align 4
@@ -34228,7 +34227,7 @@ if.end58:                                         ; preds = %frac128_shl.exit, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parts128_uncanon_normal(ptr nocapture noundef %p, ptr nocapture noundef %s, ptr nocapture noundef readonly %fmt) unnamed_addr #3 {
+define internal fastcc void @parts128_uncanon_normal(ptr nocapture noundef nonnull %p, ptr nocapture noundef %s, ptr nocapture noundef readonly %fmt) unnamed_addr #3 {
 entry:
   %exp_max1 = getelementptr inbounds i8, ptr %fmt, i64 12
   %0 = load i32, ptr %exp_max1, align 4
@@ -34744,7 +34743,7 @@ if.end256:                                        ; preds = %frac128_shr.exit161
 }
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc void @parts256_add_normal(ptr nocapture noundef %a, ptr nocapture noundef %b) unnamed_addr #11 {
+define internal fastcc void @parts256_add_normal(ptr nocapture noundef nonnull %a, ptr nocapture noundef nonnull %b) unnamed_addr #11 {
 entry:
   %exp = getelementptr inbounds i8, ptr %a, i64 4
   %0 = load i32, ptr %exp, align 4
@@ -35005,7 +35004,7 @@ if.end10:                                         ; preds = %if.then8, %if.end7
 }
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @parts256_sub_normal(ptr nocapture noundef %a, ptr nocapture noundef %b) unnamed_addr #11 {
+define internal fastcc noundef zeroext i1 @parts256_sub_normal(ptr nocapture noundef nonnull %a, ptr nocapture noundef nonnull %b) unnamed_addr #11 {
 entry:
   %exp = getelementptr inbounds i8, ptr %a, i64 4
   %0 = load i32, ptr %exp, align 4
@@ -35438,7 +35437,7 @@ return:                                           ; preds = %if.end29, %if.then2
 }
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @frac128_div(ptr nocapture noundef %a, i64 %b.8.val, i64 %b.16.val) unnamed_addr #11 {
+define internal fastcc noundef zeroext i1 @frac128_div(ptr nocapture noundef nonnull %a, i64 %b.8.val, i64 %b.16.val) unnamed_addr #11 {
 entry:
   %frac_hi = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i64, ptr %frac_hi, align 8
@@ -35732,7 +35731,7 @@ while.end10:                                      ; preds = %while.body8, %estim
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @parts64_round_to_int_normal(ptr nocapture noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef %frac_size) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @parts64_round_to_int_normal(ptr nocapture noundef nonnull %a, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef %frac_size) unnamed_addr #3 {
 entry:
   %cond = tail call i32 @llvm.smax.i32(i32 %scale, i32 -65536)
   %cond6 = tail call i32 @llvm.smin.i32(i32 %cond, i32 65536)
@@ -35900,7 +35899,7 @@ return:                                           ; preds = %if.end38, %if.end33
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @parts128_round_to_int_normal(ptr nocapture noundef %a, i8 noundef zeroext %rmode, i32 noundef %frac_size) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @parts128_round_to_int_normal(ptr nocapture noundef nonnull %a, i8 noundef zeroext %rmode, i32 noundef %frac_size) unnamed_addr #3 {
 entry:
   %exp = getelementptr inbounds i8, ptr %a, i64 4
   %0 = load i32, ptr %exp, align 4
@@ -36195,7 +36194,7 @@ return:                                           ; preds = %if.end103, %if.else
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc nonnull ptr @parts64_minmax(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %s, i32 noundef %flags) unnamed_addr #3 {
+define internal fastcc nonnull ptr @parts64_minmax(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr nocapture noundef %s, i32 noundef range(i32 0, 10) %flags) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32
@@ -36226,8 +36225,7 @@ if.then14:                                        ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %and17 = and i32 %flags, 8
-  %tobool18.not = icmp eq i32 %and17, 0
+  %tobool18.not = icmp ult i32 %flags, 8
   %or.cond36 = or i1 %tobool18.not, %tobool10.not
   %or.cond37 = or i1 %tobool13.not, %or.cond36
   br i1 %or.cond37, label %if.end33, label %if.then25

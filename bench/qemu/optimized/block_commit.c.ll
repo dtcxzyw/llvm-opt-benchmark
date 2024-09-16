@@ -252,7 +252,7 @@ if.end111:                                        ; preds = %if.end99
   store ptr %call113, ptr %backing_file_str114, align 8
   %on_error115 = getelementptr inbounds i8, ptr %call24, i64 560
   store i32 %on_error, ptr %on_error115, align 8
-  tail call fastcc void @trace_commit_start(ptr noundef %bs, ptr noundef %base, ptr noundef %top, ptr noundef nonnull %call24)
+  tail call fastcc void @trace_commit_start(ptr noundef %bs, ptr noundef %base, ptr noundef %top, ptr noundef %call24)
   tail call void @job_start(ptr noundef nonnull %call24) #6
   br label %if.end142
 
@@ -367,7 +367,7 @@ declare void @blk_set_disable_request_queuing(ptr noundef, i1 noundef zeroext) l
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_commit_start(ptr noundef %bs, ptr noundef %base, ptr noundef %top, ptr noundef %s) unnamed_addr #0 {
+define internal fastcc void @trace_commit_start(ptr noundef %bs, ptr noundef %base, ptr noundef %top, ptr noundef nonnull %s) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -395,11 +395,11 @@ if.then8.i:                                       ; preds = %if.then.i
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %bs, ptr noundef %base, ptr noundef %top, ptr noundef %s) #6
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %bs, ptr noundef %base, ptr noundef %top, ptr noundef nonnull %s) #6
   br label %_nocheck__trace_commit_start.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, ptr noundef %bs, ptr noundef %base, ptr noundef %top, ptr noundef %s) #6
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, ptr noundef %bs, ptr noundef %base, ptr noundef %top, ptr noundef nonnull %s) #6
   br label %_nocheck__trace_commit_start.exit
 
 _nocheck__trace_commit_start.exit:                ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i

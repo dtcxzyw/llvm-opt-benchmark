@@ -20,7 +20,7 @@ define dso_local noundef i32 @lzo1x_1_compress(ptr noundef %0, i64 noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, i8 noundef zeroext %5) unnamed_addr #0 align 16 {
+define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, i8 noundef zeroext range(i8 0, 2) %5) unnamed_addr #0 align 16 {
   %7 = icmp eq i8 %5, 0
   br i1 %7, label %11, label %8
 

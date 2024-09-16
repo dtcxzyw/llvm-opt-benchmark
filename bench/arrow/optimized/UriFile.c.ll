@@ -247,7 +247,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @uriUriStringToFilenameA(ptr noundef readonly %uriString, ptr noundef %filename, i32 noundef %toUnix) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @uriUriStringToFilenameA(ptr noundef readonly %uriString, ptr noundef %filename, i32 noundef range(i32 0, 2) %toUnix) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %uriString, null
   %cmp1 = icmp eq ptr %filename, null
@@ -584,7 +584,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @uriUriStringToFilenameW(ptr noundef %uriString, ptr noundef %filename, i32 noundef %toUnix) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @uriUriStringToFilenameW(ptr noundef %uriString, ptr noundef %filename, i32 noundef range(i32 0, 2) %toUnix) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %uriString, null
   %cmp1 = icmp eq ptr %filename, null

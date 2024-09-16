@@ -204,7 +204,7 @@ define range(i32 -1, 1) i32 @H5O_copy_expand_ref(ptr noundef %0, ptr noundef %1,
 
 82:                                               ; preds = %76
   store i64 -1, ptr %52, align 8
-  %83 = call fastcc i32 @H5O__copy_obj_by_ref(ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef nonnull %23, ptr noundef %6)
+  %83 = call fastcc i32 @H5O__copy_obj_by_ref(ptr noundef %22, ptr noundef %21, ptr noundef %23, ptr noundef %6)
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %85, label %89
 
@@ -322,7 +322,7 @@ H5O__copy_expand_ref_object1.exit:                ; preds = %105, %46
 
 137:                                              ; preds = %128
   store i64 -1, ptr %113, align 8
-  %138 = call fastcc i32 @H5O__copy_obj_by_ref(ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef nonnull %23, ptr noundef %6)
+  %138 = call fastcc i32 @H5O__copy_obj_by_ref(ptr noundef %22, ptr noundef %21, ptr noundef %23, ptr noundef %6)
   %139 = icmp slt i32 %138, 0
   %140 = load ptr, ptr %14, align 8
   br i1 %139, label %141, label %145
@@ -543,7 +543,7 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   br label %.thread.thread.i
 
 258:                                              ; preds = %248
-  %259 = call fastcc i32 @H5O__copy_obj_by_ref(ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef nonnull %23, ptr noundef %6)
+  %259 = call fastcc i32 @H5O__copy_obj_by_ref(ptr noundef %22, ptr noundef %21, ptr noundef %23, ptr noundef %6)
   %260 = icmp slt i32 %259, 0
   br i1 %260, label %261, label %265
 
@@ -770,12 +770,12 @@ declare i32 @H5R__decode_token_obj_compat(ptr noundef, ptr noundef, ptr noundef,
 declare i32 @H5VL_native_token_to_addr(ptr noundef, i32 noundef, i64, i64, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @H5O__copy_obj_by_ref(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @H5O__copy_obj_by_ref(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [80 x i8], align 16
   %6 = alloca %struct.H5G_name_t, align 8
   %7 = alloca %struct.H5O_loc_t, align 8
   %8 = alloca %struct.H5G_loc_t, align 8
-  %9 = tail call i32 @H5O_copy_header_map(ptr noundef %0, ptr noundef %1, ptr noundef %3, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #8
+  %9 = tail call i32 @H5O_copy_header_map(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %3, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #8
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %15
 
@@ -806,7 +806,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5O__copy_obj_by_ref(ptr 
   %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 80, ptr noundef nonnull @.str.13, i64 noundef %24) #8
   %27 = getelementptr inbounds i8, ptr %3, i64 88
   %28 = load i64, ptr %27, align 8
-  %29 = call i32 @H5L_link(ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %8, i64 noundef %28) #8
+  %29 = call i32 @H5L_link(ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %8, i64 noundef %28) #8
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %31, label %35
 

@@ -622,7 +622,7 @@ define dso_local i32 @UtfToLocal(ptr noundef %0, i32 noundef %1, ptr nocapture n
   br i1 %.not136, label %160, label %136
 
 136:                                              ; preds = %135
-  %137 = call fastcc i32 @pg_mb_radix_conv(ptr noundef nonnull %3, i32 noundef %22, i8 noundef zeroext %.0121, i8 noundef zeroext %.0124, i8 noundef zeroext %.0123, i8 noundef zeroext %.0122)
+  %137 = call fastcc i32 @pg_mb_radix_conv(ptr noundef %3, i32 noundef %22, i8 noundef zeroext %.0121, i8 noundef zeroext %.0124, i8 noundef zeroext %.0123, i8 noundef zeroext %.0122)
   %.not137 = icmp eq i32 %137, 0
   br i1 %.not137, label %160, label %138
 
@@ -819,7 +819,7 @@ define internal range(i32 -1, 2) i32 @compare3(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @pg_mb_radix_conv(ptr nocapture noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5) unnamed_addr #5 {
+define internal fastcc i32 @pg_mb_radix_conv(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5) unnamed_addr #5 {
   switch i32 %1, label %254 [
     i32 4, label %7
     i32 3, label %100
@@ -1257,7 +1257,7 @@ define dso_local i32 @LocalToUtf(ptr noundef %0, i32 noundef %1, ptr nocapture n
   br i1 %.not87, label %124, label %50
 
 50:                                               ; preds = %38
-  %51 = call fastcc i32 @pg_mb_radix_conv(ptr noundef nonnull %3, i32 noundef %25, i8 noundef zeroext %.075, i8 noundef zeroext %.074, i8 noundef zeroext %.073, i8 noundef zeroext %.072)
+  %51 = call fastcc i32 @pg_mb_radix_conv(ptr noundef %3, i32 noundef %25, i8 noundef zeroext %.075, i8 noundef zeroext %.074, i8 noundef zeroext %.073, i8 noundef zeroext %.072)
   %.not88 = icmp eq i32 %51, 0
   br i1 %.not88, label %74, label %52
 

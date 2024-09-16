@@ -995,7 +995,7 @@ define range(i32 0, 2) i32 @SplashLoadFile(ptr nocapture noundef readonly %0) lo
   br i1 %.not1, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = call fastcc i32 @SplashLoadStream(ptr noundef nonnull %2)
+  %8 = call fastcc i32 @SplashLoadStream(ptr noundef %2)
   %9 = icmp ne i32 %8, 0
   %10 = zext i1 %9 to i32
   br label %11
@@ -1021,7 +1021,7 @@ define hidden range(i32 0, 2) i32 @SplashStreamInitFile(ptr nocapture noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @SplashLoadStream(ptr noundef %0) unnamed_addr #2 {
+define internal fastcc i32 @SplashLoadStream(ptr noundef nonnull %0) unnamed_addr #2 {
   %.b.i = load i1, ptr @SplashGetInstance.preInitialized, align 4
   br i1 %.b.i, label %SplashGetInstance.exit, label %SplashGetInstance.exit.thread
 
@@ -1039,14 +1039,14 @@ SplashGetInstance.exit:                           ; preds = %1
 3:                                                ; preds = %SplashGetInstance.exit
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  tail call void %5(ptr noundef %0) #20
+  tail call void %5(ptr noundef nonnull %0) #20
   br label %SplashClose.exit
 
 6:                                                ; preds = %SplashGetInstance.exit.thread, %SplashGetInstance.exit
   tail call void @SplashLock(ptr noundef nonnull @SplashGetInstance.splash) #20
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0) #20
+  %9 = tail call i32 %8(ptr noundef nonnull %0) #20
   %.not = icmp eq i32 %9, -1
   br i1 %.not, label %.thread, label %.preheader
 
@@ -1065,16 +1065,16 @@ SplashGetInstance.exit:                           ; preds = %1
 .thread:                                          ; preds = %10, %6
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef %0) #20
+  tail call void %16(ptr noundef nonnull %0) #20
   br label %23
 
 17:                                               ; preds = %.preheader
   %18 = getelementptr inbounds i8, ptr %12, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 %19(ptr noundef nonnull @SplashGetInstance.splash, ptr noundef %0) #20
+  %20 = tail call i32 %19(ptr noundef nonnull @SplashGetInstance.splash, ptr noundef nonnull %0) #20
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef %0) #20
+  tail call void %22(ptr noundef nonnull %0) #20
   %.not31 = icmp eq i32 %20, 0
   br i1 %.not31, label %23, label %31
 
@@ -1143,7 +1143,7 @@ define range(i32 0, 2) i32 @SplashLoadMemory(ptr noundef %0, i32 noundef %1) loc
   store ptr @peekMem, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr @closeMem, ptr %9, align 8
-  %10 = call fastcc i32 @SplashLoadStream(ptr noundef nonnull %3)
+  %10 = call fastcc i32 @SplashLoadStream(ptr noundef %3)
   %11 = icmp ne i32 %10, 0
   %12 = zext i1 %11 to i32
   ret i32 %12

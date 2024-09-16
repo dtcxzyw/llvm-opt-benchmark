@@ -1035,7 +1035,7 @@ proto_item_set_generated.exit395:                 ; preds = %proto_item_set_gene
 
 214:                                              ; preds = %186
   %215 = load i32, ptr @hf_rohc_large_cid, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %175, i32 noundef %.4, i32 noundef %215, ptr noundef nonnull %9)
+  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %175, i32 noundef %.4, i32 noundef %215, ptr noundef %9)
   %216 = zext i8 %.0310 to i32
   %217 = load i8, ptr %9, align 1
   %218 = zext i8 %217 to i32
@@ -1438,7 +1438,7 @@ proto_item_set_generated.exit.i409:               ; preds = %421, %418, %414, %4
 
 432:                                              ; preds = %proto_item_set_generated.exit.i409
   %433 = load i32, ptr @hf_rohc_large_cid, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %428, i32 noundef %430, i32 noundef %433, ptr noundef nonnull %7)
+  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %428, i32 noundef %430, i32 noundef %433, ptr noundef %7)
   %434 = load i8, ptr %7, align 1
   %435 = zext i8 %434 to i32
   %436 = add i32 %430, %435
@@ -1717,8 +1717,8 @@ proto_item_set_generated.exit.i409:               ; preds = %421, %418, %414, %4
   %602 = load ptr, ptr %6, align 8
   %603 = sub i32 %598, %449
   call void @proto_item_set_len(ptr noundef %602, i32 noundef %603) #7
-  %.not165.i.i = icmp eq i8 %429, 0
-  br i1 %.not165.i.i, label %dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i, label %604
+  %.not167.i.i = icmp eq i8 %429, 0
+  br i1 %.not167.i.i, label %dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i, label %604
 
 604:                                              ; preds = %601
   %605 = call fastcc i32 @dissect_rohc_ir_profile_dynamic(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %428, i32 noundef %598, i8 noundef zeroext 2, ptr noundef nonnull %.0129.i)
@@ -1737,8 +1737,8 @@ proto_item_set_generated.exit.i409:               ; preds = %421, %418, %414, %4
   %615 = load ptr, ptr %6, align 8
   %616 = sub i32 %614, %449
   call void @proto_item_set_len(ptr noundef %615, i32 noundef %616) #7
-  %.not139.i = icmp eq i8 %429, 0
-  br i1 %.not139.i, label %dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i, label %617
+  %.not166.i.i = icmp eq i8 %429, 0
+  br i1 %.not166.i.i, label %dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i, label %617
 
 617:                                              ; preds = %606
   %618 = call fastcc i32 @dissect_rohc_ir_profile_dynamic(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %428, i32 noundef %614, i8 noundef zeroext %438, ptr noundef nonnull %.0129.i)
@@ -1752,8 +1752,8 @@ proto_item_set_generated.exit.i409:               ; preds = %421, %418, %414, %4
   %622 = load ptr, ptr %6, align 8
   %623 = sub i32 %.0159.i.i, %449
   call void @proto_item_set_len(ptr noundef %622, i32 noundef %623) #7
-  %.not138.i = icmp eq i8 %429, 0
-  br i1 %.not138.i, label %dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i, label %624
+  %.not165.i.i = icmp eq i8 %429, 0
+  br i1 %.not165.i.i, label %dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i, label %624
 
 624:                                              ; preds = %621
   %625 = call fastcc i32 @dissect_rohc_ir_profile_dynamic(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %428, i32 noundef %.0159.i.i, i8 noundef zeroext 4, ptr noundef nonnull %.0129.i)
@@ -1835,7 +1835,7 @@ proto_item_set_generated.exit.i416:               ; preds = %648, %645, %641, %6
 
 658:                                              ; preds = %proto_item_set_generated.exit.i416
   %659 = load i32, ptr @hf_rohc_large_cid, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %655, i32 noundef %656, i32 noundef %659, ptr noundef nonnull %5)
+  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %655, i32 noundef %656, i32 noundef %659, ptr noundef %5)
   %660 = load i8, ptr %5, align 1
   %661 = zext i8 %660 to i32
   %662 = add i32 %656, %661
@@ -2046,7 +2046,7 @@ proto_item_set_generated.exit.i416:               ; preds = %648, %645, %641, %6
 781:                                              ; preds = %778
   %782 = add i32 %.3467, 1
   %783 = load i32, ptr @hf_rohc_large_cid, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %30, i32 noundef %782, i32 noundef %783, ptr noundef nonnull %9)
+  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %30, i32 noundef %782, i32 noundef %783, ptr noundef %9)
   %784 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.3467) #7
   %785 = load i8, ptr %9, align 1
   %786 = zext i8 %785 to i32
@@ -2108,7 +2108,7 @@ proto_item_set_generated.exit.i416:               ; preds = %648, %645, %641, %6
   br i1 %or.cond377, label %815, label %817
 
 815:                                              ; preds = %813
-  %816 = call fastcc i32 @dissect_rohc_pkt_type_0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %30, i32 noundef %.3467, i8 noundef zeroext %.2315464, ptr noundef nonnull %.1482)
+  %816 = call fastcc i32 @dissect_rohc_pkt_type_0(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %30, i32 noundef %.3467, i8 noundef zeroext %.2315464, ptr noundef %.1482)
   br label %833
 
 817:                                              ; preds = %813
@@ -2123,11 +2123,11 @@ proto_item_set_generated.exit.i416:               ; preds = %648, %645, %641, %6
   br i1 %823, label %824, label %826
 
 824:                                              ; preds = %820
-  %825 = call fastcc i32 @dissect_rohc_pkt_type_1_r_mode(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %30, i32 noundef %.3467, ptr noundef nonnull %.1482)
+  %825 = call fastcc i32 @dissect_rohc_pkt_type_1_r_mode(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %30, i32 noundef %.3467, ptr noundef %.1482)
   br label %833
 
 826:                                              ; preds = %820
-  %827 = call fastcc i32 @dissect_rohc_pkt_type_1_u_o_mode(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %30, i32 noundef %.3467, ptr noundef nonnull %.1482)
+  %827 = call fastcc i32 @dissect_rohc_pkt_type_1_u_o_mode(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %30, i32 noundef %.3467, ptr noundef %.1482)
   br label %833
 
 828:                                              ; preds = %817
@@ -2136,7 +2136,7 @@ proto_item_set_generated.exit.i416:               ; preds = %648, %645, %641, %6
   br i1 %830, label %831, label %833
 
 831:                                              ; preds = %828
-  %832 = call fastcc i32 @dissect_rohc_pkt_type_2(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %30, i32 noundef %.3467, ptr noundef nonnull %.1482)
+  %832 = call fastcc i32 @dissect_rohc_pkt_type_2(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %30, i32 noundef %.3467, ptr noundef %.1482)
   br label %833
 
 833:                                              ; preds = %815, %828, %831, %824, %826
@@ -2253,7 +2253,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = shl i32 %2, 3
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #7
   %8 = icmp sgt i8 %7, -1
@@ -2339,7 +2339,7 @@ declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare void @col_prepend_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rohc_pkt_type_0(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_rohc_pkt_type_0(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #0 {
   %7 = alloca i8, align 1
   %8 = alloca i64, align 8
   %9 = alloca [3 x %struct.crumb_spec_t], align 16
@@ -2368,7 +2368,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_0(ptr noundef %0, ptr nocaptur
 18:                                               ; preds = %14
   %19 = add i32 %3, 1
   %20 = load i32, ptr @hf_rohc_large_cid, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %2, i32 noundef %19, i32 noundef %20, ptr noundef nonnull %7)
+  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %2, i32 noundef %19, i32 noundef %20, ptr noundef %7)
   %.pre55 = load i8, ptr %7, align 1
   %21 = zext i8 %.pre55 to i32
   %22 = add nuw nsw i32 %21, 1
@@ -2402,7 +2402,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_0(ptr noundef %0, ptr nocaptur
 
 40:                                               ; preds = %37
   %41 = load i32, ptr @hf_rohc_large_cid, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %2, i32 noundef %.pre56, i32 noundef %41, ptr noundef nonnull %7)
+  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %2, i32 noundef %.pre56, i32 noundef %41, ptr noundef %7)
   %42 = load i8, ptr %7, align 1
   %43 = zext i8 %42 to i32
   %44 = shl nuw nsw i32 %43, 3
@@ -2444,7 +2444,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_0(ptr noundef %0, ptr nocaptur
 70:                                               ; preds = %66
   %71 = add i32 %3, 1
   %72 = load i32, ptr @hf_rohc_large_cid, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %2, i32 noundef %71, i32 noundef %72, ptr noundef nonnull %7)
+  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %2, i32 noundef %71, i32 noundef %72, ptr noundef %7)
   %.pre = load i8, ptr %7, align 1
   %73 = zext i8 %.pre to i32
   %74 = add nuw nsw i32 %73, 1
@@ -2483,7 +2483,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_0(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rohc_pkt_type_1_r_mode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_rohc_pkt_type_1_r_mode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i8, align 1
   store i8 0, ptr %7, align 1
@@ -2495,7 +2495,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_1_r_mode(ptr noundef %0, ptr n
 11:                                               ; preds = %5
   %12 = add i32 %3, 1
   %13 = load i32, ptr @hf_rohc_large_cid, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %13, ptr noundef nonnull %7)
+  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %13, ptr noundef %7)
   br label %14
 
 14:                                               ; preds = %11, %5
@@ -2617,7 +2617,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_1_r_mode(ptr noundef %0, ptr n
   br i1 %.not94, label %100, label %98
 
 98:                                               ; preds = %97
-  %99 = call fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.091, i32 noundef %.0, i8 noundef zeroext %.088, ptr noundef nonnull %4)
+  %99 = call fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.091, i32 noundef %.0, i8 noundef zeroext %.088, ptr noundef %4)
   br label %100
 
 100:                                              ; preds = %98, %97
@@ -2629,7 +2629,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_1_r_mode(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rohc_pkt_type_1_u_o_mode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_rohc_pkt_type_1_u_o_mode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i8, align 1
   store i8 0, ptr %7, align 1
@@ -2641,7 +2641,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_1_u_o_mode(ptr noundef %0, ptr
 11:                                               ; preds = %5
   %12 = add i32 %3, 1
   %13 = load i32, ptr @hf_rohc_large_cid, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %13, ptr noundef nonnull %7)
+  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %13, ptr noundef %7)
   br label %14
 
 14:                                               ; preds = %11, %5
@@ -2780,7 +2780,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_1_u_o_mode(ptr noundef %0, ptr
   br i1 %.196, label %112, label %110
 
 110:                                              ; preds = %99
-  %111 = call fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.198, i32 noundef %.1, i8 noundef zeroext %65, ptr noundef nonnull %4)
+  %111 = call fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.198, i32 noundef %.1, i8 noundef zeroext %65, ptr noundef %4)
   br label %112
 
 112:                                              ; preds = %.thread, %110, %99
@@ -2792,7 +2792,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_1_u_o_mode(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rohc_pkt_type_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_rohc_pkt_type_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i8, align 1
   %8 = alloca [3 x %struct.crumb_spec_t], align 16
@@ -2805,7 +2805,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_2(ptr noundef %0, ptr noundef 
 12:                                               ; preds = %5
   %13 = add i32 %3, 1
   %14 = load i32, ptr @hf_rohc_large_cid, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %14, ptr noundef nonnull %7)
+  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %14, ptr noundef %7)
   br label %15
 
 15:                                               ; preds = %12, %5
@@ -2941,7 +2941,7 @@ define internal fastcc i32 @dissect_rohc_pkt_type_2(ptr noundef %0, ptr noundef 
   br i1 %.not100, label %112, label %110
 
 110:                                              ; preds = %109
-  %111 = call fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.097, i32 noundef %.1, i8 noundef zeroext %.095, ptr noundef nonnull %4)
+  %111 = call fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.097, i32 noundef %.1, i8 noundef zeroext %.095, ptr noundef %4)
   br label %112
 
 112:                                              ; preds = %110, %109
@@ -3171,7 +3171,7 @@ define internal fastcc i32 @dissect_rohc_ir_profile_dynamic(ptr noundef %0, ptr 
 
 142:                                              ; preds = %124
   %143 = load i32, ptr @hf_rohc_rtp_ts_stride, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %96, i32 noundef %139, i32 noundef %143, ptr noundef nonnull %8)
+  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %96, i32 noundef %139, i32 noundef %143, ptr noundef %8)
   %144 = load i8, ptr %8, align 1
   %145 = zext i8 %144 to i32
   %146 = add i32 %139, %145
@@ -3185,7 +3185,7 @@ define internal fastcc i32 @dissect_rohc_ir_profile_dynamic(ptr noundef %0, ptr 
 
 149:                                              ; preds = %147
   %150 = load i32, ptr @hf_rohc_rtp_time_stride, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %96, i32 noundef %.4, i32 noundef %150, ptr noundef nonnull %8)
+  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %96, i32 noundef %.4, i32 noundef %150, ptr noundef %8)
   %151 = load i8, ptr %8, align 1
   %152 = zext i8 %151 to i32
   %153 = add i32 %.4, %152
@@ -3403,7 +3403,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -3631,7 +3631,7 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
 134:                                              ; preds = %131
   store i8 0, ptr %10, align 1
   %135 = load i32, ptr @hf_rohc_ts, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %17, i32 noundef %.5, i32 noundef %135, ptr noundef nonnull %10)
+  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %17, i32 noundef %.5, i32 noundef %135, ptr noundef %10)
   %136 = load i8, ptr %10, align 1
   %137 = zext i8 %136 to i32
   %138 = add i32 %.5, %137
@@ -3842,7 +3842,7 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
 242:                                              ; preds = %239
   store i8 0, ptr %12, align 1
   %243 = load i32, ptr @hf_rohc_rtp_ts_stride, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %17, i32 noundef %.18, i32 noundef %243, ptr noundef nonnull %12)
+  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %17, i32 noundef %.18, i32 noundef %243, ptr noundef %12)
   %244 = load i8, ptr %12, align 1
   %245 = zext i8 %244 to i32
   %246 = add i32 %.18, %245
@@ -3859,7 +3859,7 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
 250:                                              ; preds = %247
   store i8 0, ptr %13, align 1
   %251 = load i32, ptr @hf_rohc_rtp_time_stride, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %17, i32 noundef %.19, i32 noundef %251, ptr noundef nonnull %13)
+  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %17, i32 noundef %.19, i32 noundef %251, ptr noundef %13)
   %252 = load i8, ptr %13, align 1
   %253 = zext i8 %252 to i32
   %254 = add i32 %.19, %253

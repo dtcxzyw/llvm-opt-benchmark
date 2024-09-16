@@ -1463,7 +1463,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit387: ; preds 
   br i1 %.not.i.i.i, label %_ZN5clang4ento12CallEventRefINS0_9CallEventEEC2ERKS3_.exit.thread, label %399
 
 _ZN5clang4ento12CallEventRefINS0_9CallEventEEC2ERKS3_.exit.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit387
-  call fastcc void @"_ZZN5clang4ento10ExprEngine30computeObjectUnderConstructionEPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_18NodeBuilderContextEPKNS_15LocationContextEPKNS_19ConstructionContextERNS0_15EvalCallOptionsEjENK3$_0clENS0_12CallEventRefINS0_9CallEventEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %26)
+  call fastcc void @"_ZZN5clang4ento10ExprEngine30computeObjectUnderConstructionEPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_18NodeBuilderContextEPKNS_15LocationContextEPKNS_19ConstructionContextERNS0_15EvalCallOptionsEjENK3$_0clENS0_12CallEventRefINS0_9CallEventEEE"(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef %26)
   br label %_ZN5clang4ento12CallEventRefINS0_9CallEventEED2Ev.exit
 
 399:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit387
@@ -1471,7 +1471,7 @@ _ZN5clang4ento12CallEventRefINS0_9CallEventEEC2ERKS3_.exit.thread: ; preds = %_Z
   %401 = load i32, ptr %400, align 4
   %402 = add i32 %401, 1
   store i32 %402, ptr %400, align 4
-  call fastcc void @"_ZZN5clang4ento10ExprEngine30computeObjectUnderConstructionEPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_18NodeBuilderContextEPKNS_15LocationContextEPKNS_19ConstructionContextERNS0_15EvalCallOptionsEjENK3$_0clENS0_12CallEventRefINS0_9CallEventEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %26)
+  call fastcc void @"_ZZN5clang4ento10ExprEngine30computeObjectUnderConstructionEPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_18NodeBuilderContextEPKNS_15LocationContextEPKNS_19ConstructionContextERNS0_15EvalCallOptionsEjENK3$_0clENS0_12CallEventRefINS0_9CallEventEEE"(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef %26)
   call void @_ZNK5clang4ento9CallEvent7ReleaseEv(ptr noundef nonnull align 8 dereferenceable(72) %398)
   br label %_ZN5clang4ento12CallEventRefINS0_9CallEventEED2Ev.exit
 
@@ -1554,7 +1554,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit401: ; preds 
   br i1 %.not.i.i.i.i, label %_ZN5clang4ento12CallEventRefINS0_9CallEventEED2Ev.exit405.thread, label %_ZN5clang4ento12CallEventRefINS0_9CallEventEED2Ev.exit407
 
 _ZN5clang4ento12CallEventRefINS0_9CallEventEED2Ev.exit405.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit401
-  call fastcc void @"_ZZN5clang4ento10ExprEngine30computeObjectUnderConstructionEPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_18NodeBuilderContextEPKNS_15LocationContextEPKNS_19ConstructionContextERNS0_15EvalCallOptionsEjENK3$_0clENS0_12CallEventRefINS0_9CallEventEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %31)
+  call fastcc void @"_ZZN5clang4ento10ExprEngine30computeObjectUnderConstructionEPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_18NodeBuilderContextEPKNS_15LocationContextEPKNS_19ConstructionContextERNS0_15EvalCallOptionsEjENK3$_0clENS0_12CallEventRefINS0_9CallEventEEE"(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef %31)
   %430 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %431 = load i8, ptr %430, align 8
   %432 = trunc i8 %431 to i1
@@ -1568,7 +1568,7 @@ _ZN5clang4ento12CallEventRefINS0_9CallEventEED2Ev.exit407: ; preds = %_ZN4llvm18
   %434 = load i32, ptr %433, align 4
   %435 = add i32 %434, 1
   store i32 %435, ptr %433, align 4
-  call fastcc void @"_ZZN5clang4ento10ExprEngine30computeObjectUnderConstructionEPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_18NodeBuilderContextEPKNS_15LocationContextEPKNS_19ConstructionContextERNS0_15EvalCallOptionsEjENK3$_0clENS0_12CallEventRefINS0_9CallEventEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %31)
+  call fastcc void @"_ZZN5clang4ento10ExprEngine30computeObjectUnderConstructionEPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_18NodeBuilderContextEPKNS_15LocationContextEPKNS_19ConstructionContextERNS0_15EvalCallOptionsEjENK3$_0clENS0_12CallEventRefINS0_9CallEventEEE"(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef %31)
   call void @_ZNK5clang4ento9CallEvent7ReleaseEv(ptr noundef nonnull align 8 dereferenceable(72) %423)
   %436 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %437 = load i8, ptr %436, align 8
@@ -1639,7 +1639,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit418: ; preds 
   br i1 %.not.i.i.i.i415, label %_ZN5clang4ento12CallEventRefINS0_9CallEventEED2Ev.exit422.thread, label %_ZN5clang4ento12CallEventRefINS0_9CallEventEED2Ev.exit424
 
 _ZN5clang4ento12CallEventRefINS0_9CallEventEED2Ev.exit422.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit418
-  call fastcc void @"_ZZN5clang4ento10ExprEngine30computeObjectUnderConstructionEPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_18NodeBuilderContextEPKNS_15LocationContextEPKNS_19ConstructionContextERNS0_15EvalCallOptionsEjENK3$_0clENS0_12CallEventRefINS0_9CallEventEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %36)
+  call fastcc void @"_ZZN5clang4ento10ExprEngine30computeObjectUnderConstructionEPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_18NodeBuilderContextEPKNS_15LocationContextEPKNS_19ConstructionContextERNS0_15EvalCallOptionsEjENK3$_0clENS0_12CallEventRefINS0_9CallEventEEE"(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef %36)
   %460 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %461 = load i8, ptr %460, align 8
   %462 = trunc i8 %461 to i1
@@ -1653,7 +1653,7 @@ _ZN5clang4ento12CallEventRefINS0_9CallEventEED2Ev.exit424: ; preds = %_ZN4llvm18
   %464 = load i32, ptr %463, align 4
   %465 = add i32 %464, 1
   store i32 %465, ptr %463, align 4
-  call fastcc void @"_ZZN5clang4ento10ExprEngine30computeObjectUnderConstructionEPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_18NodeBuilderContextEPKNS_15LocationContextEPKNS_19ConstructionContextERNS0_15EvalCallOptionsEjENK3$_0clENS0_12CallEventRefINS0_9CallEventEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %36)
+  call fastcc void @"_ZZN5clang4ento10ExprEngine30computeObjectUnderConstructionEPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_18NodeBuilderContextEPKNS_15LocationContextEPKNS_19ConstructionContextERNS0_15EvalCallOptionsEjENK3$_0clENS0_12CallEventRefINS0_9CallEventEEE"(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef %36)
   call void @_ZNK5clang4ento9CallEvent7ReleaseEv(ptr noundef nonnull align 8 dereferenceable(72) %453)
   %466 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %467 = load i8, ptr %466, align 8
@@ -1714,7 +1714,7 @@ declare i64 @_ZN5clang4ento10ExprEngine28getIndexOfElementToConstructEN4llvm18In
 declare void @_ZN5clang4ento16CallEventManager13getSimpleCallEPKNS_8CallExprEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15LocationContextENS_8CFGBlock14ElementRefImplILb1EEE(ptr dead_on_unwind writable sret(%"class.clang::ento::CallEventRef") align 8, ptr noundef nonnull align 8 dereferenceable(88), ptr noundef, ptr noundef, ptr noundef, ptr noundef byval(%"class.clang::CFGBlock::ElementRefImpl") align 8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang4ento10ExprEngine30computeObjectUnderConstructionEPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_18NodeBuilderContextEPKNS_15LocationContextEPKNS_19ConstructionContextERNS0_15EvalCallOptionsEjENK3$_0clENS0_12CallEventRefINS0_9CallEventEEE"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang4ento10ExprEngine30computeObjectUnderConstructionEPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_18NodeBuilderContextEPKNS_15LocationContextEPKNS_19ConstructionContextERNS0_15EvalCallOptionsEjENK3$_0clENS0_12CallEventRefINS0_9CallEventEEE"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::ento::BlockCounter", align 8
   %5 = alloca %"class.clang::ento::BlockCounter", align 8
   %6 = load ptr, ptr %2, align 8

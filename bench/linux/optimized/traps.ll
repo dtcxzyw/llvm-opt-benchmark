@@ -1088,7 +1088,7 @@ declare dso_local i32 @__printk_ratelimit(ptr noundef) local_unnamed_addr #5
 declare dso_local void @print_vma_addr(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @do_error_trap(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #1 align 16 {
+define internal fastcc void @do_error_trap(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 0, 13) %3, i32 noundef range(i32 7, 12) %4, i32 noundef range(i32 0, 2) %5, ptr noundef %6) unnamed_addr #1 align 16 {
   %8 = trunc nuw nsw i64 %3 to i32
   %9 = tail call i32 @notify_die(i32 noundef 8, ptr noundef %2, ptr noundef %0, i64 noundef %1, i32 noundef %8, i32 noundef %4) #18
   %10 = icmp eq i32 %9, 32769
@@ -1450,7 +1450,7 @@ define internal fastcc i64 @native_read_msr() unnamed_addr #7 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @wrmsrl(i64 noundef %0) unnamed_addr #7 align 16 {
+define internal fastcc void @wrmsrl(i64 noundef range(i64 2, 0) %0) unnamed_addr #7 align 16 {
   %2 = trunc i64 %0 to i32
   %3 = lshr i64 %0, 32
   %4 = trunc nuw i64 %3 to i32
@@ -1518,7 +1518,7 @@ define internal fastcc noundef range(i32 1, 5) i32 @get_si_code(i64 noundef %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @math_error(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc void @math_error(ptr noundef %0, i32 noundef range(i32 16, 20) %1) unnamed_addr #1 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #19, !srcloc !7
   %4 = inttoptr i64 %3 to ptr
   %5 = icmp eq i32 %1, 16
@@ -1682,7 +1682,7 @@ define internal fastcc noundef zeroext i1 @handle_xfd_event(ptr noundef %0) unna
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @write_cr0(i64 noundef %0) unnamed_addr #7 align 16 {
+define internal fastcc void @write_cr0(i64 noundef range(i64 0, -8) %0) unnamed_addr #7 align 16 {
   tail call void @native_write_cr0(i64 noundef %0) #18
   ret void
 }

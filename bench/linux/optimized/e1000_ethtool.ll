@@ -3313,7 +3313,7 @@ declare dso_local i64 @msleep_interruptible(i32 noundef) local_unnamed_addr #7
 declare dso_local i32 @e1000_check_for_link(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @reg_pattern_test(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 align 16 {
+define internal fastcc zeroext i1 @reg_pattern_test(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 68, 0) %2, i32 noundef range(i32 -2147221505, 1073741824) %3, i32 noundef range(i32 -1, 1073741824) %4) unnamed_addr #1 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 1160
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %2 to i64
@@ -3372,7 +3372,7 @@ define internal fastcc zeroext i1 @reg_pattern_test(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @reg_set_and_check(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 align 16 {
+define internal fastcc noundef zeroext i1 @reg_set_and_check(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 256, 1025) %2, i32 noundef range(i32 -1, 115323903) %3, i32 noundef range(i32 -1, 33554432) %4) unnamed_addr #1 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 1160
   %7 = load ptr, ptr %6, align 8
   %8 = zext nneg i32 %2 to i64

@@ -511,7 +511,7 @@ _ZN4core3ops8function6FnOnce9call_once17hae4bab4817340d33E.exit: ; preds = %25, 
 .body.thread:                                     ; preds = %109, %.body, %147, %.thread105
   %.136 = phi i1 [ true, %.thread105 ], [ false, %147 ], [ false, %.body ], [ false, %109 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn86, %.thread105 ], [ %148, %147 ], [ %113, %.body ], [ %110, %109 ]
-  invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17hb2f42282145fb0c3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %18) #17
+  invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17hb2f42282145fb0c3E"(ptr noalias noundef align 8 dereferenceable(8) %18) #17
           to label %63 unwind label %145
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h73c13e143663a571E.exit": ; preds = %64
@@ -778,12 +778,12 @@ _ZN4core3ops8function6FnOnce9call_once17hae4bab4817340d33E.exit: ; preds = %25, 
 149:                                              ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3a12dad2cd6878e9E.exit.i.i.i", %87, %82, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha66466e33d85162aE.exit"
   %150 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h15f9c65544b707b2E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16) #17
+  invoke fastcc void @"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h15f9c65544b707b2E"(ptr noalias noundef align 8 dereferenceable(8) %16) #17
           to label %.thread105 unwind label %145
 
 .thread105:                                       ; preds = %149, %.thread82
   %.pn.pn86 = phi { ptr, i32 } [ %69, %.thread82 ], [ %150, %149 ]
-  invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17hb2f42282145fb0c3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17) #17
+  invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17hb2f42282145fb0c3E"(ptr noalias noundef align 8 dereferenceable(8) %17) #17
           to label %.body.thread unwind label %145
 
 .thread78:                                        ; preds = %59, %63
@@ -794,12 +794,12 @@ _ZN4core3ops8function6FnOnce9call_once17hae4bab4817340d33E.exit: ; preds = %25, 
 151:                                              ; preds = %25
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h0ae1aa2739f62418E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21) #17
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h0ae1aa2739f62418E"(ptr noalias noundef align 8 dereferenceable(24) %21) #17
           to label %.thread72.thread unwind label %145
 
 .thread72.thread:                                 ; preds = %38, %.thread75, %151
   %.pn5099 = phi { ptr, i32 } [ %39, %38 ], [ %lpad.thr_comm, %.thread75 ], [ %lpad.thr_comm.split-lp, %151 ]
-  invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h12362e3bcd02dd06E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %22) #17
+  invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h12362e3bcd02dd06E"(ptr noalias noundef align 8 dereferenceable(8) %22) #17
           to label %.thread72.thread102 unwind label %145
 
 .thread72.thread102:                              ; preds = %52, %132, %.thread72.thread
@@ -1167,7 +1167,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 87:                                               ; preds = %83
   %88 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke fastcc void @"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h15f9c65544b707b2E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %88) #17
+  invoke fastcc void @"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h15f9c65544b707b2E"(ptr noalias noundef align 8 dereferenceable(8) %88) #17
           to label %.thread62.i unwind label %85
 
 89:                                               ; preds = %35
@@ -1181,7 +1181,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 .thread62.i:                                      ; preds = %89, %87, %83, %.thread67.i
   %.pn34526066.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp73.i, %89 ], [ %60, %.thread67.i ], [ %.pn35.i, %87 ], [ %.pn35.i, %83 ]
   %91 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17hb2f42282145fb0c3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %91) #17
+  invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17hb2f42282145fb0c3E"(ptr noalias noundef align 8 dereferenceable(8) %91) #17
           to label %90 unwind label %85
 
 "_ZN3std6thread7Builder16spawn_unchecked_28_$u7b$$u7b$closure$u7d$$u7d$17h7e3202b86a96fbc6E.exit": ; preds = %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hb2f0d072ee81a4e6E.exit.i", %.noexc21.i
@@ -1190,7 +1190,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h12362e3bcd02dd06E"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h12362e3bcd02dd06E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { ptr, ptr }, align 8
   %3 = alloca { ptr, ptr }, align 8
   %4 = load ptr, ptr %0, align 8, !noundef !5
@@ -1261,7 +1261,7 @@ define internal fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h15f9c65544b707b2E"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h15f9c65544b707b2E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { ptr, ptr }, align 8
   %4 = load ptr, ptr %0, align 8, !noundef !5
@@ -1358,7 +1358,7 @@ define internal void @"_ZN4core3ptr191drop_in_place$LT$std..thread..Builder..spa
   %18 = landingpad { ptr, i32 }
           cleanup
   %19 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke fastcc void @"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h15f9c65544b707b2E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %19) #17
+  invoke fastcc void @"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h15f9c65544b707b2E"(ptr noalias noundef align 8 dereferenceable(8) %19) #17
           to label %40 unwind label %50
 
 "_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h7a2a3e5addcf79fdE.exit": ; preds = %.noexc4, %1
@@ -1420,7 +1420,7 @@ define internal void @"_ZN4core3ptr191drop_in_place$LT$std..thread..Builder..spa
 40:                                               ; preds = %17, %38
   %.pn2 = phi { ptr, i32 } [ %39, %38 ], [ %18, %17 ]
   %41 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17hb2f42282145fb0c3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %41) #17
+  invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17hb2f42282145fb0c3E"(ptr noalias noundef align 8 dereferenceable(8) %41) #17
           to label %52 unwind label %50
 
 "_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h15f9c65544b707b2E.exit": ; preds = %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h7a2a3e5addcf79fdE.exit", %23, %.noexc7
@@ -1480,7 +1480,7 @@ define internal void @"_ZN4core3ptr50drop_in_place$LT$$RF$alloc..vec..Vec$LT$u8$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h0ae1aa2739f62418E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h0ae1aa2739f62418E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !17, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -1511,7 +1511,7 @@ define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17hb2f42282145fb0c3E"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17hb2f42282145fb0c3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 {
   %2 = alloca { ptr, ptr }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !292)
   %3 = load ptr, ptr %0, align 8, !alias.scope !292, !nonnull !5, !noundef !5

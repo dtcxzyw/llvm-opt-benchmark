@@ -229,7 +229,7 @@ if.then25:                                        ; preds = %if.then15
 if.end35:                                         ; preds = %if.then15, %if.then25, %for.body
   %ch.0 = phi i32 [ %add31, %if.then25 ], [ %conv, %if.then15 ], [ %conv, %for.body ]
   %call = call i32 @uscript_getScript_75(i32 noundef %ch.0, ptr noundef nonnull %error)
-  %cmp.i = icmp sgt i32 %ch.0, 59
+  %cmp.i = icmp ugt i32 %ch.0, 59
   %spec.select.i = select i1 %cmp.i, i32 2, i32 0
   br label %while.body.i
 

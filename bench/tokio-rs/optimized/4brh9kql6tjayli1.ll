@@ -574,7 +574,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$tokio..fs..file..Operation$GT$17h4b384b51685478efE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 {
+define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$tokio..fs..file..Operation$GT$17h4b384b51685478efE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
@@ -998,7 +998,7 @@ define internal fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Resul
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr94drop_in_place$LT$$u5b$core..option..Option$LT$core..task..wake..Waker$GT$$u3b$$u20$32$u5d$$GT$17haf80b5ea3a088ee8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(512) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr94drop_in_place$LT$$u5b$core..option..Option$LT$core..task..wake..Waker$GT$$u3b$$u20$32$u5d$$GT$17haf80b5ea3a088ee8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(512) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   br label %2
 
 2:                                                ; preds = %1, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.3285439092171202888.exit"
@@ -3359,7 +3359,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.3285439092171202888.exit: ;
   unreachable
 
 91:                                               ; preds = %"_ZN4core3ptr43drop_in_place$LT$tokio..fs..file..State$GT$17h4dcc7cd715f5788cE.exit"
-  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tokio..fs..file..Operation$GT$17h4b384b51685478efE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tokio..fs..file..Operation$GT$17h4b384b51685478efE"(ptr noalias noundef align 8 dereferenceable(24) %10)
   br label %.thread47
 
 .thread47:                                        ; preds = %59, %.noexc38, %91
@@ -3381,7 +3381,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.3285439092171202888.exit: ;
   br label %25
 
 97:                                               ; preds = %87
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tokio..fs..file..Operation$GT$17h4b384b51685478efE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #33
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tokio..fs..file..Operation$GT$17h4b384b51685478efE"(ptr noalias noundef align 8 dereferenceable(24) %10) #33
           to label %common.resume unwind label %89
 
 98:                                               ; preds = %87
@@ -3773,7 +3773,7 @@ common.resume:                                    ; preds = %118, %120, %89, %13
   br i1 %switch, label %129, label %128
 
 128:                                              ; preds = %"_ZN4core3ptr43drop_in_place$LT$tokio..fs..file..State$GT$17h4dcc7cd715f5788cE.exit85"
-  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tokio..fs..file..Operation$GT$17h4b384b51685478efE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
+  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tokio..fs..file..Operation$GT$17h4b384b51685478efE"(ptr noalias noundef align 8 dereferenceable(24) %11)
   br label %.thread98
 
 129:                                              ; preds = %"_ZN4core3ptr43drop_in_place$LT$tokio..fs..file..State$GT$17h4dcc7cd715f5788cE.exit85"
@@ -3800,7 +3800,7 @@ common.resume:                                    ; preds = %118, %120, %89, %13
           to label %common.resume unwind label %90
 
 136:                                              ; preds = %125
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tokio..fs..file..Operation$GT$17h4b384b51685478efE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #33
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tokio..fs..file..Operation$GT$17h4b384b51685478efE"(ptr noalias noundef align 8 dereferenceable(24) %11) #33
           to label %common.resume unwind label %90
 
 137:                                              ; preds = %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit", %94
@@ -4157,7 +4157,7 @@ common.resume:                                    ; preds = %109, %111, %80, %12
   br i1 %switch, label %120, label %119
 
 119:                                              ; preds = %"_ZN4core3ptr43drop_in_place$LT$tokio..fs..file..State$GT$17h4dcc7cd715f5788cE.exit83"
-  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tokio..fs..file..Operation$GT$17h4b384b51685478efE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
+  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tokio..fs..file..Operation$GT$17h4b384b51685478efE"(ptr noalias noundef align 8 dereferenceable(24) %11)
   br label %.thread96
 
 120:                                              ; preds = %"_ZN4core3ptr43drop_in_place$LT$tokio..fs..file..State$GT$17h4dcc7cd715f5788cE.exit83"
@@ -4184,7 +4184,7 @@ common.resume:                                    ; preds = %109, %111, %80, %12
           to label %common.resume unwind label %81
 
 127:                                              ; preds = %116
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tokio..fs..file..Operation$GT$17h4b384b51685478efE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #33
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tokio..fs..file..Operation$GT$17h4b384b51685478efE"(ptr noalias noundef align 8 dereferenceable(24) %11) #33
           to label %common.resume unwind label %81
 
 128:                                              ; preds = %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit", %85
@@ -4201,14 +4201,14 @@ define noundef zeroext i1 @"_ZN76_$LT$tokio..fs..file..File$u20$as$u20$tokio..io
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN76_$LT$tokio..fs..file..File$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17hb24334fb15dea5d8E"(ptr noalias noundef align 8 dereferenceable(96) %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
-  %4 = tail call fastcc { i64, ptr } @_ZN5tokio2fs4file5Inner10poll_flush17h9ce39684f880fc45E(ptr noalias noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  %4 = tail call fastcc { i64, ptr } @_ZN5tokio2fs4file5Inner10poll_flush17h9ce39684f880fc45E(ptr noalias noundef align 8 dereferenceable(48) %3, ptr noalias noundef align 8 dereferenceable(8) %1)
   ret { i64, ptr } %4
 }
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, ptr } @"_ZN76_$LT$tokio..fs..file..File$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$13poll_shutdown17h8f1f34a874567e92E"(ptr noalias noundef align 8 dereferenceable(96) %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
-  %4 = tail call fastcc { i64, ptr } @_ZN5tokio2fs4file5Inner10poll_flush17h9ce39684f880fc45E(ptr noalias noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  %4 = tail call fastcc { i64, ptr } @_ZN5tokio2fs4file5Inner10poll_flush17h9ce39684f880fc45E(ptr noalias noundef align 8 dereferenceable(48) %3, ptr noalias noundef align 8 dereferenceable(8) %1)
   ret { i64, ptr } %4
 }
 
@@ -4285,7 +4285,7 @@ define void @_ZN5tokio2fs4file5Inner17complete_inflight17ha3cc1ff24e3dd7e8E(ptr 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @_ZN5tokio2fs4file5Inner22poll_complete_inflight17h81dbd36f4c4f41b8E(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [15 x i8] }, align 8
-  %4 = tail call fastcc { i64, ptr } @_ZN5tokio2fs4file5Inner10poll_flush17h9ce39684f880fc45E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  %4 = tail call fastcc { i64, ptr } @_ZN5tokio2fs4file5Inner10poll_flush17h9ce39684f880fc45E(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(8) %1)
   %.fca.0.extract = extractvalue { i64, ptr } %4, 0
   %.fca.1.extract = extractvalue { i64, ptr } %4, 1
   %switch = icmp ne i64 %.fca.0.extract, 0
@@ -4354,7 +4354,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.3285439092171202888.exit: ;
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { i64, ptr } @_ZN5tokio2fs4file5Inner10poll_flush17h9ce39684f880fc45E(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc { i64, ptr } @_ZN5tokio2fs4file5Inner10poll_flush17h9ce39684f880fc45E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { ptr, ptr }, i64 }, align 8
   %.sroa.416 = alloca [48 x i8], align 8
@@ -4510,7 +4510,7 @@ common.resume:                                    ; preds = %59, %52, %54
   %60 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.24..sroa_idx, i64 32, i1 false)
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tokio..fs..file..Operation$GT$17h4b384b51685478efE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #33
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tokio..fs..file..Operation$GT$17h4b384b51685478efE"(ptr noalias noundef align 8 dereferenceable(24) %6) #33
           to label %common.resume unwind label %64
 
 "_ZN4core3ptr43drop_in_place$LT$tokio..fs..file..State$GT$17h4dcc7cd715f5788cE.exit": ; preds = %.noexc24, %"_ZN4core3ptr45drop_in_place$LT$tokio..io..blocking..Buf$GT$17hfb0c98cfcbe0b332E.exit.i.i", %26, %43
@@ -4525,7 +4525,7 @@ common.resume:                                    ; preds = %59, %52, %54
   br label %17
 
 63:                                               ; preds = %"_ZN4core3ptr43drop_in_place$LT$tokio..fs..file..State$GT$17h4dcc7cd715f5788cE.exit"
-  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tokio..fs..file..Operation$GT$17h4b384b51685478efE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
+  call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tokio..fs..file..Operation$GT$17h4b384b51685478efE"(ptr noalias noundef align 8 dereferenceable(24) %6)
   br label %62
 
 64:                                               ; preds = %59
@@ -6896,7 +6896,7 @@ define hidden void @_ZN5tokio3net3tcp11split_owned11split_owned17h89ca4f3a6b3921
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5tokio3net3tcp11split_owned7reunite17ha0df08704353ab48E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5tokio3net3tcp11split_owned7reunite17ha0df08704353ab48E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca { ptr, i8 }, align 8
@@ -7041,7 +7041,7 @@ define noundef zeroext i1 @"_ZN81_$LT$tokio..net..tcp..split_owned..ReuniteError
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5tokio3net3tcp11split_owned13OwnedReadHalf7reunite17hcc0ded8b2db78088E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #3 {
-  tail call fastcc void @_ZN5tokio3net3tcp11split_owned7reunite17ha0df08704353ab48E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext %3)
+  tail call fastcc void @_ZN5tokio3net3tcp11split_owned7reunite17ha0df08704353ab48E(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext %3)
   ret void
 }
 
@@ -7163,7 +7163,7 @@ define { i64, ptr } @"_ZN96_$LT$tokio..net..tcp..split_owned..OwnedReadHalf$u20$
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5tokio3net3tcp11split_owned14OwnedWriteHalf7reunite17h7f1c365a51857e7eE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr noundef nonnull %3) unnamed_addr #3 {
-  tail call fastcc void @_ZN5tokio3net3tcp11split_owned7reunite17ha0df08704353ab48E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %3, ptr noundef nonnull %1, i1 noundef zeroext %2)
+  tail call fastcc void @_ZN5tokio3net3tcp11split_owned7reunite17ha0df08704353ab48E(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, ptr noundef nonnull %3, ptr noundef nonnull %1, i1 noundef zeroext %2)
   ret void
 }
 
@@ -7733,7 +7733,7 @@ define hidden void @_ZN5tokio3net4unix11split_owned11split_owned17h2e923dfc4cd52
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5tokio3net4unix11split_owned7reunite17h6731e71bfb91ce23E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5tokio3net4unix11split_owned7reunite17h6731e71bfb91ce23E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca { ptr, i8 }, align 8
@@ -7878,7 +7878,7 @@ define noundef zeroext i1 @"_ZN82_$LT$tokio..net..unix..split_owned..ReuniteErro
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5tokio3net4unix11split_owned13OwnedReadHalf7reunite17h73b9757f4739190aE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #3 {
-  tail call fastcc void @_ZN5tokio3net4unix11split_owned7reunite17h6731e71bfb91ce23E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext %3)
+  tail call fastcc void @_ZN5tokio3net4unix11split_owned7reunite17h6731e71bfb91ce23E(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext %3)
   ret void
 }
 
@@ -8032,7 +8032,7 @@ define { i64, ptr } @"_ZN97_$LT$tokio..net..unix..split_owned..OwnedReadHalf$u20
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5tokio3net4unix11split_owned14OwnedWriteHalf7reunite17h972e3754c7ea64b9E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr noundef nonnull %3) unnamed_addr #3 {
-  tail call fastcc void @_ZN5tokio3net4unix11split_owned7reunite17h6731e71bfb91ce23E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %3, ptr noundef nonnull %1, i1 noundef zeroext %2)
+  tail call fastcc void @_ZN5tokio3net4unix11split_owned7reunite17h6731e71bfb91ce23E(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, ptr noundef nonnull %3, ptr noundef nonnull %1, i1 noundef zeroext %2)
   ret void
 }
 
@@ -9546,7 +9546,7 @@ define hidden void @"_ZN5tokio7runtime4time54_$LT$impl$u20$tokio..runtime..time.
 
 .thread103:                                       ; preds = %.thread103.loopexit, %.thread103.loopexit.split-lp.loopexit.split-lp.loopexit, %.thread103.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.thread103.loopexit.split-lp.loopexit, %.thread, %10
   %.pn61.pn = phi { ptr, i32 } [ %.pn61101, %.thread ], [ %11, %10 ], [ %lpad.loopexit, %.thread103.loopexit ], [ %lpad.loopexit121, %.thread103.loopexit.split-lp.loopexit ], [ %lpad.loopexit126, %.thread103.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp127, %.thread103.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$u5b$core..option..Option$LT$core..task..wake..Waker$GT$$u3b$$u20$32$u5d$$GT$17haf80b5ea3a088ee8E"(ptr noalias noundef nonnull align 8 dereferenceable(512) %5) #33
+  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$u5b$core..option..Option$LT$core..task..wake..Waker$GT$$u3b$$u20$32$u5d$$GT$17haf80b5ea3a088ee8E"(ptr noalias noundef align 8 dereferenceable(512) %5) #33
           to label %common.resume unwind label %71
 
 10:                                               ; preds = %8, %2

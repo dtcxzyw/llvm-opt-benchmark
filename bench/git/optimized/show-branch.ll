@@ -2115,37 +2115,37 @@ if.end521:                                        ; preds = %land.end511
   %217 = load i32, ptr %sparse, align 4
   %tobool522 = icmp eq i32 %217, 0
   %or.cond11 = select i1 %tobool522, i1 %214, i1 false
-  br i1 %or.cond11, label %for.body.i231, label %if.end530
+  br i1 %or.cond11, label %for.body.i229, label %if.end530
 
-for.cond.i234:                                    ; preds = %for.body.i231
-  %indvars.iv.next.i235 = add nuw nsw i64 %indvars.iv.i232, 1
-  %exitcond.not.i236 = icmp eq i64 %indvars.iv.next.i235, %idxprom332.lcssa374
-  br i1 %exitcond.not.i236, label %for.body4.i, label %for.body.i231, !llvm.loop !29
+for.cond.i232:                                    ; preds = %for.body.i229
+  %indvars.iv.next.i233 = add nuw nsw i64 %indvars.iv.i230, 1
+  %exitcond.not.i234 = icmp eq i64 %indvars.iv.next.i233, %idxprom332.lcssa374
+  br i1 %exitcond.not.i234, label %for.body4.i, label %for.body.i229, !llvm.loop !29
 
-for.body.i231:                                    ; preds = %if.end521, %for.cond.i234
-  %indvars.iv.i232 = phi i64 [ %indvars.iv.next.i235, %for.cond.i234 ], [ 0, %if.end521 ]
-  %arrayidx.i233 = getelementptr inbounds ptr, ptr %rev, i64 %indvars.iv.i232
-  %218 = load ptr, ptr %arrayidx.i233, align 8
+for.body.i229:                                    ; preds = %if.end521, %for.cond.i232
+  %indvars.iv.i230 = phi i64 [ %indvars.iv.next.i233, %for.cond.i232 ], [ 0, %if.end521 ]
+  %arrayidx.i231 = getelementptr inbounds ptr, ptr %rev, i64 %indvars.iv.i230
+  %218 = load ptr, ptr %arrayidx.i231, align 8
   %cmp1.i = icmp eq ptr %218, %call496
-  br i1 %cmp1.i, label %if.end530, label %for.cond.i234
+  br i1 %cmp1.i, label %if.end530, label %for.cond.i232
 
-for.body4.i:                                      ; preds = %for.cond.i234, %for.body4.i
-  %count.013.i = phi i32 [ %spec.select.i242, %for.body4.i ], [ 0, %for.cond.i234 ]
-  %i.112.i = phi i32 [ %inc9.i, %for.body4.i ], [ 0, %for.cond.i234 ]
-  %shl.i = shl nuw i32 4, %i.112.i
-  %and.i240 = and i32 %shl.i, %bf.lshr499
-  %tobool.not.i241 = icmp ne i32 %and.i240, 0
-  %inc6.i = zext i1 %tobool.not.i241 to i32
-  %spec.select.i242 = add nuw nsw i32 %count.013.i, %inc6.i
-  %inc9.i = add nuw nsw i32 %i.112.i, 1
-  %exitcond15.not.i = icmp eq i32 %inc9.i, %num_rev.0.lcssa373
-  br i1 %exitcond15.not.i, label %omit_in_dense.exit, label %for.body4.i, !llvm.loop !30
+for.body4.i:                                      ; preds = %for.cond.i232, %for.body4.i
+  %count.011.i = phi i32 [ %spec.select.i241, %for.body4.i ], [ 0, %for.cond.i232 ]
+  %i.110.i238 = phi i32 [ %inc9.i, %for.body4.i ], [ 0, %for.cond.i232 ]
+  %shl.i = shl nuw i32 4, %i.110.i238
+  %and.i239 = and i32 %shl.i, %bf.lshr499
+  %tobool.not.i240 = icmp ne i32 %and.i239, 0
+  %inc6.i = zext i1 %tobool.not.i240 to i32
+  %spec.select.i241 = add nuw nsw i32 %count.011.i, %inc6.i
+  %inc9.i = add nuw nsw i32 %i.110.i238, 1
+  %exitcond13.not.i = icmp eq i32 %inc9.i, %num_rev.0.lcssa373
+  br i1 %exitcond13.not.i, label %omit_in_dense.exit, label %for.body4.i, !llvm.loop !30
 
 omit_in_dense.exit:                               ; preds = %for.body4.i
-  %.not = icmp eq i32 %spec.select.i242, 1
-  br i1 %.not, label %while.cond492.backedge, label %if.end530
+  %cmp11.i.not = icmp eq i32 %spec.select.i241, 1
+  br i1 %cmp11.i.not, label %while.cond492.backedge, label %if.end530
 
-if.end530:                                        ; preds = %for.body.i231, %omit_in_dense.exit, %if.end521
+if.end530:                                        ; preds = %for.body.i229, %omit_in_dense.exit, %if.end521
   br i1 %tobool334.not304, label %for.end562, label %for.body534
 
 for.body534:                                      ; preds = %if.end530, %for.inc560
@@ -2408,7 +2408,7 @@ declare ptr @date_mode_from_type(i32 noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @append_ref(ptr noundef %refname, ptr noundef %oid, i32 noundef %allow_dups) unnamed_addr #0 {
+define internal fastcc void @append_ref(ptr noundef %refname, ptr noundef %oid, i32 noundef range(i32 0, 2) %allow_dups) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %call = tail call ptr @lookup_commit_reference_gently(ptr noundef %0, ptr noundef %oid, i32 noundef 1) #16
@@ -3102,7 +3102,7 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @name_commit(ptr nocapture noundef readonly %commit, ptr noundef %head_name, i32 noundef %nth) unnamed_addr #0 {
+define internal fastcc void @name_commit(ptr nocapture noundef readonly %commit, ptr noundef %head_name, i32 noundef range(i32 -2147483647, -2147483648) %nth) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %commit, i64 64
   %commit.val5 = load i32, ptr %0, align 8

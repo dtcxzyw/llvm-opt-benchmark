@@ -1421,7 +1421,7 @@ if.end60.i.i:                                     ; preds = %vfio_ram_block_disc
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end60.i.i, %if.end60.i.i
-  %call61.i.i = call fastcc i32 @vfio_get_iommu_info(ptr noundef nonnull %call42.i.i, ptr noundef nonnull %info.i.i)
+  %call61.i.i = call fastcc i32 @vfio_get_iommu_info(ptr noundef nonnull %call42.i.i, ptr noundef %info.i.i)
   %tobool62.not.i.i = icmp eq i32 %call61.i.i, 0
   br i1 %tobool62.not.i.i, label %if.end65.i.i, label %if.then63.i.i
 
@@ -2394,7 +2394,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vfio_get_iommu_info(ptr nocapture noundef readonly %container, ptr nocapture noundef %info) unnamed_addr #0 {
+define internal fastcc i32 @vfio_get_iommu_info(ptr nocapture noundef readonly %container, ptr nocapture noundef nonnull %info) unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #20
   %fd = getelementptr inbounds i8, ptr %container, i64 8

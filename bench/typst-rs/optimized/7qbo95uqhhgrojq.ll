@@ -119,7 +119,7 @@ default.unreachable:                              ; preds = %9
 26:                                               ; preds = %"_ZN75_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..clone..Clone$GT$5clone17hcb465138213cac0aE.exit.i.i"
   %27 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$typst..visualize..gradient..Gradient$GT$17hafd26f4d987aa5c5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #17
+  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$typst..visualize..gradient..Gradient$GT$17hafd26f4d987aa5c5E"(ptr noalias noundef align 8 dereferenceable(16) %3) #17
           to label %common.resume.i unwind label %28, !noalias !11
 
 28:                                               ; preds = %26
@@ -157,7 +157,7 @@ common.resume.i:                                  ; preds = %35, %26
 35:                                               ; preds = %34
   %36 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$$LP$u128$C$$LP$typst..visualize..gradient..Gradient$C$typst..layout..ratio..Ratio$RP$$RP$$GT$17haadd2373fee37f31E"(ptr noalias noundef nonnull align 16 dereferenceable(48) %4) #17
+  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$$LP$u128$C$$LP$typst..visualize..gradient..Gradient$C$typst..layout..ratio..Ratio$RP$$RP$$GT$17haadd2373fee37f31E"(ptr noalias noundef align 16 dereferenceable(48) %4) #17
           to label %common.resume.i unwind label %37, !noalias !6
 
 37:                                               ; preds = %35
@@ -492,7 +492,7 @@ common.resume.i:                                  ; preds = %41, %26, %21
 41:                                               ; preds = %40
   %42 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E"(ptr noalias noundef nonnull align 16 dereferenceable(112) %6) #17
+  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E"(ptr noalias noundef align 16 dereferenceable(112) %6) #17
           to label %common.resume.i unwind label %43, !noalias !59
 
 43:                                               ; preds = %41
@@ -830,7 +830,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
 14:                                               ; preds = %13
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E"(ptr noalias noundef nonnull align 16 dereferenceable(112) %3) #17
+  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E"(ptr noalias noundef align 16 dereferenceable(112) %3) #17
           to label %.body unwind label %16, !noalias !147
 
 16:                                               ; preds = %14
@@ -1160,7 +1160,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
 48:                                               ; preds = %47
   %49 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E"(ptr noalias noundef nonnull align 16 dereferenceable(112) %7) #17
+  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E"(ptr noalias noundef align 16 dereferenceable(112) %7) #17
           to label %.body unwind label %50, !noalias !209
 
 50:                                               ; preds = %48
@@ -1307,7 +1307,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
 21:                                               ; preds = %20
   %22 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$$LP$u128$C$typst..visualize..pattern..Pattern$RP$$GT$17h37ff42503fddb5c2E"(ptr noalias noundef nonnull align 16 dereferenceable(32) %3) #17
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$$LP$u128$C$typst..visualize..pattern..Pattern$RP$$GT$17h37ff42503fddb5c2E"(ptr noalias noundef align 16 dereferenceable(32) %3) #17
           to label %25 unwind label %23, !noalias !253
 
 23:                                               ; preds = %21
@@ -1561,7 +1561,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr110drop_in_place$LT$$LP$u128$C$$LP$typst..visualize..gradient..Gradient$C$typst..layout..ratio..Ratio$RP$$RP$$GT$17haadd2373fee37f31E"(ptr noalias noundef align 16 dereferenceable(48) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr110drop_in_place$LT$$LP$u128$C$$LP$typst..visualize..gradient..Gradient$C$typst..layout..ratio..Ratio$RP$$RP$$GT$17haadd2373fee37f31E"(ptr noalias noundef nonnull align 16 dereferenceable(48) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !346)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !349)
@@ -1621,7 +1621,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$std..thread..local..AccessEr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$typst..visualize..gradient..Gradient$GT$17hafd26f4d987aa5c5E"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$typst..visualize..gradient..Gradient$GT$17hafd26f4d987aa5c5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !10, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   switch i64 %2, label %4 [
@@ -1673,7 +1673,7 @@ define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$typst..visualize..g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E"(ptr noalias noundef align 16 dereferenceable(112) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$17h6dd0ba5976bd7d30E"(ptr noalias noundef nonnull align 16 dereferenceable(112) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 16, !range !274, !alias.scope !395, !noundef !4
   %4 = icmp eq i64 %3, 0
@@ -1702,7 +1702,7 @@ define internal fastcc void @"_ZN4core3ptr60drop_in_place$LT$$LP$u128$C$typst_sv
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$$LP$u128$C$typst..visualize..pattern..Pattern$RP$$GT$17h37ff42503fddb5c2E"(ptr noalias noundef align 16 dereferenceable(32) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$$LP$u128$C$typst..visualize..pattern..Pattern$RP$$GT$17h37ff42503fddb5c2E"(ptr noalias noundef nonnull align 16 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !412)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !415)

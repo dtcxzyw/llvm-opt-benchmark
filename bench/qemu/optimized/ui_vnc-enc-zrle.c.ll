@@ -1015,7 +1015,7 @@ declare i32 @deflateEnd(ptr noundef) local_unnamed_addr #1
 declare void @buffer_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @zrle_encode_24bbe(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, i32 noundef %zywrle_level) unnamed_addr #0 {
+define internal fastcc void @zrle_encode_24bbe(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, i32 noundef range(i32 0, 4) %zywrle_level) unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.Buffer, align 8
   %add = add i32 %h, %y
@@ -1078,7 +1078,7 @@ for.end18:                                        ; preds = %for.cond3.for.inc16
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @zrle_encode_24ble(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, i32 noundef %zywrle_level) unnamed_addr #0 {
+define internal fastcc void @zrle_encode_24ble(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, i32 noundef range(i32 0, 4) %zywrle_level) unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.Buffer, align 8
   %add = add i32 %h, %y
@@ -1141,7 +1141,7 @@ for.end18:                                        ; preds = %for.cond3.for.inc16
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @zrle_encode_32be(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, i32 noundef %zywrle_level) unnamed_addr #0 {
+define internal fastcc void @zrle_encode_32be(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, i32 noundef range(i32 0, 4) %zywrle_level) unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.Buffer, align 8
   %add = add i32 %h, %y
@@ -1204,7 +1204,7 @@ for.end18:                                        ; preds = %for.cond3.for.inc16
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @zrle_encode_32le(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, i32 noundef %zywrle_level) unnamed_addr #0 {
+define internal fastcc void @zrle_encode_32le(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, i32 noundef range(i32 0, 4) %zywrle_level) unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.Buffer, align 8
   %add = add i32 %h, %y
@@ -1292,7 +1292,7 @@ declare void @vnc_write_u8(ptr noundef, i8 noundef zeroext) local_unnamed_addr #
 declare i32 @palette_color(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef %palette, i32 noundef %bpp_out, i32 noundef %runs, i32 noundef %single_pixels, i32 noundef %zywrle_level, ptr nocapture noundef writeonly %use_rle, ptr nocapture noundef writeonly %use_palette) unnamed_addr #0 {
+define internal fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef %palette, i32 noundef range(i32 8, 33) %bpp_out, i32 noundef %runs, i32 noundef %single_pixels, i32 noundef range(i32 0, 256) %zywrle_level, ptr nocapture noundef nonnull writeonly %use_rle, ptr nocapture noundef nonnull writeonly %use_palette) unnamed_addr #0 {
 entry:
   store i8 0, ptr %use_rle, align 1
   store i8 0, ptr %use_palette, align 1
@@ -1301,11 +1301,9 @@ entry:
   %mul1 = mul i32 %div27, %mul
   %conv = sext i32 %mul1 to i64
   %cmp = icmp ne i32 %bpp_out, 8
-  %cmp3 = icmp sgt i32 %zywrle_level, 0
-  %or.cond = and i1 %cmp, %cmp3
-  %and = and i32 %zywrle_level, 128
-  %tobool.not = icmp eq i32 %and, 0
-  %or.cond28 = and i1 %or.cond, %tobool.not
+  %0 = add nsw i32 %zywrle_level, -1
+  %1 = icmp ult i32 %0, 127
+  %or.cond28 = and i1 %cmp, %1
   %sh_prom = zext nneg i32 %zywrle_level to i64
   %shr = select i1 %or.cond28, i64 %sh_prom, i64 0
   %estimated_bytes.0 = lshr i64 %conv, %shr
@@ -1328,8 +1326,8 @@ if.end14:                                         ; preds = %if.then13, %entry
 
 if.then17:                                        ; preds = %if.end14
   %call20 = tail call i64 @palette_size(ptr noundef %palette) #9
-  %0 = trunc i64 %call20 to i32
-  %conv22 = mul i32 %div27, %0
+  %2 = trunc i64 %call20 to i32
+  %conv22 = mul i32 %div27, %2
   %mul23 = shl i32 %runs, 1
   %add24 = add i32 %mul23, %single_pixels
   %add25 = add i32 %add24, %conv22
@@ -1350,13 +1348,13 @@ if.end31:                                         ; preds = %if.then29, %if.then
 
 if.then35:                                        ; preds = %if.end31
   %call38 = tail call i64 @palette_size(ptr noundef %palette) #9
-  %1 = trunc i64 %call38 to i32
-  %conv40 = mul i32 %div27, %1
+  %3 = trunc i64 %call38 to i32
+  %conv40 = mul i32 %div27, %3
   %call42 = tail call i64 @palette_size(ptr noundef %palette) #9
   %sub = add i64 %call42, -1
   %arrayidx = getelementptr [16 x i32], ptr @bits_per_packed_pixel, i64 0, i64 %sub
-  %2 = load i32, ptr %arrayidx, align 4
-  %mul43 = mul i32 %2, %mul
+  %4 = load i32, ptr %arrayidx, align 4
+  %mul43 = mul i32 %4, %mul
   %div44 = sdiv i32 %mul43, 8
   %add45 = add i32 %div44, %conv40
   %conv46 = sext i32 %add45 to i64
@@ -1380,7 +1378,7 @@ declare i32 @palette_idx(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @zrle_encode_tile16be(ptr noundef %vs, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %zywrle_level) unnamed_addr #0 {
+define internal fastcc void @zrle_encode_tile16be(ptr noundef %vs, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef range(i32 0, 256) %zywrle_level) unnamed_addr #0 {
 entry:
   %value.addr.i96 = alloca i16, align 2
   %value.addr.i95 = alloca i16, align 2
@@ -1459,7 +1457,7 @@ if.then22:                                        ; preds = %while.end18
   br label %if.end165
 
 if.end25:                                         ; preds = %while.end18
-  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 16, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef nonnull %use_rle, ptr noundef nonnull %use_palette)
+  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 16, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
   %5 = load i8, ptr %use_palette, align 1
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.else30, label %if.end43.thread
@@ -1653,10 +1651,8 @@ for.inc147:                                       ; preds = %if.end135.thread, %
   br i1 %exitcond.not, label %if.end165, label %for.body112, !llvm.loop !43
 
 if.else150:                                       ; preds = %if.end43.thread
-  %cmp151 = icmp sgt i32 %zywrle_level.tr, 0
-  %and = and i32 %zywrle_level.tr, 128
-  %tobool154.not = icmp eq i32 %and, 0
-  %or.cond = and i1 %cmp151, %tobool154.not
+  %17 = add nsw i32 %zywrle_level.tr, -1
+  %or.cond = icmp ult i32 %17, 127
   br i1 %or.cond, label %if.then155, label %if.else159
 
 if.then155:                                       ; preds = %if.else150
@@ -1701,8 +1697,8 @@ while.body.i:                                     ; preds = %while.end.i, %while
 while.body14.i:                                   ; preds = %while.body.i, %while.body14.i
   %p.2253.i = phi ptr [ %incdec.ptr.i, %while.body14.i ], [ %p.1257.i, %while.body.i ]
   %top.2252.i = phi ptr [ %incdec.ptr15.i, %while.body14.i ], [ %top.1256.i, %while.body.i ]
-  %17 = load i16, ptr %p.2253.i, align 2
-  store i16 %17, ptr %top.2252.i, align 2
+  %18 = load i16, ptr %p.2253.i, align 2
+  store i16 %18, ptr %top.2252.i, align 2
   %incdec.ptr.i = getelementptr i8, ptr %p.2253.i, i64 2
   %incdec.ptr15.i = getelementptr i8, ptr %top.2252.i, i64 4
   %cmp13.i = icmp ult ptr %incdec.ptr.i, %add.ptr11.i
@@ -1745,8 +1741,8 @@ while.body31.i:                                   ; preds = %while.end39.i, %whi
 while.body36.i:                                   ; preds = %while.body31.i, %while.body36.i
   %p.5262.i = phi ptr [ %incdec.ptr37.i, %while.body36.i ], [ %p.4267.i, %while.body31.i ]
   %top.5261.i = phi ptr [ %incdec.ptr38.i, %while.body36.i ], [ %top.4266.i, %while.body31.i ]
-  %18 = load i16, ptr %p.5262.i, align 2
-  store i16 %18, ptr %top.5261.i, align 2
+  %19 = load i16, ptr %p.5262.i, align 2
+  store i16 %19, ptr %top.5261.i, align 2
   %incdec.ptr37.i = getelementptr i8, ptr %p.5262.i, i64 2
   %incdec.ptr38.i = getelementptr i8, ptr %top.5261.i, i64 4
   %cmp35.i = icmp ult ptr %incdec.ptr37.i, %add.ptr33.i
@@ -1785,8 +1781,8 @@ while.body58.i:                                   ; preds = %while.end66.i, %whi
 while.body63.i:                                   ; preds = %while.body58.i, %while.body63.i
   %p.7272.i = phi ptr [ %incdec.ptr64.i, %while.body63.i ], [ %p.6277.i, %while.body58.i ]
   %top.7271.i = phi ptr [ %incdec.ptr65.i, %while.body63.i ], [ %top.6276.i, %while.body58.i ]
-  %19 = load i16, ptr %p.7272.i, align 2
-  store i16 %19, ptr %top.7271.i, align 2
+  %20 = load i16, ptr %p.7272.i, align 2
+  store i16 %20, ptr %top.7271.i, align 2
   %incdec.ptr64.i = getelementptr i8, ptr %p.7272.i, i64 2
   %incdec.ptr65.i = getelementptr i8, ptr %top.7271.i, i64 4
   %cmp62.i = icmp ult ptr %incdec.ptr64.i, %add.ptr60.i
@@ -1802,7 +1798,7 @@ while.end66.i:                                    ; preds = %while.body63.i, %wh
 do.end.i:                                         ; preds = %while.end66.i, %if.then47.i, %if.end44.i, %if.end20.i
   %cmp36.i.i = icmp ult ptr %zywrle, %add.ptr.i
   %idx.ext1.i.i = sext i32 %and.i.i to i64
-  br i1 %cmp36.i.i, label %while.body.lr.ph.i.i, label %do.body73.lr.ph.i
+  br i1 %cmp36.i.i, label %while.body.lr.ph.i.i, label %zywrle_rgbyuv_16be.exit.i
 
 while.body.lr.ph.i.i:                             ; preds = %do.end.i
   %idx.ext50.i.i = sext i32 %sub.i to i64
@@ -1818,13 +1814,13 @@ while.body.i.i:                                   ; preds = %while.end.i.i, %whi
 do.body.i.i:                                      ; preds = %while.body.i.i, %do.body.i.i
   %buf.addr.134.i.i = phi ptr [ %incdec.ptr.i.i, %do.body.i.i ], [ %buf.addr.038.i.i, %while.body.i.i ]
   %data.addr.133.i.i = phi ptr [ %incdec.ptr48.i.i, %do.body.i.i ], [ %data.addr.037.i.i, %while.body.i.i ]
-  %20 = load i8, ptr %data.addr.133.i.i, align 1
-  %conv.i.i = zext i8 %20 to i32
+  %21 = load i8, ptr %data.addr.133.i.i, align 1
+  %conv.i.i = zext i8 %21 to i32
   %and.i213.i = and i32 %conv.i.i, 248
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 5
   %arrayidx8.i.i = getelementptr i8, ptr %data.addr.133.i.i, i64 1
-  %21 = load i8, ptr %arrayidx8.i.i, align 1
-  %conv9.i.i = zext i8 %21 to i32
+  %22 = load i8, ptr %arrayidx8.i.i, align 1
+  %conv9.i.i = zext i8 %22 to i32
   %shr.i.i = lshr i32 %conv9.i.i, 3
   %or.i.i = or disjoint i32 %shr.i.i, %shl.i.i
   %and10.i.i = and i32 %or.i.i, 252
@@ -1838,23 +1834,23 @@ do.body.i.i:                                      ; preds = %while.body.i.i, %do
   %sub19.i.i = sub nsw i32 %and.i213.i, %and10.i.i
   %shr21.i.i = ashr exact i32 %sub.i.i, 1
   %shr22.i.i = ashr exact i32 %sub19.i.i, 1
-  %22 = and i32 %shr18.i.i, 252
+  %23 = and i32 %shr18.i.i, 252
   %and24.i.i = and i32 %shr21.i.i, -8
   %and25.i.i = and i32 %shr22.i.i, -8
-  %cmp26.i.i = icmp eq i32 %22, 0
-  %23 = trunc nuw i32 %22 to i8
-  %24 = xor i8 %23, -128
+  %cmp26.i.i = icmp eq i32 %23, 0
+  %24 = trunc nuw i32 %23 to i8
+  %25 = xor i8 %24, -128
   %cmp29.i.i = icmp eq i32 %and24.i.i, -128
-  %25 = trunc i32 %and24.i.i to i8
+  %26 = trunc i32 %and24.i.i to i8
   %cmp34.i.i = icmp eq i32 %and25.i.i, -128
-  %26 = trunc i32 %and25.i.i to i8
-  %conv41.i.i = select i1 %cmp34.i.i, i8 -120, i8 %26
+  %27 = trunc i32 %and25.i.i to i8
+  %conv41.i.i = select i1 %cmp34.i.i, i8 -120, i8 %27
   %arrayidx42.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 2
   store i8 %conv41.i.i, ptr %arrayidx42.i.i, align 1
-  %conv43.i.i = select i1 %cmp26.i.i, i8 -124, i8 %24
+  %conv43.i.i = select i1 %cmp26.i.i, i8 -124, i8 %25
   %arrayidx44.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 1
   store i8 %conv43.i.i, ptr %arrayidx44.i.i, align 1
-  %conv45.i.i = select i1 %cmp29.i.i, i8 -120, i8 %25
+  %conv45.i.i = select i1 %cmp29.i.i, i8 -120, i8 %26
   store i8 %conv45.i.i, ptr %buf.addr.134.i.i, align 1
   %incdec.ptr.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 4
   %incdec.ptr48.i.i = getelementptr i8, ptr %data.addr.133.i.i, i64 2
@@ -1866,18 +1862,17 @@ while.end.i.i:                                    ; preds = %do.body.i.i, %while
   %buf.addr.1.lcssa.i.i = phi ptr [ %buf.addr.038.i.i, %while.body.i.i ], [ %incdec.ptr.i.i, %do.body.i.i ]
   %add.ptr51.i.i = getelementptr i16, ptr %data.addr.1.lcssa.i.i, i64 %idx.ext50.i.i
   %cmp.i.i = icmp ult ptr %buf.addr.1.lcssa.i.i, %add.ptr.i
-  br i1 %cmp.i.i, label %while.body.i.i, label %do.body73.lr.ph.i, !llvm.loop !51
+  br i1 %cmp.i.i, label %while.body.i.i, label %zywrle_rgbyuv_16be.exit.i, !llvm.loop !51
 
-do.body73.lr.ph.i:                                ; preds = %while.end.i.i, %do.end.i
+zywrle_rgbyuv_16be.exit.i:                        ; preds = %while.end.i.i, %do.end.i
   tail call fastcc void @wavelet(ptr noundef nonnull %zywrle, i32 noundef %and.i.i, i32 noundef %and4.i.i, i32 noundef %zywrle_level.tr)
-  %sub266.i = add nsw i32 %zywrle_level.tr, -1
   %cmp276325.i = icmp uge ptr %zywrle, %add.ptr.i
   br label %do.body73.i
 
-do.body73.i:                                      ; preds = %for.inc.i, %do.body73.lr.ph.i
-  %l.0333.i = phi i32 [ 0, %do.body73.lr.ph.i ], [ %inc.i, %for.inc.i ]
-  %dst.addr.0332.i = phi ptr [ %data, %do.body73.lr.ph.i ], [ %dst.addr.13.i, %for.inc.i ]
-  %shl.i = shl i32 2, %l.0333.i
+do.body73.i:                                      ; preds = %for.inc.i, %zywrle_rgbyuv_16be.exit.i
+  %l.0332.i = phi i32 [ 0, %zywrle_rgbyuv_16be.exit.i ], [ %inc.i, %for.inc.i ]
+  %dst.addr.0331.i = phi ptr [ %data, %zywrle_rgbyuv_16be.exit.i ], [ %dst.addr.13.i, %for.inc.i ]
+  %shl.i = shl i32 2, %l.0332.i
   %shr.i = ashr exact i32 %shl.i, 1
   %idx.ext74.i = sext i32 %shr.i to i64
   %add.ptr75.i = getelementptr i32, ptr %zywrle, i64 %idx.ext74.i
@@ -1897,7 +1892,7 @@ while.body85.lr.ph.i:                             ; preds = %do.body73.i
 
 while.body85.i:                                   ; preds = %while.end124.i, %while.body85.lr.ph.i
   %ph.0289.i = phi ptr [ %add.ptr79.i, %while.body85.lr.ph.i ], [ %add.ptr128.i, %while.end124.i ]
-  %dst.addr.1287.i = phi ptr [ %dst.addr.0332.i, %while.body85.lr.ph.i ], [ %dst.addr.2.lcssa.i, %while.end124.i ]
+  %dst.addr.1287.i = phi ptr [ %dst.addr.0331.i, %while.body85.lr.ph.i ], [ %dst.addr.2.lcssa.i, %while.end124.i ]
   %add.ptr87.i = getelementptr i32, ptr %ph.0289.i, i64 %idx.ext1.i.i
   %cmp89279.i = icmp ult ptr %ph.0289.i, %add.ptr87.i
   br i1 %cmp89279.i, label %do.body91.i, label %while.end124.i
@@ -1906,18 +1901,18 @@ do.body91.i:                                      ; preds = %while.body85.i, %do
   %ph.1282.i = phi ptr [ %add.ptr123.i, %do.body91.i ], [ %ph.0289.i, %while.body85.i ]
   %dst.addr.2280.i = phi ptr [ %incdec.ptr111.i, %do.body91.i ], [ %dst.addr.1287.i, %while.body85.i ]
   %arrayidx.i = getelementptr i8, ptr %ph.1282.i, i64 2
-  %27 = load i8, ptr %arrayidx.i, align 1
+  %28 = load i8, ptr %arrayidx.i, align 1
   %arrayidx92.i = getelementptr i8, ptr %ph.1282.i, i64 1
-  %28 = load i8, ptr %arrayidx92.i, align 1
-  %29 = load i8, ptr %ph.1282.i, align 1
-  %30 = and i8 %27, -8
-  %shr100.i = lshr i8 %28, 5
-  %or.i = or disjoint i8 %shr100.i, %30
+  %29 = load i8, ptr %arrayidx92.i, align 1
+  %30 = load i8, ptr %ph.1282.i, align 1
+  %31 = and i8 %28, -8
+  %shr100.i = lshr i8 %29, 5
+  %or.i = or disjoint i8 %shr100.i, %31
   store i8 %or.i, ptr %dst.addr.2280.i, align 1
-  %31 = lshr i8 %29, 3
-  %32 = shl i8 %28, 3
-  %33 = and i8 %32, -32
-  %or105212.i = or disjoint i8 %33, %31
+  %32 = lshr i8 %30, 3
+  %33 = shl i8 %29, 3
+  %34 = and i8 %33, -32
+  %or105212.i = or disjoint i8 %34, %32
   %arrayidx108.i = getelementptr i8, ptr %dst.addr.2280.i, i64 1
   store i8 %or105212.i, ptr %arrayidx108.i, align 1
   %incdec.ptr111.i = getelementptr i8, ptr %dst.addr.2280.i, i64 2
@@ -1933,7 +1928,7 @@ while.end124.i:                                   ; preds = %do.body91.i, %while
   br i1 %cmp84.i, label %while.body85.i, label %do.body131.i, !llvm.loop !53
 
 do.body131.i:                                     ; preds = %while.end124.i, %do.body73.i
-  %dst.addr.1.lcssa.i = phi ptr [ %dst.addr.0332.i, %do.body73.i ], [ %dst.addr.2.lcssa.i, %while.end124.i ]
+  %dst.addr.1.lcssa.i = phi ptr [ %dst.addr.0331.i, %do.body73.i ], [ %dst.addr.2.lcssa.i, %while.end124.i ]
   %add.ptr136.i = getelementptr i32, ptr %zywrle, i64 %idx.ext78.i
   %add.ptr139.i = getelementptr i32, ptr %add.ptr136.i, i64 %idx.ext.i
   %cmp141299.i = icmp ult ptr %add.ptr136.i, %add.ptr139.i
@@ -1957,18 +1952,18 @@ do.body150.i:                                     ; preds = %while.body143.i, %d
   %ph.3295.i = phi ptr [ %add.ptr191.i, %do.body150.i ], [ %ph.2302.i, %while.body143.i ]
   %dst.addr.5293.i = phi ptr [ %incdec.ptr174.i, %do.body150.i ], [ %dst.addr.4300.i, %while.body143.i ]
   %arrayidx151.i = getelementptr i8, ptr %ph.3295.i, i64 2
-  %34 = load i8, ptr %arrayidx151.i, align 1
+  %35 = load i8, ptr %arrayidx151.i, align 1
   %arrayidx153.i = getelementptr i8, ptr %ph.3295.i, i64 1
-  %35 = load i8, ptr %arrayidx153.i, align 1
-  %36 = load i8, ptr %ph.3295.i, align 1
-  %37 = and i8 %34, -8
-  %shr162.i = lshr i8 %35, 5
-  %or163.i = or disjoint i8 %shr162.i, %37
+  %36 = load i8, ptr %arrayidx153.i, align 1
+  %37 = load i8, ptr %ph.3295.i, align 1
+  %38 = and i8 %35, -8
+  %shr162.i = lshr i8 %36, 5
+  %or163.i = or disjoint i8 %shr162.i, %38
   store i8 %or163.i, ptr %dst.addr.5293.i, align 1
-  %38 = lshr i8 %36, 3
-  %39 = shl i8 %35, 3
-  %40 = and i8 %39, -32
-  %or168211.i = or disjoint i8 %40, %38
+  %39 = lshr i8 %37, 3
+  %40 = shl i8 %36, 3
+  %41 = and i8 %40, -32
+  %or168211.i = or disjoint i8 %41, %39
   %arrayidx171.i = getelementptr i8, ptr %dst.addr.5293.i, i64 1
   store i8 %or168211.i, ptr %arrayidx171.i, align 1
   %incdec.ptr174.i = getelementptr i8, ptr %dst.addr.5293.i, i64 2
@@ -2007,18 +2002,18 @@ do.body217.i:                                     ; preds = %while.body210.i, %d
   %ph.5308.i = phi ptr [ %add.ptr258.i, %do.body217.i ], [ %ph.4315.i, %while.body210.i ]
   %dst.addr.8306.i = phi ptr [ %incdec.ptr241.i, %do.body217.i ], [ %dst.addr.7313.i, %while.body210.i ]
   %arrayidx218.i = getelementptr i8, ptr %ph.5308.i, i64 2
-  %41 = load i8, ptr %arrayidx218.i, align 1
+  %42 = load i8, ptr %arrayidx218.i, align 1
   %arrayidx220.i = getelementptr i8, ptr %ph.5308.i, i64 1
-  %42 = load i8, ptr %arrayidx220.i, align 1
-  %43 = load i8, ptr %ph.5308.i, align 1
-  %44 = and i8 %41, -8
-  %shr229.i = lshr i8 %42, 5
-  %or230.i = or disjoint i8 %shr229.i, %44
+  %43 = load i8, ptr %arrayidx220.i, align 1
+  %44 = load i8, ptr %ph.5308.i, align 1
+  %45 = and i8 %42, -8
+  %shr229.i = lshr i8 %43, 5
+  %or230.i = or disjoint i8 %shr229.i, %45
   store i8 %or230.i, ptr %dst.addr.8306.i, align 1
-  %45 = lshr i8 %43, 3
-  %46 = shl i8 %42, 3
-  %47 = and i8 %46, -32
-  %or235210.i = or disjoint i8 %47, %45
+  %46 = lshr i8 %44, 3
+  %47 = shl i8 %43, 3
+  %48 = and i8 %47, -32
+  %or235210.i = or disjoint i8 %48, %46
   %arrayidx238.i = getelementptr i8, ptr %dst.addr.8306.i, i64 1
   store i8 %or235210.i, ptr %arrayidx238.i, align 1
   %incdec.ptr241.i = getelementptr i8, ptr %dst.addr.8306.i, i64 2
@@ -2035,7 +2030,7 @@ while.end259.i:                                   ; preds = %do.body217.i, %whil
 
 do.end265.i:                                      ; preds = %while.end259.i, %do.body199.i
   %dst.addr.7.lcssa.i = phi ptr [ %dst.addr.4.lcssa.i, %do.body199.i ], [ %dst.addr.8.lcssa.i, %while.end259.i ]
-  %cmp267.i = icmp ne i32 %l.0333.i, %sub266.i
+  %cmp267.i = icmp ne i32 %l.0332.i, %17
   %brmerge.i = or i1 %cmp276325.i, %cmp267.i
   br i1 %brmerge.i, label %for.inc.i, label %while.body278.lr.ph.i
 
@@ -2057,18 +2052,18 @@ do.body285.i:                                     ; preds = %while.body278.i, %d
   %ph.7321.i = phi ptr [ %add.ptr326.i, %do.body285.i ], [ %ph.6328.i, %while.body278.i ]
   %dst.addr.11319.i = phi ptr [ %incdec.ptr309.i, %do.body285.i ], [ %dst.addr.10326.i, %while.body278.i ]
   %arrayidx286.i = getelementptr i8, ptr %ph.7321.i, i64 2
-  %48 = load i8, ptr %arrayidx286.i, align 1
+  %49 = load i8, ptr %arrayidx286.i, align 1
   %arrayidx288.i = getelementptr i8, ptr %ph.7321.i, i64 1
-  %49 = load i8, ptr %arrayidx288.i, align 1
-  %50 = load i8, ptr %ph.7321.i, align 1
-  %51 = and i8 %48, -8
-  %shr297.i = lshr i8 %49, 5
-  %or298.i = or disjoint i8 %shr297.i, %51
+  %50 = load i8, ptr %arrayidx288.i, align 1
+  %51 = load i8, ptr %ph.7321.i, align 1
+  %52 = and i8 %49, -8
+  %shr297.i = lshr i8 %50, 5
+  %or298.i = or disjoint i8 %shr297.i, %52
   store i8 %or298.i, ptr %dst.addr.11319.i, align 1
-  %52 = lshr i8 %50, 3
-  %53 = shl i8 %49, 3
-  %54 = and i8 %53, -32
-  %or303209.i = or disjoint i8 %54, %52
+  %53 = lshr i8 %51, 3
+  %54 = shl i8 %50, 3
+  %55 = and i8 %54, -32
+  %or303209.i = or disjoint i8 %55, %53
   %arrayidx306.i = getelementptr i8, ptr %dst.addr.11319.i, i64 1
   store i8 %or303209.i, ptr %arrayidx306.i, align 1
   %incdec.ptr309.i = getelementptr i8, ptr %dst.addr.11319.i, i64 2
@@ -2085,22 +2080,22 @@ while.end327.i:                                   ; preds = %do.body285.i, %whil
 
 for.inc.i:                                        ; preds = %while.end327.i, %do.end265.i
   %dst.addr.13.i = phi ptr [ %dst.addr.7.lcssa.i, %do.end265.i ], [ %dst.addr.11.lcssa.i, %while.end327.i ]
-  %inc.i = add nuw nsw i32 %l.0333.i, 1
+  %inc.i = add nuw nsw i32 %l.0332.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %zywrle_level.tr
   br i1 %exitcond.not.i, label %do.body335.i, label %do.body73.i, !llvm.loop !60
 
 do.body335.i:                                     ; preds = %for.inc.i
   %add.ptr343.i = getelementptr i32, ptr %zywrle, i64 %idx.ext
-  %cmp345337.i = icmp ult ptr %add.ptr.i, %add.ptr343.i
-  br i1 %cmp345337.i, label %while.body347.i, label %zywrle_analyze_16be.exit
+  %cmp345334.i = icmp ult ptr %add.ptr.i, %add.ptr343.i
+  br i1 %cmp345334.i, label %while.body347.i, label %zywrle_analyze_16be.exit
 
 while.body347.i:                                  ; preds = %do.body335.i, %while.body347.i
-  %top.8339.i = phi ptr [ %incdec.ptr365.i, %while.body347.i ], [ %add.ptr.i, %do.body335.i ]
-  %dst.addr.14338.i = phi ptr [ %incdec.ptr349.i, %while.body347.i ], [ %dst.addr.13.i, %do.body335.i ]
-  %55 = load i16, ptr %top.8339.i, align 2
-  store i16 %55, ptr %dst.addr.14338.i, align 2
-  %incdec.ptr349.i = getelementptr i8, ptr %dst.addr.14338.i, i64 2
-  %incdec.ptr365.i = getelementptr i8, ptr %top.8339.i, i64 4
+  %top.8336.i = phi ptr [ %incdec.ptr365.i, %while.body347.i ], [ %add.ptr.i, %do.body335.i ]
+  %dst.addr.14335.i = phi ptr [ %incdec.ptr349.i, %while.body347.i ], [ %dst.addr.13.i, %do.body335.i ]
+  %56 = load i16, ptr %top.8336.i, align 2
+  store i16 %56, ptr %dst.addr.14335.i, align 2
+  %incdec.ptr349.i = getelementptr i8, ptr %dst.addr.14335.i, i64 2
+  %incdec.ptr365.i = getelementptr i8, ptr %top.8336.i, i64 4
   %cmp345.i = icmp ult ptr %incdec.ptr365.i, %add.ptr343.i
   br i1 %cmp345.i, label %while.body347.i, label %zywrle_analyze_16be.exit, !llvm.loop !61
 
@@ -2119,12 +2114,8 @@ if.end165:                                        ; preds = %for.inc147, %while.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @wavelet(ptr noundef %buf, i32 noundef %width, i32 noundef %height, i32 noundef %level) unnamed_addr #4 {
+define internal fastcc void @wavelet(ptr noundef %buf, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 1, 256) %level) unnamed_addr #4 {
 entry:
-  %cmp122 = icmp sgt i32 %level, 0
-  br i1 %cmp122, label %for.body.lr.ph, label %for.end
-
-for.body.lr.ph:                                   ; preds = %entry
   %mul = mul i32 %height, %width
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i32, ptr %buf, i64 %idx.ext
@@ -2137,8 +2128,8 @@ for.body.lr.ph:                                   ; preds = %entry
   %wide.trip.count = zext nneg i32 %level to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %filter_wavelet_square.exit
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %filter_wavelet_square.exit ]
+for.body:                                         ; preds = %entry, %filter_wavelet_square.exit
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %filter_wavelet_square.exit ]
   br i1 %cmp1118, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %for.body
@@ -2499,12 +2490,12 @@ filter_wavelet_square.exit:                       ; preds = %for.cond10.for.inc4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !68
 
-for.end:                                          ; preds = %filter_wavelet_square.exit, %entry
+for.end:                                          ; preds = %filter_wavelet_square.exit
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @zrle_encode_tile16le(ptr noundef %vs, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %zywrle_level) unnamed_addr #0 {
+define internal fastcc void @zrle_encode_tile16le(ptr noundef %vs, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef range(i32 0, 256) %zywrle_level) unnamed_addr #0 {
 entry:
   %value.addr.i96 = alloca i16, align 2
   %value.addr.i95 = alloca i16, align 2
@@ -2583,7 +2574,7 @@ if.then22:                                        ; preds = %while.end18
   br label %if.end165
 
 if.end25:                                         ; preds = %while.end18
-  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 16, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef nonnull %use_rle, ptr noundef nonnull %use_palette)
+  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 16, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
   %5 = load i8, ptr %use_palette, align 1
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.else30, label %if.end43.thread
@@ -2777,10 +2768,8 @@ for.inc147:                                       ; preds = %if.end135.thread, %
   br i1 %exitcond.not, label %if.end165, label %for.body112, !llvm.loop !76
 
 if.else150:                                       ; preds = %if.end43.thread
-  %cmp151 = icmp sgt i32 %zywrle_level.tr, 0
-  %and = and i32 %zywrle_level.tr, 128
-  %tobool154.not = icmp eq i32 %and, 0
-  %or.cond = and i1 %cmp151, %tobool154.not
+  %17 = add nsw i32 %zywrle_level.tr, -1
+  %or.cond = icmp ult i32 %17, 127
   br i1 %or.cond, label %if.then155, label %if.else159
 
 if.then155:                                       ; preds = %if.else150
@@ -2825,8 +2814,8 @@ while.body.i:                                     ; preds = %while.end.i, %while
 while.body14.i:                                   ; preds = %while.body.i, %while.body14.i
   %p.2253.i = phi ptr [ %incdec.ptr.i, %while.body14.i ], [ %p.1257.i, %while.body.i ]
   %top.2252.i = phi ptr [ %incdec.ptr15.i, %while.body14.i ], [ %top.1256.i, %while.body.i ]
-  %17 = load i16, ptr %p.2253.i, align 2
-  store i16 %17, ptr %top.2252.i, align 2
+  %18 = load i16, ptr %p.2253.i, align 2
+  store i16 %18, ptr %top.2252.i, align 2
   %incdec.ptr.i = getelementptr i8, ptr %p.2253.i, i64 2
   %incdec.ptr15.i = getelementptr i8, ptr %top.2252.i, i64 4
   %cmp13.i = icmp ult ptr %incdec.ptr.i, %add.ptr11.i
@@ -2869,8 +2858,8 @@ while.body31.i:                                   ; preds = %while.end39.i, %whi
 while.body36.i:                                   ; preds = %while.body31.i, %while.body36.i
   %p.5262.i = phi ptr [ %incdec.ptr37.i, %while.body36.i ], [ %p.4267.i, %while.body31.i ]
   %top.5261.i = phi ptr [ %incdec.ptr38.i, %while.body36.i ], [ %top.4266.i, %while.body31.i ]
-  %18 = load i16, ptr %p.5262.i, align 2
-  store i16 %18, ptr %top.5261.i, align 2
+  %19 = load i16, ptr %p.5262.i, align 2
+  store i16 %19, ptr %top.5261.i, align 2
   %incdec.ptr37.i = getelementptr i8, ptr %p.5262.i, i64 2
   %incdec.ptr38.i = getelementptr i8, ptr %top.5261.i, i64 4
   %cmp35.i = icmp ult ptr %incdec.ptr37.i, %add.ptr33.i
@@ -2909,8 +2898,8 @@ while.body58.i:                                   ; preds = %while.end66.i, %whi
 while.body63.i:                                   ; preds = %while.body58.i, %while.body63.i
   %p.7272.i = phi ptr [ %incdec.ptr64.i, %while.body63.i ], [ %p.6277.i, %while.body58.i ]
   %top.7271.i = phi ptr [ %incdec.ptr65.i, %while.body63.i ], [ %top.6276.i, %while.body58.i ]
-  %19 = load i16, ptr %p.7272.i, align 2
-  store i16 %19, ptr %top.7271.i, align 2
+  %20 = load i16, ptr %p.7272.i, align 2
+  store i16 %20, ptr %top.7271.i, align 2
   %incdec.ptr64.i = getelementptr i8, ptr %p.7272.i, i64 2
   %incdec.ptr65.i = getelementptr i8, ptr %top.7271.i, i64 4
   %cmp62.i = icmp ult ptr %incdec.ptr64.i, %add.ptr60.i
@@ -2926,7 +2915,7 @@ while.end66.i:                                    ; preds = %while.body63.i, %wh
 do.end.i:                                         ; preds = %while.end66.i, %if.then47.i, %if.end44.i, %if.end20.i
   %cmp36.i.i = icmp ult ptr %zywrle, %add.ptr.i
   %idx.ext1.i.i = sext i32 %and.i.i to i64
-  br i1 %cmp36.i.i, label %while.body.lr.ph.i.i, label %do.body73.lr.ph.i
+  br i1 %cmp36.i.i, label %while.body.lr.ph.i.i, label %zywrle_rgbyuv_16le.exit.i
 
 while.body.lr.ph.i.i:                             ; preds = %do.end.i
   %idx.ext50.i.i = sext i32 %sub.i to i64
@@ -2943,12 +2932,12 @@ do.body.i.i:                                      ; preds = %while.body.i.i, %do
   %buf.addr.134.i.i = phi ptr [ %incdec.ptr.i.i, %do.body.i.i ], [ %buf.addr.038.i.i, %while.body.i.i ]
   %data.addr.133.i.i = phi ptr [ %incdec.ptr48.i.i, %do.body.i.i ], [ %data.addr.037.i.i, %while.body.i.i ]
   %arrayidx.i.i = getelementptr i8, ptr %data.addr.133.i.i, i64 1
-  %20 = load i8, ptr %arrayidx.i.i, align 1
-  %conv.i.i = zext i8 %20 to i32
+  %21 = load i8, ptr %arrayidx.i.i, align 1
+  %conv.i.i = zext i8 %21 to i32
   %and.i213.i = and i32 %conv.i.i, 248
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 5
-  %21 = load i8, ptr %data.addr.133.i.i, align 1
-  %conv9.i.i = zext i8 %21 to i32
+  %22 = load i8, ptr %data.addr.133.i.i, align 1
+  %conv9.i.i = zext i8 %22 to i32
   %shr.i.i = lshr i32 %conv9.i.i, 3
   %or.i.i = or disjoint i32 %shr.i.i, %shl.i.i
   %and10.i.i = and i32 %or.i.i, 252
@@ -2962,23 +2951,23 @@ do.body.i.i:                                      ; preds = %while.body.i.i, %do
   %sub19.i.i = sub nsw i32 %and.i213.i, %and10.i.i
   %shr21.i.i = ashr exact i32 %sub.i.i, 1
   %shr22.i.i = ashr exact i32 %sub19.i.i, 1
-  %22 = and i32 %shr18.i.i, 252
+  %23 = and i32 %shr18.i.i, 252
   %and24.i.i = and i32 %shr21.i.i, -8
   %and25.i.i = and i32 %shr22.i.i, -8
-  %cmp26.i.i = icmp eq i32 %22, 0
-  %23 = trunc nuw i32 %22 to i8
-  %24 = xor i8 %23, -128
+  %cmp26.i.i = icmp eq i32 %23, 0
+  %24 = trunc nuw i32 %23 to i8
+  %25 = xor i8 %24, -128
   %cmp29.i.i = icmp eq i32 %and24.i.i, -128
-  %25 = trunc i32 %and24.i.i to i8
+  %26 = trunc i32 %and24.i.i to i8
   %cmp34.i.i = icmp eq i32 %and25.i.i, -128
-  %26 = trunc i32 %and25.i.i to i8
-  %conv41.i.i = select i1 %cmp34.i.i, i8 -120, i8 %26
+  %27 = trunc i32 %and25.i.i to i8
+  %conv41.i.i = select i1 %cmp34.i.i, i8 -120, i8 %27
   %arrayidx42.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 2
   store i8 %conv41.i.i, ptr %arrayidx42.i.i, align 1
-  %conv43.i.i = select i1 %cmp26.i.i, i8 -124, i8 %24
+  %conv43.i.i = select i1 %cmp26.i.i, i8 -124, i8 %25
   %arrayidx44.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 1
   store i8 %conv43.i.i, ptr %arrayidx44.i.i, align 1
-  %conv45.i.i = select i1 %cmp29.i.i, i8 -120, i8 %25
+  %conv45.i.i = select i1 %cmp29.i.i, i8 -120, i8 %26
   store i8 %conv45.i.i, ptr %buf.addr.134.i.i, align 1
   %incdec.ptr.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 4
   %incdec.ptr48.i.i = getelementptr i8, ptr %data.addr.133.i.i, i64 2
@@ -2990,18 +2979,17 @@ while.end.i.i:                                    ; preds = %do.body.i.i, %while
   %buf.addr.1.lcssa.i.i = phi ptr [ %buf.addr.038.i.i, %while.body.i.i ], [ %incdec.ptr.i.i, %do.body.i.i ]
   %add.ptr51.i.i = getelementptr i16, ptr %data.addr.1.lcssa.i.i, i64 %idx.ext50.i.i
   %cmp.i.i = icmp ult ptr %buf.addr.1.lcssa.i.i, %add.ptr.i
-  br i1 %cmp.i.i, label %while.body.i.i, label %do.body73.lr.ph.i, !llvm.loop !84
+  br i1 %cmp.i.i, label %while.body.i.i, label %zywrle_rgbyuv_16le.exit.i, !llvm.loop !84
 
-do.body73.lr.ph.i:                                ; preds = %while.end.i.i, %do.end.i
+zywrle_rgbyuv_16le.exit.i:                        ; preds = %while.end.i.i, %do.end.i
   tail call fastcc void @wavelet(ptr noundef nonnull %zywrle, i32 noundef %and.i.i, i32 noundef %and4.i.i, i32 noundef %zywrle_level.tr)
-  %sub266.i = add nsw i32 %zywrle_level.tr, -1
   %cmp276325.i = icmp uge ptr %zywrle, %add.ptr.i
   br label %do.body73.i
 
-do.body73.i:                                      ; preds = %for.inc.i, %do.body73.lr.ph.i
-  %l.0333.i = phi i32 [ 0, %do.body73.lr.ph.i ], [ %inc.i, %for.inc.i ]
-  %dst.addr.0332.i = phi ptr [ %data, %do.body73.lr.ph.i ], [ %dst.addr.13.i, %for.inc.i ]
-  %shl.i = shl i32 2, %l.0333.i
+do.body73.i:                                      ; preds = %for.inc.i, %zywrle_rgbyuv_16le.exit.i
+  %l.0332.i = phi i32 [ 0, %zywrle_rgbyuv_16le.exit.i ], [ %inc.i, %for.inc.i ]
+  %dst.addr.0331.i = phi ptr [ %data, %zywrle_rgbyuv_16le.exit.i ], [ %dst.addr.13.i, %for.inc.i ]
+  %shl.i = shl i32 2, %l.0332.i
   %shr.i = ashr exact i32 %shl.i, 1
   %idx.ext74.i = sext i32 %shr.i to i64
   %add.ptr75.i = getelementptr i32, ptr %zywrle, i64 %idx.ext74.i
@@ -3021,7 +3009,7 @@ while.body85.lr.ph.i:                             ; preds = %do.body73.i
 
 while.body85.i:                                   ; preds = %while.end124.i, %while.body85.lr.ph.i
   %ph.0289.i = phi ptr [ %add.ptr79.i, %while.body85.lr.ph.i ], [ %add.ptr128.i, %while.end124.i ]
-  %dst.addr.1287.i = phi ptr [ %dst.addr.0332.i, %while.body85.lr.ph.i ], [ %dst.addr.2.lcssa.i, %while.end124.i ]
+  %dst.addr.1287.i = phi ptr [ %dst.addr.0331.i, %while.body85.lr.ph.i ], [ %dst.addr.2.lcssa.i, %while.end124.i ]
   %add.ptr87.i = getelementptr i32, ptr %ph.0289.i, i64 %idx.ext1.i.i
   %cmp89279.i = icmp ult ptr %ph.0289.i, %add.ptr87.i
   br i1 %cmp89279.i, label %do.body91.i, label %while.end124.i
@@ -3030,19 +3018,19 @@ do.body91.i:                                      ; preds = %while.body85.i, %do
   %ph.1282.i = phi ptr [ %add.ptr123.i, %do.body91.i ], [ %ph.0289.i, %while.body85.i ]
   %dst.addr.2280.i = phi ptr [ %incdec.ptr111.i, %do.body91.i ], [ %dst.addr.1287.i, %while.body85.i ]
   %arrayidx.i = getelementptr i8, ptr %ph.1282.i, i64 2
-  %27 = load i8, ptr %arrayidx.i, align 1
+  %28 = load i8, ptr %arrayidx.i, align 1
   %arrayidx92.i = getelementptr i8, ptr %ph.1282.i, i64 1
-  %28 = load i8, ptr %arrayidx92.i, align 1
-  %29 = load i8, ptr %ph.1282.i, align 1
-  %30 = and i8 %27, -8
-  %shr100.i = lshr i8 %28, 5
-  %or.i = or disjoint i8 %shr100.i, %30
+  %29 = load i8, ptr %arrayidx92.i, align 1
+  %30 = load i8, ptr %ph.1282.i, align 1
+  %31 = and i8 %28, -8
+  %shr100.i = lshr i8 %29, 5
+  %or.i = or disjoint i8 %shr100.i, %31
   %arrayidx102.i = getelementptr i8, ptr %dst.addr.2280.i, i64 1
   store i8 %or.i, ptr %arrayidx102.i, align 1
-  %31 = lshr i8 %29, 3
-  %32 = shl i8 %28, 3
-  %33 = and i8 %32, -32
-  %or105212.i = or disjoint i8 %33, %31
+  %32 = lshr i8 %30, 3
+  %33 = shl i8 %29, 3
+  %34 = and i8 %33, -32
+  %or105212.i = or disjoint i8 %34, %32
   store i8 %or105212.i, ptr %dst.addr.2280.i, align 1
   %incdec.ptr111.i = getelementptr i8, ptr %dst.addr.2280.i, i64 2
   %add.ptr123.i = getelementptr i32, ptr %ph.1282.i, i64 %idx.ext122.i
@@ -3057,7 +3045,7 @@ while.end124.i:                                   ; preds = %do.body91.i, %while
   br i1 %cmp84.i, label %while.body85.i, label %do.body131.i, !llvm.loop !86
 
 do.body131.i:                                     ; preds = %while.end124.i, %do.body73.i
-  %dst.addr.1.lcssa.i = phi ptr [ %dst.addr.0332.i, %do.body73.i ], [ %dst.addr.2.lcssa.i, %while.end124.i ]
+  %dst.addr.1.lcssa.i = phi ptr [ %dst.addr.0331.i, %do.body73.i ], [ %dst.addr.2.lcssa.i, %while.end124.i ]
   %add.ptr136.i = getelementptr i32, ptr %zywrle, i64 %idx.ext78.i
   %add.ptr139.i = getelementptr i32, ptr %add.ptr136.i, i64 %idx.ext.i
   %cmp141299.i = icmp ult ptr %add.ptr136.i, %add.ptr139.i
@@ -3081,19 +3069,19 @@ do.body150.i:                                     ; preds = %while.body143.i, %d
   %ph.3295.i = phi ptr [ %add.ptr191.i, %do.body150.i ], [ %ph.2302.i, %while.body143.i ]
   %dst.addr.5293.i = phi ptr [ %incdec.ptr174.i, %do.body150.i ], [ %dst.addr.4300.i, %while.body143.i ]
   %arrayidx151.i = getelementptr i8, ptr %ph.3295.i, i64 2
-  %34 = load i8, ptr %arrayidx151.i, align 1
+  %35 = load i8, ptr %arrayidx151.i, align 1
   %arrayidx153.i = getelementptr i8, ptr %ph.3295.i, i64 1
-  %35 = load i8, ptr %arrayidx153.i, align 1
-  %36 = load i8, ptr %ph.3295.i, align 1
-  %37 = and i8 %34, -8
-  %shr162.i = lshr i8 %35, 5
-  %or163.i = or disjoint i8 %shr162.i, %37
+  %36 = load i8, ptr %arrayidx153.i, align 1
+  %37 = load i8, ptr %ph.3295.i, align 1
+  %38 = and i8 %35, -8
+  %shr162.i = lshr i8 %36, 5
+  %or163.i = or disjoint i8 %shr162.i, %38
   %arrayidx165.i = getelementptr i8, ptr %dst.addr.5293.i, i64 1
   store i8 %or163.i, ptr %arrayidx165.i, align 1
-  %38 = lshr i8 %36, 3
-  %39 = shl i8 %35, 3
-  %40 = and i8 %39, -32
-  %or168211.i = or disjoint i8 %40, %38
+  %39 = lshr i8 %37, 3
+  %40 = shl i8 %36, 3
+  %41 = and i8 %40, -32
+  %or168211.i = or disjoint i8 %41, %39
   store i8 %or168211.i, ptr %dst.addr.5293.i, align 1
   %incdec.ptr174.i = getelementptr i8, ptr %dst.addr.5293.i, i64 2
   %add.ptr191.i = getelementptr i32, ptr %ph.3295.i, i64 %idx.ext190.i
@@ -3131,19 +3119,19 @@ do.body217.i:                                     ; preds = %while.body210.i, %d
   %ph.5308.i = phi ptr [ %add.ptr258.i, %do.body217.i ], [ %ph.4315.i, %while.body210.i ]
   %dst.addr.8306.i = phi ptr [ %incdec.ptr241.i, %do.body217.i ], [ %dst.addr.7313.i, %while.body210.i ]
   %arrayidx218.i = getelementptr i8, ptr %ph.5308.i, i64 2
-  %41 = load i8, ptr %arrayidx218.i, align 1
+  %42 = load i8, ptr %arrayidx218.i, align 1
   %arrayidx220.i = getelementptr i8, ptr %ph.5308.i, i64 1
-  %42 = load i8, ptr %arrayidx220.i, align 1
-  %43 = load i8, ptr %ph.5308.i, align 1
-  %44 = and i8 %41, -8
-  %shr229.i = lshr i8 %42, 5
-  %or230.i = or disjoint i8 %shr229.i, %44
+  %43 = load i8, ptr %arrayidx220.i, align 1
+  %44 = load i8, ptr %ph.5308.i, align 1
+  %45 = and i8 %42, -8
+  %shr229.i = lshr i8 %43, 5
+  %or230.i = or disjoint i8 %shr229.i, %45
   %arrayidx232.i = getelementptr i8, ptr %dst.addr.8306.i, i64 1
   store i8 %or230.i, ptr %arrayidx232.i, align 1
-  %45 = lshr i8 %43, 3
-  %46 = shl i8 %42, 3
-  %47 = and i8 %46, -32
-  %or235210.i = or disjoint i8 %47, %45
+  %46 = lshr i8 %44, 3
+  %47 = shl i8 %43, 3
+  %48 = and i8 %47, -32
+  %or235210.i = or disjoint i8 %48, %46
   store i8 %or235210.i, ptr %dst.addr.8306.i, align 1
   %incdec.ptr241.i = getelementptr i8, ptr %dst.addr.8306.i, i64 2
   %add.ptr258.i = getelementptr i32, ptr %ph.5308.i, i64 %idx.ext257.i
@@ -3159,7 +3147,7 @@ while.end259.i:                                   ; preds = %do.body217.i, %whil
 
 do.end265.i:                                      ; preds = %while.end259.i, %do.body199.i
   %dst.addr.7.lcssa.i = phi ptr [ %dst.addr.4.lcssa.i, %do.body199.i ], [ %dst.addr.8.lcssa.i, %while.end259.i ]
-  %cmp267.i = icmp ne i32 %l.0333.i, %sub266.i
+  %cmp267.i = icmp ne i32 %l.0332.i, %17
   %brmerge.i = or i1 %cmp276325.i, %cmp267.i
   br i1 %brmerge.i, label %for.inc.i, label %while.body278.lr.ph.i
 
@@ -3181,19 +3169,19 @@ do.body285.i:                                     ; preds = %while.body278.i, %d
   %ph.7321.i = phi ptr [ %add.ptr326.i, %do.body285.i ], [ %ph.6328.i, %while.body278.i ]
   %dst.addr.11319.i = phi ptr [ %incdec.ptr309.i, %do.body285.i ], [ %dst.addr.10326.i, %while.body278.i ]
   %arrayidx286.i = getelementptr i8, ptr %ph.7321.i, i64 2
-  %48 = load i8, ptr %arrayidx286.i, align 1
+  %49 = load i8, ptr %arrayidx286.i, align 1
   %arrayidx288.i = getelementptr i8, ptr %ph.7321.i, i64 1
-  %49 = load i8, ptr %arrayidx288.i, align 1
-  %50 = load i8, ptr %ph.7321.i, align 1
-  %51 = and i8 %48, -8
-  %shr297.i = lshr i8 %49, 5
-  %or298.i = or disjoint i8 %shr297.i, %51
+  %50 = load i8, ptr %arrayidx288.i, align 1
+  %51 = load i8, ptr %ph.7321.i, align 1
+  %52 = and i8 %49, -8
+  %shr297.i = lshr i8 %50, 5
+  %or298.i = or disjoint i8 %shr297.i, %52
   %arrayidx300.i = getelementptr i8, ptr %dst.addr.11319.i, i64 1
   store i8 %or298.i, ptr %arrayidx300.i, align 1
-  %52 = lshr i8 %50, 3
-  %53 = shl i8 %49, 3
-  %54 = and i8 %53, -32
-  %or303209.i = or disjoint i8 %54, %52
+  %53 = lshr i8 %51, 3
+  %54 = shl i8 %50, 3
+  %55 = and i8 %54, -32
+  %or303209.i = or disjoint i8 %55, %53
   store i8 %or303209.i, ptr %dst.addr.11319.i, align 1
   %incdec.ptr309.i = getelementptr i8, ptr %dst.addr.11319.i, i64 2
   %add.ptr326.i = getelementptr i32, ptr %ph.7321.i, i64 %idx.ext325.i
@@ -3209,22 +3197,22 @@ while.end327.i:                                   ; preds = %do.body285.i, %whil
 
 for.inc.i:                                        ; preds = %while.end327.i, %do.end265.i
   %dst.addr.13.i = phi ptr [ %dst.addr.7.lcssa.i, %do.end265.i ], [ %dst.addr.11.lcssa.i, %while.end327.i ]
-  %inc.i = add nuw nsw i32 %l.0333.i, 1
+  %inc.i = add nuw nsw i32 %l.0332.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %zywrle_level.tr
   br i1 %exitcond.not.i, label %do.body335.i, label %do.body73.i, !llvm.loop !93
 
 do.body335.i:                                     ; preds = %for.inc.i
   %add.ptr343.i = getelementptr i32, ptr %zywrle, i64 %idx.ext
-  %cmp345337.i = icmp ult ptr %add.ptr.i, %add.ptr343.i
-  br i1 %cmp345337.i, label %while.body347.i, label %zywrle_analyze_16le.exit
+  %cmp345334.i = icmp ult ptr %add.ptr.i, %add.ptr343.i
+  br i1 %cmp345334.i, label %while.body347.i, label %zywrle_analyze_16le.exit
 
 while.body347.i:                                  ; preds = %do.body335.i, %while.body347.i
-  %top.8339.i = phi ptr [ %incdec.ptr365.i, %while.body347.i ], [ %add.ptr.i, %do.body335.i ]
-  %dst.addr.14338.i = phi ptr [ %incdec.ptr349.i, %while.body347.i ], [ %dst.addr.13.i, %do.body335.i ]
-  %55 = load i16, ptr %top.8339.i, align 2
-  store i16 %55, ptr %dst.addr.14338.i, align 2
-  %incdec.ptr349.i = getelementptr i8, ptr %dst.addr.14338.i, i64 2
-  %incdec.ptr365.i = getelementptr i8, ptr %top.8339.i, i64 4
+  %top.8336.i = phi ptr [ %incdec.ptr365.i, %while.body347.i ], [ %add.ptr.i, %do.body335.i ]
+  %dst.addr.14335.i = phi ptr [ %incdec.ptr349.i, %while.body347.i ], [ %dst.addr.13.i, %do.body335.i ]
+  %56 = load i16, ptr %top.8336.i, align 2
+  store i16 %56, ptr %dst.addr.14335.i, align 2
+  %incdec.ptr349.i = getelementptr i8, ptr %dst.addr.14335.i, i64 2
+  %incdec.ptr365.i = getelementptr i8, ptr %top.8336.i, i64 4
   %cmp345.i = icmp ult ptr %incdec.ptr365.i, %add.ptr343.i
   br i1 %cmp345.i, label %while.body347.i, label %zywrle_analyze_16le.exit, !llvm.loop !94
 
@@ -3243,7 +3231,7 @@ if.end165:                                        ; preds = %for.inc147, %while.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @zrle_encode_tile15be(ptr noundef %vs, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %zywrle_level) unnamed_addr #0 {
+define internal fastcc void @zrle_encode_tile15be(ptr noundef %vs, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef range(i32 0, 256) %zywrle_level) unnamed_addr #0 {
 entry:
   %value.addr.i96 = alloca i16, align 2
   %value.addr.i95 = alloca i16, align 2
@@ -3322,7 +3310,7 @@ if.then22:                                        ; preds = %while.end18
   br label %if.end165
 
 if.end25:                                         ; preds = %while.end18
-  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 16, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef nonnull %use_rle, ptr noundef nonnull %use_palette)
+  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 16, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
   %5 = load i8, ptr %use_palette, align 1
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.else30, label %if.end43.thread
@@ -3516,10 +3504,8 @@ for.inc147:                                       ; preds = %if.end135.thread, %
   br i1 %exitcond.not, label %if.end165, label %for.body112, !llvm.loop !102
 
 if.else150:                                       ; preds = %if.end43.thread
-  %cmp151 = icmp sgt i32 %zywrle_level.tr, 0
-  %and = and i32 %zywrle_level.tr, 128
-  %tobool154.not = icmp eq i32 %and, 0
-  %or.cond = and i1 %cmp151, %tobool154.not
+  %17 = add nsw i32 %zywrle_level.tr, -1
+  %or.cond = icmp ult i32 %17, 127
   br i1 %or.cond, label %if.then155, label %if.else159
 
 if.then155:                                       ; preds = %if.else150
@@ -3564,8 +3550,8 @@ while.body.i:                                     ; preds = %while.end.i, %while
 while.body14.i:                                   ; preds = %while.body.i, %while.body14.i
   %p.2253.i = phi ptr [ %incdec.ptr.i, %while.body14.i ], [ %p.1257.i, %while.body.i ]
   %top.2252.i = phi ptr [ %incdec.ptr15.i, %while.body14.i ], [ %top.1256.i, %while.body.i ]
-  %17 = load i16, ptr %p.2253.i, align 2
-  store i16 %17, ptr %top.2252.i, align 2
+  %18 = load i16, ptr %p.2253.i, align 2
+  store i16 %18, ptr %top.2252.i, align 2
   %incdec.ptr.i = getelementptr i8, ptr %p.2253.i, i64 2
   %incdec.ptr15.i = getelementptr i8, ptr %top.2252.i, i64 4
   %cmp13.i = icmp ult ptr %incdec.ptr.i, %add.ptr11.i
@@ -3608,8 +3594,8 @@ while.body31.i:                                   ; preds = %while.end39.i, %whi
 while.body36.i:                                   ; preds = %while.body31.i, %while.body36.i
   %p.5262.i = phi ptr [ %incdec.ptr37.i, %while.body36.i ], [ %p.4267.i, %while.body31.i ]
   %top.5261.i = phi ptr [ %incdec.ptr38.i, %while.body36.i ], [ %top.4266.i, %while.body31.i ]
-  %18 = load i16, ptr %p.5262.i, align 2
-  store i16 %18, ptr %top.5261.i, align 2
+  %19 = load i16, ptr %p.5262.i, align 2
+  store i16 %19, ptr %top.5261.i, align 2
   %incdec.ptr37.i = getelementptr i8, ptr %p.5262.i, i64 2
   %incdec.ptr38.i = getelementptr i8, ptr %top.5261.i, i64 4
   %cmp35.i = icmp ult ptr %incdec.ptr37.i, %add.ptr33.i
@@ -3648,8 +3634,8 @@ while.body58.i:                                   ; preds = %while.end66.i, %whi
 while.body63.i:                                   ; preds = %while.body58.i, %while.body63.i
   %p.7272.i = phi ptr [ %incdec.ptr64.i, %while.body63.i ], [ %p.6277.i, %while.body58.i ]
   %top.7271.i = phi ptr [ %incdec.ptr65.i, %while.body63.i ], [ %top.6276.i, %while.body58.i ]
-  %19 = load i16, ptr %p.7272.i, align 2
-  store i16 %19, ptr %top.7271.i, align 2
+  %20 = load i16, ptr %p.7272.i, align 2
+  store i16 %20, ptr %top.7271.i, align 2
   %incdec.ptr64.i = getelementptr i8, ptr %p.7272.i, i64 2
   %incdec.ptr65.i = getelementptr i8, ptr %top.7271.i, i64 4
   %cmp62.i = icmp ult ptr %incdec.ptr64.i, %add.ptr60.i
@@ -3665,7 +3651,7 @@ while.end66.i:                                    ; preds = %while.body63.i, %wh
 do.end.i:                                         ; preds = %while.end66.i, %if.then47.i, %if.end44.i, %if.end20.i
   %cmp36.i.i = icmp ult ptr %zywrle, %add.ptr.i
   %idx.ext1.i.i = sext i32 %and.i.i to i64
-  br i1 %cmp36.i.i, label %while.body.lr.ph.i.i, label %do.body73.lr.ph.i
+  br i1 %cmp36.i.i, label %while.body.lr.ph.i.i, label %zywrle_rgbyuv_15be.exit.i
 
 while.body.lr.ph.i.i:                             ; preds = %do.end.i
   %idx.ext51.i.i = sext i32 %sub.i to i64
@@ -3681,45 +3667,45 @@ while.body.i.i:                                   ; preds = %while.end.i.i, %whi
 do.body.i.i:                                      ; preds = %while.body.i.i, %do.body.i.i
   %buf.addr.134.i.i = phi ptr [ %incdec.ptr.i.i, %do.body.i.i ], [ %buf.addr.038.i.i, %while.body.i.i ]
   %data.addr.133.i.i = phi ptr [ %incdec.ptr49.i.i, %do.body.i.i ], [ %data.addr.037.i.i, %while.body.i.i ]
-  %20 = load i8, ptr %data.addr.133.i.i, align 1
-  %conv.i.i = zext i8 %20 to i32
+  %21 = load i8, ptr %data.addr.133.i.i, align 1
+  %conv.i.i = zext i8 %21 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 1
   %and.i213.i = and i32 %shl.i.i, 248
   %shl8.i.i = shl nuw nsw i32 %conv.i.i, 6
   %arrayidx9.i.i = getelementptr i8, ptr %data.addr.133.i.i, i64 1
-  %21 = load i8, ptr %arrayidx9.i.i, align 1
-  %conv10.i.i = zext i8 %21 to i32
+  %22 = load i8, ptr %arrayidx9.i.i, align 1
+  %conv10.i.i = zext i8 %22 to i32
   %shr.i.i = lshr i32 %conv10.i.i, 2
   %or.i.i = or disjoint i32 %shr.i.i, %shl8.i.i
   %and11.i.i = and i32 %or.i.i, 248
   %shl14.i.i = shl nuw nsw i32 %conv10.i.i, 3
   %and15.i.i = and i32 %shl14.i.i, 248
-  %22 = and i32 %conv.i.i, 124
-  %23 = add nuw nsw i32 %and11.i.i, %22
-  %add.i.i = shl nuw nsw i32 %23, 1
+  %23 = and i32 %conv.i.i, 124
+  %24 = add nuw nsw i32 %and11.i.i, %23
+  %add.i.i = shl nuw nsw i32 %24, 1
   %add18.i.i = add nuw nsw i32 %add.i.i, %and15.i.i
   %shr19.i.i = lshr exact i32 %add18.i.i, 2
   %sub.i.i = sub nsw i32 %and15.i.i, %and11.i.i
   %sub20.i.i = sub nsw i32 %and.i213.i, %and11.i.i
   %shr22.i.i = ashr exact i32 %sub.i.i, 1
   %shr23.i.i = ashr exact i32 %sub20.i.i, 1
-  %24 = and i32 %shr19.i.i, 504
+  %25 = and i32 %shr19.i.i, 504
   %and25.i.i = and i32 %shr22.i.i, -8
   %and26.i.i = and i32 %shr23.i.i, -8
-  %cmp27.i.i = icmp eq i32 %24, 0
-  %25 = trunc nuw i32 %24 to i8
-  %26 = xor i8 %25, -128
+  %cmp27.i.i = icmp eq i32 %25, 0
+  %26 = trunc nuw i32 %25 to i8
+  %27 = xor i8 %26, -128
   %cmp30.i.i = icmp eq i32 %and25.i.i, -128
-  %27 = trunc i32 %and25.i.i to i8
+  %28 = trunc i32 %and25.i.i to i8
   %cmp35.i.i = icmp eq i32 %and26.i.i, -128
-  %28 = trunc i32 %and26.i.i to i8
-  %conv42.i.i = select i1 %cmp35.i.i, i8 -120, i8 %28
+  %29 = trunc i32 %and26.i.i to i8
+  %conv42.i.i = select i1 %cmp35.i.i, i8 -120, i8 %29
   %arrayidx43.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 2
   store i8 %conv42.i.i, ptr %arrayidx43.i.i, align 1
-  %conv44.i.i = select i1 %cmp27.i.i, i8 -120, i8 %26
+  %conv44.i.i = select i1 %cmp27.i.i, i8 -120, i8 %27
   %arrayidx45.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 1
   store i8 %conv44.i.i, ptr %arrayidx45.i.i, align 1
-  %conv46.i.i = select i1 %cmp30.i.i, i8 -120, i8 %27
+  %conv46.i.i = select i1 %cmp30.i.i, i8 -120, i8 %28
   store i8 %conv46.i.i, ptr %buf.addr.134.i.i, align 1
   %incdec.ptr.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 4
   %incdec.ptr49.i.i = getelementptr i8, ptr %data.addr.133.i.i, i64 2
@@ -3731,18 +3717,17 @@ while.end.i.i:                                    ; preds = %do.body.i.i, %while
   %buf.addr.1.lcssa.i.i = phi ptr [ %buf.addr.038.i.i, %while.body.i.i ], [ %incdec.ptr.i.i, %do.body.i.i ]
   %add.ptr52.i.i = getelementptr i16, ptr %data.addr.1.lcssa.i.i, i64 %idx.ext51.i.i
   %cmp.i.i = icmp ult ptr %buf.addr.1.lcssa.i.i, %add.ptr.i
-  br i1 %cmp.i.i, label %while.body.i.i, label %do.body73.lr.ph.i, !llvm.loop !110
+  br i1 %cmp.i.i, label %while.body.i.i, label %zywrle_rgbyuv_15be.exit.i, !llvm.loop !110
 
-do.body73.lr.ph.i:                                ; preds = %while.end.i.i, %do.end.i
+zywrle_rgbyuv_15be.exit.i:                        ; preds = %while.end.i.i, %do.end.i
   tail call fastcc void @wavelet(ptr noundef nonnull %zywrle, i32 noundef %and.i.i, i32 noundef %and4.i.i, i32 noundef %zywrle_level.tr)
-  %sub269.i = add nsw i32 %zywrle_level.tr, -1
   %cmp279325.i = icmp uge ptr %zywrle, %add.ptr.i
   br label %do.body73.i
 
-do.body73.i:                                      ; preds = %for.inc.i, %do.body73.lr.ph.i
-  %l.0333.i = phi i32 [ 0, %do.body73.lr.ph.i ], [ %inc.i, %for.inc.i ]
-  %dst.addr.0332.i = phi ptr [ %data, %do.body73.lr.ph.i ], [ %dst.addr.13.i, %for.inc.i ]
-  %shl.i = shl i32 2, %l.0333.i
+do.body73.i:                                      ; preds = %for.inc.i, %zywrle_rgbyuv_15be.exit.i
+  %l.0332.i = phi i32 [ 0, %zywrle_rgbyuv_15be.exit.i ], [ %inc.i, %for.inc.i ]
+  %dst.addr.0331.i = phi ptr [ %data, %zywrle_rgbyuv_15be.exit.i ], [ %dst.addr.13.i, %for.inc.i ]
+  %shl.i = shl i32 2, %l.0332.i
   %shr.i = ashr exact i32 %shl.i, 1
   %idx.ext74.i = sext i32 %shr.i to i64
   %add.ptr75.i = getelementptr i32, ptr %zywrle, i64 %idx.ext74.i
@@ -3762,7 +3747,7 @@ while.body85.lr.ph.i:                             ; preds = %do.body73.i
 
 while.body85.i:                                   ; preds = %while.end125.i, %while.body85.lr.ph.i
   %ph.0289.i = phi ptr [ %add.ptr79.i, %while.body85.lr.ph.i ], [ %add.ptr129.i, %while.end125.i ]
-  %dst.addr.1287.i = phi ptr [ %dst.addr.0332.i, %while.body85.lr.ph.i ], [ %dst.addr.2.lcssa.i, %while.end125.i ]
+  %dst.addr.1287.i = phi ptr [ %dst.addr.0331.i, %while.body85.lr.ph.i ], [ %dst.addr.2.lcssa.i, %while.end125.i ]
   %add.ptr87.i = getelementptr i32, ptr %ph.0289.i, i64 %idx.ext1.i.i
   %cmp89279.i = icmp ult ptr %ph.0289.i, %add.ptr87.i
   br i1 %cmp89279.i, label %do.body91.i, label %while.end125.i
@@ -3771,19 +3756,19 @@ do.body91.i:                                      ; preds = %while.body85.i, %do
   %ph.1282.i = phi ptr [ %add.ptr124.i, %do.body91.i ], [ %ph.0289.i, %while.body85.i ]
   %dst.addr.2280.i = phi ptr [ %incdec.ptr112.i, %do.body91.i ], [ %dst.addr.1287.i, %while.body85.i ]
   %arrayidx.i = getelementptr i8, ptr %ph.1282.i, i64 2
-  %29 = load i8, ptr %arrayidx.i, align 1
+  %30 = load i8, ptr %arrayidx.i, align 1
   %arrayidx92.i = getelementptr i8, ptr %ph.1282.i, i64 1
-  %30 = load i8, ptr %arrayidx92.i, align 1
-  %31 = load i8, ptr %ph.1282.i, align 1
-  %32 = lshr i8 %29, 1
-  %33 = and i8 %32, 124
-  %shr101.i = lshr i8 %30, 6
-  %or.i = or disjoint i8 %shr101.i, %33
+  %31 = load i8, ptr %arrayidx92.i, align 1
+  %32 = load i8, ptr %ph.1282.i, align 1
+  %33 = lshr i8 %30, 1
+  %34 = and i8 %33, 124
+  %shr101.i = lshr i8 %31, 6
+  %or.i = or disjoint i8 %shr101.i, %34
   store i8 %or.i, ptr %dst.addr.2280.i, align 1
-  %34 = lshr i8 %31, 3
-  %35 = shl i8 %30, 2
-  %36 = and i8 %35, -32
-  %or106212.i = or disjoint i8 %36, %34
+  %35 = lshr i8 %32, 3
+  %36 = shl i8 %31, 2
+  %37 = and i8 %36, -32
+  %or106212.i = or disjoint i8 %37, %35
   %arrayidx109.i = getelementptr i8, ptr %dst.addr.2280.i, i64 1
   store i8 %or106212.i, ptr %arrayidx109.i, align 1
   %incdec.ptr112.i = getelementptr i8, ptr %dst.addr.2280.i, i64 2
@@ -3799,7 +3784,7 @@ while.end125.i:                                   ; preds = %do.body91.i, %while
   br i1 %cmp84.i, label %while.body85.i, label %do.body132.i, !llvm.loop !112
 
 do.body132.i:                                     ; preds = %while.end125.i, %do.body73.i
-  %dst.addr.1.lcssa.i = phi ptr [ %dst.addr.0332.i, %do.body73.i ], [ %dst.addr.2.lcssa.i, %while.end125.i ]
+  %dst.addr.1.lcssa.i = phi ptr [ %dst.addr.0331.i, %do.body73.i ], [ %dst.addr.2.lcssa.i, %while.end125.i ]
   %add.ptr137.i = getelementptr i32, ptr %zywrle, i64 %idx.ext78.i
   %add.ptr140.i = getelementptr i32, ptr %add.ptr137.i, i64 %idx.ext.i
   %cmp142299.i = icmp ult ptr %add.ptr137.i, %add.ptr140.i
@@ -3823,19 +3808,19 @@ do.body151.i:                                     ; preds = %while.body144.i, %d
   %ph.3295.i = phi ptr [ %add.ptr193.i, %do.body151.i ], [ %ph.2302.i, %while.body144.i ]
   %dst.addr.5293.i = phi ptr [ %incdec.ptr176.i, %do.body151.i ], [ %dst.addr.4300.i, %while.body144.i ]
   %arrayidx152.i = getelementptr i8, ptr %ph.3295.i, i64 2
-  %37 = load i8, ptr %arrayidx152.i, align 1
+  %38 = load i8, ptr %arrayidx152.i, align 1
   %arrayidx154.i = getelementptr i8, ptr %ph.3295.i, i64 1
-  %38 = load i8, ptr %arrayidx154.i, align 1
-  %39 = load i8, ptr %ph.3295.i, align 1
-  %40 = lshr i8 %37, 1
-  %41 = and i8 %40, 124
-  %shr164.i = lshr i8 %38, 6
-  %or165.i = or disjoint i8 %shr164.i, %41
+  %39 = load i8, ptr %arrayidx154.i, align 1
+  %40 = load i8, ptr %ph.3295.i, align 1
+  %41 = lshr i8 %38, 1
+  %42 = and i8 %41, 124
+  %shr164.i = lshr i8 %39, 6
+  %or165.i = or disjoint i8 %shr164.i, %42
   store i8 %or165.i, ptr %dst.addr.5293.i, align 1
-  %42 = lshr i8 %39, 3
-  %43 = shl i8 %38, 2
-  %44 = and i8 %43, -32
-  %or170211.i = or disjoint i8 %44, %42
+  %43 = lshr i8 %40, 3
+  %44 = shl i8 %39, 2
+  %45 = and i8 %44, -32
+  %or170211.i = or disjoint i8 %45, %43
   %arrayidx173.i = getelementptr i8, ptr %dst.addr.5293.i, i64 1
   store i8 %or170211.i, ptr %arrayidx173.i, align 1
   %incdec.ptr176.i = getelementptr i8, ptr %dst.addr.5293.i, i64 2
@@ -3874,19 +3859,19 @@ do.body219.i:                                     ; preds = %while.body212.i, %d
   %ph.5308.i = phi ptr [ %add.ptr261.i, %do.body219.i ], [ %ph.4315.i, %while.body212.i ]
   %dst.addr.8306.i = phi ptr [ %incdec.ptr244.i, %do.body219.i ], [ %dst.addr.7313.i, %while.body212.i ]
   %arrayidx220.i = getelementptr i8, ptr %ph.5308.i, i64 2
-  %45 = load i8, ptr %arrayidx220.i, align 1
+  %46 = load i8, ptr %arrayidx220.i, align 1
   %arrayidx222.i = getelementptr i8, ptr %ph.5308.i, i64 1
-  %46 = load i8, ptr %arrayidx222.i, align 1
-  %47 = load i8, ptr %ph.5308.i, align 1
-  %48 = lshr i8 %45, 1
-  %49 = and i8 %48, 124
-  %shr232.i = lshr i8 %46, 6
-  %or233.i = or disjoint i8 %shr232.i, %49
+  %47 = load i8, ptr %arrayidx222.i, align 1
+  %48 = load i8, ptr %ph.5308.i, align 1
+  %49 = lshr i8 %46, 1
+  %50 = and i8 %49, 124
+  %shr232.i = lshr i8 %47, 6
+  %or233.i = or disjoint i8 %shr232.i, %50
   store i8 %or233.i, ptr %dst.addr.8306.i, align 1
-  %50 = lshr i8 %47, 3
-  %51 = shl i8 %46, 2
-  %52 = and i8 %51, -32
-  %or238210.i = or disjoint i8 %52, %50
+  %51 = lshr i8 %48, 3
+  %52 = shl i8 %47, 2
+  %53 = and i8 %52, -32
+  %or238210.i = or disjoint i8 %53, %51
   %arrayidx241.i = getelementptr i8, ptr %dst.addr.8306.i, i64 1
   store i8 %or238210.i, ptr %arrayidx241.i, align 1
   %incdec.ptr244.i = getelementptr i8, ptr %dst.addr.8306.i, i64 2
@@ -3903,7 +3888,7 @@ while.end262.i:                                   ; preds = %do.body219.i, %whil
 
 do.end268.i:                                      ; preds = %while.end262.i, %do.body201.i
   %dst.addr.7.lcssa.i = phi ptr [ %dst.addr.4.lcssa.i, %do.body201.i ], [ %dst.addr.8.lcssa.i, %while.end262.i ]
-  %cmp270.i = icmp ne i32 %l.0333.i, %sub269.i
+  %cmp270.i = icmp ne i32 %l.0332.i, %17
   %brmerge.i = or i1 %cmp279325.i, %cmp270.i
   br i1 %brmerge.i, label %for.inc.i, label %while.body281.lr.ph.i
 
@@ -3925,19 +3910,19 @@ do.body288.i:                                     ; preds = %while.body281.i, %d
   %ph.7321.i = phi ptr [ %add.ptr330.i, %do.body288.i ], [ %ph.6328.i, %while.body281.i ]
   %dst.addr.11319.i = phi ptr [ %incdec.ptr313.i, %do.body288.i ], [ %dst.addr.10326.i, %while.body281.i ]
   %arrayidx289.i = getelementptr i8, ptr %ph.7321.i, i64 2
-  %53 = load i8, ptr %arrayidx289.i, align 1
+  %54 = load i8, ptr %arrayidx289.i, align 1
   %arrayidx291.i = getelementptr i8, ptr %ph.7321.i, i64 1
-  %54 = load i8, ptr %arrayidx291.i, align 1
-  %55 = load i8, ptr %ph.7321.i, align 1
-  %56 = lshr i8 %53, 1
-  %57 = and i8 %56, 124
-  %shr301.i = lshr i8 %54, 6
-  %or302.i = or disjoint i8 %shr301.i, %57
+  %55 = load i8, ptr %arrayidx291.i, align 1
+  %56 = load i8, ptr %ph.7321.i, align 1
+  %57 = lshr i8 %54, 1
+  %58 = and i8 %57, 124
+  %shr301.i = lshr i8 %55, 6
+  %or302.i = or disjoint i8 %shr301.i, %58
   store i8 %or302.i, ptr %dst.addr.11319.i, align 1
-  %58 = lshr i8 %55, 3
-  %59 = shl i8 %54, 2
-  %60 = and i8 %59, -32
-  %or307209.i = or disjoint i8 %60, %58
+  %59 = lshr i8 %56, 3
+  %60 = shl i8 %55, 2
+  %61 = and i8 %60, -32
+  %or307209.i = or disjoint i8 %61, %59
   %arrayidx310.i = getelementptr i8, ptr %dst.addr.11319.i, i64 1
   store i8 %or307209.i, ptr %arrayidx310.i, align 1
   %incdec.ptr313.i = getelementptr i8, ptr %dst.addr.11319.i, i64 2
@@ -3954,22 +3939,22 @@ while.end331.i:                                   ; preds = %do.body288.i, %whil
 
 for.inc.i:                                        ; preds = %while.end331.i, %do.end268.i
   %dst.addr.13.i = phi ptr [ %dst.addr.7.lcssa.i, %do.end268.i ], [ %dst.addr.11.lcssa.i, %while.end331.i ]
-  %inc.i = add nuw nsw i32 %l.0333.i, 1
+  %inc.i = add nuw nsw i32 %l.0332.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %zywrle_level.tr
   br i1 %exitcond.not.i, label %do.body339.i, label %do.body73.i, !llvm.loop !119
 
 do.body339.i:                                     ; preds = %for.inc.i
   %add.ptr347.i = getelementptr i32, ptr %zywrle, i64 %idx.ext
-  %cmp349337.i = icmp ult ptr %add.ptr.i, %add.ptr347.i
-  br i1 %cmp349337.i, label %while.body351.i, label %zywrle_analyze_15be.exit
+  %cmp349334.i = icmp ult ptr %add.ptr.i, %add.ptr347.i
+  br i1 %cmp349334.i, label %while.body351.i, label %zywrle_analyze_15be.exit
 
 while.body351.i:                                  ; preds = %do.body339.i, %while.body351.i
-  %top.8339.i = phi ptr [ %incdec.ptr369.i, %while.body351.i ], [ %add.ptr.i, %do.body339.i ]
-  %dst.addr.14338.i = phi ptr [ %incdec.ptr353.i, %while.body351.i ], [ %dst.addr.13.i, %do.body339.i ]
-  %61 = load i16, ptr %top.8339.i, align 2
-  store i16 %61, ptr %dst.addr.14338.i, align 2
-  %incdec.ptr353.i = getelementptr i8, ptr %dst.addr.14338.i, i64 2
-  %incdec.ptr369.i = getelementptr i8, ptr %top.8339.i, i64 4
+  %top.8336.i = phi ptr [ %incdec.ptr369.i, %while.body351.i ], [ %add.ptr.i, %do.body339.i ]
+  %dst.addr.14335.i = phi ptr [ %incdec.ptr353.i, %while.body351.i ], [ %dst.addr.13.i, %do.body339.i ]
+  %62 = load i16, ptr %top.8336.i, align 2
+  store i16 %62, ptr %dst.addr.14335.i, align 2
+  %incdec.ptr353.i = getelementptr i8, ptr %dst.addr.14335.i, i64 2
+  %incdec.ptr369.i = getelementptr i8, ptr %top.8336.i, i64 4
   %cmp349.i = icmp ult ptr %incdec.ptr369.i, %add.ptr347.i
   br i1 %cmp349.i, label %while.body351.i, label %zywrle_analyze_15be.exit, !llvm.loop !120
 
@@ -3986,7 +3971,7 @@ if.end165:                                        ; preds = %for.inc147, %while.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @zrle_encode_tile15le(ptr noundef %vs, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %zywrle_level) unnamed_addr #0 {
+define internal fastcc void @zrle_encode_tile15le(ptr noundef %vs, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef range(i32 0, 256) %zywrle_level) unnamed_addr #0 {
 entry:
   %value.addr.i96 = alloca i16, align 2
   %value.addr.i95 = alloca i16, align 2
@@ -4065,7 +4050,7 @@ if.then22:                                        ; preds = %while.end18
   br label %if.end165
 
 if.end25:                                         ; preds = %while.end18
-  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 16, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef nonnull %use_rle, ptr noundef nonnull %use_palette)
+  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 16, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
   %5 = load i8, ptr %use_palette, align 1
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.else30, label %if.end43.thread
@@ -4259,10 +4244,8 @@ for.inc147:                                       ; preds = %if.end135.thread, %
   br i1 %exitcond.not, label %if.end165, label %for.body112, !llvm.loop !128
 
 if.else150:                                       ; preds = %if.end43.thread
-  %cmp151 = icmp sgt i32 %zywrle_level.tr, 0
-  %and = and i32 %zywrle_level.tr, 128
-  %tobool154.not = icmp eq i32 %and, 0
-  %or.cond = and i1 %cmp151, %tobool154.not
+  %17 = add nsw i32 %zywrle_level.tr, -1
+  %or.cond = icmp ult i32 %17, 127
   br i1 %or.cond, label %if.then155, label %if.else159
 
 if.then155:                                       ; preds = %if.else150
@@ -4307,8 +4290,8 @@ while.body.i:                                     ; preds = %while.end.i, %while
 while.body14.i:                                   ; preds = %while.body.i, %while.body14.i
   %p.2253.i = phi ptr [ %incdec.ptr.i, %while.body14.i ], [ %p.1257.i, %while.body.i ]
   %top.2252.i = phi ptr [ %incdec.ptr15.i, %while.body14.i ], [ %top.1256.i, %while.body.i ]
-  %17 = load i16, ptr %p.2253.i, align 2
-  store i16 %17, ptr %top.2252.i, align 2
+  %18 = load i16, ptr %p.2253.i, align 2
+  store i16 %18, ptr %top.2252.i, align 2
   %incdec.ptr.i = getelementptr i8, ptr %p.2253.i, i64 2
   %incdec.ptr15.i = getelementptr i8, ptr %top.2252.i, i64 4
   %cmp13.i = icmp ult ptr %incdec.ptr.i, %add.ptr11.i
@@ -4351,8 +4334,8 @@ while.body31.i:                                   ; preds = %while.end39.i, %whi
 while.body36.i:                                   ; preds = %while.body31.i, %while.body36.i
   %p.5262.i = phi ptr [ %incdec.ptr37.i, %while.body36.i ], [ %p.4267.i, %while.body31.i ]
   %top.5261.i = phi ptr [ %incdec.ptr38.i, %while.body36.i ], [ %top.4266.i, %while.body31.i ]
-  %18 = load i16, ptr %p.5262.i, align 2
-  store i16 %18, ptr %top.5261.i, align 2
+  %19 = load i16, ptr %p.5262.i, align 2
+  store i16 %19, ptr %top.5261.i, align 2
   %incdec.ptr37.i = getelementptr i8, ptr %p.5262.i, i64 2
   %incdec.ptr38.i = getelementptr i8, ptr %top.5261.i, i64 4
   %cmp35.i = icmp ult ptr %incdec.ptr37.i, %add.ptr33.i
@@ -4391,8 +4374,8 @@ while.body58.i:                                   ; preds = %while.end66.i, %whi
 while.body63.i:                                   ; preds = %while.body58.i, %while.body63.i
   %p.7272.i = phi ptr [ %incdec.ptr64.i, %while.body63.i ], [ %p.6277.i, %while.body58.i ]
   %top.7271.i = phi ptr [ %incdec.ptr65.i, %while.body63.i ], [ %top.6276.i, %while.body58.i ]
-  %19 = load i16, ptr %p.7272.i, align 2
-  store i16 %19, ptr %top.7271.i, align 2
+  %20 = load i16, ptr %p.7272.i, align 2
+  store i16 %20, ptr %top.7271.i, align 2
   %incdec.ptr64.i = getelementptr i8, ptr %p.7272.i, i64 2
   %incdec.ptr65.i = getelementptr i8, ptr %top.7271.i, i64 4
   %cmp62.i = icmp ult ptr %incdec.ptr64.i, %add.ptr60.i
@@ -4408,7 +4391,7 @@ while.end66.i:                                    ; preds = %while.body63.i, %wh
 do.end.i:                                         ; preds = %while.end66.i, %if.then47.i, %if.end44.i, %if.end20.i
   %cmp36.i.i = icmp ult ptr %zywrle, %add.ptr.i
   %idx.ext1.i.i = sext i32 %and.i.i to i64
-  br i1 %cmp36.i.i, label %while.body.lr.ph.i.i, label %do.body73.lr.ph.i
+  br i1 %cmp36.i.i, label %while.body.lr.ph.i.i, label %zywrle_rgbyuv_15le.exit.i
 
 while.body.lr.ph.i.i:                             ; preds = %do.end.i
   %idx.ext51.i.i = sext i32 %sub.i to i64
@@ -4425,44 +4408,44 @@ do.body.i.i:                                      ; preds = %while.body.i.i, %do
   %buf.addr.134.i.i = phi ptr [ %incdec.ptr.i.i, %do.body.i.i ], [ %buf.addr.038.i.i, %while.body.i.i ]
   %data.addr.133.i.i = phi ptr [ %incdec.ptr49.i.i, %do.body.i.i ], [ %data.addr.037.i.i, %while.body.i.i ]
   %arrayidx.i.i = getelementptr i8, ptr %data.addr.133.i.i, i64 1
-  %20 = load i8, ptr %arrayidx.i.i, align 1
-  %conv.i.i = zext i8 %20 to i32
+  %21 = load i8, ptr %arrayidx.i.i, align 1
+  %conv.i.i = zext i8 %21 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 1
   %and.i213.i = and i32 %shl.i.i, 248
   %shl8.i.i = shl nuw nsw i32 %conv.i.i, 6
-  %21 = load i8, ptr %data.addr.133.i.i, align 1
-  %conv10.i.i = zext i8 %21 to i32
+  %22 = load i8, ptr %data.addr.133.i.i, align 1
+  %conv10.i.i = zext i8 %22 to i32
   %shr.i.i = lshr i32 %conv10.i.i, 2
   %or.i.i = or disjoint i32 %shr.i.i, %shl8.i.i
   %and11.i.i = and i32 %or.i.i, 248
   %shl14.i.i = shl nuw nsw i32 %conv10.i.i, 3
   %and15.i.i = and i32 %shl14.i.i, 248
-  %22 = and i32 %conv.i.i, 124
-  %23 = add nuw nsw i32 %and11.i.i, %22
-  %add.i.i = shl nuw nsw i32 %23, 1
+  %23 = and i32 %conv.i.i, 124
+  %24 = add nuw nsw i32 %and11.i.i, %23
+  %add.i.i = shl nuw nsw i32 %24, 1
   %add18.i.i = add nuw nsw i32 %add.i.i, %and15.i.i
   %shr19.i.i = lshr exact i32 %add18.i.i, 2
   %sub.i.i = sub nsw i32 %and15.i.i, %and11.i.i
   %sub20.i.i = sub nsw i32 %and.i213.i, %and11.i.i
   %shr22.i.i = ashr exact i32 %sub.i.i, 1
   %shr23.i.i = ashr exact i32 %sub20.i.i, 1
-  %24 = and i32 %shr19.i.i, 504
+  %25 = and i32 %shr19.i.i, 504
   %and25.i.i = and i32 %shr22.i.i, -8
   %and26.i.i = and i32 %shr23.i.i, -8
-  %cmp27.i.i = icmp eq i32 %24, 0
-  %25 = trunc nuw i32 %24 to i8
-  %26 = xor i8 %25, -128
+  %cmp27.i.i = icmp eq i32 %25, 0
+  %26 = trunc nuw i32 %25 to i8
+  %27 = xor i8 %26, -128
   %cmp30.i.i = icmp eq i32 %and25.i.i, -128
-  %27 = trunc i32 %and25.i.i to i8
+  %28 = trunc i32 %and25.i.i to i8
   %cmp35.i.i = icmp eq i32 %and26.i.i, -128
-  %28 = trunc i32 %and26.i.i to i8
-  %conv42.i.i = select i1 %cmp35.i.i, i8 -120, i8 %28
+  %29 = trunc i32 %and26.i.i to i8
+  %conv42.i.i = select i1 %cmp35.i.i, i8 -120, i8 %29
   %arrayidx43.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 2
   store i8 %conv42.i.i, ptr %arrayidx43.i.i, align 1
-  %conv44.i.i = select i1 %cmp27.i.i, i8 -120, i8 %26
+  %conv44.i.i = select i1 %cmp27.i.i, i8 -120, i8 %27
   %arrayidx45.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 1
   store i8 %conv44.i.i, ptr %arrayidx45.i.i, align 1
-  %conv46.i.i = select i1 %cmp30.i.i, i8 -120, i8 %27
+  %conv46.i.i = select i1 %cmp30.i.i, i8 -120, i8 %28
   store i8 %conv46.i.i, ptr %buf.addr.134.i.i, align 1
   %incdec.ptr.i.i = getelementptr i8, ptr %buf.addr.134.i.i, i64 4
   %incdec.ptr49.i.i = getelementptr i8, ptr %data.addr.133.i.i, i64 2
@@ -4474,18 +4457,17 @@ while.end.i.i:                                    ; preds = %do.body.i.i, %while
   %buf.addr.1.lcssa.i.i = phi ptr [ %buf.addr.038.i.i, %while.body.i.i ], [ %incdec.ptr.i.i, %do.body.i.i ]
   %add.ptr52.i.i = getelementptr i16, ptr %data.addr.1.lcssa.i.i, i64 %idx.ext51.i.i
   %cmp.i.i = icmp ult ptr %buf.addr.1.lcssa.i.i, %add.ptr.i
-  br i1 %cmp.i.i, label %while.body.i.i, label %do.body73.lr.ph.i, !llvm.loop !136
+  br i1 %cmp.i.i, label %while.body.i.i, label %zywrle_rgbyuv_15le.exit.i, !llvm.loop !136
 
-do.body73.lr.ph.i:                                ; preds = %while.end.i.i, %do.end.i
+zywrle_rgbyuv_15le.exit.i:                        ; preds = %while.end.i.i, %do.end.i
   tail call fastcc void @wavelet(ptr noundef nonnull %zywrle, i32 noundef %and.i.i, i32 noundef %and4.i.i, i32 noundef %zywrle_level.tr)
-  %sub269.i = add nsw i32 %zywrle_level.tr, -1
   %cmp279325.i = icmp uge ptr %zywrle, %add.ptr.i
   br label %do.body73.i
 
-do.body73.i:                                      ; preds = %for.inc.i, %do.body73.lr.ph.i
-  %l.0333.i = phi i32 [ 0, %do.body73.lr.ph.i ], [ %inc.i, %for.inc.i ]
-  %dst.addr.0332.i = phi ptr [ %data, %do.body73.lr.ph.i ], [ %dst.addr.13.i, %for.inc.i ]
-  %shl.i = shl i32 2, %l.0333.i
+do.body73.i:                                      ; preds = %for.inc.i, %zywrle_rgbyuv_15le.exit.i
+  %l.0332.i = phi i32 [ 0, %zywrle_rgbyuv_15le.exit.i ], [ %inc.i, %for.inc.i ]
+  %dst.addr.0331.i = phi ptr [ %data, %zywrle_rgbyuv_15le.exit.i ], [ %dst.addr.13.i, %for.inc.i ]
+  %shl.i = shl i32 2, %l.0332.i
   %shr.i = ashr exact i32 %shl.i, 1
   %idx.ext74.i = sext i32 %shr.i to i64
   %add.ptr75.i = getelementptr i32, ptr %zywrle, i64 %idx.ext74.i
@@ -4505,7 +4487,7 @@ while.body85.lr.ph.i:                             ; preds = %do.body73.i
 
 while.body85.i:                                   ; preds = %while.end125.i, %while.body85.lr.ph.i
   %ph.0289.i = phi ptr [ %add.ptr79.i, %while.body85.lr.ph.i ], [ %add.ptr129.i, %while.end125.i ]
-  %dst.addr.1287.i = phi ptr [ %dst.addr.0332.i, %while.body85.lr.ph.i ], [ %dst.addr.2.lcssa.i, %while.end125.i ]
+  %dst.addr.1287.i = phi ptr [ %dst.addr.0331.i, %while.body85.lr.ph.i ], [ %dst.addr.2.lcssa.i, %while.end125.i ]
   %add.ptr87.i = getelementptr i32, ptr %ph.0289.i, i64 %idx.ext1.i.i
   %cmp89279.i = icmp ult ptr %ph.0289.i, %add.ptr87.i
   br i1 %cmp89279.i, label %do.body91.i, label %while.end125.i
@@ -4514,20 +4496,20 @@ do.body91.i:                                      ; preds = %while.body85.i, %do
   %ph.1282.i = phi ptr [ %add.ptr124.i, %do.body91.i ], [ %ph.0289.i, %while.body85.i ]
   %dst.addr.2280.i = phi ptr [ %incdec.ptr112.i, %do.body91.i ], [ %dst.addr.1287.i, %while.body85.i ]
   %arrayidx.i = getelementptr i8, ptr %ph.1282.i, i64 2
-  %29 = load i8, ptr %arrayidx.i, align 1
+  %30 = load i8, ptr %arrayidx.i, align 1
   %arrayidx92.i = getelementptr i8, ptr %ph.1282.i, i64 1
-  %30 = load i8, ptr %arrayidx92.i, align 1
-  %31 = load i8, ptr %ph.1282.i, align 1
-  %32 = lshr i8 %29, 1
-  %33 = and i8 %32, 124
-  %shr101.i = lshr i8 %30, 6
-  %or.i = or disjoint i8 %shr101.i, %33
+  %31 = load i8, ptr %arrayidx92.i, align 1
+  %32 = load i8, ptr %ph.1282.i, align 1
+  %33 = lshr i8 %30, 1
+  %34 = and i8 %33, 124
+  %shr101.i = lshr i8 %31, 6
+  %or.i = or disjoint i8 %shr101.i, %34
   %arrayidx103.i = getelementptr i8, ptr %dst.addr.2280.i, i64 1
   store i8 %or.i, ptr %arrayidx103.i, align 1
-  %34 = lshr i8 %31, 3
-  %35 = shl i8 %30, 2
-  %36 = and i8 %35, -32
-  %or106212.i = or disjoint i8 %36, %34
+  %35 = lshr i8 %32, 3
+  %36 = shl i8 %31, 2
+  %37 = and i8 %36, -32
+  %or106212.i = or disjoint i8 %37, %35
   store i8 %or106212.i, ptr %dst.addr.2280.i, align 1
   %incdec.ptr112.i = getelementptr i8, ptr %dst.addr.2280.i, i64 2
   %add.ptr124.i = getelementptr i32, ptr %ph.1282.i, i64 %idx.ext123.i
@@ -4542,7 +4524,7 @@ while.end125.i:                                   ; preds = %do.body91.i, %while
   br i1 %cmp84.i, label %while.body85.i, label %do.body132.i, !llvm.loop !138
 
 do.body132.i:                                     ; preds = %while.end125.i, %do.body73.i
-  %dst.addr.1.lcssa.i = phi ptr [ %dst.addr.0332.i, %do.body73.i ], [ %dst.addr.2.lcssa.i, %while.end125.i ]
+  %dst.addr.1.lcssa.i = phi ptr [ %dst.addr.0331.i, %do.body73.i ], [ %dst.addr.2.lcssa.i, %while.end125.i ]
   %add.ptr137.i = getelementptr i32, ptr %zywrle, i64 %idx.ext78.i
   %add.ptr140.i = getelementptr i32, ptr %add.ptr137.i, i64 %idx.ext.i
   %cmp142299.i = icmp ult ptr %add.ptr137.i, %add.ptr140.i
@@ -4566,20 +4548,20 @@ do.body151.i:                                     ; preds = %while.body144.i, %d
   %ph.3295.i = phi ptr [ %add.ptr193.i, %do.body151.i ], [ %ph.2302.i, %while.body144.i ]
   %dst.addr.5293.i = phi ptr [ %incdec.ptr176.i, %do.body151.i ], [ %dst.addr.4300.i, %while.body144.i ]
   %arrayidx152.i = getelementptr i8, ptr %ph.3295.i, i64 2
-  %37 = load i8, ptr %arrayidx152.i, align 1
+  %38 = load i8, ptr %arrayidx152.i, align 1
   %arrayidx154.i = getelementptr i8, ptr %ph.3295.i, i64 1
-  %38 = load i8, ptr %arrayidx154.i, align 1
-  %39 = load i8, ptr %ph.3295.i, align 1
-  %40 = lshr i8 %37, 1
-  %41 = and i8 %40, 124
-  %shr164.i = lshr i8 %38, 6
-  %or165.i = or disjoint i8 %shr164.i, %41
+  %39 = load i8, ptr %arrayidx154.i, align 1
+  %40 = load i8, ptr %ph.3295.i, align 1
+  %41 = lshr i8 %38, 1
+  %42 = and i8 %41, 124
+  %shr164.i = lshr i8 %39, 6
+  %or165.i = or disjoint i8 %shr164.i, %42
   %arrayidx167.i = getelementptr i8, ptr %dst.addr.5293.i, i64 1
   store i8 %or165.i, ptr %arrayidx167.i, align 1
-  %42 = lshr i8 %39, 3
-  %43 = shl i8 %38, 2
-  %44 = and i8 %43, -32
-  %or170211.i = or disjoint i8 %44, %42
+  %43 = lshr i8 %40, 3
+  %44 = shl i8 %39, 2
+  %45 = and i8 %44, -32
+  %or170211.i = or disjoint i8 %45, %43
   store i8 %or170211.i, ptr %dst.addr.5293.i, align 1
   %incdec.ptr176.i = getelementptr i8, ptr %dst.addr.5293.i, i64 2
   %add.ptr193.i = getelementptr i32, ptr %ph.3295.i, i64 %idx.ext192.i
@@ -4617,20 +4599,20 @@ do.body219.i:                                     ; preds = %while.body212.i, %d
   %ph.5308.i = phi ptr [ %add.ptr261.i, %do.body219.i ], [ %ph.4315.i, %while.body212.i ]
   %dst.addr.8306.i = phi ptr [ %incdec.ptr244.i, %do.body219.i ], [ %dst.addr.7313.i, %while.body212.i ]
   %arrayidx220.i = getelementptr i8, ptr %ph.5308.i, i64 2
-  %45 = load i8, ptr %arrayidx220.i, align 1
+  %46 = load i8, ptr %arrayidx220.i, align 1
   %arrayidx222.i = getelementptr i8, ptr %ph.5308.i, i64 1
-  %46 = load i8, ptr %arrayidx222.i, align 1
-  %47 = load i8, ptr %ph.5308.i, align 1
-  %48 = lshr i8 %45, 1
-  %49 = and i8 %48, 124
-  %shr232.i = lshr i8 %46, 6
-  %or233.i = or disjoint i8 %shr232.i, %49
+  %47 = load i8, ptr %arrayidx222.i, align 1
+  %48 = load i8, ptr %ph.5308.i, align 1
+  %49 = lshr i8 %46, 1
+  %50 = and i8 %49, 124
+  %shr232.i = lshr i8 %47, 6
+  %or233.i = or disjoint i8 %shr232.i, %50
   %arrayidx235.i = getelementptr i8, ptr %dst.addr.8306.i, i64 1
   store i8 %or233.i, ptr %arrayidx235.i, align 1
-  %50 = lshr i8 %47, 3
-  %51 = shl i8 %46, 2
-  %52 = and i8 %51, -32
-  %or238210.i = or disjoint i8 %52, %50
+  %51 = lshr i8 %48, 3
+  %52 = shl i8 %47, 2
+  %53 = and i8 %52, -32
+  %or238210.i = or disjoint i8 %53, %51
   store i8 %or238210.i, ptr %dst.addr.8306.i, align 1
   %incdec.ptr244.i = getelementptr i8, ptr %dst.addr.8306.i, i64 2
   %add.ptr261.i = getelementptr i32, ptr %ph.5308.i, i64 %idx.ext260.i
@@ -4646,7 +4628,7 @@ while.end262.i:                                   ; preds = %do.body219.i, %whil
 
 do.end268.i:                                      ; preds = %while.end262.i, %do.body201.i
   %dst.addr.7.lcssa.i = phi ptr [ %dst.addr.4.lcssa.i, %do.body201.i ], [ %dst.addr.8.lcssa.i, %while.end262.i ]
-  %cmp270.i = icmp ne i32 %l.0333.i, %sub269.i
+  %cmp270.i = icmp ne i32 %l.0332.i, %17
   %brmerge.i = or i1 %cmp279325.i, %cmp270.i
   br i1 %brmerge.i, label %for.inc.i, label %while.body281.lr.ph.i
 
@@ -4668,20 +4650,20 @@ do.body288.i:                                     ; preds = %while.body281.i, %d
   %ph.7321.i = phi ptr [ %add.ptr330.i, %do.body288.i ], [ %ph.6328.i, %while.body281.i ]
   %dst.addr.11319.i = phi ptr [ %incdec.ptr313.i, %do.body288.i ], [ %dst.addr.10326.i, %while.body281.i ]
   %arrayidx289.i = getelementptr i8, ptr %ph.7321.i, i64 2
-  %53 = load i8, ptr %arrayidx289.i, align 1
+  %54 = load i8, ptr %arrayidx289.i, align 1
   %arrayidx291.i = getelementptr i8, ptr %ph.7321.i, i64 1
-  %54 = load i8, ptr %arrayidx291.i, align 1
-  %55 = load i8, ptr %ph.7321.i, align 1
-  %56 = lshr i8 %53, 1
-  %57 = and i8 %56, 124
-  %shr301.i = lshr i8 %54, 6
-  %or302.i = or disjoint i8 %shr301.i, %57
+  %55 = load i8, ptr %arrayidx291.i, align 1
+  %56 = load i8, ptr %ph.7321.i, align 1
+  %57 = lshr i8 %54, 1
+  %58 = and i8 %57, 124
+  %shr301.i = lshr i8 %55, 6
+  %or302.i = or disjoint i8 %shr301.i, %58
   %arrayidx304.i = getelementptr i8, ptr %dst.addr.11319.i, i64 1
   store i8 %or302.i, ptr %arrayidx304.i, align 1
-  %58 = lshr i8 %55, 3
-  %59 = shl i8 %54, 2
-  %60 = and i8 %59, -32
-  %or307209.i = or disjoint i8 %60, %58
+  %59 = lshr i8 %56, 3
+  %60 = shl i8 %55, 2
+  %61 = and i8 %60, -32
+  %or307209.i = or disjoint i8 %61, %59
   store i8 %or307209.i, ptr %dst.addr.11319.i, align 1
   %incdec.ptr313.i = getelementptr i8, ptr %dst.addr.11319.i, i64 2
   %add.ptr330.i = getelementptr i32, ptr %ph.7321.i, i64 %idx.ext329.i
@@ -4697,22 +4679,22 @@ while.end331.i:                                   ; preds = %do.body288.i, %whil
 
 for.inc.i:                                        ; preds = %while.end331.i, %do.end268.i
   %dst.addr.13.i = phi ptr [ %dst.addr.7.lcssa.i, %do.end268.i ], [ %dst.addr.11.lcssa.i, %while.end331.i ]
-  %inc.i = add nuw nsw i32 %l.0333.i, 1
+  %inc.i = add nuw nsw i32 %l.0332.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %zywrle_level.tr
   br i1 %exitcond.not.i, label %do.body339.i, label %do.body73.i, !llvm.loop !145
 
 do.body339.i:                                     ; preds = %for.inc.i
   %add.ptr347.i = getelementptr i32, ptr %zywrle, i64 %idx.ext
-  %cmp349337.i = icmp ult ptr %add.ptr.i, %add.ptr347.i
-  br i1 %cmp349337.i, label %while.body351.i, label %zywrle_analyze_15le.exit
+  %cmp349334.i = icmp ult ptr %add.ptr.i, %add.ptr347.i
+  br i1 %cmp349334.i, label %while.body351.i, label %zywrle_analyze_15le.exit
 
 while.body351.i:                                  ; preds = %do.body339.i, %while.body351.i
-  %top.8339.i = phi ptr [ %incdec.ptr369.i, %while.body351.i ], [ %add.ptr.i, %do.body339.i ]
-  %dst.addr.14338.i = phi ptr [ %incdec.ptr353.i, %while.body351.i ], [ %dst.addr.13.i, %do.body339.i ]
-  %61 = load i16, ptr %top.8339.i, align 2
-  store i16 %61, ptr %dst.addr.14338.i, align 2
-  %incdec.ptr353.i = getelementptr i8, ptr %dst.addr.14338.i, i64 2
-  %incdec.ptr369.i = getelementptr i8, ptr %top.8339.i, i64 4
+  %top.8336.i = phi ptr [ %incdec.ptr369.i, %while.body351.i ], [ %add.ptr.i, %do.body339.i ]
+  %dst.addr.14335.i = phi ptr [ %incdec.ptr353.i, %while.body351.i ], [ %dst.addr.13.i, %do.body339.i ]
+  %62 = load i16, ptr %top.8336.i, align 2
+  store i16 %62, ptr %dst.addr.14335.i, align 2
+  %incdec.ptr353.i = getelementptr i8, ptr %dst.addr.14335.i, i64 2
+  %incdec.ptr369.i = getelementptr i8, ptr %top.8336.i, i64 4
   %cmp349.i = icmp ult ptr %incdec.ptr369.i, %add.ptr347.i
   br i1 %cmp349.i, label %while.body351.i, label %zywrle_analyze_15le.exit, !llvm.loop !146
 
@@ -4729,7 +4711,7 @@ if.end165:                                        ; preds = %for.inc147, %while.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @zrle_encode_tile24abe(ptr noundef %vs, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %zywrle_level) unnamed_addr #0 {
+define internal fastcc void @zrle_encode_tile24abe(ptr noundef %vs, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef range(i32 0, 256) %zywrle_level) unnamed_addr #0 {
 entry:
   %value.addr.i101 = alloca i32, align 4
   %value.addr.i100 = alloca i32, align 4
@@ -4807,7 +4789,7 @@ if.then12:                                        ; preds = %while.end9
   br label %if.end154
 
 if.end14:                                         ; preds = %while.end9
-  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 24, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef nonnull %use_rle, ptr noundef nonnull %use_palette)
+  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 24, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
   %5 = load i8, ptr %use_palette, align 1
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.else17, label %if.end29.thread
@@ -4998,10 +4980,8 @@ for.inc129:                                       ; preds = %if.end117.thread, %
   br i1 %exitcond.not, label %if.end154, label %for.body95, !llvm.loop !154
 
 if.else132:                                       ; preds = %if.end29.thread
-  %cmp133 = icmp sgt i32 %zywrle_level.tr, 0
-  %and = and i32 %zywrle_level.tr, 128
-  %tobool136.not = icmp eq i32 %and, 0
-  %or.cond = and i1 %cmp133, %tobool136.not
+  %17 = add nsw i32 %zywrle_level.tr, -1
+  %or.cond = icmp ult i32 %17, 127
   br i1 %or.cond, label %if.then137, label %for.cond142.preheader
 
 for.cond142.preheader:                            ; preds = %if.else132
@@ -5015,9 +4995,9 @@ if.then137:                                       ; preds = %if.else132
 
 for.body148:                                      ; preds = %for.cond142.preheader, %for.body148
   %ptr.7117 = phi ptr [ %incdec.ptr150, %for.body148 ], [ %data, %for.cond142.preheader ]
-  %17 = load i32, ptr %ptr.7117, align 4
+  %18 = load i32, ptr %ptr.7117, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i101)
-  store i32 %17, ptr %value.addr.i101, align 4
+  store i32 %18, ptr %value.addr.i101, align 4
   call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i101, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i101)
   %incdec.ptr150 = getelementptr i8, ptr %ptr.7117, i64 4
@@ -5029,7 +5009,7 @@ if.end154:                                        ; preds = %for.body148, %for.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @zywrle_analyze_32be(ptr noundef %dst, ptr noundef %src, i32 noundef %w, i32 noundef %h, i32 noundef %scanline, i32 noundef %level, ptr noundef %buf) unnamed_addr #5 {
+define internal fastcc void @zywrle_analyze_32be(ptr noundef %dst, ptr noundef %src, i32 noundef %w, i32 noundef %h, i32 noundef %scanline, i32 noundef range(i32 1, 256) %level, ptr noundef %buf) unnamed_addr #5 {
 entry:
   %notmask.i = shl nsw i32 -1, %level
   %and.i = and i32 %notmask.i, %w
@@ -5179,10 +5159,10 @@ while.end66:                                      ; preds = %while.body63, %whil
 do.end:                                           ; preds = %while.end66, %if.then47, %if.end20, %if.end44
   %p.8 = phi ptr [ %p.4.lcssa, %if.end44 ], [ %p.0, %if.end20 ], [ %add.ptr52, %if.then47 ], [ %add.ptr69, %while.end66 ]
   %cmp34.i = icmp ult ptr %buf, %add.ptr
+  %idx.ext1.i = sext i32 %and.i to i64
   br i1 %cmp34.i, label %while.body.lr.ph.i, label %zywrle_rgbyuv_32be.exit
 
 while.body.lr.ph.i:                               ; preds = %do.end
-  %idx.ext1.i = sext i32 %and.i to i64
   %sub41.i = sub i32 %scanline, %and.i
   %idx.ext42.i = sext i32 %sub41.i to i64
   br label %while.body.i
@@ -5243,23 +5223,18 @@ while.end.i:                                      ; preds = %do.body.i, %while.b
 
 zywrle_rgbyuv_32be.exit:                          ; preds = %while.end.i, %do.end
   tail call fastcc void @wavelet(ptr noundef %buf, i32 noundef %and.i, i32 noundef %and4.i, i32 noundef %level)
-  %cmp72314 = icmp sgt i32 %level, 0
-  br i1 %cmp72314, label %do.body73.lr.ph, label %do.body309
-
-do.body73.lr.ph:                                  ; preds = %zywrle_rgbyuv_32be.exit
-  %idx.ext86 = sext i32 %and.i to i64
+  %sub247 = add nsw i32 %level, -1
   %conv107 = sext i32 %w to i64
   %sub112 = sub i32 %scanline, %w
   %idx.ext113 = sext i32 %sub112 to i64
-  %sub247 = add nsw i32 %level, -1
   %cmp257308 = icmp uge ptr %buf, %add.ptr
   br label %do.body73
 
-do.body73:                                        ; preds = %do.body73.lr.ph, %for.inc
-  %p.9317 = phi ptr [ %p.8, %do.body73.lr.ph ], [ %p.22, %for.inc ]
-  %l.0316 = phi i32 [ 0, %do.body73.lr.ph ], [ %inc, %for.inc ]
-  %dst.addr.0315 = phi ptr [ %dst, %do.body73.lr.ph ], [ %dst.addr.13, %for.inc ]
-  %shl = shl i32 2, %l.0316
+do.body73:                                        ; preds = %zywrle_rgbyuv_32be.exit, %for.inc
+  %p.9316 = phi ptr [ %p.8, %zywrle_rgbyuv_32be.exit ], [ %p.22, %for.inc ]
+  %l.0315 = phi i32 [ 0, %zywrle_rgbyuv_32be.exit ], [ %inc, %for.inc ]
+  %dst.addr.0314 = phi ptr [ %dst, %zywrle_rgbyuv_32be.exit ], [ %dst.addr.13, %for.inc ]
+  %shl = shl i32 2, %l.0315
   %shr = ashr exact i32 %shl, 1
   %idx.ext74 = sext i32 %shr to i64
   %add.ptr75 = getelementptr i32, ptr %buf, i64 %idx.ext74
@@ -5279,9 +5254,9 @@ while.body85.lr.ph:                               ; preds = %do.body73
 
 while.body85:                                     ; preds = %while.body85.lr.ph, %while.end119
   %ph.0272 = phi ptr [ %add.ptr79, %while.body85.lr.ph ], [ %add.ptr123, %while.end119 ]
-  %p.10271 = phi ptr [ %p.9317, %while.body85.lr.ph ], [ %p.11.lcssa, %while.end119 ]
-  %dst.addr.1270 = phi ptr [ %dst.addr.0315, %while.body85.lr.ph ], [ %dst.addr.2.lcssa, %while.end119 ]
-  %add.ptr87 = getelementptr i32, ptr %ph.0272, i64 %idx.ext86
+  %p.10271 = phi ptr [ %p.9316, %while.body85.lr.ph ], [ %p.11.lcssa, %while.end119 ]
+  %dst.addr.1270 = phi ptr [ %dst.addr.0314, %while.body85.lr.ph ], [ %dst.addr.2.lcssa, %while.end119 ]
+  %add.ptr87 = getelementptr i32, ptr %ph.0272, i64 %idx.ext1.i
   %cmp89262 = icmp ult ptr %ph.0272, %add.ptr87
   br i1 %cmp89262, label %do.body91, label %while.end119
 
@@ -5322,8 +5297,8 @@ while.end119:                                     ; preds = %do.body91, %while.b
   br i1 %cmp84, label %while.body85, label %do.body126, !llvm.loop !165
 
 do.body126:                                       ; preds = %while.end119, %do.body73
-  %dst.addr.1.lcssa = phi ptr [ %dst.addr.0315, %do.body73 ], [ %dst.addr.2.lcssa, %while.end119 ]
-  %p.10.lcssa = phi ptr [ %p.9317, %do.body73 ], [ %p.11.lcssa, %while.end119 ]
+  %dst.addr.1.lcssa = phi ptr [ %dst.addr.0314, %do.body73 ], [ %dst.addr.2.lcssa, %while.end119 ]
+  %p.10.lcssa = phi ptr [ %p.9316, %do.body73 ], [ %p.11.lcssa, %while.end119 ]
   %add.ptr131 = getelementptr i32, ptr %buf, i64 %idx.ext78
   %add.ptr134 = getelementptr i32, ptr %add.ptr131, i64 %idx.ext
   %cmp136282 = icmp ult ptr %add.ptr131, %add.ptr134
@@ -5340,7 +5315,7 @@ while.body138:                                    ; preds = %while.body138.lr.ph
   %ph.2285 = phi ptr [ %add.ptr131, %while.body138.lr.ph ], [ %add.ptr184, %while.end180 ]
   %p.13284 = phi ptr [ %p.10.lcssa, %while.body138.lr.ph ], [ %p.14.lcssa, %while.end180 ]
   %dst.addr.4283 = phi ptr [ %dst.addr.1.lcssa, %while.body138.lr.ph ], [ %dst.addr.5.lcssa, %while.end180 ]
-  %add.ptr140 = getelementptr i32, ptr %ph.2285, i64 %idx.ext86
+  %add.ptr140 = getelementptr i32, ptr %ph.2285, i64 %idx.ext1.i
   %cmp142275 = icmp ult ptr %ph.2285, %add.ptr140
   br i1 %cmp142275, label %do.body145, label %while.end180
 
@@ -5398,7 +5373,7 @@ while.body198:                                    ; preds = %while.body198.lr.ph
   %ph.4298 = phi ptr [ %add.ptr75, %while.body198.lr.ph ], [ %add.ptr244, %while.end240 ]
   %p.16297 = phi ptr [ %p.13.lcssa, %while.body198.lr.ph ], [ %p.17.lcssa, %while.end240 ]
   %dst.addr.7296 = phi ptr [ %dst.addr.4.lcssa, %while.body198.lr.ph ], [ %dst.addr.8.lcssa, %while.end240 ]
-  %add.ptr200 = getelementptr i32, ptr %ph.4298, i64 %idx.ext86
+  %add.ptr200 = getelementptr i32, ptr %ph.4298, i64 %idx.ext1.i
   %cmp202288 = icmp ult ptr %ph.4298, %add.ptr200
   br i1 %cmp202288, label %do.body205, label %while.end240
 
@@ -5441,7 +5416,7 @@ while.end240:                                     ; preds = %do.body205, %while.
 do.end246:                                        ; preds = %while.end240, %do.body187
   %dst.addr.7.lcssa = phi ptr [ %dst.addr.4.lcssa, %do.body187 ], [ %dst.addr.8.lcssa, %while.end240 ]
   %p.16.lcssa = phi ptr [ %p.13.lcssa, %do.body187 ], [ %p.17.lcssa, %while.end240 ]
-  %cmp248 = icmp ne i32 %l.0316, %sub247
+  %cmp248 = icmp ne i32 %l.0315, %sub247
   %brmerge = or i1 %cmp248, %cmp257308
   br i1 %brmerge, label %for.inc, label %while.body259.lr.ph
 
@@ -5456,7 +5431,7 @@ while.body259:                                    ; preds = %while.body259.lr.ph
   %ph.6311 = phi ptr [ %buf, %while.body259.lr.ph ], [ %add.ptr305, %while.end301 ]
   %p.19310 = phi ptr [ %p.16.lcssa, %while.body259.lr.ph ], [ %p.20.lcssa, %while.end301 ]
   %dst.addr.10309 = phi ptr [ %dst.addr.7.lcssa, %while.body259.lr.ph ], [ %dst.addr.11.lcssa, %while.end301 ]
-  %add.ptr261 = getelementptr i32, ptr %ph.6311, i64 %idx.ext86
+  %add.ptr261 = getelementptr i32, ptr %ph.6311, i64 %idx.ext1.i
   %cmp263301 = icmp ult ptr %ph.6311, %add.ptr261
   br i1 %cmp263301, label %do.body266, label %while.end301
 
@@ -5499,41 +5474,33 @@ while.end301:                                     ; preds = %do.body266, %while.
 for.inc:                                          ; preds = %while.end301, %do.end246
   %dst.addr.13 = phi ptr [ %dst.addr.7.lcssa, %do.end246 ], [ %dst.addr.11.lcssa, %while.end301 ]
   %p.22 = phi ptr [ %p.16.lcssa, %do.end246 ], [ %p.20.lcssa, %while.end301 ]
-  %inc = add nuw nsw i32 %l.0316, 1
+  %inc = add nuw nsw i32 %l.0315, 1
   %exitcond.not = icmp eq i32 %inc, %level
   br i1 %exitcond.not, label %do.body309, label %do.body73, !llvm.loop !172
 
-do.body309:                                       ; preds = %for.inc, %zywrle_rgbyuv_32be.exit
-  %dst.addr.0.lcssa = phi ptr [ %dst, %zywrle_rgbyuv_32be.exit ], [ %dst.addr.13, %for.inc ]
-  %p.9.lcssa = phi ptr [ %p.8, %zywrle_rgbyuv_32be.exit ], [ %p.22, %for.inc ]
+do.body309:                                       ; preds = %for.inc
   %mul315 = mul i32 %h, %w
   %idx.ext316 = sext i32 %mul315 to i64
   %add.ptr317 = getelementptr i32, ptr %buf, i64 %idx.ext316
-  %cmp319320 = icmp ult ptr %add.ptr, %add.ptr317
-  br i1 %cmp319320, label %while.body321.lr.ph, label %return
+  %cmp319317 = icmp ult ptr %add.ptr, %add.ptr317
+  br i1 %cmp319317, label %while.body321, label %return
 
-while.body321.lr.ph:                              ; preds = %do.body309
-  %conv329 = sext i32 %w to i64
-  %sub334 = sub i32 %scanline, %w
-  %idx.ext335 = sext i32 %sub334 to i64
-  br label %while.body321
-
-while.body321:                                    ; preds = %while.body321.lr.ph, %while.body321
-  %p.23323 = phi ptr [ %p.9.lcssa, %while.body321.lr.ph ], [ %p.24, %while.body321 ]
-  %top.8322 = phi ptr [ %add.ptr, %while.body321.lr.ph ], [ %incdec.ptr339, %while.body321 ]
-  %dst.addr.14321 = phi ptr [ %dst.addr.0.lcssa, %while.body321.lr.ph ], [ %dst.addr.15, %while.body321 ]
-  %22 = load i32, ptr %top.8322, align 4
-  store i32 %22, ptr %dst.addr.14321, align 4
-  %incdec.ptr323 = getelementptr i8, ptr %dst.addr.14321, i64 4
+while.body321:                                    ; preds = %do.body309, %while.body321
+  %p.23320 = phi ptr [ %p.24, %while.body321 ], [ %p.22, %do.body309 ]
+  %top.8319 = phi ptr [ %incdec.ptr339, %while.body321 ], [ %add.ptr, %do.body309 ]
+  %dst.addr.14318 = phi ptr [ %dst.addr.15, %while.body321 ], [ %dst.addr.13, %do.body309 ]
+  %22 = load i32, ptr %top.8319, align 4
+  store i32 %22, ptr %dst.addr.14318, align 4
+  %incdec.ptr323 = getelementptr i8, ptr %dst.addr.14318, i64 4
   %sub.ptr.lhs.cast324 = ptrtoint ptr %incdec.ptr323 to i64
-  %sub.ptr.rhs.cast325 = ptrtoint ptr %p.23323 to i64
+  %sub.ptr.rhs.cast325 = ptrtoint ptr %p.23320 to i64
   %sub.ptr.sub326 = sub i64 %sub.ptr.lhs.cast324, %sub.ptr.rhs.cast325
   %sub.ptr.div327 = ashr exact i64 %sub.ptr.sub326, 2
-  %cmp330.not = icmp slt i64 %sub.ptr.div327, %conv329
-  %add.ptr336 = getelementptr i32, ptr %incdec.ptr323, i64 %idx.ext335
+  %cmp330.not = icmp slt i64 %sub.ptr.div327, %conv107
+  %add.ptr336 = getelementptr i32, ptr %incdec.ptr323, i64 %idx.ext113
   %dst.addr.15 = select i1 %cmp330.not, ptr %incdec.ptr323, ptr %add.ptr336
-  %p.24 = select i1 %cmp330.not, ptr %p.23323, ptr %add.ptr336
-  %incdec.ptr339 = getelementptr i8, ptr %top.8322, i64 4
+  %p.24 = select i1 %cmp330.not, ptr %p.23320, ptr %add.ptr336
+  %incdec.ptr339 = getelementptr i8, ptr %top.8319, i64 4
   %cmp319 = icmp ult ptr %incdec.ptr339, %add.ptr317
   br i1 %cmp319, label %while.body321, label %return, !llvm.loop !173
 
@@ -5542,7 +5509,7 @@ return:                                           ; preds = %while.body321, %do.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @zrle_encode_tile24ale(ptr noundef %vs, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %zywrle_level) unnamed_addr #0 {
+define internal fastcc void @zrle_encode_tile24ale(ptr noundef %vs, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef range(i32 0, 256) %zywrle_level) unnamed_addr #0 {
 entry:
   %value.addr.i101 = alloca i32, align 4
   %value.addr.i100 = alloca i32, align 4
@@ -5620,7 +5587,7 @@ if.then12:                                        ; preds = %while.end9
   br label %if.end154
 
 if.end14:                                         ; preds = %while.end9
-  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 24, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef nonnull %use_rle, ptr noundef nonnull %use_palette)
+  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 24, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
   %5 = load i8, ptr %use_palette, align 1
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.else17, label %if.end29.thread
@@ -5811,10 +5778,8 @@ for.inc129:                                       ; preds = %if.end117.thread, %
   br i1 %exitcond.not, label %if.end154, label %for.body95, !llvm.loop !181
 
 if.else132:                                       ; preds = %if.end29.thread
-  %cmp133 = icmp sgt i32 %zywrle_level.tr, 0
-  %and = and i32 %zywrle_level.tr, 128
-  %tobool136.not = icmp eq i32 %and, 0
-  %or.cond = and i1 %cmp133, %tobool136.not
+  %17 = add nsw i32 %zywrle_level.tr, -1
+  %or.cond = icmp ult i32 %17, 127
   br i1 %or.cond, label %if.then137, label %for.cond142.preheader
 
 for.cond142.preheader:                            ; preds = %if.else132
@@ -5828,9 +5793,9 @@ if.then137:                                       ; preds = %if.else132
 
 for.body148:                                      ; preds = %for.cond142.preheader, %for.body148
   %ptr.7117 = phi ptr [ %incdec.ptr150, %for.body148 ], [ %data, %for.cond142.preheader ]
-  %17 = load i32, ptr %ptr.7117, align 4
+  %18 = load i32, ptr %ptr.7117, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i101)
-  store i32 %17, ptr %value.addr.i101, align 4
+  store i32 %18, ptr %value.addr.i101, align 4
   call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i101, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i101)
   %incdec.ptr150 = getelementptr i8, ptr %ptr.7117, i64 4
@@ -5842,7 +5807,7 @@ if.end154:                                        ; preds = %for.body148, %for.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @zywrle_analyze_32le(ptr noundef %dst, ptr noundef %src, i32 noundef %w, i32 noundef %h, i32 noundef %scanline, i32 noundef %level, ptr noundef %buf) unnamed_addr #5 {
+define internal fastcc void @zywrle_analyze_32le(ptr noundef %dst, ptr noundef %src, i32 noundef %w, i32 noundef %h, i32 noundef %scanline, i32 noundef range(i32 1, 256) %level, ptr noundef %buf) unnamed_addr #5 {
 entry:
   %notmask.i = shl nsw i32 -1, %level
   %and.i = and i32 %notmask.i, %w
@@ -5992,10 +5957,10 @@ while.end66:                                      ; preds = %while.body63, %whil
 do.end:                                           ; preds = %while.end66, %if.then47, %if.end20, %if.end44
   %p.8 = phi ptr [ %p.4.lcssa, %if.end44 ], [ %p.0, %if.end20 ], [ %add.ptr52, %if.then47 ], [ %add.ptr69, %while.end66 ]
   %cmp34.i = icmp ult ptr %buf, %add.ptr
+  %idx.ext1.i = sext i32 %and.i to i64
   br i1 %cmp34.i, label %while.body.lr.ph.i, label %zywrle_rgbyuv_32le.exit
 
 while.body.lr.ph.i:                               ; preds = %do.end
-  %idx.ext1.i = sext i32 %and.i to i64
   %sub41.i = sub i32 %scanline, %and.i
   %idx.ext42.i = sext i32 %sub41.i to i64
   br label %while.body.i
@@ -6055,23 +6020,18 @@ while.end.i:                                      ; preds = %do.body.i, %while.b
 
 zywrle_rgbyuv_32le.exit:                          ; preds = %while.end.i, %do.end
   tail call fastcc void @wavelet(ptr noundef %buf, i32 noundef %and.i, i32 noundef %and4.i, i32 noundef %level)
-  %cmp72314 = icmp sgt i32 %level, 0
-  br i1 %cmp72314, label %do.body73.lr.ph, label %do.body309
-
-do.body73.lr.ph:                                  ; preds = %zywrle_rgbyuv_32le.exit
-  %idx.ext86 = sext i32 %and.i to i64
+  %sub247 = add nsw i32 %level, -1
   %conv107 = sext i32 %w to i64
   %sub112 = sub i32 %scanline, %w
   %idx.ext113 = sext i32 %sub112 to i64
-  %sub247 = add nsw i32 %level, -1
   %cmp257308 = icmp uge ptr %buf, %add.ptr
   br label %do.body73
 
-do.body73:                                        ; preds = %do.body73.lr.ph, %for.inc
-  %p.9317 = phi ptr [ %p.8, %do.body73.lr.ph ], [ %p.22, %for.inc ]
-  %l.0316 = phi i32 [ 0, %do.body73.lr.ph ], [ %inc, %for.inc ]
-  %dst.addr.0315 = phi ptr [ %dst, %do.body73.lr.ph ], [ %dst.addr.13, %for.inc ]
-  %shl = shl i32 2, %l.0316
+do.body73:                                        ; preds = %zywrle_rgbyuv_32le.exit, %for.inc
+  %p.9316 = phi ptr [ %p.8, %zywrle_rgbyuv_32le.exit ], [ %p.22, %for.inc ]
+  %l.0315 = phi i32 [ 0, %zywrle_rgbyuv_32le.exit ], [ %inc, %for.inc ]
+  %dst.addr.0314 = phi ptr [ %dst, %zywrle_rgbyuv_32le.exit ], [ %dst.addr.13, %for.inc ]
+  %shl = shl i32 2, %l.0315
   %shr = ashr exact i32 %shl, 1
   %idx.ext74 = sext i32 %shr to i64
   %add.ptr75 = getelementptr i32, ptr %buf, i64 %idx.ext74
@@ -6091,9 +6051,9 @@ while.body85.lr.ph:                               ; preds = %do.body73
 
 while.body85:                                     ; preds = %while.body85.lr.ph, %while.end119
   %ph.0272 = phi ptr [ %add.ptr79, %while.body85.lr.ph ], [ %add.ptr123, %while.end119 ]
-  %p.10271 = phi ptr [ %p.9317, %while.body85.lr.ph ], [ %p.11.lcssa, %while.end119 ]
-  %dst.addr.1270 = phi ptr [ %dst.addr.0315, %while.body85.lr.ph ], [ %dst.addr.2.lcssa, %while.end119 ]
-  %add.ptr87 = getelementptr i32, ptr %ph.0272, i64 %idx.ext86
+  %p.10271 = phi ptr [ %p.9316, %while.body85.lr.ph ], [ %p.11.lcssa, %while.end119 ]
+  %dst.addr.1270 = phi ptr [ %dst.addr.0314, %while.body85.lr.ph ], [ %dst.addr.2.lcssa, %while.end119 ]
+  %add.ptr87 = getelementptr i32, ptr %ph.0272, i64 %idx.ext1.i
   %cmp89262 = icmp ult ptr %ph.0272, %add.ptr87
   br i1 %cmp89262, label %do.body91, label %while.end119
 
@@ -6133,8 +6093,8 @@ while.end119:                                     ; preds = %do.body91, %while.b
   br i1 %cmp84, label %while.body85, label %do.body126, !llvm.loop !192
 
 do.body126:                                       ; preds = %while.end119, %do.body73
-  %dst.addr.1.lcssa = phi ptr [ %dst.addr.0315, %do.body73 ], [ %dst.addr.2.lcssa, %while.end119 ]
-  %p.10.lcssa = phi ptr [ %p.9317, %do.body73 ], [ %p.11.lcssa, %while.end119 ]
+  %dst.addr.1.lcssa = phi ptr [ %dst.addr.0314, %do.body73 ], [ %dst.addr.2.lcssa, %while.end119 ]
+  %p.10.lcssa = phi ptr [ %p.9316, %do.body73 ], [ %p.11.lcssa, %while.end119 ]
   %add.ptr131 = getelementptr i32, ptr %buf, i64 %idx.ext78
   %add.ptr134 = getelementptr i32, ptr %add.ptr131, i64 %idx.ext
   %cmp136282 = icmp ult ptr %add.ptr131, %add.ptr134
@@ -6151,7 +6111,7 @@ while.body138:                                    ; preds = %while.body138.lr.ph
   %ph.2285 = phi ptr [ %add.ptr131, %while.body138.lr.ph ], [ %add.ptr184, %while.end180 ]
   %p.13284 = phi ptr [ %p.10.lcssa, %while.body138.lr.ph ], [ %p.14.lcssa, %while.end180 ]
   %dst.addr.4283 = phi ptr [ %dst.addr.1.lcssa, %while.body138.lr.ph ], [ %dst.addr.5.lcssa, %while.end180 ]
-  %add.ptr140 = getelementptr i32, ptr %ph.2285, i64 %idx.ext86
+  %add.ptr140 = getelementptr i32, ptr %ph.2285, i64 %idx.ext1.i
   %cmp142275 = icmp ult ptr %ph.2285, %add.ptr140
   br i1 %cmp142275, label %do.body145, label %while.end180
 
@@ -6208,7 +6168,7 @@ while.body198:                                    ; preds = %while.body198.lr.ph
   %ph.4298 = phi ptr [ %add.ptr75, %while.body198.lr.ph ], [ %add.ptr244, %while.end240 ]
   %p.16297 = phi ptr [ %p.13.lcssa, %while.body198.lr.ph ], [ %p.17.lcssa, %while.end240 ]
   %dst.addr.7296 = phi ptr [ %dst.addr.4.lcssa, %while.body198.lr.ph ], [ %dst.addr.8.lcssa, %while.end240 ]
-  %add.ptr200 = getelementptr i32, ptr %ph.4298, i64 %idx.ext86
+  %add.ptr200 = getelementptr i32, ptr %ph.4298, i64 %idx.ext1.i
   %cmp202288 = icmp ult ptr %ph.4298, %add.ptr200
   br i1 %cmp202288, label %do.body205, label %while.end240
 
@@ -6250,7 +6210,7 @@ while.end240:                                     ; preds = %do.body205, %while.
 do.end246:                                        ; preds = %while.end240, %do.body187
   %dst.addr.7.lcssa = phi ptr [ %dst.addr.4.lcssa, %do.body187 ], [ %dst.addr.8.lcssa, %while.end240 ]
   %p.16.lcssa = phi ptr [ %p.13.lcssa, %do.body187 ], [ %p.17.lcssa, %while.end240 ]
-  %cmp248 = icmp ne i32 %l.0316, %sub247
+  %cmp248 = icmp ne i32 %l.0315, %sub247
   %brmerge = or i1 %cmp248, %cmp257308
   br i1 %brmerge, label %for.inc, label %while.body259.lr.ph
 
@@ -6265,7 +6225,7 @@ while.body259:                                    ; preds = %while.body259.lr.ph
   %ph.6311 = phi ptr [ %buf, %while.body259.lr.ph ], [ %add.ptr305, %while.end301 ]
   %p.19310 = phi ptr [ %p.16.lcssa, %while.body259.lr.ph ], [ %p.20.lcssa, %while.end301 ]
   %dst.addr.10309 = phi ptr [ %dst.addr.7.lcssa, %while.body259.lr.ph ], [ %dst.addr.11.lcssa, %while.end301 ]
-  %add.ptr261 = getelementptr i32, ptr %ph.6311, i64 %idx.ext86
+  %add.ptr261 = getelementptr i32, ptr %ph.6311, i64 %idx.ext1.i
   %cmp263301 = icmp ult ptr %ph.6311, %add.ptr261
   br i1 %cmp263301, label %do.body266, label %while.end301
 
@@ -6307,41 +6267,33 @@ while.end301:                                     ; preds = %do.body266, %while.
 for.inc:                                          ; preds = %while.end301, %do.end246
   %dst.addr.13 = phi ptr [ %dst.addr.7.lcssa, %do.end246 ], [ %dst.addr.11.lcssa, %while.end301 ]
   %p.22 = phi ptr [ %p.16.lcssa, %do.end246 ], [ %p.20.lcssa, %while.end301 ]
-  %inc = add nuw nsw i32 %l.0316, 1
+  %inc = add nuw nsw i32 %l.0315, 1
   %exitcond.not = icmp eq i32 %inc, %level
   br i1 %exitcond.not, label %do.body309, label %do.body73, !llvm.loop !199
 
-do.body309:                                       ; preds = %for.inc, %zywrle_rgbyuv_32le.exit
-  %dst.addr.0.lcssa = phi ptr [ %dst, %zywrle_rgbyuv_32le.exit ], [ %dst.addr.13, %for.inc ]
-  %p.9.lcssa = phi ptr [ %p.8, %zywrle_rgbyuv_32le.exit ], [ %p.22, %for.inc ]
+do.body309:                                       ; preds = %for.inc
   %mul315 = mul i32 %h, %w
   %idx.ext316 = sext i32 %mul315 to i64
   %add.ptr317 = getelementptr i32, ptr %buf, i64 %idx.ext316
-  %cmp319320 = icmp ult ptr %add.ptr, %add.ptr317
-  br i1 %cmp319320, label %while.body321.lr.ph, label %return
+  %cmp319317 = icmp ult ptr %add.ptr, %add.ptr317
+  br i1 %cmp319317, label %while.body321, label %return
 
-while.body321.lr.ph:                              ; preds = %do.body309
-  %conv329 = sext i32 %w to i64
-  %sub334 = sub i32 %scanline, %w
-  %idx.ext335 = sext i32 %sub334 to i64
-  br label %while.body321
-
-while.body321:                                    ; preds = %while.body321.lr.ph, %while.body321
-  %p.23323 = phi ptr [ %p.9.lcssa, %while.body321.lr.ph ], [ %p.24, %while.body321 ]
-  %top.8322 = phi ptr [ %add.ptr, %while.body321.lr.ph ], [ %incdec.ptr339, %while.body321 ]
-  %dst.addr.14321 = phi ptr [ %dst.addr.0.lcssa, %while.body321.lr.ph ], [ %dst.addr.15, %while.body321 ]
-  %22 = load i32, ptr %top.8322, align 4
-  store i32 %22, ptr %dst.addr.14321, align 4
-  %incdec.ptr323 = getelementptr i8, ptr %dst.addr.14321, i64 4
+while.body321:                                    ; preds = %do.body309, %while.body321
+  %p.23320 = phi ptr [ %p.24, %while.body321 ], [ %p.22, %do.body309 ]
+  %top.8319 = phi ptr [ %incdec.ptr339, %while.body321 ], [ %add.ptr, %do.body309 ]
+  %dst.addr.14318 = phi ptr [ %dst.addr.15, %while.body321 ], [ %dst.addr.13, %do.body309 ]
+  %22 = load i32, ptr %top.8319, align 4
+  store i32 %22, ptr %dst.addr.14318, align 4
+  %incdec.ptr323 = getelementptr i8, ptr %dst.addr.14318, i64 4
   %sub.ptr.lhs.cast324 = ptrtoint ptr %incdec.ptr323 to i64
-  %sub.ptr.rhs.cast325 = ptrtoint ptr %p.23323 to i64
+  %sub.ptr.rhs.cast325 = ptrtoint ptr %p.23320 to i64
   %sub.ptr.sub326 = sub i64 %sub.ptr.lhs.cast324, %sub.ptr.rhs.cast325
   %sub.ptr.div327 = ashr exact i64 %sub.ptr.sub326, 2
-  %cmp330.not = icmp slt i64 %sub.ptr.div327, %conv329
-  %add.ptr336 = getelementptr i32, ptr %incdec.ptr323, i64 %idx.ext335
+  %cmp330.not = icmp slt i64 %sub.ptr.div327, %conv107
+  %add.ptr336 = getelementptr i32, ptr %incdec.ptr323, i64 %idx.ext113
   %dst.addr.15 = select i1 %cmp330.not, ptr %incdec.ptr323, ptr %add.ptr336
-  %p.24 = select i1 %cmp330.not, ptr %p.23323, ptr %add.ptr336
-  %incdec.ptr339 = getelementptr i8, ptr %top.8322, i64 4
+  %p.24 = select i1 %cmp330.not, ptr %p.23320, ptr %add.ptr336
+  %incdec.ptr339 = getelementptr i8, ptr %top.8319, i64 4
   %cmp319 = icmp ult ptr %incdec.ptr339, %add.ptr317
   br i1 %cmp319, label %while.body321, label %return, !llvm.loop !200
 
@@ -6350,7 +6302,7 @@ return:                                           ; preds = %while.body321, %do.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @zrle_encode_tile24bbe(ptr noundef %vs, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %zywrle_level) unnamed_addr #0 {
+define internal fastcc void @zrle_encode_tile24bbe(ptr noundef %vs, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef range(i32 0, 256) %zywrle_level) unnamed_addr #0 {
 entry:
   %value.addr.i103 = alloca i32, align 4
   %value.addr.i101 = alloca i32, align 4
@@ -6429,7 +6381,7 @@ if.then12:                                        ; preds = %while.end9
   br label %if.end154
 
 if.end14:                                         ; preds = %while.end9
-  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 24, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef nonnull %use_rle, ptr noundef nonnull %use_palette)
+  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 24, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
   %5 = load i8, ptr %use_palette, align 1
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.else17, label %if.end29.thread
@@ -6628,10 +6580,8 @@ for.inc129:                                       ; preds = %if.end117.thread, %
   br i1 %exitcond.not, label %if.end154, label %for.body95, !llvm.loop !208
 
 if.else132:                                       ; preds = %if.end29.thread
-  %cmp133 = icmp sgt i32 %zywrle_level.tr, 0
-  %and = and i32 %zywrle_level.tr, 128
-  %tobool136.not = icmp eq i32 %and, 0
-  %or.cond = and i1 %cmp133, %tobool136.not
+  %17 = add nsw i32 %zywrle_level.tr, -1
+  %or.cond = icmp ult i32 %17, 127
   br i1 %or.cond, label %if.then137, label %for.cond142.preheader
 
 for.cond142.preheader:                            ; preds = %if.else132
@@ -6649,9 +6599,9 @@ if.then137:                                       ; preds = %if.else132
 
 for.body148:                                      ; preds = %for.body148.lr.ph, %for.body148
   %ptr.7121 = phi ptr [ %data, %for.body148.lr.ph ], [ %incdec.ptr150, %for.body148 ]
-  %17 = load i32, ptr %ptr.7121, align 4
+  %18 = load i32, ptr %ptr.7121, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i103)
-  store i32 %17, ptr %value.addr.i103, align 4
+  store i32 %18, ptr %value.addr.i103, align 4
   call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i104, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i103)
   %incdec.ptr150 = getelementptr i8, ptr %ptr.7121, i64 4
@@ -6663,7 +6613,7 @@ if.end154:                                        ; preds = %for.body148, %for.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @zrle_encode_tile24ble(ptr noundef %vs, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %zywrle_level) unnamed_addr #0 {
+define internal fastcc void @zrle_encode_tile24ble(ptr noundef %vs, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef range(i32 0, 256) %zywrle_level) unnamed_addr #0 {
 entry:
   %value.addr.i103 = alloca i32, align 4
   %value.addr.i101 = alloca i32, align 4
@@ -6742,7 +6692,7 @@ if.then12:                                        ; preds = %while.end9
   br label %if.end154
 
 if.end14:                                         ; preds = %while.end9
-  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 24, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef nonnull %use_rle, ptr noundef nonnull %use_palette)
+  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 24, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
   %5 = load i8, ptr %use_palette, align 1
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.else17, label %if.end29.thread
@@ -6941,10 +6891,8 @@ for.inc129:                                       ; preds = %if.end117.thread, %
   br i1 %exitcond.not, label %if.end154, label %for.body95, !llvm.loop !217
 
 if.else132:                                       ; preds = %if.end29.thread
-  %cmp133 = icmp sgt i32 %zywrle_level.tr, 0
-  %and = and i32 %zywrle_level.tr, 128
-  %tobool136.not = icmp eq i32 %and, 0
-  %or.cond = and i1 %cmp133, %tobool136.not
+  %17 = add nsw i32 %zywrle_level.tr, -1
+  %or.cond = icmp ult i32 %17, 127
   br i1 %or.cond, label %if.then137, label %for.cond142.preheader
 
 for.cond142.preheader:                            ; preds = %if.else132
@@ -6962,9 +6910,9 @@ if.then137:                                       ; preds = %if.else132
 
 for.body148:                                      ; preds = %for.body148.lr.ph, %for.body148
   %ptr.7121 = phi ptr [ %data, %for.body148.lr.ph ], [ %incdec.ptr150, %for.body148 ]
-  %17 = load i32, ptr %ptr.7121, align 4
+  %18 = load i32, ptr %ptr.7121, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i103)
-  store i32 %17, ptr %value.addr.i103, align 4
+  store i32 %18, ptr %value.addr.i103, align 4
   call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i104, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i103)
   %incdec.ptr150 = getelementptr i8, ptr %ptr.7121, i64 4
@@ -6976,7 +6924,7 @@ if.end154:                                        ; preds = %for.body148, %for.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @zrle_encode_tile32be(ptr noundef %vs, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %zywrle_level) unnamed_addr #0 {
+define internal fastcc void @zrle_encode_tile32be(ptr noundef %vs, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef range(i32 0, 256) %zywrle_level) unnamed_addr #0 {
 entry:
   %value.addr.i96 = alloca i32, align 4
   %value.addr.i95 = alloca i32, align 4
@@ -7053,7 +7001,7 @@ if.then12:                                        ; preds = %while.end9
   br label %if.end147
 
 if.end14:                                         ; preds = %while.end9
-  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 32, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef nonnull %use_rle, ptr noundef nonnull %use_palette)
+  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 32, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
   %5 = load i8, ptr %use_palette, align 1
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.else17, label %if.end29.thread
@@ -7244,10 +7192,8 @@ for.inc129:                                       ; preds = %if.end117.thread, %
   br i1 %exitcond.not, label %if.end147, label %for.body95, !llvm.loop !226
 
 if.else132:                                       ; preds = %if.end29.thread
-  %cmp133 = icmp sgt i32 %zywrle_level.tr, 0
-  %and = and i32 %zywrle_level.tr, 128
-  %tobool136.not = icmp eq i32 %and, 0
-  %or.cond = and i1 %cmp133, %tobool136.not
+  %17 = add nsw i32 %zywrle_level.tr, -1
+  %or.cond = icmp ult i32 %17, 127
   br i1 %or.cond, label %if.then137, label %if.else141
 
 if.then137:                                       ; preds = %if.else132
@@ -7267,7 +7213,7 @@ if.end147:                                        ; preds = %for.inc129, %while.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @zrle_encode_tile32le(ptr noundef %vs, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %zywrle_level) unnamed_addr #0 {
+define internal fastcc void @zrle_encode_tile32le(ptr noundef %vs, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef range(i32 0, 256) %zywrle_level) unnamed_addr #0 {
 entry:
   %value.addr.i96 = alloca i32, align 4
   %value.addr.i95 = alloca i32, align 4
@@ -7344,7 +7290,7 @@ if.then12:                                        ; preds = %while.end9
   br label %if.end147
 
 if.end14:                                         ; preds = %while.end9
-  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 32, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef nonnull %use_rle, ptr noundef nonnull %use_palette)
+  call fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef nonnull %palette1, i32 noundef 32, i32 noundef %runs.0.lcssa, i32 noundef %single_pixels.0.lcssa, i32 noundef %zywrle_level.tr, ptr noundef %use_rle, ptr noundef %use_palette)
   %5 = load i8, ptr %use_palette, align 1
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.else17, label %if.end29.thread
@@ -7535,10 +7481,8 @@ for.inc129:                                       ; preds = %if.end117.thread, %
   br i1 %exitcond.not, label %if.end147, label %for.body95, !llvm.loop !234
 
 if.else132:                                       ; preds = %if.end29.thread
-  %cmp133 = icmp sgt i32 %zywrle_level.tr, 0
-  %and = and i32 %zywrle_level.tr, 128
-  %tobool136.not = icmp eq i32 %and, 0
-  %or.cond = and i1 %cmp133, %tobool136.not
+  %17 = add nsw i32 %zywrle_level.tr, -1
+  %or.cond = icmp ult i32 %17, 127
   br i1 %or.cond, label %if.then137, label %if.else141
 
 if.then137:                                       ; preds = %if.else132

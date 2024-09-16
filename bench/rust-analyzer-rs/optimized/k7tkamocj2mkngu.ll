@@ -950,7 +950,7 @@ define hidden void @"_ZN182_$LT$cargo_metadata..messages.._..$LT$impl$u20$serde.
 283:                                              ; preds = %285
   %284 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf626514e639e8409E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #25
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf626514e639e8409E"(ptr noalias noundef align 8 dereferenceable(24) %5) #25
           to label %302 unwind label %300
 
 285:                                              ; preds = %6, %9, %13, %17, %21, %25, %29, %33, %37, %41, %45, %49, %53, %57, %61, %65, %69, %76, %79, %83, %87, %91, %95, %99, %103, %107, %111, %115, %119, %123, %127, %131, %135, %141, %144, %148, %152, %156, %160, %164, %168, %172, %176, %180, %184, %188, %192, %196, %200, %204, %208, %212, %216, %220, %226, %229, %233, %237, %241, %245, %249, %253, %257, %261, %265, %269, %273, %277, %3
@@ -2923,7 +2923,7 @@ define hidden void @"_ZN4core3ptr28drop_in_place$LT$$RF$str$GT$17hbe426e788c7d5f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf626514e639e8409E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf626514e639e8409E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !31, !noundef !25
   %4 = icmp eq i64 %3, -9223372036854775808

@@ -382,7 +382,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17he8a4b2e957f71e7dE.l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr191drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$alloc..rc..Rc$LT$dyn$u20$actix_web..guard..Guard$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$17h71f1113db27ed37bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr191drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$alloc..rc..Rc$LT$dyn$u20$actix_web..guard..Guard$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$17h71f1113db27ed37bE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   %2 = load ptr, ptr %0, align 8, !alias.scope !72, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -967,7 +967,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h40b28af
   br i1 %64, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i.i.i.us.us.i.i.i, label %65
 
 65:                                               ; preds = %.lr.ph.i.us.i.i.i.i.us.us.i.i.i
-  %66 = add nuw i64 %.05.i.us.i.i.i.i.us.us.i.i.i, 1
+  %66 = add nuw nsw i64 %.05.i.us.i.i.i.i.us.us.i.i.i, 1
   %exitcond.not.i.us.i.i.i.i.us.us.i.i.i = icmp eq i64 %66, %.sroa.3.0.i47.us.i.i.i.i.us.us.i.i.i
   br i1 %exitcond.not.i.us.i.i.i.i.us.us.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i.i.i.us.us.i.i.i, label %.lr.ph.i.us.i.i.i.i.us.us.i.i.i
 
@@ -1077,7 +1077,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i.i.i.us.us.i.
   br i1 %102, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i.i.i.us.i.i.i, label %103
 
 103:                                              ; preds = %.lr.ph.i.us.i.i.i.i.us.i.i.i
-  %104 = add nuw i64 %.05.i.us.i.i.i.i.us.i.i.i, 1
+  %104 = add nuw nsw i64 %.05.i.us.i.i.i.i.us.i.i.i, 1
   %exitcond.not.i.us.i.i.i.i.us.i.i.i = icmp eq i64 %104, %.sroa.3.0.i47.us.i.i.i.i.us.i.i.i
   br i1 %exitcond.not.i.us.i.i.i.i.us.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i.i.i.us.i.i.i, label %.lr.ph.i.us.i.i.i.i.us.i.i.i
 
@@ -1220,7 +1220,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i.i.i.us.i.i.i
   br i1 %144, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i.i.i.i.i, label %145
 
 145:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i
-  %146 = add nuw i64 %.05.i.i.i.i.i.i.i.i, 1
+  %146 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %146, %.sroa.3.0.i47.i.i.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -1518,7 +1518,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   unreachable
 
 .body:                                            ; preds = %"_ZN4core3ptr73drop_in_place$LT$alloc..rc..Rc$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$17h78f13a4dbde857b1E.exit7.i.i"
-  invoke fastcc void @"_ZN4core3ptr191drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$alloc..rc..Rc$LT$dyn$u20$actix_web..guard..Guard$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$17h71f1113db27ed37bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #19
+  invoke fastcc void @"_ZN4core3ptr191drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$alloc..rc..Rc$LT$dyn$u20$actix_web..guard..Guard$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$17h71f1113db27ed37bE"(ptr noalias noundef align 8 dereferenceable(24) %3) #19
           to label %44 unwind label %41
 
 "_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17h9935e0afb16b45c6E.exit": ; preds = %"_ZN4core3ptr73drop_in_place$LT$alloc..rc..Rc$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$17h78f13a4dbde857b1E.exit.i.i"

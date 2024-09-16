@@ -1830,7 +1830,7 @@ ExecGetJunkAttribute.exit.us:                     ; preds = %slot_getsomeattrs.e
   %129 = load ptr, ptr %65, align 8
   %130 = load i8, ptr %84, align 4
   %131 = trunc i8 %130 to i1
-  call fastcc void @ExecMerge(ptr noundef nonnull %5, ptr noundef %129, ptr noundef null, ptr noundef null, i1 noundef zeroext %131)
+  call fastcc void @ExecMerge(ptr noundef %5, ptr noundef %129, ptr noundef null, ptr noundef null, i1 noundef zeroext %131)
   br label %.outer.split.us
 
 .outer.split:                                     ; preds = %.outer
@@ -2036,7 +2036,7 @@ ExecGetJunkAttribute.exit131:                     ; preds = %222, %slot_getsomea
   %239 = load ptr, ptr %65, align 8
   %240 = load i8, ptr %84, align 4
   %241 = trunc i8 %240 to i1
-  call fastcc void @ExecMerge(ptr noundef nonnull %5, ptr noundef %239, ptr noundef null, ptr noundef null, i1 noundef zeroext %241)
+  call fastcc void @ExecMerge(ptr noundef %5, ptr noundef %239, ptr noundef null, ptr noundef null, i1 noundef zeroext %241)
   br label %.outer.backedge
 
 242:                                              ; preds = %236
@@ -2091,7 +2091,7 @@ ExecGetJunkAttribute.exit133:                     ; preds = %254, %slot_getsomea
   %269 = load ptr, ptr %65, align 8
   %270 = load i8, ptr %84, align 4
   %271 = trunc i8 %270 to i1
-  call fastcc void @ExecMerge(ptr noundef nonnull %5, ptr noundef %269, ptr noundef null, ptr noundef null, i1 noundef zeroext %271)
+  call fastcc void @ExecMerge(ptr noundef %5, ptr noundef %269, ptr noundef null, ptr noundef null, i1 noundef zeroext %271)
   br label %.outer.backedge
 
 272:                                              ; preds = %266
@@ -2294,7 +2294,7 @@ ExecGetInsertNewTuple.exit:                       ; preds = %344, %351, %355
   %.0.i = phi ptr [ %354, %351 ], [ %362, %355 ], [ %340, %344 ]
   %381 = load i8, ptr %84, align 4
   %382 = trunc i8 %381 to i1
-  %383 = call fastcc ptr @ExecInsert(ptr noundef nonnull %5, ptr noundef nonnull %.1, ptr noundef %.0.i, i1 noundef zeroext %382, ptr noundef null, ptr noundef null)
+  %383 = call fastcc ptr @ExecInsert(ptr noundef %5, ptr noundef nonnull %.1, ptr noundef %.0.i, i1 noundef zeroext %382, ptr noundef null, ptr noundef null)
   br label %453
 
 384:                                              ; preds = %291
@@ -2391,19 +2391,19 @@ table_tuple_fetch_row_version.exit:               ; preds = %393
   store ptr null, ptr %91, align 8
   %441 = load i8, ptr %84, align 4
   %442 = trunc i8 %441 to i1
-  %443 = call fastcc ptr @ExecUpdate(ptr noundef nonnull %5, ptr noundef nonnull %.1, ptr noundef %.0111, ptr noundef %.0110, ptr noundef %422, i1 noundef zeroext %442)
+  %443 = call fastcc ptr @ExecUpdate(ptr noundef %5, ptr noundef nonnull %.1, ptr noundef %.0111, ptr noundef %.0110, ptr noundef %422, i1 noundef zeroext %442)
   br label %453
 
 444:                                              ; preds = %291
   %445 = load i8, ptr %84, align 4
   %446 = trunc i8 %445 to i1
-  %447 = call fastcc ptr @ExecDelete(ptr noundef nonnull %5, ptr noundef nonnull %.1, ptr noundef %.0111, ptr noundef %.0110, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext %446, ptr noundef null, ptr noundef null, ptr noundef null)
+  %447 = call fastcc ptr @ExecDelete(ptr noundef %5, ptr noundef nonnull %.1, ptr noundef %.0111, ptr noundef %.0110, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext %446, ptr noundef null, ptr noundef null, ptr noundef null)
   br label %453
 
 .thread:                                          ; preds = %291
   %448 = load i8, ptr %84, align 4
   %449 = trunc i8 %448 to i1
-  call fastcc void @ExecMerge(ptr noundef nonnull %5, ptr noundef nonnull %.1, ptr noundef %.0111, ptr noundef %.0110, i1 noundef zeroext %449)
+  call fastcc void @ExecMerge(ptr noundef %5, ptr noundef nonnull %.1, ptr noundef %.0111, ptr noundef %.0110, i1 noundef zeroext %449)
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %.thread, %237, %453, %267
@@ -2756,7 +2756,7 @@ declare void @ProcessInterrupts() local_unnamed_addr #1
 declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecMerge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @ExecMerge(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
@@ -2964,7 +2964,7 @@ ExecQual.exit.i:                                  ; preds = %.lr.ph163.i
   store i16 %130, ptr %131, align 2
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   store ptr %82, ptr %39, align 8
-  %132 = call fastcc zeroext i1 @ExecUpdatePrologue(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef %113, ptr noundef nonnull %10)
+  %132 = call fastcc zeroext i1 @ExecUpdatePrologue(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef %113, ptr noundef nonnull %10)
   br i1 %132, label %136, label %133
 
 133:                                              ; preds = %106
@@ -2988,7 +2988,7 @@ ExecQual.exit.i:                                  ; preds = %.lr.ph163.i
   br i1 %143, label %thread-pre-split.i, label %.thread19
 
 144:                                              ; preds = %138, %136
-  %145 = call fastcc i32 @ExecUpdateAct(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef nonnull %113, i1 noundef zeroext %4, ptr noundef nonnull %11)
+  %145 = call fastcc i32 @ExecUpdateAct(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef nonnull %113, i1 noundef zeroext %4, ptr noundef %11)
   store i32 %145, ptr %10, align 4
   %146 = load i8, ptr %11, align 4
   %147 = trunc i8 %146 to i1
@@ -3011,12 +3011,12 @@ thread-pre-split.i:                               ; preds = %142
 
 154:                                              ; preds = %151
   %.val125.i = load i32, ptr %43, align 4
-  call fastcc void @ExecUpdateEpilogue(ptr noundef nonnull %0, i32 %.val125.i, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef nonnull %113)
+  call fastcc void @ExecUpdateEpilogue(ptr noundef %0, i32 %.val125.i, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef nonnull %113)
   br label %thread-pre-split132.sink.split.i
 
 155:                                              ; preds = %105
   store ptr %82, ptr %39, align 8
-  %156 = call fastcc zeroext i1 @ExecDeletePrologue(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef nonnull %10)
+  %156 = call fastcc zeroext i1 @ExecDeletePrologue(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef nonnull %10)
   br i1 %156, label %160, label %157
 
 157:                                              ; preds = %155
@@ -3394,7 +3394,7 @@ ExecQual.exit.i14:                                ; preds = %.lr.ph14.i
   store ptr %304, ptr %343, align 8
   %344 = getelementptr inbounds i8, ptr %285, i64 224
   %345 = load ptr, ptr %344, align 8
-  %346 = call fastcc ptr @ExecInsert(ptr noundef nonnull %0, ptr noundef %345, ptr noundef %324, i1 noundef zeroext %4, ptr noundef null, ptr noundef null)
+  %346 = call fastcc ptr @ExecInsert(ptr noundef %0, ptr noundef %345, ptr noundef %324, i1 noundef zeroext %4, ptr noundef null, ptr noundef null)
   %347 = getelementptr inbounds i8, ptr %285, i64 400
   %348 = load double, ptr %347, align 8
   %349 = fadd double %348, 1.000000e+00
@@ -3415,7 +3415,7 @@ ExecMergeNotMatched.exit:                         ; preds = %298, %317, %.loopex
 declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ExecInsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef writeonly %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc ptr @ExecInsert(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef writeonly %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
@@ -4136,7 +4136,7 @@ ExecQual.exit:                                    ; preds = %ExecCheckTupleVisib
   %442 = load ptr, ptr %300, align 8
   %443 = getelementptr inbounds i8, ptr %442, i64 16
   %444 = load ptr, ptr %443, align 8
-  %445 = call fastcc ptr @ExecUpdate(ptr noundef nonnull %0, ptr noundef nonnull %.0187, ptr noundef nonnull %14, ptr noundef null, ptr noundef %444, i1 noundef zeroext %3)
+  %445 = call fastcc ptr @ExecUpdate(ptr noundef %0, ptr noundef nonnull %.0187, ptr noundef nonnull %14, ptr noundef null, ptr noundef %444, i1 noundef zeroext %3)
   %446 = getelementptr inbounds i8, ptr %317, i64 8
   %447 = load ptr, ptr %446, align 8
   %448 = getelementptr inbounds i8, ptr %447, i64 24
@@ -4536,7 +4536,7 @@ define internal fastcc zeroext i1 @table_tuple_fetch_row_version(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ExecUpdate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc ptr @ExecUpdate(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
   %9 = alloca %struct.UpdateContext, align 4
@@ -4557,7 +4557,7 @@ define internal fastcc ptr @ExecUpdate(ptr noundef %0, ptr noundef %1, ptr nound
   unreachable
 
 19:                                               ; preds = %6
-  %20 = tail call fastcc zeroext i1 @ExecUpdatePrologue(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null)
+  %20 = tail call fastcc zeroext i1 @ExecUpdatePrologue(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null)
   br i1 %20, label %21, label %.loopexit86
 
 21:                                               ; preds = %19
@@ -4583,7 +4583,7 @@ define internal fastcc ptr @ExecUpdate(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not80, label %.preheader, label %46
 
 .preheader:                                       ; preds = %30
-  %33 = call fastcc i32 @ExecUpdateAct(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef nonnull %9)
+  %33 = call fastcc i32 @ExecUpdateAct(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %9)
   %34 = load i8, ptr %9, align 4
   %35 = trunc i8 %34 to i1
   br i1 %35, label %._crit_edge, label %.lr.ph
@@ -4793,7 +4793,7 @@ table_tuple_fetch_row_version.exit:               ; preds = %116
   %159 = getelementptr inbounds i8, ptr %141, i64 6
   store i16 %158, ptr %159, align 2
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  %160 = call fastcc i32 @ExecUpdateAct(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %141, i1 noundef zeroext %5, ptr noundef nonnull %9)
+  %160 = call fastcc i32 @ExecUpdateAct(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %141, i1 noundef zeroext %5, ptr noundef %9)
   %161 = load i8, ptr %9, align 4
   %162 = trunc i8 %161 to i1
   br i1 %162, label %._crit_edge, label %73
@@ -4855,7 +4855,7 @@ table_tuple_fetch_row_version.exit:               ; preds = %116
 189:                                              ; preds = %185, %.loopexit
   %190 = getelementptr inbounds i8, ptr %9, i64 4
   %.val = load i32, ptr %190, align 4
-  call fastcc void @ExecUpdateEpilogue(ptr noundef nonnull %0, i32 %.val, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %.076)
+  call fastcc void @ExecUpdateEpilogue(ptr noundef %0, i32 %.val, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %.076)
   %191 = getelementptr inbounds i8, ptr %1, i64 248
   %192 = load ptr, ptr %191, align 8
   %.not84 = icmp eq ptr %192, null
@@ -4924,7 +4924,7 @@ ExecProcessReturning.exit:                        ; preds = %._crit_edge.i, %198
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ExecDelete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef %7, ptr noundef writeonly %8, ptr noundef %9) unnamed_addr #0 {
+define internal fastcc noundef ptr @ExecDelete(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef %7, ptr noundef writeonly %8, ptr noundef %9) unnamed_addr #0 {
   %11 = alloca i8, align 1
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -4938,7 +4938,7 @@ define internal fastcc noundef ptr @ExecDelete(ptr noundef %0, ptr noundef %1, p
   br label %17
 
 17:                                               ; preds = %16, %10
-  %18 = tail call fastcc zeroext i1 @ExecDeletePrologue(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %9, ptr noundef %7)
+  %18 = tail call fastcc zeroext i1 @ExecDeletePrologue(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %9, ptr noundef %7)
   br i1 %18, label %19, label %.loopexit113
 
 19:                                               ; preds = %17
@@ -5308,7 +5308,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare void @ExecWithCheckOptions(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @ExecUpdatePrologue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc zeroext i1 @ExecUpdatePrologue(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %5, null
@@ -5443,7 +5443,7 @@ ExecPendingInserts.exit:                          ; preds = %37, %.thread.loopex
 declare zeroext i1 @ExecIRUpdateTriggers(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ExecUpdateAct(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @ExecUpdateAct(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
   %10 = alloca ptr, align 8
@@ -5571,7 +5571,7 @@ ExecUpdatePrepareSlot.exit:                       ; preds = %24, %33, %37
   br label %83
 
 83:                                               ; preds = %73, %69
-  %84 = call fastcc ptr @ExecDelete(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %84 = call fastcc ptr @ExecDelete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %85 = load i8, ptr %9, align 1
   %86 = trunc i8 %85 to i1
   br i1 %86, label %118, label %87
@@ -5650,7 +5650,7 @@ table_tuple_fetch_row_version.exit:               ; preds = %100
 126:                                              ; preds = %120, %118
   %.050.i = phi ptr [ %125, %120 ], [ %.045, %118 ]
   %127 = load ptr, ptr %65, align 8
-  %128 = call fastcc ptr @ExecInsert(ptr noundef nonnull %0, ptr noundef %127, ptr noundef %.050.i, i1 noundef zeroext %5, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  %128 = call fastcc ptr @ExecInsert(ptr noundef %0, ptr noundef %127, ptr noundef %.050.i, i1 noundef zeroext %5, ptr noundef nonnull %12, ptr noundef nonnull %13)
   store ptr %128, ptr %19, align 8
   %129 = getelementptr inbounds i8, ptr %51, i64 376
   %130 = load ptr, ptr %129, align 8
@@ -5884,7 +5884,7 @@ ExecCrossPartitionUpdateForeignKey.exit:          ; preds = %.critedge.i, %143, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecUpdateEpilogue(ptr nocapture noundef readonly %0, i32 %.4.val, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @ExecUpdateEpilogue(ptr nocapture noundef nonnull readonly %0, i32 %.4.val, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8
@@ -5927,7 +5927,7 @@ define internal fastcc void @ExecUpdateEpilogue(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @ExecDeletePrologue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc zeroext i1 @ExecDeletePrologue(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %7
 

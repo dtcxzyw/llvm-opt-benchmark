@@ -8497,12 +8497,12 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %22, %30
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6Method16clear_breakpointEi(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  tail call fastcc void @_ZL13clear_matchesP6Methodi(ptr noundef nonnull %0, i32 noundef %1)
+  tail call fastcc void @_ZL13clear_matchesP6Methodi(ptr noundef %0, i32 noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13clear_matchesP6Methodi(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL13clear_matchesP6Methodi(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8

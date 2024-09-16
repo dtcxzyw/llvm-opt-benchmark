@@ -5011,7 +5011,7 @@ define internal range(i32 -2147483648, 983041) i32 @sd_pr_read_reservation(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 983041) i32 @sd_pr_out_command(ptr %.16.val.88.val.0.val, i32 %.16.val.88.val.768.val, i8 noundef zeroext %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i8 noundef zeroext %4) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -2147483648, 983041) i32 @sd_pr_out_command(ptr %.16.val.88.val.0.val, i32 %.16.val.88.val.768.val, i8 noundef zeroext range(i8 0, 7) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i8 noundef zeroext range(i8 0, 2) %4) unnamed_addr #3 align 16 {
   %6 = alloca %struct.scsi_sense_hdr, align 8
   %7 = alloca %struct.scsi_exec_args, align 8
   %8 = alloca [16 x i8], align 16
@@ -5131,7 +5131,7 @@ declare i64 @llvm.bswap.i64(i64) #9
 declare dso_local i32 @block_pr_type_to_scsi(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 983041) i32 @sd_pr_in_command(ptr %.16.val.88.val.0.val, i32 %.16.val.88.val.768.val, i8 noundef zeroext %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -2147483648, 983041) i32 @sd_pr_in_command(ptr %.16.val.88.val.0.val, i32 %.16.val.88.val.768.val, i8 noundef zeroext range(i8 0, 2) %0, ptr noundef %1, i32 noundef range(i32 8, 1) %2) unnamed_addr #3 align 16 {
   %4 = alloca %struct.scsi_sense_hdr, align 8
   %5 = alloca [10 x i8], align 1
   %6 = alloca %struct.scsi_exec_args, align 8
@@ -5359,7 +5359,7 @@ declare dso_local void @msleep(i32 noundef) local_unnamed_addr #2
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @read_capacity_16(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc i32 @read_capacity_16(ptr nocapture noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #3 align 16 {
   %4 = alloca [16 x i8], align 16
   %5 = alloca %struct.scsi_sense_hdr, align 8
   %6 = alloca %struct.scsi_exec_args, align 8
@@ -5393,9 +5393,9 @@ define internal fastcc i32 @read_capacity_16(ptr nocapture noundef %0, ptr nound
   store i8 -98, ptr %4, align 16
   store i8 16, ptr %13, align 1
   store i8 32, ptr %14, align 1
-  call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(32) %2, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %23 = load i32, ptr %15, align 8
-  %24 = call i32 @scsi_execute_cmd(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 34, ptr noundef %2, i32 noundef 32, i32 noundef 30000, i32 noundef %23, ptr noundef nonnull %6) #19
+  %24 = call i32 @scsi_execute_cmd(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 34, ptr noundef nonnull %2, i32 noundef 32, i32 noundef 30000, i32 noundef %23, ptr noundef nonnull %6) #19
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %26, label %.thread19
 
@@ -5680,7 +5680,7 @@ define internal fastcc i32 @read_capacity_16(ptr nocapture noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @read_capacity_10(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc i32 @read_capacity_10(ptr nocapture noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #3 align 16 {
   %4 = alloca [16 x i8], align 16
   %5 = alloca %struct.scsi_sense_hdr, align 8
   %6 = alloca %struct.scsi_exec_args, align 8
@@ -5707,7 +5707,7 @@ define internal fastcc i32 @read_capacity_10(ptr nocapture noundef %0, ptr nound
   call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(9) %8, i8 0, i64 9, i1 false)
   store i64 0, ptr %2, align 1
   %17 = load i32, ptr %9, align 8
-  %18 = call i32 @scsi_execute_cmd(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 34, ptr noundef %2, i32 noundef 8, i32 noundef 30000, i32 noundef %17, ptr noundef nonnull %6) #19
+  %18 = call i32 @scsi_execute_cmd(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 34, ptr noundef nonnull %2, i32 noundef 8, i32 noundef 30000, i32 noundef %17, ptr noundef nonnull %6) #19
   %19 = load i8, ptr %5, align 8
   %20 = and i8 %19, 112
   %21 = icmp eq i8 %20, 112
@@ -5843,7 +5843,7 @@ declare dso_local void @blk_queue_logical_block_size(ptr noundef, i32 noundef) l
 declare dso_local void @blk_queue_physical_block_size(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @read_capacity_error(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #3 align 16 {
+define internal fastcc void @read_capacity_error(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #3 align 16 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %13
 
@@ -5919,7 +5919,7 @@ define internal fastcc void @read_capacity_error(ptr nocapture noundef %0, ptr n
 declare dso_local void @blk_queue_alignment_offset(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @sd_config_discard(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc void @sd_config_discard(ptr nocapture noundef %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 736
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 80
@@ -6045,7 +6045,7 @@ declare dso_local void @device_del(ptr noundef) local_unnamed_addr #2
 declare dso_local void @del_gendisk(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @sd_sync_cache(ptr nocapture noundef readonly %0) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @sd_sync_cache(ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 align 16 {
   %2 = alloca %struct.scsi_sense_hdr, align 8
   %3 = alloca %struct.scsi_exec_args, align 8
   %4 = alloca [16 x i8], align 16
@@ -6103,7 +6103,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @sd_sync_cache(ptr nocaptur
   br i1 %33, label %67, label %34
 
 34:                                               ; preds = %32
-  call void @sd_print_result(ptr noundef %0, ptr noundef nonnull @.str.82, i32 noundef %27)
+  call void @sd_print_result(ptr noundef nonnull %0, ptr noundef nonnull @.str.82, i32 noundef %27)
   %35 = icmp slt i32 %27, 0
   br i1 %35, label %67, label %36
 
@@ -6171,7 +6171,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @sd_sync_cache(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -19, 1) i32 @sd_start_stop_device(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -19, 1) i32 @sd_start_stop_device(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #3 align 16 {
   %3 = alloca [6 x i8], align 1
   %4 = alloca %struct.scsi_sense_hdr, align 8
   %5 = alloca %struct.scsi_exec_args, align 8
@@ -6231,7 +6231,7 @@ define internal fastcc range(i32 -19, 1) i32 @sd_start_stop_device(ptr nocapture
   br i1 %31, label %49, label %32
 
 32:                                               ; preds = %27
-  call void @sd_print_result(ptr noundef %0, ptr noundef nonnull @.str.83, i32 noundef %30)
+  call void @sd_print_result(ptr noundef nonnull %0, ptr noundef nonnull @.str.83, i32 noundef %30)
   %33 = icmp sgt i32 %30, 0
   br i1 %33, label %34, label %49
 
@@ -6845,7 +6845,7 @@ declare void @llvm.write_register.i64(metadata, i64) #12
 declare dso_local void @scmd_printk(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc noundef zeroext range(i8 0, 33) i8 @sd_setup_protect_cmnd(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #13 align 16 {
+define internal fastcc noundef zeroext range(i8 0, 33) i8 @sd_setup_protect_cmnd(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #13 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -224
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %1, 0
@@ -6903,7 +6903,7 @@ define internal fastcc noundef zeroext range(i8 0, 33) i8 @sd_setup_protect_cmnd
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext range(i8 0, 11) i8 @sd_setup_rw6_cmnd(ptr noundef %0, i1 noundef zeroext %1, i64 noundef %2, i32 noundef %3, i8 noundef zeroext %4) unnamed_addr #3 align 16 {
+define internal fastcc noundef zeroext range(i8 0, 11) i8 @sd_setup_rw6_cmnd(ptr noundef %0, i1 noundef zeroext %1, i64 noundef range(i64 0, 2097152) %2, i32 noundef range(i32 0, 256) %3, i8 noundef zeroext range(i8 0, 9) %4) unnamed_addr #3 align 16 {
   %6 = icmp eq i32 %3, 0
   br i1 %6, label %7, label %8, !prof !19
 
@@ -6911,45 +6911,43 @@ define internal fastcc noundef zeroext range(i8 0, 11) i8 @sd_setup_rw6_cmnd(ptr
   tail call void asm sideeffect "467: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 467b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 467) #19, !srcloc !37
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.86, i32 1135, i32 2307, i64 12) #19, !srcloc !38
   tail call void asm sideeffect "468: nop\0A\09.pushsection .discard.instr_end\0A\09.long 468b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 468) #19, !srcloc !39
-  br label %28
+  br label %26
 
 8:                                                ; preds = %5
-  %9 = and i8 %4, 8
-  %10 = icmp eq i8 %9, 0
-  br i1 %10, label %12, label %11, !prof !40
+  %9 = icmp ult i8 %4, 8
+  br i1 %9, label %11, label %10, !prof !40
+
+10:                                               ; preds = %8
+  tail call void (ptr, ptr, ptr, ...) @scmd_printk(ptr noundef nonnull @.str.35, ptr noundef %0, ptr noundef nonnull @.str.91) #19
+  br label %26
 
 11:                                               ; preds = %8
-  tail call void (ptr, ptr, ptr, ...) @scmd_printk(ptr noundef nonnull @.str.35, ptr noundef %0, ptr noundef nonnull @.str.91) #19
-  br label %28
+  %12 = getelementptr inbounds i8, ptr %0, i64 156
+  store i16 6, ptr %12, align 4
+  %13 = select i1 %1, i8 10, i8 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 164
+  store i8 %13, ptr %14, align 4
+  %15 = lshr i64 %2, 16
+  %16 = trunc nuw nsw i64 %15 to i8
+  %17 = getelementptr i8, ptr %0, i64 165
+  store i8 %16, ptr %17, align 1
+  %18 = lshr i64 %2, 8
+  %19 = trunc i64 %18 to i8
+  %20 = getelementptr i8, ptr %0, i64 166
+  store i8 %19, ptr %20, align 2
+  %21 = trunc i64 %2 to i8
+  %22 = getelementptr i8, ptr %0, i64 167
+  store i8 %21, ptr %22, align 1
+  %23 = trunc nuw i32 %3 to i8
+  %24 = getelementptr i8, ptr %0, i64 168
+  store i8 %23, ptr %24, align 4
+  %25 = getelementptr i8, ptr %0, i64 169
+  store i8 0, ptr %25, align 1
+  br label %26
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 156
-  store i16 6, ptr %13, align 4
-  %14 = select i1 %1, i8 10, i8 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 164
-  store i8 %14, ptr %15, align 4
-  %16 = lshr i64 %2, 16
-  %17 = trunc nuw nsw i64 %16 to i8
-  %18 = and i8 %17, 31
-  %19 = getelementptr i8, ptr %0, i64 165
-  store i8 %18, ptr %19, align 1
-  %20 = lshr i64 %2, 8
-  %21 = trunc i64 %20 to i8
-  %22 = getelementptr i8, ptr %0, i64 166
-  store i8 %21, ptr %22, align 2
-  %23 = trunc i64 %2 to i8
-  %24 = getelementptr i8, ptr %0, i64 167
-  store i8 %23, ptr %24, align 1
-  %25 = trunc nuw i32 %3 to i8
-  %26 = getelementptr i8, ptr %0, i64 168
-  store i8 %25, ptr %26, align 4
-  %27 = getelementptr i8, ptr %0, i64 169
-  store i8 0, ptr %27, align 1
-  br label %28
-
-28:                                               ; preds = %12, %11, %7
-  %29 = phi i8 [ 10, %11 ], [ 0, %12 ], [ 10, %7 ]
-  ret i8 %29
+26:                                               ; preds = %11, %10, %7
+  %27 = phi i8 [ 10, %10 ], [ 0, %11 ], [ 10, %7 ]
+  ret i8 %27
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -13024,7 +13024,7 @@ ilk_lut_write.exit:                               ; preds = %47, %76
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @bdw_load_lut_10(ptr nocapture noundef readonly %0, i64 %.72.val, ptr nocapture readonly %.80.val, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @bdw_load_lut_10(ptr nocapture noundef readonly %0, i64 %.72.val, ptr nocapture readonly %.80.val, i32 noundef range(i32 -2147483648, 1) %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = lshr i64 %.72.val, 3
   %5 = trunc i64 %4 to i32
@@ -13763,7 +13763,7 @@ define internal fastcc ptr @ilk_read_lut_8(ptr %.0.val, i32 %.1648.val) unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @bdw_read_lut_10(ptr %.0.val, i32 %.1648.val, i32 noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc ptr @bdw_read_lut_10(ptr %.0.val, i32 %.1648.val, i32 noundef range(i32 -2147483648, 1) %0) unnamed_addr #0 align 16 {
   %2 = icmp sgt i32 %0, -1
   %3 = select i1 %2, i32 1024, i32 512
   %4 = shl nuw nsw i32 %3, 3
@@ -19004,7 +19004,7 @@ define internal void @ivb_read_luts(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ivb_load_lut_10(ptr nocapture noundef readonly %0, i64 %.72.val, ptr nocapture readonly %.80.val, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ivb_load_lut_10(ptr nocapture noundef readonly %0, i64 %.72.val, ptr nocapture readonly %.80.val, i32 noundef range(i32 -2147483648, 1) %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = lshr i64 %.72.val, 3
   %5 = trunc i64 %4 to i32
@@ -19275,7 +19275,7 @@ ilk_lut_write.exit7:                              ; preds = %119, %147
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @ivb_read_lut_10(ptr %.0.val, i32 %.1648.val, i32 noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc ptr @ivb_read_lut_10(ptr %.0.val, i32 %.1648.val, i32 noundef range(i32 -2147483648, 1) %0) unnamed_addr #0 align 16 {
   %2 = icmp sgt i32 %0, -1
   %3 = select i1 %2, i32 1024, i32 512
   %4 = shl nuw nsw i32 %3, 3

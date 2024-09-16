@@ -1666,7 +1666,7 @@ declare dso_local i32 @cond_read_list(ptr noundef, ptr noundef) local_unnamed_ad
 declare dso_local i32 @hashtab_init(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @hashtab_insert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readonly %3, ptr nocapture readonly %4) unnamed_addr #9 align 16 {
+define internal fastcc i32 @hashtab_insert(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr nocapture readonly %3, ptr nocapture readonly %4) unnamed_addr #9 align 16 {
   %6 = tail call i32 @__SCT__cond_resched() #22
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
@@ -1680,7 +1680,7 @@ define internal fastcc i32 @hashtab_insert(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %10
-  %15 = tail call i32 %3(ptr noundef %1) #22, !callees !25
+  %15 = tail call i32 %3(ptr noundef nonnull %1) #22, !callees !25
   %16 = load i32, ptr %7, align 8
   %17 = add i32 %16, -1
   %18 = and i32 %17, %15
@@ -1701,7 +1701,7 @@ define internal fastcc i32 @hashtab_insert(ptr noundef %0, ptr noundef %1, ptr n
   %28 = phi ptr [ %26, %24 ], [ %22, %14 ]
   %29 = phi ptr [ %28, %24 ], [ null, %14 ]
   %30 = load ptr, ptr %28, align 8
-  %31 = tail call i32 %4(ptr noundef %1, ptr noundef %30) #22, !callees !26
+  %31 = tail call i32 %4(ptr noundef nonnull %1, ptr noundef %30) #22, !callees !26
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %.thread, label %33
 
@@ -1725,7 +1725,7 @@ define internal fastcc i32 @hashtab_insert(ptr noundef %0, ptr noundef %1, ptr n
 
 39:                                               ; preds = %.thread3.thread, %.thread3.thread8
   %40 = phi ptr [ %36, %.thread3.thread8 ], [ %38, %.thread3.thread ]
-  %41 = tail call i32 @__hashtab_insert(ptr noundef %0, ptr noundef %40, ptr noundef %1, ptr noundef %2) #22
+  %41 = tail call i32 @__hashtab_insert(ptr noundef %0, ptr noundef %40, ptr noundef nonnull %1, ptr noundef %2) #22
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %39, %10, %5
@@ -2268,7 +2268,7 @@ define internal fastcc i32 @policydb_index(ptr noundef %0) unnamed_addr #2 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ocontext_read(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc i32 @ocontext_read(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #2 align 16 {
   %4 = alloca [4 x i32], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3610,7 +3610,7 @@ define internal fastcc i32 @filename_trans_write(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #2 align 16 {
   %4 = alloca [3 x i32], align 4
   %5 = alloca [3 x i32], align 4
   %6 = alloca [3 x i32], align 4
@@ -6405,7 +6405,7 @@ define internal fastcc i32 @perm_read(ptr noundef %0, ptr nocapture noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @read_cons_helper(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #2 align 16 {
+define internal fastcc i32 @read_cons_helper(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4) unnamed_addr #2 align 16 {
   %6 = icmp eq i32 %2, 0
   br i1 %6, label %.thread16, label %7
 

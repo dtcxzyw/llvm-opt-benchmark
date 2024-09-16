@@ -904,7 +904,7 @@ if.then114:                                       ; preds = %invoke.cont111
   br i1 %retval.0.i181, label %if.then117, label %if.end120
 
 if.then117:                                       ; preds = %if.then114
-  invoke fastcc void @_ZN6Assimp4D3MF12_GLOBAL__N_120parseTransformMatrixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 4 %ref.tmp118, ptr noundef nonnull align 8 dereferenceable(32) %transformationMatrixStr)
+  invoke fastcc void @_ZN6Assimp4D3MF12_GLOBAL__N_120parseTransformMatrixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 4 %ref.tmp118, ptr noundef nonnull align 8 dereferenceable(32) %transformationMatrixStr)
           to label %invoke.cont119 unwind label %lpad101
 
 invoke.cont119:                                   ; preds = %if.then117
@@ -2260,7 +2260,7 @@ _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %land.lhs.true.i.i
 invoke.cont104:                                   ; preds = %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp99) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp100) #24
-  invoke fastcc void @_ZN6Assimp4D3MF12_GLOBAL__N_120parseTransformMatrixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 4 %ref.tmp109, ptr noundef nonnull align 8 dereferenceable(32) %componentTransformStr)
+  invoke fastcc void @_ZN6Assimp4D3MF12_GLOBAL__N_120parseTransformMatrixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 4 %ref.tmp109, ptr noundef nonnull align 8 dereferenceable(32) %componentTransformStr)
           to label %invoke.cont111 unwind label %lpad110.loopexit
 
 invoke.cont111:                                   ; preds = %invoke.cont104
@@ -3206,7 +3206,7 @@ cleanup:                                          ; preds = %for.inc.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6Assimp4D3MF12_GLOBAL__N_120parseTransformMatrixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %matrixStr) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6Assimp4D3MF12_GLOBAL__N_120parseTransformMatrixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture nonnull writeonly align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %matrixStr) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %__endptr.i.i9 = alloca ptr, align 8
   %__endptr.i.i = alloca ptr, align 8

@@ -473,13 +473,13 @@ _Z11do_per_stepll.exit:                           ; preds = %21
   %113 = getelementptr inbounds i8, ptr %72, i64 16
   %.sink119.i = select i1 %112, ptr %73, ptr %113
   %114 = load ptr, ptr %.sink119.i, align 8
-  call fastcc void @_ZL16fit_to_referencePA3_fPfS0_P5edpar(ptr noundef %114, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %.sroa.022.041)
+  call fastcc void @_ZL16fit_to_referencePA3_fPfS0_P5edpar(ptr noundef %114, ptr noundef %13, ptr noundef %11, ptr noundef %.sroa.022.041)
   %115 = load ptr, ptr %73, align 8
   %116 = load i32, ptr %79, align 8
   call void @_Z11translate_xPA3_fiPKf(ptr noundef %115, i32 noundef %116, ptr noundef nonnull %13)
   call void @_Z8rotate_xPA3_fiS0_(ptr noundef %115, i32 noundef %116, ptr noundef nonnull %11)
   %117 = load ptr, ptr %73, align 8
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %117, ptr noundef nonnull %65, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.022.041)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %117, ptr noundef %65, ptr noundef nonnull align 8 dereferenceable(888) %.sroa.022.041)
   %118 = getelementptr inbounds i8, ptr %.sroa.022.041, i64 748
   %119 = load i8, ptr %118, align 4
   %120 = trunc i8 %119 to i1
@@ -1086,7 +1086,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #9
 declare void @_Z27communicate_group_positionsPK9t_commrecPA3_fPA3_iS5_bPA3_KfiiPKiSA_S3_S8_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16fit_to_referencePA3_fPfS0_P5edpar(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #5 {
+define internal fastcc void @_ZL16fit_to_referencePA3_fPfS0_P5edpar(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #5 {
   %5 = alloca i32, align 4
   %6 = alloca [6 x double], align 16
   %7 = alloca [3 x [3 x float]], align 16
@@ -1527,7 +1527,7 @@ _ZL8do_edfitiPA3_fS0_S0_P5edpar.exit:             ; preds = %239, %190
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(888) %2) unnamed_addr #10 {
+define internal fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(888) %2) unnamed_addr #10 {
   %4 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.loopexit, label %.preheader27
@@ -2622,7 +2622,7 @@ _ZL10copy_rvecnPA3_KfPA3_fii.exit:                ; preds = %.lr.ph.i136, %_ZL15
   br i1 %exitcond.not.i145, label %_ZL10copy_rvecnPA3_KfPA3_fii.exit146, label %.lr.ph.i142, !llvm.loop !43
 
 _ZL10copy_rvecnPA3_KfPA3_fii.exit146:             ; preds = %.lr.ph.i142, %_ZL10copy_rvecnPA3_KfPA3_fii.exit
-  invoke fastcc void @_ZL16fit_to_referencePA3_fPfS0_P5edpar(ptr noundef %408, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %.sroa.0262.0438)
+  invoke fastcc void @_ZL16fit_to_referencePA3_fPfS0_P5edpar(ptr noundef %408, ptr noundef %18, ptr noundef %19, ptr noundef %.sroa.0262.0438)
           to label %440 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 440:                                              ; preds = %_ZL10copy_rvecnPA3_KfPA3_fii.exit146
@@ -2706,17 +2706,17 @@ _ZL20translate_and_rotatePA3_fiPfS0_.exit:        ; preds = %.noexc147
 
 484:                                              ; preds = %.noexc155
   %485 = getelementptr inbounds i8, ptr %.sroa.0262.0438, i64 352
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %412, ptr noundef nonnull readonly %485, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0262.0438)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %412, ptr noundef readonly %485, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0262.0438)
   %486 = getelementptr inbounds i8, ptr %.sroa.0262.0438, i64 416
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %412, ptr noundef nonnull readonly %486, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0262.0438)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %412, ptr noundef readonly %486, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0262.0438)
   %487 = getelementptr inbounds i8, ptr %.sroa.0262.0438, i64 480
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %412, ptr noundef nonnull readonly %487, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0262.0438)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %412, ptr noundef readonly %487, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0262.0438)
   %488 = getelementptr inbounds i8, ptr %.sroa.0262.0438, i64 544
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %412, ptr noundef nonnull readonly %488, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0262.0438)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %412, ptr noundef readonly %488, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0262.0438)
   %489 = getelementptr inbounds i8, ptr %.sroa.0262.0438, i64 608
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %412, ptr noundef nonnull readonly %489, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0262.0438)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %412, ptr noundef readonly %489, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0262.0438)
   %490 = getelementptr inbounds i8, ptr %.sroa.0262.0438, i64 672
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %412, ptr noundef nonnull readonly %490, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0262.0438)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %412, ptr noundef readonly %490, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0262.0438)
   %491 = getelementptr inbounds i8, ptr %.sroa.0262.0438, i64 192
   %492 = load i32, ptr %491, align 8
   %493 = icmp sgt i32 %492, 0
@@ -2727,7 +2727,7 @@ _ZL20translate_and_rotatePA3_fiPfS0_.exit:        ; preds = %.noexc147
   %496 = call i64 @fwrite(ptr nonnull @.str.18, i64 52, i64 1, ptr %495) #27
   %497 = getelementptr inbounds i8, ptr %.sroa.0262.0438, i64 232
   %498 = load ptr, ptr %497, align 8
-  invoke fastcc void @_ZL16fit_to_referencePA3_fPfS0_P5edpar(ptr noundef %498, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %.sroa.0262.0438)
+  invoke fastcc void @_ZL16fit_to_referencePA3_fPfS0_P5edpar(ptr noundef %498, ptr noundef %18, ptr noundef %19, ptr noundef %.sroa.0262.0438)
           to label %499 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 499:                                              ; preds = %494
@@ -2778,7 +2778,7 @@ _ZL20translate_and_rotatePA3_fiPfS0_.exit160:     ; preds = %.noexc158
   %524 = call i64 @fwrite(ptr nonnull @.str.20, i64 52, i64 1, ptr %523) #27
   %525 = getelementptr inbounds i8, ptr %.sroa.0262.0438, i64 312
   %526 = load ptr, ptr %525, align 8
-  invoke fastcc void @_ZL16fit_to_referencePA3_fPfS0_P5edpar(ptr noundef %526, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %.sroa.0262.0438)
+  invoke fastcc void @_ZL16fit_to_referencePA3_fPfS0_P5edpar(ptr noundef %526, ptr noundef %18, ptr noundef %19, ptr noundef %.sroa.0262.0438)
           to label %527 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 527:                                              ; preds = %522
@@ -3046,64 +3046,64 @@ _Z10nblock_abcI5edparEvbP10tmpi_comm_mPSt6vectorIT_SaIS4_EE.exit.i: ; preds = %6
 
 .noexc174:                                        ; preds = %664
   %666 = getelementptr inbounds i8, ptr %.sroa.058.064.i, i64 24
-  invoke fastcc void @_ZL15bc_ed_positionsPK9t_commrecP7gmx_edxN12_GLOBAL__N_126EssentialDynamicsStructureE(ptr noundef nonnull readonly %6, ptr noundef nonnull %666, i32 noundef 0)
+  invoke fastcc void @_ZL15bc_ed_positionsPK9t_commrecP7gmx_edxN12_GLOBAL__N_126EssentialDynamicsStructureE(ptr noundef nonnull readonly %6, ptr noundef %666, i32 noundef 0)
           to label %.noexc175 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc175:                                        ; preds = %.noexc174
   %667 = getelementptr inbounds i8, ptr %.sroa.058.064.i, i64 112
-  invoke fastcc void @_ZL15bc_ed_positionsPK9t_commrecP7gmx_edxN12_GLOBAL__N_126EssentialDynamicsStructureE(ptr noundef nonnull readonly %6, ptr noundef nonnull %667, i32 noundef 1)
+  invoke fastcc void @_ZL15bc_ed_positionsPK9t_commrecP7gmx_edxN12_GLOBAL__N_126EssentialDynamicsStructureE(ptr noundef nonnull readonly %6, ptr noundef %667, i32 noundef 1)
           to label %.noexc176 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc176:                                        ; preds = %.noexc175
   %668 = getelementptr inbounds i8, ptr %.sroa.058.064.i, i64 192
-  invoke fastcc void @_ZL15bc_ed_positionsPK9t_commrecP7gmx_edxN12_GLOBAL__N_126EssentialDynamicsStructureE(ptr noundef nonnull readonly %6, ptr noundef nonnull %668, i32 noundef 3)
+  invoke fastcc void @_ZL15bc_ed_positionsPK9t_commrecP7gmx_edxN12_GLOBAL__N_126EssentialDynamicsStructureE(ptr noundef nonnull readonly %6, ptr noundef %668, i32 noundef 3)
           to label %.noexc177 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc177:                                        ; preds = %.noexc176
   %669 = getelementptr inbounds i8, ptr %.sroa.058.064.i, i64 272
-  invoke fastcc void @_ZL15bc_ed_positionsPK9t_commrecP7gmx_edxN12_GLOBAL__N_126EssentialDynamicsStructureE(ptr noundef nonnull readonly %6, ptr noundef nonnull %669, i32 noundef 2)
+  invoke fastcc void @_ZL15bc_ed_positionsPK9t_commrecP7gmx_edxN12_GLOBAL__N_126EssentialDynamicsStructureE(ptr noundef nonnull readonly %6, ptr noundef %669, i32 noundef 2)
           to label %.noexc178 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc178:                                        ; preds = %.noexc177
   %670 = getelementptr inbounds i8, ptr %.sroa.058.064.i, i64 352
   %671 = load i32, ptr %667, align 8
-  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull readonly %6, ptr noundef nonnull %670, i32 noundef %671)
+  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull readonly %6, ptr noundef %670, i32 noundef %671)
           to label %.noexc179 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc179:                                        ; preds = %.noexc178
   %672 = getelementptr inbounds i8, ptr %.sroa.058.064.i, i64 416
   %673 = load i32, ptr %667, align 8
-  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull readonly %6, ptr noundef nonnull %672, i32 noundef %673)
+  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull readonly %6, ptr noundef %672, i32 noundef %673)
           to label %.noexc180 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc180:                                        ; preds = %.noexc179
   %674 = getelementptr inbounds i8, ptr %.sroa.058.064.i, i64 480
   %675 = load i32, ptr %667, align 8
-  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull readonly %6, ptr noundef nonnull %674, i32 noundef %675)
+  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull readonly %6, ptr noundef %674, i32 noundef %675)
           to label %.noexc181 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc181:                                        ; preds = %.noexc180
   %676 = getelementptr inbounds i8, ptr %.sroa.058.064.i, i64 544
   %677 = load i32, ptr %667, align 8
-  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull readonly %6, ptr noundef nonnull %676, i32 noundef %677)
+  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull readonly %6, ptr noundef %676, i32 noundef %677)
           to label %.noexc182 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc182:                                        ; preds = %.noexc181
   %678 = getelementptr inbounds i8, ptr %.sroa.058.064.i, i64 608
   %679 = load i32, ptr %667, align 8
-  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull readonly %6, ptr noundef nonnull %678, i32 noundef %679)
+  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull readonly %6, ptr noundef %678, i32 noundef %679)
           to label %.noexc183 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc183:                                        ; preds = %.noexc182
   %680 = getelementptr inbounds i8, ptr %.sroa.058.064.i, i64 672
   %681 = load i32, ptr %667, align 8
-  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull readonly %6, ptr noundef nonnull %680, i32 noundef %681)
+  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull readonly %6, ptr noundef %680, i32 noundef %681)
           to label %.noexc184 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc184:                                        ; preds = %.noexc183
   %682 = getelementptr inbounds i8, ptr %.sroa.058.064.i, i64 792
   %683 = load i32, ptr %667, align 8
-  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull readonly %6, ptr noundef nonnull %682, i32 noundef %683)
+  invoke fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr noundef nonnull readonly %6, ptr noundef %682, i32 noundef %683)
           to label %.noexc185 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc185:                                        ; preds = %.noexc184
@@ -8211,7 +8211,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit174.i:
   %1358 = trunc i32 %.087348.i to i8
   %1359 = add i8 %1358, 64
   %.0.i175.i = select i1 %1338, i8 32, i8 %1359
-  invoke fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull align 8 dereferenceable(32) %127, i8 noundef signext %.0.i175.i)
+  invoke fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef %122, ptr noundef %123, ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull align 8 dereferenceable(32) %127, i8 noundef signext %.0.i175.i)
           to label %1360 unwind label %1411
 
 1360:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit174.i
@@ -8280,7 +8280,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit174.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit180.i: ; preds = %1380
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
-  invoke fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 8 dereferenceable(32) %130, i8 noundef signext %.0.i175.i)
+  invoke fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef %122, ptr noundef %123, ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 8 dereferenceable(32) %130, i8 noundef signext %.0.i175.i)
           to label %1382 unwind label %1415
 
 1382:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit180.i
@@ -8345,7 +8345,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit180.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit186.i: ; preds = %1402
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47)
-  invoke fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(32) %133, i8 noundef signext %.0.i175.i)
+  invoke fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef %122, ptr noundef %123, ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(32) %133, i8 noundef signext %.0.i175.i)
           to label %1404 unwind label %1421
 
 1404:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit186.i
@@ -8478,7 +8478,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit186.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit192.i: ; preds = %1438
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48)
-  invoke fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(32) %136, i8 noundef signext %.0.i175.i)
+  invoke fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef %122, ptr noundef %123, ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(32) %136, i8 noundef signext %.0.i175.i)
           to label %1440 unwind label %1443
 
 1440:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit192.i
@@ -8554,7 +8554,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit192.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit198.i: ; preds = %1458
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49)
-  invoke fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 8 dereferenceable(32) %139, i8 noundef signext %.0.i175.i)
+  invoke fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef %122, ptr noundef %123, ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 8 dereferenceable(32) %139, i8 noundef signext %.0.i175.i)
           to label %1460 unwind label %1480
 
 1460:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit198.i
@@ -8612,7 +8612,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit198.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit204.i: ; preds = %1475
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50)
-  invoke fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull align 8 dereferenceable(32) %141, ptr noundef nonnull align 8 dereferenceable(32) %142, i8 noundef signext %.0.i175.i)
+  invoke fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef %122, ptr noundef %123, ptr noundef nonnull align 8 dereferenceable(32) %141, ptr noundef nonnull align 8 dereferenceable(32) %142, i8 noundef signext %.0.i175.i)
           to label %1477 unwind label %1484
 
 1477:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit204.i
@@ -8704,7 +8704,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit204.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit210.i: ; preds = %1499
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51)
-  invoke fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 8 dereferenceable(32) %145, i8 noundef signext %.0.i175.i)
+  invoke fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef %122, ptr noundef %123, ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 8 dereferenceable(32) %145, i8 noundef signext %.0.i175.i)
           to label %1501 unwind label %1507
 
 1501:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit210.i
@@ -8872,7 +8872,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit221.i:
   %1551 = trunc i32 %.0353.i to i8
   %1552 = add i8 %1551, 64
   %.0.i222.i = select i1 %1519, i8 32, i8 %1552
-  invoke fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef nonnull align 8 dereferenceable(32) %149, i8 noundef signext %.0.i222.i)
+  invoke fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef %122, ptr noundef %123, ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef nonnull align 8 dereferenceable(32) %149, i8 noundef signext %.0.i222.i)
           to label %1553 unwind label %1619
 
 1553:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit221.i
@@ -8920,7 +8920,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit221.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit228.i: ; preds = %1561
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54)
-  invoke fastcc void @_ZL16nice_legend_evecPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_PN12_GLOBAL__N_18t_eigvecEcRKS5_(ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull %1521, i8 noundef signext %.0.i222.i, ptr noundef nonnull align 8 dereferenceable(32) %151)
+  invoke fastcc void @_ZL16nice_legend_evecPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_PN12_GLOBAL__N_18t_eigvecEcRKS5_(ptr noundef %122, ptr noundef %123, ptr noundef nonnull %1521, i8 noundef signext %.0.i222.i, ptr noundef nonnull align 8 dereferenceable(32) %151)
           to label %1563 unwind label %1623
 
 1563:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit228.i
@@ -8966,7 +8966,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit228.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit234.i: ; preds = %1571
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55)
-  invoke fastcc void @_ZL16nice_legend_evecPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_PN12_GLOBAL__N_18t_eigvecEcRKS5_(ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull %1523, i8 noundef signext %.0.i222.i, ptr noundef nonnull align 8 dereferenceable(32) %153)
+  invoke fastcc void @_ZL16nice_legend_evecPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_PN12_GLOBAL__N_18t_eigvecEcRKS5_(ptr noundef %122, ptr noundef %123, ptr noundef nonnull %1523, i8 noundef signext %.0.i222.i, ptr noundef nonnull align 8 dereferenceable(32) %153)
           to label %1573 unwind label %1627
 
 1573:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit234.i
@@ -9012,7 +9012,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit234.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit240.i: ; preds = %1581
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56)
-  invoke fastcc void @_ZL16nice_legend_evecPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_PN12_GLOBAL__N_18t_eigvecEcRKS5_(ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull %1525, i8 noundef signext %.0.i222.i, ptr noundef nonnull align 8 dereferenceable(32) %155)
+  invoke fastcc void @_ZL16nice_legend_evecPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_PN12_GLOBAL__N_18t_eigvecEcRKS5_(ptr noundef %122, ptr noundef %123, ptr noundef nonnull %1525, i8 noundef signext %.0.i222.i, ptr noundef nonnull align 8 dereferenceable(32) %155)
           to label %1583 unwind label %1631
 
 1583:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit240.i
@@ -9058,7 +9058,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit240.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit246.i: ; preds = %1591
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57)
-  invoke fastcc void @_ZL16nice_legend_evecPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_PN12_GLOBAL__N_18t_eigvecEcRKS5_(ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull %1527, i8 noundef signext %.0.i222.i, ptr noundef nonnull align 8 dereferenceable(32) %157)
+  invoke fastcc void @_ZL16nice_legend_evecPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_PN12_GLOBAL__N_18t_eigvecEcRKS5_(ptr noundef %122, ptr noundef %123, ptr noundef nonnull %1527, i8 noundef signext %.0.i222.i, ptr noundef nonnull align 8 dereferenceable(32) %157)
           to label %1593 unwind label %1635
 
 1593:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit246.i
@@ -9149,7 +9149,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit251.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit256.i: ; preds = %1612
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59)
-  invoke fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull align 8 dereferenceable(32) %159, ptr noundef nonnull align 8 dereferenceable(32) %161, i8 noundef signext %.0.i222.i)
+  invoke fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef %122, ptr noundef %123, ptr noundef nonnull align 8 dereferenceable(32) %159, ptr noundef nonnull align 8 dereferenceable(32) %161, i8 noundef signext %.0.i222.i)
           to label %1614 unwind label %1641
 
 1614:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit256.i
@@ -9318,7 +9318,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit256.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit263.i: ; preds = %1651
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60)
-  invoke fastcc void @_ZL16nice_legend_evecPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_PN12_GLOBAL__N_18t_eigvecEcRKS5_(ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull %1529, i8 noundef signext %.0.i222.i, ptr noundef nonnull align 8 dereferenceable(32) %163)
+  invoke fastcc void @_ZL16nice_legend_evecPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_PN12_GLOBAL__N_18t_eigvecEcRKS5_(ptr noundef %122, ptr noundef %123, ptr noundef nonnull %1529, i8 noundef signext %.0.i222.i, ptr noundef nonnull align 8 dereferenceable(32) %163)
           to label %1653 unwind label %1677
 
 1653:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit263.i
@@ -9409,7 +9409,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit268.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit273.i: ; preds = %1672
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62)
-  invoke fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull align 8 dereferenceable(32) %165, ptr noundef nonnull align 8 dereferenceable(32) %167, i8 noundef signext %.0.i222.i)
+  invoke fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef %122, ptr noundef %123, ptr noundef nonnull align 8 dereferenceable(32) %165, ptr noundef nonnull align 8 dereferenceable(32) %167, i8 noundef signext %.0.i222.i)
           to label %1674 unwind label %1683
 
 1674:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit273.i
@@ -9504,7 +9504,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit273.i:
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit280.i: ; preds = %1693
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63)
   %1695 = getelementptr inbounds i8, ptr %.sroa.0304.1352.i, i64 672
-  invoke fastcc void @_ZL16nice_legend_evecPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_PN12_GLOBAL__N_18t_eigvecEcRKS5_(ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull %1695, i8 noundef signext %.0.i222.i, ptr noundef nonnull align 8 dereferenceable(32) %169)
+  invoke fastcc void @_ZL16nice_legend_evecPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_PN12_GLOBAL__N_18t_eigvecEcRKS5_(ptr noundef %122, ptr noundef %123, ptr noundef nonnull %1695, i8 noundef signext %.0.i222.i, ptr noundef nonnull align 8 dereferenceable(32) %169)
           to label %1696 unwind label %1720
 
 1696:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit280.i
@@ -9595,7 +9595,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit285.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit290.i: ; preds = %1715
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65)
-  invoke fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull align 8 dereferenceable(32) %171, ptr noundef nonnull align 8 dereferenceable(32) %173, i8 noundef signext %.0.i222.i)
+  invoke fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef %122, ptr noundef %123, ptr noundef nonnull align 8 dereferenceable(32) %171, ptr noundef nonnull align 8 dereferenceable(32) %173, i8 noundef signext %.0.i222.i)
           to label %1717 unwind label %1726
 
 1717:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit290.i
@@ -10169,7 +10169,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i8 noundef signext %4) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11nice_legendPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_RKS5_SB_c(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i8 noundef signext %4) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10248,7 +10248,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16nice_legend_evecPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_PN12_GLOBAL__N_18t_eigvecEcRKS5_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i8 noundef signext %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16nice_legend_evecPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPS5_PN12_GLOBAL__N_18t_eigvecEcRKS5_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, i8 noundef signext %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.191", align 1
@@ -10507,7 +10507,7 @@ declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr n
 declare void @_Z9gmx_bcastmPvP10tmpi_comm_(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15bc_ed_positionsPK9t_commrecP7gmx_edxN12_GLOBAL__N_126EssentialDynamicsStructureE(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #5 {
+define internal fastcc void @_ZL15bc_ed_positionsPK9t_commrecP7gmx_edxN12_GLOBAL__N_126EssentialDynamicsStructureE(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 52
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
@@ -10711,7 +10711,7 @@ _Z7snew_bcIfEvbRPT_m.exit50:                      ; preds = %.thread55, %81, %86
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #5 {
+define internal fastcc void @_ZL10bc_ed_vecsPK9t_commrecPN12_GLOBAL__N_18t_eigvecEi(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 52
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
@@ -11252,7 +11252,7 @@ _ZN12_GLOBAL__N_111calc_radiusERKNS_8t_eigvecE.exit: ; preds = %88, %.thread, %8
   %158 = getelementptr inbounds i8, ptr %100, i64 16
   %.sink290 = select i1 %157, ptr %102, ptr %158
   %159 = load ptr, ptr %.sink290, align 8
-  call fastcc void @_ZL16fit_to_referencePA3_fPfS0_P5edpar(ptr noundef %159, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %.sroa.0195.0247)
+  call fastcc void @_ZL16fit_to_referencePA3_fPfS0_P5edpar(ptr noundef %159, ptr noundef %12, ptr noundef %11, ptr noundef %.sroa.0195.0247)
   %160 = load ptr, ptr %102, align 8
   %161 = load i32, ptr %116, align 8
   call void @_Z11translate_xPA3_fiPKf(ptr noundef %160, i32 noundef %161, ptr noundef nonnull %12)
@@ -11402,13 +11402,13 @@ _Z11do_per_stepll.exit150:                        ; preds = %_Z11do_per_stepll.e
 
 249:                                              ; preds = %_Z11do_per_stepll.exit150
   %250 = load ptr, ptr %102, align 8
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %250, ptr noundef nonnull readonly %58, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %250, ptr noundef nonnull readonly %60, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %250, ptr noundef nonnull readonly %62, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %250, ptr noundef nonnull readonly %64, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %250, ptr noundef nonnull readonly %66, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %250, ptr noundef readonly %58, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %250, ptr noundef readonly %60, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %250, ptr noundef readonly %62, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %250, ptr noundef readonly %64, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %250, ptr noundef readonly %66, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
   %251 = getelementptr inbounds i8, ptr %.sroa.0195.0247, i64 672
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %250, ptr noundef nonnull readonly %251, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %250, ptr noundef readonly %251, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
   %252 = load ptr, ptr %102, align 8
   call fastcc void @_ZN12_GLOBAL__N_111rad_projectERK5edparPA3_fPNS_8t_eigvecE(ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0195.0247, ptr noundef %252, ptr noundef nonnull %66)
   %253 = load ptr, ptr %102, align 8
@@ -11465,13 +11465,13 @@ _ZN12_GLOBAL__N_111calc_radiusERKNS_8t_eigvecE.exit159: ; preds = %265, %258
 
 280:                                              ; preds = %_ZN12_GLOBAL__N_111calc_radiusERKNS_8t_eigvecE.exit159
   %281 = load ptr, ptr %102, align 8
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %281, ptr noundef nonnull readonly %58, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %281, ptr noundef nonnull readonly %60, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %281, ptr noundef nonnull readonly %62, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %281, ptr noundef nonnull readonly %64, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %281, ptr noundef nonnull readonly %66, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %281, ptr noundef readonly %58, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %281, ptr noundef readonly %60, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %281, ptr noundef readonly %62, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %281, ptr noundef readonly %64, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %281, ptr noundef readonly %66, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
   %282 = getelementptr inbounds i8, ptr %.sroa.0195.0247, i64 672
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %281, ptr noundef nonnull readonly %282, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %281, ptr noundef readonly %282, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
   %283 = load ptr, ptr %102, align 8
   call fastcc void @_ZN12_GLOBAL__N_111rad_projectERK5edparPA3_fPNS_8t_eigvecE(ptr noundef nonnull align 8 dereferenceable(888) %.sroa.0195.0247, ptr noundef %283, ptr noundef nonnull %66)
   br label %.sink.split
@@ -11670,7 +11670,7 @@ _ZN12_GLOBAL__N_18projectxERK5edparPA3_fS4_.exit.i.i: ; preds = %.lr.ph.i.i.i, %
   br i1 %395, label %332, label %_ZN12_GLOBAL__N_19do_linfixEPA3_fRK5edparl.exit.i, !llvm.loop !97
 
 _ZN12_GLOBAL__N_19do_linfixEPA3_fRK5edparl.exit.i: ; preds = %._crit_edge.i.i, %324
-  call fastcc void @_ZN12_GLOBAL__N_19do_linaccEPA3_fP5edpar(ptr noundef %297, ptr noundef nonnull %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_19do_linaccEPA3_fP5edpar(ptr noundef %297, ptr noundef %.sroa.0195.0247)
   %396 = load i32, ptr %64, align 8
   %397 = icmp eq i32 %396, 0
   br i1 %397, label %_ZL9do_radfixPA3_fP5edpar.exit.i, label %398
@@ -11830,7 +11830,7 @@ _ZN12_GLOBAL__N_18projectxERK5edparPA3_fS4_.exit.i30.i: ; preds = %.lr.ph.i.i35.
   br label %_ZL9do_radfixPA3_fP5edpar.exit.i
 
 .critedge.i:                                      ; preds = %._crit_edge.i
-  call fastcc void @_ZN12_GLOBAL__N_19do_linaccEPA3_fP5edpar(ptr noundef %297, ptr noundef nonnull %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_19do_linaccEPA3_fP5edpar(ptr noundef %297, ptr noundef %.sroa.0195.0247)
   br label %_ZL9do_radfixPA3_fP5edpar.exit.i
 
 _ZL9do_radfixPA3_fP5edpar.exit.i:                 ; preds = %.critedge.i, %._crit_edge58.i.i, %_ZN12_GLOBAL__N_19do_linfixEPA3_fRK5edparl.exit.i
@@ -12246,13 +12246,13 @@ _Z11do_per_stepll.exit173:                        ; preds = %_ZL20ed_apply_const
 
 746:                                              ; preds = %_Z11do_per_stepll.exit173
   %747 = load ptr, ptr %102, align 8
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %747, ptr noundef nonnull readonly %58, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %747, ptr noundef nonnull readonly %60, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %747, ptr noundef nonnull readonly %62, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %747, ptr noundef nonnull readonly %64, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %747, ptr noundef nonnull readonly %66, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %747, ptr noundef readonly %58, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %747, ptr noundef readonly %60, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %747, ptr noundef readonly %62, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %747, ptr noundef readonly %64, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %747, ptr noundef readonly %66, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
   %748 = getelementptr inbounds i8, ptr %.sroa.0195.0247, i64 672
-  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %747, ptr noundef nonnull readonly %748, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
+  call fastcc void @_ZN12_GLOBAL__N_121project_to_eigvectorsEPA3_fPNS_8t_eigvecERK5edpar(ptr noundef %747, ptr noundef readonly %748, ptr noundef nonnull readonly align 8 dereferenceable(888) %.sroa.0195.0247)
   %749 = load i32, ptr %26, align 4
   %750 = icmp eq i32 %749, 0
   br i1 %750, label %754, label %751
@@ -12716,7 +12716,7 @@ _ZL14ed_constraintsN12_GLOBAL__N_121EssentialDynamicsTypeERK5edpar.exit192.threa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19do_linaccEPA3_fP5edpar(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #10 {
+define internal fastcc void @_ZN12_GLOBAL__N_19do_linaccEPA3_fP5edpar(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %1, i64 480
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0

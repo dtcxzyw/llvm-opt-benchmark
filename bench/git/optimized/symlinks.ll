@@ -20,7 +20,7 @@ define dso_local range(i32 0, 5) i32 @threaded_has_symlink_leading_path(ptr noun
 entry:
   %flags.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %flags.i)
-  %call.i = call fastcc i32 @lstat_cache_matchlen(ptr noundef %cache, ptr noundef readonly %name, i32 noundef %len, ptr noundef nonnull %flags.i, i32 noundef 5, i32 noundef 0)
+  %call.i = call fastcc i32 @lstat_cache_matchlen(ptr noundef %cache, ptr noundef readonly %name, i32 noundef %len, ptr noundef %flags.i, i32 noundef 5, i32 noundef 0)
   %0 = load i32, ptr %flags.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags.i)
   %and = and i32 %0, 4
@@ -32,7 +32,7 @@ define dso_local range(i32 0, 5) i32 @has_symlink_leading_path(ptr nocapture nou
 entry:
   %flags.i.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %flags.i.i)
-  %call.i.i = call fastcc i32 @lstat_cache_matchlen(ptr noundef nonnull @default_cache, ptr noundef readonly %name, i32 noundef %len, ptr noundef nonnull %flags.i.i, i32 noundef 5, i32 noundef 0)
+  %call.i.i = call fastcc i32 @lstat_cache_matchlen(ptr noundef nonnull @default_cache, ptr noundef readonly %name, i32 noundef %len, ptr noundef %flags.i.i, i32 noundef 5, i32 noundef 0)
   %0 = load i32, ptr %flags.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags.i.i)
   %and.i = and i32 %0, 4
@@ -44,7 +44,7 @@ define dso_local i32 @check_leading_path(ptr noundef %name, i32 noundef %len, i3
 entry:
   %flags.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %flags.i)
-  %call.i = call fastcc i32 @lstat_cache_matchlen(ptr noundef nonnull @default_cache, ptr noundef %name, i32 noundef %len, ptr noundef nonnull %flags.i, i32 noundef 7, i32 noundef 0)
+  %call.i = call fastcc i32 @lstat_cache_matchlen(ptr noundef nonnull @default_cache, ptr noundef %name, i32 noundef %len, ptr noundef %flags.i, i32 noundef 7, i32 noundef 0)
   %call1.i = tail call ptr @__errno_location() #11
   %0 = load i32, ptr %call1.i, align 4
   %1 = load i32, ptr %flags.i, align 4
@@ -93,7 +93,7 @@ define dso_local range(i32 0, 2) i32 @has_dirs_only_path(ptr nocapture noundef r
 entry:
   %flags.i.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %flags.i.i)
-  %call.i.i = call fastcc i32 @lstat_cache_matchlen(ptr noundef nonnull @default_cache, ptr noundef readonly %name, i32 noundef %len, ptr noundef nonnull %flags.i.i, i32 noundef 33, i32 noundef %prefix_len)
+  %call.i.i = call fastcc i32 @lstat_cache_matchlen(ptr noundef nonnull @default_cache, ptr noundef readonly %name, i32 noundef %len, ptr noundef %flags.i.i, i32 noundef 33, i32 noundef %prefix_len)
   %0 = load i32, ptr %flags.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags.i.i)
   %and.i = and i32 %0, 1
@@ -398,7 +398,7 @@ if.end:                                           ; preds = %invalidate_lstat_ca
 declare noundef i32 @rmdir(ptr nocapture noundef readonly) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @lstat_cache_matchlen(ptr noundef %cache, ptr nocapture noundef readonly %name, i32 noundef %len, ptr nocapture noundef %ret_flags, i32 noundef %track_flags, i32 noundef %prefix_len_stat_func) unnamed_addr #0 {
+define internal fastcc i32 @lstat_cache_matchlen(ptr noundef %cache, ptr nocapture noundef readonly %name, i32 noundef %len, ptr nocapture noundef nonnull %ret_flags, i32 noundef range(i32 5, 34) %track_flags, i32 noundef %prefix_len_stat_func) unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
   %track_flags1 = getelementptr inbounds i8, ptr %cache, i64 28
@@ -507,8 +507,7 @@ longest_path_match.exit:                          ; preds = %land.rhs.i, %land.l
   %and = and i32 %track_flags, 6
   %and8 = and i32 %and, %10
   store i32 %and8, ptr %ret_flags, align 4
-  %and9 = and i32 %track_flags, 32
-  %tobool.not = icmp eq i32 %and9, 0
+  %tobool.not = icmp ult i32 %track_flags, 32
   %cmp10 = icmp eq i32 %match_len.2.i, %len
   %or.cond75 = select i1 %tobool.not, i1 %cmp10, i1 false
   %last_slash.1 = select i1 %or.cond75, i32 %match_len_prev.2.i, i32 %match_len.2.i
@@ -545,8 +544,7 @@ if.then35:                                        ; preds = %if.end29
 
 if.end40:                                         ; preds = %if.then35, %if.end29
   %buf44 = getelementptr inbounds i8, ptr %cache, i64 16
-  %and57 = and i32 %track_flags, 32
-  %tobool58.not = icmp eq i32 %and57, 0
+  %tobool58.not = icmp ult i32 %track_flags, 32
   %st_mode = getelementptr inbounds i8, ptr %st, i64 24
   br i1 %tobool58.not, label %while.cond.preheader, label %while.cond.us.preheader
 

@@ -19373,7 +19373,7 @@ _ZNSt5dequeIP8V3NumberSaIS1_EE9push_backERKS1_.exit: ; preds = %17, %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @_ZL14lexParseDoubleP8FileLinePKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @_ZL14lexParseDoubleP8FileLinePKcm(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.25", align 1
   %6 = alloca i8, align 1

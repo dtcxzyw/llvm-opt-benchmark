@@ -34,7 +34,7 @@ define dso_local noundef i32 @main() local_unnamed_addr #3 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   store i8 0, ptr %1, align 1
   %4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
-  %5 = call noundef i32 (ptr, i64, ptr, ...) @_ZL12ArchSnprintfPcmPKcz(ptr noundef nonnull %1, i64 noundef %4, ptr nonnull poison)
+  %5 = call noundef i32 (ptr, i64, ptr, ...) @_ZL12ArchSnprintfPcmPKcz(ptr noundef %1, i64 noundef %4, ptr nonnull poison)
   %6 = icmp eq i32 %5, 3
   br i1 %6, label %.preheader.preheader, label %9
 
@@ -64,10 +64,10 @@ define dso_local noundef i32 @main() local_unnamed_addr #3 {
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal noundef i32 @_ZL12ArchSnprintfPcmPKcz(ptr noundef %0, i64 noundef %1, ptr nocapture readnone %2, ...) unnamed_addr #3 {
+define internal noundef i32 @_ZL12ArchSnprintfPcmPKcz(ptr noundef nonnull %0, i64 noundef %1, ptr nocapture readnone %2, ...) unnamed_addr #3 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %5 = call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__13ArchVsnprintfEPcmPKcP13__va_list_tag(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %4)
+  %5 = call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__13ArchVsnprintfEPcmPKcP13__va_list_tag(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %4)
   ret i32 %5
 }

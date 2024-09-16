@@ -794,7 +794,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit27.i:           ; preds = %56
 
 .critedge.i:                                      ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit27.i, %56, %48, %_ZNK5clang4Type10isVoidTypeEv.exit.i, %34
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call fastcc void @_ZL7emitBugRN5clang4ento14CheckerContextERKNS0_7BugTypeEN4llvm9StringRefEPKNS_4ExprESA_(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull align 8 dereferenceable(97) %71, ptr nonnull @.str.3, i64 45, ptr noundef nonnull %.val, ptr noundef null)
+  call fastcc void @_ZL7emitBugRN5clang4ento14CheckerContextERKNS0_7BugTypeEN4llvm9StringRefEPKNS_4ExprESA_(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull align 8 dereferenceable(97) %71, ptr nonnull @.str.3, i64 45, ptr noundef %.val, ptr noundef null)
   br label %_ZNK12_GLOBAL__N_118ReturnUndefChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.exit
 
 72:                                               ; preds = %10
@@ -909,7 +909,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i: ; preds
   %114 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %113) #16
   %115 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %113) #16
   %116 = call noundef ptr @_ZN5clang4ento11bugreporter12getDerefExprEPKNS_4StmtE(ptr noundef nonnull %.val) #16
-  call fastcc void @_ZL7emitBugRN5clang4ento14CheckerContextERKNS0_7BugTypeEN4llvm9StringRefEPKNS_4ExprESA_(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull align 8 dereferenceable(97) %112, ptr %114, i64 %115, ptr noundef nonnull %.val, ptr noundef %116)
+  call fastcc void @_ZL7emitBugRN5clang4ento14CheckerContextERKNS0_7BugTypeEN4llvm9StringRefEPKNS_4ExprESA_(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull align 8 dereferenceable(97) %112, ptr %114, i64 %115, ptr noundef %.val, ptr noundef %116)
   br label %117
 
 117:                                              ; preds = %111, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i
@@ -951,7 +951,7 @@ declare void @_ZN5clang4ento16EnvironmentEntryC1EPKNS_4StmtEPKNS_15LocationConte
 declare noundef ptr @_ZNK5clang15LocationContext13getStackFrameEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL7emitBugRN5clang4ento14CheckerContextERKNS0_7BugTypeEN4llvm9StringRefEPKNS_4ExprESA_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(97) %1, ptr %2, i64 %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @_ZL7emitBugRN5clang4ento14CheckerContextERKNS0_7BugTypeEN4llvm9StringRefEPKNS_4ExprESA_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(97) %1, ptr %2, i64 %3, ptr noundef nonnull %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %"class.std::unique_ptr.329", align 8
   %8 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %9 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8

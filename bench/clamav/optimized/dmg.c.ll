@@ -237,7 +237,7 @@ define i32 @cli_scandmg(ptr noundef %0) local_unnamed_addr #0 {
 
 67:                                               ; preds = %63
   %.val = load ptr, ptr %6, align 8
-  %68 = call fastcc i32 @dmg_extract_xml(ptr %.val, ptr noundef nonnull %54, ptr noundef nonnull %2)
+  %68 = call fastcc i32 @dmg_extract_xml(ptr %.val, ptr noundef %54, ptr noundef %2)
   %.not235 = icmp eq i32 %68, 0
   br i1 %.not235, label %70, label %69
 
@@ -461,7 +461,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %81, %fmap_need_off_
   br label %.critedge
 
 161:                                              ; preds = %155
-  %162 = call fastcc i32 @dmg_decode_mish(ptr noundef nonnull %3, ptr noundef nonnull %151, ptr noundef nonnull %156)
+  %162 = call fastcc i32 @dmg_decode_mish(ptr noundef %3, ptr noundef %151, ptr noundef %156)
   %163 = load ptr, ptr @xmlFree, align 8
   tail call void %163(ptr noundef nonnull %151) #14
   switch i32 %162, label %.backedge.thread [
@@ -778,7 +778,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %81, %fmap_need_off_
   %.5352 = phi ptr [ %.1190, %.lr.ph ], [ %292, %286 ]
   %287 = phi i32 [ 0, %.lr.ph ], [ %288, %286 ]
   %288 = add i32 %287, 1
-  %289 = tail call fastcc i32 @dmg_handle_mish(ptr noundef nonnull %0, i32 noundef %287, ptr noundef nonnull %54, i64 noundef %285, ptr noundef nonnull %.5352)
+  %289 = tail call fastcc i32 @dmg_handle_mish(ptr noundef %0, i32 noundef %287, ptr noundef %54, i64 noundef %285, ptr noundef %.5352)
   %290 = load ptr, ptr %.5352, align 8
   tail call void @free(ptr noundef %290) #14
   %291 = getelementptr inbounds i8, ptr %.5352, i64 16
@@ -832,7 +832,7 @@ declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_un
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @dmg_extract_xml(ptr %.96.val, ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @dmg_extract_xml(ptr %.96.val, ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 216
   %5 = load i64, ptr %4, align 1
@@ -868,7 +868,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %2, %fmap_need_off_o
   br i1 %.not27, label %34, label %18
 
 18:                                               ; preds = %14
-  %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %17, i64 noundef %16, ptr noundef nonnull @.str.84, ptr noundef %0) #14
+  %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %17, i64 noundef %16, ptr noundef nonnull @.str.84, ptr noundef nonnull %0) #14
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull %17) #14
   %20 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %17, i32 noundef 706, i32 noundef 384) #14
   %21 = icmp slt i32 %20, 0
@@ -931,7 +931,7 @@ declare ptr @xmlTextReaderValue(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @dmg_decode_mish(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @dmg_decode_mish(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = load i32, ptr %0, align 4
   %6 = add i32 %5, 1
@@ -946,7 +946,7 @@ define internal fastcc range(i32 0, 27) i32 @dmg_decode_mish(ptr nocapture nound
 
 12:                                               ; preds = %3
   %13 = add nuw nsw i64 %9, 3
-  %14 = call i32 @sf_base64decode(ptr noundef %1, i64 noundef %7, ptr noundef nonnull %11, i64 noundef %13, ptr noundef nonnull %4) #14
+  %14 = call i32 @sf_base64decode(ptr noundef nonnull %1, i64 noundef %7, ptr noundef nonnull %11, i64 noundef %13, ptr noundef nonnull %4) #14
   %.not65 = icmp eq i32 %14, 0
   br i1 %.not65, label %17, label %15
 
@@ -1049,7 +1049,7 @@ define internal fastcc range(i32 0, 27) i32 @dmg_decode_mish(ptr nocapture nound
 declare void @xmlFreeTextReader(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dmg_handle_mish(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dmg_handle_mish(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, i64 noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
   %6 = alloca %struct.bz_stream, align 8
   %7 = alloca [8192 x i8], align 16
   %8 = alloca %struct.z_stream_s, align 8
@@ -1214,7 +1214,7 @@ dmg_track_sectors.exit:                           ; preds = %61
 
 78:                                               ; preds = %75
   %79 = shl nuw i64 %.1217.ph, 9
-  %80 = tail call i32 @cli_checklimits(ptr noundef nonnull @.str.45, ptr noundef %0, i64 noundef %79, i64 noundef 0, i64 noundef 0) #14
+  %80 = tail call i32 @cli_checklimits(ptr noundef nonnull @.str.45, ptr noundef nonnull %0, i64 noundef %79, i64 noundef 0, i64 noundef 0) #14
   %.not179 = icmp eq i32 %80, 0
   br i1 %.not179, label %82, label %81
 
@@ -1223,7 +1223,7 @@ dmg_track_sectors.exit:                           ; preds = %61
   br label %340
 
 82:                                               ; preds = %78
-  %83 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 4096, ptr noundef nonnull @.str.47, ptr noundef %2, i32 noundef %1) #14
+  %83 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 4096, ptr noundef nonnull @.str.47, ptr noundef nonnull %2, i32 noundef %1) #14
   %84 = getelementptr inbounds i8, ptr %13, i64 4096
   store i8 0, ptr %84, align 16
   %85 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %13, i32 noundef 706, i32 noundef 384) #14
@@ -1731,7 +1731,7 @@ dmg_stripe_inflate.exit:                          ; preds = %191, %207, %212, %2
 
 289:                                              ; preds = %.preheader.i209
   %290 = add i64 %.367.i, 16384
-  %291 = call i32 @cli_checklimits(ptr noundef nonnull @.str.80, ptr noundef %0, i64 noundef %290, i64 noundef 0, i64 noundef 0) #14
+  %291 = call i32 @cli_checklimits(ptr noundef nonnull @.str.80, ptr noundef nonnull %0, i64 noundef %290, i64 noundef 0, i64 noundef 0) #14
   %.not77.i = icmp eq i32 %291, 0
   br i1 %.not77.i, label %292, label %.loopexit.i207
 
@@ -1782,7 +1782,7 @@ dmg_stripe_inflate.exit:                          ; preds = %191, %207, %212, %2
   %308 = sub nsw i64 8192, %307
   %309 = add i64 %308, %.266.i
   %310 = add i64 %309, 8192
-  %311 = call i32 @cli_checklimits(ptr noundef nonnull @.str.80, ptr noundef %0, i64 noundef %310, i64 noundef 0, i64 noundef 0) #14
+  %311 = call i32 @cli_checklimits(ptr noundef nonnull @.str.80, ptr noundef nonnull %0, i64 noundef %310, i64 noundef 0, i64 noundef 0) #14
   %.not80.i = icmp eq i32 %311, 0
   br i1 %.not80.i, label %312, label %.thread5.i
 
@@ -1848,7 +1848,7 @@ dmg_stripe_store.exit:                            ; preds = %141, %123, %dmg_str
   br i1 %329, label %._crit_edge276.thread, label %._crit_edge276.thread328
 
 ._crit_edge276.thread:                            ; preds = %91, %._crit_edge276
-  %331 = call i32 @cli_magic_scan_desc_type(i32 noundef %85, ptr noundef nonnull %13, ptr noundef %0, i32 noundef 557, ptr noundef null, i32 noundef 0) #14
+  %331 = call i32 @cli_magic_scan_desc_type(i32 noundef %85, ptr noundef nonnull %13, ptr noundef nonnull %0, i32 noundef 557, ptr noundef null, i32 noundef 0) #14
   br label %._crit_edge276.thread328
 
 ._crit_edge276.thread328:                         ; preds = %140, %142, %136, %._crit_edge276.thread, %._crit_edge276

@@ -8130,11 +8130,11 @@ declare noundef zeroext i1 @_ZNK4llvm9LiveRange12overlapsFromERKS0_PKNS0_7Segmen
 declare noundef ptr @_ZNK4llvm13LiveIntervals18intervalIsInOneMBBERKNS_12LiveIntervalE(ptr noundef nonnull align 8 dereferenceable(440), ptr noundef nonnull align 8 dereferenceable(120)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117RegisterCoalescer12shrinkToUsesEPN4llvm12LiveIntervalEPNS1_15SmallVectorImplIPNS1_12MachineInstrEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(960) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117RegisterCoalescer12shrinkToUsesEPN4llvm12LiveIntervalEPNS1_15SmallVectorImplIPNS1_12MachineInstrEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(960) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.462", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef zeroext i1 @_ZN4llvm13LiveIntervals12shrinkToUsesEPNS_12LiveIntervalEPNS_15SmallVectorImplIPNS_12MachineInstrEEE(ptr noundef nonnull align 8 dereferenceable(440) %6, ptr noundef %1, ptr noundef %2) #20
+  %7 = tail call noundef zeroext i1 @_ZN4llvm13LiveIntervals12shrinkToUsesEPNS_12LiveIntervalEPNS_15SmallVectorImplIPNS_12MachineInstrEEE(ptr noundef nonnull align 8 dereferenceable(440) %6, ptr noundef nonnull %1, ptr noundef %2) #20
   br i1 %7, label %8, label %_ZN4llvm11SmallVectorIPNS_12LiveIntervalELj8EED2Ev.exit
 
 8:                                                ; preds = %3
@@ -12348,7 +12348,7 @@ _ZN12_GLOBAL__N_117RegisterCoalescer13joinIntervalsERN4llvm13CoalescerPairE.exit
   %1905 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1906 = load ptr, ptr %1905, align 8
   %1907 = call noundef nonnull align 8 dereferenceable(120) ptr @_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(440) %1906, i32 %.sroa.022.0)
-  call fastcc void @_ZN12_GLOBAL__N_117RegisterCoalescer12shrinkToUsesEPN4llvm12LiveIntervalEPNS1_15SmallVectorImplIPNS1_12MachineInstrEEE(ptr noundef nonnull align 8 dereferenceable(960) %0, ptr noundef nonnull %1907, ptr noundef null)
+  call fastcc void @_ZN12_GLOBAL__N_117RegisterCoalescer12shrinkToUsesEPN4llvm12LiveIntervalEPNS1_15SmallVectorImplIPNS1_12MachineInstrEEE(ptr noundef nonnull align 8 dereferenceable(960) %0, ptr noundef %1907, ptr noundef null)
   br label %2023
 
 1908:                                             ; preds = %._crit_edge459, %1891
@@ -12561,7 +12561,7 @@ _ZNK4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyE
   %2002 = load ptr, ptr %2001, align 8
   %.sroa.0.0.copyload.i269 = load i32, ptr %25, align 8
   %2003 = call noundef nonnull align 8 dereferenceable(120) ptr @_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(440) %2002, i32 %.sroa.0.0.copyload.i269)
-  call fastcc void @_ZN12_GLOBAL__N_117RegisterCoalescer12shrinkToUsesEPN4llvm12LiveIntervalEPNS1_15SmallVectorImplIPNS1_12MachineInstrEEE(ptr noundef nonnull align 8 dereferenceable(960) %0, ptr noundef nonnull %2003, ptr noundef null)
+  call fastcc void @_ZN12_GLOBAL__N_117RegisterCoalescer12shrinkToUsesEPN4llvm12LiveIntervalEPNS1_15SmallVectorImplIPNS1_12MachineInstrEEE(ptr noundef nonnull align 8 dereferenceable(960) %0, ptr noundef %2003, ptr noundef null)
   %.sroa.0.0.copyload.i270.pre = load i32, ptr %669, align 4
   br label %2004
 
@@ -13979,7 +13979,7 @@ _ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppE
 
 574:                                              ; preds = %._crit_edge563
   %575 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  call fastcc void @_ZN12_GLOBAL__N_117RegisterCoalescer12shrinkToUsesEPN4llvm12LiveIntervalEPNS1_15SmallVectorImplIPNS1_12MachineInstrEEE(ptr noundef nonnull align 8 dereferenceable(960) %0, ptr noundef nonnull %.0.i, ptr noundef nonnull %575)
+  call fastcc void @_ZN12_GLOBAL__N_117RegisterCoalescer12shrinkToUsesEPN4llvm12LiveIntervalEPNS1_15SmallVectorImplIPNS1_12MachineInstrEEE(ptr noundef nonnull align 8 dereferenceable(960) %0, ptr noundef %.0.i, ptr noundef nonnull %575)
   %576 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %575) #20
   br i1 %576, label %579, label %577
 
@@ -14877,7 +14877,7 @@ _ZN4llvm9LiveRange21FindSegmentContainingENS_9SlotIndexE.exit197: ; preds = %482
   br i1 %.not222, label %_ZNK4llvm12MachineInstr10isFullCopyEv.exit.thread, label %477
 
 .critedge:                                        ; preds = %501, %469
-  tail call fastcc void @_ZN12_GLOBAL__N_117RegisterCoalescer12shrinkToUsesEPN4llvm12LiveIntervalEPNS1_15SmallVectorImplIPNS1_12MachineInstrEEE(ptr noundef nonnull align 8 dereferenceable(960) %0, ptr noundef nonnull %.0.i, ptr noundef null)
+  tail call fastcc void @_ZN12_GLOBAL__N_117RegisterCoalescer12shrinkToUsesEPN4llvm12LiveIntervalEPNS1_15SmallVectorImplIPNS1_12MachineInstrEEE(ptr noundef nonnull align 8 dereferenceable(960) %0, ptr noundef %.0.i, ptr noundef null)
   br label %_ZNK4llvm12MachineInstr10isFullCopyEv.exit.thread
 
 _ZNK4llvm12MachineInstr10isFullCopyEv.exit.thread: ; preds = %504, %.preheader, %181, %185, %.critedge, %_ZNK4llvm9SlotIndex11getPrevSlotEv.exit164, %259, %_ZN4llvm9LiveRange21FindSegmentContainingENS_9SlotIndexE.exit161, %172, %_ZNK4llvm12MachineInstr10isFullCopyEv.exit, %_ZN4llvm9LiveRange21FindSegmentContainingENS_9SlotIndexE.exit155, %140, %_ZN4llvm9LiveRange21FindSegmentContainingENS_9SlotIndexE.exit
@@ -16853,8 +16853,8 @@ _ZN4llvm11SmallVectorINS_9SlotIndexELj8EED2Ev.exit: ; preds = %.outer._crit_edge
   br i1 %.not272, label %._crit_edge313, label %443
 
 ._crit_edge313:                                   ; preds = %_ZN4llvm11SmallVectorINS_9SlotIndexELj8EED2Ev.exit, %.loopexit
-  call fastcc void @_ZN12_GLOBAL__N_117RegisterCoalescer12shrinkToUsesEPN4llvm12LiveIntervalEPNS1_15SmallVectorImplIPNS1_12MachineInstrEEE(ptr noundef nonnull align 8 dereferenceable(960) %0, ptr noundef nonnull %.0.i151, ptr noundef null)
-  call fastcc void @_ZN12_GLOBAL__N_117RegisterCoalescer12shrinkToUsesEPN4llvm12LiveIntervalEPNS1_15SmallVectorImplIPNS1_12MachineInstrEEE(ptr noundef nonnull align 8 dereferenceable(960) %0, ptr noundef nonnull %.0.i, ptr noundef null)
+  call fastcc void @_ZN12_GLOBAL__N_117RegisterCoalescer12shrinkToUsesEPN4llvm12LiveIntervalEPNS1_15SmallVectorImplIPNS1_12MachineInstrEEE(ptr noundef nonnull align 8 dereferenceable(960) %0, ptr noundef %.0.i151, ptr noundef null)
+  call fastcc void @_ZN12_GLOBAL__N_117RegisterCoalescer12shrinkToUsesEPN4llvm12LiveIntervalEPNS1_15SmallVectorImplIPNS1_12MachineInstrEEE(ptr noundef nonnull align 8 dereferenceable(960) %0, ptr noundef %.0.i, ptr noundef null)
   call void @_ZN4llvm11SmallVectorINS_9SlotIndexELj8EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %7) #20
   br label %_ZNK4llvm12MachineInstr10isFullCopyEv.exit.thread
 
@@ -25998,7 +25998,7 @@ declare void @_ZN4llvm11SlotIndexes15renumberIndexesENS_14ilist_iteratorINS_12il
 declare void @_ZNK4llvm17RegisterClassInfo7computeEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(320), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117RegisterCoalescer12addUndefFlagERKN4llvm12LiveIntervalENS1_9SlotIndexERNS1_14MachineOperandEj(ptr nocapture noundef nonnull align 8 dereferenceable(960) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 %2, ptr nocapture noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117RegisterCoalescer12addUndefFlagERKN4llvm12LiveIntervalENS1_9SlotIndexERNS1_14MachineOperandEj(ptr nocapture noundef nonnull align 8 dereferenceable(960) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 %2, ptr nocapture noundef nonnull align 8 dereferenceable(32) %3, i32 noundef range(i32 1, 0) %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 256

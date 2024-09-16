@@ -1996,7 +1996,7 @@ define void @ws_logv(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef
   %21 = getelementptr inbounds i8, ptr %6, i64 64
   store i64 %20, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, ptr noundef null, i64 noundef -1, ptr noundef null, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3)
+  call fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, ptr noundef null, i64 noundef -1, ptr noundef null, ptr noundef %6, ptr noundef %2, ptr noundef %3)
   br label %msg_is_active.exit
 
 msg_is_active.exit:                               ; preds = %4, %14
@@ -2004,7 +2004,7 @@ msg_is_active.exit:                               ; preds = %4, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #1 {
+define internal fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %7) unnamed_addr #1 {
   %9 = alloca [1 x %struct.__va_list_tag], align 16
   %10 = load i32, ptr @fatal_log_level, align 4
   %11 = icmp uge i32 %1, %10
@@ -2067,7 +2067,7 @@ filter_contains.exit.thread:                      ; preds = %22, %19, %16, %8, %
   %36 = load i64, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %5, i64 64
   %38 = load i64, ptr %37, align 8
-  call fastcc void @log_write_do_work(ptr noundef nonnull %33, i1 noundef zeroext false, ptr noundef %5, i64 noundef %36, i64 noundef %38, ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef nonnull %9)
+  call fastcc void @log_write_do_work(ptr noundef nonnull %33, i1 noundef zeroext false, ptr noundef nonnull %5, i64 noundef %36, i64 noundef %38, ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef nonnull %9)
   call void @llvm.va_end.p0(ptr nonnull %9)
   br i1 %.not46, label %44, label %39
 
@@ -2075,7 +2075,7 @@ filter_contains.exit.thread:                      ; preds = %22, %19, %16, %8, %
   %40 = load ptr, ptr @custom_log, align 8
   %41 = load i64, ptr %37, align 8
   %42 = load ptr, ptr @registered_progname, align 8
-  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.66, ptr noundef %42, i64 noundef %41, ptr noundef %.0) #20
+  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.66, ptr noundef %42, i64 noundef %41, ptr noundef nonnull %.0) #20
   br label %44
 
 44:                                               ; preds = %34, %39, %filter_contains.exit.thread
@@ -2085,7 +2085,7 @@ filter_contains.exit.thread:                      ; preds = %22, %19, %16, %8, %
 
 46:                                               ; preds = %44
   %47 = load ptr, ptr @registered_log_writer_data, align 8
-  call void %45(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %.0, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %47) #20
+  call void %45(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %.0, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %7, ptr noundef %47) #20
   br label %65
 
 48:                                               ; preds = %44
@@ -2114,7 +2114,7 @@ console_color_enabled.exit:                       ; preds = %50, %console_file.e
   %54 = load i64, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %5, i64 64
   %56 = load i64, ptr %55, align 8
-  call fastcc void @log_write_do_work(ptr noundef %.0.i58, i1 noundef zeroext %.0.i50, ptr noundef %5, i64 noundef %54, i64 noundef %56, ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef %7)
+  call fastcc void @log_write_do_work(ptr noundef %.0.i58, i1 noundef zeroext %.0.i50, ptr noundef nonnull %5, i64 noundef %54, i64 noundef %56, ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef %7)
   br i1 %.not46, label %65, label %57
 
 57:                                               ; preds = %console_color_enabled.exit
@@ -2133,7 +2133,7 @@ console_file.exit53:                              ; preds = %58, %61
   %.0.i52 = load ptr, ptr %.0.in.i51, align 8
   %62 = load i64, ptr %55, align 8
   %63 = load ptr, ptr @registered_progname, align 8
-  %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0.i52, ptr noundef nonnull @.str.66, ptr noundef %63, i64 noundef %62, ptr noundef %.0) #20
+  %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0.i52, ptr noundef nonnull @.str.66, ptr noundef %63, i64 noundef %62, ptr noundef nonnull %.0) #20
   br label %65
 
 65:                                               ; preds = %console_color_enabled.exit, %console_file.exit53, %46
@@ -2178,7 +2178,7 @@ define void @ws_logv_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 no
   %24 = getelementptr inbounds i8, ptr %9, i64 64
   store i64 %23, ptr %24, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef nonnull %9, ptr noundef %5, ptr noundef %6)
+  call fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %9, ptr noundef %5, ptr noundef %6)
   br label %msg_is_active.exit
 
 msg_is_active.exit:                               ; preds = %7, %17
@@ -2218,7 +2218,7 @@ define void @ws_log(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) local_u
   store i64 %20, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %6)
-  call fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, ptr noundef null, i64 noundef -1, ptr noundef null, ptr noundef nonnull %5, ptr noundef %2, ptr noundef nonnull %6)
+  call fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, ptr noundef null, i64 noundef -1, ptr noundef null, ptr noundef %5, ptr noundef %2, ptr noundef nonnull %6)
   call void @llvm.va_end.p0(ptr nonnull %6)
   br label %msg_is_active.exit
 
@@ -2259,7 +2259,7 @@ define void @ws_log_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 nou
   store i64 %23, ptr %24, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.va_start.p0(ptr nonnull %9)
-  call fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef nonnull %8, ptr noundef %5, ptr noundef nonnull %9)
+  call fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %8, ptr noundef %5, ptr noundef nonnull %9)
   call void @llvm.va_end.p0(ptr nonnull %9)
   br label %msg_is_active.exit
 
@@ -2271,16 +2271,16 @@ msg_is_active.exit:                               ; preds = %6, %17
 define void @ws_log_fatal_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ...) local_unnamed_addr #10 {
   %7 = alloca %struct.ws_log_manifest_t, align 8
   %8 = alloca [1 x %struct.__va_list_tag], align 16
-  call fastcc void @fill_manifest(ptr noundef nonnull %7)
+  call fastcc void @fill_manifest(ptr noundef %7)
   call void @llvm.va_start.p0(ptr nonnull %8)
-  call fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef nonnull %7, ptr noundef %5, ptr noundef nonnull %8)
+  call fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %7, ptr noundef %5, ptr noundef nonnull %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
   call void @abort() #24
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_manifest(ptr noundef %0) unnamed_addr #1 {
+define internal fastcc void @fill_manifest(ptr noundef nonnull %0) unnamed_addr #1 {
   %2 = alloca %struct.timespec, align 8
   %3 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #20
   %4 = icmp eq i32 %3, 0
@@ -2294,7 +2294,7 @@ define internal fastcc void @fill_manifest(ptr noundef %0) unnamed_addr #1 {
   br label %get_timestamp.exit
 
 get_timestamp.exit:                               ; preds = %1, %5
-  %8 = call ptr @ws_localtime_r(ptr noundef nonnull %2, ptr noundef %0) #20
+  %8 = call ptr @ws_localtime_r(ptr noundef nonnull %2, ptr noundef nonnull %0) #20
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 56
@@ -2338,7 +2338,7 @@ fill_manifest.exit:                               ; preds = %6, %12
   store i64 %20, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.va_start.p0(ptr nonnull %9)
-  call fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef nonnull %8, ptr noundef %5, ptr noundef nonnull %9)
+  call fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %8, ptr noundef %5, ptr noundef nonnull %9)
   call void @llvm.va_end.p0(ptr nonnull %9)
   ret void
 }

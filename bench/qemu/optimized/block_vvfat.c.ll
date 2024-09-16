@@ -2587,7 +2587,7 @@ declare ptr @bdrv_get_device_or_node_name(ptr noundef) local_unnamed_addr #1
 declare i32 @migrate_add_blocker_normal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @init_mbr(ptr nocapture noundef %s, i32 noundef %cyls, i32 noundef %heads, i32 noundef %secs) unnamed_addr #8 {
+define internal fastcc void @init_mbr(ptr nocapture noundef %s, i32 noundef range(i32 64, 1025) %cyls, i32 noundef range(i32 2, 17) %heads, i32 noundef range(i32 18, 64) %secs) unnamed_addr #8 {
 entry:
   %first_sectors = getelementptr inbounds i8, ptr %s, i64 56
   %partition1 = getelementptr inbounds i8, ptr %s, i64 502

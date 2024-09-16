@@ -48,7 +48,7 @@ declare void @_cmsFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @cmsGDBAddPoint(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cmsSpherical, align 8
-  %4 = call fastcc ptr @GetPoint(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc ptr @GetPoint(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %14, label %6
 
@@ -75,7 +75,7 @@ define hidden range(i32 0, 2) i32 @cmsGDBAddPoint(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @GetPoint(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @GetPoint(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.cmsVEC3, align 8
   %5 = load double, ptr %1, align 8
   %6 = fadd double %5, -5.000000e+01
@@ -207,7 +207,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @cmsGDBCheckPoint(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cmsSpherical, align 8
-  %4 = call fastcc ptr @GetPoint(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc ptr @GetPoint(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %15, label %6
 
@@ -268,7 +268,7 @@ define hidden noundef i32 @cmsGDBCompute(ptr noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @InterpolateMissingSector(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @InterpolateMissingSector(ptr noundef %0, i32 noundef range(i32 -2147483648, 16) %1, i32 noundef range(i32 -2147483648, 16) %2) unnamed_addr #0 {
   %4 = alloca %struct.cmsVEC3, align 8
   %5 = alloca %struct.cmsVEC3, align 8
   %6 = alloca %struct.cmsLine, align 8

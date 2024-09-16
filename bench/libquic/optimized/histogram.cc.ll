@@ -2250,7 +2250,7 @@ entry:
   %bucket_count = alloca i32, align 4
   %range_checksum = alloca i32, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %histogram_name) #20
-  %call = invoke fastcc noundef zeroext i1 @_ZN4base12_GLOBAL__N_122ReadHistogramArgumentsEPNS_14PickleIteratorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiSA_SA_PjSB_(ptr noundef %iter, ptr noundef nonnull %histogram_name, ptr noundef nonnull %flags, ptr noundef nonnull %declared_min, ptr noundef nonnull %declared_max, ptr noundef nonnull %bucket_count, ptr noundef nonnull %range_checksum)
+  %call = invoke fastcc noundef zeroext i1 @_ZN4base12_GLOBAL__N_122ReadHistogramArgumentsEPNS_14PickleIteratorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiSA_SA_PjSB_(ptr noundef %iter, ptr noundef %histogram_name, ptr noundef %flags, ptr noundef %declared_min, ptr noundef %declared_max, ptr noundef %bucket_count, ptr noundef %range_checksum)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2311,29 +2311,29 @@ cleanup:                                          ; preds = %invoke.cont1, %invo
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4base12_GLOBAL__N_122ReadHistogramArgumentsEPNS_14PickleIteratorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiSA_SA_PjSB_(ptr noundef nonnull %iter, ptr noundef %histogram_name, ptr noundef %flags, ptr noundef %declared_min, ptr noundef %declared_max, ptr noundef %bucket_count, ptr noundef %range_checksum) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN4base12_GLOBAL__N_122ReadHistogramArgumentsEPNS_14PickleIteratorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiSA_SA_PjSB_(ptr noundef nonnull %iter, ptr noundef nonnull %histogram_name, ptr noundef nonnull %flags, ptr noundef nonnull %declared_min, ptr noundef nonnull %declared_max, ptr noundef nonnull %bucket_count, ptr noundef nonnull %range_checksum) unnamed_addr #0 {
 entry:
-  %call = tail call noundef zeroext i1 @_ZN4base14PickleIterator10ReadStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %iter, ptr noundef %histogram_name)
+  %call = tail call noundef zeroext i1 @_ZN4base14PickleIterator10ReadStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %iter, ptr noundef nonnull %histogram_name)
   br i1 %call, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call noundef zeroext i1 @_ZN4base14PickleIterator7ReadIntEPi(ptr noundef nonnull align 8 dereferenceable(24) %iter, ptr noundef %flags)
+  %call1 = tail call noundef zeroext i1 @_ZN4base14PickleIterator7ReadIntEPi(ptr noundef nonnull align 8 dereferenceable(24) %iter, ptr noundef nonnull %flags)
   br i1 %call1, label %lor.lhs.false2, label %return
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %call3 = tail call noundef zeroext i1 @_ZN4base14PickleIterator7ReadIntEPi(ptr noundef nonnull align 8 dereferenceable(24) %iter, ptr noundef %declared_min)
+  %call3 = tail call noundef zeroext i1 @_ZN4base14PickleIterator7ReadIntEPi(ptr noundef nonnull align 8 dereferenceable(24) %iter, ptr noundef nonnull %declared_min)
   br i1 %call3, label %lor.lhs.false4, label %return
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false2
-  %call5 = tail call noundef zeroext i1 @_ZN4base14PickleIterator7ReadIntEPi(ptr noundef nonnull align 8 dereferenceable(24) %iter, ptr noundef %declared_max)
+  %call5 = tail call noundef zeroext i1 @_ZN4base14PickleIterator7ReadIntEPi(ptr noundef nonnull align 8 dereferenceable(24) %iter, ptr noundef nonnull %declared_max)
   br i1 %call5, label %lor.lhs.false6, label %return
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false4
-  %call7 = tail call noundef zeroext i1 @_ZN4base14PickleIterator10ReadUInt32EPj(ptr noundef nonnull align 8 dereferenceable(24) %iter, ptr noundef %bucket_count)
+  %call7 = tail call noundef zeroext i1 @_ZN4base14PickleIterator10ReadUInt32EPj(ptr noundef nonnull align 8 dereferenceable(24) %iter, ptr noundef nonnull %bucket_count)
   br i1 %call7, label %lor.lhs.false8, label %return
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false6
-  %call9 = tail call noundef zeroext i1 @_ZN4base14PickleIterator10ReadUInt32EPj(ptr noundef nonnull align 8 dereferenceable(24) %iter, ptr noundef %range_checksum)
+  %call9 = tail call noundef zeroext i1 @_ZN4base14PickleIterator10ReadUInt32EPj(ptr noundef nonnull align 8 dereferenceable(24) %iter, ptr noundef nonnull %range_checksum)
   br i1 %call9, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false8
@@ -3420,7 +3420,7 @@ entry:
   %bucket_count = alloca i32, align 4
   %range_checksum = alloca i32, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %histogram_name) #20
-  %call = invoke fastcc noundef zeroext i1 @_ZN4base12_GLOBAL__N_122ReadHistogramArgumentsEPNS_14PickleIteratorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiSA_SA_PjSB_(ptr noundef %iter, ptr noundef nonnull %histogram_name, ptr noundef nonnull %flags, ptr noundef nonnull %declared_min, ptr noundef nonnull %declared_max, ptr noundef nonnull %bucket_count, ptr noundef nonnull %range_checksum)
+  %call = invoke fastcc noundef zeroext i1 @_ZN4base12_GLOBAL__N_122ReadHistogramArgumentsEPNS_14PickleIteratorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiSA_SA_PjSB_(ptr noundef %iter, ptr noundef %histogram_name, ptr noundef %flags, ptr noundef %declared_min, ptr noundef %declared_max, ptr noundef %bucket_count, ptr noundef %range_checksum)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -3660,7 +3660,7 @@ entry:
   %bucket_count = alloca i32, align 4
   %range_checksum = alloca i32, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %histogram_name) #20
-  %call = invoke fastcc noundef zeroext i1 @_ZN4base12_GLOBAL__N_122ReadHistogramArgumentsEPNS_14PickleIteratorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiSA_SA_PjSB_(ptr noundef %iter, ptr noundef nonnull %histogram_name, ptr noundef nonnull %flags, ptr noundef nonnull %declared_min, ptr noundef nonnull %declared_max, ptr noundef nonnull %bucket_count, ptr noundef nonnull %range_checksum)
+  %call = invoke fastcc noundef zeroext i1 @_ZN4base12_GLOBAL__N_122ReadHistogramArgumentsEPNS_14PickleIteratorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiSA_SA_PjSB_(ptr noundef %iter, ptr noundef %histogram_name, ptr noundef %flags, ptr noundef %declared_min, ptr noundef %declared_max, ptr noundef %bucket_count, ptr noundef %range_checksum)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -4274,7 +4274,7 @@ entry:
   %range_checksum = alloca i32, align 4
   %sample_ranges = alloca %"class.std::vector", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %histogram_name) #20
-  %call = invoke fastcc noundef zeroext i1 @_ZN4base12_GLOBAL__N_122ReadHistogramArgumentsEPNS_14PickleIteratorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiSA_SA_PjSB_(ptr noundef %iter, ptr noundef nonnull %histogram_name, ptr noundef nonnull %flags, ptr noundef nonnull %declared_min, ptr noundef nonnull %declared_max, ptr noundef nonnull %bucket_count, ptr noundef nonnull %range_checksum)
+  %call = invoke fastcc noundef zeroext i1 @_ZN4base12_GLOBAL__N_122ReadHistogramArgumentsEPNS_14PickleIteratorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiSA_SA_PjSB_(ptr noundef %iter, ptr noundef %histogram_name, ptr noundef %flags, ptr noundef %declared_min, ptr noundef %declared_max, ptr noundef %bucket_count, ptr noundef %range_checksum)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry

@@ -458,7 +458,7 @@ define internal fastcc void @array_to_json_internal(i64 noundef %0, ptr noundef 
   %30 = load ptr, ptr %7, align 8
   %31 = load i32, ptr %11, align 4
   %32 = load i32, ptr %12, align 4
-  call fastcc void @array_dim_to_json(ptr noundef %1, i32 noundef 0, i32 noundef %18, ptr noundef %19, ptr noundef %29, ptr noundef %30, ptr noundef nonnull %5, i32 noundef %31, i32 noundef %32, i1 noundef zeroext %2)
+  call fastcc void @array_dim_to_json(ptr noundef %1, i32 noundef 0, i32 noundef %18, ptr noundef %19, ptr noundef %29, ptr noundef %30, ptr noundef %5, i32 noundef %31, i32 noundef %32, i1 noundef zeroext %2)
   %33 = load ptr, ptr %6, align 8
   call void @pfree(ptr noundef %33) #9
   %34 = load ptr, ptr %7, align 8
@@ -2643,7 +2643,7 @@ declare void @get_typlenbyvalalign(i32 noundef, ptr noundef, ptr noundef, ptr no
 declare void @deconstruct_array(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @array_dim_to_json(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6, i32 noundef %7, i32 noundef %8, i1 noundef zeroext %9) unnamed_addr #0 {
+define internal fastcc void @array_dim_to_json(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef nonnull %6, i32 noundef %7, i32 noundef %8, i1 noundef zeroext %9) unnamed_addr #0 {
   %11 = select i1 %9, ptr @.str.36, ptr @.str.37
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 91) #9
   %12 = sext i32 %1 to i64

@@ -6614,7 +6614,7 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
 
 37:                                               ; preds = %.lr.ph78, %.critedge2
   %.val46108 = phi i32 [ %.val4676, %.lr.ph78 ], [ %.val46, %.critedge2 ]
-  %38 = phi i32 [ 0, %.lr.ph78 ], [ %119, %.critedge2 ]
+  %38 = phi i32 [ 0, %.lr.ph78 ], [ %121, %.critedge2 ]
   %indvars.iv101 = phi i64 [ 0, %.lr.ph78 ], [ %indvars.iv.next102, %.critedge2 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph78 ], [ %indvars.iv.next, %.critedge2 ]
   %.val50 = load ptr, ptr %34, align 8
@@ -6663,137 +6663,137 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   store i32 %66, ptr %6, align 4
   %67 = and i32 %54, 1
   %68 = and i32 %53, 1
-  %.not5.i = icmp eq i32 %68, 0
-  %69 = or i32 %68, %67
-  %or.cond.i.i = icmp eq i32 %69, 0
-  br i1 %or.cond.i.i, label %.preheader.i.i, label %79
+  %69 = icmp eq i32 %68, 0
+  %70 = or i32 %68, %67
+  %or.cond.i.i = icmp eq i32 %70, 0
+  br i1 %or.cond.i.i, label %.preheader.i.i, label %80
 
 .preheader.i.i:                                   ; preds = %65
   br i1 %8, label %.lr.ph108.i.i, label %.loopexit
 
-70:                                               ; preds = %.lr.ph108.i.i
+71:                                               ; preds = %.lr.ph108.i.i
   %indvars.iv.next130.i.i = add nuw nsw i64 %indvars.iv129.i.i, 1
   %exitcond133.not.i.i = icmp eq i64 %indvars.iv.next130.i.i, %wide.trip.count.i.i
   br i1 %exitcond133.not.i.i, label %.loopexit, label %.lr.ph108.i.i, !llvm.loop !65
 
-.lr.ph108.i.i:                                    ; preds = %.preheader.i.i, %70
-  %indvars.iv129.i.i = phi i64 [ %indvars.iv.next130.i.i, %70 ], [ 0, %.preheader.i.i ]
-  %71 = getelementptr inbounds i64, ptr %62, i64 %indvars.iv129.i.i
-  %72 = load i64, ptr %71, align 8
-  %73 = getelementptr inbounds i64, ptr %58, i64 %indvars.iv129.i.i
-  %74 = load i64, ptr %73, align 8
-  %.demorgan.i.i = or i64 %74, %72
-  %75 = xor i64 %.demorgan.i.i, -1
-  %76 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv129.i.i
-  %77 = load i64, ptr %76, align 8
-  %78 = and i64 %77, %75
-  %.not84.i.i = icmp eq i64 %78, 0
-  br i1 %.not84.i.i, label %70, label %Gia_ManDivCover.exit
+.lr.ph108.i.i:                                    ; preds = %.preheader.i.i, %71
+  %indvars.iv129.i.i = phi i64 [ %indvars.iv.next130.i.i, %71 ], [ 0, %.preheader.i.i ]
+  %72 = getelementptr inbounds i64, ptr %62, i64 %indvars.iv129.i.i
+  %73 = load i64, ptr %72, align 8
+  %74 = getelementptr inbounds i64, ptr %58, i64 %indvars.iv129.i.i
+  %75 = load i64, ptr %74, align 8
+  %.demorgan.i.i = or i64 %75, %73
+  %76 = xor i64 %.demorgan.i.i, -1
+  %77 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv129.i.i
+  %78 = load i64, ptr %77, align 8
+  %79 = and i64 %78, %76
+  %.not84.i.i = icmp eq i64 %79, 0
+  br i1 %.not84.i.i, label %71, label %Gia_ManDivCover.exit
 
-79:                                               ; preds = %65
-  %.not.i = icmp eq i32 %67, 0
-  br i1 %.not.i, label %.preheader85.i.i, label %90
+80:                                               ; preds = %65
+  %81 = icmp eq i32 %67, 0
+  br i1 %81, label %.preheader85.i.i, label %92
 
-.preheader85.i.i:                                 ; preds = %79
+.preheader85.i.i:                                 ; preds = %80
   br i1 %8, label %.lr.ph103.i.i, label %.loopexit
 
-80:                                               ; preds = %.lr.ph103.i.i
+82:                                               ; preds = %.lr.ph103.i.i
   %indvars.iv.next125.i.i = add nuw nsw i64 %indvars.iv124.i.i, 1
   %exitcond128.not.i.i = icmp eq i64 %indvars.iv.next125.i.i, %wide.trip.count.i.i
   br i1 %exitcond128.not.i.i, label %.loopexit, label %.lr.ph103.i.i, !llvm.loop !66
 
-.lr.ph103.i.i:                                    ; preds = %.preheader85.i.i, %80
-  %indvars.iv124.i.i = phi i64 [ %indvars.iv.next125.i.i, %80 ], [ 0, %.preheader85.i.i ]
-  %81 = getelementptr inbounds i64, ptr %62, i64 %indvars.iv124.i.i
-  %82 = load i64, ptr %81, align 8
-  %83 = xor i64 %82, -1
-  %84 = getelementptr inbounds i64, ptr %58, i64 %indvars.iv124.i.i
-  %85 = load i64, ptr %84, align 8
-  %86 = and i64 %85, %83
-  %87 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv124.i.i
-  %88 = load i64, ptr %87, align 8
-  %89 = and i64 %86, %88
-  %.not83.i.i = icmp eq i64 %89, 0
-  br i1 %.not83.i.i, label %80, label %Gia_ManDivCover.exit
+.lr.ph103.i.i:                                    ; preds = %.preheader85.i.i, %82
+  %indvars.iv124.i.i = phi i64 [ %indvars.iv.next125.i.i, %82 ], [ 0, %.preheader85.i.i ]
+  %83 = getelementptr inbounds i64, ptr %62, i64 %indvars.iv124.i.i
+  %84 = load i64, ptr %83, align 8
+  %85 = xor i64 %84, -1
+  %86 = getelementptr inbounds i64, ptr %58, i64 %indvars.iv124.i.i
+  %87 = load i64, ptr %86, align 8
+  %88 = and i64 %87, %85
+  %89 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv124.i.i
+  %90 = load i64, ptr %89, align 8
+  %91 = and i64 %88, %90
+  %.not83.i.i = icmp eq i64 %91, 0
+  br i1 %.not83.i.i, label %82, label %Gia_ManDivCover.exit
 
-90:                                               ; preds = %79
-  br i1 %.not5.i, label %.preheader88.i.i, label %.preheader91.i.i
+92:                                               ; preds = %80
+  br i1 %69, label %.preheader88.i.i, label %.preheader91.i.i
 
-.preheader91.i.i:                                 ; preds = %90
+.preheader91.i.i:                                 ; preds = %92
   br i1 %8, label %.lr.ph.i.i, label %.loopexit
 
-.preheader88.i.i:                                 ; preds = %90
+.preheader88.i.i:                                 ; preds = %92
   br i1 %8, label %.lr.ph98.i.i, label %.loopexit
 
-91:                                               ; preds = %.lr.ph98.i.i
+93:                                               ; preds = %.lr.ph98.i.i
   %indvars.iv.next120.i.i = add nuw nsw i64 %indvars.iv119.i.i, 1
   %exitcond123.not.i.i = icmp eq i64 %indvars.iv.next120.i.i, %wide.trip.count.i.i
   br i1 %exitcond123.not.i.i, label %.loopexit, label %.lr.ph98.i.i, !llvm.loop !67
 
-.lr.ph98.i.i:                                     ; preds = %.preheader88.i.i, %91
-  %indvars.iv119.i.i = phi i64 [ %indvars.iv.next120.i.i, %91 ], [ 0, %.preheader88.i.i ]
-  %92 = getelementptr inbounds i64, ptr %62, i64 %indvars.iv119.i.i
-  %93 = load i64, ptr %92, align 8
-  %94 = getelementptr inbounds i64, ptr %58, i64 %indvars.iv119.i.i
+.lr.ph98.i.i:                                     ; preds = %.preheader88.i.i, %93
+  %indvars.iv119.i.i = phi i64 [ %indvars.iv.next120.i.i, %93 ], [ 0, %.preheader88.i.i ]
+  %94 = getelementptr inbounds i64, ptr %62, i64 %indvars.iv119.i.i
   %95 = load i64, ptr %94, align 8
-  %96 = xor i64 %95, -1
-  %97 = and i64 %93, %96
-  %98 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv119.i.i
-  %99 = load i64, ptr %98, align 8
-  %100 = and i64 %97, %99
-  %.not82.i.i = icmp eq i64 %100, 0
-  br i1 %.not82.i.i, label %91, label %Gia_ManDivCover.exit
+  %96 = getelementptr inbounds i64, ptr %58, i64 %indvars.iv119.i.i
+  %97 = load i64, ptr %96, align 8
+  %98 = xor i64 %97, -1
+  %99 = and i64 %95, %98
+  %100 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv119.i.i
+  %101 = load i64, ptr %100, align 8
+  %102 = and i64 %99, %101
+  %.not82.i.i = icmp eq i64 %102, 0
+  br i1 %.not82.i.i, label %93, label %Gia_ManDivCover.exit
 
-101:                                              ; preds = %.lr.ph.i.i
+103:                                              ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !68
 
-.lr.ph.i.i:                                       ; preds = %.preheader91.i.i, %101
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %101 ], [ 0, %.preheader91.i.i ]
-  %102 = getelementptr inbounds i64, ptr %62, i64 %indvars.iv.i.i
-  %103 = load i64, ptr %102, align 8
-  %104 = getelementptr inbounds i64, ptr %58, i64 %indvars.iv.i.i
+.lr.ph.i.i:                                       ; preds = %.preheader91.i.i, %103
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %103 ], [ 0, %.preheader91.i.i ]
+  %104 = getelementptr inbounds i64, ptr %62, i64 %indvars.iv.i.i
   %105 = load i64, ptr %104, align 8
-  %106 = and i64 %105, %103
-  %107 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv.i.i
-  %108 = load i64, ptr %107, align 8
-  %109 = and i64 %106, %108
-  %.not.i.i53 = icmp eq i64 %109, 0
-  br i1 %.not.i.i53, label %101, label %Gia_ManDivCover.exit
+  %106 = getelementptr inbounds i64, ptr %58, i64 %indvars.iv.i.i
+  %107 = load i64, ptr %106, align 8
+  %108 = and i64 %107, %105
+  %109 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv.i.i
+  %110 = load i64, ptr %109, align 8
+  %111 = and i64 %108, %110
+  %.not.i.i53 = icmp eq i64 %111, 0
+  br i1 %.not.i.i53, label %103, label %Gia_ManDivCover.exit
 
-.loopexit:                                        ; preds = %.preheader.i.i, %.preheader85.i.i, %.preheader88.i.i, %.preheader91.i.i, %101, %91, %80, %70
-  %110 = shl i32 %54, 15
-  %111 = xor i32 %110, 32768
-  %112 = xor i32 %53, 1
-  %113 = or i32 %111, %112
-  %114 = shl nsw i32 %113, 1
-  %115 = or disjoint i32 %114, 1
+.loopexit:                                        ; preds = %.preheader.i.i, %.preheader85.i.i, %.preheader88.i.i, %.preheader91.i.i, %103, %93, %82, %71
+  %112 = shl i32 %54, 15
+  %113 = xor i32 %112, 32768
+  %114 = xor i32 %53, 1
+  %115 = or i32 %113, %114
+  %116 = shl nsw i32 %115, 1
+  %117 = or disjoint i32 %116, 1
   br label %.critedge
 
 Gia_ManDivCover.exit:                             ; preds = %.lr.ph.i.i, %.lr.ph98.i.i, %.lr.ph103.i.i, %.lr.ph108.i.i
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %.val = load i32, ptr %32, align 4
-  %116 = trunc nuw i64 %indvars.iv.next99 to i32
-  %117 = icmp sgt i32 %.val, %116
-  br i1 %117, label %.lr.ph, label %.critedge2.loopexit, !llvm.loop !69
+  %118 = trunc nuw i64 %indvars.iv.next99 to i32
+  %119 = icmp sgt i32 %.val, %118
+  br i1 %119, label %.lr.ph, label %.critedge2.loopexit, !llvm.loop !69
 
 .critedge2.loopexit:                              ; preds = %.lr.ph, %Gia_ManDivCover.exit
   %.val46106 = phi i32 [ %.val46107, %.lr.ph ], [ %.val, %Gia_ManDivCover.exit ]
-  %118 = phi i32 [ %48, %.lr.ph ], [ %66, %Gia_ManDivCover.exit ]
+  %120 = phi i32 [ %48, %.lr.ph ], [ %66, %Gia_ManDivCover.exit ]
   %.pre = sext i32 %.val46106 to i64
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %45
   %.pre-phi = phi i64 [ %.pre, %.critedge2.loopexit ], [ %46, %45 ]
   %.val46 = phi i32 [ %.val46106, %.critedge2.loopexit ], [ %.val46108, %45 ]
-  %119 = phi i32 [ %118, %.critedge2.loopexit ], [ %38, %45 ]
-  %120 = icmp slt i64 %indvars.iv.next102, %.pre-phi
+  %121 = phi i32 [ %120, %.critedge2.loopexit ], [ %38, %45 ]
+  %122 = icmp slt i64 %indvars.iv.next102, %.pre-phi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %120, label %37, label %.critedge, !llvm.loop !70
+  br i1 %122, label %37, label %.critedge, !llvm.loop !70
 
 .critedge:                                        ; preds = %.critedge2, %37, %Abc_TtCountOnesVec.exit, %.loopexit
-  %.0 = phi i32 [ %115, %.loopexit ], [ -1, %Abc_TtCountOnesVec.exit ], [ -1, %37 ], [ -1, %.critedge2 ]
+  %.0 = phi i32 [ %117, %.loopexit ], [ -1, %Abc_TtCountOnesVec.exit ], [ -1, %37 ], [ -1, %.critedge2 ]
   ret i32 %.0
 }
 
@@ -7951,11 +7951,11 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   %.val46 = load ptr, ptr %36, align 8
   %43 = getelementptr inbounds i32, ptr %.val46, i64 %indvars.iv129
   %44 = load i32, ptr %43, align 4
-  %.fr92 = freeze i32 %44
+  %.fr = freeze i32 %44
   %.val45 = load ptr, ptr %37, align 8
   %45 = getelementptr inbounds i32, ptr %.val45, i64 %indvars.iv129
   %46 = load i32, ptr %45, align 4
-  %47 = ashr i32 %.fr92, 1
+  %47 = ashr i32 %.fr, 1
   %.val47 = load ptr, ptr %38, align 8
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds ptr, ptr %.val47, i64 %48
@@ -7970,75 +7970,75 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   br i1 %53, label %.lr.ph, label %.critedge2
 
 .lr.ph:                                           ; preds = %.preheader
-  %54 = and i32 %.fr92, 1
-  %.not.i = icmp eq i32 %54, 0
-  br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
+  %54 = and i32 %.fr, 1
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %Gia_ManDivCover.exit.us
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %Gia_ManDivCover.exit.us ], [ 0, %.lr.ph ]
   %.val43.us = load ptr, ptr %40, align 8
-  %55 = getelementptr inbounds i32, ptr %.val43.us, i64 %indvars.iv126
-  %56 = load i32, ptr %55, align 4
-  %57 = add nsw i32 %56, %46
-  %58 = icmp slt i32 %57, %.0.lcssa.i
-  br i1 %58, label %.critedge2, label %59
+  %56 = getelementptr inbounds i32, ptr %.val43.us, i64 %indvars.iv126
+  %57 = load i32, ptr %56, align 4
+  %58 = add nsw i32 %57, %46
+  %59 = icmp slt i32 %58, %.0.lcssa.i
+  br i1 %59, label %.critedge2, label %60
 
-59:                                               ; preds = %.lr.ph.split.us
+60:                                               ; preds = %.lr.ph.split.us
   %.val44.us = load ptr, ptr %41, align 8
-  %60 = getelementptr inbounds i32, ptr %.val44.us, i64 %indvars.iv126
-  %61 = load i32, ptr %60, align 4
-  %62 = and i32 %61, 1
-  tail call void @Gia_ManDeriveDivPair(i32 noundef %61, ptr noundef %2, i32 noundef %3, ptr noundef %8)
-  %or.cond.i.i.us = icmp eq i32 %62, 0
+  %61 = getelementptr inbounds i32, ptr %.val44.us, i64 %indvars.iv126
+  %62 = load i32, ptr %61, align 4
+  %63 = and i32 %62, 1
+  tail call void @Gia_ManDeriveDivPair(i32 noundef %62, ptr noundef %2, i32 noundef %3, ptr noundef %8)
+  %or.cond.i.i.us = icmp eq i32 %63, 0
   br i1 %or.cond.i.i.us, label %.preheader.i.i.us, label %.preheader85.i.i.us
 
-.preheader85.i.i.us:                              ; preds = %59
+.preheader85.i.i.us:                              ; preds = %60
   br i1 %10, label %.lr.ph103.i.i.us, label %.loopexit
 
-.lr.ph103.i.i.us:                                 ; preds = %.preheader85.i.i.us, %72
-  %indvars.iv124.i.i.us = phi i64 [ %indvars.iv.next125.i.i.us, %72 ], [ 0, %.preheader85.i.i.us ]
-  %63 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv124.i.i.us
-  %64 = load i64, ptr %63, align 8
-  %65 = xor i64 %64, -1
-  %66 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv124.i.i.us
-  %67 = load i64, ptr %66, align 8
-  %68 = and i64 %67, %65
-  %69 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv124.i.i.us
-  %70 = load i64, ptr %69, align 8
-  %71 = and i64 %68, %70
-  %.not83.i.i.us = icmp eq i64 %71, 0
-  br i1 %.not83.i.i.us, label %72, label %Gia_ManDivCover.exit.us
+.lr.ph103.i.i.us:                                 ; preds = %.preheader85.i.i.us, %73
+  %indvars.iv124.i.i.us = phi i64 [ %indvars.iv.next125.i.i.us, %73 ], [ 0, %.preheader85.i.i.us ]
+  %64 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv124.i.i.us
+  %65 = load i64, ptr %64, align 8
+  %66 = xor i64 %65, -1
+  %67 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv124.i.i.us
+  %68 = load i64, ptr %67, align 8
+  %69 = and i64 %68, %66
+  %70 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv124.i.i.us
+  %71 = load i64, ptr %70, align 8
+  %72 = and i64 %69, %71
+  %.not83.i.i.us = icmp eq i64 %72, 0
+  br i1 %.not83.i.i.us, label %73, label %Gia_ManDivCover.exit.us
 
-72:                                               ; preds = %.lr.ph103.i.i.us
+73:                                               ; preds = %.lr.ph103.i.i.us
   %indvars.iv.next125.i.i.us = add nuw nsw i64 %indvars.iv124.i.i.us, 1
   %exitcond128.not.i.i.us = icmp eq i64 %indvars.iv.next125.i.i.us, %wide.trip.count.i.i
   br i1 %exitcond128.not.i.i.us, label %.loopexit, label %.lr.ph103.i.i.us, !llvm.loop !66
 
-.preheader.i.i.us:                                ; preds = %59
+.preheader.i.i.us:                                ; preds = %60
   br i1 %10, label %.lr.ph108.i.i.us, label %.loopexit
 
-.lr.ph108.i.i.us:                                 ; preds = %.preheader.i.i.us, %83
-  %indvars.iv129.i.i.us = phi i64 [ %indvars.iv.next130.i.i.us, %83 ], [ 0, %.preheader.i.i.us ]
-  %73 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv129.i.i.us
-  %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv129.i.i.us
-  %76 = load i64, ptr %75, align 8
-  %.demorgan.i.i.us = or i64 %76, %74
-  %77 = xor i64 %.demorgan.i.i.us, -1
-  %78 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv129.i.i.us
-  %79 = load i64, ptr %78, align 8
-  %80 = and i64 %79, %77
-  %.not84.i.i.us = icmp eq i64 %80, 0
-  br i1 %.not84.i.i.us, label %83, label %Gia_ManDivCover.exit.us
+.lr.ph108.i.i.us:                                 ; preds = %.preheader.i.i.us, %84
+  %indvars.iv129.i.i.us = phi i64 [ %indvars.iv.next130.i.i.us, %84 ], [ 0, %.preheader.i.i.us ]
+  %74 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv129.i.i.us
+  %75 = load i64, ptr %74, align 8
+  %76 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv129.i.i.us
+  %77 = load i64, ptr %76, align 8
+  %.demorgan.i.i.us = or i64 %77, %75
+  %78 = xor i64 %.demorgan.i.i.us, -1
+  %79 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv129.i.i.us
+  %80 = load i64, ptr %79, align 8
+  %81 = and i64 %80, %78
+  %.not84.i.i.us = icmp eq i64 %81, 0
+  br i1 %.not84.i.i.us, label %84, label %Gia_ManDivCover.exit.us
 
 Gia_ManDivCover.exit.us:                          ; preds = %.lr.ph103.i.i.us, %.lr.ph108.i.i.us
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %.val.us = load i32, ptr %39, align 4
-  %81 = sext i32 %.val.us to i64
-  %82 = icmp slt i64 %indvars.iv.next127, %81
-  br i1 %82, label %.lr.ph.split.us, label %.critedge2, !llvm.loop !81
+  %82 = sext i32 %.val.us to i64
+  %83 = icmp slt i64 %indvars.iv.next127, %82
+  br i1 %83, label %.lr.ph.split.us, label %.critedge2, !llvm.loop !81
 
-83:                                               ; preds = %.lr.ph108.i.i.us
+84:                                               ; preds = %.lr.ph108.i.i.us
   %indvars.iv.next130.i.i.us = add nuw nsw i64 %indvars.iv129.i.i.us, 1
   %exitcond133.not.i.i.us = icmp eq i64 %indvars.iv.next130.i.i.us, %wide.trip.count.i.i
   br i1 %exitcond133.not.i.i.us, label %.loopexit, label %.lr.ph108.i.i.us, !llvm.loop !65
@@ -8046,90 +8046,90 @@ Gia_ManDivCover.exit.us:                          ; preds = %.lr.ph103.i.i.us, %
 .lr.ph.split:                                     ; preds = %.lr.ph, %Gia_ManDivCover.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %Gia_ManDivCover.exit ], [ 0, %.lr.ph ]
   %.val43 = load ptr, ptr %40, align 8
-  %84 = getelementptr inbounds i32, ptr %.val43, i64 %indvars.iv
-  %85 = load i32, ptr %84, align 4
-  %86 = add nsw i32 %85, %46
-  %87 = icmp slt i32 %86, %.0.lcssa.i
-  br i1 %87, label %.critedge2, label %88
+  %85 = getelementptr inbounds i32, ptr %.val43, i64 %indvars.iv
+  %86 = load i32, ptr %85, align 4
+  %87 = add nsw i32 %86, %46
+  %88 = icmp slt i32 %87, %.0.lcssa.i
+  br i1 %88, label %.critedge2, label %89
 
-88:                                               ; preds = %.lr.ph.split
+89:                                               ; preds = %.lr.ph.split
   %.val44 = load ptr, ptr %41, align 8
-  %89 = getelementptr inbounds i32, ptr %.val44, i64 %indvars.iv
-  %90 = load i32, ptr %89, align 4
-  tail call void @Gia_ManDeriveDivPair(i32 noundef %90, ptr noundef %2, i32 noundef %3, ptr noundef %8)
-  %91 = and i32 %90, 1
-  %.not5.i = icmp eq i32 %91, 0
-  br i1 %.not5.i, label %.preheader88.i.i, label %.preheader91.i.i
+  %90 = getelementptr inbounds i32, ptr %.val44, i64 %indvars.iv
+  %91 = load i32, ptr %90, align 4
+  tail call void @Gia_ManDeriveDivPair(i32 noundef %91, ptr noundef %2, i32 noundef %3, ptr noundef %8)
+  %92 = and i32 %91, 1
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %.preheader88.i.i, label %.preheader91.i.i
 
-.preheader91.i.i:                                 ; preds = %88
+.preheader91.i.i:                                 ; preds = %89
   br i1 %10, label %.lr.ph.i.i, label %.loopexit
 
-.preheader88.i.i:                                 ; preds = %88
+.preheader88.i.i:                                 ; preds = %89
   br i1 %10, label %.lr.ph98.i.i, label %.loopexit
 
-92:                                               ; preds = %.lr.ph98.i.i
+94:                                               ; preds = %.lr.ph98.i.i
   %indvars.iv.next120.i.i = add nuw nsw i64 %indvars.iv119.i.i, 1
   %exitcond123.not.i.i = icmp eq i64 %indvars.iv.next120.i.i, %wide.trip.count.i.i
   br i1 %exitcond123.not.i.i, label %.loopexit, label %.lr.ph98.i.i, !llvm.loop !67
 
-.lr.ph98.i.i:                                     ; preds = %.preheader88.i.i, %92
-  %indvars.iv119.i.i = phi i64 [ %indvars.iv.next120.i.i, %92 ], [ 0, %.preheader88.i.i ]
-  %93 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv119.i.i
-  %94 = load i64, ptr %93, align 8
-  %95 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv119.i.i
+.lr.ph98.i.i:                                     ; preds = %.preheader88.i.i, %94
+  %indvars.iv119.i.i = phi i64 [ %indvars.iv.next120.i.i, %94 ], [ 0, %.preheader88.i.i ]
+  %95 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv119.i.i
   %96 = load i64, ptr %95, align 8
-  %97 = xor i64 %96, -1
-  %98 = and i64 %94, %97
-  %99 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv119.i.i
-  %100 = load i64, ptr %99, align 8
-  %101 = and i64 %98, %100
-  %.not82.i.i = icmp eq i64 %101, 0
-  br i1 %.not82.i.i, label %92, label %Gia_ManDivCover.exit
+  %97 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv119.i.i
+  %98 = load i64, ptr %97, align 8
+  %99 = xor i64 %98, -1
+  %100 = and i64 %96, %99
+  %101 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv119.i.i
+  %102 = load i64, ptr %101, align 8
+  %103 = and i64 %100, %102
+  %.not82.i.i = icmp eq i64 %103, 0
+  br i1 %.not82.i.i, label %94, label %Gia_ManDivCover.exit
 
-102:                                              ; preds = %.lr.ph.i.i
+104:                                              ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !68
 
-.lr.ph.i.i:                                       ; preds = %.preheader91.i.i, %102
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %102 ], [ 0, %.preheader91.i.i ]
-  %103 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv.i.i
-  %104 = load i64, ptr %103, align 8
-  %105 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv.i.i
+.lr.ph.i.i:                                       ; preds = %.preheader91.i.i, %104
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %104 ], [ 0, %.preheader91.i.i ]
+  %105 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv.i.i
   %106 = load i64, ptr %105, align 8
-  %107 = and i64 %106, %104
-  %108 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv.i.i
-  %109 = load i64, ptr %108, align 8
-  %110 = and i64 %107, %109
-  %.not.i.i48 = icmp eq i64 %110, 0
-  br i1 %.not.i.i48, label %102, label %Gia_ManDivCover.exit
+  %107 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv.i.i
+  %108 = load i64, ptr %107, align 8
+  %109 = and i64 %108, %106
+  %110 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv.i.i
+  %111 = load i64, ptr %110, align 8
+  %112 = and i64 %109, %111
+  %.not.i.i48 = icmp eq i64 %112, 0
+  br i1 %.not.i.i48, label %104, label %Gia_ManDivCover.exit
 
-.loopexit:                                        ; preds = %.preheader91.i.i, %.preheader88.i.i, %.preheader.i.i.us, %.preheader85.i.i.us, %102, %92, %72, %83
-  %.04063.in = phi i64 [ %indvars.iv126, %83 ], [ %indvars.iv126, %72 ], [ %indvars.iv, %92 ], [ %indvars.iv, %102 ], [ %indvars.iv126, %.preheader85.i.i.us ], [ %indvars.iv126, %.preheader.i.i.us ], [ %indvars.iv, %.preheader88.i.i ], [ %indvars.iv, %.preheader91.i.i ]
+.loopexit:                                        ; preds = %.preheader91.i.i, %.preheader88.i.i, %.preheader.i.i.us, %.preheader85.i.i.us, %104, %94, %73, %84
+  %.04063.in = phi i64 [ %indvars.iv126, %84 ], [ %indvars.iv126, %73 ], [ %indvars.iv, %94 ], [ %indvars.iv, %104 ], [ %indvars.iv126, %.preheader85.i.i.us ], [ %indvars.iv126, %.preheader.i.i.us ], [ %indvars.iv, %.preheader88.i.i ], [ %indvars.iv, %.preheader91.i.i ]
   %.04063 = trunc i64 %.04063.in to i32
-  %111 = shl i32 %.04063, 17
-  %112 = shl i32 %.fr92, 1
-  %.masked = and i32 %112, -65538
-  %113 = or i32 %111, %.masked
-  %114 = xor i32 %113, 65539
+  %113 = shl i32 %.04063, 17
+  %114 = shl i32 %.fr, 1
+  %.masked = and i32 %114, -65538
+  %115 = or i32 %113, %.masked
+  %116 = xor i32 %115, 65539
   br label %.critedge
 
 Gia_ManDivCover.exit:                             ; preds = %.lr.ph.i.i, %.lr.ph98.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %39, align 4
-  %115 = sext i32 %.val to i64
-  %116 = icmp slt i64 %indvars.iv.next, %115
-  br i1 %116, label %.lr.ph.split, label %.critedge2, !llvm.loop !81
+  %117 = sext i32 %.val to i64
+  %118 = icmp slt i64 %indvars.iv.next, %117
+  br i1 %118, label %.lr.ph.split, label %.critedge2, !llvm.loop !81
 
 .critedge2:                                       ; preds = %Gia_ManDivCover.exit, %.lr.ph.split, %Gia_ManDivCover.exit.us, %.lr.ph.split.us, %.preheader
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %.val42 = load i32, ptr %34, align 4
-  %117 = sext i32 %.val42 to i64
-  %118 = icmp slt i64 %indvars.iv.next130, %117
-  br i1 %118, label %42, label %.critedge, !llvm.loop !82
+  %119 = sext i32 %.val42 to i64
+  %120 = icmp slt i64 %indvars.iv.next130, %119
+  br i1 %120, label %42, label %.critedge, !llvm.loop !82
 
 .critedge:                                        ; preds = %.critedge2, %42, %Abc_TtCountOnesVec.exit, %.loopexit
-  %.0 = phi i32 [ %114, %.loopexit ], [ -1, %Abc_TtCountOnesVec.exit ], [ -1, %42 ], [ -1, %.critedge2 ]
+  %.0 = phi i32 [ %116, %.loopexit ], [ -1, %Abc_TtCountOnesVec.exit ], [ -1, %42 ], [ -1, %.critedge2 ]
   ret i32 %.0
 }
 
@@ -8232,17 +8232,17 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   %.val50 = load ptr, ptr %35, align 8
   %38 = getelementptr inbounds i32, ptr %.val50, i64 %indvars.iv136
   %39 = load i32, ptr %38, align 4
-  %.fr97 = freeze i32 %39
+  %.fr = freeze i32 %39
   %.val49 = load ptr, ptr %36, align 8
   %40 = getelementptr inbounds i32, ptr %.val49, i64 %indvars.iv136
   %41 = load i32, ptr %40, align 4
-  %42 = and i32 %.fr97, 1
+  %42 = and i32 %.fr, 1
   %43 = shl nsw i32 %41, 1
   %44 = icmp slt i32 %43, %.0.lcssa.i
   br i1 %44, label %.critedge, label %45
 
 45:                                               ; preds = %37
-  tail call void @Gia_ManDeriveDivPair(i32 noundef %.fr97, ptr noundef %2, i32 noundef %3, ptr noundef %6)
+  tail call void @Gia_ManDeriveDivPair(i32 noundef %.fr, ptr noundef %2, i32 noundef %3, ptr noundef %6)
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %.val73 = load i32, ptr %33, align 4
   %46 = sext i32 %.val73 to i64
@@ -8250,56 +8250,56 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   br i1 %47, label %.lr.ph, label %.critedge2
 
 .lr.ph:                                           ; preds = %45
-  %.not.i = icmp eq i32 %42, 0
+  %48 = icmp eq i32 %42, 0
   %.val47.us192 = load ptr, ptr %36, align 8
-  %48 = getelementptr inbounds i32, ptr %.val47.us192, i64 %indvars.iv
-  %49 = load i32, ptr %48, align 4
-  %50 = add nsw i32 %49, %41
-  %51 = icmp slt i32 %50, %.0.lcssa.i
-  br i1 %.not.i, label %.lr.ph.split.us.preheader, label %.lr.ph.split.preheader
+  %49 = getelementptr inbounds i32, ptr %.val47.us192, i64 %indvars.iv
+  %50 = load i32, ptr %49, align 4
+  %51 = add nsw i32 %50, %41
+  %52 = icmp slt i32 %51, %.0.lcssa.i
+  br i1 %48, label %.lr.ph.split.us.preheader, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  br i1 %51, label %.critedge2, label %.lr.ph190
+  br i1 %52, label %.critedge2, label %.lr.ph190
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  br i1 %51, label %.critedge2, label %.lr.ph194
+  br i1 %52, label %.critedge2, label %.lr.ph194
 
 .lr.ph.split.us:                                  ; preds = %Gia_ManDivCover.exit.us
   %.val47.us = load ptr, ptr %36, align 8
-  %52 = getelementptr inbounds i32, ptr %.val47.us, i64 %indvars.iv.next134
-  %53 = load i32, ptr %52, align 4
-  %54 = add nsw i32 %53, %41
-  %55 = icmp slt i32 %54, %.0.lcssa.i
-  br i1 %55, label %.critedge2, label %.lr.ph194, !llvm.loop !84
+  %53 = getelementptr inbounds i32, ptr %.val47.us, i64 %indvars.iv.next134
+  %54 = load i32, ptr %53, align 4
+  %55 = add nsw i32 %54, %41
+  %56 = icmp slt i32 %55, %.0.lcssa.i
+  br i1 %56, label %.critedge2, label %.lr.ph194, !llvm.loop !84
 
 .lr.ph194:                                        ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %indvars.iv133193 = phi i64 [ %indvars.iv.next134, %.lr.ph.split.us ], [ %indvars.iv, %.lr.ph.split.us.preheader ]
   %.val48.us = load ptr, ptr %35, align 8
-  %56 = getelementptr inbounds i32, ptr %.val48.us, i64 %indvars.iv133193
-  %57 = load i32, ptr %56, align 4
-  %58 = and i32 %57, 1
-  tail call void @Gia_ManDeriveDivPair(i32 noundef %57, ptr noundef %2, i32 noundef %3, ptr noundef %7)
-  %or.cond.i.i.us = icmp eq i32 %58, 0
+  %57 = getelementptr inbounds i32, ptr %.val48.us, i64 %indvars.iv133193
+  %58 = load i32, ptr %57, align 4
+  %59 = and i32 %58, 1
+  tail call void @Gia_ManDeriveDivPair(i32 noundef %58, ptr noundef %2, i32 noundef %3, ptr noundef %7)
+  %or.cond.i.i.us = icmp eq i32 %59, 0
   br i1 %or.cond.i.i.us, label %.preheader.i.i.us, label %.preheader85.i.i.us
 
 .preheader85.i.i.us:                              ; preds = %.lr.ph194
   br i1 %9, label %.lr.ph103.i.i.us, label %.loopexit
 
-.lr.ph103.i.i.us:                                 ; preds = %.preheader85.i.i.us, %68
-  %indvars.iv124.i.i.us = phi i64 [ %indvars.iv.next125.i.i.us, %68 ], [ 0, %.preheader85.i.i.us ]
-  %59 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv124.i.i.us
-  %60 = load i64, ptr %59, align 8
-  %61 = xor i64 %60, -1
-  %62 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv124.i.i.us
-  %63 = load i64, ptr %62, align 8
-  %64 = and i64 %63, %61
-  %65 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv124.i.i.us
-  %66 = load i64, ptr %65, align 8
-  %67 = and i64 %64, %66
-  %.not83.i.i.us = icmp eq i64 %67, 0
-  br i1 %.not83.i.i.us, label %68, label %Gia_ManDivCover.exit.us
+.lr.ph103.i.i.us:                                 ; preds = %.preheader85.i.i.us, %69
+  %indvars.iv124.i.i.us = phi i64 [ %indvars.iv.next125.i.i.us, %69 ], [ 0, %.preheader85.i.i.us ]
+  %60 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv124.i.i.us
+  %61 = load i64, ptr %60, align 8
+  %62 = xor i64 %61, -1
+  %63 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv124.i.i.us
+  %64 = load i64, ptr %63, align 8
+  %65 = and i64 %64, %62
+  %66 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv124.i.i.us
+  %67 = load i64, ptr %66, align 8
+  %68 = and i64 %65, %67
+  %.not83.i.i.us = icmp eq i64 %68, 0
+  br i1 %.not83.i.i.us, label %69, label %Gia_ManDivCover.exit.us
 
-68:                                               ; preds = %.lr.ph103.i.i.us
+69:                                               ; preds = %.lr.ph103.i.i.us
   %indvars.iv.next125.i.i.us = add nuw nsw i64 %indvars.iv124.i.i.us, 1
   %exitcond128.not.i.i.us = icmp eq i64 %indvars.iv.next125.i.i.us, %wide.trip.count.i.i
   br i1 %exitcond128.not.i.i.us, label %.loopexit, label %.lr.ph103.i.i.us, !llvm.loop !66
@@ -8307,49 +8307,49 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
 .preheader.i.i.us:                                ; preds = %.lr.ph194
   br i1 %9, label %.lr.ph108.i.i.us, label %.loopexit
 
-.lr.ph108.i.i.us:                                 ; preds = %.preheader.i.i.us, %79
-  %indvars.iv129.i.i.us = phi i64 [ %indvars.iv.next130.i.i.us, %79 ], [ 0, %.preheader.i.i.us ]
-  %69 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv129.i.i.us
-  %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv129.i.i.us
-  %72 = load i64, ptr %71, align 8
-  %.demorgan.i.i.us = or i64 %72, %70
-  %73 = xor i64 %.demorgan.i.i.us, -1
-  %74 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv129.i.i.us
-  %75 = load i64, ptr %74, align 8
-  %76 = and i64 %75, %73
-  %.not84.i.i.us = icmp eq i64 %76, 0
-  br i1 %.not84.i.i.us, label %79, label %Gia_ManDivCover.exit.us
+.lr.ph108.i.i.us:                                 ; preds = %.preheader.i.i.us, %80
+  %indvars.iv129.i.i.us = phi i64 [ %indvars.iv.next130.i.i.us, %80 ], [ 0, %.preheader.i.i.us ]
+  %70 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv129.i.i.us
+  %71 = load i64, ptr %70, align 8
+  %72 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv129.i.i.us
+  %73 = load i64, ptr %72, align 8
+  %.demorgan.i.i.us = or i64 %73, %71
+  %74 = xor i64 %.demorgan.i.i.us, -1
+  %75 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv129.i.i.us
+  %76 = load i64, ptr %75, align 8
+  %77 = and i64 %76, %74
+  %.not84.i.i.us = icmp eq i64 %77, 0
+  br i1 %.not84.i.i.us, label %80, label %Gia_ManDivCover.exit.us
 
 Gia_ManDivCover.exit.us:                          ; preds = %.lr.ph103.i.i.us, %.lr.ph108.i.i.us
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133193, 1
   %.val.us = load i32, ptr %33, align 4
-  %77 = trunc nuw i64 %indvars.iv.next134 to i32
-  %78 = icmp sgt i32 %.val.us, %77
-  br i1 %78, label %.lr.ph.split.us, label %.critedge2, !llvm.loop !84
+  %78 = trunc nuw i64 %indvars.iv.next134 to i32
+  %79 = icmp sgt i32 %.val.us, %78
+  br i1 %79, label %.lr.ph.split.us, label %.critedge2, !llvm.loop !84
 
-79:                                               ; preds = %.lr.ph108.i.i.us
+80:                                               ; preds = %.lr.ph108.i.i.us
   %indvars.iv.next130.i.i.us = add nuw nsw i64 %indvars.iv129.i.i.us, 1
   %exitcond133.not.i.i.us = icmp eq i64 %indvars.iv.next130.i.i.us, %wide.trip.count.i.i
   br i1 %exitcond133.not.i.i.us, label %.loopexit, label %.lr.ph108.i.i.us, !llvm.loop !65
 
 .lr.ph.split:                                     ; preds = %Gia_ManDivCover.exit
   %.val47 = load ptr, ptr %36, align 8
-  %80 = getelementptr inbounds i32, ptr %.val47, i64 %indvars.iv.next131
-  %81 = load i32, ptr %80, align 4
-  %82 = add nsw i32 %81, %41
-  %83 = icmp slt i32 %82, %.0.lcssa.i
-  br i1 %83, label %.critedge2, label %.lr.ph190, !llvm.loop !84
+  %81 = getelementptr inbounds i32, ptr %.val47, i64 %indvars.iv.next131
+  %82 = load i32, ptr %81, align 4
+  %83 = add nsw i32 %82, %41
+  %84 = icmp slt i32 %83, %.0.lcssa.i
+  br i1 %84, label %.critedge2, label %.lr.ph190, !llvm.loop !84
 
 .lr.ph190:                                        ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv130189 = phi i64 [ %indvars.iv.next131, %.lr.ph.split ], [ %indvars.iv, %.lr.ph.split.preheader ]
   %.val48 = load ptr, ptr %35, align 8
-  %84 = getelementptr inbounds i32, ptr %.val48, i64 %indvars.iv130189
-  %85 = load i32, ptr %84, align 4
-  tail call void @Gia_ManDeriveDivPair(i32 noundef %85, ptr noundef %2, i32 noundef %3, ptr noundef %7)
-  %86 = and i32 %85, 1
-  %.not5.i = icmp eq i32 %86, 0
-  br i1 %.not5.i, label %.preheader88.i.i, label %.preheader91.i.i
+  %85 = getelementptr inbounds i32, ptr %.val48, i64 %indvars.iv130189
+  %86 = load i32, ptr %85, align 4
+  tail call void @Gia_ManDeriveDivPair(i32 noundef %86, ptr noundef %2, i32 noundef %3, ptr noundef %7)
+  %87 = and i32 %86, 1
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %.preheader88.i.i, label %.preheader91.i.i
 
 .preheader91.i.i:                                 ; preds = %.lr.ph190
   br i1 %9, label %.lr.ph.i.i, label %.loopexit
@@ -8357,69 +8357,69 @@ Gia_ManDivCover.exit.us:                          ; preds = %.lr.ph103.i.i.us, %
 .preheader88.i.i:                                 ; preds = %.lr.ph190
   br i1 %9, label %.lr.ph98.i.i, label %.loopexit
 
-87:                                               ; preds = %.lr.ph98.i.i
+89:                                               ; preds = %.lr.ph98.i.i
   %indvars.iv.next120.i.i = add nuw nsw i64 %indvars.iv119.i.i, 1
   %exitcond123.not.i.i = icmp eq i64 %indvars.iv.next120.i.i, %wide.trip.count.i.i
   br i1 %exitcond123.not.i.i, label %.loopexit, label %.lr.ph98.i.i, !llvm.loop !67
 
-.lr.ph98.i.i:                                     ; preds = %.preheader88.i.i, %87
-  %indvars.iv119.i.i = phi i64 [ %indvars.iv.next120.i.i, %87 ], [ 0, %.preheader88.i.i ]
-  %88 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv119.i.i
-  %89 = load i64, ptr %88, align 8
-  %90 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv119.i.i
+.lr.ph98.i.i:                                     ; preds = %.preheader88.i.i, %89
+  %indvars.iv119.i.i = phi i64 [ %indvars.iv.next120.i.i, %89 ], [ 0, %.preheader88.i.i ]
+  %90 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv119.i.i
   %91 = load i64, ptr %90, align 8
-  %92 = xor i64 %91, -1
-  %93 = and i64 %89, %92
-  %94 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv119.i.i
-  %95 = load i64, ptr %94, align 8
-  %96 = and i64 %93, %95
-  %.not82.i.i = icmp eq i64 %96, 0
-  br i1 %.not82.i.i, label %87, label %Gia_ManDivCover.exit
+  %92 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv119.i.i
+  %93 = load i64, ptr %92, align 8
+  %94 = xor i64 %93, -1
+  %95 = and i64 %91, %94
+  %96 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv119.i.i
+  %97 = load i64, ptr %96, align 8
+  %98 = and i64 %95, %97
+  %.not82.i.i = icmp eq i64 %98, 0
+  br i1 %.not82.i.i, label %89, label %Gia_ManDivCover.exit
 
-97:                                               ; preds = %.lr.ph.i.i
+99:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !68
 
-.lr.ph.i.i:                                       ; preds = %.preheader91.i.i, %97
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %97 ], [ 0, %.preheader91.i.i ]
-  %98 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.i.i
-  %99 = load i64, ptr %98, align 8
-  %100 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv.i.i
+.lr.ph.i.i:                                       ; preds = %.preheader91.i.i, %99
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %99 ], [ 0, %.preheader91.i.i ]
+  %100 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.i.i
   %101 = load i64, ptr %100, align 8
-  %102 = and i64 %101, %99
-  %103 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv.i.i
-  %104 = load i64, ptr %103, align 8
-  %105 = and i64 %102, %104
-  %.not.i.i51 = icmp eq i64 %105, 0
-  br i1 %.not.i.i51, label %97, label %Gia_ManDivCover.exit
+  %102 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv.i.i
+  %103 = load i64, ptr %102, align 8
+  %104 = and i64 %103, %101
+  %105 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv.i.i
+  %106 = load i64, ptr %105, align 8
+  %107 = and i64 %104, %106
+  %.not.i.i51 = icmp eq i64 %107, 0
+  br i1 %.not.i.i51, label %99, label %Gia_ManDivCover.exit
 
-.loopexit:                                        ; preds = %.preheader91.i.i, %.preheader88.i.i, %.preheader.i.i.us, %.preheader85.i.i.us, %97, %87, %68, %79
-  %.04366.in = phi i64 [ %indvars.iv133193, %79 ], [ %indvars.iv133193, %68 ], [ %indvars.iv130189, %87 ], [ %indvars.iv130189, %97 ], [ %indvars.iv133193, %.preheader85.i.i.us ], [ %indvars.iv133193, %.preheader.i.i.us ], [ %indvars.iv130189, %.preheader88.i.i ], [ %indvars.iv130189, %.preheader91.i.i ]
+.loopexit:                                        ; preds = %.preheader91.i.i, %.preheader88.i.i, %.preheader.i.i.us, %.preheader85.i.i.us, %99, %89, %69, %80
+  %.04366.in = phi i64 [ %indvars.iv133193, %80 ], [ %indvars.iv133193, %69 ], [ %indvars.iv130189, %89 ], [ %indvars.iv130189, %99 ], [ %indvars.iv133193, %.preheader85.i.i.us ], [ %indvars.iv133193, %.preheader.i.i.us ], [ %indvars.iv130189, %.preheader88.i.i ], [ %indvars.iv130189, %.preheader91.i.i ]
   %.04366 = trunc i64 %.04366.in to i32
   %.04494122 = trunc i64 %indvars.iv136 to i32
-  %106 = shl i32 %.04366, 17
-  %107 = shl i32 %.04494122, 2
-  %108 = or i32 %107, %106
-  %109 = or i32 %108, 65539
+  %108 = shl i32 %.04366, 17
+  %109 = shl i32 %.04494122, 2
+  %110 = or i32 %109, %108
+  %111 = or i32 %110, 65539
   br label %.critedge
 
 Gia_ManDivCover.exit:                             ; preds = %.lr.ph.i.i, %.lr.ph98.i.i
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130189, 1
   %.val = load i32, ptr %33, align 4
-  %110 = trunc nuw i64 %indvars.iv.next131 to i32
-  %111 = icmp sgt i32 %.val, %110
-  br i1 %111, label %.lr.ph.split, label %.critedge2, !llvm.loop !84
+  %112 = trunc nuw i64 %indvars.iv.next131 to i32
+  %113 = icmp sgt i32 %.val, %112
+  br i1 %113, label %.lr.ph.split, label %.critedge2, !llvm.loop !84
 
 .critedge2:                                       ; preds = %.lr.ph.split, %Gia_ManDivCover.exit, %.lr.ph.split.us, %Gia_ManDivCover.exit.us, %.lr.ph.split.preheader, %.lr.ph.split.us.preheader, %45
   %.val46 = phi i32 [ %.val73, %45 ], [ %.val73, %.lr.ph.split.us.preheader ], [ %.val73, %.lr.ph.split.preheader ], [ %.val.us, %Gia_ManDivCover.exit.us ], [ %.val.us, %.lr.ph.split.us ], [ %.val, %Gia_ManDivCover.exit ], [ %.val, %.lr.ph.split ]
-  %112 = sext i32 %.val46 to i64
-  %113 = icmp slt i64 %indvars.iv.next137, %112
+  %114 = sext i32 %.val46 to i64
+  %115 = icmp slt i64 %indvars.iv.next137, %114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %113, label %37, label %.critedge, !llvm.loop !85
+  br i1 %115, label %37, label %.critedge, !llvm.loop !85
 
 .critedge:                                        ; preds = %.critedge2, %37, %Abc_TtCountOnesVec.exit, %.loopexit
-  %.0 = phi i32 [ %109, %.loopexit ], [ -1, %Abc_TtCountOnesVec.exit ], [ -1, %37 ], [ -1, %.critedge2 ]
+  %.0 = phi i32 [ %111, %.loopexit ], [ -1, %Abc_TtCountOnesVec.exit ], [ -1, %37 ], [ -1, %.critedge2 ]
   ret i32 %.0
 }
 
@@ -10583,7 +10583,7 @@ Abc_TtAndSharp.exit139.thread:                    ; preds = %.preheader.i132, %.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Abc_TtAndSharp(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #12 {
+define internal fastcc void @Abc_TtAndSharp(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #12 {
   %.not = icmp eq i32 %4, 0
   %6 = icmp sgt i32 %3, 0
   br i1 %.not, label %.preheader, label %.preheader18
@@ -13399,7 +13399,7 @@ Abc_ResubPrepareManager.exit:                     ; preds = %72, %74
 
 96:                                               ; preds = %92
   %.val141 = load ptr, ptr %80, align 8
-  %97 = call fastcc i32 @Gia_ObjLevel(ptr nonnull %.val127, ptr %.val141, ptr noundef nonnull %91)
+  %97 = call fastcc i32 @Gia_ObjLevel(ptr nonnull %.val127, ptr %.val141, ptr noundef %91)
   %98 = call i32 @Gia_NodeMffcSizeMark(ptr noundef nonnull %0, ptr noundef nonnull %91) #30
   %99 = mul nsw i64 %indvars.iv216, %65
   %.val133 = load ptr, ptr %81, align 8
@@ -13652,7 +13652,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 206:                                              ; preds = %199
   %.val143 = load ptr, ptr %80, align 8
-  %207 = call fastcc i32 @Gia_ObjLevel(ptr nonnull %.val126, ptr %.val143, ptr noundef nonnull %194)
+  %207 = call fastcc i32 @Gia_ObjLevel(ptr nonnull %.val126, ptr %.val143, ptr noundef %194)
   %.not119 = icmp sgt i32 %207, %97
   br i1 %.not119, label %243, label %208
 
@@ -13932,7 +13932,7 @@ declare i32 @Gia_ManLevelNum(ptr noundef) local_unnamed_addr #1
 declare void @Gia_ManStaticFanoutStart(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Gia_ObjLevel(ptr %.32.val, ptr nocapture %.160.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @Gia_ObjLevel(ptr %.32.val, ptr nocapture %.160.val, ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
   %3 = ptrtoint ptr %.32.val to i64
   %4 = sub i64 %2, %3

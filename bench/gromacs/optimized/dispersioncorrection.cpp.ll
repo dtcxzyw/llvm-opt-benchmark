@@ -1297,7 +1297,7 @@ _ZNSt10unique_ptrI12t_forcetableSt14default_deleteIS0_EED2Ev.exit: ; preds = %10
   %109 = fptrunc double %108 to float
   store double 0.000000e+00, ptr %6, align 8
   store double 0.000000e+00, ptr %7, align 8
-  call fastcc void @_ZL15integrate_tablePKffiiiPdS1_(ptr noundef %42, float noundef %40, i32 noundef 0, i32 noundef %52, i32 noundef %50, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @_ZL15integrate_tablePKffiiiPdS1_(ptr noundef %42, float noundef %40, i32 noundef 0, i32 noundef %52, i32 noundef %50, ptr noundef %6, ptr noundef %7)
   %110 = load double, ptr %6, align 8
   %111 = fpext float %103 to double
   %112 = fsub double %111, %110
@@ -1305,7 +1305,7 @@ _ZNSt10unique_ptrI12t_forcetableSt14default_deleteIS0_EED2Ev.exit: ; preds = %10
   %114 = load double, ptr %7, align 8
   %115 = fsub double 0.000000e+00, %114
   %116 = fptrunc double %115 to float
-  call fastcc void @_ZL15integrate_tablePKffiiiPdS1_(ptr noundef %42, float noundef %40, i32 noundef 4, i32 noundef %52, i32 noundef %50, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @_ZL15integrate_tablePKffiiiPdS1_(ptr noundef %42, float noundef %40, i32 noundef 4, i32 noundef %52, i32 noundef %50, ptr noundef %6, ptr noundef %7)
   %117 = load double, ptr %6, align 8
   %118 = fpext float %109 to double
   %119 = fsub double %118, %117
@@ -1405,7 +1405,7 @@ declare noundef ptr @_Z17enumValueToString15VanDerWaalsType(i32 noundef) local_u
 declare double @llvm.fmuladd.f64(double, double, double) #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL15integrate_tablePKffiiiPdS1_(ptr nocapture noundef readonly %0, float noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #12 {
+define internal fastcc void @_ZL15integrate_tablePKffiiiPdS1_(ptr nocapture noundef readonly %0, float noundef %1, i32 noundef range(i32 0, 5) %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #12 {
   %8 = fpext float %1 to double
   %9 = fdiv double 1.000000e+00, %8
   %10 = icmp slt i32 %3, %4
@@ -1422,15 +1422,14 @@ define internal fastcc void @_ZL15integrate_tablePKffiiiPdS1_(ptr nocapture noun
   %18 = fdiv double %12, 5.000000e+00
   %19 = fdiv double %12, 6.000000e+00
   %20 = sext i32 %3 to i64
-  %21 = sext i32 %2 to i64
+  %21 = zext nneg i32 %2 to i64
   %wide.trip.count = sext i32 %4 to i64
-  %invariant.gep = getelementptr float, ptr %0, i64 %21
   br label %22
 
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %.079 = phi double [ 0.000000e+00, %.lr.ph ], [ %64, %22 ]
-  %.07578 = phi double [ 0.000000e+00, %.lr.ph ], [ %87, %22 ]
+  %.079 = phi double [ 0.000000e+00, %.lr.ph ], [ %67, %22 ]
+  %.07578 = phi double [ 0.000000e+00, %.lr.ph ], [ %90, %22 ]
   %23 = trunc nsw i64 %indvars.iv to i32
   %24 = sitofp i32 %23 to double
   %25 = fmul double %9, %24
@@ -1442,80 +1441,81 @@ define internal fastcc void @_ZL15integrate_tablePKffiiiPdS1_(ptr nocapture noun
   %31 = fmul double %25, %30
   %32 = fmul double %25, %25
   %33 = fmul double %25, %32
-  %.idx = shl i64 %indvars.iv, 5
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
-  %34 = load float, ptr %gep, align 4
-  %35 = fpext float %34 to double
-  %36 = getelementptr i8, ptr %gep, i64 4
+  %34 = shl nsw i64 %indvars.iv, 3
+  %35 = or disjoint i64 %34, %21
+  %36 = getelementptr inbounds float, ptr %0, i64 %35
   %37 = load float, ptr %36, align 4
   %38 = fpext float %37 to double
-  %39 = getelementptr i8, ptr %gep, i64 8
+  %39 = getelementptr i8, ptr %36, i64 4
   %40 = load float, ptr %39, align 4
   %41 = fpext float %40 to double
-  %42 = getelementptr i8, ptr %gep, i64 12
+  %42 = getelementptr i8, ptr %36, i64 8
   %43 = load float, ptr %42, align 4
   %44 = fpext float %43 to double
-  %45 = fmul double %26, 5.000000e-01
-  %46 = fadd double %16, %45
-  %47 = fadd double %28, %46
-  %48 = fdiv double %26, 3.000000e+00
-  %49 = fadd double %17, %48
-  %50 = fmul double %28, 5.000000e-01
-  %51 = fadd double %49, %50
-  %52 = fmul double %51, %38
-  %53 = tail call double @llvm.fmuladd.f64(double %35, double %47, double %52)
-  %54 = fmul double %26, 2.500000e-01
-  %55 = fadd double %18, %54
-  %56 = fdiv double %28, 3.000000e+00
-  %57 = fadd double %55, %56
-  %58 = tail call double @llvm.fmuladd.f64(double %41, double %57, double %53)
-  %59 = fdiv double %26, 5.000000e+00
-  %60 = fadd double %19, %59
-  %61 = fmul double %28, 2.500000e-01
-  %62 = fadd double %60, %61
-  %63 = tail call double @llvm.fmuladd.f64(double %44, double %62, double %58)
-  %64 = fadd double %.079, %63
-  %65 = fdiv double %29, 3.000000e+00
-  %66 = fadd double %17, %65
-  %67 = fmul double %31, 5.000000e-01
-  %68 = fadd double %66, %67
-  %69 = fadd double %33, %68
-  %70 = fmul double %41, 2.000000e+00
-  %71 = fmul double %29, 2.500000e-01
-  %72 = fadd double %18, %71
-  %73 = fdiv double %31, 3.000000e+00
-  %74 = fadd double %72, %73
-  %75 = fmul double %33, 5.000000e-01
-  %76 = fadd double %75, %74
-  %77 = fmul double %76, %70
-  %78 = tail call double @llvm.fmuladd.f64(double %38, double %69, double %77)
-  %79 = fmul double %44, 3.000000e+00
-  %80 = fdiv double %29, 5.000000e+00
-  %81 = fadd double %19, %80
-  %82 = fmul double %31, 2.500000e-01
-  %83 = fadd double %81, %82
-  %84 = fdiv double %33, 3.000000e+00
-  %85 = fadd double %84, %83
-  %86 = tail call double @llvm.fmuladd.f64(double %79, double %85, double %78)
-  %87 = fadd double %.07578, %86
+  %45 = getelementptr i8, ptr %36, i64 12
+  %46 = load float, ptr %45, align 4
+  %47 = fpext float %46 to double
+  %48 = fmul double %26, 5.000000e-01
+  %49 = fadd double %16, %48
+  %50 = fadd double %28, %49
+  %51 = fdiv double %26, 3.000000e+00
+  %52 = fadd double %17, %51
+  %53 = fmul double %28, 5.000000e-01
+  %54 = fadd double %52, %53
+  %55 = fmul double %54, %41
+  %56 = tail call double @llvm.fmuladd.f64(double %38, double %50, double %55)
+  %57 = fmul double %26, 2.500000e-01
+  %58 = fadd double %18, %57
+  %59 = fdiv double %28, 3.000000e+00
+  %60 = fadd double %58, %59
+  %61 = tail call double @llvm.fmuladd.f64(double %44, double %60, double %56)
+  %62 = fdiv double %26, 5.000000e+00
+  %63 = fadd double %19, %62
+  %64 = fmul double %28, 2.500000e-01
+  %65 = fadd double %63, %64
+  %66 = tail call double @llvm.fmuladd.f64(double %47, double %65, double %61)
+  %67 = fadd double %.079, %66
+  %68 = fdiv double %29, 3.000000e+00
+  %69 = fadd double %17, %68
+  %70 = fmul double %31, 5.000000e-01
+  %71 = fadd double %69, %70
+  %72 = fadd double %33, %71
+  %73 = fmul double %44, 2.000000e+00
+  %74 = fmul double %29, 2.500000e-01
+  %75 = fadd double %18, %74
+  %76 = fdiv double %31, 3.000000e+00
+  %77 = fadd double %75, %76
+  %78 = fmul double %33, 5.000000e-01
+  %79 = fadd double %78, %77
+  %80 = fmul double %79, %73
+  %81 = tail call double @llvm.fmuladd.f64(double %41, double %72, double %80)
+  %82 = fmul double %47, 3.000000e+00
+  %83 = fdiv double %29, 5.000000e+00
+  %84 = fadd double %19, %83
+  %85 = fmul double %31, 2.500000e-01
+  %86 = fadd double %84, %85
+  %87 = fdiv double %33, 3.000000e+00
+  %88 = fadd double %87, %86
+  %89 = tail call double @llvm.fmuladd.f64(double %82, double %88, double %81)
+  %90 = fadd double %.07578, %89
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %22, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %22
-  %88 = fmul double %64, 0x402921FB54442D18
-  %89 = fmul double %87, 0x402921FB54442D18
+  %91 = fmul double %67, 0x402921FB54442D18
+  %92 = fmul double %90, 0x402921FB54442D18
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %7
-  %.075.lcssa = phi double [ 0.000000e+00, %7 ], [ %89, %._crit_edge.loopexit ]
-  %.0.lcssa = phi double [ 0.000000e+00, %7 ], [ %88, %._crit_edge.loopexit ]
-  %90 = icmp eq i32 %2, 0
-  %91 = select i1 %90, double 6.000000e+00, double 1.200000e+01
-  %92 = fmul double %91, %.0.lcssa
-  store double %92, ptr %5, align 8
-  %93 = fmul double %91, %.075.lcssa
-  store double %93, ptr %6, align 8
+  %.075.lcssa = phi double [ 0.000000e+00, %7 ], [ %92, %._crit_edge.loopexit ]
+  %.0.lcssa = phi double [ 0.000000e+00, %7 ], [ %91, %._crit_edge.loopexit ]
+  %93 = icmp eq i32 %2, 0
+  %94 = select i1 %93, double 6.000000e+00, double 1.200000e+01
+  %95 = fmul double %94, %.0.lcssa
+  store double %95, ptr %5, align 8
+  %96 = fmul double %94, %.075.lcssa
+  store double %96, ptr %6, align 8
   ret void
 }
 

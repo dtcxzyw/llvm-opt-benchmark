@@ -1521,7 +1521,7 @@ do.end:                                           ; preds = %entry, %if.then
   %mu = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %mu, align 8
   tail call void @gpr_mu_lock(ptr noundef %1)
-  tail call fastcc void @_ZN12_GLOBAL__N_122close_transport_lockedEPNS_16inproc_transportE(ptr noundef nonnull %this)
+  tail call fastcc void @_ZN12_GLOBAL__N_122close_transport_lockedEPNS_16inproc_transportE(ptr noundef %this)
   %2 = load ptr, ptr %mu, align 8
   tail call void @gpr_mu_unlock(ptr noundef %2)
   %other_side = getelementptr inbounds i8, ptr %this, i64 144
@@ -1806,7 +1806,7 @@ if.end19:                                         ; preds = %if.then.i.i, %invok
   br i1 %do_close.1, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %if.end19
-  call fastcc void @_ZN12_GLOBAL__N_122close_transport_lockedEPNS_16inproc_transportE(ptr noundef nonnull %this)
+  call fastcc void @_ZN12_GLOBAL__N_122close_transport_lockedEPNS_16inproc_transportE(ptr noundef %this)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then27, %if.end19
@@ -2169,7 +2169,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4absl12lts_20230
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i:   ; preds = %if.then.i.i.i.i, %if.then.i89.thread.i, %if.then.i89.thread102.i
-  invoke fastcc void @_ZN12_GLOBAL__N_123op_state_machine_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %gs, ptr noundef nonnull %agg.tmp.i.i) #27
+  invoke fastcc void @_ZN12_GLOBAL__N_123op_state_machine_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %gs, ptr noundef %agg.tmp.i.i) #27
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i
@@ -2378,7 +2378,7 @@ if.then.i.i:                                      ; preds = %if.then32
   br label %invoke.cont36
 
 invoke.cont36:                                    ; preds = %if.then.i.i, %if.then32
-  invoke fastcc void @_ZN12_GLOBAL__N_120cancel_stream_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %gs, ptr noundef nonnull %agg.tmp33)
+  invoke fastcc void @_ZN12_GLOBAL__N_120cancel_stream_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %gs, ptr noundef %agg.tmp33)
           to label %invoke.cont38 unwind label %lpad37
 
 invoke.cont38:                                    ; preds = %invoke.cont36
@@ -2812,7 +2812,7 @@ if.then.i.i.i180:                                 ; preds = %if.then.i179
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i:     ; preds = %if.then.i179.thread, %if.then.i.i.i180, %if.then.i179
   %cmp.i.i.i.i265 = phi i1 [ true, %if.then.i179.thread ], [ false, %if.then.i.i.i180 ], [ true, %if.then.i179 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_123op_state_machine_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %37, ptr noundef nonnull %agg.tmp.i) #27
+  invoke fastcc void @_ZN12_GLOBAL__N_123op_state_machine_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %37, ptr noundef %agg.tmp.i) #27
           to label %invoke.cont.i181 unwind label %lpad.i
 
 invoke.cont.i181:                                 ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i
@@ -2993,7 +2993,7 @@ lor.lhs.false313:                                 ; preds = %lor.lhs.false311
 
 invoke.cont317:                                   ; preds = %lor.lhs.false313, %lor.lhs.false311, %land.lhs.true308, %land.lhs.true297, %land.lhs.true288, %land.lhs.true283, %land.lhs.true274
   store i64 0, ptr %agg.tmp316, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_123op_state_machine_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef %gs, ptr noundef nonnull %agg.tmp316)
+  invoke fastcc void @_ZN12_GLOBAL__N_123op_state_machine_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef %gs, ptr noundef %agg.tmp316)
           to label %if.end455 unwind label %lpad318
 
 lpad318:                                          ; preds = %invoke.cont317
@@ -3529,7 +3529,7 @@ entry:
 declare void @gpr_mu_lock(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122close_transport_lockedEPNS_16inproc_transportE(ptr noundef %t) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_122close_transport_lockedEPNS_16inproc_transportE(ptr noundef nonnull %t) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -3545,7 +3545,7 @@ if.then:                                          ; preds = %entry
   %1 = load i8, ptr %is_closed, align 8
   %2 = and i8 %1, 1
   %conv = zext nneg i8 %2 to i32
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 1125, i32 noundef 1, ptr noundef nonnull @.str.17, ptr noundef %t, i32 noundef %conv)
+  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 1125, i32 noundef 1, ptr noundef nonnull @.str.17, ptr noundef nonnull %t, i32 noundef %conv)
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
@@ -3599,7 +3599,7 @@ invoke.cont11:                                    ; preds = %while.body
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  invoke fastcc void @_ZN12_GLOBAL__N_120cancel_stream_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %8, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN12_GLOBAL__N_120cancel_stream_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %8, ptr noundef %agg.tmp)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont13
@@ -3799,7 +3799,7 @@ return:                                           ; preds = %do.end, %_ZN12_GLOB
 declare void @_ZN9grpc_core24ConnectivityStateTracker8SetStateE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEPKc(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120cancel_stream_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef %s, ptr noundef %error) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120cancel_stream_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef %s, ptr noundef nonnull %error) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i65 = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
@@ -3910,7 +3910,7 @@ _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i:     ; preds = %if.then.i41.thread1
   %15 = phi i64 [ 0, %if.then.i41.thread ], [ %7, %if.then.i.i.i ], [ %7, %if.then.i41.thread156 ]
   %16 = phi ptr [ %9, %if.then.i41.thread ], [ %8, %if.then.i.i.i ], [ %8, %if.then.i41.thread156 ]
   %cmp.i.i.i37146150 = phi i1 [ true, %if.then.i41.thread ], [ false, %if.then.i.i.i ], [ true, %if.then.i41.thread156 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_123op_state_machine_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %s, ptr noundef nonnull %agg.tmp.i) #27
+  invoke fastcc void @_ZN12_GLOBAL__N_123op_state_machine_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %s, ptr noundef %agg.tmp.i) #27
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i
@@ -4062,7 +4062,7 @@ if.then.i.i.i73:                                  ; preds = %if.end25
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i75:   ; preds = %if.then.i69.thread172, %if.then.i69.thread, %if.then.i.i.i73
   %36 = phi i64 [ 0, %if.then.i69.thread ], [ %30, %if.then.i.i.i73 ], [ %30, %if.then.i69.thread172 ]
   %cmp.i.i.i60162166 = phi i1 [ true, %if.then.i69.thread ], [ false, %if.then.i.i.i73 ], [ true, %if.then.i69.thread172 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_123op_state_machine_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %22, ptr noundef nonnull %agg.tmp.i65) #27
+  invoke fastcc void @_ZN12_GLOBAL__N_123op_state_machine_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %22, ptr noundef %agg.tmp.i65) #27
           to label %invoke.cont.i77 unwind label %lpad.i76
 
 invoke.cont.i77:                                  ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i75
@@ -4202,7 +4202,7 @@ if.then.i.i119:                                   ; preds = %_ZN4absl12lts_20230
 
 invoke.cont54:                                    ; preds = %if.then.i.i119, %_ZN4absl12lts_202308026StatusD2Ev.exit116
   %62 = load ptr, ptr %recv_trailing_md_op, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef nonnull %agg.tmp52, ptr noundef %62, ptr noundef nonnull @.str.21)
+  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef %agg.tmp52, ptr noundef %62, ptr noundef nonnull @.str.21)
           to label %invoke.cont57 unwind label %lpad56
 
 invoke.cont57:                                    ; preds = %invoke.cont54
@@ -4361,7 +4361,7 @@ _ZNSt12_Vector_baseIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit: ; preds = %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124maybe_process_ops_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef %s, ptr nocapture noundef readonly %error) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_124maybe_process_ops_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef %s, ptr nocapture noundef nonnull readonly %error) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %tobool.not = icmp eq ptr %s, null
@@ -4394,7 +4394,7 @@ if.then.i.i:                                      ; preds = %if.then
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit:       ; preds = %if.then, %if.then.i.i
-  invoke fastcc void @_ZN12_GLOBAL__N_123op_state_machine_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %s, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN12_GLOBAL__N_123op_state_machine_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %s, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
@@ -5990,7 +5990,7 @@ _ZNK9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21Htt
 declare void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef %s, ptr noundef %error, ptr noundef %op, ptr noundef %msg) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef %s, ptr noundef nonnull %error, ptr noundef %op, ptr noundef %msg) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp16 = alloca %"class.grpc_core::DebugLocation", align 1
@@ -6188,7 +6188,7 @@ if.end12:                                         ; preds = %if.then.i.i21, %do.
 declare void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123op_state_machine_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef %s, ptr nocapture noundef readonly %error) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_123op_state_machine_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef %s, ptr nocapture noundef nonnull readonly %error) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
   %new_err = alloca %"class.absl::lts_20230802::Status", align 8
@@ -6272,7 +6272,7 @@ if.then.i.i:                                      ; preds = %if.then3
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %if.then.i.i, %if.then3
-  invoke fastcc void @_ZN12_GLOBAL__N_118fail_helper_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %s, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN12_GLOBAL__N_118fail_helper_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %s, ptr noundef %agg.tmp)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
@@ -6317,7 +6317,7 @@ if.then.i.i193:                                   ; preds = %if.then10
   br label %invoke.cont13
 
 invoke.cont13:                                    ; preds = %if.then.i.i193, %if.then10
-  invoke fastcc void @_ZN12_GLOBAL__N_118fail_helper_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %s, ptr noundef nonnull %agg.tmp11)
+  invoke fastcc void @_ZN12_GLOBAL__N_118fail_helper_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %s, ptr noundef %agg.tmp11)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont13
@@ -6361,7 +6361,7 @@ if.then.i.i204:                                   ; preds = %if.then19
   br label %invoke.cont21
 
 invoke.cont21:                                    ; preds = %if.then.i.i204, %if.then19
-  invoke fastcc void @_ZN12_GLOBAL__N_118fail_helper_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %s, ptr noundef nonnull %agg.tmp20)
+  invoke fastcc void @_ZN12_GLOBAL__N_118fail_helper_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %s, ptr noundef %agg.tmp20)
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %invoke.cont21
@@ -6416,7 +6416,7 @@ lor.lhs.false.i:                                  ; preds = %if.then30
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i:     ; preds = %lor.lhs.false.i
   store i8 0, ptr %ops_needed.i, align 1
   store i64 0, ptr %agg.tmp.i, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_123op_state_machine_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %2, ptr noundef nonnull %agg.tmp.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_123op_state_machine_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %2, ptr noundef %agg.tmp.i)
           to label %invoke.cont35 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i
@@ -6455,7 +6455,7 @@ if.then40:                                        ; preds = %land.lhs.true38
 invoke.cont44:                                    ; preds = %if.then40
   store i64 0, ptr %agg.tmp43, align 8, !alias.scope !95
   %33 = load ptr, ptr %send_message_op, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef nonnull %agg.tmp43, ptr noundef %33, ptr noundef nonnull @.str.24)
+  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef %agg.tmp43, ptr noundef %33, ptr noundef nonnull @.str.24)
           to label %invoke.cont47 unwind label %lpad46
 
 invoke.cont47:                                    ; preds = %invoke.cont44
@@ -6647,7 +6647,7 @@ if.then.i.i233:                                   ; preds = %_ZNSt6vectorIN4absl
   br label %invoke.cont106
 
 invoke.cont106:                                   ; preds = %if.then.i.i233, %_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit
-  invoke fastcc void @_ZN12_GLOBAL__N_118fail_helper_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef %s, ptr noundef nonnull %agg.tmp105)
+  invoke fastcc void @_ZN12_GLOBAL__N_118fail_helper_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef %s, ptr noundef %agg.tmp105)
           to label %invoke.cont108 unwind label %lpad107
 
 invoke.cont108:                                   ; preds = %invoke.cont106
@@ -6803,14 +6803,14 @@ lpad168:                                          ; preds = %invoke.cont167
 invoke.cont175:                                   ; preds = %invoke.cont169, %land.lhs.true136, %land.lhs.true133, %if.end129
   %needs_close.2 = phi i8 [ 0, %if.end129 ], [ 1, %invoke.cont169 ], [ 0, %land.lhs.true136 ], [ 0, %land.lhs.true133 ]
   store i64 0, ptr %agg.tmp174, align 8, !alias.scope !104
-  invoke fastcc void @_ZN12_GLOBAL__N_124maybe_process_ops_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef %2, ptr noundef nonnull %agg.tmp174)
+  invoke fastcc void @_ZN12_GLOBAL__N_124maybe_process_ops_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef %2, ptr noundef %agg.tmp174)
           to label %invoke.cont180 unwind label %lpad176
 
 invoke.cont180:                                   ; preds = %invoke.cont175
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp174) #24
   store i64 0, ptr %agg.tmp179, align 8, !alias.scope !107
   %86 = load ptr, ptr %send_trailing_md_op, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef nonnull %agg.tmp179, ptr noundef %86, ptr noundef nonnull @.str.29)
+  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef %agg.tmp179, ptr noundef %86, ptr noundef nonnull @.str.29)
           to label %invoke.cont183 unwind label %lpad182
 
 invoke.cont183:                                   ; preds = %invoke.cont180
@@ -6983,7 +6983,7 @@ if.then.i.i279:                                   ; preds = %do.end214
   br label %invoke.cont216
 
 invoke.cont216:                                   ; preds = %if.then.i.i279, %do.end214
-  invoke fastcc void @_ZN12_GLOBAL__N_118fail_helper_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef %s, ptr noundef nonnull %agg.tmp215)
+  invoke fastcc void @_ZN12_GLOBAL__N_118fail_helper_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef %s, ptr noundef %agg.tmp215)
           to label %invoke.cont218 unwind label %lpad217
 
 invoke.cont218:                                   ; preds = %invoke.cont216
@@ -7107,7 +7107,7 @@ invoke.cont284:                                   ; preds = %invoke.cont279
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp278) #24
   store i64 0, ptr %agg.tmp283, align 8, !alias.scope !113
   %135 = load ptr, ptr %recv_initial_md_op, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef nonnull %agg.tmp283, ptr noundef %135, ptr noundef nonnull @.str.32)
+  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef %agg.tmp283, ptr noundef %135, ptr noundef nonnull @.str.32)
           to label %invoke.cont287 unwind label %lpad286
 
 invoke.cont287:                                   ; preds = %invoke.cont284
@@ -7146,7 +7146,7 @@ if.then299:                                       ; preds = %land.lhs.true296
 
 invoke.cont302:                                   ; preds = %if.then299
   store i64 0, ptr %agg.tmp301, align 8, !alias.scope !116
-  invoke fastcc void @_ZN12_GLOBAL__N_124maybe_process_ops_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %2, ptr noundef nonnull %agg.tmp301)
+  invoke fastcc void @_ZN12_GLOBAL__N_124maybe_process_ops_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %2, ptr noundef %agg.tmp301)
           to label %invoke.cont304 unwind label %lpad303
 
 invoke.cont304:                                   ; preds = %invoke.cont302
@@ -7274,7 +7274,7 @@ if.then.i.i302:                                   ; preds = %do.end351
   br label %invoke.cont353
 
 invoke.cont353:                                   ; preds = %if.then.i.i302, %do.end351
-  invoke fastcc void @_ZN12_GLOBAL__N_118fail_helper_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %s, ptr noundef nonnull %agg.tmp352)
+  invoke fastcc void @_ZN12_GLOBAL__N_118fail_helper_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %s, ptr noundef %agg.tmp352)
           to label %invoke.cont355 unwind label %lpad354
 
 invoke.cont355:                                   ; preds = %invoke.cont353
@@ -7332,7 +7332,7 @@ if.then.i.i308:                                   ; preds = %invoke.cont380
 
 invoke.cont383:                                   ; preds = %if.then.i.i308, %invoke.cont380
   %165 = load ptr, ptr %recv_message_op292, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef nonnull %agg.tmp382, ptr noundef %165, ptr noundef nonnull @.str.37)
+  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef %agg.tmp382, ptr noundef %165, ptr noundef nonnull @.str.37)
           to label %invoke.cont386 unwind label %lpad385
 
 invoke.cont386:                                   ; preds = %invoke.cont383
@@ -7399,7 +7399,7 @@ if.then.i.i316:                                   ; preds = %invoke.cont401
 
 invoke.cont405:                                   ; preds = %if.then.i.i316, %invoke.cont401
   %179 = load ptr, ptr %send_message_op, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef nonnull %agg.tmp404, ptr noundef %179, ptr noundef nonnull @.str.38)
+  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef %agg.tmp404, ptr noundef %179, ptr noundef nonnull @.str.38)
           to label %invoke.cont408 unwind label %lpad407
 
 invoke.cont408:                                   ; preds = %invoke.cont405
@@ -7590,7 +7590,7 @@ if.then.i.i330:                                   ; preds = %invoke.cont509
 
 invoke.cont512:                                   ; preds = %if.then.i.i330, %invoke.cont509
   %216 = load ptr, ptr %recv_trailing_md_op485, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef nonnull %agg.tmp511, ptr noundef %216, ptr noundef nonnull @.str.41)
+  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef %agg.tmp511, ptr noundef %216, ptr noundef nonnull @.str.41)
           to label %invoke.cont515 unwind label %lpad514
 
 invoke.cont515:                                   ; preds = %invoke.cont512
@@ -7670,7 +7670,7 @@ if.then.i.i336:                                   ; preds = %invoke.cont547
 
 invoke.cont550:                                   ; preds = %if.then.i.i336, %invoke.cont547
   %231 = load ptr, ptr %recv_message_op292, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef nonnull %agg.tmp549, ptr noundef %231, ptr noundef nonnull @.str.37)
+  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef %agg.tmp549, ptr noundef %231, ptr noundef nonnull @.str.37)
           to label %invoke.cont553 unwind label %lpad552
 
 invoke.cont553:                                   ; preds = %invoke.cont550
@@ -7732,7 +7732,7 @@ if.then.i.i344:                                   ; preds = %invoke.cont568
 
 invoke.cont570:                                   ; preds = %if.then.i.i344, %invoke.cont568
   %242 = load ptr, ptr %send_message_op, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef nonnull %agg.tmp569, ptr noundef %242, ptr noundef nonnull @.str.42)
+  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef %agg.tmp569, ptr noundef %242, ptr noundef nonnull @.str.42)
           to label %invoke.cont573 unwind label %lpad572
 
 invoke.cont573:                                   ; preds = %invoke.cont570
@@ -7879,7 +7879,7 @@ ehcleanup610:                                     ; preds = %lpad572, %lpad552, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118fail_helper_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef %s, ptr noundef %error) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118fail_helper_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef %s, ptr noundef nonnull %error) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
   %fake_md = alloca %struct.grpc_metadata_batch, align 8
@@ -8029,7 +8029,7 @@ if.then.i.i.i:                                    ; preds = %if.end16
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i:     ; preds = %if.then.i72.thread303, %if.then.i72.thread, %if.then.i.i.i
   %15 = phi i64 [ 0, %if.then.i72.thread ], [ %9, %if.then.i.i.i ], [ %9, %if.then.i72.thread303 ]
   %cmp.i.i.i68293298 = phi i1 [ true, %if.then.i72.thread ], [ false, %if.then.i.i.i ], [ true, %if.then.i72.thread303 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_123op_state_machine_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %3, ptr noundef nonnull %agg.tmp.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_123op_state_machine_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef nonnull %3, ptr noundef %agg.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i
@@ -8320,7 +8320,7 @@ if.then.i.i166:                                   ; preds = %_ZN4absl12lts_20230
 
 invoke.cont100:                                   ; preds = %if.then.i.i166, %_ZN4absl12lts_202308026StatusD2Ev.exit163
   %56 = load ptr, ptr %recv_initial_md_op, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef nonnull %agg.tmp99, ptr noundef %56, ptr noundef nonnull @.str.49)
+  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef %agg.tmp99, ptr noundef %56, ptr noundef nonnull @.str.49)
           to label %invoke.cont103 unwind label %lpad102
 
 invoke.cont103:                                   ; preds = %invoke.cont100
@@ -8471,7 +8471,7 @@ if.then.i.i197:                                   ; preds = %_ZN4absl12lts_20230
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit200:    ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit194, %if.then.i.i197
   %82 = load ptr, ptr %recv_message_op, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef nonnull %agg.tmp138, ptr noundef %82, ptr noundef nonnull @.str.51)
+  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef %agg.tmp138, ptr noundef %82, ptr noundef nonnull @.str.51)
           to label %invoke.cont141 unwind label %lpad140
 
 invoke.cont141:                                   ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit200
@@ -8534,7 +8534,7 @@ if.then.i.i209:                                   ; preds = %if.then146
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit212:    ; preds = %if.then146, %if.then.i.i209
   %94 = load ptr, ptr %send_message_op, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef nonnull %agg.tmp148, ptr noundef %94, ptr noundef nonnull @.str.52)
+  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef %agg.tmp148, ptr noundef %94, ptr noundef nonnull @.str.52)
           to label %invoke.cont151 unwind label %lpad150
 
 invoke.cont151:                                   ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit212
@@ -8586,7 +8586,7 @@ if.then.i.i221:                                   ; preds = %if.then156
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit224:    ; preds = %if.then156, %if.then.i.i221
   %103 = phi ptr [ %99, %if.then156 ], [ %.pre289, %if.then.i.i221 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef nonnull %agg.tmp157, ptr noundef %103, ptr noundef nonnull @.str.53)
+  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef %agg.tmp157, ptr noundef %103, ptr noundef nonnull @.str.53)
           to label %invoke.cont160 unwind label %lpad159
 
 invoke.cont160:                                   ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit224
@@ -8725,7 +8725,7 @@ if.then.i.i247:                                   ; preds = %do.end194
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit250:    ; preds = %do.end194, %if.then.i.i247
   %126 = load ptr, ptr %recv_trailing_md_op, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef nonnull %agg.tmp195, ptr noundef %126, ptr noundef nonnull @.str.56)
+  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %s, ptr noundef %agg.tmp195, ptr noundef %126, ptr noundef nonnull @.str.56)
           to label %invoke.cont198 unwind label %lpad197
 
 invoke.cont198:                                   ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit250
@@ -8916,7 +8916,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont, %if.then.i.i
   store i64 0, ptr %agg.tmp15, align 8, !alias.scope !137
   %24 = load ptr, ptr %send_message_op, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %sender, ptr noundef nonnull %agg.tmp15, ptr noundef %24, ptr noundef nonnull @.str.59)
+  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %sender, ptr noundef %agg.tmp15, ptr noundef %24, ptr noundef nonnull @.str.59)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit
@@ -8939,7 +8939,7 @@ terminate.lpad.i15:                               ; preds = %if.then.i.i14
 _ZN4absl12lts_202308026StatusD2Ev.exit16:         ; preds = %invoke.cont18, %if.then.i.i14
   store i64 0, ptr %agg.tmp19, align 8, !alias.scope !140
   %28 = load ptr, ptr %recv_message_op, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %receiver, ptr noundef nonnull %agg.tmp19, ptr noundef %28, ptr noundef nonnull @.str.60)
+  invoke fastcc void @_ZN12_GLOBAL__N_128complete_if_batch_end_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusEP30grpc_transport_stream_op_batchPKc(ptr noundef nonnull %receiver, ptr noundef %agg.tmp19, ptr noundef %28, ptr noundef nonnull @.str.60)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit16

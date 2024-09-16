@@ -18596,7 +18596,7 @@ declare void @_ZN8facebook5velox10FlatVectorIbE3setEib(ptr noundef nonnull align
 declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -18927,7 +18927,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_d
 declare void @_ZN8facebook5velox10BaseVector10clearNullsERKNS0_17SelectivityVectorE(ptr noundef nonnull align 8 dereferenceable(99), ptr noundef nonnull align 8 dereferenceable(38)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -19158,7 +19158,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -19389,7 +19389,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -19623,7 +19623,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 declare i32 @llvm.x86.bmi.pext.32(i32, i32) #17
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -19854,7 +19854,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -20085,7 +20085,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -29237,7 +29237,7 @@ sw.epilog:                                        ; preds = %_ZN8facebook5velox9
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -29470,7 +29470,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -29701,7 +29701,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -29932,7 +29932,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -30163,7 +30163,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -30394,7 +30394,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -30625,7 +30625,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -39777,7 +39777,7 @@ sw.epilog:                                        ; preds = %_ZN8facebook5velox9
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -40010,7 +40010,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -40241,7 +40241,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -40472,7 +40472,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -40703,7 +40703,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -40934,7 +40934,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -41165,7 +41165,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -50317,7 +50317,7 @@ sw.epilog:                                        ; preds = %_ZN8facebook5velox9
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -50550,7 +50550,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -50781,7 +50781,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -51012,7 +51012,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -51243,7 +51243,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -51474,7 +51474,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -51705,7 +51705,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -60857,7 +60857,7 @@ sw.epilog:                                        ; preds = %_ZN8facebook5velox9
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -61090,7 +61090,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -61321,7 +61321,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -61552,7 +61552,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -61783,7 +61783,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -62014,7 +62014,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -62245,7 +62245,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -71397,7 +71397,7 @@ sw.epilog:                                        ; preds = %_ZN8facebook5velox9
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -71630,7 +71630,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -71861,7 +71861,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -72092,7 +72092,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -72323,7 +72323,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -72554,7 +72554,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -72785,7 +72785,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8

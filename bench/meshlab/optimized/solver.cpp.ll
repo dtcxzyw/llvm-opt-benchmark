@@ -1193,15 +1193,16 @@ define linkonce_odr noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i
 
 .lr.ph.preheader.i.i:                             ; preds = %35
   %93 = zext nneg i32 %75 to i64
-  %94 = sub nsw i64 %93, %76
-  %95 = shl nsw i64 %94, 3
-  %96 = zext nneg i32 %13 to i64
-  %97 = shl nuw nsw i64 %96, 3
-  %98 = shl nsw i64 %87, 3
-  %scevgep2257.i.i = getelementptr i8, ptr %66, i64 %98
-  %99 = add nuw i32 %15, 1
+  %94 = zext nneg i32 %13 to i64
+  %95 = shl nuw nsw i64 %94, 3
+  %96 = sub nsw i64 %93, %94
+  %reass.sub.i = shl nsw i64 %96, 3
+  %97 = shl nsw i64 %87, 3
+  %scevgep2257.i.i = getelementptr i8, ptr %66, i64 %97
+  %98 = add nuw i32 %15, 1
   %wide.trip.count.i.i = zext nneg i32 %0 to i64
-  %100 = getelementptr i8, ptr %56, i64 %95
+  %99 = getelementptr i8, ptr %56, i64 %reass.sub.i
+  %100 = getelementptr i8, ptr %99, i64 -8
   %101 = zext nneg i32 %15 to i64
   %102 = shl nuw nsw i64 %101, 3
   br label %.lr.ph.i.i
@@ -1221,16 +1222,16 @@ define linkonce_odr noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %indvar.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvar.next.i.i, %.lr.ph.i.i ]
-  %107 = mul i64 %indvar.i.i, %97
+  %107 = mul i64 %indvar.i.i, %95
   %scevgep.i.i = getelementptr i8, ptr %100, i64 %107
   %108 = getelementptr inbounds double, ptr %80, i64 %indvars.iv.i.i
   %109 = load double, ptr %108, align 8
   %110 = getelementptr inbounds double, ptr %25, i64 %indvars.iv.i.i
   store double %109, ptr %110, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i, i8 0, i64 %97, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i, i8 0, i64 %95, i1 false)
   %111 = trunc i64 %indvar.i.i to i32
   %112 = mul i32 %15, %111
-  %113 = add i32 %99, %112
+  %113 = add i32 %98, %112
   %114 = sext i32 %113 to i64
   %115 = shl nsw i64 %114, 3
   %scevgep2258.i.i = getelementptr i8, ptr %scevgep2257.i.i, i64 %115
@@ -1310,7 +1311,7 @@ define linkonce_odr noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i
   %wide.trip.count45.i.i.i = zext i32 %136 to i64
   %wide.trip.count.i1339.i.i = zext i32 %75 to i64
   %invariant.gep99.i.i.i = getelementptr double, ptr %133, i64 %.pre-phi.i
-  %137 = add i32 %12, 3
+  %137 = add nsw i32 %12, 3
   %wide.trip.count82.i.i.i = zext i32 %26 to i64
   %138 = getelementptr inbounds double, ptr %91, i64 %51
   %139 = getelementptr inbounds double, ptr %91, i64 %53

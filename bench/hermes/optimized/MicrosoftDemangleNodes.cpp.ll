@@ -6281,7 +6281,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL24outputQualifierIfPresentR12OutputStreamN4llvh11ms_demangle10QualifiersES3_b(ptr nocapture noundef nonnull align 8 dereferenceable(32) %OS, i8 noundef zeroext %Q, i8 noundef zeroext %Mask, i1 noundef zeroext %NeedSpace) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZL24outputQualifierIfPresentR12OutputStreamN4llvh11ms_demangle10QualifiersES3_b(ptr nocapture noundef nonnull align 8 dereferenceable(32) %OS, i8 noundef zeroext %Q, i8 noundef zeroext range(i8 1, 33) %Mask, i1 noundef zeroext %NeedSpace) unnamed_addr #1 {
 entry:
   %and4 = and i8 %Mask, %Q
   %tobool.not = icmp eq i8 %and4, 0

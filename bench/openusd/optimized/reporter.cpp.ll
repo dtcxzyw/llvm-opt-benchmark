@@ -2746,7 +2746,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18TraceAggregateNodeEEC2INS_9T
   %185 = phi ptr [ null, %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrENS_18TraceAggregateNodeEEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread.i ], [ %149, %177 ], [ %149, %183 ], [ %149, %182 ]
   %.not.i.i.i.i.i.i.i131 = phi i1 [ %.not.i.i.i.i.i.i.i132, %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrENS_18TraceAggregateNodeEEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread.i ], [ false, %177 ], [ false, %183 ], [ false, %182 ]
   %.sroa.2.0128 = phi ptr [ %.sroa.2.0129, %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrENS_18TraceAggregateNodeEEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread.i ], [ %.sink8.i.sink5.i.i.i.i.i61137, %177 ], [ %.sink8.i.sink5.i.i.i.i.i61137, %183 ], [ %.sink8.i.sink5.i.i.i.i.i61137, %182 ]
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_PrintNodeTimesERSoNS_8TfRefPtrINS_18TraceAggregateNodeEEEii(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %10, i32 noundef 0, i32 noundef %.016)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_PrintNodeTimesERSoNS_8TfRefPtrINS_18TraceAggregateNodeEEEii(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, i32 noundef 0, i32 noundef %.016)
           to label %186 unwind label %219
 
 186:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18TraceAggregateNodeEEC2INS_9TfWeakPtrES1_EERKNS_15TfWeakPtrFacadeIT_T0_EEPNSt9enable_ifIXsr3std14is_convertibleIPS7_PS1_EE5valueEvE4typeE.exit
@@ -2876,7 +2876,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNode21MarkRec
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_PrintNodeTimesERSoNS_8TfRefPtrINS_18TraceAggregateNodeEEEii(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_PrintNodeTimesERSoNS_8TfRefPtrINS_18TraceAggregateNodeEEEii(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, i32 noundef range(i32 1, -2147483648) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3752,7 +3752,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_18TraceAggregateNo
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18TraceAggregateNodeEEC2ERKS2_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18TraceAggregateNodeEEC2ERKS2_.exit: ; preds = %288, %282, %275, %287
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_PrintNodeTimesERSoNS_8TfRefPtrINS_18TraceAggregateNodeEEEii(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %30, i32 noundef %274, i32 noundef %3)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_PrintNodeTimesERSoNS_8TfRefPtrINS_18TraceAggregateNodeEEEii(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %30, i32 noundef %274, i32 noundef %3)
           to label %290 unwind label %315
 
 290:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18TraceAggregateNodeEEC2ERKS2_.exit

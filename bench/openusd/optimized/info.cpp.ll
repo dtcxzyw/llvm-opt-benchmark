@@ -1448,7 +1448,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
           to label %135 unwind label %.loopexit.split-lp
 
 135:                                              ; preds = %133
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_MergePathsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_b(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %134, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_MergePathsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_b(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %134, i1 noundef zeroext false)
           to label %136 unwind label %.loopexit.split-lp
 
 136:                                              ; preds = %135
@@ -1517,7 +1517,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
           to label %167 unwind label %.loopexit.split-lp
 
 167:                                              ; preds = %165
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_AppendToRootPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_b(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %166)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_AppendToRootPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_b(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %166)
           to label %168 unwind label %.loopexit.split-lp
 
 168:                                              ; preds = %167
@@ -1574,7 +1574,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
           to label %195 unwind label %.loopexit.split-lp
 
 195:                                              ; preds = %193
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_AppendToRootPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_b(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %194)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_AppendToRootPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_b(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %194)
           to label %196 unwind label %.loopexit.split-lp
 
 196:                                              ; preds = %195
@@ -2576,7 +2576,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_MergePathsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_b(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_MergePathsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_b(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::reverse_iterator", align 8
@@ -2660,7 +2660,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__13TfGetPathNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_AppendToRootPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_b(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_AppendToRootPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_b(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 {
   %4 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   br i1 %4, label %5, label %6
 
@@ -2677,7 +2677,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   br label %10
 
 9:                                                ; preds = %6
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16TfStringCatPathsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16TfStringCatPathsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   br label %10
 
 10:                                               ; preds = %9, %8, %5
@@ -4198,7 +4198,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 
 40:                                               ; preds = %37
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ReadPlugInfoEPNS0_12_ReadContextENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, ptr noundef nonnull %11)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ReadPlugInfoEPNS0_12_ReadContextENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, ptr noundef %11)
           to label %41 unwind label %42
 
 41:                                               ; preds = %40
@@ -4371,7 +4371,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
           to label %.noexc74 unwind label %109
 
 .noexc74:                                         ; preds = %102
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ReadPlugInfoEPNS0_12_ReadContextENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %103, ptr noundef nonnull %9)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ReadPlugInfoEPNS0_12_ReadContextENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %103, ptr noundef %9)
           to label %.noexc44 unwind label %104
 
 104:                                              ; preds = %.noexc74
@@ -6305,7 +6305,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_
           to label %406 unwind label %.loopexit.split-lp.loopexit
 
 406:                                              ; preds = %402
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_MergePathsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_b(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %405, i1 noundef zeroext true)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_MergePathsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_b(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %405, i1 noundef zeroext true)
           to label %407 unwind label %.loopexit.split-lp.loopexit
 
 407:                                              ; preds = %406
@@ -7509,7 +7509,7 @@ define internal noundef ptr @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0
           to label %.noexc.i.i unwind label %20
 
 .noexc.i.i:                                       ; preds = %2
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ReadPlugInfoEPNS0_12_ReadContextENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %6, ptr noundef nonnull %3)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ReadPlugInfoEPNS0_12_ReadContextENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %6, ptr noundef %3)
           to label %10 unwind label %8
 
 8:                                                ; preds = %.noexc.i.i
@@ -29581,7 +29581,7 @@ define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N
   br label %_ZNSt10shared_ptrINSt7__cxx1111basic_regexIcNS0_12regex_traitsIcEEEEEC2ERKS5_.exit
 
 _ZNSt10shared_ptrINSt7__cxx1111basic_regexIcNS0_12regex_traitsIcEEEEEC2ERKS5_.exit: ; preds = %1, %13, %16
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_TraverseDirectoryEPNS0_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS3_11basic_regexIcNS3_12regex_traitsIcEEEEE(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_TraverseDirectoryEPNS0_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS3_11basic_regexIcNS3_12regex_traitsIcEEEEE(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %2)
           to label %18 unwind label %54
 
 18:                                               ; preds = %_ZNSt10shared_ptrINSt7__cxx1111basic_regexIcNS0_12regex_traitsIcEEEEEC2ERKS5_.exit
@@ -30004,7 +30004,7 @@ define internal noundef ptr @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_TraverseDirectoryEPNS0_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS3_11basic_regexIcNS3_12regex_traitsIcEEEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_TraverseDirectoryEPNS0_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS3_11basic_regexIcNS3_12regex_traitsIcEEEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::WorkDispatcher::_InvokerTask.284", align 8
   %6 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
@@ -30169,7 +30169,7 @@ _ZSt11regex_matchIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS
           to label %.noexc38 unwind label %82
 
 .noexc38:                                         ; preds = %76
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ReadPlugInfoEPNS0_12_ReadContextENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %77, ptr noundef nonnull %8)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ReadPlugInfoEPNS0_12_ReadContextENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %77, ptr noundef %8)
           to label %.noexc23 unwind label %78
 
 78:                                               ; preds = %.noexc38
@@ -34658,7 +34658,7 @@ define internal noundef ptr @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0
           to label %.noexc.i.i unwind label %20
 
 .noexc.i.i:                                       ; preds = %2
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ReadPlugInfoEPNS0_12_ReadContextENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %6, ptr noundef nonnull %3)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ReadPlugInfoEPNS0_12_ReadContextENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %6, ptr noundef %3)
           to label %10 unwind label %8
 
 8:                                                ; preds = %.noexc.i.i
@@ -34786,7 +34786,7 @@ define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N
   br label %_ZNSt10shared_ptrINSt7__cxx1111basic_regexIcNS0_12regex_traitsIcEEEEEC2ERKS5_.exit
 
 _ZNSt10shared_ptrINSt7__cxx1111basic_regexIcNS0_12regex_traitsIcEEEEEC2ERKS5_.exit: ; preds = %1, %13, %16
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_TraverseDirectoryEPNS0_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS3_11basic_regexIcNS3_12regex_traitsIcEEEEE(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_TraverseDirectoryEPNS0_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS3_11basic_regexIcNS3_12regex_traitsIcEEEEE(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %2)
           to label %18 unwind label %54
 
 18:                                               ; preds = %_ZNSt10shared_ptrINSt7__cxx1111basic_regexIcNS0_12regex_traitsIcEEEEEC2ERKS5_.exit

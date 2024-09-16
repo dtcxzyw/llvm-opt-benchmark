@@ -851,7 +851,7 @@ lor.lhs.false92:                                  ; preds = %lor.lhs.false85
   %call94 = call ptr @_ZNK4node4quic11BindingData19cc_algorithm_stringEv(ptr noundef nonnull align 8 dereferenceable(992) %call5) #21
   store ptr %call94, ptr %ref.tmp93, align 8
   %params.val = load ptr, ptr %params, align 8
-  %call98 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_14ngtcp2_cc_algoXadL_ZNS4_12cc_algorithmEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSB_6ObjectEEERKNSC_INSB_6StringEEE(ptr noundef %env, ptr noundef nonnull %options, ptr %params.val, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp93)
+  %call98 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_14ngtcp2_cc_algoXadL_ZNS4_12cc_algorithmEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSB_6ObjectEEERKNSC_INSB_6StringEEE(ptr noundef %env, ptr noundef %options, ptr %params.val, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp93)
   br i1 %call98, label %lor.lhs.false99, label %if.then133
 
 lor.lhs.false99:                                  ; preds = %lor.lhs.false92
@@ -860,7 +860,7 @@ lor.lhs.false99:                                  ; preds = %lor.lhs.false92
   %1 = getelementptr i8, ptr %env, i64 2728
   %env.val = load ptr, ptr %1, align 8
   %params.val38 = load ptr, ptr %params, align 8
-  %call105 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_jXadL_ZNS4_23udp_receive_buffer_sizeEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSA_6ObjectEEERKNSB_INSA_6StringEEE(ptr %env.val, ptr noundef nonnull %options, ptr %params.val38, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp100)
+  %call105 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_jXadL_ZNS4_23udp_receive_buffer_sizeEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSA_6ObjectEEERKNSB_INSA_6StringEEE(ptr %env.val, ptr noundef %options, ptr %params.val38, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp100)
   br i1 %call105, label %lor.lhs.false106, label %if.then133
 
 lor.lhs.false106:                                 ; preds = %lor.lhs.false99
@@ -868,7 +868,7 @@ lor.lhs.false106:                                 ; preds = %lor.lhs.false99
   store ptr %call108, ptr %ref.tmp107, align 8
   %env.val39 = load ptr, ptr %1, align 8
   %params.val40 = load ptr, ptr %params, align 8
-  %call112 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_jXadL_ZNS4_20udp_send_buffer_sizeEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSA_6ObjectEEERKNSB_INSA_6StringEEE(ptr %env.val39, ptr noundef nonnull %options, ptr %params.val40, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp107)
+  %call112 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_jXadL_ZNS4_20udp_send_buffer_sizeEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSA_6ObjectEEERKNSB_INSA_6StringEEE(ptr %env.val39, ptr noundef %options, ptr %params.val40, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp107)
   br i1 %call112, label %lor.lhs.false113, label %if.then133
 
 lor.lhs.false113:                                 ; preds = %lor.lhs.false106
@@ -876,7 +876,7 @@ lor.lhs.false113:                                 ; preds = %lor.lhs.false106
   store ptr %call115, ptr %ref.tmp114, align 8
   %env.val41 = load ptr, ptr %1, align 8
   %params.val42 = load ptr, ptr %params, align 8
-  %call119 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_hXadL_ZNS4_7udp_ttlEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSA_6ObjectEEERKNSB_INSA_6StringEEE(ptr %env.val41, ptr noundef nonnull %options, ptr %params.val42, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp114)
+  %call119 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_hXadL_ZNS4_7udp_ttlEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSA_6ObjectEEERKNSB_INSA_6StringEEE(ptr %env.val41, ptr noundef %options, ptr %params.val42, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp114)
   br i1 %call119, label %lor.lhs.false120, label %if.then133
 
 lor.lhs.false120:                                 ; preds = %lor.lhs.false113
@@ -884,7 +884,7 @@ lor.lhs.false120:                                 ; preds = %lor.lhs.false113
   store ptr %call122, ptr %ref.tmp121, align 8
   %env.val43 = load ptr, ptr %1, align 8
   %params.val44 = load ptr, ptr %params, align 8
-  %call126 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_NS0_11TokenSecretEXadL_ZNS4_18reset_token_secretEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSB_6ObjectEEERKNSC_INSB_6StringEEE(ptr %env.val43, ptr noundef nonnull %options, ptr %params.val44, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp121)
+  %call126 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_NS0_11TokenSecretEXadL_ZNS4_18reset_token_secretEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSB_6ObjectEEERKNSC_INSB_6StringEEE(ptr %env.val43, ptr noundef %options, ptr %params.val44, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp121)
   br i1 %call126, label %lor.rhs, label %if.then133
 
 lor.rhs:                                          ; preds = %lor.lhs.false120
@@ -892,7 +892,7 @@ lor.rhs:                                          ; preds = %lor.lhs.false120
   store ptr %call128, ptr %ref.tmp127, align 8
   %env.val45 = load ptr, ptr %1, align 8
   %params.val46 = load ptr, ptr %params, align 8
-  %call132 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_NS0_11TokenSecretEXadL_ZNS4_12token_secretEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSB_6ObjectEEERKNSC_INSB_6StringEEE(ptr %env.val45, ptr noundef nonnull %options, ptr %params.val46, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp127)
+  %call132 = call fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_NS0_11TokenSecretEXadL_ZNS4_12token_secretEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSB_6ObjectEEERKNSC_INSB_6StringEEE(ptr %env.val45, ptr noundef %options, ptr %params.val46, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp127)
   br i1 %call132, label %if.end134, label %if.then133
 
 if.then133:                                       ; preds = %lor.lhs.false120, %lor.lhs.false113, %lor.lhs.false106, %lor.lhs.false99, %lor.lhs.false92, %lor.lhs.false85, %lor.lhs.false78, %lor.lhs.false71, %lor.lhs.false64, %lor.lhs.false57, %lor.lhs.false50, %lor.lhs.false43, %lor.lhs.false36, %lor.lhs.false29, %lor.lhs.false22, %lor.lhs.false15, %if.end, %lor.rhs
@@ -2254,7 +2254,7 @@ return:                                           ; preds = %if.end5.i, %do.end3
 declare ptr @_ZNK4node4quic11BindingData16ipv6_only_stringEv(ptr noundef nonnull align 8 dereferenceable(992)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_14ngtcp2_cc_algoXadL_ZNS4_12cc_algorithmEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSB_6ObjectEEERKNSC_INSB_6StringEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef writeonly %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_14ngtcp2_cc_algoXadL_ZNS4_12cc_algorithmEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSB_6ObjectEEERKNSC_INSB_6StringEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull writeonly %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #3 {
 entry:
   %principal_realm_.i.i = getelementptr inbounds i8, ptr %env, i64 2728
   %0 = load ptr, ptr %principal_realm_.i.i, align 8
@@ -2316,7 +2316,7 @@ return:                                           ; preds = %if.end5.i, %sw.epil
 declare ptr @_ZNK4node4quic11BindingData19cc_algorithm_stringEv(ptr noundef nonnull align 8 dereferenceable(992)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_jXadL_ZNS4_23udp_receive_buffer_sizeEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSA_6ObjectEEERKNSB_INSA_6StringEEE(ptr %env.2728.val, ptr nocapture noundef writeonly %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_jXadL_ZNS4_23udp_receive_buffer_sizeEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSA_6ObjectEEERKNSB_INSA_6StringEEE(ptr %env.2728.val, ptr nocapture noundef nonnull writeonly %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #3 {
 entry:
   %vtable.i = load ptr, ptr %env.2728.val, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
@@ -2373,7 +2373,7 @@ return:                                           ; preds = %if.end5.i, %do.end3
 declare ptr @_ZNK4node4quic11BindingData30udp_receive_buffer_size_stringEv(ptr noundef nonnull align 8 dereferenceable(992)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_jXadL_ZNS4_20udp_send_buffer_sizeEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSA_6ObjectEEERKNSB_INSA_6StringEEE(ptr %env.2728.val, ptr nocapture noundef writeonly %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_jXadL_ZNS4_20udp_send_buffer_sizeEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSA_6ObjectEEERKNSB_INSA_6StringEEE(ptr %env.2728.val, ptr nocapture noundef nonnull writeonly %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #3 {
 entry:
   %vtable.i = load ptr, ptr %env.2728.val, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
@@ -2430,7 +2430,7 @@ return:                                           ; preds = %if.end5.i, %do.end3
 declare ptr @_ZNK4node4quic11BindingData27udp_send_buffer_size_stringEv(ptr noundef nonnull align 8 dereferenceable(992)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_hXadL_ZNS4_7udp_ttlEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSA_6ObjectEEERKNSB_INSA_6StringEEE(ptr %env.2728.val, ptr nocapture noundef writeonly %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_hXadL_ZNS4_7udp_ttlEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSA_6ObjectEEERKNSB_INSA_6StringEEE(ptr %env.2728.val, ptr nocapture noundef nonnull writeonly %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #3 {
 entry:
   %vtable.i = load ptr, ptr %env.2728.val, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
@@ -2488,7 +2488,7 @@ return:                                           ; preds = %if.end5.i, %do.end3
 declare ptr @_ZNK4node4quic11BindingData14udp_ttl_stringEv(ptr noundef nonnull align 8 dereferenceable(992)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_NS0_11TokenSecretEXadL_ZNS4_18reset_token_secretEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSB_6ObjectEEERKNSC_INSB_6StringEEE(ptr %env.2728.val, ptr noundef %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_NS0_11TokenSecretEXadL_ZNS4_18reset_token_secretEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSB_6ObjectEEERKNSC_INSB_6StringEEE(ptr %env.2728.val, ptr noundef nonnull %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #3 {
 entry:
   %store = alloca %"class.node::quic::Store", align 8
   %vtable.i = load ptr, ptr %env.2728.val, align 8
@@ -2629,7 +2629,7 @@ return:                                           ; preds = %if.end8.sink.split.
 declare ptr @_ZNK4node4quic11BindingData25reset_token_secret_stringEv(ptr noundef nonnull align 8 dereferenceable(992)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_NS0_11TokenSecretEXadL_ZNS4_12token_secretEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSB_6ObjectEEERKNSC_INSB_6StringEEE(ptr %env.2728.val, ptr noundef %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN4node4quic12_GLOBAL__N_19SetOptionINS0_8Endpoint7OptionsETnMT_NS0_11TokenSecretEXadL_ZNS4_12token_secretEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSB_6ObjectEEERKNSC_INSB_6StringEEE(ptr %env.2728.val, ptr noundef nonnull %options, ptr %object.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #3 {
 entry:
   %store = alloca %"class.node::quic::Store", align 8
   %vtable.i = load ptr, ptr %env.2728.val, align 8

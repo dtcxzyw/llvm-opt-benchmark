@@ -2782,7 +2782,7 @@ define internal fastcc void @dissect_sequence_number_parameter(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_global_title_parameter(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_global_title_parameter(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = tail call ptr @wmem_packet_scope() #6
   %5 = tail call noalias ptr @wmem_alloc0(ptr noundef %4, i64 noundef 225) #6
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #6

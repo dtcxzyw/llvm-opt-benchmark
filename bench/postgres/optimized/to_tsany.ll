@@ -148,31 +148,31 @@ define dso_local noundef ptr @make_tsvector(ptr nocapture noundef %0) local_unna
   %67 = tail call ptr @repalloc(ptr noundef nonnull %50, i64 noundef %66) #8
   store ptr %67, ptr %49, align 8
   %.pre.i = load i16, ptr %67, align 2
-  %.pre98.pre.i = load i16, ptr %58, align 8
+  %.pre97.pre.i = load i16, ptr %58, align 8
   br label %68
 
 68:                                               ; preds = %63, %60
-  %.pre98.i = phi i16 [ %.pre98.pre.i, %63 ], [ %59, %60 ]
+  %.pre97.i = phi i16 [ %.pre97.pre.i, %63 ], [ %59, %60 ]
   %69 = phi i16 [ %.pre.i, %63 ], [ %51, %60 ]
   %70 = phi ptr [ %67, %63 ], [ %50, %60 ]
   %71 = icmp eq i16 %69, 0
-  br i1 %71, label %._crit_edge100.i, label %72
+  br i1 %71, label %._crit_edge99.i, label %72
 
-._crit_edge100.i:                                 ; preds = %68
-  %.pre101.i = tail call i16 @llvm.umin.i16(i16 %.pre98.i, i16 16383)
+._crit_edge99.i:                                  ; preds = %68
+  %.pre100.i = tail call i16 @llvm.umin.i16(i16 %.pre97.i, i16 16383)
   br label %76
 
 72:                                               ; preds = %68
   %73 = zext i16 %69 to i64
   %74 = getelementptr i16, ptr %70, i64 %73
   %75 = load i16, ptr %74, align 2
-  %narrow91.i = tail call i16 @llvm.umin.i16(i16 %.pre98.i, i16 16383)
+  %narrow91.i = tail call i16 @llvm.umin.i16(i16 %.pre97.i, i16 16383)
   %.not84.i = icmp eq i16 %narrow91.i, %75
   br i1 %.not84.i, label %82, label %76
 
-76:                                               ; preds = %72, %._crit_edge100.i
-  %.pre-phi.i = phi i64 [ 0, %._crit_edge100.i ], [ %73, %72 ]
-  %spec.select89.pre-phi.i = phi i16 [ %.pre101.i, %._crit_edge100.i ], [ %narrow91.i, %72 ]
+76:                                               ; preds = %72, %._crit_edge99.i
+  %.pre-phi.i = phi i64 [ 0, %._crit_edge99.i ], [ %73, %72 ]
+  %spec.select89.pre-phi.i = phi i16 [ %.pre100.i, %._crit_edge99.i ], [ %narrow91.i, %72 ]
   %77 = getelementptr i16, ptr %70, i64 %.pre-phi.i
   %78 = getelementptr i8, ptr %77, i64 2
   store i16 %spec.select89.pre-phi.i, ptr %78, align 2

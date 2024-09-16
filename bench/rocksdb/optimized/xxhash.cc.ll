@@ -1124,18 +1124,18 @@ if.then8.i:                                       ; preds = %if.end7.i
   %shl.i35.i = shl nuw nsw i64 %conv.i34.i, 16
   %conv10.i.i = zext i8 %4 to i64
   %shl11.i.i = shl nuw nsw i64 %conv10.i.i, 24
+  %or.i.i = or disjoint i64 %shl11.i.i, %shl.i35.i
   %conv12.i.i = zext i8 %6 to i64
+  %or14.i.i = or disjoint i64 %or.i.i, %conv12.i.i
   %shl16.i.i = shl nuw nsw i64 %len, 8
+  %or17.i.i = or disjoint i64 %or14.i.i, %shl16.i.i
   %secret.val.i.i = load i32, ptr %secret, align 1
   %add.ptr.i36.i = getelementptr inbounds i8, ptr %secret, i64 4
   %add.ptr.val.i37.i = load i32, ptr %add.ptr.i36.i, align 1
   %xor.i38.i = xor i32 %add.ptr.val.i37.i, %secret.val.i.i
   %conv19.i.i = zext i32 %xor.i38.i to i64
   %add.i39.i = add i64 %seed64, %conv19.i.i
-  %or.i.i = or disjoint i64 %shl.i35.i, %shl16.i.i
-  %or14.i.i = or disjoint i64 %or.i.i, %shl11.i.i
-  %conv20.i.i = or disjoint i64 %or14.i.i, %conv12.i.i
-  %xor21.i.i = xor i64 %add.i39.i, %conv20.i.i
+  %xor21.i.i = xor i64 %add.i39.i, %or17.i.i
   %shr.i.i40.i = lshr i64 %xor21.i.i, 33
   %xor.i.i41.i = xor i64 %shr.i.i40.i, %xor21.i.i
   %mul.i.i42.i = mul i64 %xor.i.i41.i, -4417276706812531889
@@ -1380,6 +1380,8 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !14
 
 for.end.i:                                        ; preds = %for.body.i
+  %conv.i = trunc nuw nsw i64 %len to i32
+  %div26.i = lshr i32 %conv.i, 4
   %add.ptr15.i = getelementptr inbounds i8, ptr %input, i64 %len
   %add.ptr16.i = getelementptr inbounds i8, ptr %add.ptr15.i, i64 -16
   %add.ptr18.i47 = getelementptr inbounds i8, ptr %secret, i64 119
@@ -1404,14 +1406,11 @@ for.end.i:                                        ; preds = %for.body.i
   %mul.i.i50 = mul i64 %xor.i.i43.i, 1609587791953885689
   %shr.i4.i.i51 = lshr i64 %mul.i.i50, 32
   %xor.i5.i.i52 = xor i64 %shr.i4.i.i51, %mul.i.i50
-  %cmp2561.i = icmp ugt i64 %len, 143
-  br i1 %cmp2561.i, label %for.body26.preheader.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit
+  %cmp2561.not.i = icmp eq i32 %div26.i, 8
+  br i1 %cmp2561.not.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit, label %for.body26.preheader.i
 
 for.body26.preheader.i:                           ; preds = %for.end.i
-  %conv.i = trunc nuw i64 %len to i32
-  %div26.i = lshr i32 %conv.i, 4
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %div26.i, i32 9)
-  %wide.trip.count.i = zext nneg i32 %umax.i to i64
+  %wide.trip.count.i = zext nneg i32 %div26.i to i64
   br label %for.body26.i
 
 for.body26.i:                                     ; preds = %for.body26.i, %for.body26.preheader.i
@@ -3096,7 +3095,7 @@ entry:
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call fastcc void @_ZL16XXH3_digest_longPmPK12XXH3_state_sPKh(ptr noundef nonnull %acc, ptr noundef nonnull %state, ptr noundef nonnull %cond) #32
+  call fastcc void @_ZL16XXH3_digest_longPmPK12XXH3_state_sPKh(ptr noundef %acc, ptr noundef nonnull %state, ptr noundef nonnull %cond) #32
   %add.ptr = getelementptr inbounds i8, ptr %cond, i64 11
   %mul = mul i64 %1, -7046029288634856825
   br label %for.body.i
@@ -3160,7 +3159,7 @@ return:                                           ; preds = %if.end10, %if.then6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_ZL16XXH3_digest_longPmPK12XXH3_state_sPKh(ptr noundef %acc, ptr nocapture noundef readonly %state, ptr nocapture noundef readonly %secret) unnamed_addr #13 {
+define internal fastcc void @_ZL16XXH3_digest_longPmPK12XXH3_state_sPKh(ptr noundef nonnull %acc, ptr nocapture noundef readonly %state, ptr nocapture noundef readonly %secret) unnamed_addr #13 {
 entry:
   %lastStripe = alloca [64 x i8], align 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %acc, ptr noundef nonnull readonly align 1 dereferenceable(64) %state, i64 64, i1 false)
@@ -3290,7 +3289,7 @@ for.body.i52.i:                                   ; preds = %if.else.i, %for.bod
   %add.i12.i.i62.i = add <8 x i64> %add.i.i7.i53.i, %32
   %add.i.i.i63.i = add <8 x i64> %add.i12.i.i62.i, %31
   store <8 x i64> %add.i.i.i63.i, ptr %acc, align 64
-  %inc.i64.i = add nuw i64 %n.06.i54.i, 1
+  %inc.i64.i = add nuw nsw i64 %n.06.i54.i, 1
   %exitcond.not.i65.i = icmp eq i64 %inc.i64.i, %conv
   br i1 %exitcond.not.i65.i, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %for.body.i52.i, !llvm.loop !18
 
@@ -3499,12 +3498,12 @@ if.then8.i:                                       ; preds = %if.end7.i
   %shl.i47.i = shl nuw nsw i32 %conv.i46.i, 16
   %conv10.i.i = zext i8 %2 to i32
   %shl11.i.i = shl nuw i32 %conv10.i.i, 24
+  %or.i.i = or disjoint i32 %shl11.i.i, %shl.i47.i
   %conv12.i48.i = zext i8 %4 to i32
+  %or14.i.i = or disjoint i32 %or.i.i, %conv12.i48.i
   %conv15.i.i = trunc nuw nsw i64 %len to i32
   %shl16.i.i = shl nuw nsw i32 %conv15.i.i, 8
-  %or.i.i = or disjoint i32 %shl.i47.i, %shl16.i.i
-  %or14.i.i = or disjoint i32 %or.i.i, %shl11.i.i
-  %or17.i.i = or disjoint i32 %or14.i.i, %conv12.i48.i
+  %or17.i.i = or disjoint i32 %or14.i.i, %shl16.i.i
   %or7.i.i49.i = tail call noundef i32 @llvm.bswap.i32(i32 %or17.i.i)
   %5 = tail call i32 @llvm.fshl.i32(i32 %or7.i.i49.i, i32 %or7.i.i49.i, i32 13)
   %secret.val.i.i = load i32, ptr %secret, align 1
@@ -3521,7 +3520,7 @@ if.then8.i:                                       ; preds = %if.end7.i
   %conv26.i.i = zext i32 %xor25.i.i to i64
   %sub27.i.i = sub i64 %conv26.i.i, %seed64
   %conv28.i.i = zext i32 %or17.i.i to i64
-  %conv30.i.i = zext i32 %5 to i64
+  %conv30.i.i = zext nneg i32 %5 to i64
   %shr.i.i54.i = lshr i64 %add.i53.i, 33
   %6 = xor i64 %shr.i.i54.i, %conv28.i.i
   %xor.i.i55.i = xor i64 %6, %add.i53.i
@@ -3878,28 +3877,26 @@ for.end.i:                                        ; preds = %for.body.i
 
 for.body21.lr.ph.i:                               ; preds = %for.end.i
   %add.ptr30.i = getelementptr inbounds i8, ptr %secret, i64 3
-  %30 = trunc nuw i64 %len to i32
   br label %for.body21.i
 
 for.body21.i:                                     ; preds = %for.body21.i, %for.body21.lr.ph.i
-  %conv133.i = phi i64 [ 160, %for.body21.lr.ph.i ], [ %conv.i, %for.body21.i ]
+  %indvars.iv136.i = phi i64 [ 160, %for.body21.lr.ph.i ], [ %indvars.iv.next137.i, %for.body21.i ]
   %acc.sroa.11.1132.i = phi i64 [ %xor.i5.i49.i, %for.body21.lr.ph.i ], [ %xor14.i80.i, %for.body21.i ]
   %acc.sroa.0.1131.i = phi i64 [ %xor.i5.i.i75, %for.body21.lr.ph.i ], [ %xor.i64.i, %for.body21.i ]
-  %i.1130.i = phi i32 [ 160, %for.body21.lr.ph.i ], [ %add36.i, %for.body21.i ]
-  %add.ptr25.i76 = getelementptr inbounds i8, ptr %input, i64 %conv133.i
+  %add.ptr25.i76 = getelementptr inbounds i8, ptr %input, i64 %indvars.iv136.i
   %add.ptr26.i77 = getelementptr inbounds i8, ptr %add.ptr25.i76, i64 -32
   %add.ptr29.i = getelementptr inbounds i8, ptr %add.ptr25.i76, i64 -16
-  %add.ptr32.i = getelementptr inbounds i8, ptr %add.ptr30.i, i64 %conv133.i
+  %add.ptr32.i = getelementptr inbounds i8, ptr %add.ptr30.i, i64 %indvars.iv136.i
   %add.ptr33.i78 = getelementptr inbounds i8, ptr %add.ptr32.i, i64 -160
   %add.ptr26.val.i = load i64, ptr %add.ptr26.i77, align 1
-  %31 = getelementptr i8, ptr %add.ptr25.i76, i64 -24
-  %add.ptr26.val40.i = load i64, ptr %31, align 1
+  %30 = getelementptr i8, ptr %add.ptr25.i76, i64 -24
+  %add.ptr26.val40.i = load i64, ptr %30, align 1
   %add.ptr29.val.i = load i64, ptr %add.ptr29.i, align 1
-  %32 = getelementptr i8, ptr %add.ptr25.i76, i64 -8
-  %add.ptr29.val41.i = load i64, ptr %32, align 1
+  %31 = getelementptr i8, ptr %add.ptr25.i76, i64 -8
+  %add.ptr29.val41.i = load i64, ptr %31, align 1
   %secret.val.i50.i = load i64, ptr %add.ptr33.i78, align 1
-  %33 = getelementptr i8, ptr %add.ptr32.i, i64 -152
-  %secret.val14.i51.i = load i64, ptr %33, align 1
+  %32 = getelementptr i8, ptr %add.ptr32.i, i64 -152
+  %secret.val14.i51.i = load i64, ptr %32, align 1
   %add.i.i52.i = add i64 %secret.val.i50.i, %seed64
   %xor.i.i53.i = xor i64 %add.i.i52.i, %add.ptr26.val.i
   %sub.i.i54.i = sub i64 %secret.val14.i51.i, %seed64
@@ -3915,8 +3912,8 @@ for.body21.i:                                     ; preds = %for.body21.i, %for.
   %xor.i64.i = xor i64 %add.i62.i, %add4.i63.i
   %add.ptr6.i65.i = getelementptr inbounds i8, ptr %add.ptr32.i, i64 -144
   %add.ptr6.val.i66.i = load i64, ptr %add.ptr6.i65.i, align 1
-  %34 = getelementptr i8, ptr %add.ptr32.i, i64 -136
-  %add.ptr6.val11.i67.i = load i64, ptr %34, align 1
+  %33 = getelementptr i8, ptr %add.ptr32.i, i64 -136
+  %add.ptr6.val11.i67.i = load i64, ptr %33, align 1
   %add.i15.i68.i = add i64 %add.ptr6.val.i66.i, %seed64
   %xor.i16.i69.i = xor i64 %add.i15.i68.i, %add.ptr29.val.i
   %sub.i17.i70.i = sub i64 %add.ptr6.val11.i67.i, %seed64
@@ -3930,9 +3927,8 @@ for.body21.i:                                     ; preds = %for.body21.i, %for.
   %add8.i78.i = add i64 %acc.sroa.11.1132.i, %xor.i.i24.i77.i
   %add12.i79.i = add i64 %add.ptr26.val40.i, %add.ptr26.val.i
   %xor14.i80.i = xor i64 %add8.i78.i, %add12.i79.i
-  %add36.i = add i32 %i.1130.i, 32
-  %conv.i = zext i32 %add36.i to i64
-  %cmp20.not.i = icmp ugt i32 %add36.i, %30
+  %indvars.iv.next137.i = add nuw nsw i64 %indvars.iv136.i, 32
+  %cmp20.not.i = icmp ult i64 %len, %indvars.iv.next137.i
   br i1 %cmp20.not.i, label %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit, label %for.body21.i, !llvm.loop !25
 
 _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit:        ; preds = %for.body21.i, %for.end.i
@@ -3943,14 +3939,14 @@ _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit:        ; preds = %for.body21.i, %for.
   %add.ptr43.i = getelementptr inbounds i8, ptr %add.ptr40.i, i64 -32
   %add.ptr46.i = getelementptr inbounds i8, ptr %secret, i64 103
   %add.ptr41.val.i = load i64, ptr %add.ptr41.i, align 1
-  %35 = getelementptr i8, ptr %add.ptr40.i, i64 -8
-  %add.ptr41.val42.i = load i64, ptr %35, align 1
+  %34 = getelementptr i8, ptr %add.ptr40.i, i64 -8
+  %add.ptr41.val42.i = load i64, ptr %34, align 1
   %add.ptr43.val.i = load i64, ptr %add.ptr43.i, align 1
-  %36 = getelementptr i8, ptr %add.ptr40.i, i64 -24
-  %add.ptr43.val43.i = load i64, ptr %36, align 1
+  %35 = getelementptr i8, ptr %add.ptr40.i, i64 -24
+  %add.ptr43.val43.i = load i64, ptr %35, align 1
   %secret.val.i83.i = load i64, ptr %add.ptr46.i, align 1
-  %37 = getelementptr i8, ptr %secret, i64 111
-  %secret.val14.i84.i = load i64, ptr %37, align 1
+  %36 = getelementptr i8, ptr %secret, i64 111
+  %secret.val14.i84.i = load i64, ptr %36, align 1
   %add.i.i85.i = sub i64 %secret.val.i83.i, %seed64
   %xor.i.i86.i = xor i64 %add.i.i85.i, %add.ptr41.val.i
   %sub.i.i87.i = add i64 %secret.val14.i84.i, %seed64
@@ -3966,8 +3962,8 @@ _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit:        ; preds = %for.body21.i, %for.
   %xor.i97.i = xor i64 %add.i95.i, %add4.i96.i
   %add.ptr6.i98.i = getelementptr inbounds i8, ptr %secret, i64 119
   %add.ptr6.val.i99.i = load i64, ptr %add.ptr6.i98.i, align 1
-  %38 = getelementptr i8, ptr %secret, i64 127
-  %add.ptr6.val11.i100.i = load i64, ptr %38, align 1
+  %37 = getelementptr i8, ptr %secret, i64 127
+  %add.ptr6.val11.i100.i = load i64, ptr %37, align 1
   %add.i15.i101.i = sub i64 %add.ptr6.val.i99.i, %seed64
   %xor.i16.i102.i = xor i64 %add.i15.i101.i, %add.ptr43.val.i
   %sub.i17.i103.i = add i64 %add.ptr6.val11.i100.i, %seed64
@@ -4364,7 +4360,7 @@ entry:
   br i1 %cmp2, label %if.then, label %if.end17
 
 if.then:                                          ; preds = %entry
-  call fastcc void @_ZL16XXH3_digest_longPmPK12XXH3_state_sPKh(ptr noundef nonnull %acc, ptr noundef nonnull %state, ptr noundef nonnull %cond) #32
+  call fastcc void @_ZL16XXH3_digest_longPmPK12XXH3_state_sPKh(ptr noundef %acc, ptr noundef nonnull %state, ptr noundef nonnull %cond) #32
   %secretLimit = getelementptr inbounds i8, ptr %state, i64 544
   %2 = load i64, ptr %secretLimit, align 32
   %3 = add i64 %2, -11
@@ -4898,9 +4894,6 @@ declare i32 @llvm.ucmp.i32.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #29
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #31

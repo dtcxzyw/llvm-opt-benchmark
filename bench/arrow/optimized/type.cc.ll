@@ -8201,7 +8201,7 @@ if.else.i.i.i.i.i37:                              ; preds = %if.then.i.i.i32
   br label %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit38
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit38: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit, %if.then.i.i.i.i.i35, %if.else.i.i.i.i.i37
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_110MergeTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE(ptr noalias nonnull align 8 %maybe_promoted_type, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp10, ptr noundef nonnull align 1 dereferenceable(12) %options)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_110MergeTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE(ptr noalias align 8 %maybe_promoted_type, ptr noundef %agg.tmp, ptr noundef %agg.tmp10, ptr noundef nonnull align 1 dereferenceable(12) %options)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit38
@@ -9270,7 +9270,7 @@ _ZNSt12__shared_ptrIN5arrow5FieldELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_110MergeTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE(ptr noalias align 8 %agg.result, ptr nocapture noundef %promoted_type, ptr nocapture noundef %other_type, ptr nocapture noundef nonnull readonly align 1 dereferenceable(12) %options) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_110MergeTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull %promoted_type, ptr nocapture noundef nonnull %other_type, ptr nocapture noundef nonnull readonly align 1 dereferenceable(12) %options) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__a.i.i.i = alloca %"class.std::allocator.548", align 1
   %unit.addr.i.i = alloca i32, align 4
@@ -9647,7 +9647,7 @@ if.else.i.i.i.i.i246:                             ; preds = %if.then.i.i.i241
   br label %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit247
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit247: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit257, %if.then.i.i.i.i.i244, %if.else.i.i.i.i.i246
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE(ptr noalias nonnull align 8 %ref.tmp7.i, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp9.i, ptr noundef nonnull align 1 dereferenceable(12) %index_options.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE(ptr noalias align 8 %ref.tmp7.i, ptr noundef %agg.tmp.i, ptr noundef %agg.tmp9.i, ptr noundef nonnull align 1 dereferenceable(12) %index_options.i)
           to label %invoke.cont14.i unwind label %lpad13.i, !noalias !505
 
 invoke.cont14.i:                                  ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit247
@@ -9878,7 +9878,7 @@ if.else.i.i.i.i.i221:                             ; preds = %if.then.i.i.i216
   br label %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit222
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit222: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit232, %if.then.i.i.i.i.i219, %if.else.i.i.i.i.i221
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_110MergeTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE(ptr noalias nonnull align 8 %ref.tmp26.i, ptr noundef nonnull %agg.tmp27.i, ptr noundef nonnull %agg.tmp31.i, ptr noundef nonnull align 1 dereferenceable(12) %options)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_110MergeTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE(ptr noalias align 8 %ref.tmp26.i, ptr noundef %agg.tmp27.i, ptr noundef %agg.tmp31.i, ptr noundef nonnull align 1 dereferenceable(12) %options)
           to label %invoke.cont36.i unwind label %lpad35.i, !noalias !505
 
 invoke.cont36.i:                                  ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit222
@@ -10920,7 +10920,7 @@ if.else.i.i.i.i.i52:                              ; preds = %if.then.i.i.i47
   br label %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit53
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit53: ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit, %if.then.i.i.i.i.i50, %if.else.i.i.i.i.i52
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE(ptr noalias nonnull align 8 %ref.tmp45, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp46, ptr noundef nonnull align 1 dereferenceable(12) %options)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE(ptr noalias align 8 %ref.tmp45, ptr noundef %agg.tmp, ptr noundef %agg.tmp46, ptr noundef nonnull align 1 dereferenceable(12) %options)
           to label %invoke.cont48 unwind label %lpad47
 
 invoke.cont48:                                    ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit53
@@ -11193,7 +11193,7 @@ if.then66:                                        ; preds = %_ZNSt10shared_ptrIN
 if.end67:                                         ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit143
   %264 = getelementptr inbounds i8, ptr %options, i64 7
   %options.val = load i8, ptr %264, align 1
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_121MaybeMergeBinaryTypesERSt10shared_ptrINS_8DataTypeEES4_RKNS_5Field12MergeOptionsE(ptr noalias nonnull align 8 %ref.tmp68, ptr noundef nonnull align 8 dereferenceable(16) %promoted_type, ptr noundef nonnull align 8 dereferenceable(16) %other_type, i8 %options.val)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_121MaybeMergeBinaryTypesERSt10shared_ptrINS_8DataTypeEES4_RKNS_5Field12MergeOptionsE(ptr noalias align 8 %ref.tmp68, ptr noundef nonnull align 8 dereferenceable(16) %promoted_type, ptr noundef nonnull align 8 dereferenceable(16) %other_type, i8 %options.val)
           to label %invoke.cont69 unwind label %lpad50
 
 invoke.cont69:                                    ; preds = %if.end67
@@ -11241,7 +11241,7 @@ if.then87:                                        ; preds = %invoke.cont84
   br label %cleanup112
 
 if.end88:                                         ; preds = %invoke.cont84
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_119MaybeMergeListTypesERKSt10shared_ptrINS_8DataTypeEES5_RKNS_5Field12MergeOptionsE(ptr noalias nonnull align 8 %ref.tmp89, ptr noundef nonnull align 8 dereferenceable(16) %promoted_type, ptr noundef nonnull align 8 dereferenceable(16) %other_type, ptr noundef nonnull align 1 dereferenceable(12) %options)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_119MaybeMergeListTypesERKSt10shared_ptrINS_8DataTypeEES5_RKNS_5Field12MergeOptionsE(ptr noalias align 8 %ref.tmp89, ptr noundef nonnull align 8 dereferenceable(16) %promoted_type, ptr noundef nonnull align 8 dereferenceable(16) %other_type, ptr noundef nonnull align 1 dereferenceable(12) %options)
           to label %invoke.cont90 unwind label %lpad71
 
 invoke.cont90:                                    ; preds = %if.end88
@@ -24065,6 +24065,8 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %exitcond.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !755
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
+  %conv.i.i.i = trunc nuw nsw i64 %length to i32
+  %div25.i.i.i = lshr i32 %conv.i.i.i, 4
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %data, i64 %length
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   %add.ptr13.val.i.i.i = load i64, ptr %add.ptr13.i.i.i, align 1, !alias.scope !754
@@ -24083,14 +24085,11 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %mul.i.i32.i.i = mul i64 %xor.i.i40.i.i.i, 1609587791953885689
   %shr.i4.i.i33.i.i = lshr i64 %mul.i.i32.i.i, 32
   %xor.i5.i.i34.i.i = xor i64 %shr.i4.i.i33.i.i, %mul.i.i32.i.i
-  %cmp203.i.i.i = icmp ugt i64 %length, 143
-  br i1 %cmp203.i.i.i, label %for.body21.preheader.i.i.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i
+  %cmp203.not.i.i.i = icmp eq i32 %div25.i.i.i, 8
+  br i1 %cmp203.not.i.i.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i, label %for.body21.preheader.i.i.i
 
 for.body21.preheader.i.i.i:                       ; preds = %for.end.i.i.i
-  %conv.i.i.i = trunc nuw i64 %length to i32
-  %div25.i.i.i = lshr i32 %conv.i.i.i, 4
-  %umax.i.i.i = tail call i32 @llvm.umax.i32(i32 %div25.i.i.i, i32 9)
-  %wide.trip.count.i.i.i = zext nneg i32 %umax.i.i.i to i64
+  %wide.trip.count.i.i.i = zext nneg i32 %div25.i.i.i to i64
   br label %for.body21.i.i.i
 
 for.body21.i.i.i:                                 ; preds = %for.body21.i.i.i, %for.body21.preheader.i.i.i
@@ -24230,7 +24229,7 @@ _ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i.i.i.i:     ; preds = %for.body.i29.i.i.i.
   br i1 %exitcond.not.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !810
 
 for.end.i.i.i.i:                                  ; preds = %_ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i.i.i.i, %if.end9.i.i
-  %mul9.i.i.i.i = mul nuw i64 %div2.i.i.i.i, 576
+  %mul9.i.i.i.i = mul nuw nsw i64 %div2.i.i.i.i, 576
   %div1127.i.i.i.i = lshr i64 %sub10.i.i.i.i.recomposed, 6
   %cmp13.i.i.i.i = icmp ult i64 %sub10.i.i.i.i.recomposed, 1152
   tail call void @llvm.assume(i1 %cmp13.i.i.i.i)
@@ -39866,7 +39865,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6ResultISt
 define void @_ZN5arrow6schemaESt16initializer_listISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_8DataTypeEEEES8_IKNS_16KeyValueMetadataEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.131") align 8 %agg.result, ptr %fields.coerce0, i64 %fields.coerce1, ptr noundef %metadata) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.5", align 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_110MakeFieldsESt16initializer_listISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_8DataTypeEEEE(ptr noalias nonnull align 8 %ref.tmp, ptr %fields.coerce0, i64 %fields.coerce1)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_110MakeFieldsESt16initializer_listISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_8DataTypeEEEE(ptr noalias align 8 %ref.tmp, ptr %fields.coerce0, i64 %fields.coerce1)
   call void @llvm.experimental.noalias.scope.decl(metadata !1232)
   store ptr null, ptr %agg.result, align 8, !alias.scope !1232
   %call5.i.i.i3.i.i.i.i1 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #32
@@ -40006,7 +40005,7 @@ lpad.body:                                        ; preds = %_ZNSt15__allocated_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_110MakeFieldsESt16initializer_listISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_8DataTypeEEEE(ptr noalias align 8 %agg.result, ptr %init_list.coerce0, i64 %init_list.coerce1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_110MakeFieldsESt16initializer_listISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_8DataTypeEEEE(ptr noalias nonnull align 8 %agg.result, ptr %init_list.coerce0, i64 %init_list.coerce1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i.i.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.20", align 8
@@ -40436,7 +40435,7 @@ entry:
   %endianness.addr = alloca i32, align 4
   %ref.tmp = alloca %"class.std::vector.5", align 8
   store i32 %endianness, ptr %endianness.addr, align 4
-  call fastcc void @_ZN5arrow12_GLOBAL__N_110MakeFieldsESt16initializer_listISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_8DataTypeEEEE(ptr noalias nonnull align 8 %ref.tmp, ptr %fields.coerce0, i64 %fields.coerce1)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_110MakeFieldsESt16initializer_listISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_8DataTypeEEEE(ptr noalias align 8 %ref.tmp, ptr %fields.coerce0, i64 %fields.coerce1)
   call void @llvm.experimental.noalias.scope.decl(metadata !1245)
   store ptr null, ptr %agg.result, align 8, !alias.scope !1245
   %call5.i.i.i3.i.i.i.i1 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #32
@@ -41250,7 +41249,7 @@ entry:
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  invoke fastcc void @_ZN5arrowL25AppendMetadataFingerprintERKNS_16KeyValueMetadataEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %ss)
+  invoke fastcc void @_ZN5arrowL25AppendMetadataFingerprintERKNS_16KeyValueMetadataEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %ss)
           to label %if.end unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i6, %if.end.i, %if.end19, %invoke.cont15, %invoke.cont13, %if.then8, %if.then
@@ -41369,7 +41368,7 @@ invoke.cont20:                                    ; preds = %if.end19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrowL25AppendMetadataFingerprintERKNS_16KeyValueMetadataEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %metadata, ptr noundef %ss) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrowL25AppendMetadataFingerprintERKNS_16KeyValueMetadataEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %metadata, ptr noundef nonnull %ss) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %pairs = alloca %"class.std::vector.537", align 8
   call void @_ZNK5arrow16KeyValueMetadata12sorted_pairsB5cxx11Ev(ptr nonnull sret(%"class.std::vector.537") align 8 %pairs, ptr noundef nonnull align 8 dereferenceable(48) %metadata)
@@ -41656,7 +41655,7 @@ if.then:                                          ; preds = %invoke.cont
   %2 = load ptr, ptr %impl_.i, align 8
   %metadata_.i4 = getelementptr inbounds i8, ptr %2, i64 88
   %3 = load ptr, ptr %metadata_.i4, align 8
-  invoke fastcc void @_ZN5arrowL25AppendMetadataFingerprintERKNS_16KeyValueMetadataEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %ss)
+  invoke fastcc void @_ZN5arrowL25AppendMetadataFingerprintERKNS_16KeyValueMetadataEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %ss)
           to label %if.end unwind label %lpad.loopexit.split-lp
 
 lpad.loopexit:                                    ; preds = %invoke.cont14, %invoke.cont17, %if.end.i
@@ -51789,7 +51788,7 @@ _ZNSt10shared_ptrIN5arrow17LargeListViewTypeEED2Ev.exit: ; preds = %_ZNSt12__wea
 define void @_ZN5arrow7struct_ESt16initializer_listISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_8DataTypeEEEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr %fields.coerce0, i64 %fields.coerce1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp1 = alloca %"class.std::vector.5", align 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_110MakeFieldsESt16initializer_listISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_8DataTypeEEEE(ptr noalias nonnull align 8 %ref.tmp1, ptr %fields.coerce0, i64 %fields.coerce1)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_110MakeFieldsESt16initializer_listISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_8DataTypeEEEE(ptr noalias align 8 %ref.tmp1, ptr %fields.coerce0, i64 %fields.coerce1)
   %call5.i.i.i3.i.i.i.i1 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #32
           to label %call5.i.i.i3.i.i.i.i.noexc unwind label %lpad
 
@@ -61586,7 +61585,7 @@ _ZNSt12__shared_ptrIN5arrow12StatusDetailELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE(ptr noalias align 8 %agg.result, ptr noundef %promoted_type, ptr nocapture noundef %other_type, ptr nocapture noundef nonnull readonly align 1 dereferenceable(12) %options) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %promoted_type, ptr nocapture noundef nonnull %other_type, ptr nocapture noundef nonnull readonly align 1 dereferenceable(12) %options) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.468", align 8
   %ref.tmp56 = alloca %"class.arrow::Result.30", align 8
@@ -61943,7 +61942,7 @@ invoke.cont74:                                    ; preds = %invoke.cont60
   %promoted_type.val = load ptr, ptr %promoted_type, align 8
   %55 = getelementptr inbounds i8, ptr %options, i64 6
   %options.val = load i8, ptr %55, align 1
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113WidenDecimalsERKSt10shared_ptrINS_8DataTypeEES5_RKNS_5Field12MergeOptionsE(ptr noalias nonnull align 8 %ref.tmp75, ptr %promoted_type.val, ptr %53, i8 %options.val)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113WidenDecimalsERKSt10shared_ptrINS_8DataTypeEES5_RKNS_5Field12MergeOptionsE(ptr noalias align 8 %ref.tmp75, ptr %promoted_type.val, ptr %53, i8 %options.val)
           to label %invoke.cont77 unwind label %lpad76
 
 invoke.cont77:                                    ; preds = %invoke.cont74
@@ -62249,7 +62248,7 @@ land.lhs.true105:                                 ; preds = %land.lhs.true101
 if.then109:                                       ; preds = %land.lhs.true105
   %101 = getelementptr inbounds i8, ptr %options, i64 6
   %options.val34 = load i8, ptr %101, align 1
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113WidenDecimalsERKSt10shared_ptrINS_8DataTypeEES5_RKNS_5Field12MergeOptionsE(ptr noalias nonnull align 8 %ref.tmp110, ptr nonnull %97, ptr nonnull %99, i8 %options.val34)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113WidenDecimalsERKSt10shared_ptrINS_8DataTypeEES5_RKNS_5Field12MergeOptionsE(ptr noalias align 8 %ref.tmp110, ptr nonnull %97, ptr nonnull %99, i8 %options.val34)
   %102 = load ptr, ptr %ref.tmp110, align 8
   %cmp.i.i190 = icmp eq ptr %102, null
   br i1 %cmp.i.i190, label %invoke.cont125, label %if.then118
@@ -63889,7 +63888,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EEaSEOS4_.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_121MaybeMergeBinaryTypesERSt10shared_ptrINS_8DataTypeEES4_RKNS_5Field12MergeOptionsE(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %promoted_type, ptr nocapture noundef nonnull align 8 dereferenceable(16) %other_type, i8 %options.7.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_121MaybeMergeBinaryTypesERSt10shared_ptrINS_8DataTypeEES4_RKNS_5Field12MergeOptionsE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %promoted_type, ptr nocapture noundef nonnull align 8 dereferenceable(16) %other_type, i8 %options.7.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %ref.tmp15 = alloca %"class.std::shared_ptr", align 8
@@ -63918,7 +63917,7 @@ land.lhs.true:                                    ; preds = %if.then
   ]
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true
-  call fastcc void @_ZN5arrow12_GLOBAL__N_110MakeBinaryERKNS_8DataTypeE(ptr noalias nonnull align 8 %ref.tmp, i32 %3)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_110MakeBinaryERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp, i32 %3)
   store ptr null, ptr %agg.result, align 8
   %storage_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %4 = load ptr, ptr %ref.tmp, align 8
@@ -63942,7 +63941,7 @@ land.lhs.true10:                                  ; preds = %if.else
   ]
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit67:  ; preds = %land.lhs.true10, %land.lhs.true10, %land.lhs.true10, %land.lhs.true10
-  call fastcc void @_ZN5arrow12_GLOBAL__N_110MakeBinaryERKNS_8DataTypeE(ptr noalias nonnull align 8 %ref.tmp15, i32 %1)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_110MakeBinaryERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp15, i32 %1)
   store ptr null, ptr %agg.result, align 8
   %storage_.i.i33 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %6 = load ptr, ptr %ref.tmp15, align 8
@@ -64022,7 +64021,7 @@ land.lhs.true48:                                  ; preds = %if.end44, %if.end44
   ]
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit115: ; preds = %land.lhs.true48, %land.lhs.true48
-  call fastcc void @_ZN5arrow12_GLOBAL__N_110MakeBinaryERKNS_8DataTypeE(ptr noalias nonnull align 8 %ref.tmp53, i32 %16)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_110MakeBinaryERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp53, i32 %16)
   store ptr null, ptr %agg.result, align 8
   %storage_.i.i81 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %19 = load ptr, ptr %ref.tmp53, align 8
@@ -64050,7 +64049,7 @@ land.lhs.true59:                                  ; preds = %if.end44, %if.end44
   ]
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit158: ; preds = %land.lhs.true59, %land.lhs.true59
-  call fastcc void @_ZN5arrow12_GLOBAL__N_110MakeBinaryERKNS_8DataTypeE(ptr noalias nonnull align 8 %ref.tmp64, i32 %16)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_110MakeBinaryERKNS_8DataTypeE(ptr noalias align 8 %ref.tmp64, i32 %16)
   store ptr null, ptr %agg.result, align 8
   %storage_.i.i124 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %23 = load ptr, ptr %ref.tmp64, align 8
@@ -64148,7 +64147,7 @@ return:                                           ; preds = %if.else.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_119MaybeMergeListTypesERKSt10shared_ptrINS_8DataTypeEES5_RKNS_5Field12MergeOptionsE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %promoted_type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %other_type, ptr nocapture noundef nonnull readonly align 1 dereferenceable(12) %options) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_119MaybeMergeListTypesERKSt10shared_ptrINS_8DataTypeEES5_RKNS_5Field12MergeOptionsE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %promoted_type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %other_type, ptr nocapture noundef nonnull readonly align 1 dereferenceable(12) %options) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i1084 = alloca %"class.arrow::Status", align 8
   %ref.tmp.i1083 = alloca %"class.arrow::Status", align 8
@@ -66959,7 +66958,7 @@ return:                                           ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113WidenDecimalsERKSt10shared_ptrINS_8DataTypeEES5_RKNS_5Field12MergeOptionsE(ptr noalias align 8 %agg.result, ptr %promoted_type.0.val, ptr %other_type.0.val, i8 %options.6.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113WidenDecimalsERKSt10shared_ptrINS_8DataTypeEES5_RKNS_5Field12MergeOptionsE(ptr noalias nonnull align 8 %agg.result, ptr %promoted_type.0.val, ptr %other_type.0.val, i8 %options.6.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %tobool = trunc i8 %options.6.val to i1
@@ -67093,11 +67092,11 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %or.cond, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %lor.lhs.false, %if.end
-  tail call void @_ZN5arrow14Decimal256Type4MakeEii(ptr sret(%"class.arrow::Result.30") align 8 %agg.result, i32 noundef %.sroa.speculated, i32 noundef %.sroa.speculated3)
+  tail call void @_ZN5arrow14Decimal256Type4MakeEii(ptr nonnull sret(%"class.arrow::Result.30") align 8 %agg.result, i32 noundef %.sroa.speculated, i32 noundef %.sroa.speculated3)
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false
-  tail call void @_ZN5arrow14Decimal128Type4MakeEii(ptr sret(%"class.arrow::Result.30") align 8 %agg.result, i32 noundef %.sroa.speculated, i32 noundef %.sroa.speculated3)
+  tail call void @_ZN5arrow14Decimal128Type4MakeEii(ptr nonnull sret(%"class.arrow::Result.30") align 8 %agg.result, i32 noundef %.sroa.speculated, i32 noundef %.sroa.speculated3)
   br label %return
 
 return:                                           ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i, %if.then, %if.end29, %if.then28
@@ -67517,7 +67516,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_110MakeBinaryERKNS_8DataTypeE(ptr noalias nocapture writeonly align 8 %agg.result, i32 %type.40.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_110MakeBinaryERKNS_8DataTypeE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, i32 %type.40.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %type.40.val, label %sw.default [
     i32 14, label %sw.bb

@@ -3038,7 +3038,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3MatESt4lessIS
           to label %519 unwind label %532
 
 519:                                              ; preds = %518
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L8toStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISA_EERKS8_(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(32) %46)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L8toStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISA_EERKS8_(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(32) %46)
           to label %520 unwind label %534
 
 520:                                              ; preds = %519
@@ -3161,7 +3161,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3MatESt4lessIS
           to label %564 unwind label %577
 
 564:                                              ; preds = %563
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L8toStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISA_EERKS8_(ptr dead_on_unwind noalias nonnull writable align 8 %50, ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(32) %51)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L8toStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISA_EERKS8_(ptr dead_on_unwind noalias writable align 8 %50, ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(32) %51)
           to label %565 unwind label %579
 
 565:                                              ; preds = %564
@@ -3938,7 +3938,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc257
           to label %890 unwind label %903
 
 890:                                              ; preds = %889
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L8toStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISA_EERKS8_(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(32) %17)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L8toStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISA_EERKS8_(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %891 unwind label %905
 
 891:                                              ; preds = %890
@@ -6204,7 +6204,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc27
           to label %88 unwind label %107
 
 88:                                               ; preds = %87
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L8toStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISA_EERKS8_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L8toStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISA_EERKS8_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %89 unwind label %109
 
 89:                                               ; preds = %88
@@ -6702,7 +6702,7 @@ _ZNK11opencv_onnx14AttributeProto9ints_sizeEv.exit132: ; preds = %109
           to label %131 unwind label %135
 
 131:                                              ; preds = %130
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L5parseERKN6google8protobuf13RepeatedFieldIlEE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %76)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L5parseERKN6google8protobuf13RepeatedFieldIlEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %76)
           to label %132 unwind label %137
 
 132:                                              ; preds = %131
@@ -6809,7 +6809,7 @@ _ZNK11opencv_onnx14AttributeProto9ints_sizeEv.exit135: ; preds = %152
           to label %164 unwind label %168
 
 164:                                              ; preds = %163
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L5parseERKN6google8protobuf13RepeatedFieldIlEE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %76)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L5parseERKN6google8protobuf13RepeatedFieldIlEE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %76)
           to label %165 unwind label %170
 
 165:                                              ; preds = %164
@@ -7293,7 +7293,7 @@ _ZNK11opencv_onnx14AttributeProto9ints_sizeEv.exit165: ; preds = %307
           to label %319 unwind label %323
 
 319:                                              ; preds = %318
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L5parseERKN6google8protobuf13RepeatedFieldIlEE(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(16) %76)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L5parseERKN6google8protobuf13RepeatedFieldIlEE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(16) %76)
           to label %320 unwind label %325
 
 320:                                              ; preds = %319
@@ -7496,7 +7496,7 @@ _ZNK11opencv_onnx14AttributeProto9ints_sizeEv.exit171: ; preds = %382
           to label %394 unwind label %398
 
 394:                                              ; preds = %393
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L5parseERKN6google8protobuf13RepeatedFieldIlEE(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(16) %76)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L5parseERKN6google8protobuf13RepeatedFieldIlEE(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(16) %76)
           to label %395 unwind label %400
 
 395:                                              ; preds = %394
@@ -7746,7 +7746,7 @@ _ZNK11opencv_onnx14AttributeProto9ints_sizeEv.exit191: ; preds = %481
   br i1 %483, label %484, label %490
 
 484:                                              ; preds = %_ZNK11opencv_onnx14AttributeProto9ints_sizeEv.exit191
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L5parseERKN6google8protobuf13RepeatedFieldIlEE(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(16) %76)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L5parseERKN6google8protobuf13RepeatedFieldIlEE(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(16) %76)
           to label %485 unwind label %120
 
 485:                                              ; preds = %484
@@ -8439,7 +8439,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v20
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv3dnn14dnn4_v20240521L5parseERKN6google8protobuf13RepeatedFieldIlEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3dnn14dnn4_v20240521L5parseERKN6google8protobuf13RepeatedFieldIlEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIlE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %4 = zext i32 %3 to i64
   %5 = icmp slt i32 %3, 0
@@ -10693,7 +10693,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %31, %_ZNSt12_Vecto
           to label %45 unwind label %106
 
 45:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L8toStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISA_EERKS8_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L8toStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISA_EERKS8_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %46 unwind label %108
 
 46:                                               ; preds = %45
@@ -11048,7 +11048,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit48:                  ; preds = %142, %_ZNSt3mapINSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv3dnn14dnn4_v20240521L8toStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISA_EERKS8_(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3dnn14dnn4_v20240521L8toStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISA_EERKS8_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4)
   %5 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
@@ -11118,7 +11118,7 @@ define internal fastcc void @_ZN2cv3dnn14dnn4_v20240521L8toStringIiEENSt7__cxx11
           to label %30 unwind label %.loopexit.split-lp
 
 30:                                               ; preds = %._crit_edge
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %4)
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %4)
           to label %31 unwind label %.loopexit.split-lp
 
 31:                                               ; preds = %30
@@ -32616,7 +32616,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit88:        ; preds = %105, %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN2cv3dnn14dnn4_v2024052112ONNXImporter26parseInstanceNormalizationERNS1_11LayerParamsERKN11opencv_onnx9NodeProtoEENK3$_0clEi"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN2cv3dnn14dnn4_v2024052112ONNXImporter26parseInstanceNormalizationERNS1_11LayerParamsERKN11opencv_onnx9NodeProtoEENK3$_0clEi"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::dnn::dnn4_v20240521::LayerParams", align 8
   %4 = alloca %"class.cv::Mat", align 8
   %5 = alloca %"class.opencv_onnx::NodeProto", align 8
@@ -42688,7 +42688,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %106, %113, %119
           to label %_ZNK11opencv_onnx9NodeProto5inputB5cxx11Ei.exit unwind label %158
 
 _ZNK11opencv_onnx9NodeProto5inputB5cxx11Ei.exit:  ; preds = %146
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L8toStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISA_EERKS8_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(32) %147)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L8toStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISA_EERKS8_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(32) %147)
           to label %148 unwind label %158
 
 148:                                              ; preds = %_ZNK11opencv_onnx9NodeProto5inputB5cxx11Ei.exit
@@ -45223,7 +45223,7 @@ split:                                            ; preds = %_ZN2cv3dnn14dnn4_v2
   %.val = load i32, ptr %229, align 4
   %230 = getelementptr i8, ptr %228, i64 64
   %.val64 = load ptr, ptr %230, align 8
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %11, i32 %.val, ptr %.val64)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %11, i32 %.val, ptr %.val64)
           to label %231 unwind label %.loopexit.split-lp314
 
 231:                                              ; preds = %226
@@ -54363,7 +54363,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit134:                 ; preds = %348, %347
           to label %370 unwind label %.body138
 
 370:                                              ; preds = %369
-  %371 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef nonnull %29)
+  %371 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef %29)
           to label %.thread197 unwind label %.body138.thread206
 
 .thread197:                                       ; preds = %370
@@ -54391,7 +54391,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit134:                 ; preds = %348, %347
           to label %377 unwind label %116
 
 377:                                              ; preds = %375
-  %378 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef nonnull %31)
+  %378 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef %31)
           to label %379 unwind label %392
 
 379:                                              ; preds = %377
@@ -54936,7 +54936,7 @@ _ZNK11opencv_onnx9NodeProto10input_sizeEv.exit:   ; preds = %3
           to label %79 unwind label %68
 
 79:                                               ; preds = %78
-  %80 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef nonnull %12)
+  %80 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef %12)
           to label %81 unwind label %130
 
 81:                                               ; preds = %79
@@ -54946,7 +54946,7 @@ _ZNK11opencv_onnx9NodeProto10input_sizeEv.exit:   ; preds = %3
           to label %82 unwind label %68
 
 82:                                               ; preds = %81
-  %83 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef nonnull %14)
+  %83 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef %14)
           to label %84 unwind label %132
 
 84:                                               ; preds = %82
@@ -55798,7 +55798,7 @@ _ZN2cv3dnn14dnn4_v2024052111LayerParamsD2Ev.exit: ; preds = %_ZNSt6vectorIN2cv3M
           to label %358 unwind label %548
 
 358:                                              ; preds = %357
-  %359 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef nonnull %42)
+  %359 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef %42)
           to label %360 unwind label %550
 
 360:                                              ; preds = %358
@@ -55808,7 +55808,7 @@ _ZN2cv3dnn14dnn4_v2024052111LayerParamsD2Ev.exit: ; preds = %_ZNSt6vectorIN2cv3M
           to label %361 unwind label %548
 
 361:                                              ; preds = %360
-  %362 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef nonnull %44)
+  %362 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef %44)
           to label %363 unwind label %552
 
 363:                                              ; preds = %361
@@ -56782,14 +56782,14 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3MatESt4lessIS
   %95 = lshr exact i64 %94, 2
   %96 = trunc i64 %95 to i32
   call void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter7getBlobERKN11opencv_onnx9NodeProtoEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %11, ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 1)
-  %97 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef nonnull %11)
+  %97 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef %11)
           to label %98 unwind label %125
 
 98:                                               ; preds = %85
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #27
   store float %97, ptr %10, align 4
   call void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter7getBlobERKN11opencv_onnx9NodeProtoEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %13, ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 2)
-  %99 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef nonnull %13)
+  %99 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef %13)
           to label %100 unwind label %127
 
 100:                                              ; preds = %98
@@ -56949,7 +56949,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %101
           to label %164 unwind label %303
 
 164:                                              ; preds = %163
-  %165 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef nonnull %25)
+  %165 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef %25)
           to label %166 unwind label %305
 
 166:                                              ; preds = %164
@@ -56959,7 +56959,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %101
           to label %167 unwind label %303
 
 167:                                              ; preds = %166
-  %168 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef nonnull %27)
+  %168 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef %27)
           to label %169 unwind label %307
 
 169:                                              ; preds = %167
@@ -58073,7 +58073,7 @@ _ZNK11opencv_onnx9NodeProto5inputB5cxx11Ei.exit:  ; preds = %213
           to label %226 unwind label %139
 
 226:                                              ; preds = %217
-  %227 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef nonnull %24)
+  %227 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef %24)
           to label %228 unwind label %247
 
 228:                                              ; preds = %226
@@ -58083,7 +58083,7 @@ _ZNK11opencv_onnx9NodeProto5inputB5cxx11Ei.exit:  ; preds = %213
           to label %229 unwind label %139
 
 229:                                              ; preds = %228
-  %230 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef nonnull %26)
+  %230 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef %26)
           to label %231 unwind label %249
 
 231:                                              ; preds = %229
@@ -58268,7 +58268,7 @@ _ZNK11opencv_onnx9NodeProto5inputB5cxx11Ei.exit:  ; preds = %213
           to label %302 unwind label %.loopexit.split-lp208
 
 302:                                              ; preds = %301
-  %303 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef nonnull %38)
+  %303 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef %38)
           to label %304 unwind label %331
 
 304:                                              ; preds = %302
@@ -58281,7 +58281,7 @@ _ZNK11opencv_onnx9NodeProto5inputB5cxx11Ei.exit:  ; preds = %213
           to label %306 unwind label %.loopexit.split-lp208
 
 306:                                              ; preds = %305
-  %307 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef nonnull %40)
+  %307 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef %40)
           to label %308 unwind label %333
 
 308:                                              ; preds = %306
@@ -59262,7 +59262,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3MatESt4lessIS
           to label %132 unwind label %.loopexit.split-lp454
 
 132:                                              ; preds = %131
-  %133 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef nonnull %9)
+  %133 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef %9)
           to label %134 unwind label %147
 
 134:                                              ; preds = %132
@@ -59271,7 +59271,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3MatESt4lessIS
           to label %135 unwind label %.loopexit.split-lp454
 
 135:                                              ; preds = %134
-  %136 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef nonnull %10)
+  %136 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef %10)
           to label %137 unwind label %149
 
 137:                                              ; preds = %135
@@ -59280,7 +59280,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3MatESt4lessIS
           to label %138 unwind label %.loopexit.split-lp454
 
 138:                                              ; preds = %137
-  %139 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef nonnull %12)
+  %139 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef %12)
           to label %140 unwind label %151
 
 140:                                              ; preds = %138
@@ -59290,7 +59290,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3MatESt4lessIS
           to label %141 unwind label %.loopexit.split-lp454
 
 141:                                              ; preds = %140
-  %142 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef nonnull %14)
+  %142 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef %14)
           to label %143 unwind label %153
 
 143:                                              ; preds = %141
@@ -59336,7 +59336,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3MatESt4lessIS
           to label %156 unwind label %.loopexit.split-lp454
 
 156:                                              ; preds = %155
-  %157 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef nonnull %16)
+  %157 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef %16)
           to label %158 unwind label %166
 
 158:                                              ; preds = %156
@@ -59355,7 +59355,7 @@ _ZNK11opencv_onnx9NodeProto10input_sizeEv.exit152: ; preds = %158
           to label %162 unwind label %.loopexit.split-lp454
 
 162:                                              ; preds = %161
-  %163 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef nonnull %18)
+  %163 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef %18)
           to label %164 unwind label %168
 
 164:                                              ; preds = %162
@@ -61076,21 +61076,21 @@ define hidden void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter15parseQLeakyReluERN
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #27
   store float %47, ptr %6, align 4
   call void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter7getBlobERKN11opencv_onnx9NodeProtoEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %10, ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 1)
-  %48 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef nonnull %10)
+  %48 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef %10)
           to label %49 unwind label %84
 
 49:                                               ; preds = %46
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #27
   store float %48, ptr %9, align 4
   call void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter7getBlobERKN11opencv_onnx9NodeProtoEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %12, ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 2)
-  %50 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef nonnull %12)
+  %50 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef %12)
           to label %51 unwind label %86
 
 51:                                               ; preds = %49
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #27
   store i8 %50, ptr %11, align 1
   call void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter7getBlobERKN11opencv_onnx9NodeProtoEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %14, ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 3)
-  %52 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef nonnull %14)
+  %52 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef %14)
           to label %53 unwind label %88
 
 53:                                               ; preds = %51
@@ -61102,7 +61102,7 @@ define hidden void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter15parseQLeakyReluERN
 
 55:                                               ; preds = %53
   call void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter7getBlobERKN11opencv_onnx9NodeProtoEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %16, ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 4)
-  %56 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef nonnull %16)
+  %56 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef %16)
           to label %57 unwind label %90
 
 57:                                               ; preds = %55
@@ -61430,21 +61430,21 @@ define hidden void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter13parseQSigmoidERNS1
 
 37:                                               ; preds = %26, %3
   call void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter7getBlobERKN11opencv_onnx9NodeProtoEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %7, ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 1)
-  %38 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef nonnull %7)
+  %38 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef %7)
           to label %39 unwind label %69
 
 39:                                               ; preds = %37
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #27
   store float %38, ptr %6, align 4
   call void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter7getBlobERKN11opencv_onnx9NodeProtoEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %9, ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 2)
-  %40 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef nonnull %9)
+  %40 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef %9)
           to label %41 unwind label %71
 
 41:                                               ; preds = %39
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #27
   store i8 %40, ptr %8, align 1
   call void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter7getBlobERKN11opencv_onnx9NodeProtoEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %11, ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 3)
-  %42 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef nonnull %11)
+  %42 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef %11)
           to label %43 unwind label %73
 
 43:                                               ; preds = %41
@@ -61456,7 +61456,7 @@ define hidden void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter13parseQSigmoidERNS1
 
 45:                                               ; preds = %43
   call void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter7getBlobERKN11opencv_onnx9NodeProtoEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %13, ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 4)
-  %46 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef nonnull %13)
+  %46 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef %13)
           to label %47 unwind label %75
 
 47:                                               ; preds = %45
@@ -61748,21 +61748,21 @@ define hidden void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter13parseQAvgPoolERNS1
 
 44:                                               ; preds = %33, %3
   call void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter7getBlobERKN11opencv_onnx9NodeProtoEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %7, ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 1)
-  %45 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef nonnull %7)
+  %45 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef %7)
           to label %46 unwind label %88
 
 46:                                               ; preds = %44
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #27
   store float %45, ptr %6, align 4
   call void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter7getBlobERKN11opencv_onnx9NodeProtoEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %9, ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 2)
-  %47 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef nonnull %9)
+  %47 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef %9)
           to label %48 unwind label %90
 
 48:                                               ; preds = %46
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #27
   store i8 %47, ptr %8, align 1
   call void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter7getBlobERKN11opencv_onnx9NodeProtoEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %11, ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 3)
-  %49 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef nonnull %11)
+  %49 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef %11)
           to label %50 unwind label %92
 
 50:                                               ; preds = %48
@@ -61774,7 +61774,7 @@ define hidden void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter13parseQAvgPoolERNS1
 
 52:                                               ; preds = %50
   call void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter7getBlobERKN11opencv_onnx9NodeProtoEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %13, ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 4)
-  %53 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef nonnull %13)
+  %53 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef %13)
           to label %54 unwind label %94
 
 54:                                               ; preds = %52
@@ -62080,7 +62080,7 @@ _ZNK11opencv_onnx9NodeProto10input_sizeEv.exit:   ; preds = %51
           to label %54 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 54:                                               ; preds = %_ZNK11opencv_onnx9NodeProto10input_sizeEv.exit
-  %55 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef nonnull %6)
+  %55 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef %6)
           to label %56 unwind label %125
 
 56:                                               ; preds = %54
@@ -62090,7 +62090,7 @@ _ZNK11opencv_onnx9NodeProto10input_sizeEv.exit:   ; preds = %51
           to label %57 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 57:                                               ; preds = %56
-  %58 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef nonnull %8)
+  %58 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef %8)
           to label %59 unwind label %127
 
 59:                                               ; preds = %57
@@ -62130,7 +62130,7 @@ _ZNK11opencv_onnx9NodeProto10input_sizeEv.exit:   ; preds = %51
           to label %81 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 81:                                               ; preds = %79
-  %82 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef nonnull %9)
+  %82 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef %9)
           to label %83 unwind label %129
 
 83:                                               ; preds = %81
@@ -62140,7 +62140,7 @@ _ZNK11opencv_onnx9NodeProto10input_sizeEv.exit:   ; preds = %51
           to label %85 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 85:                                               ; preds = %83
-  %86 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef nonnull %10)
+  %86 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef %10)
           to label %87 unwind label %131
 
 87:                                               ; preds = %85
@@ -63065,7 +63065,7 @@ split:                                            ; preds = %_ZN2cv3dnn14dnn4_v2
   %.val = load i32, ptr %355, align 4
   %356 = getelementptr i8, ptr %354, i64 64
   %.val99 = load ptr, ptr %356, align 8
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %35, i32 %.val, ptr %.val99)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %35, i32 %.val, ptr %.val99)
           to label %357 unwind label %.loopexit.split-lp380
 
 357:                                              ; preds = %352
@@ -63640,28 +63640,28 @@ define hidden void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter13parseQSoftmaxERNS1
 
 51:                                               ; preds = %40, %34
   call void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter7getBlobERKN11opencv_onnx9NodeProtoEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %10, ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 1)
-  %52 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef nonnull %10)
+  %52 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef %10)
           to label %53 unwind label %74
 
 53:                                               ; preds = %51
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #27
   store float %52, ptr %9, align 4
   call void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter7getBlobERKN11opencv_onnx9NodeProtoEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %12, ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 2)
-  %54 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef nonnull %12)
+  %54 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef %12)
           to label %55 unwind label %76
 
 55:                                               ; preds = %53
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #27
   store i8 %54, ptr %11, align 1
   call void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter7getBlobERKN11opencv_onnx9NodeProtoEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %14, ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 3)
-  %56 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef nonnull %14)
+  %56 = invoke fastcc noundef float @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIfEET_NS_3MatE(ptr noundef %14)
           to label %57 unwind label %78
 
 57:                                               ; preds = %55
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #27
   store float %56, ptr %13, align 4
   call void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter7getBlobERKN11opencv_onnx9NodeProtoEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %16, ptr noundef nonnull align 8 dereferenceable(585) %0, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 4)
-  %58 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef nonnull %16)
+  %58 = invoke fastcc noundef signext i8 @_ZN2cv3dnn14dnn4_v20240521L16getScalarFromMatIaEET_NS_3MatE(ptr noundef %16)
           to label %59 unwind label %80
 
 59:                                               ; preds = %57

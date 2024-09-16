@@ -802,7 +802,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @add_edge(ptr noundef %source, ptr noundef %dest, i32 noundef %type, ptr noundef readonly %opts) unnamed_addr #0 {
+define internal fastcc void @add_edge(ptr noundef %source, ptr noundef %dest, i32 noundef range(i32 0, 3) %type, ptr noundef readonly %opts) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @edge_table, align 8
   %call = tail call ptr @g_hash_table_lookup(ptr noundef %0, ptr noundef %source) #14

@@ -1104,7 +1104,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl_read_impl(ptr noundef %ssl, ptr noundef %buf, i32 noundef %num, i32 noundef %peek) unnamed_addr #0 {
+define internal fastcc i32 @ssl_read_impl(ptr noundef %ssl, ptr noundef %buf, i32 noundef %num, i32 noundef range(i32 0, 2) %peek) unnamed_addr #0 {
 entry:
   %rwstate = getelementptr inbounds i8, ptr %ssl, i64 144
   store i32 1, ptr %rwstate, align 8

@@ -604,7 +604,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @cpulistaffinity_show(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @pci_create_attr(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @pci_create_attr(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
   %4 = icmp eq i32 %2, 0
   %5 = select i1 %4, i64 82, i64 85
   %6 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %5, i32 noundef 2336) #12

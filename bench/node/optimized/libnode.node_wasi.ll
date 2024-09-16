@@ -17071,7 +17071,7 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %info, i32 noundef %i) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %info, i32 noundef range(i32 0, 3) %i) unnamed_addr #3 {
 entry:
   %length_.i.i = getelementptr inbounds i8, ptr %info, i64 16
   %0 = load i32, ptr %length_.i.i, align 8
@@ -17181,7 +17181,7 @@ _ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5Va
   br i1 %call3.i.i.i.i.i, label %if.end.i.i3.i, label %return
 
 if.end.i.i3.i:                                    ; preds = %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i.i
-  %add.i.i.i = add nuw nsw i32 %i, 4
+  %add.i.i.i = or disjoint i32 %i, 4
   %24 = load i32, ptr %length_.i.i, align 8
   %cmp2.i.not.i4.i.i.i = icmp sgt i32 %24, %add.i.i.i
   br i1 %cmp2.i.not.i4.i.i.i, label %if.end.i.i10.i.i.i, label %if.then.i.i5.i.i.i

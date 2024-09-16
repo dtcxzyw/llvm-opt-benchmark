@@ -2662,7 +2662,7 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit:        ; preds = %if.end.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_110JsonReader13StringAddCharEj(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef %c) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_110JsonReader13StringAddCharEj(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef range(i32 0, 2147483633) %c) unnamed_addr #3 align 2 {
 entry:
   %utf8_bytes_remaining_ = getelementptr inbounds i8, ptr %this, i64 65
   %0 = load i8, ptr %utf8_bytes_remaining_, align 1
@@ -2776,7 +2776,7 @@ return:                                           ; preds = %if.then63, %lor.lhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_110JsonReader14StartContainerENS_12experimental4Json4TypeE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef %type) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_110JsonReader14StartContainerENS_12experimental4Json4TypeE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef range(i32 4, 6) %type) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i = alloca %class.anon.72, align 1
   %ref.tmp.i = alloca [2 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
@@ -3132,7 +3132,7 @@ return:                                           ; preds = %if.then.i.i.i19, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_110JsonReader14StringAddUtf32Ej(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef %c) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_110JsonReader14StringAddUtf32Ej(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef range(i32 -56612864, 10559488) %c) unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp ult i32 %c, 128
   br i1 %cmp, label %return.sink.split, label %if.else

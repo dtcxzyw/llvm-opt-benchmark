@@ -460,25 +460,25 @@ forkdata_to_host.exit103.i:                       ; preds = %142
   br i1 %.not86.i, label %hfsplus_volumeheader.exit, label %150
 
 150:                                              ; preds = %forkdata_to_host.exit103.i
-  tail call fastcc void @forkdata_print(ptr noundef nonnull @.str.25, ptr noundef nonnull %64)
-  tail call fastcc void @forkdata_print(ptr noundef nonnull @.str.26, ptr noundef nonnull %81)
-  tail call fastcc void @forkdata_print(ptr noundef nonnull @.str.3, ptr noundef nonnull %98)
-  tail call fastcc void @forkdata_print(ptr noundef nonnull @.str.4, ptr noundef nonnull %115)
-  tail call fastcc void @forkdata_print(ptr noundef nonnull @.str.27, ptr noundef nonnull %132)
+  tail call fastcc void @forkdata_print(ptr noundef nonnull @.str.25, ptr noundef %64)
+  tail call fastcc void @forkdata_print(ptr noundef nonnull @.str.26, ptr noundef %81)
+  tail call fastcc void @forkdata_print(ptr noundef nonnull @.str.3, ptr noundef %98)
+  tail call fastcc void @forkdata_print(ptr noundef nonnull @.str.4, ptr noundef %115)
+  tail call fastcc void @forkdata_print(ptr noundef nonnull @.str.27, ptr noundef %132)
   br label %hfsplus_volumeheader.exit
 
 hfsplus_volumeheader.exit:                        ; preds = %150, %forkdata_to_host.exit103.i
-  %151 = call fastcc i32 @hfsplus_readheader(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 2, ptr noundef nonnull @.str.2)
+  %151 = call fastcc i32 @hfsplus_readheader(ptr noundef %0, ptr noundef nonnull %22, ptr noundef %4, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.2)
   %.not36 = icmp eq i32 %151, 0
   br i1 %.not36, label %152, label %.thread69
 
 152:                                              ; preds = %hfsplus_volumeheader.exit
-  %153 = call fastcc i32 @hfsplus_readheader(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 3, ptr noundef nonnull @.str.3)
+  %153 = call fastcc i32 @hfsplus_readheader(ptr noundef %0, ptr noundef nonnull %22, ptr noundef %2, ptr noundef %3, i32 noundef 3, ptr noundef nonnull @.str.3)
   %.not37 = icmp eq i32 %153, 0
   br i1 %.not37, label %154, label %.thread69
 
 154:                                              ; preds = %152
-  %155 = call fastcc i32 @hfsplus_readheader(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 4, ptr noundef nonnull @.str.4)
+  %155 = call fastcc i32 @hfsplus_readheader(ptr noundef %0, ptr noundef nonnull %22, ptr noundef %6, ptr noundef %7, i32 noundef 4, ptr noundef nonnull @.str.4)
   %.not41 = icmp eq i32 %155, 0
   %156 = getelementptr inbounds i8, ptr %0, i64 16
   %157 = load ptr, ptr %156, align 8
@@ -512,7 +512,7 @@ hfsplus_volumeheader.exit:                        ; preds = %150, %forkdata_to_h
 168:                                              ; preds = %163
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9) #12
   %169 = select i1 %.not41, ptr %7, ptr null
-  %170 = call fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef nonnull %3, ptr noundef %169, ptr noundef nonnull %158)
+  %170 = call fastcc i32 @hfsplus_walk_catalog(ptr noundef %0, ptr noundef nonnull %22, ptr noundef %3, ptr noundef %169, ptr noundef %158)
   br label %173
 
 171:                                              ; preds = %163
@@ -552,7 +552,7 @@ declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @hfsplus_readheader(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @hfsplus_readheader(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, i32 noundef range(i32 2, 5) %4, ptr noundef %5) unnamed_addr #0 {
 switch.lookup:
   %6 = getelementptr inbounds i8, ptr %1, i64 40
   %7 = load i32, ptr %6, align 1
@@ -760,7 +760,7 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_validate_catalog(ptr nocapt
 declare ptr @cl_strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %struct.hfsPlusResourceHeader, align 4
   %7 = alloca %struct.hfsPlusResourceMap, align 1
   %8 = alloca %struct.hfsPlusResourceType, align 1
@@ -1190,7 +1190,7 @@ forkdata_print.exit373:                           ; preds = %208, %212
 
 227:                                              ; preds = %.preheader.split.preheader.i, %.loopexit.i
   %228 = phi i32 [ 1, %.preheader.split.preheader.i ], [ %301, %.loopexit.i ]
-  %229 = call fastcc i32 @hfsplus_fetch_node(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %47, i32 noundef %218, ptr noundef nonnull %221, i64 noundef %220)
+  %229 = call fastcc i32 @hfsplus_fetch_node(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %3, ptr noundef nonnull readonly %47, i32 noundef %218, ptr noundef nonnull %221, i64 noundef %220)
   %.not133.i = icmp eq i32 %229, 0
   br i1 %.not133.i, label %231, label %230
 
@@ -1399,7 +1399,7 @@ hfsplus_check_attribute.exit.thread43:            ; preds = %284, %278, %270, %2
   br label %.preheader.thread
 
 311:                                              ; preds = %306, %306
-  %312 = call i32 @cli_gentempfd(ptr noundef %4, ptr noundef nonnull %11, ptr noundef nonnull %13) #12
+  %312 = call i32 @cli_gentempfd(ptr noundef nonnull %4, ptr noundef nonnull %11, ptr noundef nonnull %13) #12
   %.not322 = icmp eq i32 %312, 0
   br i1 %.not322, label %314, label %313
 
@@ -1535,7 +1535,7 @@ hfsplus_check_attribute.exit.thread43:            ; preds = %284, %278, %270, %2
 
 357:                                              ; preds = %354
   %358 = load ptr, ptr %14, align 8
-  %359 = call fastcc i32 @hfsplus_scanfile(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %40, ptr noundef %4, ptr noundef nonnull %12, ptr noundef %358)
+  %359 = call fastcc i32 @hfsplus_scanfile(ptr noundef %0, ptr noundef %1, ptr noundef %40, ptr noundef %4, ptr noundef nonnull %12, ptr noundef %358)
   %.not323 = icmp eq i32 %359, 0
   br i1 %.not323, label %361, label %360
 
@@ -1982,7 +1982,7 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
   %528 = load i32, ptr %13, align 4
   %529 = load ptr, ptr %11, align 8
   %530 = load ptr, ptr %14, align 8
-  %531 = call i32 @cli_magic_scan_desc(i32 noundef %528, ptr noundef %529, ptr noundef %0, ptr noundef %530, i32 noundef 0) #12
+  %531 = call i32 @cli_magic_scan_desc(i32 noundef %528, ptr noundef %529, ptr noundef nonnull %0, ptr noundef %530, i32 noundef 0) #12
   %.not343 = icmp eq i32 %531, 0
   br i1 %.not343, label %._crit_edge852, label %.preheader.thread
 
@@ -2034,7 +2034,7 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
 
 546:                                              ; preds = %545
   %547 = load ptr, ptr %14, align 8
-  %548 = call fastcc i32 @hfsplus_scanfile(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %36, ptr noundef %4, ptr noundef null, ptr noundef %547)
+  %548 = call fastcc i32 @hfsplus_scanfile(ptr noundef %0, ptr noundef %1, ptr noundef %36, ptr noundef %4, ptr noundef null, ptr noundef %547)
   %.not347 = icmp eq i32 %548, 0
   br i1 %.not347, label %550, label %549
 
@@ -2049,7 +2049,7 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
 
 551:                                              ; preds = %550
   %552 = load ptr, ptr %14, align 8
-  %553 = call fastcc i32 @hfsplus_scanfile(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %40, ptr noundef %4, ptr noundef null, ptr noundef %552)
+  %553 = call fastcc i32 @hfsplus_scanfile(ptr noundef %0, ptr noundef %1, ptr noundef %40, ptr noundef %4, ptr noundef null, ptr noundef %552)
   %.not349 = icmp eq i32 %553, 0
   br i1 %.not349, label %556, label %554
 
@@ -2256,7 +2256,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @forkdata_print(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @forkdata_print(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 1
@@ -2289,7 +2289,7 @@ define internal fastcc void @forkdata_print(ptr noundef %0, ptr nocapture nounde
 declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i64 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 1, 0) %4, ptr nocapture noundef writeonly %5, i64 noundef range(i64 0, 65536) %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %2, i64 22
   %9 = load i32, ptr %8, align 1
   %.not = icmp ult i32 %4, %9
@@ -2324,7 +2324,7 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture no
   %.not82 = icmp ugt i32 %31, %21
   %.not83 = icmp ugt i32 %31, %26
   %or.cond = select i1 %.not82, i1 %.not83, i1 false
-  br i1 %or.cond, label %.preheader4, label %35
+  br i1 %or.cond, label %.preheader4, label %36
 
 .preheader4:                                      ; preds = %11
   %.not8415 = icmp ugt i32 %21, %26
@@ -2334,100 +2334,100 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture no
   %32 = getelementptr inbounds i8, ptr %3, i64 16
   %33 = getelementptr inbounds i8, ptr %1, i64 44
   %34 = getelementptr inbounds i8, ptr %0, i64 96
+  %35 = trunc nuw nsw i64 %6 to i32
   br label %.preheader
 
-35:                                               ; preds = %11
+36:                                               ; preds = %11
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.101) #12
   br label %.loopexit
 
-36:                                               ; preds = %fmap_readn.exit
-  %37 = add i32 %.07316, 1
-  %.not84 = icmp ugt i32 %37, %26
+37:                                               ; preds = %fmap_readn.exit
+  %38 = add i32 %.07316, 1
+  %.not84 = icmp ugt i32 %38, %26
   br i1 %.not84, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %36
-  %.06717 = phi i32 [ 0, %.preheader.lr.ph ], [ %70, %36 ]
-  %.07316 = phi i32 [ %21, %.preheader.lr.ph ], [ %37, %36 ]
-  br label %38
+.preheader:                                       ; preds = %.preheader.lr.ph, %37
+  %.06717 = phi i32 [ 0, %.preheader.lr.ph ], [ %71, %37 ]
+  %.07316 = phi i32 [ %21, %.preheader.lr.ph ], [ %38, %37 ]
+  br label %39
 
-38:                                               ; preds = %.preheader, %54
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %54 ]
-  %.06814 = phi i32 [ %.07316, %.preheader ], [ %56, %54 ]
-  %39 = getelementptr inbounds [8 x %struct.hfsPlusExtentDescriptor], ptr %32, i64 0, i64 %indvars.iv
-  %40 = load i32, ptr %39, align 1
-  %41 = icmp eq i32 %40, 0
-  %42 = trunc nuw nsw i64 %indvars.iv to i32
-  br i1 %41, label %47, label %43
+39:                                               ; preds = %.preheader, %55
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %55 ]
+  %.06814 = phi i32 [ %.07316, %.preheader ], [ %57, %55 ]
+  %40 = getelementptr inbounds [8 x %struct.hfsPlusExtentDescriptor], ptr %32, i64 0, i64 %indvars.iv
+  %41 = load i32, ptr %40, align 1
+  %42 = icmp eq i32 %41, 0
+  %43 = trunc nuw nsw i64 %indvars.iv to i32
+  br i1 %42, label %48, label %44
 
-43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %39, i64 4
-  %45 = load i32, ptr %44, align 1
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %48
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds i8, ptr %40, i64 4
+  %46 = load i32, ptr %45, align 1
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %49
 
-47:                                               ; preds = %43, %38
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.102, i32 noundef %42) #12
+48:                                               ; preds = %44, %39
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.102, i32 noundef %43) #12
   br label %.loopexit
 
-48:                                               ; preds = %43
-  %49 = and i32 %40, 268435456
-  %50 = and i32 %49, %45
-  %or.cond89.not.not = icmp eq i32 %50, 0
-  br i1 %or.cond89.not.not, label %52, label %51
+49:                                               ; preds = %44
+  %50 = and i32 %41, 268435456
+  %51 = and i32 %50, %46
+  %or.cond89.not.not = icmp eq i32 %51, 0
+  br i1 %or.cond89.not.not, label %53, label %52
 
-51:                                               ; preds = %48
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.103, i32 noundef %42) #12
+52:                                               ; preds = %49
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.103, i32 noundef %43) #12
   br label %.loopexit
 
-52:                                               ; preds = %48
-  %53 = icmp ult i32 %.06814, %45
-  br i1 %53, label %58, label %54
+53:                                               ; preds = %49
+  %54 = icmp ult i32 %.06814, %46
+  br i1 %54, label %59, label %55
 
-54:                                               ; preds = %52
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.105, i32 noundef %42) #12
-  %55 = load i32, ptr %44, align 1
-  %56 = sub i32 %.06814, %55
+55:                                               ; preds = %53
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.105, i32 noundef %43) #12
+  %56 = load i32, ptr %45, align 1
+  %57 = sub i32 %.06814, %56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %57, label %38
+  br i1 %exitcond, label %58, label %39
 
-57:                                               ; preds = %54
+58:                                               ; preds = %55
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.106) #12
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.107) #12
   br label %.loopexit
 
-58:                                               ; preds = %52
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.104, i32 noundef %42) #12
-  %59 = load i32, ptr %39, align 1
-  %60 = add i32 %59, %.06814
-  %61 = load i32, ptr %33, align 1
-  %.not87 = icmp ult i32 %60, %61
-  br i1 %.not87, label %63, label %62
+59:                                               ; preds = %53
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.104, i32 noundef %43) #12
+  %60 = load i32, ptr %40, align 1
+  %61 = add i32 %60, %.06814
+  %62 = load i32, ptr %33, align 1
+  %.not87 = icmp ult i32 %61, %62
+  br i1 %.not87, label %64, label %63
 
-62:                                               ; preds = %58
+63:                                               ; preds = %59
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.108) #12
   br label %.loopexit
 
-63:                                               ; preds = %58
-  %64 = load i32, ptr %17, align 1
-  %65 = mul i32 %64, %60
-  %66 = zext i32 %65 to i64
-  %67 = icmp eq i32 %.07316, %21
-  %68 = icmp eq i32 %.07316, %26
-  %spec.select = select i1 %68, i32 %29, i32 %64
-  %.070 = select i1 %67, i32 %64, i32 %spec.select
-  %69 = select i1 %67, i64 %22, i64 0
-  %.069 = add nuw nsw i64 %69, %66
-  %70 = add i32 %.070, %.06717
-  %71 = zext i32 %70 to i64
-  %72 = icmp ult i64 %6, %71
+64:                                               ; preds = %59
+  %65 = load i32, ptr %17, align 1
+  %66 = mul i32 %65, %61
+  %67 = zext i32 %66 to i64
+  %68 = icmp eq i32 %.07316, %21
+  %69 = icmp eq i32 %.07316, %26
+  %spec.select = select i1 %69, i32 %29, i32 %65
+  %.070 = select i1 %68, i32 %65, i32 %spec.select
+  %70 = select i1 %68, i64 %22, i64 0
+  %.069 = add nuw nsw i64 %70, %67
+  %71 = add i32 %.070, %.06717
+  %72 = icmp ugt i32 %71, %35
   br i1 %72, label %73, label %74
 
-73:                                               ; preds = %63
+73:                                               ; preds = %64
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.109) #12
   br label %.loopexit
 
-74:                                               ; preds = %63
+74:                                               ; preds = %64
   %75 = load ptr, ptr %34, align 8
   %76 = zext i32 %.06717 to i64
   %77 = getelementptr inbounds i8, ptr %5, i64 %76
@@ -2461,14 +2461,14 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture no
 fmap_readn.exit:                                  ; preds = %74, %90
   %.0.i = phi i64 [ %92, %90 ], [ 0, %74 ]
   %.not88 = icmp eq i64 %.0.i, %78
-  br i1 %.not88, label %36, label %fmap_readn.exit.thread
+  br i1 %.not88, label %37, label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread:                           ; preds = %85, %83, %fmap_readn.exit
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.110) #12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %36, %.preheader4, %fmap_readn.exit.thread, %73, %62, %57, %51, %47, %35, %10
-  %.0 = phi i32 [ 26, %10 ], [ 26, %35 ], [ 26, %47 ], [ 26, %51 ], [ 26, %57 ], [ 26, %62 ], [ 26, %73 ], [ 26, %fmap_readn.exit.thread ], [ 0, %.preheader4 ], [ 0, %36 ]
+.loopexit:                                        ; preds = %37, %.preheader4, %fmap_readn.exit.thread, %73, %63, %58, %52, %48, %36, %10
+  %.0 = phi i32 [ 26, %10 ], [ 26, %36 ], [ 26, %48 ], [ 26, %52 ], [ 26, %58 ], [ 26, %63 ], [ 26, %73 ], [ 26, %fmap_readn.exit.thread ], [ 0, %.preheader4 ], [ 0, %37 ]
   ret i32 %.0
 }
 
@@ -2487,7 +2487,7 @@ declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @hfsplus_scanfile(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef writeonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @hfsplus_scanfile(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull %3, ptr noundef writeonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   store ptr null, ptr %7, align 8
@@ -2507,12 +2507,12 @@ define internal fastcc i32 @hfsplus_scanfile(ptr noundef %0, ptr nocapture nound
   br label %83
 
 16:                                               ; preds = %11
-  %17 = tail call i32 @cli_checklimits(ptr noundef nonnull @.str.124, ptr noundef %0, i64 noundef %9, i64 noundef 0, i64 noundef 0) #12
+  %17 = tail call i32 @cli_checklimits(ptr noundef nonnull @.str.124, ptr noundef nonnull %0, i64 noundef %9, i64 noundef 0, i64 noundef 0) #12
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %18, label %83
 
 18:                                               ; preds = %16
-  %19 = call i32 @cli_gentempfd(ptr noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %8) #12
+  %19 = call i32 @cli_gentempfd(ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull %8) #12
   %.not90 = icmp eq i32 %19, 0
   br i1 %.not90, label %21, label %20
 
@@ -2661,7 +2661,7 @@ define internal fastcc i32 @hfsplus_scanfile(ptr noundef %0, ptr nocapture nound
 79:                                               ; preds = %76
   %80 = load i32, ptr %8, align 4
   %81 = load ptr, ptr %7, align 8
-  %82 = call i32 @cli_magic_scan_desc(i32 noundef %80, ptr noundef %81, ptr noundef %0, ptr noundef %5, i32 noundef 0) #12
+  %82 = call i32 @cli_magic_scan_desc(i32 noundef %80, ptr noundef %81, ptr noundef nonnull %0, ptr noundef %5, i32 noundef 0) #12
   br label %83
 
 83:                                               ; preds = %79, %77, %16, %65, %61, %51, %43, %34, %20, %15

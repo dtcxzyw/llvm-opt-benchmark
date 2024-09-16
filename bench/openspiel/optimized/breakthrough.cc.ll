@@ -2213,7 +2213,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %25, %27
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #24
-  invoke fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_18ColLabelB5cxx11Ei(ptr dead_on_unwind noalias nonnull writable align 8 %9, i32 noundef %35)
+  invoke fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_18ColLabelB5cxx11Ei(ptr dead_on_unwind noalias writable align 8 %9, i32 noundef %35)
           to label %51 unwind label %88
 
 51:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -2236,7 +2236,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 57:                                               ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #24
   %58 = load i32, ptr %17, align 8
-  invoke fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_18RowLabelB5cxx11Eii(ptr dead_on_unwind noalias nonnull writable align 8 %11, i32 noundef %58, i32 noundef %33)
+  invoke fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_18RowLabelB5cxx11Eii(ptr dead_on_unwind noalias writable align 8 %11, i32 noundef %58, i32 noundef %33)
           to label %59 unwind label %88
 
 59:                                               ; preds = %57
@@ -2258,7 +2258,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 
 65:                                               ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #24
-  invoke fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_18ColLabelB5cxx11Ei(ptr dead_on_unwind noalias nonnull writable align 8 %13, i32 noundef %47)
+  invoke fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_18ColLabelB5cxx11Ei(ptr dead_on_unwind noalias writable align 8 %13, i32 noundef %47)
           to label %66 unwind label %88
 
 66:                                               ; preds = %65
@@ -2281,7 +2281,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 72:                                               ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #24
   %73 = load i32, ptr %17, align 8
-  invoke fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_18RowLabelB5cxx11Eii(ptr dead_on_unwind noalias nonnull writable align 8 %15, i32 noundef %73, i32 noundef %44)
+  invoke fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_18RowLabelB5cxx11Eii(ptr dead_on_unwind noalias writable align 8 %15, i32 noundef %73, i32 noundef %44)
           to label %74 unwind label %88
 
 74:                                               ; preds = %72
@@ -2409,7 +2409,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit34:                  ; preds = %98, %100
 declare void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_18ColLabelB5cxx11Ei(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_18ColLabelB5cxx11Ei(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   %4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -2479,7 +2479,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_18RowLabelB5cxx11Eii(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_18RowLabelB5cxx11Eii(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #24
   %5 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -3029,7 +3029,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 22:                                               ; preds = %.lr.ph32, %55
   %23 = phi i32 [ %16, %.lr.ph32 ], [ %57, %55 ]
   %.01431 = phi i32 [ 0, %.lr.ph32 ], [ %56, %55 ]
-  invoke fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_18RowLabelB5cxx11Eii(ptr dead_on_unwind noalias nonnull writable align 8 %5, i32 noundef %23, i32 noundef %.01431)
+  invoke fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_18RowLabelB5cxx11Eii(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %23, i32 noundef %.01431)
           to label %24 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 24:                                               ; preds = %22
@@ -3063,7 +3063,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %36 = load ptr, ptr %20, align 8
   %37 = getelementptr inbounds i32, ptr %36, i64 %35
   %38 = load i32, ptr %37, align 4
-  invoke fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_112CellToStringB5cxx11ENS0_9CellStateE(ptr dead_on_unwind noalias nonnull writable align 8 %7, i32 noundef %38)
+  invoke fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_112CellToStringB5cxx11ENS0_9CellStateE(ptr dead_on_unwind noalias writable align 8 %7, i32 noundef %38)
           to label %39 unwind label %.loopexit.split-lp.loopexit
 
 39:                                               ; preds = %.lr.ph
@@ -3160,7 +3160,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 
 64:                                               ; preds = %.lr.ph35, %70
   %.034 = phi i32 [ 0, %.lr.ph35 ], [ %71, %70 ]
-  invoke fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_18ColLabelB5cxx11Ei(ptr dead_on_unwind noalias nonnull writable align 8 %10, i32 noundef %.034)
+  invoke fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_18ColLabelB5cxx11Ei(ptr dead_on_unwind noalias writable align 8 %10, i32 noundef %.034)
           to label %65 unwind label %.loopexit
 
 65:                                               ; preds = %64
@@ -3213,7 +3213,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_112CellToStringB5cxx11ENS0_9CellStateE(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_112CellToStringB5cxx11ENS0_9CellStateE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
@@ -3358,7 +3358,7 @@ define noundef range(i32 -1, 3) i32 @_ZNK10open_spiel12breakthrough17Breakthroug
   %21 = load ptr, ptr %5, align 8
   %22 = getelementptr inbounds i32, ptr %21, i64 %20
   %23 = load i32, ptr %22, align 4
-  call fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_112CellToStringB5cxx11ENS0_9CellStateE(ptr dead_on_unwind noalias nonnull writable align 8 %4, i32 noundef %23)
+  call fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_112CellToStringB5cxx11ENS0_9CellStateE(ptr dead_on_unwind noalias writable align 8 %4, i32 noundef %23)
   %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %25 unwind label %28
 
@@ -3834,7 +3834,7 @@ _ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.ex
   %76 = load ptr, ptr %54, align 8
   %77 = getelementptr inbounds i32, ptr %76, i64 %75
   %78 = load i32, ptr %77, align 4
-  call fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_112CellToStringB5cxx11ENS0_9CellStateE(ptr dead_on_unwind noalias nonnull writable align 8 %5, i32 noundef %78)
+  call fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_112CellToStringB5cxx11ENS0_9CellStateE(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %78)
   %79 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %80 unwind label %82
 
@@ -5285,7 +5285,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %24 = load ptr, ptr %13, align 8
   %25 = getelementptr inbounds i32, ptr %24, i64 %23
   %26 = load i32, ptr %25, align 4
-  invoke fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_112CellToStringB5cxx11ENS0_9CellStateE(ptr dead_on_unwind noalias nonnull writable align 8 %5, i32 noundef %26)
+  invoke fastcc void @_ZN10open_spiel12breakthrough12_GLOBAL__N_112CellToStringB5cxx11ENS0_9CellStateE(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %26)
           to label %27 unwind label %38
 
 27:                                               ; preds = %.lr.ph

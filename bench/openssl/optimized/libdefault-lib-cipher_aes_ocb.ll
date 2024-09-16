@@ -746,7 +746,7 @@ declare void @ossl_cipher_generic_initkey(ptr noundef, i64 noundef, i64 noundef,
 declare ptr @ossl_prov_cipher_hw_aes_ocb(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @aes_ocb_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef %enc) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @aes_ocb_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef range(i32 0, 2) %enc) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -758,8 +758,7 @@ if.end:                                           ; preds = %entry
   %0 = trunc nuw nsw i32 %enc to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_buf_len, i8 0, i64 16, i1 false)
   %bf.load = load i8, ptr %enc1, align 4
-  %bf.value = shl i8 %0, 1
-  %bf.shl = and i8 %bf.value, 2
+  %bf.shl = shl nuw nsw i8 %0, 1
   %bf.clear = and i8 %bf.load, -3
   %bf.set = or disjoint i8 %bf.clear, %bf.shl
   store i8 %bf.set, ptr %enc1, align 4
@@ -877,7 +876,7 @@ return:                                           ; preds = %if.else, %if.then, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @aes_ocb_block_update_internal(ptr noundef %ctx, ptr noundef %buf, ptr noundef %bufsz, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl, ptr nocapture noundef readonly %ciph) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @aes_ocb_block_update_internal(ptr noundef %ctx, ptr noundef %buf, ptr noundef %bufsz, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef range(i64 1, 0) %inl, ptr nocapture noundef readonly %ciph) unnamed_addr #0 {
 entry:
   %in.addr = alloca ptr, align 8
   %inl.addr = alloca i64, align 8

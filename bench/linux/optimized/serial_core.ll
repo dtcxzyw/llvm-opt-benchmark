@@ -6087,13 +6087,13 @@ define internal fastcc i32 @uart_get_lsr_info(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -14, 1) i32 @uart_get_rs485_config(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -14, 1) i32 @uart_get_rs485_config(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.serial_rs485, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
-  %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #19
+  %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %0) #19
   %5 = getelementptr inbounds i8, ptr %0, i64 400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %3, ptr noundef align 8 dereferenceable(32) %5, i64 32, i1 false)
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %4) #19
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %0, i64 noundef %4) #19
   %6 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %3, i64 noundef 32) #19
   %7 = icmp eq i64 %6, 0
   %8 = select i1 %7, i32 0, i32 -14
@@ -6102,7 +6102,7 @@ define internal fastcc range(i32 -14, 1) i32 @uart_get_rs485_config(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @uart_set_rs485_config(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @uart_set_rs485_config(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.serial_rs485, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #19
   %5 = getelementptr inbounds i8, ptr %1, i64 432
@@ -6154,7 +6154,7 @@ define internal fastcc i32 @uart_set_rs485_config(ptr noundef %0, ptr noundef %1
   br i1 %39, label %40, label %.thread
 
 40:                                               ; preds = %33
-  call fastcc void @uart_sanitize_serial_rs485(ptr noundef %1, ptr noundef nonnull %4)
+  call fastcc void @uart_sanitize_serial_rs485(ptr noundef nonnull %1, ptr noundef nonnull %4)
   %41 = load i32, ptr %4, align 4
   %42 = and i32 %41, 1
   %43 = icmp eq i32 %42, 0
@@ -6188,11 +6188,11 @@ define internal fastcc i32 @uart_set_rs485_config(ptr noundef %0, ptr noundef %1
   br label %.thread3
 
 .thread3:                                         ; preds = %40, %53, %.thread5, %48
-  %54 = call i64 @_raw_spin_lock_irqsave(ptr noundef %1) #19
+  %54 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %1) #19
   %55 = getelementptr inbounds i8, ptr %1, i64 144
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 264
-  %58 = call i32 %56(ptr noundef %1, ptr noundef %57, ptr noundef nonnull %4) #19
+  %58 = call i32 %56(ptr noundef nonnull %1, ptr noundef %57, ptr noundef nonnull %4) #19
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %76
 
@@ -6211,18 +6211,18 @@ define internal fastcc i32 @uart_set_rs485_config(ptr noundef %0, ptr noundef %1
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %1, i64 288
   %71 = load i32, ptr %70, align 8
-  call void %69(ptr noundef %1, i32 noundef %71) #19
+  call void %69(ptr noundef nonnull %1, i32 noundef %71) #19
   br label %72
 
 72:                                               ; preds = %65, %60
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %1, i64 noundef %54) #19
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %1, i64 noundef %54) #19
   %73 = call i64 @_copy_to_user(ptr noundef %2, ptr noundef %61, i64 noundef 32) #19
   %74 = icmp eq i64 %73, 0
   %75 = select i1 %74, i32 0, i32 -14
   br label %.thread
 
 76:                                               ; preds = %.thread3
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %1, i64 noundef %54) #19
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %1, i64 noundef %54) #19
   %77 = getelementptr inbounds i8, ptr %1, i64 464
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
@@ -6253,7 +6253,7 @@ define internal fastcc i32 @uart_set_rs485_config(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @uart_set_iso7816_config(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @uart_set_iso7816_config(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.serial_iso7816, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 152
@@ -6284,10 +6284,10 @@ define internal fastcc i32 @uart_set_iso7816_config(ptr noundef %0, ptr noundef 
   br i1 %19, label %12, label %.loopexit
 
 20:                                               ; preds = %12
-  %21 = call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #19
+  %21 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %0) #19
   %22 = load ptr, ptr %4, align 8
-  %23 = call i32 %22(ptr noundef %0, ptr noundef nonnull %3) #19
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %21) #19
+  %23 = call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %3) #19
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %0, i64 noundef %21) #19
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %.loopexit
 
@@ -6305,7 +6305,7 @@ define internal fastcc i32 @uart_set_iso7816_config(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -25, 1) i32 @uart_get_iso7816_config(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -25, 1) i32 @uart_get_iso7816_config(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.serial_iso7816, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 152
@@ -6314,10 +6314,10 @@ define internal fastcc range(i32 -25, 1) i32 @uart_get_iso7816_config(ptr nounde
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #19
+  %8 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %0) #19
   %9 = getelementptr inbounds i8, ptr %0, i64 480
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %3, ptr noundef align 8 dereferenceable(40) %9, i64 40, i1 false)
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %8) #19
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %0, i64 noundef %8) #19
   %10 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %3, i64 noundef 40) #19
   %11 = icmp eq i64 %10, 0
   %12 = select i1 %11, i32 0, i32 -14

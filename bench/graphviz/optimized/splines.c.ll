@@ -138,7 +138,7 @@ define void @shape_clip(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_
   %29 = load ptr, ptr %4, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 112
   store double %18, ptr %30, align 8
-  call fastcc void @shape_clip0(ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext %28)
+  call fastcc void @shape_clip0(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext %28)
   br label %31
 
 31:                                               ; preds = %2, %9, %15
@@ -149,7 +149,7 @@ define void @shape_clip(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @shape_clip0(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @shape_clip0(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca [4 x %struct.pointf_s], align 16
   %6 = alloca [4 x %struct.pointf_s], align 16
   %7 = alloca double, align 8
@@ -222,7 +222,7 @@ define internal fastcc void @shape_clip0(ptr noundef %0, ptr nocapture noundef r
   %37 = call { double, double } @Bezier(ptr noundef nonnull %9, double noundef %36, ptr noundef %.039.i, ptr noundef %.040.i) #17
   %38 = extractvalue { double, double } %37, 0
   %39 = extractvalue { double, double } %37, 1
-  %40 = call zeroext i1 %31(ptr noundef %0, double %38, double %39) #17
+  %40 = call zeroext i1 %31(ptr noundef nonnull %0, double %38, double %39) #17
   br i1 %40, label %.loopexit44.loopexit.i, label %41
 
 .loopexit44.loopexit.i:                           ; preds = %.critedge.i
@@ -580,7 +580,7 @@ define void @clip_and_install(ptr noundef %0, ptr noundef %1, ptr noundef %2, i6
 ._crit_edge:                                      ; preds = %91, %.lr.ph, %68
   %storemerge.lcssa = phi i64 [ 0, %68 ], [ %storemerge158, %.lr.ph ], [ %92, %91 ]
   %94 = getelementptr inbounds %struct.pointf_s, ptr %2, i64 %storemerge.lcssa
-  call fastcc void @shape_clip0(ptr noundef nonnull %8, ptr noundef nonnull %.0113, ptr noundef %94, i1 noundef zeroext true)
+  call fastcc void @shape_clip0(ptr noundef %8, ptr noundef nonnull %.0113, ptr noundef %94, i1 noundef zeroext true)
   br label %95
 
 95:                                               ; preds = %46, %58, %63, %._crit_edge
@@ -644,7 +644,7 @@ define void @clip_and_install(ptr noundef %0, ptr noundef %1, ptr noundef %2, i6
 ._crit_edge165:                                   ; preds = %128, %.lr.ph164, %106
   %storemerge130.lcssa = phi i64 [ 0, %106 ], [ %storemerge130162, %.lr.ph164 ], [ 0, %128 ]
   %130 = getelementptr inbounds %struct.pointf_s, ptr %2, i64 %storemerge130.lcssa
-  call fastcc void @shape_clip0(ptr noundef nonnull %9, ptr noundef nonnull %.0107, ptr noundef %130, i1 noundef zeroext false)
+  call fastcc void @shape_clip0(ptr noundef %9, ptr noundef nonnull %.0107, ptr noundef %130, i1 noundef zeroext false)
   br label %133
 
 131:                                              ; preds = %101, %96, %95

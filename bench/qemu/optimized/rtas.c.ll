@@ -14,20 +14,20 @@ entry:
   %call.i = tail call i64 @guest_alloc(ptr noundef %alloc, i64 noundef 0) #3
   %call3.i = tail call i64 @guest_alloc(ptr noundef %alloc, i64 noundef 32) #3
   %call4.i = tail call i64 @qtest_rtas_call(ptr noundef %qts, ptr noundef nonnull @.str, i32 noundef 0, i64 noundef %call.i, i32 noundef 8, i64 noundef %call3.i) #3
-  br label %for.body.i17.i
+  br label %for.body.i15.i
 
-for.body.i17.i:                                   ; preds = %for.body.i17.i, %entry
-  %indvars.iv.i18.i = phi i64 [ %indvars.iv.next.i22.i, %for.body.i17.i ], [ 0, %entry ]
-  %mul.i19.i = shl nuw nsw i64 %indvars.iv.i18.i, 2
-  %add.i20.i = add i64 %mul.i19.i, %call3.i
-  %call.i.i = tail call i32 @qtest_readl(ptr noundef %qts, i64 noundef %add.i20.i) #3
-  %arrayidx.i21.i = getelementptr i32, ptr %ret, i64 %indvars.iv.i18.i
-  store i32 %call.i.i, ptr %arrayidx.i21.i, align 4
-  %indvars.iv.next.i22.i = add nuw nsw i64 %indvars.iv.i18.i, 1
-  %exitcond.not.i23.i = icmp eq i64 %indvars.iv.next.i22.i, 8
-  br i1 %exitcond.not.i23.i, label %qrtas_call.exit, label %for.body.i17.i, !llvm.loop !5
+for.body.i15.i:                                   ; preds = %for.body.i15.i, %entry
+  %indvars.iv.i16.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i20.i, %for.body.i15.i ]
+  %mul.i17.i = shl nuw nsw i64 %indvars.iv.i16.i, 2
+  %add.i18.i = add i64 %mul.i17.i, %call3.i
+  %call.i.i = tail call i32 @qtest_readl(ptr noundef %qts, i64 noundef %add.i18.i) #3
+  %arrayidx.i19.i = getelementptr i32, ptr %ret, i64 %indvars.iv.i16.i
+  store i32 %call.i.i, ptr %arrayidx.i19.i, align 4
+  %indvars.iv.next.i20.i = add nuw nsw i64 %indvars.iv.i16.i, 1
+  %exitcond.not.i21.i = icmp eq i64 %indvars.iv.next.i20.i, 8
+  br i1 %exitcond.not.i21.i, label %qrtas_call.exit, label %for.body.i15.i, !llvm.loop !5
 
-qrtas_call.exit:                                  ; preds = %for.body.i17.i
+qrtas_call.exit:                                  ; preds = %for.body.i15.i
   tail call void @guest_free(ptr noundef %alloc, i64 noundef %call3.i) #3
   tail call void @guest_free(ptr noundef %alloc, i64 noundef %call.i) #3
   %conv = trunc i64 %call4.i to i32
@@ -74,45 +74,49 @@ return:                                           ; preds = %qrtas_call.exit, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @qrtas_call(ptr noundef %qts, ptr noundef %alloc, ptr noundef %name, i32 noundef %nargs, ptr nocapture noundef readonly %args, i32 noundef %nret, ptr nocapture noundef writeonly %ret) unnamed_addr #0 {
+define internal fastcc i64 @qrtas_call(ptr noundef %qts, ptr noundef %alloc, ptr noundef %name, i32 noundef range(i32 0, 6) %nargs, ptr nocapture noundef readonly %args, i32 noundef range(i32 1, 9) %nret, ptr nocapture noundef nonnull writeonly %ret) unnamed_addr #0 {
 entry:
-  %conv = zext nneg i32 %nargs to i64
-  %mul = shl nuw nsw i64 %conv, 2
+  %0 = shl nuw nsw i32 %nargs, 2
+  %mul = zext nneg i32 %0 to i64
   %call = tail call i64 @guest_alloc(ptr noundef %alloc, i64 noundef %mul) #3
-  %conv1 = zext nneg i32 %nret to i64
-  %mul2 = shl nuw nsw i64 %conv1, 2
+  %1 = shl nuw nsw i32 %nret, 2
+  %mul2 = zext nneg i32 %1 to i64
   %call3 = tail call i64 @guest_alloc(ptr noundef %alloc, i64 noundef %mul2) #3
   %cmp4.not.i = icmp eq i32 %nargs, 0
-  br i1 %cmp4.not.i, label %qrtas_copy_args.exit, label %for.body.i
+  br i1 %cmp4.not.i, label %qrtas_copy_args.exit, label %for.body.preheader.i
 
-for.body.i:                                       ; preds = %entry, %for.body.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %entry ]
+for.body.preheader.i:                             ; preds = %entry
+  %wide.trip.count.i = zext nneg i32 %nargs to i64
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
   %mul.i = shl nuw nsw i64 %indvars.iv.i, 2
   %add.i = add i64 %mul.i, %call
   %arrayidx.i = getelementptr i32, ptr %args, i64 %indvars.iv.i
-  %0 = load i32, ptr %arrayidx.i, align 4
-  tail call void @qtest_writel(ptr noundef %qts, i64 noundef %add.i, i32 noundef %0) #3
+  %2 = load i32, ptr %arrayidx.i, align 4
+  tail call void @qtest_writel(ptr noundef %qts, i64 noundef %add.i, i32 noundef %2) #3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %qrtas_copy_args.exit, label %for.body.i, !llvm.loop !7
 
 qrtas_copy_args.exit:                             ; preds = %for.body.i, %entry
   %call4 = tail call i64 @qtest_rtas_call(ptr noundef %qts, ptr noundef %name, i32 noundef %nargs, i64 noundef %call, i32 noundef %nret, i64 noundef %call3) #3
-  %cmp4.not.i14 = icmp eq i32 %nret, 0
-  br i1 %cmp4.not.i14, label %qrtas_copy_ret.exit, label %for.body.i17
+  %wide.trip.count.i14 = zext nneg i32 %nret to i64
+  br label %for.body.i15
 
-for.body.i17:                                     ; preds = %qrtas_copy_args.exit, %for.body.i17
-  %indvars.iv.i18 = phi i64 [ %indvars.iv.next.i22, %for.body.i17 ], [ 0, %qrtas_copy_args.exit ]
-  %mul.i19 = shl nuw nsw i64 %indvars.iv.i18, 2
-  %add.i20 = add i64 %mul.i19, %call3
-  %call.i = tail call i32 @qtest_readl(ptr noundef %qts, i64 noundef %add.i20) #3
-  %arrayidx.i21 = getelementptr i32, ptr %ret, i64 %indvars.iv.i18
-  store i32 %call.i, ptr %arrayidx.i21, align 4
-  %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i18, 1
-  %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, %conv1
-  br i1 %exitcond.not.i23, label %qrtas_copy_ret.exit, label %for.body.i17, !llvm.loop !5
+for.body.i15:                                     ; preds = %for.body.i15, %qrtas_copy_args.exit
+  %indvars.iv.i16 = phi i64 [ 0, %qrtas_copy_args.exit ], [ %indvars.iv.next.i20, %for.body.i15 ]
+  %mul.i17 = shl nuw nsw i64 %indvars.iv.i16, 2
+  %add.i18 = add i64 %mul.i17, %call3
+  %call.i = tail call i32 @qtest_readl(ptr noundef %qts, i64 noundef %add.i18) #3
+  %arrayidx.i19 = getelementptr i32, ptr %ret, i64 %indvars.iv.i16
+  store i32 %call.i, ptr %arrayidx.i19, align 4
+  %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i16, 1
+  %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, %wide.trip.count.i14
+  br i1 %exitcond.not.i21, label %qrtas_copy_ret.exit, label %for.body.i15, !llvm.loop !5
 
-qrtas_copy_ret.exit:                              ; preds = %for.body.i17, %qrtas_copy_args.exit
+qrtas_copy_ret.exit:                              ; preds = %for.body.i15
   tail call void @guest_free(ptr noundef %alloc, i64 noundef %call3) #3
   tail call void @guest_free(ptr noundef %alloc, i64 noundef %call) #3
   ret i64 %call4
@@ -136,7 +140,7 @@ entry:
   store i32 %conv2, ptr %arrayidx3, align 8
   %arrayidx4 = getelementptr inbounds i8, ptr %args, i64 12
   store i32 %size, ptr %arrayidx4, align 4
-  %call = call fastcc i64 @qrtas_call(ptr noundef %qts, ptr noundef %alloc, ptr noundef nonnull @.str.1, i32 noundef 4, ptr noundef nonnull %args, i32 noundef 2, ptr noundef nonnull %ret)
+  %call = call fastcc i64 @qrtas_call(ptr noundef %qts, ptr noundef %alloc, ptr noundef nonnull @.str.1, i32 noundef 4, ptr noundef nonnull %args, i32 noundef 2, ptr noundef %ret)
   %0 = and i64 %call, 4294967295
   %cmp.not = icmp eq i64 %0, 0
   %1 = load i32, ptr %ret, align 4
@@ -165,7 +169,7 @@ entry:
   store i32 %size, ptr %arrayidx4, align 4
   %arrayidx5 = getelementptr inbounds i8, ptr %args, i64 16
   store i32 %val, ptr %arrayidx5, align 16
-  %call = call fastcc i64 @qrtas_call(ptr noundef %qts, ptr noundef %alloc, ptr noundef nonnull @.str.2, i32 noundef 5, ptr noundef nonnull %args, i32 noundef 1, ptr noundef nonnull %ret)
+  %call = call fastcc i64 @qrtas_call(ptr noundef %qts, ptr noundef %alloc, ptr noundef nonnull @.str.2, i32 noundef 5, ptr noundef nonnull %args, i32 noundef 1, ptr noundef %ret)
   %0 = and i64 %call, 4294967295
   %cmp.not = icmp ne i64 %0, 0
   %1 = load i32, ptr %ret, align 4

@@ -200,7 +200,7 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   store ptr %ilist, ptr %ilist, align 8
   store ptr %ilist, ptr %agg.tmp, align 8, !alias.scope !5
   store ptr %ilist, ptr %agg.tmp4, align 8, !alias.scope !8
-  %call6 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp4, i32 poison, ptr noundef nonnull @.str.2, i32 noundef -1)
+  %call6 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp, ptr noundef %agg.tmp4, i32 poison, ptr noundef nonnull @.str.2, i32 noundef -1)
   %call8 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call6, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 122, ptr noundef nonnull @.str.3)
   store i32 0, ptr %invariant.gep, align 16
   %incdec.ptr.i = getelementptr inbounds i8, ptr %nodes, i64 24
@@ -264,7 +264,7 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   store ptr %incdec.ptr.i123, ptr %incdec.ptr.i118, align 16
   store ptr %nodes, ptr %agg.tmp30, align 8, !alias.scope !11
   store ptr %ilist, ptr %agg.tmp31, align 8, !alias.scope !14
-  %call33 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp30, ptr noundef nonnull %agg.tmp31, i32 poison, ptr noundef nonnull @.str.4, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef 7, i32 noundef 8, i32 noundef 9, i32 noundef -1)
+  %call33 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp30, ptr noundef %agg.tmp31, i32 poison, ptr noundef nonnull @.str.4, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef 7, i32 noundef 8, i32 noundef 9, i32 noundef -1)
   %call35 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call33, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 127, ptr noundef nonnull @.str.5)
   %ilist.val24 = load ptr, ptr %ilist, align 8
   %mX = getelementptr inbounds i8, ptr %ilist.val24, i64 16
@@ -322,7 +322,7 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   store ptr %ilist, ptr %ilist, align 8
   store ptr %ilist, ptr %agg.tmp148, align 8, !alias.scope !17
   store ptr %ilist, ptr %agg.tmp149, align 8, !alias.scope !20
-  %call151 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp148, ptr noundef nonnull %agg.tmp149, i32 poison, ptr noundef nonnull @.str.20, i32 noundef -1)
+  %call151 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp148, ptr noundef %agg.tmp149, i32 poison, ptr noundef nonnull @.str.20, i32 noundef -1)
   %call153 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call151, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 178, ptr noundef nonnull @.str.21)
   %18 = load ptr, ptr %mpPrev.i.i, align 8
   %cmp.i146 = icmp eq ptr %18, %ilist
@@ -362,7 +362,7 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   store ptr %incdec.ptr.i, ptr %incdec.ptr.i123, align 8
   store ptr %nodes, ptr %agg.tmp193, align 8, !alias.scope !23
   store ptr %ilist, ptr %agg.tmp194, align 8, !alias.scope !26
-  %call196 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp193, ptr noundef nonnull %agg.tmp194, i32 poison, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef 9, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef 7, i32 noundef 8, i32 noundef -1)
+  %call196 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp193, ptr noundef %agg.tmp194, i32 poison, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef 9, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef 7, i32 noundef 8, i32 noundef -1)
   %call198 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call196, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 186, ptr noundef nonnull @.str.24)
   %mpPrev.i.i201 = getelementptr inbounds i8, ptr %ilist2, i64 8
   %add.ptr = getelementptr inbounds i8, ptr %nodes, i64 240
@@ -441,12 +441,12 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   store ptr %ilist2, ptr %mpPrev.i.i201, align 8
   store ptr %ilist2, ptr %agg.tmp233, align 8, !alias.scope !29
   store ptr %ilist2, ptr %agg.tmp234, align 8, !alias.scope !32
-  %call236 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp233, ptr noundef nonnull %agg.tmp234, i32 poison, ptr noundef nonnull @.str.25, i32 noundef -1)
+  %call236 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp233, ptr noundef %agg.tmp234, i32 poison, ptr noundef nonnull @.str.25, i32 noundef -1)
   %call238 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call236, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 192, ptr noundef nonnull @.str.26)
   %ilist.val31 = load ptr, ptr %ilist, align 8
   store ptr %ilist.val31, ptr %agg.tmp239, align 8, !alias.scope !35
   store ptr %ilist, ptr %agg.tmp240, align 8, !alias.scope !38
-  %call242 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp239, ptr noundef nonnull %agg.tmp240, i32 poison, ptr noundef nonnull @.str.25, i32 noundef 0, i32 noundef 9, i32 noundef 10, i32 noundef 11, i32 noundef 12, i32 noundef 13, i32 noundef 14, i32 noundef 15, i32 noundef 16, i32 noundef 17, i32 noundef 18, i32 noundef 19, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef 7, i32 noundef 8, i32 noundef -1)
+  %call242 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp239, ptr noundef %agg.tmp240, i32 poison, ptr noundef nonnull @.str.25, i32 noundef 0, i32 noundef 9, i32 noundef 10, i32 noundef 11, i32 noundef 12, i32 noundef 13, i32 noundef 14, i32 noundef 15, i32 noundef 16, i32 noundef 17, i32 noundef 18, i32 noundef 19, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef 7, i32 noundef 8, i32 noundef -1)
   %call244 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call242, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 193, ptr noundef nonnull @.str.27)
   %ilist.val32 = load ptr, ptr %ilist, align 8
   %22 = load ptr, ptr %ilist.val32, align 8
@@ -480,7 +480,7 @@ invoke.cont265:                                   ; preds = %if.then.i259, %_ZN5
   %ilist.val34 = phi ptr [ %ilist.val34.pre, %if.then.i259 ], [ %ilist.val32, %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit ]
   store ptr %ilist.val34, ptr %agg.tmp266, align 8, !alias.scope !41
   store ptr %ilist, ptr %agg.tmp267, align 8, !alias.scope !44
-  %call269 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp266, ptr noundef nonnull %agg.tmp267, i32 poison, ptr noundef nonnull @.str.28, i32 noundef 10, i32 noundef 11, i32 noundef 12, i32 noundef 13, i32 noundef 14, i32 noundef 15, i32 noundef 16, i32 noundef 17, i32 noundef 18, i32 noundef 19, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef 0, i32 noundef 9, i32 noundef 7, i32 noundef 8, i32 noundef -1)
+  %call269 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp266, ptr noundef %agg.tmp267, i32 poison, ptr noundef nonnull @.str.28, i32 noundef 10, i32 noundef 11, i32 noundef 12, i32 noundef 13, i32 noundef 14, i32 noundef 15, i32 noundef 16, i32 noundef 17, i32 noundef 18, i32 noundef 19, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef 0, i32 noundef 9, i32 noundef 7, i32 noundef 8, i32 noundef -1)
   %call271 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call269, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 196, ptr noundef nonnull @.str.29)
   store ptr %ilist, ptr %mpPrev.i.i, align 8
   store ptr %ilist, ptr %ilist, align 8
@@ -528,12 +528,12 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit: ; preds = %i
   %ilist.val35 = load ptr, ptr %ilist, align 8
   store ptr %ilist.val35, ptr %agg.tmp273, align 8, !alias.scope !47
   store ptr %ilist, ptr %agg.tmp274, align 8, !alias.scope !50
-  %call276 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp273, ptr noundef nonnull %agg.tmp274, i32 poison, ptr noundef nonnull @.str.30, i32 noundef -1)
+  %call276 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp273, ptr noundef %agg.tmp274, i32 poison, ptr noundef nonnull @.str.30, i32 noundef -1)
   %call278 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call276, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 200, ptr noundef nonnull @.str.31)
   %ilist2.val36 = load ptr, ptr %ilist2, align 8
   store ptr %ilist2.val36, ptr %agg.tmp279, align 8, !alias.scope !53
   store ptr %ilist2, ptr %agg.tmp280, align 8, !alias.scope !56
-  %call282 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp279, ptr noundef nonnull %agg.tmp280, i32 poison, ptr noundef nonnull @.str.30, i32 noundef -1)
+  %call282 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp279, ptr noundef %agg.tmp280, i32 poison, ptr noundef nonnull @.str.30, i32 noundef -1)
   %call284 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call282, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 201, ptr noundef nonnull @.str.32)
   %37 = load ptr, ptr %mpPrev.i.i201, align 8
   store ptr %37, ptr %mpPrev2.i.i, align 8
@@ -562,12 +562,12 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   %ilist.val38 = load ptr, ptr %ilist, align 8
   store ptr %ilist.val38, ptr %agg.tmp291, align 8, !alias.scope !59
   store ptr %ilist, ptr %agg.tmp292, align 8, !alias.scope !62
-  %call294 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp291, ptr noundef nonnull %agg.tmp292, i32 poison, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef -1)
+  %call294 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp291, ptr noundef %agg.tmp292, i32 poison, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef -1)
   %call296 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call294, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 205, ptr noundef nonnull @.str.33)
   %ilist2.val39 = load ptr, ptr %ilist2, align 8
   store ptr %ilist2.val39, ptr %agg.tmp297, align 8, !alias.scope !65
   store ptr %ilist2, ptr %agg.tmp298, align 8, !alias.scope !68
-  %call300 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp297, ptr noundef nonnull %agg.tmp298, i32 poison, ptr noundef nonnull @.str.23, i32 noundef -1)
+  %call300 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp297, ptr noundef %agg.tmp298, i32 poison, ptr noundef nonnull @.str.23, i32 noundef -1)
   %call302 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call300, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 206, ptr noundef nonnull @.str.34)
   store i32 0, ptr %invariant.gep, align 16
   store ptr %ilist, ptr %mpPrev2.i.i, align 8
@@ -588,7 +588,7 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   store ptr %incdec.ptr.i98, ptr %incdec.ptr.i93, align 8
   store ptr %nodes, ptr %agg.tmp332, align 8, !alias.scope !71
   store ptr %ilist, ptr %agg.tmp333, align 8, !alias.scope !74
-  %call335 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp332, ptr noundef nonnull %agg.tmp333, i32 poison, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef -1)
+  %call335 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp332, ptr noundef %agg.tmp333, i32 poison, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef -1)
   %call337 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call335, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 212, ptr noundef nonnull @.str.35)
   %ilist.val43 = load ptr, ptr %ilist, align 8
   %41 = load ptr, ptr %ilist.val43, align 8
@@ -615,7 +615,7 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   %ilist.val45 = phi ptr [ %ilist.val43, %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit273 ], [ %ilist.val45.pre, %if.then.i308 ]
   store ptr %ilist.val45, ptr %agg.tmp356, align 8, !alias.scope !77
   store ptr %ilist, ptr %agg.tmp357, align 8, !alias.scope !80
-  %call359 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp356, ptr noundef nonnull %agg.tmp357, i32 poison, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef -1)
+  %call359 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp356, ptr noundef %agg.tmp357, i32 poison, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef -1)
   %call361 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call359, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 214, ptr noundef nonnull @.str.35)
   store i32 0, ptr %invariant.gep, align 16
   store ptr %ilist, ptr %mpPrev2.i.i, align 8
@@ -636,7 +636,7 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   store ptr %incdec.ptr.i, ptr %mpPrev2.i.i95, align 8
   store ptr %nodes, ptr %agg.tmp398, align 8, !alias.scope !83
   store ptr %ilist, ptr %agg.tmp399, align 8, !alias.scope !86
-  %call401 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp398, ptr noundef nonnull %agg.tmp399, i32 poison, ptr noundef nonnull @.str.28, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef -1)
+  %call401 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp398, ptr noundef %agg.tmp399, i32 poison, ptr noundef nonnull @.str.28, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef -1)
   %call403 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call401, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 220, ptr noundef nonnull @.str.36)
   store ptr %ilist, ptr %mpPrev.i.i, align 8
   store ptr %ilist2, ptr %mpPrev.i.i201, align 8
@@ -677,12 +677,12 @@ for.end418:                                       ; preds = %for.body413
   %ilist.val50 = load ptr, ptr %ilist, align 8
   store ptr %ilist.val50, ptr %agg.tmp419, align 8, !alias.scope !92
   store ptr %ilist, ptr %agg.tmp420, align 8, !alias.scope !95
-  %call422 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp419, ptr noundef nonnull %agg.tmp420, i32 poison, ptr noundef nonnull @.str.37, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef -1)
+  %call422 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp419, ptr noundef %agg.tmp420, i32 poison, ptr noundef nonnull @.str.37, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef -1)
   %call424 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call422, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 231, ptr noundef nonnull @.str.38)
   %ilist2.val51 = load ptr, ptr %ilist2, align 8
   store ptr %ilist2.val51, ptr %agg.tmp425, align 8, !alias.scope !98
   store ptr %ilist2, ptr %agg.tmp426, align 8, !alias.scope !101
-  %call428 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp425, ptr noundef nonnull %agg.tmp426, i32 poison, ptr noundef nonnull @.str.4, i32 noundef 5, i32 noundef 6, i32 noundef 7, i32 noundef 8, i32 noundef 9, i32 noundef -1)
+  %call428 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp425, ptr noundef %agg.tmp426, i32 poison, ptr noundef nonnull @.str.4, i32 noundef 5, i32 noundef 6, i32 noundef 7, i32 noundef 8, i32 noundef 9, i32 noundef -1)
   %call430 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call428, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 232, ptr noundef nonnull @.str.39)
   br label %for.body433
 
@@ -715,12 +715,12 @@ for.end438:                                       ; preds = %for.body433
   %ilist.val52 = load ptr, ptr %ilist, align 8
   store ptr %ilist.val52, ptr %agg.tmp443, align 8, !alias.scope !105
   store ptr %ilist, ptr %agg.tmp444, align 8, !alias.scope !108
-  %call446 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp443, ptr noundef nonnull %agg.tmp444, i32 poison, ptr noundef nonnull @.str.41, i32 noundef -1)
+  %call446 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp443, ptr noundef %agg.tmp444, i32 poison, ptr noundef nonnull @.str.41, i32 noundef -1)
   %call448 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call446, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 241, ptr noundef nonnull @.str.42)
   %ilist2.val53 = load ptr, ptr %ilist2, align 8
   store ptr %ilist2.val53, ptr %agg.tmp449, align 8, !alias.scope !111
   store ptr %ilist2, ptr %agg.tmp450, align 8, !alias.scope !114
-  %call452 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp449, ptr noundef nonnull %agg.tmp450, i32 poison, ptr noundef nonnull @.str.43, i32 noundef -1)
+  %call452 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp449, ptr noundef %agg.tmp450, i32 poison, ptr noundef nonnull @.str.43, i32 noundef -1)
   %call454 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call452, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 242, ptr noundef nonnull @.str.44)
   br label %for.body457
 
@@ -798,7 +798,7 @@ invoke.cont488:                                   ; preds = %for.body.i381, %for
   %ilist.val54 = load ptr, ptr %ilist, align 8
   store ptr %ilist.val54, ptr %agg.tmp496, align 8, !alias.scope !126
   store ptr %ilist, ptr %agg.tmp497, align 8, !alias.scope !129
-  %call499 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp496, ptr noundef nonnull %agg.tmp497, i32 poison, ptr noundef nonnull @.str.37, i32 noundef 4, i32 noundef 3, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef -1)
+  %call499 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp496, ptr noundef %agg.tmp497, i32 poison, ptr noundef nonnull @.str.37, i32 noundef 4, i32 noundef 3, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef -1)
   %call501 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call499, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 261, ptr noundef nonnull @.str.48)
   %call503 = call noundef zeroext i1 @_ZNK5eastl19intrusive_list_base8validateEv(ptr noundef nonnull align 8 dereferenceable(16) %ilist)
   %call505 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call503, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 265, ptr noundef nonnull @.str.49)
@@ -891,12 +891,12 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit422: ; preds =
   %ilist.val55 = load ptr, ptr %ilist, align 8
   store ptr %ilist.val55, ptr %agg.tmp530, align 8, !alias.scope !136
   store ptr %ilist, ptr %agg.tmp531, align 8, !alias.scope !139
-  %call533 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp530, ptr noundef nonnull %agg.tmp531, i32 poison, ptr noundef nonnull @.str.52, i32 noundef -1)
+  %call533 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp530, ptr noundef %agg.tmp531, i32 poison, ptr noundef nonnull @.str.52, i32 noundef -1)
   %call535 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call533, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 273, ptr noundef nonnull @.str.53)
   %ilist2.val56 = load ptr, ptr %ilist2, align 8
   store ptr %ilist2.val56, ptr %agg.tmp536, align 8, !alias.scope !142
   store ptr %ilist2, ptr %agg.tmp537, align 8, !alias.scope !145
-  %call539 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp536, ptr noundef nonnull %agg.tmp537, i32 poison, ptr noundef nonnull @.str.52, i32 noundef 4, i32 noundef 3, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef -1)
+  %call539 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp536, ptr noundef %agg.tmp537, i32 poison, ptr noundef nonnull @.str.52, i32 noundef 4, i32 noundef 3, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef -1)
   %call541 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call539, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 274, ptr noundef nonnull @.str.54)
   store i32 0, ptr %invariant.gep, align 16
   store ptr %ilist2, ptr %mpPrev2.i.i, align 8
@@ -934,7 +934,7 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit422: ; preds =
   store ptr %incdec.ptr.i108, ptr %mpPrev2.i.i125, align 8, !noalias !148
   store ptr %incdec.ptr.i103, ptr %agg.tmp578, align 8, !alias.scope !151
   store ptr %ilist, ptr %agg.tmp579, align 8, !alias.scope !154
-  %call581 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp578, ptr noundef nonnull %agg.tmp579, i32 poison, ptr noundef nonnull @.str.55, i32 noundef 5, i32 noundef 6, i32 noundef 8, i32 noundef 9, i32 noundef -1)
+  %call581 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp578, ptr noundef %agg.tmp579, i32 poison, ptr noundef nonnull @.str.55, i32 noundef 5, i32 noundef 6, i32 noundef 8, i32 noundef 9, i32 noundef -1)
   %call583 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call581, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 281, ptr noundef nonnull @.str.56)
   %ilist.val59 = load ptr, ptr %ilist, align 8
   %64 = getelementptr i8, ptr %ilist.val59, i64 8
@@ -944,7 +944,7 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit422: ; preds =
   %ilist.val60 = load ptr, ptr %ilist, align 8
   store ptr %ilist.val60, ptr %agg.tmp594, align 8, !alias.scope !160
   store ptr %ilist, ptr %agg.tmp595, align 8, !alias.scope !163
-  %call597 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp594, ptr noundef nonnull %agg.tmp595, i32 poison, ptr noundef nonnull @.str.57, i32 noundef -1)
+  %call597 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp594, ptr noundef %agg.tmp595, i32 poison, ptr noundef nonnull @.str.57, i32 noundef -1)
   %call599 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call597, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 284, ptr noundef nonnull @.str.58)
   %ilist2.val61 = load ptr, ptr %ilist2, align 8
   %65 = load ptr, ptr %ilist2.val61, align 8
@@ -959,7 +959,7 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit422: ; preds =
   %ilist2.val62 = load ptr, ptr %ilist2, align 8
   store ptr %ilist2.val62, ptr %agg.tmp616, align 8, !alias.scope !169
   store ptr %ilist2, ptr %agg.tmp617, align 8, !alias.scope !172
-  %call619 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp616, ptr noundef nonnull %agg.tmp617, i32 poison, ptr noundef nonnull @.str.59, i32 noundef 0, i32 noundef 3, i32 noundef 4, i32 noundef -1)
+  %call619 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp616, ptr noundef %agg.tmp617, i32 poison, ptr noundef nonnull @.str.59, i32 noundef 0, i32 noundef 3, i32 noundef 4, i32 noundef -1)
   %call621 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call619, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 287, ptr noundef nonnull @.str.60)
   br label %do.body.i
 
@@ -982,7 +982,7 @@ _ZNK5eastl19intrusive_list_base4sizeEv.exit:      ; preds = %do.body.i
   store ptr %72, ptr %ilist2, align 8
   store ptr %72, ptr %agg.tmp627, align 8, !alias.scope !176
   store ptr %ilist2, ptr %agg.tmp628, align 8, !alias.scope !179
-  %call630 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp627, ptr noundef nonnull %agg.tmp628, i32 poison, ptr noundef nonnull @.str.41, i32 noundef 3, i32 noundef 4, i32 noundef -1)
+  %call630 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp627, ptr noundef %agg.tmp628, i32 poison, ptr noundef nonnull @.str.41, i32 noundef 3, i32 noundef 4, i32 noundef -1)
   %call632 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call630, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 296, ptr noundef nonnull @.str.62)
   %73 = load ptr, ptr %mpPrev.i.i201, align 8
   %mpPrev3.i485 = getelementptr inbounds i8, ptr %73, i64 8
@@ -995,7 +995,7 @@ _ZNK5eastl19intrusive_list_base4sizeEv.exit:      ; preds = %do.body.i
   %ilist2.val64 = load ptr, ptr %ilist2, align 8
   store ptr %ilist2.val64, ptr %agg.tmp634, align 8, !alias.scope !182
   store ptr %ilist2, ptr %agg.tmp635, align 8, !alias.scope !185
-  %call637 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp634, ptr noundef nonnull %agg.tmp635, i32 poison, ptr noundef nonnull @.str.43, i32 noundef 3, i32 noundef -1)
+  %call637 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp634, ptr noundef %agg.tmp635, i32 poison, ptr noundef nonnull @.str.43, i32 noundef 3, i32 noundef -1)
   %call639 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call637, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 299, ptr noundef nonnull @.str.63)
   %mpPrev.i.i487 = getelementptr inbounds i8, ptr %ilist1, i64 8
   store ptr %ilist1, ptr %mpPrev.i.i487, align 8
@@ -1022,7 +1022,7 @@ arrayctor.cont656:                                ; preds = %arrayctor.loop652
   %listEmpty.val = load ptr, ptr %listEmpty, align 8
   store ptr %listEmpty.val, ptr %agg.tmp659, align 8, !alias.scope !188
   store ptr %listEmpty, ptr %agg.tmp660, align 8, !alias.scope !191
-  %call662 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp659, ptr noundef nonnull %agg.tmp660, i32 poison, ptr noundef nonnull @.str.64, i32 noundef -1)
+  %call662 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp659, ptr noundef %agg.tmp660, i32 poison, ptr noundef nonnull @.str.64, i32 noundef -1)
   %call664 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call662, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 322, ptr noundef nonnull @.str.65)
   %mpPrev.i.i491 = getelementptr inbounds i8, ptr %list1, i64 8
   store i32 1, ptr %invariant.gep1148, align 16
@@ -1035,7 +1035,7 @@ arrayctor.cont656:                                ; preds = %arrayctor.loop652
   %list1.val = load ptr, ptr %list1, align 8
   store ptr %list1.val, ptr %agg.tmp673, align 8, !alias.scope !194
   store ptr %list1, ptr %agg.tmp674, align 8, !alias.scope !197
-  %call676 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp673, ptr noundef nonnull %agg.tmp674, i32 poison, ptr noundef nonnull @.str.64, i32 noundef 1, i32 noundef -1)
+  %call676 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp673, ptr noundef %agg.tmp674, i32 poison, ptr noundef nonnull @.str.64, i32 noundef 1, i32 noundef -1)
   %call678 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call676, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 327, ptr noundef nonnull @.str.66)
   store ptr %list1, ptr %mpPrev.i.i491, align 8
   store ptr %list1, ptr %list1, align 8
@@ -1067,7 +1067,7 @@ arrayctor.cont656:                                ; preds = %arrayctor.loop652
   %list4.val = load ptr, ptr %list4, align 8
   store ptr %list4.val, ptr %agg.tmp693, align 8, !alias.scope !200
   store ptr %list4, ptr %agg.tmp694, align 8, !alias.scope !203
-  %call696 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp693, ptr noundef nonnull %agg.tmp694, i32 poison, ptr noundef nonnull @.str.64, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 9, i32 noundef -1)
+  %call696 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp693, ptr noundef %agg.tmp694, i32 poison, ptr noundef nonnull @.str.64, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 9, i32 noundef -1)
   %call698 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call696, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 333, ptr noundef nonnull @.str.67)
   store ptr %list4, ptr %mpPrev.i.i500, align 8
   store ptr %list4, ptr %list4, align 8
@@ -1126,7 +1126,7 @@ arrayctor.cont656:                                ; preds = %arrayctor.loop652
   %listA.val = load ptr, ptr %listA, align 8
   store ptr %listA.val, ptr %agg.tmp725, align 8, !alias.scope !206
   store ptr %listA, ptr %agg.tmp726, align 8, !alias.scope !209
-  %call728 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp725, ptr noundef nonnull %agg.tmp726, i32 poison, ptr noundef nonnull @.str.64, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef 7, i32 noundef 8, i32 noundef 9, i32 noundef -1)
+  %call728 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp725, ptr noundef %agg.tmp726, i32 poison, ptr noundef nonnull @.str.64, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef 7, i32 noundef 8, i32 noundef 9, i32 noundef -1)
   %call730 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call728, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 339, ptr noundef nonnull @.str.68)
   store ptr %listA, ptr %mpPrev.i.i524, align 8
   store ptr %listA, ptr %listA, align 8
@@ -1167,7 +1167,7 @@ arrayctor.cont656:                                ; preds = %arrayctor.loop652
   %listB.val = load ptr, ptr %listB, align 8
   store ptr %listB.val, ptr %agg.tmp758, align 8, !alias.scope !212
   store ptr %listB, ptr %agg.tmp759, align 8, !alias.scope !215
-  %call761 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp758, ptr noundef nonnull %agg.tmp759, i32 poison, ptr noundef nonnull @.str.64, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef 7, i32 noundef 8, i32 noundef 9, i32 noundef -1)
+  %call761 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp758, ptr noundef %agg.tmp759, i32 poison, ptr noundef nonnull @.str.64, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef 7, i32 noundef 8, i32 noundef 9, i32 noundef -1)
   %call763 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call761, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 345, ptr noundef nonnull @.str.69)
   store ptr %listB, ptr %mpPrev.i.i578, align 8
   store ptr %listB, ptr %listB, align 8
@@ -1367,12 +1367,12 @@ invoke.cont827:                                   ; preds = %_ZN5eastl14intrusiv
   %listA784.val = load ptr, ptr %listA784, align 8
   store ptr %listA784.val, ptr %agg.tmp828, align 8, !alias.scope !219
   store ptr %listA784, ptr %agg.tmp829, align 8, !alias.scope !222
-  %call831 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp828, ptr noundef nonnull %agg.tmp829, i32 poison, ptr noundef nonnull @.str.70, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 2, i32 noundef 3, i32 noundef 3, i32 noundef 4, i32 noundef 4, i32 noundef 4, i32 noundef 4, i32 noundef 5, i32 noundef 5, i32 noundef 9, i32 noundef 9, i32 noundef 9, i32 noundef 9, i32 noundef -1)
+  %call831 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp828, ptr noundef %agg.tmp829, i32 poison, ptr noundef nonnull @.str.70, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 2, i32 noundef 3, i32 noundef 3, i32 noundef 4, i32 noundef 4, i32 noundef 4, i32 noundef 4, i32 noundef 5, i32 noundef 5, i32 noundef 9, i32 noundef 9, i32 noundef 9, i32 noundef 9, i32 noundef -1)
   %call833 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call831, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 365, ptr noundef nonnull @.str.71)
   %listB805.val = load ptr, ptr %listB805, align 8
   store ptr %listB805.val, ptr %agg.tmp834, align 8, !alias.scope !225
   store ptr %listB805, ptr %agg.tmp835, align 8, !alias.scope !228
-  %call837 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp834, ptr noundef nonnull %agg.tmp835, i32 poison, ptr noundef nonnull @.str.70, i32 noundef -1)
+  %call837 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp834, ptr noundef %agg.tmp835, i32 poison, ptr noundef nonnull @.str.70, i32 noundef -1)
   %call839 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call837, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 366, ptr noundef nonnull @.str.72)
   %invariant.gep1154 = getelementptr inbounds i8, ptr %nodesA843, i64 16
   br label %arrayctor.loop846
@@ -1478,7 +1478,7 @@ while.body.i824.preheader:                        ; preds = %if.end.i775
   %listA859.val.pre = load ptr, ptr %listA859, align 8
   store ptr %listA859.val.pre, ptr %agg.tmp881, align 8, !alias.scope !235
   store ptr %listA859, ptr %agg.tmp882, align 8, !alias.scope !238
-  %call884 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp881, ptr noundef nonnull %agg.tmp882, i32 poison, ptr noundef nonnull @.str.73, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 9, i32 noundef -1)
+  %call884 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp881, ptr noundef %agg.tmp882, i32 poison, ptr noundef nonnull @.str.73, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 9, i32 noundef -1)
   %call886 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call884, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 381, ptr noundef nonnull @.str.74)
   %mpPrev.i.i778 = getelementptr inbounds i8, ptr %listB887, i64 8
   store i32 1, ptr %invariant.gep1156, align 16
@@ -1560,7 +1560,7 @@ invoke.cont910:                                   ; preds = %if.end.i826
   %listA859.val65 = load ptr, ptr %listA859, align 8
   store ptr %listA859.val65, ptr %agg.tmp911, align 8, !alias.scope !245
   store ptr %listA859, ptr %agg.tmp912, align 8, !alias.scope !248
-  %call914 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef nonnull %agg.tmp911, ptr noundef nonnull %agg.tmp912, i32 poison, ptr noundef nonnull @.str.73, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 9, i32 noundef -1)
+  %call914 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp911, ptr noundef %agg.tmp912, i32 poison, ptr noundef nonnull @.str.73, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 9, i32 noundef -1)
   %call916 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call914, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 386, ptr noundef nonnull @.str.74)
   %101 = load i32, ptr %nErrorCount, align 4
   ret i32 %101
@@ -1571,7 +1571,7 @@ declare noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr nocapture noundef %first, ptr nocapture noundef readonly %last, i32 %0, ptr noundef %pName, ...) unnamed_addr #0 {
+define internal noundef zeroext i1 @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr nocapture noundef nonnull %first, ptr nocapture noundef nonnull readonly %last, i32 %0, ptr noundef %pName, ...) unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
@@ -1823,7 +1823,7 @@ while.body.i.i.i.preheader:                       ; preds = %_ZNK5eastl19intrusi
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i.preheader, %while.body.i.i.i
   %n.addr.02.i.i.i = phi i64 [ %dec.i.i.i, %while.body.i.i.i ], [ %div1, %while.body.i.i.i.preheader ]
   %3 = phi ptr [ %4, %while.body.i.i.i ], [ %0, %while.body.i.i.i.preheader ]
-  %dec.i.i.i = add i64 %n.addr.02.i.i.i, -1
+  %dec.i.i.i = add nsw i64 %n.addr.02.i.i.i, -1
   %4 = load ptr, ptr %3, align 8
   %tobool.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %invoke.cont8, label %while.body.i.i.i, !llvm.loop !253
@@ -2013,7 +2013,7 @@ while.body.i.i.i.preheader:                       ; preds = %_ZNK5eastl19intrusi
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i.preheader, %while.body.i.i.i
   %n.addr.02.i.i.i = phi i64 [ %dec.i.i.i, %while.body.i.i.i ], [ %div1, %while.body.i.i.i.preheader ]
   %3 = phi ptr [ %4, %while.body.i.i.i ], [ %0, %while.body.i.i.i.preheader ]
-  %dec.i.i.i = add i64 %n.addr.02.i.i.i, -1
+  %dec.i.i.i = add nsw i64 %n.addr.02.i.i.i, -1
   %4 = load ptr, ptr %3, align 8
   %tobool.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %invoke.cont8, label %while.body.i.i.i, !llvm.loop !253

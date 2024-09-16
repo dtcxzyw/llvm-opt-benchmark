@@ -750,7 +750,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @assign_codes(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 {
+define internal fastcc void @assign_codes(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #4 {
   %6 = load i32, ptr %0, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %tailrecurse._crit_edge, label %.lr.ph.preheader
@@ -835,7 +835,7 @@ define internal range(i32 -1, 2) i32 @comp_codes(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_nodes(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @free_nodes(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %6

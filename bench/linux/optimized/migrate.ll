@@ -378,7 +378,7 @@ declare dso_local void @down_read(ptr noundef) local_unnamed_addr #3
 declare dso_local void @up_read(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @update_ind_extent_range(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @update_ind_extent_range(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 1, 4294967296) %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
@@ -479,7 +479,7 @@ define internal fastcc i32 @update_ind_extent_range(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @update_dind_extent_range(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @update_dind_extent_range(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 1, 4294967296) %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
@@ -543,7 +543,7 @@ define internal fastcc i32 @update_dind_extent_range(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @update_tind_extent_range(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @update_tind_extent_range(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 1, 4294967296) %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
@@ -1339,7 +1339,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #3 sectio
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @free_dind_blocks(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @free_dind_blocks(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24

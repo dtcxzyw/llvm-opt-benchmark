@@ -547,7 +547,7 @@ if.then.i:
   store i64 %5, ptr %agg.tmp.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4absl15CommandLineFlagEEZNS0_14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEENS5_10HelpFormatESC_E3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %_M_invoker.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4absl15CommandLineFlagEEZNS0_14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEENS5_10HelpFormatESC_E3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i.i4, align 8
-  invoke fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbRKNS_15CommandLineFlagEEENS0_10HelpFormatESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %agg.tmp.i, i32 noundef %format, i64 %program_usage_message.coerce0, ptr %program_usage_message.coerce1)
+  invoke fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbRKNS_15CommandLineFlagEEENS0_10HelpFormatESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %agg.tmp.i, i32 noundef %format, i64 %program_usage_message.coerce0, ptr %program_usage_message.coerce1)
           to label %invoke.cont.i6 unwind label %lpad.i5
 
 invoke.cont.i6:                                   ; preds = %if.then.i
@@ -746,7 +746,7 @@ invoke.cont:                                      ; preds = %.noexc
   store i64 %9, ptr %agg.tmp.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4absl15CommandLineFlagEEZNS0_14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEENS5_10HelpFormatESC_E3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %_M_invoker.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4absl15CommandLineFlagEEZNS0_14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEENS5_10HelpFormatESC_E3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i.i17, align 8
-  invoke fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbRKNS_15CommandLineFlagEEENS0_10HelpFormatESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %agg.tmp.i, i32 noundef %5, i64 %program_usage_message.coerce0, ptr %program_usage_message.coerce1)
+  invoke fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbRKNS_15CommandLineFlagEEENS0_10HelpFormatESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %agg.tmp.i, i32 noundef %5, i64 %program_usage_message.coerce0, ptr %program_usage_message.coerce1)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont
@@ -877,7 +877,7 @@ invoke.cont9:                                     ; preds = %.noexc34
   store i64 %30, ptr %agg.tmp.i36, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4absl15CommandLineFlagEEZNS0_14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEENS5_10HelpFormatESC_E3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %_M_invoker.i.i38, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4absl15CommandLineFlagEEZNS0_14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEENS5_10HelpFormatESC_E3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i.i37, align 8
-  invoke fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbRKNS_15CommandLineFlagEEENS0_10HelpFormatESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %agg.tmp.i36, i32 noundef %26, i64 %program_usage_message.coerce0, ptr %program_usage_message.coerce1)
+  invoke fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbRKNS_15CommandLineFlagEEENS0_10HelpFormatESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %agg.tmp.i36, i32 noundef %26, i64 %program_usage_message.coerce0, ptr %program_usage_message.coerce1)
           to label %invoke.cont.i45 unwind label %lpad.i39
 
 invoke.cont.i45:                                  ; preds = %invoke.cont9
@@ -1026,7 +1026,7 @@ invoke.cont21:                                    ; preds = %.noexc75
   store i64 %54, ptr %agg.tmp.i77, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4absl15CommandLineFlagEEZNS0_14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEENS5_10HelpFormatESC_E3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %_M_invoker.i.i79, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4absl15CommandLineFlagEEZNS0_14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEENS5_10HelpFormatESC_E3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i.i78, align 8
-  invoke fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbRKNS_15CommandLineFlagEEENS0_10HelpFormatESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %agg.tmp.i77, i32 noundef %50, i64 %program_usage_message.coerce0, ptr %program_usage_message.coerce1)
+  invoke fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbRKNS_15CommandLineFlagEEENS0_10HelpFormatESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %agg.tmp.i77, i32 noundef %50, i64 %program_usage_message.coerce0, ptr %program_usage_message.coerce1)
           to label %invoke.cont.i86 unwind label %lpad.i80
 
 invoke.cont.i86:                                  ; preds = %invoke.cont21
@@ -1154,7 +1154,7 @@ if.else:                                          ; preds = %sw.bb25
   store i64 %76, ptr %agg.tmp34, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4absl15CommandLineFlagEEZNS0_14flags_internal16HandleUsageFlagsERSoSt17basic_string_viewIcSt11char_traitsIcEEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %_M_invoker.i109, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4absl15CommandLineFlagEEZNS0_14flags_internal16HandleUsageFlagsERSoSt17basic_string_viewIcSt11char_traitsIcEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %_M_manager.i.i108, align 8
-  invoke fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbRKNS_15CommandLineFlagEEENS0_10HelpFormatESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %agg.tmp34, i32 noundef 0, i64 %program_usage_message.coerce0, ptr %program_usage_message.coerce1)
+  invoke fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbRKNS_15CommandLineFlagEEENS0_10HelpFormatESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %agg.tmp34, i32 noundef 0, i64 %program_usage_message.coerce0, ptr %program_usage_message.coerce1)
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %if.else
@@ -1498,7 +1498,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbRKNS_15CommandLineFlagEEENS0_10HelpFormatESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %filter_cb, i32 noundef %format, i64 %program_usage_message.coerce0, ptr %program_usage_message.coerce1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_113FlagsHelpImplERSoSt8functionIFbRKNS_15CommandLineFlagEEENS0_10HelpFormatESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %filter_cb, i32 noundef %format, i64 %program_usage_message.coerce0, ptr %program_usage_message.coerce1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.absl::flags_internal::(anonymous namespace)::XMLElement", align 8

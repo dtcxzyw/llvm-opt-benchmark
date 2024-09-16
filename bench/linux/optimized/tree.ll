@@ -10393,7 +10393,7 @@ declare dso_local zeroext i1 @rcu_segcblist_pend_cbs(ptr noundef) local_unnamed_
 declare dso_local zeroext i1 @rcu_segcblist_accelerate(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @rcu_start_this_gp(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef zeroext i1 @rcu_start_this_gp(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, -3) %2) unnamed_addr #1 align 16 {
   %4 = load ptr, ptr @rcu_start_this_gp.___tp_str, align 8
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @rcu_state, i64 3648), align 64
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -17301,7 +17301,7 @@ define internal fastcc void @kvfree_rcu_bulk(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @kvfree_rcu_list(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc void @kvfree_rcu_list(ptr noundef nonnull %0) unnamed_addr #1 align 16 {
   br label %2
 
 2:                                                ; preds = %1, %42

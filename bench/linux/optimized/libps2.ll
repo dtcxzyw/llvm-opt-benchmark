@@ -60,7 +60,7 @@ define dso_local i32 @ps2_sendbyte(ptr noundef %0, i8 noundef zeroext %1, i32 no
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ps2_do_sendbyte(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ps2_do_sendbyte(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.wait_queue_entry, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 81
   %7 = getelementptr inbounds i8, ptr %0, i64 64

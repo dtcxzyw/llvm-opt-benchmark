@@ -345,7 +345,7 @@ parse_plain_data.exit:                            ; preds = %.lr.ph20.i, %.crite
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 {
   %2 = alloca [1 x %struct.vec_t], align 16
   %3 = alloca [3 x %struct.vec_t], align 16
   %4 = alloca [3 x %struct.vec_t], align 16
@@ -354,7 +354,7 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %7 = alloca ptr, align 8
   %8 = load i32, ptr @curr_offset, align 4
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %347, label %9
+  br i1 %.not, label %348, label %9
 
 9:                                                ; preds = %1
   %10 = load i32, ptr @has_direction, align 4
@@ -718,324 +718,325 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %168 = phi ptr [ %124, %123 ], [ %158, %.sink.split ]
   %.397 = phi i32 [ %.296, %123 ], [ %161, %.sink.split ]
   %.b121 = load i1, ptr @hdr_data_chunk, align 4
-  br i1 %.b121, label %169, label %196
+  br i1 %.b121, label %169, label %197
 
 169:                                              ; preds = %167
   %170 = load i32, ptr @packet_start, align 4
   %171 = icmp eq i32 %170, 0
   %spec.store.select = select i1 %171, i8 2, i8 0
   %.not184 = icmp eq i32 %0, 0
-  %172 = zext i1 %.not184 to i8
-  %spec.select234 = or disjoint i8 %spec.store.select, %172
+  %172 = trunc nuw nsw i32 %0 to i8
+  %173 = or disjoint i8 %spec.store.select, %172
+  %spec.select234 = xor i8 %173, 1
   store i8 0, ptr @HDR_DATA_CHUNK, align 4
   store i8 %spec.select234, ptr getelementptr inbounds (i8, ptr @HDR_DATA_CHUNK, i64 1), align 1
-  %173 = load i32, ptr @curr_offset, align 4
-  %174 = trunc i32 %173 to i16
-  %trunc185 = add i16 %174, 16
+  %174 = load i32, ptr @curr_offset, align 4
+  %175 = trunc i32 %174 to i16
+  %trunc185 = add i16 %175, 16
   %rev186 = call i16 @llvm.bswap.i16(i16 %trunc185)
   store i16 %rev186, ptr getelementptr inbounds (i8, ptr @HDR_DATA_CHUNK, i64 2), align 2
-  %175 = load i32, ptr @hdr_data_chunk_tsn, align 4
-  %176 = call i32 @llvm.bswap.i32(i32 %175)
-  store i32 %176, ptr getelementptr inbounds (i8, ptr @HDR_DATA_CHUNK, i64 4), align 4
+  %176 = load i32, ptr @hdr_data_chunk_tsn, align 4
+  %177 = call i32 @llvm.bswap.i32(i32 %176)
+  store i32 %177, ptr getelementptr inbounds (i8, ptr @HDR_DATA_CHUNK, i64 4), align 4
   store i16 0, ptr getelementptr inbounds (i8, ptr @HDR_DATA_CHUNK, i64 8), align 4
-  %177 = load i16, ptr @hdr_data_chunk_ssn, align 2
-  %rev190 = call i16 @llvm.bswap.i16(i16 %177)
+  %178 = load i16, ptr @hdr_data_chunk_ssn, align 2
+  %rev190 = call i16 @llvm.bswap.i16(i16 %178)
   store i16 %rev190, ptr getelementptr inbounds (i8, ptr @HDR_DATA_CHUNK, i64 10), align 2
-  %178 = load ptr, ptr @info_p, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 172
-  %180 = load i32, ptr %179, align 4
-  %181 = call i32 @llvm.bswap.i32(i32 %180)
-  store i32 %181, ptr getelementptr inbounds (i8, ptr @HDR_DATA_CHUNK, i64 12), align 4
-  %182 = add i32 %175, 1
-  store i32 %182, ptr @hdr_data_chunk_tsn, align 4
-  br i1 %.not184, label %183, label %185
+  %179 = load ptr, ptr @info_p, align 8
+  %180 = getelementptr inbounds i8, ptr %179, i64 172
+  %181 = load i32, ptr %180, align 4
+  %182 = call i32 @llvm.bswap.i32(i32 %181)
+  store i32 %182, ptr getelementptr inbounds (i8, ptr @HDR_DATA_CHUNK, i64 12), align 4
+  %183 = add i32 %176, 1
+  store i32 %183, ptr @hdr_data_chunk_tsn, align 4
+  br i1 %.not184, label %184, label %186
 
-183:                                              ; preds = %169
-  %184 = add i16 %177, 1
-  store i16 %184, ptr @hdr_data_chunk_ssn, align 2
-  br label %185
+184:                                              ; preds = %169
+  %185 = add i16 %178, 1
+  store i16 %185, ptr @hdr_data_chunk_ssn, align 2
+  br label %186
 
-185:                                              ; preds = %183, %169
-  %186 = and i32 %173, 3
-  %187 = icmp eq i32 %186, 0
-  %188 = sub nuw nsw i32 4, %186
-  %.0.i223 = select i1 %187, i32 0, i32 %188
-  br i1 %187, label %._crit_edge, label %.lr.ph
+186:                                              ; preds = %184, %169
+  %187 = and i32 %174, 3
+  %188 = icmp eq i32 %187, 0
+  %189 = sub nuw nsw i32 4, %187
+  %.0.i223 = select i1 %188, i32 0, i32 %189
+  br i1 %188, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %185
-  %189 = add i32 %173, %spec.select218
-  %wide.trip.count = zext nneg i32 %188 to i64
-  br label %190
+.lr.ph:                                           ; preds = %186
+  %190 = add i32 %174, %spec.select218
+  %wide.trip.count = zext nneg i32 %189 to i64
+  br label %191
 
-190:                                              ; preds = %.lr.ph, %190
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %190 ]
-  %191 = trunc nuw nsw i64 %indvars.iv to i32
-  %192 = add i32 %189, %191
-  %193 = zext i32 %192 to i64
-  %194 = getelementptr i8, ptr %168, i64 %193
-  store i8 0, ptr %194, align 1
+191:                                              ; preds = %.lr.ph, %191
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %191 ]
+  %192 = trunc nuw nsw i64 %indvars.iv to i32
+  %193 = add i32 %190, %192
+  %194 = zext i32 %193 to i64
+  %195 = getelementptr i8, ptr %168, i64 %194
+  store i8 0, ptr %195, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %190, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %191, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %190, %185
-  %195 = add i32 %.0.i223, %173
-  store i32 %195, ptr @curr_offset, align 4
-  br label %196
+._crit_edge:                                      ; preds = %191, %186
+  %196 = add i32 %.0.i223, %174
+  store i32 %196, ptr @curr_offset, align 4
+  br label %197
 
-196:                                              ; preds = %._crit_edge, %167
+197:                                              ; preds = %._crit_edge, %167
   %.b117 = load i1, ptr @hdr_sctp, align 4
-  br i1 %.b117, label %197, label %245
+  br i1 %.b117, label %198, label %246
 
-197:                                              ; preds = %196
-  %198 = load ptr, ptr @info_p, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 160
-  %200 = getelementptr inbounds i8, ptr %198, i64 164
-  %.sink275.in = select i1 %14, ptr %200, ptr %199
+198:                                              ; preds = %197
+  %199 = load ptr, ptr @info_p, align 8
+  %200 = getelementptr inbounds i8, ptr %199, i64 160
+  %201 = getelementptr inbounds i8, ptr %199, i64 164
+  %.sink275.in = select i1 %14, ptr %201, ptr %200
   %.sink274 = select i1 %14, i64 160, i64 164
   %.sink275 = load i32, ptr %.sink275.in, align 4
   %trunc194 = trunc i32 %.sink275 to i16
   %rev195 = call i16 @llvm.bswap.i16(i16 %trunc194)
-  %201 = getelementptr inbounds i8, ptr %198, i64 %.sink274
-  %.sink266 = load i32, ptr %201, align 4
+  %202 = getelementptr inbounds i8, ptr %199, i64 %.sink274
+  %.sink266 = load i32, ptr %202, align 4
   %trunc199 = trunc i32 %.sink266 to i16
   %rev200 = call i16 @llvm.bswap.i16(i16 %trunc199)
   store i16 %rev195, ptr @HDR_SCTP, align 4
   store i16 %rev200, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 2), align 2
-  %202 = getelementptr inbounds i8, ptr %198, i64 168
-  %203 = load i32, ptr %202, align 8
-  %204 = call i32 @llvm.bswap.i32(i32 %203)
-  store i32 %204, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 4), align 4
+  %203 = getelementptr inbounds i8, ptr %199, i64 168
+  %204 = load i32, ptr %203, align 8
+  %205 = call i32 @llvm.bswap.i32(i32 %204)
+  store i32 %205, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 4), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
-  %205 = call i32 @crc32c_calculate(ptr noundef nonnull @HDR_SCTP, i32 noundef 12, i32 noundef -1) #15
-  store i32 %205, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
+  %206 = call i32 @crc32c_calculate(ptr noundef nonnull @HDR_SCTP, i32 noundef 12, i32 noundef -1) #15
+  store i32 %206, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
   %.b120 = load i1, ptr @hdr_data_chunk, align 4
-  br i1 %.b120, label %206, label %208
+  br i1 %.b120, label %207, label %209
 
-206:                                              ; preds = %197
-  %207 = call i32 @crc32c_calculate(ptr noundef nonnull @HDR_DATA_CHUNK, i32 noundef 16, i32 noundef %205) #15
-  store i32 %207, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
-  br label %208
+207:                                              ; preds = %198
+  %208 = call i32 @crc32c_calculate(ptr noundef nonnull @HDR_DATA_CHUNK, i32 noundef 16, i32 noundef %206) #15
+  store i32 %208, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
+  br label %209
 
-208:                                              ; preds = %206, %197
-  %209 = phi i32 [ %207, %206 ], [ %205, %197 ]
-  %210 = load ptr, ptr @packet_buf, align 8
-  %211 = getelementptr i8, ptr %210, i64 %50
-  %212 = load i32, ptr @curr_offset, align 4
-  %213 = call i32 @crc32c_calculate(ptr noundef %211, i32 noundef %212, i32 noundef %209) #15
-  %214 = xor i32 %213, -1
-  %215 = shl i32 %214, 24
-  %216 = load ptr, ptr @packet_buf, align 8
-  %217 = getelementptr i8, ptr %216, i64 %50
-  %218 = load i32, ptr @curr_offset, align 4
-  %219 = load i32, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
-  %220 = call i32 @crc32c_calculate(ptr noundef %217, i32 noundef %218, i32 noundef %219) #15
-  %221 = shl i32 %220, 8
-  %222 = and i32 %221, 16711680
-  %223 = or disjoint i32 %222, %215
-  %224 = load ptr, ptr @packet_buf, align 8
-  %225 = getelementptr i8, ptr %224, i64 %50
-  %226 = load i32, ptr @curr_offset, align 4
-  %227 = load i32, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
-  %228 = call i32 @crc32c_calculate(ptr noundef %225, i32 noundef %226, i32 noundef %227) #15
-  %229 = lshr i32 %228, 8
-  %230 = and i32 %229, 65280
-  %231 = or disjoint i32 %230, %223
-  %232 = load ptr, ptr @packet_buf, align 8
-  %233 = getelementptr i8, ptr %232, i64 %50
-  %234 = load i32, ptr @curr_offset, align 4
-  %235 = load i32, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
-  %236 = call i32 @crc32c_calculate(ptr noundef %233, i32 noundef %234, i32 noundef %235) #15
-  %237 = xor i32 %236, -1
-  %238 = lshr i32 %237, 24
-  %239 = or disjoint i32 %238, %231
-  %240 = xor i32 %239, 16776960
-  store i32 %240, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
-  %241 = load ptr, ptr @packet_buf, align 8
-  %242 = sext i32 %.397 to i64
-  %243 = getelementptr i8, ptr %241, i64 %242
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %243, ptr noundef nonnull align 4 dereferenceable(12) @HDR_SCTP, i64 12, i1 false)
-  %244 = add i32 %.397, 12
-  br label %245
+209:                                              ; preds = %207, %198
+  %210 = phi i32 [ %208, %207 ], [ %206, %198 ]
+  %211 = load ptr, ptr @packet_buf, align 8
+  %212 = getelementptr i8, ptr %211, i64 %50
+  %213 = load i32, ptr @curr_offset, align 4
+  %214 = call i32 @crc32c_calculate(ptr noundef %212, i32 noundef %213, i32 noundef %210) #15
+  %215 = xor i32 %214, -1
+  %216 = shl i32 %215, 24
+  %217 = load ptr, ptr @packet_buf, align 8
+  %218 = getelementptr i8, ptr %217, i64 %50
+  %219 = load i32, ptr @curr_offset, align 4
+  %220 = load i32, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
+  %221 = call i32 @crc32c_calculate(ptr noundef %218, i32 noundef %219, i32 noundef %220) #15
+  %222 = shl i32 %221, 8
+  %223 = and i32 %222, 16711680
+  %224 = or disjoint i32 %223, %216
+  %225 = load ptr, ptr @packet_buf, align 8
+  %226 = getelementptr i8, ptr %225, i64 %50
+  %227 = load i32, ptr @curr_offset, align 4
+  %228 = load i32, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
+  %229 = call i32 @crc32c_calculate(ptr noundef %226, i32 noundef %227, i32 noundef %228) #15
+  %230 = lshr i32 %229, 8
+  %231 = and i32 %230, 65280
+  %232 = or disjoint i32 %231, %224
+  %233 = load ptr, ptr @packet_buf, align 8
+  %234 = getelementptr i8, ptr %233, i64 %50
+  %235 = load i32, ptr @curr_offset, align 4
+  %236 = load i32, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
+  %237 = call i32 @crc32c_calculate(ptr noundef %234, i32 noundef %235, i32 noundef %236) #15
+  %238 = xor i32 %237, -1
+  %239 = lshr i32 %238, 24
+  %240 = or disjoint i32 %239, %232
+  %241 = xor i32 %240, 16776960
+  store i32 %241, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
+  %242 = load ptr, ptr @packet_buf, align 8
+  %243 = sext i32 %.397 to i64
+  %244 = getelementptr i8, ptr %242, i64 %243
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %244, ptr noundef nonnull align 4 dereferenceable(12) @HDR_SCTP, i64 12, i1 false)
+  %245 = add i32 %.397, 12
+  br label %246
 
-245:                                              ; preds = %208, %196
-  %.498 = phi i32 [ %244, %208 ], [ %.397, %196 ]
+246:                                              ; preds = %209, %197
+  %.498 = phi i32 [ %245, %209 ], [ %.397, %197 ]
   %.b119 = load i1, ptr @hdr_data_chunk, align 4
-  br i1 %.b119, label %246, label %250
+  br i1 %.b119, label %247, label %251
 
-246:                                              ; preds = %245
-  %247 = load ptr, ptr @packet_buf, align 8
-  %248 = sext i32 %.498 to i64
-  %249 = getelementptr i8, ptr %247, i64 %248
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %249, ptr noundef nonnull align 4 dereferenceable(16) @HDR_DATA_CHUNK, i64 16, i1 false)
-  br label %250
+247:                                              ; preds = %246
+  %248 = load ptr, ptr @packet_buf, align 8
+  %249 = sext i32 %.498 to i64
+  %250 = getelementptr i8, ptr %248, i64 %249
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %250, ptr noundef nonnull align 4 dereferenceable(16) @HDR_DATA_CHUNK, i64 16, i1 false)
+  br label %251
 
-250:                                              ; preds = %246, %245
+251:                                              ; preds = %247, %246
   %.b125 = load i1, ptr @hdr_export_pdu, align 4
-  br i1 %.b125, label %251, label %269
+  br i1 %.b125, label %252, label %270
 
-251:                                              ; preds = %250
-  %252 = load ptr, ptr @info_p, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 176
-  %254 = load ptr, ptr %253, align 8
-  %255 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %254) #16
-  %256 = trunc i64 %255 to i32
+252:                                              ; preds = %251
+  %253 = load ptr, ptr @info_p, align 8
+  %254 = getelementptr inbounds i8, ptr %253, i64 176
+  %255 = load ptr, ptr %254, align 8
+  %256 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %255) #16
+  %257 = trunc i64 %256 to i32
   store i16 3072, ptr @HDR_EXPORT_PDU, align 4
-  %trunc207 = trunc i64 %255 to i16
+  %trunc207 = trunc i64 %256 to i16
   %rev208 = call i16 @llvm.bswap.i16(i16 %trunc207)
   store i16 %rev208, ptr getelementptr inbounds (i8, ptr @HDR_EXPORT_PDU, i64 2), align 2
-  %257 = load ptr, ptr @packet_buf, align 8
-  %258 = sext i32 %.498 to i64
-  %259 = getelementptr i8, ptr %257, i64 %258
-  %260 = load i32, ptr @HDR_EXPORT_PDU, align 4
-  store i32 %260, ptr %259, align 1
-  %261 = add i32 %.498, 4
-  %262 = sext i32 %261 to i64
-  %263 = getelementptr i8, ptr %257, i64 %262
-  %264 = load ptr, ptr %253, align 8
-  %265 = and i64 %255, 4294967295
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %263, ptr align 1 %264, i64 %265, i1 false)
-  %266 = add i32 %261, %256
-  %267 = sext i32 %266 to i64
-  %268 = getelementptr i8, ptr %257, i64 %267
-  store i32 0, ptr %268, align 1
-  br label %269
+  %258 = load ptr, ptr @packet_buf, align 8
+  %259 = sext i32 %.498 to i64
+  %260 = getelementptr i8, ptr %258, i64 %259
+  %261 = load i32, ptr @HDR_EXPORT_PDU, align 4
+  store i32 %261, ptr %260, align 1
+  %262 = add i32 %.498, 4
+  %263 = sext i32 %262 to i64
+  %264 = getelementptr i8, ptr %258, i64 %263
+  %265 = load ptr, ptr %254, align 8
+  %266 = and i64 %256, 4294967295
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %264, ptr align 1 %265, i64 %266, i1 false)
+  %267 = add i32 %262, %257
+  %268 = sext i32 %267 to i64
+  %269 = getelementptr i8, ptr %258, i64 %268
+  store i32 0, ptr %269, align 1
+  br label %270
 
-269:                                              ; preds = %251, %250
+270:                                              ; preds = %252, %251
   %.b = load i1, ptr @hdr_ethernet, align 4
-  %270 = icmp ne i32 %.099225, 0
-  %or.cond = select i1 %.b, i1 %270, i1 false
+  %271 = icmp ne i32 %.099225, 0
+  %or.cond = select i1 %.b, i1 %271, i1 false
   %.pre243 = load i32, ptr @curr_offset, align 4
-  br i1 %or.cond, label %271, label %277
+  br i1 %or.cond, label %272, label %278
 
-271:                                              ; preds = %269
-  %272 = load ptr, ptr @packet_buf, align 8
-  %273 = add i32 %.pre243, %spec.select218
-  %274 = zext i32 %273 to i64
-  %275 = getelementptr i8, ptr %272, i64 %274
-  %276 = zext nneg i32 %.099225 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %275, i8 0, i64 %276, i1 false)
-  br label %277
+272:                                              ; preds = %270
+  %273 = load ptr, ptr @packet_buf, align 8
+  %274 = add i32 %.pre243, %spec.select218
+  %275 = zext i32 %274 to i64
+  %276 = getelementptr i8, ptr %273, i64 %275
+  %277 = zext nneg i32 %.099225 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %276, i8 0, i64 %277, i1 false)
+  br label %278
 
-277:                                              ; preds = %271, %269
-  %278 = load i32, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 4), align 4
-  %279 = call i32 @llvm.bswap.i32(i32 %278)
-  %280 = add i32 %279, %.pre243
-  %281 = call i32 @llvm.bswap.i32(i32 %280)
-  store i32 %281, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 4), align 4
+278:                                              ; preds = %272, %270
+  %279 = load i32, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 4), align 4
+  %280 = call i32 @llvm.bswap.i32(i32 %279)
+  %281 = add i32 %280, %.pre243
+  %282 = call i32 @llvm.bswap.i32(i32 %281)
+  store i32 %282, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 4), align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %5, i8 0, i64 280, i1 false)
-  %282 = load ptr, ptr @info_p, align 8
-  %283 = getelementptr inbounds i8, ptr %282, i64 96
-  %284 = load i32, ptr %283, align 8
-  %285 = icmp eq i32 %284, 203
-  br i1 %285, label %286, label %294
+  %283 = load ptr, ptr @info_p, align 8
+  %284 = getelementptr inbounds i8, ptr %283, i64 96
+  %285 = load i32, ptr %284, align 8
+  %286 = icmp eq i32 %285, 203
+  br i1 %286, label %287, label %295
 
-286:                                              ; preds = %277
+287:                                              ; preds = %278
   store i32 4, ptr %5, align 8
-  %287 = call ptr @wtap_block_create(i32 noundef 10) #15
-  %288 = getelementptr inbounds i8, ptr %5, i64 232
-  store ptr %287, ptr %288, align 8
-  %289 = load i32, ptr @curr_offset, align 4
-  %290 = add i32 %.099225, %spec.select218
-  %291 = add i32 %290, %289
-  %292 = getelementptr inbounds i8, ptr %5, i64 64
-  store i32 %291, ptr %292, align 8
-  %293 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 3, ptr %293, align 4
-  br label %320
+  %288 = call ptr @wtap_block_create(i32 noundef 10) #15
+  %289 = getelementptr inbounds i8, ptr %5, i64 232
+  store ptr %288, ptr %289, align 8
+  %290 = load i32, ptr @curr_offset, align 4
+  %291 = add i32 %.099225, %spec.select218
+  %292 = add i32 %291, %290
+  %293 = getelementptr inbounds i8, ptr %5, i64 64
+  store i32 %292, ptr %293, align 8
+  %294 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 3, ptr %294, align 4
+  br label %321
 
-294:                                              ; preds = %277
-  %295 = call ptr @wtap_block_create(i32 noundef 5) #15
-  %296 = getelementptr inbounds i8, ptr %5, i64 232
-  store ptr %295, ptr %296, align 8
-  %297 = load i32, ptr @curr_offset, align 4
-  %298 = add i32 %.099225, %spec.select218
-  %299 = add i32 %298, %297
-  %300 = getelementptr inbounds i8, ptr %5, i64 64
-  %301 = getelementptr inbounds i8, ptr %5, i64 68
-  store i32 %299, ptr %301, align 4
-  store i32 %299, ptr %300, align 8
-  %302 = load i64, ptr @ts_sec, align 8
-  %303 = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 %302, ptr %303, align 8
-  %304 = load i32, ptr @ts_nsec, align 4
-  %305 = getelementptr inbounds i8, ptr %5, i64 24
-  store i32 %304, ptr %305, align 8
-  %306 = load ptr, ptr @info_p, align 8
-  %307 = getelementptr inbounds i8, ptr %306, i64 96
-  %308 = load i32, ptr %307, align 8
-  %309 = getelementptr inbounds i8, ptr %5, i64 72
-  store i32 %308, ptr %309, align 8
-  %310 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 7, ptr %310, align 4
-  %311 = load i32, ptr @has_direction, align 4
-  %.not215 = icmp eq i32 %311, 0
-  br i1 %.not215, label %315, label %312
+295:                                              ; preds = %278
+  %296 = call ptr @wtap_block_create(i32 noundef 5) #15
+  %297 = getelementptr inbounds i8, ptr %5, i64 232
+  store ptr %296, ptr %297, align 8
+  %298 = load i32, ptr @curr_offset, align 4
+  %299 = add i32 %.099225, %spec.select218
+  %300 = add i32 %299, %298
+  %301 = getelementptr inbounds i8, ptr %5, i64 64
+  %302 = getelementptr inbounds i8, ptr %5, i64 68
+  store i32 %300, ptr %302, align 4
+  store i32 %300, ptr %301, align 8
+  %303 = load i64, ptr @ts_sec, align 8
+  %304 = getelementptr inbounds i8, ptr %5, i64 16
+  store i64 %303, ptr %304, align 8
+  %305 = load i32, ptr @ts_nsec, align 4
+  %306 = getelementptr inbounds i8, ptr %5, i64 24
+  store i32 %305, ptr %306, align 8
+  %307 = load ptr, ptr @info_p, align 8
+  %308 = getelementptr inbounds i8, ptr %307, i64 96
+  %309 = load i32, ptr %308, align 8
+  %310 = getelementptr inbounds i8, ptr %5, i64 72
+  store i32 %309, ptr %310, align 8
+  %311 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 7, ptr %311, align 4
+  %312 = load i32, ptr @has_direction, align 4
+  %.not215 = icmp eq i32 %312, 0
+  br i1 %.not215, label %316, label %313
 
-312:                                              ; preds = %294
-  %313 = load i32, ptr @direction, align 4
-  %314 = call i32 @wtap_block_add_uint32_option(ptr noundef %295, i32 noundef 2, i32 noundef %313) #15
-  br label %315
+313:                                              ; preds = %295
+  %314 = load i32, ptr @direction, align 4
+  %315 = call i32 @wtap_block_add_uint32_option(ptr noundef %296, i32 noundef 2, i32 noundef %314) #15
+  br label %316
 
-315:                                              ; preds = %312, %294
-  %316 = load i32, ptr @has_seqno, align 4
-  %.not216 = icmp eq i32 %316, 0
-  br i1 %.not216, label %320, label %317
+316:                                              ; preds = %313, %295
+  %317 = load i32, ptr @has_seqno, align 4
+  %.not216 = icmp eq i32 %317, 0
+  br i1 %.not216, label %321, label %318
 
-317:                                              ; preds = %315
-  %318 = load i64, ptr @seqno, align 8
-  %319 = call i32 @wtap_block_add_uint64_option(ptr noundef %295, i32 noundef 5, i64 noundef %318) #15
-  br label %320
+318:                                              ; preds = %316
+  %319 = load i64, ptr @seqno, align 8
+  %320 = call i32 @wtap_block_add_uint64_option(ptr noundef %296, i32 noundef 5, i64 noundef %319) #15
+  br label %321
 
-320:                                              ; preds = %315, %317, %286
-  %321 = load ptr, ptr @info_p, align 8
-  %322 = getelementptr inbounds i8, ptr %321, i64 104
-  %323 = load ptr, ptr %322, align 8
-  %324 = load ptr, ptr @packet_buf, align 8
-  %325 = call i32 @wtap_dump(ptr noundef %323, ptr noundef nonnull %5, ptr noundef %324, ptr noundef nonnull %6, ptr noundef nonnull %7) #15
-  %.not217 = icmp eq i32 %325, 0
-  br i1 %.not217, label %326, label %340
+321:                                              ; preds = %316, %318, %287
+  %322 = load ptr, ptr @info_p, align 8
+  %323 = getelementptr inbounds i8, ptr %322, i64 104
+  %324 = load ptr, ptr %323, align 8
+  %325 = load ptr, ptr @packet_buf, align 8
+  %326 = call i32 @wtap_dump(ptr noundef %324, ptr noundef nonnull %5, ptr noundef %325, ptr noundef nonnull %6, ptr noundef nonnull %7) #15
+  %.not217 = icmp eq i32 %326, 0
+  br i1 %.not217, label %327, label %341
 
-326:                                              ; preds = %320
-  %327 = load ptr, ptr @info_p, align 8
-  %328 = load ptr, ptr %327, align 8
-  %329 = getelementptr inbounds i8, ptr %327, i64 8
-  %330 = load ptr, ptr %329, align 8
-  %331 = load i32, ptr %6, align 4
-  %332 = load ptr, ptr %7, align 8
-  %333 = getelementptr inbounds i8, ptr %327, i64 188
-  %334 = load i32, ptr %333, align 4
-  %335 = getelementptr inbounds i8, ptr %327, i64 104
-  %336 = load ptr, ptr %335, align 8
-  %337 = call i32 @wtap_dump_file_type_subtype(ptr noundef %336) #15
-  call void @report_cfile_write_failure(ptr noundef %328, ptr noundef %330, i32 noundef %331, ptr noundef %332, i32 noundef %334, i32 noundef %337) #15
-  %338 = getelementptr inbounds i8, ptr %5, i64 232
-  %339 = load ptr, ptr %338, align 8
-  call void @wtap_block_unref(ptr noundef %339) #15
-  br label %351
+327:                                              ; preds = %321
+  %328 = load ptr, ptr @info_p, align 8
+  %329 = load ptr, ptr %328, align 8
+  %330 = getelementptr inbounds i8, ptr %328, i64 8
+  %331 = load ptr, ptr %330, align 8
+  %332 = load i32, ptr %6, align 4
+  %333 = load ptr, ptr %7, align 8
+  %334 = getelementptr inbounds i8, ptr %328, i64 188
+  %335 = load i32, ptr %334, align 4
+  %336 = getelementptr inbounds i8, ptr %328, i64 104
+  %337 = load ptr, ptr %336, align 8
+  %338 = call i32 @wtap_dump_file_type_subtype(ptr noundef %337) #15
+  call void @report_cfile_write_failure(ptr noundef %329, ptr noundef %331, i32 noundef %332, ptr noundef %333, i32 noundef %335, i32 noundef %338) #15
+  %339 = getelementptr inbounds i8, ptr %5, i64 232
+  %340 = load ptr, ptr %339, align 8
+  call void @wtap_block_unref(ptr noundef %340) #15
+  br label %352
 
-340:                                              ; preds = %320
-  %341 = getelementptr inbounds i8, ptr %5, i64 232
-  %342 = load ptr, ptr %341, align 8
-  call void @wtap_block_unref(ptr noundef %342) #15
-  %343 = load ptr, ptr @info_p, align 8
-  %344 = getelementptr inbounds i8, ptr %343, i64 192
-  %345 = load i32, ptr %344, align 8
-  %346 = add i32 %345, 1
-  store i32 %346, ptr %344, align 8
+341:                                              ; preds = %321
+  %342 = getelementptr inbounds i8, ptr %5, i64 232
+  %343 = load ptr, ptr %342, align 8
+  call void @wtap_block_unref(ptr noundef %343) #15
+  %344 = load ptr, ptr @info_p, align 8
+  %345 = getelementptr inbounds i8, ptr %344, i64 192
+  %346 = load i32, ptr %345, align 8
+  %347 = add i32 %346, 1
+  store i32 %347, ptr %345, align 8
   %.pre244 = load i32, ptr @curr_offset, align 4
-  br label %347
+  br label %348
 
-347:                                              ; preds = %340, %1
-  %348 = phi i32 [ %.pre244, %340 ], [ 0, %1 ]
-  %349 = load i32, ptr @packet_start, align 4
-  %350 = add i32 %349, %348
-  store i32 %350, ptr @packet_start, align 4
+348:                                              ; preds = %341, %1
+  %349 = phi i32 [ %.pre244, %341 ], [ 0, %1 ]
+  %350 = load i32, ptr @packet_start, align 4
+  %351 = add i32 %350, %349
+  store i32 %351, ptr @packet_start, align 4
   store i32 0, ptr @curr_offset, align 4
-  br label %351
+  br label %352
 
-351:                                              ; preds = %347, %326
-  %.0 = phi i32 [ 0, %347 ], [ 1, %326 ]
+352:                                              ; preds = %348, %327
+  %.0 = phi i32 [ 0, %348 ], [ 1, %327 ]
   ret i32 %.0
 }
 
@@ -1117,7 +1118,7 @@ define hidden void @parse_time(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call fastcc i32 @_parse_time(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2)
+  %6 = tail call fastcc i32 @_parse_time(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %10
 
@@ -1132,7 +1133,7 @@ define hidden void @parse_time(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_parse_time(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_parse_time(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.tm, align 8
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
@@ -1160,7 +1161,7 @@ define internal fastcc range(i32 0, 2) i32 @_parse_time(ptr noundef %0, ptr noun
   br label %55
 
 20:                                               ; preds = %3
-  %21 = call i64 @g_strlcpy(ptr noundef nonnull %6, ptr noundef %2, i64 noundef 64) #15
+  %21 = call i64 @g_strlcpy(ptr noundef nonnull %6, ptr noundef nonnull %2, i64 noundef 64) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) @timecode_default, i64 56, i1 false)
   %22 = call ptr @g_strrstr(ptr noundef nonnull %6, ptr noundef nonnull @.str.23) #15
   %.not = icmp eq ptr %22, null
@@ -1352,7 +1353,7 @@ define hidden range(i32 0, 2) i32 @parse_token(i32 noundef %0, ptr noundef %1) l
   br label %196
 
 29:                                               ; preds = %20
-  %30 = call fastcc i32 @parse_num(ptr noundef %1, i32 noundef 1, ptr noundef nonnull %5)
+  %30 = call fastcc i32 @parse_num(ptr noundef %1, i32 noundef 1, ptr noundef %5)
   %.not75 = icmp eq i32 %30, 0
   br i1 %.not75, label %31, label %197
 
@@ -1442,7 +1443,7 @@ define hidden range(i32 0, 2) i32 @parse_token(i32 noundef %0, ptr noundef %1) l
   br label %196
 
 64:                                               ; preds = %55
-  %65 = call fastcc i32 @parse_num(ptr noundef %1, i32 noundef 1, ptr noundef nonnull %5)
+  %65 = call fastcc i32 @parse_num(ptr noundef %1, i32 noundef 1, ptr noundef %5)
   %.not68 = icmp eq i32 %65, 0
   br i1 %.not68, label %66, label %197
 
@@ -1524,7 +1525,7 @@ define hidden range(i32 0, 2) i32 @parse_token(i32 noundef %0, ptr noundef %1) l
 95:                                               ; preds = %94
   store i32 3, ptr @state, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %96 = call fastcc i32 @parse_num(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %4)
+  %96 = call fastcc i32 @parse_num(ptr noundef %1, i32 noundef 0, ptr noundef %4)
   %.not.i = icmp eq i32 %96, 0
   br i1 %.not.i, label %97, label %write_byte.exit.thread
 
@@ -1582,7 +1583,7 @@ write_byte.exit:                                  ; preds = %97, %108
 
 115:                                              ; preds = %114
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %116 = call fastcc i32 @parse_num(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %3)
+  %116 = call fastcc i32 @parse_num(ptr noundef %1, i32 noundef 0, ptr noundef %3)
   %.not.i78 = icmp eq i32 %116, 0
   br i1 %.not.i78, label %117, label %write_byte.exit82.thread
 
@@ -1837,7 +1838,7 @@ declare void @report_warning(ptr noundef, ...) local_unnamed_addr #1
 declare void @g_strfreev(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_num(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_num(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
@@ -1894,7 +1895,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_num(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @start_new_packet(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @start_new_packet(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 {
   %2 = tail call fastcc i32 @write_current_packet(i32 noundef %0)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %76
@@ -2005,7 +2006,7 @@ _parse_dir.exit.i:                                ; preds = %.critedge._crit_edg
 
 52:                                               ; preds = %49
   %53 = getelementptr i8, ptr @packet_preamble, i64 %50
-  %54 = tail call fastcc i32 @_parse_time(ptr noundef nonnull @packet_preamble, ptr noundef %53, ptr noundef nonnull %48)
+  %54 = tail call fastcc i32 @_parse_time(ptr noundef nonnull @packet_preamble, ptr noundef %53, ptr noundef %48)
   %.not15.i = icmp eq i32 %54, 0
   br i1 %.not15.i, label %55, label %68
 
@@ -2071,7 +2072,7 @@ parse_preamble.exit:                              ; preds = %.loopexit.i, %73
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @write_byte(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
-  %3 = call fastcc i32 @parse_num(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %2)
+  %3 = call fastcc i32 @parse_num(ptr noundef %0, i32 noundef 0, ptr noundef %2)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %18
 

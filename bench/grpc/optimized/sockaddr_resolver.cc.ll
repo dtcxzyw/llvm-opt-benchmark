@@ -416,7 +416,7 @@ entry:
   %3 = load i64, ptr %result_handler6.i, align 8
   store i64 %3, ptr %result_handler.i, align 8
   store ptr null, ptr %result_handler6.i, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122CreateSockaddrResolverENS_12ResolverArgsEPFbRKNS_3URIEP21grpc_resolved_addressE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp, ptr noundef nonnull @_Z15grpc_parse_ipv4RKN9grpc_core3URIEP21grpc_resolved_address)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122CreateSockaddrResolverENS_12ResolverArgsEPFbRKNS_3URIEP21grpc_resolved_addressE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef nonnull @_Z15grpc_parse_ipv4RKN9grpc_core3URIEP21grpc_resolved_address)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2476,7 +2476,7 @@ entry:
   %3 = load i64, ptr %result_handler6.i, align 8
   store i64 %3, ptr %result_handler.i, align 8
   store ptr null, ptr %result_handler6.i, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122CreateSockaddrResolverENS_12ResolverArgsEPFbRKNS_3URIEP21grpc_resolved_addressE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp, ptr noundef nonnull @_Z15grpc_parse_ipv6RKN9grpc_core3URIEP21grpc_resolved_address)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122CreateSockaddrResolverENS_12ResolverArgsEPFbRKNS_3URIEP21grpc_resolved_addressE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef nonnull @_Z15grpc_parse_ipv6RKN9grpc_core3URIEP21grpc_resolved_address)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2545,7 +2545,7 @@ entry:
   %3 = load i64, ptr %result_handler6.i, align 8
   store i64 %3, ptr %result_handler.i, align 8
   store ptr null, ptr %result_handler6.i, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122CreateSockaddrResolverENS_12ResolverArgsEPFbRKNS_3URIEP21grpc_resolved_addressE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp, ptr noundef nonnull @_Z15grpc_parse_unixRKN9grpc_core3URIEP21grpc_resolved_address)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122CreateSockaddrResolverENS_12ResolverArgsEPFbRKNS_3URIEP21grpc_resolved_addressE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef nonnull @_Z15grpc_parse_unixRKN9grpc_core3URIEP21grpc_resolved_address)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2614,7 +2614,7 @@ entry:
   %3 = load i64, ptr %result_handler6.i, align 8
   store i64 %3, ptr %result_handler.i, align 8
   store ptr null, ptr %result_handler6.i, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122CreateSockaddrResolverENS_12ResolverArgsEPFbRKNS_3URIEP21grpc_resolved_addressE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp, ptr noundef nonnull @_Z24grpc_parse_unix_abstractRKN9grpc_core3URIEP21grpc_resolved_address)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122CreateSockaddrResolverENS_12ResolverArgsEPFbRKNS_3URIEP21grpc_resolved_addressE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef nonnull @_Z24grpc_parse_unix_abstractRKN9grpc_core3URIEP21grpc_resolved_address)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2683,7 +2683,7 @@ entry:
   %3 = load i64, ptr %result_handler6.i, align 8
   store i64 %3, ptr %result_handler.i, align 8
   store ptr null, ptr %result_handler6.i, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122CreateSockaddrResolverENS_12ResolverArgsEPFbRKNS_3URIEP21grpc_resolved_addressE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp, ptr noundef nonnull @_Z16grpc_parse_vsockRKN9grpc_core3URIEP21grpc_resolved_address)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122CreateSockaddrResolverENS_12ResolverArgsEPFbRKNS_3URIEP21grpc_resolved_addressE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef nonnull @_Z16grpc_parse_vsockRKN9grpc_core3URIEP21grpc_resolved_address)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry

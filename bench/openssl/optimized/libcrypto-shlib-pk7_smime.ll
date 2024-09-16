@@ -190,57 +190,57 @@ add_cipher_smcap.exit:                            ; preds = %if.end25
   br i1 %tobool27.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end25, %add_cipher_smcap.exit
-  %call28 = tail call fastcc i32 @add_digest_smcap(ptr noundef nonnull %call22, i32 noundef 982)
+  %call28 = tail call fastcc i32 @add_digest_smcap(ptr noundef %call22, i32 noundef 982)
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %err, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %lor.lhs.false
-  %call31 = tail call fastcc i32 @add_digest_smcap(ptr noundef nonnull %call22, i32 noundef 983)
+  %call31 = tail call fastcc i32 @add_digest_smcap(ptr noundef %call22, i32 noundef 983)
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %err, label %lor.lhs.false33
 
 lor.lhs.false33:                                  ; preds = %lor.lhs.false30
-  %call34 = tail call fastcc i32 @add_digest_smcap(ptr noundef nonnull %call22, i32 noundef 809)
+  %call34 = tail call fastcc i32 @add_digest_smcap(ptr noundef %call22, i32 noundef 809)
   %tobool35.not = icmp eq i32 %call34, 0
   br i1 %tobool35.not, label %err, label %lor.lhs.false36
 
 lor.lhs.false36:                                  ; preds = %lor.lhs.false33
-  %call37 = tail call fastcc i32 @add_cipher_smcap(ptr noundef nonnull %call22, i32 noundef 813, i32 noundef -1)
+  %call37 = tail call fastcc i32 @add_cipher_smcap(ptr noundef %call22, i32 noundef 813, i32 noundef -1)
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %err, label %lor.lhs.false39
 
 lor.lhs.false39:                                  ; preds = %lor.lhs.false36
-  %call40 = tail call fastcc i32 @add_cipher_smcap(ptr noundef nonnull %call22, i32 noundef 423, i32 noundef -1)
+  %call40 = tail call fastcc i32 @add_cipher_smcap(ptr noundef %call22, i32 noundef 423, i32 noundef -1)
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %err, label %lor.lhs.false42
 
 lor.lhs.false42:                                  ; preds = %lor.lhs.false39
-  %call43 = tail call fastcc i32 @add_cipher_smcap(ptr noundef nonnull %call22, i32 noundef 419, i32 noundef -1)
+  %call43 = tail call fastcc i32 @add_cipher_smcap(ptr noundef %call22, i32 noundef 419, i32 noundef -1)
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %err, label %lor.lhs.false45
 
 lor.lhs.false45:                                  ; preds = %lor.lhs.false42
-  %call46 = tail call fastcc i32 @add_cipher_smcap(ptr noundef nonnull %call22, i32 noundef 44, i32 noundef -1)
+  %call46 = tail call fastcc i32 @add_cipher_smcap(ptr noundef %call22, i32 noundef 44, i32 noundef -1)
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %err, label %lor.lhs.false48
 
 lor.lhs.false48:                                  ; preds = %lor.lhs.false45
-  %call49 = tail call fastcc i32 @add_cipher_smcap(ptr noundef nonnull %call22, i32 noundef 37, i32 noundef 128)
+  %call49 = tail call fastcc i32 @add_cipher_smcap(ptr noundef %call22, i32 noundef 37, i32 noundef 128)
   %tobool50.not = icmp eq i32 %call49, 0
   br i1 %tobool50.not, label %err, label %lor.lhs.false51
 
 lor.lhs.false51:                                  ; preds = %lor.lhs.false48
-  %call52 = tail call fastcc i32 @add_cipher_smcap(ptr noundef nonnull %call22, i32 noundef 37, i32 noundef 64)
+  %call52 = tail call fastcc i32 @add_cipher_smcap(ptr noundef %call22, i32 noundef 37, i32 noundef 64)
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %err, label %lor.lhs.false54
 
 lor.lhs.false54:                                  ; preds = %lor.lhs.false51
-  %call55 = tail call fastcc i32 @add_cipher_smcap(ptr noundef nonnull %call22, i32 noundef 31, i32 noundef -1)
+  %call55 = tail call fastcc i32 @add_cipher_smcap(ptr noundef %call22, i32 noundef 31, i32 noundef -1)
   %tobool56.not = icmp eq i32 %call55, 0
   br i1 %tobool56.not, label %err, label %lor.lhs.false57
 
 lor.lhs.false57:                                  ; preds = %lor.lhs.false54
-  %call58 = tail call fastcc i32 @add_cipher_smcap(ptr noundef nonnull %call22, i32 noundef 37, i32 noundef 40)
+  %call58 = tail call fastcc i32 @add_cipher_smcap(ptr noundef %call22, i32 noundef 37, i32 noundef 40)
   %tobool59.not = icmp eq i32 %call58, 0
   br i1 %tobool59.not, label %err, label %lor.lhs.false60
 
@@ -420,7 +420,7 @@ declare i32 @PKCS7_add_attrib_content_type(ptr noundef, ptr noundef) local_unnam
 declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_cipher_smcap(ptr noundef %sk, i32 noundef %nid, i32 noundef %arg) unnamed_addr #0 {
+define internal fastcc i32 @add_cipher_smcap(ptr noundef nonnull %sk, i32 noundef range(i32 31, 814) %nid, i32 noundef range(i32 -1, 129) %arg) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_nid2sn(i32 noundef %nid) #2
   %call1 = tail call ptr @EVP_get_cipherbyname(ptr noundef %call) #2
@@ -428,7 +428,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call2 = tail call i32 @PKCS7_simple_smimecap(ptr noundef %sk, i32 noundef %nid, i32 noundef %arg) #2
+  %call2 = tail call i32 @PKCS7_simple_smimecap(ptr noundef nonnull %sk, i32 noundef %nid, i32 noundef %arg) #2
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -437,7 +437,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_digest_smcap(ptr noundef %sk, i32 noundef %nid) unnamed_addr #0 {
+define internal fastcc i32 @add_digest_smcap(ptr noundef nonnull %sk, i32 noundef range(i32 809, 984) %nid) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_nid2sn(i32 noundef %nid) #2
   %call1 = tail call ptr @EVP_get_digestbyname(ptr noundef %call) #2
@@ -445,7 +445,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call2 = tail call i32 @PKCS7_simple_smimecap(ptr noundef %sk, i32 noundef %nid, i32 noundef -1) #2
+  %call2 = tail call i32 @PKCS7_simple_smimecap(ptr noundef nonnull %sk, i32 noundef %nid, i32 noundef -1) #2
   br label %return
 
 return:                                           ; preds = %entry, %if.then

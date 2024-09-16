@@ -362,7 +362,7 @@ write_JPEG_file.exit:                             ; preds = %.lr.ph.i, %.lr.ph58
   %167 = getelementptr i8, ptr %67, i64 8
   %168 = load ptr, ptr %167, align 8
   call void @llvm.lifetime.start.p0(i64 632, ptr nonnull %3)
-  call fastcc void @do_read_JPEG_file(ptr noundef nonnull %3, ptr noundef nonnull %23, ptr noundef %168)
+  call fastcc void @do_read_JPEG_file(ptr noundef %3, ptr noundef nonnull %23, ptr noundef %168)
   call void @llvm.lifetime.end.p0(i64 632, ptr nonnull %3)
   br label %169
 
@@ -432,7 +432,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
 declare void @jpeg_destroy_compress(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_read_JPEG_file(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @do_read_JPEG_file(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.my_error_mgr, align 8
   %5 = call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.13)
   %6 = icmp eq ptr %5, null

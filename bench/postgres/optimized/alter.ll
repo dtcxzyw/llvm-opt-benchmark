@@ -219,7 +219,7 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
   %73 = sext i16 %62 to i32
   %74 = getelementptr inbounds i8, ptr %55, i64 64
   %75 = load ptr, ptr %74, align 8
-  %76 = call fastcc i64 @heap_getattr(ptr noundef nonnull %65, i32 noundef %73, ptr noundef %75, ptr noundef nonnull %2)
+  %76 = call fastcc i64 @heap_getattr(ptr noundef %65, i32 noundef %73, ptr noundef %75, ptr noundef %2)
   %77 = inttoptr i64 %76 to ptr
   %78 = icmp sgt i16 %63, 0
   br i1 %78, label %79, label %84
@@ -227,7 +227,7 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
 79:                                               ; preds = %72
   %80 = zext nneg i16 %63 to i32
   %81 = load ptr, ptr %74, align 8
-  %82 = call fastcc i64 @heap_getattr(ptr noundef nonnull %65, i32 noundef %80, ptr noundef %81, ptr noundef nonnull %2)
+  %82 = call fastcc i64 @heap_getattr(ptr noundef %65, i32 noundef %80, ptr noundef %81, ptr noundef %2)
   %83 = trunc i64 %82 to i32
   br label %84
 
@@ -252,7 +252,7 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
 93:                                               ; preds = %86
   %94 = zext nneg i16 %64 to i32
   %95 = load ptr, ptr %74, align 8
-  %96 = call fastcc i64 @heap_getattr(ptr noundef nonnull %65, i32 noundef %94, ptr noundef %95, ptr noundef nonnull %2)
+  %96 = call fastcc i64 @heap_getattr(ptr noundef %65, i32 noundef %94, ptr noundef %95, ptr noundef %2)
   %97 = trunc i64 %96 to i32
   %98 = call i32 @GetUserId() #7
   %99 = call zeroext i1 @has_privs_of_role(i32 noundef %98, i32 noundef %97) #7
@@ -828,10 +828,10 @@ define internal fastcc i32 @AlterObjectNamespace_internal(ptr noundef %0, i32 no
   %21 = sext i16 %9 to i32
   %22 = getelementptr inbounds i8, ptr %0, i64 64
   %23 = load ptr, ptr %22, align 8
-  %24 = call fastcc i64 @heap_getattr(ptr noundef nonnull %13, i32 noundef %21, ptr noundef %23, ptr noundef nonnull %4)
+  %24 = call fastcc i64 @heap_getattr(ptr noundef %13, i32 noundef %21, ptr noundef %23, ptr noundef %4)
   %25 = sext i16 %10 to i32
   %26 = load ptr, ptr %22, align 8
-  %27 = call fastcc i64 @heap_getattr(ptr noundef nonnull %13, i32 noundef %25, ptr noundef %26, ptr noundef nonnull %4)
+  %27 = call fastcc i64 @heap_getattr(ptr noundef %13, i32 noundef %25, ptr noundef %26, ptr noundef %4)
   %28 = trunc i64 %27 to i32
   %29 = icmp eq i32 %2, %28
   br i1 %29, label %30, label %32
@@ -862,7 +862,7 @@ define internal fastcc i32 @AlterObjectNamespace_internal(ptr noundef %0, i32 no
 41:                                               ; preds = %34
   %42 = zext nneg i16 %11 to i32
   %43 = load ptr, ptr %22, align 8
-  %44 = call fastcc i64 @heap_getattr(ptr noundef nonnull %13, i32 noundef %42, ptr noundef %43, ptr noundef nonnull %4)
+  %44 = call fastcc i64 @heap_getattr(ptr noundef %13, i32 noundef %42, ptr noundef %43, ptr noundef %4)
   %45 = trunc i64 %44 to i32
   %46 = call i32 @GetUserId() #7
   %47 = call zeroext i1 @has_privs_of_role(i32 noundef %46, i32 noundef %45) #7
@@ -1268,7 +1268,7 @@ define dso_local void @AlterObjectOwner_internal(i32 noundef %0, i32 noundef %1,
   %23 = sext i16 %9 to i32
   %24 = getelementptr inbounds i8, ptr %13, i64 64
   %25 = load ptr, ptr %24, align 8
-  %26 = call fastcc i64 @heap_getattr(ptr noundef nonnull %14, i32 noundef %23, ptr noundef %25, ptr noundef nonnull %4)
+  %26 = call fastcc i64 @heap_getattr(ptr noundef %14, i32 noundef %23, ptr noundef %25, ptr noundef %4)
   %27 = trunc i64 %26 to i32
   %.not = icmp eq i16 %10, 0
   br i1 %.not, label %33, label %28
@@ -1276,7 +1276,7 @@ define dso_local void @AlterObjectOwner_internal(i32 noundef %0, i32 noundef %1,
 28:                                               ; preds = %22
   %29 = sext i16 %10 to i32
   %30 = load ptr, ptr %24, align 8
-  %31 = call fastcc i64 @heap_getattr(ptr noundef nonnull %14, i32 noundef %29, ptr noundef %30, ptr noundef nonnull %4)
+  %31 = call fastcc i64 @heap_getattr(ptr noundef %14, i32 noundef %29, ptr noundef %30, ptr noundef %4)
   %32 = trunc i64 %31 to i32
   br label %33
 
@@ -1301,7 +1301,7 @@ define dso_local void @AlterObjectOwner_internal(i32 noundef %0, i32 noundef %1,
 40:                                               ; preds = %39
   %41 = sext i16 %12 to i32
   %42 = load ptr, ptr %24, align 8
-  %43 = call fastcc i64 @heap_getattr(ptr noundef nonnull %14, i32 noundef %41, ptr noundef %42, ptr noundef nonnull %4)
+  %43 = call fastcc i64 @heap_getattr(ptr noundef %14, i32 noundef %41, ptr noundef %42, ptr noundef %4)
   %44 = inttoptr i64 %43 to ptr
   br label %47
 
@@ -1354,7 +1354,7 @@ define dso_local void @AlterObjectOwner_internal(i32 noundef %0, i32 noundef %1,
 
 71:                                               ; preds = %55
   %72 = load ptr, ptr %24, align 8
-  %73 = call fastcc i64 @heap_getattr(ptr noundef nonnull %14, i32 noundef %70, ptr noundef %72, ptr noundef nonnull %4)
+  %73 = call fastcc i64 @heap_getattr(ptr noundef %14, i32 noundef %70, ptr noundef %72, ptr noundef %4)
   %74 = load i8, ptr %4, align 1
   %75 = trunc i8 %74 to i1
   br i1 %75, label %85, label %76
@@ -1410,7 +1410,7 @@ declare signext i16 @get_object_attnum_name(i32 noundef) local_unnamed_addr #1
 declare ptr @get_catalog_object_by_oid(ptr noundef, i16 noundef signext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef range(i32 -32768, 32768) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %6, label %75
 
@@ -1425,7 +1425,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %6
-  %15 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef %3) #7
+  %15 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef nonnull %3) #7
   br label %fastgetattr.exit
 
 16:                                               ; preds = %6
@@ -1527,7 +1527,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   br label %fastgetattr.exit
 
 75:                                               ; preds = %4
-  %76 = tail call i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #7
+  %76 = tail call i64 @heap_getsysattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3) #7
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %73, %72, %59, %57, %51, %48, %45, %42, %75, %14
@@ -1596,7 +1596,7 @@ declare zeroext i1 @SearchSysCacheExists(i32 noundef, i64 noundef, i64 noundef, 
 declare void @LogicalRepWorkersWakeupAtCommit(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @report_namespace_conflict(i32 noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #4 {
+define internal fastcc void @report_namespace_conflict(i32 noundef range(i32 1256, 1255) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #4 {
   switch i32 %0, label %9 [
     i32 2607, label %12
     i32 3381, label %4

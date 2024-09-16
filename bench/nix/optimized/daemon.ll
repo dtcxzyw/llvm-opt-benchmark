@@ -3192,7 +3192,7 @@ define internal fastcc void @_ZL9runDaemonbSt8optionalIN3nix11TrustedFlagEEb(i1 
   br i1 %0, label %14, label %365
 
 14:                                               ; preds = %3
-  call fastcc void @_ZL17openUncachedStorev(ptr dead_on_unwind noalias nonnull writable align 8 %11)
+  call fastcc void @_ZL17openUncachedStorev(ptr dead_on_unwind noalias writable align 8 %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %15 = and i16 %1, 256
   %.not52 = icmp eq i16 %15, 0
@@ -4327,7 +4327,7 @@ declare void @_ZNK3nix27ExperimentalFeatureSettings7requireERKNS_19ExperimentalF
 declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17openUncachedStorev(ptr dead_on_unwind noalias writable align 8 %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17openUncachedStorev(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::map", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -4375,7 +4375,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #33
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #33
-  invoke void @_ZN3nix9openStoreERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS5_S5_St4lessIS5_ESaISt4pairIS6_S5_EEE(ptr dead_on_unwind writable sret(%"class.nix::ref") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN3nix8settingsE, i64 552), ptr noundef nonnull align 8 dereferenceable(48) %2)
+  invoke void @_ZN3nix9openStoreERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS5_S5_St4lessIS5_ESaISt4pairIS6_S5_EEE(ptr dead_on_unwind nonnull writable sret(%"class.nix::ref") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN3nix8settingsE, i64 552), ptr noundef nonnull align 8 dereferenceable(48) %2)
           to label %22 unwind label %32
 
 22:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -21712,7 +21712,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   store i64 0, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %7, i64 48
   store i8 1, ptr %77, align 8
-  invoke fastcc void @_ZL17openUncachedStorev(ptr dead_on_unwind noalias nonnull writable align 8 %8)
+  invoke fastcc void @_ZL17openUncachedStorev(ptr dead_on_unwind noalias writable align 8 %8)
           to label %78 unwind label %85
 
 78:                                               ; preds = %67

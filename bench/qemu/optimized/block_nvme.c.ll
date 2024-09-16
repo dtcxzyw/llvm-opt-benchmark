@@ -819,7 +819,7 @@ if.else:                                          ; preds = %if.then9
   store i32 %75, ptr %nsid.i17, align 1
   %cdw10.i = getelementptr inbounds i8, ptr %cmd.i, i64 40
   store i32 6, ptr %cdw10.i, align 1
-  %call4.i = call fastcc i32 @nvme_admin_cmd_sync(ptr noundef %bs, ptr noundef nonnull %cmd.i)
+  %call4.i = call fastcc i32 @nvme_admin_cmd_sync(ptr noundef %bs, ptr noundef %cmd.i)
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %if.end15.thread24, label %if.end15
 
@@ -1206,7 +1206,7 @@ if.else45:                                        ; preds = %if.end41
   unreachable
 
 if.end46:                                         ; preds = %if.end41
-  call fastcc void @nvme_submit_command(ptr noundef %2, ptr noundef nonnull %call42, ptr noundef nonnull %cmd, ptr noundef nonnull @nvme_rw_cb, ptr noundef nonnull %data)
+  call fastcc void @nvme_submit_command(ptr noundef %2, ptr noundef %call42, ptr noundef %cmd, ptr noundef nonnull @nvme_rw_cb, ptr noundef %data)
   %call47 = call ptr @qemu_coroutine_self() #17
   store ptr %call47, ptr %data, align 8
   %19 = load i32, ptr %ret, align 8
@@ -1444,7 +1444,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i36
 
 trace_nvme_dsm.exit:                              ; preds = %if.end49, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  call fastcc void @nvme_submit_command(ptr noundef %2, ptr noundef nonnull %call40, ptr noundef nonnull %cmd, ptr noundef nonnull @nvme_rw_cb, ptr noundef nonnull %data)
+  call fastcc void @nvme_submit_command(ptr noundef %2, ptr noundef %call40, ptr noundef %cmd, ptr noundef nonnull @nvme_rw_cb, ptr noundef %data)
   %call50 = call ptr @qemu_coroutine_self() #17
   store ptr %call50, ptr %data, align 8
   %24 = load i32, ptr %ret4, align 8
@@ -1582,7 +1582,7 @@ if.else5:                                         ; preds = %if.end
   unreachable
 
 if.end6:                                          ; preds = %if.end
-  call fastcc void @nvme_submit_command(ptr noundef %2, ptr noundef nonnull %call3, ptr noundef nonnull %cmd, ptr noundef nonnull @nvme_rw_cb, ptr noundef nonnull %data)
+  call fastcc void @nvme_submit_command(ptr noundef %2, ptr noundef %call3, ptr noundef %cmd, ptr noundef nonnull @nvme_rw_cb, ptr noundef %data)
   %call7 = call ptr @qemu_coroutine_self() #17
   store ptr %call7, ptr %data, align 8
   %5 = load i32, ptr %ret, align 8
@@ -1725,7 +1725,7 @@ declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @nvme_create_queue_pair(ptr noundef %s, ptr noundef %aio_context, i32 noundef %idx, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef ptr @nvme_create_queue_pair(ptr noundef %s, ptr noundef %aio_context, i32 noundef range(i32 0, 65536) %idx, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %prp_list_iova = alloca i64, align 8
@@ -2074,7 +2074,7 @@ if.end9:                                          ; preds = %if.end
   %4 = load i64, ptr %iova, align 8
   %dptr = getelementptr inbounds i8, ptr %cmd, i64 24
   store i64 %4, ptr %dptr, align 1
-  %call11 = call fastcc i32 @nvme_admin_cmd_sync(ptr noundef nonnull %bs, ptr noundef nonnull %cmd)
+  %call11 = call fastcc i32 @nvme_admin_cmd_sync(ptr noundef nonnull %bs, ptr noundef %cmd)
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.end14, label %if.then13
 
@@ -2132,7 +2132,7 @@ if.end17:                                         ; preds = %if.end14
   store i32 0, ptr %cdw10, align 1
   %nsid = getelementptr inbounds i8, ptr %cmd, i64 4
   store i32 %namespace, ptr %nsid, align 1
-  %call61 = call fastcc i32 @nvme_admin_cmd_sync(ptr noundef nonnull %bs, ptr noundef nonnull %cmd)
+  %call61 = call fastcc i32 @nvme_admin_cmd_sync(ptr noundef nonnull %bs, ptr noundef %cmd)
   %tobool62.not = icmp eq i32 %call61, 0
   br i1 %tobool62.not, label %if.end64, label %if.then63
 
@@ -2243,7 +2243,7 @@ if.end3:                                          ; preds = %if.end
   store i32 3, ptr %.compoundliteral.sroa.10.0.cmd.sroa_idx, align 1
   %.compoundliteral.sroa.11.0.cmd.sroa_idx = getelementptr inbounds i8, ptr %cmd, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.compoundliteral.sroa.11.0.cmd.sroa_idx, i8 0, i64 16, i1 false)
-  %call7 = call fastcc i32 @nvme_admin_cmd_sync(ptr noundef nonnull %bs, ptr noundef nonnull %cmd)
+  %call7 = call fastcc i32 @nvme_admin_cmd_sync(ptr noundef nonnull %bs, ptr noundef %cmd)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.end10, label %if.then9
 
@@ -2263,7 +2263,7 @@ if.end10:                                         ; preds = %if.end3
   store i32 %or, ptr %.compoundliteral.sroa.9.0.cmd.sroa_idx, align 1
   store i32 %or30, ptr %.compoundliteral.sroa.10.0.cmd.sroa_idx, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.compoundliteral.sroa.11.0.cmd.sroa_idx, i8 0, i64 16, i1 false)
-  %call36 = call fastcc i32 @nvme_admin_cmd_sync(ptr noundef nonnull %bs, ptr noundef nonnull %cmd)
+  %call36 = call fastcc i32 @nvme_admin_cmd_sync(ptr noundef nonnull %bs, ptr noundef %cmd)
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %if.end39, label %if.then38
 
@@ -2888,7 +2888,7 @@ for.end:                                          ; preds = %nvme_poll_queue.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @nvme_admin_cmd_sync(ptr noundef %bs, ptr nocapture noundef %cmd) unnamed_addr #0 {
+define internal fastcc i32 @nvme_admin_cmd_sync(ptr noundef %bs, ptr nocapture noundef nonnull %cmd) unnamed_addr #0 {
 entry:
   %ret = alloca i32, align 4
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -2930,7 +2930,7 @@ nvme_get_free_req_nowait.exit:                    ; preds = %entry.cont.i
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %nvme_get_free_req_nowait.exit
-  call fastcc void @nvme_submit_command(ptr noundef nonnull %2, ptr noundef nonnull %arrayidx.i.i, ptr noundef %cmd, ptr noundef nonnull @nvme_admin_cmd_sync_cb, ptr noundef nonnull %ret)
+  call fastcc void @nvme_submit_command(ptr noundef nonnull %2, ptr noundef %arrayidx.i.i, ptr noundef %cmd, ptr noundef nonnull @nvme_admin_cmd_sync_cb, ptr noundef %ret)
   %5 = atomicrmw add ptr @global_aio_wait, i32 1 seq_cst, align 4
   fence syncscope("singlethread") seq_cst
   %tobool2.not = icmp eq ptr %call, null
@@ -3008,7 +3008,7 @@ return:                                           ; preds = %nvme_get_free_req_n
 declare void @qemu_vfio_dma_unmap(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @nvme_submit_command(ptr noundef %q, ptr nocapture noundef %req, ptr nocapture noundef %cmd, ptr noundef %cb, ptr noundef %opaque) unnamed_addr #0 {
+define internal fastcc void @nvme_submit_command(ptr noundef %q, ptr nocapture noundef nonnull %req, ptr nocapture noundef nonnull %cmd, ptr noundef %cb, ptr noundef nonnull %opaque) unnamed_addr #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -3639,7 +3639,7 @@ nvme_put_free_req_and_wake.exit:                  ; preds = %if.then36, %if.then
   br label %return
 
 if.end37:                                         ; preds = %if.end32
-  call fastcc void @nvme_submit_command(ptr noundef %2, ptr noundef nonnull %call28, ptr noundef nonnull %cmd, ptr noundef nonnull @nvme_rw_cb, ptr noundef nonnull %data)
+  call fastcc void @nvme_submit_command(ptr noundef %2, ptr noundef %call28, ptr noundef %cmd, ptr noundef nonnull @nvme_rw_cb, ptr noundef %data)
   %call38 = call ptr @qemu_coroutine_self() #17
   store ptr %call38, ptr %data, align 8
   %21 = load i32, ptr %ret, align 8

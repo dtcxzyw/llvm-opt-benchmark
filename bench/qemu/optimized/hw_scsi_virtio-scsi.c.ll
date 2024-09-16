@@ -575,7 +575,7 @@ if.then.i:                                        ; preds = %if.then17
   br label %virtio_scsi_acquire.exit
 
 virtio_scsi_acquire.exit:                         ; preds = %if.then17, %if.then.i
-  call fastcc void @virtio_scsi_push_event(ptr noundef nonnull %call.i15, ptr noundef nonnull %info)
+  call fastcc void @virtio_scsi_push_event(ptr noundef nonnull %call.i15, ptr noundef %info)
   %bus = getelementptr inbounds i8, ptr %call.i15, i64 664
   %sense_code_REPORTED_LUNS_CHANGED.coerce.0.copyload = load i24, ptr @sense_code_REPORTED_LUNS_CHANGED, align 1
   tail call void @scsi_bus_set_ua(ptr noundef nonnull %bus, i24 %sense_code_REPORTED_LUNS_CHANGED.coerce.0.copyload) #13
@@ -646,7 +646,7 @@ if.then.i20:                                      ; preds = %if.then8
   br label %virtio_scsi_acquire.exit21
 
 virtio_scsi_acquire.exit21:                       ; preds = %if.then8, %if.then.i20
-  call fastcc void @virtio_scsi_push_event(ptr noundef nonnull %call.i15, ptr noundef nonnull %info)
+  call fastcc void @virtio_scsi_push_event(ptr noundef nonnull %call.i15, ptr noundef %info)
   %bus = getelementptr inbounds i8, ptr %call.i15, i64 664
   %sense_code_REPORTED_LUNS_CHANGED.coerce.0.copyload = load i24, ptr @sense_code_REPORTED_LUNS_CHANGED, align 1
   tail call void @scsi_bus_set_ua(ptr noundef nonnull %bus, i24 %sense_code_REPORTED_LUNS_CHANGED.coerce.0.copyload) #13
@@ -1318,7 +1318,7 @@ virtio_scsi_acquire.exit:                         ; preds = %entry, %if.end, %if
 
 if.then.i9:                                       ; preds = %virtio_scsi_acquire.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %info.i, i8 0, i64 16, i1 false)
-  call fastcc void @virtio_scsi_push_event(ptr noundef nonnull %call.i, ptr noundef nonnull %info.i)
+  call fastcc void @virtio_scsi_push_event(ptr noundef nonnull %call.i, ptr noundef %info.i)
   br label %virtio_scsi_handle_event_vq.exit
 
 virtio_scsi_handle_event_vq.exit:                 ; preds = %virtio_scsi_acquire.exit, %if.then.i9
@@ -2625,7 +2625,7 @@ declare void @scsi_req_unref(ptr noundef) local_unnamed_addr #1
 declare void @aio_context_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtio_scsi_push_event(ptr noundef %s, ptr nocapture noundef readonly %info) unnamed_addr #0 {
+define internal fastcc void @virtio_scsi_push_event(ptr noundef %s, ptr nocapture noundef nonnull readonly %info) unnamed_addr #0 {
 entry:
   %_now.i.i44 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -3083,7 +3083,7 @@ if.then.i:                                        ; preds = %if.then
   br label %virtio_scsi_acquire.exit
 
 virtio_scsi_acquire.exit:                         ; preds = %if.then, %if.then.i
-  call fastcc void @virtio_scsi_push_event(ptr noundef %add.ptr, ptr noundef nonnull %info)
+  call fastcc void @virtio_scsi_push_event(ptr noundef %add.ptr, ptr noundef %info)
   %add.ptr.val7 = load ptr, ptr %5, align 8
   %tobool.not.i8 = icmp eq ptr %add.ptr.val7, null
   br i1 %tobool.not.i8, label %if.end, label %if.then.i9

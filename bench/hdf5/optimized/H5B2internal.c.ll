@@ -412,7 +412,7 @@ define ptr @H5B2__protect_internal(ptr noundef %0, ptr noundef %1, ptr nocapture
   br i1 %4, label %41, label %.thread
 
 41:                                               ; preds = %40
-  %42 = call fastcc i32 @H5B2__shadow_internal(ptr noundef nonnull %17, ptr noundef nonnull %2)
+  %42 = call fastcc i32 @H5B2__shadow_internal(ptr noundef %17, ptr noundef nonnull %2)
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %44, label %.thread
 
@@ -465,7 +465,7 @@ define ptr @H5B2__protect_internal(ptr noundef %0, ptr noundef %1, ptr nocapture
 declare ptr @H5AC_protect(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5B2__shadow_internal(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5B2__shadow_internal(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 296
@@ -985,7 +985,7 @@ define range(i32 -1, 1) i32 @H5B2__insert_internal(ptr noundef %0, i16 noundef z
   br i1 %.not113, label %215, label %208
 
 208:                                              ; preds = %205
-  %209 = call fastcc i32 @H5B2__shadow_internal(ptr noundef nonnull %11, ptr noundef %3)
+  %209 = call fastcc i32 @H5B2__shadow_internal(ptr noundef %11, ptr noundef %3)
   %210 = icmp slt i32 %209, 0
   br i1 %210, label %211, label %215
 
@@ -1350,7 +1350,7 @@ define range(i32 -1, 1) i32 @H5B2__update_internal(ptr noundef %0, i16 noundef z
   br i1 %.not118, label %235, label %224
 
 224:                                              ; preds = %221
-  %225 = call fastcc i32 @H5B2__shadow_internal(ptr noundef nonnull %15, ptr noundef %3)
+  %225 = call fastcc i32 @H5B2__shadow_internal(ptr noundef %15, ptr noundef %3)
   %226 = icmp slt i32 %225, 0
   br i1 %226, label %227, label %231
 
@@ -1501,7 +1501,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal(ptr noundef %0, ptr nocapture
   br i1 %81, label %82, label %91
 
 82:                                               ; preds = %78
-  %83 = tail call fastcc i32 @H5B2__shadow_internal(ptr noundef nonnull %16, ptr noundef nonnull %8)
+  %83 = tail call fastcc i32 @H5B2__shadow_internal(ptr noundef %16, ptr noundef nonnull %8)
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %85, label %89
 
@@ -2009,7 +2009,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal_by_idx(ptr noundef %0, ptr no
   br i1 %79, label %80, label %89
 
 80:                                               ; preds = %76
-  %81 = tail call fastcc i32 @H5B2__shadow_internal(ptr noundef nonnull %14, ptr noundef nonnull %7)
+  %81 = tail call fastcc i32 @H5B2__shadow_internal(ptr noundef %14, ptr noundef nonnull %7)
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %83, label %87
 

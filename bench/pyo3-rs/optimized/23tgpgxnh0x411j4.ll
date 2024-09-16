@@ -826,7 +826,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   br i1 %238, label %239, label %240
 
 239:                                              ; preds = %237
-  invoke fastcc void @_ZN19pyo3_macros_backend6module21module_initialization17hdc9886f15d8302d1E(ptr noalias nonnull align 8 %80, ptr nonnull align 8 %135, ptr nonnull align 8 %138)
+  invoke fastcc void @_ZN19pyo3_macros_backend6module21module_initialization17hdc9886f15d8302d1E(ptr noalias align 8 %80, ptr align 8 %135, ptr align 8 %138)
           to label %245 unwind label %.loopexit.split-lp192
 
 240:                                              ; preds = %237
@@ -2577,7 +2577,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit178:
   %829 = getelementptr inbounds i8, ptr %236, i64 64
   %830 = load ptr, ptr %208, align 8
   %831 = load i64, ptr %209, align 8
-  invoke fastcc void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17extract_use_items17hb62db8c75fb376b3E(ptr noalias nonnull align 8 %123, ptr nonnull align 8 %829, ptr align 8 %830, i64 %831, ptr nonnull align 8 %129, ptr nonnull align 8 %128)
+  invoke fastcc void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17extract_use_items17hb62db8c75fb376b3E(ptr noalias align 8 %123, ptr nonnull align 8 %829, ptr align 8 %830, i64 %831, ptr align 8 %129, ptr align 8 %128)
           to label %834 unwind label %832
 
 832:                                              ; preds = %_ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit178
@@ -2673,7 +2673,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit178:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17extract_use_items17hb62db8c75fb376b3E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, i64 %3, ptr align 8 %4, ptr align 8 %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17extract_use_items17hb62db8c75fb376b3E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, i64 %3, ptr nonnull align 8 %4, ptr nonnull align 8 %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [32 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [24 x i8], align 8
@@ -2700,7 +2700,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend6module20pymodule_module_im
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %1, i64 16
   %22 = load ptr, ptr %21, align 8
-  call fastcc void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17extract_use_items17hb62db8c75fb376b3E(ptr noalias nonnull align 8 %15, ptr align 8 %22, ptr align 8 %2, i64 %3, ptr align 8 %4, ptr align 8 %5)
+  call fastcc void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17extract_use_items17hb62db8c75fb376b3E(ptr noalias align 8 %15, ptr align 8 %22, ptr align 8 %2, i64 %3, ptr align 8 %4, ptr align 8 %5)
   %23 = load i64, ptr %15, align 8
   %24 = icmp eq i64 %23, -9223372036854775808
   br i1 %24, label %39, label %38
@@ -2709,18 +2709,18 @@ define internal fastcc void @_ZN19pyo3_macros_backend6module20pymodule_module_im
   %26 = getelementptr inbounds i8, ptr %1, i64 8
   call void @"_ZN62_$LT$proc_macro2..imp..Ident$u20$as$u20$core..clone..Clone$GT$5clone17h2066379f348653c4E"(ptr nonnull sret([24 x i8]) align 8 %8, ptr nonnull align 8 %26)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h168d26b41954312eE"(ptr align 8 %4, ptr nonnull align 8 %17)
+  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h168d26b41954312eE"(ptr nonnull align 8 %4, ptr nonnull align 8 %17)
   call void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h3908ba13f1aa1174E"(ptr nonnull sret([24 x i8]) align 8 %16, ptr align 8 %2, i64 %3)
-  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf8467e53efaa8b74E"(ptr align 8 %5, ptr nonnull align 8 %16)
+  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf8467e53efaa8b74E"(ptr nonnull align 8 %5, ptr nonnull align 8 %16)
   br label %39
 
 27:                                               ; preds = %6
   %28 = getelementptr inbounds i8, ptr %1, i64 32
   call void @"_ZN62_$LT$proc_macro2..imp..Ident$u20$as$u20$core..clone..Clone$GT$5clone17h2066379f348653c4E"(ptr nonnull sret([24 x i8]) align 8 %9, ptr nonnull align 8 %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h168d26b41954312eE"(ptr align 8 %4, ptr nonnull align 8 %11)
+  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h168d26b41954312eE"(ptr nonnull align 8 %4, ptr nonnull align 8 %11)
   call void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h3908ba13f1aa1174E"(ptr nonnull sret([24 x i8]) align 8 %10, ptr align 8 %2, i64 %3)
-  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf8467e53efaa8b74E"(ptr align 8 %5, ptr nonnull align 8 %10)
+  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf8467e53efaa8b74E"(ptr nonnull align 8 %5, ptr nonnull align 8 %10)
   br label %39
 
 29:                                               ; preds = %6
@@ -2775,7 +2775,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend6module20pymodule_module_im
   br label %39
 
 52:                                               ; preds = %49
-  invoke fastcc void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17extract_use_items17hb62db8c75fb376b3E(ptr noalias nonnull align 8 %13, ptr nonnull align 8 %46, ptr align 8 %2, i64 %3, ptr align 8 %4, ptr align 8 %5)
+  invoke fastcc void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17extract_use_items17hb62db8c75fb376b3E(ptr noalias align 8 %13, ptr nonnull align 8 %46, ptr align 8 %2, i64 %3, ptr align 8 %4, ptr align 8 %5)
           to label %53 unwind label %47
 
 53:                                               ; preds = %52
@@ -3697,7 +3697,7 @@ split:                                            ; preds = %168, %158, %._crit_
   br label %282
 
 285:                                              ; preds = %276
-  invoke fastcc void @_ZN19pyo3_macros_backend6module21module_initialization17hdc9886f15d8302d1E(ptr noalias nonnull align 8 %88, ptr nonnull align 8 %91, ptr nonnull align 8 %94)
+  invoke fastcc void @_ZN19pyo3_macros_backend6module21module_initialization17hdc9886f15d8302d1E(ptr noalias align 8 %88, ptr align 8 %91, ptr align 8 %94)
           to label %289 unwind label %287
 
 286:                                              ; preds = %549, %287
@@ -4742,7 +4742,7 @@ split:                                            ; preds = %168, %158, %._crit_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend6module21module_initialization17hdc9886f15d8302d1E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend6module21module_initialization17hdc9886f15d8302d1E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1, ptr nonnull align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -4859,7 +4859,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend6module21module_initializat
   br label %.body
 
 69:                                               ; preds = %60
-  invoke void @_ZN19pyo3_macros_backend5utils7LitCStr3new17h06e37402883c0000E(ptr nonnull sret([72 x i8]) align 8 %36, ptr align 1 %62, i64 %64, i32 %66, ptr align 8 %2)
+  invoke void @_ZN19pyo3_macros_backend5utils7LitCStr3new17h06e37402883c0000E(ptr nonnull sret([72 x i8]) align 8 %36, ptr align 1 %62, i64 %64, i32 %66, ptr nonnull align 8 %2)
           to label %70 unwind label %67
 
 70:                                               ; preds = %69
@@ -5090,7 +5090,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend6module21module_initializat
           to label %129 unwind label %76
 
 129:                                              ; preds = %128
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %33)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %33)
           to label %130 unwind label %76
 
 130:                                              ; preds = %129
@@ -5329,7 +5329,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend6module21module_initializat
           to label %190 unwind label %76
 
 190:                                              ; preds = %189
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %33)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %33)
           to label %191 unwind label %76
 
 191:                                              ; preds = %190
@@ -5353,7 +5353,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend6module21module_initializat
           to label %196 unwind label %76
 
 196:                                              ; preds = %195
-  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr align 8 %2, ptr nonnull align 8 %9)
+  invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %2, ptr nonnull align 8 %9)
           to label %200 unwind label %198
 
 197:                                              ; preds = %208, %198

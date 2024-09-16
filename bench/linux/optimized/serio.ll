@@ -130,7 +130,7 @@ define dso_local void @serio_rescan(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @serio_queue_event(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @serio_queue_event(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 5) %2) unnamed_addr #0 align 16 {
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @serio_event_lock) #10
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @serio_event_list, i64 8), align 8
   %6 = icmp eq ptr %5, @serio_event_list

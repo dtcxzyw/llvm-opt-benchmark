@@ -925,7 +925,7 @@ if.end.i:                                         ; preds = %entry
   %1 = getelementptr i8, ptr %0, i64 24
   %call.val = load i64, ptr %1, align 8
   %sub.i = sub nsw i64 %call.val, %offset
-  call fastcc void @_ZN5arrow12_GLOBAL__N_116CheckBufferSliceERKNS_6BufferEll(ptr noalias nonnull align 8 %ref.tmp, i64 %call.val, i64 noundef %offset, i64 noundef %sub.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_116CheckBufferSliceERKNS_6BufferEll(ptr noalias align 8 %ref.tmp, i64 %call.val, i64 noundef %offset, i64 noundef %sub.i)
   br label %_ZN5arrow6StatusD2Ev.exit
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.end.i, %if.then.i
@@ -1143,7 +1143,7 @@ _ZN5arrow6StatusD2Ev.exit:
   %0 = load ptr, ptr %buffer, align 8
   %1 = getelementptr i8, ptr %0, i64 24
   %call.val = load i64, ptr %1, align 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_116CheckBufferSliceERKNS_6BufferEll(ptr noalias nonnull align 8 %ref.tmp, i64 %call.val, i64 noundef %offset, i64 noundef %length)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_116CheckBufferSliceERKNS_6BufferEll(ptr noalias align 8 %ref.tmp, i64 %call.val, i64 noundef %offset, i64 noundef %length)
   call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %2 = load ptr, ptr %ref.tmp, align 8, !noalias !25
   store ptr %2, ptr %__s, align 8, !alias.scope !25
@@ -1267,7 +1267,7 @@ return:                                           ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_116CheckBufferSliceERKNS_6BufferEll(ptr noalias align 8 %agg.result, i64 %buffer.24.val, i64 noundef %offset, i64 noundef %length) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_116CheckBufferSliceERKNS_6BufferEll(ptr noalias nonnull align 8 %agg.result, i64 %buffer.24.val, i64 noundef %offset, i64 noundef %length) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %object_name.addr.i = alloca ptr, align 8
@@ -1278,7 +1278,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  call void @_ZN5arrow6Status8FromArgsIJRA10_KcRPS2_RA14_S2_EEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 7, ptr noundef nonnull align 1 dereferenceable(10) @.str.10, ptr noundef nonnull align 8 dereferenceable(8) %object_name.addr.i, ptr noundef nonnull align 1 dereferenceable(14) @.str.11)
+  call void @_ZN5arrow6Status8FromArgsIJRA10_KcRPS2_RA14_S2_EEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 7, ptr noundef nonnull align 1 dereferenceable(10) @.str.10, ptr noundef nonnull align 8 dereferenceable(8) %object_name.addr.i, ptr noundef nonnull align 1 dereferenceable(14) @.str.11)
   br label %_ZN5arrow8internalL16CheckSliceParamsElllPKc.exit
 
 if.end.i:                                         ; preds = %entry
@@ -1286,7 +1286,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.i, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.end.i
-  call void @_ZN5arrow6Status8FromArgsIJRA10_KcRPS2_RA14_S2_EEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 7, ptr noundef nonnull align 1 dereferenceable(10) @.str.10, ptr noundef nonnull align 8 dereferenceable(8) %object_name.addr.i, ptr noundef nonnull align 1 dereferenceable(14) @.str.12)
+  call void @_ZN5arrow6Status8FromArgsIJRA10_KcRPS2_RA14_S2_EEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 7, ptr noundef nonnull align 1 dereferenceable(10) @.str.10, ptr noundef nonnull align 8 dereferenceable(8) %object_name.addr.i, ptr noundef nonnull align 1 dereferenceable(14) @.str.12)
   br label %_ZN5arrow8internalL16CheckSliceParamsElllPKc.exit
 
 if.end6.i:                                        ; preds = %if.end.i
@@ -1295,7 +1295,7 @@ if.end6.i:                                        ; preds = %if.end.i
   br i1 %1, label %if.then9.i, label %if.end10.i
 
 if.then9.i:                                       ; preds = %if.end6.i
-  call void @_ZN5arrow6Status8FromArgsIJRPKcRA22_S2_EEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 7, ptr noundef nonnull align 8 dereferenceable(8) %object_name.addr.i, ptr noundef nonnull align 1 dereferenceable(22) @.str.13)
+  call void @_ZN5arrow6Status8FromArgsIJRPKcRA22_S2_EEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 7, ptr noundef nonnull align 8 dereferenceable(8) %object_name.addr.i, ptr noundef nonnull align 1 dereferenceable(22) @.str.13)
   br label %_ZN5arrow8internalL16CheckSliceParamsElllPKc.exit
 
 if.end10.i:                                       ; preds = %if.end6.i
@@ -1346,7 +1346,7 @@ if.end.i:                                         ; preds = %entry
   %1 = getelementptr i8, ptr %0, i64 24
   %call.val = load i64, ptr %1, align 8
   %sub.i = sub nsw i64 %call.val, %offset
-  call fastcc void @_ZN5arrow12_GLOBAL__N_116CheckBufferSliceERKNS_6BufferEll(ptr noalias nonnull align 8 %ref.tmp, i64 %call.val, i64 noundef %offset, i64 noundef %sub.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_116CheckBufferSliceERKNS_6BufferEll(ptr noalias align 8 %ref.tmp, i64 %call.val, i64 noundef %offset, i64 noundef %sub.i)
   br label %_ZN5arrow6StatusD2Ev.exit
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.end.i, %if.then.i
@@ -1484,7 +1484,7 @@ _ZN5arrow6StatusD2Ev.exit:
   %0 = load ptr, ptr %buffer, align 8
   %1 = getelementptr i8, ptr %0, i64 24
   %call.val = load i64, ptr %1, align 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_116CheckBufferSliceERKNS_6BufferEll(ptr noalias nonnull align 8 %ref.tmp, i64 %call.val, i64 noundef %offset, i64 noundef %length)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_116CheckBufferSliceERKNS_6BufferEll(ptr noalias align 8 %ref.tmp, i64 %call.val, i64 noundef %offset, i64 noundef %length)
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
   %2 = load ptr, ptr %ref.tmp, align 8, !noalias !56
   store ptr %2, ptr %__s, align 8, !alias.scope !56

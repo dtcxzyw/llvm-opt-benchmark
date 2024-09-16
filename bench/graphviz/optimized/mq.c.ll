@@ -201,7 +201,7 @@ declare ptr @SparseMatrix_set_entries_to_real_one(ptr noundef) local_unnamed_add
 declare void @SparseMatrix_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #2 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -2147483648, 2147483648) %0, i64 noundef range(i64 4, 113) %1) unnamed_addr #2 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
@@ -299,7 +299,7 @@ declare zeroext i1 @SparseMatrix_is_symmetric(ptr noundef, i1 noundef zeroext) l
 declare ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @Multilevel_MQ_Clustering_init(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @Multilevel_MQ_Clustering_init(ptr noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = tail call noalias dereferenceable_or_null(112) ptr @calloc(i64 noundef 1, i64 noundef 112) #14

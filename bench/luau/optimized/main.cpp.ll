@@ -8072,7 +8072,7 @@ define dso_local void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(p
   %2 = alloca %"class.doctest::String", align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 41
   store i8 1, ptr %3, align 1
-  call fastcc void @_ZN7doctest12_GLOBAL__N_124translateActiveExceptionEv(ptr dead_on_unwind noalias nonnull writable align 8 %2)
+  call fastcc void @_ZN7doctest12_GLOBAL__N_124translateActiveExceptionEv(ptr dead_on_unwind noalias writable align 8 %2)
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = getelementptr inbounds i8, ptr %0, i64 71
   %6 = load i8, ptr %5, align 1
@@ -8094,7 +8094,7 @@ _ZN7doctest6StringD2Ev.exit:                      ; preds = %1, %8, %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7doctest12_GLOBAL__N_124translateActiveExceptionEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7doctest12_GLOBAL__N_124translateActiveExceptionEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.doctest::String", align 8
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 23
@@ -11871,7 +11871,7 @@ _ZN7doctest6StringD2Ev.exit32:                    ; preds = %44, %47, %50
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 _ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.i:
   %5 = alloca %"class.doctest::String", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 23
@@ -14140,7 +14140,7 @@ _ZNK7doctest6detail15MultiLaneAtomicIiEcviEv.exit: ; preds = %.split.us21.i.i
 .lr.ph520:                                        ; preds = %663, %_ZN7doctest17TestCaseExceptionD2Ev.exit
   %.sroa.0250.0518 = phi ptr [ %681, %_ZN7doctest17TestCaseExceptionD2Ev.exit ], [ %666, %663 ]
   %669 = load ptr, ptr %.sroa.0250.0518, align 8
-  invoke fastcc void @_ZN7doctest12_GLOBAL__N_124translateActiveExceptionEv(ptr dead_on_unwind noalias nonnull writable align 8 %12)
+  invoke fastcc void @_ZN7doctest12_GLOBAL__N_124translateActiveExceptionEv(ptr dead_on_unwind noalias writable align 8 %12)
           to label %670 unwind label %682
 
 670:                                              ; preds = %.lr.ph520
@@ -15725,7 +15725,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZNS
   call void @llvm.experimental.noalias.scope.decl(metadata !92)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  invoke fastcc void @_ZL17parseFValueHelperB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, i64 %158, ptr nonnull %159)
+  invoke fastcc void @_ZL17parseFValueHelperB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %6, i64 %158, ptr nonnull %159)
           to label %.noexc72 unwind label %.loopexit153
 
 .noexc72:                                         ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
@@ -15897,7 +15897,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit50.i: ; preds = %_Z
   %.sroa.3.0.i = phi ptr [ %214, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit50.i ], [ %.sroa.12.0.i, %211 ], [ %.sroa.12.0.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i43.i ], [ %.sroa.12.0.i, %155 ], [ %.0.i.i.i, %146 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
-  invoke fastcc void @_ZL17parseFValueHelperB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, i64 %.sroa.02.0.i, ptr %.sroa.3.0.i)
+  invoke fastcc void @_ZL17parseFValueHelperB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %4, i64 %.sroa.02.0.i, ptr %.sroa.3.0.i)
           to label %.noexc73 unwind label %.loopexit153
 
 .noexc73:                                         ; preds = %.thread55.i
@@ -18088,7 +18088,7 @@ _ZN7doctest6detail7fillossIcLm19EEEvPSoRAT0__KT_.exit: ; preds = %_ZN7doctestlsE
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL17parseFValueHelperB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %0, i64 %1, ptr %2) unnamed_addr #38 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17parseFValueHelperB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i64 %1, ptr %2) unnamed_addr #38 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8

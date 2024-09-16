@@ -732,7 +732,7 @@ _ZN4half8binary164arch19f16_to_f64_fallback17hb9851845bcca934aE.exit.i: ; preds 
 
 130:                                              ; preds = %125, %_ZN4half8binary164arch19f16_to_f64_fallback17hb9851845bcca934aE.exit.i
   %.0.i4 = phi double [ %127, %125 ], [ %.0.i.i, %_ZN4half8binary164arch19f16_to_f64_fallback17hb9851845bcca934aE.exit.i ]
-  call fastcc void @_ZN5uu_od9prn_float12format_float17haa184c61f310365cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5, double noundef %.0.i4, i64 noundef 9, i64 noundef 4)
+  call fastcc void @_ZN5uu_od9prn_float12format_float17haa184c61f310365cE(ptr noalias nocapture noundef align 8 dereferenceable(24) %5, double noundef %.0.i4, i64 noundef 9, i64 noundef 4)
   store ptr %5, ptr %6, align 8
   %131 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h940edd02ab5edd80E", ptr %131, align 8
@@ -867,7 +867,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %14
 
 22:                                               ; preds = %14, %2
   %23 = fpext float %13 to double
-  call fastcc void @_ZN5uu_od9prn_float12format_float17haa184c61f310365cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %10, double noundef %23, i64 noundef 14, i64 noundef 8)
+  call fastcc void @_ZN5uu_od9prn_float12format_float17haa184c61f310365cE(ptr noalias nocapture noundef align 8 dereferenceable(24) %10, double noundef %23, i64 noundef 14, i64 noundef 8)
   br label %26
 
 24:                                               ; preds = %26
@@ -950,7 +950,7 @@ define hidden void @_ZN5uu_od9prn_float17format_item_flo6417hcb018db2a9f5fdbcE.l
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call fastcc void @_ZN5uu_od9prn_float12format_float17haa184c61f310365cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5, double noundef %1, i64 noundef 24, i64 noundef 17)
+  call fastcc void @_ZN5uu_od9prn_float12format_float17haa184c61f310365cE(ptr noalias nocapture noundef align 8 dereferenceable(24) %5, double noundef %1, i64 noundef 24, i64 noundef 17)
   store ptr %5, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h940edd02ab5edd80E", ptr %8, align 8
@@ -1019,7 +1019,7 @@ define hidden void @_ZN5uu_od9prn_float17format_item_flo6417hcb018db2a9f5fdbcE.l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5uu_od9prn_float12format_float17haa184c61f310365cE(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, double noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5uu_od9prn_float12format_float17haa184c61f310365cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, double noundef %1, i64 noundef %2, i64 noundef range(i64 4, 18) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -1236,9 +1236,9 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit112: ; preds = %46
   br label %66
 
 70:                                               ; preds = %66
-  %71 = trunc i64 %3 to i32
-  %72 = add i32 %71, -1
-  %.not = icmp sgt i32 %.0, %72
+  %71 = trunc nuw nsw i64 %3 to i32
+  %72 = add nsw i32 %71, -1
+  %.not = icmp ugt i32 %.0, %72
   br i1 %.not, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit127, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit117
 
 73:                                               ; preds = %66
@@ -1250,7 +1250,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit117: ; preds = %70
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   %75 = xor i32 %.0, -1
   %76 = sext i32 %75 to i64
-  %77 = add i64 %3, %76
+  %77 = add nsw i64 %3, %76
   store i64 %77, ptr %17, align 8
   %78 = load ptr, ptr @_ZN4core3fmt2rt12USIZE_MARKER17hef2d4d0250b80c97E, align 8, !nonnull !13, !noundef !13
   store ptr %27, ptr %18, align 8
@@ -1350,7 +1350,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit122: ; preds = %73
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit127: ; preds = %70, %73
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %90 = add i64 %3, -1
+  %90 = add nsw i64 %3, -1
   store i64 %90, ptr %12, align 8
   %91 = load ptr, ptr @_ZN4core3fmt2rt12USIZE_MARKER17hef2d4d0250b80c97E, align 8, !nonnull !13, !noundef !13
   store ptr %27, ptr %13, align 8

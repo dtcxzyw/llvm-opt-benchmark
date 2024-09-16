@@ -1644,7 +1644,7 @@ define dso_local range(i32 -2147483648, 1) i32 @io_sqe_files_unregister(ptr noun
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc range(i32 -2147483648, 1) i32 @io_rsrc_ref_quiesce(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @io_rsrc_ref_quiesce(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #4 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #12
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1778,7 +1778,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @io_rsrc_ref_quiesce(ptr no
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -14, 1) i32 @io_rsrc_data_alloc(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 -14, 1) i32 @io_rsrc_data_alloc(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #4 align 16 {
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %7 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 24) #13
   %8 = icmp eq ptr %7, null
@@ -2197,7 +2197,7 @@ declare dso_local void @unpin_user_pages(ptr noundef, i64 noundef) local_unnamed
 declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -14, 1) i32 @io_copy_iov(i16 %.4.val, ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -14, 1) i32 @io_copy_iov(i16 %.4.val, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.compat_iovec, align 8
   %5 = and i16 %.4.val, 1024
   %6 = icmp eq i16 %5, 0
@@ -2967,56 +2967,50 @@ declare dso_local void @schedule() local_unnamed_addr #2
 declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc ptr @io_alloc_page_table(i64 noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc ptr @io_alloc_page_table(i64 noundef range(i64 0, 34359738361) %0) unnamed_addr #4 align 16 {
   %2 = add nuw nsw i64 %0, 4095
   %3 = lshr i64 %2, 12
   %4 = shl nuw nsw i64 %3, 3
-  %5 = and i64 %4, 34359738360
-  %6 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %5, i32 noundef 4197824) #15
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %.loopexit, label %8
+  %5 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %4, i32 noundef 4197824) #15
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %.loopexit, label %7
 
-8:                                                ; preds = %1
-  %9 = and i64 %2, 17592186040320
-  %10 = icmp eq i64 %9, 0
-  br i1 %10, label %.loopexit, label %11
+7:                                                ; preds = %1
+  %8 = icmp eq i64 %0, 0
+  br i1 %8, label %.loopexit, label %.preheader2
 
-11:                                               ; preds = %8
-  %12 = and i64 %3, 4294967295
-  br label %13
+.preheader2:                                      ; preds = %7, %.thread
+  %9 = phi i64 [ %21, %.thread ], [ 0, %7 ]
+  %10 = phi i64 [ %20, %.thread ], [ %0, %7 ]
+  %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 4096)
+  %12 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %11, i32 noundef 4197824) #15
+  %13 = getelementptr ptr, ptr %5, i64 %9
+  store ptr %12, ptr %13, align 8
+  %14 = icmp eq ptr %12, null
+  br i1 %14, label %.preheader, label %.thread
 
-13:                                               ; preds = %.thread, %11
-  %14 = phi i64 [ 0, %11 ], [ %26, %.thread ]
-  %15 = phi i64 [ %0, %11 ], [ %25, %.thread ]
-  %16 = tail call i64 @llvm.umin.i64(i64 %15, i64 4096)
-  %17 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %16, i32 noundef 4197824) #15
-  %18 = getelementptr ptr, ptr %6, i64 %14
-  store ptr %17, ptr %18, align 8
-  %19 = icmp eq ptr %17, null
-  br i1 %19, label %.preheader, label %.thread
+.preheader:                                       ; preds = %.preheader2, %.preheader
+  %15 = phi i64 [ %18, %.preheader ], [ 0, %.preheader2 ]
+  %16 = getelementptr ptr, ptr %5, i64 %15
+  %17 = load ptr, ptr %16, align 8
+  tail call void @kfree(ptr noundef %17) #12
+  %18 = add nuw nsw i64 %15, 1
+  %19 = icmp eq i64 %18, %3
+  br i1 %19, label %23, label %.preheader, !llvm.loop !41
 
-.preheader:                                       ; preds = %13, %.preheader
-  %20 = phi i64 [ %23, %.preheader ], [ 0, %13 ]
-  %21 = getelementptr ptr, ptr %6, i64 %20
-  %22 = load ptr, ptr %21, align 8
-  tail call void @kfree(ptr noundef %22) #12
-  %23 = add nuw nsw i64 %20, 1
-  %24 = icmp eq i64 %23, %12
-  br i1 %24, label %28, label %.preheader, !llvm.loop !41
+.thread:                                          ; preds = %.preheader2
+  %20 = sub i64 %10, %11
+  %21 = add nuw nsw i64 %9, 1
+  %22 = icmp eq i64 %21, %3
+  br i1 %22, label %.loopexit, label %.preheader2, !llvm.loop !62
 
-.thread:                                          ; preds = %13
-  %25 = sub i64 %15, %16
-  %26 = add nuw nsw i64 %14, 1
-  %27 = icmp eq i64 %26, %12
-  br i1 %27, label %.loopexit, label %13, !llvm.loop !62
-
-28:                                               ; preds = %.preheader
-  tail call void @kfree(ptr noundef nonnull %6) #12
+23:                                               ; preds = %.preheader
+  tail call void @kfree(ptr noundef nonnull %5) #12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread, %28, %8, %1
-  %29 = phi ptr [ null, %1 ], [ %6, %8 ], [ null, %28 ], [ %6, %.thread ]
-  ret ptr %29
+.loopexit:                                        ; preds = %.thread, %23, %7, %1
+  %24 = phi ptr [ null, %1 ], [ %5, %7 ], [ null, %23 ], [ %5, %.thread ]
+  ret ptr %24
 }
 
 ; Function Attrs: null_pointer_is_valid

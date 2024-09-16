@@ -2778,7 +2778,7 @@ define dso_local i64 @rb_io_gets(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @rb_io_getline_1(i64 noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @rb_io_getline_1(i64 noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = and i64 %3, 7
   %6 = icmp ne i64 %5, 0
   %7 = icmp eq i64 %3, 0
@@ -2923,7 +2923,7 @@ rb_io_check_closed.exit:                          ; preds = %rb_io_check_initial
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @rb_io_getline_0(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @rb_io_getline_0(i64 noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3) unnamed_addr #0 {
   tail call void @rb_io_check_char_readable(ptr noundef %3)
   %5 = icmp eq i64 %0, 4
   %6 = icmp slt i64 %1, 0
@@ -5708,7 +5708,7 @@ rb_num2int_inline.exit91:                         ; preds = %122, %124
 
 141:                                              ; preds = %rb_num2int_inline.exit91, %115
   %.2 = phi i32 [ %.0, %115 ], [ %127, %rb_num2int_inline.exit91 ]
-  call fastcc void @extract_binmode(i64 noundef %2, ptr noundef nonnull %8)
+  call fastcc void @extract_binmode(i64 noundef %2, ptr noundef %8)
   %142 = load i32, ptr %8, align 4
   %143 = and i32 %142, 4
   %144 = icmp eq i32 %143, 0
@@ -5913,7 +5913,7 @@ declare i64 @rb_hash_aref(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @rb_to_int(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @extract_binmode(i64 noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @extract_binmode(i64 noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = icmp eq i64 %0, 4
   br i1 %3, label %42, label %4
 
@@ -6055,17 +6055,17 @@ define dso_local noundef i64 @rb_file_open_str(i64 noundef %0, ptr noundef nonnu
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr null, ptr %10, align 8
   %11 = load i64, ptr %3, align 8
-  %12 = call fastcc i64 @rb_file_open_internal(i64 noundef %8, i64 noundef %11, ptr noundef nonnull %1)
+  %12 = call fastcc i64 @rb_file_open_internal(i64 noundef %8, i64 noundef %11, ptr noundef %1)
   ret i64 %8
 }
 
 declare i64 @rb_get_path(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @rb_file_open_internal(i64 noundef returned %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i64 @rb_file_open_internal(i64 noundef returned %0, i64 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.rb_io_encoding, align 8
-  %6 = tail call i32 @rb_io_modestr_fmode(ptr noundef %2)
+  %6 = tail call i32 @rb_io_modestr_fmode(ptr noundef nonnull %2)
   store i32 %6, ptr %4, align 4
   %7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 58) #29
   %.not = icmp eq ptr %7, null
@@ -6169,7 +6169,7 @@ switch.lookup:                                    ; preds = %31, %34
   %.2.i = or disjoint i32 %spec.select.i, %49
   %.3.i = or disjoint i32 %.2.i, %51
   %.4.i = or disjoint i32 %.3.i, %switch.load
-  %52 = call fastcc i64 @rb_file_open_generic(i64 noundef %0, i64 noundef %1, i32 noundef %.4.i, i32 noundef %32, ptr noundef nonnull %5, i32 noundef 438)
+  %52 = call fastcc i64 @rb_file_open_generic(i64 noundef %0, i64 noundef %1, i32 noundef %.4.i, i32 noundef %32, ptr noundef %5, i32 noundef 438)
   ret i64 %0
 }
 
@@ -6190,7 +6190,7 @@ define dso_local i64 @rb_file_open(ptr noundef nonnull %0, ptr noundef nonnull %
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr null, ptr %6, align 8
   %7 = tail call i64 @rb_str_new_cstr(ptr noundef nonnull %0) #24
-  %8 = tail call fastcc i64 @rb_file_open_internal(i64 noundef %4, i64 noundef %7, ptr noundef nonnull %1)
+  %8 = tail call fastcc i64 @rb_file_open_internal(i64 noundef %4, i64 noundef %7, ptr noundef %1)
   ret i64 %4
 }
 
@@ -7356,7 +7356,7 @@ rb_str_end_with_asciichar.exit:                   ; preds = %45
 
 63:                                               ; preds = %.sink.split, %49, %rb_str_end_with_asciichar.exit
   %.0 = phi i32 [ 1, %rb_str_end_with_asciichar.exit ], [ 1, %49 ], [ %.0.ph, %.sink.split ]
-  call fastcc void @rb_io_writev(i64 noundef %2, i32 noundef %.0, ptr noundef nonnull %6)
+  call fastcc void @rb_io_writev(i64 noundef %2, i32 noundef %.0, ptr noundef %6)
   br label %64
 
 64:                                               ; preds = %.critedge, %63
@@ -7432,9 +7432,9 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit.t
 declare i64 @rb_obj_as_string(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rb_io_writev(i64 noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @rb_io_writev(i64 noundef %0, i32 noundef range(i32 1, 3) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
-  %5 = icmp sgt i32 %1, 1
+  %5 = icmp ugt i32 %1, 1
   br i1 %5, label %6, label %51
 
 6:                                                ; preds = %3
@@ -7538,7 +7538,7 @@ RB_FL_TEST.exit:                                  ; preds = %rb_class_of.exit
 
 51:                                               ; preds = %6, %3
   %52 = load i64, ptr @id_write, align 8
-  %53 = tail call i64 @rb_funcallv(i64 noundef %0, i64 noundef %52, i32 noundef %1, ptr noundef %2) #24
+  %53 = tail call i64 @rb_funcallv(i64 noundef %0, i64 noundef %52, i32 noundef %1, ptr noundef nonnull %2) #24
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %51
@@ -7582,7 +7582,7 @@ rb_class_of.exit.i:                               ; preds = %12
   br label %rb_p_write.exit
 
 .critedge.i:                                      ; preds = %rb_class_of.exit.i, %12, %1
-  call fastcc void @rb_io_writev(i64 noundef %7, i32 noundef 2, ptr noundef nonnull %2)
+  call fastcc void @rb_io_writev(i64 noundef %7, i32 noundef 2, ptr noundef %2)
   br label %rb_p_write.exit
 
 rb_p_write.exit:                                  ; preds = %20, %.critedge.i
@@ -7624,7 +7624,7 @@ rb_class_of.exit:                                 ; preds = %10
   br label %20
 
 .critedge:                                        ; preds = %1, %rb_class_of.exit, %10
-  call fastcc void @rb_io_writev(i64 noundef %5, i32 noundef 2, ptr noundef nonnull %2)
+  call fastcc void @rb_io_writev(i64 noundef %5, i32 noundef 2, ptr noundef %2)
   br label %20
 
 20:                                               ; preds = %.critedge, %18
@@ -8065,7 +8065,7 @@ define hidden i64 @rb_io_prep_stdin() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @prep_stdio(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @prep_stdio(ptr noundef %0, i32 noundef range(i32 1, 131075) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @fileno(ptr noundef %0) #24
   %6 = or i32 %1, 65536
   %7 = tail call fastcc i64 @prep_io(i32 noundef %5, i32 noundef %6, i64 noundef %2, ptr noundef %3)
@@ -11002,7 +11002,7 @@ extract_getline_args.exit:                        ; preds = %.thread.i, %39, %45
   store i64 %49, ptr %50, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %51 = load i64, ptr %6, align 8
-  call fastcc void @open_key_args(i64 noundef %2, i32 noundef %9, ptr noundef %1, i64 noundef %51, ptr noundef nonnull %7)
+  call fastcc void @open_key_args(i64 noundef %2, i32 noundef %9, ptr noundef %1, i64 noundef %51, ptr noundef %7)
   %52 = getelementptr inbounds i8, ptr %7, i64 16
   %53 = load i64, ptr %52, align 8
   %54 = icmp eq i64 %53, 4
@@ -11043,7 +11043,7 @@ extract_getline_opts.exit:                        ; preds = %55, %62, %66
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %71 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %53, ptr %8, align 8
-  call fastcc void @check_getline_args(ptr noundef nonnull %71, i64 noundef %53)
+  call fastcc void @check_getline_args(ptr noundef %71, i64 noundef %53)
   %72 = ptrtoint ptr %8 to i64
   %73 = call i64 @rb_ensure(ptr noundef nonnull @io_s_foreach, i64 noundef %72, ptr noundef nonnull @rb_io_close, i64 noundef %53) #24
   br label %74
@@ -11133,7 +11133,7 @@ extract_getline_args.exit:                        ; preds = %.thread.i, %33, %39
   store i64 %43, ptr %44, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %45 = load i64, ptr %6, align 8
-  call fastcc void @open_key_args(i64 noundef %2, i32 noundef %9, ptr noundef %1, i64 noundef %45, ptr noundef nonnull %7)
+  call fastcc void @open_key_args(i64 noundef %2, i32 noundef %9, ptr noundef %1, i64 noundef %45, ptr noundef %7)
   %46 = getelementptr inbounds i8, ptr %7, i64 16
   %47 = load i64, ptr %46, align 8
   %48 = icmp eq i64 %47, 4
@@ -11174,7 +11174,7 @@ extract_getline_opts.exit:                        ; preds = %49, %56, %60
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %65 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %47, ptr %8, align 8
-  call fastcc void @check_getline_args(ptr noundef nonnull %65, i64 noundef %47)
+  call fastcc void @check_getline_args(ptr noundef %65, i64 noundef %47)
   %66 = ptrtoint ptr %8 to i64
   %67 = call i64 @rb_ensure(ptr noundef nonnull @io_s_readlines, i64 noundef %66, ptr noundef nonnull @rb_io_close, i64 noundef %47) #24
   br label %68
@@ -11221,7 +11221,7 @@ rb_num2long_inline.exit:                          ; preds = %14, %16
 
 21:                                               ; preds = %rb_num2long_inline.exit, %3
   %22 = load i64, ptr %4, align 8
-  call fastcc void @open_key_args(i64 noundef %2, i32 noundef %9, ptr noundef %1, i64 noundef %22, ptr noundef nonnull %6)
+  call fastcc void @open_key_args(i64 noundef %2, i32 noundef %9, ptr noundef %1, i64 noundef %22, ptr noundef %6)
   %23 = getelementptr inbounds i8, ptr %6, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, 4
@@ -11289,7 +11289,7 @@ define internal i64 @rb_io_s_binread(i32 noundef %0, ptr noundef %1, i64 noundef
   %14 = call nonnull ptr @rb_ascii8bit_encoding() #24
   store ptr %14, ptr %6, align 8
   %15 = load i64, ptr %1, align 8
-  %16 = call fastcc i64 @rb_io_open_generic(i64 noundef %2, i64 noundef %15, i32 noundef 0, i32 noundef 5, ptr noundef nonnull %6, i32 noundef 0)
+  %16 = call fastcc i64 @rb_io_open_generic(i64 noundef %2, i64 noundef %15, i32 noundef 0, i32 noundef 5, ptr noundef %6, i32 noundef 0)
   %17 = getelementptr inbounds i8, ptr %5, i64 16
   store i64 %16, ptr %17, align 8
   %18 = icmp eq i64 %16, 4
@@ -11542,7 +11542,7 @@ rb_io_synchronized.exit:                          ; preds = %rb_io_check_initial
   %109 = or i32 %108, 8
   store i32 %109, ptr %107, align 4
   %110 = load i64, ptr %9, align 8
-  call fastcc void @extract_binmode(i64 noundef %110, ptr noundef nonnull %11)
+  call fastcc void @extract_binmode(i64 noundef %110, ptr noundef %11)
   %111 = load i32, ptr %11, align 4
   %112 = and i32 %111, 4
   %.not23 = icmp ne i32 %112, 0
@@ -13360,7 +13360,7 @@ define internal i64 @rb_io_each_line(i32 noundef %0, ptr noundef %1, i64 noundef
   br label %.loopexit
 
 10:                                               ; preds = %3
-  call fastcc void @prepare_getline_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %4, i64 noundef %2)
+  call fastcc void @prepare_getline_args(i32 noundef %0, ptr noundef %1, ptr noundef %4, i64 noundef %2)
   %11 = getelementptr inbounds i8, ptr %4, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
@@ -15301,7 +15301,7 @@ rb_num2int_inline.exit:                           ; preds = %24, %26
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_io_readlines(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.getline_arg, align 8
-  call fastcc void @prepare_getline_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %4, i64 noundef %2)
+  call fastcc void @prepare_getline_args(i32 noundef %0, ptr noundef %1, ptr noundef %4, i64 noundef %2)
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
@@ -15749,7 +15749,7 @@ define internal i64 @io_write_m(i32 noundef %0, ptr noundef %1, i64 noundef %2) 
 define internal noundef i64 @rb_io_gets_m(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.getline_arg, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call fastcc void @prepare_getline_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %4, i64 noundef %2)
+  call fastcc void @prepare_getline_args(i32 noundef %0, ptr noundef %1, ptr noundef %4, i64 noundef %2)
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 16
@@ -17939,7 +17939,7 @@ rb_num2int_inline.exit.i:                         ; preds = %14, %12
   %16 = trunc i64 %.0.i.i to i32
   %sext.i = shl i64 %.0.i.i, 32
   %17 = ashr exact i64 %sext.i, 32
-  %18 = call fastcc i64 @setup_narg(i64 noundef %17, ptr noundef nonnull %5, ptr noundef nonnull @fcntl_narg_len)
+  %18 = call fastcc i64 @setup_narg(i64 noundef %17, ptr noundef %5, ptr noundef nonnull @fcntl_narg_len)
   %19 = and i64 %2, 7
   %20 = icmp ne i64 %19, 0
   %21 = icmp eq i64 %2, 0
@@ -20182,7 +20182,7 @@ define internal noundef i64 @argf_gets(i32 noundef %0, ptr noundef %1, i64 nound
 
 .split42.us.i:                                    ; preds = %34
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call fastcc void @prepare_getline_args(i32 noundef 0, ptr noundef %1, ptr noundef nonnull %4, i64 noundef %21)
+  call fastcc void @prepare_getline_args(i32 noundef 0, ptr noundef %1, ptr noundef %4, i64 noundef %21)
   %38 = load i64, ptr %16, align 8
   %39 = load i64, ptr %17, align 8
   %40 = load i8, ptr %18, align 8
@@ -20241,7 +20241,7 @@ define internal noundef i64 @argf_gets(i32 noundef %0, ptr noundef %1, i64 nound
 
 .split.i:                                         ; preds = %66, %.lr.ph.split.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call fastcc void @prepare_getline_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %5, i64 noundef %58)
+  call fastcc void @prepare_getline_args(i32 noundef %0, ptr noundef %1, ptr noundef %5, i64 noundef %58)
   %71 = load i64, ptr %13, align 8
   %72 = load i64, ptr %14, align 8
   %73 = load i8, ptr %15, align 8
@@ -21735,7 +21735,7 @@ rb_open_file.exit:                                ; preds = %25, %33
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %40 = call fastcc i64 @rb_file_open_generic(i64 noundef %2, i64 noundef %37, i32 noundef %38, i32 noundef %39, ptr noundef nonnull %11, i32 noundef %36)
+  %40 = call fastcc i64 @rb_file_open_generic(i64 noundef %2, i64 noundef %37, i32 noundef %38, i32 noundef %39, ptr noundef %11, i32 noundef %36)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   br label %41
 
@@ -22892,7 +22892,7 @@ io_internal_wait.exit:                            ; preds = %38, %6, %1
 declare i64 @rb_num2ull(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @io_internal_wait(i64 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @io_internal_wait(i64 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = alloca %struct.fiber_scheduler_wait_for_arguments, align 8
   %7 = alloca %struct.pollfd, align 4
   %8 = alloca %struct.fiber_scheduler_wait_for_arguments, align 8
@@ -23879,7 +23879,7 @@ io_enc_str.exit91:                                ; preds = %io_shrink_read_stri
 declare i64 @rb_enc_str_new_static(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @rb_io_getline_fast(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @rb_io_getline_fast(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 80
@@ -24491,7 +24491,7 @@ define internal fastcc void @io_shift_cbuf(ptr nocapture noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @fill_cbuf(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i64 @fill_cbuf(ptr noundef %0, i32 noundef range(i32 0, 262145) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = or i32 %1, 131072
@@ -24893,7 +24893,7 @@ declare i64 @rb_econv_open_exc(ptr noundef, ptr noundef, i32 noundef) local_unna
 declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rb_io_fptr_cleanup(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @rb_io_fptr_cleanup(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -24969,7 +24969,7 @@ fptr_finalize.exit:                               ; preds = %clear_readconv.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @fptr_finalize_flush(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @fptr_finalize_flush(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.finish_writeconv_arg, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -25430,7 +25430,7 @@ declare ptr @rb_default_internal_encoding() local_unnamed_addr #1
 declare nonnull ptr @rb_usascii_encoding() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @rb_file_open_generic(i64 noundef returned %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i64 @rb_file_open_generic(i64 noundef returned %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4, i32 noundef %5) unnamed_addr #0 {
   %.0.sroa.gep23 = getelementptr inbounds i8, ptr %4, i64 8
   %.0.sroa.gep = getelementptr inbounds i8, ptr %4, i64 16
   %7 = load i32, ptr %.0.sroa.gep, align 8
@@ -26379,7 +26379,7 @@ declare void @rb_category_warning(i32 noundef, ptr noundef, ...) local_unnamed_a
 declare i32 @rb_method_basic_definition_p(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @io_writev(i32 noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @io_writev(i32 noundef range(i32 2, 1) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds i8, ptr %5, i64 16
@@ -26508,7 +26508,7 @@ rb_io_check_writable.exit:                        ; preds = %43, %46
   %65 = zext i1 %64 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  %66 = call fastcc i64 @do_writeconv(i64 noundef %63, ptr noundef nonnull %30, ptr noundef nonnull %4)
+  %66 = call fastcc i64 @do_writeconv(i64 noundef %63, ptr noundef nonnull %30, ptr noundef %4)
   %67 = load i32, ptr %4, align 4
   %.not.i38 = icmp eq i32 %67, 0
   br i1 %.not.i38, label %69, label %68
@@ -26638,7 +26638,7 @@ rb_alloc_tmp_buffer2.exit42:                      ; preds = %27
   %35 = load i64, ptr %34, align 8
   %36 = call i64 @rb_obj_as_string(i64 noundef %35) #24
   store i32 0, ptr %5, align 4
-  %37 = call fastcc i64 @do_writeconv(i64 noundef %36, ptr noundef %2, ptr noundef nonnull %5)
+  %37 = call fastcc i64 @do_writeconv(i64 noundef %36, ptr noundef %2, ptr noundef %5)
   %38 = load i32, ptr %5, align 4
   %.not41 = icmp eq i32 %38, 0
   br i1 %.not41, label %40, label %39
@@ -26883,7 +26883,7 @@ io_binwritev.exit:                                ; preds = %._crit_edge, %._cri
 declare i64 @rb_fix_plus(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @do_writeconv(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i64 @do_writeconv(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 96
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -28516,7 +28516,7 @@ declare i64 @rb_enumeratorize_with_size(i64 noundef, i64 noundef, i32 noundef, p
 declare i64 @rb_frame_this_func() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @open_key_args(i64 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc void @open_key_args(i64 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
@@ -28641,7 +28641,7 @@ rb_io_open.exit:                                  ; preds = %50, %57
   %60 = phi i32 [ %59, %57 ], [ 438, %50 ]
   %61 = load i32, ptr %8, align 4
   %62 = load i32, ptr %9, align 4
-  %63 = call fastcc noundef i64 @rb_io_open_generic(i64 noundef %0, i64 noundef %54, i32 noundef %61, i32 noundef %62, ptr noundef nonnull %10, i32 noundef %60)
+  %63 = call fastcc noundef i64 @rb_io_open_generic(i64 noundef %0, i64 noundef %54, i32 noundef %61, i32 noundef %62, ptr noundef %10, i32 noundef %60)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
@@ -28652,7 +28652,7 @@ rb_io_open.exit:                                  ; preds = %50, %57
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @check_getline_args(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @check_getline_args(ptr nocapture noundef nonnull %0, i64 noundef %1) unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8
   %4 = icmp eq i64 %3, 4
   br i1 %4, label %50, label %5
@@ -28816,7 +28816,7 @@ declare i32 @rb_scan_args_kw(i32 noundef, i32 noundef, ptr noundef, ptr noundef,
 declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @rb_io_open_generic(i64 noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i64 @rb_io_open_generic(i64 noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
   %9 = load i64, ptr @rb_cIO, align 8
@@ -28913,7 +28913,7 @@ RSTRING_PTR.exit.i.i:                             ; preds = %45, %41
 
 pipe_open_s.exit:                                 ; preds = %RSTRING_PTR.exit.i.i, %48
   %.0.i13 = phi i64 [ %49, %48 ], [ 4, %RSTRING_PTR.exit.i.i ]
-  %50 = call fastcc noundef i64 @pipe_open(i64 noundef %.0.i13, i32 noundef %3, ptr noundef %4)
+  %50 = call fastcc noundef i64 @pipe_open(i64 noundef %.0.i13, i32 noundef %3, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %56
 
@@ -29103,7 +29103,7 @@ flush_before_seek.exit:                           ; preds = %rb_io_check_closed.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @io_s_write(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @io_s_write(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -29143,7 +29143,7 @@ define internal fastcc i64 @io_s_write(i32 noundef %0, ptr noundef %1, i64 nound
 
 30:                                               ; preds = %23, %19
   %31 = load i64, ptr %7, align 8
-  call fastcc void @open_key_args(i64 noundef %2, i32 noundef %0, ptr noundef %1, i64 noundef %31, ptr noundef nonnull %8)
+  call fastcc void @open_key_args(i64 noundef %2, i32 noundef %0, ptr noundef %1, i64 noundef %31, ptr noundef %8)
   %.not = icmp eq i32 %3, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
@@ -29320,7 +29320,7 @@ rb_io_check_closed.exit.i:                        ; preds = %rb_io_check_initial
 rb_io_check_writable.exit:                        ; preds = %49, %52
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  %53 = call fastcc i64 @do_writeconv(i64 noundef %12, ptr noundef nonnull %36, ptr noundef nonnull %4)
+  %53 = call fastcc i64 @do_writeconv(i64 noundef %12, ptr noundef nonnull %36, ptr noundef %4)
   %54 = load i32, ptr %4, align 4
   %.not.i19 = icmp eq i32 %54, 0
   br i1 %.not.i19, label %56, label %55
@@ -30627,14 +30627,14 @@ nogvl_copy_stream_sendfile.exit:                  ; preds = %206, %164, %124
   br i1 %271, label %nogvl_copy_stream_read_write.exit, label %.lr.ph.split.i.i
 
 .lr.ph.split.i.i:                                 ; preds = %270, %.outer.i.i
-  %.019.ph43.i.i = phi i32 [ %325, %.outer.i.i ], [ 0, %270 ]
-  %.020.ph42.i.i = phi i64 [ %327, %.outer.i.i ], [ %.033.i, %270 ]
-  %272 = sext i32 %.019.ph43.i.i to i64
+  %.019.ph42.i.i = phi i32 [ %325, %.outer.i.i ], [ 0, %270 ]
+  %.020.ph41.i.i = phi i64 [ %327, %.outer.i.i ], [ %.033.i, %270 ]
+  %272 = sext i32 %.019.ph42.i.i to i64
   %273 = getelementptr i8, ptr %4, i64 %272
   %274 = load ptr, ptr %254, align 8
   %275 = getelementptr inbounds i8, ptr %274, i64 16
   %276 = load i32, ptr %275, align 8
-  %277 = call i64 @write(i32 noundef %276, ptr noundef readonly %273, i64 noundef %.020.ph42.i.i) #24
+  %277 = call i64 @write(i32 noundef %276, ptr noundef readonly %273, i64 noundef %.020.ph41.i.i) #24
   %278 = icmp slt i64 %277, 0
   br i1 %278, label %.lr.ph39.i.i, label %.outer.i.i
 
@@ -30745,17 +30745,17 @@ nogvl_copy_stream_write.exit.thread.i:            ; preds = %304
   %319 = load ptr, ptr %254, align 8
   %320 = getelementptr inbounds i8, ptr %319, i64 16
   %321 = load i32, ptr %320, align 8
-  %322 = call i64 @write(i32 noundef %321, ptr noundef readonly %273, i64 noundef %.020.ph42.i.i) #24
+  %322 = call i64 @write(i32 noundef %321, ptr noundef readonly %273, i64 noundef %.020.ph41.i.i) #24
   %323 = icmp slt i64 %322, 0
   br i1 %323, label %.lr.ph39.i.i, label %.outer.i.i
 
 .outer.i.i:                                       ; preds = %.backedge.i.i, %.lr.ph.split.i.i
   %.us-phi.i.i = phi i64 [ %277, %.lr.ph.split.i.i ], [ %322, %.backedge.i.i ]
   %324 = trunc i64 %.us-phi.i.i to i32
-  %325 = add i32 %.019.ph43.i.i, %324
+  %325 = add i32 %.019.ph42.i.i, %324
   %sext.i.i = shl i64 %.us-phi.i.i, 32
   %326 = ashr exact i64 %sext.i.i, 32
-  %327 = sub i64 %.020.ph42.i.i, %326
+  %327 = sub i64 %.020.ph41.i.i, %326
   %328 = load i64, ptr %256, align 8
   %329 = add i64 %328, %.us-phi.i.i
   store i64 %329, ptr %256, align 8
@@ -30930,7 +30930,7 @@ rb_num2long_inline.exit:                          ; preds = %61, %63
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @maygvl_copy_stream_read(i32 noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc i64 @maygvl_copy_stream_read(i32 noundef range(i32 0, 2) %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.fiber_scheduler_wait_for_arguments, align 8
   %7 = alloca %struct.pollfd, align 4
   %8 = icmp slt i64 %4, 0
@@ -31403,7 +31403,7 @@ declare ptr @freopen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 declare i64 @rb_str_substr(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @prepare_getline_args(i32 noundef %0, ptr noundef %1, ptr nocapture noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @prepare_getline_args(i32 noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -31513,7 +31513,7 @@ extract_getline_opts.exit:                        ; preds = %extract_getline_arg
   store i8 %59, ptr %56, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %60 = getelementptr inbounds i8, ptr %2, i64 8
-  call fastcc void @check_getline_args(ptr noundef nonnull %60, i64 noundef %3)
+  call fastcc void @check_getline_args(ptr noundef %60, i64 noundef %3)
   ret void
 }
 
@@ -32212,7 +32212,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @nogvl_fdatasync(ptr noca
 declare i32 @fdatasync(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @io_getpartial(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i64 @io_getpartial(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 5) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca %struct.io_internal_read_struct, align 8
@@ -32625,7 +32625,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @io_advise_internal(ptr n
 declare i32 @posix_fadvise(i32 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @setup_narg(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc i64 @setup_narg(i64 noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = load i64, ptr %1, align 8
   %5 = and i64 %4, -5
   %.not = icmp eq i64 %5, 0
@@ -32968,7 +32968,7 @@ declare i64 @rb_yield_values2(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @rb_iter_break_value(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @argf_getpartial(i32 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i64 @argf_getpartial(i32 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca %struct.argf_call_arg, align 8

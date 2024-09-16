@@ -1295,7 +1295,7 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = getelementptr i8, ptr %ar, i64 116
   %ar.val = load i32, ptr %0, align 4
-  %call = call fastcc ptr @debug_localname(ptr noundef %L, i32 %ar.val, ptr noundef nonnull %name, i32 noundef %n)
+  %call = call fastcc ptr @debug_localname(ptr noundef %L, i32 %ar.val, ptr noundef %name, i32 noundef %n)
   %1 = load ptr, ptr %name, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end21, label %if.then2
@@ -1430,7 +1430,7 @@ if.end21:                                         ; preds = %if.else, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @debug_localname(ptr nocapture noundef readonly %L, i32 %ar.116.val, ptr nocapture noundef writeonly %name, i32 noundef %slot1) unnamed_addr #3 {
+define internal fastcc ptr @debug_localname(ptr nocapture noundef readonly %L, i32 %ar.116.val, ptr nocapture noundef nonnull writeonly %name, i32 noundef %slot1) unnamed_addr #3 {
 entry:
   %p.i = alloca ptr, align 8
   %and = and i32 %ar.116.val, 65535
@@ -1642,7 +1642,7 @@ entry:
   store ptr null, ptr %name, align 8
   %0 = getelementptr i8, ptr %ar, i64 116
   %ar.val = load i32, ptr %0, align 4
-  %call = call fastcc ptr @debug_localname(ptr noundef %L, i32 %ar.val, ptr noundef nonnull %name, i32 noundef %n)
+  %call = call fastcc ptr @debug_localname(ptr noundef %L, i32 %ar.val, ptr noundef %name, i32 noundef %n)
   %1 = load ptr, ptr %name, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then

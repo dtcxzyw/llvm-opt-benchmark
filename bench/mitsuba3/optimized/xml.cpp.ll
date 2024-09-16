@@ -5387,7 +5387,7 @@ _ZN7mitsuba9TransformINS_5PointIdLm4EEEEC2Ev.exit.i: ; preds = %88
           to label %_ZNSt3__16vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_bEEENS5_IS8_EEEC2ERKSA_.exit unwind label %165
 
 _ZNSt3__16vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_bEEENS5_IS8_EEEC2ERKSA_.exit: ; preds = %97
-  invoke fastcc void @_ZN7mitsuba3xml6detailL32init_xml_parse_context_from_fileERNS1_15XMLParseContextERKNS_10filesystem4pathENSt3__16vectorINS8_5tupleIJNS8_12basic_stringIcNS8_11char_traitsIcEENS8_9allocatorIcEEEESG_bEEENSE_ISH_EEEEb(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 32 dereferenceable(364) %11, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull %13, i1 noundef zeroext false)
+  invoke fastcc void @_ZN7mitsuba3xml6detailL32init_xml_parse_context_from_fileERNS1_15XMLParseContextERKNS_10filesystem4pathENSt3__16vectorINS8_5tupleIJNS8_12basic_stringIcNS8_11char_traitsIcEENS8_9allocatorIcEEEESG_bEEENSE_ISH_EEEEb(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 32 dereferenceable(364) %11, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef %13, i1 noundef zeroext false)
           to label %100 unwind label %167
 
 100:                                              ; preds = %_ZNSt3__16vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_bEEENS5_IS8_EEEC2ERKSA_.exit
@@ -5891,7 +5891,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 declare void @_ZN7mitsuba6Thread17set_file_resolverEPNS_12FileResolverE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7mitsuba3xml6detailL32init_xml_parse_context_from_fileERNS1_15XMLParseContextERKNS_10filesystem4pathENSt3__16vectorINS8_5tupleIJNS8_12basic_stringIcNS8_11char_traitsIcEENS8_9allocatorIcEEEESG_bEEENSE_ISH_EEEEb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 32 dereferenceable(364) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7mitsuba3xml6detailL32init_xml_parse_context_from_fileERNS1_15XMLParseContextERKNS_10filesystem4pathENSt3__16vectorINS8_5tupleIJNS8_12basic_stringIcNS8_11char_traitsIcEENS8_9allocatorIcEEEESG_bEEENSE_ISH_EEEEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 32 dereferenceable(364) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %2, ptr noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__1::basic_string", align 8
   %7 = alloca i64, align 8
   %8 = alloca %"class.std::__1::basic_string", align 8
@@ -6123,7 +6123,7 @@ _ZNKSt3__110__function12__value_funcIFNS_12basic_stringIcNS_11char_traitsIcEENS_
 
 123:                                              ; preds = %122
   store i64 0, ptr %20, align 8
-  invoke fastcc void @_ZN7mitsuba3xml6detailL9parse_xmlERNS1_9XMLSourceERNS1_15XMLParseContextERN4pugi8xml_nodeENS0_3TagERNS_10PropertiesERNSt3__16vectorINSC_5tupleIJNSC_12basic_stringIcNSC_11char_traitsIcEENSC_9allocatorIcEEEESK_bEEENSI_ISL_EEEERmibb(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 16 dereferenceable(89) %13, ptr noundef nonnull align 32 dereferenceable(364) %1, ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef 20, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false)
+  invoke fastcc void @_ZN7mitsuba3xml6detailL9parse_xmlERNS1_9XMLSourceERNS1_15XMLParseContextERN4pugi8xml_nodeENS0_3TagERNS_10PropertiesERNSt3__16vectorINSC_5tupleIJNSC_12basic_stringIcNSC_11char_traitsIcEENSC_9allocatorIcEEEESK_bEEENSI_ISL_EEEERmibb(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 16 dereferenceable(89) %13, ptr noundef nonnull align 32 dereferenceable(364) %1, ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef 20, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %124 unwind label %136
 
 124:                                              ; preds = %123
@@ -6951,7 +6951,7 @@ _ZN7mitsuba9TransformINS_5PointIdLm4EEEEC2Ev.exit.i: ; preds = %94
 
 105:                                              ; preds = %103
   store i64 0, ptr %17, align 8
-  invoke fastcc void @_ZN7mitsuba3xml6detailL9parse_xmlERNS1_9XMLSourceERNS1_15XMLParseContextERN4pugi8xml_nodeENS0_3TagERNS_10PropertiesERNSt3__16vectorINSC_5tupleIJNSC_12basic_stringIcNSC_11char_traitsIcEENSC_9allocatorIcEEEESK_bEEENSI_ISL_EEEERmibb(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 16 dereferenceable(89) %10, ptr noundef nonnull align 32 dereferenceable(364) %15, ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef 20, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false)
+  invoke fastcc void @_ZN7mitsuba3xml6detailL9parse_xmlERNS1_9XMLSourceERNS1_15XMLParseContextERN4pugi8xml_nodeENS0_3TagERNS_10PropertiesERNSt3__16vectorINSC_5tupleIJNSC_12basic_stringIcNSC_11char_traitsIcEENSC_9allocatorIcEEEESK_bEEENSI_ISL_EEEERmibb(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 16 dereferenceable(89) %10, ptr noundef nonnull align 32 dereferenceable(364) %15, ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef 20, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %106 unwind label %126
 
 106:                                              ; preds = %105
@@ -7028,7 +7028,7 @@ _ZN7mitsuba9TransformINS_5PointIdLm4EEEEC2Ev.exit.i: ; preds = %94
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %132, %106
-  invoke fastcc void @_ZN7mitsuba3xml6detailL20instantiate_top_nodeERNS1_15XMLParseContextERKNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 32 dereferenceable(364) %15, ptr noundef nonnull align 8 dereferenceable(24) %18)
+  invoke fastcc void @_ZN7mitsuba3xml6detailL20instantiate_top_nodeERNS1_15XMLParseContextERKNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 32 dereferenceable(364) %15, ptr noundef nonnull align 8 dereferenceable(24) %18)
           to label %134 unwind label %128
 
 134:                                              ; preds = %._crit_edge
@@ -7299,7 +7299,7 @@ declare noundef ptr @_ZNK4pugi16xml_parse_result11descriptionEv(ptr noundef nonn
 declare ptr @_ZNK4pugi12xml_document16document_elementEv(ptr noundef nonnull align 8 dereferenceable(208)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7mitsuba3xml6detailL9parse_xmlERNS1_9XMLSourceERNS1_15XMLParseContextERN4pugi8xml_nodeENS0_3TagERNS_10PropertiesERNSt3__16vectorINSC_5tupleIJNSC_12basic_stringIcNSC_11char_traitsIcEENSC_9allocatorIcEEEESK_bEEENSI_ISL_EEEERmibb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 16 dereferenceable(89) %1, ptr noundef nonnull align 32 dereferenceable(364) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7mitsuba3xml6detailL9parse_xmlERNS1_9XMLSourceERNS1_15XMLParseContextERN4pugi8xml_nodeENS0_3TagERNS_10PropertiesERNSt3__16vectorINSC_5tupleIJNSC_12basic_stringIcNSC_11char_traitsIcEENSC_9allocatorIcEEEESK_bEEENSI_ISL_EEEERmibb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 16 dereferenceable(89) %1, ptr noundef nonnull align 32 dereferenceable(364) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"struct.drjit::Mask", align 4
   %13 = alloca i64, align 8
   %14 = alloca %"class.std::__1::tuple.315", align 8
@@ -9128,7 +9128,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 
 _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit1069: ; preds = %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit1065, %908
   %.0.i1068 = phi i1 [ %909, %908 ], [ false, %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit1065 ]
-  invoke fastcc void @_ZN7mitsuba3xml6detailL9parse_xmlERNS1_9XMLSourceERNS1_15XMLParseContextERN4pugi8xml_nodeENS0_3TagERNS_10PropertiesERNSt3__16vectorINSC_5tupleIJNSC_12basic_stringIcNSC_11char_traitsIcEENSC_9allocatorIcEEEESK_bEEENSI_ISL_EEEERmibb(ptr dead_on_unwind noalias nonnull writable align 8 %103, ptr noundef nonnull align 16 dereferenceable(89) %1, ptr noundef nonnull align 32 dereferenceable(364) %2, ptr noundef nonnull align 8 dereferenceable(8) %889, i32 noundef 14, ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %99, i32 noundef %877, i1 noundef zeroext %.0.i1064, i1 noundef zeroext %.0.i1068)
+  invoke fastcc void @_ZN7mitsuba3xml6detailL9parse_xmlERNS1_9XMLSourceERNS1_15XMLParseContextERN4pugi8xml_nodeENS0_3TagERNS_10PropertiesERNSt3__16vectorINSC_5tupleIJNSC_12basic_stringIcNSC_11char_traitsIcEENSC_9allocatorIcEEEESK_bEEENSI_ISL_EEEERmibb(ptr dead_on_unwind noalias writable align 8 %103, ptr noundef nonnull align 16 dereferenceable(89) %1, ptr noundef nonnull align 32 dereferenceable(364) %2, ptr noundef nonnull align 8 dereferenceable(8) %889, i32 noundef 14, ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %99, i32 noundef %877, i1 noundef zeroext %.0.i1064, i1 noundef zeroext %.0.i1068)
           to label %913 unwind label %.loopexit
 
 913:                                              ; preds = %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit1069
@@ -9282,7 +9282,7 @@ _ZN7mitsuba14NamedReferenceC2ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_
 964:                                              ; preds = %962
   %965 = getelementptr inbounds i8, ptr %950, i64 160
   store i64 %963, ptr %965, align 16
-  invoke void @_ZNSt3__19make_pairB8ne190000IRNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EENS_4pairINS_18__unwrap_ref_decayIT_E4typeENS9_IT0_E4typeEEEOSA_OSD_(ptr dead_on_unwind writable sret(%"struct.std::__1::pair.169") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %89, ptr noundef nonnull align 8 dereferenceable(24) %87)
+  invoke void @_ZNSt3__19make_pairB8ne190000IRNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EENS_4pairINS_18__unwrap_ref_decayIT_E4typeENS9_IT0_E4typeEEEOSA_OSD_(ptr dead_on_unwind nonnull writable sret(%"struct.std::__1::pair.169") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %89, ptr noundef nonnull align 8 dereferenceable(24) %87)
           to label %966 unwind label %.loopexit.split-lp
 
 966:                                              ; preds = %964
@@ -10862,7 +10862,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
           to label %1538 unwind label %.loopexit1534
 
 1538:                                             ; preds = %1536
-  invoke fastcc void @_ZN7mitsuba3xml6detailL9parse_xmlERNS1_9XMLSourceERNS1_15XMLParseContextERN4pugi8xml_nodeENS0_3TagERNS_10PropertiesERNSt3__16vectorINSC_5tupleIJNSC_12basic_stringIcNSC_11char_traitsIcEENSC_9allocatorIcEEEESK_bEEENSI_ISL_EEEERmibb(ptr dead_on_unwind noalias nonnull writable align 8 %184, ptr noundef nonnull align 16 dereferenceable(89) %162, ptr noundef nonnull align 32 dereferenceable(364) %2, ptr noundef nonnull align 8 dereferenceable(8) %1537, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false)
+  invoke fastcc void @_ZN7mitsuba3xml6detailL9parse_xmlERNS1_9XMLSourceERNS1_15XMLParseContextERN4pugi8xml_nodeENS0_3TagERNS_10PropertiesERNSt3__16vectorINSC_5tupleIJNSC_12basic_stringIcNSC_11char_traitsIcEENSC_9allocatorIcEEEESK_bEEENSI_ISL_EEEERmibb(ptr dead_on_unwind noalias writable align 8 %184, ptr noundef nonnull align 16 dereferenceable(89) %162, ptr noundef nonnull align 32 dereferenceable(364) %2, ptr noundef nonnull align 8 dereferenceable(8) %1537, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %1539 unwind label %.loopexit1534
 
 1539:                                             ; preds = %1538
@@ -14212,7 +14212,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
           to label %2699 unwind label %.loopexit1529
 
 2699:                                             ; preds = %2697
-  invoke fastcc void @_ZN7mitsuba3xml6detailL9parse_xmlERNS1_9XMLSourceERNS1_15XMLParseContextERN4pugi8xml_nodeENS0_3TagERNS_10PropertiesERNSt3__16vectorINSC_5tupleIJNSC_12basic_stringIcNSC_11char_traitsIcEENSC_9allocatorIcEEEESK_bEEENSI_ISL_EEEERmibb(ptr dead_on_unwind noalias nonnull writable align 8 %347, ptr noundef nonnull align 16 dereferenceable(89) %1, ptr noundef nonnull align 32 dereferenceable(364) %2, ptr noundef nonnull align 8 dereferenceable(8) %2698, i32 noundef %533, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %2692, i1 noundef zeroext false, i1 noundef zeroext false)
+  invoke fastcc void @_ZN7mitsuba3xml6detailL9parse_xmlERNS1_9XMLSourceERNS1_15XMLParseContextERN4pugi8xml_nodeENS0_3TagERNS_10PropertiesERNSt3__16vectorINSC_5tupleIJNSC_12basic_stringIcNSC_11char_traitsIcEENSC_9allocatorIcEEEESK_bEEENSI_ISL_EEEERmibb(ptr dead_on_unwind noalias writable align 8 %347, ptr noundef nonnull align 16 dereferenceable(89) %1, ptr noundef nonnull align 32 dereferenceable(364) %2, ptr noundef nonnull align 8 dereferenceable(8) %2698, i32 noundef %533, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %2692, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %2700 unwind label %.loopexit1529
 
 2700:                                             ; preds = %2699
@@ -14545,7 +14545,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7mitsuba3xml6detailL20instantiate_top_nodeERNS1_15XMLParseContextERKNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 32 dereferenceable(364) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7mitsuba3xml6detailL20instantiate_top_nodeERNS1_15XMLParseContextERKNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 32 dereferenceable(364) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.mitsuba::ThreadEnvironment", align 8
   %5 = alloca %"class.std::__1::unordered_map.389", align 8
   call void @_ZN7mitsuba17ThreadEnvironmentC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -14890,7 +14890,7 @@ _ZN7mitsuba9TransformINS_5PointIdLm4EEEEC2Ev.exit.i: ; preds = %91
           to label %_ZNSt3__16vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_bEEENS5_IS8_EEEC2ERKSA_.exit unwind label %158
 
 _ZNSt3__16vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_bEEENS5_IS8_EEEC2ERKSA_.exit: ; preds = %100
-  invoke fastcc void @_ZN7mitsuba3xml6detailL32init_xml_parse_context_from_fileERNS1_15XMLParseContextERKNS_10filesystem4pathENSt3__16vectorINS8_5tupleIJNS8_12basic_stringIcNS8_11char_traitsIcEENS8_9allocatorIcEEEESG_bEEENSE_ISH_EEEEb(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 32 dereferenceable(364) %12, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull %14, i1 noundef zeroext %4)
+  invoke fastcc void @_ZN7mitsuba3xml6detailL32init_xml_parse_context_from_fileERNS1_15XMLParseContextERKNS_10filesystem4pathENSt3__16vectorINS8_5tupleIJNS8_12basic_stringIcNS8_11char_traitsIcEENS8_9allocatorIcEEEESG_bEEENSE_ISH_EEEEb(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 32 dereferenceable(364) %12, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef %14, i1 noundef zeroext %4)
           to label %109 unwind label %160
 
 109:                                              ; preds = %_ZNSt3__16vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_bEEENS5_IS8_EEEC2ERKSA_.exit
@@ -14924,7 +14924,7 @@ _ZNSt3__16vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocator
   br label %_ZNSt3__16vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_bEEENS5_IS8_EEED2B8ne190000Ev.exit
 
 _ZNSt3__16vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_bEEENS5_IS8_EEED2B8ne190000Ev.exit: ; preds = %109, %_ZNSt3__16vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_bEEENS5_IS8_EEE7__clearB8ne190000Ev.exit.i.i
-  invoke fastcc void @_ZN7mitsuba3xml6detailL20instantiate_top_nodeERNS1_15XMLParseContextERKNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 32 dereferenceable(364) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  invoke fastcc void @_ZN7mitsuba3xml6detailL20instantiate_top_nodeERNS1_15XMLParseContextERKNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 32 dereferenceable(364) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %117 unwind label %162
 
 117:                                              ; preds = %_ZNSt3__16vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_bEEENS5_IS8_EEED2B8ne190000Ev.exit

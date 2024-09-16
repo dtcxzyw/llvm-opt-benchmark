@@ -1327,18 +1327,18 @@ land.lhs.true280:                                 ; preds = %if.end269
   %postquote = getelementptr inbounds i8, ptr %data, i64 1792
   %68 = load ptr, ptr %postquote, align 8
   %tobool282.not = icmp eq ptr %68, null
-  br i1 %tobool282.not, label %do.body288, label %while.body.lr.ph.i
+  br i1 %tobool282.not, label %do.body288, label %if.then283
 
-while.body.lr.ph.i:                               ; preds = %land.lhs.true280
+if.then283:                                       ; preds = %land.lhs.true280
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %nread.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ftpcode.i)
   %response.i = getelementptr inbounds i8, ptr %0, i64 920
   %tmp.sroa.2.0.response.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 928
   br label %while.body.i
 
-while.body.i:                                     ; preds = %if.end21.i, %while.body.lr.ph.i
-  %item.015.i = phi ptr [ %68, %while.body.lr.ph.i ], [ %74, %if.end21.i ]
-  %69 = load ptr, ptr %item.015.i, align 8
+while.body.i:                                     ; preds = %if.end21.i, %if.then283
+  %item.014.i = phi ptr [ %68, %if.then283 ], [ %74, %if.end21.i ]
+  %69 = load ptr, ptr %item.014.i, align 8
   %tobool3.not.i = icmp eq ptr %69, null
   br i1 %tobool3.not.i, label %if.end21.i, label %if.then.i
 
@@ -1374,13 +1374,13 @@ if.then19.i:                                      ; preds = %if.end15.i
   br label %ftp_sendquote.exit
 
 if.end21.i:                                       ; preds = %if.end15.i, %while.body.i
-  %next.i = getelementptr inbounds i8, ptr %item.015.i, i64 8
+  %next.i = getelementptr inbounds i8, ptr %item.014.i, i64 8
   %74 = load ptr, ptr %next.i, align 8
   %tobool.not.i123 = icmp eq ptr %74, null
   br i1 %tobool.not.i123, label %ftp_sendquote.exit, label %while.body.i, !llvm.loop !6
 
 ftp_sendquote.exit:                               ; preds = %if.then.i, %if.end12.i, %if.end21.i, %if.then19.i
-  %retval.0.i = phi i32 [ 21, %if.then19.i ], [ %call.i, %if.then.i ], [ 0, %if.end21.i ], [ %call11.i, %if.end12.i ]
+  %retval.0.i = phi i32 [ 21, %if.then19.i ], [ %call11.i, %if.end12.i ], [ 0, %if.end21.i ], [ %call.i, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nread.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ftpcode.i)
   br label %do.body288
@@ -1477,7 +1477,7 @@ if.then22:                                        ; preds = %if.end19
   br i1 %tobool28.not, label %if.else, label %if.then29
 
 if.then29:                                        ; preds = %if.then22
-  %call30 = call fastcc i32 @ReceivedServerConnect(ptr noundef nonnull %data, ptr noundef nonnull %serv_conned)
+  %call30 = call fastcc i32 @ReceivedServerConnect(ptr noundef nonnull %data, ptr noundef %serv_conned)
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %if.end33, label %return
 
@@ -3176,7 +3176,7 @@ declare zeroext i1 @Curl_conn_is_ssl(ptr noundef, i32 noundef) local_unnamed_add
 declare i32 @Curl_ssl_cfilter_add(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ftp_state_acct_resp(ptr noundef %data, i32 noundef %ftpcode) unnamed_addr #0 {
+define internal fastcc i32 @ftp_state_acct_resp(ptr noundef %data, i32 noundef range(i32 1, 0) %ftpcode) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %ftpcode, 230
   br i1 %cmp.not, label %if.else, label %if.then
@@ -3576,7 +3576,7 @@ if.end9:                                          ; preds = %if.then, %if.then7,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ftp_state_mdtm_resp(ptr noundef %data, i32 noundef %ftpcode) unnamed_addr #0 {
+define internal fastcc i32 @ftp_state_mdtm_resp(ptr noundef %data, i32 noundef range(i32 1, 0) %ftpcode) unnamed_addr #0 {
 entry:
   %timebuf = alloca [24 x i8], align 16
   %headerbuf = alloca [128 x i8], align 16
@@ -3740,7 +3740,7 @@ if.end24:                                         ; preds = %if.then16
   %29 = load i32, ptr %buffer20, align 8
   %call31 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %headerbuf, i64 noundef 128, ptr noundef nonnull @.str.67, ptr noundef %22, i32 noundef %23, ptr noundef %25, i32 noundef %add, i32 noundef %27, i32 noundef %28, i32 noundef %29) #10
   %conv = sext i32 %call31 to i64
-  %call33 = call fastcc i32 @client_write_header(ptr noundef nonnull %data, ptr noundef nonnull %headerbuf, i64 noundef %conv)
+  %call33 = call fastcc i32 @client_write_header(ptr noundef nonnull %data, ptr noundef %headerbuf, i64 noundef %conv)
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %sw.epilog, label %return
 
@@ -4226,7 +4226,7 @@ if.end24:                                         ; preds = %if.then22, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ftp_state_pasv_resp(ptr noundef %data, i32 noundef %ftpcode) unnamed_addr #0 {
+define internal fastcc i32 @ftp_state_pasv_resp(ptr noundef %data, i32 noundef range(i32 1, 0) %ftpcode) unnamed_addr #0 {
 entry:
   %endp.i = alloca ptr, align 8
   %addr = alloca ptr, align 8
@@ -4649,7 +4649,7 @@ return:                                           ; preds = %if.end221, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ftp_state_port_resp(ptr noundef %data, i32 noundef %ftpcode) unnamed_addr #0 {
+define internal fastcc i32 @ftp_state_port_resp(ptr noundef %data, i32 noundef range(i32 1, 0) %ftpcode) unnamed_addr #0 {
 entry:
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
@@ -4904,7 +4904,7 @@ if.end101:                                        ; preds = %if.then98, %land.lh
   br i1 %tobool108.not, label %if.else133, label %if.then109
 
 if.then109:                                       ; preds = %if.end101
-  %call110 = call fastcc i32 @AllowServerConnect(ptr noundef nonnull %data, ptr noundef nonnull %connected)
+  %call110 = call fastcc i32 @AllowServerConnect(ptr noundef nonnull %data, ptr noundef %connected)
   %tobool111.not = icmp eq i32 %call110, 0
   br i1 %tobool111.not, label %if.end113, label %return
 
@@ -4965,7 +4965,7 @@ return:                                           ; preds = %if.then143, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ftp_state_stor_resp(ptr noundef %data, i32 noundef %ftpcode, i8 noundef zeroext %instate) unnamed_addr #0 {
+define internal fastcc i32 @ftp_state_stor_resp(ptr noundef %data, i32 noundef range(i32 1, 0) %ftpcode, i8 noundef zeroext %instate) unnamed_addr #0 {
 entry:
   %connected = alloca i8, align 1
   %cmp = icmp sgt i32 %ftpcode, 399
@@ -4994,7 +4994,7 @@ if.then2:                                         ; preds = %if.end
   %data.val = load ptr, ptr %conn1, align 8
   %state.i14 = getelementptr inbounds i8, ptr %data.val, i64 1102
   store i8 0, ptr %state.i14, align 2
-  %call = call fastcc i32 @AllowServerConnect(ptr noundef nonnull %data, ptr noundef nonnull %connected)
+  %call = call fastcc i32 @AllowServerConnect(ptr noundef nonnull %data, ptr noundef %connected)
   %tobool3.not = icmp eq i32 %call, 0
   br i1 %tobool3.not, label %if.end5, label %return
 
@@ -5438,7 +5438,7 @@ return:                                           ; preds = %if.then3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ftp_nb_type(ptr noundef %data, ptr noundef %conn, i1 noundef zeroext %ascii, i8 noundef zeroext %newstate) unnamed_addr #0 {
+define internal fastcc i32 @ftp_nb_type(ptr noundef %data, ptr noundef %conn, i1 noundef zeroext %ascii, i8 noundef zeroext range(i8 19, 23) %newstate) unnamed_addr #0 {
 entry:
   %conv = select i1 %ascii, i8 65, i8 73
   %transfertype = getelementptr inbounds i8, ptr %conn, i64 1048
@@ -5452,7 +5452,7 @@ if.then:                                          ; preds = %entry
   %state.i = getelementptr inbounds i8, ptr %data.val11, i64 1102
   store i8 %newstate, ptr %state.i, align 2
   %2 = load ptr, ptr %1, align 8
-  switch i8 %newstate, label %return [
+  switch i8 %newstate, label %default.unreachable18 [
     i8 19, label %if.then10.i
     i8 20, label %if.then14.i
     i8 21, label %if.then20.i
@@ -5563,8 +5563,11 @@ if.then7:                                         ; preds = %if.end
   store i8 %conv, ptr %transfertype, align 8
   br label %return
 
-return:                                           ; preds = %if.then20.i, %if.then14.i, %if.then, %if.then.i.i, %if.then2.i.i, %if.else.i.i, %if.then.i, %if.then3.i, %if.then15.i.i, %if.end26.i.i, %if.then30.i.i, %if.end, %if.then7
-  %retval.0 = phi i32 [ 0, %if.then7 ], [ %call5, %if.end ], [ %call15.i, %if.then14.i ], [ %call.i, %if.then20.i ], [ 0, %if.then ], [ %call.i13, %if.then.i ], [ 0, %if.then3.i ], [ %call.i.i, %if.then.i.i ], [ 0, %if.then2.i.i ], [ %call3.i.i, %if.else.i.i ], [ %call.i.i15, %if.then15.i.i ], [ %call70.i.i, %if.then30.i.i ], [ 0, %if.end26.i.i ]
+default.unreachable18:                            ; preds = %if.then
+  unreachable
+
+return:                                           ; preds = %if.then20.i, %if.then14.i, %if.then.i.i, %if.then2.i.i, %if.else.i.i, %if.then.i, %if.then3.i, %if.then15.i.i, %if.end26.i.i, %if.then30.i.i, %if.end, %if.then7
+  %retval.0 = phi i32 [ 0, %if.then7 ], [ %call5, %if.end ], [ %call15.i, %if.then14.i ], [ %call.i, %if.then20.i ], [ %call.i13, %if.then.i ], [ 0, %if.then3.i ], [ %call.i.i, %if.then.i.i ], [ 0, %if.then2.i.i ], [ %call3.i.i, %if.else.i.i ], [ %call.i.i15, %if.then15.i.i ], [ %call70.i.i, %if.then30.i.i ], [ 0, %if.end26.i.i ]
   ret i32 %retval.0
 }
 
@@ -5698,7 +5701,7 @@ if.end50:                                         ; preds = %if.then22.i, %land.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ftp_state_use_port(ptr noundef %data, i32 noundef %fcmd) unnamed_addr #0 {
+define internal fastcc i32 @ftp_state_use_port(ptr noundef %data, i32 noundef range(i32 3, 2) %fcmd) unnamed_addr #0 {
 entry:
   %portsock = alloca i32, align 4
   %myhost = alloca [47 x i8], align 16
@@ -6051,10 +6054,6 @@ if.then229:                                       ; preds = %do.end217
 
 if.end233:                                        ; preds = %if.then229, %do.end217
   %bf.load239 = phi i32 [ %bf.set, %if.then229 ], [ %bf.load219, %do.end217 ]
-  %cmp235.not213 = icmp eq i32 %fcmd, 2
-  br i1 %cmp235.not213, label %for.end315, label %for.body237.lr.ph
-
-for.body237.lr.ph:                                ; preds = %if.end233
   %31 = and i32 %bf.load239, 262144
   %32 = load i16, ptr %ss, align 8
   %.fr = freeze i16 %32
@@ -6062,32 +6061,32 @@ for.body237.lr.ph:                                ; preds = %if.end233
   %33 = load i16, ptr %sin6_port, align 2
   br i1 %cmp253.not, label %for.body237.us, label %for.body237
 
-for.body237.us:                                   ; preds = %for.body237.lr.ph, %for.inc313.us
-  %fcmd.addr.0214.us = phi i32 [ %inc314.us, %for.inc313.us ], [ %fcmd, %for.body237.lr.ph ]
-  %34 = or i32 %31, %fcmd.addr.0214.us
+for.body237.us:                                   ; preds = %if.end233, %for.inc313.us
+  %fcmd.addr.0213.us = phi i32 [ %inc314.us, %for.inc313.us ], [ %fcmd, %if.end233 ]
+  %34 = or i32 %31, %fcmd.addr.0213.us
   %or.cond3.us = icmp eq i32 %34, 0
   br i1 %or.cond3.us, label %for.inc313.us, label %sw.epilog266.us
 
 sw.epilog266.us:                                  ; preds = %for.body237.us
-  switch i32 %fcmd.addr.0214.us, label %for.inc313.us [
+  switch i32 %fcmd.addr.0213.us, label %for.inc313.us [
     i32 0, label %if.then269
     i32 1, label %while.cond.preheader
   ]
 
 for.inc313.us:                                    ; preds = %sw.epilog266.us, %for.body237.us
-  %inc314.us = add i32 %fcmd.addr.0214.us, 1
+  %inc314.us = add i32 %fcmd.addr.0213.us, 1
   %cmp235.not.us = icmp eq i32 %inc314.us, 2
   br i1 %cmp235.not.us, label %for.end315, label %for.body237.us, !llvm.loop !21
 
-for.body237:                                      ; preds = %for.body237.lr.ph, %for.inc313
-  %fcmd.addr.0214 = phi i32 [ %inc314, %for.inc313 ], [ %fcmd, %for.body237.lr.ph ]
-  %cmp244 = icmp eq i32 %fcmd.addr.0214, 0
-  %35 = or i32 %31, %fcmd.addr.0214
+for.body237:                                      ; preds = %if.end233, %for.inc313
+  %fcmd.addr.0213 = phi i32 [ %inc314, %for.inc313 ], [ %fcmd, %if.end233 ]
+  %cmp244 = icmp eq i32 %fcmd.addr.0213, 0
+  %35 = or i32 %31, %fcmd.addr.0213
   %or.cond3 = icmp eq i32 %35, 0
   br i1 %or.cond3, label %for.inc313, label %if.end247
 
 if.end247:                                        ; preds = %for.body237
-  %cmp248.not = icmp eq i32 %fcmd.addr.0214, 1
+  %cmp248.not = icmp eq i32 %fcmd.addr.0213, 1
   br i1 %cmp248.not, label %for.end315, label %if.end256
 
 if.end256:                                        ; preds = %if.end247
@@ -6151,12 +6150,12 @@ if.then309:                                       ; preds = %while.end
   br label %if.end322
 
 for.inc313:                                       ; preds = %sw.epilog266, %if.end256, %for.body237
-  %inc314 = add i32 %fcmd.addr.0214, 1
+  %inc314 = add i32 %fcmd.addr.0213, 1
   %cmp235.not = icmp eq i32 %inc314, 2
   br i1 %cmp235.not, label %for.end315, label %for.body237, !llvm.loop !21
 
-for.end315:                                       ; preds = %if.end247, %for.inc313, %for.inc313.us, %if.end233, %while.end, %if.then269
-  %fcmd.addr.0189 = phi i32 [ 1, %while.end ], [ 0, %if.then269 ], [ 2, %if.end233 ], [ 2, %for.inc313.us ], [ 2, %for.inc313 ], [ 2, %if.end247 ]
+for.end315:                                       ; preds = %if.end247, %for.inc313, %for.inc313.us, %while.end, %if.then269
+  %fcmd.addr.0189 = phi i32 [ 1, %while.end ], [ 0, %if.then269 ], [ 2, %for.inc313.us ], [ 2, %for.inc313 ], [ 2, %if.end247 ]
   %count1 = getelementptr inbounds i8, ptr %0, i64 1088
   store i32 %fcmd.addr.0189, ptr %count1, align 8
   %call316 = call i32 @Curl_conn_tcp_listen_set(ptr noundef %data, ptr noundef %0, i32 noundef 1, ptr noundef nonnull %portsock) #10
@@ -6254,13 +6253,13 @@ declare i64 @Curl_getdate_capped(ptr noundef) local_unnamed_addr #1
 declare i32 @Curl_gmtime(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @client_write_header(ptr noundef %data, ptr noundef %buf, i64 noundef %blen) unnamed_addr #0 {
+define internal fastcc i32 @client_write_header(ptr noundef %data, ptr noundef nonnull %buf, i64 noundef %blen) unnamed_addr #0 {
 entry:
   %include_header = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %include_header, align 2
   %bf.set = or i64 %bf.load, 33554432
   store i64 %bf.set, ptr %include_header, align 2
-  %call = tail call i32 @Curl_client_write(ptr noundef %data, i32 noundef 4, ptr noundef %buf, i64 noundef %blen) #10
+  %call = tail call i32 @Curl_client_write(ptr noundef %data, i32 noundef 4, ptr noundef nonnull %buf, i64 noundef %blen) #10
   %cond = and i64 %bf.load, 33554432
   %bf.load7 = load i64, ptr %include_header, align 2
   %bf.clear8 = and i64 %bf.load7, -33554433
@@ -6435,7 +6434,7 @@ declare void @Curl_conn_ev_update_info(ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @Curl_conn_setup(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ftp_pasv_verbose(ptr noundef %data, ptr noundef %ai, ptr noundef %newhost, i32 noundef %port) unnamed_addr #0 {
+define internal fastcc void @ftp_pasv_verbose(ptr noundef %data, ptr noundef %ai, ptr noundef %newhost, i32 noundef range(i32 0, 65536) %port) unnamed_addr #0 {
 entry:
   %buf = alloca [256 x i8], align 16
   call void @Curl_printable_address(ptr noundef %ai, ptr noundef nonnull %buf, i64 noundef 256) #10
@@ -6465,7 +6464,7 @@ declare void @Curl_conn_cf_discard_all(ptr noundef, ptr noundef, i32 noundef) lo
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @AllowServerConnect(ptr noundef %data, ptr nocapture noundef %connected) unnamed_addr #0 {
+define internal fastcc i32 @AllowServerConnect(ptr noundef %data, ptr nocapture noundef nonnull %connected) unnamed_addr #0 {
 entry:
   %now.i = alloca %struct.curltime, align 8
   store i8 0, ptr %connected, align 1
@@ -6530,7 +6529,7 @@ if.then3:                                         ; preds = %ftp_timeleft_accept
   br label %do.end25
 
 if.end4:                                          ; preds = %ftp_timeleft_accept.exit
-  %call5 = call fastcc i32 @ReceivedServerConnect(ptr noundef nonnull %data, ptr noundef nonnull %connected)
+  %call5 = call fastcc i32 @ReceivedServerConnect(ptr noundef nonnull %data, ptr noundef %connected)
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.end8, label %do.end25
 
@@ -6634,7 +6633,7 @@ return:                                           ; preds = %if.end10, %lor.lhs.
 declare { i64, i32 } @Curl_pgrsTime(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 13) i32 @ReceivedServerConnect(ptr noundef %data, ptr nocapture noundef writeonly %received) unnamed_addr #0 {
+define internal fastcc range(i32 0, 13) i32 @ReceivedServerConnect(ptr noundef %data, ptr nocapture noundef nonnull writeonly %received) unnamed_addr #0 {
 entry:
   %now.i = alloca %struct.curltime, align 8
   %nread = alloca i64, align 8

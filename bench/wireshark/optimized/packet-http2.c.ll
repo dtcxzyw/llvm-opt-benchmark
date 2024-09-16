@@ -840,7 +840,7 @@ dissect_http2_header_flags.exit:                  ; preds = %53, %switch.lookup
   br label %92
 
 92:                                               ; preds = %88, %dissect_http2_header_flags.exit
-  %93 = call fastcc ptr @get_http2_session(ptr noundef nonnull %1, ptr noundef nonnull %11)
+  %93 = call fastcc ptr @get_http2_session(ptr noundef nonnull %1, ptr noundef %11)
   %94 = getelementptr inbounds i8, ptr %93, i64 16
   store i32 %66, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %1, i64 408
@@ -1305,14 +1305,14 @@ declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @g_hash_table_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_http2_session(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc ptr @get_http2_session(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #1 {
   %3 = load i32, ptr @proto_http2, align 4
-  %4 = tail call ptr @conversation_get_proto_data(ptr noundef %1, i32 noundef %3) #6
+  %4 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %1, i32 noundef %3) #6
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %22
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @get_tcp_conversation_data(ptr noundef %1, ptr noundef %0) #6
+  %6 = tail call ptr @get_tcp_conversation_data(ptr noundef nonnull %1, ptr noundef %0) #6
   %7 = tail call ptr @wmem_file_scope() #6
   %8 = tail call noalias ptr @wmem_alloc0(ptr noundef %7, i64 noundef 48) #6
   %9 = getelementptr inbounds i8, ptr %6, i64 208
@@ -1335,7 +1335,7 @@ define internal fastcc ptr @get_http2_session(ptr noundef %0, ptr noundef %1) un
   %20 = getelementptr i8, ptr %8, i64 44
   store i32 65535, ptr %20, align 4
   %21 = load i32, ptr @proto_http2, align 4
-  tail call void @conversation_add_proto_data(ptr noundef %1, i32 noundef %21, ptr noundef nonnull %8) #6
+  tail call void @conversation_add_proto_data(ptr noundef nonnull %1, i32 noundef %21, ptr noundef nonnull %8) #6
   br label %22
 
 22:                                               ; preds = %5, %2
@@ -1475,7 +1475,7 @@ define internal noalias ptr @http2_follow_conv_filter(ptr nocapture readnone %0,
   br i1 %.not, label %.thread, label %28
 
 28:                                               ; preds = %19
-  %29 = tail call fastcc ptr @get_http2_session(ptr noundef nonnull %1, ptr noundef nonnull %27)
+  %29 = tail call fastcc ptr @get_http2_session(ptr noundef nonnull %1, ptr noundef %27)
   %30 = tail call ptr @get_tcp_conversation_data(ptr noundef nonnull %27, ptr noundef nonnull %1) #6
   %31 = icmp eq ptr %30, null
   %32 = icmp eq ptr %29, null
@@ -1617,7 +1617,7 @@ define internal range(i32 0, 2) i32 @dissect_http2_heur(ptr noundef %0, ptr noun
   br i1 %.not14, label %10, label %15
 
 10:                                               ; preds = %8
-  %11 = tail call fastcc ptr @get_http2_session(ptr noundef %1, ptr noundef nonnull %5)
+  %11 = tail call fastcc ptr @get_http2_session(ptr noundef %1, ptr noundef %5)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4, %10
@@ -1675,18 +1675,19 @@ declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @adjust_window_size(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc void @adjust_window_size(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #1 {
   %7 = tail call ptr @get_tcp_conversation_data(ptr noundef null, ptr noundef %1) #6
   %8 = getelementptr inbounds i8, ptr %7, i64 208
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp ne ptr %9, %11
-  %.not = icmp ne i32 %5, 0
+  %..i = zext i1 %12 to i32
+  %.not.not = icmp eq i32 %5, 0
   %13 = sub i32 0, %4
-  %14 = select i1 %.not, i32 %4, i32 %13
-  %spec.select31 = xor i1 %.not, %12
-  br i1 %.not, label %15, label %19
+  %14 = select i1 %.not.not, i32 %13, i32 %4
+  %spec.select = xor i32 %5, %..i
+  br i1 %.not.not, label %19, label %15
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds i8, ptr %2, i64 16
@@ -1705,7 +1706,7 @@ define internal fastcc void @adjust_window_size(ptr noundef %0, ptr noundef %1, 
   %24 = tail call ptr @wmem_file_scope() #6
   %25 = tail call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef 4) #6
   %26 = getelementptr inbounds i8, ptr %2, i64 40
-  %27 = zext i1 %spec.select31 to i64
+  %27 = zext nneg i32 %spec.select to i64
   %28 = getelementptr [2 x i32], ptr %26, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr %25, align 4
@@ -1767,7 +1768,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 9, 16) i32 @dissect_frame_prio(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 9, 16) i32 @dissect_frame_prio(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 9, 11) %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %5 = and i8 %3, 32
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %27, label %6
@@ -1777,7 +1778,7 @@ define internal fastcc range(i32 9, 16) i32 @dissect_frame_prio(ptr noundef %0, 
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef 0) #6
   %9 = load i32, ptr @hf_http2_stream_dependency, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef 0) #6
-  %11 = add nuw nsw i32 %2, 4
+  %11 = or disjoint i32 %2, 4
   %12 = load i32, ptr @hf_http2_weight, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #6
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %11) #6

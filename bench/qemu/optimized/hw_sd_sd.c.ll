@@ -294,14 +294,14 @@ if.end:                                           ; preds = %if.then
   %2 = load ptr, ptr %blk, align 8
   %call7 = tail call i64 @blk_getlength(ptr noundef %2) #18
   %cmp = icmp slt i64 %call7, 1
-  %3 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %call7)
+  %3 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %call7)
   %tobool1.not.i = icmp ult i64 %3, 2
   %or.cond = select i1 %cmp, i1 true, i1 %tobool1.not.i
   br i1 %or.cond, label %if.end14, label %if.then10
 
 if.then10:                                        ; preds = %if.end
   %sub.i = add nsw i64 %call7, -1
-  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 false)
+  %4 = tail call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 false)
   %sub2.i = add nuw nsw i64 %4, 4294967295
   %sh_prom.i = and i64 %sub2.i, 4294967295
   %shr.i = lshr exact i64 -9223372036854775808, %sh_prom.i
@@ -3189,7 +3189,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_sdcard_set_blocklen(i16 noundef zeroext %length) unnamed_addr #0 {
+define internal fastcc void @trace_sdcard_set_blocklen(i16 noundef zeroext range(i16 0, 513) %length) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -3232,10 +3232,9 @@ _nocheck__trace_sdcard_set_blocklen.exit:         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @sd_wpbits(ptr nocapture noundef readonly %sd, i64 noundef %addr) unnamed_addr #0 {
+define internal fastcc i32 @sd_wpbits(ptr nocapture noundef readonly %sd, i64 noundef range(i64 0, 4294967296) %addr) unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %addr, 21
-  %conv = trunc i64 %shr.i to i32
   %size = getelementptr inbounds i8, ptr %sd, i64 328
   %0 = load i64, ptr %size, align 8
   %wp_group_bits = getelementptr inbounds i8, ptr %sd, i64 320
@@ -3243,8 +3242,8 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
+  %indvars.iv = phi i64 [ %shr.i, %entry ], [ %indvars.iv.next, %for.inc ]
   %ret.016 = phi i32 [ 0, %entry ], [ %ret.1, %for.inc ]
-  %wpnum.015 = phi i32 [ %conv, %entry ], [ %inc12, %for.inc ]
   %i.014 = phi i32 [ 0, %entry ], [ %inc, %for.inc ]
   %addr.addr.013 = phi i64 [ %addr, %entry ], [ %add, %for.inc ]
   %cmp2.not = icmp ult i64 %addr.addr.013, %0
@@ -3252,7 +3251,8 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.end:                                           ; preds = %for.body
   %1 = load i32, ptr %wp_group_bits, align 8
-  %cmp4 = icmp ult i32 %wpnum.015, %1
+  %2 = zext i32 %1 to i64
+  %cmp4 = icmp ult i64 %indvars.iv, %2
   br i1 %cmp4, label %if.end7, label %if.else
 
 if.else:                                          ; preds = %if.end
@@ -3260,15 +3260,14 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end7:                                          ; preds = %if.end
-  %conv8 = zext i32 %wpnum.015 to i64
-  %2 = load ptr, ptr %wp_group_bmap, align 8
-  %div2.i = lshr i64 %conv8, 6
-  %arrayidx.i = getelementptr i64, ptr %2, i64 %div2.i
-  %3 = load i64, ptr %arrayidx.i, align 8
-  %and.i = and i64 %conv8, 63
-  %4 = shl nuw i64 1, %and.i
-  %5 = and i64 %3, %4
-  %tobool.not = icmp eq i64 %5, 0
+  %3 = load ptr, ptr %wp_group_bmap, align 8
+  %div2.i = lshr i64 %indvars.iv, 6
+  %arrayidx.i = getelementptr i64, ptr %3, i64 %div2.i
+  %4 = load i64, ptr %arrayidx.i, align 8
+  %and.i = and i64 %indvars.iv, 63
+  %5 = shl nuw i64 1, %and.i
+  %6 = and i64 %4, %5
+  %tobool.not = icmp eq i64 %6, 0
   br i1 %tobool.not, label %for.inc, label %if.then10
 
 if.then10:                                        ; preds = %if.end7
@@ -3279,8 +3278,8 @@ if.then10:                                        ; preds = %if.end7
 for.inc:                                          ; preds = %if.end7, %if.then10, %for.body
   %ret.1 = phi i32 [ %ret.016, %for.body ], [ %or, %if.then10 ], [ %ret.016, %if.end7 ]
   %inc = add nuw nsw i32 %i.014, 1
-  %inc12 = add i32 %wpnum.015, 1
-  %add = add i64 %addr.addr.013, 2097152
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %add = add nuw nsw i64 %addr.addr.013, 2097152
   %exitcond.not = icmp eq i32 %inc, 32
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 

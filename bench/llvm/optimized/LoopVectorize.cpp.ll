@@ -2346,7 +2346,7 @@ define dso_local void @_ZN4llvm26reportVectorizationFailureENS_9StringRefES0_S0_
   call void @_ZN4llvm18LoopVectorizeHintsC1EPKNS_4LoopEbRNS_25OptimizationRemarkEmitterEPKNS_19TargetTransformInfoE(ptr noundef nonnull align 8 dereferenceable(120) %10, ptr noundef %7, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef null) #28
   %13 = call noundef ptr @_ZNK4llvm18LoopVectorizeHints25vectorizeAnalysisPassNameEv(ptr noundef nonnull align 8 dereferenceable(120) %10) #28
   store ptr null, ptr %12, align 8
-  call fastcc void @_ZL16createLVAnalysisPKcN4llvm9StringRefEPNS1_4LoopEPNS1_11InstructionENS1_8DebugLocE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %13, ptr %4, i64 %5, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %12)
+  call fastcc void @_ZL16createLVAnalysisPKcN4llvm9StringRefEPNS1_4LoopEPNS1_11InstructionENS1_8DebugLocE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %13, ptr %4, i64 %5, ptr noundef %7, ptr noundef %8, ptr noundef %12)
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %11, ptr nonnull @.str.123, i64 21) #28
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %11, ptr %2, i64 %3) #28
   call void @_ZN4llvm25OptimizationRemarkEmitter4emitERNS_30DiagnosticInfoOptimizationBaseE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(424) %11) #28
@@ -2398,7 +2398,7 @@ declare void @_ZN4llvm18LoopVectorizeHintsC1EPKNS_4LoopEbRNS_25OptimizationRemar
 declare void @_ZN4llvm25OptimizationRemarkEmitter4emitERNS_30DiagnosticInfoOptimizationBaseE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(424)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16createLVAnalysisPKcN4llvm9StringRefEPNS1_4LoopEPNS1_11InstructionENS1_8DebugLocE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr %2, i64 %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @_ZL16createLVAnalysisPKcN4llvm9StringRefEPNS1_4LoopEPNS1_11InstructionENS1_8DebugLocE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr %2, i64 %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca %"class.llvm::DebugLoc", align 8
   %9 = alloca %"class.llvm::DiagnosticLocation", align 8
   %.not = icmp eq ptr %5, null
@@ -13503,14 +13503,14 @@ _ZN4llvm9SetVectorIPNS_11InstructionENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIS2_N
 328:                                              ; preds = %326
   %329 = getelementptr inbounds i8, ptr %.sroa.0336.0391, i64 -56
   %330 = load ptr, ptr %329, align 8
-  call fastcc void @"_ZZN4llvm26LoopVectorizationCostModel18collectLoopScalarsENS_12ElementCountEENK3$_0clEPNS_11InstructionEPNS_5ValueE"(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull %323, ptr noundef %330)
+  call fastcc void @"_ZZN4llvm26LoopVectorizationCostModel18collectLoopScalarsENS_12ElementCountEENK3$_0clEPNS_11InstructionEPNS_5ValueE"(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef %323, ptr noundef %330)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph, %328
   %.sink = phi i64 [ -64, %328 ], [ -32, %.lr.ph ]
   %331 = getelementptr inbounds i8, ptr %323, i64 %.sink
   %332 = load ptr, ptr %331, align 8
-  call fastcc void @"_ZZN4llvm26LoopVectorizationCostModel18collectLoopScalarsENS_12ElementCountEENK3$_0clEPNS_11InstructionEPNS_5ValueE"(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull %323, ptr noundef %332)
+  call fastcc void @"_ZZN4llvm26LoopVectorizationCostModel18collectLoopScalarsENS_12ElementCountEENK3$_0clEPNS_11InstructionEPNS_5ValueE"(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef %323, ptr noundef %332)
   br label %333
 
 333:                                              ; preds = %.sink.split, %326
@@ -14784,7 +14784,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertINS_19SmallPtrSetIteratorIS2
 declare { ptr, ptr } @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE6blocksEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm26LoopVectorizationCostModel18collectLoopScalarsENS_12ElementCountEENK3$_0clEPNS_11InstructionEPNS_5ValueE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm26LoopVectorizationCostModel18collectLoopScalarsENS_12ElementCountEENK3$_0clEPNS_11InstructionEPNS_5ValueE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = load i8, ptr %2, align 8
   %6 = icmp eq i8 %5, 63
@@ -20192,7 +20192,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm26LoopVectorizationCostModel30isSca
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %32 = load ptr, ptr %31, align 8
   store ptr null, ptr %4, align 8
-  call fastcc void @_ZN4llvmL23reportVectorizationInfoENS_9StringRefES0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionENS_8DebugLocE(ptr nonnull @.str.144, i64 45, ptr nonnull @.str.145, i64 29, ptr noundef %30, ptr noundef %32, ptr noundef nonnull %4)
+  call fastcc void @_ZN4llvmL23reportVectorizationInfoENS_9StringRefES0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionENS_8DebugLocE(ptr nonnull @.str.144, i64 45, ptr nonnull @.str.145, i64 29, ptr noundef %30, ptr noundef %32, ptr noundef %4)
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
 33:                                               ; preds = %22
@@ -20215,7 +20215,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm26LoopVectorizationCostModel30isSca
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %46 = load ptr, ptr %45, align 8
   store ptr null, ptr %5, align 8
-  call fastcc void @_ZN4llvmL23reportVectorizationInfoENS_9StringRefES0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionENS_8DebugLocE(ptr nonnull @.str.146, i64 85, ptr nonnull @.str.147, i64 20, ptr noundef %44, ptr noundef %46, ptr noundef nonnull %5)
+  call fastcc void @_ZN4llvmL23reportVectorizationInfoENS_9StringRefES0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionENS_8DebugLocE(ptr nonnull @.str.146, i64 85, ptr nonnull @.str.147, i64 20, ptr noundef %44, ptr noundef %46, ptr noundef %5)
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
 47:                                               ; preds = %33
@@ -20298,7 +20298,7 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_4TypeEEppEv.exit.i.i.i.i.i.i: ; preds = %.lr.p
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %74 = load ptr, ptr %73, align 8
   store ptr null, ptr %6, align 8
-  call fastcc void @_ZN4llvmL23reportVectorizationInfoENS_9StringRefES0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionENS_8DebugLocE(ptr nonnull @.str.148, i64 81, ptr nonnull @.str.147, i64 20, ptr noundef %72, ptr noundef %74, ptr noundef nonnull %6)
+  call fastcc void @_ZN4llvmL23reportVectorizationInfoENS_9StringRefES0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionENS_8DebugLocE(ptr nonnull @.str.148, i64 81, ptr nonnull @.str.147, i64 20, ptr noundef %72, ptr noundef %74, ptr noundef %6)
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
 "_ZN4llvm6any_ofIRNS_11SmallPtrSetIPNS_4TypeELj16EEEZNS_26LoopVectorizationCostModel30isScalableVectorizationAllowedEvE3$_0EEbOT_T0_.exit.thread": ; preds = %.critedge2.i7.i.i9.i11.i.i.i.i.i, %_ZN4llvm19SmallPtrSetIteratorIPNS_4TypeEEppEv.exit.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm26LoopVectorizationCostModel30isScalableVectorizationAllowedEvE3$_0EclINS2_19SmallPtrSetIteratorIPNS2_4TypeEEEEEbT_.exit.thread.i.i.i.i.i.i", %.critedge2.i6.i.i.i.i.i.i.i, %_ZN4llvm9adl_beginIRNS_11SmallPtrSetIPNS_4TypeELj16EEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit.i, %"_ZN4llvm6any_ofIRNS_11SmallPtrSetIPNS_4TypeELj16EEEZNS_26LoopVectorizationCostModel30isScalableVectorizationAllowedEvE3$_0EEbOT_T0_.exit"
@@ -20349,7 +20349,7 @@ _Z12getMaxVScaleRKN4llvm8FunctionERKNS_19TargetTransformInfoE.exit: ; preds = %8
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %99 = load ptr, ptr %98, align 8
   store ptr null, ptr %7, align 8
-  call fastcc void @_ZN4llvmL23reportVectorizationInfoENS_9StringRefES0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionENS_8DebugLocE(ptr nonnull @.str.149, i64 76, ptr nonnull @.str.147, i64 20, ptr noundef %97, ptr noundef %99, ptr noundef nonnull %7)
+  call fastcc void @_ZN4llvmL23reportVectorizationInfoENS_9StringRefES0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionENS_8DebugLocE(ptr nonnull @.str.149, i64 76, ptr nonnull @.str.147, i64 20, ptr noundef %97, ptr noundef %99, ptr noundef %7)
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
 .critedge:                                        ; preds = %"_ZN4llvm6any_ofIRNS_11SmallPtrSetIPNS_4TypeELj16EEEZNS_26LoopVectorizationCostModel30isScalableVectorizationAllowedEvE3$_0EEbOT_T0_.exit.thread", %_Z12getMaxVScaleRKN4llvm8FunctionERKNS_19TargetTransformInfoE.exit
@@ -20364,7 +20364,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %95, %70, %42, %28, 
 declare noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo23supportsScalableVectorsEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvmL23reportVectorizationInfoENS_9StringRefES0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionENS_8DebugLocE(ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef nonnull %4, ptr noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvmL23reportVectorizationInfoENS_9StringRefES0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionENS_8DebugLocE(ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef nonnull %4, ptr noundef %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 {
   %8 = alloca %"class.llvm::LoopVectorizeHints", align 8
   %9 = alloca %"class.llvm::OptimizationRemarkAnalysis", align 8
   %10 = alloca %"class.llvm::DebugLoc", align 8
@@ -20380,7 +20380,7 @@ define internal fastcc void @_ZN4llvmL23reportVectorizationInfoENS_9StringRefES0
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit
 
 _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %7, %13
-  call fastcc void @_ZL16createLVAnalysisPKcN4llvm9StringRefEPNS1_4LoopEPNS1_11InstructionENS1_8DebugLocE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef %11, ptr %2, i64 %3, ptr noundef %5, ptr noundef null, ptr noundef nonnull %10)
+  call fastcc void @_ZL16createLVAnalysisPKcN4llvm9StringRefEPNS1_4LoopEPNS1_11InstructionENS1_8DebugLocE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef %11, ptr %2, i64 %3, ptr noundef %5, ptr noundef null, ptr noundef %10)
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %9, ptr %0, i64 %1) #28
   call void @_ZN4llvm25OptimizationRemarkEmitter4emitERNS_30DiagnosticInfoOptimizationBaseE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(424) %9) #28
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm30DiagnosticInfoOptimizationBaseE, i64 16), ptr %9, align 8
@@ -20480,7 +20480,7 @@ _Z12getMaxVScaleRKN4llvm8FunctionERKNS_19TargetTransformInfoE.exit: ; preds = %1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %33 = load ptr, ptr %32, align 8
   store ptr null, ptr %4, align 8
-  call fastcc void @_ZN4llvmL23reportVectorizationInfoENS_9StringRefES0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionENS_8DebugLocE(ptr nonnull @.str.150, i64 68, ptr nonnull @.str.147, i64 20, ptr noundef %31, ptr noundef %33, ptr noundef nonnull %4)
+  call fastcc void @_ZN4llvmL23reportVectorizationInfoENS_9StringRefES0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionENS_8DebugLocE(ptr nonnull @.str.150, i64 68, ptr nonnull @.str.147, i64 20, ptr noundef %31, ptr noundef %33, ptr noundef %4)
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
 _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %29, %2, %_Z12getMaxVScaleRKN4llvm8FunctionERKNS_19TargetTransformInfoE.exit, %6
@@ -28022,7 +28022,7 @@ _ZN4llvm11raw_ostream5flushEv.exit:               ; preds = %_ZN4llvm11raw_ostre
   br label %_ZNK4llvm12VPRecipeBase11getDebugLocEv.exit
 
 _ZNK4llvm12VPRecipeBase11getDebugLocEv.exit:      ; preds = %_ZN4llvm11raw_ostream5flushEv.exit, %884
-  call fastcc void @_ZN4llvmL23reportVectorizationInfoENS_9StringRefES0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionENS_8DebugLocE(ptr %879, i64 %880, ptr nonnull @.str.168, i64 11, ptr noundef %1, ptr noundef %881, ptr noundef nonnull %20)
+  call fastcc void @_ZN4llvmL23reportVectorizationInfoENS_9StringRefES0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionENS_8DebugLocE(ptr %879, i64 %880, ptr nonnull @.str.168, i64 11, ptr noundef %1, ptr noundef %881, ptr noundef %20)
   %886 = load ptr, ptr %20, align 8
   %.not.i.i.i.i152 = icmp eq ptr %886, null
   br i1 %.not.i.i.i.i152, label %_ZN4llvm8DebugLocD2Ev.exit, label %887
@@ -34634,7 +34634,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %739
   br i1 %.not528, label %749, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
 
 749:                                              ; preds = %745
-  %750 = call fastcc noundef zeroext i8 @"_ZZN4llvm26LoopVectorizationCostModel18getInstructionCostEPNS_11InstructionENS_12ElementCountEENK3$_0clES2_"(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull %747)
+  %750 = call fastcc noundef zeroext i8 @"_ZZN4llvm26LoopVectorizationCostModel18getInstructionCostEPNS_11InstructionENS_12ElementCountEENK3$_0clES2_"(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef %747)
   br label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
 
 751:                                              ; preds = %737, %737, %737
@@ -34664,7 +34664,7 @@ _ZNK4llvm4User10getOperandEj.exit426:             ; preds = %755, %758
   br i1 %.not526, label %766, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
 
 766:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit426
-  %767 = call fastcc noundef zeroext i8 @"_ZZN4llvm26LoopVectorizationCostModel18getInstructionCostEPNS_11InstructionENS_12ElementCountEENK3$_0clES2_"(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull %764)
+  %767 = call fastcc noundef zeroext i8 @"_ZZN4llvm26LoopVectorizationCostModel18getInstructionCostEPNS_11InstructionENS_12ElementCountEENK3$_0clES2_"(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef %764)
   br label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
 
 _ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %739, %.thread, %737, %766, %_ZNK4llvm4User10getOperandEj.exit426, %_ZNK4llvm5Value9hasOneUseEv.exit, %749, %745
@@ -40806,7 +40806,7 @@ _ZN4llvm15SmallVectorImplIPKNS_5ValueEED2Ev.exit: ; preds = %1, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext range(i8 1, 6) i8 @"_ZZN4llvm26LoopVectorizationCostModel18getInstructionCostEPNS_11InstructionENS_12ElementCountEENK3$_0clES2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext range(i8 1, 6) i8 @"_ZZN4llvm26LoopVectorizationCostModel18getInstructionCostEPNS_11InstructionENS_12ElementCountEENK3$_0clES2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -40969,7 +40969,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_11InstructionENS_12ElementCount
   br label %_ZNK4llvm25LoopVectorizationLegality14isMaskRequiredEPKNS_11InstructionE.exit
 
 90:                                               ; preds = %72
-  %91 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %75, ptr noundef %1) #28
+  %91 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %75, ptr noundef nonnull %1) #28
   %.not.i.i.i = icmp eq ptr %91, null
   %.pre.i.i = load ptr, ptr %76, align 8
   %.pre4.i.i = load ptr, ptr %75, align 8
@@ -43967,7 +43967,7 @@ _ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLEERKS3_S5
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %0, align 8
   store ptr null, ptr %4, align 8
-  call fastcc void @_ZN4llvmL23reportVectorizationInfoENS_9StringRefES0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionENS_8DebugLocE(ptr nonnull @.str.171, i64 64, ptr nonnull @.str.172, i64 13, ptr noundef %63, ptr noundef %64, ptr noundef nonnull %4)
+  call fastcc void @_ZN4llvmL23reportVectorizationInfoENS_9StringRefES0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionENS_8DebugLocE(ptr nonnull @.str.171, i64 64, ptr nonnull @.str.172, i64 13, ptr noundef %63, ptr noundef %64, ptr noundef %4)
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
 65:                                               ; preds = %58, %_ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLEERKS3_S5_.exit
@@ -43990,7 +43990,7 @@ _ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLEERKS3_S5
   %73 = load ptr, ptr %72, align 8
   %74 = load ptr, ptr %0, align 8
   store ptr null, ptr %5, align 8
-  call fastcc void @_ZN4llvmL23reportVectorizationInfoENS_9StringRefES0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionENS_8DebugLocE(ptr nonnull @.str.173, i64 40, ptr nonnull @.str.168, i64 11, ptr noundef %73, ptr noundef %74, ptr noundef nonnull %5)
+  call fastcc void @_ZN4llvmL23reportVectorizationInfoENS_9StringRefES0_PNS_25OptimizationRemarkEmitterEPNS_4LoopEPNS_11InstructionENS_8DebugLocE(ptr nonnull @.str.173, i64 40, ptr nonnull @.str.168, i64 11, ptr noundef %73, ptr noundef %74, ptr noundef %5)
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
 _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %71, %_ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLEERKS3_S5_.exit.thread, %54
@@ -58129,7 +58129,7 @@ _ZNK4llvm26LoopVectorizationCostModel19getTailFoldingStyleEb.exit: ; preds = %_Z
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit
 
 _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %_ZNK4llvm26LoopVectorizationCostModel19getTailFoldingStyleEb.exit, %145
-  call fastcc void @_ZL21addCanonicalIVRecipesRN4llvm5VPlanEPNS_4TypeEbNS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(512) %140, ptr noundef %143, i1 noundef zeroext %139, ptr noundef nonnull %34)
+  call fastcc void @_ZL21addCanonicalIVRecipesRN4llvm5VPlanEPNS_4TypeEbNS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(512) %140, ptr noundef %143, i1 noundef zeroext %139, ptr noundef %34)
   %147 = load ptr, ptr %34, align 8
   %.not.i.i.i.i105 = icmp eq ptr %147, null
   br i1 %.not.i.i.i.i105, label %_ZN4llvm8DebugLocD2Ev.exit, label %148
@@ -61183,7 +61183,7 @@ _ZNKSt14default_deleteIN4llvm5VPlanEEclEPS1_.exit: ; preds = %1
 declare void @_ZN4llvm5VPlan18createInitialVPlanEPKNS_4SCEVERNS_15ScalarEvolutionEbbPNS_4LoopE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.794") align 8, ptr noundef, ptr noundef nonnull align 8 dereferenceable(1392), i1 noundef zeroext, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21addCanonicalIVRecipesRN4llvm5VPlanEPNS_4TypeEbNS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @_ZL21addCanonicalIVRecipesRN4llvm5VPlanEPNS_4TypeEbNS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::DebugLoc", align 8
   %6 = alloca %"class.llvm::DebugLoc", align 8
   %7 = alloca %"class.llvm::VPBuilder", align 8
@@ -63837,7 +63837,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZNK4llvm20iterator
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 320
   %68 = load ptr, ptr %67, align 8
   store ptr null, ptr %7, align 8
-  call fastcc void @_ZL21addCanonicalIVRecipesRN4llvm5VPlanEPNS_4TypeEbNS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(512) %65, ptr noundef %68, i1 noundef zeroext true, ptr noundef nonnull %7)
+  call fastcc void @_ZL21addCanonicalIVRecipesRN4llvm5VPlanEPNS_4TypeEbNS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(512) %65, ptr noundef %68, i1 noundef zeroext true, ptr noundef %7)
   call void @_ZN4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(140) %29) #28
   ret void
 }
@@ -64873,7 +64873,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17LoopVectorizePass11processLoopEPN
   store i32 0, ptr %167, align 8
   %168 = getelementptr inbounds nuw i8, ptr %7, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %168, i8 0, i64 20, i1 false)
-  %169 = call fastcc noundef i32 @_ZL25getScalarEpilogueLoweringPN4llvm8FunctionEPNS_4LoopERNS_18LoopVectorizeHintsEPNS_18ProfileSummaryInfoEPNS_18BlockFrequencyInfoEPNS_19TargetTransformInfoEPNS_17TargetLibraryInfoERNS_25LoopVectorizationLegalityEPNS_21InterleavedAccessInfoE(ptr noundef %154, ptr noundef nonnull %138, ptr noundef nonnull align 8 dereferenceable(120) %15, ptr noundef %148, ptr noundef %147, ptr noundef %142, ptr noundef %143, ptr noundef nonnull align 8 dereferenceable(537) %18, ptr noundef nonnull %7)
+  %169 = call fastcc noundef i32 @_ZL25getScalarEpilogueLoweringPN4llvm8FunctionEPNS_4LoopERNS_18LoopVectorizeHintsEPNS_18ProfileSummaryInfoEPNS_18BlockFrequencyInfoEPNS_19TargetTransformInfoEPNS_17TargetLibraryInfoERNS_25LoopVectorizationLegalityEPNS_21InterleavedAccessInfoE(ptr noundef %154, ptr noundef nonnull %138, ptr noundef nonnull align 8 dereferenceable(120) %15, ptr noundef %148, ptr noundef %147, ptr noundef %142, ptr noundef %143, ptr noundef nonnull align 8 dereferenceable(537) %18, ptr noundef %7)
   store i32 0, ptr %8, align 8
   %170 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %170, i8 0, i64 20, i1 false)
@@ -65075,7 +65075,7 @@ _ZNK4llvm19VectorizationFactoreqERKS0_.exit.thread.i: ; preds = %_ZNK4llvm19Vect
   store i8 %271, ptr %278, align 1
   %279 = getelementptr inbounds nuw i8, ptr %11, i64 1696
   store ptr null, ptr %279, align 8
-  call fastcc void @_ZN4llvm19InnerLoopVectorizerC2EPNS_4LoopERNS_25PredicatedScalarEvolutionEPNS_8LoopInfoEPNS_13DominatorTreeEPKNS_17TargetLibraryInfoEPKNS_19TargetTransformInfoEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterENS_12ElementCountESJ_jPNS_25LoopVectorizationLegalityEPNS_26LoopVectorizationCostModelEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERN12_GLOBAL__N_117GeneratedRTChecksE(ptr noundef nonnull align 8 dereferenceable(624) %12, ptr noundef nonnull %138, ptr noundef nonnull align 8 dereferenceable(136) %16, ptr noundef %140, ptr noundef %141, ptr noundef %143, ptr noundef nonnull %142, ptr noundef %145, ptr noundef %146, i64 %.sroa.03.0.copyload.i, i64 %.sroa.03.0.copyload.i, i32 noundef 1, ptr noundef nonnull %18, ptr noundef nonnull %8, ptr noundef %147, ptr noundef %148, ptr noundef nonnull align 8 dereferenceable(1704) %11)
+  call fastcc void @_ZN4llvm19InnerLoopVectorizerC2EPNS_4LoopERNS_25PredicatedScalarEvolutionEPNS_8LoopInfoEPNS_13DominatorTreeEPKNS_17TargetLibraryInfoEPKNS_19TargetTransformInfoEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterENS_12ElementCountESJ_jPNS_25LoopVectorizationLegalityEPNS_26LoopVectorizationCostModelEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERN12_GLOBAL__N_117GeneratedRTChecksE(ptr noundef nonnull align 8 dereferenceable(624) %12, ptr noundef nonnull %138, ptr noundef nonnull align 8 dereferenceable(136) %16, ptr noundef %140, ptr noundef %141, ptr noundef %143, ptr noundef nonnull %142, ptr noundef %145, ptr noundef %146, i64 %.sroa.03.0.copyload.i, i64 %.sroa.03.0.copyload.i, i32 noundef 1, ptr noundef %18, ptr noundef %8, ptr noundef %147, ptr noundef %148, ptr noundef nonnull align 8 dereferenceable(1704) %11)
   call void @_ZN4llvm24LoopVectorizationPlanner11executePlanENS_12ElementCountEjRNS_5VPlanERNS_19InnerLoopVectorizerEPNS_13DominatorTreeEbPKNS_8DenseMapIPKNS_4SCEVEPNS_5ValueENS_12DenseMapInfoISB_vEENS_6detail12DenseMapPairISB_SD_EEEE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.1040") align 8 %13, ptr noundef nonnull align 8 dereferenceable(552) %9, i64 %.sroa.03.0.copyload.i, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(512) %257, ptr noundef nonnull align 8 dereferenceable(624) %12, ptr noundef %141, i1 zeroext poison, ptr noundef null)
   %280 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %281 = load ptr, ptr %280, align 8
@@ -65184,7 +65184,7 @@ _ZL28useMaskedInterleavedAccessesRKN4llvm19TargetTransformInfoE.exit: ; preds = 
   %326 = load ptr, ptr %83, align 8
   %327 = load ptr, ptr %56, align 8
   %328 = load ptr, ptr %72, align 8
-  %329 = call fastcc noundef i32 @_ZL25getScalarEpilogueLoweringPN4llvm8FunctionEPNS_4LoopERNS_18LoopVectorizeHintsEPNS_18ProfileSummaryInfoEPNS_18BlockFrequencyInfoEPNS_19TargetTransformInfoEPNS_17TargetLibraryInfoERNS_25LoopVectorizationLegalityEPNS_21InterleavedAccessInfoE(ptr noundef %60, ptr noundef %324, ptr noundef nonnull align 8 dereferenceable(120) %15, ptr noundef %325, ptr noundef %326, ptr noundef %327, ptr noundef %328, ptr noundef nonnull align 8 dereferenceable(537) %18, ptr noundef nonnull %19)
+  %329 = call fastcc noundef i32 @_ZL25getScalarEpilogueLoweringPN4llvm8FunctionEPNS_4LoopERNS_18LoopVectorizeHintsEPNS_18ProfileSummaryInfoEPNS_18BlockFrequencyInfoEPNS_19TargetTransformInfoEPNS_17TargetLibraryInfoERNS_25LoopVectorizationLegalityEPNS_21InterleavedAccessInfoE(ptr noundef %60, ptr noundef %324, ptr noundef nonnull align 8 dereferenceable(120) %15, ptr noundef %325, ptr noundef %326, ptr noundef %327, ptr noundef %328, ptr noundef nonnull align 8 dereferenceable(537) %18, ptr noundef %19)
   %330 = load ptr, ptr %66, align 8
   %331 = load ptr, ptr %14, align 8
   %332 = call noundef i32 @_ZN4llvm15ScalarEvolution25getSmallConstantTripCountEPKNS_4LoopE(ptr noundef nonnull align 8 dereferenceable(1392) %330, ptr noundef %331) #28
@@ -65754,7 +65754,7 @@ _ZNK4llvm18LoopVectorizeHints8getForceEv.exit150.thread._crit_edge: ; preds = %_
 
 610:                                              ; preds = %_ZNK4llvm18LoopVectorizeHints8getForceEv.exit150.thread
   %611 = load ptr, ptr %54, align 8
-  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17LoopVectorizePass11processLoopEPNS_4LoopEE3$_1EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %611, ptr nonnull %14)
+  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17LoopVectorizePass11processLoopEPNS_4LoopEE3$_1EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %611, ptr %14)
   call void @_ZNK4llvm18LoopVectorizeHints19emitRemarkWithHintsEv(ptr noundef nonnull align 8 dereferenceable(120) %15) #28
   br label %884
 
@@ -65848,7 +65848,7 @@ _ZNK4llvm18LoopVectorizeHints8getForceEv.exit150.thread._crit_edge: ; preds = %_
   store ptr %14, ptr %650, align 8
   call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17LoopVectorizePass11processLoopEPNS_4LoopEE3$_2EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %648, ptr noundef nonnull byval(%class.anon.1252) align 8 %32)
   %651 = load ptr, ptr %54, align 8
-  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17LoopVectorizePass11processLoopEPNS_4LoopEE3$_3EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %651, ptr nonnull %26, ptr nonnull %14)
+  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17LoopVectorizePass11processLoopEPNS_4LoopEE3$_3EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %651, ptr %26, ptr %14)
   br label %883
 
 652:                                              ; preds = %644
@@ -65871,7 +65871,7 @@ _ZNK4llvm18LoopVectorizeHints8getForceEv.exit150.thread._crit_edge: ; preds = %_
 
 658:                                              ; preds = %657
   %659 = load ptr, ptr %54, align 8
-  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17LoopVectorizePass11processLoopEPNS_4LoopEE3$_5EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %659, ptr nonnull %26, ptr nonnull %14)
+  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17LoopVectorizePass11processLoopEPNS_4LoopEE3$_5EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %659, ptr %26, ptr %14)
   br label %660
 
 660:                                              ; preds = %657, %653, %658
@@ -65889,14 +65889,14 @@ _ZNK4llvm18LoopVectorizeHints8getForceEv.exit150.thread._crit_edge: ; preds = %_
   %670 = load ptr, ptr %54, align 8
   %671 = load ptr, ptr %83, align 8
   %672 = load ptr, ptr %85, align 8
-  call fastcc void @_ZN4llvm19InnerLoopVectorizerC2EPNS_4LoopERNS_25PredicatedScalarEvolutionEPNS_8LoopInfoEPNS_13DominatorTreeEPKNS_17TargetLibraryInfoEPKNS_19TargetTransformInfoEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterENS_12ElementCountESJ_jPNS_25LoopVectorizationLegalityEPNS_26LoopVectorizationCostModelEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERN12_GLOBAL__N_117GeneratedRTChecksE(ptr noundef nonnull align 8 dereferenceable(624) %34, ptr noundef %664, ptr noundef nonnull align 8 dereferenceable(136) %16, ptr noundef %665, ptr noundef %666, ptr noundef %667, ptr noundef %668, ptr noundef %669, ptr noundef %670, i64 1, i64 1, i32 noundef %645, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef %671, ptr noundef %672, ptr noundef nonnull align 8 dereferenceable(1704) %24)
+  call fastcc void @_ZN4llvm19InnerLoopVectorizerC2EPNS_4LoopERNS_25PredicatedScalarEvolutionEPNS_8LoopInfoEPNS_13DominatorTreeEPKNS_17TargetLibraryInfoEPKNS_19TargetTransformInfoEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterENS_12ElementCountESJ_jPNS_25LoopVectorizationLegalityEPNS_26LoopVectorizationCostModelEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERN12_GLOBAL__N_117GeneratedRTChecksE(ptr noundef nonnull align 8 dereferenceable(624) %34, ptr noundef %664, ptr noundef nonnull align 8 dereferenceable(136) %16, ptr noundef %665, ptr noundef %666, ptr noundef %667, ptr noundef %668, ptr noundef %669, ptr noundef %670, i64 1, i64 1, i32 noundef %645, ptr noundef %18, ptr noundef %20, ptr noundef %671, ptr noundef %672, ptr noundef nonnull align 8 dereferenceable(1704) %24)
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm17InnerLoopUnrollerE, i64 16), ptr %34, align 8
   %673 = call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm24LoopVectorizationPlanner10getPlanForENS_12ElementCountE(ptr noundef nonnull align 8 dereferenceable(552) %21, i64 %.sroa.078.0.copyload) #28
   %674 = load ptr, ptr %69, align 8
   call void @_ZN4llvm24LoopVectorizationPlanner11executePlanENS_12ElementCountEjRNS_5VPlanERNS_19InnerLoopVectorizerEPNS_13DominatorTreeEbPKNS_8DenseMapIPKNS_4SCEVEPNS_5ValueENS_12DenseMapInfoISB_vEENS_6detail12DenseMapPairISB_SD_EEEE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.1040") align 8 %35, ptr noundef nonnull align 8 dereferenceable(552) %21, i64 %.sroa.078.0.copyload, i32 noundef %645, ptr noundef nonnull align 8 dereferenceable(512) %673, ptr noundef nonnull align 8 dereferenceable(624) %34, ptr noundef %674, i1 zeroext poison, ptr noundef null)
   call void @_ZNSt4pairIN4llvm8DenseMapIPKNS0_4SCEVEPNS0_5ValueENS0_12DenseMapInfoIS4_vEENS0_6detail12DenseMapPairIS4_S6_EEEENS1_IPKNS0_20RecurrenceDescriptorES6_NS7_ISF_vEENSA_ISF_S6_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %35) #28
   %675 = load ptr, ptr %54, align 8
-  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17LoopVectorizePass11processLoopEPNS_4LoopEE3$_6EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %675, ptr nonnull %14, ptr nonnull %23)
+  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17LoopVectorizePass11processLoopEPNS_4LoopEE3$_6EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %675, ptr %14, ptr %23)
   call void @_ZN4llvm19InnerLoopVectorizerD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %34) #28
   br label %866
 
@@ -65933,7 +65933,7 @@ _ZN4llvm5VPlan19getVectorLoopRegionEv.exit:       ; preds = %676
   %693 = load ptr, ptr %54, align 8
   %694 = load ptr, ptr %83, align 8
   %695 = load ptr, ptr %85, align 8
-  call fastcc void @_ZN4llvm19InnerLoopVectorizerC2EPNS_4LoopERNS_25PredicatedScalarEvolutionEPNS_8LoopInfoEPNS_13DominatorTreeEPKNS_17TargetLibraryInfoEPKNS_19TargetTransformInfoEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterENS_12ElementCountESJ_jPNS_25LoopVectorizationLegalityEPNS_26LoopVectorizationCostModelEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERN12_GLOBAL__N_117GeneratedRTChecksE(ptr noundef nonnull align 8 dereferenceable(624) %38, ptr noundef %687, ptr noundef nonnull align 8 dereferenceable(136) %16, ptr noundef %688, ptr noundef %689, ptr noundef %690, ptr noundef %691, ptr noundef %692, ptr noundef %693, i64 %.sroa.078.0.copyload, i64 %.sroa.078.0.copyload, i32 noundef %645, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef %694, ptr noundef %695, ptr noundef nonnull align 8 dereferenceable(1704) %24)
+  call fastcc void @_ZN4llvm19InnerLoopVectorizerC2EPNS_4LoopERNS_25PredicatedScalarEvolutionEPNS_8LoopInfoEPNS_13DominatorTreeEPKNS_17TargetLibraryInfoEPKNS_19TargetTransformInfoEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterENS_12ElementCountESJ_jPNS_25LoopVectorizationLegalityEPNS_26LoopVectorizationCostModelEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERN12_GLOBAL__N_117GeneratedRTChecksE(ptr noundef nonnull align 8 dereferenceable(624) %38, ptr noundef %687, ptr noundef nonnull align 8 dereferenceable(136) %16, ptr noundef %688, ptr noundef %689, ptr noundef %690, ptr noundef %691, ptr noundef %692, ptr noundef %693, i64 %.sroa.078.0.copyload, i64 %.sroa.078.0.copyload, i32 noundef %645, ptr noundef %18, ptr noundef %20, ptr noundef %694, ptr noundef %695, ptr noundef nonnull align 8 dereferenceable(1704) %24)
   %696 = getelementptr inbounds nuw i8, ptr %38, i64 624
   store ptr %37, ptr %696, align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm26EpilogueVectorizerMainLoopE, i64 16), ptr %38, align 8
@@ -65957,7 +65957,7 @@ _ZN4llvm5VPlan19getVectorLoopRegionEv.exit:       ; preds = %676
   %709 = load ptr, ptr %83, align 8
   %710 = load ptr, ptr %85, align 8
   %.sroa.01.0.copyload.i.i154 = load i64, ptr %37, align 8
-  call fastcc void @_ZN4llvm19InnerLoopVectorizerC2EPNS_4LoopERNS_25PredicatedScalarEvolutionEPNS_8LoopInfoEPNS_13DominatorTreeEPKNS_17TargetLibraryInfoEPKNS_19TargetTransformInfoEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterENS_12ElementCountESJ_jPNS_25LoopVectorizationLegalityEPNS_26LoopVectorizationCostModelEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERN12_GLOBAL__N_117GeneratedRTChecksE(ptr noundef nonnull align 8 dereferenceable(624) %41, ptr noundef %702, ptr noundef nonnull align 8 dereferenceable(136) %16, ptr noundef %703, ptr noundef %704, ptr noundef %705, ptr noundef %706, ptr noundef %707, ptr noundef %708, i64 %.sroa.01.0.copyload.i.i154, i64 %.sroa.01.0.copyload.i.i154, i32 noundef %701, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef %709, ptr noundef %710, ptr noundef nonnull align 8 dereferenceable(1704) %24)
+  call fastcc void @_ZN4llvm19InnerLoopVectorizerC2EPNS_4LoopERNS_25PredicatedScalarEvolutionEPNS_8LoopInfoEPNS_13DominatorTreeEPKNS_17TargetLibraryInfoEPKNS_19TargetTransformInfoEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterENS_12ElementCountESJ_jPNS_25LoopVectorizationLegalityEPNS_26LoopVectorizationCostModelEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERN12_GLOBAL__N_117GeneratedRTChecksE(ptr noundef nonnull align 8 dereferenceable(624) %41, ptr noundef %702, ptr noundef nonnull align 8 dereferenceable(136) %16, ptr noundef %703, ptr noundef %704, ptr noundef %705, ptr noundef %706, ptr noundef %707, ptr noundef %708, i64 %.sroa.01.0.copyload.i.i154, i64 %.sroa.01.0.copyload.i.i154, i32 noundef %701, ptr noundef %18, ptr noundef %20, ptr noundef %709, ptr noundef %710, ptr noundef nonnull align 8 dereferenceable(1704) %24)
   %711 = getelementptr inbounds nuw i8, ptr %41, i64 624
   store ptr %37, ptr %711, align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm30EpilogueVectorizerEpilogueLoopE, i64 16), ptr %41, align 8
@@ -66233,7 +66233,7 @@ _ZN4llvm10TrackingVHINS_5ValueEED2Ev.exit:        ; preds = %824, %824, %824, %8
   %.sroa.08.0.copyload = load i64, ptr %856, align 8
   %857 = load ptr, ptr %83, align 8
   %858 = load ptr, ptr %85, align 8
-  call fastcc void @_ZN4llvm19InnerLoopVectorizerC2EPNS_4LoopERNS_25PredicatedScalarEvolutionEPNS_8LoopInfoEPNS_13DominatorTreeEPKNS_17TargetLibraryInfoEPKNS_19TargetTransformInfoEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterENS_12ElementCountESJ_jPNS_25LoopVectorizationLegalityEPNS_26LoopVectorizationCostModelEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERN12_GLOBAL__N_117GeneratedRTChecksE(ptr noundef nonnull align 8 dereferenceable(624) %49, ptr noundef %849, ptr noundef nonnull align 8 dereferenceable(136) %16, ptr noundef %850, ptr noundef %851, ptr noundef %852, ptr noundef %853, ptr noundef %854, ptr noundef %855, i64 %.sroa.078.0.copyload, i64 %.sroa.08.0.copyload, i32 noundef %645, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef %857, ptr noundef %858, ptr noundef nonnull align 8 dereferenceable(1704) %24)
+  call fastcc void @_ZN4llvm19InnerLoopVectorizerC2EPNS_4LoopERNS_25PredicatedScalarEvolutionEPNS_8LoopInfoEPNS_13DominatorTreeEPKNS_17TargetLibraryInfoEPKNS_19TargetTransformInfoEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterENS_12ElementCountESJ_jPNS_25LoopVectorizationLegalityEPNS_26LoopVectorizationCostModelEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERN12_GLOBAL__N_117GeneratedRTChecksE(ptr noundef nonnull align 8 dereferenceable(624) %49, ptr noundef %849, ptr noundef nonnull align 8 dereferenceable(136) %16, ptr noundef %850, ptr noundef %851, ptr noundef %852, ptr noundef %853, ptr noundef %854, ptr noundef %855, i64 %.sroa.078.0.copyload, i64 %.sroa.08.0.copyload, i32 noundef %645, ptr noundef %18, ptr noundef %20, ptr noundef %857, ptr noundef %858, ptr noundef nonnull align 8 dereferenceable(1704) %24)
   %859 = load ptr, ptr %69, align 8
   call void @_ZN4llvm24LoopVectorizationPlanner11executePlanENS_12ElementCountEjRNS_5VPlanERNS_19InnerLoopVectorizerEPNS_13DominatorTreeEbPKNS_8DenseMapIPKNS_4SCEVEPNS_5ValueENS_12DenseMapInfoISB_vEENS_6detail12DenseMapPairISB_SD_EEEE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.1040") align 8 %50, ptr noundef nonnull align 8 dereferenceable(552) %21, i64 %.sroa.078.0.copyload, i32 noundef %645, ptr noundef nonnull align 8 dereferenceable(512) %677, ptr noundef nonnull align 8 dereferenceable(624) %49, ptr noundef %859, i1 zeroext poison, ptr noundef null)
   call void @_ZNSt4pairIN4llvm8DenseMapIPKNS0_4SCEVEPNS0_5ValueENS0_12DenseMapInfoIS4_vEENS0_6detail12DenseMapPairIS4_S6_EEEENS1_IPKNS0_20RecurrenceDescriptorES6_NS7_ISF_vEENSA_ISF_S6_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %50) #28
@@ -66360,7 +66360,7 @@ declare noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo36enableInterleavedAcc
 declare void @_ZN4llvm21InterleavedAccessInfo19analyzeInterleavingEb(ptr noundef nonnull align 8 dereferenceable(160), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 5) i32 @_ZL25getScalarEpilogueLoweringPN4llvm8FunctionEPNS_4LoopERNS_18LoopVectorizeHintsEPNS_18ProfileSummaryInfoEPNS_18BlockFrequencyInfoEPNS_19TargetTransformInfoEPNS_17TargetLibraryInfoERNS_25LoopVectorizationLegalityEPNS_21InterleavedAccessInfoE(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(537) %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 5) i32 @_ZL25getScalarEpilogueLoweringPN4llvm8FunctionEPNS_4LoopERNS_18LoopVectorizeHintsEPNS_18ProfileSummaryInfoEPNS_18BlockFrequencyInfoEPNS_19TargetTransformInfoEPNS_17TargetLibraryInfoERNS_25LoopVectorizationLegalityEPNS_21InterleavedAccessInfoE(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(537) %7, ptr noundef nonnull %8) unnamed_addr #0 {
   %10 = alloca %"struct.llvm::TailFoldingInfo", align 8
   %11 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef 45) #28
   br i1 %11, label %_ZNK4llvm8Function10hasOptSizeEv.exit.thread, label %_ZNK4llvm8Function10hasOptSizeEv.exit
@@ -66848,7 +66848,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit71:     ; preds = %_ZN4llvm10BasicBloc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL26areRuntimeChecksProfitableRN12_GLOBAL__N_117GeneratedRTChecksERN4llvm19VectorizationFactorESt8optionalIjEPNS2_4LoopERNS2_15ScalarEvolutionENS2_22ScalarEpilogueLoweringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1704) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1, i64 %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(1392) %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL26areRuntimeChecksProfitableRN12_GLOBAL__N_117GeneratedRTChecksERN4llvm19VectorizationFactorESt8optionalIjEPNS2_4LoopERNS2_15ScalarEvolutionENS2_22ScalarEpilogueLoweringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1704) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1, i64 %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(1392) %4, i32 noundef range(i32 0, 5) %5) unnamed_addr #0 {
   %.sroa.060.0.extract.trunc = trunc i64 %2 to i32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1688
   %8 = load i8, ptr %7, align 8
@@ -67162,7 +67162,7 @@ _ZN12_GLOBAL__N_117GeneratedRTChecks7getCostEv.exit.thread: ; preds = %_ZL19getS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17LoopVectorizePass11processLoopEPNS_4LoopEE3$_1EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17LoopVectorizePass11processLoopEPNS_4LoopEE3$_1EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::OptimizationRemarkAnalysisAliasing", align 8
   %4 = alloca %"class.llvm::DiagnosticLocation", align 8
   %5 = alloca %"class.llvm::DebugLoc", align 8
@@ -67479,7 +67479,7 @@ _ZN4llvm24OptimizationRemarkMissedD2Ev.exit:      ; preds = %65, %_ZN4llvm23Smal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17LoopVectorizePass11processLoopEPNS_4LoopEE3$_3EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr nocapture readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17LoopVectorizePass11processLoopEPNS_4LoopEE3$_3EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull %1, ptr nocapture nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::OptimizationRemarkMissed", align 8
   %5 = alloca %"class.llvm::DiagnosticLocation", align 8
   %6 = alloca %"class.llvm::DebugLoc", align 8
@@ -67777,7 +67777,7 @@ _ZN4llvm26OptimizationRemarkAnalysisD2Ev.exit:    ; preds = %65, %_ZN4llvm23Smal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17LoopVectorizePass11processLoopEPNS_4LoopEE3$_5EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr nocapture readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17LoopVectorizePass11processLoopEPNS_4LoopEE3$_5EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull %1, ptr nocapture nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::OptimizationRemarkAnalysis", align 8
   %5 = alloca %"class.llvm::DiagnosticLocation", align 8
   %6 = alloca %"class.llvm::DebugLoc", align 8
@@ -67943,7 +67943,7 @@ define linkonce_odr hidden void @_ZNSt4pairIN4llvm8DenseMapIPKNS0_4SCEVEPNS0_5Va
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17LoopVectorizePass11processLoopEPNS_4LoopEE3$_6EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture readonly %1, ptr nocapture readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17LoopVectorizePass11processLoopEPNS_4LoopEE3$_6EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture nonnull readonly %1, ptr nocapture nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %5 = alloca %"class.llvm::OptimizationRemark", align 8
   %6 = alloca %"class.llvm::DiagnosticLocation", align 8
@@ -68152,7 +68152,7 @@ define linkonce_odr hidden void @_ZN4llvm26EpilogueVectorizerMainLoopD2Ev(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm19InnerLoopVectorizerC2EPNS_4LoopERNS_25PredicatedScalarEvolutionEPNS_8LoopInfoEPNS_13DominatorTreeEPKNS_17TargetLibraryInfoEPKNS_19TargetTransformInfoEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterENS_12ElementCountESJ_jPNS_25LoopVectorizationLegalityEPNS_26LoopVectorizationCostModelEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERN12_GLOBAL__N_117GeneratedRTChecksE(ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i64 %9, i64 %10, i32 noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(1704) %16) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm19InnerLoopVectorizerC2EPNS_4LoopERNS_25PredicatedScalarEvolutionEPNS_8LoopInfoEPNS_13DominatorTreeEPKNS_17TargetLibraryInfoEPKNS_19TargetTransformInfoEPNS_15AssumptionCacheEPNS_25OptimizationRemarkEmitterENS_12ElementCountESJ_jPNS_25LoopVectorizationLegalityEPNS_26LoopVectorizationCostModelEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERN12_GLOBAL__N_117GeneratedRTChecksE(ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i64 %9, i64 %10, i32 noundef %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef %14, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(1704) %16) unnamed_addr #0 align 2 {
   %.sroa.018.0.extract.trunc = trunc i64 %10 to i32
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm19InnerLoopVectorizerE, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -94472,7 +94472,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPN4llvm12VPRecipeB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN4llvm12VPRecipeBaseENS1_12ElementCountEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS1_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_SG_T1_T2_"(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr %3, i64 %4, ptr %5) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN4llvm12VPRecipeBaseENS1_12ElementCountEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS1_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_SG_T1_T2_"(ptr noundef %0, i64 noundef range(i64 0, 288230376151711743) %1, i64 noundef range(i64 -576460752303423488, 576460752303423488) %2, ptr %3, i64 %4, ptr %5) unnamed_addr #0 {
   %7 = alloca %"struct.std::pair.803", align 8
   %8 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
   %9 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_val", align 8
@@ -105712,7 +105712,7 @@ _ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt17__merge_sort_loopIPPN4llvm20VPReductionPHIRecipeES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEEvT_SJ_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr nocapture readonly %4, ptr nocapture %5) unnamed_addr #0 {
+define internal fastcc void @"_ZSt17__merge_sort_loopIPPN4llvm20VPReductionPHIRecipeES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEEvT_SJ_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 -9223372036854775808, 2305843009213693949) %3, ptr nocapture readonly %4, ptr nocapture %5) unnamed_addr #0 {
   %7 = shl nsw i64 %3, 1
   %8 = ptrtoint ptr %1 to i64
   %9 = ptrtoint ptr %0 to i64

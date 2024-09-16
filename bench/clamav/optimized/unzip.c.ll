@@ -128,7 +128,7 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   %.098 = phi i32 [ %18, %33 ], [ %.098.ph, %.outer ]
   %16 = add i32 %.0102, 1
   %17 = getelementptr inbounds %struct.zip_record, ptr %.1111.ph, i64 %.1109
-  %18 = call fastcc i32 @parse_central_directory_file_header(ptr noundef %1, i32 noundef %.098, i32 noundef %2, i32 noundef %16, ptr noundef nonnull %7, ptr noundef %0, ptr noundef null, ptr noundef nonnull %17)
+  %18 = call fastcc i32 @parse_central_directory_file_header(ptr noundef %1, i32 noundef %.098, i32 noundef %2, i32 noundef %16, ptr noundef %7, ptr noundef %0, ptr noundef null, ptr noundef nonnull %17)
   %19 = load i32, ptr %7, align 4
   %.not = icmp ne i32 %19, 27
   %20 = zext i1 %.not to i64
@@ -352,7 +352,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca [256 x i8], align 16
   store i32 27, ptr %4, align 4
   %10 = tail call i32 @cli_checktimelimit(ptr noundef %5) #12
@@ -529,7 +529,7 @@ define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, 
 
 112:                                              ; preds = %107
   %113 = sub i32 %2, %109
-  %114 = call fastcc i32 @parse_local_file_header(ptr noundef nonnull %0, i32 noundef %109, i32 noundef %113, ptr noundef null, i32 noundef %3, ptr noundef nonnull %20, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, ptr noundef nonnull @cli_magic_scan_desc, ptr noundef %7)
+  %114 = call fastcc i32 @parse_local_file_header(ptr noundef nonnull %0, i32 noundef %109, i32 noundef %113, ptr noundef null, i32 noundef %3, ptr noundef nonnull %20, ptr noundef %4, ptr noundef %5, i32 noundef 1, ptr noundef nonnull @cli_magic_scan_desc, ptr noundef %7)
   br label %.thread3
 
 115:                                              ; preds = %107
@@ -923,7 +923,7 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
   %.0101173 = phi i32 [ 0, %.lr.ph175 ], [ %148, %158 ]
   %144 = sub nuw i32 %11, %.0101173
   %145 = add i32 %.3174, 1
-  %146 = call fastcc i32 @parse_local_file_header(ptr noundef %8, i32 noundef %.0101173, i32 noundef %144, ptr noundef nonnull %2, i32 noundef %145, ptr noundef null, ptr noundef nonnull %3, ptr noundef %0, i32 noundef 1, ptr noundef nonnull @cli_magic_scan_desc, ptr noundef null)
+  %146 = call fastcc i32 @parse_local_file_header(ptr noundef %8, i32 noundef %.0101173, i32 noundef %144, ptr noundef nonnull %2, i32 noundef %145, ptr noundef null, ptr noundef %3, ptr noundef %0, i32 noundef 1, ptr noundef nonnull @cli_magic_scan_desc, ptr noundef null)
   %.not128 = icmp eq i32 %146, 0
   br i1 %.not128, label %.critedge, label %147
 
@@ -1811,7 +1811,7 @@ define internal fastcc i32 @unz(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 declare i32 @cli_json_timeout_cycle_check(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr noundef readonly %5, ptr nocapture noundef writeonly %6, ptr noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9, ptr noundef %10) unnamed_addr #0 {
+define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr noundef readonly %5, ptr nocapture noundef nonnull writeonly %6, ptr noundef %7, i32 noundef range(i32 0, 2) %8, ptr nocapture noundef readonly %9, ptr noundef %10) unnamed_addr #0 {
   %12 = alloca [256 x i8], align 16
   %13 = alloca ptr, align 8
   store ptr null, ptr %13, align 8
@@ -2238,7 +2238,7 @@ define i32 @unzip_single_internal(ptr noundef %0, i64 noundef %1, ptr nocapture 
 
 19:                                               ; preds = %16
   %20 = trunc i64 %1 to i32
-  %21 = call fastcc i32 @parse_local_file_header(ptr noundef nonnull %7, i32 noundef %20, i32 noundef %11, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %0, i32 noundef 0, ptr noundef %2, ptr noundef null)
+  %21 = call fastcc i32 @parse_local_file_header(ptr noundef nonnull %7, i32 noundef %20, i32 noundef %11, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null, ptr noundef %4, ptr noundef nonnull %0, i32 noundef 0, ptr noundef %2, ptr noundef null)
   %22 = load i32, ptr %4, align 4
   br label %23
 
@@ -2283,7 +2283,7 @@ define i32 @cli_unzip_single(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
 
 18:                                               ; preds = %15
   %19 = trunc i64 %1 to i32
-  %20 = call fastcc i32 @parse_local_file_header(ptr noundef nonnull %6, i32 noundef %19, i32 noundef %10, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull readonly @cli_magic_scan_desc, ptr noundef null)
+  %20 = call fastcc i32 @parse_local_file_header(ptr noundef nonnull %6, i32 noundef %19, i32 noundef %10, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null, ptr noundef %3, ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull readonly @cli_magic_scan_desc, ptr noundef null)
   %21 = load i32, ptr %3, align 4
   br label %unzip_single_internal.exit
 
@@ -2413,7 +2413,7 @@ define i32 @unzip_search(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   %.05078.us = phi i32 [ %40, %.critedge72.us ], [ 0, %.lr.ph79 ]
   %.277.us = phi i32 [ %41, %.critedge72.us ], [ %32, %.lr.ph79 ]
   %40 = add i32 %.05078.us, 1
-  %41 = call fastcc i32 @parse_central_directory_file_header(ptr noundef %.052, i32 noundef %.277.us, i32 noundef %20, i32 noundef %40, ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef null)
+  %41 = call fastcc i32 @parse_central_directory_file_header(ptr noundef %.052, i32 noundef %.277.us, i32 noundef %20, i32 noundef %40, ptr noundef %4, ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef null)
   %.not64.us = icmp eq i32 %41, 0
   br i1 %.not64.us, label %.critedge, label %42
 
@@ -2458,7 +2458,7 @@ define i32 @unzip_search(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   %.05078 = phi i32 [ %54, %.critedge72 ], [ 0, %.lr.ph79 ]
   %.277 = phi i32 [ %55, %.critedge72 ], [ %32, %.lr.ph79 ]
   %54 = add i32 %.05078, 1
-  %55 = call fastcc i32 @parse_central_directory_file_header(ptr noundef %.052, i32 noundef %.277, i32 noundef %20, i32 noundef %54, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %2, ptr noundef null)
+  %55 = call fastcc i32 @parse_central_directory_file_header(ptr noundef %.052, i32 noundef %.277, i32 noundef %20, i32 noundef %54, ptr noundef %4, ptr noundef null, ptr noundef nonnull %2, ptr noundef null)
   %.not64 = icmp eq i32 %55, 0
   br i1 %.not64, label %.critedge, label %56
 

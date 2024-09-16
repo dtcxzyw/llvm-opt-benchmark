@@ -1216,7 +1216,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL24normalizeSecondAndAppendPK12UNormalizer2PDsiiPKDsiaP10UErrorCode(ptr noundef %norm2, ptr noundef %first, i32 noundef %firstLength, i32 noundef %firstCapacity, ptr noundef %second, i32 noundef %secondLength, i8 noundef signext %doNormalize, ptr noundef %pErrorCode) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL24normalizeSecondAndAppendPK12UNormalizer2PDsiiPKDsiaP10UErrorCode(ptr noundef %norm2, ptr noundef %first, i32 noundef %firstLength, i32 noundef %firstCapacity, ptr noundef %second, i32 noundef %secondLength, i8 noundef signext range(i8 0, 2) %doNormalize, ptr noundef %pErrorCode) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %firstString = alloca %"class.icu_75::UnicodeString", align 8
   %safeMiddle = alloca %"class.icu_75::UnicodeString", align 8

@@ -499,8 +499,8 @@ sw.bb:                                            ; preds = %entry
 
 sw.bb2:                                           ; preds = %entry
   %value3 = getelementptr inbounds i8, ptr %ref, i64 24
-  %cmp14.i = icmp sgt i32 %hash_size, 0
-  br i1 %cmp14.i, label %for.body.preheader.i, label %hex_format.exit
+  %cmp15.i = icmp sgt i32 %hash_size, 0
+  br i1 %cmp15.i, label %for.body.preheader.i, label %hex_format.exit
 
 for.body.preheader.i:                             ; preds = %sw.bb2
   %wide.trip.count.i = zext nneg i32 %hash_size to i64
@@ -512,18 +512,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %4 = load i8, ptr %arrayidx.i, align 1
   %5 = lshr i8 %4, 4
   %cmp.i.i = icmp ult i8 %4, -96
-  %retval.0.v.i.i = select i1 %cmp.i.i, i8 48, i8 87
-  %retval.0.i.i = add nuw nsw i8 %retval.0.v.i.i, %5
+  %conv.i.i = or disjoint i8 %5, 48
+  %conv2.i.i = add nuw nsw i8 %5, 87
+  %retval.0.i.i = select i1 %cmp.i.i, i8 %conv.i.i, i8 %conv2.i.i
   %6 = shl nuw nsw i64 %indvars.iv.i, 1
   %arrayidx2.i = getelementptr inbounds i8, ptr %hex, i64 %6
   store i8 %retval.0.i.i, ptr %arrayidx2.i, align 2
   %7 = and i8 %4, 15
   %cmp.i11.i = icmp ult i8 %7, 10
-  %retval.0.v.i12.i = select i1 %cmp.i11.i, i8 48, i8 87
-  %retval.0.i13.i = add nuw nsw i8 %retval.0.v.i12.i, %7
+  %conv.i12.i = or disjoint i8 %7, 48
+  %conv2.i13.i = add nuw nsw i8 %7, 87
+  %retval.0.i14.i = select i1 %cmp.i11.i, i8 %conv.i12.i, i8 %conv2.i13.i
   %8 = or disjoint i64 %6, 1
   %arrayidx9.i = getelementptr inbounds i8, ptr %hex, i64 %8
-  store i8 %retval.0.i13.i, ptr %arrayidx9.i, align 1
+  store i8 %retval.0.i14.i, ptr %arrayidx9.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %hex_format.exit, label %for.body.i, !llvm.loop !7
@@ -535,75 +537,79 @@ hex_format.exit:                                  ; preds = %for.body.i, %sw.bb2
   store i8 0, ptr %arrayidx12.i, align 2
   %call7 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef nonnull %hex)
   %target_value = getelementptr inbounds i8, ptr %ref, i64 56
-  br i1 %cmp14.i, label %for.body.preheader.i13, label %hex_format.exit28
+  br i1 %cmp15.i, label %for.body.preheader.i13, label %hex_format.exit30
 
 for.body.preheader.i13:                           ; preds = %hex_format.exit
   %wide.trip.count.i14 = zext nneg i32 %hash_size to i64
   br label %for.body.i15
 
 for.body.i15:                                     ; preds = %for.body.i15, %for.body.preheader.i13
-  %indvars.iv.i16 = phi i64 [ 0, %for.body.preheader.i13 ], [ %indvars.iv.next.i26, %for.body.i15 ]
+  %indvars.iv.i16 = phi i64 [ 0, %for.body.preheader.i13 ], [ %indvars.iv.next.i28, %for.body.i15 ]
   %arrayidx.i17 = getelementptr inbounds i8, ptr %target_value, i64 %indvars.iv.i16
   %9 = load i8, ptr %arrayidx.i17, align 1
   %10 = lshr i8 %9, 4
   %cmp.i.i18 = icmp ult i8 %9, -96
-  %retval.0.v.i.i19 = select i1 %cmp.i.i18, i8 48, i8 87
-  %retval.0.i.i20 = add nuw nsw i8 %retval.0.v.i.i19, %10
+  %conv.i.i19 = or disjoint i8 %10, 48
+  %conv2.i.i20 = add nuw nsw i8 %10, 87
+  %retval.0.i.i21 = select i1 %cmp.i.i18, i8 %conv.i.i19, i8 %conv2.i.i20
   %11 = shl nuw nsw i64 %indvars.iv.i16, 1
-  %arrayidx2.i21 = getelementptr inbounds i8, ptr %hex, i64 %11
-  store i8 %retval.0.i.i20, ptr %arrayidx2.i21, align 2
+  %arrayidx2.i22 = getelementptr inbounds i8, ptr %hex, i64 %11
+  store i8 %retval.0.i.i21, ptr %arrayidx2.i22, align 2
   %12 = and i8 %9, 15
-  %cmp.i11.i22 = icmp ult i8 %12, 10
-  %retval.0.v.i12.i23 = select i1 %cmp.i11.i22, i8 48, i8 87
-  %retval.0.i13.i24 = add nuw nsw i8 %retval.0.v.i12.i23, %12
+  %cmp.i11.i23 = icmp ult i8 %12, 10
+  %conv.i12.i24 = or disjoint i8 %12, 48
+  %conv2.i13.i25 = add nuw nsw i8 %12, 87
+  %retval.0.i14.i26 = select i1 %cmp.i11.i23, i8 %conv.i12.i24, i8 %conv2.i13.i25
   %13 = or disjoint i64 %11, 1
-  %arrayidx9.i25 = getelementptr inbounds i8, ptr %hex, i64 %13
-  store i8 %retval.0.i13.i24, ptr %arrayidx9.i25, align 1
-  %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i16, 1
-  %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, %wide.trip.count.i14
-  br i1 %exitcond.not.i27, label %hex_format.exit28, label %for.body.i15, !llvm.loop !7
+  %arrayidx9.i27 = getelementptr inbounds i8, ptr %hex, i64 %13
+  store i8 %retval.0.i14.i26, ptr %arrayidx9.i27, align 1
+  %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i16, 1
+  %exitcond.not.i29 = icmp eq i64 %indvars.iv.next.i28, %wide.trip.count.i14
+  br i1 %exitcond.not.i29, label %hex_format.exit30, label %for.body.i15, !llvm.loop !7
 
-hex_format.exit28:                                ; preds = %for.body.i15, %hex_format.exit
+hex_format.exit30:                                ; preds = %for.body.i15, %hex_format.exit
   store i8 0, ptr %arrayidx12.i, align 2
   %call12 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull %hex)
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %entry
   %value15 = getelementptr inbounds i8, ptr %ref, i64 24
-  %cmp14.i29 = icmp sgt i32 %hash_size, 0
-  br i1 %cmp14.i29, label %for.body.preheader.i33, label %hex_format.exit48
+  %cmp15.i31 = icmp sgt i32 %hash_size, 0
+  br i1 %cmp15.i31, label %for.body.preheader.i35, label %hex_format.exit52
 
-for.body.preheader.i33:                           ; preds = %sw.bb13
-  %wide.trip.count.i34 = zext nneg i32 %hash_size to i64
-  br label %for.body.i35
+for.body.preheader.i35:                           ; preds = %sw.bb13
+  %wide.trip.count.i36 = zext nneg i32 %hash_size to i64
+  br label %for.body.i37
 
-for.body.i35:                                     ; preds = %for.body.i35, %for.body.preheader.i33
-  %indvars.iv.i36 = phi i64 [ 0, %for.body.preheader.i33 ], [ %indvars.iv.next.i46, %for.body.i35 ]
-  %arrayidx.i37 = getelementptr inbounds i8, ptr %value15, i64 %indvars.iv.i36
-  %14 = load i8, ptr %arrayidx.i37, align 1
+for.body.i37:                                     ; preds = %for.body.i37, %for.body.preheader.i35
+  %indvars.iv.i38 = phi i64 [ 0, %for.body.preheader.i35 ], [ %indvars.iv.next.i50, %for.body.i37 ]
+  %arrayidx.i39 = getelementptr inbounds i8, ptr %value15, i64 %indvars.iv.i38
+  %14 = load i8, ptr %arrayidx.i39, align 1
   %15 = lshr i8 %14, 4
-  %cmp.i.i38 = icmp ult i8 %14, -96
-  %retval.0.v.i.i39 = select i1 %cmp.i.i38, i8 48, i8 87
-  %retval.0.i.i40 = add nuw nsw i8 %retval.0.v.i.i39, %15
-  %16 = shl nuw nsw i64 %indvars.iv.i36, 1
-  %arrayidx2.i41 = getelementptr inbounds i8, ptr %hex, i64 %16
-  store i8 %retval.0.i.i40, ptr %arrayidx2.i41, align 2
+  %cmp.i.i40 = icmp ult i8 %14, -96
+  %conv.i.i41 = or disjoint i8 %15, 48
+  %conv2.i.i42 = add nuw nsw i8 %15, 87
+  %retval.0.i.i43 = select i1 %cmp.i.i40, i8 %conv.i.i41, i8 %conv2.i.i42
+  %16 = shl nuw nsw i64 %indvars.iv.i38, 1
+  %arrayidx2.i44 = getelementptr inbounds i8, ptr %hex, i64 %16
+  store i8 %retval.0.i.i43, ptr %arrayidx2.i44, align 2
   %17 = and i8 %14, 15
-  %cmp.i11.i42 = icmp ult i8 %17, 10
-  %retval.0.v.i12.i43 = select i1 %cmp.i11.i42, i8 48, i8 87
-  %retval.0.i13.i44 = add nuw nsw i8 %retval.0.v.i12.i43, %17
+  %cmp.i11.i45 = icmp ult i8 %17, 10
+  %conv.i12.i46 = or disjoint i8 %17, 48
+  %conv2.i13.i47 = add nuw nsw i8 %17, 87
+  %retval.0.i14.i48 = select i1 %cmp.i11.i45, i8 %conv.i12.i46, i8 %conv2.i13.i47
   %18 = or disjoint i64 %16, 1
-  %arrayidx9.i45 = getelementptr inbounds i8, ptr %hex, i64 %18
-  store i8 %retval.0.i13.i44, ptr %arrayidx9.i45, align 1
-  %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i36, 1
-  %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, %wide.trip.count.i34
-  br i1 %exitcond.not.i47, label %hex_format.exit48, label %for.body.i35, !llvm.loop !7
+  %arrayidx9.i49 = getelementptr inbounds i8, ptr %hex, i64 %18
+  store i8 %retval.0.i14.i48, ptr %arrayidx9.i49, align 1
+  %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i38, 1
+  %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, %wide.trip.count.i36
+  br i1 %exitcond.not.i51, label %hex_format.exit52, label %for.body.i37, !llvm.loop !7
 
-hex_format.exit48:                                ; preds = %for.body.i35, %sw.bb13
-  %mul10.i30 = shl nsw i32 %hash_size, 1
-  %idxprom11.i31 = sext i32 %mul10.i30 to i64
-  %arrayidx12.i32 = getelementptr inbounds i8, ptr %hex, i64 %idxprom11.i31
-  store i8 0, ptr %arrayidx12.i32, align 2
+hex_format.exit52:                                ; preds = %for.body.i37, %sw.bb13
+  %mul10.i32 = shl nsw i32 %hash_size, 1
+  %idxprom11.i33 = sext i32 %mul10.i32 to i64
+  %arrayidx12.i34 = getelementptr inbounds i8, ptr %hex, i64 %idxprom11.i33
+  store i8 0, ptr %arrayidx12.i34, align 2
   %call18 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %hex)
   br label %sw.epilog
 
@@ -611,7 +617,7 @@ sw.bb19:                                          ; preds = %entry
   %call20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb19, %hex_format.exit48, %hex_format.exit28, %sw.bb, %entry
+sw.epilog:                                        ; preds = %sw.bb19, %hex_format.exit52, %hex_format.exit30, %sw.bb, %entry
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   ret void
 }
@@ -704,8 +710,8 @@ sw.bb1:                                           ; preds = %entry
   br i1 %tobool.not.i, label %hex_format.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %sw.bb1
-  %cmp14.i = icmp sgt i32 %hash_size, 0
-  br i1 %cmp14.i, label %for.body.preheader.i, label %for.end.i
+  %cmp15.i = icmp sgt i32 %hash_size, 0
+  br i1 %cmp15.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
   %wide.trip.count.i = zext nneg i32 %hash_size to i64
@@ -717,18 +723,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %10 = load i8, ptr %arrayidx.i, align 1
   %11 = lshr i8 %10, 4
   %cmp.i.i = icmp ult i8 %10, -96
-  %retval.0.v.i.i = select i1 %cmp.i.i, i8 48, i8 87
-  %retval.0.i.i = add nuw nsw i8 %retval.0.v.i.i, %11
+  %conv.i.i = or disjoint i8 %11, 48
+  %conv2.i.i = add nuw nsw i8 %11, 87
+  %retval.0.i.i = select i1 %cmp.i.i, i8 %conv.i.i, i8 %conv2.i.i
   %12 = shl nuw nsw i64 %indvars.iv.i, 1
   %arrayidx2.i = getelementptr inbounds i8, ptr %hex, i64 %12
   store i8 %retval.0.i.i, ptr %arrayidx2.i, align 2
   %13 = and i8 %10, 15
   %cmp.i11.i = icmp ult i8 %13, 10
-  %retval.0.v.i12.i = select i1 %cmp.i11.i, i8 48, i8 87
-  %retval.0.i13.i = add nuw nsw i8 %retval.0.v.i12.i, %13
+  %conv.i12.i = or disjoint i8 %13, 48
+  %conv2.i13.i = add nuw nsw i8 %13, 87
+  %retval.0.i14.i = select i1 %cmp.i11.i, i8 %conv.i12.i, i8 %conv2.i13.i
   %14 = or disjoint i64 %12, 1
   %arrayidx9.i = getelementptr inbounds i8, ptr %hex, i64 %14
-  store i8 %retval.0.i13.i, ptr %arrayidx9.i, align 1
+  store i8 %retval.0.i14.i, ptr %arrayidx9.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !7
@@ -744,47 +752,49 @@ hex_format.exit:                                  ; preds = %sw.bb1, %for.end.i
   %call19 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef nonnull %hex)
   %15 = load ptr, ptr %value, align 8
   %tobool.not.i18 = icmp eq ptr %15, null
-  br i1 %tobool.not.i18, label %hex_format.exit40, label %for.cond.preheader.i19
+  br i1 %tobool.not.i18, label %hex_format.exit42, label %for.cond.preheader.i19
 
 for.cond.preheader.i19:                           ; preds = %hex_format.exit
-  %cmp14.i20 = icmp sgt i32 %hash_size, 0
-  br i1 %cmp14.i20, label %for.body.preheader.i25, label %for.end.i21
+  %cmp15.i20 = icmp sgt i32 %hash_size, 0
+  br i1 %cmp15.i20, label %for.body.preheader.i25, label %for.end.i21
 
 for.body.preheader.i25:                           ; preds = %for.cond.preheader.i19
   %wide.trip.count.i26 = zext nneg i32 %hash_size to i64
   br label %for.body.i27
 
 for.body.i27:                                     ; preds = %for.body.i27, %for.body.preheader.i25
-  %indvars.iv.i28 = phi i64 [ 0, %for.body.preheader.i25 ], [ %indvars.iv.next.i38, %for.body.i27 ]
+  %indvars.iv.i28 = phi i64 [ 0, %for.body.preheader.i25 ], [ %indvars.iv.next.i40, %for.body.i27 ]
   %arrayidx.i29 = getelementptr inbounds i8, ptr %15, i64 %indvars.iv.i28
   %16 = load i8, ptr %arrayidx.i29, align 1
   %17 = lshr i8 %16, 4
   %cmp.i.i30 = icmp ult i8 %16, -96
-  %retval.0.v.i.i31 = select i1 %cmp.i.i30, i8 48, i8 87
-  %retval.0.i.i32 = add nuw nsw i8 %retval.0.v.i.i31, %17
+  %conv.i.i31 = or disjoint i8 %17, 48
+  %conv2.i.i32 = add nuw nsw i8 %17, 87
+  %retval.0.i.i33 = select i1 %cmp.i.i30, i8 %conv.i.i31, i8 %conv2.i.i32
   %18 = shl nuw nsw i64 %indvars.iv.i28, 1
-  %arrayidx2.i33 = getelementptr inbounds i8, ptr %hex, i64 %18
-  store i8 %retval.0.i.i32, ptr %arrayidx2.i33, align 2
+  %arrayidx2.i34 = getelementptr inbounds i8, ptr %hex, i64 %18
+  store i8 %retval.0.i.i33, ptr %arrayidx2.i34, align 2
   %19 = load i8, ptr %arrayidx.i29, align 1
   %20 = and i8 %19, 15
-  %cmp.i11.i34 = icmp ult i8 %20, 10
-  %retval.0.v.i12.i35 = select i1 %cmp.i11.i34, i8 48, i8 87
-  %retval.0.i13.i36 = add nuw nsw i8 %retval.0.v.i12.i35, %20
+  %cmp.i11.i35 = icmp ult i8 %20, 10
+  %conv.i12.i36 = or disjoint i8 %20, 48
+  %conv2.i13.i37 = add nuw nsw i8 %20, 87
+  %retval.0.i14.i38 = select i1 %cmp.i11.i35, i8 %conv.i12.i36, i8 %conv2.i13.i37
   %21 = or disjoint i64 %18, 1
-  %arrayidx9.i37 = getelementptr inbounds i8, ptr %hex, i64 %21
-  store i8 %retval.0.i13.i36, ptr %arrayidx9.i37, align 1
-  %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i28, 1
-  %exitcond.not.i39 = icmp eq i64 %indvars.iv.next.i38, %wide.trip.count.i26
-  br i1 %exitcond.not.i39, label %for.end.i21, label %for.body.i27, !llvm.loop !7
+  %arrayidx9.i39 = getelementptr inbounds i8, ptr %hex, i64 %21
+  store i8 %retval.0.i14.i38, ptr %arrayidx9.i39, align 1
+  %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i28, 1
+  %exitcond.not.i41 = icmp eq i64 %indvars.iv.next.i40, %wide.trip.count.i26
+  br i1 %exitcond.not.i41, label %for.end.i21, label %for.body.i27, !llvm.loop !7
 
 for.end.i21:                                      ; preds = %for.body.i27, %for.cond.preheader.i19
   %mul10.i22 = shl nsw i32 %hash_size, 1
   %idxprom11.i23 = sext i32 %mul10.i22 to i64
   %arrayidx12.i24 = getelementptr inbounds i8, ptr %hex, i64 %idxprom11.i23
   store i8 0, ptr %arrayidx12.i24, align 2
-  br label %hex_format.exit40
+  br label %hex_format.exit42
 
-hex_format.exit40:                                ; preds = %hex_format.exit, %for.end.i21
+hex_format.exit42:                                ; preds = %hex_format.exit, %for.end.i21
   %message = getelementptr inbounds i8, ptr %log, i64 72
   %22 = load ptr, ptr %message, align 8
   %tobool24.not = icmp eq ptr %22, null
@@ -792,7 +802,7 @@ hex_format.exit40:                                ; preds = %hex_format.exit, %f
   %call31 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef nonnull %hex, ptr noundef nonnull %cond30)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %hex_format.exit40, %sw.bb, %entry
+sw.epilog:                                        ; preds = %hex_format.exit42, %sw.bb, %entry
   ret void
 }
 
@@ -2005,7 +2015,7 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #7
 declare ptr @reftable_realloc(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @decode_string(ptr noundef %dest, ptr %in.coerce0, i64 %in.coerce1) unnamed_addr #6 {
+define internal fastcc i32 @decode_string(ptr noundef nonnull %dest, ptr %in.coerce0, i64 %in.coerce1) unnamed_addr #6 {
 entry:
   %cmp.i = icmp eq i64 %in.coerce1, 0
   br i1 %cmp.i, label %return, label %if.end.i
@@ -2917,7 +2927,7 @@ if.then4.i118:                                    ; preds = %if.end129
   br label %strbuf_setlen.exit120
 
 strbuf_setlen.exit120:                            ; preds = %if.end129, %if.then4.i118
-  %call133 = call fastcc i32 @decode_string(ptr noundef nonnull %dest, ptr nonnull %add.ptr.i112, i64 %sub.i114)
+  %call133 = call fastcc i32 @decode_string(ptr noundef %dest, ptr nonnull %add.ptr.i112, i64 %sub.i114)
   %cmp134 = icmp slt i32 %call133, 0
   br i1 %cmp134, label %done, label %if.end137
 
@@ -3829,8 +3839,8 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %tobool.not.i, label %hex_format.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %for.end
-  %cmp14.i = icmp sgt i32 %6, 0
-  br i1 %cmp14.i, label %for.body.preheader.i, label %for.end.i
+  %cmp15.i = icmp sgt i32 %6, 0
+  br i1 %cmp15.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
   %wide.trip.count.i = zext nneg i32 %6 to i64
@@ -3842,18 +3852,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %7 = load i8, ptr %arrayidx.i, align 1
   %8 = lshr i8 %7, 4
   %cmp.i.i = icmp ult i8 %7, -96
-  %retval.0.v.i.i = select i1 %cmp.i.i, i8 48, i8 87
-  %retval.0.i.i = add nuw nsw i8 %retval.0.v.i.i, %8
+  %conv.i.i = or disjoint i8 %8, 48
+  %conv2.i.i = add nuw nsw i8 %8, 87
+  %retval.0.i.i = select i1 %cmp.i.i, i8 %conv.i.i, i8 %conv2.i.i
   %9 = shl nuw nsw i64 %indvars.iv.i, 1
   %arrayidx2.i = getelementptr inbounds i8, ptr %hex, i64 %9
   store i8 %retval.0.i.i, ptr %arrayidx2.i, align 2
   %10 = and i8 %7, 15
   %cmp.i11.i = icmp ult i8 %10, 10
-  %retval.0.v.i12.i = select i1 %cmp.i11.i, i8 48, i8 87
-  %retval.0.i13.i = add nuw nsw i8 %retval.0.v.i12.i, %10
+  %conv.i12.i = or disjoint i8 %10, 48
+  %conv2.i13.i = add nuw nsw i8 %10, 87
+  %retval.0.i14.i = select i1 %cmp.i11.i, i8 %conv.i12.i, i8 %conv2.i13.i
   %11 = or disjoint i64 %9, 1
   %arrayidx9.i = getelementptr inbounds i8, ptr %hex, i64 %11
-  store i8 %retval.0.i13.i, ptr %arrayidx9.i, align 1
+  store i8 %retval.0.i14.i, ptr %arrayidx9.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !7

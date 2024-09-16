@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 -152, 1) i32 @psa_its_get_info(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
-  %4 = call fastcc i32 @psa_its_read_file(i64 noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @psa_its_read_file(i64 noundef %0, ptr noundef %1, ptr noundef %3)
   %5 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
@@ -32,7 +32,7 @@ define hidden range(i32 -152, 1) i32 @psa_its_get_info(i64 noundef %0, ptr nocap
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -152, 1) i32 @psa_its_read_file(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -152, 1) i32 @psa_its_read_file(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca [25 x i8], align 16
   %5 = alloca %struct.psa_its_file_header_t, align 1
   store ptr null, ptr %2, align 8
@@ -80,7 +80,7 @@ define hidden range(i32 -152, 1) i32 @psa_its_get(i64 noundef %0, i32 noundef %1
   %6 = alloca ptr, align 8
   %7 = alloca %struct.psa_storage_info_t, align 4
   store ptr null, ptr %6, align 8
-  %8 = call fastcc i32 @psa_its_read_file(i64 noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %6)
+  %8 = call fastcc i32 @psa_its_read_file(i64 noundef %0, ptr noundef nonnull %7, ptr noundef %6)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %.thread-pre-split_crit_edge
 

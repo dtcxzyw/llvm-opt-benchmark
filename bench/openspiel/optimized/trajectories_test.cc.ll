@@ -795,7 +795,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZN10open_spiel13TabularPolicyD2Ev.exit.i:        ; preds = %276, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i
   %279 = load ptr, ptr %107, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_118GetStatesToIndicesB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias nonnull writable align 8 %110, ptr noundef nonnull align 8 dereferenceable(280) %279)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_118GetStatesToIndicesB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias writable align 8 %110, ptr noundef nonnull align 8 dereferenceable(280) %279)
           to label %280 unwind label %309
 
 280:                                              ; preds = %_ZN10open_spiel13TabularPolicyD2Ev.exit.i
@@ -1284,7 +1284,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZN10open_spiel13TabularPolicyD2Ev.exit.i39:      ; preds = %462, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i38
   %465 = load ptr, ptr %95, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_118GetStatesToIndicesB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias nonnull writable align 8 %98, ptr noundef nonnull align 8 dereferenceable(280) %465)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_118GetStatesToIndicesB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias writable align 8 %98, ptr noundef nonnull align 8 dereferenceable(280) %465)
           to label %466 unwind label %528
 
 466:                                              ; preds = %_ZN10open_spiel13TabularPolicyD2Ev.exit.i39
@@ -2085,7 +2085,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZN10open_spiel13TabularPolicyD2Ev.exit.i76:      ; preds = %791, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i75
   %794 = load ptr, ptr %83, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_118GetStatesToIndicesB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias nonnull writable align 8 %86, ptr noundef nonnull align 8 dereferenceable(280) %794)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_118GetStatesToIndicesB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias writable align 8 %86, ptr noundef nonnull align 8 dereferenceable(280) %794)
           to label %795 unwind label %857
 
 795:                                              ; preds = %_ZN10open_spiel13TabularPolicyD2Ev.exit.i76
@@ -2765,7 +2765,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZN10open_spiel13TabularPolicyD2Ev.exit.i134:     ; preds = %1077, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i133
   %1080 = load ptr, ptr %71, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_118GetStatesToIndicesB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias nonnull writable align 8 %74, ptr noundef nonnull align 8 dereferenceable(280) %1080)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_118GetStatesToIndicesB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias writable align 8 %74, ptr noundef nonnull align 8 dereferenceable(280) %1080)
           to label %1081 unwind label %1143
 
 1081:                                             ; preds = %_ZN10open_spiel13TabularPolicyD2Ev.exit.i134
@@ -3483,7 +3483,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZN10open_spiel13TabularPolicyD2Ev.exit.i218:     ; preds = %1351, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i217
   %1354 = load ptr, ptr %1, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_118GetStatesToIndicesB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(280) %1354)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_118GetStatesToIndicesB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(280) %1354)
           to label %1355 unwind label %1397
 
 1355:                                             ; preds = %_ZN10open_spiel13TabularPolicyD2Ev.exit.i218
@@ -4609,7 +4609,7 @@ define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_139RecordTr
   %35 = alloca i32, align 4
   call void @_ZN10open_spiel8LoadGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %36 = load ptr, ptr %2, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_118GetStatesToIndicesB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(280) %36)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_118GetStatesToIndicesB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(280) %36)
           to label %37 unwind label %114
 
 37:                                               ; preds = %1
@@ -5261,7 +5261,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZN10open_spiel13TabularPolicyD2Ev.exit:          ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i, %50
   %53 = load ptr, ptr %2, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_118GetStatesToIndicesB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(280) %53)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_118GetStatesToIndicesB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(280) %53)
           to label %54 unwind label %111
 
 54:                                               ; preds = %_ZN10open_spiel13TabularPolicyD2Ev.exit
@@ -5947,7 +5947,7 @@ _ZN10open_spiel13TabularPolicyD2Ev.exit:          ; preds = %_ZNSt10_HashtableIN
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 4992
   store i64 624, ptr %63, align 8
   %64 = load ptr, ptr %2, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_118GetStatesToIndicesB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(280) %64)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_118GetStatesToIndicesB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(280) %64)
           to label %65 unwind label %107
 
 65:                                               ; preds = %62
@@ -6482,7 +6482,7 @@ _ZN10open_spiel13TabularPolicyD2Ev.exit:          ; preds = %_ZNSt10_HashtableIN
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 4992
   store i64 624, ptr %63, align 8
   %64 = load ptr, ptr %2, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_118GetStatesToIndicesB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(280) %64)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_118GetStatesToIndicesB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(280) %64)
           to label %65 unwind label %117
 
 65:                                               ; preds = %62
@@ -6882,7 +6882,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN10open_spiel8LoadGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_118GetStatesToIndicesB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_118GetStatesToIndicesB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.65", align 8
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

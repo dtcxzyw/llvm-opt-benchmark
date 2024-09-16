@@ -7732,7 +7732,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4ETagESaIS5_EE6resizeEm.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Vtr8internal12_GLOBAL__N_115DynamicRelationC2ERSt6vectorIiSaIiEES8_i(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Vtr8internal12_GLOBAL__N_115DynamicRelationC2ERSt6vectorIiSaIiEES8_i(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef range(i32 2, 7) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store i32 0, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %3, ptr %5, align 4

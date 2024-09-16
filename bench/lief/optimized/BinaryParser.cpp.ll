@@ -56110,46 +56110,38 @@ define linkonce_odr hidden void @_ZN4LIEF7logging6Logger4warnIJtmmNSt7__cxx1112b
 declare noundef i64 @_ZNK4LIEF5MachO14SegmentCommand12virtual_sizeEv(ptr noundef nonnull align 8 dereferenceable(216)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE7reserveEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #3 align 2 {
-  %3 = icmp ugt i64 %1, 164703072086692425
-  br i1 %3, label %4, label %5
-
-4:                                                ; preds = %2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.212) #25
-  unreachable
-
-5:                                                ; preds = %2
+define internal fastcc void @_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE7reserveEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #3 align 2 {
   %.val9 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val10 = load ptr, ptr %6, align 8
-  %7 = ptrtoint ptr %.val10 to i64
-  %8 = ptrtoint ptr %.val9 to i64
-  %9 = sub i64 %7, %8
-  %10 = sdiv exact i64 %9, 56
-  %11 = icmp ult i64 %10, %1
-  br i1 %11, label %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit, label %25
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val10 = load ptr, ptr %3, align 8
+  %4 = ptrtoint ptr %.val10 to i64
+  %5 = ptrtoint ptr %.val9 to i64
+  %6 = sub i64 %4, %5
+  %7 = sdiv exact i64 %6, 56
+  %8 = icmp ult i64 %7, %1
+  br i1 %8, label %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit, label %22
 
-_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit: ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val8 = load ptr, ptr %12, align 8
-  %13 = ptrtoint ptr %.val8 to i64
-  %14 = sub i64 %13, %8
-  %15 = mul nuw nsw i64 %1, 56
-  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #24
+_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit: ; preds = %2
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val8 = load ptr, ptr %9, align 8
+  %10 = ptrtoint ptr %.val8 to i64
+  %11 = sub i64 %10, %5
+  %12 = mul nuw nsw i64 %1, 56
+  %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #24
   %.not1.i.i.i = icmp eq ptr %.val9, %.val8
   br i1 %.not1.i.i.i, label %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit, %.lr.ph.i.i.i
-  %.03.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i ], [ %16, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit ]
-  %.092.i.i.i = phi ptr [ %19, %.lr.ph.i.i.i ], [ %.val9, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit ]
+  %.03.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i ], [ %13, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit ]
+  %.092.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i ], [ %.val9, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i) #22
-  %17 = getelementptr inbounds i8, ptr %.03.i.i.i, i64 32
-  %18 = getelementptr inbounds i8, ptr %.092.i.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %17, ptr noundef nonnull align 8 dereferenceable(18) %18, i64 18, i1 false), !alias.scope !718
+  %14 = getelementptr inbounds i8, ptr %.03.i.i.i, i64 32
+  %15 = getelementptr inbounds i8, ptr %.092.i.i.i, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %14, ptr noundef nonnull align 8 dereferenceable(18) %15, i64 18, i1 false), !alias.scope !718
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i) #22
-  %19 = getelementptr inbounds i8, ptr %.092.i.i.i, i64 56
-  %20 = getelementptr inbounds i8, ptr %.03.i.i.i, i64 56
-  %.not.i.i.i = icmp eq ptr %19, %.val8
+  %16 = getelementptr inbounds i8, ptr %.092.i.i.i, i64 56
+  %17 = getelementptr inbounds i8, ptr %.03.i.i.i, i64 56
+  %.not.i.i.i = icmp eq ptr %16, %.val8
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.loopexit, label %.lr.ph.i.i.i, !llvm.loop !709
 
 _ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.loopexit: ; preds = %.lr.ph.i.i.i
@@ -56157,23 +56149,23 @@ _ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateE
   br label %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
 
 _ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.loopexit, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit
-  %21 = phi ptr [ %.pre, %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.loopexit ], [ %.val9, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit ]
-  %.not.i11 = icmp eq ptr %21, null
-  br i1 %.not.i11, label %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE13_M_deallocateEPS3_m.exit, label %22
+  %18 = phi ptr [ %.pre, %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.loopexit ], [ %.val9, %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_M_allocateEm.exit ]
+  %.not.i11 = icmp eq ptr %18, null
+  br i1 %.not.i11, label %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE13_M_deallocateEPS3_m.exit, label %19
 
-22:                                               ; preds = %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %21) #23
+19:                                               ; preds = %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %18) #23
   br label %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE13_M_deallocateEPS3_m.exit
 
-_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %22
-  store ptr %16, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 %14
-  store ptr %23, ptr %12, align 8
-  %24 = getelementptr inbounds %"struct.LIEF::MachO::(anonymous namespace)::ThreadedBindData", ptr %16, i64 %1
-  store ptr %24, ptr %6, align 8
-  br label %25
+_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %19
+  store ptr %13, ptr %0, align 8
+  %20 = getelementptr inbounds i8, ptr %13, i64 %11
+  store ptr %20, ptr %9, align 8
+  %21 = getelementptr inbounds %"struct.LIEF::MachO::(anonymous namespace)::ThreadedBindData", ptr %13, i64 %1
+  store ptr %21, ptr %3, align 8
+  br label %22
 
-25:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE13_M_deallocateEPS3_m.exit, %5
+22:                                               ; preds = %_ZNSt12_Vector_baseIN4LIEF5MachO12_GLOBAL__N_116ThreadedBindDataESaIS3_EE13_M_deallocateEPS3_m.exit, %2
   ret void
 }
 

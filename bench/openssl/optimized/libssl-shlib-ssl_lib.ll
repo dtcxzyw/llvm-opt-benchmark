@@ -5562,7 +5562,7 @@ if.then30:                                        ; preds = %land.lhs.true27
   %5 = getelementptr inbounds i8, ptr %args, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 32, i1 false)
   store ptr %s, ptr %args, align 8
-  %call32 = call fastcc i32 @ssl_start_async_job(ptr noundef nonnull %s, ptr noundef nonnull %args, ptr noundef nonnull @ssl_do_handshake_intern)
+  %call32 = call fastcc i32 @ssl_start_async_job(ptr noundef nonnull %s, ptr noundef %args, ptr noundef nonnull @ssl_do_handshake_intern)
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true27, %if.then25
@@ -5780,7 +5780,7 @@ if.then36:                                        ; preds = %land.lhs.true33
   %8 = load ptr, ptr %ssl_read42, align 8
   %f = getelementptr inbounds i8, ptr %args, i64 32
   store ptr %8, ptr %f, align 8
-  %call43 = call fastcc i32 @ssl_start_async_job(ptr noundef nonnull %s, ptr noundef nonnull %args, ptr noundef nonnull @ssl_io_intern)
+  %call43 = call fastcc i32 @ssl_start_async_job(ptr noundef nonnull %s, ptr noundef %args, ptr noundef nonnull @ssl_io_intern)
   %asyncrw = getelementptr inbounds i8, ptr %s, i64 5272
   %9 = load i64, ptr %asyncrw, align 8
   store i64 %9, ptr %readbytes, align 8
@@ -5804,7 +5804,7 @@ declare void @ossl_statem_check_finish_init(ptr noundef, i32 noundef) local_unna
 declare ptr @ASYNC_get_current_job() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl_start_async_job(ptr noundef %s, ptr noundef %args, ptr noundef %func) unnamed_addr #0 {
+define internal fastcc i32 @ssl_start_async_job(ptr noundef %s, ptr noundef nonnull %args, ptr noundef %func) unnamed_addr #0 {
 entry:
   %ret = alloca i32, align 4
   %cmp = icmp eq ptr %s, null
@@ -5856,7 +5856,7 @@ if.end25:                                         ; preds = %land.lhs.true.if.en
   %rwstate = getelementptr inbounds i8, ptr %cond1124, i64 96
   store i32 1, ptr %rwstate, align 8
   %job = getelementptr inbounds i8, ptr %cond1124, i64 5256
-  %call27 = call i32 @ASYNC_start_job(ptr noundef nonnull %job, ptr noundef %4, ptr noundef nonnull %ret, ptr noundef %func, ptr noundef %args, i64 noundef 40) #24
+  %call27 = call i32 @ASYNC_start_job(ptr noundef nonnull %job, ptr noundef %4, ptr noundef nonnull %ret, ptr noundef %func, ptr noundef nonnull %args, i64 noundef 40) #24
   switch i32 %call27, label %sw.default [
     i32 0, label %sw.bb
     i32 2, label %sw.bb29
@@ -6244,7 +6244,7 @@ if.then30:                                        ; preds = %land.lhs.true27
   %7 = load ptr, ptr %ssl_peek36, align 8
   %f = getelementptr inbounds i8, ptr %args, i64 32
   store ptr %7, ptr %f, align 8
-  %call37 = call fastcc i32 @ssl_start_async_job(ptr noundef nonnull %s, ptr noundef nonnull %args, ptr noundef nonnull @ssl_io_intern)
+  %call37 = call fastcc i32 @ssl_start_async_job(ptr noundef nonnull %s, ptr noundef %args, ptr noundef nonnull @ssl_io_intern)
   %asyncrw = getelementptr inbounds i8, ptr %s, i64 5272
   %8 = load i64, ptr %asyncrw, align 8
   store i64 %8, ptr %readbytes, align 8
@@ -6367,7 +6367,7 @@ if.then39:                                        ; preds = %land.lhs.true36
   %8 = load ptr, ptr %ssl_write45, align 8
   %f = getelementptr inbounds i8, ptr %args, i64 32
   store ptr %8, ptr %f, align 8
-  %call46 = call fastcc i32 @ssl_start_async_job(ptr noundef nonnull %s, ptr noundef nonnull %args, ptr noundef nonnull @ssl_io_intern)
+  %call46 = call fastcc i32 @ssl_start_async_job(ptr noundef nonnull %s, ptr noundef %args, ptr noundef nonnull @ssl_io_intern)
   %asyncrw = getelementptr inbounds i8, ptr %s, i64 5272
   %9 = load i64, ptr %asyncrw, align 8
   store i64 %9, ptr %written, align 8
@@ -6696,7 +6696,7 @@ if.then29:                                        ; preds = %land.lhs.true26
   %5 = load ptr, ptr %ssl_shutdown, align 8
   %f = getelementptr inbounds i8, ptr %args, i64 32
   store ptr %5, ptr %f, align 8
-  %call32 = call fastcc i32 @ssl_start_async_job(ptr noundef nonnull %s, ptr noundef nonnull %args, ptr noundef nonnull @ssl_io_intern)
+  %call32 = call fastcc i32 @ssl_start_async_job(ptr noundef nonnull %s, ptr noundef %args, ptr noundef nonnull @ssl_io_intern)
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true26, %if.then24
@@ -11353,7 +11353,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %32 = load ptr, ptr %data.i, align 8
   %dlen.i = getelementptr inbounds i8, ptr %call.i20.i, i64 16
   %33 = load i64, ptr %dlen.i, align 8
-  %call25.i = tail call i32 @SSL_dane_tlsa_add(ptr noundef %call.i, i8 noundef zeroext %29, i8 noundef zeroext %30, i8 noundef zeroext %31, ptr noundef %32, i64 noundef %33)
+  %call25.i = tail call i32 @SSL_dane_tlsa_add(ptr noundef nonnull %call.i, i8 noundef zeroext %29, i8 noundef zeroext %30, i8 noundef zeroext %31, ptr noundef %32, i64 noundef %33)
   %cmp26.i = icmp slt i32 %call25.i, 1
   br i1 %cmp26.i, label %if.end.i160, label %for.cond.i
 
@@ -11701,7 +11701,7 @@ if.end119:                                        ; preds = %if.then110, %if.end
   %ca_names = getelementptr inbounds i8, ptr %call.i, i64 2336
   %ca_names120 = getelementptr inbounds i8, ptr %s, i64 2336
   %84 = load ptr, ptr %ca_names120, align 8
-  %call121 = call fastcc i32 @dup_ca_names(ptr noundef nonnull %ca_names, ptr noundef %84)
+  %call121 = call fastcc i32 @dup_ca_names(ptr noundef %ca_names, ptr noundef %84)
   %tobool122.not = icmp eq i32 %call121, 0
   br i1 %tobool122.not, label %if.end.i160, label %lor.lhs.false123
 
@@ -11709,7 +11709,7 @@ lor.lhs.false123:                                 ; preds = %if.end119
   %client_ca_names = getelementptr inbounds i8, ptr %call.i, i64 2344
   %client_ca_names124 = getelementptr inbounds i8, ptr %s, i64 2344
   %85 = load ptr, ptr %client_ca_names124, align 8
-  %call125 = call fastcc i32 @dup_ca_names(ptr noundef nonnull %client_ca_names, ptr noundef %85)
+  %call125 = call fastcc i32 @dup_ca_names(ptr noundef %client_ca_names, ptr noundef %85)
   %tobool126.not = icmp eq i32 %call125, 0
   br i1 %tobool126.not, label %if.end.i160, label %return
 
@@ -11826,7 +11826,7 @@ return:                                           ; preds = %cond.false, %entry,
 declare i32 @CRYPTO_dup_ex_data(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dup_ca_names(ptr nocapture noundef writeonly %dst, ptr noundef %src) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dup_ca_names(ptr nocapture noundef nonnull writeonly %dst, ptr noundef %src) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %src, null
   br i1 %cmp, label %if.then, label %if.end
@@ -14105,7 +14105,7 @@ ct_extract_tls_extension_scts.exit:               ; preds = %if.then13
   %conv.i = zext i16 %4 to i64
   %call.i = call ptr @o2i_SCT_LIST(ptr noundef null, ptr noundef nonnull %p.i, i64 noundef %conv.i) #24
   %scts5.i = getelementptr inbounds i8, ptr %cond1124, i64 2776
-  %call6.i = call fastcc i32 @ct_move_scts(ptr noundef nonnull %scts5.i, ptr noundef %call.i, i32 noundef 1)
+  %call6.i = call fastcc i32 @ct_move_scts(ptr noundef %scts5.i, ptr noundef %call.i, i32 noundef 1)
   call void @SCT_LIST_free(ptr noundef %call.i) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   %cmp14 = icmp slt i32 %call6.i, 0
@@ -14156,7 +14156,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.end27.i:                                       ; preds = %for.body.i
   %call28.i = call ptr @OCSP_SINGLERESP_get1_ext_d2i(ptr noundef nonnull %call23.i, i32 noundef 954, ptr noundef null, ptr noundef null) #24
-  %call30.i = call fastcc i32 @ct_move_scts(ptr noundef nonnull %scts29.i, ptr noundef %call28.i, i32 noundef 3)
+  %call30.i = call fastcc i32 @ct_move_scts(ptr noundef %scts29.i, ptr noundef %call28.i, i32 noundef 3)
   %cmp31.i = icmp slt i32 %call30.i, 0
   br i1 %cmp31.i, label %ct_extract_ocsp_response_scts.exit.loopexit, label %for.inc.i
 
@@ -14202,7 +14202,7 @@ cond.end.i:                                       ; preds = %lor.lhs.false17
 ct_extract_x509v3_extension_scts.exit:            ; preds = %cond.end.i
   %call.i16 = call ptr @X509_get_ext_d2i(ptr noundef nonnull %9, i32 noundef 951, ptr noundef null, ptr noundef null) #24
   %scts3.i = getelementptr inbounds i8, ptr %cond1124, i64 2776
-  %call4.i = call fastcc i32 @ct_move_scts(ptr noundef nonnull %scts3.i, ptr noundef %call.i16, i32 noundef 2)
+  %call4.i = call fastcc i32 @ct_move_scts(ptr noundef %scts3.i, ptr noundef %call.i16, i32 noundef 2)
   call void @SCT_LIST_free(ptr noundef %call.i16) #24
   %cmp19 = icmp slt i32 %call4.i, 0
   br i1 %cmp19, label %return, label %if.end21
@@ -15289,7 +15289,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nss_keylog_int(ptr nocapture noundef readonly %prefix, ptr noundef %sc, ptr nocapture noundef readonly %parameter_1, i64 noundef %parameter_1_len, ptr nocapture noundef readonly %parameter_2, i64 noundef %parameter_2_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @nss_keylog_int(ptr nocapture noundef readonly %prefix, ptr noundef %sc, ptr nocapture noundef readonly %parameter_1, i64 noundef range(i64 8, 33) %parameter_1_len, ptr nocapture noundef readonly %parameter_2, i64 noundef %parameter_2_len) unnamed_addr #0 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %sc, i64 8
   %0 = load ptr, ptr %ctx, align 8
@@ -15313,39 +15313,37 @@ if.end7:                                          ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %call4, i64 %call
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 1
   store i8 32, ptr %add.ptr, align 1
-  %cmp922.not = icmp eq i64 %parameter_1_len, 0
-  br i1 %cmp922.not, label %for.end, label %for.body
+  br label %for.body
 
 for.body:                                         ; preds = %if.end7, %for.body
-  %i.024 = phi i64 [ %inc, %for.body ], [ 0, %if.end7 ]
-  %cursor.023 = phi ptr [ %add.ptr11, %for.body ], [ %incdec.ptr, %if.end7 ]
-  %arrayidx = getelementptr inbounds i8, ptr %parameter_1, i64 %i.024
+  %i.023 = phi i64 [ 0, %if.end7 ], [ %inc, %for.body ]
+  %cursor.022 = phi ptr [ %incdec.ptr, %if.end7 ], [ %add.ptr11, %for.body ]
+  %arrayidx = getelementptr inbounds i8, ptr %parameter_1, i64 %i.023
   %2 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %2 to i32
-  %call10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %cursor.023, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %conv) #24
-  %add.ptr11 = getelementptr inbounds i8, ptr %cursor.023, i64 2
-  %inc = add nuw i64 %i.024, 1
+  %call10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %cursor.022, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %conv) #24
+  %add.ptr11 = getelementptr inbounds i8, ptr %cursor.022, i64 2
+  %inc = add nuw nsw i64 %i.023, 1
   %exitcond.not = icmp eq i64 %inc, %parameter_1_len
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !28
 
-for.end:                                          ; preds = %for.body, %if.end7
-  %cursor.0.lcssa = phi ptr [ %incdec.ptr, %if.end7 ], [ %add.ptr11, %for.body ]
-  %incdec.ptr12 = getelementptr inbounds i8, ptr %cursor.0.lcssa, i64 1
-  store i8 32, ptr %cursor.0.lcssa, align 1
-  %cmp1425.not = icmp eq i64 %parameter_2_len, 0
-  br i1 %cmp1425.not, label %for.end23, label %for.body16
+for.end:                                          ; preds = %for.body
+  %incdec.ptr12 = getelementptr inbounds i8, ptr %cursor.022, i64 3
+  store i8 32, ptr %add.ptr11, align 1
+  %cmp1424.not = icmp eq i64 %parameter_2_len, 0
+  br i1 %cmp1424.not, label %for.end23, label %for.body16
 
 for.body16:                                       ; preds = %for.end, %for.body16
-  %i.127 = phi i64 [ %inc22, %for.body16 ], [ 0, %for.end ]
-  %cursor.126 = phi ptr [ %add.ptr20, %for.body16 ], [ %incdec.ptr12, %for.end ]
-  %arrayidx17 = getelementptr inbounds i8, ptr %parameter_2, i64 %i.127
+  %i.126 = phi i64 [ %inc22, %for.body16 ], [ 0, %for.end ]
+  %cursor.125 = phi ptr [ %add.ptr20, %for.body16 ], [ %incdec.ptr12, %for.end ]
+  %arrayidx17 = getelementptr inbounds i8, ptr %parameter_2, i64 %i.126
   %3 = load i8, ptr %arrayidx17, align 1
   %conv18 = zext i8 %3 to i32
-  %call19 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %cursor.126, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %conv18) #24
-  %add.ptr20 = getelementptr inbounds i8, ptr %cursor.126, i64 2
-  %inc22 = add nuw i64 %i.127, 1
-  %exitcond29.not = icmp eq i64 %inc22, %parameter_2_len
-  br i1 %exitcond29.not, label %for.end23, label %for.body16, !llvm.loop !29
+  %call19 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %cursor.125, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %conv18) #24
+  %add.ptr20 = getelementptr inbounds i8, ptr %cursor.125, i64 2
+  %inc22 = add nuw i64 %i.126, 1
+  %exitcond27.not = icmp eq i64 %inc22, %parameter_2_len
+  br i1 %exitcond27.not, label %for.end23, label %for.body16, !llvm.loop !29
 
 for.end23:                                        ; preds = %for.body16, %for.end
   %cursor.1.lcssa = phi ptr [ %incdec.ptr12, %for.end ], [ %add.ptr20, %for.body16 ]
@@ -17806,7 +17804,7 @@ declare ptr @X509_NAME_dup(ptr noundef) local_unnamed_addr #1
 declare ptr @o2i_SCT_LIST(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ct_move_scts(ptr nocapture noundef %dst, ptr noundef %src, i32 noundef %origin) unnamed_addr #0 {
+define internal fastcc i32 @ct_move_scts(ptr nocapture noundef nonnull %dst, ptr noundef %src, i32 noundef range(i32 1, 4) %origin) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dst, align 8
   %cmp = icmp eq ptr %0, null

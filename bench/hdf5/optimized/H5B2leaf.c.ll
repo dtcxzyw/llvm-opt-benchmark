@@ -377,7 +377,7 @@ define ptr @H5B2__protect_leaf(ptr noundef %0, ptr noundef %1, ptr nocapture nou
   br i1 %3, label %39, label %.thread
 
 39:                                               ; preds = %38
-  %40 = call fastcc i32 @H5B2__shadow_leaf(ptr noundef nonnull %15, ptr noundef nonnull %2)
+  %40 = call fastcc i32 @H5B2__shadow_leaf(ptr noundef %15, ptr noundef nonnull %2)
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %42, label %.thread
 
@@ -430,7 +430,7 @@ define ptr @H5B2__protect_leaf(ptr noundef %0, ptr noundef %1, ptr nocapture nou
 declare ptr @H5AC_protect(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5B2__shadow_leaf(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5B2__shadow_leaf(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 288
@@ -843,7 +843,7 @@ define range(i32 -1, 1) i32 @H5B2__insert_leaf(ptr noundef %0, ptr nocapture nou
   br i1 %153, label %154, label %.thread84
 
 154:                                              ; preds = %150
-  %155 = call fastcc i32 @H5B2__shadow_leaf(ptr noundef nonnull %8, ptr noundef nonnull %1)
+  %155 = call fastcc i32 @H5B2__shadow_leaf(ptr noundef %8, ptr noundef nonnull %1)
   %156 = icmp slt i32 %155, 0
   br i1 %156, label %157, label %.thread84
 
@@ -1165,7 +1165,7 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr nocapture nou
   br i1 %or.cond91.not, label %188, label %.thread98
 
 188:                                              ; preds = %184
-  %189 = call fastcc i32 @H5B2__shadow_leaf(ptr noundef nonnull %12, ptr noundef %1)
+  %189 = call fastcc i32 @H5B2__shadow_leaf(ptr noundef %12, ptr noundef %1)
   %190 = icmp slt i32 %189, 0
   br i1 %190, label %191, label %195
 
@@ -1412,7 +1412,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_leaf(ptr noundef %0, ptr nocapture nou
   br i1 %76, label %78, label %87
 
 78:                                               ; preds = %77
-  %79 = call fastcc i32 @H5B2__shadow_leaf(ptr noundef nonnull %10, ptr noundef nonnull %1)
+  %79 = call fastcc i32 @H5B2__shadow_leaf(ptr noundef %10, ptr noundef nonnull %1)
   %80 = icmp slt i32 %79, 0
   br i1 %80, label %81, label %85
 
@@ -1584,7 +1584,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_leaf_by_idx(ptr noundef %0, ptr nocapt
   br i1 %53, label %55, label %64
 
 55:                                               ; preds = %54
-  %56 = tail call fastcc i32 @H5B2__shadow_leaf(ptr noundef nonnull %8, ptr noundef nonnull %1)
+  %56 = tail call fastcc i32 @H5B2__shadow_leaf(ptr noundef %8, ptr noundef nonnull %1)
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %58, label %62
 

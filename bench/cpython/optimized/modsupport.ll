@@ -103,11 +103,11 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %cmp5.i, label %if.then6.i, label %if.else.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %call7.i = call fastcc ptr @do_mkvalue(ptr noundef nonnull %f.i, ptr noundef nonnull %lva.i)
+  %call7.i = call fastcc ptr @do_mkvalue(ptr noundef %f.i, ptr noundef %lva.i)
   br label %if.end9.i
 
 if.else.i:                                        ; preds = %if.end4.i
-  %call8.i = call fastcc ptr @do_mktuple(ptr noundef nonnull %f.i, ptr noundef nonnull %lva.i, i8 noundef signext 0, i64 noundef %call.i)
+  %call8.i = call fastcc ptr @do_mktuple(ptr noundef %f.i, ptr noundef %lva.i, i8 noundef signext 0, i64 noundef %call.i)
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.else.i, %if.then6.i
@@ -147,11 +147,11 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %cmp5.i, label %if.then6.i, label %if.else.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %call7.i = call fastcc ptr @do_mkvalue(ptr noundef nonnull %f.i, ptr noundef nonnull %lva.i)
+  %call7.i = call fastcc ptr @do_mkvalue(ptr noundef %f.i, ptr noundef %lva.i)
   br label %if.end9.i
 
 if.else.i:                                        ; preds = %if.end4.i
-  %call8.i = call fastcc ptr @do_mktuple(ptr noundef nonnull %f.i, ptr noundef nonnull %lva.i, i8 noundef signext 0, i64 noundef %call.i)
+  %call8.i = call fastcc ptr @do_mktuple(ptr noundef %f.i, ptr noundef %lva.i, i8 noundef signext 0, i64 noundef %call.i)
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.else.i, %if.then6.i
@@ -189,11 +189,11 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %cmp5.i, label %if.then6.i, label %if.else.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %call7.i = call fastcc ptr @do_mkvalue(ptr noundef nonnull %f.i, ptr noundef nonnull %lva.i)
+  %call7.i = call fastcc ptr @do_mkvalue(ptr noundef %f.i, ptr noundef %lva.i)
   br label %if.end9.i
 
 if.else.i:                                        ; preds = %if.end4.i
-  %call8.i = call fastcc ptr @do_mktuple(ptr noundef nonnull %f.i, ptr noundef nonnull %lva.i, i8 noundef signext 0, i64 noundef %call.i)
+  %call8.i = call fastcc ptr @do_mktuple(ptr noundef %f.i, ptr noundef %lva.i, i8 noundef signext 0, i64 noundef %call.i)
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.else.i, %if.then6.i
@@ -230,11 +230,11 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %cmp5.i, label %if.then6.i, label %if.else.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %call7.i = call fastcc ptr @do_mkvalue(ptr noundef nonnull %f.i, ptr noundef nonnull %lva.i)
+  %call7.i = call fastcc ptr @do_mkvalue(ptr noundef %f.i, ptr noundef %lva.i)
   br label %if.end9.i
 
 if.else.i:                                        ; preds = %if.end4.i
-  %call8.i = call fastcc ptr @do_mktuple(ptr noundef nonnull %f.i, ptr noundef nonnull %lva.i, i8 noundef signext 0, i64 noundef %call.i)
+  %call8.i = call fastcc ptr @do_mktuple(ptr noundef %f.i, ptr noundef %lva.i, i8 noundef signext 0, i64 noundef %call.i)
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.else.i, %if.then6.i
@@ -290,60 +290,60 @@ if.end11:                                         ; preds = %if.end3, %if.else
   store ptr %format, ptr %f, align 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %if.end11, %if.end5.i
-  %i.025.i = phi i64 [ %inc.i, %if.end5.i ], [ 0, %if.end11 ]
-  %call.i = call fastcc ptr @do_mkvalue(ptr noundef nonnull %f, ptr noundef nonnull %lva)
+for.body.i:                                       ; preds = %if.end5.i, %if.end11
+  %i.024.i = phi i64 [ 0, %if.end11 ], [ %inc.i, %if.end5.i ]
+  %call.i = call fastcc ptr @do_mkvalue(ptr noundef %f, ptr noundef %lva)
   %cmp2.i = icmp eq ptr %call.i, null
-  br i1 %cmp2.i, label %if.then3.i, label %if.end5.i
-
-if.then3.i:                                       ; preds = %for.body.i
-  %0 = xor i64 %i.025.i, -1
-  %sub4.i = add nsw i64 %call, %0
-  call fastcc void @do_ignore(ptr noundef nonnull %f, ptr noundef nonnull %lva, i8 noundef signext 0, i64 noundef %sub4.i)
-  br label %error.i
+  br i1 %cmp2.i, label %error.i, label %if.end5.i
 
 if.end5.i:                                        ; preds = %for.body.i
-  %arrayidx.i = getelementptr ptr, ptr %stack.0, i64 %i.025.i
+  %arrayidx.i = getelementptr ptr, ptr %stack.0, i64 %i.024.i
   store ptr %call.i, ptr %arrayidx.i, align 8
-  %inc.i = add nuw nsw i64 %i.025.i, 1
+  %inc.i = add nuw nsw i64 %i.024.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %call
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %if.end5.i
-  %1 = load ptr, ptr %f, align 8
-  %2 = load i8, ptr %1, align 1
-  %cmp.not11.i.i = icmp eq i8 %2, 0
+  %0 = load ptr, ptr %f, align 8
+  %1 = load i8, ptr %0, align 1
+  %cmp.not11.i.i = icmp eq i8 %1, 0
   br i1 %cmp.not11.i.i, label %if.end19, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %for.end.i, %if.end.i19.i
-  %3 = phi i8 [ %5, %if.end.i19.i ], [ %2, %for.end.i ]
-  %f.012.i.i = phi ptr [ %incdec.ptr.i.i, %if.end.i19.i ], [ %1, %for.end.i ]
-  switch i8 %3, label %check_end.exit.thread.i [
+  %2 = phi i8 [ %4, %if.end.i19.i ], [ %1, %for.end.i ]
+  %f.012.i.i = phi ptr [ %incdec.ptr.i.i, %if.end.i19.i ], [ %0, %for.end.i ]
+  switch i8 %2, label %error.thread.i [
     i8 32, label %if.end.i19.i
     i8 9, label %if.end.i19.i
     i8 44, label %if.end.i19.i
     i8 58, label %if.end.i19.i
   ]
 
-check_end.exit.thread.i:                          ; preds = %while.body.i.i
-  %4 = load ptr, ptr @PyExc_SystemError, align 8
-  call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.8) #5
-  br label %error.i
+error.thread.i:                                   ; preds = %while.body.i.i
+  %3 = load ptr, ptr @PyExc_SystemError, align 8
+  call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.8) #5
+  br label %for.body11.preheader.i
 
 if.end.i19.i:                                     ; preds = %while.body.i.i, %while.body.i.i, %while.body.i.i, %while.body.i.i
   %incdec.ptr.i.i = getelementptr i8, ptr %f.012.i.i, i64 1
-  %5 = load i8, ptr %incdec.ptr.i.i, align 1
-  %cmp.not.i.i = icmp eq i8 %5, 0
+  %4 = load i8, ptr %incdec.ptr.i.i, align 1
+  %cmp.not.i.i = icmp eq i8 %4, 0
   br i1 %cmp.not.i.i, label %if.end19, label %while.body.i.i, !llvm.loop !7
 
-error.i:                                          ; preds = %check_end.exit.thread.i, %if.then3.i
-  %i.023.i = phi i64 [ %call, %check_end.exit.thread.i ], [ %i.025.i, %if.then3.i ]
-  %cmp1026.not.i = icmp eq i64 %i.023.i, 0
-  br i1 %cmp1026.not.i, label %if.then15, label %for.body11.i
+error.i:                                          ; preds = %for.body.i
+  %5 = xor i64 %i.024.i, -1
+  %sub4.i = add nsw i64 %call, %5
+  call fastcc void @do_ignore(ptr noundef %f, ptr noundef %lva, i8 noundef signext 0, i64 noundef %sub4.i)
+  %cmp1025.not.i = icmp eq i64 %i.024.i, 0
+  br i1 %cmp1025.not.i, label %if.then15, label %for.body11.preheader.i
 
-for.body11.i:                                     ; preds = %error.i, %for.inc13.i
-  %i.127.i = phi i64 [ %inc14.i, %for.inc13.i ], [ 0, %error.i ]
-  %arrayidx12.i = getelementptr ptr, ptr %stack.0, i64 %i.127.i
+for.body11.preheader.i:                           ; preds = %error.i, %error.thread.i
+  %i.02331.i = phi i64 [ %call, %error.thread.i ], [ %i.024.i, %error.i ]
+  br label %for.body11.i
+
+for.body11.i:                                     ; preds = %for.inc13.i, %for.body11.preheader.i
+  %i.126.i = phi i64 [ %inc14.i, %for.inc13.i ], [ 0, %for.body11.preheader.i ]
+  %arrayidx12.i = getelementptr ptr, ptr %stack.0, i64 %i.126.i
   %6 = load ptr, ptr %arrayidx12.i, align 8
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 2147483648
@@ -361,9 +361,9 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %for.inc13.i
 
 for.inc13.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body11.i
-  %inc14.i = add nuw nsw i64 %i.127.i, 1
-  %exitcond29.not.i = icmp eq i64 %inc14.i, %i.023.i
-  br i1 %exitcond29.not.i, label %if.then15, label %for.body11.i, !llvm.loop !8
+  %inc14.i = add nuw nsw i64 %i.126.i, 1
+  %exitcond28.not.i = icmp eq i64 %inc14.i, %i.02331.i
+  br i1 %exitcond28.not.i, label %if.then15, label %for.body11.i, !llvm.loop !8
 
 if.then15:                                        ; preds = %for.inc13.i, %error.i
   call void @llvm.va_end.p0(ptr nonnull %lva)
@@ -385,7 +385,7 @@ return:                                           ; preds = %if.then15, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @countformat(ptr nocapture noundef readonly %format, i8 noundef signext %endchar) unnamed_addr #0 {
+define internal fastcc i64 @countformat(ptr nocapture noundef readonly %format, i8 noundef signext range(i8 0, 126) %endchar) unnamed_addr #0 {
 entry:
   %.pr15 = load i8, ptr %format, align 1
   %cmp2.not16 = icmp eq i8 %.pr15, %endchar
@@ -682,7 +682,7 @@ declare i32 @PyType_Ready(ptr noundef) local_unnamed_addr #1
 declare ptr @_PyType_Name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @do_mkvalue(ptr nocapture noundef %p_format, ptr noundef %p_va) unnamed_addr #0 {
+define internal fastcc ptr @do_mkvalue(ptr nocapture noundef nonnull %p_format, ptr noundef nonnull %p_va) unnamed_addr #0 {
 entry:
   %p = alloca [1 x i8], align 1
   %p_format.promoted = load ptr, ptr %p_format, align 8
@@ -732,7 +732,7 @@ for.cond.backedge:                                ; preds = %for.cond, %for.cond
 
 sw.bb:                                            ; preds = %for.cond
   %call = tail call fastcc i64 @countformat(ptr noundef %incdec.ptr, i8 noundef signext 41)
-  %call1 = tail call fastcc ptr @do_mktuple(ptr noundef nonnull %p_format, ptr noundef %p_va, i8 noundef signext 41, i64 noundef %call)
+  %call1 = tail call fastcc ptr @do_mktuple(ptr noundef %p_format, ptr noundef %p_va, i8 noundef signext 41, i64 noundef %call)
   br label %return
 
 sw.bb2:                                           ; preds = %for.cond
@@ -754,19 +754,19 @@ for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheade
   br label %for.body.i
 
 if.then2.i:                                       ; preds = %if.end.i57
-  tail call fastcc void @do_ignore(ptr noundef nonnull %p_format, ptr noundef %p_va, i8 noundef signext 93, i64 noundef %call3)
+  tail call fastcc void @do_ignore(ptr noundef %p_format, ptr noundef %p_va, i8 noundef signext 93, i64 noundef %call3)
   br label %return
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %if.end9.i
   %i.0.i130 = phi i64 [ 0, %for.body.i.lr.ph ], [ %inc.i, %if.end9.i ]
-  %call5.i = tail call fastcc ptr @do_mkvalue(ptr noundef nonnull %p_format, ptr noundef %p_va)
+  %call5.i = tail call fastcc ptr @do_mkvalue(ptr noundef %p_format, ptr noundef %p_va)
   %cmp6.i = icmp eq ptr %call5.i, null
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %for.body.i
   %2 = xor i64 %i.0.i130, -1
   %sub8.i = add nsw i64 %call3, %2
-  tail call fastcc void @do_ignore(ptr noundef nonnull %p_format, ptr noundef %p_va, i8 noundef signext 93, i64 noundef %sub8.i)
+  tail call fastcc void @do_ignore(ptr noundef %p_format, ptr noundef %p_va, i8 noundef signext 93, i64 noundef %sub8.i)
   %3 = load i64, ptr %call.i, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i23.not.i = icmp eq i64 %4, 0
@@ -791,7 +791,7 @@ if.end9.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %if.end9.i, %for.cond.i.preheader
-  %call10.i = tail call fastcc i32 @check_end(ptr noundef nonnull %p_format, i8 noundef signext 93)
+  %call10.i = tail call fastcc i32 @check_end(ptr noundef %p_format, i8 noundef signext 93)
   %tobool.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool.not.i, label %if.then11.i, label %return
 
@@ -824,7 +824,7 @@ if.end.i59:                                       ; preds = %sw.bb5
 if.then1.i:                                       ; preds = %if.end.i59
   %7 = load ptr, ptr @PyExc_SystemError, align 8
   tail call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.9) #5
-  tail call fastcc void @do_ignore(ptr noundef nonnull %p_format, ptr noundef %p_va, i8 noundef signext 125, i64 noundef %call6)
+  tail call fastcc void @do_ignore(ptr noundef %p_format, ptr noundef %p_va, i8 noundef signext 125, i64 noundef %call6)
   br label %return
 
 if.end2.i:                                        ; preds = %if.end.i59
@@ -837,19 +837,19 @@ for.cond.i63.preheader:                           ; preds = %if.end2.i
   br i1 %cmp6.i65127.not, label %for.end.i66, label %for.body.i71
 
 if.then4.i:                                       ; preds = %if.end2.i
-  tail call fastcc void @do_ignore(ptr noundef nonnull %p_format, ptr noundef %p_va, i8 noundef signext 125, i64 noundef %call6)
+  tail call fastcc void @do_ignore(ptr noundef %p_format, ptr noundef %p_va, i8 noundef signext 125, i64 noundef %call6)
   br label %return
 
 for.body.i71:                                     ; preds = %for.cond.i63.preheader, %for.inc.i
   %i.0.i64128 = phi i64 [ %add.i72, %for.inc.i ], [ 0, %for.cond.i63.preheader ]
-  %call7.i = tail call fastcc ptr @do_mkvalue(ptr noundef nonnull %p_format, ptr noundef %p_va)
+  %call7.i = tail call fastcc ptr @do_mkvalue(ptr noundef %p_format, ptr noundef %p_va)
   %cmp8.i = icmp eq ptr %call7.i, null
   br i1 %cmp8.i, label %if.then9.i, label %if.end11.i
 
 if.then9.i:                                       ; preds = %for.body.i71
   %8 = xor i64 %i.0.i64128, -1
   %sub10.i = add i64 %call6, %8
-  tail call fastcc void @do_ignore(ptr noundef nonnull %p_format, ptr noundef %p_va, i8 noundef signext 125, i64 noundef %sub10.i)
+  tail call fastcc void @do_ignore(ptr noundef %p_format, ptr noundef %p_va, i8 noundef signext 125, i64 noundef %sub10.i)
   %9 = load i64, ptr %call.i62, align 8
   %10 = and i64 %9, 2147483648
   %cmp.i70.not.i = icmp eq i64 %10, 0
@@ -866,7 +866,7 @@ if.then1.i66.i:                                   ; preds = %if.end.i63.i
   br label %return
 
 if.end11.i:                                       ; preds = %for.body.i71
-  %call12.i = tail call fastcc ptr @do_mkvalue(ptr noundef nonnull %p_format, ptr noundef %p_va)
+  %call12.i = tail call fastcc ptr @do_mkvalue(ptr noundef %p_format, ptr noundef %p_va)
   %cmp13.i = icmp eq ptr %call12.i, null
   br i1 %cmp13.i, label %if.then16.i, label %lor.lhs.false.i
 
@@ -878,7 +878,7 @@ lor.lhs.false.i:                                  ; preds = %if.end11.i
 if.then16.i:                                      ; preds = %lor.lhs.false.i, %if.end11.i
   %sub17.i = add nsw i64 %call6, -2
   %sub18.i = sub i64 %sub17.i, %i.0.i64128
-  tail call fastcc void @do_ignore(ptr noundef nonnull %p_format, ptr noundef %p_va, i8 noundef signext 125, i64 noundef %sub18.i)
+  tail call fastcc void @do_ignore(ptr noundef %p_format, ptr noundef %p_va, i8 noundef signext 125, i64 noundef %sub18.i)
   %11 = load i64, ptr %call7.i, align 8
   %12 = and i64 %11, 2147483648
   %cmp.i73.not.i = icmp eq i64 %12, 0
@@ -949,7 +949,7 @@ for.inc.i:                                        ; preds = %if.then1.i30.i, %if
   br i1 %cmp6.i65, label %for.body.i71, label %for.end.i66, !llvm.loop !11
 
 for.end.i66:                                      ; preds = %for.inc.i, %for.cond.i63.preheader
-  %call20.i = tail call fastcc i32 @check_end(ptr noundef nonnull %p_format, i8 noundef signext 125)
+  %call20.i = tail call fastcc i32 @check_end(ptr noundef %p_format, i8 noundef signext 125)
   %tobool21.not.i = icmp eq i32 %call20.i, 0
   br i1 %tobool21.not.i, label %if.then22.i, label %return
 
@@ -1661,7 +1661,7 @@ return:                                           ; preds = %if.end.i.i81, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @do_mktuple(ptr nocapture noundef %p_format, ptr noundef %p_va, i8 noundef signext %endchar, i64 noundef %n) unnamed_addr #0 {
+define internal fastcc ptr @do_mktuple(ptr nocapture noundef nonnull %p_format, ptr noundef nonnull %p_va, i8 noundef signext range(i8 0, 42) %endchar, i64 noundef %n) unnamed_addr #0 {
 entry:
   %cmp = icmp slt i64 %n, 0
   br i1 %cmp, label %return, label %if.end
@@ -1795,7 +1795,7 @@ declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed
 declare ptr @PyList_New(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_ignore(ptr nocapture noundef %p_format, ptr noundef %p_va, i8 noundef signext %endchar, i64 noundef %n) unnamed_addr #0 {
+define internal fastcc void @do_ignore(ptr nocapture noundef nonnull %p_format, ptr noundef nonnull %p_va, i8 noundef signext range(i8 0, 126) %endchar, i64 noundef %n) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyTuple_New(i64 noundef %n) #5
   %call.fr = freeze ptr %call
@@ -1914,7 +1914,7 @@ check_end.exit:                                   ; preds = %if.then.i14, %while
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_end(ptr nocapture noundef %p_format, i8 noundef signext %endchar) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_end(ptr nocapture noundef nonnull %p_format, i8 noundef signext range(i8 0, 126) %endchar) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %p_format, align 8
   %1 = load i8, ptr %0, align 1

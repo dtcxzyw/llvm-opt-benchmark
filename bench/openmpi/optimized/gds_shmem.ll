@@ -4499,7 +4499,7 @@ declare ptr @PMIx_Data_type_string(i16 noundef zeroext) local_unnamed_addr #4
 declare i64 @pmix_hash_table_sizeof_hash_element() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @shmem_segment_create_and_attach(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #2 {
+define internal fastcc noundef i32 @shmem_segment_create_and_attach(ptr noundef %0, i32 noundef range(i32 0, 3) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #2 {
   %5 = alloca %struct.pmix_cb_t, align 8
   %6 = alloca %struct.pmix_proc, align 4
   %7 = alloca i64, align 8
@@ -5233,7 +5233,7 @@ declare i32 @pmix_hash_table_get_value_ptr(ptr noundef, ptr noundef, i64 noundef
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pack_shmem_seg_blob(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc noundef i32 @pack_shmem_seg_blob(ptr noundef %0, i32 noundef range(i32 0, 3) %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.pmix_kval_t, align 8
   %7 = alloca %struct.pmix_buffer_t, align 8

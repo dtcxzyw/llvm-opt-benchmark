@@ -5470,7 +5470,7 @@ declare void @proto_add_deregistered_data(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @create_hf_entry(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc noundef ptr @create_hf_entry(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef range(i32 0, 5) %8) unnamed_addr #0 {
   %10 = alloca i64, align 8
   %11 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #15
   store i32 -1, ptr %11, align 4
@@ -5510,7 +5510,7 @@ get_signal_value_name_config.exit:                ; preds = %9
   %28 = getelementptr inbounds i8, ptr %26, i64 40
   store i64 0, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %26, i64 16
-  switch i32 %8, label %default.unreachable [
+  switch i32 %8, label %default.unreachable118 [
     i32 1, label %30
     i32 2, label %32
     i32 3, label %34
@@ -5538,7 +5538,7 @@ get_signal_value_name_config.exit:                ; preds = %9
   %39 = call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef %4) #13
   br label %40
 
-default.unreachable:                              ; preds = %24
+default.unreachable118:                           ; preds = %24
   unreachable
 
 40:                                               ; preds = %38, %36, %34, %32, %30
@@ -5550,62 +5550,64 @@ default.unreachable:                              ; preds = %24
   %42 = icmp ne i32 %7, 0
   %43 = icmp eq i32 %8, 0
   %or.cond = and i1 %42, %43
-  %.off = add nsw i32 %8, -2
-  %switch = icmp ult i32 %.off, 3
-  %or.cond116 = or i1 %or.cond, %switch
+  %44 = and i32 %8, 6
+  %45 = icmp eq i32 %44, 2
+  %or.cond5 = or i1 %or.cond, %45
+  %46 = icmp eq i32 %8, 4
+  %or.cond7 = or i1 %46, %or.cond5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
-  br i1 %or.cond116, label %.sink.split, label %44
+  br i1 %or.cond7, label %.sink.split, label %47
 
-44:                                               ; preds = %40
+47:                                               ; preds = %40
   %switch.tableidx = add i32 %6, -1
-  %45 = icmp ult i32 %switch.tableidx, 6
-  br i1 %45, label %switch.lookup, label %50
+  %48 = icmp ult i32 %switch.tableidx, 6
+  br i1 %48, label %switch.lookup, label %53
 
-switch.lookup:                                    ; preds = %44
-  %46 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.create_hf_entry, i64 0, i64 %46
+switch.lookup:                                    ; preds = %47
+  %49 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.create_hf_entry, i64 0, i64 %49
   %switch.load = load i32, ptr %switch.gep, align 4
-  %47 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep125 = getelementptr inbounds [6 x i32], ptr @switch.table.create_hf_entry.1, i64 0, i64 %47
+  %50 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep125 = getelementptr inbounds [6 x i32], ptr @switch.table.create_hf_entry.1, i64 0, i64 %50
   %switch.load126 = load i32, ptr %switch.gep125, align 4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup, %40
   %.sink123 = phi i32 [ 0, %40 ], [ %switch.load, %switch.lookup ]
   %.sink121 = phi i32 [ 23, %40 ], [ %switch.load126, %switch.lookup ]
-  %48 = getelementptr inbounds i8, ptr %26, i64 28
-  store i32 %.sink123, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %26, i64 24
-  store i32 %.sink121, ptr %49, align 8
-  br label %50
+  %51 = getelementptr inbounds i8, ptr %26, i64 28
+  store i32 %.sink123, ptr %51, align 4
+  %52 = getelementptr inbounds i8, ptr %26, i64 24
+  store i32 %.sink121, ptr %52, align 8
+  br label %53
 
-50:                                               ; preds = %44, %.sink.split
-  %51 = icmp eq i32 %8, 1
-  %52 = icmp ne ptr %.0115, null
-  %or.cond9 = select i1 %51, i1 %52, i1 false
-  br i1 %or.cond9, label %53, label %57
+53:                                               ; preds = %47, %.sink.split
+  %54 = icmp eq i32 %8, 1
+  %55 = icmp ne ptr %.0115, null
+  %or.cond9 = select i1 %54, i1 %55, i1 false
+  br i1 %or.cond9, label %56, label %60
 
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %26, i64 28
-  %55 = load i32, ptr %54, align 4
-  %56 = or i32 %55, 33792
-  store i32 %56, ptr %54, align 4
-  br label %57
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds i8, ptr %26, i64 28
+  %58 = load i32, ptr %57, align 4
+  %59 = or i32 %58, 33792
+  store i32 %59, ptr %57, align 4
+  br label %60
 
-57:                                               ; preds = %50, %53
-  %.sink = phi ptr [ %.0115, %53 ], [ null, %50 ]
-  %58 = getelementptr inbounds i8, ptr %26, i64 32
-  store ptr %.sink, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %26, i64 56
-  store i32 -1, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %26, i64 60
-  store i32 0, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %26, i64 64
-  store i32 0, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %26, i64 68
-  store i32 -1, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %26, i64 72
-  store ptr null, ptr %63, align 8
+60:                                               ; preds = %53, %56
+  %.sink = phi ptr [ %.0115, %56 ], [ null, %53 ]
+  %61 = getelementptr inbounds i8, ptr %26, i64 32
+  store ptr %.sink, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %26, i64 56
+  store i32 -1, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %26, i64 60
+  store i32 0, ptr %63, align 4
+  %64 = getelementptr inbounds i8, ptr %26, i64 64
+  store i32 0, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %26, i64 68
+  store i32 -1, ptr %65, align 4
+  %66 = getelementptr inbounds i8, ptr %26, i64 72
+  store ptr null, ptr %66, align 8
   ret ptr %11
 }
 
@@ -5630,7 +5632,7 @@ declare i32 @dlt_ecu_id_to_gint32(ptr noundef) local_unnamed_addr #1
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_spdu_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_spdu_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.nstime_t, align 8
   %8 = alloca i64, align 8
@@ -5949,7 +5951,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %108
   %150 = shl i64 %.366.us.i.i, %149
   %151 = zext i8 %.149.us.i.i to i64
   %152 = or i64 %150, %151
-  %153 = add i32 %.15765.us.i.i, 1
+  %153 = add nsw i32 %.15765.us.i.i, 1
   br i1 %145, label %dissect_shifted_and_shortened_uint.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !26
 
 .preheader.i.i:                                   ; preds = %136
@@ -6021,7 +6023,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %108
   %185 = shl i64 %.366.i327.i, %.0.i.i
   %186 = zext i8 %.048.i.i to i64
   %187 = or i64 %185, %186
-  %188 = add i32 %.15765.i328.i, 1
+  %188 = add nsw i32 %.15765.i328.i, 1
   %.not74.i.i = icmp eq i32 %188, %102
   br i1 %.not74.i.i, label %dissect_shifted_and_shortened_uint.exit.i, label %.lr.ph.split.i.i
 

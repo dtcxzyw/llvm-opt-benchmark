@@ -26,7 +26,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @submit_headers_shared_nva(ptr noundef %session, i8 noundef zeroext %flags, i32 noundef %stream_id, ptr noundef readonly %pri_spec, ptr noundef %nva, i64 noundef %nvlen, ptr noundef readonly %data_prd, ptr noundef %stream_user_data) unnamed_addr #0 {
+define internal fastcc i32 @submit_headers_shared_nva(ptr noundef %session, i8 noundef zeroext range(i8 0, 34) %flags, i32 noundef %stream_id, ptr noundef readonly %pri_spec, ptr noundef %nva, i64 noundef %nvlen, ptr noundef readonly %data_prd, ptr noundef %stream_user_data) unnamed_addr #0 {
 entry:
   %nva_copy = alloca ptr, align 8
   %copy_pri_spec = alloca %struct.nghttp2_priority_spec, align 4

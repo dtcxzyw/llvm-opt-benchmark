@@ -6690,8 +6690,8 @@ _ZN4llvm4sortIRSt6vectorIPNS_6RecordESaIS3_EENS_10LessRecordEEEvOT_T0_.exit: ; p
   %53 = call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %52, ptr nonnull @.str.8, i64 4) #20
   %54 = extractvalue { ptr, i64 } %53, 0
   %55 = extractvalue { ptr, i64 } %53, 1
-  call fastcc void @_ZN12_GLOBAL__N_128OpenCLBuiltinFileEmitterBase18emitExtensionGuardB5cxx11EPKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %52)
-  call fastcc void @_ZN12_GLOBAL__N_128OpenCLBuiltinFileEmitterBase16emitVersionGuardB5cxx11EPKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %52)
+  call fastcc void @_ZN12_GLOBAL__N_128OpenCLBuiltinFileEmitterBase18emitExtensionGuardB5cxx11EPKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %52)
+  call fastcc void @_ZN12_GLOBAL__N_128OpenCLBuiltinFileEmitterBase16emitVersionGuardB5cxx11EPKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %52)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %49, i64 noundef 4) #20
   call void @_ZNK4llvm6Record20getValueAsListOfDefsENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.49") align 8 %6, ptr noundef nonnull align 8 dereferenceable(192) %52, ptr nonnull @.str.13, i64 9) #20
   call fastcc void @_ZN12_GLOBAL__N_128OpenCLBuiltinFileEmitterBase22expandTypesInSignatureERKSt6vectorIPN4llvm6RecordESaIS4_EERNS2_15SmallVectorImplINS2_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj2EEEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(16) %5)
@@ -7342,8 +7342,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %63, %65, %66
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit50
 
 _ZN4llvm11raw_ostreamlsEPKc.exit50:               ; preds = %73, %75
-  call fastcc void @_ZN12_GLOBAL__N_128OpenCLBuiltinFileEmitterBase18emitExtensionGuardB5cxx11EPKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %31)
-  call fastcc void @_ZN12_GLOBAL__N_128OpenCLBuiltinFileEmitterBase16emitVersionGuardB5cxx11EPKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %31)
+  call fastcc void @_ZN12_GLOBAL__N_128OpenCLBuiltinFileEmitterBase18emitExtensionGuardB5cxx11EPKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %31)
+  call fastcc void @_ZN12_GLOBAL__N_128OpenCLBuiltinFileEmitterBase16emitVersionGuardB5cxx11EPKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %31)
   %79 = load ptr, ptr %3, align 8
   %80 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   %81 = getelementptr inbounds %"class.llvm::SmallVector.234", ptr %79, i64 %80
@@ -11359,7 +11359,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 declare void @llvm.trap() #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_128OpenCLBuiltinFileEmitterBase18emitExtensionGuardB5cxx11EPKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_128OpenCLBuiltinFileEmitterBase18emitExtensionGuardB5cxx11EPKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.std::allocator.23", align 1
   %6 = alloca %"class.llvm::SmallVector.222", align 8

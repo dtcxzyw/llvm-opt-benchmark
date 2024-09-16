@@ -332,7 +332,7 @@ gv_calloc.exit136.thread:                         ; preds = %.thread159, %gv_cal
   br i1 %exitcond.not, label %.loopexit, label %160
 
 178:                                              ; preds = %.thread148, %.thread
-  %179 = call fastcc ptr @genRound(ptr noundef nonnull %1, ptr noundef nonnull %5, float noundef %2, float noundef %3)
+  %179 = call fastcc ptr @genRound(ptr noundef nonnull %1, ptr noundef %5, float noundef %2, float noundef %3)
   br label %.loopexit
 
 180:                                              ; preds = %36
@@ -403,7 +403,7 @@ gv_calloc.exit138:                                ; preds = %180
 216:                                              ; preds = %36
   %217 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 2, ptr %217, align 8
-  %218 = call fastcc ptr @genRound(ptr noundef nonnull %1, ptr noundef nonnull %5, float noundef %2, float noundef %3)
+  %218 = call fastcc ptr @genRound(ptr noundef nonnull %1, ptr noundef %5, float noundef %2, float noundef %3)
   br label %.loopexit
 
 219:                                              ; preds = %36
@@ -478,7 +478,7 @@ declare i32 @shapeOf(ptr noundef) local_unnamed_addr #3
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @genRound(ptr noundef %0, ptr nocapture noundef writeonly %1, float noundef %2, float noundef %3) unnamed_addr #2 {
+define internal fastcc noalias noundef ptr @genRound(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, float noundef %2, float noundef %3) unnamed_addr #2 {
   %5 = tail call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.6) #15
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.thread28, label %6
@@ -658,7 +658,7 @@ gv_calloc.exit82:                                 ; preds = %gv_calloc.exit82.pr
   br i1 %exitcond.not, label %.loopexit, label %gv_calloc.exit82
 
 62:                                               ; preds = %34
-  %63 = call fastcc ptr @genRound(ptr noundef nonnull %1, ptr noundef nonnull %5, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  %63 = call fastcc ptr @genRound(ptr noundef nonnull %1, ptr noundef %5, float noundef 0.000000e+00, float noundef 0.000000e+00)
   %.pre104 = load ptr, ptr %6, align 8
   br label %.loopexit
 
@@ -820,7 +820,7 @@ gv_calloc.exit84:                                 ; preds = %125
 143:                                              ; preds = %32
   %144 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 2, ptr %144, align 8
-  %145 = call fastcc ptr @genRound(ptr noundef nonnull %1, ptr noundef nonnull %5, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  %145 = call fastcc ptr @genRound(ptr noundef nonnull %1, ptr noundef %5, float noundef 0.000000e+00, float noundef 0.000000e+00)
   br label %152
 
 146:                                              ; preds = %32

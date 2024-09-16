@@ -4086,7 +4086,7 @@ declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #4
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_wait_for_all_threads(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc void @_wait_for_all_threads(i32 noundef range(i32 0, 65536) %0) unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = tail call i64 @time(ptr noundef null) #20
   %4 = getelementptr inbounds i8, ptr %2, i64 8

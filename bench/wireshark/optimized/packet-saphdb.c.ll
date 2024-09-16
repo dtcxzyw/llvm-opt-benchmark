@@ -899,7 +899,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_saphdb_segment(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4, i16 noundef zeroext %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_saphdb_segment(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4, i16 noundef zeroext %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = load i32, ptr @hf_saphdb_segment, align 4

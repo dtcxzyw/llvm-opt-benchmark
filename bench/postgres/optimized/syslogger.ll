@@ -1623,7 +1623,7 @@ declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @logfile_rotate_dest(i1 noundef zeroext %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @logfile_rotate_dest(i1 noundef zeroext %0, i32 noundef range(i32 0, 32) %1, i64 noundef %2, i32 noundef range(i32 1, 17) %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @Log_destination, align 4
   %8 = and i32 %7, %3
   %9 = icmp eq i32 %8, 0

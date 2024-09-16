@@ -370,7 +370,7 @@ declare ptr @gxl_to_gv(ptr noundef) local_unnamed_addr #1
 declare i32 @agwrite(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit(i32 noundef %0) unnamed_addr #3 {
+define internal fastcc void @graphviz_exit(i32 noundef range(i32 0, 2) %0) unnamed_addr #3 {
   tail call void @exit(i32 noundef %0) #15
   unreachable
 }
@@ -385,7 +385,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @usage(i32 noundef %0) unnamed_addr #5 {
+define internal fastcc void @usage(i32 noundef range(i32 0, 2) %0) unnamed_addr #5 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = load ptr, ptr @CmdName, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.9, ptr noundef %3) #12

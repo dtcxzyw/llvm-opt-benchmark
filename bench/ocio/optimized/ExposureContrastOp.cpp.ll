@@ -133,7 +133,7 @@ sw.bb:                                            ; preds = %entry
   %data.val = load ptr, ptr %data, align 8
   %0 = getelementptr inbounds i8, ptr %data, i64 8
   %data.val7 = load ptr, ptr %0, align 8
-  call fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOpEJRSt10shared_ptrINS0_22ExposureContrastOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nonnull align 8 %ref.tmp1, ptr %data.val, ptr %data.val7)
+  call fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOpEJRSt10shared_ptrINS0_22ExposureContrastOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias align 8 %ref.tmp1, ptr %data.val, ptr %data.val7)
   %1 = load ptr, ptr %ref.tmp1, align 8
   store ptr %1, ptr %ref.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -287,7 +287,7 @@ sw.bb2:                                           ; preds = %entry
   %dataInv.val = load ptr, ptr %dataInv, align 8
   %24 = getelementptr inbounds i8, ptr %dataInv, i64 8
   %dataInv.val8 = load ptr, ptr %24, align 8
-  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOpEJRSt10shared_ptrINS0_22ExposureContrastOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nonnull align 8 %ref.tmp4, ptr %dataInv.val, ptr %dataInv.val8)
+  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOpEJRSt10shared_ptrINS0_22ExposureContrastOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias align 8 %ref.tmp4, ptr %dataInv.val, ptr %dataInv.val8)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %sw.bb2
@@ -552,7 +552,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 declare void @_ZN19OpenColorIO_v2_4dev10OpRcPtrVec9push_backERKSt10shared_ptrINS_2OpEE(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOpEJRSt10shared_ptrINS0_22ExposureContrastOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nocapture writeonly align 8 %agg.result, ptr %__args.0.val, ptr %__args.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOpEJRSt10shared_ptrINS0_22ExposureContrastOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %__args.0.val, ptr %__args.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %call5.i.i.i5.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
@@ -2067,7 +2067,7 @@ entry:
   %this.val = load ptr, ptr %0, align 8, !noalias !22
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val2 = load ptr, ptr %1, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOp6ecDataEv(ptr noalias nonnull align 8 %ref.tmp, ptr %this.val, ptr %this.val2)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOp6ecDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val2)
   %2 = load ptr, ptr %ref.tmp, align 8
   invoke void @_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData5cloneEv(ptr nonnull sret(%"class.std::shared_ptr.16") align 8 %f, ptr noundef nonnull align 8 dereferenceable(248) %2)
           to label %invoke.cont unwind label %lpad
@@ -2150,7 +2150,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev22ExposureContrastOpDataEED2Ev.exit: ; 
   %f.val = load ptr, ptr %f, align 8
   %14 = getelementptr inbounds i8, ptr %f, i64 8
   %f.val3 = load ptr, ptr %14, align 8
-  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOpEJRSt10shared_ptrINS0_22ExposureContrastOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nonnull align 8 %ref.tmp2, ptr %f.val, ptr %f.val3)
+  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOpEJRSt10shared_ptrINS0_22ExposureContrastOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias align 8 %ref.tmp2, ptr %f.val, ptr %f.val3)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOpEED2Ev.exit unwind label %lpad3
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOpEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev22ExposureContrastOpDataEED2Ev.exit
@@ -2306,7 +2306,7 @@ entry:
   %this.val = load ptr, ptr %0, align 8, !noalias !22
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val1 = load ptr, ptr %1, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOp6ecDataEv(ptr noalias nonnull align 8 %ref.tmp, ptr %this.val, ptr %this.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOp6ecDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val1)
   %2 = load ptr, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
@@ -2545,12 +2545,12 @@ if.end:                                           ; preds = %if.then.i.i, %if.el
   %call2.val = load ptr, ptr %6, align 8, !noalias !22
   %7 = getelementptr i8, ptr %2, i64 16
   %call2.val1 = load ptr, ptr %7, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOp6ecDataEv(ptr noalias nonnull align 8 %ecOpData, ptr %call2.val, ptr %call2.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOp6ecDataEv(ptr noalias align 8 %ecOpData, ptr %call2.val, ptr %call2.val1)
   %8 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val = load ptr, ptr %8, align 8, !noalias !22
   %9 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val2 = load ptr, ptr %9, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOp6ecDataEv(ptr noalias nonnull align 8 %ref.tmp, ptr %this.val, ptr %this.val2)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOp6ecDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val2)
   %10 = load ptr, ptr %ref.tmp, align 8
   %call4 = invoke noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData9isInverseERSt10shared_ptrIKS0_E(ptr noundef nonnull align 8 dereferenceable(248) %10, ptr noundef nonnull align 8 dereferenceable(16) %ecOpData)
           to label %invoke.cont unwind label %lpad
@@ -2860,7 +2860,7 @@ invoke.cont:                                      ; preds = %entry
   %this.val = load ptr, ptr %0, align 8, !noalias !22
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val4 = load ptr, ptr %1, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOp6ecDataEv(ptr noalias nonnull align 8 %ref.tmp2, ptr %this.val, ptr %this.val4)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOp6ecDataEv(ptr noalias align 8 %ref.tmp2, ptr %this.val, ptr %this.val4)
   %2 = load ptr, ptr %ref.tmp2, align 8
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
@@ -3198,7 +3198,7 @@ entry:
   %this.val = load ptr, ptr %0, align 8, !noalias !22
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val1 = load ptr, ptr %1, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOp6ecDataEv(ptr noalias nonnull align 8 %ecOpData, ptr %this.val, ptr %this.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOp6ecDataEv(ptr noalias align 8 %ecOpData, ptr %this.val, ptr %this.val1)
   invoke void @_ZN19OpenColorIO_v2_4dev35GetExposureContrastGPUShaderProgramERSt10shared_ptrINS_16GpuShaderCreatorEERS0_IKNS_22ExposureContrastOpDataEE(ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(16) %ecOpData)
           to label %invoke.cont unwind label %lpad
 
@@ -3294,7 +3294,7 @@ entry:
   %this.val = load ptr, ptr %0, align 8, !noalias !22
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val1 = load ptr, ptr %1, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOp6ecDataEv(ptr noalias nonnull align 8 %ref.tmp, ptr %this.val, ptr %this.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOp6ecDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val1)
   %2 = load ptr, ptr %ref.tmp, align 8
   %call2 = invoke noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData9isDynamicEv(ptr noundef nonnull align 8 dereferenceable(248) %2)
           to label %invoke.cont unwind label %lpad
@@ -3391,7 +3391,7 @@ entry:
   %this.val = load ptr, ptr %0, align 8, !noalias !22
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val1 = load ptr, ptr %1, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOp6ecDataEv(ptr noalias nonnull align 8 %ref.tmp, ptr %this.val, ptr %this.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOp6ecDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val1)
   %2 = load ptr, ptr %ref.tmp, align 8
   %call2 = invoke noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData18hasDynamicPropertyENS_19DynamicPropertyTypeE(ptr noundef nonnull align 8 dereferenceable(248) %2, i32 noundef %type)
           to label %invoke.cont unwind label %lpad
@@ -3488,7 +3488,7 @@ entry:
   %this.val = load ptr, ptr %0, align 8, !noalias !22
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val1 = load ptr, ptr %1, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOp6ecDataEv(ptr noalias nonnull align 8 %ref.tmp, ptr %this.val, ptr %this.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOp6ecDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val1)
   %2 = load ptr, ptr %ref.tmp, align 8
   invoke void @_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData18getDynamicPropertyENS_19DynamicPropertyTypeE(ptr sret(%"class.std::shared_ptr.51") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(248) %2, i32 noundef %type)
           to label %invoke.cont unwind label %lpad
@@ -3892,7 +3892,7 @@ entry:
   %this.val = load ptr, ptr %1, align 8, !noalias !22
   %2 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val1 = load ptr, ptr %2, align 8, !noalias !22
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOp6ecDataEv(ptr noalias nonnull align 8 %ecOpData, ptr %this.val, ptr %this.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOp6ecDataEv(ptr noalias align 8 %ecOpData, ptr %this.val, ptr %this.val1)
   invoke void @_ZN19OpenColorIO_v2_4dev30GetExposureContrastCPURendererERSt10shared_ptrIKNS_22ExposureContrastOpDataEE(ptr nonnull sret(%"class.std::shared_ptr.60") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ecOpData)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit unwind label %lpad
 
@@ -3992,7 +3992,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOp6ecDataEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr %this.8.val, ptr %this.16.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_118ExposureContrastOp6ecDataEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.8.val, ptr %this.16.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i.i.i = icmp eq ptr %this.16.val, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK19OpenColorIO_v2_4dev2Op4dataEv.exit, label %if.then.i.i.i.i.i

@@ -1054,7 +1054,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rpcap_filter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_rpcap_filter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 8, 21) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_filter, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef 0) #6
   %7 = load i32, ptr @ett_filter, align 4
@@ -1512,7 +1512,7 @@ define internal i32 @get_rpcap_pdu_len(ptr nocapture readnone %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_rpcap_heur(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_rpcap_heur(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %4 = icmp ult i32 %3, 8
   br i1 %4, label %47, label %5

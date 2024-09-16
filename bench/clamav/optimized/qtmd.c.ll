@@ -17,20 +17,20 @@ define ptr @qtmd_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 nounde
   %7 = add i32 %3, -22
   %or.cond = icmp ult i32 %7, -12
   %or.cond81 = or i1 %.not, %or.cond
-  br i1 %or.cond81, label %qtmd_init_model.exit123, label %8
+  br i1 %or.cond81, label %qtmd_init_model.exit115, label %8
 
 8:                                                ; preds = %5
   %9 = add nsw i32 %4, 1
   %10 = and i32 %9, -2
   %11 = icmp slt i32 %10, 2
-  br i1 %11, label %qtmd_init_model.exit123, label %12
+  br i1 %11, label %qtmd_init_model.exit115, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, i64 noundef 1864) #3
   %.not77 = icmp eq ptr %15, null
-  br i1 %.not77, label %qtmd_init_model.exit123, label %16
+  br i1 %.not77, label %qtmd_init_model.exit115, label %16
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %13, align 8
@@ -58,7 +58,7 @@ define ptr @qtmd_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 nounde
   tail call void %29(ptr noundef %30) #3
   %31 = load ptr, ptr %27, align 8
   tail call void %31(ptr noundef nonnull %15) #3
-  br label %qtmd_init_model.exit123
+  br label %qtmd_init_model.exit115
 
 32:                                               ; preds = %16
   store ptr %0, ptr %15, align 8
@@ -99,216 +99,216 @@ define ptr @qtmd_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 nounde
   store i32 64, ptr %50, align 4
   %51 = getelementptr inbounds i8, ptr %15, i64 120
   store ptr %49, ptr %51, align 8
-  br label %.lr.ph.i
+  br label %52
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %32
-  %indvars.iv.i = phi i64 [ 0, %32 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %52 = trunc i64 %indvars.iv.i to i16
-  %53 = getelementptr inbounds %struct.qtmd_modelsym, ptr %49, i64 %indvars.iv.i
-  store i16 %52, ptr %53, align 2
-  %54 = sub i16 64, %52
-  %55 = getelementptr inbounds i8, ptr %53, i64 2
-  store i16 %54, ptr %55, align 2
+52:                                               ; preds = %52, %32
+  %indvars.iv.i = phi i64 [ 0, %32 ], [ %indvars.iv.next.i, %52 ]
+  %53 = trunc i64 %indvars.iv.i to i16
+  %54 = getelementptr inbounds %struct.qtmd_modelsym, ptr %49, i64 %indvars.iv.i
+  store i16 %53, ptr %54, align 2
+  %55 = sub i16 64, %53
+  %56 = getelementptr inbounds i8, ptr %54, i64 2
+  store i16 %55, ptr %56, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 65
-  br i1 %exitcond.not.i, label %qtmd_init_model.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %qtmd_init_model.exit, label %52
 
-qtmd_init_model.exit:                             ; preds = %.lr.ph.i
-  %56 = getelementptr inbounds i8, ptr %15, i64 128
-  %57 = getelementptr inbounds i8, ptr %15, i64 516
-  store i32 4, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %15, i64 132
-  store i32 64, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %15, i64 136
-  store ptr %57, ptr %59, align 8
-  br label %.lr.ph.i82
+qtmd_init_model.exit:                             ; preds = %52
+  %57 = getelementptr inbounds i8, ptr %15, i64 128
+  %58 = getelementptr inbounds i8, ptr %15, i64 516
+  store i32 4, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %15, i64 132
+  store i32 64, ptr %59, align 4
+  %60 = getelementptr inbounds i8, ptr %15, i64 136
+  store ptr %58, ptr %60, align 8
+  br label %61
 
-.lr.ph.i82:                                       ; preds = %.lr.ph.i82, %qtmd_init_model.exit
-  %indvars.iv.i83 = phi i64 [ 0, %qtmd_init_model.exit ], [ %indvars.iv.next.i84, %.lr.ph.i82 ]
-  %60 = trunc i64 %indvars.iv.i83 to i16
-  %61 = add i16 %60, 64
-  %62 = getelementptr inbounds %struct.qtmd_modelsym, ptr %57, i64 %indvars.iv.i83
-  store i16 %61, ptr %62, align 2
-  %63 = sub i16 64, %60
-  %64 = getelementptr inbounds i8, ptr %62, i64 2
+61:                                               ; preds = %61, %qtmd_init_model.exit
+  %indvars.iv.i82 = phi i64 [ 0, %qtmd_init_model.exit ], [ %indvars.iv.next.i83, %61 ]
+  %62 = trunc i64 %indvars.iv.i82 to i16
+  %63 = add i16 %62, 64
+  %64 = getelementptr inbounds %struct.qtmd_modelsym, ptr %58, i64 %indvars.iv.i82
   store i16 %63, ptr %64, align 2
-  %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
-  %exitcond.not.i85 = icmp eq i64 %indvars.iv.next.i84, 65
-  br i1 %exitcond.not.i85, label %qtmd_init_model.exit86, label %.lr.ph.i82
+  %65 = sub i16 64, %62
+  %66 = getelementptr inbounds i8, ptr %64, i64 2
+  store i16 %65, ptr %66, align 2
+  %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
+  %exitcond.not.i84 = icmp eq i64 %indvars.iv.next.i83, 65
+  br i1 %exitcond.not.i84, label %qtmd_init_model.exit85, label %61
 
-qtmd_init_model.exit86:                           ; preds = %.lr.ph.i82
-  %65 = getelementptr inbounds i8, ptr %15, i64 144
-  %66 = getelementptr inbounds i8, ptr %15, i64 776
-  store i32 4, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %15, i64 148
-  store i32 64, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %15, i64 152
-  store ptr %66, ptr %68, align 8
-  br label %.lr.ph.i87
+qtmd_init_model.exit85:                           ; preds = %61
+  %67 = getelementptr inbounds i8, ptr %15, i64 144
+  %68 = getelementptr inbounds i8, ptr %15, i64 776
+  store i32 4, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %15, i64 148
+  store i32 64, ptr %69, align 4
+  %70 = getelementptr inbounds i8, ptr %15, i64 152
+  store ptr %68, ptr %70, align 8
+  br label %71
 
-.lr.ph.i87:                                       ; preds = %.lr.ph.i87, %qtmd_init_model.exit86
-  %indvars.iv.i88 = phi i64 [ 0, %qtmd_init_model.exit86 ], [ %indvars.iv.next.i89, %.lr.ph.i87 ]
-  %69 = trunc i64 %indvars.iv.i88 to i16
-  %70 = add i16 %69, 128
-  %71 = getelementptr inbounds %struct.qtmd_modelsym, ptr %66, i64 %indvars.iv.i88
-  store i16 %70, ptr %71, align 2
-  %72 = sub i16 64, %69
-  %73 = getelementptr inbounds i8, ptr %71, i64 2
-  store i16 %72, ptr %73, align 2
-  %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i88, 1
-  %exitcond.not.i90 = icmp eq i64 %indvars.iv.next.i89, 65
-  br i1 %exitcond.not.i90, label %qtmd_init_model.exit91, label %.lr.ph.i87
+71:                                               ; preds = %71, %qtmd_init_model.exit85
+  %indvars.iv.i86 = phi i64 [ 0, %qtmd_init_model.exit85 ], [ %indvars.iv.next.i87, %71 ]
+  %72 = trunc i64 %indvars.iv.i86 to i16
+  %73 = add i16 %72, 128
+  %74 = getelementptr inbounds %struct.qtmd_modelsym, ptr %68, i64 %indvars.iv.i86
+  store i16 %73, ptr %74, align 2
+  %75 = sub i16 64, %72
+  %76 = getelementptr inbounds i8, ptr %74, i64 2
+  store i16 %75, ptr %76, align 2
+  %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 1
+  %exitcond.not.i88 = icmp eq i64 %indvars.iv.next.i87, 65
+  br i1 %exitcond.not.i88, label %qtmd_init_model.exit89, label %71
 
-qtmd_init_model.exit91:                           ; preds = %.lr.ph.i87
-  %74 = getelementptr inbounds i8, ptr %15, i64 160
-  %75 = getelementptr inbounds i8, ptr %15, i64 1036
-  store i32 4, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %15, i64 164
-  store i32 64, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %15, i64 168
-  store ptr %75, ptr %77, align 8
-  br label %.lr.ph.i92
+qtmd_init_model.exit89:                           ; preds = %71
+  %77 = getelementptr inbounds i8, ptr %15, i64 160
+  %78 = getelementptr inbounds i8, ptr %15, i64 1036
+  store i32 4, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %15, i64 164
+  store i32 64, ptr %79, align 4
+  %80 = getelementptr inbounds i8, ptr %15, i64 168
+  store ptr %78, ptr %80, align 8
+  br label %81
 
-.lr.ph.i92:                                       ; preds = %.lr.ph.i92, %qtmd_init_model.exit91
-  %indvars.iv.i93 = phi i64 [ 0, %qtmd_init_model.exit91 ], [ %indvars.iv.next.i94, %.lr.ph.i92 ]
-  %78 = trunc i64 %indvars.iv.i93 to i16
-  %79 = add i16 %78, 192
-  %80 = getelementptr inbounds %struct.qtmd_modelsym, ptr %75, i64 %indvars.iv.i93
-  store i16 %79, ptr %80, align 2
-  %81 = sub i16 64, %78
-  %82 = getelementptr inbounds i8, ptr %80, i64 2
-  store i16 %81, ptr %82, align 2
-  %indvars.iv.next.i94 = add nuw nsw i64 %indvars.iv.i93, 1
-  %exitcond.not.i95 = icmp eq i64 %indvars.iv.next.i94, 65
-  br i1 %exitcond.not.i95, label %qtmd_init_model.exit96, label %.lr.ph.i92
+81:                                               ; preds = %81, %qtmd_init_model.exit89
+  %indvars.iv.i90 = phi i64 [ 0, %qtmd_init_model.exit89 ], [ %indvars.iv.next.i91, %81 ]
+  %82 = trunc i64 %indvars.iv.i90 to i16
+  %83 = add i16 %82, 192
+  %84 = getelementptr inbounds %struct.qtmd_modelsym, ptr %78, i64 %indvars.iv.i90
+  store i16 %83, ptr %84, align 2
+  %85 = sub i16 64, %82
+  %86 = getelementptr inbounds i8, ptr %84, i64 2
+  store i16 %85, ptr %86, align 2
+  %indvars.iv.next.i91 = add nuw nsw i64 %indvars.iv.i90, 1
+  %exitcond.not.i92 = icmp eq i64 %indvars.iv.next.i91, 65
+  br i1 %exitcond.not.i92, label %qtmd_init_model.exit93, label %81
 
-qtmd_init_model.exit96:                           ; preds = %.lr.ph.i92
-  %83 = shl nuw nsw i32 %3, 1
-  %84 = getelementptr inbounds i8, ptr %15, i64 176
-  %85 = getelementptr inbounds i8, ptr %15, i64 1296
-  %86 = tail call i32 @llvm.umin.i32(i32 %83, i32 24)
-  store i32 4, ptr %84, align 8
-  %87 = getelementptr inbounds i8, ptr %15, i64 180
-  store i32 %86, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %15, i64 184
-  store ptr %85, ptr %88, align 8
-  %89 = or disjoint i32 %86, 1
-  %wide.trip.count.i = zext nneg i32 %89 to i64
-  br label %.lr.ph.i97
+qtmd_init_model.exit93:                           ; preds = %81
+  %87 = shl nuw nsw i32 %3, 1
+  %88 = getelementptr inbounds i8, ptr %15, i64 176
+  %89 = getelementptr inbounds i8, ptr %15, i64 1296
+  %90 = tail call i32 @llvm.umin.i32(i32 %87, i32 24)
+  store i32 4, ptr %88, align 8
+  %91 = getelementptr inbounds i8, ptr %15, i64 180
+  store i32 %90, ptr %91, align 4
+  %92 = getelementptr inbounds i8, ptr %15, i64 184
+  store ptr %89, ptr %92, align 8
+  %93 = or disjoint i32 %90, 1
+  %wide.trip.count.i = zext nneg i32 %93 to i64
+  br label %94
 
-.lr.ph.i97:                                       ; preds = %.lr.ph.i97, %qtmd_init_model.exit96
-  %indvars.iv.i98 = phi i64 [ 0, %qtmd_init_model.exit96 ], [ %indvars.iv.next.i99, %.lr.ph.i97 ]
-  %90 = trunc i64 %indvars.iv.i98 to i32
-  %91 = trunc i64 %indvars.iv.i98 to i16
-  %92 = getelementptr inbounds %struct.qtmd_modelsym, ptr %85, i64 %indvars.iv.i98
-  store i16 %91, ptr %92, align 2
-  %93 = sub i32 %86, %90
-  %94 = trunc i32 %93 to i16
-  %95 = getelementptr inbounds i8, ptr %92, i64 2
-  store i16 %94, ptr %95, align 2
-  %indvars.iv.next.i99 = add nuw nsw i64 %indvars.iv.i98, 1
-  %exitcond.not.i100 = icmp eq i64 %indvars.iv.next.i99, %wide.trip.count.i
-  br i1 %exitcond.not.i100, label %qtmd_init_model.exit101, label %.lr.ph.i97
+94:                                               ; preds = %94, %qtmd_init_model.exit93
+  %indvars.iv.i94 = phi i64 [ 0, %qtmd_init_model.exit93 ], [ %indvars.iv.next.i95, %94 ]
+  %95 = trunc i64 %indvars.iv.i94 to i32
+  %96 = trunc i64 %indvars.iv.i94 to i16
+  %97 = getelementptr inbounds %struct.qtmd_modelsym, ptr %89, i64 %indvars.iv.i94
+  store i16 %96, ptr %97, align 2
+  %98 = sub i32 %90, %95
+  %99 = trunc nuw nsw i32 %98 to i16
+  %100 = getelementptr inbounds i8, ptr %97, i64 2
+  store i16 %99, ptr %100, align 2
+  %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i94, 1
+  %exitcond.not.i96 = icmp eq i64 %indvars.iv.next.i95, %wide.trip.count.i
+  br i1 %exitcond.not.i96, label %qtmd_init_model.exit97, label %94
 
-qtmd_init_model.exit101:                          ; preds = %.lr.ph.i97
-  %96 = getelementptr inbounds i8, ptr %15, i64 192
-  %97 = getelementptr inbounds i8, ptr %15, i64 1396
-  %98 = tail call i32 @llvm.umin.i32(i32 %83, i32 36)
-  store i32 4, ptr %96, align 8
-  %99 = getelementptr inbounds i8, ptr %15, i64 196
-  store i32 %98, ptr %99, align 4
-  %100 = getelementptr inbounds i8, ptr %15, i64 200
-  store ptr %97, ptr %100, align 8
-  %101 = or disjoint i32 %98, 1
-  %wide.trip.count.i102 = zext nneg i32 %101 to i64
-  br label %.lr.ph.i103
+qtmd_init_model.exit97:                           ; preds = %94
+  %101 = getelementptr inbounds i8, ptr %15, i64 192
+  %102 = getelementptr inbounds i8, ptr %15, i64 1396
+  %103 = tail call i32 @llvm.umin.i32(i32 %87, i32 36)
+  store i32 4, ptr %101, align 8
+  %104 = getelementptr inbounds i8, ptr %15, i64 196
+  store i32 %103, ptr %104, align 4
+  %105 = getelementptr inbounds i8, ptr %15, i64 200
+  store ptr %102, ptr %105, align 8
+  %106 = or disjoint i32 %103, 1
+  %wide.trip.count.i98 = zext nneg i32 %106 to i64
+  br label %107
 
-.lr.ph.i103:                                      ; preds = %.lr.ph.i103, %qtmd_init_model.exit101
-  %indvars.iv.i104 = phi i64 [ 0, %qtmd_init_model.exit101 ], [ %indvars.iv.next.i105, %.lr.ph.i103 ]
-  %102 = trunc i64 %indvars.iv.i104 to i32
-  %103 = trunc i64 %indvars.iv.i104 to i16
-  %104 = getelementptr inbounds %struct.qtmd_modelsym, ptr %97, i64 %indvars.iv.i104
-  store i16 %103, ptr %104, align 2
-  %105 = sub i32 %98, %102
-  %106 = trunc i32 %105 to i16
-  %107 = getelementptr inbounds i8, ptr %104, i64 2
-  store i16 %106, ptr %107, align 2
+107:                                              ; preds = %107, %qtmd_init_model.exit97
+  %indvars.iv.i99 = phi i64 [ 0, %qtmd_init_model.exit97 ], [ %indvars.iv.next.i100, %107 ]
+  %108 = trunc i64 %indvars.iv.i99 to i32
+  %109 = trunc i64 %indvars.iv.i99 to i16
+  %110 = getelementptr inbounds %struct.qtmd_modelsym, ptr %102, i64 %indvars.iv.i99
+  store i16 %109, ptr %110, align 2
+  %111 = sub i32 %103, %108
+  %112 = trunc nuw nsw i32 %111 to i16
+  %113 = getelementptr inbounds i8, ptr %110, i64 2
+  store i16 %112, ptr %113, align 2
+  %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i99, 1
+  %exitcond.not.i101 = icmp eq i64 %indvars.iv.next.i100, %wide.trip.count.i98
+  br i1 %exitcond.not.i101, label %qtmd_init_model.exit102, label %107
+
+qtmd_init_model.exit102:                          ; preds = %107
+  %114 = getelementptr inbounds i8, ptr %15, i64 208
+  %115 = getelementptr inbounds i8, ptr %15, i64 1544
+  store i32 4, ptr %114, align 8
+  %116 = getelementptr inbounds i8, ptr %15, i64 212
+  store i32 %87, ptr %116, align 4
+  %117 = getelementptr inbounds i8, ptr %15, i64 216
+  store ptr %115, ptr %117, align 8
+  %118 = or disjoint i32 %87, 1
+  %wide.trip.count.i103 = zext nneg i32 %118 to i64
+  br label %119
+
+119:                                              ; preds = %119, %qtmd_init_model.exit102
+  %indvars.iv.i104 = phi i64 [ 0, %qtmd_init_model.exit102 ], [ %indvars.iv.next.i105, %119 ]
+  %120 = trunc i64 %indvars.iv.i104 to i32
+  %121 = trunc i64 %indvars.iv.i104 to i16
+  %122 = getelementptr inbounds %struct.qtmd_modelsym, ptr %115, i64 %indvars.iv.i104
+  store i16 %121, ptr %122, align 2
+  %123 = sub i32 %87, %120
+  %124 = trunc nuw nsw i32 %123 to i16
+  %125 = getelementptr inbounds i8, ptr %122, i64 2
+  store i16 %124, ptr %125, align 2
   %indvars.iv.next.i105 = add nuw nsw i64 %indvars.iv.i104, 1
-  %exitcond.not.i106 = icmp eq i64 %indvars.iv.next.i105, %wide.trip.count.i102
-  br i1 %exitcond.not.i106, label %qtmd_init_model.exit107, label %.lr.ph.i103
+  %exitcond.not.i106 = icmp eq i64 %indvars.iv.next.i105, %wide.trip.count.i103
+  br i1 %exitcond.not.i106, label %qtmd_init_model.exit107, label %119
 
-qtmd_init_model.exit107:                          ; preds = %.lr.ph.i103
-  %108 = getelementptr inbounds i8, ptr %15, i64 208
-  %109 = getelementptr inbounds i8, ptr %15, i64 1544
-  store i32 4, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %15, i64 212
-  store i32 %83, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %15, i64 216
-  store ptr %109, ptr %111, align 8
-  %112 = or disjoint i32 %83, 1
-  %wide.trip.count.i108 = zext nneg i32 %112 to i64
-  br label %.lr.ph.i109
+qtmd_init_model.exit107:                          ; preds = %119
+  %126 = getelementptr inbounds i8, ptr %15, i64 224
+  %127 = getelementptr inbounds i8, ptr %15, i64 1716
+  store i32 4, ptr %126, align 8
+  %128 = getelementptr inbounds i8, ptr %15, i64 228
+  store i32 27, ptr %128, align 4
+  %129 = getelementptr inbounds i8, ptr %15, i64 232
+  store ptr %127, ptr %129, align 8
+  br label %130
 
-.lr.ph.i109:                                      ; preds = %.lr.ph.i109, %qtmd_init_model.exit107
-  %indvars.iv.i110 = phi i64 [ 0, %qtmd_init_model.exit107 ], [ %indvars.iv.next.i111, %.lr.ph.i109 ]
-  %113 = trunc i64 %indvars.iv.i110 to i32
-  %114 = trunc i64 %indvars.iv.i110 to i16
-  %115 = getelementptr inbounds %struct.qtmd_modelsym, ptr %109, i64 %indvars.iv.i110
-  store i16 %114, ptr %115, align 2
-  %116 = sub i32 %83, %113
-  %117 = trunc i32 %116 to i16
-  %118 = getelementptr inbounds i8, ptr %115, i64 2
-  store i16 %117, ptr %118, align 2
-  %indvars.iv.next.i111 = add nuw nsw i64 %indvars.iv.i110, 1
-  %exitcond.not.i112 = icmp eq i64 %indvars.iv.next.i111, %wide.trip.count.i108
-  br i1 %exitcond.not.i112, label %qtmd_init_model.exit113, label %.lr.ph.i109
-
-qtmd_init_model.exit113:                          ; preds = %.lr.ph.i109
-  %119 = getelementptr inbounds i8, ptr %15, i64 224
-  %120 = getelementptr inbounds i8, ptr %15, i64 1716
-  store i32 4, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %15, i64 228
-  store i32 27, ptr %121, align 4
-  %122 = getelementptr inbounds i8, ptr %15, i64 232
-  store ptr %120, ptr %122, align 8
-  br label %.lr.ph.i114
-
-.lr.ph.i114:                                      ; preds = %.lr.ph.i114, %qtmd_init_model.exit113
-  %indvars.iv.i115 = phi i64 [ 0, %qtmd_init_model.exit113 ], [ %indvars.iv.next.i116, %.lr.ph.i114 ]
-  %123 = trunc i64 %indvars.iv.i115 to i16
-  %124 = getelementptr inbounds %struct.qtmd_modelsym, ptr %120, i64 %indvars.iv.i115
-  store i16 %123, ptr %124, align 2
-  %125 = sub i16 27, %123
-  %126 = getelementptr inbounds i8, ptr %124, i64 2
-  store i16 %125, ptr %126, align 2
-  %indvars.iv.next.i116 = add nuw nsw i64 %indvars.iv.i115, 1
-  %exitcond.not.i117 = icmp eq i64 %indvars.iv.next.i116, 28
-  br i1 %exitcond.not.i117, label %qtmd_init_model.exit118, label %.lr.ph.i114
-
-qtmd_init_model.exit118:                          ; preds = %.lr.ph.i114
-  %127 = getelementptr inbounds i8, ptr %15, i64 240
-  %128 = getelementptr inbounds i8, ptr %15, i64 1828
-  store i32 4, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %15, i64 244
-  store i32 7, ptr %129, align 4
-  %130 = getelementptr inbounds i8, ptr %15, i64 248
-  store ptr %128, ptr %130, align 8
-  br label %.lr.ph.i119
-
-.lr.ph.i119:                                      ; preds = %.lr.ph.i119, %qtmd_init_model.exit118
-  %indvars.iv.i120 = phi i64 [ 0, %qtmd_init_model.exit118 ], [ %indvars.iv.next.i121, %.lr.ph.i119 ]
-  %131 = trunc i64 %indvars.iv.i120 to i16
-  %132 = getelementptr inbounds %struct.qtmd_modelsym, ptr %128, i64 %indvars.iv.i120
+130:                                              ; preds = %130, %qtmd_init_model.exit107
+  %indvars.iv.i108 = phi i64 [ 0, %qtmd_init_model.exit107 ], [ %indvars.iv.next.i109, %130 ]
+  %131 = trunc i64 %indvars.iv.i108 to i16
+  %132 = getelementptr inbounds %struct.qtmd_modelsym, ptr %127, i64 %indvars.iv.i108
   store i16 %131, ptr %132, align 2
-  %133 = sub i16 7, %131
+  %133 = sub i16 27, %131
   %134 = getelementptr inbounds i8, ptr %132, i64 2
   store i16 %133, ptr %134, align 2
-  %indvars.iv.next.i121 = add nuw nsw i64 %indvars.iv.i120, 1
-  %exitcond.not.i122 = icmp eq i64 %indvars.iv.next.i121, 8
-  br i1 %exitcond.not.i122, label %qtmd_init_model.exit123, label %.lr.ph.i119
+  %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i108, 1
+  %exitcond.not.i110 = icmp eq i64 %indvars.iv.next.i109, 28
+  br i1 %exitcond.not.i110, label %qtmd_init_model.exit111, label %130
 
-qtmd_init_model.exit123:                          ; preds = %.lr.ph.i119, %12, %8, %5, %26
-  %.0 = phi ptr [ null, %26 ], [ null, %5 ], [ null, %8 ], [ null, %12 ], [ %15, %.lr.ph.i119 ]
+qtmd_init_model.exit111:                          ; preds = %130
+  %135 = getelementptr inbounds i8, ptr %15, i64 240
+  %136 = getelementptr inbounds i8, ptr %15, i64 1828
+  store i32 4, ptr %135, align 8
+  %137 = getelementptr inbounds i8, ptr %15, i64 244
+  store i32 7, ptr %137, align 4
+  %138 = getelementptr inbounds i8, ptr %15, i64 248
+  store ptr %136, ptr %138, align 8
+  br label %139
+
+139:                                              ; preds = %139, %qtmd_init_model.exit111
+  %indvars.iv.i112 = phi i64 [ 0, %qtmd_init_model.exit111 ], [ %indvars.iv.next.i113, %139 ]
+  %140 = trunc i64 %indvars.iv.i112 to i16
+  %141 = getelementptr inbounds %struct.qtmd_modelsym, ptr %136, i64 %indvars.iv.i112
+  store i16 %140, ptr %141, align 2
+  %142 = sub i16 7, %140
+  %143 = getelementptr inbounds i8, ptr %141, i64 2
+  store i16 %142, ptr %143, align 2
+  %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i112, 1
+  %exitcond.not.i114 = icmp eq i64 %indvars.iv.next.i113, 8
+  br i1 %exitcond.not.i114, label %qtmd_init_model.exit115, label %139
+
+qtmd_init_model.exit115:                          ; preds = %139, %12, %8, %5, %26
+  %.0 = phi ptr [ null, %26 ], [ null, %5 ], [ null, %8 ], [ null, %12 ], [ %15, %139 ]
   ret ptr %.0
 }
 
@@ -699,7 +699,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %218, label %219, label %.preheader2527
 
 219:                                              ; preds = %211
-  tail call fastcc void @qtmd_update_model(ptr noundef nonnull %67)
+  tail call fastcc void @qtmd_update_model(ptr noundef %67)
   br label %.preheader2527
 
 .preheader2527:                                   ; preds = %219, %211
@@ -976,7 +976,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %363, label %364, label %.preheader2519
 
 364:                                              ; preds = %356
-  tail call fastcc void @qtmd_update_model(ptr noundef nonnull %308)
+  tail call fastcc void @qtmd_update_model(ptr noundef %308)
   br label %.preheader2519
 
 .preheader2519:                                   ; preds = %364, %356
@@ -1191,7 +1191,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %475, label %476, label %.preheader2521
 
 476:                                              ; preds = %468
-  tail call fastcc void @qtmd_update_model(ptr noundef nonnull %79)
+  tail call fastcc void @qtmd_update_model(ptr noundef %79)
   br label %.preheader2521
 
 .preheader2521:                                   ; preds = %476, %468
@@ -1484,7 +1484,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %626, label %627, label %.preheader2523
 
 627:                                              ; preds = %619
-  tail call fastcc void @qtmd_update_model(ptr noundef nonnull %76)
+  tail call fastcc void @qtmd_update_model(ptr noundef %76)
   br label %.preheader2523
 
 .preheader2523:                                   ; preds = %627, %619
@@ -1777,7 +1777,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %777, label %778, label %.preheader2526
 
 778:                                              ; preds = %770
-  tail call fastcc void @qtmd_update_model(ptr noundef nonnull %70)
+  tail call fastcc void @qtmd_update_model(ptr noundef %70)
   br label %.preheader2526
 
 .preheader2526:                                   ; preds = %778, %770
@@ -2084,7 +2084,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %933, label %934, label %.preheader2525
 
 934:                                              ; preds = %926
-  tail call fastcc void @qtmd_update_model(ptr noundef nonnull %73)
+  tail call fastcc void @qtmd_update_model(ptr noundef %73)
   br label %.preheader2525
 
 .preheader2525:                                   ; preds = %934, %926
@@ -2731,7 +2731,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @read_input(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @read_input(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -2791,7 +2791,7 @@ define internal fastcc range(i32 0, 4) i32 @read_input(ptr nocapture noundef %0)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @qtmd_update_model(ptr nocapture noundef %0) unnamed_addr #1 {
+define internal fastcc void @qtmd_update_model(ptr nocapture noundef nonnull %0) unnamed_addr #1 {
   %2 = load i32, ptr %0, align 8
   %3 = add nsw i32 %2, -1
   store i32 %3, ptr %0, align 8

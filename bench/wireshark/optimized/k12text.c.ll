@@ -2864,7 +2864,7 @@ k12text_run_scanner.exit:                         ; preds = %21, %21
   %46 = load i64, ptr %45, align 8
   %47 = add i64 %44, %46
   store i64 %47, ptr %9, align 8
-  %48 = call fastcc i32 @k12text_set_headers(ptr noundef %1, ptr noundef nonnull %7, ptr noundef %3, ptr noundef %4)
+  %48 = call fastcc i32 @k12text_set_headers(ptr noundef %1, ptr noundef %7, ptr noundef %3, ptr noundef %4)
   %.not22 = icmp eq i32 %48, 0
   br i1 %.not22, label %49, label %51
 
@@ -2985,7 +2985,7 @@ k12text_run_scanner.exit:                         ; preds = %19, %19
   br label %.sink.split
 
 45:                                               ; preds = %k12text_run_scanner.exit
-  %46 = call fastcc i32 @k12text_set_headers(ptr noundef %2, ptr noundef nonnull %7, ptr noundef %4, ptr noundef %5)
+  %46 = call fastcc i32 @k12text_set_headers(ptr noundef %2, ptr noundef %7, ptr noundef %4, ptr noundef %5)
   %.not17 = icmp eq i32 %46, 0
   br i1 %.not17, label %47, label %49
 
@@ -3046,7 +3046,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare void @exit(i32 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @k12text_set_headers(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @k12text_set_headers(ptr nocapture noundef writeonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   store i32 0, ptr %0, align 8
   %5 = tail call ptr @wtap_block_create(i32 noundef 5) #28
   %6 = getelementptr inbounds i8, ptr %0, i64 232

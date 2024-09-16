@@ -730,7 +730,7 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr noc
 119:                                              ; preds = %114, %99
   %.031.i = phi i32 [ %100, %99 ], [ %115, %114 ]
   %.0.i = phi i32 [ %100, %99 ], [ %116, %114 ]
-  %120 = call fastcc i32 @_update_task_mask(i32 noundef %.031.i, i32 noundef %.0.i, ptr noundef %1, ptr noundef nonnull %7, i1 noundef zeroext false)
+  %120 = call fastcc i32 @_update_task_mask(i32 noundef %.031.i, i32 noundef %.0.i, ptr noundef %1, ptr noundef %7, i1 noundef zeroext false)
   %.not42.i = icmp eq i32 %120, 0
   br i1 %.not42.i, label %121, label %_validate_ranks.exit.thread
 
@@ -757,7 +757,7 @@ _validate_ranks.exit:                             ; preds = %75
   %127 = load i32, ptr %126, align 4
   %128 = add nsw i32 %127, 1
   store i32 %128, ptr %126, align 4
-  %129 = call fastcc i32 @_update_task_mask(i32 noundef 0, i32 noundef %124, ptr noundef %1, ptr noundef nonnull %7, i1 noundef zeroext true)
+  %129 = call fastcc i32 @_update_task_mask(i32 noundef 0, i32 noundef %124, ptr noundef %1, ptr noundef %7, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.not65 = icmp eq i32 %129, 0
   br i1 %.not65, label %131, label %.loopexit78
@@ -840,7 +840,7 @@ declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #2
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_update_task_mask(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_update_task_mask(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = icmp sgt i32 %0, %1
   br i1 %6, label %7, label %9
 
@@ -882,7 +882,7 @@ define internal fastcc range(i32 -1, 1) i32 @_update_task_mask(i32 noundef %0, i
   store i8 1, ptr %17, align 4
   store i1 true, ptr @_update_task_mask.i_set_ntasks, align 1
   %25 = sext i32 %24 to i64
-  %26 = tail call ptr @slurm_bit_realloc(ptr noundef %3, i64 noundef %25) #10
+  %26 = tail call ptr @slurm_bit_realloc(ptr noundef nonnull %3, i64 noundef %25) #10
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %23

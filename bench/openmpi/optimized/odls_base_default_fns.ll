@@ -3766,7 +3766,7 @@ pmix_pointer_array_get_item.exit416:              ; preds = %pmix_pointer_array_
 
 384:                                              ; preds = %370
   %385 = getelementptr inbounds i8, ptr %368, i64 336
-  %386 = call fastcc i32 @setup_path(ptr noundef nonnull %368, ptr noundef nonnull %385)
+  %386 = call fastcc i32 @setup_path(ptr noundef nonnull %368, ptr noundef %385)
   %.not357 = icmp eq i32 %386, 0
   br i1 %.not357, label %471, label %387
 
@@ -4901,7 +4901,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %21
 declare i32 @event_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @setup_path(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc i32 @setup_path(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = alloca [4096 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 352
   %5 = tail call zeroext i1 @prte_get_attribute(ptr noundef nonnull %4, i16 noundef zeroext 6, ptr noundef null, i16 noundef zeroext 1) #14
@@ -6589,7 +6589,7 @@ define noundef i32 @prte_odls_base_default_restart_proc(ptr noundef %0, ptr noun
 
 pmix_pointer_array_get_item.exit:                 ; preds = %34, %40, %43
   %.0.i = phi ptr [ %48, %43 ], [ null, %40 ], [ null, %34 ]
-  %49 = call fastcc i32 @setup_path(ptr noundef %.0.i, ptr noundef nonnull %4)
+  %49 = call fastcc i32 @setup_path(ptr noundef %.0.i, ptr noundef %4)
   switch i32 %49, label %50 [
     i32 0, label %55
     i32 -43, label %52

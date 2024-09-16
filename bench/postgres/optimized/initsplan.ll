@@ -819,7 +819,7 @@ define dso_local ptr @deconstruct_jointree(ptr noundef %0) local_unnamed_addr #0
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 80
   %14 = load ptr, ptr %13, align 8
-  %15 = call fastcc ptr @deconstruct_recurse(ptr noundef %0, ptr noundef %14, ptr noundef %7, ptr noundef null, ptr noundef nonnull %2)
+  %15 = call fastcc ptr @deconstruct_recurse(ptr noundef %0, ptr noundef %14, ptr noundef %7, ptr noundef null, ptr noundef %2)
   %16 = load ptr, ptr %9, align 8
   %17 = load ptr, ptr %10, align 8
   %18 = call ptr @bms_union(ptr noundef %16, ptr noundef %17) #7
@@ -1829,7 +1829,7 @@ deconstruct_distribute_oj_quals.exit:             ; preds = %557, %.lr.ph.i38, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @deconstruct_recurse(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @deconstruct_recurse(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = tail call ptr @palloc0(i64 noundef 88) #7
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
@@ -2004,7 +2004,7 @@ list_length.exit274:                              ; preds = %._crit_edge
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %1, i64 24
   %97 = load ptr, ptr %96, align 8
-  %98 = tail call fastcc ptr @deconstruct_recurse(ptr noundef %0, ptr noundef %97, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %4)
+  %98 = tail call fastcc ptr @deconstruct_recurse(ptr noundef %0, ptr noundef %97, ptr noundef %2, ptr noundef nonnull %6, ptr noundef %4)
   %99 = load ptr, ptr %4, align 8
   %100 = getelementptr i8, ptr %99, i64 4
   %.val255 = load i32, ptr %100, align 4
@@ -2056,7 +2056,7 @@ list_length.exit274:                              ; preds = %._crit_edge
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds i8, ptr %1, i64 24
   %135 = load ptr, ptr %134, align 8
-  %136 = tail call fastcc ptr @deconstruct_recurse(ptr noundef %0, ptr noundef %135, ptr noundef nonnull %118, ptr noundef nonnull %6, ptr noundef nonnull %4)
+  %136 = tail call fastcc ptr @deconstruct_recurse(ptr noundef %0, ptr noundef %135, ptr noundef nonnull %118, ptr noundef nonnull %6, ptr noundef %4)
   %137 = load ptr, ptr %4, align 8
   %138 = getelementptr i8, ptr %137, i64 4
   %.val259 = load i32, ptr %138, align 4
@@ -2161,7 +2161,7 @@ mark_rels_nulled_by_join.exit:                    ; preds = %.backedge.i, %156, 
   %206 = load ptr, ptr %205, align 8
   %207 = getelementptr inbounds i8, ptr %1, i64 24
   %208 = load ptr, ptr %207, align 8
-  %209 = tail call fastcc ptr @deconstruct_recurse(ptr noundef %0, ptr noundef %208, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %4)
+  %209 = tail call fastcc ptr @deconstruct_recurse(ptr noundef %0, ptr noundef %208, ptr noundef %2, ptr noundef nonnull %6, ptr noundef %4)
   %210 = load ptr, ptr %4, align 8
   %211 = getelementptr i8, ptr %210, i64 4
   %.val263 = load i32, ptr %211, align 4
@@ -2234,7 +2234,7 @@ mark_rels_nulled_by_join.exit:                    ; preds = %.backedge.i, %156, 
   store ptr %259, ptr %235, align 8
   %260 = getelementptr inbounds i8, ptr %1, i64 24
   %261 = load ptr, ptr %260, align 8
-  %262 = tail call fastcc ptr @deconstruct_recurse(ptr noundef %0, ptr noundef %261, ptr noundef nonnull %256, ptr noundef nonnull %6, ptr noundef nonnull %4)
+  %262 = tail call fastcc ptr @deconstruct_recurse(ptr noundef %0, ptr noundef %261, ptr noundef nonnull %256, ptr noundef nonnull %6, ptr noundef %4)
   %263 = load ptr, ptr %4, align 8
   %264 = getelementptr i8, ptr %263, i64 4
   %.val267 = load i32, ptr %264, align 4

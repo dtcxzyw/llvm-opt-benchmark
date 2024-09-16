@@ -4073,7 +4073,7 @@ declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noun
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ipv6_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @add_ipv6_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 8, 25) %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = alloca %struct._address, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = load i32, ptr %7, align 4
@@ -4766,7 +4766,7 @@ declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_ad
 declare ptr @address_with_resolution_to_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ipv6_address_6to4(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @add_ipv6_address_6to4(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 25) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca [2 x %struct.anon.3], align 16
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %2) #13
   %.not = icmp eq i16 %7, 8194
@@ -4868,7 +4868,7 @@ proto_item_set_hidden.exit26:                     ; preds = %proto_item_set_gene
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ipv6_address_teredo(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @add_ipv6_address_teredo(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 25) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca [2 x %struct.anon.4], align 16
   %8 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #13
   %.not = icmp eq i32 %8, 536936448
@@ -5024,7 +5024,7 @@ proto_item_set_hidden.exit46:                     ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ipv6_address_slaac(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @add_ipv6_address_slaac(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 8, 25) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = add nuw nsw i32 %3, 8
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %6) #13
   %8 = and i8 %7, 2
@@ -5099,7 +5099,7 @@ proto_item_set_hidden.exit:                       ; preds = %.backedge
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ipv6_address_embed_ipv4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @add_ipv6_address_embed_ipv4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 8, 25) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.e_in6_addr, align 1
   %7 = tail call i32 @tvb_memeql(ptr noundef %2, i32 noundef %3, ptr noundef nonnull @add_ipv6_address_embed_ipv4.well_known_prefix, i64 noundef 12) #13
   %8 = icmp eq i32 %7, 0
@@ -5302,7 +5302,7 @@ proto_item_set_generated.exit103:                 ; preds = %.proto_item_set_gen
 118:                                              ; preds = %proto_item_set_generated.exit103, %116, %proto_item_set_generated.exit
   %119 = call i32 @llvm.bswap.i32(i32 %.094.ph)
   %120 = lshr i32 %.092.ph, 3
-  %121 = add nsw i32 %120, %3
+  %121 = add nuw nsw i32 %120, %3
   %122 = add nsw i32 %.092.ph, -33
   %123 = icmp ult i32 %122, 31
   %124 = select i1 %123, i32 5, i32 4
@@ -5383,7 +5383,7 @@ proto_item_set_generated.exit112:                 ; preds = %143, %147, %150
   %159 = load i32, ptr @hf_ipv6_embed_ipv4_suffix, align 4
   %160 = add nuw nsw i32 %.093.ph, 40
   %161 = lshr i32 %160, 3
-  %162 = add i32 %161, %3
+  %162 = add nuw nsw i32 %161, %3
   %163 = trunc nuw i32 %.093.ph to i8
   %.lhs.trunc127 = sub nsw i8 88, %163
   %164 = sdiv i8 %.lhs.trunc127, 8
@@ -5469,7 +5469,7 @@ declare i32 @tvb_get_bits32(ptr noundef, i32 noundef, i32 noundef, i32 noundef) 
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_geoip_info_entry(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @add_geoip_info_entry(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = tail call nonnull ptr @maxmind_db_lookup_ipv6(ptr noundef %3) #13
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
@@ -6448,7 +6448,7 @@ dissect_opt_pmtu.exit:                            ; preds = %175, %176
 222:                                              ; preds = %220, %217
   %223 = load i32, ptr @hf_ipv6_opt_apn_id_part2, align 4
   %224 = call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %223, ptr noundef %0, i32 noundef %216, i32 noundef 4, i32 noundef 0) #13
-  %225 = add i32 %.0293, 14
+  %225 = add nsw i32 %.0293, 14
   %226 = icmp ugt i8 %198, 2
   br i1 %226, label %227, label %dissect_opt_apn6.exit
 
@@ -6464,10 +6464,10 @@ dissect_opt_pmtu.exit:                            ; preds = %175, %176
 232:                                              ; preds = %230, %227
   %233 = load i32, ptr @hf_ipv6_opt_apn_id_part3, align 4
   %234 = call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %233, ptr noundef %0, i32 noundef %225, i32 noundef 4, i32 noundef 0) #13
-  %235 = add i32 %.0293, 18
+  %235 = add nsw i32 %.0293, 18
   %236 = load i32, ptr @hf_ipv6_opt_apn_id_part4, align 4
   %237 = call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %236, ptr noundef %0, i32 noundef %235, i32 noundef 4, i32 noundef 0) #13
-  %238 = add i32 %.0293, 22
+  %238 = add nsw i32 %.0293, 22
   br label %dissect_opt_apn6.exit
 
 239:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
@@ -7125,7 +7125,7 @@ dissect_opt_calipso.exit:                         ; preds = %556, %558
 603:                                              ; preds = %601
   %604 = load i32, ptr @hf_ipv6_opt_smf_dpd_ident, align 4
   %605 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %604, ptr noundef %0, i32 noundef %.039.i, i32 noundef %.0.i262, i32 noundef 0) #13
-  %606 = add i32 %.0.i262, %.039.i
+  %606 = add nsw i32 %.0.i262, %.039.i
   br label %dissect_opt_apn6.exit
 
 607:                                              ; preds = %ipv6_opt_type_hdr.exit.thread

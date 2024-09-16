@@ -2296,7 +2296,7 @@ define internal i32 @dissect_mip6_opt_padn(ptr noundef %0, ptr noundef %1, ptr n
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_padn, align 4
   %9 = load i32, ptr @ett_mip6_opt_padn, align 4
-  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 0)
+  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 0)
   %11 = icmp sgt i32 %7, 0
   br i1 %11, label %12, label %15
 
@@ -2317,7 +2317,7 @@ define internal i32 @dissect_mip6_opt_bra(ptr noundef %0, ptr noundef %1, ptr no
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_bra, align 4
   %9 = load i32, ptr @ett_mip6_opt_bra, align 4
-  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 2)
+  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 2)
   %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #5
   %12 = zext i16 %11 to i32
   %13 = load i32, ptr @hf_mip6_bra_interval, align 4
@@ -2335,7 +2335,7 @@ define internal i32 @dissect_mip6_opt_acoa(ptr noundef %0, ptr noundef %1, ptr n
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_acoa, align 4
   %9 = load i32, ptr @ett_mip6_opt_acoa, align 4
-  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 16)
+  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 16)
   %11 = load i32, ptr @hf_mip6_acoa_acoa, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 16, i32 noundef 0) #5
   %13 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
@@ -2349,7 +2349,7 @@ define internal i32 @dissect_mip6_opt_ni(ptr noundef %0, ptr noundef %1, ptr nou
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_ni, align 4
   %9 = load i32, ptr @ett_mip6_opt_ni, align 4
-  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 4)
+  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 4)
   %11 = load i32, ptr @hf_mip6_ni_hni, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #5
   %13 = load i32, ptr @hf_mip6_ni_cni, align 4
@@ -2365,7 +2365,7 @@ define internal i32 @dissect_mip6_opt_bad(ptr noundef %0, ptr noundef %1, ptr no
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_bad_auth, align 4
   %9 = load i32, ptr @ett_mip6_opt_bad, align 4
-  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 0)
+  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 0)
   %11 = load i32, ptr @hf_mip6_bad_auth, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef %7, i32 noundef 0) #5
   %13 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
@@ -2382,7 +2382,7 @@ define internal i32 @dissect_mip6_nemo_opt_mnp(ptr noundef %0, ptr noundef %1, p
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %10 = add i32 %9, -2
-  %11 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, ptr noundef nonnull %5, i32 noundef %10, i32 noundef 18)
+  %11 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, ptr noundef %5, i32 noundef %10, i32 noundef 18)
   %12 = load i32, ptr @hf_mip6_nemo_mnp_pfl, align 4
   %13 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #5
   %14 = load i32, ptr @hf_mip6_nemo_mnp_mnp, align 4
@@ -2406,7 +2406,7 @@ define internal i32 @dissect_fmip6_opt_lla(ptr noundef %0, ptr noundef %1, ptr n
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_mhlla, align 4
   %9 = load i32, ptr @ett_fmip6_opt_lla, align 4
-  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 1)
+  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 1)
   %11 = load i32, ptr @hf_fmip6_lla_optcode, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
   %13 = icmp sgt i32 %7, 1
@@ -2431,7 +2431,7 @@ define internal i32 @dissect_mip6_opt_mnid(ptr noundef %0, ptr noundef %1, ptr n
   %8 = add i32 %7, -2
   %9 = load i32, ptr @proto_mip6_option_mnid, align 4
   %10 = load i32, ptr @ett_mip6_opt_mnid, align 4
-  %11 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef nonnull %5, i32 noundef %8, i32 noundef 2)
+  %11 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef %5, i32 noundef %8, i32 noundef 2)
   %12 = load i32, ptr @hf_mip6_mnid_subtype, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
   %14 = add i32 %7, -5
@@ -2461,7 +2461,7 @@ define internal i32 @dissect_mip6_opt_auth(ptr noundef %0, ptr noundef %1, ptr n
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_auth, align 4
   %9 = load i32, ptr @ett_mip6_opt_auth, align 4
-  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 6)
+  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 6)
   %11 = load i32, ptr @hf_mip6_opt_auth_sub_type, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
   %13 = load i32, ptr @hf_mip6_opt_auth_mobility_spi, align 4
@@ -2480,7 +2480,7 @@ define internal i32 @dissect_mip6_opt_mseg_id(ptr noundef %0, ptr noundef %1, pt
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_mseg_id, align 4
   %9 = load i32, ptr @ett_mip6_opt_mesgid, align 4
-  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 8)
+  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 8)
   %11 = load i32, ptr @hf_mip6_opt_mseg_id_timestamp, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 8, i32 noundef 0) #5
   %13 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
@@ -2494,7 +2494,7 @@ define internal i32 @dissect_mip6_opt_cgapr(ptr noundef %0, ptr noundef %1, ptr 
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_cgapr, align 4
   %9 = load i32, ptr @ett_mip6_opt_cgapr, align 4
-  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 0)
+  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 0)
   %11 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   ret i32 %11
 }
@@ -2506,7 +2506,7 @@ define internal i32 @dissect_mip6_opt_cgar(ptr noundef %0, ptr noundef %1, ptr n
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_cgar, align 4
   %9 = load i32, ptr @ett_mip6_opt_cgar, align 4
-  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 1)
+  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 1)
   %11 = load i32, ptr @hf_mip6_opt_cgar_cga_par, align 4
   %12 = add i32 %6, -4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef %12, i32 noundef 0) #5
@@ -2521,7 +2521,7 @@ define internal i32 @dissect_mip6_opt_sign(ptr noundef %0, ptr noundef %1, ptr n
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_sign, align 4
   %9 = load i32, ptr @ett_mip6_opt_sign, align 4
-  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 1)
+  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 1)
   %11 = load i32, ptr @hf_mip6_opt_sign_sign, align 4
   %12 = add i32 %6, -4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef %12, i32 noundef 0) #5
@@ -2536,7 +2536,7 @@ define internal i32 @dissect_mip6_opt_phkt(ptr noundef %0, ptr noundef %1, ptr n
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_phkt, align 4
   %9 = load i32, ptr @ett_mip6_opt_phkt, align 4
-  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 1)
+  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 1)
   %11 = load i32, ptr @hf_mip6_opt_phkt_phkt, align 4
   %12 = add i32 %6, -4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef %12, i32 noundef 0) #5
@@ -2551,7 +2551,7 @@ define internal i32 @dissect_mip6_opt_coti(ptr noundef %0, ptr noundef %1, ptr n
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_coti, align 4
   %9 = load i32, ptr @ett_mip6_opt_mocoti, align 4
-  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 0)
+  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 0)
   %11 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   ret i32 %11
 }
@@ -2563,7 +2563,7 @@ define internal i32 @dissect_mip6_opt_mocot(ptr noundef %0, ptr noundef %1, ptr 
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_cot, align 4
   %9 = load i32, ptr @ett_mip6_opt_mocot, align 4
-  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 8)
+  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 8)
   %11 = load i32, ptr @hf_mip6_opt_mocot_co_keygen_tok, align 4
   %12 = add i32 %6, -4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef %12, i32 noundef 0) #5
@@ -2578,7 +2578,7 @@ define internal i32 @dissect_mip6_opt_dnsu(ptr noundef %0, ptr noundef %1, ptr n
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_dnsu, align 4
   %9 = load i32, ptr @ett_mip6_opt_dnsu, align 4
-  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 5)
+  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 5)
   %11 = load i32, ptr @hf_mip6_opt_dnsu_status, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
   %13 = load i32, ptr @hf_mip6_opt_dnsu_flag_r, align 4
@@ -2597,7 +2597,7 @@ define internal i32 @dissect_mip6_opt_em(ptr noundef %0, ptr noundef %1, ptr nou
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_em, align 4
   %9 = load i32, ptr @ett_mip6_opt_em, align 4
-  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 1)
+  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 1)
   %11 = load i32, ptr @hf_mip6_opt_em_data, align 4
   %12 = add i32 %6, -4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef %12, i32 noundef 0) #5
@@ -2613,7 +2613,7 @@ define internal i32 @dissect_mip6_opt_vsm(ptr noundef %0, ptr noundef %1, ptr no
   %8 = add i32 %7, -2
   %9 = load i32, ptr @proto_mip6_option_vsm, align 4
   %10 = load i32, ptr @ett_mip6_opt_vsm, align 4
-  %11 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef nonnull %5, i32 noundef %8, i32 noundef 2)
+  %11 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef %5, i32 noundef %8, i32 noundef 2)
   %12 = load i32, ptr @hf_mip6_vsm_vid, align 4
   %13 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %6) #5
   %14 = load ptr, ptr %5, align 8
@@ -2651,7 +2651,7 @@ define internal i32 @dissect_mip6_opt_ssm(ptr noundef %0, ptr noundef %1, ptr no
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_ssm, align 4
   %9 = load i32, ptr @ett_mip6_opt_ssm, align 4
-  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 1)
+  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 1)
   %11 = icmp sgt i32 %7, 0
   br i1 %11, label %12, label %.thread
 
@@ -2684,7 +2684,7 @@ define internal i32 @dissect_mip6_opt_badff(ptr noundef %0, ptr noundef %1, ptr 
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_badff, align 4
   %9 = load i32, ptr @ett_mip6_opt_badff, align 4
-  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 4)
+  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 4)
   %11 = load i32, ptr @hf_mip6_opt_badff_spi, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef 0) #5
   %13 = load i32, ptr @hf_mip6_opt_badff_auth, align 4
@@ -2704,7 +2704,7 @@ define internal i32 @dissect_mip6_opt_hnp(ptr noundef %0, ptr noundef %1, ptr no
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %10 = add i32 %9, -2
-  %11 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, ptr noundef nonnull %5, i32 noundef %10, i32 noundef 18)
+  %11 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, ptr noundef %5, i32 noundef %10, i32 noundef 18)
   %12 = load i32, ptr @hf_mip6_nemo_mnp_pfl, align 4
   %13 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #5
   %14 = load i32, ptr @hf_mip6_nemo_mnp_mnp, align 4
@@ -2729,7 +2729,7 @@ define internal i32 @dissect_pmip6_opt_hi(ptr noundef %0, ptr noundef %1, ptr no
   %8 = add i32 %7, -2
   %9 = load i32, ptr @proto_mip6_option_hi, align 4
   %10 = load i32, ptr @ett_pmip6_opt_hi, align 4
-  %11 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef nonnull %5, i32 noundef %8, i32 noundef 2)
+  %11 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef %5, i32 noundef %8, i32 noundef 2)
   %12 = load i32, ptr @hf_pmip6_hi_reserved, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
   %14 = load i32, ptr @hf_pmip6_hi_hi, align 4
@@ -2750,7 +2750,7 @@ define internal i32 @dissect_pmip6_opt_att(ptr noundef %0, ptr noundef %1, ptr n
   %8 = add i32 %7, -2
   %9 = load i32, ptr @proto_mip6_option_att, align 4
   %10 = load i32, ptr @ett_pmip6_opt_att, align 4
-  %11 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef nonnull %5, i32 noundef %8, i32 noundef 2)
+  %11 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef %5, i32 noundef %8, i32 noundef 2)
   %12 = load i32, ptr @hf_pmip6_att_reserved, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #5
@@ -2773,7 +2773,7 @@ define internal i32 @dissect_pmip6_opt_mnlli(ptr noundef %0, ptr noundef %1, ptr
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_mnlli, align 4
   %9 = load i32, ptr @ett_pmip6_opt_mnlli, align 4
-  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 1)
+  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 1)
   %11 = load i32, ptr @hf_mip6_opt_mnlli_reserved, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #5
   %13 = load i32, ptr @hf_mip6_opt_mnlli_lli, align 4
@@ -2790,7 +2790,7 @@ define internal i32 @dissect_pmip6_opt_lla(ptr noundef %0, ptr noundef %1, ptr n
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_lla, align 4
   %9 = load i32, ptr @ett_pmip6_opt_lla, align 4
-  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 16)
+  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 16)
   %11 = load i32, ptr @hf_pmip6_opt_lila_lla, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 16, i32 noundef 0) #5
   %13 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
@@ -2805,7 +2805,7 @@ define internal i32 @dissect_pmip6_opt_ts(ptr noundef %0, ptr noundef %1, ptr no
   %8 = add i32 %7, -2
   %9 = load i32, ptr @proto_mip6_option_ts, align 4
   %10 = load i32, ptr @ett_pmip6_opt_ts, align 4
-  %11 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef nonnull %5, i32 noundef %8, i32 noundef 8)
+  %11 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef %5, i32 noundef %8, i32 noundef 8)
   %12 = load i32, ptr @hf_pmip6_timestamp, align 4
   %13 = getelementptr inbounds i8, ptr %1, i64 408
   %14 = load ptr, ptr %13, align 8
@@ -2824,7 +2824,7 @@ define internal i32 @dissect_pmip6_opt_rc(ptr noundef %0, ptr noundef %1, ptr no
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_rc, align 4
   %9 = load i32, ptr @ett_pmip6_opt_rc, align 4
-  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 4)
+  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 4)
   %11 = load i32, ptr @hf_pmip6_rc, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef 0) #5
   %13 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
@@ -2838,7 +2838,7 @@ define internal i32 @dissect_pmip6_opt_ipv4ha(ptr noundef %0, ptr noundef %1, pt
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_ipv4ha, align 4
   %9 = load i32, ptr @ett_mip6_opt_ipv4ha, align 4
-  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 6)
+  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 6)
   %11 = load i32, ptr @hf_mip6_ipv4ha_preflen, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
   %13 = load i32, ptr @hf_mip6_ipv4ha_p_flag, align 4
@@ -2856,7 +2856,7 @@ define internal i32 @dissect_pmip6_opt_ipv4aa(ptr noundef %0, ptr noundef %1, pt
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_ipv4aa, align 4
   %9 = load i32, ptr @ett_mip6_opt_ipv4aa, align 4
-  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 6)
+  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 6)
   %11 = load i32, ptr @hf_mip6_ipv4aa_status, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
   %13 = load i32, ptr @hf_mip6_ipv4ha_preflen, align 4
@@ -2875,7 +2875,7 @@ define internal i32 @dissect_pmip6_opt_natd(ptr noundef %0, ptr noundef %1, ptr 
   %8 = add i32 %7, -2
   %9 = load i32, ptr @proto_mip6_option_natd, align 4
   %10 = load i32, ptr @ett_mip6_opt_natd, align 4
-  %11 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef nonnull %5, i32 noundef %8, i32 noundef 6)
+  %11 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef %5, i32 noundef %8, i32 noundef 6)
   %12 = load i32, ptr @hf_mip6_opt_natd_f_flag, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #5
   %14 = load i32, ptr @hf_mip6_opt_natd_reserved, align 4
@@ -2912,7 +2912,7 @@ define internal i32 @dissect_pmip6_opt_ipv4coa(ptr noundef %0, ptr noundef %1, p
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_ipv4coa, align 4
   %9 = load i32, ptr @ett_mip6_opt_ipv4coa, align 4
-  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 6)
+  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 6)
   %11 = load i32, ptr @hf_mip6_opt_ipv4coa_reserved, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #5
   %13 = load i32, ptr @hf_mip6_opt_ipv4coa_addr, align 4
@@ -2929,7 +2929,7 @@ define internal i32 @dissect_pmip6_opt_grek(ptr noundef %0, ptr noundef %1, ptr 
   %8 = add i32 %7, -2
   %9 = load i32, ptr @proto_mip6_option_grek, align 4
   %10 = load i32, ptr @ett_pmip6_opt_grek, align 4
-  %11 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef nonnull %5, i32 noundef %8, i32 noundef 2)
+  %11 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef %5, i32 noundef %8, i32 noundef 2)
   %12 = load i32, ptr @hf_mip6_ipv4dra_reserved, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #5
   %14 = icmp eq i32 %8, 6
@@ -2955,7 +2955,7 @@ define internal i32 @dissect_pmip6_opt_mhipv6ap(ptr noundef %0, ptr noundef %1, 
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_mhipv6ap, align 4
   %9 = load i32, ptr @ett_pmip6_opt_mhipv6ap, align 4
-  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 18)
+  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 18)
   %11 = load i32, ptr @hf_mip6_opt_mhipv6ap_opt_code, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #5
@@ -2998,7 +2998,7 @@ define internal i32 @dissect_pmip6_opt_bi(ptr noundef %0, ptr noundef %1, ptr no
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_bi, align 4
   %9 = load i32, ptr @ett_pmip6_opt_bi, align 4
-  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 4)
+  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 4)
   %11 = load i32, ptr @hf_mip6_opt_bi_bid, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #5
   %13 = load i32, ptr @hf_mip6_opt_bi_status, align 4
@@ -3032,7 +3032,7 @@ define internal i32 @dissect_pmip6_opt_ipv4hareq(ptr noundef %0, ptr noundef %1,
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_ipv4hareq, align 4
   %9 = load i32, ptr @ett_mip6_opt_ipv4hareq, align 4
-  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 6)
+  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 6)
   %11 = load i32, ptr @hf_mip6_ipv4ha_preflen, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
   %13 = load i32, ptr @hf_mip6_ipv4ha_reserved, align 4
@@ -3065,7 +3065,7 @@ define internal i32 @dissect_pmip6_opt_ipv4harep(ptr noundef %0, ptr noundef %1,
   %8 = add i32 %7, -2
   %9 = load i32, ptr @proto_mip6_option_ipv4harep, align 4
   %10 = load i32, ptr @ett_mip6_opt_ipv4harep, align 4
-  %11 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef nonnull %5, i32 noundef %8, i32 noundef 6)
+  %11 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef %5, i32 noundef %8, i32 noundef 6)
   %12 = load i32, ptr @hf_mip6_ipv4aa_status, align 4
   %13 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #5
   %14 = load ptr, ptr %5, align 8
@@ -3091,7 +3091,7 @@ define internal i32 @dissect_pmip6_opt_ipv4dra(ptr noundef %0, ptr noundef %1, p
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_ipv4dra, align 4
   %9 = load i32, ptr @ett_mip6_opt_ipv4dra, align 4
-  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 6)
+  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 6)
   %11 = load i32, ptr @hf_mip6_ipv4dra_reserved, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #5
   %13 = load i32, ptr @hf_mip6_ipv4dra_dra, align 4
@@ -3112,7 +3112,7 @@ define internal i32 @dissect_pmip6_opt_ipv4dsm(ptr noundef %0, ptr noundef %1, p
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_ipv4dsm, align 4
   %9 = load i32, ptr @ett_mip6_opt_ipv4dsm, align 4
-  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 2)
+  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 2)
   %11 = load i32, ptr @hf_mip6_ipv4dsm_reserved, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #5
   %13 = load i32, ptr @hf_mip6_ipv4dsm_s_flag, align 4
@@ -3129,7 +3129,7 @@ define internal i32 @dissect_pmip6_opt_cr(ptr noundef %0, ptr noundef %1, ptr no
   %8 = add i32 %7, -2
   %9 = load i32, ptr @proto_mip6_option_cr, align 4
   %10 = load i32, ptr @ett_mip6_opt_cr, align 4
-  %11 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef nonnull %5, i32 noundef %8, i32 noundef 4)
+  %11 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef %5, i32 noundef %8, i32 noundef 4)
   %12 = load i32, ptr @hf_mip6_cr_reserved, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #5
   %14 = icmp sgt i32 %8, 2
@@ -3198,7 +3198,7 @@ define internal i32 @dissect_pmip6_opt_lmaa(ptr noundef %0, ptr noundef %1, ptr 
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_lmaa, align 4
   %9 = load i32, ptr @ett_mip6_opt_lmaa, align 4
-  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 6)
+  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 6)
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
   %12 = load i32, ptr @hf_mip6_lmaa_opt_code, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
@@ -3237,7 +3237,7 @@ define internal i32 @dissect_pmip6_opt_recap(ptr noundef %0, ptr noundef %1, ptr
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_recap, align 4
   %9 = load i32, ptr @ett_mip6_opt_recap, align 4
-  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 2)
+  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 2)
   %11 = load i32, ptr @hf_mip6_opt_recap_reserved, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #5
   %13 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
@@ -3251,7 +3251,7 @@ define internal i32 @dissect_pmip6_opt_redir(ptr noundef %0, ptr noundef %1, ptr
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_redir, align 4
   %9 = load i32, ptr @ett_mip6_opt_redir, align 4
-  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 6)
+  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 6)
   %11 = load i32, ptr @hf_mip6_opt_redir_k, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #5
   %13 = load i32, ptr @hf_mip6_opt_redir_n, align 4
@@ -3290,7 +3290,7 @@ define internal i32 @dissect_pmip6_opt_load_inf(ptr noundef %0, ptr noundef %1, 
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_load_inf, align 4
   %9 = load i32, ptr @ett_mip6_opt_load_inf, align 4
-  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 18)
+  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 18)
   %11 = load i32, ptr @hf_mip6_opt_load_inf_priority, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #5
   %13 = load i32, ptr @hf_mip6_opt_load_inf_sessions_in_use, align 4
@@ -3312,7 +3312,7 @@ define internal i32 @dissect_pmip6_opt_alt_ip4(ptr noundef %0, ptr noundef %1, p
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_alt_ip4, align 4
   %9 = load i32, ptr @ett_mip6_opt_alt_ip4, align 4
-  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 4)
+  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 4)
   %11 = load i32, ptr @hf_mip6_opt_alt_ip4, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef 0) #5
   %13 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
@@ -3327,7 +3327,7 @@ define internal i32 @dissect_pmip6_opt_mng(ptr noundef %0, ptr noundef %1, ptr n
   %8 = add i32 %7, -2
   %9 = load i32, ptr @proto_mip6_option_mng, align 4
   %10 = load i32, ptr @ett_mip6_opt_mng, align 4
-  %11 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef nonnull %5, i32 noundef %8, i32 noundef 6)
+  %11 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef %5, i32 noundef %8, i32 noundef 6)
   %12 = load i32, ptr @hf_mip6_opt_mng_sub_type, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
   %14 = load i32, ptr @hf_mip6_opt_mng_reserved, align 4
@@ -3354,7 +3354,7 @@ define internal i32 @dissect_pmip6_opt_mag_ipv6(ptr noundef %0, ptr noundef %1, 
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_mag_ipv6, align 4
   %9 = load i32, ptr @ett_mip6_opt_mag_ipv6, align 4
-  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 16)
+  %10 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 16)
   %11 = load i32, ptr @hf_mip6_opt_mag_ipv6_reserved, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
   %13 = load i32, ptr @hf_mip6_opt_mag_ipv6_address_length, align 4
@@ -3375,7 +3375,7 @@ define internal i32 @dissect_pmip6_opt_acc_net_id(ptr noundef %0, ptr noundef %1
   %10 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %11 = load i32, ptr @proto_mip6_option_acc_net_id, align 4
   %12 = load i32, ptr @ett_mip6_opt_acc_net_id, align 4
-  %13 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %11, i32 noundef %12, ptr noundef nonnull %5, i32 noundef %9, i32 noundef 3)
+  %13 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %11, i32 noundef %12, ptr noundef %5, i32 noundef %9, i32 noundef 3)
   %14 = icmp sgt i32 %10, 2
   br i1 %14, label %.lr.ph, label %._crit_edge
 
@@ -3491,7 +3491,7 @@ define internal i32 @dissect_mip6_opt_dmnp(ptr noundef %0, ptr noundef %1, ptr n
   %7 = add i32 %6, -2
   %8 = load i32, ptr @proto_mip6_option_dmnp, align 4
   %9 = load i32, ptr @ett_mip6_opt_dmnp, align 4
-  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %5, i32 noundef %7, i32 noundef 6)
+  %10 = call fastcc ptr @mip6_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %9, ptr noundef %5, i32 noundef %7, i32 noundef 6)
   %11 = load i32, ptr @hf_mip6_opt_dmnp_v_flag, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
   %13 = load i32, ptr @hf_mip6_opt_dmnp_reserved, align 4
@@ -3613,7 +3613,7 @@ declare void @dissect_gtpv2_epc_timer(ptr noundef, ptr noundef, ptr noundef, ptr
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @mip6_var_option_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc noundef ptr @mip6_var_option_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5, i32 noundef %6, i32 noundef range(i32 0, 7) %7) unnamed_addr #0 {
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %3, ptr noundef %2, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   store ptr %9, ptr %5, align 8
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %4) #5
@@ -3641,7 +3641,7 @@ declare ptr @proto_get_protocol_short_name(ptr noundef) local_unnamed_addr #1
 declare ptr @find_protocol_by_id(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @mip6_fixed_option_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc noundef ptr @mip6_fixed_option_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5, i32 noundef %6, i32 noundef range(i32 0, 19) %7) unnamed_addr #0 {
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %3, ptr noundef %2, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   store ptr %9, ptr %5, align 8
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %4) #5

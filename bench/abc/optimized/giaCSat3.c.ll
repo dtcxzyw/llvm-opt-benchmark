@@ -1744,7 +1744,7 @@ Cbs3_ManAssign.exit100:                           ; preds = %._crit_edge.i.i91, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Cbs3_ManAssign(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #5 {
+define internal fastcc void @Cbs3_ManAssign(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 -1073741824, 1073741824) %3, i32 noundef %4) unnamed_addr #5 {
   %6 = ashr i32 %1, 1
   %7 = getelementptr i8, ptr %0, i64 216
   %.val = load ptr, ptr %7, align 8
@@ -1817,7 +1817,7 @@ Cbs3_QuePush.exit:                                ; preds = %._crit_edge.i, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Cbs3_ManAnalyze(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
+define internal fastcc i32 @Cbs3_ManAnalyze(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 -1073741824, 1073741824) %2, i32 noundef range(i32 -1073741824, 1073741824) %3, i32 noundef %4) unnamed_addr #2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 92
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 96
@@ -2413,7 +2413,7 @@ define internal fastcc void @Cbs3_ManCancelUntil(ptr nocapture noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Cbs3_ManResolve(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc i32 @Cbs3_ManResolve(ptr nocapture noundef %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = getelementptr inbounds i8, ptr %0, i64 92
   %6 = load i32, ptr %5, align 4

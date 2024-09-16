@@ -255,7 +255,7 @@ $_ZTSSt14default_deleteIN5ceres8internal24GradientProblemEvaluatorEE = comdat an
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK5ceres21GradientProblemSolver7Options7IsValidEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.ceres::Solver::Options", align 8
-  call fastcc void @_ZN5ceres12_GLOBAL__N_143GradientProblemSolverOptionsToSolverOptionsERKNS_21GradientProblemSolver7OptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(152) %0)
+  call fastcc void @_ZN5ceres12_GLOBAL__N_143GradientProblemSolverOptionsToSolverOptionsERKNS_21GradientProblemSolver7OptionsE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(152) %0)
   %4 = invoke noundef zeroext i1 @_ZNK5ceres6Solver7Options7IsValidEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(504) %3, ptr noundef %1)
           to label %5 unwind label %6
 
@@ -715,7 +715,7 @@ _ZN5ceres21GradientProblemSolver7SummaryD2Ev.exit: ; preds = %_ZN5ceres21Gradien
   %70 = getelementptr inbounds i8, ptr %4, i64 140
   store i32 %69, ptr %70, align 4
   call void @llvm.lifetime.start.p0(i64 504, ptr nonnull %7)
-  call fastcc void @_ZN5ceres12_GLOBAL__N_143GradientProblemSolverOptionsToSolverOptionsERKNS_21GradientProblemSolver7OptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(152) %1)
+  call fastcc void @_ZN5ceres12_GLOBAL__N_143GradientProblemSolverOptionsToSolverOptionsERKNS_21GradientProblemSolver7OptionsE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(152) %1)
   %71 = invoke noundef zeroext i1 @_ZNK5ceres6Solver7Options7IsValidEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(504) %7, ptr noundef nonnull %32)
           to label %_ZNK5ceres21GradientProblemSolver7Options7IsValidEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %72
 
@@ -844,7 +844,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_3MapIS1_Li0ENS_6StrideILi0ELi0EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !7
 
 _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_3MapIS1_Li0ENS_6StrideILi0ELi0EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
-  invoke fastcc void @_ZN5ceres12_GLOBAL__N_143GradientProblemSolverOptionsToSolverOptionsERKNS_21GradientProblemSolver7OptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(152) %1)
+  invoke fastcc void @_ZN5ceres12_GLOBAL__N_143GradientProblemSolverOptionsToSolverOptionsERKNS_21GradientProblemSolver7OptionsE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(152) %1)
           to label %118 unwind label %190
 
 118:                                              ; preds = %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_3MapIS1_Li0ENS_6StrideILi0ELi0EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit

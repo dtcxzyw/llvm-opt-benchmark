@@ -1413,7 +1413,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
   br i1 %.not239.i, label %379, label %377
 
 377:                                              ; preds = %match_argopt.exit.thread
-  %378 = tail call fastcc i32 @parse_multi_option(ptr noundef nonnull %376, i32 noundef 2, ptr noundef nonnull @on_off)
+  %378 = tail call fastcc i32 @parse_multi_option(ptr noundef %376, i32 noundef 2, ptr noundef nonnull @on_off)
   store i32 %378, ptr %15, align 4
   br label %parse_option.exit
 
@@ -1423,7 +1423,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
   br i1 %.not240.i, label %383, label %381
 
 381:                                              ; preds = %379
-  %382 = tail call fastcc i32 @parse_multi_option(ptr noundef nonnull %380, i32 noundef 2, ptr noundef nonnull @on_off)
+  %382 = tail call fastcc i32 @parse_multi_option(ptr noundef %380, i32 noundef 2, ptr noundef nonnull @on_off)
   store i32 %382, ptr %16, align 8
   br label %parse_option.exit
 
@@ -1434,7 +1434,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
 
 385:                                              ; preds = %383
   store ptr null, ptr %50, align 8
-  %386 = tail call fastcc i32 @parse_multi_option(ptr noundef nonnull %384, i32 noundef 3, ptr noundef nonnull @linker)
+  %386 = tail call fastcc i32 @parse_multi_option(ptr noundef %384, i32 noundef 3, ptr noundef nonnull @linker)
   store i32 %386, ptr %10, align 8
   %387 = icmp eq i32 %386, 2
   br i1 %387, label %388, label %parse_option.exit
@@ -1475,7 +1475,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
 406:                                              ; preds = %404
   %407 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.192)
   store ptr null, ptr %50, align 8
-  %408 = tail call fastcc i32 @parse_multi_option(ptr noundef nonnull %405, i32 noundef 2, ptr noundef nonnull @on_off)
+  %408 = tail call fastcc i32 @parse_multi_option(ptr noundef %405, i32 noundef 2, ptr noundef nonnull @on_off)
   switch i32 %408, label %411 [
     i32 1, label %409
     i32 0, label %410
@@ -1536,7 +1536,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
   br i1 %.not243.i, label %438, label %436
 
 436:                                              ; preds = %434
-  %437 = tail call fastcc i32 @parse_multi_option(ptr noundef nonnull %435, i32 noundef 2, ptr noundef nonnull @on_off)
+  %437 = tail call fastcc i32 @parse_multi_option(ptr noundef %435, i32 noundef 2, ptr noundef nonnull @on_off)
   store i32 %437, ptr %23, align 8
   br label %parse_option.exit
 
@@ -1546,7 +1546,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
   br i1 %.not244.i, label %442, label %440
 
 440:                                              ; preds = %438
-  %441 = tail call fastcc i32 @parse_multi_option(ptr noundef nonnull %439, i32 noundef 2, ptr noundef nonnull @on_off)
+  %441 = tail call fastcc i32 @parse_multi_option(ptr noundef %439, i32 noundef 2, ptr noundef nonnull @on_off)
   store i32 %441, ptr %24, align 4
   br label %parse_option.exit
 
@@ -1556,7 +1556,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
   br i1 %.not245.i, label %446, label %444
 
 444:                                              ; preds = %442
-  %445 = tail call fastcc i32 @parse_multi_option(ptr noundef nonnull %443, i32 noundef 2, ptr noundef nonnull @on_off)
+  %445 = tail call fastcc i32 @parse_multi_option(ptr noundef %443, i32 noundef 2, ptr noundef nonnull @on_off)
   store i32 %445, ptr %21, align 8
   br label %parse_option.exit
 
@@ -1566,7 +1566,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
   br i1 %.not246.i, label %450, label %448
 
 448:                                              ; preds = %446
-  %449 = tail call fastcc i32 @parse_multi_option(ptr noundef nonnull %447, i32 noundef 2, ptr noundef nonnull @on_off)
+  %449 = tail call fastcc i32 @parse_multi_option(ptr noundef %447, i32 noundef 2, ptr noundef nonnull @on_off)
   store i32 %449, ptr %22, align 4
   br label %parse_option.exit
 
@@ -1576,7 +1576,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
   br i1 %.not247.i, label %454, label %452
 
 452:                                              ; preds = %450
-  %453 = tail call fastcc i32 @parse_multi_option(ptr noundef nonnull %451, i32 noundef 6, ptr noundef nonnull @x86_vector_capability)
+  %453 = tail call fastcc i32 @parse_multi_option(ptr noundef %451, i32 noundef 6, ptr noundef nonnull @x86_vector_capability)
   store i32 %453, ptr %18, align 4
   br label %parse_option.exit
 
@@ -1586,7 +1586,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
   br i1 %.not248.i, label %458, label %456
 
 456:                                              ; preds = %454
-  %457 = tail call fastcc i32 @parse_multi_option(ptr noundef nonnull %455, i32 noundef 8, ptr noundef nonnull @x86_cpu_set)
+  %457 = tail call fastcc i32 @parse_multi_option(ptr noundef %455, i32 noundef 8, ptr noundef nonnull @x86_cpu_set)
   store i32 %457, ptr %19, align 8
   br label %parse_option.exit
 
@@ -1596,7 +1596,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
   br i1 %.not249.i, label %462, label %460
 
 460:                                              ; preds = %458
-  %461 = tail call fastcc i32 @parse_multi_option(ptr noundef nonnull %459, i32 noundef 3, ptr noundef nonnull @riscv_capability)
+  %461 = tail call fastcc i32 @parse_multi_option(ptr noundef %459, i32 noundef 3, ptr noundef nonnull @riscv_capability)
   store i32 %461, ptr %27, align 8
   br label %parse_option.exit
 
@@ -1606,7 +1606,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
   br i1 %.not250.i, label %466, label %464
 
 464:                                              ; preds = %462
-  %465 = tail call fastcc i32 @parse_multi_option(ptr noundef nonnull %463, i32 noundef 4, ptr noundef nonnull @memory_environment)
+  %465 = tail call fastcc i32 @parse_multi_option(ptr noundef %463, i32 noundef 4, ptr noundef nonnull @memory_environment)
   store i32 %465, ptr %28, align 4
   br label %parse_option.exit
 
@@ -1616,7 +1616,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
   br i1 %.not251.i, label %470, label %468
 
 468:                                              ; preds = %466
-  %469 = tail call fastcc i32 @parse_multi_option(ptr noundef nonnull %467, i32 noundef 5, ptr noundef nonnull @reloc_models)
+  %469 = tail call fastcc i32 @parse_multi_option(ptr noundef %467, i32 noundef 5, ptr noundef nonnull @reloc_models)
   store i32 %469, ptr %17, align 8
   br label %parse_option.exit
 
@@ -2198,7 +2198,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
   br i1 %.not252.i, label %785, label %783
 
 783:                                              ; preds = %781
-  %784 = tail call fastcc i32 @parse_multi_option(ptr noundef nonnull %782, i32 noundef 3, ptr noundef nonnull @trust_level)
+  %784 = tail call fastcc i32 @parse_multi_option(ptr noundef %782, i32 noundef 3, ptr noundef nonnull @trust_level)
   store i32 %784, ptr %46, align 4
   br label %parse_option.exit
 
@@ -2242,7 +2242,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
   br i1 %.not253.i, label %809, label %807
 
 807:                                              ; preds = %805
-  %808 = tail call fastcc i32 @parse_multi_option(ptr noundef nonnull %806, i32 noundef 3, ptr noundef nonnull @wincrt_linking)
+  %808 = tail call fastcc i32 @parse_multi_option(ptr noundef %806, i32 noundef 3, ptr noundef nonnull @wincrt_linking)
   store i32 %808, ptr %6, align 8
   br label %parse_option.exit
 
@@ -3698,9 +3698,9 @@ define internal fastcc ptr @match_argopt(ptr nocapture noundef readonly %0) unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, -2147483648) i32 @parse_multi_option(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, -2147483648) i32 @parse_multi_option(ptr noundef nonnull %0, i32 noundef range(i32 2, 9) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr @current_arg, align 8
-  %5 = tail call i32 @str_findlist(ptr noundef %0, i32 noundef %1, ptr noundef %2) #17
+  %5 = tail call i32 @str_findlist(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #17
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %12
 
@@ -3709,7 +3709,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @parse_multi_option(ptr nou
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
   %11 = trunc i64 %10 to i32
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.305, i32 noundef %11, ptr noundef %0, ptr noundef %4) #16
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.305, i32 noundef %11, ptr noundef nonnull %0, ptr noundef %4) #16
   unreachable
 
 12:                                               ; preds = %3

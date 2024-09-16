@@ -3466,7 +3466,7 @@ cleanup:                                          ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi(ptr nocapture noundef %state, i32 noundef %val) unnamed_addr #9 {
+define internal fastcc void @_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi(ptr nocapture noundef %state, i32 noundef range(i32 -2147483646, -2147483648) %val) unnamed_addr #9 {
 entry:
   %buf = alloca [20 x i8], align 16
   %append = getelementptr inbounds i8, ptr %state, i64 40

@@ -2118,7 +2118,7 @@ if.end39:                                         ; preds = %_ZN4node6crypto10By
   br i1 %cmp49.not, label %if.end51, label %cleanup
 
 if.end51:                                         ; preds = %if.end39
-  call fastcc void @_ZN4node6crypto12_GLOBAL__N_122BlockWithZeroedCounterERKNS0_15AESCipherConfigE(ptr noalias nonnull align 8 %new_counter_block, ptr noundef nonnull align 8 dereferenceable(104) %params)
+  call fastcc void @_ZN4node6crypto12_GLOBAL__N_122BlockWithZeroedCounterERKNS0_15AESCipherConfigE(ptr noalias align 8 %new_counter_block, ptr noundef nonnull align 8 dereferenceable(104) %params)
   %15 = load ptr, ptr %in, align 8
   %add.ptr = getelementptr inbounds i8, ptr %15, i64 %mul
   %16 = load i64, ptr %size_.i, align 8
@@ -3566,7 +3566,7 @@ _ZNSt10unique_ptrI17evp_cipher_ctx_stN4node15FunctionDeleterIS0_XadL_Z19EVP_CIPH
 declare i64 @BN_get_word(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node6crypto12_GLOBAL__N_122BlockWithZeroedCounterERKNS0_15AESCipherConfigE(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %params) unnamed_addr #3 {
+define internal fastcc void @_ZN4node6crypto12_GLOBAL__N_122BlockWithZeroedCounterERKNS0_15AESCipherConfigE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %params) unnamed_addr #3 {
 entry:
   %length = getelementptr inbounds i8, ptr %params, i64 24
   %0 = load i64, ptr %length, align 8

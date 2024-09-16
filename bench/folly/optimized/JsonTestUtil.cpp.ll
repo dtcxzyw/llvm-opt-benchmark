@@ -514,7 +514,7 @@ return:                                           ; preds = %for.body, %_ZNK5fol
 declare noundef i64 @_ZNK5folly7dynamic4sizeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZSt6all_ofIN5folly7dynamic19const_item_iteratorEZNS0_28compareDynamicWithNestedJsonERKS1_S4_jE3$_0EbT_S6_T0_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef readonly %__last, ptr %__pred.coerce0, ptr nocapture readonly %__pred.coerce1) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @"_ZSt6all_ofIN5folly7dynamic19const_item_iteratorEZNS0_28compareDynamicWithNestedJsonERKS1_S4_jE3$_0EbT_S6_T0_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__last, ptr nonnull %__pred.coerce0, ptr nocapture nonnull readonly %__pred.coerce1) unnamed_addr #6 {
 entry:
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %__first, align 8
   %agg.tmp.sroa.0.0.copyload.i3 = load ptr, ptr %__last, align 8

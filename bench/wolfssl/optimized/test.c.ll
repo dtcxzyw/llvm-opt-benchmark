@@ -1042,7 +1042,7 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
 declare i32 @CheckRunTimeSettings() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @err_sys(ptr noundef %msg, i32 noundef %es) unnamed_addr #0 {
+define internal fastcc void @err_sys(ptr noundef %msg, i32 noundef range(i32 1, 0) %es) unnamed_addr #0 {
 entry:
   %errno_buf.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %errno_buf.i)
@@ -1713,7 +1713,7 @@ return:                                           ; preds = %if.end56, %if.then6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @random_test() local_unnamed_addr #0 {
+define dso_local range(i32 -1278456993, 1) i32 @random_test() local_unnamed_addr #0 {
 entry:
   %test1Entropy = alloca [48 x i8], align 16
   %test2EntropyA = alloca [48 x i8], align 16
@@ -8208,17 +8208,17 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %cipher2, ptr noundef nonnull align 64 dereferenceable(16) @__const.aesgcm_default_test.cipher2, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %key3, ptr noundef nonnull align 16 dereferenceable(16) @__const.aesgcm_default_test.key3, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %iv3, ptr noundef nonnull align 1 dereferenceable(12) @__const.aesgcm_default_test.iv3, i64 12, i1 false)
-  %call = call fastcc i32 @aesgcm_default_test_helper(ptr noundef nonnull %key1, ptr noundef nonnull %iv1, ptr noundef nonnull %plain1, i32 noundef 32, ptr noundef nonnull %cipher1, i32 noundef 32, ptr noundef nonnull %aad1, i32 noundef 16, ptr noundef nonnull @__const.aesgcm_default_test.tag1, i32 noundef 16)
+  %call = call fastcc i32 @aesgcm_default_test_helper(ptr noundef %key1, ptr noundef %iv1, ptr noundef nonnull %plain1, i32 noundef 32, ptr noundef nonnull %cipher1, i32 noundef 32, ptr noundef nonnull %aad1, i32 noundef 16, ptr noundef @__const.aesgcm_default_test.tag1, i32 noundef 16)
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call11 = call fastcc i32 @aesgcm_default_test_helper(ptr noundef nonnull %key2, ptr noundef nonnull %iv2, ptr noundef nonnull %plain2, i32 noundef 16, ptr noundef nonnull %cipher2, i32 noundef 16, ptr noundef null, i32 noundef 0, ptr noundef nonnull @__const.aesgcm_default_test.tag2, i32 noundef 16)
+  %call11 = call fastcc i32 @aesgcm_default_test_helper(ptr noundef %key2, ptr noundef %iv2, ptr noundef nonnull %plain2, i32 noundef 16, ptr noundef nonnull %cipher2, i32 noundef 16, ptr noundef null, i32 noundef 0, ptr noundef @__const.aesgcm_default_test.tag2, i32 noundef 16)
   %cmp12.not = icmp eq i32 %call11, 0
   br i1 %cmp12.not, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end
-  %call18 = call fastcc i32 @aesgcm_default_test_helper(ptr noundef nonnull %key3, ptr noundef nonnull %iv3, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef nonnull @__const.aesgcm_default_test.tag3, i32 noundef 12)
+  %call18 = call fastcc i32 @aesgcm_default_test_helper(ptr noundef %key3, ptr noundef %iv3, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef @__const.aesgcm_default_test.tag3, i32 noundef 12)
   br label %return
 
 return:                                           ; preds = %if.end14, %if.end, %entry
@@ -8788,7 +8788,7 @@ do.body88:                                        ; preds = %if.end81
   br label %exit_rsa
 
 if.end100:                                        ; preds = %if.end81
-  %call102 = call fastcc i32 @rsa_sig_test(ptr noundef nonnull %key, i32 noundef %call83, ptr noundef nonnull %rng)
+  %call102 = call fastcc i32 @rsa_sig_test(ptr noundef %key, i32 noundef %call83, ptr noundef %rng)
   %cmp103.not = icmp eq i32 %call102, 0
   br i1 %cmp103.not, label %do.body107, label %exit_rsa
 
@@ -8963,22 +8963,22 @@ if.end310:                                        ; preds = %do.end293
   br i1 %tobool315.not, label %do.end323, label %exit_rsa
 
 do.end323:                                        ; preds = %if.end310
-  %call325 = call fastcc i32 @rsa_oaep_padding_test(ptr noundef nonnull %key, ptr noundef nonnull %rng)
+  %call325 = call fastcc i32 @rsa_oaep_padding_test(ptr noundef %key, ptr noundef %rng)
   %cmp326.not = icmp eq i32 %call325, 0
   br i1 %cmp326.not, label %if.end329, label %return
 
 if.end329:                                        ; preds = %do.end323
-  %call331 = call fastcc i32 @rsa_export_key_test(ptr noundef nonnull %key)
+  %call331 = call fastcc i32 @rsa_export_key_test(ptr noundef %key)
   %cmp332.not = icmp eq i32 %call331, 0
   br i1 %cmp332.not, label %if.end335, label %return
 
 if.end335:                                        ; preds = %if.end329
-  %call337 = call fastcc i32 @rsa_flatten_test(ptr noundef nonnull %key)
+  %call337 = call fastcc i32 @rsa_flatten_test(ptr noundef %key)
   %cmp338.not = icmp eq i32 %call337, 0
   br i1 %cmp338.not, label %if.end341, label %return
 
 if.end341:                                        ; preds = %if.end335
-  %call343 = call fastcc i32 @rsa_pss_test(ptr noundef nonnull %rng, ptr noundef nonnull %key)
+  %call343 = call fastcc i32 @rsa_pss_test(ptr noundef %rng, ptr noundef %key)
   br label %exit_rsa
 
 exit_rsa:                                         ; preds = %rsa_decode_test.exit.thread87, %rsa_decode_test.exit.thread, %if.end310, %if.end235, %if.end228, %if.end187, %if.end341, %if.end100, %do.body297, %do.body263, %do.body215, %do.body174, %do.body144, %do.body122, %do.body88, %do.body69, %do.body49, %do.body31, %if.then5
@@ -9165,7 +9165,7 @@ if.end228:                                        ; preds = %lor.lhs.false
   br i1 %cmp230.not, label %if.end235, label %if.end296.thread111
 
 if.end235:                                        ; preds = %if.end228
-  %call236 = call fastcc i32 @dh_fips_generate_test(ptr noundef nonnull %rng)
+  %call236 = call fastcc i32 @dh_fips_generate_test(ptr noundef %rng)
   %cmp237.not = icmp eq i32 %call236, 0
   br i1 %cmp237.not, label %if.end242, label %if.end296.thread111
 
@@ -9176,7 +9176,7 @@ if.end242:                                        ; preds = %if.end235
 
 if.end249:                                        ; preds = %if.end242
   %call250 = call ptr @wc_Dh_ffdhe2048_Get() #19
-  %call251 = call fastcc i32 @dh_ffdhe_test(ptr noundef nonnull %rng, ptr noundef %call250)
+  %call251 = call fastcc i32 @dh_ffdhe_test(ptr noundef %rng, ptr noundef %call250)
   %cmp252.not = icmp eq i32 %call251, 0
   br i1 %cmp252.not, label %if.end267, label %do.body255
 
@@ -9335,7 +9335,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call6 = call fastcc i32 @ecc_test_curve(ptr noundef nonnull %rng, i32 noundef 28)
+  %call6 = call fastcc i32 @ecc_test_curve(ptr noundef %rng, i32 noundef 28)
   %cmp7 = icmp slt i32 %call6, 0
   br i1 %cmp7, label %if.then9, label %if.end12
 
@@ -9346,7 +9346,7 @@ if.then9:                                         ; preds = %if.end
   br label %done
 
 if.end12:                                         ; preds = %if.end
-  %call13 = call fastcc i32 @ecc_test_curve(ptr noundef nonnull %rng, i32 noundef 30)
+  %call13 = call fastcc i32 @ecc_test_curve(ptr noundef %rng, i32 noundef 30)
   %cmp14 = icmp slt i32 %call13, 0
   br i1 %cmp14, label %if.then16, label %if.end19
 
@@ -9357,7 +9357,7 @@ if.then16:                                        ; preds = %if.end12
   br label %done
 
 if.end19:                                         ; preds = %if.end12
-  %call20 = call fastcc i32 @ecc_test_curve(ptr noundef nonnull %rng, i32 noundef 32)
+  %call20 = call fastcc i32 @ecc_test_curve(ptr noundef %rng, i32 noundef 32)
   %cmp21 = icmp slt i32 %call20, 0
   br i1 %cmp21, label %if.then23, label %if.end26
 
@@ -9888,12 +9888,12 @@ if.end77.i:                                       ; preds = %if.end57.i
   br i1 %cmp81.not.i, label %if.end84.i, label %ecc_def_curve_test.exit
 
 if.end84.i:                                       ; preds = %if.end77.i
-  %call86.i = call fastcc i32 @ecc_exp_imp_test(ptr noundef nonnull %key.i)
+  %call86.i = call fastcc i32 @ecc_exp_imp_test(ptr noundef %key.i)
   %cmp87.i = icmp slt i32 %call86.i, 0
   br i1 %cmp87.i, label %ecc_def_curve_test.exit.thread, label %if.end90.i
 
 if.end90.i:                                       ; preds = %if.end84.i
-  %call92.i = call fastcc i32 @ecc_mulmod_test(ptr noundef nonnull %key.i)
+  %call92.i = call fastcc i32 @ecc_mulmod_test(ptr noundef %key.i)
   br label %ecc_def_curve_test.exit
 
 ecc_def_curve_test.exit.thread:                   ; preds = %if.then.i, %if.then11.i, %do.body65.i, %if.end84.i, %do.body45.i, %ecc_sig_test.exit.thread.i, %ecc_ssh_test.exit.thread.i
@@ -9921,7 +9921,7 @@ if.then35:                                        ; preds = %ecc_def_curve_test.
   br label %done
 
 if.end38:                                         ; preds = %ecc_def_curve_test.exit
-  %call39 = call fastcc i32 @ecc_test_curve(ptr noundef nonnull %rng, i32 noundef 40)
+  %call39 = call fastcc i32 @ecc_test_curve(ptr noundef %rng, i32 noundef 40)
   %cmp40 = icmp slt i32 %call39, 0
   br i1 %cmp40, label %if.then42, label %if.end45
 
@@ -9932,7 +9932,7 @@ if.then42:                                        ; preds = %if.end38
   br label %done
 
 if.end45:                                         ; preds = %if.end38
-  %call46 = call fastcc i32 @ecc_test_curve(ptr noundef nonnull %rng, i32 noundef 48)
+  %call46 = call fastcc i32 @ecc_test_curve(ptr noundef %rng, i32 noundef 48)
   %cmp47 = icmp slt i32 %call46, 0
   br i1 %cmp47, label %if.then49, label %if.end52
 
@@ -9943,7 +9943,7 @@ if.then49:                                        ; preds = %if.end45
   br label %done
 
 if.end52:                                         ; preds = %if.end45
-  %call53 = call fastcc i32 @ecc_test_curve(ptr noundef nonnull %rng, i32 noundef 64)
+  %call53 = call fastcc i32 @ecc_test_curve(ptr noundef %rng, i32 noundef 64)
   %cmp54 = icmp slt i32 %call53, 0
   br i1 %cmp54, label %if.then56, label %if.end59
 
@@ -9954,7 +9954,7 @@ if.then56:                                        ; preds = %if.end52
   br label %done
 
 if.end59:                                         ; preds = %if.end52
-  %call60 = call fastcc i32 @ecc_test_curve(ptr noundef nonnull %rng, i32 noundef 66)
+  %call60 = call fastcc i32 @ecc_test_curve(ptr noundef %rng, i32 noundef 66)
   %cmp61 = icmp slt i32 %call60, 0
   br i1 %cmp61, label %if.then63, label %if.end66
 
@@ -9976,7 +9976,7 @@ if.then70:                                        ; preds = %if.end66
   br label %done
 
 if.end73:                                         ; preds = %if.end66
-  %call74 = call fastcc i32 @ecc_test_make_pub(ptr noundef nonnull %rng)
+  %call74 = call fastcc i32 @ecc_test_make_pub(ptr noundef %rng)
   %cmp75.not = icmp eq i32 %call74, 0
   br i1 %cmp75.not, label %if.end80, label %if.then77
 
@@ -9987,7 +9987,7 @@ if.then77:                                        ; preds = %if.end73
   br label %done
 
 if.end80:                                         ; preds = %if.end73
-  %call81 = call fastcc i32 @ecc_test_allocator(ptr noundef nonnull %rng)
+  %call81 = call fastcc i32 @ecc_test_allocator(ptr noundef %rng)
   %cmp82.not = icmp eq i32 %call81, 0
   br i1 %cmp82.not, label %done, label %if.then84
 
@@ -10790,7 +10790,7 @@ return:                                           ; preds = %if.end65, %if.then5
 declare void @wc_AesFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -741583105, 1) i32 @aesgcm_default_test_helper(ptr noundef %key, ptr noundef %iv, ptr noundef %plain, i32 noundef %plainSz, ptr noundef readonly %cipher, i32 noundef %cipherSz, ptr noundef %aad, i32 noundef %aadSz, ptr nocapture noundef readonly %tag, i32 noundef %tagSz) unnamed_addr #0 {
+define internal fastcc range(i32 -741583105, 1) i32 @aesgcm_default_test_helper(ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef %plain, i32 noundef range(i32 0, 33) %plainSz, ptr noundef readonly %cipher, i32 noundef range(i32 0, 33) %cipherSz, ptr noundef %aad, i32 noundef range(i32 0, 17) %aadSz, ptr nocapture noundef nonnull readonly %tag, i32 noundef range(i32 12, 17) %tagSz) unnamed_addr #0 {
 entry:
   %enc = alloca [1 x %struct.Aes], align 16
   %dec = alloca [1 x %struct.Aes], align 16
@@ -10810,7 +10810,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp11.not, label %if.else26, label %if.end139
 
 if.else26:                                        ; preds = %if.else
-  %call29 = call i32 @wc_AesGcmSetKey(ptr noundef nonnull %enc, ptr noundef %key, i32 noundef 16) #19
+  %call29 = call i32 @wc_AesGcmSetKey(ptr noundef nonnull %enc, ptr noundef nonnull %key, i32 noundef 16) #19
   %cmp30.not = icmp eq i32 %call29, 0
   br i1 %cmp30.not, label %if.end45, label %do.body33
 
@@ -10822,7 +10822,7 @@ do.body33:                                        ; preds = %if.else26
   br label %if.then141
 
 if.end45:                                         ; preds = %if.else26
-  %call49 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %enc, ptr noundef nonnull %resultC, ptr noundef %plain, i32 noundef %plainSz, ptr noundef %iv, i32 noundef 12, ptr noundef nonnull %resultT, i32 noundef %tagSz, ptr noundef %aad, i32 noundef %aadSz) #19
+  %call49 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %enc, ptr noundef nonnull %resultC, ptr noundef %plain, i32 noundef %plainSz, ptr noundef nonnull %iv, i32 noundef 12, ptr noundef nonnull %resultT, i32 noundef %tagSz, ptr noundef %aad, i32 noundef %aadSz) #19
   %cmp50.not = icmp eq i32 %call49, 0
   br i1 %cmp50.not, label %if.end65, label %do.body53
 
@@ -10845,12 +10845,12 @@ if.then68:                                        ; preds = %if.end65
 
 if.end76:                                         ; preds = %if.then68, %if.end65
   %conv78 = zext nneg i32 %tagSz to i64
-  %bcmp26 = call i32 @bcmp(ptr %tag, ptr nonnull %resultT, i64 %conv78)
+  %bcmp26 = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %tag, ptr noundef nonnull dereferenceable(1) %resultT, i64 %conv78)
   %tobool80.not = icmp eq i32 %bcmp26, 0
   br i1 %tobool80.not, label %if.end84, label %if.then141
 
 if.end84:                                         ; preds = %if.end76
-  %call86 = call i32 @wc_AesGcmSetKey(ptr noundef nonnull %dec, ptr noundef %key, i32 noundef 16) #19
+  %call86 = call i32 @wc_AesGcmSetKey(ptr noundef nonnull %dec, ptr noundef nonnull %key, i32 noundef 16) #19
   %cmp87.not = icmp eq i32 %call86, 0
   br i1 %cmp87.not, label %if.end102, label %do.body90
 
@@ -10862,7 +10862,7 @@ do.body90:                                        ; preds = %if.end84
   br label %if.then141
 
 if.end102:                                        ; preds = %if.end84
-  %call107 = call i32 @wc_AesGcmDecrypt(ptr noundef nonnull %dec, ptr noundef nonnull %resultP, ptr noundef nonnull %resultC, i32 noundef %cipherSz, ptr noundef %iv, i32 noundef 12, ptr noundef nonnull %resultT, i32 noundef %tagSz, ptr noundef %aad, i32 noundef %aadSz) #19
+  %call107 = call i32 @wc_AesGcmDecrypt(ptr noundef nonnull %dec, ptr noundef nonnull %resultP, ptr noundef nonnull %resultC, i32 noundef %cipherSz, ptr noundef nonnull %iv, i32 noundef 12, ptr noundef nonnull %resultT, i32 noundef %tagSz, ptr noundef %aad, i32 noundef %aadSz) #19
   %cmp108.not = icmp eq i32 %call107, 0
   br i1 %cmp108.not, label %if.end123, label %do.body111
 
@@ -10941,7 +10941,7 @@ declare i32 @wc_Gmac(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr nou
 declare i32 @wc_RNG_HealthTest(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @random_rng_test() unnamed_addr #0 {
+define internal fastcc range(i32 -1278456993, 1) i32 @random_rng_test() unnamed_addr #0 {
 entry:
   %localRng = alloca %struct.WC_RNG, align 8
   %nonce = alloca [8 x i8], align 8
@@ -10957,7 +10957,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call6 = call fastcc i32 @_rng_test(ptr noundef nonnull %localRng, i32 noundef -15155)
+  %call6 = call fastcc i32 @_rng_test(ptr noundef %localRng, i32 noundef -15155)
   %call7 = call i32 @wc_FreeRng(ptr noundef nonnull %localRng) #19
   %cmp8.not = icmp eq i32 %call6, 0
   br i1 %cmp8.not, label %if.end11, label %return
@@ -10977,7 +10977,7 @@ if.then15:                                        ; preds = %if.end11
   br label %return
 
 if.end26:                                         ; preds = %if.end11
-  %call27 = call fastcc i32 @_rng_test(ptr noundef nonnull %call12, i32 noundef -15171)
+  %call27 = call fastcc i32 @_rng_test(ptr noundef %call12, i32 noundef -15171)
   call void @wc_rng_free(ptr noundef nonnull %call12) #19
   br label %return
 
@@ -11009,7 +11009,7 @@ declare i32 @wc_RsaPrivateKeyDecode(ptr noundef, ptr noundef, ptr noundef, i32 n
 declare i32 @wc_RsaEncryptSize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -741587615, 1) i32 @rsa_sig_test(ptr noundef %key, i32 noundef %modLen, ptr noundef %rng) unnamed_addr #0 {
+define internal fastcc range(i32 -741587615, 1) i32 @rsa_sig_test(ptr noundef nonnull %key, i32 noundef %modLen, ptr noundef nonnull %rng) unnamed_addr #0 {
 entry:
   %sigSz = alloca i32, align 4
   %in = alloca [26 x i8], align 16
@@ -11021,7 +11021,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(51) %hashEnc, ptr noundef nonnull align 16 dereferenceable(51) @__const.rsa_sig_test.hashEnc, i64 51, i1 false)
   %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %in) #20
   %conv = trunc i64 %call to i32
-  %call1 = tail call i32 @wc_SignatureGetSize(i32 noundef 0, ptr noundef %key, i32 noundef 8368) #19
+  %call1 = tail call i32 @wc_SignatureGetSize(i32 noundef 0, ptr noundef nonnull %key, i32 noundef 8368) #19
   %cmp.not = icmp eq i32 %call1, -173
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -11033,7 +11033,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call9 = tail call i32 @wc_SignatureGetSize(i32 noundef 2, ptr noundef %key, i32 noundef 0) #19
+  %call9 = tail call i32 @wc_SignatureGetSize(i32 noundef 2, ptr noundef nonnull %key, i32 noundef 0) #19
   %cmp10.not = icmp eq i32 %call9, -173
   br i1 %cmp10.not, label %if.end23, label %if.then12
 
@@ -11046,7 +11046,7 @@ if.then12:                                        ; preds = %if.end
 
 if.end23:                                         ; preds = %if.end
   store i32 %modLen, ptr %sigSz, align 4
-  %call25 = call i32 @wc_SignatureGenerate(i32 noundef 6, i32 noundef 2, ptr noundef null, i32 noundef %conv, ptr noundef nonnull %out, ptr noundef nonnull %sigSz, ptr noundef %key, i32 noundef 8368, ptr noundef %rng) #19
+  %call25 = call i32 @wc_SignatureGenerate(i32 noundef 6, i32 noundef 2, ptr noundef null, i32 noundef %conv, ptr noundef nonnull %out, ptr noundef nonnull %sigSz, ptr noundef nonnull %key, i32 noundef 8368, ptr noundef nonnull %rng) #19
   %cmp26.not = icmp eq i32 %call25, -173
   br i1 %cmp26.not, label %if.end39, label %if.then28
 
@@ -11058,7 +11058,7 @@ if.then28:                                        ; preds = %if.end23
   br label %return
 
 if.end39:                                         ; preds = %if.end23
-  %call42 = call i32 @wc_SignatureGenerate(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef 0, ptr noundef nonnull %out, ptr noundef nonnull %sigSz, ptr noundef %key, i32 noundef 8368, ptr noundef %rng) #19
+  %call42 = call i32 @wc_SignatureGenerate(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef 0, ptr noundef nonnull %out, ptr noundef nonnull %sigSz, ptr noundef nonnull %key, i32 noundef 8368, ptr noundef nonnull %rng) #19
   %cmp43.not = icmp eq i32 %call42, -173
   br i1 %cmp43.not, label %if.end56, label %if.then45
 
@@ -11070,7 +11070,7 @@ if.then45:                                        ; preds = %if.end39
   br label %return
 
 if.end56:                                         ; preds = %if.end39
-  %call58 = call i32 @wc_SignatureGenerate(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef null, ptr noundef nonnull %sigSz, ptr noundef %key, i32 noundef 8368, ptr noundef %rng) #19
+  %call58 = call i32 @wc_SignatureGenerate(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef null, ptr noundef nonnull %sigSz, ptr noundef nonnull %key, i32 noundef 8368, ptr noundef nonnull %rng) #19
   %cmp59.not = icmp eq i32 %call58, -173
   br i1 %cmp59.not, label %if.end72, label %if.then61
 
@@ -11082,7 +11082,7 @@ if.then61:                                        ; preds = %if.end56
   br label %return
 
 if.end72:                                         ; preds = %if.end56
-  %call75 = call i32 @wc_SignatureGenerate(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, ptr noundef null, ptr noundef %key, i32 noundef 8368, ptr noundef %rng) #19
+  %call75 = call i32 @wc_SignatureGenerate(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, ptr noundef null, ptr noundef nonnull %key, i32 noundef 8368, ptr noundef nonnull %rng) #19
   %cmp76.not = icmp eq i32 %call75, -173
   br i1 %cmp76.not, label %if.end89, label %if.then78
 
@@ -11094,7 +11094,7 @@ if.then78:                                        ; preds = %if.end72
   br label %return
 
 if.end89:                                         ; preds = %if.end72
-  %call92 = call i32 @wc_SignatureGenerate(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, ptr noundef nonnull %sigSz, ptr noundef null, i32 noundef 8368, ptr noundef %rng) #19
+  %call92 = call i32 @wc_SignatureGenerate(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, ptr noundef nonnull %sigSz, ptr noundef null, i32 noundef 8368, ptr noundef nonnull %rng) #19
   %cmp93.not = icmp eq i32 %call92, -173
   br i1 %cmp93.not, label %if.end106, label %if.then95
 
@@ -11106,7 +11106,7 @@ if.then95:                                        ; preds = %if.end89
   br label %return
 
 if.end106:                                        ; preds = %if.end89
-  %call109 = call i32 @wc_SignatureGenerate(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, ptr noundef nonnull %sigSz, ptr noundef %key, i32 noundef 0, ptr noundef %rng) #19
+  %call109 = call i32 @wc_SignatureGenerate(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, ptr noundef nonnull %sigSz, ptr noundef nonnull %key, i32 noundef 0, ptr noundef nonnull %rng) #19
   %cmp110.not = icmp eq i32 %call109, -173
   br i1 %cmp110.not, label %if.end123, label %if.then112
 
@@ -11118,7 +11118,7 @@ if.then112:                                       ; preds = %if.end106
   br label %return
 
 if.end123:                                        ; preds = %if.end106
-  %call126 = call i32 @wc_SignatureGenerate(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, ptr noundef nonnull %sigSz, ptr noundef %key, i32 noundef 8368, ptr noundef null) #19
+  %call126 = call i32 @wc_SignatureGenerate(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, ptr noundef nonnull %sigSz, ptr noundef nonnull %key, i32 noundef 8368, ptr noundef null) #19
   %cmp127.not = icmp eq i32 %call126, -236
   br i1 %cmp127.not, label %if.end140, label %if.then129
 
@@ -11131,7 +11131,7 @@ if.then129:                                       ; preds = %if.end123
 
 if.end140:                                        ; preds = %if.end123
   store i32 0, ptr %sigSz, align 4
-  %call143 = call i32 @wc_SignatureGenerate(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, ptr noundef nonnull %sigSz, ptr noundef %key, i32 noundef 8368, ptr noundef %rng) #19
+  %call143 = call i32 @wc_SignatureGenerate(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, ptr noundef nonnull %sigSz, ptr noundef nonnull %key, i32 noundef 8368, ptr noundef nonnull %rng) #19
   %cmp144.not = icmp eq i32 %call143, -173
   br i1 %cmp144.not, label %if.end157, label %if.then146
 
@@ -11143,7 +11143,7 @@ if.then146:                                       ; preds = %if.end140
   br label %return
 
 if.end157:                                        ; preds = %if.end140
-  %call159 = call i32 @wc_SignatureVerify(i32 noundef 6, i32 noundef 2, ptr noundef null, i32 noundef %conv, ptr noundef nonnull %out, i32 noundef %modLen, ptr noundef %key, i32 noundef 8368) #19
+  %call159 = call i32 @wc_SignatureVerify(i32 noundef 6, i32 noundef 2, ptr noundef null, i32 noundef %conv, ptr noundef nonnull %out, i32 noundef %modLen, ptr noundef nonnull %key, i32 noundef 8368) #19
   %cmp160.not = icmp eq i32 %call159, -173
   br i1 %cmp160.not, label %if.end173, label %if.then162
 
@@ -11155,7 +11155,7 @@ if.then162:                                       ; preds = %if.end157
   br label %return
 
 if.end173:                                        ; preds = %if.end157
-  %call176 = call i32 @wc_SignatureVerify(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef 0, ptr noundef nonnull %out, i32 noundef %modLen, ptr noundef %key, i32 noundef 8368) #19
+  %call176 = call i32 @wc_SignatureVerify(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef 0, ptr noundef nonnull %out, i32 noundef %modLen, ptr noundef nonnull %key, i32 noundef 8368) #19
   %cmp177.not = icmp eq i32 %call176, -173
   br i1 %cmp177.not, label %if.end190, label %if.then179
 
@@ -11167,7 +11167,7 @@ if.then179:                                       ; preds = %if.end173
   br label %return
 
 if.end190:                                        ; preds = %if.end173
-  %call192 = call i32 @wc_SignatureVerify(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef null, i32 noundef %modLen, ptr noundef %key, i32 noundef 8368) #19
+  %call192 = call i32 @wc_SignatureVerify(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef null, i32 noundef %modLen, ptr noundef nonnull %key, i32 noundef 8368) #19
   %cmp193.not = icmp eq i32 %call192, -173
   br i1 %cmp193.not, label %if.end206, label %if.then195
 
@@ -11179,7 +11179,7 @@ if.then195:                                       ; preds = %if.end190
   br label %return
 
 if.end206:                                        ; preds = %if.end190
-  %call209 = call i32 @wc_SignatureVerify(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, i32 noundef 0, ptr noundef %key, i32 noundef 8368) #19
+  %call209 = call i32 @wc_SignatureVerify(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, i32 noundef 0, ptr noundef nonnull %key, i32 noundef 8368) #19
   %cmp210.not = icmp eq i32 %call209, -173
   br i1 %cmp210.not, label %if.end223, label %if.then212
 
@@ -11203,7 +11203,7 @@ if.then229:                                       ; preds = %if.end223
   br label %return
 
 if.end240:                                        ; preds = %if.end223
-  %call243 = call i32 @wc_SignatureVerify(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, i32 noundef %modLen, ptr noundef %key, i32 noundef 0) #19
+  %call243 = call i32 @wc_SignatureVerify(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, i32 noundef %modLen, ptr noundef nonnull %key, i32 noundef 0) #19
   %cmp244.not = icmp eq i32 %call243, -173
   br i1 %cmp244.not, label %if.end257, label %if.then246
 
@@ -11215,7 +11215,7 @@ if.then246:                                       ; preds = %if.end240
   br label %return
 
 if.end257:                                        ; preds = %if.end240
-  %call258 = call i32 @wc_SignatureGetSize(i32 noundef 2, ptr noundef %key, i32 noundef 8368) #19
+  %call258 = call i32 @wc_SignatureGetSize(i32 noundef 2, ptr noundef nonnull %key, i32 noundef 8368) #19
   %cmp259.not = icmp eq i32 %call258, %modLen
   br i1 %cmp259.not, label %if.end272, label %if.then261
 
@@ -11227,7 +11227,7 @@ if.then261:                                       ; preds = %if.end257
   br label %return
 
 if.end272:                                        ; preds = %if.end257
-  %call273 = call i32 @wc_SignatureGetSize(i32 noundef 3, ptr noundef %key, i32 noundef 8368) #19
+  %call273 = call i32 @wc_SignatureGetSize(i32 noundef 3, ptr noundef nonnull %key, i32 noundef 8368) #19
   %cmp274.not = icmp eq i32 %call273, %modLen
   br i1 %cmp274.not, label %if.end287, label %if.then276
 
@@ -11241,7 +11241,7 @@ if.then276:                                       ; preds = %if.end272
 if.end287:                                        ; preds = %if.end272
   store i32 %modLen, ptr %sigSz, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %out, i8 0, i64 512, i1 false)
-  %call291 = call i32 @wc_SignatureGenerate(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, ptr noundef nonnull %sigSz, ptr noundef %key, i32 noundef 8368, ptr noundef %rng) #19
+  %call291 = call i32 @wc_SignatureGenerate(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, ptr noundef nonnull %sigSz, ptr noundef nonnull %key, i32 noundef 8368, ptr noundef nonnull %rng) #19
   %cmp292.not = icmp eq i32 %call291, 0
   br i1 %cmp292.not, label %if.end305, label %if.then294
 
@@ -11253,7 +11253,7 @@ if.then294:                                       ; preds = %if.end287
   br label %return
 
 if.end305:                                        ; preds = %if.end287
-  %call308 = call i32 @wc_SignatureVerify(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, i32 noundef %modLen, ptr noundef %key, i32 noundef 8368) #19
+  %call308 = call i32 @wc_SignatureVerify(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, i32 noundef %modLen, ptr noundef nonnull %key, i32 noundef 8368) #19
   %cmp309.not = icmp eq i32 %call308, 0
   br i1 %cmp309.not, label %if.end322, label %if.then311
 
@@ -11266,7 +11266,7 @@ if.then311:                                       ; preds = %if.end305
 
 if.end322:                                        ; preds = %if.end305
   store i32 512, ptr %sigSz, align 4
-  %call325 = call i32 @wc_SignatureGenerate(i32 noundef 6, i32 noundef 3, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, ptr noundef nonnull %sigSz, ptr noundef %key, i32 noundef 8368, ptr noundef %rng) #19
+  %call325 = call i32 @wc_SignatureGenerate(i32 noundef 6, i32 noundef 3, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, ptr noundef nonnull %sigSz, ptr noundef nonnull %key, i32 noundef 8368, ptr noundef nonnull %rng) #19
   %cmp326.not = icmp eq i32 %call325, 0
   br i1 %cmp326.not, label %if.end339, label %if.then328
 
@@ -11278,7 +11278,7 @@ if.then328:                                       ; preds = %if.end322
   br label %return
 
 if.end339:                                        ; preds = %if.end322
-  %call342 = call i32 @wc_SignatureVerify(i32 noundef 6, i32 noundef 3, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, i32 noundef %modLen, ptr noundef %key, i32 noundef 8368) #19
+  %call342 = call i32 @wc_SignatureVerify(i32 noundef 6, i32 noundef 3, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, i32 noundef %modLen, ptr noundef nonnull %key, i32 noundef 8368) #19
   %cmp343.not = icmp eq i32 %call342, 0
   br i1 %cmp343.not, label %if.end356, label %if.then345
 
@@ -11290,13 +11290,13 @@ if.then345:                                       ; preds = %if.end339
   br label %return
 
 if.end356:                                        ; preds = %if.end339
-  %call359 = call i32 @wc_SignatureVerify(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, i32 noundef %modLen, ptr noundef %key, i32 noundef 8368) #19
+  %call359 = call i32 @wc_SignatureVerify(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %in, i32 noundef %conv, ptr noundef nonnull %out, i32 noundef %modLen, ptr noundef nonnull %key, i32 noundef 8368) #19
   %cmp360 = icmp eq i32 %call359, 0
   br i1 %cmp360, label %return, label %if.end373
 
 if.end373:                                        ; preds = %if.end356
   store i32 512, ptr %sigSz, align 4
-  %call376 = call i32 @wc_SignatureGenerateHash(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %hash, i32 noundef 32, ptr noundef nonnull %out, ptr noundef nonnull %sigSz, ptr noundef %key, i32 noundef 8368, ptr noundef %rng) #19
+  %call376 = call i32 @wc_SignatureGenerateHash(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %hash, i32 noundef 32, ptr noundef nonnull %out, ptr noundef nonnull %sigSz, ptr noundef nonnull %key, i32 noundef 8368, ptr noundef nonnull %rng) #19
   %cmp377.not = icmp eq i32 %call376, 0
   br i1 %cmp377.not, label %if.end390, label %if.then379
 
@@ -11308,7 +11308,7 @@ if.then379:                                       ; preds = %if.end373
   br label %return
 
 if.end390:                                        ; preds = %if.end373
-  %call393 = call i32 @wc_SignatureVerifyHash(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %hash, i32 noundef 32, ptr noundef nonnull %out, i32 noundef %modLen, ptr noundef %key, i32 noundef 8368) #19
+  %call393 = call i32 @wc_SignatureVerifyHash(i32 noundef 6, i32 noundef 2, ptr noundef nonnull %hash, i32 noundef 32, ptr noundef nonnull %out, i32 noundef %modLen, ptr noundef nonnull %key, i32 noundef 8368) #19
   %cmp394.not = icmp eq i32 %call393, 0
   br i1 %cmp394.not, label %if.end407, label %if.then396
 
@@ -11321,7 +11321,7 @@ if.then396:                                       ; preds = %if.end390
 
 if.end407:                                        ; preds = %if.end390
   store i32 512, ptr %sigSz, align 4
-  %call410 = call i32 @wc_SignatureGenerateHash(i32 noundef 6, i32 noundef 3, ptr noundef nonnull %hashEnc, i32 noundef 51, ptr noundef nonnull %out, ptr noundef nonnull %sigSz, ptr noundef %key, i32 noundef 8368, ptr noundef %rng) #19
+  %call410 = call i32 @wc_SignatureGenerateHash(i32 noundef 6, i32 noundef 3, ptr noundef nonnull %hashEnc, i32 noundef 51, ptr noundef nonnull %out, ptr noundef nonnull %sigSz, ptr noundef nonnull %key, i32 noundef 8368, ptr noundef nonnull %rng) #19
   %cmp411.not = icmp eq i32 %call410, 0
   br i1 %cmp411.not, label %if.end424, label %if.then413
 
@@ -11333,7 +11333,7 @@ if.then413:                                       ; preds = %if.end407
   br label %return
 
 if.end424:                                        ; preds = %if.end407
-  %call427 = call i32 @wc_SignatureVerifyHash(i32 noundef 6, i32 noundef 3, ptr noundef nonnull %hashEnc, i32 noundef 51, ptr noundef nonnull %out, i32 noundef %modLen, ptr noundef %key, i32 noundef 8368) #19
+  %call427 = call i32 @wc_SignatureVerifyHash(i32 noundef 6, i32 noundef 3, ptr noundef nonnull %hashEnc, i32 noundef 51, ptr noundef nonnull %out, i32 noundef %modLen, ptr noundef nonnull %key, i32 noundef 8368) #19
   %cmp428.not = icmp eq i32 %call427, 0
   br i1 %cmp428.not, label %return, label %if.then430
 
@@ -11362,7 +11362,7 @@ declare i32 @wc_RsaSSL_Sign(ptr noundef, i32 noundef, ptr noundef, i32 noundef, 
 declare i32 @wc_RsaSSL_Verify(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -741589701, 1) i32 @rsa_oaep_padding_test(ptr noundef %key, ptr noundef %rng) unnamed_addr #0 {
+define internal fastcc range(i32 -741589701, 1) i32 @rsa_oaep_padding_test(ptr noundef nonnull %key, ptr noundef nonnull %rng) unnamed_addr #0 {
 entry:
   %res = alloca ptr, align 8
   %in = alloca [25 x i8], align 16
@@ -11378,7 +11378,7 @@ do.body:                                          ; preds = %do.cond, %entry
   br i1 %cmp, label %if.then, label %do.cond
 
 if.then:                                          ; preds = %do.body
-  %call = call i32 @wc_RsaPublicEncrypt_ex(ptr noundef nonnull %in, i32 noundef 25, ptr noundef nonnull %out, i32 noundef 512, ptr noundef %key, ptr noundef %rng, i32 noundef 1, i32 noundef 4, i32 noundef 26, ptr noundef null, i32 noundef 0) #19
+  %call = call i32 @wc_RsaPublicEncrypt_ex(ptr noundef nonnull %in, i32 noundef 25, ptr noundef nonnull %out, i32 noundef 512, ptr noundef nonnull %key, ptr noundef nonnull %rng, i32 noundef 1, i32 noundef 4, i32 noundef 26, ptr noundef null, i32 noundef 0) #19
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body, %if.then
@@ -11403,7 +11403,7 @@ do.body19:                                        ; preds = %do.end, %do.cond27
   br i1 %cmp20, label %if.then22, label %do.cond27
 
 if.then22:                                        ; preds = %do.body19
-  %call25 = call i32 @wc_RsaPrivateDecrypt_ex(ptr noundef nonnull %out, i32 noundef %ret.1, ptr noundef nonnull %plain, i32 noundef 512, ptr noundef %key, i32 noundef 1, i32 noundef 4, i32 noundef 26, ptr noundef null, i32 noundef 0) #19
+  %call25 = call i32 @wc_RsaPrivateDecrypt_ex(ptr noundef nonnull %out, i32 noundef %ret.1, ptr noundef nonnull %plain, i32 noundef 512, ptr noundef nonnull %key, i32 noundef 1, i32 noundef 4, i32 noundef 26, ptr noundef null, i32 noundef 0) #19
   br label %do.cond27
 
 do.cond27:                                        ; preds = %do.body19, %if.then22
@@ -11437,7 +11437,7 @@ do.body60:                                        ; preds = %do.cond68, %do.end5
   br i1 %cmp61, label %if.then63, label %do.cond68
 
 if.then63:                                        ; preds = %do.body60
-  %call66 = call i32 @wc_RsaPublicEncrypt_ex(ptr noundef nonnull %in, i32 noundef 25, ptr noundef nonnull %out, i32 noundef 512, ptr noundef %key, ptr noundef %rng, i32 noundef 1, i32 noundef 6, i32 noundef 1, ptr noundef null, i32 noundef 0) #19
+  %call66 = call i32 @wc_RsaPublicEncrypt_ex(ptr noundef nonnull %in, i32 noundef 25, ptr noundef nonnull %out, i32 noundef 512, ptr noundef nonnull %key, ptr noundef nonnull %rng, i32 noundef 1, i32 noundef 6, i32 noundef 1, ptr noundef null, i32 noundef 0) #19
   br label %do.cond68
 
 do.cond68:                                        ; preds = %do.body60, %if.then63
@@ -11462,7 +11462,7 @@ do.body92:                                        ; preds = %do.end71, %do.cond1
   br i1 %cmp93, label %if.then95, label %do.cond100
 
 if.then95:                                        ; preds = %do.body92
-  %call98 = call i32 @wc_RsaPrivateDecrypt_ex(ptr noundef nonnull %out, i32 noundef %ret.5, ptr noundef nonnull %plain, i32 noundef 512, ptr noundef %key, i32 noundef 1, i32 noundef 6, i32 noundef 1, ptr noundef null, i32 noundef 0) #19
+  %call98 = call i32 @wc_RsaPrivateDecrypt_ex(ptr noundef nonnull %out, i32 noundef %ret.5, ptr noundef nonnull %plain, i32 noundef 512, ptr noundef nonnull %key, i32 noundef 1, i32 noundef 6, i32 noundef 1, ptr noundef null, i32 noundef 0) #19
   br label %do.cond100
 
 do.cond100:                                       ; preds = %do.body92, %if.then95
@@ -11492,7 +11492,7 @@ do.body133:                                       ; preds = %if.end120, %do.cond
   br i1 %cmp134, label %if.then136, label %do.cond140
 
 if.then136:                                       ; preds = %do.body133
-  %call138 = call i32 @wc_RsaPrivateDecryptInline_ex(ptr noundef nonnull %out, i32 noundef %ret.5, ptr noundef nonnull %res, ptr noundef %key, i32 noundef 1, i32 noundef 6, i32 noundef 1, ptr noundef null, i32 noundef 0) #19
+  %call138 = call i32 @wc_RsaPrivateDecryptInline_ex(ptr noundef nonnull %out, i32 noundef %ret.5, ptr noundef nonnull %res, ptr noundef nonnull %key, i32 noundef 1, i32 noundef 6, i32 noundef 1, ptr noundef null, i32 noundef 0) #19
   br label %do.cond140
 
 do.cond140:                                       ; preds = %do.body133, %if.then136
@@ -11531,7 +11531,7 @@ do.body180:                                       ; preds = %do.cond188, %do.end
   br i1 %cmp181, label %if.then183, label %do.cond188
 
 if.then183:                                       ; preds = %do.body180
-  %call186 = call i32 @wc_RsaPublicEncrypt_ex(ptr noundef nonnull %in, i32 noundef 25, ptr noundef nonnull %out, i32 noundef 512, ptr noundef %key, ptr noundef %rng, i32 noundef 1, i32 noundef 6, i32 noundef 1, ptr noundef null, i32 noundef 0) #19
+  %call186 = call i32 @wc_RsaPublicEncrypt_ex(ptr noundef nonnull %in, i32 noundef 25, ptr noundef nonnull %out, i32 noundef 512, ptr noundef nonnull %key, ptr noundef nonnull %rng, i32 noundef 1, i32 noundef 6, i32 noundef 1, ptr noundef null, i32 noundef 0) #19
   br label %do.cond188
 
 do.cond188:                                       ; preds = %do.body180, %if.then183
@@ -11556,7 +11556,7 @@ do.body212:                                       ; preds = %do.end191, %do.cond
   br i1 %cmp213, label %if.then215, label %do.cond221
 
 if.then215:                                       ; preds = %do.body212
-  %call219 = call i32 @wc_RsaPrivateDecrypt_ex(ptr noundef nonnull %out, i32 noundef %ret.11, ptr noundef nonnull %plain, i32 noundef 512, ptr noundef %key, i32 noundef 1, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %in, i32 noundef 25) #19
+  %call219 = call i32 @wc_RsaPrivateDecrypt_ex(ptr noundef nonnull %out, i32 noundef %ret.11, ptr noundef nonnull %plain, i32 noundef 512, ptr noundef nonnull %key, i32 noundef 1, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %in, i32 noundef 25) #19
   br label %do.cond221
 
 do.cond221:                                       ; preds = %do.body212, %if.then215
@@ -11578,7 +11578,7 @@ do.body236:                                       ; preds = %do.cond245, %if.end
   br i1 %cmp237, label %if.then239, label %do.cond245
 
 if.then239:                                       ; preds = %do.body236
-  %call243 = call i32 @wc_RsaPublicEncrypt_ex(ptr noundef nonnull %in, i32 noundef 25, ptr noundef nonnull %out, i32 noundef 512, ptr noundef %key, ptr noundef %rng, i32 noundef 1, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %in, i32 noundef 25) #19
+  %call243 = call i32 @wc_RsaPublicEncrypt_ex(ptr noundef nonnull %in, i32 noundef 25, ptr noundef nonnull %out, i32 noundef 512, ptr noundef nonnull %key, ptr noundef nonnull %rng, i32 noundef 1, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %in, i32 noundef 25) #19
   br label %do.cond245
 
 do.cond245:                                       ; preds = %do.body236, %if.then239
@@ -11603,7 +11603,7 @@ do.body269:                                       ; preds = %do.end248, %do.cond
   br i1 %cmp270, label %if.then272, label %do.cond278
 
 if.then272:                                       ; preds = %do.body269
-  %call276 = call i32 @wc_RsaPrivateDecrypt_ex(ptr noundef nonnull %out, i32 noundef %ret.15, ptr noundef nonnull %plain, i32 noundef 512, ptr noundef %key, i32 noundef 1, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %in, i32 noundef 25) #19
+  %call276 = call i32 @wc_RsaPrivateDecrypt_ex(ptr noundef nonnull %out, i32 noundef %ret.15, ptr noundef nonnull %plain, i32 noundef 512, ptr noundef nonnull %key, i32 noundef 1, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %in, i32 noundef 25) #19
   br label %do.cond278
 
 do.cond278:                                       ; preds = %do.body269, %if.then272
@@ -11637,7 +11637,7 @@ do.body312:                                       ; preds = %do.cond321, %do.end
   br i1 %cmp313, label %if.then315, label %do.cond321
 
 if.then315:                                       ; preds = %do.body312
-  %call319 = call i32 @wc_RsaPublicEncrypt_ex(ptr noundef nonnull %in, i32 noundef 25, ptr noundef nonnull %out, i32 noundef 512, ptr noundef %key, ptr noundef %rng, i32 noundef 1, i32 noundef 4, i32 noundef 26, ptr noundef nonnull %in, i32 noundef 25) #19
+  %call319 = call i32 @wc_RsaPublicEncrypt_ex(ptr noundef nonnull %in, i32 noundef 25, ptr noundef nonnull %out, i32 noundef 512, ptr noundef nonnull %key, ptr noundef nonnull %rng, i32 noundef 1, i32 noundef 4, i32 noundef 26, ptr noundef nonnull %in, i32 noundef 25) #19
   br label %do.cond321
 
 do.cond321:                                       ; preds = %do.body312, %if.then315
@@ -11662,7 +11662,7 @@ do.body345:                                       ; preds = %do.end324, %do.cond
   br i1 %cmp346, label %if.then348, label %do.cond354
 
 if.then348:                                       ; preds = %do.body345
-  %call352 = call i32 @wc_RsaPrivateDecrypt_ex(ptr noundef nonnull %out, i32 noundef %ret.19, ptr noundef nonnull %plain, i32 noundef 512, ptr noundef %key, i32 noundef 1, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %in, i32 noundef 25) #19
+  %call352 = call i32 @wc_RsaPrivateDecrypt_ex(ptr noundef nonnull %out, i32 noundef %ret.19, ptr noundef nonnull %plain, i32 noundef 512, ptr noundef nonnull %key, i32 noundef 1, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %in, i32 noundef 25) #19
   br label %do.cond354
 
 do.cond354:                                       ; preds = %do.body345, %if.then348
@@ -11675,7 +11675,7 @@ do.end357:                                        ; preds = %do.cond354
   br i1 %cmp358, label %do.end529, label %if.end364
 
 if.end364:                                        ; preds = %do.end357
-  %call368 = call i32 @wc_RsaEncryptSize(ptr noundef %key) #19
+  %call368 = call i32 @wc_RsaEncryptSize(ptr noundef nonnull %key) #19
   %cmp369 = icmp sgt i32 %call368, 130
   br i1 %cmp369, label %if.then371, label %if.end446
 
@@ -11689,7 +11689,7 @@ do.body373:                                       ; preds = %do.cond381, %if.the
   br i1 %cmp374, label %if.then376, label %do.cond381
 
 if.then376:                                       ; preds = %do.body373
-  %call379 = call i32 @wc_RsaPublicEncrypt_ex(ptr noundef nonnull %in, i32 noundef 25, ptr noundef nonnull %out, i32 noundef 512, ptr noundef %key, ptr noundef %rng, i32 noundef 1, i32 noundef 8, i32 noundef 3, ptr noundef null, i32 noundef 0) #19
+  %call379 = call i32 @wc_RsaPublicEncrypt_ex(ptr noundef nonnull %in, i32 noundef 25, ptr noundef nonnull %out, i32 noundef 512, ptr noundef nonnull %key, ptr noundef nonnull %rng, i32 noundef 1, i32 noundef 8, i32 noundef 3, ptr noundef null, i32 noundef 0) #19
   br label %do.cond381
 
 do.cond381:                                       ; preds = %do.body373, %if.then376
@@ -11714,7 +11714,7 @@ do.body405:                                       ; preds = %do.end384, %do.cond
   br i1 %cmp406, label %if.then408, label %do.cond413
 
 if.then408:                                       ; preds = %do.body405
-  %call411 = call i32 @wc_RsaPrivateDecrypt_ex(ptr noundef nonnull %out, i32 noundef %ret.24, ptr noundef nonnull %plain, i32 noundef 512, ptr noundef %key, i32 noundef 1, i32 noundef 8, i32 noundef 3, ptr noundef null, i32 noundef 0) #19
+  %call411 = call i32 @wc_RsaPrivateDecrypt_ex(ptr noundef nonnull %out, i32 noundef %ret.24, ptr noundef nonnull %plain, i32 noundef 512, ptr noundef nonnull %key, i32 noundef 1, i32 noundef 8, i32 noundef 3, ptr noundef null, i32 noundef 0) #19
   br label %do.cond413
 
 do.cond413:                                       ; preds = %do.body405, %if.then408
@@ -11749,7 +11749,7 @@ do.body448:                                       ; preds = %do.cond456, %if.end
   br i1 %cmp449, label %if.then451, label %do.cond456
 
 if.then451:                                       ; preds = %do.body448
-  %call454 = call i32 @wc_RsaPublicEncrypt_ex(ptr noundef nonnull %in, i32 noundef 25, ptr noundef nonnull %out, i32 noundef 512, ptr noundef %key, ptr noundef %rng, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0) #19
+  %call454 = call i32 @wc_RsaPublicEncrypt_ex(ptr noundef nonnull %in, i32 noundef 25, ptr noundef nonnull %out, i32 noundef 512, ptr noundef nonnull %key, ptr noundef nonnull %rng, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0) #19
   br label %do.cond456
 
 do.cond456:                                       ; preds = %do.body448, %if.then451
@@ -11774,7 +11774,7 @@ do.body480:                                       ; preds = %do.end459, %do.cond
   br i1 %cmp481, label %if.then483, label %do.cond488
 
 if.then483:                                       ; preds = %do.body480
-  %call486 = call i32 @wc_RsaPrivateDecrypt_ex(ptr noundef nonnull %out, i32 noundef %ret.28, ptr noundef nonnull %plain, i32 noundef 512, ptr noundef %key, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0) #19
+  %call486 = call i32 @wc_RsaPrivateDecrypt_ex(ptr noundef nonnull %out, i32 noundef %ret.28, ptr noundef nonnull %plain, i32 noundef 512, ptr noundef nonnull %key, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0) #19
   br label %do.cond488
 
 do.cond488:                                       ; preds = %do.body480, %if.then483
@@ -11805,7 +11805,7 @@ do.end529:                                        ; preds = %if.end508, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -741587429, 1) i32 @rsa_export_key_test(ptr noundef %key) unnamed_addr #0 {
+define internal fastcc range(i32 -741587429, 1) i32 @rsa_export_key_test(ptr noundef nonnull %key) unnamed_addr #0 {
 entry:
   %e = alloca [3 x i8], align 1
   %eSz = alloca i32, align 4
@@ -11836,7 +11836,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call14 = call i32 @wc_RsaExportKey(ptr noundef %key, ptr noundef null, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
+  %call14 = call i32 @wc_RsaExportKey(ptr noundef nonnull %key, ptr noundef null, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
   %cmp15.not = icmp eq i32 %call14, -173
   br i1 %cmp15.not, label %if.end28, label %if.then17
 
@@ -11848,7 +11848,7 @@ if.then17:                                        ; preds = %if.end
   br label %return
 
 if.end28:                                         ; preds = %if.end
-  %call34 = call i32 @wc_RsaExportKey(ptr noundef %key, ptr noundef nonnull %e, ptr noundef null, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
+  %call34 = call i32 @wc_RsaExportKey(ptr noundef nonnull %key, ptr noundef nonnull %e, ptr noundef null, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
   %cmp35.not = icmp eq i32 %call34, -173
   br i1 %cmp35.not, label %if.end48, label %if.then37
 
@@ -11860,7 +11860,7 @@ if.then37:                                        ; preds = %if.end28
   br label %return
 
 if.end48:                                         ; preds = %if.end28
-  %call53 = call i32 @wc_RsaExportKey(ptr noundef %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef null, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
+  %call53 = call i32 @wc_RsaExportKey(ptr noundef nonnull %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef null, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
   %cmp54.not = icmp eq i32 %call53, -173
   br i1 %cmp54.not, label %if.end67, label %if.then56
 
@@ -11872,7 +11872,7 @@ if.then56:                                        ; preds = %if.end48
   br label %return
 
 if.end67:                                         ; preds = %if.end48
-  %call73 = call i32 @wc_RsaExportKey(ptr noundef %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef null, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
+  %call73 = call i32 @wc_RsaExportKey(ptr noundef nonnull %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef null, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
   %cmp74.not = icmp eq i32 %call73, -173
   br i1 %cmp74.not, label %if.end87, label %if.then76
 
@@ -11884,7 +11884,7 @@ if.then76:                                        ; preds = %if.end67
   br label %return
 
 if.end87:                                         ; preds = %if.end67
-  %call92 = call i32 @wc_RsaExportKey(ptr noundef %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef null, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
+  %call92 = call i32 @wc_RsaExportKey(ptr noundef nonnull %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef null, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
   %cmp93.not = icmp eq i32 %call92, -173
   br i1 %cmp93.not, label %if.end106, label %if.then95
 
@@ -11896,7 +11896,7 @@ if.then95:                                        ; preds = %if.end87
   br label %return
 
 if.end106:                                        ; preds = %if.end87
-  %call112 = call i32 @wc_RsaExportKey(ptr noundef %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef null, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
+  %call112 = call i32 @wc_RsaExportKey(ptr noundef nonnull %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef null, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
   %cmp113.not = icmp eq i32 %call112, -173
   br i1 %cmp113.not, label %if.end126, label %if.then115
 
@@ -11908,7 +11908,7 @@ if.then115:                                       ; preds = %if.end106
   br label %return
 
 if.end126:                                        ; preds = %if.end106
-  %call131 = call i32 @wc_RsaExportKey(ptr noundef %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef null, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
+  %call131 = call i32 @wc_RsaExportKey(ptr noundef nonnull %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef null, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
   %cmp132.not = icmp eq i32 %call131, -173
   br i1 %cmp132.not, label %if.end145, label %if.then134
 
@@ -11920,7 +11920,7 @@ if.then134:                                       ; preds = %if.end126
   br label %return
 
 if.end145:                                        ; preds = %if.end126
-  %call151 = call i32 @wc_RsaExportKey(ptr noundef %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef null, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
+  %call151 = call i32 @wc_RsaExportKey(ptr noundef nonnull %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef null, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
   %cmp152.not = icmp eq i32 %call151, -173
   br i1 %cmp152.not, label %if.end165, label %if.then154
 
@@ -11932,7 +11932,7 @@ if.then154:                                       ; preds = %if.end145
   br label %return
 
 if.end165:                                        ; preds = %if.end145
-  %call170 = call i32 @wc_RsaExportKey(ptr noundef %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef null, ptr noundef nonnull %qSz) #19
+  %call170 = call i32 @wc_RsaExportKey(ptr noundef nonnull %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef null, ptr noundef nonnull %qSz) #19
   %cmp171.not = icmp eq i32 %call170, -173
   br i1 %cmp171.not, label %if.end184, label %if.then173
 
@@ -11944,7 +11944,7 @@ if.then173:                                       ; preds = %if.end165
   br label %return
 
 if.end184:                                        ; preds = %if.end165
-  %call190 = call i32 @wc_RsaExportKey(ptr noundef %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef null) #19
+  %call190 = call i32 @wc_RsaExportKey(ptr noundef nonnull %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef null) #19
   %cmp191.not = icmp eq i32 %call190, -173
   br i1 %cmp191.not, label %if.end204, label %if.then193
 
@@ -11956,7 +11956,7 @@ if.then193:                                       ; preds = %if.end184
   br label %return
 
 if.end204:                                        ; preds = %if.end184
-  %call210 = call i32 @wc_RsaExportKey(ptr noundef %key, ptr noundef nonnull %e, ptr noundef nonnull %zero, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
+  %call210 = call i32 @wc_RsaExportKey(ptr noundef nonnull %key, ptr noundef nonnull %e, ptr noundef nonnull %zero, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
   %cmp211.not = icmp eq i32 %call210, -131
   br i1 %cmp211.not, label %if.end224, label %if.then213
 
@@ -11968,7 +11968,7 @@ if.then213:                                       ; preds = %if.end204
   br label %return
 
 if.end224:                                        ; preds = %if.end204
-  %call230 = call i32 @wc_RsaExportKey(ptr noundef %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %zero, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
+  %call230 = call i32 @wc_RsaExportKey(ptr noundef nonnull %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %zero, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
   %cmp231.not = icmp eq i32 %call230, -131
   br i1 %cmp231.not, label %if.end244, label %if.then233
 
@@ -11980,7 +11980,7 @@ if.then233:                                       ; preds = %if.end224
   br label %return
 
 if.end244:                                        ; preds = %if.end224
-  %call250 = call i32 @wc_RsaExportKey(ptr noundef %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %zero, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
+  %call250 = call i32 @wc_RsaExportKey(ptr noundef nonnull %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %zero, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
   %cmp251.not = icmp eq i32 %call250, -131
   br i1 %cmp251.not, label %if.end264, label %if.then253
 
@@ -11992,7 +11992,7 @@ if.then253:                                       ; preds = %if.end244
   br label %return
 
 if.end264:                                        ; preds = %if.end244
-  %call270 = call i32 @wc_RsaExportKey(ptr noundef %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %zero, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
+  %call270 = call i32 @wc_RsaExportKey(ptr noundef nonnull %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %zero, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
   %cmp271.not = icmp eq i32 %call270, -131
   br i1 %cmp271.not, label %if.end284, label %if.then273
 
@@ -12004,7 +12004,7 @@ if.then273:                                       ; preds = %if.end264
   br label %return
 
 if.end284:                                        ; preds = %if.end264
-  %call290 = call i32 @wc_RsaExportKey(ptr noundef %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %zero) #19
+  %call290 = call i32 @wc_RsaExportKey(ptr noundef nonnull %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %zero) #19
   %cmp291.not = icmp eq i32 %call290, -131
   br i1 %cmp291.not, label %if.end304, label %if.then293
 
@@ -12016,7 +12016,7 @@ if.then293:                                       ; preds = %if.end284
   br label %return
 
 if.end304:                                        ; preds = %if.end284
-  %call310 = call i32 @wc_RsaExportKey(ptr noundef %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
+  %call310 = call i32 @wc_RsaExportKey(ptr noundef nonnull %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz, ptr noundef nonnull %d, ptr noundef nonnull %dSz, ptr noundef nonnull %p, ptr noundef nonnull %pSz, ptr noundef nonnull %q, ptr noundef nonnull %qSz) #19
   %cmp311.not = icmp eq i32 %call310, 0
   br i1 %cmp311.not, label %return, label %if.then313
 
@@ -12033,7 +12033,7 @@ return:                                           ; preds = %if.end304, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -741587352, 1) i32 @rsa_flatten_test(ptr noundef %key) unnamed_addr #0 {
+define internal fastcc range(i32 -741587352, 1) i32 @rsa_flatten_test(ptr noundef nonnull %key) unnamed_addr #0 {
 entry:
   %e = alloca [512 x i8], align 16
   %n = alloca [512 x i8], align 16
@@ -12053,7 +12053,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call8 = call i32 @wc_RsaFlattenPublicKey(ptr noundef %key, ptr noundef null, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz) #19
+  %call8 = call i32 @wc_RsaFlattenPublicKey(ptr noundef nonnull %key, ptr noundef null, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz) #19
   %cmp9.not = icmp eq i32 %call8, -173
   br i1 %cmp9.not, label %if.end22, label %if.then11
 
@@ -12065,7 +12065,7 @@ if.then11:                                        ; preds = %if.end
   br label %return
 
 if.end22:                                         ; preds = %if.end
-  %call25 = call i32 @wc_RsaFlattenPublicKey(ptr noundef %key, ptr noundef nonnull %e, ptr noundef null, ptr noundef nonnull %n, ptr noundef nonnull %nSz) #19
+  %call25 = call i32 @wc_RsaFlattenPublicKey(ptr noundef nonnull %key, ptr noundef nonnull %e, ptr noundef null, ptr noundef nonnull %n, ptr noundef nonnull %nSz) #19
   %cmp26.not = icmp eq i32 %call25, -173
   br i1 %cmp26.not, label %if.end39, label %if.then28
 
@@ -12077,7 +12077,7 @@ if.then28:                                        ; preds = %if.end22
   br label %return
 
 if.end39:                                         ; preds = %if.end22
-  %call41 = call i32 @wc_RsaFlattenPublicKey(ptr noundef %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef null, ptr noundef nonnull %nSz) #19
+  %call41 = call i32 @wc_RsaFlattenPublicKey(ptr noundef nonnull %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef null, ptr noundef nonnull %nSz) #19
   %cmp42.not = icmp eq i32 %call41, -173
   br i1 %cmp42.not, label %if.end55, label %if.then44
 
@@ -12089,7 +12089,7 @@ if.then44:                                        ; preds = %if.end39
   br label %return
 
 if.end55:                                         ; preds = %if.end39
-  %call58 = call i32 @wc_RsaFlattenPublicKey(ptr noundef %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef null) #19
+  %call58 = call i32 @wc_RsaFlattenPublicKey(ptr noundef nonnull %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef null) #19
   %cmp59.not = icmp eq i32 %call58, -173
   br i1 %cmp59.not, label %if.end72, label %if.then61
 
@@ -12101,7 +12101,7 @@ if.then61:                                        ; preds = %if.end55
   br label %return
 
 if.end72:                                         ; preds = %if.end55
-  %call75 = call i32 @wc_RsaFlattenPublicKey(ptr noundef %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz) #19
+  %call75 = call i32 @wc_RsaFlattenPublicKey(ptr noundef nonnull %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz) #19
   %cmp76.not = icmp eq i32 %call75, 0
   br i1 %cmp76.not, label %if.end89, label %if.then78
 
@@ -12114,7 +12114,7 @@ if.then78:                                        ; preds = %if.end72
 
 if.end89:                                         ; preds = %if.end72
   store i32 0, ptr %eSz, align 4
-  %call92 = call i32 @wc_RsaFlattenPublicKey(ptr noundef %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz) #19
+  %call92 = call i32 @wc_RsaFlattenPublicKey(ptr noundef nonnull %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz) #19
   %cmp93.not = icmp eq i32 %call92, -131
   br i1 %cmp93.not, label %if.end106, label %if.then95
 
@@ -12128,7 +12128,7 @@ if.then95:                                        ; preds = %if.end89
 if.end106:                                        ; preds = %if.end89
   store i32 512, ptr %eSz, align 4
   store i32 0, ptr %nSz, align 4
-  %call109 = call i32 @wc_RsaFlattenPublicKey(ptr noundef %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz) #19
+  %call109 = call i32 @wc_RsaFlattenPublicKey(ptr noundef nonnull %key, ptr noundef nonnull %e, ptr noundef nonnull %eSz, ptr noundef nonnull %n, ptr noundef nonnull %nSz) #19
   %cmp110.not = icmp eq i32 %call109, -131
   br i1 %cmp110.not, label %return, label %if.then112
 
@@ -12145,7 +12145,7 @@ return:                                           ; preds = %if.end106, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -741588341, 1) i32 @rsa_pss_test(ptr noundef %rng, ptr noundef %key) unnamed_addr #0 {
+define internal fastcc range(i32 -741588341, 1) i32 @rsa_pss_test(ptr noundef nonnull %rng, ptr noundef nonnull %key) unnamed_addr #0 {
 entry:
   %digest = alloca [64 x i8], align 16
   %plain = alloca ptr, align 8
@@ -12191,7 +12191,7 @@ do.body20:                                        ; preds = %do.body20.preheader
 
 if.then23:                                        ; preds = %do.body20
   %2 = load i32, ptr %arrayidx29, align 4
-  %call30 = call i32 @wc_RsaPSS_Sign_ex(ptr noundef nonnull %digest, i32 noundef %call15, ptr noundef nonnull %out, i32 noundef 512, i32 noundef %0, i32 noundef %2, i32 noundef -1, ptr noundef %key, ptr noundef %rng) #19
+  %call30 = call i32 @wc_RsaPSS_Sign_ex(ptr noundef nonnull %digest, i32 noundef %call15, ptr noundef nonnull %out, i32 noundef 512, i32 noundef %0, i32 noundef %2, i32 noundef -1, ptr noundef nonnull %key, ptr noundef nonnull %rng) #19
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body20, %if.then23
@@ -12223,7 +12223,7 @@ do.body58:                                        ; preds = %do.cond69, %if.end5
 
 if.then61:                                        ; preds = %do.body58
   %4 = load i32, ptr %arrayidx29, align 4
-  %call67 = call i32 @wc_RsaPSS_VerifyInline_ex(ptr noundef nonnull %sig, i32 noundef %ret.3, ptr noundef nonnull %plain, i32 noundef %0, i32 noundef %4, i32 noundef -1, ptr noundef %key) #19
+  %call67 = call i32 @wc_RsaPSS_VerifyInline_ex(ptr noundef nonnull %sig, i32 noundef %ret.3, ptr noundef nonnull %plain, i32 noundef %0, i32 noundef %4, i32 noundef -1, ptr noundef nonnull %key) #19
   br label %do.cond69
 
 do.cond69:                                        ; preds = %do.body58, %if.then61
@@ -12244,7 +12244,7 @@ do.body76:                                        ; preds = %do.end72
 
 if.end89:                                         ; preds = %do.end72
   %6 = load ptr, ptr %plain, align 8
-  %call96 = call i32 @wc_RsaEncryptSize(ptr noundef %key) #19
+  %call96 = call i32 @wc_RsaEncryptSize(ptr noundef nonnull %key) #19
   %mul97 = shl nsw i32 %call96, 3
   %call98 = call i32 @wc_RsaPSS_CheckPadding_ex2(ptr noundef nonnull %digest, i32 noundef %call15, ptr noundef %6, i32 noundef %ret.5, i32 noundef %0, i32 noundef -1, i32 noundef %mul97, ptr noundef null) #19
   %cmp99.not = icmp eq i32 %call98, 0
@@ -12272,7 +12272,7 @@ do.body121:                                       ; preds = %do.cond131, %for.en
   br i1 %cmp122, label %if.then124, label %do.cond131
 
 if.then124:                                       ; preds = %do.body121
-  %call129 = call i32 @wc_RsaPSS_Sign_ex(ptr noundef nonnull %digest, i32 noundef %call120, ptr noundef nonnull %out, i32 noundef 512, i32 noundef 4, i32 noundef 26, i32 noundef 0, ptr noundef %key, ptr noundef %rng) #19
+  %call129 = call i32 @wc_RsaPSS_Sign_ex(ptr noundef nonnull %digest, i32 noundef %call120, ptr noundef nonnull %out, i32 noundef 512, i32 noundef 4, i32 noundef 26, i32 noundef 0, ptr noundef nonnull %key, ptr noundef nonnull %rng) #19
   br label %do.cond131
 
 do.cond131:                                       ; preds = %do.body121, %if.then124
@@ -12297,7 +12297,7 @@ do.body155:                                       ; preds = %do.end134, %do.cond
   br i1 %cmp156, label %if.then158, label %do.cond165
 
 if.then158:                                       ; preds = %do.body155
-  %call163 = call i32 @wc_RsaPSS_Verify_ex(ptr noundef nonnull %out, i32 noundef %ret.7, ptr noundef nonnull %sig, i32 noundef %ret.7, i32 noundef 4, i32 noundef 26, i32 noundef 0, ptr noundef %key) #19
+  %call163 = call i32 @wc_RsaPSS_Verify_ex(ptr noundef nonnull %out, i32 noundef %ret.7, ptr noundef nonnull %sig, i32 noundef %ret.7, i32 noundef 4, i32 noundef 26, i32 noundef 0, ptr noundef nonnull %key) #19
   br label %do.cond165
 
 do.cond165:                                       ; preds = %do.body155, %if.then158
@@ -12351,7 +12351,7 @@ do.body222:                                       ; preds = %do.cond231, %if.end
   br i1 %cmp223, label %if.then225, label %do.cond231
 
 if.then225:                                       ; preds = %do.body222
-  %call229 = call i32 @wc_RsaPSS_VerifyInline_ex(ptr noundef nonnull %sig, i32 noundef %ret.7, ptr noundef nonnull %plain, i32 noundef 4, i32 noundef 26, i32 noundef 0, ptr noundef %key) #19
+  %call229 = call i32 @wc_RsaPSS_VerifyInline_ex(ptr noundef nonnull %sig, i32 noundef %ret.7, ptr noundef nonnull %plain, i32 noundef 4, i32 noundef 26, i32 noundef 0, ptr noundef nonnull %key) #19
   br label %do.cond231
 
 do.cond231:                                       ; preds = %do.body222, %if.then225
@@ -12393,7 +12393,7 @@ do.body277:                                       ; preds = %do.cond287, %if.end
   br i1 %cmp278, label %if.then280, label %do.cond287
 
 if.then280:                                       ; preds = %do.body277
-  %call285 = call i32 @wc_RsaPSS_Sign_ex(ptr noundef nonnull %digest, i32 noundef %call276, ptr noundef nonnull %out, i32 noundef 512, i32 noundef 4, i32 noundef 26, i32 noundef -2, ptr noundef %key, ptr noundef %rng) #19
+  %call285 = call i32 @wc_RsaPSS_Sign_ex(ptr noundef nonnull %digest, i32 noundef %call276, ptr noundef nonnull %out, i32 noundef 512, i32 noundef 4, i32 noundef 26, i32 noundef -2, ptr noundef nonnull %key, ptr noundef nonnull %rng) #19
   br label %do.cond287
 
 do.cond287:                                       ; preds = %do.body277, %if.then280
@@ -12572,7 +12572,7 @@ return:                                           ; preds = %exit_gen_test, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -741590585, 1) i32 @dh_fips_generate_test(ptr noundef %rng) unnamed_addr #0 {
+define internal fastcc range(i32 -741590585, 1) i32 @dh_fips_generate_test(ptr noundef nonnull %rng) unnamed_addr #0 {
 entry:
   %key = alloca [1 x %struct.DhKey], align 16
   %p = alloca [256 x i8], align 16
@@ -12589,7 +12589,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(29) %q0, ptr noundef nonnull align 16 dereferenceable(29) @__const.dh_fips_generate_test.q0, i64 29, i1 false)
   store i32 256, ptr %privSz, align 4
   store i32 256, ptr %pubSz, align 4
-  %call = call i32 @wc_DhGenerateKeyPair(ptr noundef null, ptr noundef %rng, ptr noundef nonnull %priv, ptr noundef nonnull %privSz, ptr noundef nonnull %pub, ptr noundef nonnull %pubSz) #19
+  %call = call i32 @wc_DhGenerateKeyPair(ptr noundef null, ptr noundef nonnull %rng, ptr noundef nonnull %priv, ptr noundef nonnull %privSz, ptr noundef nonnull %pub, ptr noundef nonnull %pubSz) #19
   %cmp.not = icmp eq i32 %call, -173
   br i1 %cmp.not, label %if.end, label %do.body
 
@@ -12613,7 +12613,7 @@ do.body14:                                        ; preds = %if.end
   br label %exit_gen_test
 
 if.end26:                                         ; preds = %if.end
-  %call29 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %key, ptr noundef %rng, ptr noundef null, ptr noundef nonnull %privSz, ptr noundef nonnull %pub, ptr noundef nonnull %pubSz) #19
+  %call29 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %key, ptr noundef nonnull %rng, ptr noundef null, ptr noundef nonnull %privSz, ptr noundef nonnull %pub, ptr noundef nonnull %pubSz) #19
   %cmp30.not = icmp eq i32 %call29, -173
   br i1 %cmp30.not, label %if.end45, label %do.body33
 
@@ -12625,7 +12625,7 @@ do.body33:                                        ; preds = %if.end26
   br label %exit_gen_test
 
 if.end45:                                         ; preds = %if.end26
-  %call49 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %key, ptr noundef %rng, ptr noundef nonnull %priv, ptr noundef null, ptr noundef nonnull %pub, ptr noundef nonnull %pubSz) #19
+  %call49 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %key, ptr noundef nonnull %rng, ptr noundef nonnull %priv, ptr noundef null, ptr noundef nonnull %pub, ptr noundef nonnull %pubSz) #19
   %cmp50.not = icmp eq i32 %call49, -173
   br i1 %cmp50.not, label %if.end65, label %do.body53
 
@@ -12637,7 +12637,7 @@ do.body53:                                        ; preds = %if.end45
   br label %exit_gen_test
 
 if.end65:                                         ; preds = %if.end45
-  %call68 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %key, ptr noundef %rng, ptr noundef nonnull %priv, ptr noundef nonnull %privSz, ptr noundef null, ptr noundef nonnull %pubSz) #19
+  %call68 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %key, ptr noundef nonnull %rng, ptr noundef nonnull %priv, ptr noundef nonnull %privSz, ptr noundef null, ptr noundef nonnull %pubSz) #19
   %cmp69.not = icmp eq i32 %call68, -173
   br i1 %cmp69.not, label %if.end84, label %do.body72
 
@@ -12649,7 +12649,7 @@ do.body72:                                        ; preds = %if.end65
   br label %exit_gen_test
 
 if.end84:                                         ; preds = %if.end65
-  %call88 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %key, ptr noundef %rng, ptr noundef nonnull %priv, ptr noundef nonnull %privSz, ptr noundef nonnull %pub, ptr noundef null) #19
+  %call88 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %key, ptr noundef nonnull %rng, ptr noundef nonnull %priv, ptr noundef nonnull %privSz, ptr noundef nonnull %pub, ptr noundef null) #19
   %cmp89.not = icmp eq i32 %call88, -173
   br i1 %cmp89.not, label %if.end104, label %do.body92
 
@@ -12710,7 +12710,7 @@ do.body172:                                       ; preds = %if.end163
   br label %exit_gen_test
 
 if.end184:                                        ; preds = %if.end163
-  %call188 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %key, ptr noundef %rng, ptr noundef nonnull %priv, ptr noundef nonnull %privSz, ptr noundef nonnull %pub, ptr noundef nonnull %pubSz) #19
+  %call188 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %key, ptr noundef nonnull %rng, ptr noundef nonnull %priv, ptr noundef nonnull %privSz, ptr noundef nonnull %pub, ptr noundef nonnull %pubSz) #19
   %cmp189.not = icmp eq i32 %call188, 0
   br i1 %cmp189.not, label %if.end204, label %do.body192
 
@@ -12958,7 +12958,7 @@ return:                                           ; preds = %for.inc99, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -741590935, 1) i32 @dh_ffdhe_test(ptr noundef %rng, ptr nocapture noundef readonly %params) unnamed_addr #0 {
+define internal fastcc range(i32 -741590935, 1) i32 @dh_ffdhe_test(ptr noundef nonnull %rng, ptr nocapture noundef readonly %params) unnamed_addr #0 {
 entry:
   %privSz = alloca i32, align 4
   %pubSz = alloca i32, align 4
@@ -13041,7 +13041,7 @@ do.body53:                                        ; preds = %if.end43
   br label %done
 
 if.end65:                                         ; preds = %if.end43
-  %call69 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %key, ptr noundef %rng, ptr noundef nonnull %priv, ptr noundef nonnull %privSz, ptr noundef nonnull %pub, ptr noundef nonnull %pubSz) #19
+  %call69 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %key, ptr noundef nonnull %rng, ptr noundef nonnull %priv, ptr noundef nonnull %privSz, ptr noundef nonnull %pub, ptr noundef nonnull %pubSz) #19
   %cmp70.not = icmp eq i32 %call69, 0
   br i1 %cmp70.not, label %if.end85, label %do.body73
 
@@ -13053,7 +13053,7 @@ do.body73:                                        ; preds = %if.end65
   br label %done
 
 if.end85:                                         ; preds = %if.end65
-  %call89 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %key2, ptr noundef %rng, ptr noundef nonnull %priv2, ptr noundef nonnull %privSz2, ptr noundef nonnull %pub2, ptr noundef nonnull %pubSz2) #19
+  %call89 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %key2, ptr noundef nonnull %rng, ptr noundef nonnull %priv2, ptr noundef nonnull %privSz2, ptr noundef nonnull %pub2, ptr noundef nonnull %pubSz2) #19
   %cmp90.not = icmp eq i32 %call89, 0
   br i1 %cmp90.not, label %if.end105, label %do.body93
 
@@ -13246,7 +13246,7 @@ declare i32 @wc_Tls13_HKDF_Extract(ptr noundef, ptr noundef, i32 noundef, ptr no
 declare i32 @wc_Tls13_HKDF_Expand_Label(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @ecc_test_curve(ptr noundef %rng, i32 noundef %keySize) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @ecc_test_curve(ptr noundef nonnull %rng, i32 noundef range(i32 28, 67) %keySize) unnamed_addr #0 {
 entry:
   %pkcs8Sz.i = alloca i32, align 4
   %der.i = alloca [257 x i8], align 16
@@ -13326,7 +13326,7 @@ do.body32.i:                                      ; preds = %if.end26.i
   br label %ecc_test_curve_size.exit
 
 if.end44.i:                                       ; preds = %if.end26.i
-  %call46.i = call i32 @wc_ecc_make_key_ex(ptr noundef %rng, i32 noundef %keySize, ptr noundef nonnull %userA.i, i32 noundef 0) #19
+  %call46.i = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %rng, i32 noundef %keySize, ptr noundef nonnull %userA.i, i32 noundef 0) #19
   switch i32 %call46.i, label %do.body54.i [
     i32 -172, label %ecc_test_curve_size.exit
     i32 0, label %do.end68.i
@@ -13368,7 +13368,7 @@ do.body90.i:                                      ; preds = %if.end84.i
   br label %ecc_test_curve_size.exit
 
 do.end104.i:                                      ; preds = %if.end84.i
-  %call106.i = call i32 @wc_ecc_make_key_ex(ptr noundef %rng, i32 noundef %keySize, ptr noundef nonnull %userB.i, i32 noundef 0) #19
+  %call106.i = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %rng, i32 noundef %keySize, ptr noundef nonnull %userB.i, i32 noundef 0) #19
   %cmp107.not.i = icmp eq i32 %call106.i, 0
   br i1 %cmp107.not.i, label %land.lhs.true129.i, label %do.body110.i
 
@@ -13385,7 +13385,7 @@ land.lhs.true129.i:                               ; preds = %do.end104.i
   br i1 %cmp132.not.i, label %if.end137.i, label %ecc_test_curve_size.exit
 
 if.end137.i:                                      ; preds = %land.lhs.true129.i
-  %call139.i = call i32 @wc_ecc_set_rng(ptr noundef nonnull %userA.i, ptr noundef %rng) #19
+  %call139.i = call i32 @wc_ecc_set_rng(ptr noundef nonnull %userA.i, ptr noundef nonnull %rng) #19
   %cmp140.not.i = icmp eq i32 %call139.i, 0
   br i1 %cmp140.not.i, label %if.end155.i, label %do.body143.i
 
@@ -13397,7 +13397,7 @@ do.body143.i:                                     ; preds = %if.end137.i
   br label %ecc_test_curve_size.exit
 
 if.end155.i:                                      ; preds = %if.end137.i
-  %call157.i = call i32 @wc_ecc_set_rng(ptr noundef nonnull %userB.i, ptr noundef %rng) #19
+  %call157.i = call i32 @wc_ecc_set_rng(ptr noundef nonnull %userB.i, ptr noundef nonnull %rng) #19
   %cmp158.not.i = icmp eq i32 %call157.i, 0
   br i1 %cmp158.not.i, label %if.end173.i, label %do.body161.i
 
@@ -13545,7 +13545,7 @@ do.body340.i:                                     ; preds = %do.cond349.i, %for.
   br i1 %cmp341.i, label %if.then343.i, label %do.cond349.i
 
 if.then343.i:                                     ; preds = %do.body340.i
-  %call347.i = call i32 @wc_ecc_sign_hash(ptr noundef nonnull %digest.i, i32 noundef 66, ptr noundef nonnull %sig.i, ptr noundef nonnull %x.i, ptr noundef %rng, ptr noundef nonnull %userA.i) #19
+  %call347.i = call i32 @wc_ecc_sign_hash(ptr noundef nonnull %digest.i, i32 noundef 66, ptr noundef nonnull %sig.i, ptr noundef nonnull %x.i, ptr noundef nonnull %rng, ptr noundef nonnull %userA.i) #19
   br label %do.cond349.i
 
 do.cond349.i:                                     ; preds = %if.then343.i, %do.body340.i
@@ -13618,7 +13618,7 @@ do.body430.i:                                     ; preds = %do.cond439.i, %for.
   br i1 %cmp431.i, label %if.then433.i, label %do.cond439.i
 
 if.then433.i:                                     ; preds = %do.body430.i
-  %call437.i = call i32 @wc_ecc_sign_hash(ptr noundef nonnull %digest.i, i32 noundef 66, ptr noundef nonnull %sig.i, ptr noundef nonnull %x.i, ptr noundef %rng, ptr noundef nonnull %userA.i) #19
+  %call437.i = call i32 @wc_ecc_sign_hash(ptr noundef nonnull %digest.i, i32 noundef 66, ptr noundef nonnull %sig.i, ptr noundef nonnull %x.i, ptr noundef nonnull %rng, ptr noundef nonnull %userA.i) #19
   br label %do.cond439.i
 
 do.cond439.i:                                     ; preds = %if.then433.i, %do.body430.i
@@ -13881,7 +13881,7 @@ if.end11:                                         ; preds = %if.end5, %if.end5, 
   br i1 %cmp.not.i23, label %if.end.i25, label %ecc_test_key_decode.exit
 
 if.end.i25:                                       ; preds = %if.end11
-  %call2.i = call i32 @wc_ecc_make_key(ptr noundef %rng, i32 noundef %keySize, ptr noundef nonnull %eccKey.i) #19
+  %call2.i = call i32 @wc_ecc_make_key(ptr noundef nonnull %rng, i32 noundef %keySize, ptr noundef nonnull %eccKey.i) #19
   %cmp3.not.i = icmp eq i32 %call2.i, 0
   br i1 %cmp3.not.i, label %if.end5.i, label %ecc_test_key_decode.exit
 
@@ -13940,7 +13940,7 @@ do.body.i32:                                      ; preds = %if.end21
   br label %ecc_test_key_gen.exit
 
 if.end.i35:                                       ; preds = %if.end21
-  %call7.i = call i32 @wc_ecc_make_key(ptr noundef %rng, i32 noundef %keySize, ptr noundef nonnull %userA.i29) #19
+  %call7.i = call i32 @wc_ecc_make_key(ptr noundef nonnull %rng, i32 noundef %keySize, ptr noundef nonnull %userA.i29) #19
   %cmp8.not.i = icmp eq i32 %call7.i, 0
   br i1 %cmp8.not.i, label %do.end25.i, label %do.body11.i
 
@@ -14003,7 +14003,7 @@ if.end99.i:                                       ; preds = %if.end81.i
   br i1 %cmp100.i, label %ecc_test_key_gen.exit, label %if.end105.i
 
 if.end105.i:                                      ; preds = %if.end99.i
-  %call107.i = call fastcc i32 @_SaveDerAndPem(ptr noundef nonnull %der.i, i32 noundef %call84.i, ptr noundef nonnull @.str.280, i32 noundef 27160)
+  %call107.i = call fastcc i32 @_SaveDerAndPem(ptr noundef %der.i, i32 noundef %call84.i, ptr noundef nonnull @.str.280, i32 noundef 27160)
   %cmp108.not.i = icmp eq i32 %call107.i, 0
   br i1 %cmp108.not.i, label %if.end123.i, label %do.body111.i
 
@@ -14031,7 +14031,7 @@ if.end141.i:                                      ; preds = %if.end123.i
   br i1 %cmp142.i, label %ecc_test_key_gen.exit, label %if.end147.i
 
 if.end147.i:                                      ; preds = %if.end141.i
-  %call149.i = call fastcc i32 @_SaveDerAndPem(ptr noundef nonnull %der.i, i32 noundef %call126.i, ptr noundef nonnull @.str.281, i32 noundef 27176)
+  %call149.i = call fastcc i32 @_SaveDerAndPem(ptr noundef %der.i, i32 noundef %call126.i, ptr noundef nonnull @.str.281, i32 noundef 27176)
   br label %ecc_test_key_gen.exit
 
 ecc_test_key_gen.exit:                            ; preds = %do.body.i32, %do.body11.i, %do.body31.i, %do.body52.i, %if.end63.i, %if.end.i.i37, %do.body88.i, %if.end99.i, %do.body111.i, %do.body130.i, %if.end141.i, %if.end147.i
@@ -14170,7 +14170,7 @@ return:                                           ; preds = %if.end92, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecc_test_make_pub(ptr noundef %rng) unnamed_addr #0 {
+define internal fastcc i32 @ecc_test_make_pub(ptr noundef nonnull %rng) unnamed_addr #0 {
 entry:
   %key = alloca [1 x %struct.ecc_key], align 16
   %pub = alloca [1 x %struct.ecc_key], align 16
@@ -14312,7 +14312,7 @@ do.body168:                                       ; preds = %do.cond, %if.end167
   br i1 %cmp169, label %if.then171, label %do.cond
 
 if.then171:                                       ; preds = %do.body168
-  %call176 = call i32 @wc_ecc_sign_hash(ptr noundef nonnull @.str.283, i32 noundef 27, ptr noundef nonnull %tmp, ptr noundef nonnull %tmpSz, ptr noundef %rng, ptr noundef nonnull %key) #19
+  %call176 = call i32 @wc_ecc_sign_hash(ptr noundef nonnull @.str.283, i32 noundef 27, ptr noundef nonnull %tmp, ptr noundef nonnull %tmpSz, ptr noundef nonnull %rng, ptr noundef nonnull %key) #19
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body168, %if.then171
@@ -14407,7 +14407,7 @@ if.end305:                                        ; preds = %if.end281
 
 if.end315:                                        ; preds = %if.end305
   %call317 = call i32 @wc_ecc_init_ex(ptr noundef nonnull %pub, ptr noundef null, i32 noundef -2) #19
-  %call319 = call i32 @wc_ecc_make_key(ptr noundef %rng, i32 noundef 32, ptr noundef nonnull %pub) #19
+  %call319 = call i32 @wc_ecc_make_key(ptr noundef nonnull %rng, i32 noundef 32, ptr noundef nonnull %pub) #19
   %cmp320.not = icmp eq i32 %call319, 0
   br i1 %cmp320.not, label %do.end339, label %do.body323
 
@@ -14419,7 +14419,7 @@ do.body323:                                       ; preds = %if.end315
   br label %done
 
 do.end339:                                        ; preds = %if.end315
-  %call341 = call i32 @wc_ecc_set_rng(ptr noundef nonnull %key, ptr noundef %rng) #19
+  %call341 = call i32 @wc_ecc_set_rng(ptr noundef nonnull %key, ptr noundef nonnull %rng) #19
   %cmp342.not = icmp eq i32 %call341, 0
   br i1 %cmp342.not, label %if.end345, label %done
 
@@ -14462,7 +14462,7 @@ done:                                             ; preds = %do.end358, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1278471291, 1) i32 @ecc_test_allocator(ptr noundef %rng) unnamed_addr #0 {
+define internal fastcc range(i32 -1278471291, 1) i32 @ecc_test_allocator(ptr noundef nonnull %rng) unnamed_addr #0 {
 entry:
   %call = tail call ptr @wc_ecc_key_new(ptr noundef null) #19
   %cmp = icmp eq ptr %call, null
@@ -14477,7 +14477,7 @@ do.body:                                          ; preds = %entry
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %call6 = tail call i32 @wc_ecc_make_key(ptr noundef %rng, i32 noundef 32, ptr noundef nonnull %call) #19
+  %call6 = tail call i32 @wc_ecc_make_key(ptr noundef nonnull %rng, i32 noundef 32, ptr noundef nonnull %call) #19
   %cmp7.not = icmp eq i32 %call6, 0
   br i1 %cmp7.not, label %exit, label %do.body10
 
@@ -14614,11 +14614,11 @@ declare i32 @wc_AesCbcEncryptWithKey(ptr noundef, ptr noundef, i32 noundef, ptr 
 declare i32 @wc_AesCbcDecryptWithKey(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_rng_test(ptr noundef %rng, i32 noundef %errorOffset) unnamed_addr #0 {
+define internal fastcc range(i32 -7015171, 1) i32 @_rng_test(ptr noundef nonnull %rng, i32 noundef range(i32 -15171, -15154) %errorOffset) unnamed_addr #0 {
 entry:
   %block = alloca [32 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %block, i8 0, i64 32, i1 false)
-  %call = call i32 @wc_RNG_GenerateBlock(ptr noundef %rng, ptr noundef nonnull %block, i32 noundef 32) #19
+  %call = call i32 @wc_RNG_GenerateBlock(ptr noundef nonnull %rng, ptr noundef nonnull %block, i32 noundef 32) #19
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %for.body, label %exit.thread
 
@@ -14639,7 +14639,7 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp8, label %exit.thread, label %if.end11
 
 if.end11:                                         ; preds = %for.end
-  %call13 = call i32 @wc_RNG_GenerateByte(ptr noundef %rng, ptr noundef nonnull %block) #19
+  %call13 = call i32 @wc_RNG_GenerateByte(ptr noundef nonnull %rng, ptr noundef nonnull %block) #19
   %cmp14.not = icmp eq i32 %call13, 0
   br i1 %cmp14.not, label %if.end17, label %exit.thread
 
@@ -14649,7 +14649,7 @@ if.end17:                                         ; preds = %if.end11
   br i1 %cmp20.not, label %if.end23, label %exit.thread
 
 if.end23:                                         ; preds = %if.end17
-  %call24 = call i32 @wc_RNG_GenerateBlock(ptr noundef %rng, ptr noundef null, i32 noundef 32) #19
+  %call24 = call i32 @wc_RNG_GenerateBlock(ptr noundef nonnull %rng, ptr noundef null, i32 noundef 32) #19
   %cmp25.not = icmp eq i32 %call24, -173
   br i1 %cmp25.not, label %if.end28, label %exit.thread
 
@@ -14660,14 +14660,14 @@ if.end28:                                         ; preds = %if.end23
 
 exit.thread:                                      ; preds = %entry, %for.end, %if.end11, %if.end17, %if.end23, %if.end28
   %ret.0.neg.ph = phi i32 [ -6000000, %if.end28 ], [ -5000000, %if.end23 ], [ -4000000, %if.end17 ], [ -3000000, %if.end11 ], [ -2000000, %for.end ], [ -1000000, %entry ]
-  %sub19 = add i32 %ret.0.neg.ph, %errorOffset
+  %sub19 = add nsw i32 %ret.0.neg.ph, %errorOffset
   br label %1
 
 exit:                                             ; preds = %if.end28
-  %call35 = call i32 @wc_RNG_GenerateByte(ptr noundef %rng, ptr noundef null) #19
+  %call35 = call i32 @wc_RNG_GenerateByte(ptr noundef nonnull %rng, ptr noundef null) #19
   %call35.fr = freeze i32 %call35
   %cmp36.not = icmp eq i32 %call35.fr, -173
-  %sub = add i32 %errorOffset, -7000000
+  %sub = add nsw i32 %errorOffset, -7000000
   %spec.select21 = select i1 %cmp36.not, i32 0, i32 %sub
   br label %1
 
@@ -14775,28 +14775,28 @@ declare i32 @wc_EccPrivateKeyDecode(ptr noundef, ptr noundef, ptr noundef, i32 n
 declare i32 @wc_EccPublicKeyDecode(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -1610739912, 1) i32 @_SaveDerAndPem(ptr nocapture noundef %der, i32 noundef %derSz, ptr nocapture noundef readonly %fileDer, i32 noundef %calling_line) unnamed_addr #11 {
+define internal fastcc range(i32 -1610739912, 1) i32 @_SaveDerAndPem(ptr nocapture noundef nonnull %der, i32 noundef range(i32 0, -2147483648) %derSz, ptr nocapture noundef readonly %fileDer, i32 noundef range(i32 27136, 27177) %calling_line) unnamed_addr #11 {
 entry:
   %call = tail call noalias ptr @fopen(ptr noundef %fileDer, ptr noundef nonnull @.str.277)
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %sub = sub i32 -1610612736, %calling_line
+  %.neg = sub nuw nsw i32 -1610612736, %calling_line
   br label %return
 
 if.end:                                           ; preds = %entry
   %conv3 = zext nneg i32 %derSz to i64
-  %call4 = tail call i64 @fwrite(ptr noundef %der, i64 noundef 1, i64 noundef %conv3, ptr noundef nonnull %call)
+  %call4 = tail call i64 @fwrite(ptr noundef nonnull %der, i64 noundef 1, i64 noundef %conv3, ptr noundef nonnull %call)
   %conv5 = trunc i64 %call4 to i32
   %call6 = tail call i32 @fclose(ptr noundef nonnull %call)
   %cmp.not = icmp eq i32 %derSz, %conv5
-  %sub12 = sub i32 -1610712736, %calling_line
+  %sub12 = sub nuw nsw i32 -1610712736, %calling_line
   %spec.select = select i1 %cmp.not, i32 0, i32 %sub12
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi i32 [ %sub, %if.then ], [ %spec.select, %if.end ]
+  %retval.0 = phi i32 [ %.neg, %if.then ], [ %spec.select, %if.end ]
   ret i32 %retval.0
 }
 
@@ -14822,7 +14822,7 @@ declare i32 @wc_ecc_cmp_point(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @wc_ecc_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -741599020, 1) i32 @ecc_exp_imp_test(ptr noundef %key) unnamed_addr #0 {
+define internal fastcc range(i32 -741599020, 1) i32 @ecc_exp_imp_test(ptr noundef nonnull %key) unnamed_addr #0 {
 entry:
   %keyImp = alloca [1 x %struct.ecc_key], align 16
   %priv = alloca [32 x i8], align 16
@@ -14839,7 +14839,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %d, ptr noundef nonnull align 16 dereferenceable(65) @__const.ecc_exp_imp_test.d, i64 65, i1 false)
   %call = call i32 @wc_ecc_init_ex(ptr noundef nonnull %keyImp, ptr noundef null, i32 noundef -2) #19
   store i32 32, ptr %privLen, align 4
-  %call2 = call i32 @wc_ecc_export_private_only(ptr noundef %key, ptr noundef nonnull %priv, ptr noundef nonnull %privLen) #19
+  %call2 = call i32 @wc_ecc_export_private_only(ptr noundef nonnull %key, ptr noundef nonnull %priv, ptr noundef nonnull %privLen) #19
   %cmp.not = icmp eq i32 %call2, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -14987,7 +14987,7 @@ done:                                             ; preds = %if.end161, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecc_mulmod_test(ptr noundef %key1) unnamed_addr #0 {
+define internal fastcc i32 @ecc_mulmod_test(ptr noundef nonnull %key1) unnamed_addr #0 {
 entry:
   %key2 = alloca [1 x %struct.ecc_key], align 16
   %key3 = alloca [1 x %struct.ecc_key], align 16

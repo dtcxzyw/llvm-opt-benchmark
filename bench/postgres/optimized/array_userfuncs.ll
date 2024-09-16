@@ -116,7 +116,7 @@ define dso_local i64 @array_append(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @fetch_array_arg_replace_nulls(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @fetch_array_arg_replace_nulls(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24

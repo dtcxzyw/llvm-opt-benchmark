@@ -2136,7 +2136,7 @@ define dso_local i32 @security_sid_to_context(i32 noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @security_sid_to_context_core(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @security_sid_to_context_core(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 align 16 {
   %6 = icmp eq ptr %1, null
   br i1 %6, label %8, label %7
 
@@ -2270,7 +2270,7 @@ define dso_local i32 @security_context_to_sid(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @security_context_to_sid_core(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @security_context_to_sid_core(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 align 16 {
   %7 = alloca %struct.context, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #17
   %8 = icmp eq i32 %1, 0
@@ -2519,7 +2519,7 @@ define dso_local i32 @security_transition_sid(i32 noundef %0, i32 noundef %1, i1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @security_compute_sid(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) unnamed_addr #0 align 16 {
+define internal fastcc i32 @security_compute_sid(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext range(i16 16, 65) %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) unnamed_addr #0 align 16 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -3339,7 +3339,7 @@ define dso_local range(i32 -21, -22) i32 @services_convert_context(ptr nocapture
 declare dso_local noalias ptr @kstrdup(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @string_to_context_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @string_to_context_struct(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   br label %6
 
@@ -3359,7 +3359,7 @@ define internal fastcc i32 @string_to_context_struct(ptr noundef %0, ptr noundef
   %12 = getelementptr i8, ptr %7, i64 1
   store i8 0, ptr %7, align 1
   %13 = getelementptr i8, ptr %0, i64 104
-  %14 = tail call ptr @symtab_search(ptr noundef %13, ptr noundef %2) #17
+  %14 = tail call ptr @symtab_search(ptr noundef %13, ptr noundef nonnull %2) #17
   %15 = icmp eq ptr %14, null
   br i1 %15, label %select.unfold, label %16
 
@@ -7642,7 +7642,7 @@ declare dso_local i32 @__printk_ratelimit(ptr noundef) local_unnamed_addr #3
 declare dso_local void @cond_compute_av(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @security_dump_masked_av(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc void @security_dump_masked_av(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext range(i16 1, 0) %3, i32 noundef range(i32 1, 0) %4) unnamed_addr #0 align 16 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca [32 x ptr], align 16

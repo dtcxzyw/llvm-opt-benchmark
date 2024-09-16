@@ -727,7 +727,7 @@ declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noun
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_simulcrypt_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @dissect_simulcrypt_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 65541) %5, i16 noundef zeroext range(i16 0, 9) %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #0 {
   %.not = icmp eq i32 %7, 0
   %. = select i1 %.not, i32 %4, i32 0
   %9 = icmp slt i32 %., %5

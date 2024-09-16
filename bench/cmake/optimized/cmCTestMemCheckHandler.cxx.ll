@@ -10750,7 +10750,7 @@ _ZN5cmsys17RegularExpressionD2Ev.exit111:         ; preds = %.body100, %273
 293:                                              ; preds = %_ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit104
   %294 = load ptr, ptr %10, align 8
   %295 = load ptr, ptr %175, align 8
-  %296 = invoke fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5cmsys17RegularExpressionESt6vectorIS3_SaIS3_EEEEZN22cmCTestMemCheckHandler25ProcessMemCheckCudaOutputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSF_RS5_IiSaIiEEE3$_0ET_SN_SN_T0_"(ptr %294, ptr %295, ptr nonnull %228)
+  %296 = invoke fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5cmsys17RegularExpressionESt6vectorIS3_SaIS3_EEEEZN22cmCTestMemCheckHandler25ProcessMemCheckCudaOutputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSF_RS5_IiSaIiEEE3$_0ET_SN_SN_T0_"(ptr %294, ptr %295, ptr %228)
           to label %297 unwind label %.loopexit.split-lp.loopexit
 
 297:                                              ; preds = %293
@@ -10761,7 +10761,7 @@ _ZN5cmsys17RegularExpressionD2Ev.exit111:         ; preds = %.body100, %273
 299:                                              ; preds = %297
   %300 = load ptr, ptr %12, align 8
   %301 = load ptr, ptr %176, align 8
-  %302 = invoke fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5cmsys17RegularExpressionESt6vectorIS3_SaIS3_EEEEZN22cmCTestMemCheckHandler25ProcessMemCheckCudaOutputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSF_RS5_IiSaIiEEE3$_0ET_SN_SN_T0_"(ptr %300, ptr %301, ptr nonnull %228)
+  %302 = invoke fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5cmsys17RegularExpressionESt6vectorIS3_SaIS3_EEEEZN22cmCTestMemCheckHandler25ProcessMemCheckCudaOutputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSF_RS5_IiSaIiEEE3$_0ET_SN_SN_T0_"(ptr %300, ptr %301, ptr %228)
           to label %303 unwind label %.loopexit.split-lp.loopexit
 
 303:                                              ; preds = %299
@@ -11511,7 +11511,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5cmsys17RegularExpressionESt6vectorIS3_SaIS3_EEEEZN22cmCTestMemCheckHandler25ProcessMemCheckCudaOutputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSF_RS5_IiSaIiEEE3$_0ET_SN_SN_T0_"(ptr %0, ptr %1, ptr %2) unnamed_addr #3 {
+define internal fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5cmsys17RegularExpressionESt6vectorIS3_SaIS3_EEEEZN22cmCTestMemCheckHandler25ProcessMemCheckCudaOutputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSF_RS5_IiSaIiEEE3$_0ET_SN_SN_T0_"(ptr %0, ptr %1, ptr nonnull %2) unnamed_addr #3 {
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5

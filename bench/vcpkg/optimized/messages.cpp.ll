@@ -5341,7 +5341,7 @@ declare i32 @isatty(i32 noundef) local_unnamed_addr #1
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc void @_ZN5vcpkg3msgL27write_unlocalized_text_implENS_5ColorENS_10StringViewEib(i8 noundef signext %0, ptr nocapture readonly %1, i64 %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #10 {
+define internal fastcc void @_ZN5vcpkg3msgL27write_unlocalized_text_implENS_5ColorENS_10StringViewEib(i8 noundef signext %0, ptr nocapture readonly %1, i64 %2, i32 noundef range(i32 1, 3) %3, i1 noundef zeroext %4) unnamed_addr #10 {
   %6 = alloca [5 x i8], align 1
   %7 = icmp eq i64 %2, 0
   br i1 %7, label %_ZN5vcpkg3msgL9write_allEPKcmi.exit18, label %8
@@ -9749,7 +9749,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %41) #28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %37) #28
-  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg3msg10RawMessageESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_27get_sorted_english_messagesEvE13MessageSorterEEEvT_T0_SF_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa43, ptr noundef nonnull %14)
+  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg3msg10RawMessageESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_27get_sorted_english_messagesEvE13MessageSorterEEEvT_T0_SF_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa43, ptr noundef %14)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #28
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
   %42 = add nsw i64 %.010.i.i.i, -1
@@ -9782,7 +9782,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg3msg10RawMessageESt6vec
   %52 = ashr exact i64 %51, 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %44) #28
-  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg3msg10RawMessageESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_27get_sorted_english_messagesEvE13MessageSorterEEEvT_T0_SF_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %52, ptr noundef nonnull %12)
+  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg3msg10RawMessageESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_27get_sorted_english_messagesEvE13MessageSorterEEEvT_T0_SF_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %52, ptr noundef %12)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #28
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
@@ -9974,7 +9974,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg3msg10RawMessageESt6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg3msg10RawMessageESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_27get_sorted_english_messagesEvE13MessageSorterEEEvT_T0_SF_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg3msg10RawMessageESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_27get_sorted_english_messagesEvE13MessageSorterEEEvT_T0_SF_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.vcpkg::msg::RawMessage", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

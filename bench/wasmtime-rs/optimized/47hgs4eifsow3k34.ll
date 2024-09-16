@@ -438,7 +438,7 @@ define hidden noundef zeroext i1 @"_ZN69_$LT$core..alloc..layout..LayoutError$u2
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %.sroa.7 = alloca { ptr, [1 x i64] }, align 8
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -707,7 +707,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h5790f99049531ef8E.
   store ptr @anon.809a01dc7ad5777871db8cb9b6424a4f.6, ptr %40, align 8, !noalias !70
   %41 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %41, align 8, !noalias !70
-  %42 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !70
+  %42 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %4), !noalias !70
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !70
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %43
@@ -757,7 +757,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h66c0e166fe1391f7E.
 
 23:                                               ; preds = %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h66c0e166fe1391f7E.exit, %27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call fastcc void @_ZN16wasmtime_runtime9component8libcalls18run_utf16_to_utf1617h61e5fad155926bfbE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 2 %0, i64 noundef %1, ptr noalias noundef nonnull align 2 %2, i64 noundef %1)
+  call fastcc void @_ZN16wasmtime_runtime9component8libcalls18run_utf16_to_utf1617h61e5fad155926bfbE(ptr noalias nocapture noundef align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 2 %0, i64 noundef %1, ptr noalias noundef nonnull align 2 %2, i64 noundef %1)
   %24 = load i8, ptr %4, align 8, !range !71, !noundef !4
   %trunc = trunc nuw i8 %24 to i1
   %25 = getelementptr inbounds i8, ptr %4, i64 8
@@ -788,7 +788,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h66c0e166fe1391f7E.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_runtime9component8libcalls18run_utf16_to_utf1617h61e5fad155926bfbE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 2 %1, i64 noundef %2, ptr noalias nocapture noundef nonnull writeonly align 2 %3, i64 noundef %4) unnamed_addr #10 {
+define internal fastcc void @_ZN16wasmtime_runtime9component8libcalls18run_utf16_to_utf1617h61e5fad155926bfbE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 2 %1, i64 noundef %2, ptr noalias nocapture noundef nonnull writeonly align 2 %3, i64 noundef %4) unnamed_addr #10 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca [3 x { ptr, ptr }], align 8
@@ -915,7 +915,7 @@ _ZN4core4char7methods16encode_utf16_raw17h320237ac03d2da94E.exit: ; preds = %26,
   store ptr @anon.809a01dc7ad5777871db8cb9b6424a4f.6, ptr %54, align 8, !noalias !87
   %55 = getelementptr inbounds i8, ptr %11, i64 24
   store i64 0, ptr %55, align 8, !noalias !87
-  %56 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11), !noalias !87
+  %56 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %11), !noalias !87
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !87
   %57 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %56, ptr %57, align 8
@@ -1103,7 +1103,7 @@ define hidden void @_ZN16wasmtime_runtime9component8libcalls13utf8_to_utf1617h66
 _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.exit: ; preds = %13, %17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call fastcc void @_ZN16wasmtime_runtime9component8libcalls17run_utf8_to_utf1617h52055ecad77ed56aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 2 %3, i64 noundef %2)
+  call fastcc void @_ZN16wasmtime_runtime9component8libcalls17run_utf8_to_utf1617h52055ecad77ed56aE(ptr noalias nocapture noundef align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 2 %3, i64 noundef %2)
   %22 = load i64, ptr %7, align 8, !range !53, !noundef !4
   %trunc = trunc nuw i64 %22 to i1
   %23 = getelementptr inbounds i8, ptr %7, i64 8
@@ -1164,7 +1164,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_runtime9component8libcalls17run_utf8_to_utf1617h52055ecad77ed56aE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull writeonly align 2 %3, i64 noundef %4) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_runtime9component8libcalls17run_utf8_to_utf1617h52055ecad77ed56aE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull writeonly align 2 %3, i64 noundef %4) unnamed_addr #10 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
@@ -1196,7 +1196,7 @@ define internal fastcc void @_ZN16wasmtime_runtime9component8libcalls17run_utf8_
   store ptr @anon.809a01dc7ad5777871db8cb9b6424a4f.6, ptr %20, align 8, !noalias !119
   %21 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 0, ptr %21, align 8, !noalias !119
-  %22 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6), !noalias !119
+  %22 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %6), !noalias !119
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !119
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %23 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1414,7 +1414,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17hec5426d07a251dedE.
   store ptr @anon.809a01dc7ad5777871db8cb9b6424a4f.6, ptr %47, align 8, !noalias !127
   %48 = getelementptr inbounds i8, ptr %11, i64 24
   store i64 0, ptr %48, align 8, !noalias !127
-  %49 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11), !noalias !127
+  %49 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %11), !noalias !127
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !127
   %50 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %49, ptr %50, align 8
@@ -1757,7 +1757,7 @@ define hidden void @_ZN16wasmtime_runtime9component8libcalls31utf16_to_compact_p
 
 _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h66c0e166fe1391f7E.exit: ; preds = %19, %22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call fastcc void @_ZN16wasmtime_runtime9component8libcalls18run_utf16_to_utf1617h61e5fad155926bfbE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 2 %1, i64 noundef %2, ptr noalias noundef nonnull align 2 %3, i64 noundef %2)
+  call fastcc void @_ZN16wasmtime_runtime9component8libcalls18run_utf16_to_utf1617h61e5fad155926bfbE(ptr noalias nocapture noundef align 8 dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 2 %1, i64 noundef %2, ptr noalias noundef nonnull align 2 %3, i64 noundef %2)
   %27 = load i8, ptr %13, align 8, !range !71, !noundef !4
   %trunc = trunc nuw i8 %27 to i1
   %28 = getelementptr inbounds i8, ptr %13, i64 8
@@ -2225,7 +2225,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.
   %28 = extractvalue { ptr, i64 } %26, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call fastcc void @_ZN16wasmtime_runtime9component8libcalls17run_utf8_to_utf1617h52055ecad77ed56aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 2 %27, i64 noundef %28)
+  call fastcc void @_ZN16wasmtime_runtime9component8libcalls17run_utf8_to_utf1617h52055ecad77ed56aE(ptr noalias nocapture noundef align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 2 %27, i64 noundef %28)
   %29 = load i64, ptr %9, align 8, !range !53, !noundef !4
   %trunc = trunc nuw i64 %29 to i1
   %30 = getelementptr inbounds i8, ptr %9, i64 8
@@ -2337,7 +2337,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h66c0e166fe1391f7E.
   %28 = extractvalue { ptr, i64 } %27, 0
   %29 = extractvalue { ptr, i64 } %27, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call fastcc void @_ZN16wasmtime_runtime9component8libcalls18run_utf16_to_utf1617h61e5fad155926bfbE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 2 %1, i64 noundef %2, ptr noalias noundef nonnull align 2 %28, i64 noundef %29)
+  call fastcc void @_ZN16wasmtime_runtime9component8libcalls18run_utf16_to_utf1617h61e5fad155926bfbE(ptr noalias nocapture noundef align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 2 %1, i64 noundef %2, ptr noalias noundef nonnull align 2 %28, i64 noundef %29)
   %30 = load i8, ptr %10, align 8, !range !71, !noundef !4
   %trunc = trunc nuw i8 %30 to i1
   %31 = getelementptr inbounds i8, ptr %10, i64 8
@@ -3205,7 +3205,7 @@ _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc0719
   store ptr @anon.809a01dc7ad5777871db8cb9b6424a4f.6, ptr %98, align 8
   %99 = getelementptr inbounds i8, ptr %8, i64 24
   store i64 0, ptr %99, align 8
-  %100 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8)
+  %100 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %8)
           to label %154 unwind label %.loopexit.split-lp
 
 .loopexit.split.split:                            ; preds = %_ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc071995E.exit

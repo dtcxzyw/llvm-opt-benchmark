@@ -558,7 +558,7 @@ if.then41:                                        ; preds = %if.then, %for.cond2
   store float %mul2.i, ptr %arrayinit.element43, align 4
   store i32 -1, ptr %index, align 4
   store float 0x47EFFFFFE0000000, ptr %limit, align 4
-  call fastcc void @_ZN7meshoptL13kdtreeNearestEPNS_6KDNodeEjPKfmPKhS3_RjRf(ptr noundef %call.i126, i32 noundef 0, ptr noundef %call.i104, ptr noundef %call.i97, ptr noundef nonnull %position, ptr noundef nonnull align 4 dereferenceable(4) %index, ptr noundef nonnull align 4 dereferenceable(4) %limit)
+  call fastcc void @_ZN7meshoptL13kdtreeNearestEPNS_6KDNodeEjPKfmPKhS3_RjRf(ptr noundef %call.i126, i32 noundef 0, ptr noundef %call.i104, ptr noundef %call.i97, ptr noundef %position, ptr noundef nonnull align 4 dereferenceable(4) %index, ptr noundef nonnull align 4 dereferenceable(4) %limit)
   %68 = load i32, ptr %index, align 4
   %cmp48 = icmp eq i32 %68, -1
   br i1 %cmp48, label %for.end139, label %if.end50
@@ -1237,7 +1237,7 @@ if.end103:                                        ; preds = %if.then102, %for.en
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN7meshoptL13kdtreeNearestEPNS_6KDNodeEjPKfmPKhS3_RjRf(ptr nocapture noundef readonly %nodes, i32 noundef %root, ptr nocapture noundef readonly %points, ptr nocapture noundef readonly %emitted_flags, ptr nocapture noundef readonly %position, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, ptr nocapture noundef nonnull align 4 dereferenceable(4) %limit) unnamed_addr #5 {
+define internal fastcc void @_ZN7meshoptL13kdtreeNearestEPNS_6KDNodeEjPKfmPKhS3_RjRf(ptr nocapture noundef readonly %nodes, i32 noundef %root, ptr nocapture noundef readonly %points, ptr nocapture noundef readonly %emitted_flags, ptr nocapture noundef nonnull readonly %position, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, ptr nocapture noundef nonnull align 4 dereferenceable(4) %limit) unnamed_addr #5 {
 entry:
   %idxprom47 = zext i32 %root to i64
   %arrayidx48 = getelementptr inbounds %"struct.meshopt::KDNode", ptr %nodes, i64 %idxprom47
@@ -1764,14 +1764,14 @@ for.end:                                          ; preds = %for.inc
 if.end76:                                         ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %psphere, i8 0, i64 16, i1 false)
   %mul80 = mul i64 %triangles.1, 3
-  call fastcc void @_ZN7meshoptL21computeBoundingSphereEPfPA3_Kfm(ptr noundef nonnull %psphere, ptr noundef nonnull %corners, i64 noundef %mul80)
+  call fastcc void @_ZN7meshoptL21computeBoundingSphereEPfPA3_Kfm(ptr noundef %psphere, ptr noundef %corners, i64 noundef %mul80)
   %20 = load float, ptr %psphere, align 16
   %arrayidx84 = getelementptr inbounds i8, ptr %psphere, i64 4
   %21 = load float, ptr %arrayidx84, align 4
   %arrayidx86 = getelementptr inbounds i8, ptr %psphere, i64 8
   %22 = load float, ptr %arrayidx86, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %nsphere, i8 0, i64 16, i1 false)
-  call fastcc void @_ZN7meshoptL21computeBoundingSphereEPfPA3_Kfm(ptr noundef nonnull %nsphere, ptr noundef nonnull %normals, i64 noundef %triangles.1)
+  call fastcc void @_ZN7meshoptL21computeBoundingSphereEPfPA3_Kfm(ptr noundef %nsphere, ptr noundef %normals, i64 noundef %triangles.1)
   %23 = load float, ptr %nsphere, align 16
   %arrayidx92 = getelementptr inbounds i8, ptr %nsphere, i64 4
   %24 = load float, ptr %arrayidx92, align 4
@@ -1948,7 +1948,7 @@ return:                                           ; preds = %for.end.thread, %fo
 declare float @llvm.fmuladd.f32(float, float, float) #10
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define internal fastcc void @_ZN7meshoptL21computeBoundingSphereEPfPA3_Kfm(ptr nocapture noundef writeonly %result, ptr nocapture noundef readonly %points, i64 noundef %count) unnamed_addr #9 {
+define internal fastcc void @_ZN7meshoptL21computeBoundingSphereEPfPA3_Kfm(ptr nocapture noundef nonnull writeonly %result, ptr nocapture noundef nonnull readonly %points, i64 noundef %count) unnamed_addr #9 {
 entry:
   %pmin = alloca [3 x i64], align 16
   %pmax = alloca [3 x i64], align 16

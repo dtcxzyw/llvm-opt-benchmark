@@ -27,7 +27,7 @@ entry:
   br i1 %or.cond.i, label %get_dh_from_pg.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call14.i = tail call fastcc ptr @get_dh_from_pg_bn(ptr noundef %libctx, ptr noundef nonnull @.str, ptr noundef nonnull %call.i, ptr noundef nonnull %call2.i, ptr noundef null)
+  %call14.i = tail call fastcc ptr @get_dh_from_pg_bn(ptr noundef %libctx, ptr noundef nonnull @.str, ptr noundef %call.i, ptr noundef %call2.i, ptr noundef null)
   br label %get_dh_from_pg.exit
 
 get_dh_from_pg.exit:                              ; preds = %entry, %if.end.i
@@ -39,7 +39,7 @@ get_dh_from_pg.exit:                              ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_dh_from_pg(ptr noundef %libctx, ptr noundef %type, ptr noundef %pdata, i64 noundef %plen, ptr noundef %gdata, i64 noundef %glen, ptr noundef %qdata, i64 noundef %qlen) unnamed_addr #0 {
+define internal fastcc ptr @get_dh_from_pg(ptr noundef %libctx, ptr noundef %type, ptr noundef %pdata, i64 noundef range(i64 64, 129) %plen, ptr noundef %gdata, i64 noundef range(i64 1, 129) %glen, ptr noundef %qdata, i64 noundef range(i64 0, 22) %qlen) unnamed_addr #0 {
 entry:
   %conv = trunc nuw nsw i64 %plen to i32
   %call = tail call ptr @BN_bin2bn(ptr noundef %pdata, i32 noundef %conv, ptr noundef null) #2
@@ -62,7 +62,7 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.end13:                                         ; preds = %land.lhs.true, %if.end
   %q.1 = phi ptr [ %call9, %land.lhs.true ], [ null, %if.end ]
-  %call14 = tail call fastcc ptr @get_dh_from_pg_bn(ptr noundef %libctx, ptr noundef %type, ptr noundef nonnull %call, ptr noundef nonnull %call2, ptr noundef %q.1)
+  %call14 = tail call fastcc ptr @get_dh_from_pg_bn(ptr noundef %libctx, ptr noundef %type, ptr noundef %call, ptr noundef %call2, ptr noundef %q.1)
   br label %err
 
 err:                                              ; preds = %land.lhs.true, %entry, %if.end13
@@ -92,7 +92,7 @@ entry:
   br i1 %or.cond.i, label %get_dh_from_pg.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call14.i = tail call fastcc ptr @get_dh_from_pg_bn(ptr noundef %libctx, ptr noundef nonnull @.str, ptr noundef nonnull %call.i, ptr noundef nonnull %call2.i, ptr noundef null)
+  %call14.i = tail call fastcc ptr @get_dh_from_pg_bn(ptr noundef %libctx, ptr noundef nonnull @.str, ptr noundef %call.i, ptr noundef %call2.i, ptr noundef null)
   br label %get_dh_from_pg.exit
 
 get_dh_from_pg.exit:                              ; preds = %entry, %if.end.i
@@ -121,7 +121,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp3, label %err, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %call6 = tail call fastcc ptr @get_dh_from_pg_bn(ptr noundef %libctx, ptr noundef nonnull @.str, ptr noundef nonnull %call2, ptr noundef nonnull %call, ptr noundef null)
+  %call6 = tail call fastcc ptr @get_dh_from_pg_bn(ptr noundef %libctx, ptr noundef nonnull @.str, ptr noundef %call2, ptr noundef %call, ptr noundef null)
   br label %err
 
 err:                                              ; preds = %if.end, %entry, %lor.lhs.false, %if.end5
@@ -139,7 +139,7 @@ declare i32 @BN_set_word(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @BN_get_rfc3526_prime_2048(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_dh_from_pg_bn(ptr noundef %libctx, ptr noundef %type, ptr noundef %p, ptr noundef %g, ptr noundef %q) unnamed_addr #0 {
+define internal fastcc ptr @get_dh_from_pg_bn(ptr noundef %libctx, ptr noundef %type, ptr noundef nonnull %p, ptr noundef nonnull %g, ptr noundef %q) unnamed_addr #0 {
 entry:
   %dhpkey = alloca ptr, align 8
   %call = tail call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %libctx, ptr noundef %type, ptr noundef null) #2
@@ -158,12 +158,12 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp4, label %err, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %if.end
-  %call6 = tail call i32 @OSSL_PARAM_BLD_push_BN(ptr noundef nonnull %call3, ptr noundef nonnull @.str.2, ptr noundef %p) #2
+  %call6 = tail call i32 @OSSL_PARAM_BLD_push_BN(ptr noundef nonnull %call3, ptr noundef nonnull @.str.2, ptr noundef nonnull %p) #2
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false5
-  %call8 = tail call i32 @OSSL_PARAM_BLD_push_BN(ptr noundef nonnull %call3, ptr noundef nonnull @.str.3, ptr noundef %g) #2
+  %call8 = tail call i32 @OSSL_PARAM_BLD_push_BN(ptr noundef nonnull %call3, ptr noundef nonnull @.str.3, ptr noundef nonnull %g) #2
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %err, label %lor.lhs.false10
 
@@ -215,7 +215,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp3, label %err, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %call6 = tail call fastcc ptr @get_dh_from_pg_bn(ptr noundef %libctx, ptr noundef nonnull @.str, ptr noundef nonnull %call2, ptr noundef nonnull %call, ptr noundef null)
+  %call6 = tail call fastcc ptr @get_dh_from_pg_bn(ptr noundef %libctx, ptr noundef nonnull @.str, ptr noundef %call2, ptr noundef %call, ptr noundef null)
   br label %err
 
 err:                                              ; preds = %if.end, %entry, %lor.lhs.false, %if.end5

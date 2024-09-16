@@ -1809,7 +1809,7 @@ _ZN11flatbuffersL26GenerateRustModuleRootFileERKNS_6ParserERKNSt7__cxx1112basic_
   br label %45
 
 if.end.i:                                         ; preds = %entry
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_117RustDefaultConfigEv(ptr noalias nonnull align 8 %ref.tmp.i)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_117RustDefaultConfigEv(ptr noalias align 8 %ref.tmp.i)
   invoke void @_ZN11flatbuffers5Namer6ConfigC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(336) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(336) %ref.tmp.i)
           to label %.noexc.i unwind label %lpad.i
 
@@ -1843,7 +1843,7 @@ lpad.i.i:                                         ; preds = %invoke.cont5.i.i, %
   br label %ehcleanup7.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont5.i.i
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_112RustKeywordsB5cxx11Ev(ptr noalias nonnull align 8 %agg.tmp2.i)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_112RustKeywordsB5cxx11Ev(ptr noalias align 8 %agg.tmp2.i)
           to label %invoke.cont4.i unwind label %lpad3.i
 
 invoke.cont4.i:                                   ; preds = %invoke.cont.i
@@ -2607,7 +2607,7 @@ invoke.cont18:                                    ; preds = %invoke.cont.i37
   %cur_name_space_ = getelementptr inbounds i8, ptr %this, i64 608
   store ptr null, ptr %cur_name_space_, align 8
   %namer_ = getelementptr inbounds i8, ptr %this, i64 616
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_117RustDefaultConfigEv(ptr noalias nonnull align 8 %ref.tmp21)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_117RustDefaultConfigEv(ptr noalias align 8 %ref.tmp21)
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %invoke.cont18
@@ -2644,7 +2644,7 @@ lpad.i40:                                         ; preds = %invoke.cont5.i, %in
   br label %ehcleanup33
 
 invoke.cont25:                                    ; preds = %invoke.cont5.i
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_112RustKeywordsB5cxx11Ev(ptr noalias nonnull align 8 %agg.tmp26)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_112RustKeywordsB5cxx11Ev(ptr noalias align 8 %agg.tmp26)
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont25
@@ -2926,7 +2926,7 @@ invoke.cont4:                                     ; preds = %if.end
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_117RustDefaultConfigEv(ptr noalias align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_117RustDefaultConfigEv(ptr noalias nonnull align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp1 = alloca %"class.std::allocator", align 1
@@ -3249,7 +3249,7 @@ ehcleanup66:                                      ; preds = %lpad, %lpad.i, %ehc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_112RustKeywordsB5cxx11Ev(ptr noalias align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_112RustKeywordsB5cxx11Ev(ptr noalias nonnull align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %ref.tmp = alloca [76 x %"class.std::__cxx11::basic_string"], align 8

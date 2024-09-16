@@ -1827,7 +1827,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i16 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext range(i8 0, -128) %3, i32 noundef %4, i32 noundef range(i32 -2, -2147483648) %5, i32 noundef %6, i16 noundef zeroext %7, i16 noundef zeroext %8) unnamed_addr #0 {
   %10 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %4) #5
   %11 = icmp slt i32 %4, 0
   %12 = sub nsw i32 0, %4

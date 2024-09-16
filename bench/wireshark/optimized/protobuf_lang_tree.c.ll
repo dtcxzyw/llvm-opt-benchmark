@@ -533,7 +533,7 @@ define hidden noundef ptr @pbl_message_descriptor_pool_FindMethodByName(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pbl_find_node_in_pool(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @pbl_find_node_in_pool(ptr noundef readonly %0, ptr noundef %1, i32 noundef range(i32 2, 10) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -673,7 +673,7 @@ define hidden noundef ptr @pbl_method_descriptor_input_type(ptr noundef %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pbl_find_node_in_context(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @pbl_find_node_in_context(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 2, 7) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5

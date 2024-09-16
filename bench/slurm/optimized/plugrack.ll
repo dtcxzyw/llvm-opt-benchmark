@@ -151,7 +151,7 @@ define range(i32 -1, 1) i32 @plugrack_read_dir(ptr noundef readonly %0, ptr noun
   ]
 
 12:                                               ; preds = %8
-  %13 = tail call fastcc i32 @_plugrack_read_single_dir(ptr noundef nonnull %0, ptr noundef %.015)
+  %13 = tail call fastcc i32 @_plugrack_read_single_dir(ptr noundef %0, ptr noundef %.015)
   %14 = icmp eq i32 %13, -1
   %spec.select = select i1 %14, i32 -1, i32 %.0
   call void @slurm_xfree(ptr noundef nonnull %3) #10
@@ -159,7 +159,7 @@ define range(i32 -1, 1) i32 @plugrack_read_dir(ptr noundef readonly %0, ptr noun
 
 15:                                               ; preds = %8
   store i8 0, ptr %10, align 1
-  %16 = tail call fastcc i32 @_plugrack_read_single_dir(ptr noundef nonnull %0, ptr noundef %.015)
+  %16 = tail call fastcc i32 @_plugrack_read_single_dir(ptr noundef %0, ptr noundef %.015)
   %17 = icmp eq i32 %16, -1
   %spec.select21 = select i1 %17, i32 -1, i32 %.0
   %18 = load ptr, ptr %3, align 8
@@ -304,7 +304,7 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_plugrack_read_single_dir(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_plugrack_read_single_dir(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.stat, align 8
   %5 = alloca [64 x i8], align 16
@@ -711,14 +711,14 @@ define range(i32 -1, 8004) i32 @load_plugins(ptr nocapture noundef %0, ptr nound
   ]
 
 29:                                               ; preds = %25
-  %30 = tail call fastcc i32 @_plugrack_read_single_dir(ptr noundef nonnull readonly %17, ptr noundef %.015.i)
+  %30 = tail call fastcc i32 @_plugrack_read_single_dir(ptr noundef readonly %17, ptr noundef %.015.i)
   %31 = icmp eq i32 %30, -1
   call void @slurm_xfree(ptr noundef nonnull %9) #10
   br i1 %31, label %plugrack_read_dir.exit.thread, label %plugrack_read_dir.exit
 
 32:                                               ; preds = %25
   store i8 0, ptr %27, align 1
-  %33 = tail call fastcc i32 @_plugrack_read_single_dir(ptr noundef nonnull readonly %17, ptr noundef %.015.i)
+  %33 = tail call fastcc i32 @_plugrack_read_single_dir(ptr noundef readonly %17, ptr noundef %.015.i)
   %34 = icmp eq i32 %33, -1
   %spec.select21.i = select i1 %34, i32 -1, i32 %.0.i
   %35 = load ptr, ptr %9, align 8

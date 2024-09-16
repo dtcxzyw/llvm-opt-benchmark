@@ -27280,7 +27280,7 @@ define internal fastcc void @zend_infer_ranges(ptr noundef %0, ptr noundef %1) u
   br i1 %.not1055, label %93, label %.loopexit1083
 
 93:                                               ; preds = %88
-  %94 = call fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %83, i32 noundef 1, ptr noundef nonnull %7)
+  %94 = call fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %83, i32 noundef 1, ptr noundef %7)
   br i1 %94, label %95, label %.loopexit1083.sink.split
 
 95:                                               ; preds = %93
@@ -27416,7 +27416,7 @@ define internal fastcc void @zend_infer_ranges(ptr noundef %0, ptr noundef %1) u
   %172 = and i64 %171, %167
   store i64 %172, ptr %170, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %173 = call fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef %1, i32 noundef %164, i32 noundef 0, ptr noundef nonnull %6)
+  %173 = call fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef %1, i32 noundef %164, i32 noundef 0, ptr noundef %6)
   br i1 %173, label %174, label %zend_ssa_range_widening.exit.thread
 
 174:                                              ; preds = %163
@@ -28496,7 +28496,7 @@ zend_ssa_range_widening.exit.thread:              ; preds = %226, %163
   %853 = and i64 %852, %848
   store i64 %853, ptr %851, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %854 = call fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef %1, i32 noundef %845, i32 noundef 0, ptr noundef nonnull %5)
+  %854 = call fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef %1, i32 noundef %845, i32 noundef 0, ptr noundef %5)
   br i1 %854, label %855, label %zend_ssa_range_widening.exit1058.thread
 
 855:                                              ; preds = %844
@@ -29077,7 +29077,7 @@ zend_ssa_range_widening.exit1058.thread:          ; preds = %907, %844
 
 1217:                                             ; preds = %1212
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %1218 = call fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.61136, i32 noundef 1, ptr noundef nonnull %4)
+  %1218 = call fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.61136, i32 noundef 1, ptr noundef %4)
   br i1 %1218, label %1219, label %zend_ssa_range_narrowing.exit
 
 1219:                                             ; preds = %1217
@@ -29249,7 +29249,7 @@ zend_ssa_range_narrowing.exit:                    ; preds = %1217, %1273, %zend_
   %1311 = and i64 %1310, %1306
   store i64 %1311, ptr %1309, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %1312 = call fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef %1, i32 noundef %1303, i32 noundef 1, ptr noundef nonnull %3)
+  %1312 = call fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef %1, i32 noundef %1303, i32 noundef 1, ptr noundef %3)
   br i1 %1312, label %1313, label %zend_ssa_range_narrowing.exit1062.thread
 
 1313:                                             ; preds = %1302
@@ -32862,7 +32862,7 @@ declare ptr @zend_optimizer_get_class_entry(ptr noundef, ptr noundef, ptr nounde
 declare ptr @zend_string_tolower_ex(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_type_narrowing_warning(ptr nocapture noundef readonly %0, ptr nocapture readonly %.64.val, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @emit_type_narrowing_warning(ptr nocapture noundef readonly %0, ptr nocapture readonly %.64.val, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #0 {
   %3 = zext nneg i32 %1 to i64
   %4 = getelementptr inbounds %struct._zend_ssa_var, ptr %.64.val, i64 %3, i32 2
   %5 = load i32, ptr %4, align 8
@@ -33964,7 +33964,7 @@ declare ptr @zend_get_property_info(ptr noundef, ptr noundef, i32 noundef) local
 declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #14
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #15 {
+define internal fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef nonnull %4) unnamed_addr #15 {
   %6 = getelementptr inbounds i8, ptr %1, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %2 to i64
@@ -34707,7 +34707,7 @@ add_will_overflow.exit273.thread:                 ; preds = %328, %add_will_over
   %484 = getelementptr inbounds i8, ptr %1, i64 56
   %485 = load ptr, ptr %484, align 8
   %486 = getelementptr inbounds %struct._zend_ssa_op, ptr %485, i64 %482
-  %487 = tail call zeroext i1 @zend_inference_propagate_range(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %483, ptr noundef %486, i32 noundef %2, ptr noundef %4)
+  %487 = tail call zeroext i1 @zend_inference_propagate_range(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %483, ptr noundef %486, i32 noundef %2, ptr noundef nonnull %4)
   br label %488
 
 488:                                              ; preds = %475, %479, %.thread274
@@ -34843,7 +34843,7 @@ define internal fastcc void @zend_infer_ranges_warmup(ptr noundef %0, ptr nounde
   %78 = load i64, ptr %77, align 8
   %79 = and i64 %78, %74
   store i64 %79, ptr %77, align 8
-  %80 = call fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef %1, i32 noundef %71, i32 noundef 0, ptr noundef nonnull %6)
+  %80 = call fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef %1, i32 noundef %71, i32 noundef 0, ptr noundef %6)
   br i1 %80, label %81, label %zend_inference_narrowing_meet.exit
 
 81:                                               ; preds = %70

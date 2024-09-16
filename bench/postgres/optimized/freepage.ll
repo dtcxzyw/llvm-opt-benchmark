@@ -310,7 +310,7 @@ FreePagePushSpanLeader.exit:                      ; preds = %82, %103
   br label %184
 
 105:                                              ; preds = %71
-  call fastcc void @FreePageBtreeSearch(ptr noundef nonnull %0, i64 noundef %56, ptr noundef nonnull %4)
+  call fastcc void @FreePageBtreeSearch(ptr noundef nonnull %0, i64 noundef %56, ptr noundef %4)
   %106 = getelementptr inbounds i8, ptr %.085110, i64 8
   %107 = load i64, ptr %106, align 8
   %108 = icmp eq i64 %107, %1
@@ -1268,7 +1268,7 @@ FreePageBtreeGetRecycled.exit:                    ; preds = %159, %.split17.i
   br label %FreePageBtreeAdjustAncestorKeys.exit
 
 200:                                              ; preds = %186, %4
-  call fastcc void @FreePageBtreeSearch(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %5)
+  call fastcc void @FreePageBtreeSearch(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %5)
   %201 = getelementptr inbounds i8, ptr %5, i64 8
   %202 = load i64, ptr %201, align 8
   %.not = icmp eq i64 %202, 0
@@ -1813,7 +1813,7 @@ FreePageBtreeRecycle.exit:                        ; preds = %475, %494
   br i1 %exitcond.not, label %499, label %470, !llvm.loop !14
 
 499:                                              ; preds = %FreePageBtreeRecycle.exit
-  call fastcc void @FreePageBtreeSearch(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %5)
+  call fastcc void @FreePageBtreeSearch(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %5)
   %.pre512 = load i32, ptr %460, align 4
   %.pre513.pre = load ptr, ptr %5, align 8
   %500 = icmp eq i32 %.pre512, 0
@@ -2526,7 +2526,7 @@ define dso_local ptr @FreePageManagerDump(ptr noundef %0) local_unnamed_addr #1 
   %16 = getelementptr i8, ptr %5, i64 %14
   %17 = getelementptr i8, ptr %16, i64 -1
   %18 = select i1 %15, ptr null, ptr %17
-  call fastcc void @FreePageManagerDumpBtree(ptr noundef nonnull %0, ptr noundef %18, ptr noundef null, i32 noundef 0, ptr noundef nonnull %2)
+  call fastcc void @FreePageManagerDumpBtree(ptr noundef nonnull %0, ptr noundef %18, ptr noundef null, i32 noundef 0, ptr noundef %2)
   br label %25
 
 19:                                               ; preds = %1
@@ -2680,7 +2680,7 @@ declare void @initStringInfo(ptr noundef) local_unnamed_addr #3
 declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @FreePageManagerDumpBtree(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc void @FreePageManagerDumpBtree(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4) unnamed_addr #1 {
   %6 = load i64, ptr %0, align 8
   %7 = sub i64 1, %6
   %8 = getelementptr i8, ptr %0, i64 %7
@@ -2698,7 +2698,7 @@ define internal fastcc void @FreePageManagerDumpBtree(ptr noundef %0, ptr nounde
   %19 = load i32, ptr %1, align 8
   %20 = icmp eq i32 %19, 430584521
   %21 = select i1 %20, i32 105, i32 108
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %4, ptr noundef nonnull @.str.6, i64 noundef %12, i32 noundef %3, i32 noundef %21) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.6, i64 noundef %12, i32 noundef %3, i32 noundef %21) #13
   %.not = icmp eq ptr %2, %18
   br i1 %.not, label %29, label %22
 
@@ -2709,11 +2709,11 @@ define internal fastcc void @FreePageManagerDumpBtree(ptr noundef %0, ptr nounde
   %26 = ptrtoint ptr %2 to i64
   %27 = sub i64 %26, %10
   %28 = lshr i64 %27, 12
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %4, ptr noundef nonnull @.str.7, i64 noundef %25, i64 noundef %28) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.7, i64 noundef %25, i64 noundef %28) #13
   br label %29
 
 29:                                               ; preds = %22, %5
-  tail call void @appendStringInfoChar(ptr noundef %4, i8 noundef signext 58) #13
+  tail call void @appendStringInfoChar(ptr noundef nonnull %4, i8 noundef signext 58) #13
   %30 = getelementptr inbounds i8, ptr %1, i64 8
   %31 = load i64, ptr %30, align 8
   %.not54 = icmp eq i64 %31, 0
@@ -2736,7 +2736,7 @@ define internal fastcc void @FreePageManagerDumpBtree(ptr noundef %0, ptr nounde
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, -1
   %42 = lshr i64 %41, 12
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %4, ptr noundef nonnull @.str.8, i64 noundef %38, i64 noundef %42) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.8, i64 noundef %38, i64 noundef %42) #13
   br label %48
 
 43:                                               ; preds = %33
@@ -2744,7 +2744,7 @@ define internal fastcc void @FreePageManagerDumpBtree(ptr noundef %0, ptr nounde
   %45 = load i64, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %44, i64 8
   %47 = load i64, ptr %46, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %4, ptr noundef nonnull @.str.9, i64 noundef %45, i64 noundef %47) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.9, i64 noundef %45, i64 noundef %47) #13
   br label %48
 
 48:                                               ; preds = %36, %43
@@ -2754,7 +2754,7 @@ define internal fastcc void @FreePageManagerDumpBtree(ptr noundef %0, ptr nounde
   br i1 %51, label %33, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %48, %29
-  tail call void @appendStringInfoChar(ptr noundef %4, i8 noundef signext 10) #13
+  tail call void @appendStringInfoChar(ptr noundef nonnull %4, i8 noundef signext 10) #13
   %52 = load i32, ptr %1, align 8
   %53 = icmp eq i32 %52, 430584521
   br i1 %53, label %.preheader, label %.loopexit
@@ -2836,7 +2836,7 @@ declare void @check_stack_depth() local_unnamed_addr #3
 declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @FreePageBtreeSearch(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #5 {
+define internal fastcc void @FreePageBtreeSearch(ptr noundef %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #5 {
   %4 = load i64, ptr %0, align 8
   %5 = sub i64 1, %4
   %6 = getelementptr i8, ptr %0, i64 %5

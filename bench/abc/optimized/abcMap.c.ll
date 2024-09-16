@@ -1434,7 +1434,7 @@ declare ptr @Map_ManReadBufs(ptr noundef) local_unnamed_addr #1
 declare ptr @Map_ManReadBufDriver(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Abc_NodeFromMap_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @Abc_NodeFromMap_rec(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = tail call i32 @Map_NodeIsConst(ptr noundef %1) #13
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %17, label %5
@@ -1477,8 +1477,7 @@ define internal fastcc ptr @Abc_NodeFromMap_rec(ptr noundef %0, ptr noundef %1, 
   br label %30
 
 23:                                               ; preds = %19
-  %.not30 = icmp eq i32 %2, 0
-  %24 = zext i1 %.not30 to i32
+  %24 = xor i32 %2, 1
   %25 = tail call fastcc ptr @Abc_NodeFromMapPhase_rec(ptr noundef %0, ptr noundef %1, i32 noundef %24)
   %26 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #13
   tail call void @Abc_ObjAddFanin(ptr noundef %26, ptr noundef %25) #13
@@ -1917,7 +1916,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %176, %172
   br i1 %exitcond.not.i143.i, label %._crit_edge.i138.i, label %189, !llvm.loop !27
 
 ._crit_edge.i138.i:                               ; preds = %189, %183
-  %197 = call fastcc ptr @Abc_NodeFromMapSuperChoice_rec(ptr noundef %70, ptr noundef nonnull %181, ptr noundef nonnull %2, i32 noundef %185)
+  %197 = call fastcc ptr @Abc_NodeFromMapSuperChoice_rec(ptr noundef %70, ptr noundef nonnull %181, ptr noundef %2, i32 noundef %185)
   br label %Abc_NodeFromMapCutPhase.exit144.i
 
 Abc_NodeFromMapCutPhase.exit144.i:                ; preds = %._crit_edge.i138.i, %.lr.ph.i.i
@@ -1954,7 +1953,7 @@ Abc_NodeFromMapCutPhase.exit144.i:                ; preds = %._crit_edge.i138.i,
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %206, !llvm.loop !27
 
 ._crit_edge.i.i:                                  ; preds = %206, %200
-  %214 = call fastcc ptr @Abc_NodeFromMapSuperChoice_rec(ptr noundef %70, ptr noundef nonnull %198, ptr noundef nonnull %3, i32 noundef %202)
+  %214 = call fastcc ptr @Abc_NodeFromMapSuperChoice_rec(ptr noundef %70, ptr noundef nonnull %198, ptr noundef %3, i32 noundef %202)
   br label %Abc_NodeFromMapCutPhase.exit.i
 
 Abc_NodeFromMapCutPhase.exit.i:                   ; preds = %._crit_edge.i.i, %Abc_NodeFromMapCutPhase.exit144.i
@@ -3290,7 +3289,7 @@ declare ptr @Map_NodeReadData(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @Map_NodeReadCutBest(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Abc_NodeFromMapPhase_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @Abc_NodeFromMapPhase_rec(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca [10 x ptr], align 16
   %5 = tail call ptr @Map_NodeReadData(ptr noundef %1, i32 noundef %2) #13
   %.not = icmp eq ptr %5, null
@@ -3361,7 +3360,7 @@ declare ptr @Map_NodeReadCuts(ptr noundef) local_unnamed_addr #1
 declare ptr @Map_CutReadNext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Abc_NodeFromMapSuperChoice_rec(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @Abc_NodeFromMapSuperChoice_rec(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call ptr (...) @Abc_FrameReadLibGen() #13
   %6 = tail call ptr @Map_SuperReadRoot(ptr noundef %1) #13
   %7 = icmp eq ptr %6, null

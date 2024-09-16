@@ -1028,7 +1028,7 @@ declare dso_local i32 @dpm_suspend_start(i32) local_unnamed_addr #3
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @suspend_test(i32 noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @suspend_test(i32 noundef range(i32 1, 3) %0) unnamed_addr #1 align 16 {
   %2 = load i32, ptr @pm_test_level, align 4
   %3 = icmp eq i32 %2, %0
   br i1 %3, label %4, label %.loopexit
@@ -1061,7 +1061,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @suspend_test(i32 noundef %0)
 declare dso_local void @dpm_resume_end(i32) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_suspend_resume(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #8 align 16 {
+define internal fastcc void @trace_suspend_resume(ptr noundef %0, i32 noundef range(i32 2, 1) %1, i1 noundef zeroext %2) unnamed_addr #8 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_suspend_resume, i64 8), i32 2) #13
           to label %24 [label %4], !srcloc !12
 

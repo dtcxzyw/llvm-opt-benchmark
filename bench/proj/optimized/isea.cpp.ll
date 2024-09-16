@@ -681,7 +681,7 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit35.i: ; preds = %245, %229
   br label %332
 
 253:                                              ; preds = %197
-  %254 = invoke fastcc noundef i32 @_ZL9isea_ptdiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_(ptr noundef nonnull %9, i32 noundef %127, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %254 = invoke fastcc noundef i32 @_ZL9isea_ptdiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_(ptr noundef nonnull %9, i32 noundef %127, ptr noundef %5, ptr noundef %6)
           to label %.noexc unwind label %333
 
 .noexc:                                           ; preds = %253
@@ -692,7 +692,7 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit35.i: ; preds = %245, %229
   br label %332
 
 256:                                              ; preds = %197
-  %257 = invoke fastcc noundef i32 @_ZL9isea_ptdiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_(ptr noundef nonnull %9, i32 noundef %127, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %257 = invoke fastcc noundef i32 @_ZL9isea_ptdiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_(ptr noundef nonnull %9, i32 noundef %127, ptr noundef %5, ptr noundef %6)
           to label %.noexc16 unwind label %333
 
 .noexc16:                                         ; preds = %256
@@ -780,7 +780,7 @@ _ZL9isea_disnPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptE.exit.i: ; preds = %299, %2
 
 319:                                              ; preds = %197
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %320 = invoke fastcc noundef i32 @_ZL9isea_ptdiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_(ptr noundef nonnull %9, i32 noundef %127, ptr noundef nonnull readonly %5, ptr noundef nonnull %4)
+  %320 = invoke fastcc noundef i32 @_ZL9isea_ptdiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_(ptr noundef nonnull %9, i32 noundef %127, ptr noundef readonly %5, ptr noundef %4)
           to label %.noexc17 unwind label %333
 
 .noexc17:                                         ; preds = %319
@@ -879,7 +879,7 @@ declare void @_Z16proj_coord_errorv(ptr dead_on_unwind writable sret(%union.PJ_C
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL9isea_ptdiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL9isea_ptdiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_(ptr nocapture noundef %0, i32 noundef range(i32 -2147483648, 21) %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
 _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit:
   %4 = alloca %"struct.(anonymous namespace)::hex", align 8
   %5 = alloca %"struct.(anonymous namespace)::hex", align 8
@@ -932,7 +932,7 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit:
   %39 = tail call i64 @lround(double noundef %38) #16
   %40 = getelementptr inbounds i8, ptr %4, i64 8
   %41 = getelementptr inbounds i8, ptr %4, i64 16
-  call fastcc void @_ZL7hexbin2dddPlS_(double noundef %37, double noundef %.sroa.0.0, double noundef %.sroa.7.0, ptr noundef nonnull %40, ptr noundef nonnull %41)
+  call fastcc void @_ZL7hexbin2dddPlS_(double noundef %37, double noundef %.sroa.0.0, double noundef %.sroa.7.0, ptr noundef %40, ptr noundef %41)
   %42 = load i64, ptr %40, align 8
   %43 = icmp sgt i64 %42, -1
   %44 = load i64, ptr %41, align 8
@@ -1005,7 +1005,9 @@ _ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i.i:        ; preds = %50, %45
 
 76:                                               ; preds = %74
   %77 = add nsw i32 %26, -4
-  %78 = urem i32 %77, 5
+  %.urem.i.i = add nsw i32 %26, -9
+  %.cmp.i.i = icmp ult i32 %77, 5
+  %78 = select i1 %.cmp.i.i, i32 %77, i32 %.urem.i.i
   br label %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i
 
 _ZL16isea_dddi_ap3oddPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i: ; preds = %76, %74, %70, %66, %63, %59, %55
@@ -1073,7 +1075,7 @@ _ZL16isea_dddi_ap3oddPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i: ; preds
   %109 = tail call double @llvm.fmuladd.f64(double %107, double 0x3FDFFFFFFFFFFFFF, double %108)
   %110 = getelementptr inbounds i8, ptr %5, i64 8
   %111 = getelementptr inbounds i8, ptr %5, i64 16
-  call fastcc void @_ZL7hexbin2dddPlS_(double noundef %104, double noundef %106, double noundef %109, ptr noundef nonnull %110, ptr noundef nonnull %111)
+  call fastcc void @_ZL7hexbin2dddPlS_(double noundef %104, double noundef %106, double noundef %109, ptr noundef %110, ptr noundef %111)
   %112 = load i64, ptr %110, align 8
   %113 = icmp sgt i64 %112, -1
   %114 = load i64, ptr %111, align 8
@@ -1203,7 +1205,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 declare i64 @lround(double noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL7hexbin2dddPlS_(double noundef %0, double noundef %1, double noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc void @_ZL7hexbin2dddPlS_(double noundef %0, double noundef %1, double noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = fcmp oeq double %0, 0.000000e+00
   br i1 %6, label %7, label %9
 

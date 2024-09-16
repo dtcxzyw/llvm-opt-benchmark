@@ -1730,7 +1730,7 @@ define internal fastcc i32 @Gia_ManTestOnePair_rec(ptr noundef %0, ptr noundef %
   %8 = getelementptr inbounds i32, ptr %.val28, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %9, -1
-  br i1 %10, label %common.ret38, label %11
+  br i1 %10, label %common.ret37, label %11
 
 11:                                               ; preds = %4
   %12 = tail call i32 @sat_solver_addvar(ptr noundef %0) #19
@@ -1746,11 +1746,11 @@ define internal fastcc i32 @Gia_ManTestOnePair_rec(ptr noundef %0, ptr noundef %
   %17 = and i64 %.val30, 536870911
   %18 = icmp eq i64 %17, 536870911
   %narrow.i.not = or i1 %.not.i, %18
-  br i1 %narrow.i.not, label %common.ret38, label %19
+  br i1 %narrow.i.not, label %common.ret37, label %19
 
-common.ret38:                                     ; preds = %4, %11, %19
-  %common.ret38.op = phi i32 [ %12, %19 ], [ %12, %11 ], [ %9, %4 ]
-  ret i32 %common.ret38.op
+common.ret37:                                     ; preds = %4, %11, %19
+  %common.ret37.op = phi i32 [ %12, %19 ], [ %12, %11 ], [ %9, %4 ]
+  ret i32 %common.ret37.op
 
 19:                                               ; preds = %11
   %20 = trunc i64 %.val30 to i32
@@ -1793,7 +1793,7 @@ common.ret38:                                     ; preds = %4, %11, %19
   %47 = getelementptr inbounds i8, ptr %5, i64 12
   %48 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %47) #19
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
-  br label %common.ret38
+  br label %common.ret37
 }
 
 declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4

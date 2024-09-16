@@ -43,14 +43,14 @@ define range(i32 -22, 1) i32 @nxsched_set_priority(ptr noundef %0, i32 noundef %
   %16 = getelementptr inbounds i8, ptr %15, i64 66
   %17 = load i16, ptr %16, align 2
   %18 = icmp sgt i16 %17, 0
-  br i1 %18, label %.preheader.i.preheader, label %29
+  br i1 %18, label %.preheader.preheader.i, label %29
 
-.preheader.i.preheader:                           ; preds = %14
+.preheader.preheader.i:                           ; preds = %14
   %19 = trunc nuw i32 %1 to i8
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
-  %.0.i = phi ptr [ %23, %.preheader.i ], [ %10, %.preheader.i.preheader ]
+.preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
+  %.0.i = phi ptr [ %23, %.preheader.i ], [ %10, %.preheader.preheader.i ]
   %20 = call zeroext i1 @nxsched_remove_readytorun(ptr noundef nonnull %.0.i, i1 noundef zeroext false) #4
   %21 = call zeroext i1 @nxsched_add_prioritized(ptr noundef nonnull %.0.i, ptr noundef nonnull @g_pendingtasks) #4
   %22 = getelementptr inbounds i8, ptr %.0.i, i64 48

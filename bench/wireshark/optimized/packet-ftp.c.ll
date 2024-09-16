@@ -653,7 +653,7 @@ proto_item_set_hidden.exit351:                    ; preds = %proto_item_set_hidd
 
 214:                                              ; preds = %211
   %215 = getelementptr i8, ptr %210, i64 4
-  call fastcc void @process_cwd_success(ptr noundef nonnull %36, ptr noundef %215)
+  call fastcc void @process_cwd_success(ptr noundef %36, ptr noundef %215)
   br label %thread-pre-split.sink.split
 
 216:                                              ; preds = %211
@@ -662,7 +662,7 @@ proto_item_set_hidden.exit351:                    ; preds = %proto_item_set_hidd
   br i1 %218, label %219, label %thread-pre-split
 
 219:                                              ; preds = %216
-  call fastcc void @process_cwd_success(ptr noundef nonnull %36, ptr noundef nonnull @.str.182)
+  call fastcc void @process_cwd_success(ptr noundef %36, ptr noundef nonnull @.str.182)
   br label %thread-pre-split.sink.split
 
 thread-pre-split.sink.split:                      ; preds = %214, %219
@@ -694,7 +694,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
 
 231:                                              ; preds = %228
   %232 = add nsw i32 %53, -4
-  call fastcc void @process_pwd_success(ptr noundef nonnull %36, ptr noundef %0, i32 noundef %232, ptr noundef nonnull %1, ptr noundef %184)
+  call fastcc void @process_pwd_success(ptr noundef %36, ptr noundef %0, i32 noundef %232, ptr noundef nonnull %1, ptr noundef %184)
   %233 = load ptr, ptr %37, align 8
   %234 = getelementptr inbounds i8, ptr %233, i64 50
   %235 = load i16, ptr %234, align 2
@@ -745,7 +745,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   br i1 %.not336, label %276, label %246
 
 246:                                              ; preds = %245
-  %247 = call fastcc i32 @parse_port_pasv(ptr noundef %0, i32 noundef %240, i32 noundef %241, ptr noundef nonnull %12, ptr noundef nonnull %18, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull %19)
+  %247 = call fastcc i32 @parse_port_pasv(ptr noundef %0, i32 noundef %240, i32 noundef %241, ptr noundef %12, ptr noundef %18, ptr noundef %11, ptr noundef %13, ptr noundef %19)
   %.not337 = icmp eq i32 %247, 0
   br i1 %.not337, label %276, label %248
 
@@ -799,7 +799,7 @@ addresses_equal.exit:                             ; preds = %268, %271
   br i1 %or.cond7, label %277, label %308
 
 277:                                              ; preds = %276
-  %278 = call fastcc i32 @parse_port_pasv(ptr noundef %0, i32 noundef %240, i32 noundef %241, ptr noundef nonnull %10, ptr noundef nonnull %18, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull %19)
+  %278 = call fastcc i32 @parse_port_pasv(ptr noundef %0, i32 noundef %240, i32 noundef %241, ptr noundef %10, ptr noundef %18, ptr noundef %11, ptr noundef %13, ptr noundef %19)
   %.not339 = icmp eq i32 %278, 0
   br i1 %.not339, label %308, label %279
 
@@ -2122,7 +2122,7 @@ declare i32 @ssl_starttls_ack(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_cwd_success(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @process_cwd_success(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @g_path_is_absolute(ptr noundef %1) #11
   %.not = icmp eq i32 %3, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2385,83 +2385,83 @@ add_directory_to_conv.exit:                       ; preds = %._crit_edge.i, %14,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_pwd_success(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @process_pwd_success(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1, i32 noundef range(i32 0, 2147483644) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef 4, i32 noundef %2) #11
-  %7 = icmp slt i32 %2, 2
+  %7 = icmp ult i32 %2, 2
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %5
   %9 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %9, 34
-  br i1 %.not, label %.lr.ph.preheader, label %10
+  br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %8, %5
   %11 = tail call ptr @expert_add_info(ptr noundef %3, ptr noundef %4, ptr noundef nonnull @ei_ftp_pwd_response_invalid) #11
-  br label %32
+  br label %34
 
-.lr.ph.preheader:                                 ; preds = %8
-  %12 = tail call ptr @wmem_file_scope() #11
-  %13 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %12, ptr noundef null) #11
-  br label %.lr.ph
+12:                                               ; preds = %8
+  %13 = tail call ptr @wmem_file_scope() #11
+  %14 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %13, ptr noundef null) #11
+  br label %15
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %26
-  %.047 = phi i32 [ %.1, %26 ], [ 0, %.lr.ph.preheader ]
-  %.03546 = phi i32 [ %27, %26 ], [ 0, %.lr.ph.preheader ]
-  %14 = sext i32 %.03546 to i64
-  %15 = getelementptr i8, ptr %6, i64 %14
-  %16 = load i8, ptr %15, align 1
-  switch i8 %16, label %.sink.split [
+15:                                               ; preds = %12, %28
+  %.047 = phi i32 [ 0, %12 ], [ %.1, %28 ]
+  %.03546 = phi i32 [ 0, %12 ], [ %29, %28 ]
+  %16 = sext i32 %.03546 to i64
+  %17 = getelementptr i8, ptr %6, i64 %16
+  %18 = load i8, ptr %17, align 1
+  switch i8 %18, label %.sink.split [
     i8 13, label %.critedge
     i8 10, label %.critedge
-    i8 34, label %17
+    i8 34, label %19
   ]
 
-17:                                               ; preds = %.lr.ph
-  %18 = add nsw i32 %.03546, 1
-  %19 = icmp slt i32 %18, %2
-  br i1 %19, label %20, label %25
+19:                                               ; preds = %15
+  %20 = add nsw i32 %.03546, 1
+  %21 = icmp slt i32 %20, %2
+  br i1 %21, label %22, label %27
 
-20:                                               ; preds = %17
-  %21 = sext i32 %18 to i64
-  %22 = getelementptr i8, ptr %6, i64 %21
-  %23 = load i8, ptr %22, align 1
-  %24 = icmp eq i8 %23, 34
-  br i1 %24, label %.sink.split, label %25
+22:                                               ; preds = %19
+  %23 = sext i32 %20 to i64
+  %24 = getelementptr i8, ptr %6, i64 %23
+  %25 = load i8, ptr %24, align 1
+  %26 = icmp eq i8 %25, 34
+  br i1 %26, label %.sink.split, label %27
 
-25:                                               ; preds = %20, %17
+27:                                               ; preds = %22, %19
   %.not42 = icmp eq i32 %.047, 0
-  br i1 %.not42, label %26, label %30
+  br i1 %.not42, label %28, label %32
 
-.sink.split:                                      ; preds = %.lr.ph, %20
-  %.sink = phi i8 [ 34, %20 ], [ %16, %.lr.ph ]
-  %.136.ph = phi i32 [ %18, %20 ], [ %.03546, %.lr.ph ]
-  tail call void @wmem_strbuf_append_c(ptr noundef %13, i8 noundef signext %.sink) #11
-  br label %26
+.sink.split:                                      ; preds = %15, %22
+  %.sink = phi i8 [ 34, %22 ], [ %18, %15 ]
+  %.136.ph = phi i32 [ %20, %22 ], [ %.03546, %15 ]
+  tail call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext %.sink) #11
+  br label %28
 
-26:                                               ; preds = %.sink.split, %25
-  %.136 = phi i32 [ %.03546, %25 ], [ %.136.ph, %.sink.split ]
-  %.1 = phi i32 [ 1, %25 ], [ %.047, %.sink.split ]
-  %27 = add nsw i32 %.136, 1
-  %28 = icmp slt i32 %27, %2
-  br i1 %28, label %.lr.ph, label %.critedge, !llvm.loop !13
+28:                                               ; preds = %.sink.split, %27
+  %.136 = phi i32 [ %.03546, %27 ], [ %.136.ph, %.sink.split ]
+  %.1 = phi i32 [ 1, %27 ], [ %.047, %.sink.split ]
+  %29 = add nsw i32 %.136, 1
+  %30 = icmp slt i32 %29, %2
+  br i1 %30, label %15, label %.critedge, !llvm.loop !13
 
-.critedge:                                        ; preds = %26, %.lr.ph, %.lr.ph
-  %29 = tail call ptr @expert_add_info(ptr noundef %3, ptr noundef %4, ptr noundef nonnull @ei_ftp_pwd_response_invalid) #11
-  tail call void @wmem_strbuf_destroy(ptr noundef %13) #11
-  br label %32
+.critedge:                                        ; preds = %28, %15, %15
+  %31 = tail call ptr @expert_add_info(ptr noundef %3, ptr noundef %4, ptr noundef nonnull @ei_ftp_pwd_response_invalid) #11
+  tail call void @wmem_strbuf_destroy(ptr noundef %14) #11
+  br label %34
 
-30:                                               ; preds = %25
-  tail call void @wmem_strbuf_utf8_make_valid(ptr noundef %13) #11
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %13, ptr %31, align 8
-  br label %32
+32:                                               ; preds = %27
+  tail call void @wmem_strbuf_utf8_make_valid(ptr noundef %14) #11
+  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %14, ptr %33, align 8
+  br label %34
 
-32:                                               ; preds = %30, %.critedge, %10
+34:                                               ; preds = %32, %.critedge, %10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_port_pasv(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_port_pasv(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #0 {
   %9 = alloca [4 x i32], align 16
   %10 = alloca [2 x i32], align 4
   %11 = tail call ptr @wmem_packet_scope() #11

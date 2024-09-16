@@ -817,13 +817,13 @@ define i32 @Card_AddCardinConstrPairWise(ptr noundef %0, ptr nocapture noundef r
   %5 = getelementptr i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %5, align 8
   %6 = add nsw i32 %.val, -1
-  call fastcc void @Card_AddCardinConstrRange(ptr noundef %0, ptr noundef %.val3, i32 noundef 0, i32 noundef %6, ptr noundef nonnull %3)
+  call fastcc void @Card_AddCardinConstrRange(ptr noundef %0, ptr noundef %.val3, i32 noundef 0, i32 noundef %6, ptr noundef %3)
   %7 = load i32, ptr %3, align 4
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Card_AddCardinConstrRange(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @Card_AddCardinConstrRange(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, -2147483648) %2, i32 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca [3 x i32], align 4
   %7 = sub nsw i32 %3, %2
   %8 = icmp sgt i32 %7, 0
@@ -831,17 +831,17 @@ define internal fastcc void @Card_AddCardinConstrRange(ptr noundef %0, ptr nound
 
 9:                                                ; preds = %5
   %10 = lshr i32 %7, 1
-  %11 = add i32 %10, %2
+  %11 = add nuw i32 %10, %2
   %12 = add nuw nsw i32 %7, 1
   %13 = lshr i32 %12, 1
   %14 = getelementptr inbounds i8, ptr %6, i64 4
   %15 = getelementptr inbounds i8, ptr %6, i64 8
   %16 = getelementptr inbounds i8, ptr %6, i64 12
-  %17 = sext i32 %2 to i64
+  %17 = zext nneg i32 %2 to i64
   %18 = zext nneg i32 %13 to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 %11)
-  %19 = add i32 %smax, 1
-  %invariant.gep = getelementptr i32, ptr %1, i64 %18
+  %19 = add nuw i32 %11, 1
+  %wide.trip.count = zext i32 %19 to i64
+  %invariant.gep = getelementptr inbounds i32, ptr %1, i64 %18
   br label %20
 
 20:                                               ; preds = %9, %20
@@ -852,7 +852,7 @@ define internal fastcc void @Card_AddCardinConstrRange(ptr noundef %0, ptr nound
   store i32 %23, ptr %4, align 4
   %24 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %26 = load i32, ptr %gep, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
   %27 = shl nsw i32 %21, 1
@@ -860,30 +860,29 @@ define internal fastcc void @Card_AddCardinConstrRange(ptr noundef %0, ptr nound
   %28 = shl nsw i32 %25, 1
   %29 = or disjoint i32 %28, 1
   store i32 %29, ptr %14, align 4
-  call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %15)
+  call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef %6, ptr noundef %15)
   store i32 %27, ptr %6, align 4
   %30 = shl nsw i32 %26, 1
   %31 = or disjoint i32 %30, 1
   store i32 %31, ptr %14, align 4
-  call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %15)
+  call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef %6, ptr noundef %15)
   %32 = shl nsw i32 %22, 1
   store i32 %32, ptr %6, align 4
   store i32 %29, ptr %14, align 4
   store i32 %31, ptr %15, align 4
-  call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %16)
+  call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef %6, ptr noundef %16)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
   store i32 %21, ptr %24, align 4
   store i32 %22, ptr %gep, align 4
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %19, %lftr.wideiv
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %33, label %20, !llvm.loop !15
 
 33:                                               ; preds = %20
-  call fastcc void @Card_AddCardinConstrRange(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %11, ptr noundef nonnull %4)
+  call fastcc void @Card_AddCardinConstrRange(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %11, ptr noundef %4)
   %34 = add nuw nsw i32 %11, 1
-  call fastcc void @Card_AddCardinConstrRange(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %34, i32 noundef %3, ptr noundef nonnull %4)
-  call fastcc void @Card_AddCardinConstrMerge(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef nonnull %4)
+  call fastcc void @Card_AddCardinConstrRange(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %34, i32 noundef %3, ptr noundef %4)
+  call fastcc void @Card_AddCardinConstrMerge(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef %4)
   br label %35
 
 35:                                               ; preds = %33, %5
@@ -931,7 +930,7 @@ define i32 @Card_AddCardinSolver(i32 noundef %0, ptr nocapture noundef writeonly
 Vec_IntStartNatural.exit:                         ; preds = %17, %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %5, ptr %4, align 4
-  call fastcc void @Card_AddCardinConstrRange(ptr noundef nonnull %6, ptr noundef %15, i32 noundef 0, i32 noundef %11, ptr noundef nonnull %4)
+  call fastcc void @Card_AddCardinConstrRange(ptr noundef nonnull %6, ptr noundef %15, i32 noundef 0, i32 noundef %11, ptr noundef %4)
   %20 = load i32, ptr %4, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %21 = load i32, ptr %7, align 4
@@ -1071,7 +1070,7 @@ define i32 @Sbm_AddCardinConstrPairWise(ptr noundef %0, ptr nocapture noundef re
   %6 = getelementptr i8, ptr %1, i64 8
   %.val4 = load ptr, ptr %6, align 8
   %7 = add nsw i32 %.val, -1
-  call fastcc void @Sbm_AddCardinConstrRange(ptr noundef %0, ptr noundef %.val4, i32 noundef 0, i32 noundef %7, ptr noundef nonnull %4)
+  call fastcc void @Sbm_AddCardinConstrRange(ptr noundef %0, ptr noundef %.val4, i32 noundef 0, i32 noundef %7, ptr noundef %4)
   %8 = load i32, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 96
   store i32 %8, ptr %9, align 8
@@ -1134,7 +1133,7 @@ sat_solver_bookmark.exit:                         ; preds = %3, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Sbm_AddCardinConstrRange(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @Sbm_AddCardinConstrRange(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, -2147483648) %2, i32 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca [3 x i32], align 4
   %7 = sub nsw i32 %3, %2
   %8 = icmp sgt i32 %7, 0
@@ -1142,17 +1141,17 @@ define internal fastcc void @Sbm_AddCardinConstrRange(ptr noundef %0, ptr nounde
 
 9:                                                ; preds = %5
   %10 = lshr i32 %7, 1
-  %11 = add i32 %10, %2
+  %11 = add nuw i32 %10, %2
   %12 = add nuw nsw i32 %7, 1
   %13 = lshr i32 %12, 1
   %14 = getelementptr inbounds i8, ptr %6, i64 4
   %15 = getelementptr inbounds i8, ptr %6, i64 8
   %16 = getelementptr inbounds i8, ptr %6, i64 12
-  %17 = sext i32 %2 to i64
+  %17 = zext nneg i32 %2 to i64
   %18 = zext nneg i32 %13 to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 %11)
-  %19 = add i32 %smax, 1
-  %invariant.gep = getelementptr i32, ptr %1, i64 %18
+  %19 = add nuw i32 %11, 1
+  %wide.trip.count = zext i32 %19 to i64
+  %invariant.gep = getelementptr inbounds i32, ptr %1, i64 %18
   br label %20
 
 20:                                               ; preds = %9, %20
@@ -1163,7 +1162,7 @@ define internal fastcc void @Sbm_AddCardinConstrRange(ptr noundef %0, ptr nounde
   %23 = add nsw i32 %21, 1
   %24 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %26 = load i32, ptr %gep, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
   %27 = shl nsw i32 %21, 1
@@ -1185,16 +1184,15 @@ define internal fastcc void @Sbm_AddCardinConstrRange(ptr noundef %0, ptr nounde
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
   store i32 %21, ptr %24, align 4
   store i32 %23, ptr %gep, align 4
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %19, %lftr.wideiv
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %36, label %20, !llvm.loop !18
 
 36:                                               ; preds = %20
-  call fastcc void @Sbm_AddCardinConstrRange(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %11, ptr noundef nonnull %4)
+  call fastcc void @Sbm_AddCardinConstrRange(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %11, ptr noundef %4)
   %37 = add nuw nsw i32 %11, 1
-  call fastcc void @Sbm_AddCardinConstrRange(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %37, i32 noundef %3, ptr noundef nonnull %4)
-  call fastcc void @Sbm_AddCardinConstrMerge(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef nonnull %4)
+  call fastcc void @Sbm_AddCardinConstrRange(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %37, i32 noundef %3, ptr noundef %4)
+  call fastcc void @Sbm_AddCardinConstrMerge(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef %4)
   br label %38
 
 38:                                               ; preds = %36, %5
@@ -1245,7 +1243,7 @@ Vec_IntStartNatural.exit:                         ; preds = %19, %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %4, ptr %3, align 4
   %23 = add nsw i32 %4, -1
-  call fastcc void @Sbm_AddCardinConstrRange(ptr noundef %22, ptr noundef %17, i32 noundef 0, i32 noundef %23, ptr noundef nonnull %3)
+  call fastcc void @Sbm_AddCardinConstrRange(ptr noundef %22, ptr noundef %17, i32 noundef 0, i32 noundef %23, ptr noundef %3)
   %24 = load i32, ptr %22, align 8
   %25 = getelementptr inbounds i8, ptr %22, i64 96
   store i32 %24, ptr %25, align 8
@@ -2469,7 +2467,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Card_AddCardinConstrMerge(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @Card_AddCardinConstrMerge(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca [3 x i32], align 4
   %8 = alloca [2 x i32], align 4
   %9 = shl nsw i32 %4, 1
@@ -2525,17 +2523,17 @@ define internal fastcc void @Card_AddCardinConstrMerge(ptr noundef %0, ptr nound
   %38 = shl nsw i32 %35, 1
   %39 = or disjoint i32 %38, 1
   store i32 %39, ptr %16, align 4
-  call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %17)
+  call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef %7, ptr noundef %17)
   store i32 %37, ptr %7, align 4
   %40 = shl nsw i32 %36, 1
   %41 = or disjoint i32 %40, 1
   store i32 %41, ptr %16, align 4
-  call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %17)
+  call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef %7, ptr noundef %17)
   %42 = shl nsw i32 %32, 1
   store i32 %42, ptr %7, align 4
   store i32 %39, ptr %16, align 4
   store i32 %41, ptr %17, align 4
-  call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %18)
+  call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef %7, ptr noundef %18)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
   store i32 %31, ptr %34, align 4
   store i32 %32, ptr %gep, align 4
@@ -2555,7 +2553,7 @@ define internal fastcc void @Card_AddCardinConstrMerge(ptr noundef %0, ptr nound
   %50 = shl nsw i32 %49, 1
   %51 = or disjoint i32 %50, 1
   store i32 %51, ptr %25, align 4
-  call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %26)
+  call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef %8, ptr noundef %26)
   %52 = icmp slt i64 %indvars.iv.next50, %29
   br i1 %52, label %44, label %.loopexit, !llvm.loop !30
 
@@ -2564,7 +2562,7 @@ define internal fastcc void @Card_AddCardinConstrMerge(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Card_AddClause(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @Card_AddClause(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = ptrtoint ptr %2 to i64
   %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5
@@ -2717,7 +2715,7 @@ Vec_IntPush.exit13:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Sbm_AddCardinConstrMerge(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @Sbm_AddCardinConstrMerge(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca [3 x i32], align 4
   %8 = alloca [2 x i32], align 4
   %9 = shl nsw i32 %4, 1
@@ -2881,9 +2879,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #13

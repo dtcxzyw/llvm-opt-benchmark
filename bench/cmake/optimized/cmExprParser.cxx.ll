@@ -133,7 +133,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z14cmExpr_yyparsePv(ptr noundef %
   br i1 %.not221, label %20, label %19
 
 19:                                               ; preds = %15
-  call fastcc void @_ZL14yy_stack_printPaS_(ptr noundef nonnull %3, ptr noundef nonnull %.0198.ptr)
+  call fastcc void @_ZL14yy_stack_printPaS_(ptr noundef %3, ptr noundef %.0198.ptr)
   br label %20
 
 20:                                               ; preds = %.thread, %15, %19
@@ -289,7 +289,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z14cmExpr_yyparsePv(ptr noundef %
   br i1 %.not234, label %103, label %102
 
 102:                                              ; preds = %93
-  call fastcc void @_ZL15yy_reduce_printPaPN18cmExprParserHelper10ParserTypeEiPv(ptr noundef nonnull %.0198.ptr, i32 noundef %.0191)
+  call fastcc void @_ZL15yy_reduce_printPaPN18cmExprParserHelper10ParserTypeEiPv(ptr noundef %.0198.ptr, i32 noundef %.0191)
   br label %103
 
 103:                                              ; preds = %93, %102
@@ -556,7 +556,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z14cmExpr_yyparsePv(ptr noundef %
   ]
 
 238:                                              ; preds = %236
-  %239 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %6, ptr %.0275, ptr nonnull %.0198.ptr, i32 %237)
+  %239 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %6, ptr %.0275, ptr nonnull %.0198.ptr, i32 %237)
   switch i32 %239, label %250 [
     i32 0, label %240
     i32 -1, label %241
@@ -580,7 +580,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z14cmExpr_yyparsePv(ptr noundef %
   br i1 %.not239, label %249, label %246
 
 246:                                              ; preds = %243
-  %247 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %6, ptr nonnull %245, ptr nonnull %.0198.ptr, i32 %237)
+  %247 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %6, ptr nonnull %245, ptr nonnull %.0198.ptr, i32 %237)
   %248 = icmp eq i32 %247, -2
   br label %250
 
@@ -698,7 +698,7 @@ _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit259
   br i1 %.not244, label %302, label %301
 
 301:                                              ; preds = %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit259
-  call fastcc void @_ZL14yy_stack_printPaS_(ptr noundef nonnull %3, ptr noundef nonnull %.ptr224)
+  call fastcc void @_ZL14yy_stack_printPaS_(ptr noundef %3, ptr noundef %.ptr224)
   br label %302
 
 302:                                              ; preds = %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit259.thread, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit259, %301
@@ -780,7 +780,7 @@ _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit264
   br i1 %.not246, label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit264.thread, label %330
 
 330:                                              ; preds = %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit264
-  call fastcc void @_ZL14yy_stack_printPaS_(ptr noundef nonnull %3, ptr noundef nonnull %.4202301.ph)
+  call fastcc void @_ZL14yy_stack_printPaS_(ptr noundef %3, ptr noundef %.4202301.ph)
   br label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit264.thread
 
 _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit264.thread: ; preds = %317, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit264, %330
@@ -843,7 +843,7 @@ _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit269
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL14yy_stack_printPaS_(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #2 {
+define internal fastcc void @_ZL14yy_stack_printPaS_(ptr noundef nonnull readonly %0, ptr noundef nonnull readnone %1) unnamed_addr #2 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 9, i64 1, ptr %3) #14
   %.not4 = icmp ugt ptr %0, %1
@@ -868,7 +868,7 @@ define internal fastcc void @_ZL14yy_stack_printPaS_(ptr noundef readonly %0, pt
 declare noundef i32 @_Z12cmExpr_yylexPN18cmExprParserHelper10ParserTypeEPv(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPKN18cmExprParserHelper10ParserTypeEPv(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #4 {
+define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPKN18cmExprParserHelper10ParserTypeEPv(ptr nocapture noundef %0, i32 noundef range(i32 -128, 128) %1) unnamed_addr #4 {
   %3 = icmp slt i32 %1, 17
   %.str.19..str.20 = select i1 %3, ptr @.str.19, ptr @.str.20
   %4 = sext i32 %1 to i64
@@ -880,7 +880,7 @@ define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPKN1
 }
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15yy_reduce_printPaPN18cmExprParserHelper10ParserTypeEiPv(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @_ZL15yy_reduce_printPaPN18cmExprParserHelper10ParserTypeEiPv(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 -128, 129) %1) unnamed_addr #2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [25 x i8], ptr @_ZL7yyrline, i64 0, i64 %3
   %5 = load i8, ptr %4, align 1
@@ -949,7 +949,7 @@ declare void @_ZNSt14overflow_errorD1Ev(ptr noundef nonnull align 8 dereferencea
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr nocapture noundef %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #7 {
+define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #7 {
   %2 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6, label %3

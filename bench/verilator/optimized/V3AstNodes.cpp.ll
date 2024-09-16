@@ -171065,7 +171065,7 @@ _ZNK25dpiTypesToStringConverter9openArrayB5cxx11EPK6AstVar.exit: ; preds = %.noe
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %17) #33
   %19 = getelementptr i8, ptr %2, i64 72
   %.val = load ptr, ptr %19, align 8
-  invoke fastcc void @_ZZNK6AstVar13dpiTmpVarTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK9converter11arraySuffixB5cxx11EPKS_m(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %.val, i64 noundef 0)
+  invoke fastcc void @_ZZNK6AstVar13dpiTmpVarTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK9converter11arraySuffixB5cxx11EPKS_m(ptr dead_on_unwind noalias writable align 8 %8, ptr %.val, i64 noundef 0)
           to label %20 unwind label %37
 
 20:                                               ; preds = %18
@@ -171200,7 +171200,7 @@ _ZNK25dpiTypesToStringConverter14bitLogicVectorB5cxx11EPK6AstVarb.exit: ; preds 
 
 _ZNK7AstNode10widthWordsEv.exit:                  ; preds = %21, %18
   %27 = phi i64 [ %26, %21 ], [ 0, %18 ]
-  invoke fastcc void @_ZZNK6AstVar13dpiTmpVarTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK9converter11arraySuffixB5cxx11EPKS_m(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %20, i64 noundef %27)
+  invoke fastcc void @_ZZNK6AstVar13dpiTmpVarTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK9converter11arraySuffixB5cxx11EPKS_m(ptr dead_on_unwind noalias writable align 8 %8, ptr %20, i64 noundef %27)
           to label %28 unwind label %45
 
 28:                                               ; preds = %_ZNK7AstNode10widthWordsEv.exit
@@ -171410,7 +171410,7 @@ _ZNK6AstVar6basicpEv.exit:                        ; preds = %52
 
 68:                                               ; preds = %.critedge
   %.val = load ptr, ptr %8, align 8
-  invoke fastcc void @_ZZNK6AstVar13dpiTmpVarTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK9converter11arraySuffixB5cxx11EPKS_m(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.val, i64 noundef 0)
+  invoke fastcc void @_ZZNK6AstVar13dpiTmpVarTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK9converter11arraySuffixB5cxx11EPKS_m(ptr dead_on_unwind noalias writable align 8 %7, ptr %.val, i64 noundef 0)
           to label %69 unwind label %84
 
 69:                                               ; preds = %68
@@ -171479,7 +171479,7 @@ _ZNK6AstVar6basicpEv.exit:                        ; preds = %52
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZNK6AstVar13dpiTmpVarTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK9converter11arraySuffixB5cxx11EPKS_m(ptr dead_on_unwind noalias writable align 8 %0, ptr %.72.val, i64 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZNK6AstVar13dpiTmpVarTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK9converter11arraySuffixB5cxx11EPKS_m(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.72.val, i64 noundef range(i64 -2147483648, 2147483648) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

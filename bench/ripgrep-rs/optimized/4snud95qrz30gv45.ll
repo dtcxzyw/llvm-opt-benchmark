@@ -240,7 +240,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h85bb17b82b4323
   %13 = getelementptr inbounds i8, ptr %8, i64 4
   store ptr %13, ptr %6, align 8, !alias.scope !19
   %14 = load i32, ptr %8, align 4, !range !27, !noalias !19, !noundef !4
-  invoke fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %14)
+  invoke fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(ptr noalias noundef align 8 dereferenceable(24) %1, i32 noundef %14)
           to label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha3ddb0b0194a9794E.exit" unwind label %10
 
 15:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha3ddb0b0194a9794E.exit"
@@ -290,7 +290,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8for_each17hd843c95f57
   %13 = getelementptr inbounds i8, ptr %8, i64 4
   store ptr %13, ptr %6, align 8, !alias.scope !36, !noalias !39
   %14 = load i32, ptr %8, align 4, !range !27, !noalias !36, !noundef !4
-  invoke fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %14)
+  invoke fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(ptr noalias noundef align 8 dereferenceable(24) %1, i32 noundef %14)
           to label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha3ddb0b0194a9794E.exit.i" unwind label %10, !noalias !33
 
 15:                                               ; preds = %10
@@ -313,7 +313,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h85bb17b82b43236cE.llvm.73324329480
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17h3bebe5a4d9ea7e11E"(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #6 {
-  tail call fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  tail call fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1)
   ret i1 false
 }
 
@@ -776,7 +776,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$16as_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %.sroa.0 = alloca i32, align 4
   %3 = icmp ult i32 %1, 128
   br i1 %3, label %.critedge, label %4
@@ -964,7 +964,7 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   tail call void @llvm.experimental.noalias.scope.decl(metadata !265)
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load i32, ptr %29, align 4, !range !27, !noalias !254, !noundef !4
-  invoke fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %31)
+  invoke fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %31)
           to label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha3ddb0b0194a9794E.exit.i.i" unwind label %27, !noalias !266
 
 32:                                               ; preds = %27

@@ -810,7 +810,7 @@ if.then.i7:                                       ; preds = %if.then2
   br label %return
 
 if.end.i:                                         ; preds = %if.then2
-  %call2.i = tail call fastcc i32 @parse_config(ptr noundef %colopts, ptr noundef nonnull %value)
+  %call2.i = tail call fastcc i32 @parse_config(ptr noundef %colopts, ptr noundef %value)
   %tobool3.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool3.not.i, label %return, label %if.then4.i
 
@@ -836,7 +836,7 @@ if.then.i15:                                      ; preds = %if.then8
   br label %return
 
 if.end.i9:                                        ; preds = %if.then8
-  %call2.i10 = tail call fastcc i32 @parse_config(ptr noundef %colopts, ptr noundef nonnull %value)
+  %call2.i10 = tail call fastcc i32 @parse_config(ptr noundef %colopts, ptr noundef %value)
   %tobool3.not.i11 = icmp eq i32 %call2.i10, 0
   br i1 %tobool3.not.i11, label %return, label %if.then4.i12
 
@@ -871,7 +871,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %call = tail call fastcc i32 @parse_config(ptr noundef nonnull %0, ptr noundef nonnull %arg)
+  %call = tail call fastcc i32 @parse_config(ptr noundef nonnull %0, ptr noundef %arg)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.then3
@@ -880,7 +880,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @parse_config(ptr nocapture noundef %colopts, ptr noundef %value) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parse_config(ptr nocapture noundef %colopts, ptr noundef nonnull %value) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %value, align 1
   %tobool.not33 = icmp eq i8 %0, 0

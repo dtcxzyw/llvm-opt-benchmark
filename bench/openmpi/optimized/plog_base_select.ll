@@ -450,7 +450,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %81, %8
 .lr.ph.i142:                                      ; preds = %194, %.lr.ph.i142
   %200 = phi ptr [ %202, %.lr.ph.i142 ], [ %199, %194 ]
   %.07.i143 = phi ptr [ %201, %.lr.ph.i142 ], [ %198, %194 ]
-  call void %200(ptr noundef %177) #11
+  call void %200(ptr noundef nonnull %177) #11
   %201 = getelementptr inbounds i8, ptr %.07.i143, i64 8
   %202 = load ptr, ptr %201, align 8
   %.not.i144 = icmp eq ptr %202, null
@@ -563,7 +563,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i142, %194
 .lr.ph.i153:                                      ; preds = %248, %.lr.ph.i153
   %254 = phi ptr [ %256, %.lr.ph.i153 ], [ %253, %248 ]
   %.07.i154 = phi ptr [ %255, %.lr.ph.i153 ], [ %252, %248 ]
-  call void %254(ptr noundef %231) #11
+  call void %254(ptr noundef nonnull %231) #11
   %255 = getelementptr inbounds i8, ptr %.07.i154, i64 8
   %256 = load ptr, ptr %255, align 8
   %.not.i155 = icmp eq ptr %256, null

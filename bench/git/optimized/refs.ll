@@ -6083,7 +6083,7 @@ if.then.i.i:                                      ; preds = %entry
 find_longest_prefixes.exit:                       ; preds = %entry, %if.then.i.i
   %3 = phi i64 [ %1, %entry ], [ %.pre.i, %if.then.i.i ]
   %4 = load ptr, ptr %sorted.i, align 8
-  call fastcc void @find_longest_prefixes_1(ptr noundef nonnull %prefixes, ptr noundef nonnull %prefix.i, ptr noundef %4, i64 noundef %3)
+  call fastcc void @find_longest_prefixes_1(ptr noundef %prefixes, ptr noundef %prefix.i, ptr noundef %4, i64 noundef %3)
   call void @strvec_clear(ptr noundef nonnull %sorted.i) #23
   call void @strbuf_release(ptr noundef nonnull %prefix.i) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sorted.i)
@@ -8303,7 +8303,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @find_longest_prefixes_1(ptr noundef %out, ptr noundef %prefix, ptr nocapture noundef readonly %patterns, i64 noundef %nr) unnamed_addr #5 {
+define internal fastcc void @find_longest_prefixes_1(ptr noundef nonnull %out, ptr noundef nonnull %prefix, ptr nocapture noundef readonly %patterns, i64 noundef %nr) unnamed_addr #5 {
 entry:
   %cmp32.not = icmp eq i64 %nr, 0
   br i1 %cmp32.not, label %while.end, label %for.body.lr.ph
@@ -8343,7 +8343,7 @@ lor.lhs.false:                                    ; preds = %for.body
 if.then:                                          ; preds = %lor.lhs.false, %for.body
   %buf = getelementptr inbounds i8, ptr %prefix, i64 16
   %5 = load ptr, ptr %buf, align 8
-  %call = tail call ptr @string_list_append(ptr noundef %out, ptr noundef %5) #23
+  %call = tail call ptr @string_list_append(ptr noundef nonnull %out, ptr noundef %5) #23
   br label %while.end
 
 for.cond7.preheader:                              ; preds = %for.cond7.preheader.lr.ph, %strbuf_setlen.exit
@@ -8405,7 +8405,7 @@ strbuf_addch.exit:                                ; preds = %for.end25, %if.then
   %arrayidx3.i = getelementptr inbounds i8, ptr %15, i64 %16
   store i8 0, ptr %arrayidx3.i, align 1
   %sub = sub i64 %end.0.lcssa, %i.135
-  tail call fastcc void @find_longest_prefixes_1(ptr noundef %out, ptr noundef nonnull %prefix, ptr noundef nonnull %arrayidx11, i64 noundef %sub)
+  tail call fastcc void @find_longest_prefixes_1(ptr noundef %out, ptr noundef %prefix, ptr noundef nonnull %arrayidx11, i64 noundef %sub)
   %17 = load i64, ptr %len12, align 8
   %sub31 = add i64 %17, -1
   %18 = load i64, ptr %prefix, align 8

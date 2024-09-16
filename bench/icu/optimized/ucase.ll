@@ -1291,7 +1291,7 @@ if.end.i.us:                                      ; preds = %do.body.i.us
 
 do.cond.i.us:                                     ; preds = %if.end.i.us
   %dec.i.us = add nsw i32 %length.addr.0.i.us, -1
-  %cmp7.i.us = icmp sgt i32 %length.addr.0.i.us, 1
+  %cmp7.i.us = icmp ugt i32 %length.addr.0.i.us, 1
   br i1 %cmp7.i.us, label %do.body.i.us, label %for.cond.preheader, !llvm.loop !9
 
 _ZL9strcmpMaxPKDsiS0_i.exit.us:                   ; preds = %if.end.i.us
@@ -1336,7 +1336,7 @@ if.end.i:                                         ; preds = %do.body.i
 
 do.cond.i:                                        ; preds = %if.end.i
   %dec.i = add nsw i32 %length.addr.0.i, -1
-  %cmp7.i = icmp sgt i32 %length.addr.0.i, 1
+  %cmp7.i = icmp ugt i32 %length.addr.0.i, 1
   br i1 %cmp7.i, label %do.body.i, label %do.end.i, !llvm.loop !9
 
 do.end.i:                                         ; preds = %do.cond.i
@@ -2746,7 +2746,7 @@ return:                                           ; preds = %for.body.i106, %_ZL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL23isFollowedByCasedLetterPFiPvaES_a(ptr noundef readonly %iter, ptr noundef %context, i8 noundef signext %dir) unnamed_addr #0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL23isFollowedByCasedLetterPFiPvaES_a(ptr noundef readonly %iter, ptr noundef %context, i8 noundef signext range(i8 -1, 2) %dir) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %iter, null
   br i1 %cmp, label %return, label %for.cond
@@ -2833,7 +2833,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef readonly %iter, ptr noundef %context, ptr nocapture noundef writeonly %pString, i32 noundef %loc, i8 noundef signext %upperNotTitle) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef readonly %iter, ptr noundef %context, ptr nocapture noundef writeonly %pString, i32 noundef %loc, i8 noundef signext range(i8 0, 2) %upperNotTitle) unnamed_addr #0 {
 entry:
   store ptr null, ptr %pString, align 8
   %cmp = icmp ult i32 %c, 55296

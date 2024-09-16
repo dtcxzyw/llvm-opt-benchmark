@@ -237,7 +237,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
 
 59:                                               ; preds = %49, %53, %56
   %.063 = phi i32 [ %58, %56 ], [ -1, %53 ], [ -1, %49 ]
-  call fastcc void @_hash_readnext(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @_hash_readnext(ptr noundef %0, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %60 = load i32, ptr %3, align 4
   %.not2 = icmp eq i32 %60, 0
   br i1 %.not2, label %68, label %61
@@ -427,7 +427,7 @@ BufferGetPage.exit42.i:                           ; preds = %149, %143
   br i1 %.not4344.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %BufferGetPage.exit42.i, %.lr.ph.i
-  call fastcc void @_hash_readnext(ptr noundef readonly %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @_hash_readnext(ptr noundef readonly %0, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %161 = load ptr, ptr %5, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 4
   %163 = load i32, ptr %162, align 4
@@ -736,7 +736,7 @@ BufferGetPage.exit54:                             ; preds = %81, %87
   br i1 %118, label %.critedge2.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %109, %116
-  call fastcc void @_hash_readnext(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @_hash_readnext(ptr noundef %0, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.pre56 = load ptr, ptr %5, align 8
   br label %109, !llvm.loop !7
 
@@ -792,7 +792,7 @@ declare i32 @_hash_get_oldblock_from_newbucket(ptr noundef, i32 noundef) local_u
 declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_hash_readnext(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @_hash_readnext(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 56

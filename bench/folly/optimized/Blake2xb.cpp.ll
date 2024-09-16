@@ -262,7 +262,7 @@ eh.resume:                                        ; preds = %lpad33, %lpad20, %l
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly6crypto12_GLOBAL__N_119initStateFromParamsEP32crypto_generichash_blake2b_stateRKNS0_6detail13Blake2xbParamENS_5RangeIPKhEE(ptr noundef %_state, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %param, ptr %key.coerce0, ptr %key.coerce1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly6crypto12_GLOBAL__N_119initStateFromParamsEP32crypto_generichash_blake2b_stateRKNS0_6detail13Blake2xbParamENS_5RangeIPKhEE(ptr noundef nonnull %_state, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %param, ptr %key.coerce0, ptr %key.coerce1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %block = alloca %"struct.std::array.0", align 1
   %0 = load i64, ptr %param, align 8, !tbaa !28

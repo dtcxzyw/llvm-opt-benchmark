@@ -2604,7 +2604,7 @@ define void @"_ZN82_$LT$ring..aead..Tag$u20$as$u20$core..convert..TryFrom$LT$$RF
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4ring2ec7suite_b4ecdh4ecdh17ha085280e0cc1ca70E(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(56) %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN4ring2ec7suite_b4ecdh4ecdh17ha085280e0cc1ca70E(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6) unnamed_addr #2 personality ptr @rust_eh_personality {
   %8 = alloca {}, align 1
   %9 = alloca { [18 x i64] }, align 8
   %10 = alloca { i64, [6 x i64] }, align 8
@@ -3568,13 +3568,13 @@ switch.lookup:
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @_ZN4ring2ec7suite_b4ecdh9p256_ecdh17hafa0e3d109e35c6dE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #2 {
-  %6 = tail call fastcc noundef zeroext i1 @_ZN4ring2ec7suite_b4ecdh4ecdh17ha085280e0cc1ca70E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @_ZN4ring2ec7suite_b3ops4p25615PRIVATE_KEY_OPS17h70b2070f95c33558E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @_ZN4ring2ec7suite_b3ops4p25614PUBLIC_KEY_OPS17hb164660f63f3e9f7E, ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
+  %6 = tail call fastcc noundef zeroext i1 @_ZN4ring2ec7suite_b4ecdh4ecdh17ha085280e0cc1ca70E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @_ZN4ring2ec7suite_b3ops4p25615PRIVATE_KEY_OPS17h70b2070f95c33558E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @_ZN4ring2ec7suite_b3ops4p25614PUBLIC_KEY_OPS17hb164660f63f3e9f7E, ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   ret i1 %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @_ZN4ring2ec7suite_b4ecdh9p384_ecdh17hf47b37bcf25189aeE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #2 {
-  %6 = tail call fastcc noundef zeroext i1 @_ZN4ring2ec7suite_b4ecdh4ecdh17ha085280e0cc1ca70E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @_ZN4ring2ec7suite_b3ops4p38415PRIVATE_KEY_OPS17h32f5a334fe87dd80E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @_ZN4ring2ec7suite_b3ops4p38414PUBLIC_KEY_OPS17ha411ba8b0716c995E, ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
+  %6 = tail call fastcc noundef zeroext i1 @_ZN4ring2ec7suite_b4ecdh4ecdh17ha085280e0cc1ca70E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @_ZN4ring2ec7suite_b3ops4p38415PRIVATE_KEY_OPS17h32f5a334fe87dd80E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @_ZN4ring2ec7suite_b3ops4p38414PUBLIC_KEY_OPS17ha411ba8b0716c995E, ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   ret i1 %6
 }
 

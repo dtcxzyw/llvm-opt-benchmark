@@ -236,7 +236,7 @@ if.else62.i:                                      ; preds = %get_keysym.exit.i, 
   %tobool77.not.i = icmp eq ptr %call76.i, null
   %or79.i = or i32 %keycode.1.i, 512
   %keycode.2.i = select i1 %tobool77.not.i, i32 %keycode.1.i, i32 %or79.i
-  call fastcc void @add_keysym(ptr noundef nonnull %line.i, i32 noundef %retval.0.i71.i, i32 noundef %keycode.2.i, ptr noundef nonnull readonly %call)
+  call fastcc void @add_keysym(ptr noundef %line.i, i32 noundef %retval.0.i71.i, i32 noundef %keycode.2.i, ptr noundef nonnull readonly %call)
   %call82.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %gep.i, ptr noundef nonnull dereferenceable(1) @.str.10) #11
   %tobool83.not.i = icmp eq ptr %call82.i, null
   br i1 %tobool83.not.i, label %for.cond.backedge.i, label %for.cond86.preheader.i
@@ -315,7 +315,7 @@ get_keysym.exit63.i:                              ; preds = %for.body.i40.i
 if.then94.i:                                      ; preds = %get_keysym.exit63.i, %get_keysym.exit63.thread74.i
   %retval.0.i5077.i = phi i32 [ %conv10.i57.i, %get_keysym.exit63.thread74.i ], [ %26, %get_keysym.exit63.i ]
   %or96.i = or i32 %keycode.2.i, 256
-  call fastcc void @add_keysym(ptr noundef nonnull %line.i, i32 noundef %retval.0.i5077.i, i32 noundef %or96.i, ptr noundef nonnull readonly %call)
+  call fastcc void @add_keysym(ptr noundef %line.i, i32 noundef %retval.0.i5077.i, i32 noundef %or96.i, ptr noundef nonnull readonly %call)
   br label %for.cond.backedge.i
 
 for.cond.backedge.i:                              ; preds = %if.then94.i, %get_keysym.exit63.i, %get_keysym.exit63.thread.i, %if.else62.i, %get_keysym.exit.i, %get_keysym.exit.thread.i, %while.end.i, %if.end17.i
@@ -570,13 +570,13 @@ declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) lo
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @add_keysym(ptr noundef %line, i32 noundef %keysym, i32 noundef %keycode, ptr nocapture noundef readonly %k) unnamed_addr #0 {
+define internal fastcc void @add_keysym(ptr noundef nonnull %line, i32 noundef range(i32 1, 0) %keysym, i32 noundef %keycode, ptr nocapture noundef readonly %k) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %k, align 8
   %conv = sext i32 %keysym to i64
   %1 = inttoptr i64 %conv to ptr
-  %call = tail call ptr @g_hash_table_lookup(ptr noundef %0, ptr noundef %1) #10
+  %call = tail call ptr @g_hash_table_lookup(ptr noundef %0, ptr noundef nonnull %1) #10
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end6, label %if.then
 
@@ -606,7 +606,7 @@ if.end6:                                          ; preds = %entry
   store i16 %conv8, ptr %keycodes9, align 4
   store i32 1, ptr %call7, align 4
   %3 = load ptr, ptr %k, align 8
-  %call14 = tail call i32 @g_hash_table_replace(ptr noundef %3, ptr noundef %1, ptr noundef nonnull %call7) #10
+  %call14 = tail call i32 @g_hash_table_replace(ptr noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %call7) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %4, 0
@@ -632,11 +632,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %keysym, i32 noundef %keycode, ptr noundef %line) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %keysym, i32 noundef %keycode, ptr noundef nonnull %line) #10
   br label %trace_keymap_add.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %keysym, i32 noundef %keycode, ptr noundef %line) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %keysym, i32 noundef %keycode, ptr noundef nonnull %line) #10
   br label %trace_keymap_add.exit
 
 trace_keymap_add.exit:                            ; preds = %if.end6, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

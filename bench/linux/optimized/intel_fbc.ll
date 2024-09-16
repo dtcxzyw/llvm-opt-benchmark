@@ -2779,7 +2779,7 @@ define internal fastcc zeroext i16 @intel_fbc_override_cfb_stride(ptr nocapture 
 declare dso_local i64 @i915_gem_stolen_node_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_fbc_nuke(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_fbc_nuke(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 400
   %3 = load i8, ptr %2, align 8, !range !13, !noundef !14
   %4 = icmp eq i8 %3, 0
@@ -2857,7 +2857,7 @@ define internal fastcc void @intel_fbc_nuke(ptr noundef %0) unnamed_addr #0 alig
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 32
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef %0) #11
+  tail call void %45(ptr noundef nonnull %0) #11
   ret void
 }
 
@@ -3168,7 +3168,7 @@ define internal fastcc zeroext i1 @intel_fbc_hw_tracking_covers_screen(ptr nocap
 declare dso_local ptr @intel_atomic_get_cdclk_state(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_fbc_update_state(ptr nocapture noundef readonly %0, i32 %.144.val, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_fbc_update_state(ptr nocapture noundef readonly %0, i32 %.144.val, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32

@@ -56,7 +56,7 @@ if.then14:                                        ; preds = %if.end11
   br label %return
 
 if.end15:                                         ; preds = %if.end11
-  %call16 = call fastcc i32 @parsenetrc(ptr noundef %host, ptr noundef %loginp, ptr noundef %passwordp, ptr noundef nonnull %call12)
+  %call16 = call fastcc i32 @parsenetrc(ptr noundef %host, ptr noundef %loginp, ptr noundef %passwordp, ptr noundef %call12)
   %3 = load ptr, ptr @Curl_cfree, align 8
   call void %3(ptr noundef nonnull %call12) #4
   %4 = load ptr, ptr @Curl_cfree, align 8
@@ -64,7 +64,7 @@ if.end15:                                         ; preds = %if.end11
   br label %return
 
 if.else17:                                        ; preds = %entry
-  %call18 = tail call fastcc i32 @parsenetrc(ptr noundef %host, ptr noundef %loginp, ptr noundef %passwordp, ptr noundef nonnull %netrcfile)
+  %call18 = tail call fastcc i32 @parsenetrc(ptr noundef %host, ptr noundef %loginp, ptr noundef %passwordp, ptr noundef %netrcfile)
   br label %return
 
 return:                                           ; preds = %if.else, %if.end15, %if.else17, %if.then14
@@ -82,7 +82,7 @@ declare i32 @geteuid() local_unnamed_addr #2
 declare ptr @curl_maprintf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @parsenetrc(ptr noundef %host, ptr nocapture noundef %loginp, ptr nocapture noundef %passwordp, ptr nocapture noundef readonly %netrcfile) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @parsenetrc(ptr noundef %host, ptr nocapture noundef %loginp, ptr nocapture noundef %passwordp, ptr nocapture noundef nonnull readonly %netrcfile) unnamed_addr #0 {
 entry:
   %netrcbuffer = alloca [4096 x i8], align 16
   %0 = load ptr, ptr %loginp, align 8
@@ -97,7 +97,7 @@ land.rhs:                                         ; preds = %entry
 
 land.end:                                         ; preds = %land.rhs, %entry
   %3 = phi i1 [ false, %entry ], [ %cmp, %land.rhs ]
-  %call = tail call noalias ptr @fopen(ptr noundef %netrcfile, ptr noundef nonnull @.str.3)
+  %call = tail call noalias ptr @fopen(ptr noundef nonnull %netrcfile, ptr noundef nonnull @.str.3)
   %tobool2.not = icmp eq ptr %call, null
   br i1 %tobool2.not, label %if.end224, label %while.cond.preheader
 

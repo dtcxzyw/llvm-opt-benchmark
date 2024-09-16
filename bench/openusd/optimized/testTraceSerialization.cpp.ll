@@ -230,7 +230,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %18 unwind label %112
 
 18:                                               ; preds = %16
-  invoke fastcc void @_ZL20CreateTestCollectionf(ptr dead_on_unwind noalias nonnull writable align 8 %6, float noundef 0.000000e+00)
+  invoke fastcc void @_ZL20CreateTestCollectionf(ptr dead_on_unwind noalias writable align 8 %6, float noundef 0.000000e+00)
           to label %19 unwind label %112
 
 19:                                               ; preds = %18
@@ -298,7 +298,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionESt14defau
   br label %.body20
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit22: ; preds = %.noexc19
-  invoke fastcc void @_ZL18_TestSerializationRKSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEESaIS3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %7)
+  invoke fastcc void @_ZL18_TestSerializationRKSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEESaIS3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %7)
           to label %38 unwind label %118
 
 38:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit22
@@ -312,7 +312,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit22: ; 
           to label %42 unwind label %112
 
 42:                                               ; preds = %40
-  invoke fastcc void @_ZL20CreateTestCollectionf(ptr dead_on_unwind noalias nonnull writable align 8 %9, float noundef 0x3F947AE140000000)
+  invoke fastcc void @_ZL20CreateTestCollectionf(ptr dead_on_unwind noalias writable align 8 %9, float noundef 0x3F947AE140000000)
           to label %43 unwind label %112
 
 43:                                               ; preds = %42
@@ -378,7 +378,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionESt14defau
   br label %.body33
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit35: ; preds = %.noexc32
-  invoke fastcc void @_ZL18_TestSerializationRKSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEESaIS3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %10)
+  invoke fastcc void @_ZL18_TestSerializationRKSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEESaIS3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %10)
           to label %60 unwind label %124
 
 60:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit35
@@ -586,7 +586,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL20CreateTestCollectionf(ptr dead_on_unwind noalias writable align 8 %0, float noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20CreateTestCollectionf(ptr dead_on_unwind noalias nonnull writable align 8 %0, float noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceThreadId", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.0", align 1
@@ -658,7 +658,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 30:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   %31 = fpext float %1 to double
-  invoke fastcc void @_ZL16CreateTestEventsd(ptr dead_on_unwind noalias nonnull writable align 8 %6, double noundef %31)
+  invoke fastcc void @_ZL16CreateTestEventsd(ptr dead_on_unwind noalias writable align 8 %6, double noundef %31)
           to label %32 unwind label %47
 
 32:                                               ; preds = %30
@@ -704,7 +704,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit24: ; 
 
 38:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit24
   %39 = fadd double %31, 1.000000e-03
-  invoke fastcc void @_ZL16CreateTestEventsd(ptr dead_on_unwind noalias nonnull writable align 8 %10, double noundef %39)
+  invoke fastcc void @_ZL16CreateTestEventsd(ptr dead_on_unwind noalias writable align 8 %10, double noundef %39)
           to label %40 unwind label %57
 
 40:                                               ; preds = %38
@@ -827,7 +827,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEEclE
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL18_TestSerializationRKSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEESaIS3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL18_TestSerializationRKSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEESaIS3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
@@ -1447,7 +1447,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__15TraceCollection15AddToColle
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL16CreateTestEventsd(ptr dead_on_unwind noalias writable align 8 %0, double noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16CreateTestEventsd(ptr dead_on_unwind noalias nonnull writable align 8 %0, double noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::__detail::_AllocNode", align 8
   %4 = alloca %"struct.std::__detail::_AllocNode", align 8
   %5 = alloca %"struct.std::__detail::_AllocNode", align 8

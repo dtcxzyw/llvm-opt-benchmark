@@ -2665,7 +2665,7 @@ return:                                           ; preds = %if.then28, %if.end2
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @encode_file(ptr noundef %infilename, i32 noundef %is_first_file, i32 noundef %is_last_file) unnamed_addr #0 {
+define internal fastcc i32 @encode_file(ptr noundef %infilename, i32 noundef range(i32 0, 2) %is_first_file, i32 noundef range(i32 0, 2) %is_last_file) unnamed_addr #0 {
 entry:
   %lookahead = alloca [12 x i8], align 1
   %encode_options = alloca %struct.encode_options_t, align 8
@@ -3887,7 +3887,7 @@ declare ptr @FLAC__metadata_object_new(i32 noundef) local_unnamed_addr #2
 declare i32 @share__getopt_long(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %short_option, ptr noundef %long_option, ptr noundef %option_argument) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef range(i32 0, -1) %short_option, ptr noundef %long_option, ptr noundef %option_argument) unnamed_addr #0 {
 entry:
   %violation = alloca ptr, align 8
   %end = alloca ptr, align 8
@@ -5109,7 +5109,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @add_compression_setting_bool(i32 noundef %type, i32 noundef %value) unnamed_addr #0 {
+define internal fastcc void @add_compression_setting_bool(i32 noundef range(i32 2, 10) %type, i32 noundef range(i32 0, 2) %value) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
   %cmp = icmp ugt i64 %0, 63
@@ -5131,7 +5131,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @add_compression_setting_uint32_t(i32 noundef %type, i32 noundef %value) unnamed_addr #0 {
+define internal fastcc void @add_compression_setting_uint32_t(i32 noundef range(i32 0, 13) %type, i32 noundef %value) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
   %cmp = icmp ugt i64 %0, 63

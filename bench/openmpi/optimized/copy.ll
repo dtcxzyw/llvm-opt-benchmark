@@ -2014,37 +2014,37 @@ define i32 @pmix20_bfrop_copy_value(ptr nocapture noundef writeonly %0, ptr noca
 define i32 @pmix20_bfrop_copy_info(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(552) ptr @malloc(i64 noundef 552) #16
   store ptr %4, ptr %0, align 8
-  br label %.lr.ph.i
+  br label %5
 
-.lr.ph.i:                                         ; preds = %7, %3
-  %.012.i = phi i64 [ %8, %7 ], [ 0, %3 ]
-  %.0811.i = phi ptr [ %10, %7 ], [ %4, %3 ]
-  %.0910.i = phi ptr [ %9, %7 ], [ %1, %3 ]
-  %5 = load i8, ptr %.0910.i, align 1
-  store i8 %5, ptr %.0811.i, align 1
-  %6 = icmp eq i8 %5, 0
-  br i1 %6, label %pmix_strncpy.exit, label %7
+5:                                                ; preds = %8, %3
+  %.012.i = phi i64 [ 0, %3 ], [ %9, %8 ]
+  %.0811.i = phi ptr [ %4, %3 ], [ %11, %8 ]
+  %.0910.i = phi ptr [ %1, %3 ], [ %10, %8 ]
+  %6 = load i8, ptr %.0910.i, align 1
+  store i8 %6, ptr %.0811.i, align 1
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %pmix_strncpy.exit, label %8
 
-7:                                                ; preds = %.lr.ph.i
-  %8 = add nuw nsw i64 %.012.i, 1
-  %9 = getelementptr inbounds i8, ptr %.0910.i, i64 1
-  %10 = getelementptr inbounds i8, ptr %.0811.i, i64 1
-  %exitcond.not.i = icmp eq i64 %8, 511
-  br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %.lr.ph.i, !llvm.loop !20
+8:                                                ; preds = %5
+  %9 = add nuw nsw i64 %.012.i, 1
+  %10 = getelementptr inbounds i8, ptr %.0910.i, i64 1
+  %11 = getelementptr inbounds i8, ptr %.0811.i, i64 1
+  %exitcond.not.i = icmp eq i64 %9, 511
+  br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %5, !llvm.loop !20
 
-pmix_strncpy.exit:                                ; preds = %.lr.ph.i, %7
-  %.08.lcssa.i = phi ptr [ %.0811.i, %.lr.ph.i ], [ %10, %7 ]
+pmix_strncpy.exit:                                ; preds = %5, %8
+  %.08.lcssa.i = phi ptr [ %.0811.i, %5 ], [ %11, %8 ]
   store i8 0, ptr %.08.lcssa.i, align 1
-  %11 = getelementptr inbounds i8, ptr %1, i64 512
-  %12 = load i32, ptr %11, align 8
-  %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 512
-  store i32 %12, ptr %14, align 8
-  %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 520
-  %17 = getelementptr inbounds i8, ptr %1, i64 520
-  %18 = tail call i32 @pmix20_bfrop_value_xfer(ptr noundef nonnull %16, ptr noundef nonnull %17)
-  ret i32 %18
+  %12 = getelementptr inbounds i8, ptr %1, i64 512
+  %13 = load i32, ptr %12, align 8
+  %14 = load ptr, ptr %0, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 512
+  store i32 %13, ptr %15, align 8
+  %16 = load ptr, ptr %0, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 520
+  %18 = getelementptr inbounds i8, ptr %1, i64 520
+  %19 = tail call i32 @pmix20_bfrop_value_xfer(ptr noundef nonnull %17, ptr noundef nonnull %18)
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2150,45 +2150,45 @@ define noundef i32 @pmix20_bfrop_copy_app(ptr nocapture noundef %0, ptr nocaptur
   br label %38
 
 38:                                               ; preds = %.lr.ph, %pmix_strncpy.exit
-  %.027 = phi i64 [ 0, %.lr.ph ], [ %58, %pmix_strncpy.exit ]
+  %.027 = phi i64 [ 0, %.lr.ph ], [ %59, %pmix_strncpy.exit ]
   %39 = load ptr, ptr %0, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 40
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds %struct.pmix_info, ptr %41, i64 %.027
   %43 = load ptr, ptr %37, align 8
   %44 = getelementptr inbounds %struct.pmix_info, ptr %43, i64 %.027
-  br label %.lr.ph.i
+  br label %45
 
-.lr.ph.i:                                         ; preds = %47, %38
-  %.012.i = phi i64 [ %48, %47 ], [ 0, %38 ]
-  %.0811.i = phi ptr [ %50, %47 ], [ %42, %38 ]
-  %.0910.i = phi ptr [ %49, %47 ], [ %44, %38 ]
-  %45 = load i8, ptr %.0910.i, align 1
-  store i8 %45, ptr %.0811.i, align 1
-  %46 = icmp eq i8 %45, 0
-  br i1 %46, label %pmix_strncpy.exit, label %47
+45:                                               ; preds = %48, %38
+  %.012.i = phi i64 [ 0, %38 ], [ %49, %48 ]
+  %.0811.i = phi ptr [ %42, %38 ], [ %51, %48 ]
+  %.0910.i = phi ptr [ %44, %38 ], [ %50, %48 ]
+  %46 = load i8, ptr %.0910.i, align 1
+  store i8 %46, ptr %.0811.i, align 1
+  %47 = icmp eq i8 %46, 0
+  br i1 %47, label %pmix_strncpy.exit, label %48
 
-47:                                               ; preds = %.lr.ph.i
-  %48 = add nuw nsw i64 %.012.i, 1
-  %49 = getelementptr inbounds i8, ptr %.0910.i, i64 1
-  %50 = getelementptr inbounds i8, ptr %.0811.i, i64 1
-  %exitcond.not.i = icmp eq i64 %48, 511
-  br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %.lr.ph.i, !llvm.loop !20
+48:                                               ; preds = %45
+  %49 = add nuw nsw i64 %.012.i, 1
+  %50 = getelementptr inbounds i8, ptr %.0910.i, i64 1
+  %51 = getelementptr inbounds i8, ptr %.0811.i, i64 1
+  %exitcond.not.i = icmp eq i64 %49, 511
+  br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %45, !llvm.loop !20
 
-pmix_strncpy.exit:                                ; preds = %.lr.ph.i, %47
-  %.08.lcssa.i = phi ptr [ %.0811.i, %.lr.ph.i ], [ %50, %47 ]
+pmix_strncpy.exit:                                ; preds = %45, %48
+  %.08.lcssa.i = phi ptr [ %.0811.i, %45 ], [ %51, %48 ]
   store i8 0, ptr %.08.lcssa.i, align 1
-  %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 40
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %struct.pmix_info, ptr %53, i64 %.027, i32 2
-  %55 = load ptr, ptr %37, align 8
-  %56 = getelementptr inbounds %struct.pmix_info, ptr %55, i64 %.027, i32 2
-  %57 = tail call i32 @pmix20_bfrop_value_xfer(ptr noundef nonnull %54, ptr noundef nonnull %56)
-  %58 = add nuw i64 %.027, 1
-  %59 = load i64, ptr %28, align 8
-  %60 = icmp ult i64 %58, %59
-  br i1 %60, label %38, label %._crit_edge, !llvm.loop !21
+  %52 = load ptr, ptr %0, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 40
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds %struct.pmix_info, ptr %54, i64 %.027, i32 2
+  %56 = load ptr, ptr %37, align 8
+  %57 = getelementptr inbounds %struct.pmix_info, ptr %56, i64 %.027, i32 2
+  %58 = tail call i32 @pmix20_bfrop_value_xfer(ptr noundef nonnull %55, ptr noundef nonnull %57)
+  %59 = add nuw i64 %.027, 1
+  %60 = load i64, ptr %28, align 8
+  %61 = icmp ult i64 %59, %60
+  br i1 %61, label %38, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %pmix_strncpy.exit, %23
   ret i32 0
@@ -2262,9 +2262,9 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_copy_proc(ptr nocapture noundef %0, p
   %4 = tail call noalias dereferenceable_or_null(260) ptr @malloc(i64 noundef 260) #16
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %16, label %.lr.ph.i
+  br i1 %5, label %16, label %.preheader
 
-.lr.ph.i:                                         ; preds = %3, %8
+.preheader:                                       ; preds = %3, %8
   %.012.i = phi i64 [ %9, %8 ], [ 0, %3 ]
   %.0811.i = phi ptr [ %11, %8 ], [ %4, %3 ]
   %.0910.i = phi ptr [ %10, %8 ], [ %1, %3 ]
@@ -2273,15 +2273,15 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_copy_proc(ptr nocapture noundef %0, p
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %pmix_strncpy.exit, label %8
 
-8:                                                ; preds = %.lr.ph.i
+8:                                                ; preds = %.preheader
   %9 = add nuw nsw i64 %.012.i, 1
   %10 = getelementptr inbounds i8, ptr %.0910.i, i64 1
   %11 = getelementptr inbounds i8, ptr %.0811.i, i64 1
   %exitcond.not.i = icmp eq i64 %9, 255
-  br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %.preheader, !llvm.loop !20
 
-pmix_strncpy.exit:                                ; preds = %.lr.ph.i, %8
-  %.08.lcssa.i = phi ptr [ %.0811.i, %.lr.ph.i ], [ %11, %8 ]
+pmix_strncpy.exit:                                ; preds = %.preheader, %8
+  %.08.lcssa.i = phi ptr [ %.0811.i, %.preheader ], [ %11, %8 ]
   store i8 0, ptr %.08.lcssa.i, align 1
   %12 = getelementptr inbounds i8, ptr %1, i64 256
   %13 = load i32, ptr %12, align 4
@@ -2373,134 +2373,134 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_copy_bo(ptr nocapture noundef writeon
 define i32 @pmix20_bfrop_copy_pdata(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(808) ptr @malloc(i64 noundef 808) #16
   store ptr %4, ptr %0, align 8
-  br label %.lr.ph.i
+  br label %5
 
-.lr.ph.i:                                         ; preds = %7, %3
-  %.012.i = phi i64 [ %8, %7 ], [ 0, %3 ]
-  %.0811.i = phi ptr [ %10, %7 ], [ %4, %3 ]
-  %.0910.i = phi ptr [ %9, %7 ], [ %1, %3 ]
-  %5 = load i8, ptr %.0910.i, align 1
-  store i8 %5, ptr %.0811.i, align 1
-  %6 = icmp eq i8 %5, 0
-  br i1 %6, label %pmix_strncpy.exit, label %7
+5:                                                ; preds = %8, %3
+  %.012.i = phi i64 [ 0, %3 ], [ %9, %8 ]
+  %.0811.i = phi ptr [ %4, %3 ], [ %11, %8 ]
+  %.0910.i = phi ptr [ %1, %3 ], [ %10, %8 ]
+  %6 = load i8, ptr %.0910.i, align 1
+  store i8 %6, ptr %.0811.i, align 1
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %pmix_strncpy.exit, label %8
 
-7:                                                ; preds = %.lr.ph.i
-  %8 = add nuw nsw i64 %.012.i, 1
-  %9 = getelementptr inbounds i8, ptr %.0910.i, i64 1
-  %10 = getelementptr inbounds i8, ptr %.0811.i, i64 1
-  %exitcond.not.i = icmp eq i64 %8, 255
-  br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %.lr.ph.i, !llvm.loop !20
+8:                                                ; preds = %5
+  %9 = add nuw nsw i64 %.012.i, 1
+  %10 = getelementptr inbounds i8, ptr %.0910.i, i64 1
+  %11 = getelementptr inbounds i8, ptr %.0811.i, i64 1
+  %exitcond.not.i = icmp eq i64 %9, 255
+  br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %5, !llvm.loop !20
 
-pmix_strncpy.exit:                                ; preds = %.lr.ph.i, %7
-  %.08.lcssa.i = phi ptr [ %.0811.i, %.lr.ph.i ], [ %10, %7 ]
+pmix_strncpy.exit:                                ; preds = %5, %8
+  %.08.lcssa.i = phi ptr [ %.0811.i, %5 ], [ %11, %8 ]
   store i8 0, ptr %.08.lcssa.i, align 1
-  %11 = getelementptr inbounds i8, ptr %1, i64 256
-  %12 = load i32, ptr %11, align 8
-  %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 256
-  store i32 %12, ptr %14, align 8
-  %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 260
-  %17 = getelementptr inbounds i8, ptr %1, i64 260
-  br label %.lr.ph.i9
+  %12 = getelementptr inbounds i8, ptr %1, i64 256
+  %13 = load i32, ptr %12, align 8
+  %14 = load ptr, ptr %0, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 256
+  store i32 %13, ptr %15, align 8
+  %16 = load ptr, ptr %0, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 260
+  %18 = getelementptr inbounds i8, ptr %1, i64 260
+  br label %19
 
-.lr.ph.i9:                                        ; preds = %20, %pmix_strncpy.exit
-  %.012.i10 = phi i64 [ %21, %20 ], [ 0, %pmix_strncpy.exit ]
-  %.0811.i11 = phi ptr [ %23, %20 ], [ %16, %pmix_strncpy.exit ]
-  %.0910.i12 = phi ptr [ %22, %20 ], [ %17, %pmix_strncpy.exit ]
-  %18 = load i8, ptr %.0910.i12, align 1
-  store i8 %18, ptr %.0811.i11, align 1
-  %19 = icmp eq i8 %18, 0
-  br i1 %19, label %pmix_strncpy.exit15, label %20
+19:                                               ; preds = %22, %pmix_strncpy.exit
+  %.012.i9 = phi i64 [ 0, %pmix_strncpy.exit ], [ %23, %22 ]
+  %.0811.i10 = phi ptr [ %17, %pmix_strncpy.exit ], [ %25, %22 ]
+  %.0910.i11 = phi ptr [ %18, %pmix_strncpy.exit ], [ %24, %22 ]
+  %20 = load i8, ptr %.0910.i11, align 1
+  store i8 %20, ptr %.0811.i10, align 1
+  %21 = icmp eq i8 %20, 0
+  br i1 %21, label %pmix_strncpy.exit14, label %22
 
-20:                                               ; preds = %.lr.ph.i9
-  %21 = add nuw nsw i64 %.012.i10, 1
-  %22 = getelementptr inbounds i8, ptr %.0910.i12, i64 1
-  %23 = getelementptr inbounds i8, ptr %.0811.i11, i64 1
-  %exitcond.not.i13 = icmp eq i64 %21, 511
-  br i1 %exitcond.not.i13, label %pmix_strncpy.exit15, label %.lr.ph.i9, !llvm.loop !20
+22:                                               ; preds = %19
+  %23 = add nuw nsw i64 %.012.i9, 1
+  %24 = getelementptr inbounds i8, ptr %.0910.i11, i64 1
+  %25 = getelementptr inbounds i8, ptr %.0811.i10, i64 1
+  %exitcond.not.i12 = icmp eq i64 %23, 511
+  br i1 %exitcond.not.i12, label %pmix_strncpy.exit14, label %19, !llvm.loop !20
 
-pmix_strncpy.exit15:                              ; preds = %.lr.ph.i9, %20
-  %.08.lcssa.i14 = phi ptr [ %.0811.i11, %.lr.ph.i9 ], [ %23, %20 ]
-  store i8 0, ptr %.08.lcssa.i14, align 1
-  %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 776
-  %26 = getelementptr inbounds i8, ptr %1, i64 776
-  %27 = tail call i32 @pmix20_bfrop_value_xfer(ptr noundef nonnull %25, ptr noundef nonnull %26)
-  ret i32 %27
+pmix_strncpy.exit14:                              ; preds = %19, %22
+  %.08.lcssa.i13 = phi ptr [ %.0811.i10, %19 ], [ %25, %22 ]
+  store i8 0, ptr %.08.lcssa.i13, align 1
+  %26 = load ptr, ptr %0, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 776
+  %28 = getelementptr inbounds i8, ptr %1, i64 776
+  %29 = tail call i32 @pmix20_bfrop_value_xfer(ptr noundef nonnull %27, ptr noundef nonnull %28)
+  ret i32 %29
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define noundef i32 @pmix20_bfrop_copy_pinfo(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #13 {
   %4 = tail call noalias dereferenceable_or_null(296) ptr @malloc(i64 noundef 296) #16
   store ptr %4, ptr %0, align 8
-  br label %.lr.ph.i
+  br label %5
 
-.lr.ph.i:                                         ; preds = %7, %3
-  %.012.i = phi i64 [ %8, %7 ], [ 0, %3 ]
-  %.0811.i = phi ptr [ %10, %7 ], [ %4, %3 ]
-  %.0910.i = phi ptr [ %9, %7 ], [ %1, %3 ]
-  %5 = load i8, ptr %.0910.i, align 1
-  store i8 %5, ptr %.0811.i, align 1
-  %6 = icmp eq i8 %5, 0
-  br i1 %6, label %pmix_strncpy.exit, label %7
+5:                                                ; preds = %8, %3
+  %.012.i = phi i64 [ 0, %3 ], [ %9, %8 ]
+  %.0811.i = phi ptr [ %4, %3 ], [ %11, %8 ]
+  %.0910.i = phi ptr [ %1, %3 ], [ %10, %8 ]
+  %6 = load i8, ptr %.0910.i, align 1
+  store i8 %6, ptr %.0811.i, align 1
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %pmix_strncpy.exit, label %8
 
-7:                                                ; preds = %.lr.ph.i
-  %8 = add nuw nsw i64 %.012.i, 1
-  %9 = getelementptr inbounds i8, ptr %.0910.i, i64 1
-  %10 = getelementptr inbounds i8, ptr %.0811.i, i64 1
-  %exitcond.not.i = icmp eq i64 %8, 255
-  br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %.lr.ph.i, !llvm.loop !20
+8:                                                ; preds = %5
+  %9 = add nuw nsw i64 %.012.i, 1
+  %10 = getelementptr inbounds i8, ptr %.0910.i, i64 1
+  %11 = getelementptr inbounds i8, ptr %.0811.i, i64 1
+  %exitcond.not.i = icmp eq i64 %9, 255
+  br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %5, !llvm.loop !20
 
-pmix_strncpy.exit:                                ; preds = %.lr.ph.i, %7
-  %.08.lcssa.i = phi ptr [ %.0811.i, %.lr.ph.i ], [ %10, %7 ]
+pmix_strncpy.exit:                                ; preds = %5, %8
+  %.08.lcssa.i = phi ptr [ %.0811.i, %5 ], [ %11, %8 ]
   store i8 0, ptr %.08.lcssa.i, align 1
-  %11 = getelementptr inbounds i8, ptr %1, i64 256
-  %12 = load i32, ptr %11, align 8
-  %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 256
-  store i32 %12, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 264
-  %16 = load ptr, ptr %15, align 8
-  %.not = icmp eq ptr %16, null
-  br i1 %.not, label %21, label %17
+  %12 = getelementptr inbounds i8, ptr %1, i64 256
+  %13 = load i32, ptr %12, align 8
+  %14 = load ptr, ptr %0, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 256
+  store i32 %13, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %1, i64 264
+  %17 = load ptr, ptr %16, align 8
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %22, label %18
 
-17:                                               ; preds = %pmix_strncpy.exit
-  %18 = tail call noalias ptr @strdup(ptr noundef nonnull %16) #15
-  %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 264
-  store ptr %18, ptr %20, align 8
-  br label %21
+18:                                               ; preds = %pmix_strncpy.exit
+  %19 = tail call noalias ptr @strdup(ptr noundef nonnull %17) #15
+  %20 = load ptr, ptr %0, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 264
+  store ptr %19, ptr %21, align 8
+  br label %22
 
-21:                                               ; preds = %17, %pmix_strncpy.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 272
-  %23 = load ptr, ptr %22, align 8
-  %.not18 = icmp eq ptr %23, null
-  br i1 %.not18, label %28, label %24
+22:                                               ; preds = %18, %pmix_strncpy.exit
+  %23 = getelementptr inbounds i8, ptr %1, i64 272
+  %24 = load ptr, ptr %23, align 8
+  %.not18 = icmp eq ptr %24, null
+  br i1 %.not18, label %29, label %25
 
-24:                                               ; preds = %21
-  %25 = tail call noalias ptr @strdup(ptr noundef nonnull %23) #15
-  %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 272
-  store ptr %25, ptr %27, align 8
-  br label %28
+25:                                               ; preds = %22
+  %26 = tail call noalias ptr @strdup(ptr noundef nonnull %24) #15
+  %27 = load ptr, ptr %0, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 272
+  store ptr %26, ptr %28, align 8
+  br label %29
 
-28:                                               ; preds = %24, %21
-  %29 = getelementptr inbounds i8, ptr %1, i64 280
-  %30 = load i32, ptr %29, align 8
-  %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 280
-  store i32 %30, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 284
-  %34 = load i32, ptr %33, align 4
-  %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 284
-  store i32 %34, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 288
-  %38 = load i8, ptr %37, align 8
-  %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 288
-  store i8 %38, ptr %40, align 8
+29:                                               ; preds = %25, %22
+  %30 = getelementptr inbounds i8, ptr %1, i64 280
+  %31 = load i32, ptr %30, align 8
+  %32 = load ptr, ptr %0, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 280
+  store i32 %31, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %1, i64 284
+  %35 = load i32, ptr %34, align 4
+  %36 = load ptr, ptr %0, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 284
+  store i32 %35, ptr %37, align 4
+  %38 = getelementptr inbounds i8, ptr %1, i64 288
+  %39 = load i8, ptr %38, align 8
+  %40 = load ptr, ptr %0, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 288
+  store i8 %39, ptr %41, align 8
   ret i32 0
 }
 
@@ -3603,53 +3603,53 @@ define i32 @pmix20_bfrop_copy_query(ptr nocapture noundef %0, ptr nocapture noun
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not14 = icmp eq ptr %15, null
-  br i1 %.not14, label %36, label %16
+  br i1 %.not14, label %37, label %16
 
 16:                                               ; preds = %9
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = tail call noalias dereferenceable_or_null(552) ptr @malloc(i64 noundef 552) #16
   store ptr %19, ptr %18, align 8
-  br label %.lr.ph.i.i
+  br label %20
 
-.lr.ph.i.i:                                       ; preds = %22, %16
-  %.012.i.i = phi i64 [ %23, %22 ], [ 0, %16 ]
-  %.0811.i.i = phi ptr [ %25, %22 ], [ %19, %16 ]
-  %.0910.i.i = phi ptr [ %24, %22 ], [ %15, %16 ]
-  %20 = load i8, ptr %.0910.i.i, align 1
-  store i8 %20, ptr %.0811.i.i, align 1
-  %21 = icmp eq i8 %20, 0
-  br i1 %21, label %pmix20_bfrop_copy_info.exit, label %22
+20:                                               ; preds = %23, %16
+  %.012.i.i = phi i64 [ 0, %16 ], [ %24, %23 ]
+  %.0811.i.i = phi ptr [ %19, %16 ], [ %26, %23 ]
+  %.0910.i.i = phi ptr [ %15, %16 ], [ %25, %23 ]
+  %21 = load i8, ptr %.0910.i.i, align 1
+  store i8 %21, ptr %.0811.i.i, align 1
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %pmix20_bfrop_copy_info.exit, label %23
 
-22:                                               ; preds = %.lr.ph.i.i
-  %23 = add nuw nsw i64 %.012.i.i, 1
-  %24 = getelementptr inbounds i8, ptr %.0910.i.i, i64 1
-  %25 = getelementptr inbounds i8, ptr %.0811.i.i, i64 1
-  %exitcond.not.i.i = icmp eq i64 %23, 511
-  br i1 %exitcond.not.i.i, label %pmix20_bfrop_copy_info.exit, label %.lr.ph.i.i, !llvm.loop !20
+23:                                               ; preds = %20
+  %24 = add nuw nsw i64 %.012.i.i, 1
+  %25 = getelementptr inbounds i8, ptr %.0910.i.i, i64 1
+  %26 = getelementptr inbounds i8, ptr %.0811.i.i, i64 1
+  %exitcond.not.i.i = icmp eq i64 %24, 511
+  br i1 %exitcond.not.i.i, label %pmix20_bfrop_copy_info.exit, label %20, !llvm.loop !20
 
-pmix20_bfrop_copy_info.exit:                      ; preds = %.lr.ph.i.i, %22
-  %.08.lcssa.i.i = phi ptr [ %.0811.i.i, %.lr.ph.i.i ], [ %25, %22 ]
+pmix20_bfrop_copy_info.exit:                      ; preds = %20, %23
+  %.08.lcssa.i.i = phi ptr [ %.0811.i.i, %20 ], [ %26, %23 ]
   store i8 0, ptr %.08.lcssa.i.i, align 1
-  %26 = getelementptr inbounds i8, ptr %15, i64 512
-  %27 = load i32, ptr %26, align 8
-  %28 = load ptr, ptr %18, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 512
-  store i32 %27, ptr %29, align 8
-  %30 = load ptr, ptr %18, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 520
-  %32 = getelementptr inbounds i8, ptr %15, i64 520
-  %33 = tail call i32 @pmix20_bfrop_value_xfer(ptr noundef nonnull %31, ptr noundef nonnull readonly %32)
-  %.not15 = icmp eq i32 %33, 0
-  br i1 %.not15, label %36, label %34
+  %27 = getelementptr inbounds i8, ptr %15, i64 512
+  %28 = load i32, ptr %27, align 8
+  %29 = load ptr, ptr %18, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 512
+  store i32 %28, ptr %30, align 8
+  %31 = load ptr, ptr %18, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 520
+  %33 = getelementptr inbounds i8, ptr %15, i64 520
+  %34 = tail call i32 @pmix20_bfrop_value_xfer(ptr noundef nonnull %32, ptr noundef nonnull readonly %33)
+  %.not15 = icmp eq i32 %34, 0
+  br i1 %.not15, label %37, label %35
 
-34:                                               ; preds = %pmix20_bfrop_copy_info.exit
-  %35 = load ptr, ptr %0, align 8
-  tail call void @free(ptr noundef %35) #15
-  br label %36
+35:                                               ; preds = %pmix20_bfrop_copy_info.exit
+  %36 = load ptr, ptr %0, align 8
+  tail call void @free(ptr noundef %36) #15
+  br label %37
 
-36:                                               ; preds = %9, %pmix20_bfrop_copy_info.exit, %34
-  %.0 = phi i32 [ %33, %34 ], [ 0, %pmix20_bfrop_copy_info.exit ], [ 0, %9 ]
+37:                                               ; preds = %9, %pmix20_bfrop_copy_info.exit, %35
+  %.0 = phi i32 [ %34, %35 ], [ 0, %pmix20_bfrop_copy_info.exit ], [ 0, %9 ]
   ret i32 %.0
 }
 

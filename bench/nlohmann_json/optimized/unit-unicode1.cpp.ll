@@ -1340,7 +1340,7 @@ lpad14:                                           ; preds = %for.body
   br label %ehcleanup74
 
 if.end:                                           ; preds = %if.then17
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_7vENK3$_1clB5cxx11Em"(ptr noalias nonnull align 8 %ref.tmp21, i64 noundef %cp.0357)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_7vENK3$_1clB5cxx11Em"(ptr noalias align 8 %ref.tmp21, i64 noundef %cp.0357)
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %if.end
@@ -1362,13 +1362,13 @@ if.else:                                          ; preds = %invoke.cont15
   %sub = add nsw i64 %cp.0357, -65536
   %shr = lshr i64 %sub, 10
   %add = or disjoint i64 %shr, 55296
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_7vENK3$_1clB5cxx11Em"(ptr noalias nonnull align 8 %ref.tmp31, i64 noundef %add)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_7vENK3$_1clB5cxx11Em"(ptr noalias align 8 %ref.tmp31, i64 noundef %add)
           to label %invoke.cont32 unwind label %lpad22
 
 invoke.cont32:                                    ; preds = %if.else
   %and28 = and i64 %cp.0357, 1023
   %add29 = or disjoint i64 %and28, 56320
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_7vENK3$_1clB5cxx11Em"(ptr noalias nonnull align 8 %ref.tmp33, i64 noundef %add29)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_7vENK3$_1clB5cxx11Em"(ptr noalias align 8 %ref.tmp33, i64 noundef %add29)
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont32
@@ -8566,7 +8566,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(p
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZL19DOCTEST_ANON_FUNC_7vENK3$_1clB5cxx11Em"(ptr noalias align 8 %agg.result, i64 noundef %cp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL19DOCTEST_ANON_FUNC_7vENK3$_1clB5cxx11Em"(ptr noalias nonnull align 8 %agg.result, i64 noundef range(i64 0, 65536) %cp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss)
@@ -8591,7 +8591,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont14
-  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %ss)
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %ss)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %invoke.cont16

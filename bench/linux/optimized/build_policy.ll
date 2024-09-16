@@ -276,7 +276,7 @@ define dso_local void @default_idle_call() local_unnamed_addr #4 section ".cpuid
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_cpu_idle(i32 noundef %0, i32 noundef %1) unnamed_addr #5 align 16 {
+define internal fastcc void @trace_cpu_idle(i32 noundef range(i32 -1, 2) %0, i32 noundef %1) unnamed_addr #5 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_cpu_idle, i64 8), i32 2) #29
           to label %23 [label %3], !srcloc !22
 
@@ -3947,7 +3947,7 @@ define dso_local void @cpudl_clear(ptr noundef %0, i32 noundef %1) local_unnamed
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #8 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @cpudl_heapify(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #19 align 16 {
+define internal fastcc void @cpudl_heapify(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, -1) %1) unnamed_addr #19 align 16 {
   %3 = icmp sgt i32 %1, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -10744,7 +10744,7 @@ define dso_local range(i32 -16, 1) i32 @dl_bw_check_overflow(i32 noundef %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -16, 1) i32 @dl_bw_manage(i32 noundef %0, i32 noundef %1, i64 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -16, 1) i32 @dl_bw_manage(i32 noundef range(i32 0, 3) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #2 align 16 {
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #29, !srcloc !25
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !217
   %4 = sext i32 %1 to i64

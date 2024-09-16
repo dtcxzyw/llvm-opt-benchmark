@@ -5093,8 +5093,8 @@ define internal void @_ZN3gmx6Update4Impl13update_coordsERK10t_inputreclibNS_8Ar
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %52)
   %.not92.i = icmp eq i32 %151, 0
   %.not.i.i = icmp eq i32 %153, 0
-  %or.cond71.i = or i1 %.not92.i, %.not.i.i
-  br i1 %or.cond71.i, label %_Z11do_per_stepll.exit.i, label %182
+  %or.cond60.i = or i1 %.not92.i, %.not.i.i
+  br i1 %or.cond60.i, label %_Z11do_per_stepll.exit.i, label %182
 
 182:                                              ; preds = %148
   %183 = sext i32 %153 to i64
@@ -5111,8 +5111,8 @@ _Z11do_per_stepll.exit.i:                         ; preds = %182, %148
   %191 = zext i1 %190 to i8
   %192 = icmp ne i32 %152, 2
   %.not.i97.i = icmp eq i32 %154, 0
-  %or.cond72.i = or i1 %192, %.not.i97.i
-  br i1 %or.cond72.i, label %.critedge.i, label %_Z11do_per_stepll.exit99.i
+  %or.cond61.i = or i1 %192, %.not.i97.i
+  br i1 %or.cond61.i, label %.critedge.i, label %_Z11do_per_stepll.exit99.i
 
 _Z11do_per_stepll.exit99.i:                       ; preds = %_Z11do_per_stepll.exit.i
   %193 = sext i32 %154 to i64
@@ -5976,8 +5976,8 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   %610 = load float, ptr %609, align 4
   %611 = getelementptr i8, ptr %607, i64 32
   %612 = load float, ptr %611, align 4
-  %.sroa.059.0.vec.insert.i = insertelement <2 x float> poison, float %608, i64 0
-  %.sroa.059.4.vec.insert.i = insertelement <2 x float> %.sroa.059.0.vec.insert.i, float %610, i64 1
+  %.sroa.048.0.vec.insert.i = insertelement <2 x float> poison, float %608, i64 0
+  %.sroa.048.4.vec.insert.i = insertelement <2 x float> %.sroa.048.0.vec.insert.i, float %610, i64 1
   switch i32 %603, label %669 [
     i32 2, label %613
     i32 1, label %643
@@ -5989,7 +5989,7 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   call void @llvm.experimental.noalias.scope.decl(metadata !196)
   call void @llvm.experimental.noalias.scope.decl(metadata !198)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %29), !noalias !84
-  store <2 x float> %.sroa.059.4.vec.insert.i, ptr %29, align 8, !noalias !200
+  store <2 x float> %.sroa.048.4.vec.insert.i, ptr %29, align 8, !noalias !200
   store float %612, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !200
   %614 = icmp slt i32 %133, %spec.select.i
   br i1 %614, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZZN3gmx25dispatchTemplatedFunctionIZL12do_update_mdiiflPA3_KfPA3_fS5_S3_19TemperatureCoupling16PressureCouplingiiNS_8ArrayRefIKtEE16AccelerationTypeSA_S3_S3_NS8_IS1_EENS8_IKNS_11BasicVectorIfEEEEPK14gmx_ekindata_tS3_PKdRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEbE3$_118NumTempScaleValuesJ31ParrinelloRahmanVelocityScalingEEEDaOT_T0_DpT1_ENKUlDpT_E_clIJSt17integral_constantISX_LSX_1EEEEEDaS14_ENKUlSY_E_clIS17_ImLm2EEEEDaSY_.exit.i.i.i.i.i.i.i.i.i.i"
@@ -6050,7 +6050,7 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   call void @llvm.experimental.noalias.scope.decl(metadata !217)
   call void @llvm.experimental.noalias.scope.decl(metadata !219)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %28), !noalias !84
-  store <2 x float> %.sroa.059.4.vec.insert.i, ptr %28, align 8, !noalias !221
+  store <2 x float> %.sroa.048.4.vec.insert.i, ptr %28, align 8, !noalias !221
   store float %612, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !221
   %644 = getelementptr inbounds i8, ptr %605, i64 116
   %645 = load float, ptr %644, align 4, !noalias !222
@@ -6108,7 +6108,7 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   call void @llvm.experimental.noalias.scope.decl(metadata !238)
   call void @llvm.experimental.noalias.scope.decl(metadata !240)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %27), !noalias !84
-  store <2 x float> %.sroa.059.4.vec.insert.i, ptr %27, align 8, !noalias !242
+  store <2 x float> %.sroa.048.4.vec.insert.i, ptr %27, align 8, !noalias !242
   store float %612, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !242
   %670 = icmp slt i32 %133, %spec.select.i
   br i1 %670, label %.preheader.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN3gmx6compatL13mp_with_indexILm1EZZNS_25dispatchTemplatedFunctionIZL12do_update_mdiiflPA3_KfPA3_fS7_S5_19TemperatureCoupling16PressureCouplingiiNS_8ArrayRefIKtEE16AccelerationTypeSC_S5_S5_NSA_IS3_EENSA_IKNS_11BasicVectorIfEEEEPK14gmx_ekindata_tS5_PKdRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEbE3$_118NumTempScaleValuesJ31ParrinelloRahmanVelocityScalingEEEDaOT_T0_DpT1_ENKUlDpT_E_clIJSt17integral_constantISZ_LSZ_1EEEEEDaS16_EUlS10_E_TnPNSt9enable_ifIXleT_Li1EEvE4typeELPv0EEEDamOS12_.exit.i.i.i.i.i.i.i.i.i.i.i"
@@ -6246,46 +6246,46 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   call void @llvm.experimental.noalias.scope.decl(metadata !278)
   call void @llvm.experimental.noalias.scope.decl(metadata !280)
   %740 = icmp slt i32 %133, %spec.select.i
-  br i1 %740, label %.lr.ph.preheader.i101.i, label %_ZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEb.exit
+  br i1 %740, label %.lr.ph.preheader.i100.i, label %_ZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEb.exit
 
-.lr.ph.preheader.i101.i:                          ; preds = %739
+.lr.ph.preheader.i100.i:                          ; preds = %739
   %741 = sext i32 %133 to i64
   %742 = sext i32 %spec.select.i to i64
-  br label %.lr.ph.i102.i
+  br label %.lr.ph.i101.i
 
-.lr.ph.i102.i:                                    ; preds = %.lr.ph.i102.i, %.lr.ph.preheader.i101.i
-  %indvars.iv.i103.i = phi i64 [ %741, %.lr.ph.preheader.i101.i ], [ %indvars.iv.next.i108.i, %.lr.ph.i102.i ]
-  %743 = getelementptr inbounds float, ptr %169, i64 %indvars.iv.i103.i
-  %.val.i104.i = load <8 x float>, ptr %743, align 32, !noalias !282
-  %744 = shufflevector <8 x float> %.val.i104.i, <8 x float> poison, <8 x i32> <i32 poison, i32 5, i32 6, i32 poison, i32 poison, i32 1, i32 2, i32 poison>
-  %745 = shufflevector <8 x float> %.val.i104.i, <8 x float> poison, <8 x i32> <i32 0, i32 0, i32 0, i32 1, i32 4, i32 4, i32 4, i32 5>
+.lr.ph.i101.i:                                    ; preds = %.lr.ph.i101.i, %.lr.ph.preheader.i100.i
+  %indvars.iv.i102.i = phi i64 [ %741, %.lr.ph.preheader.i100.i ], [ %indvars.iv.next.i107.i, %.lr.ph.i101.i ]
+  %743 = getelementptr inbounds float, ptr %169, i64 %indvars.iv.i102.i
+  %.val.i103.i = load <8 x float>, ptr %743, align 32, !noalias !282
+  %744 = shufflevector <8 x float> %.val.i103.i, <8 x float> poison, <8 x i32> <i32 poison, i32 5, i32 6, i32 poison, i32 poison, i32 1, i32 2, i32 poison>
+  %745 = shufflevector <8 x float> %.val.i103.i, <8 x float> poison, <8 x i32> <i32 0, i32 0, i32 0, i32 1, i32 4, i32 4, i32 4, i32 5>
   %746 = shufflevector <8 x float> %744, <8 x float> poison, <8 x i32> <i32 1, i32 1, i32 2, i32 2, i32 5, i32 5, i32 6, i32 6>
-  %747 = shufflevector <8 x float> %.val.i104.i, <8 x float> poison, <8 x i32> <i32 2, i32 3, i32 3, i32 3, i32 6, i32 7, i32 7, i32 7>
+  %747 = shufflevector <8 x float> %.val.i103.i, <8 x float> poison, <8 x i32> <i32 2, i32 3, i32 3, i32 3, i32 6, i32 7, i32 7, i32 7>
   %748 = shufflevector <8 x float> %745, <8 x float> %746, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 12, i32 13, i32 14, i32 15>
   %749 = shufflevector <8 x float> %747, <8 x float> %745, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 12, i32 13, i32 14, i32 15>
   %750 = shufflevector <8 x float> %746, <8 x float> %747, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 12, i32 13, i32 14, i32 15>
-  %751 = getelementptr inbounds [3 x float], ptr %145, i64 %indvars.iv.i103.i
-  %.val10.i.i105.i = load <8 x float>, ptr %751, align 32, !alias.scope !283, !noalias !284
+  %751 = getelementptr inbounds [3 x float], ptr %145, i64 %indvars.iv.i102.i
+  %.val10.i.i104.i = load <8 x float>, ptr %751, align 32, !alias.scope !283, !noalias !284
   %752 = getelementptr inbounds i8, ptr %751, i64 32
-  %.val9.i.i106.i = load <8 x float>, ptr %752, align 32, !alias.scope !283, !noalias !284
+  %.val9.i.i105.i = load <8 x float>, ptr %752, align 32, !alias.scope !283, !noalias !284
   %753 = getelementptr inbounds i8, ptr %751, i64 64
-  %.val.i.i107.i = load <8 x float>, ptr %753, align 32, !alias.scope !283, !noalias !284
-  %754 = getelementptr inbounds [3 x float], ptr %146, i64 %indvars.iv.i103.i
+  %.val.i.i106.i = load <8 x float>, ptr %753, align 32, !alias.scope !283, !noalias !284
+  %754 = getelementptr inbounds [3 x float], ptr %146, i64 %indvars.iv.i102.i
   %.val10.i51.i.i = load <8 x float>, ptr %754, align 32, !alias.scope !285, !noalias !286
   %755 = getelementptr inbounds i8, ptr %754, i64 32
   %.val9.i52.i.i = load <8 x float>, ptr %755, align 32, !alias.scope !285, !noalias !286
   %756 = getelementptr inbounds i8, ptr %754, i64 64
   %.val.i53.i.i = load <8 x float>, ptr %756, align 32, !alias.scope !285, !noalias !286
   %757 = fmul <8 x float> %748, %.val10.i51.i.i
-  %758 = call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %757, <8 x float> %697, <8 x float> %.val10.i.i105.i)
+  %758 = call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %757, <8 x float> %697, <8 x float> %.val10.i.i104.i)
   %759 = fmul <8 x float> %749, %.val9.i52.i.i
-  %760 = call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %759, <8 x float> %697, <8 x float> %.val9.i.i106.i)
+  %760 = call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %759, <8 x float> %697, <8 x float> %.val9.i.i105.i)
   %761 = fmul <8 x float> %750, %.val.i53.i.i
-  %762 = call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %761, <8 x float> %697, <8 x float> %.val.i.i107.i)
+  %762 = call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %761, <8 x float> %697, <8 x float> %.val.i.i106.i)
   store <8 x float> %758, ptr %751, align 32, !alias.scope !283, !noalias !284
   store <8 x float> %760, ptr %752, align 32, !alias.scope !283, !noalias !284
   store <8 x float> %762, ptr %753, align 32, !alias.scope !283, !noalias !284
-  %763 = getelementptr inbounds [3 x float], ptr %142, i64 %indvars.iv.i103.i
+  %763 = getelementptr inbounds [3 x float], ptr %142, i64 %indvars.iv.i102.i
   %.val10.i54.i.i = load <8 x float>, ptr %763, align 32, !alias.scope !287, !noalias !288
   %764 = getelementptr inbounds i8, ptr %763, i64 32
   %.val9.i55.i.i = load <8 x float>, ptr %764, align 32, !alias.scope !287, !noalias !288
@@ -6294,15 +6294,15 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   %766 = call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %758, <8 x float> %697, <8 x float> %.val10.i54.i.i)
   %767 = call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %760, <8 x float> %697, <8 x float> %.val9.i55.i.i)
   %768 = call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %762, <8 x float> %697, <8 x float> %.val.i56.i.i)
-  %769 = getelementptr inbounds [3 x float], ptr %143, i64 %indvars.iv.i103.i
+  %769 = getelementptr inbounds [3 x float], ptr %143, i64 %indvars.iv.i102.i
   store <8 x float> %766, ptr %769, align 32, !alias.scope !289, !noalias !290
   %770 = getelementptr inbounds i8, ptr %769, i64 32
   store <8 x float> %767, ptr %770, align 32, !alias.scope !289, !noalias !290
   %771 = getelementptr inbounds i8, ptr %769, i64 64
   store <8 x float> %768, ptr %771, align 32, !alias.scope !289, !noalias !290
-  %indvars.iv.next.i108.i = add nsw i64 %indvars.iv.i103.i, 8
-  %772 = icmp slt i64 %indvars.iv.next.i108.i, %742
-  br i1 %772, label %.lr.ph.i102.i, label %_ZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEb.exit, !llvm.loop !291
+  %indvars.iv.next.i107.i = add nsw i64 %indvars.iv.i102.i, 8
+  %772 = icmp slt i64 %indvars.iv.next.i107.i, %742
+  br i1 %772, label %.lr.ph.i101.i, label %_ZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEb.exit, !llvm.loop !291
 
 773:                                              ; preds = %693
   switch i32 %603, label %820 [
@@ -6316,15 +6316,15 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   call void @llvm.experimental.noalias.scope.decl(metadata !297)
   call void @llvm.experimental.noalias.scope.decl(metadata !299)
   %775 = icmp slt i32 %133, %spec.select.i
-  br i1 %775, label %.lr.ph.i.i.i.i.i.i.i113.i, label %_ZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEb.exit
+  br i1 %775, label %.lr.ph.i.i.i.i.i.i.i112.i, label %_ZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEb.exit
 
-.lr.ph.i.i.i.i.i.i.i113.i:                        ; preds = %774
+.lr.ph.i.i.i.i.i.i.i112.i:                        ; preds = %774
   %776 = sext i32 %133 to i64
-  %wide.trip.count.i.i.i.i.i.i.i114.i = sext i32 %spec.select.i to i64
+  %wide.trip.count.i.i.i.i.i.i.i113.i = sext i32 %spec.select.i to i64
   br label %777
 
-777:                                              ; preds = %798, %.lr.ph.i.i.i.i.i.i.i113.i
-  %indvars.iv6.i.i.i.i.i.i.i.i = phi i64 [ %776, %.lr.ph.i.i.i.i.i.i.i113.i ], [ %indvars.iv.next7.i.i.i.i.i.i.i.i, %798 ]
+777:                                              ; preds = %798, %.lr.ph.i.i.i.i.i.i.i112.i
+  %indvars.iv6.i.i.i.i.i.i.i.i = phi i64 [ %776, %.lr.ph.i.i.i.i.i.i.i112.i ], [ %indvars.iv.next7.i.i.i.i.i.i.i.i, %798 ]
   %778 = getelementptr inbounds i16, ptr %155, i64 %indvars.iv6.i.i.i.i.i.i.i.i
   %779 = load i16, ptr %778, align 2, !noalias !301
   %780 = zext i16 %779 to i64
@@ -6334,29 +6334,29 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   br label %784
 
 784:                                              ; preds = %784, %777
-  %indvars.iv.i.i.i.i.i.i.i115.i = phi i64 [ 0, %777 ], [ %indvars.iv.next.i.i.i.i.i.i.i116.i, %784 ]
-  %785 = getelementptr inbounds [3 x float], ptr %145, i64 %indvars.iv6.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i115.i
+  %indvars.iv.i.i.i.i.i.i.i114.i = phi i64 [ 0, %777 ], [ %indvars.iv.next.i.i.i.i.i.i.i115.i, %784 ]
+  %785 = getelementptr inbounds [3 x float], ptr %145, i64 %indvars.iv6.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i114.i
   %786 = load float, ptr %785, align 4, !alias.scope !303, !noalias !304
-  %787 = getelementptr inbounds [3 x float], ptr %146, i64 %indvars.iv6.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i115.i
+  %787 = getelementptr inbounds [3 x float], ptr %146, i64 %indvars.iv6.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i114.i
   %788 = load float, ptr %787, align 4, !alias.scope !305, !noalias !306
-  %789 = getelementptr inbounds [3 x float], ptr %783, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i115.i
+  %789 = getelementptr inbounds [3 x float], ptr %783, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i114.i
   %790 = load float, ptr %789, align 4, !noalias !301
   %791 = fmul float %788, %790
   %792 = fmul float %149, %791
   %793 = call float @llvm.fmuladd.f32(float %782, float %786, float %792)
   store float %793, ptr %785, align 4, !alias.scope !303, !noalias !304
-  %794 = getelementptr inbounds [3 x float], ptr %142, i64 %indvars.iv6.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i115.i
+  %794 = getelementptr inbounds [3 x float], ptr %142, i64 %indvars.iv6.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i114.i
   %795 = load float, ptr %794, align 4, !alias.scope !307, !noalias !308
   %796 = call float @llvm.fmuladd.f32(float %793, float %149, float %795)
-  %797 = getelementptr inbounds [3 x float], ptr %143, i64 %indvars.iv6.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i115.i
+  %797 = getelementptr inbounds [3 x float], ptr %143, i64 %indvars.iv6.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i114.i
   store float %796, ptr %797, align 4, !alias.scope !309, !noalias !310
-  %indvars.iv.next.i.i.i.i.i.i.i116.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i115.i, 1
-  %exitcond.not.i.i.i.i.i.i.i117.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i116.i, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i117.i, label %798, label %784, !llvm.loop !311
+  %indvars.iv.next.i.i.i.i.i.i.i115.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i114.i, 1
+  %exitcond.not.i.i.i.i.i.i.i116.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i115.i, 3
+  br i1 %exitcond.not.i.i.i.i.i.i.i116.i, label %798, label %784, !llvm.loop !311
 
 798:                                              ; preds = %784
   %indvars.iv.next7.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv6.i.i.i.i.i.i.i.i, 1
-  %exitcond9.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next7.i.i.i.i.i.i.i.i, %wide.trip.count.i.i.i.i.i.i.i114.i
+  %exitcond9.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next7.i.i.i.i.i.i.i.i, %wide.trip.count.i.i.i.i.i.i.i113.i
   br i1 %exitcond9.not.i.i.i.i.i.i.i.i, label %_ZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEb.exit, label %777, !llvm.loop !312
 
 799:                                              ; preds = %773
@@ -6371,7 +6371,7 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
 
 .preheader.preheader.i.i.i.i.i.i.i.i.i:           ; preds = %799
   %803 = sext i32 %133 to i64
-  %wide.trip.count.i.i.i.i.i.i.i.i109.i = sext i32 %spec.select.i to i64
+  %wide.trip.count.i.i.i.i.i.i.i.i108.i = sext i32 %spec.select.i to i64
   br label %.preheader.i.i.i.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i.i.i:                     ; preds = %819, %.preheader.preheader.i.i.i.i.i.i.i.i.i
@@ -6380,29 +6380,29 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   br label %805
 
 805:                                              ; preds = %805, %.preheader.i.i.i.i.i.i.i.i.i
-  %indvars.iv.i.i.i.i.i.i.i.i110.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i.i111.i, %805 ]
-  %806 = getelementptr inbounds [3 x float], ptr %145, i64 %indvars.iv6.i.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i110.i
+  %indvars.iv.i.i.i.i.i.i.i.i109.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i.i110.i, %805 ]
+  %806 = getelementptr inbounds [3 x float], ptr %145, i64 %indvars.iv6.i.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i109.i
   %807 = load float, ptr %806, align 4, !alias.scope !323, !noalias !324
-  %808 = getelementptr inbounds [3 x float], ptr %146, i64 %indvars.iv6.i.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i110.i
+  %808 = getelementptr inbounds [3 x float], ptr %146, i64 %indvars.iv6.i.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i109.i
   %809 = load float, ptr %808, align 4, !alias.scope !325, !noalias !326
-  %810 = getelementptr inbounds [3 x float], ptr %804, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i110.i
+  %810 = getelementptr inbounds [3 x float], ptr %804, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i109.i
   %811 = load float, ptr %810, align 4, !noalias !327
   %812 = fmul float %809, %811
   %813 = fmul float %149, %812
   %814 = call float @llvm.fmuladd.f32(float %801, float %807, float %813)
   store float %814, ptr %806, align 4, !alias.scope !323, !noalias !324
-  %815 = getelementptr inbounds [3 x float], ptr %142, i64 %indvars.iv6.i.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i110.i
+  %815 = getelementptr inbounds [3 x float], ptr %142, i64 %indvars.iv6.i.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i109.i
   %816 = load float, ptr %815, align 4, !alias.scope !328, !noalias !329
   %817 = call float @llvm.fmuladd.f32(float %814, float %149, float %816)
-  %818 = getelementptr inbounds [3 x float], ptr %143, i64 %indvars.iv6.i.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i110.i
+  %818 = getelementptr inbounds [3 x float], ptr %143, i64 %indvars.iv6.i.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i109.i
   store float %817, ptr %818, align 4, !alias.scope !330, !noalias !331
-  %indvars.iv.next.i.i.i.i.i.i.i.i111.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i110.i, 1
-  %exitcond.not.i.i.i.i.i.i.i.i112.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i111.i, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i112.i, label %819, label %805, !llvm.loop !332
+  %indvars.iv.next.i.i.i.i.i.i.i.i110.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i109.i, 1
+  %exitcond.not.i.i.i.i.i.i.i.i111.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i110.i, 3
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i111.i, label %819, label %805, !llvm.loop !332
 
 819:                                              ; preds = %805
   %indvars.iv.next7.i.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv6.i.i.i.i.i.i.i.i.i, 1
-  %exitcond9.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next7.i.i.i.i.i.i.i.i.i, %wide.trip.count.i.i.i.i.i.i.i.i109.i
+  %exitcond9.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next7.i.i.i.i.i.i.i.i.i, %wide.trip.count.i.i.i.i.i.i.i.i108.i
   br i1 %exitcond9.not.i.i.i.i.i.i.i.i.i, label %_ZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEb.exit, label %.preheader.i.i.i.i.i.i.i.i.i, !llvm.loop !333
 
 820:                                              ; preds = %773
@@ -6415,7 +6415,7 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
 
 .preheader.preheader.i.i.i.i.i.i.i.i.i.i:         ; preds = %820
   %822 = sext i32 %133 to i64
-  %wide.trip.count.i.i.i.i.i.i.i.i.i119.i = sext i32 %spec.select.i to i64
+  %wide.trip.count.i.i.i.i.i.i.i.i.i117.i = sext i32 %spec.select.i to i64
   br label %.preheader.i.i.i.i.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i.i.i.i:                   ; preds = %838, %.preheader.preheader.i.i.i.i.i.i.i.i.i.i
@@ -6424,32 +6424,32 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   br label %824
 
 824:                                              ; preds = %824, %.preheader.i.i.i.i.i.i.i.i.i.i
-  %indvars.iv.i.i.i.i.i.i.i.i.i120.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i.i.i121.i, %824 ]
-  %825 = getelementptr inbounds [3 x float], ptr %145, i64 %indvars.iv4.i.i.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i120.i
+  %indvars.iv.i.i.i.i.i.i.i.i.i118.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i.i.i119.i, %824 ]
+  %825 = getelementptr inbounds [3 x float], ptr %145, i64 %indvars.iv4.i.i.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i118.i
   %826 = load float, ptr %825, align 4, !alias.scope !343, !noalias !344
-  %827 = getelementptr inbounds [3 x float], ptr %146, i64 %indvars.iv4.i.i.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i120.i
+  %827 = getelementptr inbounds [3 x float], ptr %146, i64 %indvars.iv4.i.i.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i118.i
   %828 = load float, ptr %827, align 4, !alias.scope !345, !noalias !346
-  %829 = getelementptr inbounds [3 x float], ptr %823, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i120.i
+  %829 = getelementptr inbounds [3 x float], ptr %823, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i118.i
   %830 = load float, ptr %829, align 4, !noalias !347
   %831 = fmul float %828, %830
   %832 = fmul float %149, %831
   %833 = fadd float %826, %832
   store float %833, ptr %825, align 4, !alias.scope !343, !noalias !344
-  %834 = getelementptr inbounds [3 x float], ptr %142, i64 %indvars.iv4.i.i.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i120.i
+  %834 = getelementptr inbounds [3 x float], ptr %142, i64 %indvars.iv4.i.i.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i118.i
   %835 = load float, ptr %834, align 4, !alias.scope !348, !noalias !349
   %836 = call float @llvm.fmuladd.f32(float %833, float %149, float %835)
-  %837 = getelementptr inbounds [3 x float], ptr %143, i64 %indvars.iv4.i.i.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i120.i
+  %837 = getelementptr inbounds [3 x float], ptr %143, i64 %indvars.iv4.i.i.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i118.i
   store float %836, ptr %837, align 4, !alias.scope !350, !noalias !351
-  %indvars.iv.next.i.i.i.i.i.i.i.i.i121.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i120.i, 1
-  %exitcond.not.i.i.i.i.i.i.i.i.i122.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i121.i, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i122.i, label %838, label %824, !llvm.loop !352
+  %indvars.iv.next.i.i.i.i.i.i.i.i.i119.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i118.i, 1
+  %exitcond.not.i.i.i.i.i.i.i.i.i120.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i119.i, 3
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i120.i, label %838, label %824, !llvm.loop !352
 
 838:                                              ; preds = %824
   %indvars.iv.next5.i.i.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv4.i.i.i.i.i.i.i.i.i.i, 1
-  %exitcond7.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next5.i.i.i.i.i.i.i.i.i.i, %wide.trip.count.i.i.i.i.i.i.i.i.i119.i
+  %exitcond7.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next5.i.i.i.i.i.i.i.i.i.i, %wide.trip.count.i.i.i.i.i.i.i.i.i117.i
   br i1 %exitcond7.not.i.i.i.i.i.i.i.i.i.i, label %_ZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEb.exit, label %.preheader.i.i.i.i.i.i.i.i.i.i, !llvm.loop !353
 
-_ZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEb.exit: ; preds = %.lr.ph.i102.i, %.lr.ph.i.i, %819, %798, %838, %"_ZZZN3gmx25dispatchTemplatedFunctionIZL12do_update_mdiiflPA3_KfPA3_fS5_S3_19TemperatureCoupling16PressureCouplingiiNS_8ArrayRefIKtEE16AccelerationTypeSA_S3_S3_NS8_IS1_EENS8_IKNS_11BasicVectorIfEEEEPK14gmx_ekindata_tS3_PKdRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEbE3$_0SB_JEEEDaOT_T0_DpT1_ENKUlDpT_E_clIJEEEDaS12_ENKUlSW_E_clISt17integral_constantImLm3EEEEDaSW_.exit.i.i.i.i.i", %"_ZZZN3gmx25dispatchTemplatedFunctionIZL12do_update_mdiiflPA3_KfPA3_fS5_S3_19TemperatureCoupling16PressureCouplingiiNS_8ArrayRefIKtEE16AccelerationTypeSA_S3_S3_NS8_IS1_EENS8_IKNS_11BasicVectorIfEEEEPK14gmx_ekindata_tS3_PKdRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEbE3$_0SB_JEEEDaOT_T0_DpT1_ENKUlDpT_E_clIJEEEDaS12_ENKUlSW_E_clISt17integral_constantImLm2EEEEDaSW_.exit.i.i.i.i.i.i", %"_ZZZN3gmx25dispatchTemplatedFunctionIZL12do_update_mdiiflPA3_KfPA3_fS5_S3_19TemperatureCoupling16PressureCouplingiiNS_8ArrayRefIKtEE16AccelerationTypeSA_S3_S3_NS8_IS1_EENS8_IKNS_11BasicVectorIfEEEEPK14gmx_ekindata_tS3_PKdRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEbE3$_0SB_JEEEDaOT_T0_DpT1_ENKUlDpT_E_clIJEEEDaS12_ENKUlSW_E_clISt17integral_constantImLm1EEEEDaSW_.exit.i.i.i.i.i.i.i", %"_ZN3gmx6compatL13mp_with_indexILm1EZZNS_25dispatchTemplatedFunctionIZL12do_update_mdiiflPA3_KfPA3_fS7_S5_19TemperatureCoupling16PressureCouplingiiNS_8ArrayRefIKtEE16AccelerationTypeSC_S5_S5_NSA_IS3_EENSA_IKNS_11BasicVectorIfEEEEPK14gmx_ekindata_tS5_PKdRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEbE3$_0SD_JEEEDaOT_T0_DpT1_ENKUlDpT_E_clIJEEEDaS14_EUlSY_E_TnPNSt9enable_ifIXleT_Li1EEvE4typeELPv0EEEDamOS10_.exit.i.i.i.i.i.i.i", %"_ZZZN3gmx25dispatchTemplatedFunctionIZL12do_update_mdiiflPA3_KfPA3_fS5_S3_19TemperatureCoupling16PressureCouplingiiNS_8ArrayRefIKtEE16AccelerationTypeSA_S3_S3_NS8_IS1_EENS8_IKNS_11BasicVectorIfEEEEPK14gmx_ekindata_tS3_PKdRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEbE3$_118NumTempScaleValuesJ31ParrinelloRahmanVelocityScalingEEEDaOT_T0_DpT1_ENKUlDpT_E_clIJSt17integral_constantISX_LSX_1EEEEEDaS14_ENKUlSY_E_clIS17_ImLm2EEEEDaSY_.exit.i.i.i.i.i.i.i.i.i.i", %"_ZZZN3gmx25dispatchTemplatedFunctionIZL12do_update_mdiiflPA3_KfPA3_fS5_S3_19TemperatureCoupling16PressureCouplingiiNS_8ArrayRefIKtEE16AccelerationTypeSA_S3_S3_NS8_IS1_EENS8_IKNS_11BasicVectorIfEEEEPK14gmx_ekindata_tS3_PKdRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEbE3$_118NumTempScaleValuesJ31ParrinelloRahmanVelocityScalingEEEDaOT_T0_DpT1_ENKUlDpT_E_clIJSt17integral_constantISX_LSX_1EEEEEDaS14_ENKUlSY_E_clIS17_ImLm1EEEEDaSY_.exit.i.i.i.i.i.i.i.i.i.i.i", %"_ZN3gmx6compatL13mp_with_indexILm1EZZNS_25dispatchTemplatedFunctionIZL12do_update_mdiiflPA3_KfPA3_fS7_S5_19TemperatureCoupling16PressureCouplingiiNS_8ArrayRefIKtEE16AccelerationTypeSC_S5_S5_NSA_IS3_EENSA_IKNS_11BasicVectorIfEEEEPK14gmx_ekindata_tS5_PKdRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEbE3$_118NumTempScaleValuesJ31ParrinelloRahmanVelocityScalingEEEDaOT_T0_DpT1_ENKUlDpT_E_clIJSt17integral_constantISZ_LSZ_1EEEEEDaS16_EUlS10_E_TnPNSt9enable_ifIXleT_Li1EEvE4typeELPv0EEEDamOS12_.exit.i.i.i.i.i.i.i.i.i.i.i", %698, %739, %774, %799, %820
+_ZL12do_update_mdiiflPA3_KfPA3_fS3_S1_19TemperatureCoupling16PressureCouplingiiN3gmx8ArrayRefIKtEE16AccelerationTypeS9_S1_S1_NS7_IS_EENS7_IKNS6_11BasicVectorIfEEEEPK14gmx_ekindata_tS1_PKdRKNS6_13MultiDimArrayISt5arrayIfLm9EENS6_7extentsIJLl3ELl3EEEENS6_12layout_rightEEEb.exit: ; preds = %.lr.ph.i101.i, %.lr.ph.i.i, %819, %798, %838, %"_ZZZN3gmx25dispatchTemplatedFunctionIZL12do_update_mdiiflPA3_KfPA3_fS5_S3_19TemperatureCoupling16PressureCouplingiiNS_8ArrayRefIKtEE16AccelerationTypeSA_S3_S3_NS8_IS1_EENS8_IKNS_11BasicVectorIfEEEEPK14gmx_ekindata_tS3_PKdRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEbE3$_0SB_JEEEDaOT_T0_DpT1_ENKUlDpT_E_clIJEEEDaS12_ENKUlSW_E_clISt17integral_constantImLm3EEEEDaSW_.exit.i.i.i.i.i", %"_ZZZN3gmx25dispatchTemplatedFunctionIZL12do_update_mdiiflPA3_KfPA3_fS5_S3_19TemperatureCoupling16PressureCouplingiiNS_8ArrayRefIKtEE16AccelerationTypeSA_S3_S3_NS8_IS1_EENS8_IKNS_11BasicVectorIfEEEEPK14gmx_ekindata_tS3_PKdRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEbE3$_0SB_JEEEDaOT_T0_DpT1_ENKUlDpT_E_clIJEEEDaS12_ENKUlSW_E_clISt17integral_constantImLm2EEEEDaSW_.exit.i.i.i.i.i.i", %"_ZZZN3gmx25dispatchTemplatedFunctionIZL12do_update_mdiiflPA3_KfPA3_fS5_S3_19TemperatureCoupling16PressureCouplingiiNS_8ArrayRefIKtEE16AccelerationTypeSA_S3_S3_NS8_IS1_EENS8_IKNS_11BasicVectorIfEEEEPK14gmx_ekindata_tS3_PKdRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEbE3$_0SB_JEEEDaOT_T0_DpT1_ENKUlDpT_E_clIJEEEDaS12_ENKUlSW_E_clISt17integral_constantImLm1EEEEDaSW_.exit.i.i.i.i.i.i.i", %"_ZN3gmx6compatL13mp_with_indexILm1EZZNS_25dispatchTemplatedFunctionIZL12do_update_mdiiflPA3_KfPA3_fS7_S5_19TemperatureCoupling16PressureCouplingiiNS_8ArrayRefIKtEE16AccelerationTypeSC_S5_S5_NSA_IS3_EENSA_IKNS_11BasicVectorIfEEEEPK14gmx_ekindata_tS5_PKdRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEbE3$_0SD_JEEEDaOT_T0_DpT1_ENKUlDpT_E_clIJEEEDaS14_EUlSY_E_TnPNSt9enable_ifIXleT_Li1EEvE4typeELPv0EEEDamOS10_.exit.i.i.i.i.i.i.i", %"_ZZZN3gmx25dispatchTemplatedFunctionIZL12do_update_mdiiflPA3_KfPA3_fS5_S3_19TemperatureCoupling16PressureCouplingiiNS_8ArrayRefIKtEE16AccelerationTypeSA_S3_S3_NS8_IS1_EENS8_IKNS_11BasicVectorIfEEEEPK14gmx_ekindata_tS3_PKdRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEbE3$_118NumTempScaleValuesJ31ParrinelloRahmanVelocityScalingEEEDaOT_T0_DpT1_ENKUlDpT_E_clIJSt17integral_constantISX_LSX_1EEEEEDaS14_ENKUlSY_E_clIS17_ImLm2EEEEDaSY_.exit.i.i.i.i.i.i.i.i.i.i", %"_ZZZN3gmx25dispatchTemplatedFunctionIZL12do_update_mdiiflPA3_KfPA3_fS5_S3_19TemperatureCoupling16PressureCouplingiiNS_8ArrayRefIKtEE16AccelerationTypeSA_S3_S3_NS8_IS1_EENS8_IKNS_11BasicVectorIfEEEEPK14gmx_ekindata_tS3_PKdRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEbE3$_118NumTempScaleValuesJ31ParrinelloRahmanVelocityScalingEEEDaOT_T0_DpT1_ENKUlDpT_E_clIJSt17integral_constantISX_LSX_1EEEEEDaS14_ENKUlSY_E_clIS17_ImLm1EEEEDaSY_.exit.i.i.i.i.i.i.i.i.i.i.i", %"_ZN3gmx6compatL13mp_with_indexILm1EZZNS_25dispatchTemplatedFunctionIZL12do_update_mdiiflPA3_KfPA3_fS7_S5_19TemperatureCoupling16PressureCouplingiiNS_8ArrayRefIKtEE16AccelerationTypeSC_S5_S5_NSA_IS3_EENSA_IKNS_11BasicVectorIfEEEEPK14gmx_ekindata_tS5_PKdRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEbE3$_118NumTempScaleValuesJ31ParrinelloRahmanVelocityScalingEEEDaOT_T0_DpT1_ENKUlDpT_E_clIJSt17integral_constantISZ_LSZ_1EEEEEDaS16_EUlS10_E_TnPNSt9enable_ifIXleT_Li1EEvE4typeELPv0EEEDamOS12_.exit.i.i.i.i.i.i.i.i.i.i.i", %698, %739, %774, %799, %820
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %51)
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %52)
   br label %_ZL16do_update_vv_veliifN3gmx8ArrayRefIA3_KiEENS0_IKtEEPA3_KfNS0_IS6_EENS0_IK12ParticleTypeEES5_PA3_fS8_bff.exit

@@ -629,7 +629,7 @@ define hidden void @alcap_tree_from_bearer_key(ptr noundef %0, ptr noundef %1, p
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call fastcc void @alcap_leg_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
+  tail call fastcc void @alcap_leg_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %6)
   br label %8
 
 8:                                                ; preds = %7, %4
@@ -639,7 +639,7 @@ define hidden void @alcap_tree_from_bearer_key(ptr noundef %0, ptr noundef %1, p
 declare ptr @wmem_tree_lookup_string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @alcap_leg_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @alcap_leg_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @ett_leg, align 4
   %7 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef %6, ptr noundef null, ptr noundef nonnull @.str.264) #4
@@ -1282,7 +1282,7 @@ define internal i32 @dissect_alcap(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not192, label %.thread189, label %211
 
 211:                                              ; preds = %210
-  tail call fastcc void @alcap_leg_tree(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.0155.ph)
+  tail call fastcc void @alcap_leg_tree(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0155.ph)
   br label %.thread189
 
 .thread189:                                       ; preds = %145, %157, %174, %86, %210, %211, %._crit_edge

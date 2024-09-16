@@ -883,7 +883,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.i:    ; preds = %.noexc42
 279:                                              ; preds = %.thread81, %211
   %280 = phi ptr [ %144, %.thread81 ], [ %278, %211 ]
   %.02484 = phi ptr [ null, %.thread81 ], [ %212, %211 ]
-  invoke fastcc void @_ZL10bcast_infoP14PmeErrorInputsPK9t_commrec(ptr noundef nonnull %20, ptr noundef nonnull %66)
+  invoke fastcc void @_ZL10bcast_infoP14PmeErrorInputsPK9t_commrec(ptr noundef %20, ptr noundef nonnull %66)
           to label %281 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 281:                                              ; preds = %279, %211
@@ -1232,7 +1232,7 @@ _ZL11prepare_x_qPPfPPA3_fPK10gmx_mtop_tPA3_KfP9t_commrec.exit.i: ; preds = %.noe
   br i1 %440, label %.thread167.i, label %.noexc61
 
 .thread167.i:                                     ; preds = %366, %402
-  invoke fastcc void @_ZL10bcast_infoP14PmeErrorInputsPK9t_commrec(ptr noundef nonnull %20, ptr noundef nonnull %66)
+  invoke fastcc void @_ZL10bcast_infoP14PmeErrorInputsPK9t_commrec(ptr noundef %20, ptr noundef nonnull %66)
           to label %.noexc61 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc61:                                         ; preds = %.thread167.i, %402
@@ -1266,7 +1266,7 @@ _ZL11prepare_x_qPPfPPA3_fPK10gmx_mtop_tPA3_KfP9t_commrec.exit.i: ; preds = %.noe
   %468 = fptrunc double %467 to float
   %469 = load ptr, ptr %126, align 8
   store float %468, ptr %469, align 4
-  %470 = invoke fastcc noundef float @_ZL19estimate_reciprocalP14PmeErrorInputsPA3_fPKfiP8_IO_FILEbiPiP9t_commrec(ptr noundef nonnull %20, ptr noundef %.2153.i, ptr noundef %.2.i, i32 noundef %363, i1 noundef zeroext %284, i32 noundef %285, ptr noundef nonnull %10, ptr noundef nonnull %66)
+  %470 = invoke fastcc noundef float @_ZL19estimate_reciprocalP14PmeErrorInputsPA3_fPKfiP8_IO_FILEbiPiP9t_commrec(ptr noundef %20, ptr noundef %.2153.i, ptr noundef %.2.i, i32 noundef %363, i1 noundef zeroext %284, i32 noundef %285, ptr noundef %10, ptr noundef nonnull %66)
           to label %.noexc62 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc62:                                         ; preds = %.noexc61
@@ -1277,7 +1277,7 @@ _ZL11prepare_x_qPPfPPA3_fPK10gmx_mtop_tPA3_KfP9t_commrec.exit.i: ; preds = %.noe
   br i1 %473, label %474, label %.noexc63
 
 474:                                              ; preds = %.noexc62
-  invoke fastcc void @_ZL10bcast_infoP14PmeErrorInputsPK9t_commrec(ptr noundef nonnull %20, ptr noundef nonnull %66)
+  invoke fastcc void @_ZL10bcast_infoP14PmeErrorInputsPK9t_commrec(ptr noundef %20, ptr noundef nonnull %66)
           to label %.noexc63 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc63:                                         ; preds = %474, %.noexc62
@@ -1375,7 +1375,7 @@ _ZL11prepare_x_qPPfPPA3_fPK10gmx_mtop_tPA3_KfP9t_commrec.exit.i: ; preds = %.noe
   %549 = fptrunc double %548 to float
   %550 = load ptr, ptr %126, align 8
   store float %549, ptr %550, align 4
-  %551 = invoke fastcc noundef float @_ZL19estimate_reciprocalP14PmeErrorInputsPA3_fPKfiP8_IO_FILEbiPiP9t_commrec(ptr noundef nonnull %20, ptr noundef %.2153.i, ptr noundef %.2.i, i32 noundef %363, i1 noundef zeroext %284, i32 noundef %285, ptr noundef nonnull %10, ptr noundef nonnull %66)
+  %551 = invoke fastcc noundef float @_ZL19estimate_reciprocalP14PmeErrorInputsPA3_fPKfiP8_IO_FILEbiPiP9t_commrec(ptr noundef %20, ptr noundef %.2153.i, ptr noundef %.2.i, i32 noundef %363, i1 noundef zeroext %284, i32 noundef %285, ptr noundef %10, ptr noundef nonnull %66)
           to label %.noexc64 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc64:                                         ; preds = %514
@@ -1386,7 +1386,7 @@ _ZL11prepare_x_qPPfPPA3_fPK10gmx_mtop_tPA3_KfP9t_commrec.exit.i: ; preds = %.noe
   br i1 %554, label %555, label %.noexc65
 
 555:                                              ; preds = %.noexc64
-  invoke fastcc void @_ZL10bcast_infoP14PmeErrorInputsPK9t_commrec(ptr noundef nonnull %20, ptr noundef nonnull %66)
+  invoke fastcc void @_ZL10bcast_infoP14PmeErrorInputsPK9t_commrec(ptr noundef %20, ptr noundef nonnull %66)
           to label %.noexc65 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc65:                                         ; preds = %555, %.noexc64
@@ -1443,7 +1443,7 @@ _ZL11prepare_x_qPPfPPA3_fPK10gmx_mtop_tPA3_KfP9t_commrec.exit.i: ; preds = %.noe
   %597 = fptrunc double %596 to float
   %598 = load ptr, ptr %126, align 8
   store float %597, ptr %598, align 4
-  %599 = invoke fastcc noundef float @_ZL19estimate_reciprocalP14PmeErrorInputsPA3_fPKfiP8_IO_FILEbiPiP9t_commrec(ptr noundef nonnull %20, ptr noundef %.2153.i, ptr noundef %.2.i, i32 noundef %363, i1 noundef zeroext %284, i32 noundef %285, ptr noundef nonnull %10, ptr noundef nonnull %66)
+  %599 = invoke fastcc noundef float @_ZL19estimate_reciprocalP14PmeErrorInputsPA3_fPKfiP8_IO_FILEbiPiP9t_commrec(ptr noundef %20, ptr noundef %.2153.i, ptr noundef %.2.i, i32 noundef %363, i1 noundef zeroext %284, i32 noundef %285, ptr noundef %10, ptr noundef nonnull %66)
           to label %.noexc66 unwind label %.loopexit
 
 .noexc66:                                         ; preds = %.lr.ph162.i
@@ -1454,7 +1454,7 @@ _ZL11prepare_x_qPPfPPA3_fPK10gmx_mtop_tPA3_KfP9t_commrec.exit.i: ; preds = %.noe
   br i1 %602, label %603, label %.noexc67
 
 603:                                              ; preds = %.noexc66
-  invoke fastcc void @_ZL10bcast_infoP14PmeErrorInputsPK9t_commrec(ptr noundef nonnull %20, ptr noundef nonnull %66)
+  invoke fastcc void @_ZL10bcast_infoP14PmeErrorInputsPK9t_commrec(ptr noundef %20, ptr noundef nonnull %66)
           to label %.noexc67 unwind label %.loopexit
 
 .noexc67:                                         ; preds = %603, %.noexc66
@@ -1825,7 +1825,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10bcast_infoP14PmeErrorInputsPK9t_commrec(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZL10bcast_infoP14PmeErrorInputsPK9t_commrec(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2293,7 +2293,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZL19estimate_reciprocalP14PmeErrorInputsPA3_fPKfiP8_IO_FILEbiPiP9t_commrec(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr noundef %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef float @_ZL19estimate_reciprocalP14PmeErrorInputsPA3_fPKfiP8_IO_FILEbiPiP9t_commrec(ptr noundef nonnull readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr nocapture noundef nonnull writeonly %6, ptr noundef %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca float, align 4
   %10 = alloca float, align 4
   %11 = alloca float, align 4

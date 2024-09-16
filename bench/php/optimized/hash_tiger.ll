@@ -2955,25 +2955,25 @@ declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define void @PHP_TIGER128Final(ptr nocapture noundef writeonly %0, ptr noundef %1) #2 {
   tail call fastcc void @TigerFinalize(ptr noundef %1)
-  br label %.lr.ph.i
+  br label %3
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %2
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %3 = lshr i64 %indvars.iv.i, 3
-  %4 = and i64 %3, 536870911
-  %5 = getelementptr inbounds [3 x i64], ptr %1, i64 0, i64 %4
-  %6 = load i64, ptr %5, align 8
-  %7 = shl i64 %indvars.iv.i, 3
-  %8 = and i64 %7, 56
-  %9 = lshr i64 %6, %8
-  %10 = trunc i64 %9 to i8
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
-  store i8 %10, ptr %11, align 1
+3:                                                ; preds = %3, %2
+  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %3 ]
+  %4 = lshr i64 %indvars.iv.i, 3
+  %5 = and i64 %4, 536870911
+  %6 = getelementptr inbounds [3 x i64], ptr %1, i64 0, i64 %5
+  %7 = load i64, ptr %6, align 8
+  %8 = shl i64 %indvars.iv.i, 3
+  %9 = and i64 %8, 56
+  %10 = lshr i64 %7, %9
+  %11 = trunc i64 %10 to i8
+  %12 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  store i8 %11, ptr %12, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %TigerDigest.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %TigerDigest.exit, label %3
 
-TigerDigest.exit:                                 ; preds = %.lr.ph.i
+TigerDigest.exit:                                 ; preds = %3
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #7
   ret void
 }
@@ -5857,25 +5857,25 @@ define internal fastcc void @TigerFinalize(ptr nocapture noundef %0) unnamed_add
 ; Function Attrs: nounwind uwtable
 define void @PHP_TIGER160Final(ptr nocapture noundef writeonly %0, ptr noundef %1) #2 {
   tail call fastcc void @TigerFinalize(ptr noundef %1)
-  br label %.lr.ph.i
+  br label %3
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %2
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %3 = lshr i64 %indvars.iv.i, 3
-  %4 = and i64 %3, 536870911
-  %5 = getelementptr inbounds [3 x i64], ptr %1, i64 0, i64 %4
-  %6 = load i64, ptr %5, align 8
-  %7 = shl i64 %indvars.iv.i, 3
-  %8 = and i64 %7, 56
-  %9 = lshr i64 %6, %8
-  %10 = trunc i64 %9 to i8
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
-  store i8 %10, ptr %11, align 1
+3:                                                ; preds = %3, %2
+  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %3 ]
+  %4 = lshr i64 %indvars.iv.i, 3
+  %5 = and i64 %4, 536870911
+  %6 = getelementptr inbounds [3 x i64], ptr %1, i64 0, i64 %5
+  %7 = load i64, ptr %6, align 8
+  %8 = shl i64 %indvars.iv.i, 3
+  %9 = and i64 %8, 56
+  %10 = lshr i64 %7, %9
+  %11 = trunc i64 %10 to i8
+  %12 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  store i8 %11, ptr %12, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 20
-  br i1 %exitcond.not.i, label %TigerDigest.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %TigerDigest.exit, label %3
 
-TigerDigest.exit:                                 ; preds = %.lr.ph.i
+TigerDigest.exit:                                 ; preds = %3
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #7
   ret void
 }
@@ -5883,25 +5883,25 @@ TigerDigest.exit:                                 ; preds = %.lr.ph.i
 ; Function Attrs: nounwind uwtable
 define void @PHP_TIGER192Final(ptr nocapture noundef writeonly %0, ptr noundef %1) #2 {
   tail call fastcc void @TigerFinalize(ptr noundef %1)
-  br label %.lr.ph.i
+  br label %3
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %2
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %3 = lshr i64 %indvars.iv.i, 3
-  %4 = and i64 %3, 536870911
-  %5 = getelementptr inbounds [3 x i64], ptr %1, i64 0, i64 %4
-  %6 = load i64, ptr %5, align 8
-  %7 = shl i64 %indvars.iv.i, 3
-  %8 = and i64 %7, 56
-  %9 = lshr i64 %6, %8
-  %10 = trunc i64 %9 to i8
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
-  store i8 %10, ptr %11, align 1
+3:                                                ; preds = %3, %2
+  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %3 ]
+  %4 = lshr i64 %indvars.iv.i, 3
+  %5 = and i64 %4, 536870911
+  %6 = getelementptr inbounds [3 x i64], ptr %1, i64 0, i64 %5
+  %7 = load i64, ptr %6, align 8
+  %8 = shl i64 %indvars.iv.i, 3
+  %9 = and i64 %8, 56
+  %10 = lshr i64 %7, %9
+  %11 = trunc i64 %10 to i8
+  %12 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  store i8 %11, ptr %12, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 24
-  br i1 %exitcond.not.i, label %TigerDigest.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %TigerDigest.exit, label %3
 
-TigerDigest.exit:                                 ; preds = %.lr.ph.i
+TigerDigest.exit:                                 ; preds = %3
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #7
   ret void
 }

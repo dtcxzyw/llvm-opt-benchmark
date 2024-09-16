@@ -1711,7 +1711,7 @@ declare ptr @wmem_file_scope() local_unnamed_addr #1
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_l2tpv3_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @process_l2tpv3_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 5) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.l2tpv3_tunnel, align 8
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3) #8
   %8 = add nuw nsw i32 %3, 2
@@ -1745,12 +1745,12 @@ define internal fastcc void @process_l2tpv3_control(ptr noundef %0, ptr noundef 
   %22 = and i32 %9, 2048
   %.not = icmp eq i32 %22, 0
   %spec.select.v = select i1 %.not, i32 4, i32 8
-  %spec.select = add i32 %.0106118, %spec.select.v
-  %23 = add i32 %spec.select, 2
+  %spec.select = add nuw nsw i32 %.0106118, %spec.select.v
+  %23 = add nuw nsw i32 %spec.select, 2
   %24 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %23) #8
-  %25 = add i32 %spec.select, 4
+  %25 = add nuw nsw i32 %spec.select, 4
   %26 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %25) #8
-  %27 = add i32 %spec.select, 6
+  %27 = add nuw nsw i32 %spec.select, 6
   %28 = icmp eq i16 %24, 0
   br i1 %28, label %29, label %40
 
@@ -1849,13 +1849,13 @@ define internal fastcc void @process_l2tpv3_control(ptr noundef %0, ptr noundef 
   br label %copy_address_wmem.exit114
 
 79:                                               ; preds = %75
-  %80 = add i32 %.2, 4
+  %80 = add nuw nsw i32 %.2, 4
   %81 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %80) #8
   %82 = icmp eq i16 %81, 0
   br i1 %82, label %83, label %copy_address_wmem.exit114
 
 83:                                               ; preds = %79
-  %84 = add i32 %.2, 6
+  %84 = add nuw nsw i32 %.2, 6
   %85 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %84) #8
   %86 = icmp eq i16 %85, 1
   br i1 %86, label %87, label %copy_address_wmem.exit114
@@ -1975,7 +1975,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_control_avps(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @process_control_avps(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65540) %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca [20 x i8], align 16
   %9 = alloca ptr, align 8
   %10 = alloca [16 x i8], align 16

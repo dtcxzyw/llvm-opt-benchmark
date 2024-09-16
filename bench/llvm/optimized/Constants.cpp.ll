@@ -6318,12 +6318,12 @@ _ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit:  ; preds = %1, %_ZN4llvm5APIntD
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm8Constant17isThreadDependentEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
-  %2 = tail call fastcc noundef zeroext i1 @_ZL28ConstHasGlobalValuePredicatePKN4llvm8ConstantEPFbPKNS_11GlobalValueEE(ptr noundef nonnull %0, ptr noundef nonnull @"_ZZNK4llvm8Constant17isThreadDependentEvEN3$_08__invokeEPKNS_11GlobalValueE")
+  %2 = tail call fastcc noundef zeroext i1 @_ZL28ConstHasGlobalValuePredicatePKN4llvm8ConstantEPFbPKNS_11GlobalValueEE(ptr noundef %0, ptr noundef nonnull @"_ZZNK4llvm8Constant17isThreadDependentEvEN3$_08__invokeEPKNS_11GlobalValueE")
   ret i1 %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL28ConstHasGlobalValuePredicatePKN4llvm8ConstantEPFbPKNS_11GlobalValueEE(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL28ConstHasGlobalValuePredicatePKN4llvm8ConstantEPFbPKNS_11GlobalValueEE(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::SmallPtrSet.615", align 8
   %4 = alloca %"class.llvm::SmallVector.618", align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -6392,7 +6392,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_8ConstantELb1EE9push_backES3_.exit: ; pre
   br label %_ZN4llvm15SmallPtrSetImplIPKNS_8ConstantEE6insertES3_.exit
 
 36:                                               ; preds = %._crit_edge.i.i, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_8ConstantELb1EE9push_backES3_.exit
-  %37 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef %0) #28, !noalias !53
+  %37 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull %0) #28, !noalias !53
   br label %_ZN4llvm15SmallPtrSetImplIPKNS_8ConstantEE6insertES3_.exit
 
 _ZN4llvm15SmallPtrSetImplIPKNS_8ConstantEE6insertES3_.exit: ; preds = %.lr.ph.i.i, %34, %36
@@ -6550,7 +6550,7 @@ _ZN4llvm11SmallPtrSetIPKNS_8ConstantELj8EED2Ev.exit: ; preds = %_ZN4llvm11SmallV
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm8Constant20isDLLImportDependentEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
-  %2 = tail call fastcc noundef zeroext i1 @_ZL28ConstHasGlobalValuePredicatePKN4llvm8ConstantEPFbPKNS_11GlobalValueEE(ptr noundef nonnull %0, ptr noundef nonnull @"_ZZNK4llvm8Constant20isDLLImportDependentEvEN3$_08__invokeEPKNS_11GlobalValueE")
+  %2 = tail call fastcc noundef zeroext i1 @_ZL28ConstHasGlobalValuePredicatePKN4llvm8ConstantEPFbPKNS_11GlobalValueEE(ptr noundef %0, ptr noundef nonnull @"_ZZNK4llvm8Constant20isDLLImportDependentEvEN3$_08__invokeEPKNS_11GlobalValueE")
   ret i1 %2
 }
 
@@ -6794,7 +6794,7 @@ define dso_local void @_ZNK4llvm8Constant23removeDeadConstantUsersEv(ptr nocaptu
   br i1 %9, label %.outer.backedge, label %10
 
 10:                                               ; preds = %.lr.ph.split.us
-  %11 = tail call fastcc noundef zeroext i1 @_ZL14constantIsDeadPKN4llvm8ConstantEb(ptr noundef nonnull %7, i1 noundef zeroext true)
+  %11 = tail call fastcc noundef zeroext i1 @_ZL14constantIsDeadPKN4llvm8ConstantEb(ptr noundef %7, i1 noundef zeroext true)
   br i1 %11, label %_ZSt4nextIN4llvm5Value18user_iterator_implIKNS0_4UserEEEET_S6_NSt15iterator_traitsIS6_E15difference_typeE.exit.us, label %.outer.backedge
 
 _ZSt4nextIN4llvm5Value18user_iterator_implIKNS0_4UserEEEET_S6_NSt15iterator_traitsIS6_E15difference_typeE.exit.us: ; preds = %10
@@ -6818,7 +6818,7 @@ _ZSt4nextIN4llvm5Value18user_iterator_implIKNS0_4UserEEEET_S6_NSt15iterator_trai
   br i1 %.not1217, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !62
 
 17:                                               ; preds = %.lr.ph.split
-  %18 = tail call fastcc noundef zeroext i1 @_ZL14constantIsDeadPKN4llvm8ConstantEb(ptr noundef nonnull %14, i1 noundef zeroext true)
+  %18 = tail call fastcc noundef zeroext i1 @_ZL14constantIsDeadPKN4llvm8ConstantEb(ptr noundef %14, i1 noundef zeroext true)
   br i1 %18, label %.lr.ph.i.i.i.preheader, label %.outer.backedge
 
 .lr.ph.i.i.i.preheader:                           ; preds = %17
@@ -6834,7 +6834,7 @@ _ZSt4nextIN4llvm5Value18user_iterator_implIKNS0_4UserEEEET_S6_NSt15iterator_trai
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL14constantIsDeadPKN4llvm8ConstantEb(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL14constantIsDeadPKN4llvm8ConstantEb(ptr noundef nonnull %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = load i8, ptr %0, align 8
   %switch.selectcmp.i.i.i.i.i.i.i.i = icmp ult i8 %3, 4
   br i1 %switch.selectcmp.i.i.i.i.i.i.i.i, label %.loopexit, label %4
@@ -6857,7 +6857,7 @@ define internal fastcc noundef zeroext i1 @_ZL14constantIsDeadPKN4llvm8ConstantE
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %.lr.ph.split.us
-  %11 = tail call fastcc noundef zeroext i1 @_ZL14constantIsDeadPKN4llvm8ConstantEb(ptr noundef nonnull %7, i1 noundef zeroext true)
+  %11 = tail call fastcc noundef zeroext i1 @_ZL14constantIsDeadPKN4llvm8ConstantEb(ptr noundef %7, i1 noundef zeroext true)
   br i1 %11, label %12, label %.loopexit
 
 12:                                               ; preds = %10
@@ -6874,7 +6874,7 @@ define internal fastcc noundef zeroext i1 @_ZL14constantIsDeadPKN4llvm8ConstantE
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %.lr.ph.split
-  %18 = tail call fastcc noundef zeroext i1 @_ZL14constantIsDeadPKN4llvm8ConstantEb(ptr noundef nonnull %14, i1 noundef zeroext false)
+  %18 = tail call fastcc noundef zeroext i1 @_ZL14constantIsDeadPKN4llvm8ConstantEb(ptr noundef %14, i1 noundef zeroext false)
   br i1 %18, label %19, label %.loopexit
 
 19:                                               ; preds = %17
@@ -6913,7 +6913,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8Constant13hasOneLiveUseEv(ptr noc
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = tail call fastcc noundef zeroext i1 @_ZL14constantIsDeadPKN4llvm8ConstantEb(ptr noundef nonnull %4, i1 noundef zeroext false)
+  %8 = tail call fastcc noundef zeroext i1 @_ZL14constantIsDeadPKN4llvm8ConstantEb(ptr noundef %4, i1 noundef zeroext false)
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %7, %.lr.ph.i
@@ -6954,7 +6954,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8Constant12hasNLiveUsesEj(ptr noca
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = tail call fastcc noundef zeroext i1 @_ZL14constantIsDeadPKN4llvm8ConstantEb(ptr noundef nonnull %5, i1 noundef zeroext false)
+  %9 = tail call fastcc noundef zeroext i1 @_ZL14constantIsDeadPKN4llvm8ConstantEb(ptr noundef %5, i1 noundef zeroext false)
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %8, %.lr.ph
@@ -6995,7 +6995,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8Constant15hasZeroLiveUsesEv(ptr n
   br i1 %6, label %_ZNK4llvm8Constant12hasNLiveUsesEj.exit, label %7
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = tail call fastcc noundef zeroext i1 @_ZL14constantIsDeadPKN4llvm8ConstantEb(ptr noundef nonnull %4, i1 noundef zeroext false)
+  %8 = tail call fastcc noundef zeroext i1 @_ZL14constantIsDeadPKN4llvm8ConstantEb(ptr noundef %4, i1 noundef zeroext false)
   br i1 %8, label %9, label %_ZNK4llvm8Constant12hasNLiveUsesEj.exit
 
 9:                                                ; preds = %7
@@ -16555,7 +16555,7 @@ _ZN4llvm12ConstantExpr10getBitCastEPNS_8ConstantEPNS_4TypeEb.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL13getFoldedCastN4llvm11Instruction7CastOpsEPNS_8ConstantEPNS_4TypeEb(i32 noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL13getFoldedCastN4llvm11Instruction7CastOpsEPNS_8ConstantEPNS_4TypeEb(i32 noundef range(i32 38, 51) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %.sroa.5 = alloca %"class.llvm::ArrayRef.465", align 8
   %6 = alloca %"struct.llvm::ConstantExprKeyType", align 8
@@ -16569,7 +16569,7 @@ _ZN4llvm19ConstantExprKeyTypeC2ERKS0_.exit:       ; preds = %4
   %8 = load ptr, ptr %2, align 8
   %9 = load ptr, ptr %8, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i8 0, i64 16, i1 false)
-  %10 = trunc i32 %0 to i8
+  %10 = trunc nuw nsw i32 %0 to i8
   store i8 %10, ptr %6, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
   store i8 0, ptr %.sroa.2.0..sroa_idx, align 1

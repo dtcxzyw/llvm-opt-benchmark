@@ -885,7 +885,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp.i7, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end3
-  call fastcc void @_ZL16setCommonICUDataP11UDataMemoryaP10UErrorCode(ptr noundef nonnull %dataMemory, i8 noundef signext 1, ptr noundef nonnull %pErrorCode)
+  call fastcc void @_ZL16setCommonICUDataP11UDataMemoryaP10UErrorCode(ptr noundef %dataMemory, i8 noundef signext 1, ptr noundef %pErrorCode)
   br label %return
 
 return:                                           ; preds = %if.end3, %entry, %lor.lhs.false, %if.end7, %if.then2
@@ -899,15 +899,15 @@ declare void @UDataMemory_setData_75(ptr noundef, ptr noundef) local_unnamed_add
 declare void @udata_checkCommonData_75(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16setCommonICUDataP11UDataMemoryaP10UErrorCode(ptr noundef %pData, i8 noundef signext %warn, ptr noundef %pErr) unnamed_addr #1 {
+define internal fastcc void @_ZL16setCommonICUDataP11UDataMemoryaP10UErrorCode(ptr noundef nonnull %pData, i8 noundef signext range(i8 0, 2) %warn, ptr noundef nonnull %pErr) unnamed_addr #1 {
 entry:
-  %call = tail call ptr @UDataMemory_createNewInstance_75(ptr noundef %pErr)
+  %call = tail call ptr @UDataMemory_createNewInstance_75(ptr noundef nonnull %pErr)
   %0 = load i32, ptr %pErr, align 4
   %cmp.i = icmp slt i32 %0, 1
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  tail call void @UDatamemory_assign_75(ptr noundef %call, ptr noundef %pData)
+  tail call void @UDatamemory_assign_75(ptr noundef %call, ptr noundef nonnull %pData)
   tail call void @umtx_lock_75(ptr noundef null)
   %pHeader8 = getelementptr inbounds i8, ptr %pData, i64 8
   br label %for.body
@@ -992,7 +992,7 @@ if.end3:                                          ; preds = %if.end
   call void @UDataMemory_init_75(ptr noundef nonnull %udm)
   call void @UDataMemory_setData_75(ptr noundef nonnull %udm, ptr noundef nonnull %data)
   call void @udata_checkCommonData_75(ptr noundef nonnull %udm, ptr noundef nonnull %err)
-  %call4 = call fastcc noundef ptr @_ZL19udata_cacheDataItemPKcP11UDataMemoryP10UErrorCode(ptr noundef %path, ptr noundef nonnull %udm, ptr noundef nonnull %err)
+  %call4 = call fastcc noundef ptr @_ZL19udata_cacheDataItemPKcP11UDataMemoryP10UErrorCode(ptr noundef %path, ptr noundef %udm, ptr noundef %err)
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end3, %if.then2
@@ -1000,7 +1000,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL19udata_cacheDataItemPKcP11UDataMemoryP10UErrorCode(ptr noundef %path, ptr noundef %item, ptr noundef nonnull %pErr) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL19udata_cacheDataItemPKcP11UDataMemoryP10UErrorCode(ptr noundef %path, ptr noundef nonnull %item, ptr noundef nonnull %pErr) unnamed_addr #1 {
 entry:
   %subErr = alloca i32, align 4
   store i32 0, ptr %subErr, align 4
@@ -1031,7 +1031,7 @@ if.then9:                                         ; preds = %if.end4
   br label %return
 
 if.end10:                                         ; preds = %if.end4
-  tail call void @UDatamemory_assign_75(ptr noundef %call5, ptr noundef %item)
+  tail call void @UDatamemory_assign_75(ptr noundef %call5, ptr noundef nonnull %item)
   %call.i = tail call noundef ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %path, i32 noundef 47) #16
   %cmp.i28 = icmp eq ptr %call.i, null
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 1
@@ -1124,7 +1124,7 @@ if.then4:                                         ; preds = %lor.lhs.false2, %if
   br label %return
 
 if.else5:                                         ; preds = %lor.lhs.false2
-  %call6 = tail call fastcc noundef ptr @_ZL12doOpenChoicePKcS0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCode(ptr noundef %path, ptr noundef %type, ptr noundef nonnull %name, ptr noundef null, ptr noundef null, ptr noundef nonnull %pErrorCode)
+  %call6 = tail call fastcc noundef ptr @_ZL12doOpenChoicePKcS0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCode(ptr noundef %path, ptr noundef %type, ptr noundef %name, ptr noundef null, ptr noundef null, ptr noundef %pErrorCode)
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.else5, %if.then4
@@ -1133,7 +1133,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL12doOpenChoicePKcS0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCode(ptr noundef %path, ptr noundef %type, ptr noundef %name, ptr noundef %isAcceptable, ptr noundef %context, ptr noundef %pErrorCode) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL12doOpenChoicePKcS0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCode(ptr noundef %path, ptr noundef %type, ptr noundef nonnull %name, ptr noundef %isAcceptable, ptr noundef %context, ptr noundef nonnull %pErrorCode) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %subErrorCode = alloca i32, align 4
   %tocEntryName = alloca %"class.icu_75::CharString", align 8
@@ -1373,7 +1373,7 @@ if.end92:                                         ; preds = %invoke.cont88, %inv
           to label %invoke.cont93 unwind label %lpad13
 
 invoke.cont93:                                    ; preds = %if.end92
-  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp95, ptr noundef %name)
+  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp95, ptr noundef nonnull %name)
           to label %invoke.cont96 unwind label %lpad13
 
 invoke.cont96:                                    ; preds = %invoke.cont93
@@ -1388,7 +1388,7 @@ invoke.cont97:                                    ; preds = %invoke.cont96
           to label %invoke.cont99 unwind label %lpad13
 
 invoke.cont99:                                    ; preds = %invoke.cont97
-  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp101, ptr noundef %name)
+  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp101, ptr noundef nonnull %name)
           to label %invoke.cont102 unwind label %lpad13
 
 invoke.cont102:                                   ; preds = %invoke.cont99
@@ -1499,7 +1499,7 @@ invoke.cont140:                                   ; preds = %if.then139
   br i1 %cmp143.not, label %if.end154, label %if.then144
 
 if.then144:                                       ; preds = %invoke.cont140
-  %call146 = invoke fastcc noundef ptr @_ZL25doLoadFromIndividualFilesPKcS0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(ptr noundef nonnull @.str, ptr noundef nonnull %call141, ptr noundef nonnull %add.ptr128, ptr noundef nonnull @.str, ptr noundef %type, ptr noundef %name, ptr noundef %isAcceptable, ptr noundef %context, ptr noundef nonnull %subErrorCode, ptr noundef nonnull %pErrorCode)
+  %call146 = invoke fastcc noundef ptr @_ZL25doLoadFromIndividualFilesPKcS0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(ptr noundef nonnull @.str, ptr noundef nonnull %call141, ptr noundef nonnull %add.ptr128, ptr noundef nonnull @.str, ptr noundef %type, ptr noundef %name, ptr noundef %isAcceptable, ptr noundef %context, ptr noundef %subErrorCode, ptr noundef %pErrorCode)
           to label %invoke.cont145 unwind label %lpad13
 
 invoke.cont145:                                   ; preds = %if.then144
@@ -1518,7 +1518,7 @@ if.end154:                                        ; preds = %land.lhs.true135, %
 
 if.then156:                                       ; preds = %if.end154
   %51 = load ptr, ptr %tocEntryName, align 8
-  %call160 = invoke fastcc noundef ptr @_ZL20doLoadFromCommonDataaPKcS0_S0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(i8 noundef signext %isICUData.0, ptr noundef %51, ptr noundef nonnull %spec.store.select, ptr noundef %type, ptr noundef %name, ptr noundef %isAcceptable, ptr noundef %context, ptr noundef nonnull %subErrorCode, ptr noundef nonnull %pErrorCode)
+  %call160 = invoke fastcc noundef ptr @_ZL20doLoadFromCommonDataaPKcS0_S0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(i8 noundef signext %isICUData.0, ptr noundef %51, ptr noundef nonnull %spec.store.select, ptr noundef %type, ptr noundef %name, ptr noundef %isAcceptable, ptr noundef %context, ptr noundef %subErrorCode, ptr noundef %pErrorCode)
           to label %invoke.cont159 unwind label %lpad13
 
 invoke.cont159:                                   ; preds = %if.then156
@@ -1555,7 +1555,7 @@ lor.lhs.false175:                                 ; preds = %if.then171
 
 if.then177:                                       ; preds = %lor.lhs.false175, %land.lhs.true173
   %56 = load ptr, ptr %pkgName, align 8
-  %call180 = invoke fastcc noundef ptr @_ZL25doLoadFromIndividualFilesPKcS0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(ptr noundef %56, ptr noundef %call133, ptr noundef nonnull %add.ptr128, ptr noundef nonnull %spec.store.select, ptr noundef %type, ptr noundef %name, ptr noundef %isAcceptable, ptr noundef %context, ptr noundef nonnull %subErrorCode, ptr noundef nonnull %pErrorCode)
+  %call180 = invoke fastcc noundef ptr @_ZL25doLoadFromIndividualFilesPKcS0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(ptr noundef %56, ptr noundef %call133, ptr noundef nonnull %add.ptr128, ptr noundef nonnull %spec.store.select, ptr noundef %type, ptr noundef %name, ptr noundef %isAcceptable, ptr noundef %context, ptr noundef %subErrorCode, ptr noundef %pErrorCode)
           to label %invoke.cont179 unwind label %lpad13
 
 invoke.cont179:                                   ; preds = %if.then177
@@ -1578,7 +1578,7 @@ if.end188:                                        ; preds = %lor.lhs.false175, %
 
 if.then192:                                       ; preds = %if.end188
   %59 = load ptr, ptr %tocEntryName, align 8
-  %call196 = invoke fastcc noundef ptr @_ZL20doLoadFromCommonDataaPKcS0_S0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(i8 noundef signext %isICUData.0, ptr noundef %59, ptr noundef nonnull %spec.store.select, ptr noundef %type, ptr noundef %name, ptr noundef %isAcceptable, ptr noundef %context, ptr noundef nonnull %subErrorCode, ptr noundef nonnull %pErrorCode)
+  %call196 = invoke fastcc noundef ptr @_ZL20doLoadFromCommonDataaPKcS0_S0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(i8 noundef signext %isICUData.0, ptr noundef %59, ptr noundef nonnull %spec.store.select, ptr noundef %type, ptr noundef %name, ptr noundef %isAcceptable, ptr noundef %context, ptr noundef %subErrorCode, ptr noundef %pErrorCode)
           to label %invoke.cont195 unwind label %lpad13
 
 invoke.cont195:                                   ; preds = %if.then192
@@ -1601,7 +1601,7 @@ if.end203:                                        ; preds = %lor.lhs.false198.if
 
 if.then205:                                       ; preds = %if.end203
   %62 = load ptr, ptr %tocEntryName, align 8
-  %call209 = invoke fastcc noundef ptr @_ZL20doLoadFromCommonDataaPKcS0_S0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(i8 noundef signext %isICUData.0, ptr noundef %62, ptr noundef nonnull %spec.store.select, ptr noundef %type, ptr noundef %name, ptr noundef %isAcceptable, ptr noundef %context, ptr noundef nonnull %subErrorCode, ptr noundef nonnull %pErrorCode)
+  %call209 = invoke fastcc noundef ptr @_ZL20doLoadFromCommonDataaPKcS0_S0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(i8 noundef signext %isICUData.0, ptr noundef %62, ptr noundef nonnull %spec.store.select, ptr noundef %type, ptr noundef %name, ptr noundef %isAcceptable, ptr noundef %context, ptr noundef %subErrorCode, ptr noundef %pErrorCode)
           to label %invoke.cont208 unwind label %lpad13
 
 invoke.cont208:                                   ; preds = %if.then205
@@ -1676,7 +1676,7 @@ if.then6:                                         ; preds = %lor.lhs.false2, %if
   br label %return
 
 if.else7:                                         ; preds = %lor.lhs.false2
-  %call8 = tail call fastcc noundef ptr @_ZL12doOpenChoicePKcS0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCode(ptr noundef %path, ptr noundef %type, ptr noundef nonnull %name, ptr noundef nonnull %isAcceptable, ptr noundef %context, ptr noundef nonnull %pErrorCode)
+  %call8 = tail call fastcc noundef ptr @_ZL12doOpenChoicePKcS0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCode(ptr noundef %path, ptr noundef %type, ptr noundef %name, ptr noundef nonnull %isAcceptable, ptr noundef %context, ptr noundef %pErrorCode)
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.else7, %if.then6
@@ -1884,17 +1884,17 @@ declare signext i8 @uprv_pathIsAbsolute_75(ptr noundef) local_unnamed_addr #6
 declare ptr @u_getTimeZoneFilesDirectory_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL25doLoadFromIndividualFilesPKcS0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(ptr noundef %pkgName, ptr noundef %dataPath, ptr noundef %tocEntryPathSuffix, ptr noundef %path, ptr noundef %type, ptr noundef %name, ptr noundef readonly %isAcceptable, ptr noundef %context, ptr nocapture noundef writeonly %subErrorCode, ptr noundef %pErrorCode) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL25doLoadFromIndividualFilesPKcS0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(ptr noundef %pkgName, ptr noundef %dataPath, ptr noundef %tocEntryPathSuffix, ptr noundef %path, ptr noundef %type, ptr noundef nonnull %name, ptr noundef readonly %isAcceptable, ptr noundef %context, ptr nocapture noundef nonnull writeonly %subErrorCode, ptr noundef nonnull %pErrorCode) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %dataMemory = alloca %struct.UDataMemory, align 8
   %iter = alloca %"class.icu_75::UDataPathIterator", align 8
-  call void @_ZN6icu_7517UDataPathIteratorC1EPKcS2_S2_S2_aP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(241) %iter, ptr noundef %dataPath, ptr noundef %pkgName, ptr noundef %path, ptr noundef %tocEntryPathSuffix, i8 noundef signext 0, ptr noundef %pErrorCode)
+  call void @_ZN6icu_7517UDataPathIteratorC1EPKcS2_S2_S2_aP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(241) %iter, ptr noundef %dataPath, ptr noundef %pkgName, ptr noundef %path, ptr noundef %tocEntryPathSuffix, i8 noundef signext 0, ptr noundef nonnull %pErrorCode)
   %pHeader = getelementptr inbounds i8, ptr %dataMemory, i64 8
   %cmp5.i = icmp eq ptr %isAcceptable, null
   br i1 %cmp5.i, label %while.cond.us, label %while.cond
 
 while.cond.us:                                    ; preds = %entry, %while.cond.us.backedge
-  %call.us = invoke noundef ptr @_ZN6icu_7517UDataPathIterator4nextEP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(241) %iter, ptr noundef %pErrorCode)
+  %call.us = invoke noundef ptr @_ZN6icu_7517UDataPathIterator4nextEP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(241) %iter, ptr noundef nonnull %pErrorCode)
           to label %invoke.cont.us unwind label %lpad.split.us
 
 invoke.cont.us:                                   ; preds = %while.cond.us
@@ -1902,7 +1902,7 @@ invoke.cont.us:                                   ; preds = %while.cond.us
   br i1 %cmp.not.us, label %cleanup, label %while.body.us
 
 while.body.us:                                    ; preds = %invoke.cont.us
-  %call2.us = invoke signext i8 @uprv_mapFile_75(ptr noundef nonnull %dataMemory, ptr noundef nonnull %call.us, ptr noundef %pErrorCode)
+  %call2.us = invoke signext i8 @uprv_mapFile_75(ptr noundef nonnull %dataMemory, ptr noundef nonnull %call.us, ptr noundef nonnull %pErrorCode)
           to label %invoke.cont1.us unwind label %lpad.split.us
 
 invoke.cont1.us:                                  ; preds = %while.body.us
@@ -1962,7 +1962,7 @@ lpad.split.us:                                    ; preds = %if.end.us, %land.lh
   br label %lpad
 
 while.cond:                                       ; preds = %entry, %while.cond.backedge
-  %call = invoke noundef ptr @_ZN6icu_7517UDataPathIterator4nextEP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(241) %iter, ptr noundef %pErrorCode)
+  %call = invoke noundef ptr @_ZN6icu_7517UDataPathIterator4nextEP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(241) %iter, ptr noundef nonnull %pErrorCode)
           to label %invoke.cont unwind label %lpad.split
 
 invoke.cont:                                      ; preds = %while.cond
@@ -1970,7 +1970,7 @@ invoke.cont:                                      ; preds = %while.cond
   br i1 %cmp.not, label %cleanup, label %while.body
 
 while.body:                                       ; preds = %invoke.cont
-  %call2 = invoke signext i8 @uprv_mapFile_75(ptr noundef nonnull %dataMemory, ptr noundef nonnull %call, ptr noundef %pErrorCode)
+  %call2 = invoke signext i8 @uprv_mapFile_75(ptr noundef nonnull %dataMemory, ptr noundef nonnull %call, ptr noundef nonnull %pErrorCode)
           to label %invoke.cont1 unwind label %lpad.split
 
 invoke.cont1:                                     ; preds = %while.body
@@ -1997,7 +1997,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 
 land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
   %info.i = getelementptr inbounds i8, ptr %7, i64 4
-  %call6.i9 = invoke noundef signext i8 %isAcceptable(ptr noundef %context, ptr noundef %type, ptr noundef %name, ptr noundef nonnull %info.i)
+  %call6.i9 = invoke noundef signext i8 %isAcceptable(ptr noundef %context, ptr noundef %type, ptr noundef nonnull %name, ptr noundef nonnull %info.i)
           to label %call6.i.noexc unwind label %lpad.split
 
 call6.i.noexc:                                    ; preds = %land.lhs.true4.i
@@ -2075,7 +2075,7 @@ cleanup:                                          ; preds = %invoke.cont9, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL20doLoadFromCommonDataaPKcS0_S0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(i8 noundef signext %isICUData, ptr noundef %tocEntryName, ptr noundef %path, ptr noundef %type, ptr noundef %name, ptr noundef readonly %isAcceptable, ptr noundef %context, ptr noundef %subErrorCode, ptr noundef %pErrorCode) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL20doLoadFromCommonDataaPKcS0_S0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(i8 noundef signext range(i8 0, 2) %isICUData, ptr noundef %tocEntryName, ptr noundef %path, ptr noundef %type, ptr noundef nonnull %name, ptr noundef readonly %isAcceptable, ptr noundef %context, ptr noundef nonnull %subErrorCode, ptr noundef nonnull %pErrorCode) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %copyPData.i = alloca %struct.UDataMemory, align 8
   %length = alloca i32, align 4
@@ -2128,7 +2128,7 @@ land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true4.i
   %info.i = getelementptr inbounds i8, ptr %call5, i64 4
-  %call6.i = call noundef signext i8 %isAcceptable(ptr noundef %context, ptr noundef %type, ptr noundef %name, ptr noundef nonnull %info.i)
+  %call6.i = call noundef signext i8 %isAcceptable(ptr noundef %context, ptr noundef %type, ptr noundef nonnull %name, ptr noundef nonnull %info.i)
   %tobool7.not.i = icmp eq i8 %call6.i, 0
   br i1 %tobool7.not.i, label %_ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB_.exit.thread6, label %if.then8.i
 
@@ -2191,7 +2191,7 @@ land.lhs.true27:                                  ; preds = %if.else25
   br i1 %tobool.not.i, label %if.then.i, label %if.end4.i
 
 if.then.i:                                        ; preds = %land.lhs.true27
-  %call1.i = call fastcc noundef ptr @_ZL14openCommonDataPKciP10UErrorCode(ptr noundef nonnull @.str.7, i32 noundef -1, ptr noundef nonnull %subErrorCode)
+  %call1.i = call fastcc noundef ptr @_ZL14openCommonDataPKciP10UErrorCode(ptr noundef nonnull @.str.7, i32 noundef -1, ptr noundef %subErrorCode)
   call void @UDataMemory_init_75(ptr noundef nonnull %copyPData.i)
   %cmp.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp.not.i, label %if.end.i21, label %if.then2.i
@@ -2199,7 +2199,7 @@ if.then.i:                                        ; preds = %land.lhs.true27
 if.then2.i:                                       ; preds = %if.then.i
   call void @UDatamemory_assign_75(ptr noundef nonnull %copyPData.i, ptr noundef nonnull %call1.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mapAddr.i, i8 0, i64 16, i1 false)
-  call fastcc void @_ZL16setCommonICUDataP11UDataMemoryaP10UErrorCode(ptr noundef nonnull %copyPData.i, i8 noundef signext 0, ptr noundef nonnull %subErrorCode)
+  call fastcc void @_ZL16setCommonICUDataP11UDataMemoryaP10UErrorCode(ptr noundef %copyPData.i, i8 noundef signext 0, ptr noundef %subErrorCode)
   br label %if.end.i21
 
 if.end.i21:                                       ; preds = %if.then2.i, %if.then.i
@@ -2280,7 +2280,7 @@ return:                                           ; preds = %if.then7, %if.else2
 declare signext i8 @uprv_mapFile_75(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL14openCommonDataPKciP10UErrorCode(ptr noundef %path, i32 noundef %commonDataIndex, ptr noundef %pErrorCode) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL14openCommonDataPKciP10UErrorCode(ptr noundef %path, i32 noundef %commonDataIndex, ptr noundef nonnull %pErrorCode) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %tData.i = alloca %struct.UDataMemory, align 8
   %tData = alloca %struct.UDataMemory, align 8
@@ -2343,7 +2343,7 @@ cleanup.cont:                                     ; preds = %_ZN6icu_755MutexD2E
   call void @UDataMemory_init_75(ptr noundef nonnull %tData.i)
   call void @UDataMemory_setData_75(ptr noundef nonnull %tData.i, ptr noundef nonnull @icudt75_dat)
   call void @udata_checkCommonData_75(ptr noundef nonnull %tData.i, ptr noundef nonnull %pErrorCode)
-  call fastcc void @_ZL16setCommonICUDataP11UDataMemoryaP10UErrorCode(ptr noundef nonnull %tData.i, i8 noundef signext 0, ptr noundef nonnull %pErrorCode)
+  call fastcc void @_ZL16setCommonICUDataP11UDataMemoryaP10UErrorCode(ptr noundef %tData.i, i8 noundef signext 0, ptr noundef %pErrorCode)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tData.i)
   call void @umtx_lock_75(ptr noundef null)
   %6 = load ptr, ptr %arrayidx, align 8
@@ -2470,7 +2470,7 @@ if.end57:                                         ; preds = %invoke.cont53
           to label %invoke.cont58 unwind label %lpad.loopexit.split-lp
 
 invoke.cont58:                                    ; preds = %if.end57
-  %call60 = invoke fastcc noundef ptr @_ZL19udata_cacheDataItemPKcP11UDataMemoryP10UErrorCode(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %tData, ptr noundef nonnull %pErrorCode)
+  %call60 = invoke fastcc noundef ptr @_ZL19udata_cacheDataItemPKcP11UDataMemoryP10UErrorCode(ptr noundef nonnull %retval.0.i, ptr noundef %tData, ptr noundef %pErrorCode)
           to label %cleanup61 unwind label %lpad.loopexit.split-lp
 
 cleanup61:                                        ; preds = %invoke.cont58, %while.end, %if.then56

@@ -2569,7 +2569,7 @@ define hidden range(i32 0, 2) i32 @ssl_generate_pre_master_secret(ptr noundef %0
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %0, i64 616
   %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
-  %38 = tail call fastcc i32 @from_hex(ptr noundef nonnull %36, ptr noundef nonnull %4, i64 noundef %37)
+  %38 = tail call fastcc i32 @from_hex(ptr noundef nonnull %36, ptr noundef %4, i64 noundef %37)
   %.not77 = icmp eq i32 %38, 0
   br i1 %.not77, label %39, label %40
 
@@ -2667,7 +2667,7 @@ define hidden range(i32 0, 2) i32 @ssl_generate_pre_master_secret(ptr noundef %0
   br i1 %.not73, label %90, label %87
 
 87:                                               ; preds = %78
-  %88 = call fastcc i32 @ssl_decrypt_pre_master_secret(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %6)
+  %88 = call fastcc i32 @ssl_decrypt_pre_master_secret(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %6)
   %.not74 = icmp eq i32 %88, 0
   br i1 %.not74, label %89, label %94
 
@@ -2688,7 +2688,7 @@ define hidden range(i32 0, 2) i32 @ssl_generate_pre_master_secret(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_restore_master_key(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ssl_restore_master_key(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
@@ -2787,7 +2787,7 @@ ssl_data_set.exit30:                              ; preds = %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @from_hex(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @from_hex(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2) unnamed_addr #1 {
   %4 = and i64 %2, 1
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %5, label %.loopexit
@@ -2846,7 +2846,7 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_decrypt_pre_master_secret(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ssl_decrypt_pre_master_secret(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca %struct.gnutls_datum_t, align 8
   %5 = alloca %struct.gnutls_datum_t, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 568
@@ -3122,11 +3122,11 @@ tls_handshake_hash.exit:                          ; preds = %59, %61
   br i1 %cond, label %80, label %82
 
 80:                                               ; preds = %77
-  %81 = call fastcc i32 @tls12_handshake_hash(ptr noundef nonnull %0, i32 noundef 9, ptr noundef nonnull %9)
+  %81 = call fastcc i32 @tls12_handshake_hash(ptr noundef nonnull %0, i32 noundef 9, ptr noundef %9)
   br label %84
 
 82:                                               ; preds = %77
-  %83 = call fastcc i32 @tls12_handshake_hash(ptr noundef nonnull %0, i32 noundef 8, ptr noundef nonnull %9)
+  %83 = call fastcc i32 @tls12_handshake_hash(ptr noundef nonnull %0, i32 noundef 8, ptr noundef %9)
   br label %84
 
 84:                                               ; preds = %80, %82, %tls_handshake_hash.exit
@@ -3366,9 +3366,9 @@ ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %134, %134, %134, %1
   store ptr %5, ptr %10, align 8
   store ptr %6, ptr %11, align 8
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.535, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
-  call fastcc void @ssl3_generate_export_iv(ptr noundef nonnull %162, ptr noundef nonnull %161, ptr noundef nonnull %10, i32 noundef %.1189)
+  call fastcc void @ssl3_generate_export_iv(ptr noundef nonnull %162, ptr noundef nonnull %161, ptr noundef %10, i32 noundef %.1189)
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.536, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
-  call fastcc void @ssl3_generate_export_iv(ptr noundef nonnull %161, ptr noundef nonnull %162, ptr noundef nonnull %11, i32 noundef %.1189)
+  call fastcc void @ssl3_generate_export_iv(ptr noundef nonnull %161, ptr noundef nonnull %162, ptr noundef %11, i32 noundef %.1189)
   br label %201
 
 194:                                              ; preds = %190
@@ -3618,7 +3618,7 @@ define hidden void @ssl_print_string(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @tls12_handshake_hash(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @tls12_handshake_hash(ptr nocapture noundef readonly %0, i32 noundef range(i32 8, 10) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca [48 x i8], align 16
   %6 = call i32 @gcry_md_open(ptr noundef nonnull %4, i32 noundef %1, i32 noundef 0) #23
@@ -3945,14 +3945,14 @@ ssl3_prf.exit:                                    ; preds = %50, %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %124, ptr align 1 %132, i64 %119, i1 false)
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1193, i32 noundef %118, i32 noundef %101)
   %133 = tail call i32 @gcry_md_map_name(ptr noundef nonnull readonly @.str.338) #26
-  %134 = call fastcc i32 @tls_hash(ptr noundef nonnull %11, ptr noundef nonnull %8, i32 noundef %133, ptr noundef nonnull %10, i32 noundef %6)
+  %134 = call fastcc i32 @tls_hash(ptr noundef nonnull %11, ptr noundef %8, i32 noundef %133, ptr noundef nonnull %10, i32 noundef %6)
   %.not57.i = icmp eq i32 %134, 0
   br i1 %.not57.i, label %135, label %150
 
 135:                                              ; preds = %126
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1194)
   %136 = tail call i32 @gcry_md_map_name(ptr noundef nonnull readonly @.str.339) #26
-  %137 = call fastcc i32 @tls_hash(ptr noundef nonnull %12, ptr noundef nonnull %8, i32 noundef %136, ptr noundef nonnull %9, i32 noundef %6)
+  %137 = call fastcc i32 @tls_hash(ptr noundef nonnull %12, ptr noundef %8, i32 noundef %136, ptr noundef nonnull %9, i32 noundef %6)
   %.not58.i = icmp eq i32 %137, 0
   br i1 %.not58.i, label %.preheader.i, label %150
 
@@ -4063,7 +4063,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #0
 declare i64 @gcry_cipher_get_algo_keylen(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ssl3_generate_export_iv(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @ssl3_generate_export_iv(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 17) %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca [16 x i8], align 16
   %7 = call i32 @gcry_md_open(ptr noundef nonnull %5, i32 noundef 1, i32 noundef 0) #23
@@ -4087,7 +4087,7 @@ define internal fastcc void @ssl3_generate_export_iv(ptr nocapture noundef reado
   %.val9 = load ptr, ptr %5, align 8
   call void @gcry_md_close(ptr noundef %.val9) #23
   %19 = load ptr, ptr %2, align 8
-  %20 = zext i32 %3 to i64
+  %20 = zext nneg i32 %3 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr nonnull readonly align 16 %6, i64 %20, i1 false)
   %21 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 %3, ptr %21, align 8
@@ -4196,7 +4196,7 @@ define hidden void @ssl_print_data(ptr noundef %0, ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ssl_create_decoder(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc noundef ptr @ssl_create_decoder(ptr noundef %0, i32 noundef range(i32 1, 0) %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #1 {
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 4
   %10 = tail call ptr @wmem_file_scope() #23
@@ -5593,7 +5593,7 @@ ssl_decompress_record.exit.thread:                ; preds = %541, %540, %tls_dec
 declare ptr @gcry_strsource(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ssl3_check_mac(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @ssl3_check_mac(ptr nocapture noundef %0, i32 noundef range(i32 0, 256) %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca [64 x i8], align 16
   %8 = alloca [20 x i8], align 16
@@ -5716,13 +5716,13 @@ ssl_md_init.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @tls_check_mac(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @tls_check_mac(ptr nocapture noundef %0, i32 noundef range(i32 0, 256) %1, i32 noundef range(i32 0, 65536) %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = alloca [48 x i8], align 16
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr i8, ptr %9, i64 12
-  %.val28 = load i32, ptr %10, align 4
-  %11 = add i32 %.val28, -64
+  %.val26 = load i32, ptr %10, align 4
+  %11 = add i32 %.val26, -64
   %12 = sext i32 %11 to i64
   %13 = getelementptr [6 x %struct.SslDigestAlgo], ptr @digests, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 16
@@ -5736,7 +5736,7 @@ ssl_hmac_init.exit:                               ; preds = %6
   %17 = call ptr @gcry_strerror(i32 noundef %16) #23
   %18 = call ptr @gcry_strsource(i32 noundef %16) #23
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1199, ptr noundef %17, ptr noundef %18)
-  br label %63
+  br label %67
 
 19:                                               ; preds = %6
   %20 = getelementptr inbounds i8, ptr %0, i64 64
@@ -5746,14 +5746,14 @@ ssl_hmac_init.exit:                               ; preds = %6
   %.val = load ptr, ptr %7, align 8
   %24 = sext i32 %23 to i64
   %25 = call i32 @gcry_md_setkey(ptr noundef %.val, ptr noundef %21, i64 noundef %24) #23
-  %.not.i29 = icmp eq i32 %25, 0
-  br i1 %.not.i29, label %28, label %ssl_hmac_setkey.exit
+  %.not.i27 = icmp eq i32 %25, 0
+  br i1 %.not.i27, label %28, label %ssl_hmac_setkey.exit
 
 ssl_hmac_setkey.exit:                             ; preds = %19
   %26 = call ptr @gcry_strerror(i32 noundef %25) #23
   %27 = call ptr @gcry_strsource(i32 noundef %25) #23
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1200, ptr noundef %26, ptr noundef %27)
-  br label %63
+  br label %67
 
 28:                                               ; preds = %19
   %29 = getelementptr inbounds i8, ptr %0, i64 112
@@ -5790,55 +5790,57 @@ ssl_hmac_setkey.exit:                             ; preds = %19
   store i8 %51, ptr %52, align 1
   %53 = add i64 %30, 1
   store i64 %53, ptr %29, align 8
-  %.val21 = load ptr, ptr %7, align 8
-  call void @gcry_md_write(ptr noundef %.val21, ptr noundef nonnull %8, i64 noundef 8) #23
+  %.val19 = load ptr, ptr %7, align 8
+  call void @gcry_md_write(ptr noundef %.val19, ptr noundef nonnull %8, i64 noundef 8) #23
   %54 = trunc nuw i32 %1 to i8
   store i8 %54, ptr %8, align 16
-  %.val22 = load ptr, ptr %7, align 8
-  call void @gcry_md_write(ptr noundef %.val22, ptr noundef nonnull %8, i64 noundef 1) #23
-  %trunc = trunc i32 %2 to i16
+  %.val20 = load ptr, ptr %7, align 8
+  call void @gcry_md_write(ptr noundef %.val20, ptr noundef nonnull %8, i64 noundef 1) #23
+  %55 = lshr i32 %2, 8
+  %56 = shl nuw nsw i32 %2, 8
+  %57 = or disjoint i32 %55, %56
+  %58 = trunc i32 %57 to i16
+  store i16 %58, ptr %8, align 16
+  %.val21 = load ptr, ptr %7, align 8
+  call void @gcry_md_write(ptr noundef %.val21, ptr noundef nonnull %8, i64 noundef 2) #23
+  %trunc = trunc i32 %4 to i16
   %rev = call i16 @llvm.bswap.i16(i16 %trunc)
   store i16 %rev, ptr %8, align 16
+  %.val22 = load ptr, ptr %7, align 8
+  call void @gcry_md_write(ptr noundef %.val22, ptr noundef nonnull %8, i64 noundef 2) #23
   %.val23 = load ptr, ptr %7, align 8
-  call void @gcry_md_write(ptr noundef %.val23, ptr noundef nonnull %8, i64 noundef 2) #23
-  %trunc18 = trunc i32 %4 to i16
-  %rev19 = call i16 @llvm.bswap.i16(i16 %trunc18)
-  store i16 %rev19, ptr %8, align 16
-  %.val24 = load ptr, ptr %7, align 8
-  call void @gcry_md_write(ptr noundef %.val24, ptr noundef nonnull %8, i64 noundef 2) #23
-  %.val25 = load ptr, ptr %7, align 8
-  %55 = sext i32 %4 to i64
-  call void @gcry_md_write(ptr noundef %.val25, ptr noundef %3, i64 noundef %55) #23
-  %56 = load ptr, ptr %7, align 8
-  %57 = call i32 @gcry_md_get_algo(ptr noundef %56) #23
-  %58 = call i32 @gcry_md_get_algo_dlen(i32 noundef %57) #23
-  %.not.i31 = icmp ugt i32 %58, 48
-  br i1 %.not.i31, label %59, label %ssl_hmac_final.exit
+  %59 = sext i32 %4 to i64
+  call void @gcry_md_write(ptr noundef %.val23, ptr noundef %3, i64 noundef %59) #23
+  %60 = load ptr, ptr %7, align 8
+  %61 = call i32 @gcry_md_get_algo(ptr noundef %60) #23
+  %62 = call i32 @gcry_md_get_algo_dlen(i32 noundef %61) #23
+  %.not.i29 = icmp ugt i32 %62, 48
+  br i1 %.not.i29, label %63, label %ssl_hmac_final.exit
 
-59:                                               ; preds = %28
+63:                                               ; preds = %28
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.494, i32 noundef 3041, ptr noundef nonnull @.str.1201) #24
   unreachable
 
 ssl_hmac_final.exit:                              ; preds = %28
-  %60 = load ptr, ptr %7, align 8
-  %61 = call ptr @gcry_md_read(ptr noundef %60, i32 noundef %57) #23
-  %62 = zext nneg i32 %58 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr align 1 %61, i64 %62, i1 false)
-  %.val26 = load ptr, ptr %7, align 8
-  call void @gcry_md_close(ptr noundef %.val26) #23
-  call void @ssl_print_data(ptr noundef nonnull @.str.1241, ptr noundef nonnull %8, i64 noundef %62)
-  %bcmp = call i32 @bcmp(ptr %5, ptr nonnull %8, i64 %62)
-  %.not20 = icmp ne i32 %bcmp, 0
-  %. = sext i1 %.not20 to i32
-  br label %63
+  %64 = load ptr, ptr %7, align 8
+  %65 = call ptr @gcry_md_read(ptr noundef %64, i32 noundef %61) #23
+  %66 = zext nneg i32 %62 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr align 1 %65, i64 %66, i1 false)
+  %.val24 = load ptr, ptr %7, align 8
+  call void @gcry_md_close(ptr noundef %.val24) #23
+  call void @ssl_print_data(ptr noundef nonnull @.str.1241, ptr noundef nonnull %8, i64 noundef %66)
+  %bcmp = call i32 @bcmp(ptr %5, ptr nonnull %8, i64 %66)
+  %.not18 = icmp ne i32 %bcmp, 0
+  %. = sext i1 %.not18 to i32
+  br label %67
 
-63:                                               ; preds = %ssl_hmac_setkey.exit, %ssl_hmac_init.exit, %ssl_hmac_final.exit
+67:                                               ; preds = %ssl_hmac_setkey.exit, %ssl_hmac_init.exit, %ssl_hmac_final.exit
   %.0 = phi i32 [ -1, %ssl_hmac_init.exit ], [ -1, %ssl_hmac_setkey.exit ], [ %., %ssl_hmac_final.exit ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @dtls_check_mac(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr noundef %6, i8 noundef zeroext %7) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @dtls_check_mac(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 256) %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr noundef %6, i8 noundef zeroext %7) unnamed_addr #1 {
   %9 = alloca ptr, align 8
   %10 = alloca [48 x i8], align 16
   %11 = getelementptr inbounds i8, ptr %0, i64 656
@@ -9843,7 +9845,7 @@ declare noalias ptr @wmem_strbuf_new(ptr noundef, ptr noundef) local_unnamed_add
 declare void @wmem_strbuf_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ssl_dissect_hnd_hello_common(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #1 {
+define internal fastcc noundef i32 @ssl_dissect_hnd_hello_common(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6, i32 noundef %7) unnamed_addr #1 {
   %9 = getelementptr inbounds i8, ptr %4, i64 10
   %10 = load i8, ptr %9, align 2
   %.not = icmp eq ptr %5, null
@@ -9965,7 +9967,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl_dissect_hnd_extension(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i8 noundef zeroext %6, ptr nocapture noundef %7, ptr noundef %8, i32 noundef %9, ptr noundef %10, ptr noundef %11) unnamed_addr #1 {
+define internal fastcc i32 @ssl_dissect_hnd_extension(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i8 noundef zeroext range(i8 1, 14) %6, ptr nocapture noundef %7, ptr noundef %8, i32 noundef %9, ptr noundef %10, ptr noundef %11) unnamed_addr #1 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
@@ -10154,8 +10156,7 @@ define internal fastcc i32 @ssl_dissect_hnd_extension(ptr noundef %0, ptr nounde
   %182 = getelementptr inbounds i8, ptr %0, i64 756
   %183 = getelementptr inbounds i8, ptr %0, i64 752
   %184 = getelementptr inbounds i8, ptr %0, i64 724
-  %.off.i = add i8 %6, -1
-  %switch.i = icmp ult i8 %.off.i, 2
+  %switch.i = icmp ult i8 %6, 3
   %185 = getelementptr inbounds i8, ptr %0, i64 704
   %186 = getelementptr inbounds i8, ptr %0, i64 708
   %187 = getelementptr inbounds i8, ptr %0, i64 716
@@ -13973,7 +13974,7 @@ dissect_ssl3_hnd_srv_keyex_psk.exit:              ; preds = %112, %dissect_tls_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ssl3_hnd_srv_keyex_dhe(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7) unnamed_addr #1 {
+define internal fastcc void @dissect_ssl3_hnd_srv_keyex_dhe(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #1 {
   %9 = alloca i32, align 4
   %10 = sub i32 %5, %4
   %11 = getelementptr inbounds i8, ptr %0, i64 1148
@@ -14050,7 +14051,7 @@ dissect_ssl3_hnd_srv_keyex_sig.exit:              ; preds = %51, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ssl3_hnd_srv_keyex_ecdh(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7) unnamed_addr #1 {
+define internal fastcc void @dissect_ssl3_hnd_srv_keyex_ecdh(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #1 {
   %9 = alloca i32, align 4
   %10 = sub i32 %5, %4
   %11 = getelementptr inbounds i8, ptr %0, i64 1148
@@ -14271,7 +14272,7 @@ declare void @gcry_md_close(ptr noundef) local_unnamed_addr #0
 declare i32 @gcry_md_get_algo(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @tls12_prf(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4, ptr nocapture noundef %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @tls12_prf(i32 noundef range(i32 8, 327) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4, ptr nocapture noundef %5, i32 noundef %6) unnamed_addr #1 {
   %8 = alloca %struct._StringInfo, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %13, label %9
@@ -14328,7 +14329,7 @@ define internal fastcc range(i32 0, 2) i32 @tls12_prf(i32 noundef %0, ptr nocapt
   %38 = getelementptr inbounds i8, ptr %1, i64 8
   %39 = load i32, ptr %38, align 8
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1203, ptr noundef %37, i32 noundef %39, i32 noundef %24)
-  %40 = call fastcc i32 @tls_hash(ptr noundef %1, ptr noundef nonnull %8, i32 noundef %0, ptr noundef %5, i32 noundef %6)
+  %40 = call fastcc i32 @tls_hash(ptr noundef %1, ptr noundef %8, i32 noundef %0, ptr noundef %5, i32 noundef %6)
   tail call void @g_free(ptr noundef %21) #23
   %.not26 = icmp eq i32 %40, -1
   br i1 %.not26, label %46, label %41
@@ -14349,7 +14350,7 @@ define internal fastcc range(i32 0, 2) i32 @tls12_prf(i32 noundef %0, ptr nocapt
 declare void @gcry_md_reset(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @tls_hash(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @tls_hash(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = alloca [48 x i8], align 16
   %7 = alloca [48 x i8], align 16
   %8 = alloca ptr, align 8
@@ -14678,7 +14679,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl_dissect_hnd_hello_ext_status_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc i32 @ssl_dissect_hnd_hello_ext_status_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #1 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %4) #23
@@ -14749,7 +14750,7 @@ define internal fastcc i32 @ssl_dissect_hnd_hello_ext_status_request(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ssl_dissect_hnd_hello_ext_cert_type(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, i16 noundef zeroext %6, ptr nocapture noundef writeonly %7) unnamed_addr #1 {
+define internal fastcc noundef i32 @ssl_dissect_hnd_hello_ext_cert_type(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext range(i8 1, 14) %5, i16 noundef zeroext %6, ptr nocapture noundef writeonly %7) unnamed_addr #1 {
   switch i8 %5, label %.loopexit [
     i8 1, label %9
     i8 2, label %30

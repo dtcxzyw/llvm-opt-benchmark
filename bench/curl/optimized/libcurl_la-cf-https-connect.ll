@@ -1243,7 +1243,7 @@ declare i32 @Curl_conn_cf_cntrl(ptr noundef, ptr noundef, i1 noundef zeroext, i3
 declare void @Curl_conn_cf_adjust_pollset(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i32 } @cf_get_max_baller_time(ptr nocapture readonly %cf.16.val, ptr noundef %data, i32 noundef %query) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @cf_get_max_baller_time(ptr nocapture readonly %cf.16.val, ptr noundef %data, i32 noundef range(i32 4, 6) %query) unnamed_addr #0 {
 entry:
   %t = alloca %struct.curltime, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %t, i8 0, i64 16, i1 false)

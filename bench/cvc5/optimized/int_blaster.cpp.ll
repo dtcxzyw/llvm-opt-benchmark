@@ -1690,7 +1690,7 @@ invoke.cont4:                                     ; preds = %invoke.cont7.i
   %6 = load ptr, ptr %d_nm, align 8
   %7 = load ptr, ptr %newVar, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias nonnull align 8 %ref.tmp.i, i32 noundef %k)
+  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias align 8 %ref.tmp.i, i32 noundef %k)
           to label %.noexc7 unwind label %lpad10
 
 .noexc7:                                          ; preds = %invoke.cont4
@@ -2145,7 +2145,7 @@ entry:
   %ref.tmp = alloca %"class.cvc5::internal::Rational", align 8
   %d_nm = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load ptr, ptr %d_nm, align 8
-  call fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias nonnull align 8 %ref.tmp, i32 noundef %k)
+  call fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias align 8 %ref.tmp, i32 noundef %k)
   invoke void @_ZN4cvc58internal11NodeManager10mkConstIntERKNS0_8RationalE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(3360) %0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -2188,7 +2188,7 @@ entry:
   %max_value = alloca %"class.cvc5::internal::Rational", align 8
   %ref.tmp = alloca %"class.cvc5::internal::Rational", align 8
   %ref.tmp2 = alloca %"class.cvc5::internal::Rational", align 8
-  call fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias nonnull align 8 %ref.tmp, i32 noundef %k)
+  call fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias align 8 %ref.tmp, i32 noundef %k)
   invoke void @_ZN4cvc58internal8RationalC2Ei(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i32 noundef 1)
           to label %invoke.cont unwind label %lpad
 
@@ -2287,7 +2287,7 @@ eh.resume:                                        ; preds = %lpad5, %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias align 8 %agg.result, i32 noundef %b) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias nonnull align 8 %agg.result, i32 noundef %b) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
   %ref.tmp1 = alloca %"class.cvc5::internal::Integer", align 8
@@ -2473,7 +2473,7 @@ entry:
   %ref.tmp = alloca %"class.cvc5::internal::Rational", align 8
   %d_nm = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load ptr, ptr %d_nm, align 8
-  call fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias nonnull align 8 %ref.tmp, i32 noundef %exponent)
+  call fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias align 8 %ref.tmp, i32 noundef %exponent)
   invoke void @_ZN4cvc58internal11NodeManager10mkConstIntERKNS0_8RationalE(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %p2, ptr noundef nonnull align 8 dereferenceable(3360) %0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -8235,7 +8235,7 @@ invoke.cont53:                                    ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %69 = load ptr, ptr %d_nm, align 8, !noalias !73
-  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias nonnull align 8 %ref.tmp.i, i32 noundef %call50)
+  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias align 8 %ref.tmp.i, i32 noundef %call50)
           to label %.noexc364 unwind label %lpad54
 
 .noexc364:                                        ; preds = %invoke.cont53
@@ -8601,7 +8601,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit485: ; preds = %_ZN4cvc58internal8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i486)
   %d_nm.i487 = getelementptr inbounds i8, ptr %this, i64 240
   %114 = load ptr, ptr %d_nm.i487, align 8, !noalias !82
-  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias nonnull align 8 %ref.tmp.i486, i32 noundef %call83)
+  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias align 8 %ref.tmp.i486, i32 noundef %call83)
           to label %.noexc493 unwind label %lpad
 
 .noexc493:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit485
@@ -12214,7 +12214,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1963: ; preds = %_ZN4cvc58internal
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i1964)
   %d_nm.i1965 = getelementptr inbounds i8, ptr %this, i64 240
   %517 = load ptr, ptr %d_nm.i1965, align 8, !noalias !124
-  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias nonnull align 8 %ref.tmp.i1964, i32 noundef %sub)
+  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias align 8 %ref.tmp.i1964, i32 noundef %sub)
           to label %.noexc1971 unwind label %lpad
 
 .noexc1971:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1963
@@ -13674,7 +13674,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2543: ; preds = %_ZN4cvc58internal
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i2544)
   %d_nm.i2545 = getelementptr inbounds i8, ptr %this, i64 240
   %686 = load ptr, ptr %d_nm.i2545, align 8, !noalias !139
-  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias nonnull align 8 %ref.tmp.i2544, i32 noundef %call575)
+  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias align 8 %ref.tmp.i2544, i32 noundef %call575)
           to label %.noexc2551 unwind label %lpad
 
 .noexc2551:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2543
@@ -14062,7 +14062,7 @@ invoke.cont623:                                   ; preds = %invoke.cont617
   %736 = load ptr, ptr %translated_children, align 8
   %737 = load ptr, ptr %736, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i2679)
-  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias nonnull align 8 %ref.tmp.i2679, i32 noundef %call624)
+  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias align 8 %ref.tmp.i2679, i32 noundef %call624)
           to label %.noexc2686 unwind label %lpad632
 
 .noexc2686:                                       ; preds = %invoke.cont623
@@ -18159,7 +18159,7 @@ invoke.cont4:                                     ; preds = %invoke.cont7.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp4.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %6 = load ptr, ptr %d_nm, align 8, !noalias !202
-  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias nonnull align 8 %ref.tmp.i, i32 noundef %bvsize)
+  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias align 8 %ref.tmp.i, i32 noundef %bvsize)
           to label %.noexc4 unwind label %lpad5
 
 .noexc4:                                          ; preds = %invoke.cont4
@@ -20709,7 +20709,7 @@ invoke.cont4:                                     ; preds = %invoke.cont7.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp4.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %6 = load ptr, ptr %d_nm, align 8, !noalias !221
-  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias nonnull align 8 %ref.tmp.i, i32 noundef %bvsize)
+  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias align 8 %ref.tmp.i, i32 noundef %bvsize)
           to label %.noexc4 unwind label %lpad5
 
 .noexc4:                                          ; preds = %invoke.cont4
@@ -21081,7 +21081,7 @@ invoke.cont21:                                    ; preds = %invoke.cont7.i
   %16 = load ptr, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %17 = load ptr, ptr %d_nm, align 8, !noalias !233
-  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias nonnull align 8 %ref.tmp.i, i32 noundef %bvsize)
+  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias align 8 %ref.tmp.i, i32 noundef %bvsize)
           to label %.noexc54 unwind label %lpad26
 
 .noexc54:                                         ; preds = %invoke.cont21
@@ -21419,7 +21419,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 if.then51:                                        ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i135)
-  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias nonnull align 8 %ref.tmp.i135, i32 noundef %58)
+  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias align 8 %ref.tmp.i135, i32 noundef %58)
           to label %.noexc142 unwind label %lpad62
 
 .noexc142:                                        ; preds = %if.then51
@@ -21501,7 +21501,7 @@ invoke.cont67:                                    ; preds = %invoke.cont7.i155
   %68 = load ptr, ptr %ref.tmp55, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i160)
   %69 = load ptr, ptr %d_nm91, align 8, !noalias !245
-  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias nonnull align 8 %ref.tmp.i160, i32 noundef %bvsize)
+  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias align 8 %ref.tmp.i160, i32 noundef %bvsize)
           to label %.noexc167 unwind label %lpad72
 
 .noexc167:                                        ; preds = %invoke.cont67
@@ -21783,7 +21783,7 @@ ehcleanup86:                                      ; preds = %lpad66, %ehcleanup1
 
 if.else89:                                        ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i249)
-  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias nonnull align 8 %ref.tmp.i249, i32 noundef %58)
+  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias align 8 %ref.tmp.i249, i32 noundef %58)
           to label %.noexc256 unwind label %lpad96
 
 .noexc256:                                        ; preds = %if.else89
@@ -22554,7 +22554,7 @@ terminate.lpad.i.i:                               ; preds = %lpad.i
 
 invoke.cont4:                                     ; preds = %.noexc28
   %sub = add i32 %bvsize, -1
-  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias nonnull align 8 %twoToKMinusOne, i32 noundef %sub)
+  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias align 8 %twoToKMinusOne, i32 noundef %sub)
           to label %invoke.cont8 unwind label %lpad5
 
 invoke.cont8:                                     ; preds = %invoke.cont4
@@ -22632,7 +22632,7 @@ lpad7:                                            ; preds = %if.then13.i4.i, %if
   br label %ehcleanup37
 
 if.else:                                          ; preds = %invoke.cont8
-  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias nonnull align 8 %ref.tmp, i32 noundef %amount)
+  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias align 8 %ref.tmp, i32 noundef %amount)
           to label %invoke.cont13 unwind label %lpad7
 
 invoke.cont13:                                    ; preds = %if.else
@@ -22666,7 +22666,7 @@ terminate.lpad.i.i33:                             ; preds = %_ZN4cvc58internal8R
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit35:            ; preds = %_ZN4cvc58internal8RationalD2Ev.exit
-  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias nonnull align 8 %ref.tmp19, i32 noundef %bvsize)
+  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias align 8 %ref.tmp19, i32 noundef %bvsize)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %_ZN4cvc58internal8RationalD2Ev.exit35
@@ -23010,7 +23010,7 @@ if.then13.i4.i132:                                ; preds = %if.else.i.i130
 
 if.else44:                                        ; preds = %if.else39
   %sub46 = add i32 %bvsize, -1
-  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias nonnull align 8 %twoToKMinusOne45, i32 noundef %sub46)
+  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias align 8 %twoToKMinusOne45, i32 noundef %sub46)
           to label %invoke.cont47 unwind label %lpad
 
 invoke.cont47:                                    ; preds = %if.else44
@@ -23103,7 +23103,7 @@ invoke.cont64:                                    ; preds = %invoke.cont62
   %76 = load ptr, ptr %d_nm48, align 8
   %77 = load ptr, ptr %left, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias nonnull align 8 %ref.tmp.i, i32 noundef %bvsize)
+  invoke fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias align 8 %ref.tmp.i, i32 noundef %bvsize)
           to label %.noexc161 unwind label %lpad72
 
 .noexc161:                                        ; preds = %invoke.cont64
@@ -23710,7 +23710,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %d_nm.i = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load ptr, ptr %d_nm.i, align 8, !noalias !267
-  call fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias nonnull align 8 %ref.tmp.i, i32 noundef %sub), !noalias !267
+  call fastcc void @_ZN4cvc58internal12_GLOBAL__N_17intpow2Ej(ptr noalias align 8 %ref.tmp.i, i32 noundef %sub), !noalias !267
   invoke void @_ZN4cvc58internal11NodeManager10mkConstIntERKNS0_8RationalE(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %powNode, ptr noundef nonnull align 8 dereferenceable(3360) %0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 

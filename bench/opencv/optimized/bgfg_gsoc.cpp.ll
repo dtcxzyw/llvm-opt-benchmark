@@ -1238,7 +1238,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %47
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv6bgsegm12_GLOBAL__N_111removeNoiseERNS_3MatERKS2_mh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 noundef %2, i8 noundef zeroext %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv6bgsegm12_GLOBAL__N_111removeNoiseERNS_3MatERKS2_mh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 noundef %2, i8 noundef zeroext range(i8 -1, 1) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::Mat", align 8
   %6 = alloca %"class.cv::_InputArray", align 8
   %7 = alloca %"class.cv::_OutputArray", align 8
@@ -1692,7 +1692,7 @@ _ZN2cvdVERNS_3MatERKd.exit:                       ; preds = %98
 118:                                              ; preds = %115
   %119 = getelementptr inbounds i8, ptr %0, i64 52
   %.val109 = load i32, ptr %119, align 4
-  invoke fastcc void @_ZN2cvL7makePtrINS_6bgsegm12_GLOBAL__N_119BackgroundModelGSOCEJNS_5Size_IiEEiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nonnull writable align 8 %18, i64 %48, i32 %.val109)
+  invoke fastcc void @_ZN2cvL7makePtrINS_6bgsegm12_GLOBAL__N_119BackgroundModelGSOCEJNS_5Size_IiEEiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %18, i64 %48, i32 %.val109)
           to label %120 unwind label %65
 
 120:                                              ; preds = %118
@@ -1882,7 +1882,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZN2cv3PtrINS_6bgsegm12_GLOBAL__N_119BackgroundModelGSOCEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_6bgsegm12_GLOBAL__N_119BackgroundModelGSOCEEaSERKS4_.exit, %186, %199, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i130
   %.val111 = load i32, ptr %119, align 4
-  invoke fastcc void @_ZN2cvL7makePtrINS_6bgsegm12_GLOBAL__N_119BackgroundModelGSOCEJNS_5Size_IiEEiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nonnull writable align 8 %19, i64 %48, i32 %.val111)
+  invoke fastcc void @_ZN2cvL7makePtrINS_6bgsegm12_GLOBAL__N_119BackgroundModelGSOCEJNS_5Size_IiEEiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %19, i64 %48, i32 %.val111)
           to label %204 unwind label %65
 
 204:                                              ; preds = %_ZN2cv3PtrINS_6bgsegm12_GLOBAL__N_119BackgroundModelGSOCEED2Ev.exit
@@ -3125,7 +3125,7 @@ declare i64 @_ZNK2cv11_InputArray4sizeEi(ptr noundef nonnull align 8 dereference
 declare void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, double noundef, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_6bgsegm12_GLOBAL__N_119BackgroundModelGSOCEJNS_5Size_IiEEiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i64 %.0.val, i32 %.0.val1) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_6bgsegm12_GLOBAL__N_119BackgroundModelGSOCEJNS_5Size_IiEEiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 %.0.val, i32 %.0.val1) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #30, !noalias !55
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !55
@@ -3165,10 +3165,10 @@ define internal fastcc void @_ZN2cvL7makePtrINS_6bgsegm12_GLOBAL__N_119Backgroun
 _ZNKSt6vectorIN2cv6bgsegm12_GLOBAL__N_120BackgroundSampleGSOCESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13
   %17 = shl nuw nsw i64 %11, 5
   %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #30
-          to label %_ZNSt12_Vector_baseIN2cv6bgsegm12_GLOBAL__N_120BackgroundSampleGSOCESaIS3_EE13_M_deallocateEPS3_m.exit39.i.i.i.i.i.i.i.i.i.i.i unwind label %20, !noalias !55
+          to label %_ZNSt12_Vector_baseIN2cv6bgsegm12_GLOBAL__N_120BackgroundSampleGSOCESaIS3_EE13_M_deallocateEPS3_m.exit35.i.i.i.i.i.i.i.i.i.i.i unwind label %20, !noalias !55
 
-_ZNSt12_Vector_baseIN2cv6bgsegm12_GLOBAL__N_120BackgroundSampleGSOCESaIS3_EE13_M_deallocateEPS3_m.exit39.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt6vectorIN2cv6bgsegm12_GLOBAL__N_120BackgroundSampleGSOCESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %18, i8 0, i64 %17, i1 false), !noalias !55
+_ZNSt12_Vector_baseIN2cv6bgsegm12_GLOBAL__N_120BackgroundSampleGSOCESaIS3_EE13_M_deallocateEPS3_m.exit35.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt6vectorIN2cv6bgsegm12_GLOBAL__N_120BackgroundSampleGSOCESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %18, i8 0, i64 %17, i1 false), !noalias !55
   store ptr %18, ptr %5, align 8, !noalias !55
   %19 = getelementptr inbounds %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %18, i64 %11
   store ptr %19, ptr %12, align 8, !noalias !55
@@ -3190,7 +3190,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm12_GLOBAL__N_11
   tail call void @_ZdlPv(ptr noundef nonnull %2) #31, !noalias !55
   resume { ptr, i32 } %21
 
-_ZNSt10shared_ptrIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOCEED2Ev.exit: ; preds = %_ZNSt12_Vector_baseIN2cv6bgsegm12_GLOBAL__N_120BackgroundSampleGSOCESaIS3_EE13_M_deallocateEPS3_m.exit39.i.i.i.i.i.i.i.i.i.i.i, %1
+_ZNSt10shared_ptrIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOCEED2Ev.exit: ; preds = %_ZNSt12_Vector_baseIN2cv6bgsegm12_GLOBAL__N_120BackgroundSampleGSOCESaIS3_EE13_M_deallocateEPS3_m.exit35.i.i.i.i.i.i.i.i.i.i.i, %1
   store ptr %5, ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %23, align 8
@@ -4739,7 +4739,7 @@ _ZNK2cv11_InputArray6getMatEi.exit99:             ; preds = %50, %53
 121:                                              ; preds = %118
   %122 = getelementptr inbounds i8, ptr %0, i64 44
   %.val90 = load i32, ptr %122, align 4
-  invoke fastcc void @_ZN2cvL7makePtrINS_6bgsegm12_GLOBAL__N_119BackgroundModelLSBPEJNS_5Size_IiEEiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nonnull writable align 8 %21, i64 %41, i32 %.val90)
+  invoke fastcc void @_ZN2cvL7makePtrINS_6bgsegm12_GLOBAL__N_119BackgroundModelLSBPEJNS_5Size_IiEEiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %21, i64 %41, i32 %.val90)
           to label %123 unwind label %366
 
 123:                                              ; preds = %121
@@ -4929,7 +4929,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZN2cv3PtrINS_6bgsegm12_GLOBAL__N_119BackgroundModelLSBPEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_6bgsegm12_GLOBAL__N_119BackgroundModelLSBPEEaSERKS4_.exit, %189, %202, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i105
   %.val92 = load i32, ptr %122, align 4
-  invoke fastcc void @_ZN2cvL7makePtrINS_6bgsegm12_GLOBAL__N_119BackgroundModelLSBPEJNS_5Size_IiEEiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nonnull writable align 8 %22, i64 %41, i32 %.val92)
+  invoke fastcc void @_ZN2cvL7makePtrINS_6bgsegm12_GLOBAL__N_119BackgroundModelLSBPEJNS_5Size_IiEEiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %22, i64 %41, i32 %.val92)
           to label %207 unwind label %366
 
 207:                                              ; preds = %_ZN2cv3PtrINS_6bgsegm12_GLOBAL__N_119BackgroundModelLSBPEED2Ev.exit
@@ -5921,7 +5921,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit137: ; preds = %597, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_6bgsegm12_GLOBAL__N_119BackgroundModelLSBPEJNS_5Size_IiEEiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i64 %.0.val, i32 %.0.val1) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_6bgsegm12_GLOBAL__N_119BackgroundModelLSBPEJNS_5Size_IiEEiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 %.0.val, i32 %.0.val1) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #30, !noalias !111
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !111
@@ -5961,20 +5961,20 @@ define internal fastcc void @_ZN2cvL7makePtrINS_6bgsegm12_GLOBAL__N_119Backgroun
 _ZNKSt6vectorIN2cv6bgsegm12_GLOBAL__N_120BackgroundSampleLSBPESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13
   %17 = mul nuw nsw i64 %11, 20
   %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #30
-          to label %.lr.ph.i.i.i33.i.i.i.i.i.i.i.i.i.i.i unwind label %23, !noalias !111
+          to label %.noexc6.i.i.i.i.i.i.i.i.i unwind label %23, !noalias !111
 
-.lr.ph.i.i.i33.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %_ZNKSt6vectorIN2cv6bgsegm12_GLOBAL__N_120BackgroundSampleLSBPESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i33.i.i.i.i.i.i.i.i.i.i.i
-  %.013.i.i.i34.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i33.i.i.i.i.i.i.i.i.i.i.i ], [ %18, %_ZNKSt6vectorIN2cv6bgsegm12_GLOBAL__N_120BackgroundSampleLSBPESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i ]
-  %.01012.i.i.i35.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %20, %.lr.ph.i.i.i33.i.i.i.i.i.i.i.i.i.i.i ], [ %11, %_ZNKSt6vectorIN2cv6bgsegm12_GLOBAL__N_120BackgroundSampleLSBPESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i ]
-  %19 = getelementptr inbounds i8, ptr %.013.i.i.i34.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.013.i.i.i34.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !111
+.noexc6.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNKSt6vectorIN2cv6bgsegm12_GLOBAL__N_120BackgroundSampleLSBPESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i, %.noexc6.i.i.i.i.i.i.i.i.i
+  %.012.i.i.i32.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %21, %.noexc6.i.i.i.i.i.i.i.i.i ], [ %18, %_ZNKSt6vectorIN2cv6bgsegm12_GLOBAL__N_120BackgroundSampleLSBPESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i ]
+  %.01011.i.i.i33.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %20, %.noexc6.i.i.i.i.i.i.i.i.i ], [ %11, %_ZNKSt6vectorIN2cv6bgsegm12_GLOBAL__N_120BackgroundSampleLSBPESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i ]
+  %19 = getelementptr inbounds i8, ptr %.012.i.i.i32.i.i.i.i.i.i.i.i.i.i.i, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.012.i.i.i32.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !111
   store float 1.000000e+09, ptr %19, align 4, !noalias !111
-  %20 = add i64 %.01012.i.i.i35.i.i.i.i.i.i.i.i.i.i.i, -1
-  %21 = getelementptr inbounds i8, ptr %.013.i.i.i34.i.i.i.i.i.i.i.i.i.i.i, i64 20
-  %.not.i.i.i36.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %20, 0
-  br i1 %.not.i.i.i36.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN2cv6bgsegm12_GLOBAL__N_120BackgroundSampleLSBPESaIS3_EE13_M_deallocateEPS3_m.exit41.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i33.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !114
+  %20 = add i64 %.01011.i.i.i33.i.i.i.i.i.i.i.i.i.i.i, -1
+  %21 = getelementptr inbounds i8, ptr %.012.i.i.i32.i.i.i.i.i.i.i.i.i.i.i, i64 20
+  %.not.i.i.i34.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %20, 0
+  br i1 %.not.i.i.i34.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN2cv6bgsegm12_GLOBAL__N_120BackgroundSampleLSBPESaIS3_EE13_M_deallocateEPS3_m.exit38.i.i.i.i.i.i.i.i.i.i.i, label %.noexc6.i.i.i.i.i.i.i.i.i, !llvm.loop !114
 
-_ZNSt12_Vector_baseIN2cv6bgsegm12_GLOBAL__N_120BackgroundSampleLSBPESaIS3_EE13_M_deallocateEPS3_m.exit41.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i33.i.i.i.i.i.i.i.i.i.i.i
+_ZNSt12_Vector_baseIN2cv6bgsegm12_GLOBAL__N_120BackgroundSampleLSBPESaIS3_EE13_M_deallocateEPS3_m.exit38.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc6.i.i.i.i.i.i.i.i.i
   store ptr %18, ptr %5, align 8, !noalias !111
   %22 = getelementptr inbounds %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleLSBP", ptr %18, i64 %11
   store ptr %22, ptr %12, align 8, !noalias !111
@@ -5996,7 +5996,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm12_GLOBAL__N_11
   tail call void @_ZdlPv(ptr noundef nonnull %2) #31, !noalias !111
   resume { ptr, i32 } %24
 
-_ZNSt10shared_ptrIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBPEED2Ev.exit: ; preds = %_ZNSt12_Vector_baseIN2cv6bgsegm12_GLOBAL__N_120BackgroundSampleLSBPESaIS3_EE13_M_deallocateEPS3_m.exit41.i.i.i.i.i.i.i.i.i.i.i, %1
+_ZNSt10shared_ptrIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBPEED2Ev.exit: ; preds = %_ZNSt12_Vector_baseIN2cv6bgsegm12_GLOBAL__N_120BackgroundSampleLSBPESaIS3_EE13_M_deallocateEPS3_m.exit38.i.i.i.i.i.i.i.i.i.i.i, %1
   store ptr %5, ptr %0, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %26, align 8

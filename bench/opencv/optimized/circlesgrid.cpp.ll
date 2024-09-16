@@ -13273,7 +13273,7 @@ define hidden void @_Z24computePredecessorMatrixRKN2cv3MatEiRS0_(ptr nocapture n
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19computeShortestPathRN2cv3MatEmmRSt6vectorImSaImEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #4 {
+define internal fastcc void @_ZL19computeShortestPathRN2cv3MatEmmRSt6vectorImSaImEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i64 noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #4 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 72
@@ -13283,8 +13283,7 @@ define internal fastcc void @_ZL19computeShortestPathRN2cv3MatEmmRSt6vectorImSaI
   %10 = ashr exact i64 %sext, 32
   %11 = mul i64 %9, %10
   %12 = getelementptr inbounds i8, ptr %6, i64 %11
-  %sext20 = shl i64 %2, 32
-  %13 = ashr exact i64 %sext20, 30
+  %13 = shl nsw i64 %2, 2
   %14 = getelementptr inbounds i8, ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = icmp slt i32 %15, 0

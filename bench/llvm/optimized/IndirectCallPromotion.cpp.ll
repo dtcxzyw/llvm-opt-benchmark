@@ -1402,7 +1402,7 @@ _ZN4llvm13SmallDenseMapIPKNS_14GlobalVariableESt13unordered_mapIiPNS_8ConstantES
   store ptr %15, ptr %260, align 8
   store ptr %16, ptr %261, align 8
   store ptr %275, ptr %262, align 8
-  %276 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120IndirectCallPromoter15processFunctionEPN4llvm18ProfileSummaryInfoE(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull %19)
+  %276 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120IndirectCallPromoter15processFunctionEPN4llvm18ProfileSummaryInfoE(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef %19)
   %277 = or i1 %.02452.i, %276
   br label %278
 
@@ -1737,7 +1737,7 @@ declare noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef 
 declare noundef nonnull align 8 dereferenceable(72) ptr @_ZN4llvm25InnerAnalysisManagerProxyINS_15AnalysisManagerINS_8FunctionEJEEENS_6ModuleEJEE6Result10getManagerEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120IndirectCallPromoter15processFunctionEPN4llvm18ProfileSummaryInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120IndirectCallPromoter15processFunctionEPN4llvm18ProfileSummaryInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::AlignedCharArrayUnion.358", align 8
   %4 = alloca %"struct.llvm::AlignedCharArrayUnion.358", align 8
   %5 = alloca %"class.llvm::APInt", align 8

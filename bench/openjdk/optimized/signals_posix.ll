@@ -1473,7 +1473,7 @@ _ZN2os14exception_nameEiPcm.exit:                 ; preds = %_ZL15is_valid_signa
   %.0.i = phi ptr [ null, %_ZL15is_valid_signali.exit.i ], [ %2, %19 ], [ %2, %15 ]
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.23, ptr noundef %.0.i) #20
   %21 = call i32 @sigaction(i32 noundef %1, ptr noundef null, ptr noundef nonnull %6) #20
-  call fastcc void @_ZL27print_single_signal_handlerP12outputStreamPK9sigactionPcm(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %2, i64 noundef %3)
+  call fastcc void @_ZL27print_single_signal_handlerP12outputStreamPK9sigactionPcm(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %2, i64 noundef %3)
   %22 = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef null, ptr noundef nonnull %7) #20
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %27
@@ -1520,7 +1520,7 @@ _ZNK19SavedSignalHandlers3getEi.exit:             ; preds = %27
 44:                                               ; preds = %36
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.27) #20
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.28) #20
-  call fastcc void @_ZL27print_single_signal_handlerP12outputStreamPK9sigactionPcm(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef %2, i64 noundef %3)
+  call fastcc void @_ZL27print_single_signal_handlerP12outputStreamPK9sigactionPcm(ptr noundef nonnull %0, ptr noundef %32, ptr noundef %2, i64 noundef %3)
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #20
   br label %_ZNK19SavedSignalHandlers3getEi.exit.thread
 
@@ -1546,7 +1546,7 @@ _ZL25get_chained_signal_actioni.exit:             ; preds = %.thread.i
 
 _ZL25get_chained_signal_actioni.exit.thread39:    ; preds = %45, %_ZL25get_chained_signal_actioni.exit
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.29) #20
-  call fastcc void @_ZL27print_single_signal_handlerP12outputStreamPK9sigactionPcm(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %2, i64 noundef %3)
+  call fastcc void @_ZL27print_single_signal_handlerP12outputStreamPK9sigactionPcm(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %2, i64 noundef %3)
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #20
   br label %_ZL25get_chained_signal_actioni.exit.thread
 
@@ -1555,7 +1555,7 @@ _ZL25get_chained_signal_actioni.exit.thread:      ; preds = %.thread.i, %_ZL25ge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL27print_single_signal_handlerP12outputStreamPK9sigactionPcm(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL27print_single_signal_handlerP12outputStreamPK9sigactionPcm(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca [256 x i8], align 16
   %6 = alloca [33 x i8], align 16
   %.val = load ptr, ptr %1, align 8
@@ -2650,7 +2650,7 @@ declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr nound
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18set_signal_handleri(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc void @_ZL18set_signal_handleri(i32 noundef range(i32 4, 26) %0) unnamed_addr #0 {
   %2 = alloca %struct.sigaction, align 8
   %3 = alloca %struct.sigaction, align 8
   %4 = call i32 @sigaction(i32 noundef %0, ptr noundef null, ptr noundef nonnull %2) #20
@@ -2658,81 +2658,63 @@ define internal fastcc void @_ZL18set_signal_handleri(i32 noundef %0) unnamed_ad
   %5 = icmp eq ptr %.val, @_ZL17javaSignalHandleriP9siginfo_tPv
   %switch = icmp ult ptr %.val, inttoptr (i64 2 to ptr)
   %or.cond = or i1 %5, %switch
-  br i1 %or.cond, label %._ZN19SavedSignalHandlers3setEiPK9sigaction.exit_crit_edge, label %7
+  br i1 %or.cond, label %._ZN19SavedSignalHandlers3setEiPK9sigaction.exit18_crit_edge, label %6
 
-._ZN19SavedSignalHandlers3setEiPK9sigaction.exit_crit_edge: ; preds = %1
-  %.pre = add i32 %0, -1
-  %6 = icmp ult i32 %.pre, 64
-  br label %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit
+._ZN19SavedSignalHandlers3setEiPK9sigaction.exit18_crit_edge: ; preds = %1
+  %.pre = zext nneg i32 %0 to i64
+  br label %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit18
 
-7:                                                ; preds = %1
-  %8 = load i8, ptr @AllowUserSignalHandlers, align 1
-  %9 = trunc i8 %8 to i1
-  br i1 %9, label %39, label %10
+6:                                                ; preds = %1
+  %7 = load i8, ptr @AllowUserSignalHandlers, align 1
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %32, label %9
 
-10:                                               ; preds = %7
-  %11 = load i8, ptr @UseSignalChaining, align 1
-  %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %20
+9:                                                ; preds = %6
+  %10 = load i8, ptr @UseSignalChaining, align 1
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit, label %15
 
-13:                                               ; preds = %10
-  %14 = add i32 %0, -1
-  %15 = icmp ult i32 %14, 64
-  br i1 %15, label %16, label %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit
+_ZN19SavedSignalHandlers3setEiPK9sigaction.exit:  ; preds = %9
+  %12 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 152, i8 noundef zeroext 9, i32 noundef 0) #20
+  %13 = zext nneg i32 %0 to i64
+  %14 = getelementptr inbounds [65 x ptr], ptr @_ZL16chained_handlers, i64 0, i64 %13
+  store ptr %12, ptr %14, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %12, ptr noundef nonnull align 8 dereferenceable(152) %2, i64 152, i1 false)
+  br label %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit18
 
-16:                                               ; preds = %13
-  %17 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 152, i8 noundef zeroext 9, i32 noundef 0) #20
-  %18 = zext nneg i32 %0 to i64
-  %19 = getelementptr inbounds [65 x ptr], ptr @_ZL16chained_handlers, i64 0, i64 %18
-  store ptr %17, ptr %19, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %17, ptr noundef nonnull align 8 dereferenceable(152) %2, i64 152, i1 false)
-  br label %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit
-
-20:                                               ; preds = %10
+15:                                               ; preds = %9
   %magicptr = ptrtoint ptr %.val to i64
-  %21 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %21, align 1
+  %16 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %16, align 1
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.31, i32 noundef 1260, ptr noundef nonnull @.str.193, i64 noundef %magicptr, i32 noundef %0) #22
   unreachable
 
-_ZN19SavedSignalHandlers3setEiPK9sigaction.exit:  ; preds = %._ZN19SavedSignalHandlers3setEiPK9sigaction.exit_crit_edge, %16, %13
-  %.pre-phi = phi i1 [ %6, %._ZN19SavedSignalHandlers3setEiPK9sigaction.exit_crit_edge ], [ true, %16 ], [ false, %13 ]
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
-  %23 = call i32 @sigfillset(ptr noundef nonnull %22) #20
-  %24 = call i32 @sigdelset(ptr noundef nonnull %22, i32 noundef 4) #20
-  %25 = call i32 @sigdelset(ptr noundef nonnull %22, i32 noundef 7) #20
-  %26 = call i32 @sigdelset(ptr noundef nonnull %22, i32 noundef 8) #20
-  %27 = call i32 @sigdelset(ptr noundef nonnull %22, i32 noundef 11) #20
-  %28 = call i32 @sigdelset(ptr noundef nonnull %22, i32 noundef 5) #20
+_ZN19SavedSignalHandlers3setEiPK9sigaction.exit18: ; preds = %._ZN19SavedSignalHandlers3setEiPK9sigaction.exit18_crit_edge, %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit
+  %.pre-phi = phi i64 [ %.pre, %._ZN19SavedSignalHandlers3setEiPK9sigaction.exit18_crit_edge ], [ %13, %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit ]
+  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = call i32 @sigfillset(ptr noundef nonnull %17) #20
+  %19 = call i32 @sigdelset(ptr noundef nonnull %17, i32 noundef 4) #20
+  %20 = call i32 @sigdelset(ptr noundef nonnull %17, i32 noundef 7) #20
+  %21 = call i32 @sigdelset(ptr noundef nonnull %17, i32 noundef 8) #20
+  %22 = call i32 @sigdelset(ptr noundef nonnull %17, i32 noundef 11) #20
+  %23 = call i32 @sigdelset(ptr noundef nonnull %17, i32 noundef 5) #20
   store ptr @_ZL17javaSignalHandleriP9siginfo_tPv, ptr %3, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 136
-  store i32 268435460, ptr %29, align 8
-  %30 = call noundef i32 @sigaction(i32 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2) #20
-  br i1 %.pre-phi, label %31, label %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit._ZN19SavedSignalHandlers3setEiPK9sigaction.exit18_crit_edge
+  %24 = getelementptr inbounds i8, ptr %3, i64 136
+  store i32 268435460, ptr %24, align 8
+  %25 = call noundef i32 @sigaction(i32 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2) #20
+  %26 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 152, i8 noundef zeroext 9, i32 noundef 0) #20
+  %27 = getelementptr inbounds [65 x ptr], ptr @_ZL11vm_handlers, i64 0, i64 %.pre-phi
+  store ptr %26, ptr %27, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %26, ptr noundef nonnull align 8 dereferenceable(152) %3, i64 152, i1 false)
+  %28 = icmp ne i32 %0, 13
+  %29 = icmp ne i32 %0, 25
+  %or.cond5.not = and i1 %28, %29
+  %30 = getelementptr inbounds [65 x i8], ptr @_ZL28do_check_signal_periodically, i64 0, i64 %.pre-phi
+  %31 = zext i1 %or.cond5.not to i8
+  store i8 %31, ptr %30, align 1
+  br label %32
 
-_ZN19SavedSignalHandlers3setEiPK9sigaction.exit._ZN19SavedSignalHandlers3setEiPK9sigaction.exit18_crit_edge: ; preds = %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit
-  %.pre19 = zext nneg i32 %0 to i64
-  br label %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit18
-
-31:                                               ; preds = %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit
-  %32 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 152, i8 noundef zeroext 9, i32 noundef 0) #20
-  %33 = zext nneg i32 %0 to i64
-  %34 = getelementptr inbounds [65 x ptr], ptr @_ZL11vm_handlers, i64 0, i64 %33
-  store ptr %32, ptr %34, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %32, ptr noundef nonnull align 8 dereferenceable(152) %3, i64 152, i1 false)
-  br label %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit18
-
-_ZN19SavedSignalHandlers3setEiPK9sigaction.exit18: ; preds = %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit._ZN19SavedSignalHandlers3setEiPK9sigaction.exit18_crit_edge, %31
-  %.pre-phi20 = phi i64 [ %.pre19, %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit._ZN19SavedSignalHandlers3setEiPK9sigaction.exit18_crit_edge ], [ %33, %31 ]
-  %35 = icmp ne i32 %0, 13
-  %36 = icmp ne i32 %0, 25
-  %or.cond5.not = and i1 %35, %36
-  %37 = getelementptr inbounds [65 x i8], ptr @_ZL28do_check_signal_periodically, i64 0, i64 %.pre-phi20
-  %38 = zext i1 %or.cond5.not to i8
-  store i8 %38, ptr %37, align 1
-  br label %39
-
-39:                                               ; preds = %7, %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit18
+32:                                               ; preds = %6, %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit18
   ret void
 }
 

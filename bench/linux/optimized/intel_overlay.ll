@@ -632,7 +632,7 @@ declare dso_local void @drm_modeset_lock_all(ptr noundef) local_unnamed_addr #3
 declare dso_local void @drm_modeset_unlock_all(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @update_pfit_vscale_ratio(ptr nocapture noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc void @update_pfit_vscale_ratio(ptr nocapture noundef nonnull %0) unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 2624
   %4 = getelementptr inbounds i8, ptr %2, i64 2632
@@ -731,7 +731,7 @@ define internal fastcc range(i32 -22, 1) i32 @check_overlay_dst(ptr %.16.val.170
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc noundef range(i32 -22, 1) i32 @check_overlay_src(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @check_overlay_src(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #4 align 16 {
   %4 = load i32, ptr %1, align 4
   %5 = and i32 %4, 65280
   %6 = add nsw i32 %5, -256
@@ -949,7 +949,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @check_overlay_src(ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @intel_overlay_do_put_image(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #2 align 16 {
+define internal fastcc i32 @intel_overlay_do_put_image(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #2 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca %struct.i915_gem_ww_ctx, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 88
@@ -988,7 +988,7 @@ define internal fastcc i32 @intel_overlay_do_put_image(ptr noundef %0, ptr nound
   br label %27
 
 27:                                               ; preds = %25, %3
-  %28 = tail call fastcc i32 @intel_overlay_release_old_vid(ptr noundef %0)
+  %28 = tail call fastcc i32 @intel_overlay_release_old_vid(ptr noundef nonnull %0)
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %553
 
@@ -1028,7 +1028,7 @@ define internal fastcc i32 @intel_overlay_do_put_image(ptr noundef %0, ptr nound
   br i1 %50, label %51, label %62
 
 51:                                               ; preds = %48
-  %52 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %1, i32 1, ptr elementtype(i32) %1) #12, !srcloc !33
+  %52 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %1, i32 1, ptr nonnull elementtype(i32) %1) #12, !srcloc !33
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %58, label %54, !prof !13
 
@@ -1040,7 +1040,7 @@ define internal fastcc i32 @intel_overlay_do_put_image(ptr noundef %0, ptr nound
 
 58:                                               ; preds = %54, %51
   %59 = phi i32 [ 2, %51 ], [ 1, %54 ]
-  call void @refcount_warn_saturate(ptr noundef %1, i32 noundef %59) #12
+  call void @refcount_warn_saturate(ptr noundef nonnull %1, i32 noundef %59) #12
   br label %60
 
 60:                                               ; preds = %58, %54
@@ -1060,7 +1060,7 @@ define internal fastcc i32 @intel_overlay_do_put_image(ptr noundef %0, ptr nound
   ]
 
 65:                                               ; preds = %62
-  %66 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %1, i32 1, ptr elementtype(i32) %1) #12, !srcloc !33
+  %66 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %1, i32 1, ptr nonnull elementtype(i32) %1) #12, !srcloc !33
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %72, label %68, !prof !13
 
@@ -1072,7 +1072,7 @@ define internal fastcc i32 @intel_overlay_do_put_image(ptr noundef %0, ptr nound
 
 72:                                               ; preds = %68, %65
   %73 = phi i32 [ 2, %65 ], [ 1, %68 ]
-  call void @refcount_warn_saturate(ptr noundef %1, i32 noundef %73) #12
+  call void @refcount_warn_saturate(ptr noundef nonnull %1, i32 noundef %73) #12
   br label %.thread
 
 .thread:                                          ; preds = %68, %72
@@ -1080,7 +1080,7 @@ define internal fastcc i32 @intel_overlay_do_put_image(ptr noundef %0, ptr nound
   br label %82
 
 74:                                               ; preds = %62
-  %75 = call ptr @i915_gem_object_pin_to_display_plane(ptr noundef %1, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null, i32 noundef 8) #12
+  %75 = call ptr @i915_gem_object_pin_to_display_plane(ptr noundef nonnull %1, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null, i32 noundef 8) #12
   %76 = icmp ugt ptr %75, inttoptr (i64 -4096 to ptr)
   %77 = ptrtoint ptr %75 to i64
   %78 = trunc i64 %77 to i32
@@ -1135,7 +1135,7 @@ select.unfold:                                    ; preds = %74, %62
   br i1 %101, label %103, label %102, !prof !5
 
 102:                                              ; preds = %98
-  call void @__i915_gem_object_flush_frontbuffer(ptr noundef %1, i32 noundef 3) #12
+  call void @__i915_gem_object_flush_frontbuffer(ptr noundef nonnull %1, i32 noundef 3) #12
   br label %103
 
 103:                                              ; preds = %102, %98
@@ -1809,7 +1809,7 @@ select.unfold:                                    ; preds = %74, %62
   %544 = getelementptr i8, ptr %541, i64 4
   store i32 142606336, ptr %541, align 4
   store i32 %510, ptr %544, align 4
-  call fastcc void @intel_overlay_flip_prepare(ptr noundef %0, ptr noundef %93)
+  call fastcc void @intel_overlay_flip_prepare(ptr noundef nonnull %0, ptr noundef %93)
   call void @i915_request_add(ptr noundef %538) #12
   br label %553
 
@@ -1837,8 +1837,8 @@ select.unfold:                                    ; preds = %74, %62
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @i915_gem_object_put(ptr noundef %0) unnamed_addr #5 align 16 {
-  %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 -1, ptr elementtype(i32) %0) #12, !srcloc !24
+define internal fastcc void @i915_gem_object_put(ptr noundef nonnull %0) unnamed_addr #5 align 16 {
+  %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 -1, ptr nonnull elementtype(i32) %0) #12, !srcloc !24
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %7, label %4
 
@@ -1847,12 +1847,12 @@ define internal fastcc void @i915_gem_object_put(ptr noundef %0) unnamed_addr #5
   br i1 %5, label %.thread, label %6, !prof !5
 
 6:                                                ; preds = %4
-  tail call void @refcount_warn_saturate(ptr noundef %0, i32 noundef 3) #12
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %0, i32 noundef 3) #12
   br label %.thread
 
 7:                                                ; preds = %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !25
-  tail call void @drm_gem_object_free(ptr noundef %0) #12
+  tail call void @drm_gem_object_free(ptr noundef nonnull %0) #12
   br label %.thread
 
 .thread:                                          ; preds = %4, %6, %7
@@ -2060,7 +2060,7 @@ define dso_local range(i32 -22, 1) i32 @intel_overlay_attrs_ioctl(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @update_reg_attrs(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @update_reg_attrs(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = shl i32 %4, 18

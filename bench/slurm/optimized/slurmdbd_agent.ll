@@ -753,7 +753,7 @@ define range(i32 -1, 1) i32 @slurmdbd_agent_send(i16 noundef zeroext %0, ptr nou
   br label %56
 
 56:                                               ; preds = %49, %44, %39
-  call fastcc void @_max_dbd_msg_action(ptr noundef nonnull %3)
+  call fastcc void @_max_dbd_msg_action(ptr noundef %3)
   %57 = load i32, ptr %3, align 4
   %58 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 632), align 8
   %59 = icmp ult i32 %57, %58
@@ -828,7 +828,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #2
 declare void @syslog(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_max_dbd_msg_action(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @_max_dbd_msg_action(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i16, align 2
   %3 = alloca i16, align 2
   %.b = load i1, ptr @max_dbd_msg_action, align 4
@@ -1228,7 +1228,7 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
   unreachable
 
 120:                                              ; preds = %116
-  call fastcc void @_max_dbd_msg_action(ptr noundef nonnull %8)
+  call fastcc void @_max_dbd_msg_action(ptr noundef %8)
   %121 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #13
   call void @slurm_diff_tv_str(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 20, ptr noundef nonnull @.str.23, i64 noundef 0, ptr noundef nonnull %15) #13
   %122 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
@@ -2414,7 +2414,7 @@ declare i32 @fsync_and_close(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_load_dbd_rec(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc ptr @_load_dbd_rec(i32 noundef range(i32 0, -2147483648) %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = call i64 @read(i32 noundef %0, ptr noundef nonnull %2, i64 noundef 4) #13

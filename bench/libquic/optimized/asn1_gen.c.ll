@@ -1178,7 +1178,7 @@ return:                                           ; preds = %if.else24, %sw.bb22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @append_exp(ptr nocapture noundef %arg, i32 noundef %exp_tag, i32 noundef %exp_class, i32 noundef %exp_constructed, i32 noundef %exp_pad, i32 noundef %imp_ok) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @append_exp(ptr nocapture noundef %arg, i32 noundef %exp_tag, i32 noundef %exp_class, i32 noundef range(i32 0, 2) %exp_constructed, i32 noundef range(i32 0, 2) %exp_pad, i32 noundef range(i32 0, 2) %imp_ok) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %arg, align 8
   %cmp = icmp eq i32 %0, -1

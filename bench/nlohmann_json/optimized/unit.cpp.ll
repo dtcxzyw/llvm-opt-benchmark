@@ -7890,7 +7890,7 @@ entry:
   %ref.tmp = alloca %"class.doctest::String", align 8
   %m_threw = getelementptr inbounds i8, ptr %this, i64 41
   store i8 1, ptr %m_threw, align 1
-  call fastcc void @_ZN7doctest12_GLOBAL__N_124translateActiveExceptionEv(ptr noalias nonnull align 8 %ref.tmp)
+  call fastcc void @_ZN7doctest12_GLOBAL__N_124translateActiveExceptionEv(ptr noalias align 8 %ref.tmp)
   %m_exception = getelementptr inbounds i8, ptr %this, i64 48
   %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 71
   %0 = load i8, ptr %arrayidx.i.i, align 1
@@ -7912,7 +7912,7 @@ _ZN7doctest6StringD2Ev.exit:                      ; preds = %entry, %if.then2.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7doctest12_GLOBAL__N_124translateActiveExceptionEv(ptr noalias nocapture writeonly align 8 %agg.result) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7doctest12_GLOBAL__N_124translateActiveExceptionEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %res = alloca %"class.doctest::String", align 8
   store i8 0, ptr %res, align 8
@@ -11605,7 +11605,7 @@ _ZN7doctest6StringD2Ev.exit39:                    ; preds = %ehcleanup, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr nocapture noundef readonly %pattern, i32 noundef %type, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %res) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr nocapture noundef readonly %pattern, i32 noundef range(i32 0, 2) %type, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %res) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 if.end.i:
   %parsedValue = alloca %"class.doctest::String", align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %parsedValue, i64 23
@@ -13881,7 +13881,7 @@ catch:                                            ; preds = %lpad467
 for.body477:                                      ; preds = %catch, %_ZN7doctest17TestCaseExceptionD2Ev.exit
   %__begin5.sroa.0.0643 = phi ptr [ %incdec.ptr.i385, %_ZN7doctest17TestCaseExceptionD2Ev.exit ], [ %203, %catch ]
   %205 = load ptr, ptr %__begin5.sroa.0.0643, align 8
-  invoke fastcc void @_ZN7doctest12_GLOBAL__N_124translateActiveExceptionEv(ptr noalias nonnull align 8 %ref.tmp480)
+  invoke fastcc void @_ZN7doctest12_GLOBAL__N_124translateActiveExceptionEv(ptr noalias align 8 %ref.tmp480)
           to label %invoke.cont482 unwind label %lpad481
 
 invoke.cont482:                                   ; preds = %for.body477

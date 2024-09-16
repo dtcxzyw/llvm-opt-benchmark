@@ -4834,7 +4834,7 @@ define internal fastcc void @trace_cgroup_setup_root(ptr noundef %0) unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @link_css_set(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc void @link_css_set(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = load volatile ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, %0
   br i1 %5, label %6, label %7, !prof !22
@@ -7742,7 +7742,7 @@ define internal fastcc i32 @cgroup_add_cftypes(ptr noundef %0, ptr noundef %1) u
   store volatile ptr %28, ptr %27, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %19, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %23, align 8
-  %30 = tail call fastcc i32 @cgroup_apply_cftypes(ptr noundef nonnull %1, i1 noundef zeroext false)
+  %30 = tail call fastcc i32 @cgroup_apply_cftypes(ptr noundef %1, i1 noundef zeroext false)
   %31 = load i8, ptr %1, align 8
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %.loopexit, label %.preheader
@@ -14006,7 +14006,7 @@ define internal fastcc void @cgroup_propagate_control(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @kill_css(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc void @kill_css(ptr noundef nonnull %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 16
@@ -14034,7 +14034,7 @@ define internal fastcc void @kill_css(ptr noundef %0) unnamed_addr #1 align 16 {
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, @cgrp_dfl_root
   %20 = select i1 %19, ptr @cgroup_base_files, ptr @cgroup1_base_files
-  %21 = tail call fastcc i32 @cgroup_addrm_files(ptr noundef %0, ptr noundef %8, ptr noundef nonnull %20, i1 noundef zeroext false)
+  %21 = tail call fastcc i32 @cgroup_addrm_files(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %20, i1 noundef zeroext false)
   br label %.loopexit
 
 22:                                               ; preds = %11
@@ -14046,7 +14046,7 @@ define internal fastcc void @kill_css(ptr noundef %0) unnamed_addr #1 align 16 {
 .preheader:                                       ; preds = %22, %.preheader
   %26 = phi ptr [ %29, %.preheader ], [ %24, %22 ]
   %27 = getelementptr i8, ptr %26, i64 -96
-  %28 = tail call fastcc i32 @cgroup_addrm_files(ptr noundef %0, ptr noundef %8, ptr noundef %27, i1 noundef zeroext false)
+  %28 = tail call fastcc i32 @cgroup_addrm_files(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %27, i1 noundef zeroext false)
   %29 = load ptr, ptr %26, align 8
   %30 = load ptr, ptr %13, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 208
@@ -14226,7 +14226,7 @@ declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noun
 declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @cgroup_apply_cftypes(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #1 align 16 {
+define internal fastcc i32 @cgroup_apply_cftypes(ptr noundef nonnull %0, i1 noundef zeroext %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 176
@@ -14264,7 +14264,7 @@ define internal fastcc i32 @cgroup_apply_cftypes(ptr noundef %0, i1 noundef zero
 
 25:                                               ; preds = %.split.us
   %26 = load ptr, ptr %20, align 8
-  %27 = tail call fastcc i32 @cgroup_addrm_files(ptr noundef nonnull %20, ptr noundef %26, ptr noundef %0, i1 noundef zeroext %1)
+  %27 = tail call fastcc i32 @cgroup_addrm_files(ptr noundef nonnull %20, ptr noundef %26, ptr noundef nonnull %0, i1 noundef zeroext %1)
   %.not.us = icmp eq i32 %27, 0
   br i1 %.not.us, label %.thread.us, label %.thread8
 
@@ -14349,7 +14349,7 @@ define internal fastcc i32 @cgroup_apply_cftypes(ptr noundef %0, i1 noundef zero
 
 76:                                               ; preds = %.split
   %77 = load ptr, ptr %71, align 8
-  %78 = tail call fastcc i32 @cgroup_addrm_files(ptr noundef nonnull %71, ptr noundef %77, ptr noundef %0, i1 noundef zeroext %1)
+  %78 = tail call fastcc i32 @cgroup_addrm_files(ptr noundef nonnull %71, ptr noundef %77, ptr noundef nonnull %0, i1 noundef zeroext %1)
   %.not = icmp eq i32 %78, 0
   br i1 %.not, label %.thread, label %.thread8
 
@@ -17868,7 +17868,7 @@ declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) loca
 declare dso_local i32 @__task_pid_nr_ns(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__cgroup_procs_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc ptr @__cgroup_procs_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8

@@ -833,7 +833,7 @@ lj_meta_lookup.exit61:                            ; preds = %if.then21.i40, %if.
   br i1 %cmp11, label %if.then13, label %if.end19
 
 if.then13:                                        ; preds = %lj_meta_lookup.exit61
-  %call14 = call fastcc ptr @str2num(ptr noundef nonnull %rb, ptr noundef nonnull %tempb)
+  %call14 = call fastcc ptr @str2num(ptr noundef nonnull %rb, ptr noundef %tempb)
   %cmp15 = icmp eq ptr %call14, null
   %spec.select = select i1 %cmp15, ptr %rb, ptr %rc
   call void @lj_err_optype(ptr noundef nonnull %L, ptr noundef nonnull %spec.select, i32 noundef 409) #6
@@ -888,7 +888,7 @@ return:                                           ; preds = %mmcall.exit, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @str2num(ptr noundef readonly %o, ptr noundef %n) unnamed_addr #0 {
+define internal fastcc noundef ptr @str2num(ptr noundef readonly %o, ptr noundef nonnull %n) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %o, align 8
   %shr = ashr i64 %0, 47
@@ -902,7 +902,7 @@ if.else:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.else
   %and = and i64 %0, 140737488355327
   %1 = inttoptr i64 %and to ptr
-  %call = tail call i32 @lj_strscan_num(ptr noundef %1, ptr noundef %n) #5
+  %call = tail call i32 @lj_strscan_num(ptr noundef %1, ptr noundef nonnull %n) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.else7, label %return
 

@@ -404,7 +404,7 @@ form_rhs_red.exit:                                ; preds = %121
   %219 = load ptr, ptr %2, align 8
   %.val = load ptr, ptr %0, align 8
   %.val127 = load ptr, ptr %6, align 8
-  %220 = call fastcc i64 @iterative_refinement(ptr %.val, ptr %.val127, ptr noundef %219, ptr noundef nonnull %186, ptr noundef nonnull %115)
+  %220 = call fastcc i64 @iterative_refinement(ptr %.val, ptr %.val127, ptr noundef %219, ptr noundef %186, ptr noundef %115)
   %.not123 = icmp eq i64 %220, 0
   br i1 %.not123, label %225, label %221
 
@@ -434,7 +434,7 @@ form_rhs_red.exit:                                ; preds = %121
   %235 = getelementptr inbounds i8, ptr %232, i64 32
   %236 = load ptr, ptr %235, align 8
   call void @OSQPMatrix_Axpy(ptr noundef %231, ptr noundef %234, ptr noundef %236, double noundef 1.000000e+00, double noundef 0.000000e+00) #5
-  call fastcc void @get_ypol_from_yred(ptr noundef nonnull %7, ptr noundef nonnull %201)
+  call fastcc void @get_ypol_from_yred(ptr noundef nonnull %7, ptr noundef %201)
   %237 = load ptr, ptr %90, align 8
   %238 = getelementptr inbounds i8, ptr %237, i64 40
   %239 = load ptr, ptr %238, align 8
@@ -568,7 +568,7 @@ declare ptr @OSQPVectorf_view(ptr noundef, i64 noundef, i64 noundef) local_unnam
 declare void @OSQPVectorf_view_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @iterative_refinement(ptr nocapture readonly %.0.val, ptr nocapture readonly %.24.val, ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @iterative_refinement(ptr nocapture readonly %.0.val, ptr nocapture readonly %.24.val, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %.0.val, i64 232
   %5 = load i64, ptr %4, align 8
   %6 = icmp sgt i64 %5, 0
@@ -591,10 +591,10 @@ define internal fastcc i64 @iterative_refinement(ptr nocapture readonly %.0.val,
   %21 = tail call ptr @OSQPVectorf_view(ptr noundef %15, i64 noundef %20, i64 noundef %11) #5
   %22 = load ptr, ptr %.24.val, align 8
   %23 = load i64, ptr %22, align 8
-  %24 = tail call ptr @OSQPVectorf_view(ptr noundef %1, i64 noundef 0, i64 noundef %23) #5
+  %24 = tail call ptr @OSQPVectorf_view(ptr noundef nonnull %1, i64 noundef 0, i64 noundef %23) #5
   %25 = load ptr, ptr %.24.val, align 8
   %26 = load i64, ptr %25, align 8
-  %27 = tail call ptr @OSQPVectorf_view(ptr noundef %1, i64 noundef %26, i64 noundef %11) #5
+  %27 = tail call ptr @OSQPVectorf_view(ptr noundef nonnull %1, i64 noundef %26, i64 noundef %11) #5
   %28 = icmp ne ptr %15, null
   %29 = icmp ne ptr %18, null
   %or.cond = select i1 %28, i1 %29, i1 false
@@ -621,7 +621,7 @@ define internal fastcc i64 @iterative_refinement(ptr nocapture readonly %.0.val,
 
 38:                                               ; preds = %.lr.ph, %38
   %.0531 = phi i64 [ 0, %.lr.ph ], [ %48, %38 ]
-  tail call void @OSQPVectorf_copy(ptr noundef nonnull %15, ptr noundef %2) #5
+  tail call void @OSQPVectorf_copy(ptr noundef nonnull %15, ptr noundef nonnull %2) #5
   %39 = load ptr, ptr %.24.val, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
@@ -634,7 +634,7 @@ define internal fastcc i64 @iterative_refinement(ptr nocapture readonly %.0.val,
   tail call void @OSQPMatrix_Axpy(ptr noundef %45, ptr noundef nonnull %24, ptr noundef nonnull %21, double noundef -1.000000e+00, double noundef 1.000000e+00) #5
   %46 = load ptr, ptr %35, align 8
   %47 = tail call i64 %46(ptr noundef %0, ptr noundef nonnull %15, i64 noundef 1) #5
-  tail call void @OSQPVectorf_plus(ptr noundef %1, ptr noundef %1, ptr noundef nonnull %15) #5
+  tail call void @OSQPVectorf_plus(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %15) #5
   %48 = add nuw nsw i64 %.0531, 1
   %49 = load i64, ptr %4, align 8
   %50 = icmp slt i64 %48, %49
@@ -658,11 +658,11 @@ declare void @OSQPVectorf_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @OSQPMatrix_Axpy(ptr noundef, ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_ypol_from_yred(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @get_ypol_from_yred(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = tail call i64 @OSQPVectorf_length(ptr noundef %1) #5
+  %6 = tail call i64 @OSQPVectorf_length(ptr noundef nonnull %1) #5
   %7 = shl i64 %5, 3
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #6
   %9 = tail call noalias ptr @malloc(i64 noundef %7) #6
@@ -691,7 +691,7 @@ define internal fastcc void @get_ypol_from_yred(ptr nocapture noundef readonly %
   %22 = getelementptr inbounds i8, ptr %0, i64 56
   %23 = load ptr, ptr %22, align 8
   tail call void @OSQPVectorf_to_raw(ptr noundef nonnull %9, ptr noundef %23) #5
-  tail call void @OSQPVectorf_to_raw(ptr noundef nonnull %11, ptr noundef %1) #5
+  tail call void @OSQPVectorf_to_raw(ptr noundef nonnull %11, ptr noundef nonnull %1) #5
   %24 = load ptr, ptr %18, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load i64, ptr %25, align 8

@@ -412,7 +412,7 @@ define void @clean_cache_add(ptr noundef readonly %0, i64 noundef %1, ptr nounde
   br label %111
 
 60:                                               ; preds = %45
-  %61 = tail call fastcc ptr @cacheset_add(ptr noundef nonnull %56, ptr noundef nonnull %0, i64 noundef %1, i32 noundef %46)
+  %61 = tail call fastcc ptr @cacheset_add(ptr noundef nonnull %56, ptr noundef %0, i64 noundef %1, i32 noundef %46)
   %62 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %57) #9
   %.not54 = icmp eq ptr %61, null
   br i1 %.not54, label %64, label %63
@@ -481,10 +481,10 @@ declare i64 @evidence_num_alerts(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @cacheset_add(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) unnamed_addr #4 {
+define internal fastcc noundef ptr @cacheset_add(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2, i32 noundef %3) unnamed_addr #4 {
   %5 = alloca [2 x i64], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %1, i64 16, i1 false)
-  %6 = call fastcc i32 @splay(ptr noundef nonnull %5, i64 noundef %2, ptr noundef %0)
+  %6 = call fastcc i32 @splay(ptr noundef %5, i64 noundef %2, ptr noundef %0)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %14, label %7
 
@@ -738,7 +738,7 @@ define void @clean_cache_remove(ptr noundef readonly %0, i64 noundef %1, ptr nou
 26:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull readonly align 1 dereferenceable(16) %0, i64 16, i1 false)
-  %27 = call fastcc i32 @splay(ptr noundef nonnull %4, i64 noundef %1, ptr noundef nonnull %22)
+  %27 = call fastcc i32 @splay(ptr noundef %4, i64 noundef %1, ptr noundef nonnull %22)
   %.not.not.i = icmp eq i32 %27, 0
   br i1 %.not.not.i, label %28, label %29
 
@@ -765,7 +765,7 @@ define void @clean_cache_remove(ptr noundef readonly %0, i64 noundef %1, ptr nou
   store ptr %33, ptr %30, align 8
   %39 = getelementptr inbounds i8, ptr %33, i64 32
   store ptr null, ptr %39, align 8
-  %40 = call fastcc i32 @splay(ptr noundef nonnull %4, i64 noundef %1, ptr noundef nonnull %22)
+  %40 = call fastcc i32 @splay(ptr noundef %4, i64 noundef %1, ptr noundef nonnull %22)
   %41 = getelementptr inbounds i8, ptr %31, i64 24
   %42 = load ptr, ptr %41, align 8
   %.not.i = icmp eq ptr %42, null
@@ -984,7 +984,7 @@ define range(i32 0, 2) i32 @clean_cache_check(ptr noundef readonly %0, i64 nound
 36:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull readonly align 1 dereferenceable(16) %0, i64 16, i1 false)
-  %37 = call fastcc i32 @splay(ptr noundef nonnull %4, i64 noundef %1, ptr noundef nonnull %32)
+  %37 = call fastcc i32 @splay(ptr noundef %4, i64 noundef %1, ptr noundef nonnull %32)
   %.not.i.i = icmp eq i32 %37, 0
   br i1 %.not.i.i, label %56, label %38
 
@@ -1096,7 +1096,7 @@ declare ptr @mpool_calloc(ptr noundef, i64 noundef, i64 noundef) local_unnamed_a
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @splay(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @splay(ptr nocapture noundef nonnull readonly %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #4 {
   %4 = alloca %struct.node, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   %5 = getelementptr inbounds i8, ptr %2, i64 8

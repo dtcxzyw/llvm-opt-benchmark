@@ -4583,7 +4583,7 @@ invoke.cont86:                                    ; preds = %invoke.cont46, %inv
   %35 = getelementptr inbounds i8, ptr %ref.tmp89, i64 8
   %36 = extractvalue { i64, ptr } %call91, 1
   store ptr %36, ptr %35, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_19UrlEncodeB5cxx11ERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp88, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp89)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_19UrlEncodeB5cxx11ERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp88, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp89)
           to label %invoke.cont92 unwind label %lpad85
 
 invoke.cont92:                                    ; preds = %invoke.cont86
@@ -4621,7 +4621,7 @@ invoke.cont102:                                   ; preds = %if.else.i.i, %if.th
   store i64 47, ptr %ref.tmp105, align 8
   %_M_str.i = getelementptr inbounds i8, ptr %ref.tmp105, i64 8
   store ptr @.str.50, ptr %_M_str.i, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_19UrlEncodeB5cxx11ERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp104, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp105)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_19UrlEncodeB5cxx11ERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp104, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp105)
           to label %invoke.cont106 unwind label %lpad85
 
 invoke.cont106:                                   ; preds = %invoke.cont102
@@ -4657,7 +4657,7 @@ invoke.cont116:                                   ; preds = %if.else.i.i81, %if.
   store i64 45, ptr %ref.tmp119, align 8
   %_M_str.i87 = getelementptr inbounds i8, ptr %ref.tmp119, i64 8
   store ptr @.str.52, ptr %_M_str.i87, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_19UrlEncodeB5cxx11ERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp118, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp119)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_19UrlEncodeB5cxx11ERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp118, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp119)
           to label %invoke.cont120 unwind label %lpad85
 
 invoke.cont120:                                   ; preds = %invoke.cont116
@@ -4697,7 +4697,7 @@ invoke.cont130:                                   ; preds = %if.else.i.i100, %if
   %47 = getelementptr inbounds i8, ptr %ref.tmp133, i64 8
   %48 = extractvalue { i64, ptr } %call135, 1
   store ptr %48, ptr %47, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_19UrlEncodeB5cxx11ERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp132, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp133)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_19UrlEncodeB5cxx11ERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp132, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp133)
           to label %invoke.cont136 unwind label %lpad85
 
 invoke.cont136:                                   ; preds = %invoke.cont130
@@ -4730,7 +4730,7 @@ if.else.i.i117:                                   ; preds = %invoke.cont139
 invoke.cont146:                                   ; preds = %if.else.i.i117, %if.then.i.i115
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp128) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp132) #26
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_19UrlEncodeB5cxx11ERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp148, ptr noundef nonnull align 8 dereferenceable(16) %subject_token)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_19UrlEncodeB5cxx11ERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp148, ptr noundef nonnull align 8 dereferenceable(16) %subject_token)
           to label %invoke.cont149 unwind label %lpad85
 
 invoke.cont149:                                   ; preds = %invoke.cont146
@@ -4906,7 +4906,7 @@ invoke.cont172:                                   ; preds = %invoke.cont159, %in
   %72 = getelementptr inbounds i8, ptr %ref.tmp175, i64 8
   %73 = extractvalue { i64, ptr } %call176, 1
   store ptr %73, ptr %72, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_19UrlEncodeB5cxx11ERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp174, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp175)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_19UrlEncodeB5cxx11ERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp174, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp175)
           to label %invoke.cont177 unwind label %lpad166
 
 invoke.cont177:                                   ; preds = %invoke.cont172
@@ -5105,7 +5105,7 @@ invoke.cont217:                                   ; preds = %invoke.cont212
   %93 = getelementptr inbounds i8, ptr %ref.tmp215, i64 8
   %94 = extractvalue { i64, ptr } %call218, 1
   store ptr %94, ptr %93, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_19UrlEncodeB5cxx11ERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp214, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp215)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_19UrlEncodeB5cxx11ERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp214, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp215)
           to label %invoke.cont220 unwind label %lpad219
 
 invoke.cont220:                                   ; preds = %invoke.cont217
@@ -6915,7 +6915,7 @@ invoke.cont156:                                   ; preds = %invoke.cont146
   %81 = getelementptr inbounds i8, ptr %ref.tmp159, i64 8
   %82 = extractvalue { i64, ptr } %call160, 1
   store ptr %82, ptr %81, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_19UrlEncodeB5cxx11ERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp158, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp159)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_19UrlEncodeB5cxx11ERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp158, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp159)
           to label %invoke.cont161 unwind label %lpad155
 
 invoke.cont161:                                   ; preds = %invoke.cont156

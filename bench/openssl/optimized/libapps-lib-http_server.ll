@@ -831,7 +831,7 @@ if.then115:                                       ; preds = %land.lhs.true110
   br label %out
 
 if.end117:                                        ; preds = %land.lhs.true110, %if.end106
-  %call118 = call fastcc i32 @urldecode(ptr noundef nonnull %incdec.ptr82)
+  %call118 = call fastcc i32 @urldecode(ptr noundef %incdec.ptr82)
   %cmp119 = icmp slt i32 %call118, 0
   br i1 %cmp119, label %if.then121, label %if.end123
 
@@ -1139,7 +1139,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @urldecode(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc i32 @urldecode(ptr noundef nonnull %p) unnamed_addr #0 {
 entry:
   br label %for.cond
 

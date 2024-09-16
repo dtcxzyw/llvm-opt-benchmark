@@ -57,7 +57,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef %ms, ptr nocapture noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef %dictMode) unnamed_addr #2 {
+define internal fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef %ms, ptr nocapture noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef range(i32 0, 3) %dictMode) unnamed_addr #2 {
 entry:
   %retval.i540 = alloca %struct.repcodes_s, align 8
   %retval.i = alloca %struct.repcodes_s, align 8
@@ -123,7 +123,7 @@ cond.end15.i:                                     ; preds = %cond.false14.i, %co
   %sub.ptr.lhs.cast.i = ptrtoint ptr %src to i64
   %sub.ptr.lhs.cast16.i = ptrtoint ptr %add.ptr.i to i64
   %conv19.i = trunc i64 %srcSize to i32
-  call fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef nonnull %optLdm.i, i32 noundef 0, i32 noundef %conv19.i)
+  call fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef %optLdm.i, i32 noundef 0, i32 noundef %conv19.i)
   tail call fastcc void @ZSTD_rescaleFreqs(ptr noundef nonnull %opt.i, ptr noundef %src, i64 noundef %srcSize, i32 noundef 0)
   %cmp20.i = icmp eq ptr %src, %add.ptr4.i
   %idx.ext22.i = zext i1 %cmp20.i to i64
@@ -182,7 +182,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
   %conv35.i = trunc i64 %sub.ptr.sub34.i to i32
   %sub.ptr.sub38.i = sub i64 %sub.ptr.lhs.cast16.i, %sub.ptr.lhs.cast26.i
   %conv39.i = trunc i64 %sub.ptr.sub38.i to i32
-  call fastcc void @ZSTD_optLdm_processMatchCandidate(ptr noundef nonnull %optLdm.i, ptr noundef %11, ptr noundef nonnull %nbMatches.i, i32 noundef %conv35.i, i32 noundef %conv39.i)
+  call fastcc void @ZSTD_optLdm_processMatchCandidate(ptr noundef %optLdm.i, ptr noundef %11, ptr noundef %nbMatches.i, i32 noundef %conv35.i, i32 noundef %conv39.i)
   %14 = load i32, ptr %nbMatches.i, align 4
   %tobool40.i.not = icmp eq i32 %14, 0
   br i1 %tobool40.i.not, label %if.then.i, label %for.body.i
@@ -767,7 +767,7 @@ ZSTD_litLengthPrice.exit517:                      ; preds = %cond.end259.i, %if.
   %conv276.i = trunc i64 %sub.ptr.sub275.i to i32
   %sub.ptr.sub279.i = sub i64 %sub.ptr.lhs.cast16.i, %sub.ptr.lhs.cast273.i
   %conv280.i = trunc i64 %sub.ptr.sub279.i to i32
-  call fastcc void @ZSTD_optLdm_processMatchCandidate(ptr noundef nonnull %optLdm.i, ptr noundef %11, ptr noundef nonnull %nbMatches266.i, i32 noundef %conv276.i, i32 noundef %conv280.i)
+  call fastcc void @ZSTD_optLdm_processMatchCandidate(ptr noundef %optLdm.i, ptr noundef %11, ptr noundef %nbMatches266.i, i32 noundef %conv276.i, i32 noundef %conv280.i)
   %102 = load i32, ptr %nbMatches266.i, align 4
   %tobool281.i.not = icmp eq i32 %102, 0
   br i1 %tobool281.i.not, label %for.inc405.i, label %if.end285.i
@@ -1451,7 +1451,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef %ms, ptr nocapture noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef %dictMode) unnamed_addr #2 {
+define internal fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef %ms, ptr nocapture noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef range(i32 0, 3) %dictMode) unnamed_addr #2 {
 entry:
   %retval.i598 = alloca %struct.repcodes_s, align 8
   %retval.i = alloca %struct.repcodes_s, align 8
@@ -1516,7 +1516,7 @@ cond.end15.i:                                     ; preds = %cond.false14.i, %co
   %sub.ptr.lhs.cast.i = ptrtoint ptr %src to i64
   %sub.ptr.lhs.cast16.i = ptrtoint ptr %add.ptr.i to i64
   %conv19.i = trunc i64 %srcSize to i32
-  call fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef nonnull %optLdm.i, i32 noundef 0, i32 noundef %conv19.i)
+  call fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef %optLdm.i, i32 noundef 0, i32 noundef %conv19.i)
   tail call fastcc void @ZSTD_rescaleFreqs(ptr noundef nonnull %opt.i, ptr noundef %src, i64 noundef %srcSize, i32 noundef 2)
   %cmp20.i = icmp eq ptr %src, %add.ptr4.i
   %idx.ext22.i = zext i1 %cmp20.i to i64
@@ -1578,7 +1578,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
   %conv35.i = trunc i64 %sub.ptr.sub34.i to i32
   %sub.ptr.sub38.i = sub i64 %sub.ptr.lhs.cast16.i, %sub.ptr.lhs.cast26.i
   %conv39.i = trunc i64 %sub.ptr.sub38.i to i32
-  call fastcc void @ZSTD_optLdm_processMatchCandidate(ptr noundef nonnull %optLdm.i, ptr noundef %11, ptr noundef nonnull %nbMatches.i, i32 noundef %conv35.i, i32 noundef %conv39.i)
+  call fastcc void @ZSTD_optLdm_processMatchCandidate(ptr noundef %optLdm.i, ptr noundef %11, ptr noundef %nbMatches.i, i32 noundef %conv35.i, i32 noundef %conv39.i)
   %14 = load i32, ptr %nbMatches.i, align 4
   %tobool40.i.not = icmp eq i32 %14, 0
   br i1 %tobool40.i.not, label %if.then.i, label %for.body.i
@@ -2267,7 +2267,7 @@ if.then18.i.i:                                    ; preds = %if.then18.i.i.loope
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then18.i.i, %lor.lhs.false.i.i, %if.then6.i
-  call fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef nonnull %optLdm.i, i32 noundef %conv276.i, i32 noundef %conv280.i)
+  call fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef %optLdm.i, i32 noundef %conv276.i, i32 noundef %conv280.i)
   %.pre.i = load i32, ptr %endPosInBlock.i, align 4
   br label %if.end13.i557
 
@@ -3092,7 +3092,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @ZSTD_insertBt1(ptr nocapture noundef readonly %ms, ptr noundef %ip, ptr noundef %iend, i32 noundef %target, i32 noundef %mls, i32 noundef %extDict) unnamed_addr #0 {
+define internal fastcc i32 @ZSTD_insertBt1(ptr nocapture noundef readonly %ms, ptr noundef %ip, ptr noundef %iend, i32 noundef %target, i32 noundef %mls, i32 noundef range(i32 0, 2) %extDict) unnamed_addr #0 {
 entry:
   %dummy32 = alloca i32, align 4
   %cParams1 = getelementptr inbounds i8, ptr %ms, i64 256
@@ -3656,7 +3656,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr nocapture noundef %optLdm, i32 noundef %currPosInBlock, i32 noundef %blockBytesRemaining) unnamed_addr #7 {
+define internal fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr nocapture noundef nonnull %optLdm, i32 noundef %currPosInBlock, i32 noundef %blockBytesRemaining) unnamed_addr #7 {
 entry:
   %size = getelementptr inbounds i8, ptr %optLdm, i64 24
   %0 = load i64, ptr %size, align 8
@@ -3844,7 +3844,7 @@ if.end53:                                         ; preds = %if.then18.i78, %lor
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ZSTD_rescaleFreqs(ptr nocapture noundef %optPtr, ptr noundef %src, i64 noundef %srcSize, i32 noundef %optLevel) unnamed_addr #1 {
+define internal fastcc void @ZSTD_rescaleFreqs(ptr nocapture noundef %optPtr, ptr noundef %src, i64 noundef %srcSize, i32 noundef range(i32 0, 3) %optLevel) unnamed_addr #1 {
 entry:
   %lit102 = alloca i32, align 4
   %0 = getelementptr i8, ptr %optPtr, i64 96
@@ -4093,12 +4093,12 @@ if.then133:                                       ; preds = %if.else131
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.then133
-  %total.06.i.i = phi i32 [ %add.i.i, %for.body.i.i ], [ 0, %if.then133 ]
-  %n.05.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.then133 ]
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %37, i64 %n.05.i.i
+  %total.05.i.i = phi i32 [ 0, %if.then133 ], [ %add.i.i, %for.body.i.i ]
+  %n.04.i.i = phi i64 [ 0, %if.then133 ], [ %inc.i.i, %for.body.i.i ]
+  %arrayidx.i.i = getelementptr inbounds i32, ptr %37, i64 %n.04.i.i
   %38 = load i32, ptr %arrayidx.i.i, align 4
-  %add.i.i = add i32 %38, %total.06.i.i
-  %inc.i.i = add nuw nsw i64 %n.05.i.i, 1
+  %add.i.i = add i32 %38, %total.05.i.i
+  %inc.i.i = add nuw nsw i64 %n.04.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 256
   br i1 %exitcond.not.i.i, label %sum_u32.exit.i, label %for.body.i.i, !llvm.loop !29
 
@@ -4137,12 +4137,12 @@ if.end137:                                        ; preds = %ZSTD_scaleStats.exi
   br label %for.body.i.i115
 
 for.body.i.i115:                                  ; preds = %for.body.i.i115, %if.end137
-  %total.06.i.i116 = phi i32 [ %add.i.i119, %for.body.i.i115 ], [ 0, %if.end137 ]
-  %n.05.i.i117 = phi i64 [ %inc.i.i120, %for.body.i.i115 ], [ 0, %if.end137 ]
-  %arrayidx.i.i118 = getelementptr inbounds i32, ptr %41, i64 %n.05.i.i117
+  %total.05.i.i116 = phi i32 [ 0, %if.end137 ], [ %add.i.i119, %for.body.i.i115 ]
+  %n.04.i.i117 = phi i64 [ 0, %if.end137 ], [ %inc.i.i120, %for.body.i.i115 ]
+  %arrayidx.i.i118 = getelementptr inbounds i32, ptr %41, i64 %n.04.i.i117
   %42 = load i32, ptr %arrayidx.i.i118, align 4
-  %add.i.i119 = add i32 %42, %total.06.i.i116
-  %inc.i.i120 = add nuw nsw i64 %n.05.i.i117, 1
+  %add.i.i119 = add i32 %42, %total.05.i.i116
+  %inc.i.i120 = add nuw nsw i64 %n.04.i.i117, 1
   %exitcond.not.i.i121 = icmp eq i64 %inc.i.i120, 36
   br i1 %exitcond.not.i.i121, label %sum_u32.exit.i122, label %for.body.i.i115, !llvm.loop !29
 
@@ -4177,12 +4177,12 @@ ZSTD_scaleStats.exit137:                          ; preds = %for.body.i5.i127, %
   br label %for.body.i.i138
 
 for.body.i.i138:                                  ; preds = %for.body.i.i138, %ZSTD_scaleStats.exit137
-  %total.06.i.i139 = phi i32 [ %add.i.i142, %for.body.i.i138 ], [ 0, %ZSTD_scaleStats.exit137 ]
-  %n.05.i.i140 = phi i64 [ %inc.i.i143, %for.body.i.i138 ], [ 0, %ZSTD_scaleStats.exit137 ]
-  %arrayidx.i.i141 = getelementptr inbounds i32, ptr %45, i64 %n.05.i.i140
+  %total.05.i.i139 = phi i32 [ 0, %ZSTD_scaleStats.exit137 ], [ %add.i.i142, %for.body.i.i138 ]
+  %n.04.i.i140 = phi i64 [ 0, %ZSTD_scaleStats.exit137 ], [ %inc.i.i143, %for.body.i.i138 ]
+  %arrayidx.i.i141 = getelementptr inbounds i32, ptr %45, i64 %n.04.i.i140
   %46 = load i32, ptr %arrayidx.i.i141, align 4
-  %add.i.i142 = add i32 %46, %total.06.i.i139
-  %inc.i.i143 = add nuw nsw i64 %n.05.i.i140, 1
+  %add.i.i142 = add i32 %46, %total.05.i.i139
+  %inc.i.i143 = add nuw nsw i64 %n.04.i.i140, 1
   %exitcond.not.i.i144 = icmp eq i64 %inc.i.i143, 53
   br i1 %exitcond.not.i.i144, label %sum_u32.exit.i145, label %for.body.i.i138, !llvm.loop !29
 
@@ -4218,12 +4218,12 @@ ZSTD_scaleStats.exit160:                          ; preds = %for.body.i5.i150, %
   br label %for.body.i.i161
 
 for.body.i.i161:                                  ; preds = %for.body.i.i161, %ZSTD_scaleStats.exit160
-  %total.06.i.i162 = phi i32 [ %add.i.i165, %for.body.i.i161 ], [ 0, %ZSTD_scaleStats.exit160 ]
-  %n.05.i.i163 = phi i64 [ %inc.i.i166, %for.body.i.i161 ], [ 0, %ZSTD_scaleStats.exit160 ]
-  %arrayidx.i.i164 = getelementptr inbounds i32, ptr %49, i64 %n.05.i.i163
+  %total.05.i.i162 = phi i32 [ 0, %ZSTD_scaleStats.exit160 ], [ %add.i.i165, %for.body.i.i161 ]
+  %n.04.i.i163 = phi i64 [ 0, %ZSTD_scaleStats.exit160 ], [ %inc.i.i166, %for.body.i.i161 ]
+  %arrayidx.i.i164 = getelementptr inbounds i32, ptr %49, i64 %n.04.i.i163
   %50 = load i32, ptr %arrayidx.i.i164, align 4
-  %add.i.i165 = add i32 %50, %total.06.i.i162
-  %inc.i.i166 = add nuw nsw i64 %n.05.i.i163, 1
+  %add.i.i165 = add i32 %50, %total.05.i.i162
+  %inc.i.i166 = add nuw nsw i64 %n.04.i.i163, 1
   %exitcond.not.i.i167 = icmp eq i64 %inc.i.i166, 32
   br i1 %exitcond.not.i.i167, label %sum_u32.exit.i168, label %for.body.i.i161, !llvm.loop !29
 
@@ -4349,7 +4349,7 @@ ZSTD_setBasePrices.exit:                          ; preds = %cond.true22.i, %con
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ZSTD_optLdm_processMatchCandidate(ptr nocapture noundef %optLdm, ptr nocapture noundef %matches, ptr nocapture noundef %nbMatches, i32 noundef %currPosInBlock, i32 noundef %remainingBytes) unnamed_addr #7 {
+define internal fastcc void @ZSTD_optLdm_processMatchCandidate(ptr nocapture noundef nonnull %optLdm, ptr nocapture noundef %matches, ptr nocapture noundef nonnull %nbMatches, i32 noundef %currPosInBlock, i32 noundef %remainingBytes) unnamed_addr #7 {
 entry:
   %size = getelementptr inbounds i8, ptr %optLdm, i64 24
   %0 = load i64, ptr %size, align 8
@@ -4419,7 +4419,7 @@ if.then18.i:                                      ; preds = %if.then.i, %lor.lhs
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then18.i, %lor.lhs.false.i, %if.then6
-  tail call fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef nonnull %optLdm, i32 noundef %currPosInBlock, i32 noundef %remainingBytes)
+  tail call fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef %optLdm, i32 noundef %currPosInBlock, i32 noundef %remainingBytes)
   %.pre = load i32, ptr %endPosInBlock, align 4
   br label %if.end13
 

@@ -854,7 +854,7 @@ define dso_local void @_ZN4llvm3pdb13NativeSession17createFromPdbPathENS_9String
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store i64 1, ptr %14, align 8, !noalias !23
   store ptr %9, ptr %7, align 8, !alias.scope !23
-  call fastcc void @_ZL11loadPdbFileN4llvm9StringRefERSt10unique_ptrINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS4_EE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  call fastcc void @_ZL11loadPdbFileN4llvm9StringRefERSt10unique_ptrINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS4_EE(ptr dead_on_unwind noalias writable align 8 %8, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(8) %7)
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
@@ -923,7 +923,7 @@ _ZNSt10unique_ptrIN4llvm20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11loadPdbFileN4llvm9StringRefERSt10unique_ptrINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS4_EE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL11loadPdbFileN4llvm9StringRefERSt10unique_ptrINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS4_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #0 {
   %5 = alloca %"class.std::unique_ptr.46", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -1124,7 +1124,7 @@ define dso_local void @_ZN4llvm3pdb13NativeSession13createFromExeENS_9StringRefE
   %10 = alloca %"class.llvm::Twine", align 8
   %11 = alloca %"class.std::unique_ptr.2", align 8
   %12 = alloca %"class.llvm::Expected", align 8
-  call fastcc void @_ZL17getPdbPathFromExeB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %1, i64 %2)
+  call fastcc void @_ZL17getPdbPathFromExeB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %8, ptr %1, i64 %2)
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
@@ -1184,7 +1184,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   store ptr %31, ptr %11, align 8, !alias.scope !66
   %37 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
   %38 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
-  call fastcc void @_ZL11loadPdbFileN4llvm9StringRefERSt10unique_ptrINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS4_EE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr %37, i64 %38, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  call fastcc void @_ZL11loadPdbFileN4llvm9StringRefERSt10unique_ptrINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS4_EE(ptr dead_on_unwind noalias writable align 8 %12, ptr %37, i64 %38, ptr noundef nonnull align 8 dereferenceable(8) %11)
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %40 = load i8, ptr %39, align 8
   %41 = trunc i8 %40 to i1
@@ -1274,7 +1274,7 @@ _ZN4llvm8ExpectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17getPdbPathFromExeB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZL17getPdbPathFromExeB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Expected.404", align 8
@@ -1440,7 +1440,7 @@ define dso_local void @_ZN4llvm3pdb13NativeSession12searchForPdbB5cxx11ERKNS1_16
   %.sroa.08.0.copyload = load ptr, ptr %1, align 8
   %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.29.0.copyload = load i64, ptr %.sroa.29.0..sroa_idx, align 8
-  call fastcc void @_ZL17getPdbPathFromExeB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %.sroa.08.0.copyload, i64 %.sroa.29.0.copyload)
+  call fastcc void @_ZL17getPdbPathFromExeB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %8, ptr %.sroa.08.0.copyload, i64 %.sroa.29.0.copyload)
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
@@ -1511,7 +1511,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread42: ; preds = %_ZNK4llvm9StringR
   store ptr %44, ptr %14, align 8, !alias.scope !99
   %50 = load ptr, ptr %9, align 8
   %51 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #16
-  call fastcc void @_ZL11loadPdbFileN4llvm9StringRefERSt10unique_ptrINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS4_EE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr %50, i64 %51, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  call fastcc void @_ZL11loadPdbFileN4llvm9StringRefERSt10unique_ptrINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS4_EE(ptr dead_on_unwind noalias writable align 8 %15, ptr %50, i64 %51, ptr noundef nonnull align 8 dereferenceable(8) %14)
   %52 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %53 = load i8, ptr %52, align 8
   %54 = trunc i8 %53 to i1
@@ -1569,7 +1569,7 @@ _ZNKSt14default_deleteIN4llvm3pdb7PDBFileEEclEPS2_.exit.i.i: ; preds = %64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   store ptr null, ptr %15, align 8
-  call fastcc void @_ZL11loadPdbFileN4llvm9StringRefERSt10unique_ptrINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS4_EE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr %29, i64 %30, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  call fastcc void @_ZL11loadPdbFileN4llvm9StringRefERSt10unique_ptrINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS4_EE(ptr dead_on_unwind noalias writable align 8 %17, ptr %29, i64 %30, ptr noundef nonnull align 8 dereferenceable(8) %14)
   %74 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %75 = load i8, ptr %74, align 8
   %76 = trunc i8 %75 to i1

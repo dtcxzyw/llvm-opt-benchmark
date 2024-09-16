@@ -2449,7 +2449,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @send_tree(ptr noundef %s, ptr nocapture noundef readonly %tree, i32 noundef %max_code) unnamed_addr #5 {
+define internal fastcc void @send_tree(ptr noundef %s, ptr nocapture noundef readonly %tree, i32 noundef range(i32 -2147483648, 2147483647) %max_code) unnamed_addr #5 {
 entry:
   %cmp2.not206 = icmp slt i32 %max_code, 0
   br i1 %cmp2.not206, label %for.end, label %for.body.lr.ph
@@ -2472,8 +2472,8 @@ for.body.lr.ph:                                   ; preds = %entry
   %dl389 = getelementptr inbounds i8, ptr %s, i64 2822
   %arrayidx269 = getelementptr inbounds i8, ptr %s, i64 2816
   %dl270 = getelementptr inbounds i8, ptr %s, i64 2818
-  %1 = add nuw i32 %max_code, 1
-  %wide.trip.count = zext i32 %1 to i64
+  %1 = add nuw nsw i32 %max_code, 1
+  %wide.trip.count = zext nneg i32 %1 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc

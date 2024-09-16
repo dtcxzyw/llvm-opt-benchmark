@@ -349,7 +349,7 @@ declare noundef ptr @_ZN7testing8UnitTest11GetInstanceEv() local_unnamed_addr #0
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8UnitTest27parameterized_test_registryEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN7testing8internal29ParameterizedTestCaseRegistry24GetTestCasePatternHolderIN12_GLOBAL__N_113IdenticalTestEEEPNS0_25ParameterizedTestCaseInfoIT_EEPKcSA_i(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %line) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7testing8internal29ParameterizedTestCaseRegistry24GetTestCasePatternHolderIN12_GLOBAL__N_113IdenticalTestEEEPNS0_25ParameterizedTestCaseInfoIT_EEPKcSA_i(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef range(i32 46, 191) %line) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
   %0 = load ptr, ptr %this, align 8
@@ -674,7 +674,7 @@ _ZN7testing8ValuesInIN12_GLOBAL__N_111PatternInfoELm14EEENS_8internal14ParamGene
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_113IdenticalTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseINS2_11PatternInfoEEE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef readonly %test_base_name, ptr noundef %meta_factory) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_113IdenticalTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseINS2_11PatternInfoEEE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef readonly %test_base_name, ptr noundef nonnull %meta_factory) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i10.i = alloca i64, align 8
   %ref.tmp = alloca %"class.testing::internal::linked_ptr.13", align 8
@@ -14024,7 +14024,7 @@ invoke.cont:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN12_GLOBAL__N_111PatternInfoEEvT_S3_(ptr noundef readonly %__first, ptr noundef readnone %__last) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN12_GLOBAL__N_111PatternInfoEEvT_S3_(ptr noundef nonnull readonly %__first, ptr noundef nonnull readnone %__last) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not3.i = icmp eq ptr %__first, %__last
   br i1 %cmp.not3.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN12_GLOBAL__N_111PatternInfoEEEvT_S5_.exit, label %for.body.i

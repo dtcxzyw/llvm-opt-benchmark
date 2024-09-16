@@ -785,7 +785,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_xtp_aseg(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -28, 49) i32 @dissect_xtp_aseg(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 32, 65) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2) #5
   %6 = load i32, ptr @ett_xtp_aseg, align 4
@@ -894,7 +894,7 @@ define internal fastcc i32 @dissect_xtp_aseg(ptr noundef %0, ptr noundef %1, i32
 
 64:                                               ; preds = %37, %43, %38
   %.085 = phi i32 [ %28, %37 ], [ %61, %43 ], [ %42, %38 ]
-  %65 = sub i32 %.085, %2
+  %65 = sub nsw i32 %.085, %2
   br label %.thread
 
 .thread:                                          ; preds = %30, %32, %35, %36, %64, %9
@@ -903,7 +903,7 @@ define internal fastcc i32 @dissect_xtp_aseg(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_xtp_tspec(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_xtp_tspec(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 48, 81) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2) #5
   %6 = load i32, ptr @ett_xtp_tspec, align 4

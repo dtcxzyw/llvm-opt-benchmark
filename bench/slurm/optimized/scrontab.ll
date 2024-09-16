@@ -374,7 +374,7 @@ _handle_first_form.exit:                          ; preds = %87, %79, %73
 
 105:                                              ; preds = %100, %100
   %106 = load ptr, ptr %16, align 8
-  call fastcc void @_update_crontab_with_disabled_lines(ptr noundef nonnull %15, ptr noundef %106, ptr noundef nonnull @.str.5)
+  call fastcc void @_update_crontab_with_disabled_lines(ptr noundef %15, ptr noundef %106, ptr noundef nonnull @.str.5)
   call void @slurm_xfree(ptr noundef nonnull %16) #17
   %.b916.pr = load i1, ptr @list_only, align 1
   br i1 %.b916.pr, label %107, label %.thread
@@ -436,7 +436,7 @@ _handle_first_form.exit:                          ; preds = %87, %79, %73
   %126 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %123) #21
   %127 = trunc i64 %126 to i32
   %128 = call i32 @hash_g_compute(ptr noundef nonnull %123, i32 noundef %127, ptr noundef null, i32 noundef 0, ptr noundef nonnull %9) #17
-  call fastcc void @_edit_crontab(ptr noundef nonnull %4)
+  call fastcc void @_edit_crontab(ptr noundef %4)
   %129 = load ptr, ptr %4, align 8
   %130 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %129) #21
   %131 = trunc i64 %130 to i32
@@ -467,7 +467,7 @@ _handle_first_form.exit:                          ; preds = %87, %79, %73
   br i1 %.b106107.i, label %142, label %143
 
 142:                                              ; preds = %141
-  call fastcc void @_edit_crontab(ptr noundef nonnull %4)
+  call fastcc void @_edit_crontab(ptr noundef %4)
   br label %143
 
 143:                                              ; preds = %142, %141, %134, %125
@@ -779,7 +779,7 @@ _entry_to_job.exit.i:                             ; preds = %229, %226
 
 257:                                              ; preds = %.critedge3.i
   %258 = load ptr, ptr %6, align 8
-  call fastcc void @_update_crontab_with_disabled_lines(ptr noundef nonnull %4, ptr noundef %258, ptr noundef nonnull @.str.27)
+  call fastcc void @_update_crontab_with_disabled_lines(ptr noundef %4, ptr noundef %258, ptr noundef nonnull @.str.27)
   call void @slurm_xfree(ptr noundef nonnull %6) #17
   br label %.backedge133.i
 
@@ -861,7 +861,7 @@ _entry_to_job.exit.i:                             ; preds = %229, %226
 
 291:                                              ; preds = %.critedge5.i
   %292 = load ptr, ptr %278, align 8
-  call fastcc void @_update_crontab_with_disabled_lines(ptr noundef nonnull %4, ptr noundef %292, ptr noundef nonnull @.str.27)
+  call fastcc void @_update_crontab_with_disabled_lines(ptr noundef %4, ptr noundef %292, ptr noundef nonnull @.str.27)
   call void @slurm_free_crontab_update_response_msg(ptr noundef nonnull %263) #17
   br label %.backedge133.i
 
@@ -941,7 +941,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #4
 declare i32 @slurm_request_crontab(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_update_crontab_with_disabled_lines(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @_update_crontab_with_disabled_lines(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -1060,7 +1060,7 @@ declare void @suggest_completion(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_read_fd(i32 noundef %0) unnamed_addr #1 {
+define internal fastcc ptr @_read_fd(i32 noundef range(i32 0, -2147483648) %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4096, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, i32 noundef 221, ptr noundef nonnull @__func__._read_fd) #17
   store ptr %3, ptr %2, align 8
@@ -1137,7 +1137,7 @@ declare i32 @hash_g_compute(ptr noundef, i32 noundef, ptr noundef, i32 noundef, 
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_edit_crontab(ptr noundef %0) unnamed_addr #1 {
+define internal fastcc void @_edit_crontab(ptr noundef nonnull %0) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca [3 x ptr], align 16

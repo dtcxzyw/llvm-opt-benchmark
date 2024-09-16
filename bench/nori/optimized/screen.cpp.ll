@@ -1390,7 +1390,7 @@ define internal void @_ZL17glnvg__renderFillPvP8NVGpaint26NVGcompositeOperationS
   br i1 %39, label %40, label %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
 
 40:                                               ; preds = %26
-  %41 = tail call noundef i32 @llvm.smax.i32(i32 %36, i32 128)
+  %41 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %36, i32 128)
   %42 = sdiv i32 %38, 2
   %43 = add nsw i32 %41, %42
   %44 = getelementptr inbounds i8, ptr %0, i64 88
@@ -1480,7 +1480,7 @@ _ZL19glnvg__maxVertCountPK7NVGpathi.exit:         ; preds = %.lr.ph.i, %68
   br i1 %84, label %85, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
 
 85:                                               ; preds = %_ZL19glnvg__maxVertCountPK7NVGpathi.exit
-  %86 = tail call noundef i32 @llvm.smax.i32(i32 %81, i32 4096)
+  %86 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %81, i32 4096)
   %87 = sdiv i32 %83, 2
   %88 = add nsw i32 %86, %87
   %89 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1645,7 +1645,7 @@ _ZL17glnvg__allocVertsP12GLNVGcontexti.exit:      ; preds = %_ZL19glnvg__maxVert
   br i1 %183, label %184, label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
 
 184:                                              ; preds = %144
-  %185 = tail call noundef i32 @llvm.smax.i32(i32 %180, i32 128)
+  %185 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %180, i32 128)
   %186 = sdiv i32 %182, 2
   %187 = add nsw i32 %185, %186
   %188 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1704,7 +1704,7 @@ _ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit: ; preds = %144, %194
   br i1 %.not131, label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit125, label %218
 
 218:                                              ; preds = %210
-  %219 = tail call noundef i32 @llvm.smax.i32(i32 %215, i32 128)
+  %219 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %215, i32 128)
   %220 = sdiv i32 %217, 2
   %221 = add nsw i32 %219, %220
   %222 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1812,7 +1812,7 @@ define internal void @_ZL19glnvg__renderStrokePvP8NVGpaint26NVGcompositeOperatio
   br i1 %38, label %39, label %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
 
 39:                                               ; preds = %26
-  %40 = tail call noundef i32 @llvm.smax.i32(i32 %35, i32 128)
+  %40 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %35, i32 128)
   %41 = sdiv i32 %37, 2
   %42 = add nsw i32 %40, %41
   %43 = getelementptr inbounds i8, ptr %0, i64 88
@@ -1885,7 +1885,7 @@ _ZL19glnvg__maxVertCountPK7NVGpathi.exit:         ; preds = %.lr.ph.i, %53
   br i1 %75, label %76, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
 
 76:                                               ; preds = %_ZL19glnvg__maxVertCountPK7NVGpathi.exit
-  %77 = tail call noundef i32 @llvm.smax.i32(i32 %72, i32 4096)
+  %77 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %72, i32 4096)
   %78 = sdiv i32 %74, 2
   %79 = add nsw i32 %77, %78
   %80 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1978,7 +1978,7 @@ _ZL17glnvg__allocVertsP12GLNVGcontexti.exit:      ; preds = %_ZL19glnvg__maxVert
   br i1 %126, label %127, label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
 
 127:                                              ; preds = %124
-  %128 = tail call noundef i32 @llvm.smax.i32(i32 %125, i32 128)
+  %128 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %125, i32 128)
   %129 = sdiv i32 %123, 2
   %130 = add nsw i32 %128, %129
   %131 = getelementptr inbounds i8, ptr %0, i64 120
@@ -2027,7 +2027,7 @@ _ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit: ; preds = %124, %137
   br i1 %.not101, label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit95, label %153
 
 153:                                              ; preds = %151
-  %154 = tail call noundef i32 @llvm.smax.i32(i32 %152, i32 128)
+  %154 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %152, i32 128)
   %155 = sdiv i32 %123, 2
   %156 = add nsw i32 %154, %155
   %157 = getelementptr inbounds i8, ptr %0, i64 120
@@ -2146,7 +2146,7 @@ define internal void @_ZL22glnvg__renderTrianglesPvP8NVGpaint26NVGcompositeOpera
   br i1 %43, label %44, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
 
 44:                                               ; preds = %24
-  %45 = tail call noundef i32 @llvm.smax.i32(i32 %40, i32 4096)
+  %45 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %40, i32 4096)
   %46 = sdiv i32 %42, 2
   %47 = add nsw i32 %45, %46
   %48 = getelementptr inbounds i8, ptr %0, i64 104
@@ -2194,7 +2194,7 @@ _ZL17glnvg__allocVertsP12GLNVGcontexti.exit:      ; preds = %24, %54
   br i1 %.not, label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit, label %73
 
 73:                                               ; preds = %58
-  %74 = tail call noundef i32 @llvm.smax.i32(i32 %70, i32 128)
+  %74 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %70, i32 128)
   %75 = sdiv i32 %72, 2
   %76 = add nsw i32 %74, %75
   %77 = getelementptr inbounds i8, ptr %0, i64 120

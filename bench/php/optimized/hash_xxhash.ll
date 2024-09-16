@@ -2053,7 +2053,7 @@ XXH3_accumulate.exit132:                          ; preds = %XXH3_accumulate_512
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @XXH3_consumeStripes(ptr noalias nocapture noundef %0, ptr noalias nocapture noundef %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3, i64 noundef %4, ptr noalias nocapture noundef readonly %5, i64 noundef %6) unnamed_addr #10 {
+define internal fastcc void @XXH3_consumeStripes(ptr noalias nocapture noundef %0, ptr noalias nocapture noundef %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3, i64 noundef range(i64 0, 67108864) %4, ptr noalias nocapture noundef readonly %5, i64 noundef %6) unnamed_addr #10 {
   %8 = load i64, ptr %1, align 8
   %9 = sub i64 %2, %8
   %.not = icmp ugt i64 %9, %4
@@ -2233,7 +2233,7 @@ XXH3_accumulate_512_sse2.exit.i39:                ; preds = %62
   br i1 %exitcond.not.i.i46, label %XXH3_accumulate_512_sse2.exit.i47, label %89
 
 XXH3_accumulate_512_sse2.exit.i47:                ; preds = %89
-  %107 = add nuw i64 %.01.i44, 1
+  %107 = add nuw nsw i64 %.01.i44, 1
   %exitcond.not.i48 = icmp eq i64 %107, %4
   br i1 %exitcond.not.i48, label %XXH3_accumulate.exit49, label %.lr.ph.i43
 
@@ -2251,7 +2251,7 @@ XXH3_accumulate.exit41:                           ; preds = %XXH3_accumulate_512
 declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define internal fastcc i64 @XXH3_64bits_internal(ptr noalias nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3) unnamed_addr #12 {
+define internal fastcc i64 @XXH3_64bits_internal(ptr noalias nocapture noundef readonly %0, i64 noundef range(i64 0, 241) %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3) unnamed_addr #12 {
   %5 = icmp ult i64 %1, 17
   br i1 %5, label %6, label %110
 
@@ -2352,15 +2352,15 @@ define internal fastcc i64 @XXH3_64bits_internal(ptr noalias nocapture noundef r
   %77 = shl nuw nsw i64 %76, 16
   %78 = zext i8 %72 to i64
   %79 = shl nuw nsw i64 %78, 24
-  %80 = zext i8 %75 to i64
-  %81 = shl nuw nsw i64 %1, 8
-  %82 = xor i32 %.val23.i, %.val22.i
-  %83 = zext i32 %82 to i64
-  %84 = add i64 %2, %83
-  %85 = or disjoint i64 %77, %81
-  %86 = or disjoint i64 %85, %79
-  %87 = or disjoint i64 %86, %80
-  %88 = xor i64 %87, %84
+  %80 = or disjoint i64 %79, %77
+  %81 = zext i8 %75 to i64
+  %82 = or disjoint i64 %80, %81
+  %83 = shl nuw nsw i64 %1, 8
+  %84 = or disjoint i64 %82, %83
+  %85 = xor i32 %.val23.i, %.val22.i
+  %86 = zext i32 %85 to i64
+  %87 = add i64 %2, %86
+  %88 = xor i64 %84, %87
   %89 = lshr i64 %88, 33
   %90 = xor i64 %89, %88
   %91 = mul i64 %90, -4417276706812531889
@@ -2614,85 +2614,84 @@ XXH3_len_17to128_64b.exit:                        ; preds = %113, %183
   br i1 %exitcond.not.i, label %267, label %250
 
 267:                                              ; preds = %250
-  %268 = lshr i64 %266, 37
-  %269 = xor i64 %268, %266
-  %270 = mul i64 %269, 1609587791953885689
-  %271 = lshr i64 %270, 32
-  %272 = xor i64 %271, %270
-  %273 = icmp ugt i64 %1, 143
-  br i1 %273, label %.lr.ph.preheader.i, label %XXH3_len_129to240_64b.exit
+  %268 = trunc nuw nsw i64 %1 to i32
+  %269 = lshr i32 %268, 4
+  %270 = lshr i64 %266, 37
+  %271 = xor i64 %270, %266
+  %272 = mul i64 %271, 1609587791953885689
+  %273 = lshr i64 %272, 32
+  %274 = xor i64 %273, %272
+  %.not.i27 = icmp eq i32 %269, 8
+  br i1 %.not.i27, label %XXH3_len_129to240_64b.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %267
-  %274 = trunc i64 %1 to i32
-  %275 = lshr i32 %274, 4
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %275, i32 9)
-  %wide.trip.count.i = zext nneg i32 %umax.i to i64
+  %wide.trip.count.i = zext nneg i32 %269 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv44.i = phi i64 [ 8, %.lr.ph.preheader.i ], [ %indvars.iv.next45.i, %.lr.ph.i ]
-  %.12640.i = phi i64 [ %272, %.lr.ph.preheader.i ], [ %292, %.lr.ph.i ]
-  %276 = shl nsw i64 %indvars.iv44.i, 4
-  %277 = getelementptr inbounds i8, ptr %0, i64 %276
-  %278 = getelementptr i8, ptr %3, i64 %276
-  %279 = getelementptr i8, ptr %278, i64 -125
-  %.val30.i = load i64, ptr %277, align 1, !alias.scope !212, !noalias !215
-  %280 = getelementptr i8, ptr %277, i64 8
-  %.val31.i = load i64, ptr %280, align 1, !alias.scope !212, !noalias !215
-  %.val32.i = load i64, ptr %279, align 1, !alias.scope !215, !noalias !212
-  %281 = getelementptr i8, ptr %278, i64 -117
-  %.val33.i = load i64, ptr %281, align 1, !alias.scope !215, !noalias !212
-  %282 = add i64 %.val32.i, %2
-  %283 = xor i64 %282, %.val30.i
-  %284 = sub i64 %.val33.i, %2
-  %285 = xor i64 %284, %.val31.i
-  %286 = zext i64 %283 to i128
-  %287 = zext i64 %285 to i128
-  %288 = mul nuw i128 %287, %286
-  %289 = lshr i128 %288, 64
-  %290 = xor i128 %289, %288
-  %291 = trunc i128 %290 to i64
-  %292 = add i64 %.12640.i, %291
+  %.12640.i = phi i64 [ %274, %.lr.ph.preheader.i ], [ %291, %.lr.ph.i ]
+  %275 = shl nsw i64 %indvars.iv44.i, 4
+  %276 = getelementptr inbounds i8, ptr %0, i64 %275
+  %277 = getelementptr i8, ptr %3, i64 %275
+  %278 = getelementptr i8, ptr %277, i64 -125
+  %.val30.i = load i64, ptr %276, align 1, !alias.scope !212, !noalias !215
+  %279 = getelementptr i8, ptr %276, i64 8
+  %.val31.i = load i64, ptr %279, align 1, !alias.scope !212, !noalias !215
+  %.val32.i = load i64, ptr %278, align 1, !alias.scope !215, !noalias !212
+  %280 = getelementptr i8, ptr %277, i64 -117
+  %.val33.i = load i64, ptr %280, align 1, !alias.scope !215, !noalias !212
+  %281 = add i64 %.val32.i, %2
+  %282 = xor i64 %281, %.val30.i
+  %283 = sub i64 %.val33.i, %2
+  %284 = xor i64 %283, %.val31.i
+  %285 = zext i64 %282 to i128
+  %286 = zext i64 %284 to i128
+  %287 = mul nuw i128 %286, %285
+  %288 = lshr i128 %287, 64
+  %289 = xor i128 %288, %287
+  %290 = trunc i128 %289 to i64
+  %291 = add i64 %.12640.i, %290
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count.i
   br i1 %exitcond47.not.i, label %XXH3_len_129to240_64b.exit, label %.lr.ph.i
 
 XXH3_len_129to240_64b.exit:                       ; preds = %.lr.ph.i, %267
-  %.126.lcssa.i = phi i64 [ %272, %267 ], [ %292, %.lr.ph.i ]
-  %293 = getelementptr inbounds i8, ptr %0, i64 %1
-  %294 = getelementptr inbounds i8, ptr %293, i64 -16
-  %295 = getelementptr inbounds i8, ptr %3, i64 119
-  %.val34.i = load i64, ptr %294, align 1, !alias.scope !212, !noalias !215
-  %296 = getelementptr i8, ptr %293, i64 -8
-  %.val35.i = load i64, ptr %296, align 1, !alias.scope !212, !noalias !215
-  %.val36.i = load i64, ptr %295, align 1, !alias.scope !215, !noalias !212
-  %297 = getelementptr i8, ptr %3, i64 127
-  %.val37.i = load i64, ptr %297, align 1, !alias.scope !215, !noalias !212
-  %298 = add i64 %.val36.i, %2
-  %299 = xor i64 %298, %.val34.i
-  %300 = sub i64 %.val37.i, %2
-  %301 = xor i64 %300, %.val35.i
-  %302 = zext i64 %299 to i128
-  %303 = zext i64 %301 to i128
-  %304 = mul nuw i128 %303, %302
-  %305 = lshr i128 %304, 64
-  %306 = xor i128 %305, %304
-  %307 = trunc i128 %306 to i64
-  %308 = add i64 %.126.lcssa.i, %307
-  %309 = lshr i64 %308, 37
-  %310 = xor i64 %309, %308
-  %311 = mul i64 %310, 1609587791953885689
-  %312 = lshr i64 %311, 32
-  %313 = xor i64 %312, %311
+  %.126.lcssa.i = phi i64 [ %274, %267 ], [ %291, %.lr.ph.i ]
+  %292 = getelementptr inbounds i8, ptr %0, i64 %1
+  %293 = getelementptr inbounds i8, ptr %292, i64 -16
+  %294 = getelementptr inbounds i8, ptr %3, i64 119
+  %.val34.i = load i64, ptr %293, align 1, !alias.scope !212, !noalias !215
+  %295 = getelementptr i8, ptr %292, i64 -8
+  %.val35.i = load i64, ptr %295, align 1, !alias.scope !212, !noalias !215
+  %.val36.i = load i64, ptr %294, align 1, !alias.scope !215, !noalias !212
+  %296 = getelementptr i8, ptr %3, i64 127
+  %.val37.i = load i64, ptr %296, align 1, !alias.scope !215, !noalias !212
+  %297 = add i64 %.val36.i, %2
+  %298 = xor i64 %297, %.val34.i
+  %299 = sub i64 %.val37.i, %2
+  %300 = xor i64 %299, %.val35.i
+  %301 = zext i64 %298 to i128
+  %302 = zext i64 %300 to i128
+  %303 = mul nuw i128 %302, %301
+  %304 = lshr i128 %303, 64
+  %305 = xor i128 %304, %303
+  %306 = trunc i128 %305 to i64
+  %307 = add i64 %.126.lcssa.i, %306
+  %308 = lshr i64 %307, 37
+  %309 = xor i64 %308, %307
+  %310 = mul i64 %309, 1609587791953885689
+  %311 = lshr i64 %310, 32
+  %312 = xor i64 %311, %310
   br label %XXH3_len_0to16_64b.exit
 
 XXH3_len_0to16_64b.exit:                          ; preds = %97, %67, %38, %8, %XXH3_len_129to240_64b.exit, %XXH3_len_17to128_64b.exit
-  %.0 = phi i64 [ %248, %XXH3_len_17to128_64b.exit ], [ %313, %XXH3_len_129to240_64b.exit ], [ %35, %8 ], [ %65, %38 ], [ %96, %67 ], [ %109, %97 ]
+  %.0 = phi i64 [ %248, %XXH3_len_17to128_64b.exit ], [ %312, %XXH3_len_129to240_64b.exit ], [ %35, %8 ], [ %65, %38 ], [ %96, %67 ], [ %109, %97 ]
   ret i64 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define internal fastcc { i64, i64 } @XXH3_128bits_internal(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3) unnamed_addr #12 {
+define internal fastcc { i64, i64 } @XXH3_128bits_internal(ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 241) %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3) unnamed_addr #12 {
   %5 = icmp ult i64 %1, 17
   br i1 %5, label %6, label %163
 
@@ -2814,12 +2813,12 @@ define internal fastcc { i64, i64 } @XXH3_128bits_internal(ptr nocapture noundef
   %100 = shl nuw nsw i32 %99, 16
   %101 = zext i8 %95 to i32
   %102 = shl nuw i32 %101, 24
-  %103 = zext i8 %98 to i32
-  %104 = trunc nuw nsw i64 %1 to i32
-  %105 = shl nuw nsw i32 %104, 8
-  %106 = or disjoint i32 %100, %105
-  %107 = or disjoint i32 %106, %102
-  %108 = or disjoint i32 %107, %103
+  %103 = or disjoint i32 %102, %100
+  %104 = zext i8 %98 to i32
+  %105 = or disjoint i32 %103, %104
+  %106 = trunc nuw nsw i64 %1 to i32
+  %107 = shl nuw nsw i32 %106, 8
+  %108 = or disjoint i32 %105, %107
   %109 = tail call noundef i32 @llvm.bswap.i32(i32 %108)
   %110 = tail call i32 @llvm.fshl.i32(i32 %109, i32 %109, i32 13)
   %.val23.i.i = load i32, ptr %3, align 1
@@ -2836,7 +2835,7 @@ define internal fastcc { i64, i64 } @XXH3_128bits_internal(ptr nocapture noundef
   %118 = zext i32 %117 to i64
   %119 = sub i64 %118, %2
   %120 = zext i32 %108 to i64
-  %121 = zext i32 %110 to i64
+  %121 = zext nneg i32 %110 to i64
   %122 = lshr i64 %114, 33
   %123 = xor i64 %122, %120
   %124 = xor i64 %123, %114
@@ -2889,7 +2888,7 @@ XXH3_len_0to16_128b.exit:                         ; preds = %8, %53, %91, %138
   %.sroa.0.0.i = phi i64 [ %152, %138 ], [ %130, %91 ], [ %86, %53 ], [ %47, %8 ]
   %161 = lshr i64 %.sink35.i, 32
   %162 = xor i64 %161, %.sink35.i
-  br label %472
+  br label %471
 
 163:                                              ; preds = %4
   %164 = icmp ult i64 %1, 129
@@ -3113,7 +3112,7 @@ XXH3_len_17to128_128b.exit:                       ; preds = %166, %243
   %327 = lshr i64 %326, 32
   %328 = xor i64 %327, %326
   %329 = sub i64 0, %328
-  br label %472
+  br label %471
 
 330:                                              ; preds = %163
   tail call void @llvm.experimental.noalias.scope.decl(metadata !222)
@@ -3172,148 +3171,147 @@ XXH3_len_17to128_128b.exit:                       ; preds = %166, %243
   br i1 %exitcond.not.i, label %367, label %331
 
 367:                                              ; preds = %331
-  %368 = lshr i64 %351, 37
-  %369 = xor i64 %368, %351
-  %370 = mul i64 %369, 1609587791953885689
-  %371 = lshr i64 %370, 32
-  %372 = xor i64 %371, %370
-  %373 = lshr i64 %366, 37
-  %374 = xor i64 %373, %366
-  %375 = mul i64 %374, 1609587791953885689
-  %376 = lshr i64 %375, 32
-  %377 = xor i64 %376, %375
-  %378 = icmp ugt i64 %1, 159
-  br i1 %378, label %.lr.ph.i, label %XXH3_len_129to240_128b.exit
+  %368 = trunc nuw nsw i64 %1 to i32
+  %369 = lshr i32 %368, 5
+  %370 = lshr i64 %351, 37
+  %371 = xor i64 %370, %351
+  %372 = mul i64 %371, 1609587791953885689
+  %373 = lshr i64 %372, 32
+  %374 = xor i64 %373, %372
+  %375 = lshr i64 %366, 37
+  %376 = xor i64 %375, %366
+  %377 = mul i64 %376, 1609587791953885689
+  %378 = lshr i64 %377, 32
+  %379 = xor i64 %378, %377
+  %.not.i36 = icmp eq i32 %369, 4
+  br i1 %.not.i36, label %XXH3_len_129to240_128b.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %367
-  %379 = trunc i64 %1 to i32
-  %380 = lshr i32 %379, 5
-  %381 = getelementptr inbounds i8, ptr %3, i64 3
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %380, i32 5)
-  %wide.trip.count.i = zext nneg i32 %umax.i to i64
-  br label %382
+  %380 = getelementptr inbounds i8, ptr %3, i64 3
+  %wide.trip.count.i = zext nneg i32 %369 to i64
+  br label %381
 
-382:                                              ; preds = %382, %.lr.ph.i
-  %indvars.iv80.i = phi i64 [ 4, %.lr.ph.i ], [ %indvars.iv.next81.i, %382 ]
-  %.sroa.11.174.i = phi i64 [ %377, %.lr.ph.i ], [ %418, %382 ]
-  %.sroa.015.173.i = phi i64 [ %372, %.lr.ph.i ], [ %403, %382 ]
-  %383 = shl nsw i64 %indvars.iv80.i, 5
-  %384 = getelementptr inbounds i8, ptr %0, i64 %383
-  %385 = getelementptr inbounds i8, ptr %384, i64 16
-  %386 = getelementptr i8, ptr %381, i64 %383
-  %387 = getelementptr i8, ptr %386, i64 -128
-  %.val49.i42 = load i64, ptr %384, align 1, !alias.scope !222, !noalias !225
-  %388 = getelementptr i8, ptr %384, i64 8
-  %.val50.i43 = load i64, ptr %388, align 1, !alias.scope !222, !noalias !225
-  %.val51.i44 = load i64, ptr %385, align 1, !alias.scope !222, !noalias !225
-  %389 = getelementptr i8, ptr %384, i64 24
-  %.val52.i45 = load i64, ptr %389, align 1, !alias.scope !222, !noalias !225
-  %.val21.i57.i = load i64, ptr %387, align 1, !alias.scope !225, !noalias !222
-  %390 = getelementptr i8, ptr %386, i64 -120
-  %.val22.i58.i = load i64, ptr %390, align 1, !alias.scope !225, !noalias !222
-  %391 = add i64 %.val21.i57.i, %2
-  %392 = xor i64 %391, %.val49.i42
-  %393 = sub i64 %.val22.i58.i, %2
-  %394 = xor i64 %393, %.val50.i43
-  %395 = zext i64 %392 to i128
-  %396 = zext i64 %394 to i128
-  %397 = mul nuw i128 %396, %395
-  %398 = lshr i128 %397, 64
-  %399 = xor i128 %398, %397
-  %400 = trunc i128 %399 to i64
-  %401 = add i64 %.sroa.015.173.i, %400
-  %402 = add i64 %.val52.i45, %.val51.i44
-  %403 = xor i64 %401, %402
-  %404 = getelementptr i8, ptr %386, i64 -112
-  %.val17.i59.i = load i64, ptr %404, align 1, !alias.scope !225, !noalias !222
-  %405 = getelementptr i8, ptr %386, i64 -104
-  %.val18.i60.i = load i64, ptr %405, align 1, !alias.scope !225, !noalias !222
-  %406 = add i64 %.val17.i59.i, %2
-  %407 = xor i64 %406, %.val51.i44
-  %408 = sub i64 %.val18.i60.i, %2
-  %409 = xor i64 %408, %.val52.i45
-  %410 = zext i64 %407 to i128
-  %411 = zext i64 %409 to i128
-  %412 = mul nuw i128 %411, %410
-  %413 = lshr i128 %412, 64
-  %414 = xor i128 %413, %412
-  %415 = trunc i128 %414 to i64
-  %416 = add i64 %.sroa.11.174.i, %415
-  %417 = add i64 %.val50.i43, %.val49.i42
-  %418 = xor i64 %416, %417
+381:                                              ; preds = %381, %.lr.ph.i
+  %indvars.iv80.i = phi i64 [ 4, %.lr.ph.i ], [ %indvars.iv.next81.i, %381 ]
+  %.sroa.11.174.i = phi i64 [ %379, %.lr.ph.i ], [ %417, %381 ]
+  %.sroa.015.173.i = phi i64 [ %374, %.lr.ph.i ], [ %402, %381 ]
+  %382 = shl nsw i64 %indvars.iv80.i, 5
+  %383 = getelementptr inbounds i8, ptr %0, i64 %382
+  %384 = getelementptr inbounds i8, ptr %383, i64 16
+  %385 = getelementptr i8, ptr %380, i64 %382
+  %386 = getelementptr i8, ptr %385, i64 -128
+  %.val49.i37 = load i64, ptr %383, align 1, !alias.scope !222, !noalias !225
+  %387 = getelementptr i8, ptr %383, i64 8
+  %.val50.i38 = load i64, ptr %387, align 1, !alias.scope !222, !noalias !225
+  %.val51.i39 = load i64, ptr %384, align 1, !alias.scope !222, !noalias !225
+  %388 = getelementptr i8, ptr %383, i64 24
+  %.val52.i40 = load i64, ptr %388, align 1, !alias.scope !222, !noalias !225
+  %.val21.i57.i = load i64, ptr %386, align 1, !alias.scope !225, !noalias !222
+  %389 = getelementptr i8, ptr %385, i64 -120
+  %.val22.i58.i = load i64, ptr %389, align 1, !alias.scope !225, !noalias !222
+  %390 = add i64 %.val21.i57.i, %2
+  %391 = xor i64 %390, %.val49.i37
+  %392 = sub i64 %.val22.i58.i, %2
+  %393 = xor i64 %392, %.val50.i38
+  %394 = zext i64 %391 to i128
+  %395 = zext i64 %393 to i128
+  %396 = mul nuw i128 %395, %394
+  %397 = lshr i128 %396, 64
+  %398 = xor i128 %397, %396
+  %399 = trunc i128 %398 to i64
+  %400 = add i64 %.sroa.015.173.i, %399
+  %401 = add i64 %.val52.i40, %.val51.i39
+  %402 = xor i64 %400, %401
+  %403 = getelementptr i8, ptr %385, i64 -112
+  %.val17.i59.i = load i64, ptr %403, align 1, !alias.scope !225, !noalias !222
+  %404 = getelementptr i8, ptr %385, i64 -104
+  %.val18.i60.i = load i64, ptr %404, align 1, !alias.scope !225, !noalias !222
+  %405 = add i64 %.val17.i59.i, %2
+  %406 = xor i64 %405, %.val51.i39
+  %407 = sub i64 %.val18.i60.i, %2
+  %408 = xor i64 %407, %.val52.i40
+  %409 = zext i64 %406 to i128
+  %410 = zext i64 %408 to i128
+  %411 = mul nuw i128 %410, %409
+  %412 = lshr i128 %411, 64
+  %413 = xor i128 %412, %411
+  %414 = trunc i128 %413 to i64
+  %415 = add i64 %.sroa.11.174.i, %414
+  %416 = add i64 %.val50.i38, %.val49.i37
+  %417 = xor i64 %415, %416
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond83.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count.i
-  br i1 %exitcond83.not.i, label %XXH3_len_129to240_128b.exit, label %382
+  br i1 %exitcond83.not.i, label %XXH3_len_129to240_128b.exit, label %381
 
-XXH3_len_129to240_128b.exit:                      ; preds = %382, %367
-  %.sroa.015.1.lcssa.i = phi i64 [ %372, %367 ], [ %403, %382 ]
-  %.sroa.11.1.lcssa.i = phi i64 [ %377, %367 ], [ %418, %382 ]
-  %419 = getelementptr inbounds i8, ptr %0, i64 %1
-  %420 = getelementptr inbounds i8, ptr %419, i64 -16
-  %421 = getelementptr inbounds i8, ptr %419, i64 -32
-  %422 = getelementptr inbounds i8, ptr %3, i64 103
-  %.val53.i36 = load i64, ptr %420, align 1, !alias.scope !222, !noalias !225
-  %423 = getelementptr i8, ptr %419, i64 -8
-  %.val54.i37 = load i64, ptr %423, align 1, !alias.scope !222, !noalias !225
-  %.val55.i38 = load i64, ptr %421, align 1, !alias.scope !222, !noalias !225
-  %424 = getelementptr i8, ptr %419, i64 -24
-  %.val56.i39 = load i64, ptr %424, align 1, !alias.scope !222, !noalias !225
-  %.val21.i63.i = load i64, ptr %422, align 1, !alias.scope !225, !noalias !222
-  %425 = getelementptr i8, ptr %3, i64 111
-  %.val22.i64.i = load i64, ptr %425, align 1, !alias.scope !225, !noalias !222
-  %426 = sub i64 %.val21.i63.i, %2
-  %427 = xor i64 %426, %.val53.i36
-  %428 = add i64 %.val22.i64.i, %2
-  %429 = xor i64 %428, %.val54.i37
-  %430 = zext i64 %427 to i128
-  %431 = zext i64 %429 to i128
-  %432 = mul nuw i128 %431, %430
-  %433 = lshr i128 %432, 64
-  %434 = xor i128 %433, %432
-  %435 = trunc i128 %434 to i64
-  %436 = add i64 %.sroa.015.1.lcssa.i, %435
-  %437 = add i64 %.val56.i39, %.val55.i38
-  %438 = xor i64 %436, %437
-  %439 = getelementptr inbounds i8, ptr %3, i64 119
-  %.val17.i65.i = load i64, ptr %439, align 1, !alias.scope !225, !noalias !222
-  %440 = getelementptr i8, ptr %3, i64 127
-  %.val18.i66.i = load i64, ptr %440, align 1, !alias.scope !225, !noalias !222
-  %441 = sub i64 %.val17.i65.i, %2
-  %442 = xor i64 %441, %.val55.i38
-  %443 = add i64 %.val18.i66.i, %2
-  %444 = xor i64 %443, %.val56.i39
-  %445 = zext i64 %442 to i128
-  %446 = zext i64 %444 to i128
-  %447 = mul nuw i128 %446, %445
-  %448 = lshr i128 %447, 64
-  %449 = xor i128 %448, %447
-  %450 = trunc i128 %449 to i64
-  %451 = add i64 %.sroa.11.1.lcssa.i, %450
-  %452 = add i64 %.val54.i37, %.val53.i36
-  %453 = xor i64 %451, %452
-  %454 = add i64 %453, %438
-  %455 = mul i64 %438, -7046029288634856825
-  %456 = mul i64 %453, -8796714831421723037
-  %457 = sub i64 %1, %2
-  %458 = mul i64 %457, -4417276706812531889
-  %459 = add i64 %455, %458
-  %460 = add i64 %459, %456
-  %461 = lshr i64 %454, 37
-  %462 = xor i64 %461, %454
-  %463 = mul i64 %462, 1609587791953885689
-  %464 = lshr i64 %463, 32
-  %465 = xor i64 %464, %463
-  %466 = lshr i64 %460, 37
-  %467 = xor i64 %466, %460
-  %468 = mul i64 %467, 1609587791953885689
-  %469 = lshr i64 %468, 32
-  %470 = xor i64 %469, %468
-  %471 = sub i64 0, %470
-  br label %472
+XXH3_len_129to240_128b.exit:                      ; preds = %381, %367
+  %.sroa.015.1.lcssa.i = phi i64 [ %374, %367 ], [ %402, %381 ]
+  %.sroa.11.1.lcssa.i = phi i64 [ %379, %367 ], [ %417, %381 ]
+  %418 = getelementptr inbounds i8, ptr %0, i64 %1
+  %419 = getelementptr inbounds i8, ptr %418, i64 -16
+  %420 = getelementptr inbounds i8, ptr %418, i64 -32
+  %421 = getelementptr inbounds i8, ptr %3, i64 103
+  %.val53.i41 = load i64, ptr %419, align 1, !alias.scope !222, !noalias !225
+  %422 = getelementptr i8, ptr %418, i64 -8
+  %.val54.i42 = load i64, ptr %422, align 1, !alias.scope !222, !noalias !225
+  %.val55.i43 = load i64, ptr %420, align 1, !alias.scope !222, !noalias !225
+  %423 = getelementptr i8, ptr %418, i64 -24
+  %.val56.i44 = load i64, ptr %423, align 1, !alias.scope !222, !noalias !225
+  %.val21.i63.i = load i64, ptr %421, align 1, !alias.scope !225, !noalias !222
+  %424 = getelementptr i8, ptr %3, i64 111
+  %.val22.i64.i = load i64, ptr %424, align 1, !alias.scope !225, !noalias !222
+  %425 = sub i64 %.val21.i63.i, %2
+  %426 = xor i64 %425, %.val53.i41
+  %427 = add i64 %.val22.i64.i, %2
+  %428 = xor i64 %427, %.val54.i42
+  %429 = zext i64 %426 to i128
+  %430 = zext i64 %428 to i128
+  %431 = mul nuw i128 %430, %429
+  %432 = lshr i128 %431, 64
+  %433 = xor i128 %432, %431
+  %434 = trunc i128 %433 to i64
+  %435 = add i64 %.sroa.015.1.lcssa.i, %434
+  %436 = add i64 %.val56.i44, %.val55.i43
+  %437 = xor i64 %435, %436
+  %438 = getelementptr inbounds i8, ptr %3, i64 119
+  %.val17.i65.i = load i64, ptr %438, align 1, !alias.scope !225, !noalias !222
+  %439 = getelementptr i8, ptr %3, i64 127
+  %.val18.i66.i = load i64, ptr %439, align 1, !alias.scope !225, !noalias !222
+  %440 = sub i64 %.val17.i65.i, %2
+  %441 = xor i64 %440, %.val55.i43
+  %442 = add i64 %.val18.i66.i, %2
+  %443 = xor i64 %442, %.val56.i44
+  %444 = zext i64 %441 to i128
+  %445 = zext i64 %443 to i128
+  %446 = mul nuw i128 %445, %444
+  %447 = lshr i128 %446, 64
+  %448 = xor i128 %447, %446
+  %449 = trunc i128 %448 to i64
+  %450 = add i64 %.sroa.11.1.lcssa.i, %449
+  %451 = add i64 %.val54.i42, %.val53.i41
+  %452 = xor i64 %450, %451
+  %453 = add i64 %452, %437
+  %454 = mul i64 %437, -7046029288634856825
+  %455 = mul i64 %452, -8796714831421723037
+  %456 = sub i64 %1, %2
+  %457 = mul i64 %456, -4417276706812531889
+  %458 = add i64 %454, %457
+  %459 = add i64 %458, %455
+  %460 = lshr i64 %453, 37
+  %461 = xor i64 %460, %453
+  %462 = mul i64 %461, 1609587791953885689
+  %463 = lshr i64 %462, 32
+  %464 = xor i64 %463, %462
+  %465 = lshr i64 %459, 37
+  %466 = xor i64 %465, %459
+  %467 = mul i64 %466, 1609587791953885689
+  %468 = lshr i64 %467, 32
+  %469 = xor i64 %468, %467
+  %470 = sub i64 0, %469
+  br label %471
 
-472:                                              ; preds = %XXH3_len_129to240_128b.exit, %XXH3_len_17to128_128b.exit, %XXH3_len_0to16_128b.exit
-  %.sroa.0.0.i.pn = phi i64 [ %.sroa.0.0.i, %XXH3_len_0to16_128b.exit ], [ %323, %XXH3_len_17to128_128b.exit ], [ %465, %XXH3_len_129to240_128b.exit ]
-  %.pn1 = phi i64 [ %162, %XXH3_len_0to16_128b.exit ], [ %329, %XXH3_len_17to128_128b.exit ], [ %471, %XXH3_len_129to240_128b.exit ]
+471:                                              ; preds = %XXH3_len_129to240_128b.exit, %XXH3_len_17to128_128b.exit, %XXH3_len_0to16_128b.exit
+  %.sroa.0.0.i.pn = phi i64 [ %.sroa.0.0.i, %XXH3_len_0to16_128b.exit ], [ %323, %XXH3_len_17to128_128b.exit ], [ %464, %XXH3_len_129to240_128b.exit ]
+  %.pn1 = phi i64 [ %162, %XXH3_len_0to16_128b.exit ], [ %329, %XXH3_len_17to128_128b.exit ], [ %470, %XXH3_len_129to240_128b.exit ]
   %.fca.0.insert.i.pn = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i.pn, 0
   %.pn = insertvalue { i64, i64 } %.fca.0.insert.i.pn, i64 %.pn1, 1
   ret { i64, i64 } %.pn
@@ -3327,9 +3325,6 @@ declare i64 @llvm.bswap.i64(i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15

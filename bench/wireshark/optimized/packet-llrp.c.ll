@@ -3437,7 +3437,7 @@ define internal fastcc i32 @dissect_llrp_utf8_parameter(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_llrp_item_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_llrp_item_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 1, 5) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #3
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef 0) #3

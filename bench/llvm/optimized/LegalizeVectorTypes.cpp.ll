@@ -41868,7 +41868,7 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit:           ; preds = %85
   %98 = trunc i64 %.fca.0.extract258 to i32
   %.sroa.2247.0.copyload = load ptr, ptr %44, align 8
   %99 = trunc i64 %77 to i32
-  call fastcc void @_ZL11findMemTypeRN4llvm12SelectionDAGERKNS_14TargetLoweringEjNS_3EVTEjj(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(904) %96, ptr noundef nonnull align 8 dereferenceable(408123) %97, i32 noundef %98, i16 %.sroa.0245.0.copyload, ptr %.sroa.2247.0.copyload, i32 noundef %95, i32 noundef %99)
+  call fastcc void @_ZL11findMemTypeRN4llvm12SelectionDAGERKNS_14TargetLoweringEjNS_3EVTEjj(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(904) %96, ptr noundef nonnull align 8 dereferenceable(408123) %97, i32 noundef %98, i16 %.sroa.0245.0.copyload, ptr %.sroa.2247.0.copyload, i32 noundef %95, i32 noundef %99)
   %100 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %101 = load i8, ptr %100, align 8
   %102 = trunc i8 %101 to i1
@@ -41946,7 +41946,7 @@ _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownLTERKS3_S5_.exi
   %126 = trunc i64 %117 to i32
   %.sroa.0238.0.copyload = load i16, ptr %7, align 8
   %.sroa.2240.0.copyload = load ptr, ptr %44, align 8
-  call fastcc void @_ZL11findMemTypeRN4llvm12SelectionDAGERKNS_14TargetLoweringEjNS_3EVTEjj(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(904) %124, ptr noundef nonnull align 8 dereferenceable(408123) %125, i32 noundef %126, i16 %.sroa.0238.0.copyload, ptr %.sroa.2240.0.copyload, i32 noundef %95, i32 noundef %99)
+  call fastcc void @_ZL11findMemTypeRN4llvm12SelectionDAGERKNS_14TargetLoweringEjNS_3EVTEjj(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(904) %124, ptr noundef nonnull align 8 dereferenceable(408123) %125, i32 noundef %126, i16 %.sroa.0238.0.copyload, ptr %.sroa.2240.0.copyload, i32 noundef %95, i32 noundef %99)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   %127 = load i8, ptr %116, align 8
   %128 = trunc i8 %127 to i1
@@ -51276,7 +51276,7 @@ _ZNK4llvm3EVT18getFixedSizeInBitsEv.exit:         ; preds = %63, %67
   %78 = trunc i64 %.fca.0.extract107 to i32
   %.sroa.093.0.copyload324 = load i16, ptr %8, align 8
   %.sroa.295.0.copyload325 = load ptr, ptr %50, align 8
-  call fastcc void @_ZL11findMemTypeRN4llvm12SelectionDAGERKNS_14TargetLoweringEjNS_3EVTEjj(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(904) %76, ptr noundef nonnull align 8 dereferenceable(408123) %77, i32 noundef %78, i16 %.sroa.093.0.copyload324, ptr %.sroa.295.0.copyload325, i32 noundef 0, i32 noundef 0)
+  call fastcc void @_ZL11findMemTypeRN4llvm12SelectionDAGERKNS_14TargetLoweringEjNS_3EVTEjj(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(904) %76, ptr noundef nonnull align 8 dereferenceable(408123) %77, i32 noundef %78, i16 %.sroa.093.0.copyload324, ptr %.sroa.295.0.copyload325, i32 noundef 0, i32 noundef 0)
   %79 = load i8, ptr %74, align 8
   %80 = trunc i8 %79 to i1
   br i1 %80, label %.lr.ph328, label %.loopexit226
@@ -51404,7 +51404,7 @@ _ZN4llvm7detailsmIERNS_8TypeSizeERKS1_.exit.backedge: ; preds = %.lr.ph.split.sp
   %129 = trunc i64 %.lcssa229 to i32
   %.sroa.093.0.copyload = load i16, ptr %8, align 8
   %.sroa.295.0.copyload = load ptr, ptr %50, align 8
-  call fastcc void @_ZL11findMemTypeRN4llvm12SelectionDAGERKNS_14TargetLoweringEjNS_3EVTEjj(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(904) %127, ptr noundef nonnull align 8 dereferenceable(408123) %128, i32 noundef %129, i16 %.sroa.093.0.copyload, ptr %.sroa.295.0.copyload, i32 noundef 0, i32 noundef 0)
+  call fastcc void @_ZL11findMemTypeRN4llvm12SelectionDAGERKNS_14TargetLoweringEjNS_3EVTEjj(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(904) %127, ptr noundef nonnull align 8 dereferenceable(408123) %128, i32 noundef %129, i16 %.sroa.093.0.copyload, ptr %.sroa.295.0.copyload, i32 noundef 0, i32 noundef 0)
   %130 = load i8, ptr %74, align 8
   %131 = trunc i8 %130 to i1
   br i1 %131, label %.lr.ph328, label %.loopexit226, !llvm.loop !252
@@ -51672,7 +51672,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm11SmallVect
 declare { ptr, i32 } @_ZN4llvm12SelectionDAG17getNeutralElementEjRKNS_5SDLocENS_3EVTENS_11SDNodeFlagsE(ptr noundef nonnull align 8 dereferenceable(904), i32 noundef, ptr noundef nonnull align 8 dereferenceable(12), i16, ptr, i16) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11findMemTypeRN4llvm12SelectionDAGERKNS_14TargetLoweringEjNS_3EVTEjj(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(904) %1, ptr noundef nonnull align 8 dereferenceable(408123) %2, i32 noundef %3, i16 %4, ptr %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @_ZL11findMemTypeRN4llvm12SelectionDAGERKNS_14TargetLoweringEjNS_3EVTEjj(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(904) %1, ptr noundef nonnull align 8 dereferenceable(408123) %2, i32 noundef %3, i16 %4, ptr %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca %"struct.std::pair.349", align 8
   %10 = alloca %"struct.std::pair.349", align 8
   %11 = alloca %"struct.llvm::EVT", align 8
@@ -52035,7 +52035,7 @@ _ZNK4llvm3EVTeqES0_.exit.thread169:               ; preds = %137, %114, %135, %1
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, i32 } @_ZL21BuildVectorFromScalarRN4llvm12SelectionDAGENS_3EVTERNS_15SmallVectorImplINS_7SDValueEEEjj(ptr noundef nonnull align 8 dereferenceable(904) %0, i16 %1, ptr %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc { ptr, i32 } @_ZL21BuildVectorFromScalarRN4llvm12SelectionDAGENS_3EVTERNS_15SmallVectorImplINS_7SDValueEEEjj(ptr noundef nonnull align 8 dereferenceable(904) %0, i16 %1, ptr %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, i32 noundef range(i32 -2147483647, -2147483648) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca %"struct.llvm::EVT", align 8
   %8 = alloca %"class.llvm::SDLoc", align 8
   %9 = alloca %"struct.llvm::EVT", align 8

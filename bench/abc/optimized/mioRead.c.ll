@@ -204,7 +204,7 @@ declare void @st__free_table(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @Mio_LibraryReadOne(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @Mio_LibraryReadOne(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call ptr @Io_FileOpen(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 1) #17
   %6 = tail call i32 @fseek(ptr noundef %5, i64 noundef 0, i32 noundef 2)
   %7 = tail call i64 @ftell(ptr noundef %5)

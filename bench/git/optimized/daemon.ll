@@ -1082,12 +1082,12 @@ if.then10.i.i.i:                                  ; preds = %if.then17.i.i.i.i, 
   %host.1.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %if.then9.i.i.i.i ], [ %add.ptr4.i.i.i, %if.then17.i.i.i.i ]
   %port.0.i.i.i = phi ptr [ %add.ptr10.i.i.i.i, %if.then9.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %if.then17.i.i.i.i ]
   %tcp_port.i.i.i = getelementptr inbounds i8, ptr %hi.i, i64 72
-  call fastcc void @sanitize_client(ptr noundef nonnull %tcp_port.i.i.i, ptr noundef nonnull %port.0.i.i.i)
+  call fastcc void @sanitize_client(ptr noundef %tcp_port.i.i.i, ptr noundef nonnull %port.0.i.i.i)
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then10.i.i.i, %if.else14.i.i.i.i, %if.end.i.i.i.i
   %host.120.i.i.i = phi ptr [ %host.1.i.i.i, %if.then10.i.i.i ], [ %add.ptr.i.i.i.i, %if.end.i.i.i.i ], [ %add.ptr4.i.i.i, %if.else14.i.i.i.i ]
-  call fastcc void @sanitize_client(ptr noundef nonnull %hi.i, ptr noundef nonnull readonly %host.120.i.i.i)
+  call fastcc void @sanitize_client(ptr noundef %hi.i, ptr noundef nonnull readonly %host.120.i.i.i)
   call void @strbuf_tolower(ptr noundef nonnull %hi.i) #19
   %bf.load11.i.i.i = load i8, ptr %saw_extended_args.i.i.i, align 8
   %bf.clear12.i.i.i = and i8 %bf.load11.i.i.i, -2
@@ -1447,7 +1447,7 @@ do.cond.i74.i.i.i:                                ; preds = %do.body.i70.i.i.i
 
 if.then39.i.i.i:                                  ; preds = %do.body.i70.i.i.i
   store ptr %scevgep133.i.i.i, ptr %format.i.i.i, align 8
-  call fastcc void @lookup_hostname(ptr noundef nonnull %hi.i)
+  call fastcc void @lookup_hostname(ptr noundef %hi.i)
   %101 = load ptr, ptr %buf.i80.i.i.i, align 8
   %call.i.i.i49.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %101) #20
   call void @strbuf_add(ptr noundef nonnull %expanded_path.i.i.i, ptr noundef %101, i64 noundef %call.i.i.i49.i) #19
@@ -1470,7 +1470,7 @@ do.cond.i85.i.i.i:                                ; preds = %do.body.i81.i.i.i
 
 if.then43.i.i.i:                                  ; preds = %do.body.i81.i.i.i
   store ptr %scevgep133.i.i.i, ptr %format.i.i.i, align 8
-  call fastcc void @lookup_hostname(ptr noundef nonnull %hi.i)
+  call fastcc void @lookup_hostname(ptr noundef %hi.i)
   %104 = load ptr, ptr %buf.i91.i.i.i, align 8
   %call.i92.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %104) #20
   call void @strbuf_add(ptr noundef nonnull %expanded_path.i.i.i, ptr noundef %104, i64 noundef %call.i92.i.i.i) #19
@@ -1518,7 +1518,7 @@ if.then50.i.i.i:                                  ; preds = %do.body.i103.i.i.i
   br label %if.end57.i.i.i
 
 if.else51.i.i.i:                                  ; preds = %do.cond.i107.i.i.i
-  call fastcc void @strbuf_addch(ptr noundef nonnull %expanded_path.i.i.i, i32 noundef 37)
+  call fastcc void @strbuf_addch(ptr noundef %expanded_path.i.i.i, i32 noundef 37)
   br label %if.end57.i.i.i
 
 if.end57.i.i.i:                                   ; preds = %if.else51.i.i.i, %if.then50.i.i.i, %if.then47.i.i.i, %if.then43.i.i.i, %if.then39.i.i.i, %if.then36.i.i.i, %strbuf_addch.exit.i.i.i
@@ -1751,11 +1751,11 @@ land.lhs.true30.i.i:                              ; preds = %if.end28.i.i
   %buf6.i.i.i = getelementptr inbounds i8, ptr %hi.i, i64 16
   %127 = load ptr, ptr %buf6.i.i.i, align 8
   %call7.i.i.i = call ptr @strvec_push(ptr noundef nonnull %child.i.i.i, ptr noundef %127) #19
-  call fastcc void @lookup_hostname(ptr noundef nonnull %hi.i)
+  call fastcc void @lookup_hostname(ptr noundef %hi.i)
   %buf.i.i27.i.i = getelementptr inbounds i8, ptr %hi.i, i64 40
   %128 = load ptr, ptr %buf.i.i27.i.i, align 8
   %call10.i28.i.i = call ptr @strvec_push(ptr noundef nonnull %child.i.i.i, ptr noundef %128) #19
-  call fastcc void @lookup_hostname(ptr noundef nonnull %hi.i)
+  call fastcc void @lookup_hostname(ptr noundef %hi.i)
   %buf.i5.i.i.i = getelementptr inbounds i8, ptr %hi.i, i64 64
   %129 = load ptr, ptr %buf.i5.i.i.i, align 8
   %call13.i.i.i = call ptr @strvec_push(ptr noundef nonnull %child.i.i.i, ptr noundef %129) #19
@@ -1952,7 +1952,7 @@ for.end234:                                       ; preds = %for.body228, %if.en
   br i1 %tobool.not.i.i232, label %if.then.i.i260, label %for.body.i.i233
 
 if.then.i.i260:                                   ; preds = %for.end234
-  %call.i.i261 = call fastcc i32 @setup_named_sock(ptr noundef null, i32 noundef %spec.store.select4322326, ptr noundef nonnull %socklist.i)
+  %call.i.i261 = call fastcc i32 @setup_named_sock(ptr noundef null, i32 noundef %spec.store.select4322326, ptr noundef %socklist.i)
   br label %socksetup.exit.i
 
 for.body.i.i233:                                  ; preds = %for.end234, %for.inc.i.i234
@@ -1960,7 +1960,7 @@ for.body.i.i233:                                  ; preds = %for.end234, %for.in
   %145 = load ptr, ptr %listen_addr, align 8
   %arrayidx.i.i = getelementptr inbounds %struct.string_list_item, ptr %145, i64 %indvars.iv.i.i
   %146 = load ptr, ptr %arrayidx.i.i, align 8
-  %call3.i.i = call fastcc i32 @setup_named_sock(ptr noundef %146, i32 noundef %spec.store.select4322326, ptr noundef nonnull %socklist.i)
+  %call3.i.i = call fastcc i32 @setup_named_sock(ptr noundef %146, i32 noundef %spec.store.select4322326, ptr noundef %socklist.i)
   %cmp4.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %cmp4.i.i, label %if.then6.i.i, label %for.inc.i.i234
 
@@ -2399,7 +2399,7 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #5
 declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @enable_service(ptr noundef %name, i32 noundef %ena) unnamed_addr #0 {
+define internal fastcc void @enable_service(ptr noundef %name, i32 noundef range(i32 0, 2) %ena) unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -2427,7 +2427,7 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @make_service_overridable(ptr noundef %name, i32 noundef %ena) unnamed_addr #0 {
+define internal fastcc void @make_service_overridable(ptr noundef %name, i32 noundef range(i32 0, 2) %ena) unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -2500,7 +2500,7 @@ entry:
   %env1 = getelementptr inbounds i8, ptr %cld, i64 24
   %0 = load ptr, ptr %env, align 8
   call void @strvec_pushv(ptr noundef nonnull %env1, ptr noundef %0) #19
-  %call2 = call fastcc i32 @run_service_command(ptr noundef nonnull %cld)
+  %call2 = call fastcc i32 @run_service_command(ptr noundef %cld)
   ret i32 %call2
 }
 
@@ -2515,7 +2515,7 @@ entry:
   %env2 = getelementptr inbounds i8, ptr %cld, i64 24
   %1 = load ptr, ptr %env, align 8
   call void @strvec_pushv(ptr noundef nonnull %env2, ptr noundef %1) #19
-  %call3 = call fastcc i32 @run_service_command(ptr noundef nonnull %cld)
+  %call3 = call fastcc i32 @run_service_command(ptr noundef %cld)
   ret i32 %call3
 }
 
@@ -2528,7 +2528,7 @@ entry:
   %env1 = getelementptr inbounds i8, ptr %cld, i64 24
   %0 = load ptr, ptr %env, align 8
   call void @strvec_pushv(ptr noundef nonnull %env1, ptr noundef %0) #19
-  %call2 = call fastcc i32 @run_service_command(ptr noundef nonnull %cld)
+  %call2 = call fastcc i32 @run_service_command(ptr noundef %cld)
   ret i32 %call2
 }
 
@@ -2538,17 +2538,17 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @strvec_pushv(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @run_service_command(ptr noundef %cld) unnamed_addr #0 {
+define internal fastcc i32 @run_service_command(ptr noundef nonnull %cld) unnamed_addr #0 {
 entry:
   %line.i = alloca %struct.strbuf, align 8
-  %call = tail call ptr @strvec_push(ptr noundef %cld, ptr noundef nonnull @.str.53) #19
+  %call = tail call ptr @strvec_push(ptr noundef nonnull %cld, ptr noundef nonnull @.str.53) #19
   %git_cmd = getelementptr inbounds i8, ptr %cld, i64 104
   %bf.load = load i16, ptr %git_cmd, align 8
   %bf.set = or i16 %bf.load, 8
   store i16 %bf.set, ptr %git_cmd, align 8
   %err = getelementptr inbounds i8, ptr %cld, i64 88
   store i32 -1, ptr %err, align 8
-  %call1 = tail call i32 @start_command(ptr noundef %cld) #19
+  %call1 = tail call i32 @start_command(ptr noundef nonnull %cld) #19
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -2601,7 +2601,7 @@ while.end.i:                                      ; preds = %strbuf_setlen.exit.
 
 copy_to_log.exit:                                 ; preds = %if.then.i, %while.end.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %line.i)
-  %call5 = call i32 @finish_command(ptr noundef %cld) #19
+  %call5 = call i32 @finish_command(ptr noundef nonnull %cld) #19
   br label %return
 
 return:                                           ; preds = %entry, %copy_to_log.exit
@@ -2636,7 +2636,7 @@ declare void @strbuf_release(ptr noundef) local_unnamed_addr #2
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @logreport(i32 noundef %priority, ptr nocapture noundef readonly %err, ptr noundef %params) unnamed_addr #0 {
+define internal fastcc void @logreport(i32 noundef range(i32 3, 7) %priority, ptr nocapture noundef readonly %err, ptr noundef %params) unnamed_addr #0 {
 entry:
   %buf = alloca [1024 x i8], align 16
   %0 = load i32, ptr @log_destination, align 4
@@ -2746,7 +2746,7 @@ declare ptr @__errno_location() local_unnamed_addr #13
 declare ptr @strerror(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @strbuf_addch(ptr noundef %sb, i32 noundef %c) unnamed_addr #0 {
+define internal fastcc void @strbuf_addch(ptr noundef nonnull %sb, i32 noundef range(i32 -128, 128) %c) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %sb, align 8
   %tobool.not.i = icmp eq i64 %0, 0
@@ -2787,7 +2787,7 @@ if.end:                                           ; preds = %if.then, %strbuf_av
 declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sanitize_client(ptr noundef %out, ptr nocapture noundef readonly %in) unnamed_addr #0 {
+define internal fastcc void @sanitize_client(ptr noundef nonnull %out, ptr nocapture noundef readonly %in) unnamed_addr #0 {
 entry:
   %len = getelementptr inbounds i8, ptr %out, i64 8
   %buf = getelementptr inbounds i8, ptr %out, i64 16
@@ -2933,7 +2933,7 @@ declare ptr @enter_repo(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lookup_hostname(ptr noundef %hi) unnamed_addr #0 {
+define internal fastcc void @lookup_hostname(ptr noundef nonnull %hi) unnamed_addr #0 {
 entry:
   %hints = alloca %struct.addrinfo, align 8
   %ai = alloca ptr, align 8
@@ -2975,7 +2975,7 @@ if.then4:                                         ; preds = %if.then
   br i1 %tobool7.not, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %if.then4
-  call fastcc void @sanitize_client(ptr noundef nonnull %canon_hostname10, ptr noundef nonnull %5)
+  call fastcc void @sanitize_client(ptr noundef %canon_hostname10, ptr noundef nonnull %5)
   br label %if.end
 
 if.else:                                          ; preds = %if.then4
@@ -3010,7 +3010,7 @@ declare i64 @strbuf_read(ptr noundef, i32 noundef, i64 noundef) local_unnamed_ad
 declare void @strbuf_ltrim(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @setup_named_sock(ptr noundef %listen_addr, i32 noundef %listen_port, ptr nocapture noundef %socklist) unnamed_addr #0 {
+define internal fastcc i32 @setup_named_sock(ptr noundef %listen_addr, i32 noundef %listen_port, ptr nocapture noundef nonnull %socklist) unnamed_addr #0 {
 entry:
   %ka.i = alloca i32, align 4
   %on.i = alloca i32, align 4

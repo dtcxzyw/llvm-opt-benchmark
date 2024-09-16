@@ -1622,7 +1622,7 @@ declare dso_local void @drm_connector_list_iter_end(ptr noundef) local_unnamed_a
 declare dso_local void @__drm_err(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @drm_client_pick_crtcs(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 align 16 {
+define internal fastcc i32 @drm_client_pick_crtcs(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2, ptr nocapture noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 align 16 {
   %9 = load ptr, ptr %0, align 8
   %10 = icmp eq i32 %5, %2
   br i1 %10, label %127, label %11
@@ -1787,14 +1787,14 @@ define internal fastcc i32 @drm_client_pick_crtcs(ptr noundef %0, ptr noundef %1
 
 .loopexit:                                        ; preds = %104, %112, %103
   store ptr %78, ptr %71, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 8 %3, i64 %72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 8 %3, i64 %72, i1 false)
   %117 = tail call fastcc i32 @drm_client_pick_crtcs(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %24, ptr noundef %4, i32 noundef %16, i32 noundef %6, i32 noundef %7)
   %118 = add i32 %61, %117
   %119 = icmp sgt i32 %118, %80
   br i1 %119, label %120, label %.critedge
 
 120:                                              ; preds = %.loopexit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr nonnull align 8 %24, i64 %23, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(1) %24, i64 %23, i1 false)
   br label %.critedge
 
 .critedge:                                        ; preds = %101, %.split, %120, %.loopexit, %112, %109

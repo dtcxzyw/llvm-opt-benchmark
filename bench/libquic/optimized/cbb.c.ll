@@ -853,7 +853,7 @@ if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
 
 if.end5.i.i.cbb_buffer_add.exit_crit_edge.i:      ; preds = %if.end5.i.i.i
   %.pre.i = load ptr, ptr %0, align 8
-  br label %cbb_buffer_add.exit.i
+  br label %for.body.preheader.i
 
 if.then7.i.i.i:                                   ; preds = %if.end5.i.i.i
   %can_resize.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -876,9 +876,9 @@ if.end18.i.i.i:                                   ; preds = %if.end10.i.i.i
   store i64 %newcap.0.i.i.i, ptr %cap.i.i.i, align 8
   %.pre5.pre.i.i = load i64, ptr %len1.i.i.i, align 8
   %.pre14.i = add i64 %.pre5.pre.i.i, 1
-  br label %cbb_buffer_add.exit.i
+  br label %for.body.preheader.i
 
-cbb_buffer_add.exit.i:                            ; preds = %if.end18.i.i.i, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i
+for.body.preheader.i:                             ; preds = %if.end18.i.i.i, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i
   %add.i.pre-phi.i = phi i64 [ %add.i.i.i, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i ], [ %.pre14.i, %if.end18.i.i.i ]
   %6 = phi ptr [ %.pre.i, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i ], [ %call.i.i.i, %if.end18.i.i.i ]
   %.pre.i.i = phi i64 [ %1, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i ], [ %.pre5.pre.i.i, %if.end18.i.i.i ]
@@ -887,8 +887,8 @@ cbb_buffer_add.exit.i:                            ; preds = %if.end18.i.i.i, %if
   store i8 %value, ptr %add.ptr.i.i.i, align 1
   br label %return, !llvm.loop !9
 
-return:                                           ; preds = %cbb_buffer_add.exit.i, %if.end10.i.i.i, %if.then7.i.i.i, %if.end.i.i.i, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end.i.i.i ], [ 0, %if.then7.i.i.i ], [ 0, %if.end10.i.i.i ], [ 1, %cbb_buffer_add.exit.i ]
+return:                                           ; preds = %for.body.preheader.i, %if.end10.i.i.i, %if.then7.i.i.i, %if.end.i.i.i, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end.i.i.i ], [ 0, %if.then7.i.i.i ], [ 0, %if.end10.i.i.i ], [ 1, %for.body.preheader.i ]
   ret i32 %retval.0
 }
 
@@ -1149,7 +1149,7 @@ if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
 
 if.end5.i.i.cbb_buffer_add.exit_crit_edge.i:      ; preds = %if.end5.i.i.i
   %.pre.i = load ptr, ptr %0, align 8
-  br label %cbb_buffer_add.exit.i
+  br label %for.body.preheader.i
 
 if.then7.i.i.i:                                   ; preds = %if.end5.i.i.i
   %can_resize.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -1172,9 +1172,9 @@ if.end18.i.i.i:                                   ; preds = %if.end10.i.i.i
   store i64 %newcap.0.i.i.i, ptr %cap.i.i.i, align 8
   %.pre5.pre.i.i = load i64, ptr %len1.i.i.i, align 8
   %.pre14.i = add i64 %.pre5.pre.i.i, 2
-  br label %cbb_buffer_add.exit.i
+  br label %for.body.preheader.i
 
-cbb_buffer_add.exit.i:                            ; preds = %if.end18.i.i.i, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i
+for.body.preheader.i:                             ; preds = %if.end18.i.i.i, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i
   %add.i.pre-phi.i = phi i64 [ %add.i.i.i, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i ], [ %.pre14.i, %if.end18.i.i.i ]
   %6 = phi ptr [ %.pre.i, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i ], [ %call.i.i.i, %if.end18.i.i.i ]
   %.pre.i.i = phi i64 [ %1, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i ], [ %.pre5.pre.i.i, %if.end18.i.i.i ]
@@ -1182,9 +1182,9 @@ cbb_buffer_add.exit.i:                            ; preds = %if.end18.i.i.i, %if
   store i64 %add.i.pre-phi.i, ptr %len1.i.i.i, align 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %cbb_buffer_add.exit.i
-  %i.013.i = phi i64 [ 0, %for.body.i ], [ 1, %cbb_buffer_add.exit.i ]
-  %v.addr.012.i = phi i16 [ %shr.i, %for.body.i ], [ %value, %cbb_buffer_add.exit.i ]
+for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
+  %i.013.i = phi i64 [ 0, %for.body.i ], [ 1, %for.body.preheader.i ]
+  %v.addr.012.i = phi i16 [ %shr.i, %for.body.i ], [ %value, %for.body.preheader.i ]
   %conv.i = trunc i16 %v.addr.012.i to i8
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %i.013.i
   store i8 %conv.i, ptr %arrayidx.i, align 1
@@ -1225,7 +1225,7 @@ if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
 
 if.end5.i.i.cbb_buffer_add.exit_crit_edge.i:      ; preds = %if.end5.i.i.i
   %.pre.i = load ptr, ptr %0, align 8
-  br label %cbb_buffer_add.exit.i
+  br label %for.body.preheader.i
 
 if.then7.i.i.i:                                   ; preds = %if.end5.i.i.i
   %can_resize.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -1248,9 +1248,9 @@ if.end18.i.i.i:                                   ; preds = %if.end10.i.i.i
   store i64 %newcap.0.i.i.i, ptr %cap.i.i.i, align 8
   %.pre5.pre.i.i = load i64, ptr %len1.i.i.i, align 8
   %.pre14.i = add i64 %.pre5.pre.i.i, 3
-  br label %cbb_buffer_add.exit.i
+  br label %for.body.preheader.i
 
-cbb_buffer_add.exit.i:                            ; preds = %if.end18.i.i.i, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i
+for.body.preheader.i:                             ; preds = %if.end18.i.i.i, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i
   %add.i.pre-phi.i = phi i64 [ %add.i.i.i, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i ], [ %.pre14.i, %if.end18.i.i.i ]
   %6 = phi ptr [ %.pre.i, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i ], [ %call.i.i.i, %if.end18.i.i.i ]
   %.pre.i.i = phi i64 [ %1, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i ], [ %.pre5.pre.i.i, %if.end18.i.i.i ]
@@ -1258,9 +1258,9 @@ cbb_buffer_add.exit.i:                            ; preds = %if.end18.i.i.i, %if
   store i64 %add.i.pre-phi.i, ptr %len1.i.i.i, align 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %cbb_buffer_add.exit.i
-  %i.013.i = phi i64 [ %i.0.i, %for.body.i ], [ 2, %cbb_buffer_add.exit.i ]
-  %v.addr.012.i = phi i32 [ %shr.i, %for.body.i ], [ %value, %cbb_buffer_add.exit.i ]
+for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
+  %i.013.i = phi i64 [ %i.0.i, %for.body.i ], [ 2, %for.body.preheader.i ]
+  %v.addr.012.i = phi i32 [ %shr.i, %for.body.i ], [ %value, %for.body.preheader.i ]
   %conv.i = trunc i32 %v.addr.012.i to i8
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %i.013.i
   store i8 %conv.i, ptr %arrayidx.i, align 1

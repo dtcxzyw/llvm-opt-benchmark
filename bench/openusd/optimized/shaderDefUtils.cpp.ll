@@ -3501,7 +3501,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i: ; 
 
 730:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i
   store ptr %729, ptr %39, align 8, !noalias !17
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34_GetShaderPropertyTypeAndArraySizeERKNS_16SdfValueTypeNameERKSt13unordered_mapINS_7TfTokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11HashFunctorESt8equal_toIS4_ESaISt4pairIKS4_SA_EEEPNS_7VtValueE(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(56) %43, ptr noundef nonnull %27)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34_GetShaderPropertyTypeAndArraySizeERKNS_16SdfValueTypeNameERKSt13unordered_mapINS_7TfTokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11HashFunctorESt8equal_toIS4_ESaISt4pairIKS4_SA_EEEPNS_7VtValueE(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(56) %43, ptr noundef nonnull %27)
           to label %731 unwind label %835, !noalias !17
 
 731:                                              ; preds = %730
@@ -5009,7 +5009,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i130:
 
 1356:                                             ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i130
   store ptr %1355, ptr %20, align 8, !noalias !34
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34_GetShaderPropertyTypeAndArraySizeERKNS_16SdfValueTypeNameERKSt13unordered_mapINS_7TfTokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11HashFunctorESt8equal_toIS4_ESaISt4pairIKS4_SA_EEEPNS_7VtValueE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef nonnull %8)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34_GetShaderPropertyTypeAndArraySizeERKNS_16SdfValueTypeNameERKSt13unordered_mapINS_7TfTokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11HashFunctorESt8equal_toIS4_ESaISt4pairIKS4_SA_EEEPNS_7VtValueE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef nonnull %8)
           to label %1357 unwind label %1461, !noalias !34
 
 1357:                                             ; preds = %1356
@@ -6385,7 +6385,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13UsdShadeInputESaIS1_EED2Ev.exi
           to label %179 unwind label %290
 
 179:                                              ; preds = %178
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34_GetShaderPropertyTypeAndArraySizeERKNS_16SdfValueTypeNameERKSt13unordered_mapINS_7TfTokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11HashFunctorESt8equal_toIS4_ESaISt4pairIKS4_SA_EEEPNS_7VtValueE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef null)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34_GetShaderPropertyTypeAndArraySizeERKNS_16SdfValueTypeNameERKSt13unordered_mapINS_7TfTokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11HashFunctorESt8equal_toIS4_ESaISt4pairIKS4_SA_EEEPNS_7VtValueE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef null)
           to label %180 unwind label %292
 
 180:                                              ; preds = %179
@@ -6783,7 +6783,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__13UsdShadeInput19HasSdrMetadataByKeyERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34_GetShaderPropertyTypeAndArraySizeERKNS_16SdfValueTypeNameERKSt13unordered_mapINS_7TfTokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11HashFunctorESt8equal_toIS4_ESaISt4pairIKS4_SA_EEEPNS_7VtValueE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34_GetShaderPropertyTypeAndArraySizeERKNS_16SdfValueTypeNameERKSt13unordered_mapINS_7TfTokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11HashFunctorESt8equal_toIS4_ESaISt4pairIKS4_SA_EEEPNS_7VtValueE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.99", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8

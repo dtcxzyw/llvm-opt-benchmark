@@ -40597,7 +40597,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %49, label %50, label %96
 
 50:                                               ; preds = %47
-  invoke fastcc void @"_ZZ18XGBoosterLoadModelENK3$_0clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr nonnull %1)
+  invoke fastcc void @"_ZZ18XGBoosterLoadModelENK3$_0clEv"(ptr dead_on_unwind noalias writable align 8 %7, ptr nonnull %1)
           to label %51 unwind label %19
 
 51:                                               ; preds = %50
@@ -40745,7 +40745,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit46: ; 
   br i1 %104, label %105, label %151
 
 105:                                              ; preds = %102
-  invoke fastcc void @"_ZZ18XGBoosterLoadModelENK3$_0clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr nonnull %1)
+  invoke fastcc void @"_ZZ18XGBoosterLoadModelENK3$_0clEv"(ptr dead_on_unwind noalias writable align 8 %12, ptr nonnull %1)
           to label %106 unwind label %19
 
 106:                                              ; preds = %105
@@ -40999,7 +40999,7 @@ _ZNSt10unique_ptrIN4dmlc6StreamESt14default_deleteIS1_EED2Ev.exit: ; preds = %_Z
 declare void @_ZN7xgboost6common13FileExtensionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZ18XGBoosterLoadModelENK3$_0clEv"(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZ18XGBoosterLoadModelENK3$_0clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::unique_ptr", align 8
@@ -41041,7 +41041,7 @@ define internal fastcc void @"_ZZ18XGBoosterLoadModelENK3$_0clEv"(ptr dead_on_un
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %15
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %17
-  invoke void @_ZN7xgboost6common18LoadSequentialFileENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::vector.6") align 8 %0, ptr noundef nonnull %2)
+  invoke void @_ZN7xgboost6common18LoadSequentialFileENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.6") align 8 %0, ptr noundef nonnull %2)
           to label %20 unwind label %51
 
 20:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit

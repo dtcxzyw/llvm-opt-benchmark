@@ -1313,7 +1313,7 @@ thread-pre-split:                                 ; preds = %488, %468, %.crited
   store i32 0, ptr %407, align 4
   %647 = load ptr, ptr %245, align 8
   %648 = load i16, ptr %268, align 8
-  %649 = call fastcc i32 @match(ptr noundef %.9, ptr noundef %647, i16 noundef zeroext %648, i64 noundef %273, ptr noundef %5, ptr noundef nonnull %9)
+  %649 = call fastcc i32 @match(ptr noundef %.9, ptr noundef %647, i16 noundef zeroext %648, i64 noundef %273, ptr noundef %5, ptr noundef %9)
   %650 = load i32, ptr %389, align 8
   %651 = icmp ne i32 %650, 0
   %652 = icmp eq ptr %.0753, null
@@ -1677,7 +1677,7 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 declare i32 @_pcre2_was_newline_8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i64 noundef %3, ptr nocapture noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i64 noundef range(i64 0, 1048704) %3, ptr nocapture noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -24423,7 +24423,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 14024:                                            ; preds = %.loopexit9814
   %14025 = getelementptr inbounds i8, ptr %.3, i64 40
   %14026 = load i64, ptr %14025, align 8
-  %14027 = call fastcc i32 @match_ref(i64 noundef %14026, i32 noundef %13981, ptr noundef nonnull %.3, ptr noundef %5, ptr noundef nonnull %7)
+  %14027 = call fastcc i32 @match_ref(i64 noundef %14026, i32 noundef %13981, ptr noundef nonnull %.3, ptr noundef %5, ptr noundef %7)
   %.not8523 = icmp eq i32 %14027, 0
   br i1 %.not8523, label %14042, label %14028
 
@@ -24522,7 +24522,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.9710884 = phi i32 [ 1, %.lr.ph10885 ], [ %14094, %14090 ]
   %14074 = load i64, ptr %14050, align 8
   %14075 = load i32, ptr %14071, align 8
-  %14076 = call fastcc i32 @match_ref(i64 noundef %14074, i32 noundef %14075, ptr noundef nonnull %.3, ptr noundef %5, ptr noundef nonnull %8)
+  %14076 = call fastcc i32 @match_ref(i64 noundef %14074, i32 noundef %14075, ptr noundef nonnull %.3, ptr noundef %5, ptr noundef %8)
   %.not8519 = icmp eq i32 %14076, 0
   br i1 %.not8519, label %14090, label %14077
 
@@ -24611,7 +24611,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %14111 = load i64, ptr %14110, align 8
   %14112 = getelementptr inbounds i8, ptr %15835, i64 64
   %14113 = load i32, ptr %14112, align 8
-  %14114 = call fastcc i32 @match_ref(i64 noundef %14111, i32 noundef %14113, ptr noundef nonnull %15835, ptr noundef nonnull %5, ptr noundef nonnull %9)
+  %14114 = call fastcc i32 @match_ref(i64 noundef %14111, i32 noundef %14113, ptr noundef nonnull %15835, ptr noundef %5, ptr noundef %9)
   %.not9245 = icmp eq i32 %14114, 0
   br i1 %.not9245, label %14129, label %14115
 
@@ -24688,7 +24688,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.9810887 = phi i32 [ %14096, %.lr.ph10890 ], [ %14167, %14162 ]
   %14150 = load i64, ptr %14050, align 8
   %14151 = load i32, ptr %14148, align 8
-  %14152 = call fastcc i32 @match_ref(i64 noundef %14150, i32 noundef %14151, ptr noundef nonnull %.3, ptr noundef %5, ptr noundef nonnull %10)
+  %14152 = call fastcc i32 @match_ref(i64 noundef %14150, i32 noundef %14151, ptr noundef nonnull %.3, ptr noundef %5, ptr noundef %10)
   %.not8515 = icmp eq i32 %14152, 0
   br i1 %.not8515, label %14162, label %14153
 
@@ -24802,7 +24802,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.9911267 = phi i32 [ %14197, %.lr.ph11269 ], [ %14208, %14201 ]
   %14202 = load i64, ptr %14199, align 8
   %14203 = load i32, ptr %14200, align 8
-  %14204 = call fastcc i32 @match_ref(i64 noundef %14202, i32 noundef %14203, ptr noundef nonnull %15835, ptr noundef %5, ptr noundef nonnull %11)
+  %14204 = call fastcc i32 @match_ref(i64 noundef %14202, i32 noundef %14203, ptr noundef nonnull %15835, ptr noundef %5, ptr noundef %11)
   %14205 = load i64, ptr %11, align 8
   %14206 = load ptr, ptr %14192, align 8
   %14207 = getelementptr inbounds i8, ptr %14206, i64 %14205
@@ -25487,7 +25487,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br label %.preheader9835.backedge
 
 14604:                                            ; preds = %.preheader9835, %.preheader9835
-  %14605 = call fastcc i32 @do_callout(ptr noundef nonnull %.3, ptr noundef %5, ptr noundef nonnull %7)
+  %14605 = call fastcc i32 @do_callout(ptr noundef nonnull %.3, ptr noundef %5, ptr noundef %7)
   %14606 = icmp sgt i32 %14605, 0
   br i1 %14606, label %.preheader9566.preheader, label %14607
 
@@ -25533,7 +25533,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %switch9289, label %14632, label %14644
 
 14632:                                            ; preds = %14627
-  %14633 = call fastcc i32 @do_callout(ptr noundef nonnull %.3, ptr noundef %5, ptr noundef nonnull %7)
+  %14633 = call fastcc i32 @do_callout(ptr noundef nonnull %.3, ptr noundef %5, ptr noundef %7)
   %14634 = icmp sgt i32 %14633, 0
   br i1 %14634, label %.preheader9566.preheader, label %14635
 
@@ -28006,7 +28006,7 @@ declare i32 @_pcre2_xclass_8(i32 noundef, ptr noundef, i32 noundef) local_unname
 declare ptr @_pcre2_extuni_8(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #5 {
   %6 = getelementptr inbounds i8, ptr %2, i64 128
   %7 = load i64, ptr %6, align 8
   %.not = icmp ult i64 %0, %7
@@ -28515,7 +28515,7 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_callout(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @do_callout(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 118

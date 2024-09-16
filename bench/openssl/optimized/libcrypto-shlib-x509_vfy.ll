@@ -95,7 +95,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call = tail call fastcc i32 @x509_verify_rpk(ptr noundef nonnull %ctx)
+  %call = tail call fastcc i32 @x509_verify_rpk(ptr noundef %ctx)
   br label %return
 
 if.end3:                                          ; preds = %if.end
@@ -118,7 +118,7 @@ if.then8:                                         ; preds = %land.lhs.true
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then8, %land.lhs.true, %if.end3
-  %call14 = tail call fastcc i32 @x509_verify_x509(ptr noundef nonnull %ctx)
+  %call14 = tail call fastcc i32 @x509_verify_x509(ptr noundef %ctx)
   br label %return
 
 return:                                           ; preds = %if.end13, %if.then2, %if.then
@@ -127,7 +127,7 @@ return:                                           ; preds = %if.end13, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @x509_verify_rpk(ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc i32 @x509_verify_rpk(ptr noundef nonnull %ctx) unnamed_addr #0 {
 entry:
   %i2dbuf.i.i = alloca ptr, align 8
   %mdbuf.i.i = alloca [64 x i8], align 16
@@ -377,7 +377,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @x509_verify_x509(ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc i32 @x509_verify_x509(ptr noundef nonnull %ctx) unnamed_addr #0 {
 entry:
   %cert = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %cert, align 8
@@ -559,7 +559,7 @@ if.end15.i:                                       ; preds = %verify_cb_cert.exit
   br i1 %cmp17.i, label %land.lhs.true18.i, label %if.end22.i
 
 land.lhs.true18.i:                                ; preds = %if.end15.i
-  %call19.i = tail call fastcc i32 @check_id(ptr noundef nonnull %ctx)
+  %call19.i = tail call fastcc i32 @check_id(ptr noundef %ctx)
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool20.not.i, label %land.lhs.true26, label %if.end22.i
 
@@ -640,11 +640,11 @@ verify_cb_cert.exit.i:                            ; preds = %cond.false.i.i, %if
   br label %cond.end
 
 if.end37.i:                                       ; preds = %lor.end.i, %land.lhs.true.i
-  %call38.i = tail call fastcc i32 @verify_chain(ptr noundef nonnull %ctx)
+  %call38.i = tail call fastcc i32 @verify_chain(ptr noundef %ctx)
   br label %cond.end
 
 cond.false:                                       ; preds = %land.lhs.true19, %if.end17
-  %call24 = tail call fastcc i32 @verify_chain(ptr noundef nonnull %ctx)
+  %call24 = tail call fastcc i32 @verify_chain(ptr noundef %ctx)
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end37.i, %verify_cb_cert.exit.i, %if.end22.i, %cond.false
@@ -687,11 +687,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call = tail call fastcc i32 @x509_verify_rpk(ptr noundef nonnull %ctx)
+  %call = tail call fastcc i32 @x509_verify_rpk(ptr noundef %ctx)
   br label %return
 
 cond.false:                                       ; preds = %if.end
-  %call2 = tail call fastcc i32 @x509_verify_x509(ptr noundef nonnull %ctx)
+  %call2 = tail call fastcc i32 @x509_verify_x509(ptr noundef %ctx)
   br label %return
 
 return:                                           ; preds = %cond.true, %cond.false, %if.then
@@ -1629,7 +1629,7 @@ declare i32 @X509_NAME_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @X509_CRL_get_issuer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @crl_extension_match(ptr noundef %a, ptr noundef %b, i32 noundef %nid) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @crl_extension_match(ptr noundef %a, ptr noundef %b, i32 noundef range(i32 90, 771) %nid) unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_CRL_get_ext_by_NID(ptr noundef %a, i32 noundef %nid, i32 noundef -1) #10
   %cmp = icmp sgt i32 %call, -1
@@ -2800,7 +2800,7 @@ if.else.i:                                        ; preds = %while.body.i
   %8 = load i32, ptr %current_reasons.i, align 4
   store i32 %8, ptr %reasons.i.i, align 4
   %9 = load ptr, ptr %crls.i.i, align 8
-  %call1.i.i = call fastcc i32 @get_crl_sk(ptr noundef nonnull %ctx, ptr noundef nonnull %crl.i.i, ptr noundef nonnull %dcrl.i.i, ptr noundef nonnull %issuer.i.i, ptr noundef nonnull %crl_score.i.i, ptr noundef nonnull %reasons.i.i, ptr noundef %9)
+  %call1.i.i = call fastcc i32 @get_crl_sk(ptr noundef nonnull %ctx, ptr noundef %crl.i.i, ptr noundef %dcrl.i.i, ptr noundef %issuer.i.i, ptr noundef %crl_score.i.i, ptr noundef %reasons.i.i, ptr noundef %9)
   %tobool.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %done.i.i
 
@@ -2814,7 +2814,7 @@ if.end.i.i:                                       ; preds = %if.else.i
   br i1 %or.cond.i.i, label %if.then10.i.i, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
-  %call6.i.i = call fastcc i32 @get_crl_sk(ptr noundef nonnull %ctx, ptr noundef nonnull %crl.i.i, ptr noundef nonnull %dcrl.i.i, ptr noundef nonnull %issuer.i.i, ptr noundef nonnull %crl_score.i.i, ptr noundef nonnull %reasons.i.i, ptr noundef %call2.i.i)
+  %call6.i.i = call fastcc i32 @get_crl_sk(ptr noundef nonnull %ctx, ptr noundef %crl.i.i, ptr noundef %dcrl.i.i, ptr noundef %issuer.i.i, ptr noundef %crl_score.i.i, ptr noundef %reasons.i.i, ptr noundef %call2.i.i)
   call void @OPENSSL_sk_pop_free(ptr noundef %call2.i.i, ptr noundef nonnull @X509_CRL_free) #10
   br label %done.i.i
 
@@ -3077,11 +3077,11 @@ if.end2.i:                                        ; preds = %if.end.i
   br i1 %cmp1.not.i.i, label %cond.false.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.end2.i
-  %call.i.i = call fastcc i32 @x509_verify_rpk(ptr noundef nonnull %crl_ctx.i)
+  %call.i.i = call fastcc i32 @x509_verify_rpk(ptr noundef %crl_ctx.i)
   br label %X509_verify_cert.exit.i
 
 cond.false.i.i:                                   ; preds = %if.end2.i
-  %call2.i.i = call fastcc i32 @x509_verify_x509(ptr noundef nonnull %crl_ctx.i)
+  %call2.i.i = call fastcc i32 @x509_verify_x509(ptr noundef %crl_ctx.i)
   br label %X509_verify_cert.exit.i
 
 X509_verify_cert.exit.i:                          ; preds = %cond.false.i.i, %cond.true.i.i
@@ -3899,7 +3899,7 @@ if.then16:                                        ; preds = %if.end13
 if.end17:                                         ; preds = %if.end13
   %num_untrusted = getelementptr inbounds i8, ptr %call.i, i64 148
   store i32 1, ptr %num_untrusted, align 4
-  %call18 = tail call fastcc i32 @build_chain(ptr noundef nonnull %call.i)
+  %call18 = tail call fastcc i32 @build_chain(ptr noundef %call.i)
   %tobool19 = icmp eq i32 %call18, 0
   %or.cond = and i1 %cmp, %tobool19
   br i1 %or.cond, label %err, label %if.end22
@@ -3935,7 +3935,7 @@ return:                                           ; preds = %if.end, %if.then8.i
 declare i32 @ossl_x509_add_cert_new(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @build_chain(ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc i32 @build_chain(ptr noundef nonnull %ctx) unnamed_addr #0 {
 entry:
   %issuer = alloca ptr, align 8
   %dane1 = getelementptr inbounds i8, ptr %ctx, i64 240
@@ -4298,7 +4298,7 @@ if.then190:                                       ; preds = %if.end3.i165, %if.e
   br i1 %cmp192.not, label %int_err, label %if.end203
 
 if.end203:                                        ; preds = %if.then190
-  %call205 = call fastcc i32 @check_trust(ptr noundef nonnull %ctx, i32 noundef %num.2.ph)
+  %call205 = call fastcc i32 @check_trust(ptr noundef %ctx, i32 noundef %num.2.ph)
   %cmp206.not = icmp eq i32 %call205, 3
   br i1 %cmp206.not, label %if.end209, label %while.end
 
@@ -4478,7 +4478,7 @@ land.lhs.true323:                                 ; preds = %if.then318
   br i1 %tobool326.not, label %land.lhs.true332, label %if.then327
 
 if.then327:                                       ; preds = %land.lhs.true323
-  %call328 = call fastcc i32 @check_dane_pkeys(ptr noundef nonnull %ctx)
+  %call328 = call fastcc i32 @check_dane_pkeys(ptr noundef %ctx)
   br label %if.end329
 
 if.end329:                                        ; preds = %if.then327, %if.then318
@@ -4492,7 +4492,7 @@ land.lhs.true332:                                 ; preds = %land.lhs.true323, %
   br i1 %cmp334, label %if.then336, label %sw.default
 
 if.then336:                                       ; preds = %land.lhs.true332
-  %call337 = call fastcc i32 @check_trust(ptr noundef nonnull %ctx, i32 noundef %call315)
+  %call337 = call fastcc i32 @check_trust(ptr noundef %ctx, i32 noundef %call315)
   br label %if.end339
 
 if.end339:                                        ; preds = %if.end329, %if.then336, %if.end312
@@ -4613,7 +4613,7 @@ declare i32 @i2d_PUBKEY(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_Digest(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @verify_chain(ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc i32 @verify_chain(ptr noundef nonnull %ctx) unnamed_addr #0 {
 entry:
   %secbits.i.i = alloca i32, align 4
   %val.i.i = alloca i32, align 4
@@ -5477,7 +5477,7 @@ for.inc.i42:                                      ; preds = %verify_cb_cert.exit
   br i1 %exitcond.not.i43, label %lor.lhs.false6, label %for.body.i38, !llvm.loop !19
 
 lor.lhs.false6:                                   ; preds = %for.inc.i42, %lor.lhs.false3
-  %call7 = call fastcc i32 @check_id(ptr noundef nonnull %ctx)
+  %call7 = call fastcc i32 @check_id(ptr noundef %ctx)
   %cmp8.not.not = icmp eq i32 %call7, 0
   br i1 %cmp8.not.not, label %return, label %lor.lhs.false9
 
@@ -5729,12 +5729,12 @@ for.inc89.i:                                      ; preds = %for.inc.i70, %if.en
   br i1 %cmp.i64, label %for.body.i61, label %if.end34, !llvm.loop !22
 
 if.end34:                                         ; preds = %for.inc89.i, %if.end30
-  %call35 = call i32 @X509v3_asid_validate_path(ptr noundef %ctx) #10
+  %call35 = call i32 @X509v3_asid_validate_path(ptr noundef nonnull %ctx) #10
   %cmp36 = icmp slt i32 %call35, 1
   br i1 %cmp36, label %return, label %if.end38
 
 if.end38:                                         ; preds = %if.end34
-  %call39 = call i32 @X509v3_addr_validate_path(ptr noundef %ctx) #10
+  %call39 = call i32 @X509v3_addr_validate_path(ptr noundef nonnull %ctx) #10
   %cmp40 = icmp slt i32 %call39, 1
   br i1 %cmp40, label %return, label %if.end42
 
@@ -6000,7 +6000,7 @@ return:                                           ; preds = %dane_i2d.exit.threa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_id(ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_id(ptr noundef nonnull %ctx) unnamed_addr #0 {
 entry:
   %param = getelementptr inbounds i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %param, align 8
@@ -6237,7 +6237,7 @@ declare i32 @ossl_x509_likely_issued(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @ossl_x509_signing_allowed(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @get_crl_sk(ptr noundef %ctx, ptr nocapture noundef %pcrl, ptr nocapture noundef %pdcrl, ptr nocapture noundef writeonly %pissuer, ptr nocapture noundef %pscore, ptr nocapture noundef %preasons, ptr noundef %crls) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @get_crl_sk(ptr noundef %ctx, ptr nocapture noundef nonnull %pcrl, ptr nocapture noundef nonnull %pdcrl, ptr nocapture noundef nonnull writeonly %pissuer, ptr nocapture noundef nonnull %pscore, ptr nocapture noundef nonnull %preasons, ptr noundef %crls) unnamed_addr #0 {
 entry:
   %day = alloca i32, align 4
   %sec = alloca i32, align 4
@@ -6843,7 +6843,7 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @X509_CRL_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_crl_time(ptr noundef %ctx, ptr noundef %crl, i32 noundef %notify) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_crl_time(ptr noundef %ctx, ptr noundef %crl, i32 noundef range(i32 0, 2) %notify) unnamed_addr #0 {
 entry:
   %param = getelementptr inbounds i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %param, align 8
@@ -7075,7 +7075,7 @@ declare i32 @X509_add_certs(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare ptr @OPENSSL_sk_set(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 4) i32 @check_trust(ptr noundef %ctx, i32 noundef %num_untrusted) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 4) i32 @check_trust(ptr noundef nonnull %ctx, i32 noundef %num_untrusted) unnamed_addr #0 {
 entry:
   %dane1 = getelementptr inbounds i8, ptr %ctx, i64 240
   %0 = load ptr, ptr %dane1, align 8
@@ -7321,7 +7321,7 @@ return:                                           ; preds = %if.then14.i, %if.th
 declare ptr @OPENSSL_sk_delete_ptr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 4) i32 @check_dane_pkeys(ptr nocapture noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 1, 4) i32 @check_dane_pkeys(ptr nocapture noundef nonnull %ctx) unnamed_addr #0 {
 entry:
   %dane1 = getelementptr inbounds i8, ptr %ctx, i64 240
   %0 = load ptr, ptr %dane1, align 8

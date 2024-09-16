@@ -3146,7 +3146,7 @@ declare noundef ptr @_ZN7testing8UnitTest11GetInstanceEv() local_unnamed_addr #0
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8UnitTest27parameterized_test_registryEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16 = alloca %"class.std::allocator", align 1
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -3701,7 +3701,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16 = alloca %"class.std::allocator", align 1
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -4155,7 +4155,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTest8ToStringB5cxx11EN7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16 = alloca %"class.std::allocator", align 1
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -21180,7 +21180,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad18
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %test_base_name, ptr noundef %meta_factory, ptr noundef %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %test_base_name, ptr noundef nonnull %meta_factory, ptr noundef nonnull %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %ref.tmp2.i = alloca %"class.std::allocator", align 1
@@ -26188,7 +26188,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
 
 invoke.cont12:                                    ; preds = %invoke.cont6
   store ptr %call1.i23, ptr %result, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, i32 1, ptr noundef nonnull @.str.173, ptr noundef nonnull align 8 dereferenceable(8) %result)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, i32 1, ptr noundef nonnull @.str.173, ptr noundef nonnull align 8 dereferenceable(8) %result)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont12
@@ -27121,7 +27121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_18MakeLeafEm(i64 noundef %size) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_18MakeLeafEm(i64 noundef range(i64 2, 7) %size) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_111MakeHexFlatEm(i64 noundef 0)
   %tag.i.i = getelementptr inbounds i8, ptr %call, i64 12
@@ -27157,21 +27157,20 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i: ; preds = %_ZN4
   store i8 1, ptr %arrayidx7.i.i.i, align 1
   %edges_.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %call, ptr %edges_.i.i, align 8
-  br label %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit
+  br label %for.body.preheader
 
 if.end.i:                                         ; preds = %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i, %if.end.i.i
   %call2.i = tail call noundef ptr @_ZN4absl13cord_internal12CordRepBtree10CreateSlowEPNS0_7CordRepE(ptr noundef nonnull %call)
-  br label %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit
+  br label %for.body.preheader
 
-_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit: ; preds = %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i, %if.end.i
-  %retval.0.i = phi ptr [ %call.i.i, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i ], [ %call2.i, %if.end.i ]
-  %cmp15 = icmp ugt i64 %size, 1
-  br i1 %cmp15, label %for.body, label %for.end
+for.body.preheader:                               ; preds = %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i, %if.end.i
+  %leaf.015.ph = phi ptr [ %call2.i, %if.end.i ], [ %call.i.i, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i ]
+  br label %for.body
 
-for.body:                                         ; preds = %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit, %_ZN4absl13cord_internal12CordRepBtree6AppendEPS1_PNS0_7CordRepE.exit
-  %i.017 = phi i64 [ %inc, %_ZN4absl13cord_internal12CordRepBtree6AppendEPS1_PNS0_7CordRepE.exit ], [ 1, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ]
-  %leaf.016 = phi ptr [ %retval.0.i10, %_ZN4absl13cord_internal12CordRepBtree6AppendEPS1_PNS0_7CordRepE.exit ], [ %retval.0.i, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ]
-  %call2 = tail call fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_111MakeHexFlatEm(i64 noundef %i.017)
+for.body:                                         ; preds = %for.body.preheader, %_ZN4absl13cord_internal12CordRepBtree6AppendEPS1_PNS0_7CordRepE.exit
+  %i.016 = phi i64 [ %inc, %_ZN4absl13cord_internal12CordRepBtree6AppendEPS1_PNS0_7CordRepE.exit ], [ 1, %for.body.preheader ]
+  %leaf.015 = phi ptr [ %retval.0.i10, %_ZN4absl13cord_internal12CordRepBtree6AppendEPS1_PNS0_7CordRepE.exit ], [ %leaf.015.ph, %for.body.preheader ]
+  %call2 = tail call fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_111MakeHexFlatEm(i64 noundef %i.016)
   %tag.i.i4 = getelementptr inbounds i8, ptr %call2, i64 12
   %4 = load i8, ptr %tag.i.i4, align 4
   %or.cond.i.i5 = icmp ugt i8 %4, 4
@@ -27190,26 +27189,25 @@ _ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i11: ; preds = %if.end.
   br i1 %6, label %if.then.i, label %if.end.i8
 
 if.then.i:                                        ; preds = %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i11, %for.body
-  %call1.i = tail call noundef ptr @_ZN4absl13cord_internal12CordRepBtree10AddCordRepILNS1_8EdgeTypeE1EEEPS1_S4_PNS0_7CordRepE(ptr noundef %leaf.016, ptr noundef nonnull %call2)
+  %call1.i = tail call noundef ptr @_ZN4absl13cord_internal12CordRepBtree10AddCordRepILNS1_8EdgeTypeE1EEEPS1_S4_PNS0_7CordRepE(ptr noundef %leaf.015, ptr noundef nonnull %call2)
   br label %_ZN4absl13cord_internal12CordRepBtree6AppendEPS1_PNS0_7CordRepE.exit
 
 if.end.i8:                                        ; preds = %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i11, %if.end.i.i6
-  %call2.i9 = tail call noundef ptr @_ZN4absl13cord_internal12CordRepBtree10AppendSlowEPS1_PNS0_7CordRepE(ptr noundef %leaf.016, ptr noundef nonnull %call2)
+  %call2.i9 = tail call noundef ptr @_ZN4absl13cord_internal12CordRepBtree10AppendSlowEPS1_PNS0_7CordRepE(ptr noundef %leaf.015, ptr noundef nonnull %call2)
   br label %_ZN4absl13cord_internal12CordRepBtree6AppendEPS1_PNS0_7CordRepE.exit
 
 _ZN4absl13cord_internal12CordRepBtree6AppendEPS1_PNS0_7CordRepE.exit: ; preds = %if.then.i, %if.end.i8
   %retval.0.i10 = phi ptr [ %call1.i, %if.then.i ], [ %call2.i9, %if.end.i8 ]
-  %inc = add nuw i64 %i.017, 1
+  %inc = add nuw nsw i64 %i.016, 1
   %exitcond.not = icmp eq i64 %inc, %size
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !409
 
-for.end:                                          ; preds = %_ZN4absl13cord_internal12CordRepBtree6AppendEPS1_PNS0_7CordRepE.exit, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit
-  %leaf.0.lcssa = phi ptr [ %retval.0.i, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ], [ %retval.0.i10, %_ZN4absl13cord_internal12CordRepBtree6AppendEPS1_PNS0_7CordRepE.exit ]
-  ret ptr %leaf.0.lcssa
+for.end:                                          ; preds = %_ZN4absl13cord_internal12CordRepBtree6AppendEPS1_PNS0_7CordRepE.exit
+  ret ptr %retval.0.i10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %agg.result, i32 %this.0.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(8) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %agg.result, i32 %this.0.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(8) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -27282,7 +27280,7 @@ invoke.cont:                                      ; preds = %if.end.i.i
   br i1 %call5.i2.i8, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  invoke void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i.i, %if.else.i.i, %entry, %if.end, %if.then
@@ -28202,7 +28200,7 @@ entry:
 define internal void @_ZNK4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiE10gmock_ImplIRKPNS0_12CordRepBtreeEE10DescribeToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiE10gmock_ImplIRKPNS0_12CordRepBtreeEE17FormatDescriptionB5cxx11Eb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(12) %this, i1 noundef zeroext false)
+  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiE10gmock_ImplIRKPNS0_12CordRepBtreeEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(12) %this, i1 noundef zeroext false)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -28221,7 +28219,7 @@ lpad:                                             ; preds = %entry
 define internal void @_ZNK4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiE10gmock_ImplIRKPNS0_12CordRepBtreeEE18DescribeNegationToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiE10gmock_ImplIRKPNS0_12CordRepBtreeEE17FormatDescriptionB5cxx11Eb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(12) %this, i1 noundef zeroext true)
+  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiE10gmock_ImplIRKPNS0_12CordRepBtreeEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(12) %this, i1 noundef zeroext true)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -28338,7 +28336,7 @@ return:                                           ; preds = %_ZN7testing19MatchR
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiE10gmock_ImplIRKPNS0_12CordRepBtreeEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiE10gmock_ImplIRKPNS0_12CordRepBtreeEE17FormatDescriptionB5cxx11Eb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %gmock_description = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -28413,7 +28411,7 @@ ehcleanup.thread:                                 ; preds = %invoke.cont11
   br label %if.then.i.i.i14
 
 invoke.cont16:                                    ; preds = %invoke.cont11
-  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.188, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp12)
+  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.188, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp12)
           to label %invoke.cont18 unwind label %ehcleanup
 
 invoke.cont18:                                    ; preds = %invoke.cont16
@@ -28706,7 +28704,7 @@ entry:
 define internal void @_ZNK4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiE10gmock_ImplIRKPNS0_7CordRepEE10DescribeToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiE10gmock_ImplIRKPNS0_7CordRepEE17FormatDescriptionB5cxx11Eb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(12) %this, i1 noundef zeroext false)
+  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiE10gmock_ImplIRKPNS0_7CordRepEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(12) %this, i1 noundef zeroext false)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -28725,7 +28723,7 @@ lpad:                                             ; preds = %entry
 define internal void @_ZNK4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiE10gmock_ImplIRKPNS0_7CordRepEE18DescribeNegationToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiE10gmock_ImplIRKPNS0_7CordRepEE17FormatDescriptionB5cxx11Eb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(12) %this, i1 noundef zeroext true)
+  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiE10gmock_ImplIRKPNS0_7CordRepEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(12) %this, i1 noundef zeroext true)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -28842,7 +28840,7 @@ return:                                           ; preds = %_ZN7testing19MatchR
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiE10gmock_ImplIRKPNS0_7CordRepEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiE10gmock_ImplIRKPNS0_7CordRepEE17FormatDescriptionB5cxx11Eb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %gmock_description = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -28917,7 +28915,7 @@ ehcleanup.thread:                                 ; preds = %invoke.cont11
   br label %if.then.i.i.i14
 
 invoke.cont16:                                    ; preds = %invoke.cont11
-  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.188, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp12)
+  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.188, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp12)
           to label %invoke.cont18 unwind label %ehcleanup
 
 invoke.cont18:                                    ; preds = %invoke.cont16
@@ -29293,7 +29291,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
 
 invoke.cont12:                                    ; preds = %invoke.cont6
   store ptr %call1.i23, ptr %result, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, i32 1, ptr noundef nonnull @.str.173, ptr noundef nonnull align 8 dereferenceable(8) %result)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, i32 1, ptr noundef nonnull @.str.173, ptr noundef nonnull align 8 dereferenceable(8) %result)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont12
@@ -30505,7 +30503,7 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.then.i.i.i.i175.
   br label %ehcleanup159
 
 invoke.cont15:                                    ; preds = %invoke.cont11
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, i32 1, ptr noundef nonnull @.str.198, ptr noundef nonnull align 8 dereferenceable(8) %tree)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, i32 1, ptr noundef nonnull @.str.198, ptr noundef nonnull align 8 dereferenceable(8) %tree)
           to label %invoke.cont16 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont16:                                    ; preds = %invoke.cont15
@@ -30883,7 +30881,7 @@ if.end.i186:                                      ; preds = %_ZN4absl13cord_inte
 invoke.cont55:                                    ; preds = %if.then.i192, %if.end.i186
   %retval.0.i187 = phi ptr [ %call1.i194, %if.then.i192 ], [ %call2.i196, %if.end.i186 ]
   store ptr %retval.0.i187, ptr %result, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar51, i32 1, ptr noundef nonnull @.str.173, ptr noundef nonnull align 8 dereferenceable(8) %result)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar51, i32 1, ptr noundef nonnull @.str.173, ptr noundef nonnull align 8 dereferenceable(8) %result)
           to label %invoke.cont56 unwind label %lpad.loopexit
 
 invoke.cont56:                                    ; preds = %invoke.cont55
@@ -33931,7 +33929,7 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.then.i.i.i.i240.
   br label %ehcleanup172
 
 invoke.cont15:                                    ; preds = %invoke.cont11
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, i32 2, ptr noundef nonnull @.str.198, ptr noundef nonnull align 8 dereferenceable(8) %tree)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, i32 2, ptr noundef nonnull @.str.198, ptr noundef nonnull align 8 dereferenceable(8) %tree)
           to label %invoke.cont16 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont16:                                    ; preds = %invoke.cont15
@@ -34396,7 +34394,7 @@ if.end.i251:                                      ; preds = %_ZN4absl13cord_inte
 invoke.cont68:                                    ; preds = %if.then.i257, %if.end.i251
   %retval.0.i252 = phi ptr [ %call1.i259, %if.then.i257 ], [ %call2.i261, %if.end.i251 ]
   store ptr %retval.0.i252, ptr %result, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar64, i32 2, ptr noundef nonnull @.str.173, ptr noundef nonnull align 8 dereferenceable(8) %result)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar64, i32 2, ptr noundef nonnull @.str.173, ptr noundef nonnull align 8 dereferenceable(8) %result)
           to label %invoke.cont69 unwind label %lpad.loopexit
 
 invoke.cont69:                                    ; preds = %invoke.cont68
@@ -35252,7 +35250,7 @@ lpad2.loopexit.split-lp.loopexit.split-lp:        ; preds = %if.then.i.i.i.i.i10
   br label %ehcleanup161
 
 invoke.cont17:                                    ; preds = %invoke.cont13
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, i32 1, ptr noundef nonnull @.str.198, ptr noundef nonnull align 8 dereferenceable(8) %tree)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, i32 1, ptr noundef nonnull @.str.198, ptr noundef nonnull align 8 dereferenceable(8) %tree)
           to label %invoke.cont18 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont18:                                    ; preds = %invoke.cont17
@@ -35588,7 +35586,7 @@ if.end.i117:                                      ; preds = %_ZN4absl13cord_inte
 invoke.cont57:                                    ; preds = %if.then.i123, %if.end.i117
   %retval.0.i118 = phi ptr [ %call1.i125, %if.then.i123 ], [ %call2.i127, %if.end.i117 ]
   store ptr %retval.0.i118, ptr %result, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar53, i32 1, ptr noundef nonnull @.str.173, ptr noundef nonnull align 8 dereferenceable(8) %result)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar53, i32 1, ptr noundef nonnull @.str.173, ptr noundef nonnull align 8 dereferenceable(8) %result)
           to label %invoke.cont58 unwind label %lpad2.loopexit
 
 invoke.cont58:                                    ; preds = %invoke.cont57
@@ -36497,7 +36495,7 @@ lpad2.loopexit.split-lp.loopexit.split-lp:        ; preds = %if.then.i.i.i.i.i17
   br label %ehcleanup174
 
 invoke.cont17:                                    ; preds = %invoke.cont13
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, i32 2, ptr noundef nonnull @.str.198, ptr noundef nonnull align 8 dereferenceable(8) %tree)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, i32 2, ptr noundef nonnull @.str.198, ptr noundef nonnull align 8 dereferenceable(8) %tree)
           to label %invoke.cont18 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont18:                                    ; preds = %invoke.cont17
@@ -36921,7 +36919,7 @@ if.end.i182:                                      ; preds = %_ZN4absl13cord_inte
 invoke.cont70:                                    ; preds = %if.then.i188, %if.end.i182
   %retval.0.i183 = phi ptr [ %call1.i190, %if.then.i188 ], [ %call2.i192, %if.end.i182 ]
   store ptr %retval.0.i183, ptr %result, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar66, i32 2, ptr noundef nonnull @.str.173, ptr noundef nonnull align 8 dereferenceable(8) %result)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar66, i32 2, ptr noundef nonnull @.str.173, ptr noundef nonnull align 8 dereferenceable(8) %result)
           to label %invoke.cont71 unwind label %lpad2.loopexit
 
 invoke.cont71:                                    ; preds = %invoke.cont70
@@ -37560,7 +37558,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseISt5tupleIJbbEEEENS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %test_base_name, ptr noundef %meta_factory, ptr noundef %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseISt5tupleIJbbEEEENS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %test_base_name, ptr noundef nonnull %meta_factory, ptr noundef nonnull %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %ref.tmp2.i = alloca %"class.std::allocator", align 1
@@ -38294,7 +38292,7 @@ if.end.i71:                                       ; preds = %_ZN4absl13cord_inte
 invoke.cont26:                                    ; preds = %if.then.i77, %if.end.i71, %if.then.i64, %if.end.i
   %cond23 = phi ptr [ %call1.i65, %if.then.i64 ], [ %call2.i66, %if.end.i ], [ %call1.i79, %if.then.i77 ], [ %call2.i81, %if.end.i71 ]
   store ptr %cond23, ptr %tree, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, i32 0, ptr noundef nonnull @.str.198, ptr noundef nonnull align 8 dereferenceable(8) %tree)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, i32 0, ptr noundef nonnull @.str.198, ptr noundef nonnull align 8 dereferenceable(8) %tree)
           to label %invoke.cont27 unwind label %lpad.loopexit
 
 invoke.cont27:                                    ; preds = %invoke.cont26
@@ -39063,7 +39061,7 @@ if.end.i63:                                       ; preds = %_ZN4absl13cord_inte
 invoke.cont24:                                    ; preds = %if.then.i69, %if.end.i63, %if.then.i56, %if.end.i
   %cond21 = phi ptr [ %call1.i57, %if.then.i56 ], [ %call2.i58, %if.end.i ], [ %call1.i71, %if.then.i69 ], [ %call2.i73, %if.end.i63 ]
   store ptr %cond21, ptr %tree, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, i32 1, ptr noundef nonnull @.str.198, ptr noundef nonnull align 8 dereferenceable(8) %tree)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, i32 1, ptr noundef nonnull @.str.198, ptr noundef nonnull align 8 dereferenceable(8) %tree)
           to label %invoke.cont25 unwind label %lpad.loopexit
 
 invoke.cont25:                                    ; preds = %invoke.cont24
@@ -40232,7 +40230,7 @@ if.end.i75:                                       ; preds = %_ZN4absl13cord_inte
 invoke.cont26:                                    ; preds = %if.then.i81, %if.end.i75, %if.then.i68, %if.end.i
   %cond23 = phi ptr [ %call1.i69, %if.then.i68 ], [ %call2.i70, %if.end.i ], [ %call1.i83, %if.then.i81 ], [ %call2.i85, %if.end.i75 ]
   store ptr %cond23, ptr %tree, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, i32 1, ptr noundef nonnull @.str.198, ptr noundef nonnull align 8 dereferenceable(8) %tree)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, i32 1, ptr noundef nonnull @.str.198, ptr noundef nonnull align 8 dereferenceable(8) %tree)
           to label %invoke.cont27 unwind label %lpad.loopexit
 
 invoke.cont27:                                    ; preds = %invoke.cont26
@@ -42071,7 +42069,7 @@ if.end.i75:                                       ; preds = %_ZN4absl13cord_inte
 invoke.cont26:                                    ; preds = %if.then.i81, %if.end.i75, %if.then.i68, %if.end.i
   %cond23 = phi ptr [ %call1.i69, %if.then.i68 ], [ %call2.i70, %if.end.i ], [ %call1.i83, %if.then.i81 ], [ %call2.i85, %if.end.i75 ]
   store ptr %cond23, ptr %tree, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, i32 1, ptr noundef nonnull @.str.198, ptr noundef nonnull align 8 dereferenceable(8) %tree)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, i32 1, ptr noundef nonnull @.str.198, ptr noundef nonnull align 8 dereferenceable(8) %tree)
           to label %invoke.cont27 unwind label %lpad.loopexit
 
 invoke.cont27:                                    ; preds = %invoke.cont26
@@ -42896,7 +42894,7 @@ if.end.i75:                                       ; preds = %_ZN4absl13cord_inte
 invoke.cont26:                                    ; preds = %if.then.i81, %if.end.i75, %if.then.i68, %if.end.i
   %cond23 = phi ptr [ %call1.i69, %if.then.i68 ], [ %call2.i70, %if.end.i ], [ %call1.i83, %if.then.i81 ], [ %call2.i85, %if.end.i75 ]
   store ptr %cond23, ptr %tree, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, i32 1, ptr noundef nonnull @.str.198, ptr noundef nonnull align 8 dereferenceable(8) %tree)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, i32 1, ptr noundef nonnull @.str.198, ptr noundef nonnull align 8 dereferenceable(8) %tree)
           to label %invoke.cont27 unwind label %lpad.loopexit
 
 invoke.cont27:                                    ; preds = %invoke.cont26
@@ -52779,7 +52777,7 @@ entry:
 define internal void @_ZNK4absl13cord_internal12_GLOBAL__N_120IsSubstringMatcherP2IjjE10gmock_ImplIRKPNS0_7CordRepEE10DescribeToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_120IsSubstringMatcherP2IjjE10gmock_ImplIRKPNS0_7CordRepEE17FormatDescriptionB5cxx11Eb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext false)
+  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_120IsSubstringMatcherP2IjjE10gmock_ImplIRKPNS0_7CordRepEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext false)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -52798,7 +52796,7 @@ lpad:                                             ; preds = %entry
 define internal void @_ZNK4absl13cord_internal12_GLOBAL__N_120IsSubstringMatcherP2IjjE10gmock_ImplIRKPNS0_7CordRepEE18DescribeNegationToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_120IsSubstringMatcherP2IjjE10gmock_ImplIRKPNS0_7CordRepEE17FormatDescriptionB5cxx11Eb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext true)
+  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_120IsSubstringMatcherP2IjjE10gmock_ImplIRKPNS0_7CordRepEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext true)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -52942,7 +52940,7 @@ return:                                           ; preds = %_ZN7testing19MatchR
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_120IsSubstringMatcherP2IjjE10gmock_ImplIRKPNS0_7CordRepEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_120IsSubstringMatcherP2IjjE10gmock_ImplIRKPNS0_7CordRepEE17FormatDescriptionB5cxx11Eb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i = alloca [5 x %"class.std::basic_string_view"], align 8
   %gmock_description = alloca %"class.std::__cxx11::basic_string", align 8
@@ -53056,7 +53054,7 @@ ehcleanup.thread:                                 ; preds = %invoke.cont17
   br label %if.then.i.i.i23
 
 invoke.cont23:                                    ; preds = %invoke.cont17
-  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.238, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp18)
+  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.238, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp18)
           to label %invoke.cont25 unwind label %ehcleanup
 
 invoke.cont25:                                    ; preds = %invoke.cont23
@@ -57671,7 +57669,7 @@ cond.false.i161:                                  ; preds = %invoke.cont60
 invoke.cont68:                                    ; preds = %cond.true.i163, %cond.false.i161
   %cond.i162 = phi ptr [ %call.i165, %cond.true.i163 ], [ %call2.i167, %cond.false.i161 ]
   store ptr %cond.i162, ptr %result, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar64, i32 1, ptr noundef nonnull @.str.173, ptr noundef nonnull align 8 dereferenceable(8) %result)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar64, i32 1, ptr noundef nonnull @.str.173, ptr noundef nonnull align 8 dereferenceable(8) %result)
           to label %invoke.cont69 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont69:                                    ; preds = %invoke.cont68
@@ -58477,7 +58475,7 @@ cond.false.i479:                                  ; preds = %invoke.cont270
 invoke.cont278:                                   ; preds = %cond.true.i481, %cond.false.i479
   %cond.i480 = phi ptr [ %call.i483, %cond.true.i481 ], [ %call2.i485, %cond.false.i479 ]
   store ptr %cond.i480, ptr %result, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar274, i32 2, ptr noundef nonnull @.str.173, ptr noundef nonnull align 8 dereferenceable(8) %result)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_114IsNodeMatcherPIiEEEclIPNS3_12CordRepBtreeEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar274, i32 2, ptr noundef nonnull @.str.173, ptr noundef nonnull align 8 dereferenceable(8) %result)
           to label %invoke.cont279 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont279:                                   ; preds = %invoke.cont278
@@ -64557,7 +64555,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %test_base_name, ptr noundef %meta_factory, ptr noundef %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %test_base_name, ptr noundef nonnull %meta_factory, ptr noundef nonnull %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %ref.tmp2.i = alloca %"class.std::allocator", align 1
@@ -85491,7 +85489,7 @@ entry:
   %2 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %3 = extractvalue { ptr, ptr } %call.i, 1
   store ptr %3, ptr %2, align 8
-  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IDnPNS3_7CordRepEEEEclINS6_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, ptr nonnull %call4.i.i.i, ptr noundef nonnull @.str.337, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4)
+  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IDnPNS3_7CordRepEEEEclINS6_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, ptr nonnull %call4.i.i.i, ptr noundef nonnull @.str.337, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4)
   %4 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %4 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -85600,7 +85598,7 @@ ehcleanup15:                                      ; preds = %_ZN7testing7Message
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IDnPNS3_7CordRepEEEEclINS6_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %agg.result, ptr %this.0.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IDnPNS3_7CordRepEEEEclINS6_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %agg.result, ptr %this.0.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -85675,7 +85673,7 @@ invoke.cont:                                      ; preds = %if.end.i.i
   br i1 %call5.i2.i8, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  invoke void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i.i, %if.else.i.i, %entry, %if.end, %if.then
@@ -86211,7 +86209,7 @@ entry:
 define internal void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IDnPNS0_7CordRepEE10gmock_ImplIRKNS3_13ExtractResultEE10DescribeToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IDnPNS0_7CordRepEE10gmock_ImplIRKNS3_13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext false)
+  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IDnPNS0_7CordRepEE10gmock_ImplIRKNS3_13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext false)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -86230,7 +86228,7 @@ lpad:                                             ; preds = %entry
 define internal void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IDnPNS0_7CordRepEE10gmock_ImplIRKNS3_13ExtractResultEE18DescribeNegationToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IDnPNS0_7CordRepEE10gmock_ImplIRKNS3_13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext true)
+  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IDnPNS0_7CordRepEE10gmock_ImplIRKNS3_13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext true)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -86329,7 +86327,7 @@ return:                                           ; preds = %_ZN7testing19MatchR
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IDnPNS0_7CordRepEE10gmock_ImplIRKNS3_13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IDnPNS0_7CordRepEE10gmock_ImplIRKNS3_13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gmock_description = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::vector.377", align 8
@@ -86388,7 +86386,7 @@ ehcleanup.thread:                                 ; preds = %invoke.cont6
   br label %if.then.i.i.i13
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.339, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
+  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.339, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
           to label %invoke.cont12 unwind label %ehcleanup
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -86894,7 +86892,7 @@ entry:
   %2 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   %3 = extractvalue { ptr, ptr } %call.i9, 1
   store ptr %3, ptr %2, align 8
-  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IDnPNS3_7CordRepEEEEclINS6_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, ptr nonnull %call4.i.i.i, ptr noundef nonnull @.str.344, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5)
+  call fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IDnPNS3_7CordRepEEEEclINS6_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, ptr nonnull %call4.i.i.i, ptr noundef nonnull @.str.344, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5)
   %4 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %4 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -87081,7 +87079,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   %6 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
   %7 = extractvalue { ptr, ptr } %call.i7, 1
   store ptr %7, ptr %6, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_7CordRepES7_EEEclINS6_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, ptr %4, ptr %3, ptr noundef nonnull @.str.337, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp8)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_7CordRepES7_EEEclINS6_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, ptr %4, ptr %3, ptr noundef nonnull @.str.337, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp8)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont9
@@ -87236,7 +87234,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EED2Ev.exit23: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_7CordRepES7_EEEclINS6_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %agg.result, ptr %this.0.val, ptr %this.8.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_7CordRepES7_EEEclINS6_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %agg.result, ptr %this.0.val, ptr %this.8.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i17 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -87311,7 +87309,7 @@ invoke.cont:                                      ; preds = %if.end.i.i
   br i1 %call5.i2.i9, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  invoke void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i.i, %if.else.i.i, %entry, %if.end, %if.then
@@ -87588,7 +87586,7 @@ entry:
 define internal void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_7CordRepES4_E10gmock_ImplIRKNS3_13ExtractResultEE10DescribeToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_7CordRepES4_E10gmock_ImplIRKNS3_13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext false)
+  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_7CordRepES4_E10gmock_ImplIRKNS3_13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext false)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -87607,7 +87605,7 @@ lpad:                                             ; preds = %entry
 define internal void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_7CordRepES4_E10gmock_ImplIRKNS3_13ExtractResultEE18DescribeNegationToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_7CordRepES4_E10gmock_ImplIRKNS3_13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext true)
+  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_7CordRepES4_E10gmock_ImplIRKNS3_13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext true)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -87709,7 +87707,7 @@ return:                                           ; preds = %_ZN7testing19MatchR
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_7CordRepES4_E10gmock_ImplIRKNS3_13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_7CordRepES4_E10gmock_ImplIRKNS3_13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gmock_description = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::vector.377", align 8
@@ -87770,7 +87768,7 @@ ehcleanup.thread:                                 ; preds = %invoke.cont6
   br label %if.then.i.i.i13
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.339, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
+  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.339, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
           to label %invoke.cont12 unwind label %ehcleanup
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -88073,7 +88071,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   %9 = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
   %10 = extractvalue { ptr, ptr } %call.i9, 1
   store ptr %10, ptr %9, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_7CordRepES7_EEEclINS6_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, ptr %7, ptr %6, ptr noundef nonnull @.str.344, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_7CordRepES7_EEEclINS6_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, ptr %7, ptr %6, ptr noundef nonnull @.str.344, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -88417,7 +88415,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
   %19 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   %20 = extractvalue { ptr, ptr } %call.i36, 1
   store ptr %20, ptr %19, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_7CordRepES7_EEEclINS6_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, ptr %17, ptr %16, ptr noundef nonnull @.str.344, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_7CordRepES7_EEEclINS6_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, ptr %17, ptr %16, ptr noundef nonnull @.str.344, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont14
@@ -88649,7 +88647,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
   %5 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   %6 = extractvalue { ptr, ptr } %call.i9, 1
   store ptr %6, ptr %5, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_12CordRepBtreeEPNS3_7CordRepEEEEclINS8_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, ptr %3, ptr %call, ptr noundef nonnull @.str.337, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_12CordRepBtreeEPNS3_7CordRepEEEEclINS8_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, ptr %3, ptr %call, ptr noundef nonnull @.str.337, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont8
@@ -88802,7 +88800,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EED2Ev.exit24: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_12CordRepBtreeEPNS3_7CordRepEEEEclINS8_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %agg.result, ptr %this.0.val, ptr %this.8.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_12CordRepBtreeEPNS3_7CordRepEEEEclINS8_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %agg.result, ptr %this.0.val, ptr %this.8.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i17 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -88877,7 +88875,7 @@ invoke.cont:                                      ; preds = %if.end.i.i
   br i1 %call5.i2.i9, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  invoke void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i.i, %if.else.i.i, %entry, %if.end, %if.then
@@ -89154,7 +89152,7 @@ entry:
 define internal void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_12CordRepBtreeEPNS0_7CordRepEE10gmock_ImplIRKNS5_13ExtractResultEE10DescribeToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_12CordRepBtreeEPNS0_7CordRepEE10gmock_ImplIRKNS5_13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext false)
+  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_12CordRepBtreeEPNS0_7CordRepEE10gmock_ImplIRKNS5_13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext false)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -89173,7 +89171,7 @@ lpad:                                             ; preds = %entry
 define internal void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_12CordRepBtreeEPNS0_7CordRepEE10gmock_ImplIRKNS5_13ExtractResultEE18DescribeNegationToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_12CordRepBtreeEPNS0_7CordRepEE10gmock_ImplIRKNS5_13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext true)
+  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_12CordRepBtreeEPNS0_7CordRepEE10gmock_ImplIRKNS5_13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext true)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -89275,7 +89273,7 @@ return:                                           ; preds = %_ZN7testing19MatchR
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_12CordRepBtreeEPNS0_7CordRepEE10gmock_ImplIRKNS5_13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_12CordRepBtreeEPNS0_7CordRepEE10gmock_ImplIRKNS5_13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gmock_description = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::vector.377", align 8
@@ -89336,7 +89334,7 @@ ehcleanup.thread:                                 ; preds = %invoke.cont6
   br label %if.then.i.i.i13
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.339, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
+  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.339, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
           to label %invoke.cont12 unwind label %ehcleanup
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -89670,7 +89668,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
   %7 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   %8 = extractvalue { ptr, ptr } %call.i27, 1
   store ptr %8, ptr %7, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_12CordRepBtreeEPNS3_7CordRepEEEEclINS8_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, ptr %5, ptr nonnull %call.i25, ptr noundef nonnull @.str.344, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_12CordRepBtreeEPNS3_7CordRepEEEEclINS8_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, ptr %5, ptr nonnull %call.i25, ptr noundef nonnull @.str.344, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont14
@@ -90287,7 +90285,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   %6 = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
   %7 = extractvalue { ptr, ptr } %call.i25, 1
   store ptr %7, ptr %6, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_12CordRepBtreeEPNS3_7CordRepEEEEclINS8_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, ptr nonnull %call4.i.i.i, ptr nonnull %call4, ptr noundef nonnull @.str.344, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_12CordRepBtreeEPNS3_7CordRepEEEEclINS8_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, ptr nonnull %call4.i.i.i, ptr nonnull %call4, ptr noundef nonnull @.str.344, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12)
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont13
@@ -90737,7 +90735,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   %8 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   %9 = extractvalue { ptr, ptr } %call.i14, 1
   store ptr %9, ptr %8, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_12CordRepBtreeEDnEEEclINS3_7CordRep13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, ptr %call, ptr noundef nonnull @.str.351, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_12CordRepBtreeEDnEEEclINS3_7CordRep13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, ptr %call, ptr noundef nonnull @.str.351, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11)
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %invoke.cont12
@@ -90849,7 +90847,7 @@ invoke.cont35:                                    ; preds = %invoke.cont33
   %25 = getelementptr inbounds i8, ptr %ref.tmp34, i64 8
   %26 = extractvalue { ptr, ptr } %call.i24, 1
   store ptr %26, ptr %25, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_7CordRepES7_EEEclINS6_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar27, ptr %23, ptr %22, ptr noundef nonnull @.str.352, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp34)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_7CordRepES7_EEEclINS6_13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar27, ptr %23, ptr %22, ptr noundef nonnull @.str.352, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp34)
           to label %invoke.cont37 unwind label %lpad
 
 invoke.cont37:                                    ; preds = %invoke.cont35
@@ -91004,7 +91002,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EED2Ev.exit56: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_12CordRepBtreeEDnEEEclINS3_7CordRep13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %agg.result, ptr %this.8.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_12CordRepBtreeEDnEEEclINS3_7CordRep13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %agg.result, ptr %this.8.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -91079,7 +91077,7 @@ invoke.cont:                                      ; preds = %if.end.i.i
   br i1 %call5.i2.i8, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  invoke void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i.i, %if.else.i.i, %entry, %if.end, %if.then
@@ -91356,7 +91354,7 @@ entry:
 define internal void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_12CordRepBtreeEDnE10gmock_ImplIRKNS0_7CordRep13ExtractResultEE10DescribeToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_12CordRepBtreeEDnE10gmock_ImplIRKNS0_7CordRep13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext false)
+  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_12CordRepBtreeEDnE10gmock_ImplIRKNS0_7CordRep13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext false)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -91375,7 +91373,7 @@ lpad:                                             ; preds = %entry
 define internal void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_12CordRepBtreeEDnE10gmock_ImplIRKNS0_7CordRep13ExtractResultEE18DescribeNegationToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_12CordRepBtreeEDnE10gmock_ImplIRKNS0_7CordRep13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext true)
+  call fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_12CordRepBtreeEDnE10gmock_ImplIRKNS0_7CordRep13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext true)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -91469,7 +91467,7 @@ return:                                           ; preds = %_ZN7testing19MatchR
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_12CordRepBtreeEDnE10gmock_ImplIRKNS0_7CordRep13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS0_12CordRepBtreeEDnE10gmock_ImplIRKNS0_7CordRep13ExtractResultEE17FormatDescriptionB5cxx11Eb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gmock_description = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::vector.377", align 8
@@ -91528,7 +91526,7 @@ ehcleanup.thread:                                 ; preds = %invoke.cont6
   br label %if.then.i.i.i13
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.339, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
+  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.339, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
           to label %invoke.cont12 unwind label %ehcleanup
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -91801,7 +91799,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   %4 = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
   %5 = extractvalue { ptr, ptr } %call.i10, 1
   store ptr %5, ptr %4, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_12CordRepBtreeEDnEEEclINS3_7CordRep13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, ptr %call7, ptr noundef nonnull @.str.337, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_12CordRepBtreeEDnEEEclINS3_7CordRep13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, ptr %call7, ptr noundef nonnull @.str.337, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12)
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont13
@@ -92028,7 +92026,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   %6 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   %7 = extractvalue { ptr, ptr } %call.i22, 1
   store ptr %7, ptr %6, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_12CordRepBtreeEDnEEEclINS3_7CordRep13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, ptr %call, ptr noundef nonnull @.str.337, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_12CordRepBtreeEDnEEEclINS3_7CordRep13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, ptr %call, ptr noundef nonnull @.str.337, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -92153,7 +92151,7 @@ invoke.cont35:                                    ; preds = %invoke.cont33
   %24 = getelementptr inbounds i8, ptr %ref.tmp34, i64 8
   %25 = extractvalue { ptr, ptr } %call.i34, 1
   store ptr %25, ptr %24, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_12CordRepBtreeEDnEEEclINS3_7CordRep13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar29, ptr nonnull %call, ptr noundef nonnull @.str.337, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp34)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_12CordRepBtreeEDnEEEclINS3_7CordRep13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar29, ptr nonnull %call, ptr noundef nonnull @.str.337, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp34)
           to label %invoke.cont37 unwind label %lpad
 
 invoke.cont37:                                    ; preds = %invoke.cont35
@@ -92302,7 +92300,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
   %42 = getelementptr inbounds i8, ptr %ref.tmp65, i64 8
   %43 = extractvalue { ptr, ptr } %call.i67, 1
   store ptr %43, ptr %42, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_12CordRepBtreeEDnEEEclINS3_7CordRep13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar60, ptr nonnull %call.i62, ptr noundef nonnull @.str.344, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp65)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl13cord_internal12_GLOBAL__N_124EqExtractResultMatcherP2IPNS3_12CordRepBtreeEDnEEEclINS3_7CordRep13ExtractResultEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar60, ptr nonnull %call.i62, ptr noundef nonnull @.str.344, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp65)
           to label %invoke.cont68 unwind label %lpad
 
 invoke.cont68:                                    ; preds = %invoke.cont66
@@ -97001,7 +96999,7 @@ invoke.cont.i:                                    ; preds = %.noexc.i
 invoke.cont4.i:                                   ; preds = %invoke.cont.i
   %line.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 32
   store i32 250, ptr %line.i.i, align 8
-  %call7.i = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i, ptr noundef nonnull %agg.tmp.i)
+  %call7.i = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i, ptr noundef %agg.tmp.i)
           to label %invoke.cont6.i unwind label %lpad5.i
 
 invoke.cont6.i:                                   ; preds = %invoke.cont4.i
@@ -97246,7 +97244,7 @@ invoke.cont.i16:                                  ; preds = %.noexc.i14
 invoke.cont4.i20:                                 ; preds = %invoke.cont.i16
   %line.i.i21 = getelementptr inbounds i8, ptr %agg.tmp.i2, i64 32
   store i32 263, ptr %line.i.i21, align 8
-  %call7.i22 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i8, ptr noundef nonnull %agg.tmp.i2)
+  %call7.i22 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i8, ptr noundef %agg.tmp.i2)
           to label %invoke.cont6.i26 unwind label %lpad5.i23
 
 invoke.cont6.i26:                                 ; preds = %invoke.cont4.i20
@@ -97485,7 +97483,7 @@ invoke.cont.i100:                                 ; preds = %.noexc.i98
 invoke.cont4.i104:                                ; preds = %invoke.cont.i100
   %line.i.i105 = getelementptr inbounds i8, ptr %agg.tmp.i86, i64 32
   store i32 282, ptr %line.i.i105, align 8
-  %call7.i106 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i92, ptr noundef nonnull %agg.tmp.i86)
+  %call7.i106 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i92, ptr noundef %agg.tmp.i86)
           to label %invoke.cont6.i110 unwind label %lpad5.i107
 
 invoke.cont6.i110:                                ; preds = %invoke.cont4.i104
@@ -98264,7 +98262,7 @@ invoke.cont.i.i:                                  ; preds = %.noexc.i.i340
 invoke.cont4.i.i:                                 ; preds = %invoke.cont.i.i
   %line.i.i.i341 = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 32
   store i32 375, ptr %line.i.i.i341, align 8
-  %call7.i.i = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i, ptr noundef nonnull %agg.tmp.i.i)
+  %call7.i.i = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i, ptr noundef %agg.tmp.i.i)
           to label %invoke.cont6.i.i unwind label %lpad5.i.i
 
 invoke.cont6.i.i:                                 ; preds = %invoke.cont4.i.i
@@ -98298,7 +98296,7 @@ invoke.cont14.i.i:                                ; preds = %.noexc13.i.i
 invoke.cont16.i.i:                                ; preds = %invoke.cont14.i.i
   %line.i16.i.i = getelementptr inbounds i8, ptr %agg.tmp10.i.i, i64 32
   store i32 375, ptr %line.i16.i.i, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i, ptr noundef nonnull @.str.171, ptr noundef nonnull %call9.i.i, ptr noundef nonnull %agg.tmp10.i.i)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i, ptr noundef nonnull @.str.171, ptr noundef %call9.i.i, ptr noundef %agg.tmp10.i.i)
           to label %__cxx_global_var_init.23.exit unwind label %lpad17.i.i
 
 lpad.i.i339:                                      ; preds = %call.i.noexc.i.i, %__cxx_global_var_init.21.exit
@@ -98398,7 +98396,7 @@ invoke.cont.i.i357:                               ; preds = %.noexc.i.i355
 invoke.cont4.i.i361:                              ; preds = %invoke.cont.i.i357
   %line.i.i.i362 = getelementptr inbounds i8, ptr %agg.tmp.i.i342, i64 32
   store i32 393, ptr %line.i.i.i362, align 8
-  %call7.i.i363 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i349, ptr noundef nonnull %agg.tmp.i.i342)
+  %call7.i.i363 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i349, ptr noundef %agg.tmp.i.i342)
           to label %invoke.cont6.i.i367 unwind label %lpad5.i.i364
 
 invoke.cont6.i.i367:                              ; preds = %invoke.cont4.i.i361
@@ -98432,7 +98430,7 @@ invoke.cont14.i.i377:                             ; preds = %.noexc13.i.i375
 invoke.cont16.i.i381:                             ; preds = %invoke.cont14.i.i377
   %line.i16.i.i382 = getelementptr inbounds i8, ptr %agg.tmp10.i.i345, i64 32
   store i32 393, ptr %line.i16.i.i382, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i363, ptr noundef nonnull @.str.180, ptr noundef nonnull %call9.i.i368, ptr noundef nonnull %agg.tmp10.i.i345)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i363, ptr noundef nonnull @.str.180, ptr noundef %call9.i.i368, ptr noundef %agg.tmp10.i.i345)
           to label %__cxx_global_var_init.24.exit unwind label %lpad17.i.i383
 
 lpad.i.i351:                                      ; preds = %call.i.noexc.i.i354, %__cxx_global_var_init.23.exit
@@ -98532,7 +98530,7 @@ invoke.cont.i.i399:                               ; preds = %.noexc.i.i397
 invoke.cont4.i.i403:                              ; preds = %invoke.cont.i.i399
   %line.i.i.i404 = getelementptr inbounds i8, ptr %agg.tmp.i.i384, i64 32
   store i32 414, ptr %line.i.i.i404, align 8
-  %call7.i.i405 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i391, ptr noundef nonnull %agg.tmp.i.i384)
+  %call7.i.i405 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i391, ptr noundef %agg.tmp.i.i384)
           to label %invoke.cont6.i.i409 unwind label %lpad5.i.i406
 
 invoke.cont6.i.i409:                              ; preds = %invoke.cont4.i.i403
@@ -98566,7 +98564,7 @@ invoke.cont14.i.i419:                             ; preds = %.noexc13.i.i417
 invoke.cont16.i.i423:                             ; preds = %invoke.cont14.i.i419
   %line.i16.i.i424 = getelementptr inbounds i8, ptr %agg.tmp10.i.i387, i64 32
   store i32 414, ptr %line.i16.i.i424, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i405, ptr noundef nonnull @.str.182, ptr noundef nonnull %call9.i.i410, ptr noundef nonnull %agg.tmp10.i.i387)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i405, ptr noundef nonnull @.str.182, ptr noundef %call9.i.i410, ptr noundef %agg.tmp10.i.i387)
           to label %__cxx_global_var_init.25.exit unwind label %lpad17.i.i425
 
 lpad.i.i393:                                      ; preds = %call.i.noexc.i.i396, %__cxx_global_var_init.24.exit
@@ -98666,7 +98664,7 @@ invoke.cont.i.i441:                               ; preds = %.noexc.i.i439
 invoke.cont4.i.i445:                              ; preds = %invoke.cont.i.i441
   %line.i.i.i446 = getelementptr inbounds i8, ptr %agg.tmp.i.i426, i64 32
   store i32 438, ptr %line.i.i.i446, align 8
-  %call7.i.i447 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i433, ptr noundef nonnull %agg.tmp.i.i426)
+  %call7.i.i447 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i433, ptr noundef %agg.tmp.i.i426)
           to label %invoke.cont6.i.i451 unwind label %lpad5.i.i448
 
 invoke.cont6.i.i451:                              ; preds = %invoke.cont4.i.i445
@@ -98700,7 +98698,7 @@ invoke.cont14.i.i461:                             ; preds = %.noexc13.i.i459
 invoke.cont16.i.i465:                             ; preds = %invoke.cont14.i.i461
   %line.i16.i.i466 = getelementptr inbounds i8, ptr %agg.tmp10.i.i429, i64 32
   store i32 438, ptr %line.i16.i.i466, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i447, ptr noundef nonnull @.str.183, ptr noundef nonnull %call9.i.i452, ptr noundef nonnull %agg.tmp10.i.i429)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i447, ptr noundef nonnull @.str.183, ptr noundef %call9.i.i452, ptr noundef %agg.tmp10.i.i429)
           to label %__cxx_global_var_init.26.exit unwind label %lpad17.i.i467
 
 lpad.i.i435:                                      ; preds = %call.i.noexc.i.i438, %__cxx_global_var_init.25.exit
@@ -98800,7 +98798,7 @@ invoke.cont.i.i483:                               ; preds = %.noexc.i.i481
 invoke.cont4.i.i487:                              ; preds = %invoke.cont.i.i483
   %line.i.i.i488 = getelementptr inbounds i8, ptr %agg.tmp.i.i468, i64 32
   store i32 452, ptr %line.i.i.i488, align 8
-  %call7.i.i489 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i475, ptr noundef nonnull %agg.tmp.i.i468)
+  %call7.i.i489 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i475, ptr noundef %agg.tmp.i.i468)
           to label %invoke.cont6.i.i493 unwind label %lpad5.i.i490
 
 invoke.cont6.i.i493:                              ; preds = %invoke.cont4.i.i487
@@ -98834,7 +98832,7 @@ invoke.cont14.i.i503:                             ; preds = %.noexc13.i.i501
 invoke.cont16.i.i507:                             ; preds = %invoke.cont14.i.i503
   %line.i16.i.i508 = getelementptr inbounds i8, ptr %agg.tmp10.i.i471, i64 32
   store i32 452, ptr %line.i16.i.i508, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i489, ptr noundef nonnull @.str.195, ptr noundef nonnull %call9.i.i494, ptr noundef nonnull %agg.tmp10.i.i471)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i489, ptr noundef nonnull @.str.195, ptr noundef %call9.i.i494, ptr noundef %agg.tmp10.i.i471)
           to label %__cxx_global_var_init.27.exit unwind label %lpad17.i.i509
 
 lpad.i.i477:                                      ; preds = %call.i.noexc.i.i480, %__cxx_global_var_init.26.exit
@@ -98934,7 +98932,7 @@ invoke.cont.i.i525:                               ; preds = %.noexc.i.i523
 invoke.cont4.i.i529:                              ; preds = %invoke.cont.i.i525
   %line.i.i.i530 = getelementptr inbounds i8, ptr %agg.tmp.i.i510, i64 32
   store i32 466, ptr %line.i.i.i530, align 8
-  %call7.i.i531 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i517, ptr noundef nonnull %agg.tmp.i.i510)
+  %call7.i.i531 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i517, ptr noundef %agg.tmp.i.i510)
           to label %invoke.cont6.i.i535 unwind label %lpad5.i.i532
 
 invoke.cont6.i.i535:                              ; preds = %invoke.cont4.i.i529
@@ -98968,7 +98966,7 @@ invoke.cont14.i.i545:                             ; preds = %.noexc13.i.i543
 invoke.cont16.i.i549:                             ; preds = %invoke.cont14.i.i545
   %line.i16.i.i550 = getelementptr inbounds i8, ptr %agg.tmp10.i.i513, i64 32
   store i32 466, ptr %line.i16.i.i550, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i531, ptr noundef nonnull @.str.197, ptr noundef nonnull %call9.i.i536, ptr noundef nonnull %agg.tmp10.i.i513)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i531, ptr noundef nonnull @.str.197, ptr noundef %call9.i.i536, ptr noundef %agg.tmp10.i.i513)
           to label %__cxx_global_var_init.28.exit unwind label %lpad17.i.i551
 
 lpad.i.i519:                                      ; preds = %call.i.noexc.i.i522, %__cxx_global_var_init.27.exit
@@ -99068,7 +99066,7 @@ invoke.cont.i.i567:                               ; preds = %.noexc.i.i565
 invoke.cont4.i.i571:                              ; preds = %invoke.cont.i.i567
   %line.i.i.i572 = getelementptr inbounds i8, ptr %agg.tmp.i.i552, i64 32
   store i32 496, ptr %line.i.i.i572, align 8
-  %call7.i.i573 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i559, ptr noundef nonnull %agg.tmp.i.i552)
+  %call7.i.i573 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i559, ptr noundef %agg.tmp.i.i552)
           to label %invoke.cont6.i.i577 unwind label %lpad5.i.i574
 
 invoke.cont6.i.i577:                              ; preds = %invoke.cont4.i.i571
@@ -99102,7 +99100,7 @@ invoke.cont14.i.i587:                             ; preds = %.noexc13.i.i585
 invoke.cont16.i.i591:                             ; preds = %invoke.cont14.i.i587
   %line.i16.i.i592 = getelementptr inbounds i8, ptr %agg.tmp10.i.i555, i64 32
   store i32 496, ptr %line.i16.i.i592, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i573, ptr noundef nonnull @.str.199, ptr noundef nonnull %call9.i.i578, ptr noundef nonnull %agg.tmp10.i.i555)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i573, ptr noundef nonnull @.str.199, ptr noundef %call9.i.i578, ptr noundef %agg.tmp10.i.i555)
           to label %__cxx_global_var_init.29.exit unwind label %lpad17.i.i593
 
 lpad.i.i561:                                      ; preds = %call.i.noexc.i.i564, %__cxx_global_var_init.28.exit
@@ -99202,7 +99200,7 @@ invoke.cont.i.i609:                               ; preds = %.noexc.i.i607
 invoke.cont4.i.i613:                              ; preds = %invoke.cont.i.i609
   %line.i.i.i614 = getelementptr inbounds i8, ptr %agg.tmp.i.i594, i64 32
   store i32 527, ptr %line.i.i.i614, align 8
-  %call7.i.i615 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i601, ptr noundef nonnull %agg.tmp.i.i594)
+  %call7.i.i615 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i601, ptr noundef %agg.tmp.i.i594)
           to label %invoke.cont6.i.i619 unwind label %lpad5.i.i616
 
 invoke.cont6.i.i619:                              ; preds = %invoke.cont4.i.i613
@@ -99236,7 +99234,7 @@ invoke.cont14.i.i629:                             ; preds = %.noexc13.i.i627
 invoke.cont16.i.i633:                             ; preds = %invoke.cont14.i.i629
   %line.i16.i.i634 = getelementptr inbounds i8, ptr %agg.tmp10.i.i597, i64 32
   store i32 527, ptr %line.i16.i.i634, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i615, ptr noundef nonnull @.str.200, ptr noundef nonnull %call9.i.i620, ptr noundef nonnull %agg.tmp10.i.i597)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i615, ptr noundef nonnull @.str.200, ptr noundef %call9.i.i620, ptr noundef %agg.tmp10.i.i597)
           to label %__cxx_global_var_init.30.exit unwind label %lpad17.i.i635
 
 lpad.i.i603:                                      ; preds = %call.i.noexc.i.i606, %__cxx_global_var_init.29.exit
@@ -99336,7 +99334,7 @@ invoke.cont.i.i651:                               ; preds = %.noexc.i.i649
 invoke.cont4.i.i655:                              ; preds = %invoke.cont.i.i651
   %line.i.i.i656 = getelementptr inbounds i8, ptr %agg.tmp.i.i636, i64 32
   store i32 557, ptr %line.i.i.i656, align 8
-  %call7.i.i657 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i643, ptr noundef nonnull %agg.tmp.i.i636)
+  %call7.i.i657 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i643, ptr noundef %agg.tmp.i.i636)
           to label %invoke.cont6.i.i661 unwind label %lpad5.i.i658
 
 invoke.cont6.i.i661:                              ; preds = %invoke.cont4.i.i655
@@ -99370,7 +99368,7 @@ invoke.cont14.i.i671:                             ; preds = %.noexc13.i.i669
 invoke.cont16.i.i675:                             ; preds = %invoke.cont14.i.i671
   %line.i16.i.i676 = getelementptr inbounds i8, ptr %agg.tmp10.i.i639, i64 32
   store i32 557, ptr %line.i16.i.i676, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i657, ptr noundef nonnull @.str.201, ptr noundef nonnull %call9.i.i662, ptr noundef nonnull %agg.tmp10.i.i639)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i657, ptr noundef nonnull @.str.201, ptr noundef %call9.i.i662, ptr noundef %agg.tmp10.i.i639)
           to label %__cxx_global_var_init.31.exit unwind label %lpad17.i.i677
 
 lpad.i.i645:                                      ; preds = %call.i.noexc.i.i648, %__cxx_global_var_init.30.exit
@@ -99470,7 +99468,7 @@ invoke.cont.i.i693:                               ; preds = %.noexc.i.i691
 invoke.cont4.i.i697:                              ; preds = %invoke.cont.i.i693
   %line.i.i.i698 = getelementptr inbounds i8, ptr %agg.tmp.i.i678, i64 32
   store i32 588, ptr %line.i.i.i698, align 8
-  %call7.i.i699 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i685, ptr noundef nonnull %agg.tmp.i.i678)
+  %call7.i.i699 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i685, ptr noundef %agg.tmp.i.i678)
           to label %invoke.cont6.i.i703 unwind label %lpad5.i.i700
 
 invoke.cont6.i.i703:                              ; preds = %invoke.cont4.i.i697
@@ -99504,7 +99502,7 @@ invoke.cont14.i.i713:                             ; preds = %.noexc13.i.i711
 invoke.cont16.i.i717:                             ; preds = %invoke.cont14.i.i713
   %line.i16.i.i718 = getelementptr inbounds i8, ptr %agg.tmp10.i.i681, i64 32
   store i32 588, ptr %line.i16.i.i718, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseISt5tupleIJbbEEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i699, ptr noundef nonnull @.str.202, ptr noundef nonnull %call9.i.i704, ptr noundef nonnull %agg.tmp10.i.i681)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseISt5tupleIJbbEEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i699, ptr noundef nonnull @.str.202, ptr noundef %call9.i.i704, ptr noundef %agg.tmp10.i.i681)
           to label %__cxx_global_var_init.32.exit unwind label %lpad17.i.i719
 
 lpad.i.i687:                                      ; preds = %call.i.noexc.i.i690, %__cxx_global_var_init.31.exit
@@ -99604,7 +99602,7 @@ invoke.cont.i.i735:                               ; preds = %.noexc.i.i733
 invoke.cont4.i.i739:                              ; preds = %invoke.cont.i.i735
   %line.i.i.i740 = getelementptr inbounds i8, ptr %agg.tmp.i.i720, i64 32
   store i32 615, ptr %line.i.i.i740, align 8
-  %call7.i.i741 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i727, ptr noundef nonnull %agg.tmp.i.i720)
+  %call7.i.i741 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i727, ptr noundef %agg.tmp.i.i720)
           to label %invoke.cont6.i.i745 unwind label %lpad5.i.i742
 
 invoke.cont6.i.i745:                              ; preds = %invoke.cont4.i.i739
@@ -99638,7 +99636,7 @@ invoke.cont14.i.i755:                             ; preds = %.noexc13.i.i753
 invoke.cont16.i.i759:                             ; preds = %invoke.cont14.i.i755
   %line.i16.i.i760 = getelementptr inbounds i8, ptr %agg.tmp10.i.i723, i64 32
   store i32 615, ptr %line.i16.i.i760, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseISt5tupleIJbbEEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i741, ptr noundef nonnull @.str.205, ptr noundef nonnull %call9.i.i746, ptr noundef nonnull %agg.tmp10.i.i723)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseISt5tupleIJbbEEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i741, ptr noundef nonnull @.str.205, ptr noundef %call9.i.i746, ptr noundef %agg.tmp10.i.i723)
           to label %__cxx_global_var_init.33.exit unwind label %lpad17.i.i761
 
 lpad.i.i729:                                      ; preds = %call.i.noexc.i.i732, %__cxx_global_var_init.32.exit
@@ -99738,7 +99736,7 @@ invoke.cont.i.i777:                               ; preds = %.noexc.i.i775
 invoke.cont4.i.i781:                              ; preds = %invoke.cont.i.i777
   %line.i.i.i782 = getelementptr inbounds i8, ptr %agg.tmp.i.i762, i64 32
   store i32 637, ptr %line.i.i.i782, align 8
-  %call7.i.i783 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i769, ptr noundef nonnull %agg.tmp.i.i762)
+  %call7.i.i783 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i769, ptr noundef %agg.tmp.i.i762)
           to label %invoke.cont6.i.i787 unwind label %lpad5.i.i784
 
 invoke.cont6.i.i787:                              ; preds = %invoke.cont4.i.i781
@@ -99772,7 +99770,7 @@ invoke.cont14.i.i797:                             ; preds = %.noexc13.i.i795
 invoke.cont16.i.i801:                             ; preds = %invoke.cont14.i.i797
   %line.i16.i.i802 = getelementptr inbounds i8, ptr %agg.tmp10.i.i765, i64 32
   store i32 637, ptr %line.i16.i.i802, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseISt5tupleIJbbEEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i783, ptr noundef nonnull @.str.206, ptr noundef nonnull %call9.i.i788, ptr noundef nonnull %agg.tmp10.i.i765)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseISt5tupleIJbbEEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i783, ptr noundef nonnull @.str.206, ptr noundef %call9.i.i788, ptr noundef %agg.tmp10.i.i765)
           to label %__cxx_global_var_init.34.exit unwind label %lpad17.i.i803
 
 lpad.i.i771:                                      ; preds = %call.i.noexc.i.i774, %__cxx_global_var_init.33.exit
@@ -99872,7 +99870,7 @@ invoke.cont.i.i819:                               ; preds = %.noexc.i.i817
 invoke.cont4.i.i823:                              ; preds = %invoke.cont.i.i819
   %line.i.i.i824 = getelementptr inbounds i8, ptr %agg.tmp.i.i804, i64 32
   store i32 665, ptr %line.i.i.i824, align 8
-  %call7.i.i825 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i811, ptr noundef nonnull %agg.tmp.i.i804)
+  %call7.i.i825 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i811, ptr noundef %agg.tmp.i.i804)
           to label %invoke.cont6.i.i829 unwind label %lpad5.i.i826
 
 invoke.cont6.i.i829:                              ; preds = %invoke.cont4.i.i823
@@ -99906,7 +99904,7 @@ invoke.cont14.i.i839:                             ; preds = %.noexc13.i.i837
 invoke.cont16.i.i843:                             ; preds = %invoke.cont14.i.i839
   %line.i16.i.i844 = getelementptr inbounds i8, ptr %agg.tmp10.i.i807, i64 32
   store i32 665, ptr %line.i16.i.i844, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseISt5tupleIJbbEEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i825, ptr noundef nonnull @.str.211, ptr noundef nonnull %call9.i.i830, ptr noundef nonnull %agg.tmp10.i.i807)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseISt5tupleIJbbEEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i825, ptr noundef nonnull @.str.211, ptr noundef %call9.i.i830, ptr noundef %agg.tmp10.i.i807)
           to label %__cxx_global_var_init.35.exit unwind label %lpad17.i.i845
 
 lpad.i.i813:                                      ; preds = %call.i.noexc.i.i816, %__cxx_global_var_init.34.exit
@@ -100006,7 +100004,7 @@ invoke.cont.i.i861:                               ; preds = %.noexc.i.i859
 invoke.cont4.i.i865:                              ; preds = %invoke.cont.i.i861
   %line.i.i.i866 = getelementptr inbounds i8, ptr %agg.tmp.i.i846, i64 32
   store i32 693, ptr %line.i.i.i866, align 8
-  %call7.i.i867 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i853, ptr noundef nonnull %agg.tmp.i.i846)
+  %call7.i.i867 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i853, ptr noundef %agg.tmp.i.i846)
           to label %invoke.cont6.i.i871 unwind label %lpad5.i.i868
 
 invoke.cont6.i.i871:                              ; preds = %invoke.cont4.i.i865
@@ -100040,7 +100038,7 @@ invoke.cont14.i.i881:                             ; preds = %.noexc13.i.i879
 invoke.cont16.i.i885:                             ; preds = %invoke.cont14.i.i881
   %line.i16.i.i886 = getelementptr inbounds i8, ptr %agg.tmp10.i.i849, i64 32
   store i32 693, ptr %line.i16.i.i886, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseISt5tupleIJbbEEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i867, ptr noundef nonnull @.str.212, ptr noundef nonnull %call9.i.i872, ptr noundef nonnull %agg.tmp10.i.i849)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseISt5tupleIJbbEEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i867, ptr noundef nonnull @.str.212, ptr noundef %call9.i.i872, ptr noundef %agg.tmp10.i.i849)
           to label %__cxx_global_var_init.36.exit unwind label %lpad17.i.i887
 
 lpad.i.i855:                                      ; preds = %call.i.noexc.i.i858, %__cxx_global_var_init.35.exit
@@ -100217,7 +100215,7 @@ invoke.cont.i.i929:                               ; preds = %.noexc.i.i927
 invoke.cont4.i.i933:                              ; preds = %invoke.cont.i.i929
   %line.i.i.i934 = getelementptr inbounds i8, ptr %agg.tmp.i.i914, i64 32
   store i32 772, ptr %line.i.i.i934, align 8
-  %call7.i.i935 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i921, ptr noundef nonnull %agg.tmp.i.i914)
+  %call7.i.i935 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i921, ptr noundef %agg.tmp.i.i914)
           to label %invoke.cont6.i.i939 unwind label %lpad5.i.i936
 
 invoke.cont6.i.i939:                              ; preds = %invoke.cont4.i.i933
@@ -100251,7 +100249,7 @@ invoke.cont14.i.i949:                             ; preds = %.noexc13.i.i947
 invoke.cont16.i.i953:                             ; preds = %invoke.cont14.i.i949
   %line.i16.i.i954 = getelementptr inbounds i8, ptr %agg.tmp10.i.i917, i64 32
   store i32 772, ptr %line.i16.i.i954, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i935, ptr noundef nonnull @.str.213, ptr noundef nonnull %call9.i.i940, ptr noundef nonnull %agg.tmp10.i.i917)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i935, ptr noundef nonnull @.str.213, ptr noundef %call9.i.i940, ptr noundef %agg.tmp10.i.i917)
           to label %__cxx_global_var_init.39.exit unwind label %lpad17.i.i955
 
 lpad.i.i923:                                      ; preds = %call.i.noexc.i.i926, %__cxx_global_var_init.37.exit
@@ -100505,7 +100503,7 @@ invoke.cont.i.i1023:                              ; preds = %.noexc.i.i1021
 invoke.cont4.i.i1027:                             ; preds = %invoke.cont.i.i1023
   %line.i.i.i1028 = getelementptr inbounds i8, ptr %agg.tmp.i.i1008, i64 32
   store i32 883, ptr %line.i.i.i1028, align 8
-  %call7.i.i1029 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1015, ptr noundef nonnull %agg.tmp.i.i1008)
+  %call7.i.i1029 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1015, ptr noundef %agg.tmp.i.i1008)
           to label %invoke.cont6.i.i1033 unwind label %lpad5.i.i1030
 
 invoke.cont6.i.i1033:                             ; preds = %invoke.cont4.i.i1027
@@ -100539,7 +100537,7 @@ invoke.cont14.i.i1043:                            ; preds = %.noexc13.i.i1041
 invoke.cont16.i.i1047:                            ; preds = %invoke.cont14.i.i1043
   %line.i16.i.i1048 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1011, i64 32
   store i32 883, ptr %line.i16.i.i1048, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1029, ptr noundef nonnull @.str.245, ptr noundef nonnull %call9.i.i1034, ptr noundef nonnull %agg.tmp10.i.i1011)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1029, ptr noundef nonnull @.str.245, ptr noundef %call9.i.i1034, ptr noundef %agg.tmp10.i.i1011)
           to label %__cxx_global_var_init.44.exit unwind label %lpad17.i.i1049
 
 lpad.i.i1017:                                     ; preds = %call.i.noexc.i.i1020, %__cxx_global_var_init.42.exit
@@ -100639,7 +100637,7 @@ invoke.cont.i.i1065:                              ; preds = %.noexc.i.i1063
 invoke.cont4.i.i1069:                             ; preds = %invoke.cont.i.i1065
   %line.i.i.i1070 = getelementptr inbounds i8, ptr %agg.tmp.i.i1050, i64 32
   store i32 904, ptr %line.i.i.i1070, align 8
-  %call7.i.i1071 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1057, ptr noundef nonnull %agg.tmp.i.i1050)
+  %call7.i.i1071 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1057, ptr noundef %agg.tmp.i.i1050)
           to label %invoke.cont6.i.i1075 unwind label %lpad5.i.i1072
 
 invoke.cont6.i.i1075:                             ; preds = %invoke.cont4.i.i1069
@@ -100673,7 +100671,7 @@ invoke.cont14.i.i1085:                            ; preds = %.noexc13.i.i1083
 invoke.cont16.i.i1089:                            ; preds = %invoke.cont14.i.i1085
   %line.i16.i.i1090 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1053, i64 32
   store i32 904, ptr %line.i16.i.i1090, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1071, ptr noundef nonnull @.str.249, ptr noundef nonnull %call9.i.i1076, ptr noundef nonnull %agg.tmp10.i.i1053)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1071, ptr noundef nonnull @.str.249, ptr noundef %call9.i.i1076, ptr noundef %agg.tmp10.i.i1053)
           to label %__cxx_global_var_init.45.exit unwind label %lpad17.i.i1091
 
 lpad.i.i1059:                                     ; preds = %call.i.noexc.i.i1062, %__cxx_global_var_init.44.exit
@@ -100773,7 +100771,7 @@ invoke.cont.i.i1107:                              ; preds = %.noexc.i.i1105
 invoke.cont4.i.i1111:                             ; preds = %invoke.cont.i.i1107
   %line.i.i.i1112 = getelementptr inbounds i8, ptr %agg.tmp.i.i1092, i64 32
   store i32 919, ptr %line.i.i.i1112, align 8
-  %call7.i.i1113 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1099, ptr noundef nonnull %agg.tmp.i.i1092)
+  %call7.i.i1113 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1099, ptr noundef %agg.tmp.i.i1092)
           to label %invoke.cont6.i.i1117 unwind label %lpad5.i.i1114
 
 invoke.cont6.i.i1117:                             ; preds = %invoke.cont4.i.i1111
@@ -100807,7 +100805,7 @@ invoke.cont14.i.i1127:                            ; preds = %.noexc13.i.i1125
 invoke.cont16.i.i1131:                            ; preds = %invoke.cont14.i.i1127
   %line.i16.i.i1132 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1095, i64 32
   store i32 919, ptr %line.i16.i.i1132, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1113, ptr noundef nonnull @.str.251, ptr noundef nonnull %call9.i.i1118, ptr noundef nonnull %agg.tmp10.i.i1095)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1113, ptr noundef nonnull @.str.251, ptr noundef %call9.i.i1118, ptr noundef %agg.tmp10.i.i1095)
           to label %__cxx_global_var_init.46.exit unwind label %lpad17.i.i1133
 
 lpad.i.i1101:                                     ; preds = %call.i.noexc.i.i1104, %__cxx_global_var_init.45.exit
@@ -100907,7 +100905,7 @@ invoke.cont.i.i1149:                              ; preds = %.noexc.i.i1147
 invoke.cont4.i.i1153:                             ; preds = %invoke.cont.i.i1149
   %line.i.i.i1154 = getelementptr inbounds i8, ptr %agg.tmp.i.i1134, i64 32
   store i32 934, ptr %line.i.i.i1154, align 8
-  %call7.i.i1155 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1141, ptr noundef nonnull %agg.tmp.i.i1134)
+  %call7.i.i1155 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1141, ptr noundef %agg.tmp.i.i1134)
           to label %invoke.cont6.i.i1159 unwind label %lpad5.i.i1156
 
 invoke.cont6.i.i1159:                             ; preds = %invoke.cont4.i.i1153
@@ -100941,7 +100939,7 @@ invoke.cont14.i.i1169:                            ; preds = %.noexc13.i.i1167
 invoke.cont16.i.i1173:                            ; preds = %invoke.cont14.i.i1169
   %line.i16.i.i1174 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1137, i64 32
   store i32 934, ptr %line.i16.i.i1174, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1155, ptr noundef nonnull @.str.252, ptr noundef nonnull %call9.i.i1160, ptr noundef nonnull %agg.tmp10.i.i1137)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1155, ptr noundef nonnull @.str.252, ptr noundef %call9.i.i1160, ptr noundef %agg.tmp10.i.i1137)
           to label %__cxx_global_var_init.47.exit unwind label %lpad17.i.i1175
 
 lpad.i.i1143:                                     ; preds = %call.i.noexc.i.i1146, %__cxx_global_var_init.46.exit
@@ -101041,7 +101039,7 @@ invoke.cont.i.i1191:                              ; preds = %.noexc.i.i1189
 invoke.cont4.i.i1195:                             ; preds = %invoke.cont.i.i1191
   %line.i.i.i1196 = getelementptr inbounds i8, ptr %agg.tmp.i.i1176, i64 32
   store i32 986, ptr %line.i.i.i1196, align 8
-  %call7.i.i1197 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1183, ptr noundef nonnull %agg.tmp.i.i1176)
+  %call7.i.i1197 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1183, ptr noundef %agg.tmp.i.i1176)
           to label %invoke.cont6.i.i1201 unwind label %lpad5.i.i1198
 
 invoke.cont6.i.i1201:                             ; preds = %invoke.cont4.i.i1195
@@ -101075,7 +101073,7 @@ invoke.cont14.i.i1211:                            ; preds = %.noexc13.i.i1209
 invoke.cont16.i.i1215:                            ; preds = %invoke.cont14.i.i1211
   %line.i16.i.i1216 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1179, i64 32
   store i32 986, ptr %line.i16.i.i1216, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1197, ptr noundef nonnull @.str.254, ptr noundef nonnull %call9.i.i1202, ptr noundef nonnull %agg.tmp10.i.i1179)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1197, ptr noundef nonnull @.str.254, ptr noundef %call9.i.i1202, ptr noundef %agg.tmp10.i.i1179)
           to label %__cxx_global_var_init.48.exit unwind label %lpad17.i.i1217
 
 lpad.i.i1185:                                     ; preds = %call.i.noexc.i.i1188, %__cxx_global_var_init.47.exit
@@ -101175,7 +101173,7 @@ invoke.cont.i.i1233:                              ; preds = %.noexc.i.i1231
 invoke.cont4.i.i1237:                             ; preds = %invoke.cont.i.i1233
   %line.i.i.i1238 = getelementptr inbounds i8, ptr %agg.tmp.i.i1218, i64 32
   store i32 1003, ptr %line.i.i.i1238, align 8
-  %call7.i.i1239 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1225, ptr noundef nonnull %agg.tmp.i.i1218)
+  %call7.i.i1239 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1225, ptr noundef %agg.tmp.i.i1218)
           to label %invoke.cont6.i.i1243 unwind label %lpad5.i.i1240
 
 invoke.cont6.i.i1243:                             ; preds = %invoke.cont4.i.i1237
@@ -101209,7 +101207,7 @@ invoke.cont14.i.i1253:                            ; preds = %.noexc13.i.i1251
 invoke.cont16.i.i1257:                            ; preds = %invoke.cont14.i.i1253
   %line.i16.i.i1258 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1221, i64 32
   store i32 1003, ptr %line.i16.i.i1258, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1239, ptr noundef nonnull @.str.255, ptr noundef nonnull %call9.i.i1244, ptr noundef nonnull %agg.tmp10.i.i1221)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1239, ptr noundef nonnull @.str.255, ptr noundef %call9.i.i1244, ptr noundef %agg.tmp10.i.i1221)
           to label %__cxx_global_var_init.49.exit unwind label %lpad17.i.i1259
 
 lpad.i.i1227:                                     ; preds = %call.i.noexc.i.i1230, %__cxx_global_var_init.48.exit
@@ -101386,7 +101384,7 @@ invoke.cont.i.i1301:                              ; preds = %.noexc.i.i1299
 invoke.cont4.i.i1305:                             ; preds = %invoke.cont.i.i1301
   %line.i.i.i1306 = getelementptr inbounds i8, ptr %agg.tmp.i.i1286, i64 32
   store i32 1025, ptr %line.i.i.i1306, align 8
-  %call7.i.i1307 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1293, ptr noundef nonnull %agg.tmp.i.i1286)
+  %call7.i.i1307 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1293, ptr noundef %agg.tmp.i.i1286)
           to label %invoke.cont6.i.i1311 unwind label %lpad5.i.i1308
 
 invoke.cont6.i.i1311:                             ; preds = %invoke.cont4.i.i1305
@@ -101420,7 +101418,7 @@ invoke.cont14.i.i1321:                            ; preds = %.noexc13.i.i1319
 invoke.cont16.i.i1325:                            ; preds = %invoke.cont14.i.i1321
   %line.i16.i.i1326 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1289, i64 32
   store i32 1025, ptr %line.i16.i.i1326, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1307, ptr noundef nonnull @.str.259, ptr noundef nonnull %call9.i.i1312, ptr noundef nonnull %agg.tmp10.i.i1289)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1307, ptr noundef nonnull @.str.259, ptr noundef %call9.i.i1312, ptr noundef %agg.tmp10.i.i1289)
           to label %__cxx_global_var_init.52.exit unwind label %lpad17.i.i1327
 
 lpad.i.i1295:                                     ; preds = %call.i.noexc.i.i1298, %__cxx_global_var_init.50.exit
@@ -101597,7 +101595,7 @@ invoke.cont.i.i1369:                              ; preds = %.noexc.i.i1367
 invoke.cont4.i.i1373:                             ; preds = %invoke.cont.i.i1369
   %line.i.i.i1374 = getelementptr inbounds i8, ptr %agg.tmp.i.i1354, i64 32
   store i32 1093, ptr %line.i.i.i1374, align 8
-  %call7.i.i1375 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1361, ptr noundef nonnull %agg.tmp.i.i1354)
+  %call7.i.i1375 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1361, ptr noundef %agg.tmp.i.i1354)
           to label %invoke.cont6.i.i1379 unwind label %lpad5.i.i1376
 
 invoke.cont6.i.i1379:                             ; preds = %invoke.cont4.i.i1373
@@ -101631,7 +101629,7 @@ invoke.cont14.i.i1389:                            ; preds = %.noexc13.i.i1387
 invoke.cont16.i.i1393:                            ; preds = %invoke.cont14.i.i1389
   %line.i16.i.i1394 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1357, i64 32
   store i32 1093, ptr %line.i16.i.i1394, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1375, ptr noundef nonnull @.str.279, ptr noundef nonnull %call9.i.i1380, ptr noundef nonnull %agg.tmp10.i.i1357)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1375, ptr noundef nonnull @.str.279, ptr noundef %call9.i.i1380, ptr noundef %agg.tmp10.i.i1357)
           to label %__cxx_global_var_init.55.exit unwind label %lpad17.i.i1395
 
 lpad.i.i1363:                                     ; preds = %call.i.noexc.i.i1366, %__cxx_global_var_init.53.exit
@@ -101731,7 +101729,7 @@ invoke.cont.i.i1411:                              ; preds = %.noexc.i.i1409
 invoke.cont4.i.i1415:                             ; preds = %invoke.cont.i.i1411
   %line.i.i.i1416 = getelementptr inbounds i8, ptr %agg.tmp.i.i1396, i64 32
   store i32 1102, ptr %line.i.i.i1416, align 8
-  %call7.i.i1417 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1403, ptr noundef nonnull %agg.tmp.i.i1396)
+  %call7.i.i1417 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1403, ptr noundef %agg.tmp.i.i1396)
           to label %invoke.cont6.i.i1421 unwind label %lpad5.i.i1418
 
 invoke.cont6.i.i1421:                             ; preds = %invoke.cont4.i.i1415
@@ -101765,7 +101763,7 @@ invoke.cont14.i.i1431:                            ; preds = %.noexc13.i.i1429
 invoke.cont16.i.i1435:                            ; preds = %invoke.cont14.i.i1431
   %line.i16.i.i1436 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1399, i64 32
   store i32 1102, ptr %line.i16.i.i1436, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1417, ptr noundef nonnull @.str.282, ptr noundef nonnull %call9.i.i1422, ptr noundef nonnull %agg.tmp10.i.i1399)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1417, ptr noundef nonnull @.str.282, ptr noundef %call9.i.i1422, ptr noundef %agg.tmp10.i.i1399)
           to label %__cxx_global_var_init.56.exit unwind label %lpad17.i.i1437
 
 lpad.i.i1405:                                     ; preds = %call.i.noexc.i.i1408, %__cxx_global_var_init.55.exit
@@ -101865,7 +101863,7 @@ invoke.cont.i.i1453:                              ; preds = %.noexc.i.i1451
 invoke.cont4.i.i1457:                             ; preds = %invoke.cont.i.i1453
   %line.i.i.i1458 = getelementptr inbounds i8, ptr %agg.tmp.i.i1438, i64 32
   store i32 1113, ptr %line.i.i.i1458, align 8
-  %call7.i.i1459 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1445, ptr noundef nonnull %agg.tmp.i.i1438)
+  %call7.i.i1459 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1445, ptr noundef %agg.tmp.i.i1438)
           to label %invoke.cont6.i.i1463 unwind label %lpad5.i.i1460
 
 invoke.cont6.i.i1463:                             ; preds = %invoke.cont4.i.i1457
@@ -101899,7 +101897,7 @@ invoke.cont14.i.i1473:                            ; preds = %.noexc13.i.i1471
 invoke.cont16.i.i1477:                            ; preds = %invoke.cont14.i.i1473
   %line.i16.i.i1478 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1441, i64 32
   store i32 1113, ptr %line.i16.i.i1478, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1459, ptr noundef nonnull @.str.283, ptr noundef nonnull %call9.i.i1464, ptr noundef nonnull %agg.tmp10.i.i1441)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1459, ptr noundef nonnull @.str.283, ptr noundef %call9.i.i1464, ptr noundef %agg.tmp10.i.i1441)
           to label %__cxx_global_var_init.57.exit unwind label %lpad17.i.i1479
 
 lpad.i.i1447:                                     ; preds = %call.i.noexc.i.i1450, %__cxx_global_var_init.56.exit
@@ -101999,7 +101997,7 @@ invoke.cont.i.i1495:                              ; preds = %.noexc.i.i1493
 invoke.cont4.i.i1499:                             ; preds = %invoke.cont.i.i1495
   %line.i.i.i1500 = getelementptr inbounds i8, ptr %agg.tmp.i.i1480, i64 32
   store i32 1127, ptr %line.i.i.i1500, align 8
-  %call7.i.i1501 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1487, ptr noundef nonnull %agg.tmp.i.i1480)
+  %call7.i.i1501 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1487, ptr noundef %agg.tmp.i.i1480)
           to label %invoke.cont6.i.i1505 unwind label %lpad5.i.i1502
 
 invoke.cont6.i.i1505:                             ; preds = %invoke.cont4.i.i1499
@@ -102033,7 +102031,7 @@ invoke.cont14.i.i1515:                            ; preds = %.noexc13.i.i1513
 invoke.cont16.i.i1519:                            ; preds = %invoke.cont14.i.i1515
   %line.i16.i.i1520 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1483, i64 32
   store i32 1127, ptr %line.i16.i.i1520, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1501, ptr noundef nonnull @.str.284, ptr noundef nonnull %call9.i.i1506, ptr noundef nonnull %agg.tmp10.i.i1483)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1501, ptr noundef nonnull @.str.284, ptr noundef %call9.i.i1506, ptr noundef %agg.tmp10.i.i1483)
           to label %__cxx_global_var_init.58.exit unwind label %lpad17.i.i1521
 
 lpad.i.i1489:                                     ; preds = %call.i.noexc.i.i1492, %__cxx_global_var_init.57.exit
@@ -102133,7 +102131,7 @@ invoke.cont.i.i1537:                              ; preds = %.noexc.i.i1535
 invoke.cont4.i.i1541:                             ; preds = %invoke.cont.i.i1537
   %line.i.i.i1542 = getelementptr inbounds i8, ptr %agg.tmp.i.i1522, i64 32
   store i32 1138, ptr %line.i.i.i1542, align 8
-  %call7.i.i1543 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1529, ptr noundef nonnull %agg.tmp.i.i1522)
+  %call7.i.i1543 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1529, ptr noundef %agg.tmp.i.i1522)
           to label %invoke.cont6.i.i1547 unwind label %lpad5.i.i1544
 
 invoke.cont6.i.i1547:                             ; preds = %invoke.cont4.i.i1541
@@ -102167,7 +102165,7 @@ invoke.cont14.i.i1557:                            ; preds = %.noexc13.i.i1555
 invoke.cont16.i.i1561:                            ; preds = %invoke.cont14.i.i1557
   %line.i16.i.i1562 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1525, i64 32
   store i32 1138, ptr %line.i16.i.i1562, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1543, ptr noundef nonnull @.str.285, ptr noundef nonnull %call9.i.i1548, ptr noundef nonnull %agg.tmp10.i.i1525)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIiEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1543, ptr noundef nonnull @.str.285, ptr noundef %call9.i.i1548, ptr noundef %agg.tmp10.i.i1525)
           to label %__cxx_global_var_init.59.exit unwind label %lpad17.i.i1563
 
 lpad.i.i1531:                                     ; preds = %call.i.noexc.i.i1534, %__cxx_global_var_init.58.exit
@@ -102575,7 +102573,7 @@ invoke.cont.i.i1683:                              ; preds = %.noexc.i.i1681
 invoke.cont4.i.i1687:                             ; preds = %invoke.cont.i.i1683
   %line.i.i.i1688 = getelementptr inbounds i8, ptr %agg.tmp.i.i1668, i64 32
   store i32 1398, ptr %line.i.i.i1688, align 8
-  %call7.i.i1689 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1675, ptr noundef nonnull %agg.tmp.i.i1668)
+  %call7.i.i1689 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1675, ptr noundef %agg.tmp.i.i1668)
           to label %invoke.cont6.i.i1693 unwind label %lpad5.i.i1690
 
 invoke.cont6.i.i1693:                             ; preds = %invoke.cont4.i.i1687
@@ -102609,7 +102607,7 @@ invoke.cont14.i.i1703:                            ; preds = %.noexc13.i.i1701
 invoke.cont16.i.i1707:                            ; preds = %invoke.cont14.i.i1703
   %line.i16.i.i1708 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1671, i64 32
   store i32 1398, ptr %line.i16.i.i1708, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1689, ptr noundef nonnull @.str.330, ptr noundef nonnull %call9.i.i1694, ptr noundef nonnull %agg.tmp10.i.i1671)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE14AddTestPatternEPKcS8_PNS0_19TestMetaFactoryBaseIbEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1689, ptr noundef nonnull @.str.330, ptr noundef %call9.i.i1694, ptr noundef %agg.tmp10.i.i1671)
           to label %__cxx_global_var_init.68.exit unwind label %lpad17.i.i1709
 
 lpad.i.i1677:                                     ; preds = %call.i.noexc.i.i1680, %__cxx_global_var_init.66.exit

@@ -655,7 +655,7 @@ define hidden void @OGLPaints_SetRadialGradientPaint(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @OGLPaints_CreateMultiGradProgram(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @OGLPaints_CreateMultiGradProgram(i32 noundef range(i32 0, 32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca float, align 4
   %5 = alloca [1500 x i8], align 16
   %6 = alloca [3000 x i8], align 16
@@ -694,71 +694,70 @@ sub_2:                                            ; preds = %sub_1
 .tail:                                            ; preds = %sub_2, %sub_1, %sub_0, %3, %11
   %.026 = phi ptr [ @.str.7, %11 ], [ @.str.9, %3 ], [ @.str.7, %sub_0 ], [ @.str.7, %sub_1 ], [ %20, %sub_2 ]
   %.024 = phi ptr [ @.str.7, %11 ], [ @.str.8, %3 ], [ @.str.7, %sub_0 ], [ @.str.7, %sub_1 ], [ @.str.7, %sub_2 ]
-  %21 = and i32 %0, 16
-  %.not32 = icmp eq i32 %21, 0
+  %.not32 = icmp ult i32 %0, 16
   %spec.select33 = select i1 %.not32, ptr @.str.7, ptr @.str.12
   %switch.selectcmp = icmp eq i32 %7, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.18, ptr @.str.19
   %switch.selectcmp39 = icmp eq i32 %7, 0
   %switch.select40 = select i1 %switch.selectcmp39, ptr @.str.16, ptr %switch.select
-  %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1500, ptr noundef nonnull %switch.select40, ptr noundef nonnull @.str.17) #6
-  %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 3000, ptr noundef nonnull @.str.20, i32 noundef 16, i32 noundef %9, ptr noundef nonnull %.024, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %spec.select33, ptr noundef nonnull %.026) #6
-  %24 = call i32 @OGLContext_CreateFragmentProgram(ptr noundef nonnull %6) #6
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %27
+  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1500, ptr noundef nonnull %switch.select40, ptr noundef nonnull @.str.17) #6
+  %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 3000, ptr noundef nonnull @.str.20, i32 noundef 16, i32 noundef %9, ptr noundef nonnull %.024, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %spec.select33, ptr noundef nonnull %.026) #6
+  %23 = call i32 @OGLContext_CreateFragmentProgram(ptr noundef nonnull %6) #6
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %.tail
+  call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.13) #6
+  br label %48
 
 26:                                               ; preds = %.tail
-  call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.13) #6
-  br label %49
+  %27 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
+  call void %27(i32 noundef %23) #6
+  %28 = load ptr, ptr @j2d_glGetUniformLocationARB, align 8
+  br i1 %.not30, label %33, label %29
 
-27:                                               ; preds = %.tail
-  %28 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
-  call void %28(i32 noundef %24) #6
-  %29 = load ptr, ptr @j2d_glGetUniformLocationARB, align 8
-  br i1 %.not30, label %34, label %30
+29:                                               ; preds = %26
+  %30 = call i32 %28(i32 noundef %23, ptr noundef nonnull @.str.14) #6
+  %31 = load ptr, ptr @j2d_glUniform1iARB, align 8
+  call void %31(i32 noundef %30, i32 noundef 0) #6
+  %32 = load ptr, ptr @j2d_glGetUniformLocationARB, align 8
+  br label %33
 
-30:                                               ; preds = %27
-  %31 = call i32 %29(i32 noundef %24, ptr noundef nonnull @.str.14) #6
-  %32 = load ptr, ptr @j2d_glUniform1iARB, align 8
-  call void %32(i32 noundef %31, i32 noundef 0) #6
-  %33 = load ptr, ptr @j2d_glGetUniformLocationARB, align 8
-  br label %34
+33:                                               ; preds = %26, %29
+  %.sink38 = phi ptr [ %32, %29 ], [ %28, %26 ]
+  %.sink36 = phi i32 [ 1, %29 ], [ 0, %26 ]
+  %34 = call i32 %.sink38(i32 noundef %23, ptr noundef nonnull @.str.15) #6
+  %35 = load ptr, ptr @j2d_glUniform1iARB, align 8
+  call void %35(i32 noundef %34, i32 noundef %.sink36) #6
+  %36 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
+  call void %36(i32 noundef 0) #6
+  %37 = load i32, ptr @multiGradientTexID, align 4
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %48
 
-34:                                               ; preds = %27, %30
-  %.sink38 = phi ptr [ %33, %30 ], [ %29, %27 ]
-  %.sink36 = phi i32 [ 1, %30 ], [ 0, %27 ]
-  %35 = call i32 %.sink38(i32 noundef %24, ptr noundef nonnull @.str.15) #6
-  %36 = load ptr, ptr @j2d_glUniform1iARB, align 8
-  call void %36(i32 noundef %35, i32 noundef %.sink36) #6
-  %37 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
-  call void %37(i32 noundef 0) #6
-  %38 = load i32, ptr @multiGradientTexID, align 4
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %49
-
-40:                                               ; preds = %34
+39:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store float 1.000000e+00, ptr %4, align 4
-  %41 = load ptr, ptr @j2d_glGenTextures, align 8
-  call void %41(i32 noundef 1, ptr noundef nonnull @multiGradientTexID) #6
-  %42 = load ptr, ptr @j2d_glBindTexture, align 8
-  %43 = load i32, ptr @multiGradientTexID, align 4
-  call void %42(i32 noundef 3552, i32 noundef %43) #6
-  %44 = load ptr, ptr @j2d_glPrioritizeTextures, align 8
-  call void %44(i32 noundef 1, ptr noundef nonnull @multiGradientTexID, ptr noundef nonnull %4) #6
+  %40 = load ptr, ptr @j2d_glGenTextures, align 8
+  call void %40(i32 noundef 1, ptr noundef nonnull @multiGradientTexID) #6
+  %41 = load ptr, ptr @j2d_glBindTexture, align 8
+  %42 = load i32, ptr @multiGradientTexID, align 4
+  call void %41(i32 noundef 3552, i32 noundef %42) #6
+  %43 = load ptr, ptr @j2d_glPrioritizeTextures, align 8
+  call void %43(i32 noundef 1, ptr noundef nonnull @multiGradientTexID, ptr noundef nonnull %4) #6
+  %44 = load ptr, ptr @j2d_glTexParameteri, align 8
+  call void %44(i32 noundef 3552, i32 noundef 10240, i32 noundef 9729) #6
   %45 = load ptr, ptr @j2d_glTexParameteri, align 8
-  call void %45(i32 noundef 3552, i32 noundef 10240, i32 noundef 9729) #6
+  call void %45(i32 noundef 3552, i32 noundef 10241, i32 noundef 9729) #6
   %46 = load ptr, ptr @j2d_glTexParameteri, align 8
-  call void %46(i32 noundef 3552, i32 noundef 10241, i32 noundef 9729) #6
-  %47 = load ptr, ptr @j2d_glTexParameteri, align 8
-  call void %47(i32 noundef 3552, i32 noundef 10242, i32 noundef 33071) #6
-  %48 = load ptr, ptr @j2d_glTexImage1D, align 8
-  call void %48(i32 noundef 3552, i32 noundef 0, i32 noundef 32856, i32 noundef 16, i32 noundef 0, i32 noundef 32993, i32 noundef 33639, ptr noundef null) #6
+  call void %46(i32 noundef 3552, i32 noundef 10242, i32 noundef 33071) #6
+  %47 = load ptr, ptr @j2d_glTexImage1D, align 8
+  call void %47(i32 noundef 3552, i32 noundef 0, i32 noundef 32856, i32 noundef 16, i32 noundef 0, i32 noundef 32993, i32 noundef 33639, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %49
+  br label %48
 
-49:                                               ; preds = %34, %40, %26
-  ret i32 %24
+48:                                               ; preds = %33, %39, %25
+  ret i32 %23
 }
 
 ; Function Attrs: nofree nounwind

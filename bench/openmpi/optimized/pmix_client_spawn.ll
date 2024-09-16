@@ -1348,7 +1348,7 @@ pmix_obj_new_tma.exit.thread715:                  ; preds = %.lr.ph.i.i, %439
   br i1 %.0467, label %454, label %482
 
 454:                                              ; preds = %pmix_obj_new_tma.exit.thread715
-  %455 = call fastcc ptr @pmix_get_peer_object(ptr noundef nonnull %12)
+  %455 = call fastcc ptr @pmix_get_peer_object(ptr noundef %12)
   store ptr %455, ptr %453, align 8
   %456 = icmp eq ptr %455, null
   br i1 %456, label %457, label %484
@@ -2473,7 +2473,7 @@ declare i32 @PMIx_Argv_prepend_nosize(ptr noundef, ptr noundef) local_unnamed_ad
 declare zeroext i1 @PMIx_Info_is_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pmix_get_peer_object(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc ptr @pmix_get_peer_object(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_server_globals, i64 400), align 8
   %4 = icmp sgt i32 %3, 0
@@ -2496,7 +2496,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 152
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call zeroext i1 @PMIx_Check_nspace(ptr noundef %0, ptr noundef %13) #12
+  %14 = tail call zeroext i1 @PMIx_Check_nspace(ptr noundef nonnull %0, ptr noundef %13) #12
   %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_server_globals, i64 424), align 8
   br i1 %14, label %15, label %21
 

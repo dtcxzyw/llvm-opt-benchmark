@@ -6151,7 +6151,7 @@ if.then:                                          ; preds = %entry
   br label %for.end421
 
 if.end:                                           ; preds = %entry
-  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %icc, i64 noundef %size, i64 noundef 36)
+  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias align 8 %ref.tmp, ptr noundef %icc, i64 noundef %size, i64 noundef 36)
   %call.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.104) #23
   %cmp.i.i.not = icmp eq i32 %call.i.i, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
@@ -6186,7 +6186,7 @@ _ZL12getICCUint32PKhmm.exit:                      ; preds = %if.end
   %call13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call12, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %call14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull align 8 dereferenceable(32) %indent)
   %call15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call14, ptr noundef nonnull @.str.107)
-  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias nonnull align 8 %ref.tmp16, ptr noundef %icc, i64 noundef %size, i64 noundef 4)
+  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias align 8 %ref.tmp16, ptr noundef %icc, i64 noundef %size, i64 noundef 4)
   %call19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call15, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16)
           to label %invoke.cont18 unwind label %lpad17
 
@@ -6215,7 +6215,7 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   %call36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call35, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %call37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull align 8 dereferenceable(32) %indent)
   %call38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call37, ptr noundef nonnull @.str.109)
-  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias nonnull align 8 %ref.tmp39, ptr noundef nonnull %icc, i64 noundef %size, i64 noundef 12)
+  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias align 8 %ref.tmp39, ptr noundef nonnull %icc, i64 noundef %size, i64 noundef 12)
   %call42 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call38, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39)
           to label %invoke.cont41 unwind label %lpad40
 
@@ -6227,7 +6227,7 @@ invoke.cont43:                                    ; preds = %invoke.cont41
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39) #23
   %call45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull align 8 dereferenceable(32) %indent)
   %call46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call45, ptr noundef nonnull @.str.110)
-  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias nonnull align 8 %ref.tmp47, ptr noundef nonnull %icc, i64 noundef %size, i64 noundef 16)
+  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias align 8 %ref.tmp47, ptr noundef nonnull %icc, i64 noundef %size, i64 noundef 16)
   %call50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call46, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47)
           to label %invoke.cont49 unwind label %lpad48
 
@@ -6238,7 +6238,7 @@ invoke.cont49:                                    ; preds = %invoke.cont43
 invoke.cont51:                                    ; preds = %invoke.cont49
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47) #23
   %call53 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.112)
-  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias nonnull align 8 %ref.tmp54, ptr noundef nonnull %icc, i64 noundef %size, i64 noundef 20)
+  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias align 8 %ref.tmp54, ptr noundef nonnull %icc, i64 noundef %size, i64 noundef 20)
   %call57 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call53, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54)
           to label %invoke.cont56 unwind label %lpad55
 
@@ -6257,7 +6257,7 @@ invoke.cont60:                                    ; preds = %invoke.cont58
   %9 = load i8, ptr %arrayidx.i202, align 1
   %conv.i203 = zext i8 %9 to i32
   %shl.i204 = shl nuw nsw i32 %conv.i203, 8
-  %arrayidx2.i205 = getelementptr i8, ptr %icc, i64 25
+  %arrayidx2.i205 = getelementptr inbounds i8, ptr %icc, i64 25
   %10 = load i8, ptr %arrayidx2.i205, align 1
   %conv3.i206 = zext i8 %10 to i32
   %or.i207 = or disjoint i32 %shl.i204, %conv3.i206
@@ -6265,7 +6265,7 @@ invoke.cont60:                                    ; preds = %invoke.cont58
   %11 = load i8, ptr %arrayidx.i211, align 1
   %conv.i212 = zext i8 %11 to i32
   %shl.i213 = shl nuw nsw i32 %conv.i212, 8
-  %arrayidx2.i214 = getelementptr i8, ptr %icc, i64 27
+  %arrayidx2.i214 = getelementptr inbounds i8, ptr %icc, i64 27
   %12 = load i8, ptr %arrayidx2.i214, align 1
   %conv3.i215 = zext i8 %12 to i32
   %or.i216 = or disjoint i32 %shl.i213, %conv3.i215
@@ -6273,7 +6273,7 @@ invoke.cont60:                                    ; preds = %invoke.cont58
   %13 = load i8, ptr %arrayidx.i221, align 1
   %conv.i222 = zext i8 %13 to i32
   %shl.i223 = shl nuw nsw i32 %conv.i222, 8
-  %arrayidx2.i224 = getelementptr i8, ptr %icc, i64 29
+  %arrayidx2.i224 = getelementptr inbounds i8, ptr %icc, i64 29
   %14 = load i8, ptr %arrayidx2.i224, align 1
   %conv3.i225 = zext i8 %14 to i32
   %or.i226 = or disjoint i32 %shl.i223, %conv3.i225
@@ -6281,7 +6281,7 @@ invoke.cont60:                                    ; preds = %invoke.cont58
   %15 = load i8, ptr %arrayidx.i231, align 1
   %conv.i232 = zext i8 %15 to i32
   %shl.i233 = shl nuw nsw i32 %conv.i232, 8
-  %arrayidx2.i234 = getelementptr i8, ptr %icc, i64 31
+  %arrayidx2.i234 = getelementptr inbounds i8, ptr %icc, i64 31
   %16 = load i8, ptr %arrayidx2.i234, align 1
   %conv3.i235 = zext i8 %16 to i32
   %or.i236 = or disjoint i32 %shl.i233, %conv3.i235
@@ -6289,7 +6289,7 @@ invoke.cont60:                                    ; preds = %invoke.cont58
   %17 = load i8, ptr %arrayidx.i241, align 1
   %conv.i242 = zext i8 %17 to i32
   %shl.i243 = shl nuw nsw i32 %conv.i242, 8
-  %arrayidx2.i244 = getelementptr i8, ptr %icc, i64 33
+  %arrayidx2.i244 = getelementptr inbounds i8, ptr %icc, i64 33
   %18 = load i8, ptr %arrayidx2.i244, align 1
   %conv3.i245 = zext i8 %18 to i32
   %or.i246 = or disjoint i32 %shl.i243, %conv3.i245
@@ -6297,14 +6297,14 @@ invoke.cont60:                                    ; preds = %invoke.cont58
   %19 = load i8, ptr %arrayidx.i251, align 1
   %conv.i252 = zext i8 %19 to i32
   %shl.i253 = shl nuw nsw i32 %conv.i252, 8
-  %arrayidx2.i254 = getelementptr i8, ptr %icc, i64 35
+  %arrayidx2.i254 = getelementptr inbounds i8, ptr %icc, i64 35
   %20 = load i8, ptr %arrayidx2.i254, align 1
   %conv3.i255 = zext i8 %20 to i32
   %or.i256 = or disjoint i32 %shl.i253, %conv3.i255
   %call69 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.114, i32 noundef %or.i207, i32 noundef %or.i216, i32 noundef %or.i226, i32 noundef %or.i236, i32 noundef %or.i246, i32 noundef %or.i256)
   %call70 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull align 8 dereferenceable(32) %indent)
   %call71 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call70, ptr noundef nonnull @.str.115)
-  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias nonnull align 8 %ref.tmp72, ptr noundef nonnull %icc, i64 noundef %size, i64 noundef 36)
+  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias align 8 %ref.tmp72, ptr noundef nonnull %icc, i64 noundef %size, i64 noundef 36)
   %call75 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call71, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72)
           to label %invoke.cont74 unwind label %lpad73
 
@@ -6316,7 +6316,7 @@ invoke.cont76:                                    ; preds = %invoke.cont74
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72) #23
   %call78 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull align 8 dereferenceable(32) %indent)
   %call79 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call78, ptr noundef nonnull @.str.116)
-  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias nonnull align 8 %ref.tmp80, ptr noundef nonnull %icc, i64 noundef %size, i64 noundef 40)
+  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias align 8 %ref.tmp80, ptr noundef nonnull %icc, i64 noundef %size, i64 noundef 40)
   %call83 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call79, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80)
           to label %invoke.cont82 unwind label %lpad81
 
@@ -6350,7 +6350,7 @@ invoke.cont84:                                    ; preds = %invoke.cont82
   %call90 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call89, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %call91 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull align 8 dereferenceable(32) %indent)
   %call92 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call91, ptr noundef nonnull @.str.118)
-  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias nonnull align 8 %ref.tmp93, ptr noundef nonnull %icc, i64 noundef %size, i64 noundef 48)
+  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias align 8 %ref.tmp93, ptr noundef nonnull %icc, i64 noundef %size, i64 noundef 48)
   %call96 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call92, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp93)
           to label %invoke.cont95 unwind label %lpad94
 
@@ -6361,7 +6361,7 @@ invoke.cont95:                                    ; preds = %invoke.cont84
 invoke.cont97:                                    ; preds = %invoke.cont95
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp93) #23
   %call99 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.119)
-  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias nonnull align 8 %ref.tmp100, ptr noundef nonnull %icc, i64 noundef %size, i64 noundef 52)
+  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias align 8 %ref.tmp100, ptr noundef nonnull %icc, i64 noundef %size, i64 noundef 52)
   %call103 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call99, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp100)
           to label %invoke.cont102 unwind label %lpad101
 
@@ -6515,7 +6515,7 @@ invoke.cont104:                                   ; preds = %invoke.cont102
   %call134 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call133, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %call135 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull align 8 dereferenceable(32) %indent)
   %call136 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call135, ptr noundef nonnull @.str.127)
-  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias nonnull align 8 %ref.tmp137, ptr noundef nonnull %icc, i64 noundef %size, i64 noundef 80)
+  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias align 8 %ref.tmp137, ptr noundef nonnull %icc, i64 noundef %size, i64 noundef 80)
   %call140 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call136, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp137)
           to label %invoke.cont139 unwind label %lpad138
 
@@ -6694,7 +6694,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add164 = add nuw nsw i64 %mul163, 132
   %call165 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull align 8 dereferenceable(32) %indent)
   %call166 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call165, ptr noundef nonnull @.str.131)
-  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias nonnull align 8 %ref.tmp167, ptr noundef %icc, i64 noundef %size, i64 noundef %add164)
+  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias align 8 %ref.tmp167, ptr noundef %icc, i64 noundef %size, i64 noundef %add164)
   %call170 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call166, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp167)
           to label %invoke.cont169 unwind label %lpad168
 
@@ -6765,7 +6765,7 @@ lpad168:                                          ; preds = %invoke.cont169, %fo
   br label %eh.resume
 
 if.end191:                                        ; preds = %invoke.cont171
-  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias nonnull align 8 %datatype, ptr noundef nonnull %icc, i64 noundef %size, i64 noundef %or14.i473)
+  call fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias align 8 %datatype, ptr noundef nonnull %icc, i64 noundef %size, i64 noundef %or14.i473)
   %call194 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.135)
           to label %invoke.cont193 unwind label %lpad192.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -7444,7 +7444,7 @@ eh.resume:                                        ; preds = %lpad192.loopexit, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias align 8 %agg.result, ptr nocapture noundef readonly %icc, i64 noundef %size, i64 noundef %pos) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16printableICCWordB5cxx11PKhmm(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %icc, i64 noundef range(i64 132, 0) %size, i64 noundef range(i64 0, 51539607661) %pos) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %add = add nuw nsw i64 %pos, 4
@@ -7486,12 +7486,12 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 
 if.end:                                           ; preds = %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #23
-  %2 = getelementptr i8, ptr %icc, i64 %pos
+  %2 = getelementptr inbounds i8, ptr %icc, i64 %pos
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr i8, ptr %2, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
   %3 = load i8, ptr %arrayidx, align 1
   %4 = add i8 %3, -32
   %or.cond = icmp ult i8 %4, 95

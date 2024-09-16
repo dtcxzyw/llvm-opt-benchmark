@@ -717,7 +717,7 @@ lpad.i201:                                        ; preds = %.noexc204
   br label %ehcleanup
 
 invoke.cont124:                                   ; preds = %.noexc204
-  %call127 = invoke fastcc noundef zeroext i1 @_ZN7rocksdb12_GLOBAL__N_111ParseIntArgEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_Pl(ptr noundef %5, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp121, ptr noundef nonnull %tmp_val)
+  %call127 = invoke fastcc noundef zeroext i1 @_ZN7rocksdb12_GLOBAL__N_111ParseIntArgEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_Pl(ptr noundef %5, ptr noundef %agg.tmp, ptr noundef %agg.tmp121, ptr noundef %tmp_val)
           to label %invoke.cont126 unwind label %lpad125
 
 invoke.cont126:                                   ; preds = %invoke.cont124
@@ -770,7 +770,7 @@ invoke.cont137:                                   ; preds = %if.else131
           to label %invoke.cont141 unwind label %lpad140
 
 invoke.cont141:                                   ; preds = %invoke.cont137
-  %call144 = invoke fastcc noundef zeroext i1 @_ZN7rocksdb12_GLOBAL__N_111ParseIntArgEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_Pl(ptr noundef %12, ptr noundef nonnull %agg.tmp134, ptr noundef nonnull %agg.tmp138, ptr noundef nonnull %tmp_val)
+  %call144 = invoke fastcc noundef zeroext i1 @_ZN7rocksdb12_GLOBAL__N_111ParseIntArgEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_Pl(ptr noundef %12, ptr noundef %agg.tmp134, ptr noundef %agg.tmp138, ptr noundef %tmp_val)
           to label %invoke.cont143 unwind label %lpad142
 
 invoke.cont143:                                   ; preds = %invoke.cont141
@@ -1232,7 +1232,7 @@ invoke.cont256:                                   ; preds = %if.else250
           to label %invoke.cont260 unwind label %lpad259
 
 invoke.cont260:                                   ; preds = %invoke.cont256
-  %call263 = invoke fastcc noundef zeroext i1 @_ZN7rocksdb12_GLOBAL__N_111ParseIntArgEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_Pl(ptr noundef %17, ptr noundef nonnull %agg.tmp253, ptr noundef nonnull %agg.tmp257, ptr noundef nonnull %tmp_val)
+  %call263 = invoke fastcc noundef zeroext i1 @_ZN7rocksdb12_GLOBAL__N_111ParseIntArgEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_Pl(ptr noundef %17, ptr noundef %agg.tmp253, ptr noundef %agg.tmp257, ptr noundef %tmp_val)
           to label %invoke.cont262 unwind label %lpad261
 
 invoke.cont262:                                   ; preds = %invoke.cont260
@@ -1281,7 +1281,7 @@ invoke.cont275:                                   ; preds = %if.else269
           to label %invoke.cont279 unwind label %lpad278
 
 invoke.cont279:                                   ; preds = %invoke.cont275
-  %call282 = invoke fastcc noundef zeroext i1 @_ZN7rocksdb12_GLOBAL__N_111ParseIntArgEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_Pl(ptr noundef %44, ptr noundef nonnull %agg.tmp272, ptr noundef nonnull %agg.tmp276, ptr noundef nonnull %tmp_val)
+  %call282 = invoke fastcc noundef zeroext i1 @_ZN7rocksdb12_GLOBAL__N_111ParseIntArgEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_Pl(ptr noundef %44, ptr noundef %agg.tmp272, ptr noundef %agg.tmp276, ptr noundef %tmp_val)
           to label %invoke.cont281 unwind label %lpad280
 
 invoke.cont281:                                   ; preds = %invoke.cont279
@@ -1335,7 +1335,7 @@ invoke.cont295:                                   ; preds = %if.else289
           to label %invoke.cont299 unwind label %lpad298
 
 invoke.cont299:                                   ; preds = %invoke.cont295
-  %call302 = invoke fastcc noundef zeroext i1 @_ZN7rocksdb12_GLOBAL__N_111ParseIntArgEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_Pl(ptr noundef %49, ptr noundef nonnull %agg.tmp292, ptr noundef nonnull %agg.tmp296, ptr noundef nonnull %tmp_val)
+  %call302 = invoke fastcc noundef zeroext i1 @_ZN7rocksdb12_GLOBAL__N_111ParseIntArgEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_Pl(ptr noundef %49, ptr noundef %agg.tmp292, ptr noundef %agg.tmp296, ptr noundef %tmp_val)
           to label %invoke.cont301 unwind label %lpad300
 
 invoke.cont301:                                   ; preds = %invoke.cont299
@@ -1403,7 +1403,7 @@ invoke.cont326:                                   ; preds = %if.else320
           to label %invoke.cont330 unwind label %lpad329
 
 invoke.cont330:                                   ; preds = %invoke.cont326
-  %call333 = invoke fastcc noundef zeroext i1 @_ZN7rocksdb12_GLOBAL__N_111ParseIntArgEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_Pl(ptr noundef %56, ptr noundef nonnull %agg.tmp323, ptr noundef nonnull %agg.tmp327, ptr noundef nonnull %tmp_val)
+  %call333 = invoke fastcc noundef zeroext i1 @_ZN7rocksdb12_GLOBAL__N_111ParseIntArgEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_Pl(ptr noundef %56, ptr noundef %agg.tmp323, ptr noundef %agg.tmp327, ptr noundef %tmp_val)
           to label %invoke.cont332 unwind label %lpad331
 
 invoke.cont332:                                   ; preds = %invoke.cont330
@@ -1467,7 +1467,7 @@ invoke.cont358:                                   ; preds = %if.else352
           to label %invoke.cont362 unwind label %lpad361
 
 invoke.cont362:                                   ; preds = %invoke.cont358
-  %call365 = invoke fastcc noundef zeroext i1 @_ZN7rocksdb12_GLOBAL__N_111ParseIntArgEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_Pl(ptr noundef %63, ptr noundef nonnull %agg.tmp355, ptr noundef nonnull %agg.tmp359, ptr noundef nonnull %tmp_val)
+  %call365 = invoke fastcc noundef zeroext i1 @_ZN7rocksdb12_GLOBAL__N_111ParseIntArgEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_Pl(ptr noundef %63, ptr noundef %agg.tmp355, ptr noundef %agg.tmp359, ptr noundef %tmp_val)
           to label %invoke.cont364 unwind label %lpad363
 
 invoke.cont364:                                   ; preds = %invoke.cont362
@@ -3587,7 +3587,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7rocksdb12_GLOBAL__N_111ParseIntArgEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_Pl(ptr noundef %arg, ptr noundef nonnull %arg_name, ptr noundef %err_msg, ptr noundef %arg_val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7rocksdb12_GLOBAL__N_111ParseIntArgEPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_Pl(ptr noundef %arg, ptr noundef nonnull %arg_name, ptr noundef nonnull %err_msg, ptr noundef nonnull %arg_val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %input_str = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator.19", align 1

@@ -2892,7 +2892,7 @@ Abc_UtilStrsav.exit918:                           ; preds = %Vec_PtrStart.exit, 
   %.2558.ph1246 = phi ptr [ %.15571396, %.thread1235 ], [ %.2558.ph, %.loopexit1269 ]
   %.2565.ph1244 = phi ptr [ %.15641395, %.thread1235 ], [ %.2565.ph, %.loopexit1269 ]
   %.2572.ph1242 = phi ptr [ %.15711394, %.thread1235 ], [ %.2572.ph, %.loopexit1269 ]
-  tail call fastcc void @Vec_PtrFreeFree(ptr noundef nonnull %.2554.ph1248)
+  tail call fastcc void @Vec_PtrFreeFree(ptr noundef %.2554.ph1248)
   br label %995
 
 995:                                              ; preds = %994, %.loopexit1269
@@ -2903,7 +2903,7 @@ Abc_UtilStrsav.exit918:                           ; preds = %Vec_PtrStart.exit, 
   br i1 %.not682, label %997, label %996
 
 996:                                              ; preds = %995
-  tail call fastcc void @Vec_PtrFreeFree(ptr noundef nonnull %.2558.ph1247)
+  tail call fastcc void @Vec_PtrFreeFree(ptr noundef %.2558.ph1247)
   br label %997
 
 997:                                              ; preds = %996, %995
@@ -2911,7 +2911,7 @@ Abc_UtilStrsav.exit918:                           ; preds = %Vec_PtrStart.exit, 
   br i1 %.not683, label %999, label %998
 
 998:                                              ; preds = %997
-  tail call fastcc void @Vec_PtrFreeFree(ptr noundef nonnull %.2565.ph1245)
+  tail call fastcc void @Vec_PtrFreeFree(ptr noundef %.2565.ph1245)
   br label %999
 
 999:                                              ; preds = %998, %997
@@ -2919,7 +2919,7 @@ Abc_UtilStrsav.exit918:                           ; preds = %Vec_PtrStart.exit, 
   br i1 %.not684, label %1001, label %1000
 
 1000:                                             ; preds = %999
-  tail call fastcc void @Vec_PtrFreeFree(ptr noundef nonnull %.2572.ph1243)
+  tail call fastcc void @Vec_PtrFreeFree(ptr noundef %.2572.ph1243)
   br label %1001
 
 1001:                                             ; preds = %1000, %999
@@ -2927,7 +2927,7 @@ Abc_UtilStrsav.exit918:                           ; preds = %Vec_PtrStart.exit, 
   br i1 %.not685, label %.critedge19, label %1002
 
 1002:                                             ; preds = %1001
-  tail call fastcc void @Vec_PtrFreeFree(ptr noundef nonnull %.15781393)
+  tail call fastcc void @Vec_PtrFreeFree(ptr noundef %.15781393)
   br label %.critedge19
 
 .critedge19:                                      ; preds = %768, %988, %1001, %1002, %756, %Vec_IntFree.exit871
@@ -4684,9 +4684,9 @@ Vec_IntFreeP.exit1175:                            ; preds = %.thread.i1174, %170
   store ptr %.0552, ptr %1739, align 8
   %1740 = getelementptr inbounds i8, ptr %.21253, i64 640
   store ptr %.0556, ptr %1740, align 8
-  call fastcc void @Vec_PtrAppend(ptr noundef nonnull %.0552, ptr noundef nonnull %.0570)
+  call fastcc void @Vec_PtrAppend(ptr noundef nonnull %.0552, ptr noundef %.0570)
   store i32 0, ptr %1732, align 4
-  call fastcc void @Vec_PtrFree(ptr noundef nonnull %.0570)
+  call fastcc void @Vec_PtrFree(ptr noundef %.0570)
   br label %1741
 
 1741:                                             ; preds = %1735, %1738
@@ -4696,10 +4696,10 @@ Vec_IntFreeP.exit1175:                            ; preds = %.thread.i1174, %170
 
 1743:                                             ; preds = %1741
   %1744 = load ptr, ptr %1742, align 8
-  call fastcc void @Vec_PtrAppend(ptr noundef %1744, ptr noundef nonnull %.0563)
+  call fastcc void @Vec_PtrAppend(ptr noundef %1744, ptr noundef %.0563)
   %1745 = getelementptr inbounds i8, ptr %.0563, i64 4
   store i32 0, ptr %1745, align 4
-  call fastcc void @Vec_PtrFree(ptr noundef nonnull %.0563)
+  call fastcc void @Vec_PtrFree(ptr noundef %.0563)
   br label %1746
 
 1746:                                             ; preds = %.thread1257, %1728, %1734, %1743, %1741, %1733, %1719
@@ -5071,7 +5071,7 @@ declare void @Gia_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #7
 declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_PtrFreeFree(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc void @Vec_PtrFreeFree(ptr nocapture noundef nonnull %0) unnamed_addr #5 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val16.i = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val16.i, 0
@@ -5207,7 +5207,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_PtrAppend(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
+define internal fastcc void @Vec_PtrAppend(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #5 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val7 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val7, 0
@@ -5297,7 +5297,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_PtrFree(ptr nocapture noundef %0) unnamed_addr #12 {
+define internal fastcc void @Vec_PtrFree(ptr nocapture noundef nonnull %0) unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

@@ -901,7 +901,7 @@ for.body10.lr.ph.i:                               ; preds = %for.cond8.preheader
 
 for.body.i23:                                     ; preds = %if.end.i22, %for.cond.i
   %b.0146.i = phi ptr [ %b.0.i, %for.cond.i ], [ %b.0144.i, %if.end.i22 ]
-  %call2.i = tail call fastcc i32 @inline_small_exit_blocks(ptr noundef nonnull %b.0146.i)
+  %call2.i = tail call fastcc i32 @inline_small_exit_blocks(ptr noundef %b.0146.i)
   %cmp3.i = icmp eq i32 %call2.i, -1
   br i1 %cmp3.i, label %return, label %for.cond.i
 
@@ -2360,7 +2360,7 @@ for.cond25.i:                                     ; preds = %for.body27.i
 
 for.body27.i:                                     ; preds = %for.cond25.preheader.i, %for.cond25.i
   %b23.0152.i = phi ptr [ %b23.0.i, %for.cond25.i ], [ %b23.0150.i, %for.cond25.preheader.i ]
-  %call28.i = tail call fastcc i32 @inline_small_exit_blocks(ptr noundef nonnull %b23.0152.i)
+  %call28.i = tail call fastcc i32 @inline_small_exit_blocks(ptr noundef %b23.0152.i)
   %cmp29.i = icmp eq i32 %call28.i, -1
   br i1 %cmp29.i, label %return, label %for.cond25.i
 
@@ -2564,7 +2564,7 @@ for.inc48.i:                                      ; preds = %if.then46.i, %for.b
 
 for.body55.i:                                     ; preds = %for.cond53.preheader.i, %for.body55.i
   %b51.0158.i = phi ptr [ %b51.0.i, %for.body55.i ], [ %b51.0156.pre.i, %for.cond53.preheader.i ]
-  tail call fastcc void @remove_redundant_nops(ptr noundef nonnull %b51.0158.i)
+  tail call fastcc void @remove_redundant_nops(ptr noundef %b51.0158.i)
   %b_next58.i = getelementptr inbounds i8, ptr %b51.0158.i, i64 32
   %b51.0.i = load ptr, ptr %b_next58.i, align 8
   %cmp54.not.i = icmp eq ptr %b51.0.i, null
@@ -3040,7 +3040,7 @@ while.cond.preheader.i:                           ; preds = %for.body14.i
 
 for.body14.i:                                     ; preds = %for.body14.i.preheader, %for.body14.i
   %b.032.i = phi ptr [ %285, %for.body14.i ], [ %268, %for.body14.i.preheader ]
-  call fastcc void @scan_block_for_locals(ptr noundef nonnull %b.032.i, ptr noundef nonnull %sp.i)
+  call fastcc void @scan_block_for_locals(ptr noundef nonnull %b.032.i, ptr noundef %sp.i)
   %b_next.i73 = getelementptr inbounds i8, ptr %b.032.i, i64 32
   %285 = load ptr, ptr %b_next.i73, align 8
   %cmp13.not.i = icmp eq ptr %285, null
@@ -3055,7 +3055,7 @@ while.body.i77:                                   ; preds = %while.cond.preheade
   %bf.load.i80 = load i8, ptr %b_visited.i79, align 8
   %bf.clear.i = and i8 %bf.load.i80, -3
   store i8 %bf.clear.i, ptr %b_visited.i79, align 8
-  call fastcc void @scan_block_for_locals(ptr noundef %287, ptr noundef nonnull %sp.i)
+  call fastcc void @scan_block_for_locals(ptr noundef %287, ptr noundef %sp.i)
   %288 = load ptr, ptr %sp.i, align 8
   %cmp17.i = icmp ugt ptr %288, %call.i19.i
   br i1 %cmp17.i, label %while.body.i77, label %while.end.i75, !llvm.loop !57
@@ -3231,7 +3231,7 @@ for.inc28.i:                                      ; preds = %for.inc.i116, %for.
 
 for.body34.i109:                                  ; preds = %for.cond32.preheader.i, %for.body34.i109
   %b30.063.i = phi ptr [ %b30.0.i, %for.body34.i109 ], [ %b30.061.pre.i, %for.cond32.preheader.i ]
-  tail call fastcc void @remove_redundant_nops(ptr noundef nonnull %b30.063.i)
+  tail call fastcc void @remove_redundant_nops(ptr noundef %b30.063.i)
   %b_next36.i = getelementptr inbounds i8, ptr %b30.063.i, i64 32
   %b30.0.i = load ptr, ptr %b_next36.i, align 8
   %cmp33.not.i = icmp eq ptr %b30.0.i, null
@@ -5327,7 +5327,7 @@ for.inc17.i:                                      ; preds = %for.inc.i, %for.con
 
 for.body22.i:                                     ; preds = %for.inc17.i, %for.body22.i
   %b19.021.i = phi ptr [ %105, %for.body22.i ], [ %98, %for.inc17.i ]
-  call fastcc void @remove_redundant_nops(ptr noundef nonnull %b19.021.i)
+  call fastcc void @remove_redundant_nops(ptr noundef %b19.021.i)
   %b_next25.i = getelementptr inbounds i8, ptr %b19.021.i, i64 32
   %105 = load ptr, ptr %b_next25.i, align 8
   %cmp21.not.i = icmp eq ptr %105, null
@@ -5658,7 +5658,7 @@ for.end62:                                        ; preds = %while.body13, %for.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @inline_small_exit_blocks(ptr noundef %bb) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @inline_small_exit_blocks(ptr noundef nonnull %bb) unnamed_addr #0 {
 entry:
   %b_iused.i = getelementptr inbounds i8, ptr %bb, i64 40
   %0 = load i32, ptr %b_iused.i, align 8
@@ -5765,7 +5765,7 @@ return:                                           ; preds = %if.end.i, %for.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @remove_redundant_nops(ptr nocapture noundef %bb) unnamed_addr #4 {
+define internal fastcc void @remove_redundant_nops(ptr nocapture noundef nonnull %bb) unnamed_addr #4 {
 entry:
   %b_iused = getelementptr inbounds i8, ptr %bb, i64 40
   %0 = load i32, ptr %b_iused, align 8
@@ -6042,7 +6042,7 @@ declare i32 @PyList_SetItem(ptr noundef, i64 noundef, ptr noundef) local_unnamed
 declare i32 @PyList_SetSlice(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @scan_block_for_locals(ptr nocapture noundef readonly %b, ptr nocapture noundef %sp) unnamed_addr #4 {
+define internal fastcc void @scan_block_for_locals(ptr nocapture noundef readonly %b, ptr nocapture noundef nonnull %sp) unnamed_addr #4 {
 entry:
   %b_unsafe_locals_mask = getelementptr inbounds i8, ptr %b, i64 48
   %0 = load i64, ptr %b_unsafe_locals_mask, align 8

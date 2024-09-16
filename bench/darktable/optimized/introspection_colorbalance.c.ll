@@ -5408,7 +5408,7 @@ declare void @gtk_label_set_xalign(ptr noundef, float noundef) local_unnamed_add
 declare float @dt_bauhaus_slider_get(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @set_RGB_sliders(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4) unnamed_addr #14 {
+define internal fastcc void @set_RGB_sliders(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef %4) unnamed_addr #14 {
   %6 = load float, ptr %3, align 4, !tbaa !6
   %7 = getelementptr inbounds i8, ptr %3, i64 4
   %8 = load float, ptr %7, align 4, !tbaa !6

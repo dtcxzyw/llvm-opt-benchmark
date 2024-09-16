@@ -794,10 +794,10 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %4
   %42 = load ptr, ptr %41, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.16, i64 noundef %40, ptr noundef %42) #10
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.17) #10
-  call fastcc void @_ZN9metaspaceL21print_word_size_deltaEP12outputStreammm(ptr noundef nonnull %2, i64 noundef %13, i64 noundef %25)
+  call fastcc void @_ZN9metaspaceL21print_word_size_deltaEP12outputStreammm(ptr noundef %2, i64 noundef %13, i64 noundef %25)
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #10
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.18) #10
-  call fastcc void @_ZN9metaspaceL21print_word_size_deltaEP12outputStreammm(ptr noundef nonnull %2, i64 noundef %15, i64 noundef %27)
+  call fastcc void @_ZN9metaspaceL21print_word_size_deltaEP12outputStreammm(ptr noundef %2, i64 noundef %15, i64 noundef %27)
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #10
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %2) #10
   br label %43
@@ -822,9 +822,9 @@ declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 derefe
 declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN9metaspaceL21print_word_size_deltaEP12outputStreammm(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZN9metaspaceL21print_word_size_deltaEP12outputStreammm(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = icmp eq i64 %1, %2
-  tail call void @_ZN9metaspace18print_scaled_wordsEP12outputStreammmi(ptr noundef %0, i64 noundef %1, i64 noundef 0, i32 noundef -1) #10
+  tail call void @_ZN9metaspace18print_scaled_wordsEP12outputStreammmi(ptr noundef nonnull %0, i64 noundef %1, i64 noundef 0, i32 noundef -1) #10
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %3

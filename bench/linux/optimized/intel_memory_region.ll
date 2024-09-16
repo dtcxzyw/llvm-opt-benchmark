@@ -662,7 +662,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local ptr @ioremap_wc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @__iopagetest(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i64 noundef %3, ptr noundef %4) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @__iopagetest(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %2, i64 noundef %3, ptr noundef %4) unnamed_addr #2 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca [3 x i8], align 1
   store i64 %3, ptr %6, align 8

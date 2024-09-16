@@ -1400,7 +1400,7 @@ if.else12.i.i:                                    ; preds = %if.end8.i.i
   unreachable
 
 nvme_aor_dec_active.exit.i:                       ; preds = %if.end8.i.i, %if.end.i.i
-  tail call fastcc void @nvme_clear_zone(ptr noundef nonnull %ns, ptr noundef nonnull %zone.0105.i)
+  tail call fastcc void @nvme_clear_zone(ptr noundef nonnull %ns, ptr noundef %zone.0105.i)
   br i1 %cmp.not.i, label %for.end.i, label %land.rhs.i, !llvm.loop !17
 
 for.end.i:                                        ; preds = %nvme_aor_dec_active.exit.i, %if.then
@@ -1490,7 +1490,7 @@ if.else12.i74.i:                                  ; preds = %if.end8.i73.i
   unreachable
 
 nvme_aor_dec_active.exit75.i:                     ; preds = %if.end8.i73.i, %if.end.i68.i
-  tail call fastcc void @nvme_clear_zone(ptr noundef nonnull %ns, ptr noundef nonnull %zone.1107.i)
+  tail call fastcc void @nvme_clear_zone(ptr noundef nonnull %ns, ptr noundef %zone.1107.i)
   br i1 %cmp27.not.i, label %for.end51.i, label %land.rhs21.i, !llvm.loop !18
 
 for.end51.i:                                      ; preds = %nvme_aor_dec_active.exit75.i, %for.end.i
@@ -1580,7 +1580,7 @@ if.else12.i102.i:                                 ; preds = %if.end8.i101.i
   unreachable
 
 nvme_aor_dec_active.exit103.i:                    ; preds = %if.end8.i101.i, %if.end.i96.i
-  tail call fastcc void @nvme_clear_zone(ptr noundef nonnull %ns, ptr noundef nonnull %zone.2109.i)
+  tail call fastcc void @nvme_clear_zone(ptr noundef nonnull %ns, ptr noundef %zone.2109.i)
   br i1 %cmp60.not.i, label %for.end84.i, label %land.rhs54.i, !llvm.loop !19
 
 for.end84.i:                                      ; preds = %nvme_aor_dec_active.exit103.i, %for.end51.i
@@ -1705,7 +1705,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @nvme_clear_zone(ptr noundef %ns, ptr noundef %zone) unnamed_addr #0 {
+define internal fastcc void @nvme_clear_zone(ptr noundef %ns, ptr noundef nonnull %zone) unnamed_addr #0 {
 entry:
   %_now.i.i25 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8

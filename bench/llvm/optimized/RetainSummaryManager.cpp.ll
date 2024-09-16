@@ -783,7 +783,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit48:      ; preds = %_ZNK4llvm9StringRef
   br i1 %49, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit48.thread109
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit48, %_ZNK4llvm9StringRef11starts_withES0_.exit
-  %50 = tail call fastcc noundef zeroext i1 @_ZL10isSubclassPKN5clang4DeclEN4llvm9StringRefE(ptr noundef nonnull %24, ptr nonnull @.str.86, i64 10)
+  %50 = tail call fastcc noundef zeroext i1 @_ZL10isSubclassPKN5clang4DeclEN4llvm9StringRefE(ptr noundef %24, ptr nonnull @.str.86, i64 10)
   br i1 %50, label %_ZNK4llvm9StringRef11starts_withES0_.exit48.thread109, label %52
 
 _ZNK4llvm9StringRef11starts_withES0_.exit48.thread109: ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.thread107, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit48
@@ -961,7 +961,7 @@ define internal fastcc noundef zeroext i1 @_ZL18isOSObjectSubclassPKN5clang4Decl
   br i1 %.not, label %114, label %12
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef zeroext i1 @_ZL10isSubclassPKN5clang4DeclEN4llvm9StringRefE(ptr noundef nonnull %0, ptr nonnull @.str.80, i64 15)
+  %13 = tail call fastcc noundef zeroext i1 @_ZL10isSubclassPKN5clang4DeclEN4llvm9StringRefE(ptr noundef %0, ptr nonnull @.str.80, i64 15)
   br i1 %13, label %14, label %114
 
 14:                                               ; preds = %12
@@ -5977,8 +5977,8 @@ _ZNK5clang4Decl7hasAttrINS_14OSConsumedAttrEEEbv.exit.thread.i.i.i.i: ; preds = 
   %.val.i.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.013.1.i.i.i.i.i.i.i.i, align 8
   %90 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i.i.i.i, i64 32
   %91 = load i16, ptr %90, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %91, 83
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %92, label %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i.i.i.i.i
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %91, 83
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %92, label %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i.i.i.i.i
 
 92:                                               ; preds = %.lr.ph.i.i.i.i.i.i12.i.i.i
   %93 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i.i.i.i, i64 36
@@ -6007,8 +6007,8 @@ _ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exi
   %.val.i5.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.0.1.i.i.i.i.i8.i.i.i, align 8
   %100 = getelementptr inbounds nuw i8, ptr %.val.i5.i.i.i.i.i.i.i.i, i64 32
   %101 = load i16, ptr %100, align 8
-  %.not.i.i.i.i.i.i.i.i6.i.i.i.i.i.i.i.i = icmp eq i16 %101, 83
-  br i1 %.not.i.i.i.i.i.i.i.i6.i.i.i.i.i.i.i.i, label %102, label %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i.i.i.i.i
+  %.not.i.i.i.i.i.i.i.i.i6.i.i.i.i.i.i.i.i = icmp eq i16 %101, 83
+  br i1 %.not.i.i.i.i.i.i.i.i.i6.i.i.i.i.i.i.i.i, label %102, label %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i.i.i.i.i
 
 102:                                              ; preds = %.lr.ph.i4.i.i.i.i.i7.i.i.i
   %103 = getelementptr inbounds nuw i8, ptr %.val.i5.i.i.i.i.i.i.i.i, i64 36
@@ -8532,7 +8532,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit5:   ; preds = %_ZN4llvm16FoldingSe
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL10isSubclassPKN5clang4DeclEN4llvm9StringRefE(ptr noundef %0, ptr %1, i64 %2) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZL10isSubclassPKN5clang4DeclEN4llvm9StringRefE(ptr noundef nonnull %0, ptr %1, i64 %2) unnamed_addr #2 {
 _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_13CXXRecordDeclEEENS1_15BindableMatcherIT_EEN4llvm8ArrayRefIPKNS1_7MatcherIS5_EEEE.exit.i:
   %3 = alloca %"class.clang::ast_matchers::internal::Matcher.408", align 8
   %4 = alloca %"class.clang::DynTypedNode", align 8
@@ -13449,8 +13449,8 @@ define internal fastcc range(i64 3, 4294967300) i64 @_ZN5clang4ento20RetainSumma
   %.val.i.i.i.i.i = load ptr, ptr %.sroa.013.1.i.i.i.i, align 8
   %10 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 32
   %11 = load i16, ptr %10, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %11, 83
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %12, label %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %11, 83
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %12, label %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i
 
 12:                                               ; preds = %.lr.ph.i.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 36
@@ -13479,8 +13479,8 @@ _ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRK
   %.val.i5.i.i.i.i = load ptr, ptr %.sroa.0.1.i.i.i.i, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.val.i5.i.i.i.i, i64 32
   %21 = load i16, ptr %20, align 8
-  %.not.i.i.i.i.i.i.i.i6.i.i.i.i = icmp eq i16 %21, 83
-  br i1 %.not.i.i.i.i.i.i.i.i6.i.i.i.i, label %22, label %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i
+  %.not.i.i.i.i.i.i.i.i.i6.i.i.i.i = icmp eq i16 %21, 83
+  br i1 %.not.i.i.i.i.i.i.i.i.i6.i.i.i.i, label %22, label %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i
 
 22:                                               ; preds = %.lr.ph.i4.i.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %.val.i5.i.i.i.i, i64 36
@@ -13535,8 +13535,8 @@ define internal fastcc range(i64 3, 4294967300) i64 @_ZN5clang4ento20RetainSumma
   %.val.i.i.i.i.i = load ptr, ptr %.sroa.013.1.i.i.i.i, align 8
   %10 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 32
   %11 = load i16, ptr %10, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %11, 83
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %12, label %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %11, 83
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %12, label %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i
 
 12:                                               ; preds = %.lr.ph.i.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 36
@@ -13565,8 +13565,8 @@ _ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEE
   %.val.i5.i.i.i.i = load ptr, ptr %.sroa.0.1.i.i.i.i, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.val.i5.i.i.i.i, i64 32
   %21 = load i16, ptr %20, align 8
-  %.not.i.i.i.i.i.i.i.i6.i.i.i.i = icmp eq i16 %21, 83
-  br i1 %.not.i.i.i.i.i.i.i.i6.i.i.i.i, label %22, label %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i
+  %.not.i.i.i.i.i.i.i.i.i6.i.i.i.i = icmp eq i16 %21, 83
+  br i1 %.not.i.i.i.i.i.i.i.i.i6.i.i.i.i, label %22, label %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i
 
 22:                                               ; preds = %.lr.ph.i4.i.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %.val.i5.i.i.i.i, i64 36

@@ -23440,7 +23440,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit93: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang10extractapi27DeclarationFragmentsBuilder27getFragmentsForObjCPropertyEPKNS_16ObjCPropertyDeclEENK3$_0clENS_21ObjCPropertyAttribute4KindEN4llvm9StringRefES9_NS0_20DeclarationFragments12FragmentKindE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, ptr %2, i64 %3, ptr %4, i64 %5) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang10extractapi27DeclarationFragmentsBuilder27getFragmentsForObjCPropertyEPKNS_16ObjCPropertyDeclEENK3$_0clENS_21ObjCPropertyAttribute4KindEN4llvm9StringRefES9_NS0_20DeclarationFragments12FragmentKindE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef range(i32 1, 32769) %1, ptr %2, i64 %3, ptr %4, i64 %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = alloca %"class.llvm::StringRef", align 8
   %9 = alloca i32, align 4

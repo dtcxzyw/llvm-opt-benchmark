@@ -567,7 +567,7 @@ define dso_local void @InitPostgres(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %.not75, label %128, label %127
 
 127:                                              ; preds = %125
-  call fastcc void @process_startup_options(ptr noundef nonnull %126, i1 noundef zeroext %.061.shrunk100103)
+  call fastcc void @process_startup_options(ptr noundef %126, i1 noundef zeroext %.061.shrunk100103)
   br label %128
 
 128:                                              ; preds = %127, %125
@@ -1041,7 +1041,7 @@ CheckMyDatabase.exit:                             ; preds = %334, %346, %350, %3
   br i1 %.not84, label %362, label %361
 
 361:                                              ; preds = %359
-  call fastcc void @process_startup_options(ptr noundef nonnull %360, i1 noundef zeroext %.061.shrunk100103)
+  call fastcc void @process_startup_options(ptr noundef %360, i1 noundef zeroext %.061.shrunk100103)
   br label %362
 
 362:                                              ; preds = %361, %359
@@ -1311,7 +1311,7 @@ declare zeroext i1 @has_rolreplication(i32 noundef) local_unnamed_addr #1
 declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_startup_options(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @process_startup_options(ptr nocapture noundef nonnull readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = select i1 %1, i32 3, i32 4
   %5 = getelementptr inbounds i8, ptr %0, i64 344

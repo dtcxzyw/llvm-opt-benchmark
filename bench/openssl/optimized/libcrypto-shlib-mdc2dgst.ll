@@ -88,15 +88,11 @@ return:                                           ; preds = %return.sink.split, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mdc2_body(ptr noundef %c, ptr nocapture noundef readonly %in, i64 noundef %len) unnamed_addr #2 {
+define internal fastcc void @mdc2_body(ptr noundef %c, ptr nocapture noundef readonly %in, i64 noundef range(i64 1, -7) %len) unnamed_addr #2 {
 entry:
   %d = alloca [2 x i32], align 4
   %dd = alloca [2 x i32], align 4
   %k = alloca %struct.DES_ks, align 4
-  %cmp57.not = icmp eq i64 %len, 0
-  br i1 %cmp57.not, label %for.end, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %entry
   %arrayidx26 = getelementptr inbounds i8, ptr %dd, i64 4
   %arrayidx27 = getelementptr inbounds i8, ptr %d, i64 4
   %h = getelementptr inbounds i8, ptr %c, i64 12
@@ -116,23 +112,23 @@ for.body.lr.ph:                                   ; preds = %entry
   %incdec.ptr107 = getelementptr inbounds i8, ptr %c, i64 26
   %incdec.ptr111 = getelementptr inbounds i8, ptr %c, i64 27
   %.pre = load i8, ptr %h, align 4
-  %.pre60 = load i8, ptr %hh, align 4
+  %.pre59 = load i8, ptr %hh, align 4
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %0 = phi i8 [ %.pre60, %for.body.lr.ph ], [ %conv87, %for.body ]
-  %1 = phi i8 [ %.pre, %for.body.lr.ph ], [ %conv56, %for.body ]
-  %i.059 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.body ]
-  %in.addr.058 = phi ptr [ %in, %for.body.lr.ph ], [ %incdec.ptr22, %for.body ]
-  %2 = load i16, ptr %in.addr.058, align 1
+for.body:                                         ; preds = %entry, %for.body
+  %0 = phi i8 [ %.pre59, %entry ], [ %conv87, %for.body ]
+  %1 = phi i8 [ %.pre, %entry ], [ %conv56, %for.body ]
+  %i.058 = phi i64 [ 0, %entry ], [ %add, %for.body ]
+  %in.addr.057 = phi ptr [ %in, %entry ], [ %incdec.ptr22, %for.body ]
+  %2 = load i16, ptr %in.addr.057, align 1
   %3 = zext i16 %2 to i32
-  %incdec.ptr1 = getelementptr inbounds i8, ptr %in.addr.058, i64 2
-  %incdec.ptr3 = getelementptr inbounds i8, ptr %in.addr.058, i64 3
+  %incdec.ptr1 = getelementptr inbounds i8, ptr %in.addr.057, i64 2
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %in.addr.057, i64 3
   %4 = load i8, ptr %incdec.ptr1, align 1
   %conv4 = zext i8 %4 to i32
   %shl5 = shl nuw nsw i32 %conv4, 16
   %or6 = or disjoint i32 %shl5, %3
-  %incdec.ptr7 = getelementptr inbounds i8, ptr %in.addr.058, i64 4
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %in.addr.057, i64 4
   %5 = load i8, ptr %incdec.ptr3, align 1
   %conv8 = zext i8 %5 to i32
   %shl9 = shl nuw i32 %conv8, 24
@@ -141,13 +137,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 %or10, ptr %d, align 4
   %6 = load i16, ptr %incdec.ptr7, align 1
   %7 = zext i16 %6 to i32
-  %incdec.ptr14 = getelementptr inbounds i8, ptr %in.addr.058, i64 6
-  %incdec.ptr18 = getelementptr inbounds i8, ptr %in.addr.058, i64 7
+  %incdec.ptr14 = getelementptr inbounds i8, ptr %in.addr.057, i64 6
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %in.addr.057, i64 7
   %8 = load i8, ptr %incdec.ptr14, align 1
   %conv19 = zext i8 %8 to i32
   %shl20 = shl nuw nsw i32 %conv19, 16
   %or21 = or disjoint i32 %shl20, %7
-  %incdec.ptr22 = getelementptr inbounds i8, ptr %in.addr.058, i64 8
+  %incdec.ptr22 = getelementptr inbounds i8, ptr %in.addr.057, i64 8
   %9 = load i8, ptr %incdec.ptr18, align 1
   %conv23 = zext i8 %9 to i32
   %shl24 = shl nuw i32 %conv23, 24
@@ -218,11 +214,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %shr112 = lshr i32 %xor52, 24
   %conv114 = trunc nuw i32 %shr112 to i8
   store i8 %conv114, ptr %incdec.ptr111, align 1
-  %add = add nuw i64 %i.059, 8
+  %add = add nuw i64 %i.058, 8
   %cmp = icmp ult i64 %add, %len
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
-for.end:                                          ; preds = %for.body, %entry
+for.end:                                          ; preds = %for.body
   ret void
 }
 

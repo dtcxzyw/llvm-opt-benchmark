@@ -1213,7 +1213,7 @@ get_num_hndl.exit.thread.i:                       ; preds = %.loopexit.i.thread.
   %329 = load i32, ptr @ett_tpm_params, align 4
   %330 = tail call ptr @proto_item_add_subtree(ptr noundef %328, i32 noundef %329) #5
   %.val.i50 = load i32, ptr %34, align 4
-  call fastcc void @dissect_response(ptr noundef %0, i32 %.val.i50, ptr noundef %330, ptr noundef nonnull %7, i32 noundef %322)
+  call fastcc void @dissect_response(ptr noundef %0, i32 %.val.i50, ptr noundef %330, ptr noundef %7, i32 noundef %322)
   br label %331
 
 331:                                              ; preds = %326, %321
@@ -1284,7 +1284,7 @@ get_command_entry.exit.i.i:                       ; preds = %get_command_entry.e
 
 368:                                              ; preds = %get_num_hndl.exit.thread.i
   %.val65.i = load i32, ptr %34, align 4
-  call fastcc void @dissect_response(ptr noundef %0, i32 %.val65.i, ptr noundef %50, ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @dissect_response(ptr noundef %0, i32 %.val65.i, ptr noundef %50, ptr noundef %7, i32 noundef 0)
   br label %dissect_tpm20_tpm_response.exit
 
 369:                                              ; preds = %get_num_hndl.exit.thread.i
@@ -1414,7 +1414,7 @@ declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef,
 declare ptr @proto_tree_add_bitmask_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_response(ptr noundef %0, i32 %.20.val, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_response(ptr noundef %0, i32 %.20.val, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

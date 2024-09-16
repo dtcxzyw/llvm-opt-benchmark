@@ -452,7 +452,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @findZoneinfoFile(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc ptr @findZoneinfoFile(ptr nocapture noundef readonly %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(20) @.str.14) #15
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.preheader45, label %.loopexit
@@ -475,7 +475,7 @@ define internal fastcc ptr @findZoneinfoFile(ptr nocapture noundef readonly %0, 
   %endptr.i = getelementptr inbounds i8, ptr %12, i64 %strlen.i
   store i16 47, ptr %endptr.i, align 1
   %16 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %7) #14
-  %17 = tail call fastcc ptr @isFileIdentical(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %12)
+  %17 = tail call fastcc ptr @isFileIdentical(ptr noundef %0, i64 noundef %1, ptr noundef %12)
   tail call void @free(ptr noundef nonnull %12) #14
   %.not41 = icmp eq ptr %17, null
   br i1 %.not41, label %getPathName.exit.thread, label %.loopexit46
@@ -535,7 +535,7 @@ getPathName.exit.thread:                          ; preds = %.preheader45, %14
   %endptr.i43 = getelementptr inbounds i8, ptr %40, i64 %strlen.i42
   store i16 47, ptr %endptr.i43, align 1
   %44 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull readonly dereferenceable(1) %22) #14
-  %45 = tail call fastcc ptr @isFileIdentical(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %40)
+  %45 = tail call fastcc ptr @isFileIdentical(ptr noundef %0, i64 noundef %1, ptr noundef %40)
   tail call void @free(ptr noundef nonnull %40) #14
   %.not40 = icmp eq ptr %45, null
   br i1 %.not40, label %.backedge, label %getPathName.exit44.thread
@@ -557,12 +557,12 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @isFileIdentical(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc ptr @isFileIdentical(ptr nocapture noundef readonly %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   br label %5
 
 5:                                                ; preds = %8, %3
-  %6 = call i32 @stat64(ptr noundef %2, ptr noundef nonnull %4) #14
+  %6 = call i32 @stat64(ptr noundef nonnull %2, ptr noundef nonnull %4) #14
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %8, label %.critedge37
 
@@ -583,7 +583,7 @@ define internal fastcc ptr @isFileIdentical(ptr nocapture noundef readonly %0, i
   ]
 
 15:                                               ; preds = %.critedge37
-  %16 = tail call fastcc ptr @findZoneinfoFile(ptr noundef %0, i64 noundef %1, ptr noundef %2)
+  %16 = tail call fastcc ptr @findZoneinfoFile(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2)
   br label %.critedge
 
 17:                                               ; preds = %.critedge37
@@ -598,7 +598,7 @@ define internal fastcc ptr @isFileIdentical(ptr nocapture noundef readonly %0, i
   br i1 %23, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %21, %26
-  %24 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %2, i32 noundef 0) #14
+  %24 = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull %2, i32 noundef 0) #14
   %25 = icmp eq i32 %24, -1
   br i1 %25, label %26, label %.critedge38
 

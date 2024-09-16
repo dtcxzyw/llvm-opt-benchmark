@@ -605,7 +605,7 @@ if.then.i:                                        ; preds = %invoke.cont2.i
   br i1 %cmp.i4.i, label %return.sink.split.i.i, label %if.end2.i.i
 
 if.end2.i.i:                                      ; preds = %if.then.i
-  %call5.i5.i = invoke fastcc noundef i32 @_ZL14parseTagStringPKcPcPiS1_S2_S1_S2_P10UErrorCode(ptr noundef nonnull %2, ptr noundef nonnull %lang.i.i, ptr noundef nonnull %langLength.i.i, ptr noundef nonnull %script.i.i, ptr noundef nonnull %scriptLength.i.i, ptr noundef nonnull %region.i.i, ptr noundef nonnull %regionLength.i.i, ptr noundef nonnull %status)
+  %call5.i5.i = invoke fastcc noundef i32 @_ZL14parseTagStringPKcPcPiS1_S2_S1_S2_P10UErrorCode(ptr noundef %2, ptr noundef %lang.i.i, ptr noundef %langLength.i.i, ptr noundef %script.i.i, ptr noundef %scriptLength.i.i, ptr noundef %region.i.i, ptr noundef %regionLength.i.i, ptr noundef nonnull %status)
           to label %call5.i.noexc.i unwind label %lpad.i
 
 call5.i.noexc.i:                                  ; preds = %if.end2.i.i
@@ -736,7 +736,7 @@ if.end75.i.i:                                     ; preds = %invoke.cont71.i.i
   %16 = load ptr, ptr %region87.i.i, align 8
   %call89.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #15
   %conv90.i.i = trunc i64 %call89.i.i to i32
-  invoke fastcc void @_ZL29createTagStringWithAlternatesPKciS0_iS0_iS0_iS0_RN6icu_758ByteSinkEP10UErrorCode(ptr noundef %spec.store.select.i.i, i32 noundef %conv82.i.i, ptr noundef %15, i32 noundef %conv86.i.i, ptr noundef %16, i32 noundef %conv90.i.i, ptr noundef nonnull %arrayidx22.i.i.le, i32 noundef %conv31.i.i, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull %status)
+  invoke fastcc void @_ZL29createTagStringWithAlternatesPKciS0_iS0_iS0_iS0_RN6icu_758ByteSinkEP10UErrorCode(ptr noundef %spec.store.select.i.i, i32 noundef %conv82.i.i, ptr noundef %15, i32 noundef %conv86.i.i, ptr noundef %16, i32 noundef %conv90.i.i, ptr noundef %arrayidx22.i.i.le, i32 noundef %conv31.i.i, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull %status)
           to label %invoke.cont92.i.i unwind label %lpad91.i.i
 
 invoke.cont92.i.i:                                ; preds = %if.end75.i.i
@@ -924,7 +924,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
   br i1 %or.cond.i, label %error.i, label %if.end2.i
 
 if.end2.i:                                        ; preds = %.noexc
-  %call5.i = invoke fastcc noundef i32 @_ZL14parseTagStringPKcPcPiS1_S2_S1_S2_P10UErrorCode(ptr noundef nonnull %1, ptr noundef nonnull %lang.i, ptr noundef nonnull %langLength.i, ptr noundef nonnull %script.i, ptr noundef nonnull %scriptLength.i, ptr noundef nonnull %region.i, ptr noundef nonnull %regionLength.i, ptr noundef nonnull %status)
+  %call5.i = invoke fastcc noundef i32 @_ZL14parseTagStringPKcPcPiS1_S2_S1_S2_P10UErrorCode(ptr noundef %1, ptr noundef %lang.i, ptr noundef %langLength.i, ptr noundef %script.i, ptr noundef %scriptLength.i, ptr noundef %region.i, ptr noundef %regionLength.i, ptr noundef nonnull %status)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.end2.i
@@ -1047,7 +1047,7 @@ if.else5.i.i:                                     ; preds = %if.end69.i
 
 if.then7.i.i:                                     ; preds = %if.else5.i.i
   %conv.i37.i.i = and i64 %call75.i, 2147483647
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tagBuffer.i.i, ptr readonly align 1 %spec.store.select.i, i64 %conv.i37.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %tagBuffer.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %spec.store.select.i, i64 %conv.i37.i.i, i1 false)
   br label %if.end27.i.i
 
 if.end27.i.i:                                     ; preds = %if.then7.i.i, %if.else5.i.i
@@ -1063,7 +1063,7 @@ if.then29.i.i:                                    ; preds = %if.end27.i.i
   %idxprom1.i39.i.i = zext nneg i32 %inc.i.i.i to i64
   %arrayidx2.i40.i.i = getelementptr inbounds i8, ptr %tagBuffer.i.i, i64 %idxprom1.i39.i.i
   %conv.i41.i.i = and i64 %call79.i, 2147483647
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx2.i40.i.i, ptr readonly align 1 %15, i64 %conv.i41.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx2.i40.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %15, i64 %conv.i41.i.i, i1 false)
   %add.i42.i.i = add nuw nsw i32 %inc.i.i.i, %conv80.i
   br label %if.end49.i.i
 
@@ -1080,7 +1080,7 @@ if.then51.i.i:                                    ; preds = %if.end49.i.i
   %idxprom1.i47.i.i = zext nneg i32 %inc.i46.i.i to i64
   %arrayidx2.i48.i.i = getelementptr inbounds i8, ptr %tagBuffer.i.i, i64 %idxprom1.i47.i.i
   %conv.i49.i.i = and i64 %call83.i, 2147483647
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx2.i48.i.i, ptr readonly align 1 %16, i64 %conv.i49.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx2.i48.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %16, i64 %conv.i49.i.i, i1 false)
   %add.i50.i.i = add nuw nsw i32 %inc.i46.i.i, %conv84.i
   br label %if.end71.i.i
 
@@ -1384,7 +1384,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = call fastcc noundef i32 @_ZN12_GLOBAL__N_116GetRegionFromKeyEPKcS1_Pc(ptr noundef %localeID, ptr noundef nonnull @.str, ptr noundef nonnull %rgBuf)
+  %call1 = call fastcc noundef i32 @_ZN12_GLOBAL__N_116GetRegionFromKeyEPKcS1_Pc(ptr noundef %localeID, ptr noundef nonnull @.str, ptr noundef %rgBuf)
   %cmp = icmp eq i32 %call1, 0
   br i1 %cmp, label %if.then2, label %if.end35
 
@@ -1401,7 +1401,7 @@ if.else:                                          ; preds = %if.then2
   br i1 %or.cond, label %if.then10, label %if.end35
 
 if.then10:                                        ; preds = %if.else
-  %call12 = call fastcc noundef i32 @_ZN12_GLOBAL__N_116GetRegionFromKeyEPKcS1_Pc(ptr noundef %localeID, ptr noundef nonnull @.str.1, ptr noundef nonnull %rgBuf)
+  %call12 = call fastcc noundef i32 @_ZN12_GLOBAL__N_116GetRegionFromKeyEPKcS1_Pc(ptr noundef %localeID, ptr noundef nonnull @.str.1, ptr noundef %rgBuf)
   %cmp13 = icmp eq i32 %call12, 0
   br i1 %cmp13, label %if.then14, label %if.end35
 
@@ -1473,7 +1473,7 @@ return:                                           ; preds = %entry, %if.end35
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZN12_GLOBAL__N_116GetRegionFromKeyEPKcS1_Pc(ptr noundef %localeID, ptr noundef %key, ptr nocapture noundef writeonly %buf) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZN12_GLOBAL__N_116GetRegionFromKeyEPKcS1_Pc(ptr noundef %localeID, ptr noundef %key, ptr nocapture noundef nonnull writeonly %buf) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca i32, align 4
   %rg = alloca %"class.icu_75::CharString", align 8
@@ -1560,7 +1560,7 @@ declare i32 @uloc_getCountry_75(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL14parseTagStringPKcPcPiS1_S2_S1_S2_P10UErrorCode(ptr noundef %localeID, ptr noundef %lang, ptr nocapture noundef %langLength, ptr noundef %script, ptr nocapture noundef %scriptLength, ptr noundef %region, ptr nocapture noundef %regionLength, ptr noundef %err) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL14parseTagStringPKcPcPiS1_S2_S1_S2_P10UErrorCode(ptr noundef nonnull %localeID, ptr noundef nonnull %lang, ptr nocapture noundef nonnull %langLength, ptr noundef nonnull %script, ptr nocapture noundef nonnull %scriptLength, ptr noundef nonnull %region, ptr nocapture noundef nonnull %regionLength, ptr noundef %err) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %position = alloca ptr, align 8
   %ref.tmp = alloca %"class.icu_75::CharString", align 8
@@ -1572,9 +1572,9 @@ entry:
   br i1 %cmp.i, label %if.end, label %exit
 
 if.end:                                           ; preds = %entry
-  call void @_Z22ulocimp_getLanguage_75PKcPS0_R10UErrorCode(ptr nonnull sret(%"class.icu_75::CharString") align 8 %ref.tmp, ptr noundef %localeID, ptr noundef nonnull %position, ptr noundef nonnull align 4 dereferenceable(4) %err)
+  call void @_Z22ulocimp_getLanguage_75PKcPS0_R10UErrorCode(ptr nonnull sret(%"class.icu_75::CharString") align 8 %ref.tmp, ptr noundef nonnull %localeID, ptr noundef nonnull %position, ptr noundef nonnull align 4 dereferenceable(4) %err)
   %1 = load i32, ptr %langLength, align 4
-  %call13 = invoke noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp, ptr noundef %lang, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %err)
+  %call13 = invoke noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp, ptr noundef nonnull %lang, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %err)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -1606,7 +1606,7 @@ if.end23:                                         ; preds = %if.end17, %if.then2
   %6 = phi ptr [ %4, %if.end17 ], [ %incdec.ptr, %if.then22 ]
   call void @_Z20ulocimp_getScript_75PKcPS0_R10UErrorCode(ptr nonnull sret(%"class.icu_75::CharString") align 8 %ref.tmp24, ptr noundef nonnull %6, ptr noundef nonnull %position, ptr noundef nonnull align 4 dereferenceable(4) %err)
   %7 = load i32, ptr %scriptLength, align 4
-  %call27 = invoke noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp24, ptr noundef %script, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %err)
+  %call27 = invoke noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp24, ptr noundef nonnull %script, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %err)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.end23
@@ -1642,7 +1642,7 @@ if.end42:                                         ; preds = %if.then33, %if.then
   %11 = phi ptr [ %.pre, %if.then33 ], [ %incdec.ptr40, %if.then39 ], [ %.pre, %if.end31 ]
   call void @_Z21ulocimp_getCountry_75PKcPS0_R10UErrorCode(ptr nonnull sret(%"class.icu_75::CharString") align 8 %ref.tmp43, ptr noundef %11, ptr noundef nonnull %position, ptr noundef nonnull align 4 dereferenceable(4) %err)
   %12 = load i32, ptr %regionLength, align 4
-  %call46 = invoke noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp43, ptr noundef %region, i32 noundef %12, ptr noundef nonnull align 4 dereferenceable(4) %err)
+  %call46 = invoke noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp43, ptr noundef nonnull %region, i32 noundef %12, ptr noundef nonnull align 4 dereferenceable(4) %err)
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %if.end42
@@ -1702,7 +1702,7 @@ declare void @_ZNK6icu_7513LikelySubtags20makeMaximizedLsrFromERKNS_6LocaleEbR10
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL29createTagStringWithAlternatesPKciS0_iS0_iS0_iS0_RN6icu_758ByteSinkEP10UErrorCode(ptr nocapture noundef readonly %lang, i32 noundef %langLength, ptr nocapture noundef readonly %script, i32 noundef %scriptLength, ptr nocapture noundef readonly %region, i32 noundef %regionLength, ptr noundef %trailing, i32 noundef %trailingLength, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr nocapture noundef %err) unnamed_addr #1 {
+define internal fastcc void @_ZL29createTagStringWithAlternatesPKciS0_iS0_iS0_iS0_RN6icu_758ByteSinkEP10UErrorCode(ptr nocapture noundef readonly %lang, i32 noundef %langLength, ptr nocapture noundef readonly %script, i32 noundef %scriptLength, ptr nocapture noundef readonly %region, i32 noundef %regionLength, ptr noundef nonnull %trailing, i32 noundef %trailingLength, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr nocapture noundef %err) unnamed_addr #1 {
 entry:
   %tagBuffer = alloca [157 x i8], align 16
   %0 = load i32, ptr %err, align 4
@@ -1723,7 +1723,7 @@ if.else5:                                         ; preds = %if.else
 
 if.then7:                                         ; preds = %if.else5
   %conv.i37 = zext nneg i32 %langLength to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tagBuffer, ptr readonly align 1 %lang, i64 %conv.i37, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %tagBuffer, ptr noundef nonnull readonly align 1 dereferenceable(1) %lang, i64 %conv.i37, i1 false)
   br label %if.end27
 
 if.end27:                                         ; preds = %if.else5, %if.then7
@@ -1739,7 +1739,7 @@ if.then29:                                        ; preds = %if.end27
   %idxprom1.i39 = zext nneg i32 %inc.i to i64
   %arrayidx2.i40 = getelementptr inbounds i8, ptr %tagBuffer, i64 %idxprom1.i39
   %conv.i41 = zext nneg i32 %scriptLength to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx2.i40, ptr readonly align 1 %script, i64 %conv.i41, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx2.i40, ptr noundef nonnull readonly align 1 dereferenceable(1) %script, i64 %conv.i41, i1 false)
   %add.i42 = add nuw nsw i32 %inc.i, %scriptLength
   br label %if.end49
 
@@ -1756,7 +1756,7 @@ if.then51:                                        ; preds = %if.end49
   %idxprom1.i47 = zext nneg i32 %inc.i46 to i64
   %arrayidx2.i48 = getelementptr inbounds i8, ptr %tagBuffer, i64 %idxprom1.i47
   %conv.i49 = zext nneg i32 %regionLength to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx2.i48, ptr readonly align 1 %region, i64 %conv.i49, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx2.i48, ptr noundef nonnull readonly align 1 dereferenceable(1) %region, i64 %conv.i49, i1 false)
   %add.i50 = add nuw nsw i32 %inc.i46, %regionLength
   br label %if.end71
 

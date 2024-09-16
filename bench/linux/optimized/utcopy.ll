@@ -442,7 +442,7 @@ define dso_local i32 @acpi_ut_copy_iobject_to_iobject(ptr noundef %0, ptr nocapt
 declare dso_local ptr @acpi_ut_create_internal_object_dbg(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @acpi_ut_copy_simple_object(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @acpi_ut_copy_simple_object(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 10
@@ -452,7 +452,7 @@ define internal fastcc i32 @acpi_ut_copy_simple_object(ptr nocapture noundef rea
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 15
   %11 = select i1 %10, i64 48, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(48) %1, ptr noundef align 1 dereferenceable(48) %0, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %1, ptr noundef align 1 dereferenceable(48) %0, i64 %11, i1 false)
   store i16 %6, ptr %5, align 2
   store ptr %7, ptr %1, align 8
   %12 = getelementptr inbounds i8, ptr %1, i64 12

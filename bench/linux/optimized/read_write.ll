@@ -2968,7 +2968,7 @@ define dso_local i64 @vfs_iter_read(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @do_iter_readv_writev(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i64 @do_iter_readv_writev(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.kiocb, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #12
   %7 = getelementptr inbounds i8, ptr %6, i64 32
@@ -6788,7 +6788,7 @@ define internal fastcc i64 @vfs_writev(ptr noundef %0, ptr noundef %1, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @do_sendfile(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i64 @do_sendfile(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef range(i64 0, 2147483648) %4) unnamed_addr #0 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12

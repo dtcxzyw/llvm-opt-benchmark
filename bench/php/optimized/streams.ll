@@ -2288,7 +2288,7 @@ define noundef ptr @php_stream_get_record(ptr noundef %0, i64 noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_php_stream_search_delim(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #2 {
+define internal fastcc ptr @_php_stream_search_delim(ptr nocapture noundef readonly %0, i64 noundef range(i64 1, 0) %1, i64 noundef %2, ptr noundef %3, i64 noundef range(i64 1, 0) %4) unnamed_addr #2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 184
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 176
@@ -2380,7 +2380,7 @@ define internal fastcc ptr @_php_stream_search_delim(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @_php_stream_write_filtered(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc i64 @_php_stream_write_filtered(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = alloca %struct._php_stream_bucket_brigade, align 8
   %7 = alloca %struct._php_stream_bucket_brigade, align 8
@@ -4626,7 +4626,7 @@ define ptr @_php_stream_opendir(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   br i1 %.not34, label %26, label %25
 
 25:                                               ; preds = %.critedge
-  call fastcc void @php_stream_display_wrapper_errors(ptr noundef %9, ptr noundef nonnull %0, ptr noundef nonnull @.str.21)
+  call fastcc void @php_stream_display_wrapper_errors(ptr noundef %9, ptr noundef %0, ptr noundef nonnull @.str.21)
   br label %26
 
 26:                                               ; preds = %25, %.critedge
@@ -4655,7 +4655,7 @@ php_stream_tidy_wrapper_error_log.exit:           ; preds = %26, %27, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_stream_display_wrapper_errors(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc void @php_stream_display_wrapper_errors(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -4663,7 +4663,7 @@ define internal fastcc void @php_stream_display_wrapper_errors(ptr noundef %0, p
   br i1 %.not, label %7, label %50
 
 7:                                                ; preds = %3
-  %8 = tail call noalias ptr @_estrdup(ptr noundef %1) #27
+  %8 = tail call noalias ptr @_estrdup(ptr noundef nonnull %1) #27
   %.not79 = icmp eq ptr %0, null
   br i1 %.not79, label %.loopexit, label %9
 
@@ -5139,7 +5139,7 @@ define ptr @_php_stream_open_wrapper_ex(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not197.old, label %168, label %154
 
 154:                                              ; preds = %153
-  call fastcc void @php_stream_display_wrapper_errors(ptr noundef %36, ptr noundef nonnull %.0143, ptr noundef nonnull @.str.27)
+  call fastcc void @php_stream_display_wrapper_errors(ptr noundef %36, ptr noundef %.0143, ptr noundef nonnull @.str.27)
   br i1 %.not, label %168, label %155
 
 155:                                              ; preds = %154

@@ -361,7 +361,7 @@ define dso_local void @logicalrep_write_prepare(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @logicalrep_write_prepare_common(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @logicalrep_write_prepare_common(ptr noundef %0, i32 noundef range(i32 80, 113) %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #0 {
   %5 = trunc nuw nsw i32 %1 to i8
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)

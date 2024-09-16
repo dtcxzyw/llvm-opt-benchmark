@@ -210,7 +210,7 @@ declare dso_local i64 @intel_display_power_get(ptr noundef, i32 noundef) local_u
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @do_gmbus_xfer(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc i32 @do_gmbus_xfer(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef range(i32 0, 2049) %3) unnamed_addr #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 1112
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 7184
@@ -1382,7 +1382,7 @@ define dso_local void @intel_gmbus_irq_handler(ptr noundef %0) local_unnamed_add
 declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -110, 1) i32 @gmbus_xfer_read(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -110, 1) i32 @gmbus_xfer_read(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef range(i32 0, 67174400) %3) unnamed_addr #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 4
@@ -1747,7 +1747,7 @@ define internal fastcc range(i32 -110, 1) i32 @gmbus_xfer_read(ptr noundef %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -110, 1) i32 @gmbus_xfer_write(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -110, 1) i32 @gmbus_xfer_write(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 67174400) %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 4
@@ -2027,7 +2027,7 @@ define internal fastcc range(i32 -110, 1) i32 @gmbus_xfer_write(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -110, 1) i32 @gmbus_wait(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -110, 1) i32 @gmbus_wait(ptr noundef %0, i32 noundef range(i32 2048, 16385) %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
   %5 = getelementptr inbounds i8, ptr %4, i64 8

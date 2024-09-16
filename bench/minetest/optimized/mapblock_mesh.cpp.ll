@@ -8960,7 +8960,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZZL22getSmoothLightCombinedRKN3irr4core8vector3dIsEERKSt5arrayIS2_Lm8EEP12MeshMakeDataENK3$_0clEhb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i8 noundef zeroext %i, i1 noundef zeroext %obstructed) unnamed_addr #21 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZL22getSmoothLightCombinedRKN3irr4core8vector3dIsEERKSt5arrayIS2_Lm8EEP12MeshMakeDataENK3$_0clEhb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i8 noundef zeroext range(i8 0, 8) %i, i1 noundef zeroext %obstructed) unnamed_addr #21 align 2 {
 entry:
   br i1 %obstructed, label %if.then, label %if.end
 

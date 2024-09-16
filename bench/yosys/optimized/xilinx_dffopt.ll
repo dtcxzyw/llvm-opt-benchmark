@@ -11555,7 +11555,7 @@ _ZNSt4pairIN5Yosys5RTLIL5ConstESt6vectorINS1_6SigBitESaIS4_EEEaSERKS7_.exit: ; p
           to label %4696 unwind label %.loopexit3167
 
 4696:                                             ; preds = %4695
-  %4697 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19merge_lutERSt4pairIN5Yosys5RTLIL5ConstESt6vectorINS2_6SigBitESaIS5_EEERKS8_S8_bS5_i(ptr noundef nonnull align 8 dereferenceable(56) %81, ptr noundef nonnull align 8 dereferenceable(56) %78, ptr noundef nonnull %93, i1 noundef zeroext true, ptr %4509, i32 %.sroa.2.0.i1267, i32 noundef %.0125.lcssa)
+  %4697 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19merge_lutERSt4pairIN5Yosys5RTLIL5ConstESt6vectorINS2_6SigBitESaIS5_EEERKS8_S8_bS5_i(ptr noundef nonnull align 8 dereferenceable(56) %81, ptr noundef nonnull align 8 dereferenceable(56) %78, ptr noundef %93, i1 noundef zeroext true, ptr %4509, i32 %.sroa.2.0.i1267, i32 noundef %.0125.lcssa)
           to label %4698 unwind label %4703
 
 4698:                                             ; preds = %4696
@@ -12337,7 +12337,7 @@ _ZNSt4pairIN5Yosys5RTLIL5ConstESt6vectorINS1_6SigBitESaIS4_EEEaSERKS7_.exit1429:
           to label %4978 unwind label %.loopexit3172
 
 4978:                                             ; preds = %4977
-  %4979 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19merge_lutERSt4pairIN5Yosys5RTLIL5ConstESt6vectorINS2_6SigBitESaIS5_EEERKS8_S8_bS5_i(ptr noundef nonnull align 8 dereferenceable(56) %82, ptr noundef nonnull align 8 dereferenceable(56) %81, ptr noundef nonnull %102, i1 noundef zeroext %4894, ptr null, i32 1, i32 noundef %.0125.lcssa)
+  %4979 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19merge_lutERSt4pairIN5Yosys5RTLIL5ConstESt6vectorINS2_6SigBitESaIS5_EEERKS8_S8_bS5_i(ptr noundef nonnull align 8 dereferenceable(56) %82, ptr noundef nonnull align 8 dereferenceable(56) %81, ptr noundef %102, i1 noundef zeroext %4894, ptr null, i32 1, i32 noundef %.0125.lcssa)
           to label %4980 unwind label %4985
 
 4980:                                             ; preds = %4978
@@ -13056,7 +13056,7 @@ _ZNSt4pairIN5Yosys5RTLIL5ConstESt6vectorINS1_6SigBitESaIS4_EEEaSERKS7_.exit1509:
           to label %5229 unwind label %.loopexit3177
 
 5229:                                             ; preds = %5228
-  %5230 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19merge_lutERSt4pairIN5Yosys5RTLIL5ConstESt6vectorINS2_6SigBitESaIS5_EEERKS8_S8_bS5_i(ptr noundef nonnull align 8 dereferenceable(56) %83, ptr noundef nonnull align 8 dereferenceable(56) %82, ptr noundef nonnull %111, i1 noundef zeroext %5145, ptr null, i32 0, i32 noundef %.0125.lcssa)
+  %5230 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19merge_lutERSt4pairIN5Yosys5RTLIL5ConstESt6vectorINS2_6SigBitESaIS5_EEERKS8_S8_bS5_i(ptr noundef nonnull align 8 dereferenceable(56) %83, ptr noundef nonnull align 8 dereferenceable(56) %82, ptr noundef %111, i1 noundef zeroext %5145, ptr null, i32 0, i32 noundef %.0125.lcssa)
           to label %5231 unwind label %5236
 
 5231:                                             ; preds = %5229
@@ -17668,7 +17668,7 @@ declare noundef zeroext i1 @_ZNK5Yosys5RTLIL4Cell8hasParamERKNS0_8IdStringE(ptr 
 declare noundef zeroext i1 @_ZNK5Yosys5RTLIL5Const7as_boolEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19merge_lutERSt4pairIN5Yosys5RTLIL5ConstESt6vectorINS2_6SigBitESaIS5_EEERKS8_S8_bS5_i(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, ptr %4, i32 %5, i32 noundef %6) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19merge_lutERSt4pairIN5Yosys5RTLIL5ConstESt6vectorINS2_6SigBitESaIS5_EEERKS8_S8_bS5_i(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull readonly %2, i1 noundef zeroext %3, ptr %4, i32 %5, i32 noundef range(i32 4, 7) %6) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %9 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %10 = alloca %"struct.Yosys::RTLIL::Const", align 8

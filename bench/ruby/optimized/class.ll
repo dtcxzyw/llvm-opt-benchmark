@@ -586,7 +586,7 @@ define hidden void @rb_class_update_superclasses(i64 noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @class_superclasses_including_self(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc ptr @class_superclasses_including_self(i64 noundef range(i64 1, 0) %0) unnamed_addr #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 16384
@@ -3355,7 +3355,7 @@ RICLASS_SET_ORIGIN_SHARED_MTBL.exit:              ; preds = %.lr.ph.split
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 2) i32 @do_include_modules_at(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @do_include_modules_at(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca [2 x i64], align 16
   %7 = inttoptr i64 %0 to ptr
   %8 = getelementptr inbounds i8, ptr %7, i64 112
@@ -4076,7 +4076,7 @@ define dso_local noundef i64 @rb_class_instance_methods(i32 noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @class_instance_method_list(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i64 @class_instance_method_list(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.method_entry_arg, align 8
   %or.cond.i = icmp ugt i32 %0, 1
   br i1 %or.cond.i, label %7, label %rb_check_arity.exit
@@ -5615,7 +5615,7 @@ RHASH_SIZE.exit:                                  ; preds = %70, %73
 
 81:                                               ; preds = %RHASH_SIZE.exit
   %82 = add i32 %3, %2
-  call fastcc void @unknown_keyword_error(i64 noundef %spec.store.select, ptr noundef nonnull %1, i32 noundef %82) #23
+  call fastcc void @unknown_keyword_error(i64 noundef %spec.store.select, ptr noundef %1, i32 noundef %82) #23
   unreachable
 
 83:                                               ; preds = %.loopexit
@@ -5658,7 +5658,7 @@ define internal fastcc void @rb_keyword_error(ptr noundef %0, i64 noundef %1) un
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @unknown_keyword_error(i64 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #9 {
+define internal fastcc void @unknown_keyword_error(i64 noundef range(i64 1, 0) %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2) unnamed_addr #9 {
   %4 = alloca i64, align 8
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -5780,7 +5780,7 @@ define dso_local range(i32 0, -2147483648) i32 @rb_scan_args(i32 noundef %0, ptr
 
 rb_scan_args_parse.exit:                          ; preds = %49
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %52 = call fastcc i32 @rb_scan_args_assign(ptr noundef nonnull %5, i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4)
+  %52 = call fastcc i32 @rb_scan_args_assign(ptr noundef %5, i32 noundef %0, ptr noundef %1, ptr noundef %4)
   call void @llvm.va_end.p0(ptr nonnull %4)
   %53 = icmp sgt i32 %52, -1
   br i1 %53, label %rb_scan_args_result.exit, label %54
@@ -5798,7 +5798,7 @@ rb_scan_args_result.exit:                         ; preds = %rb_scan_args_parse.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @rb_scan_args_assign(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @rb_scan_args_assign(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6266,7 +6266,7 @@ define dso_local range(i32 0, -2147483648) i32 @rb_scan_args_kw(i32 noundef %0, 
 
 rb_scan_args_parse.exit:                          ; preds = %50
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %53 = call fastcc i32 @rb_scan_args_assign(ptr noundef nonnull %6, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %5)
+  %53 = call fastcc i32 @rb_scan_args_assign(ptr noundef %6, i32 noundef %1, ptr noundef %2, ptr noundef %5)
   call void @llvm.va_end.p0(ptr nonnull %5)
   %54 = icmp sgt i32 %53, -1
   br i1 %54, label %rb_scan_args_result.exit, label %55

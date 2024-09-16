@@ -18663,8 +18663,8 @@ ehcleanup116:                                     ; preds = %ehcleanup114, %lpad
 define noundef zeroext i1 @_ZN9grpc_core13ClientChannel16LoadBalancedCall18PickSubchannelImplEPNS_19LoadBalancingPolicy16SubchannelPickerEPN4absl12lts_202308026StatusE(ptr noundef nonnull align 16 dereferenceable(104) %this, ptr noundef %picker, ptr noundef %error) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i.i.i.i = alloca %class.anon.721, align 1
-  %__args.addr.i39.i = alloca ptr, align 8
-  %__args.addr.i27.i = alloca ptr, align 8
+  %__args.addr.i32.i = alloca ptr, align 8
+  %__args.addr.i22.i = alloca ptr, align 8
   %__args.addr.i.i = alloca ptr, align 8
   %error.addr = alloca ptr, align 8
   %lb_call_state = alloca %"class.grpc_core::ClientChannel::LoadBalancedCall::LbCallState", align 8
@@ -18792,13 +18792,13 @@ if.then.i.i.i.i:                                  ; preds = %_ZNKSt8functionIFbP
           to label %invoke.cont30 unwind label %lpad29
 
 _ZNKSt8functionIFbPN9grpc_core19LoadBalancingPolicy10PickResult4FailEEEclES4_.exit.i: ; preds = %do.end8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i27.i)
-  store ptr %result, ptr %__args.addr.i27.i, align 8
-  %call2.i31.i15 = invoke noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN9grpc_core19LoadBalancingPolicy10PickResult4FailEEZNS0_13ClientChannel16LoadBalancedCall18PickSubchannelImplEPNS1_16SubchannelPickerEPN4absl12lts_202308026StatusEE3$_2E9_M_invokeERKSt9_Any_dataOS4_"(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp25, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i27.i)
-          to label %call2.i31.i.noexc unwind label %lpad29
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i22.i)
+  store ptr %result, ptr %__args.addr.i22.i, align 8
+  %call2.i26.i15 = invoke noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN9grpc_core19LoadBalancingPolicy10PickResult4FailEEZNS0_13ClientChannel16LoadBalancedCall18PickSubchannelImplEPNS1_16SubchannelPickerEPN4absl12lts_202308026StatusEE3$_2E9_M_invokeERKSt9_Any_dataOS4_"(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp25, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i22.i)
+          to label %call2.i26.i.noexc unwind label %lpad29
 
-call2.i31.i.noexc:                                ; preds = %_ZNKSt8functionIFbPN9grpc_core19LoadBalancingPolicy10PickResult4FailEEEclES4_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i27.i)
+call2.i26.i.noexc:                                ; preds = %_ZNKSt8functionIFbPN9grpc_core19LoadBalancingPolicy10PickResult4FailEEEclES4_.exit.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i22.i)
   br label %invoke.cont30
 
 if.then18.i:                                      ; preds = %do.end8
@@ -18809,17 +18809,17 @@ if.then18.i:                                      ; preds = %do.end8
   unreachable
 
 _ZNKSt8functionIFbPN9grpc_core19LoadBalancingPolicy10PickResult4DropEEEclES4_.exit.i: ; preds = %do.end8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i39.i)
-  store ptr %result, ptr %__args.addr.i39.i, align 8
-  %call2.i43.i18 = invoke noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN9grpc_core19LoadBalancingPolicy10PickResult4DropEEZNS0_13ClientChannel16LoadBalancedCall18PickSubchannelImplEPNS1_16SubchannelPickerEPN4absl12lts_202308026StatusEE3$_3E9_M_invokeERKSt9_Any_dataOS4_"(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp27, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i39.i)
-          to label %call2.i43.i.noexc unwind label %lpad29
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i32.i)
+  store ptr %result, ptr %__args.addr.i32.i, align 8
+  %call2.i36.i18 = invoke noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN9grpc_core19LoadBalancingPolicy10PickResult4DropEEZNS0_13ClientChannel16LoadBalancedCall18PickSubchannelImplEPNS1_16SubchannelPickerEPN4absl12lts_202308026StatusEE3$_3E9_M_invokeERKSt9_Any_dataOS4_"(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp27, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i32.i)
+          to label %call2.i36.i.noexc unwind label %lpad29
 
-call2.i43.i.noexc:                                ; preds = %_ZNKSt8functionIFbPN9grpc_core19LoadBalancingPolicy10PickResult4DropEEEclES4_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i39.i)
+call2.i36.i.noexc:                                ; preds = %_ZNKSt8functionIFbPN9grpc_core19LoadBalancingPolicy10PickResult4DropEEEclES4_.exit.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i32.i)
   br label %invoke.cont30
 
-invoke.cont30:                                    ; preds = %if.then.i.i.i.i, %_ZNKSt8functionIFbPN9grpc_core19LoadBalancingPolicy10PickResult5QueueEEEclES4_.exit.i, %call2.i43.i.noexc, %call2.i31.i.noexc, %call2.i.i.noexc
-  %retval.0.i = phi i1 [ %call2.i.i11, %call2.i.i.noexc ], [ %call2.i31.i15, %call2.i31.i.noexc ], [ %call2.i43.i18, %call2.i43.i.noexc ], [ false, %_ZNKSt8functionIFbPN9grpc_core19LoadBalancingPolicy10PickResult5QueueEEEclES4_.exit.i ], [ false, %if.then.i.i.i.i ]
+invoke.cont30:                                    ; preds = %if.then.i.i.i.i, %_ZNKSt8functionIFbPN9grpc_core19LoadBalancingPolicy10PickResult5QueueEEEclES4_.exit.i, %call2.i36.i.noexc, %call2.i26.i.noexc, %call2.i.i.noexc
+  %retval.0.i = phi i1 [ %call2.i.i11, %call2.i.i.noexc ], [ %call2.i26.i15, %call2.i26.i.noexc ], [ %call2.i36.i18, %call2.i36.i.noexc ], [ false, %_ZNKSt8functionIFbPN9grpc_core19LoadBalancingPolicy10PickResult5QueueEEEclES4_.exit.i ], [ false, %if.then.i.i.i.i ]
   %14 = load ptr, ptr %_M_manager.i.i9, align 8
   %tobool.not.i.i20 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i20, label %_ZNSt8functionIFbPN9grpc_core19LoadBalancingPolicy10PickResult4DropEEED2Ev.exit, label %if.then.i.i21

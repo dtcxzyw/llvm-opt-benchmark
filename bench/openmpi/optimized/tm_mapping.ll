@@ -503,7 +503,7 @@ define hidden void @tm_map_topology(ptr noundef %0, ptr nocapture noundef readon
   %26 = shl nsw i64 %25, 2
   %27 = tail call noalias ptr @malloc(i64 noundef %26) #18
   store i32 0, ptr %8, align 4
-  call fastcc void @depth_first(ptr noundef %1, ptr noundef %27, ptr noundef nonnull %8)
+  call fastcc void @depth_first(ptr noundef %1, ptr noundef %27, ptr noundef %8)
   %28 = sdiv i32 %10, %18
   %29 = icmp ne ptr %5, null
   br i1 %29, label %30, label %89
@@ -798,7 +798,7 @@ define internal fastcc i32 @nb_leaves(ptr nocapture noundef readonly %0) unnamed
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @depth_first(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) unnamed_addr #10 {
+define internal fastcc void @depth_first(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #10 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null

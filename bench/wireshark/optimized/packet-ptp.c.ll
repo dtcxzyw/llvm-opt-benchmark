@@ -2379,7 +2379,7 @@ declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef,
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ptp_v2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_ptp_v2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca %struct.nstime_t, align 8
@@ -2404,7 +2404,7 @@ define internal fastcc void @dissect_ptp_v2(ptr noundef %0, ptr noundef %1, ptr 
   %25 = and i8 %24, -16
   %26 = and i8 %24, 16
   %27 = icmp ne i8 %26, 0
-  %28 = icmp eq i32 %3, 1
+  %28 = icmp ne i32 %3, 0
   %29 = and i1 %28, %27
   %30 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
   %31 = and i8 %30, 15
@@ -3377,7 +3377,7 @@ define internal fastcc void @dissect_ptp_v2(ptr noundef %0, ptr noundef %1, ptr 
   store i16 %619, ptr %17, align 2
   %620 = load i32, ptr @hf_ptp_v2_atoi_tlv_displayname, align 4
   %621 = load i32, ptr @hf_ptp_v2_atoi_tlv_displayname_length, align 4
-  call fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr noundef nonnull %17, ptr noundef %528, i32 noundef %620, i32 noundef %621)
+  call fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr noundef %17, ptr noundef %528, i32 noundef %620, i32 noundef %621)
   br label %.loopexit
 
 .lr.ph1631:                                       ; preds = %.preheader, %.lr.ph1631
@@ -4741,7 +4741,7 @@ proto_item_set_generated.exit1576:                ; preds = %1076, %1073, %proto
   store i16 %1427, ptr %20, align 2
   %1428 = load i32, ptr @hf_ptp_v2_mm_physicalLayerProtocol, align 4
   %1429 = load i32, ptr @hf_ptp_v2_mm_physicalLayerProtocol_length, align 4
-  call fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr noundef nonnull %20, ptr noundef %1393, i32 noundef %1428, i32 noundef %1429)
+  call fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr noundef %20, ptr noundef %1393, i32 noundef %1428, i32 noundef %1429)
   %1430 = load i32, ptr @hf_ptp_v2_mm_physicalAddressLength, align 4
   %1431 = load i16, ptr %20, align 2
   %1432 = zext i16 %1431 to i32
@@ -4802,13 +4802,13 @@ proto_item_set_generated.exit1576:                ; preds = %1076, %1073, %proto
   store i16 %1482, ptr %20, align 2
   %1483 = load i32, ptr @hf_ptp_v2_mm_productDescription, align 4
   %1484 = load i32, ptr @hf_ptp_v2_mm_productDescription_length, align 4
-  call fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr noundef nonnull %20, ptr noundef %1393, i32 noundef %1483, i32 noundef %1484)
+  call fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr noundef %20, ptr noundef %1393, i32 noundef %1483, i32 noundef %1484)
   %1485 = load i32, ptr @hf_ptp_v2_mm_revisionData, align 4
   %1486 = load i32, ptr @hf_ptp_v2_mm_revisionData_length, align 4
-  call fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr noundef nonnull %20, ptr noundef %1393, i32 noundef %1485, i32 noundef %1486)
+  call fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr noundef %20, ptr noundef %1393, i32 noundef %1485, i32 noundef %1486)
   %1487 = load i32, ptr @hf_ptp_v2_mm_userDescription, align 4
   %1488 = load i32, ptr @hf_ptp_v2_mm_userDescription_length, align 4
-  call fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr noundef nonnull %20, ptr noundef %1393, i32 noundef %1487, i32 noundef %1488)
+  call fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr noundef %20, ptr noundef %1393, i32 noundef %1487, i32 noundef %1488)
   %1489 = load i32, ptr @hf_ptp_v2_mm_profileIdentity, align 4
   %1490 = load i16, ptr %20, align 2
   %1491 = zext i16 %1490 to i32
@@ -4829,7 +4829,7 @@ proto_item_set_generated.exit1576:                ; preds = %1076, %1073, %proto
 1500:                                             ; preds = %1386
   %1501 = load i32, ptr @hf_ptp_v2_mm_userDescription, align 4
   %1502 = load i32, ptr @hf_ptp_v2_mm_userDescription_length, align 4
-  call fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr noundef nonnull %20, ptr noundef %1393, i32 noundef %1501, i32 noundef %1502)
+  call fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr noundef %20, ptr noundef %1393, i32 noundef %1501, i32 noundef %1502)
   %1503 = load i16, ptr %20, align 2
   %1504 = zext i16 %1503 to i32
   %1505 = and i32 %1504, 1
@@ -4897,13 +4897,13 @@ proto_item_set_generated.exit1576:                ; preds = %1076, %1073, %proto
   store i16 %1550, ptr %20, align 2
   %1551 = load i32, ptr @hf_ptp_v2_mm_faultName, align 4
   %1552 = load i32, ptr @hf_ptp_v2_mm_faultName_length, align 4
-  call fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr noundef nonnull %20, ptr noundef %1529, i32 noundef %1551, i32 noundef %1552)
+  call fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr noundef %20, ptr noundef %1529, i32 noundef %1551, i32 noundef %1552)
   %1553 = load i32, ptr @hf_ptp_v2_mm_faultValue, align 4
   %1554 = load i32, ptr @hf_ptp_v2_mm_faultValue_length, align 4
-  call fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr noundef nonnull %20, ptr noundef %1529, i32 noundef %1553, i32 noundef %1554)
+  call fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr noundef %20, ptr noundef %1529, i32 noundef %1553, i32 noundef %1554)
   %1555 = load i32, ptr @hf_ptp_v2_mm_faultDescription, align 4
   %1556 = load i32, ptr @hf_ptp_v2_mm_faultDescription_length, align 4
-  call fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr noundef nonnull %20, ptr noundef %1529, i32 noundef %1555, i32 noundef %1556)
+  call fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr noundef %20, ptr noundef %1529, i32 noundef %1555, i32 noundef %1556)
   %1557 = add nuw i16 %.014011626, 1
   %exitcond1640.not = icmp eq i16 %1557, %1517
   br i1 %exitcond1640.not, label %._crit_edge.loopexit, label %.lr.ph1627, !llvm.loop !9
@@ -4961,10 +4961,10 @@ proto_item_set_generated.exit1576:                ; preds = %1076, %1073, %proto
   store i16 %1595, ptr %20, align 2
   %1596 = load i32, ptr @hf_ptp_v2_mm_offset_ns, align 4
   %1597 = load i32, ptr @hf_ptp_v2_mm_offset_subns, align 4
-  call fastcc void @dissect_ptp_v2_timeInterval(ptr noundef %0, ptr noundef nonnull %20, ptr noundef %1393, ptr noundef nonnull @.str.1152, i32 noundef %1596, i32 noundef %1597)
+  call fastcc void @dissect_ptp_v2_timeInterval(ptr noundef %0, ptr noundef %20, ptr noundef %1393, ptr noundef nonnull @.str.1152, i32 noundef %1596, i32 noundef %1597)
   %1598 = load i32, ptr @hf_ptp_v2_mm_pathDelay_ns, align 4
   %1599 = load i32, ptr @hf_ptp_v2_mm_pathDelay_subns, align 4
-  call fastcc void @dissect_ptp_v2_timeInterval(ptr noundef %0, ptr noundef nonnull %20, ptr noundef %1393, ptr noundef nonnull @.str.1153, i32 noundef %1598, i32 noundef %1599)
+  call fastcc void @dissect_ptp_v2_timeInterval(ptr noundef %0, ptr noundef %20, ptr noundef %1393, ptr noundef nonnull @.str.1153, i32 noundef %1598, i32 noundef %1599)
   br label %proto_item_set_generated.exit1508
 
 1600:                                             ; preds = %1386
@@ -5104,7 +5104,7 @@ proto_item_set_generated.exit1576:                ; preds = %1076, %1073, %proto
   store i16 %1716, ptr %20, align 2
   %1717 = load i32, ptr @hf_ptp_v2_mm_peerMeanPathDelay_ns, align 4
   %1718 = load i32, ptr @hf_ptp_v2_mm_peerMeanPathDelay_subns, align 4
-  call fastcc void @dissect_ptp_v2_timeInterval(ptr noundef %0, ptr noundef nonnull %20, ptr noundef %1393, ptr noundef nonnull @.str.1154, i32 noundef %1717, i32 noundef %1718)
+  call fastcc void @dissect_ptp_v2_timeInterval(ptr noundef %0, ptr noundef %20, ptr noundef %1393, ptr noundef nonnull @.str.1154, i32 noundef %1717, i32 noundef %1718)
   %1719 = load i32, ptr @hf_ptp_v2_mm_logAnnounceInterval, align 4
   %1720 = load i16, ptr %20, align 2
   %1721 = zext i16 %1720 to i32
@@ -5378,7 +5378,7 @@ proto_item_set_generated.exit1576:                ; preds = %1076, %1073, %proto
   store i16 %1935, ptr %20, align 2
   %1936 = load i32, ptr @hf_ptp_v2_mm_displayName, align 4
   %1937 = load i32, ptr @hf_ptp_v2_mm_displayName_length, align 4
-  call fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr noundef nonnull %20, ptr noundef %1393, i32 noundef %1936, i32 noundef %1937)
+  call fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr noundef %20, ptr noundef %1393, i32 noundef %1936, i32 noundef %1937)
   %1938 = load i16, ptr %20, align 2
   %1939 = zext i16 %1938 to i32
   %1940 = and i32 %1939, 1
@@ -5523,7 +5523,7 @@ proto_item_set_generated.exit1576:                ; preds = %1076, %1073, %proto
   store i16 %2051, ptr %20, align 2
   %2052 = load i32, ptr @hf_ptp_v2_mm_peerMeanPathDelay_ns, align 4
   %2053 = load i32, ptr @hf_ptp_v2_mm_peerMeanPathDelay_subns, align 4
-  call fastcc void @dissect_ptp_v2_timeInterval(ptr noundef %0, ptr noundef nonnull %20, ptr noundef %1393, ptr noundef nonnull @.str.1154, i32 noundef %2052, i32 noundef %2053)
+  call fastcc void @dissect_ptp_v2_timeInterval(ptr noundef %0, ptr noundef %20, ptr noundef %1393, ptr noundef nonnull @.str.1154, i32 noundef %2052, i32 noundef %2053)
   br label %proto_item_set_generated.exit1508
 
 2054:                                             ; preds = %1386
@@ -5576,7 +5576,7 @@ proto_item_set_generated.exit1576:                ; preds = %1076, %1073, %proto
 2092:                                             ; preds = %2084
   %2093 = load i32, ptr @hf_ptp_v2_mm_displayData, align 4
   %2094 = load i32, ptr @hf_ptp_v2_mm_displayData_length, align 4
-  call fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr noundef nonnull %21, ptr noundef %.01403, i32 noundef %2093, i32 noundef %2094)
+  call fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr noundef %21, ptr noundef %.01403, i32 noundef %2093, i32 noundef %2094)
   %.pre1641 = load i16, ptr %21, align 2
   %2095 = zext i16 %.pre1641 to i32
   %2096 = and i32 %2095, 1
@@ -5720,7 +5720,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ptp_v2_timeInterval(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc void @dissect_ptp_v2_timeInterval(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 {
   %7 = load i16, ptr %1, align 2
   %8 = zext i16 %7 to i32
   %9 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %8) #9
@@ -5763,7 +5763,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @dissect_ptp_v2_text(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = load i16, ptr %1, align 2
   %7 = zext i16 %6 to i32
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %7) #9
@@ -5872,7 +5872,7 @@ declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_frame_info_and_opt_create(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i64 noundef %7, i16 noundef zeroext %8, i16 noundef zeroext %9, i32 noundef %10) unnamed_addr #1 {
+define internal fastcc ptr @get_frame_info_and_opt_create(ptr noundef %0, i8 noundef zeroext range(i8 0, 16) %1, i8 noundef zeroext range(i8 0, -15) %2, i8 noundef zeroext range(i8 0, -15) %3, i8 noundef zeroext %4, i8 noundef zeroext range(i8 0, 3) %5, i8 noundef zeroext %6, i64 noundef %7, i16 noundef zeroext %8, i16 noundef zeroext %9, i32 noundef range(i32 0, 2) %10) unnamed_addr #1 {
   %12 = alloca %struct.nstime_t, align 8
   %13 = load ptr, ptr @ptp_clocks, align 8
   %.not = icmp eq ptr %13, null
@@ -5928,7 +5928,7 @@ define internal fastcc ptr @get_frame_info_and_opt_create(ptr noundef %0, i8 nou
   unreachable
 
 calculate_frame_key.exit:                         ; preds = %35
-  %39 = or i8 %2, %1
+  %39 = or disjoint i8 %2, %1
   %40 = zext i8 %39 to i64
   %41 = shl nuw i64 %40, 56
   %42 = zext i8 %3 to i64
@@ -5936,7 +5936,7 @@ calculate_frame_key.exit:                         ; preds = %35
   %44 = or disjoint i64 %41, %43
   %45 = zext nneg i8 %5 to i64
   %46 = shl nuw nsw i64 %45, 48
-  %47 = or i64 %44, %46
+  %47 = or disjoint i64 %46, %44
   %48 = zext i8 %4 to i64
   %49 = shl nuw nsw i64 %48, 40
   %50 = or disjoint i64 %47, %49

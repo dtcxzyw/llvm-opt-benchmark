@@ -3013,7 +3013,7 @@ entry:
   %file_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %file_, align 8
   %options_ = getelementptr inbounds i8, ptr %this, i64 64
-  call fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_18FileVarsB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %options_)
+  call fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_18FileVarsB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias align 8 %ref.tmp, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %options_)
   invoke void @_ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEvvEEDaOT_(ptr nonnull sret(%"class.absl::lts_20230802::Cleanup") align 8 %v, ptr noundef nonnull align 8 dereferenceable(256) %p, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -3440,7 +3440,7 @@ lpad:                                             ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_18FileVarsB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias align 8 %agg.result, ptr noundef %file, ptr noundef nonnull align 8 dereferenceable(206) %options) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_18FileVarsB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %agg.result, ptr noundef %file, ptr noundef nonnull align 8 dereferenceable(206) %options) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.std::allocator.10", align 1
   %ref.tmp = alloca [8 x %"struct.std::pair.390"], align 8
@@ -9726,7 +9726,7 @@ entry:
   %file_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %file_, align 8
   %options_ = getelementptr inbounds i8, ptr %this, i64 64
-  call fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_18FileVarsB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %options_)
+  call fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_18FileVarsB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias align 8 %ref.tmp, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %options_)
   invoke void @_ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEvvEEDaOT_(ptr nonnull sret(%"class.absl::lts_20230802::Cleanup") align 8 %v, ptr noundef nonnull align 8 dereferenceable(256) %p, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -10754,7 +10754,7 @@ entry:
   %file_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %file_, align 8
   %options_ = getelementptr inbounds i8, ptr %this, i64 64
-  call fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_18FileVarsB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %options_)
+  call fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_18FileVarsB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias align 8 %ref.tmp, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %options_)
   invoke void @_ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEvvEEDaOT_(ptr nonnull sret(%"class.absl::lts_20230802::Cleanup") align 8 %v, ptr noundef nonnull align 8 dereferenceable(256) %p, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -11008,7 +11008,7 @@ entry:
   %file_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %file_, align 8
   %options_ = getelementptr inbounds i8, ptr %this, i64 64
-  call fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_18FileVarsB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %options_)
+  call fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_18FileVarsB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias align 8 %ref.tmp, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %options_)
   invoke void @_ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEvvEEDaOT_(ptr nonnull sret(%"class.absl::lts_20230802::Cleanup") align 8 %v, ptr noundef nonnull align 8 dereferenceable(256) %p, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -14537,7 +14537,7 @@ entry:
   %file_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %file_, align 8
   %options_ = getelementptr inbounds i8, ptr %this, i64 64
-  call fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_18FileVarsB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %options_)
+  call fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_18FileVarsB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias align 8 %ref.tmp, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %options_)
   invoke void @_ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEvvEEDaOT_(ptr nonnull sret(%"class.absl::lts_20230802::Cleanup") align 8 %v, ptr noundef nonnull align 8 dereferenceable(256) %p, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 

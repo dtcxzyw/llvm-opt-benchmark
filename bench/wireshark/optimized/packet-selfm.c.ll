@@ -965,11 +965,11 @@ define internal i32 @dissect_selfm_tcp(ptr noundef %0, ptr noundef %1, ptr nound
   %32 = tail call noalias ptr @wmem_alloc(ptr noundef %30, i64 noundef %31) #4
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %27, %.outer.i
-  %.0.ph41.i = phi i32 [ %40, %.outer.i ], [ 0, %27 ]
-  %.028.ph40.i = phi i32 [ %41, %.outer.i ], [ %5, %27 ]
-  %.029.ph39.i = phi ptr [ %42, %.outer.i ], [ %32, %27 ]
-  %.030.ph38.i = phi ptr [ %43, %.outer.i ], [ %28, %27 ]
+.lr.ph.i:                                         ; preds = %.outer.i, %27
+  %.0.ph41.i = phi i32 [ 0, %27 ], [ %40, %.outer.i ]
+  %.028.ph40.i = phi i32 [ %5, %27 ], [ %41, %.outer.i ]
+  %.029.ph39.i = phi ptr [ %32, %27 ], [ %42, %.outer.i ]
+  %.030.ph38.i = phi ptr [ %28, %27 ], [ %43, %.outer.i ]
   br label %33
 
 33:                                               ; preds = %45, %.lr.ph.i
@@ -3192,7 +3192,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_fmdata_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_fmdata_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext range(i16 -23103, -23100) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %struct.nstime_t, align 8

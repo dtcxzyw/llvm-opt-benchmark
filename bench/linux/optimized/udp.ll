@@ -307,7 +307,7 @@ define dso_local i32 @udp_v6_get_port(ptr noundef %0, i16 noundef zeroext %1) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal fastcc i32 @ipv6_portaddr_hash(i32 %.336.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc i32 @ipv6_portaddr_hash(i32 %.336.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #3 align 16 {
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
@@ -525,7 +525,7 @@ define dso_local ptr @__udp6_lib_lookup(ptr noundef %0, ptr noundef %1, i16 noun
 declare i16 @llvm.bswap.i16(i16) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @udp6_lib_lookup2(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 align 16 {
+define internal fastcc ptr @udp6_lib_lookup2(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, i32 noundef range(i32 0, 65536) %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 align 16 {
   %10 = load volatile ptr, ptr %7, align 16
   %11 = icmp eq ptr %10, null
   %12 = getelementptr i8, ptr %10, i64 -24
@@ -2199,8 +2199,8 @@ udp_lib_checksum_complete.exit.thread:            ; preds = %277, %nf_reset_ct.e
 declare dso_local i32 @udp6_csum_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @udp6_sk_rx_dst_set(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
-  %3 = tail call zeroext i1 @udp_sk_rx_dst_set(ptr noundef %0, ptr noundef %1) #14
+define internal fastcc void @udp6_sk_rx_dst_set(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 16 {
+  %3 = tail call zeroext i1 @udp_sk_rx_dst_set(ptr noundef nonnull %0, ptr noundef %1) #14
   br i1 %3, label %4, label %24
 
 4:                                                ; preds = %2
@@ -2244,7 +2244,7 @@ define internal fastcc void @udp6_sk_rx_dst_set(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @sock_put(ptr noundef %0) unnamed_addr #6 align 16 {
+define internal fastcc void @sock_put(ptr noundef nonnull %0) unnamed_addr #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 -1, ptr elementtype(i32) %2) #14, !srcloc !35
   %4 = icmp eq i32 %3, 1
@@ -2260,7 +2260,7 @@ define internal fastcc void @sock_put(ptr noundef %0) unnamed_addr #6 align 16 {
 
 8:                                                ; preds = %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !36
-  tail call void @sk_free(ptr noundef %0) #14
+  tail call void @sk_free(ptr noundef nonnull %0) #14
   br label %.thread
 
 .thread:                                          ; preds = %5, %7, %8
@@ -2268,7 +2268,7 @@ define internal fastcc void @sock_put(ptr noundef %0) unnamed_addr #6 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, -2147483648) i32 @udp6_unicast_rcv_skb(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, -2147483648) i32 @udp6_unicast_rcv_skb(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 785
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
@@ -2322,7 +2322,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @udp6_unicast_rcv_skb(ptr n
   br label %42
 
 42:                                               ; preds = %25, %20, %15, %11, %7, %3
-  %43 = tail call fastcc i32 @udpv6_queue_rcv_skb(ptr noundef %0, ptr noundef %1)
+  %43 = tail call fastcc i32 @udpv6_queue_rcv_skb(ptr noundef nonnull %0, ptr noundef %1)
   %44 = tail call i32 @llvm.smax.i32(i32 %43, i32 0)
   ret i32 %44
 }
@@ -3452,7 +3452,7 @@ select.unfold:                                    ; preds = %243, %thread-pre-sp
   br i1 %365, label %427, label %366
 
 366:                                              ; preds = %358
-  %367 = call fastcc i32 @udp_v6_send_skb(ptr noundef nonnull %360, ptr noundef %21, ptr noundef nonnull %6)
+  %367 = call fastcc i32 @udp_v6_send_skb(ptr noundef %360, ptr noundef %21, ptr noundef nonnull %6)
   br label %427
 
 368:                                              ; preds = %.thread42
@@ -3808,7 +3808,7 @@ declare dso_local ptr @ip6_sk_dst_lookup_flow(ptr noundef, ptr noundef, ptr noun
 declare dso_local ptr @ip6_make_skb(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @udp_v6_send_skb(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef i32 @udp_v6_send_skb(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 516
@@ -3864,7 +3864,7 @@ define internal fastcc noundef i32 @udp_v6_send_skb(ptr noundef %0, ptr noundef 
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %37
-  tail call void @kfree_skb_reason(ptr noundef %0, i32 noundef 2) #14
+  tail call void @kfree_skb_reason(ptr noundef nonnull %0, i32 noundef 2) #14
   br label %.thread
 
 51:                                               ; preds = %37
@@ -3873,7 +3873,7 @@ define internal fastcc noundef i32 @udp_v6_send_skb(ptr noundef %0, ptr noundef 
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %51
-  tail call void @kfree_skb_reason(ptr noundef %0, i32 noundef 2) #14
+  tail call void @kfree_skb_reason(ptr noundef nonnull %0, i32 noundef 2) #14
   br label %.thread
 
 55:                                               ; preds = %51
@@ -3884,7 +3884,7 @@ define internal fastcc noundef i32 @udp_v6_send_skb(ptr noundef %0, ptr noundef 
   br i1 %59, label %61, label %60
 
 60:                                               ; preds = %55
-  tail call void @kfree_skb_reason(ptr noundef %0, i32 noundef 2) #14
+  tail call void @kfree_skb_reason(ptr noundef nonnull %0, i32 noundef 2) #14
   br label %.thread
 
 61:                                               ; preds = %55
@@ -3906,7 +3906,7 @@ define internal fastcc noundef i32 @udp_v6_send_skb(ptr noundef %0, ptr noundef 
   br i1 %74, label %76, label %75
 
 75:                                               ; preds = %67, %61
-  tail call void @kfree_skb_reason(ptr noundef %0, i32 noundef 2) #14
+  tail call void @kfree_skb_reason(ptr noundef nonnull %0, i32 noundef 2) #14
   br label %.thread
 
 76:                                               ; preds = %67
@@ -3985,7 +3985,7 @@ define internal fastcc noundef i32 @udp_v6_send_skb(ptr noundef %0, ptr noundef 
   %132 = load i8, ptr %131, align 8
   %133 = and i8 %132, -97
   store i8 %133, ptr %131, align 8
-  %134 = tail call i32 @skb_checksum(ptr noundef %0, i32 noundef %111, i32 noundef %130, i32 noundef 0) #14
+  %134 = tail call i32 @skb_checksum(ptr noundef nonnull %0, i32 noundef %111, i32 noundef %130, i32 noundef 0) #14
   br label %.loopexit
 
 135:                                              ; preds = %101
@@ -4043,7 +4043,7 @@ define internal fastcc noundef i32 @udp_v6_send_skb(ptr noundef %0, ptr noundef 
   %172 = trunc i64 %171 to i32
   %173 = load i32, ptr %21, align 8
   %174 = sub i32 %173, %172
-  %175 = tail call i32 @skb_checksum(ptr noundef %0, i32 noundef %172, i32 noundef %174, i32 noundef 0) #14
+  %175 = tail call i32 @skb_checksum(ptr noundef nonnull %0, i32 noundef %172, i32 noundef %174, i32 noundef 0) #14
   %176 = getelementptr inbounds i8, ptr %0, i64 128
   %177 = getelementptr inbounds i8, ptr %0, i64 136
   store i32 %175, ptr %177, align 8
@@ -4110,7 +4110,7 @@ define internal fastcc noundef i32 @udp_v6_send_skb(ptr noundef %0, ptr noundef 
   br label %223
 
 223:                                              ; preds = %.loopexit, %188, %161, %142
-  %224 = tail call i32 @ip6_send_skb(ptr noundef %0) #14
+  %224 = tail call i32 @ip6_send_skb(ptr noundef nonnull %0) #14
   switch i32 %224, label %.thread [
     i32 0, label %241
     i32 -105, label %225

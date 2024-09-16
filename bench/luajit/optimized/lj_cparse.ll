@@ -503,7 +503,7 @@ if.else36.i:                                      ; preds = %land.lhs.true30.i, 
   unreachable
 
 if.end38.i:                                       ; preds = %while.cond.i
-  %call39.i = call fastcc i32 @cp_decl_spec(ptr noundef nonnull %ud, ptr noundef nonnull %decl.i, i32 noundef 229376)
+  %call39.i = call fastcc i32 @cp_decl_spec(ptr noundef nonnull %ud, ptr noundef %decl.i, i32 noundef 229376)
   %47 = load i32, ptr %tok.i, align 4
   switch i32 %47, label %if.end64.i [
     i32 59, label %land.lhs.true46.i
@@ -542,8 +542,8 @@ if.end64.i:                                       ; preds = %do.body.i.i, %land.
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end116.i, %if.end64.i
-  call fastcc void @cp_declarator(ptr noundef %ud, ptr noundef nonnull %decl.i)
-  %call65.i = call fastcc i32 @cp_decl_intern(ptr noundef %ud, ptr noundef nonnull %decl.i)
+  call fastcc void @cp_declarator(ptr noundef %ud, ptr noundef %decl.i)
+  %call65.i = call fastcc i32 @cp_decl_intern(ptr noundef %ud, ptr noundef %decl.i)
   %53 = load ptr, ptr %name.i, align 8
   %tobool66.i = icmp eq ptr %53, null
   %54 = load i32, ptr %nameid.i, align 8
@@ -630,12 +630,12 @@ if.then.i.i.i.i:                                  ; preds = %cp_check.exit.i83.i
   unreachable
 
 cp_decl_constinit.exit.i:                         ; preds = %cp_check.exit.i83.i
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %ud, ptr noundef nonnull %k.i.i)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %ud, ptr noundef nonnull %k.i.i)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %ud, ptr noundef %k.i.i)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %ud, ptr noundef %k.i.i)
   %63 = load i32, ptr %depth.i, align 4
   %dec.i.i.i.i = add nsw i32 %63, -1
   store i32 %dec.i.i.i.i, ptr %depth.i, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %ud, ptr noundef nonnull %k.i.i, i32 noundef 0)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %ud, ptr noundef %k.i.i, i32 noundef 0)
   %64 = load ptr, ptr %cts.i, align 8
   %call13.i.i = call i32 @lj_ctype_new(ptr noundef %64, ptr noundef nonnull %ct.i) #13
   %or.i.i = or i32 %ctypeid.addr.0.i.i, 33554432
@@ -760,9 +760,9 @@ cp_decl_multi.exit:                               ; preds = %decl_end.i, %while.
 
 if.else:                                          ; preds = %cp_init.exit
   call void @llvm.lifetime.start.p0(i64 2464, ptr nonnull %decl.i13)
-  %call.i = call fastcc i32 @cp_decl_spec(ptr noundef nonnull %ud, ptr noundef nonnull %decl.i13, i32 noundef 0)
-  call fastcc void @cp_declarator(ptr noundef nonnull %ud, ptr noundef nonnull %decl.i13)
-  %call1.i14 = call fastcc i32 @cp_decl_intern(ptr noundef nonnull %ud, ptr noundef nonnull %decl.i13)
+  %call.i = call fastcc i32 @cp_decl_spec(ptr noundef nonnull %ud, ptr noundef %decl.i13, i32 noundef 0)
+  call fastcc void @cp_declarator(ptr noundef nonnull %ud, ptr noundef %decl.i13)
+  %call1.i14 = call fastcc i32 @cp_decl_intern(ptr noundef nonnull %ud, ptr noundef %decl.i13)
   %id.i = getelementptr inbounds i8, ptr %ud, i64 12
   store i32 %call1.i14, ptr %id.i, align 4
   %93 = load i32, ptr %tok.i, align 4
@@ -799,7 +799,7 @@ if.end5:                                          ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @cp_err(ptr noundef %cp, i32 noundef %em) unnamed_addr #4 {
+define internal fastcc void @cp_err(ptr noundef %cp, i32 noundef range(i32 537, 3157) %em) unnamed_addr #4 {
 entry:
   tail call void (ptr, i32, i32, ...) @cp_errmsg(ptr noundef %cp, i32 noundef 0, i32 noundef %em) #14
   unreachable
@@ -2807,7 +2807,7 @@ return:                                           ; preds = %if.end10, %tailrecu
 declare hidden i32 @lj_strscan_scan(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @cp_errmsg(ptr noundef %cp, i32 noundef %tok, i32 noundef %em, ...) unnamed_addr #4 {
+define internal void @cp_errmsg(ptr noundef %cp, i32 noundef %tok, i32 noundef range(i32 537, 3491) %em, ...) unnamed_addr #4 {
 entry:
   %argp = alloca [1 x %struct.__va_list_tag], align 16
   %cmp = icmp eq i32 %tok, 0
@@ -2908,7 +2908,7 @@ if.end15:                                         ; preds = %if.else5.i, %if.the
   %13 = load ptr, ptr @lj_err_allmsg, align 8
   %idx.ext = zext nneg i32 %em to i64
   %add.ptr = getelementptr inbounds i8, ptr %13, i64 %idx.ext
-  %call18 = call ptr @lj_strfmt_pushvf(ptr noundef %12, ptr noundef %add.ptr, ptr noundef nonnull %argp) #13
+  %call18 = call ptr @lj_strfmt_pushvf(ptr noundef %12, ptr noundef nonnull %add.ptr, ptr noundef nonnull %argp) #13
   call void @llvm.va_end.p0(ptr nonnull %argp)
   %tobool.not = icmp eq ptr %tokstr.0, null
   br i1 %tobool.not, label %if.end23, label %if.then20
@@ -2939,7 +2939,7 @@ if.end28:                                         ; preds = %if.then25, %if.end2
 declare hidden ptr @lj_buf_more2(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cp_tok2str(ptr nocapture noundef readonly %cp, i32 noundef %tok) unnamed_addr #1 {
+define internal fastcc ptr @cp_tok2str(ptr nocapture noundef readonly %cp, i32 noundef range(i32 1, 0) %tok) unnamed_addr #1 {
 entry:
   %cmp = icmp sgt i32 %tok, 255
   br i1 %cmp, label %if.then, label %if.else
@@ -2986,7 +2986,7 @@ declare hidden i32 @lj_ctype_getname(ptr noundef, ptr noundef, ptr noundef, i32 
 declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @cp_err_token(ptr noundef %cp, i32 noundef %tok) unnamed_addr #4 {
+define internal fastcc void @cp_err_token(ptr noundef %cp, i32 noundef range(i32 39, 260) %tok) unnamed_addr #4 {
 entry:
   %tok1 = getelementptr inbounds i8, ptr %cp, i64 4
   %0 = load i32, ptr %tok1, align 4
@@ -2999,7 +2999,7 @@ entry:
 declare hidden void @lj_err_argtype(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 1015809) i32 @cp_decl_spec(ptr noundef %cp, ptr noundef %decl, i32 noundef %scl) unnamed_addr #1 {
+define internal fastcc range(i32 0, 1015809) i32 @cp_decl_spec(ptr noundef %cp, ptr noundef nonnull %decl, i32 noundef range(i32 0, 524289) %scl) unnamed_addr #1 {
 entry:
   %k.i = alloca %struct.CPValue, align 4
   %ct.i = alloca ptr, align 8
@@ -3032,7 +3032,7 @@ entry:
 for.cond.outer:                                   ; preds = %for.cond.outer.backedge, %entry
   %tdef.0.ph = phi i32 [ 0, %entry ], [ %tdef.0.ph.be, %for.cond.outer.backedge ]
   %cds.0.ph = phi i32 [ 0, %entry ], [ %cds.0.lcssa, %for.cond.outer.backedge ]
-  call fastcc void @cp_decl_attributes(ptr noundef nonnull %cp, ptr noundef nonnull %decl)
+  call fastcc void @cp_decl_attributes(ptr noundef nonnull %cp, ptr noundef %decl)
   %1 = load i32, ptr %tok, align 4
   %2 = add i32 %1, -269
   %or.cond85196 = icmp ult i32 %2, 20
@@ -3082,7 +3082,7 @@ if.else:                                          ; preds = %if.end10
 
 if.end26:                                         ; preds = %if.else, %if.then17
   %call = call fastcc i32 @cp_next(ptr noundef nonnull %cp)
-  call fastcc void @cp_decl_attributes(ptr noundef nonnull %cp, ptr noundef nonnull %decl)
+  call fastcc void @cp_decl_attributes(ptr noundef nonnull %cp, ptr noundef %decl)
   %7 = load i32, ptr %tok, align 4
   %8 = add i32 %7, -269
   %or.cond85 = icmp ult i32 %8, 20
@@ -3112,17 +3112,17 @@ if.end34:                                         ; preds = %lor.lhs.false30
   ]
 
 sw.bb:                                            ; preds = %if.end34
-  %call36 = call fastcc i32 @cp_decl_struct(ptr noundef nonnull %cp, ptr noundef nonnull %decl, i32 noundef 268435456)
+  %call36 = call fastcc i32 @cp_decl_struct(ptr noundef nonnull %cp, ptr noundef %decl, i32 noundef 268435456)
   br label %for.cond.outer.backedge
 
 sw.bb37:                                          ; preds = %if.end34
-  %call38 = call fastcc i32 @cp_decl_struct(ptr noundef nonnull %cp, ptr noundef nonnull %decl, i32 noundef 276824064)
+  %call38 = call fastcc i32 @cp_decl_struct(ptr noundef nonnull %cp, ptr noundef %decl, i32 noundef 276824064)
   br label %for.cond.outer.backedge
 
 sw.bb39:                                          ; preds = %if.end34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %k.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ct.i)
-  %call.i = call fastcc i32 @cp_struct_name(ptr noundef nonnull %cp, ptr noundef nonnull %decl, i32 noundef 1342177281)
+  %call.i = call fastcc i32 @cp_struct_name(ptr noundef nonnull %cp, ptr noundef %decl, i32 noundef 1342177281)
   %9 = load i32, ptr %tok, align 4
   %cmp.i124 = icmp eq i32 %9, 123
   br i1 %cmp.i124, label %if.then.i, label %cp_decl_enum.exit
@@ -3181,12 +3181,12 @@ if.then.i132:                                     ; preds = %if.then10.i
   unreachable
 
 cp_expr_unary.exit:                               ; preds = %if.then10.i
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k.i)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k.i)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k.i)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k.i)
   %17 = load i32, ptr %depth.i, align 4
   %dec.i = add nsw i32 %17, -1
   store i32 %dec.i, ptr %depth.i, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k.i, i32 noundef 0)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k.i, i32 noundef 0)
   %18 = load ptr, ptr %cts.i111, align 8
   %19 = load i32, ptr %id.i, align 4
   %20 = load ptr, ptr %18, align 8
@@ -3347,7 +3347,7 @@ end_decl.thread:                                  ; preds = %sw.bb41, %if.end34,
   br i1 %tobool57.not, label %if.else59, label %if.then58
 
 if.then58:                                        ; preds = %end_decl.thread
-  call fastcc void @cp_push_type(ptr noundef nonnull %decl, i32 noundef %tdef.1)
+  call fastcc void @cp_push_type(ptr noundef %decl, i32 noundef %tdef.1)
   %.pre244 = load i32, ptr %pos, align 4
   %.pre245 = load i32, ptr %attr, align 4
   br label %if.end144
@@ -3528,7 +3528,7 @@ if.end144:                                        ; preds = %cp_push.exit, %cp_p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cp_declarator(ptr noundef %cp, ptr nocapture noundef %decl) unnamed_addr #1 {
+define internal fastcc void @cp_declarator(ptr noundef %cp, ptr nocapture noundef nonnull %decl) unnamed_addr #1 {
 entry:
   %k.i = alloca %struct.CPValue, align 4
   %depth = getelementptr inbounds i8, ptr %cp, i64 108
@@ -3658,7 +3658,7 @@ land.lhs.true5.i:                                 ; preds = %if.end.i
 
 if.end31:                                         ; preds = %if.end.i, %land.lhs.true5.i, %if.then23
   %16 = load i32, ptr %pos.i.i68, align 4
-  tail call fastcc void @cp_declarator(ptr noundef nonnull %cp, ptr noundef nonnull %decl)
+  tail call fastcc void @cp_declarator(ptr noundef nonnull %cp, ptr noundef %decl)
   %17 = load i32, ptr %tok1.i, align 4
   %cmp.not.i = icmp eq i32 %17, 41
   br i1 %cmp.not.i, label %cp_check.exit, label %if.then.i85
@@ -3811,12 +3811,12 @@ if.then.i.i139:                                   ; preds = %if.then70
   unreachable
 
 cp_expr_sub.exit:                                 ; preds = %if.then70
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k.i)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k.i)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k.i)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k.i)
   %30 = load i32, ptr %depth, align 4
   %dec.i.i = add nsw i32 %30, -1
   store i32 %dec.i.i, ptr %depth, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k.i, i32 noundef 0)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k.i, i32 noundef 0)
   %cts.i.i = getelementptr inbounds i8, ptr %cp, i64 80
   %31 = load ptr, ptr %cts.i.i, align 8
   %id.i.i = getelementptr inbounds i8, ptr %k.i, i64 4
@@ -3858,7 +3858,7 @@ cp_expr_ksize.exit:                               ; preds = %cp_expr_kint.exit.i
   br label %if.end72
 
 if.end72:                                         ; preds = %cp_expr_ksize.exit, %for.end63
-  tail call fastcc void @cp_decl_attributes(ptr noundef %cp, ptr noundef nonnull %decl)
+  tail call fastcc void @cp_decl_attributes(ptr noundef %cp, ptr noundef %decl)
   %36 = load i32, ptr %pos.i.i68, align 4
   %idxprom.i = zext i32 %36 to i64
   %arrayidx.i = getelementptr inbounds [100 x %struct.CType], ptr %stack.i.i62, i64 0, i64 %idxprom.i
@@ -3921,7 +3921,7 @@ cp_push_attributes.exit:                          ; preds = %if.end72, %if.else.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cp_decl_intern(ptr noundef %cp, ptr nocapture noundef readonly %decl) unnamed_addr #1 {
+define internal fastcc i32 @cp_decl_intern(ptr noundef %cp, ptr nocapture noundef nonnull readonly %decl) unnamed_addr #1 {
 entry:
   %fct = alloca ptr, align 8
   %stack = getelementptr inbounds i8, ptr %decl, i64 64
@@ -4266,7 +4266,7 @@ declare hidden void @lj_ctype_addname(ptr noundef, ptr noundef, i32 noundef) loc
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cp_decl_attributes(ptr noundef %cp, ptr nocapture noundef %decl) unnamed_addr #1 {
+define internal fastcc void @cp_decl_attributes(ptr noundef %cp, ptr nocapture noundef nonnull %decl) unnamed_addr #1 {
 entry:
   %k.i = alloca %struct.CPValue, align 4
   %k.i.i = alloca %struct.CPValue, align 4
@@ -4577,12 +4577,12 @@ if.then.i.i147:                                   ; preds = %cp_check.exit.i55
   unreachable
 
 cp_expr_unary.exit.i:                             ; preds = %cp_check.exit.i55
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k.i.i)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k.i.i)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k.i.i)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k.i.i)
   %36 = load i32, ptr %depth.i.i.i, align 4
   %dec.i.i = add nsw i32 %36, -1
   store i32 %dec.i.i, ptr %depth.i.i.i, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k.i.i, i32 noundef 0)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k.i.i, i32 noundef 0)
   %37 = load ptr, ptr %cts.i.i, align 8
   %38 = load i32, ptr %id.i, align 4
   %39 = load ptr, ptr %37, align 8
@@ -4818,12 +4818,12 @@ if.then.i.i.i:                                    ; preds = %cp_check.exit176
   unreachable
 
 cp_expr_sub.exit.i:                               ; preds = %cp_check.exit176
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k.i)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k.i)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k.i)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k.i)
   %69 = load i32, ptr %depth.i.i.i, align 4
   %dec.i.i.i = add nsw i32 %69, -1
   store i32 %dec.i.i.i, ptr %depth.i.i.i, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k.i, i32 noundef 0)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k.i, i32 noundef 0)
   %70 = load ptr, ptr %cts.i.i, align 8
   %71 = load i32, ptr %id.i.i, align 4
   %72 = load ptr, ptr %70, align 8
@@ -4934,7 +4934,7 @@ sw.epilog.sink.split:                             ; preds = %sw.bb, %sw.bb1, %sw
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cp_decl_struct(ptr noundef %cp, ptr nocapture noundef %sdecl, i32 noundef %sinfo) unnamed_addr #1 {
+define internal fastcc i32 @cp_decl_struct(ptr noundef %cp, ptr nocapture noundef nonnull %sdecl, i32 noundef range(i32 268435456, 276824065) %sinfo) unnamed_addr #1 {
 entry:
   %sz.i = alloca i32, align 4
   %k.i = alloca %struct.CPValue, align 4
@@ -4971,7 +4971,7 @@ while.body.lr.ph:                                 ; preds = %cp_opt.exit
 while.body:                                       ; preds = %while.body.lr.ph, %cp_check.exit
   %lastid.0121 = phi i32 [ %call, %while.body.lr.ph ], [ %.us-phi118, %cp_check.exit ]
   %lastdecl.0120 = phi i32 [ 0, %while.body.lr.ph ], [ %.us-phi, %cp_check.exit ]
-  %call2 = call fastcc i32 @cp_decl_spec(ptr noundef nonnull %cp, ptr noundef nonnull %decl, i32 noundef 131072)
+  %call2 = call fastcc i32 @cp_decl_spec(ptr noundef nonnull %cp, ptr noundef %decl, i32 noundef 131072)
   %call2.fr = freeze i32 %call2
   %tobool3.not = icmp eq i32 %call2.fr, 0
   %cond = select i1 %tobool3.not, i32 14, i32 4
@@ -4987,8 +4987,8 @@ if.end.lr.ph:                                     ; preds = %while.body
 if.end.us:                                        ; preds = %if.end.lr.ph, %if.end102.us
   %lastid.1117.us = phi i32 [ %call14.us, %if.end102.us ], [ %lastid.0121, %if.end.lr.ph ]
   store i32 -1, ptr %bits, align 4
-  call fastcc void @cp_declarator(ptr noundef nonnull %cp, ptr noundef nonnull %decl)
-  %call6.us = call fastcc i32 @cp_decl_intern(ptr noundef nonnull %cp, ptr noundef nonnull %decl)
+  call fastcc void @cp_declarator(ptr noundef nonnull %cp, ptr noundef %decl)
+  %call6.us = call fastcc i32 @cp_decl_intern(ptr noundef nonnull %cp, ptr noundef %decl)
   %2 = load ptr, ptr %cts.i, align 8
   %call14.us = call i32 @lj_ctype_new(ptr noundef %2, ptr noundef nonnull %ct11) #13
   %3 = load ptr, ptr %cts.i, align 8
@@ -5138,8 +5138,8 @@ if.then5:                                         ; preds = %while.body, %if.end
 if.end:                                           ; preds = %if.end.lr.ph, %if.end102
   %lastid.1117 = phi i32 [ %call13.i, %if.end102 ], [ %lastid.0121, %if.end.lr.ph ]
   store i32 -1, ptr %bits, align 4
-  call fastcc void @cp_declarator(ptr noundef nonnull %cp, ptr noundef nonnull %decl)
-  %call6 = call fastcc i32 @cp_decl_intern(ptr noundef nonnull %cp, ptr noundef nonnull %decl)
+  call fastcc void @cp_declarator(ptr noundef nonnull %cp, ptr noundef %decl)
+  %call6 = call fastcc i32 @cp_decl_intern(ptr noundef nonnull %cp, ptr noundef %decl)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %k.i)
   %30 = load ptr, ptr %cts.i, align 8
   %31 = load ptr, ptr %30, align 8
@@ -5193,12 +5193,12 @@ if.then.i.i:                                      ; preds = %cp_check.exit102
   unreachable
 
 cp_expr_sub.exit:                                 ; preds = %cp_check.exit102
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k.i)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k.i)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k.i)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k.i)
   %36 = load i32, ptr %depth.i.i, align 4
   %dec.i.i = add nsw i32 %36, -1
   store i32 %dec.i.i, ptr %depth.i.i, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k.i, i32 noundef 0)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k.i, i32 noundef 0)
   %37 = load ptr, ptr %cts.i, align 8
   %call13.i = call i32 @lj_ctype_new(ptr noundef %37, ptr noundef nonnull %ct) #13
   %or.i = or i32 %ctypeid.addr.0.i, 33554432
@@ -5522,7 +5522,7 @@ if.end107:                                        ; preds = %entry, %cp_struct_l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cp_push_type(ptr noundef %decl, i32 noundef %id) unnamed_addr #1 {
+define internal fastcc void @cp_push_type(ptr noundef nonnull %decl, i32 noundef %id) unnamed_addr #1 {
 entry:
   %cp = getelementptr inbounds i8, ptr %decl, i64 16
   %0 = load ptr, ptr %cp, align 8
@@ -5628,7 +5628,7 @@ if.then11:                                        ; preds = %sw.bb9
 
 if.end14:                                         ; preds = %if.then11, %sw.bb9
   %and15 = and i32 %3, 65535
-  tail call fastcc void @cp_push_type(ptr noundef nonnull %decl, i32 noundef %and15)
+  tail call fastcc void @cp_push_type(ptr noundef %decl, i32 noundef %and15)
   %11 = load i32, ptr %decl, align 8
   %cmp.i.i53 = icmp ugt i32 %11, 99
   br i1 %cmp.i.i53, label %if.then.i.i66, label %cp_push.exit68
@@ -5681,7 +5681,7 @@ if.then22:                                        ; preds = %sw.bb18
 if.end27:                                         ; preds = %if.then22, %sw.bb18
   %info.0 = phi i32 [ %or, %if.then22 ], [ %3, %sw.bb18 ]
   %and28 = and i32 %info.0, 65535
-  tail call fastcc void @cp_push_type(ptr noundef nonnull %decl, i32 noundef %and28)
+  tail call fastcc void @cp_push_type(ptr noundef %decl, i32 noundef %and28)
   %16 = load i32, ptr %decl, align 8
   %cmp.i.i69 = icmp ugt i32 %16, 99
   br i1 %cmp.i.i69, label %if.then.i.i82, label %cp_push.exit84
@@ -5813,12 +5813,12 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 cp_expr_sub.exit:                                 ; preds = %entry
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k)
   %1 = load i32, ptr %depth.i.i, align 4
   %dec.i.i = add nsw i32 %1, -1
   store i32 %dec.i.i, ptr %depth.i.i, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k, i32 noundef 0)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k, i32 noundef 0)
   %cts.i = getelementptr inbounds i8, ptr %cp, i64 80
   %2 = load ptr, ptr %cts.i, align 8
   %id.i = getelementptr inbounds i8, ptr %k, i64 4
@@ -5858,7 +5858,7 @@ if.end:                                           ; preds = %cp_expr_kint.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cp_expr_infix(ptr noundef %cp, ptr nocapture noundef %k, i32 noundef %pri) unnamed_addr #1 {
+define internal fastcc void @cp_expr_infix(ptr noundef %cp, ptr nocapture noundef nonnull %k, i32 noundef range(i32 0, 11) %pri) unnamed_addr #1 {
 entry:
   %k2 = alloca %struct.CPValue, align 4
   %k3 = alloca %struct.CPValue, align 4
@@ -5873,7 +5873,7 @@ entry:
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
   %0 = load i32, ptr %tok1.i, align 4
-  switch i32 %pri, label %default.unreachable [
+  switch i32 %pri, label %default.unreachable417 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb11
     i32 2, label %sw.bb19
@@ -5923,12 +5923,12 @@ if.then.i.i362:                                   ; preds = %if.then, %cp_opt.ex
   unreachable
 
 cp_expr_sub.exit363:                              ; preds = %if.then, %cp_opt.exit357
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k2)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k2)
   %2 = load i32, ptr %depth.i346, align 4
   %dec.i.i361 = add nsw i32 %2, -1
   store i32 %dec.i.i361, ptr %depth.i346, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k2, i32 noundef 0)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k2, i32 noundef 0)
   %3 = load i32, ptr %tok1.i, align 4
   switch i32 %3, label %if.then.i138 [
     i32 44, label %cp_opt.exit357
@@ -5960,12 +5960,12 @@ if.then.i.i:                                      ; preds = %cp_check.exit
   unreachable
 
 cp_expr_sub.exit:                                 ; preds = %cp_check.exit
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k3)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k3)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k3)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k3)
   %6 = load i32, ptr %depth.i346, align 4
   %dec.i.i = add nsw i32 %6, -1
   store i32 %dec.i.i, ptr %depth.i346, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k3, i32 noundef 0)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k3, i32 noundef 0)
   %7 = load i32, ptr %k, align 4
   %tobool1.not = icmp eq i32 %7, 0
   %8 = load i32, ptr %k2, align 4
@@ -6013,12 +6013,12 @@ if.then.i.i150:                                   ; preds = %if.then14
   unreachable
 
 cp_expr_sub.exit151:                              ; preds = %if.then14
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k2)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k2)
   %13 = load i32, ptr %depth.i346, align 4
   %dec.i.i149 = add nsw i32 %13, -1
   store i32 %dec.i.i149, ptr %depth.i346, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k2, i32 noundef 2)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k2, i32 noundef 2)
   %14 = load i32, ptr %k, align 4
   %tobool15 = icmp ne i32 %14, 0
   %15 = load i32, ptr %k2, align 4
@@ -6063,12 +6063,12 @@ if.then.i.i162:                                   ; preds = %if.then22
   unreachable
 
 cp_expr_sub.exit163:                              ; preds = %if.then22
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k2)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k2)
   %18 = load i32, ptr %depth.i346, align 4
   %dec.i.i161 = add nsw i32 %18, -1
   store i32 %dec.i.i161, ptr %depth.i346, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k2, i32 noundef 3)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k2, i32 noundef 3)
   %19 = load i32, ptr %k, align 4
   %tobool23 = icmp ne i32 %19, 0
   %20 = load i32, ptr %k2, align 4
@@ -6112,12 +6112,12 @@ if.then.i.i174:                                   ; preds = %if.then30
   unreachable
 
 cp_expr_sub.exit175:                              ; preds = %if.then30
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k2)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k2)
   %23 = load i32, ptr %depth.i346, align 4
   %dec.i.i173 = add nsw i32 %23, -1
   store i32 %dec.i.i173, ptr %depth.i346, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k2, i32 noundef 4)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k2, i32 noundef 4)
   %24 = load i32, ptr %k, align 4
   %25 = load i32, ptr %k2, align 4
   %or = or i32 %25, %24
@@ -6155,12 +6155,12 @@ if.then.i.i186:                                   ; preds = %if.then35
   unreachable
 
 cp_expr_sub.exit187:                              ; preds = %if.then35
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k2)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k2)
   %27 = load i32, ptr %depth.i346, align 4
   %dec.i.i185 = add nsw i32 %27, -1
   store i32 %dec.i.i185, ptr %depth.i346, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k2, i32 noundef 5)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k2, i32 noundef 5)
   %28 = load i32, ptr %k, align 4
   %29 = load i32, ptr %k2, align 4
   %xor = xor i32 %29, %28
@@ -6197,12 +6197,12 @@ if.then.i.i198:                                   ; preds = %if.then40
   unreachable
 
 cp_expr_sub.exit199:                              ; preds = %if.then40
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k2)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k2)
   %31 = load i32, ptr %depth.i346, align 4
   %dec.i.i197 = add nsw i32 %31, -1
   store i32 %dec.i.i197, ptr %depth.i346, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k2, i32 noundef 6)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k2, i32 noundef 6)
   %32 = load i32, ptr %k, align 4
   %33 = load i32, ptr %k2, align 4
   %and = and i32 %33, %32
@@ -6238,12 +6238,12 @@ if.then.i.i210:                                   ; preds = %if.then45
   unreachable
 
 cp_expr_sub.exit211:                              ; preds = %if.then45
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k2)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k2)
   %35 = load i32, ptr %depth.i346, align 4
   %dec.i.i209 = add nsw i32 %35, -1
   store i32 %dec.i.i209, ptr %depth.i346, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k2, i32 noundef 7)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k2, i32 noundef 7)
   %36 = load i32, ptr %k, align 4
   %37 = load i32, ptr %k2, align 4
   %cmp46 = icmp eq i32 %36, %37
@@ -6265,12 +6265,12 @@ if.then.i.i222:                                   ; preds = %if.then50
   unreachable
 
 cp_expr_sub.exit223:                              ; preds = %if.then50
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k2)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k2)
   %39 = load i32, ptr %depth.i346, align 4
   %dec.i.i221 = add nsw i32 %39, -1
   store i32 %dec.i.i221, ptr %depth.i346, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k2, i32 noundef 7)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k2, i32 noundef 7)
   %40 = load i32, ptr %k, align 4
   %41 = load i32, ptr %k2, align 4
   %cmp51 = icmp ne i32 %40, %41
@@ -6307,12 +6307,12 @@ if.then.i.i234:                                   ; preds = %if.then59
   unreachable
 
 cp_expr_sub.exit235:                              ; preds = %if.then59
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k2)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k2)
   %43 = load i32, ptr %depth.i346, align 4
   %dec.i.i233 = add nsw i32 %43, -1
   store i32 %dec.i.i233, ptr %depth.i346, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k2, i32 noundef 8)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k2, i32 noundef 8)
   %44 = load i32, ptr %id211, align 4
   %cmp61 = icmp eq i32 %44, 9
   %45 = load i32, ptr %id, align 4
@@ -6350,12 +6350,12 @@ if.then.i.i246:                                   ; preds = %if.then77
   unreachable
 
 cp_expr_sub.exit247:                              ; preds = %if.then77
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k2)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k2)
   %49 = load i32, ptr %depth.i346, align 4
   %dec.i.i245 = add nsw i32 %49, -1
   store i32 %dec.i.i245, ptr %depth.i346, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k2, i32 noundef 8)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k2, i32 noundef 8)
   %50 = load i32, ptr %id211, align 4
   %cmp79 = icmp eq i32 %50, 9
   %51 = load i32, ptr %id, align 4
@@ -6393,12 +6393,12 @@ if.then.i.i258:                                   ; preds = %if.then96
   unreachable
 
 cp_expr_sub.exit259:                              ; preds = %if.then96
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k2)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k2)
   %55 = load i32, ptr %depth.i346, align 4
   %dec.i.i257 = add nsw i32 %55, -1
   store i32 %dec.i.i257, ptr %depth.i346, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k2, i32 noundef 8)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k2, i32 noundef 8)
   %56 = load i32, ptr %id211, align 4
   %cmp98 = icmp eq i32 %56, 9
   %57 = load i32, ptr %id, align 4
@@ -6436,12 +6436,12 @@ if.then.i.i270:                                   ; preds = %if.then115
   unreachable
 
 cp_expr_sub.exit271:                              ; preds = %if.then115
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k2)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k2)
   %61 = load i32, ptr %depth.i346, align 4
   %dec.i.i269 = add nsw i32 %61, -1
   store i32 %dec.i.i269, ptr %depth.i346, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k2, i32 noundef 8)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k2, i32 noundef 8)
   %62 = load i32, ptr %id211, align 4
   %cmp117 = icmp eq i32 %62, 9
   %63 = load i32, ptr %id, align 4
@@ -6490,12 +6490,12 @@ if.then.i.i282:                                   ; preds = %if.then138
   unreachable
 
 cp_expr_sub.exit283:                              ; preds = %if.then138
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k2)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k2)
   %67 = load i32, ptr %depth.i346, align 4
   %dec.i.i281 = add nsw i32 %67, -1
   store i32 %dec.i.i281, ptr %depth.i346, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k2, i32 noundef 9)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k2, i32 noundef 9)
   %68 = load i32, ptr %k, align 4
   %69 = load i32, ptr %k2, align 4
   %shl = shl i32 %68, %69
@@ -6515,12 +6515,12 @@ if.then.i.i294:                                   ; preds = %if.then142
   unreachable
 
 cp_expr_sub.exit295:                              ; preds = %if.then142
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k2)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k2)
   %71 = load i32, ptr %depth.i346, align 4
   %dec.i.i293 = add nsw i32 %71, -1
   store i32 %dec.i.i293, ptr %depth.i346, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k2, i32 noundef 9)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k2, i32 noundef 9)
   %72 = load i32, ptr %id211, align 4
   %cmp144 = icmp eq i32 %72, 9
   %73 = load i32, ptr %k, align 4
@@ -6553,12 +6553,12 @@ if.then.i.i306:                                   ; preds = %if.then155
   unreachable
 
 cp_expr_sub.exit307:                              ; preds = %if.then155
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k2)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k2)
   %76 = load i32, ptr %depth.i346, align 4
   %dec.i.i305 = add nsw i32 %76, -1
   store i32 %dec.i.i305, ptr %depth.i346, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k2, i32 noundef 10)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k2, i32 noundef 10)
   %77 = load i32, ptr %k, align 4
   %78 = load i32, ptr %k2, align 4
   %add = add i32 %78, %77
@@ -6592,12 +6592,12 @@ if.then.i.i318:                                   ; preds = %if.then167
   unreachable
 
 cp_expr_sub.exit319:                              ; preds = %if.then167
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k2)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k2)
   %82 = load i32, ptr %depth.i346, align 4
   %dec.i.i317 = add nsw i32 %82, -1
   store i32 %dec.i.i317, ptr %depth.i346, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k2, i32 noundef 10)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k2, i32 noundef 10)
   %83 = load i32, ptr %k, align 4
   %84 = load i32, ptr %k2, align 4
   %sub = sub i32 %83, %84
@@ -6623,8 +6623,8 @@ if.then.i327:                                     ; preds = %if.then173
   unreachable
 
 cp_expr_unary.exit:                               ; preds = %if.then173
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k2)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k2)
   %86 = load i32, ptr %depth.i346, align 4
   %dec.i = add nsw i32 %86, -1
   store i32 %dec.i, ptr %depth.i346, align 4
@@ -6646,8 +6646,8 @@ if.then.i338:                                     ; preds = %if.then177
   unreachable
 
 cp_expr_unary.exit339:                            ; preds = %if.then177
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k2)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k2)
   %90 = load i32, ptr %depth.i346, align 4
   %dec.i337 = add nsw i32 %90, -1
   store i32 %dec.i337, ptr %depth.i346, align 4
@@ -6707,8 +6707,8 @@ if.then.i350:                                     ; preds = %if.then209
   unreachable
 
 cp_expr_unary.exit351:                            ; preds = %if.then209
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k2)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k2)
   %97 = load i32, ptr %depth.i346, align 4
   %dec.i349 = add nsw i32 %97, -1
   store i32 %dec.i349, ptr %depth.i346, align 4
@@ -6755,7 +6755,7 @@ if.end238:                                        ; preds = %if.else236, %if.the
   store i32 %storemerge, ptr %k, align 4
   br label %for.cond.backedge
 
-default.unreachable:                              ; preds = %for.cond
+default.unreachable417:                           ; preds = %for.cond
   unreachable
 
 sw.default:                                       ; preds = %sw.bb, %sw.bb11, %sw.bb19, %sw.bb27, %sw.bb32, %sw.bb37, %sw.bb42, %sw.bb56, %sw.bb135, %sw.bb152, %sw.bb170
@@ -6763,7 +6763,7 @@ sw.default:                                       ; preds = %sw.bb, %sw.bb11, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cp_expr_prefix(ptr noundef %cp, ptr nocapture noundef %k) unnamed_addr #1 {
+define internal fastcc void @cp_expr_prefix(ptr noundef %cp, ptr nocapture noundef nonnull %k) unnamed_addr #1 {
 entry:
   %tok = getelementptr inbounds i8, ptr %cp, i64 4
   %0 = load i32, ptr %tok, align 4
@@ -7136,7 +7136,7 @@ err_expr:                                         ; preds = %entry, %if.then61
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cp_expr_postfix(ptr noundef %cp, ptr nocapture noundef %k) unnamed_addr #1 {
+define internal fastcc void @cp_expr_postfix(ptr noundef %cp, ptr nocapture noundef nonnull %k) unnamed_addr #1 {
 entry:
   %k2 = alloca %struct.CPValue, align 4
   %ofs = alloca i32, align 4
@@ -7169,12 +7169,12 @@ if.then.i.i:                                      ; preds = %if.then, %cp_opt.ex
   unreachable
 
 cp_expr_sub.exit:                                 ; preds = %if.then, %cp_opt.exit48
-  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
-  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef nonnull %k2)
+  call fastcc void @cp_expr_prefix(ptr noundef nonnull %cp, ptr noundef %k2)
+  call fastcc void @cp_expr_postfix(ptr noundef nonnull %cp, ptr noundef %k2)
   %2 = load i32, ptr %depth.i.i, align 4
   %dec.i.i = add nsw i32 %2, -1
   store i32 %dec.i.i, ptr %depth.i.i, align 4
-  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef nonnull %k2, i32 noundef 0)
+  call fastcc void @cp_expr_infix(ptr noundef nonnull %cp, ptr noundef %k2, i32 noundef 0)
   %3 = load i32, ptr %tok1.i, align 4
   %cmp.i44 = icmp eq i32 %3, 44
   br i1 %cmp.i44, label %cp_opt.exit48, label %cp_expr_comma.exit
@@ -7329,11 +7329,11 @@ if.end66:                                         ; preds = %cond.end, %cp_check
 define internal fastcc i32 @cp_decl_abstract(ptr noundef %cp) unnamed_addr #1 {
 entry:
   %decl = alloca %struct.CPDecl, align 8
-  %call = call fastcc i32 @cp_decl_spec(ptr noundef %cp, ptr noundef nonnull %decl, i32 noundef 0)
+  %call = call fastcc i32 @cp_decl_spec(ptr noundef %cp, ptr noundef %decl, i32 noundef 0)
   %mode = getelementptr inbounds i8, ptr %decl, i64 12
   store i32 2, ptr %mode, align 4
-  call fastcc void @cp_declarator(ptr noundef %cp, ptr noundef nonnull %decl)
-  %call1 = call fastcc i32 @cp_decl_intern(ptr noundef %cp, ptr noundef nonnull %decl)
+  call fastcc void @cp_declarator(ptr noundef %cp, ptr noundef %decl)
+  %call1 = call fastcc i32 @cp_decl_intern(ptr noundef %cp, ptr noundef %decl)
   ret i32 %call1
 }
 
@@ -7361,7 +7361,7 @@ entry:
 declare hidden i32 @lj_ctype_intern(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cp_expr_sizeof(ptr noundef %cp, ptr nocapture noundef %k, i32 noundef %wantsz) unnamed_addr #1 {
+define internal fastcc void @cp_expr_sizeof(ptr noundef %cp, ptr nocapture noundef nonnull %k, i32 noundef range(i32 0, 2) %wantsz) unnamed_addr #1 {
 entry:
   %decl.i = alloca %struct.CPDecl, align 8
   %sz = alloca i32, align 4
@@ -7393,11 +7393,11 @@ land.lhs.true5.i:                                 ; preds = %if.end.i
 
 if.then3:                                         ; preds = %if.end.i, %land.lhs.true5.i, %if.then
   call void @llvm.lifetime.start.p0(i64 2464, ptr nonnull %decl.i)
-  %call.i16 = call fastcc i32 @cp_decl_spec(ptr noundef nonnull %cp, ptr noundef nonnull %decl.i, i32 noundef 0)
+  %call.i16 = call fastcc i32 @cp_decl_spec(ptr noundef nonnull %cp, ptr noundef %decl.i, i32 noundef 0)
   %mode.i = getelementptr inbounds i8, ptr %decl.i, i64 12
   store i32 2, ptr %mode.i, align 4
-  call fastcc void @cp_declarator(ptr noundef nonnull %cp, ptr noundef nonnull %decl.i)
-  %call1.i = call fastcc i32 @cp_decl_intern(ptr noundef nonnull %cp, ptr noundef nonnull %decl.i)
+  call fastcc void @cp_declarator(ptr noundef nonnull %cp, ptr noundef %decl.i)
+  %call1.i = call fastcc i32 @cp_decl_intern(ptr noundef nonnull %cp, ptr noundef %decl.i)
   call void @llvm.lifetime.end.p0(i64 2464, ptr nonnull %decl.i)
   %id = getelementptr inbounds i8, ptr %k, i64 4
   store i32 %call1.i, ptr %id, align 4
@@ -7514,7 +7514,7 @@ declare hidden i32 @lj_ctype_info_raw(ptr noundef, i32 noundef, ptr noundef) loc
 declare hidden ptr @lj_ctype_getfieldq(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cp_struct_name(ptr noundef %cp, ptr nocapture noundef %sdecl, i32 noundef %info) unnamed_addr #1 {
+define internal fastcc i32 @cp_struct_name(ptr noundef %cp, ptr nocapture noundef nonnull %sdecl, i32 noundef range(i32 268435456, 1342177282) %info) unnamed_addr #1 {
 entry:
   %ct = alloca ptr, align 8
   %tmask = getelementptr inbounds i8, ptr %cp, i64 112
@@ -7648,7 +7648,7 @@ if.end42:                                         ; preds = %if.end40, %if.end29
 declare hidden i32 @lj_ctype_info(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cp_decl_func(ptr noundef %cp, ptr nocapture noundef %fdecl) unnamed_addr #1 {
+define internal fastcc void @cp_decl_func(ptr noundef %cp, ptr nocapture noundef nonnull %fdecl) unnamed_addr #1 {
 entry:
   %decl = alloca %struct.CPDecl, align 8
   %ct = alloca ptr, align 8
@@ -7701,10 +7701,10 @@ if.end:                                           ; preds = %if.end.lr.ph, %do.b
   %anchor.198 = phi i32 [ 0, %if.end.lr.ph ], [ %anchor.2, %do.bodythread-pre-split ]
   %lastid.097 = phi i32 [ 0, %if.end.lr.ph ], [ %call29, %do.bodythread-pre-split ]
   %nargs.196 = phi i32 [ 0, %if.end.lr.ph ], [ %inc, %do.bodythread-pre-split ]
-  %call2 = call fastcc i32 @cp_decl_spec(ptr noundef nonnull %cp, ptr noundef nonnull %decl, i32 noundef 524288)
+  %call2 = call fastcc i32 @cp_decl_spec(ptr noundef nonnull %cp, ptr noundef %decl, i32 noundef 524288)
   store i32 6, ptr %mode, align 4
-  call fastcc void @cp_declarator(ptr noundef nonnull %cp, ptr noundef nonnull %decl)
-  %call3 = call fastcc i32 @cp_decl_intern(ptr noundef nonnull %cp, ptr noundef nonnull %decl)
+  call fastcc void @cp_declarator(ptr noundef nonnull %cp, ptr noundef %decl)
+  %call3 = call fastcc i32 @cp_decl_intern(ptr noundef nonnull %cp, ptr noundef %decl)
   %3 = load ptr, ptr %cts, align 8
   %4 = load ptr, ptr %3, align 8
   br label %while.cond.i

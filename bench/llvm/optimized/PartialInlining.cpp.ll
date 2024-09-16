@@ -1431,7 +1431,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit.i144:      ; preds = %407, %_ZN4llvm15Ins
   %417 = icmp eq ptr %.sroa.0208.0294.i, null
   %418 = getelementptr inbounds i8, ptr %.sroa.0208.0294.i, i64 -24
   %419 = select i1 %417, ptr null, ptr %418
-  %420 = call fastcc { i64, i32 } @_ZN12_GLOBAL__N_118PartialInlinerImpl19computeBBInlineCostEPN4llvm10BasicBlockEPNS1_19TargetTransformInfoE(ptr noundef nonnull %419, ptr noundef nonnull %412), !noalias !16
+  %420 = call fastcc { i64, i32 } @_ZN12_GLOBAL__N_118PartialInlinerImpl19computeBBInlineCostEPN4llvm10BasicBlockEPNS1_19TargetTransformInfoE(ptr noundef nonnull %419, ptr noundef %412), !noalias !16
   %.fr.i = freeze { i64, i32 } %420
   %.fca.0.extract35.i = extractvalue { i64, i32 } %.fr.i, 0
   %.fca.1.extract36.i = extractvalue { i64, i32 } %.fr.i, 1
@@ -2199,7 +2199,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit105.i:      ; preds = %758, %_ZN4llvm15Ins
   %765 = load ptr, ptr %110, align 8, !noalias !16
   %766 = load i64, ptr %111, align 8, !noalias !16
   %767 = call noundef nonnull align 8 dereferenceable(8) ptr %765(i64 noundef %766, ptr noundef nonnull align 8 dereferenceable(136) %764) #16, !noalias !16
-  %768 = call fastcc { i64, i32 } @_ZN12_GLOBAL__N_118PartialInlinerImpl19computeBBInlineCostEPN4llvm10BasicBlockEPNS1_19TargetTransformInfoE(ptr noundef nonnull %762, ptr noundef nonnull %767), !noalias !16
+  %768 = call fastcc { i64, i32 } @_ZN12_GLOBAL__N_118PartialInlinerImpl19computeBBInlineCostEPN4llvm10BasicBlockEPNS1_19TargetTransformInfoE(ptr noundef nonnull %762, ptr noundef %767), !noalias !16
   %.fca.0.extract.i157 = extractvalue { i64, i32 } %768, 0
   %.fca.1.extract.i158 = extractvalue { i64, i32 } %768, 1
   %769 = icmp eq i32 %.fca.1.extract.i158, 1
@@ -3649,7 +3649,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit.i.i:       ; preds = %_ZN12_GLOBAL__N_132
   %1311 = load ptr, ptr %171, align 8
   %1312 = load i64, ptr %218, align 8
   %1313 = call noundef nonnull align 8 dereferenceable(8) ptr %1311(i64 noundef %1312, ptr noundef nonnull align 8 dereferenceable(136) %1310) #16
-  %1314 = call fastcc { i64, i32 } @_ZN12_GLOBAL__N_118PartialInlinerImpl19computeBBInlineCostEPN4llvm10BasicBlockEPNS1_19TargetTransformInfoE(ptr noundef nonnull %1308, ptr noundef nonnull %1313)
+  %1314 = call fastcc { i64, i32 } @_ZN12_GLOBAL__N_118PartialInlinerImpl19computeBBInlineCostEPN4llvm10BasicBlockEPNS1_19TargetTransformInfoE(ptr noundef nonnull %1308, ptr noundef %1313)
   %.fca.0.extract.i.i = extractvalue { i64, i32 } %1314, 0
   %.fca.1.extract.i.i = extractvalue { i64, i32 } %1314, 1
   %1315 = icmp eq i32 %.fca.1.extract.i.i, 1
@@ -5716,7 +5716,7 @@ _ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZN
   %2207 = load ptr, ptr %2205, align 8
   store ptr %2207, ptr %2206, align 8
   %2208 = getelementptr inbounds i8, ptr %2206, i64 8
-  %2209 = call fastcc { i64, i32 } @_ZN12_GLOBAL__N_118PartialInlinerImpl19computeBBInlineCostEPN4llvm10BasicBlockEPNS1_19TargetTransformInfoE(ptr noundef %2207, ptr noundef nonnull %2204)
+  %2209 = call fastcc { i64, i32 } @_ZN12_GLOBAL__N_118PartialInlinerImpl19computeBBInlineCostEPN4llvm10BasicBlockEPNS1_19TargetTransformInfoE(ptr noundef %2207, ptr noundef %2204)
   %.fca.0.extract5.i = extractvalue { i64, i32 } %2209, 0
   %.fca.1.extract6.i = extractvalue { i64, i32 } %2209, 1
   %2210 = icmp eq i32 %.fca.1.extract6.i, 1
@@ -6191,7 +6191,7 @@ _ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EE9push_backERKS2_.exit39.i: ; preds = %_
   %.pn.i = phi ptr [ %2404, %_ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i38.i ], [ %.sroa.9.0.i, %2385 ]
   %.sroa.058.3.i = phi ptr [ %2400, %_ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i38.i ], [ %.sroa.058.0.i, %2385 ]
   %.sroa.9.3.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
-  %2407 = call fastcc { i64, i32 } @_ZN12_GLOBAL__N_118PartialInlinerImpl19computeBBInlineCostEPN4llvm10BasicBlockEPNS1_19TargetTransformInfoE(ptr noundef %2332, ptr noundef nonnull %2204)
+  %2407 = call fastcc { i64, i32 } @_ZN12_GLOBAL__N_118PartialInlinerImpl19computeBBInlineCostEPN4llvm10BasicBlockEPNS1_19TargetTransformInfoE(ptr noundef %2332, ptr noundef %2204)
   %.fca.0.extract.i = extractvalue { i64, i32 } %2407, 0
   %.fca.1.extract.i = extractvalue { i64, i32 } %2407, 1
   %2408 = icmp eq i32 %.fca.1.extract.i, 1
@@ -6887,7 +6887,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit.i:         ; preds = %._crit_edge.i, %_ZN
   %88 = load ptr, ptr %86, align 8, !noalias !131
   %89 = load i64, ptr %87, align 8, !noalias !131
   %90 = tail call noundef nonnull align 8 dereferenceable(8) ptr %88(i64 noundef %89, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.024.0.copyload.i) #16, !noalias !131
-  %91 = tail call fastcc { i64, i32 } @_ZN12_GLOBAL__N_118PartialInlinerImpl19computeBBInlineCostEPN4llvm10BasicBlockEPNS1_19TargetTransformInfoE(ptr noundef %.sroa.225.0.copyload.i, ptr noundef nonnull %90), !noalias !131
+  %91 = tail call fastcc { i64, i32 } @_ZN12_GLOBAL__N_118PartialInlinerImpl19computeBBInlineCostEPN4llvm10BasicBlockEPNS1_19TargetTransformInfoE(ptr noundef %.sroa.225.0.copyload.i, ptr noundef %90), !noalias !131
   %.fca.0.extract15.i = extractvalue { i64, i32 } %91, 0
   %.fca.1.extract16.i = extractvalue { i64, i32 } %91, 1
   %92 = icmp eq i32 %.fca.1.extract16.i, 1
@@ -6906,7 +6906,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit37.i:       ; preds = %_ZN4llvm15Instructi
   %95 = icmp eq ptr %.sroa.062.077.i, null
   %96 = getelementptr inbounds i8, ptr %.sroa.062.077.i, i64 -24
   %97 = select i1 %95, ptr null, ptr %96
-  %98 = tail call fastcc { i64, i32 } @_ZN12_GLOBAL__N_118PartialInlinerImpl19computeBBInlineCostEPN4llvm10BasicBlockEPNS1_19TargetTransformInfoE(ptr noundef nonnull %97, ptr noundef nonnull %90), !noalias !131
+  %98 = tail call fastcc { i64, i32 } @_ZN12_GLOBAL__N_118PartialInlinerImpl19computeBBInlineCostEPN4llvm10BasicBlockEPNS1_19TargetTransformInfoE(ptr noundef nonnull %97, ptr noundef %90), !noalias !131
   %.fca.0.extract9.i = extractvalue { i64, i32 } %98, 0
   %.fca.1.extract10.i = extractvalue { i64, i32 } %98, 1
   %99 = icmp eq i32 %.fca.1.extract10.i, 1
@@ -9334,7 +9334,7 @@ declare void @_ZN4llvm8LoopInfoC1ERKNS_17DominatorTreeBaseINS_10BasicBlockELb0EE
 declare void @_ZN4llvm18BlockFrequencyInfoC1ERKNS_8FunctionERKNS_21BranchProbabilityInfoERKNS_8LoopInfoE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(144)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @_ZN12_GLOBAL__N_118PartialInlinerImpl19computeBBInlineCostEPN4llvm10BasicBlockEPNS1_19TargetTransformInfoE(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc { i64, i32 } @_ZN12_GLOBAL__N_118PartialInlinerImpl19computeBBInlineCostEPN4llvm10BasicBlockEPNS1_19TargetTransformInfoE(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::iterator_range.354", align 8
   %4 = alloca %"class.llvm::filter_iterator_impl", align 8
   %5 = alloca %"class.llvm::filter_iterator_impl", align 8

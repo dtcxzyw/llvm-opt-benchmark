@@ -468,7 +468,7 @@ parseDashOrOid.exit:                              ; preds = %17
   unreachable
 
 30:                                               ; preds = %24
-  %31 = call fastcc zeroext i1 @parseNameAndArgTypes(ptr noundef nonnull %8, i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %10)
+  %31 = call fastcc zeroext i1 @parseNameAndArgTypes(ptr noundef nonnull %8, i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %10)
   br i1 %31, label %34, label %32
 
 32:                                               ; preds = %30
@@ -522,7 +522,7 @@ parseDashOrOid.exit.thread:                       ; preds = %parseDashOrOid.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = tail call ptr @pstrdup(ptr noundef %0) #9
@@ -1298,7 +1298,7 @@ define dso_local range(i64 0, 4294967296) i64 @regoperatorin(ptr nocapture nound
   unreachable
 
 27:                                               ; preds = %21
-  %28 = call fastcc zeroext i1 @parseNameAndArgTypes(ptr noundef nonnull %8, i1 noundef zeroext true, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %10)
+  %28 = call fastcc zeroext i1 @parseNameAndArgTypes(ptr noundef nonnull %8, i1 noundef zeroext true, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %10)
   br i1 %28, label %31, label %29
 
 29:                                               ; preds = %27

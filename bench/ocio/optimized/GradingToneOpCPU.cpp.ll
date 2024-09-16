@@ -1517,7 +1517,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %v, ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %vpr, i32 noundef %channel, ptr nocapture noundef %out) unnamed_addr #16 align 2 {
+define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %v, ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %vpr, i32 noundef range(i32 0, 4) %channel, ptr nocapture noundef %out) unnamed_addr #16 align 2 {
 entry:
   %m_midtones = getelementptr inbounds i8, ptr %v, i64 96
   %call = tail call noundef float @_ZN19OpenColorIO_v2_4dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE(ptr noundef nonnull align 8 dereferenceable(48) %m_midtones, i32 noundef %channel)
@@ -1860,7 +1860,7 @@ if.end340:                                        ; preds = %if.end134, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %v, ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %vpr, i32 noundef %channel, i1 noundef zeroext %isShadow, ptr nocapture noundef %out) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %v, ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %vpr, i32 noundef range(i32 0, 4) %channel, i1 noundef zeroext %isShadow, ptr nocapture noundef %out) unnamed_addr #3 align 2 {
 entry:
   %t72 = alloca %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::float3", align 4
   %t81 = alloca %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::float3", align 4
@@ -2051,7 +2051,7 @@ if.end83:                                         ; preds = %if.then76, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %v, ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %vpr, i32 noundef %channel, i1 noundef zeroext %isBlack, ptr nocapture noundef %out) unnamed_addr #16 align 2 {
+define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %v, ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %vpr, i32 noundef range(i32 0, 4) %channel, i1 noundef zeroext %isBlack, ptr nocapture noundef %out) unnamed_addr #16 align 2 {
 entry:
   %m_whites.sink.idx = select i1 %isBlack, i64 0, i64 192
   %m_whites.sink = getelementptr inbounds i8, ptr %v, i64 %m_whites.sink.idx
@@ -3814,7 +3814,7 @@ if.end:                                           ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %v, ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %vpr, i32 noundef %channel, i1 noundef zeroext %isBlack, ptr nocapture noundef %out) unnamed_addr #16 align 2 {
+define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPU10whiteBlackERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %v, ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %vpr, i32 noundef range(i32 0, 4) %channel, i1 noundef zeroext %isBlack, ptr nocapture noundef %out) unnamed_addr #16 align 2 {
 entry:
   %m_whites.sink.idx = select i1 %isBlack, i64 0, i64 192
   %m_whites.sink = getelementptr inbounds i8, ptr %v, i64 %m_whites.sink.idx
@@ -4210,7 +4210,7 @@ if.end:                                           ; preds = %if.end241.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %v, ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %vpr, i32 noundef %channel, i1 noundef zeroext %isShadow, ptr nocapture noundef %out) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPU15highlightShadowERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEbPf(ptr noundef nonnull align 8 dereferenceable(248) %v, ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %vpr, i32 noundef range(i32 0, 4) %channel, i1 noundef zeroext %isShadow, ptr nocapture noundef %out) unnamed_addr #3 align 2 {
 entry:
   %t72 = alloca %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::float3", align 4
   %t81 = alloca %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::float3", align 4
@@ -4401,7 +4401,7 @@ if.end83:                                         ; preds = %if.then76, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %v, ptr noundef nonnull readonly align 8 dereferenceable(936) %vpr, i32 noundef %channel, ptr nocapture noundef %out) unnamed_addr #16 align 2 {
+define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %v, ptr noundef nonnull readonly align 8 dereferenceable(936) %vpr, i32 noundef range(i32 0, 4) %channel, ptr nocapture noundef %out) unnamed_addr #16 align 2 {
 entry:
   %m_midtones = getelementptr inbounds i8, ptr %v, i64 96
   %call = tail call noundef float @_ZN19OpenColorIO_v2_4dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE(ptr noundef nonnull align 8 dereferenceable(48) %m_midtones, i32 noundef %channel)

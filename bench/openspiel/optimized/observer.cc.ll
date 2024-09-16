@@ -949,7 +949,7 @@ define void @_ZNK10open_spiel4Game19MakeBuiltInObserverEN4absl7debian28optionalI
   br i1 %18, label %19, label %31
 
 19:                                               ; preds = %11
-  call fastcc void @_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_115DefaultObserverEJRKNS0_4GameEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(280) %1)
+  call fastcc void @_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_115DefaultObserverEJRKNS0_4GameEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(280) %1)
   invoke fastcc void @_ZNSt10shared_ptrIN10open_spiel8ObserverEEC2INS0_12_GLOBAL__N_115DefaultObserverESt14default_deleteIS5_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %20 unwind label %25
 
@@ -1188,7 +1188,7 @@ _ZN4absl7debian28optionalIN10open_spiel18IIGObservationTypeEEptEv.exit12: ; pred
   br i1 %124, label %125, label %137
 
 125:                                              ; preds = %_ZN4absl7debian28optionalIN10open_spiel18IIGObservationTypeEEptEv.exit12
-  call fastcc void @_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_124InformationStateObserverEJRKNS0_4GameEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(280) %1)
+  call fastcc void @_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_124InformationStateObserverEJRKNS0_4GameEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(280) %1)
   invoke fastcc void @_ZNSt10shared_ptrIN10open_spiel8ObserverEEC2INS0_12_GLOBAL__N_124InformationStateObserverESt14default_deleteIS5_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %126 unwind label %131
 
@@ -1233,7 +1233,7 @@ _ZN4absl7debian28optionalIN10open_spiel18IIGObservationTypeEEptEv.exit17: ; pred
   br i1 %145, label %_ZNR4absl7debian28optionalIN10open_spiel18IIGObservationTypeEE5valueEv.exit.thread, label %146
 
 146:                                              ; preds = %_ZN4absl7debian28optionalIN10open_spiel18IIGObservationTypeEEptEv.exit17
-  call fastcc void @_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_115DefaultObserverEJRKNS0_4GameEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(280) %1)
+  call fastcc void @_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_115DefaultObserverEJRKNS0_4GameEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(280) %1)
   invoke fastcc void @_ZNSt10shared_ptrIN10open_spiel8ObserverEEC2INS0_12_GLOBAL__N_115DefaultObserverESt14default_deleteIS5_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %147 unwind label %152
 
@@ -1284,7 +1284,7 @@ _ZNR4absl7debian28optionalIN10open_spiel18IIGObservationTypeEE5valueEv.exit.thre
   br i1 %168, label %169, label %_ZN10open_spiel18IIGObservationTypeeqERKS0_.exit31.thread
 
 169:                                              ; preds = %161
-  call fastcc void @_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_115DefaultObserverEJRKNS0_4GameEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(280) %1)
+  call fastcc void @_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_115DefaultObserverEJRKNS0_4GameEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(280) %1)
   invoke fastcc void @_ZNSt10shared_ptrIN10open_spiel8ObserverEEC2INS0_12_GLOBAL__N_115DefaultObserverESt14default_deleteIS5_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %170 unwind label %175
 
@@ -1330,7 +1330,7 @@ _ZN10open_spiel18IIGObservationTypeeqERKS0_.exit31.thread58: ; preds = %_ZNR4abs
   br i1 %188, label %189, label %_ZN10open_spiel18IIGObservationTypeeqERKS0_.exit31.thread
 
 189:                                              ; preds = %_ZN10open_spiel18IIGObservationTypeeqERKS0_.exit31.thread58
-  call fastcc void @_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_124InformationStateObserverEJRKNS0_4GameEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(280) %1)
+  call fastcc void @_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_124InformationStateObserverEJRKNS0_4GameEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(280) %1)
   invoke fastcc void @_ZNSt10shared_ptrIN10open_spiel8ObserverEEC2INS0_12_GLOBAL__N_124InformationStateObserverESt14default_deleteIS5_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %190 unwind label %195
 
@@ -1373,7 +1373,7 @@ _ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_delet
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_115DefaultObserverEJRKNS0_4GameEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_115DefaultObserverEJRKNS0_4GameEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.77", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca i32, align 4
@@ -1754,7 +1754,7 @@ _ZNSt12__shared_ptrIN10open_spiel8ObserverELN9__gnu_cxx12_Lock_policyE2EEC2INS0_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_124InformationStateObserverEJRKNS0_4GameEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_124InformationStateObserverEJRKNS0_4GameEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.77", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca i32, align 4

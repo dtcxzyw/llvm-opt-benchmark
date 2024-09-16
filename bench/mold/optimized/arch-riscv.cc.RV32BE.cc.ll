@@ -1612,7 +1612,7 @@ entry:
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %3 = getelementptr inbounds i8, ptr %ctx, i64 88
   %ctx.val = load i8, ptr %3, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_6RV32BEEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %ref.tmp, i8 %ctx.val, ptr noundef nonnull %agg.tmp)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_6RV32BEEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp, i8 %ctx.val, ptr noundef %agg.tmp)
   %4 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_6RV32BEEEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit, label %if.then.i
@@ -3649,7 +3649,7 @@ return:                                           ; preds = %if.end39, %_ZNSt11c
 declare void @_ZN4mold3elf12InputSectionINS0_6RV32BEEE16apply_dyn_absrelERNS0_7ContextIS2_EERNS0_6SymbolIS2_EERKNS0_6ElfRelIS2_EEPhmlmPPSB_(ptr noundef nonnull align 8 dereferenceable(118), ptr noundef nonnull align 8 dereferenceable(4576), ptr noundef nonnull align 8 dereferenceable(51), ptr noundef nonnull align 1 dereferenceable(12), ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @"_ZZN4mold3elf12InputSectionINS0_6RV32BEEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_1clElll"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %val, i64 noundef %lo, i64 noundef %hi) unnamed_addr #4 align 2 {
+define internal fastcc void @"_ZZN4mold3elf12InputSectionINS0_6RV32BEEE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_1clElll"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %val, i64 noundef range(i64 -2147483648, -255) %lo, i64 noundef range(i64 256, 2147483649) %hi) unnamed_addr #4 align 2 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.mold::Error", align 8
@@ -4953,7 +4953,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 23
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %ctx.val = load i8, ptr %3, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_6RV32BEEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %ref.tmp, i8 %ctx.val, ptr noundef nonnull %agg.tmp)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_6RV32BEEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp, i8 %ctx.val, ptr noundef %agg.tmp)
   %5 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_6RV32BEEEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit, label %if.then.i
@@ -5012,7 +5012,7 @@ if.else:                                          ; preds = %entry
   %arrayidx.i.i.i18 = getelementptr inbounds i8, ptr %agg.tmp6, i64 21
   store i8 0, ptr %arrayidx.i.i.i18, align 1
   %ctx.val5 = load i8, ptr %3, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_6RV32BEEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %ref.tmp5, i8 %ctx.val5, ptr noundef nonnull %agg.tmp6)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_6RV32BEEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp5, i8 %ctx.val5, ptr noundef %agg.tmp6)
   %12 = load ptr, ptr %this, align 8
   %tobool.not.i31 = icmp eq ptr %12, null
   br i1 %tobool.not.i31, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_6RV32BEEEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit35, label %if.then.i32
@@ -5840,7 +5840,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZNS
   %add.ptr.i.i61 = getelementptr inbounds i8, ptr %agg.tmp.sroa.2.0.copyload, i64 4
   store i64 %sub.i.i, ptr %str.i, align 8, !noalias !24
   store ptr %add.ptr.i.i61, ptr %4, align 8, !noalias !24
-  call fastcc void @_ZN4mold3elfL16read_extn_stringERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %extn.i, ptr noundef nonnull align 8 dereferenceable(16) %str.i), !noalias !24
+  call fastcc void @_ZN4mold3elfL16read_extn_stringERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %extn.i, ptr noundef nonnull align 8 dereferenceable(16) %str.i), !noalias !24
   %extn.val.i = load i8, ptr %5, align 8, !noalias !24
   %tobool.i.i.i = trunc i8 %extn.val.i to i1
   br i1 %tobool.i.i.i, label %if.end23.i, label %cleanup41.i
@@ -5870,7 +5870,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit49.i: ; preds = %wh
   %add.ptr.i45.i = getelementptr inbounds i8, ptr %20, i64 1
   store i64 %sub.i42.i, ptr %str.i, align 8, !noalias !24
   store ptr %add.ptr.i45.i, ptr %4, align 8, !noalias !24
-  call fastcc void @_ZN4mold3elfL16read_extn_stringERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %extn35.i, ptr noundef nonnull align 8 dereferenceable(16) %str.i), !noalias !24
+  call fastcc void @_ZN4mold3elfL16read_extn_stringERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %extn35.i, ptr noundef nonnull align 8 dereferenceable(16) %str.i), !noalias !24
   %extn35.val.i = load i8, ptr %6, align 8, !noalias !24
   %tobool.i.i50.i = trunc i8 %extn35.val.i to i1
   br i1 %tobool.i.i50.i, label %if.end38.i, label %cleanup.i
@@ -7257,7 +7257,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4mold3elfL16read_extn_stringERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %str) unnamed_addr #4 {
+define internal fastcc void @_ZN4mold3elfL16read_extn_stringERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %str) unnamed_addr #4 {
 entry:
   %__endptr.i.i40 = alloca ptr, align 8
   %__endptr.i.i = alloca ptr, align 8
@@ -34812,7 +34812,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds
 declare i16 @llvm.bswap.i16(i16) #10
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_6RV32BEEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %agg.result, i8 %ctx.88.val, ptr noundef %msg) unnamed_addr #4 {
+define internal fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_6RV32BEEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %agg.result, i8 %ctx.88.val, ptr noundef nonnull %msg) unnamed_addr #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -34821,7 +34821,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull @.str.214, ptr noundef nonnull align 8 dereferenceable(32) %msg)
-  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.215)
+  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.215)
   %0 = load ptr, ptr %ref.tmp, align 8
   %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %0, %1
@@ -34840,7 +34840,7 @@ if.then.i.i:                                      ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp1, ptr noundef nonnull @.str.216, ptr noundef nonnull align 8 dereferenceable(32) %msg)
-  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, ptr noundef nonnull @.str.217)
+  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, ptr noundef nonnull @.str.217)
   %3 = load ptr, ptr %ref.tmp1, align 8
   %4 = getelementptr inbounds i8, ptr %ref.tmp1, i64 16
   %cmp.i.i.i1 = icmp eq ptr %3, %4

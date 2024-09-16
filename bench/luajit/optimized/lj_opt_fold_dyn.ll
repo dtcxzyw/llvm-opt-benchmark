@@ -3485,7 +3485,7 @@ if.else7.i:                                       ; preds = %if.then
 if.then10.i:                                      ; preds = %if.else7.i
   %o.i = getelementptr inbounds i8, ptr %J, i64 189
   store i8 36, ptr %o.i, align 1
-  %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %0, i1 true)
+  %4 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %0, i1 true)
   %xor.i = xor i32 %4, 31
   %call.i = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %xor.i) #11
   %conv13.i = trunc i32 %call.i to i16
@@ -3536,7 +3536,7 @@ if.else7.i:                                       ; preds = %if.then
 if.then10.i:                                      ; preds = %if.else7.i
   %o.i = getelementptr inbounds i8, ptr %J, i64 189
   store i8 36, ptr %o.i, align 1
-  %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv, i1 true)
+  %4 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %conv, i1 true)
   %xor.i = xor i32 %4, 31
   %call.i = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %xor.i) #11
   %conv13.i = trunc i32 %call.i to i16

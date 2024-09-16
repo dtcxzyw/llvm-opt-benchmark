@@ -97,7 +97,7 @@ define dso_local i32 @vlv_punit_read(ptr noundef %0, i32 noundef %1) local_unnam
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -110, 1) i32 @vlv_sideband_rw(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -110, 1) i32 @vlv_sideband_rw(ptr noundef %0, i32 noundef range(i32 3, 170) %1, i32 noundef range(i32 0, 8) %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 7368
   %7 = icmp eq i32 %2, 0
   %8 = icmp eq i32 %2, 6
@@ -151,7 +151,7 @@ define internal fastcc noundef range(i32 -110, 1) i32 @vlv_sideband_rw(ptr nound
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %29, ptr elementtype(i32) %31) #7, !srcloc !8
   %32 = shl nuw nsw i32 %2, 16
   %33 = shl nuw nsw i32 %1, 8
-  %34 = or i32 %33, %32
+  %34 = or disjoint i32 %32, %33
   %35 = or disjoint i32 %34, 241
   %36 = load ptr, ptr %6, align 8
   %37 = getelementptr i8, ptr %36, i64 1581312

@@ -1546,7 +1546,7 @@ send_string.exit:                                 ; preds = %send_string.exit.lo
   %690 = getelementptr inbounds i8, ptr %535, i64 124
   store i32 0, ptr %690, align 4
   store i8 0, ptr %170, align 16
-  %691 = call fastcc i32 @recv_line(ptr noundef %568, ptr noundef nonnull %9)
+  %691 = call fastcc i32 @recv_line(ptr noundef %568, ptr noundef %9)
   %.not149185190.i = icmp eq i32 %691, 0
   br i1 %.not149185190.i, label %parse_stats.exit, label %.lr.ph186.lr.ph.i
 
@@ -1631,7 +1631,7 @@ send_string.exit:                                 ; preds = %send_string.exit.lo
   br label %731
 
 731:                                              ; preds = %727, %713, %711
-  %732 = call fastcc i32 @recv_line(ptr noundef %568, ptr noundef nonnull %9)
+  %732 = call fastcc i32 @recv_line(ptr noundef %568, ptr noundef %9)
   %.not12.i.i = icmp ne i32 %732, 0
   %733 = load i8, ptr %9, align 16
   %734 = icmp eq i8 %733, 9
@@ -1648,7 +1648,7 @@ parse_queue.exit.i:                               ; preds = %735, %731
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %747, %746, %745, %parse_queue.exit.i
-  %736 = call fastcc i32 @recv_line(ptr noundef %568, ptr noundef nonnull %9)
+  %736 = call fastcc i32 @recv_line(ptr noundef %568, ptr noundef %9)
   %.not149.i = icmp eq i32 %736, 0
   br i1 %.not149.i, label %parse_stats.exit, label %705
 
@@ -1803,7 +1803,7 @@ parse_queue.exit.i:                               ; preds = %735, %731
   br label %.outer.backedge.i
 
 .outer.backedge.i:                                ; preds = %.outer.backedge.sink.split.i, %784, %783, %769
-  %790 = call fastcc i32 @recv_line(ptr noundef %568, ptr noundef nonnull %9)
+  %790 = call fastcc i32 @recv_line(ptr noundef %568, ptr noundef %9)
   %.not149185.i = icmp eq i32 %790, 0
   br i1 %.not149185.i, label %parse_stats.exit, label %.lr.ph186.i
 
@@ -3506,7 +3506,7 @@ declare i64 @send(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unna
 declare ptr @optparse(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree noreturn nounwind uwtable
-define internal fastcc void @exit_program(i32 noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 {
+define internal fastcc void @exit_program(i32 noundef range(i32 1, 6) %0, ptr noundef %1, i32 noundef range(i32 226, 1466) %2) unnamed_addr #14 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
   %3 = sext i32 %switch.tableidx to i64
@@ -3560,7 +3560,7 @@ define internal fastcc range(i32 -1, 1) i32 @make_connection(ptr noundef %0, ptr
   br i1 %.not, label %29, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call fastcc i32 @make_connection_real(ptr noundef nonnull %0, ptr noundef %1)
+  %4 = tail call fastcc i32 @make_connection_real(ptr noundef %0, ptr noundef %1)
   %.not17 = icmp eq i32 %4, 0
   br i1 %.not17, label %.preheader24, label %29
 
@@ -3600,7 +3600,7 @@ send_string.exit:                                 ; preds = %send_string_norecon
   br i1 %.not18, label %29, label %17
 
 17:                                               ; preds = %send_string.exit
-  %18 = tail call fastcc i32 @make_connection_real(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %18 = tail call fastcc i32 @make_connection_real(ptr noundef %0, ptr noundef nonnull %1)
   %.not19 = icmp eq i32 %18, 0
   br i1 %.not19, label %.preheader, label %29
 
@@ -3648,7 +3648,7 @@ define internal void @sigint(i32 %0) #14 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @make_connection_real(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @make_connection_real(ptr noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.timeval, align 8
   %4 = alloca %struct.addrinfo, align 8
   %5 = alloca ptr, align 8
@@ -3656,12 +3656,12 @@ define internal fastcc range(i32 -1, 1) i32 @make_connection_real(ptr noundef %0
   store ptr null, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   store i32 0, ptr %7, align 8
-  %8 = tail call i32 @cli_is_abspath(ptr noundef %0) #26
+  %8 = tail call i32 @cli_is_abspath(ptr noundef nonnull %0) #26
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = tail call i32 @access(ptr noundef %0, i32 noundef 0) #26
+  %10 = tail call i32 @access(ptr noundef nonnull %0, i32 noundef 0) #26
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %23
 
@@ -3680,7 +3680,7 @@ define internal fastcc range(i32 -1, 1) i32 @make_connection_real(ptr noundef %0
   %18 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 108) #26
   %19 = getelementptr inbounds i8, ptr %6, i64 109
   store i8 0, ptr %19, align 1
-  call void (ptr, ptr, ...) @print_con_info(ptr noundef nonnull %1, ptr noundef nonnull @.str.53, ptr noundef %0)
+  call void (ptr, ptr, ...) @print_con_info(ptr noundef nonnull %1, ptr noundef nonnull @.str.53, ptr noundef nonnull %0)
   %20 = call i32 @connect(i32 noundef %13, ptr nonnull %6, i32 noundef 110) #26
   %.not79 = icmp eq i32 %20, 0
   br i1 %.not79, label %.loopexit, label %21
@@ -3695,12 +3695,12 @@ define internal fastcc range(i32 -1, 1) i32 @make_connection_real(ptr noundef %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   store i32 1, ptr %24, align 8
   store i32 1, ptr %4, align 8
-  %25 = tail call ptr @get_ip(ptr noundef %0)
+  %25 = tail call ptr @get_ip(ptr noundef nonnull %0)
   %.not74 = icmp eq ptr %25, null
   br i1 %.not74, label %.thread, label %26
 
 26:                                               ; preds = %23
-  %27 = tail call ptr @get_ip(ptr noundef readonly %0)
+  %27 = tail call ptr @get_ip(ptr noundef nonnull readonly %0)
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %get_port.exit, label %28
 
@@ -3762,7 +3762,7 @@ get_port.exit:                                    ; preds = %26, %.sink.split.i
   br label %60
 
 52:                                               ; preds = %.lr.ph
-  call void (ptr, ptr, ...) @print_con_info(ptr noundef %1, ptr noundef nonnull @.str.53, ptr noundef %0)
+  call void (ptr, ptr, ...) @print_con_info(ptr noundef %1, ptr noundef nonnull @.str.53, ptr noundef nonnull %0)
   %53 = getelementptr inbounds i8, ptr %.06391, i64 24
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %.06391, i64 16
@@ -3878,7 +3878,7 @@ make_ip.exit:                                     ; preds = %71, %73, %81
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2, 1) i32 @read_version(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
-  %3 = call fastcc i32 @recv_line(ptr noundef %0, ptr noundef nonnull %2)
+  %3 = call fastcc i32 @recv_line(ptr noundef %0, ptr noundef %2)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.loopexit, label %4
 
@@ -4044,7 +4044,7 @@ declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef reado
 declare void @llvm.va_end.p0(ptr) #18
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @recv_line(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @recv_line(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4
 
@@ -4225,7 +4225,7 @@ declare noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture nounde
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_bar(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @show_bar(ptr noundef %0, i64 noundef range(i64 2, 5) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.thread71, label %7
 

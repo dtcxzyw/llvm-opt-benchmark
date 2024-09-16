@@ -189,7 +189,7 @@ _ZN11hb_buffer_t11next_glyphsEj.exit.thread:      ; preds = %_ZN9hb_font_t18get_
   br i1 %106, label %.lr.ph243, label %.critedge, !llvm.loop !8
 
 .lr.ph243:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  call fastcc void @_ZL27decompose_current_characterPK31hb_ot_shape_normalize_context_tb(ptr noundef nonnull %4, i1 noundef zeroext %33)
+  call fastcc void @_ZL27decompose_current_characterPK31hb_ot_shape_normalize_context_tb(ptr noundef %4, i1 noundef zeroext %33)
   %107 = load i32, ptr %35, align 4
   %108 = icmp ult i32 %107, %spec.select
   br i1 %108, label %.lr.ph, label %.critedge, !llvm.loop !8
@@ -759,7 +759,7 @@ _ZL9set_glyphR15hb_glyph_info_tP9hb_font_t.exit60.i.i: ; preds = %388, %374
   br i1 %424, label %425, label %_ZL28decompose_multi_char_clusterPK31hb_ot_shape_normalize_context_tjb.exit
 
 425:                                              ; preds = %.lr.ph25.i
-  call fastcc void @_ZL27decompose_current_characterPK31hb_ot_shape_normalize_context_tb(ptr noundef nonnull %4, i1 noundef zeroext %31)
+  call fastcc void @_ZL27decompose_current_characterPK31hb_ot_shape_normalize_context_tb(ptr noundef %4, i1 noundef zeroext %31)
   %426 = load i32, ptr %126, align 4
   %427 = icmp ult i32 %426, %.2.lcssa
   br i1 %427, label %.lr.ph25.i, label %_ZL28decompose_multi_char_clusterPK31hb_ot_shape_normalize_context_tjb.exit, !llvm.loop !13
@@ -1251,7 +1251,7 @@ _ZN18hb_unicode_funcs_t7composeEjjPj.exit:        ; preds = %4, %9
 declare void @_ZN11hb_buffer_t12clear_outputEv(ptr noundef nonnull align 8 dereferenceable(220)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL27decompose_current_characterPK31hb_ot_shape_normalize_context_tb(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @_ZL27decompose_current_characterPK31hb_ot_shape_normalize_context_tb(ptr noundef nonnull %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -1352,12 +1352,12 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %15, %28
   br label %_ZL9next_charP11hb_buffer_tj.exit
 
 69:                                               ; preds = %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit
-  %70 = call fastcc noundef i32 @_ZL9decomposePK31hb_ot_shape_normalize_context_tbj(ptr noundef nonnull %0, i1 noundef zeroext true, i32 noundef %14)
+  %70 = call fastcc noundef i32 @_ZL9decomposePK31hb_ot_shape_normalize_context_tbj(ptr noundef %0, i1 noundef zeroext true, i32 noundef %14)
   %.not28 = icmp eq i32 %70, 0
   br i1 %.not28, label %128, label %72
 
 .thread:                                          ; preds = %2
-  %71 = tail call fastcc noundef i32 @_ZL9decomposePK31hb_ot_shape_normalize_context_tbj(ptr noundef nonnull %0, i1 noundef zeroext false, i32 noundef %14)
+  %71 = tail call fastcc noundef i32 @_ZL9decomposePK31hb_ot_shape_normalize_context_tbj(ptr noundef %0, i1 noundef zeroext false, i32 noundef %14)
   %.not2856 = icmp eq i32 %71, 0
   br i1 %.not2856, label %.thread57, label %72
 
@@ -1964,7 +1964,7 @@ declare noundef zeroext i1 @_ZN11hb_buffer_t13make_room_forEjj(ptr noundef nonnu
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL9decomposePK31hb_ot_shape_normalize_context_tbj(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL9decomposePK31hb_ot_shape_normalize_context_tbj(ptr noundef nonnull %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1979,7 +1979,7 @@ define internal fastcc noundef i32 @_ZL9decomposePK31hb_ot_shape_normalize_conte
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = call noundef zeroext i1 %13(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %14 = call noundef zeroext i1 %13(ptr noundef nonnull %0, i32 noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5)
   br i1 %14, label %15, label %238
 
 15:                                               ; preds = %3
@@ -2172,7 +2172,7 @@ _ZL11output_charP11hb_buffer_tjj.exit44:          ; preds = %._ZN11hb_buffer_t12
   br label %238
 
 120:                                              ; preds = %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit33
-  %121 = call fastcc noundef i32 @_ZL9decomposePK31hb_ot_shape_normalize_context_tbj(ptr noundef nonnull %0, i1 noundef zeroext %1, i32 noundef %46)
+  %121 = call fastcc noundef i32 @_ZL9decomposePK31hb_ot_shape_normalize_context_tbj(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %46)
   %.not27 = icmp eq i32 %121, 0
   br i1 %.not27, label %163, label %122
 

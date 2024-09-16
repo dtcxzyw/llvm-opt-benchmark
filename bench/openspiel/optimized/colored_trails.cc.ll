@@ -9611,7 +9611,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 38:                                               ; preds = %27
   %39 = load ptr, ptr %25, align 8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  invoke fastcc void @_ZN10open_spiel14colored_trails12_GLOBAL__N_128GenerateLegalActionsForChipsEPKNS0_17ColoredTrailsGameERKNS0_5BoardERKSt6vectorIiSaIiEESC_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(112) %40, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  invoke fastcc void @_ZN10open_spiel14colored_trails12_GLOBAL__N_128GenerateLegalActionsForChipsEPKNS0_17ColoredTrailsGameERKNS0_5BoardERKSt6vectorIiSaIiEESC_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(112) %40, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %41 unwind label %70
 
 41:                                               ; preds = %38
@@ -9797,7 +9797,7 @@ _ZNSt6vectorIlSaIlEEC2ERKS1_.exit:                ; preds = %35, %45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel14colored_trails12_GLOBAL__N_128GenerateLegalActionsForChipsEPKNS0_17ColoredTrailsGameERKNS0_5BoardERKSt6vectorIiSaIiEESC_(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel14colored_trails12_GLOBAL__N_128GenerateLegalActionsForChipsEPKNS0_17ColoredTrailsGameERKNS0_5BoardERKSt6vectorIiSaIiEESC_(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 .preheader107:
   %5 = alloca %"class.open_spiel::colored_trails::ChipComboIterator", align 8
   %6 = alloca %"class.std::vector", align 8
@@ -17166,7 +17166,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %330 = load ptr, ptr %31, align 8
   %331 = getelementptr inbounds %"class.std::vector", ptr %330, i64 %32
   %332 = getelementptr inbounds i8, ptr %330, i64 48
-  invoke fastcc void @_ZN10open_spiel14colored_trails12_GLOBAL__N_128GenerateLegalActionsForChipsEPKNS0_17ColoredTrailsGameERKNS0_5BoardERKSt6vectorIiSaIiEESC_(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(24) %331, ptr noundef nonnull align 8 dereferenceable(24) %332)
+  invoke fastcc void @_ZN10open_spiel14colored_trails12_GLOBAL__N_128GenerateLegalActionsForChipsEPKNS0_17ColoredTrailsGameERKNS0_5BoardERKSt6vectorIiSaIiEESC_(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(24) %331, ptr noundef nonnull align 8 dereferenceable(24) %332)
           to label %333 unwind label %.loopexit.split-lp
 
 333:                                              ; preds = %329

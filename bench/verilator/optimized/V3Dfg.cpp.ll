@@ -5283,7 +5283,7 @@ define internal fastcc void @_ZL27dumpDotVertexAndSourceEdgesRSoRK9DfgVertex(ptr
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %1, i64 88
   %17 = load ptr, ptr %16, align 8
-  call fastcc void @_ZL7toDotIdB5cxx11RK9DfgVertex(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(72) %1)
+  call fastcc void @_ZL7toDotIdB5cxx11RK9DfgVertex(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(72) %1)
   %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %19 unwind label %42
 
@@ -5393,7 +5393,7 @@ define internal fastcc void @_ZL27dumpDotVertexAndSourceEdgesRSoRK9DfgVertex(ptr
 
 _ZN7AstNode9privateAsI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_.exit.i: ; preds = %65, %60
   %76 = tail call noundef i32 @_ZNK17AstNodeArrayDType13elementsConstEv(ptr noundef nonnull align 8 dereferenceable(176) %64)
-  call fastcc void @_ZL7toDotIdB5cxx11RK9DfgVertex(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(72) %1)
+  call fastcc void @_ZL7toDotIdB5cxx11RK9DfgVertex(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(72) %1)
   %77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %78 unwind label %91
 
@@ -5460,7 +5460,7 @@ _ZN7AstNode9privateAsI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_.exit.i: ; pre
 
 109:                                              ; preds = %2
   %110 = getelementptr inbounds i8, ptr %1, i64 72
-  call fastcc void @_ZL7toDotIdB5cxx11RK9DfgVertex(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(72) %1)
+  call fastcc void @_ZL7toDotIdB5cxx11RK9DfgVertex(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(72) %1)
   %111 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %112 unwind label %140
 
@@ -5530,7 +5530,7 @@ _ZN7AstNode9privateAsI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_.exit.i: ; pre
   %153 = load ptr, ptr %152, align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 152
   %155 = load i32, ptr %154, align 8
-  call fastcc void @_ZL7toDotIdB5cxx11RK9DfgVertex(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(72) %1)
+  call fastcc void @_ZL7toDotIdB5cxx11RK9DfgVertex(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(72) %1)
   %156 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %157 unwind label %176
 
@@ -5570,7 +5570,7 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread.i: ; preds = %_ZNK9DfgVertex16has
   br label %_ZL13dumpDotVertexRSoRK9DfgVertex.exit
 
 178:                                              ; preds = %2
-  call fastcc void @_ZL7toDotIdB5cxx11RK9DfgVertex(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(72) %1)
+  call fastcc void @_ZL7toDotIdB5cxx11RK9DfgVertex(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(72) %1)
   %179 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %180 unwind label %203
 
@@ -6292,7 +6292,7 @@ _ZNKSt8functionIFvRK7DfgEdgemEEclES2_m.exit:      ; preds = %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL7toDotIdB5cxx11RK9DfgVertex(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL7toDotIdB5cxx11RK9DfgVertex(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7174,7 +7174,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRK7DfgEdgemEZL27dumpDotVertexA
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %36 = load ptr, ptr %8, align 8
-  invoke fastcc void @_ZL7toDotIdB5cxx11RK9DfgVertex(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(72) %36)
+  invoke fastcc void @_ZL7toDotIdB5cxx11RK9DfgVertex(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(72) %36)
           to label %.noexc.i.i.i unwind label %29
 
 .noexc.i.i.i:                                     ; preds = %33
@@ -7188,7 +7188,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRK7DfgEdgemEZL27dumpDotVertexA
 40:                                               ; preds = %38
   %41 = getelementptr inbounds i8, ptr %1, i64 24
   %42 = load ptr, ptr %41, align 8
-  invoke fastcc void @_ZL7toDotIdB5cxx11RK9DfgVertex(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(72) %42)
+  invoke fastcc void @_ZL7toDotIdB5cxx11RK9DfgVertex(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(72) %42)
           to label %43 unwind label %51
 
 43:                                               ; preds = %40

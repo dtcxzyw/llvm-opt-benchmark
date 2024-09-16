@@ -17019,7 +17019,7 @@ define linkonce_odr hidden void @_ZN2cv6detail13OCVCallHelperI9GCPUSobelSt5tuple
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
-  call fastcc void @_ZN12_GLOBAL__N_110add_borderERKN2cv3MatEiiRKNS0_7Scalar_IdEE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %18, i32 noundef %21, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  call fastcc void @_ZN12_GLOBAL__N_110add_borderERKN2cv3MatEiiRKNS0_7Scalar_IdEE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %18, i32 noundef %21, ptr noundef nonnull align 8 dereferenceable(32) %8)
   %22 = getelementptr inbounds i8, ptr %13, i64 16
   store i32 0, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %13, i64 20
@@ -17078,7 +17078,7 @@ _ZN2cv6detail11postprocessIJNS0_14tracked_cv_matEEEEvDpRT_.exit: ; preds = %_ZN9
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110add_borderERKN2cv3MatEiiRKNS0_7Scalar_IdEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110add_borderERKN2cv3MatEiiRKNS0_7Scalar_IdEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::Mat", align 8
   %7 = alloca %"class.cv::_InputArray", align 8
   %8 = alloca %"class.cv::_OutputArray", align 8
@@ -18362,7 +18362,7 @@ define linkonce_odr hidden void @_ZN11GCPUSobelXY3runERKN2cv3MatEiiiddiRKNS0_7Sc
   %13 = alloca %"class.cv::_OutputArray", align 8
   %14 = alloca %"class.cv::_InputArray", align 8
   %15 = alloca %"class.cv::_OutputArray", align 8
-  call fastcc void @_ZN12_GLOBAL__N_110add_borderERKN2cv3MatEiiRKNS0_7Scalar_IdEE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %3, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  call fastcc void @_ZN12_GLOBAL__N_110add_borderERKN2cv3MatEiiRKNS0_7Scalar_IdEE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %3, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
   %16 = getelementptr inbounds i8, ptr %12, i64 16
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %12, i64 20

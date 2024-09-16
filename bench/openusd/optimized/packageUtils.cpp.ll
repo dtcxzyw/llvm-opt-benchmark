@@ -305,7 +305,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25ArJoinPackageRelativePathERK
   br i1 %83, label %95, label %84
 
 84:                                               ; preds = %.lr.ph56.i
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_EscapeDelimitersERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.018.154.i)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_EscapeDelimitersERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.018.154.i)
           to label %85 unwind label %80
 
 85:                                               ; preds = %84
@@ -381,12 +381,12 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25ArJoinPackageRelativePathERK
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %5, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 16
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_JoinPackageRelativePathIPKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_T_SC_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %3, ptr noundef nonnull %6)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_JoinPackageRelativePathIPKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_T_SC_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %3, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_JoinPackageRelativePathIPKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_T_SC_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef readonly %1, ptr noundef readnone %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_JoinPackageRelativePathIPKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_T_SC_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readnone %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::reverse_iterator.5", align 8
   %5 = alloca %"class.std::reverse_iterator.5", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -558,7 +558,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 
 80:                                               ; preds = %.lr.ph59
   %.1.val = load ptr, ptr %.157, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_EscapeDelimitersERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %.1.val)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_EscapeDelimitersERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %.1.val)
           to label %81 unwind label %76
 
 81:                                               ; preds = %80
@@ -628,7 +628,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25ArJoinPackageRelativePathERK
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_JoinPackageRelativePathIPKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_T_SC_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %4, ptr noundef nonnull %6)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_JoinPackageRelativePathIPKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_T_SC_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %4, ptr noundef %6)
   ret void
 }
 
@@ -750,7 +750,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN9__gnu_cxx17__normal_it
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN9__gnu_cxx17__normal_iteratorIPKcS4_EEvEET_SB_RKS3_.exit23: ; preds = %.noexc20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #7
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_UnescapeDelimitersERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_UnescapeDelimitersERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %46 unwind label %53
 
 46:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN9__gnu_cxx17__normal_iteratorIPKcS4_EEvEET_SB_RKS3_.exit23
@@ -821,7 +821,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_UnescapeDelimitersERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_UnescapeDelimitersERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1233,7 +1233,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_FindInnermostClosingDelimi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN9__gnu_cxx17__normal_iteratorIPKcS4_EEvEET_SB_RKS3_.exit: ; preds = %.noexc21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #7
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_UnescapeDelimitersERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_UnescapeDelimitersERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %55 unwind label %62
 
 55:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN9__gnu_cxx17__normal_iteratorIPKcS4_EEvEET_SB_RKS3_.exit
@@ -1492,7 +1492,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4rendEv(ptr d
 declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_EscapeDelimitersERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_EscapeDelimitersERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -3414,7 +3414,7 @@ lor.lhs.false16:                                  ; preds = %lor.lhs.false12
 
 lor.lhs.false19:                                  ; preds = %lor.lhs.false16
   %2 = load ptr, ptr %pkey, align 8
-  %call20 = call fastcc i32 @get_cmac_val(ptr noundef %2, ptr noundef nonnull %mac)
+  %call20 = call fastcc i32 @get_cmac_val(ptr noundef %2, ptr noundef %mac)
   %call22 = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 2595, ptr noundef nonnull @.str.307, i32 noundef %call20) #8
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %done, label %if.end25
@@ -3431,7 +3431,7 @@ if.end25:                                         ; preds = %lor.lhs.false19
 
 lor.lhs.false30:                                  ; preds = %if.end25
   %4 = load ptr, ptr %pkey, align 8
-  %call32 = call fastcc i32 @get_cmac_val(ptr noundef %4, ptr noundef nonnull %mac2)
+  %call32 = call fastcc i32 @get_cmac_val(ptr noundef %4, ptr noundef %mac2)
   %call35 = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 2607, ptr noundef nonnull @.str.308, i32 noundef %call32) #8
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %done, label %lor.lhs.false37
@@ -8758,7 +8758,7 @@ declare ptr @PEM_read_bio_PUBKEY_ex(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare i32 @EVP_PKEY_is_a(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_set_get_raw_keys_int(i32 noundef %tst, i32 noundef %pub, i32 noundef %uselibctx) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_set_get_raw_keys_int(i32 noundef %tst, i32 noundef range(i32 0, 2) %pub, i32 noundef range(i32 0, 2) %uselibctx) unnamed_addr #1 {
 entry:
   %buf = alloca [80 x i8], align 16
   %len = alloca i64, align 8
@@ -8936,7 +8936,7 @@ declare ptr @EVP_PKEY_CTX_new_id(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @EVP_PKEY_up_ref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @get_cmac_val(ptr noundef %pkey, ptr noundef %mac) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @get_cmac_val(ptr noundef %pkey, ptr noundef nonnull %mac) unnamed_addr #1 {
 entry:
   %msg = alloca [12 x i8], align 1
   %maclen = alloca i64, align 8
@@ -8965,7 +8965,7 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
   br i1 %tobool10.not, label %if.then, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %lor.lhs.false5
-  %call12 = call i32 @EVP_DigestSignFinal(ptr noundef %call, ptr noundef %mac, ptr noundef nonnull %maclen) #8
+  %call12 = call i32 @EVP_DigestSignFinal(ptr noundef %call, ptr noundef nonnull %mac, ptr noundef nonnull %maclen) #8
   %cmp13 = icmp ne i32 %call12, 0
   %conv14 = zext i1 %cmp13 to i32
   %call15 = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 2553, ptr noundef nonnull @.str.314, i32 noundef %conv14) #8
@@ -9558,7 +9558,7 @@ err:                                              ; preds = %if.end9, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_selection(ptr noundef %pkey, i32 noundef %selection) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_selection(ptr noundef %pkey, i32 noundef range(i32 1, 136) %selection) unnamed_addr #1 {
 entry:
   %call = tail call ptr @BIO_s_mem() #8
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #8

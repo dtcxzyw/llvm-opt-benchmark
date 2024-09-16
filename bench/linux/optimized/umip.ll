@@ -270,7 +270,7 @@ declare dso_local i32 @insn_fetch_from_user(ptr noundef, ptr noundef) local_unna
 declare dso_local zeroext i1 @insn_decode_from_regs(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @umip_printk(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ...) unnamed_addr #0 align 16 {
+define internal void @umip_printk(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, ...) unnamed_addr #0 align 16 {
   %4 = alloca %struct.va_format, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !6
@@ -314,7 +314,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare dso_local ptr @insn_get_addr_ref(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @force_sig_info_umip_fault(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @force_sig_info_umip_fault(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
   %5 = ptrtoint ptr %0 to i64

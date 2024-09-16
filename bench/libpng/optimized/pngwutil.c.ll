@@ -1070,7 +1070,7 @@ optimize_cmf.exit94:                              ; preds = %144, %134, %127, %1
 declare noalias ptr @png_malloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @png_deflate_claim(ptr noalias noundef %0, i32 noundef %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc noundef i32 @png_deflate_claim(ptr noalias noundef %0, i32 noundef range(i32 1229209940, 2052348021) %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca [64 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 312
   %6 = load i32, ptr %5, align 8
@@ -1599,7 +1599,7 @@ define void @png_write_iCCP(ptr noalias noundef %0, ptr noundef %1, ptr noundef 
   store i64 %45, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %7, i64 16
   store i32 0, ptr %47, align 8
-  %48 = call fastcc i32 @png_text_compress(ptr noundef %0, i32 noundef 1766015824, ptr noundef nonnull %7, i32 noundef %44)
+  %48 = call fastcc i32 @png_text_compress(ptr noundef %0, i32 noundef 1766015824, ptr noundef %7, i32 noundef %44)
   %.not39 = icmp eq i32 %48, 0
   br i1 %.not39, label %52, label %49
 
@@ -1766,7 +1766,7 @@ png_write_chunk_end.exit:                         ; preds = %png_write_compresse
 declare i32 @png_check_keyword(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @png_text_compress(ptr noalias noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @png_text_compress(ptr noalias noundef %0, i32 noundef range(i32 1766015824, 2052348021) %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = tail call fastcc i32 @png_deflate_claim(ptr noundef %0, i32 noundef %1, i64 noundef %6)
@@ -2997,7 +2997,7 @@ define void @png_write_zTXt(ptr noalias noundef %0, ptr noundef %1, ptr noundef 
   store i64 %.sink, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 0, ptr %23, align 8
-  %24 = call fastcc i32 @png_text_compress(ptr noundef %0, i32 noundef 2052348020, ptr noundef nonnull %8, i32 noundef %19)
+  %24 = call fastcc i32 @png_text_compress(ptr noundef %0, i32 noundef 2052348020, ptr noundef %8, i32 noundef %19)
   %.not27 = icmp eq i32 %24, 0
   br i1 %.not27, label %28, label %25
 
@@ -3232,7 +3232,7 @@ switch.lookup:                                    ; preds = %14
   br i1 %switch.idx.cast, label %44, label %49
 
 44:                                               ; preds = %switch.lookup
-  %45 = call fastcc i32 @png_text_compress(ptr noundef %0, i32 noundef 1767135348, ptr noundef nonnull %10, i32 noundef %.1)
+  %45 = call fastcc i32 @png_text_compress(ptr noundef %0, i32 noundef 1767135348, ptr noundef %10, i32 noundef %.1)
   %.not55 = icmp eq i32 %45, 0
   br i1 %.not55, label %.thread68, label %46
 
@@ -4377,22 +4377,22 @@ define void @png_write_find_filter(ptr noalias noundef %0, ptr nocapture noundef
   br i1 %or.cond, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %19
-  %.not195 = icmp eq i64 %7, 0
-  br i1 %.not195, label %.loopexit, label %.lr.ph
+  %.not196 = icmp eq i64 %7, 0
+  br i1 %.not196, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.pn194 = phi ptr [ %.0106, %.lr.ph ], [ %14, %.preheader ]
-  %.0107193 = phi i64 [ %29, %.lr.ph ], [ 0, %.preheader ]
-  %.0108192 = phi i64 [ %30, %.lr.ph ], [ 0, %.preheader ]
-  %.0106 = getelementptr inbounds i8, ptr %.pn194, i64 1
+  %.pn195 = phi ptr [ %.0106, %.lr.ph ], [ %14, %.preheader ]
+  %.0107194 = phi i64 [ %29, %.lr.ph ], [ 0, %.preheader ]
+  %.0108193 = phi i64 [ %30, %.lr.ph ], [ 0, %.preheader ]
+  %.0106 = getelementptr inbounds i8, ptr %.pn195, i64 1
   %23 = load i8, ptr %.0106, align 1
   %24 = zext i8 %23 to i32
   %25 = sub nuw nsw i32 256, %24
   %26 = icmp slt i8 %23, 0
   %27 = select i1 %26, i32 %25, i32 %24
   %28 = zext nneg i32 %27 to i64
-  %29 = add i64 %.0107193, %28
-  %30 = add nuw nsw i64 %.0108192, 1
+  %29 = add i64 %.0107194, %28
+  %30 = add nuw nsw i64 %.0108193, 1
   %exitcond.not = icmp eq i64 %30, %7
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !111
 
@@ -4413,9 +4413,10 @@ define void @png_write_find_filter(ptr noalias noundef %0, ptr nocapture noundef
   br i1 %.not.i, label %.preheader.i, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %32
+  %.0.lcssa.i = phi i64 [ 0, %32 ], [ %34, %.lr.ph.i ]
   %.020.lcssa.i = phi ptr [ %.0201.i, %32 ], [ %.020.i, %.lr.ph.i ]
   %.022.lcssa.i = phi ptr [ %.0222.i, %32 ], [ %.022.i, %.lr.ph.i ]
-  %35 = icmp ugt i64 %7, %34
+  %35 = icmp ult i64 %.0.lcssa.i, %7
   br i1 %35, label %.lr.ph12.i, label %png_setup_sub_row_only.exit
 
 .lr.ph.i:                                         ; preds = %32, %.lr.ph.i
@@ -4431,7 +4432,7 @@ define void @png_write_find_filter(ptr noalias noundef %0, ptr nocapture noundef
   br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !112
 
 .lr.ph12.i:                                       ; preds = %.preheader.i, %.lr.ph12.i
-  %.111.i = phi i64 [ %40, %.lr.ph12.i ], [ %34, %.preheader.i ]
+  %.111.i = phi i64 [ %40, %.lr.ph12.i ], [ %.0.lcssa.i, %.preheader.i ]
   %.pn10.i = phi ptr [ %.019.i, %.lr.ph12.i ], [ %14, %.preheader.i ]
   %.1219.i = phi ptr [ %42, %.lr.ph12.i ], [ %.020.lcssa.i, %.preheader.i ]
   %.1238.i = phi ptr [ %41, %.lr.ph12.i ], [ %.022.lcssa.i, %.preheader.i ]
@@ -4462,10 +4463,11 @@ define void @png_write_find_filter(ptr noalias noundef %0, ptr nocapture noundef
   br i1 %.not.i128, label %.preheader.i131, label %.lr.ph.i129
 
 .preheader.i131:                                  ; preds = %.lr.ph.i129, %45
-  %.0.lcssa.i = phi i64 [ 0, %45 ], [ %55, %.lr.ph.i129 ]
+  %.030.lcssa.i = phi i64 [ 0, %45 ], [ %47, %.lr.ph.i129 ]
+  %.0.lcssa.i132 = phi i64 [ 0, %45 ], [ %55, %.lr.ph.i129 ]
   %.033.lcssa.i = phi ptr [ %.0331.i, %45 ], [ %.033.i, %.lr.ph.i129 ]
   %.035.lcssa.i = phi ptr [ %.0352.i, %45 ], [ %.035.i, %.lr.ph.i129 ]
-  %48 = icmp ugt i64 %7, %47
+  %48 = icmp ult i64 %.030.lcssa.i, %7
   br i1 %48, label %.lr.ph16.i, label %png_setup_sub_row.exit
 
 .lr.ph.i129:                                      ; preds = %45, %.lr.ph.i129
@@ -4489,18 +4491,18 @@ define void @png_write_find_filter(ptr noalias noundef %0, ptr nocapture noundef
 
 .lr.ph16.i:                                       ; preds = %.preheader.i131, %.lr.ph16.i
   %.552.val.pn.i = phi ptr [ %.03215.i, %.lr.ph16.i ], [ %14, %.preheader.i131 ]
-  %.114.i = phi i64 [ %64, %.lr.ph16.i ], [ %.0.lcssa.i, %.preheader.i131 ]
-  %.13113.i = phi i64 [ %66, %.lr.ph16.i ], [ %47, %.preheader.i131 ]
+  %.114.i = phi i64 [ %64, %.lr.ph16.i ], [ %.0.lcssa.i132, %.preheader.i131 ]
+  %.13113.i = phi i64 [ %66, %.lr.ph16.i ], [ %.030.lcssa.i, %.preheader.i131 ]
   %.13412.i = phi ptr [ %68, %.lr.ph16.i ], [ %.033.lcssa.i, %.preheader.i131 ]
   %.13611.i = phi ptr [ %67, %.lr.ph16.i ], [ %.035.lcssa.i, %.preheader.i131 ]
   %.03215.i = getelementptr inbounds i8, ptr %.552.val.pn.i, i64 1
   %57 = load i8, ptr %.13611.i, align 1
   %58 = load i8, ptr %.03215.i, align 1
-  %.narrow.i132 = sub i8 %57, %58
-  store i8 %.narrow.i132, ptr %.13412.i, align 1
-  %59 = zext i8 %.narrow.i132 to i32
+  %.narrow.i133 = sub i8 %57, %58
+  store i8 %.narrow.i133, ptr %.13412.i, align 1
+  %59 = zext i8 %.narrow.i133 to i32
   %60 = sub nuw nsw i32 256, %59
-  %61 = icmp slt i8 %.narrow.i132, 0
+  %61 = icmp slt i8 %.narrow.i133, 0
   %62 = select i1 %61, i32 %60, i32 %59
   %63 = zext nneg i32 %62 to i64
   %64 = add i64 %.114.i, %63
@@ -4513,7 +4515,7 @@ define void @png_write_find_filter(ptr noalias noundef %0, ptr nocapture noundef
   br i1 %or.cond.i, label %.lr.ph16.i, label %png_setup_sub_row.exit, !llvm.loop !115
 
 png_setup_sub_row.exit:                           ; preds = %.lr.ph16.i, %.preheader.i131
-  %.2.i = phi i64 [ %.0.lcssa.i, %.preheader.i131 ], [ %64, %.lr.ph16.i ]
+  %.2.i = phi i64 [ %.0.lcssa.i132, %.preheader.i131 ], [ %64, %.lr.ph16.i ]
   %70 = icmp ult i64 %.2.i, %.0102
   br i1 %70, label %71, label %png_setup_sub_row_only.exit
 
@@ -4539,29 +4541,29 @@ png_setup_sub_row_only.exit:                      ; preds = %.lr.ph12.i, %.prehe
   %77 = getelementptr inbounds i8, ptr %0, i64 560
   %78 = load ptr, ptr %77, align 8
   store i8 2, ptr %78, align 1, !noalias !116
-  %.not.i133 = icmp eq i64 %7, 0
-  br i1 %.not.i133, label %png_setup_paeth_row_only.exit, label %.lr.ph.preheader.i
+  %.not.i134 = icmp eq i64 %7, 0
+  br i1 %.not.i134, label %png_setup_paeth_row_only.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %76
   %79 = getelementptr inbounds i8, ptr %0, i64 544
   %80 = load ptr, ptr %79, align 8, !alias.scope !116
-  br label %.lr.ph.i134
+  br label %.lr.ph.i135
 
-.lr.ph.i134:                                      ; preds = %.lr.ph.i134, %.lr.ph.preheader.i
-  %.020.i135 = phi i64 [ %83, %.lr.ph.i134 ], [ 0, %.lr.ph.preheader.i ]
-  %.pn1519.i = phi ptr [ %.012.i, %.lr.ph.i134 ], [ %80, %.lr.ph.preheader.i ]
-  %.pn1618.i = phi ptr [ %.013.i, %.lr.ph.i134 ], [ %78, %.lr.ph.preheader.i ]
-  %.pn17.i = phi ptr [ %.014.i, %.lr.ph.i134 ], [ %14, %.lr.ph.preheader.i ]
+.lr.ph.i135:                                      ; preds = %.lr.ph.i135, %.lr.ph.preheader.i
+  %.020.i136 = phi i64 [ %83, %.lr.ph.i135 ], [ 0, %.lr.ph.preheader.i ]
+  %.pn1519.i = phi ptr [ %.012.i, %.lr.ph.i135 ], [ %80, %.lr.ph.preheader.i ]
+  %.pn1618.i = phi ptr [ %.013.i, %.lr.ph.i135 ], [ %78, %.lr.ph.preheader.i ]
+  %.pn17.i = phi ptr [ %.014.i, %.lr.ph.i135 ], [ %14, %.lr.ph.preheader.i ]
   %.013.i = getelementptr inbounds i8, ptr %.pn1618.i, i64 1
   %.012.i = getelementptr inbounds i8, ptr %.pn1519.i, i64 1
   %.014.i = getelementptr inbounds i8, ptr %.pn17.i, i64 1
   %81 = load i8, ptr %.014.i, align 1, !noalias !116
   %82 = load i8, ptr %.012.i, align 1, !noalias !116
-  %.narrow.i136 = sub i8 %81, %82
-  store i8 %.narrow.i136, ptr %.013.i, align 1, !noalias !116
-  %83 = add nuw i64 %.020.i135, 1
-  %exitcond.not.i137 = icmp eq i64 %83, %7
-  br i1 %exitcond.not.i137, label %png_setup_up_row_only.exit, label %.lr.ph.i134, !llvm.loop !119
+  %.narrow.i137 = sub i8 %81, %82
+  store i8 %.narrow.i137, ptr %.013.i, align 1, !noalias !116
+  %83 = add nuw i64 %.020.i136, 1
+  %exitcond.not.i138 = icmp eq i64 %83, %7
+  br i1 %exitcond.not.i138, label %png_setup_up_row_only.exit, label %.lr.ph.i135, !llvm.loop !119
 
 84:                                               ; preds = %png_setup_sub_row_only.exit
   %85 = and i32 %.0, 32
@@ -4573,41 +4575,41 @@ png_setup_sub_row_only.exit:                      ; preds = %.lr.ph12.i, %.prehe
   %87 = getelementptr inbounds i8, ptr %0, i64 560
   %88 = load ptr, ptr %87, align 8
   store i8 2, ptr %88, align 1, !noalias !120
-  %.not.i138 = icmp eq i64 %7, 0
-  br i1 %.not.i138, label %png_setup_up_row.exit, label %.lr.ph.preheader.i139
+  %.not.i139 = icmp eq i64 %7, 0
+  br i1 %.not.i139, label %png_setup_up_row.exit, label %.lr.ph.preheader.i140
 
-.lr.ph.preheader.i139:                            ; preds = %86
+.lr.ph.preheader.i140:                            ; preds = %86
   %89 = getelementptr inbounds i8, ptr %0, i64 544
   %90 = load ptr, ptr %89, align 8, !alias.scope !120
-  br label %.lr.ph.i140
+  br label %.lr.ph.i141
 
-.lr.ph.i140:                                      ; preds = %.lr.ph.i140, %.lr.ph.preheader.i139
-  %.pn.pn.i = phi ptr [ %14, %.lr.ph.preheader.i139 ], [ %.034.i, %.lr.ph.i140 ]
-  %.pn25.pn.i = phi ptr [ %90, %.lr.ph.preheader.i139 ], [ %.02133.i, %.lr.ph.i140 ]
-  %.pn26.pn.i = phi ptr [ %88, %.lr.ph.preheader.i139 ], [ %.02232.i, %.lr.ph.i140 ]
-  %.01931.i = phi i64 [ 0, %.lr.ph.preheader.i139 ], [ %98, %.lr.ph.i140 ]
-  %.02030.i = phi i64 [ 0, %.lr.ph.preheader.i139 ], [ %100, %.lr.ph.i140 ]
+.lr.ph.i141:                                      ; preds = %.lr.ph.i141, %.lr.ph.preheader.i140
+  %.pn.pn.i = phi ptr [ %14, %.lr.ph.preheader.i140 ], [ %.034.i, %.lr.ph.i141 ]
+  %.pn25.pn.i = phi ptr [ %90, %.lr.ph.preheader.i140 ], [ %.02133.i, %.lr.ph.i141 ]
+  %.pn26.pn.i = phi ptr [ %88, %.lr.ph.preheader.i140 ], [ %.02232.i, %.lr.ph.i141 ]
+  %.01931.i = phi i64 [ 0, %.lr.ph.preheader.i140 ], [ %98, %.lr.ph.i141 ]
+  %.02030.i = phi i64 [ 0, %.lr.ph.preheader.i140 ], [ %100, %.lr.ph.i141 ]
   %.02232.i = getelementptr inbounds i8, ptr %.pn26.pn.i, i64 1
   %.02133.i = getelementptr inbounds i8, ptr %.pn25.pn.i, i64 1
   %.034.i = getelementptr inbounds i8, ptr %.pn.pn.i, i64 1
   %91 = load i8, ptr %.034.i, align 1, !noalias !120
   %92 = load i8, ptr %.02133.i, align 1, !noalias !120
-  %.narrow.i141 = sub i8 %91, %92
-  store i8 %.narrow.i141, ptr %.02232.i, align 1, !noalias !120
-  %93 = zext i8 %.narrow.i141 to i32
+  %.narrow.i142 = sub i8 %91, %92
+  store i8 %.narrow.i142, ptr %.02232.i, align 1, !noalias !120
+  %93 = zext i8 %.narrow.i142 to i32
   %94 = sub nuw nsw i32 256, %93
-  %95 = icmp slt i8 %.narrow.i141, 0
+  %95 = icmp slt i8 %.narrow.i142, 0
   %96 = select i1 %95, i32 %94, i32 %93
   %97 = zext nneg i32 %96 to i64
   %98 = add i64 %.01931.i, %97
   %99 = icmp ugt i64 %98, %.1103
   %100 = add nuw i64 %.02030.i, 1
-  %exitcond.not.i142 = icmp eq i64 %100, %7
-  %or.cond.i143 = select i1 %99, i1 true, i1 %exitcond.not.i142
-  br i1 %or.cond.i143, label %png_setup_up_row.exit, label %.lr.ph.i140, !llvm.loop !123
+  %exitcond.not.i143 = icmp eq i64 %100, %7
+  %or.cond.i144 = select i1 %99, i1 true, i1 %exitcond.not.i143
+  br i1 %or.cond.i144, label %png_setup_up_row.exit, label %.lr.ph.i141, !llvm.loop !123
 
-png_setup_up_row.exit:                            ; preds = %.lr.ph.i140, %86
-  %.1.i = phi i64 [ 0, %86 ], [ %98, %.lr.ph.i140 ]
+png_setup_up_row.exit:                            ; preds = %.lr.ph.i141, %86
+  %.1.i = phi i64 [ 0, %86 ], [ %98, %.lr.ph.i141 ]
   %101 = icmp ult i64 %.1.i, %.1103
   br i1 %101, label %102, label %png_setup_up_row_only.exit
 
@@ -4622,9 +4624,9 @@ png_setup_up_row.exit:                            ; preds = %.lr.ph.i140, %86
   store ptr %88, ptr %103, align 8
   br label %png_setup_up_row_only.exit
 
-png_setup_up_row_only.exit:                       ; preds = %.lr.ph.i134, %84, %102, %105, %png_setup_up_row.exit
-  %.2104 = phi i64 [ %.1.i, %105 ], [ %.1.i, %102 ], [ %.1103, %png_setup_up_row.exit ], [ %.1103, %84 ], [ %.1103, %.lr.ph.i134 ]
-  %.1 = phi ptr [ %88, %105 ], [ %88, %102 ], [ %.0101, %png_setup_up_row.exit ], [ %.0101, %84 ], [ %78, %.lr.ph.i134 ]
+png_setup_up_row_only.exit:                       ; preds = %.lr.ph.i135, %84, %102, %105, %png_setup_up_row.exit
+  %.2104 = phi i64 [ %.1.i, %105 ], [ %.1.i, %102 ], [ %.1103, %png_setup_up_row.exit ], [ %.1103, %84 ], [ %.1103, %.lr.ph.i135 ]
+  %.1 = phi ptr [ %88, %105 ], [ %88, %102 ], [ %.0101, %png_setup_up_row.exit ], [ %.0101, %84 ], [ %78, %.lr.ph.i135 ]
   %106 = icmp eq i32 %.0, 64
   br i1 %106, label %107, label %131
 
@@ -4638,40 +4640,40 @@ png_setup_up_row_only.exit:                       ; preds = %.lr.ph.i134, %84, %
   %.02029.i = getelementptr inbounds i8, ptr %109, i64 1
   %.01830.i = getelementptr inbounds i8, ptr %111, i64 1
   %.02231.i = getelementptr inbounds i8, ptr %14, i64 1
-  %.not.i144 = icmp eq i8 %9, 0
-  br i1 %.not.i144, label %.preheader.i149, label %.lr.ph.i145
+  %.not.i145 = icmp eq i8 %9, 0
+  br i1 %.not.i145, label %.preheader.i150, label %.lr.ph.i146
 
-.preheader.i149:                                  ; preds = %.lr.ph.i145, %107
-  %.020.lcssa.i150 = phi ptr [ %.02029.i, %107 ], [ %.020.i146, %.lr.ph.i145 ]
-  %.018.lcssa.i = phi ptr [ %.01830.i, %107 ], [ %.018.i, %.lr.ph.i145 ]
-  %.022.lcssa.i151 = phi ptr [ %.02231.i, %107 ], [ %.022.i147, %.lr.ph.i145 ]
+.preheader.i150:                                  ; preds = %.lr.ph.i146, %107
+  %.020.lcssa.i151 = phi ptr [ %.02029.i, %107 ], [ %.020.i147, %.lr.ph.i146 ]
+  %.018.lcssa.i = phi ptr [ %.01830.i, %107 ], [ %.018.i, %.lr.ph.i146 ]
+  %.022.lcssa.i152 = phi ptr [ %.02231.i, %107 ], [ %.022.i148, %.lr.ph.i146 ]
   %112 = zext nneg i32 %12 to i64
   %113 = icmp ugt i64 %7, %112
   br i1 %113, label %.lr.ph44.i, label %png_setup_avg_row_only.exit
 
-.lr.ph.i145:                                      ; preds = %107, %.lr.ph.i145
-  %.02235.i = phi ptr [ %.022.i147, %.lr.ph.i145 ], [ %.02231.i, %107 ]
-  %.01834.i = phi ptr [ %.018.i, %.lr.ph.i145 ], [ %.01830.i, %107 ]
-  %.02033.i = phi ptr [ %.020.i146, %.lr.ph.i145 ], [ %.02029.i, %107 ]
-  %.032.i = phi i32 [ %117, %.lr.ph.i145 ], [ 0, %107 ]
+.lr.ph.i146:                                      ; preds = %107, %.lr.ph.i146
+  %.02235.i = phi ptr [ %.022.i148, %.lr.ph.i146 ], [ %.02231.i, %107 ]
+  %.01834.i = phi ptr [ %.018.i, %.lr.ph.i146 ], [ %.01830.i, %107 ]
+  %.02033.i = phi ptr [ %.020.i147, %.lr.ph.i146 ], [ %.02029.i, %107 ]
+  %.032.i = phi i32 [ %117, %.lr.ph.i146 ], [ 0, %107 ]
   %114 = load i8, ptr %.02235.i, align 1, !noalias !124
   %115 = load i8, ptr %.01834.i, align 1, !noalias !124
   %116 = lshr i8 %115, 1
   %.narrow27.i = sub i8 %114, %116
   store i8 %.narrow27.i, ptr %.02033.i, align 1, !noalias !124
   %117 = add nuw nsw i32 %.032.i, 1
-  %.020.i146 = getelementptr inbounds i8, ptr %.02033.i, i64 1
+  %.020.i147 = getelementptr inbounds i8, ptr %.02033.i, i64 1
   %.018.i = getelementptr inbounds i8, ptr %.01834.i, i64 1
-  %.022.i147 = getelementptr inbounds i8, ptr %.02235.i, i64 1
-  %exitcond.not.i148 = icmp eq i32 %117, %12
-  br i1 %exitcond.not.i148, label %.preheader.i149, label %.lr.ph.i145, !llvm.loop !127
+  %.022.i148 = getelementptr inbounds i8, ptr %.02235.i, i64 1
+  %exitcond.not.i149 = icmp eq i32 %117, %12
+  br i1 %exitcond.not.i149, label %.preheader.i150, label %.lr.ph.i146, !llvm.loop !127
 
-.lr.ph44.i:                                       ; preds = %.preheader.i149, %.lr.ph44.i
-  %.143.i = phi i32 [ %128, %.lr.ph44.i ], [ %12, %.preheader.i149 ]
-  %.pn42.i = phi ptr [ %.017.i, %.lr.ph44.i ], [ %14, %.preheader.i149 ]
-  %.11941.i = phi ptr [ %120, %.lr.ph44.i ], [ %.018.lcssa.i, %.preheader.i149 ]
-  %.12140.i = phi ptr [ %127, %.lr.ph44.i ], [ %.020.lcssa.i150, %.preheader.i149 ]
-  %.12339.i = phi ptr [ %118, %.lr.ph44.i ], [ %.022.lcssa.i151, %.preheader.i149 ]
+.lr.ph44.i:                                       ; preds = %.preheader.i150, %.lr.ph44.i
+  %.143.i = phi i32 [ %128, %.lr.ph44.i ], [ %12, %.preheader.i150 ]
+  %.pn42.i = phi ptr [ %.017.i, %.lr.ph44.i ], [ %14, %.preheader.i150 ]
+  %.11941.i = phi ptr [ %120, %.lr.ph44.i ], [ %.018.lcssa.i, %.preheader.i150 ]
+  %.12140.i = phi ptr [ %127, %.lr.ph44.i ], [ %.020.lcssa.i151, %.preheader.i150 ]
+  %.12339.i = phi ptr [ %118, %.lr.ph44.i ], [ %.022.lcssa.i152, %.preheader.i150 ]
   %.017.i = getelementptr inbounds i8, ptr %.pn42.i, i64 1
   %118 = getelementptr inbounds i8, ptr %.12339.i, i64 1
   %119 = load i8, ptr %.12339.i, align 1, !noalias !124
@@ -4683,9 +4685,9 @@ png_setup_up_row_only.exit:                       ; preds = %.lr.ph.i134, %84, %
   %125 = add nuw nsw i16 %124, %122
   %126 = lshr i16 %125, 1
   %.tr.i = trunc nuw i16 %126 to i8
-  %.narrow.i152 = sub i8 %119, %.tr.i
+  %.narrow.i153 = sub i8 %119, %.tr.i
   %127 = getelementptr inbounds i8, ptr %.12140.i, i64 1
-  store i8 %.narrow.i152, ptr %.12140.i, align 1, !noalias !124
+  store i8 %.narrow.i153, ptr %.12140.i, align 1, !noalias !124
   %128 = add i32 %.143.i, 1
   %129 = zext i32 %128 to i64
   %130 = icmp ugt i64 %7, %129
@@ -4706,24 +4708,24 @@ png_setup_up_row_only.exit:                       ; preds = %.lr.ph.i134, %84, %
   %.03344.i = getelementptr inbounds i8, ptr %135, i64 1
   %.03145.i = getelementptr inbounds i8, ptr %137, i64 1
   %.03546.i = getelementptr inbounds i8, ptr %14, i64 1
-  %.not.i153 = icmp eq i8 %9, 0
-  br i1 %.not.i153, label %.preheader.i158, label %.lr.ph.i154
+  %.not.i154 = icmp eq i8 %9, 0
+  br i1 %.not.i154, label %.preheader.i159, label %.lr.ph.i155
 
-.preheader.i158:                                  ; preds = %.lr.ph.i154, %133
-  %.0.lcssa.i159 = phi i64 [ 0, %133 ], [ %148, %.lr.ph.i154 ]
-  %.033.lcssa.i160 = phi ptr [ %.03344.i, %133 ], [ %.033.i155, %.lr.ph.i154 ]
-  %.031.lcssa.i = phi ptr [ %.03145.i, %133 ], [ %.031.i, %.lr.ph.i154 ]
-  %.035.lcssa.i161 = phi ptr [ %.03546.i, %133 ], [ %.035.i156, %.lr.ph.i154 ]
+.preheader.i159:                                  ; preds = %.lr.ph.i155, %133
+  %.0.lcssa.i160 = phi i64 [ 0, %133 ], [ %148, %.lr.ph.i155 ]
+  %.033.lcssa.i161 = phi ptr [ %.03344.i, %133 ], [ %.033.i156, %.lr.ph.i155 ]
+  %.031.lcssa.i = phi ptr [ %.03145.i, %133 ], [ %.031.i, %.lr.ph.i155 ]
+  %.035.lcssa.i162 = phi ptr [ %.03546.i, %133 ], [ %.035.i157, %.lr.ph.i155 ]
   %138 = zext nneg i32 %12 to i64
   %139 = icmp ugt i64 %7, %138
   br i1 %139, label %.lr.ph63.i, label %png_setup_avg_row.exit
 
-.lr.ph.i154:                                      ; preds = %133, %.lr.ph.i154
-  %.03551.i = phi ptr [ %.035.i156, %.lr.ph.i154 ], [ %.03546.i, %133 ]
-  %.03150.i = phi ptr [ %.031.i, %.lr.ph.i154 ], [ %.03145.i, %133 ]
-  %.03349.i = phi ptr [ %.033.i155, %.lr.ph.i154 ], [ %.03344.i, %133 ]
-  %.048.i = phi i64 [ %148, %.lr.ph.i154 ], [ 0, %133 ]
-  %.02847.i = phi i32 [ %149, %.lr.ph.i154 ], [ 0, %133 ]
+.lr.ph.i155:                                      ; preds = %133, %.lr.ph.i155
+  %.03551.i = phi ptr [ %.035.i157, %.lr.ph.i155 ], [ %.03546.i, %133 ]
+  %.03150.i = phi ptr [ %.031.i, %.lr.ph.i155 ], [ %.03145.i, %133 ]
+  %.03349.i = phi ptr [ %.033.i156, %.lr.ph.i155 ], [ %.03344.i, %133 ]
+  %.048.i = phi i64 [ %148, %.lr.ph.i155 ], [ 0, %133 ]
+  %.02847.i = phi i32 [ %149, %.lr.ph.i155 ], [ 0, %133 ]
   %140 = load i8, ptr %.03551.i, align 1, !noalias !129
   %141 = load i8, ptr %.03150.i, align 1, !noalias !129
   %142 = lshr i8 %141, 1
@@ -4736,19 +4738,19 @@ png_setup_up_row_only.exit:                       ; preds = %.lr.ph.i134, %84, %
   %147 = zext nneg i32 %146 to i64
   %148 = add i64 %.048.i, %147
   %149 = add nuw nsw i32 %.02847.i, 1
-  %.033.i155 = getelementptr inbounds i8, ptr %.03349.i, i64 1
+  %.033.i156 = getelementptr inbounds i8, ptr %.03349.i, i64 1
   %.031.i = getelementptr inbounds i8, ptr %.03150.i, i64 1
-  %.035.i156 = getelementptr inbounds i8, ptr %.03551.i, i64 1
-  %exitcond.not.i157 = icmp eq i32 %149, %12
-  br i1 %exitcond.not.i157, label %.preheader.i158, label %.lr.ph.i154, !llvm.loop !132
+  %.035.i157 = getelementptr inbounds i8, ptr %.03551.i, i64 1
+  %exitcond.not.i158 = icmp eq i32 %149, %12
+  br i1 %exitcond.not.i158, label %.preheader.i159, label %.lr.ph.i155, !llvm.loop !132
 
-.lr.ph63.i:                                       ; preds = %.preheader.i158, %.lr.ph63.i
-  %.pn.i = phi ptr [ %.03062.i, %.lr.ph63.i ], [ %14, %.preheader.i158 ]
-  %.161.i = phi i64 [ %162, %.lr.ph63.i ], [ %.0.lcssa.i159, %.preheader.i158 ]
-  %.12960.i = phi i32 [ %167, %.lr.ph63.i ], [ %12, %.preheader.i158 ]
-  %.13259.i = phi ptr [ %165, %.lr.ph63.i ], [ %.031.lcssa.i, %.preheader.i158 ]
-  %.13458.i = phi ptr [ %164, %.lr.ph63.i ], [ %.033.lcssa.i160, %.preheader.i158 ]
-  %.13657.i = phi ptr [ %166, %.lr.ph63.i ], [ %.035.lcssa.i161, %.preheader.i158 ]
+.lr.ph63.i:                                       ; preds = %.preheader.i159, %.lr.ph63.i
+  %.pn.i = phi ptr [ %.03062.i, %.lr.ph63.i ], [ %14, %.preheader.i159 ]
+  %.161.i = phi i64 [ %162, %.lr.ph63.i ], [ %.0.lcssa.i160, %.preheader.i159 ]
+  %.12960.i = phi i32 [ %167, %.lr.ph63.i ], [ %12, %.preheader.i159 ]
+  %.13259.i = phi ptr [ %165, %.lr.ph63.i ], [ %.031.lcssa.i, %.preheader.i159 ]
+  %.13458.i = phi ptr [ %164, %.lr.ph63.i ], [ %.033.lcssa.i161, %.preheader.i159 ]
+  %.13657.i = phi ptr [ %166, %.lr.ph63.i ], [ %.035.lcssa.i162, %.preheader.i159 ]
   %.03062.i = getelementptr inbounds i8, ptr %.pn.i, i64 1
   %150 = load i8, ptr %.13657.i, align 1, !noalias !129
   %151 = load i8, ptr %.13259.i, align 1, !noalias !129
@@ -4757,12 +4759,12 @@ png_setup_up_row_only.exit:                       ; preds = %.lr.ph.i134, %84, %
   %154 = zext i8 %153 to i16
   %155 = add nuw nsw i16 %154, %152
   %156 = lshr i16 %155, 1
-  %.tr.i163 = trunc nuw i16 %156 to i8
-  %.narrow.i164 = sub i8 %150, %.tr.i163
-  store i8 %.narrow.i164, ptr %.13458.i, align 1, !noalias !129
-  %157 = zext i8 %.narrow.i164 to i32
+  %.tr.i164 = trunc nuw i16 %156 to i8
+  %.narrow.i165 = sub i8 %150, %.tr.i164
+  store i8 %.narrow.i165, ptr %.13458.i, align 1, !noalias !129
+  %157 = zext i8 %.narrow.i165 to i32
   %158 = sub nuw nsw i32 256, %157
-  %159 = icmp slt i8 %.narrow.i164, 0
+  %159 = icmp slt i8 %.narrow.i165, 0
   %160 = select i1 %159, i32 %158, i32 %157
   %161 = zext nneg i32 %160 to i64
   %162 = add i64 %.161.i, %161
@@ -4773,12 +4775,12 @@ png_setup_up_row_only.exit:                       ; preds = %.lr.ph.i134, %84, %
   %167 = add i32 %.12960.i, 1
   %168 = zext i32 %167 to i64
   %169 = icmp ugt i64 %7, %168
-  %or.cond.i165 = select i1 %163, i1 %169, i1 false
-  br i1 %or.cond.i165, label %.lr.ph63.i, label %png_setup_avg_row.exit, !llvm.loop !133
+  %or.cond.i166 = select i1 %163, i1 %169, i1 false
+  br i1 %or.cond.i166, label %.lr.ph63.i, label %png_setup_avg_row.exit, !llvm.loop !133
 
-png_setup_avg_row.exit:                           ; preds = %.lr.ph63.i, %.preheader.i158
-  %.2.i162 = phi i64 [ %.0.lcssa.i159, %.preheader.i158 ], [ %162, %.lr.ph63.i ]
-  %170 = icmp ult i64 %.2.i162, %.2104
+png_setup_avg_row.exit:                           ; preds = %.lr.ph63.i, %.preheader.i159
+  %.2.i163 = phi i64 [ %.0.lcssa.i160, %.preheader.i159 ], [ %162, %.lr.ph63.i ]
+  %170 = icmp ult i64 %.2.i163, %.2104
   br i1 %170, label %171, label %png_setup_avg_row_only.exit
 
 171:                                              ; preds = %png_setup_avg_row.exit
@@ -4792,9 +4794,9 @@ png_setup_avg_row.exit:                           ; preds = %.lr.ph63.i, %.prehe
   store ptr %135, ptr %172, align 8
   br label %png_setup_avg_row_only.exit
 
-png_setup_avg_row_only.exit:                      ; preds = %.lr.ph44.i, %.preheader.i149, %131, %171, %174, %png_setup_avg_row.exit
-  %.3105 = phi i64 [ %.2.i162, %174 ], [ %.2.i162, %171 ], [ %.2104, %png_setup_avg_row.exit ], [ %.2104, %131 ], [ %.2104, %.preheader.i149 ], [ %.2104, %.lr.ph44.i ]
-  %.2 = phi ptr [ %135, %174 ], [ %135, %171 ], [ %.1, %png_setup_avg_row.exit ], [ %.1, %131 ], [ %109, %.preheader.i149 ], [ %109, %.lr.ph44.i ]
+png_setup_avg_row_only.exit:                      ; preds = %.lr.ph44.i, %.preheader.i150, %131, %171, %174, %png_setup_avg_row.exit
+  %.3105 = phi i64 [ %.2.i163, %174 ], [ %.2.i163, %171 ], [ %.2104, %png_setup_avg_row.exit ], [ %.2104, %131 ], [ %.2104, %.preheader.i150 ], [ %.2104, %.lr.ph44.i ]
+  %.2 = phi ptr [ %135, %174 ], [ %135, %171 ], [ %.1, %png_setup_avg_row.exit ], [ %.1, %131 ], [ %109, %.preheader.i150 ], [ %109, %.lr.ph44.i ]
   %175 = icmp eq i32 %.0, 128
   br i1 %175, label %176, label %204
 
@@ -4810,20 +4812,21 @@ png_setup_avg_row_only.exit:                      ; preds = %.lr.ph44.i, %.prehe
   %.04765.i = getelementptr inbounds i8, ptr %180, i64 1
   %.066.i = getelementptr inbounds i8, ptr %14, i64 1
   %.not81.i = icmp eq i8 %9, 0
-  br i1 %.not81.i, label %.preheader.i168, label %.lr.ph.i166
+  br i1 %.not81.i, label %.preheader.i169, label %.lr.ph.i167
 
-.preheader.i168:                                  ; preds = %.lr.ph.i166, %176
-  %.045.lcssa.i = phi ptr [ %.04564.i, %176 ], [ %.045.i, %.lr.ph.i166 ]
-  %.047.lcssa.i = phi ptr [ %.04765.i, %176 ], [ %.047.i, %.lr.ph.i166 ]
-  %.0.lcssa.i169 = phi ptr [ %.066.i, %176 ], [ %.0.i, %.lr.ph.i166 ]
-  %182 = icmp ugt i64 %7, %181
+.preheader.i169:                                  ; preds = %.lr.ph.i167, %176
+  %.051.lcssa.i = phi i64 [ 0, %176 ], [ %181, %.lr.ph.i167 ]
+  %.045.lcssa.i = phi ptr [ %.04564.i, %176 ], [ %.045.i, %.lr.ph.i167 ]
+  %.047.lcssa.i = phi ptr [ %.04765.i, %176 ], [ %.047.i, %.lr.ph.i167 ]
+  %.0.lcssa.i170 = phi ptr [ %.066.i, %176 ], [ %.0.i, %.lr.ph.i167 ]
+  %182 = icmp ult i64 %.051.lcssa.i, %7
   br i1 %182, label %.lr.ph80.i, label %png_setup_paeth_row_only.exit
 
-.lr.ph.i166:                                      ; preds = %176, %.lr.ph.i166
-  %.070.i = phi ptr [ %.0.i, %.lr.ph.i166 ], [ %.066.i, %176 ]
-  %.04769.i = phi ptr [ %.047.i, %.lr.ph.i166 ], [ %.04765.i, %176 ]
-  %.04568.i = phi ptr [ %.045.i, %.lr.ph.i166 ], [ %.04564.i, %176 ]
-  %.05167.i = phi i64 [ %185, %.lr.ph.i166 ], [ 0, %176 ]
+.lr.ph.i167:                                      ; preds = %176, %.lr.ph.i167
+  %.070.i = phi ptr [ %.0.i, %.lr.ph.i167 ], [ %.066.i, %176 ]
+  %.04769.i = phi ptr [ %.047.i, %.lr.ph.i167 ], [ %.04765.i, %176 ]
+  %.04568.i = phi ptr [ %.045.i, %.lr.ph.i167 ], [ %.04564.i, %176 ]
+  %.05167.i = phi i64 [ %185, %.lr.ph.i167 ], [ 0, %176 ]
   %183 = load i8, ptr %.070.i, align 1, !noalias !134
   %184 = load i8, ptr %.04769.i, align 1, !noalias !134
   %.narrow62.i = sub i8 %183, %184
@@ -4832,16 +4835,16 @@ png_setup_avg_row_only.exit:                      ; preds = %.lr.ph44.i, %.prehe
   %.045.i = getelementptr inbounds i8, ptr %.04568.i, i64 1
   %.047.i = getelementptr inbounds i8, ptr %.04769.i, i64 1
   %.0.i = getelementptr inbounds i8, ptr %.070.i, i64 1
-  %exitcond.not.i167 = icmp eq i64 %185, %181
-  br i1 %exitcond.not.i167, label %.preheader.i168, label %.lr.ph.i166, !llvm.loop !137
+  %exitcond.not.i168 = icmp eq i64 %185, %181
+  br i1 %exitcond.not.i168, label %.preheader.i169, label %.lr.ph.i167, !llvm.loop !137
 
-.lr.ph80.i:                                       ; preds = %.preheader.i168, %.lr.ph80.i
-  %.179.i = phi ptr [ %200, %.lr.ph80.i ], [ %.0.lcssa.i169, %.preheader.i168 ]
-  %.14678.i = phi ptr [ %202, %.lr.ph80.i ], [ %.045.lcssa.i, %.preheader.i168 ]
-  %.14877.i = phi ptr [ %186, %.lr.ph80.i ], [ %.047.lcssa.i, %.preheader.i168 ]
-  %.pn76.i = phi ptr [ %.049.i, %.lr.ph80.i ], [ %180, %.preheader.i168 ]
-  %.pn5675.i = phi ptr [ %.050.i, %.lr.ph80.i ], [ %14, %.preheader.i168 ]
-  %.15274.i = phi i64 [ %203, %.lr.ph80.i ], [ %181, %.preheader.i168 ]
+.lr.ph80.i:                                       ; preds = %.preheader.i169, %.lr.ph80.i
+  %.179.i = phi ptr [ %200, %.lr.ph80.i ], [ %.0.lcssa.i170, %.preheader.i169 ]
+  %.14678.i = phi ptr [ %202, %.lr.ph80.i ], [ %.045.lcssa.i, %.preheader.i169 ]
+  %.14877.i = phi ptr [ %186, %.lr.ph80.i ], [ %.047.lcssa.i, %.preheader.i169 ]
+  %.pn76.i = phi ptr [ %.049.i, %.lr.ph80.i ], [ %180, %.preheader.i169 ]
+  %.pn5675.i = phi ptr [ %.050.i, %.lr.ph80.i ], [ %14, %.preheader.i169 ]
+  %.15274.i = phi i64 [ %203, %.lr.ph80.i ], [ %.051.lcssa.i, %.preheader.i169 ]
   %.049.i = getelementptr inbounds i8, ptr %.pn76.i, i64 1
   %.050.i = getelementptr inbounds i8, ptr %.pn5675.i, i64 1
   %186 = getelementptr inbounds i8, ptr %.14877.i, i64 1
@@ -4857,17 +4860,17 @@ png_setup_avg_row_only.exit:                      ; preds = %.lr.ph44.i, %.prehe
   %196 = tail call i32 @llvm.abs.i32(i32 %194, i1 true)
   %197 = add nsw i32 %194, %193
   %198 = tail call i32 @llvm.abs.i32(i32 %197, i1 true)
-  %.not.i170 = icmp ugt i32 %195, %196
+  %.not.i171 = icmp ugt i32 %195, %196
   %.not57.i = icmp ugt i32 %195, %198
-  %or.cond.i171 = select i1 %.not.i170, i1 true, i1 %.not57.i
+  %or.cond.i172 = select i1 %.not.i171, i1 true, i1 %.not57.i
   %.not58.i = icmp ugt i32 %196, %198
   %199 = select i1 %.not58.i, i8 %189, i8 %187
-  %.tr.i172 = select i1 %or.cond.i171, i8 %199, i8 %191
+  %.tr.i173 = select i1 %or.cond.i172, i8 %199, i8 %191
   %200 = getelementptr inbounds i8, ptr %.179.i, i64 1
   %201 = load i8, ptr %.179.i, align 1, !noalias !134
-  %.narrow.i173 = sub i8 %201, %.tr.i172
+  %.narrow.i174 = sub i8 %201, %.tr.i173
   %202 = getelementptr inbounds i8, ptr %.14678.i, i64 1
-  store i8 %.narrow.i173, ptr %.14678.i, align 1, !noalias !134
+  store i8 %.narrow.i174, ptr %.14678.i, align 1, !noalias !134
   %203 = add nuw i64 %.15274.i, 1
   %exitcond85.not.i = icmp eq i64 %203, %7
   br i1 %exitcond85.not.i, label %png_setup_paeth_row_only.exit, label %.lr.ph80.i, !llvm.loop !138
@@ -4889,22 +4892,23 @@ png_setup_avg_row_only.exit:                      ; preds = %.lr.ph44.i, %.prehe
   %.05880.i = getelementptr inbounds i8, ptr %210, i64 1
   %.081.i = getelementptr inbounds i8, ptr %14, i64 1
   %.not109.i = icmp eq i8 %9, 0
-  br i1 %.not109.i, label %.preheader.i177, label %.lr.ph.i174
+  br i1 %.not109.i, label %.preheader.i178, label %.lr.ph.i175
 
-.preheader.i177:                                  ; preds = %.lr.ph.i174, %206
-  %.062.lcssa.i = phi i64 [ 0, %206 ], [ %220, %.lr.ph.i174 ]
-  %.056.lcssa.i = phi ptr [ %.05679.i, %206 ], [ %.056.i, %.lr.ph.i174 ]
-  %.058.lcssa.i = phi ptr [ %.05880.i, %206 ], [ %.058.i, %.lr.ph.i174 ]
-  %.0.lcssa.i178 = phi ptr [ %.081.i, %206 ], [ %.0.i175, %.lr.ph.i174 ]
-  %212 = icmp ugt i64 %7, %211
+.preheader.i178:                                  ; preds = %.lr.ph.i175, %206
+  %.064.lcssa.i = phi i64 [ 0, %206 ], [ %211, %.lr.ph.i175 ]
+  %.062.lcssa.i = phi i64 [ 0, %206 ], [ %220, %.lr.ph.i175 ]
+  %.056.lcssa.i = phi ptr [ %.05679.i, %206 ], [ %.056.i, %.lr.ph.i175 ]
+  %.058.lcssa.i = phi ptr [ %.05880.i, %206 ], [ %.058.i, %.lr.ph.i175 ]
+  %.0.lcssa.i179 = phi ptr [ %.081.i, %206 ], [ %.0.i176, %.lr.ph.i175 ]
+  %212 = icmp ult i64 %.064.lcssa.i, %7
   br i1 %212, label %.lr.ph100.i, label %png_setup_paeth_row.exit
 
-.lr.ph.i174:                                      ; preds = %206, %.lr.ph.i174
-  %.086.i = phi ptr [ %.0.i175, %.lr.ph.i174 ], [ %.081.i, %206 ]
-  %.05885.i = phi ptr [ %.058.i, %.lr.ph.i174 ], [ %.05880.i, %206 ]
-  %.05684.i = phi ptr [ %.056.i, %.lr.ph.i174 ], [ %.05679.i, %206 ]
-  %.06283.i = phi i64 [ %220, %.lr.ph.i174 ], [ 0, %206 ]
-  %.06482.i = phi i64 [ %221, %.lr.ph.i174 ], [ 0, %206 ]
+.lr.ph.i175:                                      ; preds = %206, %.lr.ph.i175
+  %.086.i = phi ptr [ %.0.i176, %.lr.ph.i175 ], [ %.081.i, %206 ]
+  %.05885.i = phi ptr [ %.058.i, %.lr.ph.i175 ], [ %.05880.i, %206 ]
+  %.05684.i = phi ptr [ %.056.i, %.lr.ph.i175 ], [ %.05679.i, %206 ]
+  %.06283.i = phi i64 [ %220, %.lr.ph.i175 ], [ 0, %206 ]
+  %.06482.i = phi i64 [ %221, %.lr.ph.i175 ], [ 0, %206 ]
   %213 = load i8, ptr %.086.i, align 1, !noalias !139
   %214 = load i8, ptr %.05885.i, align 1, !noalias !139
   %.narrow77.i = sub i8 %213, %214
@@ -4918,20 +4922,20 @@ png_setup_avg_row_only.exit:                      ; preds = %.lr.ph44.i, %.prehe
   %221 = add nuw nsw i64 %.06482.i, 1
   %.056.i = getelementptr inbounds i8, ptr %.05684.i, i64 1
   %.058.i = getelementptr inbounds i8, ptr %.05885.i, i64 1
-  %.0.i175 = getelementptr inbounds i8, ptr %.086.i, i64 1
-  %exitcond.not.i176 = icmp eq i64 %221, %211
-  br i1 %exitcond.not.i176, label %.preheader.i177, label %.lr.ph.i174, !llvm.loop !142
+  %.0.i176 = getelementptr inbounds i8, ptr %.086.i, i64 1
+  %exitcond.not.i177 = icmp eq i64 %221, %211
+  br i1 %exitcond.not.i177, label %.preheader.i178, label %.lr.ph.i175, !llvm.loop !142
 
-.lr.ph100.i:                                      ; preds = %.preheader.i177, %.lr.ph100.i
-  %.pn.i180 = phi ptr [ %.06099.i, %.lr.ph100.i ], [ %210, %.preheader.i177 ]
-  %.pn110.i = phi ptr [ %.06198.i, %.lr.ph100.i ], [ %14, %.preheader.i177 ]
-  %.197.i = phi ptr [ %245, %.lr.ph100.i ], [ %.0.lcssa.i178, %.preheader.i177 ]
-  %.15796.i = phi ptr [ %244, %.lr.ph100.i ], [ %.056.lcssa.i, %.preheader.i177 ]
-  %.15995.i = phi ptr [ %243, %.lr.ph100.i ], [ %.058.lcssa.i, %.preheader.i177 ]
-  %.16394.i = phi i64 [ %241, %.lr.ph100.i ], [ %.062.lcssa.i, %.preheader.i177 ]
-  %.16593.i = phi i64 [ %246, %.lr.ph100.i ], [ %211, %.preheader.i177 ]
+.lr.ph100.i:                                      ; preds = %.preheader.i178, %.lr.ph100.i
+  %.pn.i181 = phi ptr [ %.06099.i, %.lr.ph100.i ], [ %210, %.preheader.i178 ]
+  %.pn110.i = phi ptr [ %.06198.i, %.lr.ph100.i ], [ %14, %.preheader.i178 ]
+  %.197.i = phi ptr [ %245, %.lr.ph100.i ], [ %.0.lcssa.i179, %.preheader.i178 ]
+  %.15796.i = phi ptr [ %244, %.lr.ph100.i ], [ %.056.lcssa.i, %.preheader.i178 ]
+  %.15995.i = phi ptr [ %243, %.lr.ph100.i ], [ %.058.lcssa.i, %.preheader.i178 ]
+  %.16394.i = phi i64 [ %241, %.lr.ph100.i ], [ %.062.lcssa.i, %.preheader.i178 ]
+  %.16593.i = phi i64 [ %246, %.lr.ph100.i ], [ %.064.lcssa.i, %.preheader.i178 ]
   %.06198.i = getelementptr inbounds i8, ptr %.pn110.i, i64 1
-  %.06099.i = getelementptr inbounds i8, ptr %.pn.i180, i64 1
+  %.06099.i = getelementptr inbounds i8, ptr %.pn.i181, i64 1
   %222 = load i8, ptr %.15995.i, align 1, !noalias !139
   %223 = zext i8 %222 to i32
   %224 = load i8, ptr %.06099.i, align 1, !noalias !139
@@ -4944,18 +4948,18 @@ png_setup_avg_row_only.exit:                      ; preds = %.lr.ph44.i, %.prehe
   %231 = tail call i32 @llvm.abs.i32(i32 %229, i1 true)
   %232 = add nsw i32 %229, %228
   %233 = tail call i32 @llvm.abs.i32(i32 %232, i1 true)
-  %.not.i181 = icmp ugt i32 %230, %231
+  %.not.i182 = icmp ugt i32 %230, %231
   %.not72.i = icmp ugt i32 %230, %233
-  %or.cond.i182 = select i1 %.not.i181, i1 true, i1 %.not72.i
+  %or.cond.i183 = select i1 %.not.i182, i1 true, i1 %.not72.i
   %.not73.i = icmp ugt i32 %231, %233
   %234 = select i1 %.not73.i, i8 %224, i8 %222
-  %.tr.i183 = select i1 %or.cond.i182, i8 %234, i8 %226
+  %.tr.i184 = select i1 %or.cond.i183, i8 %234, i8 %226
   %235 = load i8, ptr %.197.i, align 1, !noalias !139
-  %.narrow.i184 = sub i8 %235, %.tr.i183
-  store i8 %.narrow.i184, ptr %.15796.i, align 1, !noalias !139
-  %236 = zext i8 %.narrow.i184 to i32
+  %.narrow.i185 = sub i8 %235, %.tr.i184
+  store i8 %.narrow.i185, ptr %.15796.i, align 1, !noalias !139
+  %236 = zext i8 %.narrow.i185 to i32
   %237 = sub nuw nsw i32 256, %236
-  %238 = icmp slt i8 %.narrow.i184, 0
+  %238 = icmp slt i8 %.narrow.i185, 0
   %239 = select i1 %238, i32 %237, i32 %236
   %240 = zext nneg i32 %239 to i64
   %241 = add i64 %.16394.i, %240
@@ -4968,9 +4972,9 @@ png_setup_avg_row_only.exit:                      ; preds = %.lr.ph44.i, %.prehe
   %or.cond108.i = select i1 %242, i1 %247, i1 false
   br i1 %or.cond108.i, label %.lr.ph100.i, label %png_setup_paeth_row.exit, !llvm.loop !143
 
-png_setup_paeth_row.exit:                         ; preds = %.lr.ph100.i, %.preheader.i177
-  %.2.i179 = phi i64 [ %.062.lcssa.i, %.preheader.i177 ], [ %241, %.lr.ph100.i ]
-  %248 = icmp ult i64 %.2.i179, %.3105
+png_setup_paeth_row.exit:                         ; preds = %.lr.ph100.i, %.preheader.i178
+  %.2.i180 = phi i64 [ %.062.lcssa.i, %.preheader.i178 ], [ %241, %.lr.ph100.i ]
+  %248 = icmp ult i64 %.2.i180, %.3105
   br i1 %248, label %249, label %png_setup_paeth_row_only.exit
 
 249:                                              ; preds = %png_setup_paeth_row.exit
@@ -4984,15 +4988,15 @@ png_setup_paeth_row.exit:                         ; preds = %.lr.ph100.i, %.preh
   store ptr %208, ptr %250, align 8
   br label %png_setup_paeth_row_only.exit
 
-png_setup_paeth_row_only.exit:                    ; preds = %.lr.ph80.i, %76, %.preheader.i168, %204, %249, %252, %png_setup_paeth_row.exit
-  %.3 = phi ptr [ %208, %252 ], [ %208, %249 ], [ %.2, %png_setup_paeth_row.exit ], [ %.2, %204 ], [ %178, %.preheader.i168 ], [ %78, %76 ], [ %178, %.lr.ph80.i ]
+png_setup_paeth_row_only.exit:                    ; preds = %.lr.ph80.i, %76, %.preheader.i169, %204, %249, %252, %png_setup_paeth_row.exit
+  %.3 = phi ptr [ %208, %252 ], [ %208, %249 ], [ %.2, %png_setup_paeth_row.exit ], [ %.2, %204 ], [ %178, %.preheader.i169 ], [ %78, %76 ], [ %178, %.lr.ph80.i ]
   %253 = load i64, ptr %6, align 8
   %254 = add i64 %253, 1
   tail call void @png_compress_IDAT(ptr noundef %0, ptr noundef %.3, i64 noundef %254, i32 noundef 0)
   %255 = getelementptr inbounds i8, ptr %0, i64 544
   %256 = load ptr, ptr %255, align 8, !alias.scope !144
-  %.not.i185 = icmp eq ptr %256, null
-  br i1 %.not.i185, label %259, label %257
+  %.not.i186 = icmp eq ptr %256, null
+  br i1 %.not.i186, label %259, label %257
 
 257:                                              ; preds = %png_setup_paeth_row_only.exit
   %258 = load ptr, ptr %13, align 8, !alias.scope !144

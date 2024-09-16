@@ -1462,7 +1462,7 @@ _ZN4llvmL25getStrippedSourceFileNameERKNS_12GlobalObjectE.exit: ; preds = %18, %
   br label %48
 
 35:                                               ; preds = %4
-  call fastcc void @_ZN4llvmL25lookupPGONameFromMetadataB5cxx11EPNS_6MDNodeE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef %3)
+  call fastcc void @_ZN4llvmL25lookupPGONameFromMetadataB5cxx11EPNS_6MDNodeE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %3)
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %37 = load i8, ptr %36, align 8
   %38 = trunc i8 %37 to i1
@@ -1577,7 +1577,7 @@ _ZN4llvmL25getStrippedSourceFileNameERKNS_12GlobalObjectE.exit: ; preds = %20, %
 
 37:                                               ; preds = %4
   %38 = tail call noundef ptr @_ZNK4llvm5Value11getMetadataENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.123, i64 11) #28
-  call fastcc void @_ZN4llvmL25lookupPGONameFromMetadataB5cxx11EPNS_6MDNodeE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef %38)
+  call fastcc void @_ZN4llvmL25lookupPGONameFromMetadataB5cxx11EPNS_6MDNodeE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %38)
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %40 = load i8, ptr %39, align 8
   %41 = trunc i8 %40 to i1
@@ -1635,7 +1635,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
 declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvmL25lookupPGONameFromMetadataB5cxx11EPNS_6MDNodeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvmL25lookupPGONameFromMetadataB5cxx11EPNS_6MDNodeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %.not = icmp eq ptr %1, null
@@ -2666,7 +2666,7 @@ define dso_local void @_ZN4llvm15InstrProfSymtab6createENS_9StringRefE(ptr dead_
   store ptr %9, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFN4llvm5ErrorENS0_9StringRefEESt5_BindIFMNS0_15InstrProfSymtabEFS1_S2_EPS5_St12_PlaceholderILi1EEEEE9_M_invokeERKSt9_Any_dataOS2_, ptr %7, align 8
   store ptr @_ZNSt17_Function_handlerIFN4llvm5ErrorENS0_9StringRefEESt5_BindIFMNS0_15InstrProfSymtabEFS1_S2_EPS5_St12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %6, align 8
-  call fastcc void @_ZN4llvmL20readAndDecodeStringsENS_9StringRefESt8functionIFNS_5ErrorES0_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr %2, i64 %3, ptr noundef nonnull %5)
+  call fastcc void @_ZN4llvmL20readAndDecodeStringsENS_9StringRefESt8functionIFNS_5ErrorES0_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr %2, i64 %3, ptr noundef %5)
   %12 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %_ZNSt8functionIFN4llvm5ErrorENS0_9StringRefEEED2Ev.exit, label %13
@@ -2680,7 +2680,7 @@ _ZNSt8functionIFN4llvm5ErrorENS0_9StringRefEEED2Ev.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvmL20readAndDecodeStringsENS_9StringRefESt8functionIFNS_5ErrorES0_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvmL20readAndDecodeStringsENS_9StringRefESt8functionIFNS_5ErrorES0_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Error", align 8
@@ -2996,7 +2996,7 @@ define dso_local void @_ZN4llvm15InstrProfSymtab6createENS_9StringRefES1_(ptr de
   store ptr %12, ptr %7, align 8
   store ptr @_ZNSt17_Function_handlerIFN4llvm5ErrorENS0_9StringRefEESt5_BindIFMNS0_15InstrProfSymtabEFS1_S2_EPS5_St12_PlaceholderILi1EEEEE9_M_invokeERKSt9_Any_dataOS2_, ptr %10, align 8
   store ptr @_ZNSt17_Function_handlerIFN4llvm5ErrorENS0_9StringRefEESt5_BindIFMNS0_15InstrProfSymtabEFS1_S2_EPS5_St12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %9, align 8
-  call fastcc void @_ZN4llvmL20readAndDecodeStringsENS_9StringRefESt8functionIFNS_5ErrorES0_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr %2, i64 %3, ptr noundef nonnull %7)
+  call fastcc void @_ZN4llvmL20readAndDecodeStringsENS_9StringRefESt8functionIFNS_5ErrorES0_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr %2, i64 %3, ptr noundef %7)
   %15 = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %_ZNSt8functionIFN4llvm5ErrorENS0_9StringRefEEED2Ev.exit, label %16
@@ -3024,7 +3024,7 @@ _ZNSt8functionIFN4llvm5ErrorENS0_9StringRefEEED2Ev.exit: ; preds = %6, %16
   store ptr %23, ptr %8, align 8
   store ptr @_ZNSt17_Function_handlerIFN4llvm5ErrorENS0_9StringRefEESt5_BindIFMNS0_15InstrProfSymtabEFS1_S2_EPS5_St12_PlaceholderILi1EEEEE9_M_invokeERKSt9_Any_dataOS2_, ptr %21, align 8
   store ptr @_ZNSt17_Function_handlerIFN4llvm5ErrorENS0_9StringRefEESt5_BindIFMNS0_15InstrProfSymtabEFS1_S2_EPS5_St12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %20, align 8
-  call fastcc void @_ZN4llvmL20readAndDecodeStringsENS_9StringRefESt8functionIFNS_5ErrorES0_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %4, i64 %5, ptr noundef nonnull %8)
+  call fastcc void @_ZN4llvmL20readAndDecodeStringsENS_9StringRefESt8functionIFNS_5ErrorES0_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %4, i64 %5, ptr noundef %8)
   %25 = load ptr, ptr %20, align 8
   %.not.i.i19 = icmp eq ptr %25, null
   br i1 %.not.i.i19, label %_ZNSt8functionIFN4llvm5ErrorENS0_9StringRefEEED2Ev.exit20, label %26
@@ -3073,7 +3073,7 @@ define dso_local void @_ZN4llvm15InstrProfSymtab36initVTableNamesFromCompressedS
   store ptr %9, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFN4llvm5ErrorENS0_9StringRefEESt5_BindIFMNS0_15InstrProfSymtabEFS1_S2_EPS5_St12_PlaceholderILi1EEEEE9_M_invokeERKSt9_Any_dataOS2_, ptr %7, align 8
   store ptr @_ZNSt17_Function_handlerIFN4llvm5ErrorENS0_9StringRefEESt5_BindIFMNS0_15InstrProfSymtabEFS1_S2_EPS5_St12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %6, align 8
-  call fastcc void @_ZN4llvmL20readAndDecodeStringsENS_9StringRefESt8functionIFNS_5ErrorES0_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr %2, i64 %3, ptr noundef nonnull %5)
+  call fastcc void @_ZN4llvmL20readAndDecodeStringsENS_9StringRefESt8functionIFNS_5ErrorES0_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr %2, i64 %3, ptr noundef %5)
   %12 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %_ZNSt8functionIFN4llvm5ErrorENS0_9StringRefEEED2Ev.exit, label %13
@@ -11044,14 +11044,14 @@ define dso_local void @_ZN4llvm12OverlapStats16accumulateCountsERKNSt7__cxx1112b
   %8 = alloca %"class.llvm::Error", align 8
   %9 = zext i1 %4 to i8
   store i8 %9, ptr %6, align 1
-  call fastcc void @"_ZZN4llvm12OverlapStats16accumulateCountsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_bENK3$_0clES8_RNS_17CountSumOrPercentE"(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  call fastcc void @"_ZZN4llvm12OverlapStats16accumulateCountsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_bENK3$_0clES8_RNS_17CountSumOrPercentE"(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %10 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZN4llvm5ErrorD2Ev.exit5
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  call fastcc void @"_ZZN4llvm12OverlapStats16accumulateCountsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_bENK3$_0clES8_RNS_17CountSumOrPercentE"(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %11)
+  call fastcc void @"_ZZN4llvm12OverlapStats16accumulateCountsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_bENK3$_0clES8_RNS_17CountSumOrPercentE"(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %11)
   %12 = load ptr, ptr %8, align 8
   %.not7 = icmp eq ptr %12, null
   br i1 %.not7, label %13, label %_ZN4llvm5ErrorD2Ev.exit5
@@ -11072,7 +11072,7 @@ _ZN4llvm5ErrorD2Ev.exit5:                         ; preds = %_ZN4llvm5ErrorD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm12OverlapStats16accumulateCountsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_bENK3$_0clES8_RNS_17CountSumOrPercentE"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm12OverlapStats16accumulateCountsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_bENK3$_0clES8_RNS_17CountSumOrPercentE"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %6 = alloca %"class.llvm::Expected.392", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -18914,7 +18914,7 @@ _ZN4llvm14BPFunctionNodeC2EOS0_.exit.i.i.i:       ; preds = %40, %35
 
 _ZN4llvm14BPFunctionNodeC2EOS0_.exit9.i.i.i:      ; preds = %45, %_ZN4llvm14BPFunctionNodeC2EOS0_.exit.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_19TemporalProfTraceTy21createBPFunctionNodesENS2_8ArrayRefISB_EERS7_bE3$_1EEEvT_T0_SI_T1_T2_"(ptr nonnull %0, i64 noundef %.08.i.i.i, i64 noundef %26, ptr noundef nonnull %10, ptr %3)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_19TemporalProfTraceTy21createBPFunctionNodesENS2_8ArrayRefISB_EERS7_bE3$_1EEEvT_T0_SI_T1_T2_"(ptr nonnull %0, i64 noundef %.08.i.i.i, i64 noundef %26, ptr noundef %10, ptr %3)
   %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #28
   %48 = load ptr, ptr %32, align 8
   %49 = icmp eq ptr %48, %33
@@ -18990,7 +18990,7 @@ _ZN4llvm14BPFunctionNodeC2EOS0_.exit.i:           ; preds = %68, %.lr.ph.i9.i
 
 _ZN4llvm14BPFunctionNodeC2EOS0_.exit2.i:          ; preds = %78, %_ZN4llvm14BPFunctionNodeC2EOS0_.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_19TemporalProfTraceTy21createBPFunctionNodesENS2_8ArrayRefISB_EERS7_bE3$_1EEEvT_T0_SI_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %75, ptr noundef nonnull %7, ptr %3)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_19TemporalProfTraceTy21createBPFunctionNodesENS2_8ArrayRefISB_EERS7_bE3$_1EEEvT_T0_SI_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %75, ptr noundef %7, ptr %3)
   %80 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %61) #28
   %81 = load ptr, ptr %61, align 8
   %82 = icmp eq ptr %81, %62
@@ -21035,7 +21035,7 @@ _ZSt4swapIN4llvm14BPFunctionNodeEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_19TemporalProfTraceTy21createBPFunctionNodesENS2_8ArrayRefISB_EERS7_bE3$_1EEEvT_T0_SI_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr %4) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_19TemporalProfTraceTy21createBPFunctionNodesENS2_8ArrayRefISB_EERS7_bE3$_1EEEvT_T0_SI_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3, ptr %4) unnamed_addr #0 {
   %6 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.442", align 8
   %7 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_val.443", align 8
   %8 = alloca %"class.llvm::BPFunctionNode", align 8

@@ -1461,17 +1461,17 @@ _ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vect
   %agg.tmp9.sroa.0.0.copyload = load i32, ptr %m_lits.i, align 4
   %agg.tmp11.sroa.0.0.copyload = load i32, ptr %arrayidx.i, align 4
   %agg.tmp13.sroa.0.0.copyload = load i32, ptr %arrayidx.i19, align 4
-  tail call fastcc void @"_ZZN3sat10aig_finder8find_ifsER10ptr_vectorINS_6clauseEEENK3$_3clENS_7literalES6_S6_PS2_"(ptr noundef nonnull align 8 dereferenceable(16) %37, i32 %agg.tmp9.sroa.0.0.copyload, i32 %agg.tmp11.sroa.0.0.copyload, i32 %agg.tmp13.sroa.0.0.copyload, ptr noundef nonnull %c)
+  tail call fastcc void @"_ZZN3sat10aig_finder8find_ifsER10ptr_vectorINS_6clauseEEENK3$_3clENS_7literalES6_S6_PS2_"(ptr noundef nonnull align 8 dereferenceable(16) %37, i32 %agg.tmp9.sroa.0.0.copyload, i32 %agg.tmp11.sroa.0.0.copyload, i32 %agg.tmp13.sroa.0.0.copyload, ptr noundef %c)
   %38 = load ptr, ptr %36, align 8
   %agg.tmp18.sroa.0.0.copyload = load i32, ptr %m_lits.i, align 4
   %agg.tmp20.sroa.0.0.copyload = load i32, ptr %arrayidx.i19, align 4
   %agg.tmp22.sroa.0.0.copyload = load i32, ptr %arrayidx.i, align 4
-  tail call fastcc void @"_ZZN3sat10aig_finder8find_ifsER10ptr_vectorINS_6clauseEEENK3$_3clENS_7literalES6_S6_PS2_"(ptr noundef nonnull align 8 dereferenceable(16) %38, i32 %agg.tmp18.sroa.0.0.copyload, i32 %agg.tmp20.sroa.0.0.copyload, i32 %agg.tmp22.sroa.0.0.copyload, ptr noundef nonnull %c)
+  tail call fastcc void @"_ZZN3sat10aig_finder8find_ifsER10ptr_vectorINS_6clauseEEENK3$_3clENS_7literalES6_S6_PS2_"(ptr noundef nonnull align 8 dereferenceable(16) %38, i32 %agg.tmp18.sroa.0.0.copyload, i32 %agg.tmp20.sroa.0.0.copyload, i32 %agg.tmp22.sroa.0.0.copyload, ptr noundef %c)
   %39 = load ptr, ptr %36, align 8
   %agg.tmp27.sroa.0.0.copyload = load i32, ptr %arrayidx.i19, align 4
   %agg.tmp29.sroa.0.0.copyload = load i32, ptr %arrayidx.i, align 4
   %agg.tmp31.sroa.0.0.copyload = load i32, ptr %m_lits.i, align 4
-  tail call fastcc void @"_ZZN3sat10aig_finder8find_ifsER10ptr_vectorINS_6clauseEEENK3$_3clENS_7literalES6_S6_PS2_"(ptr noundef nonnull align 8 dereferenceable(16) %39, i32 %agg.tmp27.sroa.0.0.copyload, i32 %agg.tmp29.sroa.0.0.copyload, i32 %agg.tmp31.sroa.0.0.copyload, ptr noundef nonnull %c)
+  tail call fastcc void @"_ZZN3sat10aig_finder8find_ifsER10ptr_vectorINS_6clauseEEENK3$_3clENS_7literalES6_S6_PS2_"(ptr noundef nonnull align 8 dereferenceable(16) %39, i32 %agg.tmp27.sroa.0.0.copyload, i32 %agg.tmp29.sroa.0.0.copyload, i32 %agg.tmp31.sroa.0.0.copyload, ptr noundef %c)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6insertEOS7_.exit, %entry
@@ -3697,7 +3697,7 @@ declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3sat10aig_finder8find_ifsER10ptr_vectorINS_6clauseEEENK3$_3clENS_7literalES6_S6_PS2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 %x.coerce, i32 %y.coerce, i32 %z.coerce, ptr noundef %c) unnamed_addr #3 align 2 {
+define internal fastcc void @"_ZZN3sat10aig_finder8find_ifsER10ptr_vectorINS_6clauseEEENK3$_3clENS_7literalES6_S6_PS2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 %x.coerce, i32 %y.coerce, i32 %z.coerce, ptr noundef nonnull %c) unnamed_addr #3 align 2 {
 entry:
   %spec.select = tail call i32 @llvm.umin.i32(i32 %x.coerce, i32 %y.coerce)
   %spec.select9 = tail call i32 @llvm.umax.i32(i32 %x.coerce, i32 %y.coerce)

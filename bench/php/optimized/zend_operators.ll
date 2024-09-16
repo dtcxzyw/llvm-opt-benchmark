@@ -2910,7 +2910,7 @@ define range(i32 -1, 1) i32 @add_function(ptr noundef %0, ptr noundef %1, ptr no
   br label %160
 
 157:                                              ; preds = %151
-  %158 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0142.i, ptr noundef nonnull %4)
+  %158 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0142.i, ptr noundef %4)
   %159 = icmp eq i32 %158, -1
   br i1 %159, label %169, label %160
 
@@ -2929,7 +2929,7 @@ define range(i32 -1, 1) i32 @add_function(ptr noundef %0, ptr noundef %1, ptr no
   br label %176
 
 166:                                              ; preds = %160
-  %167 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0.i, ptr noundef nonnull %5)
+  %167 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0.i, ptr noundef %5)
   %168 = icmp eq i32 %167, -1
   br i1 %168, label %169, label %176
 
@@ -3220,7 +3220,7 @@ define range(i32 -1, 1) i32 @sub_function(ptr noundef %0, ptr noundef %1, ptr no
   br label %106
 
 103:                                              ; preds = %97
-  %104 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0134.i, ptr noundef nonnull %4)
+  %104 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0134.i, ptr noundef %4)
   %105 = icmp eq i32 %104, -1
   br i1 %105, label %115, label %106
 
@@ -3239,7 +3239,7 @@ define range(i32 -1, 1) i32 @sub_function(ptr noundef %0, ptr noundef %1, ptr no
   br label %120
 
 112:                                              ; preds = %106
-  %113 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0.i, ptr noundef nonnull %5)
+  %113 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0.i, ptr noundef %5)
   %114 = icmp eq i32 %113, -1
   br i1 %114, label %115, label %120
 
@@ -3528,7 +3528,7 @@ define range(i32 -1, 1) i32 @mul_function(ptr noundef %0, ptr noundef %1, ptr no
   br label %114
 
 111:                                              ; preds = %105
-  %112 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0130.i, ptr noundef nonnull %4)
+  %112 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0130.i, ptr noundef %4)
   %113 = icmp eq i32 %112, -1
   br i1 %113, label %123, label %114
 
@@ -3547,7 +3547,7 @@ define range(i32 -1, 1) i32 @mul_function(ptr noundef %0, ptr noundef %1, ptr no
   br label %128
 
 120:                                              ; preds = %114
-  %121 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0.i, ptr noundef nonnull %5)
+  %121 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0.i, ptr noundef %5)
   %122 = icmp eq i32 %121, -1
   br i1 %122, label %123, label %128
 
@@ -3734,7 +3734,7 @@ define range(i32 -1, 1) i32 @pow_function(ptr noundef %0, ptr noundef %1, ptr no
   br label %57
 
 54:                                               ; preds = %48
-  %55 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.064, ptr noundef nonnull %4)
+  %55 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.064, ptr noundef %4)
   %56 = icmp eq i32 %55, -1
   br i1 %56, label %67, label %57
 
@@ -3754,7 +3754,7 @@ define range(i32 -1, 1) i32 @pow_function(ptr noundef %0, ptr noundef %1, ptr no
   br label %74
 
 64:                                               ; preds = %57
-  %65 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0, ptr noundef nonnull %5)
+  %65 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0, ptr noundef %5)
   %66 = icmp eq i32 %65, -1
   br i1 %66, label %67, label %74
 
@@ -4021,7 +4021,7 @@ define range(i32 -1, 1) i32 @div_function(ptr noundef %0, ptr noundef %1, ptr no
   br label %56
 
 53:                                               ; preds = %47
-  %54 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.079, ptr noundef nonnull %4)
+  %54 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.079, ptr noundef %4)
   %55 = icmp eq i32 %54, -1
   br i1 %55, label %67, label %56
 
@@ -4042,7 +4042,7 @@ define range(i32 -1, 1) i32 @div_function(ptr noundef %0, ptr noundef %1, ptr no
   br label %74
 
 64:                                               ; preds = %56
-  %65 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.081, ptr noundef nonnull %5)
+  %65 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.081, ptr noundef %5)
   %66 = icmp eq i32 %65, -1
   br i1 %66, label %67, label %._crit_edge
 
@@ -8133,8 +8133,8 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   br label %zend_compare_arrays.exit
 
 133:                                              ; preds = %129
-  %134 = call fastcc ptr @_zendi_convert_scalar_to_number_silent(ptr noundef nonnull %.080.ph.lcssa307, ptr noundef nonnull %3)
-  %135 = call fastcc ptr @_zendi_convert_scalar_to_number_silent(ptr noundef nonnull %.079, ptr noundef nonnull %4)
+  %134 = call fastcc ptr @_zendi_convert_scalar_to_number_silent(ptr noundef nonnull %.080.ph.lcssa307, ptr noundef %3)
+  %135 = call fastcc ptr @_zendi_convert_scalar_to_number_silent(ptr noundef nonnull %.079, ptr noundef %4)
   %136 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not96 = icmp eq ptr %136, null
   br i1 %.not96, label %.outer.outer, label %zend_compare_arrays.exit
@@ -8618,7 +8618,7 @@ zend_binary_strcmp.exit:                          ; preds = %.thread, %44, %47
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @_zendi_convert_scalar_to_number_silent(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc noundef ptr @_zendi_convert_scalar_to_number_silent(ptr noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   switch i8 %4, label %52 [
@@ -8654,7 +8654,7 @@ define internal fastcc noundef ptr @_zendi_convert_scalar_to_number_silent(ptr n
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %10, i64 16
   %17 = load i64, ptr %16, align 8
-  %18 = tail call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %11, i64 noundef %17, ptr noundef %1, ptr noundef %1, i1 noundef zeroext true, ptr noundef null, ptr noundef null)
+  %18 = tail call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %11, i64 noundef %17, ptr noundef nonnull %1, ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef null, ptr noundef null)
   %19 = zext nneg i8 %18 to i32
   %20 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %19, ptr %20, align 8
@@ -8682,7 +8682,7 @@ define internal fastcc noundef ptr @_zendi_convert_scalar_to_number_silent(ptr n
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 136
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call i32 %35(ptr noundef %31, ptr noundef %1, i32 noundef 19) #27
+  %36 = tail call i32 %35(ptr noundef %31, ptr noundef nonnull %1, i32 noundef 19) #27
   %37 = icmp eq i32 %36, -1
   br i1 %37, label %38, label %46
 
@@ -12049,7 +12049,7 @@ declare void @zval_add_ref(ptr noundef) #2
 declare { i64, i1 } @llvm.smul.with.overflow.i64(i64, i64) #23
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_zendi_try_convert_scalar_to_number(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @_zendi_try_convert_scalar_to_number(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #1 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8
@@ -12091,7 +12091,7 @@ define internal fastcc range(i32 -1, 1) i32 @_zendi_try_convert_scalar_to_number
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %11, i64 16
   %18 = load i64, ptr %17, align 8
-  %19 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %12, i64 noundef %18, ptr noundef %1, ptr noundef %1, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %3)
+  %19 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %12, i64 noundef %18, ptr noundef nonnull %1, ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %3)
   %20 = zext nneg i8 %19 to i32
   %21 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %20, ptr %21, align 8
@@ -12118,7 +12118,7 @@ define internal fastcc range(i32 -1, 1) i32 @_zendi_try_convert_scalar_to_number
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 136
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 %34(ptr noundef %30, ptr noundef %1, i32 noundef 19) #27
+  %35 = tail call i32 %34(ptr noundef %30, ptr noundef nonnull %1, i32 noundef 19) #27
   %36 = icmp eq i32 %35, -1
   %37 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp ne ptr %37, null

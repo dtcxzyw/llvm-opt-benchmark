@@ -1473,7 +1473,7 @@ _ZN5faiss19VStackInvertedListsD2Ev.exit:          ; preds = %_ZNSt6vectorIlSaIlE
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK5faiss19VStackInvertedLists9list_sizeEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i64 noundef %1) unnamed_addr #3 align 2 {
-  %3 = tail call fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_19VStackInvertedListsEl(ptr noundef nonnull %0, i64 noundef %1)
+  %3 = tail call fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_19VStackInvertedListsEl(ptr noundef %0, i64 noundef %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = zext nneg i32 %3 to i64
   %6 = load ptr, ptr %4, align 8
@@ -1493,7 +1493,7 @@ define noundef i64 @_ZNK5faiss19VStackInvertedLists9list_sizeEm(ptr nocapture no
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK5faiss19VStackInvertedLists9get_codesEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i64 noundef %1) unnamed_addr #3 align 2 {
-  %3 = tail call fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_19VStackInvertedListsEl(ptr noundef nonnull %0, i64 noundef %1)
+  %3 = tail call fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_19VStackInvertedListsEl(ptr noundef %0, i64 noundef %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = zext nneg i32 %3 to i64
   %6 = load ptr, ptr %4, align 8
@@ -1513,7 +1513,7 @@ define noundef ptr @_ZNK5faiss19VStackInvertedLists9get_codesEm(ptr nocapture no
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK5faiss19VStackInvertedLists7get_idsEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i64 noundef %1) unnamed_addr #3 align 2 {
-  %3 = tail call fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_19VStackInvertedListsEl(ptr noundef nonnull %0, i64 noundef %1)
+  %3 = tail call fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_19VStackInvertedListsEl(ptr noundef %0, i64 noundef %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = zext nneg i32 %3 to i64
   %6 = load ptr, ptr %4, align 8
@@ -1533,7 +1533,7 @@ define noundef ptr @_ZNK5faiss19VStackInvertedLists7get_idsEm(ptr nocapture noun
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5faiss19VStackInvertedLists13release_codesEmPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
-  %4 = tail call fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_19VStackInvertedListsEl(ptr noundef nonnull %0, i64 noundef %1)
+  %4 = tail call fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_19VStackInvertedListsEl(ptr noundef %0, i64 noundef %1)
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = zext nneg i32 %4 to i64
   %7 = load ptr, ptr %5, align 8
@@ -1553,7 +1553,7 @@ define void @_ZNK5faiss19VStackInvertedLists13release_codesEmPKh(ptr nocapture n
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5faiss19VStackInvertedLists11release_idsEmPKl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
-  %4 = tail call fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_19VStackInvertedListsEl(ptr noundef nonnull %0, i64 noundef %1)
+  %4 = tail call fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_19VStackInvertedListsEl(ptr noundef %0, i64 noundef %1)
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = zext nneg i32 %4 to i64
   %7 = load ptr, ptr %5, align 8
@@ -1573,7 +1573,7 @@ define void @_ZNK5faiss19VStackInvertedLists11release_idsEmPKl(ptr nocapture nou
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK5faiss19VStackInvertedLists13get_single_idEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 align 2 {
-  %4 = tail call fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_19VStackInvertedListsEl(ptr noundef nonnull %0, i64 noundef %1)
+  %4 = tail call fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_19VStackInvertedListsEl(ptr noundef %0, i64 noundef %1)
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = zext nneg i32 %4 to i64
   %7 = load ptr, ptr %5, align 8
@@ -1593,7 +1593,7 @@ define noundef i64 @_ZNK5faiss19VStackInvertedLists13get_single_idEmm(ptr nocapt
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK5faiss19VStackInvertedLists15get_single_codeEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 align 2 {
-  %4 = tail call fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_19VStackInvertedListsEl(ptr noundef nonnull %0, i64 noundef %1)
+  %4 = tail call fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_19VStackInvertedListsEl(ptr noundef %0, i64 noundef %1)
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = zext nneg i32 %4 to i64
   %7 = load ptr, ptr %5, align 8
@@ -1687,7 +1687,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit68:          ; preds = %.noexc67, %_ZNSt6ve
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit92
 
 28:                                               ; preds = %.lr.ph
-  %29 = invoke fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_19VStackInvertedListsEl(ptr noundef nonnull %0, i64 noundef %24)
+  %29 = invoke fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_19VStackInvertedListsEl(ptr noundef %0, i64 noundef %24)
           to label %30 unwind label %37
 
 30:                                               ; preds = %28
@@ -5628,7 +5628,7 @@ _ZNSt6vectorIPKN5faiss13InvertedListsESaIS3_EED2Ev.exit: ; preds = %_ZNSt6vector
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 1073741824) i32 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_19VStackInvertedListsEl(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 1073741824) i32 @_ZN5faiss12_GLOBAL__N_117translate_list_noEPKNS_19VStackInvertedListsEl(ptr nocapture noundef nonnull readonly %0, i64 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = icmp sgt i64 %1, -1
   br i1 %4, label %5, label %9

@@ -278,7 +278,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %16, %19
 declare void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv12cpu_baselineL12callGemmImplIfEEvPKT_mS4_mS2_S4_mS2_PS2_miiiii(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, float noundef %4, ptr noundef %5, i64 noundef %6, float noundef %7, ptr noundef %8, i64 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv12cpu_baselineL12callGemmImplIfEEvPKT_mS4_mS2_S4_mS2_PS2_miiiii(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, float noundef %4, ptr noundef %5, i64 noundef %6, float noundef %7, ptr noundef %8, i64 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef range(i32 5, 14) %14) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %16 = alloca %"class.cv::Mat", align 8
   %17 = alloca %"class.cv::Mat", align 8
   %18 = alloca %"class.cv::Mat", align 8
@@ -400,7 +400,7 @@ define internal fastcc void @_ZN2cv12cpu_baselineL12callGemmImplIfEEvPKT_mS4_mS2
 
 59:                                               ; preds = %58
   %60 = fpext float %7 to double
-  invoke fastcc void @_ZN2cv12cpu_baselineL8gemmImplENS_3MatES1_dS1_dS1_i(ptr noundef nonnull %23, ptr noundef nonnull %24, double noundef %57, ptr noundef nonnull %25, double noundef %60, ptr noundef nonnull %26, i32 noundef %13)
+  invoke fastcc void @_ZN2cv12cpu_baselineL8gemmImplENS_3MatES1_dS1_dS1_i(ptr noundef %23, ptr noundef %24, double noundef %57, ptr noundef %25, double noundef %60, ptr noundef %26, i32 noundef %13)
           to label %61 unwind label %70
 
 61:                                               ; preds = %59
@@ -527,7 +527,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %16, %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv12cpu_baselineL12callGemmImplIdEEvPKT_mS4_mS2_S4_mS2_PS2_miiiii(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, double noundef %4, ptr noundef %5, i64 noundef %6, double noundef %7, ptr noundef %8, i64 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv12cpu_baselineL12callGemmImplIdEEvPKT_mS4_mS2_S4_mS2_PS2_miiiii(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, double noundef %4, ptr noundef %5, i64 noundef %6, double noundef %7, ptr noundef %8, i64 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef range(i32 6, 15) %14) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %16 = alloca %"class.cv::Mat", align 8
   %17 = alloca %"class.cv::Mat", align 8
   %18 = alloca %"class.cv::Mat", align 8
@@ -647,7 +647,7 @@ define internal fastcc void @_ZN2cv12cpu_baselineL12callGemmImplIdEEvPKT_mS4_mS2
           to label %59 unwind label %67
 
 59:                                               ; preds = %58
-  invoke fastcc void @_ZN2cv12cpu_baselineL8gemmImplENS_3MatES1_dS1_dS1_i(ptr noundef nonnull %23, ptr noundef nonnull %24, double noundef %4, ptr noundef nonnull %25, double noundef %7, ptr noundef nonnull %26, i32 noundef %13)
+  invoke fastcc void @_ZN2cv12cpu_baselineL8gemmImplENS_3MatES1_dS1_dS1_i(ptr noundef %23, ptr noundef %24, double noundef %4, ptr noundef %25, double noundef %7, ptr noundef %26, i32 noundef %13)
           to label %60 unwind label %69
 
 60:                                               ; preds = %59
@@ -23919,7 +23919,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv12cpu_baselin
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv12cpu_baselineL8gemmImplENS_3MatES1_dS1_dS1_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2, ptr noundef %3, double noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv12cpu_baselineL8gemmImplENS_3MatES1_dS1_dS1_i(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, double noundef %2, ptr noundef nonnull %3, double noundef %4, ptr nocapture noundef nonnull readonly %5, i32 noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator", align 1
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
@@ -25627,7 +25627,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit:     ; preds = %.noexc, %_ZN2cv10Au
   %1077 = mul i32 %spec.select1238.us, %967
   %.not14.i.us = icmp ne i32 %spec.select1237.us, 0
   %1078 = icmp sgt i32 %1077, 0
-  %or.cond.i.us = and i1 %.not14.i.us, %1078
+  %or.cond.i.us = select i1 %.not14.i.us, i1 %1078, i1 false
   br i1 %or.cond.i.us, label %.preheader.us.preheader.i.us, label %_ZN2cv12cpu_baselineL14GEMM_CopyBlockEPKhmPhmNS_5Size_IiEEm.exit.us
 
 .preheader.us.preheader.i.us:                     ; preds = %1074

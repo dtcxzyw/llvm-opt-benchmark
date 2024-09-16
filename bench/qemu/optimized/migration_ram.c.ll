@@ -2724,7 +2724,7 @@ migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
   br i1 %call3.i, label %while.end22, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
-  tail call fastcc void @ramblock_sync_dirty_bitmap(ptr noundef %rs, ptr noundef nonnull %block.069)
+  tail call fastcc void @ramblock_sync_dirty_bitmap(ptr noundef %rs, ptr noundef %block.069)
   br label %while.end22
 
 while.end22:                                      ; preds = %for.body13, %if.else, %migrate_ram_is_ignored.exit
@@ -3668,7 +3668,7 @@ migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
   %3 = load ptr, ptr @ram_state, align 8
-  tail call fastcc void @ramblock_sync_dirty_bitmap(ptr noundef %3, ptr noundef nonnull %block.013)
+  tail call fastcc void @ramblock_sync_dirty_bitmap(ptr noundef %3, ptr noundef %block.013)
   %bmap = getelementptr inbounds i8, ptr %block.013, i64 384
   %4 = load ptr, ptr %bmap, align 8
   %max_length = getelementptr inbounds i8, ptr %block.013, i64 56
@@ -3743,7 +3743,7 @@ declare void @qemu_mutex_lock_ramlist() local_unnamed_addr #1
 declare void @memory_global_dirty_log_sync(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ramblock_sync_dirty_bitmap(ptr nocapture noundef %rs, ptr nocapture noundef readonly %rb) unnamed_addr #0 {
+define internal fastcc void @ramblock_sync_dirty_bitmap(ptr nocapture noundef %rs, ptr nocapture noundef nonnull readonly %rb) unnamed_addr #0 {
 entry:
   %used_length = getelementptr inbounds i8, ptr %rb, i64 48
   %0 = load i64, ptr %used_length, align 8
@@ -4435,7 +4435,7 @@ declare i64 @qemu_get_be64(ptr noundef) local_unnamed_addr #1
 declare i32 @qemu_file_get_error(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @ram_block_from_stream(ptr nocapture noundef %mis, ptr noundef %f, i32 noundef %flags, i32 noundef %channel) unnamed_addr #0 {
+define internal fastcc ptr @ram_block_from_stream(ptr nocapture noundef %mis, ptr noundef %f, i32 noundef range(i32 0, 4096) %flags, i32 noundef %channel) unnamed_addr #0 {
 entry:
   %id = alloca [256 x i8], align 16
   %last_recv_block = getelementptr inbounds i8, ptr %mis, i64 8
@@ -4578,7 +4578,7 @@ migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
   %6 = load ptr, ptr @ram_state, align 8
-  tail call fastcc void @ramblock_sync_dirty_bitmap(ptr noundef %6, ptr noundef nonnull %block.092)
+  tail call fastcc void @ramblock_sync_dirty_bitmap(ptr noundef %6, ptr noundef %block.092)
   br label %while.end16
 
 while.end16:                                      ; preds = %for.body9, %if.else, %migrate_ram_is_ignored.exit

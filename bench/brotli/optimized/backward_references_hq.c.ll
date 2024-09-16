@@ -1255,7 +1255,7 @@ if.then82:                                        ; preds = %land.lhs.true
 
 if.end86:                                         ; preds = %if.then82, %land.lhs.true, %if.end74
   %num_matches.1 = phi i64 [ 1, %if.then82 ], [ %num_matches.0, %land.lhs.true ], [ 0, %if.end74 ]
-  %call87 = call fastcc i64 @UpdateNodes(i64 noundef %num_bytes, i64 noundef %position, i64 noundef %i.0777, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr noundef %params, i64 noundef %sub, ptr noundef %dist_cache, i64 noundef %num_matches.1, ptr noundef %call2, ptr noundef %call9, ptr noundef nonnull %queue, ptr noundef nonnull %nodes)
+  %call87 = call fastcc i64 @UpdateNodes(i64 noundef %num_bytes, i64 noundef %position, i64 noundef %i.0777, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr noundef %params, i64 noundef %sub, ptr noundef %dist_cache, i64 noundef %num_matches.1, ptr noundef %call2, ptr noundef %call9, ptr noundef %queue, ptr noundef nonnull %nodes)
   %cmp88 = icmp ult i64 %call87, 16384
   %spec.store.select1 = select i1 %cmp88, i64 0, i64 %call87
   %cmp92 = icmp eq i64 %num_matches.1, 1
@@ -2007,7 +2007,7 @@ FastLog2.exit:                                    ; preds = %FastLog2.exit47, %f
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @UpdateNodes(i64 noundef %num_bytes, i64 noundef %block_start, i64 noundef %pos, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr nocapture noundef readonly %params, i64 noundef %max_backward_limit, ptr nocapture noundef readonly %starting_dist_cache, i64 noundef %num_matches, ptr nocapture noundef readonly %matches, ptr nocapture noundef readonly %model, ptr nocapture noundef %queue, ptr nocapture noundef %nodes) unnamed_addr #5 {
+define internal fastcc i64 @UpdateNodes(i64 noundef %num_bytes, i64 noundef %block_start, i64 noundef %pos, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr nocapture noundef readonly %params, i64 noundef %max_backward_limit, ptr nocapture noundef readonly %starting_dist_cache, i64 noundef %num_matches, ptr nocapture noundef readonly %matches, ptr nocapture noundef readonly %model, ptr nocapture noundef nonnull %queue, ptr nocapture noundef %nodes) unnamed_addr #5 {
 entry:
   %stream_offset1 = getelementptr inbounds i8, ptr %params, i64 16
   %0 = load i64, ptr %stream_offset1, align 8
@@ -2728,7 +2728,7 @@ for.end228:                                       ; preds = %for.inc226, %land.r
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @EvaluateNode(i64 noundef %block_start, i64 noundef %pos, i64 noundef %max_backward_limit, i64 noundef %gap, ptr nocapture noundef readonly %starting_dist_cache, ptr nocapture noundef readonly %model, ptr nocapture noundef %queue, ptr nocapture noundef %nodes) unnamed_addr #5 {
+define internal fastcc void @EvaluateNode(i64 noundef %block_start, i64 noundef %pos, i64 noundef %max_backward_limit, i64 noundef %gap, ptr nocapture noundef readonly %starting_dist_cache, ptr nocapture noundef readonly %model, ptr nocapture noundef nonnull %queue, ptr nocapture noundef %nodes) unnamed_addr #5 {
 entry:
   %__brotli_swap_tmp.i = alloca %struct.PosData, align 8
   %posdata = alloca %struct.PosData, align 8
@@ -4600,7 +4600,7 @@ for.body.i641:                                    ; preds = %for.inc.i647, %for.
   %141 = load i32, ptr %arrayidx3.i642, align 4
   %conv.i643 = zext i32 %141 to i64
   %arrayidx4.i = getelementptr inbounds %struct.BackwardMatch, ptr %matches.0.lcssa, i64 %cur_match_pos.061.i
-  %call5.i = call fastcc i64 @UpdateNodes(i64 noundef %num_bytes, i64 noundef %position, i64 noundef %i.062.i, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr noundef readonly %params, i64 noundef %sub.i627, ptr noundef readonly %dist_cache, i64 noundef %conv.i643, ptr noundef readonly %arrayidx4.i, ptr noundef readonly %call12, ptr noundef nonnull %queue.i, ptr noundef nonnull %cond165674)
+  %call5.i = call fastcc i64 @UpdateNodes(i64 noundef %num_bytes, i64 noundef %position, i64 noundef %i.062.i, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr noundef readonly %params, i64 noundef %sub.i627, ptr noundef readonly %dist_cache, i64 noundef %conv.i643, ptr noundef readonly %arrayidx4.i, ptr noundef readonly %call12, ptr noundef %queue.i, ptr noundef nonnull %cond165674)
   %cmp6.i644 = icmp ult i64 %call5.i, 16384
   %spec.store.select.i = select i1 %cmp6.i644, i64 0, i64 %call5.i
   %142 = load i32, ptr %arrayidx3.i642, align 4
@@ -4896,7 +4896,7 @@ declare hidden i32 @BrotliFindAllStaticDictionaryMatches(ptr noundef, ptr nounde
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define internal fastcc void @SetCost(ptr nocapture noundef readonly %histogram, i64 noundef %histogram_size, i32 noundef %literal_histogram, ptr nocapture noundef writeonly %cost) unnamed_addr #9 {
+define internal fastcc void @SetCost(ptr nocapture noundef readonly %histogram, i64 noundef range(i64 0, 4294967296) %histogram_size, i32 noundef range(i32 0, 2) %literal_histogram, ptr nocapture noundef writeonly %cost) unnamed_addr #9 {
 entry:
   %cmp31.not = icmp eq i64 %histogram_size, 0
   br i1 %cmp31.not, label %if.then.i57, label %for.body

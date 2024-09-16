@@ -92,7 +92,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 define void @_Z12get_coordnumRKNSt10filesystem7__cxx114pathEPi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [4096 x i8], align 16
   %4 = tail call noundef ptr @_Z13gmx_fio_fopenRKNSt10filesystem7__cxx114pathEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str)
-  call fastcc void @_ZL15get_coordnum_fpP8_IO_FILEPcPi(ptr noundef %4, ptr noundef nonnull %3, ptr noundef %1)
+  call fastcc void @_ZL15get_coordnum_fpP8_IO_FILEPcPi(ptr noundef %4, ptr noundef %3, ptr noundef %1)
   %5 = call noundef i32 @_Z14gmx_fio_fcloseP8_IO_FILE(ptr noundef %4)
   ret void
 }
@@ -100,10 +100,10 @@ define void @_Z12get_coordnumRKNSt10filesystem7__cxx114pathEPi(ptr noundef nonnu
 declare noundef ptr @_Z13gmx_fio_fopenRKNSt10filesystem7__cxx114pathEPKc(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15get_coordnum_fpP8_IO_FILEPcPi(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15get_coordnum_fpP8_IO_FILEPcPi(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca [4097 x i8], align 16
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  %6 = tail call noundef ptr @_Z6fgets2PciP8_IO_FILE(ptr noundef %1, i32 noundef 4096, ptr noundef %0)
+  %6 = tail call noundef ptr @_Z6fgets2PciP8_IO_FILE(ptr noundef nonnull %1, i32 noundef 4096, ptr noundef %0)
   %7 = call noundef ptr @_Z6fgets2PciP8_IO_FILE(ptr noundef nonnull %4, i32 noundef 4096, ptr noundef %0)
   %8 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, ptr noundef %2) #16
   %.not = icmp eq i32 %8, 1
@@ -270,7 +270,7 @@ define void @_Z17gmx_gro_read_confRKNSt10filesystem7__cxx114pathEP8t_symtabPPcP7
   %8 = alloca i32, align 4
   %9 = alloca [4096 x i8], align 16
   %10 = tail call noundef ptr @_Z13gmx_fio_fopenRKNSt10filesystem7__cxx114pathEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str)
-  %11 = call fastcc noundef zeroext i1 @_ZL10get_w_confP8_IO_FILERKNSt10filesystem7__cxx114pathEPcP8t_symtabP7t_atomsPiPA3_fSD_SD_(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %8, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  %11 = call fastcc noundef zeroext i1 @_ZL10get_w_confP8_IO_FILERKNSt10filesystem7__cxx114pathEPcP8t_symtabP7t_atomsPiPA3_fSD_SD_(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %9, ptr noundef %1, ptr noundef %3, ptr noundef %8, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %12
 
@@ -285,7 +285,7 @@ define void @_Z17gmx_gro_read_confRKNSt10filesystem7__cxx114pathEP8t_symtabPPcP7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL10get_w_confP8_IO_FILERKNSt10filesystem7__cxx114pathEPcP8t_symtabP7t_atomsPiPA3_fSD_SD_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6, ptr noundef writeonly %7, ptr nocapture noundef %8) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL10get_w_confP8_IO_FILERKNSt10filesystem7__cxx114pathEPcP8t_symtabP7t_atomsPiPA3_fSD_SD_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef %6, ptr noundef writeonly %7, ptr nocapture noundef %8) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.std::allocator", align 1
   %11 = alloca [6 x i8], align 1
   %12 = alloca [6 x i8], align 1
@@ -1101,7 +1101,7 @@ _ZL18gmx_one_before_eofP8_IO_FILE.exit.thread:    ; preds = %2
   %30 = getelementptr inbounds i8, ptr %1, i64 88
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %1, i64 116
-  %33 = invoke fastcc noundef zeroext i1 @_ZL10get_w_confP8_IO_FILERKNSt10filesystem7__cxx114pathEPcP8t_symtabP7t_atomsPiPA3_fSD_SD_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef %29, ptr noundef %31, ptr noundef nonnull %32)
+  %33 = invoke fastcc noundef zeroext i1 @_ZL10get_w_confP8_IO_FILERKNSt10filesystem7__cxx114pathEPcP8t_symtabP7t_atomsPiPA3_fSD_SD_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef %6, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef %8, ptr noundef %29, ptr noundef %31, ptr noundef nonnull %32)
           to label %34 unwind label %44
 
 34:                                               ; preds = %12
@@ -1333,7 +1333,7 @@ define noundef i32 @_Z16gro_first_x_or_vP8_IO_FILEP10t_trxframe(ptr noundef %0, 
   %7 = load ptr, ptr @stderr, align 8
   %8 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 28, i64 1, ptr %7) #21
   %9 = getelementptr inbounds i8, ptr %1, i64 8
-  call fastcc void @_ZL15get_coordnum_fpP8_IO_FILEPcPi(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %9)
+  call fastcc void @_ZL15get_coordnum_fpP8_IO_FILEPcPi(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %9)
   call void @_Z7frewindP8_IO_FILE(ptr noundef %0)
   %10 = load ptr, ptr @stderr, align 8
   %11 = load i32, ptr %9, align 8

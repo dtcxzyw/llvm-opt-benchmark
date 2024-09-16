@@ -7571,7 +7571,7 @@ define range(i32 -172, 1) i32 @pmix_iof_write_output(ptr noundef %0, i16 noundef
   br label %54
 
 ._crit_edge:                                      ; preds = %48, %33
-  %52 = tail call fastcc ptr @pmix_iof_setup(ptr noundef nonnull %.0165219, i32 noundef %.pre, i16 noundef zeroext %1)
+  %52 = tail call fastcc ptr @pmix_iof_setup(ptr noundef %.0165219, i32 noundef %.pre, i16 noundef zeroext %1)
   %53 = icmp eq ptr %52, null
   br i1 %53, label %244, label %54
 
@@ -7642,7 +7642,7 @@ define range(i32 -172, 1) i32 @pmix_iof_write_output(ptr noundef %0, i16 noundef
   br label %87
 
 ._crit_edge229:                                   ; preds = %81, %66
-  %85 = tail call fastcc ptr @pmix_iof_setup(ptr noundef nonnull %.0165219, i32 noundef %.pre248, i16 noundef zeroext %1)
+  %85 = tail call fastcc ptr @pmix_iof_setup(ptr noundef %.0165219, i32 noundef %.pre248, i16 noundef zeroext %1)
   %86 = icmp eq ptr %85, null
   br i1 %86, label %244, label %87
 
@@ -7998,7 +7998,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %211, %
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pmix_iof_setup(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc ptr @pmix_iof_setup(ptr noundef nonnull %0, i32 noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.pmix_proc, align 4

@@ -371,7 +371,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_http_url_ok(ptr noundef %url, i32 noundef %exp_ssl, ptr noundef %exp_host, ptr noundef %exp_port, ptr noundef %exp_path) unnamed_addr #0 {
+define internal fastcc i32 @test_http_url_ok(ptr noundef %url, i32 noundef range(i32 0, 2) %exp_ssl, ptr noundef %exp_host, ptr noundef %exp_port, ptr noundef %exp_path) unnamed_addr #0 {
 entry:
   %user = alloca ptr, align 8
   %host = alloca ptr, align 8
@@ -585,7 +585,7 @@ declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) loca
 declare i32 @test_ptr_null(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_http_method(i32 noundef %do_get, i32 noundef %do_txt) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_http_method(i32 noundef range(i32 0, 2) %do_get, i32 noundef range(i32 0, 2) %do_txt) unnamed_addr #0 {
 entry:
   %mock_args = alloca %struct.server_args, align 8
   %rtext78 = alloca [7 x i8], align 1
@@ -647,12 +647,12 @@ if.end29:                                         ; preds = %if.end19
 
 cond.true:                                        ; preds = %if.end29
   %cond = select i1 %tobool4.not, ptr @.str.92, ptr @.str.91
-  %lnot.ext = zext i1 %tobool4.not to i32
+  %lnot.ext = xor i32 %do_txt, 1
   %call52 = call ptr @OSSL_HTTP_get(ptr noundef nonnull %cond, ptr noundef null, ptr noundef null, ptr noundef nonnull %call1, ptr noundef nonnull %call3, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef nonnull %content_type.0, i32 noundef %lnot.ext, i64 noundef 102400, i32 noundef 0) #7
   br label %cond.end58
 
 cond.false53:                                     ; preds = %if.end29
-  %lnot.ext56 = zext i1 %tobool4.not to i32
+  %lnot.ext56 = xor i32 %do_txt, 1
   %call57 = call ptr @OSSL_HTTP_transfer(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.91, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef nonnull %call1, ptr noundef nonnull %call3, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef nonnull %content_type.0, ptr noundef nonnull %req.1, ptr noundef nonnull %content_type.0, i32 noundef %lnot.ext56, i64 noundef 102400, i32 noundef 0, i32 noundef 0) #7
   br label %cond.end58
 
@@ -976,7 +976,7 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_http_keep_alive(i8 noundef signext %version, i32 noundef %keep_alive, i32 noundef %kept_alive) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_http_keep_alive(i8 noundef signext range(i8 48, 50) %version, i32 noundef range(i32 0, 3) %keep_alive, i32 noundef range(i32 0, 2) %kept_alive) unnamed_addr #0 {
 entry:
   %mock_args = alloca %struct.server_args, align 8
   %rctx = alloca ptr, align 8
@@ -1032,7 +1032,7 @@ land.lhs.true23:                                  ; preds = %for.body
 land.rhs26:                                       ; preds = %land.lhs.true23
   %1 = load ptr, ptr %rctx, align 8
   %call27 = call i32 @OSSL_HTTP_is_alive(ptr noundef %1) #7
-  %cmp28 = icmp sgt i32 %keep_alive.addr.020, 0
+  %cmp28 = icmp ne i32 %keep_alive.addr.020, 0
   %conv = zext i1 %cmp28 to i32
   %call29 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 239, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.126, i32 noundef %call27, i32 noundef %conv) #7
   %tobool30 = icmp ne i32 %call29, 0

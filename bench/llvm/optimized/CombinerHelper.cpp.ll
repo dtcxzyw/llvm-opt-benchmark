@@ -3742,7 +3742,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit66:            ; preds = %163, %167, %170, %_
   store ptr %196, ptr %11, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN4llvm17MachineBasicBlockENS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEERNS0_14MachineOperandEEZNS0_14CombinerHelper26applyCombineExtendingLoadsERS4_RNS0_14PreferredTupleEE3$_0E9_M_invokeERKSt9_Any_dataOS2_OS5_S7_", ptr %78, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN4llvm17MachineBasicBlockENS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEERNS0_14MachineOperandEEZNS0_14CombinerHelper26applyCombineExtendingLoadsERS4_RNS0_14PreferredTupleEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %77, align 8
-  call fastcc void @_ZN12_GLOBAL__N_138InsertInsnsWithoutSideEffectsBeforeUseERN4llvm16MachineIRBuilderERNS0_12MachineInstrERNS0_14MachineOperandESt8functionIFvPNS0_17MachineBasicBlockENS0_26MachineInstrBundleIteratorIS3_Lb0EEES6_EE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull %11)
+  call fastcc void @_ZN12_GLOBAL__N_138InsertInsnsWithoutSideEffectsBeforeUseERN4llvm16MachineIRBuilderERNS0_12MachineInstrERNS0_14MachineOperandESt8functionIFvPNS0_17MachineBasicBlockENS0_26MachineInstrBundleIteratorIS3_Lb0EEES6_EE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef %11)
   %197 = load ptr, ptr %77, align 8
   %.not.i.i67 = icmp eq ptr %197, null
   br i1 %.not.i.i67, label %_ZNSt8functionIFvPN4llvm17MachineBasicBlockENS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEERNS0_14MachineOperandEEED2Ev.exit, label %198
@@ -3775,7 +3775,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit66:            ; preds = %163, %167, %170, %_
   store ptr %208, ptr %12, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN4llvm17MachineBasicBlockENS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEERNS0_14MachineOperandEEZNS0_14CombinerHelper26applyCombineExtendingLoadsERS4_RNS0_14PreferredTupleEE3$_0E9_M_invokeERKSt9_Any_dataOS2_OS5_S7_", ptr %76, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN4llvm17MachineBasicBlockENS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEERNS0_14MachineOperandEEZNS0_14CombinerHelper26applyCombineExtendingLoadsERS4_RNS0_14PreferredTupleEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %75, align 8
-  call fastcc void @_ZN12_GLOBAL__N_138InsertInsnsWithoutSideEffectsBeforeUseERN4llvm16MachineIRBuilderERNS0_12MachineInstrERNS0_14MachineOperandESt8functionIFvPNS0_17MachineBasicBlockENS0_26MachineInstrBundleIteratorIS3_Lb0EEES6_EE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull %12)
+  call fastcc void @_ZN12_GLOBAL__N_138InsertInsnsWithoutSideEffectsBeforeUseERN4llvm16MachineIRBuilderERNS0_12MachineInstrERNS0_14MachineOperandESt8functionIFvPNS0_17MachineBasicBlockENS0_26MachineInstrBundleIteratorIS3_Lb0EEES6_EE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef %12)
   %209 = load ptr, ptr %75, align 8
   %.not.i.i68 = icmp eq ptr %209, null
   br i1 %.not.i.i68, label %_ZNSt8functionIFvPN4llvm17MachineBasicBlockENS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEERNS0_14MachineOperandEEED2Ev.exit, label %210
@@ -3927,7 +3927,7 @@ _ZNK4llvm19MachineRegisterInfo21use_instr_nodbg_beginENS_8RegisterE.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_138InsertInsnsWithoutSideEffectsBeforeUseERN4llvm16MachineIRBuilderERNS0_12MachineInstrERNS0_14MachineOperandESt8functionIFvPNS0_17MachineBasicBlockENS0_26MachineInstrBundleIteratorIS3_Lb0EEES6_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_138InsertInsnsWithoutSideEffectsBeforeUseERN4llvm16MachineIRBuilderERNS0_12MachineInstrERNS0_14MachineOperandESt8functionIFvPNS0_17MachineBasicBlockENS0_26MachineInstrBundleIteratorIS3_Lb0EEES6_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::MachineInstrBundleIterator", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::MachineInstrBundleIterator", align 8
@@ -6371,7 +6371,7 @@ _ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit.thread: ; pred
 
 _ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit119: ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %165 = load ptr, ptr %20, align 8
-  %166 = tail call fastcc noundef zeroext i1 @_ZL23canFoldInAddressingModePN4llvm10GLoadStoreERKNS_14TargetLoweringERNS_19MachineRegisterInfoE(ptr noundef nonnull %161, ptr noundef nonnull align 8 dereferenceable(408123) %15, ptr noundef nonnull align 8 dereferenceable(512) %165)
+  %166 = tail call fastcc noundef zeroext i1 @_ZL23canFoldInAddressingModePN4llvm10GLoadStoreERKNS_14TargetLoweringERNS_19MachineRegisterInfoE(ptr noundef %161, ptr noundef nonnull align 8 dereferenceable(408123) %15, ptr noundef nonnull align 8 dereferenceable(512) %165)
   br i1 %166, label %.loopexit, label %_ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit119._ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit119.thread_crit_edge
 
 _ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit119._ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit119.thread_crit_edge: ; preds = %_ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit119
@@ -6824,7 +6824,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb
 
 _ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit: ; preds = %108, %108, %108, %108
   %111 = load ptr, ptr %20, align 8
-  %112 = tail call fastcc noundef zeroext i1 @_ZL23canFoldInAddressingModePN4llvm10GLoadStoreERKNS_14TargetLoweringERNS_19MachineRegisterInfoE(ptr noundef nonnull %106, ptr noundef nonnull align 8 dereferenceable(408123) %15, ptr noundef nonnull align 8 dereferenceable(512) %111)
+  %112 = tail call fastcc noundef zeroext i1 @_ZL23canFoldInAddressingModePN4llvm10GLoadStoreERKNS_14TargetLoweringERNS_19MachineRegisterInfoE(ptr noundef %106, ptr noundef nonnull align 8 dereferenceable(408123) %15, ptr noundef nonnull align 8 dereferenceable(512) %111)
   %not. = xor i1 %112, true
   %spec.select = select i1 %not., i1 true, i1 %.04495
   br label %_ZN4llvm8dyn_castINS_10GLoadStoreENS_12MachineInstrEEEDcPT0_.exit.thread

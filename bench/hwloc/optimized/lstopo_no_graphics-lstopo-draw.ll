@@ -2974,7 +2974,7 @@ hwloc_obj_get_info_by_name.exit247.thread:        ; preds = %335, %hwloc_obj_get
 declare i32 @hwloc_get_type_depth(ptr noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @lstopo_obj_snprintf(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #8 {
+define internal fastcc i32 @lstopo_obj_snprintf(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef range(i64 64, 129) %2, ptr noundef %3) unnamed_addr #8 {
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
@@ -3000,7 +3000,7 @@ define internal fastcc i32 @lstopo_obj_snprintf(ptr nocapture noundef readonly %
   ]
 
 16:                                               ; preds = %15, %15
-  %17 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.70, ptr noundef nonnull %14) #24
+  %17 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef %2, ptr noundef nonnull @.str.70, ptr noundef nonnull %14) #24
   br label %104
 
 thread-pre-split:                                 ; preds = %4
@@ -3016,7 +3016,7 @@ thread-pre-split:                                 ; preds = %4
 22:                                               ; preds = %19
   %23 = call i32 @hwloc_obj_type_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull %3, i64 noundef %21) #24
   %24 = load ptr, ptr %13, align 8
-  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.35, ptr noundef nonnull %5, ptr noundef %24) #24
+  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef %2, ptr noundef nonnull @.str.35, ptr noundef nonnull %5, ptr noundef %24) #24
   br label %104
 
 26:                                               ; preds = %19
@@ -3177,11 +3177,11 @@ thread-pre-split101:                              ; preds = %66
   br i1 %100, label %101, label %.thread
 
 101:                                              ; preds = %99
-  %102 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.73, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #24
+  %102 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef %2, ptr noundef nonnull @.str.73, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #24
   br label %104
 
 .thread:                                          ; preds = %78, %81, %99
-  %103 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.74, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9) #24
+  %103 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef %2, ptr noundef nonnull @.str.74, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9) #24
   br label %104
 
 104:                                              ; preds = %.thread, %101, %26, %22, %16
@@ -3193,13 +3193,13 @@ thread-pre-split101:                              ; preds = %66
 declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @hwloc_memory_size_snprintf(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
+define internal fastcc void @hwloc_memory_size_snprintf(ptr nocapture noundef writeonly %0, i64 noundef range(i64 25, 129) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
   %5 = and i64 %3, 16
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.79, i64 noundef %2) #24
+  %7 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef %1, ptr noundef nonnull @.str.79, i64 noundef %2) #24
   br label %69
 
 8:                                                ; preds = %4
@@ -3211,7 +3211,7 @@ define internal fastcc void @hwloc_memory_size_snprintf(ptr nocapture noundef wr
   %11 = lshr i64 %2, 9
   %12 = add nuw nsw i64 %11, 1
   %13 = lshr i64 %12, 1
-  %14 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.80, i64 noundef %13, ptr noundef nonnull @.str.81) #24
+  %14 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef %1, ptr noundef nonnull @.str.80, i64 noundef %13, ptr noundef nonnull @.str.81) #24
   br label %69
 
 15:                                               ; preds = %8
@@ -3229,7 +3229,7 @@ define internal fastcc void @hwloc_memory_size_snprintf(ptr nocapture noundef wr
   %narrow = add nuw nsw i32 %20, 1
   %21 = lshr i32 %narrow, 1
   %22 = zext nneg i32 %21 to i64
-  %23 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.80, i64 noundef %22, ptr noundef nonnull @.str.81) #24
+  %23 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef %1, ptr noundef nonnull @.str.80, i64 noundef %22, ptr noundef nonnull @.str.81) #24
   br label %69
 
 24:                                               ; preds = %17
@@ -3240,7 +3240,7 @@ define internal fastcc void @hwloc_memory_size_snprintf(ptr nocapture noundef wr
   %27 = udiv i64 %2, 500000
   %28 = add nuw nsw i64 %27, 1
   %29 = lshr i64 %28, 1
-  %30 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.80, i64 noundef %29, ptr noundef nonnull @.str.82) #24
+  %30 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef %1, ptr noundef nonnull @.str.80, i64 noundef %29, ptr noundef nonnull @.str.82) #24
   br label %69
 
 31:                                               ; preds = %24
@@ -3251,14 +3251,14 @@ define internal fastcc void @hwloc_memory_size_snprintf(ptr nocapture noundef wr
   %34 = udiv i64 %2, 500000000
   %35 = add nuw nsw i64 %34, 1
   %36 = lshr i64 %35, 1
-  %37 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.80, i64 noundef %36, ptr noundef nonnull @.str.83) #24
+  %37 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef %1, ptr noundef nonnull @.str.80, i64 noundef %36, ptr noundef nonnull @.str.83) #24
   br label %69
 
 38:                                               ; preds = %31
   %39 = udiv i64 %2, 500000000000
   %40 = add nuw nsw i64 %39, 1
   %41 = lshr i64 %40, 1
-  %42 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.80, i64 noundef %41, ptr noundef nonnull @.str.84) #24
+  %42 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef %1, ptr noundef nonnull @.str.80, i64 noundef %41, ptr noundef nonnull @.str.84) #24
   br label %69
 
 43:                                               ; preds = %15
@@ -3269,7 +3269,7 @@ define internal fastcc void @hwloc_memory_size_snprintf(ptr nocapture noundef wr
   %46 = lshr i64 %2, 9
   %47 = add nuw nsw i64 %46, 1
   %48 = lshr i64 %47, 1
-  %49 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.80, i64 noundef %48, ptr noundef nonnull @.str.85) #24
+  %49 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef %1, ptr noundef nonnull @.str.80, i64 noundef %48, ptr noundef nonnull @.str.85) #24
   br label %69
 
 50:                                               ; preds = %43
@@ -3280,7 +3280,7 @@ define internal fastcc void @hwloc_memory_size_snprintf(ptr nocapture noundef wr
   %53 = lshr i64 %2, 19
   %54 = add nuw nsw i64 %53, 1
   %55 = lshr i64 %54, 1
-  %56 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.80, i64 noundef %55, ptr noundef nonnull @.str.86) #24
+  %56 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef %1, ptr noundef nonnull @.str.80, i64 noundef %55, ptr noundef nonnull @.str.86) #24
   br label %69
 
 57:                                               ; preds = %50
@@ -3291,14 +3291,14 @@ define internal fastcc void @hwloc_memory_size_snprintf(ptr nocapture noundef wr
   %60 = lshr i64 %2, 29
   %61 = add nuw nsw i64 %60, 1
   %62 = lshr i64 %61, 1
-  %63 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.80, i64 noundef %62, ptr noundef nonnull @.str.87) #24
+  %63 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef %1, ptr noundef nonnull @.str.80, i64 noundef %62, ptr noundef nonnull @.str.87) #24
   br label %69
 
 64:                                               ; preds = %57
   %65 = lshr i64 %2, 39
   %66 = add nuw nsw i64 %65, 1
   %67 = lshr i64 %66, 1
-  %68 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.80, i64 noundef %67, ptr noundef nonnull @.str.88) #24
+  %68 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef %1, ptr noundef nonnull @.str.80, i64 noundef %67, ptr noundef nonnull @.str.88) #24
   br label %69
 
 69:                                               ; preds = %64, %59, %52, %45, %38, %33, %26, %19, %10, %6
@@ -3402,7 +3402,7 @@ define internal void @normal_draw(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %60 = load i32, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %8, i64 76
   %62 = load i32, ptr %61, align 4
-  call fastcc void @lstopo_set_object_color(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %6)
+  call fastcc void @lstopo_set_object_color(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %6)
   %63 = getelementptr inbounds i8, ptr %58, i64 16
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %6, align 8
@@ -3562,7 +3562,7 @@ define internal void @cache_draw(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 62:                                               ; preds = %57, %47
   %.064 = phi i32 [ %60, %57 ], [ 0, %47 ]
-  call fastcc void @lstopo_set_object_color(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %6)
+  call fastcc void @lstopo_set_object_color(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %6)
   %63 = getelementptr inbounds i8, ptr %49, i64 16
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %6, align 8
@@ -3703,7 +3703,7 @@ define internal void @pci_device_draw(ptr noundef %0, ptr noundef %1, i32 nounde
   %47 = load ptr, ptr %46, align 8
   %48 = load i32, ptr %30, align 8
   %49 = load i32, ptr %31, align 4
-  call fastcc void @lstopo_set_object_color(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %6)
+  call fastcc void @lstopo_set_object_color(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %6)
   br i1 %.not, label %73, label %50
 
 50:                                               ; preds = %45
@@ -3853,7 +3853,7 @@ define internal void @bridge_draw(ptr noundef %0, ptr noundef %1, i32 noundef %2
 31:                                               ; preds = %21
   %32 = getelementptr inbounds i8, ptr %0, i64 1600
   %33 = load ptr, ptr %32, align 8
-  call fastcc void @lstopo_set_object_color(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %6)
+  call fastcc void @lstopo_set_object_color(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %6)
   %34 = getelementptr inbounds i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %6, align 8
@@ -3872,7 +3872,7 @@ define internal void @bridge_draw(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not106, label %102, label %.preheader
 
 .preheader:                                       ; preds = %31
-  %46 = call fastcc ptr @next_child(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 15, ptr noundef null, ptr noundef nonnull %7)
+  %46 = call fastcc ptr @next_child(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 15, ptr noundef null, ptr noundef %7)
   %.not107113 = icmp eq ptr %46, null
   br i1 %.not107113, label %.preheader.._crit_edge_crit_edge, label %.lr.ph
 
@@ -3974,7 +3974,7 @@ pci_link_speed.exit:                              ; preds = %71, %76, %.sink.spl
 
 98:                                               ; preds = %pci_link_speed.exit, %85, %88, %69, %58
   %99 = add nuw nsw i32 %.0102114, 1
-  %100 = call fastcc ptr @next_child(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 15, ptr noundef nonnull %59, ptr noundef nonnull %7)
+  %100 = call fastcc ptr @next_child(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 15, ptr noundef nonnull %59, ptr noundef %7)
   %.not107 = icmp eq ptr %100, null
   br i1 %.not107, label %._crit_edge, label %58, !llvm.loop !26
 
@@ -4100,10 +4100,10 @@ define internal fastcc void @factorized_draw(ptr noundef %0, ptr noundef %1, i32
   %79 = getelementptr inbounds i8, ptr %10, i64 220
   %80 = getelementptr inbounds i8, ptr %10, i64 352
   %81 = load i32, ptr %80, align 4
-  call fastcc void @lstopo_set_object_color(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %7)
+  call fastcc void @lstopo_set_object_color(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %7)
   %82 = getelementptr inbounds i8, ptr %1, i64 72
   %83 = load ptr, ptr %82, align 8
-  call fastcc void @lstopo_set_object_color(ptr noundef nonnull %0, ptr noundef %83, ptr noundef nonnull %8)
+  call fastcc void @lstopo_set_object_color(ptr noundef nonnull %0, ptr noundef %83, ptr noundef %8)
   %84 = getelementptr inbounds i8, ptr %76, i64 16
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr %7, align 8
@@ -4686,7 +4686,7 @@ thread-pre-split.i298:                            ; preds = %232, %226, %224
   br i1 %.not246, label %267, label %266
 
 266:                                              ; preds = %264
-  call fastcc void @place__children(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %265, i32 %.2321, i32 noundef 0, i32 noundef %spec.select266, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @place__children(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %265, i32 %.2321, i32 noundef 0, i32 noundef %spec.select266, ptr noundef %5, ptr noundef %6)
   br label %267
 
 267:                                              ; preds = %266, %264
@@ -4695,7 +4695,7 @@ thread-pre-split.i298:                            ; preds = %232, %226, %224
   br i1 %.not247, label %270, label %269
 
 269:                                              ; preds = %267
-  call fastcc void @place__children(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %268, i32 %spec.select336, i32 noundef 0, i32 noundef %16, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  call fastcc void @place__children(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %268, i32 %spec.select336, i32 noundef 0, i32 noundef %16, ptr noundef %9, ptr noundef %10)
   br label %270
 
 270:                                              ; preds = %269, %267
@@ -4704,7 +4704,7 @@ thread-pre-split.i298:                            ; preds = %232, %226, %224
   br i1 %.not248, label %273, label %272
 
 272:                                              ; preds = %270
-  call fastcc void @place__children(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %271, i32 %.0322, i32 noundef 0, i32 noundef %16, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  call fastcc void @place__children(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %271, i32 %.0322, i32 noundef 0, i32 noundef %16, ptr noundef %11, ptr noundef %12)
   %.pre = load i32, ptr %11, align 4
   br label %273
 
@@ -4744,7 +4744,7 @@ thread-pre-split.i298:                            ; preds = %232, %226, %224
   %293 = phi i1 [ %292, %286 ], [ false, %283 ]
   %294 = phi i32 [ %spec.select338, %286 ], [ 0, %283 ]
   %295 = load i32, ptr %37, align 8
-  call fastcc void @place__children(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %295, i32 %spec.store.select, i32 noundef %294, i32 noundef %16, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  call fastcc void @place__children(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %295, i32 %spec.store.select, i32 noundef %294, i32 noundef %16, ptr noundef %7, ptr noundef %8)
   %296 = load i32, ptr %1, align 8
   %297 = icmp eq i32 %296, 18
   br i1 %297, label %298, label %301
@@ -4954,7 +4954,7 @@ thread-pre-split.i298:                            ; preds = %232, %226, %224
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc void @lstopo_set_object_color(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #15 {
+define internal fastcc void @lstopo_set_object_color(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #15 {
   %4 = getelementptr inbounds i8, ptr %1, i64 232
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 1576
@@ -5262,7 +5262,7 @@ declare i32 @hwloc_obj_type_is_memory(i32 noundef) local_unnamed_addr #13
 declare i32 @hwloc_obj_type_is_io(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @next_child(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr nocapture noundef %4) unnamed_addr #16 {
+define internal fastcc ptr @next_child(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr nocapture noundef nonnull %4) unnamed_addr #16 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %6
 
@@ -5430,7 +5430,7 @@ declare i32 @hwloc_obj_type_is_normal(i32 noundef) local_unnamed_addr #13
 declare i32 @hwloc_obj_type_is_cache(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @place__children(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 %.0.val, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #17 {
+define internal fastcc void @place__children(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 %.0.val, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #17 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -5442,7 +5442,7 @@ define internal fastcc void @place__children(ptr nocapture noundef readonly %0, 
 
 12:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  %13 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %11)
+  %13 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef null, ptr noundef %11)
   %.not29.i = icmp eq ptr %13, null
   br i1 %.not29.i, label %place_children_horiz.exit, label %.lr.ph.i
 
@@ -5464,7 +5464,7 @@ define internal fastcc void @place__children(ptr nocapture noundef readonly %0, 
   %22 = load i32, ptr %21, align 8
   %23 = add i32 %.032.i, %4
   %24 = add i32 %23, %22
-  %25 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef nonnull %.02631.i, ptr noundef nonnull %11)
+  %25 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef nonnull %.02631.i, ptr noundef %11)
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %place_children_horiz.exit, label %.lr.ph.i, !llvm.loop !29
 
@@ -5504,7 +5504,7 @@ place_children_horiz.exit:                        ; preds = %.lr.ph.i, %12
 
 44:                                               ; preds = %40, %37, %30
   %45 = phi i1 [ false, %37 ], [ false, %30 ], [ %43, %40 ]
-  %46 = call fastcc ptr @next_child(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %10)
+  %46 = call fastcc ptr @next_child(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %2, ptr noundef null, ptr noundef %10)
   %.not4549.i = icmp eq ptr %46, null
   br i1 %.not4549.i, label %place_children_vert.exit, label %.lr.ph.i22
 
@@ -5562,7 +5562,7 @@ pci_link_speed.exit.thread.us.i:                  ; preds = %70, %pci_link_speed
   %.0.us.i = phi i32 [ %51, %pci_link_speed.exit.us.i ], [ %spec.select47.us.i, %70 ], [ %51, %.lr.ph.split.us.i ], [ %51, %58 ]
   %71 = add i32 %.03953.us.i, %4
   %72 = add i32 %71, %.0.us.i
-  %73 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %2, ptr noundef nonnull %.04051.us.i, ptr noundef nonnull %10)
+  %73 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %2, ptr noundef nonnull %.04051.us.i, ptr noundef %10)
   %.not45.us.i = icmp eq ptr %73, null
   br i1 %.not45.us.i, label %place_children_vert.exit, label %.lr.ph.split.us.i, !llvm.loop !30
 
@@ -5584,7 +5584,7 @@ pci_link_speed.exit.thread.i:                     ; preds = %.lr.ph.i22, %pci_li
   %spec.select.i23 = tail call i32 @llvm.umax.i32(i32 %82, i32 %.04150.i)
   %83 = add i32 %.03953.i, %4
   %84 = add i32 %83, %77
-  %85 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %2, ptr noundef nonnull %.04051.i, ptr noundef nonnull %10)
+  %85 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %2, ptr noundef nonnull %.04051.i, ptr noundef %10)
   %.not45.i = icmp eq ptr %85, null
   br i1 %.not45.i, label %place_children_vert.exit, label %pci_link_speed.exit.thread.i, !llvm.loop !30
 
@@ -5614,7 +5614,7 @@ place_children_vert.exit:                         ; preds = %pci_link_speed.exit
 95:                                               ; preds = %92, %90
   %.050.i = phi float [ 8.000000e+00, %90 ], [ %..i, %92 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %96 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %8)
+  %96 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef null, ptr noundef %8)
   %.not119.i.i = icmp eq ptr %96, null
   br i1 %.not119.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -5637,7 +5637,7 @@ place_children_vert.exit:                         ; preds = %pci_link_speed.exit
   %108 = add i32 %107, %.0101121.i.i
   %109 = mul i32 %107, %103
   %110 = add i32 %109, %.0102120.i.i
-  %111 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef nonnull %97, ptr noundef nonnull %8)
+  %111 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef nonnull %97, ptr noundef %8)
   %.not.i.i = icmp eq ptr %111, null
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !31
 
@@ -5790,7 +5790,7 @@ place_children_vert.exit:                         ; preds = %pci_link_speed.exit
 find_children_rectangle.exit.i:                   ; preds = %153, %196, %173, %._crit_edge133.i.i
   %.393.i.i = phi i32 [ %.191.i.i, %._crit_edge133.i.i ], [ %198, %196 ], [ %185, %173 ], [ %.292.i.i, %153 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %199 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %9)
+  %199 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef null, ptr noundef %9)
   %.not66.i = icmp eq ptr %199, null
   br i1 %.not66.i, label %place_children_rect.exit, label %.lr.ph.i25
 
@@ -5836,7 +5836,7 @@ find_children_rectangle.exit.i:                   ; preds = %153, %196, %173, %.
   %218 = load i32, ptr %217, align 4
   %spec.select61.i = tail call i32 @llvm.umax.i32(i32 %218, i32 %.153.i)
   %219 = add nuw nsw i32 %.04971.i, 1
-  %220 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef nonnull %.05170.i, ptr noundef nonnull %9)
+  %220 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef nonnull %.05170.i, ptr noundef %9)
   %.not.i26 = icmp eq ptr %220, null
   br i1 %.not.i26, label %._crit_edge.loopexit.i, label %.lr.ph.i25, !llvm.loop !33
 
@@ -5904,7 +5904,7 @@ define internal fastcc void @draw__children(ptr noundef %0, ptr noundef %1, ptr 
 
 21:                                               ; preds = %10, %6
   %22 = load i32, ptr %2, align 8
-  %23 = call fastcc ptr @next_child(ptr noundef %0, ptr noundef %1, i32 noundef %22, ptr noundef null, ptr noundef nonnull %7)
+  %23 = call fastcc ptr @next_child(ptr noundef %0, ptr noundef %1, i32 noundef %22, ptr noundef null, ptr noundef %7)
   %.not2627 = icmp eq ptr %23, null
   br i1 %.not2627, label %._crit_edge, label %.lr.ph
 
@@ -5937,7 +5937,7 @@ get_type_fun.exit:                                ; preds = %switch.lookup, %25
   %36 = add i32 %35, %5
   tail call void %.0.i(ptr noundef %0, ptr noundef nonnull %.028, i32 noundef %24, i32 noundef %33, i32 noundef %36) #24, !callees !19
   %37 = load i32, ptr %2, align 8
-  %38 = call fastcc ptr @next_child(ptr noundef %0, ptr noundef %1, i32 noundef %37, ptr noundef nonnull %.028, ptr noundef nonnull %7)
+  %38 = call fastcc ptr @next_child(ptr noundef %0, ptr noundef %1, i32 noundef %37, ptr noundef nonnull %.028, ptr noundef %7)
   %.not26 = icmp eq ptr %38, null
   br i1 %.not26, label %._crit_edge, label %25, !llvm.loop !34
 

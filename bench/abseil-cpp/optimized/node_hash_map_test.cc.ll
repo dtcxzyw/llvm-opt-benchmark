@@ -14734,15 +14734,15 @@ call5.i.i2.i.i.i.i.i.i.i.i.i.i.i.noexc297:        ; preds = %call38.i.i.i.i.i.i.
   br label %invoke.cont32
 
 invoke.cont32:                                    ; preds = %for.body.i.i.i.i.i.i.i263, %call5.i.i2.i.i.i.i.i.i.i.i.i.i.i.noexc297
-  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias nonnull align 8 %ref.tmp34, i32 noundef 7, i32 noundef -7)
+  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias align 8 %ref.tmp34, i32 noundef 7, i32 noundef -7)
           to label %invoke.cont35 unwind label %lpad3.loopexit.split-lp
 
 invoke.cont35:                                    ; preds = %invoke.cont32
-  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias nonnull align 8 %ref.tmp36, i32 noundef 17, i32 noundef -17)
+  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias align 8 %ref.tmp36, i32 noundef 17, i32 noundef -17)
           to label %invoke.cont38 unwind label %lpad37
 
 invoke.cont38:                                    ; preds = %invoke.cont35
-  invoke fastcc void @_ZN7testing20UnorderedElementsAreIJNS_8internal11PairMatcherINS_18PolymorphicMatcherINS1_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESB_EEENS1_27UnorderedElementsAreMatcherISt5tupleIJDpNSt5decayIRKT_E4typeEEEEEDpSH_(ptr noalias nonnull align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp34, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp36)
+  invoke fastcc void @_ZN7testing20UnorderedElementsAreIJNS_8internal11PairMatcherINS_18PolymorphicMatcherINS1_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESB_EEENS1_27UnorderedElementsAreMatcherISt5tupleIJDpNSt5decayIRKT_E4typeEEEEEDpSH_(ptr noalias align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp34, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp36)
           to label %invoke.cont40 unwind label %lpad39
 
 invoke.cont40:                                    ; preds = %invoke.cont38
@@ -14763,7 +14763,7 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont42:                                    ; preds = %.noexc
   call fastcc void @_ZNSt5tupleIJN7testing8internal11PairMatcherINS0_18PolymorphicMatcherINS1_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %agg.tmp.i) #30
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %agg.tmp.i)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESD_EEEEEclINS7_13node_hash_mapISA_iNS9_17NonMovableKeyHashENS9_15NonMovableKeyEqESaISt4pairIKSA_iEEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar, ptr noundef nonnull align 8 dereferenceable(144) %ref.tmp33, ptr noundef nonnull @.str.159, ptr noundef nonnull align 8 dereferenceable(32) %set1)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESD_EEEEEclINS7_13node_hash_mapISA_iNS9_17NonMovableKeyHashENS9_15NonMovableKeyEqESaISt4pairIKSA_iEEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull align 8 dereferenceable(144) %ref.tmp33, ptr noundef nonnull @.str.159, ptr noundef nonnull align 8 dereferenceable(32) %set1)
           to label %invoke.cont44 unwind label %lpad43
 
 invoke.cont44:                                    ; preds = %invoke.cont42
@@ -14981,15 +14981,15 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias nonnull align 8 %ref.tmp63, i32 noundef 7, i32 noundef -70)
+  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias align 8 %ref.tmp63, i32 noundef 7, i32 noundef -70)
           to label %invoke.cont64 unwind label %lpad3.loopexit.split-lp
 
 invoke.cont64:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
-  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias nonnull align 8 %ref.tmp65, i32 noundef 19, i32 noundef -190)
+  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias align 8 %ref.tmp65, i32 noundef 19, i32 noundef -190)
           to label %invoke.cont67 unwind label %lpad66
 
 invoke.cont67:                                    ; preds = %invoke.cont64
-  invoke fastcc void @_ZN7testing20UnorderedElementsAreIJNS_8internal11PairMatcherINS_18PolymorphicMatcherINS1_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESB_EEENS1_27UnorderedElementsAreMatcherISt5tupleIJDpNSt5decayIRKT_E4typeEEEEEDpSH_(ptr noalias nonnull align 8 %agg.tmp62, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp65)
+  invoke fastcc void @_ZN7testing20UnorderedElementsAreIJNS_8internal11PairMatcherINS_18PolymorphicMatcherINS1_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESB_EEENS1_27UnorderedElementsAreMatcherISt5tupleIJDpNSt5decayIRKT_E4typeEEEEEDpSH_(ptr noalias align 8 %agg.tmp62, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp65)
           to label %invoke.cont69 unwind label %lpad68
 
 invoke.cont69:                                    ; preds = %invoke.cont67
@@ -15010,7 +15010,7 @@ lpad.i322:                                        ; preds = %.noexc323
 invoke.cont71:                                    ; preds = %.noexc323
   call fastcc void @_ZNSt5tupleIJN7testing8internal11PairMatcherINS0_18PolymorphicMatcherINS1_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %agg.tmp.i321) #30
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %agg.tmp.i321)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESD_EEEEEclINS7_13node_hash_mapISA_iNS9_17NonMovableKeyHashENS9_15NonMovableKeyEqESaISt4pairIKSA_iEEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar60, ptr noundef nonnull align 8 dereferenceable(144) %ref.tmp61, ptr noundef nonnull @.str.160, ptr noundef nonnull align 8 dereferenceable(32) %set2)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESD_EEEEEclINS7_13node_hash_mapISA_iNS9_17NonMovableKeyHashENS9_15NonMovableKeyEqESaISt4pairIKSA_iEEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar60, ptr noundef nonnull align 8 dereferenceable(144) %ref.tmp61, ptr noundef nonnull @.str.160, ptr noundef nonnull align 8 dereferenceable(32) %set2)
           to label %invoke.cont73 unwind label %lpad72
 
 invoke.cont73:                                    ; preds = %invoke.cont71
@@ -15355,15 +15355,15 @@ if.end.i:                                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.i.i.i9.i, label %invoke.cont95, label %for.body.i, !llvm.loop !337
 
 invoke.cont95:                                    ; preds = %if.end.i, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS3_17NonMovableKeyHashENS3_15NonMovableKeyEqESaISt4pairIKS4_iEEE5beginEv.exit.i
-  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias nonnull align 8 %ref.tmp99, i32 noundef 7, i32 noundef -7)
+  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias align 8 %ref.tmp99, i32 noundef 7, i32 noundef -7)
           to label %invoke.cont100 unwind label %lpad3.loopexit.split-lp
 
 invoke.cont100:                                   ; preds = %invoke.cont95
-  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias nonnull align 8 %ref.tmp101, i32 noundef 17, i32 noundef -17)
+  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias align 8 %ref.tmp101, i32 noundef 17, i32 noundef -17)
           to label %invoke.cont103 unwind label %lpad102
 
 invoke.cont103:                                   ; preds = %invoke.cont100
-  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias nonnull align 8 %ref.tmp104, i32 noundef 19, i32 noundef -190)
+  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias align 8 %ref.tmp104, i32 noundef 19, i32 noundef -190)
           to label %invoke.cont106 unwind label %lpad105
 
 invoke.cont106:                                   ; preds = %invoke.cont103
@@ -15630,7 +15630,7 @@ invoke.cont3.i.i.i.i.i.i:                         ; preds = %invoke.cont110
   store ptr %add.ptr26.i.i.i.i.i.i.i, ptr %161, align 8, !noalias !366
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i), !noalias !366
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp97, i64 144
-  invoke fastcc void @_ZN7testing11MatcherCastIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiENS_8internal11PairMatcherINS_18PolymorphicMatcherINSA_12FieldMatcherIS5_iEEEEiEEEENS_7MatcherIT_EERKT0_(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(68) %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i)
+  invoke fastcc void @_ZN7testing11MatcherCastIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiENS_8internal11PairMatcherINS_18PolymorphicMatcherINSA_12FieldMatcherIS5_iEEEEiEEEENS_7MatcherIT_EERKT0_(ptr noalias align 8 %ref.tmp.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(68) %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i)
           to label %.noexc.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i, !noalias !366
 
 .noexc.i.i.i.i.i.i:                               ; preds = %invoke.cont3.i.i.i.i.i.i
@@ -15675,7 +15675,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %if.then.i.i.i.i.i.i
 _ZN7testing7MatcherIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEED2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i448, %land.lhs.true.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEE8IsSharedEv.exit.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i), !noalias !366
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp97, i64 72
-  invoke fastcc void @_ZN7testing11MatcherCastIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiENS_8internal11PairMatcherINS_18PolymorphicMatcherINSA_12FieldMatcherIS5_iEEEEiEEEENS_7MatcherIT_EERKT0_(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(68) %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  invoke fastcc void @_ZN7testing11MatcherCastIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiENS_8internal11PairMatcherINS_18PolymorphicMatcherINSA_12FieldMatcherIS5_iEEEEiEEEENS_7MatcherIT_EERKT0_(ptr noalias align 8 %ref.tmp.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(68) %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i)
           to label %.noexc4.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i, !noalias !366
 
 .noexc4.i.i.i.i.i.i:                              ; preds = %_ZN7testing7MatcherIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEED2Ev.exit.i.i.i.i.i.i.i.i.i
@@ -15719,7 +15719,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %if.then.i.i.i.i.i.i
 
 _ZN7testing7MatcherIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEED2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEE8IsSharedEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i), !noalias !366
-  invoke fastcc void @_ZN7testing11MatcherCastIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiENS_8internal11PairMatcherINS_18PolymorphicMatcherINSA_12FieldMatcherIS5_iEEEEiEEEENS_7MatcherIT_EERKT0_(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp97)
+  invoke fastcc void @_ZN7testing11MatcherCastIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiENS_8internal11PairMatcherINS_18PolymorphicMatcherINSA_12FieldMatcherIS5_iEEEEiEEEENS_7MatcherIT_EERKT0_(ptr noalias align 8 %ref.tmp.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp97)
           to label %.noexc5.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i, !noalias !366
 
 .noexc5.i.i.i.i.i.i:                              ; preds = %_ZN7testing7MatcherIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEED2Ev.exit.i.i.i.i.i.i.i.i.i.i
@@ -15963,7 +15963,7 @@ invoke.cont14.i:                                  ; preds = %if.end.i.i
           to label %invoke.cont15.i unwind label %lpad4.i, !noalias !368
 
 invoke.cont15.i:                                  ; preds = %invoke.cont14.i
-  %call18.i = invoke fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl13node_hash_mapINS2_18container_internal12_GLOBAL__N_113NonMovableKeyEiNS5_17NonMovableKeyHashENS5_15NonMovableKeyEqESaISt4pairIKS6_iEEEERSE_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %set1, ptr noundef nonnull align 8 dereferenceable(24) %matcher.i, ptr noundef nonnull %listener.i)
+  %call18.i = invoke fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl13node_hash_mapINS2_18container_internal12_GLOBAL__N_113NonMovableKeyEiNS5_17NonMovableKeyHashENS5_15NonMovableKeyEqESaISt4pairIKS6_iEEEERSE_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %set1, ptr noundef nonnull align 8 dereferenceable(24) %matcher.i, ptr noundef %listener.i)
           to label %invoke.cont17.i unwind label %lpad16.i, !noalias !368
 
 invoke.cont17.i:                                  ; preds = %invoke.cont15.i
@@ -16469,19 +16469,19 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit537:         ; preds = %if.end133, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i536
   store ptr null, ptr %message_.i534, align 8
-  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias nonnull align 8 %ref.tmp138, i32 noundef 7, i32 noundef -70)
+  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias align 8 %ref.tmp138, i32 noundef 7, i32 noundef -70)
           to label %invoke.cont139 unwind label %lpad3.loopexit.split-lp
 
 invoke.cont139:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit537
-  invoke fastcc void @_ZN7testing20UnorderedElementsAreIJNS_8internal11PairMatcherINS_18PolymorphicMatcherINS1_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEENS1_27UnorderedElementsAreMatcherISt5tupleIJDpNSt5decayIRKT_E4typeEEEEEDpSH_(ptr noalias nonnull align 8 %agg.tmp137, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp138)
+  invoke fastcc void @_ZN7testing20UnorderedElementsAreIJNS_8internal11PairMatcherINS_18PolymorphicMatcherINS1_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEENS1_27UnorderedElementsAreMatcherISt5tupleIJDpNSt5decayIRKT_E4typeEEEEEDpSH_(ptr noalias align 8 %agg.tmp137, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp138)
           to label %invoke.cont141 unwind label %lpad140
 
 invoke.cont141:                                   ; preds = %invoke.cont139
-  invoke fastcc void @_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEEEEENS0_29PredicateFormatterFromMatcherIT_EESH_(ptr noalias nonnull align 8 %ref.tmp136, ptr noundef nonnull %agg.tmp137)
+  invoke fastcc void @_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEEEEENS0_29PredicateFormatterFromMatcherIT_EESH_(ptr noalias align 8 %ref.tmp136, ptr noundef %agg.tmp137)
           to label %invoke.cont143 unwind label %lpad142
 
 invoke.cont143:                                   ; preds = %invoke.cont141
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEEEEclINS7_13node_hash_mapISA_iNS9_17NonMovableKeyHashENS9_15NonMovableKeyEqESaISt4pairIKSA_iEEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar135, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp136, ptr noundef nonnull @.str.160, ptr noundef nonnull align 8 dereferenceable(32) %set2)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEEEEclINS7_13node_hash_mapISA_iNS9_17NonMovableKeyHashENS9_15NonMovableKeyEqESaISt4pairIKSA_iEEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar135, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp136, ptr noundef nonnull @.str.160, ptr noundef nonnull align 8 dereferenceable(32) %set2)
           to label %invoke.cont145 unwind label %lpad144
 
 invoke.cont145:                                   ; preds = %invoke.cont143
@@ -17125,15 +17125,15 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit673:         ; preds = %if.end232, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i672
   store ptr null, ptr %message_.i670, align 8
-  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias nonnull align 8 %ref.tmp237, i32 noundef 17, i32 noundef -17)
+  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias align 8 %ref.tmp237, i32 noundef 17, i32 noundef -17)
           to label %invoke.cont238 unwind label %lpad168
 
 invoke.cont238:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit673
-  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias nonnull align 8 %ref.tmp239, i32 noundef 19, i32 noundef -190)
+  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias align 8 %ref.tmp239, i32 noundef 19, i32 noundef -190)
           to label %invoke.cont241 unwind label %lpad240
 
 invoke.cont241:                                   ; preds = %invoke.cont238
-  invoke fastcc void @_ZN7testing20UnorderedElementsAreIJNS_8internal11PairMatcherINS_18PolymorphicMatcherINS1_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESB_EEENS1_27UnorderedElementsAreMatcherISt5tupleIJDpNSt5decayIRKT_E4typeEEEEEDpSH_(ptr noalias nonnull align 8 %agg.tmp236, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp237, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp239)
+  invoke fastcc void @_ZN7testing20UnorderedElementsAreIJNS_8internal11PairMatcherINS_18PolymorphicMatcherINS1_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESB_EEENS1_27UnorderedElementsAreMatcherISt5tupleIJDpNSt5decayIRKT_E4typeEEEEEDpSH_(ptr noalias align 8 %agg.tmp236, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp237, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp239)
           to label %invoke.cont243 unwind label %lpad242
 
 invoke.cont243:                                   ; preds = %invoke.cont241
@@ -17154,7 +17154,7 @@ lpad.i675:                                        ; preds = %.noexc677
 invoke.cont245:                                   ; preds = %.noexc677
   call fastcc void @_ZNSt5tupleIJN7testing8internal11PairMatcherINS0_18PolymorphicMatcherINS1_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %agg.tmp.i674) #30
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %agg.tmp.i674)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESD_EEEEEclINS7_13node_hash_mapISA_iNS9_17NonMovableKeyHashENS9_15NonMovableKeyEqESaISt4pairIKSA_iEEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar234, ptr noundef nonnull align 8 dereferenceable(144) %ref.tmp235, ptr noundef nonnull @.str.159, ptr noundef nonnull align 8 dereferenceable(32) %set1)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESD_EEEEEclINS7_13node_hash_mapISA_iNS9_17NonMovableKeyHashENS9_15NonMovableKeyEqESaISt4pairIKSA_iEEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar234, ptr noundef nonnull align 8 dereferenceable(144) %ref.tmp235, ptr noundef nonnull @.str.159, ptr noundef nonnull align 8 dereferenceable(32) %set1)
           to label %invoke.cont247 unwind label %lpad246
 
 invoke.cont247:                                   ; preds = %invoke.cont245
@@ -17989,16 +17989,16 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit879:         ; preds = %if.end388, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i878
   store ptr null, ptr %message_.i876, align 8
-  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias nonnull align 8 %agg.tmp392, i32 noundef 7, i32 noundef -70)
+  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias align 8 %agg.tmp392, i32 noundef 7, i32 noundef -70)
           to label %invoke.cont393 unwind label %lpad273
 
 invoke.cont393:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit879
-  invoke fastcc void @_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEENS0_29PredicateFormatterFromMatcherIT_EESD_(ptr noalias nonnull align 8 %ref.tmp391, ptr noundef nonnull %agg.tmp392)
+  invoke fastcc void @_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEENS0_29PredicateFormatterFromMatcherIT_EESD_(ptr noalias align 8 %ref.tmp391, ptr noundef %agg.tmp392)
           to label %invoke.cont397 unwind label %lpad394
 
 invoke.cont397:                                   ; preds = %invoke.cont393
   %insert_result.val118.val = load ptr, ptr %insert_result.sroa.4.01565177317821817, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEclISt4pairIKS8_iEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar390, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp391, ptr noundef nonnull align 4 dereferenceable(8) %insert_result.val118.val)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEclISt4pairIKS8_iEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar390, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp391, ptr noundef nonnull align 4 dereferenceable(8) %insert_result.val118.val)
           to label %invoke.cont399 unwind label %lpad396
 
 invoke.cont399:                                   ; preds = %invoke.cont397
@@ -18189,19 +18189,19 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit916:         ; preds = %if.end417, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i915
   store ptr null, ptr %message_.i913, align 8
-  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias nonnull align 8 %ref.tmp422, i32 noundef 7, i32 noundef -70)
+  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias align 8 %ref.tmp422, i32 noundef 7, i32 noundef -70)
           to label %invoke.cont423 unwind label %lpad273
 
 invoke.cont423:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit916
-  invoke fastcc void @_ZN7testing20UnorderedElementsAreIJNS_8internal11PairMatcherINS_18PolymorphicMatcherINS1_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEENS1_27UnorderedElementsAreMatcherISt5tupleIJDpNSt5decayIRKT_E4typeEEEEEDpSH_(ptr noalias nonnull align 8 %agg.tmp421, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp422)
+  invoke fastcc void @_ZN7testing20UnorderedElementsAreIJNS_8internal11PairMatcherINS_18PolymorphicMatcherINS1_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEENS1_27UnorderedElementsAreMatcherISt5tupleIJDpNSt5decayIRKT_E4typeEEEEEDpSH_(ptr noalias align 8 %agg.tmp421, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp422)
           to label %invoke.cont425 unwind label %lpad424
 
 invoke.cont425:                                   ; preds = %invoke.cont423
-  invoke fastcc void @_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEEEEENS0_29PredicateFormatterFromMatcherIT_EESH_(ptr noalias nonnull align 8 %ref.tmp420, ptr noundef nonnull %agg.tmp421)
+  invoke fastcc void @_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEEEEENS0_29PredicateFormatterFromMatcherIT_EESH_(ptr noalias align 8 %ref.tmp420, ptr noundef %agg.tmp421)
           to label %invoke.cont427 unwind label %lpad426
 
 invoke.cont427:                                   ; preds = %invoke.cont425
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEEEEclINS7_13node_hash_mapISA_iNS9_17NonMovableKeyHashENS9_15NonMovableKeyEqESaISt4pairIKSA_iEEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar419, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp420, ptr noundef nonnull @.str.160, ptr noundef nonnull align 8 dereferenceable(32) %set2)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEEEEclINS7_13node_hash_mapISA_iNS9_17NonMovableKeyHashENS9_15NonMovableKeyEqESaISt4pairIKSA_iEEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar419, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp420, ptr noundef nonnull @.str.160, ptr noundef nonnull align 8 dereferenceable(32) %set2)
           to label %invoke.cont429 unwind label %lpad428
 
 invoke.cont429:                                   ; preds = %invoke.cont427
@@ -18840,19 +18840,19 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit1118:        ; preds = %if.end519, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1117
   store ptr null, ptr %message_.i1115, align 8
-  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias nonnull align 8 %ref.tmp524, i32 noundef 19, i32 noundef -190)
+  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias align 8 %ref.tmp524, i32 noundef 19, i32 noundef -190)
           to label %invoke.cont525 unwind label %lpad273
 
 invoke.cont525:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit1118
-  invoke fastcc void @_ZN7testing20UnorderedElementsAreIJNS_8internal11PairMatcherINS_18PolymorphicMatcherINS1_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEENS1_27UnorderedElementsAreMatcherISt5tupleIJDpNSt5decayIRKT_E4typeEEEEEDpSH_(ptr noalias nonnull align 8 %agg.tmp523, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp524)
+  invoke fastcc void @_ZN7testing20UnorderedElementsAreIJNS_8internal11PairMatcherINS_18PolymorphicMatcherINS1_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEENS1_27UnorderedElementsAreMatcherISt5tupleIJDpNSt5decayIRKT_E4typeEEEEEDpSH_(ptr noalias align 8 %agg.tmp523, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp524)
           to label %invoke.cont527 unwind label %lpad526
 
 invoke.cont527:                                   ; preds = %invoke.cont525
-  invoke fastcc void @_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEEEEENS0_29PredicateFormatterFromMatcherIT_EESH_(ptr noalias nonnull align 8 %ref.tmp522, ptr noundef nonnull %agg.tmp523)
+  invoke fastcc void @_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEEEEENS0_29PredicateFormatterFromMatcherIT_EESH_(ptr noalias align 8 %ref.tmp522, ptr noundef %agg.tmp523)
           to label %invoke.cont529 unwind label %lpad528
 
 invoke.cont529:                                   ; preds = %invoke.cont527
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEEEEclINS7_13node_hash_mapISA_iNS9_17NonMovableKeyHashENS9_15NonMovableKeyEqESaISt4pairIKSA_iEEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar521, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp522, ptr noundef nonnull @.str.159, ptr noundef nonnull align 8 dereferenceable(32) %set1)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEEEEclINS7_13node_hash_mapISA_iNS9_17NonMovableKeyHashENS9_15NonMovableKeyEqESaISt4pairIKSA_iEEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar521, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp522, ptr noundef nonnull @.str.159, ptr noundef nonnull align 8 dereferenceable(32) %set1)
           to label %invoke.cont531 unwind label %lpad530
 
 invoke.cont531:                                   ; preds = %invoke.cont529
@@ -19483,16 +19483,16 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit1319:        ; preds = %_ZN7testing15AssertionResultD2Ev.exit1301, %if.end631, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1318
   store ptr null, ptr %message_.i1304, align 8
-  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias nonnull align 8 %agg.tmp635, i32 noundef 17, i32 noundef 23)
+  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias align 8 %agg.tmp635, i32 noundef 17, i32 noundef 23)
           to label %invoke.cont636 unwind label %lpad273
 
 invoke.cont636:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit1319
-  invoke fastcc void @_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEENS0_29PredicateFormatterFromMatcherIT_EESD_(ptr noalias nonnull align 8 %ref.tmp634, ptr noundef nonnull %agg.tmp635)
+  invoke fastcc void @_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEENS0_29PredicateFormatterFromMatcherIT_EESD_(ptr noalias align 8 %ref.tmp634, ptr noundef %agg.tmp635)
           to label %invoke.cont641 unwind label %lpad637
 
 invoke.cont641:                                   ; preds = %invoke.cont636
   %insert_result.val120.val = load ptr, ptr %ref.tmp554.sroa.4.0, align 8
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEclISt4pairIKS8_iEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar633, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp634, ptr noundef nonnull align 4 dereferenceable(8) %insert_result.val120.val)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEclISt4pairIKS8_iEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar633, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp634, ptr noundef nonnull align 4 dereferenceable(8) %insert_result.val120.val)
           to label %invoke.cont643 unwind label %lpad640
 
 invoke.cont643:                                   ; preds = %invoke.cont641
@@ -19683,15 +19683,15 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit1368:        ; preds = %if.end661, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1367
   store ptr null, ptr %message_.i1365, align 8
-  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias nonnull align 8 %ref.tmp666, i32 noundef 7, i32 noundef -70)
+  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias align 8 %ref.tmp666, i32 noundef 7, i32 noundef -70)
           to label %invoke.cont667 unwind label %lpad273
 
 invoke.cont667:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit1368
-  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias nonnull align 8 %ref.tmp668, i32 noundef 17, i32 noundef 23)
+  invoke fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias align 8 %ref.tmp668, i32 noundef 17, i32 noundef 23)
           to label %invoke.cont670 unwind label %lpad669
 
 invoke.cont670:                                   ; preds = %invoke.cont667
-  invoke fastcc void @_ZN7testing20UnorderedElementsAreIJNS_8internal11PairMatcherINS_18PolymorphicMatcherINS1_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESB_EEENS1_27UnorderedElementsAreMatcherISt5tupleIJDpNSt5decayIRKT_E4typeEEEEEDpSH_(ptr noalias nonnull align 8 %agg.tmp665, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp666, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp668)
+  invoke fastcc void @_ZN7testing20UnorderedElementsAreIJNS_8internal11PairMatcherINS_18PolymorphicMatcherINS1_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESB_EEENS1_27UnorderedElementsAreMatcherISt5tupleIJDpNSt5decayIRKT_E4typeEEEEEDpSH_(ptr noalias align 8 %agg.tmp665, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp666, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp668)
           to label %invoke.cont672 unwind label %lpad671
 
 invoke.cont672:                                   ; preds = %invoke.cont670
@@ -19712,7 +19712,7 @@ lpad.i1370:                                       ; preds = %.noexc1372
 invoke.cont674:                                   ; preds = %.noexc1372
   call fastcc void @_ZNSt5tupleIJN7testing8internal11PairMatcherINS0_18PolymorphicMatcherINS1_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %agg.tmp.i1369) #30
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %agg.tmp.i1369)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESD_EEEEEclINS7_13node_hash_mapISA_iNS9_17NonMovableKeyHashENS9_15NonMovableKeyEqESaISt4pairIKSA_iEEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %gtest_ar663, ptr noundef nonnull align 8 dereferenceable(144) %ref.tmp664, ptr noundef nonnull @.str.160, ptr noundef nonnull align 8 dereferenceable(32) %set2)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESD_EEEEEclINS7_13node_hash_mapISA_iNS9_17NonMovableKeyHashENS9_15NonMovableKeyEqESaISt4pairIKSA_iEEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar663, ptr noundef nonnull align 8 dereferenceable(144) %ref.tmp664, ptr noundef nonnull @.str.160, ptr noundef nonnull align 8 dereferenceable(32) %set2)
           to label %invoke.cont676 unwind label %lpad675
 
 invoke.cont676:                                   ; preds = %invoke.cont674
@@ -20057,7 +20057,7 @@ ehcleanup700:                                     ; preds = %ehcleanup699.thread
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing20UnorderedElementsAreIJNS_8internal11PairMatcherINS_18PolymorphicMatcherINS1_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESB_EEENS1_27UnorderedElementsAreMatcherISt5tupleIJDpNSt5decayIRKT_E4typeEEEEEDpSH_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(68) %matchers, ptr noundef nonnull align 8 dereferenceable(68) %matchers1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing20UnorderedElementsAreIJNS_8internal11PairMatcherINS_18PolymorphicMatcherINS1_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESB_EEENS1_27UnorderedElementsAreMatcherISt5tupleIJDpNSt5decayIRKT_E4typeEEEEEDpSH_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(68) %matchers, ptr noundef nonnull align 8 dereferenceable(68) %matchers1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::tuple.178", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !460)
@@ -20169,7 +20169,7 @@ lpad:                                             ; preds = %_ZSt10make_tupleIJR
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias align 8 %agg.result, i32 noundef %key, i32 noundef %value) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4absl18container_internal12_GLOBAL__N_135NodeHashMap_MergeExtractInsert_Test8TestBodyEvENK3$_0clEii"(ptr noalias nonnull align 8 %agg.result, i32 noundef range(i32 7, 20) %key, i32 noundef range(i32 -190, 24) %value) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.testing::PolymorphicMatcher", align 8
   %ref.tmp.i.i = alloca %"class.std::allocator.0", align 1
@@ -20181,7 +20181,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp1.i)
   %vtable_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKiEE, i64 16), ptr %ref.tmp1.i, align 8, !alias.scope !466, !noalias !463
-  %ref.tmp.i.sroa.2.16.insert.ext.i.i.i.i = zext i32 %key to i64
+  %ref.tmp.i.sroa.2.16.insert.ext.i.i.i.i = zext nneg i32 %key to i64
   store ptr @_ZZN7testing8internal11MatcherBaseIRKiE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIiEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i, align 8, !alias.scope !466, !noalias !463
   %buffer_3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 16
   store i64 %ref.tmp.i.sroa.2.16.insert.ext.i.i.i.i, ptr %buffer_3.i.i.i.i.i.i.i, align 8, !alias.scope !466, !noalias !463
@@ -20498,7 +20498,7 @@ lpad.body:                                        ; preds = %lpad.i.i.i6, %lpad.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESD_EEEEEclINS7_13node_hash_mapISA_iNS9_17NonMovableKeyHashENS9_15NonMovableKeyEqESaISt4pairIKSA_iEEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(32) %x) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEESD_EEEEEclINS7_13node_hash_mapISA_iNS9_17NonMovableKeyHashENS9_15NonMovableKeyEqESaISt4pairIKSA_iEEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(32) %x) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -20532,7 +20532,7 @@ invoke.cont3.i.i.i.i.i:                           ; preds = %entry
   store ptr %add.ptr26.i.i.i.i.i.i, ptr %1, align 8, !noalias !496
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i), !noalias !496
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  invoke fastcc void @_ZN7testing11MatcherCastIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiENS_8internal11PairMatcherINS_18PolymorphicMatcherINSA_12FieldMatcherIS5_iEEEEiEEEENS_7MatcherIT_EERKT0_(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(68) %add.ptr.i.i.i.i.i.i.i.i.i.i.i)
+  invoke fastcc void @_ZN7testing11MatcherCastIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiENS_8internal11PairMatcherINS_18PolymorphicMatcherINSA_12FieldMatcherIS5_iEEEEiEEEENS_7MatcherIT_EERKT0_(ptr noalias align 8 %ref.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(68) %add.ptr.i.i.i.i.i.i.i.i.i.i.i)
           to label %.noexc.i.i.i.i.i unwind label %lpad.i.i.i.i.i, !noalias !496
 
 .noexc.i.i.i.i.i:                                 ; preds = %invoke.cont3.i.i.i.i.i
@@ -20576,7 +20576,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.then.i.i.i.i.i.i
 
 _ZN7testing7MatcherIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEE8IsSharedEv.exit.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont7.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i), !noalias !496
-  invoke fastcc void @_ZN7testing11MatcherCastIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiENS_8internal11PairMatcherINS_18PolymorphicMatcherINSA_12FieldMatcherIS5_iEEEEiEEEENS_7MatcherIT_EERKT0_(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(68) %this)
+  invoke fastcc void @_ZN7testing11MatcherCastIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiENS_8internal11PairMatcherINS_18PolymorphicMatcherINSA_12FieldMatcherIS5_iEEEEiEEEENS_7MatcherIT_EERKT0_(ptr noalias align 8 %ref.tmp.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(68) %this)
           to label %.noexc4.i.i.i.i.i unwind label %lpad.i.i.i.i.i, !noalias !496
 
 .noexc4.i.i.i.i.i:                                ; preds = %_ZN7testing7MatcherIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEED2Ev.exit.i.i.i.i.i.i.i.i
@@ -20743,7 +20743,7 @@ invoke.cont:                                      ; preds = %if.end.i.i
   br i1 %call5.i2.i8, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  invoke void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i.i, %if.else.i.i, %_ZN7testing15SafeMatcherCastIRKN4absl13node_hash_mapINS1_18container_internal12_GLOBAL__N_113NonMovableKeyEiNS4_17NonMovableKeyHashENS4_15NonMovableKeyEqESaISt4pairIKS5_iEEEENS_8internal27UnorderedElementsAreMatcherISt5tupleIJNSF_11PairMatcherINS_18PolymorphicMatcherINSF_12FieldMatcherIS5_iEEEEiEESN_EEEEEENS_7MatcherIT_EERKT0_.exit, %if.end, %if.then
@@ -20818,7 +20818,7 @@ invoke.cont14:                                    ; preds = %if.end.i
           to label %invoke.cont15 unwind label %lpad4
 
 invoke.cont15:                                    ; preds = %invoke.cont14
-  %call18 = invoke fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl13node_hash_mapINS2_18container_internal12_GLOBAL__N_113NonMovableKeyEiNS5_17NonMovableKeyHashENS5_15NonMovableKeyEqESaISt4pairIKS6_iEEEERSE_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(24) %matcher, ptr noundef nonnull %listener)
+  %call18 = invoke fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl13node_hash_mapINS2_18container_internal12_GLOBAL__N_113NonMovableKeyEiNS5_17NonMovableKeyHashENS5_15NonMovableKeyEqESaISt4pairIKS6_iEEEERSE_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(24) %matcher, ptr noundef %listener)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont15
@@ -21138,7 +21138,7 @@ _ZNSt5tupleIJN7testing8internal11PairMatcherINS0_18PolymorphicMatcherINS1_12Fiel
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEEEEENS0_29PredicateFormatterFromMatcherIT_EESH_(ptr noalias align 8 %agg.result, ptr noundef %matcher) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEEEEENS0_29PredicateFormatterFromMatcherIT_EESH_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %matcher) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.testing::internal::UnorderedElementsAreMatcher.191", align 8
   %0 = load i64, ptr %matcher, align 8
@@ -21267,7 +21267,7 @@ _ZN7testing8internal27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing20UnorderedElementsAreIJNS_8internal11PairMatcherINS_18PolymorphicMatcherINS1_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEENS1_27UnorderedElementsAreMatcherISt5tupleIJDpNSt5decayIRKT_E4typeEEEEEDpSH_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(68) %matchers) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing20UnorderedElementsAreIJNS_8internal11PairMatcherINS_18PolymorphicMatcherINS1_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEENS1_27UnorderedElementsAreMatcherISt5tupleIJDpNSt5decayIRKT_E4typeEEEEEDpSH_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(68) %matchers) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::tuple.192", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !497)
@@ -21397,7 +21397,7 @@ _ZNSt5tupleIJN7testing8internal11PairMatcherINS0_18PolymorphicMatcherINS1_12Fiel
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEEEEclINS7_13node_hash_mapISA_iNS9_17NonMovableKeyHashENS9_15NonMovableKeyEqESaISt4pairIKSA_iEEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(32) %x) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_27UnorderedElementsAreMatcherISt5tupleIJNS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEEEEEclINS7_13node_hash_mapISA_iNS9_17NonMovableKeyHashENS9_15NonMovableKeyEqESaISt4pairIKSA_iEEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(32) %x) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -21429,7 +21429,7 @@ invoke.cont3.i.i.i.i.i:                           ; preds = %entry
   %add.ptr26.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i3.i.i.i.i.i, i64 24
   store ptr %add.ptr26.i.i.i.i.i.i, ptr %1, align 8, !noalias !516
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i), !noalias !516
-  invoke fastcc void @_ZN7testing11MatcherCastIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiENS_8internal11PairMatcherINS_18PolymorphicMatcherINSA_12FieldMatcherIS5_iEEEEiEEEENS_7MatcherIT_EERKT0_(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(68) %this)
+  invoke fastcc void @_ZN7testing11MatcherCastIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiENS_8internal11PairMatcherINS_18PolymorphicMatcherINSA_12FieldMatcherIS5_iEEEEiEEEENS_7MatcherIT_EERKT0_(ptr noalias align 8 %ref.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(68) %this)
           to label %.noexc.i.i.i.i.i unwind label %lpad.i.i.i.i.i, !noalias !516
 
 .noexc.i.i.i.i.i:                                 ; preds = %invoke.cont3.i.i.i.i.i
@@ -21585,7 +21585,7 @@ invoke.cont:                                      ; preds = %if.end.i.i
   br i1 %call5.i2.i8, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  invoke void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i.i, %if.else.i.i, %_ZN7testing15SafeMatcherCastIRKN4absl13node_hash_mapINS1_18container_internal12_GLOBAL__N_113NonMovableKeyEiNS4_17NonMovableKeyHashENS4_15NonMovableKeyEqESaISt4pairIKS5_iEEEENS_8internal27UnorderedElementsAreMatcherISt5tupleIJNSF_11PairMatcherINS_18PolymorphicMatcherINSF_12FieldMatcherIS5_iEEEEiEEEEEEEENS_7MatcherIT_EERKT0_.exit, %if.end, %if.then
@@ -21660,7 +21660,7 @@ invoke.cont14:                                    ; preds = %if.end.i
           to label %invoke.cont15 unwind label %lpad4
 
 invoke.cont15:                                    ; preds = %invoke.cont14
-  %call18 = invoke fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl13node_hash_mapINS2_18container_internal12_GLOBAL__N_113NonMovableKeyEiNS5_17NonMovableKeyHashENS5_15NonMovableKeyEqESaISt4pairIKS6_iEEEERSE_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(24) %matcher, ptr noundef nonnull %listener)
+  %call18 = invoke fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl13node_hash_mapINS2_18container_internal12_GLOBAL__N_113NonMovableKeyEiNS5_17NonMovableKeyHashENS5_15NonMovableKeyEqESaISt4pairIKS6_iEEEERSE_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(24) %matcher, ptr noundef %listener)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont15
@@ -21936,7 +21936,7 @@ _ZNSt5tupleIJN7testing8internal11PairMatcherINS0_18PolymorphicMatcherINS1_12Fiel
 declare void @_ZN7testing8internal30GetBoolAssertionFailureMessageB5cxx11ERKNS_15AssertionResultEPKcS5_S5_(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEENS0_29PredicateFormatterFromMatcherIT_EESD_(ptr noalias align 8 %agg.result, ptr noundef %matcher) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEENS0_29PredicateFormatterFromMatcherIT_EESD_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %matcher) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.testing::internal::PairMatcher", align 8
   %0 = load i64, ptr %matcher, align 8
@@ -22065,7 +22065,7 @@ _ZN7testing8internal11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4a
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEclISt4pairIKS8_iEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 4 dereferenceable(8) %x) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEEEiEEEclISt4pairIKS8_iEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 4 dereferenceable(8) %x) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i34 = alloca %"class.testing::Message", align 8
   %ref.tmp.i.i14 = alloca %"class.testing::internal::GTestLog", align 4
@@ -22083,7 +22083,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp31 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp33 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN7testing11MatcherCastIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiENS_8internal11PairMatcherINS_18PolymorphicMatcherINSA_12FieldMatcherIS5_iEEEEiEEEENS_7MatcherIT_EERKT0_(ptr noalias nonnull align 8 %matcher, ptr noundef nonnull align 8 dereferenceable(68) %this)
+  call fastcc void @_ZN7testing11MatcherCastIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiENS_8internal11PairMatcherINS_18PolymorphicMatcherINSA_12FieldMatcherIS5_iEEEEiEEEENS_7MatcherIT_EERKT0_(ptr noalias align 8 %matcher, ptr noundef nonnull align 8 dereferenceable(68) %this)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dummy.i)
   %stream_.i.i.i = getelementptr inbounds i8, ptr %dummy.i, i64 8
   store ptr null, ptr %stream_.i.i.i, align 8
@@ -22129,7 +22129,7 @@ invoke.cont:                                      ; preds = %if.end.i.i
   br i1 %call5.i2.i8, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  invoke void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i.i, %if.else.i.i, %entry, %if.end, %if.then
@@ -22678,7 +22678,7 @@ _ZN4absl18container_internal12raw_hash_mapINS0_17NodeHashMapPolicyINS0_12_GLOBAL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS3_17NonMovableKeyHashENS3_15NonMovableKeyEqESaISt4pairIKS4_iEEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %hash) unnamed_addr #4 align 2 {
+define internal fastcc noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS3_17NonMovableKeyHashENS3_15NonMovableKeyEqESaISt4pairIKS4_iEEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef range(i64 -2147483648, 2147483648) %hash) unnamed_addr #4 align 2 {
 land.lhs.true:
   %tmp.i.i = alloca [8 x i8], align 8
   %call7 = tail call { i64, i64 } @_ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12CommonFieldsEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %hash)
@@ -23502,7 +23502,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl13node_hash_mapINS2_18container_internal12_GLOBAL__N_113NonMovableKeyEiNS5_17NonMovableKeyHashENS5_15NonMovableKeyEqESaISt4pairIKS6_iEEEERSE_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef nonnull align 8 dereferenceable(24) %matcher, ptr nocapture noundef readonly %listener) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl13node_hash_mapINS2_18container_internal12_GLOBAL__N_113NonMovableKeyEiNS5_17NonMovableKeyHashENS5_15NonMovableKeyEqESaISt4pairIKS6_iEEEERSE_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef nonnull align 8 dereferenceable(24) %matcher, ptr nocapture noundef nonnull readonly %listener) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
   %ref.tmp.i.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -24360,7 +24360,7 @@ _ZN7testing8internal11MatcherBaseIRKSt4pairIKN4absl18container_internal12_GLOBAL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing11MatcherCastIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiENS_8internal11PairMatcherINS_18PolymorphicMatcherINSA_12FieldMatcherIS5_iEEEEiEEEENS_7MatcherIT_EERKT0_(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(68) %matcher) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing11MatcherCastIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiENS_8internal11PairMatcherINS_18PolymorphicMatcherINSA_12FieldMatcherIS5_iEEEEiEEEENS_7MatcherIT_EERKT0_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(68) %matcher) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.testing::PolymorphicMatcher", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !526)

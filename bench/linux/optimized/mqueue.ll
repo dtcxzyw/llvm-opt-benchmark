@@ -2404,7 +2404,7 @@ declare dso_local ptr @load_msg(ptr noundef, i64 noundef) local_unnamed_addr #5
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -512, 1) i32 @wq_sleep(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -512, 1) i32 @wq_sleep(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 832
   %6 = zext nneg i32 %1 to i64
   %7 = getelementptr [2 x %struct.ext_wait_queue], ptr %5, i64 0, i64 %6, i32 1
@@ -3046,27 +3046,27 @@ declare dso_local i32 @store_msg(ptr noundef, ptr noundef, i64 noundef) local_un
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #13
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @msg_tree_erase(ptr noundef %0, ptr noundef %1) unnamed_addr #10 align 16 {
+define internal fastcc void @msg_tree_erase(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #10 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 640
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %0
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @rb_prev(ptr noundef %0) #15
+  %7 = tail call ptr @rb_prev(ptr noundef nonnull %0) #15
   store ptr %7, ptr %3, align 8
   br label %8
 
 8:                                                ; preds = %6, %2
   %9 = getelementptr inbounds i8, ptr %1, i64 632
-  tail call void @rb_erase(ptr noundef %0, ptr noundef %9) #15
+  tail call void @rb_erase(ptr noundef nonnull %0, ptr noundef %9) #15
   %10 = getelementptr inbounds i8, ptr %1, i64 648
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %8
-  tail call void @kfree(ptr noundef %0) #15
+  tail call void @kfree(ptr noundef nonnull %0) #15
   br label %15
 
 14:                                               ; preds = %8

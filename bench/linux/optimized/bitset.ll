@@ -983,7 +983,7 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @ethnl_compact_sanity_checks(i32 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @ethnl_compact_sanity_checks(i32 noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3) unnamed_addr #2 align 16 {
   %5 = getelementptr i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null

@@ -523,7 +523,7 @@ define internal i32 @dissect_FiveCoRAP(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %27
-  %30 = call fastcc i32 @dissect_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.0, i32 noundef %.028, i32 noundef %7, ptr noundef nonnull %5)
+  %30 = call fastcc i32 @dissect_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.0, i32 noundef %.028, i32 noundef %7, ptr noundef %5)
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.loopexit, label %27, !llvm.loop !7
 
@@ -683,7 +683,7 @@ declare ptr @wmem_file_scope() local_unnamed_addr #2
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_frame(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_frame(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef range(i32 5, 0) %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #7
   %9 = add i32 %4, 1
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %9) #7
@@ -1303,7 +1303,7 @@ get_data_size.exit375:                            ; preds = %309, %316
   %349 = getelementptr [10 x i32], ptr @ett_fiveco_sub, i64 0, i64 %348
   %350 = load i32, ptr %349, align 4
   %351 = tail call ptr @proto_item_add_subtree(ptr noundef %.0341, i32 noundef %350) #7
-  %352 = tail call fastcc i32 @dissect_frame(ptr noundef %0, ptr noundef %1, ptr noundef %351, ptr noundef %3, i32 noundef %346, i32 noundef %5, ptr noundef nonnull %6)
+  %352 = tail call fastcc i32 @dissect_frame(ptr noundef %0, ptr noundef %1, ptr noundef %351, ptr noundef %3, i32 noundef %346, i32 noundef %5, ptr noundef %6)
   br label %354
 
 353:                                              ; preds = %325

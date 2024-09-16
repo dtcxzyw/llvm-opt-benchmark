@@ -1295,7 +1295,7 @@ define hidden void @_ZN12object_store3aws7builder15AmazonS3Builder11with_config1
   ]
 
 273:                                              ; preds = %270
-  invoke fastcc void @"_ZN4core3ptr71drop_in_place$LT$object_store..aws..precondition..S3CopyIfNotExists$GT$17h15147d290e99546bE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %271)
+  invoke fastcc void @"_ZN4core3ptr71drop_in_place$LT$object_store..aws..precondition..S3CopyIfNotExists$GT$17h15147d290e99546bE"(ptr noalias noundef align 8 dereferenceable(72) %271)
           to label %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$object_store..aws..precondition..S3CopyIfNotExists$GT$$GT$$GT$17h690d7d40dd257700E.exit" unwind label %284
 
 274:                                              ; preds = %270
@@ -1341,7 +1341,7 @@ define hidden void @_ZN12object_store3aws7builder15AmazonS3Builder11with_config1
 
 286:                                              ; preds = %5
   %287 = getelementptr inbounds i8, ptr %1, i64 1000
-  invoke fastcc void @"_ZN4core3ptr139drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$object_store..aws..precondition..S3ConditionalPut$GT$$GT$$GT$17h415ccf9573bf08d0E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %287)
+  invoke fastcc void @"_ZN4core3ptr139drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$object_store..aws..precondition..S3ConditionalPut$GT$$GT$$GT$17h415ccf9573bf08d0E"(ptr noalias noundef align 8 dereferenceable(72) %287)
           to label %290 unwind label %288
 
 288:                                              ; preds = %286
@@ -1366,7 +1366,7 @@ define hidden void @_ZN12object_store3aws7builder15AmazonS3Builder11with_config1
 
 292:                                              ; preds = %131
   %293 = getelementptr inbounds i8, ptr %1, i64 952
-  invoke fastcc void @"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$object_store..aws..builder..S3EncryptionType$GT$$GT$$GT$17haf4f497743e62926E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %293)
+  invoke fastcc void @"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$object_store..aws..builder..S3EncryptionType$GT$$GT$$GT$17haf4f497743e62926E"(ptr noalias noundef align 8 dereferenceable(24) %293)
           to label %296 unwind label %294
 
 294:                                              ; preds = %292
@@ -1396,7 +1396,7 @@ define hidden void @_ZN12object_store3aws7builder15AmazonS3Builder11with_config1
 
 302:                                              ; preds = %131
   %303 = getelementptr inbounds i8, ptr %1, i64 976
-  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$bool$GT$$GT$$GT$17hea6bf43c71a1a161E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %303)
+  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$bool$GT$$GT$$GT$17hea6bf43c71a1a161E"(ptr noalias noundef align 8 dereferenceable(24) %303)
           to label %306 unwind label %304
 
 304:                                              ; preds = %302
@@ -1470,7 +1470,7 @@ define hidden void @_ZN12object_store3aws7builder15AmazonS3Builder11with_config1
 
 330:                                              ; preds = %328
   %331 = getelementptr inbounds i8, ptr %1, i64 928
-  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$object_store..aws..checksum..Checksum$GT$$GT$$GT$17hf3b18f8339ead49bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %331) #20
+  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$object_store..aws..checksum..Checksum$GT$$GT$$GT$17hf3b18f8339ead49bE"(ptr noalias noundef align 8 dereferenceable(24) %331) #20
           to label %332 unwind label %307
 
 332:                                              ; preds = %330
@@ -1502,12 +1502,12 @@ define hidden void @_ZN12object_store3aws7builder15AmazonS3Builder11with_config1
 
 342:                                              ; preds = %340
   %343 = getelementptr inbounds i8, ptr %1, i64 1072
-  invoke fastcc void @"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$object_store..aws..precondition..S3CopyIfNotExists$GT$$GT$$GT$17h690d7d40dd257700E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %343) #20
+  invoke fastcc void @"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$object_store..aws..precondition..S3CopyIfNotExists$GT$$GT$$GT$17h690d7d40dd257700E"(ptr noalias noundef align 8 dereferenceable(72) %343) #20
           to label %344 unwind label %307
 
 344:                                              ; preds = %342
   %345 = getelementptr inbounds i8, ptr %1, i64 1000
-  invoke fastcc void @"_ZN4core3ptr139drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$object_store..aws..precondition..S3ConditionalPut$GT$$GT$$GT$17h415ccf9573bf08d0E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %345) #20
+  invoke fastcc void @"_ZN4core3ptr139drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$object_store..aws..precondition..S3ConditionalPut$GT$$GT$$GT$17h415ccf9573bf08d0E"(ptr noalias noundef align 8 dereferenceable(72) %345) #20
           to label %346 unwind label %307
 
 346:                                              ; preds = %344
@@ -1517,7 +1517,7 @@ define hidden void @_ZN12object_store3aws7builder15AmazonS3Builder11with_config1
 
 348:                                              ; preds = %346
   %349 = getelementptr inbounds i8, ptr %1, i64 952
-  invoke fastcc void @"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$object_store..aws..builder..S3EncryptionType$GT$$GT$$GT$17haf4f497743e62926E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %349) #20
+  invoke fastcc void @"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$object_store..aws..builder..S3EncryptionType$GT$$GT$$GT$17haf4f497743e62926E"(ptr noalias noundef align 8 dereferenceable(24) %349) #20
           to label %350 unwind label %307
 
 350:                                              ; preds = %348
@@ -1527,7 +1527,7 @@ define hidden void @_ZN12object_store3aws7builder15AmazonS3Builder11with_config1
 
 352:                                              ; preds = %350
   %353 = getelementptr inbounds i8, ptr %1, i64 976
-  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$bool$GT$$GT$$GT$17hea6bf43c71a1a161E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %353) #20
+  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$bool$GT$$GT$$GT$17hea6bf43c71a1a161E"(ptr noalias noundef align 8 dereferenceable(24) %353) #20
           to label %354 unwind label %307
 
 354:                                              ; preds = %352
@@ -3002,7 +3002,7 @@ define internal void @"_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$o
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$object_store..aws..checksum..Checksum$GT$$GT$$GT$17hf3b18f8339ead49bE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$object_store..aws..checksum..Checksum$GT$$GT$$GT$17hf3b18f8339ead49bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !277, !noundef !7
   %switch = icmp slt i64 %3, -9223372036854775806
@@ -3036,7 +3036,7 @@ define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$object_store..aws..builder..S3EncryptionType$GT$$GT$$GT$17haf4f497743e62926E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$object_store..aws..builder..S3EncryptionType$GT$$GT$$GT$17haf4f497743e62926E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !277, !noundef !7
   %switch = icmp slt i64 %3, -9223372036854775806
@@ -3070,7 +3070,7 @@ define internal fastcc void @"_ZN4core3ptr134drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr139drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$object_store..aws..precondition..S3ConditionalPut$GT$$GT$$GT$17h415ccf9573bf08d0E"(ptr noalias noundef align 8 dereferenceable(72) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr139drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$object_store..aws..precondition..S3ConditionalPut$GT$$GT$$GT$17h415ccf9573bf08d0E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !714, !noundef !7
@@ -3132,7 +3132,7 @@ define internal fastcc void @"_ZN4core3ptr139drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$object_store..aws..precondition..S3CopyIfNotExists$GT$$GT$$GT$17h690d7d40dd257700E"(ptr noalias noundef align 8 dereferenceable(72) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$object_store..aws..precondition..S3CopyIfNotExists$GT$$GT$$GT$17h690d7d40dd257700E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !316, !noundef !7
   switch i64 %3, label %4 [
@@ -3144,7 +3144,7 @@ define internal fastcc void @"_ZN4core3ptr140drop_in_place$LT$core..option..Opti
   ret void
 
 4:                                                ; preds = %1
-  tail call fastcc void @"_ZN4core3ptr71drop_in_place$LT$object_store..aws..precondition..S3CopyIfNotExists$GT$17h15147d290e99546bE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
+  tail call fastcc void @"_ZN4core3ptr71drop_in_place$LT$object_store..aws..precondition..S3CopyIfNotExists$GT$17h15147d290e99546bE"(ptr noalias noundef align 8 dereferenceable(72) %0)
   br label %"_ZN4core3ptr112drop_in_place$LT$object_store..config..ConfigValue$LT$object_store..aws..precondition..S3CopyIfNotExists$GT$$GT$17hf3a37602af35c9ddE.exit"
 
 5:                                                ; preds = %1
@@ -3523,7 +3523,7 @@ define internal void @"_ZN4core3ptr71drop_in_place$LT$$RF$object_store..config..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$object_store..aws..precondition..S3CopyIfNotExists$GT$17h15147d290e99546bE"(ptr noalias noundef align 8 dereferenceable(72) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$object_store..aws..precondition..S3CopyIfNotExists$GT$17h15147d290e99546bE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -3734,7 +3734,7 @@ define internal void @"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$ob
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$bool$GT$$GT$$GT$17hea6bf43c71a1a161E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$bool$GT$$GT$$GT$17hea6bf43c71a1a161E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !277, !noundef !7
   %switch = icmp slt i64 %3, -9223372036854775806
@@ -3850,7 +3850,7 @@ define internal void @"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ob
   ret void
 
 5:                                                ; preds = %1
-  tail call fastcc void @"_ZN4core3ptr71drop_in_place$LT$object_store..aws..precondition..S3CopyIfNotExists$GT$17h15147d290e99546bE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
+  tail call fastcc void @"_ZN4core3ptr71drop_in_place$LT$object_store..aws..precondition..S3CopyIfNotExists$GT$17h15147d290e99546bE"(ptr noalias noundef align 8 dereferenceable(72) %0)
   br label %4
 }
 

@@ -4171,7 +4171,7 @@ Vec_IntPush.exit134.i:                            ; preds = %982, %Vec_IntGrow.e
   store i32 %853, ptr %988, align 4
   %989 = select i1 %884, i32 10, i32 11
   %990 = load ptr, ptr %41, align 8
-  tail call fastcc void @Psr_NtkAddBox(ptr noundef %990, i32 noundef %989, i32 noundef 0, ptr noundef nonnull %55)
+  tail call fastcc void @Psr_NtkAddBox(ptr noundef %990, i32 noundef %989, i32 noundef 0, ptr noundef %55)
   br label %.thread.i.i
 
 991:                                              ; preds = %Vec_IntPush.exit120.i
@@ -4393,7 +4393,7 @@ Psr_ManUtilSkipComments.exit.i149.i:              ; preds = %.lr.ph38.i.i151.i, 
   tail call fastcc void @Vec_IntPush(ptr noundef nonnull %55, i32 noundef 0)
   tail call fastcc void @Vec_IntPush(ptr noundef nonnull %55, i32 noundef %853)
   %1047 = load ptr, ptr %41, align 8
-  tail call fastcc void @Psr_NtkAddBox(ptr noundef %1047, i32 noundef %.1.i, i32 noundef 0, ptr noundef nonnull %55)
+  tail call fastcc void @Psr_NtkAddBox(ptr noundef %1047, i32 noundef %.1.i, i32 noundef 0, ptr noundef %55)
   br label %.thread.i.i
 
 .thread322:                                       ; preds = %..thread322_crit_edge, %.loopexit.thread
@@ -5177,7 +5177,7 @@ Psr_ManUtilSkipSpaces.exit92.i.i:                 ; preds = %.preheader.i74.i.i,
   br i1 %exitcond.i.i30, label %Psr_ManIsVerilogModule.exit.thread.i, label %1237, !llvm.loop !23
 
 Psr_ManIsVerilogModule.exit.i:                    ; preds = %1237
-  %1243 = tail call i32 @Psr_ManReadSignalList(ptr noundef %24, ptr noundef nonnull %55, i8 noundef signext 41, i32 noundef 1)
+  %1243 = tail call i32 @Psr_ManReadSignalList(ptr noundef nonnull %24, ptr noundef nonnull %55, i8 noundef signext 41, i32 noundef 1)
   %1244 = icmp eq i32 %1243, 0
   br i1 %1244, label %Psr_ManReadSignalList2.exit.thread.i, label %Psr_ManIsVerilogModule.exit.Psr_ManReadSignalList2.exit.thread138_crit_edge.i
 
@@ -5307,7 +5307,7 @@ Psr_ManUtilSkipComments.exit.i114.i:              ; preds = %.lr.ph38.i.i116.i, 
 
 1271:                                             ; preds = %.loopexit.i33
   %1272 = load ptr, ptr %41, align 8
-  tail call fastcc void @Psr_NtkAddBox(ptr noundef %1272, i32 noundef %.033141.i, i32 noundef %.012.i129.i, ptr noundef nonnull %55)
+  tail call fastcc void @Psr_NtkAddBox(ptr noundef %1272, i32 noundef %.033141.i, i32 noundef %.012.i129.i, ptr noundef %55)
   br label %.thread.i.i
 
 1273:                                             ; preds = %855, %.loopexit183.i, %888, %.loopexit177.i, %1027, %1035, %1037, %1030, %993, %857, %.loopexit182.i, %.loopexit175.i, %.loopexit170.i, %Psr_ManReadSignalList2.exit.thread.i, %.loopexit148.i, %.loopexit.thread.i34, %Psr_ManIsVerilogModule.exit.thread.i, %Psr_ManReadName.exit.thread.thread.i
@@ -5597,7 +5597,7 @@ Psr_ManErrorPrint.exit:                           ; preds = %Psr_ManReadDesign.e
   br i1 %.not18.i, label %1358, label %1357
 
 1357:                                             ; preds = %1355
-  tail call fastcc void @Psr_ManVecFree(ptr noundef nonnull %1356)
+  tail call fastcc void @Psr_ManVecFree(ptr noundef %1356)
   br label %1358
 
 1358:                                             ; preds = %1357, %1355
@@ -5901,7 +5901,7 @@ Abc_Clock.exit7:                                  ; preds = %Psr_ManMemory.exit,
   %144 = fdiv double %143, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.163, double noundef %144)
   call void @Psr_ManWriteVerilog(ptr noundef nonnull @.str.12, ptr noundef nonnull %10) #19
-  call fastcc void @Psr_ManVecFree(ptr noundef nonnull %10)
+  call fastcc void @Psr_ManVecFree(ptr noundef %10)
   br label %145
 
 145:                                              ; preds = %Abc_Clock.exit, %Abc_Clock.exit7
@@ -5913,7 +5913,7 @@ declare i32 @Abc_NamObjNumMax(ptr noundef) local_unnamed_addr #3
 declare void @Psr_ManWriteVerilog(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Psr_ManVecFree(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @Psr_ManVecFree(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val8 = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val8, 0
@@ -7246,7 +7246,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_IntPushTwo(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @Vec_IntPushTwo(ptr nocapture noundef %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8
@@ -7416,7 +7416,7 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #8
 declare ptr @Abc_NamRef(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Psr_NtkAddBox(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @Psr_NtkAddBox(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 192
   %6 = getelementptr i8, ptr %0, i64 196
   %.val13 = load i32, ptr %6, align 4

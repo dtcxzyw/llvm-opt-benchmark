@@ -2710,7 +2710,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 
 375:                                              ; preds = %363
   %376 = load i32, ptr @precision, align 4
-  %377 = call fastcc ptr @formatName(i32 noundef %.fr, i32 noundef %309, ptr noundef nonnull %4)
+  %377 = call fastcc ptr @formatName(i32 noundef %.fr, i32 noundef %309, ptr noundef %4)
   %378 = load i32, ptr @pf, align 4
   %379 = sext i32 %378 to i64
   %380 = getelementptr inbounds [12 x ptr], ptr @pixFormatStr, i64 0, i64 %379
@@ -2950,7 +2950,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %506 = load ptr, ptr %505, align 8
   %.b648 = load i1, ptr @bottomUp, align 4
   %507 = select i1 %.b648, ptr @.str.201, ptr @.str.202
-  %508 = call fastcc ptr @formatName(i32 noundef %.fr, i32 noundef %309, ptr noundef nonnull %4)
+  %508 = call fastcc ptr @formatName(i32 noundef %.fr, i32 noundef %309, ptr noundef %4)
   %509 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.200, ptr noundef %506, ptr noundef nonnull %507, ptr noundef %508)
   %510 = load i32, ptr @cr, align 8
   %511 = icmp ne i32 %510, 0
@@ -3340,13 +3340,13 @@ switch.early.test:                                ; preds = %569
 
 687:                                              ; preds = %._crit_edge
   %688 = fdiv double %403, %673
-  %689 = call fastcc ptr @sigfig(double noundef %688, ptr noundef nonnull %4, i32 noundef 80)
+  %689 = call fastcc ptr @sigfig(double noundef %688, ptr noundef %4, i32 noundef 80)
   %690 = load i32, ptr @quiet, align 4
   %691 = icmp eq i32 %690, 2
   %692 = select i1 %691, ptr @str.99, ptr @.str.206
   %693 = uitofp i64 %.0554.lcssa to double
   %694 = fdiv double %405, %693
-  %695 = call fastcc ptr @sigfig(double noundef %694, ptr noundef nonnull %5, i32 noundef 80)
+  %695 = call fastcc ptr @sigfig(double noundef %694, ptr noundef %5, i32 noundef 80)
   %696 = load i32, ptr @quiet, align 4
   %697 = icmp eq i32 %696, 2
   %698 = select i1 %697, ptr @str.99, ptr @.str.206
@@ -3403,7 +3403,7 @@ switch.early.test:                                ; preds = %569
   %.not709 = icmp eq i32 %.1572, 0
   %724 = select i1 %.not709, ptr %calloc909, ptr %2
   %725 = select i1 %.not709, ptr %calloc, ptr %3
-  %726 = call fastcc i32 @decomp(ptr noundef nonnull %724, ptr noundef nonnull %725, ptr noundef null, i32 noundef %.3, i32 noundef %.3586, i32 noundef %.2592, i32 noundef 0, ptr noundef %0, i32 noundef %spec.select716, i32 noundef %.2595)
+  %726 = call fastcc i32 @decomp(ptr noundef %724, ptr noundef %725, ptr noundef null, i32 noundef %.3, i32 noundef %.3586, i32 noundef %.2592, i32 noundef 0, ptr noundef %0, i32 noundef %spec.select716, i32 noundef %.2595)
   %727 = icmp eq i32 %726, -1
   br i1 %727, label %.loopexit768, label %732
 
@@ -3490,7 +3490,7 @@ declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #2
 declare void @exit(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 -2147483648, 7) %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca [1024 x i8], align 16
   %9 = alloca [80 x i8], align 16
   %10 = load i32, ptr @pf, align 4
@@ -4565,7 +4565,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 
 550:                                              ; preds = %547
   %551 = fdiv double %549, %.1540.lcssa
-  %552 = call fastcc ptr @sigfig(double noundef %551, ptr noundef nonnull %8, i32 noundef 1024)
+  %552 = call fastcc ptr @sigfig(double noundef %551, ptr noundef %8, i32 noundef 1024)
   %553 = load i32, ptr @quiet, align 4
   %554 = icmp eq i32 %553, 2
   %555 = select i1 %554, ptr @str.99, ptr @.str.206
@@ -4574,14 +4574,14 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 
 ._crit_edge1201:                                  ; preds = %547, %550
   %557 = fdiv double %549, %.2538
-  %558 = call fastcc ptr @sigfig(double noundef %557, ptr noundef nonnull %8, i32 noundef 1024)
+  %558 = call fastcc ptr @sigfig(double noundef %557, ptr noundef %8, i32 noundef 1024)
   %559 = load i32, ptr @quiet, align 4
   %560 = icmp eq i32 %559, 2
   %561 = select i1 %560, ptr @str.99, ptr @.str.206
   %562 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.243, ptr noundef nonnull %8, ptr noundef nonnull %561)
   %563 = uitofp i64 %.0559.lcssa to double
   %564 = fdiv double %56, %563
-  %565 = call fastcc ptr @sigfig(double noundef %564, ptr noundef nonnull %9, i32 noundef 80)
+  %565 = call fastcc ptr @sigfig(double noundef %564, ptr noundef %9, i32 noundef 80)
   %566 = load i32, ptr @quiet, align 4
   %567 = icmp eq i32 %566, 2
   %568 = select i1 %567, ptr @str.99, ptr @.str.206
@@ -4693,7 +4693,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %.b622, label %636, label %633
 
 633:                                              ; preds = %632
-  %634 = call fastcc i32 @decomp(ptr noundef nonnull %calloc1209, ptr noundef nonnull %calloc, ptr noundef nonnull %23, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %spec.select, i32 noundef %.1553)
+  %634 = call fastcc i32 @decomp(ptr noundef %calloc1209, ptr noundef %calloc, ptr noundef nonnull %23, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %spec.select, i32 noundef %.1553)
   %635 = icmp eq i32 %634, -1
   br i1 %635, label %.thread, label %640
 
@@ -4819,7 +4819,7 @@ declare i32 @tj3SetScalingFactor(ptr noundef, i64) local_unnamed_addr #1
 declare i32 @tj3SetCroppingRegion(ptr noundef, i64, i64) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc ptr @formatName(i32 noundef %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #13 {
+define internal fastcc ptr @formatName(i32 noundef %0, i32 noundef %1, ptr noundef nonnull writeonly %2) unnamed_addr #13 {
   %4 = load i32, ptr @quiet, align 4
   %5 = icmp eq i32 %4, 1
   %6 = load i32, ptr @lossless, align 4
@@ -4890,7 +4890,7 @@ declare i32 @tj3Transform(ptr noundef, ptr noundef, i64 noundef, i32 noundef, pt
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc nonnull ptr @sigfig(double noundef %0, ptr noundef returned writeonly %1, i32 noundef %2) unnamed_addr #13 {
+define internal fastcc noundef nonnull ptr @sigfig(double noundef %0, ptr noundef nonnull returned writeonly %1, i32 noundef range(i32 80, 1025) %2) unnamed_addr #13 {
   %4 = alloca [80 x i8], align 16
   %5 = tail call double @llvm.fabs.f64(double %0)
   %6 = tail call double @log10(double noundef %5) #21
@@ -4910,12 +4910,12 @@ define internal fastcc nonnull ptr @sigfig(double noundef %0, ptr noundef return
 
 15:                                               ; preds = %12, %10
   %16 = zext nneg i32 %2 to i64
-  %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %16, ptr noundef nonnull %4, double noundef %0) #21
+  %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef %16, ptr noundef nonnull %4, double noundef %0) #21
   ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 {
   %11 = alloca [1024 x i8], align 16
   %12 = alloca [24 x i8], align 16
   %13 = alloca [16 x i8], align 16
@@ -5914,7 +5914,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef readon
   %508 = uitofp nneg i32 %.us-phi676 to double
   %509 = fmul double %507, %508
   %510 = fdiv double %509, %.2
-  %511 = call fastcc ptr @sigfig(double noundef %510, ptr noundef nonnull %11, i32 noundef 1024)
+  %511 = call fastcc ptr @sigfig(double noundef %510, ptr noundef %11, i32 noundef 1024)
   %512 = load i32, ptr @quiet, align 4
   %513 = icmp eq i32 %512, 2
   %514 = select i1 %513, ptr @str.99, ptr @.str.206
@@ -5924,7 +5924,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef readon
 
 516:                                              ; preds = %504
   %517 = fdiv double %509, %.us-phi678
-  %518 = call fastcc ptr @sigfig(double noundef %517, ptr noundef nonnull %11, i32 noundef 1024)
+  %518 = call fastcc ptr @sigfig(double noundef %517, ptr noundef %11, i32 noundef 1024)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %11)
   br label %538
 

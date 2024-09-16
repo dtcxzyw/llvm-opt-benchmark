@@ -4692,7 +4692,7 @@ define internal fastcc void @wait_for_cmds_dispatched_to_panel(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @wait_for_header_credits(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @wait_for_header_credits(ptr noundef %0, i32 noundef range(i32 5, 7) %1, i32 noundef range(i32 1, 17) %2) unnamed_addr #0 align 16 {
   %4 = tail call i64 @ktime_get_raw() #11
   %5 = add i64 %4, 100000
   %6 = tail call i32 @__SCT__might_resched() #11
@@ -4707,7 +4707,7 @@ define internal fastcc noundef zeroext i1 @wait_for_header_credits(ptr noundef %
   %14 = tail call i32 %13(ptr noundef %9, i32 %8, i1 noundef zeroext true) #11
   %15 = lshr i32 %14, 8
   %16 = and i32 %15, 31
-  %17 = icmp slt i32 %16, %2
+  %17 = icmp ult i32 %16, %2
   %18 = select i1 %17, i1 %12, i1 false
   br i1 %18, label %.lr.ph, label %._crit_edge
 
@@ -4748,7 +4748,7 @@ define internal fastcc noundef zeroext i1 @wait_for_header_credits(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @wait_for_payload_credits(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @wait_for_payload_credits(ptr noundef %0, i32 noundef range(i32 5, 7) %1, i32 noundef range(i32 1, 65) %2) unnamed_addr #0 align 16 {
   %4 = tail call i64 @ktime_get_raw() #11
   %5 = add i64 %4, 100000
   %6 = tail call i32 @__SCT__might_resched() #11
@@ -4762,7 +4762,7 @@ define internal fastcc noundef zeroext i1 @wait_for_payload_credits(ptr noundef 
   %13 = load ptr, ptr %10, align 8
   %14 = tail call i32 %13(ptr noundef %9, i32 %8, i1 noundef zeroext true) #11
   %15 = and i32 %14, 255
-  %16 = icmp slt i32 %15, %2
+  %16 = icmp ult i32 %15, %2
   %17 = select i1 %16, i1 %12, i1 false
   br i1 %17, label %.lr.ph, label %._crit_edge
 

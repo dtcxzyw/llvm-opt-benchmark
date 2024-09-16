@@ -389,7 +389,7 @@ _ZNSt8functionIFbRKN4llvm18TargetRegisterInfoERKNS0_19MachineRegisterInfoENS0_8R
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  call fastcc void @_ZN12_GLOBAL__N_116RegAllocFastImplC2ESt8functionIFbRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoENS2_8RegisterEEEb(ptr noundef nonnull align 8 dereferenceable(1257) %8, ptr noundef nonnull %0, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_116RegAllocFastImplC2ESt8functionIFbRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoENS2_8RegisterEEEb(ptr noundef nonnull align 8 dereferenceable(1257) %8, ptr noundef %0, i1 noundef zeroext true)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i = icmp eq ptr %10, null
@@ -533,7 +533,7 @@ _ZNSt8functionIFbRKN4llvm18TargetRegisterInfoERKNS0_19MachineRegisterInfoENS0_8R
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %20 = load i8, ptr %19, align 8
   %21 = trunc i8 %20 to i1
-  call fastcc void @_ZN12_GLOBAL__N_116RegAllocFastImplC2ESt8functionIFbRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoENS2_8RegisterEEEb(ptr noundef nonnull align 8 dereferenceable(1257) %5, ptr noundef nonnull %6, i1 noundef zeroext %21)
+  call fastcc void @_ZN12_GLOBAL__N_116RegAllocFastImplC2ESt8functionIFbRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoENS2_8RegisterEEEb(ptr noundef nonnull align 8 dereferenceable(1257) %5, ptr noundef %6, i1 noundef zeroext %21)
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not.i.i = icmp eq ptr %23, null
@@ -558,7 +558,7 @@ _ZNSt8functionIFbRKN4llvm18TargetRegisterInfoERKNS0_19MachineRegisterInfoENS0_8R
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116RegAllocFastImplC2ESt8functionIFbRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoENS2_8RegisterEEEb(ptr noundef nonnull align 8 dereferenceable(1257) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116RegAllocFastImplC2ESt8functionIFbRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoENS2_8RegisterEEEb(ptr noundef nonnull align 8 dereferenceable(1257) %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   tail call void @_ZN4llvm17RegisterClassInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(320) %4) #22
@@ -1322,7 +1322,7 @@ _ZNSt8functionIFbRKN4llvm18TargetRegisterInfoERKNS0_19MachineRegisterInfoENS0_8R
   br label %_ZNSt8functionIFbRKN4llvm18TargetRegisterInfoERKNS0_19MachineRegisterInfoENS0_8RegisterEEEC2ERKS9_.exit.i
 
 _ZNSt8functionIFbRKN4llvm18TargetRegisterInfoERKNS0_19MachineRegisterInfoENS0_8RegisterEEEC2ERKS9_.exit.i: ; preds = %22, %_ZNSt8functionIFbRKN4llvm18TargetRegisterInfoERKNS0_19MachineRegisterInfoENS0_8RegisterEEEC2ERKS9_.exit
-  call fastcc void @_ZN12_GLOBAL__N_116RegAllocFastImplC2ESt8functionIFbRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoENS2_8RegisterEEEb(ptr noundef nonnull align 8 dereferenceable(1257) %20, ptr noundef nonnull %3, i1 noundef zeroext %1)
+  call fastcc void @_ZN12_GLOBAL__N_116RegAllocFastImplC2ESt8functionIFbRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoENS2_8RegisterEEEb(ptr noundef nonnull align 8 dereferenceable(1257) %20, ptr noundef %3, i1 noundef zeroext %1)
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %30 = load ptr, ptr %29, align 8
   %.not.i.i.i = icmp eq ptr %30, null
@@ -1371,7 +1371,7 @@ _ZNSt8functionIFbRKN4llvm18TargetRegisterInfoERKNS0_19MachineRegisterInfoENS0_8R
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  call fastcc void @_ZN12_GLOBAL__N_116RegAllocFastImplC2ESt8functionIFbRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoENS2_8RegisterEEEb(ptr noundef nonnull align 8 dereferenceable(1257) %8, ptr noundef nonnull %0, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_116RegAllocFastImplC2ESt8functionIFbRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoENS2_8RegisterEEEb(ptr noundef nonnull align 8 dereferenceable(1257) %8, ptr noundef %0, i1 noundef zeroext true)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i = icmp eq ptr %10, null

@@ -182,7 +182,7 @@ find_simple.exit:                                 ; preds = %.lr.ph.i
 
 find_simple.exit58:                               ; preds = %3, %13
   %.047.lcssa.sink = phi ptr [ %.047, %13 ], [ %2, %3 ]
-  %62 = tail call fastcc ptr @find_struct(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %.047.lcssa.sink)
+  %62 = tail call fastcc ptr @find_struct(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %.047.lcssa.sink)
   %63 = icmp eq ptr %62, null
   br i1 %63, label %find_simple.exit58.thread, label %find_simple.exit58.thread61
 
@@ -216,7 +216,7 @@ find_simple.exit58.thread61:                      ; preds = %.lr.ph.i53, %find_s
 declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @find_struct(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i8, ptr %1, align 1
   store i8 0, ptr %1, align 1
   %5 = tail call ptr @find_variable(ptr noundef %0)

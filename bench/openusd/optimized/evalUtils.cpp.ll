@@ -601,7 +601,7 @@ declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame16
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame7GetZeroEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetExtrapolationSlopeEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS2_SaIS2_EEEERKNS_8TsSplineENS_6TsSideE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetExtrapolationSlopeEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS2_SaIS2_EEEERKNS_8TsSplineENS_6TsSideE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
@@ -810,18 +810,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %81, %_ZN32pxr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_GetSlopeToAdjacentKnotEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS2_SaIS2_EEEENS_6TsSideE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i32 noundef %2) unnamed_addr #3 {
-  %4 = icmp eq i32 %2, 1
-  %.sroa.02.0.idx = select i1 %4, i64 0, i64 -72
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_GetSlopeToAdjacentKnotEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS2_SaIS2_EEEENS_6TsSideE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 {
+  %.not = icmp eq i32 %2, 0
+  %.sroa.02.0.idx = select i1 %.not, i64 -72, i64 0
   %.sroa.02.0 = getelementptr inbounds i8, ptr %1, i64 %.sroa.02.0.idx
-  %.sroa.0.0.idx = select i1 %4, i64 72, i64 0
+  %.sroa.0.0.idx = select i1 %.not, i64 0, i64 72
   %.sroa.0.0 = getelementptr inbounds i8, ptr %1, i64 %.sroa.0.0.idx
-  %5 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__18Ts_GetKeyFrameDataERKNS_10TsKeyFrameE(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.02.0)
-  %6 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__18Ts_GetKeyFrameDataERKNS_10TsKeyFrameE(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.0)
-  %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 168
-  %9 = load ptr, ptr %8, align 8
-  tail call void %9(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %4 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__18Ts_GetKeyFrameDataERKNS_10TsKeyFrameE(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.02.0)
+  %5 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__18Ts_GetKeyFrameDataERKNS_10TsKeyFrameE(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.0)
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds i8, ptr %6, i64 168
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   ret void
 }
 
@@ -830,7 +830,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame22GetLeftValueDe
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame18GetValueDerivativeEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L12_ExtrapolateEdN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS2_SaIS2_EEEERKNS_8TsSplineENS_6TsSideE(ptr dead_on_unwind noalias writable align 8 %0, double noundef %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L12_ExtrapolateEdN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS2_SaIS2_EEEERKNS_8TsSplineENS_6TsSideE(ptr dead_on_unwind noalias writable align 8 %0, double noundef %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetExtrapolationSlopeEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS2_SaIS2_EEEERKNS_8TsSplineENS_6TsSideE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %4)

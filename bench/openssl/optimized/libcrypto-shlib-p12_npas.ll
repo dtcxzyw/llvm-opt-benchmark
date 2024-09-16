@@ -100,7 +100,7 @@ if.then15.i:                                      ; preds = %if.else.i
   %3 = load ptr, ptr %enc_data.i, align 8
   %algorithm.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %algorithm.i, align 8
-  %call17.i = call fastcc i32 @alg_get(ptr noundef %4, ptr noundef nonnull %pbe_nid.i, ptr noundef nonnull %pbe_iter.i, ptr noundef nonnull %pbe_saltlen.i, ptr noundef nonnull %cipherid.i)
+  %call17.i = call fastcc i32 @alg_get(ptr noundef %4, ptr noundef %pbe_nid.i, ptr noundef %pbe_iter.i, ptr noundef %pbe_saltlen.i, ptr noundef %cipherid.i)
   %tobool.i = icmp eq i32 %call17.i, 0
   %cmp23.i = icmp eq ptr %call16.i, null
   %or.cond.i = select i1 %tobool.i, i1 true, i1 %cmp23.i
@@ -140,7 +140,7 @@ if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
   %8 = load ptr, ptr %value.i.i.i, align 8
   call void @X509_SIG_get0(ptr noundef %8, ptr noundef nonnull %shalg.i.i.i, ptr noundef null) #3
   %9 = load ptr, ptr %shalg.i.i.i, align 8
-  %call6.i.i.i = call fastcc i32 @alg_get(ptr noundef %9, ptr noundef nonnull %p8_nid.i.i.i, ptr noundef nonnull %p8_iter.i.i.i, ptr noundef nonnull %p8_saltlen.i.i.i, ptr noundef nonnull %cipherid.i.i.i)
+  %call6.i.i.i = call fastcc i32 @alg_get(ptr noundef %9, ptr noundef %p8_nid.i.i.i, ptr noundef %p8_iter.i.i.i, ptr noundef %p8_saltlen.i.i.i, ptr noundef %cipherid.i.i.i)
   %tobool.not.i.i.i = icmp eq i32 %call6.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %newpass_bag.exit.thread.sink.split.i.i, label %if.end8.i.i.i
 
@@ -199,7 +199,7 @@ if.end30.i:                                       ; preds = %for.inc.i.i, %if.en
   br i1 %cmp11.i, label %if.then32.i, label %if.else34.i
 
 if.then32.i:                                      ; preds = %if.end30.i
-  %call33.i = call ptr @PKCS12_pack_p7data(ptr noundef %bags.3.i) #3
+  %call33.i = call ptr @PKCS12_pack_p7data(ptr noundef nonnull %bags.3.i) #3
   br label %if.end40.i
 
 if.else34.i:                                      ; preds = %if.end30.i
@@ -208,7 +208,7 @@ if.else34.i:                                      ; preds = %if.end30.i
   %17 = load i32, ptr %pbe_iter.i, align 4
   %18 = load ptr, ptr %ctx.i, align 8
   %19 = load ptr, ptr %propq.i, align 8
-  %call39.i = call ptr @PKCS12_pack_p7encdata_ex(i32 noundef %15, ptr noundef %newpass, i32 noundef -1, ptr noundef null, i32 noundef %16, i32 noundef %17, ptr noundef %bags.3.i, ptr noundef %18, ptr noundef %19) #3
+  %call39.i = call ptr @PKCS12_pack_p7encdata_ex(i32 noundef %15, ptr noundef %newpass, i32 noundef -1, ptr noundef null, i32 noundef %16, i32 noundef %17, ptr noundef nonnull %bags.3.i, ptr noundef %18, ptr noundef %19) #3
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.else34.i, %if.then32.i
@@ -342,7 +342,7 @@ declare ptr @PKCS12_unpack_p7data(ptr noundef) local_unnamed_addr #1
 declare ptr @PKCS12_unpack_p7encdata(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @alg_get(ptr noundef %alg, ptr nocapture noundef writeonly %pnid, ptr nocapture noundef writeonly %piter, ptr nocapture noundef writeonly %psaltlen, ptr nocapture noundef writeonly %cipherid) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @alg_get(ptr noundef %alg, ptr nocapture noundef nonnull writeonly %pnid, ptr nocapture noundef nonnull writeonly %piter, ptr nocapture noundef nonnull writeonly %psaltlen, ptr nocapture noundef nonnull writeonly %cipherid) unnamed_addr #0 {
 entry:
   %aparamtype = alloca i32, align 4
   %aoid = alloca ptr, align 8

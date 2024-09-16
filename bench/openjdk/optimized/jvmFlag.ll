@@ -3150,7 +3150,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11fill_to_posP12outputStreamj(ptr noundef %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc void @_ZL11fill_to_posP12outputStreamj(ptr noundef %0, i32 noundef range(i32 10, 159) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp ult i32 %4, %1

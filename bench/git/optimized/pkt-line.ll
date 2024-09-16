@@ -90,7 +90,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @packet_trace(ptr noundef %buf, i32 noundef %len, i32 noundef %write) unnamed_addr #0 {
+define internal fastcc void @packet_trace(ptr noundef %buf, i32 noundef %len, i32 noundef range(i32 0, 2) %write) unnamed_addr #0 {
 entry:
   %out = alloca %struct.strbuf, align 8
   %call = tail call i32 @trace_want(ptr noundef nonnull @trace_packet) #15
@@ -447,7 +447,7 @@ if.then4.i.i:                                     ; preds = %entry
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %entry
-  call fastcc void @format_packet(ptr noundef nonnull @packet_write_fmt_1.buf, ptr noundef nonnull @.str.7, ptr noundef %fmt, ptr noundef nonnull %args)
+  call fastcc void @format_packet(ptr noundef nonnull @packet_write_fmt_1.buf, ptr noundef nonnull @.str.7, ptr noundef %fmt, ptr noundef %args)
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
   %call.i = call i64 @write_in_full(i32 noundef %fd, ptr noundef %1, i64 noundef %2) #15
@@ -482,7 +482,7 @@ if.then4.i.i:                                     ; preds = %entry
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %entry
-  call fastcc void @format_packet(ptr noundef nonnull @packet_write_fmt_1.buf, ptr noundef nonnull @.str.7, ptr noundef %fmt, ptr noundef nonnull %args)
+  call fastcc void @format_packet(ptr noundef nonnull @packet_write_fmt_1.buf, ptr noundef nonnull @.str.7, ptr noundef %fmt, ptr noundef %args)
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
   %call.i = call i64 @write_in_full(i32 noundef %fd, ptr noundef %1, i64 noundef %2) #15
@@ -514,7 +514,7 @@ define dso_local void @packet_write(i32 noundef %fd_out, ptr noundef %buf, i64 n
 entry:
   %err = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %err, ptr noundef nonnull align 8 dereferenceable(24) @__const.packet_write_gently.err, i64 24, i1 false)
-  %call = call fastcc i32 @do_packet_write(i32 noundef %fd_out, ptr noundef %buf, i64 noundef %size, ptr noundef nonnull %err)
+  %call = call fastcc i32 @do_packet_write(i32 noundef %fd_out, ptr noundef %buf, i64 noundef %size, ptr noundef %err)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -532,7 +532,7 @@ if.end:                                           ; preds = %entry
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @do_packet_write(i32 noundef %fd_out, ptr noundef %buf, i64 noundef %size, ptr noundef %err) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @do_packet_write(i32 noundef %fd_out, ptr noundef %buf, i64 noundef %size, ptr noundef nonnull %err) unnamed_addr #0 {
 entry:
   %header = alloca [4 x i8], align 1
   %cmp = icmp ugt i64 %size, 65516
@@ -550,7 +550,7 @@ if.end3.i:                                        ; preds = %if.then
 _.exit:                                           ; preds = %if.then, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.9, %if.then ]
   %call.i7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #18
-  tail call void @strbuf_add(ptr noundef %err, ptr noundef %retval.0.i, i64 noundef %call.i7) #15
+  tail call void @strbuf_add(ptr noundef nonnull %err, ptr noundef %retval.0.i, i64 noundef %call.i7) #15
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -605,7 +605,7 @@ _.exit12:                                         ; preds = %if.then9, %if.end3.
   %call11 = tail call ptr @__errno_location() #17
   %6 = load i32, ptr %call11, align 4
   %call12 = call ptr @strerror(i32 noundef %6) #15
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %err, ptr noundef %retval.0.i11, ptr noundef %call12) #15
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %err, ptr noundef %retval.0.i11, ptr noundef %call12) #15
   br label %return
 
 return:                                           ; preds = %lor.lhs.false, %_.exit12, %_.exit
@@ -679,7 +679,7 @@ if.then4.i:                                       ; preds = %entry
 
 strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
   call void @llvm.va_start.p0(ptr nonnull %args)
-  call fastcc void @format_packet(ptr noundef nonnull @packet_fwrite_fmt.buf, ptr noundef nonnull @.str.7, ptr noundef %fmt, ptr noundef nonnull %args)
+  call fastcc void @format_packet(ptr noundef nonnull @packet_fwrite_fmt.buf, ptr noundef nonnull @.str.7, ptr noundef %fmt, ptr noundef %args)
   call void @llvm.va_end.p0(ptr nonnull %args)
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_fwrite_fmt.buf, i64 16), align 8
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @packet_fwrite_fmt.buf, i64 8), align 8
@@ -688,14 +688,14 @@ strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @format_packet(ptr noundef %out, ptr noundef %prefix, ptr noundef %fmt, ptr noundef %args) unnamed_addr #0 {
+define internal fastcc void @format_packet(ptr noundef %out, ptr noundef %prefix, ptr noundef %fmt, ptr noundef nonnull %args) unnamed_addr #0 {
 entry:
   %len = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load i64, ptr %len, align 8
   tail call void @strbuf_add(ptr noundef %out, ptr noundef nonnull @.str, i64 noundef 4) #15
   %call.i11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %prefix) #18
   tail call void @strbuf_add(ptr noundef %out, ptr noundef %prefix, i64 noundef %call.i11) #15
-  tail call void @strbuf_vaddf(ptr noundef %out, ptr noundef %fmt, ptr noundef %args) #15
+  tail call void @strbuf_vaddf(ptr noundef %out, ptr noundef %fmt, ptr noundef nonnull %args) #15
   %1 = load i64, ptr %len, align 8
   %sub = sub i64 %1, %0
   %cmp = icmp ugt i64 %sub, 65520
@@ -756,7 +756,7 @@ define dso_local void @packet_buf_write(ptr noundef %buf, ptr noundef %fmt, ...)
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
-  call fastcc void @format_packet(ptr noundef %buf, ptr noundef nonnull @.str.7, ptr noundef %fmt, ptr noundef nonnull %args)
+  call fastcc void @format_packet(ptr noundef %buf, ptr noundef nonnull @.str.7, ptr noundef %fmt, ptr noundef %args)
   call void @llvm.va_end.p0(ptr nonnull %args)
   ret void
 }
@@ -779,7 +779,7 @@ if.end:                                           ; preds = %entry, %packet_writ
 if.end4:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %err.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %err.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.packet_write_gently.err, i64 24, i1 false)
-  %call.i = call fastcc i32 @do_packet_write(i32 noundef %fd_out, ptr noundef %call, i64 noundef %call112, ptr noundef nonnull %err.i)
+  %call.i = call fastcc i32 @do_packet_write(i32 noundef %fd_out, ptr noundef %call, i64 noundef %call112, ptr noundef %err.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %packet_write_gently.exit, label %packet_write_gently.exit.thread
 
@@ -839,7 +839,7 @@ if.end4.us:                                       ; preds = %if.end4.us.preheade
   %add.ptr.us = getelementptr inbounds i8, ptr %src_in, i64 %bytes_written.010.us18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %err.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %err.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.packet_write_gently.err, i64 24, i1 false)
-  %call.i.us = call fastcc i32 @do_packet_write(i32 noundef %fd_out, ptr noundef %add.ptr.us, i64 noundef %.sub.us19, ptr noundef nonnull %err.i)
+  %call.i.us = call fastcc i32 @do_packet_write(i32 noundef %fd_out, ptr noundef %add.ptr.us, i64 noundef %.sub.us19, ptr noundef %err.i)
   %tobool.not.i.us = icmp eq i32 %call.i.us, 0
   br i1 %tobool.not.i.us, label %while.body.us, label %packet_write_gently.exit.us
 
@@ -874,7 +874,7 @@ if.end4:                                          ; preds = %if.end4.preheader, 
   %add.ptr = getelementptr inbounds i8, ptr %src_in, i64 %bytes_written.01013
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %err.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %err.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.packet_write_gently.err, i64 24, i1 false)
-  %call.i = call fastcc i32 @do_packet_write(i32 noundef %fd_out, ptr noundef %add.ptr, i64 noundef %.sub14, ptr noundef nonnull %err.i)
+  %call.i = call fastcc i32 @do_packet_write(i32 noundef %fd_out, ptr noundef %add.ptr, i64 noundef %.sub14, ptr noundef %err.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %while.body, label %packet_write_gently.exit
 
@@ -1189,7 +1189,7 @@ return:                                           ; preds = %if.end92, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2147483644) i32 @get_packet_data(i32 noundef %fd, ptr noundef %src_buf, ptr nocapture noundef %src_size, ptr noundef %dst, i32 noundef %size, i32 noundef %options) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2147483644) i32 @get_packet_data(i32 noundef %fd, ptr noundef %src_buf, ptr nocapture noundef %src_size, ptr noundef %dst, i32 noundef range(i32 0, 2147483644) %size, i32 noundef %options) unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %fd, -1
   %tobool = icmp ne ptr %src_buf, null
@@ -1712,7 +1712,7 @@ if.then4.i.i:                                     ; preds = %entry
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %entry
-  call fastcc void @format_packet(ptr noundef nonnull @packet_write_fmt_1.buf, ptr noundef nonnull %cond, ptr noundef %fmt, ptr noundef nonnull %args)
+  call fastcc void @format_packet(ptr noundef nonnull @packet_write_fmt_1.buf, ptr noundef nonnull %cond, ptr noundef %fmt, ptr noundef %args)
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
   %call.i = call i64 @write_in_full(i32 noundef %0, ptr noundef %2, i64 noundef %3) #15
@@ -1753,7 +1753,7 @@ if.then4.i.i:                                     ; preds = %entry
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %entry
-  call fastcc void @format_packet(ptr noundef nonnull @packet_write_fmt_1.buf, ptr noundef nonnull %cond, ptr noundef %fmt, ptr noundef nonnull %args)
+  call fastcc void @format_packet(ptr noundef nonnull @packet_write_fmt_1.buf, ptr noundef nonnull %cond, ptr noundef %fmt, ptr noundef %args)
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
   %call.i = call i64 @write_in_full(i32 noundef %0, ptr noundef %2, i64 noundef %3) #15

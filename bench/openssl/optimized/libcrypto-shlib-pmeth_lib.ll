@@ -2167,7 +2167,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @evp_pkey_ctx_set_md(ptr noundef %ctx, ptr noundef %md, i32 noundef %fallback, i32 noundef %op, i32 noundef %ctrl) unnamed_addr #0 {
+define internal fastcc i32 @evp_pkey_ctx_set_md(ptr noundef %ctx, ptr noundef %md, i32 noundef range(i32 0, 2) %fallback, i32 noundef range(i32 496, 2049) %op, i32 noundef range(i32 1, 4100) %ctrl) unnamed_addr #0 {
 entry:
   %md_params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -2261,7 +2261,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @evp_pkey_ctx_set1_octet_string(ptr noundef %ctx, i32 noundef %fallback, ptr noundef %param, i32 noundef %op, i32 noundef %ctrl, ptr noundef %data, i32 noundef %datalen) unnamed_addr #0 {
+define internal fastcc i32 @evp_pkey_ctx_set1_octet_string(ptr noundef %ctx, i32 noundef range(i32 0, 2) %fallback, ptr noundef %param, i32 noundef range(i32 4, 2049) %op, i32 noundef range(i32 6, 4106) %ctrl, ptr noundef %data, i32 noundef %datalen) unnamed_addr #0 {
 entry:
   %octet_string_params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -2483,7 +2483,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @evp_pkey_ctx_set_uint64(ptr noundef %ctx, ptr noundef %param, i32 noundef %ctrl, i64 noundef %val) unnamed_addr #0 {
+define internal fastcc i32 @evp_pkey_ctx_set_uint64(ptr noundef %ctx, ptr noundef %param, i32 noundef range(i32 4106, 4110) %ctrl, i64 noundef %val) unnamed_addr #0 {
 entry:
   %value.addr.i = alloca i64, align 8
   %val.addr = alloca i64, align 8

@@ -50,7 +50,7 @@ define range(i32 -1, 1) i32 @slurm_signal_job(i32 noundef %0, i16 noundef zeroex
   %13 = load ptr, ptr %3, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 120
   %15 = load ptr, ptr %14, align 8
-  %16 = call fastcc i32 @_local_send_recv_rc_msgs(ptr noundef %15, i32 noundef 6004, ptr noundef nonnull %4)
+  %16 = call fastcc i32 @_local_send_recv_rc_msgs(ptr noundef %15, i32 noundef 6004, ptr noundef %4)
   %17 = load ptr, ptr %3, align 8
   call void @slurm_free_resource_allocation_response_msg(ptr noundef %17) #5
   br label %18
@@ -74,7 +74,7 @@ declare i32 @slurm_allocation_lookup(i32 noundef, ptr noundef) local_unnamed_add
 declare i32 @slurm_get_errno() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_local_send_recv_rc_msgs(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @_local_send_recv_rc_msgs(ptr noundef %0, i32 noundef range(i32 6004, 6007) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 416, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 59, ptr noundef nonnull @__func__._local_send_recv_rc_msgs) #5
   tail call void @slurm_msg_t_init(ptr noundef %4) #5
   tail call void @slurm_msg_set_r_uid(ptr noundef %4, i32 noundef -1) #5
@@ -272,7 +272,7 @@ _signal_batch_script_step.exit:                   ; preds = %25, %42, %._crit_ed
   store i16 %73, ptr %75, align 2
   %76 = getelementptr inbounds i8, ptr %63, i64 80
   %77 = load ptr, ptr %76, align 8
-  %78 = call fastcc i32 @_local_send_recv_rc_msgs(ptr noundef %77, i32 noundef 6004, ptr noundef nonnull %4)
+  %78 = call fastcc i32 @_local_send_recv_rc_msgs(ptr noundef %77, i32 noundef 6004, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.pre = load ptr, ptr %8, align 8
   br label %.loopexit
@@ -451,7 +451,7 @@ _terminate_batch_script_step.exit:                ; preds = %24, %39, %41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %67, ptr noundef nonnull readonly align 8 dereferenceable(12) %66, i64 12, i1 false)
   %68 = getelementptr inbounds i8, ptr %57, i64 80
   %69 = load ptr, ptr %68, align 8
-  %70 = call fastcc i32 @_local_send_recv_rc_msgs(ptr noundef %69, i32 noundef 6006, ptr noundef nonnull %3)
+  %70 = call fastcc i32 @_local_send_recv_rc_msgs(ptr noundef %69, i32 noundef 6006, ptr noundef %3)
   %71 = icmp eq i32 %70, -1
   %72 = tail call ptr @__errno_location() #6
   br i1 %71, label %75, label %._terminate_job_step.exit_crit_edge

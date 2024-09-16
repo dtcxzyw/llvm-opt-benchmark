@@ -98,7 +98,7 @@ define dso_local void @RelationBuildRowSecurity(ptr nocapture noundef %0) local_
   %36 = call ptr @MemoryContextStrdup(ptr noundef %5, ptr noundef nonnull %35) #6
   store ptr %36, ptr %27, align 8
   %37 = load ptr, ptr %17, align 8
-  %38 = call fastcc i64 @heap_getattr(ptr noundef nonnull %20, i32 noundef 6, ptr noundef %37, ptr noundef nonnull %3)
+  %38 = call fastcc i64 @heap_getattr(ptr noundef %20, i32 noundef 6, ptr noundef %37, ptr noundef %3)
   %39 = load i8, ptr %3, align 1
   %40 = trunc i8 %39 to i1
   br i1 %40, label %41, label %44
@@ -118,7 +118,7 @@ define dso_local void @RelationBuildRowSecurity(ptr nocapture noundef %0) local_
   store ptr %46, ptr %47, align 8
   store ptr %4, ptr @CurrentMemoryContext, align 8
   %48 = load ptr, ptr %17, align 8
-  %49 = call fastcc i64 @heap_getattr(ptr noundef nonnull %20, i32 noundef 7, ptr noundef %48, ptr noundef nonnull %3)
+  %49 = call fastcc i64 @heap_getattr(ptr noundef %20, i32 noundef 7, ptr noundef %48, ptr noundef %3)
   %50 = load i8, ptr %3, align 1
   %51 = trunc i8 %50 to i1
   br i1 %51, label %57, label %52
@@ -141,7 +141,7 @@ define dso_local void @RelationBuildRowSecurity(ptr nocapture noundef %0) local_
 
 59:                                               ; preds = %57, %52
   %60 = load ptr, ptr %17, align 8
-  %61 = call fastcc i64 @heap_getattr(ptr noundef nonnull %20, i32 noundef 8, ptr noundef %60, ptr noundef nonnull %3)
+  %61 = call fastcc i64 @heap_getattr(ptr noundef %20, i32 noundef 8, ptr noundef %60, ptr noundef %3)
   %62 = load i8, ptr %3, align 1
   %63 = trunc i8 %62 to i1
   br i1 %63, label %69, label %64
@@ -215,18 +215,18 @@ declare ptr @systable_beginscan(ptr noundef, i32 noundef, i1 noundef zeroext, pt
 declare ptr @systable_getnext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef range(i32 4, 9) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 18
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 2047
   %10 = zext nneg i16 %9 to i32
-  %11 = icmp sgt i32 %1, %10
+  %11 = icmp ugt i32 %1, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %4
-  %13 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef %3) #6
+  %13 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef nonnull %3) #6
   br label %fastgetattr.exit
 
 14:                                               ; preds = %4
@@ -306,26 +306,25 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   br label %fastgetattr.exit
 
 59:                                               ; preds = %14
-  %60 = add nsw i32 %1, 7
+  %60 = add nsw i32 %1, -1
   %61 = getelementptr inbounds i8, ptr %15, i64 23
   %.val.i = load i8, ptr %61, align 1
   %62 = zext i8 %.val.i to i32
-  %63 = and i32 %60, 7
-  %64 = shl nuw nsw i32 1, %63
-  %65 = and i32 %64, %62
-  %.not.i.i = icmp eq i32 %65, 0
-  br i1 %.not.i.i, label %66, label %67
+  %63 = shl nuw nsw i32 1, %60
+  %64 = and i32 %63, %62
+  %.not.i.i = icmp eq i32 %64, 0
+  br i1 %.not.i.i, label %65, label %66
 
-66:                                               ; preds = %59
+65:                                               ; preds = %59
   store i8 1, ptr %3, align 1
   br label %fastgetattr.exit
 
-67:                                               ; preds = %59
-  %68 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #6
+66:                                               ; preds = %59
+  %67 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #6
   br label %fastgetattr.exit
 
-fastgetattr.exit:                                 ; preds = %67, %66, %57, %55, %49, %46, %43, %40, %12
-  %.0 = phi i64 [ %13, %12 ], [ 0, %66 ], [ %68, %67 ], [ %58, %57 ], [ %50, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %56, %55 ]
+fastgetattr.exit:                                 ; preds = %66, %65, %57, %55, %49, %46, %43, %40, %12
+  %.0 = phi i64 [ %13, %12 ], [ 0, %65 ], [ %67, %66 ], [ %58, %57 ], [ %50, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %56, %55 ]
   ret i64 %.0
 }
 
@@ -477,7 +476,7 @@ define dso_local noundef zeroext i1 @RemoveRoleFromObjectPolicy(i32 noundef %0, 
   %26 = load i32, ptr %25, align 4
   %27 = getelementptr inbounds i8, ptr %11, i64 64
   %28 = load ptr, ptr %27, align 8
-  %29 = call fastcc i64 @heap_getattr(ptr noundef nonnull %14, i32 noundef 6, ptr noundef %28, ptr noundef nonnull %5)
+  %29 = call fastcc i64 @heap_getattr(ptr noundef %14, i32 noundef 6, ptr noundef %28, ptr noundef %5)
   %30 = inttoptr i64 %29 to ptr
   %31 = call ptr @pg_detoast_datum_copy(ptr noundef %30) #6
   %32 = getelementptr inbounds i8, ptr %31, i64 8
@@ -724,7 +723,7 @@ parse_policy_command.exit.thread:                 ; preds = %22, %13, %31, %pars
   %.0.i76 = phi i64 [ 97, %parse_policy_command.exit ], [ %.0.i.ph78, %31 ], [ 119, %22 ], [ 42, %13 ]
   %44 = getelementptr inbounds i8, ptr %0, i64 40
   %45 = load ptr, ptr %44, align 8
-  %46 = call fastcc ptr @policy_role_list_to_array(ptr noundef %45, ptr noundef nonnull %3)
+  %46 = call fastcc ptr @policy_role_list_to_array(ptr noundef %45, ptr noundef %3)
   %47 = load i32, ptr %3, align 4
   %48 = tail call ptr @construct_array_builtin(ptr noundef %46, i32 noundef %47, i32 noundef 26) #6
   %49 = tail call ptr @make_parsestate(ptr noundef null) #6
@@ -902,7 +901,7 @@ parse_policy_command.exit.thread:                 ; preds = %22, %13, %31, %pars
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @policy_role_list_to_array(ptr noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @policy_role_list_to_array(ptr noundef readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -1105,7 +1104,7 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %1
-  %16 = call fastcc ptr @policy_role_list_to_array(ptr noundef nonnull %14, ptr noundef nonnull %3)
+  %16 = call fastcc ptr @policy_role_list_to_array(ptr noundef nonnull %14, ptr noundef %3)
   %17 = load i32, ptr %3, align 4
   %18 = tail call ptr @construct_array_builtin(ptr noundef %16, i32 noundef %17, i32 noundef 26) #6
   br label %19
@@ -1188,7 +1187,7 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
 60:                                               ; preds = %43
   %61 = getelementptr inbounds i8, ptr %44, i64 64
   %62 = load ptr, ptr %61, align 8
-  %63 = call fastcc i64 @heap_getattr(ptr noundef nonnull %51, i32 noundef 4, ptr noundef %62, ptr noundef nonnull %9)
+  %63 = call fastcc i64 @heap_getattr(ptr noundef %51, i32 noundef 4, ptr noundef %62, ptr noundef %9)
   %64 = trunc i64 %63 to i8
   switch i8 %64, label %77 [
     i8 114, label %65
@@ -1243,7 +1242,7 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
 
 89:                                               ; preds = %77
   %90 = load ptr, ptr %61, align 8
-  %91 = call fastcc i64 @heap_getattr(ptr noundef nonnull %51, i32 noundef 6, ptr noundef %90, ptr noundef nonnull %10)
+  %91 = call fastcc i64 @heap_getattr(ptr noundef %51, i32 noundef 6, ptr noundef %90, ptr noundef %10)
   %92 = inttoptr i64 %91 to ptr
   %93 = call ptr @pg_detoast_datum_copy(ptr noundef %92) #6
   %94 = getelementptr inbounds i8, ptr %93, i64 8
@@ -1308,7 +1307,7 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
 
 124:                                              ; preds = %.loopexit
   %125 = load ptr, ptr %61, align 8
-  %126 = call fastcc i64 @heap_getattr(ptr noundef nonnull %51, i32 noundef 7, ptr noundef %125, ptr noundef nonnull %11)
+  %126 = call fastcc i64 @heap_getattr(ptr noundef %51, i32 noundef 7, ptr noundef %125, ptr noundef %11)
   %127 = load i8, ptr %11, align 1
   %128 = trunc i8 %127 to i1
   br i1 %128, label %137, label %129
@@ -1342,7 +1341,7 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
 
 144:                                              ; preds = %137
   %145 = load ptr, ptr %61, align 8
-  %146 = call fastcc i64 @heap_getattr(ptr noundef nonnull %51, i32 noundef 8, ptr noundef %145, ptr noundef nonnull %12)
+  %146 = call fastcc i64 @heap_getattr(ptr noundef %51, i32 noundef 8, ptr noundef %145, ptr noundef %12)
   %147 = load i8, ptr %12, align 1
   %148 = trunc i8 %147 to i1
   br i1 %148, label %157, label %149

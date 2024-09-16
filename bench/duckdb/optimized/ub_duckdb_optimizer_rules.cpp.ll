@@ -18970,7 +18970,7 @@ ehcleanup:                                        ; preds = %if.then.i.i26, %_ZN
 declare void @_ZN10duckdb_re23RE2C1ERKNS_11StringPieceERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(212), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL20GetLikeStringEscapedEPN10duckdb_re26RegexpEb(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr nocapture noundef readonly %regexp, i1 noundef zeroext %contains) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL20GetLikeStringEscapedEPN10duckdb_re26RegexpEb(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef readonly %regexp, i1 noundef zeroext %contains) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 1, ptr %agg.result, align 8, !tbaa !756
   %escaped.i = getelementptr inbounds i8, ptr %agg.result, i64 1
@@ -19184,7 +19184,7 @@ _ZN6duckdb10LikeStringD2Ev.exit99:                ; preds = %if.then.i.i.i95, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL18LikeMatchFromRegexERN10duckdb_re23RE2E(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr nocapture readonly %pattern.96.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL18LikeMatchFromRegexERN10duckdb_re23RE2E(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture readonly %pattern.96.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ret = alloca %"struct.duckdb::LikeString", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ret) #22

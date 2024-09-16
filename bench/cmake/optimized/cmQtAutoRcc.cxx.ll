@@ -1463,7 +1463,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit262: ;
   br i1 %357, label %358, label %378
 
 358:                                              ; preds = %354
-  call fastcc void @_ZNK12_GLOBAL__N_112cmQtAutoRccT17MultiConfigOutputB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %54, ptr noundef nonnull align 8 dereferenceable(954) %0)
+  call fastcc void @_ZNK12_GLOBAL__N_112cmQtAutoRccT17MultiConfigOutputB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %54, ptr noundef nonnull align 8 dereferenceable(954) %0)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %359 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %95) #17, !noalias !49
@@ -4046,7 +4046,7 @@ _ZN12_GLOBAL__N_112cmQtAutoRccT12TestInfoFileEv.exit: ; preds = %859
   br i1 %872, label %873, label %.sink.split
 
 873:                                              ; preds = %870
-  call fastcc void @_ZNK12_GLOBAL__N_112cmQtAutoRccT17MultiConfigOutputB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(954) %0)
+  call fastcc void @_ZNK12_GLOBAL__N_112cmQtAutoRccT17MultiConfigOutputB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(954) %0)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %16)
   store i64 56, ptr %16, align 8, !alias.scope !339, !noalias !342
   %.sroa.2.0..sroa_idx.i.i.i50 = getelementptr inbounds i8, ptr %16, i64 8
@@ -4784,7 +4784,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZN5cmsys11SystemTools15GetFilenamePathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_112cmQtAutoRccT17MultiConfigOutputB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(954) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK12_GLOBAL__N_112cmQtAutoRccT17MultiConfigOutputB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(954) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [3 x %"struct.std::pair"], align 8
   %4 = alloca %class.cmAlphaNum, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4827,7 +4827,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_112cmQtAutoRccT17MultiConfigOutput
   store ptr %23, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !444, !noalias !435
   %24 = getelementptr inbounds i8, ptr %3, i64 64
   store ptr %5, ptr %24, align 8, !alias.scope !444, !noalias !435
-  invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %3, i64 3)
+  invoke void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %3, i64 3)
           to label %25 unwind label %26
 
 25:                                               ; preds = %2

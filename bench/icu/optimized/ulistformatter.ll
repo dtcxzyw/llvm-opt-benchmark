@@ -770,7 +770,7 @@ invoke.cont:                                      ; preds = %invoke.cont.prehead
 invoke.cont7:                                     ; preds = %invoke.cont
   %arrayctor.end = getelementptr inbounds i8, ptr %length4StackBuffer, i64 256
   store ptr null, ptr %maybeOwner, align 8
-  %call10 = invoke fastcc noundef ptr @_ZL17getUnicodeStringsPKPKDsPKiiPN6icu_7513UnicodeStringERNS5_10LocalArrayIS6_EER10UErrorCode(ptr noundef %strings, ptr noundef %stringLengths, i32 noundef %stringCount, ptr noundef nonnull %length4StackBuffer, ptr noundef nonnull align 8 dereferenceable(8) %maybeOwner, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call10 = invoke fastcc noundef ptr @_ZL17getUnicodeStringsPKPKDsPKiiPN6icu_7513UnicodeStringERNS5_10LocalArrayIS6_EER10UErrorCode(ptr noundef %strings, ptr noundef %stringLengths, i32 noundef %stringCount, ptr noundef %length4StackBuffer, ptr noundef nonnull align 8 dereferenceable(8) %maybeOwner, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont7
@@ -886,7 +886,7 @@ eh.resume:                                        ; preds = %arraydestroy.body39
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL17getUnicodeStringsPKPKDsPKiiPN6icu_7513UnicodeStringERNS5_10LocalArrayIS6_EER10UErrorCode(ptr noundef readonly %strings, ptr noundef readonly %stringLengths, i32 noundef %stringCount, ptr noundef %length4StackBuffer, ptr nocapture noundef nonnull align 8 dereferenceable(8) %maybeOwner, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL17getUnicodeStringsPKPKDsPKiiPN6icu_7513UnicodeStringERNS5_10LocalArrayIS6_EER10UErrorCode(ptr noundef readonly %strings, ptr noundef readonly %stringLengths, i32 noundef %stringCount, ptr noundef nonnull %length4StackBuffer, ptr nocapture noundef nonnull align 8 dereferenceable(8) %maybeOwner, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %agg.tmp35 = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -1163,7 +1163,7 @@ invoke.cont:                                      ; preds = %if.end2.i.i, %invok
 invoke.cont4:                                     ; preds = %invoke.cont
   %arrayctor.end = getelementptr inbounds i8, ptr %length4StackBuffer, i64 256
   store ptr null, ptr %maybeOwner, align 8
-  %call7 = invoke fastcc noundef ptr @_ZL17getUnicodeStringsPKPKDsPKiiPN6icu_7513UnicodeStringERNS5_10LocalArrayIS6_EER10UErrorCode(ptr noundef %strings, ptr noundef %stringLengths, i32 noundef %stringCount, ptr noundef nonnull %length4StackBuffer, ptr noundef nonnull align 8 dereferenceable(8) %maybeOwner, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call7 = invoke fastcc noundef ptr @_ZL17getUnicodeStringsPKPKDsPKiiPN6icu_7513UnicodeStringERNS5_10LocalArrayIS6_EER10UErrorCode(ptr noundef %strings, ptr noundef %stringLengths, i32 noundef %stringCount, ptr noundef %length4StackBuffer, ptr noundef nonnull align 8 dereferenceable(8) %maybeOwner, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4

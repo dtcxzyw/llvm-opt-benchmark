@@ -1734,7 +1734,7 @@ define hidden noundef ptr @_Z13pj_obj_createP6pj_ctxRKN5osgeo4proj4util15BaseObj
   br i1 %.not136, label %.thread, label %14
 
 14:                                               ; preds = %12
-  call fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %0, ptr noundef nonnull @__FUNCTION__._Z13pj_obj_createP6pj_ctxRKN5osgeo4proj4util15BaseObjectNNPtrE)
+  call fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %0, ptr noundef nonnull @__FUNCTION__._Z13pj_obj_createP6pj_ctxRKN5osgeo4proj4util15BaseObjectNNPtrE)
   %15 = load ptr, ptr %3, align 8
   store ptr %15, ptr %5, align 8
   %16 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2508,7 +2508,7 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEED2Ev.exit: ; preds = %304, %323
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.dropbox::oxygen::nn", align 8
   %5 = invoke noundef ptr @_ZN6pj_ctx15get_cpp_contextEv(ptr noundef nonnull align 8 dereferenceable(516) %1)
           to label %.noexc unwind label %10
@@ -4980,7 +4980,7 @@ define ptr @proj_create(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 pe
   br i1 %.not37, label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit, label %22
 
 22:                                               ; preds = %20, %17
-  call fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %.027, ptr noundef nonnull @__FUNCTION__.proj_create)
+  call fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %.027, ptr noundef nonnull @__FUNCTION__.proj_create)
   %23 = getelementptr inbounds i8, ptr %3, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not.i.i.i = icmp eq ptr %24, null
@@ -5642,7 +5642,7 @@ define noundef ptr @proj_create_from_wkt(ptr noundef %0, ptr noundef %1, ptr nou
           to label %33 unwind label %85
 
 33:                                               ; preds = %32
-  invoke fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef %.052, ptr noundef nonnull @__FUNCTION__.proj_create_from_wkt)
+  invoke fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %.052, ptr noundef nonnull @__FUNCTION__.proj_create_from_wkt)
           to label %34 unwind label %87
 
 34:                                               ; preds = %33
@@ -11346,7 +11346,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL30proj_is_equivalent_to_i
   br i1 %.not41, label %60, label %59
 
 59:                                               ; preds = %56
-  call fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull %0, ptr noundef nonnull @.str.100)
+  call fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %0, ptr noundef nonnull @.str.100)
   br label %61
 
 60:                                               ; preds = %56
@@ -11683,7 +11683,7 @@ define noundef ptr @proj_as_wkt(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %.not56, label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit85, label %"_ZZ11proj_as_wktENK3$_0clE11PJ_WKT_TYPE.exit"
 
 "_ZZ11proj_as_wktENK3$_0clE11PJ_WKT_TYPE.exit":   ; preds = %20
-  invoke fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef %.044, ptr noundef nonnull @__FUNCTION__.proj_as_wkt)
+  invoke fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %.044, ptr noundef nonnull @__FUNCTION__.proj_as_wkt)
           to label %22 unwind label %70
 
 22:                                               ; preds = %"_ZZ11proj_as_wktENK3$_0clE11PJ_WKT_TYPE.exit"
@@ -12153,7 +12153,7 @@ define noundef ptr @proj_as_proj_string(ptr noundef %0, ptr noundef %1, i32 noun
   br label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit72
 
 22:                                               ; preds = %20
-  call fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef %.041, ptr noundef nonnull @__FUNCTION__.proj_as_proj_string)
+  call fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %.041, ptr noundef nonnull @__FUNCTION__.proj_as_proj_string)
   %23 = load ptr, ptr %5, align 8
   store ptr %23, ptr %7, align 8
   %24 = getelementptr inbounds i8, ptr %7, i64 8
@@ -12564,7 +12564,7 @@ define noundef ptr @proj_as_projjson(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit63
 
 23:                                               ; preds = %21
-  call fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef %.036, ptr noundef nonnull @__FUNCTION__.proj_as_projjson)
+  call fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef %.036, ptr noundef nonnull @__FUNCTION__.proj_as_projjson)
   %24 = load ptr, ptr %4, align 8
   store ptr %24, ptr %6, align 8
   %25 = getelementptr inbounds i8, ptr %6, i64 8
@@ -14942,7 +14942,7 @@ define noundef ptr @proj_crs_create_bound_crs_to_WGS84(ptr noundef %0, ptr nound
   br label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit
 
 20:                                               ; preds = %18
-  call fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef %.031, ptr noundef nonnull @__FUNCTION__.proj_crs_create_bound_crs_to_WGS84)
+  call fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef %.031, ptr noundef nonnull @__FUNCTION__.proj_crs_create_bound_crs_to_WGS84)
   %.not4254 = icmp eq ptr %2, null
   br i1 %.not4254, label %.critedge, label %.lr.ph.preheader
 
@@ -23719,11 +23719,11 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj2cs13EllipsoidalCSENS1_4util10BaseObjectE
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj2cs13EllipsoidalCSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split.thread: ; preds = %27, %34, %_ZSt20dynamic_pointer_castIN5osgeo4proj2cs13EllipsoidalCSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split
   %39 = phi ptr [ %.pr.pre, %_ZSt20dynamic_pointer_castIN5osgeo4proj2cs13EllipsoidalCSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split ], [ %26, %34 ], [ %26, %27 ]
-  invoke fastcc void @_ZL28createGeodeticReferenceFrameP6pj_ctxPKcS2_ddS2_dS2_d(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %.024, ptr noundef %2, ptr noundef %3, double noundef %4, double noundef %5, ptr noundef %6, double noundef %7, ptr noundef %8, double noundef %9)
+  invoke fastcc void @_ZL28createGeodeticReferenceFrameP6pj_ctxPKcS2_ddS2_dS2_d(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %.024, ptr noundef %2, ptr noundef %3, double noundef %4, double noundef %5, ptr noundef %6, double noundef %7, ptr noundef %8, double noundef %9)
           to label %40 unwind label %181
 
 40:                                               ; preds = %_ZSt20dynamic_pointer_castIN5osgeo4proj2cs13EllipsoidalCSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split.thread
-  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef %1, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %1, ptr noundef null, ptr noundef null)
           to label %41 unwind label %183
 
 41:                                               ; preds = %40
@@ -24175,7 +24175,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEED2Ev.exit: ; preds = %_ZN7drop
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL28createGeodeticReferenceFrameP6pj_ctxPKcS2_ddS2_dS2_d(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, double noundef %4, double noundef %5, ptr noundef %6, double noundef %7, ptr noundef %8, double noundef %9) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL28createGeodeticReferenceFrameP6pj_ctxPKcS2_ddS2_dS2_d(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, double noundef %4, double noundef %5, ptr noundef %6, double noundef %7, ptr noundef %8, double noundef %9) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.osgeo::proj::common::UnitOfMeasure", align 8
   %12 = alloca %"class.std::shared_ptr", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -24200,8 +24200,8 @@ define internal fastcc void @_ZL28createGeodeticReferenceFrameP6pj_ctxPKcS2_ddS2
   %32 = alloca %"class.std::__cxx11::basic_string", align 8
   %33 = alloca %"class.osgeo::proj::util::PropertyMap", align 8
   %34 = alloca %"class.osgeo::proj::util::optional.252", align 8
-  call fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
-  invoke fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %1, ptr noundef nonnull @__FUNCTION__._ZL28createGeodeticReferenceFrameP6pj_ctxPKcS2_ddS2_dS2_d)
+  call fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %1, ptr noundef nonnull @__FUNCTION__._ZL28createGeodeticReferenceFrameP6pj_ctxPKcS2_ddS2_dS2_d)
           to label %35 unwind label %76
 
 35:                                               ; preds = %10
@@ -24209,7 +24209,7 @@ define internal fastcc void @_ZL28createGeodeticReferenceFrameP6pj_ctxPKcS2_ddS2
           to label %36 unwind label %78
 
 36:                                               ; preds = %35
-  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %3, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %3, ptr noundef null, ptr noundef null)
           to label %37 unwind label %80
 
 37:                                               ; preds = %36
@@ -24842,14 +24842,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i92, %296, %283, %_ZNSt7__cxx114listIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaISA_EED2Ev.exit, %103, %105, %72
   %302 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #29
-  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef %302, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef %302, ptr noundef null, ptr noundef null)
           to label %303 unwind label %101
 
 303:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEEED2Ev.exit
   store i8 0, ptr %34, align 8
   %304 = getelementptr inbounds i8, ptr %34, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %304) #29
-  invoke void @_ZN5osgeo4proj5datum22GeodeticReferenceFrame6createERKNS0_4util11PropertyMapERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9EllipsoidEEEERKNS3_8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKNS9_ISA_INS1_13PrimeMeridianEEEE(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.424") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(16) %19)
+  invoke void @_ZN5osgeo4proj5datum22GeodeticReferenceFrame6createERKNS0_4util11PropertyMapERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9EllipsoidEEEERKNS3_8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKNS9_ISA_INS1_13PrimeMeridianEEEE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.424") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(16) %19)
           to label %305 unwind label %414
 
 305:                                              ; preds = %303
@@ -25129,7 +25129,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit: ; preds = %_ZN7dr
 declare void @_ZN5osgeo4proj3crs13GeographicCRS6createERKNS0_4util11PropertyMapERKN7dropbox6oxygen2nnISt10shared_ptrINS0_5datum22GeodeticReferenceFrameEEEERKNS9_ISA_INS0_2cs13EllipsoidalCSEEEE(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.514") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.osgeo::proj::util::PropertyMap", align 8
@@ -25619,7 +25619,7 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj2cs13EllipsoidalCSENS1_4util10BaseObjectE
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj2cs13EllipsoidalCSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split.thread: ; preds = %57, %64, %_ZSt20dynamic_pointer_castIN5osgeo4proj2cs13EllipsoidalCSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split
   %69 = phi ptr [ %.pr.pre, %_ZSt20dynamic_pointer_castIN5osgeo4proj2cs13EllipsoidalCSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split ], [ %56, %64 ], [ %56, %57 ]
-  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef %1, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef %1, ptr noundef null, ptr noundef null)
           to label %70 unwind label %174
 
 70:                                               ; preds = %_ZSt20dynamic_pointer_castIN5osgeo4proj2cs13EllipsoidalCSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split.thread
@@ -26313,15 +26313,15 @@ define noundef ptr @proj_create_geocentric_crs(ptr noundef %0, ptr noundef %1, p
 
 22:                                               ; preds = %12, %20
   %.027 = phi ptr [ %21, %20 ], [ %0, %12 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %10, double noundef %11, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %10, double noundef %11, ptr noundef null, ptr noundef null)
           to label %23 unwind label %157
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL28createGeodeticReferenceFrameP6pj_ctxPKcS2_ddS2_dS2_d(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %.027, ptr noundef %2, ptr noundef %3, double noundef %4, double noundef %5, ptr noundef %6, double noundef %7, ptr noundef %8, double noundef %9)
+  invoke fastcc void @_ZL28createGeodeticReferenceFrameP6pj_ctxPKcS2_ddS2_dS2_d(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %.027, ptr noundef %2, ptr noundef %3, double noundef %4, double noundef %5, ptr noundef %6, double noundef %7, ptr noundef %8, double noundef %9)
           to label %24 unwind label %159
 
 24:                                               ; preds = %23
-  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef %1, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef %1, ptr noundef null, ptr noundef null)
           to label %25 unwind label %161
 
 25:                                               ; preds = %24
@@ -26698,7 +26698,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum22GeodeticReferenceFrameE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -27058,11 +27058,11 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj5datum22GeodeticReferenceFrameENS1_4util1
   br label %_ZSt20dynamic_pointer_castIN5osgeo4proj5datum13DatumEnsembleENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj5datum13DatumEnsembleENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit: ; preds = %41, %48, %51, %.thread.i33
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef %3, double noundef %4, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %3, double noundef %4, ptr noundef null, ptr noundef null)
           to label %53 unwind label %150
 
 53:                                               ; preds = %_ZSt20dynamic_pointer_castIN5osgeo4proj5datum13DatumEnsembleENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit
-  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %1, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %1, ptr noundef null, ptr noundef null)
           to label %54 unwind label %152
 
 54:                                               ; preds = %53
@@ -27668,7 +27668,7 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj2cs13EllipsoidalCSENS1_4util10BaseObjectE
   br i1 %or.cond80, label %77, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs20DerivedGeographicCRSEEED2Ev.exit
 
 77:                                               ; preds = %_ZSt20dynamic_pointer_castIN5osgeo4proj2cs13EllipsoidalCSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit
-  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %1, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %1, ptr noundef null, ptr noundef null)
           to label %78 unwind label %310
 
 78:                                               ; preds = %77
@@ -28769,11 +28769,11 @@ define noundef ptr @proj_create_vertical_crs_ex(ptr noundef %0, ptr noundef %1, 
 
 44:                                               ; preds = %12, %42
   %.028 = phi ptr [ %43, %42 ], [ %0, %12 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %45 unwind label %177
 
 45:                                               ; preds = %44
-  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef %2, ptr noundef %3, ptr noundef %4)
           to label %46 unwind label %179
 
 46:                                               ; preds = %45
@@ -28804,7 +28804,7 @@ define noundef ptr @proj_create_vertical_crs_ex(ptr noundef %0, ptr noundef %1, 
   call void @_ZN5osgeo4proj4util8CodeListD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #29
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #29
-  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef %1, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef %1, ptr noundef null, ptr noundef null)
           to label %53 unwind label %183
 
 53:                                               ; preds = %52
@@ -28816,7 +28816,7 @@ define noundef ptr @proj_create_vertical_crs_ex(ptr noundef %0, ptr noundef %1, 
   br i1 %.not, label %621, label %55
 
 55:                                               ; preds = %54
-  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull %7, ptr noundef %8, ptr noundef %9)
+  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull %7, ptr noundef %8, ptr noundef %9)
           to label %56 unwind label %187
 
 56:                                               ; preds = %55
@@ -31152,7 +31152,7 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10share
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit35thread-pre-split.thread: ; preds = %42, %49, %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit35thread-pre-split
   %.pr6470 = phi ptr [ %.pr64.pre, %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit35thread-pre-split ], [ %41, %49 ], [ %41, %42 ]
-  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef %1, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %1, ptr noundef null, ptr noundef null)
           to label %54 unwind label %230
 
 54:                                               ; preds = %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exit35thread-pre-split.thread
@@ -32917,7 +32917,7 @@ define noundef ptr @proj_crs_alter_cs_angular_unit(ptr noundef %0, ptr noundef %
   br label %173
 
 24:                                               ; preds = %21
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5)
           to label %25 unwind label %146
 
 25:                                               ; preds = %24
@@ -32945,7 +32945,7 @@ define noundef ptr @proj_crs_alter_cs_angular_unit(ptr noundef %0, ptr noundef %
 
 proj_get_name.exit:                               ; preds = %36, %30, %28, %25
   %.0.i = phi ptr [ %38, %36 ], [ null, %28 ], [ null, %30 ], [ null, %25 ]
-  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %.0.i, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %.0.i, ptr noundef null, ptr noundef null)
           to label %39 unwind label %148
 
 39:                                               ; preds = %proj_get_name.exit
@@ -33259,7 +33259,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -33402,7 +33402,7 @@ define noundef ptr @proj_crs_alter_cs_linear_unit(ptr noundef %0, ptr noundef re
   br i1 %.not27, label %.thread, label %21
 
 21:                                               ; preds = %19
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5)
           to label %22 unwind label %73
 
 22:                                               ; preds = %21
@@ -33620,7 +33620,7 @@ define noundef ptr @proj_crs_alter_parameters_linear_unit(ptr noundef %0, ptr no
   br i1 %.not28, label %.thread, label %22
 
 22:                                               ; preds = %20
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5)
           to label %23 unwind label %77
 
 23:                                               ; preds = %22
@@ -33941,7 +33941,7 @@ define noundef ptr @proj_crs_promote_to_3D(ptr noundef %0, ptr noundef %1, ptr n
   br label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit
 
 31:                                               ; preds = %29
-  invoke fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef %.039, ptr noundef nonnull @__FUNCTION__.proj_crs_promote_to_3D)
+  invoke fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef %.039, ptr noundef nonnull @__FUNCTION__.proj_crs_promote_to_3D)
           to label %32 unwind label %101
 
 32:                                               ; preds = %31
@@ -34519,7 +34519,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
           to label %404 unwind label %405
 
 286:                                              ; preds = %27
-  invoke fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %.039, ptr noundef nonnull @__FUNCTION__.proj_crs_promote_to_3D)
+  invoke fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %.039, ptr noundef nonnull @__FUNCTION__.proj_crs_promote_to_3D)
           to label %287 unwind label %380
 
 287:                                              ; preds = %286
@@ -35051,7 +35051,7 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS1_4util10BaseObject
 
 76:                                               ; preds = %71, %72
   %77 = phi ptr [ %75, %72 ], [ %1, %71 ]
-  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %77, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %77, ptr noundef null, ptr noundef null)
           to label %78 unwind label %293
 
 78:                                               ; preds = %76
@@ -35665,7 +35665,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %476
 
 355:                                              ; preds = %34, %30
-  invoke fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %.045, ptr noundef nonnull @__FUNCTION__.proj_crs_create_projected_3D_crs_from_2D)
+  invoke fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %.045, ptr noundef nonnull @__FUNCTION__.proj_crs_create_projected_3D_crs_from_2D)
           to label %356 unwind label %450
 
 356:                                              ; preds = %355
@@ -36013,7 +36013,7 @@ define noundef ptr @proj_crs_demote_to_2D(ptr noundef %0, ptr noundef %1, ptr no
   br label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit
 
 20:                                               ; preds = %18
-  invoke fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef %.029, ptr noundef nonnull @__FUNCTION__.proj_crs_demote_to_2D)
+  invoke fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef %.029, ptr noundef nonnull @__FUNCTION__.proj_crs_demote_to_2D)
           to label %21 unwind label %114
 
 21:                                               ; preds = %20
@@ -36326,11 +36326,11 @@ define noundef ptr @proj_create_engineering_crs(ptr noundef %0, ptr noundef %1) 
 
 14:                                               ; preds = %2, %12
   %.017 = phi ptr [ %13, %12 ], [ %0, %2 ]
-  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef %1, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %1, ptr noundef null, ptr noundef null)
           to label %15 unwind label %187
 
 15:                                               ; preds = %14
-  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull @.str.55, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull @.str.55, ptr noundef null, ptr noundef null)
           to label %16 unwind label %189
 
 16:                                               ; preds = %15
@@ -37691,7 +37691,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds i8, ptr %46, i64 40
   %117 = load double, ptr %116, align 8
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef %115, double noundef %117, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef %115, double noundef %117, ptr noundef null, ptr noundef null)
           to label %133 unwind label %60
 
 .thread119:                                       ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEED2Ev.exit
@@ -37701,7 +37701,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds i8, ptr %46, i64 40
   %123 = load double, ptr %122, align 8
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef %121, double noundef %123, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef %121, double noundef %123, ptr noundef null, ptr noundef null)
           to label %133 unwind label %60
 
 124:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEED2Ev.exit
@@ -39860,12 +39860,12 @@ define noundef ptr @proj_create_cs(ptr noundef %0, i32 noundef %1, i32 noundef %
           to label %64 unwind label %190
 
 64:                                               ; preds = %63
-  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %65 unwind label %192
 
 65:                                               ; preds = %64
   %66 = getelementptr inbounds i8, ptr %3, i64 48
-  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(48) %66)
+  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(48) %66)
           to label %67 unwind label %194
 
 67:                                               ; preds = %65
@@ -40179,17 +40179,17 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
           to label %204 unwind label %190
 
 204:                                              ; preds = %203
-  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %205 unwind label %368
 
 205:                                              ; preds = %204
   %206 = getelementptr inbounds i8, ptr %3, i64 48
-  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(48) %206)
+  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(48) %206)
           to label %207 unwind label %370
 
 207:                                              ; preds = %205
   %208 = getelementptr inbounds i8, ptr %3, i64 96
-  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(48) %208)
+  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(48) %208)
           to label %209 unwind label %372
 
 209:                                              ; preds = %207
@@ -40589,12 +40589,12 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
           to label %384 unwind label %190
 
 384:                                              ; preds = %383
-  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %385 unwind label %510
 
 385:                                              ; preds = %384
   %386 = getelementptr inbounds i8, ptr %3, i64 48
-  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(48) %386)
+  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(48) %386)
           to label %387 unwind label %512
 
 387:                                              ; preds = %385
@@ -40903,17 +40903,17 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
           to label %522 unwind label %190
 
 522:                                              ; preds = %521
-  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %523 unwind label %686
 
 523:                                              ; preds = %522
   %524 = getelementptr inbounds i8, ptr %3, i64 48
-  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(48) %524)
+  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(48) %524)
           to label %525 unwind label %688
 
 525:                                              ; preds = %523
   %526 = getelementptr inbounds i8, ptr %3, i64 96
-  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(48) %526)
+  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(48) %526)
           to label %527 unwind label %690
 
 527:                                              ; preds = %525
@@ -41311,7 +41311,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
           to label %703 unwind label %190
 
 703:                                              ; preds = %702
-  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %704 unwind label %791
 
 704:                                              ; preds = %703
@@ -41539,17 +41539,17 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
           to label %802 unwind label %190
 
 802:                                              ; preds = %801
-  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %803 unwind label %966
 
 803:                                              ; preds = %802
   %804 = getelementptr inbounds i8, ptr %3, i64 48
-  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(48) %804)
+  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(48) %804)
           to label %805 unwind label %968
 
 805:                                              ; preds = %803
   %806 = getelementptr inbounds i8, ptr %3, i64 96
-  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(48) %806)
+  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(48) %806)
           to label %807 unwind label %970
 
 807:                                              ; preds = %805
@@ -41947,7 +41947,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
           to label %983 unwind label %190
 
 983:                                              ; preds = %982
-  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias nonnull writable align 8 %40, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %984 unwind label %1071
 
 984:                                              ; preds = %983
@@ -42181,7 +42181,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
 1084:                                             ; preds = %.lr.ph, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit298
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit298 ]
   %1085 = getelementptr inbounds %struct.PJ_AXIS_DESCRIPTION, ptr %3, i64 %indvars.iv
-  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias nonnull writable align 8 %42, ptr noundef nonnull align 8 dereferenceable(48) %1085)
+  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef nonnull align 8 dereferenceable(48) %1085)
           to label %1086 unwind label %.loopexit
 
 1086:                                             ; preds = %1084
@@ -42551,7 +42551,7 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSys
           to label %1235 unwind label %190
 
 1235:                                             ; preds = %1234
-  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias nonnull writable align 8 %49, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias writable align 8 %49, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %1236 unwind label %1323
 
 1236:                                             ; preds = %1235
@@ -42779,7 +42779,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
           to label %1334 unwind label %190
 
 1334:                                             ; preds = %1333
-  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias nonnull writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %1335 unwind label %1422
 
 1335:                                             ; preds = %1334
@@ -43007,7 +43007,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
           to label %1433 unwind label %190
 
 1433:                                             ; preds = %1432
-  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias nonnull writable align 8 %57, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias writable align 8 %57, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %1434 unwind label %1521
 
 1434:                                             ; preds = %1433
@@ -43276,7 +43276,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSyste
 declare void @_ZN5osgeo4proj2cs11CartesianCS6createERKNS0_4util11PropertyMapERKN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESF_(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.519") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.osgeo::proj::common::UnitOfMeasure", align 8
@@ -43351,7 +43351,7 @@ define internal fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %1, i64 32
   %34 = load double, ptr %33, align 8
-  call fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef %32, double noundef %34, ptr noundef null, ptr noundef null)
+  call fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %32, double noundef %34, ptr noundef null, ptr noundef null)
   br label %.critedge60
 
 .thread67:                                        ; preds = %25
@@ -43359,7 +43359,7 @@ define internal fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %1, i64 32
   %38 = load double, ptr %37, align 8
-  call fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef %36, double noundef %38, ptr noundef null, ptr noundef null)
+  call fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %36, double noundef %38, ptr noundef null, ptr noundef null)
   br label %.critedge60
 
 .thread62:                                        ; preds = %30, %25, %28, %29
@@ -43389,7 +43389,7 @@ define internal fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_
 
 .critedge60:                                      ; preds = %.thread65, %.thread67, %.critedge58
   %44 = load ptr, ptr %1, align 8
-  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %44, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %44, ptr noundef null, ptr noundef null)
           to label %45 unwind label %95
 
 45:                                               ; preds = %.critedge60
@@ -43409,7 +43409,7 @@ define internal fastcc void @_ZL10createAxisRK19PJ_AXIS_DESCRIPTION(ptr dead_on_
 
 50:                                               ; preds = %48, %49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  invoke void @_ZN5osgeo4proj2cs20CoordinateSystemAxis6createERKNS0_4util11PropertyMapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_13AxisDirectionERKNS0_6common13UnitOfMeasureERKSt10shared_ptrINS1_8MeridianEE(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.592") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(16) %13)
+  invoke void @_ZN5osgeo4proj2cs20CoordinateSystemAxis6createERKNS0_4util11PropertyMapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_13AxisDirectionERKNS0_6common13UnitOfMeasureERKSt10shared_ptrINS1_8MeridianEE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.592") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(16) %13)
           to label %51 unwind label %98
 
 51:                                               ; preds = %50
@@ -44184,7 +44184,7 @@ define noundef ptr @proj_create_cartesian_2D_cs(ptr noundef %0, i32 noundef %1, 
   ]
 
 24:                                               ; preds = %23
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef %2, double noundef %3, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %2, double noundef %3, ptr noundef null, ptr noundef null)
           to label %25 unwind label %76
 
 25:                                               ; preds = %24
@@ -44324,7 +44324,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit: ;
   br label %311
 
 83:                                               ; preds = %23
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %2, double noundef %3, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %2, double noundef %3, ptr noundef null, ptr noundef null)
           to label %84 unwind label %76
 
 84:                                               ; preds = %83
@@ -44459,7 +44459,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit53:
   br label %311
 
 140:                                              ; preds = %23
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %2, double noundef %3, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %2, double noundef %3, ptr noundef null, ptr noundef null)
           to label %141 unwind label %76
 
 141:                                              ; preds = %140
@@ -44594,7 +44594,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit63:
   br label %311
 
 197:                                              ; preds = %23
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef %2, double noundef %3, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef %2, double noundef %3, ptr noundef null, ptr noundef null)
           to label %198 unwind label %76
 
 198:                                              ; preds = %197
@@ -44729,7 +44729,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit73:
   br label %311
 
 254:                                              ; preds = %23
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef %2, double noundef %3, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef %2, double noundef %3, ptr noundef null, ptr noundef null)
           to label %255 unwind label %76
 
 255:                                              ; preds = %254
@@ -44937,7 +44937,7 @@ define noundef ptr @proj_create_ellipsoidal_2D_cs(ptr noundef %0, i32 noundef %1
   ]
 
 15:                                               ; preds = %14
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef %2, double noundef %3, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %2, double noundef %3, ptr noundef null, ptr noundef null)
           to label %16 unwind label %67
 
 16:                                               ; preds = %15
@@ -45077,7 +45077,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEEED2Ev.exit:
   br label %131
 
 74:                                               ; preds = %14
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %2, double noundef %3, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %2, double noundef %3, ptr noundef null, ptr noundef null)
           to label %75 unwind label %67
 
 75:                                               ; preds = %74
@@ -45283,11 +45283,11 @@ define noundef ptr @proj_create_ellipsoidal_3D_cs(ptr noundef %0, i32 noundef %1
   ]
 
 19:                                               ; preds = %18
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef %2, double noundef %3, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef %2, double noundef %3, ptr noundef null, ptr noundef null)
           to label %20 unwind label %72
 
 20:                                               ; preds = %19
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %21 unwind label %74
 
 21:                                               ; preds = %20
@@ -45439,11 +45439,11 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEEED2Ev.exit:
   br label %143
 
 82:                                               ; preds = %18
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %2, double noundef %3, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %2, double noundef %3, ptr noundef null, ptr noundef null)
           to label %83 unwind label %72
 
 83:                                               ; preds = %82
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %84 unwind label %135
 
 84:                                               ; preds = %83
@@ -45798,7 +45798,7 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj2cs11CartesianCSENS1_4util10BaseObjectEES
   br i1 %74, label %287, label %_ZSt20dynamic_pointer_castIN5osgeo4proj2cs11CartesianCSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split.thread
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj2cs11CartesianCSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split.thread: ; preds = %63, %70, %_ZSt20dynamic_pointer_castIN5osgeo4proj2cs11CartesianCSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split
-  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %1, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL21createPropertyMapNamePKcS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %1, ptr noundef null, ptr noundef null)
           to label %75 unwind label %266
 
 75:                                               ; preds = %_ZSt20dynamic_pointer_castIN5osgeo4proj2cs11CartesianCSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split.thread
@@ -46820,11 +46820,11 @@ define noundef ptr @proj_create_conversion_transverse_mercator(ptr noundef %0, d
 
 24:                                               ; preds = %10, %22
   %.027 = phi ptr [ %23, %22 ], [ %0, %10 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
           to label %25 unwind label %90
 
 25:                                               ; preds = %24
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %26 unwind label %92
 
 26:                                               ; preds = %25
@@ -47159,11 +47159,11 @@ define noundef ptr @proj_create_conversion_gauss_schreiber_transverse_mercator(p
 
 24:                                               ; preds = %10, %22
   %.027 = phi ptr [ %23, %22 ], [ %0, %10 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
           to label %25 unwind label %90
 
 25:                                               ; preds = %24
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %26 unwind label %92
 
 26:                                               ; preds = %25
@@ -47486,11 +47486,11 @@ define noundef ptr @proj_create_conversion_transverse_mercator_south_oriented(pt
 
 24:                                               ; preds = %10, %22
   %.027 = phi ptr [ %23, %22 ], [ %0, %10 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
           to label %25 unwind label %90
 
 25:                                               ; preds = %24
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %26 unwind label %92
 
 26:                                               ; preds = %25
@@ -47814,11 +47814,11 @@ define noundef ptr @proj_create_conversion_two_point_equidistant(ptr noundef %0,
 
 26:                                               ; preds = %11, %24
   %.029 = phi ptr [ %25, %24 ], [ %0, %11 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %9, double noundef %10, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %9, double noundef %10, ptr noundef null, ptr noundef null)
           to label %27 unwind label %93
 
 27:                                               ; preds = %26
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %28 unwind label %95
 
 28:                                               ; preds = %27
@@ -48156,11 +48156,11 @@ define noundef ptr @proj_create_conversion_tunisia_mining_grid(ptr noundef %0, d
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -48466,11 +48466,11 @@ define noundef ptr @proj_create_conversion_tunisia_mapping_grid(ptr noundef %0, 
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -48776,11 +48776,11 @@ define noundef ptr @proj_create_conversion_albers_equal_area(ptr noundef %0, dou
 
 26:                                               ; preds = %11, %24
   %.029 = phi ptr [ %25, %24 ], [ %0, %11 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %9, double noundef %10, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %9, double noundef %10, ptr noundef null, ptr noundef null)
           to label %27 unwind label %93
 
 27:                                               ; preds = %26
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %28 unwind label %95
 
 28:                                               ; preds = %27
@@ -49119,11 +49119,11 @@ define noundef ptr @proj_create_conversion_lambert_conic_conformal_1sp(ptr nound
 
 24:                                               ; preds = %10, %22
   %.027 = phi ptr [ %23, %22 ], [ %0, %10 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
           to label %25 unwind label %90
 
 25:                                               ; preds = %24
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %26 unwind label %92
 
 26:                                               ; preds = %25
@@ -49447,11 +49447,11 @@ define noundef ptr @proj_create_conversion_lambert_conic_conformal_1sp_variant_b
 
 26:                                               ; preds = %11, %24
   %.029 = phi ptr [ %25, %24 ], [ %0, %11 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %9, double noundef %10, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %9, double noundef %10, ptr noundef null, ptr noundef null)
           to label %27 unwind label %93
 
 27:                                               ; preds = %26
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %28 unwind label %95
 
 28:                                               ; preds = %27
@@ -49791,11 +49791,11 @@ define noundef ptr @proj_create_conversion_lambert_conic_conformal_2sp(ptr nound
 
 26:                                               ; preds = %11, %24
   %.029 = phi ptr [ %25, %24 ], [ %0, %11 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %9, double noundef %10, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %9, double noundef %10, ptr noundef null, ptr noundef null)
           to label %27 unwind label %93
 
 27:                                               ; preds = %26
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %28 unwind label %95
 
 28:                                               ; preds = %27
@@ -50136,11 +50136,11 @@ define noundef ptr @proj_create_conversion_lambert_conic_conformal_2sp_michigan(
 
 28:                                               ; preds = %12, %26
   %.031 = phi ptr [ %27, %26 ], [ %0, %12 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %10, double noundef %11, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %10, double noundef %11, ptr noundef null, ptr noundef null)
           to label %29 unwind label %96
 
 29:                                               ; preds = %28
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
           to label %30 unwind label %98
 
 30:                                               ; preds = %29
@@ -50496,11 +50496,11 @@ define noundef ptr @proj_create_conversion_lambert_conic_conformal_2sp_belgium(p
 
 26:                                               ; preds = %11, %24
   %.029 = phi ptr [ %25, %24 ], [ %0, %11 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %9, double noundef %10, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %9, double noundef %10, ptr noundef null, ptr noundef null)
           to label %27 unwind label %93
 
 27:                                               ; preds = %26
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %28 unwind label %95
 
 28:                                               ; preds = %27
@@ -50838,11 +50838,11 @@ define noundef ptr @proj_create_conversion_azimuthal_equidistant(ptr noundef %0,
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -51148,11 +51148,11 @@ define noundef ptr @proj_create_conversion_guam_projection(ptr noundef %0, doubl
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -51458,11 +51458,11 @@ define noundef ptr @proj_create_conversion_bonne(ptr noundef %0, double noundef 
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -51768,11 +51768,11 @@ define noundef ptr @proj_create_conversion_lambert_cylindrical_equal_area_spheri
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -52078,11 +52078,11 @@ define noundef ptr @proj_create_conversion_lambert_cylindrical_equal_area(ptr no
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -52388,11 +52388,11 @@ define noundef ptr @proj_create_conversion_cassini_soldner(ptr noundef %0, doubl
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -52700,11 +52700,11 @@ define noundef ptr @proj_create_conversion_equidistant_conic(ptr noundef %0, dou
 
 26:                                               ; preds = %11, %24
   %.029 = phi ptr [ %25, %24 ], [ %0, %11 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %9, double noundef %10, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %9, double noundef %10, ptr noundef null, ptr noundef null)
           to label %27 unwind label %93
 
 27:                                               ; preds = %26
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %28 unwind label %95
 
 28:                                               ; preds = %27
@@ -53041,11 +53041,11 @@ define noundef ptr @proj_create_conversion_eckert_i(ptr noundef %0, double nound
 
 20:                                               ; preds = %8, %18
   %.023 = phi ptr [ %19, %18 ], [ %0, %8 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %21 unwind label %84
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %22 unwind label %86
 
 22:                                               ; preds = %21
@@ -53334,11 +53334,11 @@ define noundef ptr @proj_create_conversion_eckert_ii(ptr noundef %0, double noun
 
 20:                                               ; preds = %8, %18
   %.023 = phi ptr [ %19, %18 ], [ %0, %8 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %21 unwind label %84
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %22 unwind label %86
 
 22:                                               ; preds = %21
@@ -53627,11 +53627,11 @@ define noundef ptr @proj_create_conversion_eckert_iii(ptr noundef %0, double nou
 
 20:                                               ; preds = %8, %18
   %.023 = phi ptr [ %19, %18 ], [ %0, %8 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %21 unwind label %84
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %22 unwind label %86
 
 22:                                               ; preds = %21
@@ -53920,11 +53920,11 @@ define noundef ptr @proj_create_conversion_eckert_iv(ptr noundef %0, double noun
 
 20:                                               ; preds = %8, %18
   %.023 = phi ptr [ %19, %18 ], [ %0, %8 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %21 unwind label %84
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %22 unwind label %86
 
 22:                                               ; preds = %21
@@ -54213,11 +54213,11 @@ define noundef ptr @proj_create_conversion_eckert_v(ptr noundef %0, double nound
 
 20:                                               ; preds = %8, %18
   %.023 = phi ptr [ %19, %18 ], [ %0, %8 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %21 unwind label %84
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %22 unwind label %86
 
 22:                                               ; preds = %21
@@ -54506,11 +54506,11 @@ define noundef ptr @proj_create_conversion_eckert_vi(ptr noundef %0, double noun
 
 20:                                               ; preds = %8, %18
   %.023 = phi ptr [ %19, %18 ], [ %0, %8 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %21 unwind label %84
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %22 unwind label %86
 
 22:                                               ; preds = %21
@@ -54800,11 +54800,11 @@ define noundef ptr @proj_create_conversion_equidistant_cylindrical(ptr noundef %
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -55110,11 +55110,11 @@ define noundef ptr @proj_create_conversion_equidistant_cylindrical_spherical(ptr
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -55419,11 +55419,11 @@ define noundef ptr @proj_create_conversion_gall(ptr noundef %0, double noundef %
 
 20:                                               ; preds = %8, %18
   %.023 = phi ptr [ %19, %18 ], [ %0, %8 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %21 unwind label %84
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %22 unwind label %86
 
 22:                                               ; preds = %21
@@ -55712,11 +55712,11 @@ define noundef ptr @proj_create_conversion_goode_homolosine(ptr noundef %0, doub
 
 20:                                               ; preds = %8, %18
   %.023 = phi ptr [ %19, %18 ], [ %0, %8 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %21 unwind label %84
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %22 unwind label %86
 
 22:                                               ; preds = %21
@@ -56005,11 +56005,11 @@ define noundef ptr @proj_create_conversion_interrupted_goode_homolosine(ptr noun
 
 20:                                               ; preds = %8, %18
   %.023 = phi ptr [ %19, %18 ], [ %0, %8 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %21 unwind label %84
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %22 unwind label %86
 
 22:                                               ; preds = %21
@@ -56299,11 +56299,11 @@ define noundef ptr @proj_create_conversion_geostationary_satellite_sweep_x(ptr n
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -56609,11 +56609,11 @@ define noundef ptr @proj_create_conversion_geostationary_satellite_sweep_y(ptr n
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -56919,11 +56919,11 @@ define noundef ptr @proj_create_conversion_gnomonic(ptr noundef %0, double nound
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -57232,11 +57232,11 @@ define noundef ptr @proj_create_conversion_hotine_oblique_mercator_variant_a(ptr
 
 28:                                               ; preds = %12, %26
   %.031 = phi ptr [ %27, %26 ], [ %0, %12 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %10, double noundef %11, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %10, double noundef %11, ptr noundef null, ptr noundef null)
           to label %29 unwind label %96
 
 29:                                               ; preds = %28
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
           to label %30 unwind label %98
 
 30:                                               ; preds = %29
@@ -57593,11 +57593,11 @@ define noundef ptr @proj_create_conversion_hotine_oblique_mercator_variant_b(ptr
 
 28:                                               ; preds = %12, %26
   %.031 = phi ptr [ %27, %26 ], [ %0, %12 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %10, double noundef %11, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %10, double noundef %11, ptr noundef null, ptr noundef null)
           to label %29 unwind label %96
 
 29:                                               ; preds = %28
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
           to label %30 unwind label %98
 
 30:                                               ; preds = %29
@@ -57955,11 +57955,11 @@ define noundef ptr @proj_create_conversion_hotine_oblique_mercator_two_point_nat
 
 30:                                               ; preds = %13, %28
   %.033 = phi ptr [ %29, %28 ], [ %0, %13 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef %11, double noundef %12, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %11, double noundef %12, ptr noundef null, ptr noundef null)
           to label %31 unwind label %99
 
 31:                                               ; preds = %30
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef %9, double noundef %10, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef %9, double noundef %10, ptr noundef null, ptr noundef null)
           to label %32 unwind label %101
 
 32:                                               ; preds = %31
@@ -58331,11 +58331,11 @@ define noundef ptr @proj_create_conversion_laborde_oblique_mercator(ptr noundef 
 
 26:                                               ; preds = %11, %24
   %.029 = phi ptr [ %25, %24 ], [ %0, %11 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %9, double noundef %10, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %9, double noundef %10, ptr noundef null, ptr noundef null)
           to label %27 unwind label %93
 
 27:                                               ; preds = %26
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %28 unwind label %95
 
 28:                                               ; preds = %27
@@ -58674,11 +58674,11 @@ define noundef ptr @proj_create_conversion_international_map_world_polyconic(ptr
 
 24:                                               ; preds = %10, %22
   %.027 = phi ptr [ %23, %22 ], [ %0, %10 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
           to label %25 unwind label %90
 
 25:                                               ; preds = %24
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %26 unwind label %92
 
 26:                                               ; preds = %25
@@ -59003,11 +59003,11 @@ define noundef ptr @proj_create_conversion_krovak_north_oriented(ptr noundef %0,
 
 28:                                               ; preds = %12, %26
   %.031 = phi ptr [ %27, %26 ], [ %0, %12 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %10, double noundef %11, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %10, double noundef %11, ptr noundef null, ptr noundef null)
           to label %29 unwind label %96
 
 29:                                               ; preds = %28
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
           to label %30 unwind label %98
 
 30:                                               ; preds = %29
@@ -59364,11 +59364,11 @@ define noundef ptr @proj_create_conversion_krovak(ptr noundef %0, double noundef
 
 28:                                               ; preds = %12, %26
   %.031 = phi ptr [ %27, %26 ], [ %0, %12 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %10, double noundef %11, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %10, double noundef %11, ptr noundef null, ptr noundef null)
           to label %29 unwind label %96
 
 29:                                               ; preds = %28
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
           to label %30 unwind label %98
 
 30:                                               ; preds = %29
@@ -59722,11 +59722,11 @@ define noundef ptr @proj_create_conversion_lambert_azimuthal_equal_area(ptr noun
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -60031,11 +60031,11 @@ define noundef ptr @proj_create_conversion_miller_cylindrical(ptr noundef %0, do
 
 20:                                               ; preds = %8, %18
   %.023 = phi ptr [ %19, %18 ], [ %0, %8 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %21 unwind label %84
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %22 unwind label %86
 
 22:                                               ; preds = %21
@@ -60326,11 +60326,11 @@ define noundef ptr @proj_create_conversion_mercator_variant_a(ptr noundef %0, do
 
 24:                                               ; preds = %10, %22
   %.027 = phi ptr [ %23, %22 ], [ %0, %10 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
           to label %25 unwind label %90
 
 25:                                               ; preds = %24
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %26 unwind label %92
 
 26:                                               ; preds = %25
@@ -60652,11 +60652,11 @@ define noundef ptr @proj_create_conversion_mercator_variant_b(ptr noundef %0, do
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -60962,11 +60962,11 @@ define noundef ptr @proj_create_conversion_popular_visualisation_pseudo_mercator
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -61271,11 +61271,11 @@ define noundef ptr @proj_create_conversion_mollweide(ptr noundef %0, double noun
 
 20:                                               ; preds = %8, %18
   %.023 = phi ptr [ %19, %18 ], [ %0, %8 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %21 unwind label %84
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %22 unwind label %86
 
 22:                                               ; preds = %21
@@ -61565,11 +61565,11 @@ define noundef ptr @proj_create_conversion_new_zealand_mapping_grid(ptr noundef 
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -61876,11 +61876,11 @@ define noundef ptr @proj_create_conversion_oblique_stereographic(ptr noundef %0,
 
 24:                                               ; preds = %10, %22
   %.027 = phi ptr [ %23, %22 ], [ %0, %10 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
           to label %25 unwind label %90
 
 25:                                               ; preds = %24
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %26 unwind label %92
 
 26:                                               ; preds = %25
@@ -62202,11 +62202,11 @@ define noundef ptr @proj_create_conversion_orthographic(ptr noundef %0, double n
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -62512,11 +62512,11 @@ define noundef ptr @proj_create_conversion_american_polyconic(ptr noundef %0, do
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -62823,11 +62823,11 @@ define noundef ptr @proj_create_conversion_polar_stereographic_variant_a(ptr nou
 
 24:                                               ; preds = %10, %22
   %.027 = phi ptr [ %23, %22 ], [ %0, %10 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
           to label %25 unwind label %90
 
 25:                                               ; preds = %24
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %26 unwind label %92
 
 26:                                               ; preds = %25
@@ -63149,11 +63149,11 @@ define noundef ptr @proj_create_conversion_polar_stereographic_variant_b(ptr nou
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -63458,11 +63458,11 @@ define noundef ptr @proj_create_conversion_robinson(ptr noundef %0, double nound
 
 20:                                               ; preds = %8, %18
   %.023 = phi ptr [ %19, %18 ], [ %0, %8 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %21 unwind label %84
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %22 unwind label %86
 
 22:                                               ; preds = %21
@@ -63751,11 +63751,11 @@ define noundef ptr @proj_create_conversion_sinusoidal(ptr noundef %0, double nou
 
 20:                                               ; preds = %8, %18
   %.023 = phi ptr [ %19, %18 ], [ %0, %8 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %21 unwind label %84
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %22 unwind label %86
 
 22:                                               ; preds = %21
@@ -64046,11 +64046,11 @@ define noundef ptr @proj_create_conversion_stereographic(ptr noundef %0, double 
 
 24:                                               ; preds = %10, %22
   %.027 = phi ptr [ %23, %22 ], [ %0, %10 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %8, double noundef %9, ptr noundef null, ptr noundef null)
           to label %25 unwind label %90
 
 25:                                               ; preds = %24
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %26 unwind label %92
 
 26:                                               ; preds = %25
@@ -64371,11 +64371,11 @@ define noundef ptr @proj_create_conversion_van_der_grinten(ptr noundef %0, doubl
 
 20:                                               ; preds = %8, %18
   %.023 = phi ptr [ %19, %18 ], [ %0, %8 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %21 unwind label %84
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %22 unwind label %86
 
 22:                                               ; preds = %21
@@ -64664,11 +64664,11 @@ define noundef ptr @proj_create_conversion_wagner_i(ptr noundef %0, double nound
 
 20:                                               ; preds = %8, %18
   %.023 = phi ptr [ %19, %18 ], [ %0, %8 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %21 unwind label %84
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %22 unwind label %86
 
 22:                                               ; preds = %21
@@ -64957,11 +64957,11 @@ define noundef ptr @proj_create_conversion_wagner_ii(ptr noundef %0, double noun
 
 20:                                               ; preds = %8, %18
   %.023 = phi ptr [ %19, %18 ], [ %0, %8 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %21 unwind label %84
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %22 unwind label %86
 
 22:                                               ; preds = %21
@@ -65251,11 +65251,11 @@ define noundef ptr @proj_create_conversion_wagner_iii(ptr noundef %0, double nou
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -65560,11 +65560,11 @@ define noundef ptr @proj_create_conversion_wagner_iv(ptr noundef %0, double noun
 
 20:                                               ; preds = %8, %18
   %.023 = phi ptr [ %19, %18 ], [ %0, %8 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %21 unwind label %84
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %22 unwind label %86
 
 22:                                               ; preds = %21
@@ -65853,11 +65853,11 @@ define noundef ptr @proj_create_conversion_wagner_v(ptr noundef %0, double nound
 
 20:                                               ; preds = %8, %18
   %.023 = phi ptr [ %19, %18 ], [ %0, %8 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %21 unwind label %84
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %22 unwind label %86
 
 22:                                               ; preds = %21
@@ -66146,11 +66146,11 @@ define noundef ptr @proj_create_conversion_wagner_vi(ptr noundef %0, double noun
 
 20:                                               ; preds = %8, %18
   %.023 = phi ptr [ %19, %18 ], [ %0, %8 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %21 unwind label %84
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %22 unwind label %86
 
 22:                                               ; preds = %21
@@ -66439,11 +66439,11 @@ define noundef ptr @proj_create_conversion_wagner_vii(ptr noundef %0, double nou
 
 20:                                               ; preds = %8, %18
   %.023 = phi ptr [ %19, %18 ], [ %0, %8 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %21 unwind label %84
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %22 unwind label %86
 
 22:                                               ; preds = %21
@@ -66733,11 +66733,11 @@ define noundef ptr @proj_create_conversion_quadrilateralized_spherical_cube(ptr 
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -67043,11 +67043,11 @@ define noundef ptr @proj_create_conversion_spherical_cross_track_height(ptr noun
 
 22:                                               ; preds = %9, %20
   %.025 = phi ptr [ %21, %20 ], [ %0, %9 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %23 unwind label %87
 
 23:                                               ; preds = %22
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %5, double noundef %6, ptr noundef null, ptr noundef null)
           to label %24 unwind label %89
 
 24:                                               ; preds = %23
@@ -67352,11 +67352,11 @@ define noundef ptr @proj_create_conversion_equal_earth(ptr noundef %0, double no
 
 20:                                               ; preds = %8, %18
   %.023 = phi ptr [ %19, %18 ], [ %0, %8 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %6, double noundef %7, ptr noundef null, ptr noundef null)
           to label %21 unwind label %84
 
 21:                                               ; preds = %20
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %22 unwind label %86
 
 22:                                               ; preds = %21
@@ -67648,11 +67648,11 @@ define noundef ptr @proj_create_conversion_vertical_perspective(ptr noundef %0, 
 
 26:                                               ; preds = %11, %24
   %.029 = phi ptr [ %25, %24 ], [ %0, %11 ]
-  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %9, double noundef %10, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL16createLinearUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %9, double noundef %10, ptr noundef null, ptr noundef null)
           to label %27 unwind label %93
 
 27:                                               ; preds = %26
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %7, double noundef %8, ptr noundef null, ptr noundef null)
           to label %28 unwind label %95
 
 28:                                               ; preds = %27
@@ -67988,7 +67988,7 @@ define noundef ptr @proj_create_conversion_pole_rotation_grib_convention(ptr nou
 
 17:                                               ; preds = %6, %15
   %.020 = phi ptr [ %16, %15 ], [ %0, %6 ]
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %18 unwind label %80
 
 18:                                               ; preds = %17
@@ -68264,7 +68264,7 @@ define noundef ptr @proj_create_conversion_pole_rotation_netcdf_cf_convention(pt
 
 17:                                               ; preds = %6, %15
   %.020 = phi ptr [ %16, %15 ], [ %0, %6 ]
-  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZL17createAngularUnitPKcdS0_S0_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %4, double noundef %5, ptr noundef null, ptr noundef null)
           to label %18 unwind label %80
 
 18:                                               ; preds = %17
@@ -68558,7 +68558,7 @@ define range(i32 0, 2) i32 @proj_coordoperation_is_instantiable(ptr noundef %0, 
   br label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit
 
 15:                                               ; preds = %13
-  call fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %.017, ptr noundef nonnull @__FUNCTION__.proj_coordoperation_is_instantiable)
+  call fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %.017, ptr noundef nonnull @__FUNCTION__.proj_coordoperation_is_instantiable)
   %16 = invoke i32 @proj_context_is_network_enabled(ptr noundef nonnull %.017)
           to label %17 unwind label %22
 
@@ -69433,7 +69433,7 @@ define i32 @proj_coordoperation_get_grid_used_count(ptr noundef %0, ptr noundef 
   br label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit
 
 16:                                               ; preds = %14
-  call fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %.023, ptr noundef nonnull @__FUNCTION__.proj_coordoperation_get_grid_used_count)
+  call fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %.023, ptr noundef nonnull @__FUNCTION__.proj_coordoperation_get_grid_used_count)
   %17 = getelementptr inbounds i8, ptr %1, i64 776
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
@@ -69799,7 +69799,7 @@ define noundef ptr @proj_create_operation_factory_context(ptr noundef %0, ptr no
 
 17:                                               ; preds = %2, %15
   %.016 = phi ptr [ %16, %15 ], [ %0, %2 ]
-  call fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %.016, ptr noundef nonnull @__FUNCTION__.proj_create_operation_factory_context)
+  call fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %.016, ptr noundef nonnull @__FUNCTION__.proj_create_operation_factory_context)
   %18 = load ptr, ptr %3, align 8
   %.not64 = icmp eq ptr %18, null
   br i1 %.not64, label %170, label %19
@@ -76382,7 +76382,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 85:                                               ; preds = %19
   %86 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs9SingleCRS13datumEnsembleEv(ptr noundef nonnull align 8 dereferenceable(72) %18) #34
-  call fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef %.021, ptr noundef nonnull @__FUNCTION__.proj_crs_get_datum_forced)
+  call fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %.021, ptr noundef nonnull @__FUNCTION__.proj_crs_get_datum_forced)
   %87 = load ptr, ptr %86, align 8
   invoke void @_ZNK5osgeo4proj5datum13DatumEnsemble7asDatumERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.195") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %87, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %88 unwind label %138
@@ -80495,7 +80495,7 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10share
 
 _ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split.thread: ; preds = %20, %27, %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split
   %35 = phi ptr [ %.pr.pre, %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split ], [ %19, %27 ], [ %19, %20 ]
-  invoke fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef %.020, ptr noundef nonnull @__FUNCTION__.proj_coordinate_metadata_create)
+  invoke fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %.020, ptr noundef nonnull @__FUNCTION__.proj_coordinate_metadata_create)
           to label %36 unwind label %168
 
 36:                                               ; preds = %_ZSt20dynamic_pointer_castIN5osgeo4proj3crs3CRSENS1_4util10BaseObjectEESt10shared_ptrIT_ERKS6_IT0_E.exitthread-pre-split.thread

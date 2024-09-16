@@ -320,375 +320,375 @@ define internal i32 @dissect_netlink_sock_diag(ptr noundef %0, ptr noundef %1, p
   %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %21) #4
   switch i8 %28, label %dissect_sock_diag_by_family.exit [
     i8 1, label %29
-    i8 2, label %107
-    i8 10, label %107
-    i8 16, label %153
-    i8 17, label %231
+    i8 2, label %109
+    i8 10, label %109
+    i8 16, label %156
+    i8 17, label %235
   ]
 
 29:                                               ; preds = %24
   %30 = load i32, ptr @hf_netlink_sock_diag_family, align 4
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %30, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0) #4
-  br i1 %27, label %32, label %77
+  br i1 %27, label %32, label %78
 
 32:                                               ; preds = %29
   %33 = add i32 %21, 2
-  br label %.lr.ph.i.i.i.i
+  br label %34
 
-.lr.ph.i.i.i.i:                                   ; preds = %35, %32
-  %.08.i.i.i.i = phi i32 [ %37, %35 ], [ 2, %32 ]
-  %.057.i.i.i.i = phi i32 [ %36, %35 ], [ %33, %32 ]
-  %34 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.057.i.i.i.i) #4
-  %.not.i.i.i.i = icmp eq i8 %34, 0
-  br i1 %.not.i.i.i.i, label %35, label %dissect_sock_diag_unix_request.exit.i
+34:                                               ; preds = %36, %32
+  %.08.i.i.i.i = phi i32 [ 2, %32 ], [ %38, %36 ]
+  %.057.i.i.i.i = phi i32 [ %33, %32 ], [ %37, %36 ]
+  %35 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.057.i.i.i.i) #4
+  %.not.i.i.i.i = icmp eq i8 %35, 0
+  br i1 %.not.i.i.i.i, label %36, label %dissect_sock_diag_unix_request.exit.i
 
-35:                                               ; preds = %.lr.ph.i.i.i.i
-  %36 = add i32 %.057.i.i.i.i, 1
-  %37 = add nsw i32 %.08.i.i.i.i, -1
+36:                                               ; preds = %34
+  %37 = add i32 %.057.i.i.i.i, 1
+  %38 = add nsw i32 %.08.i.i.i.i, -1
   %.not.i.i = icmp eq i32 %.08.i.i.i.i, 0
-  br i1 %.not.i.i, label %dissect_sock_diag_unix_request.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %dissect_sock_diag_unix_request.exit.i, label %34, !llvm.loop !4
 
-dissect_sock_diag_unix_request.exit.i:            ; preds = %35, %.lr.ph.i.i.i.i
-  %38 = add i32 %21, 8
-  %39 = load i32, ptr @hf_netlink_sock_diag_inode, align 4
-  %40 = load i32, ptr %18, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %39, ptr noundef %0, i32 noundef %38, i32 noundef 4, i32 noundef %40) #4
-  %42 = add i32 %21, 12
-  %43 = load i32, ptr @hf_netlink_sock_diag_unix_show, align 4
-  %44 = load i32, ptr %18, align 4
-  %45 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %43, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef %44) #4
-  %46 = load i32, ptr @ett_netlink_sock_diag_show, align 4
-  %47 = tail call ptr @proto_item_add_subtree(ptr noundef %45, i32 noundef %46) #4
-  %48 = load i32, ptr @hf_netlink_sock_diag_unix_show_name, align 4
-  %49 = load i32, ptr %18, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef %49) #4
-  %51 = load i32, ptr @hf_netlink_sock_diag_unix_show_vfs, align 4
-  %52 = load i32, ptr %18, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %51, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef %52) #4
-  %54 = load i32, ptr @hf_netlink_sock_diag_unix_show_peer, align 4
-  %55 = load i32, ptr %18, align 4
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %54, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef %55) #4
-  %57 = load i32, ptr @hf_netlink_sock_diag_unix_show_icons, align 4
-  %58 = load i32, ptr %18, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %57, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef %58) #4
-  %60 = load i32, ptr @hf_netlink_sock_diag_unix_show_rqlen, align 4
-  %61 = load i32, ptr %18, align 4
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %60, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef %61) #4
-  %63 = load i32, ptr @hf_netlink_sock_diag_unix_show_meminfo, align 4
-  %64 = load i32, ptr %18, align 4
-  %65 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %63, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef %64) #4
-  %66 = add i32 %21, 16
-  %67 = add i32 %21, 20
-  %68 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %67) #4
-  %69 = zext i32 %68 to i64
-  %70 = shl nuw i64 %69, 32
-  %71 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %66) #4
-  %72 = zext i32 %71 to i64
-  %73 = or disjoint i64 %70, %72
-  %74 = load i32, ptr @hf_netlink_sock_diag_cookie, align 4
-  %75 = tail call ptr @proto_tree_add_uint64(ptr noundef %17, i32 noundef %74, ptr noundef %0, i32 noundef %66, i32 noundef 8, i64 noundef %73) #4
-  %76 = add i32 %21, 24
+dissect_sock_diag_unix_request.exit.i:            ; preds = %36, %34
+  %39 = add i32 %21, 8
+  %40 = load i32, ptr @hf_netlink_sock_diag_inode, align 4
+  %41 = load i32, ptr %18, align 4
+  %42 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %40, ptr noundef %0, i32 noundef %39, i32 noundef 4, i32 noundef %41) #4
+  %43 = add i32 %21, 12
+  %44 = load i32, ptr @hf_netlink_sock_diag_unix_show, align 4
+  %45 = load i32, ptr %18, align 4
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %44, ptr noundef %0, i32 noundef %43, i32 noundef 4, i32 noundef %45) #4
+  %47 = load i32, ptr @ett_netlink_sock_diag_show, align 4
+  %48 = tail call ptr @proto_item_add_subtree(ptr noundef %46, i32 noundef %47) #4
+  %49 = load i32, ptr @hf_netlink_sock_diag_unix_show_name, align 4
+  %50 = load i32, ptr %18, align 4
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %49, ptr noundef %0, i32 noundef %43, i32 noundef 4, i32 noundef %50) #4
+  %52 = load i32, ptr @hf_netlink_sock_diag_unix_show_vfs, align 4
+  %53 = load i32, ptr %18, align 4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %52, ptr noundef %0, i32 noundef %43, i32 noundef 4, i32 noundef %53) #4
+  %55 = load i32, ptr @hf_netlink_sock_diag_unix_show_peer, align 4
+  %56 = load i32, ptr %18, align 4
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %55, ptr noundef %0, i32 noundef %43, i32 noundef 4, i32 noundef %56) #4
+  %58 = load i32, ptr @hf_netlink_sock_diag_unix_show_icons, align 4
+  %59 = load i32, ptr %18, align 4
+  %60 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %58, ptr noundef %0, i32 noundef %43, i32 noundef 4, i32 noundef %59) #4
+  %61 = load i32, ptr @hf_netlink_sock_diag_unix_show_rqlen, align 4
+  %62 = load i32, ptr %18, align 4
+  %63 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %61, ptr noundef %0, i32 noundef %43, i32 noundef 4, i32 noundef %62) #4
+  %64 = load i32, ptr @hf_netlink_sock_diag_unix_show_meminfo, align 4
+  %65 = load i32, ptr %18, align 4
+  %66 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %64, ptr noundef %0, i32 noundef %43, i32 noundef 4, i32 noundef %65) #4
+  %67 = add i32 %21, 16
+  %68 = add i32 %21, 20
+  %69 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %68) #4
+  %70 = zext i32 %69 to i64
+  %71 = shl nuw i64 %70, 32
+  %72 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %67) #4
+  %73 = zext i32 %72 to i64
+  %74 = or disjoint i64 %71, %73
+  %75 = load i32, ptr @hf_netlink_sock_diag_cookie, align 4
+  %76 = tail call ptr @proto_tree_add_uint64(ptr noundef %17, i32 noundef %75, ptr noundef %0, i32 noundef %67, i32 noundef 8, i64 noundef %74) #4
+  %77 = add i32 %21, 24
   br label %dissect_sock_diag_by_family.exit
 
-77:                                               ; preds = %29
-  %78 = add i32 %21, 1
-  %79 = load i32, ptr @hf_netlink_sock_diag_type, align 4
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %79, ptr noundef %0, i32 noundef %78, i32 noundef 1, i32 noundef 0) #4
-  %81 = add i32 %21, 2
-  %82 = load i32, ptr @hf_netlink_sock_diag_state, align 4
-  %83 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %82, ptr noundef %0, i32 noundef %81, i32 noundef 1, i32 noundef 0) #4
-  %84 = add i32 %21, 3
-  br label %.lr.ph.i.i.i48.i
+78:                                               ; preds = %29
+  %79 = add i32 %21, 1
+  %80 = load i32, ptr @hf_netlink_sock_diag_type, align 4
+  %81 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %80, ptr noundef %0, i32 noundef %79, i32 noundef 1, i32 noundef 0) #4
+  %82 = add i32 %21, 2
+  %83 = load i32, ptr @hf_netlink_sock_diag_state, align 4
+  %84 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %83, ptr noundef %0, i32 noundef %82, i32 noundef 1, i32 noundef 0) #4
+  %85 = add i32 %21, 3
+  br label %86
 
-.lr.ph.i.i.i48.i:                                 ; preds = %86, %77
-  %.08.i.i.i49.i = phi i32 [ %88, %86 ], [ 1, %77 ]
-  %.057.i.i.i50.i = phi i32 [ %87, %86 ], [ %84, %77 ]
-  %85 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.057.i.i.i50.i) #4
-  %.not.i.i.i51.i = icmp eq i8 %85, 0
-  br i1 %.not.i.i.i51.i, label %86, label %dissect_sock_diag_unix_reply.exit.i
+86:                                               ; preds = %88, %78
+  %.08.i.i.i48.i = phi i32 [ 1, %78 ], [ %90, %88 ]
+  %.057.i.i.i49.i = phi i32 [ %85, %78 ], [ %89, %88 ]
+  %87 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.057.i.i.i49.i) #4
+  %.not.i.i.i50.i = icmp eq i8 %87, 0
+  br i1 %.not.i.i.i50.i, label %88, label %dissect_sock_diag_unix_reply.exit.i
 
-86:                                               ; preds = %.lr.ph.i.i.i48.i
-  %87 = add i32 %.057.i.i.i50.i, 1
-  %88 = add nsw i32 %.08.i.i.i49.i, -1
-  %.not.i52.i = icmp eq i32 %.08.i.i.i49.i, 0
-  br i1 %.not.i52.i, label %dissect_sock_diag_unix_reply.exit.i, label %.lr.ph.i.i.i48.i, !llvm.loop !4
+88:                                               ; preds = %86
+  %89 = add i32 %.057.i.i.i49.i, 1
+  %90 = add nsw i32 %.08.i.i.i48.i, -1
+  %.not.i51.i = icmp eq i32 %.08.i.i.i48.i, 0
+  br i1 %.not.i51.i, label %dissect_sock_diag_unix_reply.exit.i, label %86, !llvm.loop !4
 
-dissect_sock_diag_unix_reply.exit.i:              ; preds = %86, %.lr.ph.i.i.i48.i
-  %89 = add i32 %21, 4
-  %90 = load i32, ptr @hf_netlink_sock_diag_inode, align 4
-  %91 = load i32, ptr %18, align 4
-  %92 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %90, ptr noundef %0, i32 noundef %89, i32 noundef 4, i32 noundef %91) #4
-  %93 = add i32 %21, 8
-  %94 = add i32 %21, 12
-  %95 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %94) #4
-  %96 = zext i32 %95 to i64
-  %97 = shl nuw i64 %96, 32
-  %98 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %93) #4
-  %99 = zext i32 %98 to i64
-  %100 = or disjoint i64 %97, %99
-  %101 = load i32, ptr @hf_netlink_sock_diag_cookie, align 4
-  %102 = tail call ptr @proto_tree_add_uint64(ptr noundef %17, i32 noundef %101, ptr noundef %0, i32 noundef %93, i32 noundef 8, i64 noundef %100) #4
-  %103 = add i32 %21, 16
-  %104 = load i32, ptr @hf_netlink_sock_diag_unix_attr, align 4
-  %105 = load i32, ptr @ett_netlink_sock_diag_attr, align 4
-  %106 = call i32 @dissect_netlink_attributes_to_end(ptr noundef %0, i32 noundef %104, i32 noundef %105, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %17, i32 noundef %103, ptr noundef nonnull @dissect_netlink_unix_sock_diag_reply_attrs) #4
+dissect_sock_diag_unix_reply.exit.i:              ; preds = %88, %86
+  %91 = add i32 %21, 4
+  %92 = load i32, ptr @hf_netlink_sock_diag_inode, align 4
+  %93 = load i32, ptr %18, align 4
+  %94 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %92, ptr noundef %0, i32 noundef %91, i32 noundef 4, i32 noundef %93) #4
+  %95 = add i32 %21, 8
+  %96 = add i32 %21, 12
+  %97 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %96) #4
+  %98 = zext i32 %97 to i64
+  %99 = shl nuw i64 %98, 32
+  %100 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %95) #4
+  %101 = zext i32 %100 to i64
+  %102 = or disjoint i64 %99, %101
+  %103 = load i32, ptr @hf_netlink_sock_diag_cookie, align 4
+  %104 = tail call ptr @proto_tree_add_uint64(ptr noundef %17, i32 noundef %103, ptr noundef %0, i32 noundef %95, i32 noundef 8, i64 noundef %102) #4
+  %105 = add i32 %21, 16
+  %106 = load i32, ptr @hf_netlink_sock_diag_unix_attr, align 4
+  %107 = load i32, ptr @ett_netlink_sock_diag_attr, align 4
+  %108 = call i32 @dissect_netlink_attributes_to_end(ptr noundef %0, i32 noundef %106, i32 noundef %107, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %17, i32 noundef %105, ptr noundef nonnull @dissect_netlink_unix_sock_diag_reply_attrs) #4
   br label %dissect_sock_diag_by_family.exit
 
-107:                                              ; preds = %24, %24
-  %108 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %21) #4
-  %109 = load i32, ptr @hf_netlink_sock_diag_family, align 4
-  %110 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %109, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0) #4
-  %111 = add i32 %21, 1
-  br i1 %27, label %112, label %131
+109:                                              ; preds = %24, %24
+  %110 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %21) #4
+  %111 = load i32, ptr @hf_netlink_sock_diag_family, align 4
+  %112 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %111, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0) #4
+  %113 = add i32 %21, 1
+  br i1 %27, label %114, label %134
 
-112:                                              ; preds = %107
-  %113 = load i32, ptr @hf_netlink_sock_diag_inet_proto, align 4
-  %114 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %113, ptr noundef %0, i32 noundef %111, i32 noundef 1, i32 noundef 0) #4
-  %115 = add i32 %21, 2
-  %116 = load i32, ptr @hf_netlink_sock_diag_inet_extended, align 4
-  %117 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %116, ptr noundef %0, i32 noundef %115, i32 noundef 1, i32 noundef 0) #4
-  %118 = add i32 %21, 3
-  br label %.lr.ph.i.i.i53.i
+114:                                              ; preds = %109
+  %115 = load i32, ptr @hf_netlink_sock_diag_inet_proto, align 4
+  %116 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %115, ptr noundef %0, i32 noundef %113, i32 noundef 1, i32 noundef 0) #4
+  %117 = add i32 %21, 2
+  %118 = load i32, ptr @hf_netlink_sock_diag_inet_extended, align 4
+  %119 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %118, ptr noundef %0, i32 noundef %117, i32 noundef 1, i32 noundef 0) #4
+  %120 = add i32 %21, 3
+  br label %121
 
-.lr.ph.i.i.i53.i:                                 ; preds = %120, %112
-  %.08.i.i.i54.i = phi i32 [ %122, %120 ], [ 1, %112 ]
-  %.057.i.i.i55.i = phi i32 [ %121, %120 ], [ %118, %112 ]
-  %119 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.057.i.i.i55.i) #4
-  %.not.i.i.i56.i = icmp eq i8 %119, 0
-  br i1 %.not.i.i.i56.i, label %120, label %dissect_sock_diag_inet_request.exit.i
+121:                                              ; preds = %123, %114
+  %.08.i.i.i52.i = phi i32 [ 1, %114 ], [ %125, %123 ]
+  %.057.i.i.i53.i = phi i32 [ %120, %114 ], [ %124, %123 ]
+  %122 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.057.i.i.i53.i) #4
+  %.not.i.i.i54.i = icmp eq i8 %122, 0
+  br i1 %.not.i.i.i54.i, label %123, label %dissect_sock_diag_inet_request.exit.i
 
-120:                                              ; preds = %.lr.ph.i.i.i53.i
-  %121 = add i32 %.057.i.i.i55.i, 1
-  %122 = add nsw i32 %.08.i.i.i54.i, -1
-  %.not.i57.i = icmp eq i32 %.08.i.i.i54.i, 0
-  br i1 %.not.i57.i, label %dissect_sock_diag_inet_request.exit.i, label %.lr.ph.i.i.i53.i, !llvm.loop !4
+123:                                              ; preds = %121
+  %124 = add i32 %.057.i.i.i53.i, 1
+  %125 = add nsw i32 %.08.i.i.i52.i, -1
+  %.not.i55.i = icmp eq i32 %.08.i.i.i52.i, 0
+  br i1 %.not.i55.i, label %dissect_sock_diag_inet_request.exit.i, label %121, !llvm.loop !4
 
-dissect_sock_diag_inet_request.exit.i:            ; preds = %120, %.lr.ph.i.i.i53.i
-  %123 = load i32, ptr @hf_netlink_sock_diag_inet_padding, align 4
-  %124 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %123, ptr noundef %0, i32 noundef %118, i32 noundef 1, i32 noundef 0) #4
-  %125 = add i32 %21, 4
-  %126 = load i32, ptr @hf_netlink_sock_diag_inet_states, align 4
-  %127 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %126, ptr noundef %0, i32 noundef %125, i32 noundef 4, i32 noundef 0) #4
-  %128 = add i32 %21, 8
-  %129 = zext i8 %108 to i32
-  %130 = tail call fastcc noundef i32 @dissect_sock_diag_inet_sockid(ptr noundef %0, ptr noundef nonnull readonly %3, ptr noundef %17, i32 noundef %128, i32 noundef %129)
+dissect_sock_diag_inet_request.exit.i:            ; preds = %123, %121
+  %126 = load i32, ptr @hf_netlink_sock_diag_inet_padding, align 4
+  %127 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %126, ptr noundef %0, i32 noundef %120, i32 noundef 1, i32 noundef 0) #4
+  %128 = add i32 %21, 4
+  %129 = load i32, ptr @hf_netlink_sock_diag_inet_states, align 4
+  %130 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %129, ptr noundef %0, i32 noundef %128, i32 noundef 4, i32 noundef 0) #4
+  %131 = add i32 %21, 8
+  %132 = zext i8 %110 to i32
+  %133 = tail call fastcc noundef i32 @dissect_sock_diag_inet_sockid(ptr noundef %0, ptr noundef readonly %3, ptr noundef %17, i32 noundef %131, i32 noundef %132)
   br label %dissect_sock_diag_by_family.exit
 
-131:                                              ; preds = %107
-  %132 = load i32, ptr @hf_netlink_sock_diag_state, align 4
-  %133 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %132, ptr noundef %0, i32 noundef %111, i32 noundef 1, i32 noundef 0) #4
-  %134 = add i32 %21, 4
-  %135 = zext i8 %108 to i32
-  %136 = tail call fastcc i32 @dissect_sock_diag_inet_sockid(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %17, i32 noundef %134, i32 noundef %135)
-  %137 = add i32 %136, 4
-  %138 = load i32, ptr @hf_netlink_sock_diag_rqueue, align 4
-  %139 = load i32, ptr %18, align 4
-  %140 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %138, ptr noundef %0, i32 noundef %137, i32 noundef 4, i32 noundef %139) #4
-  %141 = add i32 %136, 8
-  %142 = load i32, ptr @hf_netlink_sock_diag_wqueue, align 4
-  %143 = load i32, ptr %18, align 4
-  %144 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %142, ptr noundef %0, i32 noundef %141, i32 noundef 4, i32 noundef %143) #4
-  %145 = add i32 %136, 16
-  %146 = load i32, ptr @hf_netlink_sock_diag_inode, align 4
-  %147 = load i32, ptr %18, align 4
-  %148 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %146, ptr noundef %0, i32 noundef %145, i32 noundef 4, i32 noundef %147) #4
-  %149 = add i32 %136, 20
-  %150 = load i32, ptr @hf_netlink_sock_diag_inet_attr, align 4
-  %151 = load i32, ptr @ett_netlink_sock_diag_attr, align 4
-  %152 = call i32 @dissect_netlink_attributes_to_end(ptr noundef %0, i32 noundef %150, i32 noundef %151, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %17, i32 noundef %149, ptr noundef nonnull @dissect_sock_diag_inet_attributes) #4
+134:                                              ; preds = %109
+  %135 = load i32, ptr @hf_netlink_sock_diag_state, align 4
+  %136 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %135, ptr noundef %0, i32 noundef %113, i32 noundef 1, i32 noundef 0) #4
+  %137 = add i32 %21, 4
+  %138 = zext i8 %110 to i32
+  %139 = tail call fastcc i32 @dissect_sock_diag_inet_sockid(ptr noundef %0, ptr noundef %3, ptr noundef %17, i32 noundef %137, i32 noundef %138)
+  %140 = add i32 %139, 4
+  %141 = load i32, ptr @hf_netlink_sock_diag_rqueue, align 4
+  %142 = load i32, ptr %18, align 4
+  %143 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %141, ptr noundef %0, i32 noundef %140, i32 noundef 4, i32 noundef %142) #4
+  %144 = add i32 %139, 8
+  %145 = load i32, ptr @hf_netlink_sock_diag_wqueue, align 4
+  %146 = load i32, ptr %18, align 4
+  %147 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %145, ptr noundef %0, i32 noundef %144, i32 noundef 4, i32 noundef %146) #4
+  %148 = add i32 %139, 16
+  %149 = load i32, ptr @hf_netlink_sock_diag_inode, align 4
+  %150 = load i32, ptr %18, align 4
+  %151 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %149, ptr noundef %0, i32 noundef %148, i32 noundef 4, i32 noundef %150) #4
+  %152 = add i32 %139, 20
+  %153 = load i32, ptr @hf_netlink_sock_diag_inet_attr, align 4
+  %154 = load i32, ptr @ett_netlink_sock_diag_attr, align 4
+  %155 = call i32 @dissect_netlink_attributes_to_end(ptr noundef %0, i32 noundef %153, i32 noundef %154, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %17, i32 noundef %152, ptr noundef nonnull @dissect_sock_diag_inet_attributes) #4
   br label %dissect_sock_diag_by_family.exit
 
-153:                                              ; preds = %24
-  %154 = load i32, ptr @hf_netlink_sock_diag_family, align 4
-  %155 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %154, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0) #4
-  %156 = add i32 %21, 1
-  br i1 %27, label %157, label %195
+156:                                              ; preds = %24
+  %157 = load i32, ptr @hf_netlink_sock_diag_family, align 4
+  %158 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %157, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0) #4
+  %159 = add i32 %21, 1
+  br i1 %27, label %160, label %199
 
-157:                                              ; preds = %153
-  %158 = load i32, ptr @hf_netlink_sock_diag_netlink_proto, align 4
-  %159 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %158, ptr noundef %0, i32 noundef %156, i32 noundef 1, i32 noundef 0) #4
-  %160 = add i32 %21, 2
-  br label %.lr.ph.i.i.i58.i
+160:                                              ; preds = %156
+  %161 = load i32, ptr @hf_netlink_sock_diag_netlink_proto, align 4
+  %162 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %161, ptr noundef %0, i32 noundef %159, i32 noundef 1, i32 noundef 0) #4
+  %163 = add i32 %21, 2
+  br label %164
 
-.lr.ph.i.i.i58.i:                                 ; preds = %162, %157
-  %.08.i.i.i59.i = phi i32 [ %164, %162 ], [ 2, %157 ]
-  %.057.i.i.i60.i = phi i32 [ %163, %162 ], [ %160, %157 ]
-  %161 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.057.i.i.i60.i) #4
-  %.not.i.i.i61.i = icmp eq i8 %161, 0
-  br i1 %.not.i.i.i61.i, label %162, label %dissect_sock_diag_netlink_request.exit.i
+164:                                              ; preds = %166, %160
+  %.08.i.i.i56.i = phi i32 [ 2, %160 ], [ %168, %166 ]
+  %.057.i.i.i57.i = phi i32 [ %163, %160 ], [ %167, %166 ]
+  %165 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.057.i.i.i57.i) #4
+  %.not.i.i.i58.i = icmp eq i8 %165, 0
+  br i1 %.not.i.i.i58.i, label %166, label %dissect_sock_diag_netlink_request.exit.i
 
-162:                                              ; preds = %.lr.ph.i.i.i58.i
-  %163 = add i32 %.057.i.i.i60.i, 1
-  %164 = add nsw i32 %.08.i.i.i59.i, -1
-  %.not.i62.i = icmp eq i32 %.08.i.i.i59.i, 0
-  br i1 %.not.i62.i, label %dissect_sock_diag_netlink_request.exit.i, label %.lr.ph.i.i.i58.i, !llvm.loop !4
+166:                                              ; preds = %164
+  %167 = add i32 %.057.i.i.i57.i, 1
+  %168 = add nsw i32 %.08.i.i.i56.i, -1
+  %.not.i59.i = icmp eq i32 %.08.i.i.i56.i, 0
+  br i1 %.not.i59.i, label %dissect_sock_diag_netlink_request.exit.i, label %164, !llvm.loop !4
 
-dissect_sock_diag_netlink_request.exit.i:         ; preds = %162, %.lr.ph.i.i.i58.i
-  %165 = add i32 %21, 4
-  %166 = load i32, ptr @hf_netlink_sock_diag_inode, align 4
-  %167 = load i32, ptr %18, align 4
-  %168 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %166, ptr noundef %0, i32 noundef %165, i32 noundef 4, i32 noundef %167) #4
-  %169 = add i32 %21, 8
-  %170 = load i32, ptr @hf_netlink_sock_diag_netlink_show, align 4
+dissect_sock_diag_netlink_request.exit.i:         ; preds = %166, %164
+  %169 = add i32 %21, 4
+  %170 = load i32, ptr @hf_netlink_sock_diag_inode, align 4
   %171 = load i32, ptr %18, align 4
   %172 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %170, ptr noundef %0, i32 noundef %169, i32 noundef 4, i32 noundef %171) #4
-  %173 = load i32, ptr @ett_netlink_sock_diag_show, align 4
-  %174 = tail call ptr @proto_item_add_subtree(ptr noundef %172, i32 noundef %173) #4
-  %175 = load i32, ptr @hf_netlink_sock_diag_netlink_show_meminfo, align 4
-  %176 = load i32, ptr %18, align 4
-  %177 = tail call ptr @proto_tree_add_item(ptr noundef %174, i32 noundef %175, ptr noundef %0, i32 noundef %169, i32 noundef 4, i32 noundef %176) #4
-  %178 = load i32, ptr @hf_netlink_sock_diag_netlink_show_groups, align 4
-  %179 = load i32, ptr %18, align 4
-  %180 = tail call ptr @proto_tree_add_item(ptr noundef %174, i32 noundef %178, ptr noundef %0, i32 noundef %169, i32 noundef 4, i32 noundef %179) #4
-  %181 = load i32, ptr @hf_netlink_sock_diag_netlink_show_ring_cfg, align 4
-  %182 = load i32, ptr %18, align 4
-  %183 = tail call ptr @proto_tree_add_item(ptr noundef %174, i32 noundef %181, ptr noundef %0, i32 noundef %169, i32 noundef 4, i32 noundef %182) #4
-  %184 = add i32 %21, 12
-  %185 = add i32 %21, 16
-  %186 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %185) #4
-  %187 = zext i32 %186 to i64
-  %188 = shl nuw i64 %187, 32
-  %189 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %184) #4
-  %190 = zext i32 %189 to i64
-  %191 = or disjoint i64 %188, %190
-  %192 = load i32, ptr @hf_netlink_sock_diag_cookie, align 4
-  %193 = tail call ptr @proto_tree_add_uint64(ptr noundef %17, i32 noundef %192, ptr noundef %0, i32 noundef %184, i32 noundef 8, i64 noundef %191) #4
-  %194 = add i32 %21, 20
+  %173 = add i32 %21, 8
+  %174 = load i32, ptr @hf_netlink_sock_diag_netlink_show, align 4
+  %175 = load i32, ptr %18, align 4
+  %176 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %174, ptr noundef %0, i32 noundef %173, i32 noundef 4, i32 noundef %175) #4
+  %177 = load i32, ptr @ett_netlink_sock_diag_show, align 4
+  %178 = tail call ptr @proto_item_add_subtree(ptr noundef %176, i32 noundef %177) #4
+  %179 = load i32, ptr @hf_netlink_sock_diag_netlink_show_meminfo, align 4
+  %180 = load i32, ptr %18, align 4
+  %181 = tail call ptr @proto_tree_add_item(ptr noundef %178, i32 noundef %179, ptr noundef %0, i32 noundef %173, i32 noundef 4, i32 noundef %180) #4
+  %182 = load i32, ptr @hf_netlink_sock_diag_netlink_show_groups, align 4
+  %183 = load i32, ptr %18, align 4
+  %184 = tail call ptr @proto_tree_add_item(ptr noundef %178, i32 noundef %182, ptr noundef %0, i32 noundef %173, i32 noundef 4, i32 noundef %183) #4
+  %185 = load i32, ptr @hf_netlink_sock_diag_netlink_show_ring_cfg, align 4
+  %186 = load i32, ptr %18, align 4
+  %187 = tail call ptr @proto_tree_add_item(ptr noundef %178, i32 noundef %185, ptr noundef %0, i32 noundef %173, i32 noundef 4, i32 noundef %186) #4
+  %188 = add i32 %21, 12
+  %189 = add i32 %21, 16
+  %190 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %189) #4
+  %191 = zext i32 %190 to i64
+  %192 = shl nuw i64 %191, 32
+  %193 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %188) #4
+  %194 = zext i32 %193 to i64
+  %195 = or disjoint i64 %192, %194
+  %196 = load i32, ptr @hf_netlink_sock_diag_cookie, align 4
+  %197 = tail call ptr @proto_tree_add_uint64(ptr noundef %17, i32 noundef %196, ptr noundef %0, i32 noundef %188, i32 noundef 8, i64 noundef %195) #4
+  %198 = add i32 %21, 20
   br label %dissect_sock_diag_by_family.exit
 
-195:                                              ; preds = %153
-  %196 = load i32, ptr @hf_netlink_sock_diag_type, align 4
-  %197 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %196, ptr noundef %0, i32 noundef %156, i32 noundef 1, i32 noundef 0) #4
-  %198 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %156) #4
-  %199 = add i32 %21, 2
-  %200 = load i32, ptr @hf_netlink_sock_diag_netlink_proto, align 4
-  %201 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %200, ptr noundef %0, i32 noundef %199, i32 noundef 1, i32 noundef 0) #4
-  %202 = add i32 %21, 3
-  %203 = load i32, ptr @hf_netlink_sock_diag_state, align 4
-  %204 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %203, ptr noundef %0, i32 noundef %202, i32 noundef 1, i32 noundef 0) #4
-  %205 = add i32 %21, 4
-  %206 = load i32, ptr @hf_netlink_sock_diag_netlink_port_id, align 4
-  %207 = load i32, ptr %18, align 4
-  %208 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %206, ptr noundef %0, i32 noundef %205, i32 noundef 4, i32 noundef %207) #4
-  %209 = add i32 %21, 8
-  %210 = load i32, ptr @hf_netlink_sock_diag_netlink_dst_port_id, align 4
+199:                                              ; preds = %156
+  %200 = load i32, ptr @hf_netlink_sock_diag_type, align 4
+  %201 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %200, ptr noundef %0, i32 noundef %159, i32 noundef 1, i32 noundef 0) #4
+  %202 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %159) #4
+  %203 = add i32 %21, 2
+  %204 = load i32, ptr @hf_netlink_sock_diag_netlink_proto, align 4
+  %205 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %204, ptr noundef %0, i32 noundef %203, i32 noundef 1, i32 noundef 0) #4
+  %206 = add i32 %21, 3
+  %207 = load i32, ptr @hf_netlink_sock_diag_state, align 4
+  %208 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %207, ptr noundef %0, i32 noundef %206, i32 noundef 1, i32 noundef 0) #4
+  %209 = add i32 %21, 4
+  %210 = load i32, ptr @hf_netlink_sock_diag_netlink_port_id, align 4
   %211 = load i32, ptr %18, align 4
   %212 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %210, ptr noundef %0, i32 noundef %209, i32 noundef 4, i32 noundef %211) #4
-  %213 = add i32 %21, 16
-  %214 = load i32, ptr @hf_netlink_sock_diag_inode, align 4
+  %213 = add i32 %21, 8
+  %214 = load i32, ptr @hf_netlink_sock_diag_netlink_dst_port_id, align 4
   %215 = load i32, ptr %18, align 4
   %216 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %214, ptr noundef %0, i32 noundef %213, i32 noundef 4, i32 noundef %215) #4
-  %217 = add i32 %21, 20
-  %218 = add i32 %21, 24
-  %219 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %218) #4
-  %220 = zext i32 %219 to i64
-  %221 = shl nuw i64 %220, 32
-  %222 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %217) #4
-  %223 = zext i32 %222 to i64
-  %224 = or disjoint i64 %221, %223
-  %225 = load i32, ptr @hf_netlink_sock_diag_cookie, align 4
-  %226 = tail call ptr @proto_tree_add_uint64(ptr noundef %17, i32 noundef %225, ptr noundef %0, i32 noundef %217, i32 noundef 8, i64 noundef %224) #4
-  %227 = add i32 %21, 28
-  %228 = load i32, ptr @hf_netlink_sock_diag_netlink_attr, align 4
-  %229 = load i32, ptr @ett_netlink_sock_diag_attr, align 4
-  %230 = call i32 @dissect_netlink_attributes_to_end(ptr noundef %0, i32 noundef %228, i32 noundef %229, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %17, i32 noundef %227, ptr noundef nonnull @dissect_sock_diag_netlink_attributes) #4
+  %217 = add i32 %21, 16
+  %218 = load i32, ptr @hf_netlink_sock_diag_inode, align 4
+  %219 = load i32, ptr %18, align 4
+  %220 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %218, ptr noundef %0, i32 noundef %217, i32 noundef 4, i32 noundef %219) #4
+  %221 = add i32 %21, 20
+  %222 = add i32 %21, 24
+  %223 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %222) #4
+  %224 = zext i32 %223 to i64
+  %225 = shl nuw i64 %224, 32
+  %226 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %221) #4
+  %227 = zext i32 %226 to i64
+  %228 = or disjoint i64 %225, %227
+  %229 = load i32, ptr @hf_netlink_sock_diag_cookie, align 4
+  %230 = tail call ptr @proto_tree_add_uint64(ptr noundef %17, i32 noundef %229, ptr noundef %0, i32 noundef %221, i32 noundef 8, i64 noundef %228) #4
+  %231 = add i32 %21, 28
+  %232 = load i32, ptr @hf_netlink_sock_diag_netlink_attr, align 4
+  %233 = load i32, ptr @ett_netlink_sock_diag_attr, align 4
+  %234 = call i32 @dissect_netlink_attributes_to_end(ptr noundef %0, i32 noundef %232, i32 noundef %233, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %17, i32 noundef %231, ptr noundef nonnull @dissect_sock_diag_netlink_attributes) #4
   br label %dissect_sock_diag_by_family.exit
 
-231:                                              ; preds = %24
-  %232 = load i32, ptr @hf_netlink_sock_diag_family, align 4
-  %233 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %232, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0) #4
-  %234 = add i32 %21, 1
-  %235 = add i32 %21, 2
-  br i1 %27, label %236, label %282
+235:                                              ; preds = %24
+  %236 = load i32, ptr @hf_netlink_sock_diag_family, align 4
+  %237 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %236, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0) #4
+  %238 = add i32 %21, 1
+  %239 = add i32 %21, 2
+  br i1 %27, label %240, label %287
 
-236:                                              ; preds = %231
-  %237 = load i32, ptr @hf_netlink_sock_diag_packet_proto, align 4
-  %238 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %237, ptr noundef %0, i32 noundef %234, i32 noundef 1, i32 noundef 0) #4
-  br label %.lr.ph.i.i.i63.i
+240:                                              ; preds = %235
+  %241 = load i32, ptr @hf_netlink_sock_diag_packet_proto, align 4
+  %242 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %241, ptr noundef %0, i32 noundef %238, i32 noundef 1, i32 noundef 0) #4
+  br label %243
 
-.lr.ph.i.i.i63.i:                                 ; preds = %240, %236
-  %.08.i.i.i64.i = phi i32 [ %242, %240 ], [ 2, %236 ]
-  %.057.i.i.i65.i = phi i32 [ %241, %240 ], [ %235, %236 ]
-  %239 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.057.i.i.i65.i) #4
-  %.not.i.i.i66.i = icmp eq i8 %239, 0
-  br i1 %.not.i.i.i66.i, label %240, label %dissect_sock_diag_packet_request.exit.i
+243:                                              ; preds = %245, %240
+  %.08.i.i.i60.i = phi i32 [ 2, %240 ], [ %247, %245 ]
+  %.057.i.i.i61.i = phi i32 [ %239, %240 ], [ %246, %245 ]
+  %244 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.057.i.i.i61.i) #4
+  %.not.i.i.i62.i = icmp eq i8 %244, 0
+  br i1 %.not.i.i.i62.i, label %245, label %dissect_sock_diag_packet_request.exit.i
 
-240:                                              ; preds = %.lr.ph.i.i.i63.i
-  %241 = add i32 %.057.i.i.i65.i, 1
-  %242 = add nsw i32 %.08.i.i.i64.i, -1
-  %.not.i67.i = icmp eq i32 %.08.i.i.i64.i, 0
-  br i1 %.not.i67.i, label %dissect_sock_diag_packet_request.exit.i, label %.lr.ph.i.i.i63.i, !llvm.loop !4
+245:                                              ; preds = %243
+  %246 = add i32 %.057.i.i.i61.i, 1
+  %247 = add nsw i32 %.08.i.i.i60.i, -1
+  %.not.i63.i = icmp eq i32 %.08.i.i.i60.i, 0
+  br i1 %.not.i63.i, label %dissect_sock_diag_packet_request.exit.i, label %243, !llvm.loop !4
 
-dissect_sock_diag_packet_request.exit.i:          ; preds = %240, %.lr.ph.i.i.i63.i
-  %243 = add i32 %21, 4
-  %244 = load i32, ptr @hf_netlink_sock_diag_inode, align 4
-  %245 = load i32, ptr %18, align 4
-  %246 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %244, ptr noundef %0, i32 noundef %243, i32 noundef 4, i32 noundef %245) #4
-  %247 = add i32 %21, 8
-  %248 = load i32, ptr @hf_netlink_sock_diag_packet_show, align 4
-  %249 = load i32, ptr %18, align 4
-  %250 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %248, ptr noundef %0, i32 noundef %247, i32 noundef 4, i32 noundef %249) #4
-  %251 = load i32, ptr @ett_netlink_sock_diag_show, align 4
-  %252 = tail call ptr @proto_item_add_subtree(ptr noundef %250, i32 noundef %251) #4
-  %253 = load i32, ptr @hf_netlink_sock_diag_packet_show_info, align 4
+dissect_sock_diag_packet_request.exit.i:          ; preds = %245, %243
+  %248 = add i32 %21, 4
+  %249 = load i32, ptr @hf_netlink_sock_diag_inode, align 4
+  %250 = load i32, ptr %18, align 4
+  %251 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %249, ptr noundef %0, i32 noundef %248, i32 noundef 4, i32 noundef %250) #4
+  %252 = add i32 %21, 8
+  %253 = load i32, ptr @hf_netlink_sock_diag_packet_show, align 4
   %254 = load i32, ptr %18, align 4
-  %255 = tail call ptr @proto_tree_add_item(ptr noundef %252, i32 noundef %253, ptr noundef %0, i32 noundef %247, i32 noundef 4, i32 noundef %254) #4
-  %256 = load i32, ptr @hf_netlink_sock_diag_packet_show_mclist, align 4
-  %257 = load i32, ptr %18, align 4
-  %258 = tail call ptr @proto_tree_add_item(ptr noundef %252, i32 noundef %256, ptr noundef %0, i32 noundef %247, i32 noundef 4, i32 noundef %257) #4
-  %259 = load i32, ptr @hf_netlink_sock_diag_packet_show_ring_cfg, align 4
-  %260 = load i32, ptr %18, align 4
-  %261 = tail call ptr @proto_tree_add_item(ptr noundef %252, i32 noundef %259, ptr noundef %0, i32 noundef %247, i32 noundef 4, i32 noundef %260) #4
-  %262 = load i32, ptr @hf_netlink_sock_diag_packet_show_fanout, align 4
-  %263 = load i32, ptr %18, align 4
-  %264 = tail call ptr @proto_tree_add_item(ptr noundef %252, i32 noundef %262, ptr noundef %0, i32 noundef %247, i32 noundef 4, i32 noundef %263) #4
-  %265 = load i32, ptr @hf_netlink_sock_diag_packet_show_meminfo, align 4
-  %266 = load i32, ptr %18, align 4
-  %267 = tail call ptr @proto_tree_add_item(ptr noundef %252, i32 noundef %265, ptr noundef %0, i32 noundef %247, i32 noundef 4, i32 noundef %266) #4
-  %268 = load i32, ptr @hf_netlink_sock_diag_packet_show_filter, align 4
-  %269 = load i32, ptr %18, align 4
-  %270 = tail call ptr @proto_tree_add_item(ptr noundef %252, i32 noundef %268, ptr noundef %0, i32 noundef %247, i32 noundef 4, i32 noundef %269) #4
-  %271 = add i32 %21, 12
-  %272 = add i32 %21, 16
-  %273 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %272) #4
-  %274 = zext i32 %273 to i64
-  %275 = shl nuw i64 %274, 32
-  %276 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %271) #4
-  %277 = zext i32 %276 to i64
-  %278 = or disjoint i64 %275, %277
-  %279 = load i32, ptr @hf_netlink_sock_diag_cookie, align 4
-  %280 = tail call ptr @proto_tree_add_uint64(ptr noundef %17, i32 noundef %279, ptr noundef %0, i32 noundef %271, i32 noundef 8, i64 noundef %278) #4
-  %281 = add i32 %21, 20
+  %255 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %253, ptr noundef %0, i32 noundef %252, i32 noundef 4, i32 noundef %254) #4
+  %256 = load i32, ptr @ett_netlink_sock_diag_show, align 4
+  %257 = tail call ptr @proto_item_add_subtree(ptr noundef %255, i32 noundef %256) #4
+  %258 = load i32, ptr @hf_netlink_sock_diag_packet_show_info, align 4
+  %259 = load i32, ptr %18, align 4
+  %260 = tail call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %258, ptr noundef %0, i32 noundef %252, i32 noundef 4, i32 noundef %259) #4
+  %261 = load i32, ptr @hf_netlink_sock_diag_packet_show_mclist, align 4
+  %262 = load i32, ptr %18, align 4
+  %263 = tail call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %261, ptr noundef %0, i32 noundef %252, i32 noundef 4, i32 noundef %262) #4
+  %264 = load i32, ptr @hf_netlink_sock_diag_packet_show_ring_cfg, align 4
+  %265 = load i32, ptr %18, align 4
+  %266 = tail call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %264, ptr noundef %0, i32 noundef %252, i32 noundef 4, i32 noundef %265) #4
+  %267 = load i32, ptr @hf_netlink_sock_diag_packet_show_fanout, align 4
+  %268 = load i32, ptr %18, align 4
+  %269 = tail call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %267, ptr noundef %0, i32 noundef %252, i32 noundef 4, i32 noundef %268) #4
+  %270 = load i32, ptr @hf_netlink_sock_diag_packet_show_meminfo, align 4
+  %271 = load i32, ptr %18, align 4
+  %272 = tail call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %270, ptr noundef %0, i32 noundef %252, i32 noundef 4, i32 noundef %271) #4
+  %273 = load i32, ptr @hf_netlink_sock_diag_packet_show_filter, align 4
+  %274 = load i32, ptr %18, align 4
+  %275 = tail call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %273, ptr noundef %0, i32 noundef %252, i32 noundef 4, i32 noundef %274) #4
+  %276 = add i32 %21, 12
+  %277 = add i32 %21, 16
+  %278 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %277) #4
+  %279 = zext i32 %278 to i64
+  %280 = shl nuw i64 %279, 32
+  %281 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %276) #4
+  %282 = zext i32 %281 to i64
+  %283 = or disjoint i64 %280, %282
+  %284 = load i32, ptr @hf_netlink_sock_diag_cookie, align 4
+  %285 = tail call ptr @proto_tree_add_uint64(ptr noundef %17, i32 noundef %284, ptr noundef %0, i32 noundef %276, i32 noundef 8, i64 noundef %283) #4
+  %286 = add i32 %21, 20
   br label %dissect_sock_diag_by_family.exit
 
-282:                                              ; preds = %231
-  %283 = load i32, ptr @hf_netlink_sock_diag_type, align 4
-  %284 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %283, ptr noundef %0, i32 noundef %234, i32 noundef 1, i32 noundef 0) #4
-  %285 = load i32, ptr @hf_netlink_sock_diag_packet_proto, align 4
-  %286 = load i32, ptr %18, align 4
-  %287 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %285, ptr noundef %0, i32 noundef %235, i32 noundef 2, i32 noundef %286) #4
-  %288 = add i32 %21, 4
-  %289 = load i32, ptr @hf_netlink_sock_diag_inode, align 4
-  %290 = load i32, ptr %18, align 4
-  %291 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %289, ptr noundef %0, i32 noundef %288, i32 noundef 4, i32 noundef %290) #4
-  %292 = add i32 %21, 8
-  %293 = add i32 %21, 12
-  %294 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %293) #4
-  %295 = zext i32 %294 to i64
-  %296 = shl nuw i64 %295, 32
-  %297 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %292) #4
-  %298 = zext i32 %297 to i64
-  %299 = or disjoint i64 %296, %298
-  %300 = load i32, ptr @hf_netlink_sock_diag_cookie, align 4
-  %301 = tail call ptr @proto_tree_add_uint64(ptr noundef %17, i32 noundef %300, ptr noundef %0, i32 noundef %292, i32 noundef 8, i64 noundef %299) #4
-  %302 = add i32 %21, 16
-  %303 = load i32, ptr @hf_netlink_sock_diag_packet_attr, align 4
-  %304 = load i32, ptr @ett_netlink_sock_diag_attr, align 4
-  %305 = call i32 @dissect_netlink_attributes_to_end(ptr noundef %0, i32 noundef %303, i32 noundef %304, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %17, i32 noundef %302, ptr noundef nonnull @dissect_netlink_packet_sock_diag_reply_attrs) #4
+287:                                              ; preds = %235
+  %288 = load i32, ptr @hf_netlink_sock_diag_type, align 4
+  %289 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %288, ptr noundef %0, i32 noundef %238, i32 noundef 1, i32 noundef 0) #4
+  %290 = load i32, ptr @hf_netlink_sock_diag_packet_proto, align 4
+  %291 = load i32, ptr %18, align 4
+  %292 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %290, ptr noundef %0, i32 noundef %239, i32 noundef 2, i32 noundef %291) #4
+  %293 = add i32 %21, 4
+  %294 = load i32, ptr @hf_netlink_sock_diag_inode, align 4
+  %295 = load i32, ptr %18, align 4
+  %296 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %294, ptr noundef %0, i32 noundef %293, i32 noundef 4, i32 noundef %295) #4
+  %297 = add i32 %21, 8
+  %298 = add i32 %21, 12
+  %299 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %298) #4
+  %300 = zext i32 %299 to i64
+  %301 = shl nuw i64 %300, 32
+  %302 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %297) #4
+  %303 = zext i32 %302 to i64
+  %304 = or disjoint i64 %301, %303
+  %305 = load i32, ptr @hf_netlink_sock_diag_cookie, align 4
+  %306 = tail call ptr @proto_tree_add_uint64(ptr noundef %17, i32 noundef %305, ptr noundef %0, i32 noundef %297, i32 noundef 8, i64 noundef %304) #4
+  %307 = add i32 %21, 16
+  %308 = load i32, ptr @hf_netlink_sock_diag_packet_attr, align 4
+  %309 = load i32, ptr @ett_netlink_sock_diag_attr, align 4
+  %310 = call i32 @dissect_netlink_attributes_to_end(ptr noundef %0, i32 noundef %308, i32 noundef %309, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %17, i32 noundef %307, ptr noundef nonnull @dissect_netlink_packet_sock_diag_reply_attrs) #4
   br label %dissect_sock_diag_by_family.exit
 
-dissect_sock_diag_by_family.exit:                 ; preds = %282, %dissect_sock_diag_packet_request.exit.i, %195, %dissect_sock_diag_netlink_request.exit.i, %131, %dissect_sock_diag_inet_request.exit.i, %dissect_sock_diag_unix_reply.exit.i, %dissect_sock_diag_unix_request.exit.i, %24, %10
-  %.0 = phi i32 [ %21, %10 ], [ %21, %24 ], [ %76, %dissect_sock_diag_unix_request.exit.i ], [ %106, %dissect_sock_diag_unix_reply.exit.i ], [ %130, %dissect_sock_diag_inet_request.exit.i ], [ %152, %131 ], [ %194, %dissect_sock_diag_netlink_request.exit.i ], [ %230, %195 ], [ %281, %dissect_sock_diag_packet_request.exit.i ], [ %305, %282 ]
+dissect_sock_diag_by_family.exit:                 ; preds = %287, %dissect_sock_diag_packet_request.exit.i, %199, %dissect_sock_diag_netlink_request.exit.i, %134, %dissect_sock_diag_inet_request.exit.i, %dissect_sock_diag_unix_reply.exit.i, %dissect_sock_diag_unix_request.exit.i, %24, %10
+  %.0 = phi i32 [ %21, %10 ], [ %21, %24 ], [ %77, %dissect_sock_diag_unix_request.exit.i ], [ %108, %dissect_sock_diag_unix_reply.exit.i ], [ %133, %dissect_sock_diag_inet_request.exit.i ], [ %155, %134 ], [ %198, %dissect_sock_diag_netlink_request.exit.i ], [ %234, %199 ], [ %286, %dissect_sock_diag_packet_request.exit.i ], [ %310, %287 ]
   ret i32 %.0
 }
 
@@ -856,87 +856,88 @@ declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef,
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_sock_diag_inet_sockid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_sock_diag_inet_sockid(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_netlink_sock_diag_inet_sport, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #4
   %8 = add i32 %3, 2
   %9 = load i32, ptr @hf_netlink_sock_diag_inet_dport, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %8, i32 noundef 2, i32 noundef 0) #4
   %11 = add i32 %3, 4
-  switch i32 %4, label %34 [
-    i32 2, label %12
-    i32 10, label %28
+  %trunc = trunc nuw i32 %4 to i8
+  switch i8 %trunc, label %36 [
+    i8 2, label %12
+    i8 10, label %30
   ]
 
 12:                                               ; preds = %5
   %13 = load i32, ptr @hf_netlink_sock_diag_inet_src_ip4, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0) #4
   %15 = add i32 %3, 8
-  br label %.lr.ph.i.i
+  br label %16
 
-.lr.ph.i.i:                                       ; preds = %17, %12
-  %.08.i.i = phi i32 [ %19, %17 ], [ 12, %12 ]
-  %.057.i.i = phi i32 [ %18, %17 ], [ %15, %12 ]
-  %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.057.i.i) #4
-  %.not.i.i = icmp eq i8 %16, 0
-  br i1 %.not.i.i, label %17, label %_dissect_padding.exit
+16:                                               ; preds = %18, %12
+  %.08.i.i = phi i32 [ 12, %12 ], [ %20, %18 ]
+  %.057.i.i = phi i32 [ %15, %12 ], [ %19, %18 ]
+  %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.057.i.i) #4
+  %.not.i.i = icmp eq i8 %17, 0
+  br i1 %.not.i.i, label %18, label %_dissect_padding.exit
 
-17:                                               ; preds = %.lr.ph.i.i
-  %18 = add i32 %.057.i.i, 1
-  %19 = add nsw i32 %.08.i.i, -1
+18:                                               ; preds = %16
+  %19 = add i32 %.057.i.i, 1
+  %20 = add nsw i32 %.08.i.i, -1
   %.not = icmp eq i32 %.08.i.i, 0
-  br i1 %.not, label %_dissect_padding.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not, label %_dissect_padding.exit, label %16, !llvm.loop !4
 
-_dissect_padding.exit:                            ; preds = %.lr.ph.i.i, %17
-  %20 = add i32 %3, 20
-  %21 = load i32, ptr @hf_netlink_sock_diag_inet_dst_ip4, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef 0) #4
-  %23 = add i32 %3, 24
-  br label %.lr.ph.i.i44
+_dissect_padding.exit:                            ; preds = %16, %18
+  %21 = add i32 %3, 20
+  %22 = load i32, ptr @hf_netlink_sock_diag_inet_dst_ip4, align 4
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef 0) #4
+  %24 = add i32 %3, 24
+  br label %25
 
-.lr.ph.i.i44:                                     ; preds = %25, %_dissect_padding.exit
-  %.08.i.i45 = phi i32 [ %27, %25 ], [ 12, %_dissect_padding.exit ]
-  %.057.i.i46 = phi i32 [ %26, %25 ], [ %23, %_dissect_padding.exit ]
-  %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.057.i.i46) #4
-  %.not.i.i47 = icmp eq i8 %24, 0
-  br i1 %.not.i.i47, label %25, label %_dissect_padding.exit48
+25:                                               ; preds = %27, %_dissect_padding.exit
+  %.08.i.i44 = phi i32 [ 12, %_dissect_padding.exit ], [ %29, %27 ]
+  %.057.i.i45 = phi i32 [ %24, %_dissect_padding.exit ], [ %28, %27 ]
+  %26 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.057.i.i45) #4
+  %.not.i.i46 = icmp eq i8 %26, 0
+  br i1 %.not.i.i46, label %27, label %_dissect_padding.exit47
 
-25:                                               ; preds = %.lr.ph.i.i44
-  %26 = add i32 %.057.i.i46, 1
-  %27 = add nsw i32 %.08.i.i45, -1
-  %.not1 = icmp eq i32 %.08.i.i45, 0
-  br i1 %.not1, label %_dissect_padding.exit48, label %.lr.ph.i.i44, !llvm.loop !4
+27:                                               ; preds = %25
+  %28 = add i32 %.057.i.i45, 1
+  %29 = add nsw i32 %.08.i.i44, -1
+  %.not1 = icmp eq i32 %.08.i.i44, 0
+  br i1 %.not1, label %_dissect_padding.exit47, label %25, !llvm.loop !4
 
-28:                                               ; preds = %5
-  %29 = load i32, ptr @hf_netlink_sock_diag_inet_src_ip6, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef %11, i32 noundef 16, i32 noundef 0) #4
-  %31 = add i32 %3, 20
-  %32 = load i32, ptr @hf_netlink_sock_diag_inet_dst_ip6, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef %31, i32 noundef 16, i32 noundef 0) #4
-  br label %_dissect_padding.exit48
+30:                                               ; preds = %5
+  %31 = load i32, ptr @hf_netlink_sock_diag_inet_src_ip6, align 4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef %11, i32 noundef 16, i32 noundef 0) #4
+  %33 = add i32 %3, 20
+  %34 = load i32, ptr @hf_netlink_sock_diag_inet_dst_ip6, align 4
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef 16, i32 noundef 0) #4
+  br label %_dissect_padding.exit47
 
-34:                                               ; preds = %5
+36:                                               ; preds = %5
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.164, i32 noundef 603) #5
   unreachable
 
-_dissect_padding.exit48:                          ; preds = %25, %.lr.ph.i.i44, %28
+_dissect_padding.exit47:                          ; preds = %27, %25, %30
   %.0 = add i32 %3, 36
-  %35 = load i32, ptr @hf_netlink_sock_diag_inet_interface, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 4
-  %37 = load i32, ptr %36, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef %.0, i32 noundef 4, i32 noundef %37) #4
-  %39 = add i32 %3, 40
-  %40 = add i32 %3, 44
-  %41 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %40) #4
-  %42 = zext i32 %41 to i64
-  %43 = shl nuw i64 %42, 32
-  %44 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %39) #4
-  %45 = zext i32 %44 to i64
-  %46 = or disjoint i64 %43, %45
-  %47 = load i32, ptr @hf_netlink_sock_diag_cookie, align 4
-  %48 = tail call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %47, ptr noundef %0, i32 noundef %39, i32 noundef 8, i64 noundef %46) #4
-  %49 = add i32 %3, 48
-  ret i32 %49
+  %37 = load i32, ptr @hf_netlink_sock_diag_inet_interface, align 4
+  %38 = getelementptr inbounds i8, ptr %1, i64 4
+  %39 = load i32, ptr %38, align 4
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef %.0, i32 noundef 4, i32 noundef %39) #4
+  %41 = add i32 %3, 40
+  %42 = add i32 %3, 44
+  %43 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %42) #4
+  %44 = zext i32 %43 to i64
+  %45 = shl nuw i64 %44, 32
+  %46 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %41) #4
+  %47 = zext i32 %46 to i64
+  %48 = or disjoint i64 %45, %47
+  %49 = load i32, ptr @hf_netlink_sock_diag_cookie, align 4
+  %50 = tail call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %41, i32 noundef 8, i64 noundef %48) #4
+  %51 = add i32 %3, 48
+  ret i32 %51
 }
 
 ; Function Attrs: nounwind uwtable

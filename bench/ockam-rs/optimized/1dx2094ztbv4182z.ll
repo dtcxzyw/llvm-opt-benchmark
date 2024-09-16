@@ -2978,8 +2978,8 @@ define hidden void @"_ZN192_$LT$ockam_transport_ble..router.._..$LT$impl$u20$ser
   %31 = and i64 %.01557.i.i10.i.i.i.i, 63
   %32 = shl i64 %30, %31
   %33 = or i64 %32, %.01656.i.i11.i.i.i.i
-  %34 = icmp ult i64 %33, 4294967296
-  br i1 %34, label %36, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd40e3daaa6085962E.exit.i.i.i.i.i"
+  %34 = icmp ugt i64 %33, 4294967295
+  br i1 %34, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd40e3daaa6085962E.exit.i.i.i.i.i", label %36
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd40e3daaa6085962E.exit.i.i.i.i.i": ; preds = %29
   %35 = call noundef nonnull align 8 ptr @"_ZN61_$LT$serde_bare..error..Error$u20$as$u20$serde..de..Error$GT$6custom17he27b1a09842ff655E"(ptr noalias noundef nonnull readonly align 1 @anon.50c821ee62494addd9678a16e3bf16f4.21, i64 noundef 50), !noalias !785

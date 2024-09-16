@@ -205,7 +205,7 @@ define hidden void @_ZN12regex_syntax3hir3Hir3dot17hc14803ee48837057E(ptr sret([
 
 88:                                               ; preds = %89, %96, %77, %69, %49, %38, %29, %24
   %.sink = phi ptr [ %19, %89 ], [ %13, %96 ], [ %11, %77 ], [ %12, %69 ], [ %16, %49 ], [ %18, %38 ], [ %21, %29 ], [ %22, %24 ]
-  call fastcc void @_ZN12regex_syntax3hir3Hir5class17he96f3a992a1277bfE(ptr noalias align 8 %0, ptr nonnull align 8 %.sink)
+  call fastcc void @_ZN12regex_syntax3hir3Hir5class17he96f3a992a1277bfE(ptr noalias align 8 %0, ptr align 8 %.sink)
   ret void
 
 89:                                               ; preds = %34
@@ -244,7 +244,7 @@ define hidden void @_ZN12regex_syntax3hir3Hir3dot17hc14803ee48837057E(ptr sret([
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN12regex_syntax3hir3Hir5class17he96f3a992a1277bfE(ptr noalias align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN12regex_syntax3hir3Hir5class17he96f3a992a1277bfE(ptr noalias align 8 %0, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = alloca [24 x i8], align 8

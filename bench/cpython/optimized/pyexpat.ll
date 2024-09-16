@@ -1423,7 +1423,7 @@ if.end62:                                         ; preds = %if.end57
   store i32 1, ptr %in_callback, align 8
   %57 = load ptr, ptr %0, align 8
   %58 = load ptr, ptr %57, align 8
-  %call64 = tail call fastcc ptr @call_with_frame(ptr noundef nonnull @.str.39, i32 noundef 414, ptr noundef %58, ptr noundef nonnull %call58, ptr noundef nonnull %userData)
+  %call64 = tail call fastcc ptr @call_with_frame(ptr noundef nonnull @.str.39, i32 noundef 414, ptr noundef %58, ptr noundef %call58, ptr noundef nonnull %userData)
   store i32 0, ptr %in_callback, align 8
   %59 = load i64, ptr %call58, align 8
   %60 = and i64 %59, 2147483648
@@ -5933,9 +5933,9 @@ declare i32 @PyDict_SetItem(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @call_with_frame(ptr noundef %funcname, i32 noundef %lineno, ptr noundef %func, ptr noundef %args, ptr nocapture noundef readonly %self) unnamed_addr #0 {
+define internal fastcc ptr @call_with_frame(ptr noundef %funcname, i32 noundef range(i32 279, 681) %lineno, ptr noundef %func, ptr noundef nonnull %args, ptr nocapture noundef readonly %self) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @PyObject_Call(ptr noundef %func, ptr noundef %args, ptr noundef null) #8
+  %call = tail call ptr @PyObject_Call(ptr noundef %func, ptr noundef nonnull %args, ptr noundef null) #8
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %if.end
 

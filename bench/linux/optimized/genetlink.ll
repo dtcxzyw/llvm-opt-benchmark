@@ -941,7 +941,7 @@ declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) loca
 declare dso_local i32 @idr_alloc_cyclic(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @genl_ctrl_event(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc void @genl_ctrl_event(i32 noundef range(i32 1, 9) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i16, align 2
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @init_net, i64 280), align 8
@@ -2026,7 +2026,7 @@ declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #1
 declare dso_local ptr @__nlmsg_put(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i8 noundef zeroext %5) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 3) %3, ptr noundef %4, i8 noundef zeroext range(i8 1, 9) %5) unnamed_addr #0 align 16 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -3142,7 +3142,7 @@ declare dso_local i32 @netlink_policy_dump_add_policy(ptr noundef, ptr noundef, 
 declare dso_local void @netlink_policy_dump_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc noundef range(i32 -2, 1) i32 @genl_get_cmd(i32 noundef %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #12 align 16 {
+define internal fastcc noundef range(i32 -2, 1) i32 @genl_get_cmd(i32 noundef %0, i8 noundef zeroext range(i8 2, 5) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #12 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 29
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0
@@ -3276,110 +3276,108 @@ define internal fastcc noundef range(i32 -2, 1) i32 @genl_get_cmd(i32 noundef %0
   %.ph22 = phi i8 [ %73, %67 ], [ %35, %47 ], [ %35, %44 ], [ %.ph22.ph, %.thread13.sink.split ]
   %.ph23 = phi i8 [ %75, %67 ], [ %37, %47 ], [ %37, %44 ], [ %.ph23.ph, %.thread13.sink.split ]
   %.ph24 = phi i8 [ %77, %67 ], [ %39, %47 ], [ %39, %44 ], [ %.ph24.ph, %.thread13.sink.split ]
-  %88 = zext nneg i8 %1 to i32
-  %89 = and i32 %88, 2
-  %90 = icmp ne i32 %89, 0
-  %91 = icmp eq ptr %.ph15, null
-  %92 = select i1 %90, i1 %91, i1 false
-  br i1 %92, label %98, label %93
+  %88 = and i8 %1, 2
+  %89 = icmp ne i8 %88, 0
+  %90 = icmp eq ptr %.ph15, null
+  %91 = select i1 %89, i1 %90, i1 false
+  br i1 %91, label %96, label %92
 
-93:                                               ; preds = %.thread13
-  %94 = and i32 %88, 4
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %101, label %96
+92:                                               ; preds = %.thread13
+  %93 = icmp ult i8 %1, 4
+  br i1 %93, label %99, label %94
 
-96:                                               ; preds = %93
-  %97 = icmp eq ptr %.ph17, null
-  br i1 %97, label %98, label %99
+94:                                               ; preds = %92
+  %95 = icmp eq ptr %.ph17, null
+  br i1 %95, label %96, label %97
 
-98:                                               ; preds = %96, %.thread13
+96:                                               ; preds = %94, %.thread13
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
-  br label %145
+  br label %143
 
-99:                                               ; preds = %96
+97:                                               ; preds = %94
   store ptr %.ph16, ptr %3, align 8
-  %100 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %.ph17, ptr %100, align 8
-  br label %107
+  %98 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %.ph17, ptr %98, align 8
+  br label %105
 
-101:                                              ; preds = %93
-  %102 = getelementptr inbounds i8, ptr %2, i64 48
-  %103 = load ptr, ptr %102, align 8
-  store ptr %103, ptr %3, align 8
-  %104 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %.ph15, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %2, i64 56
-  %106 = load ptr, ptr %105, align 8
-  br label %107
+99:                                               ; preds = %92
+  %100 = getelementptr inbounds i8, ptr %2, i64 48
+  %101 = load ptr, ptr %100, align 8
+  store ptr %101, ptr %3, align 8
+  %102 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %.ph15, ptr %102, align 8
+  %103 = getelementptr inbounds i8, ptr %2, i64 56
+  %104 = load ptr, ptr %103, align 8
+  br label %105
 
-107:                                              ; preds = %101, %99
-  %108 = phi ptr [ %106, %101 ], [ %.ph18, %99 ]
-  %109 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %108, ptr %109, align 8
-  %110 = and i8 %.ph24, 2
-  %111 = icmp eq i8 %110, 0
-  %112 = select i1 %95, i1 true, i1 %111
-  %113 = select i1 %112, ptr %.ph19, ptr null
-  %114 = select i1 %112, i32 %.ph20, i32 0
-  %115 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr %113, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %3, i64 32
-  store i32 %114, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %3, i64 36
-  store i8 %.ph21, ptr %117, align 4
-  %118 = getelementptr inbounds i8, ptr %3, i64 37
-  store i8 %.ph22, ptr %118, align 1
-  %119 = getelementptr inbounds i8, ptr %3, i64 38
-  %120 = getelementptr inbounds i8, ptr %3, i64 39
-  store i8 %.ph24, ptr %120, align 1
-  %121 = or i8 %.ph23, %1
-  store i8 %121, ptr %119, align 2
-  br label %145
+105:                                              ; preds = %99, %97
+  %106 = phi ptr [ %104, %99 ], [ %.ph18, %97 ]
+  %107 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %106, ptr %107, align 8
+  %108 = and i8 %.ph24, 2
+  %109 = icmp eq i8 %108, 0
+  %110 = select i1 %93, i1 true, i1 %109
+  %111 = select i1 %110, ptr %.ph19, ptr null
+  %112 = select i1 %110, i32 %.ph20, i32 0
+  %113 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %111, ptr %113, align 8
+  %114 = getelementptr inbounds i8, ptr %3, i64 32
+  store i32 %112, ptr %114, align 8
+  %115 = getelementptr inbounds i8, ptr %3, i64 36
+  store i8 %.ph21, ptr %115, align 4
+  %116 = getelementptr inbounds i8, ptr %3, i64 37
+  store i8 %.ph22, ptr %116, align 1
+  %117 = getelementptr inbounds i8, ptr %3, i64 38
+  %118 = getelementptr inbounds i8, ptr %3, i64 39
+  store i8 %.ph24, ptr %118, align 1
+  %119 = or i8 %.ph23, %1
+  store i8 %119, ptr %117, align 2
+  br label %143
 
 .loopexit28:                                      ; preds = %58, %.loopexit29
-  %122 = getelementptr inbounds i8, ptr %2, i64 31
-  %123 = load i8, ptr %122, align 1
-  %124 = icmp eq i8 %123, 0
-  br i1 %124, label %.loopexit, label %125
+  %120 = getelementptr inbounds i8, ptr %2, i64 31
+  %121 = load i8, ptr %120, align 1
+  %122 = icmp eq i8 %121, 0
+  br i1 %122, label %.loopexit, label %123
 
-125:                                              ; preds = %.loopexit28
-  %126 = getelementptr inbounds i8, ptr %2, i64 80
-  %127 = load ptr, ptr %126, align 8
-  %128 = zext i8 %123 to i64
-  br label %129
+123:                                              ; preds = %.loopexit28
+  %124 = getelementptr inbounds i8, ptr %2, i64 80
+  %125 = load ptr, ptr %124, align 8
+  %126 = zext i8 %121 to i64
+  br label %127
 
-129:                                              ; preds = %141, %125
-  %130 = phi i64 [ 0, %125 ], [ %142, %141 ]
-  %131 = getelementptr %struct.genl_split_ops, ptr %127, i64 %130
-  %132 = getelementptr inbounds i8, ptr %131, i64 36
-  %133 = load i8, ptr %132, align 4
-  %134 = zext i8 %133 to i32
-  %135 = icmp eq i32 %0, %134
-  br i1 %135, label %136, label %141
+127:                                              ; preds = %139, %123
+  %128 = phi i64 [ 0, %123 ], [ %140, %139 ]
+  %129 = getelementptr %struct.genl_split_ops, ptr %125, i64 %128
+  %130 = getelementptr inbounds i8, ptr %129, i64 36
+  %131 = load i8, ptr %130, align 4
+  %132 = zext i8 %131 to i32
+  %133 = icmp eq i32 %0, %132
+  br i1 %133, label %134, label %139
 
-136:                                              ; preds = %129
-  %137 = getelementptr inbounds i8, ptr %131, i64 38
-  %138 = load i8, ptr %137, align 2
-  %139 = and i8 %138, %1
-  %140 = icmp eq i8 %139, 0
-  br i1 %140, label %141, label %144
+134:                                              ; preds = %127
+  %135 = getelementptr inbounds i8, ptr %129, i64 38
+  %136 = load i8, ptr %135, align 2
+  %137 = and i8 %136, %1
+  %138 = icmp eq i8 %137, 0
+  br i1 %138, label %139, label %142
 
-141:                                              ; preds = %136, %129
-  %142 = add nuw nsw i64 %130, 1
-  %143 = icmp eq i64 %142, %128
-  br i1 %143, label %.loopexit, label %129, !llvm.loop !106
+139:                                              ; preds = %134, %127
+  %140 = add nuw nsw i64 %128, 1
+  %141 = icmp eq i64 %140, %126
+  br i1 %141, label %.loopexit, label %127, !llvm.loop !106
 
-144:                                              ; preds = %136
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(40) %3, ptr noundef align 8 dereferenceable(40) %131, i64 40, i1 false)
-  br label %145
+142:                                              ; preds = %134
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(40) %3, ptr noundef align 8 dereferenceable(40) %129, i64 40, i1 false)
+  br label %143
 
-.loopexit:                                        ; preds = %141, %.loopexit28
+.loopexit:                                        ; preds = %139, %.loopexit28
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
-  br label %145
+  br label %143
 
-145:                                              ; preds = %144, %.loopexit, %107, %98
-  %146 = phi i32 [ -2, %.loopexit ], [ 0, %144 ], [ 0, %107 ], [ -2, %98 ]
-  ret i32 %146
+143:                                              ; preds = %142, %.loopexit, %105, %96
+  %144 = phi i32 [ -2, %.loopexit ], [ 0, %142 ], [ 0, %105 ], [ -2, %96 ]
+  ret i32 %144
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3940,7 +3938,7 @@ declare dso_local zeroext i1 @netlink_capable(ptr noundef, i32 noundef) local_un
 declare dso_local zeroext i1 @netlink_ns_capable(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @genl_family_rcv_msg_dumpit(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 align 16 {
+define internal fastcc i32 @genl_family_rcv_msg_dumpit(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 align 16 {
   %8 = alloca %struct.genl_start_context, align 8
   %9 = alloca %struct.netlink_dump_control, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #15
@@ -4001,7 +3999,7 @@ define internal fastcc i32 @genl_family_rcv_msg_dumpit(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @genl_family_rcv_msg_doit(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc i32 @genl_family_rcv_msg_doit(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 align 16 {
   %8 = alloca %struct.genl_info, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #15
   %9 = tail call fastcc ptr @genl_family_rcv_msg_attrs_parse(ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef 1)
@@ -4300,7 +4298,7 @@ define internal i32 @genl_done(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @__netlink_dump_start(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @genl_family_rcv_msg_attrs_parse(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc ptr @genl_family_rcv_msg_attrs_parse(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef range(i32 1, 5) %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %2, i64 39
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32

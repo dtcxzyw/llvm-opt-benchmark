@@ -1676,7 +1676,7 @@ _ZN5folly22WriteFileAtomicOptionsD2Ev.exit14:     ; preds = %if.then.i.i.i10, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly12_GLOBAL__N_128throwIfWriteFileAtomicFailedENS_5RangeIPKcEES4_l(ptr %filename.coerce0, ptr %filename.coerce1, i64 noundef %rc) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly12_GLOBAL__N_128throwIfWriteFileAtomicFailedENS_5RangeIPKcEES4_l(ptr %filename.coerce0, ptr %filename.coerce1, i64 noundef range(i64 -2147483648, 2147483648) %rc) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %function = alloca %"class.folly::Range", align 8
   %filename = alloca %"class.folly::Range", align 8
@@ -1775,7 +1775,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %if.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp1) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #23
   %exception = call ptr @__cxa_allocate_exception(i64 32) #23
-  %conv = trunc i64 %rc to i32
+  %conv = trunc nsw i64 %rc to i32
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #22
   invoke void @_ZNSt12system_errorC2EiRKNSt3_V214error_categoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %exception, i32 noundef %conv, ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(32) %msg)
           to label %invoke.cont20 unwind label %lpad19

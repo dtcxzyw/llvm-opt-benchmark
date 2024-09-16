@@ -188,7 +188,7 @@ define void @_ZN14cranelift_isle5lexer5Lexer8from_str17ha3311326876c9011E(ptr no
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 32
   store i64 5, ptr %.sroa.1.0..sroa_idx, align 16
-  invoke fastcc void @_ZN14cranelift_isle5lexer5Lexer6reload17h8e40afbdc5ad50b7E(ptr noalias nonnull align 8 %6, ptr nonnull align 16 %12)
+  invoke fastcc void @_ZN14cranelift_isle5lexer5Lexer6reload17h8e40afbdc5ad50b7E(ptr noalias align 8 %6, ptr nonnull align 16 %12)
           to label %60 unwind label %58
 
 58:                                               ; preds = %52
@@ -356,7 +356,7 @@ define void @_ZN14cranelift_isle5lexer5Lexer18from_file_contents17h206576ed49057
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
   store i64 5, ptr %.sroa.1.0..sroa_idx, align 16
-  invoke fastcc void @_ZN14cranelift_isle5lexer5Lexer6reload17h8e40afbdc5ad50b7E(ptr noalias nonnull align 8 %3, ptr nonnull align 16 %4)
+  invoke fastcc void @_ZN14cranelift_isle5lexer5Lexer6reload17h8e40afbdc5ad50b7E(ptr noalias align 8 %3, ptr nonnull align 16 %4)
           to label %61 unwind label %59
 
 57:                                               ; preds = %49
@@ -594,7 +594,7 @@ define void @_ZN14cranelift_isle5lexer5Lexer4next17h3915cd2eff007a52E(ptr nocapt
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 16 dereferenceable(64) %1, i64 64, i1 false)
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
   store i64 5, ptr %.sroa.1.0..sroa_idx, align 16
-  invoke fastcc void @_ZN14cranelift_isle5lexer5Lexer6reload17h8e40afbdc5ad50b7E(ptr noalias nonnull align 8 %3, ptr nonnull align 16 %1)
+  invoke fastcc void @_ZN14cranelift_isle5lexer5Lexer6reload17h8e40afbdc5ad50b7E(ptr noalias align 8 %3, ptr nonnull align 16 %1)
           to label %7 unwind label %5
 
 5:                                                ; preds = %2
@@ -638,7 +638,7 @@ define void @_ZN14cranelift_isle5lexer5Lexer4next17h3915cd2eff007a52E(ptr nocapt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle5lexer5Lexer6reload17h8e40afbdc5ad50b7E(ptr noalias nocapture writeonly align 8 %0, ptr align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14cranelift_isle5lexer5Lexer6reload17h8e40afbdc5ad50b7E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { i8, [1 x i8] }, [6 x i8] }, align 8
   %4 = alloca { i64, i64, i64, i64 }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8

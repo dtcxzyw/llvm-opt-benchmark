@@ -1102,7 +1102,7 @@ define dso_local void @_ZN5vcpkg10git_statusERKNS_9GitConfigENS_10StringViewE(pt
   %18 = alloca %"struct.vcpkg::StringView", align 8
   %19 = alloca %"struct.vcpkg::LocalizedString", align 8
   %20 = alloca %"struct.vcpkg::StringView", align 8
-  call fastcc void @_ZN12_GLOBAL__N_115git_cmd_builderERKN5vcpkg9GitConfigE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(96) %1)
+  call fastcc void @_ZN12_GLOBAL__N_115git_cmd_builderERKN5vcpkg9GitConfigE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(96) %1)
   %21 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr nonnull @.str.3, i64 6)
           to label %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit unwind label %28
 
@@ -1328,7 +1328,7 @@ _ZNKR5vcpkg9ExpectedTINS_17ExitCodeAndOutputENS_15LocalizedStringEE5errorEv.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115git_cmd_builderERKN5vcpkg9GitConfigE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115git_cmd_builderERKN5vcpkg9GitConfigE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.vcpkg::StringView", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"struct.vcpkg::StringView", align 8
@@ -1710,7 +1710,7 @@ define dso_local void @_ZN5vcpkg16is_shallow_cloneERKNS_9GitConfigE(ptr dead_on_
   %4 = alloca %"struct.vcpkg::ExpectedT.26", align 8
   %5 = alloca %"struct.vcpkg::ExpectedT.11", align 8
   %6 = alloca %"struct.vcpkg::Command", align 8
-  call fastcc void @_ZN12_GLOBAL__N_115git_cmd_builderERKN5vcpkg9GitConfigE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(96) %1)
+  call fastcc void @_ZN12_GLOBAL__N_115git_cmd_builderERKN5vcpkg9GitConfigE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(96) %1)
   %7 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr nonnull @.str.7, i64 9)
           to label %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit unwind label %29
 

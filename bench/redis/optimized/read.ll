@@ -2388,7 +2388,7 @@ return:                                           ; preds = %__redisReaderSetErr
 declare i32 @hi_sdsrange(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @__redisReaderSetError(ptr nocapture noundef %r, i32 noundef %type, ptr nocapture noundef readonly %str) unnamed_addr #0 {
+define internal fastcc void @__redisReaderSetError(ptr nocapture noundef %r, i32 noundef range(i32 4, 6) %type, ptr nocapture noundef readonly %str) unnamed_addr #0 {
 entry:
   %reply = getelementptr inbounds i8, ptr %r, i64 192
   %0 = load ptr, ptr %reply, align 8

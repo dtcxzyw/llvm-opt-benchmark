@@ -2028,11 +2028,11 @@ _ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_ED2Ev.exi
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit23: ; preds = %_ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_ED2Ev.exit
   store ptr %25, ptr %10, align 8
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %25) #18
-  call fastcc void @_ZL23addInstanceOfTransitionRKN5clang4ento9CallEventENS0_20DefinedOrUnknownSValEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEERNS0_14CheckerContextEb(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr %2, i8 %3, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(81) %4, i1 noundef zeroext true)
+  call fastcc void @_ZL23addInstanceOfTransitionRKN5clang4ento9CallEventENS0_20DefinedOrUnknownSValEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEERNS0_14CheckerContextEb(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr %2, i8 %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(81) %4, i1 noundef zeroext true)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %25) #18
   store ptr %25, ptr %11, align 8
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %25) #18
-  call fastcc void @_ZL23addInstanceOfTransitionRKN5clang4ento9CallEventENS0_20DefinedOrUnknownSValEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEERNS0_14CheckerContextEb(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr %2, i8 %3, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(81) %4, i1 noundef zeroext false)
+  call fastcc void @_ZL23addInstanceOfTransitionRKN5clang4ento9CallEventENS0_20DefinedOrUnknownSValEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEERNS0_14CheckerContextEb(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr %2, i8 %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(81) %4, i1 noundef zeroext false)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %25) #18
   br label %28
 
@@ -2143,11 +2143,11 @@ _ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_ED2Ev.exi
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit27: ; preds = %_ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_ED2Ev.exit
   store ptr %24, ptr %8, align 8
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %24) #18
-  call fastcc void @_ZL23addInstanceOfTransitionRKN5clang4ento9CallEventENS0_20DefinedOrUnknownSValEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEERNS0_14CheckerContextEb(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr %2, i8 %3, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(81) %4, i1 noundef zeroext true)
+  call fastcc void @_ZL23addInstanceOfTransitionRKN5clang4ento9CallEventENS0_20DefinedOrUnknownSValEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEERNS0_14CheckerContextEb(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr %2, i8 %3, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(81) %4, i1 noundef zeroext true)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %24) #18
   store ptr %24, ptr %9, align 8
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %24) #18
-  call fastcc void @_ZL23addInstanceOfTransitionRKN5clang4ento9CallEventENS0_20DefinedOrUnknownSValEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEERNS0_14CheckerContextEb(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr %2, i8 %3, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(81) %4, i1 noundef zeroext false)
+  call fastcc void @_ZL23addInstanceOfTransitionRKN5clang4ento9CallEventENS0_20DefinedOrUnknownSValEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEERNS0_14CheckerContextEb(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr %2, i8 %3, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(81) %4, i1 noundef zeroext false)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %24) #18
   br label %27
 
@@ -2158,7 +2158,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit27: ; preds =
 28:                                               ; preds = %27
   store ptr %26, ptr %10, align 8
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %26) #18
-  call fastcc void @_ZL23addInstanceOfTransitionRKN5clang4ento9CallEventENS0_20DefinedOrUnknownSValEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEERNS0_14CheckerContextEb(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr %2, i8 %3, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(81) %4, i1 noundef zeroext false)
+  call fastcc void @_ZL23addInstanceOfTransitionRKN5clang4ento9CallEventENS0_20DefinedOrUnknownSValEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEERNS0_14CheckerContextEb(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr %2, i8 %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(81) %4, i1 noundef zeroext false)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %26) #18
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %26) #18
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33
@@ -3994,7 +3994,7 @@ _ZNSt14_Function_base13_Base_managerIZN5clang4ento14CheckerContext10getNoteTagEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23addInstanceOfTransitionRKN5clang4ento9CallEventENS0_20DefinedOrUnknownSValEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEERNS0_14CheckerContextEb(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %1, i8 %2, ptr nocapture noundef readonly %3, ptr noundef nonnull align 8 dereferenceable(81) %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @_ZL23addInstanceOfTransitionRKN5clang4ento9CallEventENS0_20DefinedOrUnknownSValEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEERNS0_14CheckerContextEb(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %1, i8 %2, ptr nocapture noundef nonnull readonly %3, ptr noundef nonnull align 8 dereferenceable(81) %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %8 = alloca %"class.clang::ProgramPoint", align 8
   %9 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8

@@ -10294,7 +10294,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 declare noundef ptr @_Z6mk_andR11ast_managerjPKP4expr(ptr noundef nonnull align 8 dereferenceable(976), i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116to_real_stripperclER7obj_refI4expr11ast_managerEj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %e, i32 noundef %depth) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116to_real_stripperclER7obj_refI4expr11ast_managerEj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %e, i32 noundef range(i32 0, 9) %depth) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %is_int.i = alloca i8, align 1
   %num = alloca %class.rational, align 8

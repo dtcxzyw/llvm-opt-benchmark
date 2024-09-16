@@ -2317,11 +2317,11 @@ ompi_comm_split_type_to_str.exit:                 ; preds = %ompi_comm_split_typ
   br label %125
 
 121:                                              ; preds = %119
-  %122 = call fastcc i32 @ompi_comm_split_unguided(ptr noundef nonnull %0, i32 noundef %.067, i32 noundef %2, i1 noundef zeroext %.068, i1 noundef zeroext %.069, i1 noundef zeroext %.070, ptr noundef %3, ptr noundef nonnull %4)
+  %122 = call fastcc i32 @ompi_comm_split_unguided(ptr noundef nonnull %0, i32 noundef %.067, i32 noundef %2, i1 noundef zeroext %.068, i1 noundef zeroext %.069, i1 noundef zeroext %.070, ptr noundef %3, ptr noundef %4)
   br label %125
 
 123:                                              ; preds = %119
-  %124 = call fastcc i32 @ompi_comm_split_type_core(ptr noundef nonnull %0, i32 noundef %52, i32 noundef %.067, i32 noundef %2, i1 noundef zeroext %.068, i1 noundef zeroext %.069, i1 noundef zeroext %.070, ptr noundef %3, ptr noundef nonnull %4)
+  %124 = call fastcc i32 @ompi_comm_split_type_core(ptr noundef nonnull %0, i32 noundef %52, i32 noundef %.067, i32 noundef %2, i1 noundef zeroext %.068, i1 noundef zeroext %.069, i1 noundef zeroext %.070, ptr noundef %3, ptr noundef %4)
   br label %125
 
 125:                                              ; preds = %87, %ompi_comm_split_type_to_str.exit, %76, %60, %34, %5, %123, %121, %120, %33, %19
@@ -2338,7 +2338,7 @@ declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 nound
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ompi_comm_split_unguided(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @ompi_comm_split_unguided(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef nonnull %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   store ptr null, ptr %9, align 8
   %10 = getelementptr i8, ptr %0, i64 248
@@ -2549,7 +2549,7 @@ opal_obj_run_destructors.exit62:                  ; preds = %.lr.ph.i59, %91
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ompi_comm_split_type_core(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef %7, ptr nocapture noundef writeonly %8) unnamed_addr #0 {
+define internal fastcc i32 @ompi_comm_split_type_core(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca i8, align 1
   %12 = alloca ptr, align 8
@@ -2567,7 +2567,7 @@ define internal fastcc i32 @ompi_comm_split_type_core(ptr noundef %0, i32 nounde
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 248
   %21 = load ptr, ptr %20, align 8
-  %22 = call fastcc i32 @ompi_comm_split_type_get_part(ptr noundef %21, i32 noundef %1, ptr noundef nonnull %12, ptr noundef nonnull %15)
+  %22 = call fastcc i32 @ompi_comm_split_type_get_part(ptr noundef %21, i32 noundef %1, ptr noundef %12, ptr noundef %15)
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %23, label %89
 
@@ -2579,7 +2579,7 @@ define internal fastcc i32 @ompi_comm_split_type_core(ptr noundef %0, i32 nounde
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %0, i64 256
   %27 = load ptr, ptr %26, align 8
-  %28 = call fastcc i32 @ompi_comm_split_type_get_part(ptr noundef %27, i32 noundef %1, ptr noundef nonnull %13, ptr noundef nonnull %16)
+  %28 = call fastcc i32 @ompi_comm_split_type_get_part(ptr noundef %27, i32 noundef %1, ptr noundef %13, ptr noundef %16)
   %.not46 = icmp eq i32 %28, 0
   br i1 %.not46, label %._crit_edge, label %29
 
@@ -2656,14 +2656,14 @@ ompi_comm_set.exit:                               ; preds = %40
 
 56:                                               ; preds = %55
   %57 = load ptr, ptr %14, align 8
-  %58 = call fastcc i32 @ompi_comm_split_verify(ptr noundef %57, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %11)
+  %58 = call fastcc i32 @ompi_comm_split_verify(ptr noundef %57, i32 noundef %2, i32 noundef %3, ptr noundef %11)
   br i1 %.not45, label %64, label %59
 
 59:                                               ; preds = %56
   %60 = load ptr, ptr %14, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 264
   %62 = load ptr, ptr %61, align 8
-  %63 = call fastcc i32 @ompi_comm_split_verify(ptr noundef %62, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %11)
+  %63 = call fastcc i32 @ompi_comm_split_verify(ptr noundef %62, i32 noundef %2, i32 noundef %3, ptr noundef %11)
   br label %64
 
 64:                                               ; preds = %55, %56, %59
@@ -2687,7 +2687,7 @@ ompi_comm_set.exit:                               ; preds = %40
   %76 = load ptr, ptr %75, align 8
   %77 = call i32 @opal_info_remove_unreferenced(ptr noundef %76) #19
   %78 = load ptr, ptr %14, align 8
-  %79 = call i32 @ompi_comm_split_with_info(ptr noundef %78, i32 noundef %2, i32 noundef %3, ptr noundef null, ptr noundef %8, i1 noundef zeroext false)
+  %79 = call i32 @ompi_comm_split_with_info(ptr noundef %78, i32 noundef %2, i32 noundef %3, ptr noundef null, ptr noundef nonnull %8, i1 noundef zeroext false)
   %80 = call i32 @ompi_comm_free(ptr noundef nonnull %14)
   br label %81
 
@@ -3543,7 +3543,7 @@ ompi_comm_invalid.exit:                           ; preds = %25
 
 55:                                               ; preds = %47
   %56 = load i32, ptr %11, align 4
-  %57 = call fastcc i32 @ompi_comm_get_rprocs(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1, i32 noundef %3, i32 noundef %4, i32 noundef %56, ptr noundef nonnull %12)
+  %57 = call fastcc i32 @ompi_comm_get_rprocs(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1, i32 noundef %3, i32 noundef %4, i32 noundef %56, ptr noundef %12)
   %.not74 = icmp eq i32 %57, 0
   br i1 %.not74, label %58, label %ompi_comm_invalid.exit.thread
 
@@ -3649,7 +3649,7 @@ ompi_comm_invalid.exit.thread:                    ; preds = %25, %55, %47, %44, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ompi_comm_get_rprocs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc noundef i32 @ompi_comm_get_rprocs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
@@ -4358,7 +4358,7 @@ ompi_comm_extended_cid_block_new.exit:            ; preds = %154, %ompi_comm_ext
   %198 = load ptr, ptr %12, align 8
   %199 = load i32, ptr %16, align 4
   %200 = trunc i64 %196 to i32
-  %201 = call fastcc i32 @ompi_comm_get_rprocs(ptr noundef %197, ptr noundef %198, i32 noundef %189, i32 noundef %199, i32 noundef 0, i32 noundef %200, ptr noundef nonnull %14)
+  %201 = call fastcc i32 @ompi_comm_get_rprocs(ptr noundef %197, ptr noundef %198, i32 noundef %189, i32 noundef %199, i32 noundef 0, i32 noundef %200, ptr noundef %14)
   %.not103 = icmp eq i32 %201, 0
   br i1 %.not103, label %204, label %202
 
@@ -5260,7 +5260,7 @@ declare i32 @opal_hash_table_init(ptr noundef, i64 noundef) local_unnamed_addr #
 declare i32 @opal_info_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -5, 1) i32 @ompi_comm_split_type_get_part(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -5, 1) i32 @ompi_comm_split_type_get_part(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca ptr, align 8
   %7 = alloca %struct.pmix_proc, align 4
@@ -5538,7 +5538,7 @@ ompi_comm_split_type_to_str.exit:                 ; preds = %ompi_comm_split_typ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ompi_comm_split_verify(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @ompi_comm_split_verify(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 220
   %.val35 = load i32, ptr %5, align 4
   %6 = getelementptr i8, ptr %0, i64 248

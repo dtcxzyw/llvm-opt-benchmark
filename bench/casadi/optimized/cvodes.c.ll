@@ -1603,7 +1603,7 @@ define range(i32 -22, 1) i32 @CVodeSensInit(ptr noundef %0, i32 noundef %1, i32 
   %37 = getelementptr inbounds i8, ptr %0, i64 744
   store i32 0, ptr %37, align 8
   %38 = load ptr, ptr %4, align 8
-  %39 = tail call fastcc i32 @cvSensAllocVectors(ptr noundef nonnull %0, ptr noundef %38)
+  %39 = tail call fastcc i32 @cvSensAllocVectors(ptr noundef %0, ptr noundef %38)
   %.not64 = icmp eq i32 %39, 0
   br i1 %.not64, label %41, label %.lr.ph
 
@@ -1670,7 +1670,7 @@ define range(i32 -22, 1) i32 @CVodeSensInit(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cvSensAllocVectors(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cvSensAllocVectors(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 140
   %4 = load i32, ptr %3, align 4
   %5 = tail call ptr @N_VCloneVectorArray(i32 noundef %4, ptr noundef %1) #13
@@ -2046,7 +2046,7 @@ define range(i32 -22, 1) i32 @CVodeSensInit1(ptr noundef %0, i32 noundef %1, i32
 
 52:                                               ; preds = %47, %51
   %53 = load ptr, ptr %4, align 8
-  %54 = tail call fastcc i32 @cvSensAllocVectors(ptr noundef nonnull %0, ptr noundef %53)
+  %54 = tail call fastcc i32 @cvSensAllocVectors(ptr noundef %0, ptr noundef %53)
   %.not94 = icmp eq i32 %54, 0
   br i1 %.not94, label %56, label %.lr.ph
 
@@ -3765,7 +3765,7 @@ define range(i32 -54, 3) i32 @CVode(ptr noundef %0, double noundef %1, ptr nound
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %0, i64 568
   %75 = load ptr, ptr %74, align 8
-  %76 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef nonnull %0, ptr noundef %73, ptr noundef %75)
+  %76 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef %0, ptr noundef %73, ptr noundef %75)
   %.not68.i = icmp eq i32 %76, 0
   br i1 %.not68.i, label %78, label %77
 
@@ -3820,7 +3820,7 @@ define range(i32 -54, 3) i32 @CVode(ptr noundef %0, double noundef %1, ptr nound
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %0, i64 704
   %100 = load ptr, ptr %99, align 8
-  %101 = tail call fastcc i32 @cvSensEwtSet(ptr noundef nonnull %0, ptr noundef %98, ptr noundef %100)
+  %101 = tail call fastcc i32 @cvSensEwtSet(ptr noundef %0, ptr noundef %98, ptr noundef %100)
   %.not72.i = icmp eq i32 %101, 0
   br i1 %.not72.i, label %103, label %102
 
@@ -3892,7 +3892,7 @@ define range(i32 -54, 3) i32 @CVode(ptr noundef %0, double noundef %1, ptr nound
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %0, i64 856
   %133 = load ptr, ptr %132, align 8
-  %134 = tail call fastcc i32 @cvQuadSensEwtSet(ptr noundef nonnull %0, ptr noundef %131, ptr noundef %133)
+  %134 = tail call fastcc i32 @cvQuadSensEwtSet(ptr noundef %0, ptr noundef %131, ptr noundef %133)
   %.not77.i = icmp eq i32 %134, 0
   br i1 %.not77.i, label %138, label %135
 
@@ -4140,7 +4140,7 @@ cvInitialSetup.exit:                              ; preds = %150, %147, %138
 
 274:                                              ; preds = %273, %265, %264
   %.0469 = phi double [ %269, %273 ], [ %1, %265 ], [ %1, %264 ]
-  %275 = tail call fastcc i32 @cvHin(ptr noundef nonnull %0, double noundef %.0469)
+  %275 = tail call fastcc i32 @cvHin(ptr noundef %0, double noundef %.0469)
   %.not502 = icmp eq i32 %275, 0
   br i1 %.not502, label %._crit_edge, label %276
 
@@ -4149,7 +4149,7 @@ cvInitialSetup.exit:                              ; preds = %150, %147, %138
   br label %278
 
 276:                                              ; preds = %274
-  %277 = tail call fastcc i32 @cvHandleFailure(ptr noundef nonnull %0, i32 noundef %275)
+  %277 = tail call fastcc i32 @cvHandleFailure(ptr noundef %0, i32 noundef %275)
   br label %cvInitialSetup.exit.thread
 
 278:                                              ; preds = %._crit_edge, %262
@@ -4292,7 +4292,7 @@ cvInitialSetup.exit:                              ; preds = %150, %147, %138
   br i1 %353, label %354, label %thread-pre-split
 
 354:                                              ; preds = %.loopexit
-  %355 = tail call fastcc i32 @cvRcheck1(ptr noundef nonnull %0)
+  %355 = tail call fastcc i32 @cvRcheck1(ptr noundef %0)
   %356 = icmp eq i32 %355, -12
   br i1 %356, label %357, label %thread-pre-split
 
@@ -4329,7 +4329,7 @@ thread-pre-split:                                 ; preds = %354, %.loopexit
 376:                                              ; preds = %362
   %377 = getelementptr inbounds i8, ptr %0, i64 2164
   %378 = load i32, ptr %377, align 4
-  %379 = tail call fastcc i32 @cvRcheck2(ptr noundef nonnull %0)
+  %379 = tail call fastcc i32 @cvRcheck2(ptr noundef %0)
   switch i32 %379, label %390 [
     i32 3, label %380
     i32 -12, label %383
@@ -4366,7 +4366,7 @@ thread-pre-split:                                 ; preds = %354, %.loopexit
   br i1 %396, label %397, label %412
 
 397:                                              ; preds = %390
-  %398 = tail call fastcc i32 @cvRcheck3(ptr noundef nonnull %0)
+  %398 = tail call fastcc i32 @cvRcheck3(ptr noundef %0)
   switch i32 %398, label %412 [
     i32 0, label %399
     i32 1, label %406
@@ -4589,7 +4589,7 @@ thread-pre-split:                                 ; preds = %354, %.loopexit
 528:                                              ; preds = %526
   %529 = load ptr, ptr %481, align 8
   %530 = load ptr, ptr %482, align 8
-  %531 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef nonnull %0, ptr noundef %529, ptr noundef %530)
+  %531 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef %0, ptr noundef %529, ptr noundef %530)
   %.not511 = icmp eq i32 %531, 0
   br i1 %.not511, label %537, label %532
 
@@ -4612,7 +4612,7 @@ thread-pre-split:                                 ; preds = %354, %.loopexit
 539:                                              ; preds = %537
   %540 = load ptr, ptr %484, align 8
   %541 = load ptr, ptr %485, align 8
-  %542 = tail call fastcc i32 @cvSensEwtSet(ptr noundef nonnull %0, ptr noundef %540, ptr noundef %541)
+  %542 = tail call fastcc i32 @cvSensEwtSet(ptr noundef %0, ptr noundef %540, ptr noundef %541)
   %.not513 = icmp eq i32 %542, 0
   br i1 %.not513, label %548, label %543
 
@@ -4640,7 +4640,7 @@ thread-pre-split:                                 ; preds = %354, %.loopexit
 552:                                              ; preds = %550
   %553 = load ptr, ptr %488, align 8
   %554 = load ptr, ptr %489, align 8
-  %555 = tail call fastcc i32 @cvQuadSensEwtSet(ptr noundef nonnull %0, ptr noundef %553, ptr noundef %554)
+  %555 = tail call fastcc i32 @cvQuadSensEwtSet(ptr noundef %0, ptr noundef %553, ptr noundef %554)
   %.not516 = icmp eq i32 %555, 0
   br i1 %.not516, label %561, label %556
 
@@ -4835,12 +4835,12 @@ cvQuadSensUpdateNorm.exit:                        ; preds = %.lr.ph.i.i536, %607
   br label %651
 
 651:                                              ; preds = %646, %650, %636
-  %652 = tail call fastcc i32 @cvStep(ptr noundef nonnull %0)
+  %652 = tail call fastcc i32 @cvStep(ptr noundef %0)
   %.not525 = icmp eq i32 %652, 0
   br i1 %.not525, label %658, label %653
 
 653:                                              ; preds = %651
-  %654 = tail call fastcc i32 @cvHandleFailure(ptr noundef nonnull %0, i32 noundef %652)
+  %654 = tail call fastcc i32 @cvHandleFailure(ptr noundef %0, i32 noundef %652)
   %655 = load double, ptr %494, align 8
   store double %655, ptr %3, align 8
   %656 = getelementptr inbounds i8, ptr %0, i64 992
@@ -4882,7 +4882,7 @@ cvQuadSensUpdateNorm.exit:                        ; preds = %.lr.ph.i.i536, %607
   br i1 %679, label %680, label %.thread543
 
 680:                                              ; preds = %677
-  %681 = tail call fastcc i32 @cvRcheck3(ptr noundef nonnull %0)
+  %681 = tail call fastcc i32 @cvRcheck3(ptr noundef %0)
   switch i32 %681, label %690 [
     i32 1, label %682
     i32 -12, label %687
@@ -5145,7 +5145,7 @@ define i32 @cvSensRhsWrapper(ptr nocapture noundef %0, double noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -51, 1) i32 @cvHin(ptr noundef %0, double noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -51, 1) i32 @cvHin(ptr noundef nonnull %0, double noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 984
   %4 = load double, ptr %3, align 8
   %5 = fsub double %1, %4
@@ -5216,7 +5216,7 @@ define internal fastcc range(i32 -51, 1) i32 @cvHin(ptr noundef %0, double nound
   %50 = load ptr, ptr %49, align 8
   tail call void @N_VAbs(ptr noundef %50, ptr noundef %48) #13
   %51 = load ptr, ptr %49, align 8
-  %52 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef nonnull readonly %0, ptr noundef %51, ptr noundef %46)
+  %52 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef readonly %0, ptr noundef %51, ptr noundef %46)
   tail call void @N_VInv(ptr noundef %46, ptr noundef %46) #13
   tail call void @N_VLinearSum(double noundef 1.000000e-01, ptr noundef %48, double noundef 1.000000e+00, ptr noundef %46, ptr noundef %46) #13
   %53 = getelementptr inbounds i8, ptr %0, i64 472
@@ -5248,7 +5248,7 @@ define internal fastcc range(i32 -51, 1) i32 @cvHin(ptr noundef %0, double nound
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %0, i64 600
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call fastcc i32 @cvSensEwtSet(ptr noundef nonnull readonly %0, ptr noundef %68, ptr noundef %66)
+  %69 = tail call fastcc i32 @cvSensEwtSet(ptr noundef readonly %0, ptr noundef %68, ptr noundef %66)
   %70 = getelementptr inbounds i8, ptr %0, i64 140
   %71 = load i32, ptr %70, align 4
   %72 = icmp sgt i32 %71, 0
@@ -5305,7 +5305,7 @@ define internal fastcc range(i32 -51, 1) i32 @cvHin(ptr noundef %0, double nound
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %0, i64 752
   %101 = load ptr, ptr %100, align 8
-  %102 = tail call fastcc i32 @cvQuadSensEwtSet(ptr noundef nonnull readonly %0, ptr noundef %101, ptr noundef %99)
+  %102 = tail call fastcc i32 @cvQuadSensEwtSet(ptr noundef readonly %0, ptr noundef %101, ptr noundef %99)
   %103 = getelementptr inbounds i8, ptr %0, i64 140
   %104 = load i32, ptr %103, align 4
   %105 = icmp sgt i32 %104, 0
@@ -5831,7 +5831,7 @@ cvYddNorm.exit:                                   ; preds = %260, %cvSensRhsWrap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -54, 1) i32 @cvHandleFailure(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -54, 1) i32 @cvHandleFailure(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   switch i32 %1, label %59 [
     i32 -3, label %3
     i32 -4, label %8
@@ -5858,7 +5858,7 @@ define internal fastcc range(i32 -54, 1) i32 @cvHandleFailure(ptr noundef %0, i3
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 944
   %7 = load double, ptr %6, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.121, double noundef %5, double noundef %7)
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.121, double noundef %5, double noundef %7)
   br label %59
 
 8:                                                ; preds = %2
@@ -5866,101 +5866,101 @@ define internal fastcc range(i32 -54, 1) i32 @cvHandleFailure(ptr noundef %0, i3
   %10 = load double, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 944
   %12 = load double, ptr %11, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.122, double noundef %10, double noundef %12)
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.122, double noundef %10, double noundef %12)
   br label %59
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %0, i64 984
   %15 = load double, ptr %14, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %0, i32 noundef -6, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.123, double noundef %15)
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -6, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.123, double noundef %15)
   br label %59
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds i8, ptr %0, i64 984
   %18 = load double, ptr %17, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %0, i32 noundef -7, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.124, double noundef %18)
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -7, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.124, double noundef %18)
   br label %59
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds i8, ptr %0, i64 984
   %21 = load double, ptr %20, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %0, i32 noundef -8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.59, double noundef %21)
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.59, double noundef %21)
   br label %59
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds i8, ptr %0, i64 984
   %24 = load double, ptr %23, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %0, i32 noundef -11, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.125, double noundef %24)
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -11, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.125, double noundef %24)
   br label %59
 
 25:                                               ; preds = %2
   %26 = getelementptr inbounds i8, ptr %0, i64 984
   %27 = load double, ptr %26, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %0, i32 noundef -10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.126, double noundef %27)
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.126, double noundef %27)
   br label %59
 
 28:                                               ; preds = %2
   %29 = getelementptr inbounds i8, ptr %0, i64 984
   %30 = load double, ptr %29, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %0, i32 noundef -12, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.70, double noundef %30)
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -12, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.70, double noundef %30)
   br label %59
 
 31:                                               ; preds = %2
   %32 = getelementptr inbounds i8, ptr %0, i64 984
   %33 = load double, ptr %32, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %0, i32 noundef -31, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.61, double noundef %33)
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -31, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.61, double noundef %33)
   br label %59
 
 34:                                               ; preds = %2
   %35 = getelementptr inbounds i8, ptr %0, i64 984
   %36 = load double, ptr %35, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %0, i32 noundef -34, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.127, double noundef %36)
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -34, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.127, double noundef %36)
   br label %59
 
 37:                                               ; preds = %2
   %38 = getelementptr inbounds i8, ptr %0, i64 984
   %39 = load double, ptr %38, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %0, i32 noundef -33, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.128, double noundef %39)
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -33, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.128, double noundef %39)
   br label %59
 
 40:                                               ; preds = %2
   %41 = getelementptr inbounds i8, ptr %0, i64 984
   %42 = load double, ptr %41, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %0, i32 noundef -41, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.63, double noundef %42)
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -41, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.63, double noundef %42)
   br label %59
 
 43:                                               ; preds = %2
   %44 = getelementptr inbounds i8, ptr %0, i64 984
   %45 = load double, ptr %44, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %0, i32 noundef -44, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.129, double noundef %45)
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -44, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.129, double noundef %45)
   br label %59
 
 46:                                               ; preds = %2
   %47 = getelementptr inbounds i8, ptr %0, i64 984
   %48 = load double, ptr %47, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %0, i32 noundef -43, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.130, double noundef %48)
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -43, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.130, double noundef %48)
   br label %59
 
 49:                                               ; preds = %2
   %50 = getelementptr inbounds i8, ptr %0, i64 984
   %51 = load double, ptr %50, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %0, i32 noundef -51, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.65, double noundef %51)
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -51, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.65, double noundef %51)
   br label %59
 
 52:                                               ; preds = %2
   %53 = getelementptr inbounds i8, ptr %0, i64 984
   %54 = load double, ptr %53, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %0, i32 noundef -54, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.131, double noundef %54)
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -54, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.131, double noundef %54)
   br label %59
 
 55:                                               ; preds = %2
   %56 = getelementptr inbounds i8, ptr %0, i64 984
   %57 = load double, ptr %56, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %0, i32 noundef -53, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.132, double noundef %57)
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -53, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.132, double noundef %57)
   br label %59
 
 58:                                               ; preds = %2
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %0, i32 noundef -27, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.133)
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -27, ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.133)
   br label %59
 
 59:                                               ; preds = %3, %8, %13, %16, %19, %22, %25, %28, %31, %34, %37, %40, %43, %46, %49, %52, %55, %58, %2
@@ -5974,7 +5974,7 @@ declare double @SUNRabs(double noundef) local_unnamed_addr #4
 declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -12, 1) i32 @cvRcheck1(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -12, 1) i32 @cvRcheck1(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2072
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -6157,7 +6157,7 @@ define internal fastcc range(i32 -12, 1) i32 @cvRcheck1(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -12, 4) i32 @cvRcheck2(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -12, 4) i32 @cvRcheck2(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2164
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -6376,7 +6376,7 @@ define internal fastcc range(i32 -12, 4) i32 @cvRcheck2(ptr noundef %0) unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2160
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 2
@@ -7274,7 +7274,7 @@ define range(i32 -26, 1) i32 @CVodeGetDky(ptr noundef %0, double noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @cvQuadEwtSet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @cvQuadEwtSet(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 108
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %cvQuadEwtSetSS.exit [
@@ -7326,7 +7326,7 @@ cvQuadEwtSetSS.exit:                              ; preds = %cvQuadEwtSetSS.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @cvSensEwtSet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @cvSensEwtSet(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 228
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %cvSensEwtSetEE.exit [
@@ -7466,7 +7466,7 @@ cvSensEwtSetEE.exit:                              ; preds = %81, %69, %55, %42, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @cvQuadSensEwtSet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @cvQuadSensEwtSet(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 288
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %cvQuadSensEwtSetEE.exit [
@@ -7495,7 +7495,7 @@ define internal fastcc range(i32 -1, 1) i32 @cvQuadSensEwtSet(ptr nocapture noun
   tail call void @N_VScale(double noundef %16, ptr noundef %18, ptr noundef %9) #13
   %19 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef nonnull readonly %0, ptr noundef %9, ptr noundef %20)
+  %21 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef readonly %0, ptr noundef %9, ptr noundef %20)
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %22, label %cvQuadSensEwtSetEE.exit
 
@@ -7601,7 +7601,7 @@ cvQuadSensEwtSetEE.exit:                          ; preds = %76, %64, %50, %37, 
 declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -54, 6) i32 @cvStep(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -54, 6) i32 @cvStep(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [4 x double], align 16
   %3 = alloca [4 x double], align 16
   %4 = alloca [4 x double], align 16
@@ -7699,7 +7699,7 @@ define internal fastcc range(i32 -54, 6) i32 @cvStep(ptr noundef %0) unnamed_add
 
 58:                                               ; preds = %53
   %59 = sub nsw i32 %55, %57
-  tail call fastcc void @cvAdjustOrder(ptr noundef nonnull %0, i32 noundef %59)
+  tail call fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %59)
   %60 = load i32, ptr %54, align 4
   store i32 %60, ptr %56, align 8
   %61 = add nsw i32 %60, 1
@@ -7710,7 +7710,7 @@ define internal fastcc range(i32 -54, 6) i32 @cvStep(ptr noundef %0) unnamed_add
   br label %cvAdjustParams.exit
 
 cvAdjustParams.exit:                              ; preds = %53, %58
-  tail call fastcc void @cvRescale(ptr noundef nonnull %0)
+  tail call fastcc void @cvRescale(ptr noundef %0)
   br label %64
 
 64:                                               ; preds = %cvAdjustParams.exit, %47, %.loopexit342
@@ -8078,7 +8078,7 @@ cvPredict.exit:                                   ; preds = %._crit_edge119.i, %
   %265 = load double, ptr %264, align 8
   %266 = trunc i64 %indvars.iv.i.i.i.i to i32
   %267 = add i32 %266, 2
-  %268 = sitofp i32 %267 to double
+  %268 = uitofp nneg i32 %267 to double
   %269 = fdiv double %265, %268
   %270 = tail call double @llvm.fmuladd.f64(double %263, double %269, double %.018.i.i.i.i)
   %271 = sub nsw i32 0, %.01217.i.i.i.i
@@ -8126,7 +8126,7 @@ cvAltSum.exit.i.i.i:                              ; preds = %.preheader.i.i.i.i
   %290 = load double, ptr %289, align 8
   %291 = trunc i64 %indvars.iv.i16.i.i to i32
   %292 = add i32 %291, 1
-  %293 = sitofp i32 %292 to double
+  %293 = uitofp nneg i32 %292 to double
   %294 = fdiv double %290, %293
   %295 = tail call double @llvm.fmuladd.f64(double %288, double %294, double %.018.i.i.i)
   %296 = sub nsw i32 0, %.01217.i.i.i
@@ -8143,7 +8143,7 @@ cvAltSum.exit.i.i.i:                              ; preds = %.preheader.i.i.i.i
   %299 = load double, ptr %298, align 8
   %300 = trunc i64 %indvars.iv.i21.i.i to i32
   %301 = add i32 %300, 2
-  %302 = sitofp i32 %301 to double
+  %302 = uitofp nneg i32 %301 to double
   %303 = fdiv double %299, %302
   %304 = tail call double @llvm.fmuladd.f64(double %297, double %303, double %.018.i22.i.i)
   %305 = sub nsw i32 0, %.01217.i23.i.i
@@ -8232,7 +8232,7 @@ cvAltSum.exit27.i.i:                              ; preds = %.preheader.i20.i.i
   %337 = load double, ptr %336, align 8
   %338 = trunc i64 %indvars.iv.i.i37.i.i to i32
   %339 = add i32 %338, 2
-  %340 = sitofp i32 %339 to double
+  %340 = uitofp nneg i32 %339 to double
   %341 = fdiv double %337, %340
   %342 = tail call double @llvm.fmuladd.f64(double %335, double %341, double %.018.i.i38.i.i)
   %343 = sub nsw i32 0, %.01217.i.i39.i.i
@@ -9567,7 +9567,7 @@ cvNewtonIteration.exit.i.i:                       ; preds = %1055, %1013, %998, 
 cvNls.exit:                                       ; preds = %.lr.ph149.i.i, %cvSensRhsWrapper.exit.i23.i, %799, %800, %810, %852, %854, %897, %899, %996, %998, %1011, %1013, %1053, %1055, %cvNewtonIteration.exit.i.i, %666, %670, %673, %683, %cvSensRhsWrapper.exit183.i.i, %721, %.thread.i.i.i, %1000, %cvSensRhsWrapper.exit.i.i.i, %.lr.ph226.i.i.i, %cvSet.exit, %471, %482, %cvSensRhsWrapper.exit.i.i, %521, %640, %641, %642, %646, %cvSensUpdateNorm.exit, %751, %988
   %.0.i = phi i32 [ 0, %cvSet.exit ], [ -8, %471 ], [ 9, %482 ], [ -41, %cvSensRhsWrapper.exit.i.i ], [ 12, %521 ], [ 0, %642 ], [ 0, %646 ], [ 0, %cvSensUpdateNorm.exit ], [ 0, %640 ], [ 0, %641 ], [ 0, %988 ], [ -8, %751 ], [ -7, %.lr.ph226.i.i.i ], [ -41, %cvSensRhsWrapper.exit.i.i.i ], [ -8, %1000 ], [ -7, %.thread.i.i.i ], [ 12, %721 ], [ -41, %cvSensRhsWrapper.exit183.i.i ], [ 9, %683 ], [ -8, %673 ], [ 4, %666 ], [ 4, %670 ], [ -8, %cvNewtonIteration.exit.i.i ], [ 9, %.lr.ph149.i.i ], [ -41, %cvSensRhsWrapper.exit.i23.i ], [ 12, %799 ], [ -6, %800 ], [ 4, %810 ], [ 4, %854 ], [ 4, %852 ], [ 4, %899 ], [ 4, %897 ], [ 4, %998 ], [ 4, %996 ], [ 9, %1013 ], [ 9, %1011 ], [ 12, %1055 ], [ 12, %1053 ]
   store i32 %.0.i, ptr %24, align 4
-  %1066 = call fastcc i32 @cvHandleNFlag(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, ptr noundef nonnull %18, ptr noundef nonnull %130)
+  %1066 = call fastcc i32 @cvHandleNFlag(ptr noundef %0, ptr noundef %24, double noundef %66, ptr noundef nonnull %18, ptr noundef nonnull %130)
   switch i32 %1066, label %.loopexit [
     i32 3, label %.backedge.backedge
     i32 2, label %1067
@@ -9575,7 +9575,7 @@ cvNls.exit:                                       ; preds = %.lr.ph149.i.i, %cvS
 
 1067:                                             ; preds = %cvNls.exit
   %1068 = load double, ptr %128, align 8
-  %1069 = call fastcc i32 @cvDoErrorTest(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, double noundef %1068, ptr noundef nonnull %20, ptr noundef nonnull %131, ptr noundef nonnull %14)
+  %1069 = call fastcc i32 @cvDoErrorTest(ptr noundef %0, ptr noundef %24, double noundef %66, double noundef %1068, ptr noundef %20, ptr noundef %131, ptr noundef %14)
   switch i32 %1069, label %.loopexit [
     i32 5, label %.backedge.backedge
     i32 0, label %1070
@@ -9633,7 +9633,7 @@ cvNls.exit:                                       ; preds = %.lr.ph149.i.i, %cvS
 cvQuadNls.exit:                                   ; preds = %1072, %1082, %1088
   %.0.i206 = phi i32 [ 0, %1088 ], [ -31, %1072 ], [ 11, %1082 ]
   store i32 %.0.i206, ptr %24, align 4
-  %1097 = call fastcc i32 @cvHandleNFlag(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, ptr noundef nonnull %18, ptr noundef nonnull %130)
+  %1097 = call fastcc i32 @cvHandleNFlag(ptr noundef %0, ptr noundef %24, double noundef %66, ptr noundef nonnull %18, ptr noundef nonnull %130)
   switch i32 %1097, label %.loopexit [
     i32 3, label %.backedge.backedge
     i32 2, label %1098
@@ -9649,7 +9649,7 @@ cvQuadNls.exit:                                   ; preds = %1072, %1082, %1088
   %1102 = load ptr, ptr %139, align 8
   %1103 = tail call double @N_VWrmsNorm(ptr noundef %1101, ptr noundef %1102) #13
   store double %1103, ptr %140, align 8
-  %1104 = call fastcc i32 @cvDoErrorTest(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, double noundef %1103, ptr noundef nonnull %21, ptr noundef nonnull %141, ptr noundef nonnull %15)
+  %1104 = call fastcc i32 @cvDoErrorTest(ptr noundef %0, ptr noundef %24, double noundef %66, double noundef %1103, ptr noundef %21, ptr noundef %141, ptr noundef %15)
   switch i32 %1104, label %.loopexit [
     i32 5, label %.backedge.backedge
     i32 0, label %1105
@@ -9946,7 +9946,7 @@ cvSensNorm.exit.i.i:                              ; preds = %.lr.ph.i112.i.i, %.
 1254:                                             ; preds = %1253
   %1255 = load ptr, ptr %118, align 8
   %1256 = load ptr, ptr %126, align 8
-  %1257 = tail call fastcc double @cvSensNorm(ptr noundef nonnull %0, ptr noundef %1255, ptr noundef %1256)
+  %1257 = tail call fastcc double @cvSensNorm(ptr noundef %0, ptr noundef %1255, ptr noundef %1256)
   br label %1258
 
 1258:                                             ; preds = %1254, %1253
@@ -10447,7 +10447,7 @@ cvStgrNewtonIteration.exit.i.i:                   ; preds = %1513, %1475, %1395
 cvStgrNls.exit:                                   ; preds = %cvSensRhsWrapper.exit.i13.i, %1348, %1393, %1395, %1473, %1475, %1511, %1513, %cvStgrNewtonIteration.exit.i.i, %1531, %1260, %1264, %cvSensRhsWrapper.exit121.i.i, %cvSensRhsWrapper.exit121.thread.i.i, %cvSensRhsWrapper.exit.i.i.i216, %.lr.ph138.i.i.i, %1129, %cvSensRhsWrapper.exit.i.i233, %cvSensRhsWrapper.exit.thread.i.i, %1251, %1258, %1465
   %.0.i212 = phi i32 [ 0, %1129 ], [ -41, %cvSensRhsWrapper.exit.i.i233 ], [ 12, %cvSensRhsWrapper.exit.thread.i.i ], [ 0, %1258 ], [ 0, %1251 ], [ 0, %1465 ], [ -7, %.lr.ph138.i.i.i ], [ -41, %cvSensRhsWrapper.exit.i.i.i216 ], [ 12, %cvSensRhsWrapper.exit121.thread.i.i ], [ -41, %cvSensRhsWrapper.exit121.i.i ], [ 4, %1260 ], [ 4, %1264 ], [ 12, %1511 ], [ 12, %1513 ], [ 4, %1473 ], [ 4, %1475 ], [ 4, %1393 ], [ 4, %1395 ], [ 4, %1531 ], [ -6, %cvStgrNewtonIteration.exit.i.i ], [ 12, %1348 ], [ -41, %cvSensRhsWrapper.exit.i13.i ]
   store i32 %.0.i212, ptr %24, align 4
-  %1532 = call fastcc i32 @cvHandleNFlag(ptr noundef %0, ptr noundef nonnull %24, double noundef %66, ptr noundef nonnull %19, ptr noundef nonnull %149)
+  %1532 = call fastcc i32 @cvHandleNFlag(ptr noundef %0, ptr noundef %24, double noundef %66, ptr noundef nonnull %19, ptr noundef nonnull %149)
   br label %.loopexit334
 
 1533:                                             ; preds = %cvStgr1Nls.exit
@@ -10855,7 +10855,7 @@ cvStgr1Nls.exit:                                  ; preds = %1650, %1679, %1713,
   %1803 = getelementptr inbounds i32, ptr %1802, i64 %indvars.iv543
   %1804 = load ptr, ptr %146, align 8
   %1805 = getelementptr inbounds i64, ptr %1804, i64 %indvars.iv543
-  %1806 = call fastcc i32 @cvHandleNFlag(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, ptr noundef %1803, ptr noundef %1805)
+  %1806 = call fastcc i32 @cvHandleNFlag(ptr noundef %0, ptr noundef %24, double noundef %66, ptr noundef %1803, ptr noundef %1805)
   %.not180 = icmp eq i32 %1806, 2
   br i1 %.not180, label %1533, label %.loopexit334
 
@@ -10911,7 +10911,7 @@ cvSensNorm.exit:                                  ; preds = %.lr.ph.i, %1809
 
 1826:                                             ; preds = %._crit_edge556, %cvSensNorm.exit
   %1827 = phi double [ %.pre, %._crit_edge556 ], [ %.012.lcssa.i, %cvSensNorm.exit ]
-  %1828 = call fastcc i32 @cvDoErrorTest(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, double noundef %1827, ptr noundef nonnull %22, ptr noundef nonnull %150, ptr noundef nonnull %16)
+  %1828 = call fastcc i32 @cvDoErrorTest(ptr noundef %0, ptr noundef %24, double noundef %66, double noundef %1827, ptr noundef %22, ptr noundef %150, ptr noundef %16)
   switch i32 %1828, label %.loopexit [
     i32 5, label %.backedge.backedge
     i32 0, label %1829
@@ -11036,7 +11036,7 @@ cvSensNorm.exit:                                  ; preds = %.lr.ph.i, %1809
 cvQuadSensNls.exit:                               ; preds = %.lr.ph.i258, %1849, %1864, %.preheader.i257
   %.0.i256 = phi i32 [ -51, %1849 ], [ 13, %1864 ], [ 0, %.preheader.i257 ], [ 0, %.lr.ph.i258 ]
   store i32 %.0.i256, ptr %24, align 4
-  %1890 = call fastcc i32 @cvHandleNFlag(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, ptr noundef nonnull %18, ptr noundef nonnull %130)
+  %1890 = call fastcc i32 @cvHandleNFlag(ptr noundef %0, ptr noundef %24, double noundef %66, ptr noundef nonnull %18, ptr noundef nonnull %130)
   switch i32 %1890, label %.loopexit [
     i32 3, label %.backedge.backedge
     i32 2, label %1891
@@ -11076,7 +11076,7 @@ cvQuadSensNls.exit:                               ; preds = %.lr.ph.i258, %1849,
 cvQuadSensNorm.exit:                              ; preds = %.lr.ph.i263, %1893
   %.012.lcssa.i262 = phi double [ %1898, %1893 ], [ %.1.i266, %.lr.ph.i263 ]
   store double %.012.lcssa.i262, ptr %159, align 8
-  %1910 = call fastcc i32 @cvDoErrorTest(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, double noundef %.012.lcssa.i262, ptr noundef nonnull %23, ptr noundef nonnull %160, ptr noundef nonnull %17)
+  %1910 = call fastcc i32 @cvDoErrorTest(ptr noundef %0, ptr noundef %24, double noundef %66, double noundef %.012.lcssa.i262, ptr noundef %23, ptr noundef %160, ptr noundef %17)
   switch i32 %1910, label %.loopexit [
     i32 5, label %.backedge.backedge
     i32 0, label %1911
@@ -14080,7 +14080,7 @@ declare double @N_VMaxNorm(ptr noundef) local_unnamed_addr #4
 declare void @N_VAddConst(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -53, 4) i32 @cvHandleNFlag(ptr nocapture noundef %0, ptr nocapture noundef %1, double noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -53, 4) i32 @cvHandleNFlag(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, double noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr %1, align 4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %43, label %8
@@ -14145,7 +14145,7 @@ define internal fastcc range(i32 -53, 4) i32 @cvHandleNFlag(ptr nocapture nounde
   %41 = getelementptr inbounds i8, ptr %0, i64 968
   store double %40, ptr %41, align 8
   store i32 7, ptr %1, align 4
-  tail call fastcc void @cvRescale(ptr noundef nonnull %0)
+  tail call fastcc void @cvRescale(ptr noundef %0)
   br label %43
 
 switch.hole_check:                                ; preds = %27
@@ -14166,7 +14166,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -54, 6) i32 @cvDoErrorTest(ptr noundef %0, ptr nocapture noundef writeonly %1, double noundef %2, double noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i32 -54, 6) i32 @cvDoErrorTest(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, double noundef %2, double noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 1128
   %9 = load double, ptr %8, align 8
   %10 = fmul double %3, %9
@@ -14182,7 +14182,7 @@ define internal fastcc range(i32 -54, 6) i32 @cvDoErrorTest(ptr noundef %0, ptr 
   %16 = add nsw i64 %15, 1
   store i64 %16, ptr %5, align 8
   store i32 8, ptr %1, align 4
-  tail call fastcc void @cvRestore(ptr noundef nonnull %0, double noundef %2)
+  tail call fastcc void @cvRestore(ptr noundef %0, double noundef %2)
   %17 = getelementptr inbounds i8, ptr %0, i64 944
   %18 = load double, ptr %17, align 8
   %19 = tail call double @SUNRabs(double noundef %18) #13
@@ -14297,7 +14297,7 @@ define internal fastcc range(i32 -54, 6) i32 @cvDoErrorTest(ptr noundef %0, ptr 
   %94 = phi double [ %92, %88 ], [ 1.000000e-01, %87 ]
   %95 = getelementptr inbounds i8, ptr %0, i64 968
   store double %94, ptr %95, align 8
-  tail call fastcc void @cvAdjustOrder(ptr noundef nonnull %0, i32 noundef -1)
+  tail call fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef -1)
   %96 = load i32, ptr %80, align 8
   %97 = getelementptr inbounds i8, ptr %0, i64 928
   store i32 %96, ptr %97, align 8
@@ -14509,7 +14509,7 @@ define internal fastcc range(i32 -54, 6) i32 @cvDoErrorTest(ptr noundef %0, ptr 
   br i1 %231, label %221, label %.loopexit, !llvm.loop !162
 
 .loopexit.sink.split:                             ; preds = %72, %76, %93
-  tail call fastcc void @cvRescale(ptr noundef nonnull %0)
+  tail call fastcc void @cvRescale(ptr noundef %0)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %221, %.loopexit.sink.split, %.preheader, %.loopexit145, %217, %193, %175, %160, %151, %138, %130, %106, %12, %24, %7
@@ -14518,7 +14518,7 @@ define internal fastcc range(i32 -54, 6) i32 @cvDoErrorTest(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @cvSensNorm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc double @cvSensNorm(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = tail call double @N_VWrmsNorm(ptr noundef %4, ptr noundef %5) #13
@@ -14549,7 +14549,7 @@ define internal fastcc double @cvSensNorm(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @cvAdjustOrder(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 912
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 2
@@ -15352,7 +15352,7 @@ cvAdjustAdams.exit:                               ; preds = %._crit_edge124.i.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cvRescale(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @cvRescale(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 968
   %3 = getelementptr inbounds i8, ptr %0, i64 912
   %4 = load i32, ptr %3, align 8
@@ -15466,7 +15466,7 @@ define internal fastcc void @cvRescale(ptr nocapture noundef %0) unnamed_addr #0
 declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cvRestore(ptr nocapture noundef %0, double noundef %1) unnamed_addr #0 {
+define internal fastcc void @cvRestore(ptr nocapture noundef nonnull %0, double noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 984
   store double %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 912

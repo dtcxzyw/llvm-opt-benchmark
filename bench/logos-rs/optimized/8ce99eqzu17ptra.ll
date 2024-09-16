@@ -29,7 +29,7 @@ define hidden void @_ZN13logos_codegen5graph4meta4Meta7analyze17h2e3e69d76fd41e0
   store ptr inttoptr (i64 4 to ptr), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  %8 = invoke fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pass17h53def050de97c4eeE(ptr nonnull align 8 %5, i32 %1, i32 %1, ptr align 8 %2, ptr nonnull align 8 %4)
+  %8 = invoke fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pass17h53def050de97c4eeE(ptr align 8 %5, i32 %1, i32 %1, ptr align 8 %2, ptr align 8 %4)
           to label %11 unwind label %9
 
 9:                                                ; preds = %3
@@ -67,7 +67,7 @@ define hidden void @_ZN13logos_codegen5graph4meta4Meta7analyze17h2e3e69d76fd41e0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pass17h53def050de97c4eeE(ptr align 8 %0, i32 %1, i32 %2, ptr align 8 %3, ptr align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pass17h53def050de97c4eeE(ptr nonnull align 8 %0, i32 %1, i32 %2, ptr align 8 %3, ptr nonnull align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [16 x i8], align 8
   %7 = alloca [32 x i8], align 8
   %8 = alloca [32 x i8], align 8
@@ -75,7 +75,7 @@ define internal fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pa
   %10 = alloca [16 x i8], align 8
   %11 = alloca [4 x i8], align 4
   store i32 %1, ptr %11, align 4
-  %12 = tail call align 8 ptr @"_ZN115_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..IndexMut$LT$logos_codegen..graph..NodeId$GT$$GT$9index_mut17hef05b57c02ea21e8E"(ptr align 8 %0, i32 %1, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.2)
+  %12 = tail call align 8 ptr @"_ZN115_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..IndexMut$LT$logos_codegen..graph..NodeId$GT$$GT$9index_mut17hef05b57c02ea21e8E"(ptr nonnull align 8 %0, i32 %1, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.2)
   %13 = getelementptr inbounds i8, ptr %12, i64 24
   %14 = load i64, ptr %13, align 8
   %.not = icmp eq i64 %14, 0
@@ -94,7 +94,7 @@ define internal fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pa
 
 23:                                               ; preds = %5
   call void @_ZN13logos_codegen5graph4meta8MetaItem10loop_entry17h9889c3b99431fd3eE(ptr nonnull align 8 %12, i32 %2)
-  %24 = call align 8 ptr @"_ZN115_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..IndexMut$LT$logos_codegen..graph..NodeId$GT$$GT$9index_mut17hef05b57c02ea21e8E"(ptr align 8 %0, i32 %2, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.3)
+  %24 = call align 8 ptr @"_ZN115_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..IndexMut$LT$logos_codegen..graph..NodeId$GT$$GT$9index_mut17hef05b57c02ea21e8E"(ptr nonnull align 8 %0, i32 %2, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.3)
   %25 = getelementptr inbounds i8, ptr %24, i64 40
   store i8 1, ptr %25, align 8
   br label %21
@@ -113,7 +113,7 @@ define internal fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pa
   ]
 
 32:                                               ; preds = %21
-  %33 = call align 8 ptr @"_ZN112_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h32a65f1ab15be109E"(ptr align 8 %0, i32 %22, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.7)
+  %33 = call align 8 ptr @"_ZN112_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h32a65f1ab15be109E"(ptr nonnull align 8 %0, i32 %22, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.7)
   br label %157
 
 default.unreachable:                              ; preds = %.noexc, %26
@@ -138,7 +138,7 @@ default.unreachable:                              ; preds = %.noexc, %26
   %46 = getelementptr inbounds i8, ptr %28, i64 40
   %47 = load i32, ptr %46, align 8
   %48 = load i32, ptr %11, align 4
-  %49 = call fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pass17h53def050de97c4eeE(ptr align 8 %0, i32 %47, i32 %48, ptr align 8 %3, ptr nonnull align 8 %4)
+  %49 = call fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pass17h53def050de97c4eeE(ptr align 8 %0, i32 %47, i32 %48, ptr align 8 %3, ptr align 8 %4)
   %50 = getelementptr inbounds i8, ptr %49, i64 40
   %51 = load i8, ptr %50, align 8
   %52 = trunc i8 %51 to i1
@@ -185,9 +185,9 @@ default.unreachable:                              ; preds = %.noexc, %26
 
 73:                                               ; preds = %96, %61, %26, %67, %102, %90
   %.sroa.05.2 = phi i64 [ %105, %102 ], [ %.sroa.05.1, %90 ], [ %spec.store.select, %67 ], [ 0, %26 ], [ 0, %61 ], [ 0, %96 ]
-  %74 = call i32 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h1ca238a767ccf968E"(ptr align 8 %4)
+  %74 = call i32 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h1ca238a767ccf968E"(ptr nonnull align 8 %4)
   %75 = load i32, ptr %11, align 4
-  %76 = call align 8 ptr @"_ZN115_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..IndexMut$LT$logos_codegen..graph..NodeId$GT$$GT$9index_mut17hef05b57c02ea21e8E"(ptr align 8 %0, i32 %75, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.5)
+  %76 = call align 8 ptr @"_ZN115_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..IndexMut$LT$logos_codegen..graph..NodeId$GT$$GT$9index_mut17hef05b57c02ea21e8E"(ptr nonnull align 8 %0, i32 %75, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.5)
   %77 = getelementptr inbounds i8, ptr %76, i64 32
   store i64 %.sroa.05.2, ptr %77, align 8
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h546876a9e3b359a5E"(ptr nonnull sret([24 x i8]) align 8 %9, ptr align 8 %76)
@@ -227,7 +227,7 @@ default.unreachable:                              ; preds = %.noexc, %26
 
 96:                                               ; preds = %90
   %97 = load i32, ptr %11, align 4
-  %98 = call fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pass17h53def050de97c4eeE(ptr align 8 %0, i32 %95, i32 %97, ptr align 8 %3, ptr nonnull align 8 %4)
+  %98 = call fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pass17h53def050de97c4eeE(ptr align 8 %0, i32 %95, i32 %97, ptr align 8 %3, ptr align 8 %4)
   %99 = getelementptr inbounds i8, ptr %98, i64 40
   %100 = load i8, ptr %99, align 8
   %101 = trunc i8 %100 to i1
@@ -270,7 +270,7 @@ default.unreachable:                              ; preds = %.noexc, %26
 110:                                              ; preds = %108
   call void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$logos_codegen..graph..NodeId$GT$$GT$17h95489f4cb6c657b9E"(ptr nonnull align 8 %7)
   %111 = load i32, ptr %11, align 4
-  %112 = call align 8 ptr @"_ZN112_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h32a65f1ab15be109E"(ptr align 8 %0, i32 %111, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.6)
+  %112 = call align 8 ptr @"_ZN112_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h32a65f1ab15be109E"(ptr nonnull align 8 %0, i32 %111, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.6)
   br label %157
 
 113:                                              ; preds = %108
@@ -314,7 +314,7 @@ default.unreachable:                              ; preds = %.noexc, %26
   %128 = extractvalue { ptr, i64 } %127, 1
   %129 = getelementptr inbounds i8, ptr %114, i64 40
   %130 = load i32, ptr %129, align 8
-  %131 = invoke align 8 ptr @"_ZN112_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h32a65f1ab15be109E"(ptr align 8 %0, i32 %130, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.10)
+  %131 = invoke align 8 ptr @"_ZN112_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h32a65f1ab15be109E"(ptr nonnull align 8 %0, i32 %130, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.10)
           to label %.noexc21 unwind label %.loopexit.split-lp.loopexit
 
 .noexc21:                                         ; preds = %.noexc20
@@ -342,7 +342,7 @@ default.unreachable:                              ; preds = %.noexc, %26
   %.sroa.02.07.i = phi i64 [ %.sroa.02.0.be.i, %.noexc26 ], [ -1, %.noexc19 ]
   %.sroa.2.0.extract.shift.i = lshr i64 %137, 32
   %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
-  %138 = invoke align 8 ptr @"_ZN112_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h32a65f1ab15be109E"(ptr align 8 %0, i32 %.sroa.2.0.extract.trunc.i, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.9)
+  %138 = invoke align 8 ptr @"_ZN112_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h32a65f1ab15be109E"(ptr nonnull align 8 %0, i32 %.sroa.2.0.extract.trunc.i, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.9)
           to label %.noexc23 unwind label %.loopexit
 
 .noexc23:                                         ; preds = %.lr.ph.i
@@ -353,7 +353,7 @@ default.unreachable:                              ; preds = %.noexc, %26
 
 142:                                              ; preds = %152, %._crit_edge.thread.i, %._crit_edge.i, %.noexc21
   %.sroa.02.1.i = phi i64 [ %128, %.noexc21 ], [ %155, %152 ], [ 0, %._crit_edge.thread.i ], [ %.sroa.02.0.be.i, %._crit_edge.i ]
-  %143 = invoke align 8 ptr @"_ZN115_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..IndexMut$LT$logos_codegen..graph..NodeId$GT$$GT$9index_mut17hef05b57c02ea21e8E"(ptr align 8 %0, i32 %107, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.11)
+  %143 = invoke align 8 ptr @"_ZN115_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..IndexMut$LT$logos_codegen..graph..NodeId$GT$$GT$9index_mut17hef05b57c02ea21e8E"(ptr nonnull align 8 %0, i32 %107, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.11)
           to label %_ZN13logos_codegen5graph4meta4Meta16meta_second_pass17hcd3604a2eaff6252E.exit unwind label %.loopexit.split-lp.loopexit
 
 144:                                              ; preds = %.noexc23

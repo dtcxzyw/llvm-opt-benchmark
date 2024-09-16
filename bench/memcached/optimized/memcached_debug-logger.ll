@@ -757,7 +757,7 @@ declare i32 @usleep(i32 noundef) local_unnamed_addr #5
 declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @logger_thread_poll_watchers(i32 noundef %force_poll, i32 noundef %watcher) unnamed_addr #1 {
+define internal fastcc i32 @logger_thread_poll_watchers(i32 noundef range(i32 0, 2) %force_poll, i32 noundef range(i32 -2147483648, 20) %watcher) unnamed_addr #1 {
 entry:
   %data_size = alloca i32, align 4
   %buf52 = alloca [1 x i8], align 1
@@ -942,7 +942,7 @@ land.lhs.true61:                                  ; preds = %if.then51
   br i1 %cmp63.not, label %if.end72, label %if.then69
 
 if.then69:                                        ; preds = %land.lhs.true61, %if.then51
-  call fastcc void @logger_thread_close_watcher(ptr noundef nonnull %12)
+  call fastcc void @logger_thread_close_watcher(ptr noundef %12)
   %inc70 = add nsw i32 %nfd.380, 1
   br label %for.inc127
 
@@ -961,7 +961,7 @@ if.then77:                                        ; preds = %if.end72
   br i1 %tobool83.not, label %if.else85, label %if.then84
 
 if.then84:                                        ; preds = %if.then77
-  call fastcc void @logger_thread_close_watcher(ptr noundef nonnull %12)
+  call fastcc void @logger_thread_close_watcher(ptr noundef %12)
   br label %if.end125
 
 if.else85:                                        ; preds = %if.then77
@@ -1008,11 +1008,11 @@ if.then104:                                       ; preds = %sw.epilog
   br i1 %cmp106.not, label %if.end125, label %if.then112
 
 if.then112:                                       ; preds = %if.then104
-  call fastcc void @logger_thread_close_watcher(ptr noundef nonnull %12)
+  call fastcc void @logger_thread_close_watcher(ptr noundef %12)
   br label %if.end125
 
 if.then117:                                       ; preds = %if.then92, %sw.epilog
-  call fastcc void @logger_thread_close_watcher(ptr noundef nonnull %12)
+  call fastcc void @logger_thread_close_watcher(ptr noundef %12)
   br label %if.end125
 
 if.else118:                                       ; preds = %sw.epilog
@@ -1054,7 +1054,7 @@ declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #7
 declare ptr @__errno_location() local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @logger_thread_close_watcher(ptr nocapture noundef %w) unnamed_addr #1 {
+define internal fastcc void @logger_thread_close_watcher(ptr nocapture noundef nonnull %w) unnamed_addr #1 {
 entry:
   %id = getelementptr inbounds i8, ptr %w, i64 12
   %0 = load i32, ptr %id, align 4
@@ -1069,7 +1069,7 @@ entry:
   %buf = getelementptr inbounds i8, ptr %w, i64 48
   %3 = load ptr, ptr %buf, align 8
   tail call void @bipbuf_free(ptr noundef %3) #18
-  tail call void @free(ptr noundef %w) #18
+  tail call void @free(ptr noundef nonnull %w) #18
   br label %for.body.i
 
 for.cond4.preheader.i:                            ; preds = %for.inc.i

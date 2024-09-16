@@ -646,20 +646,20 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
-  %i.07.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %entry ]
-  %table.addr.06.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ @ssl_cipher_table_cipher, %entry ]
-  %1 = load i32, ptr %table.addr.06.i, align 4
+  %i.06.i = phi i64 [ 0, %entry ], [ %inc.i, %for.inc.i ]
+  %table.addr.05.i = phi ptr [ @ssl_cipher_table_cipher, %entry ], [ %incdec.ptr.i, %for.inc.i ]
+  %1 = load i32, ptr %table.addr.05.i, align 4
   %cmp2.i = icmp eq i32 %1, %0
   br i1 %cmp2.i, label %ssl_cipher_info_find.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.07.i, 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %table.addr.06.i, i64 8
+  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %table.addr.05.i, i64 8
   %exitcond.not.i = icmp eq i64 %inc.i, 24
   br i1 %exitcond.not.i, label %if.end15.sink.split, label %for.body.i, !llvm.loop !7
 
 ssl_cipher_info_find.exit:                        ; preds = %for.body.i
-  %conv.i = trunc nuw nsw i64 %i.07.i to i32
+  %conv.i = trunc nuw nsw i64 %i.06.i to i32
   switch i32 %conv.i, label %if.else6 [
     i32 -1, label %if.end15.sink.split
     i32 5, label %if.then2
@@ -676,7 +676,7 @@ if.then2:                                         ; preds = %ssl_cipher_info_fin
 
 if.else6:                                         ; preds = %ssl_cipher_info_find.exit
   %ssl_cipher_methods = getelementptr inbounds i8, ptr %ctx, i64 1160
-  %sext = shl i64 %i.07.i, 32
+  %sext = shl i64 %i.06.i, 32
   %idxprom = ashr exact i64 %sext, 32
   %arrayidx = getelementptr inbounds [24 x ptr], ptr %ssl_cipher_methods, i64 0, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
@@ -761,20 +761,20 @@ if.end24:                                         ; preds = %if.end20
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end24
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %if.end24 ]
-  %table.addr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @ssl_cipher_table_cipher, %if.end24 ]
-  %5 = load i32, ptr %table.addr.06.i.i, align 4
+  %i.06.i.i = phi i64 [ 0, %if.end24 ], [ %inc.i.i, %for.inc.i.i ]
+  %table.addr.05.i.i = phi ptr [ @ssl_cipher_table_cipher, %if.end24 ], [ %incdec.ptr.i.i, %for.inc.i.i ]
+  %5 = load i32, ptr %table.addr.05.i.i, align 4
   %cmp2.i.i = icmp eq i32 %5, %4
   br i1 %cmp2.i.i, label %ssl_cipher_info_find.exit.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %inc.i.i = add nuw nsw i64 %i.07.i.i, 1
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %table.addr.06.i.i, i64 8
+  %inc.i.i = add nuw nsw i64 %i.06.i.i, 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %table.addr.05.i.i, i64 8
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 24
   br i1 %exitcond.not.i.i, label %if.end15.sink.split.i, label %for.body.i.i, !llvm.loop !7
 
 ssl_cipher_info_find.exit.i:                      ; preds = %for.body.i.i
-  %conv.i.i = trunc nuw nsw i64 %i.07.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %i.06.i.i to i32
   switch i32 %conv.i.i, label %if.else6.i [
     i32 -1, label %if.end15.sink.split.i
     i32 5, label %if.then2.i
@@ -791,7 +791,7 @@ if.then2.i:                                       ; preds = %ssl_cipher_info_fin
 
 if.else6.i:                                       ; preds = %ssl_cipher_info_find.exit.i
   %ssl_cipher_methods.i = getelementptr inbounds i8, ptr %ctx, i64 1160
-  %sext.i = shl i64 %i.07.i.i, 32
+  %sext.i = shl i64 %i.06.i.i, 32
   %idxprom.i = ashr exact i64 %sext.i, 32
   %arrayidx.i = getelementptr inbounds [24 x ptr], ptr %ssl_cipher_methods.i, i64 0, i64 %idxprom.i
   %8 = load ptr, ptr %arrayidx.i, align 8
@@ -819,15 +819,15 @@ if.end28:                                         ; preds = %if.end15.sink.split
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end28
-  %i.07.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %if.end28 ]
-  %table.addr.06.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ @ssl_cipher_table_mac, %if.end28 ]
-  %12 = load i32, ptr %table.addr.06.i, align 4
+  %i.06.i = phi i64 [ 0, %if.end28 ], [ %inc.i, %for.inc.i ]
+  %table.addr.05.i = phi ptr [ @ssl_cipher_table_mac, %if.end28 ], [ %incdec.ptr.i, %for.inc.i ]
+  %12 = load i32, ptr %table.addr.05.i, align 4
   %cmp2.i = icmp eq i32 %12, %11
   br i1 %cmp2.i, label %if.else, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.07.i, 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %table.addr.06.i, i64 8
+  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %table.addr.05.i, i64 8
   %exitcond.not.i = icmp eq i64 %inc.i, 14
   br i1 %exitcond.not.i, label %if.then31, label %for.body.i, !llvm.loop !7
 
@@ -856,7 +856,7 @@ if.end37:                                         ; preds = %if.then36, %if.end3
 
 if.else:                                          ; preds = %for.body.i
   %ssl_digest_methods = getelementptr inbounds i8, ptr %ctx, i64 1352
-  %sext = shl i64 %i.07.i, 32
+  %sext = shl i64 %i.06.i, 32
   %idxprom = ashr exact i64 %sext, 32
   %arrayidx = getelementptr inbounds [14 x ptr], ptr %ssl_digest_methods, i64 0, i64 %idxprom
   %14 = load ptr, ptr %arrayidx, align 8
@@ -2421,7 +2421,7 @@ ssl_cipher_apply_rule.exit554:                    ; preds = %for.cond.backedge.i
   %tail.0.lcssa.i553 = phi ptr [ %tail.0.lcssa.i505, %ssl_cipher_apply_rule.exit506 ], [ null, %ssl_cipher_apply_rule.exit506.thread ], [ %tail.0.be.i547, %for.cond.backedge.i545 ]
   store ptr %head.0.lcssa.i552, ptr %head, align 8
   store ptr %tail.0.lcssa.i553, ptr %tail, align 8
-  %call15 = call fastcc i32 @ssl_cipher_strength_sort(ptr noundef nonnull %head, ptr noundef nonnull %tail)
+  %call15 = call fastcc i32 @ssl_cipher_strength_sort(ptr noundef %head, ptr noundef %tail)
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %if.then17, label %if.end18
 
@@ -2872,7 +2872,7 @@ ssl_cipher_collect_aliases.exit:                  ; preds = %for.inc.i789
   br i1 %cmp28, label %if.end38, label %land.lhs.true
 
 if.end38:                                         ; preds = %ssl_cipher_collect_aliases.exit
-  %call32 = call fastcc i32 @ssl_cipher_process_rulestr(ptr noundef nonnull @.str.62, ptr noundef nonnull %head, ptr noundef nonnull %tail, ptr noundef nonnull %call22, ptr noundef %c)
+  %call32 = call fastcc i32 @ssl_cipher_process_rulestr(ptr noundef nonnull @.str.62, ptr noundef %head, ptr noundef %tail, ptr noundef %call22, ptr noundef %c)
   %add.ptr = getelementptr inbounds i8, ptr %rule_str.addr.0.ph, i64 7
   %115 = load i8, ptr %add.ptr, align 1
   %cmp34 = icmp eq i8 %115, 58
@@ -2888,7 +2888,7 @@ land.lhs.true:                                    ; preds = %ssl_cipher_collect_
   br i1 %cmp41.not, label %if.end48.critedge, label %if.then43
 
 if.then43:                                        ; preds = %land.lhs.true
-  %call44 = call fastcc i32 @ssl_cipher_process_rulestr(ptr noundef nonnull %rule_p.0809, ptr noundef nonnull %head, ptr noundef nonnull %tail, ptr noundef nonnull %call22, ptr noundef %c)
+  %call44 = call fastcc i32 @ssl_cipher_process_rulestr(ptr noundef nonnull %rule_p.0809, ptr noundef %head, ptr noundef %tail, ptr noundef %call22, ptr noundef %c)
   %117 = icmp eq i32 %call44, 0
   tail call void @CRYPTO_free(ptr noundef nonnull %call22, ptr noundef nonnull @.str.12, i32 noundef 1637) #15
   br i1 %117, label %if.then47, label %if.end48
@@ -2993,7 +2993,7 @@ for.inc100:                                       ; preds = %if.then85, %for.bod
 
 for.end101:                                       ; preds = %for.inc100, %for.cond80.preheader
   tail call void @CRYPTO_free(ptr noundef %co_list.0804821828835842849856863870877884891898, ptr noundef nonnull @.str.12, i32 noundef 1693) #15
-  %call102 = tail call fastcc i32 @update_cipher_list_by_id(ptr noundef %cipher_list_by_id, ptr noundef nonnull %call49)
+  %call102 = tail call fastcc i32 @update_cipher_list_by_id(ptr noundef %cipher_list_by_id, ptr noundef %call49)
   %tobool103.not = icmp eq i32 %call102, 0
   br i1 %tobool103.not, label %if.then104, label %if.end106
 
@@ -3015,7 +3015,7 @@ return:                                           ; preds = %check_suiteb_cipher
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ssl_cipher_apply_rule(i32 noundef %cipher_id, i32 noundef %alg_mkey, i32 noundef %alg_auth, i32 noundef %alg_enc, i32 noundef %alg_mac, i32 noundef %min_tls, i32 noundef %algo_strength, i32 noundef %rule, i32 noundef %strength_bits, ptr nocapture noundef %head_p, ptr nocapture noundef %tail_p) unnamed_addr #4 {
+define internal fastcc void @ssl_cipher_apply_rule(i32 noundef %cipher_id, i32 noundef %alg_mkey, i32 noundef %alg_auth, i32 noundef %alg_enc, i32 noundef %alg_mac, i32 noundef %min_tls, i32 noundef range(i32 0, 64) %algo_strength, i32 noundef range(i32 1, 7) %rule, i32 noundef range(i32 -1, -2147483648) %strength_bits, ptr nocapture noundef nonnull %head_p, ptr nocapture noundef nonnull %tail_p) unnamed_addr #4 {
 entry:
   %cmp = icmp ne i32 %rule, 3
   %cmp1 = icmp ne i32 %rule, 6
@@ -3039,8 +3039,7 @@ if.end9.lr.ph:                                    ; preds = %entry
   %tobool55.not = icmp eq i32 %min_tls, 0
   %and61 = and i32 %algo_strength, 31
   %tobool62.not = icmp eq i32 %and61, 0
-  %and70 = and i32 %algo_strength, 32
-  %tobool71.not = icmp eq i32 %and70, 0
+  %tobool71.not = icmp ult i32 %algo_strength, 32
   %cmp113 = icmp eq i32 %rule, 2
   %switch.selectcmp.case1 = icmp eq i32 %rule, 6
   %switch.selectcmp.case2 = icmp eq i32 %rule, 3
@@ -3405,7 +3404,7 @@ for.end:                                          ; preds = %for.cond.backedge, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_cipher_strength_sort(ptr nocapture noundef %head_p, ptr nocapture noundef %tail_p) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_cipher_strength_sort(ptr nocapture noundef nonnull %head_p, ptr nocapture noundef nonnull %tail_p) unnamed_addr #0 {
 entry:
   %curr.019 = load ptr, ptr %head_p, align 8
   %cmp.not20 = icmp eq ptr %curr.019, null
@@ -3576,7 +3575,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nocapture noundef readonly %rule_str, ptr nocapture noundef %head_p, ptr nocapture noundef %tail_p, ptr nocapture noundef readonly %ca_list, ptr nocapture noundef writeonly %c) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nocapture noundef readonly %rule_str, ptr nocapture noundef nonnull %head_p, ptr nocapture noundef nonnull %tail_p, ptr nocapture noundef nonnull readonly %ca_list, ptr nocapture noundef writeonly %c) unnamed_addr #0 {
 entry:
   %sec_level = getelementptr inbounds i8, ptr %c, i64 152
   br label %for.condthread-pre-split
@@ -3986,9 +3985,9 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @update_cipher_list_by_id(ptr nocapture noundef %cipher_list_by_id, ptr noundef %cipherstack) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @update_cipher_list_by_id(ptr nocapture noundef %cipher_list_by_id, ptr noundef nonnull %cipherstack) unnamed_addr #0 {
 entry:
-  %call1 = tail call ptr @OPENSSL_sk_dup(ptr noundef %cipherstack) #15
+  %call1 = tail call ptr @OPENSSL_sk_dup(ptr noundef nonnull %cipherstack) #15
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end
 
@@ -4616,20 +4615,20 @@ if.end:                                           ; preds = %entry
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end
-  %i.07.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %if.end ]
-  %table.addr.06.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ @ssl_cipher_table_cipher, %if.end ]
-  %1 = load i32, ptr %table.addr.06.i, align 4
+  %i.06.i = phi i64 [ 0, %if.end ], [ %inc.i, %for.inc.i ]
+  %table.addr.05.i = phi ptr [ @ssl_cipher_table_cipher, %if.end ], [ %incdec.ptr.i, %for.inc.i ]
+  %1 = load i32, ptr %table.addr.05.i, align 4
   %cmp2.i = icmp eq i32 %1, %0
   br i1 %cmp2.i, label %if.end3, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.07.i, 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %table.addr.06.i, i64 8
+  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %table.addr.05.i, i64 8
   %exitcond.not.i = icmp eq i64 %inc.i, 24
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !7
 
 if.end3:                                          ; preds = %for.body.i
-  %sext = shl i64 %i.07.i, 32
+  %sext = shl i64 %i.06.i, 32
   %idxprom = ashr exact i64 %sext, 32
   %nid = getelementptr inbounds [24 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_cipher, i64 0, i64 %idxprom, i32 1
   %2 = load i32, ptr %nid, align 4
@@ -4648,20 +4647,20 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
-  %i.07.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %entry ]
-  %table.addr.06.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ @ssl_cipher_table_mac, %entry ]
-  %1 = load i32, ptr %table.addr.06.i, align 4
+  %i.06.i = phi i64 [ 0, %entry ], [ %inc.i, %for.inc.i ]
+  %table.addr.05.i = phi ptr [ @ssl_cipher_table_mac, %entry ], [ %incdec.ptr.i, %for.inc.i ]
+  %1 = load i32, ptr %table.addr.05.i, align 4
   %cmp2.i = icmp eq i32 %1, %0
   br i1 %cmp2.i, label %if.end, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.07.i, 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %table.addr.06.i, i64 8
+  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %table.addr.05.i, i64 8
   %exitcond.not.i = icmp eq i64 %inc.i, 14
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !7
 
 if.end:                                           ; preds = %for.body.i
-  %sext = shl i64 %i.07.i, 32
+  %sext = shl i64 %i.06.i, 32
   %idxprom = ashr exact i64 %sext, 32
   %nid = getelementptr inbounds [14 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_mac, i64 0, i64 %idxprom, i32 1
   %2 = load i32, ptr %nid, align 4
@@ -4680,20 +4679,20 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
-  %i.07.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %entry ]
-  %table.addr.06.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ @ssl_cipher_table_kx, %entry ]
-  %1 = load i32, ptr %table.addr.06.i, align 4
+  %i.06.i = phi i64 [ 0, %entry ], [ %inc.i, %for.inc.i ]
+  %table.addr.05.i = phi ptr [ @ssl_cipher_table_kx, %entry ], [ %incdec.ptr.i, %for.inc.i ]
+  %1 = load i32, ptr %table.addr.05.i, align 4
   %cmp2.i = icmp eq i32 %1, %0
   br i1 %cmp2.i, label %if.end, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.07.i, 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %table.addr.06.i, i64 8
+  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %table.addr.05.i, i64 8
   %exitcond.not.i = icmp eq i64 %inc.i, 11
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !7
 
 if.end:                                           ; preds = %for.body.i
-  %sext = shl i64 %i.07.i, 32
+  %sext = shl i64 %i.06.i, 32
   %idxprom = ashr exact i64 %sext, 32
   %nid = getelementptr inbounds [11 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_kx, i64 0, i64 %idxprom, i32 1
   %2 = load i32, ptr %nid, align 4
@@ -4712,20 +4711,20 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
-  %i.07.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %entry ]
-  %table.addr.06.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ @ssl_cipher_table_auth, %entry ]
-  %1 = load i32, ptr %table.addr.06.i, align 4
+  %i.06.i = phi i64 [ 0, %entry ], [ %inc.i, %for.inc.i ]
+  %table.addr.05.i = phi ptr [ @ssl_cipher_table_auth, %entry ], [ %incdec.ptr.i, %for.inc.i ]
+  %1 = load i32, ptr %table.addr.05.i, align 4
   %cmp2.i = icmp eq i32 %1, %0
   br i1 %cmp2.i, label %if.end, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.07.i, 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %table.addr.06.i, i64 8
+  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %table.addr.05.i, i64 8
   %exitcond.not.i = icmp eq i64 %inc.i, 9
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !7
 
 if.end:                                           ; preds = %for.body.i
-  %sext = shl i64 %i.07.i, 32
+  %sext = shl i64 %i.06.i, 32
   %idxprom = ashr exact i64 %sext, 32
   %nid = getelementptr inbounds [9 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_auth, i64 0, i64 %idxprom, i32 1
   %2 = load i32, ptr %nid, align 4
@@ -4820,20 +4819,20 @@ if.else15:                                        ; preds = %if.else5
   br i1 %tobool17.not, label %for.body.i.i, label %return
 
 for.body.i.i:                                     ; preds = %if.else15, %for.inc.i.i
-  %i.07.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %if.else15 ]
-  %table.addr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @ssl_cipher_table_mac, %if.else15 ]
-  %4 = load i32, ptr %table.addr.06.i.i, align 4
+  %i.06.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %if.else15 ]
+  %table.addr.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ @ssl_cipher_table_mac, %if.else15 ]
+  %4 = load i32, ptr %table.addr.05.i.i, align 4
   %cmp2.i.i = icmp eq i32 %4, %3
   br i1 %cmp2.i.i, label %if.end.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %inc.i.i = add nuw nsw i64 %i.07.i.i, 1
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %table.addr.06.i.i, i64 8
+  %inc.i.i = add nuw nsw i64 %i.06.i.i, 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %table.addr.05.i.i, i64 8
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 14
   br i1 %exitcond.not.i.i, label %SSL_CIPHER_get_digest_nid.exit, label %for.body.i.i, !llvm.loop !7
 
 if.end.i:                                         ; preds = %for.body.i.i
-  %sext.i = shl i64 %i.07.i.i, 32
+  %sext.i = shl i64 %i.06.i.i, 32
   %idxprom.i = ashr exact i64 %sext.i, 32
   %nid.i = getelementptr inbounds [14 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_mac, i64 0, i64 %idxprom.i, i32 1
   %5 = load i32, ptr %nid.i, align 4
@@ -4854,20 +4853,20 @@ if.end:                                           ; preds = %SSL_CIPHER_get_dige
   br i1 %cmp25.not, label %if.end47, label %for.body.i.i14
 
 for.body.i.i14:                                   ; preds = %if.end, %for.inc.i.i18
-  %i.07.i.i15 = phi i64 [ %inc.i.i19, %for.inc.i.i18 ], [ 0, %if.end ]
-  %table.addr.06.i.i16 = phi ptr [ %incdec.ptr.i.i20, %for.inc.i.i18 ], [ @ssl_cipher_table_cipher, %if.end ]
-  %7 = load i32, ptr %table.addr.06.i.i16, align 4
+  %i.06.i.i15 = phi i64 [ %inc.i.i19, %for.inc.i.i18 ], [ 0, %if.end ]
+  %table.addr.05.i.i16 = phi ptr [ %incdec.ptr.i.i20, %for.inc.i.i18 ], [ @ssl_cipher_table_cipher, %if.end ]
+  %7 = load i32, ptr %table.addr.05.i.i16, align 4
   %cmp2.i.i17 = icmp eq i32 %7, %6
   br i1 %cmp2.i.i17, label %if.end3.i, label %for.inc.i.i18
 
 for.inc.i.i18:                                    ; preds = %for.body.i.i14
-  %inc.i.i19 = add nuw nsw i64 %i.07.i.i15, 1
-  %incdec.ptr.i.i20 = getelementptr inbounds i8, ptr %table.addr.06.i.i16, i64 8
+  %inc.i.i19 = add nuw nsw i64 %i.06.i.i15, 1
+  %incdec.ptr.i.i20 = getelementptr inbounds i8, ptr %table.addr.05.i.i16, i64 8
   %exitcond.not.i.i21 = icmp eq i64 %inc.i.i19, 24
   br i1 %exitcond.not.i.i21, label %SSL_CIPHER_get_cipher_nid.exit, label %for.body.i.i14, !llvm.loop !7
 
 if.end3.i:                                        ; preds = %for.body.i.i14
-  %sext.i23 = shl i64 %i.07.i.i15, 32
+  %sext.i23 = shl i64 %i.06.i.i15, 32
   %idxprom.i24 = ashr exact i64 %sext.i23, 32
   %nid.i25 = getelementptr inbounds [24 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_cipher, i64 0, i64 %idxprom.i24, i32 1
   %8 = load i32, ptr %nid.i25, align 4

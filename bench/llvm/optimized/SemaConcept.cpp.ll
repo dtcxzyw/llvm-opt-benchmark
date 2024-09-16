@@ -16380,7 +16380,7 @@ _ZL33diagnoseUnsatisfiedConstraintExprISt4pairIN5clang14SourceLocationEN4llvm9St
   br i1 %spec.select.i.i.i.i.i.i.i.i111, label %258, label %257
 
 257:                                              ; preds = %254
-  tail call fastcc void @_ZL30diagnoseUnsatisfiedRequirementRN5clang4SemaEPNS_8concepts15ExprRequirementEb(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull %248, i1 noundef zeroext %.tr153.lcssa)
+  tail call fastcc void @_ZL30diagnoseUnsatisfiedRequirementRN5clang4SemaEPNS_8concepts15ExprRequirementEb(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %248, i1 noundef zeroext %.tr153.lcssa)
   br label %_ZN5clang4Sema29DiagnoseUnsatisfiedConstraintERKNS_25ASTConstraintSatisfactionEb.exit
 
 258:                                              ; preds = %254
@@ -17174,7 +17174,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL30diagnoseUnsatisfiedRequirementRN5clang4SemaEPNS_8concepts15ExprRequirementEb(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_ZL30diagnoseUnsatisfiedRequirementRN5clang4SemaEPNS_8concepts15ExprRequirementEb(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr nocapture noundef nonnull readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %5 = alloca %"class.clang::NestedNameSpecifierLoc", align 8
   %6 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
@@ -20032,7 +20032,7 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE27TransformRequ
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %46 = load i32, ptr %45, align 8
   %47 = zext i32 %46 to i64
-  %48 = call fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE27TransformFunctionTypeParamsENS_14SourceLocationEN4llvm8ArrayRefIPNS_11ParmVarDeclEEEPKNS_8QualTypeEPKNS_12FunctionType16ExtParameterInfoERNS5_15SmallVectorImplISA_EEPNSH_IS8_EERNS_4Sema23ExtParameterInfoBuilderEPj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %44, i64 %47, ptr noundef null, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(41) %6)
+  %48 = call fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE27TransformFunctionTypeParamsENS_14SourceLocationEN4llvm8ArrayRefIPNS_11ParmVarDeclEEEPKNS_8QualTypeEPKNS_12FunctionType16ExtParameterInfoERNS5_15SmallVectorImplISA_EEPNSH_IS8_EERNS_4Sema23ExtParameterInfoBuilderEPj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %44, i64 %47, ptr noundef null, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(41) %6)
   %49 = load ptr, ptr %4, align 8
   %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   %51 = getelementptr inbounds ptr, ptr %49, i64 %50
@@ -23150,7 +23150,7 @@ _ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit106.thread: ; preds = %.cr
   br i1 %.not160, label %175, label %174
 
 174:                                              ; preds = %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit106.thread
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %.sroa.0.0.copyload.i127 = load i64, ptr %7, align 8
   %.not161 = icmp eq i64 %.sroa.0.0.copyload.i127, 0
@@ -25798,7 +25798,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit: ; pred
   store ptr %92, ptr %4, align 8
   %.sroa.242.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %93, ptr %.sroa.242.0..sroa_idx, align 8
-  %96 = call i64 @_ZN5clang4Sema26CreateGenericSelectionExprENS_14SourceLocationES1_S1_bPvN4llvm8ArrayRefIPNS_14TypeSourceInfoEEENS4_IPNS_4ExprEEE(ptr noundef nonnull align 8 dereferenceable(17560) %.val32, i32 %.sroa.0.0.copyload.i, i32 %.sroa.0.0.copyload.i36, i32 %.sroa.0.0.copyload.i37, i1 noundef zeroext false, ptr noundef %.068, ptr noundef nonnull byval(%"class.llvm::ArrayRef.1590") align 8 %4, ptr noundef nonnull byval(%"class.llvm::ArrayRef.1984") align 8 %3) #21
+  %96 = call i64 @_ZN5clang4Sema26CreateGenericSelectionExprENS_14SourceLocationES1_S1_bPvN4llvm8ArrayRefIPNS_14TypeSourceInfoEEENS4_IPNS_4ExprEEE(ptr noundef nonnull align 8 dereferenceable(17560) %.val32, i32 %.sroa.0.0.copyload.i, i32 %.sroa.0.0.copyload.i36, i32 %.sroa.0.0.copyload.i37, i1 noundef zeroext false, ptr noundef nonnull %.068, ptr noundef nonnull byval(%"class.llvm::ArrayRef.1590") align 8 %4, ptr noundef nonnull byval(%"class.llvm::ArrayRef.1984") align 8 %3) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %.loopexit
@@ -26540,7 +26540,7 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE13TransformDecl
   br i1 %.not136, label %84, label %83
 
 83:                                               ; preds = %78
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %.sroa.0.0.copyload.i83 = load i64, ptr %4, align 8
   %.not137 = icmp eq i64 %.sroa.0.0.copyload.i83, 0
@@ -30251,7 +30251,7 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE30TransformFirs
 _ZNK5clang27CXXDependentScopeMemberExpr21getTemplateKeywordLocEv.exit: ; preds = %98, %101
   %.sroa.0.0.i = phi i32 [ %103, %101 ], [ 0, %98 ]
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %104)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %104)
   %.sroa.0.0.copyload.i80 = load i64, ptr %7, align 8
   %.not130 = icmp eq i64 %.sroa.0.0.copyload.i80, 0
   br i1 %.not130, label %_ZN5clang24TemplateArgumentListInfoD2Ev.exit, label %105
@@ -31440,7 +31440,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
 
 _ZNK5clang17FunctionProtoType26getExtParameterInfosOrNullEv.exit: ; preds = %2, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i
   %.0.i = phi ptr [ %78, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i ], [ null, %2 ]
-  %79 = call fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE27TransformFunctionTypeParamsENS_14SourceLocationEN4llvm8ArrayRefIPNS_11ParmVarDeclEEEPKNS_8QualTypeEPKNS_12FunctionType16ExtParameterInfoERNS5_15SmallVectorImplISA_EEPNSH_IS8_EERNS_4Sema23ExtParameterInfoBuilderEPj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %36, i64 %39, ptr noundef null, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(41) %5)
+  %79 = call fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE27TransformFunctionTypeParamsENS_14SourceLocationEN4llvm8ArrayRefIPNS_11ParmVarDeclEEEPKNS_8QualTypeEPKNS_12FunctionType16ExtParameterInfoERNS5_15SmallVectorImplISA_EEPNSH_IS8_EERNS_4Sema23ExtParameterInfoBuilderEPj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %36, i64 %39, ptr noundef null, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(41) %5)
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %_ZNK5clang17FunctionProtoType26getExtParameterInfosOrNullEv.exit
@@ -32618,7 +32618,7 @@ _ZN5clang25InheritingConcreteTypeLocINS_15TypeSpecTypeLocENS_23TemplateTypeParmT
   br label %_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE22TransformQualifiedTypeERNS_14TypeLocBuilderENS_16QualifiedTypeLocE.exit
 
 58:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %59 = tail call fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE23TransformAttributedTypeIZNS3_23TransformAttributedTypeERNS_14TypeLocBuilderENS_17AttributedTypeLocEEUlS6_NS_7TypeLocEE_EENS_8QualTypeES6_S7_T_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(61) %1, ptr nonnull %2, ptr %3, ptr nonnull %0)
+  %59 = tail call fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE23TransformAttributedTypeIZNS3_23TransformAttributedTypeERNS_14TypeLocBuilderENS_17AttributedTypeLocEEUlS6_NS_7TypeLocEE_EENS_8QualTypeES6_S7_T_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(61) %1, ptr nonnull %2, ptr %3, ptr %0)
   br label %_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE22TransformQualifiedTypeERNS_14TypeLocBuilderENS_16QualifiedTypeLocE.exit
 
 60:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
@@ -34145,7 +34145,7 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE26TransformTemp
 105:                                              ; preds = %99
   %.sroa.08.0.copyload.i = load i32, ptr %8, align 4
   %.val35.i = load ptr, ptr %0, align 8
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationESt8optionalIjE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr %.val35.i, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %12, i32 %.sroa.08.0.copyload.i, i64 %100)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationESt8optionalIjE(ptr dead_on_unwind noalias writable align 8 %13, ptr %.val35.i, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %12, i32 %.sroa.08.0.copyload.i, i64 %100)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
   %106 = load i32, ptr %6, align 8
   %107 = and i32 %106, 2147483647
@@ -35679,7 +35679,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
 
 _ZNK5clang17FunctionProtoType26getExtParameterInfosOrNullEv.exit73: ; preds = %_ZNK5clang15FunctionTypeLoc9getParamsEv.exit77, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i66
   %.0.i72 = phi ptr [ %79, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i66 ], [ null, %_ZNK5clang15FunctionTypeLoc9getParamsEv.exit77 ]
-  %80 = call fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE27TransformFunctionTypeParamsENS_14SourceLocationEN4llvm8ArrayRefIPNS_11ParmVarDeclEEEPKNS_8QualTypeEPKNS_12FunctionType16ExtParameterInfoERNS5_15SmallVectorImplISA_EEPNSH_IS8_EERNS_4Sema23ExtParameterInfoBuilderEPj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %40, i64 %.0.i.i74, ptr noundef nonnull %41, ptr noundef %.0.i72, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(41) %8)
+  %80 = call fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE27TransformFunctionTypeParamsENS_14SourceLocationEN4llvm8ArrayRefIPNS_11ParmVarDeclEEEPKNS_8QualTypeEPKNS_12FunctionType16ExtParameterInfoERNS5_15SmallVectorImplISA_EEPNSH_IS8_EERNS_4Sema23ExtParameterInfoBuilderEPj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %40, i64 %.0.i.i74, ptr noundef nonnull %41, ptr noundef %.0.i72, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(41) %8)
   br i1 %80, label %_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE26TransformFunctionProtoTypeIZNS3_26TransformFunctionProtoTypeERNS_14TypeLocBuilderENS_20FunctionProtoTypeLocEEUlRNS_17FunctionProtoType17ExceptionSpecInfoERbE_EENS_8QualTypeES6_S7_PNS_13CXXRecordDeclENS_10QualifiersET_.exit, label %81
 
 81:                                               ; preds = %_ZNK5clang17FunctionProtoType26getExtParameterInfosOrNullEv.exit73
@@ -35873,7 +35873,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
 
 _ZNK5clang17FunctionProtoType26getExtParameterInfosOrNullEv.exit: ; preds = %_ZNK5clang15FunctionTypeLoc9getParamsEv.exit, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i
   %.0.i41 = phi ptr [ %194, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i ], [ null, %_ZNK5clang15FunctionTypeLoc9getParamsEv.exit ]
-  %195 = call fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE27TransformFunctionTypeParamsENS_14SourceLocationEN4llvm8ArrayRefIPNS_11ParmVarDeclEEEPKNS_8QualTypeEPKNS_12FunctionType16ExtParameterInfoERNS5_15SmallVectorImplISA_EEPNSH_IS8_EERNS_4Sema23ExtParameterInfoBuilderEPj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %155, i64 %.0.i.i, ptr noundef nonnull %156, ptr noundef %.0.i41, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(41) %8)
+  %195 = call fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE27TransformFunctionTypeParamsENS_14SourceLocationEN4llvm8ArrayRefIPNS_11ParmVarDeclEEEPKNS_8QualTypeEPKNS_12FunctionType16ExtParameterInfoERNS5_15SmallVectorImplISA_EEPNSH_IS8_EERNS_4Sema23ExtParameterInfoBuilderEPj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %155, i64 %.0.i.i, ptr noundef nonnull %156, ptr noundef %.0.i41, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(41) %8)
   br i1 %195, label %_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE26TransformFunctionProtoTypeIZNS3_26TransformFunctionProtoTypeERNS_14TypeLocBuilderENS_20FunctionProtoTypeLocEEUlRNS_17FunctionProtoType17ExceptionSpecInfoERbE_EENS_8QualTypeES6_S7_PNS_13CXXRecordDeclENS_10QualifiersET_.exit, label %.critedge68.i
 
 .critedge68.i:                                    ; preds = %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit60, %_ZNK5clang17FunctionProtoType26getExtParameterInfosOrNullEv.exit
@@ -39604,7 +39604,7 @@ declare i64 @_ZN5clang4Sema19ActOnFinishFullExprEPNS_4ExprENS_14SourceLocationEb
 declare i64 @_ZN5clang4Sema15BuildAtomicTypeENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17560), i64, i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE23TransformAttributedTypeIZNS3_23TransformAttributedTypeERNS_14TypeLocBuilderENS_17AttributedTypeLocEEUlS6_NS_7TypeLocEE_EENS_8QualTypeES6_S7_T_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(61) %1, ptr %2, ptr %3, ptr %4) unnamed_addr #0 align 2 {
+define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE23TransformAttributedTypeIZNS3_23TransformAttributedTypeERNS_14TypeLocBuilderENS_17AttributedTypeLocEEUlS6_NS_7TypeLocEE_EENS_8QualTypeES6_S7_T_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(61) %1, ptr %2, ptr %3, ptr nonnull %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::AttributedTypeLoc", align 8
   %7 = alloca %"class.clang::QualType", align 8
   %8 = alloca %"class.clang::TypeLocBuilder", align 8
@@ -40637,7 +40637,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__
 42:                                               ; preds = %36
   %.sroa.08.0.copyload = load i32, ptr %10, align 4
   %.val39 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationESt8optionalIjE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr %.val39, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %14, i32 %.sroa.08.0.copyload, i64 %37)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationESt8optionalIjE(ptr dead_on_unwind noalias writable align 8 %15, ptr %.val39, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %14, i32 %.sroa.08.0.copyload, i64 %37)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
   %43 = load i32, ptr %8, align 8
   %44 = and i32 %43, 2147483647
@@ -41097,7 +41097,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %20, %18, %168, %165
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationESt8optionalIjE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val, ptr nocapture noundef readonly byval(%"class.clang::TemplateArgumentLoc") align 8 %1, i32 %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationESt8optionalIjE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr nocapture noundef readonly byval(%"class.clang::TemplateArgumentLoc") align 8 %1, i32 %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::TemplateName", align 8
   %6 = alloca %"class.clang::TemplateArgument", align 8
   %7 = load i32, ptr %1, align 8
@@ -42202,7 +42202,7 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE26TransformTemp
 55:                                               ; preds = %49
   %.sroa.08.0.copyload.i = load i32, ptr %8, align 4
   %.val37.i = load ptr, ptr %0, align 8
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationESt8optionalIjE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr %.val37.i, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %12, i32 %.sroa.08.0.copyload.i, i64 %50)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationESt8optionalIjE(ptr dead_on_unwind noalias writable align 8 %13, ptr %.val37.i, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %12, i32 %.sroa.08.0.copyload.i, i64 %50)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
   %56 = load i32, ptr %6, align 8
   %57 = and i32 %56, 2147483647
@@ -42444,7 +42444,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__
 52:                                               ; preds = %46
   %.sroa.08.0.copyload = load i32, ptr %9, align 4
   %.val37 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationESt8optionalIjE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr %.val37, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %13, i32 %.sroa.08.0.copyload, i64 %47)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationESt8optionalIjE(ptr dead_on_unwind noalias writable align 8 %14, ptr %.val37, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %13, i32 %.sroa.08.0.copyload, i64 %47)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
   %53 = load i32, ptr %7, align 8
   %54 = and i32 %53, 2147483647
@@ -44237,7 +44237,7 @@ declare noundef zeroext i1 @_ZN5clang4Sema33diagnoseConflictingFunctionEffectERK
 declare noundef zeroext i1 @_ZN5clang17FunctionEffectSet6insertERKNS_27FunctionEffectWithConditionERN4llvm11SmallVectorINS0_8ConflictELj1EEE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE27TransformFunctionTypeParamsENS_14SourceLocationEN4llvm8ArrayRefIPNS_11ParmVarDeclEEEPKNS_8QualTypeEPKNS_12FunctionType16ExtParameterInfoERNS5_15SmallVectorImplISA_EEPNSH_IS8_EERNS_4Sema23ExtParameterInfoBuilderEPj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture readonly %1, i64 %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(41) %7) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE27TransformFunctionTypeParamsENS_14SourceLocationEN4llvm8ArrayRefIPNS_11ParmVarDeclEEEPKNS_8QualTypeEPKNS_12FunctionType16ExtParameterInfoERNS5_15SmallVectorImplISA_EEPNSH_IS8_EERNS_4Sema23ExtParameterInfoBuilderEPj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture readonly %1, i64 %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(41) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::SmallVector.1076", align 8
   %10 = alloca %"class.clang::TypeLoc", align 8
   %11 = alloca %"class.llvm::SmallVector.1076", align 8
@@ -44328,7 +44328,7 @@ _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit: ; preds = %23, %28
   store i32 -1, ptr %58, align 8
   %.sroa.066.0.insert.ext = zext i32 %.sroa.066.1 to i64
   %.sroa.066.0.insert.insert = or disjoint i64 %.sroa.348.0, %.sroa.066.0.insert.ext
-  %60 = call fastcc noundef ptr @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE26TransformFunctionTypeParamEPNS_11ParmVarDeclEiSt8optionalIjEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %20, i32 noundef 0, i64 %.sroa.066.0.insert.insert)
+  %60 = call fastcc noundef ptr @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE26TransformFunctionTypeParamEPNS_11ParmVarDeclEiSt8optionalIjEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %20, i32 noundef 0, i64 %.sroa.066.0.insert.insert)
   store i32 %59, ptr %58, align 8
   %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
   %62 = load ptr, ptr %9, align 8
@@ -44340,7 +44340,7 @@ _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit: ; preds = %23, %28
   br label %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEEEENS3_14SourceLocationEELj2EED2Ev.exit
 
 65:                                               ; preds = %21
-  %66 = call fastcc noundef ptr @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE26TransformFunctionTypeParamEPNS_11ParmVarDeclEiSt8optionalIjEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %20, i32 noundef 0, i64 0)
+  %66 = call fastcc noundef ptr @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE26TransformFunctionTypeParamEPNS_11ParmVarDeclEiSt8optionalIjEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %20, i32 noundef 0, i64 0)
   br label %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEEEENS3_14SourceLocationEELj2EED2Ev.exit
 
 _ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEEEENS3_14SourceLocationEELj2EED2Ev.exit: ; preds = %64, %57, %65
@@ -44546,7 +44546,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang11ParmVarDeclELb1EE9push_backES3_.exit
 declare void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_7TypeLocERN4llvm15SmallVectorImplISt4pairINS2_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEEEENS_14SourceLocationEEEE(ptr noundef nonnull align 8 dereferenceable(17560), ptr, ptr, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE26TransformFunctionTypeParamEPNS_11ParmVarDeclEiSt8optionalIjEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i32 noundef %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE26TransformFunctionTypeParamEPNS_11ParmVarDeclEiSt8optionalIjEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, i32 noundef %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca %"class.clang::TypeLocBuilder", align 8
   %7 = alloca %"class.clang::TypeLoc", align 8
@@ -46454,7 +46454,7 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustCons
 _ZNK5clang25DependentScopeDeclRefExpr21getTemplateKeywordLocEv.exit: ; preds = %13, %16
   %.sroa.0.0.i = phi i32 [ %18, %16 ], [ 0, %13 ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %19)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %19)
   %.sroa.0.0.copyload.i31 = load i64, ptr %7, align 8
   %.not59 = icmp eq i64 %.sroa.0.0.copyload.i31, 0
   br i1 %.not59, label %_ZN5clang24TemplateArgumentListInfoD2Ev.exit, label %20
@@ -46935,7 +46935,7 @@ _ZN5clang12CXXScopeSpecD2Ev.exit:                 ; preds = %149, %_ZN5clang24Te
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 {
   %.sroa.0.0.copyload.i = load i64, ptr %2, align 8
   %.not61 = icmp eq i64 %.sroa.0.0.copyload.i, 0
   br i1 %.not61, label %4, label %5
@@ -47227,7 +47227,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__
 39:                                               ; preds = %33
   %.sroa.08.0.copyload = load i32, ptr %7, align 4
   %.val43 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationESt8optionalIjE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr %.val43, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %11, i32 %.sroa.08.0.copyload, i64 %34)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationESt8optionalIjE(ptr dead_on_unwind noalias writable align 8 %12, ptr %.val43, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %11, i32 %.sroa.08.0.copyload, i64 %34)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false)
   %40 = load i32, ptr %5, align 8
   %41 = and i32 %40, 2147483647
@@ -48308,7 +48308,7 @@ declare i64 @_ZN5clang4Sema20MaybeBindToTemporaryEPNS_4ExprE(ptr noundef nonnull
 declare void @_ZN5clang4Sema19FPFeaturesStateRAIIC1ERS0_(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef nonnull align 8 dereferenceable(17560)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE13TransformStmtEPNS_4StmtENS3_15StmtDiscardKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE13TransformStmtEPNS_4StmtENS3_15StmtDiscardKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 align 2 {
   %.not364 = icmp eq ptr %1, null
   br i1 %.not364, label %.loopexit, label %.lr.ph
 
@@ -49070,7 +49070,7 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustCons
   %9 = zext nneg i16 %.lobit.i.i to i64
   %10 = getelementptr inbounds ptr, ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE18TransformConditionENS_14SourceLocationEPNS_7VarDeclEPNS_4ExprENS_4Sema13ConditionKindE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 %.sroa.0.0.copyload.i, ptr noundef %5, ptr noundef %11, i32 noundef 0)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE18TransformConditionENS_14SourceLocationEPNS_7VarDeclEPNS_4ExprENS_4Sema13ConditionKindE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 %.sroa.0.0.copyload.i, ptr noundef %5, ptr noundef %11, i32 noundef 0)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
@@ -49141,7 +49141,7 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustCons
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE18TransformLabelStmtEPNS_9LabelStmtENS3_15StmtDiscardKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE18TransformLabelStmtEPNS_9LabelStmtENS3_15StmtDiscardKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE13TransformStmtEPNS_4StmtENS3_15StmtDiscardKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %5, i32 noundef %2)
@@ -49235,7 +49235,7 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE13TransformDecl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE23TransformAttributedStmtEPNS_14AttributedStmtENS3_15StmtDiscardKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE23TransformAttributedStmtEPNS_14AttributedStmtENS3_15StmtDiscardKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.1955", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -49370,7 +49370,7 @@ _ZN5clang10SwitchStmt7getInitEv.exit:             ; preds = %2, %6
   %19 = zext nneg i16 %narrow.i.i to i64
   %20 = getelementptr inbounds ptr, ptr %15, i64 %19
   %21 = load ptr, ptr %20, align 8
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE18TransformConditionENS_14SourceLocationEPNS_7VarDeclEPNS_4ExprENS_4Sema13ConditionKindE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 %.sroa.0.0.copyload.i, ptr noundef %14, ptr noundef %21, i32 noundef 2)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE18TransformConditionENS_14SourceLocationEPNS_7VarDeclEPNS_4ExprENS_4Sema13ConditionKindE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 %.sroa.0.0.copyload.i, ptr noundef %14, ptr noundef %21, i32 noundef 2)
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
@@ -49739,7 +49739,7 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustCons
   %.sroa.0.0.copyload.i = load ptr, ptr %17, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE26TransformOpenACCClauseListENS_20OpenACCDirectiveKindEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %16, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE26TransformOpenACCClauseListENS_20OpenACCDirectiveKindEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %16, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
   %.val26 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %.val26, i64 736
   %19 = load ptr, ptr %18, align 8
@@ -49813,7 +49813,7 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustCons
   %.sroa.0.0.copyload.i = load ptr, ptr %17, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE26TransformOpenACCClauseListENS_20OpenACCDirectiveKindEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %16, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE26TransformOpenACCClauseListENS_20OpenACCDirectiveKindEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %16, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
   %.val27 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %.val27, i64 736
   %19 = load ptr, ptr %18, align 8
@@ -52432,7 +52432,7 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustCons
   br i1 %.not66, label %14, label %13
 
 13:                                               ; preds = %11
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %.sroa.0.0.copyload.i39 = load i64, ptr %3, align 8
   %.not67 = icmp eq i64 %.sroa.0.0.copyload.i39, 0
@@ -52667,7 +52667,7 @@ _ZN5clang6IfStmt7getInitEv.exit:                  ; preds = %2, %7
   %26 = and i16 %20, 1792
   %27 = icmp eq i16 %26, 256
   %28 = zext i1 %27 to i32
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE18TransformConditionENS_14SourceLocationEPNS_7VarDeclEPNS_4ExprENS_4Sema13ConditionKindE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 %.sroa.0.0.copyload.i, ptr noundef %18, ptr noundef %25, i32 noundef %28)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE18TransformConditionENS_14SourceLocationEPNS_7VarDeclEPNS_4ExprENS_4Sema13ConditionKindE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 %.sroa.0.0.copyload.i, ptr noundef %18, ptr noundef %25, i32 noundef %28)
   %.sroa.5.0..sroa_idx125 = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.5.0.copyload126 = load i8, ptr %.sroa.5.0..sroa_idx125, align 8
   %29 = trunc i8 %.sroa.5.0.copyload126 to i1
@@ -53158,7 +53158,7 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustCons
   %32 = tail call noundef ptr @_ZNK5clang7ForStmt20getConditionVariableEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #21
   %33 = getelementptr inbounds i8, ptr %1, i64 24
   %34 = load ptr, ptr %33, align 8
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE18TransformConditionENS_14SourceLocationEPNS_7VarDeclEPNS_4ExprENS_4Sema13ConditionKindE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 %.sroa.0.0.copyload.i32, ptr noundef %32, ptr noundef %34, i32 noundef 0)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE18TransformConditionENS_14SourceLocationEPNS_7VarDeclEPNS_4ExprENS_4Sema13ConditionKindE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 %.sroa.0.0.copyload.i32, ptr noundef %32, ptr noundef %34, i32 noundef 0)
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %36 = load i8, ptr %35, align 8
   %37 = trunc i8 %36 to i1
@@ -55152,7 +55152,7 @@ declare i64 @_ZN5clang4Sema19ActOnStmtExprResultENS_12ActionResultIPNS_4ExprELb1
 declare i64 @_ZN5clang4Sema13ActOnExprStmtENS_12ActionResultIPNS_4ExprELb1EEEb(ptr noundef nonnull align 8 dereferenceable(17560), i64, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE18TransformConditionENS_14SourceLocationEPNS_7VarDeclEPNS_4ExprENS_4Sema13ConditionKindE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE18TransformConditionENS_14SourceLocationEPNS_7VarDeclEPNS_4ExprENS_4Sema13ConditionKindE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %42, label %7
 
@@ -55227,7 +55227,7 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE19TransformDefi
 
 41:                                               ; preds = %_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE19TransformDefinitionENS_14SourceLocationEPNS_4DeclE.exit
   %.val17 = load ptr, ptr %1, align 8
-  tail call void @_ZN5clang4Sema22ActOnConditionVariableEPNS_4DeclENS_14SourceLocationENS0_13ConditionKindE(ptr dead_on_unwind writable sret(%"class.clang::Sema::ConditionResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17560) %.val17, ptr noundef nonnull %.0.i.i, i32 %2, i32 noundef %5) #21
+  tail call void @_ZN5clang4Sema22ActOnConditionVariableEPNS_4DeclENS_14SourceLocationENS0_13ConditionKindE(ptr dead_on_unwind nonnull writable sret(%"class.clang::Sema::ConditionResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17560) %.val17, ptr noundef nonnull %.0.i.i, i32 %2, i32 noundef %5) #21
   br label %54
 
 42:                                               ; preds = %6
@@ -55251,7 +55251,7 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE19TransformDefi
   %.val = load ptr, ptr %1, align 8
   %50 = and i64 %44, -2
   %51 = inttoptr i64 %50 to ptr
-  tail call void @_ZN5clang4Sema14ActOnConditionEPNS_5ScopeENS_14SourceLocationEPNS_4ExprENS0_13ConditionKindEb(ptr dead_on_unwind writable sret(%"class.clang::Sema::ConditionResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17560) %.val, ptr noundef null, i32 %2, ptr noundef %51, i32 noundef %5, i1 noundef zeroext true) #21
+  tail call void @_ZN5clang4Sema14ActOnConditionEPNS_5ScopeENS_14SourceLocationEPNS_4ExprENS0_13ConditionKindEb(ptr dead_on_unwind nonnull writable sret(%"class.clang::Sema::ConditionResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17560) %.val, ptr noundef null, i32 %2, ptr noundef %51, i32 noundef %5, i1 noundef zeroext true) #21
   br label %54
 
 52:                                               ; preds = %42
@@ -56062,7 +56062,7 @@ _ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstrain
   %.sroa.0.0.copyload.i.i.i190 = load ptr, ptr %130, align 8
   %.sroa.2.0..sroa_idx.i.i.i191 = getelementptr inbounds i8, ptr %55, i64 32
   %.sroa.2.0.copyload.i.i.i192 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i191, align 8
-  call fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE12VisitVarListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(40) %27, ptr %.sroa.0.0.copyload.i.i.i190, i64 %.sroa.2.0.copyload.i.i.i192)
+  call fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE12VisitVarListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(40) %27, ptr %.sroa.0.0.copyload.i.i.i190, i64 %.sroa.2.0.copyload.i.i.i192)
   %131 = load ptr, ptr %7, align 8
   %132 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
   %133 = getelementptr inbounds ptr, ptr %131, i64 %132
@@ -56406,7 +56406,7 @@ _ZN5clang20OpenACCClauseVisitorINS_12_GLOBAL__N_122OpenACCClauseTransformIN12_GL
   %.sroa.0.0.copyload.i.i.i171 = load ptr, ptr %255, align 8
   %.sroa.2.0..sroa_idx.i.i.i172 = getelementptr inbounds i8, ptr %55, i64 32
   %.sroa.2.0.copyload.i.i.i173 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i172, align 8
-  call fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE12VisitVarListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(40) %27, ptr %.sroa.0.0.copyload.i.i.i171, i64 %.sroa.2.0.copyload.i.i.i173)
+  call fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE12VisitVarListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(40) %27, ptr %.sroa.0.0.copyload.i.i.i171, i64 %.sroa.2.0.copyload.i.i.i173)
   %256 = load ptr, ptr %9, align 8
   %257 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
   %258 = getelementptr inbounds ptr, ptr %256, i64 %257
@@ -56679,7 +56679,7 @@ _ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstrain
   %.sroa.0.0.copyload.i.i.i149 = load ptr, ptr %366, align 8
   %.sroa.2.0..sroa_idx.i.i.i150 = getelementptr inbounds i8, ptr %55, i64 32
   %.sroa.2.0.copyload.i.i.i151 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i150, align 8
-  call fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE12VisitVarListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(40) %27, ptr %.sroa.0.0.copyload.i.i.i149, i64 %.sroa.2.0.copyload.i.i.i151)
+  call fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE12VisitVarListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(40) %27, ptr %.sroa.0.0.copyload.i.i.i149, i64 %.sroa.2.0.copyload.i.i.i151)
   call void @_ZN5clang11SemaOpenACC19OpenACCParsedClause17setVarListDetailsEON4llvm11SmallVectorIPNS_4ExprELj6EEEbb(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull align 8 dereferenceable(64) %10, i1 noundef zeroext false, i1 noundef zeroext false)
   %367 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
   %368 = load ptr, ptr %10, align 8
@@ -56870,7 +56870,7 @@ _ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstrain
   %.sroa.0.0.copyload.i.i.i106 = load ptr, ptr %443, align 8
   %.sroa.2.0..sroa_idx.i.i.i107 = getelementptr inbounds i8, ptr %55, i64 32
   %.sroa.2.0.copyload.i.i.i108 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i107, align 8
-  call fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE12VisitVarListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(40) %27, ptr %.sroa.0.0.copyload.i.i.i106, i64 %.sroa.2.0.copyload.i.i.i108)
+  call fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE12VisitVarListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(40) %27, ptr %.sroa.0.0.copyload.i.i.i106, i64 %.sroa.2.0.copyload.i.i.i108)
   call void @_ZN5clang11SemaOpenACC19OpenACCParsedClause17setVarListDetailsEON4llvm11SmallVectorIPNS_4ExprELj6EEEbb(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull align 8 dereferenceable(64) %13, i1 noundef zeroext false, i1 noundef zeroext false)
   %444 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #21
   %445 = load ptr, ptr %13, align 8
@@ -57109,7 +57109,7 @@ _ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstrain
   %.sroa.0.0.copyload.i.i.i61 = load ptr, ptr %556, align 8
   %.sroa.2.0..sroa_idx.i.i.i62 = getelementptr inbounds i8, ptr %55, i64 32
   %.sroa.2.0.copyload.i.i.i63 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i62, align 8
-  call fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE12VisitVarListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(40) %27, ptr %.sroa.0.0.copyload.i.i.i61, i64 %.sroa.2.0.copyload.i.i.i63)
+  call fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE12VisitVarListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(40) %27, ptr %.sroa.0.0.copyload.i.i.i61, i64 %.sroa.2.0.copyload.i.i.i63)
   call void @_ZN5clang11SemaOpenACC19OpenACCParsedClause17setVarListDetailsEON4llvm11SmallVectorIPNS_4ExprELj6EEEbb(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull align 8 dereferenceable(64) %16, i1 noundef zeroext false, i1 noundef zeroext false)
   %557 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #21
   %558 = load ptr, ptr %16, align 8
@@ -57172,7 +57172,7 @@ _ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstrain
   %.sroa.0.0.copyload.i.i.i50 = load ptr, ptr %583, align 8
   %.sroa.2.0..sroa_idx.i.i.i51 = getelementptr inbounds i8, ptr %55, i64 32
   %.sroa.2.0.copyload.i.i.i52 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i51, align 8
-  call fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE12VisitVarListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(40) %27, ptr %.sroa.0.0.copyload.i.i.i50, i64 %.sroa.2.0.copyload.i.i.i52)
+  call fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE12VisitVarListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(40) %27, ptr %.sroa.0.0.copyload.i.i.i50, i64 %.sroa.2.0.copyload.i.i.i52)
   call void @_ZN5clang11SemaOpenACC19OpenACCParsedClause17setVarListDetailsEON4llvm11SmallVectorIPNS_4ExprELj6EEEbb(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull align 8 dereferenceable(64) %17, i1 noundef zeroext false, i1 noundef zeroext false)
   %584 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #21
   %585 = load ptr, ptr %17, align 8
@@ -57236,7 +57236,7 @@ _ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstrain
   %.sroa.0.0.copyload.i.i.i38 = load ptr, ptr %610, align 8
   %.sroa.2.0..sroa_idx.i.i.i39 = getelementptr inbounds i8, ptr %55, i64 32
   %.sroa.2.0.copyload.i.i.i40 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i39, align 8
-  call fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE12VisitVarListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(40) %27, ptr %.sroa.0.0.copyload.i.i.i38, i64 %.sroa.2.0.copyload.i.i.i40)
+  call fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE12VisitVarListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(40) %27, ptr %.sroa.0.0.copyload.i.i.i38, i64 %.sroa.2.0.copyload.i.i.i40)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %42, i64 noundef 6) #21
   %611 = load ptr, ptr %18, align 8
   %612 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #21
@@ -58314,7 +58314,7 @@ define internal fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12
   %.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  call fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE12VisitVarListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i)
+  call fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE12VisitVarListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i)
   call void @_ZN5clang11SemaOpenACC19OpenACCParsedClause17setVarListDetailsEON4llvm11SmallVectorIPNS_4ExprELj6EEEbb(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext false, i1 noundef zeroext false)
   %7 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   %8 = load ptr, ptr %3, align 8
@@ -58460,7 +58460,7 @@ define internal fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12
   %.sroa.0.0.copyload.i.i = load ptr, ptr %7, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  call fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE12VisitVarListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i)
+  call fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE12VisitVarListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
@@ -58535,7 +58535,7 @@ define internal fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12
   %.sroa.0.0.copyload.i.i = load ptr, ptr %7, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  call fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE12VisitVarListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i)
+  call fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE12VisitVarListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
@@ -58610,7 +58610,7 @@ define internal fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12
   %.sroa.0.0.copyload.i.i = load ptr, ptr %7, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  call fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE12VisitVarListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i)
+  call fastcc void @_ZN5clang12_GLOBAL__N_122OpenACCClauseTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE12VisitVarListEN4llvm8ArrayRefIPNS_4ExprEEE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
@@ -59054,7 +59054,7 @@ _ZNK5clang22OMPExecutableDirective17hasAssociatedStmtEv.exit.thread: ; preds = %
 128:                                              ; preds = %122
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %129, i64 24, i1 false)
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %.pr = load i32, ptr %125, align 8
   br label %130
@@ -60966,7 +60966,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit41: ; pr
   br i1 %.not65, label %52, label %51
 
 51:                                               ; preds = %49
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %.sroa.0.0.copyload.i30 = load i64, ptr %10, align 8
   %.not66 = icmp eq i64 %.sroa.0.0.copyload.i30, 0
@@ -61527,7 +61527,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit: ; pred
   br i1 %.not83, label %38, label %37
 
 37:                                               ; preds = %._crit_edge
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.0.0.copyload.i52 = load i64, ptr %6, align 8
   %.not84 = icmp eq i64 %.sroa.0.0.copyload.i52, 0
@@ -62425,7 +62425,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit55: ; pr
   br i1 %.not82, label %67, label %66
 
 66:                                               ; preds = %64
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %.sroa.0.0.copyload.i44 = load i64, ptr %11, align 8
   %.not83 = icmp eq i64 %.sroa.0.0.copyload.i44, 0
@@ -63428,7 +63428,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit: ; pred
   br i1 %.not87, label %38, label %37
 
 37:                                               ; preds = %._crit_edge
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.0.0.copyload.i55 = load i64, ptr %6, align 8
   %.not88 = icmp eq i64 %.sroa.0.0.copyload.i55, 0
@@ -64092,7 +64092,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit: ; pred
   br i1 %.not83, label %38, label %37
 
 37:                                               ; preds = %._crit_edge
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %.sroa.0.0.copyload.i52 = load i64, ptr %6, align 8
   %.not84 = icmp eq i64 %.sroa.0.0.copyload.i52, 0
@@ -64557,7 +64557,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit41: ; pr
   br i1 %.not65, label %52, label %51
 
 51:                                               ; preds = %49
-  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  call fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE28TransformDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %.sroa.0.0.copyload.i30 = load i64, ptr %10, align 8
   %.not66 = icmp eq i64 %.sroa.0.0.copyload.i30, 0
@@ -67030,7 +67030,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
 
 _ZNK5clang17FunctionProtoType26getExtParameterInfosOrNullEv.exit: ; preds = %_ZNK5clang15FunctionTypeLoc9getParamsEv.exit, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i
   %.0.i = phi ptr [ %77, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i ], [ null, %_ZNK5clang15FunctionTypeLoc9getParamsEv.exit ]
-  %78 = call fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE27TransformFunctionTypeParamsENS_14SourceLocationEN4llvm8ArrayRefIPNS_11ParmVarDeclEEEPKNS_8QualTypeEPKNS_12FunctionType16ExtParameterInfoERNS5_15SmallVectorImplISA_EEPNSH_IS8_EERNS_4Sema23ExtParameterInfoBuilderEPj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %38, i64 %.0.i.i, ptr noundef nonnull %39, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(41) %10)
+  %78 = call fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE27TransformFunctionTypeParamsENS_14SourceLocationEN4llvm8ArrayRefIPNS_11ParmVarDeclEEEPKNS_8QualTypeEPKNS_12FunctionType16ExtParameterInfoERNS5_15SmallVectorImplISA_EEPNSH_IS8_EERNS_4Sema23ExtParameterInfoBuilderEPj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %38, i64 %.0.i.i, ptr noundef nonnull %39, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(41) %10)
   br i1 %78, label %_ZNSt8optionalIN5clang17FunctionEffectSetEED2Ev.exit, label %79
 
 79:                                               ; preds = %_ZNK5clang17FunctionProtoType26getExtParameterInfosOrNullEv.exit
@@ -67224,7 +67224,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
 
 _ZNK5clang17FunctionProtoType26getExtParameterInfosOrNullEv.exit102: ; preds = %_ZNK5clang15FunctionTypeLoc9getParamsEv.exit90, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i95
   %.0.i101 = phi ptr [ %192, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i95 ], [ null, %_ZNK5clang15FunctionTypeLoc9getParamsEv.exit90 ]
-  %193 = call fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE27TransformFunctionTypeParamsENS_14SourceLocationEN4llvm8ArrayRefIPNS_11ParmVarDeclEEEPKNS_8QualTypeEPKNS_12FunctionType16ExtParameterInfoERNS5_15SmallVectorImplISA_EEPNSH_IS8_EERNS_4Sema23ExtParameterInfoBuilderEPj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %153, i64 %.0.i.i87, ptr noundef nonnull %154, ptr noundef %.0.i101, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(41) %10)
+  %193 = call fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE27TransformFunctionTypeParamsENS_14SourceLocationEN4llvm8ArrayRefIPNS_11ParmVarDeclEEEPKNS_8QualTypeEPKNS_12FunctionType16ExtParameterInfoERNS5_15SmallVectorImplISA_EEPNSH_IS8_EERNS_4Sema23ExtParameterInfoBuilderEPj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %153, i64 %.0.i.i87, ptr noundef nonnull %154, ptr noundef %.0.i101, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(41) %10)
   br i1 %193, label %_ZNSt8optionalIN5clang17FunctionEffectSetEED2Ev.exit, label %.critedge68
 
 .critedge68:                                      ; preds = %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit, %_ZNK5clang17FunctionProtoType26getExtParameterInfosOrNullEv.exit102

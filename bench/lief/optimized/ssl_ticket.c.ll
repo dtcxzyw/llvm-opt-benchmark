@@ -232,7 +232,7 @@ define hidden i32 @mbedtls_ssl_ticket_write(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %narrow.i.not, label %23, label %57
 
 23:                                               ; preds = %17
-  %24 = tail call fastcc i32 @ssl_ticket_update_keys(ptr noundef nonnull %0)
+  %24 = tail call fastcc i32 @ssl_ticket_update_keys(ptr noundef %0)
   %.not43 = icmp eq i32 %24, 0
   br i1 %.not43, label %25, label %57
 
@@ -293,7 +293,7 @@ define hidden i32 @mbedtls_ssl_ticket_write(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl_ticket_update_keys(ptr noundef %0) unnamed_addr #2 {
+define internal fastcc i32 @ssl_ticket_update_keys(ptr noundef nonnull %0) unnamed_addr #2 {
   %2 = alloca [32 x i8], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 212
   %4 = load i32, ptr %3, align 4
@@ -332,7 +332,7 @@ define internal fastcc i32 @ssl_ticket_update_keys(ptr noundef %0) unnamed_addr 
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 224
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 %25(ptr noundef %27, ptr noundef %20, i64 noundef 4) #7
+  %28 = tail call i32 %25(ptr noundef %27, ptr noundef nonnull %20, i64 noundef 4) #7
   %.not.i = icmp eq i32 %28, 0
   br i1 %.not.i, label %29, label %ssl_ticket_gen_key.exit
 
@@ -392,7 +392,7 @@ define hidden i32 @mbedtls_ssl_ticket_parse(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond, label %ssl_ticket_select_key.exit.thread, label %15
 
 15:                                               ; preds = %10
-  %16 = tail call fastcc i32 @ssl_ticket_update_keys(ptr noundef nonnull %0)
+  %16 = tail call fastcc i32 @ssl_ticket_update_keys(ptr noundef %0)
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %ssl_ticket_select_key.exit.thread
 

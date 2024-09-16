@@ -3383,7 +3383,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %436
   %457 = add i32 %443, -1
   %458 = add i32 %457, %456
   %459 = mul nsw i32 %458, %455
-  invoke fastcc void @_ZL17init_overlap_commP13pme_overlap_tiP10tmpi_comm_iiii(ptr noundef nonnull %60, i32 noundef %443, ptr noundef %445, i32 noundef %446, i32 noundef %448, i32 noundef %449, i32 noundef %459)
+  invoke fastcc void @_ZL17init_overlap_commP13pme_overlap_tiP10tmpi_comm_iiii(ptr noundef %60, i32 noundef %443, ptr noundef %445, i32 noundef %446, i32 noundef %448, i32 noundef %449, i32 noundef %459)
           to label %460 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 460:                                              ; preds = %442
@@ -3404,7 +3404,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %436
   %475 = add i32 %474, %473
   %476 = load i32, ptr %247, align 8
   %477 = mul nsw i32 %475, %476
-  invoke fastcc void @_ZL17init_overlap_commP13pme_overlap_tiP10tmpi_comm_iiii(ptr noundef nonnull %461, i32 noundef %462, ptr noundef %464, i32 noundef %465, i32 noundef %467, i32 noundef %468, i32 noundef %477)
+  invoke fastcc void @_ZL17init_overlap_commP13pme_overlap_tiP10tmpi_comm_iiii(ptr noundef %461, i32 noundef %462, ptr noundef %464, i32 noundef %465, i32 noundef %467, i32 noundef %468, i32 noundef %477)
           to label %478 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 478:                                              ; preds = %460
@@ -4788,7 +4788,7 @@ declare noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr noundef) local_u
 declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17init_overlap_commP13pme_overlap_tiP10tmpi_comm_iiii(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17init_overlap_commP13pme_overlap_tiP10tmpi_comm_iiii(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %struct.tmpi_status_, align 8
   store ptr %2, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8

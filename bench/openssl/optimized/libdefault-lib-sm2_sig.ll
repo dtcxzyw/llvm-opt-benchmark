@@ -257,7 +257,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call fastcc i32 @sm2sig_compute_z_digest(ptr noundef nonnull %vpsm2ctx)
+  %call = tail call fastcc i32 @sm2sig_compute_z_digest(ptr noundef %vpsm2ctx)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %land.rhs
 
@@ -302,7 +302,7 @@ if.end.split:                                     ; preds = %if.end
   br label %return
 
 if.then3:                                         ; preds = %if.end
-  %call = tail call fastcc i32 @sm2sig_compute_z_digest(ptr noundef nonnull %vpsm2ctx)
+  %call = tail call fastcc i32 @sm2sig_compute_z_digest(ptr noundef %vpsm2ctx)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %land.lhs.true
 
@@ -376,7 +376,7 @@ lor.lhs.false2:                                   ; preds = %lor.lhs.false
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %call4 = tail call fastcc i32 @sm2sig_compute_z_digest(ptr noundef nonnull %vpsm2ctx)
+  %call4 = tail call fastcc i32 @sm2sig_compute_z_digest(ptr noundef %vpsm2ctx)
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %return, label %land.lhs.true
 
@@ -894,7 +894,7 @@ declare i32 @EVP_MD_is_a(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @sm2sig_compute_z_digest(ptr nocapture noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @sm2sig_compute_z_digest(ptr nocapture noundef nonnull %ctx) unnamed_addr #0 {
 entry:
   %flag_compute_z_digest = getelementptr inbounds i8, ptr %ctx, i64 24
   %bf.load = load i8, ptr %flag_compute_z_digest, align 8

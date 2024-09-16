@@ -255,7 +255,7 @@ define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h7538005
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !22
   %103 = icmp ne ptr %.val, null
   call void @llvm.assume(i1 %103)
-  invoke fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h34634b14bc84da95E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef nonnull align 16 dereferenceable(960) %16, ptr nonnull %.val, i64 %.val25)
+  invoke fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h34634b14bc84da95E(ptr noalias nocapture noundef align 8 dereferenceable(24) %9, ptr noalias noundef align 16 dereferenceable(960) %16, ptr nonnull %.val, i64 %.val25)
           to label %105 unwind label %31, !noalias !6
 
 104:                                              ; preds = %99
@@ -369,7 +369,7 @@ define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h7538005
 
 132:                                              ; preds = %131
   %133 = getelementptr inbounds i8, ptr %16, i64 632
-  invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$aho_corasick..util..prefilter..Prefilter$GT$$GT$17hc8b7c44874381425E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %133)
+  invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$aho_corasick..util..prefilter..Prefilter$GT$$GT$17hc8b7c44874381425E"(ptr noalias noundef align 8 dereferenceable(24) %133)
           to label %136 unwind label %134, !noalias !6
 
 134:                                              ; preds = %132
@@ -505,7 +505,7 @@ _ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.exit: 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h34634b14bc84da95E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias noundef align 16 dereferenceable(960) %1, ptr readonly %.8.val, i64 %.16.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h34634b14bc84da95E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 16 dereferenceable(960) %1, ptr readonly %.8.val, i64 %.16.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.2107 = alloca [5 x i32], align 4
   %.sroa.2102 = alloca [5 x i32], align 4
   %.sroa.297 = alloca [5 x i32], align 4
@@ -1078,7 +1078,7 @@ define internal void @"_ZN4core3ptr29drop_in_place$LT$$RF$char$GT$17h928abe57868
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$aho_corasick..util..prefilter..Prefilter$GT$$GT$17hc8b7c44874381425E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$aho_corasick..util..prefilter..Prefilter$GT$$GT$17hc8b7c44874381425E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !5
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr61drop_in_place$LT$aho_corasick..util..prefilter..Prefilter$GT$17ha76639aef87e554bE.exit", label %4

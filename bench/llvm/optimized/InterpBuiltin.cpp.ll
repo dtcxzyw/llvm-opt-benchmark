@@ -1799,7 +1799,7 @@ _ZN5clang6interpL20interp__builtin_fabsERNS0_11InterpStateENS0_7CodePtrEPKNS0_11
   %.sroa.0.0.extract.trunc.i = trunc i64 %552 to i32
   %553 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %554 = load ptr, ptr %553, align 8
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(16) %554, i32 noundef %.sroa.0.0.extract.trunc.i, i64 noundef 0)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(16) %554, i32 noundef %.sroa.0.0.extract.trunc.i, i64 noundef 0)
   %555 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %556 = load i32, ptr %555, align 8
   %557 = icmp ult i32 %556, 65
@@ -1872,7 +1872,7 @@ _ZN5clang6interpL24interp__builtin_popcountERNS0_11InterpStateENS0_7CodePtrEPKNS
   %.sroa.0.0.extract.trunc.i292 = trunc i64 %588 to i32
   %589 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %590 = load ptr, ptr %589, align 8
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(16) %590, i32 noundef %.sroa.0.0.extract.trunc.i292, i64 noundef 0)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(16) %590, i32 noundef %.sroa.0.0.extract.trunc.i292, i64 noundef 0)
   call void @_ZNK4llvm5APInt11reverseBitsEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %45, ptr noundef nonnull align 8 dereferenceable(12) %44) #16
   %.sroa.0.0.copyload.i7.i293 = load i64, ptr %77, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42)
@@ -2337,7 +2337,7 @@ _ZNK5clang6interp7Pointer7isDummyEv.exit.thread.i: ; preds = %_ZNK5clang6interp7
   %837 = add i64 %836, 7
   %838 = and i64 %837, -8
   %839 = add i64 %838, %835
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(16) %832, i32 noundef %.sroa.038.0.extract.trunc.i, i64 noundef %839)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(16) %832, i32 noundef %.sroa.038.0.extract.trunc.i, i64 noundef %839)
   %840 = load ptr, ptr %790, align 8
   %841 = tail call noundef i64 @_ZN5clang6interp8primSizeENS0_8PrimTypeE(i32 noundef 12) #16
   %842 = add i64 %841, 7
@@ -2350,7 +2350,7 @@ _ZNK5clang6interp7Pointer7isDummyEv.exit.thread.i: ; preds = %_ZNK5clang6interp7
   %849 = add i64 %848, 7
   %850 = and i64 %849, -8
   %851 = add i64 %847, %850
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(16) %840, i32 noundef %.sroa.036.0.extract.trunc.i, i64 noundef %851)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(16) %840, i32 noundef %.sroa.036.0.extract.trunc.i, i64 noundef %851)
   %852 = load i32, ptr %3, align 8
   %853 = lshr i32 %852, 24
   %854 = zext nneg i32 %853 to i64
@@ -2887,7 +2887,7 @@ _ZN5clang6interpL26interp__builtin_overflowopERNS0_11InterpStateENS0_7CodePtrEPK
   %1089 = add i64 %1088, 7
   %1090 = and i64 %1089, -8
   %1091 = add i64 %1087, %1090
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(16) %1080, i32 noundef %.sroa.04.0.extract.trunc.i, i64 noundef %1091)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(16) %1080, i32 noundef %.sroa.04.0.extract.trunc.i, i64 noundef %1091)
   %1092 = load ptr, ptr %1079, align 8
   %1093 = tail call noundef i64 @_ZN5clang6interp8primSizeENS0_8PrimTypeE(i32 noundef 12) #16
   %1094 = add i64 %1093, 7
@@ -2904,7 +2904,7 @@ _ZN5clang6interpL26interp__builtin_overflowopERNS0_11InterpStateENS0_7CodePtrEPK
   %1105 = add i64 %1104, 7
   %1106 = and i64 %1105, -8
   %1107 = add i64 %1103, %1106
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) %1092, i32 noundef %.sroa.06.0.extract.trunc.i, i64 noundef %1107)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) %1092, i32 noundef %.sroa.06.0.extract.trunc.i, i64 noundef %1107)
   %1108 = load ptr, ptr %1079, align 8
   %1109 = tail call noundef i64 @_ZN5clang6interp8primSizeENS0_8PrimTypeE(i32 noundef 12) #16
   %1110 = add i64 %1109, 7
@@ -2913,7 +2913,7 @@ _ZN5clang6interpL26interp__builtin_overflowopERNS0_11InterpStateENS0_7CodePtrEPK
   %1113 = add i64 %1112, 7
   %1114 = and i64 %1113, -8
   %1115 = add i64 %1114, %1111
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(16) %1108, i32 noundef %.sroa.06.0.extract.trunc.i, i64 noundef %1115)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(16) %1108, i32 noundef %.sroa.06.0.extract.trunc.i, i64 noundef %1115)
   %1116 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 1, ptr %1116, align 8
   store i64 0, ptr %19, align 8
@@ -3301,7 +3301,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.i322: ; preds = %1295, %1284
   %.sroa.01.0.extract.trunc.i = trunc i64 %.sroa.06.0.i.i to i32
   %1298 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %1299 = load ptr, ptr %1298, align 8
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(16) %1299, i32 noundef %.sroa.01.0.extract.trunc.i, i64 noundef %.0.lcssa.i.i)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(16) %1299, i32 noundef %.sroa.01.0.extract.trunc.i, i64 noundef %.0.lcssa.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %1300 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 64, ptr %1300, align 8, !alias.scope !34
@@ -3382,7 +3382,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit38.i: ; preds = %1343, %1332
   %.sroa.06.0.i35.i = phi i64 [ %1345, %1343 ], [ %spec.select.i34.i, %1332 ]
   %.sroa.0.0.extract.trunc.i328 = trunc i64 %.sroa.06.0.i35.i to i32
   %1346 = load ptr, ptr %1298, align 8
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %1346, i32 noundef %.sroa.0.0.extract.trunc.i328, i64 noundef 0)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %1346, i32 noundef %.sroa.0.0.extract.trunc.i328, i64 noundef 0)
   %.sroa.0.0.copyload.i.i329 = load i64, ptr %77, align 8
   call fastcc void @_ZN5clang6interpL11pushIntegerERNS0_11InterpStateERKN4llvm6APSIntENS_8QualTypeE(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(13) %15, i64 %.sroa.0.0.copyload.i.i329)
   %1347 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -3573,7 +3573,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.i358: ; preds = %1435, %1424
   %.sroa.01.0.extract.trunc.i360 = trunc i64 %.sroa.06.0.i.i359 to i32
   %1438 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %1439 = load ptr, ptr %1438, align 8
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %1439, i32 noundef %.sroa.01.0.extract.trunc.i360, i64 noundef %.0.lcssa.i.i353)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %1439, i32 noundef %.sroa.01.0.extract.trunc.i360, i64 noundef %.0.lcssa.i.i353)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %1440 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 64, ptr %1440, align 8, !alias.scope !37
@@ -3654,7 +3654,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit31.i: ; preds = %1483, %1472
   %.sroa.06.0.i28.i = phi i64 [ %1485, %1483 ], [ %spec.select.i27.i, %1472 ]
   %.sroa.0.0.extract.trunc.i365 = trunc i64 %.sroa.06.0.i28.i to i32
   %1486 = load ptr, ptr %1438, align 8
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %1486, i32 noundef %.sroa.0.0.extract.trunc.i365, i64 noundef 0)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %1486, i32 noundef %.sroa.0.0.extract.trunc.i365, i64 noundef 0)
   %.sroa.0.0.copyload.i.i366 = load i64, ptr %77, align 8
   call fastcc void @_ZN5clang6interpL11pushIntegerERNS0_11InterpStateERKN4llvm6APSIntENS_8QualTypeE(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(13) %11, i64 %.sroa.0.0.copyload.i.i366)
   %1487 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -5899,7 +5899,7 @@ define internal fastcc void @_ZN5clang6interpL25interp__builtin_isfpclassERNS0_1
   %.sroa.05.0.extract.trunc = trunc i64 %20 to i32
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %22 = load ptr, ptr %21, align 8
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef %.sroa.05.0.extract.trunc, i64 noundef 0)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef %.sroa.05.0.extract.trunc, i64 noundef 0)
   %23 = load ptr, ptr %21, align 8
   %24 = tail call noundef i64 @_ZN5clang6interp8primSizeENS0_8PrimTypeE(i32 noundef %.sroa.05.0.extract.trunc) #16
   %25 = tail call noundef i64 @_ZN5clang6interp8primSizeENS0_8PrimTypeE(i32 noundef 11) #16
@@ -6079,7 +6079,7 @@ _ZNK5clang6interp8Floating10isDenormalEv.exit:    ; preds = %19, %21
   %54 = icmp eq i8 %53, 32
   %spec.select.i11 = select i1 %54, i32 4, i32 2
   %55 = and i64 %43, 4294967288
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %44, i32 noundef %spec.select.i11, i64 noundef %55)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %44, i32 noundef %spec.select.i11, i64 noundef %55)
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %56, align 8
   call fastcc void @_ZN5clang6interpL11pushIntegerERNS0_11InterpStateERKN4llvm6APSIntENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(13) %3, i64 %.sroa.0.0.copyload.i)
@@ -6123,7 +6123,7 @@ define internal fastcc void @_ZN5clang6interpL22interp__builtin_parityERNS0_11In
   %.sroa.0.0.extract.trunc = trunc i64 %18 to i32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %20 = load ptr, ptr %19, align 8
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 noundef %.sroa.0.0.extract.trunc, i64 noundef 0)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 noundef %.sroa.0.0.extract.trunc, i64 noundef 0)
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = icmp ult i32 %22, 65
@@ -6192,7 +6192,7 @@ define internal fastcc void @_ZN5clang6interpL21interp__builtin_clrsbERNS0_11Int
   %.sroa.0.0.extract.trunc = trunc i64 %18 to i32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %20 = load ptr, ptr %19, align 8
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 noundef %.sroa.0.0.extract.trunc, i64 noundef 0)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 noundef %.sroa.0.0.extract.trunc, i64 noundef 0)
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = add i32 %22, -1
@@ -6374,7 +6374,7 @@ _ZN5clang6interp15getLongPrimTypeERKNS0_11InterpStateE.exit: ; preds = %2, %30, 
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %46 = load ptr, ptr %45, align 8
   %47 = zext i32 %.0 to i64
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %46, i32 noundef %.sroa.0.0.extract.trunc, i64 noundef %47)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %46, i32 noundef %.sroa.0.0.extract.trunc, i64 noundef %47)
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i12 = load i64, ptr %48, align 8
   call fastcc void @_ZN5clang6interpL11pushIntegerERNS0_11InterpStateERKN4llvm6APSIntENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(13) %3, i64 %.sroa.0.0.copyload.i12)
@@ -6437,7 +6437,7 @@ define internal fastcc void @_ZN5clang6interpL22interp__builtin_rotateERNS0_11In
   %.sroa.06.0.extract.trunc = trunc i64 %36 to i32
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %38 = load ptr, ptr %37, align 8
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %38, i32 noundef %.sroa.07.0.extract.trunc, i64 noundef 0)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %38, i32 noundef %.sroa.07.0.extract.trunc, i64 noundef 0)
   %39 = load ptr, ptr %37, align 8
   %40 = tail call noundef i64 @_ZN5clang6interp8primSizeENS0_8PrimTypeE(i32 noundef %.sroa.07.0.extract.trunc) #16
   %41 = add i64 %40, 7
@@ -6446,7 +6446,7 @@ define internal fastcc void @_ZN5clang6interpL22interp__builtin_rotateERNS0_11In
   %44 = add i64 %43, 7
   %45 = and i64 %44, -8
   %46 = add i64 %45, %42
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %39, i32 noundef %.sroa.06.0.extract.trunc, i64 noundef %46)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %39, i32 noundef %.sroa.06.0.extract.trunc, i64 noundef %46)
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -6544,7 +6544,7 @@ define internal fastcc void @_ZN5clang6interpL19interp__builtin_ffsERNS0_11Inter
   %.sroa.0.0.extract.trunc = trunc i64 %18 to i32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %20 = load ptr, ptr %19, align 8
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 noundef %.sroa.0.0.extract.trunc, i64 noundef 0)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 noundef %.sroa.0.0.extract.trunc, i64 noundef 0)
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = icmp ult i32 %22, 65
@@ -6691,7 +6691,7 @@ define internal fastcc void @_ZN5clang6interpL36interp__builtin_eh_return_data_r
   %.sroa.0.0.extract.trunc = trunc i64 %18 to i32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %20 = load ptr, ptr %19, align 8
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 noundef %.sroa.0.0.extract.trunc, i64 noundef 0)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 noundef %.sroa.0.0.extract.trunc, i64 noundef 0)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
@@ -6809,7 +6809,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit: ; preds = %33, %44
   %.sroa.014.0.extract.trunc = trunc i64 %.sroa.06.0.i to i32
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %48 = load ptr, ptr %47, align 8
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %48, i32 noundef %.sroa.014.0.extract.trunc, i64 noundef 0)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %48, i32 noundef %.sroa.014.0.extract.trunc, i64 noundef 0)
   %49 = load ptr, ptr %47, align 8
   switch i32 %.sroa.015.0.extract.trunc, label %162 [
     i32 0, label %50
@@ -7105,7 +7105,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit: ; preds = %19, %30
   %.033 = phi i64 [ %41, %34 ], [ 0, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %44 = load ptr, ptr %43, align 8
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %44, i32 noundef %.sroa.014.0.extract.trunc, i64 noundef %.033)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %44, i32 noundef %.sroa.014.0.extract.trunc, i64 noundef %.033)
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %46 = load i32, ptr %45, align 8
   %47 = icmp ult i32 %46, 65
@@ -7655,7 +7655,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit: ; preds = %85, %96
   %.sroa.011.0.extract.trunc = trunc i64 %.sroa.06.0.i to i32
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %100 = load ptr, ptr %99, align 8
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %100, i32 noundef %.sroa.011.0.extract.trunc, i64 noundef 0)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %100, i32 noundef %.sroa.011.0.extract.trunc, i64 noundef 0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 64, ptr %101, align 8, !alias.scope !71
@@ -7849,7 +7849,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit90: ; preds = %191
 210:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit90
   %.sroa.09.0.extract.trunc = trunc i64 %207 to i32
   %211 = load ptr, ptr %99, align 8
-  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %211, i32 noundef %.sroa.09.0.extract.trunc, i64 noundef %.0.lcssa.i)
+  call fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %211, i32 noundef %.sroa.09.0.extract.trunc, i64 noundef %.0.lcssa.i)
   %212 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %213 = load i32, ptr %212, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !77)
@@ -14659,7 +14659,7 @@ declare noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat10isDenormalEv(ptr no
 declare noundef i64 @_ZN5clang6interp8primSizeENS0_8PrimTypeE(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = icmp eq i64 %3, 0

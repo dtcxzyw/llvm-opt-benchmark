@@ -474,7 +474,7 @@ define internal i32 @chmd_extract(ptr noundef %0, ptr noundef readonly %1, ptr n
   br label %.thread167
 
 .thread167:                                       ; preds = %130, %140
-  %143 = tail call fastcc i32 @chmd_init_decomp(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %143 = tail call fastcc i32 @chmd_init_decomp(ptr noundef %0, ptr noundef %1)
   %.not158 = icmp eq i32 %143, 0
   br i1 %.not158, label %.thread167._crit_edge, label %.loopexit
 
@@ -673,7 +673,7 @@ define internal i32 @chmd_fast_find(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %24, label %.preheader, label %55
 
 .preheader:                                       ; preds = %19
-  %25 = tail call fastcc ptr @read_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %18, i32 noundef %21)
+  %25 = tail call fastcc ptr @read_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %18, i32 noundef %21)
   %.not84133 = icmp eq ptr %25, null
   br i1 %.not84133, label %._crit_edge, label %.lr.ph
 
@@ -694,7 +694,7 @@ define internal i32 @chmd_fast_find(ptr noundef %0, ptr noundef %1, ptr noundef 
   %33 = phi ptr [ %25, %.lr.ph ], [ %54, %read_encint.exit ]
   %.val = load i32, ptr %26, align 4
   %.val87 = load i32, ptr %27, align 8
-  %34 = call fastcc i32 @search_chunk(i32 %.val, i32 %.val87, ptr noundef nonnull %33, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %34 = call fastcc i32 @search_chunk(i32 %.val, i32 %.val87, ptr noundef %33, ptr noundef %2, ptr noundef %6, ptr noundef %7)
   %35 = icmp slt i32 %34, 1
   br i1 %35, label %.loopexit, label %36
 
@@ -736,7 +736,7 @@ read_encint.exit:                                 ; preds = %42, %46
   %53 = phi ptr [ %47, %46 ], [ %scevgep, %42 ]
   %.014.i = phi i32 [ %52, %46 ], [ %.01319.i, %42 ]
   store ptr %53, ptr %6, align 8
-  %54 = tail call fastcc ptr @read_chunk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %18, i32 noundef %.014.i)
+  %54 = tail call fastcc ptr @read_chunk(ptr noundef %0, ptr noundef %1, ptr noundef %18, i32 noundef %.014.i)
   %.not84 = icmp eq ptr %54, null
   br i1 %.not84, label %._crit_edge, label %32
 
@@ -756,7 +756,7 @@ read_encint.exit:                                 ; preds = %42, %46
   br i1 %.not82, label %.loopexit, label %63
 
 63:                                               ; preds = %61
-  %64 = tail call fastcc ptr @read_chunk(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %18, i32 noundef %.1)
+  %64 = tail call fastcc ptr @read_chunk(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, i32 noundef %.1)
   %.not83 = icmp eq ptr %64, null
   br i1 %.not83, label %65, label %68
 
@@ -768,7 +768,7 @@ read_encint.exit:                                 ; preds = %42, %46
 68:                                               ; preds = %63
   %.val88 = load i32, ptr %59, align 4
   %.val89 = load i32, ptr %60, align 8
-  %69 = call fastcc i32 @search_chunk(i32 %.val88, i32 %.val89, ptr noundef nonnull %64, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %69 = call fastcc i32 @search_chunk(i32 %.val88, i32 %.val89, ptr noundef %64, ptr noundef %2, ptr noundef %6, ptr noundef %7)
   %70 = icmp sgt i32 %69, 0
   br i1 %70, label %.loopexit125, label %71
 
@@ -983,7 +983,7 @@ define void @mspack_destroy_chm_decompressor(ptr noundef %0) local_unnamed_addr 
 declare void @lzxd_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @chmd_real_open(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @chmd_real_open(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca [84 x i8], align 16
   %5 = alloca i64, align 8
   %.not = icmp eq ptr %0, null
@@ -1348,7 +1348,7 @@ define internal fastcc ptr @chmd_real_open(ptr noundef %0, ptr noundef %1, i32 n
 216:                                              ; preds = %214
   %217 = load ptr, ptr %28, align 8
   %218 = load i32, ptr %131, align 4
-  %219 = call i32 %217(ptr noundef %10, ptr noundef nonnull %207, i32 noundef %218) #12
+  %219 = call i32 %217(ptr noundef nonnull %10, ptr noundef nonnull %207, i32 noundef %218) #12
   %220 = load i32, ptr %131, align 4
   %.not245.i = icmp eq i32 %219, %220
   br i1 %.not245.i, label %221, label %chmd_read_headers.exit.thread.sink.split
@@ -1365,7 +1365,7 @@ define internal fastcc ptr @chmd_real_open(ptr noundef %0, ptr noundef %1, i32 n
 
 226:                                              ; preds = %223
   %227 = load ptr, ptr %211, align 8
-  call void (ptr, ptr, ...) %227(ptr noundef %10, ptr noundef nonnull @.str.6) #12
+  call void (ptr, ptr, ...) %227(ptr noundef nonnull %10, ptr noundef nonnull @.str.6) #12
   %.pre397.i = load i32, ptr %210, align 1
   %.pre398.i = load i32, ptr %131, align 4
   br label %228
@@ -1379,7 +1379,7 @@ define internal fastcc ptr @chmd_real_open(ptr noundef %0, ptr noundef %1, i32 n
 
 233:                                              ; preds = %228
   %234 = load ptr, ptr %211, align 8
-  call void (ptr, ptr, ...) %234(ptr noundef %10, ptr noundef nonnull @.str.7) #12
+  call void (ptr, ptr, ...) %234(ptr noundef nonnull %10, ptr noundef nonnull @.str.7) #12
   %.pre399.i = load i32, ptr %131, align 4
   br label %235
 
@@ -1580,7 +1580,7 @@ read_encint.exit282.i:                            ; preds = %286, %283
 
 311:                                              ; preds = %309
   %312 = load ptr, ptr %211, align 8
-  call void (ptr, ptr, ...) %312(ptr noundef %10, ptr noundef nonnull @.str.8, i32 noundef %.014.i266.i) #12
+  call void (ptr, ptr, ...) %312(ptr noundef nonnull %10, ptr noundef nonnull @.str.8, i32 noundef %.014.i266.i) #12
   br label %.backedge.i
 
 313:                                              ; preds = %309
@@ -1751,7 +1751,7 @@ declare i32 @mspack_sys_filelen(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @read_chunk(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @read_chunk(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 128
@@ -1817,7 +1817,7 @@ define internal fastcc ptr @read_chunk(ptr nocapture noundef %0, ptr nocapture n
   %41 = mul i32 %40, %3
   %42 = zext i32 %41 to i64
   %43 = add nsw i64 %39, %42
-  %44 = tail call i32 %37(ptr noundef %2, i64 noundef %43, i32 noundef 0) #12
+  %44 = tail call i32 %37(ptr noundef nonnull %2, i64 noundef %43, i32 noundef 0) #12
   %.not57 = icmp eq i32 %44, 0
   br i1 %.not57, label %49, label %45
 
@@ -1833,7 +1833,7 @@ define internal fastcc ptr @read_chunk(ptr nocapture noundef %0, ptr nocapture n
   %50 = getelementptr inbounds i8, ptr %6, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = load i32, ptr %29, align 4
-  %53 = tail call i32 %51(ptr noundef %2, ptr noundef nonnull %32, i32 noundef %52) #12
+  %53 = tail call i32 %51(ptr noundef nonnull %2, ptr noundef nonnull %32, i32 noundef %52) #12
   %54 = load i32, ptr %29, align 4
   %.not58 = icmp eq i32 %53, %54
   br i1 %.not58, label %59, label %55
@@ -1891,7 +1891,7 @@ define internal fastcc ptr @read_chunk(ptr nocapture noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc range(i32 -1, 2) i32 @search_chunk(i32 %.132.val, i32 %.136.val, ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 2) i32 @search_chunk(i32 %.132.val, i32 %.136.val, ptr noundef nonnull %0, ptr noundef readonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #4 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds i8, ptr %0, i64 3
@@ -2509,7 +2509,7 @@ define internal i32 @chmd_sys_write(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @chmd_init_decomp(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i32 @chmd_init_decomp(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca %struct.mschmd_file, align 8
   %4 = alloca %struct.mschmd_file, align 8
   %5 = alloca i64, align 8
@@ -2826,7 +2826,7 @@ read_sys_file.exit:                               ; preds = %103
   %175 = trunc i64 %174 to i32
   %176 = ashr exact i32 %.089, 15
   %177 = mul nsw i32 %176, %175
-  %178 = call fastcc i32 @read_reset_table(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef %177, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %178 = call fastcc i32 @read_reset_table(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %177, ptr noundef %5, ptr noundef %6)
   %.not99 = icmp eq i32 %178, 0
   br i1 %.not99, label %189, label %179
 
@@ -2844,7 +2844,7 @@ read_sys_file.exit:                               ; preds = %103
   br label %193
 
 189:                                              ; preds = %170
-  %190 = call fastcc i32 @read_spaninfo(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %5)
+  %190 = call fastcc i32 @read_spaninfo(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %5)
   %.not100 = icmp eq i32 %190, 0
   br i1 %.not100, label %._crit_edge, label %191
 
@@ -2913,7 +2913,7 @@ read_sys_file.exit:                               ; preds = %103
 declare i32 @lzxd_decompress(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @read_reset_table(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @read_reset_table(ptr noundef nonnull %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca %struct.mschmd_file, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
@@ -3128,7 +3128,7 @@ read_sys_file.exit.thread:                        ; preds = %51, %79, %68, %44, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @read_spaninfo(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @read_spaninfo(ptr noundef nonnull %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.mschmd_file, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8

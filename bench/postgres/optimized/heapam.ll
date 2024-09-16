@@ -4734,7 +4734,7 @@ HeapTupleGetUpdateXid.exit:                       ; preds = %167, %.loopexit.i.i
   call void @CheckForSerializableConflictIn(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %193) #11
   %194 = load ptr, ptr %61, align 8
   call void @HeapTupleHeaderAdjustCmax(ptr noundef %194, ptr noundef nonnull %9, ptr noundef nonnull %15) #11
-  %195 = call fastcc ptr @ExtractReplicaIdentity(ptr noundef %0, ptr noundef nonnull %10, i1 noundef zeroext true, ptr noundef nonnull %16)
+  %195 = call fastcc ptr @ExtractReplicaIdentity(ptr noundef %0, ptr noundef %10, i1 noundef zeroext true, ptr noundef %16)
   call void @MultiXactIdSetOldestMember() #11
   %196 = load ptr, ptr %61, align 8
   %197 = getelementptr inbounds i8, ptr %196, i64 4
@@ -4743,7 +4743,7 @@ HeapTupleGetUpdateXid.exit:                       ; preds = %167, %.loopexit.i.i
   %200 = load i16, ptr %199, align 4
   %201 = getelementptr inbounds i8, ptr %196, i64 18
   %202 = load i16, ptr %201, align 2
-  call fastcc void @compute_new_xmax_infomask(i32 noundef %198, i16 noundef zeroext %200, i16 noundef zeroext %202, i32 noundef %20, i32 noundef 3, i1 noundef zeroext true, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  call fastcc void @compute_new_xmax_infomask(i32 noundef %198, i16 noundef zeroext %200, i16 noundef zeroext %202, i32 noundef %20, i32 noundef 3, i1 noundef zeroext true, ptr noundef %12, ptr noundef %13, ptr noundef %14)
   %203 = load volatile i32, ptr @CritSectionCount, align 4
   %204 = add i32 %203, 1
   store volatile i32 %204, ptr @CritSectionCount, align 4
@@ -5213,7 +5213,7 @@ declare void @UnlockTuple(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @HeapTupleHeaderAdjustCmax(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ExtractReplicaIdentity(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3) unnamed_addr #1 {
+define internal fastcc ptr @ExtractReplicaIdentity(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #1 {
   %5 = alloca [1600 x i8], align 16
   %6 = alloca [1600 x i64], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 64
@@ -5273,7 +5273,7 @@ define internal fastcc ptr @ExtractReplicaIdentity(ptr noundef %0, ptr noundef %
   br i1 %37, label %58, label %38
 
 38:                                               ; preds = %35
-  call void @heap_deform_tuple(ptr noundef %1, ptr noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %5) #11
+  call void @heap_deform_tuple(ptr noundef nonnull %1, ptr noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %5) #11
   %39 = load i32, ptr %8, align 8
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph, label %._crit_edge
@@ -5322,7 +5322,7 @@ define internal fastcc ptr @ExtractReplicaIdentity(ptr noundef %0, ptr noundef %
 declare void @MultiXactIdSetOldestMember() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @compute_new_xmax_infomask(i32 noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8) unnamed_addr #1 {
+define internal fastcc void @compute_new_xmax_infomask(i32 noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #1 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -6079,8 +6079,8 @@ BufferGetPage.exit:                               ; preds = %58, %64
   br i1 %or.cond.i, label %.outer.backedge.i, label %106
 
 106:                                              ; preds = %103
-  %107 = call fastcc i64 @heap_getattr(ptr noundef nonnull %22, i32 noundef %98, ptr noundef %.val338, ptr noundef nonnull %19)
-  %108 = call fastcc i64 @heap_getattr(ptr noundef %2, i32 noundef %98, ptr noundef %.val338, ptr noundef nonnull %20)
+  %107 = call fastcc i64 @heap_getattr(ptr noundef nonnull %22, i32 noundef %98, ptr noundef %.val338, ptr noundef %19)
+  %108 = call fastcc i64 @heap_getattr(ptr noundef %2, i32 noundef %98, ptr noundef %.val338, ptr noundef %20)
   %109 = load i8, ptr %19, align 1
   %110 = trunc i8 %109 to i1
   %111 = load i8, ptr %20, align 1
@@ -6540,7 +6540,7 @@ HeapTupleGetUpdateXid.exit352:                    ; preds = %266, %.loopexit.i.i
   %308 = getelementptr inbounds i8, ptr %303, i64 18
   %309 = load i16, ptr %308, align 2
   %310 = load i32, ptr %7, align 4
-  call fastcc void @compute_new_xmax_infomask(i32 noundef %305, i16 noundef zeroext %307, i16 noundef zeroext %309, i32 noundef %36, i32 noundef %310, i1 noundef zeroext true, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %29)
+  call fastcc void @compute_new_xmax_infomask(i32 noundef %305, i16 noundef zeroext %307, i16 noundef zeroext %309, i32 noundef %36, i32 noundef %310, i1 noundef zeroext true, ptr noundef %27, ptr noundef %28, ptr noundef %29)
   %311 = load ptr, ptr %85, align 8
   %312 = getelementptr inbounds i8, ptr %311, i64 20
   %313 = load i16, ptr %312, align 4
@@ -6732,7 +6732,7 @@ GetMultiXactIdHintBits.exit:                      ; preds = %322, %339, %340, %3
   %404 = getelementptr inbounds i8, ptr %399, i64 18
   %405 = load i16, ptr %404, align 2
   %406 = load i32, ptr %7, align 4
-  call fastcc void @compute_new_xmax_infomask(i32 noundef %401, i16 noundef zeroext %403, i16 noundef zeroext %405, i32 noundef %36, i32 noundef %406, i1 noundef zeroext false, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %34)
+  call fastcc void @compute_new_xmax_infomask(i32 noundef %401, i16 noundef zeroext %403, i16 noundef zeroext %405, i32 noundef %36, i32 noundef %406, i1 noundef zeroext false, ptr noundef %32, ptr noundef %33, ptr noundef %34)
   %407 = load volatile i32, ptr @CritSectionCount, align 4
   %408 = add i32 %407, 1
   store volatile i32 %408, ptr @CritSectionCount, align 4
@@ -6957,7 +6957,7 @@ GetMultiXactIdHintBits.exit:                      ; preds = %322, %339, %340, %3
   %.0277 = phi i32 [ 0, %524 ], [ 0, %529 ], [ %528, %526 ]
   %533 = call zeroext i1 @bms_overlap(ptr noundef %.032.ph.lcssa.i, ptr noundef %46) #11
   %534 = select i1 %533, i1 true, i1 %.3
-  %535 = call fastcc ptr @ExtractReplicaIdentity(ptr noundef %0, ptr noundef nonnull %22, i1 noundef zeroext %534, ptr noundef nonnull %23)
+  %535 = call fastcc ptr @ExtractReplicaIdentity(ptr noundef %0, ptr noundef %22, i1 noundef zeroext %534, ptr noundef %23)
   %536 = load volatile i32, ptr @CritSectionCount, align 4
   %537 = add i32 %536, 1
   store volatile i32 %537, ptr @CritSectionCount, align 4
@@ -8072,7 +8072,7 @@ BufferGetPage.exit290:                            ; preds = %48, %54
 
 137:                                              ; preds = %131
   %138 = call i32 @GetCurrentTransactionId() #11
-  %139 = call fastcc i32 @heap_lock_updated_tuple(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %14, i32 noundef %138, i32 noundef 0)
+  %139 = call fastcc i32 @heap_lock_updated_tuple(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i32 noundef %138, i32 noundef 0)
   %.not242 = icmp eq i32 %139, 0
   br i1 %.not242, label %142, label %140
 
@@ -8353,7 +8353,7 @@ get_mxact_status_for_lock.exit:                   ; preds = %heap_acquire_tuploc
 
 268:                                              ; preds = %263
   %269 = call i32 @GetCurrentTransactionId() #11
-  %270 = call fastcc i32 @heap_lock_updated_tuple(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %14, i32 noundef %269, i32 noundef %3)
+  %270 = call fastcc i32 @heap_lock_updated_tuple(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i32 noundef %269, i32 noundef %3)
   %.not247 = icmp eq i32 %270, 0
   br i1 %.not247, label %273, label %271
 
@@ -8543,7 +8543,7 @@ HeapTupleGetUpdateXid.exit:                       ; preds = %318, %.loopexit.i.i
   %354 = getelementptr inbounds i8, ptr %353, i64 18
   %355 = load i16, ptr %354, align 2
   %356 = call i32 @GetCurrentTransactionId() #11
-  call fastcc void @compute_new_xmax_infomask(i32 noundef %350, i16 noundef zeroext %352, i16 noundef zeroext %355, i32 noundef %356, i32 noundef %3, i1 noundef zeroext false, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  call fastcc void @compute_new_xmax_infomask(i32 noundef %350, i16 noundef zeroext %352, i16 noundef zeroext %355, i32 noundef %356, i32 noundef %3, i1 noundef zeroext false, ptr noundef %11, ptr noundef %12, ptr noundef %13)
   %357 = load volatile i32, ptr @CritSectionCount, align 4
   %358 = add i32 %357, 1
   store volatile i32 %358, ptr @CritSectionCount, align 4
@@ -8720,7 +8720,7 @@ HeapTupleGetUpdateXid.exit:                       ; preds = %318, %.loopexit.i.i
 declare i32 @GetMultiXactIdMembers(i32 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @heap_lock_updated_tuple(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 5) i32 @heap_lock_updated_tuple(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.HeapTupleData, align 8
   %8 = alloca i32, align 4
@@ -8752,7 +8752,7 @@ ItemPointerIndicatesMovedPartitions.exit:         ; preds = %5
 
 ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %5, %ItemPointerIndicatesMovedPartitions.exit
   %27 = getelementptr inbounds i8, ptr %1, i64 4
-  %28 = tail call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %27, ptr noundef %2) #11
+  %28 = tail call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %27, ptr noundef nonnull %2) #11
   br i1 %28, label %281, label %29
 
 29:                                               ; preds = %ItemPointerIndicatesMovedPartitions.exit.thread
@@ -8951,7 +8951,7 @@ BufferGetPage.exit85.i:                           ; preds = %67, %63
   %109 = getelementptr inbounds i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = load i32, ptr %108, align 4
-  %112 = call fastcc i32 @test_lockmode_for_conflict(i32 noundef %110, i32 noundef %111, i32 noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %13)
+  %112 = call fastcc i32 @test_lockmode_for_conflict(i32 noundef %110, i32 noundef %111, i32 noundef %4, ptr noundef %7, ptr noundef %13)
   %113 = icmp eq i32 %112, 2
   br i1 %113, label %114, label %116
 
@@ -9035,7 +9035,7 @@ BufferGetPage.exit85.i:                           ; preds = %67, %63
 
 142:                                              ; preds = %140, %135, %134, %132
   %.051.i = phi i32 [ 1, %134 ], [ 0, %132 ], [ %..i, %135 ], [ %.76.i, %140 ]
-  %143 = call fastcc i32 @test_lockmode_for_conflict(i32 noundef %.051.i, i32 noundef %94, i32 noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %13)
+  %143 = call fastcc i32 @test_lockmode_for_conflict(i32 noundef %.051.i, i32 noundef %94, i32 noundef %4, ptr noundef %7, ptr noundef %13)
   %144 = icmp eq i32 %143, 2
   br i1 %144, label %.loopexit105.i, label %145
 
@@ -9060,7 +9060,7 @@ BufferGetPage.exit85.i:                           ; preds = %67, %63
   %150 = load ptr, ptr %36, align 8
   %151 = getelementptr inbounds i8, ptr %150, i64 18
   %152 = load i16, ptr %151, align 2
-  call fastcc void @compute_new_xmax_infomask(i32 noundef %94, i16 noundef zeroext %90, i16 noundef zeroext %152, i32 noundef %3, i32 noundef %4, i1 noundef zeroext false, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  call fastcc void @compute_new_xmax_infomask(i32 noundef %94, i16 noundef zeroext %90, i16 noundef zeroext %152, i32 noundef %3, i32 noundef %4, i1 noundef zeroext false, ptr noundef %11, ptr noundef %9, ptr noundef %10)
   br i1 %45, label %153, label %157
 
 153:                                              ; preds = %.loopexit104.i
@@ -15092,7 +15092,7 @@ declare void @table_block_parallelscan_startblock_init(ptr noundef, ptr noundef,
 declare i32 @table_block_parallelscan_nextpage(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 -32768, 32768) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #1 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %6, label %75
 
@@ -15107,7 +15107,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %6
-  %15 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef %3) #11
+  %15 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef nonnull %3) #11
   br label %fastgetattr.exit
 
 16:                                               ; preds = %6
@@ -15209,7 +15209,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   br label %fastgetattr.exit
 
 75:                                               ; preds = %4
-  %76 = tail call i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #11
+  %76 = tail call i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3) #11
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %73, %72, %59, %57, %51, %48, %45, %42, %75, %14
@@ -15250,7 +15250,7 @@ declare i32 @MultiXactIdCreate(i32 noundef, i32 noundef, i32 noundef, i32 nounde
 declare zeroext i1 @TransactionIdIsInProgress(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @test_lockmode_for_conflict(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 5) i32 @test_lockmode_for_conflict(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #1 {
 get_mxact_status_for_lock.exit:
   store i8 0, ptr %4, align 1
   %5 = zext i32 %2 to i64
@@ -15397,7 +15397,7 @@ define internal range(i32 -1, 2) i32 @heap_log_freeze_cmp(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly %7) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i32 noundef range(i32 0, 6) %1, i16 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 4) %6, ptr noundef writeonly %7) unnamed_addr #1 {
   %9 = alloca ptr, align 8
   %10 = zext i16 %2 to i32
   %11 = and i32 %10, 4304

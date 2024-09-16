@@ -1101,8 +1101,8 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i:        ; preds = %321, %275
   %455 = getelementptr inbounds i32, ptr %.01921.us.i.i, i64 %442
   %456 = getelementptr inbounds i32, ptr %.01822.us.i.i, i64 %443
   %457 = add nuw nsw i32 %.01723.us.i.i, 1
-  %exitcond27.not.i.i = icmp eq i32 %457, 2
-  br i1 %exitcond27.not.i.i, label %_ZN2cvL13initTopBottomERNS_3MatEij.exit.i123, label %.preheader.us.i.i, !llvm.loop !22
+  %exitcond28.not.i.i = icmp eq i32 %457, 2
+  br i1 %exitcond28.not.i.i, label %_ZN2cvL13initTopBottomERNS_3MatEij.exit.i123, label %.preheader.us.i.i, !llvm.loop !22
 
 _ZN2cvL13initTopBottomERNS_3MatEij.exit.i123:     ; preds = %._crit_edge.us.i.i, %400
   %458 = shl nsw i32 %430, 1
@@ -1553,8 +1553,8 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i123:     ; preds = %._crit_edge.us.i.i,
   %700 = getelementptr inbounds i32, ptr %.01921.us.i.i169, i64 %687
   %701 = getelementptr inbounds i32, ptr %.01822.us.i.i168, i64 %688
   %702 = add nuw nsw i32 %.01723.us.i.i167, 1
-  %exitcond27.not.i.i174 = icmp eq i32 %702, 2
-  br i1 %exitcond27.not.i.i174, label %_ZN2cvL13initTopBottomERNS_3MatEij.exit.i148, label %.preheader.us.i.i166, !llvm.loop !22
+  %exitcond28.not.i.i174 = icmp eq i32 %702, 2
+  br i1 %exitcond28.not.i.i174, label %_ZN2cvL13initTopBottomERNS_3MatEij.exit.i148, label %.preheader.us.i.i166, !llvm.loop !22
 
 _ZN2cvL13initTopBottomERNS_3MatEij.exit.i148:     ; preds = %._crit_edge.us.i.i173, %639
   %703 = shl nsw i32 %671, 1

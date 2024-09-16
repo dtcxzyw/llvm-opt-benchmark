@@ -114,7 +114,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i64 0, ptr %last_size.i, align 8
   store i32 0, ptr %last_attr.i, align 4
   %sub.i = add nsw i32 %switch.load14, -1
-  call fastcc void @walk_pte(ptr noundef %mon, i64 noundef %base.0.i, i64 noundef 0, i32 noundef %sub.i, i32 noundef %switch.load, i32 noundef %switch.load12, i32 noundef %add.i, ptr noundef nonnull %vbase.i, ptr noundef nonnull %pbase.i, ptr noundef nonnull %last_paddr.i, ptr noundef nonnull %last_size.i, ptr noundef nonnull %last_attr.i)
+  call fastcc void @walk_pte(ptr noundef %mon, i64 noundef %base.0.i, i64 noundef 0, i32 noundef %sub.i, i32 noundef %switch.load, i32 noundef %switch.load12, i32 noundef %add.i, ptr noundef %vbase.i, ptr noundef %pbase.i, ptr noundef %last_paddr.i, ptr noundef %last_size.i, ptr noundef %last_attr.i)
   %9 = load i64, ptr %vbase.i, align 8
   %10 = load i64, ptr %pbase.i, align 8
   %11 = load i64, ptr %last_paddr.i, align 8
@@ -182,7 +182,7 @@ declare i32 @monitor_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @walk_pte(ptr noundef %mon, i64 noundef %base, i64 noundef %start, i32 noundef %level, i32 noundef %ptidxbits, i32 noundef %ptesize, i32 noundef %va_bits, ptr nocapture noundef %vbase, ptr nocapture noundef %pbase, ptr nocapture noundef %last_paddr, ptr nocapture noundef %last_size, ptr nocapture noundef %last_attr) unnamed_addr #0 {
+define internal fastcc void @walk_pte(ptr noundef %mon, i64 noundef range(i64 0, -4095) %base, i64 noundef %start, i32 noundef range(i32 -1, 5) %level, i32 noundef range(i32 9, 11) %ptidxbits, i32 noundef range(i32 4, 9) %ptesize, i32 noundef range(i32 30, 63) %va_bits, ptr nocapture noundef nonnull %vbase, ptr nocapture noundef nonnull %pbase, ptr nocapture noundef nonnull %last_paddr, ptr nocapture noundef nonnull %last_size, ptr nocapture noundef nonnull %last_attr) unnamed_addr #0 {
 entry:
   %pte = alloca i64, align 8
   %cmp = icmp slt i32 %level, 0

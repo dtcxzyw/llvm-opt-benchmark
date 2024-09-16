@@ -222,7 +222,7 @@ sub_167:                                          ; preds = %.tail
 81:                                               ; preds = %38
   %.val = load ptr, ptr %28, align 8
   %.val.val = load ptr, ptr %.val, align 8
-  call fastcc void @setFilePath(ptr %.val.val, ptr noundef nonnull %3, ptr noundef nonnull @.str.7)
+  call fastcc void @setFilePath(ptr %.val.val, ptr noundef %3, ptr noundef nonnull @.str.7)
   %82 = call ptr @InitDiscoverCompressFileHandle(ptr noundef nonnull %3, ptr noundef nonnull @.str.8) #14
   %83 = icmp eq ptr %82, null
   br i1 %83, label %84, label %85
@@ -299,7 +299,7 @@ define internal void @_StartData(ptr noundef %0, ptr nocapture noundef readonly 
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %.val.val = load ptr, ptr %7, align 8
-  call fastcc void @setFilePath(ptr %.val.val, ptr noundef nonnull %3, ptr noundef %8)
+  call fastcc void @setFilePath(ptr %.val.val, ptr noundef %3, ptr noundef %8)
   %9 = getelementptr inbounds i8, ptr %0, i64 544
   %10 = call ptr @InitCompressFileHandle(ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %9) #14
   %11 = getelementptr inbounds i8, ptr %7, i64 8
@@ -492,7 +492,7 @@ define internal void @_CloseArchive(ptr noundef %0) #0 {
 9:                                                ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %.val.val = load ptr, ptr %5, align 8
-  call fastcc void @setFilePath(ptr %.val.val, ptr noundef nonnull %3, ptr noundef nonnull @.str.7)
+  call fastcc void @setFilePath(ptr %.val.val, ptr noundef %3, ptr noundef nonnull @.str.7)
   %10 = call ptr @ParallelBackupStart(ptr noundef nonnull %0) #14
   %11 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %10, ptr %11, align 8
@@ -584,7 +584,7 @@ define internal void @_PrintTocData(ptr noundef %0, ptr nocapture noundef readon
   tail call void @StartRestoreLOs(ptr noundef %0) #14
   %.val.i = load ptr, ptr %18, align 8
   %.val.val.i = load ptr, ptr %.val.i, align 8
-  call fastcc void @setFilePath(ptr %.val.val.i, ptr noundef nonnull %4, ptr noundef nonnull @.str.12)
+  call fastcc void @setFilePath(ptr %.val.val.i, ptr noundef %4, ptr noundef nonnull @.str.12)
   %20 = call ptr @InitDiscoverCompressFileHandle(ptr noundef nonnull %4, ptr noundef nonnull @.str.8) #14
   %21 = getelementptr inbounds i8, ptr %19, i64 16
   store ptr %20, ptr %21, align 8
@@ -626,7 +626,7 @@ define internal void @_PrintTocData(ptr noundef %0, ptr nocapture noundef readon
   call void @StartRestoreLO(ptr noundef nonnull %0, i32 noundef %32, i1 noundef zeroext %36) #14
   %37 = load ptr, ptr %19, align 8
   %38 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.22, ptr noundef %37, ptr noundef nonnull %6) #14
-  call fastcc void @_PrintFileData(ptr noundef nonnull %0, ptr noundef nonnull %7)
+  call fastcc void @_PrintFileData(ptr noundef nonnull %0, ptr noundef %7)
   %39 = load i32, ptr %3, align 4
   call void @EndRestoreLO(ptr noundef nonnull %0, i32 noundef %39) #14
   %40 = load ptr, ptr %23, align 8
@@ -669,8 +669,8 @@ _LoadLOs.exit:                                    ; preds = %46
   %51 = getelementptr i8, ptr %0, i64 592
   %.val = load ptr, ptr %51, align 8
   %.val.val = load ptr, ptr %.val, align 8
-  call fastcc void @setFilePath(ptr %.val.val, ptr noundef nonnull %8, ptr noundef nonnull %11)
-  call fastcc void @_PrintFileData(ptr noundef %0, ptr noundef nonnull %8)
+  call fastcc void @setFilePath(ptr %.val.val, ptr noundef %8, ptr noundef nonnull %11)
+  call fastcc void @_PrintFileData(ptr noundef %0, ptr noundef %8)
   br label %52
 
 52:                                               ; preds = %2, %50, %_LoadLOs.exit
@@ -747,7 +747,7 @@ define internal void @_StartLOs(ptr nocapture noundef readonly %0, ptr nocapture
   %6 = load ptr, ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %.val.val = load ptr, ptr %6, align 8
-  call fastcc void @setFilePath(ptr %.val.val, ptr noundef nonnull %4, ptr noundef nonnull @.str.12)
+  call fastcc void @setFilePath(ptr %.val.val, ptr noundef %4, ptr noundef nonnull @.str.12)
   store i32 0, ptr %3, align 8
   %7 = call ptr @InitCompressFileHandle(ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %3) #14
   %8 = getelementptr inbounds i8, ptr %6, i64 16
@@ -893,7 +893,7 @@ define internal void @_PrepParallelRestore(ptr nocapture noundef readonly %0) #0
 19:                                               ; preds = %14
   %.val = load ptr, ptr %6, align 8
   %.val.val = load ptr, ptr %.val, align 8
-  call fastcc void @setFilePath(ptr %.val.val, ptr noundef nonnull %2, ptr noundef nonnull %12)
+  call fastcc void @setFilePath(ptr %.val.val, ptr noundef %2, ptr noundef nonnull %12)
   %20 = call i32 @stat(ptr noundef nonnull %2, ptr noundef nonnull %3) #14
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.sink.split24, label %22
@@ -1014,7 +1014,7 @@ declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #6
 declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setFilePath(ptr %.592.val.0.val, ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @setFilePath(ptr %.592.val.0.val, ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.592.val.0.val) #17
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %5 = add i64 %3, -1023
@@ -1063,15 +1063,15 @@ declare i32 @ahprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 declare ptr @InitCompressFileHandle(ptr noundef byval(%struct.pg_compress_specification) align 8) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_PrintFileData(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_PrintFileData(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 0, ptr %3, align 8
-  %4 = tail call ptr @InitDiscoverCompressFileHandle(ptr noundef %1, ptr noundef nonnull @.str.8) #14
+  %4 = tail call ptr @InitDiscoverCompressFileHandle(ptr noundef nonnull %1, ptr noundef nonnull @.str.8) #14
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %1) #14
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %1) #14
   tail call void @exit_nicely(i32 noundef 1) #15
   unreachable
 
@@ -1101,7 +1101,7 @@ define internal fastcc void @_PrintFileData(ptr noundef %0, ptr noundef %1) unna
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %._crit_edge
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.25, ptr noundef %1) #14
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.25, ptr noundef nonnull %1) #14
   call void @exit_nicely(i32 noundef 1) #15
   unreachable
 

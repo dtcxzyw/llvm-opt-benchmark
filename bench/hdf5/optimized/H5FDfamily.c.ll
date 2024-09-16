@@ -190,7 +190,7 @@ define i32 @H5Pset_fapl_family(i64 noundef %0, i64 noundef %1, i64 noundef %2) l
   br i1 %33, label %34, label %41
 
 34:                                               ; preds = %32
-  %35 = call fastcc i32 @H5FD__family_get_default_config(ptr noundef nonnull %4)
+  %35 = call fastcc i32 @H5FD__family_get_default_config(ptr noundef %4)
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %37, label %.thread
 
@@ -266,7 +266,7 @@ declare i32 @H5E_clear_stack() local_unnamed_addr #1
 declare i32 @H5P_isa_class(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FD__family_get_default_config(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FD__family_get_default_config(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   store i64 104857600, ptr %0, align 8
   %2 = load i64, ptr @H5P_LST_FILE_ACCESS_ID_g, align 8
   %3 = tail call ptr @H5I_object(i64 noundef %2) #13
@@ -737,7 +737,7 @@ define internal ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i64 nound
   br i1 %32, label %33, label %47
 
 33:                                               ; preds = %30
-  %34 = call fastcc i32 @H5FD__family_get_default_config(ptr noundef nonnull %5)
+  %34 = call fastcc i32 @H5FD__family_get_default_config(ptr noundef %5)
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %36, label %40
 
@@ -777,7 +777,7 @@ define internal ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i64 nound
   br i1 %56, label %57, label %64
 
 57:                                               ; preds = %54
-  %58 = call fastcc i32 @H5FD__family_get_default_config(ptr noundef nonnull %6)
+  %58 = call fastcc i32 @H5FD__family_get_default_config(ptr noundef %6)
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %60, label %64
 
@@ -913,7 +913,7 @@ define internal ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i64 nound
 
 137:                                              ; preds = %135
   %138 = tail call ptr @H5MM_xfree(ptr noundef nonnull %125) #13
-  %139 = tail call fastcc ptr @H5FD__family_get_default_printf_filename(ptr noundef nonnull %0)
+  %139 = tail call fastcc ptr @H5FD__family_get_default_printf_filename(ptr noundef %0)
   %140 = icmp eq ptr %139, null
   br i1 %140, label %141, label %145
 
@@ -2030,7 +2030,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_delete(ptr noundef %0, i64 no
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %11
-  %15 = call fastcc i32 @H5FD__family_get_default_config(ptr noundef nonnull %3)
+  %15 = call fastcc i32 @H5FD__family_get_default_config(ptr noundef %3)
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %38
 
@@ -2057,7 +2057,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_delete(ptr noundef %0, i64 no
   br i1 %30, label %31, label %38
 
 31:                                               ; preds = %28
-  %32 = call fastcc i32 @H5FD__family_get_default_config(ptr noundef nonnull %3)
+  %32 = call fastcc i32 @H5FD__family_get_default_config(ptr noundef %3)
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %34, label %38
 
@@ -2105,7 +2105,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_delete(ptr noundef %0, i64 no
 
 59:                                               ; preds = %58
   %60 = tail call ptr @H5MM_xfree(ptr noundef nonnull %48) #13
-  %61 = tail call fastcc ptr @H5FD__family_get_default_printf_filename(ptr noundef nonnull %0)
+  %61 = tail call fastcc ptr @H5FD__family_get_default_printf_filename(ptr noundef %0)
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %70
 
@@ -2238,7 +2238,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @H5FD__family_get_default_printf_filename(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @H5FD__family_get_default_printf_filename(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %4, label %8
@@ -2271,7 +2271,7 @@ define internal fastcc noalias noundef ptr @H5FD__family_get_default_printf_file
   %20 = ptrtoint ptr %0 to i64
   %21 = sub i64 %19, %20
   %22 = trunc i64 %21 to i32
-  %23 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %10, i64 noundef %9, ptr noundef nonnull @.str.32, i32 noundef %22, ptr noundef %0, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.31) #13
+  %23 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %10, i64 noundef %9, ptr noundef nonnull @.str.32, i32 noundef %22, ptr noundef nonnull %0, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.31) #13
   br label %.thread
 
 24:                                               ; preds = %16
@@ -2284,11 +2284,11 @@ define internal fastcc noalias noundef ptr @H5FD__family_get_default_printf_file
   %28 = ptrtoint ptr %0 to i64
   %29 = sub i64 %27, %28
   %30 = trunc i64 %29 to i32
-  %31 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %10, i64 noundef %9, ptr noundef nonnull @.str.32, i32 noundef %30, ptr noundef %0, ptr noundef nonnull @.str.28, ptr noundef nonnull %25) #13
+  %31 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %10, i64 noundef %9, ptr noundef nonnull @.str.32, i32 noundef %30, ptr noundef nonnull %0, ptr noundef nonnull @.str.28, ptr noundef nonnull %25) #13
   br label %.thread
 
 32:                                               ; preds = %24
-  %33 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %10, i64 noundef %9, ptr noundef nonnull @.str.33, ptr noundef %0, ptr noundef nonnull @.str.28) #13
+  %33 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %10, i64 noundef %9, ptr noundef nonnull @.str.33, ptr noundef nonnull %0, ptr noundef nonnull @.str.28) #13
   br label %.thread
 
 34:                                               ; preds = %4, %12

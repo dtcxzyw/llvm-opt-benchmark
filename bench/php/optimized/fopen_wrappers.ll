@@ -1532,7 +1532,7 @@ define noalias noundef ptr @php_fopen_with_path(ptr noundef %0, ptr nocapture no
   br i1 %.not142, label %16, label %18
 
 16:                                               ; preds = %14, %11, %8
-  %17 = tail call fastcc ptr @php_fopen_and_set_opened_path(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3)
+  %17 = tail call fastcc ptr @php_fopen_and_set_opened_path(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   br label %61
 
 18:                                               ; preds = %14
@@ -1627,7 +1627,7 @@ define noalias noundef ptr @php_fopen_with_path(ptr noundef %0, ptr nocapture no
   br label %58
 
 58:                                               ; preds = %57, %54
-  %59 = call fastcc ptr @php_fopen_and_set_opened_path(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %3)
+  %59 = call fastcc ptr @php_fopen_and_set_opened_path(ptr noundef %5, ptr noundef %1, ptr noundef %3)
   %.not149 = icmp eq ptr %59, null
   br i1 %.not149, label %47, label %60
 
@@ -1645,20 +1645,20 @@ define noalias noundef ptr @php_fopen_with_path(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @php_fopen_and_set_opened_path(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) unnamed_addr #0 {
-  %4 = tail call range(i32 -1, 1) i32 @php_check_open_basedir_ex(ptr noundef %0, i32 noundef 1)
+define internal fastcc noalias noundef ptr @php_fopen_and_set_opened_path(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) unnamed_addr #0 {
+  %4 = tail call range(i32 -1, 1) i32 @php_check_open_basedir_ex(ptr noundef nonnull %0, i32 noundef 1)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %21
 
 5:                                                ; preds = %3
-  %6 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef %1)
+  %6 = tail call noalias ptr @fopen(ptr noundef nonnull %0, ptr noundef %1)
   %7 = icmp ne ptr %6, null
   %8 = icmp ne ptr %2, null
   %or.cond = and i1 %8, %7
   br i1 %or.cond, label %9, label %21
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @expand_filepath_with_mode(ptr noundef %0, ptr noundef null, ptr noundef null, i64 noundef 0, i32 noundef 0)
+  %10 = tail call ptr @expand_filepath_with_mode(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i64 noundef 0, i32 noundef 0)
   %.not70 = icmp eq ptr %10, null
   br i1 %.not70, label %21, label %11
 

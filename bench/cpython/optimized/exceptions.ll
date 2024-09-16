@@ -1832,7 +1832,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %21 = load ptr, ptr %ob_item.i, align 8
   %arrayidx.i = getelementptr ptr, ptr %21, i64 %i.013.i
   %22 = load ptr, ptr %arrayidx.i, align 8
-  %call2.i41 = tail call fastcc i32 @collect_exception_group_leaf_ids(ptr noundef %22, ptr noundef nonnull %call.i)
+  %call2.i41 = tail call fastcc i32 @collect_exception_group_leaf_ids(ptr noundef %22, ptr noundef %call.i)
   %cmp3.i42 = icmp slt i32 %call2.i41, 0
   br i1 %cmp3.i42, label %if.then4.i, label %for.cond.i
 
@@ -1853,7 +1853,7 @@ if.then1.i20.i:                                   ; preds = %if.end.i17.i
   br label %exception_group_projection.exit.thread
 
 for.end.i:                                        ; preds = %for.cond.i, %if.end.i37
-  %call7.i = call fastcc i32 @exceptiongroup_split_recursive(ptr noundef %orig, i32 noundef 2, ptr noundef nonnull %call.i, i1 noundef zeroext false, ptr noundef nonnull %split_result.i)
+  %call7.i = call fastcc i32 @exceptiongroup_split_recursive(ptr noundef %orig, i32 noundef 2, ptr noundef nonnull %call.i, i1 noundef zeroext false, ptr noundef %split_result.i)
   %25 = load i64, ptr %call.i, align 8
   %26 = and i64 %25, 2147483648
   %cmp.i27.not.i = icmp eq i64 %26, 0
@@ -3116,7 +3116,7 @@ if.end3:                                          ; preds = %if.end5.i, %if.then
 declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_memory_error(i32 noundef %allow_allocation, ptr noundef %args) unnamed_addr #1 {
+define internal fastcc ptr @get_memory_error(i32 noundef range(i32 0, 2) %allow_allocation, ptr noundef %args) unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -6259,7 +6259,7 @@ declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @PySet_New(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @collect_exception_group_leaf_ids(ptr noundef %exc, ptr noundef %leaf_ids) unnamed_addr #1 {
+define internal fastcc i32 @collect_exception_group_leaf_ids(ptr noundef %exc, ptr noundef nonnull %leaf_ids) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %exc, @_Py_NoneStruct
   br i1 %cmp, label %return, label %if.end
@@ -6282,7 +6282,7 @@ if.then1:                                         ; preds = %PyObject_TypeCheck.
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.then1
-  %call6 = tail call i32 @PySet_Add(ptr noundef %leaf_ids, ptr noundef nonnull %call2) #10
+  %call6 = tail call i32 @PySet_Add(ptr noundef nonnull %leaf_ids, ptr noundef nonnull %call2) #10
   %2 = load i64, ptr %call2, align 8
   %3 = and i64 %2, 2147483648
   %cmp.i22.not = icmp eq i64 %3, 0
@@ -6353,7 +6353,7 @@ return:                                           ; preds = %_Py_EnterRecursiveC
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @exceptiongroup_split_recursive(ptr noundef %exc, i32 noundef %matcher_type, ptr noundef %matcher_value, i1 noundef zeroext %construct_rest, ptr nocapture noundef %result) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @exceptiongroup_split_recursive(ptr noundef %exc, i32 noundef %matcher_type, ptr noundef %matcher_value, i1 noundef zeroext %construct_rest, ptr nocapture noundef nonnull %result) unnamed_addr #1 {
 entry:
   %rec_result = alloca %struct._exceptiongroup_split_result, align 8
   %rest = getelementptr inbounds i8, ptr %result, i64 8
@@ -6526,7 +6526,7 @@ _Py_EnterRecursiveCall.exit:                      ; preds = %for.body
   br i1 %tobool2.i.i.not, label %if.end36, label %done
 
 if.end36:                                         ; preds = %for.body, %_Py_EnterRecursiveCall.exit
-  %call38 = call fastcc i32 @exceptiongroup_split_recursive(ptr noundef %13, i32 noundef %matcher_type, ptr noundef %matcher_value, i1 noundef zeroext %construct_rest, ptr noundef nonnull %rec_result)
+  %call38 = call fastcc i32 @exceptiongroup_split_recursive(ptr noundef %13, i32 noundef %matcher_type, ptr noundef %matcher_value, i1 noundef zeroext %construct_rest, ptr noundef %rec_result)
   %cmp39 = icmp slt i32 %call38, 0
   %16 = load ptr, ptr %11, align 8
   %c_recursion_remaining.i.i = getelementptr inbounds i8, ptr %16, i64 44
@@ -6624,14 +6624,14 @@ for.inc:                                          ; preds = %if.end53, %if.end62
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %if.end30
-  %call66 = tail call fastcc i32 @exceptiongroup_subset(ptr noundef nonnull %exc, ptr noundef nonnull %call20, ptr noundef nonnull %result)
+  %call66 = tail call fastcc i32 @exceptiongroup_subset(ptr noundef nonnull %exc, ptr noundef nonnull %call20, ptr noundef %result)
   %cmp67 = icmp slt i32 %call66, 0
   %construct_rest.not = xor i1 %construct_rest, true
   %brmerge = or i1 %cmp67, %construct_rest.not
   br i1 %brmerge, label %done, label %if.then71
 
 if.then71:                                        ; preds = %for.end
-  %call73 = tail call fastcc i32 @exceptiongroup_subset(ptr noundef nonnull %exc, ptr noundef %rest_list.0, ptr noundef nonnull %rest)
+  %call73 = tail call fastcc i32 @exceptiongroup_subset(ptr noundef nonnull %exc, ptr noundef %rest_list.0, ptr noundef %rest)
   %cmp74 = icmp slt i32 %call73, 0
   br i1 %cmp74, label %do.body, label %done
 
@@ -6760,7 +6760,7 @@ declare i32 @_Py_CheckRecursiveCall(ptr noundef, ptr noundef) local_unnamed_addr
 declare i64 @PyTuple_Size(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @exceptiongroup_subset(ptr noundef %_orig, ptr noundef %excs, ptr nocapture noundef writeonly %result) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @exceptiongroup_subset(ptr noundef %_orig, ptr noundef %excs, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #1 {
 entry:
   %notes = alloca ptr, align 8
   store ptr null, ptr %result, align 8
@@ -7700,7 +7700,7 @@ get_matcher_type.exit:                            ; preds = %for.body.i, %land.l
 
 if.end:                                           ; preds = %for.cond.i, %land.lhs.true.i, %land.lhs.true5.i, %if.then12.i
   %matcher_type.0.ph = phi i32 [ 0, %if.then12.i ], [ 0, %land.lhs.true5.i ], [ 1, %land.lhs.true.i ], [ 0, %for.cond.i ]
-  %call1 = call fastcc i32 @exceptiongroup_split_recursive(ptr noundef %self, i32 noundef %matcher_type.0.ph, ptr noundef nonnull %matcher_value, i1 noundef zeroext true, ptr noundef nonnull %split_result)
+  %call1 = call fastcc i32 @exceptiongroup_split_recursive(ptr noundef %self, i32 noundef %matcher_type.0.ph, ptr noundef nonnull %matcher_value, i1 noundef zeroext true, ptr noundef %split_result)
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %return, label %if.end4
 
@@ -7827,7 +7827,7 @@ get_matcher_type.exit:                            ; preds = %for.body.i, %land.l
 
 if.end:                                           ; preds = %for.cond.i, %land.lhs.true.i, %land.lhs.true5.i, %if.then12.i
   %matcher_type.0.ph = phi i32 [ 0, %if.then12.i ], [ 0, %land.lhs.true5.i ], [ 1, %land.lhs.true.i ], [ 0, %for.cond.i ]
-  %call1 = call fastcc i32 @exceptiongroup_split_recursive(ptr noundef %self, i32 noundef %matcher_type.0.ph, ptr noundef nonnull %matcher_value, i1 noundef zeroext false, ptr noundef nonnull %split_result)
+  %call1 = call fastcc i32 @exceptiongroup_split_recursive(ptr noundef %self, i32 noundef %matcher_type.0.ph, ptr noundef nonnull %matcher_value, i1 noundef zeroext false, ptr noundef %split_result)
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %return, label %if.end4
 
@@ -8995,7 +8995,7 @@ if.end10:                                         ; preds = %if.then.i.if.end10_
   %9 = phi ptr [ %.pre15, %if.then.i.if.end10_crit_edge ], [ null, %Py_INCREF.exit ]
   %10 = phi ptr [ %.pre, %if.then.i.if.end10_crit_edge ], [ null, %Py_INCREF.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_winerror.i)
-  %call11 = call fastcc i32 @oserror_init(ptr noundef nonnull %self, ptr noundef nonnull %args.addr, ptr noundef %10, ptr noundef %9, ptr noundef %8, ptr noundef %7)
+  %call11 = call fastcc i32 @oserror_init(ptr noundef nonnull %self, ptr noundef %args.addr, ptr noundef %10, ptr noundef %9, ptr noundef %8, ptr noundef %7)
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %return, label %if.end10.error_crit_edge
 
@@ -9162,7 +9162,7 @@ if.then35:                                        ; preds = %if.end32, %land.lhs
   %18 = load ptr, ptr %strerror, align 8
   %19 = load ptr, ptr %filename, align 8
   %20 = load ptr, ptr %filename2, align 8
-  %call36 = call fastcc i32 @oserror_init(ptr noundef nonnull %call29, ptr noundef nonnull %args.addr, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20)
+  %call36 = call fastcc i32 @oserror_init(ptr noundef nonnull %call29, ptr noundef %args.addr, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20)
   %tobool37.not = icmp eq i32 %call36, 0
   %.pre61 = load ptr, ptr %args.addr, align 8
   %cmp.not.i33 = icmp eq ptr %.pre61, null
@@ -9461,7 +9461,7 @@ declare i64 @PyNumber_AsSsize_t(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @PyErr_Occurred() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @oserror_init(ptr nocapture noundef %self, ptr nocapture noundef %p_args, ptr noundef %myerrno, ptr noundef %strerror, ptr noundef %filename, ptr noundef %filename2) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @oserror_init(ptr nocapture noundef %self, ptr nocapture noundef nonnull %p_args, ptr noundef %myerrno, ptr noundef %strerror, ptr noundef %filename, ptr noundef %filename2) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %p_args, align 8
   %1 = getelementptr i8, ptr %0, i64 16

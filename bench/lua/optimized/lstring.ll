@@ -366,7 +366,7 @@ if.then:                                          ; preds = %entry
   %strt.i = getelementptr inbounds i8, ptr %0, i64 48
   %seed.i = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load i32, ptr %seed.i, align 8
-  %conv.i.i = trunc nuw i64 %l to i32
+  %conv.i.i = trunc nuw nsw i64 %l to i32
   %xor.i.i = xor i32 %1, %conv.i.i
   %invariant.gep.i.i = getelementptr i8, ptr %str, i64 -1
   %cmp.not7.i.i = icmp eq i64 %l, 0
@@ -383,7 +383,7 @@ for.body.i.i:                                     ; preds = %if.then, %for.body.
   %conv2.i.i = zext i8 %2 to i32
   %add3.i.i = add i32 %add.i.i, %conv2.i.i
   %xor4.i.i = xor i32 %add3.i.i, %h.09.i.i
-  %dec.i.i = add i64 %l.addr.08.i.i, -1
+  %dec.i.i = add nsw i64 %l.addr.08.i.i, -1
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.not.i.i, label %luaS_hash.exit.i, label %for.body.i.i, !llvm.loop !5
 

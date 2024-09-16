@@ -1854,7 +1854,7 @@ declare noundef i64 @_ZNK3ue213RoseBuildImpl13maxLiteralLenENS_12graph_detail17v
 declare void @_ZN3ue211all_reportsERKNS_8NGHolderE(ptr sret(%"class.std::set") align 8, ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L23handleStartPrefixClicheERKNS_8NGHolderERNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERKNS5_15edge_descriptorISA_EESB_PSt6vectorISD_SaISD_EE(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr noundef nonnull align 8 dereferenceable(56) %g, ptr %v.coerce0, i64 %v.coerce1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %e_old, ptr %ar.0.val, i64 %ar.8.val, ptr nocapture noundef %to_delete) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L23handleStartPrefixClicheERKNS_8NGHolderERNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERKNS5_15edge_descriptorISA_EESB_PSt6vectorISD_SaISD_EE(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr noundef nonnull align 8 dereferenceable(56) %g, ptr %v.coerce0, i64 %v.coerce1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %e_old, ptr %ar.0.val, i64 %ar.8.val, ptr nocapture noundef nonnull %to_delete) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %repeat = alloca %"struct.ue2::PureRepeat", align 8
   %ref.tmp31 = alloca %"struct.std::pair.273", align 8
@@ -2709,7 +2709,7 @@ ehcleanup47:                                      ; preds = %ehcleanup, %lpad.i7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L23handleMixedPrefixClicheERKNS_8NGHolderERNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERKNS5_15edge_descriptorISA_EESB_PSt6vectorISD_SaISD_EERKNS_14CompileContextE(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr noundef nonnull align 8 dereferenceable(56) %g, ptr %v.coerce0, i64 %v.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %e_old, ptr %ar.0.val, i64 %ar.8.val, ptr noundef %to_delete, ptr noundef nonnull align 8 dereferenceable(320) %cc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L23handleMixedPrefixClicheERKNS_8NGHolderERNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERKNS5_15edge_descriptorISA_EESB_PSt6vectorISD_SaISD_EERKNS_14CompileContextE(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr noundef nonnull align 8 dereferenceable(56) %g, ptr %v.coerce0, i64 %v.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %e_old, ptr %ar.0.val, i64 %ar.8.val, ptr noundef nonnull %to_delete, ptr noundef nonnull align 8 dereferenceable(320) %cc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %start_succ = alloca %"class.std::set.307", align 8
   %startds_succ = alloca %"class.std::set.307", align 8
@@ -5171,7 +5171,7 @@ declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed
 declare noundef i32 @_ZN3ue218isImplementableNFAERKNS_8NGHolderEPKNS_13ReportManagerERKNS_14CompileContextE(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef, ptr noundef nonnull align 8 dereferenceable(320)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L20replaceWithLitPrefixERNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEEjRKNS_15rose_literal_idEmm(ptr noundef nonnull align 8 dereferenceable(780) %tbi, ptr %v.coerce0, i64 %v.coerce1, i32 noundef %lit_id, ptr noundef nonnull align 8 dereferenceable(124) %lit, i64 noundef %suffixlen, i64 noundef %delay) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L20replaceWithLitPrefixERNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEEjRKNS_15rose_literal_idEmm(ptr noundef nonnull align 8 dereferenceable(780) %tbi, ptr %v.coerce0, i64 %v.coerce1, i32 noundef %lit_id, ptr noundef nonnull align 8 dereferenceable(124) %lit, i64 noundef %suffixlen, i64 noundef range(i64 0, 32) %delay) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp12.i = alloca %"class.boost::container::vec_iterator", align 8
   %agg.tmp14.i = alloca %"class.boost::container::vec_iterator.231", align 8

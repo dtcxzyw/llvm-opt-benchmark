@@ -1243,7 +1243,7 @@ if.end10.i:                                       ; preds = %if.end5.i
   br i1 %tobool.not.i, label %if.then11.i, label %if.else.i
 
 if.then11.i:                                      ; preds = %if.end10.i
-  call fastcc void @pyinit_config(ptr noalias nonnull align 8 %tmp12.i, ptr noundef nonnull %tstate, ptr noundef nonnull %config.i), !noalias !18
+  call fastcc void @pyinit_config(ptr noalias align 8 %tmp12.i, ptr noundef %tstate, ptr noundef %config.i), !noalias !18
   %tmp5.sroa.0.0.copyload17 = load i32, ptr %tmp12.i, align 8
   %tmp5.sroa.9.0.tmp12.i.sroa_idx = getelementptr inbounds i8, ptr %tmp12.i, i64 4
   %tmp5.sroa.9.0.copyload20 = load i32, ptr %tmp5.sroa.9.0.tmp12.i.sroa_idx, align 4
@@ -1551,7 +1551,7 @@ if.end.i:                                         ; preds = %interpreter_update_
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  call fastcc void @init_interp_main(ptr noalias nonnull align 8 %status, ptr noundef nonnull %tstate)
+  call fastcc void @init_interp_main(ptr noalias align 8 %status, ptr noundef nonnull %tstate)
   %9 = load i32, ptr %status, align 8
   %cmp.not = icmp eq i32 %9, 0
   br i1 %cmp.not, label %if.end8, label %if.then7
@@ -3133,8 +3133,8 @@ if.end32:                                         ; preds = %if.end29.i
 if.end40:                                         ; preds = %if.end32
   call void @_PyThreadState_Bind(ptr noundef nonnull %call33) #21
   %18 = load i32, ptr %gil.i, align 4
-  call fastcc void @init_interp_create_gil(ptr noundef nonnull %call33, i32 noundef %18)
-  call fastcc void @pycore_interp_init(ptr noalias nonnull align 8 %tmp41, ptr noundef nonnull %call33)
+  call fastcc void @init_interp_create_gil(ptr noundef %call33, i32 noundef %18)
+  call fastcc void @pycore_interp_init(ptr noalias align 8 %tmp41, ptr noundef nonnull %call33)
   %status.sroa.0.0.copyload28 = load i32, ptr %tmp41, align 8
   %status.sroa.13.0.tmp41.sroa_idx = getelementptr inbounds i8, ptr %tmp41, i64 4
   %status.sroa.13.0.copyload34 = load i32, ptr %status.sroa.13.0.tmp41.sroa_idx, align 4
@@ -3150,7 +3150,7 @@ if.end40:                                         ; preds = %if.end32
   br i1 %cmp43.not, label %if.end45, label %if.then56
 
 if.end45:                                         ; preds = %if.end40
-  call fastcc void @init_interp_main(ptr noalias nonnull align 8 %tmp46, ptr noundef nonnull %call33)
+  call fastcc void @init_interp_main(ptr noalias align 8 %tmp46, ptr noundef nonnull %call33)
   %status.sroa.0.0.copyload29 = load i32, ptr %tmp46, align 8
   %status.sroa.13.0.tmp46.sroa_idx = getelementptr inbounds i8, ptr %tmp46, i64 4
   %status.sroa.13.0.copyload35 = load i32, ptr %status.sroa.13.0.tmp46.sroa_idx, align 4
@@ -3590,7 +3590,7 @@ entry:
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @fatal_error(i32 noundef %fd, i32 noundef %header, ptr noundef %prefix, ptr noundef %msg, i32 noundef %status) unnamed_addr #10 {
+define internal fastcc void @fatal_error(i32 noundef %fd, i32 noundef range(i32 0, 2) %header, ptr noundef %prefix, ptr noundef %msg, i32 noundef range(i32 -1, 2) %status) unnamed_addr #10 {
 entry:
   %.b = load i1, ptr @fatal_error.reentrant, align 4
   br i1 %.b, label %if.then, label %if.end
@@ -3854,7 +3854,7 @@ if.end8:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: nofree noreturn nounwind uwtable
-define internal fastcc void @fatal_error_exit(i32 noundef %status) unnamed_addr #13 {
+define internal fastcc void @fatal_error_exit(i32 noundef range(i32 -1, 2) %status) unnamed_addr #13 {
 entry:
   %cmp = icmp slt i32 %status, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -4063,7 +4063,7 @@ declare void @_PyPathConfig_UpdateGlobal(ptr sret(%struct.PyStatus) align 8, ptr
 declare i32 @_PySys_UpdateConfig(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pyinit_config(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef writeonly %tstate_p, ptr noundef %config) unnamed_addr #1 {
+define internal fastcc void @pyinit_config(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull writeonly %tstate_p, ptr noundef nonnull %config) unnamed_addr #1 {
 entry:
   %interp.i = alloca ptr, align 8
   %tmp.i4 = alloca %struct.PyStatus, align 8
@@ -4098,7 +4098,7 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %pycore_init_runtime.exit.thread
 
 if.end.i:                                         ; preds = %entry
-  call void @_PyConfig_Write(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef %config, ptr noundef nonnull @_PyRuntime) #21, !noalias !55
+  call void @_PyConfig_Write(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, ptr noundef nonnull @_PyRuntime) #21, !noalias !55
   %1 = load i32, ptr %status.i, align 8
   %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %if.end3.i, label %if.then2.i
@@ -4120,7 +4120,7 @@ if.end3.i:                                        ; preds = %if.end.i
   store atomic i64 0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 320) monotonic, align 8, !noalias !55
   store atomic i64 0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 328) monotonic, align 8, !noalias !55
   call void @_Py_InitVersion() #21, !noalias !55
-  call void @_Py_HashRandomization_Init(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i, ptr noundef %config) #21, !noalias !55
+  call void @_Py_HashRandomization_Init(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i, ptr noundef nonnull %config) #21, !noalias !55
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status.i, ptr noundef nonnull align 8 dereferenceable(32) %tmp.i, i64 32, i1 false), !noalias !55
   %2 = load i32, ptr %status.i, align 8, !noalias !55
   %cmp5.not.i = icmp eq i32 %2, 0
@@ -4226,7 +4226,7 @@ if.then.i6:                                       ; preds = %if.end
 if.end.i7:                                        ; preds = %if.end
   %5 = load ptr, ptr %interp.i, align 8, !noalias !58
   %config.i = getelementptr inbounds i8, ptr %5, i64 1592
-  call void @_PyConfig_Copy(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1.i, ptr noundef nonnull %config.i, ptr noundef %config) #21, !noalias !58
+  call void @_PyConfig_Copy(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1.i, ptr noundef nonnull %config.i, ptr noundef nonnull %config) #21, !noalias !58
   %status.sroa.0.0.copyload8.i = load i32, ptr %tmp1.i, align 8, !noalias !58
   %cmp3.not.i = icmp eq i32 %status.sroa.0.0.copyload8.i, 0
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
@@ -4300,13 +4300,13 @@ if.then3:                                         ; preds = %if.then9.i, %if.the
 
 if.end4:                                          ; preds = %if.end16.i
   call void @_PyThreadState_Bind(ptr noundef nonnull %call.i) #21, !noalias !58
-  call fastcc void @init_interp_create_gil(ptr noundef nonnull %call.i, i32 noundef 2), !noalias !58
+  call fastcc void @init_interp_create_gil(ptr noundef %call.i, i32 noundef 2), !noalias !58
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %interp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp1.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp6.i)
   store ptr %call.i, ptr %tstate_p, align 8
-  call fastcc void @pycore_interp_init(ptr noalias nonnull align 8 %tmp5, ptr noundef nonnull %call.i)
+  call fastcc void @pycore_interp_init(ptr noalias align 8 %tmp5, ptr noundef nonnull %call.i)
   %status.sroa.0.0.copyload4 = load i32, ptr %tmp5, align 8
   %cmp7.not = icmp eq i32 %status.sroa.0.0.copyload4, 0
   br i1 %cmp7.not, label %if.end9, label %if.then8
@@ -4345,7 +4345,7 @@ return:                                           ; preds = %if.end9, %if.then8,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pycore_interp_init(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %tstate) unnamed_addr #1 {
+define internal fastcc void @pycore_interp_init(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %tstate) unnamed_addr #1 {
 entry:
   %tmp.i35 = alloca %struct.PyStatus, align 8
   %tmp1.i = alloca %struct.PyStatus, align 8
@@ -4737,7 +4737,7 @@ if.end25:                                         ; preds = %if.end20
 
 if.end30:                                         ; preds = %if.end25
   %tstate.val = load ptr, ptr %interp1, align 8
-  call fastcc void @pycore_init_builtins(ptr noalias nonnull align 8 %tmp31, ptr %tstate.val)
+  call fastcc void @pycore_init_builtins(ptr noalias align 8 %tmp31, ptr %tstate.val)
   %status.sroa.0.0.copyload17 = load i32, ptr %tmp31, align 8
   %status.sroa.22.0.tmp31.sroa_idx = getelementptr inbounds i8, ptr %tmp31, i64 4
   %status.sroa.22.sroa.0.0.copyload95 = load i32, ptr %status.sroa.22.0.tmp31.sroa_idx, align 4
@@ -4849,15 +4849,15 @@ declare ptr @_PyThreadState_New(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare void @_PyThreadState_Bind(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @init_interp_create_gil(ptr noundef %tstate, i32 noundef %gil) unnamed_addr #1 {
+define internal fastcc void @init_interp_create_gil(ptr noundef nonnull %tstate, i32 noundef %gil) unnamed_addr #1 {
 entry:
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
   tail call void @_PyEval_FiniGIL(ptr noundef %0) #21
-  tail call void @_PyGILState_SetTstate(ptr noundef %tstate) #21
+  tail call void @_PyGILState_SetTstate(ptr noundef nonnull %tstate) #21
   %cmp = icmp eq i32 %gil, 2
   %conv = zext i1 %cmp to i32
-  tail call void @_PyEval_InitGIL(ptr noundef %tstate, i32 noundef %conv) #21
+  tail call void @_PyEval_InitGIL(ptr noundef nonnull %tstate, i32 noundef %conv) #21
   ret void
 }
 
@@ -4878,7 +4878,7 @@ declare void @_PyAtExit_Init(ptr sret(%struct.PyStatus) align 8, ptr noundef) lo
 declare void @_PySys_Create(ptr sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pycore_init_builtins(ptr noalias nocapture writeonly align 8 %agg.result, ptr %tstate.16.val) unnamed_addr #1 {
+define internal fastcc void @pycore_init_builtins(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %tstate.16.val) unnamed_addr #1 {
 entry:
   %call = tail call ptr @_PyBuiltin_Init(ptr noundef %tstate.16.val) #21
   %cmp = icmp eq ptr %call, null
@@ -5062,7 +5062,7 @@ declare i32 @_PyImport_InitDefaultImportFunc(ptr noundef) local_unnamed_addr #0
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @init_interp_main(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %tstate) unnamed_addr #1 {
+define internal fastcc void @init_interp_main(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %tstate) unnamed_addr #1 {
 entry:
   %status8.i = alloca %struct.PyStatus, align 8
   %tmp = alloca %struct.PyStatus, align 8
@@ -5268,7 +5268,7 @@ if.then63:                                        ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end70:                                         ; preds = %if.end55, %lor.lhs.false, %if.end33
-  call fastcc void @init_sys_streams(ptr noalias nonnull align 8 %tmp71, ptr noundef nonnull %tstate)
+  call fastcc void @init_sys_streams(ptr noalias align 8 %tmp71, ptr noundef nonnull %tstate)
   %status.sroa.0.0.copyload48 = load i32, ptr %tmp71, align 8
   %cmp73.not = icmp eq i32 %status.sroa.0.0.copyload48, 0
   br i1 %cmp73.not, label %if.end75, label %if.then74
@@ -5281,7 +5281,7 @@ if.then74:                                        ; preds = %if.end70
   br label %return
 
 if.end75:                                         ; preds = %if.end70
-  call fastcc void @init_set_builtins_open(ptr noalias nonnull align 8 %tmp76)
+  call fastcc void @init_set_builtins_open(ptr noalias align 8 %tmp76)
   %status.sroa.0.0.copyload50 = load i32, ptr %tmp76, align 8
   %cmp78.not = icmp eq i32 %status.sroa.0.0.copyload50, 0
   br i1 %cmp78.not, label %if.end80, label %if.then79
@@ -5294,7 +5294,7 @@ if.then79:                                        ; preds = %if.end75
   br label %return
 
 if.end80:                                         ; preds = %if.end75
-  call fastcc void @add_main_module(ptr noalias nonnull align 8 %tmp81, ptr noundef %0)
+  call fastcc void @add_main_module(ptr noalias align 8 %tmp81, ptr noundef %0)
   %status.sroa.0.0.copyload52 = load i32, ptr %tmp81, align 8
   %cmp83.not = icmp eq i32 %status.sroa.0.0.copyload52, 0
   br i1 %cmp83.not, label %if.end85, label %if.then84
@@ -5360,7 +5360,7 @@ if.end101:                                        ; preds = %if.end98, %if.end85
   br i1 %tobool102.not, label %if.end109, label %if.then103
 
 if.then103:                                       ; preds = %if.end101
-  call fastcc void @init_import_site(ptr noalias nonnull align 8 %tmp104)
+  call fastcc void @init_import_site(ptr noalias align 8 %tmp104)
   %status.sroa.0.0.copyload54 = load i32, ptr %tmp104, align 8
   %cmp106.not = icmp eq i32 %status.sroa.0.0.copyload54, 0
   br i1 %cmp106.not, label %if.end109, label %if.then107
@@ -5570,7 +5570,7 @@ declare i32 @_PyPerfTrampoline_SetCallbacks(ptr noundef) local_unnamed_addr #0
 declare i32 @_PyPerfTrampoline_Init(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @init_sys_streams(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %tstate) unnamed_addr #1 {
+define internal fastcc void @init_sys_streams(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %tstate) unnamed_addr #1 {
 entry:
   %sb = alloca %struct.stat, align 8
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
@@ -5613,7 +5613,7 @@ if.end6:                                          ; preds = %if.end
   %5 = load ptr, ptr %stdio_errors, align 8
   %6 = getelementptr i8, ptr %call, i64 224
   %call.val = load i32, ptr %6, align 8
-  %call8 = call fastcc ptr @create_stdio(i32 %call.val, ptr noundef nonnull %call4, i32 noundef %call7, i32 noundef 0, ptr noundef nonnull @.str.147, ptr noundef %4, ptr noundef %5)
+  %call8 = call fastcc ptr @create_stdio(i32 %call.val, ptr noundef %call4, i32 noundef %call7, i32 noundef 0, ptr noundef nonnull @.str.147, ptr noundef %4, ptr noundef %5)
   %cmp9 = icmp eq ptr %call8, null
   br i1 %cmp9, label %if.then.i48, label %if.end11
 
@@ -5641,7 +5641,7 @@ Py_DECREF.exit94:                                 ; preds = %if.end11, %if.then1
   %10 = load ptr, ptr %stdio_encoding, align 8
   %11 = load ptr, ptr %stdio_errors, align 8
   %call.val44 = load i32, ptr %6, align 8
-  %call17 = call fastcc ptr @create_stdio(i32 %call.val44, ptr noundef nonnull %call4, i32 noundef %call14, i32 noundef 1, ptr noundef nonnull @.str.181, ptr noundef %10, ptr noundef %11)
+  %call17 = call fastcc ptr @create_stdio(i32 %call.val44, ptr noundef %call4, i32 noundef %call14, i32 noundef 1, ptr noundef nonnull @.str.181, ptr noundef %10, ptr noundef %11)
   %cmp18 = icmp eq ptr %call17, null
   br i1 %cmp18, label %if.then.i48, label %if.end20
 
@@ -5668,7 +5668,7 @@ Py_DECREF.exit85:                                 ; preds = %if.end20, %if.then1
   %call23 = call i32 @fileno(ptr noundef %14) #21
   %15 = load ptr, ptr %stdio_encoding, align 8
   %call.val45 = load i32, ptr %6, align 8
-  %call25 = call fastcc ptr @create_stdio(i32 %call.val45, ptr noundef nonnull %call4, i32 noundef %call23, i32 noundef 1, ptr noundef nonnull @.str.183, ptr noundef %15, ptr noundef nonnull @.str.184)
+  %call25 = call fastcc ptr @create_stdio(i32 %call.val45, ptr noundef %call4, i32 noundef %call23, i32 noundef 1, ptr noundef nonnull @.str.183, ptr noundef %15, ptr noundef nonnull @.str.184)
   %cmp26 = icmp eq ptr %call25, null
   br i1 %cmp26, label %if.then.i48, label %if.end28
 
@@ -5811,7 +5811,7 @@ return:                                           ; preds = %Py_XDECREF.exit55, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @init_set_builtins_open(ptr noalias nocapture writeonly align 8 %agg.result) unnamed_addr #1 {
+define internal fastcc void @init_set_builtins_open(ptr noalias nocapture nonnull writeonly align 8 %agg.result) unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   %call = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str.160) #21
@@ -5898,7 +5898,7 @@ Py_XDECREF.exit:                                  ; preds = %done, %if.then.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_main_module(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %interp) unnamed_addr #1 {
+define internal fastcc void @add_main_module(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %interp) unnamed_addr #1 {
 entry:
   %loader = alloca ptr, align 8
   %call = tail call ptr @PyImport_AddModule(ptr noundef nonnull @.str.196) #21
@@ -6122,7 +6122,7 @@ declare ptr @PyImport_ImportModule(ptr noundef) local_unnamed_addr #0
 declare void @_PyErr_Print(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @init_import_site(ptr noalias nocapture writeonly align 8 %agg.result) unnamed_addr #1 {
+define internal fastcc void @init_import_site(ptr noalias nocapture nonnull writeonly align 8 %agg.result) unnamed_addr #1 {
 entry:
   %call = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str.209) #21
   %cmp = icmp eq ptr %call, null
@@ -6207,7 +6207,7 @@ declare i32 @PyList_Insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_
 declare i32 @_Py_fstat_noraise(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @create_stdio(i32 %config.224.val, ptr noundef %io, i32 noundef %fd, i32 noundef %write_mode, ptr noundef %name, ptr noundef %encoding, ptr noundef %errors) unnamed_addr #1 {
+define internal fastcc ptr @create_stdio(i32 %config.224.val, ptr noundef nonnull %io, i32 noundef %fd, i32 noundef range(i32 0, 2) %write_mode, ptr noundef %name, ptr noundef %encoding, ptr noundef %errors) unnamed_addr #1 {
 entry:
   %self.addr.i = alloca ptr, align 8
   %cmp.i77 = icmp slt i32 %fd, 0
@@ -6224,7 +6224,7 @@ if.end:                                           ; preds = %is_valid_fd.exit
   %or.cond.not = or i1 %tobool2, %tobool3
   %. = sext i1 %or.cond.not to i32
   %mode.0 = select i1 %tobool3, ptr @.str.189, ptr @.str.188
-  %call10 = tail call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %io, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 53920), ptr noundef nonnull @.str.190, i32 noundef %fd, ptr noundef nonnull %mode.0, i32 noundef %., ptr noundef nonnull @_Py_NoneStruct, ptr noundef nonnull @_Py_NoneStruct, ptr noundef nonnull @_Py_NoneStruct, ptr noundef nonnull @_Py_FalseStruct) #21
+  %call10 = tail call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef nonnull %io, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 53920), ptr noundef nonnull @.str.190, i32 noundef %fd, ptr noundef nonnull %mode.0, i32 noundef %., ptr noundef nonnull @_Py_NoneStruct, ptr noundef nonnull @_Py_NoneStruct, ptr noundef nonnull @_Py_NoneStruct, ptr noundef nonnull @_Py_FalseStruct) #21
   %cmp = icmp eq ptr %call10, null
   br i1 %cmp, label %Py_XDECREF.exit109, label %if.end12
 
@@ -6387,7 +6387,7 @@ if.end.i168:                                      ; preds = %if.then84
   br i1 %cmp.i170, label %Py_XDECREF.exit109.sink.split, label %Py_XDECREF.exit109
 
 if.end87:                                         ; preds = %if.end69
-  %call88 = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %io, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26056), ptr noundef nonnull @.str.191, ptr noundef nonnull %call10, ptr noundef nonnull %call59, ptr noundef nonnull %call70, ptr noundef nonnull @.str.142, ptr noundef nonnull %line_buffering.0, ptr noundef nonnull %_Py_TrueStruct._Py_FalseStruct) #21
+  %call88 = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef nonnull %io, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26056), ptr noundef nonnull @.str.191, ptr noundef nonnull %call10, ptr noundef nonnull %call59, ptr noundef nonnull %call70, ptr noundef nonnull @.str.142, ptr noundef nonnull %line_buffering.0, ptr noundef nonnull %_Py_TrueStruct._Py_FalseStruct) #21
   %14 = load i64, ptr %call10, align 8
   %15 = and i64 %14, 2147483648
   %cmp.i243.not = icmp eq i64 %15, 0

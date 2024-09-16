@@ -4160,7 +4160,7 @@ _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE6assignIPKS1_vEEvT_S7_.exit: ; preds
           to label %48 unwind label %59
 
 48:                                               ; preds = %46
-  invoke fastcc void @_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry12dumpBackendsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %12)
+  invoke fastcc void @_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry12dumpBackendsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %12)
           to label %49 unwind label %59
 
 49:                                               ; preds = %48
@@ -4701,7 +4701,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
           to label %241 unwind label %252
 
 241:                                              ; preds = %238
-  invoke fastcc void @_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry12dumpBackendsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %15)
+  invoke fastcc void @_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry12dumpBackendsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %15)
           to label %242 unwind label %252
 
 242:                                              ; preds = %241
@@ -5054,7 +5054,7 @@ _ZN2cv16VideoBackendInfoaSERKS0_.exit:            ; preds = %_ZNSt16_Sp_counted_
           to label %388 unwind label %399
 
 388:                                              ; preds = %386
-  invoke fastcc void @_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry12dumpBackendsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %23)
+  invoke fastcc void @_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry12dumpBackendsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %23)
           to label %389 unwind label %399
 
 389:                                              ; preds = %388
@@ -5182,7 +5182,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv16VideoBackendInfoESt6vectorIS3_Sa
           to label %436 unwind label %447
 
 436:                                              ; preds = %434
-  invoke fastcc void @_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry12dumpBackendsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %26)
+  invoke fastcc void @_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry12dumpBackendsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %26)
           to label %437 unwind label %447
 
 437:                                              ; preds = %436
@@ -5365,7 +5365,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry12dumpBackendsB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry12dumpBackendsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2)
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEvE10g_instance, i64 8), align 8
@@ -5436,7 +5436,7 @@ define internal fastcc void @_ZNK2cv12_GLOBAL__N_120VideoBackendRegistry12dumpBa
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %23, %1
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %2)
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %2)
           to label %32 unwind label %.loopexit.split-lp
 
 32:                                               ; preds = %._crit_edge

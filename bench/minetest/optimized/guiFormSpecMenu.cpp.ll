@@ -96398,7 +96398,7 @@ if.end44:                                         ; preds = %_ZNSt12_Vector_base
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIS5_EE3$_0EEEvT_SI_T0_"(ptr %__first.coerce, ptr %__last.coerce, ptr %__comp.coerce) unnamed_addr #5 {
+define internal fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIS5_EE3$_0EEEvT_SI_T0_"(ptr %__first.coerce, ptr %__last.coerce, ptr nonnull %__comp.coerce) unnamed_addr #5 {
 entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
@@ -96427,7 +96427,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIS5_EE3$_0EEEvT_SI_T0_T1_T2_"(ptr %__first.coerce, ptr %__last.coerce, ptr noundef %__buffer, i64 noundef %__buffer_size, ptr %__comp.coerce) unnamed_addr #5 {
+define internal fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIS5_EE3$_0EEEvT_SI_T0_T1_T2_"(ptr %__first.coerce, ptr %__last.coerce, ptr noundef nonnull %__buffer, i64 noundef range(i64 1, 576460752303423489) %__buffer_size, ptr nonnull %__comp.coerce) unnamed_addr #5 {
 entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
@@ -96462,7 +96462,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #27
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIS5_EE3$_0EEEvT_SI_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce, ptr nocapture readonly %__comp.coerce) unnamed_addr #5 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIS5_EE3$_0EEEvT_SI_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #5 {
 entry:
   %cmp.i = icmp eq ptr %__first.coerce, %__last.coerce
   br i1 %cmp.i, label %for.end, label %for.cond.preheader
@@ -96634,7 +96634,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIS5_EE3$_0EEEvT_SI_SI_T0_SJ_T1_"(ptr %__first.coerce, ptr %__middle.coerce, ptr %__last.coerce, i64 noundef %__len1, i64 noundef %__len2, ptr nocapture readonly %__comp.coerce) unnamed_addr #5 {
+define internal fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIS5_EE3$_0EEEvT_SI_SI_T0_SJ_T1_"(ptr %__first.coerce, ptr %__middle.coerce, ptr %__last.coerce, i64 noundef %__len1, i64 noundef %__len2, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #5 {
 entry:
   %cmp187 = icmp eq i64 %__len1, 0
   %cmp5188 = icmp eq i64 %__len2, 0
@@ -97310,7 +97310,7 @@ return:                                           ; preds = %for.cond.cleanup102
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIS5_EE3$_0EEEvT_SI_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, ptr noundef %__buffer, ptr nocapture readonly %__comp.coerce) unnamed_addr #5 {
+define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIS5_EE3$_0EEEvT_SI_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, ptr noundef nonnull %__buffer, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #5 {
 entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
@@ -97839,7 +97839,7 @@ while.end:                                        ; preds = %"_ZSt17__merge_sort
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEElS6_NS0_5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIS5_EE3$_0EEEvT_SI_SI_T0_SJ_T1_SJ_T2_"(ptr %__first.coerce, ptr %__middle.coerce, ptr %__last.coerce, i64 noundef %__len1, i64 noundef %__len2, ptr noundef %__buffer, i64 noundef %__buffer_size, i64 %__comp.coerce) unnamed_addr #5 {
+define internal fastcc void @"_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEElS6_NS0_5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIS5_EE3$_0EEEvT_SI_SI_T0_SJ_T1_SJ_T2_"(ptr %__first.coerce, ptr %__middle.coerce, ptr %__last.coerce, i64 noundef %__len1, i64 noundef range(i64 -1152921504606846976, 4611686018427387904) %__len2, ptr noundef nonnull %__buffer, i64 noundef range(i64 1, 576460752303423489) %__buffer_size, i64 %__comp.coerce) unnamed_addr #5 {
 entry:
   %coerce.val.ip = inttoptr i64 %__comp.coerce to ptr
   %cmp.not319 = icmp sgt i64 %__len1, %__len2
@@ -97863,7 +97863,7 @@ land.rhs.lr.ph.i:                                 ; preds = %if.then
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__middle.coerce.tr.lcssa to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %__first.coerce.tr.lcssa to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__first.coerce.tr.lcssa, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %__buffer, ptr align 8 %__first.coerce.tr.lcssa, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__buffer, i64 %sub.ptr.sub.i.i.i.i.i
   %m_fields.i.i.i.i = getelementptr inbounds i8, ptr %coerce.val.ip, i64 1048
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %coerce.val.ip, i64 1056
@@ -97977,7 +97977,7 @@ if.then19:                                        ; preds = %if.else
   br i1 %tobool.not.i.i.i.i.i142, label %if.end113, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit145.thread
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit145.thread: ; preds = %if.then19
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__middle.coerce.tr323, i64 %sub.ptr.sub.i.i.i.i.i141, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %__buffer, ptr align 8 %__middle.coerce.tr323, i64 %sub.ptr.sub.i.i.i.i.i141, i1 false)
   %cmp.i.i343 = icmp eq ptr %__first.coerce.tr322, %__middle.coerce.tr323
   br i1 %cmp.i.i343, label %if.then.i.i.i.i.i.i, label %if.end9.i
 
@@ -97985,7 +97985,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZSt4moveIN9__gnu_c
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i141, 3
   %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__last.coerce, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i141, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i.i, ptr nonnull align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i141, i1 false)
   br label %if.end113
 
 if.end9.i:                                        ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit145.thread
@@ -98080,7 +98080,7 @@ if.then.i.i.i.i.i54.i:                            ; preds = %if.then19.i
   %sub.ptr.div.i.i.i.i.i51.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i50.i, 3
   %.pre.i.i.i.i.i53.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i51.i
   %add.ptr.i.i.i.i.i55.i = getelementptr inbounds ptr, ptr %incdec.ptr.i46.i, i64 %.pre.i.i.i.i.i53.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i55.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i50.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i55.i, ptr nonnull align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i50.i, i1 false)
   br label %if.end113
 
 if.else28.i:                                      ; preds = %for.inc.i18.i.i.i173, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIPN3irr3gui11IGUIElementEEE3$_0EclIPS7_NS_17__normal_iteratorISC_St6vectorIS7_SaIS7_EEEEEEbT_T0_.exit.i", %_ZN15GUIFormSpecMenu11getSpecByIDEi.exit22.i.i.i176, %_ZN15GUIFormSpecMenu11getSpecByIDEi.exit.i.i.i163
@@ -98308,7 +98308,7 @@ if.then4.i:                                       ; preds = %if.then.i295
   br i1 %tobool.not.i.i.i.i.i.i299, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i, label %if.then.i.i.i.i.i.i300
 
 if.then.i.i.i.i.i.i300:                           ; preds = %if.then4.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__middle.coerce.tr323, i64 %sub.ptr.sub.i.i.i.i.i.i298, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %__buffer, ptr align 8 %__middle.coerce.tr323, i64 %sub.ptr.sub.i.i.i.i.i.i298, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i: ; preds = %if.then.i.i.i.i.i.i300, %if.then4.i
@@ -98328,7 +98328,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6v
   br i1 %tobool.not.i.i.i.i.i.i299, label %_ZSt4moveIPPN3irr3gui11IGUIElementEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i303, label %if.then.i.i.i.i.i73.i
 
 if.then.i.i.i.i.i73.i:                            ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__first_cut.sroa.0.0, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i.i298, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__first_cut.sroa.0.0, ptr nonnull align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i.i298, i1 false)
   br label %_ZSt4moveIPPN3irr3gui11IGUIElementEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i303
 
 _ZSt4moveIPPN3irr3gui11IGUIElementEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i303: ; preds = %if.then.i.i.i.i.i73.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
@@ -98350,7 +98350,7 @@ if.then24.i:                                      ; preds = %if.then22.i
   br i1 %tobool.not.i.i.i.i.i78.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit81.i, label %if.then.i.i.i.i.i79.i
 
 if.then.i.i.i.i.i79.i:                            ; preds = %if.then24.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__first_cut.sroa.0.0, i64 %sub.ptr.sub.i.i.i.i.i77.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %__buffer, ptr align 8 %__first_cut.sroa.0.0, i64 %sub.ptr.sub.i.i.i.i.i77.i, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit81.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit81.i: ; preds = %if.then.i.i.i.i.i79.i, %if.then24.i
@@ -98370,7 +98370,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_S
 
 if.then.i.i.i.i.i94.i:                            ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
   %add.ptr.i.i.i.i.i95.i = getelementptr inbounds ptr, ptr %__second_cut.sroa.0.0, i64 %.pre.i.i.i.i.i93.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i95.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i77.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i95.i, ptr nonnull align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i77.i, i1 false)
   br label %_ZSt13move_backwardIPPN3irr3gui11IGUIElementEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i
 
 _ZSt13move_backwardIPPN3irr3gui11IGUIElementEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i: ; preds = %if.then.i.i.i.i.i94.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i

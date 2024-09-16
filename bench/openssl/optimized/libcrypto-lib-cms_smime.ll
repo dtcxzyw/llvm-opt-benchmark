@@ -46,7 +46,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %call6 = tail call fastcc i32 @cms_copy_content(ptr noundef %out, ptr noundef nonnull %call2, i32 noundef %flags)
+  %call6 = tail call fastcc i32 @cms_copy_content(ptr noundef %out, ptr noundef %call2, i32 noundef %flags)
   tail call void @BIO_free_all(ptr noundef nonnull %call2) #4
   br label %return
 
@@ -68,7 +68,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare ptr @CMS_dataInit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cms_copy_content(ptr noundef %out, ptr noundef %in, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_copy_content(ptr noundef %out, ptr noundef nonnull %in, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %buf = alloca [4096 x i8], align 16
   %cmp.i = icmp eq ptr %out, null
@@ -106,17 +106,17 @@ if.then:                                          ; preds = %cms_get_text_bio.ex
   br label %err
 
 for.cond:                                         ; preds = %for.cond.preheader, %land.lhs.true
-  %call1 = call i32 @BIO_read(ptr noundef %in, ptr noundef nonnull %buf, i32 noundef 4096) #4
+  %call1 = call i32 @BIO_read(ptr noundef nonnull %in, ptr noundef nonnull %buf, i32 noundef 4096) #4
   %cmp2 = icmp slt i32 %call1, 1
   br i1 %cmp2, label %if.then3, label %land.lhs.true
 
 if.then3:                                         ; preds = %for.cond
-  %call4 = call i32 @BIO_method_type(ptr noundef %in) #4
+  %call4 = call i32 @BIO_method_type(ptr noundef nonnull %in) #4
   %cmp5 = icmp eq i32 %call4, 522
   br i1 %cmp5, label %if.then6, label %if.end11
 
 if.then6:                                         ; preds = %if.then3
-  %call7 = call i64 @BIO_ctrl(ptr noundef %in, i32 noundef 113, i64 noundef 0, ptr noundef null) #4
+  %call7 = call i64 @BIO_ctrl(ptr noundef nonnull %in, i32 noundef 113, i64 noundef 0, ptr noundef null) #4
   %cmp8 = icmp slt i64 %call7, 1
   %cmp12 = icmp ne i32 %call1, 0
   %or.cond = or i1 %cmp12, %cmp8
@@ -312,7 +312,7 @@ if.end5:                                          ; preds = %lor.lhs.false.i, %i
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end5
-  %call10 = tail call fastcc i32 @cms_copy_content(ptr noundef %out, ptr noundef nonnull %call6, i32 noundef %flags)
+  %call10 = tail call fastcc i32 @cms_copy_content(ptr noundef %out, ptr noundef %call6, i32 noundef %flags)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.end14, label %if.then12
 
@@ -483,7 +483,7 @@ if.end9:                                          ; preds = %if.end5
   br i1 %cmp11, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end9
-  %call14 = tail call fastcc i32 @cms_copy_content(ptr noundef %out, ptr noundef nonnull %call10, i32 noundef %flags)
+  %call14 = tail call fastcc i32 @cms_copy_content(ptr noundef %out, ptr noundef %call10, i32 noundef %flags)
   br i1 %cmp2, label %if.else.i, label %do.body.i
 
 do.body.i:                                        ; preds = %if.end13, %do.body.i
@@ -943,7 +943,7 @@ if.else173:                                       ; preds = %if.end123, %if.end1
   br i1 %cmp175, label %err, label %if.end178
 
 if.end178:                                        ; preds = %if.else173
-  %call179 = call fastcc i32 @cms_copy_content(ptr noundef %out, ptr noundef nonnull %call174, i32 noundef %flags.addr.0)
+  %call179 = call fastcc i32 @cms_copy_content(ptr noundef %out, ptr noundef %call174, i32 noundef %flags.addr.0)
   %tobool180.not = icmp eq i32 %call179, 0
   br i1 %tobool180.not, label %err, label %if.end183
 
@@ -1853,7 +1853,7 @@ if.end31:                                         ; preds = %land.lhs.true27, %i
   br i1 %cmp33, label %return, label %if.end36
 
 if.end36:                                         ; preds = %if.end31
-  %call37 = tail call fastcc i32 @cms_copy_content(ptr noundef %out, ptr noundef nonnull %call32, i32 noundef %flags)
+  %call37 = tail call fastcc i32 @cms_copy_content(ptr noundef %out, ptr noundef %call32, i32 noundef %flags)
   br i1 %cmp3, label %if.else.i, label %do.body.i
 
 do.body.i:                                        ; preds = %if.end36, %do.body.i

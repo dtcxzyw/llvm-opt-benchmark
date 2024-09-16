@@ -2738,7 +2738,7 @@ client_seek_proxy.exit173:                        ; preds = %client_switch_proxy
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @client_seek_proxy(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @client_seek_proxy(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 200

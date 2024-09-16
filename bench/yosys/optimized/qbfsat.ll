@@ -4005,7 +4005,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i:              ; preds = %349
 364:                                              ; preds = %_ZNSt6vectorIPcSaIS0_EE2atEm.exit.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %30)
-  invoke fastcc void @_ZN12_GLOBAL__N_19qbf_solveEPN5Yosys5RTLIL6ModuleERKNS0_15QbfSolveOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull %.022.lcssa, ptr noundef nonnull align 8 dereferenceable(192) %33)
+  invoke fastcc void @_ZN12_GLOBAL__N_19qbf_solveEPN5Yosys5RTLIL6ModuleERKNS0_15QbfSolveOptionsE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef %.022.lcssa, ptr noundef nonnull align 8 dereferenceable(192) %33)
           to label %365 unwind label %400
 
 365:                                              ; preds = %364
@@ -6195,7 +6195,7 @@ declare void @_ZN5Yosys13log_cmd_errorEPKcz(ptr noundef, ...) local_unnamed_addr
 declare void @_ZN5Yosys8log_pushEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19qbf_solveEPN5Yosys5RTLIL6ModuleERKNS0_15QbfSolveOptionsE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(192) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19qbf_solveEPN5Yosys5RTLIL6ModuleERKNS0_15QbfSolveOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(192) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::allocator", align 1
@@ -9112,7 +9112,7 @@ thread-pre-split:                                 ; preds = %1127, %1105
   br i1 %1172, label %1173, label %1198
 
 1173:                                             ; preds = %1169, %1156, %1152
-  invoke fastcc void @_ZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS0_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbi(ptr dead_on_unwind noalias nonnull writable align 8 %66, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(32) %45, i32 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS0_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbi(ptr dead_on_unwind noalias writable align 8 %66, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(32) %45, i32 noundef 0)
           to label %1174 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 1174:                                             ; preds = %1173
@@ -10255,7 +10255,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit575:                ; preds = %1601, %1599, %1590
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit569:              ; preds = %1533, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i567, %1255
   %1604 = phi i32 [ %1512, %1533 ], [ %1512, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i567 ], [ %1245, %1255 ]
   %1605 = phi i32 [ %1512, %1533 ], [ %1512, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i567 ], [ %1246, %1255 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS0_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbi(ptr dead_on_unwind noalias nonnull writable align 8 %97, ptr noundef %.0266, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(32) %45, i32 noundef %.0210)
+  invoke fastcc void @_ZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS0_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbi(ptr dead_on_unwind noalias writable align 8 %97, ptr noundef %.0266, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(32) %45, i32 noundef %.0210)
           to label %1606 unwind label %.loopexit755
 
 1606:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit569
@@ -15741,7 +15741,7 @@ declare noundef zeroext i1 @_ZNK5Yosys5RTLIL10AttrObject18get_bool_attributeERKN
 declare void @_ZN5Yosys5RTLIL10AttrObject18set_bool_attributeERKNS0_8IdStringEb(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS0_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbi(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS0_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %struct.rusage, align 8
   %7 = alloca [2 x i32], align 4
   %8 = alloca %struct.rusage, align 8

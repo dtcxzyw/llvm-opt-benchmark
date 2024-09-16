@@ -298,11 +298,11 @@ define dso_local i32 @report_locks_set() local_unnamed_addr #0 {
   store ptr @.str.4, ptr %3, align 8
   store ptr @.str.4, ptr %4, align 8
   store ptr @.str.4, ptr %5, align 8
-  call fastcc void @_report_lock_set(ptr noundef nonnull %1, i32 noundef 0)
-  call fastcc void @_report_lock_set(ptr noundef nonnull %2, i32 noundef 1)
-  call fastcc void @_report_lock_set(ptr noundef nonnull %3, i32 noundef 2)
-  call fastcc void @_report_lock_set(ptr noundef nonnull %4, i32 noundef 3)
-  call fastcc void @_report_lock_set(ptr noundef nonnull %5, i32 noundef 4)
+  call fastcc void @_report_lock_set(ptr noundef %1, i32 noundef 0)
+  call fastcc void @_report_lock_set(ptr noundef %2, i32 noundef 1)
+  call fastcc void @_report_lock_set(ptr noundef %3, i32 noundef 2)
+  call fastcc void @_report_lock_set(ptr noundef %4, i32 noundef 3)
+  call fastcc void @_report_lock_set(ptr noundef %5, i32 noundef 4)
   %6 = load ptr, ptr %1, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #9
   %8 = load ptr, ptr %2, align 8
@@ -330,7 +330,7 @@ define dso_local i32 @report_locks_set() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_report_lock_set(ptr nocapture noundef writeonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_report_lock_set(ptr nocapture noundef nonnull writeonly %0, i32 noundef range(i32 0, 5) %1) unnamed_addr #0 {
   %3 = zext nneg i32 %1 to i64
   %4 = getelementptr inbounds [5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 %3
   %5 = tail call i32 @pthread_rwlock_tryrdlock(ptr noundef nonnull %4) #6

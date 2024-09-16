@@ -1283,7 +1283,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %29
   %48 = load ptr, ptr %.fca.0.extract63, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 32
   %50 = load i64, ptr %48, align 8
-  call fastcc void @_ZL20getDirectoryFromFileRN5clang11FileManagerEN4llvm9StringRefEb(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr %2, i64 %3, i1 noundef zeroext %5)
+  call fastcc void @_ZL20getDirectoryFromFileRN5clang11FileManagerEN4llvm9StringRefEb(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr %2, i64 %3, i1 noundef zeroext %5)
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %52 = load i8, ptr %51, align 8
   %53 = trunc i8 %52 to i1
@@ -1680,7 +1680,7 @@ _ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit: ; preds = %239, %_ZNKSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20getDirectoryFromFileRN5clang11FileManagerEN4llvm9StringRefEb(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_ZL20getDirectoryFromFileRN5clang11FileManagerEN4llvm9StringRefEb(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %"class.llvm::Error", align 8
   %8 = icmp eq i64 %3, 0
@@ -1724,7 +1724,7 @@ _ZN4llvm5ErrorD2Ev.exit8:                         ; preds = %14
   %28 = icmp eq i64 %27, 0
   %spec.select = select i1 %28, ptr @.str, ptr %26
   %spec.select17 = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
-  tail call void @_ZN5clang11FileManager15getDirectoryRefEN4llvm9StringRefEb(ptr dead_on_unwind writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr %spec.select, i64 %spec.select17, i1 noundef zeroext %4)
+  tail call void @_ZN5clang11FileManager15getDirectoryRefEN4llvm9StringRefEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr %spec.select, i64 %spec.select17, i1 noundef zeroext %4)
   br label %29
 
 29:                                               ; preds = %24, %_ZN4llvm5ErrorD2Ev.exit8, %_ZN4llvm5ErrorD2Ev.exit
@@ -1990,7 +1990,7 @@ define dso_local ptr @_ZN5clang11FileManager17getVirtualFileRefEN4llvm9StringRef
   %40 = icmp eq i64 %2, 0
   %spec.select = select i1 %40, ptr @.str, ptr %1
   %spec.select102 = call i64 @llvm.umax.i64(i64 %2, i64 1)
-  call fastcc void @_ZL20getDirectoryFromFileRN5clang11FileManagerEN4llvm9StringRefEb(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(808) %0, ptr %spec.select, i64 %spec.select102, i1 noundef zeroext true)
+  call fastcc void @_ZL20getDirectoryFromFileRN5clang11FileManagerEN4llvm9StringRefEb(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(808) %0, ptr %spec.select, i64 %spec.select102, i1 noundef zeroext true)
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %42 = load i8, ptr %41, align 8
   %43 = trunc i8 %42 to i1

@@ -56,7 +56,7 @@ define hidden range(i32 0, 2) i32 @GetMultiVisualRegions(ptr noundef %0, i64 nou
   store ptr null, ptr %13, align 8
   %29 = load i32, ptr %11, align 4
   %30 = load ptr, ptr %12, align 8
-  %31 = call fastcc ptr @make_region_list(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %18, ptr noundef nonnull %17, i32 noundef %29, ptr noundef %30, ptr noundef %15)
+  %31 = call fastcc ptr @make_region_list(ptr noundef %0, i64 noundef %1, ptr noundef %18, ptr noundef %17, i32 noundef %29, ptr noundef %30, ptr noundef %15)
   store ptr %31, ptr %13, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %50, label %33
@@ -70,7 +70,7 @@ define hidden range(i32 0, 2) i32 @GetMultiVisualRegions(ptr noundef %0, i64 nou
   store i32 1, ptr %15, align 4
   %36 = load i32, ptr %11, align 4
   %37 = load ptr, ptr %12, align 8
-  %38 = call fastcc ptr @make_region_list(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %18, ptr noundef nonnull %17, i32 noundef %36, ptr noundef %37, ptr noundef nonnull %15)
+  %38 = call fastcc ptr @make_region_list(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %18, ptr noundef %17, i32 noundef %36, ptr noundef %37, ptr noundef nonnull %15)
   store ptr %38, ptr %14, align 8
   %.pr = load ptr, ptr %13, align 8
   %.not39 = icmp eq ptr %.pr, null
@@ -260,7 +260,7 @@ define hidden range(i32 0, 2) i32 @GetXVisualInfo(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @make_region_list(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6) unnamed_addr #1 {
+define internal fastcc ptr @make_region_list(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6) unnamed_addr #1 {
   %8 = alloca %struct.XRectangle, align 2
   %9 = alloca %struct.XRectangle, align 2
   %10 = alloca %struct.XWindowAttributes, align 8
@@ -268,7 +268,7 @@ define internal fastcc ptr @make_region_list(ptr noundef %0, i64 noundef %1, ptr
   %12 = alloca %struct.XRectangle, align 2
   %13 = tail call ptr @XCreateRegion() #9
   store i32 0, ptr %3, align 4
-  %14 = tail call i32 @XUnionRectWithRegion(ptr noundef %2, ptr noundef %13, ptr noundef %13) #9
+  %14 = tail call i32 @XUnionRectWithRegion(ptr noundef nonnull %2, ptr noundef %13, ptr noundef %13) #9
   %15 = call i32 @XGetWindowAttributes(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %10) #9
   call void @zero_list(ptr noundef nonnull %11) #9
   store i16 0, ptr %12, align 2
@@ -284,7 +284,7 @@ define internal fastcc ptr @make_region_list(ptr noundef %0, i64 noundef %1, ptr
   %23 = trunc i32 %22 to i16
   %24 = getelementptr inbounds i8, ptr %12, i64 6
   store i16 %23, ptr %24, align 2
-  call fastcc void @make_src_list(ptr noundef %0, ptr noundef nonnull %11, ptr noundef %2, i64 noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %10, ptr noundef nonnull %12)
+  call fastcc void @make_src_list(ptr noundef %0, ptr noundef %11, ptr noundef %2, i64 noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef %10, ptr noundef %12)
   %25 = call ptr @new_list() #9
   %26 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %26, 0
@@ -641,7 +641,7 @@ define hidden ptr @ReadAreaToImage(ptr noundef %0, i64 noundef %1, i32 noundef %
   %.mask204 = and i32 %2, 65535
   %.sroa.0.0.insert.ext = zext nneg i32 %.mask204 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.8.0.insert.insert, %.sroa.0.0.insert.ext
-  %25 = call fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef nonnull %17, i32 noundef %14, i32 noundef %4, i32 noundef %5, i64 %.sroa.0.0.insert.insert, ptr noundef %12)
+  %25 = call fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef %17, i32 noundef %14, i32 noundef %4, i32 noundef %5, i64 %.sroa.0.0.insert.insert, ptr noundef %12)
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %32, label %26
 
@@ -653,7 +653,7 @@ define hidden ptr @ReadAreaToImage(ptr noundef %0, i64 noundef %1, i32 noundef %
   br i1 %or.cond, label %32, label %30
 
 30:                                               ; preds = %26
-  %31 = call fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef nonnull %17, i32 noundef %14, i32 noundef %4, i32 noundef %5, i64 %.sroa.0.0.insert.insert, ptr noundef nonnull %13)
+  %31 = call fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef %17, i32 noundef %14, i32 noundef %4, i32 noundef %5, i64 %.sroa.0.0.insert.insert, ptr noundef nonnull %13)
   br label %32
 
 32:                                               ; preds = %30, %26, %16
@@ -929,13 +929,13 @@ src_in_overlay.exit.thread:                       ; preds = %.lr.ph, %src_in_ove
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 %5, ptr noundef %6) unnamed_addr #1 {
+define internal fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 %5, ptr noundef %6) unnamed_addr #1 {
   %.sroa.0.0.extract.trunc = trunc i64 %5 to i32
   %.sroa.11.0.extract.shift = lshr i64 %5, 32
   %.sroa.11.0.extract.trunc = trunc nuw i64 %.sroa.11.0.extract.shift to i32
   %.sroa.13.0.extract.shift = lshr i64 %5, 48
   %.sroa.13.0.extract.trunc = trunc nuw nsw i64 %.sroa.13.0.extract.shift to i32
-  %8 = tail call ptr @XCreateImage(ptr noundef %0, ptr noundef %1, i32 noundef 24, i32 noundef %2, i32 noundef 0, ptr noundef null, i32 noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef 0) #9
+  %8 = tail call ptr @XCreateImage(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 24, i32 noundef %2, i32 noundef 0, ptr noundef null, i32 noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef 0) #9
   %9 = getelementptr inbounds i8, ptr %8, i64 44
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %2, 2
@@ -1446,7 +1446,7 @@ declare i32 @XGetWindowAttributes(ptr noundef, i64 noundef, ptr noundef) local_u
 declare void @zero_list(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @make_src_list(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7) unnamed_addr #1 {
+define internal fastcc void @make_src_list(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull readonly %6, ptr nocapture noundef nonnull readonly %7) unnamed_addr #1 {
   %9 = alloca %struct.XWindowAttributes, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
@@ -1615,7 +1615,7 @@ define internal fastcc void @make_src_list(ptr noundef %0, ptr noundef %1, ptr n
   store i16 %136, ptr %103, align 2
   %137 = load ptr, ptr %12, align 8
   %138 = load i64, ptr %137, align 8
-  call fastcc void @make_src_list(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %138, i32 noundef %111, i32 noundef %126, ptr noundef nonnull %9, ptr noundef nonnull %14)
+  call fastcc void @make_src_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %138, i32 noundef %111, i32 noundef %126, ptr noundef %9, ptr noundef %14)
   br label %139
 
 139:                                              ; preds = %122, %135, %104
@@ -1653,7 +1653,7 @@ declare void @delete_list(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @XQueryTree(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_window_to_list(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i64 noundef %10, i64 noundef %11) unnamed_addr #1 {
+define internal fastcc void @add_window_to_list(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 -32768, 32768) %4, i32 noundef range(i32 -32768, 32768) %5, i32 noundef range(i32 0, 65536) %6, i32 noundef range(i32 0, 65536) %7, i32 noundef %8, ptr noundef %9, i64 noundef %10, i64 noundef %11) unnamed_addr #1 {
   %13 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #10
   %14 = icmp eq ptr %13, null
   br i1 %14, label %27, label %15
@@ -1680,7 +1680,7 @@ define internal fastcc void @add_window_to_list(ptr noundef %0, i64 noundef %1, 
   store i64 %10, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %13, i64 56
   store i64 %11, ptr %25, align 8
-  %26 = tail call i32 @add_to_list(ptr noundef %0, ptr noundef nonnull %13) #9
+  %26 = tail call i32 @add_to_list(ptr noundef nonnull %0, ptr noundef nonnull %13) #9
   br label %27
 
 27:                                               ; preds = %12, %15

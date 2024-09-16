@@ -868,15 +868,15 @@ if.end10:                                         ; preds = %if.else7.i, %if.end
   %arrayidx.i17 = getelementptr inbounds i64, ptr %bitmap, i64 %spec.store.select
   %7 = load atomic i64, ptr %arrayidx.i17 monotonic, align 8
   %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %7, i1 false)
-  %cmp106.i = icmp eq i64 %8, 0
-  br i1 %cmp106.i, label %for.inc, label %if.end.lr.ph.i
+  %cmp102.i = icmp eq i64 %8, 0
+  br i1 %cmp102.i, label %for.inc, label %if.end.lr.ph.i
 
 if.end.lr.ph.i:                                   ; preds = %if.end10
   %sub6.i = sub i64 %bitmap_fields, %spec.store.select
   br label %if.end.i19
 
 tailrecurse.i:                                    ; preds = %if.end77.i
-  %add80.i = add nuw nsw i64 %retries.tr107.i, 1
+  %add80.i = add nuw nsw i64 %retries.tr103.i, 1
   %9 = load atomic i64, ptr %arrayidx.i17 monotonic, align 8
   %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %9, i1 false)
   %cmp.i33 = icmp eq i64 %10, 0
@@ -885,7 +885,7 @@ tailrecurse.i:                                    ; preds = %if.end77.i
 if.end.i19:                                       ; preds = %tailrecurse.i, %if.end.lr.ph.i
   %11 = phi i64 [ %8, %if.end.lr.ph.i ], [ %10, %tailrecurse.i ]
   %12 = phi i64 [ %7, %if.end.lr.ph.i ], [ %9, %tailrecurse.i ]
-  %retries.tr107.i = phi i64 [ 0, %if.end.lr.ph.i ], [ %add80.i, %tailrecurse.i ]
+  %retries.tr103.i = phi i64 [ 0, %if.end.lr.ph.i ], [ %add80.i, %tailrecurse.i ]
   %cmp1.not.i = icmp ult i64 %11, %count
   br i1 %cmp1.not.i, label %if.end4.i, label %if.then2.i
 
@@ -904,7 +904,7 @@ while.cond.outer.split.lr.ph.i.i:                 ; preds = %if.end.i.i21
   %shl.i.i = shl i64 %retval.0.i.i.i, %14
   br label %while.cond.outer.split.i.i
 
-while.cond.outer.split.i.i:                       ; preds = %while.cond.outer.split.lr.ph.i.i, %if.else7.i.i
+while.cond.outer.split.i.i:                       ; preds = %if.else7.i.i, %while.cond.outer.split.lr.ph.i.i
   %map.0.ph25.i.i = phi i64 [ %map.0.i.i, %if.else7.i.i ], [ %13, %while.cond.outer.split.lr.ph.i.i ]
   %bitidx.0.ph24.i.i = phi i64 [ %add.i.i23, %if.else7.i.i ], [ %14, %while.cond.outer.split.lr.ph.i.i ]
   %m.0.ph23.i.i = phi i64 [ %shl12.i.i, %if.else7.i.i ], [ %shl.i.i, %while.cond.outer.split.lr.ph.i.i ]
@@ -939,18 +939,18 @@ if.end4.i:                                        ; preds = %if.end.i19
   br i1 %cmp7.not.i, label %while.body.i, label %for.inc
 
 while.cond.i31:                                   ; preds = %mi_bitmap_mask_.exit.i29
-  %add18.i = add i64 %cond.i, %found.099.i
+  %add18.i = add i64 %cond.i, %found.095.i
   %cmp10.i = icmp ult i64 %add18.i, %count
   br i1 %cmp10.i, label %while.body.i, label %while.end.i, !llvm.loop !9
 
 while.body.i:                                     ; preds = %if.end4.i, %while.cond.i31
-  %field.0100.i = phi ptr [ %incdec.ptr.i, %while.cond.i31 ], [ %arrayidx.i17, %if.end4.i ]
-  %found.099.i = phi i64 [ %add18.i, %while.cond.i31 ], [ %11, %if.end4.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %field.0100.i, i64 8
+  %field.096.i = phi ptr [ %incdec.ptr.i, %while.cond.i31 ], [ %arrayidx.i17, %if.end4.i ]
+  %found.095.i = phi i64 [ %add18.i, %while.cond.i31 ], [ %11, %if.end4.i ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %field.096.i, i64 8
   %20 = load atomic i64, ptr %incdec.ptr.i monotonic, align 8
-  %add.i25 = add i64 %found.099.i, 64
+  %add.i25 = add i64 %found.095.i, 64
   %cmp12.not.i = icmp ugt i64 %add.i25, %count
-  %sub13.i = sub nuw i64 %count, %found.099.i
+  %sub13.i = sub nuw i64 %count, %found.095.i
   %cond.i = select i1 %cmp12.not.i, i64 %sub13.i, i64 64
   %cmp.i66.i = icmp ugt i64 %cond.i, 63
   br i1 %cmp.i66.i, label %mi_bitmap_mask_.exit.i29, label %if.end.i67.i
@@ -996,7 +996,7 @@ do.cond.i:                                        ; preds = %do.body.i
 while.cond27.i:                                   ; preds = %do.cond.i, %while.body30.i
   %field.2.i = phi ptr [ %incdec.ptr28.i, %while.body30.i ], [ %arrayidx.i17, %do.cond.i ]
   %incdec.ptr28.i = getelementptr inbounds i8, ptr %field.2.i, i64 8
-  %cmp29.i = icmp ult ptr %field.2.i, %field.0100.i
+  %cmp29.i = icmp ult ptr %field.2.i, %field.096.i
   br i1 %cmp29.i, label %while.body30.i, label %while.end39.i
 
 while.body30.i:                                   ; preds = %while.cond27.i
@@ -1023,19 +1023,19 @@ do.cond47.i:                                      ; preds = %do.body41.i
 
 rollback.i:                                       ; preds = %do.body.i, %while.body30.i, %do.body41.i
   %field.1.i = phi ptr [ %incdec.ptr28.i, %do.body41.i ], [ %incdec.ptr28.i, %while.body30.i ], [ %arrayidx.i17, %do.body.i ]
-  %incdec.ptr58102.i = getelementptr inbounds i8, ptr %field.1.i, i64 -8
-  %cmp59103.i = icmp ugt ptr %incdec.ptr58102.i, %arrayidx.i17
-  br i1 %cmp59103.i, label %while.body60.i, label %while.end62.i
+  %incdec.ptr5898.i = getelementptr inbounds i8, ptr %field.1.i, i64 -8
+  %cmp5999.i = icmp ugt ptr %incdec.ptr5898.i, %arrayidx.i17
+  br i1 %cmp5999.i, label %while.body60.i, label %while.end62.i
 
 while.body60.i:                                   ; preds = %rollback.i, %while.body60.i
-  %incdec.ptr58104.i = phi ptr [ %incdec.ptr58.i, %while.body60.i ], [ %incdec.ptr58102.i, %rollback.i ]
-  store atomic i64 0, ptr %incdec.ptr58104.i release, align 8
-  %incdec.ptr58.i = getelementptr inbounds i8, ptr %incdec.ptr58104.i, i64 -8
+  %incdec.ptr58100.i = phi ptr [ %incdec.ptr58.i, %while.body60.i ], [ %incdec.ptr5898.i, %rollback.i ]
+  store atomic i64 0, ptr %incdec.ptr58100.i release, align 8
+  %incdec.ptr58.i = getelementptr inbounds i8, ptr %incdec.ptr58100.i, i64 -8
   %cmp59.i = icmp ugt ptr %incdec.ptr58.i, %arrayidx.i17
   br i1 %cmp59.i, label %while.body60.i, label %while.end62.i, !llvm.loop !13
 
 while.end62.i:                                    ; preds = %while.body60.i, %rollback.i
-  %incdec.ptr58.lcssa.i = phi ptr [ %incdec.ptr58102.i, %rollback.i ], [ %incdec.ptr58.i, %while.body60.i ]
+  %incdec.ptr58.lcssa.i = phi ptr [ %incdec.ptr5898.i, %rollback.i ], [ %incdec.ptr58.i, %while.body60.i ]
   %cmp63.i = icmp eq ptr %incdec.ptr58.lcssa.i, %arrayidx.i17
   br i1 %cmp63.i, label %if.then64.i, label %if.end77.i
 
@@ -1053,21 +1053,21 @@ do.body66.i:                                      ; preds = %do.body66.i, %if.th
   br i1 %33, label %if.end77.i, label %do.body66.i, !llvm.loop !14
 
 if.end77.i:                                       ; preds = %do.body66.i, %while.end62.i
-  %exitcond.not = icmp eq i64 %retries.tr107.i, 3
-  br i1 %exitcond.not, label %for.inc, label %tailrecurse.i
+  %cmp78.not.i = icmp eq i64 %retries.tr103.i, 3
+  br i1 %cmp78.not.i, label %for.inc, label %tailrecurse.i
 
 mi_bitmap_try_find_claim_field_across.exit:       ; preds = %do.cond47.i, %if.then4.i.i
-  %.us-phi.i.sink.i = phi i64 [ %bitidx.0.ph24.i.i, %if.then4.i.i ], [ %sub20.i, %do.cond47.i ]
+  %bitidx.0.ph24.i.lcssa121.sink.i = phi i64 [ %bitidx.0.ph24.i.i, %if.then4.i.i ], [ %sub20.i, %do.cond47.i ]
   %mul.i.i.i = shl i64 %spec.store.select, 6
-  %add.i.i.i = add i64 %.us-phi.i.sink.i, %mul.i.i.i
+  %add.i.i.i = add i64 %bitidx.0.ph24.i.lcssa121.sink.i, %mul.i.i.i
   store i64 %add.i.i.i, ptr %bitmap_idx, align 8
   br label %return
 
 for.inc:                                          ; preds = %if.end77.i, %if.end4.i, %tailrecurse.i, %if.else7.i.i, %mi_bitmap_mask_.exit.i29, %if.then2.i, %if.end.i.i21, %if.end10
   %inc = add nuw i64 %visited.061, 1
   %inc14 = add i64 %spec.store.select, 1
-  %exitcond80.not = icmp eq i64 %inc, %bitmap_fields
-  br i1 %exitcond80.not, label %return, label %for.body, !llvm.loop !15
+  %exitcond.not = icmp eq i64 %inc, %bitmap_fields
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !15
 
 return:                                           ; preds = %for.inc, %for.cond.preheader, %mi_bitmap_try_find_claim_field_across.exit, %_mi_bitmap_try_find_claim_field.exit, %if.then
   %retval.0 = phi i1 [ %call, %if.then ], [ true, %_mi_bitmap_try_find_claim_field.exit ], [ true, %mi_bitmap_try_find_claim_field_across.exit ], [ false, %for.cond.preheader ], [ false, %for.inc ]

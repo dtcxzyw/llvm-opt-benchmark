@@ -397,7 +397,7 @@ _ZNSt16reverse_iteratorISt13_Bit_iteratorEppEv.exit: ; preds = %80, %.lr.ph132
   %117 = trunc i32 %102 to i8
   store i8 %117, ptr %115, align 1
   %118 = lshr i32 %116, 8
-  %119 = trunc nuw i32 %118 to i8
+  %119 = trunc nuw nsw i32 %118 to i8
   %120 = getelementptr inbounds i8, ptr %115, i64 1
   store i8 %119, ptr %120, align 1
   %121 = add nsw i32 %.sroa.6.1, 2

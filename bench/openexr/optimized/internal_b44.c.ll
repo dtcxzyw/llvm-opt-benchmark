@@ -17,7 +17,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @compress_b44_impl(ptr noundef %encode, i32 noundef %flat_field) unnamed_addr #0 {
+define internal fastcc i32 @compress_b44_impl(ptr noundef %encode, i32 noundef range(i32 0, 2) %flat_field) unnamed_addr #0 {
 entry:
   %d.i = alloca [16 x i32], align 16
   %r.i = alloca [15 x i32], align 16

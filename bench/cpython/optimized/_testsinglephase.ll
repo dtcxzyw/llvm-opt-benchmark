@@ -94,7 +94,7 @@ if.then1.i28:                                     ; preds = %if.end.i25
   br label %return
 
 if.end10:                                         ; preds = %if.end3
-  %call11 = tail call fastcc i32 @init_module(ptr noundef nonnull %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @global_state, i64 8))
+  %call11 = tail call fastcc i32 @init_module(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @global_state, i64 8))
   %cmp12 = icmp slt i32 %call11, 0
   br i1 %cmp12, label %if.then18, label %if.end21
 
@@ -348,25 +348,25 @@ return:                                           ; preds = %if.end10, %error16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @init_module(ptr noundef %module, ptr nocapture noundef readonly %state) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @init_module(ptr noundef nonnull %module, ptr nocapture noundef readonly %state) unnamed_addr #0 {
 entry:
   %error = getelementptr inbounds i8, ptr %state, i64 8
   %0 = load ptr, ptr %error, align 8
-  %call = tail call i32 @PyModule_AddObjectRef(ptr noundef %module, ptr noundef nonnull @.str.14, ptr noundef %0) #4
+  %call = tail call i32 @PyModule_AddObjectRef(ptr noundef nonnull %module, ptr noundef nonnull @.str.14, ptr noundef %0) #4
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %int_const = getelementptr inbounds i8, ptr %state, i64 16
   %1 = load ptr, ptr %int_const, align 8
-  %call1 = tail call i32 @PyModule_AddObjectRef(ptr noundef %module, ptr noundef nonnull @.str.15, ptr noundef %1) #4
+  %call1 = tail call i32 @PyModule_AddObjectRef(ptr noundef nonnull %module, ptr noundef nonnull @.str.15, ptr noundef %1) #4
   %cmp2.not = icmp eq i32 %call1, 0
   br i1 %cmp2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
   %str_const = getelementptr inbounds i8, ptr %state, i64 24
   %2 = load ptr, ptr %str_const, align 8
-  %call5 = tail call i32 @PyModule_AddObjectRef(ptr noundef %module, ptr noundef nonnull @.str.16, ptr noundef %2) #4
+  %call5 = tail call i32 @PyModule_AddObjectRef(ptr noundef nonnull %module, ptr noundef nonnull @.str.16, ptr noundef %2) #4
   %cmp6.not = icmp eq i32 %call5, 0
   br i1 %cmp6.not, label %if.end8, label %return
 
@@ -374,7 +374,7 @@ if.end8:                                          ; preds = %if.end4
   %3 = load i64, ptr %state, align 8
   %call9 = tail call double @_PyTime_AsSecondsDouble(i64 noundef %3) #4
   %call10 = tail call ptr @PyFloat_FromDouble(double noundef %call9) #4
-  %call11 = tail call i32 @PyModule_Add(ptr noundef %module, ptr noundef nonnull @.str.17, ptr noundef %call10) #4
+  %call11 = tail call i32 @PyModule_Add(ptr noundef nonnull %module, ptr noundef nonnull @.str.17, ptr noundef %call10) #4
   %call11.lobit = ashr i32 %call11, 31
   br label %return
 
@@ -501,7 +501,7 @@ if.end.i23:                                       ; preds = %if.then6
   br i1 %cmp.i25, label %return.sink.split, label %return
 
 if.end8:                                          ; preds = %get_module_state.exit
-  %call9 = tail call fastcc i32 @init_module(ptr noundef nonnull %call, ptr noundef %retval.0.i)
+  %call9 = tail call fastcc i32 @init_module(ptr noundef %call, ptr noundef %retval.0.i)
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %if.then11, label %return
 

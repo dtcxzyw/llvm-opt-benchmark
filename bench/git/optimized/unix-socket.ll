@@ -16,7 +16,7 @@ define dso_local range(i32 -1, -2147483648) i32 @unix_stream_connect(ptr noundef
 entry:
   %sa = alloca %struct.sockaddr_un, align 2
   %ctx = alloca %struct.unix_sockaddr_context, align 8
-  %call = call fastcc i32 @unix_sockaddr_init(ptr noundef nonnull %sa, ptr noundef %path, ptr noundef nonnull %ctx, i32 noundef %disallow_chdir)
+  %call = call fastcc i32 @unix_sockaddr_init(ptr noundef %sa, ptr noundef %path, ptr noundef %ctx, i32 noundef %disallow_chdir)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -95,7 +95,7 @@ return:                                           ; preds = %if.end3.i, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @unix_sockaddr_init(ptr nocapture noundef writeonly %sa, ptr noundef %path, ptr nocapture noundef writeonly %ctx, i32 noundef %disallow_chdir) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @unix_sockaddr_init(ptr nocapture noundef nonnull writeonly %sa, ptr noundef %path, ptr nocapture noundef nonnull writeonly %ctx, i32 noundef %disallow_chdir) unnamed_addr #0 {
 entry:
   %cwd = alloca %struct.strbuf, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #13
@@ -193,7 +193,7 @@ entry:
   %bf.load = load i8, ptr %disallow_chdir, align 4
   %bf.clear = and i8 %bf.load, 1
   %bf.cast = zext nneg i8 %bf.clear to i32
-  %call1 = call fastcc i32 @unix_sockaddr_init(ptr noundef nonnull %sa, ptr noundef %path, ptr noundef nonnull %ctx, i32 noundef %bf.cast)
+  %call1 = call fastcc i32 @unix_sockaddr_init(ptr noundef %sa, ptr noundef %path, ptr noundef %ctx, i32 noundef %bf.cast)
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %return, label %if.end
 

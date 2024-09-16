@@ -817,7 +817,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not159.i, label %141, label %136
 
 136:                                              ; preds = %134
-  %137 = tail call fastcc i32 @set_binary_form(ptr noundef nonnull %135)
+  %137 = tail call fastcc i32 @set_binary_form(ptr noundef %135)
   store i32 %137, ptr @bin_form, align 4
   %138 = icmp slt i32 %137, 0
   br i1 %138, label %139, label %141
@@ -3408,7 +3408,7 @@ declare i32 @h5tools_set_data_output_file(ptr noundef, i32 noundef) local_unname
 declare i32 @h5tools_set_attr_output_file(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 -1, 4) i32 @set_binary_form(ptr nocapture noundef readonly %0) unnamed_addr #14 {
+define internal fastcc range(i32 -1, 4) i32 @set_binary_form(ptr nocapture noundef nonnull readonly %0) unnamed_addr #14 {
   %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.93) #24
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %.tail5, label %4

@@ -178,7 +178,7 @@ entry:
   %ordinal7 = getelementptr inbounds i8, ptr %test_req_tpm2, i64 6
   store i32 -2130640896, ptr %ordinal7, align 2
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %buf.i)
-  %call.i = call fastcc i32 @tpm_util_request(i32 noundef %tpm_fd, ptr noundef nonnull readonly %test_req_tpm2, i64 noundef 10, ptr noundef nonnull %buf.i, i64 noundef 1024)
+  %call.i = call fastcc i32 @tpm_util_request(i32 noundef %tpm_fd, ptr noundef readonly %test_req_tpm2, i64 noundef 10, ptr noundef %buf.i, i64 noundef 1024)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %tpm_util_test.exit.thread, label %tpm_util_test.exit
 
@@ -194,7 +194,7 @@ tpm_util_test.exit:                               ; preds = %entry
 
 if.end:                                           ; preds = %tpm_util_test.exit.thread, %tpm_util_test.exit
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %buf.i6)
-  %call.i7 = call fastcc i32 @tpm_util_request(i32 noundef %tpm_fd, ptr noundef nonnull readonly %test_req, i64 noundef 10, ptr noundef nonnull %buf.i6, i64 noundef 1024)
+  %call.i7 = call fastcc i32 @tpm_util_request(i32 noundef %tpm_fd, ptr noundef readonly %test_req, i64 noundef 10, ptr noundef %buf.i6, i64 noundef 1024)
   %cmp.i8 = icmp slt i32 %call.i7, 0
   br i1 %cmp.i8, label %tpm_util_test.exit12.thread, label %tpm_util_test.exit12
 
@@ -252,7 +252,7 @@ sw.bb:                                            ; preds = %entry
   store i32 67108864, ptr %len4, align 2
   %subcap = getelementptr inbounds i8, ptr %tpm_get_buffer_size, i64 18
   store i32 604045312, ptr %subcap, align 2
-  %call7 = call fastcc i32 @tpm_util_request(i32 noundef %tpm_fd, ptr noundef nonnull %tpm_get_buffer_size, i64 noundef 22, ptr noundef nonnull %tpm_resp, i64 noundef 18)
+  %call7 = call fastcc i32 @tpm_util_request(i32 noundef %tpm_fd, ptr noundef %tpm_get_buffer_size, i64 noundef 22, ptr noundef %tpm_resp, i64 noundef 18)
   %cmp = icmp slt i32 %call7, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -363,7 +363,7 @@ sw.bb30:                                          ; preds = %entry
   store i32 503382016, ptr %property, align 2
   %count = getelementptr inbounds i8, ptr %tpm2_get_buffer_size, i64 18
   store i32 33554432, ptr %count, align 2
-  %call42 = call fastcc i32 @tpm_util_request(i32 noundef %tpm_fd, ptr noundef nonnull %tpm2_get_buffer_size, i64 noundef 22, ptr noundef nonnull %tpm2_resp, i64 noundef 35)
+  %call42 = call fastcc i32 @tpm_util_request(i32 noundef %tpm_fd, ptr noundef %tpm2_get_buffer_size, i64 noundef 22, ptr noundef %tpm2_resp, i64 noundef 35)
   %cmp43 = icmp slt i32 %call42, 0
   br i1 %cmp43, label %return, label %if.end46
 
@@ -510,7 +510,7 @@ return:                                           ; preds = %entry, %sw.bb30, %s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @tpm_util_request(i32 noundef %fd, ptr nocapture noundef readonly %request, i64 noundef %requestlen, ptr nocapture noundef %response, i64 noundef %responselen) unnamed_addr #0 {
+define internal fastcc i32 @tpm_util_request(i32 noundef %fd, ptr nocapture noundef nonnull readonly %request, i64 noundef range(i64 10, 23) %requestlen, ptr nocapture noundef nonnull %response, i64 noundef range(i64 18, 1025) %responselen) unnamed_addr #0 {
 entry:
   %fds = alloca [1 x %struct._GPollFD], align 4
   store i32 %fd, ptr %fds, align 4
@@ -518,7 +518,7 @@ entry:
   store i16 1, ptr %events, align 4
   %revents = getelementptr inbounds i8, ptr %fds, i64 6
   store i16 0, ptr %revents, align 2
-  %call = tail call i64 @write(i32 noundef %fd, ptr noundef %request, i64 noundef %requestlen) #11
+  %call = tail call i64 @write(i32 noundef %fd, ptr noundef nonnull %request, i64 noundef %requestlen) #11
   %0 = and i64 %call, 2147483648
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -558,7 +558,7 @@ if.then17:                                        ; preds = %land.rhs, %do.body.
   br label %return
 
 if.end20:                                         ; preds = %do.body
-  %call21 = call i64 @read(i32 noundef %fd, ptr noundef %response, i64 noundef %responselen) #11
+  %call21 = call i64 @read(i32 noundef %fd, ptr noundef nonnull %response, i64 noundef %responselen) #11
   %4 = trunc i64 %call21 to i32
   %cmp24 = icmp ult i32 %4, 10
   br i1 %cmp24, label %return, label %if.end27

@@ -554,7 +554,7 @@ define dso_local i64 @rb_num_coerce_bin(i64 noundef %0, i64 noundef %1, i64 noun
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @do_coerce(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc void @do_coerce(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
   %4 = load i64, ptr %1, align 8
   %5 = load i64, ptr @id_coerce, align 8
   %6 = tail call i64 @rb_check_funcall(i64 noundef %4, i64 noundef %5, i32 noundef 1, ptr noundef %0) #23
@@ -3209,7 +3209,7 @@ declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr 
 declare double @llvm.floor.f64(double) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @rb_int_floor(i64 noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc i64 @rb_int_floor(i64 noundef %0, i32 noundef range(i32 -2147483648, 0) %1) unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = and i64 %0, 1
@@ -3545,7 +3545,7 @@ rb_float_new_inline.exit:                         ; preds = %76, %74, %70, %floa
 declare double @llvm.ceil.f64(double) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @rb_int_ceil(i64 noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc i64 @rb_int_ceil(i64 noundef %0, i32 noundef range(i32 -2147483648, 0) %1) unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -5155,7 +5155,7 @@ rb_float_value_inline.exit40:                     ; preds = %rb_float_value_inli
 
 32:                                               ; preds = %rb_float_value_inline.exit.thread46, %rb_float_value_inline.exit
   %33 = load i64, ptr @rb_eRangeError, align 8
-  %34 = call fastcc ptr @out_of_range_float(ptr noundef nonnull %2, i64 noundef %.064)
+  %34 = call fastcc ptr @out_of_range_float(ptr noundef %2, i64 noundef %.064)
   call void (i64, ptr, ...) @rb_raise(i64 noundef %33, ptr noundef nonnull @.str.7, ptr noundef nonnull %2) #22
   unreachable
 
@@ -5181,7 +5181,7 @@ RB_FLOAT_TYPE_P.exit.thread42:                    ; preds = %RB_FLOAT_TYPE_P.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc nonnull ptr @out_of_range_float(ptr noundef returned %0, i64 noundef %1) unnamed_addr #2 {
+define internal fastcc noundef nonnull ptr @out_of_range_float(ptr noundef nonnull returned %0, i64 noundef %1) unnamed_addr #2 {
   %3 = and i64 %1, 3
   %4 = icmp eq i64 %3, 2
   br i1 %4, label %5, label %12
@@ -5207,7 +5207,7 @@ define internal fastcc nonnull ptr @out_of_range_float(ptr noundef returned %0, 
 
 rb_float_value_inline.exit:                       ; preds = %5, %6, %12
   %.0.i = phi double [ %15, %12 ], [ %11, %6 ], [ 0.000000e+00, %5 ]
-  %16 = tail call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %0, i64 noundef 24, ptr noundef nonnull @.str.139, double noundef %.0.i) #23
+  %16 = tail call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %0, i64 noundef 24, ptr noundef nonnull @.str.139, double noundef %.0.i) #23
   %17 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 32) #24
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %19, label %18
@@ -5326,7 +5326,7 @@ rb_float_value_inline.exit:                       ; preds = %22, %23, %29
 
 44:                                               ; preds = %rb_float_value_inline.exit
   %45 = load i64, ptr @rb_eRangeError, align 8
-  %46 = call fastcc ptr @out_of_range_float(ptr noundef nonnull %3, i64 noundef %.04562)
+  %46 = call fastcc ptr @out_of_range_float(ptr noundef %3, i64 noundef %.04562)
   call void (i64, ptr, ...) @rb_raise(i64 noundef %45, ptr noundef nonnull @.str.7, ptr noundef nonnull %3) #22
   unreachable
 
@@ -5748,7 +5748,7 @@ rb_float_value_inline.exit:                       ; preds = %21, %22, %28
 
 35:                                               ; preds = %rb_float_value_inline.exit
   %36 = load i64, ptr @rb_eRangeError, align 8
-  %37 = call fastcc ptr @out_of_range_float(ptr noundef nonnull %2, i64 noundef %.tr)
+  %37 = call fastcc ptr @out_of_range_float(ptr noundef %2, i64 noundef %.tr)
   call void (i64, ptr, ...) @rb_raise(i64 noundef %36, ptr noundef nonnull @.str.13, ptr noundef nonnull %2) #22
   unreachable
 
@@ -5881,7 +5881,7 @@ rb_float_value_inline.exit:                       ; preds = %22, %28
 
 38:                                               ; preds = %rb_float_value_inline.exit
   %39 = load i64, ptr @rb_eRangeError, align 8
-  %40 = call fastcc ptr @out_of_range_float(ptr noundef nonnull %2, i64 noundef %.tr)
+  %40 = call fastcc ptr @out_of_range_float(ptr noundef %2, i64 noundef %.tr)
   call void (i64, ptr, ...) @rb_raise(i64 noundef %39, ptr noundef nonnull @.str.17, ptr noundef nonnull %2) #22
   unreachable
 
@@ -9821,7 +9821,7 @@ define internal i64 @num_step(i32 noundef %0, ptr noundef %1, i64 noundef %2) #2
 
 9:                                                ; preds = %3
   store i64 36, ptr %6, align 8
-  %10 = call fastcc i32 @num_step_extract_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %10 = call fastcc i32 @num_step_extract_args(i32 noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %11 = load i64, ptr %6, align 8
   %12 = icmp eq i64 %11, 36
   br i1 %12, label %thread-pre-split, label %13
@@ -9891,7 +9891,7 @@ thread-pre-split:                                 ; preds = %9
   br label %.loopexit
 
 45:                                               ; preds = %3
-  %46 = call fastcc i32 @num_step_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %46 = call fastcc i32 @num_step_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5)
   %47 = load i64, ptr %5, align 8
   %48 = call i64 @rb_equal(i64 noundef %47, i64 noundef 1) #23
   %.not49 = icmp eq i64 %48, 0
@@ -14438,7 +14438,7 @@ define internal fastcc void @num_funcall_op_1_recursion(i64 noundef %0, i64 noun
   %narrow.i.i = icmp ult i32 %8, -26
   %9 = add nsw i32 %6, -58
   %10 = icmp ult i32 %9, -10
-  %narrow.i.not = and i1 %10, %narrow.i.i
+  %narrow.i.not = select i1 %narrow.i.i, i1 %10, i1 false
   %11 = tail call i64 @rb_id2sym(i64 noundef %1) #23
   br i1 %narrow.i.not, label %13, label %12
 
@@ -14474,7 +14474,7 @@ declare i64 @rb_complex_mul(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare i64 @rb_int128t2big(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @fix_divide(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #2 {
+define internal fastcc i64 @fix_divide(i64 noundef %0, i64 noundef %1, i64 noundef range(i64 47, 3538) %2) unnamed_addr #2 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = and i64 %1, 1
@@ -14916,7 +14916,7 @@ define internal i64 @num_funcall_op_0(i64 noundef %0, i64 noundef %1, i32 nounde
   %narrow.i.i = icmp ult i32 %9, -26
   %10 = add nsw i32 %7, -58
   %11 = icmp ult i32 %10, -10
-  %narrow.i.not = and i1 %11, %narrow.i.i
+  %narrow.i.not = select i1 %narrow.i.i, i1 %11, i1 false
   br i1 %narrow.i.not, label %14, label %12
 
 12:                                               ; preds = %4
@@ -14959,11 +14959,11 @@ declare i64 @rb_funcallv(i64 noundef, i64 noundef, i32 noundef, ptr noundef) loc
 declare i32 @rb_block_given_p() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @num_step_extract_args(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #2 {
+define internal fastcc i32 @num_step_extract_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca [2 x i64], align 16
   %8 = alloca [2 x i64], align 16
-  %9 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.153, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %6) #23
+  %9 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.153, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %6) #23
   %10 = load i64, ptr %6, align 8
   %11 = icmp eq i64 %10, 4
   br i1 %11, label %33, label %12
@@ -15060,7 +15060,7 @@ rb_array_len.exit.i.thread:                       ; preds = %6
 rb_array_const_ptr.exit:                          ; preds = %3, %18, %rb_array_len.exit.i.thread
   %22 = phi i32 [ %15, %rb_array_len.exit.i.thread ], [ %19, %18 ], [ 0, %3 ]
   %23 = phi ptr [ %16, %rb_array_len.exit.i.thread ], [ %21, %18 ], [ null, %3 ]
-  %24 = call fastcc i32 @num_step_scan_args(i32 noundef %22, ptr noundef %23, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %24 = call fastcc i32 @num_step_scan_args(i32 noundef %22, ptr noundef %23, ptr noundef %4, ptr noundef %5)
   %25 = load i64, ptr %4, align 8
   %26 = load i64, ptr %5, align 8
   %27 = call i64 @ruby_num_interval_step_size(i64 noundef %0, i64 noundef %25, i64 noundef %26, i32 noundef 0)
@@ -15070,11 +15070,11 @@ rb_array_const_ptr.exit:                          ; preds = %3, %18, %rb_array_l
 declare i64 @rb_enumeratorize_with_size_kw(i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @num_step_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @num_step_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   store i64 36, ptr %6, align 8
-  %7 = call fastcc i32 @num_step_extract_args(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %6)
+  %7 = call fastcc i32 @num_step_extract_args(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %6)
   %8 = load i64, ptr %6, align 8
   %9 = icmp eq i64 %8, 36
   br i1 %9, label %11, label %10
@@ -15271,7 +15271,7 @@ declare ptr @rb_to_encoding(i64 noundef) local_unnamed_addr #3
 declare nonnull ptr @rb_ascii8bit_encoding() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @rb_int_round(i64 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc i64 @rb_int_round(i64 noundef %0, i32 noundef range(i32 -2147483648, 0) %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #2 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8

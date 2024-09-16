@@ -549,7 +549,7 @@ define dso_local void @ieee80211_destroy_frag_cache(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @__skb_queue_purge(ptr noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc void @__skb_queue_purge(ptr noundef nonnull %0) unnamed_addr #4 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, %0
   %4 = icmp eq ptr %2, null
@@ -833,7 +833,7 @@ define dso_local void @ieee80211_release_reorder_timeout(ptr noundef %0, i32 nou
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_sta_reorder_release(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_sta_reorder_release(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load i16, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 150
@@ -4571,7 +4571,7 @@ define dso_local void @ieee80211_mark_rx_ba_filtered_frames(ptr noundef %0, i8 n
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_release_reorder_frames(ptr nocapture noundef %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_release_reorder_frames(ptr nocapture noundef nonnull %0, i16 noundef zeroext range(i16 0, 4096) %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = zext nneg i16 %1 to i32
   %6 = load i16, ptr %4, align 8
@@ -6618,7 +6618,7 @@ declare dso_local void @kfree_skb_reason(ptr noundef, i32 noundef) local_unnamed
 declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_release_reorder_frame(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_release_reorder_frame(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 65537) %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = zext nneg i32 %1 to i64
@@ -7536,7 +7536,7 @@ declare dso_local i32 @ieee80211_hdrlen(i16 noundef zeroext) local_unnamed_addr 
 declare dso_local i32 @skb_copy_bits(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @ieee80211_reassemble_add(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #4 align 16 {
+define internal fastcc noundef ptr @ieee80211_reassemble_add(ptr noundef %0, i32 noundef range(i32 0, 4096) %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #4 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 224
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, 1
@@ -7609,19 +7609,20 @@ define internal fastcc noundef ptr @ieee80211_reassemble_add(ptr noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @ieee80211_reassemble_find(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #4 align 16 {
+define internal fastcc noundef ptr @ieee80211_reassemble_find(ptr noundef %0, i32 noundef range(i32 1, 16) %1, i32 noundef range(i32 0, 4096) %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #4 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 224
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 4
   %9 = getelementptr i8, ptr %4, i64 8
   %10 = getelementptr inbounds i8, ptr %4, i64 10
   %11 = getelementptr i8, ptr %4, i64 14
+  %invariant.op = add nsw i32 %1, -1
   br label %14
 
-.loopexit:                                        ; preds = %83, %34, %29, %24, %14, %60, %48, %40, %79
+.loopexit:                                        ; preds = %82, %34, %29, %24, %14, %59, %47, %39, %78
   %12 = add nuw nsw i32 %16, 1
   %13 = icmp eq i32 %12, 4
-  br i1 %13, label %95, label %14, !llvm.loop !151
+  br i1 %13, label %94, label %14, !llvm.loop !151
 
 14:                                               ; preds = %.loopexit, %5
   %15 = phi i32 [ %7, %5 ], [ %19, %.loopexit ]
@@ -7653,87 +7654,86 @@ define internal fastcc noundef ptr @ieee80211_reassemble_find(ptr noundef %0, i3
   %35 = getelementptr inbounds i8, ptr %21, i64 36
   %36 = load i16, ptr %35, align 4
   %37 = zext i16 %36 to i32
-  %38 = add nuw nsw i32 %37, 1
-  %39 = icmp eq i32 %38, %1
-  br i1 %39, label %40, label %.loopexit
+  %38 = icmp eq i32 %invariant.op, %37
+  br i1 %38, label %39, label %.loopexit
 
-40:                                               ; preds = %34
-  %41 = getelementptr inbounds i8, ptr %22, i64 200
-  %42 = load ptr, ptr %41, align 8
-  %43 = load i16, ptr %4, align 2
-  %44 = load i16, ptr %42, align 2
-  %45 = xor i16 %44, %43
-  %46 = and i16 %45, 12
-  %47 = icmp eq i16 %46, 0
-  br i1 %47, label %48, label %.loopexit
+39:                                               ; preds = %34
+  %40 = getelementptr inbounds i8, ptr %22, i64 200
+  %41 = load ptr, ptr %40, align 8
+  %42 = load i16, ptr %4, align 2
+  %43 = load i16, ptr %41, align 2
+  %44 = xor i16 %43, %42
+  %45 = and i16 %44, 12
+  %46 = icmp eq i16 %45, 0
+  br i1 %46, label %47, label %.loopexit
 
-48:                                               ; preds = %40
-  %49 = getelementptr inbounds i8, ptr %42, i64 4
-  %50 = load i32, ptr %8, align 4
-  %51 = load i32, ptr %49, align 4
-  %52 = xor i32 %51, %50
-  %53 = load i16, ptr %9, align 2
-  %54 = getelementptr i8, ptr %42, i64 8
-  %55 = load i16, ptr %54, align 2
-  %56 = xor i16 %55, %53
-  %57 = zext i16 %56 to i32
-  %58 = or i32 %52, %57
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %.loopexit
+47:                                               ; preds = %39
+  %48 = getelementptr inbounds i8, ptr %41, i64 4
+  %49 = load i32, ptr %8, align 4
+  %50 = load i32, ptr %48, align 4
+  %51 = xor i32 %50, %49
+  %52 = load i16, ptr %9, align 2
+  %53 = getelementptr i8, ptr %41, i64 8
+  %54 = load i16, ptr %53, align 2
+  %55 = xor i16 %54, %52
+  %56 = zext i16 %55 to i32
+  %57 = or i32 %51, %56
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %.loopexit
 
-60:                                               ; preds = %48
-  %61 = getelementptr inbounds i8, ptr %42, i64 10
-  %62 = load i32, ptr %10, align 4
-  %63 = load i32, ptr %61, align 4
-  %64 = xor i32 %63, %62
-  %65 = load i16, ptr %11, align 2
-  %66 = getelementptr i8, ptr %42, i64 14
-  %67 = load i16, ptr %66, align 2
-  %68 = xor i16 %67, %65
-  %69 = zext i16 %68 to i32
-  %70 = or i32 %64, %69
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %.loopexit
+59:                                               ; preds = %47
+  %60 = getelementptr inbounds i8, ptr %41, i64 10
+  %61 = load i32, ptr %10, align 4
+  %62 = load i32, ptr %60, align 4
+  %63 = xor i32 %62, %61
+  %64 = load i16, ptr %11, align 2
+  %65 = getelementptr i8, ptr %41, i64 14
+  %66 = load i16, ptr %65, align 2
+  %67 = xor i16 %66, %64
+  %68 = zext i16 %67 to i32
+  %69 = or i32 %63, %68
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %.loopexit
 
-72:                                               ; preds = %60
-  %73 = getelementptr inbounds i8, ptr %21, i64 24
-  %74 = load i64, ptr %73, align 8
-  %75 = add i64 %74, 2000
-  %76 = load volatile i64, ptr @jiffies, align 64
-  %77 = sub i64 %75, %76
-  %78 = icmp slt i64 %77, 0
-  br i1 %78, label %79, label %95
+71:                                               ; preds = %59
+  %72 = getelementptr inbounds i8, ptr %21, i64 24
+  %73 = load i64, ptr %72, align 8
+  %74 = add i64 %73, 2000
+  %75 = load volatile i64, ptr @jiffies, align 64
+  %76 = sub i64 %74, %75
+  %77 = icmp slt i64 %76, 0
+  br i1 %77, label %78, label %94
 
-79:                                               ; preds = %72
-  %80 = icmp eq ptr %22, null
-  br i1 %80, label %.loopexit, label %81
+78:                                               ; preds = %71
+  %79 = icmp eq ptr %22, null
+  br i1 %79, label %.loopexit, label %80
 
-81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %21, i64 16
-  br label %83
+80:                                               ; preds = %78
+  %81 = getelementptr inbounds i8, ptr %21, i64 16
+  br label %82
 
-83:                                               ; preds = %83, %81
-  %84 = phi ptr [ %22, %81 ], [ %91, %83 ]
-  %85 = load i32, ptr %82, align 8
-  %86 = add i32 %85, -1
-  store volatile i32 %86, ptr %82, align 8
-  %87 = load ptr, ptr %84, align 8
-  %88 = getelementptr inbounds i8, ptr %84, i64 8
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %87, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, i8 0, i64 16, i1 false)
-  store volatile ptr %89, ptr %90, align 8
-  store volatile ptr %87, ptr %89, align 8
-  tail call void @kfree_skb_reason(ptr noundef nonnull %84, i32 noundef 82) #18
-  %91 = load ptr, ptr %21, align 8
-  %92 = icmp eq ptr %91, %21
-  %93 = icmp eq ptr %91, null
-  %94 = or i1 %92, %93
-  br i1 %94, label %.loopexit, label %83, !llvm.loop !40
+82:                                               ; preds = %82, %80
+  %83 = phi ptr [ %22, %80 ], [ %90, %82 ]
+  %84 = load i32, ptr %81, align 8
+  %85 = add i32 %84, -1
+  store volatile i32 %85, ptr %81, align 8
+  %86 = load ptr, ptr %83, align 8
+  %87 = getelementptr inbounds i8, ptr %83, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %86, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false)
+  store volatile ptr %88, ptr %89, align 8
+  store volatile ptr %86, ptr %88, align 8
+  tail call void @kfree_skb_reason(ptr noundef nonnull %83, i32 noundef 82) #18
+  %90 = load ptr, ptr %21, align 8
+  %91 = icmp eq ptr %90, %21
+  %92 = icmp eq ptr %90, null
+  %93 = or i1 %91, %92
+  br i1 %93, label %.loopexit, label %82, !llvm.loop !40
 
-95:                                               ; preds = %72, %.loopexit
-  %96 = phi ptr [ null, %.loopexit ], [ %21, %72 ]
-  ret ptr %96
+94:                                               ; preds = %71, %.loopexit
+  %95 = phi ptr [ null, %.loopexit ], [ %21, %71 ]
+  ret ptr %95
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -7752,7 +7752,7 @@ declare dso_local ptr @skb_put(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare dso_local void @led_trigger_blink_oneshot(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 65550) i32 @__ieee80211_rx_h_amsdu(ptr nocapture noundef %0, i8 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 65550) i32 @__ieee80211_rx_h_amsdu(ptr nocapture noundef %0, i8 noundef zeroext range(i8 0, 16) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.sk_buff_head, align 8
   %4 = alloca %struct.ethhdr, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -9634,7 +9634,7 @@ declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #2
 declare dso_local i32 @__SCT__tp_func_drv_sta_set_decap_offload(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @ieee80211_clean_skb(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef ptr @ieee80211_clean_skb(ptr noundef %0, i32 noundef range(i32 0, 5) %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %25, label %5
 
@@ -9782,7 +9782,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare dso_local i32 @___pskb_trim(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_rx_8023(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_rx_8023(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 40
@@ -10066,7 +10066,7 @@ declare dso_local void @ieee80211_scan_rx(ptr noundef, ptr noundef) local_unname
 declare dso_local ptr @link_sta_info_get_bss(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = alloca i16, align 2
   %5 = alloca %struct.sk_buff_head, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -10176,7 +10176,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr n
 
 88:                                               ; preds = %86
   %89 = sub i32 %81, %84
-  %90 = tail call ptr @__pskb_pull_tail(ptr noundef %1, i32 noundef %89) #18
+  %90 = tail call ptr @__pskb_pull_tail(ptr noundef nonnull %1, i32 noundef %89) #18
   %91 = icmp eq ptr %90, null
   br i1 %91, label %185, label %._crit_edge
 
@@ -10279,8 +10279,8 @@ define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr n
   %161 = getelementptr i8, ptr %145, i64 %160
   tail call fastcc void @skb_postpull_rcsum(ptr noundef %1, ptr noundef %161)
   %162 = add i32 %75, 6
-  %163 = tail call ptr @skb_pull(ptr noundef %1, i32 noundef %162) #18
-  %164 = tail call ptr @skb_push(ptr noundef %1, i32 noundef 12) #18
+  %163 = tail call ptr @skb_pull(ptr noundef nonnull %1, i32 noundef %162) #18
+  %164 = tail call ptr @skb_push(ptr noundef nonnull %1, i32 noundef 12) #18
   store i32 %150, ptr %164, align 1
   %165 = getelementptr inbounds i8, ptr %164, i64 4
   store i16 %152, ptr %165, align 1
@@ -10292,7 +10292,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr n
   br label %ieee80211_is_our_addr.exit
 
 168:                                              ; preds = %140, %.thread94, %124
-  tail call void @consume_skb(ptr noundef %1) #18
+  tail call void @consume_skb(ptr noundef nonnull %1) #18
   %169 = load i8, ptr %36, align 1
   %170 = and i8 %169, 4
   %171 = icmp eq i8 %170, 0
@@ -10927,7 +10927,7 @@ ieee80211_is_our_addr.exit.thread._crit_edge:     ; preds = %ieee80211_is_our_ad
   br i1 %2, label %602, label %572
 
 572:                                              ; preds = %571
-  %573 = tail call ptr @skb_copy(ptr noundef %1, i32 noundef 2080) #18
+  %573 = tail call ptr @skb_copy(ptr noundef nonnull %1, i32 noundef 2080) #18
   store ptr %573, ptr %16, align 8
   %574 = icmp eq ptr %573, null
   br i1 %574, label %575, label %583
@@ -11622,7 +11622,7 @@ ieee80211_is_our_addr.exit:                       ; preds = %.thread3.i, %.threa
 declare dso_local ptr @sta_info_hash_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @ieee80211_rx_for_interface(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @ieee80211_rx_for_interface(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
@@ -11751,7 +11751,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_rx_for_interface(ptr nounde
 declare dso_local void @_dev_printk(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #14
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @pskb_trim(ptr noundef %0, i32 noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc i32 @pskb_trim(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i32, ptr %3, align 8
   %5 = icmp ugt i32 %4, %1
@@ -11764,7 +11764,7 @@ define internal fastcc i32 @pskb_trim(ptr noundef %0, i32 noundef %1) unnamed_ad
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %6
-  %11 = tail call i32 @___pskb_trim(ptr noundef %0, i32 noundef %1) #18
+  %11 = tail call i32 @___pskb_trim(ptr noundef nonnull %0, i32 noundef %1) #18
   br label %23
 
 12:                                               ; preds = %6
@@ -11788,7 +11788,7 @@ define internal fastcc i32 @pskb_trim(ptr noundef %0, i32 noundef %1) unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @skb_postpull_rcsum(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc void @skb_postpull_rcsum(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load i8, ptr %3, align 8
   %5 = lshr i8 %4, 5

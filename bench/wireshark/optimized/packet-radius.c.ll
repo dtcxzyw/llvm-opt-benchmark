@@ -1871,7 +1871,7 @@ proto_item_set_generated.exit472:                 ; preds = %295, %292, %288, %2
   br i1 %or.cond25, label %362, label %.thread483
 
 362:                                              ; preds = %358
-  %363 = call fastcc i32 @valid_authenticator(ptr noundef %2, ptr noundef nonnull %22, i32 noundef 1, i32 noundef %.1)
+  %363 = call fastcc i32 @valid_authenticator(ptr noundef %2, ptr noundef %22, i32 noundef 1, i32 noundef %.1)
   %364 = icmp sgt i32 %363, -1
   br i1 %364, label %365, label %368
 
@@ -2128,7 +2128,7 @@ define internal fastcc void @add_avp_to_tree(ptr noundef %0, ptr noundef %1, ptr
   %49 = zext i32 %.0135 to i64
   %50 = tail call noalias ptr @wmem_alloc(ptr noundef %48, i64 noundef %49) #14
   %51 = getelementptr inbounds i8, ptr %7, i64 8
-  tail call fastcc void @radius_decrypt_avp(ptr noundef %50, ptr noundef %2, ptr noundef %3, i32 noundef %.0136, i32 noundef %.0135, ptr noundef nonnull %51, ptr noundef null, i32 noundef 0, i32 noundef 1)
+  tail call fastcc void @radius_decrypt_avp(ptr noundef %50, ptr noundef %2, ptr noundef %3, i32 noundef %.0136, i32 noundef %.0135, ptr noundef %51, ptr noundef null, i32 noundef 0, i32 noundef 1)
   %52 = tail call ptr @tvb_new_child_real_data(ptr noundef %3, ptr noundef %50, i32 noundef %.0135, i32 noundef %.0135) #14
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1, ptr noundef nonnull @.str.107) #14
   tail call void @add_new_data_source(ptr noundef %2, ptr noundef %52, ptr noundef nonnull @.str.108) #14
@@ -2176,7 +2176,7 @@ define internal fastcc void @add_avp_to_tree(ptr noundef %0, ptr noundef %1, ptr
   %76 = call ptr @tvb_memcpy(ptr noundef %3, ptr noundef nonnull %9, i32 noundef %.0136, i64 noundef 2) #14
   %77 = add i32 %.0136, 2
   %78 = getelementptr inbounds i8, ptr %7, i64 8
-  call fastcc void @radius_decrypt_avp(ptr noundef %75, ptr noundef %2, ptr noundef %3, i32 noundef %77, i32 noundef %73, ptr noundef nonnull %78, ptr noundef nonnull %9, i32 noundef 2, i32 noundef 2)
+  call fastcc void @radius_decrypt_avp(ptr noundef %75, ptr noundef %2, ptr noundef %3, i32 noundef %77, i32 noundef %73, ptr noundef %78, ptr noundef nonnull %9, i32 noundef 2, i32 noundef 2)
   %79 = call ptr @tvb_new_child_real_data(ptr noundef %3, ptr noundef %75, i32 noundef %73, i32 noundef %73) #14
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1, ptr noundef nonnull @.str.107) #14
   %80 = load i8, ptr %75, align 1
@@ -2197,7 +2197,7 @@ define internal fastcc void @add_avp_to_tree(ptr noundef %0, ptr noundef %1, ptr
   %90 = zext nneg i32 %spec.store.select to i64
   %91 = tail call noalias ptr @wmem_alloc(ptr noundef %89, i64 noundef %90) #14
   %92 = getelementptr inbounds i8, ptr %7, i64 8
-  tail call fastcc void @radius_decrypt_avp(ptr noundef %91, ptr noundef %2, ptr noundef %3, i32 noundef %.0136, i32 noundef %spec.store.select, ptr noundef nonnull %92, ptr noundef null, i32 noundef 0, i32 noundef 3)
+  tail call fastcc void @radius_decrypt_avp(ptr noundef %91, ptr noundef %2, ptr noundef %3, i32 noundef %.0136, i32 noundef %spec.store.select, ptr noundef %92, ptr noundef null, i32 noundef 0, i32 noundef 3)
   %93 = tail call ptr @tvb_new_child_real_data(ptr noundef %3, ptr noundef %91, i32 noundef %spec.store.select, i32 noundef %spec.store.select) #14
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1, ptr noundef nonnull @.str.107) #14
   tail call void @add_new_data_source(ptr noundef %2, ptr noundef %93, ptr noundef nonnull @.str.108) #14
@@ -2229,7 +2229,7 @@ declare void @col_set_writable(ptr noundef, i32 noundef, i32 noundef) local_unna
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @valid_authenticator(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @valid_authenticator(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [16 x i8], align 16
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #14
@@ -2827,7 +2827,7 @@ proto_item_set_generated.exit:                    ; preds = %135, %132, %proto_i
 
 145:                                              ; preds = %142
   %146 = getelementptr inbounds i8, ptr %109, i64 8
-  %147 = call fastcc i32 @valid_authenticator(ptr noundef %0, ptr noundef nonnull %146, i32 noundef 0, i32 noundef 4)
+  %147 = call fastcc i32 @valid_authenticator(ptr noundef %0, ptr noundef %146, i32 noundef 0, i32 noundef 4)
   %148 = icmp sgt i32 %147, -1
   br i1 %148, label %149, label %151
 
@@ -3085,7 +3085,7 @@ proto_item_set_generated.exit274:                 ; preds = %proto_item_set_gene
 
 280:                                              ; preds = %277
   %281 = getelementptr inbounds i8, ptr %249, i64 8
-  %282 = call fastcc i32 @valid_authenticator(ptr noundef %0, ptr noundef nonnull %281, i32 noundef 0, i32 noundef 4)
+  %282 = call fastcc i32 @valid_authenticator(ptr noundef %0, ptr noundef %281, i32 noundef 0, i32 noundef 4)
   %283 = icmp sgt i32 %282, -1
   br i1 %283, label %284, label %286
 
@@ -4105,7 +4105,7 @@ define internal noundef i32 @vsa_buffer_destroy(ptr nocapture readnone %0, ptr n
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @radius_decrypt_avp(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc void @radius_decrypt_avp(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr noundef %6, i32 noundef range(i32 0, 3) %7, i32 noundef range(i32 1, 4) %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca [16 x i8], align 16
   %12 = call i32 @gcry_md_open(ptr noundef nonnull %10, i32 noundef 1, i32 noundef 0) #14
@@ -4118,7 +4118,7 @@ define internal fastcc void @radius_decrypt_avp(ptr nocapture noundef writeonly 
   br i1 %14, label %16, label %21
 
 16:                                               ; preds = %13
-  call void @gcry_md_write(ptr noundef %15, ptr noundef %5, i64 noundef 16) #14
+  call void @gcry_md_write(ptr noundef %15, ptr noundef nonnull %5, i64 noundef 16) #14
   %17 = load ptr, ptr %10, align 8
   %18 = load ptr, ptr @shared_secret, align 8
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #18
@@ -4134,7 +4134,7 @@ define internal fastcc void @radius_decrypt_avp(ptr nocapture noundef writeonly 
   %24 = ashr exact i64 %sext, 32
   call void @gcry_md_write(ptr noundef %15, ptr noundef %22, i64 noundef %24) #14
   %25 = load ptr, ptr %10, align 8
-  call void @gcry_md_write(ptr noundef %25, ptr noundef %5, i64 noundef 16) #14
+  call void @gcry_md_write(ptr noundef %25, ptr noundef nonnull %5, i64 noundef 16) #14
   %26 = load ptr, ptr %10, align 8
   %27 = zext nneg i32 %7 to i64
   call void @gcry_md_write(ptr noundef %26, ptr noundef %6, i64 noundef %27) #14

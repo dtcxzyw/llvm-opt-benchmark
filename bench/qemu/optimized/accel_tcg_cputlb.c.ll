@@ -3000,7 +3000,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i)
-  %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr, i32 noundef 0, ptr noundef nonnull %l.i)
+  %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr, i32 noundef 0, ptr noundef %l.i)
   %1 = xor i1 %call.i, true
   tail call void @llvm.assume(i1 %1)
   %flags.i.i = getelementptr inbounds i8, ptr %l.i, i64 24
@@ -3045,10 +3045,10 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @do_ld2_mmu(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef %access_type) unnamed_addr #8 {
+define internal fastcc zeroext i16 @do_ld2_mmu(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef range(i32 0, 3) %access_type) unnamed_addr #8 {
 entry:
   %l = alloca %struct.MMULookupLocals, align 8
-  %call = call fastcc zeroext i1 @mmu_lookup(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef %access_type, ptr noundef nonnull %l)
+  %call = call fastcc zeroext i1 @mmu_lookup(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef %access_type, ptr noundef %l)
   %flags.i12 = getelementptr inbounds i8, ptr %l, i64 24
   %0 = load i32, ptr %flags.i12, align 8
   %and.i13 = and i32 %0, 512
@@ -3354,10 +3354,10 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @do_ld4_mmu(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef %access_type) unnamed_addr #8 {
+define internal fastcc i32 @do_ld4_mmu(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef range(i32 0, 3) %access_type) unnamed_addr #8 {
 entry:
   %l = alloca %struct.MMULookupLocals, align 8
-  %call = call fastcc zeroext i1 @mmu_lookup(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef %access_type, ptr noundef nonnull %l)
+  %call = call fastcc zeroext i1 @mmu_lookup(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef %access_type, ptr noundef %l)
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -3637,7 +3637,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i)
-  %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr, i32 noundef 0, ptr noundef nonnull %l.i)
+  %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr, i32 noundef 0, ptr noundef %l.i)
   %mmu_idx7.i = getelementptr inbounds i8, ptr %l.i, i64 68
   %1 = load i32, ptr %mmu_idx7.i, align 4
   %memop8.i = getelementptr inbounds i8, ptr %l.i, i64 64
@@ -3673,7 +3673,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i)
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i.i)
-  %call.i.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr, i32 noundef 0, ptr noundef nonnull %l.i.i)
+  %call.i.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr, i32 noundef 0, ptr noundef %l.i.i)
   %1 = xor i1 %call.i.i, true
   tail call void @llvm.assume(i1 %1)
   %flags.i.i.i = getelementptr inbounds i8, ptr %l.i.i, i64 24
@@ -3744,7 +3744,7 @@ entry:
 define internal fastcc { i64, i64 } @do_ld16_mmu(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra) unnamed_addr #8 {
 entry:
   %l = alloca %struct.MMULookupLocals, align 8
-  %call = call fastcc zeroext i1 @mmu_lookup(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef 0, ptr noundef nonnull %l)
+  %call = call fastcc zeroext i1 @mmu_lookup(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef 0, ptr noundef %l)
   br i1 %call, label %if.end35, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -4151,7 +4151,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %conv = trunc i32 %val to i8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i)
-  %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef 1, ptr noundef nonnull %l.i)
+  %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef 1, ptr noundef %l.i)
   %1 = xor i1 %call.i, true
   tail call void @llvm.assume(i1 %1)
   %flags.i.i = getelementptr inbounds i8, ptr %l.i, i64 24
@@ -4203,7 +4203,7 @@ entry:
 define internal fastcc void @do_st2_mmu(ptr noundef %cpu, i64 noundef %addr, i16 noundef zeroext %val, i32 noundef %oi, i64 noundef %ra) unnamed_addr #0 {
 entry:
   %l = alloca %struct.MMULookupLocals, align 8
-  %call = call fastcc zeroext i1 @mmu_lookup(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef 1, ptr noundef nonnull %l)
+  %call = call fastcc zeroext i1 @mmu_lookup(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef 1, ptr noundef %l)
   %memop4 = getelementptr inbounds i8, ptr %l, i64 64
   %0 = load i32, ptr %memop4, align 8
   br i1 %call, label %if.end, label %if.then
@@ -4486,7 +4486,7 @@ entry:
 define internal fastcc void @do_st4_mmu(ptr noundef %cpu, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %ra) unnamed_addr #0 {
 entry:
   %l = alloca %struct.MMULookupLocals, align 8
-  %call = call fastcc zeroext i1 @mmu_lookup(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef 1, ptr noundef nonnull %l)
+  %call = call fastcc zeroext i1 @mmu_lookup(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef 1, ptr noundef %l)
   %memop4 = getelementptr inbounds i8, ptr %l, i64 64
   %0 = load i32, ptr %memop4, align 8
   br i1 %call, label %if.end, label %if.then
@@ -4790,7 +4790,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i)
-  %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr, i32 noundef 1, ptr noundef nonnull %l.i)
+  %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr, i32 noundef 1, ptr noundef %l.i)
   br i1 %call.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -4835,7 +4835,7 @@ entry:
 define internal fastcc void @do_st16_mmu(ptr noundef %cpu, i64 noundef %addr, i64 noundef %val.coerce0, i64 noundef %val.coerce1, i32 noundef %oi, i64 noundef %ra) unnamed_addr #8 {
 entry:
   %l = alloca %struct.MMULookupLocals, align 8
-  %call = call fastcc zeroext i1 @mmu_lookup(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef 1, ptr noundef nonnull %l)
+  %call = call fastcc zeroext i1 @mmu_lookup(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef 1, ptr noundef %l)
   br i1 %call, label %if.end49, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -5294,7 +5294,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i)
-  %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef 0, ptr noundef nonnull %l.i)
+  %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef 0, ptr noundef %l.i)
   %1 = xor i1 %call.i, true
   tail call void @llvm.assume(i1 %1)
   %flags.i.i = getelementptr inbounds i8, ptr %l.i, i64 24
@@ -5359,7 +5359,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i)
-  %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef 0, ptr noundef nonnull %l.i)
+  %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef 0, ptr noundef %l.i)
   %mmu_idx7.i = getelementptr inbounds i8, ptr %l.i, i64 68
   %1 = load i32, ptr %mmu_idx7.i, align 4
   %memop8.i = getelementptr inbounds i8, ptr %l.i, i64 64
@@ -5408,7 +5408,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i)
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i.i)
-  %call.i.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr, i32 noundef 1, ptr noundef nonnull %l.i.i)
+  %call.i.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr, i32 noundef 1, ptr noundef %l.i.i)
   %1 = xor i1 %call.i.i, true
   tail call void @llvm.assume(i1 %1)
   %flags.i.i.i = getelementptr inbounds i8, ptr %l.i.i, i64 24
@@ -5477,7 +5477,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i)
-  %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr, i32 noundef 1, ptr noundef nonnull %l.i)
+  %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr, i32 noundef 1, ptr noundef %l.i)
   br i1 %call.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -5529,7 +5529,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i)
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i.i)
-  %call.i.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %mmu_idx, i64 noundef %ra, i32 noundef 0, ptr noundef nonnull %l.i.i)
+  %call.i.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %mmu_idx, i64 noundef %ra, i32 noundef 0, ptr noundef %l.i.i)
   %1 = xor i1 %call.i.i, true
   tail call void @llvm.assume(i1 %1)
   %flags.i.i.i = getelementptr inbounds i8, ptr %l.i.i, i64 24
@@ -5571,7 +5571,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i.i.i)
-  %call.i.i.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %mmu_idx, i64 noundef %ra, i32 noundef 0, ptr noundef nonnull %l.i.i.i)
+  %call.i.i.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %mmu_idx, i64 noundef %ra, i32 noundef 0, ptr noundef %l.i.i.i)
   %1 = xor i1 %call.i.i.i, true
   tail call void @llvm.assume(i1 %1)
   %flags.i.i.i.i = getelementptr inbounds i8, ptr %l.i.i.i, i64 24
@@ -5712,7 +5712,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i.i.i)
-  %call.i.i.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %mmu_idx, i64 noundef %ra, i32 noundef 1, ptr noundef nonnull %l.i.i.i)
+  %call.i.i.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %mmu_idx, i64 noundef %ra, i32 noundef 1, ptr noundef %l.i.i.i)
   %1 = xor i1 %call.i.i.i, true
   tail call void @llvm.assume(i1 %1)
   %flags.i.i.i.i = getelementptr inbounds i8, ptr %l.i.i.i, i64 24
@@ -5829,7 +5829,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i.i.i)
-  %call.i.i.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %call, i64 noundef %ra, i32 noundef 0, ptr noundef nonnull %l.i.i.i)
+  %call.i.i.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %call, i64 noundef %ra, i32 noundef 0, ptr noundef %l.i.i.i)
   %1 = xor i1 %call.i.i.i, true
   tail call void @llvm.assume(i1 %1)
   %flags.i.i.i.i = getelementptr inbounds i8, ptr %l.i.i.i, i64 24
@@ -5872,7 +5872,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i.i.i.i)
-  %call.i.i.i.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %call.i, i64 noundef %ra, i32 noundef 0, ptr noundef nonnull %l.i.i.i.i)
+  %call.i.i.i.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %call.i, i64 noundef %ra, i32 noundef 0, ptr noundef %l.i.i.i.i)
   %1 = xor i1 %call.i.i.i.i, true
   tail call void @llvm.assume(i1 %1)
   %flags.i.i.i.i.i = getelementptr inbounds i8, ptr %l.i.i.i.i, i64 24
@@ -6022,7 +6022,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i.i.i.i)
-  %call.i.i.i.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %call, i64 noundef %ra, i32 noundef 1, ptr noundef nonnull %l.i.i.i.i)
+  %call.i.i.i.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %call, i64 noundef %ra, i32 noundef 1, ptr noundef %l.i.i.i.i)
   %1 = xor i1 %call.i.i.i.i, true
   tail call void @llvm.assume(i1 %1)
   %flags.i.i.i.i.i = getelementptr inbounds i8, ptr %l.i.i.i.i, i64 24
@@ -6145,7 +6145,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i.i.i.i)
-  %call.i.i.i.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %call.i, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %l.i.i.i.i)
+  %call.i.i.i.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %call.i, i64 noundef 0, i32 noundef 0, ptr noundef %l.i.i.i.i)
   %1 = xor i1 %call.i.i.i.i, true
   tail call void @llvm.assume(i1 %1)
   %flags.i.i.i.i.i = getelementptr inbounds i8, ptr %l.i.i.i.i, i64 24
@@ -6188,7 +6188,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i.i.i.i.i)
-  %call.i.i.i.i.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i.i.i.i.i, i64 noundef %addr, i32 noundef %call.i.i, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %l.i.i.i.i.i)
+  %call.i.i.i.i.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i.i.i.i.i, i64 noundef %addr, i32 noundef %call.i.i, i64 noundef 0, i32 noundef 0, ptr noundef %l.i.i.i.i.i)
   %1 = xor i1 %call.i.i.i.i.i, true
   tail call void @llvm.assume(i1 %1)
   %flags.i.i.i.i.i.i = getelementptr inbounds i8, ptr %l.i.i.i.i.i, i64 24
@@ -6338,7 +6338,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i.i.i.i.i)
-  %call.i.i.i.i.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i.i.i.i.i, i64 noundef %addr, i32 noundef %call.i, i64 noundef 0, i32 noundef 1, ptr noundef nonnull %l.i.i.i.i.i)
+  %call.i.i.i.i.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i.i.i.i.i, i64 noundef %addr, i32 noundef %call.i, i64 noundef 0, i32 noundef 1, ptr noundef %l.i.i.i.i.i)
   %1 = xor i1 %call.i.i.i.i.i, true
   tail call void @llvm.assume(i1 %1)
   %flags.i.i.i.i.i.i = getelementptr inbounds i8, ptr %l.i.i.i.i.i, i64 24
@@ -11551,7 +11551,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @atomic_mmu_lookup(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i32 noundef %size, i64 noundef %retaddr) unnamed_addr #0 {
+define internal fastcc ptr @atomic_mmu_lookup(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i32 noundef range(i32 1, 17) %size, i64 noundef %retaddr) unnamed_addr #0 {
 entry:
   %tmptlb.sroa.0.i = alloca %struct.anon.2, align 8
   %tmpf.i = alloca %struct.CPUTLBEntryFull, align 8
@@ -11800,7 +11800,7 @@ entry:
   %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext true) #19
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i)
-  %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %call, i64 noundef 0, i32 noundef 2, ptr noundef nonnull %l.i)
+  %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %call, i64 noundef 0, i32 noundef 2, ptr noundef %l.i)
   %0 = xor i1 %call.i, true
   tail call void @llvm.assume(i1 %0)
   %flags.i.i = getelementptr inbounds i8, ptr %l.i, i64 24
@@ -11861,7 +11861,7 @@ entry:
   %or.i = or i32 %call, 48
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i)
-  %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %or.i, i64 noundef 0, i32 noundef 2, ptr noundef nonnull %l.i)
+  %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %or.i, i64 noundef 0, i32 noundef 2, ptr noundef %l.i)
   %mmu_idx7.i = getelementptr inbounds i8, ptr %l.i, i64 68
   %0 = load i32, ptr %mmu_idx7.i, align 4
   %memop8.i = getelementptr inbounds i8, ptr %l.i, i64 64
@@ -11894,7 +11894,7 @@ entry:
   %l.i = alloca %struct.MMULookupLocals, align 8
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i)
-  %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr, i32 noundef 2, ptr noundef nonnull %l.i)
+  %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr, i32 noundef 2, ptr noundef %l.i)
   %0 = xor i1 %call.i, true
   tail call void @llvm.assume(i1 %0)
   %flags.i.i = getelementptr inbounds i8, ptr %l.i, i64 24
@@ -11947,7 +11947,7 @@ entry:
   %l.i = alloca %struct.MMULookupLocals, align 8
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i)
-  %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr, i32 noundef 2, ptr noundef nonnull %l.i)
+  %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %retaddr, i32 noundef 2, ptr noundef %l.i)
   %mmu_idx7.i = getelementptr inbounds i8, ptr %l.i, i64 68
   %0 = load i32, ptr %mmu_idx7.i, align 4
   %memop8.i = getelementptr inbounds i8, ptr %l.i, i64 64
@@ -11978,7 +11978,7 @@ do_ld8_mmu.exit:                                  ; preds = %if.then.i, %if.end.
 declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tlb_flush_one_mmuidx_locked(ptr nocapture noundef %cpu, i32 noundef %mmu_idx, i64 noundef %now) unnamed_addr #0 {
+define internal fastcc void @tlb_flush_one_mmuidx_locked(ptr nocapture noundef %cpu, i32 noundef range(i32 -2147483648, 33) %mmu_idx, i64 noundef %now) unnamed_addr #0 {
 entry:
   %d = getelementptr inbounds i8, ptr %cpu, i64 816
   %idxprom = sext i32 %mmu_idx to i64
@@ -12147,7 +12147,7 @@ declare ptr @get_ptr_rcu_reader() local_unnamed_addr #1
 declare void @qemu_event_set(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @cpu_physical_memory_get_dirty_flag(i64 noundef %addr, i32 noundef %client) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @cpu_physical_memory_get_dirty_flag(i64 noundef %addr, i32 noundef range(i32 0, 3) %client) unnamed_addr #0 {
 entry:
   %and.i = add i64 %addr, 4096
   %shr.i = lshr i64 %and.i, 12
@@ -12250,7 +12250,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 declare void @bitmap_set_atomic(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @mmu_lookup(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef %type, ptr nocapture noundef %l) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @mmu_lookup(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef range(i32 0, 3) %type, ptr nocapture noundef nonnull %l) unnamed_addr #0 {
 entry:
   %shr.i = lshr i32 %oi, 4
   %memop = getelementptr inbounds i8, ptr %l, i64 64
@@ -12482,7 +12482,7 @@ if.end127:                                        ; preds = %if.end54, %if.then6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @mmu_lookup1(ptr noundef %cpu, ptr nocapture noundef %data, i32 noundef %mmu_idx, i32 noundef %access_type, i64 noundef %ra) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @mmu_lookup1(ptr noundef %cpu, ptr nocapture noundef %data, i32 noundef %mmu_idx, i32 noundef range(i32 0, 3) %access_type, i64 noundef %ra) unnamed_addr #0 {
 entry:
   %tmptlb.sroa.0.i = alloca %struct.anon.2, align 8
   %tmpf.i = alloca %struct.CPUTLBEntryFull, align 8
@@ -12498,7 +12498,7 @@ entry:
   %table.i = getelementptr [16 x %struct.CPUTLBDescFast], ptr %f.i, i64 0, i64 %conv, i32 1
   %2 = load ptr, ptr %table.i, align 8
   %arrayidx1.i = getelementptr %union.CPUTLBEntry, ptr %2, i64 %and.i
-  %idxprom.i = zext i32 %access_type to i64
+  %idxprom.i = zext nneg i32 %access_type to i64
   %arrayidx.i35 = getelementptr [4 x i64], ptr %arrayidx1.i, i64 0, i64 %idxprom.i
   %3 = load atomic i64, ptr %arrayidx.i35 monotonic, align 8
   %and.i36 = and i64 %0, -4096
@@ -12629,7 +12629,7 @@ if.end16:                                         ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tlb_fill(ptr noundef %cpu, i64 noundef %addr, i32 noundef %size, i32 noundef %access_type, i32 noundef %mmu_idx, i64 noundef %retaddr) unnamed_addr #0 {
+define internal fastcc void @tlb_fill(ptr noundef %cpu, i64 noundef %addr, i32 noundef %size, i32 noundef range(i32 0, 3) %access_type, i32 noundef %mmu_idx, i64 noundef %retaddr) unnamed_addr #0 {
 entry:
   %cc = getelementptr inbounds i8, ptr %cpu, i64 160
   %0 = load ptr, ptr %cc, align 16
@@ -12649,7 +12649,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @do_ld_mmio_beN(ptr noundef %cpu, ptr nocapture noundef readonly %full, i64 noundef %ret_be, i64 noundef %addr, i32 noundef %size, i32 noundef %mmu_idx, i32 noundef %type, i64 noundef %ra) unnamed_addr #0 {
+define internal fastcc i64 @do_ld_mmio_beN(ptr noundef %cpu, ptr nocapture noundef readonly %full, i64 noundef %ret_be, i64 noundef %addr, i32 noundef %size, i32 noundef %mmu_idx, i32 noundef range(i32 0, 3) %type, i64 noundef %ra) unnamed_addr #0 {
 entry:
   %val.i = alloca i64, align 8
   %0 = add i32 %size, -1
@@ -12761,7 +12761,7 @@ declare i32 @memory_region_dispatch_read(ptr noundef, i64 noundef, ptr noundef, 
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @do_ld_beN(ptr noundef %cpu, ptr nocapture noundef readonly %p, i64 noundef %ret_be, i32 noundef %mmu_idx, i32 noundef %type, i32 noundef %mop, i64 noundef %ra) unnamed_addr #0 {
+define internal fastcc i64 @do_ld_beN(ptr noundef %cpu, ptr nocapture noundef readonly %p, i64 noundef %ret_be, i32 noundef %mmu_idx, i32 noundef range(i32 0, 3) %type, i32 noundef %mop, i64 noundef %ra) unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds i8, ptr %p, i64 24
   %0 = load i32, ptr %flags, align 8
@@ -12922,7 +12922,7 @@ sw.epilog:                                        ; preds = %for.body.i, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @do_ld_8(ptr noundef %cpu, ptr nocapture noundef readonly %p, i32 noundef %mmu_idx, i32 noundef %type, i32 noundef %memop, i64 noundef %ra) unnamed_addr #8 {
+define internal fastcc i64 @do_ld_8(ptr noundef %cpu, ptr nocapture noundef readonly %p, i32 noundef %mmu_idx, i32 noundef range(i32 0, 3) %type, i32 noundef %memop, i64 noundef %ra) unnamed_addr #8 {
 entry:
   %flags = getelementptr inbounds i8, ptr %p, i64 24
   %0 = load i32, ptr %flags, align 8

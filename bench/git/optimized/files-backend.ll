@@ -289,7 +289,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 files_downcast.exit:                              ; preds = %if.end.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_reflog_expire.err.114, i64 24, i1 false)
-  call fastcc void @files_ref_path(ptr noundef nonnull %ref_store, ptr noundef nonnull %sb, ptr noundef nonnull @.str.7)
+  call fastcc void @files_ref_path(ptr noundef nonnull %ref_store, ptr noundef %sb, ptr noundef nonnull @.str.7)
   %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %3 = load ptr, ptr %buf, align 8
   call void @safe_create_dir(ptr noundef %3, i32 noundef 1) #19
@@ -304,7 +304,7 @@ if.then4.i:                                       ; preds = %files_downcast.exit
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %files_downcast.exit, %if.then4.i
-  call fastcc void @files_ref_path(ptr noundef nonnull %ref_store, ptr noundef nonnull %sb, ptr noundef nonnull @.str.8)
+  call fastcc void @files_ref_path(ptr noundef nonnull %ref_store, ptr noundef %sb, ptr noundef nonnull @.str.8)
   %5 = load ptr, ptr %buf, align 8
   call void @safe_create_dir(ptr noundef %5, i32 noundef 1) #19
   call void @strbuf_release(ptr noundef nonnull %sb) #19
@@ -598,7 +598,7 @@ files_assert_main_repository.exit.i.i:            ; preds = %if.end14.i
   %call.i78.i = call ptr @xcalloc(i64 noundef 1, i64 noundef 56) #19
   %call1.i.i = call ptr @xstrdup(ptr noundef nonnull %refname.i) #19
   store ptr %call1.i.i, ptr %call.i78.i, align 8
-  call fastcc void @files_ref_path(ptr noundef nonnull %ref_store, ptr noundef nonnull %ref_file.i.i, ptr noundef nonnull %refname.i)
+  call fastcc void @files_ref_path(ptr noundef nonnull %ref_store, ptr noundef %ref_file.i.i, ptr noundef nonnull %refname.i)
   %lk.i.i = getelementptr i8, ptr %call.i78.i, i64 8
   br label %retry.i.i
 
@@ -1204,7 +1204,7 @@ if.then4.i:                                       ; preds = %if.then47
 
 strbuf_setlen.exit:                               ; preds = %if.then47, %if.then4.i
   %refname = getelementptr inbounds i8, ptr %20, i64 112
-  call fastcc void @files_reflog_path(ptr noundef nonnull %ref_store, ptr noundef nonnull %sb, ptr noundef nonnull %refname)
+  call fastcc void @files_reflog_path(ptr noundef nonnull %ref_store, ptr noundef %sb, ptr noundef nonnull %refname)
   %24 = load ptr, ptr %buf.i, align 8
   %call48 = call i32 @unlink_or_warn(ptr noundef %24) #19
   %tobool49.not = icmp eq i32 %call48, 0
@@ -1281,7 +1281,7 @@ if.then4.i75:                                     ; preds = %if.then90
 
 strbuf_setlen.exit77:                             ; preds = %if.then90, %if.then4.i75
   %36 = load ptr, ptr %30, align 8
-  call fastcc void @files_ref_path(ptr noundef nonnull %ref_store, ptr noundef nonnull %sb, ptr noundef %36)
+  call fastcc void @files_ref_path(ptr noundef nonnull %ref_store, ptr noundef %sb, ptr noundef %36)
   %37 = load ptr, ptr %buf.i73, align 8
   %call93 = call i32 @unlink_or_msg(ptr noundef %37, ptr noundef %err) #19
   %tobool94.not = icmp eq i32 %call93, 0
@@ -1849,7 +1849,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 files_downcast.exit:                              ; preds = %if.end.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %err, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_reflog_expire.err.114, i64 24, i1 false)
-  %call1 = call fastcc ptr @lock_ref_oid_basic(ptr noundef nonnull %ref_store, ptr noundef %refname, ptr noundef nonnull %err)
+  %call1 = call fastcc ptr @lock_ref_oid_basic(ptr noundef nonnull %ref_store, ptr noundef %refname, ptr noundef %err)
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -2185,7 +2185,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 files_downcast.exit:                              ; preds = %if.end.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_reflog_expire.err.114, i64 24, i1 false)
-  call fastcc void @files_reflog_path(ptr noundef nonnull %ref_store, ptr noundef nonnull %sb, ptr noundef %refname)
+  call fastcc void @files_reflog_path(ptr noundef nonnull %ref_store, ptr noundef %sb, ptr noundef %refname)
   %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %3 = load ptr, ptr %buf, align 8
   %call1 = call ptr @git_fopen(ptr noundef %3, ptr noundef nonnull @.str.105) #19
@@ -2247,7 +2247,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 files_downcast.exit:                              ; preds = %if.end.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_reflog_expire.err.114, i64 24, i1 false)
-  call fastcc void @files_reflog_path(ptr noundef nonnull %ref_store, ptr noundef nonnull %sb, ptr noundef %refname)
+  call fastcc void @files_reflog_path(ptr noundef nonnull %ref_store, ptr noundef %sb, ptr noundef %refname)
   %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %3 = load ptr, ptr %buf, align 8
   %call1 = call ptr @git_fopen(ptr noundef %3, ptr noundef nonnull @.str.105) #19
@@ -2508,7 +2508,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 files_downcast.exit:                              ; preds = %if.end.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_reflog_expire.err.114, i64 24, i1 false)
-  call fastcc void @files_reflog_path(ptr noundef nonnull %ref_store, ptr noundef nonnull %sb, ptr noundef %refname)
+  call fastcc void @files_reflog_path(ptr noundef nonnull %ref_store, ptr noundef %sb, ptr noundef %refname)
   %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %3 = load ptr, ptr %buf, align 8
   %call1 = call i32 @lstat64(ptr noundef %3, ptr noundef nonnull %st) #19
@@ -2548,7 +2548,7 @@ if.then3.i:                                       ; preds = %if.end.i
   unreachable
 
 files_downcast.exit:                              ; preds = %if.end.i
-  %call1 = call fastcc i32 @log_ref_setup(ptr noundef nonnull %ref_store, ptr noundef %refname, i32 noundef 1, ptr noundef nonnull %fd, ptr noundef %err)
+  %call1 = call fastcc i32 @log_ref_setup(ptr noundef nonnull %ref_store, ptr noundef %refname, i32 noundef 1, ptr noundef %fd, ptr noundef %err)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -2592,7 +2592,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 files_downcast.exit:                              ; preds = %if.end.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_reflog_expire.err.114, i64 24, i1 false)
-  call fastcc void @files_reflog_path(ptr noundef nonnull %ref_store, ptr noundef nonnull %sb, ptr noundef %refname)
+  call fastcc void @files_reflog_path(ptr noundef nonnull %ref_store, ptr noundef %sb, ptr noundef %refname)
   %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %3 = load ptr, ptr %buf, align 8
   %call1 = call i32 @remove_path(ptr noundef %3) #19
@@ -2646,7 +2646,7 @@ files_downcast.exit:                              ; preds = %if.end.i
   %policy_cb = getelementptr inbounds i8, ptr %cb, i64 8
   store ptr %policy_cb_data, ptr %policy_cb, align 8
   store ptr %should_prune_fn, ptr %cb, align 8
-  %call14 = call fastcc ptr @lock_ref_oid_basic(ptr noundef nonnull %ref_store, ptr noundef %refname, ptr noundef nonnull %err)
+  %call14 = call fastcc ptr @lock_ref_oid_basic(ptr noundef nonnull %ref_store, ptr noundef %refname, ptr noundef %err)
   %tobool15.not = icmp eq ptr %call14, null
   br i1 %tobool15.not, label %if.then, label %if.end
 
@@ -2672,7 +2672,7 @@ if.then20:                                        ; preds = %if.end
   br label %return
 
 if.end21:                                         ; preds = %if.end
-  call fastcc void @files_reflog_path(ptr noundef nonnull %ref_store, ptr noundef nonnull %log_file_sb, ptr noundef %refname)
+  call fastcc void @files_reflog_path(ptr noundef nonnull %ref_store, ptr noundef %log_file_sb, ptr noundef %refname)
   %call22 = call ptr @strbuf_detach(ptr noundef nonnull %log_file_sb, ptr noundef null) #19
   %tobool26.not = icmp eq i8 %bf.shl, 0
   br i1 %tobool26.not, label %if.then27, label %if.end46
@@ -2902,7 +2902,7 @@ declare ptr @packed_ref_store_create(ptr noundef, ptr noundef, i32 noundef) loca
 declare void @chdir_notify_reparent(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @files_ref_path(ptr nocapture noundef readonly %refs, ptr noundef %sb, ptr noundef %refname) unnamed_addr #0 {
+define internal fastcc void @files_ref_path(ptr nocapture noundef readonly %refs, ptr noundef nonnull %sb, ptr noundef %refname) unnamed_addr #0 {
 entry:
   %bare_refname = alloca ptr, align 8
   %wtname = alloca ptr, align 8
@@ -2918,7 +2918,7 @@ entry:
 sw.bb:                                            ; preds = %entry
   %gitdir = getelementptr inbounds i8, ptr %refs, i64 16
   %0 = load ptr, ptr %gitdir, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull @.str.12, ptr noundef %0, ptr noundef %refname) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb, ptr noundef nonnull @.str.12, ptr noundef %0, ptr noundef %refname) #19
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
@@ -2927,14 +2927,14 @@ sw.bb1:                                           ; preds = %entry
   %2 = load i32, ptr %wtname_len, align 4
   %3 = load ptr, ptr %wtname, align 8
   %4 = load ptr, ptr %bare_refname, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull @.str.13, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb, ptr noundef nonnull @.str.13, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #19
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry, %entry
   %gitcommondir3 = getelementptr inbounds i8, ptr %refs, i64 32
   %5 = load ptr, ptr %gitcommondir3, align 8
   %6 = load ptr, ptr %bare_refname, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull @.str.12, ptr noundef %5, ptr noundef %6) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb, ptr noundef nonnull @.str.12, ptr noundef %5, ptr noundef %6) #19
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -3238,7 +3238,7 @@ return:                                           ; preds = %original_update_ref
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @write_ref_to_lockfile(ptr noundef %lock, ptr noundef %oid, i32 noundef %skip_oid_verification, ptr noundef %err) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @write_ref_to_lockfile(ptr noundef %lock, ptr noundef %oid, i32 noundef range(i32 0, 1025) %skip_oid_verification, ptr noundef %err) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %skip_oid_verification, 0
   br i1 %tobool.not, label %if.then, label %if.end11
@@ -3401,7 +3401,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %and = and i32 %flags, 2
-  %call1 = call fastcc i32 @log_ref_setup(ptr noundef %refs, ptr noundef %refname, i32 noundef %and, ptr noundef nonnull %logfd, ptr noundef %err)
+  %call1 = call fastcc i32 @log_ref_setup(ptr noundef %refs, ptr noundef %refname, i32 noundef %and, ptr noundef %logfd, ptr noundef %err)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end4, label %return
 
@@ -3505,7 +3505,7 @@ if.then11:                                        ; preds = %log_ref_write_fd.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_reflog_expire.err.114, i64 24, i1 false)
   %call12 = tail call ptr @__errno_location() #21
   %17 = load i32, ptr %call12, align 4
-  call fastcc void @files_reflog_path(ptr noundef %refs, ptr noundef nonnull %sb, ptr noundef %refname)
+  call fastcc void @files_reflog_path(ptr noundef %refs, ptr noundef %sb, ptr noundef %refname)
   %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %18 = load ptr, ptr %buf, align 8
   %call13 = call ptr @strerror(i32 noundef %17) #19
@@ -3525,7 +3525,7 @@ if.then18:                                        ; preds = %if.end15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb19, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_reflog_expire.err.114, i64 24, i1 false)
   %call21 = tail call ptr @__errno_location() #21
   %21 = load i32, ptr %call21, align 4
-  call fastcc void @files_reflog_path(ptr noundef %refs, ptr noundef nonnull %sb19, ptr noundef %refname)
+  call fastcc void @files_reflog_path(ptr noundef %refs, ptr noundef %sb19, ptr noundef %refname)
   %buf22 = getelementptr inbounds i8, ptr %sb19, i64 16
   %22 = load ptr, ptr %buf22, align 8
   %call23 = call ptr @strerror(i32 noundef %21) #19
@@ -3576,7 +3576,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @files_reflog_path(ptr nocapture noundef readonly %refs, ptr noundef %sb, ptr noundef %refname) unnamed_addr #0 {
+define internal fastcc void @files_reflog_path(ptr nocapture noundef readonly %refs, ptr noundef nonnull %sb, ptr noundef %refname) unnamed_addr #0 {
 entry:
   %bare_refname = alloca ptr, align 8
   %wtname = alloca ptr, align 8
@@ -3592,14 +3592,14 @@ entry:
 sw.bb:                                            ; preds = %entry
   %gitdir = getelementptr inbounds i8, ptr %refs, i64 16
   %0 = load ptr, ptr %gitdir, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull @.str.50, ptr noundef %0, ptr noundef %refname) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb, ptr noundef nonnull @.str.50, ptr noundef %0, ptr noundef %refname) #19
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry, %entry
   %gitcommondir = getelementptr inbounds i8, ptr %refs, i64 32
   %1 = load ptr, ptr %gitcommondir, align 8
   %2 = load ptr, ptr %bare_refname, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull @.str.50, ptr noundef %1, ptr noundef %2) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb, ptr noundef nonnull @.str.50, ptr noundef %1, ptr noundef %2) #19
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
@@ -3608,7 +3608,7 @@ sw.bb2:                                           ; preds = %entry
   %4 = load i32, ptr %wtname_len, align 4
   %5 = load ptr, ptr %wtname, align 8
   %6 = load ptr, ptr %bare_refname, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull @.str.51, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb, ptr noundef nonnull @.str.51, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #19
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -3622,7 +3622,7 @@ sw.epilog:                                        ; preds = %sw.bb2, %sw.bb1, %s
 declare i32 @unlink_or_warn(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @try_remove_empty_parents(ptr nocapture noundef readonly %refs, ptr noundef %refname, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc void @try_remove_empty_parents(ptr nocapture noundef readonly %refs, ptr noundef %refname, i32 noundef range(i32 1, 3) %flags) unnamed_addr #0 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   %sb = alloca %struct.strbuf, align 8
@@ -3662,15 +3662,10 @@ while.cond5:                                      ; preds = %while.cond5.prehead
   br i1 %cmp7, label %while.cond5, label %for.inc, !llvm.loop !26
 
 for.inc:                                          ; preds = %while.cond5
-  br i1 %cmp, label %while.cond.preheader, label %for.end, !llvm.loop !27
+  br i1 %cmp, label %while.cond.preheader, label %while.cond16.preheader.lr.ph, !llvm.loop !27
 
-for.end:                                          ; preds = %for.inc
+while.cond16.preheader.lr.ph:                     ; preds = %for.inc
   %len = getelementptr inbounds i8, ptr %buf, i64 8
-  %and47 = and i32 %flags, 3
-  %tobool14.not48 = icmp eq i32 %and47, 0
-  br i1 %tobool14.not48, label %while.end60, label %while.cond16.preheader.lr.ph
-
-while.cond16.preheader.lr.ph:                     ; preds = %for.end
   %3 = load i64, ptr %len, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %3
   %len2.i25 = getelementptr inbounds i8, ptr %sb, i64 8
@@ -3749,7 +3744,7 @@ if.then4.i28:                                     ; preds = %strbuf_setlen.exit
 
 strbuf_setlen.exit31:                             ; preds = %strbuf_setlen.exit, %if.then4.i28
   %9 = load ptr, ptr %buf1, align 8
-  call fastcc void @files_ref_path(ptr noundef %refs, ptr noundef nonnull %sb, ptr noundef %9)
+  call fastcc void @files_ref_path(ptr noundef %refs, ptr noundef %sb, ptr noundef %9)
   %and43 = and i32 %flags.addr.049, 1
   %tobool44.not = icmp eq i32 %and43, 0
   br i1 %tobool44.not, label %if.end49, label %land.lhs.true
@@ -3775,7 +3770,7 @@ if.then4.i38:                                     ; preds = %if.end49
 
 strbuf_setlen.exit41:                             ; preds = %if.end49, %if.then4.i38
   %12 = load ptr, ptr %buf1, align 8
-  call fastcc void @files_reflog_path(ptr noundef %refs, ptr noundef nonnull %sb, ptr noundef %12)
+  call fastcc void @files_reflog_path(ptr noundef %refs, ptr noundef %sb, ptr noundef %12)
   %and51 = and i32 %flags.addr.1, 2
   %tobool52.not = icmp eq i32 %and51, 0
   br i1 %tobool52.not, label %if.end59, label %land.lhs.true53
@@ -3794,7 +3789,7 @@ if.end59:                                         ; preds = %land.lhs.true53, %s
   %tobool14.not = icmp eq i32 %and, 0
   br i1 %tobool14.not, label %while.end60, label %while.cond16.preheader, !llvm.loop !30
 
-while.end60:                                      ; preds = %if.end59, %while.end38, %for.end
+while.end60:                                      ; preds = %if.end59, %while.end38
   call void @strbuf_release(ptr noundef nonnull %buf) #19
   call void @strbuf_release(ptr noundef nonnull %sb) #19
   ret void
@@ -3807,11 +3802,11 @@ declare i32 @unlink_or_msg(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @is_bare_repository() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @log_ref_setup(ptr nocapture noundef readonly %refs, ptr noundef %refname, i32 noundef %force_create, ptr noundef %logfd, ptr noundef %err) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @log_ref_setup(ptr nocapture noundef readonly %refs, ptr noundef %refname, i32 noundef range(i32 0, 3) %force_create, ptr noundef nonnull %logfd, ptr noundef %err) unnamed_addr #0 {
 entry:
   %logfile_sb = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %logfile_sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_reflog_expire.err.114, i64 24, i1 false)
-  call fastcc void @files_reflog_path(ptr noundef %refs, ptr noundef nonnull %logfile_sb, ptr noundef %refname)
+  call fastcc void @files_reflog_path(ptr noundef %refs, ptr noundef %logfile_sb, ptr noundef %refname)
   %call = call ptr @strbuf_detach(ptr noundef nonnull %logfile_sb, ptr noundef null) #19
   %tobool.not = icmp eq i32 %force_create, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
@@ -3822,7 +3817,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool2.not, label %if.else18, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %call3 = call fastcc i32 @raceproof_create_file(ptr noundef %call, ptr noundef nonnull @open_or_create_logfile, ptr noundef %logfd)
+  %call3 = call fastcc i32 @raceproof_create_file(ptr noundef %call, ptr noundef nonnull @open_or_create_logfile, ptr noundef nonnull %logfd)
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end33, label %if.then5
 
@@ -4055,7 +4050,7 @@ if.then3.i:                                       ; preds = %if.end.i
 files_downcast.exit:                              ; preds = %if.end.i
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %dirname) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %path, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_reflog_expire.err.114, i64 24, i1 false)
-  call fastcc void @files_ref_path(ptr noundef nonnull %ref_store, ptr noundef nonnull %path, ptr noundef %dirname)
+  call fastcc void @files_ref_path(ptr noundef nonnull %ref_store, ptr noundef %path, ptr noundef %dirname)
   %buf = getelementptr inbounds i8, ptr %path, i64 16
   %3 = load ptr, ptr %buf, align 8
   %call2 = call ptr @opendir(ptr noundef %3)
@@ -4351,7 +4346,7 @@ declare i32 @ref_excluded(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @wildmatch(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lock_ref_oid_basic(ptr noundef %refs, ptr noundef %refname, ptr noundef %err) unnamed_addr #0 {
+define internal fastcc ptr @lock_ref_oid_basic(ptr noundef %refs, ptr noundef %refname, ptr noundef nonnull %err) unnamed_addr #0 {
 entry:
   %ref_file = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref_file, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_reflog_expire.err.114, i64 24, i1 false)
@@ -4367,7 +4362,7 @@ if.end.i:                                         ; preds = %entry
 
 files_assert_main_repository.exit:                ; preds = %entry
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 56) #19
-  call fastcc void @files_ref_path(ptr noundef nonnull %refs, ptr noundef nonnull %ref_file, ptr noundef %refname)
+  call fastcc void @files_ref_path(ptr noundef nonnull %refs, ptr noundef %ref_file, ptr noundef %refname)
   %old_oid = getelementptr inbounds i8, ptr %call, i64 16
   %call.i = call ptr @null_oid() #19
   %algo.i.i = getelementptr inbounds i8, ptr %call, i64 48
@@ -4409,7 +4404,7 @@ is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.
 land.lhs.true:                                    ; preds = %is_null_oid.exit
   %packed_ref_store = getelementptr inbounds i8, ptr %refs, i64 48
   %5 = load ptr, ptr %packed_ref_store, align 8
-  %call2 = call i32 @refs_verify_refname_available(ptr noundef %5, ptr noundef %refname, ptr noundef null, ptr noundef null, ptr noundef %err) #19
+  %call2 = call i32 @refs_verify_refname_available(ptr noundef %5, ptr noundef %refname, ptr noundef null, ptr noundef null, ptr noundef nonnull %err) #19
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.end, label %error_return
 
@@ -4427,7 +4422,7 @@ if.then7:                                         ; preds = %if.end
   %7 = load ptr, ptr %buf, align 8
   %call9 = tail call ptr @__errno_location() #21
   %8 = load i32, ptr %call9, align 4
-  call void @unable_to_lock_message(ptr noundef %7, i32 noundef %8, ptr noundef %err) #19
+  call void @unable_to_lock_message(ptr noundef %7, i32 noundef %8, ptr noundef nonnull %err) #19
   br label %error_return
 
 if.end10:                                         ; preds = %if.end
@@ -4485,7 +4480,7 @@ declare ptr @fdopen_tempfile(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @get_tempfile_fp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @files_copy_or_rename_ref(ptr noundef %ref_store, ptr noundef %oldrefname, ptr noundef %newrefname, ptr noundef %logmsg, i32 noundef %copy) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @files_copy_or_rename_ref(ptr noundef %ref_store, ptr noundef %oldrefname, ptr noundef %newrefname, ptr noundef %logmsg, i32 noundef range(i32 0, 2) %copy) unnamed_addr #0 {
 entry:
   %path.i = alloca %struct.strbuf, align 8
   %tmp.i = alloca %struct.strbuf, align 8
@@ -4526,9 +4521,9 @@ files_downcast.exit:                              ; preds = %if.end.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb_newref, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_reflog_expire.err.114, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tmp_renamed_log, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_reflog_expire.err.114, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %err, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_reflog_expire.err.114, i64 24, i1 false)
-  call fastcc void @files_reflog_path(ptr noundef nonnull %ref_store, ptr noundef nonnull %sb_oldref, ptr noundef %oldrefname)
-  call fastcc void @files_reflog_path(ptr noundef nonnull %ref_store, ptr noundef nonnull %sb_newref, ptr noundef %newrefname)
-  call fastcc void @files_reflog_path(ptr noundef nonnull %ref_store, ptr noundef nonnull %tmp_renamed_log, ptr noundef nonnull @.str.78)
+  call fastcc void @files_reflog_path(ptr noundef nonnull %ref_store, ptr noundef %sb_oldref, ptr noundef %oldrefname)
+  call fastcc void @files_reflog_path(ptr noundef nonnull %ref_store, ptr noundef %sb_newref, ptr noundef %newrefname)
+  call fastcc void @files_reflog_path(ptr noundef nonnull %ref_store, ptr noundef %tmp_renamed_log, ptr noundef nonnull @.str.78)
   %buf = getelementptr inbounds i8, ptr %sb_oldref, i64 16
   %3 = load ptr, ptr %buf, align 8
   %call1 = call i32 @lstat64(ptr noundef %3, ptr noundef nonnull %loginfo) #19
@@ -4667,7 +4662,7 @@ if.then73:                                        ; preds = %land.lhs.true69
 
 if.then76:                                        ; preds = %if.then73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %path, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_reflog_expire.err.114, i64 24, i1 false)
-  call fastcc void @files_ref_path(ptr noundef nonnull %ref_store, ptr noundef nonnull %path, ptr noundef %newrefname)
+  call fastcc void @files_ref_path(ptr noundef nonnull %ref_store, ptr noundef %path, ptr noundef %newrefname)
   %call.i65 = call i32 @remove_dir_recursively(ptr noundef nonnull %path, i32 noundef 1) #19
   call void @strbuf_release(ptr noundef nonnull %path) #19
   %tobool78.not = icmp eq i32 %call.i65, 0
@@ -4690,8 +4685,8 @@ land.lhs.true89:                                  ; preds = %land.lhs.true44, %i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %cb.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %path.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_reflog_expire.err.114, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tmp.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_reflog_expire.err.114, i64 24, i1 false)
-  call fastcc void @files_reflog_path(ptr noundef nonnull readonly %ref_store, ptr noundef nonnull %path.i, ptr noundef %newrefname)
-  call fastcc void @files_reflog_path(ptr noundef nonnull readonly %ref_store, ptr noundef nonnull %tmp.i, ptr noundef nonnull @.str.78)
+  call fastcc void @files_reflog_path(ptr noundef nonnull readonly %ref_store, ptr noundef %path.i, ptr noundef %newrefname)
+  call fastcc void @files_reflog_path(ptr noundef nonnull readonly %ref_store, ptr noundef %tmp.i, ptr noundef nonnull @.str.78)
   %buf.i66 = getelementptr inbounds i8, ptr %tmp.i, i64 16
   %15 = load ptr, ptr %buf.i66, align 8
   store ptr %15, ptr %cb.i, align 8
@@ -4738,7 +4733,7 @@ if.end93.critedge:                                ; preds = %land.lhs.true89
   br label %if.end93
 
 if.end93:                                         ; preds = %if.end93.critedge, %if.end87
-  %call94 = call fastcc ptr @lock_ref_oid_basic(ptr noundef nonnull %ref_store, ptr noundef %newrefname, ptr noundef nonnull %err)
+  %call94 = call fastcc ptr @lock_ref_oid_basic(ptr noundef nonnull %ref_store, ptr noundef %newrefname, ptr noundef %err)
   %tobool95.not = icmp eq ptr %call94, null
   br i1 %tobool95.not, label %if.then96, label %if.end107
 
@@ -4762,7 +4757,7 @@ if.end107:                                        ; preds = %if.end93
   br i1 %tobool109.not, label %lor.lhs.false, label %if.then112
 
 lor.lhs.false:                                    ; preds = %if.end107
-  %call110 = call fastcc i32 @commit_ref_update(ptr noundef nonnull %ref_store, ptr noundef nonnull %call94, ptr noundef nonnull %orig_oid, ptr noundef %logmsg, ptr noundef nonnull %err)
+  %call110 = call fastcc i32 @commit_ref_update(ptr noundef nonnull %ref_store, ptr noundef %call94, ptr noundef %orig_oid, ptr noundef %logmsg, ptr noundef %err)
   %tobool111.not = icmp eq i32 %call110, 0
   br i1 %tobool111.not, label %out, label %if.then112
 
@@ -4775,7 +4770,7 @@ if.then112:                                       ; preds = %lor.lhs.false, %if.
 
 rollback:                                         ; preds = %rename_tmp_log.exit, %if.then112, %if.then96, %if.else83, %if.then79, %if.then60
   %logmoved.0.shrunk = phi i1 [ false, %rename_tmp_log.exit ], [ %tobool.not, %if.then112 ], [ %tobool.not, %if.then96 ], [ false, %if.then79 ], [ false, %if.else83 ], [ false, %if.then60 ]
-  %call117 = call fastcc ptr @lock_ref_oid_basic(ptr noundef nonnull %ref_store, ptr noundef %oldrefname, ptr noundef nonnull %err)
+  %call117 = call fastcc ptr @lock_ref_oid_basic(ptr noundef nonnull %ref_store, ptr noundef %oldrefname, ptr noundef %err)
   %tobool118.not = icmp eq ptr %call117, null
   br i1 %tobool118.not, label %if.then119, label %if.end123
 
@@ -4795,7 +4790,7 @@ if.end123:                                        ; preds = %rollback
   br i1 %tobool125.not, label %lor.lhs.false126, label %if.then129
 
 lor.lhs.false126:                                 ; preds = %if.end123
-  %call127 = call fastcc i32 @commit_ref_update(ptr noundef nonnull %ref_store, ptr noundef nonnull %call117, ptr noundef nonnull %orig_oid, ptr noundef null, ptr noundef nonnull %err)
+  %call127 = call fastcc i32 @commit_ref_update(ptr noundef nonnull %ref_store, ptr noundef %call117, ptr noundef %orig_oid, ptr noundef null, ptr noundef %err)
   %tobool128.not = icmp eq i32 %call127, 0
   br i1 %tobool128.not, label %if.end133, label %if.then129
 
@@ -4863,7 +4858,7 @@ declare i32 @copy_file(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @refs_delete_ref(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @commit_ref_update(ptr noundef %refs, ptr noundef %lock, ptr noundef %oid, ptr noundef %logmsg, ptr noundef %err) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @commit_ref_update(ptr noundef %refs, ptr noundef nonnull %lock, ptr noundef nonnull %oid, ptr noundef %logmsg, ptr noundef nonnull %err) unnamed_addr #0 {
 entry:
   %head_flag = alloca i32, align 4
   %log_err = alloca %struct.strbuf, align 8
@@ -4891,14 +4886,14 @@ if.then.i:                                        ; preds = %files_assert_main_r
 clear_loose_ref_cache.exit:                       ; preds = %files_assert_main_repository.exit, %if.then.i
   %2 = load ptr, ptr %lock, align 8
   %old_oid = getelementptr inbounds i8, ptr %lock, i64 16
-  %call = tail call fastcc i32 @files_log_ref_write(ptr noundef nonnull %refs, ptr noundef %2, ptr noundef nonnull %old_oid, ptr noundef %oid, ptr noundef %logmsg, i32 noundef 0, ptr noundef %err)
+  %call = tail call fastcc i32 @files_log_ref_write(ptr noundef nonnull %refs, ptr noundef %2, ptr noundef nonnull %old_oid, ptr noundef nonnull %oid, ptr noundef %logmsg, i32 noundef 0, ptr noundef nonnull %err)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %clear_loose_ref_cache.exit
-  %call1 = tail call ptr @strbuf_detach(ptr noundef %err, ptr noundef null) #19
+  %call1 = tail call ptr @strbuf_detach(ptr noundef nonnull %err, ptr noundef null) #19
   %3 = load ptr, ptr %lock, align 8
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %err, ptr noundef nonnull @.str.43, ptr noundef %3, ptr noundef %call1) #19
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %err, ptr noundef nonnull @.str.43, ptr noundef %3, ptr noundef %call1) #19
   tail call void @free(ptr noundef %call1) #19
   %lk.i = getelementptr inbounds i8, ptr %lock, i64 8
   tail call void @delete_tempfile(ptr noundef nonnull %lk.i) #19
@@ -4932,7 +4927,7 @@ land.lhs.true9:                                   ; preds = %land.lhs.true
 
 if.then13:                                        ; preds = %land.lhs.true9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %log_err, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_reflog_expire.err.114, i64 24, i1 false)
-  %call15 = call fastcc i32 @files_log_ref_write(ptr noundef nonnull %refs, ptr noundef nonnull @.str.17, ptr noundef nonnull %old_oid, ptr noundef %oid, ptr noundef %logmsg, i32 noundef 0, ptr noundef nonnull %log_err)
+  %call15 = call fastcc i32 @files_log_ref_write(ptr noundef nonnull %refs, ptr noundef nonnull @.str.17, ptr noundef nonnull %old_oid, ptr noundef nonnull %oid, ptr noundef %logmsg, i32 noundef 0, ptr noundef nonnull %log_err)
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %if.end22, label %if.then17
 
@@ -4950,7 +4945,7 @@ if.end22:                                         ; preds = %if.then5, %land.lhs
 
 if.then25:                                        ; preds = %if.end22
   %9 = load ptr, ptr %lock, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %err, ptr noundef nonnull @.str.44, ptr noundef %9) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %err, ptr noundef nonnull @.str.44, ptr noundef %9) #19
   %lk.i24 = getelementptr inbounds i8, ptr %lock, i64 8
   call void @delete_tempfile(ptr noundef nonnull %lk.i24) #19
   %10 = load ptr, ptr %lock, align 8
@@ -5139,7 +5134,7 @@ declare i32 @ref_iterator_peel(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @base_ref_iterator_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @read_ref_internal(ptr nocapture noundef readonly %ref_store, ptr noundef %refname, ptr noundef %oid, ptr noundef %referent, ptr noundef %type, ptr nocapture noundef writeonly %failure_errno, i32 noundef %skip_packed_refs) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @read_ref_internal(ptr nocapture noundef readonly %ref_store, ptr noundef %refname, ptr noundef %oid, ptr noundef %referent, ptr noundef %type, ptr nocapture noundef writeonly %failure_errno, i32 noundef range(i32 0, 2) %skip_packed_refs) unnamed_addr #0 {
 entry:
   %_swap_buffer.i = alloca [24 x i8], align 16
   %sb_contents = alloca %struct.strbuf, align 8
@@ -5175,7 +5170,7 @@ strbuf_setlen.exit:                               ; preds = %if.end.i
   %len2.i = getelementptr inbounds i8, ptr %sb_path, i64 8
   store i64 0, ptr %len2.i, align 8
   %buf.i = getelementptr inbounds i8, ptr %sb_path, i64 16
-  call fastcc void @files_ref_path(ptr noundef nonnull %ref_store, ptr noundef nonnull %sb_path, ptr noundef %refname)
+  call fastcc void @files_ref_path(ptr noundef nonnull %ref_store, ptr noundef %sb_path, ptr noundef %refname)
   %3 = load ptr, ptr %buf.i, align 8
   %st_mode = getelementptr inbounds i8, ptr %st, i64 24
   %len2.i28 = getelementptr inbounds i8, ptr %sb_contents, i64 8

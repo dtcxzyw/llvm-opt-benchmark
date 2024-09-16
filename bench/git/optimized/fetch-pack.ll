@@ -558,7 +558,7 @@ for.body173:                                      ; preds = %for.body173.prehead
   %indvars.iv156 = phi i64 [ %48, %for.body173.preheader ], [ %indvars.iv.next157, %for.body173 ]
   %arrayidx175 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv156
   %49 = load ptr, ptr %arrayidx175, align 8
-  call fastcc void @add_sought_entry(ptr noundef nonnull %sought, ptr noundef nonnull %nr_sought, ptr noundef nonnull %alloc_sought, ptr noundef %49)
+  call fastcc void @add_sought_entry(ptr noundef %sought, ptr noundef %nr_sought, ptr noundef %alloc_sought, ptr noundef %49)
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %50 = trunc nuw i64 %indvars.iv.next157 to i32
   %cmp171 = icmp sgt i32 %argc, %50
@@ -583,7 +583,7 @@ for.cond191.preheader:                            ; preds = %if.then184
 
 if.end195:                                        ; preds = %for.cond191.preheader, %if.end195
   %call192126 = phi ptr [ %call192, %if.end195 ], [ %call192124, %for.cond191.preheader ]
-  call fastcc void @add_sought_entry(ptr noundef nonnull %sought, ptr noundef nonnull %nr_sought, ptr noundef nonnull %alloc_sought, ptr noundef nonnull %call192126)
+  call fastcc void @add_sought_entry(ptr noundef %sought, ptr noundef %nr_sought, ptr noundef %alloc_sought, ptr noundef nonnull %call192126)
   %call192 = call ptr @packet_read_line(i32 noundef 0, ptr noundef null) #10
   %tobool193.not = icmp eq ptr %call192, null
   br i1 %tobool193.not, label %if.end203, label %if.end195
@@ -601,7 +601,7 @@ while.body.lr.ph:                                 ; preds = %if.else197
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %54 = load ptr, ptr %buf, align 8
-  call fastcc void @add_sought_entry(ptr noundef nonnull %sought, ptr noundef nonnull %nr_sought, ptr noundef nonnull %alloc_sought, ptr noundef %54)
+  call fastcc void @add_sought_entry(ptr noundef %sought, ptr noundef %nr_sought, ptr noundef %alloc_sought, ptr noundef %54)
   %55 = load ptr, ptr @stdin, align 8
   %call199 = call i32 @strbuf_getline_lf(ptr noundef nonnull %line198, ptr noundef %55) #10
   %cmp200.not = icmp eq i32 %call199, -1
@@ -791,7 +791,7 @@ declare void @parse_list_objects_filter(ptr noundef, ptr noundef) local_unnamed_
 declare void @usage(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_sought_entry(ptr nocapture noundef %sought, ptr nocapture noundef %nr, ptr nocapture noundef %alloc, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc void @add_sought_entry(ptr nocapture noundef nonnull %sought, ptr nocapture noundef nonnull %nr, ptr nocapture noundef nonnull %alloc, ptr noundef %name) unnamed_addr #0 {
 entry:
   %oid = alloca %struct.object_id, align 4
   %p = alloca ptr, align 8

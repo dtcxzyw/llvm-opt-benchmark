@@ -15615,7 +15615,7 @@ define internal fastcc void @mas_mab_cp(ptr nocapture noundef readonly %0, i8 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @mas_spanning_rebalance(ptr nocapture noundef %0, ptr nocapture noundef %1, i8 noundef zeroext %2) unnamed_addr #1 align 16 {
+define internal fastcc void @mas_spanning_rebalance(ptr nocapture noundef %0, ptr nocapture noundef %1, i8 noundef zeroext range(i8 1, 33) %2) unnamed_addr #1 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca %struct.ma_state, align 8
   %6 = alloca %struct.ma_state, align 8
@@ -20415,7 +20415,7 @@ define internal fastcc range(i32 -256, 256) i32 @mab_calc_split(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal fastcc noundef range(i32 0, 256) i32 @mab_no_null_split(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i8 noundef zeroext %2) unnamed_addr #15 align 16 {
+define internal fastcc noundef range(i32 0, 256) i32 @mab_no_null_split(ptr nocapture noundef readonly %0, i8 noundef zeroext range(i8 1, 0) %1, i8 noundef zeroext %2) unnamed_addr #15 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 272
   %5 = zext i8 %1 to i64
   %6 = getelementptr [34 x ptr], ptr %4, i64 0, i64 %5
@@ -23107,7 +23107,7 @@ mas_set_split_parent.exit3:                       ; preds = %mas_set_split_paren
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @mast_fill_bnode(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i8 noundef zeroext %2) unnamed_addr #4 align 16 {
+define internal fastcc void @mast_fill_bnode(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i8 noundef zeroext range(i8 1, 3) %2) unnamed_addr #4 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 440

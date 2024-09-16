@@ -248,12 +248,12 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %75
   %97 = mul i64 %indvars.iv.i, %90
   %98 = getelementptr inbounds i8, ptr %.0118, i64 %97
   %99 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %100 = tail call i32 @NBC_Sched_recv(ptr noundef %98, i8 noundef signext 0, i64 noundef %89, ptr noundef %5, i32 noundef %99, ptr noundef %44, i1 noundef zeroext false) #9
+  %100 = tail call i32 @NBC_Sched_recv(ptr noundef %98, i8 noundef signext 0, i64 noundef %89, ptr noundef %5, i32 noundef %99, ptr noundef nonnull %44, i1 noundef zeroext false) #9
   %.not28.i = icmp eq i32 %100, 0
   br i1 %.not28.i, label %101, label %allgather_sched_linear.exit
 
 101:                                              ; preds = %96
-  %102 = tail call i32 @NBC_Sched_send(ptr noundef %92, i8 noundef signext 0, i64 noundef %89, ptr noundef %5, i32 noundef %99, ptr noundef %44, i1 noundef zeroext false) #9
+  %102 = tail call i32 @NBC_Sched_send(ptr noundef %92, i8 noundef signext 0, i64 noundef %89, ptr noundef %5, i32 noundef %99, ptr noundef nonnull %44, i1 noundef zeroext false) #9
   %.not29.i = icmp eq i32 %102, 0
   br i1 %.not29.i, label %103, label %allgather_sched_linear.exit
 
@@ -289,7 +289,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %75
   %118 = getelementptr inbounds i8, ptr %.0118, i64 %117
   %119 = sext i32 %.0372.i to i64
   %120 = mul nsw i64 %119, %109
-  %121 = tail call i32 @NBC_Sched_send(ptr noundef %118, i8 noundef signext 0, i64 noundef %120, ptr noundef %5, i32 noundef %115, ptr noundef %44, i1 noundef zeroext false) #9
+  %121 = tail call i32 @NBC_Sched_send(ptr noundef %118, i8 noundef signext 0, i64 noundef %120, ptr noundef %5, i32 noundef %115, ptr noundef nonnull %44, i1 noundef zeroext false) #9
   %.not.i153 = icmp eq i32 %121, 0
   br i1 %.not.i153, label %122, label %allgather_sched_linear.exit
 
@@ -301,7 +301,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %75
   %.pn47.i = sext i32 %.pn47.in.i to i64
   %.pn.i = mul i64 %110, %.pn47.i
   %.040.i = getelementptr inbounds i8, ptr %.0118, i64 %.pn.i
-  %126 = tail call i32 @NBC_Sched_recv(ptr noundef %.040.i, i8 noundef signext 0, i64 noundef %120, ptr noundef %5, i32 noundef %115, ptr noundef %44, i1 noundef zeroext true) #9
+  %126 = tail call i32 @NBC_Sched_recv(ptr noundef %.040.i, i8 noundef signext 0, i64 noundef %120, ptr noundef %5, i32 noundef %115, ptr noundef nonnull %44, i1 noundef zeroext true) #9
   %.not48.i = icmp eq i32 %126, 0
   br i1 %.not48.i, label %111, label %allgather_sched_linear.exit
 

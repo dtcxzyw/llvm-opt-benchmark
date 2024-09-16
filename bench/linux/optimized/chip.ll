@@ -2326,7 +2326,7 @@ define dso_local void @__irq_set_handler(i32 noundef %0, ptr noundef %1, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__irq_do_set_handler(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc void @__irq_do_set_handler(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = icmp eq ptr %1, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 64
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -2484,7 +2484,7 @@ define internal fastcc void @__irq_do_set_handler(ptr noundef %0, ptr noundef %1
 
 84:                                               ; preds = %77
   %85 = zext nneg i32 %82 to i64
-  %86 = tail call i32 @__irq_set_trigger(ptr noundef %0, i64 noundef %85) #8
+  %86 = tail call i32 @__irq_set_trigger(ptr noundef nonnull %0, i64 noundef %85) #8
   store ptr %1, ptr %75, align 8
   br label %87
 
@@ -2557,7 +2557,7 @@ define internal fastcc void @__irq_do_set_handler(ptr noundef %0, ptr noundef %1
   br label %125
 
 123:                                              ; preds = %119, %.thread16
-  %124 = tail call i32 @irq_startup(ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext true)
+  %124 = tail call i32 @irq_startup(ptr noundef nonnull %0, i1 noundef zeroext true, i1 noundef zeroext true)
   br label %125
 
 .loopexit:                                        ; preds = %.preheader.split

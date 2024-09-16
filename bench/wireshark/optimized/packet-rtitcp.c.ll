@@ -750,7 +750,7 @@ declare void @tvb_set_reported_length(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @tvb_get_guint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @print_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @print_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %.not = icmp eq i32 %5, 0
   %7 = zext i16 %3 to i32
   %8 = load i32, ptr @ett_rtitcp_message, align 4

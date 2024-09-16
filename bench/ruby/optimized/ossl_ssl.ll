@@ -5294,7 +5294,7 @@ define internal i64 @fallback_peer_ip_address(i64 %0, i64 %1) #0 {
 declare i32 @SSL_accept(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ossl_ssl_read_internal(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @ossl_ssl_read_internal(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8

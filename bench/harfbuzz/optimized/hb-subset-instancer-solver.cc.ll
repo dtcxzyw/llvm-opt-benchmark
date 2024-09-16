@@ -127,7 +127,7 @@ entry:
   %coerce1.sroa.2.0.axisLimit.sroa_idx = getelementptr inbounds i8, ptr %axisLimit, i64 8
   store float %axisLimit.coerce1, ptr %coerce1.sroa.2.0.axisLimit.sroa_idx, align 8
   store <2 x float> %axis_triple_distances.coerce, ptr %axis_triple_distances, align 8
-  call fastcc void @_ZL6_solve6TripleS_b(ptr noalias nonnull align 8 %sols, <2 x float> %tent.coerce0, float %tent.coerce1, <2 x float> %axisLimit.coerce0, float %axisLimit.coerce1, i1 noundef zeroext false)
+  call fastcc void @_ZL6_solve6TripleS_b(ptr noalias align 8 %sols, <2 x float> %tent.coerce0, float %tent.coerce1, <2 x float> %axisLimit.coerce0, float %axisLimit.coerce1, i1 noundef zeroext false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %arrayZ.i = getelementptr inbounds i8, ptr %sols, i64 8
   %0 = load ptr, ptr %arrayZ.i, align 8
@@ -325,7 +325,7 @@ _ZN11hb_vector_tI9hb_pair_tIf6TripleELb0EED2Ev.exit: ; preds = %nrvo.skipdtor, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL6_solve6TripleS_b(ptr noalias align 8 %agg.result, <2 x float> %tent.coerce0, float %tent.coerce1, <2 x float> %axisLimit.coerce0, float %axisLimit.coerce1, i1 noundef zeroext %negative) unnamed_addr #3 {
+define internal fastcc void @_ZL6_solve6TripleS_b(ptr noalias nonnull align 8 %agg.result, <2 x float> %tent.coerce0, float %tent.coerce1, <2 x float> %axisLimit.coerce0, float %axisLimit.coerce1, i1 noundef zeroext %negative) unnamed_addr #3 {
 entry:
   %retval.i.i565 = alloca %struct.hb_pair_t, align 8
   %retval.i.i520 = alloca %struct.hb_pair_t, align 8

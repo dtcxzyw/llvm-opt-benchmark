@@ -1147,7 +1147,7 @@ declare noundef zeroext i1 @_ZNK2cv12_OutputArray9fixedTypeEv(ptr noundef nonnul
 declare noundef i32 @_ZNK2cv11_InputArray4typeEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 -2147483648, 2147483647) i32 @_ZN2cvL9Sklansky_IilEEiPPNS_6Point_IT_EEiiPiii(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #5 {
+define internal fastcc noundef range(i32 -2147483648, 2147483647) i32 @_ZN2cvL9Sklansky_IilEEiPPNS_6Point_IT_EEiiPiii(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2147483647) %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef range(i32 -1, 2) %4, i32 noundef range(i32 -1, 2) %5) unnamed_addr #5 {
   %7 = icmp sgt i32 %2, %1
   %8 = select i1 %7, i32 1, i32 -1
   %9 = add nsw i32 %8, %1
@@ -1299,7 +1299,7 @@ define internal fastcc noundef range(i32 -2147483648, 2147483647) i32 @_ZN2cvL9S
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 -2147483648, 2147483647) i32 @_ZN2cvL9Sklansky_IfdEEiPPNS_6Point_IT_EEiiPiii(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #5 {
+define internal fastcc noundef range(i32 -2147483648, 2147483647) i32 @_ZN2cvL9Sklansky_IfdEEiPPNS_6Point_IT_EEiiPiii(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2147483647) %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef range(i32 -1, 2) %4, i32 noundef range(i32 -1, 2) %5) unnamed_addr #5 {
   %7 = icmp sgt i32 %2, %1
   %8 = select i1 %7, i32 1, i32 -1
   %9 = add nsw i32 %8, %1
@@ -2133,7 +2133,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %7, %10
 19:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
   %20 = landingpad { ptr, i32 }
           cleanup
-  br label %68
+  br label %72
 
 21:                                               ; preds = %14, %12
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
@@ -2161,7 +2161,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %7, %10
 28:                                               ; preds = %26, %24
   %.pn = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
-  br label %68
+  br label %72
 
 29:                                               ; preds = %14
   %30 = icmp eq i32 %11, 0
@@ -2170,99 +2170,99 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %7, %10
 31:                                               ; preds = %29
   %32 = getelementptr inbounds i8, ptr %2, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = zext nneg i32 %11 to i64
   %reass.add.i = shl nuw i32 %11, 1
-  %35 = add i32 %reass.add.i, -2
-  %36 = urem i32 %35, %11
-  %37 = zext nneg i32 %36 to i64
-  br i1 %17, label %.lr.ph.preheader.i, label %.lr.ph.preheader.i17
+  %34 = add i32 %reass.add.i, -2
+  %35 = urem i32 %34, %11
+  %36 = zext nneg i32 %35 to i64
+  %37 = zext nneg i32 %11 to i64
+  br i1 %17, label %38, label %55
 
-.lr.ph.preheader.i:                               ; preds = %31
-  %38 = getelementptr %"class.cv::Point_", ptr %33, i64 %34
-  %.sroa.5.0..sroa_idx.i = getelementptr i8, ptr %38, i64 -4
-  %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 4
-  %39 = getelementptr inbounds %"class.cv::Point_", ptr %33, i64 %37
+38:                                               ; preds = %31
+  %39 = getelementptr inbounds %"class.cv::Point_", ptr %33, i64 %36
+  %.sroa.023.0.copyload.i = load i32, ptr %39, align 4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %39, i64 4
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4
-  %40 = sub nsw i32 %.sroa.5.0.copyload.i, %.sroa.4.0.copyload.i
-  %41 = getelementptr i8, ptr %38, i64 -8
+  %40 = getelementptr %"class.cv::Point_", ptr %33, i64 %37
+  %41 = getelementptr i8, ptr %40, i64 -8
   %.sroa.0.0.copyload.i = load i32, ptr %41, align 4
-  %.sroa.023.0.copyload.i = load i32, ptr %39, align 4
+  %.sroa.5.0..sroa_idx.i = getelementptr i8, ptr %40, i64 -4
+  %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 4
   %42 = sub nsw i32 %.sroa.0.0.copyload.i, %.sroa.023.0.copyload.i
-  br label %.lr.ph.i
+  %43 = sub nsw i32 %.sroa.5.0.copyload.i, %.sroa.4.0.copyload.i
+  br label %44
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.sroa.5.044.i = phi i32 [ %.sroa.5.0.copyload.i, %.lr.ph.preheader.i ], [ %.sroa.5.0.copyload21.i, %.lr.ph.i ]
-  %.03542.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %52, %.lr.ph.i ]
-  %.03641.i = phi i32 [ %40, %.lr.ph.preheader.i ], [ %45, %.lr.ph.i ]
-  %.03740.i = phi i32 [ %42, %.lr.ph.preheader.i ], [ %44, %.lr.ph.i ]
-  %.sroa.0.039.i = phi i32 [ %.sroa.0.0.copyload.i, %.lr.ph.preheader.i ], [ %.sroa.0.0.copyload17.i, %.lr.ph.i ]
-  %43 = getelementptr inbounds %"class.cv::Point_", ptr %33, i64 %indvars.iv.i
-  %.sroa.0.0.copyload17.i = load i32, ptr %43, align 4
-  %.sroa.5.0..sroa_idx20.i = getelementptr inbounds i8, ptr %43, i64 4
+44:                                               ; preds = %44, %38
+  %indvars.iv.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i, %44 ]
+  %.sroa.5.044.i = phi i32 [ %.sroa.5.0.copyload.i, %38 ], [ %.sroa.5.0.copyload21.i, %44 ]
+  %.03542.i = phi i32 [ 0, %38 ], [ %54, %44 ]
+  %.03641.i = phi i32 [ %43, %38 ], [ %47, %44 ]
+  %.03740.i = phi i32 [ %42, %38 ], [ %46, %44 ]
+  %.sroa.0.039.i = phi i32 [ %.sroa.0.0.copyload.i, %38 ], [ %.sroa.0.0.copyload17.i, %44 ]
+  %45 = getelementptr inbounds %"class.cv::Point_", ptr %33, i64 %indvars.iv.i
+  %.sroa.0.0.copyload17.i = load i32, ptr %45, align 4
+  %.sroa.5.0..sroa_idx20.i = getelementptr inbounds i8, ptr %45, i64 4
   %.sroa.5.0.copyload21.i = load i32, ptr %.sroa.5.0..sroa_idx20.i, align 4
-  %44 = sub nsw i32 %.sroa.0.0.copyload17.i, %.sroa.0.039.i
-  %45 = sub nsw i32 %.sroa.5.0.copyload21.i, %.sroa.5.044.i
-  %46 = mul nsw i32 %44, %.03641.i
-  %47 = mul nsw i32 %45, %.03740.i
-  %48 = icmp sgt i32 %47, %46
-  %49 = icmp slt i32 %47, %46
-  %50 = select i1 %49, i32 2, i32 3
-  %51 = select i1 %48, i32 1, i32 %50
-  %52 = or i32 %51, %.03542.i
-  %.not.i.not = icmp ne i32 %52, 3
+  %46 = sub nsw i32 %.sroa.0.0.copyload17.i, %.sroa.0.039.i
+  %47 = sub nsw i32 %.sroa.5.0.copyload21.i, %.sroa.5.044.i
+  %48 = mul nsw i32 %46, %.03641.i
+  %49 = mul nsw i32 %47, %.03740.i
+  %50 = icmp sgt i32 %49, %48
+  %51 = icmp slt i32 %49, %48
+  %52 = select i1 %51, i32 2, i32 3
+  %53 = select i1 %50, i32 1, i32 %52
+  %54 = or i32 %53, %.03542.i
+  %.not.i = icmp ne i32 %54, 3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp ne i64 %indvars.iv.next.i, %34
-  %or.cond44.not = select i1 %.not.i.not, i1 %exitcond.not.i, i1 false
-  br i1 %or.cond44.not, label %.lr.ph.i, label %_ZN2cvL16isContourConvex_IiEEbPKNS_6Point_IT_EEi.exit, !llvm.loop !36
+  %exitcond.not.i = icmp ne i64 %indvars.iv.next.i, %37
+  %or.cond.not.i = select i1 %.not.i, i1 %exitcond.not.i, i1 false
+  br i1 %or.cond.not.i, label %44, label %_ZN2cvL16isContourConvex_IiEEbPKNS_6Point_IT_EEi.exit, !llvm.loop !36
 
-.lr.ph.preheader.i17:                             ; preds = %31
-  %53 = getelementptr %"class.cv::Point_.2", ptr %33, i64 %34
-  %.sroa.5.0..sroa_idx.i18 = getelementptr i8, ptr %53, i64 -4
-  %.sroa.5.0.copyload.i19 = load float, ptr %.sroa.5.0..sroa_idx.i18, align 4
-  %54 = getelementptr inbounds %"class.cv::Point_.2", ptr %33, i64 %37
-  %.sroa.4.0..sroa_idx.i21 = getelementptr inbounds i8, ptr %54, i64 4
-  %.sroa.4.0.copyload.i22 = load float, ptr %.sroa.4.0..sroa_idx.i21, align 4
-  %55 = fsub float %.sroa.5.0.copyload.i19, %.sroa.4.0.copyload.i22
-  %56 = getelementptr i8, ptr %53, i64 -8
-  %.sroa.0.0.copyload.i23 = load float, ptr %56, align 4
-  %.sroa.022.0.copyload.i = load float, ptr %54, align 4
-  %57 = fsub float %.sroa.0.0.copyload.i23, %.sroa.022.0.copyload.i
-  br label %.lr.ph.i25
+55:                                               ; preds = %31
+  %56 = getelementptr inbounds %"class.cv::Point_.2", ptr %33, i64 %36
+  %.sroa.022.0.copyload.i = load float, ptr %56, align 4
+  %.sroa.4.0..sroa_idx.i18 = getelementptr inbounds i8, ptr %56, i64 4
+  %.sroa.4.0.copyload.i19 = load float, ptr %.sroa.4.0..sroa_idx.i18, align 4
+  %57 = getelementptr %"class.cv::Point_.2", ptr %33, i64 %37
+  %58 = getelementptr i8, ptr %57, i64 -8
+  %.sroa.0.0.copyload.i20 = load float, ptr %58, align 4
+  %.sroa.5.0..sroa_idx.i21 = getelementptr i8, ptr %57, i64 -4
+  %.sroa.5.0.copyload.i22 = load float, ptr %.sroa.5.0..sroa_idx.i21, align 4
+  %59 = fsub float %.sroa.0.0.copyload.i20, %.sroa.022.0.copyload.i
+  %60 = fsub float %.sroa.5.0.copyload.i22, %.sroa.4.0.copyload.i19
+  br label %61
 
-.lr.ph.i25:                                       ; preds = %.lr.ph.i25, %.lr.ph.preheader.i17
-  %indvars.iv.i26 = phi i64 [ 0, %.lr.ph.preheader.i17 ], [ %indvars.iv.next.i33, %.lr.ph.i25 ]
-  %.sroa.5.044.i27 = phi float [ %.sroa.5.0.copyload.i19, %.lr.ph.preheader.i17 ], [ %.sroa.5.0.copyload20.i, %.lr.ph.i25 ]
-  %.03542.i28 = phi i32 [ 0, %.lr.ph.preheader.i17 ], [ %67, %.lr.ph.i25 ]
-  %.03641.i29 = phi float [ %55, %.lr.ph.preheader.i17 ], [ %60, %.lr.ph.i25 ]
-  %.03740.i30 = phi float [ %57, %.lr.ph.preheader.i17 ], [ %59, %.lr.ph.i25 ]
-  %.sroa.0.039.i31 = phi float [ %.sroa.0.0.copyload.i23, %.lr.ph.preheader.i17 ], [ %.sroa.0.0.copyload16.i, %.lr.ph.i25 ]
-  %58 = getelementptr inbounds %"class.cv::Point_.2", ptr %33, i64 %indvars.iv.i26
-  %.sroa.0.0.copyload16.i = load float, ptr %58, align 4
-  %.sroa.5.0..sroa_idx19.i = getelementptr inbounds i8, ptr %58, i64 4
+61:                                               ; preds = %61, %55
+  %indvars.iv.i23 = phi i64 [ 0, %55 ], [ %indvars.iv.next.i30, %61 ]
+  %.sroa.5.044.i24 = phi float [ %.sroa.5.0.copyload.i22, %55 ], [ %.sroa.5.0.copyload20.i, %61 ]
+  %.03542.i25 = phi i32 [ 0, %55 ], [ %71, %61 ]
+  %.03641.i26 = phi float [ %60, %55 ], [ %64, %61 ]
+  %.03740.i27 = phi float [ %59, %55 ], [ %63, %61 ]
+  %.sroa.0.039.i28 = phi float [ %.sroa.0.0.copyload.i20, %55 ], [ %.sroa.0.0.copyload16.i, %61 ]
+  %62 = getelementptr inbounds %"class.cv::Point_.2", ptr %33, i64 %indvars.iv.i23
+  %.sroa.0.0.copyload16.i = load float, ptr %62, align 4
+  %.sroa.5.0..sroa_idx19.i = getelementptr inbounds i8, ptr %62, i64 4
   %.sroa.5.0.copyload20.i = load float, ptr %.sroa.5.0..sroa_idx19.i, align 4
-  %59 = fsub float %.sroa.0.0.copyload16.i, %.sroa.0.039.i31
-  %60 = fsub float %.sroa.5.0.copyload20.i, %.sroa.5.044.i27
-  %61 = fmul float %.03641.i29, %59
-  %62 = fmul float %.03740.i30, %60
-  %63 = fcmp ogt float %62, %61
-  %64 = fcmp olt float %62, %61
-  %65 = select i1 %64, i32 2, i32 3
-  %66 = select i1 %63, i32 1, i32 %65
-  %67 = or i32 %66, %.03542.i28
-  %.not.i32.not = icmp ne i32 %67, 3
-  %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i26, 1
-  %exitcond.not.i34 = icmp ne i64 %indvars.iv.next.i33, %34
-  %or.cond45.not = select i1 %.not.i32.not, i1 %exitcond.not.i34, i1 false
-  br i1 %or.cond45.not, label %.lr.ph.i25, label %_ZN2cvL16isContourConvex_IiEEbPKNS_6Point_IT_EEi.exit, !llvm.loop !37
+  %63 = fsub float %.sroa.0.0.copyload16.i, %.sroa.0.039.i28
+  %64 = fsub float %.sroa.5.0.copyload20.i, %.sroa.5.044.i24
+  %65 = fmul float %.03641.i26, %63
+  %66 = fmul float %.03740.i27, %64
+  %67 = fcmp ogt float %66, %65
+  %68 = fcmp olt float %66, %65
+  %69 = select i1 %68, i32 2, i32 3
+  %70 = select i1 %67, i32 1, i32 %69
+  %71 = or i32 %70, %.03542.i25
+  %.not.i29 = icmp ne i32 %71, 3
+  %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i23, 1
+  %exitcond.not.i31 = icmp ne i64 %indvars.iv.next.i30, %37
+  %or.cond.not.i32 = select i1 %.not.i29, i1 %exitcond.not.i31, i1 false
+  br i1 %or.cond.not.i32, label %61, label %_ZN2cvL16isContourConvex_IiEEbPKNS_6Point_IT_EEi.exit, !llvm.loop !37
 
-_ZN2cvL16isContourConvex_IiEEbPKNS_6Point_IT_EEi.exit: ; preds = %.lr.ph.i25, %.lr.ph.i, %29
-  %.0 = phi i1 [ false, %29 ], [ %.not.i.not, %.lr.ph.i ], [ %.not.i32.not, %.lr.ph.i25 ]
+_ZN2cvL16isContourConvex_IiEEbPKNS_6Point_IT_EEi.exit: ; preds = %61, %44, %29
+  %.0 = phi i1 [ false, %29 ], [ %.not.i, %44 ], [ %.not.i29, %61 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   ret i1 %.0
 
-68:                                               ; preds = %28, %19
+72:                                               ; preds = %28, %19
   %.pn.pn = phi { ptr, i32 } [ %.pn, %28 ], [ %20, %19 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
   resume { ptr, i32 } %.pn.pn

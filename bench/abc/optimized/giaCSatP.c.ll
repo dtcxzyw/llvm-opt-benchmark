@@ -517,7 +517,7 @@ define i32 @CbsP_ManPropagate(ptr nocapture noundef %0, i32 noundef %1) local_un
   br i1 %or.cond3.i, label %57, label %59
 
 57:                                               ; preds = %55
-  %58 = tail call fastcc i32 @CbsP_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %26, ptr noundef nonnull %31, ptr noundef null)
+  %58 = tail call fastcc i32 @CbsP_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %26, ptr noundef nonnull %31, ptr noundef null)
   br label %CbsP_ManPropagateOne.exit
 
 59:                                               ; preds = %55
@@ -526,11 +526,11 @@ define i32 @CbsP_ManPropagate(ptr nocapture noundef %0, i32 noundef %1) local_un
   br i1 %or.cond5.i, label %61, label %63
 
 61:                                               ; preds = %59
-  %62 = tail call fastcc i32 @CbsP_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %26, ptr noundef nonnull %43, ptr noundef null)
+  %62 = tail call fastcc i32 @CbsP_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %26, ptr noundef nonnull %43, ptr noundef null)
   br label %CbsP_ManPropagateOne.exit
 
 63:                                               ; preds = %59
-  %64 = tail call fastcc i32 @CbsP_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %26, ptr noundef nonnull %31, ptr noundef nonnull %43)
+  %64 = tail call fastcc i32 @CbsP_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %26, ptr noundef nonnull %31, ptr noundef nonnull %43)
   br label %CbsP_ManPropagateOne.exit
 
 65:                                               ; preds = %54
@@ -572,7 +572,7 @@ define i32 @CbsP_ManPropagate(ptr nocapture noundef %0, i32 noundef %1) local_un
   br i1 %or.cond9.i, label %88, label %90
 
 88:                                               ; preds = %85
-  %89 = tail call fastcc i32 @CbsP_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %26, ptr noundef nonnull %31, ptr noundef nonnull %43)
+  %89 = tail call fastcc i32 @CbsP_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %26, ptr noundef nonnull %31, ptr noundef nonnull %43)
   br label %CbsP_ManPropagateOne.exit
 
 90:                                               ; preds = %85
@@ -807,7 +807,7 @@ CbsP_VarIsJust.exit.thread:                       ; preds = %.lr.ph105, %154, %C
   br label %CbsP_ManPropagateTwo.exit.thread
 
 CbsP_ManPropagateTwo.exit:                        ; preds = %188
-  %215 = tail call fastcc i32 @CbsP_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %149, ptr noundef nonnull %166, ptr noundef nonnull %178)
+  %215 = tail call fastcc i32 @CbsP_ManAnalyze(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %149, ptr noundef nonnull %166, ptr noundef nonnull %178)
   %.not44 = icmp eq i32 %215, 0
   br i1 %.not44, label %CbsP_ManPropagateTwo.exit.thread, label %.loopexit
 
@@ -1631,7 +1631,7 @@ define internal fastcc void @CbsP_ManCancelUntil(ptr nocapture noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @CbsP_ManResolve(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 {
+define internal fastcc i32 @CbsP_ManResolve(ptr nocapture noundef %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 240
   %5 = getelementptr inbounds i8, ptr %0, i64 244
   %6 = load i32, ptr %5, align 4
@@ -3393,7 +3393,7 @@ declare void @Cec_ManSatAddToStore(ptr noundef, ptr noundef, i32 noundef) local_
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @CbsP_ManAnalyze(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #4 {
+define internal fastcc i32 @CbsP_ManAnalyze(ptr nocapture noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4) unnamed_addr #4 {
   %6 = getelementptr inbounds i8, ptr %0, i64 240
   %7 = getelementptr inbounds i8, ptr %0, i64 244
   %8 = load i32, ptr %7, align 4

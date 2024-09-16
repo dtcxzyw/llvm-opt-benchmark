@@ -1044,7 +1044,7 @@ define internal fastcc void @_ZN3gmxL23construct_vsites_threadILNS_22VSiteCalcul
   br i1 %.not56, label %99, label %86
 
 86:                                               ; preds = %79
-  %87 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef %85, ptr noundef %83, ptr noundef nonnull %21)
+  %87 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef nonnull %85, ptr noundef nonnull %83, ptr noundef nonnull %21)
   %88 = load float, ptr %83, align 4
   %89 = load float, ptr %21, align 4
   %90 = call float @llvm.fmuladd.f32(float %63, float %89, float %88)
@@ -1101,7 +1101,7 @@ _ZN3gmxL13constr_vsite2ILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVeloc
   br i1 %.not56, label %127, label %125
 
 125:                                              ; preds = %117
-  %126 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef %123, ptr noundef %121, ptr noundef nonnull %20)
+  %126 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef nonnull %123, ptr noundef nonnull %121, ptr noundef nonnull %20)
   %.pre.i = load float, ptr %20, align 4
   %.pre1.i = load float, ptr %.phi.trans.insert.i, align 4
   %.pre3.i = load float, ptr %.phi.trans.insert2.i, align 4
@@ -1166,8 +1166,8 @@ _ZN3gmxL15constr_vsite2FDILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVel
   br i1 %.not56, label %185, label %167
 
 167:                                              ; preds = %154
-  %168 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef %164, ptr noundef %162, ptr noundef nonnull %18)
-  %169 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef %166, ptr noundef %162, ptr noundef nonnull %19)
+  %168 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef nonnull %164, ptr noundef nonnull %162, ptr noundef nonnull %18)
+  %169 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef nonnull %166, ptr noundef nonnull %162, ptr noundef nonnull %19)
   %170 = load float, ptr %162, align 4
   %171 = load float, ptr %18, align 4
   %172 = call float @llvm.fmuladd.f32(float %63, float %171, float %170)
@@ -1244,8 +1244,8 @@ _ZN3gmxL13constr_vsite3ILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVeloc
   br i1 %.not56, label %227, label %224
 
 224:                                              ; preds = %211
-  %225 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef %221, ptr noundef %219, ptr noundef nonnull %16)
-  %226 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef %223, ptr noundef %221, ptr noundef nonnull %17)
+  %225 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef nonnull %221, ptr noundef nonnull %219, ptr noundef nonnull %16)
+  %226 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef nonnull %223, ptr noundef nonnull %221, ptr noundef nonnull %17)
   %.pre.i154 = load float, ptr %16, align 4
   %.pre4.i155 = load float, ptr %17, align 4
   %.pre5.i = load float, ptr %.phi.trans.insert.i156, align 4
@@ -1330,8 +1330,8 @@ _ZN3gmxL15constr_vsite3FDILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVel
   br i1 %.not56, label %285, label %282
 
 282:                                              ; preds = %269
-  %283 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef %279, ptr noundef %277, ptr noundef nonnull %14)
-  %284 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef %281, ptr noundef %279, ptr noundef nonnull %15)
+  %283 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef nonnull %279, ptr noundef nonnull %277, ptr noundef nonnull %14)
+  %284 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef nonnull %281, ptr noundef nonnull %279, ptr noundef nonnull %15)
   %.pre.i159 = load float, ptr %14, align 4
   %.pre4.i161 = load float, ptr %.phi.trans.insert.i160, align 4
   %.pre6.i = load float, ptr %.phi.trans.insert5.i, align 4
@@ -1433,8 +1433,8 @@ _ZN3gmxL16constr_vsite3FADILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVe
   br i1 %.not56, label %359, label %356
 
 356:                                              ; preds = %341
-  %357 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef %353, ptr noundef %351, ptr noundef nonnull %12)
-  %358 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef %355, ptr noundef %351, ptr noundef nonnull %13)
+  %357 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef nonnull %353, ptr noundef nonnull %351, ptr noundef nonnull %12)
+  %358 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef nonnull %355, ptr noundef nonnull %351, ptr noundef nonnull %13)
   %.pre.i171 = load float, ptr %.phi.trans.insert.i170, align 4
   %.pre2.i = load float, ptr %.phi.trans.insert1.i, align 4
   %.pre4.i172 = load float, ptr %.phi.trans.insert3.i, align 4
@@ -1532,9 +1532,9 @@ _ZN3gmxL16constr_vsite3OUTILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVe
   br i1 %.not56, label %431, label %427
 
 427:                                              ; preds = %408
-  %428 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef %422, ptr noundef %420, ptr noundef nonnull %9)
-  %429 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef %424, ptr noundef %422, ptr noundef nonnull %10)
-  %430 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef %426, ptr noundef %422, ptr noundef nonnull %11)
+  %428 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef nonnull %422, ptr noundef nonnull %420, ptr noundef nonnull %9)
+  %429 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef nonnull %424, ptr noundef nonnull %422, ptr noundef nonnull %10)
+  %430 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef nonnull %426, ptr noundef nonnull %422, ptr noundef nonnull %11)
   %.pre.i178 = load float, ptr %9, align 4
   %.pre4.i179 = load float, ptr %10, align 4
   %.pre5.i180 = load float, ptr %11, align 4
@@ -1644,9 +1644,9 @@ _ZN3gmxL15constr_vsite4FDILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVel
   br i1 %.not56, label %510, label %506
 
 506:                                              ; preds = %487
-  %507 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef %501, ptr noundef %499, ptr noundef nonnull %6)
-  %508 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef %503, ptr noundef %499, ptr noundef nonnull %7)
-  %509 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef %505, ptr noundef %499, ptr noundef nonnull %8)
+  %507 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef nonnull %501, ptr noundef nonnull %499, ptr noundef nonnull %6)
+  %508 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef nonnull %503, ptr noundef nonnull %499, ptr noundef nonnull %7)
+  %509 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef nonnull %505, ptr noundef nonnull %499, ptr noundef nonnull %8)
   %.pre.i187 = load float, ptr %7, align 4
   %.pre20.i = load float, ptr %.phi.trans.insert.i188, align 4
   %.pre22.i = load float, ptr %.phi.trans.insert21.i, align 4
@@ -2207,7 +2207,7 @@ define internal fastcc void @_ZN3gmxL23construct_vsites_threadILNS_22VSiteCalcul
   br i1 %.not88, label %114, label %112
 
 112:                                              ; preds = %102
-  %113 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %108, ptr noundef %106, ptr noundef nonnull %19)
+  %113 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %108, ptr noundef nonnull %106, ptr noundef nonnull %19)
   %.pre.i = load float, ptr %19, align 4
   %.pre4.i = load float, ptr %.phi.trans.insert.i, align 4
   %.pre6.i = load float, ptr %.phi.trans.insert5.i, align 4
@@ -2345,8 +2345,8 @@ _ZN3gmxL15constr_vsite2FDILNS_22VSiteCalculatePositionE1ELNS_22VSiteCalculateVel
   br i1 %.not88, label %229, label %226
 
 226:                                              ; preds = %209
-  %227 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %219, ptr noundef %217, ptr noundef nonnull %17)
-  %228 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %221, ptr noundef %219, ptr noundef nonnull %18)
+  %227 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %219, ptr noundef nonnull %217, ptr noundef nonnull %17)
+  %228 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %221, ptr noundef nonnull %219, ptr noundef nonnull %18)
   %.pre.i188 = load float, ptr %17, align 4
   %.pre16.i = load float, ptr %18, align 4
   %.pre17.i = load float, ptr %.phi.trans.insert.i189, align 4
@@ -2466,8 +2466,8 @@ _ZN3gmxL15constr_vsite3FDILNS_22VSiteCalculatePositionE1ELNS_22VSiteCalculateVel
   br i1 %.not88, label %327, label %324
 
 324:                                              ; preds = %307
-  %325 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %317, ptr noundef %315, ptr noundef nonnull %15)
-  %326 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %319, ptr noundef %317, ptr noundef nonnull %16)
+  %325 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %317, ptr noundef nonnull %315, ptr noundef nonnull %15)
+  %326 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %319, ptr noundef nonnull %317, ptr noundef nonnull %16)
   %.pre.i192 = load float, ptr %15, align 4
   %.pre28.i = load float, ptr %.phi.trans.insert.i193, align 4
   %.pre30.i = load float, ptr %.phi.trans.insert29.i, align 4
@@ -2638,8 +2638,8 @@ _ZN3gmxL16constr_vsite3FADILNS_22VSiteCalculatePositionE1ELNS_22VSiteCalculateVe
   br i1 %.not88, label %475, label %472
 
 472:                                              ; preds = %453
-  %473 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %465, ptr noundef %463, ptr noundef nonnull %13)
-  %474 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %467, ptr noundef %463, ptr noundef nonnull %14)
+  %473 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %465, ptr noundef nonnull %463, ptr noundef nonnull %13)
+  %474 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %467, ptr noundef nonnull %463, ptr noundef nonnull %14)
   %.pre.i197 = load float, ptr %.phi.trans.insert.i196, align 4
   %.pre23.i199 = load float, ptr %.phi.trans.insert22.i198, align 4
   %.pre25.i = load float, ptr %.phi.trans.insert24.i, align 4
@@ -2769,9 +2769,9 @@ _ZN3gmxL16constr_vsite3OUTILNS_22VSiteCalculatePositionE1ELNS_22VSiteCalculateVe
   br i1 %.not88, label %584, label %580
 
 580:                                              ; preds = %556
-  %581 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %570, ptr noundef %568, ptr noundef nonnull %10)
-  %582 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %572, ptr noundef %570, ptr noundef nonnull %11)
-  %583 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %574, ptr noundef %570, ptr noundef nonnull %12)
+  %581 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %570, ptr noundef nonnull %568, ptr noundef nonnull %10)
+  %582 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %572, ptr noundef nonnull %570, ptr noundef nonnull %11)
+  %583 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %574, ptr noundef nonnull %570, ptr noundef nonnull %12)
   %.pre.i202 = load float, ptr %10, align 4
   %.pre19.i203 = load float, ptr %11, align 4
   %.pre20.i = load float, ptr %12, align 4
@@ -2928,9 +2928,9 @@ _ZN3gmxL15constr_vsite4FDILNS_22VSiteCalculatePositionE1ELNS_22VSiteCalculateVel
   br i1 %.not88, label %715, label %711
 
 711:                                              ; preds = %687
-  %712 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %701, ptr noundef %699, ptr noundef nonnull %7)
-  %713 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %703, ptr noundef %699, ptr noundef nonnull %8)
-  %714 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %705, ptr noundef %699, ptr noundef nonnull %9)
+  %712 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %701, ptr noundef nonnull %699, ptr noundef nonnull %7)
+  %713 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %703, ptr noundef nonnull %699, ptr noundef nonnull %8)
+  %714 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %705, ptr noundef nonnull %699, ptr noundef nonnull %9)
   %.pre.i216 = load float, ptr %8, align 4
   %.pre68.i = load float, ptr %.phi.trans.insert.i217, align 4
   %.pre70.i = load float, ptr %.phi.trans.insert69.i, align 4
@@ -3498,7 +3498,7 @@ define internal fastcc void @_ZN3gmxL23construct_vsites_threadILNS_22VSiteCalcul
   br i1 %.not89, label %119, label %107
 
 107:                                              ; preds = %95
-  %108 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %101, ptr noundef %99, ptr noundef nonnull %24)
+  %108 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %101, ptr noundef nonnull %99, ptr noundef nonnull %24)
   %109 = load float, ptr %99, align 4
   %110 = load float, ptr %24, align 4
   %111 = call float @llvm.fmuladd.f32(float %70, float %110, float %109)
@@ -3576,7 +3576,7 @@ _ZN3gmxL13constr_vsite2ILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVeloc
   br i1 %.not89, label %166, label %164
 
 164:                                              ; preds = %153
-  %165 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %159, ptr noundef %157, ptr noundef nonnull %23)
+  %165 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %159, ptr noundef nonnull %157, ptr noundef nonnull %23)
   %.pre.i = load float, ptr %23, align 4
   %.pre37.i = load float, ptr %.phi.trans.insert.i, align 4
   %.pre39.i = load float, ptr %.phi.trans.insert38.i, align 4
@@ -3682,8 +3682,8 @@ _ZN3gmxL15constr_vsite2FDILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVel
   br i1 %.not89, label %261, label %244
 
 244:                                              ; preds = %224
-  %245 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %234, ptr noundef %232, ptr noundef nonnull %21)
-  %246 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %236, ptr noundef %232, ptr noundef nonnull %22)
+  %245 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %234, ptr noundef nonnull %232, ptr noundef nonnull %21)
+  %246 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %236, ptr noundef nonnull %232, ptr noundef nonnull %22)
   %247 = load float, ptr %232, align 4
   %248 = load float, ptr %21, align 4
   %249 = call float @llvm.fmuladd.f32(float %70, float %248, float %247)
@@ -3789,8 +3789,8 @@ _ZN3gmxL13constr_vsite3ILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVeloc
   br i1 %.not89, label %330, label %327
 
 327:                                              ; preds = %310
-  %328 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %320, ptr noundef %318, ptr noundef nonnull %19)
-  %329 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %322, ptr noundef %320, ptr noundef nonnull %20)
+  %328 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %320, ptr noundef nonnull %318, ptr noundef nonnull %19)
+  %329 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %322, ptr noundef nonnull %320, ptr noundef nonnull %20)
   %.pre.i190 = load float, ptr %19, align 4
   %.pre67.i = load float, ptr %20, align 4
   %.pre68.i = load float, ptr %.phi.trans.insert.i191, align 4
@@ -3924,8 +3924,8 @@ _ZN3gmxL15constr_vsite3FDILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVel
   br i1 %.not89, label %434, label %431
 
 431:                                              ; preds = %414
-  %432 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %424, ptr noundef %422, ptr noundef nonnull %17)
-  %433 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %426, ptr noundef %424, ptr noundef nonnull %18)
+  %432 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %424, ptr noundef nonnull %422, ptr noundef nonnull %17)
+  %433 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %426, ptr noundef nonnull %424, ptr noundef nonnull %18)
   %.pre.i194 = load float, ptr %17, align 4
   %.pre118.i = load float, ptr %.phi.trans.insert.i195, align 4
   %.pre120.i = load float, ptr %.phi.trans.insert119.i, align 4
@@ -4113,8 +4113,8 @@ _ZN3gmxL16constr_vsite3FADILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVe
   br i1 %.not89, label %591, label %588
 
 588:                                              ; preds = %569
-  %589 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %581, ptr noundef %579, ptr noundef nonnull %15)
-  %590 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %583, ptr noundef %579, ptr noundef nonnull %16)
+  %589 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %581, ptr noundef nonnull %579, ptr noundef nonnull %15)
+  %590 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %583, ptr noundef nonnull %579, ptr noundef nonnull %16)
   %.pre.i199 = load float, ptr %.phi.trans.insert.i198, align 4
   %.pre65.i = load float, ptr %.phi.trans.insert64.i, align 4
   %.pre67.i200 = load float, ptr %.phi.trans.insert66.i, align 4
@@ -4270,9 +4270,9 @@ _ZN3gmxL16constr_vsite3OUTILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVe
   br i1 %.not89, label %718, label %714
 
 714:                                              ; preds = %690
-  %715 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %704, ptr noundef %702, ptr noundef nonnull %12)
-  %716 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %706, ptr noundef %704, ptr noundef nonnull %13)
-  %717 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %708, ptr noundef %704, ptr noundef nonnull %14)
+  %715 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %704, ptr noundef nonnull %702, ptr noundef nonnull %12)
+  %716 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %706, ptr noundef nonnull %704, ptr noundef nonnull %13)
+  %717 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %708, ptr noundef nonnull %704, ptr noundef nonnull %14)
   %.pre.i204 = load float, ptr %12, align 4
   %.pre83.i = load float, ptr %13, align 4
   %.pre84.i = load float, ptr %14, align 4
@@ -4443,9 +4443,9 @@ _ZN3gmxL15constr_vsite4FDILNS_22VSiteCalculatePositionE0ELNS_22VSiteCalculateVel
   br i1 %.not89, label %855, label %851
 
 851:                                              ; preds = %827
-  %852 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %841, ptr noundef %839, ptr noundef nonnull %9)
-  %853 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %843, ptr noundef %839, ptr noundef nonnull %10)
-  %854 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %845, ptr noundef %839, ptr noundef nonnull %11)
+  %852 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %841, ptr noundef nonnull %839, ptr noundef nonnull %9)
+  %853 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %843, ptr noundef nonnull %839, ptr noundef nonnull %10)
+  %854 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %845, ptr noundef nonnull %839, ptr noundef nonnull %11)
   %.pre.i208 = load float, ptr %10, align 4
   %.pre133.i = load float, ptr %.phi.trans.insert.i209, align 4
   %.pre135.i = load float, ptr %.phi.trans.insert134.i, align 4
@@ -5223,7 +5223,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %11, %22, 
   %.sroa.0103.0.copyload = load ptr, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 40
   %84 = load ptr, ptr %83, align 8
-  call fastcc void @_ZN3gmxL18spreadForceWrapperENS_8ArrayRefIKNS_11BasicVectorIfEEEENS0_IS2_EENS_19VirtualSitesHandler14VirialHandlingES5_PA3_fbNS0_IK9t_iparamsEENS0_IK15InteractionListEEPK5t_pbc(ptr %1, ptr %3, i32 noundef %5, ptr %81, ptr noundef nonnull %17, i1 noundef zeroext true, ptr %.sroa.0103.0.copyload, ptr %84, ptr noundef %69)
+  call fastcc void @_ZN3gmxL18spreadForceWrapperENS_8ArrayRefIKNS_11BasicVectorIfEEEENS0_IS2_EENS_19VirtualSitesHandler14VirialHandlingES5_PA3_fbNS0_IK9t_iparamsEENS0_IK15InteractionListEEPK5t_pbc(ptr %1, ptr %3, i32 noundef %5, ptr %81, ptr noundef %17, i1 noundef zeroext true, ptr %.sroa.0103.0.copyload, ptr %84, ptr noundef %69)
   %85 = icmp eq i32 %5, 2
   br i1 %85, label %.preheader, label %.loopexit
 
@@ -5262,7 +5262,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %11, %22, 
   %104 = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.093.0.copyload = load ptr, ptr %104, align 8
   %105 = getelementptr inbounds i8, ptr %101, i64 8
-  call fastcc void @_ZN3gmxL18spreadForceWrapperENS_8ArrayRefIKNS_11BasicVectorIfEEEENS0_IS2_EENS_19VirtualSitesHandler14VirialHandlingES5_PA3_fbNS0_IK9t_iparamsEENS0_IK15InteractionListEEPK5t_pbc(ptr %1, ptr %3, i32 noundef %5, ptr %102, ptr noundef nonnull %103, i1 noundef zeroext true, ptr %.sroa.093.0.copyload, ptr nonnull %105, ptr noundef %69)
+  call fastcc void @_ZN3gmxL18spreadForceWrapperENS_8ArrayRefIKNS_11BasicVectorIfEEEENS0_IS2_EENS_19VirtualSitesHandler14VirialHandlingES5_PA3_fbNS0_IK9t_iparamsEENS0_IK15InteractionListEEPK5t_pbc(ptr %1, ptr %3, i32 noundef %5, ptr %102, ptr noundef %103, i1 noundef zeroext true, ptr %.sroa.093.0.copyload, ptr nonnull %105, ptr noundef %69)
   call void @__kmpc_push_num_threads(ptr nonnull @1, i32 %18, i32 %78)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 6, ptr nonnull @_ZN3gmx19VirtualSitesHandler4Impl12spreadForcesENS_8ArrayRefIKNS_11BasicVectorIfEEEENS2_IS4_EENS0_14VirialHandlingES7_PA3_fP6t_nrnbPA3_KfP13gmx_wallcycle.omp_outlined, ptr nonnull %0, ptr nonnull %14, ptr nonnull %6, ptr nonnull %13, ptr nonnull %12, ptr nonnull %16)
   %106 = load i32, ptr %14, align 4
@@ -5634,7 +5634,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %350, %361,
 declare void @_Z17dd_clear_f_vsitesRK12gmx_domdec_tN3gmx8ArrayRefINS2_11BasicVectorIfEEEE(ptr noundef nonnull align 8 dereferenceable(456), ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmxL18spreadForceWrapperENS_8ArrayRefIKNS_11BasicVectorIfEEEENS0_IS2_EENS_19VirtualSitesHandler14VirialHandlingES5_PA3_fbNS0_IK9t_iparamsEENS0_IK15InteractionListEEPK5t_pbc(ptr %0, ptr %1, i32 noundef %2, ptr %.0.val, ptr nocapture noundef %3, i1 noundef zeroext %4, ptr nocapture readonly %.0.val1, ptr nocapture readonly %.0.val5, ptr noundef %5) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmxL18spreadForceWrapperENS_8ArrayRefIKNS_11BasicVectorIfEEEENS0_IS2_EENS_19VirtualSitesHandler14VirialHandlingES5_PA3_fbNS0_IK9t_iparamsEENS0_IK15InteractionListEEPK5t_pbc(ptr %0, ptr %1, i32 noundef %2, ptr %.0.val, ptr nocapture noundef nonnull %3, i1 noundef zeroext %4, ptr nocapture readonly %.0.val1, ptr nocapture readonly %.0.val5, ptr noundef %5) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
   %7 = alloca [3 x float], align 4
   %8 = alloca [3 x float], align 4
   %9 = alloca [3 x float], align 4
@@ -5922,7 +5922,7 @@ define internal fastcc void @_ZN3gmxL18spreadForceWrapperENS_8ArrayRefIKNS_11Bas
   br i1 %98, label %217, label %215
 
 215:                                              ; preds = %197
-  %216 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %212, ptr noundef %214, ptr noundef nonnull %94)
+  %216 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %212, ptr noundef nonnull %214, ptr noundef nonnull %94)
   %.pre.i.i = load float, ptr %94, align 4
   %.pre16.i.i = load float, ptr %.phi.trans.insert.i.i, align 4
   %.pre18.i.i = load float, ptr %.phi.trans.insert17.i.i, align 4
@@ -6093,10 +6093,10 @@ _ZN3gmxL15spread_vsite2FDILNS_19VirtualSitesHandler14VirialHandlingE0EEEvPKifNS_
   br i1 %98, label %358, label %353
 
 353:                                              ; preds = %331
-  %354 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %350, ptr noundef %352, ptr noundef nonnull %92)
+  %354 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %350, ptr noundef nonnull %352, ptr noundef nonnull %92)
   %355 = sext i32 %341 to i64
   %356 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %355
-  %357 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %356, ptr noundef %350, ptr noundef nonnull %93)
+  %357 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %356, ptr noundef nonnull %350, ptr noundef nonnull %93)
   %.pre.i81.i = load float, ptr %92, align 4
   %.pre27.i.i = load float, ptr %93, align 4
   %.pre28.i.i = load float, ptr %.phi.trans.insert.i82.i, align 4
@@ -6233,10 +6233,10 @@ _ZN3gmxL15spread_vsite3FDILNS_19VirtualSitesHandler14VirialHandlingE0EEEvPKiffNS
   br i1 %98, label %467, label %462
 
 462:                                              ; preds = %440
-  %463 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %459, ptr noundef %461, ptr noundef nonnull %88)
+  %463 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %459, ptr noundef nonnull %461, ptr noundef nonnull %88)
   %464 = sext i32 %449 to i64
   %465 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %464
-  %466 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %465, ptr noundef %459, ptr noundef nonnull %89)
+  %466 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %465, ptr noundef nonnull %459, ptr noundef nonnull %89)
   %.pre.i85.i = load float, ptr %88, align 4
   %.pre47.i.i = load float, ptr %.phi.trans.insert.i86.i, align 4
   %.pre49.i.i = load float, ptr %.phi.trans.insert48.i.i, align 4
@@ -6435,10 +6435,10 @@ _ZN3gmxL16spread_vsite3FADILNS_19VirtualSitesHandler14VirialHandlingE0EEEvPKiffN
   br i1 %98, label %621, label %616
 
 616:                                              ; preds = %599
-  %617 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %613, ptr noundef %615, ptr noundef nonnull %86)
+  %617 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %613, ptr noundef nonnull %615, ptr noundef nonnull %86)
   %618 = sext i32 %611 to i64
   %619 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %618
-  %620 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %619, ptr noundef %615, ptr noundef nonnull %87)
+  %620 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %619, ptr noundef nonnull %615, ptr noundef nonnull %87)
   %.pre.i90.i = load float, ptr %.phi.trans.insert.i89.i, align 4
   %.pre30.i92.i = load float, ptr %.phi.trans.insert29.i91.i, align 4
   %.pre31.i.i = load float, ptr %87, align 4
@@ -6588,13 +6588,13 @@ _ZN3gmxL16spread_vsite3OUTILNS_19VirtualSitesHandler14VirialHandlingE0EEEvPKifff
   br i1 %98, label %745, label %737
 
 737:                                              ; preds = %718
-  %738 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %734, ptr noundef %736, ptr noundef nonnull %80)
+  %738 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %734, ptr noundef nonnull %736, ptr noundef nonnull %80)
   %739 = sext i32 %730 to i64
   %740 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %739
-  %741 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %740, ptr noundef %734, ptr noundef nonnull %81)
+  %741 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %740, ptr noundef nonnull %734, ptr noundef nonnull %81)
   %742 = sext i32 %732 to i64
   %743 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %742
-  %744 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %743, ptr noundef %734, ptr noundef nonnull %82)
+  %744 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %743, ptr noundef nonnull %734, ptr noundef nonnull %82)
   br label %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit58.i.i
 
 745:                                              ; preds = %718
@@ -6782,13 +6782,13 @@ _ZN3gmxL15spread_vsite4FDILNS_19VirtualSitesHandler14VirialHandlingE0EEEvPKifffN
   br i1 %98, label %880, label %872
 
 872:                                              ; preds = %846
-  %873 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %869, ptr noundef %871, ptr noundef nonnull %77)
+  %873 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %869, ptr noundef nonnull %871, ptr noundef nonnull %77)
   %874 = sext i32 %858 to i64
   %875 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %874
-  %876 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %875, ptr noundef %871, ptr noundef nonnull %78)
+  %876 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %875, ptr noundef nonnull %871, ptr noundef nonnull %78)
   %877 = sext i32 %860 to i64
   %878 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %877
-  %879 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %878, ptr noundef %871, ptr noundef nonnull %79)
+  %879 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %878, ptr noundef nonnull %871, ptr noundef nonnull %79)
   %.pre.i99.i = load float, ptr %78, align 4
   %.pre154.i.i = load float, ptr %.phi.trans.insert.i100.i, align 4
   %.pre156.i.i = load float, ptr %.phi.trans.insert155.i.i, align 4
@@ -7431,7 +7431,7 @@ _ZN3gmxL13spread_vsite2ILNS_19VirtualSitesHandler14VirialHandlingE1EEEvPKifNS_8A
   br i1 %1197, label %1358, label %1356
 
 1356:                                             ; preds = %1338
-  %1357 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %1353, ptr noundef %1355, ptr noundef nonnull %72)
+  %1357 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %1353, ptr noundef nonnull %1355, ptr noundef nonnull %72)
   %.pre.i.i24 = load float, ptr %72, align 4
   %.pre24.i.i = load float, ptr %.phi.trans.insert.i.i12, align 4
   %.pre26.i.i = load float, ptr %.phi.trans.insert25.i.i, align 4
@@ -7510,7 +7510,7 @@ _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.i.i: ; preds = %1358, %1356
 
 _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit45.i.i: ; preds = %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.i.i
   %1413 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %1345
-  %1414 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %1413, ptr noundef %1355, ptr noundef nonnull %73)
+  %1414 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %1413, ptr noundef nonnull %1355, ptr noundef nonnull %73)
   br label %1415
 
 1415:                                             ; preds = %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit45.i.i, %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.i.i
@@ -7741,10 +7741,10 @@ _ZN3gmxL13spread_vsite3ILNS_19VirtualSitesHandler14VirialHandlingE1EEEvPKiffNS_8
   br i1 %1197, label %1583, label %1578
 
 1578:                                             ; preds = %1556
-  %1579 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %1575, ptr noundef %1577, ptr noundef nonnull %69)
+  %1579 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %1575, ptr noundef nonnull %1577, ptr noundef nonnull %69)
   %1580 = sext i32 %1566 to i64
   %1581 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %1580
-  %1582 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %1581, ptr noundef %1575, ptr noundef nonnull %70)
+  %1582 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %1581, ptr noundef nonnull %1575, ptr noundef nonnull %70)
   %.pre.i95.i = load float, ptr %69, align 4
   %.pre39.i.i = load float, ptr %70, align 4
   %.pre40.i.i = load float, ptr %.phi.trans.insert.i96.i, align 4
@@ -7860,7 +7860,7 @@ _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit80.i.i: ; preds = %1583, %1578
 
 _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit83.i.i: ; preds = %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit80.i.i
   %1665 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %1567
-  %1666 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %1665, ptr noundef %1577, ptr noundef nonnull %68)
+  %1666 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %1665, ptr noundef nonnull %1577, ptr noundef nonnull %68)
   br label %1667
 
 1667:                                             ; preds = %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit83.i.i, %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit80.i.i
@@ -7964,10 +7964,10 @@ _ZN3gmxL15spread_vsite3FDILNS_19VirtualSitesHandler14VirialHandlingE1EEEvPKiffNS
   br i1 %1197, label %1740, label %1735
 
 1735:                                             ; preds = %1713
-  %1736 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %1732, ptr noundef %1734, ptr noundef nonnull %64)
+  %1736 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %1732, ptr noundef nonnull %1734, ptr noundef nonnull %64)
   %1737 = sext i32 %1723 to i64
   %1738 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %1737
-  %1739 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %1738, ptr noundef %1732, ptr noundef nonnull %65)
+  %1739 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %1738, ptr noundef nonnull %1732, ptr noundef nonnull %65)
   %.pre.i102.i = load float, ptr %64, align 4
   %.pre64.i.i = load float, ptr %.phi.trans.insert.i103.i, align 4
   %.pre66.i.i = load float, ptr %.phi.trans.insert65.i.i, align 4
@@ -8150,7 +8150,7 @@ _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit75.i.i: ; preds = %1740, %1735
 
 _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit79.i.i: ; preds = %1818
   %1873 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %1724
-  %1874 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %1873, ptr noundef %1734, ptr noundef nonnull %63)
+  %1874 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %1873, ptr noundef nonnull %1734, ptr noundef nonnull %63)
   br label %1875
 
 1875:                                             ; preds = %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit79.i.i, %1818
@@ -8258,10 +8258,10 @@ _ZN3gmxL16spread_vsite3FADILNS_19VirtualSitesHandler14VirialHandlingE1EEEvPKiffN
   br i1 %1197, label %1952, label %1947
 
 1947:                                             ; preds = %1930
-  %1948 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %1944, ptr noundef %1946, ptr noundef nonnull %61)
+  %1948 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %1944, ptr noundef nonnull %1946, ptr noundef nonnull %61)
   %1949 = sext i32 %1942 to i64
   %1950 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %1949
-  %1951 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %1950, ptr noundef %1946, ptr noundef nonnull %62)
+  %1951 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %1950, ptr noundef nonnull %1946, ptr noundef nonnull %62)
   %.pre.i110.i = load float, ptr %.phi.trans.insert.i109.i, align 4
   %.pre55.i.i = load float, ptr %.phi.trans.insert54.i.i, align 4
   %.pre56.i.i = load float, ptr %62, align 4
@@ -8391,7 +8391,7 @@ _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit52.i.i: ; preds = %1952, %1947
 
 _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit55.i.i: ; preds = %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit52.i.i
   %2049 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %1983
-  %2050 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %2049, ptr noundef %1946, ptr noundef nonnull %60)
+  %2050 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %2049, ptr noundef nonnull %1946, ptr noundef nonnull %60)
   br label %2051
 
 2051:                                             ; preds = %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit55.i.i, %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit52.i.i
@@ -8489,13 +8489,13 @@ _ZN3gmxL16spread_vsite3OUTILNS_19VirtualSitesHandler14VirialHandlingE1EEEvPKifff
   br i1 %1197, label %2119, label %2111
 
 2111:                                             ; preds = %2092
-  %2112 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %2108, ptr noundef %2110, ptr noundef nonnull %54)
+  %2112 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %2108, ptr noundef nonnull %2110, ptr noundef nonnull %54)
   %2113 = sext i32 %2104 to i64
   %2114 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %2113
-  %2115 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %2114, ptr noundef %2108, ptr noundef nonnull %55)
+  %2115 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %2114, ptr noundef nonnull %2108, ptr noundef nonnull %55)
   %2116 = sext i32 %2106 to i64
   %2117 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %2116
-  %2118 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %2117, ptr noundef %2108, ptr noundef nonnull %56)
+  %2118 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %2117, ptr noundef nonnull %2108, ptr noundef nonnull %56)
   br label %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit92.i.i
 
 2119:                                             ; preds = %2092
@@ -8650,7 +8650,7 @@ _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit92.i.i: ; preds = %2119, %2111
 
 _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit95.i.i: ; preds = %2220
   %2221 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %2174
-  %2222 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %2221, ptr noundef %2110, ptr noundef nonnull %53)
+  %2222 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %2221, ptr noundef nonnull %2110, ptr noundef nonnull %53)
   br label %2223
 
 2223:                                             ; preds = %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit95.i.i, %2220
@@ -8759,13 +8759,13 @@ _ZN3gmxL15spread_vsite4FDILNS_19VirtualSitesHandler14VirialHandlingE1EEEvPKifffN
   br i1 %1197, label %2300, label %2292
 
 2292:                                             ; preds = %2266
-  %2293 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %2289, ptr noundef %2291, ptr noundef nonnull %50)
+  %2293 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %2289, ptr noundef nonnull %2291, ptr noundef nonnull %50)
   %2294 = sext i32 %2278 to i64
   %2295 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %2294
-  %2296 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %2295, ptr noundef %2291, ptr noundef nonnull %51)
+  %2296 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %2295, ptr noundef nonnull %2291, ptr noundef nonnull %51)
   %2297 = sext i32 %2280 to i64
   %2298 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %2297
-  %2299 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %2298, ptr noundef %2291, ptr noundef nonnull %52)
+  %2299 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %2298, ptr noundef nonnull %2291, ptr noundef nonnull %52)
   %.pre.i123.i = load float, ptr %51, align 4
   %.pre188.i.i = load float, ptr %.phi.trans.insert.i124.i, align 4
   %.pre190.i.i = load float, ptr %.phi.trans.insert189.i.i, align 4
@@ -9044,7 +9044,7 @@ _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit111.i.i: ; preds = %2300, %2292
 
 _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit114.i.i: ; preds = %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit111.i.i
   %2535 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %2281
-  %2536 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %2535, ptr noundef %2291, ptr noundef nonnull %49)
+  %2536 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %2535, ptr noundef nonnull %2291, ptr noundef nonnull %49)
   br label %2537
 
 2537:                                             ; preds = %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit114.i.i, %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit111.i.i
@@ -9513,7 +9513,7 @@ _ZN3gmxL13spread_vsitenILNS_19VirtualSitesHandler14VirialHandlingE1EEEiPKiNS_8Ar
   br i1 %2689, label %2848, label %2846
 
 2846:                                             ; preds = %2828
-  %2847 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %2843, ptr noundef %2845, ptr noundef nonnull %44)
+  %2847 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %2843, ptr noundef nonnull %2845, ptr noundef nonnull %44)
   %.pre.i.i75 = load float, ptr %44, align 4
   %.pre18.i.i76 = load float, ptr %.phi.trans.insert.i.i39, align 4
   %.pre20.i.i = load float, ptr %.phi.trans.insert19.i.i, align 4
@@ -9594,7 +9594,7 @@ _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.i.i77: ; preds = %2848, %2846
   br i1 %2689, label %2906, label %2904
 
 2904:                                             ; preds = %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.i.i77
-  %2905 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %2903, ptr noundef %2845, ptr noundef nonnull %46)
+  %2905 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %2903, ptr noundef nonnull %2845, ptr noundef nonnull %46)
   br label %.preheader.i.i.preheader
 
 2906:                                             ; preds = %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.i.i77
@@ -9760,10 +9760,10 @@ _ZN3gmxL15spread_vsite2FDILNS_19VirtualSitesHandler14VirialHandlingE2EEEvPKifNS_
   br i1 %2689, label %3022, label %3017
 
 3017:                                             ; preds = %2995
-  %3018 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %3014, ptr noundef %3016, ptr noundef nonnull %37)
+  %3018 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %3014, ptr noundef nonnull %3016, ptr noundef nonnull %37)
   %3019 = sext i32 %3005 to i64
   %3020 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %3019
-  %3021 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %3020, ptr noundef %3014, ptr noundef nonnull %38)
+  %3021 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %3020, ptr noundef nonnull %3014, ptr noundef nonnull %38)
   %.pre.i81.i66 = load float, ptr %37, align 4
   %.pre23.i.i = load float, ptr %38, align 4
   %.pre24.i.i67 = load float, ptr %.phi.trans.insert.i82.i36, align 4
@@ -9883,7 +9883,7 @@ _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit56.i.i: ; preds = %3022, %3017
   br i1 %2689, label %3107, label %3105
 
 3105:                                             ; preds = %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit56.i.i
-  %3106 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %3104, ptr noundef %3016, ptr noundef nonnull %42)
+  %3106 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %3104, ptr noundef nonnull %3016, ptr noundef nonnull %42)
   br label %.preheader.i84.i.preheader
 
 3107:                                             ; preds = %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit56.i.i
@@ -9982,10 +9982,10 @@ _ZN3gmxL15spread_vsite3FDILNS_19VirtualSitesHandler14VirialHandlingE2EEEvPKiffNS
   br i1 %2689, label %3164, label %3159
 
 3159:                                             ; preds = %3137
-  %3160 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %3156, ptr noundef %3158, ptr noundef nonnull %30)
+  %3160 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %3156, ptr noundef nonnull %3158, ptr noundef nonnull %30)
   %3161 = sext i32 %3147 to i64
   %3162 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %3161
-  %3163 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %3162, ptr noundef %3156, ptr noundef nonnull %31)
+  %3163 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %3162, ptr noundef nonnull %3156, ptr noundef nonnull %31)
   %.pre.i89.i = load float, ptr %30, align 4
   %.pre42.i.i61 = load float, ptr %.phi.trans.insert.i90.i, align 4
   %.pre44.i.i62 = load float, ptr %.phi.trans.insert43.i.i34, align 4
@@ -10169,7 +10169,7 @@ _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit71.i.i: ; preds = %3164, %3159
   br i1 %2689, label %3300, label %3298
 
 3298:                                             ; preds = %3246
-  %3299 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %3297, ptr noundef %3158, ptr noundef nonnull %36)
+  %3299 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %3297, ptr noundef nonnull %3158, ptr noundef nonnull %36)
   br label %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit75.i.i65
 
 3300:                                             ; preds = %3246
@@ -10270,10 +10270,10 @@ _ZN3gmxL16spread_vsite3FADILNS_19VirtualSitesHandler14VirialHandlingE2EEEvPKiffN
   br i1 %2689, label %3362, label %3357
 
 3357:                                             ; preds = %3340
-  %3358 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %3354, ptr noundef %3356, ptr noundef nonnull %24)
+  %3358 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %3354, ptr noundef nonnull %3356, ptr noundef nonnull %24)
   %3359 = sext i32 %3352 to i64
   %3360 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %3359
-  %3361 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %3360, ptr noundef %3356, ptr noundef nonnull %25)
+  %3361 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %3360, ptr noundef nonnull %3356, ptr noundef nonnull %25)
   %.pre.i98.i = load float, ptr %.phi.trans.insert.i97.i, align 4
   %.pre21.i.i = load float, ptr %.phi.trans.insert20.i.i, align 4
   %.pre22.i.i = load float, ptr %25, align 4
@@ -10410,7 +10410,7 @@ _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit55.i.i59: ; preds = %3362, %3357
   br i1 %2689, label %3462, label %3460
 
 3460:                                             ; preds = %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit55.i.i59
-  %3461 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %3459, ptr noundef %3356, ptr noundef nonnull %29)
+  %3461 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %3459, ptr noundef nonnull %3356, ptr noundef nonnull %29)
   br label %.preheader.i102.i.preheader
 
 3462:                                             ; preds = %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit55.i.i59
@@ -10508,13 +10508,13 @@ _ZN3gmxL16spread_vsite3OUTILNS_19VirtualSitesHandler14VirialHandlingE2EEEvPKifff
   br i1 %2689, label %3524, label %3516
 
 3516:                                             ; preds = %3497
-  %3517 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %3513, ptr noundef %3515, ptr noundef nonnull %17)
+  %3517 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %3513, ptr noundef nonnull %3515, ptr noundef nonnull %17)
   %3518 = sext i32 %3509 to i64
   %3519 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %3518
-  %3520 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %3519, ptr noundef %3513, ptr noundef nonnull %18)
+  %3520 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %3519, ptr noundef nonnull %3513, ptr noundef nonnull %18)
   %3521 = sext i32 %3511 to i64
   %3522 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %3521
-  %3523 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %3522, ptr noundef %3513, ptr noundef nonnull %19)
+  %3523 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %3522, ptr noundef nonnull %3513, ptr noundef nonnull %19)
   br label %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit74.i.i
 
 3524:                                             ; preds = %3497
@@ -10666,7 +10666,7 @@ _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit74.i.i: ; preds = %3524, %3516
   br i1 %2689, label %3629, label %3627
 
 3627:                                             ; preds = %3625
-  %3628 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %3626, ptr noundef %3515, ptr noundef nonnull %23)
+  %3628 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %3626, ptr noundef nonnull %3515, ptr noundef nonnull %23)
   br label %.preheader.i114.i.preheader
 
 3629:                                             ; preds = %3625
@@ -10771,13 +10771,13 @@ _ZN3gmxL15spread_vsite4FDILNS_19VirtualSitesHandler14VirialHandlingE2EEEvPKifffN
   br i1 %2689, label %3693, label %3685
 
 3685:                                             ; preds = %3659
-  %3686 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %3682, ptr noundef %3684, ptr noundef nonnull %9)
+  %3686 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %3682, ptr noundef nonnull %3684, ptr noundef nonnull %9)
   %3687 = sext i32 %3671 to i64
   %3688 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %3687
-  %3689 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %3688, ptr noundef %3684, ptr noundef nonnull %10)
+  %3689 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %3688, ptr noundef nonnull %3684, ptr noundef nonnull %10)
   %3690 = sext i32 %3673 to i64
   %3691 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %3690
-  %3692 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %3691, ptr noundef %3684, ptr noundef nonnull %11)
+  %3692 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %3691, ptr noundef nonnull %3684, ptr noundef nonnull %11)
   %.pre.i116.i = load float, ptr %10, align 4
   %.pre138.i.i = load float, ptr %.phi.trans.insert.i117.i, align 4
   %.pre140.i.i = load float, ptr %.phi.trans.insert139.i.i, align 4
@@ -11062,7 +11062,7 @@ _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit112.i.i: ; preds = %3693, %3685
   br i1 %2689, label %3931, label %3929
 
 3929:                                             ; preds = %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit112.i.i
-  %3930 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %3928, ptr noundef %3684, ptr noundef nonnull %16)
+  %3930 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %3928, ptr noundef nonnull %3684, ptr noundef nonnull %16)
   br label %.preheader.i119.i.preheader
 
 3931:                                             ; preds = %_ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit112.i.i
@@ -11440,7 +11440,7 @@ _ZN3gmxL32clearTaskForceBufferUsedElementsEPNS_18InterdependentTaskE.exit: ; pre
   %105 = getelementptr inbounds i8, ptr %2, i64 24
   %.sroa.085.0.copyload = load ptr, ptr %105, align 8
   %106 = load ptr, ptr %7, align 8
-  invoke fastcc void @_ZN3gmxL18spreadForceWrapperENS_8ArrayRefIKNS_11BasicVectorIfEEEENS0_IS2_EENS_19VirtualSitesHandler14VirialHandlingES5_PA3_fbNS0_IK9t_iparamsEENS0_IK15InteractionListEEPK5t_pbc(ptr %100, ptr %102, i32 noundef %103, ptr %.sroa.095.0, ptr noundef nonnull %104, i1 noundef zeroext true, ptr %.sroa.085.0.copyload, ptr nonnull %35, ptr noundef %106)
+  invoke fastcc void @_ZN3gmxL18spreadForceWrapperENS_8ArrayRefIKNS_11BasicVectorIfEEEENS0_IS2_EENS_19VirtualSitesHandler14VirialHandlingES5_PA3_fbNS0_IK9t_iparamsEENS0_IK15InteractionListEEPK5t_pbc(ptr %100, ptr %102, i32 noundef %103, ptr %.sroa.095.0, ptr noundef %104, i1 noundef zeroext true, ptr %.sroa.085.0.copyload, ptr nonnull %35, ptr noundef %106)
           to label %107 unwind label %21
 
 107:                                              ; preds = %._crit_edge
@@ -11556,7 +11556,7 @@ _ZN3gmxL32clearTaskForceBufferUsedElementsEPNS_18InterdependentTaskE.exit: ; pre
   %.sroa.071.0.copyload = load ptr, ptr %171, align 8
   %172 = getelementptr inbounds i8, ptr %15, i64 8
   %173 = load ptr, ptr %7, align 8
-  invoke fastcc void @_ZN3gmxL18spreadForceWrapperENS_8ArrayRefIKNS_11BasicVectorIfEEEENS0_IS2_EENS_19VirtualSitesHandler14VirialHandlingES5_PA3_fbNS0_IK9t_iparamsEENS0_IK15InteractionListEEPK5t_pbc(ptr %167, ptr %168, i32 noundef %169, ptr %.sroa.095.0, ptr noundef nonnull %170, i1 noundef zeroext false, ptr %.sroa.071.0.copyload, ptr nonnull %172, ptr noundef %173)
+  invoke fastcc void @_ZN3gmxL18spreadForceWrapperENS_8ArrayRefIKNS_11BasicVectorIfEEEENS0_IS2_EENS_19VirtualSitesHandler14VirialHandlingES5_PA3_fbNS0_IK9t_iparamsEENS0_IK15InteractionListEEPK5t_pbc(ptr %167, ptr %168, i32 noundef %169, ptr %.sroa.095.0, ptr noundef %170, i1 noundef zeroext false, ptr %.sroa.071.0.copyload, ptr nonnull %172, ptr noundef %173)
           to label %174 unwind label %21
 
 174:                                              ; preds = %.loopexit

@@ -557,7 +557,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 23:                                               ; preds = %2
   %24 = getelementptr inbounds i8, ptr %9, i64 32
   %25 = load ptr, ptr %1, align 8
-  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(3520) %25)
+  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(3520) %25)
   %26 = load ptr, ptr %1, align 8
   %27 = getelementptr inbounds i8, ptr %5, i64 24
   %28 = load i8, ptr %27, align 8
@@ -706,7 +706,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %33 = getelementptr inbounds i8, ptr %17, i64 32
   %34 = getelementptr inbounds i8, ptr %16, i64 -32
   %35 = load ptr, ptr %1, align 8
-  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(3520) %35)
+  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(3520) %35)
   %36 = getelementptr inbounds i8, ptr %6, i64 24
   %37 = load i8, ptr %36, align 8
   %38 = trunc i8 %37 to i1
@@ -797,7 +797,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %.sroa.0.088 = phi ptr [ %.sroa.0.1, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ null, %.preheader ]
   %69 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %68, i64 %.03991
   %70 = load ptr, ptr %1, align 8
-  %71 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111GetIndexArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiR10cmMakefile(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(3520) %70)
+  %71 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111GetIndexArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiR10cmMakefile(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(3520) %70)
           to label %72 unwind label %.loopexit
 
 72:                                               ; preds = %.lr.ph
@@ -1329,7 +1329,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120HandlePopBackCommandERKSt
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 32
   %8 = getelementptr inbounds i8, ptr %6, i64 64
-  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(3520) %5)
+  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(3520) %5)
   %9 = getelementptr inbounds i8, ptr %3, i64 24
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
@@ -1531,7 +1531,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_121HandlePopFrontCommandERKS
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 32
   %8 = getelementptr inbounds i8, ptr %6, i64 64
-  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(3520) %5)
+  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(3520) %5)
   %9 = getelementptr inbounds i8, ptr %3, i64 24
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
@@ -1866,7 +1866,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %25 = getelementptr inbounds i8, ptr %10, i64 32
   %26 = getelementptr inbounds i8, ptr %9, i64 -32
   %27 = load ptr, ptr %1, align 8
-  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(3520) %27)
+  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(3520) %27)
   %28 = getelementptr inbounds i8, ptr %5, i64 24
   %29 = load i8, ptr %28, align 8
   %30 = trunc i8 %29 to i1
@@ -2071,7 +2071,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %30 = getelementptr inbounds i8, ptr %14, i64 32
   %31 = getelementptr inbounds i8, ptr %14, i64 64
   %32 = load ptr, ptr %1, align 8
-  %33 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111GetIndexArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiR10cmMakefile(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(3520) %32)
+  %33 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111GetIndexArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiR10cmMakefile(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(3520) %32)
   br i1 %33, label %51, label %34
 
 34:                                               ; preds = %29
@@ -2118,7 +2118,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 51:                                               ; preds = %29
   %52 = load ptr, ptr %1, align 8
-  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(3520) %52)
+  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(3520) %52)
   %53 = getelementptr inbounds i8, ptr %8, i64 24
   %54 = load i8, ptr %53, align 8
   %55 = trunc i8 %54 to i1
@@ -2383,7 +2383,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %35 = getelementptr inbounds i8, ptr %10, i64 32
   %36 = getelementptr inbounds i8, ptr %10, i64 96
   %37 = load ptr, ptr %1, align 8
-  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(3520) %37)
+  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(3520) %37)
   %38 = getelementptr inbounds i8, ptr %6, i64 24
   %39 = load i8, ptr %38, align 8
   %40 = trunc i8 %39 to i1
@@ -2550,7 +2550,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 32:                                               ; preds = %2
   %33 = getelementptr inbounds i8, ptr %17, i64 32
   %34 = load ptr, ptr %1, align 8
-  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(3520) %34)
+  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(3520) %34)
   %35 = getelementptr inbounds i8, ptr %7, i64 24
   %36 = load i8, ptr %35, align 8
   %37 = trunc i8 %36 to i1
@@ -2683,7 +2683,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %.sroa.6.098 = phi ptr [ %.sroa.6.1, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ], [ null, %.preheader77 ]
   %88 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %87, i64 %.043101
   %89 = load ptr, ptr %1, align 8
-  %90 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111GetIndexArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiR10cmMakefile(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(3520) %89)
+  %90 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111GetIndexArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiR10cmMakefile(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(3520) %89)
           to label %91 unwind label %.loopexit78
 
 91:                                               ; preds = %.lr.ph
@@ -3097,7 +3097,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123HandleRemoveItemCommandER
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %7, i64 32
   %14 = load ptr, ptr %1, align 8
-  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(3520) %14)
+  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(3520) %14)
   %15 = getelementptr inbounds i8, ptr %3, i64 24
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
@@ -3256,7 +3256,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 24:                                               ; preds = %2
   %25 = getelementptr inbounds i8, ptr %9, i64 32
   %26 = load ptr, ptr %1, align 8
-  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(3520) %26)
+  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(3520) %26)
   %27 = getelementptr inbounds i8, ptr %5, i64 24
   %28 = load i8, ptr %27, align 8
   %29 = trunc i8 %28 to i1
@@ -5617,7 +5617,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 787:                                              ; preds = %408
   %788 = load ptr, ptr %1, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias nonnull writable align 8 %75, ptr noundef nonnull align 8 dereferenceable(32) %249, ptr noundef nonnull align 8 dereferenceable(3520) %788)
+  invoke fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias writable align 8 %75, ptr noundef nonnull align 8 dereferenceable(32) %249, ptr noundef nonnull align 8 dereferenceable(3520) %788)
           to label %789 unwind label %.loopexit.split-lp443
 
 789:                                              ; preds = %787
@@ -6615,7 +6615,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %.lcssa152 = phi ptr [ %49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit83 ], [ %286, %284 ]
   %291 = getelementptr inbounds i8, ptr %.lcssa152, i64 32
   %292 = load ptr, ptr %1, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(32) %291, ptr noundef nonnull align 8 dereferenceable(3520) %292)
+  invoke fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(32) %291, ptr noundef nonnull align 8 dereferenceable(3520) %292)
           to label %293 unwind label %83
 
 293:                                              ; preds = %._crit_edge
@@ -6823,7 +6823,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %49 = getelementptr inbounds i8, ptr %22, i64 32
   %50 = getelementptr inbounds i8, ptr %21, i64 -32
   %51 = load ptr, ptr %1, align 8
-  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(3520) %51)
+  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(3520) %51)
   %52 = getelementptr inbounds i8, ptr %8, i64 24
   %53 = load i8, ptr %52, align 8
   %54 = trunc i8 %53 to i1
@@ -6852,7 +6852,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %67 = load ptr, ptr %0, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 64
   %69 = load ptr, ptr %1, align 8
-  %70 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111GetIndexArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiR10cmMakefile(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(3520) %69)
+  %70 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111GetIndexArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiR10cmMakefile(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(3520) %69)
           to label %71 unwind label %62
 
 71:                                               ; preds = %66
@@ -6906,7 +6906,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 90:                                               ; preds = %71
   %91 = getelementptr inbounds i8, ptr %72, i64 96
   %92 = load ptr, ptr %1, align 8
-  %93 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111GetIndexArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiR10cmMakefile(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(3520) %92)
+  %93 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111GetIndexArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiR10cmMakefile(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(3520) %92)
           to label %94 unwind label %62
 
 94:                                               ; preds = %90
@@ -7234,7 +7234,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 24:                                               ; preds = %2
   %25 = getelementptr inbounds i8, ptr %9, i64 32
   %26 = load ptr, ptr %1, align 8
-  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(3520) %26)
+  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(3520) %26)
   %27 = getelementptr inbounds i8, ptr %5, i64 24
   %28 = load i8, ptr %27, align 8
   %29 = trunc i8 %28 to i1
@@ -7546,7 +7546,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %74 = load ptr, ptr %0, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 32
   %76 = load ptr, ptr %1, align 8
-  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(3520) %76)
+  call fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(3520) %76)
   %77 = getelementptr inbounds i8, ptr %10, i64 24
   %78 = load i8, ptr %77, align 8
   %79 = trunc i8 %78 to i1
@@ -7806,7 +7806,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(3520) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_17GetListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK10cmMakefile(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(3520) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca [4 x %"struct.std::pair.168"], align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8799,7 +8799,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_construc
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111GetIndexArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiR10cmMakefile(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef writeonly %1, ptr noundef nonnull align 8 dereferenceable(3520) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111GetIndexArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiR10cmMakefile(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef nonnull align 8 dereferenceable(3520) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca [4 x %"struct.std::pair.168"], align 8
   %5 = alloca [4 x %"struct.std::pair.168"], align 8
   %6 = alloca i64, align 8

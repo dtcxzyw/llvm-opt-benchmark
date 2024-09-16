@@ -568,7 +568,7 @@ declare i64 @ZSTD_initCStream(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i64 @ZSTD_CCtx_setParameter(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @drive_compressor(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @drive_compressor(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.ZSTD_inBuffer_s, align 8
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8

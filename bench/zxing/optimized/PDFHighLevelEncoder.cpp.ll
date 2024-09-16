@@ -814,7 +814,7 @@ declare noundef i32 @_ZN5ZXing5ToECIENS_12CharacterSetE(i8 noundef zeroext) loca
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress optsize uwtable
-define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiiRSt6vectorIiSaIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiiRSt6vectorIiSaIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 -2147483648, 2147483647) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -846,7 +846,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 29:                                               ; preds = %5
   %30 = getelementptr inbounds i8, ptr %6, i64 8
   %31 = getelementptr inbounds i8, ptr %6, i64 16
-  %invariant.op = add i32 %1, 1
+  %invariant.op = add nsw i32 %1, 1
   br label %32
 
 32:                                               ; preds = %.backedge, %29
@@ -1719,7 +1719,7 @@ define linkonce_odr void @_ZN5ZXing11TextEncoder11FromUnicodeERKNSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress optsize uwtable
-define internal fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiiRSt6vectorIiSaIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 {
+define internal fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiiRSt6vectorIiSaIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef range(i32 0, 3) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 {
   %5 = alloca [5 x i32], align 16
   %6 = alloca i32, align 4
   %7 = icmp eq i32 %1, 1
@@ -1907,7 +1907,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basi
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress optsize uwtable
-define internal fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef range(i32 -2147483648, 2147483647) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::reverse_iterator", align 8
   %6 = alloca %"class.std::reverse_iterator", align 8
   %7 = alloca %"class.std::vector", align 8

@@ -1195,7 +1195,7 @@ _ZNK5arrow6Tensor4typeEv.exit:                    ; preds = %entry, %if.then.i.i
   %6 = load ptr, ptr %coords, align 8
   %shape_.i = getelementptr inbounds i8, ptr %6, i64 40
   %strides_.i = getelementptr inbounds i8, ptr %6, i64 64
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_127CheckSparseCOOIndexValidityERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(24) %shape_.i, ptr noundef nonnull align 8 dereferenceable(24) %strides_.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_127CheckSparseCOOIndexValidityERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(24) %shape_.i, ptr noundef nonnull align 8 dereferenceable(24) %strides_.i)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZNK5arrow6Tensor4typeEv.exit
@@ -1410,7 +1410,7 @@ return:                                           ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_127CheckSparseCOOIndexValidityERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(24) %shape, ptr noundef nonnull align 8 dereferenceable(24) %strides) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_127CheckSparseCOOIndexValidityERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(24) %shape, ptr noundef nonnull align 8 dereferenceable(24) %strides) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %0 = load ptr, ptr %type, align 8
@@ -1421,7 +1421,7 @@ entry:
   br i1 %switch.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZN5arrow6Status8FromArgsIJRA47_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(47) @.str.3)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA47_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 3, ptr noundef nonnull align 1 dereferenceable(47) @.str.3)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1435,7 +1435,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %_ZN5arrow6StatusD2Ev.exit, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  tail call void @_ZN5arrow6Status8FromArgsIJRA40_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(40) @.str.25)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA40_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(40) @.str.25)
   br label %return
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.end
@@ -1811,7 +1811,7 @@ _ZNK5arrow6Tensor4typeEv.exit:                    ; preds = %entry, %if.then.i.i
   %6 = load ptr, ptr %coords, align 8
   %shape_.i = getelementptr inbounds i8, ptr %6, i64 40
   %strides_.i = getelementptr inbounds i8, ptr %6, i64 64
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_127CheckSparseCOOIndexValidityERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(24) %shape_.i, ptr noundef nonnull align 8 dereferenceable(24) %strides_.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_127CheckSparseCOOIndexValidityERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(24) %shape_.i, ptr noundef nonnull align 8 dereferenceable(24) %strides_.i)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZNK5arrow6Tensor4typeEv.exit
@@ -2044,7 +2044,7 @@ if.end:                                           ; preds = %entry
   %.fr = freeze i64 %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_index, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %index, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_120GetCOOIndexTensorRowERKSt10shared_ptrINS_6TensorEElPSt6vectorIlSaIlEE(ptr noundef nonnull align 8 dereferenceable(16) %coords, i64 noundef 0, ptr noundef nonnull %last_index)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_120GetCOOIndexTensorRowERKSt10shared_ptrINS_6TensorEElPSt6vectorIlSaIlEE(ptr noundef nonnull align 8 dereferenceable(16) %coords, i64 noundef 0, ptr noundef %last_index)
           to label %for.body.lr.ph unwind label %lpad.loopexit.split-lp
 
 for.body.lr.ph:                                   ; preds = %if.end
@@ -2057,7 +2057,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %if.end30.us
   %i.039.us = phi i64 [ %inc31.us, %if.end30.us ], [ 1, %for.body.lr.ph ]
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_120GetCOOIndexTensorRowERKSt10shared_ptrINS_6TensorEElPSt6vectorIlSaIlEE(ptr noundef nonnull align 8 dereferenceable(16) %coords, i64 noundef %i.039.us, ptr noundef nonnull %index)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_120GetCOOIndexTensorRowERKSt10shared_ptrINS_6TensorEElPSt6vectorIlSaIlEE(ptr noundef nonnull align 8 dereferenceable(16) %coords, i64 noundef %i.039.us, ptr noundef %index)
           to label %while.cond14.preheader.us unwind label %lpad.loopexit.split.us
 
 while.body16.us:                                  ; preds = %while.cond14.preheader.us, %if.end26.us
@@ -2112,7 +2112,7 @@ for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
   br i1 %cmp28, label %for.body, label %for.body.us47
 
 for.body.us47:                                    ; preds = %for.body.lr.ph.split
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_120GetCOOIndexTensorRowERKSt10shared_ptrINS_6TensorEElPSt6vectorIlSaIlEE(ptr noundef nonnull align 8 dereferenceable(16) %coords, i64 noundef 1, ptr noundef nonnull %index)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_120GetCOOIndexTensorRowERKSt10shared_ptrINS_6TensorEElPSt6vectorIlSaIlEE(ptr noundef nonnull align 8 dereferenceable(16) %coords, i64 noundef 1, ptr noundef %index)
           to label %for.body.us47.cleanup_crit_edge unwind label %lpad.loopexit.split.split.us
 
 for.body.us47.cleanup_crit_edge:                  ; preds = %for.body.us47
@@ -2126,7 +2126,7 @@ lpad.loopexit.split.split.us:                     ; preds = %for.body.us47
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %while.cond14.preheader
   %i.039 = phi i64 [ %inc31, %while.cond14.preheader ], [ 1, %for.body.lr.ph.split ]
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_120GetCOOIndexTensorRowERKSt10shared_ptrINS_6TensorEElPSt6vectorIlSaIlEE(ptr noundef nonnull align 8 dereferenceable(16) %coords, i64 noundef %i.039, ptr noundef nonnull %index)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_120GetCOOIndexTensorRowERKSt10shared_ptrINS_6TensorEElPSt6vectorIlSaIlEE(ptr noundef nonnull align 8 dereferenceable(16) %coords, i64 noundef %i.039, ptr noundef %index)
           to label %while.cond14.preheader unwind label %lpad.loopexit.split.split
 
 while.cond14.preheader:                           ; preds = %for.body
@@ -2210,7 +2210,7 @@ _ZN5arrow6StatusD2Ev.exit:
   %__s = alloca %"class.arrow::Status", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp9 = alloca %"class.std::shared_ptr.17", align 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_127CheckSparseCOOIndexValidityERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %indices_type, ptr noundef nonnull align 8 dereferenceable(24) %indices_shape, ptr noundef nonnull align 8 dereferenceable(24) %indices_strides)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_127CheckSparseCOOIndexValidityERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %indices_type, ptr noundef nonnull align 8 dereferenceable(24) %indices_shape, ptr noundef nonnull align 8 dereferenceable(24) %indices_strides)
   call void @llvm.experimental.noalias.scope.decl(metadata !85)
   %0 = load ptr, ptr %ref.tmp, align 8, !noalias !85
   store ptr %0, ptr %__s, align 8, !alias.scope !85
@@ -2527,7 +2527,7 @@ _ZN5arrow6StatusD2Ev.exit:
   %__s = alloca %"class.arrow::Status", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %coords = alloca %"class.std::shared_ptr.17", align 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_127CheckSparseCOOIndexValidityERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %indices_type, ptr noundef nonnull align 8 dereferenceable(24) %indices_shape, ptr noundef nonnull align 8 dereferenceable(24) %indices_strides)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_127CheckSparseCOOIndexValidityERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %indices_type, ptr noundef nonnull align 8 dereferenceable(24) %indices_shape, ptr noundef nonnull align 8 dereferenceable(24) %indices_strides)
   call void @llvm.experimental.noalias.scope.decl(metadata !94)
   %0 = load ptr, ptr %ref.tmp, align 8, !noalias !94
   store ptr %0, ptr %__s, align 8, !alias.scope !94
@@ -3501,7 +3501,7 @@ _ZNK5arrow6Tensor4typeEv.exit:                    ; preds = %_ZNSt10shared_ptrIN
   %11 = load ptr, ptr %coords_, align 8
   %shape_.i = getelementptr inbounds i8, ptr %11, i64 40
   %strides_.i = getelementptr inbounds i8, ptr %11, i64 64
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_127CheckSparseCOOIndexValidityERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %shape_.i, ptr noundef nonnull align 8 dereferenceable(24) %strides_.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_127CheckSparseCOOIndexValidityERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEESA_(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %shape_.i, ptr noundef nonnull align 8 dereferenceable(24) %strides_.i)
           to label %invoke.cont13 unwind label %lpad6
 
 invoke.cont13:                                    ; preds = %_ZNK5arrow6Tensor4typeEv.exit
@@ -8770,7 +8770,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_120GetCOOIndexTensorRowERKSt10shared_ptrINS_6TensorEElPSt6vectorIlSaIlEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %coords, i64 noundef %row, ptr noundef %out_index) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_120GetCOOIndexTensorRowERKSt10shared_ptrINS_6TensorEElPSt6vectorIlSaIlEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %coords, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %row, ptr noundef nonnull %out_index) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %coords, align 8
   %type_.i = getelementptr inbounds i8, ptr %0, i64 8

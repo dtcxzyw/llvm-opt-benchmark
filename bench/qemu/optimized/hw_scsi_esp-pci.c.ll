@@ -249,7 +249,7 @@ declare void @pci_register_bar(ptr noundef, i32 noundef, i8 noundef zeroext, ptr
 declare ptr @pci_allocate_irq(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @esp_pci_dma_memory_rw(ptr noundef %pci, ptr noundef %buf, i32 noundef %len, i32 noundef %dir) unnamed_addr #0 {
+define internal fastcc void @esp_pci_dma_memory_rw(ptr noundef %pci, ptr noundef %buf, i32 noundef %len, i32 noundef range(i32 0, 2) %dir) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %dma_regs = getelementptr inbounds i8, ptr %pci, i64 2880
@@ -325,7 +325,7 @@ if.end12:                                         ; preds = %if.then10, %do.body
   %bus_master_as.i.i = getelementptr inbounds i8, ptr %call.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !5
   fence seq_cst
-  %cmp.i.i.i = icmp eq i32 %dir, 1
+  %cmp.i.i.i = icmp ne i32 %dir, 0
   %call.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i, i64 noundef %conv15, i32 1, ptr noundef %buf, i64 noundef %conv25, i1 noundef zeroext %cmp.i.i.i) #5
   %11 = load i32, ptr %arrayidx17, align 4
   %sub = sub i32 %11, %spec.select

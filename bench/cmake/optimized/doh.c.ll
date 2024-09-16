@@ -78,7 +78,7 @@ define dso_local noundef ptr @Curl_doh(ptr noundef %0, ptr noundef %1, i32 nound
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 192
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call fastcc i32 @dohprobe(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef 1, ptr noundef %1, ptr noundef %20, ptr noundef %22, ptr noundef nonnull %16)
+  %23 = tail call fastcc i32 @dohprobe(ptr noundef nonnull %0, ptr noundef %18, i32 noundef 1, ptr noundef %1, ptr noundef %20, ptr noundef %22, ptr noundef nonnull %16)
   %.not44 = icmp eq i32 %23, 0
   br i1 %.not44, label %24, label %.critedge
 
@@ -101,7 +101,7 @@ define dso_local noundef ptr @Curl_doh(ptr noundef %0, ptr noundef %1, i32 nound
   %34 = load ptr, ptr %19, align 8
   %35 = load ptr, ptr %21, align 8
   %36 = load ptr, ptr %8, align 8
-  %37 = tail call fastcc i32 @dohprobe(ptr noundef nonnull %0, ptr noundef nonnull %33, i32 noundef 28, ptr noundef %1, ptr noundef %34, ptr noundef %35, ptr noundef %36)
+  %37 = tail call fastcc i32 @dohprobe(ptr noundef nonnull %0, ptr noundef %33, i32 noundef 28, ptr noundef %1, ptr noundef %34, ptr noundef %35, ptr noundef %36)
   %.not46 = icmp eq i32 %37, 0
   br i1 %.not46, label %38, label %.critedge
 
@@ -144,7 +144,7 @@ define dso_local noundef ptr @Curl_doh(ptr noundef %0, ptr noundef %1, i32 nound
 declare ptr @curl_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dohprobe(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @dohprobe(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 1, 29) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 12
@@ -229,7 +229,7 @@ doh_encode.exit.thread:                           ; preds = %7, %doh_encode.exit
   store i8 0, ptr %.056.lcssa.i, align 1
   %41 = getelementptr inbounds i8, ptr %.056.lcssa.i, i64 2
   store i8 0, ptr %40, align 1
-  %42 = trunc i32 %2 to i8
+  %42 = trunc nuw nsw i32 %2 to i8
   %43 = getelementptr inbounds i8, ptr %.056.lcssa.i, i64 3
   store i8 %42, ptr %41, align 1
   %44 = getelementptr inbounds i8, ptr %.056.lcssa.i, i64 4
@@ -1006,7 +1006,7 @@ skipqname.exit116.i:                              ; preds = %126, %117
   br i1 %200, label %doh_decode.exit, label %201
 
 201:                                              ; preds = %187
-  %202 = call fastcc i32 @rdata(ptr noundef nonnull %51, i64 noundef %52, i16 noundef zeroext %196, i16 noundef zeroext %139, i32 noundef %184, ptr noundef nonnull %5)
+  %202 = call fastcc i32 @rdata(ptr noundef %51, i64 noundef %52, i16 noundef zeroext %196, i16 noundef zeroext %139, i32 noundef %184, ptr noundef %5)
   %.not110.i = icmp eq i32 %202, 0
   br i1 %.not110.i, label %106, label %doh_decode.exit
 
@@ -1124,7 +1124,7 @@ skipqname.exit:                                   ; preds = %230, %221
 
 .lr.ph170.i:                                      ; preds = %._crit_edge166.i, %285
   %.081168.i = phi i16 [ %286, %285 ], [ %261, %._crit_edge166.i ]
-  %262 = call fastcc i32 @skipqname(ptr noundef nonnull %51, i64 noundef %52, ptr noundef nonnull %4)
+  %262 = call fastcc i32 @skipqname(ptr noundef %51, i64 noundef %52, ptr noundef %4)
   %.not105.i = icmp eq i32 %262, 0
   br i1 %.not105.i, label %263, label %doh_decode.exit
 
@@ -1705,7 +1705,7 @@ declare ptr @curl_easy_strerror(i32 noundef) local_unnamed_addr #1
 declare void @Curl_expire(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 3) i32 @skipqname(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #5 {
+define internal fastcc range(i32 0, 3) i32 @skipqname(ptr nocapture noundef nonnull readonly %0, i64 noundef range(i64 12, 0) %1, ptr nocapture noundef nonnull %2) unnamed_addr #5 {
   %.promoted = load i32, ptr %2, align 4
   br label %4
 
@@ -1754,7 +1754,7 @@ define internal fastcc range(i32 0, 3) i32 @skipqname(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 7) i32 @rdata(ptr noundef %0, i64 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 7) i32 @rdata(ptr noundef nonnull %0, i64 noundef range(i64 12, 0) %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i32 noundef %4, ptr noundef nonnull %5) unnamed_addr #0 {
   switch i16 %3, label %store_a.exit [
     i16 1, label %7
     i16 28, label %22
@@ -1862,12 +1862,12 @@ define internal fastcc range(i32 0, 7) i32 @rdata(ptr noundef %0, i64 noundef %1
   br i1 %.not43.i, label %store_a.exit, label %62
 
 62:                                               ; preds = %60
-  %63 = tail call i64 @Curl_dyn_len(ptr noundef %43) #8
+  %63 = tail call i64 @Curl_dyn_len(ptr noundef nonnull %43) #8
   %.not44.i = icmp eq i64 %63, 0
   br i1 %.not44.i, label %66, label %64
 
 64:                                               ; preds = %62
-  %65 = tail call i32 @Curl_dyn_addn(ptr noundef %43, ptr noundef nonnull @.str.8, i64 noundef 1) #8
+  %65 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %43, ptr noundef nonnull @.str.8, i64 noundef 1) #8
   %.not45.i = icmp eq i32 %65, 0
   br i1 %.not45.i, label %66, label %store_a.exit
 
@@ -1881,7 +1881,7 @@ define internal fastcc range(i32 0, 7) i32 @rdata(ptr noundef %0, i64 noundef %1
   %71 = zext i32 %61 to i64
   %72 = getelementptr inbounds i8, ptr %0, i64 %71
   %73 = zext i8 %.fr.i to i64
-  %74 = tail call i32 @Curl_dyn_addn(ptr noundef %43, ptr noundef %72, i64 noundef %73) #8
+  %74 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %43, ptr noundef nonnull %72, i64 noundef %73) #8
   %.not46.i = icmp eq i32 %74, 0
   br i1 %.not46.i, label %75, label %store_a.exit
 

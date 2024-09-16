@@ -527,7 +527,7 @@ define internal i32 @dissect_zebra(ptr noundef %0, ptr nocapture noundef readonl
   %5 = alloca %struct._zebra_header_t, align 2
   %6 = alloca %struct._zebra_header_t, align 2
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5)
-  %7 = call fastcc i32 @zebra_get_header(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5)
+  %7 = call fastcc i32 @zebra_get_header(ptr noundef %0, i32 noundef 0, ptr noundef %5)
   %.not.i = icmp eq i32 %7, 0
   %8 = load i16, ptr %5, align 2
   %9 = icmp ugt i16 %8, 1024
@@ -612,7 +612,7 @@ test_zebra.exit.thread:                           ; preds = %4, %17, %20, %22, %
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %26, %45, %48
-  %52 = call fastcc i32 @zebra_get_header(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6)
+  %52 = call fastcc i32 @zebra_get_header(ptr noundef %0, i32 noundef 0, ptr noundef %6)
   %.not5067 = icmp eq i32 %52, 0
   br i1 %.not5067, label %._crit_edge, label %.lr.ph
 
@@ -1202,7 +1202,7 @@ zebra_hello.exit64:                               ; preds = %.thread333.i
 dissect_zebra_request.exit:                       ; preds = %290, %282, %235, %227, %.thread333.i, %.thread335.i, %129, %130, %131, %132, %133, %134, %135, %136, %138, %144, %146, %152, %161, %162, %zebra_hello.exit.i, %167, %169, %170, %173, %174, %175, %176, %177, %178, %179, %188, %zebra_hello.exit64, %196, %197, %198, %201, %202, %203, %204, %205, %206, %207, %215, %224, %238, %244, %245, %246, %255, %258, %264, %265, %266, %267, %268, %269, %270, %279, %293, %299, %300, %301, %310, %313, %319
   %320 = add i32 %.04671, %.pre-phi
   %321 = sub i32 %.04768, %.pre-phi
-  %322 = call fastcc i32 @zebra_get_header(ptr noundef %0, i32 noundef %320, ptr noundef nonnull %6)
+  %322 = call fastcc i32 @zebra_get_header(ptr noundef %0, i32 noundef %320, ptr noundef %6)
   %.not50 = icmp eq i32 %322, 0
   br i1 %.not50, label %._crit_edge, label %55
 
@@ -1235,7 +1235,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zebra_get_header(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zebra_get_header(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1) #4
   %5 = icmp slt i32 %4, 3
   br i1 %5, label %35, label %6
@@ -1467,7 +1467,7 @@ define internal fastcc void @zebra_interface_address(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zebra_route(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i16 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @zebra_route(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i8 noundef zeroext range(i8 0, 11) %5, i16 noundef zeroext %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca [16 x i8], align 16
@@ -2107,7 +2107,7 @@ define internal fastcc void @zebra_nexthop_update(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zebra_get_label_chunk(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @zebra_get_label_chunk(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_zebra_proto, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #4
   %7 = add i32 %3, 1
@@ -2146,7 +2146,7 @@ declare ptr @proto_tree_add_ipv6(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_ipv4(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zebra_route_nexthop(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc i32 @zebra_route_nexthop(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6) unnamed_addr #0 {
   %8 = icmp ult i8 %6, 5
   br i1 %8, label %9, label %15
 

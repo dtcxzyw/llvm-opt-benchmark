@@ -7836,7 +7836,7 @@ default.unreachable1100:                          ; preds = %2
   store i64 1, ptr %.sroa.9.0..sroa_idx679, align 8
   %.sroa.10680.0..sroa_idx = getelementptr inbounds i8, ptr %99, i64 16
   store ptr %229, ptr %.sroa.10680.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6ea4cc3a0c66e4ceE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %99)
+  invoke fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6ea4cc3a0c66e4ceE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %99)
           to label %253 unwind label %251
 
 250:                                              ; preds = %242, %251
@@ -8272,7 +8272,7 @@ default.unreachable1100:                          ; preds = %2
   store i64 1, ptr %.sroa.9808.0..sroa_idx, align 8
   %.sroa.10809.0..sroa_idx = getelementptr inbounds i8, ptr %66, i64 16
   store ptr %372, ptr %.sroa.10809.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7923e89377e884a9E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %66)
+  invoke fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7923e89377e884a9E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %66)
           to label %391 unwind label %389
 
 389:                                              ; preds = %383
@@ -8688,7 +8688,7 @@ default.unreachable1100:                          ; preds = %2
   store i64 2, ptr %.sroa.12851.0..sroa_idx, align 8
   %.sroa.13852.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 16
   store ptr %488, ptr %.sroa.13852.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h282b37d94a13a6d4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %54)
+  invoke fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h282b37d94a13a6d4E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %54)
           to label %511 unwind label %509
 
 509:                                              ; preds = %507
@@ -9151,7 +9151,7 @@ default.unreachable1100:                          ; preds = %2
   store i64 2, ptr %.sroa.12.0..sroa_idx, align 8
   %.sroa.13728.0..sroa_idx = getelementptr inbounds i8, ptr %82, i64 16
   store ptr %619, ptr %.sroa.13728.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3bf402d5e5eb4535E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %82)
+  invoke fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3bf402d5e5eb4535E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %82)
           to label %642 unwind label %640
 
 640:                                              ; preds = %638
@@ -9573,7 +9573,7 @@ common.ret:                                       ; preds = %904, %"_ZN96_$LT$fu
   store i64 1, ptr %.sroa.9919.0..sroa_idx, align 8
   %.sroa.10920.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 16
   store ptr %755, ptr %.sroa.10920.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hca0ba1cc2f98f4b2E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %37)
+  invoke fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hca0ba1cc2f98f4b2E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %37)
           to label %775 unwind label %773
 
 773:                                              ; preds = %766
@@ -9899,7 +9899,7 @@ common.ret:                                       ; preds = %904, %"_ZN96_$LT$fu
   store i64 1, ptr %.sroa.10954.0..sroa_idx, align 8
   %.sroa.11955.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 16
   store ptr %863, ptr %.sroa.11955.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h68de0385c32ae598E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %24)
+  invoke fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h68de0385c32ae598E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %24)
           to label %885 unwind label %883
 
 883:                                              ; preds = %874
@@ -10060,7 +10060,7 @@ common.ret:                                       ; preds = %904, %"_ZN96_$LT$fu
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6ea4cc3a0c66e4ceE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6ea4cc3a0c66e4ceE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -10114,7 +10114,7 @@ define internal fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..Ud
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3bf402d5e5eb4535E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3bf402d5e5eb4535E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -10168,7 +10168,7 @@ define internal fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..Ud
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7923e89377e884a9E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7923e89377e884a9E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -10222,7 +10222,7 @@ define internal fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..Ud
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h282b37d94a13a6d4E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h282b37d94a13a6d4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -10276,7 +10276,7 @@ define internal fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..Ud
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hca0ba1cc2f98f4b2E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hca0ba1cc2f98f4b2E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -10330,7 +10330,7 @@ define internal fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..Ud
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h68de0385c32ae598E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN98_$LT$ockam_transport_udp..workers..sender..UdpSendWorker$u20$as$u20$ockam_core..worker..Worker$GT$14handle_message28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h68de0385c32ae598E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8

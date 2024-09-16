@@ -994,7 +994,7 @@ if.then33:                                        ; preds = %if.end28
   br label %return
 
 if.end36:                                         ; preds = %if.end28
-  %call37 = call fastcc ptr @mime_hdr_find(ptr noundef nonnull %call31)
+  %call37 = call fastcc ptr @mime_hdr_find(ptr noundef %call31)
   %cmp38 = icmp eq ptr %call37, null
   br i1 %cmp38, label %if.then42, label %lor.lhs.false39
 
@@ -1733,14 +1733,14 @@ return:                                           ; preds = %for.inc128, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mime_hdr_find(ptr noundef %hdrs) unnamed_addr #0 {
+define internal fastcc ptr @mime_hdr_find(ptr noundef nonnull %hdrs) unnamed_addr #0 {
 entry:
   %htmp = alloca %struct.mime_header_st, align 8
   store ptr @.str.34, ptr %htmp, align 8
   %value = getelementptr inbounds i8, ptr %htmp, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value, i8 0, i64 16, i1 false)
-  %call.i = call i32 @OPENSSL_sk_find(ptr noundef %hdrs, ptr noundef nonnull %htmp) #6
-  %call.i2 = call ptr @OPENSSL_sk_value(ptr noundef %hdrs, i32 noundef %call.i) #6
+  %call.i = call i32 @OPENSSL_sk_find(ptr noundef nonnull %hdrs, ptr noundef nonnull %htmp) #6
+  %call.i2 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %hdrs, i32 noundef %call.i) #6
   ret ptr %call.i2
 }
 

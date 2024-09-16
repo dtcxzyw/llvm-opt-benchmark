@@ -553,7 +553,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIjEET_PKcS3_S3_(ptr noundef nonnull readonly %1, i32 noundef -2147483648, i32 noundef 2147483647)
+  %call.i = tail call fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIjEET_PKcS3_S3_(ptr noundef readonly %1, i32 noundef -2147483648, i32 noundef 2147483647)
   br label %return
 
 return:                                           ; preds = %cond.true, %if.end, %entry
@@ -575,7 +575,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIjEET_PKcS3_S3_(ptr noundef nonnull readonly %1, i32 noundef 0, i32 noundef -1)
+  %call.i = tail call fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIjEET_PKcS3_S3_(ptr noundef readonly %1, i32 noundef 0, i32 noundef -1)
   br label %return
 
 return:                                           ; preds = %cond.true, %if.end, %entry
@@ -673,7 +673,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call fastcc noundef i64 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIyEET_PKcS3_S3_(ptr noundef nonnull readonly %1, i64 noundef -9223372036854775808, i64 noundef 9223372036854775807)
+  %call.i = tail call fastcc noundef i64 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIyEET_PKcS3_S3_(ptr noundef readonly %1, i64 noundef -9223372036854775808, i64 noundef 9223372036854775807)
   br label %return
 
 return:                                           ; preds = %cond.true, %if.end, %entry
@@ -695,7 +695,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call fastcc noundef i64 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIyEET_PKcS3_S3_(ptr noundef nonnull readonly %1, i64 noundef 0, i64 noundef -1)
+  %call.i = tail call fastcc noundef i64 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIyEET_PKcS3_S3_(ptr noundef readonly %1, i64 noundef 0, i64 noundef -1)
   br label %return
 
 return:                                           ; preds = %cond.true, %if.end, %entry
@@ -1454,7 +1454,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr nocapture noundef nonnull align 8 dereferenceable(8) %dest, ptr nocapture noundef nonnull align 8 dereferenceable(8) %header, i64 noundef %header_mask, ptr nocapture noundef readonly %source, i64 noundef %source_length) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr nocapture noundef nonnull align 8 dereferenceable(8) %dest, ptr nocapture noundef nonnull align 8 dereferenceable(8) %header, i64 noundef range(i64 16, 33) %header_mask, ptr nocapture noundef readonly %source, i64 noundef %source_length) unnamed_addr #6 {
 entry:
   %cmp = icmp eq i64 %source_length, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -7419,7 +7419,7 @@ if.end11:                                         ; preds = %if.end.i21, %if.end
   %21 = load ptr, ptr %name2.i, align 8
   store ptr null, ptr %name2.i, align 8
   %22 = load ptr, ptr %this, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef nonnull %sub.ptr.i, ptr noundef %22, ptr noundef %contents, i64 noundef %size, i32 noundef %options, i32 noundef %encoding, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %retval.0.i23.ph)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef nonnull %sub.ptr.i, ptr noundef %22, ptr noundef %contents, i64 noundef %size, i32 noundef %options, i32 noundef %encoding, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %retval.0.i23.ph)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end11
@@ -7437,7 +7437,7 @@ return:                                           ; preds = %invoke.cont, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef %doc, ptr noundef %root, ptr noundef %contents, i64 noundef %size, i32 noundef %options, i32 noundef %encoding, i1 noundef zeroext %is_mutable, i1 noundef zeroext %own, ptr nocapture noundef writeonly %out_buffer) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef %doc, ptr noundef %root, ptr noundef %contents, i64 noundef %size, i32 noundef %options, i32 noundef %encoding, i1 noundef zeroext %is_mutable, i1 noundef zeroext %own, ptr nocapture noundef nonnull writeonly %out_buffer) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %result.i = alloca %"struct.pugi::xml_parse_result", align 8
   %tobool = icmp eq ptr %contents, null
@@ -8206,7 +8206,7 @@ _ZN4pugi4impl12_GLOBAL__N_129get_latin1_7bit_prefix_lengthEPKhm.exit.i.i: ; pred
   %arrayidx.i.i191.i.le = getelementptr inbounds i8, ptr %contents, i64 %i.06.i.i.i
   %sub.i.i = sub i64 %size, %i.06.i.i.i
   %cmp.i.i = icmp eq i64 %size, %i.06.i.i.i
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i196.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %while.body.i.i196.i
 
 if.then.i.i:                                      ; preds = %for.inc.i.i.i, %_ZN4pugi4impl12_GLOBAL__N_129get_latin1_7bit_prefix_lengthEPKhm.exit.i.i, %if.then29.i
   br i1 %is_mutable, label %if.end8, label %if.else.i.i192.i
@@ -8232,70 +8232,65 @@ if.end7.i.i.i:                                    ; preds = %if.then4.i.i.i, %if
   %arrayidx.i19.i.i = getelementptr inbounds i8, ptr %call.i.i.i28, i64 %size
   br label %return.sink.split.sink.split.i
 
-if.end.i196.i:                                    ; preds = %_ZN4pugi4impl12_GLOBAL__N_129get_latin1_7bit_prefix_lengthEPKhm.exit.i.i
-  %tobool.not4.i.i.i = icmp eq i64 %sub.i.i, 0
-  br i1 %tobool.not4.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_114latin1_decoder7processINS1_12utf8_counterEEENT_10value_typeEPKhmS6_S5_.exit.i.i, label %while.body.i.i197.i
+while.body.i.i196.i:                              ; preds = %_ZN4pugi4impl12_GLOBAL__N_129get_latin1_7bit_prefix_lengthEPKhm.exit.i.i, %while.body.i.i196.i
+  %result.addr.06.i.i.i = phi i64 [ %add5.i.i.i199.i, %while.body.i.i196.i ], [ 0, %_ZN4pugi4impl12_GLOBAL__N_129get_latin1_7bit_prefix_lengthEPKhm.exit.i.i ]
+  %size.addr.05.i.i.i = phi i64 [ %sub.i.i.i, %while.body.i.i196.i ], [ %sub.i.i, %_ZN4pugi4impl12_GLOBAL__N_129get_latin1_7bit_prefix_lengthEPKhm.exit.i.i ]
+  %data.addr.04.i.i.i = phi ptr [ %add.ptr.i.i200.i, %while.body.i.i196.i ], [ %arrayidx.i.i191.i.le, %_ZN4pugi4impl12_GLOBAL__N_129get_latin1_7bit_prefix_lengthEPKhm.exit.i.i ]
+  %112 = load i8, ptr %data.addr.04.i.i.i, align 1
+  %cmp.i.i.i197.i = icmp sgt i8 %112, -1
+  %.sink.i.i.i198.i = select i1 %cmp.i.i.i197.i, i64 1, i64 2
+  %add5.i.i.i199.i = add i64 %.sink.i.i.i198.i, %result.addr.06.i.i.i
+  %add.ptr.i.i200.i = getelementptr inbounds i8, ptr %data.addr.04.i.i.i, i64 1
+  %sub.i.i.i = add i64 %size.addr.05.i.i.i, -1
+  %tobool.not.i.i201.i = icmp eq i64 %sub.i.i.i, 0
+  br i1 %tobool.not.i.i201.i, label %_ZN4pugi4impl12_GLOBAL__N_114latin1_decoder7processINS1_12utf8_counterEEENT_10value_typeEPKhmS6_S5_.exit.i.i, label %while.body.i.i196.i, !llvm.loop !45
 
-while.body.i.i197.i:                              ; preds = %if.end.i196.i, %while.body.i.i197.i
-  %result.addr.07.i.i.i = phi i64 [ %add5.i.i.i200.i, %while.body.i.i197.i ], [ 0, %if.end.i196.i ]
-  %size.addr.06.i.i.i = phi i64 [ %sub.i.i.i, %while.body.i.i197.i ], [ %sub.i.i, %if.end.i196.i ]
-  %data.addr.05.i.i.i = phi ptr [ %add.ptr.i.i201.i, %while.body.i.i197.i ], [ %arrayidx.i.i191.i.le, %if.end.i196.i ]
-  %112 = load i8, ptr %data.addr.05.i.i.i, align 1
-  %cmp.i.i.i198.i = icmp sgt i8 %112, -1
-  %.sink.i.i.i199.i = select i1 %cmp.i.i.i198.i, i64 1, i64 2
-  %add5.i.i.i200.i = add i64 %.sink.i.i.i199.i, %result.addr.07.i.i.i
-  %add.ptr.i.i201.i = getelementptr inbounds i8, ptr %data.addr.05.i.i.i, i64 1
-  %sub.i.i.i = add i64 %size.addr.06.i.i.i, -1
-  %tobool.not.i.i202.i = icmp eq i64 %sub.i.i.i, 0
-  br i1 %tobool.not.i.i202.i, label %_ZN4pugi4impl12_GLOBAL__N_114latin1_decoder7processINS1_12utf8_counterEEENT_10value_typeEPKhmS6_S5_.exit.i.i, label %while.body.i.i197.i, !llvm.loop !45
-
-_ZN4pugi4impl12_GLOBAL__N_114latin1_decoder7processINS1_12utf8_counterEEENT_10value_typeEPKhmS6_S5_.exit.i.i: ; preds = %while.body.i.i197.i, %if.end.i196.i
-  %result.addr.0.lcssa.i.i.i = phi i64 [ 0, %if.end.i196.i ], [ %add5.i.i.i200.i, %while.body.i.i197.i ]
+_ZN4pugi4impl12_GLOBAL__N_114latin1_decoder7processINS1_12utf8_counterEEENT_10value_typeEPKhmS6_S5_.exit.i.i: ; preds = %while.body.i.i196.i
   %113 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %add.i203.i = add i64 %i.06.i.i.i, 1
-  %add3.i.i = add i64 %add.i203.i, %result.addr.0.lcssa.i.i.i
+  %add.i202.i = add i64 %i.06.i.i.i, 1
+  %add3.i.i = add i64 %add.i202.i, %add5.i.i.i199.i
   %call4.i.i29 = invoke noundef ptr %113(i64 noundef %add3.i.i)
           to label %call4.i.i.noexc unwind label %lpad
 
 call4.i.i.noexc:                                  ; preds = %_ZN4pugi4impl12_GLOBAL__N_114latin1_decoder7processINS1_12utf8_counterEEENT_10value_typeEPKhmS6_S5_.exit.i.i
   %tobool5.not.i.i = icmp eq ptr %call4.i.i29, null
-  br i1 %tobool5.not.i.i, label %if.then6, label %if.end7.i204.i
+  br i1 %tobool5.not.i.i, label %if.then6, label %if.end7.i203.i
 
-if.end7.i204.i:                                   ; preds = %call4.i.i.noexc
+if.end7.i203.i:                                   ; preds = %call4.i.i.noexc
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call4.i.i29, ptr align 1 %contents, i64 %i.06.i.i.i, i1 false)
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %call4.i.i29, i64 %i.06.i.i.i
-  br i1 %tobool.not4.i.i.i, label %return.sink.split.sink.split.i, label %while.body.i22.i.i
+  br label %while.body.i21.i.i
 
-while.body.i22.i.i:                               ; preds = %if.end7.i204.i, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i209.i
-  %result.addr.07.i23.i.i = phi ptr [ %add.ptr22.i.i.i210.i, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i209.i ], [ %add.ptr8.i.i, %if.end7.i204.i ]
-  %size.addr.06.i24.i.i = phi i64 [ %sub.i29.i.i, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i209.i ], [ %sub.i.i, %if.end7.i204.i ]
-  %data.addr.05.i25.i.i = phi ptr [ %add.ptr.i28.i.i, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i209.i ], [ %arrayidx.i.i191.i.le, %if.end7.i204.i ]
-  %114 = load i8, ptr %data.addr.05.i25.i.i, align 1
-  %cmp.i.i26.i.i = icmp sgt i8 %114, -1
-  br i1 %cmp.i.i26.i.i, label %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i209.i, label %if.else.i.i.i205.i
+while.body.i21.i.i:                               ; preds = %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i208.i, %if.end7.i203.i
+  %result.addr.06.i22.i.i = phi ptr [ %add.ptr8.i.i, %if.end7.i203.i ], [ %add.ptr22.i.i.i209.i, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i208.i ]
+  %size.addr.05.i23.i.i = phi i64 [ %sub.i.i, %if.end7.i203.i ], [ %sub.i28.i.i, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i208.i ]
+  %data.addr.04.i24.i.i = phi ptr [ %arrayidx.i.i191.i.le, %if.end7.i203.i ], [ %add.ptr.i27.i.i, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i208.i ]
+  %114 = load i8, ptr %data.addr.04.i24.i.i, align 1
+  %cmp.i.i25.i.i = icmp sgt i8 %114, -1
+  br i1 %cmp.i.i25.i.i, label %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i208.i, label %if.else.i.i.i204.i
 
-if.else.i.i.i205.i:                               ; preds = %while.body.i22.i.i
+if.else.i.i.i204.i:                               ; preds = %while.body.i21.i.i
   %115 = lshr i8 %114, 6
-  %conv3.i.i.i206.i = or disjoint i8 %115, -64
-  %conv5.i.i.i207.i = and i8 %114, -65
-  %arrayidx6.i.i.i208.i = getelementptr inbounds i8, ptr %result.addr.07.i23.i.i, i64 1
-  store i8 %conv5.i.i.i207.i, ptr %arrayidx6.i.i.i208.i, align 1
-  br label %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i209.i
+  %conv3.i.i.i205.i = or disjoint i8 %115, -64
+  %conv5.i.i.i206.i = and i8 %114, -65
+  %arrayidx6.i.i.i207.i = getelementptr inbounds i8, ptr %result.addr.06.i22.i.i, i64 1
+  store i8 %conv5.i.i.i206.i, ptr %arrayidx6.i.i.i207.i, align 1
+  br label %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i208.i
 
-_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i209.i: ; preds = %if.else.i.i.i205.i, %while.body.i22.i.i
-  %conv3.i.sink.i.i.i = phi i8 [ %conv3.i.i.i206.i, %if.else.i.i.i205.i ], [ %114, %while.body.i22.i.i ]
-  %.sink.i.i27.i.i = phi i64 [ 2, %if.else.i.i.i205.i ], [ 1, %while.body.i22.i.i ]
-  store i8 %conv3.i.sink.i.i.i, ptr %result.addr.07.i23.i.i, align 1
-  %add.ptr22.i.i.i210.i = getelementptr inbounds i8, ptr %result.addr.07.i23.i.i, i64 %.sink.i.i27.i.i
-  %add.ptr.i28.i.i = getelementptr inbounds i8, ptr %data.addr.05.i25.i.i, i64 1
-  %sub.i29.i.i = add i64 %size.addr.06.i24.i.i, -1
-  %tobool.not.i30.i.i = icmp eq i64 %sub.i29.i.i, 0
-  br i1 %tobool.not.i30.i.i, label %return.sink.split.sink.split.i, label %while.body.i22.i.i, !llvm.loop !46
+_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i208.i: ; preds = %if.else.i.i.i204.i, %while.body.i21.i.i
+  %conv3.i.sink.i.i.i = phi i8 [ %conv3.i.i.i205.i, %if.else.i.i.i204.i ], [ %114, %while.body.i21.i.i ]
+  %.sink.i.i26.i.i = phi i64 [ 2, %if.else.i.i.i204.i ], [ 1, %while.body.i21.i.i ]
+  store i8 %conv3.i.sink.i.i.i, ptr %result.addr.06.i22.i.i, align 1
+  %add.ptr22.i.i.i209.i = getelementptr inbounds i8, ptr %result.addr.06.i22.i.i, i64 %.sink.i.i26.i.i
+  %add.ptr.i27.i.i = getelementptr inbounds i8, ptr %data.addr.04.i24.i.i, i64 1
+  %sub.i28.i.i = add i64 %size.addr.05.i23.i.i, -1
+  %tobool.not.i29.i.i = icmp eq i64 %sub.i28.i.i, 0
+  br i1 %tobool.not.i29.i.i, label %return.sink.split.sink.split.i, label %while.body.i21.i.i, !llvm.loop !46
 
-return.sink.split.sink.split.i:                   ; preds = %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i209.i, %if.end.i.i171.i, %if.end.i.i.i, %if.end37.i18.i.i, %if.end35.i17.i.i, %if.end7.i204.i, %if.end7.i.i.i, %call117.i.i.noexc, %call116.i.i.noexc, %call136.i.i.noexc, %call135.i.i.noexc, %if.end7.i.i
-  %arrayidx.i19.sink.i.sink.i = phi ptr [ %arrayidx.i.i, %if.end7.i.i ], [ %call135.i.i21, %call135.i.i.noexc ], [ %call136.i.i23, %call136.i.i.noexc ], [ %call116.i.i25, %call116.i.i.noexc ], [ %call117.i.i27, %call117.i.i.noexc ], [ %arrayidx.i19.i.i, %if.end7.i.i.i ], [ %add.ptr8.i.i, %if.end7.i204.i ], [ %result.addr.1.i19.i.i, %if.end35.i17.i.i ], [ %result.addr.1.i20.i.i, %if.end37.i18.i.i ], [ %add.ptr.i.i.i118.i, %if.end.i.i.i ], [ %add.ptr.i.i.i173.i, %if.end.i.i171.i ], [ %add.ptr22.i.i.i210.i, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i209.i ]
-  %storemerge12.i.sink.i.sink.ph.i = phi ptr [ %call.i.i19, %if.end7.i.i ], [ %call135.i.i21, %call135.i.i.noexc ], [ %call136.i.i23, %call136.i.i.noexc ], [ %call116.i.i25, %call116.i.i.noexc ], [ %call117.i.i27, %call117.i.i.noexc ], [ %call.i.i.i28, %if.end7.i.i.i ], [ %call4.i.i29, %if.end7.i204.i ], [ %call1.i.i20, %if.end35.i17.i.i ], [ %call1.i43.i22, %if.end37.i18.i.i ], [ %call1.i105.i24, %if.end.i.i.i ], [ %call1.i152.i26, %if.end.i.i171.i ], [ %call4.i.i29, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i209.i ]
-  %storemerge.i.sink.i.sink.ph.i = phi i64 [ %add.i.i, %if.end7.i.i ], [ 1, %call135.i.i.noexc ], [ 1, %call136.i.i.noexc ], [ 1, %call116.i.i.noexc ], [ 1, %call117.i.i.noexc ], [ %add.i.i193.i, %if.end7.i.i.i ], [ %add3.i.i, %if.end7.i204.i ], [ %8, %if.end35.i17.i.i ], [ %41, %if.end37.i18.i.i ], [ %71, %if.end.i.i.i ], [ %91, %if.end.i.i171.i ], [ %add3.i.i, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i209.i ]
+return.sink.split.sink.split.i:                   ; preds = %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i208.i, %if.end.i.i171.i, %if.end.i.i.i, %if.end37.i18.i.i, %if.end35.i17.i.i, %if.end7.i.i.i, %call117.i.i.noexc, %call116.i.i.noexc, %call136.i.i.noexc, %call135.i.i.noexc, %if.end7.i.i
+  %arrayidx.i19.sink.i.sink.i = phi ptr [ %arrayidx.i.i, %if.end7.i.i ], [ %call135.i.i21, %call135.i.i.noexc ], [ %call136.i.i23, %call136.i.i.noexc ], [ %call116.i.i25, %call116.i.i.noexc ], [ %call117.i.i27, %call117.i.i.noexc ], [ %arrayidx.i19.i.i, %if.end7.i.i.i ], [ %result.addr.1.i19.i.i, %if.end35.i17.i.i ], [ %result.addr.1.i20.i.i, %if.end37.i18.i.i ], [ %add.ptr.i.i.i118.i, %if.end.i.i.i ], [ %add.ptr.i.i.i173.i, %if.end.i.i171.i ], [ %add.ptr22.i.i.i209.i, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i208.i ]
+  %storemerge12.i.sink.i.sink.ph.i = phi ptr [ %call.i.i19, %if.end7.i.i ], [ %call135.i.i21, %call135.i.i.noexc ], [ %call136.i.i23, %call136.i.i.noexc ], [ %call116.i.i25, %call116.i.i.noexc ], [ %call117.i.i27, %call117.i.i.noexc ], [ %call.i.i.i28, %if.end7.i.i.i ], [ %call1.i.i20, %if.end35.i17.i.i ], [ %call1.i43.i22, %if.end37.i18.i.i ], [ %call1.i105.i24, %if.end.i.i.i ], [ %call1.i152.i26, %if.end.i.i171.i ], [ %call4.i.i29, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i208.i ]
+  %storemerge.i.sink.i.sink.ph.i = phi i64 [ %add.i.i, %if.end7.i.i ], [ 1, %call135.i.i.noexc ], [ 1, %call136.i.i.noexc ], [ 1, %call116.i.i.noexc ], [ 1, %call117.i.i.noexc ], [ %add.i.i193.i, %if.end7.i.i.i ], [ %8, %if.end35.i17.i.i ], [ %41, %if.end37.i18.i.i ], [ %71, %if.end.i.i.i ], [ %91, %if.end.i.i171.i ], [ %add3.i.i, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i208.i ]
   store i8 0, ptr %arrayidx.i19.sink.i.sink.i, align 1
   br label %if.end8
 
@@ -8304,7 +8299,7 @@ if.then6:                                         ; preds = %if.end27.i, %call.i
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then6, %_ZN4pugi4impl12_GLOBAL__N_114latin1_decoder7processINS1_12utf8_counterEEENT_10value_typeEPKhmS6_S5_.exit.i.i, %if.else.i.i192.i, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_12utf8_counterEEENT_10value_typeEPKjmS8_S7_.exit.thread.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_12utf8_counterEEENT_10value_typeEPKjmS8_S7_.exit.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_12utf8_counterEEENT_10value_typeEPKjmS8_S7_.exit.thread.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_12utf8_counterEEENT_10value_typeEPKjmS8_S7_.exit.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_12utf8_counterEEENT_10value_typeEPKtmS8_S7_.exit.thread.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_12utf8_counterEEENT_10value_typeEPKtmS8_S7_.exit.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_12utf8_counterEEENT_10value_typeEPKtmS8_S7_.exit.thread.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_12utf8_counterEEENT_10value_typeEPKtmS8_S7_.exit.i.i, %if.else.i.i
-  %lpad.thr_comm.split-lp94 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp93 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i = icmp eq ptr %cond, null
   br i1 %tobool.not.i, label %_ZN4pugi4impl12_GLOBAL__N_112auto_deleterIvED2Ev.exit, label %if.then.i31
@@ -8321,7 +8316,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i31
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_112auto_deleterIvED2Ev.exit: ; preds = %lpad, %if.then.i31
-  resume { ptr, i32 } %lpad.thr_comm.split-lp94
+  resume { ptr, i32 } %lpad.thr_comm.split-lp93
 
 if.end8:                                          ; preds = %if.then.i, %if.then.i.i, %return.sink.split.sink.split.i
   %buffer.0 = phi ptr [ %contents, %if.then.i ], [ %contents, %if.then.i.i ], [ %storemerge12.i.sink.i.sink.ph.i, %return.sink.split.sink.split.i ]
@@ -8353,9 +8348,9 @@ if.end21:                                         ; preds = %if.then20, %lor.lhs
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %result.i)
   %cmp.i33 = icmp eq i64 %length.0, 0
-  br i1 %cmp.i33, label %if.then.i68, label %if.end.i34
+  br i1 %cmp.i33, label %if.then.i67, label %if.end.i34
 
-if.then.i68:                                      ; preds = %if.end21
+if.then.i67:                                      ; preds = %if.end21
   %and.i = lshr i32 %options, 8
   %119 = and i32 %and.i, 16
   %cond.i = xor i32 %119, 16
@@ -8413,8 +8408,8 @@ _ZN4pugi4impl12_GLOBAL__N_110xml_parser14parse_skip_bomEPc.exit.i: ; preds = %la
   %and2.i.i.i = and i32 %shr1.i.i.i, 4
   %or.i.i.i = or disjoint i32 %and.i173.i.i, %and2.i.i.i
   %127 = zext nneg i32 %or.i.i.i to i64
-  %switch.gep1322 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.83, i64 0, i64 %127
-  %switch.load1323 = load ptr, ptr %switch.gep1322, align 8
+  %switch.gep1321 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.83, i64 0, i64 %127
+  %switch.load1322 = load ptr, ptr %switch.gep1321, align 8
   %and397.i.i = and i32 %options, 1032
   %tobool398.not.i.i = icmp ne i32 %and397.i.i, 0
   %and400.i.i = and i32 %options, 2048
@@ -8479,7 +8474,7 @@ LOC_TAGthread-pre-split.i.i:                      ; preds = %while.cond.i.i, %wh
 LOC_TAG.i.i:                                      ; preds = %if.end472.i.i, %LOC_TAGthread-pre-split.i.i
   %132 = phi i8 [ %.pr.i.i, %LOC_TAGthread-pre-split.i.i ], [ %373, %if.end472.i.i ]
   %merged_pcdata.1.i.i = phi ptr [ %merged_pcdata.0.ph.i.i, %LOC_TAGthread-pre-split.i.i ], [ %merged_pcdata.2.i.i, %if.end472.i.i ]
-  %s.addr.2.i.i = phi ptr [ %s.addr.2.ph.i.i, %LOC_TAGthread-pre-split.i.i ], [ %call431.i.i77, %if.end472.i.i ]
+  %s.addr.2.i.i = phi ptr [ %s.addr.2.ph.i.i, %LOC_TAGthread-pre-split.i.i ], [ %call431.i.i76, %if.end472.i.i ]
   %idxprom.i.i = zext i8 %132 to i64
   %arrayidx.i.i38 = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom.i.i
   %133 = load i8, ptr %arrayidx.i.i38, align 1, !noalias !47
@@ -8494,14 +8489,14 @@ if.then6.i.i:                                     ; preds = %LOC_TAG.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then6.i.i
   %135 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8, !noalias !47
-  %call.i.i.i.i.i.i.i.i69 = tail call noundef ptr %135(i64 noundef 32768)
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i.i69, null
+  %call.i.i.i.i.i.i.i.i68 = tail call noundef ptr %135(i64 noundef 32768)
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i.i68, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
-  %136 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i69, i64 8
+  %136 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i68, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %136, i8 0, i64 32, i1 false), !noalias !47
-  store ptr %add.ptr4.i, ptr %call.i.i.i.i.i.i.i.i69, align 8, !noalias !47
+  store ptr %add.ptr4.i, ptr %call.i.i.i.i.i.i.i.i68, align 8, !noalias !47
   %137 = load i64, ptr %_busy_size.i.i.i.i269.i.i, align 8, !noalias !47
   %138 = load ptr, ptr %add.ptr4.i, align 8, !noalias !47
   %busy_size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %138, i64 24
@@ -8509,10 +8504,10 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
   %139 = load ptr, ptr %add.ptr4.i, align 8, !noalias !47
   store ptr %139, ptr %136, align 8, !noalias !47
   %next.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %139, i64 16
-  store ptr %call.i.i.i.i.i.i.i.i69, ptr %next.i.i.i.i.i.i.i, align 8, !noalias !47
-  store ptr %call.i.i.i.i.i.i.i.i69, ptr %add.ptr4.i, align 8, !noalias !47
+  store ptr %call.i.i.i.i.i.i.i.i68, ptr %next.i.i.i.i.i.i.i, align 8, !noalias !47
+  store ptr %call.i.i.i.i.i.i.i.i68, ptr %add.ptr4.i, align 8, !noalias !47
   store i64 64, ptr %_busy_size.i.i.i.i269.i.i, align 8, !noalias !47
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i69, i64 40
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i68, i64 40
   br label %if.end3.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then6.i.i
@@ -8523,7 +8518,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.then6.i.i
   br label %if.end3.i.i.i
 
 if.end3.i.i.i:                                    ; preds = %if.end.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
-  %page.0.ph.i.i.i.i = phi ptr [ %140, %if.end.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i69, %if.end.i.i.i.i.i.i.i ]
+  %page.0.ph.i.i.i.i = phi ptr [ %140, %if.end.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i68, %if.end.i.i.i.i.i.i.i ]
   %retval.0.i.i.ph.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %name.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.ph.i.i.i.i, i64 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %retval.0.i.i.ph.i.i.i.i to i64
@@ -8574,7 +8569,7 @@ if.end18.i.i:                                     ; preds = %if.end.i.i40, %if.e
   %147 = load i8, ptr %arrayidx21.i.i, align 1, !noalias !47
   %148 = and i8 %147, 64
   %tobool24.not.i.i = icmp eq i8 %148, 0
-  br i1 %tobool24.not.i.i, label %for.end.i.i.loopexit.split.loop.exit903, label %if.end28.i.i
+  br i1 %tobool24.not.i.i, label %for.end.i.i.loopexit.split.loop.exit902, label %if.end28.i.i
 
 if.end28.i.i:                                     ; preds = %if.end18.i.i
   %arrayidx29.i.i = getelementptr inbounds i8, ptr %s.addr.3637.i.i, i64 2
@@ -8584,7 +8579,7 @@ if.end28.i.i:                                     ; preds = %if.end18.i.i
   %150 = load i8, ptr %arrayidx31.i.i, align 1, !noalias !47
   %151 = and i8 %150, 64
   %tobool34.not.i.i = icmp eq i8 %151, 0
-  br i1 %tobool34.not.i.i, label %for.end.i.i.loopexit.split.loop.exit899, label %if.end39.i.i
+  br i1 %tobool34.not.i.i, label %for.end.i.i.loopexit.split.loop.exit898, label %if.end39.i.i
 
 if.end39.i.i:                                     ; preds = %if.end28.i.i
   %arrayidx40.i.i = getelementptr inbounds i8, ptr %s.addr.3637.i.i, i64 3
@@ -8610,18 +8605,18 @@ for.end.i.i.loopexit.split.loop.exit:             ; preds = %if.end39.i.i
   %arrayidx40.i.i.le = getelementptr inbounds i8, ptr %s.addr.3637.i.i, i64 3
   br label %for.end.i.i
 
-for.end.i.i.loopexit.split.loop.exit899:          ; preds = %if.end28.i.i
+for.end.i.i.loopexit.split.loop.exit898:          ; preds = %if.end28.i.i
   %arrayidx29.i.i.le = getelementptr inbounds i8, ptr %s.addr.3637.i.i, i64 2
   br label %for.end.i.i
 
-for.end.i.i.loopexit.split.loop.exit903:          ; preds = %if.end18.i.i
+for.end.i.i.loopexit.split.loop.exit902:          ; preds = %if.end18.i.i
   %arrayidx19.i.i.le = getelementptr inbounds i8, ptr %s.addr.3637.i.i, i64 1
   br label %for.end.i.i
 
-for.end.i.i:                                      ; preds = %if.end50.i.i, %for.end.i.i.loopexit.split.loop.exit, %for.end.i.i.loopexit.split.loop.exit899, %for.end.i.i.loopexit.split.loop.exit903, %if.end.i.i40
-  %158 = phi i8 [ %144, %if.end.i.i40 ], [ %153, %for.end.i.i.loopexit.split.loop.exit ], [ %150, %for.end.i.i.loopexit.split.loop.exit899 ], [ %147, %for.end.i.i.loopexit.split.loop.exit903 ], [ %156, %if.end50.i.i ]
-  %159 = phi i8 [ %143, %if.end.i.i40 ], [ %152, %for.end.i.i.loopexit.split.loop.exit ], [ %149, %for.end.i.i.loopexit.split.loop.exit899 ], [ %146, %for.end.i.i.loopexit.split.loop.exit903 ], [ %155, %if.end50.i.i ]
-  %s.addr.4.i.i = phi ptr [ %s.addr.2.i.i, %if.end.i.i40 ], [ %arrayidx40.i.i.le, %for.end.i.i.loopexit.split.loop.exit ], [ %arrayidx29.i.i.le, %for.end.i.i.loopexit.split.loop.exit899 ], [ %arrayidx19.i.i.le, %for.end.i.i.loopexit.split.loop.exit903 ], [ %add.ptr51.i.i, %if.end50.i.i ]
+for.end.i.i:                                      ; preds = %if.end50.i.i, %for.end.i.i.loopexit.split.loop.exit, %for.end.i.i.loopexit.split.loop.exit898, %for.end.i.i.loopexit.split.loop.exit902, %if.end.i.i40
+  %158 = phi i8 [ %144, %if.end.i.i40 ], [ %153, %for.end.i.i.loopexit.split.loop.exit ], [ %150, %for.end.i.i.loopexit.split.loop.exit898 ], [ %147, %for.end.i.i.loopexit.split.loop.exit902 ], [ %156, %if.end50.i.i ]
+  %159 = phi i8 [ %143, %if.end.i.i40 ], [ %152, %for.end.i.i.loopexit.split.loop.exit ], [ %149, %for.end.i.i.loopexit.split.loop.exit898 ], [ %146, %for.end.i.i.loopexit.split.loop.exit902 ], [ %155, %if.end50.i.i ]
+  %s.addr.4.i.i = phi ptr [ %s.addr.2.i.i, %if.end.i.i40 ], [ %arrayidx40.i.i.le, %for.end.i.i.loopexit.split.loop.exit ], [ %arrayidx29.i.i.le, %for.end.i.i.loopexit.split.loop.exit898 ], [ %arrayidx19.i.i.le, %for.end.i.i.loopexit.split.loop.exit902 ], [ %add.ptr51.i.i, %if.end50.i.i ]
   store i8 0, ptr %s.addr.4.i.i, align 1, !noalias !47
   %incdec.ptr52.i.i = getelementptr inbounds i8, ptr %s.addr.4.i.i, i64 1
   %cmp54.i.i = icmp eq i8 %159, 62
@@ -8650,7 +8645,7 @@ while.cond64.i.i:                                 ; preds = %while.cond64.i.i.ba
   br i1 %tobool69.not.i.i, label %while.end.i.i, label %while.cond64.i.i.backedge
 
 while.cond64.i.i.backedge:                        ; preds = %while.cond64.i.i, %if.end175.i.i
-  %s.addr.7.i.i.be = phi ptr [ %incdec.ptr71.i.i, %while.cond64.i.i ], [ %call169.i.i71, %if.end175.i.i ]
+  %s.addr.7.i.i.be = phi ptr [ %incdec.ptr71.i.i, %while.cond64.i.i ], [ %call169.i.i70, %if.end175.i.i ]
   br label %while.cond64.i.i, !llvm.loop !54
 
 while.end.i.i:                                    ; preds = %while.cond64.i.i
@@ -8665,14 +8660,14 @@ if.then77.i.i:                                    ; preds = %while.end.i.i
 
 if.then.i.i.i.i201.i.i:                           ; preds = %if.then77.i.i
   %165 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8, !noalias !47
-  %call.i.i.i.i.i.i202.i.i70 = tail call noundef ptr %165(i64 noundef 32768)
-  %tobool.not.i.i.i.i.i.i203.i.i = icmp eq ptr %call.i.i.i.i.i.i202.i.i70, null
+  %call.i.i.i.i.i.i202.i.i69 = tail call noundef ptr %165(i64 noundef 32768)
+  %tobool.not.i.i.i.i.i.i203.i.i = icmp eq ptr %call.i.i.i.i.i.i202.i.i69, null
   br i1 %tobool.not.i.i.i.i.i.i203.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %if.end.i.i.i.i.i204.i.i
 
 if.end.i.i.i.i.i204.i.i:                          ; preds = %if.then.i.i.i.i201.i.i
-  %166 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i202.i.i70, i64 8
+  %166 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i202.i.i69, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %166, i8 0, i64 32, i1 false), !noalias !47
-  store ptr %add.ptr4.i, ptr %call.i.i.i.i.i.i202.i.i70, align 8, !noalias !47
+  store ptr %add.ptr4.i, ptr %call.i.i.i.i.i.i202.i.i69, align 8, !noalias !47
   %167 = load i64, ptr %_busy_size.i.i.i.i269.i.i, align 8, !noalias !47
   %168 = load ptr, ptr %add.ptr4.i, align 8, !noalias !47
   %busy_size.i.i.i.i.i205.i.i = getelementptr inbounds i8, ptr %168, i64 24
@@ -8680,10 +8675,10 @@ if.end.i.i.i.i.i204.i.i:                          ; preds = %if.then.i.i.i.i201.
   %169 = load ptr, ptr %add.ptr4.i, align 8, !noalias !47
   store ptr %169, ptr %166, align 8, !noalias !47
   %next.i.i.i.i.i206.i.i = getelementptr inbounds i8, ptr %169, i64 16
-  store ptr %call.i.i.i.i.i.i202.i.i70, ptr %next.i.i.i.i.i206.i.i, align 8, !noalias !47
-  store ptr %call.i.i.i.i.i.i202.i.i70, ptr %add.ptr4.i, align 8, !noalias !47
+  store ptr %call.i.i.i.i.i.i202.i.i69, ptr %next.i.i.i.i.i206.i.i, align 8, !noalias !47
+  store ptr %call.i.i.i.i.i.i202.i.i69, ptr %add.ptr4.i, align 8, !noalias !47
   store i64 40, ptr %_busy_size.i.i.i.i269.i.i, align 8, !noalias !47
-  %add.ptr.i.i.i.i.i207.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i202.i.i70, i64 40
+  %add.ptr.i.i.i.i.i207.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i202.i.i69, i64 40
   br label %if.end3.i189.i.i
 
 if.end.i.i.i.i186.i.i:                            ; preds = %if.then77.i.i
@@ -8694,7 +8689,7 @@ if.end.i.i.i.i186.i.i:                            ; preds = %if.then77.i.i
   br label %if.end3.i189.i.i
 
 if.end3.i189.i.i:                                 ; preds = %if.end.i.i.i.i186.i.i, %if.end.i.i.i.i.i204.i.i
-  %page.0.ph.i.i190.i.i = phi ptr [ %170, %if.end.i.i.i.i186.i.i ], [ %call.i.i.i.i.i.i202.i.i70, %if.end.i.i.i.i.i204.i.i ]
+  %page.0.ph.i.i190.i.i = phi ptr [ %170, %if.end.i.i.i.i186.i.i ], [ %call.i.i.i.i.i.i202.i.i69, %if.end.i.i.i.i.i204.i.i ]
   %retval.0.i.i.ph.i.i191.i.i = phi ptr [ %add.ptr3.i.i.i.i188.i.i, %if.end.i.i.i.i186.i.i ], [ %add.ptr.i.i.i.i.i207.i.i, %if.end.i.i.i.i.i204.i.i ]
   %name.i.i.i192.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.ph.i.i191.i.i, i64 8
   %sub.ptr.lhs.cast.i.i.i193.i.i = ptrtoint ptr %retval.0.i.i.ph.i.i191.i.i to i64
@@ -8742,7 +8737,7 @@ if.end97.i.i:                                     ; preds = %if.end84.i.i, %if.e
   %177 = load i8, ptr %arrayidx100.i.i, align 1, !noalias !47
   %178 = and i8 %177, 64
   %tobool103.not.i.i = icmp eq i8 %178, 0
-  br i1 %tobool103.not.i.i, label %for.end132.i.i.loopexit.split.loop.exit929, label %if.end108.i.i
+  br i1 %tobool103.not.i.i, label %for.end132.i.i.loopexit.split.loop.exit928, label %if.end108.i.i
 
 if.end108.i.i:                                    ; preds = %if.end97.i.i
   %arrayidx109.i.i = getelementptr inbounds i8, ptr %s.addr.8662.i.i, i64 2
@@ -8752,7 +8747,7 @@ if.end108.i.i:                                    ; preds = %if.end97.i.i
   %180 = load i8, ptr %arrayidx111.i.i, align 1, !noalias !47
   %181 = and i8 %180, 64
   %tobool114.not.i.i = icmp eq i8 %181, 0
-  br i1 %tobool114.not.i.i, label %for.end132.i.i.loopexit.split.loop.exit925, label %if.end119.i.i
+  br i1 %tobool114.not.i.i, label %for.end132.i.i.loopexit.split.loop.exit924, label %if.end119.i.i
 
 if.end119.i.i:                                    ; preds = %if.end108.i.i
   %arrayidx120.i.i = getelementptr inbounds i8, ptr %s.addr.8662.i.i, i64 3
@@ -8778,18 +8773,18 @@ for.end132.i.i.loopexit.split.loop.exit:          ; preds = %if.end119.i.i
   %arrayidx120.i.i.le = getelementptr inbounds i8, ptr %s.addr.8662.i.i, i64 3
   br label %for.end132.i.i
 
-for.end132.i.i.loopexit.split.loop.exit925:       ; preds = %if.end108.i.i
+for.end132.i.i.loopexit.split.loop.exit924:       ; preds = %if.end108.i.i
   %arrayidx109.i.i.le = getelementptr inbounds i8, ptr %s.addr.8662.i.i, i64 2
   br label %for.end132.i.i
 
-for.end132.i.i.loopexit.split.loop.exit929:       ; preds = %if.end97.i.i
+for.end132.i.i.loopexit.split.loop.exit928:       ; preds = %if.end97.i.i
   %arrayidx98.i.i.le = getelementptr inbounds i8, ptr %s.addr.8662.i.i, i64 1
   br label %for.end132.i.i
 
-for.end132.i.i:                                   ; preds = %if.end130.i.i, %for.end132.i.i.loopexit.split.loop.exit, %for.end132.i.i.loopexit.split.loop.exit925, %for.end132.i.i.loopexit.split.loop.exit929, %if.end84.i.i
-  %188 = phi i8 [ %174, %if.end84.i.i ], [ %183, %for.end132.i.i.loopexit.split.loop.exit ], [ %180, %for.end132.i.i.loopexit.split.loop.exit925 ], [ %177, %for.end132.i.i.loopexit.split.loop.exit929 ], [ %186, %if.end130.i.i ]
-  %189 = phi i8 [ %173, %if.end84.i.i ], [ %182, %for.end132.i.i.loopexit.split.loop.exit ], [ %179, %for.end132.i.i.loopexit.split.loop.exit925 ], [ %176, %for.end132.i.i.loopexit.split.loop.exit929 ], [ %185, %if.end130.i.i ]
-  %s.addr.9.i.i = phi ptr [ %s.addr.7.i.i, %if.end84.i.i ], [ %arrayidx120.i.i.le, %for.end132.i.i.loopexit.split.loop.exit ], [ %arrayidx109.i.i.le, %for.end132.i.i.loopexit.split.loop.exit925 ], [ %arrayidx98.i.i.le, %for.end132.i.i.loopexit.split.loop.exit929 ], [ %add.ptr131.i.i, %if.end130.i.i ]
+for.end132.i.i:                                   ; preds = %if.end130.i.i, %for.end132.i.i.loopexit.split.loop.exit, %for.end132.i.i.loopexit.split.loop.exit924, %for.end132.i.i.loopexit.split.loop.exit928, %if.end84.i.i
+  %188 = phi i8 [ %174, %if.end84.i.i ], [ %183, %for.end132.i.i.loopexit.split.loop.exit ], [ %180, %for.end132.i.i.loopexit.split.loop.exit924 ], [ %177, %for.end132.i.i.loopexit.split.loop.exit928 ], [ %186, %if.end130.i.i ]
+  %189 = phi i8 [ %173, %if.end84.i.i ], [ %182, %for.end132.i.i.loopexit.split.loop.exit ], [ %179, %for.end132.i.i.loopexit.split.loop.exit924 ], [ %176, %for.end132.i.i.loopexit.split.loop.exit928 ], [ %185, %if.end130.i.i ]
+  %s.addr.9.i.i = phi ptr [ %s.addr.7.i.i, %if.end84.i.i ], [ %arrayidx120.i.i.le, %for.end132.i.i.loopexit.split.loop.exit ], [ %arrayidx109.i.i.le, %for.end132.i.i.loopexit.split.loop.exit924 ], [ %arrayidx98.i.i.le, %for.end132.i.i.loopexit.split.loop.exit928 ], [ %add.ptr131.i.i, %if.end130.i.i ]
   store i8 0, ptr %s.addr.9.i.i, align 1, !noalias !47
   %incdec.ptr133.i.i = getelementptr inbounds i8, ptr %s.addr.9.i.i, i64 1
   %190 = and i8 %188, 8
@@ -8833,8 +8828,8 @@ while.end162.i.i:                                 ; preds = %while.cond154.i.i
 if.then167.i.i:                                   ; preds = %while.end162.i.i, %while.end162.i.i
   %value.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.ph.i.i191.i.i, i64 16
   store ptr %incdec.ptr161.i.i, ptr %value.i.i, align 8, !noalias !47
-  %call169.i.i71 = tail call noundef ptr %switch.load(ptr noundef nonnull %incdec.ptr161.i.i, i8 noundef signext %194)
-  %tobool170.not.i.i = icmp eq ptr %call169.i.i71, null
+  %call169.i.i70 = tail call noundef ptr %switch.load(ptr noundef nonnull %incdec.ptr161.i.i, i8 noundef signext %194)
+  %tobool170.not.i.i = icmp eq ptr %call169.i.i70, null
   br i1 %tobool170.not.i.i, label %if.then171.i.i, label %if.end175.i.i
 
 if.then171.i.i:                                   ; preds = %if.then167.i.i
@@ -8843,7 +8838,7 @@ if.then171.i.i:                                   ; preds = %if.then167.i.i
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 if.end175.i.i:                                    ; preds = %if.then167.i.i
-  %198 = load i8, ptr %call169.i.i71, align 1, !noalias !47
+  %198 = load i8, ptr %call169.i.i70, align 1, !noalias !47
   %idxprom176.i.i = zext i8 %198 to i64
   %arrayidx177.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom176.i.i
   %199 = load i8, ptr %arrayidx177.i.i, align 1, !noalias !47
@@ -8986,10 +8981,10 @@ if.then348.i.i:                                   ; preds = %if.else268.i.i
   %incdec.ptr.ptr.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.i.i, i64 1
   %216 = load i8, ptr %incdec.ptr.ptr.i.i.i, align 1, !noalias !47
   %idxprom.i.i.i = zext i8 %216 to i64
-  %arrayidx.i.i.i60 = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom.i.i.i
-  %217 = load i8, ptr %arrayidx.i.i.i60, align 1, !noalias !47
-  %tobool.not.i.i.i61 = icmp sgt i8 %217, -1
-  br i1 %tobool.not.i.i.i61, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %while.cond.i.i.i
+  %arrayidx.i.i.i59 = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom.i.i.i
+  %217 = load i8, ptr %arrayidx.i.i.i59, align 1, !noalias !47
+  %tobool.not.i.i.i60 = icmp sgt i8 %217, -1
+  br i1 %tobool.not.i.i.i60, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %if.then348.i.i, %while.cond.i.i.i
   %s.addr.0.idx.i.i.i = phi i64 [ %s.addr.0.add.i.i.i, %while.cond.i.i.i ], [ 1, %if.then348.i.i ]
@@ -9005,13 +9000,13 @@ while.cond.i.i.i:                                 ; preds = %if.then348.i.i, %wh
 
 while.end.i.i.i:                                  ; preds = %while.cond.i.i.i
   %s.addr.0.ptr.i.i.i.le = getelementptr inbounds i8, ptr %s.addr.2.i.i, i64 %s.addr.0.idx.i.i.i
-  %cmp.i.i.i62 = icmp eq i8 %218, 0
-  br i1 %cmp.i.i.i62, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %if.end12.i.i.i
+  %cmp.i.i.i61 = icmp eq i8 %218, 0
+  br i1 %cmp.i.i.i61, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %while.end.i.i.i
   %221 = and i8 %216, -33
-  %cmp15.i.i.i63 = icmp eq i8 %221, 88
-  br i1 %cmp15.i.i.i63, label %land.lhs.true.i.i.i, label %.thread.i.i.i
+  %cmp15.i.i.i62 = icmp eq i8 %221, 88
+  br i1 %cmp15.i.i.i62, label %land.lhs.true.i.i.i, label %.thread.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end12.i.i.i
   %arrayidx16.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.i.i, i64 2
@@ -9034,7 +9029,7 @@ land.end.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
   br i1 %tobool29.not.i.i.i, label %while.cond134.preheader.i.i.i, label %if.then30.i.i.i
 
 .thread.i.i.i:                                    ; preds = %land.lhs.true.i.i.i, %if.end12.i.i.i
-  br i1 %tobool29.not106.i.i.i, label %while.cond134.preheader.i.i.i, label %if.else.i.i.i64
+  br i1 %tobool29.not106.i.i.i, label %while.cond134.preheader.i.i.i, label %if.else.i.i.i63
 
 while.cond134.preheader.i.i.i:                    ; preds = %.thread.i.i.i, %land.end.i.i.i
   br i1 %cmp256.not.i.i, label %while.cond134.i.i.i, label %while.cond134.us.i.i.i
@@ -9064,30 +9059,30 @@ while.body157.us.i.i.i:                           ; preds = %land.rhs141.us.i.i.
   br label %while.cond134.us.i.i.i, !llvm.loop !61
 
 if.then30.i.i.i:                                  ; preds = %land.end.i.i.i
-  br i1 %cond.fr.i.i.i, label %if.then32.i.i.i, label %if.else.i.i.i64
+  br i1 %cond.fr.i.i.i, label %if.then32.i.i.i, label %if.else.i.i.i63
 
 if.then32.i.i.i:                                  ; preds = %if.then30.i.i.i
   %parent.i.i.i = getelementptr inbounds i8, ptr %cursor.0.ph.i.i, i64 24
   %228 = load ptr, ptr %parent.i.i.i, align 8, !noalias !47
   %tobool33.not.i.i.i = icmp eq ptr %228, null
-  br i1 %tobool33.not.i.i.i, label %if.end37.i.i.i66, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
+  br i1 %tobool33.not.i.i.i, label %if.end37.i.i.i65, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
-if.end37.i.i.i66:                                 ; preds = %if.then32.i.i.i
+if.end37.i.i.i65:                                 ; preds = %if.then32.i.i.i
   %229 = load i64, ptr %_busy_size.i.i.i.i269.i.i, align 8, !noalias !47
   %add.i.i.i.i.i.i.i = add i64 %229, 64
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i.i.i, 32728
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i209.i.i
 
-if.then.i.i.i.i.i.i.i:                            ; preds = %if.end37.i.i.i66
+if.then.i.i.i.i.i.i.i:                            ; preds = %if.end37.i.i.i65
   %230 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8, !noalias !47
-  %call.i.i.i.i.i.i.i.i.i72 = tail call noundef ptr %230(i64 noundef 32768)
-  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i.i.i72, null
+  %call.i.i.i.i.i.i.i.i.i71 = tail call noundef ptr %230(i64 noundef 32768)
+  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i.i.i71, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %if.end.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i.i
-  %231 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i72, i64 8
+  %231 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i71, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %231, i8 0, i64 32, i1 false), !noalias !47
-  store ptr %add.ptr4.i, ptr %call.i.i.i.i.i.i.i.i.i72, align 8, !noalias !47
+  store ptr %add.ptr4.i, ptr %call.i.i.i.i.i.i.i.i.i71, align 8, !noalias !47
   %232 = load i64, ptr %_busy_size.i.i.i.i269.i.i, align 8, !noalias !47
   %233 = load ptr, ptr %add.ptr4.i, align 8, !noalias !47
   %busy_size.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %233, i64 24
@@ -9095,13 +9090,13 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   %234 = load ptr, ptr %add.ptr4.i, align 8, !noalias !47
   store ptr %234, ptr %231, align 8, !noalias !47
   %next.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %234, i64 16
-  store ptr %call.i.i.i.i.i.i.i.i.i72, ptr %next.i.i.i.i.i.i.i.i, align 8, !noalias !47
-  store ptr %call.i.i.i.i.i.i.i.i.i72, ptr %add.ptr4.i, align 8, !noalias !47
+  store ptr %call.i.i.i.i.i.i.i.i.i71, ptr %next.i.i.i.i.i.i.i.i, align 8, !noalias !47
+  store ptr %call.i.i.i.i.i.i.i.i.i71, ptr %add.ptr4.i, align 8, !noalias !47
   store i64 64, ptr %_busy_size.i.i.i.i269.i.i, align 8, !noalias !47
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i72, i64 40
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i71, i64 40
   br label %if.end3.i.i.i.i
 
-if.end.i.i.i.i.i209.i.i:                          ; preds = %if.end37.i.i.i66
+if.end.i.i.i.i.i209.i.i:                          ; preds = %if.end37.i.i.i65
   %235 = load ptr, ptr %add.ptr4.i, align 8, !noalias !47
   %add.ptr.i.i.i.i.i210.i.i = getelementptr inbounds i8, ptr %235, i64 40
   %add.ptr3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i210.i.i, i64 %229
@@ -9109,7 +9104,7 @@ if.end.i.i.i.i.i209.i.i:                          ; preds = %if.end37.i.i.i66
   br label %if.end3.i.i.i.i
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i.i209.i.i, %if.end.i.i.i.i.i.i.i.i
-  %page.0.ph.i.i.i.i.i = phi ptr [ %235, %if.end.i.i.i.i.i209.i.i ], [ %call.i.i.i.i.i.i.i.i.i72, %if.end.i.i.i.i.i.i.i.i ]
+  %page.0.ph.i.i.i.i.i = phi ptr [ %235, %if.end.i.i.i.i.i209.i.i ], [ %call.i.i.i.i.i.i.i.i.i71, %if.end.i.i.i.i.i.i.i.i ]
   %retval.0.i.i.ph.i.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i.i.i, %if.end.i.i.i.i.i209.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
   %name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.ph.i.i.i.i.i, i64 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %retval.0.i.i.ph.i.i.i.i.i to i64
@@ -9144,22 +9139,22 @@ _ZN4pugi4impl12_GLOBAL__N_115append_new_nodeEPNS_15xml_node_structERNS1_13xml_al
   store ptr %retval.0.i.i.ph.i.i.i.i.i, ptr %prev_sibling_c4.sink.i.i.i.i.i, align 8, !noalias !47
   br label %if.end50.i.i.i
 
-if.else.i.i.i64:                                  ; preds = %if.then30.i.i.i, %.thread.i.i.i
+if.else.i.i.i63:                                  ; preds = %if.then30.i.i.i, %.thread.i.i.i
   %238 = load i64, ptr %_busy_size.i.i.i.i269.i.i, align 8, !noalias !47
   %add.i.i.i.i70.i.i.i = add i64 %238, 64
   %cmp.i.i.i.i71.i.i.i = icmp ugt i64 %add.i.i.i.i70.i.i.i, 32728
   br i1 %cmp.i.i.i.i71.i.i.i, label %if.then.i.i.i.i96.i.i.i, label %if.end.i.i.i.i72.i.i.i
 
-if.then.i.i.i.i96.i.i.i:                          ; preds = %if.else.i.i.i64
+if.then.i.i.i.i96.i.i.i:                          ; preds = %if.else.i.i.i63
   %239 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8, !noalias !47
-  %call.i.i.i.i.i.i97.i.i.i73 = tail call noundef ptr %239(i64 noundef 32768)
-  %tobool.not.i.i.i.i.i.i98.i.i.i = icmp eq ptr %call.i.i.i.i.i.i97.i.i.i73, null
+  %call.i.i.i.i.i.i97.i.i.i72 = tail call noundef ptr %239(i64 noundef 32768)
+  %tobool.not.i.i.i.i.i.i98.i.i.i = icmp eq ptr %call.i.i.i.i.i.i97.i.i.i72, null
   br i1 %tobool.not.i.i.i.i.i.i98.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %if.end.i.i.i.i.i99.i.i.i
 
 if.end.i.i.i.i.i99.i.i.i:                         ; preds = %if.then.i.i.i.i96.i.i.i
-  %240 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i97.i.i.i73, i64 8
+  %240 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i97.i.i.i72, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %240, i8 0, i64 32, i1 false), !noalias !47
-  store ptr %add.ptr4.i, ptr %call.i.i.i.i.i.i97.i.i.i73, align 8, !noalias !47
+  store ptr %add.ptr4.i, ptr %call.i.i.i.i.i.i97.i.i.i72, align 8, !noalias !47
   %241 = load i64, ptr %_busy_size.i.i.i.i269.i.i, align 8, !noalias !47
   %242 = load ptr, ptr %add.ptr4.i, align 8, !noalias !47
   %busy_size.i.i.i.i.i100.i.i.i = getelementptr inbounds i8, ptr %242, i64 24
@@ -9167,13 +9162,13 @@ if.end.i.i.i.i.i99.i.i.i:                         ; preds = %if.then.i.i.i.i96.i
   %243 = load ptr, ptr %add.ptr4.i, align 8, !noalias !47
   store ptr %243, ptr %240, align 8, !noalias !47
   %next.i.i.i.i.i101.i.i.i = getelementptr inbounds i8, ptr %243, i64 16
-  store ptr %call.i.i.i.i.i.i97.i.i.i73, ptr %next.i.i.i.i.i101.i.i.i, align 8, !noalias !47
-  store ptr %call.i.i.i.i.i.i97.i.i.i73, ptr %add.ptr4.i, align 8, !noalias !47
+  store ptr %call.i.i.i.i.i.i97.i.i.i72, ptr %next.i.i.i.i.i101.i.i.i, align 8, !noalias !47
+  store ptr %call.i.i.i.i.i.i97.i.i.i72, ptr %add.ptr4.i, align 8, !noalias !47
   store i64 64, ptr %_busy_size.i.i.i.i269.i.i, align 8, !noalias !47
-  %add.ptr.i.i.i.i.i102.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i97.i.i.i73, i64 40
+  %add.ptr.i.i.i.i.i102.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i97.i.i.i72, i64 40
   br label %if.end3.i75.i.i.i
 
-if.end.i.i.i.i72.i.i.i:                           ; preds = %if.else.i.i.i64
+if.end.i.i.i.i72.i.i.i:                           ; preds = %if.else.i.i.i63
   %244 = load ptr, ptr %add.ptr4.i, align 8, !noalias !47
   %add.ptr.i.i.i.i73.i.i.i = getelementptr inbounds i8, ptr %244, i64 40
   %add.ptr3.i.i.i.i74.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i73.i.i.i, i64 %238
@@ -9181,7 +9176,7 @@ if.end.i.i.i.i72.i.i.i:                           ; preds = %if.else.i.i.i64
   br label %if.end3.i75.i.i.i
 
 if.end3.i75.i.i.i:                                ; preds = %if.end.i.i.i.i72.i.i.i, %if.end.i.i.i.i.i99.i.i.i
-  %page.0.ph.i.i76.i.i.i = phi ptr [ %244, %if.end.i.i.i.i72.i.i.i ], [ %call.i.i.i.i.i.i97.i.i.i73, %if.end.i.i.i.i.i99.i.i.i ]
+  %page.0.ph.i.i76.i.i.i = phi ptr [ %244, %if.end.i.i.i.i72.i.i.i ], [ %call.i.i.i.i.i.i97.i.i.i72, %if.end.i.i.i.i.i99.i.i.i ]
   %retval.0.i.i.ph.i.i77.i.i.i = phi ptr [ %add.ptr3.i.i.i.i74.i.i.i, %if.end.i.i.i.i72.i.i.i ], [ %add.ptr.i.i.i.i.i102.i.i.i, %if.end.i.i.i.i.i99.i.i.i ]
   %name.i.i.i78.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.ph.i.i77.i.i.i, i64 8
   %sub.ptr.lhs.cast.i.i.i79.i.i.i = ptrtoint ptr %retval.0.i.i.ph.i.i77.i.i.i to i64
@@ -9231,8 +9226,8 @@ if.then54.i.i.i:                                  ; preds = %if.end50.i.i.i
   %249 = load i8, ptr %incdec.ptr51.i.i.i, align 1, !noalias !47
   %cmp56.i.i.i = icmp eq i8 %249, 62
   %cmp58.i.i.i = icmp eq i8 %249, 0
-  %or.cond.i.i.i65 = and i1 %cmp256.not.i.i, %cmp58.i.i.i
-  %or.cond685.i.i = or i1 %cmp56.i.i.i, %or.cond.i.i.i65
+  %or.cond.i.i.i64 = and i1 %cmp256.not.i.i, %cmp58.i.i.i
+  %or.cond685.i.i = or i1 %cmp56.i.i.i, %or.cond.i.i.i64
   br i1 %or.cond685.i.i, label %if.end65.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 if.end65.i.i.i:                                   ; preds = %if.then54.i.i.i
@@ -9392,14 +9387,14 @@ if.then361.i.i:                                   ; preds = %if.else268.i.i
 if.then.i221.i.i:                                 ; preds = %if.then361.i.i
   %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.i.i, i64 2
   %268 = load i8, ptr %incdec.ptr2.i.i.i, align 1, !noalias !47
-  %cmp4.i.i.i52 = icmp eq i8 %268, 45
-  br i1 %cmp4.i.i.i52, label %if.then5.i.i.i53, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit
+  %cmp4.i.i.i51 = icmp eq i8 %268, 45
+  br i1 %cmp4.i.i.i51, label %if.then5.i.i.i52, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit
 
-if.then5.i.i.i53:                                 ; preds = %if.then.i221.i.i
+if.then5.i.i.i52:                                 ; preds = %if.then.i221.i.i
   %incdec.ptr6.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.i.i, i64 3
   br i1 %tobool.not.i223.i.i, label %if.end10.i.i.i, label %if.then7.i.i.i
 
-if.then7.i.i.i:                                   ; preds = %if.then5.i.i.i53
+if.then7.i.i.i:                                   ; preds = %if.then5.i.i.i52
   %269 = load i64, ptr %_busy_size.i.i.i.i269.i.i, align 8, !noalias !47
   %add.i.i.i.i.i225.i.i = add i64 %269, 64
   %cmp.i.i.i.i.i226.i.i = icmp ugt i64 %add.i.i.i.i.i225.i.i, 32728
@@ -9407,14 +9402,14 @@ if.then7.i.i.i:                                   ; preds = %if.then5.i.i.i53
 
 if.then.i.i.i.i.i258.i.i:                         ; preds = %if.then7.i.i.i
   %270 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8, !noalias !47
-  %call.i.i.i.i.i.i.i259.i.i74 = tail call noundef ptr %270(i64 noundef 32768)
-  %tobool.not.i.i.i.i.i.i.i260.i.i = icmp eq ptr %call.i.i.i.i.i.i.i259.i.i74, null
+  %call.i.i.i.i.i.i.i259.i.i73 = tail call noundef ptr %270(i64 noundef 32768)
+  %tobool.not.i.i.i.i.i.i.i260.i.i = icmp eq ptr %call.i.i.i.i.i.i.i259.i.i73, null
   br i1 %tobool.not.i.i.i.i.i.i.i260.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %if.end.i.i.i.i.i.i261.i.i
 
 if.end.i.i.i.i.i.i261.i.i:                        ; preds = %if.then.i.i.i.i.i258.i.i
-  %271 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i259.i.i74, i64 8
+  %271 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i259.i.i73, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %271, i8 0, i64 32, i1 false), !noalias !47
-  store ptr %add.ptr4.i, ptr %call.i.i.i.i.i.i.i259.i.i74, align 8, !noalias !47
+  store ptr %add.ptr4.i, ptr %call.i.i.i.i.i.i.i259.i.i73, align 8, !noalias !47
   %272 = load i64, ptr %_busy_size.i.i.i.i269.i.i, align 8, !noalias !47
   %273 = load ptr, ptr %add.ptr4.i, align 8, !noalias !47
   %busy_size.i.i.i.i.i.i262.i.i = getelementptr inbounds i8, ptr %273, i64 24
@@ -9422,10 +9417,10 @@ if.end.i.i.i.i.i.i261.i.i:                        ; preds = %if.then.i.i.i.i.i25
   %274 = load ptr, ptr %add.ptr4.i, align 8, !noalias !47
   store ptr %274, ptr %271, align 8, !noalias !47
   %next.i.i.i.i.i.i263.i.i = getelementptr inbounds i8, ptr %274, i64 16
-  store ptr %call.i.i.i.i.i.i.i259.i.i74, ptr %next.i.i.i.i.i.i263.i.i, align 8, !noalias !47
-  store ptr %call.i.i.i.i.i.i.i259.i.i74, ptr %add.ptr4.i, align 8, !noalias !47
+  store ptr %call.i.i.i.i.i.i.i259.i.i73, ptr %next.i.i.i.i.i.i263.i.i, align 8, !noalias !47
+  store ptr %call.i.i.i.i.i.i.i259.i.i73, ptr %add.ptr4.i, align 8, !noalias !47
   store i64 64, ptr %_busy_size.i.i.i.i269.i.i, align 8, !noalias !47
-  %add.ptr.i.i.i.i.i.i264.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i259.i.i74, i64 40
+  %add.ptr.i.i.i.i.i.i264.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i259.i.i73, i64 40
   br label %if.end3.i.i230.i.i
 
 if.end.i.i.i.i.i227.i.i:                          ; preds = %if.then7.i.i.i
@@ -9436,7 +9431,7 @@ if.end.i.i.i.i.i227.i.i:                          ; preds = %if.then7.i.i.i
   br label %if.end3.i.i230.i.i
 
 if.end3.i.i230.i.i:                               ; preds = %if.end.i.i.i.i.i227.i.i, %if.end.i.i.i.i.i.i261.i.i
-  %page.0.ph.i.i.i231.i.i = phi ptr [ %275, %if.end.i.i.i.i.i227.i.i ], [ %call.i.i.i.i.i.i.i259.i.i74, %if.end.i.i.i.i.i.i261.i.i ]
+  %page.0.ph.i.i.i231.i.i = phi ptr [ %275, %if.end.i.i.i.i.i227.i.i ], [ %call.i.i.i.i.i.i.i259.i.i73, %if.end.i.i.i.i.i.i261.i.i ]
   %retval.0.i.i.ph.i.i.i232.i.i = phi ptr [ %add.ptr3.i.i.i.i.i229.i.i, %if.end.i.i.i.i.i227.i.i ], [ %add.ptr.i.i.i.i.i.i264.i.i, %if.end.i.i.i.i.i.i261.i.i ]
   %name.i.i.i.i233.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.ph.i.i.i232.i.i, i64 8
   %sub.ptr.lhs.cast.i.i.i.i234.i.i = ptrtoint ptr %retval.0.i.i.ph.i.i.i232.i.i to i64
@@ -9459,22 +9454,22 @@ if.then.i.i.i242.i.i:                             ; preds = %if.end3.i.i230.i.i
   store ptr %retval.0.i.i.ph.i.i.i232.i.i, ptr %next_sibling.i.i.i244.i.i, align 8, !noalias !47
   %prev_sibling_c1.i.i.i245.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.ph.i.i.i232.i.i, i64 40
   store ptr %277, ptr %prev_sibling_c1.i.i.i245.i.i, align 8, !noalias !47
-  br label %if.end.i.i.i54
+  br label %if.end.i.i.i53
 
 if.else.i.i.i256.i.i:                             ; preds = %if.end3.i.i230.i.i
   store ptr %retval.0.i.i.ph.i.i.i232.i.i, ptr %first_child.i.i, align 8, !noalias !47
   %prev_sibling_c4.i.i.i257.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.ph.i.i.i232.i.i, i64 40
-  br label %if.end.i.i.i54
+  br label %if.end.i.i.i53
 
-if.end.i.i.i54:                                   ; preds = %if.else.i.i.i256.i.i, %if.then.i.i.i242.i.i
+if.end.i.i.i53:                                   ; preds = %if.else.i.i.i256.i.i, %if.then.i.i.i242.i.i
   %prev_sibling_c4.sink.i.i.i246.i.i = phi ptr [ %prev_sibling_c4.i.i.i257.i.i, %if.else.i.i.i256.i.i ], [ %prev_sibling_c.i.i.i243.i.i, %if.then.i.i.i242.i.i ]
   store ptr %retval.0.i.i.ph.i.i.i232.i.i, ptr %prev_sibling_c4.sink.i.i.i246.i.i, align 8, !noalias !47
   %value.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.ph.i.i.i232.i.i, i64 16
   store ptr %incdec.ptr6.i.i.i, ptr %value.i.i.i, align 8, !noalias !47
   br label %if.end10.i.i.i
 
-if.end10.i.i.i:                                   ; preds = %if.end.i.i.i54, %if.then5.i.i.i53
-  %cursor.addr.0.i.i.i = phi ptr [ %retval.0.i.i.ph.i.i.i232.i.i, %if.end.i.i.i54 ], [ %cursor.0.ph.i.i, %if.then5.i.i.i53 ]
+if.end10.i.i.i:                                   ; preds = %if.end.i.i.i53, %if.then5.i.i.i52
+  %cursor.addr.0.i.i.i = phi ptr [ %retval.0.i.i.ph.i.i.i232.i.i, %if.end.i.i.i53 ], [ %cursor.0.ph.i.i, %if.then5.i.i.i52 ]
   br i1 %brmerge.not.i.i.i, label %while.body.i.i.i.i.outer, label %while.cond.preheader.i.i.i
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end10.i.i.i
@@ -9516,24 +9511,24 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.
 
 if.end.i.i.i.i:                                   ; preds = %while.body.i.i.i.i, %if.end38.i.i.i.i
   %s.addr.138.i.i.i.i = phi ptr [ %add.ptr39.i.i.i.i, %if.end38.i.i.i.i ], [ %s.addr.0.i.i.i.i, %while.body.i.i.i.i ]
-  %arrayidx4.i.i.i.i57 = getelementptr inbounds i8, ptr %s.addr.138.i.i.i.i, i64 1
-  %284 = load i8, ptr %arrayidx4.i.i.i.i57, align 1, !noalias !47
+  %arrayidx4.i.i.i.i56 = getelementptr inbounds i8, ptr %s.addr.138.i.i.i.i, i64 1
+  %284 = load i8, ptr %arrayidx4.i.i.i.i56, align 1, !noalias !47
   %idxprom5.i.i.i.i = zext i8 %284 to i64
-  %arrayidx6.i.i.i.i58 = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom5.i.i.i.i
-  %285 = load i8, ptr %arrayidx6.i.i.i.i58, align 1, !noalias !47
+  %arrayidx6.i.i.i.i57 = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom5.i.i.i.i
+  %285 = load i8, ptr %arrayidx6.i.i.i.i57, align 1, !noalias !47
   %286 = and i8 %285, 32
   %tobool9.not.i.i.i.i = icmp eq i8 %286, 0
-  br i1 %tobool9.not.i.i.i.i, label %if.end14.i.i.i.i, label %for.end.i.i.i.i.loopexit.split.loop.exit916
+  br i1 %tobool9.not.i.i.i.i, label %if.end14.i.i.i.i, label %for.end.i.i.i.i.loopexit.split.loop.exit915
 
 if.end14.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %arrayidx15.i.i.i.i = getelementptr inbounds i8, ptr %s.addr.138.i.i.i.i, i64 2
   %287 = load i8, ptr %arrayidx15.i.i.i.i, align 1, !noalias !47
   %idxprom16.i.i.i.i = zext i8 %287 to i64
-  %arrayidx17.i.i.i.i59 = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom16.i.i.i.i
-  %288 = load i8, ptr %arrayidx17.i.i.i.i59, align 1, !noalias !47
+  %arrayidx17.i.i.i.i58 = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom16.i.i.i.i
+  %288 = load i8, ptr %arrayidx17.i.i.i.i58, align 1, !noalias !47
   %289 = and i8 %288, 32
   %tobool20.not.i.i.i.i = icmp eq i8 %289, 0
-  br i1 %tobool20.not.i.i.i.i, label %if.end26.i.i.i.i, label %for.end.i.i.i.i.loopexit.split.loop.exit913
+  br i1 %tobool20.not.i.i.i.i, label %if.end26.i.i.i.i, label %for.end.i.i.i.i.loopexit.split.loop.exit912
 
 if.end26.i.i.i.i:                                 ; preds = %if.end14.i.i.i.i
   %arrayidx27.i.i.i.i = getelementptr inbounds i8, ptr %s.addr.138.i.i.i.i, i64 3
@@ -9559,17 +9554,17 @@ for.end.i.i.i.i.loopexit.split.loop.exit:         ; preds = %if.end26.i.i.i.i
   %arrayidx27.i.i.i.i.le = getelementptr inbounds i8, ptr %s.addr.138.i.i.i.i, i64 3
   br label %for.end.i.i.i.i
 
-for.end.i.i.i.i.loopexit.split.loop.exit913:      ; preds = %if.end14.i.i.i.i
+for.end.i.i.i.i.loopexit.split.loop.exit912:      ; preds = %if.end14.i.i.i.i
   %arrayidx15.i.i.i.i.le = getelementptr inbounds i8, ptr %s.addr.138.i.i.i.i, i64 2
   br label %for.end.i.i.i.i
 
-for.end.i.i.i.i.loopexit.split.loop.exit916:      ; preds = %if.end.i.i.i.i
-  %arrayidx4.i.i.i.i57.le = getelementptr inbounds i8, ptr %s.addr.138.i.i.i.i, i64 1
+for.end.i.i.i.i.loopexit.split.loop.exit915:      ; preds = %if.end.i.i.i.i
+  %arrayidx4.i.i.i.i56.le = getelementptr inbounds i8, ptr %s.addr.138.i.i.i.i, i64 1
   br label %for.end.i.i.i.i
 
-for.end.i.i.i.i:                                  ; preds = %if.end38.i.i.i.i, %for.end.i.i.i.i.loopexit.split.loop.exit, %for.end.i.i.i.i.loopexit.split.loop.exit913, %for.end.i.i.i.i.loopexit.split.loop.exit916, %while.body.i.i.i.i
-  %296 = phi i8 [ %281, %while.body.i.i.i.i ], [ %290, %for.end.i.i.i.i.loopexit.split.loop.exit ], [ %287, %for.end.i.i.i.i.loopexit.split.loop.exit913 ], [ %284, %for.end.i.i.i.i.loopexit.split.loop.exit916 ], [ %293, %if.end38.i.i.i.i ]
-  %s.addr.2.i.i.i.i = phi ptr [ %s.addr.0.i.i.i.i, %while.body.i.i.i.i ], [ %arrayidx27.i.i.i.i.le, %for.end.i.i.i.i.loopexit.split.loop.exit ], [ %arrayidx15.i.i.i.i.le, %for.end.i.i.i.i.loopexit.split.loop.exit913 ], [ %arrayidx4.i.i.i.i57.le, %for.end.i.i.i.i.loopexit.split.loop.exit916 ], [ %add.ptr39.i.i.i.i, %if.end38.i.i.i.i ]
+for.end.i.i.i.i:                                  ; preds = %if.end38.i.i.i.i, %for.end.i.i.i.i.loopexit.split.loop.exit, %for.end.i.i.i.i.loopexit.split.loop.exit912, %for.end.i.i.i.i.loopexit.split.loop.exit915, %while.body.i.i.i.i
+  %296 = phi i8 [ %281, %while.body.i.i.i.i ], [ %290, %for.end.i.i.i.i.loopexit.split.loop.exit ], [ %287, %for.end.i.i.i.i.loopexit.split.loop.exit912 ], [ %284, %for.end.i.i.i.i.loopexit.split.loop.exit915 ], [ %293, %if.end38.i.i.i.i ]
+  %s.addr.2.i.i.i.i = phi ptr [ %s.addr.0.i.i.i.i, %while.body.i.i.i.i ], [ %arrayidx27.i.i.i.i.le, %for.end.i.i.i.i.loopexit.split.loop.exit ], [ %arrayidx15.i.i.i.i.le, %for.end.i.i.i.i.loopexit.split.loop.exit912 ], [ %arrayidx4.i.i.i.i56.le, %for.end.i.i.i.i.loopexit.split.loop.exit915 ], [ %add.ptr39.i.i.i.i, %if.end38.i.i.i.i ]
   switch i8 %296, label %if.else71.i.i.i.i [
     i8 13, label %if.then41.i.i.i.i
     i8 45, label %land.lhs.true.i.i.i.i
@@ -9659,10 +9654,10 @@ if.then18.i.i.i:                                  ; preds = %for.end.i.i.i.i
   %301 = load ptr, ptr %value19.i.i.i, align 8, !noalias !47
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
-while.cond.i251.i.i:                              ; preds = %while.cond.preheader.i.i.i, %while.body.i.i.i56
-  %s.addr.0.i.i.i = phi ptr [ %incdec.ptr43.i.i.i, %while.body.i.i.i56 ], [ %incdec.ptr6.i.i.i, %while.cond.preheader.i.i.i ]
+while.cond.i251.i.i:                              ; preds = %while.cond.preheader.i.i.i, %while.body.i.i.i55
+  %s.addr.0.i.i.i = phi ptr [ %incdec.ptr43.i.i.i, %while.body.i.i.i55 ], [ %incdec.ptr6.i.i.i, %while.cond.preheader.i.i.i ]
   %302 = load i8, ptr %s.addr.0.i.i.i, align 1, !noalias !47
-  switch i8 %302, label %while.body.i.i.i56 [
+  switch i8 %302, label %while.body.i.i.i55 [
     i8 0, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
     i8 45, label %land.lhs.true27.i.i.i
   ]
@@ -9671,17 +9666,17 @@ land.lhs.true27.i.i.i:                            ; preds = %while.cond.i251.i.i
   %arrayidx28.i.i.i = getelementptr inbounds i8, ptr %s.addr.0.i.i.i, i64 1
   %303 = load i8, ptr %arrayidx28.i.i.i, align 1, !noalias !47
   %cmp30.i.i.i = icmp eq i8 %303, 45
-  br i1 %cmp30.i.i.i, label %land.rhs31.i.i.i, label %while.body.i.i.i56
+  br i1 %cmp30.i.i.i, label %land.rhs31.i.i.i, label %while.body.i.i.i55
 
 land.rhs31.i.i.i:                                 ; preds = %land.lhs.true27.i.i.i
   %arrayidx32.i.i.i = getelementptr inbounds i8, ptr %s.addr.0.i.i.i, i64 2
   %304 = load i8, ptr %arrayidx32.i.i.i, align 1, !noalias !47
-  switch i8 %304, label %while.body.i.i.i56 [
+  switch i8 %304, label %while.body.i.i.i55 [
     i8 62, label %if.end49.loopexit.i.i.i
     i8 0, label %if.end49.loopexit.i.i.i
   ]
 
-while.body.i.i.i56:                               ; preds = %land.rhs31.i.i.i, %land.lhs.true27.i.i.i, %while.cond.i251.i.i
+while.body.i.i.i55:                               ; preds = %land.rhs31.i.i.i, %land.lhs.true27.i.i.i, %while.cond.i251.i.i
   %incdec.ptr43.i.i.i = getelementptr inbounds i8, ptr %s.addr.0.i.i.i, i64 1
   br label %while.cond.i251.i.i, !llvm.loop !64
 
@@ -9700,44 +9695,44 @@ if.then52.i.i.i:                                  ; preds = %if.end49.i.i.i
   br label %if.end53.i.i.i
 
 if.end53.i.i.i:                                   ; preds = %if.then52.i.i.i, %if.end49.i.i.i
-  %add.ptr.i.i.i55 = getelementptr inbounds i8, ptr %.us-phi132.i.i.i, i64 %cmp56.i247.i.i
+  %add.ptr.i.i.i54 = getelementptr inbounds i8, ptr %.us-phi132.i.i.i, i64 %cmp56.i247.i.i
   br label %while.cond.outer.i.i.backedge
 
 if.then65.i.i.i:                                  ; preds = %if.then361.i.i
   %incdec.ptr66.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.i.i, i64 2
   %307 = load i8, ptr %incdec.ptr66.i.i.i, align 1, !noalias !47
   %cmp68.i.i.i = icmp eq i8 %307, 67
-  br i1 %cmp68.i.i.i, label %land.lhs.true69.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit954
+  br i1 %cmp68.i.i.i, label %land.lhs.true69.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit953
 
 land.lhs.true69.i.i.i:                            ; preds = %if.then65.i.i.i
   %incdec.ptr70.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.i.i, i64 3
   %308 = load i8, ptr %incdec.ptr70.i.i.i, align 1, !noalias !47
   %cmp72.i.i.i = icmp eq i8 %308, 68
-  br i1 %cmp72.i.i.i, label %land.lhs.true73.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit951
+  br i1 %cmp72.i.i.i, label %land.lhs.true73.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit950
 
 land.lhs.true73.i.i.i:                            ; preds = %land.lhs.true69.i.i.i
   %incdec.ptr74.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.i.i, i64 4
   %309 = load i8, ptr %incdec.ptr74.i.i.i, align 1, !noalias !47
   %cmp76.i.i.i = icmp eq i8 %309, 65
-  br i1 %cmp76.i.i.i, label %land.lhs.true77.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit948
+  br i1 %cmp76.i.i.i, label %land.lhs.true77.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit947
 
 land.lhs.true77.i.i.i:                            ; preds = %land.lhs.true73.i.i.i
   %incdec.ptr78.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.i.i, i64 5
   %310 = load i8, ptr %incdec.ptr78.i.i.i, align 1, !noalias !47
   %cmp80.i.i.i = icmp eq i8 %310, 84
-  br i1 %cmp80.i.i.i, label %land.lhs.true81.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit945
+  br i1 %cmp80.i.i.i, label %land.lhs.true81.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit944
 
 land.lhs.true81.i.i.i:                            ; preds = %land.lhs.true77.i.i.i
   %incdec.ptr82.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.i.i, i64 6
   %311 = load i8, ptr %incdec.ptr82.i.i.i, align 1, !noalias !47
   %cmp84.i.i.i = icmp eq i8 %311, 65
-  br i1 %cmp84.i.i.i, label %land.lhs.true85.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit942
+  br i1 %cmp84.i.i.i, label %land.lhs.true85.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit941
 
 land.lhs.true85.i.i.i:                            ; preds = %land.lhs.true81.i.i.i
   %incdec.ptr86.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.i.i, i64 7
   %312 = load i8, ptr %incdec.ptr86.i.i.i, align 1, !noalias !47
   %cmp88.i.i.i = icmp eq i8 %312, 91
-  br i1 %cmp88.i.i.i, label %if.then89.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit939
+  br i1 %cmp88.i.i.i, label %if.then89.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit938
 
 if.then89.i.i.i:                                  ; preds = %land.lhs.true85.i.i.i
   %incdec.ptr90.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.i.i, i64 8
@@ -9771,12 +9766,12 @@ while.body179.us.i.i.i:                           ; preds = %land.rhs163.us.i.i.
   br label %while.cond152.us.i.i.i, !llvm.loop !67
 
 if.then93.i.i.i:                                  ; preds = %if.then89.i.i.i
-  %call95.i.i.i75 = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_115append_new_nodeEPNS_15xml_node_structERNS1_13xml_allocatorENS_13xml_node_typeE(ptr noundef %cursor.0.ph.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4.i, i32 noundef 4)
-  %tobool96.not.i.i.i = icmp eq ptr %call95.i.i.i75, null
+  %call95.i.i.i74 = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_115append_new_nodeEPNS_15xml_node_structERNS1_13xml_allocatorENS_13xml_node_typeE(ptr noundef %cursor.0.ph.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4.i, i32 noundef 4)
+  %tobool96.not.i.i.i = icmp eq ptr %call95.i.i.i74, null
   br i1 %tobool96.not.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %if.end100.i.i.i
 
 if.end100.i.i.i:                                  ; preds = %if.then93.i.i.i
-  %value101.i.i.i = getelementptr inbounds i8, ptr %call95.i.i.i75, i64 16
+  %value101.i.i.i = getelementptr inbounds i8, ptr %call95.i.i.i74, i64 16
   store ptr %incdec.ptr90.i.i.i, ptr %value101.i.i.i, align 8, !noalias !47
   br i1 %tobool103.not.i.i.i, label %while.cond113.preheader.i.i.i, label %if.then104.i.i.i
 
@@ -9813,7 +9808,7 @@ if.then104.i.i.i:                                 ; preds = %if.end100.i.i.i
   br i1 %tobool106.not.i.i.i, label %if.then107.i.i.i, label %if.end189.i.i.i
 
 if.then107.i.i.i:                                 ; preds = %if.then104.i.i.i
-  %value101.i.i.i.le = getelementptr inbounds i8, ptr %call95.i.i.i75, i64 16
+  %value101.i.i.i.le = getelementptr inbounds i8, ptr %call95.i.i.i74, i64 16
   %319 = load ptr, ptr %value101.i.i.i.le, align 8, !noalias !47
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
@@ -10000,13 +9995,13 @@ land.lhs.true5.i.i.i:                             ; preds = %land.lhs.true.i.i41
   br i1 %cmp8.i.i.i, label %if.then.i.i43.i, label %if.else25.i.i.i
 
 if.then.i.i43.i:                                  ; preds = %land.lhs.true5.i.i.i
-  %add.ptr9.i.i.i50 = getelementptr inbounds i8, ptr %s.addr.0.i.i37.i, i64 3
-  %inc.i.i.i51 = add i64 %depth.0.i.i.i.ph, 1
+  %add.ptr9.i.i.i49 = getelementptr inbounds i8, ptr %s.addr.0.i.i37.i, i64 3
+  %inc.i.i.i50 = add i64 %depth.0.i.i.i.ph, 1
   br label %while.cond.i.i36.i.outer.backedge
 
 while.cond.i.i36.i.outer.backedge:                ; preds = %if.then.i.i43.i, %if.end.i.i40.i
-  %s.addr.0.i.i37.i.ph.be = phi ptr [ %add.ptr22.i.i.i, %if.end.i.i40.i ], [ %add.ptr9.i.i.i50, %if.then.i.i43.i ]
-  %depth.0.i.i.i.ph.be = phi i64 [ %dec.i.i.i, %if.end.i.i40.i ], [ %inc.i.i.i51, %if.then.i.i43.i ]
+  %s.addr.0.i.i37.i.ph.be = phi ptr [ %add.ptr22.i.i.i, %if.end.i.i40.i ], [ %add.ptr9.i.i.i49, %if.then.i.i43.i ]
+  %depth.0.i.i.i.ph.be = phi i64 [ %dec.i.i.i, %if.end.i.i40.i ], [ %inc.i.i.i50, %if.then.i.i43.i ]
   br label %while.cond.i.i36.i.outer, !llvm.loop !69
 
 land.lhs.true13.i.i.i:                            ; preds = %while.cond.i.i36.i
@@ -10018,15 +10013,15 @@ land.lhs.true13.i.i.i:                            ; preds = %while.cond.i.i36.i
 land.lhs.true17.i.i.i:                            ; preds = %land.lhs.true13.i.i.i
   %arrayidx18.i.i.i = getelementptr inbounds i8, ptr %s.addr.0.i.i37.i, i64 2
   %341 = load i8, ptr %arrayidx18.i.i.i, align 1, !noalias !47
-  %cmp20.i.i.i48 = icmp eq i8 %341, 62
-  br i1 %cmp20.i.i.i48, label %if.then21.i.i.i49, label %if.else25.i.i.i
+  %cmp20.i.i.i47 = icmp eq i8 %341, 62
+  br i1 %cmp20.i.i.i47, label %if.then21.i.i.i48, label %if.else25.i.i.i
 
-if.then21.i.i.i49:                                ; preds = %land.lhs.true17.i.i.i
+if.then21.i.i.i48:                                ; preds = %land.lhs.true17.i.i.i
   %add.ptr22.i.i.i = getelementptr inbounds i8, ptr %s.addr.0.i.i37.i, i64 3
   %cmp23.i.i.i = icmp eq i64 %depth.0.i.i.i.ph, 0
   br i1 %cmp23.i.i.i, label %if.end44.i.i, label %if.end.i.i40.i
 
-if.end.i.i40.i:                                   ; preds = %if.then21.i.i.i49
+if.end.i.i40.i:                                   ; preds = %if.then21.i.i.i48
   %dec.i.i.i = add i64 %depth.0.i.i.i.ph, -1
   br label %while.cond.i.i36.i.outer.backedge
 
@@ -10055,11 +10050,11 @@ if.end.i33.i.i:                                   ; preds = %while.end.i32.i.i
   br label %if.end44.i.i
 
 if.then17.i.i.i:                                  ; preds = %land.lhs.true.i33.i
-  %add.ptr.i28.i.i47 = getelementptr inbounds i8, ptr %s.addr.0.i28.i, i64 2
+  %add.ptr.i28.i.i = getelementptr inbounds i8, ptr %s.addr.0.i28.i, i64 2
   br label %while.cond18.i.i.i
 
 while.cond18.i.i.i:                               ; preds = %while.body32.i.i.i, %if.then17.i.i.i
-  %s.addr.2.i.i34.i = phi ptr [ %add.ptr.i28.i.i47, %if.then17.i.i.i ], [ %incdec.ptr33.i.i.i, %while.body32.i.i.i ]
+  %s.addr.2.i.i34.i = phi ptr [ %add.ptr.i28.i.i, %if.then17.i.i.i ], [ %incdec.ptr33.i.i.i, %while.body32.i.i.i ]
   %343 = load i8, ptr %s.addr.2.i.i34.i, align 1, !noalias !47
   switch i8 %343, label %while.body32.i.i.i [
     i8 0, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
@@ -10131,9 +10126,9 @@ if.else40.i.i:                                    ; preds = %while.cond.i27.i
   %incdec.ptr41.i.i = getelementptr inbounds i8, ptr %s.addr.0.i28.i, i64 1
   br label %if.end44.i.i
 
-if.end44.i.i:                                     ; preds = %if.then21.i.i.i49, %if.else40.i.i, %if.end39.i32.i, %if.end84.i.i.i, %if.end39.i.i.i, %if.end.i33.i.i, %if.else.i46.i
-  %s.addr.1.i30.i = phi ptr [ %arrayidx6.i.i, %if.else.i46.i ], [ %incdec.ptr.i.i, %if.end39.i32.i ], [ %incdec.ptr41.i.i, %if.else40.i.i ], [ %incdec.ptr11.i.i.i, %if.end.i33.i.i ], [ %add.ptr40.i.i.i, %if.end39.i.i.i ], [ %add.ptr85.i.i.i, %if.end84.i.i.i ], [ %add.ptr22.i.i.i, %if.then21.i.i.i49 ]
-  %depth.1.i.i = phi i64 [ %inc.i.i, %if.else.i46.i ], [ %dec.i.i, %if.end39.i32.i ], [ %depth.0.i.i, %if.else40.i.i ], [ %depth.0.i.i, %if.end.i33.i.i ], [ %depth.0.i.i, %if.end39.i.i.i ], [ %depth.0.i.i, %if.end84.i.i.i ], [ %depth.0.i.i, %if.then21.i.i.i49 ]
+if.end44.i.i:                                     ; preds = %if.then21.i.i.i48, %if.else40.i.i, %if.end39.i32.i, %if.end84.i.i.i, %if.end39.i.i.i, %if.end.i33.i.i, %if.else.i46.i
+  %s.addr.1.i30.i = phi ptr [ %arrayidx6.i.i, %if.else.i46.i ], [ %incdec.ptr.i.i, %if.end39.i32.i ], [ %incdec.ptr41.i.i, %if.else40.i.i ], [ %incdec.ptr11.i.i.i, %if.end.i33.i.i ], [ %add.ptr40.i.i.i, %if.end39.i.i.i ], [ %add.ptr85.i.i.i, %if.end84.i.i.i ], [ %add.ptr22.i.i.i, %if.then21.i.i.i48 ]
+  %depth.1.i.i = phi i64 [ %inc.i.i, %if.else.i46.i ], [ %dec.i.i, %if.end39.i32.i ], [ %depth.0.i.i, %if.else40.i.i ], [ %depth.0.i.i, %if.end.i33.i.i ], [ %depth.0.i.i, %if.end39.i.i.i ], [ %depth.0.i.i, %if.end84.i.i.i ], [ %depth.0.i.i, %if.then21.i.i.i48 ]
   %.pre.i = load i8, ptr %s.addr.1.i30.i, align 1, !noalias !47
   br label %while.cond.i27.i, !llvm.loop !73
 
@@ -10163,18 +10158,18 @@ while.cond253.i.i.i:                              ; preds = %if.end249.i.i.i, %w
   br i1 %tobool257.not.i.i.i, label %while.end260.i.i.i, label %while.cond253.i.i.i, !llvm.loop !74
 
 while.end260.i.i.i:                               ; preds = %while.cond253.i.i.i
-  %call262.i.i.i76 = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_115append_new_nodeEPNS_15xml_node_structERNS1_13xml_allocatorENS_13xml_node_typeE(ptr noundef %cursor.0.ph.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4.i, i32 noundef 8)
-  %tobool263.not.i.i.i = icmp eq ptr %call262.i.i.i76, null
+  %call262.i.i.i75 = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_115append_new_nodeEPNS_15xml_node_structERNS1_13xml_allocatorENS_13xml_node_typeE(ptr noundef %cursor.0.ph.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4.i, i32 noundef 8)
+  %tobool263.not.i.i.i = icmp eq ptr %call262.i.i.i75, null
   br i1 %tobool263.not.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %if.end267.i.i.i
 
 if.end267.i.i.i:                                  ; preds = %while.end260.i.i.i
-  %value268.i.i.i = getelementptr inbounds i8, ptr %call262.i.i.i76, i64 16
+  %value268.i.i.i = getelementptr inbounds i8, ptr %call262.i.i.i75, i64 16
   store ptr %mark.0.i.i.i, ptr %value268.i.i.i, align 8, !noalias !47
   br label %while.cond.outer.i.i.backedge
 
 while.cond.outer.i.i.backedge:                    ; preds = %if.end267.i.i.i, %if.end249.i.i.i, %if.end189.i.i.i, %if.end53.i.i.i, %_ZN4pugi4impl12_GLOBAL__N_115strconv_commentEPcc.exit.i.i.i, %if.end352.i.i, %if.then329.i.i, %while.end326.i.i, %if.then253.i.i, %if.end244.i.i, %if.else217.i.i, %if.then207.i.i, %if.then200.i.i, %if.else193.i.i, %for.end.i.i
   %cursor.0.ph.i.i.be = phi ptr [ %cursor.3.i.i, %if.else217.i.i ], [ %201, %if.then200.i.i ], [ %202, %if.then207.i.i ], [ %cursor.6.i.i, %if.end352.i.i ], [ %212, %if.then329.i.i ], [ %retval.0.i.i.ph.i.i.i.i, %for.end.i.i ], [ %retval.0.i.i.ph.i.i.i.i, %if.then253.i.i ], [ %204, %if.end244.i.i ], [ %cursor.0.ph.i.i, %_ZN4pugi4impl12_GLOBAL__N_115strconv_commentEPcc.exit.i.i.i ], [ %cursor.0.ph.i.i, %if.end53.i.i.i ], [ %cursor.0.ph.i.i, %if.end189.i.i.i ], [ %cursor.0.ph.i.i, %if.end249.i.i.i ], [ %cursor.0.ph.i.i, %if.end267.i.i.i ], [ %cursor.3.i.i, %if.else193.i.i ], [ %212, %while.end326.i.i ]
-  %s.addr.0.ph.i.i.be = phi ptr [ %s.addr.7.i.i, %if.else217.i.i ], [ %incdec.ptr201.i.i, %if.then200.i.i ], [ %incdec.ptr71.i.i, %if.then207.i.i ], [ %retval.0.i208.i.i, %if.end352.i.i ], [ %s.addr.14.i.i, %if.then329.i.i ], [ %incdec.ptr52.i.i, %for.end.i.i ], [ %s.addr.4.i.i, %if.then253.i.i ], [ %add.ptr249.i.i, %if.end244.i.i ], [ %add.ptr66.i.i.i.i, %_ZN4pugi4impl12_GLOBAL__N_115strconv_commentEPcc.exit.i.i.i ], [ %add.ptr.i.i.i55, %if.end53.i.i.i ], [ %add.ptr195.i.i.i, %if.end189.i.i.i ], [ %s.addr.6.i.i.i, %if.end249.i.i.i ], [ %s.addr.6.i.i.i, %if.end267.i.i.i ], [ %incdec.ptr71.i.i, %if.else193.i.i ], [ %incdec.ptr325.i.i, %while.end326.i.i ]
+  %s.addr.0.ph.i.i.be = phi ptr [ %s.addr.7.i.i, %if.else217.i.i ], [ %incdec.ptr201.i.i, %if.then200.i.i ], [ %incdec.ptr71.i.i, %if.then207.i.i ], [ %retval.0.i208.i.i, %if.end352.i.i ], [ %s.addr.14.i.i, %if.then329.i.i ], [ %incdec.ptr52.i.i, %for.end.i.i ], [ %s.addr.4.i.i, %if.then253.i.i ], [ %add.ptr249.i.i, %if.end244.i.i ], [ %add.ptr66.i.i.i.i, %_ZN4pugi4impl12_GLOBAL__N_115strconv_commentEPcc.exit.i.i.i ], [ %add.ptr.i.i.i54, %if.end53.i.i.i ], [ %add.ptr195.i.i.i, %if.end189.i.i.i ], [ %s.addr.6.i.i.i, %if.end249.i.i.i ], [ %s.addr.6.i.i.i, %if.end267.i.i.i ], [ %incdec.ptr71.i.i, %if.else193.i.i ], [ %incdec.ptr325.i.i, %while.end326.i.i ]
   br label %while.cond.outer.i.i, !llvm.loop !75
 
 if.else270.i.i.i:                                 ; preds = %if.then361.i.i
@@ -10248,7 +10243,7 @@ if.end420.i.i:                                    ; preds = %lor.lhs.false414.i.
   br i1 %or.cond171.i.i, label %while.cond477.i.i, label %if.then430.i.i
 
 if.then430.i.i:                                   ; preds = %if.end420.i.i
-  %call431.i.i77 = tail call noundef ptr %switch.load1323(ptr noundef nonnull %spec.select.i20.i)
+  %call431.i.i76 = tail call noundef ptr %switch.load1322(ptr noundef nonnull %spec.select.i20.i)
   br i1 %tobool433.not.i.i, label %if.else445.i.i, label %land.lhs.true434.i.i
 
 land.lhs.true434.i.i:                             ; preds = %if.then430.i.i
@@ -10291,8 +10286,8 @@ if.then457.i.i:                                   ; preds = %land.lhs.true451.i.
   %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %merged_pcdata.0.ph.i.i) #45, !noalias !47
   %add.ptr459.i.i = getelementptr inbounds i8, ptr %merged_pcdata.0.ph.i.i, i64 %call.i.i.i
   %call.i268.i.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.select.i20.i) #45, !noalias !47
-  %add.i.i67 = add i64 %call.i268.i.i, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr459.i.i, ptr nonnull align 1 %spec.select.i20.i, i64 %add.i.i67, i1 false), !noalias !47
+  %add.i.i66 = add i64 %call.i268.i.i, 1
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr459.i.i, ptr nonnull align 1 %spec.select.i20.i, i64 %add.i.i66, i1 false), !noalias !47
   %add.ptr461.i.i = getelementptr inbounds i8, ptr %add.ptr459.i.i, i64 %call.i268.i.i
   br label %if.end472.i.i
 
@@ -10304,14 +10299,14 @@ if.else462.i.i:                                   ; preds = %land.lhs.true451.i.
 
 if.then.i.i.i.i296.i.i:                           ; preds = %if.else462.i.i
   %365 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8, !noalias !47
-  %call.i.i.i.i.i.i297.i.i78 = tail call noundef ptr %365(i64 noundef 32768)
-  %tobool.not.i.i.i.i.i.i298.i.i = icmp eq ptr %call.i.i.i.i.i.i297.i.i78, null
+  %call.i.i.i.i.i.i297.i.i77 = tail call noundef ptr %365(i64 noundef 32768)
+  %tobool.not.i.i.i.i.i.i298.i.i = icmp eq ptr %call.i.i.i.i.i.i297.i.i77, null
   br i1 %tobool.not.i.i.i.i.i.i298.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %if.end.i.i.i.i.i299.i.i
 
 if.end.i.i.i.i.i299.i.i:                          ; preds = %if.then.i.i.i.i296.i.i
-  %366 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i297.i.i78, i64 8
+  %366 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i297.i.i77, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %366, i8 0, i64 32, i1 false), !noalias !47
-  store ptr %add.ptr4.i, ptr %call.i.i.i.i.i.i297.i.i78, align 8, !noalias !47
+  store ptr %add.ptr4.i, ptr %call.i.i.i.i.i.i297.i.i77, align 8, !noalias !47
   %367 = load i64, ptr %_busy_size.i.i.i.i269.i.i, align 8, !noalias !47
   %368 = load ptr, ptr %add.ptr4.i, align 8, !noalias !47
   %busy_size.i.i.i.i.i300.i.i = getelementptr inbounds i8, ptr %368, i64 24
@@ -10319,10 +10314,10 @@ if.end.i.i.i.i.i299.i.i:                          ; preds = %if.then.i.i.i.i296.
   %369 = load ptr, ptr %add.ptr4.i, align 8, !noalias !47
   store ptr %369, ptr %366, align 8, !noalias !47
   %next.i.i.i.i.i301.i.i = getelementptr inbounds i8, ptr %369, i64 16
-  store ptr %call.i.i.i.i.i.i297.i.i78, ptr %next.i.i.i.i.i301.i.i, align 8, !noalias !47
-  store ptr %call.i.i.i.i.i.i297.i.i78, ptr %add.ptr4.i, align 8, !noalias !47
+  store ptr %call.i.i.i.i.i.i297.i.i77, ptr %next.i.i.i.i.i301.i.i, align 8, !noalias !47
+  store ptr %call.i.i.i.i.i.i297.i.i77, ptr %add.ptr4.i, align 8, !noalias !47
   store i64 64, ptr %_busy_size.i.i.i.i269.i.i, align 8, !noalias !47
-  %add.ptr.i.i.i.i.i302.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i297.i.i78, i64 40
+  %add.ptr.i.i.i.i.i302.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i297.i.i77, i64 40
   br label %if.end3.i275.i.i
 
 if.end.i.i.i.i272.i.i:                            ; preds = %if.else462.i.i
@@ -10333,7 +10328,7 @@ if.end.i.i.i.i272.i.i:                            ; preds = %if.else462.i.i
   br label %if.end3.i275.i.i
 
 if.end3.i275.i.i:                                 ; preds = %if.end.i.i.i.i272.i.i, %if.end.i.i.i.i.i299.i.i
-  %page.0.ph.i.i276.i.i = phi ptr [ %370, %if.end.i.i.i.i272.i.i ], [ %call.i.i.i.i.i.i297.i.i78, %if.end.i.i.i.i.i299.i.i ]
+  %page.0.ph.i.i276.i.i = phi ptr [ %370, %if.end.i.i.i.i272.i.i ], [ %call.i.i.i.i.i.i297.i.i77, %if.end.i.i.i.i.i299.i.i ]
   %retval.0.i.i.ph.i.i277.i.i = phi ptr [ %add.ptr3.i.i.i.i274.i.i, %if.end.i.i.i.i272.i.i ], [ %add.ptr.i.i.i.i.i302.i.i, %if.end.i.i.i.i.i299.i.i ]
   %name.i.i.i278.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.ph.i.i277.i.i, i64 8
   %sub.ptr.lhs.cast.i.i.i279.i.i = ptrtoint ptr %retval.0.i.i.ph.i.i277.i.i to i64
@@ -10372,7 +10367,7 @@ if.end469.i.i:                                    ; preds = %if.else.i.i294.i.i,
 
 if.end472.i.i:                                    ; preds = %if.end469.i.i, %if.then457.i.i, %if.then443.i.i
   %merged_pcdata.2.i.i = phi ptr [ %add.ptr461.i.i, %if.then457.i.i ], [ %spec.select.i20.i, %if.end469.i.i ], [ %merged_pcdata.0.ph.i.i, %if.then443.i.i ]
-  %373 = load i8, ptr %call431.i.i77, align 1, !noalias !47
+  %373 = load i8, ptr %call431.i.i76, align 1, !noalias !47
   %tobool473.not.i.i = icmp eq i8 %373, 0
   br i1 %tobool473.not.i.i, label %while.end492.i.i, label %LOC_TAG.i.i
 
@@ -10389,47 +10384,47 @@ while.body483.i.i:                                ; preds = %while.cond477.i.i
   br label %while.cond477.i.i, !llvm.loop !77
 
 while.end492.i.i:                                 ; preds = %if.end472.i.i, %while.cond.i.i, %while.cond477.i.i
-  %s.addr.1.i.i = phi ptr [ %s.addr.18.i.i, %while.cond477.i.i ], [ %s.addr.0.i.i, %while.cond.i.i ], [ %call431.i.i77, %if.end472.i.i ]
+  %s.addr.1.i.i = phi ptr [ %s.addr.18.i.i, %while.cond477.i.i ], [ %s.addr.0.i.i, %while.cond.i.i ], [ %call431.i.i76, %if.end472.i.i ]
   %cmp493.not.i.i = icmp eq ptr %cursor.0.ph.i.i, %root
   %spec.select = select i1 %cmp493.not.i.i, ptr null, ptr %s.addr.1.i.i
-  %spec.select1045 = select i1 %cmp493.not.i.i, i32 0, i32 14
+  %spec.select1044 = select i1 %cmp493.not.i.i, i32 0, i32 14
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 _ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit96.split.loop.exit359.i: ; preds = %if.then234.i.i.i
   %add.ptr235.i.i.le.i = getelementptr inbounds i8, ptr %s.addr.2.i.i, i64 -1
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
-_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit: ; preds = %if.then.i221.i.i
+_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit: ; preds = %if.then.i221.i.i
   %incdec.ptr2.i.i.i.le = getelementptr inbounds i8, ptr %s.addr.2.i.i, i64 2
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
-_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit939: ; preds = %land.lhs.true85.i.i.i
+_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit938: ; preds = %land.lhs.true85.i.i.i
   %incdec.ptr86.i.i.i.le = getelementptr inbounds i8, ptr %s.addr.2.i.i, i64 7
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
-_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit942: ; preds = %land.lhs.true81.i.i.i
+_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit941: ; preds = %land.lhs.true81.i.i.i
   %incdec.ptr82.i.i.i.le = getelementptr inbounds i8, ptr %s.addr.2.i.i, i64 6
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
-_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit945: ; preds = %land.lhs.true77.i.i.i
+_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit944: ; preds = %land.lhs.true77.i.i.i
   %incdec.ptr78.i.i.i.le = getelementptr inbounds i8, ptr %s.addr.2.i.i, i64 5
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
-_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit948: ; preds = %land.lhs.true73.i.i.i
+_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit947: ; preds = %land.lhs.true73.i.i.i
   %incdec.ptr74.i.i.i.le = getelementptr inbounds i8, ptr %s.addr.2.i.i, i64 4
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
-_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit951: ; preds = %land.lhs.true69.i.i.i
+_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit950: ; preds = %land.lhs.true69.i.i.i
   %incdec.ptr70.i.i.i.le = getelementptr inbounds i8, ptr %s.addr.2.i.i, i64 3
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
-_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit954: ; preds = %if.then65.i.i.i
+_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit953: ; preds = %if.then65.i.i.i
   %incdec.ptr66.i.i.i.le = getelementptr inbounds i8, ptr %s.addr.2.i.i, i64 2
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
-_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i: ; preds = %if.then.i.i.i.i296.i.i, %while.end260.i.i.i, %while.end.i47.i, %land.lhs.true224.i.i.i, %land.lhs.true220.i.i.i, %land.lhs.true216.i.i.i, %land.lhs.true212.i.i.i, %land.lhs.true208.i.i.i, %land.lhs.true204.i.i.i, %if.then93.i.i.i, %if.then.i.i.i.i.i258.i.i, %if.else71.i.i.i, %if.then54.i.i.i, %if.then.i.i.i.i96.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then32.i.i.i, %while.end.i.i.i, %if.then348.i.i, %if.then329.i.i, %while.end326.i.i, %if.then271.i.i, %if.then253.i.i, %if.then232.i.i, %if.else229.i.i, %if.else217.i.i, %if.else202.i.i, %if.then.i.i.i.i.i.i, %land.lhs.true53.i.i.i, %while.end.i32.i.i, %land.lhs.true.i33.i, %while.cond113.us.i.i.i, %while.cond113.i.i.i, %while.cond152.us.i.i.i, %while.cond152.i.i.i, %while.cond.us.i.i.i, %while.cond.i251.i.i, %while.cond87.us.i.i.i, %while.cond87.i.i.i, %while.cond134.us.i.i.i, %while.cond134.i.i.i, %if.end175.i.i, %while.end162.i.i, %if.end150.i.i, %if.then.i.i.i.i201.i.i, %while.body286.i.i, %while.cond18.i.i.i, %while.cond.i.i36.i, %while.cond59.i.i.i, %while.end492.i.i, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit939, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit942, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit945, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit948, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit951, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit954, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit96.split.loop.exit359.i, %if.else366.i.i, %if.else279.i.i.i, %if.else270.i.i.i, %if.then107.i.i.i, %if.then18.i.i.i, %if.else313.i.i, %land.lhs.true306.i.i, %if.then171.i.i
-  %parser.sroa.9.2.i = phi ptr [ %319, %if.then107.i.i.i ], [ %301, %if.then18.i.i.i ], [ %197, %if.then171.i.i ], [ %incdec.ptr272.i.i, %if.else313.i.i ], [ %s.addr.13.i.i, %land.lhs.true306.i.i ], [ %incdec.ptr.i.i.i, %if.else270.i.i.i ], [ %incdec.ptr.i.i.i, %if.else279.i.i.i ], [ %s.addr.2.i.i, %if.else366.i.i ], [ %add.ptr235.i.i.le.i, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit96.split.loop.exit359.i ], [ %spec.select, %while.end492.i.i ], [ %incdec.ptr2.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit ], [ %incdec.ptr86.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit939 ], [ %incdec.ptr82.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit942 ], [ %incdec.ptr78.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit945 ], [ %incdec.ptr74.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit948 ], [ %incdec.ptr70.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit951 ], [ %incdec.ptr66.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit954 ], [ %s.addr.3.i.i.i, %while.cond59.i.i.i ], [ %s.addr.0.i.i37.i, %while.cond.i.i36.i ], [ %s.addr.2.i.i34.i, %while.cond18.i.i.i ], [ %incdec.ptr272.i.i, %while.body286.i.i ], [ %s.addr.7.i.i, %if.then.i.i.i.i201.i.i ], [ %call169.i.i71, %if.end175.i.i ], [ %s.addr.12.i.i, %while.end162.i.i ], [ %s.addr.10.i.i, %if.end150.i.i ], [ %s.addr.4.i.i.i, %while.cond134.i.i.i ], [ %s.addr.4.us.i.i.i, %while.cond134.us.i.i.i ], [ %s.addr.2.i.i.i, %while.cond87.i.i.i ], [ %s.addr.2.us.i.i.i, %while.cond87.us.i.i.i ], [ %s.addr.0.i.i.i, %while.cond.i251.i.i ], [ %s.addr.0.us.i.i.i, %while.cond.us.i.i.i ], [ %s.addr.5.i.i.i, %while.cond152.i.i.i ], [ %s.addr.5.us.i.i.i, %while.cond152.us.i.i.i ], [ %s.addr.3.i219.i.i, %while.cond113.i.i.i ], [ %s.addr.3.us.i.i.i, %while.cond113.us.i.i.i ], [ %s.addr.0.i28.i, %land.lhs.true53.i.i.i ], [ %s.addr.0.i28.i, %land.lhs.true.i33.i ], [ %s.addr.0.i31.i.i, %while.end.i32.i.i ], [ %call431.i.i77, %if.then.i.i.i.i296.i.i ], [ %s.addr.6.i.i.i, %while.end260.i.i.i ], [ %s.addr.0.i28.i, %while.end.i47.i ], [ %incdec.ptr.i.i.i, %land.lhs.true224.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true220.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true216.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true212.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true208.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true204.i.i.i ], [ %incdec.ptr90.i.i.i, %if.then93.i.i.i ], [ %incdec.ptr6.i.i.i, %if.then.i.i.i.i.i258.i.i ], [ %incdec.ptr51.i.i.i, %if.else71.i.i.i ], [ %incdec.ptr51.i.i.i, %if.then54.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %if.then.i.i.i.i96.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %if.then.i.i.i.i.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %if.then32.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %while.end.i.i.i ], [ %incdec.ptr.ptr.i.i.i, %if.then348.i.i ], [ %s.addr.14.i.i, %if.then329.i.i ], [ %s.addr.14.i.i, %while.end326.i.i ], [ %incdec.ptr272.i.i, %if.then271.i.i ], [ %s.addr.4.i.i, %if.then253.i.i ], [ %incdec.ptr52.i.i, %if.then232.i.i ], [ %incdec.ptr52.i.i, %if.else229.i.i ], [ %s.addr.7.i.i, %if.else217.i.i ], [ %incdec.ptr71.i.i, %if.else202.i.i ], [ %s.addr.2.i.i, %if.then.i.i.i.i.i.i ]
-  %parser.sroa.55.2.i = phi i32 [ 8, %if.then107.i.i.i ], [ 7, %if.then18.i.i.i ], [ 12, %if.then171.i.i ], [ 14, %if.else313.i.i ], [ 13, %land.lhs.true306.i.i ], [ 7, %if.else270.i.i.i ], [ %spec.select67.i, %if.else279.i.i.i ], [ %spec.select68.i, %if.else366.i.i ], [ 9, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit96.split.loop.exit359.i ], [ %spec.select1045, %while.end492.i.i ], [ 7, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit939 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit942 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit945 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit948 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit951 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit736.split.loop.exit954 ], [ 9, %while.cond59.i.i.i ], [ 9, %while.cond.i.i36.i ], [ 9, %while.cond18.i.i.i ], [ 14, %while.body286.i.i ], [ 3, %if.then.i.i.i.i201.i.i ], [ 12, %if.end175.i.i ], [ 12, %while.end162.i.i ], [ 12, %if.end150.i.i ], [ 6, %while.cond134.i.i.i ], [ 6, %while.cond134.us.i.i.i ], [ 6, %while.cond87.i.i.i ], [ 6, %while.cond87.us.i.i.i ], [ 7, %while.cond.i251.i.i ], [ 7, %while.cond.us.i.i.i ], [ 8, %while.cond152.i.i.i ], [ 8, %while.cond152.us.i.i.i ], [ 8, %while.cond113.i.i.i ], [ 8, %while.cond113.us.i.i.i ], [ 9, %land.lhs.true.i33.i ], [ 9, %while.end.i32.i.i ], [ 9, %land.lhs.true53.i.i.i ], [ 3, %if.then.i.i.i.i296.i.i ], [ 3, %while.end260.i.i.i ], [ 9, %while.end.i47.i ], [ 5, %land.lhs.true224.i.i.i ], [ 5, %land.lhs.true220.i.i.i ], [ 5, %land.lhs.true216.i.i.i ], [ 5, %land.lhs.true212.i.i.i ], [ 5, %land.lhs.true208.i.i.i ], [ 5, %land.lhs.true204.i.i.i ], [ 3, %if.then93.i.i.i ], [ 3, %if.then.i.i.i.i.i258.i.i ], [ 6, %if.else71.i.i.i ], [ 6, %if.then54.i.i.i ], [ 3, %if.then.i.i.i.i96.i.i.i ], [ 3, %if.then.i.i.i.i.i.i.i ], [ 6, %if.then32.i.i.i ], [ 6, %while.end.i.i.i ], [ 6, %if.then348.i.i ], [ 13, %if.then329.i.i ], [ 13, %while.end326.i.i ], [ 14, %if.then271.i.i ], [ 11, %if.then253.i.i ], [ 11, %if.then232.i.i ], [ 11, %if.else229.i.i ], [ 11, %if.else217.i.i ], [ 11, %if.else202.i.i ], [ 3, %if.then.i.i.i.i.i.i ]
+_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i: ; preds = %if.then.i.i.i.i296.i.i, %while.end260.i.i.i, %while.end.i47.i, %land.lhs.true224.i.i.i, %land.lhs.true220.i.i.i, %land.lhs.true216.i.i.i, %land.lhs.true212.i.i.i, %land.lhs.true208.i.i.i, %land.lhs.true204.i.i.i, %if.then93.i.i.i, %if.then.i.i.i.i.i258.i.i, %if.else71.i.i.i, %if.then54.i.i.i, %if.then.i.i.i.i96.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then32.i.i.i, %while.end.i.i.i, %if.then348.i.i, %if.then329.i.i, %while.end326.i.i, %if.then271.i.i, %if.then253.i.i, %if.then232.i.i, %if.else229.i.i, %if.else217.i.i, %if.else202.i.i, %if.then.i.i.i.i.i.i, %land.lhs.true53.i.i.i, %while.end.i32.i.i, %land.lhs.true.i33.i, %while.cond113.us.i.i.i, %while.cond113.i.i.i, %while.cond152.us.i.i.i, %while.cond152.i.i.i, %while.cond.us.i.i.i, %while.cond.i251.i.i, %while.cond87.us.i.i.i, %while.cond87.i.i.i, %while.cond134.us.i.i.i, %while.cond134.i.i.i, %if.end175.i.i, %while.end162.i.i, %if.end150.i.i, %if.then.i.i.i.i201.i.i, %while.body286.i.i, %while.cond18.i.i.i, %while.cond.i.i36.i, %while.cond59.i.i.i, %while.end492.i.i, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit938, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit941, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit944, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit947, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit950, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit953, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit96.split.loop.exit359.i, %if.else366.i.i, %if.else279.i.i.i, %if.else270.i.i.i, %if.then107.i.i.i, %if.then18.i.i.i, %if.else313.i.i, %land.lhs.true306.i.i, %if.then171.i.i
+  %parser.sroa.9.2.i = phi ptr [ %319, %if.then107.i.i.i ], [ %301, %if.then18.i.i.i ], [ %197, %if.then171.i.i ], [ %incdec.ptr272.i.i, %if.else313.i.i ], [ %s.addr.13.i.i, %land.lhs.true306.i.i ], [ %incdec.ptr.i.i.i, %if.else270.i.i.i ], [ %incdec.ptr.i.i.i, %if.else279.i.i.i ], [ %s.addr.2.i.i, %if.else366.i.i ], [ %add.ptr235.i.i.le.i, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit96.split.loop.exit359.i ], [ %spec.select, %while.end492.i.i ], [ %incdec.ptr2.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit ], [ %incdec.ptr86.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit938 ], [ %incdec.ptr82.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit941 ], [ %incdec.ptr78.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit944 ], [ %incdec.ptr74.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit947 ], [ %incdec.ptr70.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit950 ], [ %incdec.ptr66.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit953 ], [ %s.addr.3.i.i.i, %while.cond59.i.i.i ], [ %s.addr.0.i.i37.i, %while.cond.i.i36.i ], [ %s.addr.2.i.i34.i, %while.cond18.i.i.i ], [ %incdec.ptr272.i.i, %while.body286.i.i ], [ %s.addr.7.i.i, %if.then.i.i.i.i201.i.i ], [ %call169.i.i70, %if.end175.i.i ], [ %s.addr.12.i.i, %while.end162.i.i ], [ %s.addr.10.i.i, %if.end150.i.i ], [ %s.addr.4.i.i.i, %while.cond134.i.i.i ], [ %s.addr.4.us.i.i.i, %while.cond134.us.i.i.i ], [ %s.addr.2.i.i.i, %while.cond87.i.i.i ], [ %s.addr.2.us.i.i.i, %while.cond87.us.i.i.i ], [ %s.addr.0.i.i.i, %while.cond.i251.i.i ], [ %s.addr.0.us.i.i.i, %while.cond.us.i.i.i ], [ %s.addr.5.i.i.i, %while.cond152.i.i.i ], [ %s.addr.5.us.i.i.i, %while.cond152.us.i.i.i ], [ %s.addr.3.i219.i.i, %while.cond113.i.i.i ], [ %s.addr.3.us.i.i.i, %while.cond113.us.i.i.i ], [ %s.addr.0.i28.i, %land.lhs.true53.i.i.i ], [ %s.addr.0.i28.i, %land.lhs.true.i33.i ], [ %s.addr.0.i31.i.i, %while.end.i32.i.i ], [ %call431.i.i76, %if.then.i.i.i.i296.i.i ], [ %s.addr.6.i.i.i, %while.end260.i.i.i ], [ %s.addr.0.i28.i, %while.end.i47.i ], [ %incdec.ptr.i.i.i, %land.lhs.true224.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true220.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true216.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true212.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true208.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true204.i.i.i ], [ %incdec.ptr90.i.i.i, %if.then93.i.i.i ], [ %incdec.ptr6.i.i.i, %if.then.i.i.i.i.i258.i.i ], [ %incdec.ptr51.i.i.i, %if.else71.i.i.i ], [ %incdec.ptr51.i.i.i, %if.then54.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %if.then.i.i.i.i96.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %if.then.i.i.i.i.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %if.then32.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %while.end.i.i.i ], [ %incdec.ptr.ptr.i.i.i, %if.then348.i.i ], [ %s.addr.14.i.i, %if.then329.i.i ], [ %s.addr.14.i.i, %while.end326.i.i ], [ %incdec.ptr272.i.i, %if.then271.i.i ], [ %s.addr.4.i.i, %if.then253.i.i ], [ %incdec.ptr52.i.i, %if.then232.i.i ], [ %incdec.ptr52.i.i, %if.else229.i.i ], [ %s.addr.7.i.i, %if.else217.i.i ], [ %incdec.ptr71.i.i, %if.else202.i.i ], [ %s.addr.2.i.i, %if.then.i.i.i.i.i.i ]
+  %parser.sroa.55.2.i = phi i32 [ 8, %if.then107.i.i.i ], [ 7, %if.then18.i.i.i ], [ 12, %if.then171.i.i ], [ 14, %if.else313.i.i ], [ 13, %land.lhs.true306.i.i ], [ 7, %if.else270.i.i.i ], [ %spec.select67.i, %if.else279.i.i.i ], [ %spec.select68.i, %if.else366.i.i ], [ 9, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit96.split.loop.exit359.i ], [ %spec.select1044, %while.end492.i.i ], [ 7, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit938 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit941 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit944 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit947 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit950 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit953 ], [ 9, %while.cond59.i.i.i ], [ 9, %while.cond.i.i36.i ], [ 9, %while.cond18.i.i.i ], [ 14, %while.body286.i.i ], [ 3, %if.then.i.i.i.i201.i.i ], [ 12, %if.end175.i.i ], [ 12, %while.end162.i.i ], [ 12, %if.end150.i.i ], [ 6, %while.cond134.i.i.i ], [ 6, %while.cond134.us.i.i.i ], [ 6, %while.cond87.i.i.i ], [ 6, %while.cond87.us.i.i.i ], [ 7, %while.cond.i251.i.i ], [ 7, %while.cond.us.i.i.i ], [ 8, %while.cond152.i.i.i ], [ 8, %while.cond152.us.i.i.i ], [ 8, %while.cond113.i.i.i ], [ 8, %while.cond113.us.i.i.i ], [ 9, %land.lhs.true.i33.i ], [ 9, %while.end.i32.i.i ], [ 9, %land.lhs.true53.i.i.i ], [ 3, %if.then.i.i.i.i296.i.i ], [ 3, %while.end260.i.i.i ], [ 9, %while.end.i47.i ], [ 5, %land.lhs.true224.i.i.i ], [ 5, %land.lhs.true220.i.i.i ], [ 5, %land.lhs.true216.i.i.i ], [ 5, %land.lhs.true212.i.i.i ], [ 5, %land.lhs.true208.i.i.i ], [ 5, %land.lhs.true204.i.i.i ], [ 3, %if.then93.i.i.i ], [ 3, %if.then.i.i.i.i.i258.i.i ], [ 6, %if.else71.i.i.i ], [ 6, %if.then54.i.i.i ], [ 3, %if.then.i.i.i.i96.i.i.i ], [ 3, %if.then.i.i.i.i.i.i.i ], [ 6, %if.then32.i.i.i ], [ 6, %while.end.i.i.i ], [ 6, %if.then348.i.i ], [ 13, %if.then329.i.i ], [ 13, %while.end326.i.i ], [ 14, %if.then271.i.i ], [ 11, %if.then253.i.i ], [ 11, %if.then232.i.i ], [ 11, %if.else229.i.i ], [ 11, %if.else217.i.i ], [ 11, %if.else202.i.i ], [ 3, %if.then.i.i.i.i.i.i ]
   %tobool8.not.i = icmp eq ptr %parser.sroa.9.2.i, null
   %sub.ptr.lhs.cast.i = ptrtoint ptr %parser.sroa.9.2.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %buffer.0 to i64
@@ -10503,7 +10498,7 @@ if.end45.i:                                       ; preds = %while.body.i.i, %if
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result.i, i64 24, i1 false)
   br label %cleanup.thread
 
-cleanup.thread:                                   ; preds = %if.then.i68, %if.then17.i, %if.then31.i, %if.end45.i
+cleanup.thread:                                   ; preds = %if.then.i67, %if.then17.i, %if.then31.i, %if.end45.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %result.i)
   %encoding24 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i32 %call, ptr %encoding24, align 8
@@ -10513,21 +10508,21 @@ cleanup:                                          ; preds = %if.then6
   store i32 3, ptr %agg.result, align 8, !alias.scope !88
   %offset2.i30 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 0, ptr %offset2.i30, align 8, !alias.scope !88
-  %tobool.not.i82 = icmp eq ptr %cond, null
-  br i1 %tobool.not.i82, label %return, label %if.then.i83
+  %tobool.not.i81 = icmp eq ptr %cond, null
+  br i1 %tobool.not.i81, label %return, label %if.then.i82
 
-if.then.i83:                                      ; preds = %cleanup
+if.then.i82:                                      ; preds = %cleanup
   invoke void %0(ptr noundef nonnull %cond)
-          to label %return unwind label %terminate.lpad.i84
+          to label %return unwind label %terminate.lpad.i83
 
-terminate.lpad.i84:                               ; preds = %if.then.i83
+terminate.lpad.i83:                               ; preds = %if.then.i82
   %377 = landingpad { ptr, i32 }
           catch ptr null
   %378 = extractvalue { ptr, i32 } %377, 0
   tail call void @__clang_call_terminate(ptr %378) #43
   unreachable
 
-return:                                           ; preds = %if.then.i83, %cleanup, %cleanup.thread, %if.then
+return:                                           ; preds = %if.then.i82, %cleanup, %cleanup.thread, %if.then
   ret void
 }
 
@@ -12314,7 +12309,7 @@ if.end:                                           ; preds = %for.body.i, %land.l
   br i1 %tobool3.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIjEET_PKcS3_S3_(ptr noundef nonnull readonly %8, i32 noundef -2147483648, i32 noundef 2147483647)
+  %call.i = tail call fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIjEET_PKcS3_S3_(ptr noundef readonly %8, i32 noundef -2147483648, i32 noundef 2147483647)
   br label %return
 
 return:                                           ; preds = %for.inc.i, %if.end9.i, %entry, %cond.true, %if.end
@@ -12377,7 +12372,7 @@ if.end:                                           ; preds = %for.body.i, %land.l
   br i1 %tobool3.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIjEET_PKcS3_S3_(ptr noundef nonnull readonly %8, i32 noundef 0, i32 noundef -1)
+  %call.i = tail call fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIjEET_PKcS3_S3_(ptr noundef readonly %8, i32 noundef 0, i32 noundef -1)
   br label %return
 
 return:                                           ; preds = %for.inc.i, %if.end9.i, %entry, %cond.true, %if.end
@@ -12639,7 +12634,7 @@ if.end:                                           ; preds = %for.body.i, %land.l
   br i1 %tobool3.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call fastcc noundef i64 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIyEET_PKcS3_S3_(ptr noundef nonnull readonly %8, i64 noundef -9223372036854775808, i64 noundef 9223372036854775807)
+  %call.i = tail call fastcc noundef i64 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIyEET_PKcS3_S3_(ptr noundef readonly %8, i64 noundef -9223372036854775808, i64 noundef 9223372036854775807)
   br label %return
 
 return:                                           ; preds = %for.inc.i, %if.end9.i, %entry, %cond.true, %if.end
@@ -12702,7 +12697,7 @@ if.end:                                           ; preds = %for.body.i, %land.l
   br i1 %tobool3.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call fastcc noundef i64 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIyEET_PKcS3_S3_(ptr noundef nonnull readonly %8, i64 noundef 0, i64 noundef -1)
+  %call.i = tail call fastcc noundef i64 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIyEET_PKcS3_S3_(ptr noundef readonly %8, i64 noundef 0, i64 noundef -1)
   br label %return
 
 return:                                           ; preds = %for.inc.i, %if.end9.i, %entry, %cond.true, %if.end
@@ -16223,7 +16218,7 @@ if.then.i.i2:                                     ; preds = %if.end13.i
 
 _ZN4pugi4impl12_GLOBAL__N_121zero_terminate_bufferEPvmNS_12xml_encodingE.exit.i: ; preds = %if.then.i.i2, %if.end13.i
   %retval.0.i29.i = phi i64 [ %add.i30.i, %if.then.i.i2 ], [ %size.052.i, %if.end13.i ]
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef nonnull %add.ptr.i1.i, ptr noundef nonnull %add.ptr.i1.i, ptr noundef %buffer.053.i, i64 noundef %retval.0.i29.i, i32 noundef %options, i32 noundef %call14.i, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %_buffer.i.i)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef nonnull %add.ptr.i1.i, ptr noundef nonnull %add.ptr.i1.i, ptr noundef %buffer.053.i, i64 noundef %retval.0.i29.i, i32 noundef %options, i32 noundef %call14.i, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %_buffer.i.i)
   br label %_ZN4pugi4impl12_GLOBAL__N_116load_stream_implIcEENS_16xml_parse_resultEPNS1_19xml_document_structERSt13basic_istreamIT_St11char_traitsIS7_EEjNS_12xml_encodingEPPc.exit
 
 _ZN4pugi4impl12_GLOBAL__N_116load_stream_implIcEENS_16xml_parse_resultEPNS1_19xml_document_structERSt13basic_istreamIT_St11char_traitsIS7_EEjNS_12xml_encodingEPPc.exit: ; preds = %if.then.i, %if.then12.i, %_ZN4pugi4impl12_GLOBAL__N_121zero_terminate_bufferEPvmNS_12xml_encodingE.exit.i
@@ -16631,7 +16626,7 @@ if.then12.i:                                      ; preds = %if.end10.i, %if.the
 if.end13.i:                                       ; preds = %if.end10.i, %invoke.cont38.i.i, %for.cond.preheader.i.i
   %buffer.053.i = phi ptr [ %buffer.1.i, %if.end10.i ], [ %call12.i.i, %invoke.cont38.i.i ], [ %call38.i.i, %for.cond.preheader.i.i ]
   %size.052.i = phi i64 [ %size.1.i, %if.end10.i ], [ %mul41.i.i, %invoke.cont38.i.i ], [ %total.0.i.i, %for.cond.preheader.i.i ]
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef nonnull %add.ptr.i1.i, ptr noundef nonnull %add.ptr.i1.i, ptr noundef %buffer.053.i, i64 noundef %size.052.i, i32 noundef %options, i32 noundef 5, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %_buffer.i.i)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef nonnull %add.ptr.i1.i, ptr noundef nonnull %add.ptr.i1.i, ptr noundef %buffer.053.i, i64 noundef %size.052.i, i32 noundef %options, i32 noundef 5, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %_buffer.i.i)
   br label %_ZN4pugi4impl12_GLOBAL__N_116load_stream_implIwEENS_16xml_parse_resultEPNS1_19xml_document_structERSt13basic_istreamIT_St11char_traitsIS7_EEjNS_12xml_encodingEPPc.exit
 
 _ZN4pugi4impl12_GLOBAL__N_116load_stream_implIwEENS_16xml_parse_resultEPNS1_19xml_document_structERSt13basic_istreamIT_St11char_traitsIS7_EEjNS_12xml_encodingEPPc.exit: ; preds = %if.then.i, %if.then12.i, %if.end13.i
@@ -16721,7 +16716,7 @@ _ZN4pugi12xml_document11load_bufferEPKvmjNS_12xml_encodingE.exit: ; preds = %for
   %prev_sibling_c.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %add.ptr.i1.i.i, ptr %prev_sibling_c.i.i.i, align 8, !noalias !138
   store ptr %11, ptr %_memory.i.i.i, align 8, !noalias !138
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef nonnull %add.ptr.i1.i.i, ptr noundef nonnull %add.ptr.i1.i.i, ptr noundef %contents, i64 noundef %call.i, i32 noundef %options, i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %_buffer.i.i.i)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef nonnull %add.ptr.i1.i.i, ptr noundef nonnull %add.ptr.i1.i.i, ptr noundef %contents, i64 noundef %call.i, i32 noundef %options, i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %_buffer.i.i.i)
   ret void
 }
 
@@ -16807,7 +16802,7 @@ _ZN4pugi12xml_document5resetEv.exit:              ; preds = %for.body15.i.i, %fo
   %prev_sibling_c.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %add.ptr.i1.i, ptr %prev_sibling_c.i.i, align 8
   store ptr %11, ptr %_memory.i.i, align 8
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef nonnull %add.ptr.i1.i, ptr noundef nonnull %add.ptr.i1.i, ptr noundef %contents, i64 noundef %size, i32 noundef %options, i32 noundef %encoding, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %_buffer.i.i)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef nonnull %add.ptr.i1.i, ptr noundef nonnull %add.ptr.i1.i, ptr noundef %contents, i64 noundef %size, i32 noundef %options, i32 noundef %encoding, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %_buffer.i.i)
   ret void
 }
 
@@ -16902,7 +16897,7 @@ _ZN4pugi12xml_document5resetEv.exit:              ; preds = %for.body15.i.i, %fo
   store ptr %11, ptr %_memory.i.i, align 8
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %path_, ptr noundef nonnull readonly @.str.20)
   %12 = load ptr, ptr %this, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114load_file_implEPNS1_19xml_document_structEP8_IO_FILEjNS_12xml_encodingEPPc(ptr noalias align 8 %agg.result, ptr noundef %12, ptr noundef %call.i, i32 noundef %options, i32 noundef %encoding, ptr noundef nonnull %_buffer.i.i)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114load_file_implEPNS1_19xml_document_structEP8_IO_FILEjNS_12xml_encodingEPPc(ptr noalias align 8 %agg.result, ptr noundef %12, ptr noundef %call.i, i32 noundef %options, i32 noundef %encoding, ptr noundef %_buffer.i.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN4pugi12xml_document5resetEv.exit
@@ -16931,7 +16926,7 @@ _ZN4pugi4impl12_GLOBAL__N_112auto_deleterI8_IO_FILEED2Ev.exit7: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114load_file_implEPNS1_19xml_document_structEP8_IO_FILEjNS_12xml_encodingEPPc(ptr noalias align 8 %agg.result, ptr noundef %doc, ptr noundef %file, i32 noundef %options, i32 noundef %encoding, ptr nocapture noundef writeonly %out_buffer) unnamed_addr #6 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114load_file_implEPNS1_19xml_document_structEP8_IO_FILEjNS_12xml_encodingEPPc(ptr noalias align 8 %agg.result, ptr noundef %doc, ptr noundef %file, i32 noundef %options, i32 noundef %encoding, ptr nocapture noundef nonnull writeonly %out_buffer) unnamed_addr #6 {
 entry:
   %st.i = alloca %struct.stat, align 8
   %tobool.not = icmp eq ptr %file, null
@@ -17104,7 +17099,7 @@ _ZN4pugi12xml_document5resetEv.exit:              ; preds = %for.body15.i.i, %fo
   store ptr %11, ptr %_memory.i.i, align 8
   %call = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_114open_file_wideEPKwS3_(ptr noundef %path_, ptr noundef nonnull @.str.21)
   %12 = load ptr, ptr %this, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114load_file_implEPNS1_19xml_document_structEP8_IO_FILEjNS_12xml_encodingEPPc(ptr noalias align 8 %agg.result, ptr noundef %12, ptr noundef %call, i32 noundef %options, i32 noundef %encoding, ptr noundef nonnull %_buffer.i.i)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114load_file_implEPNS1_19xml_document_structEP8_IO_FILEjNS_12xml_encodingEPPc(ptr noalias align 8 %agg.result, ptr noundef %12, ptr noundef %call, i32 noundef %options, i32 noundef %encoding, ptr noundef %_buffer.i.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN4pugi12xml_document5resetEv.exit
@@ -17377,7 +17372,7 @@ _ZN4pugi12xml_document5resetEv.exit:              ; preds = %for.body15.i.i, %fo
   %prev_sibling_c.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %add.ptr.i1.i, ptr %prev_sibling_c.i.i, align 8
   store ptr %11, ptr %_memory.i.i, align 8
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef nonnull %add.ptr.i1.i, ptr noundef nonnull %add.ptr.i1.i, ptr noundef %contents, i64 noundef %size, i32 noundef %options, i32 noundef %encoding, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %_buffer.i.i)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef nonnull %add.ptr.i1.i, ptr noundef nonnull %add.ptr.i1.i, ptr noundef %contents, i64 noundef %size, i32 noundef %options, i32 noundef %encoding, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %_buffer.i.i)
   ret void
 }
 
@@ -17463,7 +17458,7 @@ _ZN4pugi12xml_document5resetEv.exit:              ; preds = %for.body15.i.i, %fo
   %prev_sibling_c.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %add.ptr.i1.i, ptr %prev_sibling_c.i.i, align 8
   store ptr %11, ptr %_memory.i.i, align 8
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef nonnull %add.ptr.i1.i, ptr noundef nonnull %add.ptr.i1.i, ptr noundef %contents, i64 noundef %size, i32 noundef %options, i32 noundef %encoding, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %_buffer.i.i)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef nonnull %add.ptr.i1.i, ptr noundef nonnull %add.ptr.i1.i, ptr noundef %contents, i64 noundef %size, i32 noundef %options, i32 noundef %encoding, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %_buffer.i.i)
   ret void
 }
 
@@ -18224,7 +18219,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %if.then
-  %call5 = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef %str, i64 noundef %size, ptr noundef nonnull %call2)
+  %call5 = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef %str, i64 noundef %size, ptr noundef %call2)
   br label %nrvo.skipdtor
 
 lpad:                                             ; preds = %if.then, %_ZN4pugi4impl12_GLOBAL__N_112utf8_decoder7processINS1_13utf32_counterEEENT_10value_typeEPKhmS6_S5_.exit
@@ -19392,26 +19387,26 @@ while.body.i:                                     ; preds = %for.body, %_ZN4pugi
   %2 = load i32, ptr %var.addr.05.i, align 8
   switch i32 %2, label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.i [
     i32 1, label %sw.bb.i.i
-    i32 2, label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split.i
+    i32 2, label %sw.epilog.sink.split.i.i
     i32 3, label %sw.bb2.i.i
-    i32 4, label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split.i
+    i32 4, label %sw.epilog.sink.split.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %while.body.i
   %value.i.i.i.i = getelementptr inbounds i8, ptr %var.addr.05.i, i64 16
   tail call void @_ZN4pugi14xpath_node_setD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %value.i.i.i.i) #44
-  br label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split.i
+  br label %sw.epilog.sink.split.i.i
 
 sw.bb2.i.i:                                       ; preds = %while.body.i
   %3 = getelementptr i8, ptr %var.addr.05.i, i64 16
   %var.val.i.i.i = load ptr, ptr %3, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %var.val.i.i.i, null
-  br i1 %tobool.not.i.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split.i, label %if.then.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %sw.epilog.sink.split.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.bb2.i.i
   %4 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE10deallocateE, align 8
   invoke void %4(ptr noundef nonnull %var.val.i.i.i)
-          to label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split.i unwind label %terminate.lpad.i.i.i.i
+          to label %sw.epilog.sink.split.i.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   %5 = landingpad { ptr, i32 }
@@ -19420,12 +19415,12 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   tail call void @__clang_call_terminate(ptr %6) #43
   unreachable
 
-_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split.i: ; preds = %if.then.i.i.i.i, %sw.bb2.i.i, %sw.bb.i.i, %while.body.i, %while.body.i
+sw.epilog.sink.split.i.i:                         ; preds = %if.then.i.i.i.i, %sw.bb2.i.i, %sw.bb.i.i, %while.body.i, %while.body.i
   %7 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE10deallocateE, align 8
   invoke void %7(ptr noundef nonnull %var.addr.05.i)
           to label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.i unwind label %terminate.lpad
 
-_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.i: ; preds = %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split.i, %while.body.i
+_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.i: ; preds = %sw.epilog.sink.split.i.i, %while.body.i
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %for.inc, label %while.body.i, !llvm.loop !161
 
@@ -19437,7 +19432,7 @@ for.inc:                                          ; preds = %_ZN4pugi4impl12_GLO
 for.end:                                          ; preds = %for.inc
   ret void
 
-terminate.lpad:                                   ; preds = %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split.i
+terminate.lpad:                                   ; preds = %sw.epilog.sink.split.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
@@ -19458,26 +19453,26 @@ while.body:                                       ; preds = %entry, %_ZN4pugi4im
   %1 = load i32, ptr %var.addr.05, align 8
   switch i32 %1, label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit [
     i32 1, label %sw.bb.i
-    i32 2, label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split
+    i32 2, label %sw.epilog.sink.split.i
     i32 3, label %sw.bb2.i
-    i32 4, label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split
+    i32 4, label %sw.epilog.sink.split.i
   ]
 
 sw.bb.i:                                          ; preds = %while.body
   %value.i.i.i = getelementptr inbounds i8, ptr %var.addr.05, i64 16
   tail call void @_ZN4pugi14xpath_node_setD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %value.i.i.i) #44
-  br label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split
+  br label %sw.epilog.sink.split.i
 
 sw.bb2.i:                                         ; preds = %while.body
   %2 = getelementptr i8, ptr %var.addr.05, i64 16
   %var.val.i.i = load ptr, ptr %2, align 8
   %tobool.not.i.i.i = icmp eq ptr %var.val.i.i, null
-  br i1 %tobool.not.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %sw.epilog.sink.split.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %sw.bb2.i
   %3 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE10deallocateE, align 8
   invoke void %3(ptr noundef nonnull %var.val.i.i)
-          to label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split unwind label %terminate.lpad.i.i.i
+          to label %sw.epilog.sink.split.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %4 = landingpad { ptr, i32 }
@@ -19486,12 +19481,12 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   tail call void @__clang_call_terminate(ptr %5) #43
   unreachable
 
-_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split: ; preds = %while.body, %sw.bb2.i, %if.then.i.i.i, %while.body, %sw.bb.i
+sw.epilog.sink.split.i:                           ; preds = %if.then.i.i.i, %sw.bb2.i, %sw.bb.i, %while.body, %while.body
   %6 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE10deallocateE, align 8
   tail call void %6(ptr noundef nonnull %var.addr.05)
   br label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit
 
-_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit: ; preds = %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split, %while.body
+_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit: ; preds = %while.body, %sw.epilog.sink.split.i
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !161
 
@@ -19700,26 +19695,26 @@ while.body.i:                                     ; preds = %for.body, %_ZN4pugi
   %2 = load i32, ptr %var.addr.05.i, align 8
   switch i32 %2, label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.i [
     i32 1, label %sw.bb.i.i
-    i32 2, label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split.i
+    i32 2, label %sw.epilog.sink.split.i.i
     i32 3, label %sw.bb2.i.i
-    i32 4, label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split.i
+    i32 4, label %sw.epilog.sink.split.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %while.body.i
   %value.i.i.i.i = getelementptr inbounds i8, ptr %var.addr.05.i, i64 16
   tail call void @_ZN4pugi14xpath_node_setD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %value.i.i.i.i) #44
-  br label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split.i
+  br label %sw.epilog.sink.split.i.i
 
 sw.bb2.i.i:                                       ; preds = %while.body.i
   %3 = getelementptr i8, ptr %var.addr.05.i, i64 16
   %var.val.i.i.i = load ptr, ptr %3, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %var.val.i.i.i, null
-  br i1 %tobool.not.i.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split.i, label %if.then.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %sw.epilog.sink.split.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.bb2.i.i
   %4 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE10deallocateE, align 8
   invoke void %4(ptr noundef nonnull %var.val.i.i.i)
-          to label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split.i unwind label %terminate.lpad.i.i.i.i
+          to label %sw.epilog.sink.split.i.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   %5 = landingpad { ptr, i32 }
@@ -19728,12 +19723,12 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   tail call void @__clang_call_terminate(ptr %6) #43
   unreachable
 
-_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split.i: ; preds = %if.then.i.i.i.i, %sw.bb2.i.i, %sw.bb.i.i, %while.body.i, %while.body.i
+sw.epilog.sink.split.i.i:                         ; preds = %if.then.i.i.i.i, %sw.bb2.i.i, %sw.bb.i.i, %while.body.i, %while.body.i
   %7 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE10deallocateE, align 8
   invoke void %7(ptr noundef nonnull %var.addr.05.i)
           to label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.i unwind label %terminate.lpad
 
-_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.i: ; preds = %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split.i, %while.body.i
+_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.i: ; preds = %sw.epilog.sink.split.i.i, %while.body.i
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %invoke.cont, label %while.body.i, !llvm.loop !161
 
@@ -19749,7 +19744,7 @@ invoke.cont:                                      ; preds = %_ZN4pugi4impl12_GLO
 for.end:                                          ; preds = %invoke.cont
   ret ptr %this
 
-terminate.lpad:                                   ; preds = %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split.i
+terminate.lpad:                                   ; preds = %sw.epilog.sink.split.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
@@ -20910,7 +20905,7 @@ call3.i.i.i.noexc:                                ; preds = %if.else
   br i1 %tobool.not.i.i.i, label %if.else14, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit.i.i
 
 _ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit.i.i: ; preds = %call3.i.i.i.noexc
-  %call6.i.i.i13 = invoke fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser20parse_expression_recEPNS1_14xpath_ast_nodeEi(ptr noundef nonnull align 8 dereferenceable(112) %parser.i, ptr noundef nonnull %call3.i.i.i12, i32 noundef 0)
+  %call6.i.i.i13 = invoke fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser20parse_expression_recEPNS1_14xpath_ast_nodeEi(ptr noundef nonnull align 8 dereferenceable(112) %parser.i, ptr noundef %call3.i.i.i12, i32 noundef 0)
           to label %call6.i.i.i.noexc unwind label %lpad
 
 call6.i.i.i.noexc:                                ; preds = %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit.i.i
@@ -20940,7 +20935,7 @@ return.sink.split.i.i:                            ; preds = %if.end.i.i
 if.then6:                                         ; preds = %if.end.i.i
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %parser.i)
   store ptr %call6.i.i.i13, ptr %call.i, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node8optimizeEPNS1_15xpath_allocatorE(ptr noundef nonnull align 8 dereferenceable(40) %call6.i.i.i13, ptr noundef nonnull %alloc.i.i)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node8optimizeEPNS1_15xpath_allocatorE(ptr noundef nonnull align 8 dereferenceable(40) %call6.i.i.i13, ptr noundef %alloc.i.i)
           to label %_ZN4pugi4impl12_GLOBAL__N_112auto_deleterINS1_16xpath_query_implEED2Ev.exit unwind label %lpad
 
 _ZN4pugi4impl12_GLOBAL__N_112auto_deleterINS1_16xpath_query_implEED2Ev.exit: ; preds = %if.then6
@@ -21029,7 +21024,7 @@ unreachable:                                      ; preds = %invoke.cont21, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node8optimizeEPNS1_15xpath_allocatorE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %alloc) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node8optimizeEPNS1_15xpath_allocatorE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull %alloc) unnamed_addr #6 align 2 {
 entry:
   %table.i.i = alloca [128 x i8], align 16
   %_left = getelementptr inbounds i8, ptr %this, i64 8
@@ -21895,11 +21890,11 @@ if.then24.i:                                      ; preds = %if.else20.i
   store ptr %8, ptr %cr.i, align 8
   %_state.i439 = getelementptr inbounds i8, ptr %cr.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i439, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %ls.i, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %ls.i, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then24.i
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %rs.i, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %rs.i, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
           to label %invoke.cont26.i unwind label %lpad.i
 
 invoke.cont26.i:                                  ; preds = %invoke.cont.i
@@ -21926,11 +21921,11 @@ if.then34.i:                                      ; preds = %if.else30.i
   store ptr %10, ptr %cr35.i, align 8
   %_state.i436 = getelementptr inbounds i8, ptr %cr35.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i436, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %ls37.i, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %ls37.i, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
           to label %invoke.cont39.i unwind label %lpad38.i
 
 invoke.cont39.i:                                  ; preds = %if.then34.i
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %rs40.i, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %rs40.i, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
           to label %invoke.cont41.i unwind label %lpad38.i
 
 invoke.cont41.i:                                  ; preds = %invoke.cont39.i
@@ -21973,7 +21968,7 @@ for.body53.i:                                     ; preds = %for.body53.i.lr.ph,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i435, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   %li.0.val.i = load i64, ptr %li.0.i717, align 8
   %li.0.val72.i = load ptr, ptr %15, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nonnull align 8 %ref.tmp56.i, i64 %li.0.val.i, ptr %li.0.val72.i, ptr noundef nonnull %16)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias align 8 %ref.tmp56.i, i64 %li.0.val.i, ptr %li.0.val72.i, ptr noundef nonnull %16)
           to label %invoke.cont59.i unwind label %lpad58.i
 
 invoke.cont59.i:                                  ; preds = %for.body53.i
@@ -21981,7 +21976,7 @@ invoke.cont59.i:                                  ; preds = %for.body53.i
   %ri.0.val.i = load i64, ptr %ri.0.i707, align 8
   %18 = getelementptr i8, ptr %ri.0.i707, i64 8
   %ri.0.val73.i = load ptr, ptr %18, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nonnull align 8 %ref.tmp60.i, i64 %ri.0.val.i, ptr %ri.0.val73.i, ptr noundef %17)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias align 8 %ref.tmp60.i, i64 %ri.0.val.i, ptr %ri.0.val73.i, ptr noundef %17)
           to label %cleanup.i unwind label %lpad58.i
 
 lpad38.i:                                         ; preds = %invoke.cont39.i, %if.then34.i
@@ -22074,7 +22069,7 @@ if.then86.i:                                      ; preds = %if.else71.i
           to label %invoke.cont90.i unwind label %lpad89.i
 
 invoke.cont90.i:                                  ; preds = %if.then86.i
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %rs92.i, ptr noundef nonnull align 8 dereferenceable(40) %rhs.addr.i.0, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %rs92.i, ptr noundef nonnull align 8 dereferenceable(40) %rhs.addr.i.0, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
           to label %invoke.cont93.i unwind label %lpad89.i
 
 invoke.cont93.i:                                  ; preds = %invoke.cont90.i
@@ -22098,7 +22093,7 @@ for.body101.i:                                    ; preds = %_ZN4pugi4impl12_GLO
   %ri94.0.val.i = load i64, ptr %ri94.0.i697, align 8
   %33 = getelementptr i8, ptr %ri94.0.i697, i64 8
   %ri94.0.val74.i = load ptr, ptr %33, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nonnull align 8 %ref.tmp106.i, i64 %ri94.0.val.i, ptr %ri94.0.val74.i, ptr noundef nonnull %32)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias align 8 %ref.tmp106.i, i64 %ri94.0.val.i, ptr %ri94.0.val74.i, ptr noundef nonnull %32)
           to label %invoke.cont109.i unwind label %lpad108.i
 
 invoke.cont109.i:                                 ; preds = %for.body101.i
@@ -22248,11 +22243,11 @@ if.then129.i:                                     ; preds = %if.else71.i
   store ptr %57, ptr %cr130.i, align 8
   %_state.i399 = getelementptr inbounds i8, ptr %cr130.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i399, ptr noundef nonnull align 8 dereferenceable(24) %57, i64 24, i1 false)
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %l132.i, ptr noundef nonnull align 8 dereferenceable(40) %lhs.addr.i.0, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %l132.i, ptr noundef nonnull align 8 dereferenceable(40) %lhs.addr.i.0, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
           to label %invoke.cont134.i unwind label %lpad133.i
 
 invoke.cont134.i:                                 ; preds = %if.then129.i
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %rs135.i, ptr noundef nonnull align 8 dereferenceable(40) %rhs.addr.i.0, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %rs135.i, ptr noundef nonnull align 8 dereferenceable(40) %rhs.addr.i.0, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
           to label %invoke.cont136.i unwind label %lpad133.i
 
 invoke.cont136.i:                                 ; preds = %invoke.cont134.i
@@ -22275,7 +22270,7 @@ for.body144.i:                                    ; preds = %_ZN4pugi4impl12_GLO
   %ri137.0.val.i = load i64, ptr %ri137.0.i689, align 8
   %61 = getelementptr i8, ptr %ri137.0.i689, i64 8
   %ri137.0.val75.i = load ptr, ptr %61, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nonnull align 8 %ref.tmp148.i, i64 %ri137.0.val.i, ptr %ri137.0.val75.i, ptr noundef nonnull %60)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias align 8 %ref.tmp148.i, i64 %ri137.0.val.i, ptr %ri137.0.val75.i, ptr noundef nonnull %60)
           to label %cleanup156.i unwind label %lpad150.i
 
 lpad133.i:                                        ; preds = %invoke.cont134.i, %if.then129.i
@@ -22430,11 +22425,11 @@ if.then24.i213:                                   ; preds = %if.else20.i209
   store ptr %76, ptr %cr.i62, align 8
   %_state.i541 = getelementptr inbounds i8, ptr %cr.i62, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i541, ptr noundef nonnull align 8 dereferenceable(24) %76, i64 24, i1 false)
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %ls.i63, ptr noundef nonnull align 8 dereferenceable(40) %71, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %ls.i63, ptr noundef nonnull align 8 dereferenceable(40) %71, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
           to label %invoke.cont.i215 unwind label %lpad.i214
 
 invoke.cont.i215:                                 ; preds = %if.then24.i213
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %rs.i64, ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %rs.i64, ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
           to label %invoke.cont26.i220 unwind label %lpad.i214
 
 invoke.cont26.i220:                               ; preds = %invoke.cont.i215
@@ -22461,11 +22456,11 @@ if.then34.i163:                                   ; preds = %if.else30.i91
   store ptr %78, ptr %cr35.i65, align 8
   %_state.i538 = getelementptr inbounds i8, ptr %cr35.i65, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i538, ptr noundef nonnull align 8 dereferenceable(24) %78, i64 24, i1 false)
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %ls37.i66, ptr noundef nonnull align 8 dereferenceable(40) %71, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %ls37.i66, ptr noundef nonnull align 8 dereferenceable(40) %71, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
           to label %invoke.cont39.i167 unwind label %lpad38.i164
 
 invoke.cont39.i167:                               ; preds = %if.then34.i163
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %rs40.i67, ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %rs40.i67, ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
           to label %invoke.cont41.i168 unwind label %lpad38.i164
 
 invoke.cont41.i168:                               ; preds = %invoke.cont39.i167
@@ -22508,7 +22503,7 @@ for.body53.i185:                                  ; preds = %for.body53.i185.lr.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i537, ptr noundef nonnull align 8 dereferenceable(24) %84, i64 24, i1 false)
   %li.0.val.i186 = load i64, ptr %li.0.i172681, align 8
   %li.0.val72.i187 = load ptr, ptr %83, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nonnull align 8 %ref.tmp56.i69, i64 %li.0.val.i186, ptr %li.0.val72.i187, ptr noundef nonnull %84)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias align 8 %ref.tmp56.i69, i64 %li.0.val.i186, ptr %li.0.val72.i187, ptr noundef nonnull %84)
           to label %invoke.cont59.i189 unwind label %lpad58.i188
 
 invoke.cont59.i189:                               ; preds = %for.body53.i185
@@ -22516,7 +22511,7 @@ invoke.cont59.i189:                               ; preds = %for.body53.i185
   %ri.0.val.i190 = load i64, ptr %ri.0.i181671, align 8
   %86 = getelementptr i8, ptr %ri.0.i181671, i64 8
   %ri.0.val73.i191 = load ptr, ptr %86, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nonnull align 8 %ref.tmp60.i70, i64 %ri.0.val.i190, ptr %ri.0.val73.i191, ptr noundef %85)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias align 8 %ref.tmp60.i70, i64 %ri.0.val.i190, ptr %ri.0.val73.i191, ptr noundef %85)
           to label %cleanup.i196 unwind label %lpad58.i188
 
 lpad38.i164:                                      ; preds = %invoke.cont39.i167, %if.then34.i163
@@ -22608,7 +22603,7 @@ if.then86.i125:                                   ; preds = %if.else71.i95
           to label %invoke.cont90.i130 unwind label %lpad89.i127
 
 invoke.cont90.i130:                               ; preds = %if.then86.i125
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %rs92.i75, ptr noundef nonnull align 8 dereferenceable(40) %rhs.addr.i55.0, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %rs92.i75, ptr noundef nonnull align 8 dereferenceable(40) %rhs.addr.i55.0, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
           to label %invoke.cont93.i131 unwind label %lpad89.i127
 
 invoke.cont93.i131:                               ; preds = %invoke.cont90.i130
@@ -22632,7 +22627,7 @@ for.body101.i140:                                 ; preds = %_ZN4pugi4impl12_GLO
   %ri94.0.val.i141 = load i64, ptr %ri94.0.i135661, align 8
   %101 = getelementptr i8, ptr %ri94.0.i135661, i64 8
   %ri94.0.val74.i142 = load ptr, ptr %101, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nonnull align 8 %ref.tmp106.i78, i64 %ri94.0.val.i141, ptr %ri94.0.val74.i142, ptr noundef nonnull %100)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias align 8 %ref.tmp106.i78, i64 %ri94.0.val.i141, ptr %ri94.0.val74.i142, ptr noundef nonnull %100)
           to label %invoke.cont109.i144 unwind label %lpad108.i143
 
 invoke.cont109.i144:                              ; preds = %for.body101.i140
@@ -22782,11 +22777,11 @@ if.then129.i97:                                   ; preds = %if.else71.i95
   store ptr %125, ptr %cr130.i79, align 8
   %_state.i459 = getelementptr inbounds i8, ptr %cr130.i79, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i459, ptr noundef nonnull align 8 dereferenceable(24) %125, i64 24, i1 false)
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %l132.i80, ptr noundef nonnull align 8 dereferenceable(40) %lhs.addr.i54.0, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %l132.i80, ptr noundef nonnull align 8 dereferenceable(40) %lhs.addr.i54.0, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
           to label %invoke.cont134.i103 unwind label %lpad133.i98
 
 invoke.cont134.i103:                              ; preds = %if.then129.i97
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %rs135.i81, ptr noundef nonnull align 8 dereferenceable(40) %rhs.addr.i55.0, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %rs135.i81, ptr noundef nonnull align 8 dereferenceable(40) %rhs.addr.i55.0, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
           to label %invoke.cont136.i104 unwind label %lpad133.i98
 
 invoke.cont136.i104:                              ; preds = %invoke.cont134.i103
@@ -22809,7 +22804,7 @@ for.body144.i114:                                 ; preds = %_ZN4pugi4impl12_GLO
   %ri137.0.val.i115 = load i64, ptr %ri137.0.i108653, align 8
   %129 = getelementptr i8, ptr %ri137.0.i108653, i64 8
   %ri137.0.val75.i116 = load ptr, ptr %129, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nonnull align 8 %ref.tmp148.i83, i64 %ri137.0.val.i115, ptr %ri137.0.val75.i116, ptr noundef nonnull %128)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias align 8 %ref.tmp148.i83, i64 %ri137.0.val.i115, ptr %ri137.0.val75.i116, ptr noundef nonnull %128)
           to label %cleanup156.i122 unwind label %lpad150.i117
 
 lpad133.i98:                                      ; preds = %invoke.cont134.i103, %if.then129.i97
@@ -22930,13 +22925,13 @@ sw.bb37:                                          ; preds = %tailrecurse
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i, ptr noundef nonnull align 8 dereferenceable(24) %147, i64 24, i1 false)
   %_left38 = getelementptr inbounds i8, ptr %this.tr, i64 8
   %148 = load ptr, ptr %_left38, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %lr, ptr noundef nonnull align 8 dereferenceable(40) %148, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %lr, ptr noundef nonnull align 8 dereferenceable(40) %148, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %sw.bb37
   %_right39 = getelementptr inbounds i8, ptr %this.tr, i64 16
   %149 = load ptr, ptr %_right39, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %rr, ptr noundef nonnull align 8 dereferenceable(40) %149, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %rr, ptr noundef nonnull align 8 dereferenceable(40) %149, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
           to label %invoke.cont40 unwind label %lpad
 
 invoke.cont40:                                    ; preds = %invoke.cont
@@ -23009,13 +23004,13 @@ sw.bb47:                                          ; preds = %tailrecurse
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i239, ptr noundef nonnull align 8 dereferenceable(24) %162, i64 24, i1 false)
   %_left51 = getelementptr inbounds i8, ptr %this.tr, i64 8
   %163 = load ptr, ptr %_left51, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %lr50, ptr noundef nonnull align 8 dereferenceable(40) %163, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %lr50, ptr noundef nonnull align 8 dereferenceable(40) %163, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
           to label %invoke.cont53 unwind label %lpad52
 
 invoke.cont53:                                    ; preds = %sw.bb47
   %_right55 = getelementptr inbounds i8, ptr %this.tr, i64 16
   %164 = load ptr, ptr %_right55, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %rr54, ptr noundef nonnull align 8 dereferenceable(40) %164, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %rr54, ptr noundef nonnull align 8 dereferenceable(40) %164, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
           to label %invoke.cont56 unwind label %lpad52
 
 invoke.cont56:                                    ; preds = %invoke.cont53
@@ -23078,7 +23073,7 @@ if.end:                                           ; preds = %sw.bb71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i254, ptr noundef nonnull align 8 dereferenceable(24) %174, i64 24, i1 false)
   %_left77 = getelementptr inbounds i8, ptr %this.tr, i64 8
   %175 = load ptr, ptr %_left77, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %lang, ptr noundef nonnull align 8 dereferenceable(40) %175, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %lang, ptr noundef nonnull align 8 dereferenceable(40) %175, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
           to label %invoke.cont79 unwind label %lpad78.loopexit.split-lp
 
 invoke.cont79:                                    ; preds = %if.end
@@ -23432,7 +23427,7 @@ sw.bb160:                                         ; preds = %sw.epilog
   store ptr %221, ptr %cr161, align 8
   %_state.i358 = getelementptr inbounds i8, ptr %cr161, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i358, ptr noundef nonnull align 8 dereferenceable(24) %221, i64 24, i1 false)
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %ref.tmp163, ptr noundef nonnull align 8 dereferenceable(40) %this.tr, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %ref.tmp163, ptr noundef nonnull align 8 dereferenceable(40) %this.tr, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
           to label %invoke.cont165 unwind label %lpad164
 
 invoke.cont165:                                   ; preds = %sw.bb160
@@ -23480,7 +23475,7 @@ sw.bb170:                                         ; preds = %sw.epilog
   store ptr %230, ptr %cr171, align 8
   %_state.i372 = getelementptr inbounds i8, ptr %cr171, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i372, ptr noundef nonnull align 8 dereferenceable(24) %230, i64 24, i1 false)
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %ref.tmp173, ptr noundef nonnull align 8 dereferenceable(40) %this.tr, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 1)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %ref.tmp173, ptr noundef nonnull align 8 dereferenceable(40) %this.tr, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 1)
           to label %invoke.cont175 unwind label %lpad174
 
 invoke.cont175:                                   ; preds = %sw.bb170
@@ -23846,7 +23841,7 @@ sw.bb32:                                          ; preds = %tailrecurse
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   %_left33 = getelementptr inbounds i8, ptr %this.tr, i64 8
   %16 = load ptr, ptr %_left33, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %sw.bb32
@@ -23903,7 +23898,7 @@ sw.bb37:                                          ; preds = %tailrecurse
   %c.val = load i64, ptr %c, align 8
   %28 = getelementptr inbounds i8, ptr %c, i64 8
   %c.val70 = load ptr, ptr %28, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nonnull align 8 %ref.tmp40, i64 %c.val, ptr %c.val70, ptr noundef nonnull %27)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias align 8 %ref.tmp40, i64 %c.val, ptr %c.val70, ptr noundef nonnull %27)
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %sw.bb37
@@ -23968,7 +23963,7 @@ sw.bb47:                                          ; preds = %tailrecurse
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i87, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
   %_left51 = getelementptr inbounds i8, ptr %this.tr, i64 8
   %41 = load ptr, ptr %_left51, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %ref.tmp50, ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %ref.tmp50, ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
           to label %invoke.cont53 unwind label %lpad52
 
 invoke.cont53:                                    ; preds = %sw.bb47
@@ -24034,7 +24029,7 @@ sw.bb57:                                          ; preds = %tailrecurse
   %c.val71 = load i64, ptr %c, align 8
   %54 = getelementptr inbounds i8, ptr %c, i64 8
   %c.val72 = load ptr, ptr %54, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nonnull align 8 %ref.tmp60, i64 %c.val71, ptr %c.val72, ptr noundef nonnull %53)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias align 8 %ref.tmp60, i64 %c.val71, ptr %c.val72, ptr noundef nonnull %53)
           to label %invoke.cont64 unwind label %lpad63
 
 invoke.cont64:                                    ; preds = %sw.bb57
@@ -24176,7 +24171,7 @@ sw.bb72:                                          ; preds = %tailrecurse
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i119, ptr noundef nonnull align 8 dereferenceable(24) %78, i64 24, i1 false)
   %_left75 = getelementptr inbounds i8, ptr %this.tr, i64 8
   %79 = load ptr, ptr %_left75, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %ns, ptr noundef nonnull align 8 dereferenceable(40) %79, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %ns, ptr noundef nonnull align 8 dereferenceable(40) %79, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
           to label %invoke.cont77 unwind label %lpad76
 
 invoke.cont77:                                    ; preds = %sw.bb72
@@ -24201,7 +24196,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %it.0.val = load i64, ptr %it.0227, align 8
   %83 = getelementptr i8, ptr %it.0227, i64 8
   %it.0.val73 = load ptr, ptr %83, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nonnull align 8 %ref.tmp84, i64 %it.0.val, ptr %it.0.val73, ptr noundef nonnull %82)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias align 8 %ref.tmp84, i64 %it.0.val, ptr %it.0.val73, ptr noundef nonnull %82)
           to label %invoke.cont87 unwind label %lpad86
 
 invoke.cont87:                                    ; preds = %for.body
@@ -24450,7 +24445,7 @@ sw.bb122:                                         ; preds = %sw.epilog
   store ptr %126, ptr %cr123, align 8
   %_state.i196 = getelementptr inbounds i8, ptr %cr123, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i196, ptr noundef nonnull align 8 dereferenceable(24) %126, i64 24, i1 false)
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %ref.tmp125, ptr noundef nonnull align 8 dereferenceable(40) %this.tr, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %ref.tmp125, ptr noundef nonnull align 8 dereferenceable(40) %this.tr, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
           to label %invoke.cont127 unwind label %lpad126
 
 invoke.cont127:                                   ; preds = %sw.bb122
@@ -24469,7 +24464,7 @@ sw.bb133:                                         ; preds = %sw.epilog
   store ptr %128, ptr %cr134, align 8
   %_state.i197 = getelementptr inbounds i8, ptr %cr134, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i197, ptr noundef nonnull align 8 dereferenceable(24) %128, i64 24, i1 false)
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %ref.tmp136, ptr noundef nonnull align 8 dereferenceable(40) %this.tr, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %ref.tmp136, ptr noundef nonnull align 8 dereferenceable(40) %this.tr, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
           to label %invoke.cont138 unwind label %lpad137
 
 invoke.cont138:                                   ; preds = %sw.bb133
@@ -24537,7 +24532,7 @@ if.end:                                           ; preds = %entry
   %temp22.i = getelementptr inbounds i8, ptr %sd, i64 8280
   store ptr %temp.i, ptr %temp22.i, align 8
   %1 = load ptr, ptr %0, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %r, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack18.i)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %r, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack18.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -24650,7 +24645,7 @@ unreachable:                                      ; preds = %if.then4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v.i356 = alloca double, align 8
   %v.i352 = alloca double, align 8
@@ -24775,7 +24770,7 @@ sw.bb3:                                           ; preds = %tailrecurse
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %_left = getelementptr inbounds i8, ptr %this.tr, i64 8
   %5 = load ptr, ptr %_left, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %ns, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 2)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %ns, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 2)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %sw.bb3
@@ -24941,7 +24936,7 @@ sw.bb14:                                          ; preds = %tailrecurse
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i146, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
   %_left18 = getelementptr inbounds i8, ptr %this.tr, i64 8
   %20 = load ptr, ptr %_left18, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %ns17, ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 2)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %ns17, ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 2)
           to label %invoke.cont20 unwind label %lpad19.loopexit.split-lp
 
 invoke.cont20:                                    ; preds = %sw.bb14
@@ -25081,7 +25076,7 @@ sw.bb31:                                          ; preds = %tailrecurse
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i204, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   %_left35 = getelementptr inbounds i8, ptr %this.tr, i64 8
   %33 = load ptr, ptr %_left35, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %ns34, ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 2)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %ns34, ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 2)
           to label %invoke.cont37 unwind label %lpad36.loopexit.split-lp
 
 invoke.cont37:                                    ; preds = %sw.bb31
@@ -25315,7 +25310,7 @@ if.end.i:                                         ; preds = %if.then.i671, %if.e
   store ptr %58, ptr %temp6.i, align 8, !noalias !212
   %_left.i = getelementptr inbounds i8, ptr %this.tr, i64 8
   %59 = load ptr, ptr %_left.i, align 8, !noalias !212
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %59, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack.i)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %59, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack.i)
           to label %invoke.cont8.i unwind label %lpad.i.loopexit.split-lp, !noalias !212
 
 invoke.cont8.i:                                   ; preds = %if.end.i
@@ -25331,7 +25326,7 @@ for.cond20.i.preheader:                           ; preds = %invoke.cont14.i, %i
 for.body12.i:                                     ; preds = %invoke.cont8.i, %invoke.cont14.i
   %n.0.i758 = phi ptr [ %n.0.i, %invoke.cont14.i ], [ %n.0.i755, %invoke.cont8.i ]
   %pos.0.i757 = phi i64 [ %inc18.i, %invoke.cont14.i ], [ 1, %invoke.cont8.i ]
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %ref.tmp13.i, ptr noundef nonnull align 8 dereferenceable(40) %n.0.i758, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack.i)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %ref.tmp13.i, ptr noundef nonnull align 8 dereferenceable(40) %n.0.i758, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack.i)
           to label %invoke.cont14.i unwind label %lpad.i.loopexit, !noalias !212
 
 invoke.cont14.i:                                  ; preds = %for.body12.i
@@ -25525,13 +25520,13 @@ sw.bb50:                                          ; preds = %tailrecurse
   store ptr %85, ptr %temp54, align 8
   %_left56 = getelementptr inbounds i8, ptr %this.tr, i64 8
   %86 = load ptr, ptr %_left56, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %86, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %86, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack)
           to label %invoke.cont58 unwind label %lpad57
 
 invoke.cont58:                                    ; preds = %sw.bb50
   %_right = getelementptr inbounds i8, ptr %this.tr, i64 16
   %87 = load ptr, ptr %_right, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %p, ptr noundef nonnull align 8 dereferenceable(40) %87, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %p, ptr noundef nonnull align 8 dereferenceable(40) %87, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack)
           to label %invoke.cont59 unwind label %lpad57
 
 invoke.cont59:                                    ; preds = %invoke.cont58
@@ -25663,13 +25658,13 @@ sw.bb70:                                          ; preds = %tailrecurse
   store ptr %107, ptr %temp76, align 8
   %_left79 = getelementptr inbounds i8, ptr %this.tr, i64 8
   %108 = load ptr, ptr %_left79, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %s78, ptr noundef nonnull align 8 dereferenceable(40) %108, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack73)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %s78, ptr noundef nonnull align 8 dereferenceable(40) %108, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack73)
           to label %invoke.cont81 unwind label %lpad80
 
 invoke.cont81:                                    ; preds = %sw.bb70
   %_right83 = getelementptr inbounds i8, ptr %this.tr, i64 16
   %109 = load ptr, ptr %_right83, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %p82, ptr noundef nonnull align 8 dereferenceable(40) %109, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack73)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %p82, ptr noundef nonnull align 8 dereferenceable(40) %109, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack73)
           to label %invoke.cont84 unwind label %lpad80
 
 invoke.cont84:                                    ; preds = %invoke.cont81
@@ -25768,7 +25763,7 @@ sw.bb108:                                         ; preds = %tailrecurse
   store ptr %124, ptr %temp114, align 8
   %_left117 = getelementptr inbounds i8, ptr %this.tr, i64 8
   %125 = load ptr, ptr %_left117, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %s116, ptr noundef nonnull align 8 dereferenceable(40) %125, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack111)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %s116, ptr noundef nonnull align 8 dereferenceable(40) %125, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack111)
           to label %invoke.cont119 unwind label %lpad118
 
 invoke.cont119:                                   ; preds = %sw.bb108
@@ -25888,7 +25883,7 @@ sw.bb160:                                         ; preds = %tailrecurse
   store ptr %144, ptr %temp166, align 8
   %_left169 = getelementptr inbounds i8, ptr %this.tr, i64 8
   %145 = load ptr, ptr %_left169, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %s168, ptr noundef nonnull align 8 dereferenceable(40) %145, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack163)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %s168, ptr noundef nonnull align 8 dereferenceable(40) %145, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack163)
           to label %invoke.cont171 unwind label %lpad170
 
 invoke.cont171:                                   ; preds = %sw.bb160
@@ -26030,7 +26025,7 @@ sw.bb246:                                         ; preds = %tailrecurse
   %c.val106 = load i64, ptr %c, align 8
   %166 = getelementptr inbounds i8, ptr %c, i64 8
   %c.val107 = load ptr, ptr %166, align 8
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nonnull align 8 %s247, i64 %c.val106, ptr %c.val107, ptr noundef %165)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias align 8 %s247, i64 %c.val106, ptr %c.val107, ptr noundef %165)
   %167 = load ptr, ptr %stack, align 8
   %_uses_heap.i383 = getelementptr inbounds i8, ptr %s247, i64 8
   %168 = load i8, ptr %_uses_heap.i383, align 8
@@ -26188,7 +26183,7 @@ _ZN4pugi4impl12_GLOBAL__N_115normalize_spaceEPc.exit: ; preds = %if.end254, %for
 sw.bb257:                                         ; preds = %tailrecurse
   %_left259 = getelementptr inbounds i8, ptr %this.tr, i64 8
   %189 = load ptr, ptr %_left259, align 8
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %s258, ptr noundef nonnull align 8 dereferenceable(40) %189, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %s258, ptr noundef nonnull align 8 dereferenceable(40) %189, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
   %190 = load ptr, ptr %stack, align 8
   %_uses_heap.i422 = getelementptr inbounds i8, ptr %s258, i64 8
   %191 = load i8, ptr %_uses_heap.i422, align 8
@@ -26355,20 +26350,20 @@ sw.bb268:                                         ; preds = %tailrecurse
   store ptr %213, ptr %temp274, align 8
   %_left277 = getelementptr inbounds i8, ptr %this.tr, i64 8
   %214 = load ptr, ptr %_left277, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %s276, ptr noundef nonnull align 8 dereferenceable(40) %214, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %s276, ptr noundef nonnull align 8 dereferenceable(40) %214, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
           to label %invoke.cont279 unwind label %lpad278
 
 invoke.cont279:                                   ; preds = %sw.bb268
   %_right280 = getelementptr inbounds i8, ptr %this.tr, i64 16
   %215 = load ptr, ptr %_right280, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %from, ptr noundef nonnull align 8 dereferenceable(40) %215, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack271)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %from, ptr noundef nonnull align 8 dereferenceable(40) %215, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack271)
           to label %invoke.cont281 unwind label %lpad278
 
 invoke.cont281:                                   ; preds = %invoke.cont279
   %216 = load ptr, ptr %_right280, align 8
   %_next283 = getelementptr inbounds i8, ptr %216, i64 24
   %217 = load ptr, ptr %_next283, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %to, ptr noundef nonnull align 8 dereferenceable(40) %217, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack271)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %to, ptr noundef nonnull align 8 dereferenceable(40) %217, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack271)
           to label %invoke.cont284 unwind label %lpad278
 
 invoke.cont284:                                   ; preds = %invoke.cont281
@@ -26569,7 +26564,7 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit564: ; preds = %.no
 sw.bb304:                                         ; preds = %tailrecurse
   %_left306 = getelementptr inbounds i8, ptr %this.tr, i64 8
   %244 = load ptr, ptr %_left306, align 8
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %s305, ptr noundef nonnull align 8 dereferenceable(40) %244, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %s305, ptr noundef nonnull align 8 dereferenceable(40) %244, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
   %245 = load ptr, ptr %stack, align 8
   %_uses_heap.i565 = getelementptr inbounds i8, ptr %s305, i64 8
   %246 = load i8, ptr %_uses_heap.i565, align 8
@@ -26762,7 +26757,7 @@ sw.bb331:                                         ; preds = %sw.epilog
   %temp337 = getelementptr inbounds i8, ptr %swapped_stack334, i64 8
   %268 = load ptr, ptr %stack, align 8
   store ptr %268, ptr %temp337, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %ns339, ptr noundef nonnull align 8 dereferenceable(40) %this.tr, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack334, i32 noundef 2)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %ns339, ptr noundef nonnull align 8 dereferenceable(40) %this.tr, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack334, i32 noundef 2)
           to label %invoke.cont341 unwind label %lpad340
 
 invoke.cont341:                                   ; preds = %sw.bb331
@@ -26864,7 +26859,7 @@ entry:
 
 cond.true:                                        ; preds = %entry
   %1 = load ptr, ptr %0, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %r, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack18.i)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias align 8 %r, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack18.i)
           to label %cond.end unwind label %lpad
 
 cond.end.thread:                                  ; preds = %entry
@@ -27059,7 +27054,7 @@ if.end:                                           ; preds = %if.end.i
   store ptr %result.i, ptr %stack18.i, align 8
   %temp22.i = getelementptr inbounds i8, ptr %sd, i64 8280
   store ptr %temp.i, ptr %temp22.i, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %r, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack18.i, i32 noundef 0)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %r, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack18.i, i32 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -27148,7 +27143,7 @@ unreachable:                                      ; preds = %if.then3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef %eval) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i83 = alloca %"class.pugi::xml_node", align 8
   %retval.i71 = alloca %"class.pugi::xml_node", align 8
@@ -27190,7 +27185,7 @@ sw.bb:                                            ; preds = %entry
 invoke.cont:                                      ; preds = %sw.bb
   %_right = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %_right, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %rs, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack, i32 noundef %eval)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %rs, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %swapped_stack, i32 noundef %eval)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont
@@ -27645,7 +27640,7 @@ if.end:                                           ; preds = %if.end.i
   store ptr %result.i, ptr %stack18.i, align 8
   %temp22.i = getelementptr inbounds i8, ptr %sd, i64 8280
   store ptr %temp.i, ptr %temp22.i, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %r, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack18.i, i32 noundef 2)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %r, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack18.i, i32 noundef 2)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.end
@@ -28023,7 +28018,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIjEET_PKcS3_S3_(ptr noundef %value, i32 noundef %minv, i32 noundef %maxv) unnamed_addr #8 {
+define internal fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIjEET_PKcS3_S3_(ptr noundef nonnull %value, i32 noundef range(i32 -2147483648, 1) %minv, i32 noundef range(i32 2147483647, 0) %maxv) unnamed_addr #8 {
 entry:
   br label %while.cond
 
@@ -28184,7 +28179,7 @@ return:                                           ; preds = %if.else87, %if.then
 declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #26
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i64 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIyEET_PKcS3_S3_(ptr noundef %value, i64 noundef %minv, i64 noundef %maxv) unnamed_addr #8 {
+define internal fastcc noundef i64 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIyEET_PKcS3_S3_(ptr noundef nonnull %value, i64 noundef range(i64 -9223372036854775808, 1) %minv, i64 noundef range(i64 9223372036854775807, 0) %maxv) unnamed_addr #8 {
 entry:
   br label %while.cond
 
@@ -28577,7 +28572,7 @@ for.end:                                          ; preds = %for.inc, %_ZN4pugi4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_115append_new_nodeEPNS_15xml_node_structERNS1_13xml_allocatorENS_13xml_node_typeE(ptr noundef %node, ptr noundef nonnull align 8 dereferenceable(16) %alloc, i32 noundef %type) unnamed_addr #6 {
+define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_115append_new_nodeEPNS_15xml_node_structERNS1_13xml_allocatorENS_13xml_node_typeE(ptr noundef %node, ptr noundef nonnull align 8 dereferenceable(16) %alloc, i32 noundef range(i32 0, 16) %type) unnamed_addr #6 {
 entry:
   %_busy_size.i.i.i = getelementptr inbounds i8, ptr %alloc, i64 8
   %0 = load i64, ptr %_busy_size.i.i.i, align 8
@@ -28623,8 +28618,8 @@ if.end3:                                          ; preds = %if.end.i.i.i, %if.e
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %page.0.ph.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %shl.i.i = shl i64 %sub.ptr.sub.i.i, 8
-  %conv.i.i = zext i32 %type to i64
-  %or.i.i = or i64 %shl.i.i, %conv.i.i
+  %conv.i.i = zext nneg i32 %type to i64
+  %or.i.i = or disjoint i64 %shl.i.i, %conv.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %name.i.i, i8 0, i64 56, i1 false)
   store i64 %or.i.i, ptr %retval.0.i.i.ph.i, align 8
   %parent.i = getelementptr inbounds i8, ptr %retval.0.i.i.ph.i, i64 24
@@ -28899,7 +28894,7 @@ return:                                           ; preds = %entry, %_ZN4pugi4im
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_126parse_declaration_encodingEPKhmRS3_Rm(ptr noundef %data, i64 noundef %size, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %out_encoding, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %out_length) unnamed_addr #24 {
+define internal fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_126parse_declaration_encodingEPKhmRS3_Rm(ptr noundef %data, i64 noundef range(i64 4, 0) %size, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %out_encoding, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %out_length) unnamed_addr #24 {
 entry:
   %cmp = icmp ult i64 %size, 6
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -33170,7 +33165,7 @@ sw.epilog:                                        ; preds = %_ZN4pugi4impl12_GLO
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_111text_outputERNS1_19xml_buffered_writerEPKcNS1_11chartypex_tEj(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef %s, i32 noundef %type, i32 noundef %flags) unnamed_addr #6 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_111text_outputERNS1_19xml_buffered_writerEPKcNS1_11chartypex_tEj(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef %s, i32 noundef range(i32 1, 3) %type, i32 noundef %flags) unnamed_addr #6 {
 entry:
   %and = and i32 %flags, 16
   %tobool.not = icmp eq i32 %and, 0
@@ -33766,21 +33761,21 @@ if.else:                                          ; preds = %if.end
   br i1 %or.cond.i, label %while.body.i.i.i, label %if.end.i
 
 while.body.i.i.i:                                 ; preds = %if.else, %if.end120.i.i.i
-  %data.addr.071.i.i.i = phi ptr [ %data.addr.2.i.i.i, %if.end120.i.i.i ], [ %data, %if.else ]
-  %size.addr.070.i.i.i = phi i64 [ %size.addr.2.i.i.i, %if.end120.i.i.i ], [ %size, %if.else ]
-  %result.addr.069.i.i.i.idx = phi i64 [ %result.addr.2.i.i.i.idx, %if.end120.i.i.i ], [ 2048, %if.else ]
-  %result.addr.069.i.i.i.ptr = getelementptr inbounds i8, ptr %this, i64 %result.addr.069.i.i.i.idx
-  %4 = load i8, ptr %data.addr.071.i.i.i, align 1
+  %data.addr.070.i.i.i = phi ptr [ %data.addr.2.i.i.i, %if.end120.i.i.i ], [ %data, %if.else ]
+  %size.addr.069.i.i.i = phi i64 [ %size.addr.2.i.i.i, %if.end120.i.i.i ], [ %size, %if.else ]
+  %result.addr.068.i.i.i.idx = phi i64 [ %result.addr.2.i.i.i.idx, %if.end120.i.i.i ], [ 2048, %if.else ]
+  %result.addr.068.i.i.i.ptr = getelementptr inbounds i8, ptr %this, i64 %result.addr.068.i.i.i.idx
+  %4 = load i8, ptr %data.addr.070.i.i.i, align 1
   %conv.i.i.i = zext i8 %4 to i32
   %cmp.i.i.i = icmp sgt i8 %4, -1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i.i.i
   %conv.i.i.i.i = zext nneg i8 %4 to i16
-  store i16 %conv.i.i.i.i, ptr %result.addr.069.i.i.i.ptr, align 2
-  %result.addr.069.i.i.i.add6 = add nsw i64 %result.addr.069.i.i.i.idx, 2
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %data.addr.071.i.i.i, i64 1
-  %sub.i.i.i = add i64 %size.addr.070.i.i.i, -1
+  store i16 %conv.i.i.i.i, ptr %result.addr.068.i.i.i.ptr, align 2
+  %result.addr.068.i.i.i.add6 = add nsw i64 %result.addr.068.i.i.i.idx, 2
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %data.addr.070.i.i.i, i64 1
+  %sub.i.i.i = add i64 %size.addr.069.i.i.i, -1
   %5 = ptrtoint ptr %add.ptr.i.i.i to i64
   %and.i.i.i = and i64 %5, 3
   %cmp2.i.i.i = icmp eq i64 %and.i.i.i, 0
@@ -33789,7 +33784,7 @@ if.then.i.i.i:                                    ; preds = %while.body.i.i.i
   br i1 %or.cond3.i.i.i, label %land.rhs.i.i.i, label %if.end120.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %if.then.i.i.i, %while.body8.i.i.i
-  %result.addr.1.i.i.i.idx = phi i64 [ %result.addr.1.i.i.i.add, %while.body8.i.i.i ], [ %result.addr.069.i.i.i.add6, %if.then.i.i.i ]
+  %result.addr.1.i.i.i.idx = phi i64 [ %result.addr.1.i.i.i.add, %while.body8.i.i.i ], [ %result.addr.068.i.i.i.add6, %if.then.i.i.i ]
   %size.addr.1.i.i.i = phi i64 [ %sub21.i.i.i, %while.body8.i.i.i ], [ %sub.i.i.i, %if.then.i.i.i ]
   %data.addr.1.i.i.i = phi ptr [ %add.ptr20.i.i.i, %while.body8.i.i.i ], [ %add.ptr.i.i.i, %if.then.i.i.i ]
   %6 = load i32, ptr %data.addr.1.i.i.i, align 4
@@ -33826,12 +33821,12 @@ while.body8.i.i.i:                                ; preds = %land.rhs.i.i.i
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i
   %11 = and i32 %conv.i.i.i, 224
   %cmp24.i.i.i = icmp eq i32 %11, 192
-  %cmp25.i.i.i = icmp ne i64 %size.addr.070.i.i.i, 1
+  %cmp25.i.i.i = icmp ne i64 %size.addr.069.i.i.i, 1
   %or.cond.i.i.i = and i1 %cmp25.i.i.i, %cmp24.i.i.i
   br i1 %or.cond.i.i.i, label %land.lhs.true26.i.i.i, label %if.else40.i.i.i
 
 land.lhs.true26.i.i.i:                            ; preds = %if.else.i.i.i
-  %arrayidx27.i.i.i = getelementptr inbounds i8, ptr %data.addr.071.i.i.i, i64 1
+  %arrayidx27.i.i.i = getelementptr inbounds i8, ptr %data.addr.070.i.i.i, i64 1
   %12 = load i8, ptr %arrayidx27.i.i.i, align 1
   %conv28.i.i.i = zext i8 %12 to i32
   %and29.i.i.i = and i32 %conv28.i.i.i, 192
@@ -33844,21 +33839,21 @@ if.then31.i.i.i:                                  ; preds = %land.lhs.true26.i.i
   %and36.i.i.i = and i32 %conv28.i.i.i, 63
   %or.i.i.i = or disjoint i32 %and36.i.i.i, %shl.i.i.i
   %conv.i62.i.i.i = trunc nuw nsw i32 %or.i.i.i to i16
-  store i16 %conv.i62.i.i.i, ptr %result.addr.069.i.i.i.ptr, align 2
-  %result.addr.069.i.i.i.add5 = add nsw i64 %result.addr.069.i.i.i.idx, 2
-  %add.ptr38.i.i.i = getelementptr inbounds i8, ptr %data.addr.071.i.i.i, i64 2
-  %sub39.i.i.i = add i64 %size.addr.070.i.i.i, -2
+  store i16 %conv.i62.i.i.i, ptr %result.addr.068.i.i.i.ptr, align 2
+  %result.addr.068.i.i.i.add5 = add nsw i64 %result.addr.068.i.i.i.idx, 2
+  %add.ptr38.i.i.i = getelementptr inbounds i8, ptr %data.addr.070.i.i.i, i64 2
+  %sub39.i.i.i = add i64 %size.addr.069.i.i.i, -2
   br label %if.end120.i.i.i
 
 if.else40.i.i.i:                                  ; preds = %land.lhs.true26.i.i.i, %if.else.i.i.i
   %13 = and i32 %conv.i.i.i, 240
   %cmp43.i.i.i = icmp eq i32 %13, 224
-  %cmp45.i.i.i = icmp ugt i64 %size.addr.070.i.i.i, 2
+  %cmp45.i.i.i = icmp ugt i64 %size.addr.069.i.i.i, 2
   %or.cond1.i.i.i = and i1 %cmp45.i.i.i, %cmp43.i.i.i
   br i1 %or.cond1.i.i.i, label %land.lhs.true46.i.i.i, label %if.else72.i.i.i
 
 land.lhs.true46.i.i.i:                            ; preds = %if.else40.i.i.i
-  %arrayidx47.i.i.i = getelementptr inbounds i8, ptr %data.addr.071.i.i.i, i64 1
+  %arrayidx47.i.i.i = getelementptr inbounds i8, ptr %data.addr.070.i.i.i, i64 1
   %14 = load i8, ptr %arrayidx47.i.i.i, align 1
   %conv48.i.i.i = zext i8 %14 to i32
   %and49.i.i.i = and i32 %conv48.i.i.i, 192
@@ -33866,7 +33861,7 @@ land.lhs.true46.i.i.i:                            ; preds = %if.else40.i.i.i
   br i1 %cmp50.i.i.i, label %land.lhs.true51.i.i.i, label %if.else72.i.i.i
 
 land.lhs.true51.i.i.i:                            ; preds = %land.lhs.true46.i.i.i
-  %arrayidx52.i.i.i = getelementptr inbounds i8, ptr %data.addr.071.i.i.i, i64 2
+  %arrayidx52.i.i.i = getelementptr inbounds i8, ptr %data.addr.070.i.i.i, i64 2
   %15 = load i8, ptr %arrayidx52.i.i.i, align 1
   %conv53.i.i.i = zext i8 %15 to i32
   %and54.i.i.i = and i32 %conv53.i.i.i, 192
@@ -33881,21 +33876,21 @@ if.then56.i.i.i:                                  ; preds = %land.lhs.true51.i.i
   %and67.i.i.i = and i32 %conv53.i.i.i, 63
   %or68.i.i.i = or disjoint i32 %and67.i.i.i, %or64.i.i.i
   %conv.i64.i.i.i = trunc i32 %or68.i.i.i to i16
-  store i16 %conv.i64.i.i.i, ptr %result.addr.069.i.i.i.ptr, align 2
-  %result.addr.069.i.i.i.add4 = add nsw i64 %result.addr.069.i.i.i.idx, 2
-  %add.ptr70.i.i.i = getelementptr inbounds i8, ptr %data.addr.071.i.i.i, i64 3
-  %sub71.i.i.i = add i64 %size.addr.070.i.i.i, -3
+  store i16 %conv.i64.i.i.i, ptr %result.addr.068.i.i.i.ptr, align 2
+  %result.addr.068.i.i.i.add4 = add nsw i64 %result.addr.068.i.i.i.idx, 2
+  %add.ptr70.i.i.i = getelementptr inbounds i8, ptr %data.addr.070.i.i.i, i64 3
+  %sub71.i.i.i = add i64 %size.addr.069.i.i.i, -3
   br label %if.end120.i.i.i
 
 if.else72.i.i.i:                                  ; preds = %land.lhs.true51.i.i.i, %land.lhs.true46.i.i.i, %if.else40.i.i.i
   %16 = and i32 %conv.i.i.i, 248
   %cmp75.i.i.i = icmp eq i32 %16, 240
-  %cmp77.i.i.i = icmp ugt i64 %size.addr.070.i.i.i, 3
+  %cmp77.i.i.i = icmp ugt i64 %size.addr.069.i.i.i, 3
   %or.cond2.i.i.i = and i1 %cmp77.i.i.i, %cmp75.i.i.i
   br i1 %or.cond2.i.i.i, label %land.lhs.true78.i.i.i, label %if.else114.i.i.i
 
 land.lhs.true78.i.i.i:                            ; preds = %if.else72.i.i.i
-  %arrayidx79.i.i.i = getelementptr inbounds i8, ptr %data.addr.071.i.i.i, i64 1
+  %arrayidx79.i.i.i = getelementptr inbounds i8, ptr %data.addr.070.i.i.i, i64 1
   %17 = load i8, ptr %arrayidx79.i.i.i, align 1
   %conv80.i.i.i = zext i8 %17 to i32
   %and81.i.i.i = and i32 %conv80.i.i.i, 192
@@ -33903,7 +33898,7 @@ land.lhs.true78.i.i.i:                            ; preds = %if.else72.i.i.i
   br i1 %cmp82.i.i.i, label %land.lhs.true83.i.i.i, label %if.else114.i.i.i
 
 land.lhs.true83.i.i.i:                            ; preds = %land.lhs.true78.i.i.i
-  %arrayidx84.i.i.i = getelementptr inbounds i8, ptr %data.addr.071.i.i.i, i64 2
+  %arrayidx84.i.i.i = getelementptr inbounds i8, ptr %data.addr.070.i.i.i, i64 2
   %18 = load i8, ptr %arrayidx84.i.i.i, align 1
   %conv85.i.i.i = zext i8 %18 to i32
   %and86.i.i.i = and i32 %conv85.i.i.i, 192
@@ -33911,7 +33906,7 @@ land.lhs.true83.i.i.i:                            ; preds = %land.lhs.true78.i.i
   br i1 %cmp87.i.i.i, label %land.lhs.true88.i.i.i, label %if.else114.i.i.i
 
 land.lhs.true88.i.i.i:                            ; preds = %land.lhs.true83.i.i.i
-  %arrayidx89.i.i.i = getelementptr inbounds i8, ptr %data.addr.071.i.i.i, i64 3
+  %arrayidx89.i.i.i = getelementptr inbounds i8, ptr %data.addr.070.i.i.i, i64 3
   %19 = load i8, ptr %arrayidx89.i.i.i, align 1
   %conv90.i.i.i = zext i8 %19 to i32
   %and91.i.i.i = and i32 %conv90.i.i.i, 192
@@ -33933,32 +33928,32 @@ if.then93.i.i.i:                                  ; preds = %land.lhs.true88.i.i
   %shr.i.i.i.i = lshr exact i32 %sub.i.i.i.i, 10
   %20 = trunc i32 %shr.i.i.i.i to i16
   %conv.i66.i.i.i = add nsw i16 %20, -10240
-  store i16 %conv.i66.i.i.i, ptr %result.addr.069.i.i.i.ptr, align 2
+  store i16 %conv.i66.i.i.i, ptr %result.addr.068.i.i.i.ptr, align 2
   %21 = trunc nuw nsw i32 %or110.i.i.i to i16
   %22 = and i16 %21, 1023
   %conv3.i.i.i.i = or disjoint i16 %22, -9216
-  %arrayidx4.i.i.i.i = getelementptr inbounds i8, ptr %result.addr.069.i.i.i.ptr, i64 2
+  %arrayidx4.i.i.i.i = getelementptr inbounds i8, ptr %result.addr.068.i.i.i.ptr, i64 2
   store i16 %conv3.i.i.i.i, ptr %arrayidx4.i.i.i.i, align 2
-  %result.addr.069.i.i.i.add = add nsw i64 %result.addr.069.i.i.i.idx, 4
-  %add.ptr112.i.i.i = getelementptr inbounds i8, ptr %data.addr.071.i.i.i, i64 4
-  %sub113.i.i.i = add i64 %size.addr.070.i.i.i, -4
+  %result.addr.068.i.i.i.add = add nsw i64 %result.addr.068.i.i.i.idx, 4
+  %add.ptr112.i.i.i = getelementptr inbounds i8, ptr %data.addr.070.i.i.i, i64 4
+  %sub113.i.i.i = add i64 %size.addr.069.i.i.i, -4
   br label %if.end120.i.i.i
 
 if.else114.i.i.i:                                 ; preds = %land.lhs.true88.i.i.i, %land.lhs.true83.i.i.i, %land.lhs.true78.i.i.i, %if.else72.i.i.i
-  %add.ptr115.i.i.i = getelementptr inbounds i8, ptr %data.addr.071.i.i.i, i64 1
-  %sub116.i.i.i = add i64 %size.addr.070.i.i.i, -1
+  %add.ptr115.i.i.i = getelementptr inbounds i8, ptr %data.addr.070.i.i.i, i64 1
+  %sub116.i.i.i = add i64 %size.addr.069.i.i.i, -1
   br label %if.end120.i.i.i
 
 if.end120.i.i.i:                                  ; preds = %while.body8.i.i.i, %land.rhs.i.i.i, %if.else114.i.i.i, %if.then93.i.i.i, %if.then56.i.i.i, %if.then31.i.i.i, %if.then.i.i.i
-  %result.addr.2.i.i.i.idx = phi i64 [ %result.addr.069.i.i.i.add6, %if.then.i.i.i ], [ %result.addr.069.i.i.i.add5, %if.then31.i.i.i ], [ %result.addr.069.i.i.i.add4, %if.then56.i.i.i ], [ %result.addr.069.i.i.i.add, %if.then93.i.i.i ], [ %result.addr.069.i.i.i.idx, %if.else114.i.i.i ], [ %result.addr.1.i.i.i.add, %while.body8.i.i.i ], [ %result.addr.1.i.i.i.idx, %land.rhs.i.i.i ]
+  %result.addr.2.i.i.i.idx = phi i64 [ %result.addr.068.i.i.i.add6, %if.then.i.i.i ], [ %result.addr.068.i.i.i.add5, %if.then31.i.i.i ], [ %result.addr.068.i.i.i.add4, %if.then56.i.i.i ], [ %result.addr.068.i.i.i.add, %if.then93.i.i.i ], [ %result.addr.068.i.i.i.idx, %if.else114.i.i.i ], [ %result.addr.1.i.i.i.add, %while.body8.i.i.i ], [ %result.addr.1.i.i.i.idx, %land.rhs.i.i.i ]
   %size.addr.2.i.i.i = phi i64 [ %sub.i.i.i, %if.then.i.i.i ], [ %sub39.i.i.i, %if.then31.i.i.i ], [ %sub71.i.i.i, %if.then56.i.i.i ], [ %sub113.i.i.i, %if.then93.i.i.i ], [ %sub116.i.i.i, %if.else114.i.i.i ], [ %sub21.i.i.i, %while.body8.i.i.i ], [ %size.addr.1.i.i.i, %land.rhs.i.i.i ]
   %data.addr.2.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr38.i.i.i, %if.then31.i.i.i ], [ %add.ptr70.i.i.i, %if.then56.i.i.i ], [ %add.ptr112.i.i.i, %if.then93.i.i.i ], [ %add.ptr115.i.i.i, %if.else114.i.i.i ], [ %add.ptr20.i.i.i, %while.body8.i.i.i ], [ %data.addr.1.i.i.i, %land.rhs.i.i.i ]
   %tobool.not.i.i.i = icmp eq i64 %size.addr.2.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_112utf8_decoder7processINS1_12utf16_writerEEENT_10value_typeEPKhmS6_S5_.exit.i.i, label %while.body.i.i.i, !llvm.loop !327
 
 _ZN4pugi4impl12_GLOBAL__N_112utf8_decoder7processINS1_12utf16_writerEEENT_10value_typeEPKhmS6_S5_.exit.i.i: ; preds = %if.end120.i.i.i
-  %cmp3.i = icmp ne i32 %0, 2
   %result.addr.2.i.i.i.ptr.le = getelementptr inbounds i8, ptr %this, i64 %result.addr.2.i.i.i.idx
+  %cmp3.i = icmp ne i32 %0, 2
   %cmp.not7.i.i = icmp ne i64 %result.addr.2.i.i.i.idx, 2048
   %or.cond.not.i.i = select i1 %cmp3.i, i1 %cmp.not7.i.i, i1 false
   br i1 %or.cond.not.i.i, label %for.body.i.i, label %_ZN4pugi4impl12_GLOBAL__N_129convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf16_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i
@@ -33983,7 +33978,7 @@ if.end.i:                                         ; preds = %if.else
 
 if.then8.i:                                       ; preds = %if.end.i
   %cmp14.i = icmp ne i32 %0, 5
-  %call.i.i = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef %data, i64 noundef %size, ptr noundef nonnull %scratch.ptr)
+  %call.i.i = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef %data, i64 noundef %size, ptr noundef %scratch.ptr)
   %cmp.not7.i12.i = icmp ne ptr %scratch.ptr, %call.i.i
   %or.cond.not.i13.i = and i1 %cmp14.i, %cmp.not7.i12.i
   br i1 %or.cond.not.i13.i, label %for.body.i17.i, label %_ZN4pugi4impl12_GLOBAL__N_129convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf32_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i
@@ -34008,19 +34003,19 @@ if.end16.i:                                       ; preds = %if.end.i
   br i1 %cmp17.i, label %while.body.i.i21.i, label %_ZN4pugi4impl12_GLOBAL__N_121convert_buffer_outputEPcPhPtPjPKcmNS_12xml_encodingE.exit
 
 while.body.i.i21.i:                               ; preds = %if.end16.i, %if.end120.i.i39.i
-  %data.addr.066.i.i.i = phi ptr [ %data.addr.2.i.i42.i, %if.end120.i.i39.i ], [ %data, %if.end16.i ]
-  %size.addr.065.i.i.i = phi i64 [ %size.addr.2.i.i41.i, %if.end120.i.i39.i ], [ %size, %if.end16.i ]
-  %result.addr.064.i.i.i = phi ptr [ %result.addr.2.i.i40.i, %if.end120.i.i39.i ], [ %scratch.ptr, %if.end16.i ]
-  %26 = load i8, ptr %data.addr.066.i.i.i, align 1
+  %data.addr.065.i.i.i = phi ptr [ %data.addr.2.i.i42.i, %if.end120.i.i39.i ], [ %data, %if.end16.i ]
+  %size.addr.064.i.i.i = phi i64 [ %size.addr.2.i.i41.i, %if.end120.i.i39.i ], [ %size, %if.end16.i ]
+  %result.addr.063.i.i.i = phi ptr [ %result.addr.2.i.i40.i, %if.end120.i.i39.i ], [ %scratch.ptr, %if.end16.i ]
+  %26 = load i8, ptr %data.addr.065.i.i.i, align 1
   %conv.i.i22.i = zext i8 %26 to i32
   %cmp.i.i23.i = icmp sgt i8 %26, -1
   br i1 %cmp.i.i23.i, label %if.then.i.i90.i, label %if.else.i.i24.i
 
 if.then.i.i90.i:                                  ; preds = %while.body.i.i21.i
-  store i8 %26, ptr %result.addr.064.i.i.i, align 1
-  %add.ptr.i.i.i91.i = getelementptr inbounds i8, ptr %result.addr.064.i.i.i, i64 1
-  %add.ptr.i.i92.i = getelementptr inbounds i8, ptr %data.addr.066.i.i.i, i64 1
-  %sub.i.i93.i = add i64 %size.addr.065.i.i.i, -1
+  store i8 %26, ptr %result.addr.063.i.i.i, align 1
+  %add.ptr.i.i.i91.i = getelementptr inbounds i8, ptr %result.addr.063.i.i.i, i64 1
+  %add.ptr.i.i92.i = getelementptr inbounds i8, ptr %data.addr.065.i.i.i, i64 1
+  %sub.i.i93.i = add i64 %size.addr.064.i.i.i, -1
   %27 = ptrtoint ptr %add.ptr.i.i92.i to i64
   %and.i.i94.i = and i64 %27, 3
   %cmp2.i.i95.i = icmp eq i64 %and.i.i94.i, 0
@@ -34061,12 +34056,12 @@ while.body8.i.i104.i:                             ; preds = %land.rhs.i.i98.i
 if.else.i.i24.i:                                  ; preds = %while.body.i.i21.i
   %33 = and i32 %conv.i.i22.i, 224
   %cmp24.i.i25.i = icmp eq i32 %33, 192
-  %cmp25.i.i26.i = icmp ne i64 %size.addr.065.i.i.i, 1
+  %cmp25.i.i26.i = icmp ne i64 %size.addr.064.i.i.i, 1
   %or.cond.i.i27.i = and i1 %cmp25.i.i26.i, %cmp24.i.i25.i
   br i1 %or.cond.i.i27.i, label %land.lhs.true26.i.i80.i, label %if.else40.i.i28.i
 
 land.lhs.true26.i.i80.i:                          ; preds = %if.else.i.i24.i
-  %arrayidx27.i.i81.i = getelementptr inbounds i8, ptr %data.addr.066.i.i.i, i64 1
+  %arrayidx27.i.i81.i = getelementptr inbounds i8, ptr %data.addr.065.i.i.i, i64 1
   %34 = load i8, ptr %arrayidx27.i.i81.i, align 1
   %35 = and i8 %34, -64
   %cmp30.i.i82.i = icmp eq i8 %35, -128
@@ -34079,21 +34074,21 @@ if.then31.i.i83.i:                                ; preds = %land.lhs.true26.i.i
   %36 = and i32 %conv.i.i22.i, 28
   %cmp.i.not.i.i.i = icmp eq i32 %36, 0
   %conv.i.i.i87.i = select i1 %cmp.i.not.i.i.i, i8 %or.i.i86.i, i8 63
-  store i8 %conv.i.i.i87.i, ptr %result.addr.064.i.i.i, align 1
-  %add.ptr.i58.i.i.i = getelementptr inbounds i8, ptr %result.addr.064.i.i.i, i64 1
-  %add.ptr38.i.i88.i = getelementptr inbounds i8, ptr %data.addr.066.i.i.i, i64 2
-  %sub39.i.i89.i = add i64 %size.addr.065.i.i.i, -2
+  store i8 %conv.i.i.i87.i, ptr %result.addr.063.i.i.i, align 1
+  %add.ptr.i58.i.i.i = getelementptr inbounds i8, ptr %result.addr.063.i.i.i, i64 1
+  %add.ptr38.i.i88.i = getelementptr inbounds i8, ptr %data.addr.065.i.i.i, i64 2
+  %sub39.i.i89.i = add i64 %size.addr.064.i.i.i, -2
   br label %if.end120.i.i39.i
 
 if.else40.i.i28.i:                                ; preds = %land.lhs.true26.i.i80.i, %if.else.i.i24.i
   %37 = and i32 %conv.i.i22.i, 240
   %cmp43.i.i29.i = icmp eq i32 %37, 224
-  %cmp45.i.i30.i = icmp ugt i64 %size.addr.065.i.i.i, 2
+  %cmp45.i.i30.i = icmp ugt i64 %size.addr.064.i.i.i, 2
   %or.cond1.i.i31.i = and i1 %cmp45.i.i30.i, %cmp43.i.i29.i
   br i1 %or.cond1.i.i31.i, label %land.lhs.true46.i.i59.i, label %if.else72.i.i32.i
 
 land.lhs.true46.i.i59.i:                          ; preds = %if.else40.i.i28.i
-  %arrayidx47.i.i60.i = getelementptr inbounds i8, ptr %data.addr.066.i.i.i, i64 1
+  %arrayidx47.i.i60.i = getelementptr inbounds i8, ptr %data.addr.065.i.i.i, i64 1
   %38 = load i8, ptr %arrayidx47.i.i60.i, align 1
   %conv48.i.i61.i = zext i8 %38 to i32
   %and49.i.i62.i = and i32 %conv48.i.i61.i, 192
@@ -34101,7 +34096,7 @@ land.lhs.true46.i.i59.i:                          ; preds = %if.else40.i.i28.i
   br i1 %cmp50.i.i63.i, label %land.lhs.true51.i.i64.i, label %if.else72.i.i32.i
 
 land.lhs.true51.i.i64.i:                          ; preds = %land.lhs.true46.i.i59.i
-  %arrayidx52.i.i65.i = getelementptr inbounds i8, ptr %data.addr.066.i.i.i, i64 2
+  %arrayidx52.i.i65.i = getelementptr inbounds i8, ptr %data.addr.065.i.i.i, i64 2
   %39 = load i8, ptr %arrayidx52.i.i65.i, align 1
   %conv53.i.i66.i = zext i8 %39 to i32
   %and54.i.i67.i = and i32 %conv53.i.i66.i, 192
@@ -34119,54 +34114,54 @@ if.then56.i.i69.i:                                ; preds = %land.lhs.true51.i.i
   %cmp.i59.not.i.i.i = icmp eq i32 %or64.i.i73.i, 0
   %40 = trunc i32 %or68.i.i75.i to i8
   %conv.i60.i.i76.i = select i1 %cmp.i59.not.i.i.i, i8 %40, i8 63
-  store i8 %conv.i60.i.i76.i, ptr %result.addr.064.i.i.i, align 1
-  %add.ptr.i61.i.i77.i = getelementptr inbounds i8, ptr %result.addr.064.i.i.i, i64 1
-  %add.ptr70.i.i78.i = getelementptr inbounds i8, ptr %data.addr.066.i.i.i, i64 3
-  %sub71.i.i79.i = add i64 %size.addr.065.i.i.i, -3
+  store i8 %conv.i60.i.i76.i, ptr %result.addr.063.i.i.i, align 1
+  %add.ptr.i61.i.i77.i = getelementptr inbounds i8, ptr %result.addr.063.i.i.i, i64 1
+  %add.ptr70.i.i78.i = getelementptr inbounds i8, ptr %data.addr.065.i.i.i, i64 3
+  %sub71.i.i79.i = add i64 %size.addr.064.i.i.i, -3
   br label %if.end120.i.i39.i
 
 if.else72.i.i32.i:                                ; preds = %land.lhs.true51.i.i64.i, %land.lhs.true46.i.i59.i, %if.else40.i.i28.i
   %41 = and i32 %conv.i.i22.i, 248
   %cmp75.i.i33.i = icmp eq i32 %41, 240
-  %cmp77.i.i34.i = icmp ugt i64 %size.addr.065.i.i.i, 3
+  %cmp77.i.i34.i = icmp ugt i64 %size.addr.064.i.i.i, 3
   %or.cond2.i.i35.i = and i1 %cmp77.i.i34.i, %cmp75.i.i33.i
   br i1 %or.cond2.i.i35.i, label %land.lhs.true78.i.i47.i, label %if.else114.i.i36.i
 
 land.lhs.true78.i.i47.i:                          ; preds = %if.else72.i.i32.i
-  %arrayidx79.i.i48.i = getelementptr inbounds i8, ptr %data.addr.066.i.i.i, i64 1
+  %arrayidx79.i.i48.i = getelementptr inbounds i8, ptr %data.addr.065.i.i.i, i64 1
   %42 = load i8, ptr %arrayidx79.i.i48.i, align 1
   %43 = and i8 %42, -64
   %cmp82.i.i49.i = icmp eq i8 %43, -128
   br i1 %cmp82.i.i49.i, label %land.lhs.true83.i.i50.i, label %if.else114.i.i36.i
 
 land.lhs.true83.i.i50.i:                          ; preds = %land.lhs.true78.i.i47.i
-  %arrayidx84.i.i51.i = getelementptr inbounds i8, ptr %data.addr.066.i.i.i, i64 2
+  %arrayidx84.i.i51.i = getelementptr inbounds i8, ptr %data.addr.065.i.i.i, i64 2
   %44 = load i8, ptr %arrayidx84.i.i51.i, align 1
   %45 = and i8 %44, -64
   %cmp87.i.i52.i = icmp eq i8 %45, -128
   br i1 %cmp87.i.i52.i, label %land.lhs.true88.i.i53.i, label %if.else114.i.i36.i
 
 land.lhs.true88.i.i53.i:                          ; preds = %land.lhs.true83.i.i50.i
-  %arrayidx89.i.i54.i = getelementptr inbounds i8, ptr %data.addr.066.i.i.i, i64 3
+  %arrayidx89.i.i54.i = getelementptr inbounds i8, ptr %data.addr.065.i.i.i, i64 3
   %46 = load i8, ptr %arrayidx89.i.i54.i, align 1
   %47 = and i8 %46, -64
   %cmp92.i.i55.i = icmp eq i8 %47, -128
   br i1 %cmp92.i.i55.i, label %if.then93.i.i56.i, label %if.else114.i.i36.i
 
 if.then93.i.i56.i:                                ; preds = %land.lhs.true88.i.i53.i
-  store i8 63, ptr %result.addr.064.i.i.i, align 1
-  %add.ptr.i62.i.i.i = getelementptr inbounds i8, ptr %result.addr.064.i.i.i, i64 1
-  %add.ptr112.i.i57.i = getelementptr inbounds i8, ptr %data.addr.066.i.i.i, i64 4
-  %sub113.i.i58.i = add i64 %size.addr.065.i.i.i, -4
+  store i8 63, ptr %result.addr.063.i.i.i, align 1
+  %add.ptr.i62.i.i.i = getelementptr inbounds i8, ptr %result.addr.063.i.i.i, i64 1
+  %add.ptr112.i.i57.i = getelementptr inbounds i8, ptr %data.addr.065.i.i.i, i64 4
+  %sub113.i.i58.i = add i64 %size.addr.064.i.i.i, -4
   br label %if.end120.i.i39.i
 
 if.else114.i.i36.i:                               ; preds = %land.lhs.true88.i.i53.i, %land.lhs.true83.i.i50.i, %land.lhs.true78.i.i47.i, %if.else72.i.i32.i
-  %add.ptr115.i.i37.i = getelementptr inbounds i8, ptr %data.addr.066.i.i.i, i64 1
-  %sub116.i.i38.i = add i64 %size.addr.065.i.i.i, -1
+  %add.ptr115.i.i37.i = getelementptr inbounds i8, ptr %data.addr.065.i.i.i, i64 1
+  %sub116.i.i38.i = add i64 %size.addr.064.i.i.i, -1
   br label %if.end120.i.i39.i
 
 if.end120.i.i39.i:                                ; preds = %while.body8.i.i104.i, %land.rhs.i.i98.i, %if.else114.i.i36.i, %if.then93.i.i56.i, %if.then56.i.i69.i, %if.then31.i.i83.i, %if.then.i.i90.i
-  %result.addr.2.i.i40.i = phi ptr [ %add.ptr.i.i.i91.i, %if.then.i.i90.i ], [ %add.ptr.i58.i.i.i, %if.then31.i.i83.i ], [ %add.ptr.i61.i.i77.i, %if.then56.i.i69.i ], [ %add.ptr.i62.i.i.i, %if.then93.i.i56.i ], [ %result.addr.064.i.i.i, %if.else114.i.i36.i ], [ %add.ptr.i57.i.i109.i, %while.body8.i.i104.i ], [ %result.addr.1.i.i99.i, %land.rhs.i.i98.i ]
+  %result.addr.2.i.i40.i = phi ptr [ %add.ptr.i.i.i91.i, %if.then.i.i90.i ], [ %add.ptr.i58.i.i.i, %if.then31.i.i83.i ], [ %add.ptr.i61.i.i77.i, %if.then56.i.i69.i ], [ %add.ptr.i62.i.i.i, %if.then93.i.i56.i ], [ %result.addr.063.i.i.i, %if.else114.i.i36.i ], [ %add.ptr.i57.i.i109.i, %while.body8.i.i104.i ], [ %result.addr.1.i.i99.i, %land.rhs.i.i98.i ]
   %size.addr.2.i.i41.i = phi i64 [ %sub.i.i93.i, %if.then.i.i90.i ], [ %sub39.i.i89.i, %if.then31.i.i83.i ], [ %sub71.i.i79.i, %if.then56.i.i69.i ], [ %sub113.i.i58.i, %if.then93.i.i56.i ], [ %sub116.i.i38.i, %if.else114.i.i36.i ], [ %sub21.i.i111.i, %while.body8.i.i104.i ], [ %size.addr.1.i.i100.i, %land.rhs.i.i98.i ]
   %data.addr.2.i.i42.i = phi ptr [ %add.ptr.i.i92.i, %if.then.i.i90.i ], [ %add.ptr38.i.i88.i, %if.then31.i.i83.i ], [ %add.ptr70.i.i78.i, %if.then56.i.i69.i ], [ %add.ptr112.i.i57.i, %if.then93.i.i56.i ], [ %add.ptr115.i.i37.i, %if.else114.i.i36.i ], [ %add.ptr20.i.i110.i, %while.body8.i.i104.i ], [ %data.addr.1.i.i101.i, %land.rhs.i.i98.i ]
   %tobool.not.i.i43.i = icmp eq i64 %size.addr.2.i.i41.i, 0
@@ -34193,7 +34188,7 @@ if.end17:                                         ; preds = %entry, %_ZN4pugi4im
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef nonnull ptr @_ZN4pugi4impl12_GLOBAL__N_112utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef %data, i64 noundef %size, ptr noundef writeonly %result) unnamed_addr #24 align 2 {
+define internal fastcc noundef nonnull ptr @_ZN4pugi4impl12_GLOBAL__N_112utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef %data, i64 noundef %size, ptr noundef nonnull writeonly %result) unnamed_addr #24 align 2 {
 entry:
   %tobool.not61 = icmp eq i64 %size, 0
   br i1 %tobool.not61, label %while.end121, label %while.body
@@ -35730,7 +35725,7 @@ if.end.i.i:                                       ; preds = %sw.bb17.i
   br i1 %tobool.not.i33.i, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit.i
 
 _ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit.i: ; preds = %if.end.i.i
-  %call6.i.i = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser20parse_expression_recEPNS1_14xpath_ast_nodeEi(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %call3.i.i, i32 noundef 0)
+  %call6.i.i = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser20parse_expression_recEPNS1_14xpath_ast_nodeEi(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %call3.i.i, i32 noundef 0)
   store i64 %33, ptr %_depth.i.i, align 8
   %tobool20.not.i = icmp eq ptr %call6.i.i, null
   br i1 %tobool20.not.i, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread, label %if.end22.i
@@ -36190,7 +36185,7 @@ if.end.i136.i:                                    ; preds = %if.end81.i
   br i1 %tobool.not.i138.i, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit150.i
 
 _ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit150.i: ; preds = %if.end.i136.i
-  %call6.i140.i = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser20parse_expression_recEPNS1_14xpath_ast_nodeEi(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %call3.i137.i, i32 noundef 0)
+  %call6.i140.i = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser20parse_expression_recEPNS1_14xpath_ast_nodeEi(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %call3.i137.i, i32 noundef 0)
   store i64 %inc.i72, ptr %_depth.i68, align 8
   %tobool84.not.i = icmp eq ptr %call6.i140.i, null
   br i1 %tobool84.not.i, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread, label %if.end86.i
@@ -38146,7 +38141,7 @@ if.end.i55:                                       ; preds = %if.end13.i
   br i1 %tobool.not.i56, label %return, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit
 
 _ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit: ; preds = %if.end.i55
-  %call6.i = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser20parse_expression_recEPNS1_14xpath_ast_nodeEi(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %call3.i, i32 noundef 0)
+  %call6.i = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser20parse_expression_recEPNS1_14xpath_ast_nodeEi(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %call3.i, i32 noundef 0)
   store i64 %inc.i, ptr %_depth.i, align 8
   %tobool15.not.i = icmp eq ptr %call6.i, null
   br i1 %tobool15.not.i, label %return, label %if.end17.i
@@ -38365,7 +38360,7 @@ if.end.i217:                                      ; preds = %if.then67
   br i1 %tobool.not.i219, label %return, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit229
 
 _ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit229: ; preds = %if.end.i217
-  %call6.i220 = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser20parse_expression_recEPNS1_14xpath_ast_nodeEi(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %call3.i218, i32 noundef 7)
+  %call6.i220 = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser20parse_expression_recEPNS1_14xpath_ast_nodeEi(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %call3.i218, i32 noundef 7)
   store i64 %376, ptr %_depth.i214, align 8
   %tobool71.not = icmp eq ptr %call6.i220, null
   br i1 %tobool71.not, label %return, label %if.end73
@@ -38438,7 +38433,7 @@ return:                                           ; preds = %if.end.i55, %_ZN4pu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser20parse_expression_recEPNS1_14xpath_ast_nodeEi(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %lhs, i32 noundef %limit) unnamed_addr #6 align 2 {
+define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser20parse_expression_recEPNS1_14xpath_ast_nodeEi(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %lhs, i32 noundef range(i32 0, -2147483648) %limit) unnamed_addr #6 align 2 {
 entry:
   %_lexer = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call fastcc { i64, i32 } @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser11binary_op_t5parseERNS1_11xpath_lexerE(ptr noundef nonnull align 8 dereferenceable(36) %_lexer)
@@ -38501,7 +38496,7 @@ if.end8:                                          ; preds = %if.end
 while.body20:                                     ; preds = %if.end8, %if.end25
   %nextop.sroa.3.sroa.2.061 = phi i32 [ %nextop.sroa.3.sroa.2.0, %if.end25 ], [ %nextop.sroa.3.sroa.2.056, %if.end8 ]
   %rhs.060 = phi ptr [ %call22, %if.end25 ], [ %call6, %if.end8 ]
-  %call22 = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser20parse_expression_recEPNS1_14xpath_ast_nodeEi(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %rhs.060, i32 noundef %nextop.sroa.3.sroa.2.061)
+  %call22 = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser20parse_expression_recEPNS1_14xpath_ast_nodeEi(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %rhs.060, i32 noundef %nextop.sroa.3.sroa.2.061)
   %tobool23.not = icmp eq ptr %call22, null
   br i1 %tobool23.not, label %return, label %if.end25
 
@@ -39129,7 +39124,7 @@ return:                                           ; preds = %if.end22, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeENS1_10ast_type_tENS_16xpath_value_typeEPNS1_14xpath_ast_nodeES6_(ptr nocapture %this.0.val, i32 noundef %type, i32 noundef %rettype, ptr noundef %left, ptr noundef %right) unnamed_addr #6 align 2 {
+define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeENS1_10ast_type_tENS_16xpath_value_typeEPNS1_14xpath_ast_nodeES6_(ptr nocapture %this.0.val, i32 noundef range(i32 1, 0) %type, i32 noundef %rettype, ptr noundef %left, ptr noundef %right) unnamed_addr #6 align 2 {
 entry:
   %_root_size.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 8
   %0 = load i64, ptr %_root_size.i.i, align 8
@@ -40277,7 +40272,7 @@ if.end.i170:                                      ; preds = %if.end157
   br i1 %tobool.not.i171, label %return, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit
 
 _ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit: ; preds = %if.end.i170
-  %call6.i = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser20parse_expression_recEPNS1_14xpath_ast_nodeEi(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %call3.i, i32 noundef 0)
+  %call6.i = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser20parse_expression_recEPNS1_14xpath_ast_nodeEi(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %call3.i, i32 noundef 0)
   store i64 %inc, ptr %_depth, align 8
   %tobool159.not = icmp eq ptr %call6.i, null
   br i1 %tobool159.not, label %return, label %if.end161
@@ -40640,11 +40635,11 @@ if.then10:                                        ; preds = %if.else
   store ptr %2, ptr %cr, align 8
   %_state.i = getelementptr inbounds i8, ptr %cr, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %ls, ptr noundef nonnull align 8 dereferenceable(40) %lhs, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %ls, ptr noundef nonnull align 8 dereferenceable(40) %lhs, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then10
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %rs, ptr noundef nonnull align 8 dereferenceable(40) %rhs, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %rs, ptr noundef nonnull align 8 dereferenceable(40) %rhs, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont
@@ -40672,7 +40667,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %li.0.val = load i64, ptr %li.047, align 8
   %8 = getelementptr i8, ptr %li.047, i64 8
   %li.0.val71 = load ptr, ptr %8, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nonnull align 8 %ref.tmp19, i64 %li.0.val, ptr %li.0.val71, ptr noundef nonnull %7)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias align 8 %ref.tmp19, i64 %li.0.val, ptr %li.0.val71, ptr noundef nonnull %7)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %for.body
@@ -40785,7 +40780,7 @@ for.body33:                                       ; preds = %invoke.cont25, %for
   %ri.0.val = load i64, ptr %ri.044, align 8
   %24 = getelementptr i8, ptr %ri.044, i64 8
   %ri.0.val72 = load ptr, ptr %24, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nonnull align 8 %ref.tmp37, i64 %ri.0.val, ptr %ri.0.val72, ptr noundef nonnull %23)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias align 8 %ref.tmp37, i64 %ri.0.val, ptr %ri.0.val72, ptr noundef nonnull %23)
           to label %invoke.cont40 unwind label %lpad39
 
 invoke.cont40:                                    ; preds = %for.body33
@@ -41042,7 +41037,7 @@ if.then60:                                        ; preds = %if.else56
           to label %invoke.cont65 unwind label %lpad64
 
 invoke.cont65:                                    ; preds = %if.then60
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %rs67, ptr noundef nonnull align 8 dereferenceable(40) %rhs, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %rs67, ptr noundef nonnull align 8 dereferenceable(40) %rhs, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
           to label %invoke.cont68 unwind label %lpad64
 
 invoke.cont68:                                    ; preds = %invoke.cont65
@@ -41066,7 +41061,7 @@ for.body76:                                       ; preds = %_ZN4pugi4impl12_GLO
   %ri69.0.val = load i64, ptr %ri69.038, align 8
   %74 = getelementptr i8, ptr %ri69.038, i64 8
   %ri69.0.val73 = load ptr, ptr %74, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nonnull align 8 %ref.tmp81, i64 %ri69.0.val, ptr %ri69.0.val73, ptr noundef nonnull %73)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias align 8 %ref.tmp81, i64 %ri69.0.val, ptr %ri69.0.val73, ptr noundef nonnull %73)
           to label %invoke.cont84 unwind label %lpad83
 
 invoke.cont84:                                    ; preds = %for.body76
@@ -41248,7 +41243,7 @@ if.then106:                                       ; preds = %if.else102
   store ptr %105, ptr %cr107, align 8
   %_state.i232 = getelementptr inbounds i8, ptr %cr107, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i232, ptr noundef nonnull align 8 dereferenceable(24) %105, i64 24, i1 false)
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %ls109, ptr noundef nonnull align 8 dereferenceable(40) %lhs, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %ls109, ptr noundef nonnull align 8 dereferenceable(40) %lhs, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
           to label %invoke.cont111 unwind label %lpad110
 
 invoke.cont111:                                   ; preds = %if.then106
@@ -41276,7 +41271,7 @@ for.body121:                                      ; preds = %_ZN4pugi4impl12_GLO
   %li114.0.val = load i64, ptr %li114.033, align 8
   %109 = getelementptr i8, ptr %li114.033, i64 8
   %li114.0.val74 = load ptr, ptr %109, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nonnull align 8 %ref.tmp126, i64 %li114.0.val, ptr %li114.0.val74, ptr noundef nonnull %108)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias align 8 %ref.tmp126, i64 %li114.0.val, ptr %li114.0.val74, ptr noundef nonnull %108)
           to label %invoke.cont129 unwind label %lpad128
 
 invoke.cont129:                                   ; preds = %for.body121
@@ -41504,11 +41499,11 @@ if.then10:                                        ; preds = %if.else
   store ptr %2, ptr %cr, align 8
   %_state.i = getelementptr inbounds i8, ptr %cr, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %ls, ptr noundef nonnull align 8 dereferenceable(40) %lhs, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %ls, ptr noundef nonnull align 8 dereferenceable(40) %lhs, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then10
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %rs, ptr noundef nonnull align 8 dereferenceable(40) %rhs, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %rs, ptr noundef nonnull align 8 dereferenceable(40) %rhs, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont
@@ -41536,7 +41531,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %li.0.val = load i64, ptr %li.047, align 8
   %8 = getelementptr i8, ptr %li.047, i64 8
   %li.0.val71 = load ptr, ptr %8, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nonnull align 8 %ref.tmp19, i64 %li.0.val, ptr %li.0.val71, ptr noundef nonnull %7)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias align 8 %ref.tmp19, i64 %li.0.val, ptr %li.0.val71, ptr noundef nonnull %7)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %for.body
@@ -41649,7 +41644,7 @@ for.body33:                                       ; preds = %invoke.cont25, %for
   %ri.0.val = load i64, ptr %ri.044, align 8
   %24 = getelementptr i8, ptr %ri.044, i64 8
   %ri.0.val72 = load ptr, ptr %24, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nonnull align 8 %ref.tmp37, i64 %ri.0.val, ptr %ri.0.val72, ptr noundef nonnull %23)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias align 8 %ref.tmp37, i64 %ri.0.val, ptr %ri.0.val72, ptr noundef nonnull %23)
           to label %invoke.cont40 unwind label %lpad39
 
 invoke.cont40:                                    ; preds = %for.body33
@@ -41906,7 +41901,7 @@ if.then60:                                        ; preds = %if.else56
           to label %invoke.cont65 unwind label %lpad64
 
 invoke.cont65:                                    ; preds = %if.then60
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %rs67, ptr noundef nonnull align 8 dereferenceable(40) %rhs, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %rs67, ptr noundef nonnull align 8 dereferenceable(40) %rhs, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
           to label %invoke.cont68 unwind label %lpad64
 
 invoke.cont68:                                    ; preds = %invoke.cont65
@@ -41930,7 +41925,7 @@ for.body76:                                       ; preds = %_ZN4pugi4impl12_GLO
   %ri69.0.val = load i64, ptr %ri69.038, align 8
   %74 = getelementptr i8, ptr %ri69.038, i64 8
   %ri69.0.val73 = load ptr, ptr %74, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nonnull align 8 %ref.tmp81, i64 %ri69.0.val, ptr %ri69.0.val73, ptr noundef nonnull %73)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias align 8 %ref.tmp81, i64 %ri69.0.val, ptr %ri69.0.val73, ptr noundef nonnull %73)
           to label %invoke.cont84 unwind label %lpad83
 
 invoke.cont84:                                    ; preds = %for.body76
@@ -42112,7 +42107,7 @@ if.then106:                                       ; preds = %if.else102
   store ptr %105, ptr %cr107, align 8
   %_state.i232 = getelementptr inbounds i8, ptr %cr107, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_state.i232, ptr noundef nonnull align 8 dereferenceable(24) %105, i64 24, i1 false)
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %ls109, ptr noundef nonnull align 8 dereferenceable(40) %lhs, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %ls109, ptr noundef nonnull align 8 dereferenceable(40) %lhs, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
           to label %invoke.cont111 unwind label %lpad110
 
 invoke.cont111:                                   ; preds = %if.then106
@@ -42140,7 +42135,7 @@ for.body121:                                      ; preds = %_ZN4pugi4impl12_GLO
   %li114.0.val = load i64, ptr %li114.033, align 8
   %109 = getelementptr i8, ptr %li114.033, i64 8
   %li114.0.val74 = load ptr, ptr %109, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nonnull align 8 %ref.tmp126, i64 %li114.0.val, ptr %li114.0.val74, ptr noundef nonnull %108)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias align 8 %ref.tmp126, i64 %li114.0.val, ptr %li114.0.val74, ptr noundef nonnull %108)
           to label %invoke.cont129 unwind label %lpad128
 
 invoke.cont129:                                   ; preds = %for.body121
@@ -42364,7 +42359,7 @@ terminate.lpad:                                   ; preds = %while.body.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nocapture align 8 %agg.result, i64 %na.0.val, ptr readonly %na.8.val, ptr nocapture noundef %alloc) unnamed_addr #6 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nocapture nonnull align 8 %agg.result, i64 %na.0.val, ptr readonly %na.8.val, ptr nocapture noundef %alloc) unnamed_addr #6 {
 entry:
   %retval.i99 = alloca %"class.pugi::xml_node", align 8
   %retval.i94 = alloca %"class.pugi::xml_node", align 8
@@ -42888,7 +42883,7 @@ cond.end:                                         ; preds = %_ZNK4pugi8xml_node6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_112xpath_string9from_heapEPKcS4_PNS1_15xpath_allocatorE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %begin, ptr noundef %end, ptr nocapture noundef %alloc) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_112xpath_string9from_heapEPKcS4_PNS1_15xpath_allocatorE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %begin, ptr noundef %end, ptr nocapture noundef %alloc) unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp eq ptr %begin, %end
   br i1 %cmp, label %return, label %if.end
@@ -42963,7 +42958,7 @@ return:                                           ; preds = %if.then10.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_124convert_number_to_stringEdPNS1_15xpath_allocatorE(ptr noalias nocapture writeonly align 8 %agg.result, double noundef %value, ptr nocapture noundef %alloc) unnamed_addr #6 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_124convert_number_to_stringEdPNS1_15xpath_allocatorE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, double noundef %value, ptr nocapture noundef %alloc) unnamed_addr #6 {
 entry:
   %v.i = alloca double, align 8
   %mantissa_buffer = alloca [32 x i8], align 16
@@ -43837,7 +43832,7 @@ if.end37:                                         ; preds = %_ZN4pugi4impl12_GLO
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %ns, i64 noundef %first, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i1 noundef zeroext %once) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %ns, i64 noundef range(i64 -576460752303423488, 576460752303423488) %first, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i1 noundef zeroext %once) unnamed_addr #6 align 2 {
 entry:
   %c.i24 = alloca %"struct.pugi::impl::(anonymous namespace)::xpath_context", align 8
   %c.i12 = alloca %"struct.pugi::impl::(anonymous namespace)::xpath_context", align 8
@@ -44035,7 +44030,7 @@ if.end16:                                         ; preds = %_ZN4pugi4impl12_GLO
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE0EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE0EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %s = alloca %"class.pugi::impl::(anonymous namespace)::xpath_node_set_raw", align 8
   %_right = getelementptr inbounds i8, ptr %this, i64 16
@@ -44070,7 +44065,7 @@ lor.end:                                          ; preds = %land.lhs.true, %lan
   br i1 %tobool8.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %lor.end
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
   %5 = getelementptr inbounds i8, ptr %s, i64 8
   %s.val = load ptr, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %s, i64 16
@@ -44187,7 +44182,7 @@ if.end32:                                         ; preds = %if.then31, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE1EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE1EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %s = alloca %"class.pugi::impl::(anonymous namespace)::xpath_node_set_raw", align 8
   %_right = getelementptr inbounds i8, ptr %this, i64 16
@@ -44222,7 +44217,7 @@ lor.end:                                          ; preds = %land.lhs.true, %lan
   br i1 %tobool8.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %lor.end
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
   %5 = getelementptr inbounds i8, ptr %s, i64 8
   %s.val = load ptr, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %s, i64 16
@@ -44339,7 +44334,7 @@ if.end32:                                         ; preds = %if.then31, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE2EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE2EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %retval.i2.i15 = alloca %"class.pugi::xml_node", align 8
   %retval.i.i16 = alloca %"class.pugi::xml_node", align 8
@@ -44384,7 +44379,7 @@ lor.end:                                          ; preds = %land.lhs.true, %lan
   br i1 %tobool11.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %lor.end
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
   %6 = getelementptr inbounds i8, ptr %s, i64 8
   %s.val = load ptr, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %s, i64 16
@@ -44638,7 +44633,7 @@ if.end31:                                         ; preds = %for.inc, %for.body.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE3EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE3EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %retval.i2.i15 = alloca %"class.pugi::xml_node", align 8
   %retval.i.i16 = alloca %"class.pugi::xml_node", align 8
@@ -44677,7 +44672,7 @@ lor.end:                                          ; preds = %land.lhs.true, %lan
   br i1 %tobool8.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %lor.end
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
   %5 = getelementptr inbounds i8, ptr %s, i64 8
   %s.val = load ptr, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %s, i64 16
@@ -44931,7 +44926,7 @@ if.end28:                                         ; preds = %for.inc, %for.body.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE4EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE4EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %s = alloca %"class.pugi::impl::(anonymous namespace)::xpath_node_set_raw", align 8
   %_right = getelementptr inbounds i8, ptr %this, i64 16
@@ -44966,7 +44961,7 @@ lor.end:                                          ; preds = %land.lhs.true, %lan
   br i1 %tobool8.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %lor.end
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
   %5 = getelementptr inbounds i8, ptr %s, i64 8
   %s.val = load ptr, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %s, i64 16
@@ -45083,7 +45078,7 @@ if.end32:                                         ; preds = %if.then31, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE5EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE5EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %s = alloca %"class.pugi::impl::(anonymous namespace)::xpath_node_set_raw", align 8
   %_right = getelementptr inbounds i8, ptr %this, i64 16
@@ -45118,7 +45113,7 @@ lor.end:                                          ; preds = %land.lhs.true, %lan
   br i1 %tobool8.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %lor.end
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
   %5 = getelementptr inbounds i8, ptr %s, i64 8
   %s.val = load ptr, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %s, i64 16
@@ -45235,7 +45230,7 @@ if.end32:                                         ; preds = %if.then31, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE6EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE6EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %s = alloca %"class.pugi::impl::(anonymous namespace)::xpath_node_set_raw", align 8
   %_right = getelementptr inbounds i8, ptr %this, i64 16
@@ -45270,7 +45265,7 @@ lor.end:                                          ; preds = %land.lhs.true, %lan
   br i1 %tobool8.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %lor.end
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
   %5 = getelementptr inbounds i8, ptr %s, i64 8
   %s.val = load ptr, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %s, i64 16
@@ -45387,7 +45382,7 @@ if.end32:                                         ; preds = %if.then31, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE7EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE7EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %retval.i2.i17 = alloca %"class.pugi::xml_node", align 8
   %retval.i.i18 = alloca %"class.pugi::xml_node", align 8
@@ -45426,7 +45421,7 @@ lor.end:                                          ; preds = %land.lhs.true, %lan
   br i1 %tobool8.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %lor.end
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
   %5 = getelementptr inbounds i8, ptr %s, i64 8
   %s.val = load ptr, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %s, i64 16
@@ -45691,7 +45686,7 @@ if.end32:                                         ; preds = %if.then31, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE9EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE9EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %retval.i12.i17 = alloca %"class.pugi::xml_node", align 8
   %retval.i.i18 = alloca %"class.pugi::xml_node", align 8
@@ -45708,7 +45703,7 @@ entry:
   br i1 %tobool8.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
   %1 = getelementptr inbounds i8, ptr %s, i64 8
   %s.val = load ptr, ptr %1, align 8
   %2 = getelementptr inbounds i8, ptr %s, i64 16
@@ -45951,7 +45946,7 @@ if.end32:                                         ; preds = %if.then31, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE10EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE10EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %retval.i9.i17 = alloca %"class.pugi::xml_node", align 8
   %retval.i.i18 = alloca %"class.pugi::xml_node", align 8
@@ -45990,7 +45985,7 @@ lor.end:                                          ; preds = %land.lhs.true, %lan
   br i1 %tobool8.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %lor.end
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
   %5 = getelementptr inbounds i8, ptr %s, i64 8
   %s.val = load ptr, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %s, i64 16
@@ -46219,7 +46214,7 @@ if.end32:                                         ; preds = %if.then31, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE11EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE11EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %retval.i2.i17 = alloca %"class.pugi::xml_node", align 8
   %retval.i.i18 = alloca %"class.pugi::xml_node", align 8
@@ -46258,7 +46253,7 @@ lor.end:                                          ; preds = %land.lhs.true, %lan
   br i1 %tobool8.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %lor.end
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
   %5 = getelementptr inbounds i8, ptr %s, i64 8
   %s.val = load ptr, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %s, i64 16
@@ -46535,7 +46530,7 @@ if.end32:                                         ; preds = %if.then31, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE12EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE12EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %s = alloca %"class.pugi::impl::(anonymous namespace)::xpath_node_set_raw", align 8
   %_right = getelementptr inbounds i8, ptr %this, i64 16
@@ -46548,7 +46543,7 @@ entry:
   br i1 %tobool8.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias align 8 %s, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack, i32 noundef 0)
   %s.val13 = load i32, ptr %s, align 8
   store i32 %s.val13, ptr %agg.result, align 8
   %1 = getelementptr inbounds i8, ptr %s, i64 8

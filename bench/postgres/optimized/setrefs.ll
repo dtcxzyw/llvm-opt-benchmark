@@ -645,7 +645,7 @@ define internal fastcc ptr @set_plan_refs(ptr noundef %0, ptr noundef %1, i32 no
   br label %set_param_references.exit
 
 86:                                               ; preds = %17
-  %87 = tail call fastcc ptr @set_indexonlyscan_references(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  %87 = tail call fastcc ptr @set_indexonlyscan_references(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
   br label %918
 
 88:                                               ; preds = %17
@@ -738,7 +738,7 @@ define internal fastcc ptr @set_plan_refs(ptr noundef %0, ptr noundef %1, i32 no
   br label %set_param_references.exit
 
 154:                                              ; preds = %17
-  %155 = tail call fastcc ptr @set_subqueryscan_references(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  %155 = tail call fastcc ptr @set_subqueryscan_references(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
   br label %918
 
 156:                                              ; preds = %17
@@ -868,11 +868,11 @@ define internal fastcc ptr @set_plan_refs(ptr noundef %0, ptr noundef %1, i32 no
   br label %set_param_references.exit
 
 249:                                              ; preds = %17
-  tail call fastcc void @set_foreignscan_references(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @set_foreignscan_references(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
   br label %set_param_references.exit
 
 250:                                              ; preds = %17
-  tail call fastcc void @set_customscan_references(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @set_customscan_references(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
   br label %set_param_references.exit
 
 251:                                              ; preds = %17, %17, %17
@@ -1277,7 +1277,7 @@ set_join_references.exit:                         ; preds = %378, %build_tlist_i
   br label %set_param_references.exit
 
 459:                                              ; preds = %17, %17
-  tail call fastcc void @set_upper_references(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @set_upper_references(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
   %460 = getelementptr inbounds i8, ptr %1, i64 64
   %461 = load ptr, ptr %460, align 8
   %462 = getelementptr inbounds i8, ptr %461, i64 88
@@ -1364,11 +1364,11 @@ set_join_references.exit:                         ; preds = %378, %build_tlist_i
   br label %set_param_references.exit
 
 499:                                              ; preds = %17
-  tail call fastcc void @set_hash_references(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @set_hash_references(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
   br label %set_param_references.exit
 
 500:                                              ; preds = %17
-  tail call fastcc void @set_dummy_tlist_references(ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @set_dummy_tlist_references(ptr noundef %1, i32 noundef %2)
   %501 = getelementptr inbounds i8, ptr %1, i64 128
   %502 = load ptr, ptr %501, align 8
   %503 = getelementptr inbounds i8, ptr %1, i64 24
@@ -1378,11 +1378,11 @@ set_join_references.exit:                         ; preds = %378, %build_tlist_i
   br label %set_param_references.exit
 
 506:                                              ; preds = %17, %17, %17, %17, %17
-  tail call fastcc void @set_dummy_tlist_references(ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @set_dummy_tlist_references(ptr noundef %1, i32 noundef %2)
   br label %set_param_references.exit
 
 507:                                              ; preds = %17
-  tail call fastcc void @set_dummy_tlist_references(ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @set_dummy_tlist_references(ptr noundef %1, i32 noundef %2)
   %508 = getelementptr inbounds i8, ptr %1, i64 104
   %509 = load ptr, ptr %508, align 8
   %510 = getelementptr inbounds i8, ptr %509, i64 4
@@ -1415,7 +1415,7 @@ set_join_references.exit:                         ; preds = %378, %build_tlist_i
   br i1 %525, label %.lr.ph657, label %set_param_references.exit
 
 526:                                              ; preds = %17
-  tail call fastcc void @set_dummy_tlist_references(ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @set_dummy_tlist_references(ptr noundef %1, i32 noundef %2)
   %527 = getelementptr inbounds i8, ptr %1, i64 104
   %528 = load ptr, ptr %527, align 8
   %529 = tail call fastcc ptr @fix_scan_expr(ptr noundef nonnull %0, ptr noundef %528, i32 noundef %2, double noundef 1.000000e+00)
@@ -1445,11 +1445,11 @@ set_join_references.exit:                         ; preds = %378, %build_tlist_i
   br label %544
 
 544:                                              ; preds = %537, %533
-  tail call fastcc void @set_upper_references(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @set_upper_references(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
   br label %set_param_references.exit
 
 545:                                              ; preds = %17
-  tail call fastcc void @set_upper_references(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @set_upper_references(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
   br label %set_param_references.exit
 
 546:                                              ; preds = %17
@@ -1459,7 +1459,7 @@ set_join_references.exit:                         ; preds = %378, %build_tlist_i
   %.val572 = load ptr, ptr %549, align 8
   %550 = tail call fastcc ptr @set_windowagg_runcondition_references(ptr noundef nonnull %0, ptr noundef %548, ptr %.val572)
   store ptr %550, ptr %547, align 8
-  tail call fastcc void @set_upper_references(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @set_upper_references(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
   %551 = getelementptr inbounds i8, ptr %1, i64 176
   %552 = load ptr, ptr %551, align 8
   %553 = tail call fastcc ptr @fix_scan_expr(ptr noundef nonnull %0, ptr noundef %552, i32 noundef %2, double noundef 1.000000e+00)
@@ -1487,7 +1487,7 @@ set_join_references.exit:                         ; preds = %378, %build_tlist_i
   br i1 %.not564, label %569, label %568
 
 568:                                              ; preds = %565
-  tail call fastcc void @set_upper_references(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @set_upper_references(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
   br label %610
 
 569:                                              ; preds = %565
@@ -1570,7 +1570,7 @@ set_join_references.exit:                         ; preds = %378, %build_tlist_i
   br label %set_param_references.exit
 
 614:                                              ; preds = %17
-  tail call fastcc void @set_upper_references(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @set_upper_references(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
   br label %set_param_references.exit
 
 615:                                              ; preds = %17
@@ -2040,15 +2040,15 @@ set_returning_clause_references.exit:             ; preds = %.thread43.i.i, %lis
   br label %set_param_references.exit
 
 875:                                              ; preds = %17
-  %876 = tail call fastcc ptr @set_append_references(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  %876 = tail call fastcc ptr @set_append_references(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
   br label %918
 
 877:                                              ; preds = %17
-  %878 = tail call fastcc ptr @set_mergeappend_references(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
+  %878 = tail call fastcc ptr @set_mergeappend_references(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
   br label %918
 
 879:                                              ; preds = %17
-  tail call fastcc void @set_dummy_tlist_references(ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @set_dummy_tlist_references(ptr noundef %1, i32 noundef %2)
   br label %set_param_references.exit
 
 880:                                              ; preds = %17
@@ -2557,7 +2557,7 @@ tailrecurse:                                      ; preds = %10
   br label %.loopexit
 
 63:                                               ; preds = %.lr.ph
-  tail call fastcc void @fix_expr_common(ptr noundef %1, ptr noundef nonnull %.tr63)
+  tail call fastcc void @fix_expr_common(ptr noundef %1, ptr noundef %.tr63)
   %64 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %.tr63, ptr noundef nonnull @extract_query_dependencies_walker, ptr noundef %1) #8
   br label %.loopexit
 
@@ -2576,7 +2576,7 @@ declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare zeroext i1 @query_tree_walker_impl(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fix_expr_common(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @fix_expr_common(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 4
   switch i32 %3, label %record_plan_function_dependency.exit [
     i32 9, label %4
@@ -3076,7 +3076,7 @@ define internal fastcc ptr @fix_scan_expr(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @set_indexonlyscan_references(ptr noundef %0, ptr noundef returned %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @set_indexonlyscan_references(ptr noundef %0, ptr noundef nonnull returned %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.fix_scan_expr_context, align 8
   %5 = alloca %struct.fix_scan_expr_context, align 8
   %6 = alloca %struct.fix_scan_expr_context, align 8
@@ -3443,7 +3443,7 @@ fix_scan_expr.exit58:                             ; preds = %182, %185
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @set_subqueryscan_references(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @set_subqueryscan_references(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.fix_scan_expr_context, align 8
   %5 = alloca %struct.fix_scan_expr_context, align 8
   %6 = alloca double, align 8
@@ -3457,7 +3457,7 @@ define internal fastcc ptr @set_subqueryscan_references(ptr noundef %0, ptr noun
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @set_plan_references(ptr noundef %12, ptr noundef %14)
   store ptr %15, ptr %13, align 8
-  %16 = tail call zeroext i1 @trivial_subqueryscan(ptr noundef %1)
+  %16 = tail call zeroext i1 @trivial_subqueryscan(ptr noundef nonnull %1)
   br i1 %16, label %17, label %42
 
 17:                                               ; preds = %3
@@ -3620,7 +3620,7 @@ fix_scan_expr.exit27:                             ; preds = %91, %93
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_foreignscan_references(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_foreignscan_references(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.fix_scan_expr_context, align 8
   %5 = alloca %struct.fix_scan_expr_context, align 8
   %6 = alloca %struct.fix_scan_expr_context, align 8
@@ -4140,7 +4140,7 @@ offset_relid_set.exit96:                          ; preds = %.lr.ph.i94, %offset
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_customscan_references(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_customscan_references(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.fix_scan_expr_context, align 8
   %5 = alloca %struct.fix_scan_expr_context, align 8
   %6 = alloca %struct.fix_scan_expr_context, align 8
@@ -4580,7 +4580,7 @@ offset_relid_set.exit:                            ; preds = %.lr.ph.i79, %._crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_upper_references(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_upper_references(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.fix_upper_expr_context, align 8
   %5 = alloca %struct.fix_upper_expr_context, align 8
   %6 = alloca %struct.fix_upper_expr_context, align 8
@@ -4834,7 +4834,7 @@ search_indexed_tlist_for_sortgroupref.exit:       ; preds = %93
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_hash_references(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_hash_references(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.fix_upper_expr_context, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 64
   %6 = load ptr, ptr %5, align 8
@@ -4956,7 +4956,7 @@ build_tlist_index.exit:                           ; preds = %45, %list_length.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_dummy_tlist_references(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @set_dummy_tlist_references(ptr nocapture noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 4
@@ -5294,7 +5294,7 @@ declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @lappend_int(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @set_append_references(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @set_append_references(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca double, align 8
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds i8, ptr %1, i64 112
@@ -5394,7 +5394,7 @@ clean_up_removed_plan_level.exit:                 ; preds = %33, %48
   br label %.thread56
 
 list_length.exit.thread:                          ; preds = %3, %._crit_edge, %23, %list_length.exit
-  tail call fastcc void @set_dummy_tlist_references(ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @set_dummy_tlist_references(ptr noundef %1, i32 noundef %2)
   %57 = getelementptr inbounds i8, ptr %1, i64 104
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq i32 %2, 0
@@ -5483,7 +5483,7 @@ offset_relid_set.exit:                            ; preds = %.lr.ph.i, %list_len
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @set_mergeappend_references(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @set_mergeappend_references(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca double, align 8
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds i8, ptr %1, i64 112
@@ -5583,7 +5583,7 @@ clean_up_removed_plan_level.exit:                 ; preds = %33, %48
   br label %.thread56
 
 list_length.exit.thread:                          ; preds = %3, %._crit_edge, %23, %list_length.exit
-  tail call fastcc void @set_dummy_tlist_references(ptr noundef nonnull %1, i32 noundef %2)
+  tail call fastcc void @set_dummy_tlist_references(ptr noundef %1, i32 noundef %2)
   %57 = getelementptr inbounds i8, ptr %1, i64 104
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq i32 %2, 0
@@ -5726,7 +5726,7 @@ define internal ptr @fix_scan_expr_mutator(ptr noundef %0, ptr noundef %1) #0 {
 
 23:                                               ; preds = %5
   %24 = load ptr, ptr %1, align 8
-  %25 = tail call fastcc ptr @fix_param_node(ptr noundef %24, ptr noundef nonnull %.tr60)
+  %25 = tail call fastcc ptr @fix_param_node(ptr noundef %24, ptr noundef %.tr60)
   br label %.loopexit
 
 26:                                               ; preds = %5
@@ -5891,7 +5891,7 @@ fix_alternative_subplan.exit:                     ; preds = %.lr.ph12.i
 
 114:                                              ; preds = %67
   %115 = load ptr, ptr %1, align 8
-  tail call fastcc void @fix_expr_common(ptr noundef %115, ptr noundef nonnull %.tr60)
+  tail call fastcc void @fix_expr_common(ptr noundef %115, ptr noundef %.tr60)
   %116 = tail call ptr @expression_tree_mutator_impl(ptr noundef nonnull %.tr60, ptr noundef nonnull @fix_scan_expr_mutator, ptr noundef nonnull %1) #8
   br label %.loopexit
 
@@ -5907,7 +5907,7 @@ define internal zeroext i1 @fix_scan_expr_walker(ptr noundef %0, ptr noundef %1)
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %1, align 8
-  tail call fastcc void @fix_expr_common(ptr noundef %5, ptr noundef nonnull %0)
+  tail call fastcc void @fix_expr_common(ptr noundef %5, ptr noundef %0)
   %6 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @fix_scan_expr_walker, ptr noundef nonnull %1) #8
   br label %7
 
@@ -5917,7 +5917,7 @@ define internal zeroext i1 @fix_scan_expr_walker(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @fix_param_node(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @fix_param_node(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 3
@@ -6027,7 +6027,7 @@ define internal ptr @fix_upper_expr_mutator(ptr noundef %0, ptr noundef %1) #0 {
   %13 = getelementptr inbounds i8, ptr %1, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %6, align 8
-  %16 = tail call fastcc ptr @search_indexed_tlist_for_var(ptr noundef nonnull %.tr78, ptr noundef %10, i32 noundef %12, i32 noundef %14, i32 noundef %15)
+  %16 = tail call fastcc ptr @search_indexed_tlist_for_var(ptr noundef %.tr78, ptr noundef %10, i32 noundef %12, i32 noundef %14, i32 noundef %15)
   %.not55 = icmp eq ptr %16, null
   br i1 %.not55, label %17, label %.loopexit
 
@@ -6048,7 +6048,7 @@ define internal ptr @fix_upper_expr_mutator(ptr noundef %0, ptr noundef %1) #0 {
   %25 = load i32, ptr %5, align 8
   %26 = load i32, ptr %6, align 8
   %.val56 = load ptr, ptr %10, align 8
-  %27 = tail call fastcc ptr @search_indexed_tlist_for_phv(ptr noundef nonnull %.tr78, ptr %.val56, i32 noundef %25, i32 noundef %26)
+  %27 = tail call fastcc ptr @search_indexed_tlist_for_phv(ptr noundef %.tr78, ptr %.val56, i32 noundef %25, i32 noundef %26)
   %.not54 = icmp eq ptr %27, null
   br i1 %.not54, label %28, label %.loopexit
 
@@ -6100,7 +6100,7 @@ search_indexed_tlist_for_non_var.exit.thread:     ; preds = %.search_indexed_tli
 
 46:                                               ; preds = %search_indexed_tlist_for_non_var.exit.thread
   %47 = load ptr, ptr %1, align 8
-  %48 = tail call fastcc ptr @fix_param_node(ptr noundef %47, ptr noundef nonnull %.tr78)
+  %48 = tail call fastcc ptr @fix_param_node(ptr noundef %47, ptr noundef %.tr78)
   br label %.loopexit
 
 49:                                               ; preds = %search_indexed_tlist_for_non_var.exit.thread
@@ -6242,7 +6242,7 @@ fix_alternative_subplan.exit:                     ; preds = %.lr.ph12.i
 
 .thread:                                          ; preds = %36, %90
   %127 = load ptr, ptr %1, align 8
-  tail call fastcc void @fix_expr_common(ptr noundef %127, ptr noundef nonnull %.tr78)
+  tail call fastcc void @fix_expr_common(ptr noundef %127, ptr noundef %.tr78)
   %128 = tail call ptr @expression_tree_mutator_impl(ptr noundef nonnull %.tr78, ptr noundef nonnull @fix_upper_expr_mutator, ptr noundef nonnull %1) #8
   br label %.loopexit
 
@@ -6252,7 +6252,7 @@ fix_alternative_subplan.exit:                     ; preds = %.lr.ph12.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @search_indexed_tlist_for_var(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @search_indexed_tlist_for_var(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6354,7 +6354,7 @@ define internal fastcc noundef ptr @search_indexed_tlist_for_var(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @search_indexed_tlist_for_phv(ptr nocapture noundef readonly %0, ptr readonly %.0.val, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @search_indexed_tlist_for_phv(ptr nocapture noundef nonnull readonly %0, ptr readonly %.0.val, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %.0.val, null
   br i1 %.not, label %.thread, label %.lr.ph
 
@@ -6565,7 +6565,7 @@ define internal ptr @fix_join_expr_mutator(ptr noundef %0, ptr noundef %1) #0 {
   %13 = getelementptr inbounds i8, ptr %1, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %5, align 8
-  %16 = tail call fastcc ptr @search_indexed_tlist_for_var(ptr noundef nonnull %.tr116, ptr noundef nonnull %10, i32 noundef -2, i32 noundef %14, i32 noundef %15)
+  %16 = tail call fastcc ptr @search_indexed_tlist_for_var(ptr noundef %.tr116, ptr noundef nonnull %10, i32 noundef -2, i32 noundef %14, i32 noundef %15)
   %.not93 = icmp eq ptr %16, null
   br i1 %.not93, label %17, label %.loopexit
 
@@ -6578,7 +6578,7 @@ define internal ptr @fix_join_expr_mutator(ptr noundef %0, ptr noundef %1) #0 {
   %20 = getelementptr inbounds i8, ptr %1, i64 28
   %21 = load i32, ptr %20, align 4
   %22 = load i32, ptr %5, align 8
-  %23 = tail call fastcc ptr @search_indexed_tlist_for_var(ptr noundef nonnull %.tr116, ptr noundef nonnull %18, i32 noundef -1, i32 noundef %21, i32 noundef %22)
+  %23 = tail call fastcc ptr @search_indexed_tlist_for_var(ptr noundef %.tr116, ptr noundef nonnull %18, i32 noundef -1, i32 noundef %21, i32 noundef %22)
   %.not95 = icmp eq ptr %23, null
   br i1 %.not95, label %24, label %.loopexit
 
@@ -6629,7 +6629,7 @@ define internal ptr @fix_join_expr_mutator(ptr noundef %0, ptr noundef %1) #0 {
 50:                                               ; preds = %46
   %51 = load i32, ptr %5, align 8
   %.val98 = load ptr, ptr %10, align 8
-  %52 = tail call fastcc ptr @search_indexed_tlist_for_phv(ptr noundef nonnull %.tr116, ptr %.val98, i32 noundef -2, i32 noundef %51)
+  %52 = tail call fastcc ptr @search_indexed_tlist_for_phv(ptr noundef %.tr116, ptr %.val98, i32 noundef -2, i32 noundef %51)
   %.not89 = icmp eq ptr %52, null
   br i1 %.not89, label %53, label %.loopexit
 
@@ -6647,7 +6647,7 @@ define internal ptr @fix_join_expr_mutator(ptr noundef %0, ptr noundef %1) #0 {
 59:                                               ; preds = %55
   %60 = load i32, ptr %5, align 8
   %.val97 = load ptr, ptr %54, align 8
-  %61 = tail call fastcc ptr @search_indexed_tlist_for_phv(ptr noundef nonnull %.tr116, ptr %.val97, i32 noundef -1, i32 noundef %60)
+  %61 = tail call fastcc ptr @search_indexed_tlist_for_phv(ptr noundef %.tr116, ptr %.val97, i32 noundef -1, i32 noundef %60)
   %.not91 = icmp eq ptr %61, null
   br i1 %.not91, label %62, label %.loopexit
 
@@ -6725,7 +6725,7 @@ search_indexed_tlist_for_non_var.exit101.thread:  ; preds = %86, %79, %search_in
 
 92:                                               ; preds = %search_indexed_tlist_for_non_var.exit101.thread
   %93 = load ptr, ptr %1, align 8
-  %94 = tail call fastcc ptr @fix_param_node(ptr noundef %93, ptr noundef nonnull %.tr116)
+  %94 = tail call fastcc ptr @fix_param_node(ptr noundef %93, ptr noundef %.tr116)
   br label %.loopexit
 
 .lr.ph.i:                                         ; preds = %search_indexed_tlist_for_non_var.exit101.thread
@@ -6784,7 +6784,7 @@ fix_alternative_subplan.exit:                     ; preds = %.lr.ph12.i
 
 search_indexed_tlist_for_non_var.exit101.thread.thread: ; preds = %83, %search_indexed_tlist_for_non_var.exit101.thread
   %129 = load ptr, ptr %1, align 8
-  tail call fastcc void @fix_expr_common(ptr noundef %129, ptr noundef nonnull %.tr116)
+  tail call fastcc void @fix_expr_common(ptr noundef %129, ptr noundef %.tr116)
   %130 = tail call ptr @expression_tree_mutator_impl(ptr noundef nonnull %.tr116, ptr noundef nonnull @fix_join_expr_mutator, ptr noundef nonnull %1) #8
   br label %.loopexit
 

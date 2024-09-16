@@ -758,7 +758,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @Exp_And(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @Exp_And(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %6, align 4
   %7 = getelementptr i8, ptr %2, i64 4
@@ -2648,8 +2648,8 @@ Vec_IntGrow.exit.i289:                            ; preds = %675, %673
   br label %711
 
 711:                                              ; preds = %709, %710
-  call fastcc void @Vec_PtrFreeP(ptr noundef nonnull %4)
-  call fastcc void @Vec_IntFreeP(ptr noundef nonnull %5)
+  call fastcc void @Vec_PtrFreeP(ptr noundef %4)
+  call fastcc void @Vec_IntFreeP(ptr noundef %5)
   %712 = tail call fastcc ptr @Exp_Reverse(ptr noundef %703)
   br label %Vec_IntFreeP.exit300
 
@@ -2735,7 +2735,7 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_PtrFreeP(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc void @Vec_PtrFreeP(ptr nocapture noundef nonnull %0) unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %11, label %4
@@ -2766,7 +2766,7 @@ define internal fastcc void @Vec_PtrFreeP(ptr nocapture noundef %0) unnamed_addr
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_IntFreeP(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc void @Vec_IntFreeP(ptr nocapture noundef nonnull %0) unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %11, label %4

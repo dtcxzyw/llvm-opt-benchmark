@@ -847,7 +847,7 @@ invoke.cont.i.i102:                               ; preds = %while.cond.i.i4.i.i
   br label %invoke.cont82
 
 invoke.cont82:                                    ; preds = %invoke.cont.i.i102, %if.end80
-  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_115GenerateServiceEPKN14grpc_generator7ServiceEPNS1_7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %service, ptr noundef nonnull %3, ptr noundef nonnull %agg.tmp81)
+  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_115GenerateServiceEPKN14grpc_generator7ServiceEPNS1_7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %service, ptr noundef nonnull %3, ptr noundef %agg.tmp81)
           to label %invoke.cont84 unwind label %lpad83
 
 invoke.cont84:                                    ; preds = %invoke.cont82
@@ -1032,7 +1032,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_115GenerateServiceEPKN14grpc_generator7ServiceEPNS1_7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %service, ptr noundef %printer, ptr noundef %vars) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_115GenerateServiceEPKN14grpc_generator7ServiceEPNS1_7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %service, ptr noundef %printer, ptr noundef nonnull %vars) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i1277 = alloca %struct._Guard, align 8
   %__guard.i1267 = alloca %struct._Guard, align 8
@@ -1443,7 +1443,7 @@ invoke.cont.i.i:                                  ; preds = %while.cond.i.i4.i.i
   br label %invoke.cont36
 
 invoke.cont36:                                    ; preds = %invoke.cont.i.i, %for.body
-  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_129GenerateClientMethodSignatureEPKN14grpc_generator6MethodEPNS1_7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %10, ptr noundef nonnull %printer, ptr noundef nonnull %agg.tmp34)
+  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_129GenerateClientMethodSignatureEPKN14grpc_generator6MethodEPNS1_7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %10, ptr noundef nonnull %printer, ptr noundef %agg.tmp34)
           to label %invoke.cont38 unwind label %lpad37
 
 invoke.cont38:                                    ; preds = %invoke.cont36
@@ -2491,7 +2491,7 @@ invoke.cont.i.i.i:                                ; preds = %while.cond.i.i4.i.i
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit.i
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit.i: ; preds = %invoke.cont.i.i.i, %invoke.cont4.i
-  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_129GenerateClientMethodSignatureEPKN14grpc_generator6MethodEPNS1_7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %93, ptr noundef nonnull %printer, ptr noundef nonnull %agg.tmp.i)
+  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_129GenerateClientMethodSignatureEPKN14grpc_generator6MethodEPNS1_7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %93, ptr noundef nonnull %printer, ptr noundef %agg.tmp.i)
           to label %invoke.cont7.i unwind label %lpad6.i
 
 invoke.cont7.i:                                   ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit.i
@@ -3132,7 +3132,7 @@ invoke.cont.i.i226.i:                             ; preds = %while.cond.i.i4.i.i
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit228.i
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit228.i: ; preds = %invoke.cont.i.i226.i, %invoke.cont152.i
-  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_113GenerateErrorEPN14grpc_generator7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEb(ptr noundef nonnull %printer, ptr noundef nonnull %agg.tmp156.i, i1 noundef zeroext true)
+  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_113GenerateErrorEPN14grpc_generator7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEb(ptr noundef nonnull %printer, ptr noundef %agg.tmp156.i, i1 noundef zeroext true)
           to label %invoke.cont158.i unwind label %lpad157.i
 
 invoke.cont158.i:                                 ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit228.i
@@ -3620,7 +3620,7 @@ invoke.cont.i.i293.i:                             ; preds = %while.cond.i.i4.i.i
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit295.i
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit295.i: ; preds = %invoke.cont.i.i293.i, %invoke.cont210.i
-  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_113GenerateErrorEPN14grpc_generator7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEb(ptr noundef nonnull %printer, ptr noundef nonnull %agg.tmp214.i, i1 noundef zeroext true)
+  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_113GenerateErrorEPN14grpc_generator7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEb(ptr noundef nonnull %printer, ptr noundef %agg.tmp214.i, i1 noundef zeroext true)
           to label %invoke.cont216.i unwind label %lpad215.i
 
 invoke.cont216.i:                                 ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit295.i
@@ -3755,7 +3755,7 @@ invoke.cont.i.i327.i:                             ; preds = %while.cond.i.i4.i.i
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit329.i
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit329.i: ; preds = %invoke.cont.i.i327.i, %invoke.cont229.i
-  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_113GenerateErrorEPN14grpc_generator7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEb(ptr noundef nonnull %printer, ptr noundef nonnull %agg.tmp233.i, i1 noundef zeroext true)
+  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_113GenerateErrorEPN14grpc_generator7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEb(ptr noundef nonnull %printer, ptr noundef %agg.tmp233.i, i1 noundef zeroext true)
           to label %invoke.cont235.i unwind label %lpad234.i
 
 invoke.cont235.i:                                 ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit329.i
@@ -3863,7 +3863,7 @@ invoke.cont.i.i360.i:                             ; preds = %while.cond.i.i4.i.i
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit362.i
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit362.i: ; preds = %invoke.cont.i.i360.i, %invoke.cont244.i
-  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_113GenerateErrorEPN14grpc_generator7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEb(ptr noundef nonnull %printer, ptr noundef nonnull %agg.tmp248.i, i1 noundef zeroext true)
+  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_113GenerateErrorEPN14grpc_generator7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEb(ptr noundef nonnull %printer, ptr noundef %agg.tmp248.i, i1 noundef zeroext true)
           to label %invoke.cont250.i unwind label %lpad249.i
 
 invoke.cont250.i:                                 ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit362.i
@@ -4369,7 +4369,7 @@ invoke.cont.i.i417.i:                             ; preds = %while.cond.i.i4.i.i
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit419.i
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit419.i: ; preds = %invoke.cont.i.i417.i, %invoke.cont334.i
-  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_113GenerateErrorEPN14grpc_generator7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEb(ptr noundef nonnull %printer, ptr noundef nonnull %agg.tmp338.i, i1 noundef zeroext true)
+  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_113GenerateErrorEPN14grpc_generator7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEb(ptr noundef nonnull %printer, ptr noundef %agg.tmp338.i, i1 noundef zeroext true)
           to label %invoke.cont340.i unwind label %lpad339.i
 
 invoke.cont340.i:                                 ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit419.i
@@ -4537,7 +4537,7 @@ invoke.cont.i.i450.i:                             ; preds = %while.cond.i.i4.i.i
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit452.i
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit452.i: ; preds = %invoke.cont.i.i450.i, %invoke.cont362.i
-  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_113GenerateErrorEPN14grpc_generator7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEb(ptr noundef nonnull %printer, ptr noundef nonnull %agg.tmp366.i, i1 noundef zeroext true)
+  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_113GenerateErrorEPN14grpc_generator7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEb(ptr noundef nonnull %printer, ptr noundef %agg.tmp366.i, i1 noundef zeroext true)
           to label %invoke.cont368.i unwind label %lpad367.i
 
 invoke.cont368.i:                                 ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit452.i
@@ -4652,7 +4652,7 @@ invoke.cont.i.i483.i:                             ; preds = %while.cond.i.i4.i.i
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit485.i
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit485.i: ; preds = %invoke.cont.i.i483.i, %invoke.cont379.i
-  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_113GenerateErrorEPN14grpc_generator7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEb(ptr noundef nonnull %printer, ptr noundef nonnull %agg.tmp383.i, i1 noundef zeroext true)
+  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_113GenerateErrorEPN14grpc_generator7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEb(ptr noundef nonnull %printer, ptr noundef %agg.tmp383.i, i1 noundef zeroext true)
           to label %invoke.cont385.i unwind label %lpad384.i
 
 invoke.cont385.i:                                 ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit485.i
@@ -4956,7 +4956,7 @@ invoke.cont.i.i467:                               ; preds = %while.cond.i.i4.i.i
   br label %invoke.cont242
 
 invoke.cont242:                                   ; preds = %invoke.cont.i.i467, %for.body235
-  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_129GenerateServerMethodSignatureEPKN14grpc_generator6MethodEPNS1_7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %337, ptr noundef nonnull %printer, ptr noundef nonnull %agg.tmp240)
+  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_129GenerateServerMethodSignatureEPKN14grpc_generator6MethodEPNS1_7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %337, ptr noundef nonnull %printer, ptr noundef %agg.tmp240)
           to label %invoke.cont244 unwind label %lpad243
 
 invoke.cont244:                                   ; preds = %invoke.cont242
@@ -5251,7 +5251,7 @@ invoke.cont.i.i544:                               ; preds = %while.cond.i.i4.i.i
   br label %invoke.cont323
 
 invoke.cont323:                                   ; preds = %invoke.cont.i.i544, %invoke.cont320
-  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_129GenerateServerMethodSignatureEPKN14grpc_generator6MethodEPNS1_7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %371, ptr noundef nonnull %printer, ptr noundef nonnull %agg.tmp322)
+  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_129GenerateServerMethodSignatureEPKN14grpc_generator6MethodEPNS1_7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %371, ptr noundef nonnull %printer, ptr noundef %agg.tmp322)
           to label %invoke.cont325 unwind label %lpad324
 
 invoke.cont325:                                   ; preds = %invoke.cont323
@@ -6376,7 +6376,7 @@ invoke.cont.i.i.i675:                             ; preds = %while.cond.i.i4.i.i
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit.i677
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit.i677: ; preds = %invoke.cont.i.i.i675, %invoke.cont177.i
-  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_113GenerateErrorEPN14grpc_generator7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEb(ptr noundef nonnull %printer, ptr noundef nonnull %agg.tmp181.i, i1 noundef zeroext true)
+  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_113GenerateErrorEPN14grpc_generator7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEb(ptr noundef nonnull %printer, ptr noundef %agg.tmp181.i, i1 noundef zeroext true)
           to label %invoke.cont183.i unwind label %lpad182.i
 
 invoke.cont183.i:                                 ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit.i677
@@ -7087,7 +7087,7 @@ invoke.cont.i.i310.i:                             ; preds = %while.cond.i.i4.i.i
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit312.i
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit312.i: ; preds = %invoke.cont.i.i310.i, %invoke.cont279.i
-  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_113GenerateErrorEPN14grpc_generator7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEb(ptr noundef %printer, ptr noundef nonnull %agg.tmp283.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_113GenerateErrorEPN14grpc_generator7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEb(ptr noundef %printer, ptr noundef %agg.tmp283.i, i1 noundef zeroext false)
           to label %invoke.cont285.i unwind label %lpad284.i
 
 invoke.cont285.i:                                 ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit312.i
@@ -7550,7 +7550,7 @@ invoke.cont.i.i367.i:                             ; preds = %while.cond.i.i4.i.i
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit369.i
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit369.i: ; preds = %invoke.cont.i.i367.i, %invoke.cont371.i
-  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_113GenerateErrorEPN14grpc_generator7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEb(ptr noundef nonnull %printer, ptr noundef nonnull %agg.tmp375.i, i1 noundef zeroext true)
+  invoke fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_113GenerateErrorEPN14grpc_generator7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEb(ptr noundef nonnull %printer, ptr noundef %agg.tmp375.i, i1 noundef zeroext true)
           to label %invoke.cont377.i648 unwind label %lpad376.i647
 
 invoke.cont377.i648:                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2ERKSC_.exit369.i
@@ -8844,7 +8844,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_129GenerateClientMethodSignatureEPKN14grpc_generator6MethodEPNS1_7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %method, ptr noundef %printer, ptr noundef %vars) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_129GenerateClientMethodSignatureEPKN14grpc_generator6MethodEPNS1_7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %method, ptr noundef %printer, ptr noundef nonnull %vars) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9513,7 +9513,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_129GenerateServerMethodSignatureEPKN14grpc_generator6MethodEPNS1_7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %method, ptr noundef %printer, ptr noundef %vars) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_129GenerateServerMethodSignatureEPKN14grpc_generator6MethodEPNS1_7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef %method, ptr noundef %printer, ptr noundef nonnull %vars) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9901,7 +9901,7 @@ declare void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strE
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_113GenerateErrorEPN14grpc_generator7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEb(ptr noundef %printer, ptr noundef %vars, i1 noundef zeroext %multiple_return) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN17grpc_go_generator12_GLOBAL__N_113GenerateErrorEPN14grpc_generator7PrinterESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEb(ptr noundef %printer, ptr noundef nonnull %vars, i1 noundef zeroext %multiple_return) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1

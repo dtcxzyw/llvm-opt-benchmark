@@ -10825,7 +10825,7 @@ while.body.i.i.i:                                 ; preds = %_ZN3opt13weighted_c
   store i8 %bf.set13.i12.i.i.i37.i.i.i, ptr %m_kind.i2.i.i.i27.i.i.i, align 4
   store ptr %4, ptr %m_ptr.i13.i.i.i38.i.i.i, align 8
   store ptr null, ptr %m_ptr.i13.i.i.i.i.i.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIPN3opt13weighted_coreElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_5cores14disjoint_coresEvE3$_0EEEvT_T0_SA_T1_T2_"(ptr noundef nonnull %__first, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.i.i98, ptr noundef nonnull %agg.tmp.i.i.i)
+  call fastcc void @"_ZSt13__adjust_heapIPN3opt13weighted_coreElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_5cores14disjoint_coresEvE3$_0EEEvT_T0_SA_T1_T2_"(ptr noundef nonnull %__first, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.i.i98, ptr noundef %agg.tmp.i.i.i)
   %5 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %m_weight.i10.i.i.i)
           to label %.noexc.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
@@ -10954,7 +10954,7 @@ while.body.i.i:                                   ; preds = %"_ZSt11__make_heapI
   store i8 %22, ptr %m_kind.i2.i.i.i21.i, align 4
   store ptr %23, ptr %m_ptr.i13.i.i.i32.i, align 8
   store ptr null, ptr %m_ptr.i13.i.i.i.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIPN3opt13weighted_coreElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_5cores14disjoint_coresEvE3$_0EEEvT_T0_SA_T1_T2_"(ptr noundef nonnull %__first, i64 noundef 0, i64 noundef %sub.ptr.div.i, ptr noundef nonnull %agg.tmp.i)
+  call fastcc void @"_ZSt13__adjust_heapIPN3opt13weighted_coreElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_5cores14disjoint_coresEvE3$_0EEEvT_T0_SA_T1_T2_"(ptr noundef nonnull %__first, i64 noundef 0, i64 noundef %sub.ptr.div.i, ptr noundef %agg.tmp.i)
   %24 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(16) %m_weight.i4.i)
           to label %.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -11446,7 +11446,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPN3opt13weighted_coreElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_5cores14disjoint_coresEvE3$_0EEEvT_T0_SA_T1_T2_"(ptr noundef %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef %__value) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIPN3opt13weighted_coreElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_5cores14disjoint_coresEvE3$_0EEEvT_T0_SA_T1_T2_"(ptr noundef %__first, i64 noundef range(i64 0, 115292150460684697) %__holeIndex, i64 noundef range(i64 -230584300921369395, 230584300921369396) %__len, ptr nocapture noundef nonnull %__value) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.opt::weighted_core", align 8
   %sub = add nsw i64 %__len, -1

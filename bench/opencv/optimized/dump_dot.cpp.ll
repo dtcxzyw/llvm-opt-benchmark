@@ -1384,7 +1384,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit
 
 _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit:           ; preds = %482, %490, %493
-  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_0clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %72, ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull %73)
+  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_0clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias writable align 8 %72, ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef %73)
           to label %495 unwind label %617
 
 495:                                              ; preds = %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit
@@ -1584,7 +1584,7 @@ _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit.i241:      ; preds = %533, %530, %522
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit256
 
 _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit256:        ; preds = %574, %580, %583
-  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_1clENS2_6HandleINS2_4NodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %74, ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull %75, ptr noundef nonnull align 8 dereferenceable(32) %72)
+  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_1clENS2_6HandleINS2_4NodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %74, ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef %75, ptr noundef nonnull align 8 dereferenceable(32) %72)
           to label %585 unwind label %634
 
 585:                                              ; preds = %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit256
@@ -2414,7 +2414,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit352
 
 _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit352:        ; preds = %889, %895, %898
-  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_2clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %76, ptr nonnull %67, ptr %890, ptr %891)
+  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_2clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias writable align 8 %76, ptr nonnull %67, ptr %890, ptr %891)
           to label %900 unwind label %1029
 
 900:                                              ; preds = %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit352
@@ -2473,7 +2473,7 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit356:            ; preds = %900, %909, %911
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit359
 
 _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit359:        ; preds = %_ZN3ade6HandleINS_4NodeEED2Ev.exit356, %920, %923
-  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_3clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %77, ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull %78)
+  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_3clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias writable align 8 %77, ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef %78)
           to label %925 unwind label %1045
 
 925:                                              ; preds = %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit359
@@ -2665,7 +2665,7 @@ _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit.i366:      ; preds = %959, %956, %948
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit382
 
 _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit382:        ; preds = %1000, %1006, %1009
-  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_1clENS2_6HandleINS2_4NodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %79, ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull %80, ptr noundef nonnull align 8 dereferenceable(32) %77)
+  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_1clENS2_6HandleINS2_4NodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %79, ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef %80, ptr noundef nonnull align 8 dereferenceable(32) %77)
           to label %1011 unwind label %1062
 
 1011:                                             ; preds = %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit382
@@ -3716,7 +3716,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit489
 
 _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit489:        ; preds = %1451, %1457, %1460
-  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_0clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %83, ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull %84)
+  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_0clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias writable align 8 %83, ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef %84)
           to label %1462 unwind label %1845
 
 1462:                                             ; preds = %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit489
@@ -3977,7 +3977,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 1580:                                             ; preds = %1578
   %.val156 = load ptr, ptr %89, align 8
   %.val157 = load ptr, ptr %1362, align 8
-  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_2clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %88, ptr nonnull %67, ptr %.val156, ptr %.val157)
+  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_2clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias writable align 8 %88, ptr nonnull %67, ptr %.val156, ptr %.val157)
           to label %1581 unwind label %1864
 
 1581:                                             ; preds = %1580
@@ -4991,7 +4991,7 @@ _ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__no
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit606
 
 _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit606:        ; preds = %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEEE8iteratordeEv.exit603, %1996, %1999
-  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_2clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %94, ptr nonnull %67, ptr %1991, ptr %1992)
+  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_2clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias writable align 8 %94, ptr nonnull %67, ptr %1991, ptr %1992)
           to label %2001 unwind label %2188
 
 2001:                                             ; preds = %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit606
@@ -5097,7 +5097,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
           to label %2050 unwind label %2190
 
 2050:                                             ; preds = %2048
-  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_0clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %95, ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull %96)
+  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_0clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias writable align 8 %95, ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef %96)
           to label %2051 unwind label %2192
 
 2051:                                             ; preds = %2050
@@ -6770,7 +6770,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit821
 
 _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit821:        ; preds = %.loopexit1447, %2754, %2757
-  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_0clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %109, ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull %110)
+  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_0clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias writable align 8 %109, ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef %110)
           to label %2759 unwind label %2803
 
 2759:                                             ; preds = %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit821
@@ -7265,7 +7265,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit876
 
 _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit876:        ; preds = %.loopexit1502, %2959, %2962
-  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_0clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %111, ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull %112)
+  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_0clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias writable align 8 %111, ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef %112)
           to label %2964 unwind label %3239
 
 2964:                                             ; preds = %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit876
@@ -8445,7 +8445,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit1041
 
 _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit1041:       ; preds = %.loopexit1469, %3466, %3469
-  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_0clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %120, ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull %121)
+  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_0clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias writable align 8 %120, ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef %121)
           to label %3471 unwind label %3554
 
 3471:                                             ; preds = %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit1041
@@ -9118,7 +9118,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit1129
 
 _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit1129:       ; preds = %.loopexit1477, %3761, %3764
-  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_0clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %125, ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull %126)
+  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_0clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias writable align 8 %125, ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef %126)
           to label %3766 unwind label %3849
 
 3766:                                             ; preds = %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit1129
@@ -9780,7 +9780,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_0clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_0clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.ade::details::MetadataId", align 8
   %5 = alloca %"class.ade::Handle", align 8
   %6 = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -10061,7 +10061,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
           to label %140 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 140:                                              ; preds = %136
-  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %6)
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %6)
           to label %141 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 141:                                              ; preds = %140
@@ -10094,7 +10094,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cvlsERSoRKNS_4util7v
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_1clENS2_6HandleINS2_4NodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_1clENS2_6HandleINS2_4NodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.ade::details::MetadataId", align 8
   %6 = alloca %"class.ade::Handle", align 8
   %7 = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -10353,7 +10353,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
           to label %111 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 111:                                              ; preds = %._crit_edge
-  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %7)
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %7)
           to label %112 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 112:                                              ; preds = %111
@@ -10467,7 +10467,7 @@ _ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDes
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_2clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture readonly %.0.val, ptr %.0.val1, ptr %.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_2clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture readonly %.0.val, ptr %.0.val1, ptr %.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.ade::Handle", align 8
@@ -10494,7 +10494,7 @@ define internal fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit
 
 _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit:           ; preds = %1, %9, %12
-  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_3clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %.0.val, ptr noundef nonnull %4)
+  invoke fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_3clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %.0.val, ptr noundef %4)
           to label %14 unwind label %34
 
 14:                                               ; preds = %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit
@@ -10605,7 +10605,7 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit11:             ; preds = %41, %51, %53
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_3clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN2cv5gimpl6passes7dumpDotERKN3ade5GraphERSoENK3$_3clB5cxx11ENS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.ade::details::MetadataId", align 8
   %5 = alloca %"class.ade::Handle", align 8
   %6 = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -10906,7 +10906,7 @@ _ZNK3ade6HandleINS_4NodeEE3getEv.exit.i:          ; preds = %101, %_ZNSt16_Sp_co
           to label %_ZN3adelsINS_4NodeEEERSoS2_RKNS_6HandleIT_EE.exit unwind label %144
 
 _ZN3adelsINS_4NodeEEERSoS2_RKNS_6HandleIT_EE.exit: ; preds = %_ZNK3ade6HandleINS_4NodeEE3getEv.exit.i
-  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %6)
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %6)
           to label %143 unwind label %144
 
 143:                                              ; preds = %_ZN3adelsINS_4NodeEEERSoS2_RKNS_6HandleIT_EE.exit

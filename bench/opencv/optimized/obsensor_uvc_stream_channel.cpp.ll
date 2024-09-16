@@ -2555,7 +2555,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 171:                                              ; preds = %167
   %172 = getelementptr inbounds i8, ptr %159, i64 10
-  call fastcc void @_ZN2cvL7makePtrINS_8obsensor19DepthFrameProcessorEJNS1_16OBExtensionParamEEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 4 dereferenceable(16) %172)
+  call fastcc void @_ZN2cvL7makePtrINS_8obsensor19DepthFrameProcessorEJNS1_16OBExtensionParamEEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 4 dereferenceable(16) %172)
   %173 = getelementptr inbounds i8, ptr %0, i64 120
   %174 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3PtrINS_8obsensor15IFrameProcessorEEaSINS1_19DepthFrameProcessorEEERS3_RKNS0_IT_EE(ptr noundef nonnull align 8 dereferenceable(16) %173, ptr noundef nonnull align 8 dereferenceable(16) %10)
   call void @_ZN2cv3PtrINS_8obsensor19DepthFrameProcessorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #24
@@ -2567,7 +2567,7 @@ _ZN2cv3PtrINS_8obsensor18DepthFrameUnpackerEED2Ev.exit: ; preds = %_ZNSt16_Sp_co
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_8obsensor19DepthFrameProcessorEJNS1_16OBExtensionParamEEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_8obsensor19DepthFrameProcessorEJNS1_16OBExtensionParamEEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 1, ptr %4, align 8

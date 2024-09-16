@@ -297,7 +297,7 @@ set1_newPkey.exit:                                ; preds = %if.end, %if.end.i, 
   br i1 %tobool.not, label %return.sink.split, label %if.then8
 
 if.then8:                                         ; preds = %set1_newPkey.exit
-  %call9 = tail call fastcc i32 @execute_certreq_create_test(ptr noundef nonnull %call)
+  %call9 = tail call fastcc i32 @execute_certreq_create_test(ptr noundef %call)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %set1_newPkey.exit, %if.then8
@@ -362,7 +362,7 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false
   br i1 %tobool16.not, label %return.sink.split, label %if.then21
 
 if.then21:                                        ; preds = %lor.lhs.false10
-  %call22 = tail call fastcc i32 @execute_certreq_create_test(ptr noundef nonnull %call)
+  %call22 = tail call fastcc i32 @execute_certreq_create_test(ptr noundef %call)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %lor.lhs.false10, %lor.lhs.false, %if.end, %if.then21
@@ -444,7 +444,7 @@ lor.lhs.false13:                                  ; preds = %set1_newPkey.exit
   br i1 %tobool19.not, label %return.sink.split, label %if.then24
 
 if.then24:                                        ; preds = %lor.lhs.false13
-  %call25 = call fastcc i32 @execute_certreq_create_test(ptr noundef nonnull %call)
+  %call25 = call fastcc i32 @execute_certreq_create_test(ptr noundef %call)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %lor.lhs.false13, %set1_newPkey.exit, %lor.lhs.false, %if.end, %if.then24
@@ -578,7 +578,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return.sink.split, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %call10 = tail call fastcc i32 @execute_certconf_create_test(ptr noundef nonnull %call)
+  %call10 = tail call fastcc i32 @execute_certconf_create_test(ptr noundef %call)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end, %if.then9
@@ -623,7 +623,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return.sink.split, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %call10 = tail call fastcc i32 @execute_certconf_create_test(ptr noundef nonnull %call)
+  %call10 = tail call fastcc i32 @execute_certconf_create_test(ptr noundef %call)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end, %if.then9
@@ -668,7 +668,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return.sink.split, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %call10 = tail call fastcc i32 @execute_certconf_create_test(ptr noundef nonnull %call)
+  %call10 = tail call fastcc i32 @execute_certconf_create_test(ptr noundef %call)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end, %if.then9
@@ -736,7 +736,7 @@ lor.lhs.false:                                    ; preds = %set1_newPkey.exit
   br i1 %tobool9.not, label %return.sink.split, label %if.then14
 
 if.then14:                                        ; preds = %lor.lhs.false
-  %call15 = tail call fastcc i32 @execute_certreq_create_test(ptr noundef nonnull %call)
+  %call15 = tail call fastcc i32 @execute_certreq_create_test(ptr noundef %call)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %lor.lhs.false, %set1_newPkey.exit, %if.then14
@@ -794,7 +794,7 @@ set1_newPkey.exit:                                ; preds = %if.end, %if.end.i, 
   br i1 %tobool.not, label %return.sink.split, label %if.then8
 
 if.then8:                                         ; preds = %set1_newPkey.exit
-  %call9 = tail call fastcc i32 @execute_certreq_create_test(ptr noundef nonnull %call)
+  %call9 = tail call fastcc i32 @execute_certreq_create_test(ptr noundef %call)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %set1_newPkey.exit, %if.then8
@@ -852,7 +852,7 @@ set1_newPkey.exit:                                ; preds = %if.end, %if.end.i, 
   br i1 %tobool.not, label %return.sink.split, label %if.then8
 
 if.then8:                                         ; preds = %set1_newPkey.exit
-  %call9 = tail call fastcc i32 @execute_certreq_create_test(ptr noundef nonnull %call)
+  %call9 = tail call fastcc i32 @execute_certreq_create_test(ptr noundef %call)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %set1_newPkey.exit, %if.then8
@@ -887,7 +887,7 @@ if.end:                                           ; preds = %entry
   store i32 -1, ptr %err_code, align 4
   %expected = getelementptr inbounds i8, ptr %call, i64 40
   store i32 0, ptr %expected, align 8
-  %call3 = tail call fastcc i32 @execute_certreq_create_test(ptr noundef nonnull %call)
+  %call3 = tail call fastcc i32 @execute_certreq_create_test(ptr noundef %call)
   %cmp_ctx.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %cmp_ctx.i, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %0) #3
@@ -972,7 +972,7 @@ if.end14.thread:                                  ; preds = %if.end, %set1_newPk
 
 if.then17:                                        ; preds = %lor.lhs.false7
   tail call void @X509_REQ_free(ptr noundef %call1) #3
-  %call18 = tail call fastcc i32 @execute_certreq_create_test(ptr noundef nonnull %call)
+  %call18 = tail call fastcc i32 @execute_certreq_create_test(ptr noundef %call)
   %7 = load ptr, ptr %cmp_ctx, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %7) #3
   %msg.i12 = getelementptr inbounds i8, ptr %call, i64 32
@@ -1026,7 +1026,7 @@ set1_newPkey.exit:                                ; preds = %if.end, %if.end.i, 
   br i1 %tobool.not, label %return.sink.split, label %if.then8
 
 if.then8:                                         ; preds = %set1_newPkey.exit
-  %call9 = tail call fastcc i32 @execute_certreq_create_test(ptr noundef nonnull %call)
+  %call9 = tail call fastcc i32 @execute_certreq_create_test(ptr noundef %call)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %set1_newPkey.exit, %if.then8
@@ -1681,7 +1681,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_certreq_create_test(ptr nocapture noundef readonly %fixture) unnamed_addr #0 {
+define internal fastcc i32 @execute_certreq_create_test(ptr nocapture noundef nonnull readonly %fixture) unnamed_addr #0 {
 entry:
   %expected = getelementptr inbounds i8, ptr %fixture, i64 40
   %0 = load i32, ptr %expected, align 8
@@ -1762,7 +1762,7 @@ declare i32 @ossl_cmp_ctx_set0_newCert(ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @X509_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_certconf_create_test(ptr nocapture noundef readonly %fixture) unnamed_addr #0 {
+define internal fastcc i32 @execute_certconf_create_test(ptr nocapture noundef nonnull readonly %fixture) unnamed_addr #0 {
 entry:
   %expected = getelementptr inbounds i8, ptr %fixture, i64 40
   %0 = load i32, ptr %expected, align 8

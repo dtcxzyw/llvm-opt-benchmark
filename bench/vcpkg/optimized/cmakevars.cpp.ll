@@ -731,7 +731,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %25 unwind label %65
 
 25:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  invoke fastcc void @_ZNK5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProvider26create_tag_extraction_fileENS_4SpanIKSt4pairINS_15FullPackageSpecENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(184) %0, ptr nonnull %7, i64 1)
+  invoke fastcc void @_ZNK5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProvider26create_tag_extraction_fileENS_4SpanIKSt4pairINS_15FullPackageSpecENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(184) %0, ptr nonnull %7, i64 1)
           to label %26 unwind label %67
 
 26:                                               ; preds = %25
@@ -1155,7 +1155,7 @@ _ZNSt12_Vector_baseISt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traits
 
 ._crit_edge.i:                                    ; preds = %85, %.noexc28
   %87 = load ptr, ptr %73, align 8, !noalias !18
-  invoke fastcc void @_ZN5vcpkg9CMakeVarsL30create_extraction_file_preludeB5cxx11ERKNS_10VcpkgPathsERKSt3mapINS_7TripletEiSt4lessIS5_ESaISt4pairIKS5_iEEE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(400) %87, ptr noundef nonnull align 8 dereferenceable(48) %8)
+  invoke fastcc void @_ZN5vcpkg9CMakeVarsL30create_extraction_file_preludeB5cxx11ERKNS_10VcpkgPathsERKSt3mapINS_7TripletEiSt4lessIS5_ESaISt4pairIKS5_iEEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(400) %87, ptr noundef nonnull align 8 dereferenceable(48) %8)
           to label %88 unwind label %.loopexit.split-lp90.i, !noalias !18
 
 88:                                               ; preds = %._crit_edge.i
@@ -1858,7 +1858,7 @@ _ZNSt12_Vector_baseISt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traits
   %117 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %.sink.i, ptr %117, align 8
   store ptr %.0.lcssa.i.i.i.i.i, ptr %116, align 8
-  invoke fastcc void @_ZNK5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProvider26create_tag_extraction_fileENS_4SpanIKSt4pairINS_15FullPackageSpecENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(184) %0, ptr %.pre85, i64 %109)
+  invoke fastcc void @_ZNK5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProvider26create_tag_extraction_fileENS_4SpanIKSt4pairINS_15FullPackageSpecENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(184) %0, ptr %.pre85, i64 %109)
           to label %118 unwind label %155
 
 118:                                              ; preds = %115
@@ -2413,7 +2413,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProvider26create_tag_extraction_fileENS_4SpanIKSt4pairINS_15FullPackageSpecENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %1, ptr %2, i64 %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProvider26create_tag_extraction_fileENS_4SpanIKSt4pairINS_15FullPackageSpecENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %1, ptr %2, i64 %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.fmt::v10::detail::iterator_buffer", align 8
   %6 = alloca %"class.fmt::v10::format_arg_store.122", align 16
   %7 = alloca %"class.fmt::v10::format_arg_store.120", align 16
@@ -2474,7 +2474,7 @@ define internal fastcc void @_ZNK5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVar
 
 ._crit_edge:                                      ; preds = %31, %4
   %33 = load ptr, ptr %18, align 8
-  invoke fastcc void @_ZN5vcpkg9CMakeVarsL30create_extraction_file_preludeB5cxx11ERKNS_10VcpkgPathsERKSt3mapINS_7TripletEiSt4lessIS5_ESaISt4pairIKS5_iEEE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(400) %33, ptr noundef nonnull align 8 dereferenceable(48) %8)
+  invoke fastcc void @_ZN5vcpkg9CMakeVarsL30create_extraction_file_preludeB5cxx11ERKNS_10VcpkgPathsERKSt3mapINS_7TripletEiSt4lessIS5_ESaISt4pairIKS5_iEEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(400) %33, ptr noundef nonnull align 8 dereferenceable(48) %8)
           to label %34 unwind label %.loopexit.split-lp108
 
 34:                                               ; preds = %._crit_edge
@@ -2635,7 +2635,7 @@ define internal fastcc void @_ZNK5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVar
   %95 = load ptr, ptr %15, align 8
   %96 = getelementptr inbounds i8, ptr %15, i64 8
   %97 = load i64, ptr %96, align 8
-  invoke void @_ZNKR5vcpkg4PathdvENS_10StringViewE(ptr dead_on_unwind writable sret(%"struct.vcpkg::Path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %90, ptr %95, i64 %97)
+  invoke void @_ZNKR5vcpkg4PathdvENS_10StringViewE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %90, ptr %95, i64 %97)
           to label %98 unwind label %102
 
 98:                                               ; preds = %94
@@ -3611,7 +3611,7 @@ _ZNKSt4lessIN5vcpkg7TripletEEclERKS1_S4_.exit:    ; preds = %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkg9CMakeVarsL30create_extraction_file_preludeB5cxx11ERKNS_10VcpkgPathsERKSt3mapINS_7TripletEiSt4lessIS5_ESaISt4pairIKS5_iEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkg9CMakeVarsL30create_extraction_file_preludeB5cxx11ERKNS_10VcpkgPathsERKSt3mapINS_7TripletEiSt4lessIS5_ESaISt4pairIKS5_iEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.fmt::v10::detail::iterator_buffer", align 8
   %5 = alloca %"class.fmt::v10::format_arg_store", align 16
   %6 = alloca %"struct.vcpkg::Path", align 8

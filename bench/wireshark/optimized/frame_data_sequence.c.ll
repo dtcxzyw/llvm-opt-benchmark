@@ -383,13 +383,13 @@ define void @free_frame_data_sequence(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_frame_data_array(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @free_frame_data_array(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 5) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.thread, label %5
 
 5:                                                ; preds = %4
-  %6 = mul i32 %2, 10
-  %7 = add i32 %6, -10
+  %6 = mul nuw nsw i32 %2, 10
+  %7 = add nsw i32 %6, -10
   %8 = lshr i32 %1, %7
   %9 = and i32 %8, 1023
   %notmask = shl nsw i32 -1, %7

@@ -5143,7 +5143,7 @@ define internal fastcc void @uhci_unlink_qh(ptr noundef %0, ptr noundef %1) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @uhci_giveback_urb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc void @uhci_giveback_urb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -121, 2) %3) unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 116
@@ -5970,7 +5970,7 @@ declare dso_local i32 @usb_hcd_link_urb_to_ep(ptr noundef, ptr noundef) local_un
 declare dso_local noalias ptr @kmem_cache_alloc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 1) i32 @uhci_submit_common(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @uhci_submit_common(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #2 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -6315,7 +6315,7 @@ define internal fastcc range(i32 -22, 1) i32 @uhci_submit_common(ptr nocapture n
 declare dso_local ptr @sg_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc void @uhci_reserve_bandwidth(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #8 align 16 {
+define internal fastcc void @uhci_reserve_bandwidth(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #8 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 106
   %4 = load i16, ptr %3, align 2
   %5 = sext i16 %4 to i32
@@ -6606,7 +6606,7 @@ define internal fastcc void @wakeup_rh(ptr noundef %0) unnamed_addr #2 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @suspend_rh(ptr noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @suspend_rh(ptr noundef %0, i32 noundef range(i32 1, 3) %1) unnamed_addr #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -608
   %4 = getelementptr i8, ptr %0, i64 -512
   %5 = load ptr, ptr %4, align 8
@@ -6789,7 +6789,7 @@ define internal fastcc void @suspend_rh(ptr noundef %0, i32 noundef %1) unnamed_
 declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @wait_for_HP(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @wait_for_HP(ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 4294967295) %1) unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %11, %2
@@ -6816,7 +6816,7 @@ define internal fastcc void @wait_for_HP(ptr nocapture noundef readonly %0, i64 
 declare dso_local void @usb_hcd_start_port_resume(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @uhci_finish_suspend(ptr noundef %0, i32 noundef %1, i64 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc void @uhci_finish_suspend(ptr noundef %0, i32 noundef %1, i64 noundef range(i64 0, 4294967295) %2) unnamed_addr #2 align 16 {
   %4 = load i64, ptr %0, align 8
   %5 = add i64 %4, %2
   %6 = trunc i64 %5 to i16

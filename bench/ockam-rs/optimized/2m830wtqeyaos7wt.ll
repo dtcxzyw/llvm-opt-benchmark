@@ -240,7 +240,7 @@ define internal noundef zeroext i1 @"_ZN41_$LT$bool$u20$as$u20$core..fmt..Debug$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h08a7acbe1fa62dacE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h08a7acbe1fa62dacE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
   %5 = alloca { { { ptr, i64 }, i64 } }, align 8
@@ -1146,12 +1146,12 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr26
 
 118:                                              ; preds = %.body6
   %119 = getelementptr inbounds i8, ptr %0, i64 72
-  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$btleplug..api..PeripheralProperties$GT$$GT$17hafc9af2eb3147172E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %119) #20
+  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$btleplug..api..PeripheralProperties$GT$$GT$17hafc9af2eb3147172E"(ptr noalias noundef align 8 dereferenceable(168) %119) #20
           to label %.body unwind label %116
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i32, ptr %0, align 8, !range !159, !noundef !5
@@ -1283,7 +1283,7 @@ define internal void @"_ZN4core3ptr60drop_in_place$LT$tracing_core..callsite..De
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$btleplug..api..PeripheralProperties$GT$$GT$17hafc9af2eb3147172E"(ptr noalias noundef align 8 dereferenceable(168) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$btleplug..api..PeripheralProperties$GT$$GT$17hafc9af2eb3147172E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 8, !range !155, !noundef !5
   %3 = icmp eq i32 %2, 2
   br i1 %3, label %4, label %5
@@ -1297,12 +1297,10 @@ define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: cold inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h5906e3533c851832E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, i64 noundef %1, i16 noundef %2, i1 noundef zeroext %3) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %.not19 = icmp eq i16 %2, 0
-  %or.cond = or i1 %3, %.not19
-  br i1 %or.cond, label %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread14, label %.lr.ph
+define internal fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h5906e3533c851832E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 noundef %1, i16 noundef range(i16 1, 0) %2, i1 noundef zeroext %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+  br i1 %3, label %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread14, label %.preheader17
 
-.lr.ph:                                           ; preds = %4
+.preheader17:                                     ; preds = %4
   %5 = load ptr, ptr %0, align 8, !nonnull !5, !align !180, !noundef !5
   %6 = getelementptr i8, ptr %5, i64 %1
   %invariant.gep = getelementptr i8, ptr %6, i64 1
@@ -1313,11 +1311,11 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains2
   %11 = icmp ult i64 %9, 4
   %12 = getelementptr i8, ptr %10, i64 %9
   %13 = getelementptr i8, ptr %12, i64 -4
-  br i1 %11, label %.preheader.us, label %.lr.ph.split
+  br i1 %11, label %.preheader.us, label %.preheader17.split
 
-.preheader.us:                                    ; preds = %.lr.ph, %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread.loopexit.us
-  %.01220.us = phi i16 [ %25, %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread.loopexit.us ], [ %2, %.lr.ph ]
-  %14 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.01220.us, i1 true)
+.preheader.us:                                    ; preds = %.preheader17, %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread.loopexit.us
+  %.01219.us = phi i16 [ %25, %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread.loopexit.us ], [ %2, %.preheader17 ]
+  %14 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.01219.us, i1 true)
   %15 = zext nneg i16 %14 to i64
   %gep.us = getelementptr i8, ptr %invariant.gep, i64 %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !181)
@@ -1341,13 +1339,13 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains2
 _ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread.loopexit.us: ; preds = %17
   %23 = shl nuw i16 1, %14
   %24 = xor i16 %23, -1
-  %25 = and i16 %.01220.us, %24
+  %25 = and i16 %.01219.us, %24
   %.not.us = icmp eq i16 %25, 0
   br i1 %.not.us, label %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread14, label %.preheader.us
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread
-  %.01220 = phi i16 [ %38, %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread ], [ %2, %.lr.ph ]
-  %26 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.01220, i1 true)
+.preheader17.split:                               ; preds = %.preheader17, %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread
+  %.01219 = phi i16 [ %38, %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread ], [ %2, %.preheader17 ]
+  %26 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.01219, i1 true)
   %27 = zext nneg i16 %26 to i64
   %gep = getelementptr i8, ptr %invariant.gep, i64 %27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !181)
@@ -1357,9 +1355,9 @@ _ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread.loopexit.us
   %30 = icmp ult ptr %gep, %29
   br i1 %30, label %.lr.ph.i, label %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit
 
-.lr.ph.i:                                         ; preds = %.lr.ph.split, %31
-  %.01738.i = phi ptr [ %33, %31 ], [ %10, %.lr.ph.split ]
-  %.01837.i = phi ptr [ %32, %31 ], [ %gep, %.lr.ph.split ]
+.lr.ph.i:                                         ; preds = %.preheader17.split, %31
+  %.01738.i = phi ptr [ %33, %31 ], [ %10, %.preheader17.split ]
+  %.01837.i = phi ptr [ %32, %31 ], [ %gep, %.preheader17.split ]
   %.0.copyload.i = load i32, ptr %.01837.i, align 1, !alias.scope !181, !noalias !184
   %.0.copyload11.i = load i32, ptr %.01738.i, align 1, !alias.scope !184, !noalias !181
   %.not.i = icmp eq i32 %.0.copyload.i, %.0.copyload11.i
@@ -1371,7 +1369,7 @@ _ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread.loopexit.us
   %34 = icmp ult ptr %32, %29
   br i1 %34, label %.lr.ph.i, label %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit
 
-_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit: ; preds = %31, %.lr.ph.split
+_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit: ; preds = %31, %.preheader17.split
   %.0.copyload13.i = load i32, ptr %29, align 1, !alias.scope !181, !noalias !184
   %.0.copyload15.i = load i32, ptr %13, align 1, !alias.scope !184, !noalias !181
   %35 = icmp eq i32 %.0.copyload13.i, %.0.copyload15.i
@@ -1380,12 +1378,12 @@ _ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit: ; preds = %31, %.
 _ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread: ; preds = %.lr.ph.i, %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit
   %36 = shl nuw i16 1, %26
   %37 = xor i16 %36, -1
-  %38 = and i16 %.01220, %37
+  %38 = and i16 %.01219, %37
   %.not = icmp eq i16 %38, 0
-  br i1 %.not, label %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread14, label %.lr.ph.split
+  br i1 %.not, label %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread14, label %.preheader17.split
 
 _ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread14: ; preds = %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread, %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit, %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread.loopexit.us, %16, %4
-  %.0 = phi i1 [ false, %4 ], [ true, %16 ], [ false, %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread.loopexit.us ], [ false, %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread ], [ true, %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit ]
+  %.0 = phi i1 [ false, %4 ], [ true, %16 ], [ false, %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread.loopexit.us ], [ true, %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit ], [ false, %_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE.exit.thread ]
   ret i1 %.0
 }
 
@@ -2345,7 +2343,7 @@ common.ret:                                       ; preds = %1831, %214, %179
   store i64 1, ptr %.sroa.9479.0..sroa_idx, align 8
   %.sroa.10480.0..sroa_idx = getelementptr inbounds i8, ptr %164, i64 16
   store ptr %317, ptr %.sroa.10480.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9ba091c21988a5a2E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %164)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9ba091c21988a5a2E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %164)
           to label %336 unwind label %334
 
 334:                                              ; preds = %328
@@ -2634,7 +2632,7 @@ common.ret:                                       ; preds = %1831, %214, %179
   store i64 1, ptr %.sroa.9436.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %174, i64 16
   store ptr %411, ptr %.sroa.10.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3a66fd0d8588df5eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %174)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3a66fd0d8588df5eE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %174)
           to label %429 unwind label %427
 
 427:                                              ; preds = %422
@@ -3203,7 +3201,7 @@ common.ret:                                       ; preds = %1831, %214, %179
   br i1 %609, label %.thread.i, label %610
 
 610:                                              ; preds = %.lr.ph.i.i.i.i
-  %611 = add nuw i64 %.05.i.i.i.i, 1
+  %611 = add nuw nsw i64 %.05.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %611, %.val416.i
   br i1 %exitcond.not.i.i.i.i, label %.thread910.i, label %.lr.ph.i.i.i.i
 
@@ -3225,7 +3223,7 @@ common.ret:                                       ; preds = %1831, %214, %179
   br i1 %620, label %621, label %_ZN4core3str7pattern13simd_contains17h12d10d0ea3d3f11eE.exit.i.i.i
 
 621:                                              ; preds = %618
-  %622 = add i64 %619, -1
+  %622 = add nsw i64 %619, -1
   %623 = icmp ult i64 %622, %587
   br i1 %623, label %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h91cdb1f396c1058dE.exit.i.i.i.i.i", label %.invoke, !prof !529
 
@@ -3273,17 +3271,17 @@ common.ret:                                       ; preds = %1831, %214, %179
   store i64 %614, ptr %643, align 8, !noalias !538
   %644 = add nuw nsw i64 %587, 63
   %645 = icmp ult i64 %644, %.val416.i
-  br i1 %645, label %.lr.ph.i36.i.i.i, label %._crit_edge.i.i.i.i
+  br i1 %645, label %.lr.ph.i35.i.i.i, label %._crit_edge.i.i.i.i
 
-.lr.ph.i36.i.i.i:                                 ; preds = %636, %659
+.lr.ph.i35.i.i.i:                                 ; preds = %636, %659
   %.062144.i.i.i.i = phi i64 [ %660, %659 ], [ 0, %636 ]
   %.064143.i.i.i.i = phi i8 [ %.3.i.i.i.i, %659 ], [ 0, %636 ]
   %646 = trunc nuw i8 %.064143.i.i.i.i to i1
   br i1 %646, label %._crit_edge.i.i.i.i, label %650
 
-._crit_edge.i.i.i.i:                              ; preds = %659, %.lr.ph.i36.i.i.i, %636
-  %.064.lcssa.i.i.i.i = phi i8 [ 0, %636 ], [ %.3.i.i.i.i, %659 ], [ %.064143.i.i.i.i, %.lr.ph.i36.i.i.i ]
-  %.062.lcssa.i.i.i.i = phi i64 [ 0, %636 ], [ %660, %659 ], [ %.062144.i.i.i.i, %.lr.ph.i36.i.i.i ]
+._crit_edge.i.i.i.i:                              ; preds = %659, %.lr.ph.i35.i.i.i, %636
+  %.064.lcssa.i.i.i.i = phi i8 [ 0, %636 ], [ %.3.i.i.i.i, %659 ], [ %.064143.i.i.i.i, %.lr.ph.i35.i.i.i ]
+  %.062.lcssa.i.i.i.i = phi i64 [ 0, %636 ], [ %660, %659 ], [ %.062144.i.i.i.i, %.lr.ph.i35.i.i.i ]
   %647 = add nuw nsw i64 %587, 15
   %648 = add i64 %647, %.062.lcssa.i.i.i.i
   %649 = icmp ult i64 %648, %.val416.i
@@ -3293,7 +3291,7 @@ common.ret:                                       ; preds = %1831, %214, %179
   %invariant.op.i.i.i.i = add nuw nsw i64 %587, 31
   br label %675
 
-650:                                              ; preds = %.lr.ph.i36.i.i.i
+650:                                              ; preds = %.lr.ph.i35.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32), !noalias !538
   store i64 0, ptr %32, align 8, !noalias !538
   %invariant.gep.i.i.i.i = getelementptr i8, ptr %.val415.i, i64 %.062144.i.i.i.i
@@ -3312,15 +3310,15 @@ common.ret:                                       ; preds = %1831, %214, %179
   %657 = and <16 x i1> %656, %655
   %658 = getelementptr inbounds [4 x i16], ptr %32, i64 0, i64 %.sroa.019.0140.i.i.i.i
   store <16 x i1> %657, ptr %658, align 2, !noalias !538
-  %exitcond.not.i37.i.i.i = icmp eq i64 %652, 4
-  br i1 %exitcond.not.i37.i.i.i, label %.preheader.i.i.i.i, label %651
+  %exitcond.not.i36.i.i.i = icmp eq i64 %652, 4
+  br i1 %exitcond.not.i36.i.i.i, label %.preheader.i.i.i.i, label %651
 
 659:                                              ; preds = %667
   %660 = add i64 %.062144.i.i.i.i, 64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32), !noalias !538
   %661 = add i64 %660, %644
   %662 = icmp ult i64 %661, %.val416.i
-  br i1 %662, label %.lr.ph.i36.i.i.i, label %._crit_edge.i.i.i.i
+  br i1 %662, label %.lr.ph.i35.i.i.i, label %._crit_edge.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %651, %667
   %.sroa.025.0142.i.i.i.i = phi i64 [ %663, %667 ], [ 0, %651 ]
@@ -3340,7 +3338,7 @@ common.ret:                                       ; preds = %1831, %214, %179
   %669 = shl nuw nsw i64 %.sroa.025.0142.i.i.i.i, 4
   %670 = add nuw nsw i64 %669, %.062144.i.i.i.i
   %671 = trunc nuw i8 %.2141.i.i.i.i to i1
-  %672 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h5906e3533c851832E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %33, i64 noundef %670, i16 noundef %665, i1 noundef zeroext %671), !noalias !427
+  %672 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h5906e3533c851832E"(ptr noalias noundef readonly align 8 dereferenceable(32) %33, i64 noundef %670, i16 noundef %665, i1 noundef zeroext %671), !noalias !427
   %673 = or i1 %672, %671
   %674 = zext i1 %673 to i8
   br label %667
@@ -3379,7 +3377,7 @@ common.ret:                                       ; preds = %1831, %214, %179
   br i1 %693, label %697, label %694
 
 694:                                              ; preds = %686
-  %695 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h5906e3533c851832E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %33, i64 noundef %.163150.i.i.i.i, i16 noundef %692, i1 noundef zeroext false), !noalias !427
+  %695 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h5906e3533c851832E"(ptr noalias noundef readonly align 8 dereferenceable(32) %33, i64 noundef %.163150.i.i.i.i, i16 noundef %692, i1 noundef zeroext false), !noalias !427
   %696 = zext i1 %695 to i8
   br label %697
 
@@ -3392,7 +3390,7 @@ common.ret:                                       ; preds = %1831, %214, %179
 
 700:                                              ; preds = %._crit_edge153.i.i.i.i
   %701 = trunc nuw i8 %.165.lcssa.i.i.i.i to i1
-  %702 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h5906e3533c851832E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %33, i64 noundef %678, i16 noundef %684, i1 noundef zeroext %701), !noalias !427
+  %702 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h5906e3533c851832E"(ptr noalias noundef readonly align 8 dereferenceable(32) %33, i64 noundef %678, i16 noundef %684, i1 noundef zeroext %701), !noalias !427
   %703 = or i1 %702, %701
   %704 = zext i1 %703 to i8
   br label %705
@@ -3430,15 +3428,15 @@ _ZN4core3str7pattern13simd_contains17h12d10d0ea3d3f11eE.exit.i.i.i: ; preds = %6
   %708 = load i64, ptr %34, align 8, !range !561, !alias.scope !558, !noalias !562, !noundef !5
   %trunc.i.i.i.i = trunc nuw i64 %708 to i1
   %709 = getelementptr inbounds i8, ptr %34, i64 8
-  br i1 %trunc.i.i.i.i, label %.invoke.i, label %.preheader.i38.i.i.i
+  br i1 %trunc.i.i.i.i, label %.invoke.i, label %.preheader.i37.i.i.i
 
-.preheader.i38.i.i.i:                             ; preds = %.noexc430.i
+.preheader.i37.i.i.i:                             ; preds = %.noexc430.i
   %710 = getelementptr inbounds i8, ptr %34, i64 26
   %711 = load i8, ptr %710, align 2, !range !145, !alias.scope !564, !noalias !567, !noundef !5
   %712 = trunc nuw i8 %711 to i1
-  br i1 %712, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h17c8980bd7de86e7E.exit.i.i.i", label %.lr.ph.i39.i.i.i
+  br i1 %712, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h17c8980bd7de86e7E.exit.i.i.i", label %.lr.ph.i38.i.i.i
 
-.lr.ph.i39.i.i.i:                                 ; preds = %.preheader.i38.i.i.i
+.lr.ph.i38.i.i.i:                                 ; preds = %.preheader.i37.i.i.i
   %.promoted.i.i.i.i = load i64, ptr %709, align 8, !alias.scope !564, !noalias !567
   %713 = getelementptr inbounds i8, ptr %34, i64 24
   %714 = getelementptr inbounds i8, ptr %34, i64 72
@@ -3448,9 +3446,9 @@ _ZN4core3str7pattern13simd_contains17h12d10d0ea3d3f11eE.exit.i.i.i: ; preds = %6
   %.promoted31.i.i.i.i = load i8, ptr %713, align 8, !alias.scope !564, !noalias !567
   br label %718
 
-718:                                              ; preds = %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17haf72e4932b39de21E.exit.i.i.i.i", %.lr.ph.i39.i.i.i
-  %719 = phi i64 [ %.promoted.i.i.i.i, %.lr.ph.i39.i.i.i ], [ %780, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17haf72e4932b39de21E.exit.i.i.i.i" ]
-  %720 = phi i8 [ %.promoted31.i.i.i.i, %.lr.ph.i39.i.i.i ], [ %722, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17haf72e4932b39de21E.exit.i.i.i.i" ]
+718:                                              ; preds = %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17haf72e4932b39de21E.exit.i.i.i.i", %.lr.ph.i38.i.i.i
+  %719 = phi i64 [ %.promoted.i.i.i.i, %.lr.ph.i38.i.i.i ], [ %780, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17haf72e4932b39de21E.exit.i.i.i.i" ]
+  %720 = phi i8 [ %.promoted31.i.i.i.i, %.lr.ph.i38.i.i.i ], [ %722, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17haf72e4932b39de21E.exit.i.i.i.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !569)
   %721 = trunc nuw i8 %720 to i1
   %722 = xor i8 %720, 1
@@ -3759,8 +3757,8 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
 .loopexit.i.i.i.i:                                ; preds = %_ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i.i.i, %.thread.i.i.i.i.i
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h17c8980bd7de86e7E.exit.i.i.i"
 
-"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h17c8980bd7de86e7E.exit.i.i.i": ; preds = %772, %.outer.i, %.backedge.i, %.backedge.us.i, %._crit_edge59.i, %.invoke.i, %.preheader.i38.i.i.i, %.thread.i.i.i.i.i, %.loopexit.i.i.i.i
-  %.sroa.0612.0 = phi i8 [ 1, %.loopexit.i.i.i.i ], [ 0, %.preheader.i38.i.i.i ], [ 0, %.thread.i.i.i.i.i ], [ 0, %.invoke.i ], [ 1, %._crit_edge59.i ], [ 0, %.backedge.us.i ], [ 0, %.backedge.i ], [ 0, %.outer.i ], [ 0, %772 ]
+"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h17c8980bd7de86e7E.exit.i.i.i": ; preds = %772, %.outer.i, %.backedge.i, %.backedge.us.i, %._crit_edge59.i, %.invoke.i, %.preheader.i37.i.i.i, %.thread.i.i.i.i.i, %.loopexit.i.i.i.i
+  %.sroa.0612.0 = phi i8 [ 1, %.loopexit.i.i.i.i ], [ 0, %.preheader.i37.i.i.i ], [ 0, %.thread.i.i.i.i.i ], [ 0, %.invoke.i ], [ 1, %._crit_edge59.i ], [ 0, %.backedge.us.i ], [ 0, %.backedge.i ], [ 0, %.outer.i ], [ 0, %772 ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %34), !noalias !557
   br label %870
 
@@ -5347,12 +5345,12 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   br label %1382
 
 1421:                                             ; preds = %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he712e9c5815f45a8E.exit.i", %1394, %1367, %.thread955.i
-  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %84)
+  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef align 8 dereferenceable(32) %84)
           to label %1469 unwind label %1467, !noalias !427
 
 1422:                                             ; preds = %1473, %1382, %1363, %1357
   %.pn271.pn.pn.i = phi { ptr, i32 } [ %.pn271.pn.i, %1473 ], [ %1364, %1363 ], [ %1358, %1357 ], [ %.pn261.pn.pn.pn.i, %1382 ]
-  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %84) #20
+  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef align 8 dereferenceable(32) %84) #20
           to label %1466 unwind label %1474, !noalias !427
 
 1423:                                             ; preds = %1365
@@ -5756,12 +5754,12 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   br label %1515
 
 1554:                                             ; preds = %"_ZN19ockam_transport_ble6driver8btleplug24scan_for_peripheral_name28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8a8be14bb750b4ebE.exit.i", %1527, %1500, %.thread971.i
-  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %99)
+  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef align 8 dereferenceable(32) %99)
           to label %1602 unwind label %1600, !noalias !427
 
 1555:                                             ; preds = %1603, %1515, %1496, %1490
   %.pn239.pn.pn.i = phi { ptr, i32 } [ %.pn239.pn.i, %1603 ], [ %1497, %1496 ], [ %1491, %1490 ], [ %.pn229.pn.pn.pn.i, %1515 ]
-  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %99) #20
+  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef align 8 dereferenceable(32) %99) #20
           to label %1599 unwind label %1474, !noalias !427
 
 1556:                                             ; preds = %1498
@@ -6576,7 +6574,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   br label %1479
 
 1821:                                             ; preds = %882
-  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$btleplug..api..PeripheralProperties$GT$$GT$17hafc9af2eb3147172E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %59) #20
+  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$btleplug..api..PeripheralProperties$GT$$GT$17hafc9af2eb3147172E"(ptr noalias noundef align 8 dereferenceable(168) %59) #20
           to label %1644 unwind label %1474, !noalias !427
 
 1822:                                             ; preds = %1644
@@ -7430,7 +7428,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   store i64 1, ptr %.sroa.9567.0..sroa_idx, align 8
   %.sroa.10568.0..sroa_idx = getelementptr inbounds i8, ptr %137, i64 16
   store ptr %2083, ptr %.sroa.10568.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6d7a8ae3f2df8721E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %137)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6d7a8ae3f2df8721E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %137)
           to label %2102 unwind label %2100
 
 2100:                                             ; preds = %2094
@@ -8598,7 +8596,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   store i64 1, ptr %.sroa.91060.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %161, i64 16
   store ptr %409, ptr %.sroa.10.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdc7cd61093cc4b6eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %161)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdc7cd61093cc4b6eE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %161)
           to label %428 unwind label %426
 
 426:                                              ; preds = %420
@@ -8899,7 +8897,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   store i64 1, ptr %.sroa.91158.0..sroa_idx, align 8
   %.sroa.101159.0..sroa_idx = getelementptr inbounds i8, ptr %122, i64 16
   store ptr %513, ptr %.sroa.101159.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h01f6ccd8aff15b5bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %122)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h01f6ccd8aff15b5bE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %122)
           to label %531 unwind label %529
 
 529:                                              ; preds = %524
@@ -9184,7 +9182,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %135)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %134)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %133)
-  invoke fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h08a7acbe1fa62dacE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %133, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %147)
+  invoke fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h08a7acbe1fa62dacE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %133, ptr noalias noundef readonly align 8 dereferenceable(32) %147)
           to label %634 unwind label %632
 
 632:                                              ; preds = %631
@@ -9260,12 +9258,12 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   br label %605
 
 650:                                              ; preds = %617, %590, %.thread1490, %680
-  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %147)
+  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef align 8 dereferenceable(32) %147)
           to label %.thread1494 unwind label %681
 
 651:                                              ; preds = %605, %580, %586, %685
   %.pn341.pn.pn = phi { ptr, i32 } [ %.pn341.pn, %685 ], [ %587, %586 ], [ %581, %580 ], [ %.pn329.pn.pn.pn, %605 ]
-  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %147) #20
+  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef align 8 dereferenceable(32) %147) #20
           to label %.thread1498 unwind label %240
 
 652:                                              ; preds = %588
@@ -9310,7 +9308,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %143)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %142)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %141)
-  invoke fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h08a7acbe1fa62dacE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %141, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %147)
+  invoke fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h08a7acbe1fa62dacE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %141, ptr noalias noundef readonly align 8 dereferenceable(32) %147)
           to label %668 unwind label %666
 
 666:                                              ; preds = %665
@@ -9342,7 +9340,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   store i64 1, ptr %.sroa.101091.0..sroa_idx, align 8
   %.sroa.111092.0..sroa_idx = getelementptr inbounds i8, ptr %146, i64 16
   store ptr %654, ptr %.sroa.111092.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb06832521eb5a72eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %146)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb06832521eb5a72eE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %146)
           to label %676 unwind label %674
 
 674:                                              ; preds = %668
@@ -9659,7 +9657,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   store i64 1, ptr %.sroa.91123.0..sroa_idx, align 8
   %.sroa.101124.0..sroa_idx = getelementptr inbounds i8, ptr %132, i64 16
   store ptr %759, ptr %.sroa.101124.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5f0f5cbf4d1f39e7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %132)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5f0f5cbf4d1f39e7E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %132)
           to label %777 unwind label %775
 
 775:                                              ; preds = %770
@@ -9681,7 +9679,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   br label %507
 
 779:                                              ; preds = %683
-  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %149)
+  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef align 8 dereferenceable(32) %149)
           to label %778 unwind label %570
 
 780:                                              ; preds = %507
@@ -9706,7 +9704,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   br label %686
 
 788:                                              ; preds = %686
-  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %149) #20
+  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef align 8 dereferenceable(32) %149) #20
           to label %.body714 unwind label %240
 
 789:                                              ; preds = %170, %782
@@ -10097,7 +10095,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   store i64 1, ptr %.sroa.101213.0..sroa_idx, align 8
   %.sroa.111214.0..sroa_idx = getelementptr inbounds i8, ptr %111, i64 16
   store ptr %895, ptr %.sroa.111214.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he784bc2a81f13b27E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %111)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he784bc2a81f13b27E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %111)
           to label %917 unwind label %915
 
 915:                                              ; preds = %906
@@ -10547,7 +10545,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   store i64 1, ptr %.sroa.91260.0..sroa_idx, align 8
   %.sroa.101261.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 16
   store ptr %1039, ptr %.sroa.101261.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h21153a3cf5ec4458E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %98)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h21153a3cf5ec4458E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %98)
           to label %1059 unwind label %1057
 
 1057:                                             ; preds = %1050
@@ -11017,7 +11015,7 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
   store i64 1, ptr %.sroa.91373.0..sroa_idx, align 8
   %.sroa.101374.0..sroa_idx = getelementptr inbounds i8, ptr %55, i64 16
   store ptr %1201, ptr %.sroa.101374.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h531282a2733c7ad1E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %55)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h531282a2733c7ad1E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %55)
           to label %1219 unwind label %1217
 
 1217:                                             ; preds = %1212
@@ -12326,12 +12324,12 @@ common.ret:                                       ; preds = %1534, %1496, %956, 
 
 1587:                                             ; preds = %539
   %1588 = getelementptr inbounds i8, ptr %0, i64 72
-  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$btleplug..api..PeripheralProperties$GT$$GT$17hafc9af2eb3147172E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %1588) #20
+  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$btleplug..api..PeripheralProperties$GT$$GT$17hafc9af2eb3147172E"(ptr noalias noundef align 8 dereferenceable(168) %1588) #20
           to label %242 unwind label %240
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3a66fd0d8588df5eE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3a66fd0d8588df5eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12385,7 +12383,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9ba091c21988a5a2E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9ba091c21988a5a2E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12439,7 +12437,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6d7a8ae3f2df8721E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$4scan28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6d7a8ae3f2df8721E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12493,7 +12491,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdc7cd61093cc4b6eE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdc7cd61093cc4b6eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12547,7 +12545,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb06832521eb5a72eE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb06832521eb5a72eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12601,7 +12599,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5f0f5cbf4d1f39e7E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5f0f5cbf4d1f39e7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12655,7 +12653,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h01f6ccd8aff15b5bE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h01f6ccd8aff15b5bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12709,7 +12707,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he784bc2a81f13b27E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he784bc2a81f13b27E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12763,7 +12761,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h21153a3cf5ec4458E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h21153a3cf5ec4458E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -12817,7 +12815,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h531282a2733c7ad1E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleClientDriver$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h531282a2733c7ad1E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -13459,7 +13457,7 @@ _ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17h4ad621fcb153f393E.e
   store i64 1, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 16
   store ptr %219, ptr %.sroa.10.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h50532c05951f4da3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %31)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h50532c05951f4da3E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %31)
           to label %238 unwind label %236
 
 236:                                              ; preds = %230
@@ -13833,7 +13831,7 @@ _ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17h4ad621fcb153f393E.e
   store i64 1, ptr %.sroa.9307.0..sroa_idx, align 8
   %.sroa.10308.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
   store ptr %343, ptr %.sroa.10308.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h304a690f2a956d79E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %18)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h304a690f2a956d79E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %18)
           to label %362 unwind label %360
 
 360:                                              ; preds = %354
@@ -14738,7 +14736,7 @@ common.ret:                                       ; preds = %420, %69
   store i64 1, ptr %.sroa.9488.0..sroa_idx, align 8
   %.sroa.10489.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 16
   store ptr %277, ptr %.sroa.10489.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb0684cfb50205a2dE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %42)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb0684cfb50205a2dE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %42)
           to label %295 unwind label %293
 
 293:                                              ; preds = %288
@@ -15027,7 +15025,7 @@ common.ret:                                       ; preds = %420, %69
   store i64 1, ptr %.sroa.9440.0..sroa_idx, align 8
   %.sroa.10441.0..sroa_idx = getelementptr inbounds i8, ptr %52, i64 16
   store ptr %373, ptr %.sroa.10441.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5c6c26accef6f2baE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %52)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5c6c26accef6f2baE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %52)
           to label %391 unwind label %389
 
 389:                                              ; preds = %384
@@ -15413,7 +15411,7 @@ common.ret:                                       ; preds = %420, %69
   store i64 1, ptr %.sroa.9572.0..sroa_idx, align 8
   %.sroa.10573.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
   store ptr %497, ptr %.sroa.10573.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3b44a01237ab5719E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %18)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3b44a01237ab5719E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %18)
           to label %517 unwind label %515
 
 515:                                              ; preds = %508
@@ -15641,12 +15639,12 @@ common.ret:                                       ; preds = %420, %69
   br label %551
 
 589:                                              ; preds = %563, %536, %.thread637, %612
-  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %31)
+  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef align 8 dereferenceable(32) %31)
           to label %616 unwind label %614
 
 590:                                              ; preds = %551, %526, %532, %617
   %.pn138.pn.pn = phi { ptr, i32 } [ %.pn138.pn, %617 ], [ %533, %532 ], [ %527, %526 ], [ %.pn128.pn.pn.pn, %551 ]
-  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %31) #20
+  invoke fastcc void @"_ZN4core3ptr36drop_in_place$LT$btleplug..Error$GT$17hecaa76316647878dE"(ptr noalias noundef align 8 dereferenceable(32) %31) #20
           to label %613 unwind label %618
 
 591:                                              ; preds = %534
@@ -15712,7 +15710,7 @@ common.ret:                                       ; preds = %420, %69
   store i64 1, ptr %.sroa.9537.0..sroa_idx, align 8
   %.sroa.10538.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 16
   store ptr %593, ptr %.sroa.10538.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he1cf094bbf057870E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %30)
+  invoke fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he1cf094bbf057870E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %30)
           to label %612 unwind label %610
 
 610:                                              ; preds = %604
@@ -15759,7 +15757,7 @@ common.ret:                                       ; preds = %420, %69
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h50532c05951f4da3E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h50532c05951f4da3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -15813,7 +15811,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h304a690f2a956d79E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h304a690f2a956d79E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -15867,7 +15865,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5c6c26accef6f2baE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5c6c26accef6f2baE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -15921,7 +15919,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb0684cfb50205a2dE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb0684cfb50205a2dE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -15975,7 +15973,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he1cf094bbf057870E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he1cf094bbf057870E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -16029,7 +16027,7 @@ define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3b44a01237ab5719E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN114_$LT$ockam_transport_ble..driver..btleplug..BleAdapter$u20$as$u20$ockam_transport_ble..driver..BleStreamDriver$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3b44a01237ab5719E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8

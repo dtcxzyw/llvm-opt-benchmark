@@ -1634,12 +1634,12 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoState10ResetBoardEv(ptr nound
 63:                                               ; preds = %62, %33, %30
   %64 = load atomic i8, ptr @_ZGVZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEiE6center acquire, align 8, !noalias !4
   %65 = icmp eq i8 %64, 0
-  br i1 %65, label %66, label %72, !prof !7
+  br i1 %65, label %66, label %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i.i, !prof !7
 
 66:                                               ; preds = %63
   %67 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEiE6center) #24, !noalias !4
   %.not46.i = icmp eq i32 %67, 0
-  br i1 %.not46.i, label %72, label %68
+  br i1 %.not46.i, label %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i.i, label %68
 
 68:                                               ; preds = %66
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #24, !noalias !4
@@ -1655,25 +1655,26 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoState10ResetBoardEv(ptr nound
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #24, !noalias !4
   store i16 %70, ptr @_ZZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEiE6center, align 2, !noalias !4
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEiE6center) #24, !noalias !4
-  br label %72
+  br label %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 
-72:                                               ; preds = %63, %66, %71
-  %73 = zext nneg i32 %26 to i64
-  %.idx.i = shl nuw nsw i64 %73, 1
-  %74 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i) #26, !noalias !4
-  %75 = getelementptr inbounds i8, ptr %74, i64 %.idx.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %74, ptr nonnull align 2 @_ZZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEiE9placement, i64 %.idx.i, i1 false), !noalias !4
-  %76 = icmp ult i32 %26, 5
-  %77 = and i32 %26, 1
-  %.not51.i = icmp eq i32 %77, 0
-  %or.cond.i = or i1 %76, %.not51.i
-  br i1 %or.cond.i, label %_ZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEi.exit, label %78
+_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %71, %66, %63
+  %72 = shl nuw nsw i32 %26, 1
+  %.idx.i = zext nneg i32 %72 to i64
+  %73 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i) #26, !noalias !4
+  %74 = getelementptr inbounds i8, ptr %73, i64 %.idx.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %73, ptr noundef nonnull align 2 dereferenceable(1) @_ZZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEiE9placement, i64 %.idx.i, i1 false), !noalias !4
+  %75 = icmp ult i32 %26, 5
+  %76 = and i32 %26, 1
+  %.not51.i = icmp eq i32 %76, 0
+  %or.cond.i = or i1 %75, %.not51.i
+  br i1 %or.cond.i, label %_ZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEi.exit, label %77
 
-78:                                               ; preds = %72
-  %79 = load i16, ptr @_ZZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEiE6center, align 2, !noalias !4
-  %80 = getelementptr i16, ptr %74, i64 %73
+77:                                               ; preds = %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i.i
+  %78 = load i16, ptr @_ZZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEiE6center, align 2, !noalias !4
+  %79 = zext nneg i32 %26 to i64
+  %80 = getelementptr i16, ptr %73, i64 %79
   %81 = getelementptr i8, ptr %80, i64 -2
-  store i16 %79, ptr %81, align 2, !noalias !4
+  store i16 %78, ptr %81, align 2, !noalias !4
   br label %_ZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEi.exit
 
 82:                                               ; preds = %35
@@ -1870,7 +1871,7 @@ common.resume:                                    ; preds = %142, %.body.i
   call void @__cxa_guard_abort(ptr nonnull %_ZGVZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEiE6center.sink.i) #24, !noalias !4
   br label %common.resume
 
-_ZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEi.exit: ; preds = %72, %78
+_ZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEi.exit: ; preds = %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i.i, %77
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
@@ -1917,24 +1918,24 @@ _ZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEi.exit: ; preds = %72,
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 .loopexit:                                        ; preds = %140
-  call void @_ZdlPvm(ptr noundef nonnull %74, i64 noundef %.idx.i) #27
+  call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef %.idx.i) #27
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 .lr.ph:                                           ; preds = %_ZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEi.exit, %140
-  %.sroa.08.019 = phi ptr [ %141, %140 ], [ %74, %_ZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEi.exit ]
+  %.sroa.08.019 = phi ptr [ %141, %140 ], [ %73, %_ZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEi.exit ]
   %138 = load i16, ptr %.sroa.08.019, align 2
   %139 = invoke noundef zeroext i1 @_ZN10open_spiel10phantom_go14PhantomGoBoard8PlayMoveEtNS0_7GoColorE(ptr noundef nonnull align 8 dereferenceable(8706) %24, i16 noundef zeroext %138, i8 noundef zeroext 0)
           to label %140 unwind label %142
 
 140:                                              ; preds = %.lr.ph
   %141 = getelementptr inbounds i8, ptr %.sroa.08.019, i64 2
-  %.not = icmp eq ptr %141, %75
+  %.not = icmp eq ptr %141, %74
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 142:                                              ; preds = %.lr.ph
   %143 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %74, i64 noundef %.idx.i) #27
+  call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef %.idx.i) #27
   br label %common.resume
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %.loopexit, %._crit_edge, %1

@@ -862,7 +862,7 @@ invoke.cont9:                                     ; preds = %invoke.cont6
           to label %.noexc unwind label %lpad10
 
 .noexc:                                           ; preds = %invoke.cont9
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114findHeaderItemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EESt4lessIS7_ESaISt4pairIKS7_SA_EEES7_jj(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %header_chunks, ptr noundef nonnull %agg.tmp.i109, i32 noundef 1, i32 noundef 1)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114findHeaderItemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EESt4lessIS7_ESaISt4pairIKS7_SA_EEES7_jj(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %header_chunks, ptr noundef %agg.tmp.i109, i32 noundef 1, i32 noundef 1)
           to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit unwind label %lpad.i110
 
 lpad.i110:                                        ; preds = %.noexc
@@ -901,7 +901,7 @@ invoke.cont22:                                    ; preds = %invoke.cont16
           to label %.noexc119 unwind label %lpad23
 
 .noexc119:                                        ; preds = %invoke.cont22
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114findHeaderItemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EESt4lessIS7_ESaISt4pairIKS7_SA_EEES7_jj(ptr noalias nonnull align 8 %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(48) %header_chunks, ptr noundef nonnull %agg.tmp.i116, i32 noundef 1, i32 noundef 1)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114findHeaderItemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EESt4lessIS7_ESaISt4pairIKS7_SA_EEES7_jj(ptr noalias align 8 %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(48) %header_chunks, ptr noundef %agg.tmp.i116, i32 noundef 1, i32 noundef 1)
           to label %invoke.cont24 unwind label %lpad.i117
 
 lpad.i117:                                        ; preds = %.noexc119
@@ -976,7 +976,7 @@ invoke.cont36:                                    ; preds = %invoke.cont30
           to label %.noexc150 unwind label %lpad37
 
 .noexc150:                                        ; preds = %invoke.cont36
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114findHeaderItemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EESt4lessIS7_ESaISt4pairIKS7_SA_EEES7_jj(ptr noalias nonnull align 8 %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(48) %header_chunks, ptr noundef nonnull %agg.tmp.i147, i32 noundef 1, i32 noundef 1)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114findHeaderItemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EESt4lessIS7_ESaISt4pairIKS7_SA_EEES7_jj(ptr noalias align 8 %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(48) %header_chunks, ptr noundef %agg.tmp.i147, i32 noundef 1, i32 noundef 1)
           to label %invoke.cont38 unwind label %lpad.i148
 
 lpad.i148:                                        ; preds = %.noexc150
@@ -1053,7 +1053,7 @@ invoke.cont50:                                    ; preds = %invoke.cont44
           to label %.noexc181 unwind label %lpad51
 
 .noexc181:                                        ; preds = %invoke.cont50
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114findHeaderItemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EESt4lessIS7_ESaISt4pairIKS7_SA_EEES7_jj(ptr noalias nonnull align 8 %ref.tmp46, ptr noundef nonnull align 8 dereferenceable(48) %header_chunks, ptr noundef nonnull %agg.tmp.i178, i32 noundef 2, i32 noundef 2)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114findHeaderItemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EESt4lessIS7_ESaISt4pairIKS7_SA_EEES7_jj(ptr noalias align 8 %ref.tmp46, ptr noundef nonnull align 8 dereferenceable(48) %header_chunks, ptr noundef %agg.tmp.i178, i32 noundef 2, i32 noundef 2)
           to label %invoke.cont52 unwind label %lpad.i179
 
 lpad.i179:                                        ; preds = %.noexc181
@@ -1306,7 +1306,7 @@ invoke.cont98:                                    ; preds = %if.end89
           to label %.noexc214 unwind label %lpad99
 
 .noexc214:                                        ; preds = %invoke.cont98
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114findHeaderItemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EESt4lessIS7_ESaISt4pairIKS7_SA_EEES7_jj(ptr noalias nonnull align 8 %ref.tmp94, ptr noundef nonnull align 8 dereferenceable(48) %header_chunks, ptr noundef nonnull %agg.tmp.i211, i32 noundef 2, i32 noundef 2)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114findHeaderItemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EESt4lessIS7_ESaISt4pairIKS7_SA_EEES7_jj(ptr noalias align 8 %ref.tmp94, ptr noundef nonnull align 8 dereferenceable(48) %header_chunks, ptr noundef %agg.tmp.i211, i32 noundef 2, i32 noundef 2)
           to label %invoke.cont100 unwind label %lpad.i212
 
 lpad.i212:                                        ; preds = %.noexc214
@@ -1489,7 +1489,7 @@ invoke.cont152:                                   ; preds = %if.end143
           to label %.noexc249 unwind label %lpad153
 
 .noexc249:                                        ; preds = %invoke.cont152
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114findHeaderItemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EESt4lessIS7_ESaISt4pairIKS7_SA_EEES7_jj(ptr noalias nonnull align 8 %ref.tmp148, ptr noundef nonnull align 8 dereferenceable(48) %header_chunks, ptr noundef nonnull %agg.tmp.i246, i32 noundef 1, i32 noundef 1)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114findHeaderItemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EESt4lessIS7_ESaISt4pairIKS7_SA_EEES7_jj(ptr noalias align 8 %ref.tmp148, ptr noundef nonnull align 8 dereferenceable(48) %header_chunks, ptr noundef %agg.tmp.i246, i32 noundef 1, i32 noundef 1)
           to label %invoke.cont154 unwind label %lpad.i247
 
 lpad.i247:                                        ; preds = %.noexc249
@@ -1652,7 +1652,7 @@ invoke.cont193:                                   ; preds = %if.end187
           to label %.noexc282 unwind label %lpad194
 
 .noexc282:                                        ; preds = %invoke.cont193
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114findHeaderItemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EESt4lessIS7_ESaISt4pairIKS7_SA_EEES7_jj(ptr noalias nonnull align 8 %ref.tmp189, ptr noundef nonnull align 8 dereferenceable(48) %header_chunks, ptr noundef nonnull %agg.tmp.i279, i32 noundef 1, i32 noundef 1)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114findHeaderItemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EESt4lessIS7_ESaISt4pairIKS7_SA_EEES7_jj(ptr noalias align 8 %ref.tmp189, ptr noundef nonnull align 8 dereferenceable(48) %header_chunks, ptr noundef %agg.tmp.i279, i32 noundef 1, i32 noundef 1)
           to label %invoke.cont195 unwind label %lpad.i280
 
 lpad.i280:                                        ; preds = %.noexc282
@@ -1897,7 +1897,7 @@ if.end265:                                        ; preds = %invoke.cont239, %in
           to label %invoke.cont271 unwind label %lpad270
 
 invoke.cont271:                                   ; preds = %if.end265
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114findHeaderItemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EESt4lessIS7_ESaISt4pairIKS7_SA_EEES7_jj(ptr noalias nonnull align 8 %ref.tmp267, ptr noundef nonnull align 8 dereferenceable(48) %header_chunks, ptr noundef nonnull %agg.tmp268, i32 noundef 1, i32 noundef 2)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114findHeaderItemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EESt4lessIS7_ESaISt4pairIKS7_SA_EEES7_jj(ptr noalias align 8 %ref.tmp267, ptr noundef nonnull align 8 dereferenceable(48) %header_chunks, ptr noundef %agg.tmp268, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont273 unwind label %lpad272
 
 invoke.cont273:                                   ; preds = %invoke.cont271
@@ -5691,7 +5691,7 @@ declare void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strE
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114findHeaderItemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EESt4lessIS7_ESaISt4pairIKS7_SA_EEES7_jj(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef %key, i32 noundef %min_vals, i32 noundef %max_vals) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114findHeaderItemERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EESt4lessIS7_ESaISt4pairIKS7_SA_EEES7_jj(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef nonnull %key, i32 noundef range(i32 1, 3) %min_vals, i32 noundef range(i32 1, 3) %max_vals) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8

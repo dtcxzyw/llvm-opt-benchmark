@@ -782,7 +782,7 @@ lpad:                                             ; preds = %_ZN6google8protobuf
 define hidden void @_ZN6google8protobuf8compiler4java20CapitalizedFieldNameB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %field) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_19FieldNameB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %field)
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_19FieldNameB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias align 8 %ref.tmp, ptr noundef %field)
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   %0 = extractvalue { i64, ptr } %call, 0
   %1 = extractvalue { i64, ptr } %call, 1
@@ -933,7 +933,7 @@ declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt
 define hidden void @_ZN6google8protobuf8compiler4java22UnderscoresToCamelCaseB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %field) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_19FieldNameB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %field)
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_19FieldNameB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias align 8 %ref.tmp, ptr noundef %field)
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   %0 = extractvalue { i64, ptr } %call, 0
   %1 = extractvalue { i64, ptr } %call, 1
@@ -955,7 +955,7 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN6google8protobuf8compiler4java33UnderscoresToCapitalizedCamelCaseB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %field) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_19FieldNameB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %field)
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_19FieldNameB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias align 8 %ref.tmp, ptr noundef %field)
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   %0 = extractvalue { i64, ptr } %call, 0
   %1 = extractvalue { i64, ptr } %call, 1
@@ -996,7 +996,7 @@ entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_19FieldNameB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef %field), !noalias !7
+  call fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_19FieldNameB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias align 8 %ref.tmp.i, ptr noundef %field), !noalias !7
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #18, !noalias !7
   %0 = extractvalue { i64, ptr } %call.i, 0
   %1 = extractvalue { i64, ptr } %call.i, 1

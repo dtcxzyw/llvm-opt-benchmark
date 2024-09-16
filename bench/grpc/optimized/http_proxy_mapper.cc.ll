@@ -1183,7 +1183,7 @@ if.then.i96:                                      ; preds = %_ZN4absl12lts_20230
 _ZN4absl12lts_2023080211StripPrefixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit99: ; preds = %invoke.cont150, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i89, %if.then.i96
   %str.sroa.0.0.i92 = phi i64 [ %sub.i.i98, %if.then.i96 ], [ %100, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i89 ], [ 0, %invoke.cont150 ]
   %str.sroa.4.0.i93 = phi ptr [ %add.ptr.i.i97, %if.then.i96 ], [ %101, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i89 ], [ %101, %invoke.cont150 ]
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_119MaybeAddDefaultPortB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.tmp147, i64 %str.sroa.0.0.i92, ptr %str.sroa.4.0.i93)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_119MaybeAddDefaultPortB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.tmp147, i64 %str.sroa.0.0.i92, ptr %str.sroa.4.0.i93)
           to label %invoke.cont158 unwind label %lpad78
 
 invoke.cont158:                                   ; preds = %_ZN4absl12lts_2023080211StripPrefixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit99
@@ -1843,7 +1843,7 @@ _ZN4absl12lts_2023080217internal_statusor12StatusOrDataI21grpc_resolved_addressE
 declare void @_ZNK9grpc_core11ChannelArgs3SetESt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS3_SaIcEEE(ptr sret(%"class.grpc_core::ChannelArgs") align 8, ptr noundef nonnull align 8 dereferenceable(8), i64, ptr, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_119MaybeAddDefaultPortB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.result, i64 %target.coerce0, ptr %target.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_119MaybeAddDefaultPortB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.result, i64 %target.coerce0, ptr %target.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %host = alloca %"class.std::basic_string_view", align 8
@@ -1860,7 +1860,7 @@ if.then:                                          ; preds = %entry
   %agg.tmp2.sroa.0.0.copyload = load i64, ptr %host, align 8
   %agg.tmp2.sroa.2.0.host.sroa_idx = getelementptr inbounds i8, ptr %host, i64 8
   %agg.tmp2.sroa.2.0.copyload = load ptr, ptr %agg.tmp2.sroa.2.0.host.sroa_idx, align 8
-  call void @_ZN9grpc_core12JoinHostPortB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEi(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i64 %agg.tmp2.sroa.0.0.copyload, ptr %agg.tmp2.sroa.2.0.copyload, i32 noundef 443)
+  call void @_ZN9grpc_core12JoinHostPortB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i64 %agg.tmp2.sroa.0.0.copyload, ptr %agg.tmp2.sroa.2.0.copyload, i32 noundef 443)
   br label %return
 
 if.end:                                           ; preds = %entry

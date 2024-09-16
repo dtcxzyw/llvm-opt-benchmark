@@ -103,7 +103,7 @@ define dso_local ptr @transformTargetEntry(ptr noundef %0, ptr noundef %1, ptr n
 18:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  %19 = call fastcc i32 @FigureColnameInternal(ptr noundef %1, ptr noundef nonnull %7)
+  %19 = call fastcc i32 @FigureColnameInternal(ptr noundef %1, ptr noundef %7)
   %20 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %20, null
   %.str.15..i = select i1 %.not.i, ptr @.str.15, ptr %20
@@ -127,7 +127,7 @@ declare ptr @transformExpr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 define dso_local nonnull ptr @FigureColname(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
-  %3 = call fastcc i32 @FigureColnameInternal(ptr noundef %0, ptr noundef nonnull %2)
+  %3 = call fastcc i32 @FigureColnameInternal(ptr noundef %0, ptr noundef %2)
   %4 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %4, null
   %.str.15. = select i1 %.not, ptr @.str.15, ptr %4
@@ -183,7 +183,7 @@ define dso_local ptr @transformTargetList(ptr noundef %0, ptr noundef readonly %
 22:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  %23 = call fastcc i32 @FigureColnameInternal(ptr noundef nonnull %14, ptr noundef nonnull %4)
+  %23 = call fastcc i32 @FigureColnameInternal(ptr noundef nonnull %14, ptr noundef %4)
   %24 = load ptr, ptr %4, align 8
   %.not.i.i41.us = icmp eq ptr %24, null
   %.str.15..i.i.us = select i1 %.not.i.i41.us, ptr @.str.15, ptr %24
@@ -285,7 +285,7 @@ ExpandIndirectionStar.exit:                       ; preds = %64, %68
 80:                                               ; preds = %.thread45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  %81 = call fastcc i32 @FigureColnameInternal(ptr noundef nonnull %37, ptr noundef nonnull %4)
+  %81 = call fastcc i32 @FigureColnameInternal(ptr noundef nonnull %37, ptr noundef %4)
   %82 = load ptr, ptr %4, align 8
   %.not.i.i41 = icmp eq ptr %82, null
   %.str.15..i.i = select i1 %.not.i.i41, ptr @.str.15, ptr %82
@@ -1205,7 +1205,7 @@ define dso_local ptr @transformAssignmentIndirection(ptr noundef %0, ptr noundef
   br i1 %.not127, label %56, label %54
 
 54:                                               ; preds = %.split
-  %55 = tail call fastcc ptr @transformAssignmentSubscripts(ptr noundef %0, ptr noundef %.0115132.ph, ptr noundef %2, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %.0116145155, ptr noundef nonnull %7, ptr noundef nonnull %53, ptr noundef %9, i32 noundef %10, i32 noundef %11)
+  %55 = tail call fastcc ptr @transformAssignmentSubscripts(ptr noundef %0, ptr noundef %.0115132.ph, ptr noundef %2, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %.0116145155, ptr noundef nonnull %7, ptr noundef nonnull %53, ptr noundef %9, i32 noundef %10, i32 noundef %11)
   br label %127
 
 56:                                               ; preds = %.split
@@ -1300,7 +1300,7 @@ define dso_local ptr @transformAssignmentIndirection(ptr noundef %0, ptr noundef
   br i1 %.not126, label %._crit_edge.thread, label %108
 
 108:                                              ; preds = %._crit_edge
-  %109 = tail call fastcc ptr @transformAssignmentSubscripts(ptr noundef %0, ptr noundef %.0115132.ph, ptr noundef %2, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %45, ptr noundef nonnull %7, ptr noundef null, ptr noundef %9, i32 noundef %10, i32 noundef %11)
+  %109 = tail call fastcc ptr @transformAssignmentSubscripts(ptr noundef %0, ptr noundef %.0115132.ph, ptr noundef %2, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %45, ptr noundef nonnull %7, ptr noundef null, ptr noundef %9, i32 noundef %10, i32 noundef %11)
   br label %127
 
 ._crit_edge.thread:                               ; preds = %31, %.lr.ph, %._crit_edge
@@ -1360,7 +1360,7 @@ define dso_local void @updateTargetListEntry(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformAssignmentSubscripts(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11) unnamed_addr #0 {
+define internal fastcc ptr @transformAssignmentSubscripts(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11) unnamed_addr #0 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   store i32 %3, ptr %13, align 4
@@ -1368,7 +1368,7 @@ define internal fastcc ptr @transformAssignmentSubscripts(ptr noundef %0, ptr no
   call void @transformContainerType(ptr noundef nonnull %13, ptr noundef nonnull %14) #9
   %15 = load i32, ptr %13, align 4
   %16 = load i32, ptr %14, align 4
-  %17 = call ptr @transformContainerSubscripts(ptr noundef %0, ptr noundef %1, i32 noundef %15, i32 noundef %16, ptr noundef %6, i1 noundef zeroext true) #9
+  %17 = call ptr @transformContainerSubscripts(ptr noundef %0, ptr noundef %1, i32 noundef %15, i32 noundef %16, ptr noundef nonnull %6, i1 noundef zeroext true) #9
   %18 = getelementptr inbounds i8, ptr %17, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds i8, ptr %17, i64 16
@@ -1888,7 +1888,7 @@ declare ptr @GetCTEForRTE(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @get_expr_result_tupdesc(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 3) i32 @FigureColnameInternal(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc range(i32 0, 3) i32 @FigureColnameInternal(ptr noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %.lr.ph157
 
@@ -2181,7 +2181,7 @@ switch.lookup247:                                 ; preds = %104
 define dso_local ptr @FigureIndexColname(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
-  %3 = call fastcc i32 @FigureColnameInternal(ptr noundef %0, ptr noundef nonnull %2)
+  %3 = call fastcc i32 @FigureColnameInternal(ptr noundef %0, ptr noundef %2)
   %4 = load ptr, ptr %2, align 8
   ret ptr %4
 }

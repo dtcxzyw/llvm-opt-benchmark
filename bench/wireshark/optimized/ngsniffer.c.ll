@@ -667,7 +667,7 @@ read_rec_header.exit.thread:                      ; preds = %._crit_edge, %23, %
 25:                                               ; preds = %24, %24, %24
   store i16 %.val.i, ptr %16, align 2
   store i16 %.val16.i, ptr %9, align 2
-  %26 = call fastcc i32 @process_frame_record(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %26 = call fastcc i32 @process_frame_record(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %10, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %.not26 = icmp eq i32 %26, 0
   br i1 %.not26, label %.loopexit34, label %27
 
@@ -939,7 +939,7 @@ read_rec_header.exit.thread:                      ; preds = %97, %104, %101
   ]
 
 107:                                              ; preds = %105, %105, %105
-  %108 = call fastcc i32 @process_frame_record(ptr noundef nonnull %0, i32 noundef 1, ptr noundef null, ptr noundef nonnull %9, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %108 = call fastcc i32 @process_frame_record(ptr noundef nonnull %0, i32 noundef 1, ptr noundef null, ptr noundef %9, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %ng_file_seek_rand.exit.thread
 
 109:                                              ; preds = %.thread, %105
@@ -1007,7 +1007,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i32 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @process_frame_record(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @process_frame_record(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1, ptr noundef writeonly %2, ptr nocapture noundef nonnull readonly %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %struct.frame2_rec, align 2
   %10 = alloca %struct.frame4_rec, align 4
   %11 = alloca %struct.frame6_rec, align 2
@@ -1792,7 +1792,7 @@ ng_read_bytes.exit142:                            ; preds = %329
   br i1 %.not.i.i, label %383, label %357
 
 357:                                              ; preds = %356
-  switch i8 %354, label %.lr.ph.i.i.preheader [
+  switch i8 %354, label %.thread23.i.i.preheader [
     i8 7, label %358
     i8 15, label %362
     i8 -113, label %366
@@ -1802,37 +1802,37 @@ ng_read_bytes.exit142:                            ; preds = %329
   %359 = getelementptr i8, ptr %350, i64 1
   %360 = load i8, ptr %359, align 1
   %361 = icmp eq i8 %360, 3
-  br i1 %361, label %384, label %.lr.ph.i.i.preheader
+  br i1 %361, label %384, label %.thread23.i.i.preheader
 
 362:                                              ; preds = %357
   %363 = getelementptr i8, ptr %350, i64 1
   %364 = load i8, ptr %363, align 1
   %365 = icmp eq i8 %364, 0
-  br i1 %365, label %384, label %.lr.ph.i.i.preheader
+  br i1 %365, label %384, label %.thread23.i.i.preheader
 
 366:                                              ; preds = %357
   %367 = getelementptr i8, ptr %350, i64 1
   %368 = load i8, ptr %367, align 1
   %369 = icmp eq i8 %368, 0
-  br i1 %369, label %384, label %.lr.ph.i.i.preheader
+  br i1 %369, label %384, label %.thread23.i.i.preheader
 
-.lr.ph.i.i.preheader:                             ; preds = %366, %362, %358, %357
-  br label %.lr.ph.i.i
+.thread23.i.i.preheader:                          ; preds = %366, %362, %358, %357
+  br label %.thread23.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %374
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %374 ], [ 0, %.lr.ph.i.i.preheader ]
+.thread23.i.i:                                    ; preds = %.thread23.i.i.preheader, %374
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %374 ], [ 0, %.thread23.i.i.preheader ]
   %370 = getelementptr i8, ptr %350, i64 %indvars.iv.i.i
   %371 = load i8, ptr %370, align 1
   %372 = and i8 %371, 1
   %373 = icmp eq i8 %372, 0
   br i1 %373, label %374, label %.critedge.i.i
 
-374:                                              ; preds = %.lr.ph.i.i
+374:                                              ; preds = %.thread23.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %337
-  br i1 %exitcond.not.i.i, label %fix_pseudo_header.exit, label %.lr.ph.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %fix_pseudo_header.exit, label %.thread23.i.i, !llvm.loop !7
 
-.critedge.i.i:                                    ; preds = %.lr.ph.i.i
+.critedge.i.i:                                    ; preds = %.thread23.i.i
   %375 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %376 = add nsw i32 %322, -1
   %.not22.i.i = icmp sgt i32 %376, %375
@@ -1935,7 +1935,7 @@ ng_read_bytes.exit.thread:                        ; preds = %343, %346, %286, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ng_skip_bytes_seq(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @ng_skip_bytes_seq(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 0) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1951,21 +1951,20 @@ define internal fastcc i32 @ng_skip_bytes_seq(ptr nocapture noundef readonly %0,
   store i64 %13, ptr %11, align 8
   %14 = load ptr, ptr %0, align 8
   %15 = tail call i32 @wtap_read_bytes(ptr noundef %14, ptr noundef null, i32 noundef %1, ptr noundef %2, ptr noundef %3) #13
-  br label %26
+  br label %27
 
 16:                                               ; preds = %4
   %17 = tail call noalias dereferenceable_or_null(65536) ptr @g_malloc(i64 noundef 65536) #15
-  %.not2226 = icmp eq i32 %1, 0
-  br i1 %.not2226, label %._crit_edge, label %ng_read_bytes.exit
+  br label %ng_read_bytes.exit
 
 18:                                               ; preds = %ng_read_bytes.exit
-  %19 = sub i32 %.02127, %..021
+  %19 = sub i32 %.02126, %..021
   %.not22 = icmp eq i32 %19, 0
-  br i1 %.not22, label %._crit_edge, label %ng_read_bytes.exit, !llvm.loop !8
+  br i1 %.not22, label %26, label %ng_read_bytes.exit, !llvm.loop !8
 
 ng_read_bytes.exit:                               ; preds = %16, %18
-  %.02127 = phi i32 [ %19, %18 ], [ %1, %16 ]
-  %..021 = tail call i32 @llvm.umin.i32(i32 %.02127, i32 65536)
+  %.02126 = phi i32 [ %1, %16 ], [ %19, %18 ]
+  %..021 = tail call i32 @llvm.umin.i32(i32 %.02126, i32 65536)
   %20 = tail call fastcc i32 @ng_read_bytes_or_eof(ptr noundef readonly %0, ptr noundef %17, i32 noundef %..021, i32 noundef 0, ptr noundef %2, ptr noundef %3)
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %21, label %18
@@ -1981,19 +1980,19 @@ ng_read_bytes.exit:                               ; preds = %16, %18
 
 25:                                               ; preds = %24, %21
   tail call void @g_free(ptr noundef %17) #13
-  br label %26
+  br label %27
 
-._crit_edge:                                      ; preds = %18, %16
+26:                                               ; preds = %18
   tail call void @g_free(ptr noundef %17) #13
-  br label %26
+  br label %27
 
-26:                                               ; preds = %._crit_edge, %25, %9
-  %.020 = phi i32 [ 0, %25 ], [ 1, %._crit_edge ], [ %15, %9 ]
+27:                                               ; preds = %26, %25, %9
+  %.020 = phi i32 [ 0, %25 ], [ 1, %26 ], [ %15, %9 ]
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ng_read_bytes_or_eof(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ng_read_bytes_or_eof(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq i32 %3, 0

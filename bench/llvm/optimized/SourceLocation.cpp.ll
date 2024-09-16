@@ -515,7 +515,7 @@ define dso_local void @_ZNK5clang11SourceRange5printERN4llvm11raw_ostreamERKNS_1
 _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %11, %13
   %.sroa.01.0.copyload = load i32, ptr %0, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call fastcc void @_ZL15PrintDifferenceRN4llvm11raw_ostreamERKN5clang13SourceManagerENS2_14SourceLocationENS2_11PresumedLocE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.01.0.copyload, ptr noundef nonnull byval(%"class.clang::PresumedLoc") align 8 %5)
+  call fastcc void @_ZL15PrintDifferenceRN4llvm11raw_ostreamERKN5clang13SourceManagerENS2_14SourceLocationENS2_11PresumedLocE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.01.0.copyload, ptr noundef nonnull byval(%"class.clang::PresumedLoc") align 8 %5)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = load i32, ptr %0, align 4
   %17 = load i32, ptr %15, align 4
@@ -544,7 +544,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %11, %13
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %25, %27
   %.sroa.0.0.copyload = load i32, ptr %15, align 4
-  call fastcc void @_ZL15PrintDifferenceRN4llvm11raw_ostreamERKN5clang13SourceManagerENS2_14SourceLocationENS2_11PresumedLocE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.0.0.copyload, ptr noundef nonnull byval(%"class.clang::PresumedLoc") align 8 %4)
+  call fastcc void @_ZL15PrintDifferenceRN4llvm11raw_ostreamERKN5clang13SourceManagerENS2_14SourceLocationENS2_11PresumedLocE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.0.0.copyload, ptr noundef nonnull byval(%"class.clang::PresumedLoc") align 8 %4)
   br label %30
 
 30:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit, %_ZN4llvm11raw_ostreamlsEc.exit
@@ -568,7 +568,7 @@ _ZN4llvm11raw_ostreamlsEc.exit11:                 ; preds = %33, %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15PrintDifferenceRN4llvm11raw_ostreamERKN5clang13SourceManagerENS2_14SourceLocationENS2_11PresumedLocE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %3, ptr nocapture noundef readonly byval(%"class.clang::PresumedLoc") align 8 %4) unnamed_addr #0 {
+define internal fastcc void @_ZL15PrintDifferenceRN4llvm11raw_ostreamERKN5clang13SourceManagerENS2_14SourceLocationENS2_11PresumedLocE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %3, ptr nocapture noundef readonly byval(%"class.clang::PresumedLoc") align 8 %4) unnamed_addr #0 {
   %6 = alloca %"class.clang::PresumedLoc", align 8
   %7 = alloca %"class.clang::PresumedLoc", align 8
   %8 = icmp sgt i32 %3, -1
@@ -814,7 +814,7 @@ _ZNK5clang13SourceManager15getExpansionLocENS_14SourceLocationE.exit: ; preds = 
 
 _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit: ; preds = %127, %129
   %132 = tail call i32 @_ZNK5clang13SourceManager22getSpellingLocSlowCaseENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %3) #10
-  call fastcc void @_ZL15PrintDifferenceRN4llvm11raw_ostreamERKN5clang13SourceManagerENS2_14SourceLocationENS2_11PresumedLocE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %132, ptr noundef nonnull byval(%"class.clang::PresumedLoc") align 8 %0)
+  call fastcc void @_ZL15PrintDifferenceRN4llvm11raw_ostreamERKN5clang13SourceManagerENS2_14SourceLocationENS2_11PresumedLocE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %132, ptr noundef nonnull byval(%"class.clang::PresumedLoc") align 8 %0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %133 = load ptr, ptr %121, align 8
   %134 = load ptr, ptr %119, align 8

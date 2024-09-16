@@ -138,7 +138,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ossl_property_string(ptr noundef %ctx, i32 noundef %name, i32 noundef %create, ptr noundef %s) unnamed_addr #0 {
+define internal fastcc i32 @ossl_property_string(ptr noundef %ctx, i32 noundef range(i32 0, 2) %name, i32 noundef %create, ptr noundef %s) unnamed_addr #0 {
 entry:
   %p = alloca %struct.PROPERTY_STRING, align 8
   %call = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %ctx, i32 noundef 3) #6
@@ -277,7 +277,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ossl_property_str(i32 noundef %name, ptr noundef %ctx, i32 noundef %idx) unnamed_addr #0 {
+define internal fastcc ptr @ossl_property_str(i32 noundef range(i32 0, 2) %name, ptr noundef %ctx, i32 noundef %idx) unnamed_addr #0 {
 entry:
   %call = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %ctx, i32 noundef 3) #6
   %cmp = icmp eq ptr %call, null

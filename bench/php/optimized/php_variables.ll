@@ -1309,7 +1309,7 @@ define void @php_std_post_handler(ptr nocapture noundef readnone %0, ptr noundef
   %29 = load ptr, ptr %3, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 16
   store i64 %.1, ptr %30, align 8
-  %31 = call fastcc i32 @add_post_vars(ptr noundef %1, ptr noundef nonnull %3, i1 noundef zeroext false)
+  %31 = call fastcc i32 @add_post_vars(ptr noundef %1, ptr noundef %3, i1 noundef zeroext false)
   %.not68 = icmp eq i32 %31, 0
   br i1 %.not68, label %43, label %32
 
@@ -1344,7 +1344,7 @@ define void @php_std_post_handler(ptr nocapture noundef readnone %0, ptr noundef
   br i1 %.not70, label %57, label %45
 
 45:                                               ; preds = %.thread
-  %46 = call fastcc i32 @add_post_vars(ptr noundef %1, ptr noundef nonnull %3, i1 noundef zeroext true)
+  %46 = call fastcc i32 @add_post_vars(ptr noundef %1, ptr noundef %3, i1 noundef zeroext true)
   %47 = load ptr, ptr %3, align 8
   %.not71 = icmp eq ptr %47, null
   br i1 %.not71, label %57, label %48
@@ -1384,7 +1384,7 @@ declare zeroext i1 @_php_stream_eof(ptr noundef) local_unnamed_addr #5
 declare i64 @_php_stream_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @add_post_vars(ptr noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @add_post_vars(ptr noundef %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8

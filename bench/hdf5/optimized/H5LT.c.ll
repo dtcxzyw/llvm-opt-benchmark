@@ -3066,7 +3066,7 @@ indentation.exit570:                              ; preds = %509, %511
 532:                                              ; preds = %530
   %533 = call i32 @H5Tclose(i64 noundef %514) #20
   %534 = load i64, ptr @indent, align 8
-  %535 = call fastcc ptr @print_enum(i64 noundef %0, ptr noundef nonnull %531, ptr noundef nonnull %3, i1 noundef zeroext %4, i64 noundef %534)
+  %535 = call fastcc ptr @print_enum(i64 noundef %0, ptr noundef %531, ptr noundef nonnull %3, i1 noundef zeroext %4, i64 noundef %534)
   %.not498 = icmp eq ptr %535, null
   br i1 %.not498, label %realloc_and_append.exit.thread, label %536
 
@@ -3687,7 +3687,7 @@ declare i32 @H5free_memory(ptr noundef) local_unnamed_addr #1
 declare i64 @H5Tget_super(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @print_enum(i64 noundef %0, ptr noundef %1, ptr nocapture noundef %2, i1 noundef zeroext %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @print_enum(i64 noundef %0, ptr noundef nonnull %1, ptr nocapture noundef %2, i1 noundef zeroext %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca [256 x i8], align 16
   %7 = alloca [256 x i8], align 16
   %8 = tail call i32 @H5Tget_nmembers(i64 noundef %0) #20
@@ -3779,7 +3779,7 @@ define internal fastcc noundef ptr @print_enum(i64 noundef %0, ptr noundef %1, p
   br label %indentation.exit
 
 indentation.exit:                                 ; preds = %41, %42
-  %43 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %3, ptr noundef %2, ptr noundef %.196147, ptr noundef nonnull %6)
+  %43 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %3, ptr noundef %2, ptr noundef nonnull %.196147, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
   %.not = icmp eq ptr %43, null
   br i1 %.not, label %.loopexit, label %44
@@ -3845,7 +3845,7 @@ indentation.exit:                                 ; preds = %41, %42
   br i1 %.not119, label %80, label %.lr.ph155.preheader
 
 .thread:                                          ; preds = %.loopexit.thread
-  %70 = tail call fastcc ptr @realloc_and_append(i1 noundef zeroext %3, ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.62)
+  %70 = tail call fastcc ptr @realloc_and_append(i1 noundef zeroext %3, ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @.str.62)
   %71 = add i64 %4, 4
   %72 = add i64 %4, 5
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 32, i64 %72, i1 false)

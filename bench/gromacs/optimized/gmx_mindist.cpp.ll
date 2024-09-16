@@ -2885,7 +2885,7 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit388.i:    ; preds = %.lr.ph518.i, %_ZL13
   %1060 = load ptr, ptr %1054, align 8
   %1061 = getelementptr inbounds ptr, ptr %.0183, i64 %indvars.iv641.i.us.us
   %1062 = load ptr, ptr %1061, align 8
-  invoke fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S2_S2_S2_S2_(float noundef %711, i1 noundef zeroext %720, i32 noundef %721, ptr noundef nonnull %38, ptr noundef %1056, i32 noundef %1057, i32 noundef %1059, ptr noundef %1060, ptr noundef %1062, i1 noundef zeroext %723, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %34, ptr noundef nonnull %28, ptr noundef nonnull %35, ptr noundef nonnull %29)
+  invoke fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S2_S2_S2_S2_(float noundef %711, i1 noundef zeroext %720, i32 noundef %721, ptr noundef %38, ptr noundef %1056, i32 noundef %1057, i32 noundef %1059, ptr noundef %1060, ptr noundef %1062, i1 noundef zeroext %723, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %34, ptr noundef %28, ptr noundef %35, ptr noundef %29)
           to label %1063 unwind label %.loopexit453.split.i.split.us.split.us
 
 1063:                                             ; preds = %1055
@@ -2933,7 +2933,7 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit388.i:    ; preds = %.lr.ph518.i, %_ZL13
   %1076 = load ptr, ptr %1070, align 8
   %1077 = getelementptr inbounds ptr, ptr %.0183, i64 %indvars.iv665.i
   %1078 = load ptr, ptr %1077, align 8
-  invoke fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S2_S2_S2_S2_(float noundef %711, i1 noundef zeroext %720, i32 noundef %721, ptr noundef nonnull %38, ptr noundef %1072, i32 noundef %1073, i32 noundef %1075, ptr noundef %1076, ptr noundef %1078, i1 noundef zeroext %723, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %34, ptr noundef nonnull %28, ptr noundef nonnull %35, ptr noundef nonnull %29)
+  invoke fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S2_S2_S2_S2_(float noundef %711, i1 noundef zeroext %720, i32 noundef %721, ptr noundef %38, ptr noundef %1072, i32 noundef %1073, i32 noundef %1075, ptr noundef %1076, ptr noundef %1078, i1 noundef zeroext %723, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %34, ptr noundef %28, ptr noundef %35, ptr noundef %29)
           to label %1079 unwind label %.loopexit453.split.us.split.us.split.us.split.us.i
 
 1079:                                             ; preds = %1071
@@ -2971,7 +2971,7 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit388.i:    ; preds = %.lr.ph518.i, %_ZL13
   %1090 = load ptr, ptr %1084, align 8
   %1091 = getelementptr inbounds ptr, ptr %.0183, i64 %indvars.iv653.i
   %1092 = load ptr, ptr %1091, align 8
-  invoke fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S2_S2_S2_S2_(float noundef %711, i1 noundef zeroext %720, i32 noundef %721, ptr noundef nonnull %38, ptr noundef %1086, i32 noundef %1087, i32 noundef %1089, ptr noundef %1090, ptr noundef %1092, i1 noundef zeroext %723, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %34, ptr noundef nonnull %28, ptr noundef nonnull %35, ptr noundef nonnull %29)
+  invoke fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S2_S2_S2_S2_(float noundef %711, i1 noundef zeroext %720, i32 noundef %721, ptr noundef %38, ptr noundef %1086, i32 noundef %1087, i32 noundef %1089, ptr noundef %1090, ptr noundef %1092, i1 noundef zeroext %723, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %34, ptr noundef %28, ptr noundef %35, ptr noundef %29)
           to label %1093 unwind label %.loopexit453.split.us.split.us.split.i
 
 1093:                                             ; preds = %1085
@@ -2991,7 +2991,7 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit388.i:    ; preds = %.lr.ph518.i, %_ZL13
   %1098 = load ptr, ptr %37, align 8
   %1099 = load i32, ptr %.0184, align 4
   %1100 = load ptr, ptr %.0183, align 8
-  invoke fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S2_S2_S2_S2_(float noundef %711, i1 noundef zeroext %720, i32 noundef %721, ptr noundef nonnull %38, ptr noundef %1098, i32 noundef %1099, i32 noundef %1099, ptr noundef %1100, ptr noundef %1100, i1 noundef zeroext %723, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %34, ptr noundef nonnull %28, ptr noundef nonnull %35, ptr noundef nonnull %29)
+  invoke fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S2_S2_S2_S2_(float noundef %711, i1 noundef zeroext %720, i32 noundef %721, ptr noundef %38, ptr noundef %1098, i32 noundef %1099, i32 noundef %1099, ptr noundef %1100, ptr noundef %1100, i1 noundef zeroext %723, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %34, ptr noundef %28, ptr noundef %35, ptr noundef %29)
           to label %1101 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 1101:                                             ; preds = %1097
@@ -3036,7 +3036,7 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit388.i:    ; preds = %.lr.ph518.i, %_ZL13
   %1118 = load ptr, ptr %1112, align 8
   %1119 = getelementptr inbounds ptr, ptr %.0183, i64 %indvars.iv641.i
   %1120 = load ptr, ptr %1119, align 8
-  invoke fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S2_S2_S2_S2_(float noundef %711, i1 noundef zeroext %720, i32 noundef %721, ptr noundef nonnull %38, ptr noundef %1114, i32 noundef %1115, i32 noundef %1117, ptr noundef %1118, ptr noundef %1120, i1 noundef zeroext %723, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %34, ptr noundef nonnull %28, ptr noundef nonnull %35, ptr noundef nonnull %29)
+  invoke fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S2_S2_S2_S2_(float noundef %711, i1 noundef zeroext %720, i32 noundef %721, ptr noundef %38, ptr noundef %1114, i32 noundef %1115, i32 noundef %1117, ptr noundef %1118, ptr noundef %1120, i1 noundef zeroext %723, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %34, ptr noundef %28, ptr noundef %35, ptr noundef %29)
           to label %1121 unwind label %.loopexit453.split.i.split
 
 1121:                                             ; preds = %1113
@@ -3061,7 +3061,7 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit388.i:    ; preds = %.lr.ph518.i, %_ZL13
   %1132 = load ptr, ptr %.0183, align 8
   %1133 = getelementptr inbounds ptr, ptr %.0183, i64 %indvars.iv634.i
   %1134 = load ptr, ptr %1133, align 8
-  invoke fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S2_S2_S2_S2_(float noundef %711, i1 noundef zeroext %720, i32 noundef %721, ptr noundef nonnull %38, ptr noundef %1128, i32 noundef %1129, i32 noundef %1131, ptr noundef %1132, ptr noundef %1134, i1 noundef zeroext %723, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %34, ptr noundef nonnull %28, ptr noundef nonnull %35, ptr noundef nonnull %29)
+  invoke fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S2_S2_S2_S2_(float noundef %711, i1 noundef zeroext %720, i32 noundef %721, ptr noundef %38, ptr noundef %1128, i32 noundef %1129, i32 noundef %1131, ptr noundef %1132, ptr noundef %1134, i1 noundef zeroext %723, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %34, ptr noundef %28, ptr noundef %35, ptr noundef %29)
           to label %1135 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 1135:                                             ; preds = %.preheader461.i
@@ -3102,7 +3102,7 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit388.i:    ; preds = %.lr.ph518.i, %_ZL13
   %1159 = sext i32 %1155 to i64
   %1160 = getelementptr inbounds i32, ptr %1158, i64 %1159
   %1161 = load ptr, ptr %1133, align 8
-  invoke fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S2_S2_S2_S2_(float noundef %711, i1 noundef zeroext %720, i32 noundef %721, ptr noundef nonnull %38, ptr noundef %1151, i32 noundef %1156, i32 noundef %1157, ptr noundef %1160, ptr noundef %1161, i1 noundef zeroext %723, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %33)
+  invoke fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S2_S2_S2_S2_(float noundef %711, i1 noundef zeroext %720, i32 noundef %721, ptr noundef %38, ptr noundef %1151, i32 noundef %1156, i32 noundef %1157, ptr noundef %1160, ptr noundef %1161, i1 noundef zeroext %723, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33)
           to label %1162 unwind label %.loopexit.split-lp.loopexit.i
 
 1162:                                             ; preds = %1150
@@ -4087,7 +4087,7 @@ declare noundef ptr @_Z8open_trxRKNSt10filesystem7__cxx114pathEPKc(ptr noundef n
 declare void @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S2_S2_S2_S2_(float noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7, ptr noundef readonly %8, i1 noundef zeroext %9, ptr nocapture noundef writeonly %10, ptr nocapture noundef writeonly %11, ptr nocapture noundef %12, ptr nocapture noundef %13, ptr nocapture noundef writeonly %14, ptr nocapture noundef writeonly %15, ptr nocapture noundef writeonly %16, ptr nocapture noundef writeonly %17) unnamed_addr #0 {
+define internal fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S2_S2_S2_S2_(float noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7, ptr noundef readonly %8, i1 noundef zeroext %9, ptr nocapture noundef nonnull writeonly %10, ptr nocapture noundef nonnull writeonly %11, ptr nocapture noundef nonnull %12, ptr nocapture noundef nonnull %13, ptr nocapture noundef nonnull writeonly %14, ptr nocapture noundef nonnull writeonly %15, ptr nocapture noundef nonnull writeonly %16, ptr nocapture noundef nonnull writeonly %17) unnamed_addr #0 {
   %19 = alloca [3 x float], align 4
   %20 = alloca %struct.t_pbc, align 4
   store i32 -1, ptr %14, align 4
@@ -4100,7 +4100,7 @@ define internal fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S
   br i1 %1, label %22, label %23
 
 22:                                               ; preds = %18
-  call void @_Z7set_pbcP5t_pbc7PbcTypePA3_Kf(ptr noundef nonnull %20, i32 noundef %2, ptr noundef %3)
+  call void @_Z7set_pbcP5t_pbc7PbcTypePA3_Kf(ptr noundef nonnull %20, i32 noundef %2, ptr noundef nonnull %3)
   br label %23
 
 23:                                               ; preds = %22, %18

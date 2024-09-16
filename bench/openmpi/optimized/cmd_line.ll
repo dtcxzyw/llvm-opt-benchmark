@@ -1478,7 +1478,7 @@ opal_obj_run_destructors.exit228:                 ; preds = %.lr.ph.i225, %301
   %317 = load ptr, ptr %16, align 8
   %318 = getelementptr inbounds ptr, ptr %317, i64 %indvars.iv
   %319 = load ptr, ptr %318, align 8
-  %320 = call fastcc i32 @set_dest(ptr noundef nonnull %.2149247266, ptr noundef %319)
+  %320 = call fastcc i32 @set_dest(ptr noundef %.2149247266, ptr noundef %319)
   %.not177 = icmp eq i32 %320, 0
   br i1 %.not177, label %321, label %.sink.split
 
@@ -1503,7 +1503,7 @@ opal_obj_run_destructors.exit228:                 ; preds = %.lr.ph.i225, %301
   br i1 %brmerge, label %327, label %..loopexit290_crit_edge
 
 327:                                              ; preds = %._crit_edge
-  %328 = call fastcc i32 @set_dest(ptr noundef nonnull %.2149247266, ptr noundef nonnull @.str.8)
+  %328 = call fastcc i32 @set_dest(ptr noundef %.2149247266, ptr noundef nonnull @.str.8)
   %.not173 = icmp eq i32 %328, 0
   br i1 %.not173, label %..loopexit290_crit_edge, label %.sink.split
 
@@ -1742,7 +1742,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -43, 1) i32 @set_dest(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc range(i32 -43, 1) i32 @set_dest(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call i64 @atol(ptr nocapture noundef %1) #22
   %4 = trunc i64 %3 to i32
   %5 = tail call i64 @strtoul(ptr nocapture noundef %1, ptr noundef null, i32 noundef 10) #21

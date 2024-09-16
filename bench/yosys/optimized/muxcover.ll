@@ -961,7 +961,7 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEN12_GLOBAL__N_114MuxcoverWorker8newmux_t
 .noexc86:                                         ; preds = %.lr.ph29.i
   %.sroa.03.0.copyload.i.i = load ptr, ptr %.sroa.021.028.i, align 8
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.25.0..sroa_idx.i.i, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_114MuxcoverWorker20implement_best_coverERNS0_6tree_tEN5Yosys5RTLIL6SigBitEPi(ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.021.028.i, ptr %.sroa.03.0.copyload.i.i, i32 %.sroa.2.0.copyload.i.i, ptr noundef nonnull %4)
+  invoke fastcc void @_ZN12_GLOBAL__N_114MuxcoverWorker20implement_best_coverERNS0_6tree_tEN5Yosys5RTLIL6SigBitEPi(ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.021.028.i, ptr %.sroa.03.0.copyload.i.i, i32 %.sroa.2.0.copyload.i.i, ptr noundef %4)
           to label %.noexc87 unwind label %.loopexit.split-lp.loopexit
 
 .noexc87:                                         ; preds = %.noexc86
@@ -24523,7 +24523,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitESt5tupleIJS4_S4_S4_EE
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114MuxcoverWorker20implement_best_coverERNS0_6tree_tEN5Yosys5RTLIL6SigBitEPi(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr %2, i32 %3, ptr nocapture noundef %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114MuxcoverWorker20implement_best_coverERNS0_6tree_tEN5Yosys5RTLIL6SigBitEPi(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr %2, i32 %3, ptr nocapture noundef nonnull %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %7 = alloca %"struct.(anonymous namespace)::MuxcoverWorker::newmux_t", align 8
   %8 = alloca %"struct.Yosys::RTLIL::IdString", align 4

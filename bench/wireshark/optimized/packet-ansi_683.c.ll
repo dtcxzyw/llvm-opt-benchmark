@@ -2275,7 +2275,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @param_block_nam_mdn(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @param_block_nam_mdn(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 256) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [17 x i8], align 16
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
   %7 = zext i8 %6 to i32

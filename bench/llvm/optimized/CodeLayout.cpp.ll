@@ -2478,8 +2478,8 @@ _ZN12_GLOBAL__N_110MergeGainT16updateIfLessThanERKS0_.exit.i.i.i: ; preds = %895
   %.sroa.16.1.i.i = phi i64 [ %.sroa.16.2.i.i, %1014 ], [ 0, %_ZN12_GLOBAL__N_110MergeGainT16updateIfLessThanERKS0_.exit.i.i.i ]
   %.sroa.0.1.i.i = phi double [ %.sroa.0.2.i.i, %1014 ], [ %.sroa.0.0.i.i, %_ZN12_GLOBAL__N_110MergeGainT16updateIfLessThanERKS0_.exit.i.i.i ]
   %.sroa.22.1.i.i = phi i64 [ %.sroa.22.2.i.i, %1014 ], [ 0, %_ZN12_GLOBAL__N_110MergeGainT16updateIfLessThanERKS0_.exit.i.i.i ]
-  %.sroa.089.0102.i.i.i = phi ptr [ %1015, %1014 ], [ %.val35.i.i.i, %_ZN12_GLOBAL__N_110MergeGainT16updateIfLessThanERKS0_.exit.i.i.i ]
-  %899 = load ptr, ptr %.sroa.089.0102.i.i.i, align 8, !noalias !56
+  %.sroa.090.0102.i.i.i = phi ptr [ %1015, %1014 ], [ %.val35.i.i.i, %_ZN12_GLOBAL__N_110MergeGainT16updateIfLessThanERKS0_.exit.i.i.i ]
+  %899 = load ptr, ptr %.sroa.090.0102.i.i.i, align 8, !noalias !56
   %900 = load ptr, ptr %899, align 8, !noalias !56
   %901 = getelementptr inbounds nuw i8, ptr %900, i64 32
   %902 = load ptr, ptr %901, align 8, !noalias !56
@@ -2492,8 +2492,8 @@ _ZNSt6vectorIN12_GLOBAL__N_110MergeTypeTESaIS1_EED2Ev.exit.i.i.i: ; preds = %.lr
   %905 = add i64 %904, 1
   %906 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24, !noalias !56
   store i32 2, ptr %906, align 4, !noalias !56
-  %.sroa.284.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %906, i64 4
-  store i32 4, ptr %.sroa.284.0..sroa_idx.i.i.i, align 4, !noalias !56
+  %.sroa.285.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %906, i64 4
+  store i32 4, ptr %.sroa.285.0..sroa_idx.i.i.i, align 4, !noalias !56
   %907 = icmp eq i64 %905, 0
   br i1 %907, label %_ZZNK12_GLOBAL__N_110ExtTSPImpl16getBestMergeGainEPNS_6ChainTES2_PNS_9ChainEdgeEENKUlmRKSt6vectorINS_10MergeTypeTESaIS6_EEE_clEmSA_.exit149.i.i, label %908
 
@@ -2770,7 +2770,7 @@ _ZZNK12_GLOBAL__N_110ExtTSPImpl16getBestMergeGainEPNS_6ChainTES2_PNS_9ChainEdgeE
   %.sroa.16.2.i.i = phi i64 [ %.sroa.16.19.i.i, %_ZZNK12_GLOBAL__N_110ExtTSPImpl16getBestMergeGainEPNS_6ChainTES2_PNS_9ChainEdgeEENKUlmRKSt6vectorINS_10MergeTypeTESaIS6_EEE_clEmSA_.exit149.i.i ], [ %.sroa.16.1.i.i, %.lr.ph.i.i.i30 ]
   %.sroa.0.2.i.i = phi double [ %.sroa.0.19.i.i, %_ZZNK12_GLOBAL__N_110ExtTSPImpl16getBestMergeGainEPNS_6ChainTES2_PNS_9ChainEdgeEENKUlmRKSt6vectorINS_10MergeTypeTESaIS6_EEE_clEmSA_.exit149.i.i ], [ %.sroa.0.1.i.i, %.lr.ph.i.i.i30 ]
   %.sroa.22.2.i.i = phi i64 [ %.sroa.22.19.i.i, %_ZZNK12_GLOBAL__N_110ExtTSPImpl16getBestMergeGainEPNS_6ChainTES2_PNS_9ChainEdgeEENKUlmRKSt6vectorINS_10MergeTypeTESaIS6_EEE_clEmSA_.exit149.i.i ], [ %.sroa.22.1.i.i, %.lr.ph.i.i.i30 ]
-  %1015 = getelementptr inbounds i8, ptr %.sroa.089.0102.i.i.i, i64 8
+  %1015 = getelementptr inbounds i8, ptr %.sroa.090.0102.i.i.i, i64 8
   %.not98.i.i.i = icmp eq ptr %1015, %.val33.i.i.i
   br i1 %.not98.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i30
 
@@ -2792,8 +2792,8 @@ _ZZNK12_GLOBAL__N_110ExtTSPImpl16getBestMergeGainEPNS_6ChainTES2_PNS_9ChainEdgeE
   %.sroa.16.4.i.i = phi i64 [ %.sroa.16.5.i.i, %1135 ], [ %.sroa.16.3.i.i, %._crit_edge.i.i.i ]
   %.sroa.0.4.i.i = phi double [ %.sroa.0.5.i.i, %1135 ], [ %.sroa.0.3.i.i, %._crit_edge.i.i.i ]
   %.sroa.22.4.i.i = phi i64 [ %.sroa.22.5.i.i, %1135 ], [ %.sroa.22.3.i.i, %._crit_edge.i.i.i ]
-  %.sroa.082.0104.i.i.i = phi ptr [ %1136, %1135 ], [ %.val34.i.i.i, %._crit_edge.i.i.i ]
-  %1020 = load ptr, ptr %.sroa.082.0104.i.i.i, align 8, !noalias !56
+  %.sroa.083.0104.i.i.i = phi ptr [ %1136, %1135 ], [ %.val34.i.i.i, %._crit_edge.i.i.i ]
+  %1020 = load ptr, ptr %.sroa.083.0104.i.i.i, align 8, !noalias !56
   %1021 = getelementptr inbounds nuw i8, ptr %1020, i64 8
   %1022 = load ptr, ptr %1021, align 8, !noalias !56
   %1023 = getelementptr inbounds nuw i8, ptr %1022, i64 32
@@ -2806,8 +2806,8 @@ _ZNSt6vectorIN12_GLOBAL__N_110MergeTypeTESaIS1_EED2Ev.exit70.i.i.i: ; preds = %.
   %1026 = load i64, ptr %1025, align 8, !noalias !56
   %1027 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24, !noalias !56
   store i32 2, ptr %1027, align 4, !noalias !56
-  %.sroa.277.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %1027, i64 4
-  store i32 3, ptr %.sroa.277.0..sroa_idx.i.i.i, align 4, !noalias !56
+  %.sroa.278.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %1027, i64 4
+  store i32 3, ptr %.sroa.278.0..sroa_idx.i.i.i, align 4, !noalias !56
   %1028 = icmp eq i64 %1026, 0
   br i1 %1028, label %_ZZNK12_GLOBAL__N_110ExtTSPImpl16getBestMergeGainEPNS_6ChainTES2_PNS_9ChainEdgeEENKUlmRKSt6vectorINS_10MergeTypeTESaIS6_EEE_clEmSA_.exit113.i.i, label %1029
 
@@ -3084,7 +3084,7 @@ _ZZNK12_GLOBAL__N_110ExtTSPImpl16getBestMergeGainEPNS_6ChainTES2_PNS_9ChainEdgeE
   %.sroa.16.5.i.i = phi i64 [ %.sroa.16.16.i.i, %_ZZNK12_GLOBAL__N_110ExtTSPImpl16getBestMergeGainEPNS_6ChainTES2_PNS_9ChainEdgeEENKUlmRKSt6vectorINS_10MergeTypeTESaIS6_EEE_clEmSA_.exit113.i.i ], [ %.sroa.16.4.i.i, %.lr.ph106.i.i.i ]
   %.sroa.0.5.i.i = phi double [ %.sroa.0.16.i.i, %_ZZNK12_GLOBAL__N_110ExtTSPImpl16getBestMergeGainEPNS_6ChainTES2_PNS_9ChainEdgeEENKUlmRKSt6vectorINS_10MergeTypeTESaIS6_EEE_clEmSA_.exit113.i.i ], [ %.sroa.0.4.i.i, %.lr.ph106.i.i.i ]
   %.sroa.22.5.i.i = phi i64 [ %.sroa.22.16.i.i, %_ZZNK12_GLOBAL__N_110ExtTSPImpl16getBestMergeGainEPNS_6ChainTES2_PNS_9ChainEdgeEENKUlmRKSt6vectorINS_10MergeTypeTESaIS6_EEE_clEmSA_.exit113.i.i ], [ %.sroa.22.4.i.i, %.lr.ph106.i.i.i ]
-  %1136 = getelementptr inbounds i8, ptr %.sroa.082.0104.i.i.i, i64 8
+  %1136 = getelementptr inbounds i8, ptr %.sroa.083.0104.i.i.i, i64 8
   %.not99.i.i.i = icmp eq ptr %1136, %.val.i.i.i31
   br i1 %.not99.i.i.i, label %._crit_edge107.i.i.i, label %.lr.ph106.i.i.i
 
@@ -6115,7 +6115,7 @@ _ZN12_GLOBAL__N_110CDSortImplC2ERKN4llvm10codelayout12CDSortConfigENS1_8ArrayRef
 
 692:                                              ; preds = %689
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !159
-  call fastcc void @_ZNK12_GLOBAL__N_110CDSortImpl16getBestMergeGainEPNS_9ChainEdgeE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull readonly align 8 dereferenceable(200) %17, ptr noundef nonnull %686), !noalias !159
+  call fastcc void @_ZNK12_GLOBAL__N_110CDSortImpl16getBestMergeGainEPNS_9ChainEdgeE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull readonly align 8 dereferenceable(200) %17, ptr noundef nonnull %686), !noalias !159
   %693 = load ptr, ptr %685, align 8, !noalias !159
   %694 = getelementptr inbounds nuw i8, ptr %693, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %694, ptr noundef nonnull readonly align 8 dereferenceable(20) %15, i64 20, i1 false), !noalias !159
@@ -6396,7 +6396,7 @@ _ZN12_GLOBAL__N_110mergeNodesERKSt6vectorIPNS_5NodeTESaIS2_EES6_mNS_10MergeTypeT
   store ptr %.sink.i.i.i.i, ptr %671, align 8, !alias.scope !175, !noalias !159
   store ptr %.0.val1.sink.i.i.i.i, ptr %672, align 8, !alias.scope !175, !noalias !159
   store ptr %.8.val3.sink.i.i.i.i, ptr %673, align 8, !alias.scope !175, !noalias !159
-  call fastcc void @_ZNK12_GLOBAL__N_112MergedNodesT8getNodesEv(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(48) %13), !noalias !159
+  call fastcc void @_ZNK12_GLOBAL__N_112MergedNodesT8getNodesEv(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(48) %13), !noalias !159
   %784 = load ptr, ptr %774, align 8, !noalias !159
   %785 = getelementptr inbounds nuw i8, ptr %.val86.i.i18, i64 48
   %786 = load ptr, ptr %785, align 8, !noalias !159
@@ -6526,7 +6526,7 @@ _ZN12_GLOBAL__N_110CDSortImpl11mergeChainsEPNS_6ChainTES2_mNS_10MergeTypeTE.exit
 
 845:                                              ; preds = %828
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !159
-  call fastcc void @_ZNK12_GLOBAL__N_110CDSortImpl16getBestMergeGainEPNS_9ChainEdgeE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull readonly align 8 dereferenceable(200) %17, ptr noundef nonnull %825), !noalias !159
+  call fastcc void @_ZNK12_GLOBAL__N_110CDSortImpl16getBestMergeGainEPNS_9ChainEdgeE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull readonly align 8 dereferenceable(200) %17, ptr noundef nonnull %825), !noalias !159
   %846 = load ptr, ptr %824, align 8, !noalias !159
   %847 = getelementptr inbounds nuw i8, ptr %846, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %847, ptr noundef nonnull readonly align 8 dereferenceable(20) %12, i64 20, i1 false), !noalias !159
@@ -8962,7 +8962,7 @@ _ZN12_GLOBAL__N_110mergeNodesERKSt6vectorIPNS_5NodeTESaIS2_EES6_mNS_10MergeTypeT
   store ptr %.0.val1.sink.i, ptr %22, align 8, !alias.scope !220
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %.8.val3.sink.i, ptr %23, align 8, !alias.scope !220
-  call fastcc void @_ZNK12_GLOBAL__N_112MergedNodesT8getNodesEv(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %6)
+  call fastcc void @_ZNK12_GLOBAL__N_112MergedNodesT8getNodesEv(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %6)
   %24 = load ptr, ptr %9, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %26 = load ptr, ptr %25, align 8
@@ -9267,7 +9267,7 @@ _ZN4llvm5eraseISt6vectorIPN12_GLOBAL__N_16ChainTESaIS4_EES4_EEvRT_T0_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_112MergedNodesT8getNodesEv(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_112MergedNodesT8getNodesEv(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.sroa.014.0.copyload = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10464,7 +10464,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_10ExtTSPImpl12concatChainsEvEUlS5_S5_E_EEEvT_T0_SH_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #12 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_10ExtTSPImpl12concatChainsEvEUlS5_S5_E_EEEvT_T0_SH_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %2, ptr noundef %3) unnamed_addr #12 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6
@@ -10765,7 +10765,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_110CDSortImpl16getBestMergeGainEPNS_9ChainEdgeE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_110CDSortImpl16getBestMergeGainEPNS_9ChainEdgeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %1, ptr noundef %2) unnamed_addr #0 align 2 {
 .lr.ph.i:
   %3 = alloca %"struct.(anonymous namespace)::MergedJumpsT", align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16

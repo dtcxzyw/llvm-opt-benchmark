@@ -854,7 +854,7 @@ freespace_stats.exit:                             ; preds = %._crit_edge46.threa
   br label %239
 
 238:                                              ; preds = %227
-  call fastcc void @print_statistics(ptr noundef %236, ptr noundef nonnull %3)
+  call fastcc void @print_statistics(ptr noundef %236, ptr noundef %3)
   br label %239
 
 239:                                              ; preds = %237, %238
@@ -875,7 +875,7 @@ freespace_stats.exit:                             ; preds = %._crit_edge46.threa
   br label %249
 
 248:                                              ; preds = %244
-  call fastcc void @print_statistics(ptr noundef nonnull @.str.13, ptr noundef nonnull %3)
+  call fastcc void @print_statistics(ptr noundef nonnull @.str.13, ptr noundef %3)
   br label %249
 
 249:                                              ; preds = %95, %247, %248, %153, %104
@@ -2489,7 +2489,7 @@ define internal noundef i32 @lnk_stats(ptr nocapture readnone %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_statistics(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #5 {
+define internal fastcc void @print_statistics(ptr noundef %0, ptr noundef nonnull readonly %1) unnamed_addr #5 {
   %3 = alloca i64, align 8
   %.b = load i1, ptr @display_object, align 4
   br i1 %.b, label %4, label %6

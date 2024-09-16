@@ -61,7 +61,7 @@ define internal void @"_ZN4core3ptr46drop_in_place$LT$$RF$std..io..error..Error$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7fbdfdef2aca020bE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7fbdfdef2aca020bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -2231,7 +2231,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hba0a0c4fb0911f70E.exit: ; 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
-  invoke fastcc void @_ZN11uu_realpath28canonicalize_relative_option17h72dfbe2c08b7466dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %21, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %20, i8 noundef %2, i8 noundef %3)
+  invoke fastcc void @_ZN11uu_realpath28canonicalize_relative_option17h72dfbe2c08b7466dE(ptr noalias nocapture noundef align 8 dereferenceable(24) %21, ptr noalias nocapture noundef align 8 dereferenceable(24) %20, i8 noundef %2, i8 noundef %3)
           to label %97 unwind label %158
 
 96:                                               ; preds = %92
@@ -2261,12 +2261,12 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hba0a0c4fb0911f70E.exit: ; 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
   %105 = ptrtoint ptr %103 to i64
-  invoke fastcc void @_ZN11uu_realpath28canonicalize_relative_option17h72dfbe2c08b7466dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %18, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %17, i8 noundef %2, i8 noundef %3)
+  invoke fastcc void @_ZN11uu_realpath28canonicalize_relative_option17h72dfbe2c08b7466dE(ptr noalias nocapture noundef align 8 dereferenceable(24) %18, ptr noalias nocapture noundef align 8 dereferenceable(24) %17, i8 noundef %2, i8 noundef %3)
           to label %109 unwind label %107
 
 106:                                              ; preds = %119, %107
   %.pn = phi { ptr, i32 } [ %108, %107 ], [ %120, %119 ]
-  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7fbdfdef2aca020bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #10
+  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7fbdfdef2aca020bE"(ptr noalias noundef align 8 dereferenceable(24) %22) #10
           to label %.thread unwind label %144
 
 107:                                              ; preds = %132, %129, %104
@@ -2296,7 +2296,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hba0a0c4fb0911f70E.exit: ; 
 119:                                              ; preds = %126
   %120 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7fbdfdef2aca020bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #10
+  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7fbdfdef2aca020bE"(ptr noalias noundef align 8 dereferenceable(24) %19) #10
           to label %106 unwind label %144
 
 121:                                              ; preds = %109
@@ -2436,7 +2436,7 @@ _ZN3std4path4Path11starts_with17h5491bb8ddbc81f59E.exit: ; preds = %126
 158:                                              ; preds = %95
   %lpad.thr_comm.split-lp134 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7fbdfdef2aca020bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23) #10
+  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7fbdfdef2aca020bE"(ptr noalias noundef align 8 dereferenceable(24) %23) #10
           to label %.thread unwind label %144
 
 .thread:                                          ; preds = %106, %158, %159
@@ -2446,12 +2446,12 @@ _ZN3std4path4Path11starts_with17h5491bb8ddbc81f59E.exit: ; preds = %126
 159:                                              ; preds = %59, %62, %65, %68, %82, %83, %92
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7fbdfdef2aca020bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24) #10
+  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7fbdfdef2aca020bE"(ptr noalias noundef align 8 dereferenceable(24) %24) #10
           to label %.thread unwind label %144
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN11uu_realpath28canonicalize_relative_option17h72dfbe2c08b7466dE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i8 noundef %2, i8 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN11uu_realpath28canonicalize_relative_option17h72dfbe2c08b7466dE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i8 noundef %2, i8 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8

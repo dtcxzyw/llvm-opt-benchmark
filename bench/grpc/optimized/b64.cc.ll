@@ -506,7 +506,7 @@ if.then.i:                                        ; preds = %land.lhs.true43
   unreachable
 
 do.end.i:                                         ; preds = %land.lhs.true43
-  switch i64 %num_codes.0.ph.ph, label %default.unreachable [
+  switch i64 %num_codes.0.ph.ph, label %default.unreachable.i [
     i64 1, label %if.then2.i
     i64 2, label %if.then5.i
     i64 3, label %if.then8.i
@@ -549,7 +549,7 @@ if.then8.i:                                       ; preds = %do.end.i
   store i8 %conv10.i.i, ptr %arrayidx12.i.i, align 1
   br label %if.end48
 
-default.unreachable:                              ; preds = %do.end.i
+default.unreachable.i:                            ; preds = %do.end.i
   unreachable
 
 do.end15.i:                                       ; preds = %do.end.i

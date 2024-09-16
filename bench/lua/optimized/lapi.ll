@@ -4743,7 +4743,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @aux_rawset(ptr noundef %L, i32 noundef %idx, ptr noundef %key, i32 noundef %n) unnamed_addr #0 {
+define internal fastcc void @aux_rawset(ptr noundef %L, i32 noundef %idx, ptr noundef %key, i32 noundef range(i32 1, 3) %n) unnamed_addr #0 {
 entry:
   %ci1.i.i = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %ci1.i.i, align 8

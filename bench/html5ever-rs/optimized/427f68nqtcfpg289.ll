@@ -74,7 +74,7 @@ define hidden void @"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$str
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr211drop_in_place$LT$$LP$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..PrefixStaticSet$GT$$GT$$C$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$RP$$GT$17hb016ce7cea66f485E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr211drop_in_place$LT$$LP$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..PrefixStaticSet$GT$$GT$$C$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$RP$$GT$17hb016ce7cea66f485E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %2 = load i64, ptr %0, align 8, !alias.scope !21, !noundef !4
   %3 = icmp ne i64 %2, 0
@@ -968,7 +968,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 239:                                              ; preds = %259, %256
   %240 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr211drop_in_place$LT$$LP$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..PrefixStaticSet$GT$$GT$$C$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$RP$$GT$17hb016ce7cea66f485E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9) #21
+  invoke fastcc void @"_ZN4core3ptr211drop_in_place$LT$$LP$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..PrefixStaticSet$GT$$GT$$C$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$RP$$GT$17hb016ce7cea66f485E"(ptr noalias noundef align 8 dereferenceable(16) %9) #21
           to label %272 unwind label %270, !noalias !130
 
 241:                                              ; preds = %233
@@ -1264,7 +1264,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c67195daccd53ddE.exit.i.i": ; preds = %11
   %13 = add nuw nsw i64 %.sroa.8.0.i.i, 1
   %14 = getelementptr inbounds i8, ptr %.sroa.0.020.i.i, i64 8
-  %15 = tail call fastcc noundef i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.0.020.i.i), !range !176, !noalias !177
+  %15 = tail call fastcc noundef i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias noundef readonly align 8 dereferenceable(8) %3, ptr noalias noundef readonly align 8 dereferenceable(8) %.sroa.0.020.i.i), !range !176, !noalias !177
   switch i8 %15, label %default.unreachable [
     i8 -1, label %.loopexit.loopexit.i.i
     i8 0, label %.loopexit
@@ -1325,7 +1325,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c67195daccd53ddE.exit.i.i": ; preds = %11
   %13 = add nuw nsw i64 %.sroa.8.0.i.i, 1
   %14 = getelementptr inbounds i8, ptr %.sroa.0.020.i.i, i64 8
-  %15 = tail call fastcc noundef i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.0.020.i.i), !range !176, !noalias !185
+  %15 = tail call fastcc noundef i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias noundef readonly align 8 dereferenceable(8) %3, ptr noalias noundef readonly align 8 dereferenceable(8) %.sroa.0.020.i.i), !range !176, !noalias !185
   switch i8 %15, label %default.unreachable [
     i8 -1, label %.loopexit.loopexit.i.i
     i8 0, label %.loopexit
@@ -1381,7 +1381,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c67195daccd53ddE.exit.i": ; preds = %10
   %12 = add nuw nsw i64 %.sroa.8.0.i, 1
   %13 = getelementptr inbounds i8, ptr %.sroa.0.020.i, i64 8
-  %14 = tail call fastcc noundef i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.0.020.i), !range !176, !noalias !190
+  %14 = tail call fastcc noundef i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias noundef readonly align 8 dereferenceable(8) %3, ptr noalias noundef readonly align 8 dereferenceable(8) %.sroa.0.020.i), !range !176, !noalias !190
   switch i8 %14, label %default.unreachable [
     i8 -1, label %.loopexit.loopexit.i.loopexit
     i8 0, label %.loopexit.loopexit.i
@@ -1425,7 +1425,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c67195daccd53ddE.exit.i": ; preds = %10
   %12 = add nuw nsw i64 %.sroa.8.0.i, 1
   %13 = getelementptr inbounds i8, ptr %.sroa.0.020.i, i64 8
-  %14 = tail call fastcc noundef i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.0.020.i), !range !176, !noalias !195
+  %14 = tail call fastcc noundef i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias noundef readonly align 8 dereferenceable(8) %3, ptr noalias noundef readonly align 8 dereferenceable(8) %.sroa.0.020.i), !range !176, !noalias !195
   switch i8 %14, label %default.unreachable [
     i8 -1, label %.loopexit.loopexit.i.loopexit
     i8 0, label %.loopexit.loopexit.i
@@ -1471,7 +1471,7 @@ default.unreachable34:                            ; preds = %"_ZN110_$LT$core..i
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c67195daccd53ddE.exit": ; preds = %11
   %13 = add nuw nsw i64 %.sroa.8.0, 1
   %14 = getelementptr inbounds i8, ptr %.sroa.0.020, i64 8
-  %15 = tail call fastcc noundef i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.0.020), !range !176
+  %15 = tail call fastcc noundef i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef readonly align 8 dereferenceable(8) %.sroa.0.020), !range !176
   switch i8 %15, label %default.unreachable34 [
     i8 -1, label %.loopexit.loopexit
     i8 0, label %.loopexit
@@ -1517,7 +1517,7 @@ default.unreachable34:                            ; preds = %"_ZN110_$LT$core..i
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c67195daccd53ddE.exit": ; preds = %11
   %13 = add nuw nsw i64 %.sroa.8.0, 1
   %14 = getelementptr inbounds i8, ptr %.sroa.0.020, i64 8
-  %15 = tail call fastcc noundef i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.0.020), !range !176
+  %15 = tail call fastcc noundef i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef readonly align 8 dereferenceable(8) %.sroa.0.020), !range !176
   switch i8 %15, label %default.unreachable34 [
     i8 -1, label %.loopexit.loopexit
     i8 0, label %.loopexit
@@ -1804,7 +1804,7 @@ define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allo
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef range(i8 -1, 2) i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #10 {
+define internal fastcc noundef range(i8 -1, 2) i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #10 {
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = icmp ne i64 %3, 0
   %5 = load i64, ptr %1, align 8, !noundef !4

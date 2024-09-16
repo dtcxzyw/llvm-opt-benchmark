@@ -2245,7 +2245,7 @@ declare void @llvm.assume(i1 noundef) #12
 declare dso_local void @do_trace_read_msr(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @print_fixed(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #2 section ".init.text" align 16 {
+define internal fastcc void @print_fixed(i32 noundef %0, i32 noundef range(i32 4096, 65537) %1, ptr nocapture noundef readonly %2) unnamed_addr #2 section ".init.text" align 16 {
   %.pre = load i32, ptr @last_fixed_end, align 4
   br label %4
 

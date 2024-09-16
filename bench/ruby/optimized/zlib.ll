@@ -8330,7 +8330,7 @@ zstream_discard_input.exit:                       ; preds = %RSTRING_PTR.exit16,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @gzfile_read_raw_ensure(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @gzfile_read_raw_ensure(ptr nocapture noundef %0, i64 noundef range(i64 1, 65538) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.read_raw_arg, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -10155,7 +10155,7 @@ declare void @rb_lastline_set(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_check_string_type(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @gzreader_charboundary(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc i64 @gzreader_charboundary(ptr noundef %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr

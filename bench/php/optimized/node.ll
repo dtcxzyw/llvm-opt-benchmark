@@ -3501,7 +3501,7 @@ php_dom_node_is_ns_uri_equal.exit:                ; preds = %34, %37
   br label %php_dom_node_list_equality_check_ordered_xmlNode.exit
 
 99:                                               ; preds = %9
-  %100 = tail call fastcc zeroext i1 @php_dom_is_equal_attr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %100 = tail call fastcc zeroext i1 @php_dom_is_equal_attr(ptr noundef %0, ptr noundef nonnull %1)
   br label %php_dom_node_list_equality_check_ordered_xmlNode.exit
 
 101:                                              ; preds = %9
@@ -3549,7 +3549,7 @@ php_dom_node_is_ns_uri_equal.exit:                ; preds = %34, %37
   br i1 %.not76, label %php_dom_node_list_equality_check_ordered_xmlNode.exit, label %132
 
 132:                                              ; preds = %126
-  %133 = tail call fastcc zeroext i1 @php_dom_node_is_content_equal(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %133 = tail call fastcc zeroext i1 @php_dom_node_is_content_equal(ptr noundef %0, ptr noundef %1)
   br label %php_dom_node_list_equality_check_ordered_xmlNode.exit
 
 134:                                              ; preds = %9
@@ -3950,7 +3950,7 @@ define hidden void @zim_DOMNode_C14N(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dom_canonicalization(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dom_canonicalization(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
@@ -4242,7 +4242,7 @@ define internal fastcc void @dom_canonicalization(ptr nocapture noundef readonly
 
 156:                                              ; preds = %._crit_edge, %155, %118
   %.0173 = phi ptr [ %129, %._crit_edge ], [ null, %155 ], [ null, %118 ]
-  %157 = icmp eq i32 %2, 1
+  %157 = icmp ne i32 %2, 0
   br i1 %157, label %158, label %161
 
 158:                                              ; preds = %156
@@ -4810,7 +4810,7 @@ define hidden void @zim_DOMNode_compareDocumentPosition(ptr nocapture noundef re
 
 .lr.ph:                                           ; preds = %63, %65
   %.0139176 = phi ptr [ %.0139, %65 ], [ %.0139174, %63 ]
-  %67 = call fastcc zeroext i1 @php_dom_is_equal_attr(ptr noundef nonnull %.0139176, ptr noundef nonnull %.0137)
+  %67 = call fastcc zeroext i1 @php_dom_is_equal_attr(ptr noundef %.0139176, ptr noundef nonnull %.0137)
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %.lr.ph
@@ -4820,7 +4820,7 @@ define hidden void @zim_DOMNode_compareDocumentPosition(ptr nocapture noundef re
   br label %145
 
 70:                                               ; preds = %.lr.ph
-  %71 = call fastcc zeroext i1 @php_dom_is_equal_attr(ptr noundef nonnull %.0139176, ptr noundef %27)
+  %71 = call fastcc zeroext i1 @php_dom_is_equal_attr(ptr noundef %.0139176, ptr noundef %27)
   br i1 %71, label %72, label %65
 
 72:                                               ; preds = %70
@@ -5031,7 +5031,7 @@ define hidden void @zim_DOMNode_compareDocumentPosition(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @php_dom_is_equal_attr(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @php_dom_is_equal_attr(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5317,9 +5317,9 @@ php_dom_node_count_list_size_xmlNode.exit20:      ; preds = %.lr.ph.i15, %php_do
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @php_dom_node_is_content_equal(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = tail call ptr @xmlNodeGetContent(ptr noundef %0) #12
-  %4 = tail call ptr @xmlNodeGetContent(ptr noundef %1) #12
+define internal fastcc zeroext i1 @php_dom_node_is_content_equal(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
+  %3 = tail call ptr @xmlNodeGetContent(ptr noundef nonnull %0) #12
+  %4 = tail call ptr @xmlNodeGetContent(ptr noundef nonnull %1) #12
   %5 = tail call i32 @xmlStrEqual(ptr noundef %3, ptr noundef %4) #12
   %6 = icmp ne i32 %5, 0
   %7 = load ptr, ptr @xmlFree, align 8

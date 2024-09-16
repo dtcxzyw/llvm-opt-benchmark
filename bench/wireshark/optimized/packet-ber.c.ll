@@ -4817,7 +4817,7 @@ define hidden i32 @dissect_ber_constrained_sequence_of(i1 noundef zeroext %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ber_sq_of(i1 noundef zeroext %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef readonly %8, i32 noundef %9, i32 noundef %10) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ber_sq_of(i1 noundef zeroext %0, i32 noundef range(i32 16, 18) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef readonly %8, i32 noundef %9, i32 noundef %10) unnamed_addr #0 {
   %12 = alloca i8, align 1
   %13 = alloca i8, align 1
   %14 = alloca i8, align 1

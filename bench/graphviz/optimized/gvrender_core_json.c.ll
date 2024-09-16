@@ -190,7 +190,7 @@ define internal void @json_end_graph(ptr noundef %0) #0 {
   %26 = zext i1 %narrow to i8
   %27 = getelementptr inbounds i8, ptr %2, i64 5
   store i8 %26, ptr %27, align 1
-  call fastcc void @write_graph(ptr noundef %6, ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef nonnull %2)
+  call fastcc void @write_graph(ptr noundef %6, ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef %2)
   ret void
 }
 
@@ -258,7 +258,7 @@ define internal fastcc void @set_attrwf(ptr noundef %0, i1 noundef zeroext %1) u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_graph(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @write_graph(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   br i1 %2, label %5, label %34
 
 5:                                                ; preds = %4
@@ -362,11 +362,11 @@ indent.exit:                                      ; preds = %.lr.ph.i, %34
 
 indent.exit.i:                                    ; preds = %.lr.ph.i.i, %indent.exit
   %48 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.22) #14
-  tail call fastcc void @stoj(ptr noundef %42, ptr noundef nonnull readonly %3, ptr noundef %1)
+  tail call fastcc void @stoj(ptr noundef %42, ptr noundef readonly %3, ptr noundef %1)
   br i1 %2, label %52, label %write_hdr.exit.thread
 
 write_hdr.exit.thread:                            ; preds = %indent.exit.i
-  tail call fastcc void @write_attrs(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  tail call fastcc void @write_attrs(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   %49 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.11) #14
   %50 = load i32, ptr %3, align 4
   %51 = icmp sgt i32 %50, 0
@@ -406,7 +406,7 @@ write_hdr.exit:                                   ; preds = %.lr.ph.i20.i, %inde
   %.not16.i = icmp eq i32 %66, 0
   %67 = select i1 %.not16.i, ptr @.str.25, ptr @.str.24
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %1, ptr noundef nonnull @.str.26, ptr noundef nonnull %67) #14
-  tail call fastcc void @write_attrs(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  tail call fastcc void @write_attrs(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   %68 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.11) #14
   %69 = load i32, ptr %3, align 4
   %70 = icmp sgt i32 %69, 0
@@ -487,7 +487,7 @@ indent.exit103:                                   ; preds = %indent.exit103.back
   br i1 %2, label %100, label %.thread
 
 100:                                              ; preds = %indent.exit103
-  tail call fastcc void @write_subg(ptr noundef nonnull %.026.i121, ptr noundef %1, ptr noundef nonnull %3)
+  tail call fastcc void @write_subg(ptr noundef %.026.i121, ptr noundef %1, ptr noundef %3)
   %101 = tail call ptr @agnxtsubg(ptr noundef nonnull %.026.i121) #14
   %.not29.i = icmp eq ptr %101, null
   br i1 %.not29.i, label %write_subgs.exit, label %indent.exit103.backedge
@@ -690,8 +690,8 @@ indent.exit25.i.us.i:                             ; preds = %.lr.ph.i23.i.us.i, 
 indent.exit28.i.us.i:                             ; preds = %.lr.ph.i26.i.us.i, %indent.exit25.i.us.i
   %185 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.22) #14
   %186 = tail call ptr @agnameof(ptr noundef nonnull %.064.us.i) #14
-  tail call fastcc void @stoj(ptr noundef %186, ptr noundef nonnull %3, ptr noundef %1)
-  tail call fastcc void @write_attrs(ptr noundef nonnull %.064.us.i, ptr noundef %1, ptr noundef nonnull %3)
+  tail call fastcc void @stoj(ptr noundef %186, ptr noundef %3, ptr noundef %1)
+  tail call fastcc void @write_attrs(ptr noundef nonnull %.064.us.i, ptr noundef %1, ptr noundef %3)
   %187 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.14) #14
   %188 = load i32, ptr %3, align 4
   %189 = add nsw i32 %188, -1
@@ -977,7 +977,7 @@ indent.exit38.i.i:                                ; preds = %.lr.ph.i36.i.i, %in
   %304 = getelementptr inbounds i8, ptr %303, i64 16
   %305 = load i32, ptr %304, align 8
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %1, ptr noundef nonnull @.str.85, i32 noundef %305) #14
-  tail call fastcc void @write_attrs(ptr noundef nonnull %262, ptr noundef %1, ptr noundef nonnull %3)
+  tail call fastcc void @write_attrs(ptr noundef nonnull %262, ptr noundef %1, ptr noundef %3)
   %306 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.14) #14
   %307 = load i32, ptr %3, align 4
   %308 = add nsw i32 %307, -1
@@ -1162,7 +1162,7 @@ declare ptr @aggetrec(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr 
 declare i32 @dtclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_attrs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @write_attrs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = tail call ptr @agroot(ptr noundef %0) #14
   %5 = load i32, ptr %0, align 8
   %6 = and i32 %5, 3
@@ -1208,7 +1208,7 @@ define internal fastcc void @write_attrs(ptr noundef %0, ptr noundef %1, ptr noc
 indent.exit:                                      ; preds = %.lr.ph.i, %19
   %26 = getelementptr inbounds i8, ptr %.0, i64 16
   %27 = load ptr, ptr %26, align 8
-  tail call fastcc void @stoj(ptr noundef %27, ptr noundef nonnull %2, ptr noundef %1)
+  tail call fastcc void @stoj(ptr noundef %27, ptr noundef %2, ptr noundef %1)
   %28 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.36) #14
   %29 = load i8, ptr %8, align 1
   %30 = trunc i8 %29 to i1
@@ -1582,7 +1582,7 @@ indent.exit166.i.i:                               ; preds = %.lr.ph.i164.i.i, %i
   %185 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.53) #14
   %186 = getelementptr inbounds i8, ptr %73, i64 40
   %187 = load ptr, ptr %186, align 8
-  tail call fastcc void @stoj(ptr noundef %187, ptr noundef nonnull %2, ptr noundef %1)
+  tail call fastcc void @stoj(ptr noundef %187, ptr noundef %2, ptr noundef %1)
   %188 = tail call i32 @gvputc(ptr noundef %1, i32 noundef 10) #14
   br label %332
 
@@ -1618,7 +1618,7 @@ indent.exit172.i.i:                               ; preds = %.lr.ph.i170.i.i, %i
   %202 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.55) #14
   %203 = getelementptr inbounds i8, ptr %73, i64 8
   %204 = load ptr, ptr %203, align 8
-  tail call fastcc void @stoj(ptr noundef %204, ptr noundef nonnull %2, ptr noundef %1)
+  tail call fastcc void @stoj(ptr noundef %204, ptr noundef %2, ptr noundef %1)
   %205 = tail call i32 @gvputc(ptr noundef %1, i32 noundef 10) #14
   br label %332
 
@@ -1662,7 +1662,7 @@ indent.exit178.i.i:                               ; preds = %.lr.ph.i176.i.i, %2
   %222 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.55) #14
   %223 = getelementptr inbounds i8, ptr %73, i64 16
   %224 = load ptr, ptr %223, align 8
-  tail call fastcc void @stoj(ptr noundef %224, ptr noundef nonnull %2, ptr noundef %1)
+  tail call fastcc void @stoj(ptr noundef %224, ptr noundef %2, ptr noundef %1)
   %225 = tail call i32 @gvputc(ptr noundef %1, i32 noundef 10) #14
   br label %332
 
@@ -1730,7 +1730,7 @@ write_linear_grad.exit.i.i:                       ; preds = %.lr.ph.i19.i.i.i, %
   %255 = load i32, ptr %254, align 8
   %256 = getelementptr inbounds i8, ptr %73, i64 56
   %257 = load ptr, ptr %256, align 8
-  tail call fastcc void @write_stops(ptr noundef %1, i32 noundef %255, ptr noundef %257, ptr noundef nonnull readonly %2)
+  tail call fastcc void @write_stops(ptr noundef %1, i32 noundef %255, ptr noundef %257, ptr noundef readonly %2)
   br label %332
 
 258:                                              ; preds = %indent.exit175.i.i
@@ -1801,7 +1801,7 @@ write_radial_grad.exit.i.i:                       ; preds = %.lr.ph.i21.i.i.i, %
   %291 = load i32, ptr %290, align 8
   %292 = getelementptr inbounds i8, ptr %73, i64 72
   %293 = load ptr, ptr %292, align 8
-  tail call fastcc void @write_stops(ptr noundef %1, i32 noundef %291, ptr noundef %293, ptr noundef nonnull readonly %2)
+  tail call fastcc void @write_stops(ptr noundef %1, i32 noundef %291, ptr noundef %293, ptr noundef readonly %2)
   br label %332
 
 294:                                              ; preds = %indent.exit129.i.i
@@ -1836,7 +1836,7 @@ indent.exit193.i.i:                               ; preds = %.lr.ph.i191.i.i, %i
   %307 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.60) #14
   %308 = getelementptr inbounds i8, ptr %73, i64 16
   %309 = load ptr, ptr %308, align 8
-  tail call fastcc void @stoj(ptr noundef %309, ptr noundef nonnull %2, ptr noundef %1)
+  tail call fastcc void @stoj(ptr noundef %309, ptr noundef %2, ptr noundef %1)
   %310 = tail call i32 @gvputc(ptr noundef %1, i32 noundef 10) #14
   br label %332
 
@@ -1857,7 +1857,7 @@ indent.exit196.i.i:                               ; preds = %.lr.ph.i194.i.i, %3
   %317 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.62) #14
   %318 = getelementptr inbounds i8, ptr %73, i64 8
   %319 = load ptr, ptr %318, align 8
-  tail call fastcc void @stoj(ptr noundef %319, ptr noundef nonnull %2, ptr noundef %1)
+  tail call fastcc void @stoj(ptr noundef %319, ptr noundef %2, ptr noundef %1)
   %320 = tail call i32 @gvputc(ptr noundef %1, i32 noundef 10) #14
   br label %332
 
@@ -1930,7 +1930,7 @@ indent.exit29.i:                                  ; preds = %.lr.ph.i27.i, %._cr
 
 352:                                              ; preds = %isXDot.exit, %indent.exit
   %353 = tail call ptr @agxget(ptr noundef nonnull %0, ptr noundef nonnull %.0) #14
-  tail call fastcc void @stoj(ptr noundef %353, ptr noundef nonnull %2, ptr noundef %1)
+  tail call fastcc void @stoj(ptr noundef %353, ptr noundef %2, ptr noundef %1)
   br label %write_xdots.exit
 
 write_xdots.exit:                                 ; preds = %indent.exit29.i, %55, %50, %isXDot.exit.thread, %352, %14, %9
@@ -1985,7 +1985,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #8
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stoj(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @stoj(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
@@ -2093,7 +2093,7 @@ declare void @freeXDot(ptr noundef) local_unnamed_addr #1
 declare void @abort() local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_stops(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @write_stops(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.73) #14
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -2130,16 +2130,16 @@ define internal fastcc void @write_stops(ptr noundef %0, i32 noundef %1, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_subg(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
-  tail call fastcc void @write_graph(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false, ptr noundef %2)
-  %4 = tail call ptr @agfstsubg(ptr noundef %0) #14
+define internal fastcc void @write_subg(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+  tail call fastcc void @write_graph(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext false, ptr noundef %2)
+  %4 = tail call ptr @agfstsubg(ptr noundef nonnull %0) #14
   %.not10 = icmp eq ptr %4, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.011 = phi ptr [ %6, %.lr.ph ], [ %4, %3 ]
   %5 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.11) #14
-  tail call fastcc void @write_subg(ptr noundef nonnull %.011, ptr noundef %1, ptr noundef %2)
+  tail call fastcc void @write_subg(ptr noundef %.011, ptr noundef %1, ptr noundef %2)
   %6 = tail call ptr @agnxtsubg(ptr noundef nonnull %.011) #14
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph

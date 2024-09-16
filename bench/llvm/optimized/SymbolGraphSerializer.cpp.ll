@@ -437,7 +437,7 @@ define dso_local void @_ZNK5clang10extractapi21SymbolGraphSerializer17serializeM
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.llvm::json::ObjectKey", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_124serializeSemanticVersionERKN4llvm12VersionTupleE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5clang10extractapi21SymbolGraphSerializer13FormatVersionE)
+  call fastcc void @_ZN12_GLOBAL__N_124serializeSemanticVersionERKN4llvm12VersionTupleE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5clang10extractapi21SymbolGraphSerializer13FormatVersionE)
   call fastcc void @_ZN12_GLOBAL__N_115serializeObjectERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalIS2_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str, i64 13, ptr noundef nonnull align 8 dereferenceable(32) %3)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load i8, ptr %7, align 8
@@ -531,7 +531,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit:                 ; preds = %10, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124serializeSemanticVersionERKN4llvm12VersionTupleE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_124serializeSemanticVersionERKN4llvm12VersionTupleE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::json::Object", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::ObjectKey", align 8
@@ -842,7 +842,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit.i.i:             ; preds = %_ZNKSt14default_del
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %56 = extractvalue { i64, i64 } %53, 1
   store i64 %56, ptr %55, align 8, !noalias !10
-  call fastcc void @_ZN12_GLOBAL__N_124serializeSemanticVersionERKN4llvm12VersionTupleE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 4 dereferenceable(16) %8)
+  call fastcc void @_ZN12_GLOBAL__N_124serializeSemanticVersionERKN4llvm12VersionTupleE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 4 dereferenceable(16) %8)
   call fastcc void @_ZN12_GLOBAL__N_115serializeObjectERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalIS2_E(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr nonnull @.str.50, i64 14, ptr noundef nonnull align 8 dereferenceable(32) %7)
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %58 = load i8, ptr %57, align 8, !noalias !10
@@ -1759,7 +1759,7 @@ _ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit:     ; preds = %_ZN12_GLOBAL__N_119
   %119 = load i8, ptr %118, align 8
   %120 = getelementptr i8, ptr %1, i64 352
   %.val14 = load i32, ptr %120, align 8
-  call fastcc void @_ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE(ptr dead_on_unwind noalias nonnull writable align 8 %62, i32 noundef %.val14, i8 noundef zeroext %119)
+  call fastcc void @_ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE(ptr dead_on_unwind noalias writable align 8 %62, i32 noundef %.val14, i8 noundef zeroext %119)
   %121 = load ptr, ptr %62, align 8
   store ptr %121, ptr %61, align 8
   store ptr null, ptr %62, align 8
@@ -1834,7 +1834,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit.i22:             ; preds = %_ZNKSt14default_del
   %.val.i = load ptr, ptr %146, align 8, !noalias !17
   %147 = getelementptr i8, ptr %1, i64 296
   %.val6.i = load ptr, ptr %147, align 8, !noalias !17
-  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias nonnull writable align 8 %49, ptr %.val.i, ptr %.val6.i)
+  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias writable align 8 %49, ptr %.val.i, ptr %.val6.i)
   call fastcc void @_ZN12_GLOBAL__N_114serializeArrayERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalINS1_5ArrayEE(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr nonnull @.str.105, i64 10, ptr noundef nonnull align 8 dereferenceable(32) %49)
   %148 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %149 = load i8, ptr %148, align 8, !noalias !17
@@ -1894,7 +1894,7 @@ _ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12Fragme
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44), !noalias !17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45), !noalias !17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46), !noalias !17
-  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias nonnull writable align 8 %51, ptr %.val7.pre.i, ptr %.val8.pre.i)
+  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias writable align 8 %51, ptr %.val7.pre.i, ptr %.val8.pre.i)
   call fastcc void @_ZN12_GLOBAL__N_114serializeArrayERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalINS1_5ArrayEE(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr nonnull @.str.107, i64 9, ptr noundef nonnull align 8 dereferenceable(32) %51)
   %165 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %166 = load i8, ptr %165, align 8, !noalias !17
@@ -2020,7 +2020,7 @@ _ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit23:   ; preds = %_ZN12_GLOBAL__N_114
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %41)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %42)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %66, i8 0, i64 20, i1 false), !alias.scope !23
-  call fastcc void @_ZN12_GLOBAL__N_123serializeSourcePositionERKN5clang11PresumedLocE(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull readonly align 8 dereferenceable(24) %211), !noalias !23
+  call fastcc void @_ZN12_GLOBAL__N_123serializeSourcePositionERKN5clang11PresumedLocE(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull readonly align 8 dereferenceable(24) %211), !noalias !23
   %212 = load ptr, ptr %36, align 8, !noalias !23
   store ptr %212, ptr %35, align 8, !noalias !23
   store ptr null, ptr %36, align 8, !noalias !23
@@ -2389,7 +2389,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit18.i:             ; preds = %_ZNKSt14default_del
   br label %_ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit20.i
 
 347:                                              ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit15.i
-  call fastcc void @_ZN12_GLOBAL__N_124serializeSemanticVersionERKN4llvm12VersionTupleE(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull align 4 dereferenceable(16) %269), !noalias !26
+  call fastcc void @_ZN12_GLOBAL__N_124serializeSemanticVersionERKN4llvm12VersionTupleE(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull align 4 dereferenceable(16) %269), !noalias !26
   call fastcc void @_ZN12_GLOBAL__N_115serializeObjectERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalIS2_E(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr nonnull @.str.119, i64 10, ptr noundef nonnull align 8 dereferenceable(32) %32), !noalias !26
   %348 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %349 = load i8, ptr %348, align 8, !noalias !26
@@ -2408,7 +2408,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit18.i:             ; preds = %_ZNKSt14default_del
   br label %_ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit.i29
 
 _ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit.i29: ; preds = %351, %347
-  call fastcc void @_ZN12_GLOBAL__N_124serializeSemanticVersionERKN4llvm12VersionTupleE(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull align 4 dereferenceable(16) %270), !noalias !26
+  call fastcc void @_ZN12_GLOBAL__N_124serializeSemanticVersionERKN4llvm12VersionTupleE(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 4 dereferenceable(16) %270), !noalias !26
   call fastcc void @_ZN12_GLOBAL__N_115serializeObjectERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalIS2_E(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr nonnull @.str.120, i64 10, ptr noundef nonnull align 8 dereferenceable(32) %33), !noalias !26
   %357 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %358 = load i8, ptr %357, align 8, !noalias !26
@@ -2427,7 +2427,7 @@ _ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit.i29: ; preds = %351, %347
   br label %_ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit19.i
 
 _ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit19.i: ; preds = %360, %_ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit.i29
-  call fastcc void @_ZN12_GLOBAL__N_124serializeSemanticVersionERKN4llvm12VersionTupleE(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 4 dereferenceable(16) %271), !noalias !26
+  call fastcc void @_ZN12_GLOBAL__N_124serializeSemanticVersionERKN4llvm12VersionTupleE(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 4 dereferenceable(16) %271), !noalias !26
   call fastcc void @_ZN12_GLOBAL__N_115serializeObjectERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalIS2_E(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr nonnull @.str.121, i64 9, ptr noundef nonnull align 8 dereferenceable(32) %34), !noalias !26
   %366 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %367 = load i8, ptr %366, align 8, !noalias !26
@@ -2642,7 +2642,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit.i36:             ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !35
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, i8 0, i64 20, i1 false), !alias.scope !38, !noalias !35
-  call fastcc void @_ZN12_GLOBAL__N_123serializeSourcePositionERKN5clang11PresumedLocE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(24) %456), !noalias !41
+  call fastcc void @_ZN12_GLOBAL__N_123serializeSourcePositionERKN5clang11PresumedLocE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(24) %456), !noalias !41
   %458 = load ptr, ptr %5, align 8, !noalias !41
   store ptr %458, ptr %4, align 8, !noalias !41
   store ptr null, ptr %5, align 8, !noalias !41
@@ -2678,7 +2678,7 @@ _ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit.i.i: ; preds = %464, %_ZN4llvm4json
   %471 = zext i32 %470 to i64
   %472 = shl nuw nsw i64 %471, 6
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %469, i64 noundef %472, i64 noundef 8) #16, !noalias !35
-  call fastcc void @_ZN12_GLOBAL__N_123serializeSourcePositionERKN5clang11PresumedLocE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %457), !noalias !35
+  call fastcc void @_ZN12_GLOBAL__N_123serializeSourcePositionERKN5clang11PresumedLocE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %457), !noalias !35
   %473 = load ptr, ptr %7, align 8, !noalias !41
   store ptr %473, ptr %6, align 8, !noalias !41
   store ptr null, ptr %7, align 8, !noalias !41
@@ -2891,7 +2891,7 @@ _ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit48:   ; preds = %_ZN12_GLOBAL__N_119
   %.val15 = load ptr, ptr %557, align 8
   %558 = getelementptr i8, ptr %1, i64 272
   %.val16 = load ptr, ptr %558, align 8
-  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias nonnull writable align 8 %69, ptr %.val15, ptr %.val16)
+  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias writable align 8 %69, ptr %.val15, ptr %.val16)
   call fastcc void @_ZN12_GLOBAL__N_114serializeArrayERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalINS1_5ArrayEE(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr nonnull @.str.23, i64 20, ptr noundef nonnull align 8 dereferenceable(32) %69)
   %559 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %560 = load i8, ptr %559, align 8
@@ -3188,7 +3188,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit:                 ; preds = %10, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #0 {
   %2 = alloca %"class.llvm::json::Array", align 8
   %3 = alloca %"class.llvm::json::Object", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
@@ -3384,10 +3384,10 @@ _ZNK5clang10extractapi21SymbolGraphSerializer10shouldSkipEPKNS0_9APIRecordE.exit
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 356
   %19 = load i32, ptr %18, align 4, !noalias !48
-  %20 = icmp eq i32 %19, 7
-  br i1 %20, label %_ZN4llvm16dyn_cast_or_nullIN5clang10extractapi18ObjCCategoryRecordEKNS2_9APIRecordEEEDaPT0_.exit.i, label %22
+  %.not.i7 = icmp eq i32 %19, 7
+  br i1 %.not.i7, label %20, label %22
 
-_ZN4llvm16dyn_cast_or_nullIN5clang10extractapi18ObjCCategoryRecordEKNS2_9APIRecordEEEDaPT0_.exit.i: ; preds = %16
+20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 464
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %21, i64 56, i1 false)
   br label %_ZN12_GLOBAL__N_121getHierarchyReferenceEPKN5clang10extractapi9APIRecordERKNS1_6APISetE.exit
@@ -3396,7 +3396,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang10extractapi18ObjCCategoryRecordEKNS2_9APIReco
   call void @_ZN5clang10extractapi15SymbolReferenceC1EPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %1) #16
   br label %_ZN12_GLOBAL__N_121getHierarchyReferenceEPKN5clang10extractapi9APIRecordERKNS1_6APISetE.exit
 
-_ZN12_GLOBAL__N_121getHierarchyReferenceEPKN5clang10extractapi9APIRecordERKNS1_6APISetE.exit: ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang10extractapi18ObjCCategoryRecordEKNS2_9APIRecordEEEDaPT0_.exit.i, %22
+_ZN12_GLOBAL__N_121getHierarchyReferenceEPKN5clang10extractapi9APIRecordERKNS1_6APISetE.exit: ; preds = %20, %22
   call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang10extractapi15SymbolReferenceELb1EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(56) %3)
   %23 = call noundef zeroext i1 @_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
   %24 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #16
@@ -4684,7 +4684,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
 
 28:                                               ; preds = %16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %23, ptr %25)
+  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias writable align 8 %4, ptr %23, ptr %25)
   call fastcc void @_ZN12_GLOBAL__N_114serializeArrayERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalINS1_5ArrayEE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull @.str.133, i64 7, ptr noundef nonnull align 8 dereferenceable(32) %4)
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %30 = load i8, ptr %29, align 8
@@ -4766,7 +4766,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit.i:               ; preds = %_ZNKSt14default_del
   %.val.i = load ptr, ptr %57, align 8
   %58 = getelementptr i8, ptr %.sroa.028.034.i, i64 40
   %.val9.i = load ptr, ptr %58, align 8
-  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr %.val.i, ptr %.val9.i)
+  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias writable align 8 %10, ptr %.val.i, ptr %.val9.i)
   call fastcc void @_ZN12_GLOBAL__N_114serializeArrayERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalINS1_5ArrayEE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr nonnull @.str.23, i64 20, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %59 = load i8, ptr %46, align 8
   %60 = trunc i8 %59 to i1
@@ -6154,7 +6154,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
 
 28:                                               ; preds = %16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %23, ptr %25)
+  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias writable align 8 %4, ptr %23, ptr %25)
   call fastcc void @_ZN12_GLOBAL__N_114serializeArrayERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalINS1_5ArrayEE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull @.str.133, i64 7, ptr noundef nonnull align 8 dereferenceable(32) %4)
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %30 = load i8, ptr %29, align 8
@@ -6236,7 +6236,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit.i:               ; preds = %_ZNKSt14default_del
   %.val.i = load ptr, ptr %57, align 8
   %58 = getelementptr i8, ptr %.sroa.028.034.i, i64 40
   %.val9.i = load ptr, ptr %58, align 8
-  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr %.val.i, ptr %.val9.i)
+  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias writable align 8 %10, ptr %.val.i, ptr %.val9.i)
   call fastcc void @_ZN12_GLOBAL__N_114serializeArrayERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalINS1_5ArrayEE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr nonnull @.str.23, i64 20, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %59 = load i8, ptr %46, align 8
   %60 = trunc i8 %59 to i1
@@ -10012,7 +10012,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
 
 28:                                               ; preds = %16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %23, ptr %25)
+  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias writable align 8 %4, ptr %23, ptr %25)
   call fastcc void @_ZN12_GLOBAL__N_114serializeArrayERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalINS1_5ArrayEE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull @.str.133, i64 7, ptr noundef nonnull align 8 dereferenceable(32) %4)
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %30 = load i8, ptr %29, align 8
@@ -10094,7 +10094,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit.i:               ; preds = %_ZNKSt14default_del
   %.val.i = load ptr, ptr %57, align 8
   %58 = getelementptr i8, ptr %.sroa.028.034.i, i64 40
   %.val9.i = load ptr, ptr %58, align 8
-  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr %.val.i, ptr %.val9.i)
+  call fastcc void @_ZN12_GLOBAL__N_129serializeDeclarationFragmentsERKN5clang10extractapi20DeclarationFragmentsE(ptr dead_on_unwind noalias writable align 8 %10, ptr %.val.i, ptr %.val9.i)
   call fastcc void @_ZN12_GLOBAL__N_114serializeArrayERN4llvm4json6ObjectENS0_9StringRefEOSt8optionalINS1_5ArrayEE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr nonnull @.str.23, i64 20, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %59 = load i8, ptr %46, align 8
   %60 = trunc i8 %59 to i1
@@ -11616,7 +11616,7 @@ define dso_local void @_ZN5clang10extractapi21SymbolGraphSerializer24serializeSi
   store i8 0, ptr %47, align 1
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 568
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_127generateHierarchyFromRecordEPKN5clang10extractapi9APIRecordE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull %33)
+  call fastcc void @_ZN12_GLOBAL__N_127generateHierarchyFromRecordEPKN5clang10extractapi9APIRecordE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %33)
   %49 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %10)
   %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #16
   %51 = load ptr, ptr %10, align 8
@@ -11678,7 +11678,7 @@ _ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit:     ; preds = %_ZN4llvm11SmallVect
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %76, i64 noundef %79, i64 noundef 8) #16
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %81 = load i8, ptr %80, align 8
-  call fastcc void @_ZN12_GLOBAL__N_122generateParentContextsERKN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEEENS2_8LanguageE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %43, i8 noundef zeroext %81)
+  call fastcc void @_ZN12_GLOBAL__N_122generateParentContextsERKN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEEENS2_8LanguageE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %43, i8 noundef zeroext %81)
   %.val = load ptr, ptr %13, align 8
   %82 = getelementptr inbounds i8, ptr %13, i64 8
   %.val30 = load ptr, ptr %82, align 8
@@ -11892,8 +11892,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN4llvm4json9ObjectKeyD2Ev.exit50:               ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit47, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i49
   store ptr null, ptr %29, align 8
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %28) #16
-  call fastcc void @_ZN12_GLOBAL__N_127generateHierarchyFromRecordEPKN5clang10extractapi9APIRecordE(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull %119)
-  call fastcc void @_ZN12_GLOBAL__N_122generateParentContextsERKN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEEENS2_8LanguageE(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(16) %31, i8 noundef zeroext %81)
+  call fastcc void @_ZN12_GLOBAL__N_127generateHierarchyFromRecordEPKN5clang10extractapi9APIRecordE(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef %119)
+  call fastcc void @_ZN12_GLOBAL__N_122generateParentContextsERKN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEEENS2_8LanguageE(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(16) %31, i8 noundef zeroext %81)
   %.val31 = load ptr, ptr %30, align 8
   %.val32 = load ptr, ptr %99, align 8
   call fastcc void @_ZN12_GLOBAL__N_114serializeArrayIN4llvm4json5ArrayEEEvRNS2_6ObjectENS1_9StringRefEOT_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.36, i64 14, ptr %.val31, ptr %.val32)
@@ -12159,7 +12159,7 @@ _ZN5clang10extractapi14APIIgnoresListD2Ev.exit:   ; preds = %_ZN4llvm11SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_127generateHierarchyFromRecordEPKN5clang10extractapi9APIRecordE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_127generateHierarchyFromRecordEPKN5clang10extractapi9APIRecordE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.std::move_iterator", align 8
   %4 = alloca %"class.std::move_iterator", align 8
   %5 = alloca %"class.llvm::SmallVector", align 8
@@ -12167,42 +12167,41 @@ define internal fastcc void @_ZN12_GLOBAL__N_127generateHierarchyFromRecordEPKN5
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %7, i64 noundef 8) #16
   store ptr %1, ptr %6, align 8
-  %.not4 = icmp eq ptr %1, null
-  br i1 %.not4, label %._crit_edge, label %.lr.ph
+  br label %8
 
-.lr.ph:                                           ; preds = %2, %.lr.ph
-  %8 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEE12emplace_backIJRPKNS2_9APIRecordEEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %6, align 8
-  %.not = icmp eq ptr %11, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
+8:                                                ; preds = %2, %8
+  %9 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEE12emplace_backIJRPKNS2_9APIRecordEEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %10 = load ptr, ptr %6, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 88
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %6, align 8
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %13, label %8, !llvm.loop !76
 
-._crit_edge:                                      ; preds = %.lr.ph, %2
-  %12 = load ptr, ptr %5, align 8, !noalias !77
-  %13 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16, !noalias !77
-  %14 = getelementptr inbounds %"struct.clang::extractapi::SymbolReference", ptr %12, i64 %13
-  %15 = load ptr, ptr %5, align 8, !noalias !80
+13:                                               ; preds = %8
+  %14 = load ptr, ptr %5, align 8, !noalias !77
+  %15 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16, !noalias !77
+  %16 = getelementptr inbounds %"struct.clang::extractapi::SymbolReference", ptr %14, i64 %15
+  %17 = load ptr, ptr %5, align 8, !noalias !80
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %16, i64 noundef 8) #16
-  store ptr %14, ptr %3, align 8
-  store ptr %15, ptr %4, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %18, i64 noundef 8) #16
+  store ptr %16, ptr %3, align 8
+  store ptr %17, ptr %4, align 8
   call void @_ZN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEE6appendISt13move_iteratorISt16reverse_iteratorIPS3_EEvEEvT_SB_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %17 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
-  %18 = load ptr, ptr %5, align 8
-  %19 = icmp eq ptr %18, %7
-  br i1 %19, label %_ZN4llvm11SmallVectorIN5clang10extractapi15SymbolReferenceELj8EED2Ev.exit, label %20
+  %19 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
+  %20 = load ptr, ptr %5, align 8
+  %21 = icmp eq ptr %20, %7
+  br i1 %21, label %_ZN4llvm11SmallVectorIN5clang10extractapi15SymbolReferenceELj8EED2Ev.exit, label %22
 
-20:                                               ; preds = %._crit_edge
-  call void @free(ptr noundef %18) #16
+22:                                               ; preds = %13
+  call void @free(ptr noundef %20) #16
   br label %_ZN4llvm11SmallVectorIN5clang10extractapi15SymbolReferenceELj8EED2Ev.exit
 
-_ZN4llvm11SmallVectorIN5clang10extractapi15SymbolReferenceELj8EED2Ev.exit: ; preds = %._crit_edge, %20
+_ZN4llvm11SmallVectorIN5clang10extractapi15SymbolReferenceELj8EED2Ev.exit: ; preds = %13, %22
   ret void
 }
 
@@ -12269,7 +12268,7 @@ _ZN4llvm4json5ArrayD2Ev.exit:                     ; preds = %_ZN4llvm4json5Array
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122generateParentContextsERKN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEEENS2_8LanguageE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i8 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_122generateParentContextsERKN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEEENS2_8LanguageE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i8 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::json::Object", align 8
   %5 = alloca %"class.llvm::json::Value", align 8
   %6 = alloca %"class.llvm::json::ObjectKey", align 8
@@ -12350,7 +12349,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit19:               ; preds = %_ZN4llvm4json9Objec
 33:                                               ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit19
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 352
   %35 = load i32, ptr %34, align 8
-  call fastcc void @_ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE(ptr dead_on_unwind noalias nonnull writable align 8 %9, i32 noundef %35, i8 noundef zeroext %2)
+  call fastcc void @_ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE(ptr dead_on_unwind noalias writable align 8 %9, i32 noundef %35, i8 noundef zeroext %2)
   call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr nonnull @.str.18, i64 10)
   %36 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4llvm4json6ObjectixEONS0_9ObjectKeyE(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10) #16
   call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr nonnull @.str.14, i64 4)
@@ -12373,7 +12372,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit22:               ; preds = %33, %_ZNKSt14defaul
   br i1 %.not.i.i23, label %_ZN4llvm4json9ObjectKeyD2Ev.exit25, label %_ZN4llvm4json9ObjectKeyD2Ev.exit25.sink.split
 
 40:                                               ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit19
-  call fastcc void @_ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE(ptr dead_on_unwind noalias nonnull writable align 8 %12, i32 noundef 0, i8 noundef zeroext %2)
+  call fastcc void @_ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE(ptr dead_on_unwind noalias writable align 8 %12, i32 noundef 0, i8 noundef zeroext %2)
   call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr nonnull @.str.18, i64 10)
   %41 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4llvm4json6ObjectixEONS0_9ObjectKeyE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13) #16
   call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr nonnull @.str.14, i64 4)
@@ -12794,7 +12793,7 @@ declare void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferencea
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -15375,7 +15374,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123serializeSourcePositionERKN5clang11PresumedLocE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_123serializeSourcePositionERKN5clang11PresumedLocE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::ObjectKey", align 8
   %5 = alloca %"class.llvm::json::Value", align 8

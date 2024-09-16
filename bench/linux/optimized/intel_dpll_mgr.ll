@@ -1723,7 +1723,7 @@ define dso_local void @intel_shared_dpll_state_verify(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @verify_single_dpll_state(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 16 {
+define internal fastcc void @verify_single_dpll_state(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.intel_dpll_hw_state, align 4
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #13
   %6 = icmp eq ptr %0, null
@@ -1746,7 +1746,7 @@ define internal fastcc void @verify_single_dpll_state(ptr noundef %0, ptr nounde
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = call zeroext i1 %19(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5) #13
+  %20 = call zeroext i1 %19(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %5) #13
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 24
   %23 = load i32, ptr %22, align 8
@@ -4996,7 +4996,7 @@ declare dso_local zeroext i1 @intel_phy_is_tc(ptr noundef, i32 noundef) local_un
 declare dso_local i32 @intel_hti_dpll_mask(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @intel_find_shared_dpll(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc ptr @intel_find_shared_dpll(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef range(i64 0, -9223372036854775807) %3) unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   store i64 %3, ptr %5, align 8
   %6 = load ptr, ptr %1, align 8

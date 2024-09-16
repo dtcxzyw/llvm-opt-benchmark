@@ -656,7 +656,7 @@ auth_peer.exit:                                   ; preds = %168, %169, %172, %1
   %296 = and i64 %286, 2147483647
   %297 = getelementptr [592 x i8], ptr %30, i64 0, i64 %296
   store i8 0, ptr %297, align 1
-  %298 = call fastcc zeroext i1 @interpret_ident_response(ptr noundef nonnull %30, ptr noundef nonnull %23)
+  %298 = call fastcc zeroext i1 @interpret_ident_response(ptr noundef %30, ptr noundef %23)
   br i1 %298, label %.thread50.i, label %299
 
 299:                                              ; preds = %.critedge44.i
@@ -2290,7 +2290,7 @@ declare ptr @__errno_location() local_unnamed_addr #8
 declare i64 @recv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @interpret_ident_response(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @interpret_ident_response(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = alloca [80 x i8], align 16
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
   %5 = icmp ult i64 %4, 2

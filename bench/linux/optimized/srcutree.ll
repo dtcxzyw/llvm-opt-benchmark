@@ -2773,7 +2773,7 @@ declare dso_local noalias ptr @__alloc_percpu(i64 noundef, i64 noundef) local_un
 declare dso_local i64 @ktime_get_mono_fast_ns() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @init_srcu_struct_nodes(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @init_srcu_struct_nodes(ptr nocapture noundef readonly %0, i32 noundef range(i32 2080, 3265) %1) unnamed_addr #0 align 16 {
   %3 = alloca [2 x i32], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   tail call void @rcu_init_geometry() #14
@@ -3033,7 +3033,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @srcu_reschedule(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @srcu_reschedule(ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 11) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 72
@@ -3183,7 +3183,7 @@ define internal fastcc void @srcu_gp_start(ptr nocapture noundef readonly %0) un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @try_check_zero(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @try_check_zero(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 112
@@ -3308,7 +3308,7 @@ define internal fastcc noundef zeroext i1 @try_check_zero(ptr nocapture noundef 
   br i1 %94, label %100, label %95
 
 95:                                               ; preds = %.thread7
-  %96 = add i32 %42, -1
+  %96 = add nsw i32 %42, -1
   %97 = icmp eq i32 %96, %40
   br i1 %97, label %100, label %98
 
@@ -3517,7 +3517,7 @@ declare dso_local void @rcu_segcblist_enqueue(ptr noundef, ptr noundef) local_un
 declare dso_local zeroext i1 @rcu_segcblist_accelerate(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @srcu_funnel_exp_start(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @srcu_funnel_exp_start(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef range(i64 0, -3) %2) unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   %5 = icmp eq ptr %1, null
   br i1 %5, label %.loopexit3, label %6

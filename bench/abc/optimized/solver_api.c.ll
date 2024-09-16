@@ -4002,7 +4002,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @watch_list_push(ptr nocapture noundef %0, i64 %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc void @watch_list_push(ptr nocapture noundef %0, i64 %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8

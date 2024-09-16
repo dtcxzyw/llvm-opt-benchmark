@@ -268,9 +268,9 @@ _ZN10serde_json3ser10CharEscape17from_escape_table17h50263d2e15235608E.exit.thre
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h37c684beaf126e96E.exit.i
 
 _ZN10serde_json3ser9Formatter17write_char_escape17h37c684beaf126e96E.exit.i: ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9aeb0a3180269bf5E.llvm.7682522193326259475.exit4.i.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9aeb0a3180269bf5E.llvm.7682522193326259475.exit.i.i"
-  %.sink3.i.i = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9aeb0a3180269bf5E.llvm.7682522193326259475.exit.i.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9aeb0a3180269bf5E.llvm.7682522193326259475.exit4.i.i" ]
+  %.sink4.i.i = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9aeb0a3180269bf5E.llvm.7682522193326259475.exit.i.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9aeb0a3180269bf5E.llvm.7682522193326259475.exit4.i.i" ]
   %98 = load i64, ptr %5, align 8, !noalias !23, !noundef !4
-  %99 = add i64 %98, %.sink3.i.i
+  %99 = add i64 %98, %.sink4.i.i
   store i64 %99, ptr %5, align 8, !noalias !23
   br label %.outer.i
 
@@ -519,7 +519,7 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser9Formatter9write_u6417hb28
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 8 ptr @"_ZN10serde_json5value3ser76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$serde_json..value..Value$GT$9serialize17h845c408017eb4bb6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef align 8 ptr @"_ZN10serde_json5value3ser76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$serde_json..value..Value$GT$9serialize17h845c408017eb4bb6E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { [24 x i8] }, align 1
   %4 = alloca { [40 x i8] }, align 1
   %5 = alloca { [40 x i8] }, align 1
@@ -1014,7 +1014,7 @@ _ZN10serde_json3ser9Formatter10write_null17h7659524ff21d466eE.llvm.7682522193326
   br label %_ZN10serde_json3ser9Formatter17begin_array_value17h36a5a7a956948914E.exit.i.i
 
 _ZN10serde_json3ser9Formatter17begin_array_value17h36a5a7a956948914E.exit.i.i: ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9aeb0a3180269bf5E.llvm.7682522193326259475.exit.i.i.i", %232
-  %247 = tail call fastcc noundef align 8 ptr @"_ZN10serde_json5value3ser76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$serde_json..value..Value$GT$9serialize17h845c408017eb4bb6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.044.0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1), !noalias !424
+  %247 = tail call fastcc noundef align 8 ptr @"_ZN10serde_json5value3ser76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$serde_json..value..Value$GT$9serialize17h845c408017eb4bb6E"(ptr noalias noundef readonly align 8 dereferenceable(32) %.sroa.044.0, ptr noalias noundef align 8 dereferenceable(8) %1), !noalias !424
   %248 = icmp eq ptr %247, null
   br i1 %248, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb78b1f754028f54dE.exit", label %"_ZN68_$LT$serde_json..number..Number$u20$as$u20$serde..ser..Serialize$GT$9serialize17hdb647bb131dd0022E.exit"
 
@@ -1189,7 +1189,7 @@ _ZN10serde_json3ser9Formatter10end_object17hbb4f1a0d729481baE.exit.i: ; preds = 
   %.fca.1.extract = extractvalue { ptr, ptr } %293, 1
   %313 = icmp ne ptr %.fca.1.extract, null
   call void @llvm.assume(i1 %313)
-  %314 = call fastcc noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17h2a28d7caabc6af9eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.fca.0.extract, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.fca.1.extract)
+  %314 = call fastcc noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17h2a28d7caabc6af9eE(ptr noalias noundef align 8 dereferenceable(16) %7, ptr noalias noundef readonly align 8 dereferenceable(24) %.fca.0.extract, ptr noalias noundef readonly align 8 dereferenceable(32) %.fca.1.extract)
   %315 = icmp eq ptr %314, null
   br i1 %315, label %292, label %316
 
@@ -1712,7 +1712,7 @@ _ZN5serde3ser12SerializeMap15serialize_entry17h2a28d7caabc6af9eE.exit.i.i: ; pre
   %132 = load i64, ptr %123, align 8, !alias.scope !744, !noalias !751, !noundef !4
   %133 = add i64 %132, 1
   store i64 %133, ptr %123, align 8, !alias.scope !744, !noalias !751
-  %134 = tail call fastcc noundef align 8 ptr @"_ZN10serde_json5value3ser76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$serde_json..value..Value$GT$9serialize17h845c408017eb4bb6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %103, ptr noalias noundef nonnull align 8 dereferenceable(8) %0) #25, !noalias !758
+  %134 = tail call fastcc noundef align 8 ptr @"_ZN10serde_json5value3ser76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$serde_json..value..Value$GT$9serialize17h845c408017eb4bb6E"(ptr noalias noundef readonly align 8 dereferenceable(32) %103, ptr noalias noundef align 8 dereferenceable(8) %0) #25, !noalias !758
   %135 = icmp eq ptr %134, null
   br i1 %135, label %.preheader.i.i, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h03efbdb7bd2ee8fcE.exit"
 
@@ -1954,7 +1954,7 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serializ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17h2a28d7caabc6af9eE(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define internal fastcc noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17h2a28d7caabc6af9eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val3 = load i64, ptr %4, align 8
@@ -2029,7 +2029,7 @@ define internal fastcc noundef align 8 ptr @_ZN5serde3ser12SerializeMap15seriali
   %39 = load i64, ptr %30, align 8, !alias.scope !964, !noalias !971, !noundef !4
   %40 = add i64 %39, 1
   store i64 %40, ptr %30, align 8, !alias.scope !964, !noalias !971
-  %41 = tail call fastcc noundef align 8 ptr @"_ZN10serde_json5value3ser76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$serde_json..value..Value$GT$9serialize17h845c408017eb4bb6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %8), !noalias !978
+  %41 = tail call fastcc noundef align 8 ptr @"_ZN10serde_json5value3ser76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$serde_json..value..Value$GT$9serialize17h845c408017eb4bb6E"(ptr noalias noundef readonly align 8 dereferenceable(32) %2, ptr noalias noundef align 8 dereferenceable(8) %8), !noalias !978
   ret ptr %41
 }
 

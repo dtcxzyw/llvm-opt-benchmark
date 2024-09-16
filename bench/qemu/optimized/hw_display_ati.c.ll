@@ -2084,7 +2084,7 @@ if.then200:                                       ; preds = %if.then181.if.then2
   %bbi2c = getelementptr inbounds i8, ptr %opaque, i64 70800
   %conv203 = zext i32 %47 to i64
   %call204 = tail call fastcc i64 @ati_i2c(ptr noundef nonnull %bbi2c, i64 noundef %conv203, i32 noundef 0)
-  %conv205 = trunc i64 %call204 to i32
+  %conv205 = trunc nuw i64 %call204 to i32
   store i32 %conv205, ptr %gpio_dvi_ddc, align 4
   br label %sw.epilog
 
@@ -2123,7 +2123,7 @@ if.then240:                                       ; preds = %lor.lhs.false232, %
   %bbi2c241 = getelementptr inbounds i8, ptr %opaque, i64 70800
   %conv244 = zext i32 %50 to i64
   %call245 = tail call fastcc i64 @ati_i2c(ptr noundef nonnull %bbi2c241, i64 noundef %conv244, i32 noundef 1)
-  %conv246 = trunc i64 %call245 to i32
+  %conv246 = trunc nuw i64 %call245 to i32
   store i32 %conv246, ptr %gpio_monid, align 16
   br label %sw.epilog
 
@@ -3304,7 +3304,7 @@ if.end94:                                         ; preds = %if.then, %if.end83,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @ati_i2c(ptr noundef %i2c, i64 noundef %data, i32 noundef %base) unnamed_addr #0 {
+define internal fastcc range(i64 0, 4294967296) i64 @ati_i2c(ptr noundef %i2c, i64 noundef range(i64 0, 4294967296) %data, i32 noundef range(i32 0, 2) %base) unnamed_addr #0 {
 entry:
   %add = add nuw nsw i32 %base, 17
   %sh_prom = zext nneg i32 %add to i64
@@ -3313,31 +3313,31 @@ entry:
   %tobool.not = icmp eq i64 %and, 0
   %add1 = add nuw nsw i32 %base, 1
   %sh_prom2 = zext nneg i32 %add1 to i64
-  %0 = shl nuw i64 1, %sh_prom2
+  %0 = shl nuw nsw i64 1, %sh_prom2
   %1 = and i64 %0, %data
   %2 = icmp ne i64 %1, 0
   %cond = select i1 %tobool.not, i1 true, i1 %2
-  %add8 = add nuw nsw i32 %base, 16
+  %add8 = or disjoint i32 %base, 16
   %sh_prom9 = zext nneg i32 %add8 to i64
   %shl10 = shl nuw nsw i64 1, %sh_prom9
   %and11 = and i64 %shl10, %data
   %tobool12.not = icmp eq i64 %and11, 0
   %sh_prom14 = zext nneg i32 %base to i64
   %3 = lshr i64 %data, %sh_prom14
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw i64 %3 to i32
   %5 = and i32 %4, 1
   %cond24 = select i1 %tobool12.not, i32 1, i32 %5
   %conv = zext i1 %cond to i32
   %call = tail call i32 @bitbang_i2c_set(ptr noundef %i2c, i32 noundef 1, i32 noundef %conv) #9
   %call30 = tail call i32 @bitbang_i2c_set(ptr noundef %i2c, i32 noundef 0, i32 noundef %cond24) #9
   %tobool31.not = icmp eq i32 %call30, 0
-  %and33 = and i64 %data, -3841
+  %and33 = and i64 %data, 4294963455
   %add35 = add nuw nsw i32 %base, 9
   %sh_prom36 = zext nneg i32 %add35 to i64
   %shl37 = shl nuw nsw i64 1, %sh_prom36
   %or = select i1 %cond, i64 %shl37, i64 0
-  %data.addr.0 = or i64 %or, %and33
-  %add40 = add nuw nsw i32 %base, 8
+  %data.addr.0 = or disjoint i64 %or, %and33
+  %add40 = or disjoint i32 %base, 8
   %sh_prom41 = zext nneg i32 %add40 to i64
   %shl42 = shl nuw nsw i64 1, %sh_prom41
   %or43 = select i1 %tobool31.not, i64 0, i64 %shl42

@@ -3140,10 +3140,10 @@ Vec_VecPushUnique.exit:                           ; preds = %428, %Vec_VecPushUn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_VecPush(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @Vec_VecPush(ptr nocapture noundef %0, i32 noundef range(i32 0, 1048576) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = add i32 %1, 1
+  %6 = add nuw nsw i32 %1, 1
   %.not = icmp sgt i32 %5, %1
   br i1 %.not, label %26, label %7
 
@@ -3156,8 +3156,8 @@ define internal fastcc void @Vec_VecPush(ptr nocapture noundef %0, i32 noundef %
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not9.i = icmp eq ptr %11, null
-  %12 = zext nneg i32 %6 to i64
-  %13 = shl nuw nsw i64 %12, 3
+  %12 = shl nuw nsw i32 %6, 3
+  %13 = zext nneg i32 %12 to i64
   br i1 %.not9.i, label %16, label %14
 
 14:                                               ; preds = %9
@@ -3204,7 +3204,7 @@ Vec_PtrGrow.exit:                                 ; preds = %7, %18
 26:                                               ; preds = %._crit_edge, %3
   %27 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %27, align 8
-  %28 = sext i32 %1 to i64
+  %28 = zext nneg i32 %1 to i64
   %29 = getelementptr inbounds ptr, ptr %.val, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 4
@@ -3282,7 +3282,7 @@ declare i32 @Abc_NodeMffcLabelAig(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

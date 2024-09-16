@@ -5580,7 +5580,7 @@ define internal fastcc void @dissect_iana_tlv(ptr noundef %0, ptr noundef %1) un
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_extreme_avaya_tlv(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @dissect_extreme_avaya_tlv(ptr noundef %0, ptr noundef %1, i16 noundef zeroext range(i16 0, 512) %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #8
   %5 = load i32, ptr @hf_ex_avaya_tlv_subtype, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #8
@@ -5605,32 +5605,32 @@ define internal fastcc void @dissect_extreme_avaya_tlv(ptr noundef %0, ptr nound
   br label %.loopexit
 
 20:                                               ; preds = %3
-  %21 = zext nneg i16 %2 to i32
-  %22 = load i32, ptr @hf_ex_avaya_hmac_shi, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %22, ptr noundef %0, i32 noundef 1, i32 noundef 32, i32 noundef 0) #8
-  %.off = add nsw i32 %21, -32
-  %.not = icmp ult i32 %.off, 9
+  %21 = load i32, ptr @hf_ex_avaya_hmac_shi, align 4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %21, ptr noundef %0, i32 noundef 1, i32 noundef 32, i32 noundef 0) #8
+  %.lhs.trunc.off = add nsw i16 %2, -32
+  %.not = icmp ult i16 %.lhs.trunc.off, 9
   br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %20
-  %24 = add nsw i32 %21, -36
-  %25 = sdiv i32 %24, 5
-  %umax = tail call i32 @llvm.umax.i32(i32 %25, i32 1)
+  %.lhs.trunc = add nsw i16 %2, -36
+  %23 = sdiv i16 %.lhs.trunc, 5
+  %24 = tail call i16 @llvm.umax.i16(i16 %23, i16 1)
+  %umax = sext i16 %24 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.12 = phi i32 [ %33, %.lr.ph ], [ 33, %.lr.ph.preheader ]
-  %.0481 = phi i32 [ %34, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %26 = load i32, ptr @hf_ex_avaya_status, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %26, ptr noundef %0, i32 noundef %.12, i32 noundef 2, i32 noundef 0) #8
-  %28 = load i32, ptr @hf_ex_avaya_vlan, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %28, ptr noundef %0, i32 noundef %.12, i32 noundef 2, i32 noundef 0) #8
-  %30 = add i32 %.12, 2
-  %31 = load i32, ptr @hf_ex_avaya_i_sid, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 3, i32 noundef 0) #8
-  %33 = add i32 %.12, 5
-  %34 = add nuw i32 %.0481, 1
-  %exitcond.not = icmp eq i32 %34, %umax
+  %.12 = phi i32 [ %32, %.lr.ph ], [ 33, %.lr.ph.preheader ]
+  %.0481 = phi i32 [ %33, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %25 = load i32, ptr @hf_ex_avaya_status, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %25, ptr noundef %0, i32 noundef %.12, i32 noundef 2, i32 noundef 0) #8
+  %27 = load i32, ptr @hf_ex_avaya_vlan, align 4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %27, ptr noundef %0, i32 noundef %.12, i32 noundef 2, i32 noundef 0) #8
+  %29 = add i32 %.12, 2
+  %30 = load i32, ptr @hf_ex_avaya_i_sid, align 4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %30, ptr noundef %0, i32 noundef %29, i32 noundef 3, i32 noundef 0) #8
+  %32 = add i32 %.12, 5
+  %33 = add nuw i32 %.0481, 1
+  %exitcond.not = icmp eq i32 %33, %umax
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %7, %3
@@ -5781,7 +5781,7 @@ declare ptr @strchr(ptr, i32) local_unnamed_addr #6
 declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #7
+declare i16 @llvm.umax.i16(i16, i16) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

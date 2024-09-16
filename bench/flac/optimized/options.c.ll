@@ -687,7 +687,7 @@ if.else230.i:                                     ; preds = %if.else225.i
 if.then233.i:                                     ; preds = %if.else230.i
   %call234.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 19)
   %argument235.i = getelementptr inbounds i8, ptr %call234.i, i64 8
-  %call237.i = call fastcc i32 @parse_vorbis_comment_field_name(ptr noundef %7, ptr noundef nonnull %argument235.i, ptr noundef nonnull %violation.i)
+  %call237.i = call fastcc i32 @parse_vorbis_comment_field_name(ptr noundef %7, ptr noundef nonnull %argument235.i, ptr noundef %violation.i)
   %tobool238.not.i = icmp eq i32 %call237.i, 0
   br i1 %tobool238.not.i, label %if.then239.i, label %parse_option.exit
 
@@ -726,7 +726,7 @@ if.else255.i:                                     ; preds = %if.else250.i
 if.then258.i:                                     ; preds = %if.else255.i
   %call260.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 21)
   %argument261.i = getelementptr inbounds i8, ptr %call260.i, i64 8
-  %call263.i = call fastcc i32 @parse_vorbis_comment_field_names(ptr noundef %7, ptr noundef nonnull %argument261.i, ptr noundef nonnull %violation259.i)
+  %call263.i = call fastcc i32 @parse_vorbis_comment_field_names(ptr noundef %7, ptr noundef nonnull %argument261.i, ptr noundef %violation259.i)
   %tobool264.not.i = icmp eq i32 %call263.i, 0
   br i1 %tobool264.not.i, label %if.then265.i, label %parse_option.exit
 
@@ -744,7 +744,7 @@ if.else268.i:                                     ; preds = %if.else255.i
 if.then271.i:                                     ; preds = %if.else268.i
   %call273.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 22)
   %argument274.i = getelementptr inbounds i8, ptr %call273.i, i64 8
-  %call276.i = call fastcc i32 @parse_vorbis_comment_field_name(ptr noundef %7, ptr noundef nonnull %argument274.i, ptr noundef nonnull %violation272.i)
+  %call276.i = call fastcc i32 @parse_vorbis_comment_field_name(ptr noundef %7, ptr noundef nonnull %argument274.i, ptr noundef %violation272.i)
   %tobool277.not.i = icmp eq i32 %call276.i, 0
   br i1 %tobool277.not.i, label %if.then278.i, label %parse_option.exit
 
@@ -762,7 +762,7 @@ if.else281.i:                                     ; preds = %if.else268.i
 if.then284.i:                                     ; preds = %if.else281.i
   %call286.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 23)
   %argument287.i = getelementptr inbounds i8, ptr %call286.i, i64 8
-  %call289.i = call fastcc i32 @parse_vorbis_comment_field_name(ptr noundef %7, ptr noundef nonnull %argument287.i, ptr noundef nonnull %violation285.i)
+  %call289.i = call fastcc i32 @parse_vorbis_comment_field_name(ptr noundef %7, ptr noundef nonnull %argument287.i, ptr noundef %violation285.i)
   %tobool290.not.i = icmp eq i32 %call289.i, 0
   br i1 %tobool290.not.i, label %if.then291.i, label %parse_option.exit
 
@@ -1040,7 +1040,7 @@ if.else411.i:                                     ; preds = %if.else395.i
   br i1 %cmp413.i, label %if.then414.i, label %if.else430.i
 
 if.then414.i:                                     ; preds = %if.else411.i
-  %call416.i = call fastcc i32 @parse_add_seekpoint(ptr noundef %7, ptr noundef nonnull %spec.i, ptr noundef nonnull %violation415.i)
+  %call416.i = call fastcc i32 @parse_add_seekpoint(ptr noundef %7, ptr noundef %spec.i, ptr noundef %violation415.i)
   %tobool417.not.i = icmp eq i32 %call416.i, 0
   br i1 %tobool417.not.i, label %if.then418.i, label %if.else420.i
 
@@ -2082,7 +2082,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_vorbis_comment_field_name(ptr noundef %field_ref, ptr nocapture noundef writeonly %name, ptr nocapture noundef writeonly %violation) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @parse_vorbis_comment_field_name(ptr noundef %field_ref, ptr nocapture noundef writeonly %name, ptr nocapture noundef nonnull writeonly %violation) unnamed_addr #1 {
 entry:
   %call = tail call ptr @local_strdup(ptr noundef %field_ref) #20
   %0 = load i8, ptr %call, align 1
@@ -2125,7 +2125,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_vorbis_comment_field_names(ptr noundef %field_ref, ptr nocapture noundef writeonly %names, ptr nocapture noundef writeonly %violation) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @parse_vorbis_comment_field_names(ptr noundef %field_ref, ptr nocapture noundef writeonly %names, ptr nocapture noundef nonnull writeonly %violation) unnamed_addr #1 {
 entry:
   %call = tail call ptr @local_strdup(ptr noundef %field_ref) #20
   %0 = load i8, ptr %call, align 1
@@ -2162,7 +2162,7 @@ return:                                           ; preds = %for.end, %if.then
 declare i32 @parse_vorbis_comment_field(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_add_seekpoint(ptr noundef %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %violation) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @parse_add_seekpoint(ptr noundef %in, ptr nocapture noundef nonnull writeonly %out, ptr nocapture noundef nonnull writeonly %violation) unnamed_addr #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %in) #21
   %conv = trunc i64 %call to i32
@@ -2242,7 +2242,7 @@ return:                                           ; preds = %if.end54, %if.then5
 declare void @local_strcat(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @append_major_operation(ptr nocapture noundef %options, i32 noundef %type) unnamed_addr #1 {
+define internal fastcc void @append_major_operation(ptr nocapture noundef %options, i32 noundef range(i32 35, 41) %type) unnamed_addr #1 {
 entry:
   %op = alloca %struct.Operation, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %op, i8 0, i64 48, i1 false)
@@ -2256,7 +2256,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @append_argument(ptr nocapture noundef %options, i32 noundef %type) unnamed_addr #1 {
+define internal fastcc ptr @append_argument(ptr nocapture noundef %options, i32 noundef range(i32 0, 5) %type) unnamed_addr #1 {
 entry:
   %capacity.i = getelementptr inbounds i8, ptr %options, i64 84
   %0 = load i32, ptr %capacity.i, align 4

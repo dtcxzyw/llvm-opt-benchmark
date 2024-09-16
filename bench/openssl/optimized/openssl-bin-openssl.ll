@@ -341,7 +341,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare ptr @opt_appname(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_cmd(ptr noundef %prog, i32 noundef %argc, ptr noundef %argv) unnamed_addr #3 {
+define internal fastcc i32 @do_cmd(ptr noundef %prog, i32 noundef range(i32 1, 0) %argc, ptr noundef %argv) unnamed_addr #3 {
 entry:
   %f = alloca %struct.function_st, align 8
   %cmp = icmp slt i32 %argc, 1

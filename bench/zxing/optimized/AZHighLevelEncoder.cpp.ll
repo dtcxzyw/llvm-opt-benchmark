@@ -1081,7 +1081,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress optsize uwtable
-define internal fastcc void @_ZN5ZXing5AztecL14SimplifyStatesERKNSt7__cxx114listINS0_13EncodingStateESaIS3_EEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5ZXing5AztecL14SimplifyStatesERKNSt7__cxx114listINS0_13EncodingStateESaIS3_EEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %0, ptr %3, align 8, !tbaa !3
   store ptr %0, ptr %0, align 8, !tbaa !8
@@ -1144,7 +1144,7 @@ define internal fastcc void @_ZN5ZXing5AztecL14SimplifyStatesERKNSt7__cxx114list
 }
 
 ; Function Attrs: mustprogress optsize uwtable
-define internal fastcc void @_ZN5ZXing5AztecL14EndBinaryShiftERKNS0_13EncodingStateEi(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5ZXing5AztecL14EndBinaryShiftERKNS0_13EncodingStateEi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.6", align 8
   %5 = alloca %"class.ZXing::Aztec::Token", align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 28
@@ -1230,7 +1230,7 @@ define internal fastcc void @_ZN5ZXing5AztecL14EndBinaryShiftERKNS0_13EncodingSt
 }
 
 ; Function Attrs: mustprogress optsize uwtable
-define internal fastcc void @_ZN5ZXing5AztecL14LatchAndAppendERKNS0_13EncodingStateEii(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5ZXing5AztecL14LatchAndAppendERKNS0_13EncodingStateEii(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2, i32 noundef range(i32 -128, 128) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.6", align 8
   %6 = alloca %"class.ZXing::Aztec::Token", align 4
   %7 = alloca %"class.ZXing::Aztec::Token", align 4
@@ -1333,7 +1333,7 @@ define internal fastcc void @_ZN5ZXing5AztecL14LatchAndAppendERKNS0_13EncodingSt
 }
 
 ; Function Attrs: mustprogress optsize uwtable
-define internal fastcc void @_ZN5ZXing5AztecL14ShiftAndAppendERKNS0_13EncodingStateEii(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5ZXing5AztecL14ShiftAndAppendERKNS0_13EncodingStateEii(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2, i32 noundef range(i32 -128, 128) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.6", align 8
   %6 = alloca %"class.ZXing::Aztec::Token", align 4
   %7 = alloca %"class.ZXing::Aztec::Token", align 4
@@ -1430,7 +1430,7 @@ define internal fastcc void @_ZN5ZXing5AztecL14ShiftAndAppendERKNS0_13EncodingSt
 }
 
 ; Function Attrs: mustprogress optsize uwtable
-define internal fastcc void @_ZN5ZXing5AztecL18AddBinaryShiftCharERKNS0_13EncodingStateEi(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5ZXing5AztecL18AddBinaryShiftCharERKNS0_13EncodingStateEi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.6", align 8
   %5 = alloca %"class.ZXing::Aztec::Token", align 4
   %6 = alloca %"class.ZXing::Aztec::EncodingState", align 16

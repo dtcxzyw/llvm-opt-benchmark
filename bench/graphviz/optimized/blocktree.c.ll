@@ -76,7 +76,7 @@ define ptr @createBlocktree(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 find_blocks.exit:                                 ; preds = %.loopexit30.i, %23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  call fastcc void @dfs(ptr noundef %0, ptr noundef %.2.i, ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef nonnull %3)
+  call fastcc void @dfs(ptr noundef %0, ptr noundef %.2.i, ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef %3)
   %27 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %27) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -202,7 +202,7 @@ declare ptr @agnameof(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = add nsw i32 %7, 1
@@ -335,7 +335,7 @@ estack_push.exit:                                 ; preds = %._crit_edge.i.i.i, 
   %81 = load i64, ptr %19, align 8
   %82 = add i64 %81, 1
   store i64 %82, ptr %19, align 8
-  tail call fastcc void @dfs(ptr noundef %0, ptr noundef nonnull %.079, ptr noundef %2, i1 noundef zeroext false, ptr noundef nonnull %4)
+  tail call fastcc void @dfs(ptr noundef %0, ptr noundef nonnull %.079, ptr noundef %2, i1 noundef zeroext false, ptr noundef %4)
   %83 = load ptr, ptr %9, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 152
   %85 = load ptr, ptr %84, align 8
@@ -529,7 +529,7 @@ define internal fastcc ptr @makeBlock(ptr noundef %0, ptr nocapture noundef %1) 
   %5 = load i32, ptr %4, align 4
   %6 = add nsw i32 %5, 1
   store i32 %6, ptr %4, align 4
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %3, ptr nonnull poison, i32 noundef %5)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %3, ptr nonnull poison, i32 noundef %5)
   %7 = getelementptr inbounds i8, ptr %3, i64 31
   %.val.i.i.i.i = load i8, ptr %7, align 1
   %.not.i.i.i.i = icmp eq i8 %.val.i.i.i.i, -1
@@ -544,7 +544,7 @@ define internal fastcc ptr @makeBlock(ptr noundef %0, ptr nocapture noundef %1) 
   br i1 %.not.i.i.i, label %14, label %13
 
 13:                                               ; preds = %2
-  call fastcc void @agxbmore(ptr noundef nonnull %3, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %3, i64 noundef 1)
   %.val.i15.pre.i.i.i = load i8, ptr %7, align 1
   br label %14
 
@@ -626,7 +626,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #7
 declare ptr @mkBlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
+define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -669,7 +669,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 
@@ -729,7 +729,7 @@ declare ptr @agbindrec(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbmore(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @agxbmore(ptr nocapture noundef nonnull %0, i64 noundef range(i64 -2147483646, 2147483649) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -774,7 +774,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br label %gv_recalloc.exit
 
 23:                                               ; preds = %2
-  %24 = add i64 %1, 31
+  %24 = add nsw i64 %1, 31
   %spec.select = tail call i64 @llvm.umax.i64(i64 %24, i64 62)
   %25 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 1) #19
   %26 = icmp eq ptr %25, null

@@ -2414,7 +2414,7 @@ _ZN4node8v8_utilsL13GetGCTypeNameEN2v86GCTypeE.exit: ; preds = %_ZN4node10JSONWr
   store ptr %retval.0.i, ptr %ref.tmp, align 8
   call void @_ZN4node10JSONWriter13json_keyvalueIA7_cPKcEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %writer_.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.70, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   call void @_ZN4node10JSONWriter16json_objectstartIPKcEEvT_(ptr noundef nonnull align 8 dereferenceable(20) %writer_.i, ptr noundef nonnull @.str.71)
-  call fastcc void @_ZN4node8v8_utilsL17SetHeapStatisticsEPNS_10JSONWriterEPN2v87IsolateE(ptr noundef nonnull %writer_.i, ptr noundef %isolate)
+  call fastcc void @_ZN4node8v8_utilsL17SetHeapStatisticsEPNS_10JSONWriterEPN2v87IsolateE(ptr noundef %writer_.i, ptr noundef %isolate)
   %11 = load i8, ptr %compact_.i.i, align 8
   %tobool.i.i10 = trunc i8 %11 to i1
   br i1 %tobool.i.i10, label %_ZN4node10JSONWriter14write_new_lineEv.exit.i14, label %if.end.i.i11
@@ -2494,7 +2494,7 @@ if.end:                                           ; preds = %entry
   call void @_ZN4node10JSONWriter13json_keyvalueIA5_cdEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %writer_.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.95, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   store i64 0, ptr %start_time, align 8
   call void @_ZN4node10JSONWriter16json_objectstartIPKcEEvT_(ptr noundef nonnull align 8 dereferenceable(20) %writer_.i, ptr noundef nonnull @.str.96)
-  call fastcc void @_ZN4node8v8_utilsL17SetHeapStatisticsEPNS_10JSONWriterEPN2v87IsolateE(ptr noundef nonnull %writer_.i, ptr noundef %isolate)
+  call fastcc void @_ZN4node8v8_utilsL17SetHeapStatisticsEPNS_10JSONWriterEPN2v87IsolateE(ptr noundef %writer_.i, ptr noundef %isolate)
   %compact_.i.i = getelementptr inbounds i8, ptr %data, i64 432
   %2 = load i8, ptr %compact_.i.i, align 8
   %tobool.i.i = trunc i8 %2 to i1
@@ -5625,7 +5625,7 @@ _ZN4node10JSONWriter15write_one_spaceEv.exit:     ; preds = %_ZN4node10JSONWrite
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node8v8_utilsL17SetHeapStatisticsEPNS_10JSONWriterEPN2v87IsolateE(ptr noundef %writer, ptr noundef %isolate) unnamed_addr #3 {
+define internal fastcc void @_ZN4node8v8_utilsL17SetHeapStatisticsEPNS_10JSONWriterEPN2v87IsolateE(ptr noundef nonnull %writer, ptr noundef %isolate) unnamed_addr #3 {
 entry:
   %heap_statistics = alloca %"class.v8::HeapStatistics", align 8
   %ref.tmp = alloca i64, align 8

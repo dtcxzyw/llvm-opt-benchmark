@@ -642,7 +642,7 @@ define internal i64 @struct_alloc(i64 noundef %0) #0 {
 define dso_local noundef i64 @rb_struct_define_without_accessor_under(i64 noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %3, ...) local_unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %6 = call fastcc i64 @struct_make_members_list(ptr noundef nonnull %5)
+  %6 = call fastcc i64 @struct_make_members_list(ptr noundef %5)
   call void @llvm.va_end.p0(ptr nonnull %5)
   %.not17.i = icmp eq i64 %0, 0
   br i1 %.not17.i, label %9, label %7
@@ -665,7 +665,7 @@ struct_define_without_accessor.exit:              ; preds = %7, %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @struct_make_members_list(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc i64 @struct_make_members_list(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = tail call i64 @rb_ident_hash_new() #15
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -730,7 +730,7 @@ define internal fastcc i64 @struct_make_members_list(ptr nocapture noundef %0) u
 define dso_local noundef i64 @rb_struct_define_without_accessor(ptr noundef %0, i64 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %5 = call fastcc i64 @struct_make_members_list(ptr noundef nonnull %4)
+  %5 = call fastcc i64 @struct_make_members_list(ptr noundef %4)
   call void @llvm.va_end.p0(ptr nonnull %4)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %8, label %6
@@ -761,7 +761,7 @@ struct_define_without_accessor.exit:              ; preds = %6, %8
 define dso_local noundef i64 @rb_struct_define(ptr noundef %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
-  %3 = call fastcc i64 @struct_make_members_list(ptr noundef nonnull %2)
+  %3 = call fastcc i64 @struct_make_members_list(ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %12
@@ -916,7 +916,7 @@ rb_long2num_inline.exit:                          ; preds = %25, %28
 define dso_local noundef i64 @rb_struct_define_under(i64 noundef %0, ptr noundef nonnull %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = call fastcc i64 @struct_make_members_list(ptr noundef nonnull %3)
+  %4 = call fastcc i64 @struct_make_members_list(ptr noundef %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   %5 = call i64 @rb_intern(ptr noundef nonnull %1) #15
   %6 = load i64, ptr @rb_cStruct, align 8
@@ -1584,7 +1584,7 @@ declare i64 @rb_obj_init_copy(i64 noundef, i64 noundef) local_unnamed_addr #2
 define dso_local i64 @rb_struct_aref(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
-  %4 = call fastcc i32 @rb_struct_pos(i64 noundef %0, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @rb_struct_pos(i64 noundef %0, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %8
 
@@ -1618,7 +1618,7 @@ internal_RSTRUCT_GET.exit:                        ; preds = %12, %14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @rb_struct_pos(i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @rb_struct_pos(i64 noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8
   %4 = and i64 %3, 255
   %5 = icmp eq i64 %4, 12
@@ -1775,7 +1775,7 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %10, %13
 define dso_local noundef i64 @rb_struct_aset(i64 noundef %0, i64 noundef %1, i64 noundef returned %2) #0 {
   %4 = alloca i64, align 8
   store i64 %1, ptr %4, align 8
-  %5 = call fastcc i32 @rb_struct_pos(i64 noundef %0, ptr noundef nonnull %4)
+  %5 = call fastcc i32 @rb_struct_pos(i64 noundef %0, ptr noundef %4)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %9
 
@@ -1843,7 +1843,7 @@ define hidden i64 @rb_struct_lookup(i64 noundef %0, i64 noundef %1) local_unname
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %1, ptr %3, align 8
-  %4 = call fastcc i32 @rb_struct_pos(i64 noundef %0, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @rb_struct_pos(i64 noundef %0, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %rb_struct_lookup_default.exit, label %6
 
@@ -1905,7 +1905,7 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %5, %8
 define dso_local noundef i64 @rb_data_define(i64 noundef %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
-  %3 = call fastcc i64 @struct_make_members_list(ptr noundef nonnull %2)
+  %3 = call fastcc i64 @struct_make_members_list(ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   %.not = icmp eq i64 %0, 0
   %4 = load i64, ptr @rb_cData, align 8
@@ -3056,7 +3056,7 @@ rb_check_arity.exit:                              ; preds = %3
   %7 = load i64, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %7, ptr %4, align 8
-  %8 = call fastcc i32 @rb_struct_pos(i64 noundef %2, ptr noundef nonnull %4)
+  %8 = call fastcc i32 @rb_struct_pos(i64 noundef %2, ptr noundef %4)
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %rb_struct_lookup.exit, label %10
 
@@ -3207,7 +3207,7 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit45
   %54 = getelementptr i64, ptr %.0.i.i, i64 %.037
   %55 = load i64, ptr %54, align 8
   store i64 %55, ptr %3, align 8
-  %56 = call fastcc i32 @rb_struct_pos(i64 noundef %0, ptr noundef nonnull %3)
+  %56 = call fastcc i32 @rb_struct_pos(i64 noundef %0, ptr noundef %3)
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %.loopexit, label %58
 
@@ -3827,7 +3827,7 @@ define internal noundef i32 @struct_hash_set_i(i64 noundef %0, i64 noundef %1, i
   store i64 %0, ptr %4, align 8
   %5 = inttoptr i64 %2 to ptr
   %6 = load i64, ptr %5, align 8
-  %7 = call fastcc i32 @rb_struct_pos(i64 noundef %6, ptr noundef nonnull %4)
+  %7 = call fastcc i32 @rb_struct_pos(i64 noundef %6, ptr noundef %4)
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %19
 
@@ -4522,7 +4522,7 @@ rb_long2num_inline.exit:                          ; preds = %5, %8
   %.0.i = phi i64 [ %7, %5 ], [ %9, %8 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %.0.i, ptr %3, align 8
-  %10 = call fastcc i32 @rb_struct_pos(i64 noundef %0, ptr noundef nonnull %3)
+  %10 = call fastcc i32 @rb_struct_pos(i64 noundef %0, ptr noundef %3)
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %14
 

@@ -800,7 +800,7 @@ define dso_local void @_ZN11cmQtAutoGen15UicMergeOptionsERSt6vectorINSt7__cxx111
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12MergeOptionsRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS7_St16initializer_listISt17basic_string_viewIcS3_EEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12MergeOptionsRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EERKS7_St16initializer_listISt17basic_string_viewIcS3_EEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %2, i64 range(i64 4, 7) %3, i1 noundef zeroext %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = load ptr, ptr %1, align 8
@@ -891,7 +891,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignIN9__gnu_cxx17__norm
   br i1 %47, label %.critedge, label %48
 
 48:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignIN9__gnu_cxx17__normal_iteratorIPKcS4_EEvEERS4_T_SC_.exit
-  %49 = invoke noundef ptr @_ZSt9__find_ifIPKSt17basic_string_viewIcSt11char_traitsIcEEN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcS2_SaIcEEEEEET_SF_SF_T0_St26random_access_iterator_tag(ptr noundef %2, ptr noundef %19, ptr nonnull %7)
+  %49 = invoke noundef ptr @_ZSt9__find_ifIPKSt17basic_string_viewIcSt11char_traitsIcEEN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcS2_SaIcEEEEEET_SF_SF_T0_St26random_access_iterator_tag(ptr noundef %2, ptr noundef nonnull %19, ptr nonnull %7)
           to label %50 unwind label %45
 
 50:                                               ; preds = %48

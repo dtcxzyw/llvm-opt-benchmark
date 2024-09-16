@@ -430,119 +430,119 @@ AppendJumble.exit:                                ; preds = %11
   ]
 
 19:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlias(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlias(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 20:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleRangeVar(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleRangeVar(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 21:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleTableFunc(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleTableFunc(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 22:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleIntoClause(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleIntoClause(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 23:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleVar(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleVar(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 24:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleConst(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleConst(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 25:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleParam(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleParam(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 26:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAggref(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAggref(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 27:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleGroupingFunc(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleGroupingFunc(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 28:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleWindowFunc(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleWindowFunc(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 29:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleSubscriptingRef(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleSubscriptingRef(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 30:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleFuncExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleFuncExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 31:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleNamedArgExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleNamedArgExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 32:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleOpExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleOpExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 33:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleDistinctExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleDistinctExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 34:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleNullIfExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleNullIfExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 35:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleScalarArrayOpExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleScalarArrayOpExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 36:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleBoolExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleBoolExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 37:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleSubLink(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleSubLink(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 38:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleFieldSelect(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleFieldSelect(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 39:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleFieldStore(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleFieldStore(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 40:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleRelabelType(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleRelabelType(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 41:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCoerceViaIO(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCoerceViaIO(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 42:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleArrayCoerceExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleArrayCoerceExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 43:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleConvertRowtypeExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleConvertRowtypeExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 44:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCollateExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCollateExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 45:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCaseExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCaseExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 46:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCaseWhen(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCaseWhen(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 47:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCaseTestExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCaseTestExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 48:                                               ; preds = %AppendJumble.exit
@@ -558,7 +558,7 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 54:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleRowCompareExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleRowCompareExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 55:                                               ; preds = %AppendJumble.exit
@@ -568,99 +568,99 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 58:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleMinMaxExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleMinMaxExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 59:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleSQLValueFunction(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleSQLValueFunction(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 60:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleXmlExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleXmlExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 61:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleJsonFormat(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleJsonFormat(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 62:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleJsonReturning(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleJsonReturning(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 63:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleJsonValueExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleJsonValueExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 64:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleJsonConstructorExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleJsonConstructorExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 65:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleJsonIsPredicate(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleJsonIsPredicate(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 66:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleNullTest(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleNullTest(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 67:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleBooleanTest(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleBooleanTest(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 68:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleMergeAction(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleMergeAction(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 69:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCoerceToDomain(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCoerceToDomain(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 70:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCoerceToDomainValue(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCoerceToDomainValue(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 71:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleSetToDefault(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleSetToDefault(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 72:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCurrentOfExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCurrentOfExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 73:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleNextValueExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleNextValueExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 74:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleInferenceElem(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleInferenceElem(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 75:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleTargetEntry(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleTargetEntry(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 76:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleRangeTblRef(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleRangeTblRef(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 77:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleJoinExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleJoinExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 78:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleFromExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleFromExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 79:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleOnConflictExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleOnConflictExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 80:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleQuery(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleQuery(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 81:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleTypeName(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleTypeName(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 82:                                               ; preds = %AppendJumble.exit
@@ -670,39 +670,39 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 85:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleParamRef(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleParamRef(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 86:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleA_Expr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleA_Expr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 87:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleA_Const(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleA_Const(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 88:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleTypeCast(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleTypeCast(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 89:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCollateClause(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCollateClause(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 90:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleRoleSpec(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleRoleSpec(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 91:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleFuncCall(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleFuncCall(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 92:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleA_Indices(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleA_Indices(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 93:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleA_Indirection(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleA_Indirection(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 94:                                               ; preds = %AppendJumble.exit
@@ -712,91 +712,91 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 97:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleResTarget(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleResTarget(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 98:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleMultiAssignRef(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleMultiAssignRef(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 99:                                               ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleSortBy(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleSortBy(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 100:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleWindowDef(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleWindowDef(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 101:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleRangeSubselect(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleRangeSubselect(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 102:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleRangeFunction(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleRangeFunction(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 103:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleRangeTableFunc(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleRangeTableFunc(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 104:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleRangeTableFuncCol(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleRangeTableFuncCol(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 105:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleRangeTableSample(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleRangeTableSample(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 106:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleColumnDef(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleColumnDef(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 107:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleTableLikeClause(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleTableLikeClause(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 108:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleIndexElem(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleIndexElem(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 109:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleDefElem(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleDefElem(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 110:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleLockingClause(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleLockingClause(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 111:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleXmlSerialize(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleXmlSerialize(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 112:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumblePartitionElem(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumblePartitionElem(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 113:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumblePartitionSpec(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumblePartitionSpec(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 114:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumblePartitionBoundSpec(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumblePartitionBoundSpec(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 115:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumblePartitionRangeDatum(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumblePartitionRangeDatum(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 116:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumblePartitionCmd(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumblePartitionCmd(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 117:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleRangeTblEntry(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleRangeTblEntry(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 118:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleRTEPermissionInfo(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleRTEPermissionInfo(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 119:                                              ; preds = %AppendJumble.exit
@@ -806,15 +806,15 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 122:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleTableSampleClause(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleTableSampleClause(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 123:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleWithCheckOption(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleWithCheckOption(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 124:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleSortGroupClause(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleSortGroupClause(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 125:                                              ; preds = %AppendJumble.exit
@@ -824,111 +824,111 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 128:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleWindowClause(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleWindowClause(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 129:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleRowMarkClause(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleRowMarkClause(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 130:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleWithClause(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleWithClause(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 131:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleInferClause(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleInferClause(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 132:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleOnConflictClause(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleOnConflictClause(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 133:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCTESearchClause(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCTESearchClause(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 134:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCTECycleClause(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCTECycleClause(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 135:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCommonTableExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCommonTableExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 136:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleMergeWhenClause(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleMergeWhenClause(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 137:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleTriggerTransition(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleTriggerTransition(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 138:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleJsonOutput(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleJsonOutput(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 139:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleJsonKeyValue(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleJsonKeyValue(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 140:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleJsonParseExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleJsonParseExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 141:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleJsonScalarExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleJsonScalarExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 142:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleJsonSerializeExpr(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleJsonSerializeExpr(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 143:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleJsonObjectConstructor(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleJsonObjectConstructor(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 144:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleJsonArrayConstructor(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleJsonArrayConstructor(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 145:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleJsonArrayQueryConstructor(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleJsonArrayQueryConstructor(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 146:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleJsonAggConstructor(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleJsonAggConstructor(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 147:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleJsonObjectAgg(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleJsonObjectAgg(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 148:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleJsonArrayAgg(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleJsonArrayAgg(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 149:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleInsertStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleInsertStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 150:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleDeleteStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleDeleteStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 151:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleUpdateStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleUpdateStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 152:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleMergeStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleMergeStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 153:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleSelectStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleSelectStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 154:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleSetOperationStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleSetOperationStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 155:                                              ; preds = %AppendJumble.exit
@@ -938,23 +938,23 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 158:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumblePLAssignStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumblePLAssignStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 159:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateSchemaStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateSchemaStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 160:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterTableStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterTableStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 161:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleReplicaIdentityStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleReplicaIdentityStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 162:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterTableCmd(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterTableCmd(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 163:                                              ; preds = %AppendJumble.exit
@@ -964,35 +964,35 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 166:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterDomainStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterDomainStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 167:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleGrantStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleGrantStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 168:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleObjectWithArgs(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleObjectWithArgs(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 169:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAccessPriv(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAccessPriv(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 170:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleGrantRoleStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleGrantRoleStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 171:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterDefaultPrivilegesStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterDefaultPrivilegesStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 172:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCopyStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCopyStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 173:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleVariableSetStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleVariableSetStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 174:                                              ; preds = %AppendJumble.exit
@@ -1002,171 +1002,171 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 176:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 177:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleConstraint(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleConstraint(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 178:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateTableSpaceStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateTableSpaceStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 179:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleDropTableSpaceStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleDropTableSpaceStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 180:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterTableSpaceOptionsStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterTableSpaceOptionsStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 181:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterTableMoveAllStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterTableMoveAllStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 182:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateExtensionStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateExtensionStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 183:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterExtensionStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterExtensionStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 184:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterExtensionContentsStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterExtensionContentsStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 185:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateFdwStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateFdwStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 186:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterFdwStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterFdwStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 187:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateForeignServerStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateForeignServerStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 188:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterForeignServerStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterForeignServerStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 189:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateForeignTableStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateForeignTableStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 190:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateUserMappingStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateUserMappingStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 191:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterUserMappingStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterUserMappingStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 192:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleDropUserMappingStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleDropUserMappingStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 193:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleImportForeignSchemaStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleImportForeignSchemaStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 194:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreatePolicyStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreatePolicyStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 195:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterPolicyStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterPolicyStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 196:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateAmStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateAmStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 197:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateTrigStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateTrigStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 198:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateEventTrigStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateEventTrigStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 199:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterEventTrigStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterEventTrigStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 200:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreatePLangStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreatePLangStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 201:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateRoleStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateRoleStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 202:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterRoleStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterRoleStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 203:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterRoleSetStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterRoleSetStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 204:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleDropRoleStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleDropRoleStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 205:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateSeqStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateSeqStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 206:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterSeqStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterSeqStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 207:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleDefineStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleDefineStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 208:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateDomainStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateDomainStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 209:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateOpClassStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateOpClassStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 210:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateOpClassItem(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateOpClassItem(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 211:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateOpFamilyStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateOpFamilyStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 212:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterOpFamilyStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterOpFamilyStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 213:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleDropStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleDropStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 214:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleTruncateStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleTruncateStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 215:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCommentStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCommentStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 216:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleSecLabelStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleSecLabelStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 217:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleDeclareCursorStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleDeclareCursorStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 218:                                              ; preds = %AppendJumble.exit
@@ -1176,35 +1176,35 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 220:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleFetchStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleFetchStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 221:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleIndexStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleIndexStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 222:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateStatsStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateStatsStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 223:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleStatsElem(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleStatsElem(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 224:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterStatsStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterStatsStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 225:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateFunctionStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateFunctionStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 226:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleFunctionParameter(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleFunctionParameter(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 227:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterFunctionStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterFunctionStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 228:                                              ; preds = %AppendJumble.exit
@@ -1214,39 +1214,39 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 231:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCallStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCallStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 232:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleRenameStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleRenameStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 233:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterObjectDependsStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterObjectDependsStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 234:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterObjectSchemaStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterObjectSchemaStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 235:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterOwnerStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterOwnerStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 236:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterOperatorStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterOperatorStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 237:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterTypeStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterTypeStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 238:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleRuleStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleRuleStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 239:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleNotifyStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleNotifyStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 240:                                              ; preds = %AppendJumble.exit
@@ -1262,27 +1262,27 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 244:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleTransactionStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleTransactionStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 245:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCompositeTypeStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCompositeTypeStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 246:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateEnumStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateEnumStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 247:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateRangeStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateRangeStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 248:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterEnumStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterEnumStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 249:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleViewStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleViewStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 250:                                              ; preds = %AppendJumble.exit
@@ -1292,11 +1292,11 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 252:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreatedbStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreatedbStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 253:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterDatabaseStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterDatabaseStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 254:                                              ; preds = %AppendJumble.exit
@@ -1306,11 +1306,11 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 256:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterDatabaseSetStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterDatabaseSetStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 257:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleDropdbStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleDropdbStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 258:                                              ; preds = %AppendJumble.exit
@@ -1320,115 +1320,115 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 261:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleClusterStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleClusterStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 262:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleVacuumStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleVacuumStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 263:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleVacuumRelation(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleVacuumRelation(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 264:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleExplainStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleExplainStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 265:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateTableAsStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateTableAsStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 266:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleRefreshMatViewStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleRefreshMatViewStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 267:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleDiscardStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleDiscardStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 268:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleLockStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleLockStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 269:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleConstraintsSetStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleConstraintsSetStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 270:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleReindexStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleReindexStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 271:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateConversionStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateConversionStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 272:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateCastStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateCastStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 273:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateTransformStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateTransformStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 274:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumblePrepareStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumblePrepareStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 275:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleExecuteStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleExecuteStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 276:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleDeallocateStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleDeallocateStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 277:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleDropOwnedStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleDropOwnedStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 278:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleReassignOwnedStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleReassignOwnedStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 279:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterTSDictionaryStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterTSDictionaryStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 280:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterTSConfigurationStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterTSConfigurationStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 281:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumblePublicationTable(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumblePublicationTable(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 282:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumblePublicationObjSpec(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumblePublicationObjSpec(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 283:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreatePublicationStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreatePublicationStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 284:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterPublicationStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterPublicationStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 285:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleCreateSubscriptionStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleCreateSubscriptionStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 286:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleAlterSubscriptionStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleAlterSubscriptionStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 287:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleDropSubscriptionStmt(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleDropSubscriptionStmt(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 288:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumblePathKeyInfo(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumblePathKeyInfo(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 289:                                              ; preds = %AppendJumble.exit
@@ -1438,7 +1438,7 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 291:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleInteger(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleInteger(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 292:                                              ; preds = %AppendJumble.exit
@@ -1448,7 +1448,7 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 294:                                              ; preds = %AppendJumble.exit
-  tail call fastcc void @_jumbleBoolean(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleBoolean(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 295:                                              ; preds = %AppendJumble.exit
@@ -1464,7 +1464,7 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 299:                                              ; preds = %AppendJumble.exit, %AppendJumble.exit, %AppendJumble.exit, %AppendJumble.exit
-  tail call fastcc void @_jumbleList(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @_jumbleList(ptr noundef nonnull %0, ptr noundef %1)
   br label %305
 
 300:                                              ; preds = %AppendJumble.exit
@@ -1523,7 +1523,7 @@ declare i64 @hash_bytes_extended(ptr noundef, i32 noundef, i64 noundef) local_un
 declare void @check_stack_depth() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlias(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlias(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1575,7 +1575,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleRangeVar(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleRangeVar(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1797,7 +1797,7 @@ AppendJumble.exit56:                              ; preds = %76
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleTableFunc(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleTableFunc(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -1811,7 +1811,7 @@ define internal fastcc void @_jumbleTableFunc(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleIntoClause(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleIntoClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -1979,7 +1979,7 @@ AppendJumble.exit45:                              ; preds = %64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleVar(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleVar(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2076,7 +2076,7 @@ AppendJumble.exit20:                              ; preds = %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleConst(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleConst(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2161,7 +2161,7 @@ RecordConstLocation.exit:                         ; preds = %AppendJumble.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleParam(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleParam(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2258,7 +2258,7 @@ AppendJumble.exit20:                              ; preds = %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAggref(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAggref(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2310,7 +2310,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleGroupingFunc(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleGroupingFunc(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -2350,7 +2350,7 @@ AppendJumble.exit:                                ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleWindowFunc(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleWindowFunc(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2424,7 +2424,7 @@ AppendJumble.exit15:                              ; preds = %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleSubscriptingRef(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleSubscriptingRef(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -2441,7 +2441,7 @@ define internal fastcc void @_jumbleSubscriptingRef(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleFuncExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleFuncExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2481,7 +2481,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleNamedArgExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleNamedArgExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -2521,7 +2521,7 @@ AppendJumble.exit:                                ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleOpExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleOpExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2561,7 +2561,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleDistinctExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleDistinctExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2601,7 +2601,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleNullIfExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleNullIfExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2641,7 +2641,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleScalarArrayOpExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleScalarArrayOpExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2711,7 +2711,7 @@ AppendJumble.exit13:                              ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleBoolExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleBoolExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2751,7 +2751,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleSubLink(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleSubLink(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2824,7 +2824,7 @@ AppendJumble.exit15:                              ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleFieldSelect(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleFieldSelect(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -2864,7 +2864,7 @@ AppendJumble.exit:                                ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleFieldStore(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleFieldStore(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -2875,7 +2875,7 @@ define internal fastcc void @_jumbleFieldStore(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleRelabelType(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleRelabelType(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -2915,7 +2915,7 @@ AppendJumble.exit:                                ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCoerceViaIO(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCoerceViaIO(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -2955,7 +2955,7 @@ AppendJumble.exit:                                ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleArrayCoerceExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleArrayCoerceExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -2998,7 +2998,7 @@ AppendJumble.exit:                                ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleConvertRowtypeExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleConvertRowtypeExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -3038,7 +3038,7 @@ AppendJumble.exit:                                ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCollateExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCollateExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -3078,7 +3078,7 @@ AppendJumble.exit:                                ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCaseExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCaseExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -3092,7 +3092,7 @@ define internal fastcc void @_jumbleCaseExpr(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCaseWhen(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCaseWhen(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -3103,7 +3103,7 @@ define internal fastcc void @_jumbleCaseWhen(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCaseTestExpr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCaseTestExpr(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3140,7 +3140,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleRowCompareExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleRowCompareExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3183,7 +3183,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleMinMaxExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleMinMaxExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3223,7 +3223,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleSQLValueFunction(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleSQLValueFunction(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3290,7 +3290,7 @@ AppendJumble.exit11:                              ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleXmlExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleXmlExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3364,7 +3364,7 @@ AppendJumble.exit15:                              ; preds = %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleJsonFormat(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleJsonFormat(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3431,7 +3431,7 @@ AppendJumble.exit11:                              ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleJsonReturning(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleJsonReturning(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -3501,7 +3501,7 @@ AppendJumble.exit13:                              ; preds = %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleJsonValueExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleJsonValueExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -3515,7 +3515,7 @@ define internal fastcc void @_jumbleJsonValueExpr(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleJsonConstructorExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleJsonConstructorExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3625,7 +3625,7 @@ AppendJumble.exit28:                              ; preds = %43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleJsonIsPredicate(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleJsonIsPredicate(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -3698,7 +3698,7 @@ AppendJumble.exit15:                              ; preds = %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleNullTest(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleNullTest(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -3738,7 +3738,7 @@ AppendJumble.exit:                                ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleBooleanTest(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleBooleanTest(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -3778,7 +3778,7 @@ AppendJumble.exit:                                ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleMergeAction(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleMergeAction(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3851,7 +3851,7 @@ AppendJumble.exit15:                              ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCoerceToDomain(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCoerceToDomain(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -3891,7 +3891,7 @@ AppendJumble.exit:                                ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCoerceToDomainValue(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCoerceToDomainValue(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3928,7 +3928,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleSetToDefault(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleSetToDefault(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3965,7 +3965,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCurrentOfExpr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCurrentOfExpr(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4080,7 +4080,7 @@ AppendJumble.exit23:                              ; preds = %39
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleNextValueExpr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleNextValueExpr(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4147,7 +4147,7 @@ AppendJumble.exit11:                              ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleInferenceElem(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleInferenceElem(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -4217,7 +4217,7 @@ AppendJumble.exit13:                              ; preds = %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleTargetEntry(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleTargetEntry(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -4287,7 +4287,7 @@ AppendJumble.exit13:                              ; preds = %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleRangeTblRef(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleRangeTblRef(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4324,7 +4324,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleJoinExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleJoinExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4431,7 +4431,7 @@ AppendJumble.exit26:                              ; preds = %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleFromExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleFromExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -4442,7 +4442,7 @@ define internal fastcc void @_jumbleFromExpr(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleOnConflictExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleOnConflictExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4556,7 +4556,7 @@ AppendJumble.exit30:                              ; preds = %44
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleQuery(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleQuery(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4709,7 +4709,7 @@ AppendJumble.exit56:                              ; preds = %68
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleTypeName(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleTypeName(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -4846,7 +4846,7 @@ AppendJumble.exit35:                              ; preds = %51
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleParamRef(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleParamRef(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4883,7 +4883,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleA_Expr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleA_Expr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4929,7 +4929,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleA_Const(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleA_Const(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5193,7 +5193,7 @@ AppendJumble.exit34:                              ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleTypeCast(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleTypeCast(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -5204,7 +5204,7 @@ define internal fastcc void @_jumbleTypeCast(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCollateClause(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCollateClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -5215,7 +5215,7 @@ define internal fastcc void @_jumbleCollateClause(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleRoleSpec(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleRoleSpec(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5294,7 +5294,7 @@ AppendJumble.exit13:                              ; preds = %26, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleFuncCall(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleFuncCall(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -5466,7 +5466,7 @@ AppendJumble.exit48:                              ; preds = %68
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleA_Indices(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleA_Indices(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5509,7 +5509,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleA_Indirection(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleA_Indirection(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -5520,7 +5520,7 @@ define internal fastcc void @_jumbleA_Indirection(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleResTarget(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleResTarget(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -5575,7 +5575,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleMultiAssignRef(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleMultiAssignRef(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -5645,7 +5645,7 @@ AppendJumble.exit13:                              ; preds = %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleSortBy(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleSortBy(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -5718,7 +5718,7 @@ AppendJumble.exit15:                              ; preds = %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleWindowDef(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleWindowDef(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -5855,7 +5855,7 @@ AppendJumble.exit37:                              ; preds = %52
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleRangeSubselect(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleRangeSubselect(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5898,7 +5898,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleRangeFunction(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleRangeFunction(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6004,7 +6004,7 @@ AppendJumble.exit26:                              ; preds = %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleRangeTableFunc(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleRangeTableFunc(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6056,7 +6056,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleRangeTableFuncCol(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleRangeTableFuncCol(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -6176,7 +6176,7 @@ AppendJumble.exit30:                              ; preds = %43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleRangeTableSample(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleRangeTableSample(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -6193,7 +6193,7 @@ define internal fastcc void @_jumbleRangeTableSample(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleColumnDef(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleColumnDef(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -6604,7 +6604,7 @@ AppendJumble.exit128:                             ; preds = %161
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleTableLikeClause(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleTableLikeClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -6674,7 +6674,7 @@ AppendJumble.exit13:                              ; preds = %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleIndexElem(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleIndexElem(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -6841,7 +6841,7 @@ AppendJumble.exit47:                              ; preds = %68
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleDefElem(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleDefElem(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -6969,7 +6969,7 @@ AppendJumble.exit31:                              ; preds = %50
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleLockingClause(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleLockingClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -7039,7 +7039,7 @@ AppendJumble.exit13:                              ; preds = %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleXmlSerialize(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleXmlSerialize(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7113,7 +7113,7 @@ AppendJumble.exit15:                              ; preds = %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumblePartitionElem(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumblePartitionElem(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -7171,7 +7171,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumblePartitionSpec(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumblePartitionSpec(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7211,7 +7211,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumblePartitionBoundSpec(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumblePartitionBoundSpec(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7347,7 +7347,7 @@ AppendJumble.exit35:                              ; preds = %46
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumblePartitionRangeDatum(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumblePartitionRangeDatum(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7387,7 +7387,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumblePartitionCmd(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumblePartitionCmd(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -7430,7 +7430,7 @@ AppendJumble.exit:                                ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleRangeTblEntry(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleRangeTblEntry(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7767,7 +7767,7 @@ AppendJumble.exit86:                              ; preds = %124, %117
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleRTEPermissionInfo(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleRTEPermissionInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7903,7 +7903,7 @@ AppendJumble.exit35:                              ; preds = %46
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleTableSampleClause(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleTableSampleClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7946,7 +7946,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleWithCheckOption(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleWithCheckOption(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8102,7 +8102,7 @@ AppendJumble.exit40:                              ; preds = %60
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleSortGroupClause(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleSortGroupClause(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8229,7 +8229,7 @@ AppendJumble.exit29:                              ; preds = %46
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleWindowClause(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleWindowClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -8309,7 +8309,7 @@ AppendJumble.exit19:                              ; preds = %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleRowMarkClause(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleRowMarkClause(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8436,7 +8436,7 @@ AppendJumble.exit29:                              ; preds = %46
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleWithClause(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleWithClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -8476,7 +8476,7 @@ AppendJumble.exit:                                ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleInferClause(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleInferClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -8531,7 +8531,7 @@ AppendJumble.exit:                                ; preds = %18, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleOnConflictClause(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleOnConflictClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8577,7 +8577,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCTESearchClause(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCTESearchClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -8659,7 +8659,7 @@ AppendJumble.exit15:                              ; preds = %28, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCTECycleClause(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCTECycleClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -8893,7 +8893,7 @@ AppendJumble.exit65:                              ; preds = %89
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCommonTableExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCommonTableExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -8987,7 +8987,7 @@ AppendJumble.exit16:                              ; preds = %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleMergeWhenClause(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleMergeWhenClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -9093,7 +9093,7 @@ AppendJumble.exit26:                              ; preds = %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleTriggerTransition(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleTriggerTransition(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -9214,7 +9214,7 @@ AppendJumble.exit24:                              ; preds = %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleJsonOutput(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleJsonOutput(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -9225,7 +9225,7 @@ define internal fastcc void @_jumbleJsonOutput(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleJsonKeyValue(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleJsonKeyValue(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -9236,7 +9236,7 @@ define internal fastcc void @_jumbleJsonKeyValue(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleJsonParseExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleJsonParseExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -9279,7 +9279,7 @@ AppendJumble.exit:                                ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleJsonScalarExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleJsonScalarExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -9290,7 +9290,7 @@ define internal fastcc void @_jumbleJsonScalarExpr(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleJsonSerializeExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleJsonSerializeExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -9301,7 +9301,7 @@ define internal fastcc void @_jumbleJsonSerializeExpr(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleJsonObjectConstructor(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleJsonObjectConstructor(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -9374,7 +9374,7 @@ AppendJumble.exit15:                              ; preds = %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleJsonArrayConstructor(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleJsonArrayConstructor(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -9417,7 +9417,7 @@ AppendJumble.exit:                                ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleJsonArrayQueryConstructor(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleJsonArrayQueryConstructor(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -9463,7 +9463,7 @@ AppendJumble.exit:                                ; preds = %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleJsonAggConstructor(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleJsonAggConstructor(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -9480,7 +9480,7 @@ define internal fastcc void @_jumbleJsonAggConstructor(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleJsonObjectAgg(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleJsonObjectAgg(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -9553,7 +9553,7 @@ AppendJumble.exit15:                              ; preds = %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleJsonArrayAgg(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleJsonArrayAgg(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -9596,7 +9596,7 @@ AppendJumble.exit:                                ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleInsertStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleInsertStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -9651,7 +9651,7 @@ AppendJumble.exit:                                ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleDeleteStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleDeleteStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -9671,7 +9671,7 @@ define internal fastcc void @_jumbleDeleteStmt(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleUpdateStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleUpdateStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -9694,7 +9694,7 @@ define internal fastcc void @_jumbleUpdateStmt(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleMergeStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleMergeStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -9714,7 +9714,7 @@ define internal fastcc void @_jumbleMergeStmt(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleSelectStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleSelectStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -9891,7 +9891,7 @@ AppendJumble.exit61:                              ; preds = %76
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleSetOperationStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleSetOperationStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -9964,7 +9964,7 @@ AppendJumble.exit15:                              ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumblePLAssignStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumblePLAssignStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -10051,7 +10051,7 @@ AppendJumble.exit18:                              ; preds = %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateSchemaStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateSchemaStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -10138,7 +10138,7 @@ AppendJumble.exit18:                              ; preds = %33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterTableStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterTableStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -10211,7 +10211,7 @@ AppendJumble.exit15:                              ; preds = %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleReplicaIdentityStmt(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleReplicaIdentityStmt(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10290,7 +10290,7 @@ AppendJumble.exit13:                              ; preds = %26, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterTableCmd(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterTableCmd(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10502,7 +10502,7 @@ AppendJumble.exit57:                              ; preds = %80
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterDomainStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterDomainStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10649,7 +10649,7 @@ AppendJumble.exit37:                              ; preds = %57
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleGrantStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleGrantStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10820,7 +10820,7 @@ AppendJumble.exit46:                              ; preds = %68
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleObjectWithArgs(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleObjectWithArgs(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -10866,7 +10866,7 @@ AppendJumble.exit:                                ; preds = %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAccessPriv(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAccessPriv(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -10918,7 +10918,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleGrantRoleStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleGrantRoleStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -10998,7 +10998,7 @@ AppendJumble.exit19:                              ; preds = %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterDefaultPrivilegesStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterDefaultPrivilegesStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -11009,7 +11009,7 @@ define internal fastcc void @_jumbleAlterDefaultPrivilegesStmt(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCopyStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCopyStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -11133,7 +11133,7 @@ AppendJumble.exit32:                              ; preds = %44, %37
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleVariableSetStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleVariableSetStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -11293,7 +11293,7 @@ AppendJumble.exit:                                ; preds = %11, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -11483,7 +11483,7 @@ AppendJumble.exit56:                              ; preds = %74
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleConstraint(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleConstraint(ptr noundef %0, ptr noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -12212,7 +12212,7 @@ AppendJumble.exit235:                             ; preds = %287
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateTableSpaceStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateTableSpaceStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -12311,7 +12311,7 @@ AppendJumble.exit23:                              ; preds = %35, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleDropTableSpaceStmt(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleDropTableSpaceStmt(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -12402,7 +12402,7 @@ AppendJumble.exit14:                              ; preds = %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterTableSpaceOptionsStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterTableSpaceOptionsStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -12486,7 +12486,7 @@ AppendJumble.exit16:                              ; preds = %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterTableMoveAllStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterTableMoveAllStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -12659,7 +12659,7 @@ AppendJumble.exit41:                              ; preds = %59
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateExtensionStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateExtensionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -12753,7 +12753,7 @@ AppendJumble.exit16:                              ; preds = %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterExtensionStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterExtensionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -12805,7 +12805,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterExtensionContentsStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterExtensionContentsStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -12929,7 +12929,7 @@ AppendJumble.exit26:                              ; preds = %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateFdwStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateFdwStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -12984,7 +12984,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterFdwStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterFdwStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -13039,7 +13039,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateForeignServerStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateForeignServerStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -13280,7 +13280,7 @@ AppendJumble.exit61:                              ; preds = %81
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterForeignServerStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterForeignServerStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -13408,7 +13408,7 @@ AppendJumble.exit31:                              ; preds = %50
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateForeignTableStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateForeignTableStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -13643,7 +13643,7 @@ AppendJumble.exit73:                              ; preds = %90, %83
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateUserMappingStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateUserMappingStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -13740,7 +13740,7 @@ AppendJumble.exit18:                              ; preds = %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterUserMappingStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterUserMappingStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -13795,7 +13795,7 @@ AppendJumble.exit:                                ; preds = %16, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleDropUserMappingStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleDropUserMappingStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -13889,7 +13889,7 @@ AppendJumble.exit16:                              ; preds = %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleImportForeignSchemaStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleImportForeignSchemaStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -14084,7 +14084,7 @@ AppendJumble.exit48:                              ; preds = %63
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreatePolicyStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreatePolicyStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -14231,7 +14231,7 @@ AppendJumble.exit37:                              ; preds = %48
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterPolicyStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterPolicyStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -14292,7 +14292,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateAmStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateAmStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -14376,7 +14376,7 @@ AppendJumble.exit16:                              ; preds = %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateTrigStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateTrigStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -14658,7 +14658,7 @@ AppendJumble.exit86:                              ; preds = %113
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateEventTrigStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateEventTrigStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -14757,7 +14757,7 @@ AppendJumble.exit23:                              ; preds = %33, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterEventTrigStmt(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterEventTrigStmt(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -14848,7 +14848,7 @@ AppendJumble.exit14:                              ; preds = %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreatePLangStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreatePLangStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -14967,7 +14967,7 @@ AppendJumble.exit29:                              ; preds = %46
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateRoleStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateRoleStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -15049,7 +15049,7 @@ AppendJumble.exit15:                              ; preds = %26, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterRoleStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterRoleStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -15092,7 +15092,7 @@ AppendJumble.exit:                                ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterRoleSetStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterRoleSetStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -15147,7 +15147,7 @@ AppendJumble.exit:                                ; preds = %16, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleDropRoleStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleDropRoleStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -15187,7 +15187,7 @@ AppendJumble.exit:                                ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateSeqStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateSeqStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -15290,7 +15290,7 @@ AppendJumble.exit24:                              ; preds = %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterSeqStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterSeqStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -15363,7 +15363,7 @@ AppendJumble.exit15:                              ; preds = %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleDefineStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleDefineStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -15500,7 +15500,7 @@ AppendJumble.exit35:                              ; preds = %53
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateDomainStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateDomainStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -15517,7 +15517,7 @@ define internal fastcc void @_jumbleCreateDomainStmt(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateOpClassStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateOpClassStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -15610,7 +15610,7 @@ AppendJumble.exit22:                              ; preds = %37
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateOpClassItem(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateOpClassItem(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -15690,7 +15690,7 @@ AppendJumble.exit19:                              ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateOpFamilyStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateOpFamilyStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -15742,7 +15742,7 @@ AppendJumble.exit:                                ; preds = %16, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterOpFamilyStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterOpFamilyStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -15839,7 +15839,7 @@ AppendJumble.exit18:                              ; preds = %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleDropStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleDropStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -15969,7 +15969,7 @@ AppendJumble.exit31:                              ; preds = %48
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleTruncateStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleTruncateStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -16039,7 +16039,7 @@ AppendJumble.exit13:                              ; preds = %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCommentStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCommentStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -16122,7 +16122,7 @@ AppendJumble.exit15:                              ; preds = %29, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleSecLabelStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleSecLabelStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -16248,7 +16248,7 @@ AppendJumble.exit30:                              ; preds = %47, %39
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleDeclareCursorStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleDeclareCursorStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -16389,7 +16389,7 @@ AppendJumble.exit:                                ; preds = %11, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleFetchStmt(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleFetchStmt(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -16534,7 +16534,7 @@ AppendJumble.exit32:                              ; preds = %51
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleIndexStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleIndexStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -17195,7 +17195,7 @@ AppendJumble.exit211:                             ; preds = %265
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateStatsStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateStatsStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -17328,7 +17328,7 @@ AppendJumble.exit32:                              ; preds = %48
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleStatsElem(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleStatsElem(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -17380,7 +17380,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterStatsStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterStatsStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -17450,7 +17450,7 @@ AppendJumble.exit13:                              ; preds = %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateFunctionStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateFunctionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -17532,7 +17532,7 @@ AppendJumble.exit21:                              ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleFunctionParameter(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleFunctionParameter(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -17619,7 +17619,7 @@ AppendJumble.exit18:                              ; preds = %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterFunctionStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterFunctionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -17662,7 +17662,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCallStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCallStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -17673,7 +17673,7 @@ define internal fastcc void @_jumbleCallStmt(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleRenameStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleRenameStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -17903,7 +17903,7 @@ AppendJumble.exit61:                              ; preds = %83
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterObjectDependsStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterObjectDependsStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -17980,7 +17980,7 @@ AppendJumble.exit17:                              ; preds = %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterObjectSchemaStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterObjectSchemaStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -18102,7 +18102,7 @@ AppendJumble.exit27:                              ; preds = %43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterOwnerStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterOwnerStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -18148,7 +18148,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterOperatorStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterOperatorStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -18159,7 +18159,7 @@ define internal fastcc void @_jumbleAlterOperatorStmt(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterTypeStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterTypeStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -18170,7 +18170,7 @@ define internal fastcc void @_jumbleAlterTypeStmt(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleRuleStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleRuleStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -18321,7 +18321,7 @@ AppendJumble.exit40:                              ; preds = %60
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleNotifyStmt(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleNotifyStmt(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -18508,7 +18508,7 @@ AppendJumble.exit:                                ; preds = %11, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleTransactionStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleTransactionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -18627,7 +18627,7 @@ RecordConstLocation.exit:                         ; preds = %AppendJumble.exit15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCompositeTypeStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCompositeTypeStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -18638,7 +18638,7 @@ define internal fastcc void @_jumbleCompositeTypeStmt(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateEnumStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateEnumStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -18649,7 +18649,7 @@ define internal fastcc void @_jumbleCreateEnumStmt(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateRangeStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateRangeStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -18660,7 +18660,7 @@ define internal fastcc void @_jumbleCreateRangeStmt(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterEnumStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterEnumStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -18882,7 +18882,7 @@ AppendJumble.exit56:                              ; preds = %78
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleViewStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleViewStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -19009,7 +19009,7 @@ AppendJumble.exit:                                ; preds = %11, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreatedbStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreatedbStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -19061,7 +19061,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterDatabaseStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterDatabaseStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -19160,7 +19160,7 @@ AppendJumble.exit:                                ; preds = %11, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterDatabaseSetStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterDatabaseSetStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -19212,7 +19212,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleDropdbStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleDropdbStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -19306,7 +19306,7 @@ AppendJumble.exit16:                              ; preds = %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleClusterStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleClusterStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -19361,7 +19361,7 @@ AppendJumble.exit:                                ; preds = %16, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleVacuumStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleVacuumStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -19404,7 +19404,7 @@ AppendJumble.exit:                                ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleVacuumRelation(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleVacuumRelation(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -19447,7 +19447,7 @@ AppendJumble.exit:                                ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleExplainStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleExplainStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -19458,7 +19458,7 @@ define internal fastcc void @_jumbleExplainStmt(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateTableAsStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateTableAsStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -19561,7 +19561,7 @@ AppendJumble.exit24:                              ; preds = %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleRefreshMatViewStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleRefreshMatViewStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -19631,7 +19631,7 @@ AppendJumble.exit13:                              ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleDiscardStmt(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleDiscardStmt(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -19668,7 +19668,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleLockStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleLockStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -19738,7 +19738,7 @@ AppendJumble.exit13:                              ; preds = %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleConstraintsSetStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleConstraintsSetStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -19778,7 +19778,7 @@ AppendJumble.exit:                                ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleReindexStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleReindexStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -19864,7 +19864,7 @@ AppendJumble.exit17:                              ; preds = %29, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateConversionStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateConversionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -19995,7 +19995,7 @@ AppendJumble.exit33:                              ; preds = %52
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateCastStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateCastStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -20071,7 +20071,7 @@ AppendJumble.exit17:                              ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateTransformStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateTransformStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -20160,7 +20160,7 @@ AppendJumble.exit19:                              ; preds = %29, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumblePrepareStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumblePrepareStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -20215,7 +20215,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleExecuteStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleExecuteStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -20267,7 +20267,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleDeallocateStmt(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleDeallocateStmt(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -20352,7 +20352,7 @@ RecordConstLocation.exit:                         ; preds = %AppendJumble.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleDropOwnedStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleDropOwnedStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -20392,7 +20392,7 @@ AppendJumble.exit:                                ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleReassignOwnedStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleReassignOwnedStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -20403,7 +20403,7 @@ define internal fastcc void @_jumbleReassignOwnedStmt(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterTSDictionaryStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterTSDictionaryStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -20414,7 +20414,7 @@ define internal fastcc void @_jumbleAlterTSDictionaryStmt(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterTSConfigurationStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterTSConfigurationStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -20551,7 +20551,7 @@ AppendJumble.exit35:                              ; preds = %53
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumblePublicationTable(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumblePublicationTable(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -20565,7 +20565,7 @@ define internal fastcc void @_jumblePublicationTable(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumblePublicationObjSpec(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumblePublicationObjSpec(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -20647,7 +20647,7 @@ AppendJumble.exit15:                              ; preds = %26, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreatePublicationStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreatePublicationStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -20734,7 +20734,7 @@ AppendJumble.exit18:                              ; preds = %33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterPublicationStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterPublicationStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -20851,7 +20851,7 @@ AppendJumble.exit28:                              ; preds = %45
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleCreateSubscriptionStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleCreateSubscriptionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -20950,7 +20950,7 @@ AppendJumble.exit23:                              ; preds = %33, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterSubscriptionStmt(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterSubscriptionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -21078,7 +21078,7 @@ AppendJumble.exit32:                              ; preds = %44, %37
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleDropSubscriptionStmt(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleDropSubscriptionStmt(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -21199,7 +21199,7 @@ AppendJumble.exit24:                              ; preds = %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumblePathKeyInfo(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumblePathKeyInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
@@ -21257,7 +21257,7 @@ AppendJumble.exit:                                ; preds = %11, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleInteger(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleInteger(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -21341,7 +21341,7 @@ AppendJumble.exit:                                ; preds = %11, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleBoolean(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleBoolean(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -21472,7 +21472,7 @@ AppendJumble.exit:                                ; preds = %11, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleList(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_jumbleList(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8
   switch i32 %3, label %76 [
     i32 1, label %.preheader

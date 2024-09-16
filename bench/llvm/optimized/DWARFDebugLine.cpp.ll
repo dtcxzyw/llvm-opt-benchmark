@@ -2312,7 +2312,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit:          ; preds = %257, %_ZNSt6vectorI
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %47)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %48)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %49)
-  call fastcc void @_ZL18parseV5EntryFormatRKN4llvm18DWARFDataExtractorEPmPNS_14DWARFDebugLine18ContentTypeTrackerE(ptr dead_on_unwind noalias nonnull writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull %3, ptr noundef null), !noalias !130
+  call fastcc void @_ZL18parseV5EntryFormatRKN4llvm18DWARFDataExtractorEPmPNS_14DWARFDebugLine18ContentTypeTrackerE(ptr dead_on_unwind noalias writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull %3, ptr noundef null), !noalias !130
   %312 = getelementptr inbounds i8, ptr %43, i64 48
   %.val58.i = load i8, ptr %312, align 8, !noalias !130
   %313 = trunc i8 %.val58.i to i1
@@ -2501,7 +2501,7 @@ _ZNSt6vectorIN4llvm14DWARFFormValueESaIS1_EE9push_backERKS1_.exit.i: ; preds = %
   br i1 %.not.i38, label %._crit_edge92.i, label %322, !llvm.loop !148
 
 ._crit_edge92.i:                                  ; preds = %._crit_edge.i, %316
-  call fastcc void @_ZL18parseV5EntryFormatRKN4llvm18DWARFDataExtractorEPmPNS_14DWARFDebugLine18ContentTypeTrackerE(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull %3, ptr noundef nonnull %310), !noalias !130
+  call fastcc void @_ZL18parseV5EntryFormatRKN4llvm18DWARFDataExtractorEPmPNS_14DWARFDebugLine18ContentTypeTrackerE(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull %3, ptr noundef nonnull %310), !noalias !130
   %373 = getelementptr inbounds i8, ptr %45, i64 48
   %.val59.i = load i8, ptr %373, align 8, !noalias !130
   %374 = trunc i8 %.val59.i to i1
@@ -11754,7 +11754,7 @@ declare noundef zeroext i8 @_ZNK4llvm13DataExtractor5getU8EPmPNS_5ErrorE(ptr nou
 declare noundef i64 @_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPmS1_PNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18parseV5EntryFormatRKN4llvm18DWARFDataExtractorEPmPNS_14DWARFDebugLine18ContentTypeTrackerE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc void @_ZL18parseV5EntryFormatRKN4llvm18DWARFDataExtractorEPmPNS_14DWARFDebugLine18ContentTypeTrackerE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #5 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.10", align 1

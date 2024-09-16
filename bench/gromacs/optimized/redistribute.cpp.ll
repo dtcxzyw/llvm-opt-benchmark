@@ -1502,7 +1502,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
   %744 = zext i1 %.not293 to i32
   %745 = getelementptr inbounds [3 x float], ptr %33, i64 0, i64 %548
   %746 = load float, ptr %745, align 4
-  invoke fastcc void @_ZL13cg_move_errorP8_IO_FILEPK12gmx_domdec_tliiibfPfS4_f(ptr noundef %742, ptr noundef nonnull %.pre684, i64 noundef %743, i32 noundef %734, i32 noundef %547, i32 noundef %744, i1 noundef zeroext false, float noundef 0.000000e+00, ptr noundef nonnull %33, ptr noundef nonnull %33, float noundef %746) #23
+  invoke fastcc void @_ZL13cg_move_errorP8_IO_FILEPK12gmx_domdec_tliiibfPfS4_f(ptr noundef %742, ptr noundef nonnull %.pre684, i64 noundef %743, i32 noundef %734, i32 noundef %547, i32 noundef %744, i1 noundef zeroext false, float noundef 0.000000e+00, ptr noundef %33, ptr noundef %33, float noundef %746) #23
           to label %747 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 747:                                              ; preds = %733
@@ -3037,7 +3037,7 @@ _ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit.i: ; preds = %300
   %457 = trunc nuw nsw i64 %indvars.iv.i.lcssa.sink221 to i32
   %458 = getelementptr inbounds [3 x float], ptr %11, i64 0, i64 %indvars.iv.i.lcssa.sink221
   %459 = load float, ptr %458, align 4
-  invoke fastcc void @_ZL13cg_move_errorP8_IO_FILEPK12gmx_domdec_tliiibfPfS4_f(ptr noundef %449, ptr noundef %450, i64 noundef %451, i32 noundef %456, i32 noundef %457, i32 noundef %452, i1 noundef zeroext %25, float noundef %459, ptr noundef nonnull %453, ptr noundef nonnull %454, float noundef %455) #23
+  invoke fastcc void @_ZL13cg_move_errorP8_IO_FILEPK12gmx_domdec_tliiibfPfS4_f(ptr noundef %449, ptr noundef %450, i64 noundef %451, i32 noundef %456, i32 noundef %457, i32 noundef %452, i1 noundef zeroext %25, float noundef %459, ptr noundef %453, ptr noundef %454, float noundef %455) #23
           to label %.cont unwind label %304
 
 .cont:                                            ; preds = %.invoke
@@ -3484,7 +3484,7 @@ declare void @_Z10ddSendrecvIN3gmx11BasicVectorIfEEEvPK12gmx_domdec_tiiNS0_8Arra
 declare void @_Z28dd_resize_atominfo_and_stateP10t_forcerecP7t_statei(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @_ZL13cg_move_errorP8_IO_FILEPK12gmx_domdec_tliiibfPfS4_f(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6, float noundef %7, ptr nocapture noundef readonly %8, ptr nocapture noundef readonly %9, float noundef %10) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13cg_move_errorP8_IO_FILEPK12gmx_domdec_tliiibfPfS4_f(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 -1, 2) %5, i1 noundef zeroext %6, float noundef %7, ptr nocapture noundef nonnull readonly %8, ptr nocapture noundef nonnull readonly %9, float noundef %10) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %13
@@ -3695,7 +3695,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35: ; preds = %_ZNSt6vectorIi
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13print_cg_moveP8_IO_FILEPK12gmx_domdec_tliiibfPfS4_f(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6, float noundef %7, ptr nocapture noundef readonly %8, ptr nocapture noundef readonly %9, float noundef %10) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13print_cg_moveP8_IO_FILEPK12gmx_domdec_tliiibfPfS4_f(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 -1, 2) %5, i1 noundef zeroext %6, float noundef %7, ptr nocapture noundef nonnull readonly %8, ptr nocapture noundef nonnull readonly %9, float noundef %10) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 .invoke:
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8

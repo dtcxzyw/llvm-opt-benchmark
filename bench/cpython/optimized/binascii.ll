@@ -243,7 +243,7 @@ define internal ptr @binascii_a2b_uu(ptr noundef %module, ptr noundef %arg) #0 {
 entry:
   %data = alloca %struct.Py_buffer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %data, i8 0, i64 80, i1 false)
-  %call = call fastcc i32 @ascii_buffer_converter(ptr noundef %arg, ptr noundef nonnull %data)
+  %call = call fastcc i32 @ascii_buffer_converter(ptr noundef %arg, ptr noundef %data)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %exit, label %if.end
 
@@ -650,7 +650,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1018 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %3 = load ptr, ptr %cond1018, align 8
-  %call12 = call fastcc i32 @ascii_buffer_converter(ptr noundef %3, ptr noundef nonnull %data)
+  %call12 = call fastcc i32 @ascii_buffer_converter(ptr noundef %3, ptr noundef %data)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -1149,7 +1149,7 @@ define internal ptr @binascii_a2b_hex(ptr noundef %module, ptr noundef %arg) #0 
 entry:
   %hexstr = alloca %struct.Py_buffer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %hexstr, i8 0, i64 80, i1 false)
-  %call = call fastcc i32 @ascii_buffer_converter(ptr noundef %arg, ptr noundef nonnull %hexstr)
+  %call = call fastcc i32 @ascii_buffer_converter(ptr noundef %arg, ptr noundef %hexstr)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %exit, label %if.end
 
@@ -1348,7 +1348,7 @@ define internal ptr @binascii_unhexlify(ptr noundef %module, ptr noundef %arg) #
 entry:
   %hexstr = alloca %struct.Py_buffer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %hexstr, i8 0, i64 80, i1 false)
-  %call = call fastcc i32 @ascii_buffer_converter(ptr noundef %arg, ptr noundef nonnull %hexstr)
+  %call = call fastcc i32 @ascii_buffer_converter(ptr noundef %arg, ptr noundef %hexstr)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %exit, label %if.end
 
@@ -1628,7 +1628,7 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1018 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %4 = load ptr, ptr %cond1018, align 8
-  %call12 = call fastcc i32 @ascii_buffer_converter(ptr noundef %4, ptr noundef nonnull %data)
+  %call12 = call fastcc i32 @ascii_buffer_converter(ptr noundef %4, ptr noundef %data)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %exit, label %if.end15
 
@@ -2421,13 +2421,13 @@ if.end52:                                         ; preds = %if.then51, %exit
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 131073) i32 @ascii_buffer_converter(ptr noundef %arg, ptr noundef %buf) unnamed_addr #0 {
+define internal fastcc range(i32 0, 131073) i32 @ascii_buffer_converter(ptr noundef %arg, ptr noundef nonnull %buf) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %arg, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @PyBuffer_Release(ptr noundef %buf) #5
+  tail call void @PyBuffer_Release(ptr noundef nonnull %buf) #5
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -2477,7 +2477,7 @@ PyUnicode_DATA.exit:                              ; preds = %if.then.i, %if.end.
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %call11 = tail call i32 @PyObject_GetBuffer(ptr noundef nonnull %arg, ptr noundef %buf, i32 noundef 0) #5
+  %call11 = tail call i32 @PyObject_GetBuffer(ptr noundef nonnull %arg, ptr noundef nonnull %buf, i32 noundef 0) #5
   %cmp12.not = icmp eq i32 %call11, 0
   br i1 %cmp12.not, label %return, label %if.then13
 

@@ -842,7 +842,7 @@ if.then75:                                        ; preds = %for.end69
 if.end76:                                         ; preds = %for.end69
   %iv = getelementptr inbounds i8, ptr %cipher, i64 8
   %call77 = tail call i32 @EVP_CIPHER_iv_length(ptr noundef nonnull %call70) #11
-  %call78 = call fastcc i32 @load_iv(ptr noundef nonnull %header.addr, ptr noundef nonnull %iv, i32 noundef %call77)
+  %call78 = call fastcc i32 @load_iv(ptr noundef %header.addr, ptr noundef nonnull %iv, i32 noundef %call77)
   br label %return
 
 return:                                           ; preds = %if.end76, %if.end16, %if.end11, %entry, %lor.lhs.false, %lor.lhs.false, %if.then75, %if.then44, %if.then38, %if.then26, %if.then10
@@ -1361,7 +1361,7 @@ return:                                           ; preds = %if.else21, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @load_iv(ptr nocapture noundef %fromp, ptr nocapture noundef %to, i32 noundef %num) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @load_iv(ptr nocapture noundef nonnull %fromp, ptr nocapture noundef %to, i32 noundef %num) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %fromp, align 8
   %cmp25 = icmp sgt i32 %num, 0

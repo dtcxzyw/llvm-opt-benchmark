@@ -212,9 +212,9 @@ define hidden void @VP8LCreateHuffmanTree(ptr nocapture noundef %0, i32 noundef 
 
 .lr.ph.i.preheader:                               ; preds = %5
   %11 = icmp eq i32 %8, 0
-  br i1 %11, label %OptimizeHuffmanForRle.exit.thread37, label %.lr.ph
+  br i1 %11, label %OptimizeHuffmanForRle.exit.thread36, label %.lr.ph
 
-OptimizeHuffmanForRle.exit.thread37:              ; preds = %.lr.ph.i.preheader
+OptimizeHuffmanForRle.exit.thread36:              ; preds = %.lr.ph.i.preheader
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   br label %GenerateOptimalTree.exit
 
@@ -223,21 +223,21 @@ OptimizeHuffmanForRle.exit.thread:                ; preds = %5
   br label %GenerateOptimalTree.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.0100124.i31 = phi i32 [ %16, %.lr.ph.i ], [ %8, %.lr.ph.i.preheader ]
-  %14 = zext nneg i32 %.0100124.i31 to i64
+  %.0100124.i30 = phi i32 [ %16, %.lr.ph.i ], [ %8, %.lr.ph.i.preheader ]
+  %14 = zext nneg i32 %.0100124.i30 to i64
   %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %14
   %15 = load i32, ptr %gep.i, align 4
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %.lr.ph.i, label %.lr.ph138.preheader.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %16 = add nsw i32 %.0100124.i31, -1
+  %16 = add nsw i32 %.0100124.i30, -1
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %OptimizeHuffmanForRle.exit, label %.lr.ph
 
 .lr.ph138.preheader.i:                            ; preds = %.lr.ph
   %18 = load i32, ptr %0, align 4
-  %19 = add nuw i32 %.0100124.i31, 1
+  %19 = add nuw i32 %.0100124.i30, 1
   %wide.trip.count.i = zext i32 %19 to i64
   %invariant.gep169.i = getelementptr i8, ptr %2, i64 -1
   br label %.lr.ph138.i
@@ -298,7 +298,7 @@ OptimizeHuffmanForRle.exit.thread:                ; preds = %5
 
 ._crit_edge139.i:                                 ; preds = %39
   %40 = load i32, ptr %0, align 4
-  %41 = add nsw i32 %.0100124.i31, -3
+  %41 = add nsw i32 %.0100124.i30, -3
   %42 = sext i32 %41 to i64
   br label %43
 
@@ -647,32 +647,32 @@ OptimizeHuffmanForRle.exit:                       ; preds = %.lr.ph.i, %105
   tail call void @qsort(ptr noundef %3, i64 noundef %114, i64 noundef 16, ptr noundef nonnull @CompareHuffmanTrees) #10
   br i1 %117, label %164, label %168
 
-GenerateOptimalTree.exit:                         ; preds = %._crit_edge128.us144.i, %._crit_edge128.us.i, %OptimizeHuffmanForRle.exit.thread37, %OptimizeHuffmanForRle.exit.thread, %._crit_edge.i18
-  %187 = phi ptr [ %13, %OptimizeHuffmanForRle.exit.thread ], [ %107, %._crit_edge.i18 ], [ %12, %OptimizeHuffmanForRle.exit.thread37 ], [ %107, %._crit_edge128.us.i ], [ %107, %._crit_edge128.us144.i ]
+GenerateOptimalTree.exit:                         ; preds = %._crit_edge128.us144.i, %._crit_edge128.us.i, %OptimizeHuffmanForRle.exit.thread36, %OptimizeHuffmanForRle.exit.thread, %._crit_edge.i18
+  %187 = phi ptr [ %13, %OptimizeHuffmanForRle.exit.thread ], [ %107, %._crit_edge.i18 ], [ %12, %OptimizeHuffmanForRle.exit.thread36 ], [ %107, %._crit_edge128.us.i ], [ %107, %._crit_edge128.us144.i ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   %188 = load i32, ptr %4, align 8
   %189 = icmp sgt i32 %188, 0
-  br i1 %189, label %.lr.ph.i22, label %._crit_edge.i20
+  br i1 %189, label %.lr.ph.i21, label %._crit_edge.i20
 
-.lr.ph.i22:                                       ; preds = %GenerateOptimalTree.exit
+.lr.ph.i21:                                       ; preds = %GenerateOptimalTree.exit
   %190 = load ptr, ptr %187, align 8
-  %wide.trip.count.i23 = zext nneg i32 %188 to i64
+  %wide.trip.count.i22 = zext nneg i32 %188 to i64
   br label %191
 
-191:                                              ; preds = %191, %.lr.ph.i22
-  %indvars.iv.i24 = phi i64 [ 0, %.lr.ph.i22 ], [ %indvars.iv.next.i25, %191 ]
-  %192 = getelementptr inbounds i8, ptr %190, i64 %indvars.iv.i24
+191:                                              ; preds = %191, %.lr.ph.i21
+  %indvars.iv.i23 = phi i64 [ 0, %.lr.ph.i21 ], [ %indvars.iv.next.i24, %191 ]
+  %192 = getelementptr inbounds i8, ptr %190, i64 %indvars.iv.i23
   %193 = load i8, ptr %192, align 1
   %194 = zext i8 %193 to i64
   %195 = getelementptr inbounds [16 x i32], ptr %7, i64 0, i64 %194
   %196 = load i32, ptr %195, align 4
   %197 = add nsw i32 %196, 1
   store i32 %197, ptr %195, align 4
-  %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i24, 1
-  %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, %wide.trip.count.i23
-  br i1 %exitcond.not.i26, label %._crit_edge.i20, label %191, !llvm.loop !18
+  %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i23, 1
+  %exitcond.not.i25 = icmp eq i64 %indvars.iv.next.i24, %wide.trip.count.i22
+  br i1 %exitcond.not.i25, label %._crit_edge.i20, label %191, !llvm.loop !18
 
 ._crit_edge.i20:                                  ; preds = %191, %GenerateOptimalTree.exit
   store i32 0, ptr %7, align 16
@@ -712,8 +712,8 @@ GenerateOptimalTree.exit:                         ; preds = %._crit_edge128.us14
   %213 = load i32, ptr %212, align 4
   %214 = add i32 %213, 1
   store i32 %214, ptr %212, align 4
-  %.not.i21 = icmp eq i8 %209, 0
-  br i1 %.not.i21, label %ReverseBits.exit.i, label %.lr.ph.i.i
+  %.not.i.i = icmp eq i8 %209, 0
+  br i1 %.not.i.i, label %ReverseBits.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %206, %.lr.ph.i.i
   %.015.i.i = phi i32 [ %215, %.lr.ph.i.i ], [ 0, %206 ]

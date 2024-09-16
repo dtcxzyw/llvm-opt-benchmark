@@ -1202,7 +1202,7 @@ if.else80:                                        ; preds = %if.end75
   br i1 %cmp81, label %if.then83, label %if.else96
 
 if.then83:                                        ; preds = %if.else80
-  %call84 = call fastcc ptr @newline_escape_filename(ptr noundef %file, ptr noundef nonnull %backslash)
+  %call84 = call fastcc ptr @newline_escape_filename(ptr noundef %file, ptr noundef %backslash)
   %14 = load i32, ptr %backslash, align 4
   %cmp85 = icmp eq i32 %14, 1
   br i1 %cmp85, label %if.then87, label %if.end89
@@ -1360,7 +1360,7 @@ declare i32 @BIO_gets(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr 
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @newline_escape_filename(ptr noundef %file, ptr nocapture noundef writeonly %backslash) unnamed_addr #0 {
+define internal fastcc ptr @newline_escape_filename(ptr noundef %file, ptr nocapture noundef nonnull writeonly %backslash) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %file) #7
   %cmp20.not = icmp eq i64 %call, 0

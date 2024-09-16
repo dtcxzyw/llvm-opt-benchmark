@@ -297,7 +297,7 @@ define hidden i32 @mbedtls_ssl_check_record(ptr noundef %0, ptr noundef %1, i64 
   br i1 %8, label %18, label %9
 
 9:                                                ; preds = %3
-  %10 = call fastcc i32 @ssl_parse_record_header(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4)
+  %10 = call fastcc i32 @ssl_parse_record_header(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %4)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %12, label %11
 
@@ -334,7 +334,7 @@ define hidden i32 @mbedtls_ssl_check_record(ptr noundef %0, ptr noundef %1, i64 
 declare void @mbedtls_debug_print_buf(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -29184, 1) i32 @ssl_parse_record_header(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -29184, 1) i32 @ssl_parse_record_header(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %6, align 1
@@ -481,7 +481,7 @@ define internal fastcc range(i32 -29184, 1) i32 @ssl_parse_record_header(ptr nou
   br label %99
 
 96:                                               ; preds = %85
-  %97 = tail call fastcc i32 @mbedtls_ssl_dtls_record_replay_check(ptr noundef nonnull %0, ptr noundef nonnull %3)
+  %97 = tail call fastcc i32 @mbedtls_ssl_dtls_record_replay_check(ptr noundef nonnull %0, ptr noundef %3)
   %.not78 = icmp eq i32 %97, 0
   br i1 %.not78, label %99, label %98
 
@@ -4187,7 +4187,7 @@ ssl_load_buffered_record.exit.i:                  ; preds = %126
 150:                                              ; preds = %146
   %151 = load ptr, ptr %17, align 8
   %152 = load i64, ptr %11, align 8
-  %153 = call fastcc i32 @ssl_parse_record_header(ptr noundef nonnull %0, ptr noundef %151, i64 noundef %152, ptr noundef nonnull %3)
+  %153 = call fastcc i32 @ssl_parse_record_header(ptr noundef nonnull %0, ptr noundef %151, i64 noundef %152, ptr noundef %3)
   %.not85.i = icmp eq i32 %153, 0
   %154 = load ptr, ptr %0, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 9
@@ -6341,7 +6341,7 @@ declare i64 @mbedtls_ssl_get_current_mtu(ptr noundef) local_unnamed_addr #1
 declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 1) i32 @mbedtls_ssl_dtls_record_replay_check(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @mbedtls_ssl_dtls_record_replay_check(ptr nocapture noundef %0, ptr noundef nonnull %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
   store ptr %1, ptr %3, align 8
@@ -6496,8 +6496,8 @@ ssl_buffering_free_slot.exit:                     ; preds = %.preheader, %26, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ssl_bitmask_set(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #12 {
-  %4 = trunc i64 %1 to i32
+define internal fastcc void @ssl_bitmask_set(ptr nocapture noundef %0, i64 noundef range(i64 0, 16777216) %1, i64 noundef range(i64 0, 16777216) %2) unnamed_addr #12 {
+  %4 = trunc nuw nsw i64 %1 to i32
   %5 = and i32 %4, 7
   %6 = sub nuw nsw i32 8, %5
   %.not = icmp eq i32 %5, 0
@@ -6554,13 +6554,13 @@ define internal fastcc void @ssl_bitmask_set(ptr nocapture noundef %0, i64 nound
 29:                                               ; preds = %.loopexit46, %3
   %.033 = phi i64 [ %2, %3 ], [ %28, %.loopexit46 ]
   %.0 = phi i64 [ %1, %3 ], [ %20, %.loopexit46 ]
-  %30 = trunc i64 %.033 to i32
+  %30 = trunc nuw nsw i64 %.033 to i32
   %31 = and i32 %30, 7
   %.not43 = icmp eq i32 %31, 0
-  br i1 %.not43, label %43, label %32
+  br i1 %.not43, label %44, label %32
 
 32:                                               ; preds = %29
-  %33 = add nsw i64 %.0, %.033
+  %33 = add nuw nsw i64 %.0, %.033
   %34 = lshr i64 %33, 3
   %35 = getelementptr inbounds i8, ptr %0, i64 %34
   %.promoted53 = load i8, ptr %35, align 1
@@ -6578,21 +6578,23 @@ define internal fastcc void @ssl_bitmask_set(ptr nocapture noundef %0, i64 nound
   br i1 %.not44, label %.loopexit, label %36, !llvm.loop !21
 
 .loopexit:                                        ; preds = %36
+  %43 = and i64 %.033, 16777208
   store i8 %41, ptr %35, align 1
-  br label %43
+  br label %44
 
-43:                                               ; preds = %.loopexit, %29
-  %44 = lshr i64 %.0, 3
-  %45 = getelementptr inbounds i8, ptr %0, i64 %44
-  %46 = lshr i64 %.033, 3
-  tail call void @llvm.memset.p0.i64(ptr align 1 %45, i8 -1, i64 %46, i1 false)
+44:                                               ; preds = %.loopexit, %29
+  %.2 = phi i64 [ %.033, %29 ], [ %43, %.loopexit ]
+  %45 = lshr i64 %.0, 3
+  %46 = getelementptr inbounds i8, ptr %0, i64 %45
+  %47 = lshr i64 %.2, 3
+  tail call void @llvm.memset.p0.i64(ptr align 1 %46, i8 -1, i64 %47, i1 false)
   br label %.loopexit47
 
 ..loopexit47_crit_edge:                           ; preds = %11
   store i8 %17, ptr %10, align 1
   br label %.loopexit47
 
-.loopexit47:                                      ; preds = %.preheader, %..loopexit47_crit_edge, %43
+.loopexit47:                                      ; preds = %.preheader, %..loopexit47_crit_edge, %44
   ret void
 }
 

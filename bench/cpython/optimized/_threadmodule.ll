@@ -1323,7 +1323,7 @@ if.end20:                                         ; preds = %if.end15
   %13 = load ptr, ptr %func, align 8
   %14 = load ptr, ptr %args, align 8
   %15 = load ptr, ptr %kwargs, align 8
-  %call21 = call fastcc i32 @do_start_new_thread(ptr noundef %13, ptr noundef %14, ptr noundef %15, i32 noundef 0, ptr noundef nonnull %ident, ptr noundef nonnull %handle)
+  %call21 = call fastcc i32 @do_start_new_thread(ptr noundef %13, ptr noundef %14, ptr noundef %15, i32 noundef 0, ptr noundef %ident, ptr noundef %handle)
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %if.end24, label %return
 
@@ -1388,7 +1388,7 @@ if.end12:                                         ; preds = %if.end8
   %ident.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %ident.i, i8 0, i64 17, i1 false)
   %handle = getelementptr inbounds i8, ptr %call.i, i64 24
-  %call13 = tail call fastcc i32 @do_start_new_thread(ptr noundef %func, ptr noundef nonnull %call5, ptr noundef null, i32 noundef 1, ptr noundef nonnull %ident.i, ptr noundef nonnull %handle)
+  %call13 = tail call fastcc i32 @do_start_new_thread(ptr noundef %func, ptr noundef nonnull %call5, ptr noundef null, i32 noundef 1, ptr noundef %ident.i, ptr noundef %handle)
   %tobool14.not = icmp eq i32 %call13, 0
   %5 = load i64, ptr %call5, align 8
   %6 = and i64 %5, 2147483648
@@ -1970,7 +1970,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @do_start_new_thread(ptr noundef %func, ptr noundef %args, ptr noundef %kwargs, i32 noundef %joinable, ptr noundef %ident, ptr noundef %handle) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @do_start_new_thread(ptr noundef %func, ptr noundef %args, ptr noundef %kwargs, i32 noundef range(i32 0, 2) %joinable, ptr noundef nonnull %ident, ptr noundef nonnull %handle) unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -2066,7 +2066,7 @@ _Py_XNewRef.exit:                                 ; preds = %_Py_NewRef.exit19, 
   br i1 %tobool25.not, label %if.else, label %if.then26
 
 if.then26:                                        ; preds = %_Py_XNewRef.exit
-  %call27 = tail call i32 @PyThread_start_joinable_thread(ptr noundef nonnull @thread_run, ptr noundef nonnull %call5, ptr noundef %ident, ptr noundef %handle) #8
+  %call27 = tail call i32 @PyThread_start_joinable_thread(ptr noundef nonnull @thread_run, ptr noundef nonnull %call5, ptr noundef nonnull %ident, ptr noundef nonnull %handle) #8
   br label %if.end30
 
 if.else:                                          ; preds = %_Py_XNewRef.exit
@@ -2861,7 +2861,7 @@ declare void @PyThread_free_lock(ptr noundef) local_unnamed_addr #1
 define internal ptr @lock_PyThread_acquire_lock(ptr nocapture noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %timeout = alloca i64, align 8
-  %call = call fastcc i32 @lock_acquire_parse_args(ptr noundef %args, ptr noundef %kwds, ptr noundef nonnull %timeout)
+  %call = call fastcc i32 @lock_acquire_parse_args(ptr noundef %args, ptr noundef %kwds, ptr noundef %timeout)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -2951,7 +2951,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @lock_acquire_parse_args(ptr noundef %args, ptr noundef %kwds, ptr noundef %timeout) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @lock_acquire_parse_args(ptr noundef %args, ptr noundef %kwds, ptr noundef nonnull %timeout) unnamed_addr #0 {
 entry:
   %kwlist = alloca [3 x ptr], align 16
   %blocking = alloca i32, align 4
@@ -3187,7 +3187,7 @@ return:                                           ; preds = %if.then, %do.end
 define internal ptr @rlock_acquire(ptr nocapture noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %timeout = alloca i64, align 8
-  %call = call fastcc i32 @lock_acquire_parse_args(ptr noundef %args, ptr noundef %kwds, ptr noundef nonnull %timeout)
+  %call = call fastcc i32 @lock_acquire_parse_args(ptr noundef %args, ptr noundef %kwds, ptr noundef %timeout)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 

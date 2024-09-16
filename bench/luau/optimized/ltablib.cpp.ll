@@ -182,7 +182,7 @@ define internal noundef i32 @_ZL7tconcatP9lua_State(ptr noundef %0) #0 {
 
 .lr.ph:                                           ; preds = %12, %20
   %.021 = phi i32 [ %21, %20 ], [ %5, %12 ]
-  call fastcc void @_ZL8addfieldP9lua_StateP11luaL_StrbufiP5Table(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %.021, ptr noundef %16)
+  call fastcc void @_ZL8addfieldP9lua_StateP11luaL_StrbufiP5Table(ptr noundef %0, ptr noundef %3, i32 noundef %.021, ptr noundef %16)
   %18 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %18, 0
   br i1 %.not, label %20, label %19
@@ -201,7 +201,7 @@ define internal noundef i32 @_ZL7tconcatP9lua_State(ptr noundef %0) #0 {
   br i1 %22, label %._crit_edge.thread, label %23
 
 ._crit_edge.thread:                               ; preds = %20, %._crit_edge
-  call fastcc void @_ZL8addfieldP9lua_StateP11luaL_StrbufiP5Table(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %13, ptr noundef %16)
+  call fastcc void @_ZL8addfieldP9lua_StateP11luaL_StrbufiP5Table(ptr noundef %0, ptr noundef %3, i32 noundef %13, ptr noundef %16)
   br label %23
 
 23:                                               ; preds = %._crit_edge.thread, %._crit_edge
@@ -772,7 +772,7 @@ declare noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef, i32 noundef)
 declare void @_Z13luaL_buffinitP9lua_StateP11luaL_Strbuf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL8addfieldP9lua_StateP11luaL_StrbufiP5Table(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @_ZL8addfieldP9lua_StateP11luaL_StrbufiP5Table(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %24, label %5
 
@@ -799,7 +799,7 @@ define internal fastcc void @_ZL8addfieldP9lua_StateP11luaL_StrbufiP5Table(ptr n
   %21 = getelementptr inbounds i8, ptr %19, i64 20
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
-  tail call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef %1, ptr noundef nonnull %20, i64 noundef %23)
+  tail call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %1, ptr noundef nonnull %20, i64 noundef %23)
   br label %29
 
 24:                                               ; preds = %10, %5, %4
@@ -815,7 +815,7 @@ define internal fastcc void @_ZL8addfieldP9lua_StateP11luaL_StrbufiP5Table(ptr n
   unreachable
 
 28:                                               ; preds = %24, %24
-  tail call void @_Z13luaL_addvalueP11luaL_Strbuf(ptr noundef %1)
+  tail call void @_Z13luaL_addvalueP11luaL_Strbuf(ptr noundef nonnull %1)
   br label %29
 
 29:                                               ; preds = %28, %18
@@ -852,11 +852,11 @@ declare void @_Z14lua_pushnumberP9lua_Stated(ptr noundef, double noundef) local_
 declare noundef i32 @_Z10lua_gettopP9lua_State(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i32 noundef range(i32 1, 6) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = sext i32 %1 to i64
+  %9 = zext nneg i32 %1 to i64
   %10 = getelementptr %struct.lua_TValue, ptr %7, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -16
   %12 = load ptr, ptr %11, align 8
@@ -1067,7 +1067,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL9sort_funcP9lua_StatePK10lua_TVa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL8sort_recP9lua_StateP5TableiiiPFiS0_PK10lua_TValueS5_E(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @_ZL8sort_recP9lua_StateP5TableiiiPFiS0_PK10lua_TValueS5_E(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483648) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.lua_TValue, align 8
   %8 = alloca %struct.lua_TValue, align 8
   %9 = alloca %struct.lua_TValue, align 8
@@ -1367,12 +1367,12 @@ _ZL9sort_heapP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit: ; preds = %128, 
 declare hidden void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13sort_siftheapP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_Ei(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @_ZL13sort_siftheapP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_Ei(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 0, 1073741823) %5) unnamed_addr #0 {
   %7 = alloca %struct.lua_TValue, align 8
   %8 = alloca %struct.lua_TValue, align 8
   %9 = sub nsw i32 %3, %2
-  %10 = shl nsw i32 %5, 1
-  %11 = add nsw i32 %10, 2
+  %10 = shl nuw nsw i32 %5, 1
+  %11 = add nuw nsw i32 %10, 2
   %.not63 = icmp sgt i32 %11, %9
   br i1 %.not63, label %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56._crit_edge, label %.lr.ph
 
@@ -1439,8 +1439,8 @@ _Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56: ; preds = %_Z9s
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %48 = shl nsw i32 %40, 1
-  %49 = add nsw i32 %48, 2
+  %48 = shl nuw nsw i32 %40, 1
+  %49 = add nuw nsw i32 %48, 2
   %.not = icmp sgt i32 %49, %9
   br i1 %.not, label %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit56._crit_edge, label %14, !llvm.loop !26
 

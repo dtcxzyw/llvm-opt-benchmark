@@ -1483,7 +1483,7 @@ _jobacct_shutdown_test.exit:                      ; preds = %10
 
 32:                                               ; preds = %29
   tail call void @list_iterator_destroy(ptr noundef %26) #10
-  call fastcc void @_copy_tres_usage(ptr noundef nonnull %3, ptr noundef nonnull %28)
+  call fastcc void @_copy_tres_usage(ptr noundef %3, ptr noundef nonnull %28)
   br label %33
 
 33:                                               ; preds = %.thread, %23, %32
@@ -1513,7 +1513,7 @@ declare ptr @list_next(ptr noundef) local_unnamed_addr #4
 declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_copy_tres_usage(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_copy_tres_usage(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -2070,7 +2070,7 @@ define range(i32 -1, 1) i32 @jobacctinfo_setinfo(ptr noundef %0, i32 noundef %1,
   br label %115
 
 14:                                               ; preds = %11
-  call fastcc void @_copy_tres_usage(ptr noundef nonnull %5, ptr noundef %2)
+  call fastcc void @_copy_tres_usage(ptr noundef %5, ptr noundef %2)
   br label %115
 
 15:                                               ; preds = %10
@@ -2352,7 +2352,7 @@ define range(i32 -1, 1) i32 @jobacctinfo_getinfo(ptr noundef %0, i32 noundef %1,
   br label %136
 
 15:                                               ; preds = %12
-  call fastcc void @_copy_tres_usage(ptr noundef nonnull %6, ptr noundef %0)
+  call fastcc void @_copy_tres_usage(ptr noundef %6, ptr noundef %0)
   br label %136
 
 16:                                               ; preds = %11

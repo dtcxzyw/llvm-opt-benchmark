@@ -11017,7 +11017,7 @@ define dso_local void @md_do_sync(ptr nocapture noundef readonly %0) #0 align 16
 declare dso_local void @flush_signals(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 2) i32 @is_mddev_idle(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 2) i32 @is_mddev_idle(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #32
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load volatile ptr, ptr %3, align 8
@@ -18009,7 +18009,7 @@ define internal fastcc range(i32 -30, 1) i32 @restart_array(ptr noundef %0) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -16, 1) i32 @do_md_stop(ptr noundef %0, i32 noundef %1, ptr noundef readnone %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -16, 1) i32 @do_md_stop(ptr noundef %0, i32 noundef range(i32 0, 3) %1, ptr noundef readnone %2) unnamed_addr #0 align 16 {
   %4 = alloca [20 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -24853,7 +24853,7 @@ declare dso_local ptr @bio_split_to_limits(ptr noundef) local_unnamed_addr #3
 declare dso_local zeroext i1 @disk_check_media_change(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__md_set_array_info(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef i32 @__md_set_array_info(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.mdu_array_info_s, align 4
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %3, i8 0, i64 72, i1 false), !annotation !26
@@ -24995,7 +24995,7 @@ define internal fastcc noundef i32 @__md_set_array_info(ptr noundef %0, ptr noun
   %102 = getelementptr inbounds i8, ptr %0, i64 360
   store i32 %87, ptr %102, align 8
   %103 = load ptr, ptr %98, align 8
-  %104 = call i32 %103(ptr noundef %0) #32
+  %104 = call i32 %103(ptr noundef nonnull %0) #32
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %.thread25, label %106
 
@@ -25017,7 +25017,7 @@ define internal fastcc noundef i32 @__md_set_array_info(ptr noundef %0, ptr noun
 
 115:                                              ; preds = %109
   %116 = shl nuw nsw i64 %113, 1
-  %117 = call fastcc i32 @update_size(ptr noundef %0, i64 noundef %116)
+  %117 = call fastcc i32 @update_size(ptr noundef nonnull %0, i64 noundef %116)
   %.pre = load i32, ptr %78, align 8
   %.pre27 = load i32, ptr %80, align 4
   br label %118
@@ -25030,7 +25030,7 @@ define internal fastcc noundef i32 @__md_set_array_info(ptr noundef %0, ptr noun
   br i1 %122, label %125, label %123
 
 123:                                              ; preds = %118
-  %124 = call fastcc i32 @update_raid_disks(ptr noundef %0, i32 noundef %119)
+  %124 = call fastcc i32 @update_raid_disks(ptr noundef nonnull %0, i32 noundef %119)
   br label %125
 
 125:                                              ; preds = %123, %118
@@ -25087,13 +25087,13 @@ define internal fastcc noundef i32 @__md_set_array_info(ptr noundef %0, ptr noun
   %159 = load i64, ptr %158, align 8
   %160 = getelementptr inbounds i8, ptr %0, i64 888
   store i64 %159, ptr %160, align 8
-  %161 = call ptr @md_bitmap_create(ptr noundef %0, i32 noundef -1) #32
+  %161 = call ptr @md_bitmap_create(ptr noundef nonnull %0, i32 noundef -1) #32
   %162 = icmp ugt ptr %161, inttoptr (i64 -4096 to ptr)
   br i1 %162, label %165, label %163
 
 163:                                              ; preds = %156
   store ptr %161, ptr %13, align 8
-  %164 = call i32 @md_bitmap_load(ptr noundef %0) #32
+  %164 = call i32 @md_bitmap_load(ptr noundef nonnull %0) #32
   br label %168
 
 165:                                              ; preds = %156
@@ -25107,12 +25107,12 @@ define internal fastcc noundef i32 @__md_set_array_info(ptr noundef %0, ptr noun
   br i1 %170, label %.thread.thread, label %.thread.thread26
 
 .thread.thread:                                   ; preds = %168
-  call void @md_update_sb(ptr noundef %0, i32 noundef 1)
+  call void @md_update_sb(ptr noundef nonnull %0, i32 noundef 1)
   br label %.thread25
 
 .thread.thread26:                                 ; preds = %168
-  call void @md_bitmap_destroy(ptr noundef %0) #32
-  call void @md_update_sb(ptr noundef %0, i32 noundef 1)
+  call void @md_bitmap_destroy(ptr noundef nonnull %0) #32
+  call void @md_update_sb(ptr noundef nonnull %0, i32 noundef 1)
   br label %.thread23
 
 171:                                              ; preds = %147
@@ -25134,7 +25134,7 @@ define internal fastcc noundef i32 @__md_set_array_info(ptr noundef %0, ptr noun
   %181 = load ptr, ptr @md_cluster_ops, align 8
   %182 = getelementptr inbounds i8, ptr %181, i64 144
   %183 = load ptr, ptr %182, align 8
-  %184 = call i32 %183(ptr noundef %0) #32
+  %184 = call i32 %183(ptr noundef nonnull %0) #32
   %185 = icmp slt i32 %184, 1
   br i1 %185, label %186, label %191
 
@@ -25143,7 +25143,7 @@ define internal fastcc noundef i32 @__md_set_array_info(ptr noundef %0, ptr noun
   %188 = load ptr, ptr @md_cluster_ops, align 8
   %189 = getelementptr inbounds i8, ptr %188, i64 152
   %190 = load ptr, ptr %189, align 8
-  call void %190(ptr noundef %0) #32
+  call void %190(ptr noundef nonnull %0) #32
   br label %.thread23
 
 191:                                              ; preds = %180
@@ -25151,7 +25151,7 @@ define internal fastcc noundef i32 @__md_set_array_info(ptr noundef %0, ptr noun
   %192 = load ptr, ptr @md_cluster_ops, align 8
   %193 = getelementptr inbounds i8, ptr %192, i64 8
   %194 = load ptr, ptr %193, align 8
-  %195 = call i32 %194(ptr noundef %0) #32
+  %195 = call i32 %194(ptr noundef nonnull %0) #32
   %196 = load ptr, ptr @md_cluster_mod, align 8
   call void @module_put(ptr noundef %196) #32
   %197 = getelementptr inbounds i8, ptr %0, i64 784
@@ -25159,13 +25159,13 @@ define internal fastcc noundef i32 @__md_set_array_info(ptr noundef %0, ptr noun
   br label %198
 
 198:                                              ; preds = %191, %176
-  call void @md_bitmap_destroy(ptr noundef %0) #32
+  call void @md_bitmap_destroy(ptr noundef nonnull %0) #32
   %199 = getelementptr inbounds i8, ptr %0, i64 880
   store i64 0, ptr %199, align 8
   br label %.thread
 
 .thread:                                          ; preds = %125, %198
-  call void @md_update_sb(ptr noundef %0, i32 noundef 1)
+  call void @md_update_sb(ptr noundef nonnull %0, i32 noundef 1)
   %200 = icmp eq i32 %126, 0
   br i1 %200, label %.thread25, label %.thread23
 
@@ -25205,7 +25205,7 @@ define internal fastcc noundef i32 @__md_set_array_info(ptr noundef %0, ptr noun
   br label %.thread25
 
 225:                                              ; preds = %214
-  %226 = call i32 @md_set_array_info(ptr noundef %0, ptr noundef nonnull %3), !range !189
+  %226 = call i32 @md_set_array_info(ptr noundef nonnull %0, ptr noundef nonnull %3), !range !189
   %227 = icmp eq i32 %226, 0
   br i1 %227, label %.thread25, label %228
 
@@ -25220,7 +25220,7 @@ define internal fastcc noundef i32 @__md_set_array_info(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -19, 1) i32 @hot_remove_disk(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @hot_remove_disk(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -25259,7 +25259,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @hot_remove_disk(ptr nounde
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %11, i64 192
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %27, i32 -33, ptr elementtype(i8) %27) #32, !srcloc !38
-  %28 = tail call fastcc i32 @remove_and_add_spares(ptr noundef %0, ptr noundef nonnull %11)
+  %28 = tail call fastcc i32 @remove_and_add_spares(ptr noundef nonnull %0, ptr noundef nonnull %11)
   %29 = load i32, ptr %23, align 4
   %30 = icmp sgt i32 %29, -1
   br i1 %30, label %.thread, label %31
@@ -25280,7 +25280,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @hot_remove_disk(ptr nounde
   %40 = load ptr, ptr @md_cluster_ops, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 112
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 %42(ptr noundef %0, ptr noundef nonnull %11) #32
+  %43 = tail call i32 %42(ptr noundef nonnull %0, ptr noundef nonnull %11) #32
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %.thread
 
@@ -25422,7 +25422,7 @@ mddev_destroy_serial_pool.exit:                   ; preds = %45, %60, %92, %94
   br label %119
 
 118:                                              ; preds = %mddev_destroy_serial_pool.exit
-  tail call void @md_update_sb(ptr noundef %0, i32 noundef 1)
+  tail call void @md_update_sb(ptr noundef nonnull %0, i32 noundef 1)
   br label %119
 
 119:                                              ; preds = %118, %117
@@ -25436,7 +25436,7 @@ mddev_destroy_serial_pool.exit:                   ; preds = %45, %60, %92, %94
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @hot_add_disk(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @hot_add_disk(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -25519,7 +25519,7 @@ define internal fastcc i32 @hot_add_disk(ptr noundef %0, i32 noundef %1) unnamed
   store i32 -1, ptr %60, align 8
   %61 = getelementptr inbounds i8, ptr %30, i64 236
   store i32 -1, ptr %61, align 4
-  %62 = tail call fastcc i32 @bind_rdev_to_array(ptr noundef %30, ptr noundef %0)
+  %62 = tail call fastcc i32 @bind_rdev_to_array(ptr noundef %30, ptr noundef nonnull %0)
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %98
 
@@ -25534,7 +25534,7 @@ define internal fastcc i32 @hot_add_disk(ptr noundef %0, i32 noundef %1) unnamed
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %64
-  tail call void @md_update_sb(ptr noundef %0, i32 noundef 1)
+  tail call void @md_update_sb(ptr noundef nonnull %0, i32 noundef 1)
   br label %71
 
 71:                                               ; preds = %70, %64
@@ -25595,7 +25595,7 @@ define internal fastcc i32 @hot_add_disk(ptr noundef %0, i32 noundef %1) unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @set_bitmap_file(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @set_bitmap_file(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -25708,13 +25708,13 @@ define internal fastcc i32 @set_bitmap_file(ptr noundef %0, i32 noundef %1) unna
   br i1 %5, label %.thread14, label %.thread10
 
 76:                                               ; preds = %72
-  %77 = tail call ptr @md_bitmap_create(ptr noundef %0, i32 noundef -1) #32
+  %77 = tail call ptr @md_bitmap_create(ptr noundef nonnull %0, i32 noundef -1) #32
   %78 = icmp ugt ptr %77, inttoptr (i64 -4096 to ptr)
   br i1 %78, label %81, label %79
 
 79:                                               ; preds = %76
   store ptr %77, ptr %24, align 8
-  %80 = tail call i32 @md_bitmap_load(ptr noundef %0) #32
+  %80 = tail call i32 @md_bitmap_load(ptr noundef nonnull %0) #32
   br label %84
 
 81:                                               ; preds = %76
@@ -25729,7 +25729,7 @@ define internal fastcc i32 @set_bitmap_file(ptr noundef %0, i32 noundef %1) unna
 
 .thread10:                                        ; preds = %.thread9, %84
   %87 = phi i32 [ %85, %84 ], [ 0, %.thread9 ]
-  tail call void @md_bitmap_destroy(ptr noundef %0) #32
+  tail call void @md_bitmap_destroy(ptr noundef nonnull %0) #32
   br label %.thread14
 
 .thread14:                                        ; preds = %.thread9, %.thread10

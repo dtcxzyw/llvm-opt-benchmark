@@ -1519,7 +1519,7 @@ define dso_local void @_ZN4Luau19parseLintRuleStringERNS_11LintOptionsES1_RKNSt7
 
 22:                                               ; preds = %.preheader, %20
   %.047 = phi i32 [ 0, %.preheader ], [ %21, %20 ]
-  call fastcc void @_ZN4LuauL26parseLintRuleStringForCodeERNS_11LintOptionsES1_NS_11LintWarning4CodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %.047, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext %5)
+  call fastcc void @_ZN4LuauL26parseLintRuleStringForCodeERNS_11LintOptionsES1_NS_11LintWarning4CodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %.047, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext %5)
   %23 = load i8, ptr %18, align 8
   %24 = trunc i8 %23 to i1
   br i1 %24, label %25, label %38
@@ -1602,7 +1602,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
   br label %.loopexit43
 
 51:                                               ; preds = %45
-  call fastcc void @_ZN4LuauL26parseLintRuleStringForCodeERNS_11LintOptionsES1_NS_11LintWarning4CodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %47, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext %5)
+  call fastcc void @_ZN4LuauL26parseLintRuleStringForCodeERNS_11LintOptionsES1_NS_11LintWarning4CodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %47, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext %5)
   %52 = getelementptr inbounds i8, ptr %12, i64 32
   %53 = load i8, ptr %52, align 8
   %54 = trunc i8 %53 to i1
@@ -1694,7 +1694,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit38:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL26parseLintRuleStringForCodeERNS_11LintOptionsES1_NS_11LintWarning4CodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext %5) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL26parseLintRuleStringForCodeERNS_11LintOptionsES1_NS_11LintWarning4CodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext %5) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8

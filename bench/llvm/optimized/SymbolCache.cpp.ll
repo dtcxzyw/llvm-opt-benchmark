@@ -24434,7 +24434,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store ptr %26, ptr %5, align 8
   store ptr %28, ptr %22, align 8
   store ptr %30, ptr %23, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_T0_SI_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %19, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_T0_SI_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %19, ptr noundef %5)
   %31 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EED2Ev.exit10.i.i.i, label %32
@@ -24481,7 +24481,7 @@ _ZNSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EED2Ev.exit10.i.i.i: 
   store ptr %42, ptr %4, align 8
   store ptr %44, ptr %38, align 8
   store ptr %46, ptr %39, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_T0_SI_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %52, ptr noundef nonnull %4)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_T0_SI_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %52, ptr noundef %4)
   %53 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i10.i = icmp eq ptr %53, null
   br i1 %.not.i.i.i.i.i10.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_SH_SH_RT0_.exit.i11.i", label %54
@@ -24674,7 +24674,7 @@ _ZNSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EED2Ev.exit10.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_T0_SI_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_T0_SI_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6

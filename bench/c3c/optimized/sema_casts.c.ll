@@ -8623,7 +8623,7 @@ type_flatten.exit:                                ; preds = %6
 declare ptr @type_get_optional(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @insert_runtime_cast(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @insert_runtime_cast(ptr nocapture noundef %0, i32 noundef range(i32 0, 41) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 56, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 16

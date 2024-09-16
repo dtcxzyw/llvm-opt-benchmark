@@ -514,7 +514,7 @@ Sfm_TimNodeArrival.exit:                          ; preds = %23, %16
   %32 = getelementptr inbounds i32, ptr %.val53, i64 %31
   %33 = getelementptr inbounds i8, ptr %18, i64 56
   %34 = load ptr, ptr %33, align 8
-  call fastcc void @Sfm_TimGateArrival(ptr noundef %34, ptr noundef nonnull %2, ptr noundef %32)
+  call fastcc void @Sfm_TimGateArrival(ptr noundef %34, ptr noundef %2, ptr noundef %32)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %6, align 4
@@ -1744,7 +1744,7 @@ define noundef i32 @Sfm_TimEvalRemapping(ptr nocapture noundef readonly %0, ptr 
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %16, %7
-  call fastcc void @Sfm_TimGateArrival(ptr noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %8)
+  call fastcc void @Sfm_TimGateArrival(ptr noundef %3, ptr noundef %9, ptr noundef nonnull %8)
   %29 = icmp eq ptr %5, null
   br i1 %29, label %30, label %35
 
@@ -1799,7 +1799,7 @@ define noundef i32 @Sfm_TimEvalRemapping(ptr nocapture noundef readonly %0, ptr 
 
 ._crit_edge40:                                    ; preds = %55, %35
   %57 = getelementptr inbounds i8, ptr %8, i64 8
-  call fastcc void @Sfm_TimGateArrival(ptr noundef nonnull %5, ptr noundef nonnull %10, ptr noundef nonnull %57)
+  call fastcc void @Sfm_TimGateArrival(ptr noundef nonnull %5, ptr noundef %10, ptr noundef nonnull %57)
   %58 = load i32, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %8, i64 12
   %60 = load i32, ptr %59, align 4
@@ -1814,7 +1814,7 @@ define noundef i32 @Sfm_TimEvalRemapping(ptr nocapture noundef readonly %0, ptr 
 declare i32 @Mio_GateReadPinNum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Sfm_TimGateArrival(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @Sfm_TimGateArrival(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   store i32 0, ptr %2, align 4

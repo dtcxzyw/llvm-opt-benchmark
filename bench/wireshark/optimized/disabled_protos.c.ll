@@ -193,7 +193,7 @@ define void @read_enabled_and_disabled_lists() local_unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call fastcc void @read_protos_list(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef nonnull @global_disabled_protos, ptr noundef nonnull @disabled_protos)
+  call fastcc void @read_protos_list(ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef %2, ptr noundef %5, ptr noundef %6, ptr noundef nonnull @.str.1, ptr noundef nonnull @global_disabled_protos, ptr noundef nonnull @disabled_protos)
   %7 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %17, label %8
@@ -254,7 +254,7 @@ define void @read_enabled_and_disabled_lists() local_unnamed_addr #1 {
   br label %28
 
 28:                                               ; preds = %27, %17
-  call fastcc void @read_protos_list(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull @global_enabled_protos, ptr noundef nonnull @enabled_protos)
+  call fastcc void @read_protos_list(ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef %2, ptr noundef %5, ptr noundef %6, ptr noundef nonnull @.str.6, ptr noundef nonnull @global_enabled_protos, ptr noundef nonnull @enabled_protos)
   %29 = load ptr, ptr %1, align 8
   %.not23 = icmp eq ptr %29, null
   br i1 %.not23, label %39, label %30
@@ -346,7 +346,7 @@ heur_discard_existing_list.exit.i:                ; preds = %._crit_edge.i.i, %5
   br i1 %.not.i, label %68, label %61
 
 61:                                               ; preds = %heur_discard_existing_list.exit.i
-  %62 = tail call fastcc i32 @read_heur_dissector_list_file(ptr noundef %59, ptr noundef nonnull %60, ptr noundef nonnull @global_disabled_heuristics)
+  %62 = tail call fastcc i32 @read_heur_dissector_list_file(ptr noundef %59, ptr noundef %60, ptr noundef nonnull @global_disabled_heuristics)
   %.not39.i = icmp eq i32 %62, 0
   br i1 %.not39.i, label %64, label %63
 
@@ -414,7 +414,7 @@ heur_discard_existing_list.exit49.i:              ; preds = %._crit_edge.i48.i, 
   br i1 %.not40.i, label %92, label %85
 
 85:                                               ; preds = %heur_discard_existing_list.exit49.i
-  %86 = tail call fastcc i32 @read_heur_dissector_list_file(ptr noundef %75, ptr noundef nonnull %84, ptr noundef nonnull @disabled_heuristics)
+  %86 = tail call fastcc i32 @read_heur_dissector_list_file(ptr noundef %75, ptr noundef %84, ptr noundef nonnull @disabled_heuristics)
   %.not42.i = icmp eq i32 %86, 0
   br i1 %.not42.i, label %88, label %87
 
@@ -578,7 +578,7 @@ set_disabled_heur_dissector_list.exit:            ; preds = %147, %.loopexit21.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_protos_list(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8) unnamed_addr #1 {
+define internal fastcc void @read_protos_list(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5, ptr noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8) unnamed_addr #1 {
   %10 = tail call ptr @get_datafile_path(ptr noundef %6) #12
   %11 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %11, null
@@ -613,7 +613,7 @@ discard_existing_list.exit:                       ; preds = %9, %._crit_edge.i
   br i1 %.not, label %26, label %20
 
 20:                                               ; preds = %discard_existing_list.exit
-  %21 = tail call fastcc i32 @read_protos_list_file(ptr noundef %10, ptr noundef nonnull %19, ptr noundef nonnull %7)
+  %21 = tail call fastcc i32 @read_protos_list_file(ptr noundef %10, ptr noundef %19, ptr noundef nonnull %7)
   %.not45 = icmp eq i32 %21, 0
   br i1 %.not45, label %23, label %22
 
@@ -682,7 +682,7 @@ discard_existing_list.exit55:                     ; preds = %31, %._crit_edge.i5
   br i1 %.not46, label %48, label %42
 
 42:                                               ; preds = %discard_existing_list.exit55
-  %43 = tail call fastcc i32 @read_protos_list_file(ptr noundef %32, ptr noundef nonnull %41, ptr noundef nonnull %8)
+  %43 = tail call fastcc i32 @read_protos_list_file(ptr noundef %32, ptr noundef %41, ptr noundef nonnull %8)
   %.not48 = icmp eq i32 %43, 0
   br i1 %.not48, label %45, label %44
 
@@ -728,7 +728,7 @@ declare ptr @g_strerror(i32 noundef) local_unnamed_addr #4
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_protos_list(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @set_protos_list(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit27, label %5
 
@@ -818,7 +818,7 @@ define void @save_enabled_and_disabled_lists() local_unnamed_addr #1 {
   br label %51
 
 13:                                               ; preds = %0
-  call fastcc void @save_protos_list(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @disable_proto_list_check)
+  call fastcc void @save_protos_list(ptr noundef %3, ptr noundef %4, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull @disable_proto_list_check)
   %14 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %18, label %15
@@ -832,7 +832,7 @@ define void @save_enabled_and_disabled_lists() local_unnamed_addr #1 {
 
 18:                                               ; preds = %15, %13
   %.0 = phi i32 [ 0, %15 ], [ 1, %13 ]
-  call fastcc void @save_protos_list(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.17, ptr noundef nonnull @enable_proto_list_check)
+  call fastcc void @save_protos_list(ptr noundef %3, ptr noundef %4, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.17, ptr noundef nonnull @enable_proto_list_check)
   %19 = load ptr, ptr %3, align 8
   %.not4 = icmp eq ptr %19, null
   br i1 %.not4, label %23, label %20
@@ -928,7 +928,7 @@ declare void @report_failure(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @save_protos_list(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #1 {
+define internal fastcc void @save_protos_list(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %0, align 8
   %7 = tail call ptr @get_persconffile_path(ptr noundef %2, i1 noundef zeroext true) #12
@@ -1113,7 +1113,7 @@ declare ptr @get_datafile_path(ptr noundef) local_unnamed_addr #2
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @read_protos_list_file(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @read_protos_list_file(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef %2) unnamed_addr #1 {
   %4 = tail call noalias dereferenceable_or_null(129) ptr @g_malloc(i64 noundef 129) #15
   %5 = load ptr, ptr @g_ascii_table, align 8
   br label %6
@@ -1125,7 +1125,7 @@ define internal fastcc i32 @read_protos_list_file(ptr noundef %0, ptr nocapture 
   br label %7
 
 7:                                                ; preds = %9, %6
-  %8 = tail call i32 @getc_unlocked(ptr noundef %1)
+  %8 = tail call i32 @getc_unlocked(ptr noundef nonnull %1)
   %cond = icmp eq i32 %8, -1
   br i1 %cond, label %15, label %9
 
@@ -1139,13 +1139,13 @@ define internal fastcc i32 @read_protos_list_file(ptr noundef %0, ptr nocapture 
   br i1 %.not86, label %.critedge, label %7, !llvm.loop !13
 
 15:                                               ; preds = %7
-  %16 = tail call i32 @ferror(ptr noundef %1) #12
+  %16 = tail call i32 @ferror(ptr noundef nonnull %1) #12
   %.not93 = icmp eq i32 %16, 0
   br i1 %.not93, label %77, label %78
 
 .critedge:                                        ; preds = %9
-  %17 = tail call i32 @ungetc(i32 noundef %8, ptr noundef %1)
-  %18 = tail call i32 @getc_unlocked(ptr noundef %1)
+  %17 = tail call i32 @ungetc(i32 noundef %8, ptr noundef nonnull %1)
+  %18 = tail call i32 @getc_unlocked(ptr noundef nonnull %1)
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %._crit_edge, label %.lr.ph
 
@@ -1185,7 +1185,7 @@ define internal fastcc i32 @read_protos_list_file(ptr noundef %0, ptr nocapture 
   %36 = getelementptr i8, ptr %.477, i64 %35
   store i8 %21, ptr %36, align 1
   %37 = add i32 %.069105, 1
-  %38 = tail call i32 @getc_unlocked(ptr noundef %1)
+  %38 = tail call i32 @getc_unlocked(ptr noundef nonnull %1)
   %39 = icmp eq i32 %38, -1
   br i1 %39, label %._crit_edge, label %.lr.ph
 
@@ -1207,7 +1207,7 @@ define internal fastcc i32 @read_protos_list_file(ptr noundef %0, ptr nocapture 
   br i1 %or.cond, label %.preheader94, label %.loopexit95
 
 .preheader94:                                     ; preds = %._crit_edge, %49
-  %48 = tail call i32 @getc_unlocked(ptr noundef %1)
+  %48 = tail call i32 @getc_unlocked(ptr noundef nonnull %1)
   switch i32 %48, label %49 [
     i32 -1, label %.loopexit95
     i32 10, label %.loopexit95
@@ -1243,7 +1243,7 @@ switch.early.test:                                ; preds = %.loopexit95
   ]
 
 .preheader:                                       ; preds = %switch.early.test, %.preheader
-  %56 = tail call i32 @getc_unlocked(ptr noundef %1)
+  %56 = tail call i32 @getc_unlocked(ptr noundef nonnull %1)
   switch i32 %56, label %.preheader [
     i32 -1, label %.loopexit
     i32 10, label %.loopexit
@@ -1255,7 +1255,7 @@ switch.early.test:                                ; preds = %.loopexit95
   br i1 %57, label %58, label %61
 
 58:                                               ; preds = %.loopexit
-  %59 = tail call i32 @ferror(ptr noundef %1) #12
+  %59 = tail call i32 @ferror(ptr noundef nonnull %1) #12
   %.not92 = icmp eq i32 %59, 0
   br i1 %.not92, label %60, label %78
 
@@ -1345,7 +1345,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @read_heur_dissector_list_file(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @read_heur_dissector_list_file(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef %2) unnamed_addr #1 {
   %4 = tail call noalias dereferenceable_or_null(129) ptr @g_malloc(i64 noundef 129) #15
   %5 = load ptr, ptr @g_ascii_table, align 8
   br label %6
@@ -1357,7 +1357,7 @@ define internal fastcc i32 @read_heur_dissector_list_file(ptr noundef %0, ptr no
   br label %7
 
 7:                                                ; preds = %9, %6
-  %8 = tail call i32 @getc_unlocked(ptr noundef %1)
+  %8 = tail call i32 @getc_unlocked(ptr noundef nonnull %1)
   %cond = icmp eq i32 %8, -1
   br i1 %cond, label %15, label %9
 
@@ -1371,12 +1371,12 @@ define internal fastcc i32 @read_heur_dissector_list_file(ptr noundef %0, ptr no
   br i1 %.not85, label %.critedge, label %7, !llvm.loop !15
 
 15:                                               ; preds = %7
-  %16 = tail call i32 @ferror(ptr noundef %1) #12
+  %16 = tail call i32 @ferror(ptr noundef nonnull %1) #12
   %.not92 = icmp eq i32 %16, 0
   br i1 %.not92, label %75, label %76
 
 .critedge:                                        ; preds = %9
-  %17 = tail call i32 @ungetc(i32 noundef %8, ptr noundef %1)
+  %17 = tail call i32 @ungetc(i32 noundef %8, ptr noundef nonnull %1)
   br label %.outer
 
 .outer:                                           ; preds = %38, %.critedge
@@ -1387,7 +1387,7 @@ define internal fastcc i32 @read_heur_dissector_list_file(ptr noundef %0, ptr no
 
 18:                                               ; preds = %.outer, %26
   %.not87 = phi i1 [ false, %26 ], [ true, %.outer ]
-  %19 = tail call i32 @getc_unlocked(ptr noundef %1)
+  %19 = tail call i32 @getc_unlocked(ptr noundef nonnull %1)
   %20 = icmp eq i32 %19, -1
   br i1 %20, label %.loopexit95.loopexit, label %21
 
@@ -1452,7 +1452,7 @@ define internal fastcc i32 @read_heur_dissector_list_file(ptr noundef %0, ptr no
   br i1 %or.cond, label %.preheader93, label %.loopexit94
 
 .preheader93:                                     ; preds = %.loopexit95, %48
-  %47 = tail call i32 @getc_unlocked(ptr noundef %1)
+  %47 = tail call i32 @getc_unlocked(ptr noundef nonnull %1)
   switch i32 %47, label %48 [
     i32 -1, label %.loopexit94
     i32 10, label %.loopexit94
@@ -1485,7 +1485,7 @@ define internal fastcc i32 @read_heur_dissector_list_file(ptr noundef %0, ptr no
   ]
 
 .preheader:                                       ; preds = %.loopexit94, %.preheader
-  %55 = tail call i32 @getc_unlocked(ptr noundef %1)
+  %55 = tail call i32 @getc_unlocked(ptr noundef nonnull %1)
   switch i32 %55, label %.preheader [
     i32 -1, label %.loopexit
     i32 10, label %.loopexit
@@ -1497,7 +1497,7 @@ define internal fastcc i32 @read_heur_dissector_list_file(ptr noundef %0, ptr no
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %.loopexit
-  %58 = tail call i32 @ferror(ptr noundef %1) #12
+  %58 = tail call i32 @ferror(ptr noundef nonnull %1) #12
   %.not91 = icmp eq i32 %58, 0
   br i1 %.not91, label %59, label %76
 

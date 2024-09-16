@@ -1080,7 +1080,7 @@ define internal fastcc range(i32 -32768, 32768) i32 @yy_get_previous_state() unn
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 noundef %0) unnamed_addr #4 {
+define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 noundef range(i32 -32768, 32768) %0) unnamed_addr #4 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [283 x i16], ptr @yy_accept, i64 0, i64 %2
   %4 = load i16, ptr %3, align 2

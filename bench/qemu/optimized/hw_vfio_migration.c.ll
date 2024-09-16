@@ -1721,7 +1721,7 @@ declare zeroext i1 @migrate_background_snapshot() local_unnamed_addr #3
 declare noalias ptr @g_try_malloc0(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vfio_migration_set_state(ptr nocapture noundef readonly %vbasedev, i32 noundef %new_state, i32 noundef %recover_state) unnamed_addr #2 {
+define internal fastcc i32 @vfio_migration_set_state(ptr nocapture noundef readonly %vbasedev, i32 noundef range(i32 1, 8) %new_state, i32 noundef %recover_state) unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %buf = alloca [2 x i64], align 16
@@ -1746,62 +1746,47 @@ if.then:                                          ; preds = %entry
   %cmp = icmp eq i32 %recover_state, 0
   %name = getelementptr inbounds i8, ptr %vbasedev, i64 72
   %3 = load ptr, ptr %name, align 8
-  %switch.tableidx = add i32 %new_state, -1
-  %4 = icmp ult i32 %switch.tableidx, 7
+  %switch.tableidx = add nsw i32 %new_state, -1
   br i1 %cmp, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then
-  br i1 %4, label %switch.lookup, label %mig_state_to_str.exit
-
-switch.lookup:                                    ; preds = %if.then4
-  %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.vfio_migration_set_state.10, i64 0, i64 %5
+  %4 = sext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.vfio_migration_set_state.10, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %mig_state_to_str.exit
-
-mig_state_to_str.exit:                            ; preds = %if.then4, %switch.lookup
-  %retval.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.31, %if.then4 ]
   %call7 = call ptr @strerror(i32 noundef %2) #16
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.18, ptr noundef %3, ptr noundef nonnull %retval.0.i, ptr noundef %call7) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.18, ptr noundef %3, ptr noundef nonnull %switch.load, ptr noundef %call7) #16
   br label %reset_device
 
 if.end:                                           ; preds = %if.then
-  br i1 %4, label %switch.lookup57, label %mig_state_to_str.exit38
-
-switch.lookup57:                                  ; preds = %if.end
-  %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep59 = getelementptr inbounds [7 x ptr], ptr @switch.table.vfio_migration_set_state.10, i64 0, i64 %6
-  %switch.load60 = load ptr, ptr %switch.gep59, align 8
-  br label %mig_state_to_str.exit38
-
-mig_state_to_str.exit38:                          ; preds = %if.end, %switch.lookup57
-  %retval.0.i31 = phi ptr [ %switch.load60, %switch.lookup57 ], [ @.str.31, %if.end ]
+  %5 = sext i32 %switch.tableidx to i64
+  %switch.gep61 = getelementptr inbounds [7 x ptr], ptr @switch.table.vfio_migration_set_state.10, i64 0, i64 %5
+  %switch.load62 = load ptr, ptr %switch.gep61, align 8
   %call11 = call ptr @strerror(i32 noundef %2) #16
-  %7 = icmp ult i32 %recover_state, 8
-  br i1 %7, label %switch.lookup61, label %mig_state_to_str.exit47
+  %6 = icmp ult i32 %recover_state, 8
+  br i1 %6, label %switch.lookup, label %mig_state_to_str.exit47
 
-switch.lookup61:                                  ; preds = %mig_state_to_str.exit38
-  %switch.tableidx62 = add nsw i32 %recover_state, -1
-  %8 = sext i32 %switch.tableidx62 to i64
-  %switch.gep63 = getelementptr inbounds [7 x ptr], ptr @switch.table.vfio_migration_set_state.10, i64 0, i64 %8
-  %switch.load64 = load ptr, ptr %switch.gep63, align 8
+switch.lookup:                                    ; preds = %if.end
+  %switch.tableidx66 = add nsw i32 %recover_state, -1
+  %7 = sext i32 %switch.tableidx66 to i64
+  %switch.gep67 = getelementptr inbounds [7 x ptr], ptr @switch.table.vfio_migration_set_state.10, i64 0, i64 %7
+  %switch.load68 = load ptr, ptr %switch.gep67, align 8
   br label %mig_state_to_str.exit47
 
-mig_state_to_str.exit47:                          ; preds = %mig_state_to_str.exit38, %switch.lookup61
-  %retval.0.i40 = phi ptr [ %switch.load64, %switch.lookup61 ], [ @.str.31, %mig_state_to_str.exit38 ]
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.19, ptr noundef %3, ptr noundef nonnull %retval.0.i31, ptr noundef %call11, ptr noundef nonnull %retval.0.i40) #16
+mig_state_to_str.exit47:                          ; preds = %if.end, %switch.lookup
+  %retval.0.i40 = phi ptr [ %switch.load68, %switch.lookup ], [ @.str.31, %if.end ]
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.19, ptr noundef %3, ptr noundef nonnull %switch.load62, ptr noundef %call11, ptr noundef nonnull %retval.0.i40) #16
   store i32 %recover_state, ptr %data, align 8
-  %9 = load i32, ptr %fd, align 8
-  %call15 = call i32 (i32, i64, ...) @ioctl(i32 noundef %9, i64 noundef 15221, ptr noundef nonnull %buf) #16
+  %8 = load i32, ptr %fd, align 8
+  %call15 = call i32 (i32, i64, ...) @ioctl(i32 noundef %8, i64 noundef 15221, ptr noundef nonnull %buf) #16
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %if.end23, label %if.then17
 
 if.then17:                                        ; preds = %mig_state_to_str.exit47
-  %10 = load i32, ptr %call3, align 4
-  %sub19 = sub i32 0, %10
-  %11 = load ptr, ptr %name, align 8
-  %call22 = call ptr @strerror(i32 noundef %10) #16
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.20, ptr noundef %11, ptr noundef %call22) #16
+  %9 = load i32, ptr %call3, align 4
+  %sub19 = sub i32 0, %9
+  %10 = load ptr, ptr %name, align 8
+  %call22 = call ptr @strerror(i32 noundef %9) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.20, ptr noundef %10, ptr noundef %call22) #16
   br label %reset_device
 
 if.end23:                                         ; preds = %mig_state_to_str.exit47
@@ -1813,92 +1798,84 @@ if.end25:                                         ; preds = %entry
   %device_state26 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %new_state, ptr %device_state26, align 8
   %data_fd = getelementptr inbounds i8, ptr %buf, i64 12
-  %12 = load i32, ptr %data_fd, align 4
-  %cmp27.not = icmp eq i32 %12, -1
+  %11 = load i32, ptr %data_fd, align 4
+  %cmp27.not = icmp eq i32 %11, -1
   br i1 %cmp27.not, label %if.end38, label %if.then28
 
 if.then28:                                        ; preds = %if.end25
   %data_fd29 = getelementptr inbounds i8, ptr %0, i64 44
-  %13 = load i32, ptr %data_fd29, align 4
-  %cmp30.not = icmp eq i32 %13, -1
+  %12 = load i32, ptr %data_fd29, align 4
+  %cmp30.not = icmp eq i32 %12, -1
   br i1 %cmp30.not, label %if.end35, label %if.then31
 
 if.then31:                                        ; preds = %if.then28
   %name32 = getelementptr inbounds i8, ptr %vbasedev, i64 72
-  %14 = load ptr, ptr %name32, align 8
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.21, ptr noundef %14) #16
-  %15 = load i32, ptr %data_fd, align 4
-  %call34 = call i32 @close(i32 noundef %15) #16
+  %13 = load ptr, ptr %name32, align 8
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.21, ptr noundef %13) #16
+  %14 = load i32, ptr %data_fd, align 4
+  %call34 = call i32 @close(i32 noundef %14) #16
   br label %return
 
 if.end35:                                         ; preds = %if.then28
-  store i32 %12, ptr %data_fd29, align 4
+  store i32 %11, ptr %data_fd29, align 4
   br label %if.end38
 
 if.end38:                                         ; preds = %if.end35, %if.end25
   %name39 = getelementptr inbounds i8, ptr %vbasedev, i64 72
-  %16 = load ptr, ptr %name39, align 8
-  %switch.tableidx66 = add i32 %new_state, -1
-  %17 = icmp ult i32 %switch.tableidx66, 7
-  br i1 %17, label %switch.lookup65, label %mig_state_to_str.exit56
-
-switch.lookup65:                                  ; preds = %if.end38
-  %18 = zext nneg i32 %switch.tableidx66 to i64
-  %switch.gep67 = getelementptr inbounds [7 x ptr], ptr @switch.table.vfio_migration_set_state.10, i64 0, i64 %18
-  %switch.load68 = load ptr, ptr %switch.gep67, align 8
-  br label %mig_state_to_str.exit56
-
-mig_state_to_str.exit56:                          ; preds = %if.end38, %switch.lookup65
-  %retval.0.i49 = phi ptr [ %switch.load68, %switch.lookup65 ], [ @.str.31, %if.end38 ]
+  %15 = load ptr, ptr %name39, align 8
+  %switch.tableidx63 = add nsw i32 %new_state, -1
+  %16 = sext i32 %switch.tableidx63 to i64
+  %switch.gep64 = getelementptr inbounds [7 x ptr], ptr @switch.table.vfio_migration_set_state.10, i64 0, i64 %16
+  %switch.load65 = load ptr, ptr %switch.gep64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %19 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %19, 0
-  %20 = load i16, ptr @_TRACE_VFIO_MIGRATION_SET_STATE_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %20, 0
+  %17 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %17, 0
+  %18 = load i16, ptr @_TRACE_VFIO_MIGRATION_SET_STATE_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %18, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_vfio_migration_set_state.exit
 
-land.lhs.true5.i.i:                               ; preds = %mig_state_to_str.exit56
-  %21 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %21, 32768
+land.lhs.true5.i.i:                               ; preds = %if.end38
+  %19 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %19, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_vfio_migration_set_state.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %22 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %22 to i1
+  %20 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %20 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = call i32 @qemu_get_thread_id() #16
-  %23 = load i64, ptr %_now.i.i, align 8
+  %21 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %24 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i32 noundef %call10.i.i, i64 noundef %23, i64 noundef %24, ptr noundef %16, ptr noundef nonnull %retval.0.i49) #16
+  %22 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i32 noundef %call10.i.i, i64 noundef %21, i64 noundef %22, ptr noundef %15, ptr noundef nonnull %switch.load65) #16
   br label %trace_vfio_migration_set_state.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, ptr noundef %16, ptr noundef nonnull %retval.0.i49) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, ptr noundef %15, ptr noundef nonnull %switch.load65) #16
   br label %trace_vfio_migration_set_state.exit
 
-trace_vfio_migration_set_state.exit:              ; preds = %mig_state_to_str.exit56, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
+trace_vfio_migration_set_state.exit:              ; preds = %if.end38, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   br label %return
 
-reset_device:                                     ; preds = %if.then17, %mig_state_to_str.exit
-  %ret.0 = phi i32 [ %sub, %mig_state_to_str.exit ], [ %sub19, %if.then17 ]
-  %25 = load i32, ptr %fd, align 8
-  %call42 = call i32 (i32, i64, ...) @ioctl(i32 noundef %25, i64 noundef 15215) #16
+reset_device:                                     ; preds = %if.then17, %if.then4
+  %ret.0 = phi i32 [ %sub, %if.then4 ], [ %sub19, %if.then17 ]
+  %23 = load i32, ptr %fd, align 8
+  %call42 = call i32 (i32, i64, ...) @ioctl(i32 noundef %23, i64 noundef 15215) #16
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %if.end48, label %if.then44
 
 if.then44:                                        ; preds = %reset_device
   %name45 = getelementptr inbounds i8, ptr %vbasedev, i64 72
-  %26 = load ptr, ptr %name45, align 8
-  %27 = load i32, ptr %call3, align 4
-  %call47 = call ptr @strerror(i32 noundef %27) #16
-  call void (ptr, ...) @hw_error(ptr noundef nonnull @.str.22, ptr noundef %26, ptr noundef %call47) #20
+  %24 = load ptr, ptr %name45, align 8
+  %25 = load i32, ptr %call3, align 4
+  %call47 = call ptr @strerror(i32 noundef %25) #16
+  call void (ptr, ...) @hw_error(ptr noundef nonnull @.str.22, ptr noundef %24, ptr noundef %call47) #20
   unreachable
 
 if.end48:                                         ; preds = %reset_device

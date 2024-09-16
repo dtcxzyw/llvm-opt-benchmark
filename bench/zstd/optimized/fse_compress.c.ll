@@ -340,7 +340,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %header, i64 noundef %headerBufferSize, ptr nocapture noundef readonly %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef %tableLog, i32 noundef %writeIsSafe) unnamed_addr #2 {
+define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %header, i64 noundef %headerBufferSize, ptr nocapture noundef readonly %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef range(i32 5, 13) %tableLog, i32 noundef range(i32 0, 2) %writeIsSafe) unnamed_addr #2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %header, i64 %headerBufferSize
   %add = add i32 %maxSymbolValue, 1
@@ -350,7 +350,7 @@ entry:
 while.body.lr.ph:                                 ; preds = %entry
   %sub = add nsw i32 %tableLog, -5
   %shl = shl nuw nsw i32 1, %tableLog
-  %add4 = add nuw nsw i32 %shl, 1
+  %add4 = or disjoint i32 %shl, 1
   %add5 = add nuw nsw i32 %tableLog, 1
   %tobool22.not = icmp eq i32 %writeIsSafe, 0
   %add.ptr23 = getelementptr inbounds i8, ptr %add.ptr, i64 -2
@@ -358,23 +358,23 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end119
-  %previousIs0.0140 = phi i32 [ 0, %while.body.lr.ph ], [ %conv90, %if.end119 ]
-  %out.0139 = phi ptr [ %header, %while.body.lr.ph ], [ %out.3, %if.end119 ]
-  %symbol.0138 = phi i32 [ 0, %while.body.lr.ph ], [ %inc67, %if.end119 ]
-  %bitCount.0137 = phi i32 [ 4, %while.body.lr.ph ], [ %bitCount.3, %if.end119 ]
-  %bitStream.0136 = phi i32 [ %sub, %while.body.lr.ph ], [ %bitStream.4, %if.end119 ]
-  %threshold.0135 = phi i32 [ %shl, %while.body.lr.ph ], [ %threshold.1.lcssa, %if.end119 ]
-  %remaining.0134 = phi i32 [ %add4, %while.body.lr.ph ], [ %sub76, %if.end119 ]
-  %nbBits.0133 = phi i32 [ %add5, %while.body.lr.ph ], [ %nbBits.1.lcssa, %if.end119 ]
-  %tobool.not = icmp eq i32 %previousIs0.0140, 0
+  %previousIs0.0141 = phi i32 [ 0, %while.body.lr.ph ], [ %conv90, %if.end119 ]
+  %out.0140 = phi ptr [ %header, %while.body.lr.ph ], [ %out.3, %if.end119 ]
+  %symbol.0139 = phi i32 [ 0, %while.body.lr.ph ], [ %inc67, %if.end119 ]
+  %bitCount.0138 = phi i32 [ 4, %while.body.lr.ph ], [ %bitCount.3, %if.end119 ]
+  %bitStream.0137 = phi i32 [ %sub, %while.body.lr.ph ], [ %bitStream.4, %if.end119 ]
+  %threshold.0136 = phi i32 [ %shl, %while.body.lr.ph ], [ %threshold.1.lcssa, %if.end119 ]
+  %remaining.0135 = phi i32 [ %add4, %while.body.lr.ph ], [ %sub76, %if.end119 ]
+  %nbBits.0134 = phi i32 [ %add5, %while.body.lr.ph ], [ %nbBits.1.lcssa, %if.end119 ]
+  %tobool.not = icmp eq i32 %previousIs0.0141, 0
   br i1 %tobool.not, label %if.end66, label %while.cond7.preheader
 
 while.cond7.preheader:                            ; preds = %while.body
-  %cmp8106 = icmp ult i32 %symbol.0138, %add
+  %cmp8106 = icmp ult i32 %symbol.0139, %add
   br i1 %cmp8106, label %land.rhs9.preheader, label %while.end
 
 land.rhs9.preheader:                              ; preds = %while.cond7.preheader
-  %1 = zext i32 %symbol.0138 to i64
+  %1 = zext i32 %symbol.0139 to i64
   br label %land.rhs9
 
 land.rhs9:                                        ; preds = %land.rhs9.preheader, %while.body12
@@ -394,23 +394,23 @@ while.end.loopexit:                               ; preds = %land.rhs9
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %while.cond7.preheader
-  %symbol.2.lcssa = phi i32 [ %symbol.0138, %while.cond7.preheader ], [ %3, %while.end.loopexit ]
+  %symbol.2.lcssa = phi i32 [ %symbol.0139, %while.cond7.preheader ], [ %3, %while.end.loopexit ]
   %cmp13 = icmp eq i32 %symbol.2.lcssa, %add
   br i1 %cmp13, label %while.end120, label %while.cond15.preheader
 
 while.cond15.preheader:                           ; preds = %while.end
-  %add16109 = add i32 %symbol.0138, 24
+  %add16109 = add i32 %symbol.0139, 24
   %cmp17.not110 = icmp ult i32 %symbol.2.lcssa, %add16109
   br i1 %cmp17.not110, label %while.cond33.preheader, label %while.body18.lr.ph
 
 while.body18.lr.ph:                               ; preds = %while.cond15.preheader
-  %shl20 = shl i32 65535, %bitCount.0137
+  %shl20 = shl i32 65535, %bitCount.0138
   br i1 %tobool22.not, label %while.body18, label %while.body18.us
 
 while.body18.us:                                  ; preds = %while.body18.lr.ph, %while.body18.us
   %add16113.us = phi i32 [ %add16.us, %while.body18.us ], [ %add16109, %while.body18.lr.ph ]
-  %out.2112.us = phi ptr [ %add.ptr30.us, %while.body18.us ], [ %out.0139, %while.body18.lr.ph ]
-  %bitStream.2111.us = phi i32 [ %shr31.us, %while.body18.us ], [ %bitStream.0136, %while.body18.lr.ph ]
+  %out.2112.us = phi ptr [ %add.ptr30.us, %while.body18.us ], [ %out.0140, %while.body18.lr.ph ]
+  %bitStream.2111.us = phi i32 [ %shr31.us, %while.body18.us ], [ %bitStream.0137, %while.body18.lr.ph ]
   %add21.us = add i32 %bitStream.2111.us, %shl20
   %conv.us = trunc i32 %add21.us to i8
   store i8 %conv.us, ptr %out.2112.us, align 1
@@ -425,17 +425,17 @@ while.body18.us:                                  ; preds = %while.body18.lr.ph,
   br i1 %cmp17.not.us, label %while.cond33.preheader, label %while.body18.us, !llvm.loop !15
 
 while.cond33.preheader:                           ; preds = %while.body18.us, %if.end26, %while.cond15.preheader
-  %bitStream.2.lcssa = phi i32 [ %bitStream.0136, %while.cond15.preheader ], [ %shr31, %if.end26 ], [ %shr31.us, %while.body18.us ]
-  %out.2.lcssa = phi ptr [ %out.0139, %while.cond15.preheader ], [ %add.ptr30, %if.end26 ], [ %add.ptr30.us, %while.body18.us ]
-  %start.0.lcssa = phi i32 [ %symbol.0138, %while.cond15.preheader ], [ %add16113, %if.end26 ], [ %add16113.us, %while.body18.us ]
+  %bitStream.2.lcssa = phi i32 [ %bitStream.0137, %while.cond15.preheader ], [ %shr31, %if.end26 ], [ %shr31.us, %while.body18.us ]
+  %out.2.lcssa = phi ptr [ %out.0140, %while.cond15.preheader ], [ %add.ptr30, %if.end26 ], [ %add.ptr30.us, %while.body18.us ]
+  %start.0.lcssa = phi i32 [ %symbol.0139, %while.cond15.preheader ], [ %add16113, %if.end26 ], [ %add16113.us, %while.body18.us ]
   %add34119 = add i32 %start.0.lcssa, 3
   %cmp35.not120 = icmp ult i32 %symbol.2.lcssa, %add34119
   br i1 %cmp35.not120, label %while.end42, label %while.body37
 
 while.body18:                                     ; preds = %while.body18.lr.ph, %if.end26
   %add16113 = phi i32 [ %add16, %if.end26 ], [ %add16109, %while.body18.lr.ph ]
-  %out.2112 = phi ptr [ %add.ptr30, %if.end26 ], [ %out.0139, %while.body18.lr.ph ]
-  %bitStream.2111 = phi i32 [ %shr31, %if.end26 ], [ %bitStream.0136, %while.body18.lr.ph ]
+  %out.2112 = phi ptr [ %add.ptr30, %if.end26 ], [ %out.0140, %while.body18.lr.ph ]
+  %bitStream.2111 = phi i32 [ %shr31, %if.end26 ], [ %bitStream.0137, %while.body18.lr.ph ]
   %cmp24 = icmp ugt ptr %out.2112, %add.ptr23
   br i1 %cmp24, label %return, label %if.end26
 
@@ -455,7 +455,7 @@ if.end26:                                         ; preds = %while.body18
 
 while.body37:                                     ; preds = %while.cond33.preheader, %while.body37
   %add34123 = phi i32 [ %add34, %while.body37 ], [ %add34119, %while.cond33.preheader ]
-  %bitCount.2122 = phi i32 [ %add41, %while.body37 ], [ %bitCount.0137, %while.cond33.preheader ]
+  %bitCount.2122 = phi i32 [ %add41, %while.body37 ], [ %bitCount.0138, %while.cond33.preheader ]
   %bitStream.3121 = phi i32 [ %add40, %while.body37 ], [ %bitStream.2.lcssa, %while.cond33.preheader ]
   %shl39 = shl i32 3, %bitCount.2122
   %add40 = add i32 %shl39, %bitStream.3121
@@ -466,7 +466,7 @@ while.body37:                                     ; preds = %while.cond33.prehea
 
 while.end42:                                      ; preds = %while.body37, %while.cond33.preheader
   %bitStream.3.lcssa = phi i32 [ %bitStream.2.lcssa, %while.cond33.preheader ], [ %add40, %while.body37 ]
-  %bitCount.2.lcssa = phi i32 [ %bitCount.0137, %while.cond33.preheader ], [ %add41, %while.body37 ]
+  %bitCount.2.lcssa = phi i32 [ %bitCount.0138, %while.cond33.preheader ], [ %add41, %while.body37 ]
   %start.1.lcssa = phi i32 [ %start.0.lcssa, %while.cond33.preheader ], [ %add34123, %while.body37 ]
   %sub43 = sub i32 %symbol.2.lcssa, %start.1.lcssa
   %shl44 = shl i32 %sub43, %bitCount.2.lcssa
@@ -493,27 +493,27 @@ if.end56:                                         ; preds = %if.then49
   br label %if.end66
 
 if.end66:                                         ; preds = %while.end42, %if.end56, %while.body
-  %bitStream.1 = phi i32 [ %shr63, %if.end56 ], [ %add45, %while.end42 ], [ %bitStream.0136, %while.body ]
-  %bitCount.1 = phi i32 [ %sub64, %if.end56 ], [ %add46, %while.end42 ], [ %bitCount.0137, %while.body ]
-  %symbol.1 = phi i32 [ %symbol.2.lcssa, %if.end56 ], [ %symbol.2.lcssa, %while.end42 ], [ %symbol.0138, %while.body ]
-  %out.1 = phi ptr [ %add.ptr62, %if.end56 ], [ %out.2.lcssa, %while.end42 ], [ %out.0139, %while.body ]
+  %bitStream.1 = phi i32 [ %shr63, %if.end56 ], [ %add45, %while.end42 ], [ %bitStream.0137, %while.body ]
+  %bitCount.1 = phi i32 [ %sub64, %if.end56 ], [ %add46, %while.end42 ], [ %bitCount.0138, %while.body ]
+  %symbol.1 = phi i32 [ %symbol.2.lcssa, %if.end56 ], [ %symbol.2.lcssa, %while.end42 ], [ %symbol.0139, %while.body ]
+  %out.1 = phi ptr [ %add.ptr62, %if.end56 ], [ %out.2.lcssa, %while.end42 ], [ %out.0140, %while.body ]
   %inc67 = add nuw i32 %symbol.1, 1
   %idxprom68 = zext i32 %symbol.1 to i64
   %arrayidx69 = getelementptr inbounds i16, ptr %normalizedCounter, i64 %idxprom68
   %4 = load i16, ptr %arrayidx69, align 2
   %conv70 = sext i16 %4 to i32
-  %mul = shl nuw nsw i32 %threshold.0135, 1
-  %5 = xor i32 %remaining.0134, -1
+  %mul = shl nsw i32 %threshold.0136, 1
+  %5 = xor i32 %remaining.0135, -1
   %sub72 = add i32 %mul, %5
   %cond = tail call i32 @llvm.abs.i32(i32 %conv70, i1 true)
-  %sub76 = sub nsw i32 %remaining.0134, %cond
+  %sub76 = sub nsw i32 %remaining.0135, %cond
   %inc77 = add nsw i32 %conv70, 1
-  %cmp78.not = icmp slt i32 %inc77, %threshold.0135
+  %cmp78.not = icmp slt i32 %inc77, %threshold.0136
   %add81 = select i1 %cmp78.not, i32 0, i32 %sub72
   %spec.select = add nsw i32 %add81, %inc77
   %shl83 = shl i32 %spec.select, %bitCount.1
   %add84 = add i32 %shl83, %bitStream.1
-  %add85 = add nsw i32 %bitCount.1, %nbBits.0133
+  %add85 = add nsw i32 %bitCount.1, %nbBits.0134
   %cmp86 = icmp slt i32 %spec.select, %sub72
   %conv87.neg = sext i1 %cmp86 to i32
   %sub88 = add i32 %add85, %conv87.neg
@@ -523,20 +523,20 @@ if.end66:                                         ; preds = %while.end42, %if.en
   br i1 %cmp91, label %return, label %while.cond95.preheader
 
 while.cond95.preheader:                           ; preds = %if.end66
-  %cmp96127 = icmp slt i32 %sub76, %threshold.0135
+  %cmp96127 = icmp slt i32 %sub76, %threshold.0136
   br i1 %cmp96127, label %while.body98, label %while.end100
 
 while.body98:                                     ; preds = %while.cond95.preheader, %while.body98
-  %threshold.1129 = phi i32 [ %shr99, %while.body98 ], [ %threshold.0135, %while.cond95.preheader ]
-  %nbBits.1128 = phi i32 [ %dec, %while.body98 ], [ %nbBits.0133, %while.cond95.preheader ]
+  %threshold.1129 = phi i32 [ %shr99, %while.body98 ], [ %threshold.0136, %while.cond95.preheader ]
+  %nbBits.1128 = phi i32 [ %dec, %while.body98 ], [ %nbBits.0134, %while.cond95.preheader ]
   %dec = add nsw i32 %nbBits.1128, -1
-  %shr99 = lshr i32 %threshold.1129, 1
+  %shr99 = ashr i32 %threshold.1129, 1
   %cmp96 = icmp slt i32 %sub76, %shr99
   br i1 %cmp96, label %while.body98, label %while.end100, !llvm.loop !17
 
 while.end100:                                     ; preds = %while.body98, %while.cond95.preheader
-  %nbBits.1.lcssa = phi i32 [ %nbBits.0133, %while.cond95.preheader ], [ %dec, %while.body98 ]
-  %threshold.1.lcssa = phi i32 [ %threshold.0135, %while.cond95.preheader ], [ %shr99, %while.body98 ]
+  %nbBits.1.lcssa = phi i32 [ %nbBits.0134, %while.cond95.preheader ], [ %dec, %while.body98 ]
+  %threshold.1.lcssa = phi i32 [ %threshold.0136, %while.cond95.preheader ], [ %shr99, %while.body98 ]
   %cmp101 = icmp sgt i32 %sub88, 16
   br i1 %cmp101, label %if.then103, label %if.end119
 
@@ -567,10 +567,10 @@ if.end119:                                        ; preds = %if.end110, %while.e
   br i1 %6, label %while.body, label %while.end120, !llvm.loop !18
 
 while.end120:                                     ; preds = %if.end119, %while.end, %while.body12
-  %remaining.0.lcssa.ph = phi i32 [ %remaining.0134, %while.body12 ], [ %remaining.0134, %while.end ], [ %sub76, %if.end119 ]
-  %bitStream.0.lcssa.ph = phi i32 [ %bitStream.0136, %while.body12 ], [ %bitStream.0136, %while.end ], [ %bitStream.4, %if.end119 ]
-  %bitCount.0.lcssa.ph = phi i32 [ %bitCount.0137, %while.body12 ], [ %bitCount.0137, %while.end ], [ %bitCount.3, %if.end119 ]
-  %out.0.lcssa.ph = phi ptr [ %out.0139, %while.body12 ], [ %out.0139, %while.end ], [ %out.3, %if.end119 ]
+  %remaining.0.lcssa.ph = phi i32 [ %remaining.0135, %while.body12 ], [ %remaining.0135, %while.end ], [ %sub76, %if.end119 ]
+  %bitStream.0.lcssa.ph = phi i32 [ %bitStream.0137, %while.body12 ], [ %bitStream.0137, %while.end ], [ %bitStream.4, %if.end119 ]
+  %bitCount.0.lcssa.ph = phi i32 [ %bitCount.0138, %while.body12 ], [ %bitCount.0138, %while.end ], [ %bitCount.3, %if.end119 ]
+  %out.0.lcssa.ph = phi ptr [ %out.0140, %while.body12 ], [ %out.0140, %while.end ], [ %out.3, %if.end119 ]
   %7 = icmp eq i32 %remaining.0.lcssa.ph, 1
   %8 = add nsw i32 %bitCount.0.lcssa.ph, 7
   %9 = sdiv i32 %8, 8
@@ -969,9 +969,9 @@ if.then149.i:                                     ; preds = %for.body143.i
   br i1 %cmp160.i, label %return, label %if.end163.i
 
 if.end163.i:                                      ; preds = %if.then149.i
-  %conv156.i = trunc i64 %shr155.i to i16
-  %conv158.i = trunc i64 %shr157.i to i16
-  %sub159.i = sub i16 %conv158.i, %conv156.i
+  %conv156.i = trunc nuw nsw i64 %shr155.i to i16
+  %conv158.i = trunc nuw nsw i64 %shr157.i to i16
+  %sub159.i = sub nsw i16 %conv158.i, %conv156.i
   store i16 %sub159.i, ptr %arrayidx145.i, align 2
   br label %for.inc168.i
 
@@ -1028,7 +1028,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %dst, i64 noundef %dstSize, ptr noundef readonly %src, i64 noundef %srcSize, ptr nocapture noundef readonly %ct, i32 noundef %fast) unnamed_addr #2 {
+define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %dst, i64 noundef %dstSize, ptr noundef readonly %src, i64 noundef %srcSize, ptr nocapture noundef readonly %ct, i32 noundef range(i32 0, 2) %fast) unnamed_addr #2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %src, i64 %srcSize
   %cmp = icmp ult i64 %srcSize, 3

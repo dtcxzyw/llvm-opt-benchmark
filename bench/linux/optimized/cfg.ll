@@ -10626,7 +10626,7 @@ declare dso_local void @_raw_spin_lock_bh(ptr noundef) local_unnamed_addr #2 sec
 declare dso_local void @_raw_spin_unlock_bh(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_color_change_bss_config_notify(ptr noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_color_change_bss_config_notify(ptr noundef %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1256
   %4 = getelementptr inbounds i8, ptr %0, i64 4056
   %5 = getelementptr inbounds i8, ptr %0, i64 4449
@@ -11035,7 +11035,7 @@ declare dso_local i32 @ieee80211_key_link(ptr noundef, ptr noundef, ptr noundef)
 declare dso_local i32 @ieee80211_set_tx_key(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @drv_get_key_seq(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #14 align 16 {
+define internal fastcc void @drv_get_key_seq(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #14 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 240
@@ -11115,7 +11115,7 @@ declare dso_local i32 @ieee80211_link_use_channel(ptr noundef, ptr noundef, i32 
 declare dso_local void @ieee80211_link_copy_chanctx_to_vlans(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1073741825) i32 @ieee80211_set_fils_discovery(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1073741825) i32 @ieee80211_set_fils_discovery(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
   %4 = load i8, ptr %0, align 8, !range !17, !noundef !18
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %37, label %6
@@ -11178,7 +11178,7 @@ define internal fastcc noundef range(i32 -12, 1073741825) i32 @ieee80211_set_fil
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @ieee80211_set_unsol_bcast_probe_resp(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @ieee80211_set_unsol_bcast_probe_resp(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
   %5 = load i8, ptr %0, align 8, !range !17, !noundef !18
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %37, label %7
@@ -11424,7 +11424,7 @@ declare dso_local ptr @sta_info_alloc_with_link(ptr noundef, ptr noundef, i32 no
 declare dso_local ptr @sta_info_alloc(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @sta_apply_parameters(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @sta_apply_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
@@ -11634,7 +11634,7 @@ define internal fastcc i32 @sta_apply_parameters(ptr noundef %0, ptr noundef %1,
   %136 = getelementptr inbounds i8, ptr %2, i64 56
   %137 = load i8, ptr %136, align 8
   %138 = zext i8 %137 to i32
-  tail call void @ieee80211_sta_set_max_amsdu_subframes(ptr noundef %1, ptr noundef %135, i32 noundef %138) #16
+  tail call void @ieee80211_sta_set_max_amsdu_subframes(ptr noundef nonnull %1, ptr noundef %135, i32 noundef %138) #16
   %139 = getelementptr inbounds i8, ptr %2, i64 24
   %140 = load i16, ptr %139, align 8
   %141 = icmp eq i16 %140, 0
@@ -11726,7 +11726,7 @@ declare dso_local void @rate_control_rate_init(ptr noundef) local_unnamed_addr #
 declare dso_local i32 @sta_info_insert(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @sta_apply_auth_flags(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @sta_apply_auth_flags(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = zext i32 %1 to i64
   %5 = and i64 %4, 32
   %6 = icmp eq i64 %5, 0
@@ -11743,7 +11743,7 @@ define internal fastcc i32 @sta_apply_auth_flags(ptr noundef %0, i32 noundef %1,
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %10
-  %16 = tail call i32 @sta_info_move_state(ptr noundef %0, i32 noundef 2) #16
+  %16 = tail call i32 @sta_info_move_state(ptr noundef nonnull %0, i32 noundef 2) #16
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %74
 
@@ -11769,11 +11769,11 @@ define internal fastcc i32 @sta_apply_auth_flags(ptr noundef %0, i32 noundef %1,
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %29
-  tail call void @rate_control_rate_init(ptr noundef %0) #16
+  tail call void @rate_control_rate_init(ptr noundef nonnull %0) #16
   br label %34
 
 34:                                               ; preds = %33, %29
-  %35 = tail call i32 @sta_info_move_state(ptr noundef %0, i32 noundef 3) #16
+  %35 = tail call i32 @sta_info_move_state(ptr noundef nonnull %0, i32 noundef 3) #16
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %74
 
@@ -11796,7 +11796,7 @@ define internal fastcc i32 @sta_apply_auth_flags(ptr noundef %0, i32 noundef %1,
 
 48:                                               ; preds = %40, %43
   %49 = phi i32 [ 4, %40 ], [ 3, %43 ]
-  %50 = tail call i32 @sta_info_move_state(ptr noundef %0, i32 noundef %49) #16
+  %50 = tail call i32 @sta_info_move_state(ptr noundef nonnull %0, i32 noundef %49) #16
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %.thread, label %74
 
@@ -11813,7 +11813,7 @@ define internal fastcc i32 @sta_apply_auth_flags(ptr noundef %0, i32 noundef %1,
   br i1 %58, label %62, label %59
 
 59:                                               ; preds = %54
-  %60 = tail call i32 @sta_info_move_state(ptr noundef %0, i32 noundef 2) #16
+  %60 = tail call i32 @sta_info_move_state(ptr noundef nonnull %0, i32 noundef 2) #16
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %74
 
@@ -11830,7 +11830,7 @@ define internal fastcc i32 @sta_apply_auth_flags(ptr noundef %0, i32 noundef %1,
   br i1 %69, label %73, label %70
 
 70:                                               ; preds = %65
-  %71 = tail call i32 @sta_info_move_state(ptr noundef %0, i32 noundef 1) #16
+  %71 = tail call i32 @sta_info_move_state(ptr noundef nonnull %0, i32 noundef 1) #16
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %74
 
@@ -11846,7 +11846,7 @@ define internal fastcc i32 @sta_apply_auth_flags(ptr noundef %0, i32 noundef %1,
 declare dso_local void @ieee80211_sta_set_max_amsdu_subframes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @sta_link_apply_parameters(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @sta_link_apply_parameters(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 8
@@ -12006,7 +12006,7 @@ define internal fastcc i32 @sta_link_apply_parameters(ptr noundef %0, ptr nounde
   br label %113
 
 113:                                              ; preds = %108, %101
-  %114 = tail call i32 @drv_sta_set_txpwr(ptr noundef %0, ptr noundef %6, ptr noundef %1) #16
+  %114 = tail call i32 @drv_sta_set_txpwr(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %1) #16
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %116, label %176
 

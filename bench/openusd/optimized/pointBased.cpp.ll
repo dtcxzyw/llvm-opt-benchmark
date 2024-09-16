@@ -3140,7 +3140,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17UsdGeomPointBa
   resume { ptr, i32 } %58
 
 59:                                               ; preds = %22
-  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomPointBased13ComputeExtentERKNS_7VtArrayINS_7GfVec3fEEERKNS_10GfMatrix4dEPS3_ENK3$_0clEmmNS_9GfRange3dE"(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef 0, i64 noundef %19, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfRange3d") align 8 %10)
+  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomPointBased13ComputeExtentERKNS_7VtArrayINS_7GfVec3fEEERKNS_10GfMatrix4dEPS3_ENK3$_0clEmmNS_9GfRange3dE"(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef 0, i64 noundef %19, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfRange3d") align 8 %10)
   br label %"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_ComputeExtentImplIZNS_17UsdGeomPointBased13ComputeExtentERKNS_7VtArrayINS_7GfVec3fEEERKNS_10GfMatrix4dEPS5_E3$_0EEbS7_SB_OT_.exit"
 
 "_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_ComputeExtentImplIZNS_17UsdGeomPointBased13ComputeExtentERKNS_7VtArrayINS_7GfVec3fEEERKNS_10GfMatrix4dEPS5_E3$_0EEbS7_SB_OT_.exit": ; preds = %21, %49, %53, %59
@@ -10185,7 +10185,7 @@ declare void @_ZN3tbb6detail2r17destroyERNS0_2d118task_group_contextE(ptr nounde
 declare noundef nonnull align 4 dereferenceable(12) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEixEm(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomPointBased13ComputeExtentERKNS_7VtArrayINS_7GfVec3fEEERKNS_10GfMatrix4dEPS3_ENK3$_0clEmmNS_9GfRange3dE"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef byval(%"class.pxrInternal_v0_24__pxrReserved__::GfRange3d") align 8 %4) unnamed_addr #15 align 2 {
+define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomPointBased13ComputeExtentERKNS_7VtArrayINS_7GfVec3fEEERKNS_10GfMatrix4dEPS3_ENK3$_0clEmmNS_9GfRange3dE"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef byval(%"class.pxrInternal_v0_24__pxrReserved__::GfRange3d") align 8 %4) unnamed_addr #15 align 2 {
   %.promoted = load double, ptr %4, align 8
   %.not10 = icmp eq i64 %2, %3
   br i1 %.not10, label %101, label %.lr.ph
@@ -10566,7 +10566,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i.backedge: ; pred
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 24
   %.val.i.i.i.i = load ptr, ptr %133, align 8
-  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomPointBased13ComputeExtentERKNS_7VtArrayINS_7GfVec3fEEERKNS_10GfMatrix4dEPS3_ENK3$_0clEmmNS_9GfRange3dE"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(16) %.val.i.i.i.i, i64 noundef %123, i64 noundef %124, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfRange3d") align 8 %134)
+  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomPointBased13ComputeExtentERKNS_7VtArrayINS_7GfVec3fEEERKNS_10GfMatrix4dEPS3_ENK3$_0clEmmNS_9GfRange3dE"(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(16) %.val.i.i.i.i, i64 noundef %123, i64 noundef %124, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfRange3d") align 8 %134)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %134, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   br label %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_12start_reduceINS1_13blocked_rangeImEENS1_18lambda_reduce_bodyIS8_N32pxrInternal_v0_24__pxrReserved__9GfRange3dEZNSA_19WorkParallelReduceNIZNSA_17UsdGeomPointBased13ComputeExtentERKNSA_7VtArrayINSA_7GfVec3fEEERKNSA_10GfMatrix4dEPSG_E3$_0ZNSA_12_GLOBAL__N_118_ComputeExtentImplISN_EEbSI_SM_OT_EUlSB_SB_E_SB_EET1_RKST_mSR_OT0_mE13Work_Body_TBBSS_EEKNS1_16auto_partitionerEEES8_EEvRSQ_RSW_RNS1_14execution_dataE.exit"
@@ -10767,7 +10767,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %236 = load ptr, ptr %235, align 8
   %237 = getelementptr inbounds nuw i8, ptr %.val13.i.i, i64 24
   %.val.i.i21.i.i = load ptr, ptr %236, align 8
-  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomPointBased13ComputeExtentERKNS_7VtArrayINS_7GfVec3fEEERKNS_10GfMatrix4dEPS3_ENK3$_0clEmmNS_9GfRange3dE"(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %.val.i.i21.i.i, i64 noundef %.val15.i.i, i64 noundef %.val14.i.i, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfRange3d") align 8 %237)
+  call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomPointBased13ComputeExtentERKNS_7VtArrayINS_7GfVec3fEEERKNS_10GfMatrix4dEPS3_ENK3$_0clEmmNS_9GfRange3dE"(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %.val.i.i21.i.i, i64 noundef %.val15.i.i, i64 noundef %.val14.i.i, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfRange3d") align 8 %237)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %237, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   %238 = add i8 %.promoted.i.pr52.i.i, -1

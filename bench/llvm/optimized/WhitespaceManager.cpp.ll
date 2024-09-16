@@ -9570,7 +9570,7 @@ _ZNK5clang6format11FormatToken13getPrecedenceEv.exit21: ; preds = %40, %43
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(2192) %6) unnamed_addr #0 {
+define internal fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 2, 0) %2, i32 noundef %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(2192) %6) unnamed_addr #0 {
   %8 = alloca %"class.llvm::SmallVector.202", align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9, i64 noundef 16) #18
@@ -10507,7 +10507,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %"_ZZ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(2192) %6) unnamed_addr #0 {
+define internal fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 2, 0) %2, i32 noundef %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(2192) %6) unnamed_addr #0 {
   %8 = alloca %"class.llvm::SmallVector.202", align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9, i64 noundef 16) #18
@@ -11605,7 +11605,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %"_ZZ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(2192) %6) unnamed_addr #0 {
+define internal fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 2, 0) %2, i32 noundef %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(2192) %6) unnamed_addr #0 {
   %8 = alloca %"class.llvm::SmallVector.202", align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9, i64 noundef 16) #18
@@ -12655,7 +12655,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %"_ZZ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(2192) %5) unnamed_addr #0 {
+define internal fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 2, 0) %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(2192) %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::SmallVector.202", align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8, i64 noundef 16) #18
@@ -13690,7 +13690,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i: ; preds = %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(2192) %6) unnamed_addr #0 {
+define internal fastcc void @"_ZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 2, 0) %2, i32 noundef %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(2192) %6) unnamed_addr #0 {
   %8 = alloca %"class.llvm::SmallVector.202", align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9, i64 noundef 16) #18

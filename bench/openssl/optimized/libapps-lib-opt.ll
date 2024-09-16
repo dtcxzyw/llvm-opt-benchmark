@@ -2435,36 +2435,28 @@ for.inc:                                          ; preds = %if.end16, %for.body
 
 for.end:                                          ; preds = %for.inc
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %width.1, i32 30)
-  br i1 %cmp.not, label %if.end35.thread, label %if.then26
+  br i1 %cmp.not, label %for.body39.lr.ph, label %if.then26
 
 if.then26:                                        ; preds = %entry, %for.end
-  %spec.store.select29 = phi i32 [ %spec.store.select, %for.end ], [ 5, %entry ]
-  %width.0.lcssa27 = phi i32 [ %width.1, %for.end ], [ 5, %entry ]
+  %spec.store.select27 = phi i32 [ %spec.store.select, %for.end ], [ 5, %entry ]
   %call27 = tail call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.51, ptr noundef nonnull @prog) #21
   %4 = load ptr, ptr %list, align 8
   %cmp30.not = icmp eq ptr %4, @OPT_SECTION_STR
-  br i1 %cmp30.not, label %if.end35.thread, label %if.end35
-
-if.end35.thread:                                  ; preds = %if.then26, %for.end
-  %spec.store.select30.ph = phi i32 [ %spec.store.select, %for.end ], [ %spec.store.select29, %if.then26 ]
-  %width.0.lcssa28.ph = phi i32 [ %width.1, %for.end ], [ %width.0.lcssa27, %if.then26 ]
-  %.ph = phi ptr [ @OPT_HELP_STR, %for.end ], [ @OPT_SECTION_STR, %if.then26 ]
-  %invariant.smin33 = tail call i32 @llvm.smin.i32(i32 %width.0.lcssa28.ph, i32 29)
-  br label %for.body39.lr.ph
+  br i1 %cmp30.not, label %for.body39.lr.ph, label %if.end35
 
 if.end35:                                         ; preds = %if.then26
   %call33 = tail call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.52, ptr noundef nonnull @prog) #21
   %.pre = load ptr, ptr %list, align 8
-  %invariant.smin = tail call i32 @llvm.smin.i32(i32 %width.0.lcssa27, i32 29)
   %tobool38.not22 = icmp eq ptr %.pre, null
   br i1 %tobool38.not22, label %for.end47, label %for.body39.lr.ph
 
-for.body39.lr.ph:                                 ; preds = %if.end35.thread, %if.end35
-  %invariant.smin36 = phi i32 [ %invariant.smin33, %if.end35.thread ], [ %invariant.smin, %if.end35 ]
-  %5 = phi ptr [ %.ph, %if.end35.thread ], [ %.pre, %if.end35 ]
-  %spec.store.select3035 = phi i32 [ %spec.store.select30.ph, %if.end35.thread ], [ %spec.store.select29, %if.end35 ]
+for.body39.lr.ph:                                 ; preds = %for.end, %if.then26, %if.end35
+  %5 = phi ptr [ %.pre, %if.end35 ], [ @OPT_HELP_STR, %for.end ], [ @OPT_SECTION_STR, %if.then26 ]
+  %spec.store.select2831 = phi i32 [ %spec.store.select27, %if.end35 ], [ %spec.store.select, %for.end ], [ %spec.store.select27, %if.then26 ]
+  %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 %spec.store.select2831, i32 80)
   %arrayidx.i = getelementptr inbounds i8, ptr %start.i, i64 80
-  %idxprom.i = zext nneg i32 %spec.store.select3035 to i64
+  %invariant.smin = tail call i32 @llvm.umin.i32(i32 %spec.store.select2831, i32 29)
+  %idxprom.i = zext nneg i32 %spec.store.select.i to i64
   %arrayidx20.i = getelementptr inbounds [81 x i8], ptr %start.i, i64 0, i64 %idxprom.i
   br label %for.body39
 
@@ -2542,7 +2534,7 @@ if.then50.i:                                      ; preds = %if.end23.i
 
 if.end60.i:                                       ; preds = %if.then50.i, %if.end23.i
   %linelen.0.i = phi i32 [ %add59.i, %if.then50.i ], [ %add47.i, %if.end23.i ]
-  %or.cond.i = icmp sgt i32 %linelen.0.i, %invariant.smin36
+  %or.cond.i = icmp sgt i32 %linelen.0.i, %invariant.smin
   br i1 %or.cond.i, label %if.then65.i, label %if.end68.i
 
 if.then65.i:                                      ; preds = %if.end60.i
@@ -2552,7 +2544,7 @@ if.then65.i:                                      ; preds = %if.end60.i
 
 if.end68.i:                                       ; preds = %if.then65.i, %if.end60.i
   %linelen.1.i = phi i32 [ 0, %if.then65.i ], [ %linelen.0.i, %if.end60.i ]
-  %sub.i = sub nsw i32 %spec.store.select3035, %linelen.1.i
+  %sub.i = sub nsw i32 %spec.store.select.i, %linelen.1.i
   %idxprom69.i = sext i32 %sub.i to i64
   %arrayidx70.i = getelementptr inbounds [81 x i8], ptr %start.i, i64 0, i64 %idxprom69.i
   store i8 0, ptr %arrayidx70.i, align 1
@@ -2657,6 +2649,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19

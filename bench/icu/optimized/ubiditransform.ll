@@ -158,7 +158,7 @@ ubiditransform_open_75.exit:                      ; preds = %if.then.i
 
 if.end33:                                         ; preds = %ubiditransform_open_75.exit, %do.end25
   %pBiDiTransform.addr.0 = phi ptr [ %call1.i, %ubiditransform_open_75.exit ], [ %pBiDiTransform, %do.end25 ]
-  call fastcc void @_ZL20resolveBaseDirectionPKDsjPhS1_(ptr noundef nonnull %src, i32 noundef %srcLength.addr.0, ptr noundef nonnull %inParaLevel.addr, ptr noundef nonnull %outParaLevel.addr)
+  call fastcc void @_ZL20resolveBaseDirectionPKDsjPhS1_(ptr noundef %src, i32 noundef %srcLength.addr.0, ptr noundef %inParaLevel.addr, ptr noundef %outParaLevel.addr)
   %3 = load i8, ptr %inParaLevel.addr, align 1
   %4 = load i8, ptr %outParaLevel.addr, align 1
   br label %for.body.i
@@ -212,7 +212,7 @@ if.end38:                                         ; preds = %land.lhs.true11.i
   %letters = getelementptr inbounds i8, ptr %pBiDiTransform.addr.0, i64 64
   store i32 %and41, ptr %letters, align 8
   %cond43 = tail call i32 @llvm.smax.i32(i32 %destSize.addr.0, i32 %srcLength.addr.0)
-  tail call fastcc void @_ZL9updateSrcP14UBiDiTransformPKDsjjP10UErrorCode(ptr noundef nonnull %pBiDiTransform.addr.0, ptr noundef %src, i32 noundef %srcLength.addr.0, i32 noundef %cond43, ptr noundef nonnull %pErrorCode)
+  tail call fastcc void @_ZL9updateSrcP14UBiDiTransformPKDsjjP10UErrorCode(ptr noundef nonnull %pBiDiTransform.addr.0, ptr noundef nonnull %src, i32 noundef %srcLength.addr.0, i32 noundef %cond43, ptr noundef nonnull %pErrorCode)
   %9 = load i32, ptr %pErrorCode, align 4
   %cmp.i71 = icmp slt i32 %9, 1
   br i1 %cmp.i71, label %if.end47, label %cleanup
@@ -342,7 +342,7 @@ if.then79:                                        ; preds = %if.then77
   br label %cleanup
 
 if.else:                                          ; preds = %if.then77
-  %call80 = call ptr @u_strncpy_75(ptr noundef %dest, ptr noundef %src, i32 noundef %srcLength.addr.0)
+  %call80 = call ptr @u_strncpy_75(ptr noundef %dest, ptr noundef nonnull %src, i32 noundef %srcLength.addr.0)
   store i32 %srcLength.addr.0, ptr %destLength, align 4
   br label %cleanup
 
@@ -380,14 +380,14 @@ return:                                           ; preds = %if.then27, %if.then
 declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20resolveBaseDirectionPKDsjPhS1_(ptr noundef %text, i32 noundef %length, ptr nocapture noundef %pInLevel, ptr nocapture noundef %pOutLevel) unnamed_addr #0 {
+define internal fastcc void @_ZL20resolveBaseDirectionPKDsjPhS1_(ptr noundef nonnull %text, i32 noundef %length, ptr nocapture noundef nonnull %pInLevel, ptr nocapture noundef nonnull %pOutLevel) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %pInLevel, align 1
   %switch = icmp ugt i8 %0, -3
   br i1 %switch, label %sw.bb, label %sw.default
 
 sw.bb:                                            ; preds = %entry
-  %call = tail call i32 @ubidi_getBaseDirection_75(ptr noundef %text, i32 noundef %length)
+  %call = tail call i32 @ubidi_getBaseDirection_75(ptr noundef nonnull %text, i32 noundef %length)
   %conv2 = and i32 %call, 255
   %cmp.not = icmp eq i32 %conv2, 3
   br i1 %cmp.not, label %cond.false, label %cond.true

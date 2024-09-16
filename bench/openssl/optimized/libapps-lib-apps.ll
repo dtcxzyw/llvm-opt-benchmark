@@ -685,7 +685,7 @@ entry:
   br i1 %cmp.i.not, label %if.end13, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call4.i = tail call fastcc ptr @app_get_pass(ptr noundef nonnull %pass, i32 noundef 0)
+  %call4.i = tail call fastcc ptr @app_get_pass(ptr noundef %pass, i32 noundef 0)
   %cmp5.i = icmp eq ptr %call4.i, null
   br i1 %cmp5.i, label %if.end3, label %if.end13
 
@@ -727,7 +727,7 @@ land.end:                                         ; preds = %entry
 if.then:                                          ; preds = %land.end.thread, %land.end
   %0 = phi i1 [ %cmp2, %land.end.thread ], [ false, %land.end ]
   %land.ext = zext i1 %0 to i32
-  %call4 = tail call fastcc ptr @app_get_pass(ptr noundef nonnull %arg1, i32 noundef %land.ext)
+  %call4 = tail call fastcc ptr @app_get_pass(ptr noundef %arg1, i32 noundef %land.ext)
   store ptr %call4, ptr %pass1, align 8
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %return, label %if.end10
@@ -746,7 +746,7 @@ if.end10:                                         ; preds = %if.else, %if.then8,
 
 if.then12:                                        ; preds = %if.end10
   %cond = select i1 %1, i32 2, i32 0
-  %call13 = tail call fastcc ptr @app_get_pass(ptr noundef nonnull %arg2, i32 noundef %cond)
+  %call13 = tail call fastcc ptr @app_get_pass(ptr noundef %arg2, i32 noundef %cond)
   store ptr %call13, ptr %pass2, align 8
   %cmp14 = icmp eq ptr %call13, null
   br i1 %cmp14, label %return, label %if.end21
@@ -775,7 +775,7 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @app_get_pass(ptr noundef %arg, i32 noundef %keepbio) unnamed_addr #0 {
+define internal fastcc noalias ptr @app_get_pass(ptr noundef nonnull %arg, i32 noundef range(i32 0, 3) %keepbio) unnamed_addr #0 {
 entry:
   %tpass = alloca [1024 x i8], align 16
   %call = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %arg, ptr noundef nonnull dereferenceable(6) @.str.179, i64 noundef 5) #30
@@ -2635,7 +2635,7 @@ if.end7:                                          ; preds = %lor.lhs.false, %ent
   br i1 %cmp.i.not.i, label %get_passwd.exit.thread, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end7
-  %call4.i.i = tail call fastcc ptr @app_get_pass(ptr noundef nonnull %pass, i32 noundef 0)
+  %call4.i.i = tail call fastcc ptr @app_get_pass(ptr noundef %pass, i32 noundef 0)
   %cmp5.i.i = icmp eq ptr %call4.i.i, null
   br i1 %cmp5.i.i, label %if.end3.i, label %if.then.i
 
@@ -2713,7 +2713,7 @@ return:                                           ; preds = %for.body.i, %if.the
 declare i32 @OPENSSL_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @warn_cert(ptr noundef %uri, ptr noundef %cert, i32 noundef %warn_EE, ptr noundef %vpm) unnamed_addr #0 {
+define internal fastcc void @warn_cert(ptr noundef %uri, ptr noundef %cert, i32 noundef range(i32 0, 2) %warn_EE, ptr noundef %vpm) unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_get_extension_flags(ptr noundef %cert) #28
   %call1 = tail call ptr @X509_get0_notBefore(ptr noundef %cert) #28
@@ -4984,7 +4984,7 @@ declare ptr @EVP_MD_CTX_new() local_unnamed_addr #2
 declare i32 @X509_set_version(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @adapt_keyid_ext(ptr noundef %cert, ptr noundef %ext_ctx, ptr noundef %name, ptr noundef %value, i32 noundef %add_default) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @adapt_keyid_ext(ptr noundef %cert, ptr noundef %ext_ctx, ptr noundef %name, ptr noundef %value, i32 noundef range(i32 0, 2) %add_default) unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_get0_extensions(ptr noundef %cert) #28
   %call1 = tail call ptr @X509V3_EXT_nconf(ptr noundef null, ptr noundef %ext_ctx, ptr noundef %name, ptr noundef %value) #28

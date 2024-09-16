@@ -19457,7 +19457,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE5visitILb1EEEbP4exprj(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef %t, i32 noundef %max_depth) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE5visitILb1EEEbP4exprj(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef %t, i32 noundef range(i32 7, 4) %max_depth) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i = alloca %class.obj_ref.10, align 8
   %tmp.i.i195 = alloca ptr, align 8
@@ -21688,7 +21688,7 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE5visitILb0EEEbP4exprj(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef %t, i32 noundef %max_depth) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE5visitILb0EEEbP4exprj(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef %t, i32 noundef range(i32 7, 4) %max_depth) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i = alloca %class.obj_ref.10, align 8
   %tmp.i.i120 = alloca ptr, align 8

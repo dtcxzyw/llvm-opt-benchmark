@@ -1576,7 +1576,7 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hfe6382c7f819
   br i1 %40, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %41
 
 41:                                               ; preds = %.lr.ph.i.i.i
-  %42 = add nuw i64 %.05.i.i.i, 1
+  %42 = add nuw nsw i64 %.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %42, %.sroa.3.0.i47.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 

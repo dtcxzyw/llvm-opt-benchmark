@@ -1010,7 +1010,7 @@ cf_add_encapsulation_type.exit.i:                 ; preds = %193, %._crit_edge.i
   br i1 %248, label %249, label %read_record.exit
 
 249:                                              ; preds = %246
-  call fastcc void @add_packet_to_packet_list(ptr noundef %214, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %182, ptr noundef %79, ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 1)
+  call fastcc void @add_packet_to_packet_list(ptr noundef %214, ptr noundef nonnull %0, ptr noundef %10, ptr noundef %182, ptr noundef %79, ptr noundef %11, ptr noundef %12, i32 noundef 1)
   br label %read_record.exit
 
 read_record.exit:                                 ; preds = %203, %244, %246, %249
@@ -1306,7 +1306,7 @@ declare ptr @frame_data_sequence_find(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @packet_list_select_row_from_data(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rescan_packets(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @rescan_packets(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca %struct.wtap_rec, align 8
@@ -1649,7 +1649,7 @@ cf_read_record.exit.thread:                       ; preds = %133
   %.1171 = phi ptr [ %.0170268, %145 ], [ %spec.select218, %148 ]
   %.1164 = phi i32 [ %.0163272, %145 ], [ %spec.select219, %148 ]
   %153 = load ptr, ptr %23, align 8
-  call fastcc void @add_packet_to_packet_list(ptr noundef nonnull %110, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %153, ptr noundef %.0154, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %.0149)
+  call fastcc void @add_packet_to_packet_list(ptr noundef nonnull %110, ptr noundef nonnull %0, ptr noundef %10, ptr noundef %153, ptr noundef %.0154, ptr noundef %7, ptr noundef %8, i32 noundef %.0149)
   %154 = load i16, ptr %134, align 2
   %155 = and i16 %154, 1
   %156 = icmp ne i16 %155, 0
@@ -2743,7 +2743,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %5
   call void @epan_dissect_init(ptr noundef nonnull %3, ptr noundef %31, i32 noundef %30, i32 noundef 0) #21
   call void @packet_range_init(ptr noundef nonnull %2, ptr noundef nonnull %0) #21
   call void @packet_range_process_init(ptr noundef nonnull %2) #21
-  %32 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.23, ptr noundef nonnull @retap_packet, ptr noundef nonnull %3, i32 noundef 1)
+  %32 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.23, ptr noundef nonnull @retap_packet, ptr noundef %3, i32 noundef 1)
   call void @packet_range_cleanup(ptr noundef nonnull %2) #21
   call void @epan_dissect_cleanup(ptr noundef nonnull %3) #21
   %.07.i19 = load ptr, ptr @cf_callbacks, align 8
@@ -2780,7 +2780,7 @@ declare void @packet_range_init(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @packet_range_process_init(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @process_specified_records(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc range(i32 0, 3) i32 @process_specified_records(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef nonnull %5, i32 noundef %6) unnamed_addr #1 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca %struct.wtap_rec, align 8
@@ -2901,7 +2901,7 @@ cf_read_record.exit.thread:                       ; preds = %52
 61:                                               ; preds = %52
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %62 = call i32 %4(ptr noundef nonnull %0, ptr noundef nonnull %31, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %5) #21
+  %62 = call i32 %4(ptr noundef nonnull %0, ptr noundef nonnull %31, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %5) #21
   %.not62 = icmp eq i32 %62, 0
   br i1 %.not62, label %.loopexit, label %63
 
@@ -3223,7 +3223,7 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
   %150 = load ptr, ptr %0, align 8
   call void @epan_dissect_init(ptr noundef nonnull %149, ptr noundef %150, i32 noundef %148, i32 noundef %148) #21
   %151 = getelementptr inbounds i8, ptr %1, i64 32
-  %152 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef nonnull %151, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @print_packet, ptr noundef nonnull %4, i32 noundef %2)
+  %152 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef nonnull %151, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @print_packet, ptr noundef %4, i32 noundef %2)
   call void @epan_dissect_cleanup(ptr noundef nonnull %149) #21
   %153 = load ptr, ptr %8, align 8
   call void @g_free(ptr noundef %153) #21
@@ -3658,7 +3658,7 @@ define hidden range(i32 0, 3) i32 @cf_write_pdml_packets(ptr noundef %0, ptr nou
   %17 = load ptr, ptr %0, align 8
   call void @epan_dissect_init(ptr noundef nonnull %16, ptr noundef %17, i32 noundef 1, i32 noundef 1) #21
   %18 = getelementptr inbounds i8, ptr %1, i64 32
-  %19 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.27, ptr noundef nonnull @write_pdml_packet, ptr noundef nonnull %3, i32 noundef 1)
+  %19 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.27, ptr noundef nonnull @write_pdml_packet, ptr noundef %3, i32 noundef 1)
   call void @epan_dissect_cleanup(ptr noundef nonnull %16) #21
   %cond = icmp eq i32 %19, 2
   br i1 %cond, label %20, label %22
@@ -3753,7 +3753,7 @@ define hidden range(i32 0, 3) i32 @cf_write_psml_packets(ptr noundef %0, ptr nou
   %23 = load ptr, ptr %0, align 8
   call void @epan_dissect_init(ptr noundef nonnull %22, ptr noundef %23, i32 noundef %21, i32 noundef %21) #21
   %24 = getelementptr inbounds i8, ptr %1, i64 32
-  %25 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.27, ptr noundef nonnull @write_psml_packet, ptr noundef nonnull %3, i32 noundef 1)
+  %25 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.27, ptr noundef nonnull @write_psml_packet, ptr noundef %3, i32 noundef 1)
   call void @epan_dissect_cleanup(ptr noundef nonnull %22) #21
   %cond = icmp eq i32 %25, 2
   br i1 %cond, label %26, label %28
@@ -3841,7 +3841,7 @@ define hidden range(i32 0, 3) i32 @cf_write_csv_packets(ptr noundef %0, ptr noun
   %23 = load ptr, ptr %0, align 8
   call void @epan_dissect_init(ptr noundef nonnull %22, ptr noundef %23, i32 noundef %21, i32 noundef %21) #21
   %24 = getelementptr inbounds i8, ptr %1, i64 32
-  %25 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.27, ptr noundef nonnull @write_csv_packet, ptr noundef nonnull %3, i32 noundef 1)
+  %25 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.27, ptr noundef nonnull @write_csv_packet, ptr noundef %3, i32 noundef 1)
   call void @epan_dissect_cleanup(ptr noundef nonnull %22) #21
   %cond = icmp eq i32 %25, 2
   %26 = call i32 @fclose(ptr noundef nonnull %6)
@@ -3903,7 +3903,7 @@ define hidden range(i32 0, 3) i32 @cf_write_carrays_packets(ptr noundef %0, ptr 
   %15 = load ptr, ptr %0, align 8
   call void @epan_dissect_init(ptr noundef nonnull %14, ptr noundef %15, i32 noundef 1, i32 noundef 1) #21
   %16 = getelementptr inbounds i8, ptr %1, i64 32
-  %17 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef nonnull %16, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.27, ptr noundef nonnull @carrays_write_packet, ptr noundef nonnull %3, i32 noundef 1)
+  %17 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef nonnull %16, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.27, ptr noundef nonnull @carrays_write_packet, ptr noundef %3, i32 noundef 1)
   call void @epan_dissect_cleanup(ptr noundef nonnull %14) #21
   %cond = icmp eq i32 %17, 2
   %18 = call i32 @fclose(ptr noundef nonnull %6)
@@ -3965,7 +3965,7 @@ define hidden range(i32 0, 3) i32 @cf_write_json_packets(ptr noundef %0, ptr nou
   %17 = load ptr, ptr %0, align 8
   call void @epan_dissect_init(ptr noundef nonnull %16, ptr noundef %17, i32 noundef 1, i32 noundef 1) #21
   %18 = getelementptr inbounds i8, ptr %1, i64 32
-  %19 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.27, ptr noundef nonnull @write_json_packet, ptr noundef nonnull %3, i32 noundef 1)
+  %19 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.27, ptr noundef nonnull @write_json_packet, ptr noundef %3, i32 noundef 1)
   call void @epan_dissect_cleanup(ptr noundef nonnull %16) #21
   %cond = icmp eq i32 %19, 2
   br i1 %cond, label %20, label %22
@@ -7760,7 +7760,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %16
   store ptr %1, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %9, i64 16
   store i32 %2, ptr %87, align 8
-  %88 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @save_record, ptr noundef nonnull %9, i32 noundef 1)
+  %88 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @save_record, ptr noundef %9, i32 noundef 1)
   switch i32 %88, label %104 [
     i32 2, label %99
     i32 1, label %89
@@ -8629,7 +8629,7 @@ define hidden range(i32 0, 3) i32 @cf_export_specified_packets(ptr noundef %0, p
   store ptr %1, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 %3, ptr %34, align 8
-  %35 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, ptr noundef nonnull @save_record, ptr noundef nonnull %8, i32 noundef 1)
+  %35 = call fastcc i32 @process_specified_records(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, ptr noundef nonnull @save_record, ptr noundef %8, i32 noundef 1)
   %36 = call i32 @wtap_dump_close(ptr noundef nonnull %23, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7) #21
   switch i32 %35, label %38 [
     i32 2, label %54
@@ -8773,7 +8773,7 @@ declare ptr @g_checksum_get_string(ptr noundef) local_unnamed_addr #3
 declare i32 @fifo_string_cache_insert(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_packet_to_packet_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) unnamed_addr #1 {
+define internal fastcc void @add_packet_to_packet_list(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #1 {
   %9 = getelementptr inbounds i8, ptr %1, i64 120
   %10 = getelementptr inbounds i8, ptr %1, i64 248
   %11 = getelementptr inbounds i8, ptr %1, i64 256
@@ -8786,7 +8786,7 @@ define internal fastcc void @add_packet_to_packet_list(ptr noundef %0, ptr nound
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %8
-  tail call void @epan_dissect_prime_with_dfilter(ptr noundef %2, ptr noundef nonnull %3) #21
+  tail call void @epan_dissect_prime_with_dfilter(ptr noundef nonnull %2, ptr noundef nonnull %3) #21
   br label %17
 
 17:                                               ; preds = %16, %8
@@ -8797,7 +8797,7 @@ define internal fastcc void @add_packet_to_packet_list(ptr noundef %0, ptr nound
   br i1 %.not, label %21, label %22
 
 21:                                               ; preds = %17
-  tail call void @prime_epan_dissect_with_postdissector_wanted_hfids(ptr noundef %2) #21
+  tail call void @prime_epan_dissect_with_postdissector_wanted_hfids(ptr noundef nonnull %2) #21
   %.pre = load i16, ptr %18, align 2
   br label %22
 
@@ -8808,8 +8808,8 @@ define internal fastcc void @add_packet_to_packet_list(ptr noundef %0, ptr nound
   %25 = getelementptr inbounds i8, ptr %1, i64 56
   %26 = load i16, ptr %25, align 8
   %27 = zext i16 %26 to i32
-  %28 = tail call ptr @frame_tvbuff_new_buffer(ptr noundef nonnull %10, ptr noundef nonnull %0, ptr noundef %6) #21
-  tail call void @epan_dissect_run_with_taps(ptr noundef %2, i32 noundef %27, ptr noundef %5, ptr noundef %28, ptr noundef nonnull %0, ptr noundef %4) #21
+  %28 = tail call ptr @frame_tvbuff_new_buffer(ptr noundef nonnull %10, ptr noundef nonnull %0, ptr noundef nonnull %6) #21
+  tail call void @epan_dissect_run_with_taps(ptr noundef nonnull %2, i32 noundef %27, ptr noundef nonnull %5, ptr noundef %28, ptr noundef nonnull %0, ptr noundef %4) #21
   %29 = load i16, ptr %18, align 2
   %30 = and i16 %29, 1
   %31 = icmp ne i16 %30, 0
@@ -8817,7 +8817,7 @@ define internal fastcc void @add_packet_to_packet_list(ptr noundef %0, ptr nound
   br i1 %or.cond, label %32, label %46
 
 32:                                               ; preds = %22
-  %33 = tail call zeroext i1 @dfilter_apply_edt(ptr noundef nonnull %3, ptr noundef %2) #21
+  %33 = tail call zeroext i1 @dfilter_apply_edt(ptr noundef nonnull %3, ptr noundef nonnull %2) #21
   %34 = zext i1 %33 to i16
   %35 = load i16, ptr %18, align 2
   %36 = and i16 %35, -2
@@ -8896,7 +8896,7 @@ define internal fastcc void @add_packet_to_packet_list(ptr noundef %0, ptr nound
   br label %71
 
 71:                                               ; preds = %56, %69
-  tail call void @epan_dissect_reset(ptr noundef %2) #21
+  tail call void @epan_dissect_reset(ptr noundef nonnull %2) #21
   ret void
 }
 

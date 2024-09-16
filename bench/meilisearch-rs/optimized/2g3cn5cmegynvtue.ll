@@ -322,9 +322,9 @@ _ZN10serde_json3ser10CharEscape17from_escape_table17h0e70bf5357d61956E.exit.thre
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h42998f28ec9a8509E.exit
 
 _ZN10serde_json3ser9Formatter17write_char_escape17h42998f28ec9a8509E.exit: ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h5076392623eb81ceE.llvm.2337583790011467692.exit.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h5076392623eb81ceE.llvm.2337583790011467692.exit4.i"
-  %.sink3.i = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h5076392623eb81ceE.llvm.2337583790011467692.exit.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h5076392623eb81ceE.llvm.2337583790011467692.exit4.i" ]
+  %.sink4.i = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h5076392623eb81ceE.llvm.2337583790011467692.exit.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h5076392623eb81ceE.llvm.2337583790011467692.exit4.i" ]
   %90 = load i64, ptr %6, align 8, !noalias !11, !noundef !11
-  %91 = add i64 %90, %.sink3.i
+  %91 = add i64 %90, %.sink4.i
   store i64 %91, ptr %6, align 8, !noalias !11
   br label %.outer
 
@@ -1117,7 +1117,7 @@ define hidden void @"_ZN4core3ptr27drop_in_place$LT$$RF$u8$GT$17h4345e431e06b8ba
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !158, !noundef !11
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -1331,7 +1331,7 @@ _ZN10serde_json3ser9Formatter12begin_string17hb00ffd679b16d776E.llvm.23375837900
 45:                                               ; preds = %41, %_ZN10serde_json3ser9Formatter12begin_string17hb00ffd679b16d776E.llvm.2337583790011467692.exit.i.i.i.i, %30, %19
   %46 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #21
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE"(ptr noalias noundef align 8 dereferenceable(24) %6) #21
           to label %64 unwind label %62
 
 47:                                               ; preds = %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17he1e86084e95e2748E.exit", %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17hcb7e0485abcb0c1bE.exit"

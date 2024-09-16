@@ -14726,7 +14726,7 @@ _ZN4llvm8DebugLocD2Ev.exit63:                     ; preds = %_ZN4llvm23SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17genShXAddAddShiftRN4llvm12MachineInstrEjRNS_15SmallVectorImplIPS0_EES5_RNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEE(ptr noundef nonnull align 8 dereferenceable(70) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(20) %4) unnamed_addr #2 {
+define internal fastcc void @_ZL17genShXAddAddShiftRN4llvm12MachineInstrEjRNS_15SmallVectorImplIPS0_EES5_RNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEE(ptr noundef nonnull align 8 dereferenceable(70) %0, i32 noundef range(i32 1, 3) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(20) %4) unnamed_addr #2 {
   %6 = alloca %"class.llvm::MachineOperand", align 8
   %7 = alloca %"class.llvm::MachineOperand", align 8
   %8 = alloca %"class.llvm::MachineOperand", align 8
@@ -14764,7 +14764,7 @@ _ZL20getSHXADDShiftAmountj.exit:                  ; preds = %switch.lookup, %5
   %30 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo16getUniqueVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512) %15, i32 %29) #25
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load ptr, ptr %31, align 8
-  %33 = zext i32 %1 to i64
+  %33 = zext nneg i32 %1 to i64
   %34 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %32, i64 %33, i32 1
   %35 = load i32, ptr %34, align 4
   %36 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo16getUniqueVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512) %15, i32 %35) #25
@@ -14777,7 +14777,7 @@ _ZL20getSHXADDShiftAmountj.exit:                  ; preds = %switch.lookup, %5
   %43 = sext i32 %42 to i64
   %switch.gep104 = getelementptr inbounds [4 x i64], ptr @switch.table._ZL17genShXAddAddShiftRN4llvm12MachineInstrEjRNS_15SmallVectorImplIPS0_EES5_RNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEE.58, i64 0, i64 %43
   %switch.load105 = load i64, ptr %switch.gep104, align 8
-  %44 = sub nuw nsw i32 3, %1
+  %44 = xor i32 %1, 3
   %45 = load ptr, ptr %31, align 8
   %46 = zext nneg i32 %44 to i64
   %47 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %45, i64 %46

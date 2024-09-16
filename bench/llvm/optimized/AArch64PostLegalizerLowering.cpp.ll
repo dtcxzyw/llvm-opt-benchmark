@@ -643,7 +643,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i.i:    ; preds = %26
   %31 = getelementptr inbounds i8, ptr %27, i64 1
   %32 = add i64 %28, -1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_125getRuleRangeForIdentifierEN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr nonnull %31, i64 %32)
+  call fastcc void @_ZN12_GLOBAL__N_125getRuleRangeForIdentifierEN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %3, ptr nonnull %31, i64 %32)
   %33 = load i8, ptr %22, align 8
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %_ZN12_GLOBAL__N_142AArch64PostLegalizerLoweringImplRuleConfig14setRuleEnabledEN4llvm9StringRefE.exit.thread19.i
@@ -676,7 +676,7 @@ _ZN12_GLOBAL__N_142AArch64PostLegalizerLoweringImplRuleConfig14setRuleEnabledEN4
 
 .critedge.i:                                      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i, %26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call fastcc void @_ZN12_GLOBAL__N_125getRuleRangeForIdentifierEN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr %27, i64 %28)
+  call fastcc void @_ZN12_GLOBAL__N_125getRuleRangeForIdentifierEN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %2, ptr %27, i64 %28)
   %41 = load i8, ptr %24, align 8
   %42 = trunc i8 %41 to i1
   br i1 %42, label %43, label %_ZN12_GLOBAL__N_142AArch64PostLegalizerLoweringImplRuleConfig15setRuleDisabledEN4llvm9StringRefE.exit.thread20.i
@@ -1657,7 +1657,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125getRuleRangeForIdentifierEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_125getRuleRangeForIdentifierEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -2979,7 +2979,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit.i.i71:       ; preds = %405, %_ZNK4llvm19Ma
 
 _ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefIiEEZN12_GLOBAL__N_110getExtMaskES2_jE3$_0EEDaOT_T0_.exit.i.i.i"
   %444 = shl nuw nsw i32 %408, 1
-  %445 = call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %444, i1 false)
+  %445 = call range(i32 15, 33) i32 @llvm.ctlz.i32(i32 %444, i1 false)
   %446 = sub nsw i32 31, %445
   %447 = load i32, ptr %.028.i.i.i.i.i.i.i, align 4, !noalias !26
   %448 = add nsw i32 %447, 1
@@ -4849,8 +4849,8 @@ _ZNK4llvm3LLT14getNumElementsEv.exit.i.i155:      ; preds = %1269, %_ZNK4llvm19M
   br i1 %.not.i15.i.i, label %.preheader.i.i.i156, label %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit
 
 .preheader.i.i.i156:                              ; preds = %_ZNK4llvm3LLT14getNumElementsEv.exit.i.i155
-  %.not54.i.i = icmp eq i32 %1272, 0
-  br i1 %.not54.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i157
+  %.not55.i.i.i = icmp eq i32 %1272, 0
+  br i1 %.not55.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i157
 
 .lr.ph.i.i.i157:                                  ; preds = %.preheader.i.i.i156, %1285
   %indvars.iv.i.i.i158 = phi i64 [ %indvars.iv.next.i.i.i160, %1285 ], [ 0, %.preheader.i.i.i156 ]

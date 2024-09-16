@@ -1907,7 +1907,7 @@ declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119X86MachObjectWriter25recordScatteredRelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueEjRm(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(372) %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture readonly %.0.val, ptr readonly %.8.val, i32 noundef %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119X86MachObjectWriter25recordScatteredRelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueEjRm(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(372) %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture readonly %.0.val, ptr readonly %.8.val, i32 noundef range(i32 0, 4) %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
@@ -2250,7 +2250,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit137:               ; preds = %169, %174
 179:                                              ; preds = %.loopexit
   %180 = shl nuw nsw i32 %4, 28
   %181 = select i1 %24, i32 1073741824, i32 0
-  %182 = or i32 %180, %181
+  %182 = or disjoint i32 %181, %180
   %183 = or disjoint i32 %182, -2130706432
   store i32 %183, ptr %14, align 4
   %184 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -2278,8 +2278,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit137:               ; preds = %169, %174
   %.pre-phi = phi i32 [ %.pre45, %.thread._crit_edge ], [ %180, %179 ]
   %.05120 = phi i32 [ 0, %.thread._crit_edge ], [ %126, %179 ]
   %190 = or disjoint i32 %.05120, %.pre-phi
-  %191 = or i32 %.pre-phi47, %190
-  %192 = or i32 %191, %21
+  %191 = or disjoint i32 %190, %.pre-phi47
+  %192 = or i32 %21, %191
   %193 = or i32 %192, -2147483648
   store i32 %193, ptr %15, align 4
   %194 = getelementptr inbounds nuw i8, ptr %15, i64 4

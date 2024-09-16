@@ -267,11 +267,11 @@ define internal fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %1)
   ]
 
 6:                                                ; preds = %4
-  %7 = tail call fastcc ptr @transformColumnRef(ptr noundef %0, ptr noundef nonnull %1)
+  %7 = tail call fastcc ptr @transformColumnRef(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 8:                                                ; preds = %4
-  %9 = tail call fastcc ptr @transformParamRef(ptr noundef %0, ptr noundef nonnull %1)
+  %9 = tail call fastcc ptr @transformParamRef(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 10:                                               ; preds = %4
@@ -279,7 +279,7 @@ define internal fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 12:                                               ; preds = %4
-  %13 = tail call fastcc ptr @transformIndirection(ptr noundef %0, ptr noundef nonnull %1)
+  %13 = tail call fastcc ptr @transformIndirection(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 14:                                               ; preds = %4
@@ -287,11 +287,11 @@ define internal fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 16:                                               ; preds = %4
-  %17 = tail call fastcc ptr @transformTypeCast(ptr noundef %0, ptr noundef nonnull %1)
+  %17 = tail call fastcc ptr @transformTypeCast(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 18:                                               ; preds = %4
-  %19 = tail call fastcc ptr @transformCollateClause(ptr noundef %0, ptr noundef nonnull %1)
+  %19 = tail call fastcc ptr @transformCollateClause(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 20:                                               ; preds = %4
@@ -315,35 +315,35 @@ define internal fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %1)
   ]
 
 23:                                               ; preds = %20
-  %24 = tail call fastcc ptr @transformAExprOp(ptr noundef %0, ptr noundef nonnull %1)
+  %24 = tail call fastcc ptr @transformAExprOp(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 25:                                               ; preds = %20
-  %26 = tail call fastcc ptr @transformAExprOpAny(ptr noundef %0, ptr noundef nonnull %1)
+  %26 = tail call fastcc ptr @transformAExprOpAny(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 27:                                               ; preds = %20
-  %28 = tail call fastcc ptr @transformAExprOpAll(ptr noundef %0, ptr noundef nonnull %1)
+  %28 = tail call fastcc ptr @transformAExprOpAll(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 29:                                               ; preds = %20, %20
-  %30 = tail call fastcc ptr @transformAExprDistinct(ptr noundef %0, ptr noundef nonnull %1)
+  %30 = tail call fastcc ptr @transformAExprDistinct(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 31:                                               ; preds = %20
-  %32 = tail call fastcc ptr @transformAExprNullIf(ptr noundef %0, ptr noundef nonnull %1)
+  %32 = tail call fastcc ptr @transformAExprNullIf(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 33:                                               ; preds = %20
-  %34 = tail call fastcc ptr @transformAExprIn(ptr noundef %0, ptr noundef nonnull %1)
+  %34 = tail call fastcc ptr @transformAExprIn(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 35:                                               ; preds = %20, %20, %20
-  %36 = tail call fastcc ptr @transformAExprOp(ptr noundef %0, ptr noundef nonnull %1)
+  %36 = tail call fastcc ptr @transformAExprOp(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 37:                                               ; preds = %20, %20, %20, %20
-  %38 = tail call fastcc ptr @transformAExprBetween(ptr noundef %0, ptr noundef nonnull %1)
+  %38 = tail call fastcc ptr @transformAExprBetween(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 39:                                               ; preds = %20
@@ -355,15 +355,15 @@ define internal fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %1)
   unreachable
 
 43:                                               ; preds = %4
-  %44 = tail call fastcc ptr @transformBoolExpr(ptr noundef %0, ptr noundef nonnull %1)
+  %44 = tail call fastcc ptr @transformBoolExpr(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 45:                                               ; preds = %4
-  %46 = tail call fastcc ptr @transformFuncCall(ptr noundef %0, ptr noundef nonnull %1)
+  %46 = tail call fastcc ptr @transformFuncCall(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 47:                                               ; preds = %4
-  %48 = tail call fastcc ptr @transformMultiAssignRef(ptr noundef %0, ptr noundef nonnull %1)
+  %48 = tail call fastcc ptr @transformMultiAssignRef(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 49:                                               ; preds = %4
@@ -382,11 +382,11 @@ common.ret101:                                    ; preds = %6, %8, %10, %12, %1
   br label %common.ret101
 
 55:                                               ; preds = %4
-  %56 = tail call fastcc ptr @transformSubLink(ptr noundef %0, ptr noundef nonnull %1)
+  %56 = tail call fastcc ptr @transformSubLink(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 57:                                               ; preds = %4
-  %58 = tail call fastcc ptr @transformCaseExpr(ptr noundef %0, ptr noundef nonnull %1)
+  %58 = tail call fastcc ptr @transformCaseExpr(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 59:                                               ; preds = %4
@@ -394,23 +394,23 @@ common.ret101:                                    ; preds = %6, %8, %10, %12, %1
   br label %common.ret101
 
 61:                                               ; preds = %4
-  %62 = tail call fastcc ptr @transformCoalesceExpr(ptr noundef %0, ptr noundef nonnull %1)
+  %62 = tail call fastcc ptr @transformCoalesceExpr(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 63:                                               ; preds = %4
-  %64 = tail call fastcc ptr @transformMinMaxExpr(ptr noundef %0, ptr noundef nonnull %1)
+  %64 = tail call fastcc ptr @transformMinMaxExpr(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 65:                                               ; preds = %4
-  %66 = tail call fastcc ptr @transformSQLValueFunction(ptr noundef nonnull %1)
+  %66 = tail call fastcc ptr @transformSQLValueFunction(ptr noundef %1)
   br label %common.ret101
 
 67:                                               ; preds = %4
-  %68 = tail call fastcc ptr @transformXmlExpr(ptr noundef %0, ptr noundef nonnull %1)
+  %68 = tail call fastcc ptr @transformXmlExpr(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 69:                                               ; preds = %4
-  %70 = tail call fastcc ptr @transformXmlSerialize(ptr noundef %0, ptr noundef nonnull %1)
+  %70 = tail call fastcc ptr @transformXmlSerialize(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 71:                                               ; preds = %4
@@ -426,11 +426,11 @@ common.ret101:                                    ; preds = %6, %8, %10, %12, %1
   br label %common.ret101
 
 79:                                               ; preds = %4
-  %80 = tail call fastcc ptr @transformBooleanTest(ptr noundef %0, ptr noundef nonnull %1)
+  %80 = tail call fastcc ptr @transformBooleanTest(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 81:                                               ; preds = %4
-  %82 = tail call fastcc ptr @transformCurrentOfExpr(ptr noundef %0, ptr noundef nonnull %1)
+  %82 = tail call fastcc ptr @transformCurrentOfExpr(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 83:                                               ; preds = %4
@@ -445,39 +445,39 @@ common.ret101:                                    ; preds = %6, %8, %10, %12, %1
   unreachable
 
 90:                                               ; preds = %4
-  %91 = tail call fastcc ptr @transformJsonObjectConstructor(ptr noundef %0, ptr noundef nonnull %1)
+  %91 = tail call fastcc ptr @transformJsonObjectConstructor(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 92:                                               ; preds = %4
-  %93 = tail call fastcc ptr @transformJsonArrayConstructor(ptr noundef %0, ptr noundef nonnull %1)
+  %93 = tail call fastcc ptr @transformJsonArrayConstructor(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 94:                                               ; preds = %4
-  %95 = tail call fastcc ptr @transformJsonArrayQueryConstructor(ptr noundef %0, ptr noundef nonnull %1)
+  %95 = tail call fastcc ptr @transformJsonArrayQueryConstructor(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 96:                                               ; preds = %4
-  %97 = tail call fastcc ptr @transformJsonObjectAgg(ptr noundef %0, ptr noundef nonnull %1)
+  %97 = tail call fastcc ptr @transformJsonObjectAgg(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 98:                                               ; preds = %4
-  %99 = tail call fastcc ptr @transformJsonArrayAgg(ptr noundef %0, ptr noundef nonnull %1)
+  %99 = tail call fastcc ptr @transformJsonArrayAgg(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 100:                                              ; preds = %4
-  %101 = tail call fastcc ptr @transformJsonIsPredicate(ptr noundef %0, ptr noundef nonnull %1)
+  %101 = tail call fastcc ptr @transformJsonIsPredicate(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 102:                                              ; preds = %4
-  %103 = tail call fastcc ptr @transformJsonParseExpr(ptr noundef %0, ptr noundef nonnull %1)
+  %103 = tail call fastcc ptr @transformJsonParseExpr(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 104:                                              ; preds = %4
-  %105 = tail call fastcc ptr @transformJsonScalarExpr(ptr noundef %0, ptr noundef nonnull %1)
+  %105 = tail call fastcc ptr @transformJsonScalarExpr(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 106:                                              ; preds = %4
-  %107 = tail call fastcc ptr @transformJsonSerializeExpr(ptr noundef %0, ptr noundef nonnull %1)
+  %107 = tail call fastcc ptr @transformJsonSerializeExpr(ptr noundef %0, ptr noundef %1)
   br label %common.ret101
 
 108:                                              ; preds = %4
@@ -508,7 +508,7 @@ switch.lookup:                                    ; preds = %1
 declare void @check_stack_depth() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformColumnRef(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @transformColumnRef(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
@@ -539,7 +539,7 @@ define internal fastcc ptr @transformColumnRef(ptr noundef %0, ptr noundef %1) u
   br i1 %.not162, label %19, label %17
 
 17:                                               ; preds = %14
-  %18 = tail call ptr %16(ptr noundef nonnull %0, ptr noundef %1) #9
+  %18 = tail call ptr %16(ptr noundef nonnull %0, ptr noundef nonnull %1) #9
   %.not163 = icmp eq ptr %18, null
   br i1 %.not163, label %19, label %.thread180
 
@@ -580,7 +580,7 @@ list_length.exit:                                 ; preds = %19
 36:                                               ; preds = %33
   %37 = load i32, ptr %3, align 4
   %38 = load i32, ptr %29, align 8
-  %39 = call fastcc ptr @transformWholeRowRef(ptr noundef nonnull %0, ptr noundef nonnull %35, i32 noundef %37, i32 noundef %38)
+  %39 = call fastcc ptr @transformWholeRowRef(ptr noundef nonnull %0, ptr noundef %35, i32 noundef %37, i32 noundef %38)
   br label %list_length.exit.thread
 
 40:                                               ; preds = %list_length.exit
@@ -605,7 +605,7 @@ list_length.exit:                                 ; preds = %19
 54:                                               ; preds = %51
   %55 = load i32, ptr %3, align 4
   %56 = load i32, ptr %47, align 8
-  %57 = call fastcc ptr @transformWholeRowRef(ptr noundef nonnull %0, ptr noundef nonnull %49, i32 noundef %55, i32 noundef %56)
+  %57 = call fastcc ptr @transformWholeRowRef(ptr noundef nonnull %0, ptr noundef %49, i32 noundef %55, i32 noundef %56)
   br label %list_length.exit.thread
 
 58:                                               ; preds = %51
@@ -620,7 +620,7 @@ list_length.exit:                                 ; preds = %19
 65:                                               ; preds = %58
   %66 = load i32, ptr %3, align 4
   %67 = load i32, ptr %47, align 8
-  %68 = call fastcc ptr @transformWholeRowRef(ptr noundef nonnull %0, ptr noundef nonnull %49, i32 noundef %66, i32 noundef %67)
+  %68 = call fastcc ptr @transformWholeRowRef(ptr noundef nonnull %0, ptr noundef %49, i32 noundef %66, i32 noundef %67)
   %69 = call ptr @makeString(ptr noundef %60) #9
   %70 = call ptr @list_make1_impl(i32 noundef 1, ptr %69) #9
   %71 = call ptr @list_make1_impl(i32 noundef 1, ptr %68) #9
@@ -656,7 +656,7 @@ list_length.exit:                                 ; preds = %19
 94:                                               ; preds = %91
   %95 = load i32, ptr %3, align 4
   %96 = load i32, ptr %87, align 8
-  %97 = call fastcc ptr @transformWholeRowRef(ptr noundef nonnull %0, ptr noundef nonnull %89, i32 noundef %95, i32 noundef %96)
+  %97 = call fastcc ptr @transformWholeRowRef(ptr noundef nonnull %0, ptr noundef %89, i32 noundef %95, i32 noundef %96)
   br label %list_length.exit.thread
 
 98:                                               ; preds = %91
@@ -671,7 +671,7 @@ list_length.exit:                                 ; preds = %19
 105:                                              ; preds = %98
   %106 = load i32, ptr %3, align 4
   %107 = load i32, ptr %87, align 8
-  %108 = call fastcc ptr @transformWholeRowRef(ptr noundef nonnull %0, ptr noundef nonnull %89, i32 noundef %106, i32 noundef %107)
+  %108 = call fastcc ptr @transformWholeRowRef(ptr noundef nonnull %0, ptr noundef %89, i32 noundef %106, i32 noundef %107)
   %109 = call ptr @makeString(ptr noundef %100) #9
   %110 = call ptr @list_make1_impl(i32 noundef 1, ptr %109) #9
   %111 = call ptr @list_make1_impl(i32 noundef 1, ptr %108) #9
@@ -718,7 +718,7 @@ list_length.exit:                                 ; preds = %19
 142:                                              ; preds = %139
   %143 = load i32, ptr %3, align 4
   %144 = load i32, ptr %135, align 8
-  %145 = call fastcc ptr @transformWholeRowRef(ptr noundef nonnull %0, ptr noundef nonnull %137, i32 noundef %143, i32 noundef %144)
+  %145 = call fastcc ptr @transformWholeRowRef(ptr noundef nonnull %0, ptr noundef %137, i32 noundef %143, i32 noundef %144)
   br label %list_length.exit.thread
 
 146:                                              ; preds = %139
@@ -733,7 +733,7 @@ list_length.exit:                                 ; preds = %19
 153:                                              ; preds = %146
   %154 = load i32, ptr %3, align 4
   %155 = load i32, ptr %135, align 8
-  %156 = call fastcc ptr @transformWholeRowRef(ptr noundef nonnull %0, ptr noundef nonnull %137, i32 noundef %154, i32 noundef %155)
+  %156 = call fastcc ptr @transformWholeRowRef(ptr noundef nonnull %0, ptr noundef %137, i32 noundef %154, i32 noundef %155)
   %157 = call ptr @makeString(ptr noundef %148) #9
   %158 = call ptr @list_make1_impl(i32 noundef 1, ptr %157) #9
   %159 = call ptr @list_make1_impl(i32 noundef 1, ptr %156) #9
@@ -837,14 +837,14 @@ default.unreachable182:                           ; preds = %181
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @transformParamRef(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @transformParamRef(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr %4(ptr noundef nonnull %0, ptr noundef %1) #9
+  %6 = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %1) #9
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread, label %16
 
@@ -868,7 +868,7 @@ define internal fastcc nonnull ptr @transformParamRef(ptr noundef %0, ptr nounde
 declare ptr @make_const(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformIndirection(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformIndirection(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1229,7 +1229,7 @@ define internal fastcc noundef ptr @transformArrayExpr(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformTypeCast(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformTypeCast(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -1308,7 +1308,7 @@ define internal fastcc ptr @transformTypeCast(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformCollateClause(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformCollateClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 24) #9
   store i32 29, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1349,7 +1349,7 @@ define internal fastcc noundef ptr @transformCollateClause(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformAExprOp(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformAExprOp(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -1531,7 +1531,7 @@ exprIsNullConstant.exit67.thread74:               ; preds = %exprIsNullConstant.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformAExprOpAny(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformAExprOpAny(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %4)
@@ -1547,7 +1547,7 @@ define internal fastcc ptr @transformAExprOpAny(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformAExprOpAll(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformAExprOpAll(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %4)
@@ -1563,7 +1563,7 @@ define internal fastcc ptr @transformAExprOpAll(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformAExprDistinct(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformAExprDistinct(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -1789,7 +1789,7 @@ make_row_distinct_op.exit:                        ; preds = %.thread.thread.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformAExprNullIf(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformAExprNullIf(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %4)
@@ -1847,7 +1847,7 @@ define internal fastcc ptr @transformAExprNullIf(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformAExprIn(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformAExprIn(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
 sub_0:
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -2066,7 +2066,7 @@ list_length.exit.thread:                          ; preds = %45, %41, %._crit_ed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformAExprBetween(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformAExprBetween(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2183,7 +2183,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformBoolExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformBoolExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp ult i32 %4, 3
@@ -2242,7 +2242,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformFuncCall(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @transformFuncCall(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2317,12 +2317,12 @@ define internal fastcc ptr @transformFuncCall(ptr noundef %0, ptr noundef %1) un
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %1, i64 56
   %44 = load i32, ptr %43, align 8
-  %45 = tail call ptr @ParseFuncOrColumn(ptr noundef %0, ptr noundef %42, ptr noundef %.1, ptr noundef %4, ptr noundef %1, i1 noundef zeroext false, i32 noundef %44) #9
+  %45 = tail call ptr @ParseFuncOrColumn(ptr noundef %0, ptr noundef %42, ptr noundef %.1, ptr noundef %4, ptr noundef nonnull %1, i1 noundef zeroext false, i32 noundef %44) #9
   ret ptr %45
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformMultiAssignRef(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformMultiAssignRef(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 1
@@ -2538,7 +2538,7 @@ list_length.exit67:                               ; preds = %40, %44
 declare ptr @transformGroupingFunc(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @transformSubLink(ptr noundef %0, ptr noundef returned %1) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @transformSubLink(ptr noundef %0, ptr noundef nonnull returned %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   %switch.tableidx = add i32 %4, -27
@@ -2810,7 +2810,7 @@ list_length.exit86:                               ; preds = %list_length.exit84,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformCaseExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformCaseExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 48) #9
   store i32 30, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 176
@@ -3102,7 +3102,7 @@ list_length.exit20:                               ; preds = %25, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformCoalesceExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformCoalesceExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 32) #9
   store i32 36, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 176
@@ -3197,7 +3197,7 @@ define internal fastcc noundef ptr @transformCoalesceExpr(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformMinMaxExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformMinMaxExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 40) #9
   store i32 37, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 16
@@ -3279,7 +3279,7 @@ define internal fastcc noundef ptr @transformMinMaxExpr(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @transformSQLValueFunction(ptr noundef returned %0) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @transformSQLValueFunction(ptr noundef nonnull returned %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %36 [
@@ -3371,7 +3371,7 @@ define internal fastcc nonnull ptr @transformSQLValueFunction(ptr noundef return
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformXmlExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformXmlExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 64) #9
   store i32 39, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 4
@@ -3618,7 +3618,7 @@ define internal fastcc noundef ptr @transformXmlExpr(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @transformXmlSerialize(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @transformXmlSerialize(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = tail call noundef ptr @palloc0(i64 noundef 64) #9
@@ -3679,7 +3679,7 @@ declare zeroext i1 @type_is_rowtype(i32 noundef) local_unnamed_addr #2
 declare i32 @exprType(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @transformBooleanTest(ptr noundef %0, ptr noundef returned %1) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @transformBooleanTest(ptr noundef %0, ptr noundef nonnull returned %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp ult i32 %4, 6
@@ -3707,7 +3707,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @transformCurrentOfExpr(ptr noundef %0, ptr noundef returned %1) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @transformCurrentOfExpr(ptr noundef %0, ptr noundef nonnull returned %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -3787,7 +3787,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 declare i32 @parser_errposition(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformJsonObjectConstructor(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformJsonObjectConstructor(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3886,7 +3886,7 @@ transformJsonConstructorOutput.exit:              ; preds = %.loopexit, %.split.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformJsonArrayConstructor(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformJsonArrayConstructor(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3976,7 +3976,7 @@ transformJsonConstructorOutput.exit:              ; preds = %.loopexit, %.split.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformJsonArrayQueryConstructor(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformJsonArrayQueryConstructor(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 48) #9
   store i32 20, ptr %3, align 4
   %4 = tail call noundef ptr @palloc0(i64 noundef 160) #9
@@ -4094,7 +4094,7 @@ define internal fastcc ptr @transformJsonArrayQueryConstructor(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformJsonObjectAgg(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformJsonObjectAgg(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -4200,7 +4200,7 @@ transformJsonConstructorOutput.exit:              ; preds = %2, %.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformJsonArrayAgg(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformJsonArrayAgg(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call fastcc ptr @transformJsonValueExpr(ptr noundef %0, ptr noundef nonnull @.str.153, ptr noundef %4, i32 noundef 0, i32 noundef 0)
@@ -4277,13 +4277,13 @@ transformJsonConstructorOutput.exit:              ; preds = %2, %.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformJsonIsPredicate(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformJsonIsPredicate(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = call fastcc ptr @transformJsonParseArg(ptr noundef %0, ptr noundef %5, ptr noundef %7, ptr noundef nonnull %3)
+  %8 = call fastcc ptr @transformJsonParseArg(ptr noundef %0, ptr noundef %5, ptr noundef %7, ptr noundef %3)
   %9 = load i32, ptr %3, align 4
   switch i32 %9, label %10 [
     i32 3802, label %15
@@ -4313,7 +4313,7 @@ define internal fastcc ptr @transformJsonIsPredicate(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformJsonParseExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformJsonParseExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -4330,7 +4330,7 @@ define internal fastcc noundef ptr @transformJsonParseExpr(ptr noundef %0, ptr n
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %11, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = call fastcc ptr @transformJsonParseArg(ptr noundef %0, ptr noundef %14, ptr noundef %16, ptr noundef nonnull %3)
+  %17 = call fastcc ptr @transformJsonParseArg(ptr noundef %0, ptr noundef %14, ptr noundef %16, ptr noundef %3)
   %18 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %18, 25
   br i1 %.not, label %30, label %19
@@ -4364,7 +4364,7 @@ define internal fastcc noundef ptr @transformJsonParseExpr(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformJsonScalarExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformJsonScalarExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %4)
@@ -4389,7 +4389,7 @@ define internal fastcc noundef ptr @transformJsonScalarExpr(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformJsonSerializeExpr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformJsonSerializeExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4450,7 +4450,7 @@ declare ptr @colNameToVar(ptr noundef, ptr noundef, i1 noundef zeroext, i32 noun
 declare ptr @refnameNamespaceItem(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformWholeRowRef(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformWholeRowRef(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5070,7 +5070,7 @@ declare ptr @FigureColname(ptr noundef) local_unnamed_addr #2
 declare ptr @coerce_to_specific_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformJsonValueExpr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @transformJsonValueExpr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = getelementptr inbounds i8, ptr %2, i64 8
@@ -5139,7 +5139,7 @@ define internal fastcc ptr @transformJsonValueExpr(ptr noundef %0, ptr noundef %
   br i1 %or.cond93, label %88, label %.thread125
 
 .thread98:                                        ; preds = %35, %37
-  %.08096 = phi i32 [ %3, %37 ], [ %21, %35 ]
+  %.08096 = phi i32 [ 1, %37 ], [ %21, %35 ]
   %.not92 = icmp eq i32 %4, 0
   %38 = icmp ne i32 %16, 17
   %or.cond7 = select i1 %.not92, i1 %38, i1 false
@@ -5247,7 +5247,7 @@ define internal fastcc ptr @transformJsonValueExpr(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @makeJsonConstructorExpr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc noundef ptr @makeJsonConstructorExpr(ptr noundef %0, i32 noundef range(i32 1, 8) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7) unnamed_addr #0 {
   %9 = zext i1 %5 to i8
   %10 = zext i1 %6 to i8
   %11 = tail call noundef ptr @palloc0(i64 noundef 48) #9
@@ -5571,7 +5571,7 @@ declare void @free_parsestate(ptr noundef) local_unnamed_addr #2
 declare ptr @makeJsonValueExpr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformJsonAggConstructor(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformJsonAggConstructor(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 3175, 6291) %4, i32 noundef range(i32 114, 3803) %5, i32 noundef range(i32 3, 5) %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 {
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
@@ -5674,7 +5674,7 @@ declare void @transformWindowFuncCall(ptr noundef, ptr noundef, ptr noundef) loc
 declare void @transformAggregateCall(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformJsonParseArg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @transformJsonParseArg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %1)

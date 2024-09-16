@@ -1911,9 +1911,9 @@ if.end93:                                         ; preds = %invoke.cont33, %if.
   %38 = load i32, ptr %fLength.i.i41, align 4
   %cond.i.i42 = select i1 %cmp.i.i.i39, i32 %38, i32 %shr.i.i.i40
   %cmp.not.i = icmp eq i32 %cond.i.i42, 0
-  br i1 %cmp.not.i, label %invoke.cont94, label %if.then.i.i.i
+  br i1 %cmp.not.i, label %invoke.cont94, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i
 
-if.then.i.i.i:                                    ; preds = %if.end93
+_ZNK6icu_7513UnicodeString6charAtEi.exit.i:       ; preds = %if.end93
   %39 = and i16 %36, 2
   %tobool.not.i.i.i.i = icmp eq i16 %39, 0
   %40 = load ptr, ptr %fArray.i.i.i.i, align 8
@@ -1925,7 +1925,7 @@ if.then.i.i.i:                                    ; preds = %if.end93
   %cmp4.not.i = icmp eq i16 %43, 10
   br i1 %cmp4.not.i, label %invoke.cont94, label %if.then.i43
 
-if.then.i43:                                      ; preds = %if.then.i.i.i
+if.then.i43:                                      ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i.i)
   store i16 10, ptr %srcChar.addr.i.i, align 2
   %call.i.i44 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %rulesSource, ptr noundef nonnull %srcChar.addr.i.i, i32 noundef 0, i32 noundef 1)
@@ -1935,7 +1935,7 @@ call.i.i.noexc:                                   ; preds = %if.then.i43
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i.i)
   br label %invoke.cont94
 
-invoke.cont94:                                    ; preds = %call.i.i.noexc, %if.then.i.i.i, %if.end93
+invoke.cont94:                                    ; preds = %call.i.i.noexc, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, %if.end93
   %44 = load i16, ptr %fUnion2.i28, align 8
   %cmp.i.i.i46 = icmp slt i16 %44, 0
   %45 = ashr i16 %44, 5
@@ -1953,9 +1953,9 @@ invoke.cont95:                                    ; preds = %invoke.cont94
   %49 = load i32, ptr %fLength.i.i41, align 4
   %cond.i.i57 = select i1 %cmp.i.i.i54, i32 %49, i32 %shr.i.i.i55
   %cmp.not.i58 = icmp eq i32 %cond.i.i57, 0
-  br i1 %cmp.not.i58, label %invoke.cont97, label %if.then.i.i.i59
+  br i1 %cmp.not.i58, label %invoke.cont97, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i59
 
-if.then.i.i.i59:                                  ; preds = %invoke.cont95
+_ZNK6icu_7513UnicodeString6charAtEi.exit.i59:     ; preds = %invoke.cont95
   %50 = and i16 %47, 2
   %tobool.not.i.i.i.i60 = icmp eq i16 %50, 0
   %51 = load ptr, ptr %fArray.i.i.i.i, align 8
@@ -1967,7 +1967,7 @@ if.then.i.i.i59:                                  ; preds = %invoke.cont95
   %cmp4.not.i65 = icmp eq i16 %54, 59
   br i1 %cmp4.not.i65, label %invoke.cont97, label %if.then.i66
 
-if.then.i66:                                      ; preds = %if.then.i.i.i59
+if.then.i66:                                      ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i59
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i.i52)
   store i16 59, ptr %srcChar.addr.i.i52, align 2
   %call.i.i68 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %rulesSource, ptr noundef nonnull %srcChar.addr.i.i52, i32 noundef 0, i32 noundef 1)
@@ -1977,7 +1977,7 @@ call.i.i.noexc67:                                 ; preds = %if.then.i66
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i.i52)
   br label %invoke.cont97
 
-invoke.cont97:                                    ; preds = %call.i.i.noexc67, %if.then.i.i.i59, %invoke.cont95
+invoke.cont97:                                    ; preds = %call.i.i.noexc67, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i59, %invoke.cont95
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %rule) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %count, align 8

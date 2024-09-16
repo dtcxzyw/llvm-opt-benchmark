@@ -127,7 +127,7 @@ Abc_NtkIsMappedNetlist.exit.thread:               ; preds = %3, %Abc_NtkIsAigNet
   %19 = getelementptr inbounds i8, ptr %0, i64 176
   %20 = load ptr, ptr %19, align 8
   %.not30 = icmp eq ptr %20, null
-  tail call fastcc void @Io_WriteVerilogInt(ptr noundef nonnull %9, ptr noundef nonnull %0, i32 noundef %2)
+  tail call fastcc void @Io_WriteVerilogInt(ptr noundef %9, ptr noundef nonnull %0, i32 noundef %2)
   br i1 %.not30, label %.critedge, label %21
 
 21:                                               ; preds = %14
@@ -152,7 +152,7 @@ Abc_NtkIsMappedNetlist.exit.thread:               ; preds = %3, %Abc_NtkIsAigNet
 
 33:                                               ; preds = %.lr.ph
   %fputc32 = tail call i32 @fputc(i32 10, ptr nonnull %9)
-  tail call fastcc void @Io_WriteVerilogInt(ptr noundef nonnull %9, ptr noundef %31, i32 noundef %2)
+  tail call fastcc void @Io_WriteVerilogInt(ptr noundef %9, ptr noundef %31, i32 noundef %2)
   %.pre = load ptr, ptr %19, align 8
   br label %34
 
@@ -188,7 +188,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare ptr @Extra_TimeStamp(...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_WriteVerilogInt(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @Io_WriteVerilogInt(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val) #11
@@ -269,7 +269,7 @@ define internal fastcc void @Io_WriteVerilogInt(ptr noundef %0, ptr nocapture no
 
 Io_WriteVerilogGetName.exit:                      ; preds = %17, %._crit_edge.i, %._crit_edge49.i
   %.0.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i ], [ %.val, %._crit_edge.i ], [ %.val, %17 ]
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.44, ptr noundef nonnull %.0.i) #10
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.44, ptr noundef nonnull %.0.i) #10
   %31 = getelementptr i8, ptr %1, i64 128
   %.val44 = load i32, ptr %31, align 8
   %32 = icmp sgt i32 %.val44, 0
@@ -283,11 +283,11 @@ Io_WriteVerilogGetName.exit:                      ; preds = %17, %._crit_edge.i,
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %33
-  %39 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 7, i64 1, ptr %0)
+  %39 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 7, i64 1, ptr nonnull %0)
   br label %40
 
 40:                                               ; preds = %38, %33, %Io_WriteVerilogGetName.exit
-  %41 = tail call i64 @fwrite(ptr nonnull @.str.47, i64 4, i64 1, ptr %0)
+  %41 = tail call i64 @fwrite(ptr nonnull @.str.47, i64 4, i64 1, ptr nonnull %0)
   %42 = getelementptr i8, ptr %1, i64 40
   %.val48 = load ptr, ptr %42, align 8
   %43 = getelementptr i8, ptr %.val48, i64 4
@@ -296,8 +296,8 @@ Io_WriteVerilogGetName.exit:                      ; preds = %17, %._crit_edge.i,
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %40
-  tail call fastcc void @Io_WriteVerilogPis(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 3)
-  %46 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 5, i64 1, ptr %0)
+  tail call fastcc void @Io_WriteVerilogPis(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 3)
+  %46 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 5, i64 1, ptr nonnull %0)
   br label %47
 
 47:                                               ; preds = %45, %40
@@ -309,11 +309,11 @@ Io_WriteVerilogGetName.exit:                      ; preds = %17, %._crit_edge.i,
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %47
-  tail call fastcc void @Io_WriteVerilogPos(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 3)
+  tail call fastcc void @Io_WriteVerilogPos(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 3)
   br label %52
 
 52:                                               ; preds = %51, %47
-  %53 = tail call i64 @fwrite(ptr nonnull @.str.60, i64 5, i64 1, ptr %0)
+  %53 = tail call i64 @fwrite(ptr nonnull @.str.60, i64 5, i64 1, ptr nonnull %0)
   %.val45 = load i32, ptr %31, align 8
   %54 = icmp sgt i32 %.val45, 0
   br i1 %54, label %55, label %62
@@ -326,7 +326,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %17, %._crit_edge.i,
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %55
-  %61 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 16, i64 1, ptr %0)
+  %61 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 16, i64 1, ptr nonnull %0)
   br label %62
 
 62:                                               ; preds = %60, %55, %52
@@ -337,9 +337,9 @@ Io_WriteVerilogGetName.exit:                      ; preds = %17, %._crit_edge.i,
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %62
-  %66 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 8, i64 1, ptr %0)
-  tail call fastcc void @Io_WriteVerilogPis(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 10)
-  %67 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 2, i64 1, ptr %0)
+  %66 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 8, i64 1, ptr nonnull %0)
+  tail call fastcc void @Io_WriteVerilogPis(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 10)
+  %67 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 2, i64 1, ptr nonnull %0)
   br label %68
 
 68:                                               ; preds = %65, %62
@@ -350,9 +350,9 @@ Io_WriteVerilogGetName.exit:                      ; preds = %17, %._crit_edge.i,
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %68
-  %72 = tail call i64 @fwrite(ptr nonnull @.str.53, i64 8, i64 1, ptr %0)
-  tail call fastcc void @Io_WriteVerilogPos(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 5)
-  %73 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 2, i64 1, ptr %0)
+  %72 = tail call i64 @fwrite(ptr nonnull @.str.53, i64 8, i64 1, ptr nonnull %0)
+  tail call fastcc void @Io_WriteVerilogPos(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 5)
+  %73 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 2, i64 1, ptr nonnull %0)
   br label %74
 
 74:                                               ; preds = %71, %68
@@ -367,9 +367,9 @@ Io_WriteVerilogGetName.exit:                      ; preds = %17, %._crit_edge.i,
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
-  %79 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 5, i64 1, ptr %0)
-  tail call fastcc void @Io_WriteVerilogRegs(ptr noundef %0, ptr noundef nonnull %1)
-  %80 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 2, i64 1, ptr %0)
+  %79 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 5, i64 1, ptr nonnull %0)
+  tail call fastcc void @Io_WriteVerilogRegs(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %80 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 2, i64 1, ptr nonnull %0)
   br label %81
 
 81:                                               ; preds = %78, %76
@@ -378,9 +378,9 @@ Io_WriteVerilogGetName.exit:                      ; preds = %17, %._crit_edge.i,
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %81
-  %85 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 6, i64 1, ptr %0)
-  tail call fastcc void @Io_WriteVerilogWires(ptr noundef %0, ptr noundef nonnull %1)
-  %86 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 2, i64 1, ptr %0)
+  %85 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 6, i64 1, ptr nonnull %0)
+  tail call fastcc void @Io_WriteVerilogWires(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %86 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 2, i64 1, ptr nonnull %0)
   br label %87
 
 87:                                               ; preds = %84, %81
@@ -430,8 +430,8 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %87
   %105 = getelementptr inbounds i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8
   %107 = add nsw i32 %.0155547.i, 1
-  %108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef %106, i32 noundef %.09.i.i, i32 noundef %.0155547.i) #10
-  %fputc174.i = tail call i32 @fputc(i32 40, ptr %0)
+  %108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.22, ptr noundef %106, i32 noundef %.09.i.i, i32 noundef %.0155547.i) #10
+  %fputc174.i = tail call i32 @fputc(i32 40, ptr nonnull %0)
   %109 = getelementptr i8, ptr %104, i64 40
   %.val178537.i = load ptr, ptr %109, align 8
   %110 = getelementptr i8, ptr %.val178537.i, i64 4
@@ -552,7 +552,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %87
 
 Io_WriteVerilogGetName.exit.i:                    ; preds = %140, %._crit_edge49.i.i, %._crit_edge.i.i
   %.0.i.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i.i ], [ %127, %._crit_edge.i.i ], [ %127, %140 ]
-  %153 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0.i.i) #10
+  %153 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0.i.i) #10
   %.val227.i = load ptr, ptr %99, align 8
   %.val228.i = load ptr, ptr %112, align 8
   %154 = getelementptr i8, ptr %.val227.i, i64 32
@@ -654,7 +654,7 @@ Io_WriteVerilogGetName.exit.i:                    ; preds = %140, %._crit_edge49
 
 Io_WriteVerilogGetName.exit258.i:                 ; preds = %180, %._crit_edge49.i235.i, %._crit_edge.i246.i
   %.0.i238.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i235.i ], [ %167, %._crit_edge.i246.i ], [ %167, %180 ]
-  %193 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0.i238.i) #10
+  %193 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0.i238.i) #10
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i56, 1
   %.val178.i = load ptr, ptr %109, align 8
   %194 = getelementptr i8, ptr %.val178.i, i64 4
@@ -760,7 +760,7 @@ Io_WriteVerilogGetName.exit258.i:                 ; preds = %180, %._crit_edge49
 
 Io_WriteVerilogGetName.exit283.i:                 ; preds = %220, %._crit_edge49.i260.i, %._crit_edge.i271.i
   %.0.i263.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i260.i ], [ %207, %._crit_edge.i271.i ], [ %207, %220 ]
-  %233 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0.i263.i) #10
+  %233 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0.i263.i) #10
   %.val215.i = load ptr, ptr %99, align 8
   %.val216.i = load ptr, ptr %116, align 8
   %234 = getelementptr i8, ptr %.val215.i, i64 32
@@ -869,7 +869,7 @@ Io_WriteVerilogGetName.exit308.i:                 ; preds = %260, %._crit_edge49
   %275 = zext i32 %274 to i64
   %276 = icmp eq i64 %indvars.iv581.i, %275
   %277 = select i1 %276, ptr @.str.27, ptr @.str.28
-  %278 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %.0.i288.i, ptr noundef nonnull %277) #10
+  %278 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %.0.i288.i, ptr noundef nonnull %277) #10
   %indvars.iv.next582.i = add nuw nsw i64 %indvars.iv581.i, 1
   %.val193.i = load ptr, ptr %113, align 8
   %279 = getelementptr i8, ptr %.val193.i, i64 4
@@ -879,7 +879,7 @@ Io_WriteVerilogGetName.exit308.i:                 ; preds = %260, %._crit_edge49
   br i1 %281, label %197, label %.critedge4.i, !llvm.loop !10
 
 .critedge4.i:                                     ; preds = %Io_WriteVerilogGetName.exit308.i, %.critedge2.preheader.i
-  %282 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 3, i64 1, ptr %0)
+  %282 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 3, i64 1, ptr nonnull %0)
   %.pre.i = load ptr, ptr %88, align 8
   br label %283
 
@@ -1061,14 +1061,14 @@ Io_WriteVerilogGetName.exit340.i:                 ; preds = %340, %._crit_edge49
   %354 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %353, ptr noundef nonnull dereferenceable(9) @.str.62) #11
   %.not171.i = icmp eq i32 %354, 0
   %355 = zext i1 %.not171.i to i32
-  %356 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.63, i32 noundef %291, ptr noundef nonnull @.str.64, ptr noundef nonnull %.0.i320.i, i32 noundef %355) #10
+  %356 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.63, i32 noundef %291, ptr noundef nonnull @.str.64, ptr noundef nonnull %.0.i320.i, i32 noundef %355) #10
   br label %487
 
 357:                                              ; preds = %317, %309
   %358 = tail call ptr @Mio_GateReadName(ptr noundef %311) #10
   %359 = add nsw i32 %.2157564.i, 1
-  %360 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.68, i32 noundef %291, ptr noundef %358, i32 noundef %.09.i314.i, i32 noundef %.2157564.i) #10
-  %fputc.i = tail call i32 @fputc(i32 40, ptr %0)
+  %360 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.68, i32 noundef %291, ptr noundef %358, i32 noundef %.09.i314.i, i32 noundef %.2157564.i) #10
+  %fputc.i = tail call i32 @fputc(i32 40, ptr nonnull %0)
   %361 = tail call ptr @Mio_GateReadPins(ptr noundef %311) #10
   %.not172559.i = icmp eq ptr %361, null
   br i1 %.not172559.i, label %._crit_edge.i54, label %.lr.ph562.i
@@ -1159,7 +1159,7 @@ Io_WriteVerilogGetName.exit340.i:                 ; preds = %340, %._crit_edge49
 
 Io_WriteVerilogGetName.exit365.i:                 ; preds = %377, %._crit_edge49.i342.i, %._crit_edge.i353.i
   %.0.i345.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i342.i ], [ %364, %._crit_edge.i353.i ], [ %364, %377 ]
-  %390 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0.i345.i) #10
+  %390 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0.i345.i) #10
   %.val225.i = load ptr, ptr %304, align 8
   %.val226.i = load ptr, ptr %362, align 8
   %391 = getelementptr i8, ptr %.val225.i, i64 32
@@ -1250,7 +1250,7 @@ Io_WriteVerilogGetName.exit365.i:                 ; preds = %377, %._crit_edge49
 
 Io_WriteVerilogGetName.exit390.i:                 ; preds = %411, %._crit_edge49.i367.i, %._crit_edge.i378.i
   %.0.i370.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i367.i ], [ %398, %._crit_edge.i378.i ], [ %398, %411 ]
-  %424 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0.i370.i) #10
+  %424 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0.i370.i) #10
   %425 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.1561.i) #10
   %indvars.iv.next594.i = add nuw nsw i64 %indvars.iv593.i, 1
   %.not172.i = icmp eq ptr %425, null
@@ -1336,7 +1336,7 @@ Io_WriteVerilogGetName.exit390.i:                 ; preds = %411, %._crit_edge49
 
 Io_WriteVerilogGetName.exit415.i:                 ; preds = %439, %._crit_edge49.i392.i, %._crit_edge.i403.i
   %.0.i395.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i392.i ], [ %426, %._crit_edge.i403.i ], [ %426, %439 ]
-  %452 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0.i395.i) #10
+  %452 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0.i395.i) #10
   %.val184.i = load ptr, ptr %304, align 8
   %453 = getelementptr i8, ptr %304, i64 48
   %.val185.i = load ptr, ptr %453, align 8
@@ -1427,8 +1427,8 @@ Io_WriteVerilogGetName.exit415.i:                 ; preds = %439, %._crit_edge49
 
 Io_WriteVerilogGetName.exit440.i:                 ; preds = %472, %._crit_edge49.i417.i, %._crit_edge.i428.i
   %.0.i420.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i417.i ], [ %459, %._crit_edge.i428.i ], [ %459, %472 ]
-  %485 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.69, ptr noundef nonnull %.0.i420.i) #10
-  %486 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 3, i64 1, ptr %0)
+  %485 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.69, ptr noundef nonnull %.0.i420.i) #10
+  %486 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 3, i64 1, ptr nonnull %0)
   br label %487
 
 487:                                              ; preds = %Io_WriteVerilogGetName.exit440.i, %Io_WriteVerilogGetName.exit340.i, %306, %.lr.ph566.i
@@ -1574,9 +1574,9 @@ Io_WriteVerilogGetName.exit440.i:                 ; preds = %472, %._crit_edge49
 
 Io_WriteVerilogGetName.exit465.i:                 ; preds = %534, %._crit_edge49.i442.i, %._crit_edge.i453.i
   %.0.i445.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i442.i ], [ %521, %._crit_edge.i453.i ], [ %521, %534 ]
-  %547 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.70, ptr noundef nonnull %.0.i445.i) #10
+  %547 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.70, ptr noundef nonnull %.0.i445.i) #10
   %548 = tail call i32 @Abc_NodeIsConst1(ptr noundef nonnull %506) #10
-  %549 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.71, i32 noundef %548) #10
+  %549 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.71, i32 noundef %548) #10
   br label %.critedge12.i
 
 550:                                              ; preds = %511
@@ -1672,7 +1672,7 @@ Io_WriteVerilogGetName.exit465.i:                 ; preds = %534, %._crit_edge49
 
 Io_WriteVerilogGetName.exit490.i:                 ; preds = %572, %._crit_edge49.i467.i, %._crit_edge.i478.i
   %.0.i470.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i467.i ], [ %559, %._crit_edge.i478.i ], [ %559, %572 ]
-  %585 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.70, ptr noundef nonnull %.0.i470.i) #10
+  %585 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.70, ptr noundef nonnull %.0.i470.i) #10
   %.val212550.i = load i32, ptr %512, align 4
   %586 = icmp sgt i32 %.val212550.i, 0
   br i1 %586, label %.lr.ph552.i, label %.critedge10.i
@@ -1785,7 +1785,7 @@ Io_WriteVerilogGetName.exit515.i:                 ; preds = %609, %._crit_edge49
   br i1 %627, label %588, label %.critedge10.i, !llvm.loop !14
 
 .critedge10.i:                                    ; preds = %Io_WriteVerilogGetName.exit515.i, %Io_WriteVerilogGetName.exit490.i
-  tail call void @Hop_ObjPrintVerilog(ptr noundef %0, ptr noundef %552, ptr noundef nonnull %493, i32 noundef 0, i32 noundef %2) #10
+  tail call void @Hop_ObjPrintVerilog(ptr noundef nonnull %0, ptr noundef %552, ptr noundef nonnull %493, i32 noundef 0, i32 noundef %2) #10
   %628 = load i32, ptr %509, align 4
   %629 = and i32 %628, 512
   %.not162.i = icmp eq i32 %629, 0
@@ -1854,11 +1854,11 @@ Io_WriteVerilogGetName.exit515.i:                 ; preds = %609, %._crit_edge49
 
 665:                                              ; preds = %662, %646, %630
   %666 = phi ptr [ @.str.73, %646 ], [ @.str.73, %630 ], [ %664, %662 ]
-  %667 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.72, ptr noundef nonnull %666) #10
+  %667 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.72, ptr noundef nonnull %666) #10
   br label %670
 
 668:                                              ; preds = %.critedge10.i
-  %669 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 2, i64 1, ptr %0)
+  %669 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 2, i64 1, ptr nonnull %0)
   br label %670
 
 670:                                              ; preds = %668, %665
@@ -1954,11 +1954,11 @@ Io_WriteVerilogObjects.exit:                      ; preds = %487, %Abc_Base10Log
   br i1 %700, label %701, label %702
 
 701:                                              ; preds = %Io_WriteVerilogObjects.exit
-  tail call fastcc void @Io_WriteVerilogLatches(ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @Io_WriteVerilogLatches(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %702
 
 702:                                              ; preds = %Io_WriteVerilogObjects.exit, %701, %74
-  %703 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 11, i64 1, ptr %0)
+  %703 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 11, i64 1, ptr nonnull %0)
   ret void
 }
 
@@ -3819,7 +3819,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %18, %._crit_edge.i,
 declare i32 @Nm_ManFindIdByName(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_WriteVerilogPis(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @Io_WriteVerilogPis(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 3, 11) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %1, i64 40
   %.val2152 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val2152, i64 4
@@ -4046,7 +4046,7 @@ Io_WriteVerilogGetName.exit49:                    ; preds = %64, %._crit_edge.i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_WriteVerilogPos(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @Io_WriteVerilogPos(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 3, 6) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %1, i64 48
   %.val3469 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val3469, i64 4

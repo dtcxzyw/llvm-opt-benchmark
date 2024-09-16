@@ -129,7 +129,7 @@ if.then22:                                        ; preds = %if.end17
 if.end26:                                         ; preds = %if.then22
   %call27 = call ptr @X509_delete_ext(ptr noundef nonnull %call23, i32 noundef %spec.select) #3
   call void @X509_EXTENSION_free(ptr noundef %call27) #3
-  %call28 = call fastcc i32 @ct_x509_cert_fixup(ptr noundef nonnull %call23, ptr noundef %presigner)
+  %call28 = call fastcc i32 @ct_x509_cert_fixup(ptr noundef %call23, ptr noundef %presigner)
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %err, label %if.end31
 
@@ -183,7 +183,7 @@ declare void @X509_EXTENSION_free(ptr noundef) local_unnamed_addr #1
 declare ptr @X509_delete_ext(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ct_x509_cert_fixup(ptr noundef %cert, ptr noundef %presigner) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ct_x509_cert_fixup(ptr noundef nonnull %cert, ptr noundef %presigner) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %presigner, null
   br i1 %cmp, label %return, label %if.end
@@ -200,12 +200,12 @@ land.rhs.i:                                       ; preds = %if.end
 
 ct_x509_get_ext.exit:                             ; preds = %if.end, %land.rhs.i
   %land.ext.i = phi i1 [ false, %if.end ], [ %cmp3.i, %land.rhs.i ]
-  %call.i20 = tail call i32 @X509_get_ext_by_NID(ptr noundef %cert, i32 noundef 90, i32 noundef -1) #3
+  %call.i20 = tail call i32 @X509_get_ext_by_NID(ptr noundef nonnull %cert, i32 noundef 90, i32 noundef -1) #3
   %cmp1.i21 = icmp sgt i32 %call.i20, -1
   br i1 %cmp1.i21, label %land.rhs.i23, label %ct_x509_get_ext.exit26
 
 land.rhs.i23:                                     ; preds = %ct_x509_get_ext.exit
-  %call2.i24 = tail call i32 @X509_get_ext_by_NID(ptr noundef %cert, i32 noundef 90, i32 noundef %call.i20) #3
+  %call2.i24 = tail call i32 @X509_get_ext_by_NID(ptr noundef nonnull %cert, i32 noundef 90, i32 noundef %call.i20) #3
   %cmp3.i25 = icmp sgt i32 %call2.i24, -1
   br label %ct_x509_get_ext.exit26
 
@@ -230,7 +230,7 @@ if.end13:                                         ; preds = %if.end5
 
 if.end18:                                         ; preds = %if.end13
   %call19 = tail call ptr @X509_get_issuer_name(ptr noundef nonnull %presigner) #3
-  %call20 = tail call i32 @X509_set_issuer_name(ptr noundef %cert, ptr noundef %call19) #3
+  %call20 = tail call i32 @X509_set_issuer_name(ptr noundef nonnull %cert, ptr noundef %call19) #3
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %return, label %if.end23
 
@@ -239,7 +239,7 @@ if.end23:                                         ; preds = %if.end18
 
 if.then25:                                        ; preds = %if.end23
   %call26 = tail call ptr @X509_get_ext(ptr noundef nonnull %presigner, i32 noundef %call.i) #3
-  %call27 = tail call ptr @X509_get_ext(ptr noundef %cert, i32 noundef %call.i20) #3
+  %call27 = tail call ptr @X509_get_ext(ptr noundef nonnull %cert, i32 noundef %call.i20) #3
   %cmp28 = icmp eq ptr %call26, null
   %cmp30 = icmp eq ptr %call27, null
   %or.cond4 = select i1 %cmp28, i1 true, i1 %cmp30

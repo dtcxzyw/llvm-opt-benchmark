@@ -4456,7 +4456,7 @@ return:                                           ; preds = %for.body.i, %if.the
 declare noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr, i64, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %array.coerce0, i32 noundef %offset, i32 noundef %count) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112UsageCounter23countSerializedLiteralsEN4llvh8ArrayRefIhEEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr %array.coerce0, i32 noundef %offset, i32 noundef range(i32 0, 65536) %count) unnamed_addr #3 align 2 {
 entry:
   %ConstFoundBucket.i.i.i.i64 = alloca ptr, align 8
   %TheBucket.i.i65 = alloca ptr, align 8

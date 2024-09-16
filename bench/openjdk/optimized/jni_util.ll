@@ -1612,7 +1612,7 @@ define noundef ptr @GetStringPlatformChars(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, i8 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, i8 noundef zeroext range(i8 0, 2) %3) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %5
 
@@ -3233,7 +3233,7 @@ JNU_ClassString.exit.thread:                      ; preds = %23, %17, %9, %JNU_C
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @getStringBytes(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @getStringBytes(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 208
   %6 = load ptr, ptr %5, align 8

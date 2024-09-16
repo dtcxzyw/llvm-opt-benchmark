@@ -1821,7 +1821,7 @@ Vec_IntPush.exit141:                              ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Rsb_DecRecordCex(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @Rsb_DecRecordCex(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef range(i32 65, 64) %5) unnamed_addr #0 {
   %7 = icmp sgt i32 %1, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -3365,7 +3365,7 @@ Vec_IntPush.exit344:                              ; preds = %.Vec_IntGrow.exit10
   %.val = load i32, ptr %710, align 4
   %711 = load i32, ptr %10, align 4
   %712 = load i32, ptr %11, align 4
-  call fastcc void @Rsb_DecVerifyCex(ptr noundef %2, ptr noundef nonnull %8, i32 noundef %.val, i32 noundef %711, i32 noundef %712)
+  call fastcc void @Rsb_DecVerifyCex(ptr noundef %2, ptr noundef %8, i32 noundef %.val, i32 noundef %711, i32 noundef %712)
   %713 = add nsw i32 %.12389, 1
   call fastcc void @Rsb_DecRecordCex(ptr noundef nonnull %3, i32 noundef %5, i32 noundef %711, i32 noundef %712, ptr noundef nonnull %.val221, i32 noundef %.12389)
   %714 = load i32, ptr %655, align 4
@@ -3480,7 +3480,7 @@ define internal fastcc void @Vec_IntPrint(ptr nocapture noundef readonly %0) unn
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @Rsb_DecVerifyCex(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
+define internal fastcc void @Rsb_DecVerifyCex(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
   %6 = ashr i32 %3, 6
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds i64, ptr %0, i64 %7

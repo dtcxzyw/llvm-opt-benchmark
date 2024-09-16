@@ -6393,7 +6393,7 @@ define hidden zeroext i1 @"_ZN17pyo3_build_config5impl_22find_all_sysconfigdata2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h302295dbb6df46ecE(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h302295dbb6df46ecE(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [40 x i8], align 8
   %6 = alloca [24 x i8], align 8
@@ -6426,7 +6426,7 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
   %.sink140.sroa.gep = getelementptr inbounds i8, ptr %13, i64 32
   %.sink140.sroa.gep141 = getelementptr inbounds i8, ptr %17, i64 32
   %.sink140.sroa.gep142 = getelementptr inbounds i8, ptr %11, i64 32
-  %30 = invoke { ptr, i64 } @"_ZN82_$LT$std..path..PathBuf$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h61482c5eeae77637E"(ptr align 8 %1)
+  %30 = invoke { ptr, i64 } @"_ZN82_$LT$std..path..PathBuf$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h61482c5eeae77637E"(ptr nonnull align 8 %1)
           to label %34 unwind label %32
 
 31:                                               ; preds = %73, %52, %32
@@ -6467,7 +6467,7 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
   br label %.backedge
 
 51:                                               ; preds = %37
-  invoke void @"_ZN97_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$pyo3_build_config..errors..Context$LT$T$GT$$GT$12with_context28_$u7b$$u7b$closure$u7d$$u7d$17h0db3aa467912e791E"(ptr nonnull sret([40 x i8]) align 8 %5, ptr align 8 %1, ptr %40)
+  invoke void @"_ZN97_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$pyo3_build_config..errors..Context$LT$T$GT$$GT$12with_context28_$u7b$$u7b$closure$u7d$$u7d$17h0db3aa467912e791E"(ptr nonnull sret([40 x i8]) align 8 %5, ptr nonnull align 8 %1, ptr %40)
           to label %205 unwind label %32
 
 .backedge:                                        ; preds = %.invoke, %41
@@ -6552,7 +6552,7 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
   br label %62
 
 76:                                               ; preds = %199, %62
-  call void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hac05c6ec097db537E"(ptr align 8 %1)
+  call void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hac05c6ec097db537E"(ptr nonnull align 8 %1)
   ret void
 
 77:                                               ; preds = %206, %201, %175, %160, %101, %95, %81, %52, %31
@@ -6743,7 +6743,7 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
           to label %184 unwind label %.loopexit127
 
 149:                                              ; preds = %135
-  invoke fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h302295dbb6df46ecE(ptr noalias nonnull align 8 %11, ptr nonnull align 8 %10, ptr align 8 %2)
+  invoke fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h302295dbb6df46ecE(ptr noalias align 8 %11, ptr align 8 %10, ptr align 8 %2)
           to label %150 unwind label %102
 
 150:                                              ; preds = %149
@@ -6846,7 +6846,7 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
           to label %186 unwind label %102
 
 186:                                              ; preds = %185
-  invoke fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h302295dbb6df46ecE(ptr noalias nonnull align 8 %13, ptr nonnull align 8 %12, ptr align 8 %2)
+  invoke fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h302295dbb6df46ecE(ptr noalias align 8 %13, ptr align 8 %12, ptr align 8 %2)
           to label %187 unwind label %102
 
 187:                                              ; preds = %186
@@ -6855,7 +6855,7 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
   br i1 %189, label %153, label %154
 
 190:                                              ; preds = %111
-  invoke fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h302295dbb6df46ecE(ptr noalias nonnull align 8 %17, ptr nonnull align 8 %16, ptr align 8 %2)
+  invoke fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h302295dbb6df46ecE(ptr noalias align 8 %17, ptr align 8 %16, ptr align 8 %2)
           to label %191 unwind label %102
 
 191:                                              ; preds = %190
@@ -6925,7 +6925,7 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
 
 206:                                              ; preds = %207, %31
   %.pn119.pn = phi { ptr, i32 } [ %.pn119, %31 ], [ %208, %207 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hac05c6ec097db537E"(ptr align 8 %1) #11
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hac05c6ec097db537E"(ptr nonnull align 8 %1) #11
           to label %209 unwind label %77
 
 207:                                              ; preds = %199
@@ -7289,7 +7289,7 @@ define hidden void @_ZN17pyo3_build_config5impl_14search_lib_dir17h9f792e7d73183
           to label %185 unwind label %.loopexit127
 
 150:                                              ; preds = %136
-  invoke fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h302295dbb6df46ecE(ptr noalias nonnull align 8 %11, ptr nonnull align 8 %10, ptr align 8 %2)
+  invoke fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h302295dbb6df46ecE(ptr noalias align 8 %11, ptr align 8 %10, ptr align 8 %2)
           to label %151 unwind label %103
 
 151:                                              ; preds = %150
@@ -7392,7 +7392,7 @@ define hidden void @_ZN17pyo3_build_config5impl_14search_lib_dir17h9f792e7d73183
           to label %187 unwind label %103
 
 187:                                              ; preds = %186
-  invoke fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h302295dbb6df46ecE(ptr noalias nonnull align 8 %13, ptr nonnull align 8 %12, ptr align 8 %2)
+  invoke fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h302295dbb6df46ecE(ptr noalias align 8 %13, ptr align 8 %12, ptr align 8 %2)
           to label %188 unwind label %103
 
 188:                                              ; preds = %187
@@ -7401,7 +7401,7 @@ define hidden void @_ZN17pyo3_build_config5impl_14search_lib_dir17h9f792e7d73183
   br i1 %190, label %154, label %155
 
 191:                                              ; preds = %112
-  invoke fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h302295dbb6df46ecE(ptr noalias nonnull align 8 %17, ptr nonnull align 8 %16, ptr align 8 %2)
+  invoke fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h302295dbb6df46ecE(ptr noalias align 8 %17, ptr align 8 %16, ptr align 8 %2)
           to label %192 unwind label %103
 
 192:                                              ; preds = %191

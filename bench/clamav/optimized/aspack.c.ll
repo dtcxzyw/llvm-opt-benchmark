@@ -227,7 +227,7 @@ switch.lookup:                                    ; preds = %8
   %107 = load ptr, ptr %46, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(757) %107, i8 0, i64 757, i1 false)
   store i32 32, ptr %11, align 8
-  %108 = call fastcc i32 @build_decrypt_dictionaries(ptr noundef nonnull %11)
+  %108 = call fastcc i32 @build_decrypt_dictionaries(ptr noundef %11)
   %.not.i = icmp eq i32 %108, 0
   br i1 %.not.i, label %decomp_block.exit.thread, label %109
 
@@ -238,13 +238,13 @@ switch.lookup:                                    ; preds = %8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.14, i32 noundef %90) #11
   br label %.outer.split.i.preheader.i
 
-.outer.split.i.preheader.i:                       ; preds = %109, %.outer.backedge.i.i
-  %.073.ph.i21.i = phi i32 [ %.073.ph.be.i.i, %.outer.backedge.i.i ], [ 0, %109 ]
-  %110 = phi i32 [ %120, %.outer.backedge.i.i ], [ 0, %109 ]
+.outer.split.i.preheader.i:                       ; preds = %.outer.backedge.i.i, %109
+  %.073.ph.i21.i = phi i32 [ 0, %109 ], [ %.073.ph.be.i.i, %.outer.backedge.i.i ]
+  %110 = phi i32 [ 0, %109 ], [ %120, %.outer.backedge.i.i ]
   br label %.outer.split.i.i
 
 .outer.split.i.i:                                 ; preds = %124, %.outer.split.i.preheader.i
-  %111 = call fastcc i32 @getdec(ptr noundef nonnull %11, i8 noundef zeroext 0, ptr noundef nonnull %10)
+  %111 = call fastcc i32 @getdec(ptr noundef %11, i8 noundef zeroext 0, ptr noundef %10)
   %112 = load i32, ptr %10, align 4
   %.not.i.i = icmp eq i32 %112, 0
   br i1 %.not.i.i, label %113, label %decomp_block.exit.thread214
@@ -272,7 +272,7 @@ switch.lookup:                                    ; preds = %8
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %122
-  %125 = call fastcc i32 @build_decrypt_dictionaries(ptr noundef nonnull %11)
+  %125 = call fastcc i32 @build_decrypt_dictionaries(ptr noundef %11)
   %.not91.i.i = icmp eq i32 %125, 0
   br i1 %.not91.i.i, label %decomp_block.exit.thread214, label %.outer.split.i.i
 
@@ -289,7 +289,7 @@ switch.lookup:                                    ; preds = %8
   br label %168
 
 132:                                              ; preds = %126
-  %133 = call fastcc i32 @getdec(ptr noundef nonnull %11, i8 noundef zeroext 1, ptr noundef nonnull %10)
+  %133 = call fastcc i32 @getdec(ptr noundef %11, i8 noundef zeroext 1, ptr noundef %10)
   %134 = load i32, ptr %10, align 4
   %135 = icmp ne i32 %134, 0
   %136 = icmp ugt i32 %133, 85
@@ -476,7 +476,7 @@ switch.lookup:                                    ; preds = %8
   %221 = shl nuw nsw i32 %220, 3
   %222 = add nsw i32 %215, %213
   store i32 %222, ptr %11, align 8
-  %223 = call fastcc i32 @getdec(ptr noundef nonnull %11, i8 noundef zeroext 2, ptr noundef nonnull %10)
+  %223 = call fastcc i32 @getdec(ptr noundef %11, i8 noundef zeroext 2, ptr noundef %10)
   %224 = add i32 %223, %171
   %225 = add i32 %224, %221
   %226 = load i32, ptr %10, align 4
@@ -536,7 +536,7 @@ switch.lookup:                                    ; preds = %8
   %.not90.i.i = icmp eq i32 %241, 0
   br i1 %.not90.i.i, label %.outer.backedge.i.i, label %.preheader.i.i
 
-decomp_block.exit.thread214:                      ; preds = %237, %.loopexit115.i.i, %132, %.lr.ph.i.i.i, %.lr.ph.i103.i.i, %.lr.ph.i97.i.i, %124, %.outer.split.i.i, %144, %202, %180
+decomp_block.exit.thread214:                      ; preds = %132, %.loopexit115.i.i, %237, %.lr.ph.i.i.i, %.lr.ph.i103.i.i, %.lr.ph.i97.i.i, %124, %.outer.split.i.i, %144, %202, %180
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   br label %decomp_block.exit.thread
@@ -738,7 +738,7 @@ declare i64 @cli_writen(i32 noundef, ptr noundef, i64 noundef) local_unnamed_add
 declare i32 @cli_rebuildpe(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @build_decrypt_dictionaries(ptr nocapture noundef %0) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @build_decrypt_dictionaries(ptr nocapture noundef nonnull %0) unnamed_addr #6 {
   %2 = alloca i32, align 4
   %.pr.i.i = load i32, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 336
@@ -866,7 +866,7 @@ getbits.exit78.thread:                            ; preds = %37
 
 .split.us:                                        ; preds = %getbits.exit78.us
   store i32 0, ptr %2, align 4
-  %60 = tail call fastcc zeroext i8 @build_decrypt_array(ptr noundef nonnull %0, ptr noundef nonnull %33, i8 noundef zeroext 3)
+  %60 = tail call fastcc zeroext i8 @build_decrypt_array(ptr noundef %0, ptr noundef %33, i8 noundef zeroext 3)
   %.not61 = icmp eq i8 %60, 0
   br i1 %.not61, label %.loopexit114, label %.preheader113
 
@@ -878,7 +878,7 @@ getbits.exit78.thread:                            ; preds = %37
 
 63:                                               ; preds = %.preheader113, %.loopexit110
   %.155132 = phi i32 [ 0, %.preheader113 ], [ %.4, %.loopexit110 ]
-  %64 = call fastcc i32 @getdec(ptr noundef nonnull %0, i8 noundef zeroext 3, ptr noundef nonnull %2)
+  %64 = call fastcc i32 @getdec(ptr noundef %0, i8 noundef zeroext 3, ptr noundef %2)
   %65 = load i32, ptr %2, align 4
   %.not66 = icmp eq i32 %65, 0
   br i1 %.not66, label %66, label %.loopexit114
@@ -1106,19 +1106,19 @@ getbits.exit78.thread:                            ; preds = %37
   br i1 %165, label %63, label %.loopexit110.thread
 
 .loopexit110.thread:                              ; preds = %.preheader111, %.preheader, %.loopexit110
-  %166 = tail call fastcc zeroext i8 @build_decrypt_array(ptr noundef nonnull %0, ptr noundef nonnull %scevgep, i8 noundef zeroext 0)
+  %166 = tail call fastcc zeroext i8 @build_decrypt_array(ptr noundef %0, ptr noundef %scevgep, i8 noundef zeroext 0)
   %.not62 = icmp eq i8 %166, 0
   br i1 %.not62, label %.loopexit114, label %167
 
 167:                                              ; preds = %.loopexit110.thread
   %168 = getelementptr inbounds i8, ptr %0, i64 1854
-  %169 = tail call fastcc zeroext i8 @build_decrypt_array(ptr noundef nonnull %0, ptr noundef nonnull %168, i8 noundef zeroext 1)
+  %169 = tail call fastcc zeroext i8 @build_decrypt_array(ptr noundef %0, ptr noundef %168, i8 noundef zeroext 1)
   %.not63 = icmp eq i8 %169, 0
   br i1 %.not63, label %.loopexit114, label %170
 
 170:                                              ; preds = %167
   %171 = getelementptr inbounds i8, ptr %0, i64 1882
-  %172 = tail call fastcc zeroext i8 @build_decrypt_array(ptr noundef nonnull %0, ptr noundef nonnull %171, i8 noundef zeroext 2)
+  %172 = tail call fastcc zeroext i8 @build_decrypt_array(ptr noundef %0, ptr noundef %171, i8 noundef zeroext 2)
   %.not64 = icmp eq i8 %172, 0
   br i1 %.not64, label %.loopexit114, label %173
 
@@ -1155,7 +1155,7 @@ getbits.exit78.thread:                            ; preds = %37
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @build_decrypt_array(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2) unnamed_addr #7 {
+define internal fastcc zeroext range(i8 0, 2) i8 @build_decrypt_array(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i8 noundef zeroext range(i8 0, 4) %2) unnamed_addr #7 {
   %4 = alloca [18 x i32], align 16
   %5 = alloca [18 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 360
@@ -1320,7 +1320,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @build_decrypt_array(ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @getdec(ptr nocapture noundef %0, i8 noundef zeroext %1, ptr nocapture noundef writeonly %2) unnamed_addr #8 {
+define internal fastcc i32 @getdec(ptr nocapture noundef nonnull %0, i8 noundef zeroext range(i8 0, 4) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %0, i64 360
   %5 = zext nneg i8 %1 to i64
   %6 = getelementptr inbounds [4 x [24 x i32]], ptr %4, i64 0, i64 %5

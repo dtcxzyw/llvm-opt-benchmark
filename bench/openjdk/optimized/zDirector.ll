@@ -1347,7 +1347,7 @@ declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr nound
 declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i64 @_ZL15initial_workersRK14ZDirectorStats20ZWorkerSelectionType(ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i64 @_ZL15initial_workersRK14ZDirectorStats20ZWorkerSelectionType(ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #0 {
   %3 = alloca %class.ZDriverRequest, align 8
   %4 = alloca %class.ZDriverRequest, align 8
   %5 = load i8, ptr @UseDynamicNumberOfGCThreads, align 1
@@ -1403,7 +1403,7 @@ declare void @_ZN12ZDriverMajor7collectERK14ZDriverRequest(ptr noundef nonnull a
 declare noundef i32 @_ZNK14ZDriverRequest14young_nworkersEv(ptr noundef nonnull align 4 dereferenceable(12)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i64 @_ZL21select_worker_threadsRK14ZDirectorStatsj20ZWorkerSelectionType(ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @_ZL21select_worker_threadsRK14ZDirectorStatsj20ZWorkerSelectionType(ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %0, i32 noundef %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 384

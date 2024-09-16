@@ -2150,7 +2150,7 @@ while.cond.i.i.i:                                 ; preds = %_ZN8QuantLib21Diffe
   store ptr %0, ptr %agg.tmp6.i.i.i, align 8, !tbaa !23
   store i64 %1, ptr %n_.i.i9.i.i.i, align 8, !tbaa !24
   store double %2, ptr %cost.i11.i.i.i, align 8, !tbaa !50
-  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8QuantLib21DifferentialEvolution9CandidateESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112sort_by_costEEEEvT_T0_SG_T1_T2_(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.i.i.i, ptr noundef nonnull %agg.tmp6.i.i.i)
+  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8QuantLib21DifferentialEvolution9CandidateESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112sort_by_costEEEEvT_T0_SG_T1_T2_(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.i.i.i, ptr noundef %agg.tmp6.i.i.i)
   %3 = load ptr, ptr %agg.tmp6.i.i.i, align 8, !tbaa !23
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN8QuantLib21DifferentialEvolution9CandidateD2Ev.exit15.i.i.i, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i
@@ -2202,7 +2202,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   store ptr %6, ptr %agg.tmp7.i.i.i, align 8, !tbaa !23
   store i64 %7, ptr %n_.i.i4.i.i.i, align 8, !tbaa !24
   store double %call.val.i.i.i, ptr %cost.i6.i.i.i, align 8, !tbaa !50
-  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8QuantLib21DifferentialEvolution9CandidateESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112sort_by_costEEEEvT_T0_SG_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i.i, ptr noundef nonnull %agg.tmp7.i.i.i)
+  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8QuantLib21DifferentialEvolution9CandidateESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112sort_by_costEEEEvT_T0_SG_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i.i, ptr noundef %agg.tmp7.i.i.i)
   %10 = load ptr, ptr %agg.tmp7.i.i.i, align 8, !tbaa !23
   %cmp.not.i.i.i.i8.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i8.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8QuantLib21DifferentialEvolution9CandidateESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112sort_by_costEEEEvT_SF_SF_RT0_.exit.i.i, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i9.i.i
@@ -2256,7 +2256,7 @@ while.body.i.i:                                   ; preds = %_ZSt10__pop_heapIN9
   store ptr %11, ptr %agg.tmp7.i.i1.i, align 8, !tbaa !23
   store i64 %12, ptr %n_.i.i4.i.i3.i, align 8, !tbaa !24
   store double %13, ptr %cost.i6.i.i4.i, align 8, !tbaa !50
-  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8QuantLib21DifferentialEvolution9CandidateESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112sort_by_costEEEEvT_T0_SG_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i10.i, ptr noundef nonnull %agg.tmp7.i.i1.i)
+  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8QuantLib21DifferentialEvolution9CandidateESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112sort_by_costEEEEvT_T0_SG_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i10.i, ptr noundef %agg.tmp7.i.i1.i)
   %17 = load ptr, ptr %agg.tmp7.i.i1.i, align 8, !tbaa !23
   %cmp.not.i.i.i.i.i11.i = icmp eq ptr %17, null
   br i1 %cmp.not.i.i.i.i.i11.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8QuantLib21DifferentialEvolution9CandidateESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112sort_by_costEEEEvT_SF_SF_RT0_.exit.i13.i, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i12.i
@@ -11281,7 +11281,7 @@ unreachable:                                      ; preds = %invoke.cont2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8QuantLib21DifferentialEvolution9CandidateESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112sort_by_costEEEEvT_T0_SG_T1_T2_(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef %__value) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8QuantLib21DifferentialEvolution9CandidateESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112sort_by_costEEEEvT_T0_SG_T1_T2_(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef nonnull %__value) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2

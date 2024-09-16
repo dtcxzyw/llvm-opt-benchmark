@@ -646,7 +646,7 @@ define internal range(i32 -30, 1) i32 @archive_write_mtree_header(ptr noundef %0
   br i1 %.not23, label %27, label %sum_init.exit
 
 27:                                               ; preds = %25, %20
-  %28 = call fastcc i32 @mtree_entry_new(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %6)
+  %28 = call fastcc i32 @mtree_entry_new(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6)
   %29 = icmp slt i32 %28, -20
   br i1 %29, label %sum_init.exit, label %30
 
@@ -919,7 +919,7 @@ get_path_component.exit.thread.i:                 ; preds = %mtree_entry_find_ch
   call void @archive_entry_set_mode(ptr noundef nonnull %163, i32 noundef 16877) #14
   %166 = call i64 @time(ptr noundef null) #14
   call void @archive_entry_set_mtime(ptr noundef nonnull %163, i64 noundef %166, i64 noundef 0) #14
-  %167 = call fastcc i32 @mtree_entry_new(ptr noundef %0, ptr noundef nonnull %163, ptr noundef nonnull %3)
+  %167 = call fastcc i32 @mtree_entry_new(ptr noundef %0, ptr noundef nonnull %163, ptr noundef %3)
   call void @archive_entry_free(ptr noundef nonnull %163) #14
   %168 = icmp slt i32 %167, -20
   br i1 %168, label %mtree_entry_create_virtual_dir.exit.thread.i, label %sub_0.i
@@ -2535,7 +2535,7 @@ declare i64 @archive_entry_size(ptr noundef) local_unnamed_addr #1
 declare i32 @archive_entry_filetype(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @mtree_entry_new(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @mtree_entry_new(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca %struct.archive_string, align 8
   %5 = tail call noalias dereferenceable_or_null(336) ptr @calloc(i64 noundef 1, i64 noundef 336) #15
   %6 = icmp eq ptr %5, null
@@ -4066,227 +4066,227 @@ mtree_quote.exit217:                              ; preds = %369, %._crit_edge.i
 457:                                              ; preds = %454
   %458 = call ptr @archive_strcat(ptr noundef nonnull %41, ptr noundef nonnull @.str.70) #14
   %459 = getelementptr inbounds i8, ptr %446, i64 8
-  br label %.lr.ph.i.i
+  br label %460
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %457
-  %indvars.iv.i.i = phi i64 [ 0, %457 ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %460 = getelementptr inbounds i8, ptr %459, i64 %indvars.iv.i.i
-  %461 = load i8, ptr %460, align 1
-  %462 = lshr i8 %461, 4
-  %463 = zext nneg i8 %462 to i64
-  %464 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %463
-  %465 = load i8, ptr %464, align 1
-  %466 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %465) #14
-  %467 = load i8, ptr %460, align 1
-  %468 = and i8 %467, 15
-  %469 = zext nneg i8 %468 to i64
-  %470 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %469
-  %471 = load i8, ptr %470, align 1
-  %472 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %471) #14
+460:                                              ; preds = %460, %457
+  %indvars.iv.i.i = phi i64 [ 0, %457 ], [ %indvars.iv.next.i.i, %460 ]
+  %461 = getelementptr inbounds i8, ptr %459, i64 %indvars.iv.i.i
+  %462 = load i8, ptr %461, align 1
+  %463 = lshr i8 %462, 4
+  %464 = zext nneg i8 %463 to i64
+  %465 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %464
+  %466 = load i8, ptr %465, align 1
+  %467 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %466) #14
+  %468 = load i8, ptr %461, align 1
+  %469 = and i8 %468, 15
+  %470 = zext nneg i8 %469 to i64
+  %471 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %470
+  %472 = load i8, ptr %471, align 1
+  %473 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %472) #14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %strappend_bin.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %exitcond.not.i.i, label %strappend_bin.exit.loopexit.i, label %460, !llvm.loop !26
 
-strappend_bin.exit.loopexit.i:                    ; preds = %.lr.ph.i.i
-  %.pre58.i = load i32, ptr %446, align 4
+strappend_bin.exit.loopexit.i:                    ; preds = %460
+  %.pre53.i = load i32, ptr %446, align 4
   br label %strappend_bin.exit.i
 
 strappend_bin.exit.i:                             ; preds = %strappend_bin.exit.loopexit.i, %454
-  %473 = phi i32 [ %.pre58.i, %strappend_bin.exit.loopexit.i ], [ %455, %454 ]
-  %474 = and i32 %473, 8192
-  %.not28.i = icmp eq i32 %474, 0
-  br i1 %.not28.i, label %strappend_bin.exit37.i, label %475
+  %474 = phi i32 [ %.pre53.i, %strappend_bin.exit.loopexit.i ], [ %455, %454 ]
+  %475 = and i32 %474, 8192
+  %.not28.i = icmp eq i32 %475, 0
+  br i1 %.not28.i, label %strappend_bin.exit36.i, label %476
 
-475:                                              ; preds = %strappend_bin.exit.i
-  %476 = call ptr @archive_strcat(ptr noundef nonnull %41, ptr noundef nonnull @.str.71) #14
-  %477 = getelementptr inbounds i8, ptr %446, i64 24
-  br label %.lr.ph.i33.i
+476:                                              ; preds = %strappend_bin.exit.i
+  %477 = call ptr @archive_strcat(ptr noundef nonnull %41, ptr noundef nonnull @.str.71) #14
+  %478 = getelementptr inbounds i8, ptr %446, i64 24
+  br label %479
 
-.lr.ph.i33.i:                                     ; preds = %.lr.ph.i33.i, %475
-  %indvars.iv.i34.i = phi i64 [ 0, %475 ], [ %indvars.iv.next.i35.i, %.lr.ph.i33.i ]
-  %478 = getelementptr inbounds i8, ptr %477, i64 %indvars.iv.i34.i
-  %479 = load i8, ptr %478, align 1
-  %480 = lshr i8 %479, 4
-  %481 = zext nneg i8 %480 to i64
-  %482 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %481
-  %483 = load i8, ptr %482, align 1
-  %484 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %483) #14
-  %485 = load i8, ptr %478, align 1
-  %486 = and i8 %485, 15
-  %487 = zext nneg i8 %486 to i64
-  %488 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %487
-  %489 = load i8, ptr %488, align 1
-  %490 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %489) #14
-  %indvars.iv.next.i35.i = add nuw nsw i64 %indvars.iv.i34.i, 1
-  %exitcond.not.i36.i = icmp eq i64 %indvars.iv.next.i35.i, 20
-  br i1 %exitcond.not.i36.i, label %strappend_bin.exit37.loopexit.i, label %.lr.ph.i33.i, !llvm.loop !26
+479:                                              ; preds = %479, %476
+  %indvars.iv.i33.i = phi i64 [ 0, %476 ], [ %indvars.iv.next.i34.i, %479 ]
+  %480 = getelementptr inbounds i8, ptr %478, i64 %indvars.iv.i33.i
+  %481 = load i8, ptr %480, align 1
+  %482 = lshr i8 %481, 4
+  %483 = zext nneg i8 %482 to i64
+  %484 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %483
+  %485 = load i8, ptr %484, align 1
+  %486 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %485) #14
+  %487 = load i8, ptr %480, align 1
+  %488 = and i8 %487, 15
+  %489 = zext nneg i8 %488 to i64
+  %490 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %489
+  %491 = load i8, ptr %490, align 1
+  %492 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %491) #14
+  %indvars.iv.next.i34.i = add nuw nsw i64 %indvars.iv.i33.i, 1
+  %exitcond.not.i35.i = icmp eq i64 %indvars.iv.next.i34.i, 20
+  br i1 %exitcond.not.i35.i, label %strappend_bin.exit36.loopexit.i, label %479, !llvm.loop !26
 
-strappend_bin.exit37.loopexit.i:                  ; preds = %.lr.ph.i33.i
-  %.pre59.i = load i32, ptr %446, align 4
-  br label %strappend_bin.exit37.i
+strappend_bin.exit36.loopexit.i:                  ; preds = %479
+  %.pre54.i = load i32, ptr %446, align 4
+  br label %strappend_bin.exit36.i
 
-strappend_bin.exit37.i:                           ; preds = %strappend_bin.exit37.loopexit.i, %strappend_bin.exit.i
-  %491 = phi i32 [ %.pre59.i, %strappend_bin.exit37.loopexit.i ], [ %473, %strappend_bin.exit.i ]
-  %492 = and i32 %491, 16384
-  %.not29.i = icmp eq i32 %492, 0
-  br i1 %.not29.i, label %strappend_bin.exit42.i, label %493
+strappend_bin.exit36.i:                           ; preds = %strappend_bin.exit36.loopexit.i, %strappend_bin.exit.i
+  %493 = phi i32 [ %.pre54.i, %strappend_bin.exit36.loopexit.i ], [ %474, %strappend_bin.exit.i ]
+  %494 = and i32 %493, 16384
+  %.not29.i = icmp eq i32 %494, 0
+  br i1 %.not29.i, label %strappend_bin.exit40.i, label %495
 
-493:                                              ; preds = %strappend_bin.exit37.i
-  %494 = call ptr @archive_strcat(ptr noundef nonnull %41, ptr noundef nonnull @.str.72) #14
-  %495 = getelementptr inbounds i8, ptr %446, i64 44
-  br label %.lr.ph.i38.i
+495:                                              ; preds = %strappend_bin.exit36.i
+  %496 = call ptr @archive_strcat(ptr noundef nonnull %41, ptr noundef nonnull @.str.72) #14
+  %497 = getelementptr inbounds i8, ptr %446, i64 44
+  br label %498
 
-.lr.ph.i38.i:                                     ; preds = %.lr.ph.i38.i, %493
-  %indvars.iv.i39.i = phi i64 [ 0, %493 ], [ %indvars.iv.next.i40.i, %.lr.ph.i38.i ]
-  %496 = getelementptr inbounds i8, ptr %495, i64 %indvars.iv.i39.i
-  %497 = load i8, ptr %496, align 1
-  %498 = lshr i8 %497, 4
-  %499 = zext nneg i8 %498 to i64
-  %500 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %499
-  %501 = load i8, ptr %500, align 1
-  %502 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %501) #14
-  %503 = load i8, ptr %496, align 1
-  %504 = and i8 %503, 15
-  %505 = zext nneg i8 %504 to i64
-  %506 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %505
-  %507 = load i8, ptr %506, align 1
-  %508 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %507) #14
-  %indvars.iv.next.i40.i = add nuw nsw i64 %indvars.iv.i39.i, 1
-  %exitcond.not.i41.i = icmp eq i64 %indvars.iv.next.i40.i, 20
-  br i1 %exitcond.not.i41.i, label %strappend_bin.exit42.loopexit.i, label %.lr.ph.i38.i, !llvm.loop !26
+498:                                              ; preds = %498, %495
+  %indvars.iv.i37.i = phi i64 [ 0, %495 ], [ %indvars.iv.next.i38.i, %498 ]
+  %499 = getelementptr inbounds i8, ptr %497, i64 %indvars.iv.i37.i
+  %500 = load i8, ptr %499, align 1
+  %501 = lshr i8 %500, 4
+  %502 = zext nneg i8 %501 to i64
+  %503 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %502
+  %504 = load i8, ptr %503, align 1
+  %505 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %504) #14
+  %506 = load i8, ptr %499, align 1
+  %507 = and i8 %506, 15
+  %508 = zext nneg i8 %507 to i64
+  %509 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %508
+  %510 = load i8, ptr %509, align 1
+  %511 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %510) #14
+  %indvars.iv.next.i38.i = add nuw nsw i64 %indvars.iv.i37.i, 1
+  %exitcond.not.i39.i = icmp eq i64 %indvars.iv.next.i38.i, 20
+  br i1 %exitcond.not.i39.i, label %strappend_bin.exit40.loopexit.i, label %498, !llvm.loop !26
 
-strappend_bin.exit42.loopexit.i:                  ; preds = %.lr.ph.i38.i
-  %.pre60.i = load i32, ptr %446, align 4
-  br label %strappend_bin.exit42.i
+strappend_bin.exit40.loopexit.i:                  ; preds = %498
+  %.pre55.i = load i32, ptr %446, align 4
+  br label %strappend_bin.exit40.i
 
-strappend_bin.exit42.i:                           ; preds = %strappend_bin.exit42.loopexit.i, %strappend_bin.exit37.i
-  %509 = phi i32 [ %.pre60.i, %strappend_bin.exit42.loopexit.i ], [ %491, %strappend_bin.exit37.i ]
-  %510 = and i32 %509, 8388608
-  %.not30.i = icmp eq i32 %510, 0
-  br i1 %.not30.i, label %strappend_bin.exit47.i, label %511
+strappend_bin.exit40.i:                           ; preds = %strappend_bin.exit40.loopexit.i, %strappend_bin.exit36.i
+  %512 = phi i32 [ %.pre55.i, %strappend_bin.exit40.loopexit.i ], [ %493, %strappend_bin.exit36.i ]
+  %513 = and i32 %512, 8388608
+  %.not30.i = icmp eq i32 %513, 0
+  br i1 %.not30.i, label %strappend_bin.exit44.i, label %514
 
-511:                                              ; preds = %strappend_bin.exit42.i
-  %512 = call ptr @archive_strcat(ptr noundef nonnull %41, ptr noundef nonnull @.str.73) #14
-  %513 = getelementptr inbounds i8, ptr %446, i64 64
-  br label %.lr.ph.i43.i
+514:                                              ; preds = %strappend_bin.exit40.i
+  %515 = call ptr @archive_strcat(ptr noundef nonnull %41, ptr noundef nonnull @.str.73) #14
+  %516 = getelementptr inbounds i8, ptr %446, i64 64
+  br label %517
 
-.lr.ph.i43.i:                                     ; preds = %.lr.ph.i43.i, %511
-  %indvars.iv.i44.i = phi i64 [ 0, %511 ], [ %indvars.iv.next.i45.i, %.lr.ph.i43.i ]
-  %514 = getelementptr inbounds i8, ptr %513, i64 %indvars.iv.i44.i
-  %515 = load i8, ptr %514, align 1
-  %516 = lshr i8 %515, 4
-  %517 = zext nneg i8 %516 to i64
-  %518 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %517
+517:                                              ; preds = %517, %514
+  %indvars.iv.i41.i = phi i64 [ 0, %514 ], [ %indvars.iv.next.i42.i, %517 ]
+  %518 = getelementptr inbounds i8, ptr %516, i64 %indvars.iv.i41.i
   %519 = load i8, ptr %518, align 1
-  %520 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %519) #14
-  %521 = load i8, ptr %514, align 1
-  %522 = and i8 %521, 15
-  %523 = zext nneg i8 %522 to i64
-  %524 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %523
-  %525 = load i8, ptr %524, align 1
-  %526 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %525) #14
-  %indvars.iv.next.i45.i = add nuw nsw i64 %indvars.iv.i44.i, 1
-  %exitcond.not.i46.i = icmp eq i64 %indvars.iv.next.i45.i, 32
-  br i1 %exitcond.not.i46.i, label %strappend_bin.exit47.loopexit.i, label %.lr.ph.i43.i, !llvm.loop !26
+  %520 = lshr i8 %519, 4
+  %521 = zext nneg i8 %520 to i64
+  %522 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %521
+  %523 = load i8, ptr %522, align 1
+  %524 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %523) #14
+  %525 = load i8, ptr %518, align 1
+  %526 = and i8 %525, 15
+  %527 = zext nneg i8 %526 to i64
+  %528 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %527
+  %529 = load i8, ptr %528, align 1
+  %530 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %529) #14
+  %indvars.iv.next.i42.i = add nuw nsw i64 %indvars.iv.i41.i, 1
+  %exitcond.not.i43.i = icmp eq i64 %indvars.iv.next.i42.i, 32
+  br i1 %exitcond.not.i43.i, label %strappend_bin.exit44.loopexit.i, label %517, !llvm.loop !26
 
-strappend_bin.exit47.loopexit.i:                  ; preds = %.lr.ph.i43.i
-  %.pre61.i = load i32, ptr %446, align 4
-  br label %strappend_bin.exit47.i
+strappend_bin.exit44.loopexit.i:                  ; preds = %517
+  %.pre56.i = load i32, ptr %446, align 4
+  br label %strappend_bin.exit44.i
 
-strappend_bin.exit47.i:                           ; preds = %strappend_bin.exit47.loopexit.i, %strappend_bin.exit42.i
-  %527 = phi i32 [ %.pre61.i, %strappend_bin.exit47.loopexit.i ], [ %509, %strappend_bin.exit42.i ]
-  %528 = and i32 %527, 16777216
-  %.not31.i220 = icmp eq i32 %528, 0
-  br i1 %.not31.i220, label %strappend_bin.exit52.i, label %529
+strappend_bin.exit44.i:                           ; preds = %strappend_bin.exit44.loopexit.i, %strappend_bin.exit40.i
+  %531 = phi i32 [ %.pre56.i, %strappend_bin.exit44.loopexit.i ], [ %512, %strappend_bin.exit40.i ]
+  %532 = and i32 %531, 16777216
+  %.not31.i220 = icmp eq i32 %532, 0
+  br i1 %.not31.i220, label %strappend_bin.exit48.i, label %533
 
-529:                                              ; preds = %strappend_bin.exit47.i
-  %530 = call ptr @archive_strcat(ptr noundef nonnull %41, ptr noundef nonnull @.str.74) #14
-  %531 = getelementptr inbounds i8, ptr %446, i64 96
-  br label %.lr.ph.i48.i
+533:                                              ; preds = %strappend_bin.exit44.i
+  %534 = call ptr @archive_strcat(ptr noundef nonnull %41, ptr noundef nonnull @.str.74) #14
+  %535 = getelementptr inbounds i8, ptr %446, i64 96
+  br label %536
 
-.lr.ph.i48.i:                                     ; preds = %.lr.ph.i48.i, %529
-  %indvars.iv.i49.i = phi i64 [ 0, %529 ], [ %indvars.iv.next.i50.i, %.lr.ph.i48.i ]
-  %532 = getelementptr inbounds i8, ptr %531, i64 %indvars.iv.i49.i
-  %533 = load i8, ptr %532, align 1
-  %534 = lshr i8 %533, 4
-  %535 = zext nneg i8 %534 to i64
-  %536 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %535
-  %537 = load i8, ptr %536, align 1
-  %538 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %537) #14
-  %539 = load i8, ptr %532, align 1
-  %540 = and i8 %539, 15
-  %541 = zext nneg i8 %540 to i64
-  %542 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %541
-  %543 = load i8, ptr %542, align 1
-  %544 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %543) #14
-  %indvars.iv.next.i50.i = add nuw nsw i64 %indvars.iv.i49.i, 1
-  %exitcond.not.i51.i = icmp eq i64 %indvars.iv.next.i50.i, 48
-  br i1 %exitcond.not.i51.i, label %strappend_bin.exit52.loopexit.i, label %.lr.ph.i48.i, !llvm.loop !26
+536:                                              ; preds = %536, %533
+  %indvars.iv.i45.i = phi i64 [ 0, %533 ], [ %indvars.iv.next.i46.i, %536 ]
+  %537 = getelementptr inbounds i8, ptr %535, i64 %indvars.iv.i45.i
+  %538 = load i8, ptr %537, align 1
+  %539 = lshr i8 %538, 4
+  %540 = zext nneg i8 %539 to i64
+  %541 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %540
+  %542 = load i8, ptr %541, align 1
+  %543 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %542) #14
+  %544 = load i8, ptr %537, align 1
+  %545 = and i8 %544, 15
+  %546 = zext nneg i8 %545 to i64
+  %547 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %546
+  %548 = load i8, ptr %547, align 1
+  %549 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %548) #14
+  %indvars.iv.next.i46.i = add nuw nsw i64 %indvars.iv.i45.i, 1
+  %exitcond.not.i47.i = icmp eq i64 %indvars.iv.next.i46.i, 48
+  br i1 %exitcond.not.i47.i, label %strappend_bin.exit48.loopexit.i, label %536, !llvm.loop !26
 
-strappend_bin.exit52.loopexit.i:                  ; preds = %.lr.ph.i48.i
-  %.pre62.i = load i32, ptr %446, align 4
-  br label %strappend_bin.exit52.i
+strappend_bin.exit48.loopexit.i:                  ; preds = %536
+  %.pre57.i = load i32, ptr %446, align 4
+  br label %strappend_bin.exit48.i
 
-strappend_bin.exit52.i:                           ; preds = %strappend_bin.exit52.loopexit.i, %strappend_bin.exit47.i
-  %545 = phi i32 [ %.pre62.i, %strappend_bin.exit52.loopexit.i ], [ %527, %strappend_bin.exit47.i ]
-  %546 = and i32 %545, 33554432
-  %.not32.i221 = icmp eq i32 %546, 0
-  br i1 %.not32.i221, label %sum_write.exit, label %547
+strappend_bin.exit48.i:                           ; preds = %strappend_bin.exit48.loopexit.i, %strappend_bin.exit44.i
+  %550 = phi i32 [ %.pre57.i, %strappend_bin.exit48.loopexit.i ], [ %531, %strappend_bin.exit44.i ]
+  %551 = and i32 %550, 33554432
+  %.not32.i221 = icmp eq i32 %551, 0
+  br i1 %.not32.i221, label %sum_write.exit, label %552
 
-547:                                              ; preds = %strappend_bin.exit52.i
-  %548 = call ptr @archive_strcat(ptr noundef nonnull %41, ptr noundef nonnull @.str.75) #14
-  %549 = getelementptr inbounds i8, ptr %446, i64 144
-  br label %.lr.ph.i53.i
+552:                                              ; preds = %strappend_bin.exit48.i
+  %553 = call ptr @archive_strcat(ptr noundef nonnull %41, ptr noundef nonnull @.str.75) #14
+  %554 = getelementptr inbounds i8, ptr %446, i64 144
+  br label %555
 
-.lr.ph.i53.i:                                     ; preds = %.lr.ph.i53.i, %547
-  %indvars.iv.i54.i = phi i64 [ 0, %547 ], [ %indvars.iv.next.i55.i, %.lr.ph.i53.i ]
-  %550 = getelementptr inbounds i8, ptr %549, i64 %indvars.iv.i54.i
-  %551 = load i8, ptr %550, align 1
-  %552 = lshr i8 %551, 4
-  %553 = zext nneg i8 %552 to i64
-  %554 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %553
-  %555 = load i8, ptr %554, align 1
-  %556 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %555) #14
-  %557 = load i8, ptr %550, align 1
-  %558 = and i8 %557, 15
+555:                                              ; preds = %555, %552
+  %indvars.iv.i49.i = phi i64 [ 0, %552 ], [ %indvars.iv.next.i50.i, %555 ]
+  %556 = getelementptr inbounds i8, ptr %554, i64 %indvars.iv.i49.i
+  %557 = load i8, ptr %556, align 1
+  %558 = lshr i8 %557, 4
   %559 = zext nneg i8 %558 to i64
   %560 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %559
   %561 = load i8, ptr %560, align 1
   %562 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %561) #14
-  %indvars.iv.next.i55.i = add nuw nsw i64 %indvars.iv.i54.i, 1
-  %exitcond.not.i56.i = icmp eq i64 %indvars.iv.next.i55.i, 64
-  br i1 %exitcond.not.i56.i, label %sum_write.exit, label %.lr.ph.i53.i, !llvm.loop !26
+  %563 = load i8, ptr %556, align 1
+  %564 = and i8 %563, 15
+  %565 = zext nneg i8 %564 to i64
+  %566 = getelementptr inbounds [17 x i8], ptr @strappend_bin.hex, i64 0, i64 %565
+  %567 = load i8, ptr %566, align 1
+  %568 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext %567) #14
+  %indvars.iv.next.i50.i = add nuw nsw i64 %indvars.iv.i49.i, 1
+  %exitcond.not.i51.i = icmp eq i64 %indvars.iv.next.i50.i, 64
+  br i1 %exitcond.not.i51.i, label %sum_write.exit, label %555, !llvm.loop !26
 
-sum_write.exit:                                   ; preds = %.lr.ph.i53.i, %strappend_bin.exit52.i, %444
-  %563 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext 10) #14
-  %564 = load i32, ptr %35, align 8
-  %.not154 = icmp eq i32 %564, 0
-  br i1 %.not154, label %565, label %567
+sum_write.exit:                                   ; preds = %555, %strappend_bin.exit48.i, %444
+  %569 = call ptr @archive_strappend_char(ptr noundef nonnull %41, i8 noundef signext 10) #14
+  %570 = load i32, ptr %35, align 8
+  %.not154 = icmp eq i32 %570, 0
+  br i1 %.not154, label %571, label %573
 
-565:                                              ; preds = %sum_write.exit
-  %566 = load i32, ptr %42, align 8
-  %.not155 = icmp eq i32 %566, 0
-  br i1 %.not155, label %568, label %567
+571:                                              ; preds = %sum_write.exit
+  %572 = load i32, ptr %42, align 8
+  %.not155 = icmp eq i32 %572, 0
+  br i1 %.not155, label %574, label %573
 
-567:                                              ; preds = %565, %sum_write.exit
+573:                                              ; preds = %571, %sum_write.exit
   call fastcc void @mtree_indent(ptr noundef nonnull %10)
-  br label %568
+  br label %574
 
-568:                                              ; preds = %567, %565
-  %569 = getelementptr inbounds i8, ptr %10, i64 96
-  %570 = load i64, ptr %569, align 8
-  %571 = icmp ugt i64 %570, 32768
-  br i1 %571, label %572, label %576
+574:                                              ; preds = %573, %571
+  %575 = getelementptr inbounds i8, ptr %10, i64 96
+  %576 = load i64, ptr %575, align 8
+  %577 = icmp ugt i64 %576, 32768
+  br i1 %577, label %578, label %582
 
-572:                                              ; preds = %568
-  %573 = getelementptr inbounds i8, ptr %10, i64 88
-  %574 = load ptr, ptr %573, align 8
-  %575 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef %574, i64 noundef %570) #14
-  store i64 0, ptr %569, align 8
-  br label %576
+578:                                              ; preds = %574
+  %579 = getelementptr inbounds i8, ptr %10, i64 88
+  %580 = load ptr, ptr %579, align 8
+  %581 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef %580, i64 noundef %576) #14
+  store i64 0, ptr %575, align 8
+  br label %582
 
-576:                                              ; preds = %568, %572
-  %.0 = phi i32 [ %575, %572 ], [ 0, %568 ]
+582:                                              ; preds = %574, %578
+  %.0 = phi i32 [ %581, %578 ], [ 0, %574 ]
   ret i32 %.0
 }
 

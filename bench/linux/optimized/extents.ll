@@ -294,7 +294,7 @@ define dso_local noundef range(i32 -117, 1) i32 @ext4_ext_check_inode(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -117, 1) i32 @__ext4_ext_check(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -117, 1) i32 @__ext4_ext_check(ptr noundef %0, i32 noundef range(i32 520, 2973) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef range(i64 0, 281474976710656) %5, i32 noundef %6) unnamed_addr #0 align 16 {
   %8 = alloca %struct.anon.11, align 8
   %9 = load i16, ptr %3, align 4
   %10 = icmp eq i16 %9, -3318
@@ -762,7 +762,7 @@ declare dso_local void @down_read(ptr noundef) local_unnamed_addr #1
 declare dso_local void @up_read(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__read_extent_tree_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__read_extent_tree_block(ptr noundef %0, i32 noundef range(i32 645, 2973) %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
   %7 = and i32 %5, 268435456
   %8 = icmp eq i32 %7, 0
   %9 = select i1 %8, i32 3144, i32 35912
@@ -3147,7 +3147,7 @@ __ext4_ext_dirty.exit.thread12:                   ; preds = %99, %83, %__ext4_ex
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__ext4_ext_dirty(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @__ext4_ext_dirty(ptr noundef %0, i32 noundef range(i32 1036, 5963) %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 align 16 {
   %6 = getelementptr i8, ptr %3, i64 -40
   %7 = load volatile i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
@@ -5130,7 +5130,7 @@ define internal fastcc i32 @ext4_ext_search_right(ptr noundef %0, ptr noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_ext_rm_idx(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ext4_ext_rm_idx(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 align 16 {
   %5 = add nsw i32 %3, -1
   %6 = sext i32 %5 to i64
   %7 = getelementptr %struct.ext4_ext_path, ptr %2, i64 %6
@@ -8496,7 +8496,7 @@ declare dso_local i32 @ext4_convert_inline_data(ptr noundef) local_unnamed_addr 
 declare dso_local i32 @ext4_punch_hole(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @ext4_zero_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @ext4_zero_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 16, 32) %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 168
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 216
@@ -8791,7 +8791,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @ext4_zero_range(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_ext4_fallocate_enter(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #8 align 16 {
+define internal fastcc void @trace_ext4_fallocate_enter(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 16) %3) unnamed_addr #8 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_ext4_fallocate_enter, i64 8), i32 2) #16
           to label %25 [label %5], !srcloc !26
 
@@ -8845,7 +8845,7 @@ declare dso_local void @inode_dio_wait(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @file_modified(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_alloc_file_blocks(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ext4_alloc_file_blocks(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef range(i32 3, 1073742084) %4) unnamed_addr #0 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.ext4_map_blocks, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 168
@@ -12046,7 +12046,7 @@ declare dso_local ptr @__ext4_journal_start_sb(ptr noundef, ptr noundef, i32 nou
 declare dso_local i32 @__SCT__tp_func_ext4_ext_remove_space(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_split_extent_at(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ext4_split_extent_at(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 32) %4, i32 noundef %5) unnamed_addr #0 align 16 {
   %7 = alloca %struct.ext4_extent, align 4
   %8 = alloca %struct.ext4_extent, align 4
   %9 = load ptr, ptr %2, align 8
@@ -12568,7 +12568,7 @@ declare dso_local i32 @__SCT__tp_func_ext4_ext_map_blocks_enter(ptr noundef, ptr
 declare dso_local i32 @__SCT__tp_func_ext4_ext_show_extent(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_split_extent(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ext4_split_extent(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 8, 22) %4, i32 noundef range(i32 32, 25) %5) unnamed_addr #0 align 16 {
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 12
   %9 = load i32, ptr %8, align 4
@@ -12753,7 +12753,7 @@ declare dso_local void @truncate_pagecache_range(ptr noundef, i64 noundef, i64 n
 declare dso_local { i64, i64 } @inode_set_ctime_current(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @ext4_update_inode_size(ptr noundef %0, i64 noundef %1) unnamed_addr #8 align 16 {
+define internal fastcc void @ext4_update_inode_size(ptr noundef %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #8 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
   %5 = icmp slt i64 %4, %1
@@ -12929,7 +12929,7 @@ declare dso_local i32 @ext4_writepage_trans_blocks(ptr noundef) local_unnamed_ad
 declare dso_local void @ext4_fc_mark_ineligible(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_ext_shift_extents(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ext4_ext_shift_extents(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4

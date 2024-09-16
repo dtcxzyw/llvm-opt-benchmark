@@ -992,7 +992,7 @@ _msg_thr_create.exit.thread:                      ; preds = %177, %_msg_thr_crea
   %511 = getelementptr inbounds i8, ptr %1, i64 312
   %512 = load i16, ptr %511, align 8
   %513 = load ptr, ptr %409, align 8
-  %514 = call fastcc i32 @_launch_tasks(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef %510, i16 noundef zeroext %512, ptr noundef %513)
+  %514 = call fastcc i32 @_launch_tasks(ptr noundef %0, ptr noundef %7, i32 noundef %510, i16 noundef zeroext %512, ptr noundef %513)
   call void @slurm_xfree(ptr noundef nonnull %502) #14
   call void @slurm_xfree(ptr noundef nonnull %483) #14
   br label %515
@@ -1065,7 +1065,7 @@ declare ptr @client_io_handler_create(ptr noundef byval(%struct.slurm_step_io_fd
 declare void @client_io_handler_start(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_launch_tasks(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, ptr noundef %4) unnamed_addr #3 {
+define internal fastcc i32 @_launch_tasks(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1, i32 noundef %2, i16 noundef zeroext %3, ptr noundef %4) unnamed_addr #3 {
   %6 = alloca %struct.slurm_msg, align 8
   %7 = alloca %struct.step_complete_msg, align 8
   %8 = alloca i32, align 4
@@ -1885,7 +1885,7 @@ _lookup_cwd.exit:                                 ; preds = %103, %105
   %314 = load i32, ptr %313, align 8
   %315 = getelementptr inbounds i8, ptr %2, i64 270
   %316 = load i16, ptr %315, align 2
-  %317 = call fastcc i32 @_launch_tasks(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef %314, i16 noundef zeroext %316, ptr noundef %3)
+  %317 = call fastcc i32 @_launch_tasks(ptr noundef %0, ptr noundef %6, i32 noundef %314, i16 noundef zeroext %316, ptr noundef %3)
   br label %318
 
 318:                                              ; preds = %251, %312

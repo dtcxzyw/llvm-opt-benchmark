@@ -451,7 +451,7 @@ define noundef i32 @_ZN8LightGBM17GetLabelIdxForTSVERKNSt7__cxx1112basic_stringI
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
   %17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
-  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %17, i8 noundef signext 9)
+  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %17, i8 noundef signext 9)
           to label %18 unwind label %33
 
 18:                                               ; preds = %16
@@ -514,7 +514,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, i8 noundef signext %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, i8 noundef signext range(i8 9, 45) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -848,7 +848,7 @@ define noundef i32 @_ZN8LightGBM17GetLabelIdxForCSVERKNSt7__cxx1112basic_stringI
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
   %17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
-  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %17, i8 noundef signext 44)
+  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %17, i8 noundef signext 44)
           to label %18 unwind label %33
 
 18:                                               ; preds = %16
@@ -4618,7 +4618,7 @@ define noundef ptr @_ZN8LightGBM6Parser12CreateParserEPKcbiibNSt7__cxx1112basic_
           to label %15 unwind label %28
 
 15:                                               ; preds = %14
-  invoke fastcc void @_ZN8LightGBM6CommonL19GetFromParserConfigENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  invoke fastcc void @_ZN8LightGBM6CommonL19GetFromParserConfigENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %8, ptr noundef %9)
           to label %16 unwind label %30
 
 16:                                               ; preds = %15
@@ -4720,7 +4720,7 @@ _ZNSt10unique_ptrIN8LightGBM6ParserESt14default_deleteIS1_EED2Ev.exit21: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8LightGBM6CommonL19GetFromParserConfigENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8LightGBM6CommonL19GetFromParserConfigENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.json11_internal_lightgbm::Json", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
@@ -5029,7 +5029,7 @@ define void @_ZN8LightGBM6Parser23GenerateParserConfigStrB5cxx11EPKcS2_bi(ptr de
           to label %56 unwind label %72
 
 56:                                               ; preds = %55
-  invoke fastcc void @_ZN8LightGBM6CommonL19GetFromParserConfigENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  invoke fastcc void @_ZN8LightGBM6CommonL19GetFromParserConfigENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %11, ptr noundef %12)
           to label %.critedge41 unwind label %74
 
 .critedge41:                                      ; preds = %56
@@ -5059,7 +5059,7 @@ define void @_ZN8LightGBM6Parser23GenerateParserConfigStrB5cxx11EPKcS2_bi(ptr de
           to label %_ZN8LightGBM10TextReaderIiE10first_lineB5cxx11Ev.exit unwind label %81
 
 _ZN8LightGBM10TextReaderIiE10first_lineB5cxx11Ev.exit: ; preds = %61
-  invoke fastcc void @_ZN8LightGBM6CommonL18SaveToParserConfigENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %19)
+  invoke fastcc void @_ZN8LightGBM6CommonL18SaveToParserConfigENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %16, ptr noundef %17, ptr noundef %19)
           to label %63 unwind label %83
 
 63:                                               ; preds = %_ZN8LightGBM10TextReaderIiE10first_lineB5cxx11Ev.exit
@@ -5157,7 +5157,7 @@ _ZN8LightGBM10TextReaderIiE10first_lineB5cxx11Ev.exit: ; preds = %61
           to label %89 unwind label %97
 
 89:                                               ; preds = %88
-  invoke fastcc void @_ZN8LightGBM6CommonL19GetFromParserConfigENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull %21, ptr noundef nonnull %22)
+  invoke fastcc void @_ZN8LightGBM6CommonL19GetFromParserConfigENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef %21, ptr noundef %22)
           to label %90 unwind label %99
 
 90:                                               ; preds = %89
@@ -5179,7 +5179,7 @@ _ZN8LightGBM10TextReaderIiE10first_lineB5cxx11Ev.exit: ; preds = %61
 
 94:                                               ; preds = %93
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %28, i32 noundef %4) #27
-  invoke fastcc void @_ZN8LightGBM6CommonL18SaveToParserConfigENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %28)
+  invoke fastcc void @_ZN8LightGBM6CommonL18SaveToParserConfigENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef %25, ptr noundef %26, ptr noundef %28)
           to label %95 unwind label %104
 
 95:                                               ; preds = %94
@@ -5543,7 +5543,7 @@ define linkonce_odr void @_ZN8LightGBM10TextReaderIiE11JoinedLinesENSt7__cxx1112
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8LightGBM6CommonL18SaveToParserConfigENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8LightGBM6CommonL18SaveToParserConfigENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, json11_internal_lightgbm::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, json11_internal_lightgbm::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.json11_internal_lightgbm::Json", align 8

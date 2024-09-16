@@ -860,7 +860,7 @@ define internal void @handshake_sk_destruct(ptr noundef %0) #0 align 16 {
 declare dso_local ptr @handshake_pernet(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @__add_pending_locked(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @__add_pending_locked(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = load volatile ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, %1
   br i1 %4, label %6, label %5, !prof !6
@@ -894,7 +894,7 @@ define internal fastcc noundef zeroext i1 @__add_pending_locked(ptr noundef %0, 
 declare dso_local i32 @handshake_genl_notify(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_handshake_notify_err(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #4 align 16 {
+define internal fastcc void @trace_handshake_notify_err(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef range(i32 1, 0) %3) unnamed_addr #4 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_handshake_notify_err, i64 8), i32 2) #11
           to label %25 [label %5], !srcloc !42
 
@@ -917,7 +917,7 @@ define internal fastcc void @trace_handshake_notify_err(ptr noundef %0, ptr noun
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @__SCT__tp_func_handshake_notify_err(ptr noundef %16, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #11
+  %17 = tail call i32 @__SCT__tp_func_handshake_notify_err(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) #11
   br label %18
 
 18:                                               ; preds = %14, %11
@@ -939,8 +939,8 @@ define internal fastcc void @trace_handshake_notify_err(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @remove_pending(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
-  tail call void @_raw_spin_lock(ptr noundef %0) #11
+define internal fastcc noundef zeroext i1 @remove_pending(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
+  tail call void @_raw_spin_lock(ptr noundef nonnull %0) #11
   %3 = load volatile ptr, ptr %1, align 8
   %4 = icmp ne ptr %3, %1
   br i1 %4, label %5, label %13
@@ -961,12 +961,12 @@ define internal fastcc noundef zeroext i1 @remove_pending(ptr noundef %0, ptr no
   br label %13
 
 13:                                               ; preds = %5, %2
-  tail call void @_raw_spin_unlock(ptr noundef %0) #11
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %0) #11
   ret i1 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_handshake_submit(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 16 {
+define internal fastcc void @trace_handshake_submit(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #4 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_handshake_submit, i64 8), i32 2) #11
           to label %24 [label %4], !srcloc !42
 
@@ -989,7 +989,7 @@ define internal fastcc void @trace_handshake_submit(ptr noundef %0, ptr noundef 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @__SCT__tp_func_handshake_submit(ptr noundef %15, ptr noundef %0, ptr noundef %1, ptr noundef %2) #11
+  %16 = tail call i32 @__SCT__tp_func_handshake_submit(ptr noundef %15, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #11
   br label %17
 
 17:                                               ; preds = %13, %10
@@ -1011,7 +1011,7 @@ define internal fastcc void @trace_handshake_submit(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @handshake_req_destroy(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @handshake_req_destroy(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -1021,7 +1021,7 @@ define internal fastcc void @handshake_req_destroy(ptr noundef %0) unnamed_addr 
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call void %6(ptr noundef %0) #11
+  tail call void %6(ptr noundef nonnull %0) #11
   br label %9
 
 9:                                                ; preds = %8, %1
@@ -1289,7 +1289,7 @@ define internal fastcc void @handshake_req_destroy(ptr noundef %0) unnamed_addr 
 
 .thread10:                                        ; preds = %.thread11, %139, %149, %.thread8
   call void @__rcu_read_unlock() #11
-  call void @kfree(ptr noundef %0) #11
+  call void @kfree(ptr noundef nonnull %0) #11
   ret void
 }
 

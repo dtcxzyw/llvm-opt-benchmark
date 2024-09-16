@@ -1133,7 +1133,7 @@ declare void @_ZN4llvm24createProfileFileNameVarERNS_6ModuleENS_9StringRefE(ptr 
 declare void @_ZN4llvm20appendToCompilerUsedERNS_6ModuleENS_8ArrayRefIPNS_11GlobalValueEEE(ptr noundef nonnull align 8 dereferenceable(857), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL27createIRLevelProfileFlagVarRN4llvm6ModuleENS_22PGOInstrumentationTypeE(ptr noundef nonnull align 8 dereferenceable(857) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL27createIRLevelProfileFlagVarRN4llvm6ModuleENS_22PGOInstrumentationTypeE(ptr noundef nonnull align 8 dereferenceable(857) %0, i32 noundef range(i32 1, 3) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Triple", align 8
@@ -1583,7 +1583,7 @@ define dso_local void @_ZN4llvm21PGOInstrumentationUse3runERNS_6ModuleERNS_15Ana
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
-  %26 = call fastcc noundef zeroext i1 @_ZL20annotateAllFunctionsRN4llvm6ModuleENS_9StringRefES2_RNS_3vfs10FileSystemENS_12function_refIFRNS_17TargetLibraryInfoERNS_8FunctionEEEENS6_IFPNS_21BranchProbabilityInfoESA_EEENS6_IFPNS_18BlockFrequencyInfoESA_EEEPNS_18ProfileSummaryInfoEb(ptr noundef nonnull align 8 dereferenceable(857) %2, ptr %13, i64 %14, ptr %16, i64 %17, ptr noundef nonnull align 8 dereferenceable(12) %19, ptr nonnull @"_ZN4llvm12function_refIFRNS_17TargetLibraryInfoERNS_8FunctionEEE11callback_fnIZNS_21PGOInstrumentationUse3runERNS_6ModuleERNS_15AnalysisManagerIS9_JEEEE3$_0EES2_lS4_", i64 %20, ptr nonnull @"_ZN4llvm12function_refIFPNS_21BranchProbabilityInfoERNS_8FunctionEEE11callback_fnIZNS_21PGOInstrumentationUse3runERNS_6ModuleERNS_15AnalysisManagerIS9_JEEEE3$_1EES2_lS4_", i64 %21, ptr nonnull @"_ZN4llvm12function_refIFPNS_18BlockFrequencyInfoERNS_8FunctionEEE11callback_fnIZNS_21PGOInstrumentationUse3runERNS_6ModuleERNS_15AnalysisManagerIS9_JEEEE3$_2EES2_lS4_", i64 %22, ptr noundef nonnull %12, i1 noundef zeroext %25)
+  %26 = call fastcc noundef zeroext i1 @_ZL20annotateAllFunctionsRN4llvm6ModuleENS_9StringRefES2_RNS_3vfs10FileSystemENS_12function_refIFRNS_17TargetLibraryInfoERNS_8FunctionEEEENS6_IFPNS_21BranchProbabilityInfoESA_EEENS6_IFPNS_18BlockFrequencyInfoESA_EEEPNS_18ProfileSummaryInfoEb(ptr noundef nonnull align 8 dereferenceable(857) %2, ptr %13, i64 %14, ptr %16, i64 %17, ptr noundef nonnull align 8 dereferenceable(12) %19, ptr nonnull @"_ZN4llvm12function_refIFRNS_17TargetLibraryInfoERNS_8FunctionEEE11callback_fnIZNS_21PGOInstrumentationUse3runERNS_6ModuleERNS_15AnalysisManagerIS9_JEEEE3$_0EES2_lS4_", i64 %20, ptr nonnull @"_ZN4llvm12function_refIFPNS_21BranchProbabilityInfoERNS_8FunctionEEE11callback_fnIZNS_21PGOInstrumentationUse3runERNS_6ModuleERNS_15AnalysisManagerIS9_JEEEE3$_1EES2_lS4_", i64 %21, ptr nonnull @"_ZN4llvm12function_refIFPNS_18BlockFrequencyInfoERNS_8FunctionEEE11callback_fnIZNS_21PGOInstrumentationUse3runERNS_6ModuleERNS_15AnalysisManagerIS9_JEEEE3$_2EES2_lS4_", i64 %22, ptr noundef %12, i1 noundef zeroext %25)
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %4
@@ -1624,7 +1624,7 @@ define dso_local void @_ZN4llvm21PGOInstrumentationUse3runERNS_6ModuleERNS_15Ana
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL20annotateAllFunctionsRN4llvm6ModuleENS_9StringRefES2_RNS_3vfs10FileSystemENS_12function_refIFRNS_17TargetLibraryInfoERNS_8FunctionEEEENS6_IFPNS_21BranchProbabilityInfoESA_EEENS6_IFPNS_18BlockFrequencyInfoESA_EEEPNS_18ProfileSummaryInfoEb(ptr noundef nonnull align 8 dereferenceable(857) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr nocapture readonly %.0.val, i64 %.8.val, ptr nocapture readonly %.0.val1, i64 %.8.val3, ptr nocapture readonly %.0.val5, i64 %.8.val7, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL20annotateAllFunctionsRN4llvm6ModuleENS_9StringRefES2_RNS_3vfs10FileSystemENS_12function_refIFRNS_17TargetLibraryInfoERNS_8FunctionEEEENS6_IFPNS_21BranchProbabilityInfoESA_EEENS6_IFPNS_18BlockFrequencyInfoESA_EEEPNS_18ProfileSummaryInfoEb(ptr noundef nonnull align 8 dereferenceable(857) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr nocapture readonly %.0.val, i64 %.8.val, ptr nocapture readonly %.0.val1, i64 %.8.val3, ptr nocapture readonly %.0.val5, i64 %.8.val7, ptr noundef nonnull %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca %"class.std::allocator", align 1
   %10 = alloca %"class.llvm::MDBuilder", align 8
   %11 = alloca %"class.std::allocator", align 1
@@ -2314,7 +2314,7 @@ _ZL10skipPGOUseRKN4llvm8FunctionE.exit.thread77:  ; preds = %411, %_ZL10skipPGOU
 
 436:                                              ; preds = %_ZL10skipPGOUseRKN4llvm8FunctionE.exit.thread77
   %437 = call noundef zeroext i1 @_ZN4llvm28SplitIndirectBrCriticalEdgesERNS_8FunctionEbPNS_21BranchProbabilityInfoEPNS_18BlockFrequencyInfoE(ptr noundef nonnull align 8 dereferenceable(136) %409, i1 noundef zeroext false, ptr noundef %434, ptr noundef %435) #22
-  call fastcc void @_ZN12_GLOBAL__N_110PGOUseFuncC2ERN4llvm8FunctionEPNS1_6ModuleERNS1_17TargetLibraryInfoERSt18unordered_multimapIPNS1_6ComdatEPNS1_11GlobalValueESt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SC_EEEPNS1_21BranchProbabilityInfoEPNS1_18BlockFrequencyInfoEPNS1_18ProfileSummaryInfoEbbb(ptr noundef nonnull align 8 dereferenceable(488) %86, ptr noundef nonnull align 8 dereferenceable(136) %409, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(72) %433, ptr noundef nonnull align 8 dereferenceable(56) %83, ptr noundef %434, ptr noundef %435, ptr noundef nonnull %6, i1 noundef zeroext %7, i1 noundef zeroext %.080.in, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_110PGOUseFuncC2ERN4llvm8FunctionEPNS1_6ModuleERNS1_17TargetLibraryInfoERSt18unordered_multimapIPNS1_6ComdatEPNS1_11GlobalValueESt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SC_EEEPNS1_21BranchProbabilityInfoEPNS1_18BlockFrequencyInfoEPNS1_18ProfileSummaryInfoEbbb(ptr noundef nonnull align 8 dereferenceable(488) %86, ptr noundef nonnull align 8 dereferenceable(136) %409, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(72) %433, ptr noundef nonnull align 8 dereferenceable(56) %83, ptr noundef %434, ptr noundef %435, ptr noundef %6, i1 noundef zeroext %7, i1 noundef zeroext %.080.in, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %56)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %57)
@@ -2349,7 +2349,7 @@ _ZN4llvm8ExpectedINS_15InstrProfRecordEE9takeErrorEv.exit.i: ; preds = %436
   %449 = inttoptr i64 %447 to ptr
   store ptr %449, ptr %58, align 8
   %450 = load i64, ptr %55, align 8
-  call fastcc void @_ZN12_GLOBAL__N_110PGOUseFunc20handleInstrProfErrorEN4llvm5ErrorEm(ptr noundef nonnull align 8 dereferenceable(488) %86, ptr noundef nonnull %58, i64 noundef %450)
+  call fastcc void @_ZN12_GLOBAL__N_110PGOUseFunc20handleInstrProfErrorEN4llvm5ErrorEm(ptr noundef nonnull align 8 dereferenceable(488) %86, ptr noundef %58, i64 noundef %450)
   %451 = load ptr, ptr %58, align 8
   %452 = icmp eq ptr %451, null
   br i1 %452, label %_ZN4llvm5ErrorD2Ev.exit23.i, label %453
@@ -3780,7 +3780,7 @@ _ZN12_GLOBAL__N_110PGOUseFunc12readCountersEPN4llvm22IndexedInstrProfReaderERbRN
   br i1 %.1.i, label %2617, label %_ZNSt6vectorIPN4llvm8FunctionESaIS2_EE9push_backEOS2_.exit
 
 .critedge88:                                      ; preds = %_ZL10skipPGOUseRKN4llvm8FunctionE.exit.thread77
-  call fastcc void @_ZN12_GLOBAL__N_110PGOUseFuncC2ERN4llvm8FunctionEPNS1_6ModuleERNS1_17TargetLibraryInfoERSt18unordered_multimapIPNS1_6ComdatEPNS1_11GlobalValueESt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SC_EEEPNS1_21BranchProbabilityInfoEPNS1_18BlockFrequencyInfoEPNS1_18ProfileSummaryInfoEbbb(ptr noundef nonnull align 8 dereferenceable(488) %86, ptr noundef nonnull align 8 dereferenceable(136) %409, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(72) %433, ptr noundef nonnull align 8 dereferenceable(56) %83, ptr noundef %434, ptr noundef %435, ptr noundef nonnull %6, i1 noundef zeroext %7, i1 noundef zeroext %.080.in, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_110PGOUseFuncC2ERN4llvm8FunctionEPNS1_6ModuleERNS1_17TargetLibraryInfoERSt18unordered_multimapIPNS1_6ComdatEPNS1_11GlobalValueESt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SC_EEEPNS1_21BranchProbabilityInfoEPNS1_18BlockFrequencyInfoEPNS1_18ProfileSummaryInfoEbbb(ptr noundef nonnull align 8 dereferenceable(488) %86, ptr noundef nonnull align 8 dereferenceable(136) %409, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(72) %433, ptr noundef nonnull align 8 dereferenceable(56) %83, ptr noundef %434, ptr noundef %435, ptr noundef %6, i1 noundef zeroext %7, i1 noundef zeroext %.080.in, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29)
@@ -3829,7 +3829,7 @@ _ZN4llvm8ExpectedINS_15InstrProfRecordEE9takeErrorEv.exit.i134: ; preds = %.crit
   %1097 = inttoptr i64 %1095 to ptr
   store ptr %1097, ptr %30, align 8
   %1098 = load i64, ptr %27, align 8
-  call fastcc void @_ZN12_GLOBAL__N_110PGOUseFunc20handleInstrProfErrorEN4llvm5ErrorEm(ptr noundef nonnull align 8 dereferenceable(488) %86, ptr noundef nonnull %30, i64 noundef %1098)
+  call fastcc void @_ZN12_GLOBAL__N_110PGOUseFunc20handleInstrProfErrorEN4llvm5ErrorEm(ptr noundef nonnull align 8 dereferenceable(488) %86, ptr noundef %30, i64 noundef %1098)
   %1099 = load ptr, ptr %30, align 8
   %1100 = icmp eq ptr %1099, null
   br i1 %1100, label %_ZN4llvm5ErrorD2Ev.exit49.i, label %1101
@@ -8727,7 +8727,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit233.thread:      ; preds = %3346, %_ZN4llvmeqEN
   store i16 257, ptr %352, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %100) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull @.str.62, ptr noundef nonnull align 1 dereferenceable(1) %100)
-  call fastcc void @_ZN4llvm10WriteGraphIPN12_GLOBAL__N_110PGOUseFuncEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKNS_5TwineEbSF_S9_(ptr dead_on_unwind noalias nonnull writable align 8 %93, ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull align 8 dereferenceable(34) %95, ptr noundef nonnull align 8 dereferenceable(34) %98, ptr noundef nonnull %99)
+  call fastcc void @_ZN4llvm10WriteGraphIPN12_GLOBAL__N_110PGOUseFuncEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKNS_5TwineEbSF_S9_(ptr dead_on_unwind noalias writable align 8 %93, ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull align 8 dereferenceable(34) %95, ptr noundef nonnull align 8 dereferenceable(34) %98, ptr noundef %99)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %93) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %99) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %100) #22
@@ -11015,7 +11015,7 @@ _ZN4llvm6CFGMSTIN12_GLOBAL__N_17PGOEdgeENS1_9PGOBBInfoEE10buildEdgesEv.exit.i.i:
   %storemerge26.i.i.in.in.i.i.i.i.i.i = phi i64 [ %storemerge26.i.i.i.i.i.i.i.i, %select.unfold.i.i.i.i.i.i.i.i ], [ %223, %219 ]
   %storemerge26.i.i.in.i.i.i.i.i.i = add nuw nsw i64 %storemerge26.i.i.in.in.i.i.i.i.i.i, 1
   %storemerge26.i.i.i.i.i.i.i.i = lshr i64 %storemerge26.i.i.in.i.i.i.i.i.i, 1
-  %225 = shl nuw nsw i64 %storemerge26.i.i.i.i.i.i.i.i, 3
+  %225 = shl i64 %storemerge26.i.i.i.i.i.i.i.i, 3
   %226 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %225, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #27
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %226, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %select.unfold.i.i.i.i.i.i.i.i, label %227
@@ -14675,7 +14675,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(27) ptr @_ZN4llvm
   store ptr %1, ptr %6, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %11, align 8
-  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrIN12_GLOBAL__N_19PGOBBInfoESt14default_deleteIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrIN12_GLOBAL__N_19PGOBBInfoESt14default_deleteIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i8, ptr %12, align 8
@@ -14718,7 +14718,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19PGOBBInfoESt14default_deleteIS1_EED2Ev.exit: ;
   store ptr %2, ptr %8, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %24, align 8
-  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrIN12_GLOBAL__N_19PGOBBInfoESt14default_deleteIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrIN12_GLOBAL__N_19PGOBBInfoESt14default_deleteIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(16) %8)
   %.sroa.0.0.copyload38 = load ptr, ptr %7, align 8
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %26 = load i8, ptr %25, align 8
@@ -14857,7 +14857,7 @@ declare i32 @_ZNK4llvm21BranchProbabilityInfo18getEdgeProbabilityEPKNS_10BasicBl
 declare noundef i64 @_ZNK4llvm17BranchProbability5scaleEm(ptr noundef nonnull align 4 dereferenceable(4), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrIN12_GLOBAL__N_19PGOBBInfoESt14default_deleteIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrIN12_GLOBAL__N_19PGOBBInfoESt14default_deleteIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !275)
   %.val9.i = load ptr, ptr %1, align 8, !noalias !275
@@ -19105,7 +19105,7 @@ declare noundef ptr @_ZN4llvm14ProfileSummary5getMDERNS_11LLVMContextEbb(ptr nou
 declare void @_ZN4llvm18ProfileSummaryInfo7refreshEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110PGOUseFuncC2ERN4llvm8FunctionEPNS1_6ModuleERNS1_17TargetLibraryInfoERSt18unordered_multimapIPNS1_6ComdatEPNS1_11GlobalValueESt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SC_EEEPNS1_21BranchProbabilityInfoEPNS1_18BlockFrequencyInfoEPNS1_18ProfileSummaryInfoEbbb(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 noundef zeroext %10) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_110PGOUseFuncC2ERN4llvm8FunctionEPNS1_6ModuleERNS1_17TargetLibraryInfoERSt18unordered_multimapIPNS1_6ComdatEPNS1_11GlobalValueESt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SC_EEEPNS1_21BranchProbabilityInfoEPNS1_18BlockFrequencyInfoEPNS1_18ProfileSummaryInfoEbbb(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 noundef zeroext %10) unnamed_addr #0 align 2 {
   %12 = alloca %"class.std::allocator", align 1
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19455,7 +19455,7 @@ _ZN4llvm6CFGMSTIN12_GLOBAL__N_110PGOUseEdgeENS1_12PGOUseBBInfoEE10buildEdgesEv.e
   %storemerge26.i.i.in.in.i.i.i.i.i.i = phi i64 [ %storemerge26.i.i.i.i.i.i.i.i, %select.unfold.i.i.i.i.i.i.i.i ], [ %176, %172 ]
   %storemerge26.i.i.in.i.i.i.i.i.i = add nuw nsw i64 %storemerge26.i.i.in.in.i.i.i.i.i.i, 1
   %storemerge26.i.i.i.i.i.i.i.i = lshr i64 %storemerge26.i.i.in.i.i.i.i.i.i, 1
-  %178 = shl nuw nsw i64 %storemerge26.i.i.i.i.i.i.i.i, 3
+  %178 = shl i64 %storemerge26.i.i.i.i.i.i.i.i, 3
   %179 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %178, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #27
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %179, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %select.unfold.i.i.i.i.i.i.i.i, label %180
@@ -20846,7 +20846,7 @@ _ZNKSt14default_deleteIN4llvm21BranchProbabilityInfoEEclEPS1_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm10WriteGraphIPN12_GLOBAL__N_110PGOUseFuncEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKNS_5TwineEbSF_S9_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(34) %2, ptr noundef nonnull align 8 dereferenceable(34) %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm10WriteGraphIPN12_GLOBAL__N_110PGOUseFuncEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKNS_5TwineEbSF_S9_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(34) %2, ptr noundef nonnull align 8 dereferenceable(34) %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -21767,7 +21767,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit83.i.i.i.i:       ; preds = %498, %496, %486, %4
   br i1 %502, label %506, label %523
 
 506:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit83.i.i.i.i
-  call fastcc void @_ZN4llvm14DOTGraphTraitsIPN12_GLOBAL__N_110PGOUseFuncEE12getNodeLabelB5cxx11EPKNS_10BasicBlockEPKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %353, ptr noundef %505)
+  call fastcc void @_ZN4llvm14DOTGraphTraitsIPN12_GLOBAL__N_110PGOUseFuncEE12getNodeLabelB5cxx11EPKNS_10BasicBlockEPKS2_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %353, ptr noundef %505)
   %507 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #22
   %508 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #22
   %509 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %503, ptr noundef %507, i64 noundef %508) #22
@@ -21793,7 +21793,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit83.i.i.i.i:       ; preds = %498, %496, %486, %4
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit89.i.i.i.i
 
 523:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit83.i.i.i.i
-  call fastcc void @_ZN4llvm14DOTGraphTraitsIPN12_GLOBAL__N_110PGOUseFuncEE12getNodeLabelB5cxx11EPKNS_10BasicBlockEPKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef %353, ptr noundef %505)
+  call fastcc void @_ZN4llvm14DOTGraphTraitsIPN12_GLOBAL__N_110PGOUseFuncEE12getNodeLabelB5cxx11EPKNS_10BasicBlockEPKS2_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %353, ptr noundef %505)
   call void @_ZN4llvm3DOT12EscapeStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %15) #22
   %524 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #22
   %525 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #22
@@ -22483,7 +22483,7 @@ define internal fastcc void @_ZN4llvm9ViewGraphIPN12_GLOBAL__N_110PGOUseFuncEEEv
   %7 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %6) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.62)
-  call fastcc void @_ZN4llvm10WriteGraphIPN12_GLOBAL__N_110PGOUseFuncEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKNS_5TwineEbSF_S9_(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(34) %2, ptr noundef nonnull %5)
+  call fastcc void @_ZN4llvm10WriteGraphIPN12_GLOBAL__N_110PGOUseFuncEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKNS_5TwineEbSF_S9_(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(34) %2, ptr noundef %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #22
   %8 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
@@ -23134,12 +23134,12 @@ _ZNK4llvm6CFGMSTIN12_GLOBAL__N_110PGOUseEdgeENS1_12PGOUseBBInfoEE9getBBInfoEPKNS
   br i1 %313, label %_ZN4llvmplERKNS_5TwineES2_.exit15.i.i.i, label %314
 
 314:                                              ; preds = %_ZNK4llvm6CFGMSTIN12_GLOBAL__N_110PGOUseEdgeENS1_12PGOUseBBInfoEE9getBBInfoEPKNS_10BasicBlockE.exit78.i.i
-  call fastcc void @_ZNK12_GLOBAL__N_17PGOEdge10infoStringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(27) %.val24.i.i)
+  call fastcc void @_ZNK12_GLOBAL__N_17PGOEdge10infoStringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(27) %.val24.i.i)
   br label %_ZNK12_GLOBAL__N_110PGOUseEdge10infoStringB5cxx11Ev.exit.i.i
 
 _ZN4llvmplERKNS_5TwineES2_.exit15.i.i.i:          ; preds = %_ZNK4llvm6CFGMSTIN12_GLOBAL__N_110PGOUseEdgeENS1_12PGOUseBBInfoEE9getBBInfoEPKNS_10BasicBlockE.exit78.i.i
   %315 = getelementptr inbounds nuw i8, ptr %.val24.i.i, i64 32
-  call fastcc void @_ZNK12_GLOBAL__N_17PGOEdge10infoStringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(27) %.val24.i.i), !noalias !421
+  call fastcc void @_ZNK12_GLOBAL__N_17PGOEdge10infoStringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(27) %.val24.i.i), !noalias !421
   store ptr %6, ptr %5, align 8, !alias.scope !424, !noalias !421
   store ptr @.str.261, ptr %205, align 8, !alias.scope !424, !noalias !421
   store i8 4, ptr %206, align 8, !alias.scope !424, !noalias !421
@@ -24741,7 +24741,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm
   store ptr %1, ptr %6, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %11, align 8
-  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrIN12_GLOBAL__N_112PGOUseBBInfoESt14default_deleteIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrIN12_GLOBAL__N_112PGOUseBBInfoESt14default_deleteIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i8, ptr %12, align 8
@@ -24844,7 +24844,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_112PGOUseBBInfoESt14default_deleteIS1_EED2Ev.exi
   store ptr %2, ptr %8, align 8
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %57, align 8
-  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrIN12_GLOBAL__N_112PGOUseBBInfoESt14default_deleteIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrIN12_GLOBAL__N_112PGOUseBBInfoESt14default_deleteIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(16) %8)
   %.sroa.0.0.copyload41 = load ptr, ptr %7, align 8
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %59 = load i8, ptr %58, align 8
@@ -25036,7 +25036,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_110PGOUseEdgeESt14default_deleteIS2_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrIN12_GLOBAL__N_112PGOUseBBInfoESt14default_deleteIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrIN12_GLOBAL__N_112PGOUseBBInfoESt14default_deleteIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !491)
   %.val9.i = load ptr, ptr %1, align 8, !noalias !491
@@ -27332,7 +27332,7 @@ common.ret:                                       ; preds = %1, %3
 declare void @_ZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9StringRefEmS1_Pm(ptr dead_on_unwind writable sret(%"class.llvm::Expected.727") align 8, ptr noundef nonnull align 8 dereferenceable(484), ptr, i64, i64 noundef, ptr noundef byval(%"class.llvm::StringRef") align 8, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110PGOUseFunc20handleInstrProfErrorEN4llvm5ErrorEm(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr nocapture noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_110PGOUseFunc20handleInstrProfErrorEN4llvm5ErrorEm(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr nocapture noundef nonnull %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %"class.llvm::Error", align 8
@@ -27384,7 +27384,7 @@ _ZN4llvm5ErrorD2Ev.exit.i.i:                      ; preds = %19, %_ZN4llvm5Error
   %25 = load i64, ptr %.sroa.015.027.i.i, align 8, !noalias !515
   store i64 %25, ptr %7, align 8, !noalias !515
   store ptr null, ptr %.sroa.015.027.i.i, align 8, !noalias !515
-  call fastcc void @"_ZN4llvm15handleErrorImplIZN12_GLOBAL__N_110PGOUseFunc20handleInstrProfErrorENS_5ErrorEmE3$_0JEEES3_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS6_EEOT_DpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !515
+  call fastcc void @"_ZN4llvm15handleErrorImplIZN12_GLOBAL__N_110PGOUseFunc20handleInstrProfErrorENS_5ErrorEmE3$_0JEEES3_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS6_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !515
   call void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull %5, ptr noundef nonnull %6), !noalias !515
   %26 = load ptr, ptr %4, align 8, !noalias !515
   store ptr null, ptr %4, align 8, !noalias !515
@@ -27432,7 +27432,7 @@ _ZN4llvm5ErrorD2Ev.exit8.i.i:                     ; preds = %39, %_ZNSt10unique_
 44:                                               ; preds = %14
   %45 = ptrtoint ptr %12 to i64
   store i64 %45, ptr %8, align 8, !noalias !515
-  call fastcc void @"_ZN4llvm15handleErrorImplIZN12_GLOBAL__N_110PGOUseFunc20handleInstrProfErrorENS_5ErrorEmE3$_0JEEES3_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS6_EEOT_DpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull %8, ptr noundef nonnull readonly align 8 dereferenceable(16) %11)
+  call fastcc void @"_ZN4llvm15handleErrorImplIZN12_GLOBAL__N_110PGOUseFunc20handleInstrProfErrorENS_5ErrorEmE3$_0JEEES3_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS6_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(16) %11)
   %46 = load ptr, ptr %8, align 8, !noalias !515
   %.not.i9.i.i = icmp eq ptr %46, null
   br i1 %.not.i9.i.i, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i10.i.i
@@ -27480,7 +27480,7 @@ declare void @_ZN4llvm18BlockFrequencyInfoC1ERKNS_8FunctionERKNS_21BranchProbabi
 declare void @_ZN4llvm18BlockFrequencyInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm15handleErrorImplIZN12_GLOBAL__N_110PGOUseFunc20handleInstrProfErrorENS_5ErrorEmE3$_0JEEES3_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS6_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm15handleErrorImplIZN12_GLOBAL__N_110PGOUseFunc20handleInstrProfErrorENS_5ErrorEmE3$_0JEEES3_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS6_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca [25 x i8], align 16
@@ -30000,7 +30000,7 @@ declare noundef zeroext i1 @_ZN4llvm12DisplayGraphENS_9StringRefEbNS_12GraphProg
 declare void @_ZNK4llvm5Twine5printERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_17PGOEdge10infoStringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(27) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_17PGOEdge10infoStringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(27) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -30143,7 +30143,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit52:                ; preds = %_ZN4llvmplERKNS_5Tw
   store i8 %.sink121, ptr %45, align 8, !alias.scope !579
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 %.sink119, ptr %46, align 1, !alias.scope !579
-  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %3) #22
+  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %3) #22
   ret void
 }
 

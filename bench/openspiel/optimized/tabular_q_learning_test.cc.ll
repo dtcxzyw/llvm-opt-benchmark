@@ -454,7 +454,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i: ; preds = %_ZNSt16_Sp_counte
 
 193:                                              ; preds = %192
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %108)
-  %194 = invoke fastcc noundef double @_ZN10open_spiel12_GLOBAL__N_19PlayCatchEN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS2_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEEERKSt10unique_ptrINS_5StateESt14default_deleteISM_EEd(ptr noundef nonnull %120, ptr noundef nonnull align 8 dereferenceable(8) %119, double noundef 4.200000e+01)
+  %194 = invoke fastcc noundef double @_ZN10open_spiel12_GLOBAL__N_19PlayCatchEN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS2_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEEERKSt10unique_ptrINS_5StateESt14default_deleteISM_EEd(ptr noundef %120, ptr noundef nonnull align 8 dereferenceable(8) %119, double noundef 4.200000e+01)
           to label %195 unwind label %230
 
 195:                                              ; preds = %193
@@ -942,7 +942,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i9: ; preds = %_ZNSt10shared_pt
 
 358:                                              ; preds = %357
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %91)
-  %359 = invoke fastcc noundef double @_ZN10open_spiel12_GLOBAL__N_19PlayCatchEN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS2_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEEERKSt10unique_ptrINS_5StateESt14default_deleteISM_EEd(ptr noundef nonnull %103, ptr noundef nonnull align 8 dereferenceable(8) %102, double noundef 4.200000e+01)
+  %359 = invoke fastcc noundef double @_ZN10open_spiel12_GLOBAL__N_19PlayCatchEN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS2_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEEERKSt10unique_ptrINS_5StateESt14default_deleteISM_EEd(ptr noundef %103, ptr noundef nonnull align 8 dereferenceable(8) %102, double noundef 4.200000e+01)
           to label %360 unwind label %387
 
 360:                                              ; preds = %358
@@ -1399,7 +1399,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i37: ; preds = %_ZNSt10shared_p
 
 515:                                              ; preds = %514
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %74)
-  %516 = invoke fastcc noundef double @_ZN10open_spiel12_GLOBAL__N_19PlayCatchEN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS2_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEEERKSt10unique_ptrINS_5StateESt14default_deleteISM_EEd(ptr noundef nonnull %86, ptr noundef nonnull align 8 dereferenceable(8) %85, double noundef 4.200000e+01)
+  %516 = invoke fastcc noundef double @_ZN10open_spiel12_GLOBAL__N_19PlayCatchEN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS2_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEEERKSt10unique_ptrINS_5StateESt14default_deleteISM_EEd(ptr noundef %86, ptr noundef nonnull align 8 dereferenceable(8) %85, double noundef 4.200000e+01)
           to label %517 unwind label %544
 
 517:                                              ; preds = %515
@@ -1954,7 +1954,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit47.i: ; preds = %_ZNSt16_Sp_coun
 
 719:                                              ; preds = %718
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %48)
-  %720 = invoke fastcc noundef double @_ZN10open_spiel12_GLOBAL__N_19PlayCatchEN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS2_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEEERKSt10unique_ptrINS_5StateESt14default_deleteISM_EEd(ptr noundef nonnull %67, ptr noundef nonnull align 8 dereferenceable(8) %66, double noundef %707)
+  %720 = invoke fastcc noundef double @_ZN10open_spiel12_GLOBAL__N_19PlayCatchEN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS2_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEEERKSt10unique_ptrINS_5StateESt14default_deleteISM_EEd(ptr noundef %67, ptr noundef nonnull align 8 dereferenceable(8) %66, double noundef %707)
           to label %721 unwind label %755
 
 721:                                              ; preds = %719
@@ -2110,7 +2110,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit52.i: ; p
 
 772:                                              ; preds = %771
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %47)
-  %773 = invoke fastcc noundef double @_ZN10open_spiel12_GLOBAL__N_19PlayCatchEN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS2_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEEERKSt10unique_ptrINS_5StateESt14default_deleteISM_EEd(ptr noundef nonnull %69, ptr noundef nonnull align 8 dereferenceable(8) %68, double noundef %707)
+  %773 = invoke fastcc noundef double @_ZN10open_spiel12_GLOBAL__N_19PlayCatchEN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS2_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEEERKSt10unique_ptrINS_5StateESt14default_deleteISM_EEd(ptr noundef %69, ptr noundef nonnull align 8 dereferenceable(8) %68, double noundef %707)
           to label %774 unwind label %800
 
 774:                                              ; preds = %772
@@ -2777,7 +2777,7 @@ _ZN4absl7debian215random_internal18DistributionCallerISt23mersenne_twister_engin
 
 1014:                                             ; preds = %1012
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27)
-  %1015 = invoke fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_116GetOptimalActionEN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS2_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEEERKSt10unique_ptrINS_5StateESt14default_deleteISM_EE(ptr noundef nonnull %41, ptr noundef nonnull align 8 dereferenceable(8) %40)
+  %1015 = invoke fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_116GetOptimalActionEN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS2_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEEERKSt10unique_ptrINS_5StateESt14default_deleteISM_EE(ptr noundef %41, ptr noundef nonnull align 8 dereferenceable(8) %40)
           to label %1016 unwind label %1038
 
 1016:                                             ; preds = %1014
@@ -3269,7 +3269,7 @@ _ZN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_trai
 
 1190:                                             ; preds = %1189
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  %1191 = invoke fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_116GetOptimalActionEN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS2_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEEERKSt10unique_ptrINS_5StateESt14default_deleteISM_EE(ptr noundef nonnull %21, ptr noundef nonnull align 8 dereferenceable(8) %20)
+  %1191 = invoke fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_116GetOptimalActionEN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS2_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEEERKSt10unique_ptrINS_5StateESt14default_deleteISM_EE(ptr noundef %21, ptr noundef nonnull align 8 dereferenceable(8) %20)
           to label %1192 unwind label %1214
 
 1192:                                             ; preds = %1190
@@ -3612,7 +3612,7 @@ declare void @_ZN10open_spiel10algorithms22TabularQLearningSolver12RunIterationE
 declare noundef nonnull align 8 dereferenceable(40) ptr @_ZNK10open_spiel10algorithms22TabularQLearningSolver14GetQValueTableB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(5136)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef double @_ZN10open_spiel12_GLOBAL__N_19PlayCatchEN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS2_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEEERKSt10unique_ptrINS_5StateESt14default_deleteISM_EEd(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, double noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @_ZN10open_spiel12_GLOBAL__N_19PlayCatchEN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS2_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEEERKSt10unique_ptrINS_5StateESt14default_deleteISM_EEd(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, double noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator.6", align 1
   %5 = alloca %"class.std::mersenne_twister_engine", align 8
   %6 = alloca %"class.std::uniform_int_distribution", align 4
@@ -3666,7 +3666,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdEENS0_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEEC2ERKSL_RKSK_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %36 = invoke fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_116GetOptimalActionEN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS2_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEEERKSt10unique_ptrINS_5StateESt14default_deleteISM_EE(ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %36 = invoke fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_116GetOptimalActionEN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS2_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEEERKSt10unique_ptrINS_5StateESt14default_deleteISM_EE(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %37 unwind label %64
 
 37:                                               ; preds = %35
@@ -4052,7 +4052,7 @@ declare void @_ZN10open_spiel10algorithms22TabularQLearningSolverC1ESt10shared_p
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_116GetOptimalActionEN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS2_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEEERKSt10unique_ptrINS_5StateESt14default_deleteISM_EE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_116GetOptimalActionEN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS2_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEEERKSt10unique_ptrINS_5StateESt14default_deleteISM_EE(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.28", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"struct.std::pair", align 8

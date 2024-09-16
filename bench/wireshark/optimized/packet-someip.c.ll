@@ -6776,7 +6776,7 @@ proto_item_set_generated.exit219:                 ; preds = %186, %202, %205
   %261 = load i32, ptr %16, align 4
   %262 = trunc i32 %261 to i8
   %263 = and i8 %262, -33
-  call fastcc void @dissect_someip_payload(ptr noundef nonnull %.0177, ptr noundef nonnull %1, ptr noundef %252, i16 noundef zeroext %256, i16 noundef zeroext %258, i8 noundef zeroext %260, i8 noundef zeroext %263)
+  call fastcc void @dissect_someip_payload(ptr noundef %.0177, ptr noundef nonnull %1, ptr noundef %252, i16 noundef zeroext %256, i16 noundef zeroext %258, i8 noundef zeroext %260, i8 noundef zeroext %263)
   br label %.thread
 
 264:                                              ; preds = %250
@@ -6850,8 +6850,8 @@ declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unna
 declare i32 @dissector_try_uint_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_someip_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6) unnamed_addr #0 {
-  %8 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #14
+define internal fastcc void @dissect_someip_payload(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext range(i8 0, -32) %6) unnamed_addr #0 {
+  %8 = tail call i32 @tvb_captured_length_remaining(ptr noundef nonnull %0, i32 noundef 0) #14
   %9 = load i32, ptr @ett_someip_payload, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %2, i32 noundef %9) #14
   %11 = load ptr, ptr @data_someip_parameter_list, align 8
@@ -6885,7 +6885,7 @@ get_parameter_config.exit.thread:                 ; preds = %7, %get_parameter_c
   br i1 %.not, label %46, label %30
 
 30:                                               ; preds = %get_parameter_config.exit.thread
-  %31 = tail call fastcc i32 @dissect_someip_payload_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 1)
+  %31 = tail call fastcc i32 @dissect_someip_payload_parameters(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %10, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 1)
   br label %40
 
 32:                                               ; preds = %get_parameter_config.exit
@@ -6895,7 +6895,7 @@ get_parameter_config.exit.thread:                 ; preds = %7, %get_parameter_c
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds i8, ptr %26, i64 16
   %38 = load i32, ptr %37, align 8
-  %39 = tail call fastcc i32 @dissect_someip_payload_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef 0, ptr noundef %34, i32 noundef %36, i32 noundef %38)
+  %39 = tail call fastcc i32 @dissect_someip_payload_parameters(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %10, i32 noundef 0, ptr noundef %34, i32 noundef %36, i32 noundef %38)
   br label %40
 
 40:                                               ; preds = %32, %30
@@ -6906,7 +6906,7 @@ get_parameter_config.exit.thread:                 ; preds = %7, %get_parameter_c
 42:                                               ; preds = %40
   %43 = load i32, ptr @hf_payload_unparsed, align 4
   %44 = sub i32 %8, %.0
-  %45 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %43, ptr noundef %0, i32 noundef %.0, i32 noundef %44, i32 noundef 0) #14
+  %45 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %43, ptr noundef nonnull %0, i32 noundef %.0, i32 noundef %44, i32 noundef 0) #14
   br label %46
 
 46:                                               ; preds = %get_parameter_config.exit.thread, %42, %40
@@ -7287,7 +7287,7 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #1
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @expert_someip_payload_config_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @expert_someip_payload_config_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 3) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_someip_payload_config_error, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull @.str.347, ptr noundef %5) #14
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -7296,7 +7296,7 @@ define internal fastcc void @expert_someip_payload_config_error(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_someip_payload_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_someip_payload_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef range(i32 -1, 1) %8) unnamed_addr #0 {
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
   %12 = alloca i32, align 4
@@ -7909,7 +7909,7 @@ dissect_someip_payload_array_dim_length.exit.thread126: ; preds = %285, %dissect
   %.0.i81112120 = phi i32 [ %.0.i81112121, %dissect_someip_payload_array_dim_length.exit.thread126 ], [ %.0.i81114, %292 ]
   %299 = phi i32 [ %295, %dissect_someip_payload_array_dim_length.exit.thread126 ], [ %281, %292 ]
   %300 = phi i32 [ %296, %dissect_someip_payload_array_dim_length.exit.thread126 ], [ %280, %292 ]
-  %301 = call fastcc i32 @dissect_someip_payload_array_dim(ptr noundef %0, ptr noundef %1, ptr noundef %243, i32 noundef %298, i32 noundef %.1122, i32 noundef %299, i32 noundef %300, ptr noundef nonnull %223, i32 noundef 0, ptr noundef %6, i32 noundef %.0.i81112120)
+  %301 = call fastcc i32 @dissect_someip_payload_array_dim(ptr noundef %0, ptr noundef %1, ptr noundef %243, i32 noundef %298, i32 noundef %.1122, i32 noundef %299, i32 noundef %300, ptr noundef %223, i32 noundef 0, ptr noundef %6, i32 noundef %.0.i81112120)
   %302 = add i32 %301, %298
   call void @proto_item_set_end(ptr noundef %241, ptr noundef %0, i32 noundef %302) #14
   %303 = icmp sgt i32 %.1122, -1
@@ -8439,7 +8439,7 @@ declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_someip_payload_array_dim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10) unnamed_addr #0 {
+define internal fastcc i32 @dissect_someip_payload_array_dim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %7, i32 noundef %8, ptr noundef %9, i32 noundef range(i32 0, 33) %10) unnamed_addr #0 {
   %12 = getelementptr inbounds i8, ptr %7, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = add i32 %8, 1
@@ -8614,7 +8614,7 @@ dissect_someip_payload_array_dim_length.exit:     ; preds = %77, %84, %87
   br label %113
 
 96:                                               ; preds = %dissect_someip_payload_array_dim_length.exit
-  %97 = tail call fastcc i32 @dissect_someip_payload_array_dim(ptr noundef %0, ptr noundef %1, ptr noundef %66, i32 noundef %89, i32 noundef %.184, i32 noundef %69, i32 noundef %71, ptr noundef nonnull %7, i32 noundef %14, ptr noundef %9, i32 noundef %10)
+  %97 = tail call fastcc i32 @dissect_someip_payload_array_dim(ptr noundef %0, ptr noundef %1, ptr noundef %66, i32 noundef %89, i32 noundef %.184, i32 noundef %69, i32 noundef %71, ptr noundef %7, i32 noundef %14, ptr noundef %9, i32 noundef %10)
   %98 = add i32 %97, %89
   tail call void @proto_item_set_end(ptr noundef %64, ptr noundef %0, i32 noundef %98) #14
   %99 = icmp slt i32 %98, %56

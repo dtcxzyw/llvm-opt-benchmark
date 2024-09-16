@@ -7883,7 +7883,7 @@ _ZNK5Yosys7hashlib4poolIN12_GLOBAL__N_15IdBitENS0_8hash_opsIS3_EEE5countERKS3_.e
 1078:                                             ; preds = %1072, %1071
   store i32 %1046, ptr %25, align 4
   store i32 %1054, ptr %814, align 4
-  %1079 = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_119RecoverModuleWorker9setup_satEPN5Yosys6SatGenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5IdBitERKNS1_7hashlib4dictISC_SC_NSD_8hash_opsISC_EEEERNSE_ISC_iSG_EE(ptr noundef nonnull align 8 dereferenceable(324) %43, ptr noundef nonnull %19, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(49) %45, ptr noundef nonnull align 8 dereferenceable(49) %21)
+  %1079 = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_119RecoverModuleWorker9setup_satEPN5Yosys6SatGenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5IdBitERKNS1_7hashlib4dictISC_SC_NSD_8hash_opsISC_EEEERNSE_ISC_iSG_EE(ptr noundef nonnull align 8 dereferenceable(324) %43, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef %25, ptr noundef nonnull align 8 dereferenceable(49) %45, ptr noundef nonnull align 8 dereferenceable(49) %21)
           to label %1080 unwind label %1100
 
 1080:                                             ; preds = %1078
@@ -7963,7 +7963,7 @@ _ZN12_GLOBAL__N_15IdBitD2Ev.exit.i314:            ; preds = %1091, %1084, %1080
 1111:                                             ; preds = %1105, %1104
   store i32 %1055, ptr %28, align 4
   store i32 %1063, ptr %815, align 4
-  %1112 = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_119RecoverModuleWorker9setup_satEPN5Yosys6SatGenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5IdBitERKNS1_7hashlib4dictISC_SC_NSD_8hash_opsISC_EEEERNSE_ISC_iSG_EE(ptr noundef nonnull align 8 dereferenceable(324) %44, ptr noundef nonnull %19, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull %28, ptr noundef nonnull align 8 dereferenceable(49) %46, ptr noundef nonnull align 8 dereferenceable(49) %22)
+  %1112 = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_119RecoverModuleWorker9setup_satEPN5Yosys6SatGenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5IdBitERKNS1_7hashlib4dictISC_SC_NSD_8hash_opsISC_EEEERNSE_ISC_iSG_EE(ptr noundef nonnull align 8 dereferenceable(324) %44, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(49) %46, ptr noundef nonnull align 8 dereferenceable(49) %22)
           to label %1113 unwind label %1131
 
 1113:                                             ; preds = %1111
@@ -10542,7 +10542,7 @@ _ZN12_GLOBAL__N_15IdBitaSERKS0_.exit373:          ; preds = %_ZN5Yosys5RTLIL8IdS
   br label %.body620
 
 2183:                                             ; preds = %_ZN12_GLOBAL__N_15IdBitaSERKS0_.exit373, %_ZN12_GLOBAL__N_15IdBitD2Ev.exit363
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_15IdBitENS0_8hash_opsIS3_EEE6insertERKS3_(ptr dead_on_unwind noalias nonnull writable align 8 %58, ptr noundef nonnull align 8 dereferenceable(49) %55, ptr noundef nonnull align 4 dereferenceable(8) %57)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_15IdBitENS0_8hash_opsIS3_EEE6insertERKS3_(ptr dead_on_unwind noalias writable align 8 %58, ptr noundef nonnull align 8 dereferenceable(49) %55, ptr noundef nonnull align 4 dereferenceable(8) %57)
           to label %_ZNK5Yosys7hashlib4poolIN12_GLOBAL__N_15IdBitENS0_8hash_opsIS3_EEE5countERKS3_.exit unwind label %.loopexit887
 
 _ZNK5Yosys7hashlib4poolIN12_GLOBAL__N_15IdBitENS0_8hash_opsIS3_EEE5countERKS3_.exit: ; preds = %1035, %2183, %_ZN12_GLOBAL__N_15IdBitD2Ev.exit330
@@ -10730,7 +10730,7 @@ _ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit: ; preds = %._crit_edge1470
 
 2243:                                             ; preds = %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit
   %2244 = getelementptr inbounds i8, ptr %0, i64 128
-  invoke fastcc void @_ZN12_GLOBAL__N_119RecoverModuleWorker9do_renameEPN5Yosys5RTLIL6ModuleERKNS1_7hashlib4dictINS_5IdBitENS_6InvBitENS5_8hash_opsIS7_EEEERKNS5_4poolINS2_8IdStringENS9_ISF_EEEE(ptr noundef nonnull align 8 dereferenceable(324) %44, ptr noundef nonnull %62, ptr noundef nonnull align 8 dereferenceable(49) %53, ptr noundef nonnull align 8 dereferenceable(49) %2244)
+  invoke fastcc void @_ZN12_GLOBAL__N_119RecoverModuleWorker9do_renameEPN5Yosys5RTLIL6ModuleERKNS1_7hashlib4dictINS_5IdBitENS_6InvBitENS5_8hash_opsIS7_EEEERKNS5_4poolINS2_8IdStringENS9_ISF_EEEE(ptr noundef nonnull align 8 dereferenceable(324) %44, ptr noundef %62, ptr noundef nonnull align 8 dereferenceable(49) %53, ptr noundef nonnull align 8 dereferenceable(49) %2244)
           to label %2245 unwind label %.loopexit.split-lp904
 
 2245:                                             ; preds = %2243
@@ -65294,7 +65294,7 @@ _ZN12_GLOBAL__N_15IdBitD2Ev.exit3:                ; preds = %_ZN12_GLOBAL__N_15I
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119RecoverModuleWorker9sim_cycleEiRKN5Yosys7hashlib4dictINS_5IdBitENS1_5RTLIL5StateENS2_8hash_opsIS4_EEEE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(49) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_119RecoverModuleWorker9sim_cycleEiRKN5Yosys7hashlib4dictINS_5IdBitENS1_5RTLIL5StateENS2_8hash_opsIS4_EEEE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef range(i32 -2147483648, 64) %1, ptr noundef nonnull align 8 dereferenceable(49) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %5 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %6 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
@@ -66611,7 +66611,7 @@ _ZNK5Yosys7hashlib4dictImSt4pairINS0_4poolIN12_GLOBAL__N_15IdBitENS0_8hash_opsIS
   %.pn = phi ptr [ %128, %129 ], [ %126, %127 ]
   %131 = phi ptr [ %8, %129 ], [ %6, %127 ]
   %132 = getelementptr inbounds i8, ptr %.pn, i64 56
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_16InvBitENS0_8hash_opsIS3_EEE7emplaceIJRNS2_5IdBitEbEEESt4pairINS6_8iteratorEbEDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %130, ptr noundef nonnull align 8 dereferenceable(49) %132, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %131)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_16InvBitENS0_8hash_opsIS3_EEE7emplaceIJRNS2_5IdBitEbEEESt4pairINS6_8iteratorEbEDpOT_(ptr dead_on_unwind noalias writable align 8 %130, ptr noundef nonnull align 8 dereferenceable(49) %132, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %131)
           to label %133 unwind label %.split.us
 
 133:                                              ; preds = %.invoke, %_ZNSt4pairIN12_GLOBAL__N_15IdBitEmEC2ERKS2_.exit.us
@@ -66695,7 +66695,7 @@ _ZNSt4pairIN12_GLOBAL__N_15IdBitEmEC2ERKS2_.exit: ; preds = %.lr.ph.split, %150
   resume { ptr, i32 } %.us-phi67
 
 165:                                              ; preds = %161
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_15IdBitENS0_8hash_opsIS3_EEE6insertERKS3_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(49) %162, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_15IdBitENS0_8hash_opsIS3_EEE6insertERKS3_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(49) %162, ptr noundef nonnull align 4 dereferenceable(8) %4)
           to label %166 unwind label %.split
 
 166:                                              ; preds = %165, %_ZNSt4pairIN12_GLOBAL__N_15IdBitEmEC2ERKS2_.exit
@@ -74983,7 +74983,7 @@ _ZNK5Yosys7hashlib4dictImSt4pairINS0_4poolIN12_GLOBAL__N_15IdBitENS0_8hash_opsIS
 declare noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_15IdBitENS0_8hash_opsIS3_EEE6insertERKS3_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_15IdBitENS0_8hash_opsIS3_EEE6insertERKS3_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %.val6 = load ptr, ptr %4, align 8
@@ -75550,7 +75550,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN5Yosy
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119RecoverModuleWorker9do_renameEPN5Yosys5RTLIL6ModuleERKNS1_7hashlib4dictINS_5IdBitENS_6InvBitENS5_8hash_opsIS7_EEEERKNS5_4poolINS2_8IdStringENS9_ISF_EEEE(ptr noundef nonnull align 8 dereferenceable(324) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(49) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_119RecoverModuleWorker9do_renameEPN5Yosys5RTLIL6ModuleERKNS1_7hashlib4dictINS_5IdBitENS_6InvBitENS5_8hash_opsIS7_EEEERKNS5_4poolINS2_8IdStringENS9_ISF_EEEE(ptr noundef nonnull align 8 dereferenceable(324) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(49) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [75 x i32], align 4
   %6 = alloca %"class.std::allocator.5", align 1
   %7 = alloca [75 x i32], align 4
@@ -86487,7 +86487,7 @@ _ZNK5Yosys7hashlib4dictImSt4pairINS0_4poolIN12_GLOBAL__N_15IdBitENS0_8hash_opsIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_16InvBitENS0_8hash_opsIS3_EEE7emplaceIJRNS2_5IdBitEbEEESt4pairINS6_8iteratorEbEDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_16InvBitENS0_8hash_opsIS3_EEE7emplaceIJRNS2_5IdBitEbEEESt4pairINS6_8iteratorEbEDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load i32, ptr %2, align 4
   %.not.i.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_15IdBitC2ERKS0_.exit.thread, label %9
@@ -95287,7 +95287,7 @@ _ZSt13move_backwardIPSt4pairImiEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_119RecoverModuleWorker9setup_satEPN5Yosys6SatGenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5IdBitERKNS1_7hashlib4dictISC_SC_NSD_8hash_opsISC_EEEERNSE_ISC_iSG_EE(ptr noundef nonnull align 8 dereferenceable(324) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, ptr noundef nonnull align 8 dereferenceable(49) %4, ptr noundef nonnull align 8 dereferenceable(49) %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_119RecoverModuleWorker9setup_satEPN5Yosys6SatGenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5IdBitERKNS1_7hashlib4dictISC_SC_NSD_8hash_opsISC_EEEERNSE_ISC_iSG_EE(ptr noundef nonnull align 8 dereferenceable(324) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull readonly %3, ptr noundef nonnull align 8 dereferenceable(49) %4, ptr noundef nonnull align 8 dereferenceable(49) %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.Yosys::hashlib::pool", align 8

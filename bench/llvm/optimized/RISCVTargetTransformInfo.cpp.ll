@@ -1068,7 +1068,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %121, %127, %130
   br i1 %.not, label %_ZN4llvm11Instruction13isCommutativeEj.exit.thread, label %147
 
 147:                                              ; preds = %141
-  %148 = call fastcc noundef zeroext i1 @_ZL15canUseShiftPairPN4llvm11InstructionERKNS_5APIntE(ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(12) %3)
+  %148 = call fastcc noundef zeroext i1 @_ZL15canUseShiftPairPN4llvm11InstructionERKNS_5APIntE(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(12) %3)
   br i1 %148, label %289, label %_ZN4llvm11Instruction13isCommutativeEj.exit.thread
 
 149:                                              ; preds = %_ZNK4llvm5APInteqEm.exit.thread, %_ZNK4llvm5APInteqEm.exit.thread
@@ -1544,7 +1544,7 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %7, %5, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL15canUseShiftPairPN4llvm11InstructionERKNS_5APIntE(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @_ZL15canUseShiftPairPN4llvm11InstructionERKNS_5APIntE(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp ult i32 %4, 65

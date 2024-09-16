@@ -652,7 +652,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc noundef zeroext i1 @_ZN8facebook5velox4util12_GLOBAL__N_118tryParseDateStringEPKcmRmRlNS2_9ParseModeE(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pos, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %daysSinceEpoch, i32 noundef %mode) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @_ZN8facebook5velox4util12_GLOBAL__N_118tryParseDateStringEPKcmRmRlNS2_9ParseModeE(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pos, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %daysSinceEpoch, i32 noundef range(i32 0, 4) %mode) unnamed_addr #4 {
 entry:
   %day = alloca i32, align 4
   %month = alloca i32, align 4
@@ -705,20 +705,20 @@ if.then15:                                        ; preds = %if.else
   br i1 %cmp17.not, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.else, %if.then15, %if.then7
-  %pos.promoted140 = phi i64 [ %0, %if.else ], [ %inc16, %if.then15 ], [ %inc8, %if.then7 ]
-  %arrayidx22 = getelementptr inbounds i8, ptr %buf, i64 %pos.promoted140
+  %pos.promoted139 = phi i64 [ %0, %if.else ], [ %inc16, %if.then15 ], [ %inc8, %if.then7 ]
+  %arrayidx22 = getelementptr inbounds i8, ptr %buf, i64 %pos.promoted139
   %2 = load i8, ptr %arrayidx22, align 1
   %3 = add i8 %2, -48
   %4 = icmp ult i8 %3, 10
   br i1 %4, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.end21
-  %cmp26141 = icmp ult i64 %pos.promoted140, %len
-  br i1 %cmp26141, label %land.rhs27, label %if.end46
+  %cmp26140 = icmp ult i64 %pos.promoted139, %len
+  br i1 %cmp26140, label %land.rhs27, label %if.end46
 
 land.rhs27:                                       ; preds = %for.cond.preheader, %for.inc
-  %year.0142 = phi i32 [ %14, %for.inc ], [ 0, %for.cond.preheader ]
-  %5 = phi i64 [ %inc40, %for.inc ], [ %pos.promoted140, %for.cond.preheader ]
+  %year.0141 = phi i32 [ %14, %for.inc ], [ 0, %for.cond.preheader ]
+  %5 = phi i64 [ %inc40, %for.inc ], [ %pos.promoted139, %for.cond.preheader ]
   %arrayidx28 = getelementptr inbounds i8, ptr %buf, i64 %5
   %6 = load i8, ptr %arrayidx28, align 1
   %7 = add i8 %6, -48
@@ -726,7 +726,7 @@ land.rhs27:                                       ; preds = %for.cond.preheader,
   br i1 %8, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.rhs27
-  %9 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %year.0142, i32 10)
+  %9 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %year.0141, i32 10)
   %10 = extractvalue { i32, i1 } %9, 1
   br i1 %10, label %if.then.i, label %_ZN8facebook5velox15checkedMultiplyIiEET_RKS2_S4_PKc.exit
 
@@ -740,9 +740,9 @@ _ZN8facebook5velox15checkedMultiplyIiEET_RKS2_S4_PKc.exit: ; preds = %for.body
   %11 = extractvalue { i32, i1 } %9, 0
   %12 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %sub, i32 %11)
   %13 = extractvalue { i32, i1 } %12, 1
-  br i1 %13, label %if.then.i113, label %_ZN8facebook5velox11checkedPlusIiEET_RKS2_S4_PKc.exit
+  br i1 %13, label %if.then.i112, label %_ZN8facebook5velox11checkedPlusIiEET_RKS2_S4_PKc.exit
 
-if.then.i113:                                     ; preds = %_ZN8facebook5velox15checkedMultiplyIiEET_RKS2_S4_PKc.exit
+if.then.i112:                                     ; preds = %_ZN8facebook5velox15checkedMultiplyIiEET_RKS2_S4_PKc.exit
   tail call void @llvm.trap()
   unreachable
 
@@ -754,20 +754,20 @@ _ZN8facebook5velox11checkedPlusIiEET_RKS2_S4_PKc.exit: ; preds = %_ZN8facebook5v
 for.inc:                                          ; preds = %_ZN8facebook5velox11checkedPlusIiEET_RKS2_S4_PKc.exit
   %inc40 = add i64 %5, 1
   store i64 %inc40, ptr %pos, align 8
-  %exitcond158.not = icmp eq i64 %inc40, %len
-  br i1 %exitcond158.not, label %for.end, label %land.rhs27, !llvm.loop !6
+  %exitcond157.not = icmp eq i64 %inc40, %len
+  br i1 %exitcond157.not, label %for.end, label %land.rhs27, !llvm.loop !6
 
 for.end:                                          ; preds = %land.rhs27, %_ZN8facebook5velox11checkedPlusIiEET_RKS2_S4_PKc.exit, %for.inc
   %.lcssa = phi i64 [ %5, %land.rhs27 ], [ %5, %_ZN8facebook5velox11checkedPlusIiEET_RKS2_S4_PKc.exit ], [ %len, %for.inc ]
   %cmp26.lcssa = phi i1 [ true, %land.rhs27 ], [ true, %_ZN8facebook5velox11checkedPlusIiEET_RKS2_S4_PKc.exit ], [ false, %for.inc ]
-  %year.1 = phi i32 [ %year.0142, %land.rhs27 ], [ %14, %_ZN8facebook5velox11checkedPlusIiEET_RKS2_S4_PKc.exit ], [ %14, %for.inc ]
+  %year.1 = phi i32 [ %year.0141, %land.rhs27 ], [ %14, %_ZN8facebook5velox11checkedPlusIiEET_RKS2_S4_PKc.exit ], [ %14, %for.inc ]
   br i1 %cmp6, label %if.then41, label %if.end46
 
 if.then41:                                        ; preds = %for.end
   %cmp.i = icmp eq i32 %year.1, -2147483648
-  br i1 %cmp.i, label %if.then.i114, label %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit
+  br i1 %cmp.i, label %if.then.i113, label %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit
 
-if.then.i114:                                     ; preds = %if.then41
+if.then.i113:                                     ; preds = %if.then41
   tail call void @llvm.trap()
   unreachable
 
@@ -777,18 +777,18 @@ _ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit: ; preds = %if.then41
   br i1 %cmp43, label %return, label %if.end46
 
 if.end46:                                         ; preds = %for.cond.preheader, %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit, %for.end
-  %cmp26.lcssa165 = phi i1 [ %cmp26.lcssa, %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit ], [ %cmp26.lcssa, %for.end ], [ false, %for.cond.preheader ]
-  %.lcssa163 = phi i64 [ %.lcssa, %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit ], [ %.lcssa, %for.end ], [ %pos.promoted140, %for.cond.preheader ]
+  %cmp26.lcssa164 = phi i1 [ %cmp26.lcssa, %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit ], [ %cmp26.lcssa, %for.end ], [ false, %for.cond.preheader ]
+  %.lcssa162 = phi i64 [ %.lcssa, %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit ], [ %.lcssa, %for.end ], [ %pos.promoted139, %for.cond.preheader ]
   %year.2 = phi i32 [ %sub.i.i, %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit ], [ %year.1, %for.end ], [ 0, %for.cond.preheader ]
   %cmp47 = icmp eq i32 %mode, 3
-  %cmp48 = icmp eq i64 %.lcssa163, %len
-  %or.cond110 = and i1 %cmp47, %cmp48
-  br i1 %or.cond110, label %if.then49, label %if.end52
+  %cmp48 = icmp eq i64 %.lcssa162, %len
+  %or.cond = and i1 %cmp47, %cmp48
+  br i1 %or.cond, label %if.then49, label %if.end52
 
 if.then49:                                        ; preds = %if.end46
   %15 = add i32 %year.2, -292278995
   %or.cond1.i.i = icmp ult i32 %15, -584554050
-  br i1 %or.cond1.i.i, label %if.then.i115, label %if.end9.i.i
+  br i1 %or.cond1.i.i, label %if.then.i114, label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %if.then49
   %16 = and i32 %year.2, 3
@@ -810,7 +810,7 @@ _ZN8facebook5velox4util11isValidDateEiii.exit.i:  ; preds = %land.rhs.i.i.i, %if
   %17 = phi ptr [ %spec.select.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i ], [ getelementptr inbounds (i8, ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 4), %if.end9.i.i ], [ getelementptr inbounds (i8, ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 4), %land.rhs.i.i.i ]
   %.pn.i.i = load i32, ptr %17, align 4
   %cond.i.not.i = icmp slt i32 %.pn.i.i, 1
-  br i1 %cond.i.not.i, label %if.then.i115, label %while.cond.preheader.i
+  br i1 %cond.i.not.i, label %if.then.i114, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %_ZN8facebook5velox4util11isValidDateEiii.exit.i
   %cmp32.i = icmp slt i32 %year.2, 1970
@@ -819,10 +819,10 @@ while.cond.preheader.i:                           ; preds = %_ZN8facebook5velox4
 while.body.preheader.i:                           ; preds = %while.cond.preheader.i
   %18 = tail call i32 @llvm.smax.i32(i32 %year.2, i32 1570)
   %19 = icmp slt i32 %year.2, 1570
-  %umin.i.neg154 = sext i1 %19 to i32
+  %umin.i.neg153 = sext i1 %19 to i32
   %umin.i = zext i1 %19 to i32
   %.neg = sub nsw i32 %18, %year.2
-  %20 = add nsw i32 %.neg, %umin.i.neg154
+  %20 = add nsw i32 %.neg, %umin.i.neg153
   %21 = udiv i32 %20, 400
   %22 = add nuw nsw i32 %21, %umin.i
   %23 = mul i32 %22, 400
@@ -833,7 +833,7 @@ while.body.preheader.i:                           ; preds = %while.cond.preheade
   %27 = add nsw i64 %.neg.i, -146097
   br label %while.cond1.preheader.i
 
-if.then.i115:                                     ; preds = %_ZN8facebook5velox4util11isValidDateEiii.exit.i, %if.then49
+if.then.i114:                                     ; preds = %_ZN8facebook5velox4util11isValidDateEiii.exit.i, %if.then49
   tail call void @llvm.trap()
   unreachable
 
@@ -886,21 +886,20 @@ _ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit: ; preds = %land.rhs.i.
   %add20.i = add nsw i64 %add17.i, %conv16.i
   store i64 %add20.i, ptr %daysSinceEpoch, align 8
   %39 = add nsw i64 %add20.i, 2147483648
-  %spec.select.i116 = icmp ult i64 %39, 4294967296
+  %spec.select.i115 = icmp ult i64 %39, 4294967296
   br label %return
 
 if.end52:                                         ; preds = %if.end46
-  br i1 %cmp26.lcssa165, label %if.end55, label %return
+  br i1 %cmp26.lcssa164, label %if.end55, label %return
 
 if.end55:                                         ; preds = %if.end52
-  %inc56 = add nuw i64 %.lcssa163, 1
+  %inc56 = add nuw i64 %.lcssa162, 1
   store i64 %inc56, ptr %pos, align 8
-  %arrayidx57 = getelementptr inbounds i8, ptr %buf, i64 %.lcssa163
+  %arrayidx57 = getelementptr inbounds i8, ptr %buf, i64 %.lcssa162
   %40 = load i8, ptr %arrayidx57, align 1
   %cmp59 = icmp eq i32 %mode, 2
-  %41 = and i32 %mode, -2
-  %or.cond = icmp eq i32 %41, 2
-  br i1 %or.cond, label %if.then61, label %if.else65
+  %or.cond.not = icmp ult i32 %mode, 2
+  br i1 %or.cond.not, label %if.else65, label %if.then61
 
 if.then61:                                        ; preds = %if.end55
   %cmp62.not = icmp eq i8 %40, 45
@@ -919,32 +918,32 @@ if.end75:                                         ; preds = %if.else65, %if.else
   br i1 %call76, label %if.end78, label %return
 
 if.end78:                                         ; preds = %if.end75
-  %42 = load i64, ptr %pos, align 8
-  %cmp81 = icmp eq i64 %42, %len
-  %or.cond111 = select i1 %cmp47, i1 %cmp81, i1 false
-  br i1 %or.cond111, label %if.then82, label %if.end85
+  %41 = load i64, ptr %pos, align 8
+  %cmp81 = icmp eq i64 %41, %len
+  %or.cond110 = select i1 %cmp47, i1 %cmp81, i1 false
+  br i1 %or.cond110, label %if.then82, label %if.end85
 
 if.then82:                                        ; preds = %if.end78
-  %43 = load i32, ptr %month, align 4
-  %call83 = tail call noundef i64 @_ZN8facebook5velox4util22daysSinceEpochFromDateEiii(i32 noundef %year.2, i32 noundef %43, i32 noundef 1)
+  %42 = load i32, ptr %month, align 4
+  %call83 = tail call noundef i64 @_ZN8facebook5velox4util22daysSinceEpochFromDateEiii(i32 noundef %year.2, i32 noundef %42, i32 noundef 1)
   store i64 %call83, ptr %daysSinceEpoch, align 8
-  %44 = add nsw i64 %call83, 2147483648
-  %spec.select.i117 = icmp ult i64 %44, 4294967296
+  %43 = add nsw i64 %call83, 2147483648
+  %spec.select.i116 = icmp ult i64 %43, 4294967296
   br label %return
 
 if.end85:                                         ; preds = %if.end78
-  %cmp86.not = icmp ult i64 %42, %len
+  %cmp86.not = icmp ult i64 %41, %len
   br i1 %cmp86.not, label %if.end88, label %return
 
 if.end88:                                         ; preds = %if.end85
-  %inc89 = add nuw i64 %42, 1
+  %inc89 = add nuw i64 %41, 1
   store i64 %inc89, ptr %pos, align 8
-  %arrayidx90 = getelementptr inbounds i8, ptr %buf, i64 %42
-  %45 = load i8, ptr %arrayidx90, align 1
-  %cmp92.not = icmp eq i8 %45, %40
+  %arrayidx90 = getelementptr inbounds i8, ptr %buf, i64 %41
+  %44 = load i8, ptr %arrayidx90, align 1
+  %cmp92.not = icmp eq i8 %44, %40
   %cmp95.not = icmp ult i64 %inc89, %len
-  %or.cond112 = select i1 %cmp92.not, i1 %cmp95.not, i1 false
-  br i1 %or.cond112, label %if.end97, label %return
+  %or.cond111 = select i1 %cmp92.not, i1 %cmp95.not, i1 false
+  br i1 %or.cond111, label %if.end97, label %return
 
 if.end97:                                         ; preds = %if.end88
   %call98 = call fastcc noundef zeroext i1 @_ZN8facebook5velox4util12_GLOBAL__N_116parseDoubleDigitEPKcmRmRi(ptr noundef nonnull %buf, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(8) %pos, ptr noundef nonnull align 4 dereferenceable(4) %day)
@@ -954,54 +953,54 @@ if.end100:                                        ; preds = %if.end97
   br i1 %cmp59, label %if.then102, label %if.end108
 
 if.then102:                                       ; preds = %if.end100
-  %46 = load i32, ptr %month, align 4
-  %47 = load i32, ptr %day, align 4
-  %call103 = tail call noundef i64 @_ZN8facebook5velox4util22daysSinceEpochFromDateEiii(i32 noundef %year.2, i32 noundef %46, i32 noundef %47)
+  %45 = load i32, ptr %month, align 4
+  %46 = load i32, ptr %day, align 4
+  %call103 = tail call noundef i64 @_ZN8facebook5velox4util22daysSinceEpochFromDateEiii(i32 noundef %year.2, i32 noundef %45, i32 noundef %46)
   store i64 %call103, ptr %daysSinceEpoch, align 8
-  %48 = load i64, ptr %pos, align 8
-  %cmp104 = icmp eq i64 %48, %len
+  %47 = load i64, ptr %pos, align 8
+  %cmp104 = icmp eq i64 %47, %len
   br i1 %cmp104, label %if.then105, label %return
 
 if.then105:                                       ; preds = %if.then102
-  %49 = add nsw i64 %call103, 2147483648
-  %spec.select.i118 = icmp ult i64 %49, 4294967296
+  %48 = add nsw i64 %call103, 2147483648
+  %spec.select.i117 = icmp ult i64 %48, 4294967296
   br label %return
 
 if.end108:                                        ; preds = %if.end100
   br i1 %cmp47, label %if.then110, label %if.end127
 
 if.then110:                                       ; preds = %if.end108
-  %50 = load i32, ptr %month, align 4
-  %51 = load i32, ptr %day, align 4
-  %call111 = tail call noundef i64 @_ZN8facebook5velox4util22daysSinceEpochFromDateEiii(i32 noundef %year.2, i32 noundef %50, i32 noundef %51)
+  %49 = load i32, ptr %month, align 4
+  %50 = load i32, ptr %day, align 4
+  %call111 = tail call noundef i64 @_ZN8facebook5velox4util22daysSinceEpochFromDateEiii(i32 noundef %year.2, i32 noundef %49, i32 noundef %50)
   store i64 %call111, ptr %daysSinceEpoch, align 8
-  %52 = add nsw i64 %call111, 2147483648
-  %spec.select.i119 = icmp ult i64 %52, 4294967296
-  br i1 %spec.select.i119, label %if.end114, label %return
+  %51 = add nsw i64 %call111, 2147483648
+  %spec.select.i118 = icmp ult i64 %51, 4294967296
+  br i1 %spec.select.i118, label %if.end114, label %return
 
 if.end114:                                        ; preds = %if.then110
-  %53 = load i64, ptr %pos, align 8
-  %cmp115 = icmp eq i64 %53, %len
+  %52 = load i64, ptr %pos, align 8
+  %cmp115 = icmp eq i64 %52, %len
   br i1 %cmp115, label %return, label %if.end117
 
 if.end117:                                        ; preds = %if.end114
-  %arrayidx118 = getelementptr inbounds i8, ptr %buf, i64 %53
-  %54 = load i8, ptr %arrayidx118, align 1
-  %switch.selectcmp.case1 = icmp eq i8 %54, 84
-  %switch.selectcmp.case2 = icmp eq i8 %54, 32
+  %arrayidx118 = getelementptr inbounds i8, ptr %buf, i64 %52
+  %53 = load i8, ptr %arrayidx118, align 1
+  %switch.selectcmp.case1 = icmp eq i8 %53, 84
+  %switch.selectcmp.case2 = icmp eq i8 %53, 32
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
   br label %return
 
 if.end127:                                        ; preds = %if.end108
-  %55 = load i64, ptr %pos, align 8
-  %sub128 = sub i64 %len, %55
+  %54 = load i64, ptr %pos, align 8
+  %sub128 = sub i64 %len, %54
   %cmp129 = icmp ugt i64 %sub128, 4
   br i1 %cmp129, label %land.lhs.true130, label %if.end164
 
 land.lhs.true130:                                 ; preds = %if.end127
-  %arrayidx131 = getelementptr inbounds i8, ptr %buf, i64 %55
-  %56 = load i8, ptr %arrayidx131, align 1
-  switch i8 %56, label %if.end164 [
+  %arrayidx131 = getelementptr inbounds i8, ptr %buf, i64 %54
+  %55 = load i8, ptr %arrayidx131, align 1
+  switch i8 %55, label %if.end164 [
     i8 32, label %land.lhs.true133
     i8 12, label %land.lhs.true133
     i8 11, label %land.lhs.true133
@@ -1012,26 +1011,26 @@ land.lhs.true130:                                 ; preds = %if.end127
 
 land.lhs.true133:                                 ; preds = %land.lhs.true130, %land.lhs.true130, %land.lhs.true130, %land.lhs.true130, %land.lhs.true130, %land.lhs.true130
   %arrayidx134 = getelementptr i8, ptr %arrayidx131, i64 1
-  %57 = load i8, ptr %arrayidx134, align 1
-  %cmp136 = icmp eq i8 %57, 40
+  %56 = load i8, ptr %arrayidx134, align 1
+  %cmp136 = icmp eq i8 %56, 40
   br i1 %cmp136, label %land.lhs.true137, label %if.end164
 
 land.lhs.true137:                                 ; preds = %land.lhs.true133
   %arrayidx139 = getelementptr i8, ptr %arrayidx131, i64 2
-  %58 = load i8, ptr %arrayidx139, align 1
-  %cmp141 = icmp eq i8 %58, 66
+  %57 = load i8, ptr %arrayidx139, align 1
+  %cmp141 = icmp eq i8 %57, 66
   br i1 %cmp141, label %land.lhs.true142, label %if.end164
 
 land.lhs.true142:                                 ; preds = %land.lhs.true137
   %arrayidx144 = getelementptr i8, ptr %arrayidx131, i64 3
-  %59 = load i8, ptr %arrayidx144, align 1
-  %cmp146 = icmp eq i8 %59, 67
+  %58 = load i8, ptr %arrayidx144, align 1
+  %cmp146 = icmp eq i8 %58, 67
   br i1 %cmp146, label %land.lhs.true147, label %if.end164
 
 land.lhs.true147:                                 ; preds = %land.lhs.true142
   %arrayidx149 = getelementptr i8, ptr %arrayidx131, i64 4
-  %60 = load i8, ptr %arrayidx149, align 1
-  %cmp151 = icmp eq i8 %60, 41
+  %59 = load i8, ptr %arrayidx149, align 1
+  %cmp151 = icmp eq i8 %59, 41
   br i1 %cmp151, label %if.then152, label %if.end164
 
 if.then152:                                       ; preds = %land.lhs.true147
@@ -1041,26 +1040,26 @@ if.then152:                                       ; preds = %land.lhs.true147
 
 if.end157:                                        ; preds = %if.then152
   %add159 = sub i32 1, %year.2
-  %add160 = add i64 %55, 5
+  %add160 = add i64 %54, 5
   store i64 %add160, ptr %pos, align 8
   %cmp161 = icmp slt i32 %add159, -292275055
   br i1 %cmp161, label %return, label %if.end164
 
 if.end164:                                        ; preds = %land.lhs.true130, %if.end157, %land.lhs.true147, %land.lhs.true142, %land.lhs.true137, %land.lhs.true133, %if.end127
-  %pos.promoted152 = phi i64 [ %add160, %if.end157 ], [ %55, %land.lhs.true147 ], [ %55, %land.lhs.true142 ], [ %55, %land.lhs.true137 ], [ %55, %land.lhs.true133 ], [ %55, %if.end127 ], [ %55, %land.lhs.true130 ]
+  %pos.promoted151 = phi i64 [ %add160, %if.end157 ], [ %54, %land.lhs.true147 ], [ %54, %land.lhs.true142 ], [ %54, %land.lhs.true137 ], [ %54, %land.lhs.true133 ], [ %54, %if.end127 ], [ %54, %land.lhs.true130 ]
   %year.3 = phi i32 [ %add159, %if.end157 ], [ %year.2, %land.lhs.true147 ], [ %year.2, %land.lhs.true142 ], [ %year.2, %land.lhs.true137 ], [ %year.2, %land.lhs.true133 ], [ %year.2, %if.end127 ], [ %year.2, %land.lhs.true130 ]
   %cmp165 = icmp eq i32 %mode, 0
-  %cmp168153 = icmp ult i64 %pos.promoted152, %len
+  %cmp168152 = icmp ult i64 %pos.promoted151, %len
   br i1 %cmp165, label %while.cond167.preheader, label %if.else179
 
 while.cond167.preheader:                          ; preds = %if.end164
-  br i1 %cmp168153, label %land.rhs169, label %if.end186
+  br i1 %cmp168152, label %land.rhs169, label %if.end186
 
 land.rhs169:                                      ; preds = %while.cond167.preheader, %while.body173
-  %61 = phi i64 [ %inc174, %while.body173 ], [ %pos.promoted152, %while.cond167.preheader ]
-  %arrayidx170 = getelementptr inbounds i8, ptr %buf, i64 %61
-  %62 = load i8, ptr %arrayidx170, align 1
-  switch i8 %62, label %return [
+  %60 = phi i64 [ %inc174, %while.body173 ], [ %pos.promoted151, %while.cond167.preheader ]
+  %arrayidx170 = getelementptr inbounds i8, ptr %buf, i64 %60
+  %61 = load i8, ptr %arrayidx170, align 1
+  switch i8 %61, label %return [
     i8 32, label %while.body173
     i8 12, label %while.body173
     i8 11, label %while.body173
@@ -1070,30 +1069,30 @@ land.rhs169:                                      ; preds = %while.cond167.prehe
   ]
 
 while.body173:                                    ; preds = %land.rhs169, %land.rhs169, %land.rhs169, %land.rhs169, %land.rhs169, %land.rhs169
-  %inc174 = add i64 %61, 1
+  %inc174 = add i64 %60, 1
   store i64 %inc174, ptr %pos, align 8
-  %exitcond159.not = icmp eq i64 %inc174, %len
-  br i1 %exitcond159.not, label %if.end186, label %land.rhs169, !llvm.loop !7
+  %exitcond158.not = icmp eq i64 %inc174, %len
+  br i1 %exitcond158.not, label %if.end186, label %land.rhs169, !llvm.loop !7
 
 if.else179:                                       ; preds = %if.end164
-  br i1 %cmp168153, label %land.lhs.true181, label %if.end186
+  br i1 %cmp168152, label %land.lhs.true181, label %if.end186
 
 land.lhs.true181:                                 ; preds = %if.else179
-  %arrayidx182 = getelementptr inbounds i8, ptr %buf, i64 %pos.promoted152
-  %63 = load i8, ptr %arrayidx182, align 1
-  %64 = add i8 %63, -48
-  %65 = icmp ult i8 %64, 10
-  br i1 %65, label %return, label %if.end186
+  %arrayidx182 = getelementptr inbounds i8, ptr %buf, i64 %pos.promoted151
+  %62 = load i8, ptr %arrayidx182, align 1
+  %63 = add i8 %62, -48
+  %64 = icmp ult i8 %63, 10
+  br i1 %64, label %return, label %if.end186
 
 if.end186:                                        ; preds = %while.body173, %while.cond167.preheader, %if.else179, %land.lhs.true181
-  %66 = load i32, ptr %month, align 4
-  %67 = load i32, ptr %day, align 4
-  %call187 = tail call noundef i64 @_ZN8facebook5velox4util22daysSinceEpochFromDateEiii(i32 noundef %year.3, i32 noundef %66, i32 noundef %67)
+  %65 = load i32, ptr %month, align 4
+  %66 = load i32, ptr %day, align 4
+  %call187 = tail call noundef i64 @_ZN8facebook5velox4util22daysSinceEpochFromDateEiii(i32 noundef %year.3, i32 noundef %65, i32 noundef %66)
   store i64 %call187, ptr %daysSinceEpoch, align 8
   br label %return
 
 return:                                           ; preds = %while.body, %land.rhs169, %if.end117, %land.lhs.true181, %if.end157, %if.then152, %if.end114, %if.then110, %if.then102, %if.end97, %if.end88, %if.end85, %if.end75, %if.else65, %if.then61, %if.end52, %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit, %if.end21, %if.then15, %if.then7, %entry, %if.end186, %if.then105, %if.then82, %_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit
-  %retval.0 = phi i1 [ %spec.select.i116, %_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit ], [ %spec.select.i117, %if.then82 ], [ %spec.select.i118, %if.then105 ], [ true, %if.end186 ], [ false, %entry ], [ false, %if.then7 ], [ false, %if.then15 ], [ false, %if.end21 ], [ false, %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit ], [ false, %if.end52 ], [ false, %if.then61 ], [ false, %if.else65 ], [ false, %if.end75 ], [ false, %if.end85 ], [ false, %if.end88 ], [ false, %if.end97 ], [ false, %if.then102 ], [ false, %if.then110 ], [ true, %if.end114 ], [ false, %if.then152 ], [ false, %if.end157 ], [ false, %land.lhs.true181 ], [ %switch.selectcmp, %if.end117 ], [ false, %land.rhs169 ], [ false, %while.body ]
+  %retval.0 = phi i1 [ %spec.select.i115, %_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit ], [ %spec.select.i116, %if.then82 ], [ %spec.select.i117, %if.then105 ], [ true, %if.end186 ], [ false, %entry ], [ false, %if.then7 ], [ false, %if.then15 ], [ false, %if.end21 ], [ false, %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit ], [ false, %if.end52 ], [ false, %if.then61 ], [ false, %if.else65 ], [ false, %if.end75 ], [ false, %if.end85 ], [ false, %if.end88 ], [ false, %if.end97 ], [ false, %if.then102 ], [ false, %if.then110 ], [ true, %if.end114 ], [ false, %if.then152 ], [ false, %if.end157 ], [ false, %land.lhs.true181 ], [ %switch.selectcmp, %if.end117 ], [ false, %land.rhs169 ], [ false, %while.body ]
   ret i1 %retval.0
 }
 

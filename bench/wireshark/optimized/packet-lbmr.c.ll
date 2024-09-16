@@ -4803,15 +4803,14 @@ define internal fastcc range(i32 0, 2) i32 @lbmr_match_packet(ptr nocapture noun
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_lbmr_tnwg_opts(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = icmp sgt i32 %2, 3
-  br i1 %5, label %.lr.ph, label %._crit_edge
+define internal fastcc i32 @dissect_lbmr_tnwg_opts(ptr noundef %0, i32 noundef range(i32 10, 21) %1, i32 noundef range(i32 4, 65536) %2, ptr noundef %3) unnamed_addr #0 {
+  br label %5
 
-.lr.ph:                                           ; preds = %4, %102
-  %.04 = phi i32 [ %104, %102 ], [ 0, %4 ]
-  %.0373 = phi i32 [ %.1, %102 ], [ 0, %4 ]
-  %.0382 = phi i32 [ %105, %102 ], [ %1, %4 ]
-  %.0391 = phi i32 [ %103, %102 ], [ %2, %4 ]
+5:                                                ; preds = %4, %102
+  %.04 = phi i32 [ 0, %4 ], [ %104, %102 ]
+  %.0373 = phi i32 [ 0, %4 ], [ %.1, %102 ]
+  %.0382 = phi i32 [ %1, %4 ], [ %105, %102 ]
+  %.0391 = phi i32 [ %2, %4 ], [ %103, %102 ]
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0382) #7
   %7 = add i32 %.0382, 1
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %7) #7
@@ -4822,7 +4821,7 @@ define internal fastcc i32 @dissect_lbmr_tnwg_opts(ptr noundef %0, i32 noundef %
     i8 3, label %66
   ]
 
-9:                                                ; preds = %.lr.ph
+9:                                                ; preds = %5
   %10 = load i32, ptr @hf_lbmr_tnwg_opt_ctxinst, align 4
   %11 = zext i8 %8 to i32
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %.0382, i32 noundef %11, i32 noundef 0) #7
@@ -4841,7 +4840,7 @@ define internal fastcc i32 @dissect_lbmr_tnwg_opts(ptr noundef %0, i32 noundef %
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %23, ptr noundef %0, i32 noundef %24, i32 noundef 8, i32 noundef 0) #7
   br label %102
 
-26:                                               ; preds = %.lr.ph
+26:                                               ; preds = %5
   %27 = load i32, ptr @hf_lbmr_tnwg_opt_address, align 4
   %28 = zext i8 %8 to i32
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %27, ptr noundef %0, i32 noundef %.0382, i32 noundef %28, i32 noundef 0) #7
@@ -4866,7 +4865,7 @@ define internal fastcc i32 @dissect_lbmr_tnwg_opts(ptr noundef %0, i32 noundef %
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %46, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0) #7
   br label %102
 
-49:                                               ; preds = %.lr.ph
+49:                                               ; preds = %5
   %50 = load i32, ptr @hf_lbmr_tnwg_opt_domain, align 4
   %51 = zext i8 %8 to i32
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %50, ptr noundef %0, i32 noundef %.0382, i32 noundef %51, i32 noundef 0) #7
@@ -4885,7 +4884,7 @@ define internal fastcc i32 @dissect_lbmr_tnwg_opts(ptr noundef %0, i32 noundef %
   %65 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %63, ptr noundef %0, i32 noundef %64, i32 noundef 4, i32 noundef 0) #7
   br label %102
 
-66:                                               ; preds = %.lr.ph
+66:                                               ; preds = %5
   %67 = zext i8 %8 to i32
   %68 = add nsw i32 %67, -4
   %69 = load i32, ptr @hf_lbmr_tnwg_opt_name, align 4
@@ -4905,7 +4904,7 @@ define internal fastcc i32 @dissect_lbmr_tnwg_opts(ptr noundef %0, i32 noundef %
   %83 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %81, ptr noundef %0, i32 noundef %82, i32 noundef %68, i32 noundef 0) #7
   br label %102
 
-84:                                               ; preds = %.lr.ph
+84:                                               ; preds = %5
   %85 = zext i8 %8 to i32
   %86 = add nsw i32 %85, -4
   %87 = load i32, ptr @hf_lbmr_tnwg_opt, align 4
@@ -4932,11 +4931,10 @@ define internal fastcc i32 @dissect_lbmr_tnwg_opts(ptr noundef %0, i32 noundef %
   %104 = add i32 %.1, %.04
   %105 = add i32 %.1, %.0382
   %106 = icmp sgt i32 %103, 3
-  br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %106, label %5, label %107, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %102, %4
-  %.0.lcssa = phi i32 [ 0, %4 ], [ %104, %102 ]
-  ret i32 %.0.lcssa
+107:                                              ; preds = %102
+  ret i32 %104
 }
 
 declare ptr @tvb_get_stringz_enc(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

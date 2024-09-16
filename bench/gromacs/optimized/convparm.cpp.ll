@@ -363,7 +363,7 @@ _ZNSt10unique_ptrISt5arrayI15InteractionListLm94EESt14default_deleteIS2_EE5reset
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14enter_functionPK18InteractionsOfTypei15CombinationRulefP14gmx_ffparams_tP15InteractionListbb(ptr readonly %.0.val, ptr readnone %.8.val, i32 noundef %0, i32 noundef %1, float noundef %2, ptr nocapture noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14enter_functionPK18InteractionsOfTypei15CombinationRulefP14gmx_ffparams_tP15InteractionListbb(ptr readonly %.0.val, ptr readnone %.8.val, i32 noundef range(i32 -2147483648, 94) %0, i32 noundef %1, float noundef %2, ptr nocapture noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %9 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %10 = alloca %union.t_iparams, align 4
@@ -1894,7 +1894,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
 declare double @cos(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -99, -2147483648) i32 @_ZL11round_checkfiiPKc(float noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -99, -2147483648) i32 @_ZL11round_checkfiiPKc(float noundef %0, i32 noundef range(i32 -99, 2) %1, i32 noundef range(i32 -2147483648, 94) %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %7 = tail call float @llvm.rint.f32(float %0)

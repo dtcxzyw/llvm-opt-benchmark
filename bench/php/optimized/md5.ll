@@ -753,7 +753,7 @@ declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc nonnull ptr @body(ptr nocapture noundef %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc nonnull ptr @body(ptr nocapture noundef %0, ptr noundef readonly %1, i64 noundef range(i64 0, -63) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 12

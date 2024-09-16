@@ -566,7 +566,7 @@ define dso_local void @nlmclnt_release_host(ptr noundef %0) local_unnamed_addr #
 declare dso_local zeroext i1 @refcount_dec_and_mutex_lock(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @nlm_destroy_host_locked(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @nlm_destroy_host_locked(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 512
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr @lockd_net_id, align 4
@@ -594,11 +594,11 @@ define internal fastcc void @nlm_destroy_host_locked(ptr noundef %0) unnamed_add
   br label %18
 
 18:                                               ; preds = %16, %13
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %19
 
 19:                                               ; preds = %18, %1
-  tail call void @nsm_unmonitor(ptr noundef %0) #9
+  tail call void @nsm_unmonitor(ptr noundef nonnull %0) #9
   %20 = getelementptr inbounds i8, ptr %0, i64 496
   %21 = load ptr, ptr %20, align 8
   tail call void @nsm_release(ptr noundef %21) #9
@@ -629,7 +629,7 @@ define internal fastcc void @nlm_destroy_host_locked(ptr noundef %0) unnamed_add
   br label %35
 
 35:                                               ; preds = %34, %30, %26
-  tail call void @kfree(ptr noundef %0) #9
+  tail call void @kfree(ptr noundef nonnull %0) #9
   %36 = getelementptr inbounds i8, ptr %9, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, -1

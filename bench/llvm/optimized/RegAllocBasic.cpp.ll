@@ -124,7 +124,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm28createBasicRegisterAllocatorEv()
   %1 = alloca %"class.std::function", align 8
   %2 = tail call noalias noundef nonnull dereferenceable(872) ptr @_Znwm(i64 noundef 872) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_17RABasicC2ESt8functionIFbRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoENS2_8RegisterEEE(ptr noundef nonnull align 8 dereferenceable(872) %2, ptr noundef nonnull %1)
+  call fastcc void @_ZN12_GLOBAL__N_17RABasicC2ESt8functionIFbRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoENS2_8RegisterEEE(ptr noundef nonnull align 8 dereferenceable(872) %2, ptr noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -247,7 +247,7 @@ define internal noundef nonnull ptr @_ZL25initializeRABasicPassOnceRN4llvm12Pass
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_17RABasicC2ESt8functionIFbRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoENS2_8RegisterEEE(ptr noundef nonnull align 8 dereferenceable(872) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_17RABasicC2ESt8functionIFbRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoENS2_8RegisterEEE(ptr noundef nonnull align 8 dereferenceable(872) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8
@@ -367,7 +367,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm28createBasicRegisterAllocatorESt8
   br label %_ZNSt8functionIFbRKN4llvm18TargetRegisterInfoERKNS0_19MachineRegisterInfoENS0_8RegisterEEEC2ERKS9_.exit
 
 _ZNSt8functionIFbRKN4llvm18TargetRegisterInfoERKNS0_19MachineRegisterInfoENS0_8RegisterEEEC2ERKS9_.exit: ; preds = %1, %6
-  call fastcc void @_ZN12_GLOBAL__N_17RABasicC2ESt8functionIFbRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoENS2_8RegisterEEE(ptr noundef nonnull align 8 dereferenceable(872) %3, ptr noundef nonnull %2)
+  call fastcc void @_ZN12_GLOBAL__N_17RABasicC2ESt8functionIFbRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoENS2_8RegisterEEE(ptr noundef nonnull align 8 dereferenceable(872) %3, ptr noundef %2)
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %14, null
@@ -408,7 +408,7 @@ define internal noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBAL__N_17R
   %1 = alloca %"class.std::function", align 8
   %2 = tail call noalias noundef nonnull dereferenceable(872) ptr @_Znwm(i64 noundef 872) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_17RABasicC2ESt8functionIFbRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoENS2_8RegisterEEE(ptr noundef nonnull align 8 dereferenceable(872) %2, ptr noundef nonnull %1)
+  call fastcc void @_ZN12_GLOBAL__N_17RABasicC2ESt8functionIFbRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoENS2_8RegisterEEE(ptr noundef nonnull align 8 dereferenceable(872) %2, ptr noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null

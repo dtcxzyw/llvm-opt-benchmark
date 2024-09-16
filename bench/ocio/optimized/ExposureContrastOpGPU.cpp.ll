@@ -345,7 +345,7 @@ _ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData19getExposurePropertyEv.exit.i:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData19getExposurePropertyEv.exit.i
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111AddPropertyERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextES1_INS_25DynamicPropertyDoubleImplEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111AddPropertyERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextES1_INS_25DynamicPropertyDoubleImplEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i)
           to label %invoke.cont4.i unwind label %lpad3.i
 
 invoke.cont4.i:                                   ; preds = %invoke.cont.i
@@ -460,7 +460,7 @@ _ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData19getContrastPropertyEv.exit.i:
           to label %invoke.cont13.i unwind label %lpad12.i
 
 invoke.cont13.i:                                  ; preds = %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData19getContrastPropertyEv.exit.i
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111AddPropertyERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextES1_INS_25DynamicPropertyDoubleImplEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp7.i, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull %agg.tmp8.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10.i)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111AddPropertyERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextES1_INS_25DynamicPropertyDoubleImplEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp7.i, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef %agg.tmp8.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10.i)
           to label %invoke.cont15.i unwind label %lpad14.i
 
 invoke.cont15.i:                                  ; preds = %invoke.cont13.i
@@ -575,7 +575,7 @@ _ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData16getGammaPropertyEv.exit.i: ; 
           to label %invoke.cont26.i unwind label %lpad25.i
 
 invoke.cont26.i:                                  ; preds = %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData16getGammaPropertyEv.exit.i
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111AddPropertyERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextES1_INS_25DynamicPropertyDoubleImplEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp20.i, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull %agg.tmp21.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23.i)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111AddPropertyERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextES1_INS_25DynamicPropertyDoubleImplEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp20.i, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef %agg.tmp21.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23.i)
           to label %invoke.cont28.i unwind label %lpad27.i
 
 invoke.cont28.i:                                  ; preds = %invoke.cont26.i
@@ -3154,7 +3154,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111AddPropertyERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextES1_INS_25DynamicPropertyDoubleImplEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %st, ptr nocapture noundef readonly %prop, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111AddPropertyERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextES1_INS_25DynamicPropertyDoubleImplEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %st, ptr nocapture noundef nonnull readonly %prop, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %getDouble.i = alloca %"class.std::function", align 8
   %stDecl.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText", align 8

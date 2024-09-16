@@ -2304,7 +2304,7 @@ define internal void @dma_buf_show_fdinfo(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @dma_buf_poll_add_cb(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @dma_buf_poll_add_cb(ptr noundef nonnull %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.dma_resv_iter, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #10
   %5 = getelementptr inbounds i8, ptr %4, i64 8

@@ -504,7 +504,7 @@ invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i, 
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %start, align 8
   %agg.tmp.sroa.2.0.start.sroa_idx = getelementptr inbounds i8, ptr %g, i64 80
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.start.sroa_idx, align 8
-  invoke fastcc void @_ZN3ue2L17findLoopReachableINS_8NGHolderEEESt6vectorIbSaIbEERKT_NS5_17vertex_descriptorE(ptr noalias nonnull align 8 %deadNodes, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload)
+  invoke fastcc void @_ZN3ue2L17findLoopReachableINS_8NGHolderEEESt6vectorIbSaIbEERKT_NS5_17vertex_descriptorE(ptr noalias align 8 %deadNodes, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload)
           to label %do.end unwind label %lpad1
 
 do.end:                                           ; preds = %invoke.cont
@@ -631,7 +631,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i36, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L17findLoopReachableINS_8NGHolderEEESt6vectorIbSaIbEERKT_NS5_17vertex_descriptorE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %src.coerce0, i64 %src.coerce1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L17findLoopReachableINS_8NGHolderEEESt6vectorIbSaIbEERKT_NS5_17vertex_descriptorE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %src.coerce0, i64 %src.coerce1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.sroa.0.i = alloca { i64, %"struct.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::prop_map" }, align 8
   %deadEdges = alloca %"class.std::set", align 8
@@ -1345,7 +1345,7 @@ eh.resume:                                        ; preds = %lpad.i.i, %ehcleanu
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L17calcAndStoreDepthINS_8NGHolderENS_14NFAVertexDepthEEEvRKT_NS3_17vertex_descriptorERKSt6vectorIbSaIbEERS7_IiSaIiEESE_RS7_IT0_SaISF_EEMSF_NS_11DepthMinMaxE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %deadNodes, ptr noundef nonnull align 8 dereferenceable(24) %dMin, ptr noundef nonnull align 8 dereferenceable(24) %dMax, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %depths, i64 %store) unnamed_addr #2 {
+define internal fastcc void @_ZN3ue2L17calcAndStoreDepthINS_8NGHolderENS_14NFAVertexDepthEEEvRKT_NS3_17vertex_descriptorERKSt6vectorIbSaIbEERS7_IiSaIiEESE_RS7_IT0_SaISF_EEMSF_NS_11DepthMinMaxE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %deadNodes, ptr noundef nonnull align 8 dereferenceable(24) %dMin, ptr noundef nonnull align 8 dereferenceable(24) %dMax, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %depths, i64 range(i64 0, 9) %store) unnamed_addr #2 {
 entry:
   tail call fastcc void @_ZN3ue2L19calcDepthFromSourceINS_8NGHolderEEEvRKT_NS2_17vertex_descriptorERKSt6vectorIbSaIbEERS6_IiSaIiEESD_(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %deadNodes, ptr noundef nonnull align 8 dereferenceable(24) %dMin, ptr noundef nonnull align 8 dereferenceable(24) %dMax)
   %m_header.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 16
@@ -1524,7 +1524,7 @@ invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i, 
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %acceptEod, align 8
   %agg.tmp.sroa.2.0.acceptEod.sroa_idx = getelementptr inbounds i8, ptr %g, i64 128
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.acceptEod.sroa_idx, align 8
-  invoke fastcc void @_ZN3ue2L17findLoopReachableIN5boost13reverse_graphINS_8NGHolderERKS3_EEEESt6vectorIbSaIbEERKT_NSA_17vertex_descriptorE(ptr noalias nonnull align 8 %deadNodes, ptr noundef nonnull align 8 dereferenceable(8) %rg, ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload)
+  invoke fastcc void @_ZN3ue2L17findLoopReachableIN5boost13reverse_graphINS_8NGHolderERKS3_EEEESt6vectorIbSaIbEERKT_NSA_17vertex_descriptorE(ptr noalias align 8 %deadNodes, ptr noundef nonnull align 8 dereferenceable(8) %rg, ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload)
           to label %do.end unwind label %lpad1
 
 do.end:                                           ; preds = %invoke.cont
@@ -1655,7 +1655,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i34, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L17findLoopReachableIN5boost13reverse_graphINS_8NGHolderERKS3_EEEESt6vectorIbSaIbEERKT_NSA_17vertex_descriptorE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %g, ptr %src.coerce0, i64 %src.coerce1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L17findLoopReachableIN5boost13reverse_graphINS_8NGHolderERKS3_EEEESt6vectorIbSaIbEERKT_NSA_17vertex_descriptorE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %g, ptr %src.coerce0, i64 %src.coerce1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.sroa.0.i = alloca { i64, %"struct.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::prop_map" }, align 8
   %deadEdges = alloca %"class.std::set.181", align 8
@@ -2367,7 +2367,7 @@ eh.resume:                                        ; preds = %lpad.i.i, %ehcleanu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L17calcAndStoreDepthIN5boost13reverse_graphINS_8NGHolderERKS3_EENS_17NFAVertexRevDepthEEEvRKT_NS8_17vertex_descriptorERKSt6vectorIbSaIbEERSC_IiSaIiEESJ_RSC_IT0_SaISK_EEMSK_NS_11DepthMinMaxE(ptr noundef nonnull align 8 dereferenceable(8) %g, ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %deadNodes, ptr noundef nonnull align 8 dereferenceable(24) %dMin, ptr noundef nonnull align 8 dereferenceable(24) %dMax, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %depths, i64 %store) unnamed_addr #2 {
+define internal fastcc void @_ZN3ue2L17calcAndStoreDepthIN5boost13reverse_graphINS_8NGHolderERKS3_EENS_17NFAVertexRevDepthEEEvRKT_NS8_17vertex_descriptorERKSt6vectorIbSaIbEERSC_IiSaIiEESJ_RSC_IT0_SaISK_EEMSK_NS_11DepthMinMaxE(ptr noundef nonnull align 8 dereferenceable(8) %g, ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %deadNodes, ptr noundef nonnull align 8 dereferenceable(24) %dMin, ptr noundef nonnull align 8 dereferenceable(24) %dMax, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %depths, i64 range(i64 0, 9) %store) unnamed_addr #2 {
 entry:
   tail call fastcc void @_ZN3ue2L19calcDepthFromSourceIN5boost13reverse_graphINS_8NGHolderERKS3_EEEEvRKT_NS7_17vertex_descriptorERKSt6vectorIbSaIbEERSB_IiSaIiEESI_(ptr noundef nonnull align 8 dereferenceable(8) %g, ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %deadNodes, ptr noundef nonnull align 8 dereferenceable(24) %dMin, ptr noundef nonnull align 8 dereferenceable(24) %dMax)
   %0 = load ptr, ptr %g, align 8, !noalias !32
@@ -2524,7 +2524,7 @@ invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i, 
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %start, align 8
   %agg.tmp.sroa.2.0.start.sroa_idx = getelementptr inbounds i8, ptr %g, i64 80
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.start.sroa_idx, align 8
-  invoke fastcc void @_ZN3ue2L17findLoopReachableINS_8NGHolderEEESt6vectorIbSaIbEERKT_NS5_17vertex_descriptorE(ptr noalias nonnull align 8 %deadNodes, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload)
+  invoke fastcc void @_ZN3ue2L17findLoopReachableINS_8NGHolderEEESt6vectorIbSaIbEERKT_NS5_17vertex_descriptorE(ptr noalias align 8 %deadNodes, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload)
           to label %do.end unwind label %lpad1
 
 do.end:                                           ; preds = %invoke.cont
@@ -2547,7 +2547,7 @@ invoke.cont11:                                    ; preds = %do.end9
   %agg.tmp14.sroa.0.0.copyload = load ptr, ptr %acceptEod, align 8
   %agg.tmp14.sroa.2.0.acceptEod.sroa_idx = getelementptr inbounds i8, ptr %g, i64 128
   %agg.tmp14.sroa.2.0.copyload = load i64, ptr %agg.tmp14.sroa.2.0.acceptEod.sroa_idx, align 8
-  invoke fastcc void @_ZN3ue2L17findLoopReachableIN5boost13reverse_graphINS_8NGHolderERKS3_EEEESt6vectorIbSaIbEERKT_NSA_17vertex_descriptorE(ptr noalias nonnull align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(8) %rg, ptr %agg.tmp14.sroa.0.0.copyload, i64 %agg.tmp14.sroa.2.0.copyload)
+  invoke fastcc void @_ZN3ue2L17findLoopReachableIN5boost13reverse_graphINS_8NGHolderERKS3_EEEESt6vectorIbSaIbEERKT_NSA_17vertex_descriptorE(ptr noalias align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(8) %rg, ptr %agg.tmp14.sroa.0.0.copyload, i64 %agg.tmp14.sroa.2.0.copyload)
           to label %invoke.cont15 unwind label %lpad5
 
 invoke.cont15:                                    ; preds = %invoke.cont11
@@ -2705,7 +2705,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i58, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L17calcAndStoreDepthINS_8NGHolderENS_18NFAVertexBidiDepthEEEvRKT_NS3_17vertex_descriptorERKSt6vectorIbSaIbEERS7_IiSaIiEESE_RS7_IT0_SaISF_EEMSF_NS_11DepthMinMaxE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %deadNodes, ptr noundef nonnull align 8 dereferenceable(24) %dMin, ptr noundef nonnull align 8 dereferenceable(24) %dMax, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %depths, i64 %store) unnamed_addr #2 {
+define internal fastcc void @_ZN3ue2L17calcAndStoreDepthINS_8NGHolderENS_18NFAVertexBidiDepthEEEvRKT_NS3_17vertex_descriptorERKSt6vectorIbSaIbEERS7_IiSaIiEESE_RS7_IT0_SaISF_EEMSF_NS_11DepthMinMaxE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %deadNodes, ptr noundef nonnull align 8 dereferenceable(24) %dMin, ptr noundef nonnull align 8 dereferenceable(24) %dMax, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %depths, i64 range(i64 0, 9) %store) unnamed_addr #2 {
 entry:
   tail call fastcc void @_ZN3ue2L19calcDepthFromSourceINS_8NGHolderEEEvRKT_NS2_17vertex_descriptorERKSt6vectorIbSaIbEERS6_IiSaIiEESD_(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %deadNodes, ptr noundef nonnull align 8 dereferenceable(24) %dMin, ptr noundef nonnull align 8 dereferenceable(24) %dMax)
   %m_header.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 16
@@ -2797,7 +2797,7 @@ for.end:                                          ; preds = %_ZN3ue2L9getDepthsE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L17calcAndStoreDepthIN5boost13reverse_graphINS_8NGHolderERKS3_EENS_18NFAVertexBidiDepthEEEvRKT_NS8_17vertex_descriptorERKSt6vectorIbSaIbEERSC_IiSaIiEESJ_RSC_IT0_SaISK_EEMSK_NS_11DepthMinMaxE(ptr noundef nonnull align 8 dereferenceable(8) %g, ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %deadNodes, ptr noundef nonnull align 8 dereferenceable(24) %dMin, ptr noundef nonnull align 8 dereferenceable(24) %dMax, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %depths, i64 %store) unnamed_addr #2 {
+define internal fastcc void @_ZN3ue2L17calcAndStoreDepthIN5boost13reverse_graphINS_8NGHolderERKS3_EENS_18NFAVertexBidiDepthEEEvRKT_NS8_17vertex_descriptorERKSt6vectorIbSaIbEERSC_IiSaIiEESJ_RSC_IT0_SaISK_EEMSK_NS_11DepthMinMaxE(ptr noundef nonnull align 8 dereferenceable(8) %g, ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %deadNodes, ptr noundef nonnull align 8 dereferenceable(24) %dMin, ptr noundef nonnull align 8 dereferenceable(24) %dMax, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %depths, i64 range(i64 16, 25) %store) unnamed_addr #2 {
 entry:
   tail call fastcc void @_ZN3ue2L19calcDepthFromSourceIN5boost13reverse_graphINS_8NGHolderERKS3_EEEEvRKT_NS7_17vertex_descriptorERKSt6vectorIbSaIbEERSB_IiSaIiEESI_(ptr noundef nonnull align 8 dereferenceable(8) %g, ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %deadNodes, ptr noundef nonnull align 8 dereferenceable(24) %dMin, ptr noundef nonnull align 8 dereferenceable(24) %dMax)
   %0 = load ptr, ptr %g, align 8, !noalias !38
@@ -2901,7 +2901,7 @@ entry:
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %start, align 8
   %agg.tmp.sroa.2.0.start.sroa_idx = getelementptr inbounds i8, ptr %g, i64 80
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.start.sroa_idx, align 8
-  call fastcc void @_ZN3ue2L17findLoopReachableINS_8NGHolderEEESt6vectorIbSaIbEERKT_NS5_17vertex_descriptorE(ptr noalias nonnull align 8 %deadNodes, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload)
+  call fastcc void @_ZN3ue2L17findLoopReachableINS_8NGHolderEEESt6vectorIbSaIbEERKT_NS5_17vertex_descriptorE(ptr noalias align 8 %deadNodes, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dMin, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dMax, i8 0, i64 24, i1 false)
   invoke fastcc void @_ZN3ue2L19calcDepthFromSourceINS_8NGHolderEEEvRKT_NS2_17vertex_descriptorERKSt6vectorIbSaIbEERS6_IiSaIiEESD_(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %deadNodes, ptr noundef nonnull align 8 dereferenceable(24) %dMin, ptr noundef nonnull align 8 dereferenceable(24) %dMax)

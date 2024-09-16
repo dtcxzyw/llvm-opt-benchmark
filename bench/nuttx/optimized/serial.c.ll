@@ -1698,7 +1698,7 @@ declare i32 @nxmutex_lock(ptr noundef) local_unnamed_addr #1
 declare i32 @nxmutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @uart_tcdrain(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @uart_tcdrain(ptr noundef %0, i64 noundef range(i64 4000000, 10000001) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   %5 = tail call i32 @nxmutex_lock(ptr noundef nonnull %4) #5

@@ -3826,7 +3826,7 @@ _ZN4llvm3vfs18directory_iterator9incrementERSt10error_code.exit: ; preds = %937,
   br label %.critedge285
 
 1135:                                             ; preds = %1127
-  call fastcc void @_ZL23getInputBufferForModuleRN5clang16CompilerInstanceEPNS_6ModuleE(ptr dead_on_unwind noalias nonnull writable align 8 %81, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull %1126)
+  call fastcc void @_ZL23getInputBufferForModuleRN5clang16CompilerInstanceEPNS_6ModuleE(ptr dead_on_unwind noalias writable align 8 %81, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef %1126)
   %1136 = load ptr, ptr %81, align 8
   %.not783 = icmp eq ptr %1136, null
   br i1 %.not783, label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit453, label %1137
@@ -6721,7 +6721,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit49:          ; preds = %169, %175, %85, %91
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23getInputBufferForModuleRN5clang16CompilerInstanceEPNS_6ModuleE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL23getInputBufferForModuleRN5clang16CompilerInstanceEPNS_6ModuleE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %"struct.clang::Module::Header", align 8
   %5 = alloca %"class.llvm::SmallString.2516", align 8
   %6 = alloca %"class.std::optional.2519", align 8
@@ -6940,7 +6940,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZN5clang17Diagnost
   store ptr @.str.17, ptr %10, align 8
   %113 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 17, ptr %113, align 8
-  call void @_ZN4llvm12MemoryBuffer16getMemBufferCopyENS_9StringRefERKNS_5TwineE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.571") align 8 %0, ptr %109, i64 %110, ptr noundef nonnull align 8 dereferenceable(34) %10) #23
+  call void @_ZN4llvm12MemoryBuffer16getMemBufferCopyENS_9StringRefERKNS_5TwineE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.571") align 8 %0, ptr %109, i64 %110, ptr noundef nonnull align 8 dereferenceable(34) %10) #23
   br label %114
 
 114:                                              ; preds = %108, %_ZN5clang17DiagnosticBuilderD2Ev.exit

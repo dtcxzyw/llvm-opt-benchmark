@@ -1404,7 +1404,7 @@ if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %check_populate_channels.exit.i.i
 
 if.end8.i.i.i:                                    ; preds = %if.end.i.i.i
-  %call9.i.i.i = call fastcc i32 @extract_attr_chlist(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef nonnull %tmpchans.i.i.i, ptr noundef nonnull @.str.20, ptr noundef nonnull %type.i, i32 noundef %53)
+  %call9.i.i.i = call fastcc i32 @extract_attr_chlist(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef nonnull %tmpchans.i.i.i, ptr noundef nonnull @.str.20, ptr noundef %type.i, i32 noundef %53)
   %cmp10.not.i.i.i = icmp eq i32 %call9.i.i.i, 0
   br i1 %cmp10.not.i.i.i, label %if.end13.i.i.i, label %if.then11.i.i.i
 
@@ -1539,7 +1539,7 @@ if.end8.i.i:                                      ; preds = %if.end.i123.i
   br i1 %cmp10.i.i, label %if.then12.i.i, label %if.end35.i
 
 if.then12.i.i:                                    ; preds = %if.end8.i.i
-  %call13.i.i = call fastcc i32 @check_populate_chunk_count(ptr noundef %ctxt, ptr noundef %36, ptr noundef nonnull %scratch, ptr noundef nonnull %type.i, i32 noundef %53)
+  %call13.i.i = call fastcc i32 @check_populate_chunk_count(ptr noundef %ctxt, ptr noundef %36, ptr noundef %scratch, ptr noundef %type.i, i32 noundef %53)
   br label %check_req_attr.exit.i
 
 sw.bb15.i.i:                                      ; preds = %if.end27.i
@@ -2499,7 +2499,7 @@ if.end35.i:                                       ; preds = %check_req_attr.exit
 
 if.then38.i:                                      ; preds = %if.end35.i
   %236 = load i32, ptr %attrsz.i, align 4
-  %call41.i = call fastcc i32 @check_bad_attrsz(ptr noundef %ctxt, ptr noundef nonnull %scratch, i32 noundef %236, i32 noundef 1, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, ptr noundef nonnull %n.i)
+  %call41.i = call fastcc i32 @check_bad_attrsz(ptr noundef %ctxt, ptr noundef %scratch, i32 noundef %236, i32 noundef 1, ptr noundef nonnull %name.i, ptr noundef %type.i, ptr noundef %n.i)
   %cmp42.not.i = icmp eq i32 %call41.i, 0
   br i1 %cmp42.not.i, label %if.end45.i, label %if.end101.thread132
 
@@ -2565,120 +2565,120 @@ sw.bb.i:                                          ; preds = %if.end60.i
   %241 = getelementptr inbounds i8, ptr %239, i64 24
   %242 = load ptr, ptr %241, align 8
   %243 = load i32, ptr %attrsz.i, align 4
-  %call64.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %242, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %243, i32 noundef 4)
+  %call64.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %242, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %243, i32 noundef 4)
   br label %sw.epilog.i
 
 sw.bb65.i:                                        ; preds = %if.end60.i
   %244 = getelementptr inbounds i8, ptr %239, i64 24
   %245 = load ptr, ptr %244, align 8
   %246 = load i32, ptr %attrsz.i, align 4
-  %call68.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %245, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %246, i32 noundef 4)
+  %call68.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %245, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %246, i32 noundef 4)
   br label %sw.epilog.i
 
 sw.bb69.i:                                        ; preds = %if.end60.i
   %247 = getelementptr inbounds i8, ptr %239, i64 24
   %248 = load ptr, ptr %247, align 8
   %249 = load i32, ptr %attrsz.i, align 4
-  %call72.i = call fastcc i32 @extract_attr_chlist(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %248, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %249)
+  %call72.i = call fastcc i32 @extract_attr_chlist(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %248, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %249)
   br label %sw.epilog.i
 
 sw.bb73.i:                                        ; preds = %if.end60.i
   %250 = getelementptr inbounds i8, ptr %239, i64 24
   %251 = load ptr, ptr %250, align 8
   %252 = load i32, ptr %attrsz.i, align 4
-  %call76.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %251, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %252, i32 noundef 8)
+  %call76.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %251, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %252, i32 noundef 8)
   br label %sw.epilog.i
 
 sw.bb77.i:                                        ; preds = %if.end60.i
   %253 = getelementptr inbounds i8, ptr %239, i64 24
   %254 = load i32, ptr %attrsz.i, align 4
-  %call80.i = call fastcc i32 @extract_attr_uint8(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef nonnull %253, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %254, i8 noundef zeroext 10)
+  %call80.i = call fastcc i32 @extract_attr_uint8(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef nonnull %253, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %254, i8 noundef zeroext 10)
   br label %sw.epilog.i
 
 sw.bb81.i:                                        ; preds = %if.end60.i
   %255 = getelementptr inbounds i8, ptr %239, i64 24
   %256 = load i32, ptr %attrsz.i, align 4
-  %call84.i = call fastcc i32 @extract_attr_uint8(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef nonnull %255, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %256, i8 noundef zeroext 2)
+  %call84.i = call fastcc i32 @extract_attr_uint8(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef nonnull %255, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %256, i8 noundef zeroext 2)
   br label %sw.epilog.i
 
 sw.bb85.i:                                        ; preds = %if.end60.i
   %257 = getelementptr inbounds i8, ptr %239, i64 24
   %258 = load i32, ptr %attrsz.i, align 4
-  %call88.i = call fastcc i32 @extract_attr_uint8(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef nonnull %257, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %258, i8 noundef zeroext 3)
+  %call88.i = call fastcc i32 @extract_attr_uint8(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef nonnull %257, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %258, i8 noundef zeroext 3)
   br label %sw.epilog.i
 
 sw.bb89.i:                                        ; preds = %if.end60.i
   %259 = getelementptr inbounds i8, ptr %239, i64 24
   %260 = load i32, ptr %attrsz.i, align 4
-  %call92.i = call fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef nonnull %259, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %260, i32 noundef 1)
+  %call92.i = call fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef nonnull %259, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %260, i32 noundef 1)
   br label %sw.epilog.i
 
 sw.bb93.i:                                        ; preds = %if.end60.i
   %261 = getelementptr inbounds i8, ptr %239, i64 24
   %262 = load i32, ptr %attrsz.i, align 4
-  %call96.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef nonnull %261, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %262, i32 noundef 1)
+  %call96.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef nonnull %261, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %262, i32 noundef 1)
   br label %sw.epilog.i
 
 sw.bb97.i:                                        ; preds = %if.end60.i
   %263 = getelementptr inbounds i8, ptr %239, i64 24
   %264 = load ptr, ptr %263, align 8
   %265 = load i32, ptr %attrsz.i, align 4
-  %call100.i = call fastcc i32 @extract_attr_float_vector(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %264, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %265)
+  %call100.i = call fastcc i32 @extract_attr_float_vector(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %264, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %265)
   br label %sw.epilog.i
 
 sw.bb101.i:                                       ; preds = %if.end60.i
   %266 = getelementptr inbounds i8, ptr %239, i64 24
   %267 = load i32, ptr %attrsz.i, align 4
-  %call104.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef nonnull %266, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %267, i32 noundef 1)
+  %call104.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef nonnull %266, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %267, i32 noundef 1)
   br label %sw.epilog.i
 
 sw.bb105.i:                                       ; preds = %if.end60.i
   %268 = getelementptr inbounds i8, ptr %239, i64 24
   %269 = load ptr, ptr %268, align 8
   %270 = load i32, ptr %attrsz.i, align 4
-  %call108.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %269, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %270, i32 noundef 7)
+  %call108.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %269, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %270, i32 noundef 7)
   br label %sw.epilog.i
 
 sw.bb109.i:                                       ; preds = %if.end60.i
   %271 = getelementptr inbounds i8, ptr %239, i64 24
   %272 = load ptr, ptr %271, align 8
   %273 = load i32, ptr %attrsz.i, align 4
-  %call113.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %272, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %273, i32 noundef 9)
+  %call113.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %272, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %273, i32 noundef 9)
   br label %sw.epilog.i
 
 sw.bb114.i:                                       ; preds = %if.end60.i
   %274 = getelementptr inbounds i8, ptr %239, i64 24
   %275 = load ptr, ptr %274, align 8
   %276 = load i32, ptr %attrsz.i, align 4
-  %call119.i = call fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %275, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %276, i32 noundef 9)
+  %call119.i = call fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %275, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %276, i32 noundef 9)
   br label %sw.epilog.i
 
 sw.bb120.i:                                       ; preds = %if.end60.i
   %277 = getelementptr inbounds i8, ptr %239, i64 24
   %278 = load ptr, ptr %277, align 8
   %279 = load i32, ptr %attrsz.i, align 4
-  %call125.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %278, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %279, i32 noundef 16)
+  %call125.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %278, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %279, i32 noundef 16)
   br label %sw.epilog.i
 
 sw.bb126.i:                                       ; preds = %if.end60.i
   %280 = getelementptr inbounds i8, ptr %239, i64 24
   %281 = load ptr, ptr %280, align 8
   %282 = load i32, ptr %attrsz.i, align 4
-  %call131.i = call fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %281, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %282, i32 noundef 16)
+  %call131.i = call fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %281, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %282, i32 noundef 16)
   br label %sw.epilog.i
 
 sw.bb132.i:                                       ; preds = %if.end60.i
   %283 = getelementptr inbounds i8, ptr %239, i64 24
   %284 = load ptr, ptr %283, align 8
   %285 = load i32, ptr %attrsz.i, align 4
-  %call135.i = call fastcc i32 @extract_attr_preview(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %284, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %285)
+  %call135.i = call fastcc i32 @extract_attr_preview(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %284, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %285)
   br label %sw.epilog.i
 
 sw.bb136.i:                                       ; preds = %if.end60.i
   %286 = getelementptr inbounds i8, ptr %239, i64 24
   %287 = load ptr, ptr %286, align 8
   %288 = load i32, ptr %attrsz.i, align 4
-  %call139.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %287, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %288, i32 noundef 2)
+  %call139.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %287, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %288, i32 noundef 2)
   br label %sw.epilog.i
 
 sw.bb140.i:                                       ; preds = %if.end60.i
@@ -2686,77 +2686,77 @@ sw.bb140.i:                                       ; preds = %if.end60.i
   %290 = load ptr, ptr %289, align 8
   %291 = load i32, ptr %attrsz.i, align 4
   %292 = load ptr, ptr %strptr.i, align 8
-  %call143.i = call fastcc i32 @extract_attr_string(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %290, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %291, ptr noundef %292)
+  %call143.i = call fastcc i32 @extract_attr_string(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %290, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %291, ptr noundef %292)
   br label %sw.epilog.i
 
 sw.bb144.i:                                       ; preds = %if.end60.i
   %293 = getelementptr inbounds i8, ptr %239, i64 24
   %294 = load ptr, ptr %293, align 8
   %295 = load i32, ptr %attrsz.i, align 4
-  %call147.i = call fastcc i32 @extract_attr_string_vector(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %294, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %295)
+  %call147.i = call fastcc i32 @extract_attr_string_vector(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %294, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %295)
   br label %sw.epilog.i
 
 sw.bb148.i:                                       ; preds = %if.end60.i
   %296 = getelementptr inbounds i8, ptr %239, i64 24
   %297 = load ptr, ptr %296, align 8
   %298 = load i32, ptr %attrsz.i, align 4
-  %call151.i = call fastcc i32 @extract_attr_tiledesc(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %297, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %298)
+  %call151.i = call fastcc i32 @extract_attr_tiledesc(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %297, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %298)
   br label %sw.epilog.i
 
 sw.bb152.i:                                       ; preds = %if.end60.i
   %299 = getelementptr inbounds i8, ptr %239, i64 24
   %300 = load ptr, ptr %299, align 8
   %301 = load i32, ptr %attrsz.i, align 4
-  %call155.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %300, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %301, i32 noundef 2)
+  %call155.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %300, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %301, i32 noundef 2)
   br label %sw.epilog.i
 
 sw.bb156.i:                                       ; preds = %if.end60.i
   %302 = getelementptr inbounds i8, ptr %239, i64 24
   %303 = load ptr, ptr %302, align 8
   %304 = load i32, ptr %attrsz.i, align 4
-  %call160.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %303, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %304, i32 noundef 2)
+  %call160.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %303, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %304, i32 noundef 2)
   br label %sw.epilog.i
 
 sw.bb161.i:                                       ; preds = %if.end60.i
   %305 = getelementptr inbounds i8, ptr %239, i64 24
   %306 = load ptr, ptr %305, align 8
   %307 = load i32, ptr %attrsz.i, align 4
-  %call165.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %306, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %307, i32 noundef 2)
+  %call165.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %306, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %307, i32 noundef 2)
   br label %sw.epilog.i
 
 sw.bb166.i:                                       ; preds = %if.end60.i
   %308 = getelementptr inbounds i8, ptr %239, i64 24
   %309 = load ptr, ptr %308, align 8
   %310 = load i32, ptr %attrsz.i, align 4
-  %call170.i = call fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %309, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %310, i32 noundef 2)
+  %call170.i = call fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %309, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %310, i32 noundef 2)
   br label %sw.epilog.i
 
 sw.bb171.i:                                       ; preds = %if.end60.i
   %311 = getelementptr inbounds i8, ptr %239, i64 24
   %312 = load ptr, ptr %311, align 8
   %313 = load i32, ptr %attrsz.i, align 4
-  %call175.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %312, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %313, i32 noundef 3)
+  %call175.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %312, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %313, i32 noundef 3)
   br label %sw.epilog.i
 
 sw.bb176.i:                                       ; preds = %if.end60.i
   %314 = getelementptr inbounds i8, ptr %239, i64 24
   %315 = load ptr, ptr %314, align 8
   %316 = load i32, ptr %attrsz.i, align 4
-  %call180.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %315, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %316, i32 noundef 3)
+  %call180.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %315, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %316, i32 noundef 3)
   br label %sw.epilog.i
 
 sw.bb181.i:                                       ; preds = %if.end60.i
   %317 = getelementptr inbounds i8, ptr %239, i64 24
   %318 = load ptr, ptr %317, align 8
   %319 = load i32, ptr %attrsz.i, align 4
-  %call185.i = call fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %318, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %319, i32 noundef 3)
+  %call185.i = call fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %318, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %319, i32 noundef 3)
   br label %sw.epilog.i
 
 sw.bb186.i:                                       ; preds = %if.end60.i
   %320 = getelementptr inbounds i8, ptr %239, i64 24
   %321 = load ptr, ptr %320, align 8
   %322 = load i32, ptr %attrsz.i, align 4
-  %call189.i = call fastcc i32 @extract_attr_opaque(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %321, ptr noundef nonnull %name.i, ptr noundef nonnull %type.i, i32 noundef %322)
+  %call189.i = call fastcc i32 @extract_attr_opaque(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %321, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %322)
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %if.end60.i
@@ -3189,7 +3189,7 @@ while.end.thread:                                 ; preds = %while.end, %entry
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_bad_attrsz(ptr noundef %ctxt, ptr nocapture noundef readonly %scratch, i32 noundef %attrsz, i32 noundef %eltsize, ptr noundef %aname, ptr noundef %tname, ptr nocapture noundef writeonly %outsz) unnamed_addr #0 {
+define internal fastcc i32 @check_bad_attrsz(ptr noundef %ctxt, ptr nocapture noundef nonnull readonly %scratch, i32 noundef %attrsz, i32 noundef range(i32 1, 5) %eltsize, ptr noundef %aname, ptr noundef nonnull %tname, ptr nocapture noundef nonnull writeonly %outsz) unnamed_addr #0 {
 entry:
   store i32 %attrsz, ptr %outsz, align 4
   %cmp = icmp slt i32 %attrsz, 0
@@ -3198,7 +3198,7 @@ entry:
 if.then:                                          ; preds = %entry
   %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
   %0 = load ptr, ptr %print_error, align 8
-  %call = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef %ctxt, i32 noundef 17, ptr noundef nonnull @.str.78, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz) #10
+  %call = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef %ctxt, i32 noundef 17, ptr noundef nonnull @.str.78, ptr noundef %aname, ptr noundef nonnull %tname, i32 noundef %attrsz) #10
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -3225,11 +3225,11 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 if.then2:                                         ; preds = %if.then.i
   %print_error3 = getelementptr inbounds i8, ptr %ctxt, i64 72
   %4 = load ptr, ptr %print_error3, align 8
-  %call4 = tail call i32 (ptr, i32, ptr, ...) %4(ptr noundef nonnull %ctxt, i32 noundef 17, ptr noundef nonnull @.str.79, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz) #10
+  %call4 = tail call i32 (ptr, i32, ptr, ...) %4(ptr noundef nonnull %ctxt, i32 noundef 17, ptr noundef nonnull @.str.79, ptr noundef %aname, ptr noundef nonnull %tname, i32 noundef %attrsz) #10
   br label %return
 
 if.end5:                                          ; preds = %if.end, %land.lhs.true.i, %if.then.i
-  %cmp6 = icmp sgt i32 %eltsize, 1
+  %cmp6 = icmp ugt i32 %eltsize, 1
   br i1 %cmp6, label %if.then7, label %return
 
 if.then7:                                         ; preds = %if.end5
@@ -3242,7 +3242,7 @@ if.then7:                                         ; preds = %if.end5
 if.then9:                                         ; preds = %if.then7
   %print_error10 = getelementptr inbounds i8, ptr %ctxt, i64 72
   %5 = load ptr, ptr %print_error10, align 8
-  %call11 = tail call i32 (ptr, i32, ptr, ...) %5(ptr noundef nonnull %ctxt, i32 noundef 17, ptr noundef nonnull @.str.80, ptr noundef %aname, i32 noundef %attrsz, ptr noundef %tname, i32 noundef %rem) #10
+  %call11 = tail call i32 (ptr, i32, ptr, ...) %5(ptr noundef nonnull %ctxt, i32 noundef 17, ptr noundef nonnull @.str.80, ptr noundef %aname, i32 noundef %attrsz, ptr noundef nonnull %tname, i32 noundef %rem) #10
   br label %return
 
 if.end12:                                         ; preds = %if.then7
@@ -3259,7 +3259,7 @@ declare i32 @exr_attr_list_add(ptr noundef, ptr noundef, ptr noundef, i32 nounde
 declare i32 @exr_attr_list_add_by_type(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %attrdata, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz, i32 noundef %num) unnamed_addr #0 {
+define internal fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %attrdata, ptr noundef %aname, ptr noundef nonnull %tname, i32 noundef %attrsz, i32 noundef range(i32 1, 17) %num) unnamed_addr #0 {
 entry:
   %mul = shl nuw nsw i32 %num, 2
   %cmp.not = icmp eq i32 %attrsz, %mul
@@ -3268,22 +3268,21 @@ entry:
 if.then:                                          ; preds = %entry
   %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
   %0 = load ptr, ptr %print_error, align 8
-  %call = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef %ctxt, i32 noundef 17, ptr noundef nonnull @.str.81, ptr noundef %aname, i32 noundef %attrsz, ptr noundef %tname, i32 noundef %num, i32 noundef %mul) #10
+  %call = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef %ctxt, i32 noundef 17, ptr noundef nonnull @.str.81, ptr noundef %aname, i32 noundef %attrsz, ptr noundef nonnull %tname, i32 noundef %num, i32 noundef %mul) #10
   br label %return
 
 if.end:                                           ; preds = %entry
   %sequential_read = getelementptr inbounds i8, ptr %scratch, i64 32
   %1 = load ptr, ptr %sequential_read, align 8
-  %conv = zext nneg i32 %num to i64
-  %mul2 = shl nuw nsw i64 %conv, 2
-  %call3 = tail call i32 %1(ptr noundef %scratch, ptr noundef %attrdata, i64 noundef %mul2) #10
+  %mul2 = zext nneg i32 %attrsz to i64
+  %call3 = tail call i32 %1(ptr noundef nonnull %scratch, ptr noundef %attrdata, i64 noundef %mul2) #10
   %cmp4.not = icmp eq i32 %call3, 0
   br i1 %cmp4.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %if.end
   %print_error7 = getelementptr inbounds i8, ptr %ctxt, i64 72
   %2 = load ptr, ptr %print_error7, align 8
-  %call8 = tail call i32 (ptr, i32, ptr, ...) %2(ptr noundef %ctxt, i32 noundef %call3, ptr noundef nonnull @.str.82, ptr noundef %aname, ptr noundef %tname) #10
+  %call8 = tail call i32 (ptr, i32, ptr, ...) %2(ptr noundef %ctxt, i32 noundef %call3, ptr noundef nonnull @.str.82, ptr noundef %aname, ptr noundef nonnull %tname) #10
   br label %return
 
 return:                                           ; preds = %if.end, %if.then6, %if.then
@@ -3292,7 +3291,7 @@ return:                                           ; preds = %if.end, %if.then6, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_attr_chlist(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %attrdata, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz) unnamed_addr #0 {
+define internal fastcc i32 @extract_attr_chlist(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %attrdata, ptr noundef %aname, ptr noundef nonnull %tname, i32 noundef %attrsz) unnamed_addr #0 {
 entry:
   %b.i = alloca i8, align 1
   %chname = alloca [256 x i8], align 16
@@ -3309,7 +3308,7 @@ entry:
 check_bad_attrsz.exit.thread:                     ; preds = %entry
   %print_error.i = getelementptr inbounds i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error.i, align 8
-  %call.i = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 17, ptr noundef nonnull @.str.78, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz) #10
+  %call.i = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 17, ptr noundef nonnull @.str.78, ptr noundef %aname, ptr noundef nonnull %tname, i32 noundef %attrsz) #10
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -3336,7 +3335,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
 if.then2.i:                                       ; preds = %if.then.i.i
   %print_error3.i = getelementptr inbounds i8, ptr %ctxt, i64 72
   %5 = load ptr, ptr %print_error3.i, align 8
-  %call4.i = tail call i32 (ptr, i32, ptr, ...) %5(ptr noundef nonnull %ctxt, i32 noundef 17, ptr noundef nonnull @.str.79, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz) #10
+  %call4.i = tail call i32 (ptr, i32, ptr, ...) %5(ptr noundef nonnull %ctxt, i32 noundef 17, ptr noundef nonnull @.str.79, ptr noundef %aname, ptr noundef nonnull %tname, i32 noundef %attrsz) #10
   br label %check_bad_attrsz.exit
 
 check_bad_attrsz.exit:                            ; preds = %if.end.i, %land.lhs.true.i.i, %if.then.i.i, %if.then2.i
@@ -3364,7 +3363,7 @@ while.body.lr.ph.i:                               ; preds = %while.body.lr.ph.i.
 while.body.i:                                     ; preds = %if.end5.i30, %while.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %indvars.iv.next.i, %if.end5.i30 ]
   %9 = load ptr, ptr %sequential_read.i, align 8
-  %call.i27 = call i32 %9(ptr noundef %scratch, ptr noundef nonnull %b.i, i64 noundef 1) #10
+  %call.i27 = call i32 %9(ptr noundef nonnull %scratch, ptr noundef nonnull %b.i, i64 noundef 1) #10
   %cmp1.not.i = icmp eq i32 %call.i27, 0
   br i1 %cmp1.not.i, label %if.end.i29, label %read_text.exit.thread38
 
@@ -3459,7 +3458,7 @@ return:                                           ; preds = %if.end33, %if.end27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_attr_uint8(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %attrdata, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz, i8 noundef zeroext %maxval) unnamed_addr #0 {
+define internal fastcc i32 @extract_attr_uint8(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %attrdata, ptr noundef %aname, ptr noundef nonnull %tname, i32 noundef %attrsz, i8 noundef zeroext range(i8 2, 11) %maxval) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %attrsz, 1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3467,20 +3466,20 @@ entry:
 if.then:                                          ; preds = %entry
   %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
   %0 = load ptr, ptr %print_error, align 8
-  %call = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef %ctxt, i32 noundef 17, ptr noundef nonnull @.str.84, ptr noundef %aname, i32 noundef %attrsz, ptr noundef %tname) #10
+  %call = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef %ctxt, i32 noundef 17, ptr noundef nonnull @.str.84, ptr noundef %aname, i32 noundef %attrsz, ptr noundef nonnull %tname) #10
   br label %return
 
 if.end:                                           ; preds = %entry
   %sequential_read = getelementptr inbounds i8, ptr %scratch, i64 32
   %1 = load ptr, ptr %sequential_read, align 8
-  %call1 = tail call i32 %1(ptr noundef %scratch, ptr noundef %attrdata, i64 noundef 1) #10
+  %call1 = tail call i32 %1(ptr noundef nonnull %scratch, ptr noundef %attrdata, i64 noundef 1) #10
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end5, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %print_error3 = getelementptr inbounds i8, ptr %ctxt, i64 72
   %2 = load ptr, ptr %print_error3, align 8
-  %call4 = tail call i32 (ptr, i32, ptr, ...) %2(ptr noundef %ctxt, i32 noundef 10, ptr noundef nonnull @.str.82, ptr noundef %aname, ptr noundef %tname) #10
+  %call4 = tail call i32 (ptr, i32, ptr, ...) %2(ptr noundef %ctxt, i32 noundef 10, ptr noundef nonnull @.str.82, ptr noundef %aname, ptr noundef nonnull %tname) #10
   br label %return
 
 if.end5:                                          ; preds = %if.end
@@ -3493,7 +3492,7 @@ if.then9:                                         ; preds = %if.end5
   %conv = zext i8 %3 to i32
   %print_error10 = getelementptr inbounds i8, ptr %ctxt, i64 72
   %4 = load ptr, ptr %print_error10, align 8
-  %call13 = tail call i32 (ptr, i32, ptr, ...) %4(ptr noundef %ctxt, i32 noundef 14, ptr noundef nonnull @.str.85, ptr noundef %aname, ptr noundef %tname, i32 noundef %conv, i32 noundef %conv6) #10
+  %call13 = tail call i32 (ptr, i32, ptr, ...) %4(ptr noundef %ctxt, i32 noundef 14, ptr noundef nonnull @.str.85, ptr noundef %aname, ptr noundef nonnull %tname, i32 noundef %conv, i32 noundef %conv6) #10
   br label %return
 
 return:                                           ; preds = %if.end5, %if.then9, %if.then2, %if.then
@@ -3502,7 +3501,7 @@ return:                                           ; preds = %if.end5, %if.then9,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %attrdata, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz, i32 noundef %num) unnamed_addr #0 {
+define internal fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %attrdata, ptr noundef nonnull %aname, ptr noundef nonnull %tname, i32 noundef %attrsz, i32 noundef range(i32 1, 17) %num) unnamed_addr #0 {
 entry:
   %mul = shl nuw nsw i32 %num, 3
   %cmp.not = icmp eq i32 %attrsz, %mul
@@ -3511,22 +3510,21 @@ entry:
 if.then:                                          ; preds = %entry
   %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
   %0 = load ptr, ptr %print_error, align 8
-  %call = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef %ctxt, i32 noundef 17, ptr noundef nonnull @.str.86, ptr noundef %aname, i32 noundef %attrsz, ptr noundef %tname, i32 noundef %num, i32 noundef %mul) #10
+  %call = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef %ctxt, i32 noundef 17, ptr noundef nonnull @.str.86, ptr noundef nonnull %aname, i32 noundef %attrsz, ptr noundef nonnull %tname, i32 noundef %num, i32 noundef %mul) #10
   br label %return
 
 if.end:                                           ; preds = %entry
   %sequential_read = getelementptr inbounds i8, ptr %scratch, i64 32
   %1 = load ptr, ptr %sequential_read, align 8
-  %conv = zext nneg i32 %num to i64
-  %mul2 = shl nuw nsw i64 %conv, 3
-  %call3 = tail call i32 %1(ptr noundef %scratch, ptr noundef %attrdata, i64 noundef %mul2) #10
+  %mul2 = zext nneg i32 %attrsz to i64
+  %call3 = tail call i32 %1(ptr noundef nonnull %scratch, ptr noundef %attrdata, i64 noundef %mul2) #10
   %cmp4.not = icmp eq i32 %call3, 0
   br i1 %cmp4.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %if.end
   %print_error7 = getelementptr inbounds i8, ptr %ctxt, i64 72
   %2 = load ptr, ptr %print_error7, align 8
-  %call8 = tail call i32 (ptr, i32, ptr, ...) %2(ptr noundef %ctxt, i32 noundef %call3, ptr noundef nonnull @.str.82, ptr noundef %aname, ptr noundef %tname) #10
+  %call8 = tail call i32 (ptr, i32, ptr, ...) %2(ptr noundef %ctxt, i32 noundef %call3, ptr noundef nonnull @.str.82, ptr noundef nonnull %aname, ptr noundef nonnull %tname) #10
   br label %return
 
 return:                                           ; preds = %if.end, %if.then6, %if.then
@@ -3535,7 +3533,7 @@ return:                                           ; preds = %if.end, %if.then6, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_attr_float_vector(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %attrdata, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz) unnamed_addr #0 {
+define internal fastcc i32 @extract_attr_float_vector(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %attrdata, ptr noundef nonnull %aname, ptr noundef nonnull %tname, i32 noundef %attrsz) unnamed_addr #0 {
 entry:
   %cmp.i = icmp slt i32 %attrsz, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -3543,7 +3541,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %print_error.i = getelementptr inbounds i8, ptr %ctxt, i64 72
   %0 = load ptr, ptr %print_error.i, align 8
-  %call.i = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef %ctxt, i32 noundef 17, ptr noundef nonnull @.str.78, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz) #10
+  %call.i = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef %ctxt, i32 noundef 17, ptr noundef nonnull @.str.78, ptr noundef nonnull %aname, ptr noundef nonnull %tname, i32 noundef %attrsz) #10
   br label %check_bad_attrsz.exit
 
 if.end.i:                                         ; preds = %entry
@@ -3570,7 +3568,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
 if.then2.i:                                       ; preds = %if.then.i.i
   %print_error3.i = getelementptr inbounds i8, ptr %ctxt, i64 72
   %4 = load ptr, ptr %print_error3.i, align 8
-  %call4.i = tail call i32 (ptr, i32, ptr, ...) %4(ptr noundef nonnull %ctxt, i32 noundef 17, ptr noundef nonnull @.str.79, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz) #10
+  %call4.i = tail call i32 (ptr, i32, ptr, ...) %4(ptr noundef nonnull %ctxt, i32 noundef 17, ptr noundef nonnull @.str.79, ptr noundef nonnull %aname, ptr noundef nonnull %tname, i32 noundef %attrsz) #10
   br label %check_bad_attrsz.exit
 
 if.end5.i:                                        ; preds = %if.then.i.i, %land.lhs.true.i.i, %if.end.i
@@ -3582,7 +3580,7 @@ if.end5.i:                                        ; preds = %if.then.i.i, %land.
 if.then9.i:                                       ; preds = %if.end5.i
   %print_error10.i = getelementptr inbounds i8, ptr %ctxt, i64 72
   %6 = load ptr, ptr %print_error10.i, align 8
-  %call11.i = tail call i32 (ptr, i32, ptr, ...) %6(ptr noundef nonnull %ctxt, i32 noundef 17, ptr noundef nonnull @.str.80, ptr noundef %aname, i32 noundef %attrsz, ptr noundef %tname, i32 noundef %5) #10
+  %call11.i = tail call i32 (ptr, i32, ptr, ...) %6(ptr noundef nonnull %ctxt, i32 noundef 17, ptr noundef nonnull @.str.80, ptr noundef nonnull %aname, i32 noundef %attrsz, ptr noundef nonnull %tname, i32 noundef %5) #10
   br label %check_bad_attrsz.exit
 
 check_bad_attrsz.exit:                            ; preds = %if.end5.i, %if.then.i, %if.then2.i, %if.then9.i
@@ -3605,7 +3603,7 @@ if.end:                                           ; preds = %if.then
   %arr = getelementptr inbounds i8, ptr %attrdata, i64 8
   %8 = load ptr, ptr %arr, align 8
   %conv = sext i32 %attrsz to i64
-  %call6 = tail call i32 %7(ptr noundef %scratch, ptr noundef %8, i64 noundef %conv) #10
+  %call6 = tail call i32 %7(ptr noundef nonnull %scratch, ptr noundef %8, i64 noundef %conv) #10
   %cmp7.not = icmp eq i32 %call6, 0
   br i1 %cmp7.not, label %return, label %if.then9
 
@@ -3613,7 +3611,7 @@ if.then9:                                         ; preds = %if.end
   %call10 = tail call i32 @exr_attr_float_vector_destroy(ptr noundef nonnull %ctxt, ptr noundef nonnull %attrdata) #10
   %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
   %9 = load ptr, ptr %print_error, align 8
-  %call11 = tail call i32 (ptr, i32, ptr, ...) %9(ptr noundef nonnull %ctxt, i32 noundef 10, ptr noundef nonnull @.str.82, ptr noundef %aname, ptr noundef %tname) #10
+  %call11 = tail call i32 (ptr, i32, ptr, ...) %9(ptr noundef nonnull %ctxt, i32 noundef 10, ptr noundef nonnull @.str.82, ptr noundef nonnull %aname, ptr noundef nonnull %tname) #10
   br label %return
 
 return:                                           ; preds = %if.end, %check_bad_attrsz.exit, %if.then, %if.then9
@@ -3622,7 +3620,7 @@ return:                                           ; preds = %if.end, %check_bad_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_attr_preview(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %attrdata, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz) unnamed_addr #0 {
+define internal fastcc i32 @extract_attr_preview(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %attrdata, ptr noundef nonnull %aname, ptr noundef nonnull %tname, i32 noundef %attrsz) unnamed_addr #0 {
 entry:
   %sz = alloca [2 x i32], align 4
   %file_size = getelementptr inbounds i8, ptr %ctxt, i64 152
@@ -3634,20 +3632,20 @@ entry:
 if.then:                                          ; preds = %entry
   %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
-  %call1 = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 17, ptr noundef nonnull @.str.87, ptr noundef %aname, i32 noundef %attrsz, ptr noundef %tname) #10
+  %call1 = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 17, ptr noundef nonnull @.str.87, ptr noundef nonnull %aname, i32 noundef %attrsz, ptr noundef nonnull %tname) #10
   br label %return
 
 if.end:                                           ; preds = %entry
   %sequential_read = getelementptr inbounds i8, ptr %scratch, i64 32
   %2 = load ptr, ptr %sequential_read, align 8
-  %call2 = call i32 %2(ptr noundef %scratch, ptr noundef nonnull %sz, i64 noundef 8) #10
+  %call2 = call i32 %2(ptr noundef nonnull %scratch, ptr noundef nonnull %sz, i64 noundef 8) #10
   %cmp3.not = icmp eq i32 %call2, 0
   br i1 %cmp3.not, label %if.end7, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   %print_error5 = getelementptr inbounds i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error5, align 8
-  %call6 = call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef %call2, ptr noundef nonnull @.str.88, ptr noundef %aname) #10
+  %call6 = call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef %call2, ptr noundef nonnull @.str.88, ptr noundef nonnull %aname) #10
   br label %return
 
 if.end7:                                          ; preds = %if.end
@@ -3665,7 +3663,7 @@ if.end7:                                          ; preds = %if.end
 if.then19:                                        ; preds = %if.end7
   %print_error20 = getelementptr inbounds i8, ptr %ctxt, i64 72
   %6 = load ptr, ptr %print_error20, align 8
-  %call23 = call i32 (ptr, i32, ptr, ...) %6(ptr noundef nonnull %ctxt, i32 noundef 14, ptr noundef nonnull @.str.89, ptr noundef %aname, i32 noundef %attrsz, ptr noundef %tname, i32 noundef %4, i32 noundef %5) #10
+  %call23 = call i32 (ptr, i32, ptr, ...) %6(ptr noundef nonnull %ctxt, i32 noundef 14, ptr noundef nonnull @.str.89, ptr noundef nonnull %aname, i32 noundef %attrsz, ptr noundef nonnull %tname, i32 noundef %4, i32 noundef %5) #10
   br label %return
 
 if.end24:                                         ; preds = %if.end7
@@ -3681,7 +3679,7 @@ lor.lhs.false:                                    ; preds = %if.end24
 if.then31:                                        ; preds = %lor.lhs.false, %if.end24
   %print_error32 = getelementptr inbounds i8, ptr %ctxt, i64 72
   %7 = load ptr, ptr %print_error32, align 8
-  %call35 = call i32 (ptr, i32, ptr, ...) %7(ptr noundef nonnull %ctxt, i32 noundef 17, ptr noundef nonnull @.str.90, ptr noundef %aname, ptr noundef %tname, i32 noundef %4, i32 noundef %5) #10
+  %call35 = call i32 (ptr, i32, ptr, ...) %7(ptr noundef nonnull %ctxt, i32 noundef 17, ptr noundef nonnull @.str.90, ptr noundef nonnull %aname, ptr noundef nonnull %tname, i32 noundef %4, i32 noundef %5) #10
   br label %return
 
 if.end36:                                         ; preds = %lor.lhs.false
@@ -3706,7 +3704,7 @@ if.then56:                                        ; preds = %if.then46
   %call57 = call i32 @exr_attr_preview_destroy(ptr noundef nonnull %ctxt, ptr noundef nonnull %attrdata) #10
   %print_error58 = getelementptr inbounds i8, ptr %ctxt, i64 72
   %12 = load ptr, ptr %print_error58, align 8
-  %call59 = call i32 (ptr, i32, ptr, ...) %12(ptr noundef nonnull %ctxt, i32 noundef %call53, ptr noundef nonnull @.str.91, ptr noundef %aname, i32 noundef %attrsz) #10
+  %call59 = call i32 (ptr, i32, ptr, ...) %12(ptr noundef nonnull %ctxt, i32 noundef %call53, ptr noundef nonnull @.str.91, ptr noundef nonnull %aname, i32 noundef %attrsz) #10
   br label %return
 
 return:                                           ; preds = %if.then46, %if.end36, %if.then56, %if.then31, %if.then19, %if.then4, %if.then
@@ -3715,19 +3713,19 @@ return:                                           ; preds = %if.then46, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_attr_string(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %attrdata, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz, ptr noundef %strptr) unnamed_addr #0 {
+define internal fastcc i32 @extract_attr_string(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %attrdata, ptr noundef nonnull %aname, ptr noundef nonnull %tname, i32 noundef %attrsz, ptr noundef %strptr) unnamed_addr #0 {
 entry:
   %sequential_read = getelementptr inbounds i8, ptr %scratch, i64 32
   %0 = load ptr, ptr %sequential_read, align 8
   %conv = sext i32 %attrsz to i64
-  %call = tail call i32 %0(ptr noundef %scratch, ptr noundef %strptr, i64 noundef %conv) #10
+  %call = tail call i32 %0(ptr noundef nonnull %scratch, ptr noundef %strptr, i64 noundef %conv) #10
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
-  %call2 = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef %ctxt, i32 noundef %call, ptr noundef nonnull @.str.82, ptr noundef %aname, ptr noundef %tname) #10
+  %call2 = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef %ctxt, i32 noundef %call, ptr noundef nonnull @.str.82, ptr noundef nonnull %aname, ptr noundef nonnull %tname) #10
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -3742,7 +3740,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_attr_string_vector(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %attrdata, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz) unnamed_addr #0 {
+define internal fastcc i32 @extract_attr_string_vector(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %attrdata, ptr noundef nonnull %aname, ptr noundef nonnull %tname, i32 noundef %attrsz) unnamed_addr #0 {
 entry:
   %nlen = alloca i32, align 4
   %nil = alloca %struct.exr_attr_string_t, align 8
@@ -3753,7 +3751,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %print_error.i = getelementptr inbounds i8, ptr %ctxt, i64 72
   %0 = load ptr, ptr %print_error.i, align 8
-  %call.i = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef %ctxt, i32 noundef 17, ptr noundef nonnull @.str.78, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz) #10
+  %call.i = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef %ctxt, i32 noundef 17, ptr noundef nonnull @.str.78, ptr noundef nonnull %aname, ptr noundef nonnull %tname, i32 noundef %attrsz) #10
   br label %check_bad_attrsz.exit
 
 if.end.i:                                         ; preds = %entry
@@ -3780,7 +3778,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
 if.then2.i:                                       ; preds = %if.then.i.i
   %print_error3.i = getelementptr inbounds i8, ptr %ctxt, i64 72
   %4 = load ptr, ptr %print_error3.i, align 8
-  %call4.i = tail call i32 (ptr, i32, ptr, ...) %4(ptr noundef nonnull %ctxt, i32 noundef 17, ptr noundef nonnull @.str.79, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz) #10
+  %call4.i = tail call i32 (ptr, i32, ptr, ...) %4(ptr noundef nonnull %ctxt, i32 noundef 17, ptr noundef nonnull @.str.79, ptr noundef nonnull %aname, ptr noundef nonnull %tname, i32 noundef %attrsz) #10
   br label %check_bad_attrsz.exit
 
 check_bad_attrsz.exit:                            ; preds = %if.then.i, %if.then2.i
@@ -3806,7 +3804,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %nalloced.0104 = phi i32 [ 0, %while.body.lr.ph ], [ %nalloced.2, %if.end64 ]
   store i32 0, ptr %nlen, align 4
   %5 = load ptr, ptr %sequential_read, align 8
-  %call2 = call i32 %5(ptr noundef %scratch, ptr noundef nonnull %nlen, i64 noundef 4) #10
+  %call2 = call i32 %5(ptr noundef nonnull %scratch, ptr noundef nonnull %nlen, i64 noundef 4) #10
   %cmp3.not = icmp eq i32 %call2, 0
   br i1 %cmp3.not, label %if.end6, label %if.then4
 
@@ -3814,7 +3812,7 @@ if.then4:                                         ; preds = %while.body
   %6 = trunc nuw nsw i64 %indvars.iv148 to i32
   %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
   %7 = load ptr, ptr %print_error, align 8
-  %call5 = call i32 (ptr, i32, ptr, ...) %7(ptr noundef %ctxt, i32 noundef %call2, ptr noundef nonnull @.str.92, ptr noundef %aname) #10
+  %call5 = call i32 (ptr, i32, ptr, ...) %7(ptr noundef %ctxt, i32 noundef %call2, ptr noundef nonnull @.str.92, ptr noundef nonnull %aname) #10
   br label %extract_string_vector_fail
 
 if.end6:                                          ; preds = %while.body
@@ -3835,7 +3833,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
   %10 = trunc nuw nsw i64 %indvars.iv148 to i32
   %print_error18 = getelementptr inbounds i8, ptr %ctxt, i64 72
   %11 = load ptr, ptr %print_error18, align 8
-  %call19 = call i32 (ptr, i32, ptr, ...) %11(ptr noundef %ctxt, i32 noundef 14, ptr noundef nonnull @.str.93, ptr noundef %aname, i32 noundef %8) #10
+  %call19 = call i32 (ptr, i32, ptr, ...) %11(ptr noundef %ctxt, i32 noundef 14, ptr noundef nonnull @.str.93, ptr noundef nonnull %aname, i32 noundef %8) #10
   br label %extract_string_vector_fail
 
 if.end20:                                         ; preds = %lor.lhs.false
@@ -3913,7 +3911,7 @@ if.end55:                                         ; preds = %if.end47
   %22 = load ptr, ptr %str, align 8
   %23 = load i32, ptr %nlen, align 4
   %conv57 = sext i32 %23 to i64
-  %call58 = call i32 %21(ptr noundef %scratch, ptr noundef %22, i64 noundef %conv57) #10
+  %call58 = call i32 %21(ptr noundef nonnull %scratch, ptr noundef %22, i64 noundef %conv57) #10
   %cmp59.not = icmp eq i32 %call58, 0
   br i1 %cmp59.not, label %if.end64, label %if.then61
 
@@ -3921,7 +3919,7 @@ if.then61:                                        ; preds = %if.end55
   %print_error62 = getelementptr inbounds i8, ptr %ctxt, i64 72
   %24 = load ptr, ptr %print_error62, align 8
   %25 = load i32, ptr %nlen, align 4
-  %call63 = call i32 (ptr, i32, ptr, ...) %24(ptr noundef %ctxt, i32 noundef %call58, ptr noundef nonnull @.str.94, ptr noundef %aname, i32 noundef %25) #10
+  %call63 = call i32 (ptr, i32, ptr, ...) %24(ptr noundef %ctxt, i32 noundef %call58, ptr noundef nonnull @.str.94, ptr noundef nonnull %aname, i32 noundef %25) #10
   br label %extract_string_vector_fail
 
 if.end64:                                         ; preds = %if.end55
@@ -3981,7 +3979,7 @@ return:                                           ; preds = %for.end80, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_attr_tiledesc(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %attrdata, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz) unnamed_addr #0 {
+define internal fastcc i32 @extract_attr_tiledesc(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %attrdata, ptr noundef nonnull %aname, ptr noundef nonnull %tname, i32 noundef %attrsz) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %attrsz, 9
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3989,20 +3987,20 @@ entry:
 if.then:                                          ; preds = %entry
   %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
   %0 = load ptr, ptr %print_error, align 8
-  %call = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef %ctxt, i32 noundef 17, ptr noundef nonnull @.str.95, ptr noundef %aname, i32 noundef %attrsz, ptr noundef %tname, i32 noundef 9) #10
+  %call = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef %ctxt, i32 noundef 17, ptr noundef nonnull @.str.95, ptr noundef nonnull %aname, i32 noundef %attrsz, ptr noundef nonnull %tname, i32 noundef 9) #10
   br label %return
 
 if.end:                                           ; preds = %entry
   %sequential_read = getelementptr inbounds i8, ptr %scratch, i64 32
   %1 = load ptr, ptr %sequential_read, align 8
-  %call1 = tail call i32 %1(ptr noundef %scratch, ptr noundef %attrdata, i64 noundef 9) #10
+  %call1 = tail call i32 %1(ptr noundef nonnull %scratch, ptr noundef %attrdata, i64 noundef 9) #10
   %cmp2.not = icmp eq i32 %call1, 0
   br i1 %cmp2.not, label %if.end6, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   %print_error4 = getelementptr inbounds i8, ptr %ctxt, i64 72
   %2 = load ptr, ptr %print_error4, align 8
-  %call5 = tail call i32 (ptr, i32, ptr, ...) %2(ptr noundef %ctxt, i32 noundef %call1, ptr noundef nonnull @.str.82, ptr noundef %aname, ptr noundef %tname) #10
+  %call5 = tail call i32 (ptr, i32, ptr, ...) %2(ptr noundef %ctxt, i32 noundef %call1, ptr noundef nonnull @.str.82, ptr noundef nonnull %aname, ptr noundef nonnull %tname) #10
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -4016,7 +4014,7 @@ if.end6:                                          ; preds = %if.end
 if.then13:                                        ; preds = %if.end6
   %print_error14 = getelementptr inbounds i8, ptr %ctxt, i64 72
   %4 = load ptr, ptr %print_error14, align 8
-  %call18 = tail call i32 (ptr, i32, ptr, ...) %4(ptr noundef %ctxt, i32 noundef 14, ptr noundef nonnull @.str.96, ptr noundef %aname, i32 noundef %and) #10
+  %call18 = tail call i32 (ptr, i32, ptr, ...) %4(ptr noundef %ctxt, i32 noundef 14, ptr noundef nonnull @.str.96, ptr noundef nonnull %aname, i32 noundef %and) #10
   br label %return
 
 if.end19:                                         ; preds = %if.end6
@@ -4027,7 +4025,7 @@ if.then25:                                        ; preds = %if.end19
   %shr = lshr i32 %conv, 4
   %print_error26 = getelementptr inbounds i8, ptr %ctxt, i64 72
   %5 = load ptr, ptr %print_error26, align 8
-  %call31 = tail call i32 (ptr, i32, ptr, ...) %5(ptr noundef %ctxt, i32 noundef 14, ptr noundef nonnull @.str.97, ptr noundef %aname, i32 noundef %shr) #10
+  %call31 = tail call i32 (ptr, i32, ptr, ...) %5(ptr noundef %ctxt, i32 noundef 14, ptr noundef nonnull @.str.97, ptr noundef nonnull %aname, i32 noundef %shr) #10
   br label %return
 
 return:                                           ; preds = %if.end19, %if.then25, %if.then13, %if.then3, %if.then
@@ -4036,7 +4034,7 @@ return:                                           ; preds = %if.end19, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_attr_opaque(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %attrdata, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz) unnamed_addr #0 {
+define internal fastcc i32 @extract_attr_opaque(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %attrdata, ptr noundef nonnull %aname, ptr noundef nonnull %tname, i32 noundef %attrsz) unnamed_addr #0 {
 entry:
   %cmp.i = icmp slt i32 %attrsz, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -4044,7 +4042,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %print_error.i = getelementptr inbounds i8, ptr %ctxt, i64 72
   %0 = load ptr, ptr %print_error.i, align 8
-  %call.i = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef %ctxt, i32 noundef 17, ptr noundef nonnull @.str.78, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz) #10
+  %call.i = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef %ctxt, i32 noundef 17, ptr noundef nonnull @.str.78, ptr noundef nonnull %aname, ptr noundef nonnull %tname, i32 noundef %attrsz) #10
   br label %check_bad_attrsz.exit
 
 if.end.i:                                         ; preds = %entry
@@ -4071,7 +4069,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
 if.then2.i:                                       ; preds = %if.then.i.i
   %print_error3.i = getelementptr inbounds i8, ptr %ctxt, i64 72
   %4 = load ptr, ptr %print_error3.i, align 8
-  %call4.i = tail call i32 (ptr, i32, ptr, ...) %4(ptr noundef nonnull %ctxt, i32 noundef 17, ptr noundef nonnull @.str.79, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz) #10
+  %call4.i = tail call i32 (ptr, i32, ptr, ...) %4(ptr noundef nonnull %ctxt, i32 noundef 17, ptr noundef nonnull @.str.79, ptr noundef nonnull %aname, ptr noundef nonnull %tname, i32 noundef %attrsz) #10
   br label %check_bad_attrsz.exit
 
 check_bad_attrsz.exit:                            ; preds = %if.then.i, %if.then2.i
@@ -4091,7 +4089,7 @@ if.end6:                                          ; preds = %if.end
   %5 = load ptr, ptr %sequential_read, align 8
   %packed_data = getelementptr inbounds i8, ptr %attrdata, i64 16
   %6 = load ptr, ptr %packed_data, align 8
-  %call8 = tail call i32 %5(ptr noundef %scratch, ptr noundef %6, i64 noundef %conv) #10
+  %call8 = tail call i32 %5(ptr noundef nonnull %scratch, ptr noundef %6, i64 noundef %conv) #10
   %cmp9.not = icmp eq i32 %call8, 0
   br i1 %cmp9.not, label %return, label %if.then11
 
@@ -4099,7 +4097,7 @@ if.then11:                                        ; preds = %if.end6
   %call12 = tail call i32 @exr_attr_opaquedata_destroy(ptr noundef nonnull %ctxt, ptr noundef nonnull %attrdata) #10
   %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
   %7 = load ptr, ptr %print_error, align 8
-  %call13 = tail call i32 (ptr, i32, ptr, ...) %7(ptr noundef nonnull %ctxt, i32 noundef 10, ptr noundef nonnull @.str.98, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz) #10
+  %call13 = tail call i32 (ptr, i32, ptr, ...) %7(ptr noundef nonnull %ctxt, i32 noundef 10, ptr noundef nonnull @.str.98, ptr noundef nonnull %aname, ptr noundef nonnull %tname, i32 noundef %attrsz) #10
   br label %return
 
 return:                                           ; preds = %if.end6, %if.end, %check_bad_attrsz.exit, %if.then11
@@ -4110,7 +4108,7 @@ return:                                           ; preds = %if.end6, %if.end, %
 declare i32 @exr_attr_list_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_populate_chunk_count(ptr noundef %ctxt, ptr noundef %curpart, ptr noundef %scratch, ptr noundef %tname, i32 noundef %attrsz) unnamed_addr #0 {
+define internal fastcc i32 @check_populate_chunk_count(ptr noundef %ctxt, ptr noundef %curpart, ptr noundef nonnull %scratch, ptr noundef nonnull %tname, i32 noundef %attrsz) unnamed_addr #0 {
 entry:
   %attrsz.addr = alloca i32, align 4
   store i32 %attrsz, ptr %attrsz.addr, align 4
@@ -4122,7 +4120,7 @@ entry:
 if.then:                                          ; preds = %entry
   %sequential_skip = getelementptr inbounds i8, ptr %scratch, i64 40
   %1 = load ptr, ptr %sequential_skip, align 8
-  %call = tail call i32 %1(ptr noundef %scratch, i32 noundef %attrsz) #10
+  %call = tail call i32 %1(ptr noundef nonnull %scratch, i32 noundef %attrsz) #10
   %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
   %2 = load ptr, ptr %print_error, align 8
   %call1 = tail call i32 (ptr, i32, ptr, ...) %2(ptr noundef %ctxt, i32 noundef 14, ptr noundef nonnull @.str.40) #10
@@ -4136,10 +4134,10 @@ if.end:                                           ; preds = %entry
 if.then3:                                         ; preds = %if.end
   %sequential_skip4 = getelementptr inbounds i8, ptr %scratch, i64 40
   %3 = load ptr, ptr %sequential_skip4, align 8
-  %call5 = tail call i32 %3(ptr noundef %scratch, i32 noundef %attrsz) #10
+  %call5 = tail call i32 %3(ptr noundef nonnull %scratch, i32 noundef %attrsz) #10
   %print_error6 = getelementptr inbounds i8, ptr %ctxt, i64 72
   %4 = load ptr, ptr %print_error6, align 8
-  %call7 = tail call i32 (ptr, i32, ptr, ...) %4(ptr noundef %ctxt, i32 noundef 16, ptr noundef nonnull @.str.42, ptr noundef %tname) #10
+  %call7 = tail call i32 (ptr, i32, ptr, ...) %4(ptr noundef %ctxt, i32 noundef 16, ptr noundef nonnull @.str.42, ptr noundef nonnull %tname) #10
   br label %return
 
 if.end8:                                          ; preds = %if.end
@@ -4149,7 +4147,7 @@ if.end8:                                          ; preds = %if.end
 if.then11:                                        ; preds = %if.end8
   %sequential_skip12 = getelementptr inbounds i8, ptr %scratch, i64 40
   %5 = load ptr, ptr %sequential_skip12, align 8
-  %call13 = tail call i32 %5(ptr noundef %scratch, i32 noundef %attrsz) #10
+  %call13 = tail call i32 %5(ptr noundef nonnull %scratch, i32 noundef %attrsz) #10
   %print_error14 = getelementptr inbounds i8, ptr %ctxt, i64 72
   %6 = load ptr, ptr %print_error14, align 8
   %call15 = tail call i32 (ptr, i32, ptr, ...) %6(ptr noundef %ctxt, i32 noundef 14, ptr noundef nonnull @.str.43, i32 noundef %attrsz) #10
@@ -4158,7 +4156,7 @@ if.then11:                                        ; preds = %if.end8
 if.end16:                                         ; preds = %if.end8
   %sequential_read = getelementptr inbounds i8, ptr %scratch, i64 32
   %7 = load ptr, ptr %sequential_read, align 8
-  %call17 = call i32 %7(ptr noundef %scratch, ptr noundef nonnull %attrsz.addr, i64 noundef 4) #10
+  %call17 = call i32 %7(ptr noundef nonnull %scratch, ptr noundef nonnull %attrsz.addr, i64 noundef 4) #10
   %cmp18.not = icmp eq i32 %call17, 0
   br i1 %cmp18.not, label %if.end22, label %if.then20
 

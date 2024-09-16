@@ -2535,10 +2535,10 @@ declare dso_local ptr @new_inode(ptr noundef) local_unnamed_addr #3
 declare dso_local void @inode_init_owner(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_xattr_credits_for_new_inode(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ext4_xattr_credits_for_new_inode(ptr noundef nonnull %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call ptr @get_inode_acl(ptr noundef %0, i32 noundef 16384) #10
+  %5 = tail call ptr @get_inode_acl(ptr noundef nonnull %0, i32 noundef 16384) #10
   %6 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
   br i1 %6, label %7, label %10
 
@@ -2592,7 +2592,7 @@ define internal fastcc i32 @ext4_xattr_credits_for_new_inode(ptr noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -1, 1) i32 @find_group_orlov(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i16 noundef zeroext %3, ptr noundef readonly %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @find_group_orlov(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef writeonly %2, i16 noundef zeroext %3, ptr noundef readonly %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.dx_hash_info, align 8
   %7 = getelementptr i8, ptr %1, i64 -224
   %8 = load i32, ptr %7, align 8
@@ -2663,7 +2663,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @find_group_orlov(ptr nounde
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %4, i64 4
   %62 = load i32, ptr %61, align 4
-  %63 = call i32 @ext4fs_dirhash(ptr noundef %1, ptr noundef %60, i32 noundef %62, ptr noundef nonnull %6) #10
+  %63 = call i32 @ext4fs_dirhash(ptr noundef nonnull %1, ptr noundef %60, i32 noundef %62, ptr noundef nonnull %6) #10
   %64 = load i32, ptr %6, align 8
   %65 = urem i32 %64, %24
   br label %68
@@ -3165,7 +3165,7 @@ declare dso_local void @ext4_ext_tree_init(ptr noundef, ptr noundef) local_unnam
 declare dso_local i32 @__ext4_mark_inode_dirty(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_ext4_allocate_inode(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #5 align 16 {
+define internal fastcc void @trace_ext4_allocate_inode(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 65536) %2) unnamed_addr #5 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_ext4_allocate_inode, i64 8), i32 2) #10
           to label %24 [label %4], !srcloc !13
 
@@ -3188,7 +3188,7 @@ define internal fastcc void @trace_ext4_allocate_inode(ptr noundef %0, ptr nound
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @__SCT__tp_func_ext4_allocate_inode(ptr noundef %15, ptr noundef %0, ptr noundef %1, i32 noundef %2) #10
+  %16 = tail call i32 @__SCT__tp_func_ext4_allocate_inode(ptr noundef %15, ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2) #10
   br label %17
 
 17:                                               ; preds = %13, %10
@@ -3642,7 +3642,7 @@ declare dso_local i64 @ext4_inode_bitmap(ptr noundef, ptr noundef) local_unnamed
 declare dso_local void @__ext4_warning(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_ext4_load_inode_bitmap(ptr noundef %0, i64 noundef %1) unnamed_addr #5 align 16 {
+define internal fastcc void @trace_ext4_load_inode_bitmap(ptr noundef %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #5 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_ext4_load_inode_bitmap, i64 8), i32 2) #10
           to label %23 [label %3], !srcloc !13
 

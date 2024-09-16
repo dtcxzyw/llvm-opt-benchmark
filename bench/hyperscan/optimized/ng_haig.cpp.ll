@@ -884,7 +884,7 @@ if.else44.i.i.i:                                  ; preds = %invoke.cont37.i.i.i
   br label %if.end46.i.i.i
 
 if.end46.i.i.i:                                   ; preds = %if.else44.i.i.i, %if.then39.i.i.i, %if.then.i.i.i
-  invoke fastcc void @_ZN3ue2L10populateCRERKNS_8NGHolderERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESaISA_EERKSt5arrayItLm257EE(ptr noalias nonnull align 8 %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %v_by_index.i.i.i, ptr noundef nonnull align 2 dereferenceable(514) %alpha18.i.i.i)
+  invoke fastcc void @_ZN3ue2L10populateCRERKNS_8NGHolderERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESaISA_EERKSt5arrayItLm257EE(ptr noalias align 8 %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %v_by_index.i.i.i, ptr noundef nonnull align 2 dereferenceable(514) %alpha18.i.i.i)
           to label %invoke.cont50.i.i.i unwind label %lpad15.i.i.i
 
 invoke.cont50.i.i.i:                              ; preds = %if.end46.i.i.i
@@ -4557,7 +4557,7 @@ if.end52.i.i:                                     ; preds = %for.body.i135.i.i, 
   %.sink.i.i = phi i16 [ 1, %land.rhs.i.i.i.i ], [ 1, %invoke.cont39.i.i ], [ 0, %if.else.i.i ], [ 2, %for.body.i135.i.i ], [ 0, %for.cond.i.i.i ]
   %start_floating49.i.i = getelementptr inbounds i8, ptr %n, i64 1186
   store i16 %.sink.i.i, ptr %start_floating49.i.i, align 2
-  invoke fastcc void @_ZN3ue2L10populateCRERKNS_8NGHolderERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESaISA_EERKSt5arrayItLm257EE(ptr noalias nonnull align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(24) %v_by_index.i.i, ptr noundef nonnull align 2 dereferenceable(514) %alpha23.i.i)
+  invoke fastcc void @_ZN3ue2L10populateCRERKNS_8NGHolderERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESaISA_EERKSt5arrayItLm257EE(ptr noalias align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(24) %v_by_index.i.i, ptr noundef nonnull align 2 dereferenceable(514) %alpha23.i.i)
           to label %invoke.cont56.i.i unwind label %lpad25.i.i
 
 invoke.cont56.i.i:                                ; preds = %if.end52.i.i
@@ -15595,7 +15595,7 @@ declare void @_ZN3ue218getRedundantStartsERKNS_8NGHolderE(ptr sret(%"class.ue2::
 declare void @_ZN3ue217calculateAlphabetERKNS_8NGHolderERSt5arrayItLm257EES5_Pt(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 2 dereferenceable(514), ptr noundef nonnull align 2 dereferenceable(514), ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L10populateCRERKNS_8NGHolderERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESaISA_EERKSt5arrayItLm257EE(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %v_by_index, ptr nocapture noundef nonnull readonly align 2 dereferenceable(514) %alpha) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L10populateCRERKNS_8NGHolderERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESaISA_EERKSt5arrayItLm257EE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %v_by_index, ptr nocapture noundef nonnull readonly align 2 dereferenceable(514) %alpha) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %v_by_index, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -25559,7 +25559,7 @@ unreachable:                                      ; preds = %invoke.cont2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue212_GLOBAL__N_120Automaton_Haig_Merge9reports_iERKSt6vectorItSaItEEMNS_6dstateENS_8flat_setIjSt4lessIjESaIjEEERSC_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1132) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %in, i64 %r_set, ptr noundef nonnull align 8 dereferenceable(32) %r) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue212_GLOBAL__N_120Automaton_Haig_Merge9reports_iERKSt6vectorItSaItEEMNS_6dstateENS_8flat_setIjSt4lessIjESaIjEEERSC_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1132) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %in, i64 range(i64 32, 65) %r_set, ptr noundef nonnull align 8 dereferenceable(32) %r) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8

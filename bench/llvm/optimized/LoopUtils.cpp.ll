@@ -7433,10 +7433,10 @@ define dso_local noundef ptr @_ZN4llvm16addRuntimeChecksEPNS_11InstructionEPNS_4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10), !noalias !158
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11), !noalias !158
   %36 = load ptr, ptr %.05.i.i.i, align 8, !noalias !161
-  call fastcc void @_ZL12expandBoundsPKN4llvm23RuntimeCheckingPtrGroupEPNS_4LoopEPNS_11InstructionERNS_12SCEVExpanderEb(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %36, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(816) %3, i1 noundef zeroext %4), !noalias !161
+  call fastcc void @_ZL12expandBoundsPKN4llvm23RuntimeCheckingPtrGroupEPNS_4LoopEPNS_11InstructionERNS_12SCEVExpanderEb(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %36, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(816) %3, i1 noundef zeroext %4), !noalias !161
   %37 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %38 = load ptr, ptr %37, align 8, !noalias !161
-  call fastcc void @_ZL12expandBoundsPKN4llvm23RuntimeCheckingPtrGroupEPNS_4LoopEPNS_11InstructionERNS_12SCEVExpanderEb(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %38, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(816) %3, i1 noundef zeroext %4), !noalias !161
+  call fastcc void @_ZL12expandBoundsPKN4llvm23RuntimeCheckingPtrGroupEPNS_4LoopEPNS_11InstructionERNS_12SCEVExpanderEb(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %38, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(816) %3, i1 noundef zeroext %4), !noalias !161
   call void @_ZNSt4pairI13PointerBoundsS0_EC2IRS0_S3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS5_S6_EEEbE4typeELb1EEEOS5_OS6_(ptr noundef nonnull align 8 dereferenceable(112) %12, ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %11)
   %39 = load ptr, ptr %29, align 8, !noalias !164
   %magicptr.i.i.i.i.i.i.i.i = ptrtoint ptr %39 to i64
@@ -8572,7 +8572,7 @@ _ZN4llvm4User6op_endEv.exit66:                    ; preds = %157, %160
 184:                                              ; preds = %170
   %185 = call noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE9getHeaderEv(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
   call void @_ZN4llvm11SmallVectorIPNS_12MemoryAccessELj4EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %8)
-  call fastcc void @"_ZZN4llvm21hasPartialIVConditionERKNS_4LoopEjRKNS_9MemorySSAERNS_9AAResultsEENK3$_0clEPNS_10BasicBlockESA_NS_11SmallVectorIPNS_12MemoryAccessELj4EEE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(44) %12, ptr noundef %178, ptr noundef %185, ptr noundef nonnull %13)
+  call fastcc void @"_ZZN4llvm21hasPartialIVConditionERKNS_4LoopEjRKNS_9MemorySSAERNS_9AAResultsEENK3$_0clEPNS_10BasicBlockESA_NS_11SmallVectorIPNS_12MemoryAccessELj4EEE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(44) %12, ptr noundef %178, ptr noundef %185, ptr noundef %13)
   call void @_ZN4llvm11SmallVectorIPNS_12MemoryAccessELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #17
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %187 = load i8, ptr %186, align 8
@@ -8591,7 +8591,7 @@ _ZN4llvm4User6op_endEv.exit66:                    ; preds = %157, %160
   %193 = load ptr, ptr %179, align 8
   %194 = call noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE9getHeaderEv(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
   call void @_ZN4llvm11SmallVectorIPNS_12MemoryAccessELj4EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %8)
-  call fastcc void @"_ZZN4llvm21hasPartialIVConditionERKNS_4LoopEjRKNS_9MemorySSAERNS_9AAResultsEENK3$_0clEPNS_10BasicBlockESA_NS_11SmallVectorIPNS_12MemoryAccessELj4EEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(44) %12, ptr noundef %193, ptr noundef %194, ptr noundef nonnull %14)
+  call fastcc void @"_ZZN4llvm21hasPartialIVConditionERKNS_4LoopEjRKNS_9MemorySSAERNS_9AAResultsEENK3$_0clEPNS_10BasicBlockESA_NS_11SmallVectorIPNS_12MemoryAccessELj4EEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(44) %12, ptr noundef %193, ptr noundef %194, ptr noundef %14)
   call void @_ZN4llvm11SmallVectorIPNS_12MemoryAccessELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #17
   %195 = load i8, ptr %186, align 8
   %196 = trunc i8 %195 to i1
@@ -8755,7 +8755,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_14MemoryLocationELb1EE28reserveForParamAndG
 declare void @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE16getExitingBlocksERNS_15SmallVectorImplIPS1_EE(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm21hasPartialIVConditionERKNS_4LoopEjRKNS_9MemorySSAERNS_9AAResultsEENK3$_0clEPNS_10BasicBlockESA_NS_11SmallVectorIPNS_12MemoryAccessELj4EEE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm21hasPartialIVConditionERKNS_4LoopEjRKNS_9MemorySSAERNS_9AAResultsEENK3$_0clEPNS_10BasicBlockESA_NS_11SmallVectorIPNS_12MemoryAccessELj4EEE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::optional.785", align 8
   %7 = alloca %"class.std::optional.785", align 8
   %8 = alloca %"class.std::optional.785", align 8
@@ -10611,7 +10611,7 @@ _ZN13PointerBoundsD2Ev.exit4:                     ; preds = %_ZN4llvm10TrackingV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL12expandBoundsPKN4llvm23RuntimeCheckingPtrGroupEPNS_4LoopEPNS_11InstructionERNS_12SCEVExpanderEb(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(816) %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @_ZL12expandBoundsPKN4llvm23RuntimeCheckingPtrGroupEPNS_4LoopEPNS_11InstructionERNS_12SCEVExpanderEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(816) %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::IRBuilder", align 8

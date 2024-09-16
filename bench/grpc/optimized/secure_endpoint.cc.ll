@@ -1080,7 +1080,7 @@ if.end110:                                        ; preds = %invoke.cont104
   br i1 %cmp113, label %if.then114, label %if.end116
 
 if.then114:                                       ; preds = %if.end110
-  invoke fastcc void @_ZL26flush_write_staging_bufferPN12_GLOBAL__N_115secure_endpointEPPhS3_(ptr noundef nonnull %secure_ep, ptr noundef nonnull %cur, ptr noundef nonnull %end)
+  invoke fastcc void @_ZL26flush_write_staging_bufferPN12_GLOBAL__N_115secure_endpointEPPhS3_(ptr noundef nonnull %secure_ep, ptr noundef %cur, ptr noundef %end)
           to label %if.end116 unwind label %lpad.loopexit.split-lp.loopexit
 
 if.end116:                                        ; preds = %if.then114, %if.end110
@@ -1129,7 +1129,7 @@ if.end139:                                        ; preds = %invoke.cont136
   br i1 %cmp141, label %if.then142, label %do.cond
 
 if.then142:                                       ; preds = %if.end139
-  invoke fastcc void @_ZL26flush_write_staging_bufferPN12_GLOBAL__N_115secure_endpointEPPhS3_(ptr noundef nonnull %secure_ep, ptr noundef nonnull %cur, ptr noundef nonnull %end)
+  invoke fastcc void @_ZL26flush_write_staging_bufferPN12_GLOBAL__N_115secure_endpointEPPhS3_(ptr noundef nonnull %secure_ep, ptr noundef %cur, ptr noundef %end)
           to label %do.cond unwind label %lpad.loopexit
 
 do.cond:                                          ; preds = %if.end139, %if.then142
@@ -1500,7 +1500,7 @@ invoke.cont31:                                    ; preds = %if.then
           to label %invoke.cont34 unwind label %lpad.loopexit.split-lp
 
 invoke.cont34:                                    ; preds = %invoke.cont31
-  invoke fastcc void @_ZL12call_read_cbPN12_GLOBAL__N_115secure_endpointEN4absl12lts_202308026StatusE(ptr noundef nonnull %user_data, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZL12call_read_cbPN12_GLOBAL__N_115secure_endpointEN4absl12lts_202308026StatusE(ptr noundef nonnull %user_data, ptr noundef %agg.tmp)
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %invoke.cont34
@@ -1774,7 +1774,7 @@ invoke.cont154:                                   ; preds = %if.then146
           to label %invoke.cont156 unwind label %lpad155
 
 invoke.cont156:                                   ; preds = %invoke.cont154
-  invoke fastcc void @_ZL12call_read_cbPN12_GLOBAL__N_115secure_endpointEN4absl12lts_202308026StatusE(ptr noundef nonnull %user_data, ptr noundef nonnull %agg.tmp148)
+  invoke fastcc void @_ZL12call_read_cbPN12_GLOBAL__N_115secure_endpointEN4absl12lts_202308026StatusE(ptr noundef nonnull %user_data, ptr noundef %agg.tmp148)
           to label %invoke.cont158 unwind label %lpad157
 
 invoke.cont158:                                   ; preds = %invoke.cont156
@@ -1894,7 +1894,7 @@ ehcleanup161:                                     ; preds = %ehcleanup160, %lpad
 
 if.end162:                                        ; preds = %cleanup.cont
   store i64 0, ptr %agg.tmp163, align 8, !alias.scope !32
-  invoke fastcc void @_ZL12call_read_cbPN12_GLOBAL__N_115secure_endpointEN4absl12lts_202308026StatusE(ptr noundef nonnull %user_data, ptr noundef nonnull %agg.tmp163)
+  invoke fastcc void @_ZL12call_read_cbPN12_GLOBAL__N_115secure_endpointEN4absl12lts_202308026StatusE(ptr noundef nonnull %user_data, ptr noundef %agg.tmp163)
           to label %return unwind label %lpad164
 
 return:                                           ; preds = %if.end162, %if.then.i.i.i, %invoke.cont.i, %_ZN4absl12lts_202308029MutexLockD2Ev.exit
@@ -1939,7 +1939,7 @@ declare void @_Z18grpc_endpoint_readP13grpc_endpointP17grpc_slice_bufferP12grpc_
 declare void @gpr_ref(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12call_read_cbPN12_GLOBAL__N_115secure_endpointEN4absl12lts_202308026StatusE(ptr noundef %ep, ptr nocapture noundef readonly %error) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12call_read_cbPN12_GLOBAL__N_115secure_endpointEN4absl12lts_202308026StatusE(ptr noundef %ep, ptr nocapture noundef nonnull readonly %error) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -2728,7 +2728,7 @@ declare noundef i32 @_Z36tsi_zero_copy_grpc_protector_protectP28tsi_zero_copy_gr
 declare noundef i32 @_Z27tsi_frame_protector_protectP19tsi_frame_protectorPKhPmPhS3_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL26flush_write_staging_bufferPN12_GLOBAL__N_115secure_endpointEPPhS3_(ptr noundef %ep, ptr nocapture noundef writeonly %cur, ptr nocapture noundef writeonly %end) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL26flush_write_staging_bufferPN12_GLOBAL__N_115secure_endpointEPPhS3_(ptr noundef %ep, ptr nocapture noundef nonnull writeonly %cur, ptr nocapture noundef nonnull writeonly %end) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp3.i.i.i.i.i.i = alloca %"class.std::shared_ptr.24", align 8
   %agg.tmp.i.i.i.i.i = alloca %"class.grpc_core::RefCountedPtr", align 8

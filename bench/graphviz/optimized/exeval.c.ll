@@ -254,7 +254,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %.loopexit1013
-  %31 = call fastcc ptr @getdyn(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %2, ptr noundef nonnull %7)
+  %31 = call fastcc ptr @getdyn(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %2, ptr noundef %7)
   br label %58
 
 32:                                               ; preds = %.loopexit1013
@@ -278,7 +278,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   br i1 %.not961, label %49, label %43
 
 43:                                               ; preds = %40
-  %44 = call fastcc ptr @getdyn(ptr noundef nonnull %0, ptr noundef nonnull %42, ptr noundef %2, ptr noundef nonnull %7)
+  %44 = call fastcc ptr @getdyn(ptr noundef nonnull %0, ptr noundef nonnull %42, ptr noundef %2, ptr noundef %7)
   %45 = load ptr, ptr %41, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 56
   %47 = load ptr, ptr %46, align 8
@@ -411,7 +411,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   br i1 %.not964, label %120, label %114
 
 114:                                              ; preds = %111
-  %115 = call fastcc ptr @getdyn(ptr noundef nonnull %0, ptr noundef nonnull %113, ptr noundef %2, ptr noundef nonnull %7)
+  %115 = call fastcc ptr @getdyn(ptr noundef nonnull %0, ptr noundef nonnull %113, ptr noundef %2, ptr noundef %7)
   %116 = load ptr, ptr %112, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 56
   %118 = load ptr, ptr %117, align 8
@@ -448,27 +448,27 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   br label %common.ret
 
 137:                                              ; preds = %13
-  %138 = call fastcc ptr @getdyn(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr noundef %2, ptr noundef nonnull %7)
+  %138 = call fastcc ptr @getdyn(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr noundef %2, ptr noundef %7)
   br label %common.ret
 
 139:                                              ; preds = %13
-  %140 = tail call fastcc ptr @exsplit(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr noundef %2)
+  %140 = tail call fastcc ptr @exsplit(ptr noundef nonnull %0, ptr noundef %.tr10051211, ptr noundef %2)
   br label %common.ret
 
 141:                                              ; preds = %13
-  %142 = tail call fastcc ptr @extokens(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr noundef %2)
+  %142 = tail call fastcc ptr @extokens(ptr noundef nonnull %0, ptr noundef %.tr10051211, ptr noundef %2)
   br label %common.ret
 
 143:                                              ; preds = %13
-  %144 = tail call fastcc ptr @exsub(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr noundef %2, i1 noundef zeroext true)
+  %144 = tail call fastcc ptr @exsub(ptr noundef nonnull %0, ptr noundef %.tr10051211, ptr noundef %2, i1 noundef zeroext true)
   br label %common.ret
 
 145:                                              ; preds = %13
-  %146 = tail call fastcc ptr @exsub(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr noundef %2, i1 noundef zeroext false)
+  %146 = tail call fastcc ptr @exsub(ptr noundef nonnull %0, ptr noundef %.tr10051211, ptr noundef %2, i1 noundef zeroext false)
   br label %common.ret
 
 147:                                              ; preds = %13
-  %148 = tail call fastcc ptr @exsubstr(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr noundef %2)
+  %148 = tail call fastcc ptr @exsubstr(ptr noundef nonnull %0, ptr noundef %.tr10051211, ptr noundef %2)
   br label %common.ret
 
 149:                                              ; preds = %13
@@ -994,7 +994,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   br label %common.ret
 
 431:                                              ; preds = %13
-  %432 = tail call fastcc i32 @evaldyn(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr noundef %2, i32 noundef 0)
+  %432 = tail call fastcc i32 @evaldyn(ptr noundef nonnull %0, ptr noundef %.tr10051211, ptr noundef %2, i32 noundef 0)
   %433 = zext nneg i32 %432 to i64
   %434 = inttoptr i64 %433 to ptr
   br label %common.ret
@@ -1006,7 +1006,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   br i1 %.not929, label %442, label %438
 
 438:                                              ; preds = %435
-  %439 = tail call fastcc i32 @evaldyn(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr noundef %2, i32 noundef 1)
+  %439 = tail call fastcc i32 @evaldyn(ptr noundef nonnull %0, ptr noundef %.tr10051211, ptr noundef %2, i32 noundef 1)
   %440 = zext nneg i32 %439 to i64
   %441 = inttoptr i64 %440 to ptr
   br label %common.ret
@@ -1260,7 +1260,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   br i1 %.not926, label %575, label %569
 
 569:                                              ; preds = %566
-  %570 = call fastcc ptr @getdyn(ptr noundef nonnull %0, ptr noundef nonnull %568, ptr noundef %2, ptr noundef nonnull %7)
+  %570 = call fastcc ptr @getdyn(ptr noundef nonnull %0, ptr noundef nonnull %568, ptr noundef %2, ptr noundef %7)
   %571 = load ptr, ptr %567, align 8
   %572 = getelementptr inbounds i8, ptr %571, i64 56
   %573 = load ptr, ptr %572, align 8
@@ -1281,11 +1281,11 @@ common.ret:                                       ; preds = %13, %817, %821, %11
 
 584:                                              ; preds = %13
   %585 = load ptr, ptr @stdout, align 8
-  tail call fastcc void @prints(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr noundef %2, ptr noundef %585)
+  tail call fastcc void @prints(ptr noundef nonnull %0, ptr noundef %.tr10051211, ptr noundef %2, ptr noundef %585)
   br label %common.ret
 
 586:                                              ; preds = %13
-  %587 = tail call fastcc i32 @print(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr noundef %2, ptr noundef null)
+  %587 = tail call fastcc i32 @print(ptr noundef nonnull %0, ptr noundef %.tr10051211, ptr noundef %2, ptr noundef null)
   %588 = sext i32 %587 to i64
   %589 = inttoptr i64 %588 to ptr
   br label %common.ret
@@ -1303,7 +1303,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   br label %common.ret1905
 
 596:                                              ; preds = %13, %13
-  %597 = tail call fastcc i32 @scan(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr noundef %2)
+  %597 = tail call fastcc i32 @scan(ptr noundef nonnull %0, ptr noundef %.tr10051211, ptr noundef %2)
   %598 = sext i32 %597 to i64
   %599 = inttoptr i64 %598 to ptr
   br label %common.ret
@@ -1320,7 +1320,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   unreachable
 
 606:                                              ; preds = %600
-  %607 = tail call fastcc i32 @print(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr noundef %2, ptr noundef nonnull %601)
+  %607 = tail call fastcc i32 @print(ptr noundef nonnull %0, ptr noundef %.tr10051211, ptr noundef %2, ptr noundef nonnull %601)
   %608 = tail call i64 @ftell(ptr noundef nonnull %601)
   tail call void @rewind(ptr noundef nonnull %601)
   %609 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1369,7 +1369,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   br i1 %632, label %635, label %637
 
 635:                                              ; preds = %629
-  %636 = call fastcc ptr @getdyn(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %2, ptr noundef nonnull %7)
+  %636 = call fastcc ptr @getdyn(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %2, ptr noundef %7)
   br label %663
 
 637:                                              ; preds = %629
@@ -1392,7 +1392,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   br i1 %.not923, label %652, label %646
 
 646:                                              ; preds = %643
-  %647 = call fastcc ptr @getdyn(ptr noundef nonnull %0, ptr noundef nonnull %645, ptr noundef %2, ptr noundef nonnull %7)
+  %647 = call fastcc ptr @getdyn(ptr noundef nonnull %0, ptr noundef nonnull %645, ptr noundef %2, ptr noundef %7)
   %648 = load ptr, ptr %644, align 8
   %649 = getelementptr inbounds i8, ptr %648, i64 56
   %650 = load ptr, ptr %649, align 8
@@ -1690,7 +1690,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   br i1 %790, label %791, label %793
 
 791:                                              ; preds = %787
-  %792 = call fastcc ptr @getdyn(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %2, ptr noundef nonnull %7)
+  %792 = call fastcc ptr @getdyn(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %2, ptr noundef %7)
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.067.0.copyload131.pre = load ptr, ptr %.sroa.0157, align 8
   br label %71
 
@@ -2128,21 +2128,21 @@ tailrecurse.backedge:                             ; preds = %.lr.ph1731, %tailre
 
 989:                                              ; preds = %987
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.203 = load ptr, ptr %.sroa.0157, align 8
-  call fastcc void @xConvert(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, i32 noundef 262, ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.203, ptr noundef nonnull %5)
+  call fastcc void @xConvert(ptr noundef nonnull %0, ptr noundef %.tr10051211, i32 noundef 262, ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.203, ptr noundef %5)
   %990 = getelementptr inbounds i8, ptr %5, i64 32
   %.sroa.0837.0.copyload842 = load ptr, ptr %990, align 8
   br label %common.ret
 
 991:                                              ; preds = %987
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.204 = load ptr, ptr %.sroa.0157, align 8
-  call fastcc void @xConvert(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, i32 noundef 259, ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.204, ptr noundef nonnull %5)
+  call fastcc void @xConvert(ptr noundef nonnull %0, ptr noundef %.tr10051211, i32 noundef 259, ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.204, ptr noundef %5)
   %992 = getelementptr inbounds i8, ptr %5, i64 32
   %.sroa.0837.0.copyload843 = load ptr, ptr %992, align 8
   br label %common.ret
 
 993:                                              ; preds = %987
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.205 = load ptr, ptr %.sroa.0157, align 8
-  call fastcc void @xConvert(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, i32 noundef 263, ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.205, ptr noundef nonnull %5)
+  call fastcc void @xConvert(ptr noundef nonnull %0, ptr noundef %.tr10051211, i32 noundef 263, ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.205, ptr noundef %5)
   %994 = getelementptr inbounds i8, ptr %5, i64 32
   %.sroa.0837.0.copyload844 = load ptr, ptr %994, align 8
   br label %common.ret
@@ -2150,14 +2150,14 @@ tailrecurse.backedge:                             ; preds = %.lr.ph1731, %tailre
 995:                                              ; preds = %987
   %996 = load i32, ptr %.tr10051211, align 8
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.206 = load ptr, ptr %.sroa.0157, align 8
-  call fastcc void @xConvert(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, i32 noundef %996, ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.206, ptr noundef nonnull %5)
+  call fastcc void @xConvert(ptr noundef nonnull %0, ptr noundef %.tr10051211, i32 noundef %996, ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.206, ptr noundef %5)
   %997 = getelementptr inbounds i8, ptr %5, i64 32
   %.sroa.0837.0.copyload845 = load ptr, ptr %997, align 8
   br label %common.ret
 
 998:                                              ; preds = %987
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.207 = load ptr, ptr %.sroa.0157, align 8
-  call fastcc void @xPrint(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.207, ptr noundef nonnull %5)
+  call fastcc void @xPrint(ptr noundef nonnull %0, ptr noundef %.tr10051211, ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.207, ptr noundef %5)
   %999 = getelementptr inbounds i8, ptr %5, i64 32
   %.sroa.0837.0.copyload846 = load ptr, ptr %999, align 8
   br label %common.ret
@@ -2836,7 +2836,7 @@ declare ptr @vmalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @getdyn(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc ptr @getdyn(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca %union.EX_STYPE, align 8
   %6 = alloca [17 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %1, i64 32
@@ -2983,7 +2983,7 @@ declare void @vmfree(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @exerror(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @exsplit(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @exsplit(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %union.EX_STYPE, align 8
   %5 = alloca %union.EX_STYPE, align 8
   %6 = alloca %union.EX_STYPE, align 8
@@ -3206,7 +3206,7 @@ addItem.exit64:                                   ; preds = %82, %88
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @extokens(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @extokens(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %union.EX_STYPE, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -3306,7 +3306,7 @@ addItem.exit:                                     ; preds = %34, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @exsub(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc ptr @exsub(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca [20 x i32], align 16
   %6 = alloca %struct.agxbuf, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 32
@@ -3422,7 +3422,7 @@ agxblen.exit.i:                                   ; preds = %60
   br i1 %65, label %66, label %.thread
 
 66:                                               ; preds = %agxblen.exit.i
-  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef %61)
+  call fastcc void @agxbmore(ptr noundef %6, i64 noundef %61)
   %.val.i25.pre.i = load i8, ptr %63, align 1
   %.not.i26.i = icmp eq i8 %.val.i25.pre.i, -1
   br i1 %.not.i26.i, label %72, label %.thread
@@ -3452,7 +3452,7 @@ agxbput_n.exit:                                   ; preds = %60, %.thread, %72
   br i1 %.not71, label %78, label %77
 
 77:                                               ; preds = %agxbput_n.exit
-  call fastcc void @replace(ptr noundef nonnull %6, ptr noundef %9, ptr noundef nonnull %.060, i32 noundef %45, ptr noundef nonnull %5)
+  call fastcc void @replace(ptr noundef %6, ptr noundef %9, ptr noundef %.060, i32 noundef %45, ptr noundef %5)
   br label %78
 
 78:                                               ; preds = %77, %agxbput_n.exit
@@ -3492,7 +3492,7 @@ agxblen.exit.i79.us:                              ; preds = %.lr.ph.split.us
   br i1 %93, label %94, label %95
 
 94:                                               ; preds = %agxblen.exit.i79.us
-  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef %87)
+  call fastcc void @agxbmore(ptr noundef %6, i64 noundef %87)
   %.val.i25.pre.i84.us = load i8, ptr %83, align 1
   br label %95
 
@@ -3549,7 +3549,7 @@ agxblen.exit.i79:                                 ; preds = %.lr.ph.split
   br i1 %119, label %120, label %121
 
 120:                                              ; preds = %agxblen.exit.i79
-  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef %113)
+  call fastcc void @agxbmore(ptr noundef %6, i64 noundef %113)
   %.val.i25.pre.i84 = load i8, ptr %83, align 1
   br label %121
 
@@ -3578,7 +3578,7 @@ agxblen.exit.i79:                                 ; preds = %.lr.ph.split
   br label %agxbput_n.exit85
 
 agxbput_n.exit85:                                 ; preds = %.lr.ph.split, %122, %128
-  call fastcc void @replace(ptr noundef nonnull %6, ptr noundef %.16492, ptr noundef nonnull %.060, i32 noundef %111, ptr noundef nonnull %5)
+  call fastcc void @replace(ptr noundef %6, ptr noundef %.16492, ptr noundef %.060, i32 noundef %111, ptr noundef %5)
   %133 = load i32, ptr %53, align 4
   %134 = sext i32 %133 to i64
   %135 = getelementptr inbounds i8, ptr %.16492, i64 %134
@@ -3608,7 +3608,7 @@ agxblen.exit.i.i:                                 ; preds = %.loopexit
   br i1 %145, label %146, label %147
 
 146:                                              ; preds = %agxblen.exit.i.i
-  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef %137)
+  call fastcc void @agxbmore(ptr noundef %6, i64 noundef %137)
   %.val.i25.pre.i.i = load i8, ptr %.phi.trans.insert, align 1
   br label %147
 
@@ -3653,7 +3653,7 @@ agxbput.exit:                                     ; preds = %.loopexit, %148, %1
   br i1 %.not.i.i90, label %168, label %167
 
 167:                                              ; preds = %agxbput.exit
-  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %6, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %161, align 1
   br label %168
 
@@ -3706,7 +3706,7 @@ agxbfree.exit:                                    ; preds = %182, %agxbuse.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @exsubstr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @exsubstr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call fastcc ptr @eval(ptr noundef %0, ptr noundef %5, ptr noundef %2)
@@ -3808,7 +3808,7 @@ declare i32 @strmatch(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @dtsize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @evaldyn(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @evaldyn(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca %union.EX_STYPE, align 8
   %6 = alloca [32 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %1, i64 32
@@ -3885,7 +3885,7 @@ define internal fastcc range(i32 0, 2) i32 @evaldyn(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @prints(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @prints(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %.09 = load ptr, ptr %5, align 8
   %.not10 = icmp eq ptr %.09, null
@@ -3908,7 +3908,7 @@ define internal fastcc void @prints(ptr noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @print(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @print(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.Fmt_t, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %20
@@ -4014,7 +4014,7 @@ define internal fastcc range(i32 -1, 1) i32 @print(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @scan(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @scan(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.Fmt_t, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -4696,7 +4696,7 @@ define internal ptr @exprintf(ptr noundef %0, ptr nocapture noundef readonly %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xConvert(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @xConvert(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %7, i64 72, i1 false)
@@ -4706,7 +4706,7 @@ define internal fastcc void @xConvert(ptr noundef %0, ptr nocapture noundef read
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 %12(ptr noundef %4, i32 noundef %2, i32 noundef 0) #22
+  %13 = tail call i32 %12(ptr noundef nonnull %4, i32 noundef %2, i32 noundef 0) #22
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %22, label %14
 
@@ -4727,7 +4727,7 @@ define internal fastcc void @xConvert(ptr noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xPrint(ptr noundef %0, ptr nocapture noundef readonly %1, ptr %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @xPrint(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false)
@@ -4737,7 +4737,7 @@ define internal fastcc void @xPrint(ptr noundef %0, ptr nocapture noundef readon
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 80
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(ptr noundef %0, ptr noundef %3, i32 noundef 0) #22
+  %12 = tail call i32 %11(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0) #22
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %20, label %13
 
@@ -4867,7 +4867,7 @@ declare i32 @strgrpmatch(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32
 declare void @exwarn(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @replace(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @replace(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, i32 noundef range(i32 1, 0) %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 31
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4935,7 +4935,7 @@ agxblen.exit.i:                                   ; preds = %35, %agxbsizeof.exi
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %agxblen.exit.i
-  tail call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %31)
+  tail call fastcc void @agxbmore(ptr noundef %0, i64 noundef %31)
   %.val.i25.pre.i = load i8, ptr %6, align 1
   br label %41
 
@@ -4947,7 +4947,7 @@ agxblen.exit.i:                                   ; preds = %35, %agxbsizeof.exi
 42:                                               ; preds = %41
   %43 = zext i8 %.val.i25.i to i64
   %44 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr readonly align 1 %25, i64 %31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr readonly align 1 %25, i64 %31, i1 false)
   %45 = trunc i32 %30 to i8
   %46 = load i8, ptr %6, align 1
   %47 = add i8 %46, %45
@@ -4989,7 +4989,7 @@ agxbsizeof.exit.i25:                              ; preds = %57, %agxblen.exit.i
   br i1 %.not.i, label %61, label %60
 
 60:                                               ; preds = %agxbsizeof.exit.i25
-  tail call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef 1)
+  tail call fastcc void @agxbmore(ptr noundef %0, i64 noundef 1)
   %.val.i15.pre.i = load i8, ptr %6, align 1
   br label %61
 
@@ -5038,7 +5038,7 @@ agxbsizeof.exit.i29:                              ; preds = %75, %agxblen.exit.i
   br i1 %.not.i32, label %79, label %78
 
 78:                                               ; preds = %agxbsizeof.exit.i29
-  tail call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef 1)
+  tail call fastcc void @agxbmore(ptr noundef %0, i64 noundef 1)
   %.val.i15.pre.i33 = load i8, ptr %6, align 1
   br label %79
 
@@ -5075,7 +5075,7 @@ agxbputc.exit.backedge:                           ; preds = %85, %80, %67, %62, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbmore(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @agxbmore(ptr nocapture noundef nonnull %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -5592,7 +5592,7 @@ exeval.exit167:                                   ; preds = %124, %128, %130, %1
   %211 = icmp ult i32 %210, 26
   %212 = add nsw i32 %208, -48
   %213 = icmp ult i32 %212, 10
-  %214 = or i1 %213, %211
+  %214 = select i1 %211, i1 true, i1 %213
   br i1 %214, label %216, label %215
 
 215:                                              ; preds = %.lr.ph199
@@ -5685,7 +5685,7 @@ exeval.exit167:                                   ; preds = %124, %128, %130, %1
   br i1 %.not156, label %.sink.split220, label %.lr.ph193
 
 254:                                              ; preds = %239
-  %255 = tail call fastcc zeroext i1 @strview_str_eq(ptr nonnull %.sroa.05.0, i64 %.sroa.10.0, ptr noundef nonnull @.str.36)
+  %255 = tail call fastcc zeroext i1 @strview_str_eq(ptr %.sroa.05.0, i64 %.sroa.10.0, ptr noundef nonnull @.str.36)
   br i1 %255, label %.preheader182, label %267
 
 .preheader182:                                    ; preds = %254
@@ -5714,7 +5714,7 @@ exeval.exit167:                                   ; preds = %124, %128, %130, %1
   br i1 %.not155, label %.sink.split220, label %.lr.ph190
 
 267:                                              ; preds = %254
-  %268 = tail call fastcc zeroext i1 @strview_str_eq(ptr nonnull %.sroa.05.0, i64 %.sroa.10.0, ptr noundef nonnull @.str.37)
+  %268 = tail call fastcc zeroext i1 @strview_str_eq(ptr %.sroa.05.0, i64 %.sroa.10.0, ptr noundef nonnull @.str.37)
   br i1 %268, label %.preheader184, label %.sink.split220
 
 .preheader184:                                    ; preds = %267
@@ -5731,7 +5731,7 @@ exeval.exit167:                                   ; preds = %124, %128, %130, %1
   %274 = icmp ult i32 %273, 26
   %275 = add nsw i32 %271, -48
   %276 = icmp ult i32 %275, 10
-  %277 = or i1 %276, %274
+  %277 = select i1 %274, i1 true, i1 %276
   %.not154 = icmp eq i8 %270, 95
   %or.cond = or i1 %.not154, %277
   br i1 %or.cond, label %279, label %278
@@ -5805,7 +5805,7 @@ declare ptr @fmtbuf(i64 noundef) local_unnamed_addr #2
 declare ptr @fmtquote(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @strview_str_eq(ptr nocapture readonly %0, i64 %1, ptr noundef readonly %2) unnamed_addr #16 {
+define internal fastcc zeroext i1 @strview_str_eq(ptr nocapture nonnull readonly %0, i64 range(i64 0, -9223372036854775808) %1, ptr noundef readonly %2) unnamed_addr #16 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %5, label %4
 
@@ -5820,7 +5820,7 @@ define internal fastcc zeroext i1 @strview_str_eq(ptr nocapture readonly %0, i64
 strview.exit:                                     ; preds = %4, %5
   %.sroa.3.0.i = phi i64 [ %strlen.i, %4 ], [ %6, %5 ]
   %7 = tail call i64 @llvm.umin.i64(i64 %1, i64 %.sroa.3.0.i)
-  %8 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %2, i64 noundef %7) #27
+  %8 = tail call i32 @strncmp(ptr noundef nonnull readonly %0, ptr noundef readonly %2, i64 noundef %7) #27
   %.not.i.i = icmp eq i32 %8, 0
   %9 = icmp eq i64 %1, %.sroa.3.0.i
   %spec.select.i = and i1 %9, %.not.i.i

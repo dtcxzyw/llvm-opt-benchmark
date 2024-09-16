@@ -2157,7 +2157,7 @@ LockGXact.exit:                                   ; preds = %47
 77:                                               ; preds = %LockGXact.exit
   %78 = getelementptr inbounds i8, ptr %17, i64 24
   %79 = load i64, ptr %78, align 8
-  call fastcc void @XlogReadTwoPhaseData(i64 noundef %79, ptr noundef nonnull %3, ptr noundef null)
+  call fastcc void @XlogReadTwoPhaseData(i64 noundef %79, ptr noundef %3, ptr noundef null)
   %.pre = load ptr, ptr %3, align 8
   br label %80
 
@@ -2486,7 +2486,7 @@ RemoveGXact.exit:                                 ; preds = %257
 declare i32 @GetUserId() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @XlogReadTwoPhaseData(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc void @XlogReadTwoPhaseData(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.XLogReaderRoutine, align 8
   %6 = load i32, ptr @wal_segment_size, align 4
@@ -2706,7 +2706,7 @@ define dso_local void @CheckPointTwoPhase(i64 noundef %0) local_unnamed_addr #0 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds i8, ptr %19, i64 24
   %36 = load i64, ptr %35, align 8
-  call fastcc void @XlogReadTwoPhaseData(i64 noundef %36, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @XlogReadTwoPhaseData(i64 noundef %36, ptr noundef %4, ptr noundef nonnull %5)
   %37 = getelementptr inbounds i8, ptr %19, i64 40
   %38 = load i32, ptr %37, align 8
   %39 = load ptr, ptr %4, align 8
@@ -3020,7 +3020,7 @@ define internal fastcc ptr @ProcessTwoPhaseBuffer(i32 noundef %0, i64 noundef %1
   br i1 %40, label %52, label %45
 
 .thread:                                          ; preds = %35
-  call fastcc void @XlogReadTwoPhaseData(i64 noundef %1, ptr noundef nonnull %6, ptr noundef null)
+  call fastcc void @XlogReadTwoPhaseData(i64 noundef %1, ptr noundef %6, ptr noundef null)
   %41 = load ptr, ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   %43 = load i32, ptr %42, align 8
@@ -3809,7 +3809,7 @@ define dso_local noundef zeroext i1 @LookupGXact(ptr nocapture noundef readonly 
 31:                                               ; preds = %23
   %32 = getelementptr inbounds i8, ptr %15, i64 24
   %33 = load i64, ptr %32, align 8
-  call fastcc void @XlogReadTwoPhaseData(i64 noundef %33, ptr noundef nonnull %4, ptr noundef null)
+  call fastcc void @XlogReadTwoPhaseData(i64 noundef %33, ptr noundef %4, ptr noundef null)
   %.pre = load ptr, ptr %4, align 8
   br label %34
 

@@ -56,9 +56,9 @@ define range(i32 -1, 2) i32 @Ssw_NodesAreEquiv(ptr nocapture noundef %0, ptr nou
   %41 = xor i64 %40, %38
   %42 = and i64 %41, 8
   %43 = icmp eq i64 %42, 0
-  %44 = shl nsw i32 %36, 1
-  %45 = zext i1 %43 to i32
-  %46 = or disjoint i32 %44, %45
+  %44 = zext i1 %43 to i32
+  %45 = shl nsw i32 %36, 1
+  %46 = or disjoint i32 %45, %44
   %47 = getelementptr inbounds i8, ptr %14, i64 4
   store i32 %46, ptr %47, align 4
   %48 = getelementptr inbounds i8, ptr %0, i64 136
@@ -297,11 +297,11 @@ Abc_Clock.exit105:                                ; preds = %147, %150
   %177 = load i64, ptr %37, align 8
   %178 = load i64, ptr %39, align 8
   %179 = xor i64 %178, %177
-  %180 = shl nsw i32 %176, 1
-  %181 = trunc i64 %179 to i32
-  %182 = lshr i32 %181, 3
-  %183 = and i32 %182, 1
-  %184 = or disjoint i32 %183, %180
+  %180 = trunc i64 %179 to i32
+  %181 = lshr i32 %180, 3
+  %182 = and i32 %181, 1
+  %183 = shl nsw i32 %176, 1
+  %184 = or disjoint i32 %182, %183
   store i32 %184, ptr %47, align 4
   %185 = load i32, ptr %48, align 8
   %186 = icmp slt i32 %185, 0
@@ -828,10 +828,10 @@ define noundef i32 @Ssw_NodeIsConstrained(ptr nocapture noundef readonly %0, ptr
   %16 = tail call fastcc i32 @Ssw_ObjSatNum(ptr %.val, i32 %.val9)
   %.val13 = load ptr, ptr %6, align 8
   %17 = ptrtoint ptr %.val13 to i64
-  %18 = shl nsw i32 %16, 1
-  %19 = trunc i64 %17 to i32
-  %20 = and i32 %19, 1
-  %21 = or disjoint i32 %20, %18
+  %18 = trunc i64 %17 to i32
+  %19 = and i32 %18, 1
+  %20 = shl nsw i32 %16, 1
+  %21 = or disjoint i32 %19, %20
   %22 = xor i32 %21, 1
   store i32 %22, ptr %3, align 4
   %23 = load ptr, ptr %0, align 8

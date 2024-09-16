@@ -2281,7 +2281,7 @@ _ZNK4llvm12MemDepResult7getInstEv.exit:           ; preds = %_ZN4llvm12DenseMapB
 63:                                               ; preds = %_ZNK4llvm12MemDepResult7getInstEv.exit
   %64 = inttoptr i64 %60 to ptr
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  call fastcc void @_ZL20RemoveFromReverseMapIPN4llvm11InstructionEEvRNS0_8DenseMapIS2_NS0_11SmallPtrSetIT_Lj4EEENS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_S6_EEEES2_S5_(ptr noundef nonnull align 8 dereferenceable(20) %65, ptr noundef nonnull %64, ptr noundef %58)
+  call fastcc void @_ZL20RemoveFromReverseMapIPN4llvm11InstructionEEvRNS0_8DenseMapIS2_NS0_11SmallPtrSetIT_Lj4EEENS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_S6_EEEES2_S5_(ptr noundef nonnull align 8 dereferenceable(20) %65, ptr noundef %64, ptr noundef %58)
   %.pre116 = load ptr, ptr %3, align 8
   br label %_ZNK4llvm12MemDepResult7getInstEv.exit.thread
 
@@ -2540,7 +2540,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit: ; preds = %.lr.ph
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20RemoveFromReverseMapIPN4llvm11InstructionEEvRNS0_8DenseMapIS2_NS0_11SmallPtrSetIT_Lj4EEENS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_S6_EEEES2_S5_(ptr nocapture noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL20RemoveFromReverseMapIPN4llvm11InstructionEEvRNS0_8DenseMapIS2_NS0_11SmallPtrSetIT_Lj4EEENS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_S6_EEEES2_S5_(ptr nocapture noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
@@ -2975,7 +2975,7 @@ _ZNK4llvm12MemDepResult7getInstEv.exit:           ; preds = %158
 165:                                              ; preds = %_ZNK4llvm12MemDepResult7getInstEv.exit
   %.0.i = inttoptr i64 %160 to ptr
   %166 = getelementptr inbounds i8, ptr %.0.i, i64 24
-  call fastcc void @_ZL20RemoveFromReverseMapIPN4llvm11InstructionEEvRNS0_8DenseMapIS2_NS0_11SmallPtrSetIT_Lj4EEENS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_S6_EEEES2_S5_(ptr noundef nonnull align 8 dereferenceable(20) %112, ptr noundef nonnull %.0.i, ptr noundef %1)
+  call fastcc void @_ZL20RemoveFromReverseMapIPN4llvm11InstructionEEvRNS0_8DenseMapIS2_NS0_11SmallPtrSetIT_Lj4EEENS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_S6_EEEES2_S5_(ptr noundef nonnull align 8 dereferenceable(20) %112, ptr noundef %.0.i, ptr noundef %1)
   br label %_ZNK4llvm12MemDepResult7getInstEv.exit.thread
 
 _ZNK4llvm12MemDepResult7getInstEv.exit.thread:    ; preds = %.critedge2.thread, %_ZNK4llvm12MemDepResult7getInstEv.exit, %165
@@ -4045,7 +4045,7 @@ _ZNK4llvm12MemDepResult7getInstEv.exit:           ; preds = %116
 120:                                              ; preds = %_ZNK4llvm12MemDepResult7getInstEv.exit
   %.0.i279 = inttoptr i64 %.0.i279.in to ptr
   %.sroa.0111.0.copyload = load i64, ptr %11, align 8
-  tail call fastcc void @_ZL20RemoveFromReverseMapIN4llvm14PointerIntPairIPKNS0_5ValueELj1EbNS0_21PointerLikeTypeTraitsIS4_EENS0_18PointerIntPairInfoIS4_Lj1ES6_EEEEEvRNS0_8DenseMapIPNS0_11InstructionENS0_11SmallPtrSetIT_Lj4EEENS0_12DenseMapInfoISC_vEENS0_6detail12DenseMapPairISC_SF_EEEESC_SE_(ptr noundef nonnull align 8 dereferenceable(20) %115, ptr noundef nonnull %.0.i279, i64 %.sroa.0111.0.copyload)
+  tail call fastcc void @_ZL20RemoveFromReverseMapIN4llvm14PointerIntPairIPKNS0_5ValueELj1EbNS0_21PointerLikeTypeTraitsIS4_EENS0_18PointerIntPairInfoIS4_Lj1ES6_EEEEEvRNS0_8DenseMapIPNS0_11InstructionENS0_11SmallPtrSetIT_Lj4EEENS0_12DenseMapInfoISC_vEENS0_6detail12DenseMapPairISC_SF_EEEESC_SE_(ptr noundef nonnull align 8 dereferenceable(20) %115, ptr noundef %.0.i279, i64 %.sroa.0111.0.copyload)
   br label %_ZNK4llvm12MemDepResult7getInstEv.exit.thread
 
 _ZNK4llvm12MemDepResult7getInstEv.exit.thread:    ; preds = %116, %_ZNK4llvm12MemDepResult7getInstEv.exit, %120
@@ -4146,7 +4146,7 @@ _ZNK4llvm12MemDepResult7getInstEv.exit283:        ; preds = %154
 158:                                              ; preds = %_ZNK4llvm12MemDepResult7getInstEv.exit283
   %.0.i282 = inttoptr i64 %.0.i282.in to ptr
   %.sroa.0103.0.copyload = load i64, ptr %11, align 8
-  tail call fastcc void @_ZL20RemoveFromReverseMapIN4llvm14PointerIntPairIPKNS0_5ValueELj1EbNS0_21PointerLikeTypeTraitsIS4_EENS0_18PointerIntPairInfoIS4_Lj1ES6_EEEEEvRNS0_8DenseMapIPNS0_11InstructionENS0_11SmallPtrSetIT_Lj4EEENS0_12DenseMapInfoISC_vEENS0_6detail12DenseMapPairISC_SF_EEEESC_SE_(ptr noundef nonnull align 8 dereferenceable(20) %153, ptr noundef nonnull %.0.i282, i64 %.sroa.0103.0.copyload)
+  tail call fastcc void @_ZL20RemoveFromReverseMapIN4llvm14PointerIntPairIPKNS0_5ValueELj1EbNS0_21PointerLikeTypeTraitsIS4_EENS0_18PointerIntPairInfoIS4_Lj1ES6_EEEEEvRNS0_8DenseMapIPNS0_11InstructionENS0_11SmallPtrSetIT_Lj4EEENS0_12DenseMapInfoISC_vEENS0_6detail12DenseMapPairISC_SF_EEEESC_SE_(ptr noundef nonnull align 8 dereferenceable(20) %153, ptr noundef %.0.i282, i64 %.sroa.0103.0.copyload)
   br label %_ZNK4llvm12MemDepResult7getInstEv.exit283.thread
 
 _ZNK4llvm12MemDepResult7getInstEv.exit283.thread: ; preds = %154, %_ZNK4llvm12MemDepResult7getInstEv.exit283, %158
@@ -5731,7 +5731,7 @@ _ZNK4llvm12MemDepResult7getInstEv.exit59:         ; preds = %44
   %50 = select i1 %3, i64 4, i64 0
   %51 = or disjoint i64 %49, %50
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call fastcc void @_ZL20RemoveFromReverseMapIN4llvm14PointerIntPairIPKNS0_5ValueELj1EbNS0_21PointerLikeTypeTraitsIS4_EENS0_18PointerIntPairInfoIS4_Lj1ES6_EEEEEvRNS0_8DenseMapIPNS0_11InstructionENS0_11SmallPtrSetIT_Lj4EEENS0_12DenseMapInfoISC_vEENS0_6detail12DenseMapPairISC_SF_EEEESC_SE_(ptr noundef nonnull align 8 dereferenceable(20) %52, ptr noundef nonnull %.0.i58, i64 %51)
+  tail call fastcc void @_ZL20RemoveFromReverseMapIN4llvm14PointerIntPairIPKNS0_5ValueELj1EbNS0_21PointerLikeTypeTraitsIS4_EENS0_18PointerIntPairInfoIS4_Lj1ES6_EEEEEvRNS0_8DenseMapIPNS0_11InstructionENS0_11SmallPtrSetIT_Lj4EEENS0_12DenseMapInfoISC_vEENS0_6detail12DenseMapPairISC_SF_EEEESC_SE_(ptr noundef nonnull align 8 dereferenceable(20) %52, ptr noundef %.0.i58, i64 %51)
   br label %_ZNK4llvm12MemDepResult7getInstEv.exit.thread
 
 _ZNK4llvm12MemDepResult7getInstEv.exit.thread:    ; preds = %44, %.thread105, %_ZNK4llvm12MemDepResult7getInstEv.exit59
@@ -6015,7 +6015,7 @@ _ZN4llvm15SmallPtrSetImplINS_14PointerIntPairIPKNS_5ValueELj1EbNS_21PointerLikeT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20RemoveFromReverseMapIN4llvm14PointerIntPairIPKNS0_5ValueELj1EbNS0_21PointerLikeTypeTraitsIS4_EENS0_18PointerIntPairInfoIS4_Lj1ES6_EEEEEvRNS0_8DenseMapIPNS0_11InstructionENS0_11SmallPtrSetIT_Lj4EEENS0_12DenseMapInfoISC_vEENS0_6detail12DenseMapPairISC_SF_EEEESC_SE_(ptr nocapture noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZL20RemoveFromReverseMapIN4llvm14PointerIntPairIPKNS0_5ValueELj1EbNS0_21PointerLikeTypeTraitsIS4_EENS0_18PointerIntPairInfoIS4_Lj1ES6_EEEEEvRNS0_8DenseMapIPNS0_11InstructionENS0_11SmallPtrSetIT_Lj4EEENS0_12DenseMapInfoISC_vEENS0_6detail12DenseMapPairISC_SF_EEEESC_SE_(ptr nocapture noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull %1, i64 %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
@@ -6830,7 +6830,7 @@ _ZNK4llvm12MemDepResult7getInstEv.exit52:         ; preds = %245
 
 249:                                              ; preds = %_ZNK4llvm12MemDepResult7getInstEv.exit52
   %.0.i51 = inttoptr i64 %.0.i51.in to ptr
-  tail call fastcc void @_ZL20RemoveFromReverseMapIN4llvm14PointerIntPairIPKNS0_5ValueELj1EbNS0_21PointerLikeTypeTraitsIS4_EENS0_18PointerIntPairInfoIS4_Lj1ES6_EEEEEvRNS0_8DenseMapIPNS0_11InstructionENS0_11SmallPtrSetIT_Lj4EEENS0_12DenseMapInfoISC_vEENS0_6detail12DenseMapPairISC_SF_EEEESC_SE_(ptr noundef nonnull align 8 dereferenceable(20) %244, ptr noundef nonnull %.0.i51, i64 %1)
+  tail call fastcc void @_ZL20RemoveFromReverseMapIN4llvm14PointerIntPairIPKNS0_5ValueELj1EbNS0_21PointerLikeTypeTraitsIS4_EENS0_18PointerIntPairInfoIS4_Lj1ES6_EEEEEvRNS0_8DenseMapIPNS0_11InstructionENS0_11SmallPtrSetIT_Lj4EEENS0_12DenseMapInfoISC_vEENS0_6detail12DenseMapPairISC_SF_EEEESC_SE_(ptr noundef nonnull align 8 dereferenceable(20) %244, ptr noundef %.0.i51, i64 %1)
   br label %_ZNK4llvm12MemDepResult7getInstEv.exit52.thread
 
 _ZNK4llvm12MemDepResult7getInstEv.exit52.thread:  ; preds = %245, %_ZNK4llvm12MemDepResult7getInstEv.exit52, %249
@@ -7030,7 +7030,7 @@ _ZNK4llvm12MemDepResult7getInstEv.exit:           ; preds = %44
 
 48:                                               ; preds = %_ZNK4llvm12MemDepResult7getInstEv.exit
   %.0.i = inttoptr i64 %.0.i.in to ptr
-  tail call fastcc void @_ZL20RemoveFromReverseMapIPN4llvm11InstructionEEvRNS0_8DenseMapIS2_NS0_11SmallPtrSetIT_Lj4EEENS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_S6_EEEES2_S5_(ptr noundef nonnull align 8 dereferenceable(20) %43, ptr noundef nonnull %.0.i, ptr noundef %1)
+  tail call fastcc void @_ZL20RemoveFromReverseMapIPN4llvm11InstructionEEvRNS0_8DenseMapIS2_NS0_11SmallPtrSetIT_Lj4EEENS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_S6_EEEES2_S5_(ptr noundef nonnull align 8 dereferenceable(20) %43, ptr noundef %.0.i, ptr noundef %1)
   br label %_ZNK4llvm12MemDepResult7getInstEv.exit.thread
 
 _ZNK4llvm12MemDepResult7getInstEv.exit.thread:    ; preds = %44, %_ZNK4llvm12MemDepResult7getInstEv.exit, %48
@@ -7133,7 +7133,7 @@ _ZNK4llvm12MemDepResult7getInstEv.exit88:         ; preds = %92
 96:                                               ; preds = %_ZNK4llvm12MemDepResult7getInstEv.exit88
   %.0.i87 = inttoptr i64 %.0.i87.in to ptr
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  tail call fastcc void @_ZL20RemoveFromReverseMapIPN4llvm11InstructionEEvRNS0_8DenseMapIS2_NS0_11SmallPtrSetIT_Lj4EEENS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_S6_EEEES2_S5_(ptr noundef nonnull align 8 dereferenceable(20) %97, ptr noundef nonnull %.0.i87, ptr noundef %1)
+  tail call fastcc void @_ZL20RemoveFromReverseMapIPN4llvm11InstructionEEvRNS0_8DenseMapIS2_NS0_11SmallPtrSetIT_Lj4EEENS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_S6_EEEES2_S5_(ptr noundef nonnull align 8 dereferenceable(20) %97, ptr noundef %.0.i87, ptr noundef %1)
   br label %_ZNK4llvm12MemDepResult7getInstEv.exit88.thread
 
 _ZNK4llvm12MemDepResult7getInstEv.exit88.thread:  ; preds = %92, %96, %_ZNK4llvm12MemDepResult7getInstEv.exit88

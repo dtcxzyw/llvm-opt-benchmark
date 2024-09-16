@@ -24,7 +24,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @gen_init(ptr noundef %ctx, i32 noundef %operation) unnamed_addr #0 {
+define internal fastcc i32 @gen_init(ptr noundef %ctx, i32 noundef range(i32 2, 5) %operation) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %not_supported, label %if.end

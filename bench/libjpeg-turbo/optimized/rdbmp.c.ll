@@ -526,11 +526,11 @@ define internal void @start_input_bmp(ptr noundef %0, ptr nocapture noundef %1) 
   br label %379
 
 .preheader.i:                                     ; preds = %310
-  %wide.trip.count96.i = zext nneg i32 %.1234 to i64
+  %wide.trip.count94.i = zext nneg i32 %.1234 to i64
   br label %319
 
 319:                                              ; preds = %378, %.preheader.i
-  %indvars.iv93.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next94.i, %378 ]
+  %indvars.iv91.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next92.i, %378 ]
   %.088.i = phi i32 [ 1, %.preheader.i ], [ %.1.i, %378 ]
   %320 = load ptr, ptr %5, align 8
   %321 = tail call i32 @getc(ptr noundef %320)
@@ -553,7 +553,7 @@ read_byte.exit.i:                                 ; preds = %323, %319
   %331 = load ptr, ptr %316, align 8
   %332 = getelementptr inbounds i8, ptr %331, i64 16
   %333 = load ptr, ptr %332, align 8
-  %334 = getelementptr inbounds i8, ptr %333, i64 %indvars.iv93.i
+  %334 = getelementptr inbounds i8, ptr %333, i64 %indvars.iv91.i
   store i8 %330, ptr %334, align 1
   %335 = load ptr, ptr %5, align 8
   %336 = tail call i32 @getc(ptr noundef %335)
@@ -576,7 +576,7 @@ read_byte.exit66.i:                               ; preds = %338, %read_byte.exi
   %346 = load ptr, ptr %316, align 8
   %347 = getelementptr inbounds i8, ptr %346, i64 8
   %348 = load ptr, ptr %347, align 8
-  %349 = getelementptr inbounds i8, ptr %348, i64 %indvars.iv93.i
+  %349 = getelementptr inbounds i8, ptr %348, i64 %indvars.iv91.i
   store i8 %345, ptr %349, align 1
   %350 = load ptr, ptr %5, align 8
   %351 = tail call i32 @getc(ptr noundef %350)
@@ -598,23 +598,23 @@ read_byte.exit67.i:                               ; preds = %353, %read_byte.exi
   %360 = trunc i32 %351 to i8
   %361 = load ptr, ptr %316, align 8
   %362 = load ptr, ptr %361, align 8
-  %363 = getelementptr inbounds i8, ptr %362, i64 %indvars.iv93.i
+  %363 = getelementptr inbounds i8, ptr %362, i64 %indvars.iv91.i
   store i8 %360, ptr %363, align 1
   %364 = load ptr, ptr %316, align 8
   %365 = getelementptr inbounds i8, ptr %364, i64 16
   %366 = load ptr, ptr %365, align 8
-  %367 = getelementptr inbounds i8, ptr %366, i64 %indvars.iv93.i
+  %367 = getelementptr inbounds i8, ptr %366, i64 %indvars.iv91.i
   %368 = load i8, ptr %367, align 1
   %369 = getelementptr inbounds i8, ptr %364, i64 8
   %370 = load ptr, ptr %369, align 8
-  %371 = getelementptr inbounds i8, ptr %370, i64 %indvars.iv93.i
+  %371 = getelementptr inbounds i8, ptr %370, i64 %indvars.iv91.i
   %372 = load i8, ptr %371, align 1
   %.not64.i = icmp eq i8 %368, %372
   br i1 %.not64.i, label %373, label %377
 
 373:                                              ; preds = %read_byte.exit67.i
   %374 = load ptr, ptr %364, align 8
-  %375 = getelementptr inbounds i8, ptr %374, i64 %indvars.iv93.i
+  %375 = getelementptr inbounds i8, ptr %374, i64 %indvars.iv91.i
   %376 = load i8, ptr %375, align 1
   %.not65.i = icmp eq i8 %368, %376
   br i1 %.not65.i, label %378, label %377
@@ -624,9 +624,9 @@ read_byte.exit67.i:                               ; preds = %353, %read_byte.exi
 
 378:                                              ; preds = %377, %373
   %.1.i = phi i32 [ 0, %377 ], [ %.088.i, %373 ]
-  %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
-  %exitcond97.not.i = icmp eq i64 %indvars.iv.next94.i, %wide.trip.count96.i
-  br i1 %exitcond97.not.i, label %.loopexit.i, label %319, !llvm.loop !5
+  %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 1
+  %exitcond95.not.i = icmp eq i64 %indvars.iv.next92.i, %wide.trip.count94.i
+  br i1 %exitcond95.not.i, label %.loopexit.i, label %319, !llvm.loop !5
 
 379:                                              ; preds = %448, %.preheader83.i
   %indvars.iv.i = phi i64 [ 0, %.preheader83.i ], [ %indvars.iv.next.i, %448 ]

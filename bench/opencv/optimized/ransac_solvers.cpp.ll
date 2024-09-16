@@ -1130,7 +1130,7 @@ _ZNK2cv11_InputArray6getMatEi.exit16:             ; preds = %18, %21
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN2cv4usac11mergePointsERKNS_11_InputArrayES3_RNS_3MatEbENK3$_0clES5_i"(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN2cv4usac11mergePointsERKNS_11_InputArrayES3_RNS_3MatEbENK3$_0clES5_i"(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef range(i32 2, 4) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::Range", align 8
   %4 = alloca %"class.cv::Range", align 4
   %5 = alloca %"class.cv::_OutputArray", align 8

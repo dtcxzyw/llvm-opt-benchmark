@@ -875,7 +875,7 @@ if.end67:                                         ; preds = %if.end62
   %32 = load ptr, ptr @island_marks, align 8
   %oid.i = getelementptr inbounds i8, ptr %call64, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %byval-temp.i43, ptr noundef nonnull readonly align 4 dereferenceable(36) %oid.i, i64 36, i1 false)
-  %call.i44 = call fastcc i32 @kh_put_oid_map(ptr noundef %32, ptr noundef nonnull byval(%struct.object_id) align 8 %byval-temp.i43, ptr noundef nonnull %hash_ret.i)
+  %call.i44 = call fastcc i32 @kh_put_oid_map(ptr noundef %32, ptr noundef nonnull byval(%struct.object_id) align 8 %byval-temp.i43, ptr noundef %hash_ret.i)
   %33 = load i32, ptr %hash_ret.i, align 4
   %tobool.not.i45 = icmp eq i32 %33, 0
   br i1 %tobool.not.i45, label %if.end.i50, label %if.then.i46
@@ -1330,7 +1330,7 @@ if.end.i.i:                                       ; preds = %for.body.i.i
   %42 = load ptr, ptr @island_marks, align 8
   %oid.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %byval-temp.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(36) %oid.i.i.i, i64 36, i1 false)
-  %call.i.i.i = call fastcc i32 @kh_put_oid_map(ptr noundef %42, ptr noundef nonnull byval(%struct.object_id) align 8 %byval-temp.i.i.i, ptr noundef nonnull %hash_ret.i.i.i)
+  %call.i.i.i = call fastcc i32 @kh_put_oid_map(ptr noundef %42, ptr noundef nonnull byval(%struct.object_id) align 8 %byval-temp.i.i.i, ptr noundef %hash_ret.i.i.i)
   %43 = load i32, ptr %hash_ret.i.i.i, align 4
   %tobool.not.i.i40.i = icmp eq i32 %43, 0
   br i1 %tobool.not.i.i40.i, label %entry.if.end_crit_edge.i.i.i, label %if.then.i.i41.i
@@ -1405,7 +1405,7 @@ if.then20.i.i:                                    ; preds = %while.body.i.i
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %byval-temp.i19.i.i)
   %55 = load ptr, ptr @island_marks, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %byval-temp.i19.i.i, ptr noundef nonnull readonly align 4 dereferenceable(36) %oid21.i.i, i64 36, i1 false)
-  %call.i21.i.i = call fastcc i32 @kh_put_oid_map(ptr noundef %55, ptr noundef nonnull byval(%struct.object_id) align 8 %byval-temp.i19.i.i, ptr noundef nonnull %hash_ret.i18.i.i)
+  %call.i21.i.i = call fastcc i32 @kh_put_oid_map(ptr noundef %55, ptr noundef nonnull byval(%struct.object_id) align 8 %byval-temp.i19.i.i, ptr noundef %hash_ret.i18.i.i)
   %56 = load i32, ptr %hash_ret.i18.i.i, align 4
   %tobool.not.i22.i.i = icmp eq i32 %56, 0
   br i1 %tobool.not.i22.i.i, label %entry.if.end_crit_edge.i34.i.i, label %if.then.i23.i.i
@@ -2357,7 +2357,7 @@ if.then:                                          ; preds = %kh_get_oid_map.exit
   %15 = load ptr, ptr @island_marks, align 8
   %oid.i = getelementptr inbounds i8, ptr %call2, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %byval-temp.i9, ptr noundef nonnull readonly align 4 dereferenceable(36) %oid.i, i64 36, i1 false)
-  %call.i10 = call fastcc i32 @kh_put_oid_map(ptr noundef %15, ptr noundef nonnull byval(%struct.object_id) align 8 %byval-temp.i9, ptr noundef nonnull %hash_ret.i)
+  %call.i10 = call fastcc i32 @kh_put_oid_map(ptr noundef %15, ptr noundef nonnull byval(%struct.object_id) align 8 %byval-temp.i9, ptr noundef %hash_ret.i)
   %16 = load i32, ptr %hash_ret.i, align 4
   %tobool.not.i11 = icmp eq i32 %16, 0
   br i1 %tobool.not.i11, label %if.end.i, label %if.then.i12
@@ -2448,7 +2448,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %se
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %byval-temp.i18)
   %oid.i19 = getelementptr inbounds i8, ptr %33, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %byval-temp.i18, ptr noundef nonnull readonly align 4 dereferenceable(36) %oid.i19, i64 36, i1 false)
-  %call.i20 = call fastcc i32 @kh_put_oid_map(ptr noundef %32, ptr noundef nonnull byval(%struct.object_id) align 8 %byval-temp.i18, ptr noundef nonnull %hash_ret.i17)
+  %call.i20 = call fastcc i32 @kh_put_oid_map(ptr noundef %32, ptr noundef nonnull byval(%struct.object_id) align 8 %byval-temp.i18, ptr noundef %hash_ret.i17)
   %34 = load i32, ptr %hash_ret.i17, align 4
   %tobool.not.i21 = icmp eq i32 %34, 0
   br i1 %tobool.not.i21, label %if.end.i27, label %if.then.i22
@@ -2816,7 +2816,7 @@ declare ptr @gettext(ptr noundef) local_unnamed_addr #10
 declare i32 @parse_tree_gently(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @kh_put_oid_map(ptr nocapture noundef %h, ptr nocapture noundef readonly byval(%struct.object_id) align 8 %key, ptr nocapture noundef writeonly %ret) unnamed_addr #2 {
+define internal fastcc i32 @kh_put_oid_map(ptr nocapture noundef %h, ptr nocapture noundef readonly byval(%struct.object_id) align 8 %key, ptr nocapture noundef nonnull writeonly %ret) unnamed_addr #2 {
 entry:
   %byval-temp = alloca %struct.object_id, align 8
   %n_occupied = getelementptr inbounds i8, ptr %h, i64 8

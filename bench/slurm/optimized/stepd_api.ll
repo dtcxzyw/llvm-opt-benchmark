@@ -191,7 +191,7 @@ _sockname_regex_init.exit.thread:                 ; preds = %20
 .lr.ph:                                           ; preds = %.preheader, %56
   %43 = phi ptr [ %57, %56 ], [ %40, %.preheader ]
   %44 = getelementptr inbounds i8, ptr %43, i64 19
-  %45 = call fastcc i32 @_sockname_regex(ptr noundef nonnull %4, ptr noundef nonnull %44, ptr noundef nonnull %7)
+  %45 = call fastcc i32 @_sockname_regex(ptr noundef %4, ptr noundef %44, ptr noundef %7)
   %.not28 = icmp eq i32 %45, 0
   br i1 %.not28, label %46, label %56
 
@@ -9154,18 +9154,18 @@ declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnam
 declare ptr @readdir(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_sockname_regex(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_sockname_regex(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca [5 x %struct.regmatch_t], align 16
   %5 = alloca ptr, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  %6 = call i32 @regexec(ptr noundef %0, ptr noundef %1, i64 noundef 5, ptr noundef nonnull %4, i32 noundef 0) #12
+  %6 = call i32 @regexec(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 5, ptr noundef nonnull %4, i32 noundef 0) #12
   switch i32 %6, label %7 [
     i32 0, label %8
     i32 1, label %47
   ]
 
 7:                                                ; preds = %3
-  call void (i32, ptr, ptr, ...) @dump_regex_error(i32 noundef %6, ptr noundef %0, ptr noundef nonnull @.str.44, ptr noundef %1) #12
+  call void (i32, ptr, ptr, ...) @dump_regex_error(i32 noundef %6, ptr noundef nonnull %0, ptr noundef nonnull @.str.44, ptr noundef nonnull %1) #12
   br label %47
 
 8:                                                ; preds = %3
@@ -9177,7 +9177,7 @@ define internal fastcc range(i32 -1, 1) i32 @_sockname_regex(ptr noundef %0, ptr
   %14 = load i32, ptr %13, align 4
   %15 = sub nsw i32 %14, %10
   %16 = sext i32 %15 to i64
-  %17 = call ptr @xstrndup(ptr noundef %12, i64 noundef %16) #12
+  %17 = call ptr @xstrndup(ptr noundef nonnull %12, i64 noundef %16) #12
   store ptr %17, ptr %5, align 8
   %18 = call i64 @strtoul(ptr nocapture noundef %17, ptr noundef null, i32 noundef 10) #12
   %19 = trunc i64 %18 to i32
@@ -9191,7 +9191,7 @@ define internal fastcc range(i32 -1, 1) i32 @_sockname_regex(ptr noundef %0, ptr
   %25 = load i32, ptr %24, align 4
   %26 = sub nsw i32 %25, %21
   %27 = sext i32 %26 to i64
-  %28 = call ptr @xstrndup(ptr noundef %23, i64 noundef %27) #12
+  %28 = call ptr @xstrndup(ptr noundef nonnull %23, i64 noundef %27) #12
   store ptr %28, ptr %5, align 8
   %29 = call i64 @strtoul(ptr nocapture noundef %28, ptr noundef null, i32 noundef 10) #12
   %30 = trunc i64 %29 to i32
@@ -9210,7 +9210,7 @@ define internal fastcc range(i32 -1, 1) i32 @_sockname_regex(ptr noundef %0, ptr
   %38 = sext i32 %37 to i64
   %39 = sext i32 %35 to i64
   %40 = getelementptr inbounds i8, ptr %1, i64 %39
-  %41 = call ptr @xstrndup(ptr noundef %40, i64 noundef %38) #12
+  %41 = call ptr @xstrndup(ptr noundef nonnull %40, i64 noundef %38) #12
   store ptr %41, ptr %5, align 8
   %42 = call i64 @strtoul(ptr nocapture noundef %41, ptr noundef null, i32 noundef 10) #12
   %43 = trunc i64 %42 to i32
@@ -9307,7 +9307,7 @@ _sockname_regex_init.exit:                        ; preds = %11, %13
   %31 = phi ptr [ %69, %68 ], [ %28, %.preheader ]
   %.120 = phi i32 [ %.2, %68 ], [ 0, %.preheader ]
   %32 = getelementptr inbounds i8, ptr %31, i64 19
-  %33 = call fastcc i32 @_sockname_regex(ptr noundef nonnull %4, ptr noundef nonnull %32, ptr noundef nonnull %6)
+  %33 = call fastcc i32 @_sockname_regex(ptr noundef %4, ptr noundef %32, ptr noundef %6)
   %.not17 = icmp eq i32 %33, 0
   br i1 %.not17, label %34, label %68
 

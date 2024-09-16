@@ -523,18 +523,18 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h0ea059f46adea409E(ptr no
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = icmp eq i64 %2, 0
-  br i1 %10, label %.loopexit, label %.lr.ph.i.i.lr.ph
+  br i1 %10, label %.loopexit, label %.lr.ph
 
-.lr.ph.i.i.lr.ph:                                 ; preds = %3
+.lr.ph:                                           ; preds = %3
   %11 = getelementptr inbounds i8, ptr %0, i64 5592
   %12 = getelementptr inbounds i8, ptr %0, i64 5600
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = getelementptr inbounds i8, ptr %0, i64 5608
   %15 = getelementptr inbounds i8, ptr %0, i64 5640
   %16 = getelementptr inbounds i8, ptr %5, i64 8
-  br label %.lr.ph.i.i
+  br label %17
 
-.lr.ph.i.i:                                       ; preds = %52, %.lr.ph.i.i.lr.ph
+17:                                               ; preds = %53, %.lr.ph
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
   call void @llvm.experimental.noalias.scope.decl(metadata !34)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !37
@@ -542,131 +542,131 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h0ea059f46adea409E(ptr no
   store i64 %2, ptr %9, align 8, !noalias !40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !40
   store i64 0, ptr %8, align 8, !noalias !40
-  br label %17
+  br label %18
 
-17:                                               ; preds = %29, %.lr.ph.i.i
+18:                                               ; preds = %30, %17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !40
   store i64 0, ptr %7, align 8, !noalias !40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !40
   %.val10.i.i = load ptr, ptr %11, align 8, !alias.scope !43, !noalias !44, !nonnull !13, !align !17, !noundef !13
   %.val11.i.i = load i64, ptr %12, align 8, !alias.scope !43, !noalias !44, !noundef !13
   store i64 %.val11.i.i, ptr %6, align 8, !noalias !40
-  %18 = call noundef i32 @_ZN6brotli3enc6encode27BrotliEncoderCompressStream17hb26828fc83654001E(ptr noalias noundef nonnull align 8 dereferenceable(5576) %13, i8 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 1 %.val10.i.i, i64 noundef %.val11.i.i, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 1 %4), !noalias !45
-  %19 = load i64, ptr %7, align 8, !noalias !40, !noundef !13
-  %.not.i.i = icmp eq i64 %19, 0
-  br i1 %.not.i.i, label %23, label %20
+  %19 = call noundef i32 @_ZN6brotli3enc6encode27BrotliEncoderCompressStream17hb26828fc83654001E(ptr noalias noundef nonnull align 8 dereferenceable(5576) %13, i8 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 1 %.val10.i.i, i64 noundef %.val11.i.i, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 1 %4), !noalias !45
+  %20 = load i64, ptr %7, align 8, !noalias !40, !noundef !13
+  %.not.i.i = icmp eq i64 %20, 0
+  br i1 %.not.i.i, label %24, label %21
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %14, align 8, !alias.scope !43, !noalias !44, !noundef !13
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %25, label %26
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %14, align 8, !alias.scope !43, !noalias !44, !noundef !13
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %26, label %27
 
-23:                                               ; preds = %_ZN6brotli3enc6writer9write_all17h1e544642aa2474c9E.exit.i.i, %17
-  %24 = icmp slt i32 %18, 1
-  br i1 %24, label %31, label %29
+24:                                               ; preds = %_ZN6brotli3enc6writer9write_all17h1e544642aa2474c9E.exit.i.i, %18
+  %25 = icmp slt i32 %19, 1
+  br i1 %25, label %32, label %30
 
-25:                                               ; preds = %20
+26:                                               ; preds = %21
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854811f44bca550c56cb6f681a6a9a44.8) #31, !noalias !45
   unreachable
 
-26:                                               ; preds = %20
+27:                                               ; preds = %21
   %.val7.i.i = load i64, ptr %12, align 8, !alias.scope !43, !noalias !44, !noundef !13
-  %27 = icmp ugt i64 %19, %.val7.i.i
-  br i1 %27, label %28, label %_ZN6brotli3enc6writer9write_all17h1e544642aa2474c9E.exit.i.i
+  %28 = icmp ugt i64 %20, %.val7.i.i
+  br i1 %28, label %29, label %_ZN6brotli3enc6writer9write_all17h1e544642aa2474c9E.exit.i.i
 
-28:                                               ; preds = %26
-  call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %19, i64 noundef %.val7.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854811f44bca550c56cb6f681a6a9a44.9) #31, !noalias !46
+29:                                               ; preds = %27
+  call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %20, i64 noundef %.val7.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854811f44bca550c56cb6f681a6a9a44.9) #31, !noalias !46
   unreachable
 
-_ZN6brotli3enc6writer9write_all17h1e544642aa2474c9E.exit.i.i: ; preds = %26
+_ZN6brotli3enc6writer9write_all17h1e544642aa2474c9E.exit.i.i: ; preds = %27
   %.val.i.i = load ptr, ptr %11, align 8, !alias.scope !43, !noalias !44, !nonnull !13, !align !17, !noundef !13
-  call void @_ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d1479cf2aE.llvm.13158767072824543338(ptr noalias noundef nonnull align 8 dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 1 %.val.i.i, i64 noundef %19), !noalias !49
-  br label %23
+  call void @_ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d1479cf2aE.llvm.13158767072824543338(ptr noalias noundef nonnull align 8 dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 1 %.val.i.i, i64 noundef %20), !noalias !49
+  br label %24
 
-29:                                               ; preds = %23
+30:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !40
   %.pr.i.i = load i64, ptr %9, align 8, !noalias !40
-  %30 = icmp eq i64 %.pr.i.i, 0
-  br i1 %30, label %.thread36, label %17
+  %31 = icmp eq i64 %.pr.i.i, 0
+  br i1 %31, label %.thread36, label %18
 
-31:                                               ; preds = %23
-  %32 = load ptr, ptr %15, align 8, !alias.scope !43, !noalias !44, !noundef !13
+32:                                               ; preds = %24
+  %33 = load ptr, ptr %15, align 8, !alias.scope !43, !noalias !44, !noundef !13
   store ptr null, ptr %15, align 8, !alias.scope !43, !noalias !44
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %35
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %36
 
-34:                                               ; preds = %31
+35:                                               ; preds = %32
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854811f44bca550c56cb6f681a6a9a44.10) #31, !noalias !45
   unreachable
 
-.loopexit:                                        ; preds = %38, %40, %44, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %.thread36, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %.thread36 ], [ %32, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ], [ %32, %44 ], [ %32, %40 ], [ %32, %38 ]
+.loopexit:                                        ; preds = %39, %41, %45, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %.thread36, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %.thread36 ], [ %33, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ], [ %33, %45 ], [ %33, %41 ], [ %33, %39 ]
   ret ptr %.0
 
-.thread36:                                        ; preds = %29
+.thread36:                                        ; preds = %30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !40
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !37
   br label %.loopexit
 
-35:                                               ; preds = %31
-  %36 = ptrtoint ptr %32 to i64
+36:                                               ; preds = %32
+  %37 = ptrtoint ptr %33 to i64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !40
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !37
-  %37 = and i64 %36, 3
-  switch i64 %37, label %default.unreachable [
-    i64 2, label %38
+  %38 = and i64 %37, 3
+  switch i64 %38, label %default.unreachable [
+    i64 2, label %39
     i64 3, label %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit
-    i64 0, label %40
-    i64 1, label %44
+    i64 0, label %41
+    i64 1, label %45
   ]
 
-default.unreachable:                              ; preds = %35
+default.unreachable:                              ; preds = %36
   unreachable
 
-38:                                               ; preds = %35
-  %.mask.i = and i64 %36, -4294967296
-  %39 = icmp eq i64 %.mask.i, 17179869184
-  br i1 %39, label %.thread, label %.loopexit
+39:                                               ; preds = %36
+  %.mask.i = and i64 %37, -4294967296
+  %40 = icmp eq i64 %.mask.i, 17179869184
+  br i1 %40, label %.thread, label %.loopexit
 
-40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %32, i64 16
-  %42 = load i8, ptr %41, align 8, !range !54, !noundef !13
-  %43 = icmp eq i8 %42, 35
-  br i1 %43, label %.thread, label %.loopexit
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds i8, ptr %33, i64 16
+  %43 = load i8, ptr %42, align 8, !range !54, !noundef !13
+  %44 = icmp eq i8 %43, 35
+  br i1 %44, label %.thread, label %.loopexit
 
-44:                                               ; preds = %35
-  %45 = getelementptr i8, ptr %32, i64 -1
-  %46 = icmp ne ptr %45, null
-  call void @llvm.assume(i1 %46)
-  %47 = getelementptr i8, ptr %32, i64 15
-  %48 = load i8, ptr %47, align 8, !range !54, !noundef !13
-  %49 = icmp eq i8 %48, 35
-  br i1 %49, label %.thread, label %.loopexit
+45:                                               ; preds = %36
+  %46 = getelementptr i8, ptr %33, i64 -1
+  %47 = icmp ne ptr %46, null
+  call void @llvm.assume(i1 %47)
+  %48 = getelementptr i8, ptr %33, i64 15
+  %49 = load i8, ptr %48, align 8, !range !54, !noundef !13
+  %50 = icmp eq i8 %49, 35
+  br i1 %50, label %.thread, label %.loopexit
 
-_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %35
-  %.mask20.i = and i64 %36, -4294967296
+_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %36
+  %.mask20.i = and i64 %37, -4294967296
   %switch.i = icmp eq i64 %.mask20.i, 150323855360
   br i1 %switch.i, label %.thread, label %.loopexit
 
-.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %44, %40, %38
+.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %45, %41, %39
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !55
-  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h9a1475dffe9770cdE.llvm.14998522591088738574(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %5, ptr noundef nonnull %32), !noalias !55
-  %50 = load i8, ptr %5, align 8, !range !62, !alias.scope !63, !noalias !55, !noundef !13
-  %switch.not.i.i.i.i = icmp eq i8 %50, 3
-  br i1 %switch.not.i.i.i.i, label %51, label %52
+  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h9a1475dffe9770cdE.llvm.14998522591088738574(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %5, ptr noundef nonnull %33), !noalias !55
+  %51 = load i8, ptr %5, align 8, !range !62, !alias.scope !63, !noalias !55, !noundef !13
+  %switch.not.i.i.i.i = icmp eq i8 %51, 3
+  br i1 %switch.not.i.i.i.i, label %52, label %53
 
-51:                                               ; preds = %.thread
+52:                                               ; preds = %.thread
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h3b849bc110c7ebcdE.llvm.14998522591088738574"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16), !noalias !55
-  br label %52
+  br label %53
 
-52:                                               ; preds = %51, %.thread
+53:                                               ; preds = %52, %.thread
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !55
-  br label %.lr.ph.i.i
+  br label %17
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1857,7 +1857,7 @@ define hidden void @"_ZN6brotli3enc11find_stride28EntropyTally$LT$AllocU32$GT$4f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noalias nocapture noundef align 8 dereferenceable(192) %2, i32 noundef %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %5) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef nonnull align 8 dereferenceable(376) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %2, i32 noundef %3, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %5) unnamed_addr #1 personality ptr @rust_eh_personality {
   %7 = alloca [8 x i8], align 8
   %8 = alloca [2 x { ptr, i64 }], align 8
   %9 = alloca [2 x { ptr, i64 }], align 8
@@ -3469,7 +3469,7 @@ define hidden void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %58)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %58, ptr noundef nonnull align 8 dereferenceable(48) %59, i64 48, i1 false)
   store i64 0, ptr %57, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef nonnull align 8 dereferenceable(376) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %58, ptr noalias noundef nonnull align 8 dereferenceable(192) %5, i32 noundef 0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %57, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %57)
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %58, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 0, ptr noalias nocapture noundef align 8 dereferenceable(24) %57, ptr noalias nocapture noundef align 8 dereferenceable(24) %57)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %58)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %56)
   %61 = add i64 %4, %2
@@ -3481,7 +3481,7 @@ define hidden void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$
   %64 = getelementptr inbounds i8, ptr %55, i64 16
   store i64 1, ptr %64, align 8
   store i64 1, ptr %55, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef nonnull align 8 dereferenceable(376) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %56, ptr noalias noundef nonnull align 8 dereferenceable(192) %5, i32 noundef 1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %55, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %57)
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %56, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 1, ptr noalias nocapture noundef align 8 dereferenceable(24) %55, ptr noalias nocapture noundef align 8 dereferenceable(24) %57)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %55)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %56)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %54)
@@ -3497,7 +3497,7 @@ define hidden void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$
   %71 = getelementptr inbounds i8, ptr %53, i64 16
   store i64 2, ptr %71, align 8
   store i64 1, ptr %53, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef nonnull align 8 dereferenceable(376) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %69, ptr noalias noundef nonnull align 8 dereferenceable(192) %5, i32 noundef 2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %57, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %53)
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %69, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 2, ptr noalias nocapture noundef align 8 dereferenceable(24) %57, ptr noalias nocapture noundef align 8 dereferenceable(24) %53)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %54)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %52)
@@ -3512,7 +3512,7 @@ define hidden void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$
   %77 = getelementptr inbounds i8, ptr %51, i64 16
   store i64 3, ptr %77, align 8
   store i64 1, ptr %51, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef nonnull align 8 dereferenceable(376) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %52, ptr noalias noundef nonnull align 8 dereferenceable(192) %5, i32 noundef 3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %51, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %57)
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %52, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 3, ptr noalias nocapture noundef align 8 dereferenceable(24) %51, ptr noalias nocapture noundef align 8 dereferenceable(24) %57)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %51)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %52)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %50)
@@ -3540,7 +3540,7 @@ define hidden void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$
   %90 = getelementptr inbounds i8, ptr %47, i64 16
   store i64 4, ptr %90, align 8
   store i64 1, ptr %47, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef nonnull align 8 dereferenceable(376) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %86, ptr noalias noundef nonnull align 8 dereferenceable(192) %5, i32 noundef 4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %48, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %47)
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %86, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 4, ptr noalias nocapture noundef align 8 dereferenceable(24) %48, ptr noalias nocapture noundef align 8 dereferenceable(24) %47)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %47)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %49)
@@ -3564,7 +3564,7 @@ define hidden void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$
   %101 = getelementptr inbounds i8, ptr %44, i64 16
   store i64 5, ptr %101, align 8
   store i64 1, ptr %44, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef nonnull align 8 dereferenceable(376) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %46, ptr noalias noundef nonnull align 8 dereferenceable(192) %5, i32 noundef 5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %44, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %57)
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %46, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 5, ptr noalias nocapture noundef align 8 dereferenceable(24) %44, ptr noalias nocapture noundef align 8 dereferenceable(24) %57)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %45)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %46)
@@ -3588,7 +3588,7 @@ define hidden void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$
   %113 = getelementptr inbounds i8, ptr %41, i64 16
   store i64 6, ptr %113, align 8
   store i64 1, ptr %41, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef nonnull align 8 dereferenceable(376) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %111, ptr noalias noundef nonnull align 8 dereferenceable(192) %5, i32 noundef 6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %41, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %57)
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %111, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 6, ptr noalias nocapture noundef align 8 dereferenceable(24) %41, ptr noalias nocapture noundef align 8 dereferenceable(24) %57)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %43)
@@ -3615,7 +3615,7 @@ define hidden void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$
   %127 = getelementptr inbounds i8, ptr %37, i64 16
   store i64 7, ptr %127, align 8
   store i64 1, ptr %37, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef nonnull align 8 dereferenceable(376) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %40, ptr noalias noundef nonnull align 8 dereferenceable(192) %5, i32 noundef 7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %37, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %57)
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %40, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 7, ptr noalias nocapture noundef align 8 dereferenceable(24) %37, ptr noalias nocapture noundef align 8 dereferenceable(24) %57)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %39)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %40)
@@ -3644,7 +3644,7 @@ define hidden void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$
   %142 = getelementptr inbounds i8, ptr %33, i64 16
   store i64 8, ptr %142, align 8
   store i64 1, ptr %33, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef nonnull align 8 dereferenceable(376) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %140, ptr noalias noundef nonnull align 8 dereferenceable(192) %5, i32 noundef 8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %37, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %33)
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %140, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 8, ptr noalias nocapture noundef align 8 dereferenceable(24) %37, ptr noalias nocapture noundef align 8 dereferenceable(24) %33)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %35)
@@ -3679,7 +3679,7 @@ define hidden void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$
   %159 = getelementptr inbounds i8, ptr %28, i64 16
   store i64 9, ptr %159, align 8
   store i64 1, ptr %28, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef nonnull align 8 dereferenceable(376) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %32, ptr noalias noundef nonnull align 8 dereferenceable(192) %5, i32 noundef 9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %29, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %28)
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %32, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 9, ptr noalias nocapture noundef align 8 dereferenceable(24) %29, ptr noalias nocapture noundef align 8 dereferenceable(24) %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %31)
@@ -3710,7 +3710,7 @@ define hidden void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$
   %175 = getelementptr inbounds i8, ptr %24, i64 16
   store i64 10, ptr %175, align 8
   store i64 1, ptr %24, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef nonnull align 8 dereferenceable(376) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %173, ptr noalias noundef nonnull align 8 dereferenceable(192) %5, i32 noundef 10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %29, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %24)
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %173, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 10, ptr noalias nocapture noundef align 8 dereferenceable(24) %29, ptr noalias nocapture noundef align 8 dereferenceable(24) %24)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %26)
@@ -3745,7 +3745,7 @@ define hidden void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$
   %192 = getelementptr inbounds i8, ptr %19, i64 16
   store i64 11, ptr %192, align 8
   store i64 1, ptr %19, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef nonnull align 8 dereferenceable(376) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %23, ptr noalias noundef nonnull align 8 dereferenceable(192) %5, i32 noundef 11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %19)
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %23, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 11, ptr noalias nocapture noundef align 8 dereferenceable(24) %20, ptr noalias nocapture noundef align 8 dereferenceable(24) %19)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %22)
@@ -3776,7 +3776,7 @@ define hidden void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$
   %208 = getelementptr inbounds i8, ptr %15, i64 16
   store i64 12, ptr %208, align 8
   store i64 1, ptr %15, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef nonnull align 8 dereferenceable(376) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %206, ptr noalias noundef nonnull align 8 dereferenceable(192) %5, i32 noundef 12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %15)
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %206, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 12, ptr noalias nocapture noundef align 8 dereferenceable(24) %20, ptr noalias nocapture noundef align 8 dereferenceable(24) %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %17)
@@ -3807,7 +3807,7 @@ define hidden void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$
   %224 = getelementptr inbounds i8, ptr %11, i64 16
   store i64 13, ptr %224, align 8
   store i64 1, ptr %11, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef nonnull align 8 dereferenceable(376) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %14, ptr noalias noundef nonnull align 8 dereferenceable(192) %5, i32 noundef 13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %57, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11)
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %14, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 13, ptr noalias nocapture noundef align 8 dereferenceable(24) %57, ptr noalias nocapture noundef align 8 dereferenceable(24) %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %13)
@@ -3839,7 +3839,7 @@ define hidden void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$
   %241 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 14, ptr %241, align 8
   store i64 1, ptr %7, align 8
-  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef nonnull align 8 dereferenceable(376) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %239, ptr noalias noundef nonnull align 8 dereferenceable(192) %5, i32 noundef 14, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %57, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %7)
+  call fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$14populate_entry17h2fbcf85a4ddeccbcE"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %239, ptr noalias noundef align 8 dereferenceable(192) %5, i32 noundef 14, ptr noalias nocapture noundef align 8 dereferenceable(24) %57, ptr noalias nocapture noundef align 8 dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %9)
@@ -3948,7 +3948,7 @@ define hidden void @_ZN6brotli3enc17compress_fragment30BrotliCompressFragmentFas
   %26 = sub i64 64, %7
   tail call void @_ZN6brotli3enc26compress_fragment_two_pass26BrotliStoreMetaBlockHeader17hc507af97442cf007E(i64 noundef %.0.sroa.speculated.i, i32 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(8) %15, ptr noalias noundef nonnull align 1 %16, i64 noundef %17)
   tail call void @_ZN6brotli3enc26compress_fragment_two_pass15BrotliWriteBits17hf4851fa4b68a36a6E(i64 noundef 13, i64 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(8) %15, ptr noalias noundef nonnull align 1 %16, i64 noundef %17)
-  %27 = call fastcc noundef i64 @_ZN6brotli3enc17compress_fragment30BuildAndStoreLiteralPrefixCode17h83efe134a9af9f78E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %.0.sroa.speculated.i, ptr noalias noundef nonnull align 1 %22, ptr noalias noundef nonnull align 2 %21, ptr noalias noundef nonnull align 8 dereferenceable(8) %15, ptr noalias noundef nonnull align 1 %16, i64 noundef %17)
+  %27 = call fastcc noundef i64 @_ZN6brotli3enc17compress_fragment30BuildAndStoreLiteralPrefixCode17h83efe134a9af9f78E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %.0.sroa.speculated.i, ptr noalias noundef nonnull align 1 %22, ptr noalias noundef nonnull align 2 %21, ptr noalias noundef align 8 dereferenceable(8) %15, ptr noalias noundef nonnull align 1 %16, i64 noundef %17)
   %28 = load i64, ptr %12, align 8, !noundef !13
   %29 = icmp ugt i64 %28, 7
   br i1 %29, label %.lr.ph, label %._crit_edge
@@ -4719,7 +4719,7 @@ default.unreachable:                              ; preds = %.outer
   %399 = add i64 %394, 3
   %400 = sub nuw i64 %2, %.0335.ph
   %401 = getelementptr inbounds i8, ptr %1, i64 %.0335.ph
-  %402 = call fastcc noundef i64 @_ZN6brotli3enc17compress_fragment30BuildAndStoreLiteralPrefixCode17h83efe134a9af9f78E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %401, i64 noundef %400, i64 noundef %.0.sroa.speculated.i450, ptr noalias noundef nonnull align 1 %22, ptr noalias noundef nonnull align 2 %21, ptr noalias noundef nonnull align 8 dereferenceable(8) %15, ptr noalias noundef nonnull align 1 %16, i64 noundef %17)
+  %402 = call fastcc noundef i64 @_ZN6brotli3enc17compress_fragment30BuildAndStoreLiteralPrefixCode17h83efe134a9af9f78E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %401, i64 noundef %400, i64 noundef %.0.sroa.speculated.i450, ptr noalias noundef nonnull align 1 %22, ptr noalias noundef nonnull align 2 %21, ptr noalias noundef align 8 dereferenceable(8) %15, ptr noalias noundef nonnull align 1 %16, i64 noundef %17)
   call void @_ZN6brotli3enc17compress_fragment30BuildAndStoreCommandPrefixCode17h29a80619c9301224E(ptr noalias noundef nonnull readonly align 4 %23, i64 noundef 128, ptr noalias noundef nonnull align 1 %8, i64 noundef %9, ptr noalias noundef nonnull align 2 %10, i64 noundef %11, ptr noalias noundef nonnull align 8 dereferenceable(8) %15, ptr noalias noundef nonnull align 1 %16, i64 noundef %17)
   br label %.outer.backedge
 
@@ -4743,7 +4743,7 @@ default.unreachable:                              ; preds = %.outer
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i64 @_ZN6brotli3enc17compress_fragment30BuildAndStoreLiteralPrefixCode17h83efe134a9af9f78E(ptr noalias noundef nonnull align 1 %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, ptr noalias noundef nonnull align 1 %4, ptr noalias noundef nonnull align 2 %5, ptr noalias noundef align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 1 %7, i64 noundef %8) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef i64 @_ZN6brotli3enc17compress_fragment30BuildAndStoreLiteralPrefixCode17h83efe134a9af9f78E(ptr noalias noundef nonnull align 1 %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, ptr noalias noundef nonnull align 1 %4, ptr noalias noundef nonnull align 2 %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 1 %7, i64 noundef %8) unnamed_addr #1 personality ptr @rust_eh_personality {
   %10 = alloca [256 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %10, i8 0, i64 1024, i1 false)
@@ -4777,7 +4777,7 @@ define internal fastcc noundef i64 @_ZN6brotli3enc17compress_fragment30BuildAndS
   %.25066 = phi i64 [ 0, %12 ], [ %24, %16 ]
   %17 = getelementptr inbounds [256 x i32], ptr %10, i64 0, i64 %.25066
   %18 = load i32, ptr %17, align 4, !noundef !13
-  %.0.sroa.speculated.i = tail call noundef i32 @llvm.umin.i32(i32 %18, i32 11)
+  %.0.sroa.speculated.i = tail call noundef range(i32 0, 545) i32 @llvm.umin.i32(i32 %18, i32 11)
   %19 = shl nuw nsw i32 %.0.sroa.speculated.i, 1
   %20 = or disjoint i32 %19, 1
   %21 = add i32 %20, %18
@@ -4851,7 +4851,7 @@ define internal fastcc noundef i64 @_ZN6brotli3enc17compress_fragment30BuildAndS
   %.469 = phi i64 [ %60, %.preheader ], [ 0, %.preheader.preheader ]
   %54 = getelementptr inbounds [256 x i32], ptr %10, i64 0, i64 %.469
   %55 = load i32, ptr %54, align 4, !noundef !13
-  %.0.sroa.speculated.i59 = tail call noundef i32 @llvm.umin.i32(i32 %55, i32 11)
+  %.0.sroa.speculated.i59 = tail call noundef range(i32 0, 545) i32 @llvm.umin.i32(i32 %55, i32 11)
   %56 = shl nuw nsw i32 %.0.sroa.speculated.i59, 1
   %57 = add i32 %56, %55
   store i32 %57, ptr %54, align 4
@@ -5355,7 +5355,7 @@ define hidden void @"_ZN6brotli3enc19backward_references19hash_to_binary_tree38H
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq11UpdateNodes17h9ac5d97a123cfd8bE(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, ptr noalias nocapture noundef readonly align 8 dereferenceable(112) %6, i64 noundef %7, ptr noalias noundef nonnull readonly align 4 %8, i64 noundef %9, i64 noundef %10, ptr noalias nocapture noundef nonnull readonly align 8 %11, i64 noundef %12, ptr noalias nocapture noundef readonly align 8 dereferenceable(2864) %13, ptr noalias noundef align 8 dereferenceable(264) %14, ptr noalias noundef nonnull align 4 %15, i64 noundef %16) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq11UpdateNodes17h9ac5d97a123cfd8bE(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(112) %6, i64 noundef range(i64 -15, 9223372036854775793) %7, ptr noalias noundef nonnull readonly align 4 %8, i64 noundef %9, i64 noundef %10, ptr noalias nocapture noundef nonnull readonly align 8 %11, i64 noundef %12, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(2864) %13, ptr noalias noundef nonnull align 8 dereferenceable(264) %14, ptr noalias noundef nonnull align 4 %15, i64 noundef range(i64 1, 0) %16) unnamed_addr #1 personality ptr @rust_eh_personality {
   %18 = alloca i32, align 4
   %19 = alloca i16, align 2
   %20 = alloca [16 x i8], align 16
@@ -5372,7 +5372,7 @@ define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq11Upda
   %.val165 = load ptr, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %13, i64 24
   %.val166 = load i64, ptr %29, align 8
-  tail call fastcc void @_ZN6brotli3enc19backward_references2hq12EvaluateNode17h5324db64ff98ae38E(i64 noundef %1, i64 noundef %2, i64 noundef %7, ptr noalias noundef nonnull readonly align 4 %8, i64 noundef %9, ptr %.val165, i64 %.val166, ptr noalias noundef nonnull align 8 dereferenceable(264) %14, ptr noalias noundef nonnull align 4 %15, i64 noundef %16)
+  tail call fastcc void @_ZN6brotli3enc19backward_references2hq12EvaluateNode17h5324db64ff98ae38E(i64 noundef %1, i64 noundef %2, i64 noundef %7, ptr noalias noundef nonnull readonly align 4 %8, i64 noundef %9, ptr %.val165, i64 %.val166, ptr noalias noundef align 8 dereferenceable(264) %14, ptr noalias noundef nonnull align 4 %15, i64 noundef %16)
   %30 = getelementptr inbounds i8, ptr %14, i64 256
   %31 = load i64, ptr %30, align 8, !noundef !13
   %32 = sub i64 0, %31
@@ -5587,7 +5587,7 @@ _ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h82ae773
   br i1 %brmerge, label %.loopexit179, label %.lr.ph311
 
 .lr.ph311:                                        ; preds = %._crit_edge
-  %148 = shl i16 %.0.i153171, 3
+  %148 = shl nuw nsw i16 %.0.i153171, 3
   %149 = and i16 %148, 56
   %150 = lshr i16 %.0.i153171, 3
   %narrow.i149 = mul nuw nsw i16 %150, 3
@@ -6063,7 +6063,7 @@ _ZN6brotli3enc7command17GetCopyLengthCode17hab981e27915e86caE.exit145: ; preds =
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6brotli3enc19backward_references2hq12EvaluateNode17h5324db64ff98ae38E(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr readonly %.16.val, i64 %.24.val, ptr noalias noundef align 8 dereferenceable(264) %5, ptr noalias noundef nonnull align 4 %6, i64 noundef %7) unnamed_addr #1 {
+define internal fastcc void @_ZN6brotli3enc19backward_references2hq12EvaluateNode17h5324db64ff98ae38E(i64 noundef %0, i64 noundef %1, i64 noundef range(i64 -15, 9223372036854775793) %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr readonly %.16.val, i64 %.24.val, ptr noalias noundef nonnull align 8 dereferenceable(264) %5, ptr noalias noundef nonnull align 4 %6, i64 noundef range(i64 1, 0) %7) unnamed_addr #1 {
   %9 = alloca { [4 x i32], i64, float, float }, align 16
   %10 = icmp ult i64 %1, %7
   br i1 %10, label %11, label %15, !prof !217
@@ -6184,7 +6184,7 @@ _ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h82ae773
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq17FindAllMatchesH1017h150998911d6d27d2E(ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %0, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noalias nocapture noundef readonly align 8 dereferenceable(112) %8, ptr noalias nocapture noundef nonnull writeonly align 8 %9, i64 noundef %10) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq17FindAllMatchesH1017h150998911d6d27d2E(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(112) %8, ptr noalias nocapture noundef nonnull writeonly align 8 %9, i64 noundef %10) unnamed_addr #1 personality ptr @rust_eh_personality {
   %12 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %13 = alloca [38 x i32], align 4
   %14 = alloca i64, align 8
@@ -6470,7 +6470,7 @@ define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq17Find
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6brotli3enc19backward_references2hq19InitZopfliCostModel17h22686c07e3bae77aE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(2864) %0, i32 %.16.val, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6brotli3enc19backward_references2hq19InitZopfliCostModel17h22686c07e3bae77aE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(2864) %0, i32 %.16.val, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -6560,7 +6560,7 @@ define internal fastcc void @_ZN6brotli3enc19backward_references2hq19InitZopfliC
   %.pn7 = phi { ptr, i64 } [ %22, %31 ], [ %26, %34 ]
   %.sroa.03.0 = phi ptr [ %32, %31 ], [ %35, %34 ]
   %.sroa.65.0 = extractvalue { ptr, i64 } %.pn7, 1
-  %.0.sroa.speculated.i = tail call noundef i32 @llvm.umin.i32(i32 %.16.val, i32 544)
+  %.0.sroa.speculated.i = tail call noundef range(i32 0, 545) i32 @llvm.umin.i32(i32 %.16.val, i32 544)
   %38 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2816) %38, i8 0, i64 2816, i1 false)
   store ptr %.sroa.03.0, ptr %0, align 8
@@ -6620,7 +6620,7 @@ define hidden void @_ZN6brotli3enc19backward_references2hq24StitchToPreviousBloc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6brotli3enc19backward_references2hq34ZopfliCostModelSetFromLiteralCosts17h6050b0b1f17787b4E(ptr noalias nocapture noundef align 8 dereferenceable(2864) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %4) unnamed_addr #1 {
+define internal fastcc void @_ZN6brotli3enc19backward_references2hq34ZopfliCostModelSetFromLiteralCosts17h6050b0b1f17787b4E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(2864) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %4) unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %.val43 = load ptr, ptr %6, align 8, !nonnull !13, !align !16, !noundef !13
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6869,11 +6869,11 @@ define hidden void @_ZN6brotli3enc19backward_references2hq36BrotliCreateZopfliBa
   store float 0.000000e+00, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !636, !noalias !643
   %61 = getelementptr inbounds i8, ptr %7, i64 32
   %.val.i = load i32, ptr %61, align 8, !alias.scope !631, !noalias !638
-  invoke fastcc void @_ZN6brotli3enc19backward_references2hq19InitZopfliCostModel17h22686c07e3bae77aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(2864) %25, i32 %.val.i, i64 noundef %2)
+  invoke fastcc void @_ZN6brotli3enc19backward_references2hq19InitZopfliCostModel17h22686c07e3bae77aE(ptr noalias nocapture noundef align 8 dereferenceable(2864) %25, i32 %.val.i, i64 noundef %2)
           to label %.noexc21 unwind label %.body.thread51
 
 .noexc21:                                         ; preds = %59
-  invoke fastcc void @_ZN6brotli3enc19backward_references2hq34ZopfliCostModelSetFromLiteralCosts17h6050b0b1f17787b4E(ptr noalias noundef nonnull align 8 dereferenceable(2864) %25, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6)
+  invoke fastcc void @_ZN6brotli3enc19backward_references2hq34ZopfliCostModelSetFromLiteralCosts17h6050b0b1f17787b4E(ptr noalias noundef align 8 dereferenceable(2864) %25, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6)
           to label %63 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !644
 
 62:                                               ; preds = %._crit_edge
@@ -7049,7 +7049,7 @@ _ZN6brotli3enc19backward_references2hq28ComputeShortestPathFromNodes17hfd9e46c3c
   %134 = add i64 %.04140.i, %3
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %134, i64 %35)
   %135 = sub i64 %2, %.04140.i
-  %136 = invoke fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq17FindAllMatchesH1017h150998911d6d27d2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %8, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, i64 noundef %134, i64 noundef %135, i64 noundef %.0.sroa.speculated.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %7, ptr noalias noundef nonnull align 8 %23, i64 noundef 128)
+  %136 = invoke fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq17FindAllMatchesH1017h150998911d6d27d2E(ptr noalias noundef readonly align 8 dereferenceable(96) %8, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, i64 noundef %134, i64 noundef %135, i64 noundef %.0.sroa.speculated.i.i, ptr noalias noundef readonly align 8 dereferenceable(112) %7, ptr noalias noundef nonnull align 8 %23, i64 noundef 128)
           to label %137 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 137:                                              ; preds = %133
@@ -7063,7 +7063,7 @@ _ZN6brotli3enc19backward_references2hq28ComputeShortestPathFromNodes17hfd9e46c3c
 
 141:                                              ; preds = %150, %143, %137
   %.044.i = phi i64 [ 1, %150 ], [ 0, %137 ], [ %136, %143 ]
-  %142 = invoke fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq11UpdateNodes17h9ac5d97a123cfd8bE(i64 noundef %2, i64 noundef %3, i64 noundef %.04140.i, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %7, i64 noundef %35, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %.044.i, ptr noalias noundef nonnull readonly align 8 %23, i64 noundef 128, ptr noalias noundef nonnull readonly align 8 dereferenceable(2864) %25, ptr noalias noundef nonnull align 8 dereferenceable(264) %24, ptr noalias noundef nonnull align 4 %.sroa.0.0.pre-phi110, i64 noundef %.sroa.5.0111)
+  %142 = invoke fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq11UpdateNodes17h9ac5d97a123cfd8bE(i64 noundef %2, i64 noundef %3, i64 noundef %.04140.i, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(112) %7, i64 noundef %35, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %.044.i, ptr noalias noundef nonnull readonly align 8 %23, i64 noundef 128, ptr noalias noundef readonly align 8 dereferenceable(2864) %25, ptr noalias noundef align 8 dereferenceable(264) %24, ptr noalias noundef nonnull align 4 %.sroa.0.0.pre-phi110, i64 noundef %.sroa.5.0111)
           to label %151 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, !noalias !634
 
 143:                                              ; preds = %138
@@ -7830,7 +7830,7 @@ define hidden void @_ZN6brotli3enc19backward_references2hq38BrotliCreateHqZopfli
   call void @llvm.lifetime.start.p0(i64 2864, ptr nonnull %42)
   %116 = getelementptr inbounds i8, ptr %7, i64 32
   %.val159 = load i32, ptr %116, align 8
-  invoke fastcc void @_ZN6brotli3enc19backward_references2hq19InitZopfliCostModel17h22686c07e3bae77aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(2864) %42, i32 %.val159, i64 noundef %2)
+  invoke fastcc void @_ZN6brotli3enc19backward_references2hq19InitZopfliCostModel17h22686c07e3bae77aE(ptr noalias nocapture noundef align 8 dereferenceable(2864) %42, i32 %.val159, i64 noundef %2)
           to label %117 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 117:                                              ; preds = %115
@@ -7981,7 +7981,7 @@ define hidden void @_ZN6brotli3enc19backward_references2hq38BrotliCreateHqZopfli
   br i1 %exitcond818.not, label %.invoke, label %422, !prof !14
 
 170:                                              ; preds = %._crit_edge644
-  invoke fastcc void @_ZN6brotli3enc19backward_references2hq34ZopfliCostModelSetFromLiteralCosts17h6050b0b1f17787b4E(ptr noalias noundef nonnull align 8 dereferenceable(2864) %43, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6)
+  invoke fastcc void @_ZN6brotli3enc19backward_references2hq34ZopfliCostModelSetFromLiteralCosts17h6050b0b1f17787b4E(ptr noalias noundef align 8 dereferenceable(2864) %43, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6)
           to label %243 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 171:                                              ; preds = %._crit_edge644
@@ -8264,7 +8264,7 @@ _ZN6brotli3enc19backward_references2hq30ZopfliCostModelSetFromCommands17h44f0831
   %285 = zext i32 %284 to i64
   %286 = sub nuw i64 %.sroa.17.1.lcssa, %.0121.i
   %287 = getelementptr inbounds i64, ptr %.sroa.0306.1.lcssa, i64 %.0121.i
-  %288 = invoke fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq11UpdateNodes17h9ac5d97a123cfd8bE(i64 noundef %2, i64 noundef %3, i64 noundef %.046120.i, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %7, i64 noundef %50, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %285, ptr noalias noundef nonnull readonly align 8 %287, i64 noundef %286, ptr noalias noundef nonnull readonly align 8 dereferenceable(2864) %43, ptr noalias noundef nonnull align 8 dereferenceable(264) %26, ptr noalias noundef nonnull align 4 %.sroa.029.0.pre-phi, i64 noundef %.sroa.530.0)
+  %288 = invoke fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq11UpdateNodes17h9ac5d97a123cfd8bE(i64 noundef %2, i64 noundef %3, i64 noundef %.046120.i, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(112) %7, i64 noundef %50, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %285, ptr noalias noundef nonnull readonly align 8 %287, i64 noundef %286, ptr noalias noundef readonly align 8 dereferenceable(2864) %43, ptr noalias noundef align 8 dereferenceable(264) %26, ptr noalias noundef nonnull align 4 %.sroa.029.0.pre-phi, i64 noundef %.sroa.530.0)
           to label %.noexc229 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc229:                                        ; preds = %282
@@ -8743,7 +8743,7 @@ _ZN6brotli3enc19backward_references2hq12EvaluateNode17h5324db64ff98ae38E.exit.i:
 474:                                              ; preds = %472
   %475 = sub nuw i64 %.sroa.17.4, %.092639
   %476 = getelementptr inbounds i64, ptr %.sroa.0306.4, i64 %.092639
-  %477 = invoke fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq17FindAllMatchesH1017h150998911d6d27d2E(ptr noalias noundef nonnull align 8 dereferenceable(96) %8, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, i64 noundef %430, i64 noundef %431, i64 noundef %.0.sroa.speculated.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %7, ptr noalias noundef nonnull align 8 %476, i64 noundef %475)
+  %477 = invoke fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq17FindAllMatchesH1017h150998911d6d27d2E(ptr noalias noundef align 8 dereferenceable(96) %8, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, i64 noundef %430, i64 noundef %431, i64 noundef %.0.sroa.speculated.i, ptr noalias noundef readonly align 8 dereferenceable(112) %7, ptr noalias noundef nonnull align 8 %476, i64 noundef %475)
           to label %479 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 478:                                              ; preds = %472

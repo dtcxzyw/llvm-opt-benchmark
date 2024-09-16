@@ -434,7 +434,7 @@ if.end28:                                         ; preds = %if.end23
   %add.ptr17.i = getelementptr inbounds i8, ptr %add.ptr12.i, i64 %15
   store i8 32, ptr %add.ptr17.i, align 1
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr17.i, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr18.i, ptr nonnull readonly align 1 %line.addr.044, i64 %line_len.addr.043, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr18.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %line.addr.044, i64 %line_len.addr.043, i1 false)
   %valuelen19.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %add2.i, ptr %valuelen19.i, align 8
   %16 = load ptr, ptr %dynhds, align 8

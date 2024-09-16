@@ -407,7 +407,7 @@ define dso_local i32 @cbuf_lines_reused(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 52
   %8 = load i32, ptr %7, align 4
-  %9 = call fastcc i32 @cbuf_find_replay_line(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %2, ptr noundef null)
+  %9 = call fastcc i32 @cbuf_find_replay_line(ptr noundef %0, i32 noundef %8, ptr noundef %2, ptr noundef null)
   %10 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not8 = icmp eq i32 %10, 0
   br i1 %.not8, label %13, label %11
@@ -424,7 +424,7 @@ define dso_local i32 @cbuf_lines_reused(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @cbuf_find_replay_line(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc i32 @cbuf_find_replay_line(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr noundef writeonly %3) unnamed_addr #5 {
   %5 = load i32, ptr %2, align 4
   store i32 0, ptr %2, align 4
   %.not = icmp eq ptr %3, null
@@ -1206,7 +1206,7 @@ define dso_local i32 @cbuf_write(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   unreachable
 
 18:                                               ; preds = %14
-  %19 = call fastcc i32 @cbuf_writer(ptr noundef %0, i32 noundef %2, ptr noundef nonnull @cbuf_get_mem, ptr noundef nonnull %5, ptr noundef %3)
+  %19 = call fastcc i32 @cbuf_writer(ptr noundef %0, i32 noundef %2, ptr noundef nonnull @cbuf_get_mem, ptr noundef %5, ptr noundef %3)
   %20 = call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not20 = icmp eq i32 %20, 0
   br i1 %.not20, label %23, label %21
@@ -1223,7 +1223,7 @@ define dso_local i32 @cbuf_write(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cbuf_writer(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @cbuf_writer(ptr nocapture noundef %0, i32 noundef range(i32 1, -2147483648) %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 52
   %8 = load i32, ptr %7, align 4
@@ -1307,128 +1307,138 @@ cbuf_grow.exit:                                   ; preds = %17, %52
   %.088 = phi i32 [ %54, %cbuf_grow.exit ], [ %11, %13 ], [ %11, %5 ]
   %57 = getelementptr inbounds i8, ptr %0, i64 60
   %58 = load i32, ptr %57, align 4
-  switch i32 %58, label %66 [
-    i32 0, label %59
-    i32 1, label %65
+  switch i32 %58, label %select.unfold.thread [
+    i32 0, label %61
+    i32 1, label %67
   ]
 
-59:                                               ; preds = %55
-  %60 = load i32, ptr %9, align 8
-  %61 = sub nsw i32 %56, %60
-  %. = call i32 @llvm.smin.i32(i32 %1, i32 %61)
-  %62 = icmp eq i32 %., 0
-  br i1 %62, label %63, label %66
+select.unfold.thread:                             ; preds = %55
+  %59 = getelementptr inbounds i8, ptr %0, i64 68
+  %60 = load i32, ptr %59, align 4
+  br label %.preheader
 
-63:                                               ; preds = %59
-  %64 = tail call ptr @__errno_location() #14
-  store i32 28, ptr %64, align 4
-  br label %117
+61:                                               ; preds = %55
+  %62 = load i32, ptr %9, align 8
+  %63 = sub nsw i32 %56, %62
+  %. = call i32 @llvm.smin.i32(i32 %1, i32 %63)
+  %64 = icmp eq i32 %56, %62
+  br i1 %64, label %65, label %select.unfold
 
-65:                                               ; preds = %55
-  %.105 = call i32 @llvm.smin.i32(i32 %1, i32 %56)
-  br label %66
+65:                                               ; preds = %61
+  %66 = tail call ptr @__errno_location() #14
+  store i32 28, ptr %66, align 4
+  br label %121
 
-66:                                               ; preds = %55, %65, %59
-  %.089 = phi i32 [ %., %59 ], [ %.105, %65 ], [ %1, %55 ]
-  %67 = getelementptr inbounds i8, ptr %0, i64 68
-  %68 = load i32, ptr %67, align 4
+67:                                               ; preds = %55
+  %spec.select = call i32 @llvm.smin.i32(i32 %1, i32 %56)
+  br label %select.unfold
+
+select.unfold:                                    ; preds = %67, %61
+  %.089 = phi i32 [ %., %61 ], [ %spec.select, %67 ]
+  %68 = getelementptr inbounds i8, ptr %0, i64 68
+  %69 = load i32, ptr %68, align 4
   %.old1 = icmp sgt i32 %.089, 0
   br i1 %.old1, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %0, i64 80
-  br label %70
+.preheader:                                       ; preds = %select.unfold.thread, %select.unfold
+  %70 = phi i32 [ %60, %select.unfold.thread ], [ %69, %select.unfold ]
+  %71 = phi ptr [ %59, %select.unfold.thread ], [ %68, %select.unfold ]
+  %.089114 = phi i32 [ %1, %select.unfold.thread ], [ %.089, %select.unfold ]
+  %72 = getelementptr inbounds i8, ptr %0, i64 80
+  br label %73
 
-70:                                               ; preds = %.preheader, %84
-  %.085 = phi i32 [ %.287, %84 ], [ %.089, %.preheader ]
-  %.0 = phi i32 [ %.2, %84 ], [ %68, %.preheader ]
-  %71 = load i32, ptr %7, align 4
-  %reass.sub = sub i32 %71, %.0
-  %72 = add i32 %reass.sub, 1
-  %.085. = call i32 @llvm.smin.i32(i32 %.085, i32 %72)
-  %73 = load ptr, ptr %69, align 8
-  %74 = sext i32 %.0 to i64
-  %75 = getelementptr inbounds i8, ptr %73, i64 %74
-  %76 = call i32 %2(ptr noundef %75, ptr noundef %3, i32 noundef %.085.) #15, !callees !12
-  %77 = icmp sgt i32 %76, 0
-  br i1 %77, label %78, label %84
+73:                                               ; preds = %.preheader, %87
+  %.085 = phi i32 [ %.287, %87 ], [ %.089114, %.preheader ]
+  %.0 = phi i32 [ %.2, %87 ], [ %70, %.preheader ]
+  %74 = load i32, ptr %7, align 4
+  %reass.sub = sub i32 %74, %.0
+  %75 = add i32 %reass.sub, 1
+  %.085. = call i32 @llvm.smin.i32(i32 %.085, i32 %75)
+  %76 = load ptr, ptr %72, align 8
+  %77 = sext i32 %.0 to i64
+  %78 = getelementptr inbounds i8, ptr %76, i64 %77
+  %79 = call i32 %2(ptr noundef %78, ptr noundef nonnull %3, i32 noundef %.085.) #15, !callees !12
+  %80 = icmp sgt i32 %79, 0
+  br i1 %80, label %81, label %87
 
-78:                                               ; preds = %70
-  %79 = sub nsw i32 %.085, %76
-  %80 = add nsw i32 %76, %.0
-  %81 = load i32, ptr %7, align 4
-  %82 = add nsw i32 %81, 1
-  %83 = srem i32 %80, %82
-  br label %84
+81:                                               ; preds = %73
+  %82 = sub nsw i32 %.085, %79
+  %83 = add nsw i32 %79, %.0
+  %84 = load i32, ptr %7, align 4
+  %85 = add nsw i32 %84, 1
+  %86 = srem i32 %83, %85
+  br label %87
 
-84:                                               ; preds = %78, %70
-  %.287 = phi i32 [ %79, %78 ], [ %.085, %70 ]
-  %.2 = phi i32 [ %83, %78 ], [ %.0, %70 ]
-  %85 = icmp eq i32 %.085., %76
-  %86 = icmp sgt i32 %.287, 0
-  %or.cond = select i1 %85, i1 %86, i1 false
-  br i1 %or.cond, label %70, label %.loopexit, !llvm.loop !13
+87:                                               ; preds = %81, %73
+  %.287 = phi i32 [ %82, %81 ], [ %.085, %73 ]
+  %.2 = phi i32 [ %86, %81 ], [ %.0, %73 ]
+  %88 = icmp eq i32 %.085., %79
+  %89 = icmp sgt i32 %.287, 0
+  %or.cond = select i1 %88, i1 %89, i1 false
+  br i1 %or.cond, label %73, label %.loopexit, !llvm.loop !13
 
-.loopexit:                                        ; preds = %84, %66
-  %.186 = phi i32 [ %.089, %66 ], [ %.287, %84 ]
-  %.083 = phi i32 [ 0, %66 ], [ %76, %84 ]
-  %.1 = phi i32 [ %68, %66 ], [ %.2, %84 ]
-  %87 = sub nsw i32 %.089, %.186
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %117, label %89
+.loopexit:                                        ; preds = %87, %select.unfold
+  %90 = phi ptr [ %68, %select.unfold ], [ %71, %87 ]
+  %.089113 = phi i32 [ %.089, %select.unfold ], [ %.089114, %87 ]
+  %.186 = phi i32 [ %.089, %select.unfold ], [ %.287, %87 ]
+  %.083 = phi i32 [ 0, %select.unfold ], [ %79, %87 ]
+  %.1 = phi i32 [ %69, %select.unfold ], [ %.2, %87 ]
+  %91 = sub nsw i32 %.089113, %.186
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %121, label %93
 
-89:                                               ; preds = %.loopexit
-  %90 = icmp sgt i32 %87, 0
-  br i1 %90, label %91, label %113
+93:                                               ; preds = %.loopexit
+  %94 = icmp sgt i32 %91, 0
+  br i1 %94, label %95, label %117
 
-91:                                               ; preds = %89
-  %92 = getelementptr inbounds i8, ptr %0, i64 72
-  %93 = load i32, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 76
-  %95 = load i32, ptr %94, align 4
-  %96 = sub i32 %93, %95
-  %97 = load i32, ptr %7, align 4
-  %98 = add nsw i32 %97, 1
-  %99 = add nsw i32 %96, %98
-  %100 = srem i32 %99, %98
-  %101 = load i32, ptr %9, align 8
-  %102 = add nsw i32 %101, %87
-  %.106 = call i32 @llvm.smin.i32(i32 %102, i32 %97)
+95:                                               ; preds = %93
+  %96 = getelementptr inbounds i8, ptr %0, i64 72
+  %97 = load i32, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %0, i64 76
+  %99 = load i32, ptr %98, align 4
+  %100 = sub i32 %97, %99
+  %101 = load i32, ptr %7, align 4
+  %102 = add nsw i32 %101, 1
+  %103 = add nsw i32 %100, %102
+  %104 = srem i32 %103, %102
+  %105 = load i32, ptr %9, align 8
+  %106 = add nsw i32 %105, %91
+  %.106 = call i32 @llvm.smin.i32(i32 %106, i32 %101)
   store i32 %.106, ptr %9, align 8
-  store i32 %.1, ptr %67, align 4
-  %103 = sub nsw i32 %.088, %100
-  %104 = icmp sgt i32 %87, %103
-  br i1 %104, label %105, label %109
+  store i32 %.1, ptr %90, align 4
+  %107 = sub nsw i32 %.088, %104
+  %108 = icmp sgt i32 %91, %107
+  br i1 %108, label %109, label %113
 
-105:                                              ; preds = %91
-  %106 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 1, ptr %106, align 8
-  %107 = add nsw i32 %.1, 1
-  %108 = srem i32 %107, %98
-  store i32 %108, ptr %94, align 4
-  br label %109
-
-109:                                              ; preds = %105, %91
-  %110 = phi i32 [ %108, %105 ], [ %95, %91 ]
-  %111 = icmp sgt i32 %87, %.088
-  br i1 %111, label %112, label %113
-
-112:                                              ; preds = %109
-  store i32 %110, ptr %92, align 8
+109:                                              ; preds = %95
+  %110 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 1, ptr %110, align 8
+  %111 = add nsw i32 %.1, 1
+  %112 = srem i32 %111, %102
+  store i32 %112, ptr %98, align 4
   br label %113
 
-113:                                              ; preds = %109, %112, %89
-  %.not = icmp eq ptr %4, null
-  br i1 %.not, label %117, label %114
+113:                                              ; preds = %109, %95
+  %114 = phi i32 [ %112, %109 ], [ %99, %95 ]
+  %115 = icmp sgt i32 %91, %.088
+  br i1 %115, label %116, label %117
 
-114:                                              ; preds = %113
-  %115 = sub nsw i32 %87, %.088
-  %116 = call i32 @llvm.smax.i32(i32 %115, i32 0)
-  store i32 %116, ptr %4, align 4
+116:                                              ; preds = %113
+  store i32 %114, ptr %96, align 8
   br label %117
 
-117:                                              ; preds = %113, %114, %.loopexit, %63
-  %.084 = phi i32 [ -1, %63 ], [ %.083, %.loopexit ], [ %87, %114 ], [ %87, %113 ]
+117:                                              ; preds = %113, %116, %93
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %121, label %118
+
+118:                                              ; preds = %117
+  %119 = sub nsw i32 %91, %.088
+  %120 = call i32 @llvm.smax.i32(i32 %119, i32 0)
+  store i32 %120, ptr %4, align 4
+  br label %121
+
+121:                                              ; preds = %117, %118, %.loopexit, %65
+  %.084 = phi i32 [ -1, %65 ], [ %.083, %.loopexit ], [ %91, %118 ], [ %91, %117 ]
   ret i32 %.084
 }
 
@@ -1670,25 +1680,23 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
 52:                                               ; preds = %cbuf_find_unread_line.exit
   %53 = tail call i32 @llvm.umin.i32(i32 %.134.i, i32 %17)
   %54 = icmp ugt i32 %2, 1
-  br i1 %54, label %55, label %cbuf_reader.exit
+  %.old1.i = icmp sgt i32 %22, 0
+  %or.cond46 = and i1 %54, %.old1.i
+  br i1 %or.cond46, label %.preheader.i, label %cbuf_reader.exit
 
-55:                                               ; preds = %52
-  %..i = tail call i32 @llvm.smin.i32(i32 %53, i32 %22)
-  %.old1.i = icmp sgt i32 %..i, 0
-  br i1 %.old1.i, label %.preheader.i, label %cbuf_reader.exit
-
-.preheader.i:                                     ; preds = %55
+.preheader.i:                                     ; preds = %52
+  %55 = tail call i32 @llvm.umin.i32(i32 %53, i32 %22)
   %56 = getelementptr inbounds i8, ptr %0, i64 52
   %57 = getelementptr inbounds i8, ptr %0, i64 80
   br label %58
 
 58:                                               ; preds = %73, %.preheader.i
   %.041 = phi ptr [ %1, %.preheader.i ], [ %65, %73 ]
-  %.035.i = phi i32 [ %..i, %.preheader.i ], [ %.2.i37, %73 ]
+  %.035.i = phi i32 [ %55, %.preheader.i ], [ %.2.i37, %73 ]
   %.0.i = phi i32 [ %26, %.preheader.i ], [ %.1.i38, %73 ]
   %59 = load i32, ptr %56, align 4
-  %reass.sub.i = sub i32 %59, %.0.i
-  %60 = add i32 %reass.sub.i, 1
+  %reass.sub = sub i32 %59, %.0.i
+  %60 = add i32 %reass.sub, 1
   %.035..i = tail call i32 @llvm.smin.i32(i32 %.035.i, i32 %60)
   %61 = load ptr, ptr %57, align 8
   %62 = sext i32 %.0.i to i64
@@ -1696,7 +1704,7 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
   %64 = sext i32 %.035..i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.041, ptr readonly align 1 %63, i64 %64, i1 false)
   %65 = getelementptr inbounds i8, ptr %.041, i64 %64
-  %66 = icmp ult i32 %reass.sub.i, 2147483647
+  %66 = icmp sgt i32 %.035..i, 0
   br i1 %66, label %67, label %73
 
 67:                                               ; preds = %58
@@ -1713,7 +1721,7 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
   %74 = icmp sgt i32 %.2.i37, 0
   br i1 %74, label %58, label %cbuf_reader.exit, !llvm.loop !10
 
-cbuf_reader.exit:                                 ; preds = %73, %55, %52
+cbuf_reader.exit:                                 ; preds = %73, %52
   %75 = zext nneg i32 %53 to i64
   %76 = getelementptr inbounds i8, ptr %1, i64 %75
   store i8 0, ptr %76, align 1
@@ -1748,11 +1756,11 @@ define dso_local i32 @cbuf_read_line(ptr noundef %0, ptr noundef writeonly %1, i
 8:                                                ; preds = %4
   %9 = tail call ptr @__errno_location() #14
   store i32 22, ptr %9, align 4
-  br label %84
+  br label %86
 
 10:                                               ; preds = %4
   %11 = icmp eq i32 %3, 0
-  br i1 %11, label %84, label %12
+  br i1 %11, label %86, label %12
 
 12:                                               ; preds = %10
   %13 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #15
@@ -1836,80 +1844,83 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
 
 51:                                               ; preds = %cbuf_find_unread_line.exit
   %52 = icmp sgt i32 %2, 0
-  br i1 %52, label %53, label %73
+  br i1 %52, label %53, label %75
 
 53:                                               ; preds = %51
   %54 = tail call i32 @llvm.umin.i32(i32 %.235.i, i32 %17)
   %.not36 = icmp ne i32 %2, 1
-  %..i = tail call i32 @llvm.smin.i32(i32 %54, i32 %22)
-  %.old1.i = icmp sgt i32 %..i, 0
-  %or.cond52 = select i1 %.not36, i1 %.old1.i, i1 false
+  %.old1.i = icmp sgt i32 %22, 0
+  %or.cond52 = and i1 %.not36, %.old1.i
   br i1 %or.cond52, label %.preheader.i, label %cbuf_reader.exit
 
-.preheader.i:                                     ; preds = %53, %69
-  %.042 = phi ptr [ %61, %69 ], [ %1, %53 ]
-  %.035.i = phi i32 [ %.2.i38, %69 ], [ %..i, %53 ]
-  %.0.i = phi i32 [ %.1.i39, %69 ], [ %26, %53 ]
-  %55 = load i32, ptr %32, align 4
-  %reass.sub.i = sub i32 %55, %.0.i
-  %56 = add i32 %reass.sub.i, 1
-  %.035..i = tail call i32 @llvm.smin.i32(i32 %.035.i, i32 %56)
-  %57 = load ptr, ptr %30, align 8
-  %58 = sext i32 %.0.i to i64
-  %59 = getelementptr inbounds i8, ptr %57, i64 %58
-  %60 = sext i32 %.035..i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.042, ptr readonly align 1 %59, i64 %60, i1 false)
-  %61 = getelementptr inbounds i8, ptr %.042, i64 %60
-  %62 = icmp ult i32 %reass.sub.i, 2147483647
-  br i1 %62, label %63, label %69
+.preheader.i:                                     ; preds = %53
+  %55 = tail call i32 @llvm.umin.i32(i32 %54, i32 %22)
+  br label %56
 
-63:                                               ; preds = %.preheader.i
-  %64 = sub nsw i32 %.035.i, %.035..i
-  %65 = add nsw i32 %.035..i, %.0.i
-  %66 = load i32, ptr %32, align 4
-  %67 = add nsw i32 %66, 1
-  %68 = srem i32 %65, %67
-  br label %69
+56:                                               ; preds = %71, %.preheader.i
+  %.042 = phi ptr [ %1, %.preheader.i ], [ %63, %71 ]
+  %.035.i = phi i32 [ %55, %.preheader.i ], [ %.2.i38, %71 ]
+  %.0.i = phi i32 [ %26, %.preheader.i ], [ %.1.i39, %71 ]
+  %57 = load i32, ptr %32, align 4
+  %reass.sub = sub i32 %57, %.0.i
+  %58 = add i32 %reass.sub, 1
+  %.035..i = tail call i32 @llvm.smin.i32(i32 %.035.i, i32 %58)
+  %59 = load ptr, ptr %30, align 8
+  %60 = sext i32 %.0.i to i64
+  %61 = getelementptr inbounds i8, ptr %59, i64 %60
+  %62 = sext i32 %.035..i to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.042, ptr readonly align 1 %61, i64 %62, i1 false)
+  %63 = getelementptr inbounds i8, ptr %.042, i64 %62
+  %64 = icmp sgt i32 %.035..i, 0
+  br i1 %64, label %65, label %71
 
-69:                                               ; preds = %63, %.preheader.i
-  %.2.i38 = phi i32 [ %64, %63 ], [ %.035.i, %.preheader.i ]
-  %.1.i39 = phi i32 [ %68, %63 ], [ %.0.i, %.preheader.i ]
-  %70 = icmp sgt i32 %.2.i38, 0
-  br i1 %70, label %.preheader.i, label %cbuf_reader.exit, !llvm.loop !10
+65:                                               ; preds = %56
+  %66 = sub nsw i32 %.035.i, %.035..i
+  %67 = add nsw i32 %.035..i, %.0.i
+  %68 = load i32, ptr %32, align 4
+  %69 = add nsw i32 %68, 1
+  %70 = srem i32 %67, %69
+  br label %71
 
-cbuf_reader.exit:                                 ; preds = %69, %53
-  %71 = zext nneg i32 %54 to i64
-  %72 = getelementptr inbounds i8, ptr %1, i64 %71
-  store i8 0, ptr %72, align 1
+71:                                               ; preds = %65, %56
+  %.2.i38 = phi i32 [ %66, %65 ], [ %.035.i, %56 ]
+  %.1.i39 = phi i32 [ %70, %65 ], [ %.0.i, %56 ]
+  %72 = icmp sgt i32 %.2.i38, 0
+  br i1 %72, label %56, label %cbuf_reader.exit, !llvm.loop !10
+
+cbuf_reader.exit:                                 ; preds = %71, %53
+  %73 = zext nneg i32 %54 to i64
+  %74 = getelementptr inbounds i8, ptr %1, i64 %73
+  store i8 0, ptr %74, align 1
   %.pre = load i32, ptr %21, align 8
   %.pre51 = load i32, ptr %25, align 8
-  br label %73
+  br label %75
 
-73:                                               ; preds = %cbuf_reader.exit, %51
-  %74 = phi i32 [ %.pre51, %cbuf_reader.exit ], [ %26, %51 ]
-  %75 = phi i32 [ %.pre, %cbuf_reader.exit ], [ %22, %51 ]
-  %76 = sub nsw i32 %75, %.235.i
-  store i32 %76, ptr %21, align 8
-  %77 = add nsw i32 %74, %.235.i
-  %78 = load i32, ptr %32, align 4
-  %79 = add nsw i32 %78, 1
-  %80 = srem i32 %77, %79
-  store i32 %80, ptr %25, align 8
+75:                                               ; preds = %cbuf_reader.exit, %51
+  %76 = phi i32 [ %.pre51, %cbuf_reader.exit ], [ %26, %51 ]
+  %77 = phi i32 [ %.pre, %cbuf_reader.exit ], [ %22, %51 ]
+  %78 = sub nsw i32 %77, %.235.i
+  store i32 %78, ptr %21, align 8
+  %79 = add nsw i32 %76, %.235.i
+  %80 = load i32, ptr %32, align 4
+  %81 = add nsw i32 %80, 1
+  %82 = srem i32 %79, %81
+  store i32 %82, ptr %25, align 8
   br label %cbuf_find_unread_line.exit.thread48
 
-cbuf_find_unread_line.exit.thread48:              ; preds = %24, %._crit_edge.i, %20, %16, %cbuf_find_unread_line.exit, %73
-  %.038.i44 = phi i32 [ %.235.i, %cbuf_find_unread_line.exit ], [ %.235.i, %73 ], [ 0, %16 ], [ 0, %20 ], [ 0, %._crit_edge.i ], [ 0, %24 ]
-  %81 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
-  %.not37 = icmp eq i32 %81, 0
-  br i1 %.not37, label %84, label %82
+cbuf_find_unread_line.exit.thread48:              ; preds = %24, %._crit_edge.i, %20, %16, %cbuf_find_unread_line.exit, %75
+  %.038.i44 = phi i32 [ %.235.i, %cbuf_find_unread_line.exit ], [ %.235.i, %75 ], [ 0, %16 ], [ 0, %20 ], [ 0, %._crit_edge.i ], [ 0, %24 ]
+  %83 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
+  %.not37 = icmp eq i32 %83, 0
+  br i1 %.not37, label %86, label %84
 
-82:                                               ; preds = %cbuf_find_unread_line.exit.thread48
-  %83 = tail call ptr @__errno_location() #14
-  store i32 %81, ptr %83, align 4
+84:                                               ; preds = %cbuf_find_unread_line.exit.thread48
+  %85 = tail call ptr @__errno_location() #14
+  store i32 %83, ptr %85, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 615, ptr noundef nonnull @__func__.cbuf_read_line) #16
   unreachable
 
-84:                                               ; preds = %cbuf_find_unread_line.exit.thread48, %10, %8
+86:                                               ; preds = %cbuf_find_unread_line.exit.thread48, %10, %8
   %.0 = phi i32 [ -1, %8 ], [ 0, %10 ], [ %.038.i44, %cbuf_find_unread_line.exit.thread48 ]
   ret i32 %.0
 }
@@ -1948,7 +1959,7 @@ define dso_local i32 @cbuf_replay_line(ptr noundef %0, ptr noundef writeonly %1,
 
 18:                                               ; preds = %14
   %19 = add nsw i32 %2, -1
-  %20 = call fastcc i32 @cbuf_find_replay_line(ptr noundef %0, i32 noundef %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %20 = call fastcc i32 @cbuf_find_replay_line(ptr noundef %0, i32 noundef %19, ptr noundef %5, ptr noundef nonnull %6)
   %21 = icmp sgt i32 %20, 0
   %22 = icmp ne i32 %2, 0
   %or.cond7 = and i1 %22, %21
@@ -2083,7 +2094,7 @@ define dso_local i32 @cbuf_rewind_line(ptr noundef %0, i32 noundef %1, i32 nound
   unreachable
 
 15:                                               ; preds = %11
-  %16 = call fastcc i32 @cbuf_find_replay_line(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, ptr noundef null)
+  %16 = call fastcc i32 @cbuf_find_replay_line(ptr noundef %0, i32 noundef %1, ptr noundef %4, ptr noundef null)
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %18, label %30
 
@@ -2303,7 +2314,7 @@ cbuf_grow.exit:                                   ; preds = %39, %74
   br i1 %101, label %102, label %106
 
 102:                                              ; preds = %100
-  %103 = call fastcc i32 @cbuf_writer(ptr noundef nonnull %0, i32 noundef %.056, ptr noundef nonnull @cbuf_get_mem, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  %103 = call fastcc i32 @cbuf_writer(ptr noundef nonnull %0, i32 noundef %.056, ptr noundef nonnull @cbuf_get_mem, ptr noundef %6, ptr noundef nonnull %5)
   %104 = load i32, ptr %5, align 4
   %105 = add nsw i32 %104, %.054
   br label %106
@@ -2318,7 +2329,7 @@ cbuf_grow.exit:                                   ; preds = %39, %74
   br i1 %.not68, label %.thread, label %111
 
 111:                                              ; preds = %106
-  %112 = call fastcc i32 @cbuf_writer(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @cbuf_get_mem, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  %112 = call fastcc i32 @cbuf_writer(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @cbuf_get_mem, ptr noundef %7, ptr noundef nonnull %5)
   %113 = load i32, ptr %5, align 4
   %114 = add nsw i32 %113, %.155
   br label %.thread
@@ -2805,7 +2816,7 @@ define dso_local i32 @cbuf_write_from_fd(ptr noundef %0, i32 noundef %1, i32 nou
 
 .thread:                                          ; preds = %18, %25
   %.01928 = phi i32 [ %.019, %25 ], [ 1000, %18 ]
-  %27 = call fastcc i32 @cbuf_writer(ptr noundef %0, i32 noundef %.01928, ptr noundef nonnull @cbuf_get_fd, ptr noundef nonnull %5, ptr noundef %3)
+  %27 = call fastcc i32 @cbuf_writer(ptr noundef %0, i32 noundef %.01928, ptr noundef nonnull @cbuf_get_fd, ptr noundef %5, ptr noundef %3)
   br label %28
 
 28:                                               ; preds = %25, %.thread
@@ -2966,12 +2977,12 @@ define dso_local i32 @cbuf_copy(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cbuf_copier(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc i32 @cbuf_copier(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef range(i32 1, -2147483648) %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
   %. = tail call i32 @llvm.smin.i32(i32 %2, i32 %7)
-  %8 = icmp eq i32 %., 0
+  %8 = icmp eq i32 %7, 0
   br i1 %8, label %._crit_edge.thread, label %9
 
 9:                                                ; preds = %4

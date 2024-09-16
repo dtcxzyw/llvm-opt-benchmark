@@ -1145,7 +1145,7 @@ declare dso_local void @__rcu_read_unlock() local_unnamed_addr #5
 declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc ptr @i915_oa_config_get(ptr noundef %0) unnamed_addr #8 align 16 {
+define internal fastcc ptr @i915_oa_config_get(ptr noundef nonnull %0) unnamed_addr #8 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -1247,7 +1247,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @copy_perf_config_registers
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @i915_oa_config_put(ptr noundef %0) unnamed_addr #8 align 16 {
+define internal fastcc void @i915_oa_config_put(ptr noundef nonnull %0) unnamed_addr #8 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 -1, ptr elementtype(i32) %2) #11, !srcloc !43
   %4 = icmp eq i32 %3, 1

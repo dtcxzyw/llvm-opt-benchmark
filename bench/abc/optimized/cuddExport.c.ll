@@ -357,7 +357,7 @@ define range(i32 0, 2) i32 @Cudd_DumpBlifBody(ptr noundef %0, i32 noundef %1, pt
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, -2
   %31 = inttoptr i64 %30 to ptr
-  %32 = tail call fastcc i32 @ddDoDumpBlif(ptr noundef %0, ptr noundef %31, ptr noundef %5, ptr noundef nonnull %8, ptr noundef %3, i32 noundef %6)
+  %32 = tail call fastcc i32 @ddDoDumpBlif(ptr noundef %0, ptr noundef %31, ptr noundef %5, ptr noundef %8, ptr noundef %3, i32 noundef %6)
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %.sink.split, label %10
 
@@ -405,8 +405,8 @@ declare i32 @st__ptrcmp(ptr noundef, ptr noundef) #2
 declare i32 @st__ptrhash(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ddDoDumpBlif(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
-  %7 = tail call i32 @st__lookup(ptr noundef %3, ptr noundef %1, ptr noundef null) #9
+define internal fastcc range(i32 0, 2) i32 @ddDoDumpBlif(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+  %7 = tail call i32 @st__lookup(ptr noundef nonnull %3, ptr noundef %1, ptr noundef null) #9
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %69, label %9
 
@@ -415,7 +415,7 @@ define internal fastcc range(i32 0, 2) i32 @ddDoDumpBlif(ptr noundef %0, ptr nou
   br i1 %10, label %69, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @st__insert(ptr noundef %3, ptr noundef nonnull %1, ptr noundef null) #9
+  %12 = tail call i32 @st__insert(ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef null) #9
   %13 = icmp eq i32 %12, -10000
   br i1 %13, label %69, label %14
 
@@ -1287,7 +1287,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDaVinci(ptr nocapture noundef readnone %0, 
   %64 = ptrtoint ptr %63 to i64
   %65 = and i64 %64, -2
   %66 = inttoptr i64 %65 to ptr
-  %67 = call fastcc i32 @ddDoDumpDaVinci(ptr noundef %66, ptr noundef %5, ptr noundef nonnull %35, ptr noundef %3, i64 noundef %31)
+  %67 = call fastcc i32 @ddDoDumpDaVinci(ptr noundef %66, ptr noundef %5, ptr noundef %35, ptr noundef %3, i64 noundef %31)
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %.thread.sink.split, label %69
 
@@ -1316,11 +1316,11 @@ define range(i32 0, 2) i32 @Cudd_DumpDaVinci(ptr nocapture noundef readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ddDoDumpDaVinci(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ddDoDumpDaVinci(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = ptrtoint ptr %0 to i64
   %7 = and i64 %4, %6
   %8 = udiv i64 %7, 40
-  %9 = tail call i32 @st__lookup(ptr noundef %2, ptr noundef %0, ptr noundef null) #9
+  %9 = tail call i32 @st__lookup(ptr noundef nonnull %2, ptr noundef %0, ptr noundef null) #9
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %15
 
@@ -1335,7 +1335,7 @@ define internal fastcc range(i32 0, 2) i32 @ddDoDumpDaVinci(ptr noundef %0, ptr 
   br i1 %16, label %65, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @st__insert(ptr noundef %2, ptr noundef nonnull %0, ptr noundef null) #9
+  %18 = tail call i32 @st__insert(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef null) #9
   %19 = icmp eq i32 %18, -10000
   br i1 %19, label %65, label %20
 
@@ -1619,7 +1619,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDDcal(ptr noundef %0, i32 noundef %1, ptr n
   %97 = ptrtoint ptr %96 to i64
   %98 = and i64 %97, -2
   %99 = inttoptr i64 %98 to ptr
-  %100 = call fastcc i32 @ddDoDumpDDcal(ptr noundef %0, ptr noundef %99, ptr noundef %5, ptr noundef nonnull %90, ptr noundef %3, i64 noundef %33)
+  %100 = call fastcc i32 @ddDoDumpDDcal(ptr noundef %0, ptr noundef %99, ptr noundef %5, ptr noundef %90, ptr noundef %3, i64 noundef %33)
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %.loopexit, label %102
 
@@ -1729,11 +1729,11 @@ define range(i32 0, 2) i32 @Cudd_DumpDDcal(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ddDoDumpDDcal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ddDoDumpDDcal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = ptrtoint ptr %1 to i64
   %8 = and i64 %5, %7
   %9 = udiv i64 %8, 40
-  %10 = tail call i32 @st__lookup(ptr noundef %3, ptr noundef %1, ptr noundef null) #9
+  %10 = tail call i32 @st__lookup(ptr noundef nonnull %3, ptr noundef %1, ptr noundef null) #9
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %74, label %12
 
@@ -1742,7 +1742,7 @@ define internal fastcc range(i32 0, 2) i32 @ddDoDumpDDcal(ptr noundef %0, ptr no
   br i1 %13, label %74, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @st__insert(ptr noundef %3, ptr noundef nonnull %1, ptr noundef null) #9
+  %15 = tail call i32 @st__insert(ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef null) #9
   %16 = icmp eq i32 %15, -10000
   br i1 %16, label %74, label %17
 

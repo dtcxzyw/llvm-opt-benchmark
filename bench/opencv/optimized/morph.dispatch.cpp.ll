@@ -5097,7 +5097,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %24, %27
 declare noundef zeroext i1 @_ZNK2cv11_InputArray5emptyEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7morphOpEiRKNS_11_InputArrayERKNS_12_OutputArrayES2_NS_6Point_IiEEiiRKNS_7Scalar_IdEE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %7) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7morphOpEiRKNS_11_InputArrayERKNS_12_OutputArrayES2_NS_6Point_IiEEiiRKNS_7Scalar_IdEE(i32 noundef range(i32 0, 2) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %7) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1

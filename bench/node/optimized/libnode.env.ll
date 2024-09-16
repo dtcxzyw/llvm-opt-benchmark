@@ -71555,7 +71555,7 @@ cond.end:                                         ; preds = %if.end6, %_ZNK4node
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond, %cond.end
-  %call15 = call fastcc noundef zeroext i1 @"_ZZN4node11Environment27RunAndClearNativeImmediatesEbENK3$_0clEPNS_13CallbackQueueIvJPS0_EEE"(ptr noundef nonnull align 8 dereferenceable(24) %drain_list, ptr noundef nonnull %native_immediates_)
+  %call15 = call fastcc noundef zeroext i1 @"_ZZN4node11Environment27RunAndClearNativeImmediatesEbENK3$_0clEPNS_13CallbackQueueIvJPS0_EEE"(ptr noundef nonnull align 8 dereferenceable(24) %drain_list, ptr noundef %native_immediates_)
   br i1 %call15, label %while.cond, label %while.end, !llvm.loop !996
 
 while.end:                                        ; preds = %while.cond
@@ -71642,7 +71642,7 @@ while.cond27.preheader:                           ; preds = %_ZN4node13CallbackQ
   br label %while.cond27
 
 while.cond27:                                     ; preds = %while.cond27.preheader, %while.cond27
-  %call28 = call fastcc noundef zeroext i1 @"_ZZN4node11Environment27RunAndClearNativeImmediatesEbENK3$_0clEPNS_13CallbackQueueIvJPS0_EEE"(ptr noundef nonnull align 8 dereferenceable(24) %drain_list, ptr noundef nonnull %threadsafe_immediates)
+  %call28 = call fastcc noundef zeroext i1 @"_ZZN4node11Environment27RunAndClearNativeImmediatesEbENK3$_0clEPNS_13CallbackQueueIvJPS0_EEE"(ptr noundef nonnull align 8 dereferenceable(24) %drain_list, ptr noundef %threadsafe_immediates)
   br i1 %call28, label %while.cond27, label %while.end30, !llvm.loop !997
 
 while.end30:                                      ; preds = %while.cond27
@@ -72316,7 +72316,7 @@ declare ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef) local_unnamed_addr #0
 declare void @_ZN4node21InternalCallbackScopeC1EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEERKNS_13async_contextEi(ptr noundef nonnull align 8 dereferenceable(37), ptr noundef, ptr, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN4node11Environment27RunAndClearNativeImmediatesEbENK3$_0clEPNS_13CallbackQueueIvJPS0_EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef %queue) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN4node11Environment27RunAndClearNativeImmediatesEbENK3$_0clEPNS_13CallbackQueueIvJPS0_EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull %queue) unnamed_addr #3 align 2 {
 entry:
   %try_catch = alloca %"class.node::errors::TryCatchScope", align 8
   %0 = load ptr, ptr %this, align 8

@@ -227,7 +227,7 @@ declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i64 @console_raw(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.rawmode_arg_t, align 4
-  %5 = call fastcc ptr @rawmode_opt(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %4)
+  %5 = call fastcc ptr @rawmode_opt(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef %4)
   %6 = call fastcc i64 @ttymode(i64 noundef %2, ptr noundef nonnull @rb_yield, i64 noundef %2, ptr noundef nonnull @set_rawmode, ptr noundef %5)
   ret i64 %6
 }
@@ -236,7 +236,7 @@ define internal i64 @console_raw(i32 noundef %0, ptr noundef %1, i64 noundef %2)
 define internal noundef i64 @console_set_raw(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #0 {
   %4 = alloca %struct.termios, align 4
   %5 = alloca %struct.rawmode_arg_t, align 4
-  %6 = call fastcc ptr @rawmode_opt(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %5)
+  %6 = call fastcc ptr @rawmode_opt(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef %5)
   %7 = call i32 @rb_io_descriptor(i64 noundef %2) #10
   %8 = call i32 @tcgetattr(i32 noundef %7, ptr noundef nonnull %4) #10
   %9 = icmp eq i32 %8, 0
@@ -376,7 +376,7 @@ setattr.exit:                                     ; preds = %17
 ; Function Attrs: nounwind uwtable
 define internal i64 @console_getch(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.rawmode_arg_t, align 4
-  %5 = call fastcc ptr @rawmode_opt(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %4)
+  %5 = call fastcc ptr @rawmode_opt(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef %4)
   %6 = call fastcc i64 @ttymode(i64 noundef %2, ptr noundef nonnull @getc_call, i64 noundef %2, ptr noundef nonnull @set_rawmode, ptr noundef %5)
   ret i64 %6
 }
@@ -768,7 +768,7 @@ define internal i64 @console_cursor_pos(i64 noundef %0) #0 {
   %2 = alloca %struct.ttymode_callback_args, align 8
   %3 = alloca %struct.rawmode_arg_t, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
-  %4 = call fastcc ptr @rawmode_opt(i32 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3)
+  %4 = call fastcc ptr @rawmode_opt(i32 0, ptr noundef null, i32 noundef 1, ptr noundef %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   store ptr @read_vt_response, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1579,7 +1579,7 @@ define internal noundef i64 @conmode_set_echo(i64 noundef returned %0, i64 nound
 define internal noundef i64 @conmode_set_raw(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #0 {
   %4 = alloca %struct.rawmode_arg_t, align 4
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @conmode_type) #10
-  %6 = call fastcc ptr @rawmode_opt(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %4)
+  %6 = call fastcc ptr @rawmode_opt(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef %4)
   call void @cfmakeraw(ptr noundef %5) #10
   %7 = getelementptr inbounds i8, ptr %5, i64 12
   %8 = load i32, ptr %7, align 4
@@ -1639,7 +1639,7 @@ define internal i64 @conmode_raw_new(i32 noundef %0, ptr noundef %1, i64 noundef
   %5 = alloca %struct.rawmode_arg_t, align 4
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @conmode_type) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %4, ptr noundef nonnull align 4 dereferenceable(60) %6, i64 60, i1 false)
-  %7 = call fastcc ptr @rawmode_opt(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %5)
+  %7 = call fastcc ptr @rawmode_opt(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef %5)
   call void @cfmakeraw(ptr noundef nonnull %4) #10
   %8 = getelementptr inbounds i8, ptr %4, i64 12
   %9 = load i32, ptr %8, align 4
@@ -1700,119 +1700,113 @@ set_rawmode.exit:                                 ; preds = %3, %24, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @rawmode_opt(i32 %.0.val, ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rawmode_opt(i32 %.0.val, ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca [3 x i64], align 16
   %6 = alloca i64, align 8
   store i64 4, ptr %4, align 8
   %7 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %.0.val, ptr noundef %0, ptr noundef nonnull @.str.48, ptr noundef null, ptr noundef nonnull %4) #10
-  %8 = icmp slt i32 %7, 0
-  br i1 %8, label %11, label %9
+  %8 = icmp ugt i32 %7, %1
+  br i1 %8, label %9, label %rb_check_arity.exit
 
 9:                                                ; preds = %3
-  %.not.i = icmp ne i32 %1, -1
-  %10 = icmp sgt i32 %7, %1
-  %or.cond.i = and i1 %.not.i, %10
-  br i1 %or.cond.i, label %11, label %rb_check_arity.exit
-
-11:                                               ; preds = %9, %3
   call void @rb_error_arity(i32 noundef %7, i32 noundef 0, i32 noundef %1) #11
   unreachable
 
-rb_check_arity.exit:                              ; preds = %9
-  %12 = load i64, ptr %4, align 8
-  %13 = call i32 @rb_get_kwargs(i64 noundef %12, ptr noundef nonnull @rawmode_opt_ids, i32 noundef 0, i32 noundef 3, ptr noundef nonnull %5) #10
-  %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %43, label %14
+rb_check_arity.exit:                              ; preds = %3
+  %10 = load i64, ptr %4, align 8
+  %11 = call i32 @rb_get_kwargs(i64 noundef %10, ptr noundef nonnull @rawmode_opt_ids, i32 noundef 0, i32 noundef 3, ptr noundef nonnull %5) #10
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %41, label %12
 
-14:                                               ; preds = %rb_check_arity.exit
-  %15 = load i64, ptr %5, align 16
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
-  %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
-  %19 = load i64, ptr %18, align 16
+12:                                               ; preds = %rb_check_arity.exit
+  %13 = load i64, ptr %5, align 16
+  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = load i64, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = load i64, ptr %16, align 16
   store i32 1, ptr %2, align 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 4
-  store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 0, ptr %21, align 4
-  switch i64 %15, label %22 [
-    i64 36, label %29
-    i64 4, label %29
+  %18 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 0, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 0, ptr %19, align 4
+  switch i64 %13, label %20 [
+    i64 36, label %27
+    i64 4, label %27
   ]
 
-22:                                               ; preds = %14
-  %23 = and i64 %15, 1
-  %.not.i31 = icmp eq i64 %23, 0
-  br i1 %.not.i31, label %26, label %24
+20:                                               ; preds = %12
+  %21 = and i64 %13, 1
+  %.not.i = icmp eq i64 %21, 0
+  br i1 %.not.i, label %24, label %22
 
-24:                                               ; preds = %22
-  %25 = call i64 @rb_fix2int(i64 noundef %15) #10
+22:                                               ; preds = %20
+  %23 = call i64 @rb_fix2int(i64 noundef %13) #10
   br label %rb_num2int_inline.exit
 
-26:                                               ; preds = %22
-  %27 = call i64 @rb_num2int(i64 noundef %15) #10
+24:                                               ; preds = %20
+  %25 = call i64 @rb_num2int(i64 noundef %13) #10
   br label %rb_num2int_inline.exit
 
-rb_num2int_inline.exit:                           ; preds = %24, %26
-  %.0.i = phi i64 [ %25, %24 ], [ %27, %26 ]
-  %28 = trunc i64 %.0.i to i32
-  store i32 %28, ptr %2, align 4
-  br label %29
+rb_num2int_inline.exit:                           ; preds = %22, %24
+  %.0.i = phi i64 [ %23, %22 ], [ %25, %24 ]
+  %26 = trunc i64 %.0.i to i32
+  store i32 %26, ptr %2, align 4
+  br label %27
 
-29:                                               ; preds = %14, %14, %rb_num2int_inline.exit
-  %.1 = phi ptr [ null, %14 ], [ %2, %rb_num2int_inline.exit ], [ null, %14 ]
-  switch i64 %17, label %30 [
-    i64 36, label %38
-    i64 4, label %38
+27:                                               ; preds = %12, %12, %rb_num2int_inline.exit
+  %.1 = phi ptr [ null, %12 ], [ %2, %rb_num2int_inline.exit ], [ null, %12 ]
+  switch i64 %15, label %28 [
+    i64 36, label %36
+    i64 4, label %36
   ]
 
-30:                                               ; preds = %29
+28:                                               ; preds = %27
   store i64 21, ptr %6, align 8
-  %31 = call i64 @rb_funcallv_public(i64 noundef %17, i64 noundef 42, i32 noundef 1, ptr noundef nonnull %6) #10
-  %32 = and i64 %31, 1
-  %.not.i32 = icmp eq i64 %32, 0
-  br i1 %.not.i32, label %35, label %33
+  %29 = call i64 @rb_funcallv_public(i64 noundef %15, i64 noundef 42, i32 noundef 1, ptr noundef nonnull %6) #10
+  %30 = and i64 %29, 1
+  %.not.i31 = icmp eq i64 %30, 0
+  br i1 %.not.i31, label %33, label %31
 
-33:                                               ; preds = %30
-  %34 = call i64 @rb_fix2int(i64 noundef %31) #10
-  br label %rb_num2int_inline.exit34
+31:                                               ; preds = %28
+  %32 = call i64 @rb_fix2int(i64 noundef %29) #10
+  br label %rb_num2int_inline.exit33
 
-35:                                               ; preds = %30
-  %36 = call i64 @rb_num2int(i64 noundef %31) #10
-  br label %rb_num2int_inline.exit34
+33:                                               ; preds = %28
+  %34 = call i64 @rb_num2int(i64 noundef %29) #10
+  br label %rb_num2int_inline.exit33
 
-rb_num2int_inline.exit34:                         ; preds = %33, %35
-  %.0.i33 = phi i64 [ %34, %33 ], [ %36, %35 ]
-  %37 = trunc i64 %.0.i33 to i32
-  store i32 %37, ptr %20, align 4
-  br label %38
+rb_num2int_inline.exit33:                         ; preds = %31, %33
+  %.0.i32 = phi i64 [ %32, %31 ], [ %34, %33 ]
+  %35 = trunc i64 %.0.i32 to i32
+  store i32 %35, ptr %18, align 4
+  br label %36
 
-38:                                               ; preds = %29, %29, %rb_num2int_inline.exit34
-  %.2 = phi ptr [ %.1, %29 ], [ %2, %rb_num2int_inline.exit34 ], [ %.1, %29 ]
-  %39 = call i64 @llvm.fshl.i64(i64 %19, i64 %19, i64 62)
-  switch i64 %39, label %41 [
+36:                                               ; preds = %27, %27, %rb_num2int_inline.exit33
+  %.2 = phi ptr [ %.1, %27 ], [ %2, %rb_num2int_inline.exit33 ], [ %.1, %27 ]
+  %37 = call i64 @llvm.fshl.i64(i64 %17, i64 %17, i64 62)
+  switch i64 %37, label %39 [
     i64 5, label %.sink.split
-    i64 0, label %40
-    i64 9, label %43
-    i64 1, label %43
+    i64 0, label %38
+    i64 9, label %41
+    i64 1, label %41
   ]
 
-40:                                               ; preds = %38
+38:                                               ; preds = %36
   br label %.sink.split
 
-41:                                               ; preds = %38
-  %42 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %42, ptr noundef nonnull @.str.49, i64 noundef %19) #11
+39:                                               ; preds = %36
+  %40 = load i64, ptr @rb_eArgError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %40, ptr noundef nonnull @.str.49, i64 noundef %17) #11
   unreachable
 
-.sink.split:                                      ; preds = %38, %40
-  %.sink = phi i32 [ 0, %40 ], [ 1, %38 ]
-  store i32 %.sink, ptr %21, align 4
-  br label %43
+.sink.split:                                      ; preds = %36, %38
+  %.sink = phi i32 [ 0, %38 ], [ 1, %36 ]
+  store i32 %.sink, ptr %19, align 4
+  br label %41
 
-43:                                               ; preds = %.sink.split, %38, %38, %rb_check_arity.exit
-  %.0 = phi ptr [ %.2, %38 ], [ %.2, %38 ], [ null, %rb_check_arity.exit ], [ %2, %.sink.split ]
+41:                                               ; preds = %.sink.split, %36, %36, %rb_check_arity.exit
+  %.0 = phi ptr [ %.2, %36 ], [ %.2, %36 ], [ null, %rb_check_arity.exit ], [ %2, %.sink.split ]
   ret ptr %.0
 }
 
@@ -2163,7 +2157,7 @@ declare i64 @rb_sprintf(ptr noundef, ...) local_unnamed_addr #1
 declare i64 @rb_ary_resize(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RARRAY_ASET(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @RARRAY_ASET(i64 noundef %0, i64 noundef range(i64 0, 2) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %0) #10
   %5 = getelementptr inbounds i64, ptr %4, i64 %1
   store i64 %2, ptr %5, align 8

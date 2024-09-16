@@ -2419,7 +2419,7 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
   store i32 %78, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %46, i64 584
   store i32 3, ptr %80, align 8
-  %81 = tail call fastcc i32 @IDAAckpntAllocVectors(ptr noundef nonnull readonly %0, ptr noundef nonnull %46)
+  %81 = tail call fastcc i32 @IDAAckpntAllocVectors(ptr noundef readonly %0, ptr noundef %46)
   %.not29.i = icmp eq i32 %81, 0
   br i1 %.not29.i, label %82, label %85
 
@@ -2434,7 +2434,7 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
   br label %297
 
 85:                                               ; preds = %77
-  tail call fastcc void @IDAAckpntCopyVectors(ptr noundef nonnull readonly %0, ptr noundef nonnull %46)
+  tail call fastcc void @IDAAckpntCopyVectors(ptr noundef readonly %0, ptr noundef %46)
   %86 = getelementptr inbounds i8, ptr %46, i64 592
   store ptr null, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %17, i64 64
@@ -2714,7 +2714,7 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
   %spec.select.i = select i1 %254, i32 %255, i32 6
   %256 = getelementptr inbounds i8, ptr %190, i64 584
   store i32 %spec.select.i, ptr %256, align 8
-  %257 = tail call fastcc i32 @IDAAckpntAllocVectors(ptr noundef nonnull readonly %0, ptr noundef nonnull %190)
+  %257 = tail call fastcc i32 @IDAAckpntAllocVectors(ptr noundef readonly %0, ptr noundef %190)
   %.not82.i = icmp eq i32 %257, 0
   br i1 %.not82.i, label %258, label %259
 
@@ -2723,7 +2723,7 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
   br label %IDAAckpntNew.exit.thread
 
 259:                                              ; preds = %251
-  tail call fastcc void @IDAAckpntCopyVectors(ptr noundef nonnull readonly %0, ptr noundef nonnull %190)
+  tail call fastcc void @IDAAckpntCopyVectors(ptr noundef readonly %0, ptr noundef %190)
   %260 = load ptr, ptr %147, align 8
   %261 = getelementptr inbounds i8, ptr %190, i64 592
   store ptr %260, ptr %261, align 8
@@ -4195,7 +4195,7 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br i1 %.not154.us.us, label %158, label %156
 
 156:                                              ; preds = %.split222.us.split.us
-  %157 = tail call fastcc i32 @IDAAdataStore(ptr noundef nonnull %0, ptr noundef %.0138178)
+  %157 = tail call fastcc i32 @IDAAdataStore(ptr noundef %0, ptr noundef %.0138178)
   %.not155.us.us = icmp eq i32 %157, 0
   br i1 %.not155.us.us, label %158, label %.critedge164
 
@@ -4206,7 +4206,7 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br i1 %.not154.us.us, label %161, label %159
 
 159:                                              ; preds = %.split222.us.split.split.us
-  %160 = tail call fastcc i32 @IDAAdataStore(ptr noundef nonnull %0, ptr noundef %.0138178)
+  %160 = tail call fastcc i32 @IDAAdataStore(ptr noundef %0, ptr noundef %.0138178)
   %.not155.us.us234 = icmp eq i32 %160, 0
   br i1 %.not155.us.us234, label %161, label %.critedge164
 
@@ -4220,7 +4220,7 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br i1 %.not154, label %.lr.ph214.preheader, label %163
 
 163:                                              ; preds = %.split222
-  %164 = call fastcc i32 @IDAAdataStore(ptr noundef nonnull %0, ptr noundef %.1139)
+  %164 = call fastcc i32 @IDAAdataStore(ptr noundef %0, ptr noundef %.1139)
   %.not155 = icmp eq i32 %164, 0
   br i1 %.not155, label %.lr.ph214.preheader, label %.critedge164
 
@@ -4316,7 +4316,7 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
 declare double @SUNRabs(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -106, 1) i32 @IDAAdataStore(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -106, 1) i32 @IDAAdataStore(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca double, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1816
   %5 = load ptr, ptr %4, align 8
@@ -4690,7 +4690,7 @@ IDAAckpntGet.exit:                                ; preds = %204, %42, %39
   %.034 = phi i64 [ 1, %218 ], [ %239, %232 ]
   %228 = load ptr, ptr %224, align 8
   %229 = load ptr, ptr %225, align 8
-  %230 = call i32 @IDASolve(ptr noundef %0, double noundef %227, ptr noundef nonnull %3, ptr noundef %228, ptr noundef %229, i32 noundef 2) #9
+  %230 = call i32 @IDASolve(ptr noundef nonnull %0, double noundef %227, ptr noundef nonnull %3, ptr noundef %228, ptr noundef %229, i32 noundef 2) #9
   %231 = icmp slt i32 %230, 0
   br i1 %231, label %IDAAckpntGet.exit.thread, label %232
 
@@ -4701,7 +4701,7 @@ IDAAckpntGet.exit:                                ; preds = %204, %42, %39
   store double %233, ptr %235, align 8
   %236 = load ptr, ptr %208, align 8
   %237 = load ptr, ptr %234, align 8
-  %238 = call i32 %236(ptr noundef %0, ptr noundef %237) #9
+  %238 = call i32 %236(ptr noundef nonnull %0, ptr noundef %237) #9
   %239 = add nuw nsw i64 %.034, 1
   %240 = load double, ptr %223, align 8
   %241 = load double, ptr %3, align 8
@@ -4893,7 +4893,7 @@ declare void @IDAFree(ptr noundef) local_unnamed_addr #1
 declare void @N_VDestroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @IDAAckpntAllocVectors(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @IDAAckpntAllocVectors(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 584
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -5205,7 +5205,7 @@ define internal fastcc range(i32 0, 2) i32 @IDAAckpntAllocVectors(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @IDAAckpntCopyVectors(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @IDAAckpntCopyVectors(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 584
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0

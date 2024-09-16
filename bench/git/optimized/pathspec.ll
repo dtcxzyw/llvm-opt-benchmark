@@ -1482,7 +1482,7 @@ if.end113:                                        ; preds = %lor.lhs.false107
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @unsupported_magic(ptr noundef %pattern, i32 noundef %magic) unnamed_addr #5 {
+define internal fastcc void @unsupported_magic(ptr noundef %pattern, i32 noundef range(i32 1, 0) %magic) unnamed_addr #5 {
 entry:
   %sb = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.unsupported_magic.sb, i64 24, i1 false)

@@ -104026,7 +104026,7 @@ declare noundef zeroext i1 @_ZN6duckdb11GreaterThan9OperationIdEEbRKT_S4_(ptr no
 declare void @_ZN6duckdb12NumericStats6UpdateINS_10interval_tEEEvRNS_14BaseStatisticsET_(ptr noundef nonnull align 8 dereferenceable(88), i64, i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdbL19SortSelectionVectorERNS4_15SelectionVectorEmPlE3$_0EEEvT_SA_T0_T1_"(ptr noundef %__first, ptr noundef %__last, i64 noundef %__depth_limit, ptr nocapture readonly %__comp.coerce) unnamed_addr #34 {
+define internal fastcc void @"_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdbL19SortSelectionVectorERNS4_15SelectionVectorEmPlE3$_0EEEvT_SA_T0_T1_"(ptr noundef %__first, ptr noundef %__last, i64 noundef range(i64 0, 128) %__depth_limit, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #34 {
 entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
   %sub.ptr.lhs.cast29 = ptrtoint ptr %__last to i64

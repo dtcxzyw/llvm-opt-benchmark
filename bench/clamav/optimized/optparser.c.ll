@@ -963,7 +963,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
   %37 = getelementptr inbounds i8, ptr %18, i64 48
   %38 = load i32, ptr %37, align 8
   %39 = trunc nuw nsw i64 %indvars.iv585 to i32
-  %40 = call fastcc i32 @optadd(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %19, ptr noundef %32, ptr noundef %34, i64 noundef %36, i32 noundef %38, i32 noundef %39)
+  %40 = call fastcc i32 @optadd(ptr noundef %9, ptr noundef %10, ptr noundef %19, ptr noundef %32, ptr noundef %34, i64 noundef %36, i32 noundef %38, i32 noundef %39)
   %41 = icmp slt i32 %40, 0
   %.pre610 = load ptr, ptr @clam_options, align 8
   br i1 %41, label %.split494.us, label %42
@@ -1112,7 +1112,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
   %116 = getelementptr inbounds i8, ptr %98, i64 48
   %117 = load i32, ptr %116, align 8
   %118 = trunc nuw nsw i64 %indvars.iv582 to i32
-  %119 = call fastcc i32 @optadd(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %99, ptr noundef %111, ptr noundef %113, i64 noundef %115, i32 noundef %117, i32 noundef %118)
+  %119 = call fastcc i32 @optadd(ptr noundef %9, ptr noundef %10, ptr noundef %99, ptr noundef %111, ptr noundef %113, i64 noundef %115, i32 noundef %117, i32 noundef %118)
   %120 = icmp slt i32 %119, 0
   %.pre = load ptr, ptr @clam_options, align 8
   br i1 %120, label %.split494.us, label %121
@@ -2031,7 +2031,7 @@ sub_0:                                            ; preds = %436
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc range(i32 -1, 1) i32 @optadd(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @optadd(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #4 {
   %9 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #22
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %50, label %10
@@ -2450,7 +2450,7 @@ define ptr @optadditem(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nound
   %36 = getelementptr inbounds i8, ptr %20, i64 48
   %37 = load i32, ptr %36, align 8
   %38 = trunc nuw nsw i64 %indvars.iv188 to i32
-  %39 = call fastcc i32 @optadd(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %21, ptr noundef %31, ptr noundef %33, i64 noundef %35, i32 noundef %37, i32 noundef %38)
+  %39 = call fastcc i32 @optadd(ptr noundef %7, ptr noundef %8, ptr noundef %21, ptr noundef %31, ptr noundef %33, i64 noundef %35, i32 noundef %37, i32 noundef %38)
   %40 = icmp slt i32 %39, 0
   %.pre192 = load ptr, ptr @clam_options, align 8
   br i1 %40, label %.split168.us, label %41
@@ -2528,7 +2528,7 @@ define ptr @optadditem(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nound
   %70 = getelementptr inbounds i8, ptr %50, i64 48
   %71 = load i32, ptr %70, align 8
   %72 = trunc nuw nsw i64 %indvars.iv182 to i32
-  %73 = call fastcc i32 @optadd(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %51, ptr noundef %65, ptr noundef %67, i64 noundef %69, i32 noundef %71, i32 noundef %72)
+  %73 = call fastcc i32 @optadd(ptr noundef %7, ptr noundef %8, ptr noundef %51, ptr noundef %65, ptr noundef %67, i64 noundef %69, i32 noundef %71, i32 noundef %72)
   %74 = icmp slt i32 %73, 0
   %.pre = load ptr, ptr @clam_options, align 8
   br i1 %74, label %.split168.us, label %78

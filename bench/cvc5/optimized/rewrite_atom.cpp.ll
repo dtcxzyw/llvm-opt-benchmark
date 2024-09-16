@@ -3436,7 +3436,7 @@ cond.end:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
   %agg.tmp31 = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
   %call5 = tail call fastcc noundef zeroext i1 @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_115normalizeGCDLCMERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEEb(ptr noundef nonnull align 8 dereferenceable(48) %sum, i1 noundef zeroext true)
-  call fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_114removeConstantERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE(ptr noalias nonnull align 8 %constant, ptr noundef nonnull align 8 dereferenceable(48) %sum)
+  call fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_114removeConstantERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE(ptr noalias align 8 %constant, ptr noundef nonnull align 8 dereferenceable(48) %sum)
   invoke void @_ZNK4cvc58internal19RealAlgebraicNumber10toRationalEv(ptr nonnull sret(%"class.cvc5::internal::Rational") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(32) %constant)
           to label %invoke.cont unwind label %lpad
 
@@ -3775,7 +3775,7 @@ _ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit88: ; preds = %ehcleanup40
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_114removeConstantERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %sum) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_114removeConstantERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %sum) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @__gmpq_init(ptr noundef nonnull %agg.result)
   %_mp_size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
@@ -4259,7 +4259,7 @@ _ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_121normalizeLCoeffAbsOneERSt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %lcoeff.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp21.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp38.i)
-  call fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_114removeConstantERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE(ptr noalias nonnull align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %sum)
+  call fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_114removeConstantERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEE(ptr noalias align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %sum)
   invoke void @_ZNK4cvc58internal19RealAlgebraicNumberngEv(ptr nonnull sret(%"class.cvc5::internal::RealAlgebraicNumber") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6)
           to label %invoke.cont unwind label %lpad
 

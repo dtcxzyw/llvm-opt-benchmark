@@ -11824,7 +11824,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %4, %46, %59, %_ZNSt
   %99 = tail call noundef signext i8 @_ZN10open_spiel5chess13PlayerToColorEi(i32 noundef %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %15, i8 0, i64 64, i1 false)
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 256
-  call fastcc void @_ZN10open_spiel10dark_chess12_GLOBAL__N_123ComputePrivateInfoTableERKNS_5chess10ChessBoardENS2_5ColorERKSt5arrayIbLm64EE(ptr dead_on_unwind noalias nonnull writable align 1 %16, ptr noundef nonnull align 8 dereferenceable(168) %100, i8 noundef signext %99, ptr noundef nonnull align 1 dereferenceable(64) %15)
+  call fastcc void @_ZN10open_spiel10dark_chess12_GLOBAL__N_123ComputePrivateInfoTableERKNS_5chess10ChessBoardENS2_5ColorERKSt5arrayIbLm64EE(ptr dead_on_unwind noalias writable align 1 %16, ptr noundef nonnull align 8 dereferenceable(168) %100, i8 noundef signext %99, ptr noundef nonnull align 1 dereferenceable(64) %15)
   call void @_ZNK10open_spiel5chess10ChessBoard9ToDarkFENB5cxx11ERKSt5arrayIbLm64EENS0_5ColorE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %100, ptr noundef nonnull align 1 dereferenceable(64) %16, i8 noundef signext %99)
   ret void
 
@@ -12447,7 +12447,7 @@ define linkonce_odr void @_ZNK10open_spiel10dark_chess17DarkChessObserver22Write
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = tail call noundef signext i8 @_ZN10open_spiel5chess13PlayerToColorEi(i32 noundef %3)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  call fastcc void @_ZN10open_spiel10dark_chess12_GLOBAL__N_123ComputePrivateInfoTableERKNS_5chess10ChessBoardENS2_5ColorERKSt5arrayIbLm64EE(ptr dead_on_unwind noalias nonnull writable align 1 %7, ptr noundef nonnull align 8 dereferenceable(168) %11, i8 noundef signext %10, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN10open_spiel10dark_chess12_GLOBAL__N_123ComputePrivateInfoTableERKNS_5chess10ChessBoardENS2_5ColorERKSt5arrayIbLm64EE(ptr dead_on_unwind noalias writable align 1 %7, ptr noundef nonnull align 8 dereferenceable(168) %11, i8 noundef signext %10, ptr noundef nonnull align 1 dereferenceable(64) %2)
   br label %12
 
 12:                                               ; preds = %6, %12
@@ -13573,7 +13573,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel10dark_chess12_GLOBAL__N_123ComputePrivateInfoTableERKNS_5chess10ChessBoardENS2_5ColorERKSt5arrayIbLm64EE(ptr dead_on_unwind noalias writable align 1 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, i8 noundef signext %2, ptr noundef nonnull align 1 dereferenceable(64) %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10dark_chess12_GLOBAL__N_123ComputePrivateInfoTableERKNS_5chess10ChessBoardENS2_5ColorERKSt5arrayIbLm64EE(ptr dead_on_unwind noalias nonnull writable align 1 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, i8 noundef signext %2, ptr noundef nonnull align 1 dereferenceable(64) %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca i8, align 1
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::function.38", align 8

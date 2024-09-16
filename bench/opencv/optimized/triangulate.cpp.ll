@@ -1302,7 +1302,7 @@ _ZNK2cv11_InputArray6getMatEi.exit48:             ; preds = %104, %107
   %147 = and i32 %140, 20479
   %148 = or disjoint i32 %147, 1111621632
   store i32 %148, ptr %16, align 8, !alias.scope !65
-  invoke fastcc void @_ZL17icvCorrectMatchesP5CvMatS0_S0_S0_S0_(ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %15, ptr noundef nonnull %16)
+  invoke fastcc void @_ZL17icvCorrectMatchesP5CvMatS0_S0_S0_S0_(ptr noundef %12, ptr noundef %10, ptr noundef %11, ptr noundef %15, ptr noundef %16)
           to label %149 unwind label %166
 
 149:                                              ; preds = %114
@@ -1390,7 +1390,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %149, %152
 declare void @_ZNK2cv12_OutputArray6createENS_5Size_IiEEiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24), i64, i32 noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17icvCorrectMatchesP5CvMatS0_S0_S0_S0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17icvCorrectMatchesP5CvMatS0_S0_S0_S0_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.cv::Ptr", align 8
   %7 = alloca %"struct.cv::Ptr", align 8
   %8 = alloca %"struct.cv::Ptr", align 8

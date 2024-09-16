@@ -519,7 +519,7 @@ Vec_StrStart.exit:                                ; preds = %3, %7
   %35 = getelementptr inbounds i32, ptr %.val61, i64 %indvars.iv114
   %36 = load i32, ptr %35, align 4
   store i32 %36, ptr %22, align 4
-  call fastcc void @Tab_TabHashAdd(ptr noundef nonnull %14, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 1)
+  call fastcc void @Tab_TabHashAdd(ptr noundef nonnull %14, ptr noundef %4, i32 noundef 1, i32 noundef 1)
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %.val = load i32, ptr %26, align 4
   %37 = trunc nuw i64 %indvars.iv.next115 to i32
@@ -859,7 +859,7 @@ Bmc_FxDivMux.exit109.i:                           ; preds = %155
 
 161:                                              ; preds = %134, %Bmc_FxDivMux.exit.i, %Bmc_FxDivMux.exit95.i, %Bmc_FxDivMux.exit102.i, %Bmc_FxDivMux.exit109.i, %105, %118, %125
   %.0.i67.ph = phi i32 [ 1, %125 ], [ 1, %118 ], [ 1, %105 ], [ 3, %Bmc_FxDivMux.exit109.i ], [ 3, %Bmc_FxDivMux.exit102.i ], [ 3, %Bmc_FxDivMux.exit95.i ], [ 3, %Bmc_FxDivMux.exit.i ], [ 2, %134 ]
-  call fastcc void @Tab_TabHashAdd(ptr noundef nonnull %14, ptr noundef nonnull %4, i32 noundef %.0.i67.ph, i32 noundef %.035.lcssa.i)
+  call fastcc void @Tab_TabHashAdd(ptr noundef nonnull %14, ptr noundef %4, i32 noundef %.0.i67.ph, i32 noundef %.035.lcssa.i)
   %.val63.pre = load i32, ptr %18, align 4
   br label %Div_FindDiv.exit.thread
 
@@ -1090,7 +1090,7 @@ Tab_TabFree.exit:                                 ; preds = %Vec_StrFree.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Tab_TabHashAdd(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @Tab_TabHashAdd(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 1, 4) %2, i32 noundef range(i32 0, -1) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr %0, align 8
@@ -1253,7 +1253,7 @@ Tab_TabRehash.exit:                               ; preds = %Tab_TabRehash.exit.
   %110 = and i64 %88, -131072
   %111 = or disjoint i64 %110, %109
   store i64 %111, ptr %106, align 4
-  br label %145
+  br label %144
 
 Tab_TabEntry.exit45:                              ; preds = %.lr.ph, %92, %97
   %112 = getelementptr inbounds i8, ptr %.04049, i64 4
@@ -1285,23 +1285,22 @@ Tab_TabEntry.exit45:                              ; preds = %.lr.ph, %92, %97
   %132 = shl nuw nsw i64 %131, 47
   %133 = and i64 %128, 140737488224256
   %134 = or disjoint i64 %133, %132
-  %135 = and i32 %2, 3
-  %136 = zext nneg i32 %135 to i64
-  %137 = shl nuw i64 %136, 62
-  %138 = or disjoint i64 %134, %137
-  %139 = and i32 %3, 131071
-  %140 = zext nneg i32 %139 to i64
-  %141 = or disjoint i64 %138, %140
-  store i64 %141, ptr %117, align 4
-  %142 = getelementptr inbounds i8, ptr %116, i64 4
-  store i32 %86, ptr %142, align 4
-  %143 = load i32, ptr %5, align 4
-  %144 = add nsw i32 %143, 1
-  store i32 %144, ptr %5, align 4
-  store i32 %143, ptr %85, align 4
-  br label %145
+  %135 = zext nneg i32 %2 to i64
+  %136 = shl nuw i64 %135, 62
+  %137 = or disjoint i64 %134, %136
+  %138 = and i32 %3, 131071
+  %139 = zext nneg i32 %138 to i64
+  %140 = or disjoint i64 %137, %139
+  store i64 %140, ptr %117, align 4
+  %141 = getelementptr inbounds i8, ptr %116, i64 4
+  store i32 %86, ptr %141, align 4
+  %142 = load i32, ptr %5, align 4
+  %143 = add nsw i32 %142, 1
+  store i32 %143, ptr %5, align 4
+  store i32 %142, ptr %85, align 4
+  br label %144
 
-145:                                              ; preds = %._crit_edge, %105
+144:                                              ; preds = %._crit_edge, %105
   ret void
 }
 
@@ -1483,9 +1482,9 @@ Vec_IntPush.exit:                                 ; preds = %62, %Vec_IntGrow.ex
   %82 = getelementptr inbounds i32, ptr %.val265, i64 %81
   %83 = load i32, ptr %82, align 4
   %84 = icmp ne i32 %83, 1
-  %85 = shl nsw i32 %80, 1
-  %86 = zext i1 %84 to i32
-  %87 = or disjoint i32 %85, %86
+  %85 = zext i1 %84 to i32
+  %86 = shl nsw i32 %80, 1
+  %87 = or disjoint i32 %86, %85
   %88 = load i32, ptr %13, align 4
   %89 = load i32, ptr %11, align 8
   %90 = icmp eq i32 %88, %89
@@ -2933,7 +2932,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare ptr @Abc_MergeSortCost(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_IntPushTwo(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #9 {
+define internal fastcc void @Vec_IntPushTwo(ptr nocapture noundef %0, i32 noundef range(i32 0, 32768) %1, i32 noundef range(i32 0, 32768) %2) unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8

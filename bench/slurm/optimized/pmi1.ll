@@ -155,7 +155,7 @@ define i32 @handle_pmi1_cmd(i32 noundef %0, i32 noundef %1) local_unnamed_addr #
 .critedge:                                        ; preds = %14
   %18 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.2) #8
   call void @slurm_xfree(ptr noundef nonnull %4) #8
-  br label %93
+  br label %92
 
 .critedge18:                                      ; preds = %10
   %19 = icmp eq i32 %12, 0
@@ -164,12 +164,12 @@ define i32 @handle_pmi1_cmd(i32 noundef %0, i32 noundef %1) local_unnamed_addr #
 20:                                               ; preds = %.critedge18
   %21 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.3) #8
   call void @slurm_xfree(ptr noundef nonnull %4) #8
-  br label %93
+  br label %92
 
 22:                                               ; preds = %.critedge18
   %23 = tail call i32 @slurm_xstrncmp(ptr noundef %9, ptr noundef nonnull @.str.4, i64 noundef 5) #8
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %24, label %84
+  br i1 %.not, label %24, label %83
 
 24:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -253,73 +253,73 @@ define i32 @handle_pmi1_cmd(i32 noundef %0, i32 noundef %1) local_unnamed_addr #
 
 ._crit_edge.loopexit.i:                           ; preds = %65
   %.pre.i = load ptr, ptr %3, align 8
+  %.pre67.i = zext nneg i32 %.145.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %24
-  %66 = phi ptr [ %9, %24 ], [ %.pre.i, %._crit_edge.loopexit.i ]
-  %.044.lcssa.i = phi i32 [ %12, %24 ], [ %.145.i, %._crit_edge.loopexit.i ]
-  %67 = zext nneg i32 %.044.lcssa.i to i64
-  %68 = getelementptr inbounds i8, ptr %66, i64 %67
-  store i8 0, ptr %68, align 1
-  %69 = load ptr, ptr %3, align 8
-  %70 = load i8, ptr %69, align 1
-  %.not5059.i = icmp eq i8 %70, 0
+  %.pre-phi.i = phi i64 [ %.pre67.i, %._crit_edge.loopexit.i ], [ %25, %24 ]
+  %66 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %9, %24 ]
+  %67 = getelementptr inbounds i8, ptr %66, i64 %.pre-phi.i
+  store i8 0, ptr %67, align 1
+  %68 = load ptr, ptr %3, align 8
+  %69 = load i8, ptr %68, align 1
+  %.not5059.i = icmp eq i8 %69, 0
   br i1 %.not5059.i, label %_handle_pmi1_mcmd_buf.exit, label %.lr.ph62.i
 
-71:                                               ; preds = %76
-  %72 = getelementptr inbounds i8, ptr %74, i64 7
-  %73 = load i8, ptr %72, align 1
-  %.not50.i = icmp eq i8 %73, 0
+70:                                               ; preds = %75
+  %71 = getelementptr inbounds i8, ptr %73, i64 7
+  %72 = load i8, ptr %71, align 1
+  %.not50.i = icmp eq i8 %72, 0
   br i1 %.not50.i, label %_handle_pmi1_mcmd_buf.exit, label %.lr.ph62.i, !llvm.loop !10
 
-.lr.ph62.i:                                       ; preds = %._crit_edge.i, %71
-  %.03860.i = phi ptr [ %72, %71 ], [ %69, %._crit_edge.i ]
-  %74 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.03860.i, ptr noundef nonnull dereferenceable(1) @.str.6) #10
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %.loopexit.sink.split.i, label %76
+.lr.ph62.i:                                       ; preds = %._crit_edge.i, %70
+  %.03860.i = phi ptr [ %71, %70 ], [ %68, %._crit_edge.i ]
+  %73 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.03860.i, ptr noundef nonnull dereferenceable(1) @.str.6) #10
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %.loopexit.sink.split.i, label %75
 
-76:                                               ; preds = %.lr.ph62.i
-  store i8 0, ptr %74, align 1
-  %77 = ptrtoint ptr %74 to i64
-  %78 = ptrtoint ptr %.03860.i to i64
-  %79 = sub i64 %77, %78
-  %80 = trunc i64 %79 to i32
-  %81 = call ptr @slurm_xstrdup(ptr noundef nonnull %.03860.i) #8
-  %82 = call fastcc i32 @_handle_pmi1_cmd_buf(i32 noundef %0, i32 noundef %1, i32 noundef %80, ptr noundef %81)
-  %.not51.i = icmp eq i32 %82, 0
-  br i1 %.not51.i, label %71, label %_handle_pmi1_mcmd_buf.exit
+75:                                               ; preds = %.lr.ph62.i
+  store i8 0, ptr %73, align 1
+  %76 = ptrtoint ptr %73 to i64
+  %77 = ptrtoint ptr %.03860.i to i64
+  %78 = sub i64 %76, %77
+  %79 = trunc i64 %78 to i32
+  %80 = call ptr @slurm_xstrdup(ptr noundef nonnull %.03860.i) #8
+  %81 = call fastcc i32 @_handle_pmi1_cmd_buf(i32 noundef %0, i32 noundef %1, i32 noundef %79, ptr noundef %80)
+  %.not51.i = icmp eq i32 %81, 0
+  br i1 %.not51.i, label %70, label %_handle_pmi1_mcmd_buf.exit
 
 .loopexit.sink.split.i:                           ; preds = %46, %.lr.ph62.i
   %.str.8.sink.i = phi ptr [ @.str.8, %.lr.ph62.i ], [ @.str.2, %46 ]
-  %83 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull %.str.8.sink.i) #8
+  %82 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull %.str.8.sink.i) #8
   br label %_handle_pmi1_mcmd_buf.exit
 
-_handle_pmi1_mcmd_buf.exit:                       ; preds = %71, %76, %._crit_edge.i, %.loopexit.sink.split.i
-  %.041.i = phi i32 [ 0, %._crit_edge.i ], [ -1, %.loopexit.sink.split.i ], [ 0, %71 ], [ %82, %76 ]
+_handle_pmi1_mcmd_buf.exit:                       ; preds = %70, %75, %._crit_edge.i, %.loopexit.sink.split.i
+  %.041.i = phi i32 [ 0, %._crit_edge.i ], [ -1, %.loopexit.sink.split.i ], [ 0, %70 ], [ %81, %75 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @slurm_xfree(ptr noundef nonnull %4) #8
-  br label %89
+  br label %88
 
-84:                                               ; preds = %22
-  %85 = and i64 %11, 2147483647
-  %86 = getelementptr inbounds i8, ptr %9, i64 %85
-  store i8 0, ptr %86, align 1
-  %87 = load ptr, ptr %4, align 8
-  %88 = tail call fastcc i32 @_handle_pmi1_cmd_buf(i32 noundef %0, i32 noundef %1, i32 noundef %12, ptr noundef %87)
-  br label %89
+83:                                               ; preds = %22
+  %84 = and i64 %11, 2147483647
+  %85 = getelementptr inbounds i8, ptr %9, i64 %84
+  store i8 0, ptr %85, align 1
+  %86 = load ptr, ptr %4, align 8
+  %87 = tail call fastcc i32 @_handle_pmi1_cmd_buf(i32 noundef %0, i32 noundef %1, i32 noundef %12, ptr noundef %86)
+  br label %88
 
-89:                                               ; preds = %84, %_handle_pmi1_mcmd_buf.exit
-  %.0 = phi i32 [ %88, %84 ], [ %.041.i, %_handle_pmi1_mcmd_buf.exit ]
-  %90 = call i32 @slurm_get_log_level() #8
-  %91 = icmp sgt i32 %90, 6
-  br i1 %91, label %92, label %93
+88:                                               ; preds = %83, %_handle_pmi1_mcmd_buf.exit
+  %.0 = phi i32 [ %87, %83 ], [ %.041.i, %_handle_pmi1_mcmd_buf.exit ]
+  %89 = call i32 @slurm_get_log_level() #8
+  %90 = icmp sgt i32 %89, 6
+  br i1 %90, label %91, label %92
 
-92:                                               ; preds = %89
+91:                                               ; preds = %88
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.5, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.handle_pmi1_cmd) #8
-  br label %93
+  br label %92
 
-93:                                               ; preds = %89, %92, %20, %.critedge
-  %.016 = phi i32 [ -1, %.critedge ], [ -1, %20 ], [ %.0, %92 ], [ %.0, %89 ]
+92:                                               ; preds = %88, %91, %20, %.critedge
+  %.016 = phi i32 [ -1, %.critedge ], [ -1, %20 ], [ %.0, %91 ], [ %.0, %88 ]
   ret i32 %.016
 }
 

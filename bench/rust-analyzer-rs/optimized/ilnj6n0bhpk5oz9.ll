@@ -786,19 +786,19 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit: ; preds = %35
   switch i16 %47, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread [
     i16 6, label %.invoke57
     i16 20, label %.invoke
-    i16 29, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i
+    i16 29, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69.i
   ]
 
-_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread: ; preds = %104, %80, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit.thread, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i35, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i33, %35, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit19, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit16, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit
+_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread: ; preds = %104, %80, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit.thread, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i35, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69.i33, %35, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit19, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit16, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit
   %48 = invoke noundef zeroext i1 @_ZN6parser7grammar5paths17is_use_path_start17h51d7c3e4b42af499E(ptr noundef nonnull align 8 %0)
           to label %114 unwind label %168
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i: ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69.i: ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit
   %49 = add nuw i64 %40, 1
   %.not.i5.i70.i = icmp ult i64 %49, %42
   br i1 %.not.i5.i70.i, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i, label %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit.thread
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i: ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i: ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69.i
   %50 = getelementptr inbounds i16, ptr %45, i64 %49
   %51 = load i16, ptr %50, align 2, !range !94, !noalias !95, !noundef !10
   %52 = icmp eq i16 %51, 29
@@ -821,7 +821,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i: ; preds = %_ZN6pars
 .cont60:                                          ; preds = %.invoke59
   unreachable
 
-_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24.thread: ; preds = %.invoke57, %.invoke, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i41, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i43, %119, %167, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit26, %139
+_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24.thread: ; preds = %.invoke57, %.invoke, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69.i41, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i43, %119, %167, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit26, %139
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false)
   %60 = call { i32, i16 } @_ZN6parser6parser6Marker8complete17h245dafe3ae51cd9dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i16 noundef 236)
@@ -856,20 +856,20 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit: ; preds = %53
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   br label %.invoke58
 
-_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit.thread: ; preds = %69, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit
-  %74 = phi i32 [ %70, %69 ], [ %36, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i ], [ %36, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i ], [ %70, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit ], [ %36, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit ]
-  %75 = phi i64 [ %72, %69 ], [ %42, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i ], [ %42, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i ], [ %72, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit ], [ %42, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit ]
+_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit.thread: ; preds = %69, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69.i, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit
+  %74 = phi i32 [ %70, %69 ], [ %36, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69.i ], [ %36, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i ], [ %70, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit ], [ %36, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit ]
+  %75 = phi i64 [ %72, %69 ], [ %42, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69.i ], [ %42, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i ], [ %72, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit ], [ %42, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit ]
   %.not.i.i67.i31 = icmp ult i64 %40, %75
-  br i1 %.not.i.i67.i31, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i33, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread
+  br i1 %.not.i.i67.i31, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69.i33, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i33: ; preds = %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit.thread
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69.i33: ; preds = %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit.thread
   %76 = load ptr, ptr %44, align 8, !nonnull !10
   %77 = getelementptr inbounds i16, ptr %76, i64 %40
   %78 = load i16, ptr %77, align 2, !range !94, !noalias !105, !noundef !10
   %79 = icmp eq i16 %78, 29
   br i1 %79, label %80, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread
 
-80:                                               ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i33
+80:                                               ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69.i33
   %81 = add nuw i64 %40, 1
   %.not.i5.i70.i34 = icmp ult i64 %81, %75
   br i1 %.not.i5.i70.i34, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i35, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread
@@ -984,16 +984,16 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24: ; preds = %119
   %128 = getelementptr inbounds i16, ptr %127, i64 %122
   %129 = load i16, ptr %128, align 2, !range !94, !noalias !10, !noundef !10
   switch i16 %129, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24.thread [
-    i16 29, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i41
+    i16 29, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69.i41
     i16 55, label %139
   ]
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i41: ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69.i41: ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24
   %130 = add nuw i64 %122, 1
   %.not.i5.i70.i42 = icmp ult i64 %130, %124
   br i1 %.not.i5.i70.i42, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i43, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24.thread
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i43: ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i41
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i43: ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69.i41
   %131 = getelementptr inbounds i16, ptr %127, i64 %130
   %132 = load i16, ptr %131, align 2, !range !94, !noalias !117, !noundef !10
   %133 = icmp eq i16 %132, 29
@@ -1528,9 +1528,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i: ; preds = %32
   %47 = getelementptr inbounds i8, ptr %5, i64 16
   %48 = load i64, ptr %47, align 8, !noundef !10
   %.not.i.i51 = icmp ult i64 %8, %48
-  br i1 %.not.i.i51, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i52, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i51, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i53, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i52: ; preds = %46
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i53: ; preds = %46
   %49 = getelementptr inbounds i8, ptr %5, i64 8
   %50 = load ptr, ptr %49, align 8, !nonnull !10
   %51 = getelementptr inbounds i16, ptr %50, i64 %8
@@ -1538,7 +1538,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i52: ; preds = %46
   %53 = icmp eq i16 %52, 25
   br i1 %53, label %54, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-54:                                               ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i52
+54:                                               ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i53
   %55 = add nuw i64 %8, 1
   %.not.i7.i = icmp ult i64 %55, %48
   br i1 %.not.i7.i, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -1604,9 +1604,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i: ; preds = %77
   %88 = getelementptr inbounds i8, ptr %5, i64 16
   %89 = load i64, ptr %88, align 8, !noundef !10
   %.not.i.i56 = icmp ult i64 %8, %89
-  br i1 %.not.i.i56, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i57, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i56, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i58, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i57: ; preds = %87
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i58: ; preds = %87
   %90 = getelementptr inbounds i8, ptr %5, i64 8
   %91 = load ptr, ptr %90, align 8, !nonnull !10
   %92 = getelementptr inbounds i16, ptr %91, i64 %8
@@ -1614,7 +1614,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i57: ; preds = %87
   %94 = icmp eq i16 %93, 25
   br i1 %94, label %95, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-95:                                               ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i57
+95:                                               ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i58
   %96 = add nuw i64 %8, 1
   %.not.i7.i59 = icmp ult i64 %96, %89
   br i1 %.not.i7.i59, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i60, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -1680,9 +1680,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i65: ; preds = %118
   %129 = getelementptr inbounds i8, ptr %5, i64 16
   %130 = load i64, ptr %129, align 8, !noundef !10
   %.not.i.i67 = icmp ult i64 %8, %130
-  br i1 %.not.i.i67, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i67, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68: ; preds = %128
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69: ; preds = %128
   %131 = getelementptr inbounds i8, ptr %5, i64 8
   %132 = load ptr, ptr %131, align 8, !nonnull !10
   %133 = getelementptr inbounds i16, ptr %132, i64 %8
@@ -1690,7 +1690,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68: ; preds = %128
   %135 = icmp eq i16 %134, 29
   br i1 %135, label %136, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-136:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68
+136:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69
   %137 = add nuw i64 %8, 1
   %.not.i5.i70 = icmp ult i64 %137, %130
   br i1 %.not.i5.i70, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -1728,9 +1728,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i72: ; preds = %141
   %156 = getelementptr inbounds i8, ptr %5, i64 16
   %157 = load i64, ptr %156, align 8, !noundef !10
   %.not.i.i74 = icmp ult i64 %8, %157
-  br i1 %.not.i.i74, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i75, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i74, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i76, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i75: ; preds = %155
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i76: ; preds = %155
   %158 = getelementptr inbounds i8, ptr %5, i64 8
   %159 = load ptr, ptr %158, align 8, !nonnull !10
   %160 = getelementptr inbounds i16, ptr %159, i64 %8
@@ -1738,7 +1738,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i75: ; preds = %155
   %162 = icmp eq i16 %161, 31
   br i1 %162, label %163, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-163:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i75
+163:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i76
   %164 = add nuw i64 %8, 1
   %.not.i5.i77 = icmp ult i64 %164, %157
   br i1 %.not.i5.i77, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i78, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -1776,9 +1776,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i79: ; preds = %168
   %183 = getelementptr inbounds i8, ptr %5, i64 16
   %184 = load i64, ptr %183, align 8, !noundef !10
   %.not.i.i81 = icmp ult i64 %8, %184
-  br i1 %.not.i.i81, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i82, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i81, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i83, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i82: ; preds = %182
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i83: ; preds = %182
   %185 = getelementptr inbounds i8, ptr %5, i64 8
   %186 = load ptr, ptr %185, align 8, !nonnull !10
   %187 = getelementptr inbounds i16, ptr %186, i64 %8
@@ -1786,7 +1786,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i82: ; preds = %182
   %189 = icmp eq i16 %188, 31
   br i1 %189, label %190, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-190:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i82
+190:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i83
   %191 = add nuw i64 %8, 1
   %.not.i5.i84 = icmp ult i64 %191, %184
   br i1 %.not.i5.i84, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i85, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -1824,9 +1824,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i86: ; preds = %195
   %210 = getelementptr inbounds i8, ptr %5, i64 16
   %211 = load i64, ptr %210, align 8, !noundef !10
   %.not.i.i88 = icmp ult i64 %8, %211
-  br i1 %.not.i.i88, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i89, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i88, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i90, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i89: ; preds = %209
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i90: ; preds = %209
   %212 = getelementptr inbounds i8, ptr %5, i64 8
   %213 = load ptr, ptr %212, align 8, !nonnull !10
   %214 = getelementptr inbounds i16, ptr %213, i64 %8
@@ -1834,7 +1834,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i89: ; preds = %209
   %216 = icmp eq i16 %215, 34
   br i1 %216, label %217, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-217:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i89
+217:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i90
   %218 = add nuw i64 %8, 1
   %.not.i5.i91 = icmp ult i64 %218, %211
   br i1 %.not.i5.i91, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i92, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -1872,9 +1872,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i93: ; preds = %222
   %237 = getelementptr inbounds i8, ptr %5, i64 16
   %238 = load i64, ptr %237, align 8, !noundef !10
   %.not.i.i95 = icmp ult i64 %8, %238
-  br i1 %.not.i.i95, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i96, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i95, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i97, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i96: ; preds = %236
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i97: ; preds = %236
   %239 = getelementptr inbounds i8, ptr %5, i64 8
   %240 = load ptr, ptr %239, align 8, !nonnull !10
   %241 = getelementptr inbounds i16, ptr %240, i64 %8
@@ -1882,7 +1882,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i96: ; preds = %236
   %243 = icmp eq i16 %242, 36
   br i1 %243, label %244, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-244:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i96
+244:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i97
   %245 = add nuw i64 %8, 1
   %.not.i5.i98 = icmp ult i64 %245, %238
   br i1 %.not.i5.i98, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i99, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -1920,9 +1920,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i100: ; preds = %249
   %264 = getelementptr inbounds i8, ptr %5, i64 16
   %265 = load i64, ptr %264, align 8, !noundef !10
   %.not.i.i102 = icmp ult i64 %8, %265
-  br i1 %.not.i.i102, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i103, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i102, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i104, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i103: ; preds = %263
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i104: ; preds = %263
   %266 = getelementptr inbounds i8, ptr %5, i64 8
   %267 = load ptr, ptr %266, align 8, !nonnull !10
   %268 = getelementptr inbounds i16, ptr %267, i64 %8
@@ -1930,7 +1930,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i103: ; preds = %263
   %270 = icmp eq i16 %269, 10
   br i1 %270, label %271, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-271:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i103
+271:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i104
   %272 = add nuw i64 %8, 1
   %.not.i5.i105 = icmp ult i64 %272, %265
   br i1 %.not.i5.i105, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i106, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -1968,9 +1968,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i107: ; preds = %276
   %291 = getelementptr inbounds i8, ptr %5, i64 16
   %292 = load i64, ptr %291, align 8, !noundef !10
   %.not.i.i109 = icmp ult i64 %8, %292
-  br i1 %.not.i.i109, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i110, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i109, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i111, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i110: ; preds = %290
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i111: ; preds = %290
   %293 = getelementptr inbounds i8, ptr %5, i64 8
   %294 = load ptr, ptr %293, align 8, !nonnull !10
   %295 = getelementptr inbounds i16, ptr %294, i64 %8
@@ -1978,7 +1978,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i110: ; preds = %290
   %297 = icmp eq i16 %296, 11
   br i1 %297, label %298, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-298:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i110
+298:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i111
   %299 = add nuw i64 %8, 1
   %.not.i5.i112 = icmp ult i64 %299, %292
   br i1 %.not.i5.i112, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i113, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -2016,9 +2016,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i114: ; preds = %303
   %318 = getelementptr inbounds i8, ptr %5, i64 16
   %319 = load i64, ptr %318, align 8, !noundef !10
   %.not.i.i116 = icmp ult i64 %8, %319
-  br i1 %.not.i.i116, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i117, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i116, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i118, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i117: ; preds = %317
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i118: ; preds = %317
   %320 = getelementptr inbounds i8, ptr %5, i64 8
   %321 = load ptr, ptr %320, align 8, !nonnull !10
   %322 = getelementptr inbounds i16, ptr %321, i64 %8
@@ -2026,7 +2026,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i117: ; preds = %317
   %324 = icmp eq i16 %323, 19
   br i1 %324, label %325, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-325:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i117
+325:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i118
   %326 = add nuw i64 %8, 1
   %.not.i5.i119 = icmp ult i64 %326, %319
   br i1 %.not.i5.i119, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i120, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -2064,9 +2064,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i121: ; preds = %330
   %345 = getelementptr inbounds i8, ptr %5, i64 16
   %346 = load i64, ptr %345, align 8, !noundef !10
   %.not.i.i123 = icmp ult i64 %8, %346
-  br i1 %.not.i.i123, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i124, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i123, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i125, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i124: ; preds = %344
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i125: ; preds = %344
   %347 = getelementptr inbounds i8, ptr %5, i64 8
   %348 = load ptr, ptr %347, align 8, !nonnull !10
   %349 = getelementptr inbounds i16, ptr %348, i64 %8
@@ -2074,7 +2074,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i124: ; preds = %344
   %351 = icmp eq i16 %350, 36
   br i1 %351, label %352, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-352:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i124
+352:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i125
   %353 = add nuw i64 %8, 1
   %.not.i5.i126 = icmp ult i64 %353, %346
   br i1 %.not.i5.i126, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i127, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -2112,9 +2112,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i128: ; preds = %357
   %372 = getelementptr inbounds i8, ptr %5, i64 16
   %373 = load i64, ptr %372, align 8, !noundef !10
   %.not.i.i130 = icmp ult i64 %8, %373
-  br i1 %.not.i.i130, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i131, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i130, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i132, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i131: ; preds = %371
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i132: ; preds = %371
   %374 = getelementptr inbounds i8, ptr %5, i64 8
   %375 = load ptr, ptr %374, align 8, !nonnull !10
   %376 = getelementptr inbounds i16, ptr %375, i64 %8
@@ -2122,7 +2122,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i131: ; preds = %371
   %378 = icmp eq i16 %377, 18
   br i1 %378, label %379, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-379:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i131
+379:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i132
   %380 = add nuw i64 %8, 1
   %.not.i5.i133 = icmp ult i64 %380, %373
   br i1 %.not.i5.i133, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i134, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -2160,9 +2160,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i135: ; preds = %384
   %399 = getelementptr inbounds i8, ptr %5, i64 16
   %400 = load i64, ptr %399, align 8, !noundef !10
   %.not.i.i137 = icmp ult i64 %8, %400
-  br i1 %.not.i.i137, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i138, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i137, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i139, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i138: ; preds = %398
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i139: ; preds = %398
   %401 = getelementptr inbounds i8, ptr %5, i64 8
   %402 = load ptr, ptr %401, align 8, !nonnull !10
   %403 = getelementptr inbounds i16, ptr %402, i64 %8
@@ -2170,7 +2170,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i138: ; preds = %398
   %405 = icmp eq i16 %404, 17
   br i1 %405, label %406, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-406:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i138
+406:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i139
   %407 = add nuw i64 %8, 1
   %.not.i5.i140 = icmp ult i64 %407, %400
   br i1 %.not.i5.i140, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i141, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -2208,9 +2208,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i142: ; preds = %411
   %426 = getelementptr inbounds i8, ptr %5, i64 16
   %427 = load i64, ptr %426, align 8, !noundef !10
   %.not.i.i144 = icmp ult i64 %8, %427
-  br i1 %.not.i.i144, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i145, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i144, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i146, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i145: ; preds = %425
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i146: ; preds = %425
   %428 = getelementptr inbounds i8, ptr %5, i64 8
   %429 = load ptr, ptr %428, align 8, !nonnull !10
   %430 = getelementptr inbounds i16, ptr %429, i64 %8
@@ -2218,7 +2218,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i145: ; preds = %425
   %432 = icmp eq i16 %431, 22
   br i1 %432, label %433, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-433:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i145
+433:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i146
   %434 = add nuw i64 %8, 1
   %.not.i5.i147 = icmp ult i64 %434, %427
   br i1 %.not.i5.i147, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i148, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -2256,9 +2256,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i149: ; preds = %438
   %453 = getelementptr inbounds i8, ptr %5, i64 16
   %454 = load i64, ptr %453, align 8, !noundef !10
   %.not.i.i151 = icmp ult i64 %8, %454
-  br i1 %.not.i.i151, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i152, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i151, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i153, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i152: ; preds = %452
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i153: ; preds = %452
   %455 = getelementptr inbounds i8, ptr %5, i64 8
   %456 = load ptr, ptr %455, align 8, !nonnull !10
   %457 = getelementptr inbounds i16, ptr %456, i64 %8
@@ -2266,7 +2266,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i152: ; preds = %452
   %459 = icmp eq i16 %458, 21
   br i1 %459, label %460, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-460:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i152
+460:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i153
   %461 = add nuw i64 %8, 1
   %.not.i5.i154 = icmp ult i64 %461, %454
   br i1 %.not.i5.i154, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i155, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -2304,9 +2304,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i156: ; preds = %465
   %480 = getelementptr inbounds i8, ptr %5, i64 16
   %481 = load i64, ptr %480, align 8, !noundef !10
   %.not.i.i158 = icmp ult i64 %8, %481
-  br i1 %.not.i.i158, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i159, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i158, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i160, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i159: ; preds = %479
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i160: ; preds = %479
   %482 = getelementptr inbounds i8, ptr %5, i64 8
   %483 = load ptr, ptr %482, align 8, !nonnull !10
   %484 = getelementptr inbounds i16, ptr %483, i64 %8
@@ -2314,7 +2314,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i159: ; preds = %479
   %486 = icmp eq i16 %485, 20
   br i1 %486, label %487, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-487:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i159
+487:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i160
   %488 = add nuw i64 %8, 1
   %.not.i5.i161 = icmp ult i64 %488, %481
   br i1 %.not.i5.i161, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i162, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -2352,9 +2352,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i163: ; preds = %492
   %507 = getelementptr inbounds i8, ptr %5, i64 16
   %508 = load i64, ptr %507, align 8, !noundef !10
   %.not.i.i165 = icmp ult i64 %8, %508
-  br i1 %.not.i.i165, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i166, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i165, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i167, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i166: ; preds = %506
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i167: ; preds = %506
   %509 = getelementptr inbounds i8, ptr %5, i64 8
   %510 = load ptr, ptr %509, align 8, !nonnull !10
   %511 = getelementptr inbounds i16, ptr %510, i64 %8
@@ -2362,7 +2362,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i166: ; preds = %506
   %513 = icmp eq i16 %512, 23
   br i1 %513, label %514, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-514:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i166
+514:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i167
   %515 = add nuw i64 %8, 1
   %.not.i5.i168 = icmp ult i64 %515, %508
   br i1 %.not.i5.i168, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i169, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -2400,9 +2400,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i170: ; preds = %519
   %534 = getelementptr inbounds i8, ptr %5, i64 16
   %535 = load i64, ptr %534, align 8, !noundef !10
   %.not.i.i172 = icmp ult i64 %8, %535
-  br i1 %.not.i.i172, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i173, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i172, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i174, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i173: ; preds = %533
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i174: ; preds = %533
   %536 = getelementptr inbounds i8, ptr %5, i64 8
   %537 = load ptr, ptr %536, align 8, !nonnull !10
   %538 = getelementptr inbounds i16, ptr %537, i64 %8
@@ -2410,7 +2410,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i173: ; preds = %533
   %540 = icmp eq i16 %539, 17
   br i1 %540, label %541, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-541:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i173
+541:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i174
   %542 = add nuw i64 %8, 1
   %.not.i5.i175 = icmp ult i64 %542, %535
   br i1 %.not.i5.i175, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i176, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -2448,9 +2448,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i177: ; preds = %546
   %561 = getelementptr inbounds i8, ptr %5, i64 16
   %562 = load i64, ptr %561, align 8, !noundef !10
   %.not.i.i179 = icmp ult i64 %8, %562
-  br i1 %.not.i.i179, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i180, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i179, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i181, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i180: ; preds = %560
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i181: ; preds = %560
   %563 = getelementptr inbounds i8, ptr %5, i64 8
   %564 = load ptr, ptr %563, align 8, !nonnull !10
   %565 = getelementptr inbounds i16, ptr %564, i64 %8
@@ -2458,7 +2458,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i180: ; preds = %560
   %567 = icmp eq i16 %566, 18
   br i1 %567, label %568, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-568:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i180
+568:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i181
   %569 = add nuw i64 %8, 1
   %.not.i5.i182 = icmp ult i64 %569, %562
   br i1 %.not.i5.i182, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i183, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -2496,9 +2496,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i184: ; preds = %573
   %588 = getelementptr inbounds i8, ptr %5, i64 16
   %589 = load i64, ptr %588, align 8, !noundef !10
   %.not.i.i186 = icmp ult i64 %8, %589
-  br i1 %.not.i.i186, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i187, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i186, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i188, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i187: ; preds = %587
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i188: ; preds = %587
   %590 = getelementptr inbounds i8, ptr %5, i64 8
   %591 = load ptr, ptr %590, align 8, !nonnull !10
   %592 = getelementptr inbounds i16, ptr %591, i64 %8
@@ -2506,7 +2506,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i187: ; preds = %587
   %594 = icmp eq i16 %593, 10
   br i1 %594, label %595, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-595:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i187
+595:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i188
   %596 = add nuw i64 %8, 1
   %.not.i5.i189 = icmp ult i64 %596, %589
   br i1 %.not.i5.i189, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i190, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -2544,9 +2544,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i191: ; preds = %600
   %615 = getelementptr inbounds i8, ptr %5, i64 16
   %616 = load i64, ptr %615, align 8, !noundef !10
   %.not.i.i193 = icmp ult i64 %8, %616
-  br i1 %.not.i.i193, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i194, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i193, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i195, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i194: ; preds = %614
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i195: ; preds = %614
   %617 = getelementptr inbounds i8, ptr %5, i64 8
   %618 = load ptr, ptr %617, align 8, !nonnull !10
   %619 = getelementptr inbounds i16, ptr %618, i64 %8
@@ -2554,7 +2554,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i194: ; preds = %614
   %621 = icmp eq i16 %620, 11
   br i1 %621, label %622, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-622:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i194
+622:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i195
   %623 = add nuw i64 %8, 1
   %.not.i5.i196 = icmp ult i64 %623, %616
   br i1 %.not.i5.i196, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i197, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -2592,9 +2592,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i198: ; preds = %627
   %642 = getelementptr inbounds i8, ptr %5, i64 16
   %643 = load i64, ptr %642, align 8, !noundef !10
   %.not.i.i200 = icmp ult i64 %8, %643
-  br i1 %.not.i.i200, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i201, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i200, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i202, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i201: ; preds = %641
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i202: ; preds = %641
   %644 = getelementptr inbounds i8, ptr %5, i64 8
   %645 = load ptr, ptr %644, align 8, !nonnull !10
   %646 = getelementptr inbounds i16, ptr %645, i64 %8
@@ -2602,7 +2602,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i201: ; preds = %641
   %648 = icmp eq i16 %647, 10
   br i1 %648, label %649, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-649:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i201
+649:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i202
   %650 = add nuw i64 %8, 1
   %.not.i7.i203 = icmp ult i64 %650, %643
   br i1 %.not.i7.i203, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i204, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -2668,9 +2668,9 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i209: ; preds = %672
   %683 = getelementptr inbounds i8, ptr %5, i64 16
   %684 = load i64, ptr %683, align 8, !noundef !10
   %.not.i.i211 = icmp ult i64 %8, %684
-  br i1 %.not.i.i211, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i212, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
+  br i1 %.not.i.i211, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i213, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i212: ; preds = %682
+_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i213: ; preds = %682
   %685 = getelementptr inbounds i8, ptr %5, i64 8
   %686 = load ptr, ptr %685, align 8, !nonnull !10
   %687 = getelementptr inbounds i16, ptr %686, i64 %8
@@ -2678,7 +2678,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i212: ; preds = %682
   %689 = icmp eq i16 %688, 11
   br i1 %689, label %690, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-690:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i212
+690:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i213
   %691 = add nuw i64 %8, 1
   %.not.i7.i214 = icmp ult i64 %691, %684
   br i1 %.not.i7.i214, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i215, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
@@ -2740,8 +2740,8 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i220: ; preds = %713
   %722 = icmp ne i64 %721, 0
   br label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
-_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit: ; preds = %695, %690, %682, %654, %649, %641, %622, %614, %595, %587, %568, %560, %541, %533, %514, %506, %487, %479, %460, %452, %433, %425, %406, %398, %379, %371, %352, %344, %325, %317, %298, %290, %271, %263, %244, %236, %217, %209, %190, %182, %163, %155, %136, %128, %100, %95, %87, %59, %54, %46, %27, %19, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i220, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i218, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i217, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i215, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i212, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i209, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i207, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i206, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i204, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i201, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i198, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i197, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i194, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i191, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i190, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i187, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i184, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i183, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i180, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i177, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i176, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i173, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i170, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i169, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i166, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i163, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i162, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i159, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i156, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i155, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i152, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i149, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i148, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i145, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i142, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i141, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i138, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i135, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i134, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i131, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i128, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i127, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i124, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i121, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i120, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i117, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i114, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i113, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i110, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i107, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i106, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i103, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i100, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i99, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i96, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i93, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i92, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i89, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i86, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i85, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i82, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i79, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i78, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i75, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i72, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i65, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i63, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i62, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i60, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i57, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i54, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i52, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit
-  %.0.in = phi i1 [ %18, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit ], [ %45, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i ], [ %86, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i52 ], [ false, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i54 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i ], [ %127, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i65 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i57 ], [ false, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i63 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i60 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i62 ], [ %154, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i72 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71 ], [ %181, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i79 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i75 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i78 ], [ %208, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i86 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i82 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i85 ], [ %235, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i93 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i89 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i92 ], [ %262, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i100 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i96 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i99 ], [ %289, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i107 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i103 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i106 ], [ %316, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i114 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i110 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i113 ], [ %343, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i121 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i117 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i120 ], [ %370, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i128 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i124 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i127 ], [ %397, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i135 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i131 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i134 ], [ %424, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i142 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i138 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i141 ], [ %451, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i149 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i145 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i148 ], [ %478, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i156 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i152 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i155 ], [ %505, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i163 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i159 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i162 ], [ %532, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i170 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i166 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i169 ], [ %559, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i177 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i173 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i176 ], [ %586, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i184 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i180 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i183 ], [ %613, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i191 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i187 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i190 ], [ %640, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i198 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i194 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i197 ], [ %681, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i209 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i201 ], [ false, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i207 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i204 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i206 ], [ %722, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i220 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i212 ], [ false, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i218 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i215 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i217 ], [ false, %19 ], [ false, %27 ], [ false, %46 ], [ false, %54 ], [ false, %59 ], [ false, %87 ], [ false, %95 ], [ false, %100 ], [ false, %128 ], [ false, %136 ], [ false, %155 ], [ false, %163 ], [ false, %182 ], [ false, %190 ], [ false, %209 ], [ false, %217 ], [ false, %236 ], [ false, %244 ], [ false, %263 ], [ false, %271 ], [ false, %290 ], [ false, %298 ], [ false, %317 ], [ false, %325 ], [ false, %344 ], [ false, %352 ], [ false, %371 ], [ false, %379 ], [ false, %398 ], [ false, %406 ], [ false, %425 ], [ false, %433 ], [ false, %452 ], [ false, %460 ], [ false, %479 ], [ false, %487 ], [ false, %506 ], [ false, %514 ], [ false, %533 ], [ false, %541 ], [ false, %560 ], [ false, %568 ], [ false, %587 ], [ false, %595 ], [ false, %614 ], [ false, %622 ], [ false, %641 ], [ false, %649 ], [ false, %654 ], [ false, %682 ], [ false, %690 ], [ false, %695 ]
+_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit: ; preds = %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i220, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i218, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i217, %695, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i215, %690, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i213, %682, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i209, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i207, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i206, %654, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i204, %649, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i202, %641, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i198, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i197, %622, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i195, %614, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i191, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i190, %595, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i188, %587, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i184, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i183, %568, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i181, %560, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i177, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i176, %541, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i174, %533, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i170, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i169, %514, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i167, %506, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i163, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i162, %487, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i160, %479, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i156, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i155, %460, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i153, %452, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i149, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i148, %433, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i146, %425, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i142, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i141, %406, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i139, %398, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i135, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i134, %379, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i132, %371, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i128, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i127, %352, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i125, %344, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i121, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i120, %325, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i118, %317, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i114, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i113, %298, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i111, %290, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i107, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i106, %271, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i104, %263, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i100, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i99, %244, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i97, %236, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i93, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i92, %217, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i90, %209, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i86, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i85, %190, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i83, %182, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i79, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i78, %163, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i76, %155, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i72, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71, %136, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69, %128, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i65, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i63, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i62, %100, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i60, %95, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i58, %87, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i54, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i, %59, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i, %54, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i53, %46, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i, %27, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i, %19, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit
+  %.0.in = phi i1 [ %18, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit ], [ %45, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i ], [ false, %19 ], [ false, %27 ], [ %86, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i53 ], [ false, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i54 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i ], [ false, %46 ], [ false, %54 ], [ false, %59 ], [ %127, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i65 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i58 ], [ false, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i63 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i60 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i62 ], [ false, %87 ], [ false, %95 ], [ false, %100 ], [ %154, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i72 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71 ], [ false, %128 ], [ false, %136 ], [ %181, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i79 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i76 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i78 ], [ false, %155 ], [ false, %163 ], [ %208, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i86 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i83 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i85 ], [ false, %182 ], [ false, %190 ], [ %235, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i93 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i90 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i92 ], [ false, %209 ], [ false, %217 ], [ %262, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i100 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i97 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i99 ], [ false, %236 ], [ false, %244 ], [ %289, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i107 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i104 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i106 ], [ false, %263 ], [ false, %271 ], [ %316, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i114 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i111 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i113 ], [ false, %290 ], [ false, %298 ], [ %343, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i121 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i118 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i120 ], [ false, %317 ], [ false, %325 ], [ %370, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i128 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i125 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i127 ], [ false, %344 ], [ false, %352 ], [ %397, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i135 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i132 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i134 ], [ false, %371 ], [ false, %379 ], [ %424, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i142 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i139 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i141 ], [ false, %398 ], [ false, %406 ], [ %451, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i149 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i146 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i148 ], [ false, %425 ], [ false, %433 ], [ %478, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i156 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i153 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i155 ], [ false, %452 ], [ false, %460 ], [ %505, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i163 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i160 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i162 ], [ false, %479 ], [ false, %487 ], [ %532, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i170 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i167 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i169 ], [ false, %506 ], [ false, %514 ], [ %559, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i177 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i174 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i176 ], [ false, %533 ], [ false, %541 ], [ %586, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i184 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i181 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i183 ], [ false, %560 ], [ false, %568 ], [ %613, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i191 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i188 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i190 ], [ false, %587 ], [ false, %595 ], [ %640, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i198 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i195 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i197 ], [ false, %614 ], [ false, %622 ], [ %681, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i209 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i202 ], [ false, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i207 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i204 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i206 ], [ false, %641 ], [ false, %649 ], [ false, %654 ], [ %722, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i220 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i213 ], [ false, %_ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i218 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i215 ], [ false, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i217 ], [ false, %682 ], [ false, %690 ], [ false, %695 ]
   ret i1 %.0.in
 }
 

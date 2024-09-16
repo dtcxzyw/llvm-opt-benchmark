@@ -1088,7 +1088,7 @@ if.then23:                                        ; preds = %land.lhs.true
   %payload_len27 = getelementptr inbounds i8, ptr %pkt, i64 65604
   %9 = load i32, ptr %payload_len27, align 4
   %conv28 = trunc i32 %9 to i16
-  tail call fastcc void @net_tx_pkt_do_sw_csum(ptr noundef nonnull %pkt, ptr noundef %arrayidx25, i32 noundef %sub26, i16 noundef zeroext %conv28)
+  tail call fastcc void @net_tx_pkt_do_sw_csum(ptr noundef %pkt, ptr noundef %arrayidx25, i32 noundef %sub26, i16 noundef zeroext %conv28)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end11, %if.then23, %land.lhs.true, %if.then17
@@ -1214,7 +1214,7 @@ sw.bb17.i:                                        ; preds = %if.end39
   %29 = load i32, ptr %payload_frags.i, align 8
   %sub.i = add i32 %29, 2
   %conv20.i = trunc i32 %2 to i16
-  call fastcc void @net_tx_pkt_do_sw_csum(ptr noundef nonnull readonly %pkt, ptr noundef %arrayidx12.i, i32 noundef %sub.i, i16 noundef zeroext %conv20.i)
+  call fastcc void @net_tx_pkt_do_sw_csum(ptr noundef readonly %pkt, ptr noundef %arrayidx12.i, i32 noundef %sub.i, i16 noundef zeroext %conv20.i)
   %gso_size.i31.i = getelementptr inbounds i8, ptr %pkt, i64 4
   %30 = load i16, ptr %gso_size.i31.i, align 4
   %31 = and i16 %30, -8
@@ -1344,7 +1344,7 @@ net_tx_pkt_tcp_fragment_fix.exit.i:               ; preds = %sw.bb8.i.i, %sw.bb.
   %sub30.i = add i32 %dst_idx.1.i, -1
   %add31.i = add i64 %fetched.0.lcssa.i.i, %l4hdr_len.0.i
   %conv32.i = trunc i64 %add31.i to i16
-  call fastcc void @net_tx_pkt_do_sw_csum(ptr noundef nonnull readonly %pkt, ptr noundef nonnull %arrayidx11.i, i32 noundef %sub30.i, i16 noundef zeroext %conv32.i)
+  call fastcc void @net_tx_pkt_do_sw_csum(ptr noundef readonly %pkt, ptr noundef nonnull %arrayidx11.i, i32 noundef %sub30.i, i16 noundef zeroext %conv32.i)
   br label %sw.epilog35.i
 
 sw.bb33.i:                                        ; preds = %if.end25.i
@@ -1487,7 +1487,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @net_tx_pkt_do_sw_csum(ptr nocapture noundef readonly %pkt, ptr noundef %iov, i32 noundef %iov_len, i16 noundef zeroext %csl) unnamed_addr #0 {
+define internal fastcc void @net_tx_pkt_do_sw_csum(ptr nocapture noundef nonnull readonly %pkt, ptr noundef %iov, i32 noundef %iov_len, i16 noundef zeroext %csl) unnamed_addr #0 {
 entry:
   %csum = alloca i16, align 2
   %cso = alloca i32, align 4

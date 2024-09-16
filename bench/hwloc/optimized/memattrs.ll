@@ -1812,7 +1812,7 @@ from_internal_location.exit:                      ; preds = %108, %112, %116
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @hwloc__memattr_get_target(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc ptr @hwloc__memattr_get_target(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #3 {
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %.not57 = icmp eq i32 %7, 0
@@ -4264,7 +4264,7 @@ declare i32 @hwloc_bitmap_iszero(ptr noundef) local_unnamed_addr #18
 declare i32 @hwloc_bitmap_weight(ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @hwloc__memattr_target_get_initiator(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc noundef ptr @hwloc__memattr_target_get_initiator(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %.not51 = icmp eq i32 %5, 0

@@ -142,7 +142,7 @@ define hidden void @"_ZN4core3ptr37drop_in_place$LT$core..fmt..Error$GT$17h0dac7
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$chrono..format..Item$GT$17hb17a2a37290f5b7eE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$chrono..format..Item$GT$17hb17a2a37290f5b7eE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !4, !noundef !5
   switch i8 %2, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h02ae2dcaf60c8f64E.exit" [
     i8 3, label %7
@@ -536,7 +536,7 @@ define hidden noundef zeroext i1 @_ZN6chrono6format10formatting14write_hundreds1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric7write_n17h265c7df0956689c2E"(ptr noalias noundef align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2, i8 noundef %3, i1 noundef zeroext %4) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric7write_n17h265c7df0956689c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef range(i64 3, 10) %1, i64 noundef %2, i8 noundef range(i8 0, 3) %3, i1 noundef zeroext %4) unnamed_addr #3 {
   %6 = alloca [1 x { { i64, [1 x i64] }, { i64, [1 x i64] }, i64, i32, i32, i8, [7 x i8] }], align 8
   %7 = alloca [2 x { ptr, ptr }], align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -563,20 +563,20 @@ define internal fastcc noundef zeroext i1 @"_ZN6chrono6format10formatting22Delay
   br i1 %4, label %28, label %27
 
 27:                                               ; preds = %5
-  switch i8 %3, label %default.unreachable [
+  switch i8 %3, label %default.unreachable69 [
     i8 0, label %29
     i8 1, label %36
     i8 2, label %47
   ]
 
 28:                                               ; preds = %5
-  switch i8 %3, label %default.unreachable [
+  switch i8 %3, label %default.unreachable69 [
     i8 0, label %59
     i8 1, label %67
     i8 2, label %79
   ]
 
-default.unreachable:                              ; preds = %28, %27
+default.unreachable69:                            ; preds = %28, %27
   unreachable
 
 29:                                               ; preds = %27
@@ -726,7 +726,7 @@ default.unreachable:                              ; preds = %28, %27
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
-  %68 = add i64 %1, 1
+  %68 = add nuw nsw i64 %1, 1
   store i64 %68, ptr %19, align 8
   %69 = load ptr, ptr @_ZN4core3fmt2rt12USIZE_MARKER17hef2d4d0250b80c97E, align 8, !nonnull !5, !noundef !5
   store ptr %25, ptr %20, align 8
@@ -772,7 +772,7 @@ default.unreachable:                              ; preds = %28, %27
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  %80 = add i64 %1, 1
+  %80 = add nuw nsw i64 %1, 1
   store i64 %80, ptr %15, align 8
   %81 = load ptr, ptr @_ZN4core3fmt2rt12USIZE_MARKER17hef2d4d0250b80c97E, align 8, !nonnull !5, !noundef !5
   store ptr %25, ptr %16, align 8
@@ -1473,7 +1473,7 @@ default.unreachable261:                           ; preds = %418, %416
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit222, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp223, %.loopexit.split-lp.loopexit.split-lp ]
-  call fastcc void @"_ZN4core3ptr41drop_in_place$LT$chrono..format..Item$GT$17hb17a2a37290f5b7eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %67) #13
+  call fastcc void @"_ZN4core3ptr41drop_in_place$LT$chrono..format..Item$GT$17hb17a2a37290f5b7eE"(ptr noalias noundef align 8 dereferenceable(24) %67) #13
   resume { ptr, i32 } %lpad.phi
 
 416:                                              ; preds = %.lr.ph, %"_ZN4core3ptr41drop_in_place$LT$chrono..format..Item$GT$17hb17a2a37290f5b7eE.exit"
@@ -2272,7 +2272,7 @@ _ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h57e27661aa323bfeE.exit.i.inv
   %711 = phi i64 [ 4, %_ZN4core3ops5range11RangeBounds8contains17h4625e30c626da293E.exit.thread.i126.i ], [ 4, %440 ], [ 3, %433 ], [ 9, %438 ], [ 9, %439 ]
   %712 = phi i64 [ %472, %_ZN4core3ops5range11RangeBounds8contains17h4625e30c626da293E.exit.thread.i126.i ], [ %373, %440 ], [ %340, %433 ], [ %300, %438 ], [ %402, %439 ]
   %713 = phi i1 [ %473, %_ZN4core3ops5range11RangeBounds8contains17h4625e30c626da293E.exit.thread.i126.i ], [ %374, %440 ], [ false, %433 ], [ false, %438 ], [ false, %439 ]
-  %714 = invoke fastcc noundef zeroext i1 @"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric7write_n17h265c7df0956689c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %711, i64 noundef %712, i8 noundef %419, i1 noundef zeroext %713)
+  %714 = invoke fastcc noundef zeroext i1 @"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric7write_n17h265c7df0956689c2E"(ptr noalias noundef align 8 dereferenceable(24) %1, i64 noundef %711, i64 noundef %712, i8 noundef %419, i1 noundef zeroext %713)
           to label %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric17h064b0d93212e7827E.exit" unwind label %.loopexit.split-lp.loopexit
 
 715:                                              ; preds = %416

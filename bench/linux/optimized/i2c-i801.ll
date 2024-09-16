@@ -1146,7 +1146,7 @@ declare dso_local i32 @i2c_add_adapter(ptr noundef) local_unnamed_addr #1
 declare dso_local void @platform_device_unregister(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @i801_restore_regs(ptr nocapture noundef readonly %0) unnamed_addr #3 align 16 {
+define internal fastcc void @i801_restore_regs(ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1033
   %3 = load i8, ptr %2, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 1024
@@ -1202,7 +1202,7 @@ define internal fastcc void @i801_enable_host_notify(ptr nocapture readonly %.23
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @i801_probe_optional_slaves(ptr noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc void @i801_probe_optional_slaves(ptr noundef nonnull %0) unnamed_addr #3 align 16 {
   %2 = alloca %struct.i2c_board_info, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %struct.i2c_board_info, align 8
@@ -1227,7 +1227,7 @@ define internal fastcc void @i801_probe_optional_slaves(ptr noundef %0) unnamed_
   store i16 %15, ptr %14, align 2
   %16 = getelementptr inbounds i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(56) %16, i8 0, i64 56, i1 false)
-  %17 = call ptr @i2c_new_client_device(ptr noundef %0, ptr noundef nonnull %4) #15
+  %17 = call ptr @i2c_new_client_device(ptr noundef nonnull %0, ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #15
   br label %18
 
@@ -1237,7 +1237,7 @@ define internal fastcc void @i801_probe_optional_slaves(ptr noundef %0) unnamed_
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %18
-  %22 = call i32 @dmi_walk(ptr noundef nonnull @dmi_check_onboard_devices, ptr noundef %0) #15
+  %22 = call i32 @dmi_walk(ptr noundef nonnull @dmi_check_onboard_devices, ptr noundef nonnull %0) #15
   br label %23
 
 23:                                               ; preds = %21, %18
@@ -1290,7 +1290,7 @@ define internal fastcc void @i801_probe_optional_slaves(ptr noundef %0) unnamed_
   %49 = getelementptr inbounds i8, ptr %2, i64 22
   store i16 %48, ptr %49, align 2
   %50 = call i64 @strscpy(ptr noundef nonnull %2, ptr noundef nonnull @.str.50, i64 noundef 20) #15
-  %51 = call ptr @i2c_new_client_device(ptr noundef %0, ptr noundef nonnull %2) #15
+  %51 = call ptr @i2c_new_client_device(ptr noundef nonnull %0, ptr noundef nonnull %2) #15
   br label %52
 
 52:                                               ; preds = %46, %.thread
@@ -1302,7 +1302,7 @@ define internal fastcc void @i801_probe_optional_slaves(ptr noundef %0) unnamed_
   br label %54
 
 54:                                               ; preds = %53, %52, %25
-  call void @i2c_register_spd(ptr noundef %0) #15
+  call void @i2c_register_spd(ptr noundef nonnull %0) #15
   br label %55
 
 55:                                               ; preds = %54, %1
@@ -2481,7 +2481,7 @@ declare dso_local i32 @__pm_runtime_resume(ptr noundef, i32 noundef) local_unnam
 declare dso_local i32 @pci_write_config_byte(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -110, 256) i32 @i801_transaction(ptr noundef %0, i32 noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -110, 256) i32 @i801_transaction(ptr noundef %0, i32 noundef range(i32 0, 29) %1) unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1048
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 16
@@ -2517,7 +2517,7 @@ define internal fastcc range(i32 -110, 256) i32 @i801_transaction(ptr noundef %0
 
 27:                                               ; preds = %2
   %28 = trunc nuw nsw i32 %1 to i8
-  %29 = or i8 %28, 64
+  %29 = or disjoint i8 %28, 64
   %30 = getelementptr inbounds i8, ptr %0, i64 1024
   %31 = load i64, ptr %30, align 8
   %32 = trunc i64 %31 to i16

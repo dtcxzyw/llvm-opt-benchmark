@@ -1163,7 +1163,7 @@ declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr no
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly12_GLOBAL__N_111print_errorEiPKc(i32 noundef %err, ptr noundef %msg) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly12_GLOBAL__N_111print_errorEiPKc(i32 noundef range(i32 1, 0) %err, ptr noundef %msg) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::ErrnoLogMessage", align 8
   %indirect-arg-temp = alloca { i64, i64 }, align 8
@@ -1274,7 +1274,7 @@ if.end6:                                          ; preds = %if.end5, %if.then2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly12_GLOBAL__N_113HugePageArena9map_pagesEmm(i64 noundef %initial_nr_pages, i64 noundef %max_nr_pages) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly12_GLOBAL__N_113HugePageArena9map_pagesEmm(i64 noundef range(i64 -2147483648, 2147483648) %initial_nr_pages, i64 noundef range(i64 -2147483648, 2147483648) %max_nr_pages) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mul = shl nsw i64 %initial_nr_pages, 21
   %mul2 = shl nsw i64 %max_nr_pages, 21

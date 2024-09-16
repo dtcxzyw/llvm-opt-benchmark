@@ -186,7 +186,7 @@ entry:
   store ptr %lia, ptr %lia2, align 8
   %m_f = getelementptr inbounds i8, ptr %this, i64 48
   %call.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK2lp10int_solver9get_valueEj(ptr noundef nonnull align 8 dereferenceable(504) %lia, i32 noundef %basic_inf_int_j)
-  tail call fastcc void @_ZN2lpL15fractional_partERK8rational(ptr noalias nonnull align 8 %m_f, ptr noundef nonnull align 8 dereferenceable(32) %call.i)
+  tail call fastcc void @_ZN2lpL15fractional_partERK8rational(ptr noalias align 8 %m_f, ptr noundef nonnull align 8 dereferenceable(32) %call.i)
   %m_one_minus_f = getelementptr inbounds i8, ptr %this, i64 80
   invoke void @_ZmiiRK8rational(ptr nonnull sret(%class.rational) align 8 %m_one_minus_f, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %m_f)
           to label %invoke.cont11 unwind label %lpad
@@ -897,7 +897,7 @@ if.then68:                                        ; preds = %invoke.cont66
           to label %invoke.cont73 unwind label %lpad44
 
 invoke.cont73:                                    ; preds = %if.then68
-  invoke fastcc void @_ZN2lpL15fractional_partERK8rational(ptr noalias nonnull align 8 %ref.tmp69, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp70)
+  invoke fastcc void @_ZN2lpL15fractional_partERK8rational(ptr noalias align 8 %ref.tmp69, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp70)
           to label %invoke.cont75 unwind label %lpad74
 
 invoke.cont75:                                    ; preds = %invoke.cont73
@@ -1389,7 +1389,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2lpL15fractional_partERK8rational(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %n) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2lpL15fractional_partERK8rational(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %n) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.rational, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
@@ -1424,7 +1424,7 @@ lpad.i:                                           ; preds = %.noexc.i, %entry
 
 _Z5floorRK8rational.exit:                         ; preds = %.noexc.i
   store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !17
-  invoke void @_ZmiRK8rationalS1_(ptr sret(%class.rational) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %n, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+  invoke void @_ZmiRK8rationalS1_(ptr nonnull sret(%class.rational) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %n, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_Z5floorRK8rational.exit

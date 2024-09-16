@@ -1568,7 +1568,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i54, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly4test12_GLOBAL__N_118generateUniquePathEN5boost10filesystem4pathENS_5RangeIPKcEE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef %path, ptr %namePrefix.coerce0, ptr %namePrefix.coerce1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly4test12_GLOBAL__N_118generateUniquePathEN5boost10filesystem4pathENS_5RangeIPKcEE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef nonnull %path, ptr %namePrefix.coerce0, ptr %namePrefix.coerce1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.boost::filesystem::path", align 8

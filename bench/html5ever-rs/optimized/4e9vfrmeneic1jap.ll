@@ -102,7 +102,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..T
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$29push_bytes_without_validating17h151ba4d1e0d92997E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$29push_bytes_without_validating17h151ba4d1e0d92997E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef range(i64 0, 5) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.4.i = alloca i64, align 8
   %4 = alloca { { i64, ptr }, i64 }, align 8
   %5 = alloca [8 x i8], align 8
@@ -125,7 +125,7 @@ define internal fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$29push_by
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit": ; preds = %3, %10, %13
   %.0.i = phi i32 [ %14, %13 ], [ %12, %10 ], [ 0, %3 ]
-  %15 = trunc nuw i64 %2 to i32
+  %15 = trunc nuw nsw i64 %2 to i32
   %16 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %.0.i, i32 %15)
   %17 = extractvalue { i32, i1 } %16, 0
   %18 = extractvalue { i32, i1 } %16, 1
@@ -209,7 +209,7 @@ define internal fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$29push_by
           to label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17h2da6ffed3a0ce068E.exit.i" unwind label %56, !noalias !34
 
 common.resume.sink.split:                         ; preds = %138, %56
-  %.sink = phi i64 [ %54, %56 ], [ %.0.i47, %138 ]
+  %.sink = phi i64 [ %54, %56 ], [ %..i, %138 ]
   %.sroa.05.0.insert.insert.i.i.i.sink = phi i64 [ %.sroa.05.0.insert.insert.i.i.i, %56 ], [ %.sroa.4.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i, %138 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %57, %56 ], [ %139, %138 ]
   store i64 %.sink, ptr %0, align 8
@@ -403,7 +403,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %134 = zext nneg i32 %17 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i)
   %135 = icmp eq i32 %17, 0
-  %.0.i47 = select i1 %135, i64 15, i64 %134
+  %..i = select i1 %135, i64 15, i64 %134
   store i64 0, ptr %.sroa.4.i, align 8, !noalias !54
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.i, ptr nonnull readonly align 8 %5, i64 %134, i1 false), !noalias !58
   %.sroa.4.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i = load i64, ptr %.sroa.4.i, align 8, !noalias !54
@@ -422,9 +422,9 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %common.resume.sink.split
 
 140:                                              ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit46"
-  store i64 %.0.i47, ptr %0, align 8
-  %.sroa.5.0..sroa_idx52 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.4.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i, ptr %.sroa.5.0..sroa_idx52, align 8
+  store i64 %..i, ptr %0, align 8
+  %.sroa.5.0..sroa_idx51 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.4.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i, ptr %.sroa.5.0..sroa_idx51, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %137
 }
@@ -529,7 +529,7 @@ define void @_ZN9html5ever9tokenizer11option_push17h81af38e9f2c86d71E(ptr noalia
 
 58:                                               ; preds = %36, %23, %15, %13
   %59 = phi i64 [ 4, %36 ], [ 3, %23 ], [ 2, %15 ], [ 1, %13 ]
-  invoke fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$29push_bytes_without_validating17h151ba4d1e0d92997E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %59)
+  invoke fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$29push_bytes_without_validating17h151ba4d1e0d92997E"(ptr noalias noundef align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %59)
           to label %"_ZN7tendril7tendril37Tendril$LT$tendril..fmt..UTF8$C$A$GT$9from_char17hc9cbab195ce01b9bE.exit" unwind label %55, !noalias !60
 
 60:                                               ; preds = %55
@@ -634,7 +634,7 @@ common.resume:                                    ; preds = %55, %116
 
 _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit: ; preds = %73, %75, %83, %96
   %115 = phi i64 [ 4, %96 ], [ 3, %83 ], [ 2, %75 ], [ 1, %73 ]
-  call fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$29push_bytes_without_validating17h151ba4d1e0d92997E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %67, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %115)
+  call fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$29push_bytes_without_validating17h151ba4d1e0d92997E"(ptr noalias noundef align 8 dereferenceable(16) %67, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %115)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %118
 

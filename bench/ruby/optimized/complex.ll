@@ -1267,7 +1267,7 @@ define dso_local i64 @rb_complex_mul(i64 noundef %0, i64 noundef %1) #0 {
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %10, i64 24
   %23 = load i64, ptr %22, align 8
-  call fastcc void @comp_mul(i64 noundef %17, i64 noundef %19, i64 noundef %21, i64 noundef %23, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call fastcc void @comp_mul(i64 noundef %17, i64 noundef %19, i64 noundef %21, i64 noundef %23, ptr noundef %3, ptr noundef %4)
   %24 = and i64 %0, 7
   %25 = icmp ne i64 %24, 0
   %26 = icmp eq i64 %0, 0
@@ -1427,7 +1427,7 @@ f_complex_new2.exit44:                            ; preds = %rb_class_of.exit41,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @comp_mul(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @comp_mul(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = and i64 %0, 3
   %8 = icmp eq i64 %7, 2
   br i1 %8, label %18, label %9
@@ -1981,7 +1981,7 @@ define dso_local i64 @rb_complex_div(i64 noundef %0, i64 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @f_divide(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @f_divide(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef range(i64 3569, 3586) %3) unnamed_addr #0 {
   %5 = and i64 %1, 7
   %6 = icmp ne i64 %5, 0
   %7 = icmp eq i64 %1, 0
@@ -3956,7 +3956,7 @@ f_mul.exit:                                       ; preds = %641, %f_mul.exit.fo
   %.1.lcssa = phi i64 [ %.0160300, %.preheader ], [ %649, %f_mul.exit ]
   %652 = load i64, ptr %5, align 8
   %653 = load i64, ptr %6, align 8
-  call fastcc void @comp_mul(i64 noundef %652, i64 noundef %653, i64 noundef %.1162.lcssa, i64 noundef %.1.lcssa, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @comp_mul(i64 noundef %652, i64 noundef %653, i64 noundef %.1162.lcssa, i64 noundef %.1.lcssa, ptr noundef %5, ptr noundef %6)
   %654 = add i64 %.2167.lcssa, -1
   %.not171 = icmp eq i64 %654, 0
   br i1 %.not171, label %.loopexit, label %.preheader, !llvm.loop !10
@@ -8362,7 +8362,7 @@ define internal i64 @string_to_c(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
   tail call void @rb_must_asciicompat(i64 noundef %0) #15
   %3 = tail call ptr @rb_str_fill_terminator(i64 noundef %0, i32 noundef 1) #15
-  %4 = call fastcc i32 @parse_comp(ptr noundef %3, i32 noundef 0, ptr noundef nonnull %2)
+  %4 = call fastcc i32 @parse_comp(ptr noundef %3, i32 noundef 0, ptr noundef %2)
   %5 = load i64, ptr %2, align 8
   ret i64 %5
 }
@@ -9911,13 +9911,13 @@ define internal fastcc i64 @string_to_c_strict(i64 noundef %0, i32 noundef %1) u
   br i1 %.not5, label %16, label %7
 
 7:                                                ; preds = %5
-  %8 = call fastcc i32 @parse_comp(ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %4)
+  %8 = call fastcc i32 @parse_comp(ptr noundef nonnull %6, i32 noundef 1, ptr noundef %4)
   %.not6 = icmp eq i32 %8, 0
   br i1 %.not6, label %16, label %14
 
 .thread:                                          ; preds = %2
   %9 = call ptr @rb_string_value_cstr(ptr noundef nonnull %3) #15
-  %10 = call fastcc i32 @parse_comp(ptr noundef %9, i32 noundef 1, ptr noundef nonnull %4)
+  %10 = call fastcc i32 @parse_comp(ptr noundef %9, i32 noundef 1, ptr noundef %4)
   %.not68 = icmp eq i32 %10, 0
   br i1 %.not68, label %11, label %14
 
@@ -9953,7 +9953,7 @@ declare ptr @rb_string_value_cstr(ptr noundef) local_unnamed_addr #4
 declare ptr @rb_str_to_cstr(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_comp(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_comp(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -10040,7 +10040,7 @@ isimagunit.exit.thread.i:                         ; preds = %read_sign.exit.i, %
   br label %read_comp.exit.thread16
 
 44:                                               ; preds = %read_sign.exit.i
-  %45 = call fastcc i32 @read_rat_nos(ptr noundef nonnull %4, i32 noundef %1, ptr noundef nonnull %5)
+  %45 = call fastcc i32 @read_rat_nos(ptr noundef %4, i32 noundef %1, ptr noundef %5)
   %.not63.i = icmp eq i32 %45, 0
   %46 = load ptr, ptr %5, align 8
   store i8 0, ptr %46, align 1
@@ -10085,7 +10085,7 @@ isimagunit.exit71.thread.i:                       ; preds = %48, %48, %48, %48
   br label %read_rat.exit.i
 
 read_rat.exit.i:                                  ; preds = %57, %54
-  %60 = call fastcc range(i32 0, 2) i32 @read_rat_nos(ptr noundef nonnull %4, i32 noundef %1, ptr noundef nonnull %5)
+  %60 = call fastcc range(i32 0, 2) i32 @read_rat_nos(ptr noundef %4, i32 noundef %1, ptr noundef %5)
   %61 = load ptr, ptr %5, align 8
   store i8 0, ptr %61, align 1
   %62 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #20
@@ -10121,7 +10121,7 @@ read_sign.exit73.i:                               ; preds = %48, %48
   ]
 
 77:                                               ; preds = %read_sign.exit73.i
-  %78 = call fastcc i32 @read_rat_nos(ptr noundef nonnull %4, i32 noundef %1, ptr noundef nonnull %5)
+  %78 = call fastcc i32 @read_rat_nos(ptr noundef %4, i32 noundef %1, ptr noundef %5)
   %.not67.i = icmp eq i32 %78, 0
   br i1 %.not67.i, label %read_comp.exit.thread, label %79
 
@@ -10234,7 +10234,7 @@ declare noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef, i64 nou
 declare ptr @__ctype_b_loc() local_unnamed_addr #11
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @read_rat_nos(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #12 {
+define internal fastcc range(i32 0, 2) i32 @read_rat_nos(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 2) %1, ptr nocapture noundef nonnull %2) unnamed_addr #12 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i8, ptr %4, align 1
   %.not.i = icmp eq i8 %5, 46

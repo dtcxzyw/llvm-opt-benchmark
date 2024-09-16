@@ -838,7 +838,7 @@ sw.bb349.i:                                       ; preds = %if.then347.i
   %mValue352.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %102 = load i8, ptr %mValue352.i, align 16, !noalias !8
   %conv353.i = sext i8 %102 to i32
-  %call354.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat350.i, i32 noundef %conv353.i)
+  %call354.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef %mFormat350.i, i32 noundef %conv353.i)
   br label %sw.epilog431.i
 
 sw.bb355.i:                                       ; preds = %if.then347.i
@@ -846,70 +846,70 @@ sw.bb355.i:                                       ; preds = %if.then347.i
   %mValue358.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %103 = load i16, ptr %mValue358.i, align 16, !noalias !8
   %conv359.i = sext i16 %103 to i32
-  %call360.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat356.i, i32 noundef %conv359.i)
+  %call360.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef %mFormat356.i, i32 noundef %conv359.i)
   br label %sw.epilog431.i
 
 sw.bb361.i:                                       ; preds = %if.then347.i
   %mFormat362.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
   %mValue364.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %104 = load i32, ptr %mValue364.i, align 16, !noalias !8
-  %call365.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat362.i, i32 noundef %104)
+  %call365.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef %mFormat362.i, i32 noundef %104)
   br label %sw.epilog431.i
 
 sw.bb366.i:                                       ; preds = %if.then347.i
   %mFormat367.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
   %mValue369.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %105 = load i64, ptr %mValue369.i, align 16, !noalias !8
-  %call370.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat367.i, i64 noundef %105)
+  %call370.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef %mFormat367.i, i64 noundef %105)
   br label %sw.epilog431.i
 
 sw.bb371.i:                                       ; preds = %if.then347.i
   %mFormat372.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
   %mValue374.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %106 = load i64, ptr %mValue374.i, align 16, !noalias !8
-  %call375.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat372.i, i64 noundef %106)
+  %call375.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef %mFormat372.i, i64 noundef %106)
   br label %sw.epilog431.i
 
 sw.bb376.i:                                       ; preds = %if.then347.i
   %mFormat377.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
   %mValue379.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %107 = load i64, ptr %mValue379.i, align 16, !noalias !8
-  %call380.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat377.i, i64 noundef %107)
+  %call380.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef %mFormat377.i, i64 noundef %107)
   br label %sw.epilog431.i
 
 sw.bb381.i:                                       ; preds = %if.then347.i
   %mFormat382.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
   %mValue384.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %108 = load i64, ptr %mValue384.i, align 16, !noalias !8
-  %call385.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat382.i, i64 noundef %108)
+  %call385.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef %mFormat382.i, i64 noundef %108)
   br label %sw.epilog431.i
 
 sw.bb386.i:                                       ; preds = %if.then347.i
   %mFormat387.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
   %mValue389.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %109 = load i64, ptr %mValue389.i, align 16, !noalias !8
-  %call390.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat387.i, i64 noundef %109)
+  %call390.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef %mFormat387.i, i64 noundef %109)
   br label %sw.epilog431.i
 
 sw.bb391.i:                                       ; preds = %if.then347.i
   %mFormat392.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
   %mValue394.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %110 = load double, ptr %mValue394.i, align 16, !noalias !8
-  %call395.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat392.i, double noundef %110)
+  %call395.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef %mFormat392.i, double noundef %110)
   br label %sw.epilog431.i
 
 sw.bb396.i:                                       ; preds = %if.then347.i
   %mFormat397.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
   %mValue399.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %111 = load x86_fp80, ptr %mValue399.i, align 16, !noalias !8
-  %call400.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat397.i, x86_fp80 noundef %111)
+  %call400.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef %mFormat397.i, x86_fp80 noundef %111)
   br label %sw.epilog431.i
 
 sw.bb401.i:                                       ; preds = %if.then347.i
   %mFormat402.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
   %mValue404.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %112 = load i32, ptr %mValue404.i, align 16, !noalias !8
-  %call405.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat402.i, i32 noundef %112)
+  %call405.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef %mFormat402.i, i32 noundef %112)
   br label %sw.epilog431.i
 
 sw.bb406.i:                                       ; preds = %if.then347.i
@@ -917,7 +917,7 @@ sw.bb406.i:                                       ; preds = %if.then347.i
   %mValue409.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %113 = load i8, ptr %mValue409.i, align 16, !noalias !8
   %conv410.i = sext i8 %113 to i32
-  %call411.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat407.i, i32 noundef %conv410.i)
+  %call411.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef %mFormat407.i, i32 noundef %conv410.i)
   br label %sw.epilog431.i
 
 sw.bb412.i:                                       ; preds = %if.then347.i
@@ -925,21 +925,21 @@ sw.bb412.i:                                       ; preds = %if.then347.i
   %mValue415.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %114 = load i16, ptr %mValue415.i, align 16, !noalias !8
   %conv416.i = sext i16 %114 to i32
-  %call417.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat413.i, i32 noundef %conv416.i)
+  %call417.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef %mFormat413.i, i32 noundef %conv416.i)
   br label %sw.epilog431.i
 
 sw.bb418.i:                                       ; preds = %if.then347.i
   %mFormat419.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
   %mValue421.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %115 = load i32, ptr %mValue421.i, align 16, !noalias !8
-  %call422.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat419.i, i32 noundef %115)
+  %call422.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef %mFormat419.i, i32 noundef %115)
   br label %sw.epilog431.i
 
 sw.bb423.i:                                       ; preds = %if.then347.i
   %mFormat424.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
   %mValue426.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %116 = load i64, ptr %mValue426.i, align 16, !noalias !8
-  %call427.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %mFormat424.i, i64 noundef %116)
+  %call427.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef %mFormat424.i, i64 noundef %116)
   br label %sw.epilog431.i
 
 sw.epilog431.i:                                   ; preds = %sw.bb423.i, %sw.bb418.i, %sw.bb412.i, %sw.bb406.i, %sw.bb401.i, %sw.bb396.i, %sw.bb391.i, %sw.bb386.i, %sw.bb381.i, %sw.bb376.i, %sw.bb371.i, %sw.bb366.i, %sw.bb361.i, %sw.bb355.i, %sw.bb349.i
@@ -2049,7 +2049,7 @@ sw.bb349.i:                                       ; preds = %if.then347.i
   %mValue352.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %100 = load i8, ptr %mValue352.i, align 16, !noalias !37
   %conv353.i = sext i8 %100 to i32
-  %call354.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat350.i, i32 noundef %conv353.i)
+  %call354.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef %mFormat350.i, i32 noundef %conv353.i)
   br label %sw.epilog431.i
 
 sw.bb355.i:                                       ; preds = %if.then347.i
@@ -2057,70 +2057,70 @@ sw.bb355.i:                                       ; preds = %if.then347.i
   %mValue358.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %101 = load i16, ptr %mValue358.i, align 16, !noalias !37
   %conv359.i = sext i16 %101 to i32
-  %call360.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat356.i, i32 noundef %conv359.i)
+  %call360.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef %mFormat356.i, i32 noundef %conv359.i)
   br label %sw.epilog431.i
 
 sw.bb361.i:                                       ; preds = %if.then347.i
   %mFormat362.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
   %mValue364.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %102 = load i32, ptr %mValue364.i, align 16, !noalias !37
-  %call365.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat362.i, i32 noundef %102)
+  %call365.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef %mFormat362.i, i32 noundef %102)
   br label %sw.epilog431.i
 
 sw.bb366.i:                                       ; preds = %if.then347.i
   %mFormat367.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
   %mValue369.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %103 = load i64, ptr %mValue369.i, align 16, !noalias !37
-  %call370.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat367.i, i64 noundef %103)
+  %call370.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef %mFormat367.i, i64 noundef %103)
   br label %sw.epilog431.i
 
 sw.bb371.i:                                       ; preds = %if.then347.i
   %mFormat372.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
   %mValue374.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %104 = load i64, ptr %mValue374.i, align 16, !noalias !37
-  %call375.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat372.i, i64 noundef %104)
+  %call375.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef %mFormat372.i, i64 noundef %104)
   br label %sw.epilog431.i
 
 sw.bb376.i:                                       ; preds = %if.then347.i
   %mFormat377.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
   %mValue379.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %105 = load i64, ptr %mValue379.i, align 16, !noalias !37
-  %call380.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat377.i, i64 noundef %105)
+  %call380.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef %mFormat377.i, i64 noundef %105)
   br label %sw.epilog431.i
 
 sw.bb381.i:                                       ; preds = %if.then347.i
   %mFormat382.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
   %mValue384.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %106 = load i64, ptr %mValue384.i, align 16, !noalias !37
-  %call385.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat382.i, i64 noundef %106)
+  %call385.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef %mFormat382.i, i64 noundef %106)
   br label %sw.epilog431.i
 
 sw.bb386.i:                                       ; preds = %if.then347.i
   %mFormat387.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
   %mValue389.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %107 = load i64, ptr %mValue389.i, align 16, !noalias !37
-  %call390.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat387.i, i64 noundef %107)
+  %call390.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef %mFormat387.i, i64 noundef %107)
   br label %sw.epilog431.i
 
 sw.bb391.i:                                       ; preds = %if.then347.i
   %mFormat392.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
   %mValue394.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %108 = load double, ptr %mValue394.i, align 16, !noalias !37
-  %call395.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat392.i, double noundef %108)
+  %call395.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef %mFormat392.i, double noundef %108)
   br label %sw.epilog431.i
 
 sw.bb396.i:                                       ; preds = %if.then347.i
   %mFormat397.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
   %mValue399.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %109 = load x86_fp80, ptr %mValue399.i, align 16, !noalias !37
-  %call400.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat397.i, x86_fp80 noundef %109)
+  %call400.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef %mFormat397.i, x86_fp80 noundef %109)
   br label %sw.epilog431.i
 
 sw.bb401.i:                                       ; preds = %if.then347.i
   %mFormat402.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
   %mValue404.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %110 = load i32, ptr %mValue404.i, align 16, !noalias !37
-  %call405.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat402.i, i32 noundef %110)
+  %call405.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef %mFormat402.i, i32 noundef %110)
   br label %sw.epilog431.i
 
 sw.bb406.i:                                       ; preds = %if.then347.i
@@ -2128,7 +2128,7 @@ sw.bb406.i:                                       ; preds = %if.then347.i
   %mValue409.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %111 = load i8, ptr %mValue409.i, align 16, !noalias !37
   %conv410.i = sext i8 %111 to i32
-  %call411.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat407.i, i32 noundef %conv410.i)
+  %call411.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef %mFormat407.i, i32 noundef %conv410.i)
   br label %sw.epilog431.i
 
 sw.bb412.i:                                       ; preds = %if.then347.i
@@ -2136,21 +2136,21 @@ sw.bb412.i:                                       ; preds = %if.then347.i
   %mValue415.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %112 = load i16, ptr %mValue415.i, align 16, !noalias !37
   %conv416.i = sext i16 %112 to i32
-  %call417.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat413.i, i32 noundef %conv416.i)
+  %call417.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef %mFormat413.i, i32 noundef %conv416.i)
   br label %sw.epilog431.i
 
 sw.bb418.i:                                       ; preds = %if.then347.i
   %mFormat419.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
   %mValue421.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %113 = load i32, ptr %mValue421.i, align 16, !noalias !37
-  %call422.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat419.i, i32 noundef %113)
+  %call422.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef %mFormat419.i, i32 noundef %113)
   br label %sw.epilog431.i
 
 sw.bb423.i:                                       ; preds = %if.then347.i
   %mFormat424.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 48
   %mValue426.i = getelementptr inbounds i8, ptr %arrayidx340.i, i64 32
   %114 = load i64, ptr %mValue426.i, align 16, !noalias !37
-  %call427.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %mFormat424.i, i64 noundef %114)
+  %call427.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef %mFormat424.i, i64 noundef %114)
   br label %sw.epilog431.i
 
 sw.epilog431.i:                                   ; preds = %sw.bb423.i, %sw.bb418.i, %sw.bb412.i, %sw.bb406.i, %sw.bb401.i, %sw.bb396.i, %sw.bb391.i, %sw.bb386.i, %sw.bb381.i, %sw.bb376.i, %sw.bb371.i, %sw.bb366.i, %sw.bb361.i, %sw.bb355.i, %sw.bb349.i
@@ -3247,7 +3247,7 @@ sw.bb340.i:                                       ; preds = %if.then338.i
   %mValue343.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %100 = load i8, ptr %mValue343.i, align 16, !noalias !65
   %conv344.i = sext i8 %100 to i32
-  %call345.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat341.i, i32 noundef %conv344.i)
+  %call345.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef %mFormat341.i, i32 noundef %conv344.i)
   br label %sw.epilog422.i
 
 sw.bb346.i:                                       ; preds = %if.then338.i
@@ -3255,70 +3255,70 @@ sw.bb346.i:                                       ; preds = %if.then338.i
   %mValue349.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %101 = load i16, ptr %mValue349.i, align 16, !noalias !65
   %conv350.i = sext i16 %101 to i32
-  %call351.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat347.i, i32 noundef %conv350.i)
+  %call351.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef %mFormat347.i, i32 noundef %conv350.i)
   br label %sw.epilog422.i
 
 sw.bb352.i:                                       ; preds = %if.then338.i
   %mFormat353.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
   %mValue355.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %102 = load i32, ptr %mValue355.i, align 16, !noalias !65
-  %call356.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat353.i, i32 noundef %102)
+  %call356.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef %mFormat353.i, i32 noundef %102)
   br label %sw.epilog422.i
 
 sw.bb357.i:                                       ; preds = %if.then338.i
   %mFormat358.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
   %mValue360.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %103 = load i64, ptr %mValue360.i, align 16, !noalias !65
-  %call361.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat358.i, i64 noundef %103)
+  %call361.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef %mFormat358.i, i64 noundef %103)
   br label %sw.epilog422.i
 
 sw.bb362.i:                                       ; preds = %if.then338.i
   %mFormat363.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
   %mValue365.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %104 = load i64, ptr %mValue365.i, align 16, !noalias !65
-  %call366.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat363.i, i64 noundef %104)
+  %call366.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef %mFormat363.i, i64 noundef %104)
   br label %sw.epilog422.i
 
 sw.bb367.i:                                       ; preds = %if.then338.i
   %mFormat368.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
   %mValue370.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %105 = load i64, ptr %mValue370.i, align 16, !noalias !65
-  %call371.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat368.i, i64 noundef %105)
+  %call371.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef %mFormat368.i, i64 noundef %105)
   br label %sw.epilog422.i
 
 sw.bb372.i:                                       ; preds = %if.then338.i
   %mFormat373.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
   %mValue375.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %106 = load i64, ptr %mValue375.i, align 16, !noalias !65
-  %call376.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat373.i, i64 noundef %106)
+  %call376.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef %mFormat373.i, i64 noundef %106)
   br label %sw.epilog422.i
 
 sw.bb377.i:                                       ; preds = %if.then338.i
   %mFormat378.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
   %mValue380.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %107 = load i64, ptr %mValue380.i, align 16, !noalias !65
-  %call381.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat378.i, i64 noundef %107)
+  %call381.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef %mFormat378.i, i64 noundef %107)
   br label %sw.epilog422.i
 
 sw.bb382.i:                                       ; preds = %if.then338.i
   %mFormat383.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
   %mValue385.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %108 = load double, ptr %mValue385.i, align 16, !noalias !65
-  %call386.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat383.i, double noundef %108)
+  %call386.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef %mFormat383.i, double noundef %108)
   br label %sw.epilog422.i
 
 sw.bb387.i:                                       ; preds = %if.then338.i
   %mFormat388.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
   %mValue390.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %109 = load x86_fp80, ptr %mValue390.i, align 16, !noalias !65
-  %call391.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat388.i, x86_fp80 noundef %109)
+  %call391.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef %mFormat388.i, x86_fp80 noundef %109)
   br label %sw.epilog422.i
 
 sw.bb392.i:                                       ; preds = %if.then338.i
   %mFormat393.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
   %mValue395.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %110 = load i32, ptr %mValue395.i, align 16, !noalias !65
-  %call396.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat393.i, i32 noundef %110)
+  %call396.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef %mFormat393.i, i32 noundef %110)
   br label %sw.epilog422.i
 
 sw.bb397.i:                                       ; preds = %if.then338.i
@@ -3326,7 +3326,7 @@ sw.bb397.i:                                       ; preds = %if.then338.i
   %mValue400.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %111 = load i8, ptr %mValue400.i, align 16, !noalias !65
   %conv401.i = sext i8 %111 to i32
-  %call402.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat398.i, i32 noundef %conv401.i)
+  %call402.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef %mFormat398.i, i32 noundef %conv401.i)
   br label %sw.epilog422.i
 
 sw.bb403.i:                                       ; preds = %if.then338.i
@@ -3334,21 +3334,21 @@ sw.bb403.i:                                       ; preds = %if.then338.i
   %mValue406.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %112 = load i16, ptr %mValue406.i, align 16, !noalias !65
   %conv407.i = sext i16 %112 to i32
-  %call408.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat404.i, i32 noundef %conv407.i)
+  %call408.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef %mFormat404.i, i32 noundef %conv407.i)
   br label %sw.epilog422.i
 
 sw.bb409.i:                                       ; preds = %if.then338.i
   %mFormat410.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
   %mValue412.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %113 = load i32, ptr %mValue412.i, align 16, !noalias !65
-  %call413.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat410.i, i32 noundef %113)
+  %call413.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef %mFormat410.i, i32 noundef %113)
   br label %sw.epilog422.i
 
 sw.bb414.i:                                       ; preds = %if.then338.i
   %mFormat415.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 48
   %mValue417.i = getelementptr inbounds i8, ptr %arrayidx331.i, i64 32
   %114 = load i64, ptr %mValue417.i, align 16, !noalias !65
-  %call418.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %mFormat415.i, i64 noundef %114)
+  %call418.i = call noundef i32 (ptr, ptr, ptr, ...) @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef %mFormat415.i, i64 noundef %114)
   br label %sw.epilog422.i
 
 sw.epilog422.i:                                   ; preds = %sw.bb414.i, %sw.bb409.i, %sw.bb403.i, %sw.bb397.i, %sw.bb392.i, %sw.bb387.i, %sw.bb382.i, %sw.bb377.i, %sw.bb372.i, %sw.bb367.i, %sw.bb362.i, %sw.bb357.i, %sw.bb352.i, %sw.bb346.i, %sw.bb340.i
@@ -3638,11 +3638,11 @@ declare noundef ptr @_ZN2EA4StdC12SprintfLocal10ReadFormatIcEEPKT_S5_PNS1_10Form
 declare ptr @llvm.ptrmask.p0.i64(ptr, i64) #3
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noalias noundef %pWriteFunctionContext8, ptr noalias noundef %pFormat, ...) unnamed_addr #0 {
+define internal noundef i32 @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction8, ptr noalias noundef %pWriteFunctionContext8, ptr noalias noundef nonnull %pFormat, ...) unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %arguments)
-  %call = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef %pFormat, ptr noundef nonnull %arguments)
+  %call = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef %pWriteFunction8, ptr noundef %pWriteFunctionContext8, ptr noundef nonnull %pFormat, ptr noundef nonnull %arguments)
   ret i32 %call
 }
 
@@ -3651,11 +3651,11 @@ declare noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKcmPvNS0_18Write
 declare noundef ptr @_ZN2EA4StdC12SprintfLocal10ReadFormatIDsEEPKT_S5_PNS1_10FormatDataEPA1_13__va_list_tag(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noalias noundef %pWriteFunctionContext16, ptr noalias noundef %pFormat, ...) unnamed_addr #0 {
+define internal noundef i32 @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction16, ptr noalias noundef %pWriteFunctionContext16, ptr noalias noundef nonnull %pFormat, ...) unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %arguments)
-  %call = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef %pFormat, ptr noundef nonnull %arguments)
+  %call = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef %pWriteFunction16, ptr noundef %pWriteFunctionContext16, ptr noundef nonnull %pFormat, ptr noundef nonnull %arguments)
   ret i32 %call
 }
 
@@ -3664,11 +3664,11 @@ declare noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDsmPvNS0_18Writ
 declare noundef ptr @_ZN2EA4StdC12SprintfLocal10ReadFormatIDiEEPKT_S5_PNS1_10FormatDataEPA1_13__va_list_tag(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noalias noundef %pWriteFunctionContext32, ptr noalias noundef %pFormat, ...) unnamed_addr #0 {
+define internal noundef i32 @_ZN2EA4StdC12SprintfLocalL15CallVprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_z(ptr noundef %pWriteFunction32, ptr noalias noundef %pWriteFunctionContext32, ptr noalias noundef nonnull %pFormat, ...) unnamed_addr #0 {
 entry:
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %arguments)
-  %call = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef %pFormat, ptr noundef nonnull %arguments)
+  %call = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef %pWriteFunction32, ptr noundef %pWriteFunctionContext32, ptr noundef nonnull %pFormat, ptr noundef nonnull %arguments)
   ret i32 %call
 }
 

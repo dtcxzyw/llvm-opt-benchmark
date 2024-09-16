@@ -225,7 +225,7 @@ define void @_ZN12isa_parser_tC2EPKcS1_(ptr noundef nonnull align 8 dereferencea
   store ptr %39, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 112
   store i64 0, ptr %43, align 8
-  invoke fastcc void @_ZL10strtolowerB5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef %1)
+  invoke fastcc void @_ZL10strtolowerB5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %1)
           to label %44 unwind label %87
 
 44:                                               ; preds = %3
@@ -2360,7 +2360,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38
   unreachable
 
 .thread970:                                       ; preds = %.thread920, %.thread932
-  invoke fastcc void @_ZL10strtolowerB5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef %2)
+  invoke fastcc void @_ZL10strtolowerB5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef %2)
           to label %877 unwind label %87
 
 877:                                              ; preds = %.thread970
@@ -2485,7 +2485,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit430: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10strtolowerB5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10strtolowerB5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 16

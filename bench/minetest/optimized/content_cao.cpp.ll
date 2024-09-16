@@ -12547,7 +12547,7 @@ declare double @llvm.fabs.f64(double) #12
 declare double @atan2(double noundef, double noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL23updatePositionRecursivePN3irr5scene10ISceneNodeE(ptr noundef %node) unnamed_addr #4 {
+define internal fastcc void @_ZL23updatePositionRecursivePN3irr5scene10ISceneNodeE(ptr noundef nonnull %node) unnamed_addr #4 {
 entry:
   %Parent.i = getelementptr inbounds i8, ptr %node, i64 192
   %0 = load ptr, ptr %Parent.i, align 8, !tbaa !441

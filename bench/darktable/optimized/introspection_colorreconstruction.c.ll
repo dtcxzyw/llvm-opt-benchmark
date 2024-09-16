@@ -1717,7 +1717,7 @@ declare float @llvm.sqrt.f32(float) #6
 declare float @llvm.exp.f32(float) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @blur_line(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #21 {
+define internal fastcc void @blur_line(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #21 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %9, label %.loopexit6
 

@@ -1800,7 +1800,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @do_shifti(i32 noundef %opc, i32 noundef %vece, ptr noundef %r, ptr noundef %a, i64 noundef %i) unnamed_addr #0 {
+define internal fastcc void @do_shifti(i32 noundef range(i32 177, 181) %opc, i32 noundef %vece, ptr noundef %r, ptr noundef %a, i64 noundef %i) unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
@@ -2519,7 +2519,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @do_minmax(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b, i32 noundef %opc, i32 noundef %cond) unnamed_addr #0 {
+define internal fastcc void @do_minmax(i32 noundef %vece, ptr noundef %r, ptr noundef %a, ptr noundef %b, i32 noundef range(i32 164, 168) %opc, i32 noundef range(i32 2, 14) %cond) unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8

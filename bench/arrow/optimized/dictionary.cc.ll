@@ -3796,7 +3796,7 @@ call7.i.noexc:                                    ; preds = %do.body.i
 
 .noexc5:                                          ; preds = %call7.i.noexc
   %8 = load ptr, ptr %ref.tmp8.i, align 8, !noalias !46
-  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_119DictionaryCollector5VisitERKNS0_8internal13FieldPositionERKSt10shared_ptrINS_5FieldEEPKNS_5ArrayE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %collector, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5.i, ptr noundef %8)
+  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_119DictionaryCollector5VisitERKNS0_8internal13FieldPositionERKSt10shared_ptrINS_5FieldEEPKNS_5ArrayE(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %collector, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5.i, ptr noundef %8)
           to label %_ZN5arrow6StatusD2Ev.exit.i unwind label %lpad.i, !noalias !46
 
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %.noexc5
@@ -5007,7 +5007,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %for.body.i
   %retval.sroa.4.8.insert.ext.i.i = zext i32 %add.i.i.i to i64
   %retval.sroa.4.8.insert.shift.i.i = shl nuw i64 %retval.sroa.4.8.insert.ext.i.i, 32
   %retval.sroa.2.8.insert.insert.i.i = add nuw nsw i64 %retval.sroa.4.8.insert.shift.i.i, %indvars.iv.i
-  call fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver10VisitFieldENS0_8internal13FieldPositionEPNS_9ArrayDataE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %resolver, ptr nonnull %parent_pos.i, i64 %retval.sroa.2.8.insert.insert.i.i, ptr noundef nonnull %3) #24, !noalias !86
+  call fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver10VisitFieldENS0_8internal13FieldPositionEPNS_9ArrayDataE(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %resolver, ptr nonnull %parent_pos.i, i64 %retval.sroa.2.8.insert.insert.i.i, ptr noundef nonnull %3) #24, !noalias !86
   call void @llvm.experimental.noalias.scope.decl(metadata !89)
   %5 = load ptr, ptr %ref.tmp.i, align 8, !noalias !92
   store ptr %5, ptr %agg.result, align 8, !alias.scope !92
@@ -5062,7 +5062,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %for.body
   %retval.sroa.4.8.insert.ext.i = zext i32 %add.i.i to i64
   %retval.sroa.4.8.insert.shift.i = shl nuw i64 %retval.sroa.4.8.insert.ext.i, 32
   %retval.sroa.2.8.insert.insert.i = or disjoint i64 %retval.sroa.4.8.insert.shift.i, %indvars.iv
-  call fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver10VisitFieldENS0_8internal13FieldPositionEPNS_9ArrayDataE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nonnull %parent_pos, i64 %retval.sroa.2.8.insert.insert.i, ptr noundef nonnull %3)
+  call fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver10VisitFieldENS0_8internal13FieldPositionEPNS_9ArrayDataE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nonnull %parent_pos, i64 %retval.sroa.2.8.insert.insert.i, ptr noundef nonnull %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
   %5 = load ptr, ptr %ref.tmp, align 8, !noalias !96
   store ptr %5, ptr %agg.result, align 8, !alias.scope !96
@@ -8146,7 +8146,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare noundef i32 @_ZNK5arrow6Schema10num_fieldsEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_119DictionaryCollector5VisitERKNS0_8internal13FieldPositionERKSt10shared_ptrINS_5FieldEEPKNS_5ArrayE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %position, ptr noundef %array) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_119DictionaryCollector5VisitERKNS0_8internal13FieldPositionERKSt10shared_ptrINS_5FieldEEPKNS_5ArrayE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %position, ptr noundef %array) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::vector", align 8
   %dictionary = alloca %"class.std::shared_ptr.118", align 8
@@ -8210,7 +8210,7 @@ _ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit:   ; preds = %if.then12, %if.then
   %11 = phi ptr [ %6, %if.then12 ], [ %6, %if.then.i.i.i.i.i ], [ %.pre9, %if.else.i.i.i.i.i ]
   %value_type_.i = getelementptr inbounds i8, ptr %type.0, i64 88
   %12 = load ptr, ptr %value_type_.i, align 8
-  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_119DictionaryCollector12WalkChildrenERKNS0_8internal13FieldPositionERKNS_8DataTypeERKNS_5ArrayE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %position, ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_119DictionaryCollector12WalkChildrenERKNS0_8internal13FieldPositionERKNS_8DataTypeERKNS_5ArrayE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %position, ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit
@@ -8600,7 +8600,7 @@ ehcleanup:                                        ; preds = %lpad.i, %if.then.i.
   resume { ptr, i32 } %.pn
 
 _ZN5arrow6StatusD2Ev.exit129:                     ; preds = %if.end
-  call fastcc void @_ZN5arrow3ipc12_GLOBAL__N_119DictionaryCollector12WalkChildrenERKNS0_8internal13FieldPositionERKNS_8DataTypeERKNS_5ArrayE(ptr noalias nonnull align 8 %ref.tmp57, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %position, ptr noundef nonnull align 8 dereferenceable(72) %type.0, ptr noundef nonnull align 8 dereferenceable(32) %array.addr.0)
+  call fastcc void @_ZN5arrow3ipc12_GLOBAL__N_119DictionaryCollector12WalkChildrenERKNS0_8internal13FieldPositionERKNS_8DataTypeERKNS_5ArrayE(ptr noalias align 8 %ref.tmp57, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %position, ptr noundef nonnull align 8 dereferenceable(72) %type.0, ptr noundef nonnull align 8 dereferenceable(32) %array.addr.0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !156)
   %68 = load ptr, ptr %ref.tmp57, align 8, !noalias !156
   store ptr %68, ptr %agg.result, align 8, !alias.scope !156
@@ -8620,7 +8620,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow6Schema5field
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow15DictionaryArray10dictionaryEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_119DictionaryCollector12WalkChildrenERKNS0_8internal13FieldPositionERKNS_8DataTypeERKNS_5ArrayE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %position, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %array) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_119DictionaryCollector12WalkChildrenERKNS0_8internal13FieldPositionERKNS_8DataTypeERKNS_5ArrayE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %position, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %array) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %boxed_child = alloca %"class.std::shared_ptr.118", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -8671,7 +8671,7 @@ invoke.cont:                                      ; preds = %invoke.cont.lr.ph, 
   store ptr %position, ptr %ref.tmp5, align 8
   store i64 %retval.sroa.2.8.insert.insert.i, ptr %2, align 8
   %9 = load ptr, ptr %boxed_child, align 8
-  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_119DictionaryCollector5VisitERKNS0_8internal13FieldPositionERKSt10shared_ptrINS_5FieldEEPKNS_5ArrayE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5, ptr noundef %9)
+  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_119DictionaryCollector5VisitERKNS0_8internal13FieldPositionERKSt10shared_ptrINS_5FieldEEPKNS_5ArrayE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5, ptr noundef %9)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont
@@ -8999,7 +8999,7 @@ _ZNSt12_Vector_baseISt4pairIlSt10shared_ptrIN5arrow5ArrayEEESaIS5_EE13_M_dealloc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver10VisitFieldENS0_8internal13FieldPositionEPNS_9ArrayDataE(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr %field_pos.coerce0, i64 %field_pos.coerce1, ptr nocapture noundef %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver10VisitFieldENS0_8internal13FieldPositionEPNS_9ArrayDataE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr %field_pos.coerce0, i64 %field_pos.coerce1, ptr nocapture noundef %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::vector", align 8
   %field_pos = alloca %"class.arrow::ipc::internal::FieldPosition", align 8
@@ -9331,7 +9331,7 @@ _ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit:   ; preds = %if.end8.sink.split.
   %agg.tmp44.sroa.0.0.copyload = load ptr, ptr %field_pos, align 8
   %agg.tmp44.sroa.2.0.copyload = load i64, ptr %0, align 8
   %52 = load ptr, ptr %dictionary, align 8
-  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver10VisitFieldENS0_8internal13FieldPositionEPNS_9ArrayDataE(ptr noalias nonnull align 8 %ref.tmp43, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr %agg.tmp44.sroa.0.0.copyload, i64 %agg.tmp44.sroa.2.0.copyload, ptr noundef %52)
+  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver10VisitFieldENS0_8internal13FieldPositionEPNS_9ArrayDataE(ptr noalias align 8 %ref.tmp43, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr %agg.tmp44.sroa.0.0.copyload, i64 %agg.tmp44.sroa.2.0.copyload, ptr noundef %52)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad26
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit
@@ -9451,7 +9451,7 @@ if.end63:                                         ; preds = %_ZN5arrow6ResultIlE
   %agg.tmp64.sroa.2.0.copyload = phi i64 [ %agg.tmp64.sroa.2.0.copyload.pre, %_ZN5arrow6ResultIlED2Ev.exit.if.end63_crit_edge ], [ %field_pos.coerce1, %if.end ]
   %agg.tmp64.sroa.0.0.copyload = phi ptr [ %agg.tmp64.sroa.0.0.copyload.pre, %_ZN5arrow6ResultIlED2Ev.exit.if.end63_crit_edge ], [ %field_pos.coerce0, %if.end ]
   %child_data = getelementptr inbounds i8, ptr %data, i64 64
-  call fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver13VisitChildrenERKSt6vectorISt10shared_ptrINS_9ArrayDataEESaIS6_EENS0_8internal13FieldPositionE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(24) %child_data, ptr %agg.tmp64.sroa.0.0.copyload, i64 %agg.tmp64.sroa.2.0.copyload)
+  call fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver13VisitChildrenERKSt6vectorISt10shared_ptrINS_9ArrayDataEESaIS6_EENS0_8internal13FieldPositionE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(24) %child_data, ptr %agg.tmp64.sroa.0.0.copyload, i64 %agg.tmp64.sroa.2.0.copyload)
   br label %return
 
 return:                                           ; preds = %_ZN5arrow6ResultIlED2Ev.exit, %if.end63

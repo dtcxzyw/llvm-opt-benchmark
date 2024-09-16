@@ -1262,12 +1262,12 @@ declare dso_local i32 @csum_partial(ptr noundef, i32 noundef, i32 noundef) local
 declare dso_local i32 @inet_frag_queue_insert(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -1, 2) i32 @ip6_frag_reasm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -1, 2) i32 @ip6_frag_reasm(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 32
-  tail call void @inet_frag_kill(ptr noundef %0) #13
+  tail call void @inet_frag_kill(ptr noundef nonnull %0) #13
   %9 = getelementptr inbounds i8, ptr %0, i64 182
   %10 = load i8, ptr %9, align 2
   %11 = zext i8 %10 to i64
@@ -1277,7 +1277,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @ip6_frag_reasm(ptr noundef 
   br i1 %14, label %131, label %15, !prof !7
 
 15:                                               ; preds = %4
-  %16 = tail call ptr @inet_frag_reasm_prepare(ptr noundef %0, ptr noundef %1, ptr noundef %2) #13
+  %16 = tail call ptr @inet_frag_reasm_prepare(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #13
   %17 = icmp eq ptr %16, null
   br i1 %17, label %131, label %18
 
@@ -1341,7 +1341,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @ip6_frag_reasm(ptr noundef 
   %64 = sub i64 %62, %63
   %65 = trunc i64 %64 to i16
   store i16 %65, ptr %39, align 2
-  tail call void @inet_frag_reasm_finish(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %16, i1 noundef zeroext true) #13
+  tail call void @inet_frag_reasm_finish(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %16, i1 noundef zeroext true) #13
   %66 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %3, ptr %66, align 8
   %67 = trunc i32 %34 to i16
@@ -1468,7 +1468,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @ip6_frag_reasm(ptr noundef 
   %153 = getelementptr i8, ptr %152, i64 152
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %153, ptr elementtype(i64) %153) #13, !srcloc !43
   tail call void @__rcu_read_unlock() #13
-  tail call void @inet_frag_kill(ptr noundef %0) #13
+  tail call void @inet_frag_kill(ptr noundef nonnull %0) #13
   br label %154
 
 154:                                              ; preds = %150, %126

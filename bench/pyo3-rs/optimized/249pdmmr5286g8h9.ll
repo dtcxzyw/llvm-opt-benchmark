@@ -1568,7 +1568,7 @@ _ZN17pyo3_build_config5impl_19is_extension_module17h0698c3271912dc7dE.exit: ; pr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17pyo3_build_config5impl_18CrossCompileConfig29try_from_env_vars_host_target17hbf934016482b0bccE(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17pyo3_build_config5impl_18CrossCompileConfig29try_from_env_vars_host_target17hbf934016482b0bccE(ptr noalias nocapture writeonly align 8 %0, ptr nonnull align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [40 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = alloca [24 x i8], align 8
@@ -1933,7 +1933,7 @@ _ZN17pyo3_build_config5impl_19CrossCompileEnvVars3any17h4acc57195d3ea712E.exit.t
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17pyo3_build_config5impl_19CrossCompileEnvVars8from_env17hd1a1c8174357cb87E(ptr noalias nocapture writeonly align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17pyo3_build_config5impl_19CrossCompileEnvVars8from_env17hd1a1c8174357cb87E(ptr noalias nocapture nonnull writeonly align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [16 x i8], align 8
   %3 = alloca [48 x i8], align 8
   %4 = alloca [16 x i8], align 8
@@ -2116,8 +2116,8 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_19CrossCompileEnvVars8f
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN17pyo3_build_config5impl_23cross_compiling_from_to17h14d790cb3bd1a410E(ptr nocapture writeonly sret([72 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = alloca [96 x i8], align 8
-  call fastcc void @_ZN17pyo3_build_config5impl_19CrossCompileEnvVars8from_env17hd1a1c8174357cb87E(ptr noalias nonnull align 8 %4)
-  call fastcc void @_ZN17pyo3_build_config5impl_18CrossCompileConfig29try_from_env_vars_host_target17hbf934016482b0bccE(ptr noalias align 8 %0, ptr nonnull align 8 %4, ptr align 8 %1, ptr align 8 %2)
+  call fastcc void @_ZN17pyo3_build_config5impl_19CrossCompileEnvVars8from_env17hd1a1c8174357cb87E(ptr noalias align 8 %4)
+  call fastcc void @_ZN17pyo3_build_config5impl_18CrossCompileConfig29try_from_env_vars_host_target17hbf934016482b0bccE(ptr noalias align 8 %0, ptr align 8 %4, ptr align 8 %1, ptr align 8 %2)
   ret void
 }
 
@@ -2944,7 +2944,7 @@ define hidden zeroext i1 @_ZN17pyo3_build_config5impl_18is_cpython_lib_dir17hc1d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17pyo3_build_config5impl_21default_cross_compile17h0b40827e2629b413E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17pyo3_build_config5impl_21default_cross_compile17h0b40827e2629b413E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [0 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [48 x i8], align 8
@@ -4038,7 +4038,7 @@ define void @_ZN17pyo3_build_config5impl_25make_cross_compile_config17h501eb9fcd
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %49)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %50)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %51)
-  call fastcc void @_ZN17pyo3_build_config5impl_19CrossCompileEnvVars8from_env17hd1a1c8174357cb87E(ptr noalias nonnull align 8 %51), !noalias !30
+  call fastcc void @_ZN17pyo3_build_config5impl_19CrossCompileEnvVars8from_env17hd1a1c8174357cb87E(ptr noalias align 8 %51), !noalias !30
   %55 = getelementptr inbounds i8, ptr %50, i64 32
   store i8 27, ptr %55, align 8, !noalias !30
   store i64 0, ptr %50, align 8, !noalias !30
@@ -4065,7 +4065,7 @@ define void @_ZN17pyo3_build_config5impl_25make_cross_compile_config17h501eb9fcd
 
 62:                                               ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %48, ptr noundef nonnull align 8 dereferenceable(96) %51, i64 96, i1 false), !noalias !30
-  invoke fastcc void @_ZN17pyo3_build_config5impl_18CrossCompileConfig29try_from_env_vars_host_target17hbf934016482b0bccE(ptr noalias nonnull align 8 %54, ptr nonnull align 8 %48, ptr nonnull align 8 %50, ptr nonnull align 8 %49)
+  invoke fastcc void @_ZN17pyo3_build_config5impl_18CrossCompileConfig29try_from_env_vars_host_target17hbf934016482b0bccE(ptr noalias nonnull align 8 %54, ptr align 8 %48, ptr nonnull align 8 %50, ptr nonnull align 8 %49)
           to label %65 unwind label %63
 
 63:                                               ; preds = %62
@@ -4187,7 +4187,7 @@ _ZN17pyo3_build_config5impl_30cross_compiling_from_cargo_env17h6ab3a96da981ec22E
           to label %90 unwind label %77, !noalias !33
 
 89:                                               ; preds = %90, %79
-  invoke fastcc void @_ZN17pyo3_build_config5impl_21default_cross_compile17h0b40827e2629b413E(ptr noalias nonnull align 8 %46, ptr nonnull align 8 %53)
+  invoke fastcc void @_ZN17pyo3_build_config5impl_21default_cross_compile17h0b40827e2629b413E(ptr noalias align 8 %46, ptr align 8 %53)
           to label %191 unwind label %77, !noalias !33
 
 90:                                               ; preds = %.noexc49.i
@@ -4678,7 +4678,7 @@ _ZN17pyo3_build_config5impl_18find_sysconfigdata17hc155e892e3bcda62E.exit.i.i: ;
   br label %177
 
 176:                                              ; preds = %172
-  invoke fastcc void @_ZN17pyo3_build_config5impl_21default_cross_compile17h0b40827e2629b413E(ptr noalias nonnull align 8 %44, ptr nonnull align 8 %53)
+  invoke fastcc void @_ZN17pyo3_build_config5impl_21default_cross_compile17h0b40827e2629b413E(ptr noalias align 8 %44, ptr align 8 %53)
           to label %184 unwind label %182, !noalias !33
 
 177:                                              ; preds = %194, %187, %175

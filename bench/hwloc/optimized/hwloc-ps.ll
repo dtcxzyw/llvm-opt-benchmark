@@ -1568,7 +1568,7 @@ declare i32 @hwloc_bitmap_asprintf(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_task(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #2 {
+define internal fastcc void @print_task(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #2 {
   %7 = alloca ptr, align 8
   %8 = alloca [64 x i8], align 16
   %.not = icmp eq i32 %5, 0

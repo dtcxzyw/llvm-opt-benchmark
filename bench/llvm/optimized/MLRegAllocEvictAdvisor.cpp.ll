@@ -4390,7 +4390,7 @@ _ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit: ; preds = %33, %_ZNK4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_114MLEvictAdvisor15extractFeaturesERKN4llvm15SmallVectorImplIPKNS1_12LiveIntervalEEERNS2_IfEEmllfRNS2_INS1_14LRStartEndInfoEEE(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, float noundef %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_114MLEvictAdvisor15extractFeaturesERKN4llvm15SmallVectorImplIPKNS1_12LiveIntervalEEERNS2_IfEEmllfRNS2_INS1_14LRStartEndInfoEEE(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i64 noundef %3, i64 noundef range(i64 0, 2) %4, i64 noundef %5, float noundef %6) unnamed_addr #0 align 2 {
   %.sroa.5.i = alloca %"struct.(anonymous namespace)::LIFeatureComponents", align 8
   %8 = alloca %"class.llvm::SmallPtrSet.595", align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -6501,7 +6501,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm14LRStartEndInfoElN9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm14LRStartEndInfoElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_26extractInstructionFeaturesERNS0_15SmallVectorImplIS1_EEPNS0_13MLModelRunnerENS0_12function_refIFiNS0_9SlotIndexEEEENSB_IFfSC_EEENSB_IFPNS0_17MachineBasicBlockESC_EEEiiiiSC_E3$_0EEEvT_T0_SO_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%"struct.llvm::LRStartEndInfo") align 8 %3) unnamed_addr #15 {
+define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm14LRStartEndInfoElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_26extractInstructionFeaturesERNS0_15SmallVectorImplIS1_EEPNS0_13MLModelRunnerENS0_12function_refIFiNS0_9SlotIndexEEEENSB_IFfSC_EEENSB_IFPNS0_17MachineBasicBlockESC_EEEiiiiSC_E3$_0EEEvT_T0_SO_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 192153584101141162) %1, i64 noundef range(i64 -384307168202282325, 384307168202282326) %2, ptr nocapture noundef readonly byval(%"struct.llvm::LRStartEndInfo") align 8 %3) unnamed_addr #15 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6

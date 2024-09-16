@@ -3314,7 +3314,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i74: ; preds = %_ZNK5clang4T
 
 340:                                              ; preds = %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i74, %335, %327
   %341 = load ptr, ptr %0, align 8
-  call fastcc void @_ZZN12_GLOBAL__N_115EvalCastVisitor16VisitConcreteIntEN5clang4ento6nonloc11ConcreteIntEENKUlvE_clEv(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr %1, ptr nonnull readonly %0)
+  call fastcc void @_ZZN12_GLOBAL__N_115EvalCastVisitor16VisitConcreteIntEN5clang4ento6nonloc11ConcreteIntEENKUlvE_clEv(ptr dead_on_unwind noalias writable align 8 %11, ptr %1, ptr nonnull readonly %0)
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 16
   %343 = call noundef nonnull align 8 dereferenceable(13) ptr @_ZN5clang4ento17BasicValueFactory8getValueERKN4llvm6APSIntE(ptr noundef nonnull align 8 dereferenceable(144) %342, ptr noundef nonnull align 8 dereferenceable(13) %11) #12
   %344 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -3353,7 +3353,7 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i77: ; preds = %351
 
 _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread.i80: ; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i77, %351, %351, %351, %351, %351
   %358 = load ptr, ptr %0, align 8
-  call fastcc void @_ZZN12_GLOBAL__N_115EvalCastVisitor16VisitConcreteIntEN5clang4ento6nonloc11ConcreteIntEENKUlvE_clEv(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr %1, ptr nonnull readonly %0)
+  call fastcc void @_ZZN12_GLOBAL__N_115EvalCastVisitor16VisitConcreteIntEN5clang4ento6nonloc11ConcreteIntEENKUlvE_clEv(ptr dead_on_unwind noalias writable align 8 %12, ptr %1, ptr nonnull readonly %0)
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 16
   %360 = call noundef nonnull align 8 dereferenceable(13) ptr @_ZN5clang4ento17BasicValueFactory8getValueERKN4llvm6APSIntE(ptr noundef nonnull align 8 dereferenceable(144) %359, ptr noundef nonnull align 8 dereferenceable(13) %12) #12
   %361 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -4869,7 +4869,7 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread: ; preds = %4, %_ZNK5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_115EvalCastVisitor16VisitConcreteIntEN5clang4ento6nonloc11ConcreteIntEENKUlvE_clEv(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val, ptr nocapture readonly %.16.val) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZZN12_GLOBAL__N_115EvalCastVisitor16VisitConcreteIntEN5clang4ento6nonloc11ConcreteIntEENKUlvE_clEv(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr nocapture readonly %.16.val) unnamed_addr #1 align 2 {
   %2 = alloca %"class.llvm::APInt", align 8
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

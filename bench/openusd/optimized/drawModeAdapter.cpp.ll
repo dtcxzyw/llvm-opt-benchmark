@@ -3371,7 +3371,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i191: ; preds = %836
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit194
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit194: ; preds = %.invoke279, %849, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i191, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i188
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L30_GetSubsetMaterialTokenForFaceENS_12_GLOBAL__N_18AxesMaskE(ptr dead_on_unwind noalias nonnull writable align 8 %29, i8 noundef zeroext %809)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L30_GetSubsetMaterialTokenForFaceENS_12_GLOBAL__N_18AxesMaskE(ptr dead_on_unwind noalias writable align 8 %29, i8 noundef zeroext %809)
           to label %850 unwind label %976
 
 850:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit194
@@ -4953,7 +4953,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath11AppendChildERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L30_GetSubsetMaterialTokenForFaceENS_12_GLOBAL__N_18AxesMaskE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i8 noundef zeroext %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L30_GetSubsetMaterialTokenForFaceENS_12_GLOBAL__N_18AxesMaskE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i8 noundef zeroext %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   switch i8 %1, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.sink.split [
     i8 1, label %3
     i8 2, label %13
@@ -12513,13 +12513,13 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESaIS3_EE9
 559:                                              ; preds = %547
   %560 = load i32, ptr %487, align 8
   %561 = trunc i32 %560 to i8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetSubsetTokenForFaceENS_12_GLOBAL__N_18AxesMaskE(ptr dead_on_unwind noalias nonnull writable align 8 %24, i8 noundef zeroext %561)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetSubsetTokenForFaceENS_12_GLOBAL__N_18AxesMaskE(ptr dead_on_unwind noalias writable align 8 %24, i8 noundef zeroext %561)
           to label %562 unwind label %.loopexit.split-lp342.loopexit
 
 562:                                              ; preds = %559
   %563 = load i32, ptr %487, align 8
   %564 = trunc i32 %563 to i8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L30_GetSubsetMaterialTokenForFaceENS_12_GLOBAL__N_18AxesMaskE(ptr dead_on_unwind noalias nonnull writable align 8 %25, i8 noundef zeroext %564)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L30_GetSubsetMaterialTokenForFaceENS_12_GLOBAL__N_18AxesMaskE(ptr dead_on_unwind noalias writable align 8 %25, i8 noundef zeroext %564)
           to label %565 unwind label %603
 
 565:                                              ; preds = %562
@@ -24220,12 +24220,12 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopologyD1Ev(p
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiED1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingDrawModeAdapter22_GenerateCardsGeometryEPNS_7VtValueES2_RKNS_9GfRange3dEhNS_7TfTokenEbRKNS_7UsdPrimEENK3$_0clENS_12_GLOBAL__N_18AxesMaskE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i8 noundef zeroext %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingDrawModeAdapter22_GenerateCardsGeometryEPNS_7VtValueES2_RKNS_9GfRange3dEhNS_7TfTokenEbRKNS_7UsdPrimEENK3$_0clENS_12_GLOBAL__N_18AxesMaskE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i8 noundef zeroext range(i8 1, 33) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::HdGeomSubset", align 8
   %6 = alloca [1 x i32], align 4
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetSubsetTokenForFaceENS_12_GLOBAL__N_18AxesMaskE(ptr dead_on_unwind noalias nonnull writable align 8 %3, i8 noundef zeroext %1)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetSubsetTokenForFaceENS_12_GLOBAL__N_18AxesMaskE(ptr dead_on_unwind noalias writable align 8 %3, i8 noundef zeroext %1)
   %7 = load ptr, ptr %0, align 8
   %8 = load i8, ptr %7, align 1
   %9 = and i8 %8, %1
@@ -24262,7 +24262,7 @@ define internal fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagin
 
 _ZN32pxrInternal_v0_24__pxrReserved__L16_GetOppositeFaceENS_12_GLOBAL__N_18AxesMaskE.exit: ; preds = %16, %15, %14, %13, %12, %11, %10, %2
   %17 = phi i8 [ %1, %2 ], [ %1, %16 ], [ 4, %15 ], [ 32, %14 ], [ 2, %13 ], [ 16, %12 ], [ 1, %11 ], [ 8, %10 ]
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L30_GetSubsetMaterialTokenForFaceENS_12_GLOBAL__N_18AxesMaskE(ptr dead_on_unwind noalias nonnull writable align 8 %4, i8 noundef zeroext %17)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L30_GetSubsetMaterialTokenForFaceENS_12_GLOBAL__N_18AxesMaskE(ptr dead_on_unwind noalias writable align 8 %4, i8 noundef zeroext %17)
           to label %18 unwind label %68
 
 18:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_GetOppositeFaceENS_12_GLOBAL__N_18AxesMaskE.exit
@@ -25475,7 +25475,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d10GetInverseEPdd
 declare noundef nonnull align 4 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEEixEm(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetSubsetTokenForFaceENS_12_GLOBAL__N_18AxesMaskE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i8 noundef zeroext %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetSubsetTokenForFaceENS_12_GLOBAL__N_18AxesMaskE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i8 noundef zeroext %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   switch i8 %1, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.sink.split [
     i8 1, label %3
     i8 2, label %13

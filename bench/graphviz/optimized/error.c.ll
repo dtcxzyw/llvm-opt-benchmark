@@ -211,7 +211,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #4
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit(i32 noundef %0) unnamed_addr #6 {
+define internal fastcc void @graphviz_exit(i32 noundef range(i32 1, 254) %0) unnamed_addr #6 {
   tail call void @exit(i32 noundef %0) #16
   unreachable
 }

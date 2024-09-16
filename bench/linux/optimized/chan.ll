@@ -565,7 +565,7 @@ define internal fastcc void @ieee80211_chan_bw_change(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @drv_change_chanctx(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc void @drv_change_chanctx(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 32) %2) unnamed_addr #3 align 16 {
   %4 = tail call i32 @__SCT__might_resched() #13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_drv_change_chanctx, i64 8), i32 2) #13
           to label %25 [label %5], !srcloc !25
@@ -4523,7 +4523,7 @@ declare dso_local void @__rcu_read_lock() local_unnamed_addr #4
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @_ieee80211_change_chanctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 align 16 {
+define internal fastcc void @_ieee80211_change_chanctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #1 align 16 {
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %8 [
@@ -4592,7 +4592,7 @@ define internal fastcc void @_ieee80211_change_chanctx(ptr noundef %0, ptr nound
   br label %54
 
 41:                                               ; preds = %31, %25, %19, %14, %9
-  %42 = tail call ptr @cfg80211_chandef_compatible(ptr noundef %10, ptr noundef %3) #13
+  %42 = tail call ptr @cfg80211_chandef_compatible(ptr noundef %10, ptr noundef nonnull %3) #13
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %45, !prof !34
 
@@ -4604,7 +4604,7 @@ define internal fastcc void @_ieee80211_change_chanctx(ptr noundef %0, ptr nound
 
 45:                                               ; preds = %44, %41
   tail call void @ieee80211_remove_wbrf(ptr noundef %0, ptr noundef %10) #13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %10, ptr noundef align 8 dereferenceable(32) %3, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %46 = tail call fastcc i32 @_ieee80211_recalc_chanctx_min_def(ptr noundef %0, ptr noundef %1, ptr noundef %4), !range !10
   %47 = or i32 %46, 1
   tail call void @ieee80211_add_wbrf(ptr noundef %0, ptr noundef %10) #13
@@ -4616,7 +4616,7 @@ define internal fastcc void @_ieee80211_change_chanctx(ptr noundef %0, ptr nound
 
 51:                                               ; preds = %45
   %52 = getelementptr inbounds i8, ptr %0, i64 4856
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %52, ptr noundef align 8 dereferenceable(32) %3, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %53 = tail call i32 @ieee80211_hw_config(ptr noundef %0, i32 noundef 0) #13
   br label %54
 

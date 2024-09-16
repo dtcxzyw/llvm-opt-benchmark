@@ -5250,7 +5250,7 @@ invoke.cont26:                                    ; preds = %_ZN5boost13intrusiv
   %251 = load ptr, ptr %baseLeft.i, align 8, !noalias !60
   %numElements.i90 = getelementptr inbounds i8, ptr %resultBuffers, i64 24
   %252 = load i32, ptr %numElements.i90, align 8, !noalias !60
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_115ZipWithFunction18flattenAndPadArrayEPNS0_13DecodedVectorEPKNS0_11ArrayVectorERKNS0_17SelectivityVectorEPNS0_6memory10MemoryPoolEiPKiSG_b(ptr noalias nonnull align 8 %paddedLeft.i, ptr noundef %250, ptr noundef %251, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef %243, i32 noundef %252, ptr noundef %249, ptr noundef %247, i1 noundef zeroext %tobool)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_115ZipWithFunction18flattenAndPadArrayEPNS0_13DecodedVectorEPKNS0_11ArrayVectorERKNS0_17SelectivityVectorEPNS0_6memory10MemoryPoolEiPKiSG_b(ptr noalias align 8 %paddedLeft.i, ptr noundef %250, ptr noundef %251, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef %243, i32 noundef %252, ptr noundef %249, ptr noundef %247, i1 noundef zeroext %tobool)
           to label %.noexc unwind label %lpad25
 
 .noexc:                                           ; preds = %invoke.cont26
@@ -5258,7 +5258,7 @@ invoke.cont26:                                    ; preds = %_ZN5boost13intrusiv
   %253 = load ptr, ptr %decodedRight.i, align 8, !noalias !60
   %254 = load ptr, ptr %baseRight.i, align 8, !noalias !60
   %255 = load i32, ptr %numElements.i90, align 8, !noalias !60
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_115ZipWithFunction18flattenAndPadArrayEPNS0_13DecodedVectorEPKNS0_11ArrayVectorERKNS0_17SelectivityVectorEPNS0_6memory10MemoryPoolEiPKiSG_b(ptr noalias nonnull align 8 %paddedRight.i, ptr noundef %253, ptr noundef %254, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef %243, i32 noundef %255, ptr noundef %249, ptr noundef %247, i1 noundef zeroext %tobool28)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_115ZipWithFunction18flattenAndPadArrayEPNS0_13DecodedVectorEPKNS0_11ArrayVectorERKNS0_17SelectivityVectorEPNS0_6memory10MemoryPoolEiPKiSG_b(ptr noalias align 8 %paddedRight.i, ptr noundef %253, ptr noundef %254, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef %243, i32 noundef %255, ptr noundef %249, ptr noundef %247, i1 noundef zeroext %tobool28)
           to label %invoke.cont.i94 unwind label %lpad.i93, !noalias !60
 
 invoke.cont.i94:                                  ; preds = %.noexc
@@ -9662,7 +9662,7 @@ return:                                           ; preds = %if.end14, %if.then
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_115ZipWithFunction18flattenAndPadArrayEPNS0_13DecodedVectorEPKNS0_11ArrayVectorERKNS0_17SelectivityVectorEPNS0_6memory10MemoryPoolEiPKiSG_b(ptr noalias align 8 %agg.result, ptr noundef %decoded, ptr nocapture noundef readonly %base, ptr nocapture noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef %pool, i32 noundef %numResultElements, ptr nocapture noundef readonly %resultOffsets, ptr noundef %resultSizes, i1 noundef zeroext %needsPadding) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_115ZipWithFunction18flattenAndPadArrayEPNS0_13DecodedVectorEPKNS0_11ArrayVectorERKNS0_17SelectivityVectorEPNS0_6memory10MemoryPoolEiPKiSG_b(ptr noalias nonnull align 8 %agg.result, ptr noundef %decoded, ptr nocapture noundef readonly %base, ptr nocapture noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef %pool, i32 noundef %numResultElements, ptr nocapture noundef readonly %resultOffsets, ptr noundef %resultSizes, i1 noundef zeroext %needsPadding) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp3.i.i.i = alloca %class.anon.184, align 8
   %decoded.addr = alloca ptr, align 8
@@ -10689,7 +10689,7 @@ if.else.i.i.i.i.i75:                              ; preds = %if.then.i.i.i70
   br label %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit76
 
 _ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit76: ; preds = %invoke.cont25, %if.then.i.i.i.i.i73, %if.else.i.i.i.i.i75
-  invoke void @_ZN8facebook5velox10BaseVector16wrapInDictionaryEN5boost13intrusive_ptrINS0_6BufferEEES5_iSt10shared_ptrIS1_E(ptr sret(%"class.std::shared_ptr.76") align 8 %agg.result, ptr noundef nonnull %agg.tmp21, ptr noundef nonnull %agg.tmp23, i32 noundef %numResultElements, ptr noundef nonnull %agg.tmp26)
+  invoke void @_ZN8facebook5velox10BaseVector16wrapInDictionaryEN5boost13intrusive_ptrINS0_6BufferEEES5_iSt10shared_ptrIS1_E(ptr nonnull sret(%"class.std::shared_ptr.76") align 8 %agg.result, ptr noundef nonnull %agg.tmp21, ptr noundef nonnull %agg.tmp23, i32 noundef %numResultElements, ptr noundef nonnull %agg.tmp26)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit76
@@ -10961,7 +10961,7 @@ return:                                           ; preds = %delete.notnull.i.i.
 declare void @_ZN8facebook5velox10BaseVector16wrapInDictionaryEN5boost13intrusive_ptrINS0_6BufferEEES5_iSt10shared_ptrIS1_E(ptr sret(%"class.std::shared_ptr.76") align 8, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions12_GLOBAL__N_115ZipWithFunction18flattenAndPadArrayEPNS0_13DecodedVectorEPKNS0_11ArrayVectorERKNS0_17SelectivityVectorEPNS0_6memory10MemoryPoolEiPKiSI_bEUlT_E_EEvPKmiibSJ_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions12_GLOBAL__N_115ZipWithFunction18flattenAndPadArrayEPNS0_13DecodedVectorEPKNS0_11ArrayVectorERKNS0_17SelectivityVectorEPNS0_6memory10MemoryPoolEiPKiSI_bEUlT_E_EEvPKmiibSJ_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #16 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8

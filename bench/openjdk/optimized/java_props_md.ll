@@ -348,7 +348,7 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ParseLocale(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ParseLocale(ptr noundef %0, i32 noundef range(i32 0, 6) %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6) unnamed_addr #0 {
   %8 = tail call ptr @setlocale(i32 noundef %1, ptr noundef null) #12
   %9 = icmp eq ptr %8, null
   br i1 %9, label %15, label %sub_0

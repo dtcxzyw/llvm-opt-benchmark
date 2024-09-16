@@ -793,7 +793,7 @@ define internal i64 @etc_getgrgid(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   unreachable
 
 18:                                               ; preds = %13
-  %19 = call fastcc i64 @setup_group(ptr noundef nonnull %14)
+  %19 = call fastcc i64 @setup_group(ptr noundef %14)
   ret i64 %19
 }
 
@@ -813,7 +813,7 @@ define internal i64 @etc_getgrnam(i64 %0, i64 noundef %1) #0 {
   unreachable
 
 10:                                               ; preds = %2
-  %11 = call fastcc i64 @setup_group(ptr noundef nonnull %5)
+  %11 = call fastcc i64 @setup_group(ptr noundef %5)
   ret i64 %11
 }
 
@@ -843,7 +843,7 @@ each_group.exit:                                  ; preds = %3
   br i1 %.not2, label %12, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call fastcc i64 @setup_group(ptr noundef nonnull %9)
+  %11 = tail call fastcc i64 @setup_group(ptr noundef %9)
   br label %12
 
 12:                                               ; preds = %each_group.exit, %8, %10
@@ -870,7 +870,7 @@ define internal i64 @etc_getgrent(i64 %0) #0 {
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call fastcc i64 @setup_group(ptr noundef nonnull %2)
+  %4 = tail call fastcc i64 @setup_group(ptr noundef %2)
   br label %5
 
 5:                                                ; preds = %1, %3
@@ -1467,7 +1467,7 @@ declare i32 @getgid() local_unnamed_addr #4
 declare ptr @getgrgid(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @setup_group(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc i64 @setup_group(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = tail call i64 @rb_ary_new() #13
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -1522,7 +1522,7 @@ define internal noundef i64 @group_iterate(i64 %0) #0 {
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %3 = phi ptr [ %6, %.lr.ph ], [ %2, %1 ]
-  %4 = tail call fastcc i64 @setup_group(ptr noundef nonnull %3)
+  %4 = tail call fastcc i64 @setup_group(ptr noundef %3)
   %5 = tail call i64 @rb_yield(i64 noundef %4) #13
   %6 = tail call ptr @getgrent() #13
   %.not = icmp eq ptr %6, null

@@ -223,7 +223,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call fastcc void @be_filter_process_input(ptr noundef %bev..i, i32 noundef %mode, ptr noundef nonnull %processed_any)
+  call fastcc void @be_filter_process_input(ptr noundef %bev..i, i32 noundef %mode, ptr noundef %processed_any)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -232,7 +232,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool4.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  call fastcc void @be_filter_process_output(ptr noundef %bev..i, i32 noundef %mode, ptr noundef nonnull %processed_any)
+  call fastcc void @be_filter_process_output(ptr noundef %bev..i, i32 noundef %mode, ptr noundef %processed_any)
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %if.end
@@ -433,7 +433,7 @@ do.end8:                                          ; preds = %if.then, %entry
   br i1 %cmp, label %if.then9, label %do.body12
 
 if.then9:                                         ; preds = %do.end8
-  call fastcc void @be_filter_process_output(ptr noundef nonnull %me_, i32 noundef 0, ptr noundef nonnull %processed_any)
+  call fastcc void @be_filter_process_output(ptr noundef nonnull %me_, i32 noundef 0, ptr noundef %processed_any)
   br label %do.body12
 
 do.body12:                                        ; preds = %do.end8, %if.then9
@@ -569,7 +569,7 @@ entry:
 if.then:                                          ; preds = %entry
   store i32 0, ptr %processed_any, align 4
   tail call void @bufferevent_incref_and_lock_(ptr noundef %arg) #2
-  call fastcc void @be_filter_process_output(ptr noundef %arg, i32 noundef 0, ptr noundef nonnull %processed_any)
+  call fastcc void @be_filter_process_output(ptr noundef %arg, i32 noundef 0, ptr noundef %processed_any)
   %call3 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef %arg) #2
   br label %if.end
 
@@ -602,7 +602,7 @@ declare i32 @event_del(ptr noundef) local_unnamed_addr #1
 declare void @bufferevent_incref_and_lock_(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @be_filter_process_output(ptr noundef %bevf, i32 noundef %state, ptr nocapture noundef %processed_out) unnamed_addr #0 {
+define internal fastcc void @be_filter_process_output(ptr noundef %bevf, i32 noundef %state, ptr nocapture noundef nonnull %processed_out) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %state, 0
   br i1 %cmp, label %if.then, label %do.body.preheader
@@ -946,7 +946,7 @@ if.then42.i:                                      ; preds = %lor.lhs.false39.i, 
   br label %if.then4
 
 if.end:                                           ; preds = %if.then
-  call fastcc void @be_filter_process_input(ptr noundef nonnull %me_, i32 noundef 0, ptr noundef nonnull %processed_any)
+  call fastcc void @be_filter_process_input(ptr noundef nonnull %me_, i32 noundef 0, ptr noundef %processed_any)
   %.pr.pre = load i32, ptr %processed_any, align 4
   %tobool3.not = icmp eq i32 %.pr.pre, 0
   br i1 %tobool3.not, label %if.end14, label %if.then4
@@ -997,7 +997,7 @@ if.end14:                                         ; preds = %if.then2.split, %la
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @be_filter_process_input(ptr noundef %bevf, i32 noundef %state, ptr nocapture noundef %processed_out) unnamed_addr #0 {
+define internal fastcc void @be_filter_process_input(ptr noundef %bevf, i32 noundef %state, ptr nocapture noundef nonnull %processed_out) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %state, 0
   br i1 %cmp, label %if.then, label %if.end5.split

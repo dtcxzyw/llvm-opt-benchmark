@@ -323,7 +323,7 @@ return:                                           ; preds = %_ZL10TestCompatPKhm
 declare void @CRYPTO_library_init() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL4TestPKcPKhm(ptr noundef %name, ptr noundef %der, i64 noundef %der_len) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL4TestPKcPKhm(ptr noundef %name, ptr noundef %der, i64 noundef range(i64 2469, 2637) %der_len) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %certs = alloca %"class.std::unique_ptr", align 8
   %pkcs12 = alloca %struct.cbs_st, align 8

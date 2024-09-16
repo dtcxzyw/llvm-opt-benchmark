@@ -367,7 +367,7 @@ define internal range(i32 0, 3) i32 @scram_exchange(ptr noundef %0, ptr noundef 
   unreachable
 
 89:                                               ; preds = %80
-  %90 = call fastcc ptr @read_attr_value(ptr noundef nonnull %15, i8 noundef signext 112)
+  %90 = call fastcc ptr @read_attr_value(ptr noundef %15, i8 noundef signext 112)
   %91 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %90, ptr noundef nonnull dereferenceable(21) @.str.20) #13
   %.not.i = icmp eq i32 %91, 0
   br i1 %.not.i, label %._crit_edge18.i, label %92
@@ -442,10 +442,10 @@ define internal range(i32 0, 3) i32 @scram_exchange(ptr noundef %0, ptr noundef 
   unreachable
 
 125:                                              ; preds = %115
-  %126 = call fastcc ptr @read_attr_value(ptr noundef nonnull %15, i8 noundef signext 110)
+  %126 = call fastcc ptr @read_attr_value(ptr noundef %15, i8 noundef signext 110)
   %127 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %126, ptr %127, align 8
-  %128 = call fastcc ptr @read_attr_value(ptr noundef nonnull %15, i8 noundef signext 114)
+  %128 = call fastcc ptr @read_attr_value(ptr noundef %15, i8 noundef signext 114)
   %129 = getelementptr inbounds i8, ptr %0, i64 136
   store ptr %128, ptr %129, align 8
   %130 = load i8, ptr %128, align 1
@@ -488,7 +488,7 @@ is_scram_printable.exit.thread.i:                 ; preds = %switch.early.test.i
   unreachable
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %141 = call fastcc ptr @read_any_attr(ptr noundef nonnull %15, ptr noundef null)
+  %141 = call fastcc ptr @read_any_attr(ptr noundef %15, ptr noundef null)
   %142 = load ptr, ptr %15, align 8
   %143 = load i8, ptr %142, align 1
   %.not14.i = icmp eq i8 %143, 0
@@ -552,7 +552,7 @@ build_server_first_message.exit:                  ; preds = %149
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   %174 = tail call ptr @pstrdup(ptr noundef nonnull %1) #12
   store ptr %174, ptr %13, align 8
-  %175 = call fastcc ptr @read_attr_value(ptr noundef nonnull %13, i8 noundef signext 99)
+  %175 = call fastcc ptr @read_attr_value(ptr noundef %13, i8 noundef signext 99)
   %176 = getelementptr inbounds i8, ptr %0, i64 24
   %177 = load i8, ptr %176, align 8
   %178 = trunc i8 %177 to i1
@@ -596,14 +596,14 @@ build_server_first_message.exit:                  ; preds = %149
   unreachable
 
 200:                                              ; preds = %192, %185
-  %201 = call fastcc ptr @read_attr_value(ptr noundef nonnull %13, i8 noundef signext 114)
+  %201 = call fastcc ptr @read_attr_value(ptr noundef %13, i8 noundef signext 114)
   %202 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %201, ptr %202, align 8
   br label %203
 
 203:                                              ; preds = %203, %200
   %204 = load ptr, ptr %13, align 8
-  %205 = call fastcc ptr @read_any_attr(ptr noundef nonnull %13, ptr noundef nonnull %12)
+  %205 = call fastcc ptr @read_any_attr(ptr noundef %13, ptr noundef nonnull %12)
   %206 = load i8, ptr %12, align 1
   %.not.i39 = icmp eq i8 %206, 112
   br i1 %.not.i39, label %207, label %203, !llvm.loop !8
@@ -1278,7 +1278,7 @@ define internal fastcc void @sanitize_char(i8 noundef signext %0) unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @read_attr_value(ptr nocapture noundef %0, i8 noundef signext %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @read_attr_value(ptr nocapture noundef nonnull %0, i8 noundef signext range(i8 99, 115) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i8, ptr %3, align 1
   %5 = zext nneg i8 %1 to i32
@@ -1367,7 +1367,7 @@ define internal fastcc void @sanitize_str(ptr nocapture noundef readonly %0) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @read_any_attr(ptr nocapture noundef %0, ptr noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @read_any_attr(ptr nocapture noundef nonnull %0, ptr noundef writeonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0

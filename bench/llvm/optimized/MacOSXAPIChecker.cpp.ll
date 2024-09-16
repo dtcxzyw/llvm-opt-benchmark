@@ -1188,8 +1188,8 @@ select.unfold.i.i.i:                              ; preds = %.lr.ph.i.i.i
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %255 = load i32, ptr %254, align 8
   %256 = icmp slt i32 %255, 9
-  %.not20.i.i.i = icmp eq ptr %253, null
-  %.not.i64.i.i = or i1 %.not20.i.i.i, %256
+  %.not19.i.i.i = icmp eq ptr %253, null
+  %.not.i64.i.i = or i1 %.not19.i.i.i, %256
   br i1 %.not.i64.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 _ZN12_GLOBAL__N_116MacOSXAPIChecker19getParentIvarRegionEPKN5clang4ento9MemRegionE.exit.i.i: ; preds = %.lr.ph.i.i.i

@@ -5035,7 +5035,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserv
 .lr.ph.i.i:                                       ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit.i.i
   %.sroa.01.05.i.i = phi ptr [ %1475, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit.i.i ], [ %1458, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit.i ]
   %1468 = load i16, ptr %.sroa.01.05.i.i, align 2
-  invoke fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_11MachineTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %133, i16 %1468)
+  invoke fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_11MachineTypeE(ptr dead_on_unwind noalias writable align 8 %133, i16 %1468)
           to label %"_ZZN5vcpkgL22check_lib_architectureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_RKSt6vectorINS_4PathESaIS9_EERKNS_18ReadOnlyFilesystemERNS_11MessageSinkEENK3$_1clB5cxx11ENS_11MachineTypeE.exit.i.i" unwind label %.loopexit.i.i
 
 "_ZZN5vcpkgL22check_lib_architectureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_RKSt6vectorINS_4PathESaIS9_EERKNS_18ReadOnlyFilesystemERNS_11MessageSinkEENK3$_1clB5cxx11ENS_11MachineTypeE.exit.i.i": ; preds = %.lr.ph.i.i
@@ -5623,7 +5623,7 @@ _ZNSt16allocator_traitsISaIN5vcpkg11FileAndArchEEE8allocateERS2_m.exit.i.i.i.i.i
 
 1644:                                             ; preds = %.noexc103.i
   store ptr %1641, ptr %1638, align 8
-  invoke fastcc void @_ZN5vcpkgL32print_invalid_architecture_filesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS_11FileAndArchESaIS9_EERNS_11MessageSinkE(ptr noundef nonnull align 8 dereferenceable(32) %1370, ptr noundef nonnull %149, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  invoke fastcc void @_ZN5vcpkgL32print_invalid_architecture_filesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS_11FileAndArchESaIS9_EERNS_11MessageSinkE(ptr noundef nonnull align 8 dereferenceable(32) %1370, ptr noundef %149, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %1645 unwind label %1649
 
 1645:                                             ; preds = %1644
@@ -7180,7 +7180,7 @@ _ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit740.thread: ; preds 
   %.sroa.01.011.i = phi ptr [ %.val215, %.lr.ph.i741 ], [ %2199, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread4.i ]
   %2156 = getelementptr inbounds i8, ptr %.sroa.01.011.i, i64 32
   %.val.i = load i16, ptr %2156, align 2
-  invoke fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_11MachineTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %100, i16 %.val.i)
+  invoke fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_11MachineTypeE(ptr dead_on_unwind noalias writable align 8 %100, i16 %.val.i)
           to label %2157 unwind label %.loopexit.i742
 
 2157:                                             ; preds = %2155
@@ -7374,7 +7374,7 @@ _ZNSt16allocator_traitsISaIN5vcpkg11FileAndArchEEE8allocateERS2_m.exit.i.i.i.i.i
 
 2214:                                             ; preds = %.noexc25.i
   store ptr %2211, ptr %2208, align 8
-  invoke fastcc void @_ZN5vcpkgL32print_invalid_architecture_filesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS_11FileAndArchESaIS9_EERNS_11MessageSinkE(ptr noundef nonnull align 8 dereferenceable(32) %2149, ptr noundef nonnull %103, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  invoke fastcc void @_ZN5vcpkgL32print_invalid_architecture_filesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS_11FileAndArchESaIS9_EERNS_11MessageSinkE(ptr noundef nonnull align 8 dereferenceable(32) %2149, ptr noundef %103, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %2215 unwind label %2219
 
 2215:                                             ; preds = %2214
@@ -18204,7 +18204,7 @@ declare void @_ZN5vcpkg11MessageSink13println_errorERKNS_15LocalizedStringE(ptr 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNO5vcpkg15LocalizedString6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkgL32print_invalid_architecture_filesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS_11FileAndArchESaIS9_EERNS_11MessageSinkE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkgL32print_invalid_architecture_filesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS_11FileAndArchESaIS9_EERNS_11MessageSinkE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.fmt::v10::format_arg_store.123", align 16
   %5 = alloca %"struct.vcpkg::msg::TagArg.21", align 8
   %6 = alloca %"struct.vcpkg::msg::TagArg.121", align 8
@@ -18469,7 +18469,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_11MachineTypeE(ptr dead_on_unwind noalias writable align 8 %0, i16 %.0.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_11MachineTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i16 %.0.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.fmt::v10::format_arg_store.112", align 16
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
@@ -19377,7 +19377,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit170: ;
 213:                                              ; preds = %1
   %.sroa.0.0.insert.ext.i = zext i16 %.0.val to i64
   store i64 %.sroa.0.0.insert.ext.i, ptr %2, align 16, !noalias !346
-  call void @_ZN3fmt3v107vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull @.str.283, i64 10, i64 2, ptr nonnull %2)
+  call void @_ZN3fmt3v107vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull @.str.283, i64 10, i64 2, ptr nonnull %2)
   br label %214
 
 214:                                              ; preds = %213, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit170, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit165, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit160, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit155, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit150, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit145, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit140, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit135, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit130, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit120, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit115, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit110, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit105, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit100, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit95, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit90, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit80, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit70, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit65, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit

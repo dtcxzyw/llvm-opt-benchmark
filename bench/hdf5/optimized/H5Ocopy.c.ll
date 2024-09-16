@@ -779,7 +779,7 @@ H5O__copy_search_comm_dt.exit.thread:             ; preds = %66
   br label %142
 
 128:                                              ; preds = %122
-  %129 = call fastcc i32 @H5O__copy_search_comm_dt_check(ptr noundef nonnull %9, ptr noundef nonnull %7)
+  %129 = call fastcc i32 @H5O__copy_search_comm_dt_check(ptr noundef %9, ptr noundef nonnull %7)
   %130 = icmp slt i32 %129, 0
   br i1 %130, label %131, label %142
 
@@ -2347,13 +2347,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @H5O__alloc_msgs(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5O__copy_insert_comm_dt(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5O__copy_insert_comm_dt(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5O_copy_search_comm_dt_key_t_reg_free_list) #8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread39, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @H5O_msg_read_oh(ptr noundef %0, ptr noundef %1, i32 noundef 3, ptr noundef null) #8
+  %8 = tail call ptr @H5O_msg_read_oh(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 3, ptr noundef null) #8
   store ptr %8, ptr %5, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %14
@@ -2479,9 +2479,9 @@ declare ptr @H5G_nameof(ptr noundef) local_unnamed_addr #1
 declare i32 @H5E_clear_stack() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5O__copy_search_comm_dt_check(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5O__copy_search_comm_dt_check(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.H5A_attr_iter_op_t, align 8
-  %4 = tail call ptr @H5O__obj_class(ptr noundef %0) #8
+  %4 = tail call ptr @H5O__obj_class(ptr noundef nonnull %0) #8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %10
 
@@ -2510,7 +2510,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__copy_search_comm_dt_check(ptr 
   br label %.thread95
 
 19:                                               ; preds = %12
-  %20 = tail call ptr @H5O_msg_read(ptr noundef %0, i32 noundef 3, ptr noundef null) #8
+  %20 = tail call ptr @H5O_msg_read(ptr noundef nonnull %0, i32 noundef 3, ptr noundef null) #8
   store ptr %20, ptr %13, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %26
@@ -2568,7 +2568,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__copy_search_comm_dt_check(ptr 
   br label %.thread95
 
 56:                                               ; preds = %49
-  %57 = tail call ptr @H5O_msg_read(ptr noundef %0, i32 noundef 3, ptr noundef null) #8
+  %57 = tail call ptr @H5O_msg_read(ptr noundef nonnull %0, i32 noundef 3, ptr noundef null) #8
   store ptr %57, ptr %50, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %63
@@ -2713,7 +2713,7 @@ define internal range(i32 -1, 1) i32 @H5O__copy_search_comm_dt_cb(i64 %0, ptr no
   br label %35
 
 21:                                               ; preds = %10
-  %22 = call fastcc i32 @H5O__copy_search_comm_dt_check(ptr noundef nonnull %6, ptr noundef nonnull %3)
+  %22 = call fastcc i32 @H5O__copy_search_comm_dt_check(ptr noundef %6, ptr noundef nonnull %3)
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %28
 

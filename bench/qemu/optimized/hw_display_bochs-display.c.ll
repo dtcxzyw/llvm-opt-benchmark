@@ -176,7 +176,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %sub.i = add nsw i64 %0, -1
-  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 true)
+  %1 = tail call range(i64 36, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 true)
   %sub2.i = add nuw nsw i64 %1, 4294967295
   %sh_prom.i = and i64 %sub2.i, 4294967295
   %shr.i = lshr exact i64 -9223372036854775808, %sh_prom.i

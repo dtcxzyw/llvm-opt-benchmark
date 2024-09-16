@@ -74,7 +74,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %__begin1.sroa.0.064 = phi ptr [ %__begin1.sroa.0.061, %for.body.lr.ph ], [ %__begin1.sroa.0.0, %_ZL18performFunctionDCEPN6hermes8FunctionE.exit ]
   %changed.063 = phi i1 [ false, %for.body.lr.ph ], [ %9, %_ZL18performFunctionDCEPN6hermes8FunctionE.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %PO.i)
-  call void @_ZN6hermes17PostOrderAnalysisC1EPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(32) %PO.i, ptr noundef %__begin1.sroa.0.064) #6
+  call void @_ZN6hermes17PostOrderAnalysisC1EPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(32) %PO.i, ptr noundef nonnull %__begin1.sroa.0.064) #6
   %0 = load ptr, ptr %Order.i.i, align 8
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.not29.i = icmp eq ptr %0, %1

@@ -1978,7 +1978,7 @@ AdjustFractSeconds.exit128.i:                     ; preds = %370, %366
   br i1 %383, label %.sink.split208, label %384
 
 384:                                              ; preds = %AdjustFractSeconds.exit128.i
-  %385 = call fastcc i32 @ParseISO8601Number(ptr noundef %68, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %385 = call fastcc i32 @ParseISO8601Number(ptr noundef %68, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.not87.i = icmp eq i32 %385, 0
   br i1 %.not87.i, label %386, label %.sink.split
 
@@ -2019,7 +2019,7 @@ AdjustFractSeconds.exit129.i:                     ; preds = %392, %386
 407:                                              ; preds = %AdjustFractSeconds.exit129.i
   %408 = getelementptr i8, ptr %405, i64 1
   store ptr %408, ptr %3, align 8
-  %409 = call fastcc i32 @ParseISO8601Number(ptr noundef %408, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %409 = call fastcc i32 @ParseISO8601Number(ptr noundef %408, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.not89.i = icmp eq i32 %409, 0
   br i1 %.not89.i, label %410, label %.sink.split
 
@@ -2215,7 +2215,7 @@ define noundef i32 @PGTYPESinterval_copy(ptr nocapture noundef readonly %0, ptr 
 declare void @TrimTrailingZeros(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc range(i32 -2, 1) i32 @ParseISO8601Number(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #9 {
+define internal fastcc range(i32 -2, 1) i32 @ParseISO8601Number(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #9 {
   %5 = tail call ptr @__ctype_b_loc() #15
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %0, align 1
@@ -2233,7 +2233,7 @@ define internal fastcc range(i32 -2, 1) i32 @ParseISO8601Number(ptr noundef %0, 
 12:                                               ; preds = %4
   %13 = tail call ptr @__errno_location() #15
   store i32 0, ptr %13, align 4
-  %14 = tail call double @strtod(ptr noundef nonnull %0, ptr noundef %1) #13
+  %14 = tail call double @strtod(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %15 = load ptr, ptr %1, align 8
   %16 = icmp eq ptr %15, %0
   br i1 %16, label %33, label %17

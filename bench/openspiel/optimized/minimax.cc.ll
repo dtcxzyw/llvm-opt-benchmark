@@ -360,7 +360,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EEaSEOS4_.exit: ; pr
   unreachable
 
 _ZNSt8functionIFdRKN10open_spiel5StateEEEC2ERKS5_.exit: ; preds = %106, %99
-  %118 = invoke fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_111_alpha_betaEPNS_5StateEiddSt8functionIFdRKS2_EEiPlb(ptr noundef %92, i32 noundef %3, double noundef 0xFFF0000000000000, double noundef 0x7FF0000000000000, ptr noundef nonnull %31, i32 noundef %.0, ptr noundef nonnull %30, i1 noundef zeroext %5)
+  %118 = invoke fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_111_alpha_betaEPNS_5StateEiddSt8functionIFdRKS2_EEiPlb(ptr noundef %92, i32 noundef %3, double noundef 0xFFF0000000000000, double noundef 0x7FF0000000000000, ptr noundef %31, i32 noundef %.0, ptr noundef nonnull %30, i1 noundef zeroext %5)
           to label %119 unwind label %137
 
 119:                                              ; preds = %_ZNSt8functionIFdRKN10open_spiel5StateEEEC2ERKS5_.exit
@@ -854,7 +854,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_111_alpha_betaEPNS_5StateEiddSt8functionIFdRKS2_EEiPlb(ptr noundef %0, i32 noundef %1, double noundef %2, double noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef writeonly %6, i1 noundef zeroext %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_111_alpha_betaEPNS_5StateEiddSt8functionIFdRKS2_EEiPlb(ptr noundef %0, i32 noundef %1, double noundef %2, double noundef %3, ptr noundef nonnull %4, i32 noundef %5, ptr noundef writeonly %6, i1 noundef zeroext %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = alloca %"class.std::vector.10", align 8
@@ -981,7 +981,7 @@ _ZNKSt8functionIFdRKN10open_spiel5StateEEEclES3_.exit: ; preds = %30
   br label %_ZNSt8functionIFdRKN10open_spiel5StateEEEC2ERKS5_.exit.us
 
 _ZNSt8functionIFdRKN10open_spiel5StateEEEC2ERKS5_.exit.us: ; preds = %71, %67
-  %74 = invoke fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_111_alpha_betaEPNS_5StateEiddSt8functionIFdRKS2_EEiPlb(ptr noundef nonnull %0, i32 noundef %60, double noundef %.0183224.us, double noundef %3, ptr noundef nonnull %12, i32 noundef %5, ptr noundef null, i1 noundef zeroext true)
+  %74 = invoke fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_111_alpha_betaEPNS_5StateEiddSt8functionIFdRKS2_EEiPlb(ptr noundef nonnull %0, i32 noundef %60, double noundef %.0183224.us, double noundef %3, ptr noundef %12, i32 noundef %5, ptr noundef null, i1 noundef zeroext true)
           to label %75 unwind label %.split240.us
 
 75:                                               ; preds = %_ZNSt8functionIFdRKN10open_spiel5StateEEEC2ERKS5_.exit.us
@@ -1148,7 +1148,7 @@ _ZNK10open_spiel5State5ChildEl.exit:              ; preds = %.noexc
   unreachable
 
 _ZNSt8functionIFdRKN10open_spiel5StateEEEC2ERKS5_.exit103: ; preds = %125, %_ZNK10open_spiel5State5ChildEl.exit
-  %136 = invoke fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_111_alpha_betaEPNS_5StateEiddSt8functionIFdRKS2_EEiPlb(ptr noundef %121, i32 noundef %60, double noundef %.0183224, double noundef %3, ptr noundef nonnull %14, i32 noundef %5, ptr noundef null, i1 noundef zeroext false)
+  %136 = invoke fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_111_alpha_betaEPNS_5StateEiddSt8functionIFdRKS2_EEiPlb(ptr noundef %121, i32 noundef %60, double noundef %.0183224, double noundef %3, ptr noundef %14, i32 noundef %5, ptr noundef null, i1 noundef zeroext false)
           to label %137 unwind label %149
 
 137:                                              ; preds = %_ZNSt8functionIFdRKN10open_spiel5StateEEEC2ERKS5_.exit103
@@ -1318,7 +1318,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit112: ; pr
   br label %_ZNSt8functionIFdRKN10open_spiel5StateEEEC2ERKS5_.exit120.us
 
 _ZNSt8functionIFdRKN10open_spiel5StateEEEC2ERKS5_.exit120.us: ; preds = %199, %195
-  %202 = invoke fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_111_alpha_betaEPNS_5StateEiddSt8functionIFdRKS2_EEiPlb(ptr noundef nonnull %0, i32 noundef %188, double noundef %2, double noundef %.0185203.us, ptr noundef nonnull %16, i32 noundef %5, ptr noundef null, i1 noundef zeroext true)
+  %202 = invoke fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_111_alpha_betaEPNS_5StateEiddSt8functionIFdRKS2_EEiPlb(ptr noundef nonnull %0, i32 noundef %188, double noundef %2, double noundef %.0185203.us, ptr noundef %16, i32 noundef %5, ptr noundef null, i1 noundef zeroext true)
           to label %203 unwind label %.split214.us
 
 203:                                              ; preds = %_ZNSt8functionIFdRKN10open_spiel5StateEEEC2ERKS5_.exit120.us
@@ -1485,7 +1485,7 @@ _ZNK10open_spiel5State5ChildEl.exit133:           ; preds = %.noexc130
   unreachable
 
 _ZNSt8functionIFdRKN10open_spiel5StateEEEC2ERKS5_.exit139: ; preds = %253, %_ZNK10open_spiel5State5ChildEl.exit133
-  %264 = invoke fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_111_alpha_betaEPNS_5StateEiddSt8functionIFdRKS2_EEiPlb(ptr noundef %249, i32 noundef %188, double noundef %2, double noundef %.0185203, ptr noundef nonnull %18, i32 noundef %5, ptr noundef null, i1 noundef zeroext false)
+  %264 = invoke fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_111_alpha_betaEPNS_5StateEiddSt8functionIFdRKS2_EEiPlb(ptr noundef %249, i32 noundef %188, double noundef %2, double noundef %.0185203, ptr noundef %18, i32 noundef %5, ptr noundef null, i1 noundef zeroext false)
           to label %265 unwind label %277
 
 265:                                              ; preds = %_ZNSt8functionIFdRKN10open_spiel5StateEEEC2ERKS5_.exit139
@@ -1940,7 +1940,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EEaSEOS4_.exit: ; pr
   unreachable
 
 _ZNSt8functionIFdRKN10open_spiel5StateEEEC2ERKS5_.exit: ; preds = %130, %123
-  %142 = invoke fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_115_expectiminimaxEPKNS_5StateEiSt8functionIFdRS3_EEiPl(ptr noundef %106, i32 noundef %3, ptr noundef nonnull %36, i32 noundef %.012, ptr noundef nonnull %35)
+  %142 = invoke fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_115_expectiminimaxEPKNS_5StateEiSt8functionIFdRS3_EEiPl(ptr noundef %106, i32 noundef %3, ptr noundef %36, i32 noundef %.012, ptr noundef nonnull %35)
           to label %143 unwind label %161
 
 143:                                              ; preds = %_ZNSt8functionIFdRKN10open_spiel5StateEEEC2ERKS5_.exit
@@ -2202,7 +2202,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_115_expectiminimaxEPKNS_5StateEiSt8functionIFdRS3_EEiPl(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_115_expectiminimaxEPKNS_5StateEiSt8functionIFdRS3_EEiPl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef writeonly %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::vector.15", align 8
@@ -2393,7 +2393,7 @@ _ZNK10open_spiel5State5ChildEl.exit:              ; preds = %.noexc
   unreachable
 
 _ZNSt8functionIFdRKN10open_spiel5StateEEEC2ERKS5_.exit: ; preds = %87, %_ZNK10open_spiel5State5ChildEl.exit
-  %98 = invoke fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_115_expectiminimaxEPKNS_5StateEiSt8functionIFdRS3_EEiPl(ptr noundef %83, i32 noundef %1, ptr noundef nonnull %10, i32 noundef %3, ptr noundef null)
+  %98 = invoke fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_115_expectiminimaxEPKNS_5StateEiSt8functionIFdRS3_EEiPl(ptr noundef %83, i32 noundef %1, ptr noundef %10, i32 noundef %3, ptr noundef null)
           to label %99 unwind label %116
 
 99:                                               ; preds = %_ZNSt8functionIFdRKN10open_spiel5StateEEEC2ERKS5_.exit
@@ -2605,7 +2605,7 @@ _ZNK10open_spiel5State5ChildEl.exit106:           ; preds = %.noexc103
   unreachable
 
 _ZNSt8functionIFdRKN10open_spiel5StateEEEC2ERKS5_.exit112: ; preds = %175, %_ZNK10open_spiel5State5ChildEl.exit106
-  %186 = invoke fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_115_expectiminimaxEPKNS_5StateEiSt8functionIFdRS3_EEiPl(ptr noundef %171, i32 noundef %148, ptr noundef nonnull %13, i32 noundef %3, ptr noundef null)
+  %186 = invoke fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_115_expectiminimaxEPKNS_5StateEiSt8functionIFdRS3_EEiPl(ptr noundef %171, i32 noundef %148, ptr noundef %13, i32 noundef %3, ptr noundef null)
           to label %187 unwind label %198
 
 187:                                              ; preds = %_ZNSt8functionIFdRKN10open_spiel5StateEEEC2ERKS5_.exit112
@@ -2818,7 +2818,7 @@ _ZNK10open_spiel5State5ChildEl.exit135:           ; preds = %.noexc132
   unreachable
 
 _ZNSt8functionIFdRKN10open_spiel5StateEEEC2ERKS5_.exit141: ; preds = %258, %_ZNK10open_spiel5State5ChildEl.exit135
-  %269 = invoke fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_115_expectiminimaxEPKNS_5StateEiSt8functionIFdRS3_EEiPl(ptr noundef %254, i32 noundef %231, ptr noundef nonnull %16, i32 noundef %3, ptr noundef null)
+  %269 = invoke fastcc noundef double @_ZN10open_spiel10algorithms12_GLOBAL__N_115_expectiminimaxEPKNS_5StateEiSt8functionIFdRS3_EEiPl(ptr noundef %254, i32 noundef %231, ptr noundef %16, i32 noundef %3, ptr noundef null)
           to label %270 unwind label %281
 
 270:                                              ; preds = %_ZNSt8functionIFdRKN10open_spiel5StateEEEC2ERKS5_.exit141

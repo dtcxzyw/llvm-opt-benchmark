@@ -1728,7 +1728,7 @@ declare zeroext i1 @ActiveSnapshotSet() local_unnamed_addr #1
 declare void @PushActiveSnapshotWithLevel(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @RunFromStore(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @RunFromStore(ptr nocapture noundef readonly %0, i32 noundef range(i32 -1, 2) %1, i64 noundef range(i64 0, -9223372036854775808) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @MakeSingleTupleTableSlot(ptr noundef %6, ptr noundef nonnull @TTSOpsMinimalTuple) #10
@@ -1796,7 +1796,7 @@ define internal fastcc i64 @RunFromStore(ptr nocapture noundef readonly %0, i32 
   %41 = getelementptr inbounds i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
   tail call void %42(ptr noundef %7) #10
-  %43 = add nuw i64 %.1, 1
+  %43 = add nuw nsw i64 %.1, 1
   %44 = icmp eq i64 %2, %43
   br i1 %44, label %.loopexit, label %.split
 

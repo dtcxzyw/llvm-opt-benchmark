@@ -767,7 +767,7 @@ default.unreachable575:                           ; preds = %._crit_edge
 
 324:                                              ; preds = %323
   %325 = load i16, ptr %280, align 2, !noundef !3
-  %326 = invoke fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen15emit_constraint17hac733481ee9cd77eE(ptr align 8 %0, ptr nonnull align 8 %1, i16 %325, ptr nonnull align 16 %306)
+  %326 = invoke fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen15emit_constraint17hac733481ee9cd77eE(ptr align 8 %0, ptr nonnull align 8 %1, i16 %325, ptr align 16 %306)
           to label %327 unwind label %355
 
 327:                                              ; preds = %324
@@ -797,7 +797,7 @@ default.unreachable575:                           ; preds = %._crit_edge
 
 334:                                              ; preds = %333
   %335 = load i16, ptr %280, align 2, !noundef !3
-  %336 = invoke fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen15emit_constraint17hac733481ee9cd77eE(ptr align 8 %0, ptr nonnull align 8 %1, i16 %335, ptr nonnull align 16 %306)
+  %336 = invoke fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen15emit_constraint17hac733481ee9cd77eE(ptr align 8 %0, ptr nonnull align 8 %1, i16 %335, ptr align 16 %306)
           to label %337 unwind label %355
 
 337:                                              ; preds = %334
@@ -1029,7 +1029,7 @@ default.unreachable575:                           ; preds = %._crit_edge
   br i1 %401, label %.critedge331, label %403
 
 403:                                              ; preds = %402
-  %404 = invoke fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen15emit_constraint17hac733481ee9cd77eE(ptr align 8 %0, ptr nonnull align 8 %1, i16 %362, ptr nonnull align 16 %386)
+  %404 = invoke fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen15emit_constraint17hac733481ee9cd77eE(ptr align 8 %0, ptr nonnull align 8 %1, i16 %362, ptr align 16 %386)
           to label %405 unwind label %421
 
 405:                                              ; preds = %403
@@ -1899,7 +1899,7 @@ default.unreachable116:                           ; preds = %53
   %86 = getelementptr inbounds i8, ptr %56, i64 8
   %87 = load i64, ptr %86, align 8, !noundef !3
   %88 = getelementptr inbounds i8, ptr %56, i64 2
-  %89 = call fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_expr28_$u7b$$u7b$closure$u7d$$u7d$17h03a58d92bb7f69d5E"(ptr nonnull align 8 %32, i64 %87, ptr nonnull align 2 %88, i64 1, ptr nonnull @_ZN14cranelift_isle4sema4Term13extractor_sig17h4e321f171638b969E)
+  %89 = call fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_expr28_$u7b$$u7b$closure$u7d$$u7d$17h03a58d92bb7f69d5E"(ptr align 8 %32, i64 %87, ptr align 2 %88, i64 1, ptr nonnull @_ZN14cranelift_isle4sema4Term13extractor_sig17h4e321f171638b969E)
   br label %.loopexit
 
 90:                                               ; preds = %53
@@ -1909,7 +1909,7 @@ default.unreachable116:                           ; preds = %53
   %94 = load ptr, ptr %93, align 16, !nonnull !3, !align !12, !noundef !3
   %95 = getelementptr inbounds i8, ptr %56, i64 24
   %96 = load i64, ptr %95, align 8, !noundef !3
-  %97 = call fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_expr28_$u7b$$u7b$closure$u7d$$u7d$17h03a58d92bb7f69d5E"(ptr nonnull align 8 %32, i64 %92, ptr nonnull align 2 %94, i64 %96, ptr nonnull @_ZN14cranelift_isle4sema4Term15constructor_sig17h9d5b9ef455e5a236E)
+  %97 = call fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_expr28_$u7b$$u7b$closure$u7d$$u7d$17h03a58d92bb7f69d5E"(ptr align 8 %32, i64 %92, ptr align 2 %94, i64 %96, ptr nonnull @_ZN14cranelift_isle4sema4Term15constructor_sig17h9d5b9ef455e5a236E)
   br label %.loopexit
 
 98:                                               ; preds = %53
@@ -2203,7 +2203,7 @@ default.unreachable116:                           ; preds = %53
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_expr28_$u7b$$u7b$closure$u7d$$u7d$17h03a58d92bb7f69d5E"(ptr nocapture readonly align 8 %0, i64 %1, ptr align 2 %2, i64 %3, ptr nocapture readonly %4) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_expr28_$u7b$$u7b$closure$u7d$$u7d$17h03a58d92bb7f69d5E"(ptr nocapture nonnull readonly align 8 %0, i64 %1, ptr nonnull align 2 %2, i64 %3, ptr nocapture readonly %4) unnamed_addr #2 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca i64, align 8
   %8 = alloca [1 x { ptr, ptr }], align 8
@@ -2340,7 +2340,7 @@ define internal fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_exp
   %87 = getelementptr inbounds i8, ptr %24, i64 64
   %88 = load i64, ptr %87, align 8, !noundef !3
   %89 = getelementptr inbounds i64, ptr %86, i64 %88
-  invoke void @_ZN4core4iter6traits8iterator8Iterator3zip17hc58d57921ee207c2E(ptr nonnull sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 %19, ptr %2, ptr %84, ptr nonnull %86, ptr nonnull %89)
+  invoke void @_ZN4core4iter6traits8iterator8Iterator3zip17hc58d57921ee207c2E(ptr nonnull sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 %19, ptr nonnull %2, ptr nonnull %84, ptr nonnull %86, ptr nonnull %89)
           to label %90 unwind label %.loopexit.split-lp
 
 90:                                               ; preds = %83
@@ -2562,7 +2562,7 @@ define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen11emit_sou
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen15emit_constraint17hac733481ee9cd77eE(ptr align 8 %0, ptr align 8 %1, i16 %2, ptr nocapture readonly align 16 %3) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen15emit_constraint17hac733481ee9cd77eE(ptr align 8 %0, ptr align 8 %1, i16 %2, ptr nocapture nonnull readonly align 16 %3) unnamed_addr #0 {
   %5 = alloca [0 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8

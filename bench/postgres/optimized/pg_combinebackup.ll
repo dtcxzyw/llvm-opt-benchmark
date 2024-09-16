@@ -386,7 +386,7 @@ add_tablespace_mapping.exit:                      ; preds = %74
 
 110:                                              ; preds = %101
   call void @initStringInfo(ptr noundef nonnull %15) #12
-  call fastcc void @slurp_file(i32 noundef %107, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 128)
+  call fastcc void @slurp_file(i32 noundef %107, ptr noundef %14, ptr noundef nonnull %15, i32 noundef 128)
   %111 = call i32 @close(i32 noundef %107) #12
   %.not.i76 = icmp eq i32 %111, 0
   br i1 %.not.i76, label %113, label %112
@@ -573,7 +573,7 @@ check_control_files.exit:                         ; preds = %._crit_edge.i77, %1
   unreachable
 
 183:                                              ; preds = %179
-  call fastcc void @slurp_file(i32 noundef %180, ptr noundef nonnull %8, ptr noundef %.080.i, i32 noundef 11024)
+  call fastcc void @slurp_file(i32 noundef %180, ptr noundef %8, ptr noundef %.080.i, i32 noundef 11024)
   %184 = call i32 @close(i32 noundef %180) #12
   %.not45.i = icmp eq i32 %184, 0
   br i1 %.not45.i, label %186, label %185
@@ -956,7 +956,7 @@ scan_for_existing_tablespaces.exit:               ; preds = %.outer._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6)
   %328 = call i32 @atexit(ptr noundef nonnull @cleanup_directories_atexit) #12
   %329 = load ptr, ptr %27, align 8
-  call fastcc void @create_output_directory(ptr noundef %329, ptr noundef nonnull %18)
+  call fastcc void @create_output_directory(ptr noundef %329, ptr noundef %18)
   %.not72178 = icmp eq ptr %.043.ph.ph.lcssa79.i, null
   br i1 %.not72178, label %._crit_edge, label %.lr.ph
 
@@ -969,7 +969,7 @@ scan_for_existing_tablespaces.exit:               ; preds = %.outer._crit_edge.i
 
 333:                                              ; preds = %.lr.ph
   %334 = getelementptr inbounds i8, ptr %.068179, i64 1029
-  call fastcc void @create_output_directory(ptr noundef nonnull %334, ptr noundef nonnull %18)
+  call fastcc void @create_output_directory(ptr noundef nonnull %334, ptr noundef %18)
   br label %335
 
 335:                                              ; preds = %.lr.ph, %333
@@ -1049,7 +1049,7 @@ scan_for_existing_tablespaces.exit:               ; preds = %.outer._crit_edge.i
 
 .thread:                                          ; preds = %356, %366, %368
   %369 = load ptr, ptr %27, align 8
-  call fastcc void @process_directory_recursively(i32 noundef 0, ptr noundef %231, ptr noundef %369, ptr noundef null, i32 noundef %227, ptr noundef %229, ptr noundef %230, ptr noundef %.0, ptr noundef nonnull %18)
+  call fastcc void @process_directory_recursively(i32 noundef 0, ptr noundef %231, ptr noundef %369, ptr noundef null, i32 noundef %227, ptr noundef %229, ptr noundef %230, ptr noundef %.0, ptr noundef %18)
   br i1 %.not72178, label %._crit_edge183, label %.lr.ph182
 
 .lr.ph182:                                        ; preds = %.thread, %413
@@ -1145,7 +1145,7 @@ scan_for_existing_tablespaces.exit:               ; preds = %.outer._crit_edge.i
   %414 = load i32, ptr %.1181, align 8
   %415 = getelementptr inbounds i8, ptr %.1181, i64 5
   %416 = getelementptr inbounds i8, ptr %.1181, i64 1029
-  call fastcc void @process_directory_recursively(i32 noundef %414, ptr noundef nonnull %415, ptr noundef nonnull %416, ptr noundef null, i32 noundef %227, ptr noundef %229, ptr noundef %230, ptr noundef %.0, ptr noundef nonnull %18)
+  call fastcc void @process_directory_recursively(i32 noundef %414, ptr noundef nonnull %415, ptr noundef nonnull %416, ptr noundef null, i32 noundef %227, ptr noundef %229, ptr noundef %230, ptr noundef %.0, ptr noundef %18)
   %417 = getelementptr inbounds i8, ptr %.1181, i64 2056
   %418 = load ptr, ptr %417, align 8
   %.not73 = icmp eq ptr %418, null
@@ -1303,7 +1303,7 @@ define internal void @cleanup_directories_atexit() #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @create_output_directory(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
+define internal fastcc void @create_output_directory(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #2 {
   %3 = tail call i32 @pg_check_dir(ptr noundef %0) #12
   switch i32 %3, label %35 [
     i32 0, label %4
@@ -1397,7 +1397,7 @@ declare ptr @create_manifest_writer(ptr noundef) local_unnamed_addr #1
 declare void @write_backup_label(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_directory_recursively(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef readonly %8) unnamed_addr #2 {
+define internal fastcc void @process_directory_recursively(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef nonnull readonly %8) unnamed_addr #2 {
   %10 = alloca ptr, align 8
   %11 = alloca [1024 x i8], align 16
   %12 = alloca [1024 x i8], align 16
@@ -1800,14 +1800,14 @@ declare ptr @makeStringInfo() local_unnamed_addr #1
 declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @slurp_file(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc void @slurp_file(i32 noundef range(i32 0, -2147483648) %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef range(i32 128, 11025) %3) unnamed_addr #2 {
   %5 = alloca %struct.stat, align 8
   %6 = call i32 @fstat(i32 noundef %0, ptr noundef nonnull %5) #12
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.39, ptr noundef %1) #12
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.39, ptr noundef nonnull %1) #12
   tail call void @exit(i32 noundef 1) #13
   unreachable
 
@@ -1819,7 +1819,7 @@ define internal fastcc void @slurp_file(i32 noundef %0, ptr noundef %1, ptr noun
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.40, ptr noundef %1) #12
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.40, ptr noundef nonnull %1) #12
   tail call void @exit(i32 noundef 1) #13
   unreachable
 
@@ -1840,13 +1840,13 @@ define internal fastcc void @slurp_file(i32 noundef %0, ptr noundef %1, ptr noun
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %22
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.41, ptr noundef %1) #12
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.41, ptr noundef nonnull %1) #12
   tail call void @exit(i32 noundef 1) #13
   unreachable
 
 25:                                               ; preds = %22
   %26 = trunc i64 %21 to i32
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.42, ptr noundef %1, i32 noundef %26, i32 noundef %15) #12
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.42, ptr noundef nonnull %1, i32 noundef %26, i32 noundef %15) #12
   tail call void @exit(i32 noundef 1) #13
   unreachable
 

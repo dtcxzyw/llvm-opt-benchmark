@@ -107,7 +107,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN15wiggle_generate5funcs11define_func17h1d256a1b9dc21d5aE(ptr nocapture writeonly sret({ { i64, [3 x i64] }, {} }) align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 {
   %5 = alloca { { { i64, [3 x i64] }, {} }, { { i64, ptr, {} }, i64 } }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
-  call fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b73bcea3a9E(ptr noalias nonnull align 8 %5, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3)
+  call fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b73bcea3a9E(ptr noalias align 8 %5, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %7 = getelementptr inbounds i8, ptr %5, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
@@ -119,7 +119,7 @@ define void @_ZN15wiggle_generate5funcs11define_func17h1d256a1b9dc21d5aE(ptr noc
 define hidden void @_ZN15wiggle_generate5funcs11func_bounds17h959f448e0f2572a7E(ptr nocapture writeonly sret({ { i64, ptr, {} }, i64 }) align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 {
   %5 = alloca { { { i64, [3 x i64] }, {} }, { { i64, ptr, {} }, i64 } }, align 8
   %6 = alloca { { i64, [3 x i64] }, {} }, align 8
-  call fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b73bcea3a9E(ptr noalias nonnull align 8 %5, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3)
+  call fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b73bcea3a9E(ptr noalias align 8 %5, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %7 = getelementptr inbounds i8, ptr %5, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
@@ -128,7 +128,7 @@ define hidden void @_ZN15wiggle_generate5funcs11func_bounds17h959f448e0f2572a7E(
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b73bcea3a9E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b73bcea3a9E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
   %6 = alloca { { i64, [3 x i64] }, {} }, align 8
   %7 = alloca { i64, [3 x i64] }, align 8
@@ -1768,7 +1768,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15wiggle_generate5funcs4Rust5bound17h6d14fd03774ad632E(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN15wiggle_generate5funcs4Rust5bound17h6d14fd03774ad632E(ptr nocapture readonly align 8 %0, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !8, !noundef !3
@@ -1776,7 +1776,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs4Rust5bound17h6d14fd03774
   %7 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !3
-  %10 = invoke zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hcaad2da314976cd0E"(ptr align 8 %1, ptr nonnull align 8 %7, i64 %9)
+  %10 = invoke zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hcaad2da314976cd0E"(ptr nonnull align 8 %1, ptr nonnull align 8 %7, i64 %9)
           to label %11 unwind label %16
 
 11:                                               ; preds = %2
@@ -1792,7 +1792,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs4Rust5bound17h6d14fd03774
   ret void
 
 .critedge:                                        ; preds = %11
-  tail call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %1)
+  tail call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %1)
   br label %14
 
 15:                                               ; preds = %16
@@ -1801,7 +1801,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs4Rust5bound17h6d14fd03774
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %1) #7
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %1) #7
           to label %15 unwind label %18
 
 18:                                               ; preds = %16
@@ -4866,7 +4866,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
           to label %995 unwind label %274
 
 1005:                                             ; preds = %998
-  invoke fastcc void @_ZN15wiggle_generate5funcs4Rust5bound17h6d14fd03774ad632E(ptr nonnull align 8 %0, ptr nonnull align 8 %125)
+  invoke fastcc void @_ZN15wiggle_generate5funcs4Rust5bound17h6d14fd03774ad632E(ptr nonnull align 8 %0, ptr align 8 %125)
           to label %1006 unwind label %1003
 
 1006:                                             ; preds = %1005

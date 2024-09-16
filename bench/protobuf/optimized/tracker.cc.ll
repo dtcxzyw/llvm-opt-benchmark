@@ -357,7 +357,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %args.i56, i8 0, i64 24, i1 false), !noalias !7
   %suppressed.i.i66 = getelementptr inbounds i8, ptr %ref.tmp23, i64 88
   store i8 0, ptr %suppressed.i.i66, align 8, !alias.scope !7
-  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias nonnull align 8 %arrayinit.element22, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp23, i64 5, ptr nonnull @.str.13)
+  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias align 8 %arrayinit.element22, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp23, i64 5, ptr nonnull @.str.13)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %entry
@@ -398,67 +398,67 @@ invoke.cont33:                                    ; preds = %entry
   %args.i94 = getelementptr inbounds i8, ptr %ref.tmp, i64 640
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i94, i8 0, i64 25, i1 false)
   %arrayinit.element42 = getelementptr inbounds i8, ptr %ref.tmp, i64 672
-  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias nonnull align 8 %arrayinit.element42, ptr noundef nonnull align 8 dereferenceable(16) %primitive_extn_accessor, i64 13, ptr nonnull @.str.18, i64 14, ptr nonnull @.str.19)
+  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias align 8 %arrayinit.element42, ptr noundef nonnull align 8 dereferenceable(16) %primitive_extn_accessor, i64 13, ptr nonnull @.str.18, i64 14, ptr nonnull @.str.19)
           to label %invoke.cont45 unwind label %lpad32
 
 invoke.cont45:                                    ; preds = %invoke.cont33
   %arrayinit.element46 = getelementptr inbounds i8, ptr %ref.tmp, i64 768
-  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias nonnull align 8 %arrayinit.element46, ptr noundef nonnull align 8 dereferenceable(16) %primitive_extn_accessor, i64 13, ptr nonnull @.str.20, i64 14, ptr nonnull @.str.21)
+  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias align 8 %arrayinit.element46, ptr noundef nonnull align 8 dereferenceable(16) %primitive_extn_accessor, i64 13, ptr nonnull @.str.20, i64 14, ptr nonnull @.str.21)
           to label %invoke.cont49 unwind label %lpad32
 
 invoke.cont49:                                    ; preds = %invoke.cont45
   %arrayinit.element50 = getelementptr inbounds i8, ptr %ref.tmp, i64 864
-  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias nonnull align 8 %arrayinit.element50, ptr noundef nonnull align 8 dereferenceable(16) %primitive_extn_accessor, i64 17, ptr nonnull @.str.22, i64 18, ptr nonnull @.str.23)
+  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias align 8 %arrayinit.element50, ptr noundef nonnull align 8 dereferenceable(16) %primitive_extn_accessor, i64 17, ptr nonnull @.str.22, i64 18, ptr nonnull @.str.23)
           to label %invoke.cont53 unwind label %lpad32
 
 invoke.cont53:                                    ; preds = %invoke.cont49
   %arrayinit.element54 = getelementptr inbounds i8, ptr %ref.tmp, i64 960
-  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias nonnull align 8 %arrayinit.element54, ptr noundef nonnull align 8 dereferenceable(16) %primitive_extn_accessor, i64 13, ptr nonnull @.str.24, i64 14, ptr nonnull @.str.25)
+  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias align 8 %arrayinit.element54, ptr noundef nonnull align 8 dereferenceable(16) %primitive_extn_accessor, i64 13, ptr nonnull @.str.24, i64 14, ptr nonnull @.str.25)
           to label %invoke.cont57 unwind label %lpad32
 
 invoke.cont57:                                    ; preds = %invoke.cont53
   %arrayinit.element58 = getelementptr inbounds i8, ptr %ref.tmp, i64 1056
-  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias nonnull align 8 %arrayinit.element58, ptr noundef nonnull align 8 dereferenceable(16) %primitive_extn_accessor, i64 17, ptr nonnull @.str.26, i64 18, ptr nonnull @.str.27)
+  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias align 8 %arrayinit.element58, ptr noundef nonnull align 8 dereferenceable(16) %primitive_extn_accessor, i64 17, ptr nonnull @.str.26, i64 18, ptr nonnull @.str.27)
           to label %invoke.cont61 unwind label %lpad32
 
 invoke.cont61:                                    ; preds = %invoke.cont57
   %arrayinit.element62 = getelementptr inbounds i8, ptr %ref.tmp, i64 1152
-  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_1clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias nonnull align 8 %arrayinit.element62, ptr noundef nonnull align 8 dereferenceable(16) %index_extn_accessor, i64 22, ptr nonnull @.str.28, i64 14, ptr nonnull @.str.21)
+  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_1clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias align 8 %arrayinit.element62, ptr noundef nonnull align 8 dereferenceable(16) %index_extn_accessor, i64 22, ptr nonnull @.str.28, i64 14, ptr nonnull @.str.21)
           to label %invoke.cont65 unwind label %lpad32
 
 invoke.cont65:                                    ; preds = %invoke.cont61
   %arrayinit.element66 = getelementptr inbounds i8, ptr %ref.tmp, i64 1248
-  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_1clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias nonnull align 8 %arrayinit.element66, ptr noundef nonnull align 8 dereferenceable(16) %index_extn_accessor, i64 26, ptr nonnull @.str.29, i64 18, ptr nonnull @.str.23)
+  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_1clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias align 8 %arrayinit.element66, ptr noundef nonnull align 8 dereferenceable(16) %index_extn_accessor, i64 26, ptr nonnull @.str.29, i64 18, ptr nonnull @.str.23)
           to label %invoke.cont69 unwind label %lpad32
 
 invoke.cont69:                                    ; preds = %invoke.cont65
   %arrayinit.element70 = getelementptr inbounds i8, ptr %ref.tmp, i64 1344
-  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_1clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias nonnull align 8 %arrayinit.element70, ptr noundef nonnull align 8 dereferenceable(16) %index_extn_accessor, i64 22, ptr nonnull @.str.30, i64 14, ptr nonnull @.str.25)
+  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_1clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias align 8 %arrayinit.element70, ptr noundef nonnull align 8 dereferenceable(16) %index_extn_accessor, i64 22, ptr nonnull @.str.30, i64 14, ptr nonnull @.str.25)
           to label %invoke.cont73 unwind label %lpad32
 
 invoke.cont73:                                    ; preds = %invoke.cont69
   %arrayinit.element74 = getelementptr inbounds i8, ptr %ref.tmp, i64 1440
-  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_2clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias nonnull align 8 %arrayinit.element74, ptr noundef nonnull align 8 dereferenceable(16) %add_extn_accessor, i64 22, ptr nonnull @.str.31, i64 14, ptr nonnull @.str.32)
+  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_2clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias align 8 %arrayinit.element74, ptr noundef nonnull align 8 dereferenceable(16) %add_extn_accessor, i64 22, ptr nonnull @.str.31, i64 14, ptr nonnull @.str.32)
           to label %invoke.cont77 unwind label %lpad32
 
 invoke.cont77:                                    ; preds = %invoke.cont73
   %arrayinit.element78 = getelementptr inbounds i8, ptr %ref.tmp, i64 1536
-  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_2clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias nonnull align 8 %arrayinit.element78, ptr noundef nonnull align 8 dereferenceable(16) %add_extn_accessor, i64 30, ptr nonnull @.str.33, i64 21, ptr nonnull @.str.34)
+  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_2clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias align 8 %arrayinit.element78, ptr noundef nonnull align 8 dereferenceable(16) %add_extn_accessor, i64 30, ptr nonnull @.str.33, i64 21, ptr nonnull @.str.34)
           to label %invoke.cont81 unwind label %lpad32
 
 invoke.cont81:                                    ; preds = %invoke.cont77
   %arrayinit.element82 = getelementptr inbounds i8, ptr %ref.tmp, i64 1632
-  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_3clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias nonnull align 8 %arrayinit.element82, ptr noundef nonnull align 8 dereferenceable(16) %list_extn_accessor, i64 23, ptr nonnull @.str.35, i64 15, ptr nonnull @.str.36)
+  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_3clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias align 8 %arrayinit.element82, ptr noundef nonnull align 8 dereferenceable(16) %list_extn_accessor, i64 23, ptr nonnull @.str.35, i64 15, ptr nonnull @.str.36)
           to label %invoke.cont85 unwind label %lpad32
 
 invoke.cont85:                                    ; preds = %invoke.cont81
   %arrayinit.element86 = getelementptr inbounds i8, ptr %ref.tmp, i64 1728
-  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_3clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias nonnull align 8 %arrayinit.element86, ptr noundef nonnull align 8 dereferenceable(16) %list_extn_accessor, i64 23, ptr nonnull @.str.37, i64 15, ptr nonnull @.str.38)
+  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_3clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias align 8 %arrayinit.element86, ptr noundef nonnull align 8 dereferenceable(16) %list_extn_accessor, i64 23, ptr nonnull @.str.37, i64 15, ptr nonnull @.str.38)
           to label %invoke.cont89 unwind label %lpad32
 
 invoke.cont89:                                    ; preds = %invoke.cont85
   %arrayinit.element90 = getelementptr inbounds i8, ptr %ref.tmp, i64 1824
-  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_3clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias nonnull align 8 %arrayinit.element90, ptr noundef nonnull align 8 dereferenceable(16) %list_extn_accessor, i64 31, ptr nonnull @.str.39, i64 22, ptr nonnull @.str.40)
+  invoke fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_3clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias align 8 %arrayinit.element90, ptr noundef nonnull align 8 dereferenceable(16) %list_extn_accessor, i64 31, ptr nonnull @.str.39, i64 22, ptr nonnull @.str.40)
           to label %invoke.cont93 unwind label %lpad32
 
 invoke.cont93:                                    ; preds = %invoke.cont89
@@ -488,7 +488,7 @@ invoke.cont93:                                    ; preds = %invoke.cont89
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %args.i158, i8 0, i64 24, i1 false), !noalias !10
   %suppressed.i.i165 = getelementptr inbounds i8, ptr %ref.tmp, i64 2008
   store i8 1, ptr %suppressed.i.i165, align 8, !alias.scope !10
-  invoke fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_120GenerateTrackerCallsERKNS2_7OptionsEPKNS0_10DescriptorESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN4absl12lts_202308024SpanIKNS3_4CallEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(206) %opts, ptr noundef nonnull %message, ptr noundef nonnull %agg.tmp, ptr nonnull %ref.tmp, i64 21)
+  invoke fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_120GenerateTrackerCallsERKNS2_7OptionsEPKNS0_10DescriptorESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN4absl12lts_202308024SpanIKNS3_4CallEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(206) %opts, ptr noundef nonnull %message, ptr noundef %agg.tmp, ptr nonnull %ref.tmp, i64 21)
           to label %invoke.cont102 unwind label %lpad101
 
 invoke.cont102:                                   ; preds = %invoke.cont93
@@ -664,7 +664,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit224
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_120GenerateTrackerCallsERKNS2_7OptionsEPKNS0_10DescriptorESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN4absl12lts_202308024SpanIKNS3_4CallEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(206) %opts, ptr nocapture noundef readonly %message, ptr noundef %alt_annotation, ptr %calls.coerce0, i64 %calls.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_120GenerateTrackerCallsERKNS2_7OptionsEPKNS0_10DescriptorESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN4absl12lts_202308024SpanIKNS3_4CallEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(206) %opts, ptr nocapture noundef readonly %message, ptr noundef nonnull %alt_annotation, ptr %calls.coerce0, i64 %calls.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %args.i25 = alloca [1 x %"class.std::basic_string_view"], align 16
   %args.i = alloca [2 x %"class.std::basic_string_view"], align 16
@@ -987,7 +987,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont86, %_ZN
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %this, i64 %format.coerce0, ptr %format.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %this, i64 %format.coerce0, ptr %format.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %args = getelementptr inbounds i8, ptr %this, i64 64
@@ -1051,7 +1051,7 @@ lpad:                                             ; preds = %if.else.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 %var.coerce0, ptr %var.coerce1, i64 %call.coerce0, ptr %call.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_0clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 %var.coerce0, ptr %var.coerce1, i64 %call.coerce0, ptr %call.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.google::protobuf::compiler::cpp::(anonymous namespace)::Call", align 8
   %ref.tmp2 = alloca %"struct.google::protobuf::compiler::cpp::(anonymous namespace)::Call", align 8
@@ -1072,7 +1072,7 @@ entry:
   store i8 1, ptr %_M_engaged.i.i.i.i1.i, align 8
   %args.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i, i8 0, i64 25, i1 false)
-  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp2, i64 11, ptr nonnull @.str.79)
+  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp2, i64 11, ptr nonnull @.str.79)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1158,7 +1158,7 @@ ehcleanup:                                        ; preds = %lpad6, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_1clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 %var.coerce0, ptr %var.coerce1, i64 %call.coerce0, ptr %call.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_1clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 %var.coerce0, ptr %var.coerce1, i64 %call.coerce0, ptr %call.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.google::protobuf::compiler::cpp::(anonymous namespace)::Call", align 8
   %ref.tmp2 = alloca %"struct.google::protobuf::compiler::cpp::(anonymous namespace)::Call", align 8
@@ -1179,7 +1179,7 @@ entry:
   store i8 1, ptr %_M_engaged.i.i.i.i1.i, align 8
   %args.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i, i8 0, i64 25, i1 false)
-  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp2, i64 11, ptr nonnull @.str.79)
+  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp2, i64 11, ptr nonnull @.str.79)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1265,7 +1265,7 @@ ehcleanup:                                        ; preds = %lpad6, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_2clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 %var.coerce0, ptr %var.coerce1, i64 %call.coerce0, ptr %call.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_2clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 %var.coerce0, ptr %var.coerce1, i64 %call.coerce0, ptr %call.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.google::protobuf::compiler::cpp::(anonymous namespace)::Call", align 8
   %ref.tmp2 = alloca %"struct.google::protobuf::compiler::cpp::(anonymous namespace)::Call", align 8
@@ -1286,7 +1286,7 @@ entry:
   store i8 1, ptr %_M_engaged.i.i.i.i1.i, align 8
   %args.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i, i8 0, i64 25, i1 false)
-  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp2, i64 11, ptr nonnull @.str.79)
+  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp2, i64 11, ptr nonnull @.str.79)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1372,7 +1372,7 @@ ehcleanup:                                        ; preds = %lpad6, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_3clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 %var.coerce0, ptr %var.coerce1, i64 %call.coerce0, ptr %call.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN6google8protobuf8compiler3cpp16MakeTrackerCallsEPKNS0_10DescriptorERKNS2_7OptionsEENK3$_3clESt17basic_string_viewIcSt11char_traitsIcEESD_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 %var.coerce0, ptr %var.coerce1, i64 %call.coerce0, ptr %call.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.google::protobuf::compiler::cpp::(anonymous namespace)::Call", align 8
   %ref.tmp2 = alloca %"struct.google::protobuf::compiler::cpp::(anonymous namespace)::Call", align 8
@@ -1393,7 +1393,7 @@ entry:
   store i8 1, ptr %_M_engaged.i.i.i.i1.i, align 8
   %args.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %args.i, i8 0, i64 25, i1 false)
-  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp2, i64 11, ptr nonnull @.str.79)
+  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp2, i64 11, ptr nonnull @.str.79)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2575,7 +2575,7 @@ invoke.cont40:                                    ; preds = %invoke.cont38
   %call52 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %getters) #20
   %145 = extractvalue { i64, ptr } %call52, 0
   %146 = extractvalue { i64, ptr } %call52, 1
-  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias nonnull align 8 %ref.tmp43, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp44, i64 %145, ptr %146)
+  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias align 8 %ref.tmp43, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp44, i64 %145, ptr %146)
           to label %invoke.cont54 unwind label %ehcleanup200.thread
 
 invoke.cont54:                                    ; preds = %invoke.cont40
@@ -2600,7 +2600,7 @@ invoke.cont54:                                    ; preds = %invoke.cont40
   %call64 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %getters) #20
   %147 = extractvalue { i64, ptr } %call64, 0
   %148 = extractvalue { i64, ptr } %call64, 1
-  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias nonnull align 8 %arrayinit.element, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp55, i64 %147, ptr %148)
+  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias align 8 %arrayinit.element, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp55, i64 %147, ptr %148)
           to label %invoke.cont66 unwind label %lpad65
 
 invoke.cont66:                                    ; preds = %invoke.cont54
@@ -2625,7 +2625,7 @@ invoke.cont66:                                    ; preds = %invoke.cont54
   %call77 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %getters) #20
   %149 = extractvalue { i64, ptr } %call77, 0
   %150 = extractvalue { i64, ptr } %call77, 1
-  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias nonnull align 8 %arrayinit.element67, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp68, i64 %149, ptr %150)
+  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias align 8 %arrayinit.element67, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp68, i64 %149, ptr %150)
           to label %invoke.cont79 unwind label %lpad78
 
 invoke.cont79:                                    ; preds = %invoke.cont66
@@ -2650,7 +2650,7 @@ invoke.cont79:                                    ; preds = %invoke.cont66
   %call90 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %getters) #20
   %151 = extractvalue { i64, ptr } %call90, 0
   %152 = extractvalue { i64, ptr } %call90, 1
-  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias nonnull align 8 %arrayinit.element80, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp81, i64 %151, ptr %152)
+  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias align 8 %arrayinit.element80, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp81, i64 %151, ptr %152)
           to label %invoke.cont92 unwind label %lpad91
 
 invoke.cont92:                                    ; preds = %invoke.cont79
@@ -2675,7 +2675,7 @@ invoke.cont92:                                    ; preds = %invoke.cont79
   %call103 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %getters) #20
   %153 = extractvalue { i64, ptr } %call103, 0
   %154 = extractvalue { i64, ptr } %call103, 1
-  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias nonnull align 8 %arrayinit.element93, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp94, i64 %153, ptr %154)
+  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias align 8 %arrayinit.element93, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp94, i64 %153, ptr %154)
           to label %invoke.cont105 unwind label %lpad104
 
 invoke.cont105:                                   ; preds = %invoke.cont92
@@ -2701,7 +2701,7 @@ invoke.cont105:                                   ; preds = %invoke.cont92
   %call115 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %for_flat) #20
   %155 = extractvalue { i64, ptr } %call115, 0
   %156 = extractvalue { i64, ptr } %call115, 1
-  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias nonnull align 8 %arrayinit.element106, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp107, i64 %155, ptr %156)
+  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias align 8 %arrayinit.element106, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp107, i64 %155, ptr %156)
           to label %invoke.cont117 unwind label %lpad116
 
 invoke.cont117:                                   ; preds = %invoke.cont105
@@ -2726,7 +2726,7 @@ invoke.cont117:                                   ; preds = %invoke.cont105
   %call128 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %for_flat) #20
   %157 = extractvalue { i64, ptr } %call128, 0
   %158 = extractvalue { i64, ptr } %call128, 1
-  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias nonnull align 8 %arrayinit.element118, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp119, i64 %157, ptr %158)
+  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias align 8 %arrayinit.element118, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp119, i64 %157, ptr %158)
           to label %invoke.cont130 unwind label %lpad129
 
 invoke.cont130:                                   ; preds = %invoke.cont117
@@ -2751,7 +2751,7 @@ invoke.cont130:                                   ; preds = %invoke.cont117
   %call141 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %for_flat) #20
   %159 = extractvalue { i64, ptr } %call141, 0
   %160 = extractvalue { i64, ptr } %call141, 1
-  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias nonnull align 8 %arrayinit.element131, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp132, i64 %159, ptr %160)
+  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias align 8 %arrayinit.element131, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp132, i64 %159, ptr %160)
           to label %invoke.cont143 unwind label %lpad142
 
 invoke.cont143:                                   ; preds = %invoke.cont130
@@ -2776,7 +2776,7 @@ invoke.cont143:                                   ; preds = %invoke.cont130
   %call154 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %for_flat) #20
   %161 = extractvalue { i64, ptr } %call154, 0
   %162 = extractvalue { i64, ptr } %call154, 1
-  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias nonnull align 8 %arrayinit.element144, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp145, i64 %161, ptr %162)
+  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias align 8 %arrayinit.element144, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp145, i64 %161, ptr %162)
           to label %invoke.cont156 unwind label %lpad155
 
 invoke.cont156:                                   ; preds = %invoke.cont143
@@ -2802,7 +2802,7 @@ invoke.cont156:                                   ; preds = %invoke.cont143
   %call166 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %for_last) #20
   %163 = extractvalue { i64, ptr } %call166, 0
   %164 = extractvalue { i64, ptr } %call166, 1
-  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias nonnull align 8 %arrayinit.element157, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp158, i64 %163, ptr %164)
+  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias align 8 %arrayinit.element157, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp158, i64 %163, ptr %164)
           to label %invoke.cont168 unwind label %lpad167
 
 invoke.cont168:                                   ; preds = %invoke.cont156
@@ -2827,11 +2827,11 @@ invoke.cont168:                                   ; preds = %invoke.cont156
   %call179 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %for_last) #20
   %165 = extractvalue { i64, ptr } %call179, 0
   %166 = extractvalue { i64, ptr } %call179, 1
-  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias nonnull align 8 %arrayinit.element169, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp170, i64 %165, ptr %166)
+  invoke fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJEEES4_St17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noalias align 8 %arrayinit.element169, ptr noundef nonnull align 8 dereferenceable(89) %ref.tmp170, i64 %165, ptr %166)
           to label %invoke.cont181 unwind label %lpad180
 
 invoke.cont181:                                   ; preds = %invoke.cont168
-  invoke fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_120GenerateTrackerCallsERKNS2_7OptionsEPKNS0_10DescriptorESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN4absl12lts_202308024SpanIKNS3_4CallEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(206) %opts, ptr noundef %140, ptr noundef nonnull %agg.tmp, ptr nonnull %ref.tmp43, i64 11)
+  invoke fastcc void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_120GenerateTrackerCallsERKNS2_7OptionsEPKNS0_10DescriptorESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN4absl12lts_202308024SpanIKNS3_4CallEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(206) %opts, ptr noundef %140, ptr noundef %agg.tmp, ptr nonnull %ref.tmp43, i64 11)
           to label %invoke.cont183 unwind label %lpad182
 
 invoke.cont183:                                   ; preds = %invoke.cont181
@@ -4197,7 +4197,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJSt17basic_string_viewIcSt11char_traitsIcEES9_EEES4_S9_DpRKT_(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %this, i64 %format.coerce0, ptr %format.coerce1, i64 %args1.0.val, ptr %args1.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNO6google8protobuf8compiler3cpp12_GLOBAL__N_14Call3ArgIJSt17basic_string_viewIcSt11char_traitsIcEES9_EEES4_S9_DpRKT_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(89) %this, i64 %format.coerce0, ptr %format.coerce1, i64 %args1.0.val, ptr %args1.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %args.i.i = alloca [2 x %"class.std::basic_string_view"], align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

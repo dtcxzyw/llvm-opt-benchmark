@@ -86,7 +86,7 @@ define noundef i32 @sscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, floa
   store float %58, ptr %56, align 4, !tbaa !3
   %59 = getelementptr inbounds i8, ptr %46, i64 %.idx2.i
   %60 = add nuw nsw i64 %47, 4
-  %61 = icmp slt i64 %60, %42
+  %61 = icmp ult i64 %60, %42
   br i1 %61, label %45, label %sscal_kernel_inc_8.exit, !llvm.loop !11
 
 sscal_kernel_inc_8.exit:                          ; preds = %45

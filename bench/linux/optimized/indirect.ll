@@ -973,7 +973,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 declare dso_local void @__ext4_error_inode(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_splice_branch(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ext4_splice_branch(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -1441,12 +1441,12 @@ define dso_local void @ext4_ind_truncate(ptr noundef %0, ptr noundef %1) local_u
 declare dso_local void @ext4_es_remove_extent(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @ext4_find_shared(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 align 16 {
+define internal fastcc ptr @ext4_find_shared(ptr noundef %0, i32 noundef range(i32 0, 5) %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 align 16 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
   store i32 0, ptr %4, align 4
   %7 = getelementptr i8, ptr %2, i64 -4
-  %8 = icmp sgt i32 %1, 1
+  %8 = icmp ugt i32 %1, 1
   br i1 %8, label %.preheader17, label %.loopexit18
 
 .preheader17:                                     ; preds = %5, %14
@@ -2589,7 +2589,7 @@ declare dso_local void @__brelse(ptr noundef) local_unnamed_addr #4
 declare dso_local i32 @__SCT__tp_func_ext4_ind_map_blocks_exit(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 2) i32 @ext4_clear_blocks(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef writeonly %5, ptr noundef readnone %6) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 2) i32 @ext4_clear_blocks(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 0, 4294967296) %3, i64 noundef range(i64 1, 0) %4, ptr noundef writeonly %5, ptr noundef readnone %6) unnamed_addr #0 align 16 {
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %6 to i64
   %10 = load i16, ptr %1, align 8

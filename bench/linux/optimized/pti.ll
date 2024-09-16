@@ -413,7 +413,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @pti_clone_p4d(i64 noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @pti_clone_p4d(i64 noundef range(i64 -2199023255552, -1099511627775) %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = tail call fastcc ptr @pti_user_pagetable_walk_p4d(i64 noundef %0)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %26, label %4

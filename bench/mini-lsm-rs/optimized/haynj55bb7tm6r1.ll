@@ -2358,7 +2358,7 @@ define hidden void @"_ZN4core3ptr438drop_in_place$LT$core..iter..traits..iterato
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr60drop_in_place$LT$mini_lsm_mvcc..manifest..ManifestRecord$GT$17h21576238e9958f7bE"(ptr noalias noundef align 8 dereferenceable(112) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr60drop_in_place$LT$mini_lsm_mvcc..manifest..ManifestRecord$GT$17h21576238e9958f7bE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -5385,7 +5385,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN69_$LT$core..cmp..Reverse$LT$T$GT$
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h249a834d293792c1E(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #27 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h249a834d293792c1E(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #27 personality ptr @rust_eh_personality {
   %2 = alloca { { { { i64, ptr }, i64 } } }, align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %.sroa.7 = alloca { ptr, i64 }, align 8
@@ -7035,7 +7035,7 @@ define noundef ptr @_ZN13mini_lsm_mvcc8manifest8Manifest20add_record_when_init17
 
 "_ZN4core3ptr104drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..fs..File$GT$$GT$17h7358d4c3d154f8d6E.exit": ; preds = %.body, %39, %16
   %.pn45 = phi { ptr, i32 } [ %17, %16 ], [ %.pn, %39 ], [ %.pn, %.body ]
-  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$mini_lsm_mvcc..manifest..ManifestRecord$GT$17h21576238e9958f7bE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %1) #49
+  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$mini_lsm_mvcc..manifest..ManifestRecord$GT$17h21576238e9958f7bE"(ptr noalias noundef align 8 dereferenceable(112) %1) #49
           to label %104 unwind label %102
 
 16:                                               ; preds = %101, %92, %14
@@ -7239,7 +7239,7 @@ define noundef ptr @_ZN13mini_lsm_mvcc8manifest8Manifest20add_record_when_init17
 
 "_ZN4core3ptr104drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..fs..File$GT$$GT$17h7358d4c3d154f8d6E.exit71": ; preds = %92, %89, %101, %"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hf0cdf0633508f073E.exit"
   %.0 = phi ptr [ %.2, %"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hf0cdf0633508f073E.exit" ], [ %.2, %101 ], [ null, %89 ], [ null, %92 ]
-  call fastcc void @"_ZN4core3ptr60drop_in_place$LT$mini_lsm_mvcc..manifest..ManifestRecord$GT$17h21576238e9958f7bE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %1)
+  call fastcc void @"_ZN4core3ptr60drop_in_place$LT$mini_lsm_mvcc..manifest..ManifestRecord$GT$17h21576238e9958f7bE"(ptr noalias noundef align 8 dereferenceable(112) %1)
   ret ptr %.0
 
 "_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h01be45676e8af9cfE.exit59": ; preds = %.invoke, %"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h01be45676e8af9cfE.exit"
@@ -7331,7 +7331,7 @@ define hidden void @_ZN13mini_lsm_mvcc5table5bloom5Bloom6decode17hf9196682881de9
   store ptr @anon.dfc6258eb35bd94200c9509b62894785.3, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 0, ptr %21, align 8
-  %22 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h249a834d293792c1E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
+  %22 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h249a834d293792c1E(ptr noalias nocapture noundef align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %22, ptr %23, align 8

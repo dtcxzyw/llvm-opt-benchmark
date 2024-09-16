@@ -158,51 +158,47 @@ define hidden noundef i32 @mbedtls_poly1305_update(ptr nocapture noundef %0, ptr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @poly1305_process(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc void @poly1305_process(ptr nocapture noundef %0, i64 noundef range(i64 1, 1152921504606846976) %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #2 {
   %5 = load i32, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 36
-  %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
-  %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 44
-  %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
-  %15 = load i32, ptr %14, align 8
-  %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
-  %17 = load i32, ptr %16, align 4
-  %18 = lshr i32 %17, 2
-  %19 = add i32 %18, %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = load i32, ptr %20, align 8
-  %22 = lshr i32 %21, 2
-  %23 = add i32 %22, %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = load i32, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = load i32, ptr %10, align 4
+  %12 = lshr i32 %7, 2
+  %13 = add i32 %12, %7
+  %14 = lshr i32 %9, 2
+  %15 = add i32 %14, %9
+  %16 = lshr i32 %11, 2
+  %17 = add i32 %16, %11
+  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = load i32, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 36
+  %21 = load i32, ptr %20, align 4
+  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = load i32, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 44
   %25 = load i32, ptr %24, align 4
-  %26 = lshr i32 %25, 2
-  %27 = add i32 %26, %25
+  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %27 = load i32, ptr %26, align 8
   %28 = zext i32 %5 to i64
-  %29 = zext i32 %19 to i64
-  %30 = zext i32 %23 to i64
-  %31 = zext i32 %27 to i64
-  %32 = zext i32 %25 to i64
-  %33 = zext i32 %21 to i64
-  %34 = zext i32 %17 to i64
+  %29 = zext i32 %17 to i64
+  %30 = zext i32 %15 to i64
+  %31 = zext i32 %13 to i64
+  %32 = zext i32 %7 to i64
+  %33 = zext i32 %9 to i64
+  %34 = zext i32 %11 to i64
   br label %35
 
-35:                                               ; preds = %.lr.ph, %35
-  %.0159 = phi i64 [ 0, %.lr.ph ], [ %215, %35 ]
-  %.0147158 = phi i64 [ 0, %.lr.ph ], [ %214, %35 ]
-  %.0148157 = phi i32 [ %7, %.lr.ph ], [ %198, %35 ]
-  %.0149156 = phi i32 [ %9, %.lr.ph ], [ %202, %35 ]
-  %.0150155 = phi i32 [ %11, %.lr.ph ], [ %206, %35 ]
-  %.0151154 = phi i32 [ %13, %.lr.ph ], [ %210, %35 ]
-  %.0152153 = phi i32 [ %15, %.lr.ph ], [ %213, %35 ]
+35:                                               ; preds = %4, %35
+  %.0159 = phi i64 [ 0, %4 ], [ %215, %35 ]
+  %.0147158 = phi i64 [ 0, %4 ], [ %214, %35 ]
+  %.0148157 = phi i32 [ %19, %4 ], [ %198, %35 ]
+  %.0149156 = phi i32 [ %21, %4 ], [ %202, %35 ]
+  %.0150155 = phi i32 [ %23, %4 ], [ %206, %35 ]
+  %.0151154 = phi i32 [ %25, %4 ], [ %210, %35 ]
+  %.0152153 = phi i32 [ %27, %4 ], [ %213, %35 ]
   %36 = getelementptr inbounds i8, ptr %2, i64 %.0147158
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i64
@@ -381,22 +377,17 @@ define internal fastcc void @poly1305_process(ptr nocapture noundef %0, i64 noun
   %211 = lshr i64 %209, 32
   %212 = trunc nuw nsw i64 %211 to i32
   %213 = add nuw nsw i32 %197, %212
-  %214 = add i64 %.0147158, 16
+  %214 = add nuw i64 %.0147158, 16
   %215 = add nuw nsw i64 %.0159, 1
   %exitcond.not = icmp eq i64 %215, %1
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !4
+  br i1 %exitcond.not, label %216, label %35, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %35, %4
-  %.0152.lcssa = phi i32 [ %15, %4 ], [ %213, %35 ]
-  %.0151.lcssa = phi i32 [ %13, %4 ], [ %210, %35 ]
-  %.0150.lcssa = phi i32 [ %11, %4 ], [ %206, %35 ]
-  %.0149.lcssa = phi i32 [ %9, %4 ], [ %202, %35 ]
-  %.0148.lcssa = phi i32 [ %7, %4 ], [ %198, %35 ]
-  store i32 %.0148.lcssa, ptr %6, align 8
-  store i32 %.0149.lcssa, ptr %8, align 4
-  store i32 %.0150.lcssa, ptr %10, align 8
-  store i32 %.0151.lcssa, ptr %12, align 4
-  store i32 %.0152.lcssa, ptr %14, align 8
+216:                                              ; preds = %35
+  store i32 %198, ptr %18, align 8
+  store i32 %202, ptr %20, align 4
+  store i32 %206, ptr %22, align 8
+  store i32 %210, ptr %24, align 4
+  store i32 %213, ptr %26, align 8
   ret void
 }
 

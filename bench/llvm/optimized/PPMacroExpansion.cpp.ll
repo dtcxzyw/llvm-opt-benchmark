@@ -15149,7 +15149,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL27ExpectFeatureIdentifierInfoRN5clang5TokenERNS_12PreprocessorEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3288) %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL27ExpectFeatureIdentifierInfoRN5clang5TokenERNS_12PreprocessorEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3288) %1, i32 noundef range(i32 1039, 1042) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = tail call noundef zeroext i1 @_ZN5clang3tok12isAnnotationENS0_9TokenKindE(i16 noundef zeroext %5) #19

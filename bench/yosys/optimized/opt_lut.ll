@@ -8054,7 +8054,7 @@ _ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_
   br label %.body560
 
 _ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEbNS0_8hash_opsIS3_EEEC2ERKS6_.exit: ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEbNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i1801, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i1795
-  %2599 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptLutWorker12evaluate_lutEPN5Yosys5RTLIL4CellENS1_7hashlib4dictINS2_6SigBitEbNS5_8hash_opsIS7_EEEE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef %2480, ptr noundef nonnull %102)
+  %2599 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptLutWorker12evaluate_lutEPN5Yosys5RTLIL4CellENS1_7hashlib4dictINS2_6SigBitEbNS5_8hash_opsIS7_EEEE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef %2480, ptr noundef %102)
           to label %2600 unwind label %2605
 
 2600:                                             ; preds = %_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEbNS0_8hash_opsIS3_EEEC2ERKS6_.exit
@@ -17971,7 +17971,7 @@ _ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_
   br label %.body1283
 
 _ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEbNS0_8hash_opsIS3_EEEC2ERKS6_.exit1285: ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEbNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i2235, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i2229
-  %7237 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptLutWorker12evaluate_lutEPN5Yosys5RTLIL4CellENS1_7hashlib4dictINS2_6SigBitEbNS5_8hash_opsIS7_EEEE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef %7118, ptr noundef nonnull %131)
+  %7237 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptLutWorker12evaluate_lutEPN5Yosys5RTLIL4CellENS1_7hashlib4dictINS2_6SigBitEbNS5_8hash_opsIS7_EEEE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef %7118, ptr noundef %131)
           to label %7238 unwind label %.loopexit4104
 
 7238:                                             ; preds = %_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEbNS0_8hash_opsIS3_EEEC2ERKS6_.exit1285
@@ -18725,7 +18725,7 @@ _ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEbNS1_8hash_opsIS4_EEE7entry_
   br label %.body1283
 
 _ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEbNS0_8hash_opsIS3_EEEC2ERKS6_.exit1323: ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEbNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i2301, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i2295
-  %7574 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptLutWorker12evaluate_lutEPN5Yosys5RTLIL4CellENS1_7hashlib4dictINS2_6SigBitEbNS5_8hash_opsIS7_EEEE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef %3698, ptr noundef nonnull %132)
+  %7574 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptLutWorker12evaluate_lutEPN5Yosys5RTLIL4CellENS1_7hashlib4dictINS2_6SigBitEbNS5_8hash_opsIS7_EEEE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef %3698, ptr noundef %132)
           to label %7575 unwind label %.loopexit4116
 
 7575:                                             ; preds = %_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEbNS0_8hash_opsIS3_EEEC2ERKS6_.exit1323
@@ -25026,7 +25026,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEbNS0_8hash_opsIS3_EEE9do_lookupERKS3_Ri
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptLutWorker12evaluate_lutEPN5Yosys5RTLIL4CellENS1_7hashlib4dictINS2_6SigBitEbNS5_8hash_opsIS7_EEEE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptLutWorker12evaluate_lutEPN5Yosys5RTLIL4CellENS1_7hashlib4dictINS2_6SigBitEbNS5_8hash_opsIS7_EEEE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %5 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %6 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8

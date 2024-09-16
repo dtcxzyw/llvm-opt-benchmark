@@ -244,7 +244,7 @@ if.end25:                                         ; preds = %if.else20, %if.then
   store i64 %add.i31, ptr %n.i, align 8
   call void @lua_settop(ptr noundef %13, i32 noundef -2) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i26)
-  %call.i32 = call fastcc i32 @pushglobalfuncname(ptr noundef %L, ptr noundef nonnull %ar)
+  %call.i32 = call fastcc i32 @pushglobalfuncname(ptr noundef %L, ptr noundef %ar)
   %tobool.not.i33 = icmp eq i32 %call.i32, 0
   br i1 %tobool.not.i33, label %if.else.i, label %if.then.i
 
@@ -469,7 +469,7 @@ if.end9:                                          ; preds = %if.then4, %if.end
   br i1 %cmp11, label %if.then12, label %if.end17
 
 if.then12:                                        ; preds = %if.end9
-  %call13 = call fastcc i32 @pushglobalfuncname(ptr noundef %L, ptr noundef nonnull %ar)
+  %call13 = call fastcc i32 @pushglobalfuncname(ptr noundef %L, ptr noundef %ar)
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %cond.end, label %cond.true
 
@@ -532,10 +532,10 @@ luaL_where.exit:                                  ; preds = %if.then2.i, %if.end
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @pushglobalfuncname(ptr noundef %L, ptr noundef %ar) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pushglobalfuncname(ptr noundef %L, ptr noundef nonnull %ar) unnamed_addr #0 {
 entry:
   %call = tail call i32 @lua_gettop(ptr noundef %L) #19
-  %call1 = tail call i32 @lua_getinfo(ptr noundef %L, ptr noundef nonnull @.str.49, ptr noundef %ar) #19
+  %call1 = tail call i32 @lua_getinfo(ptr noundef %L, ptr noundef nonnull @.str.49, ptr noundef nonnull %ar) #19
   %call2 = tail call i32 @lua_getfield(ptr noundef %L, i32 noundef -1001000, ptr noundef nonnull @.str.42) #19
   %add = add nsw i32 %call, 1
   %call3 = tail call fastcc i32 @findfield(ptr noundef %L, i32 noundef %add, i32 noundef 2)
@@ -1164,7 +1164,7 @@ cond.end:                                         ; preds = %entry, %luaL_checki
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @prepbuffsize(ptr noundef %B, i64 noundef %sz, i32 noundef %boxidx) unnamed_addr #0 {
+define internal fastcc ptr @prepbuffsize(ptr noundef %B, i64 noundef %sz, i32 noundef range(i32 -2, 0) %boxidx) unnamed_addr #0 {
 entry:
   %ud.i36 = alloca ptr, align 8
   %ud.i = alloca ptr, align 8
@@ -2275,7 +2275,7 @@ if.end5:                                          ; preds = %if.else, %if.then3,
 declare double @lua_version(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @findfield(ptr noundef %L, i32 noundef %objidx, i32 noundef %level) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @findfield(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %objidx, i32 noundef range(i32 0, 3) %level) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %level, 0
   br i1 %cmp, label %return, label %lor.lhs.false

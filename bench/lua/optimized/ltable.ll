@@ -1014,7 +1014,7 @@ return:                                           ; preds = %if.else.i, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @getgeneric(ptr nocapture noundef readonly %t, ptr nocapture noundef readonly %key, i32 noundef %deadok) unnamed_addr #1 {
+define internal fastcc ptr @getgeneric(ptr nocapture noundef readonly %t, ptr nocapture noundef readonly %key, i32 noundef range(i32 0, 2) %deadok) unnamed_addr #1 {
 entry:
   %call = tail call fastcc ptr @mainpositionTV(ptr noundef %t, ptr noundef %key)
   %tt_.i = getelementptr inbounds i8, ptr %key, i64 8
@@ -2228,8 +2228,8 @@ if.else100:                                       ; preds = %luaH_getint.exit
   br label %do.body.i
 
 do.body.i:                                        ; preds = %luaH_getint.exit.i, %if.else100
-  %32 = phi i32 [ %41, %luaH_getint.exit.i ], [ %alimit.promoted, %if.else100 ]
-  %j.addr.1.i = phi i64 [ %mul.i, %luaH_getint.exit.i ], [ %spec.select.i, %if.else100 ]
+  %32 = phi i32 [ %alimit.promoted, %if.else100 ], [ %41, %luaH_getint.exit.i ]
+  %j.addr.1.i = phi i64 [ %spec.select.i, %if.else100 ], [ %mul.i, %luaH_getint.exit.i ]
   %cmp1.i = icmp ult i64 %j.addr.1.i, 4611686018427387904
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i96
 

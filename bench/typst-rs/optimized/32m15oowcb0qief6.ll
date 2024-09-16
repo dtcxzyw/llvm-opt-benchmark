@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.bd2d6f40c6ea62ad7b786ddbc6976f26.12 = private unnamed_addr constant <{ [1 x i8] }> zeroinitializer, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef ptr @_ZN6flate22gz11read_to_nul17h813a94eeabab0972E(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef ptr @_ZN6flate22gz11read_to_nul17h813a94eeabab0972E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = alloca { i64, [1 x i64] }, align 8
   %5 = alloca i8, align 1
@@ -777,7 +777,7 @@ _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit233: ; preds = %_ZN3std2io5error
   br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h33607fb78558b346E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h33607fb78558b346E.exit": ; preds = %228, %231
-  %232 = call fastcc noundef ptr @_ZN6flate22gz11read_to_nul17h813a94eeabab0972E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %232 = call fastcc noundef ptr @_ZN6flate22gz11read_to_nul17h813a94eeabab0972E(ptr noalias noundef align 8 dereferenceable(48) %1, ptr noalias noundef align 8 dereferenceable(24) %17)
   %233 = icmp eq ptr %232, null
   br i1 %233, label %236, label %.loopexit314
 
@@ -821,7 +821,7 @@ _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit233: ; preds = %_ZN3std2io5error
   br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h33607fb78558b346E.exit238"
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h33607fb78558b346E.exit238": ; preds = %242, %245
-  %246 = call fastcc noundef ptr @_ZN6flate22gz11read_to_nul17h813a94eeabab0972E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
+  %246 = call fastcc noundef ptr @_ZN6flate22gz11read_to_nul17h813a94eeabab0972E(ptr noalias noundef align 8 dereferenceable(48) %1, ptr noalias noundef align 8 dereferenceable(24) %15)
   %247 = icmp eq ptr %246, null
   br i1 %247, label %249, label %.loopexit314
 

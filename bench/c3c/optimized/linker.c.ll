@@ -408,7 +408,7 @@ define dso_local void @platform_linker(ptr noundef %0, ptr nocapture noundef rea
   %68 = getelementptr inbounds ptr, ptr %62, i64 %67
   store ptr %64, ptr %68, align 8
   %69 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 228), align 4
-  call fastcc void @append_fpie_pic_options(i32 noundef %69, ptr noundef nonnull %4)
+  call fastcc void @append_fpie_pic_options(i32 noundef %69, ptr noundef %4)
   br label %71
 
 switch.lookup:                                    ; preds = %29
@@ -419,7 +419,7 @@ switch.lookup:                                    ; preds = %29
 
 71:                                               ; preds = %switch.lookup, %29, %59
   %.020 = phi i32 [ 4, %29 ], [ 4, %59 ], [ %switch.load, %switch.lookup ]
-  call fastcc void @linker_setup(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2, ptr noundef %0, i32 noundef %.020)
+  call fastcc void @linker_setup(ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef %0, i32 noundef %.020)
   %72 = load ptr, ptr %4, align 8
   %.not.i36 = icmp eq ptr %72, null
   br i1 %.not.i36, label %.thread57.i, label %73
@@ -544,7 +544,7 @@ concat_string_parts.exit:                         ; preds = %.lr.ph42.i, %.threa
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   switch i32 %0, label %238 [
     i32 -1, label %3
     i32 0, label %4
@@ -996,7 +996,7 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @linker_setup(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @linker_setup(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 6) %4) unnamed_addr #0 {
   %6 = alloca %struct.glob_t, align 8
   %7 = alloca %struct.glob_t, align 8
   %8 = load i32, ptr @active_target, align 8
@@ -6363,7 +6363,7 @@ expand_.exit311:                                  ; preds = %2795, %2799
 
 ._crit_edge334:                                   ; preds = %2856, %._crit_edge330, %2829
   %2867 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 80), align 8
-  call fastcc void @add_linked_libs(ptr noundef nonnull %0, ptr noundef %2867, i1 noundef zeroext %10)
+  call fastcc void @add_linked_libs(ptr noundef %0, ptr noundef %2867, i1 noundef zeroext %10)
   %2868 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 8), align 8
   %.not219 = icmp eq ptr %2868, null
   br i1 %.not219, label %._crit_edge342, label %2869
@@ -6467,14 +6467,14 @@ expand_.exit311:                                  ; preds = %2795, %2799
 ._crit_edge338:                                   ; preds = %2906, %.lr.ph341, %2879
   %2917 = getelementptr inbounds i8, ptr %2876, i64 24
   %2918 = load ptr, ptr %2917, align 8
-  call fastcc void @add_linked_libs(ptr noundef nonnull %0, ptr noundef %2918, i1 noundef zeroext %10)
+  call fastcc void @add_linked_libs(ptr noundef %0, ptr noundef %2918, i1 noundef zeroext %10)
   %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
   %exitcond367.not = icmp eq i64 %indvars.iv.next364, %wide.trip.count366
   br i1 %exitcond367.not, label %._crit_edge342, label %.lr.ph341, !llvm.loop !14
 
 ._crit_edge342:                                   ; preds = %._crit_edge338, %._crit_edge334, %2869
   %2919 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 104), align 8
-  call fastcc void @add_linked_libs(ptr noundef nonnull %0, ptr noundef %2919, i1 noundef zeroext %10)
+  call fastcc void @add_linked_libs(ptr noundef %0, ptr noundef %2919, i1 noundef zeroext %10)
   ret void
 }
 
@@ -6613,7 +6613,7 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
 
 .critedge86:                                      ; preds = %57, %44
   %59 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 228), align 4
-  call fastcc void @append_fpie_pic_options(i32 noundef %59, ptr noundef nonnull %4)
+  call fastcc void @append_fpie_pic_options(i32 noundef %59, ptr noundef %4)
   %.pre = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %.pre, null
   br i1 %.not.i, label %60, label %.critedge86.thread
@@ -7043,7 +7043,7 @@ define dso_local noundef zeroext i1 @dynamic_lib_linker(ptr noundef %0, ptr noca
 
 37:                                               ; preds = %28, %11
   %38 = tail call i32 @linker_find_linker_type()
-  call fastcc void @linker_setup(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2, ptr noundef %0, i32 noundef %38)
+  call fastcc void @linker_setup(ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef %0, i32 noundef %38)
   %39 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %.thread57.i, label %40
@@ -7285,7 +7285,7 @@ define dso_local noundef zeroext i1 @linker(ptr noundef %0, ptr nocapture nounde
 11:                                               ; preds = %8, %3
   store ptr null, ptr %4, align 8
   %12 = tail call i32 @linker_find_linker_type()
-  call fastcc void @linker_setup(ptr noundef nonnull %4, ptr noundef readonly %1, i32 noundef %2, ptr noundef %0, i32 noundef %12)
+  call fastcc void @linker_setup(ptr noundef %4, ptr noundef readonly %1, i32 noundef %2, ptr noundef %0, i32 noundef %12)
   store ptr null, ptr %5, align 8
   %13 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %13, null
@@ -7435,7 +7435,7 @@ declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #1
 declare ptr @str_cat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_linked_libs(ptr nocapture noundef %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @add_linked_libs(ptr nocapture noundef nonnull %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %4
 

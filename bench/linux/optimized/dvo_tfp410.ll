@@ -1169,7 +1169,7 @@ define internal void @tfp410_dump_regs(ptr nocapture noundef readonly %0) #0 ali
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -1, 65536) i32 @tfp410_getid(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -1, 65536) i32 @tfp410_getid(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #0 align 16 {
   %3 = alloca [2 x i8], align 2
   %4 = alloca [2 x i8], align 2
   %5 = alloca [2 x %struct.i2c_msg], align 16

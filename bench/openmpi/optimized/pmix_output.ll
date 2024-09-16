@@ -580,7 +580,7 @@ define void @pmix_output_close(i32 noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_descriptor(i32 noundef %0) unnamed_addr #2 {
+define internal fastcc void @free_descriptor(i32 noundef range(i32 0, -1) %0) unnamed_addr #2 {
   %or.cond = icmp ult i32 %0, 64
   br i1 %or.cond, label %2, label %33
 
@@ -1240,8 +1240,8 @@ declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #11
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -29, 1) i32 @open_file(i32 noundef %0) unnamed_addr #2 {
-  %2 = zext i32 %0 to i64
+define internal fastcc range(i32 -29, 1) i32 @open_file(i32 noundef range(i32 0, 64) %0) unnamed_addr #2 {
+  %2 = zext nneg i32 %0 to i64
   br label %3
 
 3:                                                ; preds = %1, %28

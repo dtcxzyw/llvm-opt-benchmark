@@ -1970,7 +1970,7 @@ _ZNK2cv3PtrINS_3dnn14dnn4_v202405215LayerEE11dynamicCastINS2_12EltwiseLayerEEENS
           to label %_ZNK2cv3dnn14dnn4_v202405214Dict3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS9_.exit unwind label %790
 
 _ZNK2cv3dnn14dnn4_v202405214Dict3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS9_.exit: ; preds = %.noexc760
-  invoke fastcc void @_ZN2cvL11toLowerCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %60, ptr noundef nonnull align 8 dereferenceable(32) %61)
+  invoke fastcc void @_ZN2cvL11toLowerCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %60, ptr noundef nonnull align 8 dereferenceable(32) %61)
           to label %.critedge580 unwind label %792
 
 .critedge580:                                     ; preds = %_ZNK2cv3dnn14dnn4_v202405214Dict3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS9_.exit
@@ -2183,7 +2183,7 @@ _ZNSt3mapIiN2cv3dnn14dnn4_v202405216detail9LayerDataESt4lessIiESaISt4pairIKiS4_E
   %.val = load i32, ptr %855, align 4
   %856 = getelementptr i8, ptr %854, i64 64
   %.val605 = load ptr, ptr %856, align 8
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %65, i32 %.val, ptr %.val605)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %65, i32 %.val, ptr %.val605)
           to label %857 unwind label %.loopexit.split-lp1289.loopexit.split-lp
 
 857:                                              ; preds = %851
@@ -2192,7 +2192,7 @@ _ZNSt3mapIiN2cv3dnn14dnn4_v202405216detail9LayerDataESt4lessIiESaISt4pairIKiS4_E
   %.val606 = load i32, ptr %859, align 4
   %860 = getelementptr i8, ptr %858, i64 64
   %.val607 = load ptr, ptr %860, align 8
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %66, i32 %.val606, ptr %.val607)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE(ptr dead_on_unwind noalias writable align 8 %66, i32 %.val606, ptr %.val607)
           to label %861 unwind label %874
 
 861:                                              ; preds = %857
@@ -3614,7 +3614,7 @@ _ZNKSt4lessIN2cv3dnn14dnn4_v202405216detail8LayerPinEEclERKS4_S7_.exit.i.i884: ;
           to label %_ZNK2cv3dnn14dnn4_v202405214Dict3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS9_.exit890 unwind label %1474
 
 _ZNK2cv3dnn14dnn4_v202405214Dict3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS9_.exit890: ; preds = %.noexc888
-  invoke fastcc void @_ZN2cvL11toLowerCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %92, ptr noundef nonnull align 8 dereferenceable(32) %93)
+  invoke fastcc void @_ZN2cvL11toLowerCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %92, ptr noundef nonnull align 8 dereferenceable(32) %93)
           to label %.critedge584 unwind label %1476
 
 .critedge584:                                     ; preds = %_ZNK2cv3dnn14dnn4_v202405214Dict3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS9_.exit890

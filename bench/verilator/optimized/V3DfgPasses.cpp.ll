@@ -4781,7 +4781,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvvEZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_0E9_M_invokeERKSt9_Any_data", ptr %47, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %46, align 8
-  invoke fastcc void @"_ZZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextENK3$_6clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvvEE"(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %9)
+  invoke fastcc void @"_ZZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextENK3$_6clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvvEE"(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %9)
           to label %48 unwind label %110
 
 48:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -4830,7 +4830,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit44: ; 
   store i64 %61, ptr %12, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_1E9_M_invokeERKSt9_Any_data", ptr %59, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %58, align 8
-  invoke fastcc void @"_ZZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextENK3$_6clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvvEE"(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull %12)
+  invoke fastcc void @"_ZZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextENK3$_6clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvvEE"(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %12)
           to label %62 unwind label %120
 
 62:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit44
@@ -4878,7 +4878,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit51: ; 
   store ptr %1, ptr %.sroa.293.0..sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_2E9_M_invokeERKSt9_Any_data", ptr %73, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %72, align 8
-  invoke fastcc void @"_ZZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextENK3$_6clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvvEE"(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull %15)
+  invoke fastcc void @"_ZZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextENK3$_6clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvvEE"(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef %15)
           to label %74 unwind label %130
 
 74:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit51
@@ -4931,7 +4931,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit58: ; 
   store ptr %1, ptr %.sroa.291.0..sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_3E9_M_invokeERKSt9_Any_data", ptr %88, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_3E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %87, align 8
-  invoke fastcc void @"_ZZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextENK3$_6clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvvEE"(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull %18)
+  invoke fastcc void @"_ZZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextENK3$_6clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvvEE"(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef %18)
           to label %89 unwind label %140
 
 89:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit58
@@ -4979,7 +4979,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit65: ; 
   store ptr %1, ptr %.sroa.289.0..sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_4E9_M_invokeERKSt9_Any_data", ptr %100, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_4E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %99, align 8
-  invoke fastcc void @"_ZZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextENK3$_6clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvvEE"(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull %21)
+  invoke fastcc void @"_ZZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextENK3$_6clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvvEE"(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef %21)
           to label %101 unwind label %150
 
 101:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit65
@@ -5247,7 +5247,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit82: ; 
   store ptr %1, ptr %.sroa.2.0..sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_5E9_M_invokeERKSt9_Any_data", ptr %187, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_5E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %186, align 8
-  invoke fastcc void @"_ZZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextENK3$_6clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvvEE"(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull %24)
+  invoke fastcc void @"_ZZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextENK3$_6clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvvEE"(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef %24)
           to label %188 unwind label %205
 
 188:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit82
@@ -5441,7 +5441,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit21: ; 
 declare void @_ZNK8DfgGraph26dumpDotAllVarConesPrefixedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef nonnull align 8 dereferenceable(32)) #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextENK3$_6clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvvEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextENK3$_6clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvvEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef range(i32 3, 5) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -447,7 +447,7 @@ define dso_local i32 @insn_get_modrm_rm_off(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @get_reg_offset(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @get_reg_offset(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 2, 4) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 83
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
@@ -667,7 +667,7 @@ define dso_local ptr @insn_get_addr_ref(ptr noundef %0, ptr noundef %1) local_un
   br i1 %33, label %34, label %39
 
 34:                                               ; preds = %29
-  %35 = call fastcc i32 @get_eff_addr_reg(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  %35 = call fastcc i32 @get_eff_addr_reg(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %.thread
 
@@ -741,7 +741,7 @@ define dso_local ptr @insn_get_addr_ref(ptr noundef %0, ptr noundef %1) local_un
 87:                                               ; preds = %80, %37
   %88 = phi i32 [ %.pre, %37 ], [ %57, %80 ]
   %89 = phi i64 [ %38, %37 ], [ %86, %80 ]
-  %90 = call fastcc i32 @get_seg_base_limit(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %88, ptr noundef nonnull %10, ptr noundef nonnull %11), !range !25
+  %90 = call fastcc i32 @get_seg_base_limit(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %88, ptr noundef nonnull %10, ptr noundef nonnull %11), !range !25
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %92, label %.thread
 
@@ -781,7 +781,7 @@ define dso_local ptr @insn_get_addr_ref(ptr noundef %0, ptr noundef %1) local_un
   br i1 %105, label %106, label %109
 
 106:                                              ; preds = %101
-  %107 = call fastcc i32 @get_eff_addr_reg(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %107 = call fastcc i32 @get_eff_addr_reg(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %119, label %134
 
@@ -792,19 +792,19 @@ define dso_local ptr @insn_get_addr_ref(ptr noundef %0, ptr noundef %1) local_un
   br i1 %112, label %116, label %113
 
 113:                                              ; preds = %109
-  %114 = call fastcc i32 @get_eff_addr_sib(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %114 = call fastcc i32 @get_eff_addr_sib(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %119, label %134
 
 116:                                              ; preds = %109
-  %117 = call fastcc i32 @get_eff_addr_modrm(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %117 = call fastcc i32 @get_eff_addr_modrm(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %119, label %134
 
 119:                                              ; preds = %116, %113, %106
   %120 = load i64, ptr %9, align 8
   %121 = load i32, ptr %8, align 4
-  %122 = call fastcc i32 @get_seg_base_limit(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %121, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !25
+  %122 = call fastcc i32 @get_seg_base_limit(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %121, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !25
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %124, label %134
 
@@ -849,7 +849,7 @@ define dso_local ptr @insn_get_addr_ref(ptr noundef %0, ptr noundef %1) local_un
   br i1 %141, label %142, label %145
 
 142:                                              ; preds = %137
-  %143 = call fastcc i32 @get_eff_addr_reg(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %143 = call fastcc i32 @get_eff_addr_reg(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %144 = icmp eq i32 %143, 0
   br i1 %144, label %155, label %163
 
@@ -860,18 +860,18 @@ define dso_local ptr @insn_get_addr_ref(ptr noundef %0, ptr noundef %1) local_un
   br i1 %148, label %152, label %149
 
 149:                                              ; preds = %145
-  %150 = call fastcc i32 @get_eff_addr_sib(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %150 = call fastcc i32 @get_eff_addr_sib(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %151 = icmp eq i32 %150, 0
   br i1 %151, label %155, label %163
 
 152:                                              ; preds = %145
-  %153 = call fastcc i32 @get_eff_addr_modrm(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %153 = call fastcc i32 @get_eff_addr_modrm(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %154 = icmp eq i32 %153, 0
   br i1 %154, label %155, label %163
 
 155:                                              ; preds = %152, %149, %142
   %156 = load i32, ptr %4, align 4
-  %157 = call fastcc i32 @get_seg_base_limit(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %156, ptr noundef nonnull %3, ptr noundef null), !range !25
+  %157 = call fastcc i32 @get_seg_base_limit(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %156, ptr noundef nonnull %3, ptr noundef null), !range !25
   %158 = icmp eq i32 %157, 0
   br i1 %158, label %159, label %163
 
@@ -1133,8 +1133,8 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local i32 @insn_get_displacement(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @get_eff_addr_reg(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 16 {
-  %5 = tail call i32 @insn_get_modrm(ptr noundef %0) #7
+define internal fastcc i32 @get_eff_addr_reg(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 16 {
+  %5 = tail call i32 @insn_get_modrm(ptr noundef nonnull %0) #7
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %47
 
@@ -1219,7 +1219,7 @@ define internal fastcc i32 @get_eff_addr_reg(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 1) i32 @get_seg_base_limit(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @get_seg_base_limit(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.desc_ptr, align 2
   %7 = icmp eq ptr %3, null
   br i1 %7, label %resolve_default_seg.exit, label %8
@@ -1297,7 +1297,7 @@ define internal fastcc range(i32 -22, 1) i32 @get_seg_base_limit(ptr noundef %0,
   br label %93
 
 32:                                               ; preds = %21, %17, %8
-  %33 = tail call i32 @insn_get_prefixes(ptr noundef %0) #7
+  %33 = tail call i32 @insn_get_prefixes(ptr noundef nonnull %0) #7
   br label %34
 
 34:                                               ; preds = %55, %32
@@ -1435,7 +1435,7 @@ define internal fastcc range(i32 -22, 1) i32 @get_seg_base_limit(ptr noundef %0,
 
 93:                                               ; preds = %89, %9, %24, %31, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %88, %79, %73, %74, %74, %87, %80, %84, %84, %84, %84, %84, %84, %84, %84, %84, %84, %84, %84, %84, %84
   %.ph = phi i32 [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 5, %84 ], [ 4, %80 ], [ 4, %87 ], [ 3, %74 ], [ 3, %74 ], [ 0, %73 ], [ 4, %79 ], [ 2, %88 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 5, %30 ], [ 4, %31 ], [ 0, %24 ], [ %16, %9 ], [ %92, %89 ]
-  %94 = tail call i64 @insn_get_seg_base(ptr noundef %1, i32 noundef %.ph)
+  %94 = tail call i64 @insn_get_seg_base(ptr noundef nonnull %1, i32 noundef %.ph)
   store i64 %94, ptr %3, align 8
   %95 = icmp eq i64 %94, -1
   br i1 %95, label %resolve_default_seg.exit, label %96
@@ -1617,7 +1617,7 @@ declare dso_local i32 @insn_get_modrm(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @inat_get_opcode_attribute(i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @get_eff_addr_sib(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @get_eff_addr_sib(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 81
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %84 [
@@ -1626,7 +1626,7 @@ define internal fastcc i32 @get_eff_addr_sib(ptr noundef %0, ptr noundef %1, ptr
   ]
 
 7:                                                ; preds = %4, %4
-  %8 = tail call i32 @insn_get_modrm(ptr noundef %0) #7
+  %8 = tail call i32 @insn_get_modrm(ptr noundef nonnull %0) #7
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %84
 
@@ -1644,7 +1644,7 @@ define internal fastcc i32 @get_eff_addr_sib(ptr noundef %0, ptr noundef %1, ptr
   br i1 %18, label %84, label %19
 
 19:                                               ; preds = %14
-  %20 = tail call i32 @insn_get_sib(ptr noundef %0) #7
+  %20 = tail call i32 @insn_get_sib(ptr noundef nonnull %0) #7
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %84
 
@@ -1745,7 +1745,7 @@ define internal fastcc i32 @get_eff_addr_sib(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @get_eff_addr_modrm(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @get_eff_addr_modrm(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 81
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %71 [
@@ -1754,7 +1754,7 @@ define internal fastcc i32 @get_eff_addr_modrm(ptr noundef %0, ptr noundef %1, p
   ]
 
 7:                                                ; preds = %4, %4
-  %8 = tail call i32 @insn_get_modrm(ptr noundef %0) #7
+  %8 = tail call i32 @insn_get_modrm(ptr noundef nonnull %0) #7
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %71
 

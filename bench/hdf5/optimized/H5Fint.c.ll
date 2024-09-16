@@ -2421,7 +2421,7 @@ H5F__check_if_using_file_locks.exit:              ; preds = %48, %45
 
 .thread285:                                       ; preds = %414, %412, %424
   %436 = getelementptr inbounds i8, ptr %.1187, i64 8
-  %437 = call fastcc i32 @H5F__build_actual_name(ptr noundef nonnull %.1187, ptr noundef nonnull %25, ptr noundef %0, ptr noundef nonnull %436)
+  %437 = call fastcc i32 @H5F__build_actual_name(ptr noundef %.1187, ptr noundef %25, ptr noundef %0, ptr noundef %436)
   %438 = icmp slt i32 %437, 0
   br i1 %438, label %439, label %443
 
@@ -3281,7 +3281,7 @@ define internal fastcc ptr @H5F__new(ptr noundef %0, i32 noundef %1, i64 noundef
   br label %493
 
 447:                                              ; preds = %438
-  %448 = call fastcc i32 @H5F__set_vol_conn(ptr noundef nonnull %8)
+  %448 = call fastcc i32 @H5F__set_vol_conn(ptr noundef %8)
   %449 = icmp slt i32 %448, 0
   br i1 %449, label %450, label %454
 
@@ -3434,7 +3434,7 @@ declare i32 @H5P_exist_plist(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @H5_build_extpath(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5F__build_actual_name(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5F__build_actual_name(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.stat, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %struct.stat, align 8
@@ -3481,7 +3481,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__build_actual_name(ptr noundef 
   br label %.thread66
 
 35:                                               ; preds = %28
-  %36 = tail call i64 @H5P_copy_plist(ptr noundef %1, i1 noundef zeroext false) #22
+  %36 = tail call i64 @H5P_copy_plist(ptr noundef nonnull %1, i1 noundef zeroext false) #22
   %37 = icmp slt i64 %36, 0
   br i1 %37, label %127, label %38
 
@@ -6811,7 +6811,7 @@ declare i32 @H5FD_get_fs_type_map(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @H5MF_init_merge_flags(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5F__set_vol_conn(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5F__set_vol_conn(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = alloca %struct.H5VL_connector_prop_t, align 8
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8

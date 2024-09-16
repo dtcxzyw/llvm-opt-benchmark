@@ -226,7 +226,7 @@ if.else56:                                        ; preds = %if.then
   store ptr %3, ptr %agg.tmp57, align 8
   %argCount_.i22 = getelementptr inbounds i8, ptr %agg.tmp57, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %argCount_.i22, ptr noundef nonnull align 8 dereferenceable(16) %argCount_.i, i64 16, i1 false)
-  %call58 = call fastcc { i32, double } @_ZN6hermes2vmL20makeTimeFromArgs_RJSERNS0_7RuntimeENS0_10NativeArgsE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp57)
+  %call58 = call fastcc { i32, double } @_ZN6hermes2vmL20makeTimeFromArgs_RJSERNS0_7RuntimeENS0_10NativeArgsE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp57)
   %18 = extractvalue { i32, double } %call58, 0
   %cmp.i24 = icmp eq i32 %18, 0
   br i1 %cmp.i24, label %return, label %if.end62
@@ -1794,7 +1794,7 @@ if.end26:                                         ; preds = %entry
   store ptr %6, ptr %agg.tmp27, align 8
   %argCount_.i7 = getelementptr inbounds i8, ptr %agg.tmp27, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %argCount_.i7, ptr noundef nonnull align 8 dereferenceable(16) %argCount_.i, i64 16, i1 false)
-  %call28 = call fastcc { i32, double } @_ZN6hermes2vmL20makeTimeFromArgs_RJSERNS0_7RuntimeENS0_10NativeArgsE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp27)
+  %call28 = call fastcc { i32, double } @_ZN6hermes2vmL20makeTimeFromArgs_RJSERNS0_7RuntimeENS0_10NativeArgsE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp27)
   %7 = extractvalue { i32, double } %call28, 0
   %cmp.i9 = icmp eq i32 %7, 0
   br i1 %cmp.i9, label %return, label %if.end32
@@ -1842,7 +1842,7 @@ declare { ptr, i64 } @_ZN6hermes2vm15StringPrimitive16createStringViewERNS0_7Run
 declare { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832), ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i32, double } @_ZN6hermes2vmL20makeTimeFromArgs_RJSERNS0_7RuntimeENS0_10NativeArgsE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %args) unnamed_addr #0 {
+define internal fastcc { i32, double } @_ZN6hermes2vmL20makeTimeFromArgs_RJSERNS0_7RuntimeENS0_10NativeArgsE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef nonnull readonly %args) unnamed_addr #0 {
 entry:
   %fields = alloca [8 x double], align 16
   %argCount_.i = getelementptr inbounds i8, ptr %args, i64 8

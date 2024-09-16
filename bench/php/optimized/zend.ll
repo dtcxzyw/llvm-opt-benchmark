@@ -1251,7 +1251,7 @@ define void @zend_print_flat_zval_r(ptr noundef %0) local_unnamed_addr #0 {
 define ptr @zend_print_zval_r_to_str(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.smart_str, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  call fastcc void @zend_print_zval_r_to_buf(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1)
+  call fastcc void @zend_print_zval_r_to_buf(ptr noundef %3, ptr noundef %0, i32 noundef %1)
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
@@ -1271,7 +1271,7 @@ define ptr @zend_print_zval_r_to_str(ptr noundef %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_print_zval_r_to_buf(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @zend_print_zval_r_to_buf(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca [32 x i8], align 16
   br label %tailrecurse
 
@@ -1373,7 +1373,7 @@ tailrecurse:                                      ; preds = %262, %3
 
 47:                                               ; preds = %45, %16
   %48 = phi ptr [ %.pre512, %45 ], [ %23, %16 ]
-  tail call fastcc void @print_hash(ptr noundef nonnull %0, ptr noundef %48, i32 noundef %2, i1 noundef zeroext false)
+  tail call fastcc void @print_hash(ptr noundef %0, ptr noundef %48, i32 noundef %2, i1 noundef zeroext false)
   %49 = load ptr, ptr %.tr475, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4
@@ -1686,7 +1686,7 @@ tailrecurse:                                      ; preds = %262, %3
   br i1 %208, label %209, label %210
 
 209:                                              ; preds = %.thread, %204
-  tail call fastcc void @print_hash(ptr noundef nonnull %0, ptr noundef nonnull @zend_empty_array, i32 noundef %2, i1 noundef zeroext true)
+  tail call fastcc void @print_hash(ptr noundef %0, ptr noundef nonnull @zend_empty_array, i32 noundef %2, i1 noundef zeroext true)
   br label %314
 
 210:                                              ; preds = %204, %.thread
@@ -1697,7 +1697,7 @@ tailrecurse:                                      ; preds = %262, %3
   %211 = load i32, ptr %.sink529, align 4
   %212 = or i32 %211, %.sink528
   store i32 %212, ptr %.sink529, align 4
-  tail call fastcc void @print_hash(ptr noundef nonnull %0, ptr noundef nonnull %.sink524, i32 noundef %2, i1 noundef zeroext true)
+  tail call fastcc void @print_hash(ptr noundef %0, ptr noundef nonnull %.sink524, i32 noundef %2, i1 noundef zeroext true)
   %213 = load i32, ptr %.sink529, align 4
   %214 = and i32 %213, %.sink523
   store i32 %214, ptr %.sink529, align 4
@@ -1909,7 +1909,7 @@ define void @zend_print_zval_r(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %3 = alloca %struct.smart_str, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  call fastcc void @zend_print_zval_r_to_buf(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1)
+  call fastcc void @zend_print_zval_r_to_buf(ptr noundef %3, ptr noundef %0, i32 noundef %1)
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %zend_print_zval_r_to_str.exit, label %5
@@ -2998,7 +2998,7 @@ define void @zend_error_at(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %4
-  call fastcc void @get_filename_lineno(i32 noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %7)
+  call fastcc void @get_filename_lineno(i32 noundef %0, ptr noundef %5, ptr noundef %7)
   %.pre = load ptr, ptr %5, align 8
   br label %9
 
@@ -3041,7 +3041,7 @@ zend_error_va_list.exit:                          ; preds = %9, %15, %22, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_filename_lineno(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc void @get_filename_lineno(i32 noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   switch i32 %0, label %16 [
     i32 16, label %4
     i32 32, label %4
@@ -3111,8 +3111,8 @@ define internal fastcc void @get_filename_lineno(i32 noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_error_va_list(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = tail call ptr @zend_vstrpprintf(i64 noundef 0, ptr noundef %3, ptr noundef %4)
+define internal fastcc void @zend_error_va_list(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
+  %6 = tail call ptr @zend_vstrpprintf(i64 noundef 0, ptr noundef %3, ptr noundef nonnull %4)
   tail call void @zend_error_zstr_at(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %6)
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
@@ -3151,7 +3151,7 @@ define void @zend_error(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr 
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  call fastcc void @get_filename_lineno(i32 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call fastcc void @get_filename_lineno(i32 noundef %0, ptr noundef %3, ptr noundef %4)
   call void @llvm.va_start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %3, align 8
   %7 = load i32, ptr %4, align 4
@@ -3195,7 +3195,7 @@ define void @zend_error_unchecked(i32 noundef %0, ptr noundef %1, ...) local_unn
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  call fastcc void @get_filename_lineno(i32 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call fastcc void @get_filename_lineno(i32 noundef %0, ptr noundef %3, ptr noundef %4)
   call void @llvm.va_start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %3, align 8
   %7 = load i32, ptr %4, align 4
@@ -3244,14 +3244,14 @@ define void @zend_error_at_noreturn(i32 noundef %0, ptr noundef %1, i32 noundef 
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %4
-  call fastcc void @get_filename_lineno(i32 noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %7)
+  call fastcc void @get_filename_lineno(i32 noundef %0, ptr noundef %5, ptr noundef %7)
   %.pre = load ptr, ptr %5, align 8
   br label %9
 
 9:                                                ; preds = %8, %4
   %10 = phi ptr [ %.pre, %8 ], [ %1, %4 ]
   call void @llvm.va_start.p0(ptr nonnull %6)
-  call fastcc void @zend_error_va_list(i32 noundef %0, ptr noundef %10, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %6)
+  call fastcc void @zend_error_va_list(i32 noundef %0, ptr noundef %10, i32 noundef %2, ptr noundef %3, ptr noundef %6)
   call void @llvm.va_end.p0(ptr nonnull %6)
   call void @abort() #38
   unreachable
@@ -3265,11 +3265,11 @@ define void @zend_error_noreturn(i32 noundef %0, ptr noundef %1, ...) local_unna
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  call fastcc void @get_filename_lineno(i32 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call fastcc void @get_filename_lineno(i32 noundef %0, ptr noundef %3, ptr noundef %4)
   call void @llvm.va_start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %3, align 8
   %7 = load i32, ptr %4, align 4
-  call fastcc void @zend_error_va_list(i32 noundef %0, ptr noundef %6, i32 noundef %7, ptr noundef %1, ptr noundef nonnull %5)
+  call fastcc void @zend_error_va_list(i32 noundef %0, ptr noundef %6, i32 noundef %7, ptr noundef %1, ptr noundef %5)
   call void @llvm.va_end.p0(ptr nonnull %5)
   call void @abort() #38
   unreachable
@@ -3280,11 +3280,11 @@ define void @zend_error_noreturn_unchecked(i32 noundef %0, ptr noundef %1, ...) 
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  call fastcc void @get_filename_lineno(i32 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call fastcc void @get_filename_lineno(i32 noundef %0, ptr noundef %3, ptr noundef %4)
   call void @llvm.va_start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %3, align 8
   %7 = load i32, ptr %4, align 4
-  call fastcc void @zend_error_va_list(i32 noundef %0, ptr noundef %6, i32 noundef %7, ptr noundef %1, ptr noundef nonnull %5)
+  call fastcc void @zend_error_va_list(i32 noundef %0, ptr noundef %6, i32 noundef %7, ptr noundef %1, ptr noundef %5)
   call void @llvm.va_end.p0(ptr nonnull %5)
   call void @abort() #38
   unreachable
@@ -3305,7 +3305,7 @@ declare ptr @strerror_r(i32 noundef, ptr noundef, i64 noundef) local_unnamed_add
 define void @zend_error_zstr(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call fastcc void @get_filename_lineno(i32 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call fastcc void @get_filename_lineno(i32 noundef %0, ptr noundef %3, ptr noundef %4)
   %5 = load ptr, ptr %3, align 8
   %6 = load i32, ptr %4, align 4
   tail call void @zend_error_zstr_at(i32 noundef %0, ptr noundef %5, i32 noundef %6, ptr noundef %1)
@@ -4124,7 +4124,7 @@ declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #26
 declare void @smart_str_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_hash(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @print_hash(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca [32 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4652,7 +4652,7 @@ define internal fastcc void @print_hash(ptr noundef %0, ptr nocapture noundef re
   %249 = load ptr, ptr %0, align 8
   %250 = getelementptr inbounds i8, ptr %249, i64 16
   store i64 %.1460, ptr %250, align 8
-  call fastcc void @zend_print_zval_r_to_buf(ptr noundef nonnull %0, ptr noundef %.0422, i32 noundef %51)
+  call fastcc void @zend_print_zval_r_to_buf(ptr noundef %0, ptr noundef %.0422, i32 noundef %51)
   %251 = load ptr, ptr %0, align 8
   %.not526 = icmp eq ptr %251, null
   br i1 %.not526, label %257, label %252

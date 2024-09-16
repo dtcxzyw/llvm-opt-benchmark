@@ -1300,7 +1300,7 @@ declare dso_local i32 @mod_timer(ptr noundef, i64 noundef) local_unnamed_addr #0
 declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -1, 1) i32 @fl6_renew(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @fl6_renew(ptr nocapture noundef %0, i64 noundef range(i64 0, 65536) %1, i64 noundef range(i64 0, 65536) %2) unnamed_addr #1 align 16 {
   %4 = icmp ult i64 %1, 6
   br i1 %4, label %11, label %5
 
@@ -1445,7 +1445,7 @@ declare dso_local i32 @net_ratelimit() local_unnamed_addr #0
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @fl_link(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #9 align 16 {
+define internal fastcc void @fl_link(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #9 align 16 {
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @ip6_sk_fl_lock) #13
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %2, ptr %4, align 8
@@ -1459,7 +1459,7 @@ define internal fastcc void @fl_link(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @fl_free(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc void @fl_free(ptr noundef nonnull %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load i8, ptr %2, align 8
   %4 = add i8 %3, -1
@@ -1548,7 +1548,7 @@ define internal fastcc noundef range(i32 -105, 1) i32 @mem_check(ptr noundef %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @fl_intern(ptr noundef readnone %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc ptr @fl_intern(ptr noundef readnone %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #1 align 16 {
   %4 = and i32 %2, -61696
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %4, ptr %5, align 8

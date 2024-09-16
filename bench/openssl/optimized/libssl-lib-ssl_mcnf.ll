@@ -23,7 +23,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_do_config(ptr noundef %s, ptr noundef %ctx, ptr noundef %name, i32 noundef %system) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ssl_do_config(ptr noundef %s, ptr noundef %ctx, ptr noundef %name, i32 noundef range(i32 0, 2) %system) unnamed_addr #1 {
 entry:
   %name.addr = alloca ptr, align 8
   %idx = alloca i64, align 8

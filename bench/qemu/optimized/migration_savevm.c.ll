@@ -1662,7 +1662,7 @@ trace_savevm_send_colo_enable.exit:               ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qemu_savevm_command_send(ptr noundef %f, i32 noundef %command, i16 noundef zeroext %len, ptr noundef %data) unnamed_addr #0 {
+define internal fastcc void @qemu_savevm_command_send(ptr noundef %f, i32 noundef range(i32 1, 11) %command, i16 noundef zeroext %len, ptr noundef %data) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -1690,22 +1690,19 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  %conv11.i.i = and i32 %command, 65535
   %conv12.i.i = zext i16 %len to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %command, i32 noundef %conv12.i.i) #18
   br label %trace_savevm_command_send.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %conv13.i.i = and i32 %command, 65535
   %conv14.i.i = zext i16 %len to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %conv13.i.i, i32 noundef %conv14.i.i) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %command, i32 noundef %conv14.i.i) #18
   br label %trace_savevm_command_send.exit
 
 trace_savevm_command_send.exit:                   ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   tail call void @qemu_put_byte(ptr noundef %f, i32 noundef 8) #18
-  %conv2 = and i32 %command, 65535
-  tail call void @qemu_put_be16(ptr noundef %f, i32 noundef %conv2) #18
+  tail call void @qemu_put_be16(ptr noundef %f, i32 noundef %command) #18
   %conv3 = zext i16 %len to i32
   tail call void @qemu_put_be16(ptr noundef %f, i32 noundef %conv3) #18
   %conv4 = zext i16 %len to i64
@@ -2538,7 +2535,7 @@ land.lhs.true:                                    ; preds = %for.body
 
 if.then:                                          ; preds = %land.lhs.true
   %10 = load ptr, ptr %vmdesc, align 8
-  %call7 = tail call fastcc i32 @vmstate_save(ptr noundef %f, ptr noundef nonnull %se.030, ptr noundef %10)
+  %call7 = tail call fastcc i32 @vmstate_save(ptr noundef %f, ptr noundef %se.030, ptr noundef %10)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %for.inc, label %for.end.sink.split
 
@@ -2633,7 +2630,7 @@ declare void @json_writer_int64(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare void @json_writer_start_array(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vmstate_save(ptr noundef %f, ptr noundef %se, ptr noundef %vmdesc) unnamed_addr #0 {
+define internal fastcc i32 @vmstate_save(ptr noundef %f, ptr noundef nonnull %se, ptr noundef %vmdesc) unnamed_addr #0 {
 entry:
   %_now.i.i66 = alloca %struct.timeval, align 8
   %_now.i.i51 = alloca %struct.timeval, align 8
@@ -3440,7 +3437,7 @@ land.lhs.true:                                    ; preds = %for.body
 
 if.end:                                           ; preds = %land.lhs.true, %for.body
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #18
-  %call7 = tail call fastcc i32 @vmstate_save(ptr noundef %f, ptr noundef nonnull %se.046, ptr noundef %0)
+  %call7 = tail call fastcc i32 @vmstate_save(ptr noundef %f, ptr noundef %se.046, ptr noundef %0)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.end10, label %if.then9
 
@@ -4160,7 +4157,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool1.not, label %if.end3, label %for.inc
 
 if.end3:                                          ; preds = %for.body
-  %call4 = tail call fastcc i32 @vmstate_save(ptr noundef %f, ptr noundef nonnull %se.011, ptr noundef null)
+  %call4 = tail call fastcc i32 @vmstate_save(ptr noundef %f, ptr noundef %se.011, ptr noundef null)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %for.inc, label %return
 
@@ -4516,12 +4513,12 @@ if.end29.i:                                       ; preds = %land.lhs.true.i, %i
 
 if.end33.i:                                       ; preds = %if.end29.i
   %call.i29.i = call i64 @qemu_clock_get_ns(i32 noundef 0) #18
-  %call34.i = call fastcc i32 @vmstate_load(ptr noundef %f.addr.0, ptr noundef nonnull %se.019.i.i)
+  %call34.i = call fastcc i32 @vmstate_load(ptr noundef %f.addr.0, ptr noundef %se.019.i.i)
   %cmp35.i = icmp slt i32 %call34.i, 0
   br i1 %cmp35.i, label %if.then37.i, label %if.then41.i
 
 if.end33.thread.i:                                ; preds = %if.end29.i
-  %call345.i = call fastcc i32 @vmstate_load(ptr noundef %f.addr.0, ptr noundef nonnull %se.019.i.i)
+  %call345.i = call fastcc i32 @vmstate_load(ptr noundef %f.addr.0, ptr noundef %se.019.i.i)
   %cmp356.i = icmp slt i32 %call345.i, 0
   br i1 %cmp356.i, label %if.then37.i, label %if.end46.i
 
@@ -4573,7 +4570,7 @@ trace_vmstate_downtime_load.exit:                 ; preds = %if.then41.i, %land.
   br label %if.end46.i
 
 if.end46.i:                                       ; preds = %trace_vmstate_downtime_load.exit, %if.end33.thread.i
-  %call47.i = call fastcc zeroext i1 @check_section_footer(ptr noundef %f.addr.0, ptr noundef nonnull %se.019.i.i)
+  %call47.i = call fastcc zeroext i1 @check_section_footer(ptr noundef %f.addr.0, ptr noundef %se.019.i.i)
   br i1 %call47.i, label %qemu_loadvm_section_start_full.exit.thread348, label %qemu_loadvm_section_start_full.exit.thread
 
 qemu_loadvm_section_start_full.exit.thread348:    ; preds = %if.end46.i
@@ -4655,12 +4652,12 @@ if.end12.i:                                       ; preds = %for.body.i
 
 if.end16.i37:                                     ; preds = %if.end12.i
   %call.i.i38 = call i64 @qemu_clock_get_ns(i32 noundef 0) #18
-  %call17.i = call fastcc i32 @vmstate_load(ptr noundef %f.addr.0, ptr noundef nonnull %se.0.i)
+  %call17.i = call fastcc i32 @vmstate_load(ptr noundef %f.addr.0, ptr noundef %se.0.i)
   %cmp18.i39 = icmp slt i32 %call17.i, 0
   br i1 %cmp18.i39, label %if.then20.i35, label %if.then23.i
 
 if.end16.thread.i:                                ; preds = %if.end12.i
-  %call172.i = call fastcc i32 @vmstate_load(ptr noundef %f.addr.0, ptr noundef nonnull %se.0.i)
+  %call172.i = call fastcc i32 @vmstate_load(ptr noundef %f.addr.0, ptr noundef %se.0.i)
   %cmp183.i = icmp slt i32 %call172.i, 0
   br i1 %cmp183.i, label %if.then20.i35, label %if.end27.i
 
@@ -4714,7 +4711,7 @@ trace_vmstate_downtime_load.exit.i:               ; preds = %if.else.i.i31.i, %i
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %trace_vmstate_downtime_load.exit.i, %if.end16.thread.i
-  %call28.i = call fastcc zeroext i1 @check_section_footer(ptr noundef %f.addr.0, ptr noundef nonnull %se.0.i)
+  %call28.i = call fastcc zeroext i1 @check_section_footer(ptr noundef %f.addr.0, ptr noundef %se.0.i)
   br i1 %call28.i, label %sw.epilog, label %if.then26
 
 qemu_loadvm_section_part_end.exit:                ; preds = %sw.bb8
@@ -5505,7 +5502,7 @@ if.then29.i:                                      ; preds = %if.end22.i
   br label %loadvm_postcopy_ram_handle_discard.exit
 
 if.end31.i:                                       ; preds = %if.end22.i
-  call fastcc void @trace_loadvm_postcopy_ram_handle_discard_header(ptr noundef nonnull %ramid.i, i16 noundef zeroext %conv26.i)
+  call fastcc void @trace_loadvm_postcopy_ram_handle_discard_header(ptr noundef %ramid.i, i16 noundef zeroext %conv26.i)
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %if.end31.i
@@ -7502,7 +7499,7 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #6
 declare i64 @qemu_get_counted_string(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vmstate_load(ptr noundef %f, ptr noundef %se) unnamed_addr #0 {
+define internal fastcc i32 @vmstate_load(ptr noundef %f, ptr noundef nonnull %se) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %idstr = getelementptr inbounds i8, ptr %se, i64 16
@@ -7581,7 +7578,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @check_section_footer(ptr noundef %f, ptr noundef %se) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @check_section_footer(ptr noundef %f, ptr noundef nonnull %se) unnamed_addr #0 {
 entry:
   %call = tail call ptr @migrate_get_current() #18
   %send_section_footer = getelementptr inbounds i8, ptr %call, i64 1539
@@ -8035,7 +8032,7 @@ declare void @runstate_set(i32 noundef) local_unnamed_addr #1
 declare void @qemu_bh_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_loadvm_postcopy_ram_handle_discard_header(ptr noundef %ramid, i16 noundef zeroext %len) unnamed_addr #0 {
+define internal fastcc void @trace_loadvm_postcopy_ram_handle_discard_header(ptr noundef nonnull %ramid, i16 noundef zeroext %len) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -8064,12 +8061,12 @@ if.then8.i:                                       ; preds = %if.then.i
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext i16 %len to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.241, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %ramid, i32 noundef %conv11.i) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.241, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %ramid, i32 noundef %conv11.i) #18
   br label %_nocheck__trace_loadvm_postcopy_ram_handle_discard_header.exit
 
 if.else.i:                                        ; preds = %if.then.i
   %conv12.i = zext i16 %len to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.242, ptr noundef %ramid, i32 noundef %conv12.i) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.242, ptr noundef nonnull %ramid, i32 noundef %conv12.i) #18
   br label %_nocheck__trace_loadvm_postcopy_ram_handle_discard_header.exit
 
 _nocheck__trace_loadvm_postcopy_ram_handle_discard_header.exit: ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i

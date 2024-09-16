@@ -500,7 +500,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %maxslot.0 = phi i32 [ %0, %entry ], [ %spec.select, %land.lhs.true ]
-  %call = call fastcc i32 @snap_usedef(ptr noundef nonnull %J, ptr noundef nonnull %udf, ptr noundef nonnull %1, i32 noundef %maxslot.0)
+  %call = call fastcc i32 @snap_usedef(ptr noundef nonnull %J, ptr noundef %udf, ptr noundef nonnull %1, i32 noundef %maxslot.0)
   %cmp8 = icmp ult i32 %call, %maxslot.0
   br i1 %cmp8, label %if.then10, label %if.end22
 
@@ -603,14 +603,14 @@ if.end22:                                         ; preds = %for.inc, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @snap_usedef(ptr nocapture noundef readonly %J, ptr nocapture noundef %udf, ptr nocapture noundef readonly %pc, i32 noundef %maxslot) unnamed_addr #4 {
+define internal fastcc i32 @snap_usedef(ptr nocapture noundef readonly %J, ptr nocapture noundef nonnull %udf, ptr nocapture noundef readonly %pc, i32 noundef %maxslot) unnamed_addr #4 {
 entry:
   %cmp = icmp eq i32 %maxslot, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %conv = zext i32 %maxslot to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %udf, i8 1, i64 %conv, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %udf, i8 1, i64 %conv, i1 false)
   %L = getelementptr inbounds i8, ptr %J, i64 128
   %0 = load ptr, ptr %L, align 8
   %openupval = getelementptr inbounds i8, ptr %0, i64 64
@@ -1103,7 +1103,7 @@ entry:
   %pcbase.i.0.copyload = load i64, ptr %arrayidx11, align 4
   %shr.i = lshr i64 %pcbase.i.0.copyload, 8
   %8 = inttoptr i64 %shr.i to ptr
-  %call12 = call fastcc i32 @snap_usedef(ptr noundef %J, ptr noundef nonnull %udf, ptr noundef %8, i32 noundef %6)
+  %call12 = call fastcc i32 @snap_usedef(ptr noundef %J, ptr noundef %udf, ptr noundef %8, i32 noundef %6)
   %cmp = icmp ult i32 %call12, %6
   br i1 %cmp, label %if.then, label %if.end
 
@@ -3296,7 +3296,7 @@ sw.epilog:                                        ; preds = %sw.bb, %if.then96
 declare hidden void @lj_state_growstack(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @snap_restoreval(ptr nocapture noundef readonly %J, ptr nocapture noundef readonly %T, ptr nocapture noundef readonly %ex, i32 noundef %snapno, i64 noundef %rfilt, i32 noundef %ref, ptr noundef %o) unnamed_addr #0 {
+define internal fastcc void @snap_restoreval(ptr nocapture noundef readonly %J, ptr nocapture noundef readonly %T, ptr nocapture noundef readonly %ex, i32 noundef %snapno, i64 noundef %rfilt, i32 noundef range(i32 0, 65536) %ref, ptr noundef %o) unnamed_addr #0 {
 entry:
   %ir1 = getelementptr inbounds i8, ptr %T, i64 32
   %0 = load ptr, ptr %ir1, align 8
@@ -3507,7 +3507,7 @@ declare hidden i32 @lj_ctype_info(ptr noundef, i32 noundef, ptr noundef) local_u
 declare hidden ptr @lj_cdata_newx(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @snap_restoredata(ptr nocapture noundef readonly %T, ptr nocapture noundef readonly %ex, i32 noundef %snapno, i64 noundef %rfilt, i32 noundef %ref, ptr nocapture noundef %dst, i32 noundef %sz) unnamed_addr #6 {
+define internal fastcc void @snap_restoredata(ptr nocapture noundef readonly %T, ptr nocapture noundef readonly %ex, i32 noundef %snapno, i64 noundef %rfilt, i32 noundef range(i32 0, 65536) %ref, ptr nocapture noundef %dst, i32 noundef %sz) unnamed_addr #6 {
 entry:
   %tmp = alloca i64, align 8
   %ir1 = getelementptr inbounds i8, ptr %T, i64 32

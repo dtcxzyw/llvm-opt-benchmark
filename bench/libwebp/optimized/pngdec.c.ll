@@ -287,7 +287,7 @@ define hidden i32 @ReadPNG(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 n
   %135 = load volatile ptr, ptr %6, align 8
   %136 = load volatile ptr, ptr %7, align 8
   %137 = load volatile ptr, ptr %8, align 8
-  %138 = call fastcc i32 @ExtractMetadataFromPNG(ptr noundef %135, ptr noundef %136, ptr noundef %137, ptr noundef nonnull %4)
+  %138 = call fastcc i32 @ExtractMetadataFromPNG(ptr noundef %135, ptr noundef %136, ptr noundef %137, ptr noundef %4)
   %.not64 = icmp eq i32 %138, 0
   br i1 %.not64, label %139, label %142
 
@@ -468,7 +468,7 @@ declare void @png_read_rows(ptr noundef, ptr noundef, ptr noundef, i32 noundef) 
 declare void @png_read_end(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4

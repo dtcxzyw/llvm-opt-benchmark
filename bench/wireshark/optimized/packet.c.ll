@@ -4844,7 +4844,7 @@ define internal fastcc void @add_layer(ptr nocapture noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @remove_last_layer(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @remove_last_layer(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %7, label %3
 

@@ -10818,7 +10818,7 @@ declare dso_local i32 @intel_hpd_pin_default(ptr noundef, i32 noundef) local_unn
 declare dso_local zeroext i1 @intel_bios_encoder_lane_reversal(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 5) i32 @intel_ddi_max_lanes(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 5) i32 @intel_ddi_max_lanes(ptr nocapture noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 2632
   %4 = load i16, ptr %3, align 8
@@ -11015,7 +11015,7 @@ define internal zeroext i1 @hsw_digital_port_connected(ptr nocapture noundef rea
 declare dso_local void @intel_infoframe_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @intel_ddi_init_dp_connector(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc ptr @intel_ddi_init_dp_connector(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 132
   %4 = load i32, ptr %3, align 4
@@ -11042,7 +11042,7 @@ define internal fastcc ptr @intel_ddi_init_dp_connector(ptr noundef %0) unnamed_
   store ptr @intel_ddi_dp_voltage_max, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 3416
   store ptr @intel_ddi_dp_preemph_max, ptr %19, align 8
-  %20 = tail call zeroext i1 @intel_dp_init_connector(ptr noundef %0, ptr noundef nonnull %5) #14
+  %20 = tail call zeroext i1 @intel_dp_init_connector(ptr noundef nonnull %0, ptr noundef nonnull %5) #14
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %7
@@ -11058,7 +11058,7 @@ define internal fastcc ptr @intel_ddi_init_dp_connector(ptr noundef %0) unnamed_
 declare dso_local i32 @intel_dp_hpd_pulse(ptr noundef, i1 noundef zeroext) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @intel_ddi_init_hdmi_connector(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc ptr @intel_ddi_init_hdmi_connector(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 132
   %3 = load i32, ptr %2, align 4
   %4 = tail call ptr @intel_connector_alloc() #14
@@ -11070,7 +11070,7 @@ define internal fastcc ptr @intel_ddi_init_hdmi_connector(ptr noundef %0) unname
   %8 = shl i32 %3, 8
   %9 = add i32 %8, 409600
   store i32 %9, ptr %7, align 8
-  tail call void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef nonnull %4) #14
+  tail call void @intel_hdmi_init_connector(ptr noundef nonnull %0, ptr noundef nonnull %4) #14
   br label %10
 
 10:                                               ; preds = %6, %1

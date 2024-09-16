@@ -2651,7 +2651,7 @@ define dso_local void @_ZNK4llvm3pdb11SymbolGroup18formatFromFileNameERNS0_11Lin
   %47 = load ptr, ptr %.sroa.0.0.i.i, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 12
   %49 = load i8, ptr %48, align 4
-  call fastcc void @_ZL18formatChecksumKindB5cxx11N4llvm8codeview16FileChecksumKindE(ptr dead_on_unwind noalias nonnull writable align 8 %15, i8 noundef zeroext %49)
+  call fastcc void @_ZL18formatChecksumKindB5cxx11N4llvm8codeview16FileChecksumKindE(ptr dead_on_unwind noalias writable align 8 %15, i8 noundef zeroext %49)
   %50 = load ptr, ptr %.sroa.0.0.i.i, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %.sroa.0.0.copyload = load ptr, ptr %51, align 8
@@ -2714,7 +2714,7 @@ _ZL14formatInternalIJRA20_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18formatChecksumKindB5cxx11N4llvm8codeview16FileChecksumKindE(ptr dead_on_unwind noalias writable align 8 %0, i8 noundef zeroext %1) unnamed_addr #1 {
+define internal fastcc void @_ZL18formatChecksumKindB5cxx11N4llvm8codeview16FileChecksumKindE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i8 noundef zeroext %1) unnamed_addr #1 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
@@ -2759,7 +2759,7 @@ define internal fastcc void @_ZL18formatChecksumKindB5cxx11N4llvm8codeview16File
   br label %16
 
 15:                                               ; preds = %2
-  tail call void @_ZN4llvm3pdb17formatUnknownEnumINS_8codeview16FileChecksumKindEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i8 noundef zeroext %1)
+  tail call void @_ZN4llvm3pdb17formatUnknownEnumINS_8codeview16FileChecksumKindEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i8 noundef zeroext %1)
   br label %16
 
 16:                                               ; preds = %15, %13, %11, %9, %7
@@ -3132,7 +3132,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %104, %_ZN4llvm8Expe
   br label %_ZL14formatInternalIJRA18_KcRN4llvm9StringRefEEEvRNS3_3pdb11LinePrinterEbDpOT_.exit
 
 129:                                              ; preds = %108
-  call fastcc void @_ZL18formatChecksumKindB5cxx11N4llvm8codeview16FileChecksumKindE(ptr dead_on_unwind noalias nonnull writable align 8 %31, i8 noundef zeroext %110)
+  call fastcc void @_ZL18formatChecksumKindB5cxx11N4llvm8codeview16FileChecksumKindE(ptr dead_on_unwind noalias writable align 8 %31, i8 noundef zeroext %110)
   %130 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %130, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 16

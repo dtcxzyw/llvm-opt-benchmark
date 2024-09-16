@@ -513,7 +513,7 @@ define hidden void @"_ZN55_$LT$W$u20$as$u20$std..io..copy..BufferedWriterSpec$GT
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !align !38, !noundef !5
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -833,7 +833,7 @@ default.unreachable:                              ; preds = %.noexc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN8uu_split16custom_write_all17h1e5cd865edebd003E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(48) %3, i64 %.136.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN8uu_split16custom_write_all17h1e5cd865edebd003E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %3, i64 %.136.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { i8, [15 x i8] }, align 8
   %6 = alloca { i8, [15 x i8] }, align 8
   %7 = alloca ptr, align 8
@@ -963,7 +963,7 @@ default.unreachable:                              ; preds = %.noexc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN8uu_split14get_input_size17h0f75dff8f789b936E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef align 8 dereferenceable(56) %2, ptr noalias noundef align 8 dereferenceable(24) %3, i64 %.0.val, i64 %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN8uu_split14get_input_size17h0f75dff8f789b936E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(56) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 %.0.val, i64 %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { i32, i32, i8, i8, i8, i8, i8, i8, [2 x i8] } }, align 4
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { i64, [21 x i64] }, align 8
@@ -1184,7 +1184,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %"_ZN73_$LT$$u5b$A$u
   store ptr %8, ptr %87, align 8, !alias.scope !190, !noalias !193
   %88 = getelementptr inbounds i8, ptr %9, i64 24
   store i64 1, ptr %88, align 8, !alias.scope !190, !noalias !193
-  invoke fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9)
+  invoke fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef align 8 dereferenceable(24) %10, ptr noalias nocapture noundef align 8 dereferenceable(48) %9)
           to label %89 unwind label %70
 
 89:                                               ; preds = %83
@@ -1262,7 +1262,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_byte17hcc1428d62b9948d0E(p
   %.val = load i64, ptr %0, align 8, !range !4, !noundef !5
   %34 = getelementptr inbounds i8, ptr %0, i64 8
   %.val108 = load i64, ptr %34, align 8
-  invoke fastcc void @_ZN8uu_split14get_input_size17h0f75dff8f789b936E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %33, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %30, i64 %.val, i64 %.val108)
+  invoke fastcc void @_ZN8uu_split14get_input_size17h0f75dff8f789b936E(ptr noalias nocapture noundef align 8 dereferenceable(16) %29, ptr noalias noundef readonly align 8 dereferenceable(24) %33, ptr noalias noundef align 8 dereferenceable(56) %1, ptr noalias noundef align 8 dereferenceable(24) %30, i64 %.val, i64 %.val108)
           to label %38 unwind label %36
 
 35:                                               ; preds = %.body112, %36
@@ -2127,7 +2127,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_line17hefc43b8ad5adb128E(p
   %.val = load i64, ptr %0, align 8, !range !4, !noundef !5
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   %.val129 = load i64, ptr %28, align 8
-  invoke fastcc void @_ZN8uu_split14get_input_size17h0f75dff8f789b936E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %24, i64 %.val, i64 %.val129)
+  invoke fastcc void @_ZN8uu_split14get_input_size17h0f75dff8f789b936E(ptr noalias nocapture noundef align 8 dereferenceable(16) %23, ptr noalias noundef readonly align 8 dereferenceable(24) %27, ptr noalias noundef align 8 dereferenceable(56) %1, ptr noalias noundef align 8 dereferenceable(24) %24, i64 %.val, i64 %.val129)
           to label %32 unwind label %30
 
 29:                                               ; preds = %.body135, %30
@@ -2523,7 +2523,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_line17hefc43b8ad5adb128E(p
 163:                                              ; preds = %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit.thread", %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit"
   %164 = phi ptr [ %155, %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit.thread" ], [ %162, %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  invoke fastcc void @_ZN8uu_split16custom_write_all17h1e5cd865edebd003E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %14, ptr noalias noundef nonnull readonly align 1 %147, i64 noundef %146, ptr noalias noundef nonnull align 8 dereferenceable(48) %164, i64 %.val130)
+  invoke fastcc void @_ZN8uu_split16custom_write_all17h1e5cd865edebd003E(ptr noalias nocapture noundef align 8 dereferenceable(16) %14, ptr noalias noundef nonnull readonly align 1 %147, i64 noundef %146, ptr noalias noundef align 8 dereferenceable(48) %164, i64 %.val130)
           to label %165 unwind label %.loopexit164
 
 165:                                              ; preds = %163
@@ -3091,7 +3091,7 @@ _ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit.us: ; preds = %.split.us
 94:                                               ; preds = %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit.us", %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit.thread.us"
   %95 = phi ptr [ %89, %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit.thread.us" ], [ %93, %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit.us" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  invoke fastcc void @_ZN8uu_split16custom_write_all17h1e5cd865edebd003E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 1 %82, i64 noundef %83, ptr noalias noundef nonnull align 8 dereferenceable(48) %95, i64 %.val)
+  invoke fastcc void @_ZN8uu_split16custom_write_all17h1e5cd865edebd003E(ptr noalias nocapture noundef align 8 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 1 %82, i64 noundef %83, ptr noalias noundef align 8 dereferenceable(48) %95, i64 %.val)
           to label %96 unwind label %.loopexit.split.us.split
 
 96:                                               ; preds = %94

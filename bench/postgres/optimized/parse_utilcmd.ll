@@ -403,11 +403,11 @@ transformOfType.exit:                             ; preds = %._crit_edge.i, %116
   ]
 
 138:                                              ; preds = %.lr.ph150
-  call fastcc void @transformColumnDefinition(ptr noundef nonnull %5, ptr noundef nonnull %136)
+  call fastcc void @transformColumnDefinition(ptr noundef %5, ptr noundef nonnull %136)
   br label %476
 
 139:                                              ; preds = %.lr.ph150
-  call fastcc void @transformTableConstraint(ptr noundef nonnull %5, ptr noundef nonnull %136)
+  call fastcc void @transformTableConstraint(ptr noundef %5, ptr noundef nonnull %136)
   br label %476
 
 140:                                              ; preds = %.lr.ph150
@@ -579,7 +579,7 @@ transformOfType.exit:                             ; preds = %._crit_edge.i, %116
   %241 = load i16, ptr %240, align 2
   %242 = call i32 @getIdentitySequence(i32 noundef %239, i16 noundef signext %241, i1 noundef zeroext false) #8
   %243 = call ptr @sequence_options(i32 noundef %242) #8
-  call fastcc void @generateSerialExtraStmts(ptr noundef nonnull %5, ptr noundef %217, i32 noundef 0, ptr noundef %243, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef null, ptr noundef null)
+  call fastcc void @generateSerialExtraStmts(ptr noundef %5, ptr noundef %217, i32 noundef 0, ptr noundef %243, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef null, ptr noundef null)
   %244 = load i8, ptr %235, align 1
   %245 = getelementptr inbounds i8, ptr %217, i64 64
   store i8 %244, ptr %245, align 8
@@ -1047,12 +1047,12 @@ transformTableLikeClause.exit:                    ; preds = %.loopexit.i, %._cri
 ._crit_edge:                                      ; preds = %476, %.lr.ph85, %127
   %480 = load ptr, ptr %62, align 8
   store ptr null, ptr %62, align 8
-  call fastcc void @transformIndexConstraints(ptr noundef nonnull %5)
+  call fastcc void @transformIndexConstraints(ptr noundef %5)
   %481 = load ptr, ptr %62, align 8
   %482 = load ptr, ptr %59, align 8
   %483 = call ptr @list_concat(ptr noundef %481, ptr noundef %482) #8
   store ptr %483, ptr %62, align 8
-  call fastcc void @transformFKConstraints(ptr noundef nonnull %5, i1 noundef zeroext true, i1 noundef zeroext false)
+  call fastcc void @transformFKConstraints(ptr noundef %5, i1 noundef zeroext true, i1 noundef zeroext false)
   %484 = load i8, ptr %48, align 8
   %485 = trunc i8 %484 to i1
   %.val = load ptr, ptr %57, align 8
@@ -1131,7 +1131,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @transformColumnDefinition(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @transformColumnDefinition(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1272,7 +1272,7 @@ thread-pre-split:                                 ; preds = %42, %10, %list_leng
   %90 = load ptr, ptr %8, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 16
   %92 = load i32, ptr %91, align 8
-  call fastcc void @generateSerialExtraStmts(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %92, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call fastcc void @generateSerialExtraStmts(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %92, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %93 = load ptr, ptr %3, align 8
   %94 = load ptr, ptr %4, align 8
   %95 = call ptr @quote_qualified_identifier(ptr noundef %93, ptr noundef %94) #8
@@ -1805,7 +1805,7 @@ transformConstraintAttrs.exit:                    ; preds = %257
 384:                                              ; preds = %359
   %385 = getelementptr inbounds i8, ptr %280, i64 88
   %386 = load ptr, ptr %385, align 8
-  call fastcc void @generateSerialExtraStmts(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %369, ptr noundef %386, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef null, ptr noundef null)
+  call fastcc void @generateSerialExtraStmts(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %369, ptr noundef %386, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef null, ptr noundef null)
   %387 = getelementptr inbounds i8, ptr %280, i64 40
   %388 = load i8, ptr %387, align 8
   store i8 %388, ptr %273, align 8
@@ -2165,7 +2165,7 @@ transformConstraintAttrs.exit:                    ; preds = %257
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @transformTableConstraint(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @transformTableConstraint(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %58 [
@@ -2286,7 +2286,7 @@ define internal fastcc void @transformTableConstraint(ptr nocapture noundef %0, 
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @transformIndexConstraints(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @transformIndexConstraints(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3469,7 +3469,7 @@ transformIndexConstraint.exit:                    ; preds = %._crit_edge510.i, %
 declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @transformFKConstraints(ptr nocapture noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @transformFKConstraints(ptr nocapture noundef nonnull %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -5340,7 +5340,7 @@ define dso_local noundef ptr @transformAlterTableStmt(i32 noundef %0, ptr nounde
 49:                                               ; preds = %.lr.ph469
   %50 = getelementptr inbounds i8, ptr %46, i64 32
   %51 = load ptr, ptr %50, align 8
-  call fastcc void @transformColumnDefinition(ptr noundef nonnull %6, ptr noundef %51)
+  call fastcc void @transformColumnDefinition(ptr noundef %6, ptr noundef %51)
   %52 = getelementptr inbounds i8, ptr %51, i64 48
   %53 = load ptr, ptr %52, align 8
   %.not216 = icmp eq ptr %53, null
@@ -5358,7 +5358,7 @@ define dso_local noundef ptr @transformAlterTableStmt(i32 noundef %0, ptr nounde
   br i1 %60, label %61, label %66
 
 61:                                               ; preds = %56
-  call fastcc void @transformTableConstraint(ptr noundef nonnull %6, ptr noundef nonnull %58)
+  call fastcc void @transformTableConstraint(ptr noundef %6, ptr noundef nonnull %58)
   %62 = load ptr, ptr %57, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
@@ -5484,7 +5484,7 @@ define dso_local noundef ptr @transformAlterTableStmt(i32 noundef %0, ptr nounde
   %140 = tail call i32 @get_atttype(i32 noundef %0, i16 noundef signext %129) #8
   %141 = getelementptr inbounds i8, ptr %120, i64 88
   %142 = load ptr, ptr %141, align 8
-  call fastcc void @generateSerialExtraStmts(ptr noundef nonnull %6, ptr noundef nonnull %121, i32 noundef %140, ptr noundef %142, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null, ptr noundef null)
+  call fastcc void @generateSerialExtraStmts(ptr noundef %6, ptr noundef nonnull %121, i32 noundef %140, ptr noundef %142, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null, ptr noundef null)
   %143 = tail call ptr @lappend(ptr noundef %.0179299467, ptr noundef nonnull %46) #8
   br label %243
 
@@ -5689,7 +5689,7 @@ transformPartitionCmd.exit:                       ; preds = %202, %205, %208
   %.0183.lcssa = phi i1 [ true, %5 ], [ %.0183298.lcssa, %._crit_edge302.loopexit ]
   %.0179.lcssa = phi ptr [ null, %5 ], [ %.0179299.lcssa, %._crit_edge302.loopexit ]
   store ptr null, ptr %31, align 8
-  call fastcc void @transformIndexConstraints(ptr noundef nonnull %6)
+  call fastcc void @transformIndexConstraints(ptr noundef %6)
   %248 = load ptr, ptr %29, align 8
   %249 = icmp ne ptr %248, null
   %brmerge.not = select i1 %249, i1 %.0183.lcssa, i1 false
@@ -5907,7 +5907,7 @@ declare ptr @makeDefElem(ptr noundef, ptr noundef, i32 noundef) local_unnamed_ad
 declare ptr @makeTypeNameFromOid(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @generateSerialExtraStmts(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef writeonly %6, ptr noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc void @generateSerialExtraStmts(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef writeonly %6, ptr noundef writeonly %7) unnamed_addr #0 {
   %9 = zext i1 %4 to i8
   %10 = tail call ptr @list_copy(ptr noundef %3) #8
   %.not = icmp eq ptr %10, null

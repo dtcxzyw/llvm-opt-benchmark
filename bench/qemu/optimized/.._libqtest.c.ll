@@ -512,12 +512,12 @@ if.then6.i:                                       ; preds = %entry
   unreachable
 
 qtest_qemu_binary.exit:                           ; preds = %entry
-  %call1 = tail call fastcc ptr @qtest_init_internal(ptr noundef nonnull %call4.i, ptr noundef %extra_args)
+  %call1 = tail call fastcc ptr @qtest_init_internal(ptr noundef %call4.i, ptr noundef %extra_args)
   ret ptr %call1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @qtest_init_internal(ptr noundef %qemu_bin, ptr noundef %extra_args) unnamed_addr #1 {
+define internal fastcc noundef ptr @qtest_init_internal(ptr noundef nonnull %qemu_bin, ptr noundef %extra_args) unnamed_addr #1 {
 entry:
   %call = tail call ptr @g_get_tmp_dir() #23
   %call1 = tail call i32 @getpid() #23
@@ -638,7 +638,7 @@ if.then6.i:                                       ; preds = %if.end3.i
 
 qtest_qemu_binary.exit:                           ; preds = %if.then.i, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %call4.i, %if.end3.i ]
-  %call1 = tail call fastcc ptr @qtest_init_internal(ptr noundef nonnull %retval.0.i, ptr noundef %extra_args)
+  %call1 = tail call fastcc ptr @qtest_init_internal(ptr noundef %retval.0.i, ptr noundef %extra_args)
   %call2 = tail call ptr @qtest_qmp_receive(ptr noundef %call1)
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
@@ -1931,7 +1931,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef %expected_args) unnamed_addr #1 {
+define internal fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef range(i32 0, 3) %expected_args) unnamed_addr #1 {
 entry:
   %irq = alloca i64, align 8
   %recv_line = getelementptr inbounds i8, ptr %s, i64 304
@@ -2028,8 +2028,8 @@ if.else64:                                        ; preds = %do.body58
   br label %do.end66
 
 do.end66:                                         ; preds = %if.else64, %do.body58
-  %cmp6731 = icmp sgt i32 %expected_args, 0
-  br i1 %cmp6731, label %do.body69.preheader, label %for.end
+  %cmp6731.not = icmp eq i32 %expected_args, 0
+  br i1 %cmp6731.not, label %for.end, label %do.body69.preheader
 
 do.body69.preheader:                              ; preds = %do.end66
   %wide.trip.count = zext nneg i32 %expected_args to i64
@@ -3844,7 +3844,7 @@ declare ptr @g_get_tmp_dir() local_unnamed_addr #2
 declare i32 @getpid() local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef ptr @qtest_spawn_qemu(ptr noundef %qemu_bin, ptr nocapture readnone %fmt, ...) unnamed_addr #1 {
+define internal noundef ptr @qtest_spawn_qemu(ptr noundef nonnull %qemu_bin, ptr nocapture readnone %fmt, ...) unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %call = tail call noalias dereferenceable_or_null(336) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 336) #30
@@ -3864,7 +3864,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %cond = phi ptr [ %call2, %cond.true ], [ %call3, %cond.false ]
   %call4 = tail call ptr @g_string_new(ptr noundef nonnull @.str.103) #23
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call4, ptr noundef nonnull @.str.115, ptr noundef %qemu_bin, ptr noundef %cond) #23
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call4, ptr noundef nonnull @.str.115, ptr noundef nonnull %qemu_bin, ptr noundef %cond) #23
   call void @g_string_append_vprintf(ptr noundef %call4, ptr noundef nonnull @.str.107, ptr noundef nonnull %ap) #23
   call void @llvm.va_end.p0(ptr nonnull %ap)
   %bf.load.i = load i32, ptr getelementptr inbounds (i8, ptr @abrt_hooks, i64 8), align 8

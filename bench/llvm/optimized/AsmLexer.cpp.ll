@@ -1340,7 +1340,7 @@ define dso_local void @_ZN4llvm8AsmLexer8LexDigitEv(ptr dead_on_unwind noalias w
 
 128:                                              ; preds = %117
   %129 = load ptr, ptr %119, align 8
-  call fastcc void @_ZL9radixNameB5cxx11j(ptr dead_on_unwind noalias nonnull writable align 8 %17, i32 noundef %.042.ph)
+  call fastcc void @_ZL9radixNameB5cxx11j(ptr dead_on_unwind noalias writable align 8 %17, i32 noundef %.042.ph)
   %130 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 0, ptr noundef nonnull @.str.6) #20, !noalias !32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %130) #20
   %131 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.7) #20, !noalias !35
@@ -1528,7 +1528,7 @@ _ZL13findLastDigitPKcj.exit:                      ; preds = %.preheader204
 202:                                              ; preds = %_ZL13findLastDigitPKcj.exit
   %203 = load ptr, ptr %192, align 8
   %204 = load i32, ptr %199, align 4
-  call fastcc void @_ZL9radixNameB5cxx11j(ptr dead_on_unwind noalias nonnull writable align 8 %22, i32 noundef %204)
+  call fastcc void @_ZL9radixNameB5cxx11j(ptr dead_on_unwind noalias writable align 8 %22, i32 noundef %204)
   %205 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef 0, ptr noundef nonnull @.str.6) #20, !noalias !45
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %205) #20
   %206 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @.str.7) #20, !noalias !48
@@ -2040,7 +2040,7 @@ _ZL14doHexLookAheadRPKcjb.exit:                   ; preds = %.split.i, %.critedg
 
 408:                                              ; preds = %399
   %409 = load ptr, ptr %400, align 8
-  call fastcc void @_ZL9radixNameB5cxx11j(ptr dead_on_unwind noalias nonnull writable align 8 %35, i32 noundef %392)
+  call fastcc void @_ZL9radixNameB5cxx11j(ptr dead_on_unwind noalias writable align 8 %35, i32 noundef %392)
   %410 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef 0, ptr noundef nonnull @.str.6) #20, !noalias !72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %410) #20
   %411 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @.str.7) #20, !noalias !75
@@ -2506,7 +2506,7 @@ _ZL8intTokenN4llvm9StringRefERNS_5APIntE.exit138: ; preds = %_ZN4llvm5APIntD2Ev.
 
 605:                                              ; preds = %592
   %606 = load ptr, ptr %597, align 8
-  call fastcc void @_ZL9radixNameB5cxx11j(ptr dead_on_unwind noalias nonnull writable align 8 %52, i32 noundef %596)
+  call fastcc void @_ZL9radixNameB5cxx11j(ptr dead_on_unwind noalias writable align 8 %52, i32 noundef %596)
   %607 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %52, i64 noundef 0, ptr noundef nonnull @.str.6) #20, !noalias !98
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %607) #20
   %608 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull @.str.7) #20, !noalias !101
@@ -2572,7 +2572,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %631, %628, %625, %5
 declare noundef zeroext i1 @_ZNK4llvm9StringRef12getAsIntegerEjRNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL9radixNameB5cxx11j(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL9radixNameB5cxx11j(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
@@ -2741,7 +2741,7 @@ _ZN4llvm5APIntD2Ev.exit9:                         ; preds = %_ZNK4llvm5APInt6isI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 8, 17) i32 @_ZL14doHexLookAheadRPKcjb(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #8 {
+define internal fastcc noundef range(i32 8, 17) i32 @_ZL14doHexLookAheadRPKcjb(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, i32 noundef range(i32 8, 11) %1, i1 noundef zeroext %2) unnamed_addr #8 {
   %4 = load ptr, ptr %0, align 8
   br i1 %2, label %.split.us, label %.split
 

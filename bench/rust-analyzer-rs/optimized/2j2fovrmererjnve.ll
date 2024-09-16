@@ -697,7 +697,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 56:                                               ; preds = %.thread44, %.thread
   %.pn43 = phi { ptr, i32 } [ %41, %.thread ], [ %lpad.thr_comm, %.thread44 ]
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$semver..Version$GT$$GT$17h8414938af7aaf726E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #15
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$semver..Version$GT$$GT$17h8414938af7aaf726E"(ptr noalias noundef align 8 dereferenceable(40) %3) #15
           to label %55 unwind label %57
 
 57:                                               ; preds = %56
@@ -859,7 +859,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 56:                                               ; preds = %.thread44, %.thread
   %.pn43 = phi { ptr, i32 } [ %41, %.thread ], [ %lpad.thr_comm, %.thread44 ]
-  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$17h60bc5680736d405cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #15
+  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$17h60bc5680736d405cE"(ptr noalias noundef align 8 dereferenceable(24) %3) #15
           to label %55 unwind label %57
 
 57:                                               ; preds = %56
@@ -1621,7 +1621,7 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.16
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$17h60bc5680736d405cE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$17h60bc5680736d405cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !102, !noundef !5
   %3 = icmp eq i64 %2, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1654,7 +1654,7 @@ define internal fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..CrateGraph$GT$$GT$$GT$$GT$17he77bbaedb99b90aaE"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..CrateGraph$GT$$GT$$GT$$GT$17he77bbaedb99b90aaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !5
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr109drop_in_place$LT$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..CrateGraph$GT$$GT$$GT$17h89241a0d3dc5b25dE.exit", label %4
@@ -1788,7 +1788,7 @@ define internal void @"_ZN4core3ptr54drop_in_place$LT$$RF$triomphe..arc..Arc$LT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$semver..Version$GT$$GT$17h8414938af7aaf726E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$semver..Version$GT$$GT$17h8414938af7aaf726E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !5
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
@@ -2549,7 +2549,7 @@ define hidden void @"_ZN96_$LT$salsa..input..UnitInputStorage$LT$Q$GT$$u20$as$u2
 7:                                                ; preds = %5
   %8 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..CrateGraph$GT$$GT$$GT$$GT$17he77bbaedb99b90aaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2) #15
+  invoke fastcc void @"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..CrateGraph$GT$$GT$$GT$$GT$17he77bbaedb99b90aaE"(ptr noalias noundef align 8 dereferenceable(16) %2) #15
           to label %"_ZN4core3ptr216drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..CrateGraph$GT$$GT$$GT$$GT$$GT$17hf9356db1473d6cdaE.exit" unwind label %26
 
 "_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit": ; preds = %1, %5
@@ -4385,7 +4385,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   br i1 %46, label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17h551a6990d627ea63E.exit.thread", label %.noexc
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17h551a6990d627ea63E.exit.thread": ; preds = %18, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h233d58e2f7c11458E.llvm.6986466436814177072.exit.thread9.i", %.noexc14, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17h551a6990d627ea63E.exit"
-  invoke fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch28_$u7b$$u7b$closure$u7d$$u7d$17hbb054f33600d526fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
+  invoke fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch28_$u7b$$u7b$closure$u7d$$u7d$17hbb054f33600d526fE"(ptr noalias noundef readonly align 8 dereferenceable(8) %6)
           to label %.noexc.unreachable unwind label %43
 
 .noexc.unreachable:                               ; preds = %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17h551a6990d627ea63E.exit.thread"
@@ -4624,7 +4624,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   br i1 %49, label %51, label %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E.llvm.16417257138847559323.exit.thread
 
 50:                                               ; preds = %.noexc15, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h72051644f8ecd0c4E.llvm.6986466436814177072.exit.thread9.i", %18
-  invoke fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch28_$u7b$$u7b$closure$u7d$$u7d$17h8a82693c61013472E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
+  invoke fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch28_$u7b$$u7b$closure$u7d$$u7d$17h8a82693c61013472E"(ptr noalias noundef readonly align 8 dereferenceable(8) %6)
           to label %.noexc.unreachable unwind label %43
 
 .noexc.unreachable:                               ; preds = %50
@@ -4856,7 +4856,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   br i1 %48, label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17h3455fa9e825515a6E.exit.thread", label %.noexc
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17h3455fa9e825515a6E.exit.thread": ; preds = %20, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17haff2ca80ca4a6dcaE.llvm.6986466436814177072.exit.thread9.i", %.noexc13, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17h3455fa9e825515a6E.exit"
-  invoke fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch28_$u7b$$u7b$closure$u7d$$u7d$17h317d09fa553018a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
+  invoke fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch28_$u7b$$u7b$closure$u7d$$u7d$17h317d09fa553018a8E"(ptr noalias noundef readonly align 8 dereferenceable(8) %8)
           to label %.noexc.unreachable unwind label %45
 
 .noexc.unreachable:                               ; preds = %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17h3455fa9e825515a6E.exit.thread"
@@ -4975,7 +4975,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 93:                                               ; preds = %92, %98, %"_ZN4core3ptr178drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$$GT$17h4a646b0e5456c4afE.exit24"
   %94 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$semver..Version$GT$$GT$17h8414938af7aaf726E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7) #15
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$semver..Version$GT$$GT$17h8414938af7aaf726E"(ptr noalias noundef align 8 dereferenceable(40) %7) #15
           to label %"_ZN4core3ptr178drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$$GT$17h4a646b0e5456c4afE.exit" unwind label %108
 
 "_ZN4core3ptr178drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$$GT$17h4a646b0e5456c4afE.exit24": ; preds = %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4bd8d8c60b7a419aE.exit", %92
@@ -5124,7 +5124,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   br i1 %47, label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17hef896c01897c40e7E.exit.thread", label %.noexc
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17hef896c01897c40e7E.exit.thread": ; preds = %19, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h1677a7566eeeb83cE.llvm.6986466436814177072.exit.thread9.i", %.noexc13, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17hef896c01897c40e7E.exit"
-  invoke fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch28_$u7b$$u7b$closure$u7d$$u7d$17h92d22f0bd1b4bccdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7)
+  invoke fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch28_$u7b$$u7b$closure$u7d$$u7d$17h92d22f0bd1b4bccdE"(ptr noalias noundef readonly align 8 dereferenceable(8) %7)
           to label %.noexc.unreachable unwind label %44
 
 .noexc.unreachable:                               ; preds = %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17hef896c01897c40e7E.exit.thread"
@@ -5206,7 +5206,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 79:                                               ; preds = %78, %84, %"_ZN4core3ptr224drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$$GT$$GT$17h38ca789dce31b74bE.exit25"
   %80 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$17h60bc5680736d405cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #15
+  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$17h60bc5680736d405cE"(ptr noalias noundef align 8 dereferenceable(24) %6) #15
           to label %"_ZN4core3ptr224drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$$GT$$GT$17h38ca789dce31b74bE.exit" unwind label %94
 
 "_ZN4core3ptr224drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$$GT$$GT$17h38ca789dce31b74bE.exit25": ; preds = %"_ZN72_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4633b27e398b9d22E.exit", %78
@@ -5354,7 +5354,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   br i1 %46, label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17h4e19644ca44d6a62E.exit.thread", label %.noexc
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17h4e19644ca44d6a62E.exit.thread": ; preds = %17, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17hfcb28de7c37465c3E.llvm.6986466436814177072.exit.thread9.i", %.noexc14, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17h4e19644ca44d6a62E.exit"
-  invoke fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch28_$u7b$$u7b$closure$u7d$$u7d$17h62e5212dde031442E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5)
+  invoke fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch28_$u7b$$u7b$closure$u7d$$u7d$17h62e5212dde031442E"(ptr noalias noundef readonly align 8 dereferenceable(8) %5)
           to label %.noexc.unreachable unwind label %43
 
 .noexc.unreachable:                               ; preds = %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17h4e19644ca44d6a62E.exit.thread"
@@ -5446,7 +5446,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 }
 
 ; Function Attrs: cold inlinehint noreturn nonlazybind uwtable
-define internal fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch28_$u7b$$u7b$closure$u7d$$u7d$17h317d09fa553018a8E"(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch28_$u7b$$u7b$closure$u7d$$u7d$17h317d09fa553018a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = alloca [2 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -5473,7 +5473,7 @@ define internal fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$
 }
 
 ; Function Attrs: cold inlinehint noreturn nonlazybind uwtable
-define internal fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch28_$u7b$$u7b$closure$u7d$$u7d$17h62e5212dde031442E"(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch28_$u7b$$u7b$closure$u7d$$u7d$17h62e5212dde031442E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = alloca [2 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -5500,7 +5500,7 @@ define internal fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$
 }
 
 ; Function Attrs: cold inlinehint noreturn nonlazybind uwtable
-define internal fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch28_$u7b$$u7b$closure$u7d$$u7d$17h8a82693c61013472E"(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch28_$u7b$$u7b$closure$u7d$$u7d$17h8a82693c61013472E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = alloca [2 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -5527,7 +5527,7 @@ define internal fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$
 }
 
 ; Function Attrs: cold inlinehint noreturn nonlazybind uwtable
-define internal fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch28_$u7b$$u7b$closure$u7d$$u7d$17h92d22f0bd1b4bccdE"(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch28_$u7b$$u7b$closure$u7d$$u7d$17h92d22f0bd1b4bccdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = alloca [2 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -5554,7 +5554,7 @@ define internal fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$
 }
 
 ; Function Attrs: cold inlinehint noreturn nonlazybind uwtable
-define internal fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch28_$u7b$$u7b$closure$u7d$$u7d$17hbb054f33600d526fE"(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN97_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch28_$u7b$$u7b$closure$u7d$$u7d$17hbb054f33600d526fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = alloca [2 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8

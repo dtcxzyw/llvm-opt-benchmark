@@ -5657,7 +5657,7 @@ invoke.cont:
   %key_with_ts = alloca %"struct.std::array", align 8
   %ref.tmp = alloca %"struct.rocksdb::SliceParts", align 8
   %ref.tmp7 = alloca %"struct.rocksdb::SliceParts", align 8
-  call fastcc void @_ZN7rocksdb12_GLOBAL__N_130CheckColumnFamilyTimestampSizeEPNS_18ColumnFamilyHandleERKNS_5SliceE(ptr noalias nonnull align 8 %s, ptr noundef %column_family, ptr noundef nonnull align 8 dereferenceable(16) %ts)
+  call fastcc void @_ZN7rocksdb12_GLOBAL__N_130CheckColumnFamilyTimestampSizeEPNS_18ColumnFamilyHandleERKNS_5SliceE(ptr noalias align 8 %s, ptr noundef %column_family, ptr noundef nonnull align 8 dereferenceable(16) %ts)
   %0 = load i8, ptr %s, align 8
   %cmp.i = icmp eq i8 %0, 0
   br i1 %cmp.i, label %if.end, label %if.then
@@ -5769,7 +5769,7 @@ _ZN7rocksdb6StatusD2Ev.exit10:                    ; preds = %cleanup, %_ZNKSt14d
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_130CheckColumnFamilyTimestampSizeEPNS_18ColumnFamilyHandleERKNS_5SliceE(ptr noalias align 8 %agg.result, ptr noundef %column_family, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ts) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_130CheckColumnFamilyTimestampSizeEPNS_18ColumnFamilyHandleERKNS_5SliceE(ptr noalias nonnull align 8 %agg.result, ptr noundef %column_family, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ts) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp1 = alloca %"class.rocksdb::Slice", align 8
@@ -7345,7 +7345,7 @@ invoke.cont:
   %s = alloca %"class.rocksdb::Status", align 8
   %key_with_ts = alloca %"struct.std::array", align 8
   %ref.tmp = alloca %"struct.rocksdb::SliceParts", align 8
-  call fastcc void @_ZN7rocksdb12_GLOBAL__N_130CheckColumnFamilyTimestampSizeEPNS_18ColumnFamilyHandleERKNS_5SliceE(ptr noalias nonnull align 8 %s, ptr noundef %column_family, ptr noundef nonnull align 8 dereferenceable(16) %ts)
+  call fastcc void @_ZN7rocksdb12_GLOBAL__N_130CheckColumnFamilyTimestampSizeEPNS_18ColumnFamilyHandleERKNS_5SliceE(ptr noalias align 8 %s, ptr noundef %column_family, ptr noundef nonnull align 8 dereferenceable(16) %ts)
   %0 = load i8, ptr %s, align 8
   %cmp.i = icmp eq i8 %0, 0
   br i1 %cmp.i, label %if.end, label %if.then
@@ -7931,7 +7931,7 @@ invoke.cont:
   %s = alloca %"class.rocksdb::Status", align 8
   %key_with_ts = alloca %"struct.std::array", align 8
   %ref.tmp = alloca %"struct.rocksdb::SliceParts", align 8
-  call fastcc void @_ZN7rocksdb12_GLOBAL__N_130CheckColumnFamilyTimestampSizeEPNS_18ColumnFamilyHandleERKNS_5SliceE(ptr noalias nonnull align 8 %s, ptr noundef %column_family, ptr noundef nonnull align 8 dereferenceable(16) %ts)
+  call fastcc void @_ZN7rocksdb12_GLOBAL__N_130CheckColumnFamilyTimestampSizeEPNS_18ColumnFamilyHandleERKNS_5SliceE(ptr noalias align 8 %s, ptr noundef %column_family, ptr noundef nonnull align 8 dereferenceable(16) %ts)
   %0 = load i8, ptr %s, align 8
   %cmp.i = icmp eq i8 %0, 0
   br i1 %cmp.i, label %if.end, label %if.then
@@ -8596,7 +8596,7 @@ invoke.cont:
   %end_key_with_ts = alloca %"struct.std::array", align 8
   %ref.tmp = alloca %"struct.rocksdb::SliceParts", align 8
   %ref.tmp10 = alloca %"struct.rocksdb::SliceParts", align 8
-  call fastcc void @_ZN7rocksdb12_GLOBAL__N_130CheckColumnFamilyTimestampSizeEPNS_18ColumnFamilyHandleERKNS_5SliceE(ptr noalias nonnull align 8 %s, ptr noundef %column_family, ptr noundef nonnull align 8 dereferenceable(16) %ts)
+  call fastcc void @_ZN7rocksdb12_GLOBAL__N_130CheckColumnFamilyTimestampSizeEPNS_18ColumnFamilyHandleERKNS_5SliceE(ptr noalias align 8 %s, ptr noundef %column_family, ptr noundef nonnull align 8 dereferenceable(16) %ts)
   %0 = load i8, ptr %s, align 8
   %cmp.i = icmp eq i8 %0, 0
   br i1 %cmp.i, label %if.end, label %if.then
@@ -9429,7 +9429,7 @@ invoke.cont:
   %key_with_ts = alloca %"struct.std::array", align 8
   %ref.tmp = alloca %"struct.rocksdb::SliceParts", align 8
   %ref.tmp7 = alloca %"struct.rocksdb::SliceParts", align 8
-  call fastcc void @_ZN7rocksdb12_GLOBAL__N_130CheckColumnFamilyTimestampSizeEPNS_18ColumnFamilyHandleERKNS_5SliceE(ptr noalias nonnull align 8 %s, ptr noundef %column_family, ptr noundef nonnull align 8 dereferenceable(16) %ts)
+  call fastcc void @_ZN7rocksdb12_GLOBAL__N_130CheckColumnFamilyTimestampSizeEPNS_18ColumnFamilyHandleERKNS_5SliceE(ptr noalias align 8 %s, ptr noundef %column_family, ptr noundef nonnull align 8 dereferenceable(16) %ts)
   %0 = load i8, ptr %s, align 8
   %cmp.i = icmp eq i8 %0, 0
   br i1 %cmp.i, label %if.end, label %if.then
@@ -12689,7 +12689,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %xor.i7 = xor i64 %xor.i, %call.i.i8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sequence_number.addr.i)
   store i64 %xor.i7, ptr %mem_kv_prot_info, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter9PutCFImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias nonnull align 8 %ref.tmp9, ptr noundef nonnull align 16 dereferenceable(336) %this, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, i8 noundef zeroext 1, ptr noundef nonnull %mem_kv_prot_info)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter9PutCFImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias align 8 %ref.tmp9, ptr noundef nonnull align 16 dereferenceable(336) %this, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, i8 noundef zeroext 1, ptr noundef nonnull %mem_kv_prot_info)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont4
@@ -12763,7 +12763,7 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %lpad, %_ZNKSt14defa
 
 if.else:                                          ; preds = %_ZN7rocksdb12_GLOBAL__N_116MemTableInserter18NextProtectionInfoEv.exit.thread, %_ZN7rocksdb12_GLOBAL__N_116MemTableInserter18NextProtectionInfoEv.exit
   %state_.i47 = phi ptr [ %state_.i45, %_ZN7rocksdb12_GLOBAL__N_116MemTableInserter18NextProtectionInfoEv.exit.thread ], [ %state_.i, %_ZN7rocksdb12_GLOBAL__N_116MemTableInserter18NextProtectionInfoEv.exit ]
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter9PutCFImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias nonnull align 8 %ref.tmp12, ptr noundef nonnull align 16 dereferenceable(336) %this, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, i8 noundef zeroext 1, ptr noundef null)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter9PutCFImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias align 8 %ref.tmp12, ptr noundef nonnull align 16 dereferenceable(336) %this, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, i8 noundef zeroext 1, ptr noundef null)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %if.else
@@ -12903,7 +12903,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %xor.i7 = xor i64 %xor.i, %call.i.i8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sequence_number.addr.i)
   store i64 %xor.i7, ptr %mem_kv_prot_info, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter9PutCFImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias nonnull align 8 %ref.tmp9, ptr noundef nonnull align 16 dereferenceable(336) %this, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, i8 noundef zeroext 22, ptr noundef nonnull %mem_kv_prot_info)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter9PutCFImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias align 8 %ref.tmp9, ptr noundef nonnull align 16 dereferenceable(336) %this, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, i8 noundef zeroext 22, ptr noundef nonnull %mem_kv_prot_info)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont4
@@ -12977,7 +12977,7 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %lpad, %_ZNKSt14defa
 
 if.else:                                          ; preds = %_ZN7rocksdb12_GLOBAL__N_116MemTableInserter18NextProtectionInfoEv.exit.thread, %_ZN7rocksdb12_GLOBAL__N_116MemTableInserter18NextProtectionInfoEv.exit
   %state_.i47 = phi ptr [ %state_.i45, %_ZN7rocksdb12_GLOBAL__N_116MemTableInserter18NextProtectionInfoEv.exit.thread ], [ %state_.i, %_ZN7rocksdb12_GLOBAL__N_116MemTableInserter18NextProtectionInfoEv.exit ]
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter9PutCFImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias nonnull align 8 %ref.tmp12, ptr noundef nonnull align 16 dereferenceable(336) %this, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, i8 noundef zeroext 22, ptr noundef null)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter9PutCFImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias align 8 %ref.tmp12, ptr noundef nonnull align 16 dereferenceable(336) %this, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, i8 noundef zeroext 22, ptr noundef null)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %if.else
@@ -13360,7 +13360,7 @@ invoke.cont53:                                    ; preds = %call.i.i.i.noexc
   store ptr @.str.28, ptr %ref.tmp55, align 8
   %size_.i = getelementptr inbounds i8, ptr %ref.tmp55, i64 8
   store i64 0, ptr %size_.i, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias nonnull align 8 %ref.tmp54, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp55, i8 noundef zeroext %cond, ptr noundef nonnull %mem_kv_prot_info)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias align 8 %ref.tmp54, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp55, i8 noundef zeroext %cond, ptr noundef nonnull %mem_kv_prot_info)
           to label %invoke.cont57 unwind label %lpad
 
 invoke.cont57:                                    ; preds = %invoke.cont53
@@ -13420,7 +13420,7 @@ if.else59:                                        ; preds = %cond.end
   store ptr @.str.28, ptr %ref.tmp61, align 8
   %size_.i78 = getelementptr inbounds i8, ptr %ref.tmp61, i64 8
   store i64 0, ptr %size_.i78, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias nonnull align 8 %ref.tmp60, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp61, i8 noundef zeroext %cond, ptr noundef null)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias align 8 %ref.tmp60, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp61, i8 noundef zeroext %cond, ptr noundef null)
           to label %invoke.cont63 unwind label %lpad
 
 invoke.cont63:                                    ; preds = %if.else59
@@ -13836,7 +13836,7 @@ invoke.cont36:                                    ; preds = %invoke.cont33
   store ptr @.str.28, ptr %ref.tmp42, align 8
   %size_.i = getelementptr inbounds i8, ptr %ref.tmp42, i64 8
   store i64 0, ptr %size_.i, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias nonnull align 8 %ref.tmp41, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp42, i8 noundef zeroext 7, ptr noundef nonnull %mem_kv_prot_info)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias align 8 %ref.tmp41, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp42, i8 noundef zeroext 7, ptr noundef nonnull %mem_kv_prot_info)
           to label %invoke.cont44 unwind label %lpad
 
 invoke.cont44:                                    ; preds = %invoke.cont36
@@ -13896,7 +13896,7 @@ if.else46:                                        ; preds = %if.end29
   store ptr @.str.28, ptr %ref.tmp48, align 8
   %size_.i71 = getelementptr inbounds i8, ptr %ref.tmp48, i64 8
   store i64 0, ptr %size_.i71, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias nonnull align 8 %ref.tmp47, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp48, i8 noundef zeroext 7, ptr noundef null)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias align 8 %ref.tmp47, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp48, i8 noundef zeroext 7, ptr noundef null)
           to label %invoke.cont50 unwind label %lpad
 
 invoke.cont50:                                    ; preds = %if.else46
@@ -14518,7 +14518,7 @@ invoke.cont110:                                   ; preds = %invoke.cont107
   %xor.i80 = xor i64 %xor.i, %call.i.i7981
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sequence_number.addr.i)
   store i64 %xor.i80, ptr %mem_kv_prot_info, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias nonnull align 8 %ref.tmp115, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %begin_key, ptr noundef nonnull align 8 dereferenceable(16) %end_key, i8 noundef zeroext 15, ptr noundef nonnull %mem_kv_prot_info)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias align 8 %ref.tmp115, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %begin_key, ptr noundef nonnull align 8 dereferenceable(16) %end_key, i8 noundef zeroext 15, ptr noundef nonnull %mem_kv_prot_info)
           to label %invoke.cont116 unwind label %lpad
 
 invoke.cont116:                                   ; preds = %invoke.cont110
@@ -14567,7 +14567,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit101:                ; preds = %invoke.cont116
   br i1 %cmp.not.i.i103, label %if.end122, label %if.end122.sink.split
 
 if.else118:                                       ; preds = %if.end103
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias nonnull align 8 %ref.tmp119, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %begin_key, ptr noundef nonnull align 8 dereferenceable(16) %end_key, i8 noundef zeroext 15, ptr noundef null)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias align 8 %ref.tmp119, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %begin_key, ptr noundef nonnull align 8 dereferenceable(16) %end_key, i8 noundef zeroext 15, ptr noundef null)
           to label %invoke.cont120 unwind label %lpad
 
 invoke.cont120:                                   ; preds = %if.else118
@@ -16027,7 +16027,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %xor.i7 = xor i64 %xor.i, %call.i.i8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sequence_number.addr.i)
   store i64 %xor.i7, ptr %mem_kv_prot_info, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter9PutCFImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias nonnull align 8 %ref.tmp9, ptr noundef nonnull align 16 dereferenceable(336) %this, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, i8 noundef zeroext 17, ptr noundef nonnull %mem_kv_prot_info)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter9PutCFImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias align 8 %ref.tmp9, ptr noundef nonnull align 16 dereferenceable(336) %this, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, i8 noundef zeroext 17, ptr noundef nonnull %mem_kv_prot_info)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont4
@@ -16101,7 +16101,7 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %lpad, %_ZNKSt14defa
 
 if.else:                                          ; preds = %_ZN7rocksdb12_GLOBAL__N_116MemTableInserter18NextProtectionInfoEv.exit.thread, %_ZN7rocksdb12_GLOBAL__N_116MemTableInserter18NextProtectionInfoEv.exit
   %state_.i47 = phi ptr [ %state_.i45, %_ZN7rocksdb12_GLOBAL__N_116MemTableInserter18NextProtectionInfoEv.exit.thread ], [ %state_.i, %_ZN7rocksdb12_GLOBAL__N_116MemTableInserter18NextProtectionInfoEv.exit ]
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter9PutCFImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias nonnull align 8 %ref.tmp12, ptr noundef nonnull align 16 dereferenceable(336) %this, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, i8 noundef zeroext 17, ptr noundef null)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter9PutCFImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias align 8 %ref.tmp12, ptr noundef nonnull align 16 dereferenceable(336) %this, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, i8 noundef zeroext 17, ptr noundef null)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %if.else
@@ -17067,7 +17067,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter9PutCFImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(336) %this, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, i8 noundef zeroext %value_type, ptr noundef %kv_prot_info) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter9PutCFImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(336) %this, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, i8 noundef zeroext range(i8 1, 23) %value_type, ptr noundef %kv_prot_info) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mem.addr.i = alloca ptr, align 8
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
@@ -17106,7 +17106,7 @@ land.rhs:                                         ; preds = %entry
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.rhs
-  tail call void @_ZN7rocksdb18WriteBatchInternal3PutEPNS_10WriteBatchEjRKNS_5SliceES5_(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull %1, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value)
+  tail call void @_ZN7rocksdb18WriteBatchInternal3PutEPNS_10WriteBatchEjRKNS_5SliceES5_(ptr nonnull sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull %1, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value)
   br label %return
 
 if.end:                                           ; preds = %entry, %land.rhs
@@ -19998,7 +19998,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, i8 noundef zeroext %delete_type, ptr noundef %kv_prot_info) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserter10DeleteImplEjRKNS_5SliceES4_NS_9ValueTypeEPKNS_18ProtectionInfoKVOSImEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, i8 noundef zeroext range(i8 0, 21) %delete_type, ptr noundef %kv_prot_info) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mem.addr.i = alloca ptr, align 8
   %ref.tmp = alloca %"class.rocksdb::Status", align 8

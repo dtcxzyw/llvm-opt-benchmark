@@ -3565,7 +3565,7 @@ return:                                           ; preds = %if.end.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN6hermes6bigint12_GLOBAL__N_112bigintAsImplENS0_16MutableBigIntRefEjmNS0_18ImmutableBigIntRefENS1_8BigIntAsE(ptr nocapture %dst.coerce0, ptr nocapture %dst.coerce1, i32 noundef %numDigits, i64 noundef %n, ptr nocapture readonly %src.coerce0, i32 %src.coerce1, i32 noundef %operation) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN6hermes6bigint12_GLOBAL__N_112bigintAsImplENS0_16MutableBigIntRefEjmNS0_18ImmutableBigIntRefENS1_8BigIntAsE(ptr nocapture %dst.coerce0, ptr nocapture %dst.coerce1, i32 noundef %numDigits, i64 noundef %n, ptr nocapture readonly %src.coerce0, i32 %src.coerce1, i32 noundef range(i32 0, 2) %operation) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %dst.coerce1, align 4
   %cmp = icmp ult i32 %0, %numDigits
@@ -6126,7 +6126,7 @@ if.then55:                                        ; preds = %if.else51
   %div6.i = lshr i32 %conv, 6
   %add1.i = add nuw nsw i32 %div6.i, 2
   %rem.i = and i64 %cond, 63
-  %cmp.i = icmp ugt i64 %cond, 65471
+  %cmp.i = icmp eq i32 %div6.i, 1023
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then55
@@ -6155,7 +6155,7 @@ if.then62:                                        ; preds = %if.else58
   %div6.i258 = lshr i32 %conv64, 6
   %add1.i259 = add nuw nsw i32 %div6.i258, 2
   %rem.i260 = and i64 %cond, 63
-  %cmp.i261 = icmp ugt i64 %cond, 65471
+  %cmp.i261 = icmp eq i32 %div6.i258, 1023
   br i1 %cmp.i261, label %_ZN6hermes6bigint12_GLOBAL__N_120exponentiatePowerOf2ENS0_16MutableBigIntRefEj.exit272, label %if.end.i262
 
 if.end.i262:                                      ; preds = %if.then62
@@ -6320,7 +6320,7 @@ _ZN6hermes6bigint13initWithBytesENS0_16MutableBigIntRefEN4llvh8ArrayRefIhEE.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZN6hermes6bigint12_GLOBAL__N_120exponentiateSlowPathENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefEj(ptr %dst.coerce0, ptr %dst.coerce1, ptr nocapture readonly %lhs.coerce0, i32 %lhs.coerce1, i32 noundef %exponent) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZN6hermes6bigint12_GLOBAL__N_120exponentiateSlowPathENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefEj(ptr %dst.coerce0, ptr %dst.coerce1, ptr nocapture readonly %lhs.coerce0, i32 %lhs.coerce1, i32 noundef range(i32 0, 65536) %exponent) unnamed_addr #5 {
 entry:
   %rhs.addr.i = alloca i64, align 8
   %dst = alloca %"struct.hermes::bigint::MutableBigIntRef", align 8
@@ -6771,7 +6771,7 @@ _ZN6hermes6bigint10TmpStorageD2Ev.exit:           ; preds = %cleanup, %if.then.i
 define hidden noundef i32 @_ZN6hermes6bigint19leftShiftResultSizeENS0_18ImmutableBigIntRefES1_(ptr nocapture readnone %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
 entry:
   %ref.tmp = alloca %"class.std::tuple.39", align 4
-  call fastcc void @_ZN6hermes6bigint12_GLOBAL__N_121getShiftAmountAndSignENS0_18ImmutableBigIntRefE(ptr noalias nonnull align 4 %ref.tmp, ptr %rhs.coerce0, i32 %rhs.coerce1)
+  call fastcc void @_ZN6hermes6bigint12_GLOBAL__N_121getShiftAmountAndSignENS0_18ImmutableBigIntRefE(ptr noalias align 4 %ref.tmp, ptr %rhs.coerce0, i32 %rhs.coerce1)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %0 = load i8, ptr %ref.tmp, align 4
   %1 = and i8 %0, 1
@@ -6785,7 +6785,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6bigint12_GLOBAL__N_121getShiftAmountAndSignENS0_18ImmutableBigIntRefE(ptr noalias nocapture writeonly align 4 %agg.result, ptr %shiftAmnt.coerce0, i32 %shiftAmnt.coerce1) unnamed_addr #5 {
+define internal fastcc void @_ZN6hermes6bigint12_GLOBAL__N_121getShiftAmountAndSignENS0_18ImmutableBigIntRefE(ptr noalias nocapture nonnull writeonly align 4 %agg.result, ptr %shiftAmnt.coerce0, i32 %shiftAmnt.coerce1) unnamed_addr #5 {
 entry:
   %rhs.addr.i7 = alloca i64, align 8
   %rhs.addr.i = alloca i64, align 8
@@ -7051,7 +7051,7 @@ return:                                           ; preds = %_ZN6hermes6bigint7c
 define hidden noundef i32 @_ZN6hermes6bigint26signedRightShiftResultSizeENS0_18ImmutableBigIntRefES1_(ptr nocapture readnone %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
 entry:
   %ref.tmp = alloca %"class.std::tuple.39", align 4
-  call fastcc void @_ZN6hermes6bigint12_GLOBAL__N_121getShiftAmountAndSignENS0_18ImmutableBigIntRefE(ptr noalias nonnull align 4 %ref.tmp, ptr %rhs.coerce0, i32 %rhs.coerce1)
+  call fastcc void @_ZN6hermes6bigint12_GLOBAL__N_121getShiftAmountAndSignENS0_18ImmutableBigIntRefE(ptr noalias align 4 %ref.tmp, ptr %rhs.coerce0, i32 %rhs.coerce1)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %0 = load i8, ptr %ref.tmp, align 4
   %1 = and i8 %0, 1
@@ -7069,17 +7069,18 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint9leftShiftENS0_16Mut
 entry:
   %ref.tmp.i.i = alloca %"class.std::tuple.39", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  call fastcc void @_ZN6hermes6bigint12_GLOBAL__N_121getShiftAmountAndSignENS0_18ImmutableBigIntRefE(ptr noalias nonnull align 4 %ref.tmp.i.i, ptr %rhs.coerce0, i32 %rhs.coerce1), !noalias !57
+  call fastcc void @_ZN6hermes6bigint12_GLOBAL__N_121getShiftAmountAndSignENS0_18ImmutableBigIntRefE(ptr noalias align 4 %ref.tmp.i.i, ptr %rhs.coerce0, i32 %rhs.coerce1), !noalias !57
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 4
   %0 = load i8, ptr %ref.tmp.i.i, align 4, !noalias !57
-  %1 = trunc i8 %0 to i1
+  %1 = and i8 %0, 1
+  %cmp3.not.i.not.i = icmp eq i8 %1, 0
   %2 = load i32, ptr %add.ptr.i.i.i.i.i, align 4, !noalias !57
   %sub1.i.i.i.i.i = add i32 %2, 63
   %div1.i.i.i.i = lshr i32 %sub1.i.i.i.i.i, 6
-  %extraDigits.0.i.i.i = select i1 %1, i32 0, i32 %div1.i.i.i.i
+  %extraDigits.0.i.i.i = select i1 %cmp3.not.i.not.i, i32 %div1.i.i.i.i, i32 0
   %add.i.i.i = add i32 %extraDigits.0.i.i.i, %lhs.coerce1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  %_ZN6hermes6bigint12_GLOBAL__N_123signedRightShiftAdapterEPmjj._ZN4llvh5APInt11tcShiftLeftEPmjj.i = select i1 %1, ptr @_ZN6hermes6bigint12_GLOBAL__N_123signedRightShiftAdapterEPmjj, ptr @_ZN4llvh5APInt11tcShiftLeftEPmjj
+  %_ZN6hermes6bigint12_GLOBAL__N_123signedRightShiftAdapterEPmjj._ZN4llvh5APInt11tcShiftLeftEPmjj.i = select i1 %cmp3.not.i.not.i, ptr @_ZN4llvh5APInt11tcShiftLeftEPmjj, ptr @_ZN6hermes6bigint12_GLOBAL__N_123signedRightShiftAdapterEPmjj
   %3 = load i32, ptr %dst.coerce1, align 4
   %cmp5.i = icmp ult i32 %3, %add.i.i.i
   %cmp.i.i = icmp ult i32 %3, %lhs.coerce1
@@ -7170,17 +7171,18 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint16signedRightShiftEN
 entry:
   %ref.tmp.i.i = alloca %"class.std::tuple.39", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  call fastcc void @_ZN6hermes6bigint12_GLOBAL__N_121getShiftAmountAndSignENS0_18ImmutableBigIntRefE(ptr noalias nonnull align 4 %ref.tmp.i.i, ptr %rhs.coerce0, i32 %rhs.coerce1), !noalias !61
+  call fastcc void @_ZN6hermes6bigint12_GLOBAL__N_121getShiftAmountAndSignENS0_18ImmutableBigIntRefE(ptr noalias align 4 %ref.tmp.i.i, ptr %rhs.coerce0, i32 %rhs.coerce1), !noalias !61
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 4
   %0 = load i8, ptr %ref.tmp.i.i, align 4, !noalias !61
-  %1 = trunc i8 %0 to i1
+  %1 = and i8 %0, 1
+  %cmp3.not.i.not.i.not = icmp eq i8 %1, 0
   %2 = load i32, ptr %add.ptr.i.i.i.i.i, align 4, !noalias !61
   %sub1.i.i.i.i.i = add i32 %2, 63
   %div1.i.i.i.i = lshr i32 %sub1.i.i.i.i.i, 6
-  %extraDigits.0.i.i.i = select i1 %1, i32 %div1.i.i.i.i, i32 0
+  %extraDigits.0.i.i.i = select i1 %cmp3.not.i.not.i.not, i32 0, i32 %div1.i.i.i.i
   %add.i.i.i = add i32 %extraDigits.0.i.i.i, %lhs.coerce1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  %_ZN6hermes6bigint12_GLOBAL__N_123signedRightShiftAdapterEPmjj._ZN4llvh5APInt11tcShiftLeftEPmjj.i = select i1 %1, ptr @_ZN4llvh5APInt11tcShiftLeftEPmjj, ptr @_ZN6hermes6bigint12_GLOBAL__N_123signedRightShiftAdapterEPmjj
+  %_ZN6hermes6bigint12_GLOBAL__N_123signedRightShiftAdapterEPmjj._ZN4llvh5APInt11tcShiftLeftEPmjj.i = select i1 %cmp3.not.i.not.i.not, ptr @_ZN6hermes6bigint12_GLOBAL__N_123signedRightShiftAdapterEPmjj, ptr @_ZN4llvh5APInt11tcShiftLeftEPmjj
   %3 = load i32, ptr %dst.coerce1, align 4
   %cmp5.i = icmp ult i32 %3, %add.i.i.i
   %cmp.i.i = icmp ult i32 %3, %lhs.coerce1

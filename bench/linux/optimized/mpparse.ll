@@ -206,7 +206,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 declare dso_local void @register_lapic_address(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid optsize
-define internal fastcc void @construct_default_ISA_mptable(i32 noundef %0) unnamed_addr #4 section ".init.text" align 16 {
+define internal fastcc void @construct_default_ISA_mptable(i32 noundef range(i32 0, 256) %0) unnamed_addr #4 section ".init.text" align 16 {
 .critedge:
   %1 = alloca %struct.mpc_cpu, align 4
   %2 = alloca %struct.mpc_lintsrc, align 8
@@ -214,7 +214,7 @@ define internal fastcc void @construct_default_ISA_mptable(i32 noundef %0) unnam
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
   store i64 71776119061218052, ptr %2, align 8, !annotation !8
   store i8 0, ptr %1, align 4
-  %3 = icmp sgt i32 %0, 4
+  %3 = icmp ugt i32 %0, 4
   %4 = select i1 %3, i8 16, i8 1
   %5 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 %4, ptr %5, align 2
@@ -257,7 +257,7 @@ define internal fastcc void @construct_default_ISA_mptable(i32 noundef %0) unnam
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -1, 1) i32 @check_physptr(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @check_physptr(ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = alloca %struct.mpc_bus, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -344,7 +344,7 @@ define dso_local void @default_find_smp_config() local_unnamed_addr #0 section "
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 0, 2) i32 @smp_scan_config(i64 noundef %0, i64 noundef %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @smp_scan_config(i64 noundef range(i64 0, 1048561) %0, i64 noundef range(i64 1024, 65537) %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = load i32, ptr @apic_verbosity, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %.preheader26
@@ -690,7 +690,7 @@ define internal noundef i32 @update_mp_table() #0 section ".init.text" align 16 
   %128 = phi i64 [ %91, %103 ], [ %122, %121 ], [ %23, %84 ], [ %23, %75 ], [ %23, %30 ], [ %23, %.thread8 ]
   %129 = phi ptr [ %82, %103 ], [ %123, %121 ], [ %26, %84 ], [ %26, %75 ], [ %26, %30 ], [ %26, %.thread8 ]
   %130 = phi ptr [ %9, %103 ], [ %124, %121 ], [ %9, %84 ], [ %9, %75 ], [ %9, %30 ], [ %9, %.thread8 ]
-  call void @early_memunmap(ptr noundef %129, i64 noundef %128) #10
+  call void @early_memunmap(ptr noundef nonnull %129, i64 noundef %128) #10
   br label %131
 
 131:                                              ; preds = %127, %28, %17, %13
@@ -740,19 +740,20 @@ define internal fastcc void @MP_processor_info(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @construct_ioapic_table(i32 noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @construct_ioapic_table(i32 noundef range(i32 0, 256) %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = alloca %struct.mpc_ioapic, align 8
   %3 = alloca %struct.mpc_bus, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
   store i64 1, ptr %3, align 8, !annotation !8
   %4 = getelementptr inbounds i8, ptr %3, i64 1
-  switch i32 %0, label %5 [
-    i32 1, label %7
-    i32 5, label %7
-    i32 2, label %9
-    i32 6, label %9
-    i32 3, label %9
+  %trunc = trunc nuw i32 %0 to i8
+  switch i8 %trunc, label %5 [
+    i8 1, label %7
+    i8 5, label %7
+    i8 2, label %9
+    i8 6, label %9
+    i8 3, label %9
   ]
 
 5:                                                ; preds = %1
@@ -771,7 +772,7 @@ define internal fastcc void @construct_ioapic_table(i32 noundef %0) unnamed_addr
 
 11:                                               ; preds = %9, %7
   call fastcc void @MP_bus_info(ptr noundef nonnull %3) #12
-  %12 = icmp sgt i32 %0, 4
+  %12 = icmp ugt i32 %0, 4
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
@@ -915,7 +916,7 @@ define internal fastcc void @MP_ioapic_info(ptr nocapture noundef readonly %0) u
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @construct_default_ioirq_mptable(i32 noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @construct_default_ioirq_mptable(i32 noundef range(i32 0, 256) %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = alloca %struct.mpc_intsrc, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
   store i64 3, ptr %2, align 8, !annotation !8
@@ -1032,7 +1033,7 @@ declare dso_local i32 @mpc_ioapic_id(i32 noundef) local_unnamed_addr #2
 declare dso_local void @mp_save_irq(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc range(i64 0, 65536) i64 @get_mpc_size(i64 noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i64 0, 65536) i64 @get_mpc_size(i64 noundef range(i64 0, 4294967296) %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = tail call ptr @early_memremap(i64 noundef %0, i64 noundef 4096) #10
   %3 = getelementptr inbounds i8, ptr %2, i64 4
   %4 = load i16, ptr %3, align 4
@@ -1286,7 +1287,7 @@ declare dso_local i32 @memblock_reserve(i64 noundef, i64 noundef) local_unnamed_
 declare dso_local i64 @memparse(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @replace_intsrc_all(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @replace_intsrc_all(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
   store i32 0, ptr %4, align 4
@@ -1339,7 +1340,7 @@ define internal fastcc void @replace_intsrc_all(ptr noundef %0, i64 noundef %1, 
   br label %26
 
 25:                                               ; preds = %.preheader6
-  tail call fastcc void @smp_dump_mptable(ptr noundef %0, ptr noundef %18) #12
+  tail call fastcc void @smp_dump_mptable(ptr noundef nonnull %0, ptr noundef %18) #12
   br label %.loopexit5
 
 26:                                               ; preds = %24, %23, %22, %21, %.preheader6

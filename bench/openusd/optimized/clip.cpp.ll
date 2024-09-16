@@ -2257,7 +2257,7 @@ define noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip24_Transla
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load ptr, ptr %6, align 8
-  %8 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSegmentERKSt6vectorINS_8Usd_Clip11TimeMappingESaIS2_EEdPmS7_(ptr noundef nonnull align 8 dereferenceable(24) %7, double noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %8 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSegmentERKSt6vectorINS_8Usd_Clip11TimeMappingESaIS2_EEdPmS7_(ptr noundef nonnull align 8 dereferenceable(24) %7, double noundef %1, ptr noundef %3, ptr noundef %4)
   br i1 %8, label %9, label %_ZN32pxrInternal_v0_24__pxrReserved__L30_TranslateTimeToInternalHelperEdRKNS_8Usd_Clip11TimeMappingES3_.exit
 
 9:                                                ; preds = %2
@@ -20157,7 +20157,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip20_TranslatePathToClipERKNS_7SdfP
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %32 = load ptr, ptr %31, align 8
-  %33 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSegmentERKSt6vectorINS_8Usd_Clip11TimeMappingESaIS2_EEdPmS7_(ptr noundef nonnull align 8 dereferenceable(24) %32, double noundef %2, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %33 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSegmentERKSt6vectorINS_8Usd_Clip11TimeMappingESaIS2_EEdPmS7_(ptr noundef nonnull align 8 dereferenceable(24) %32, double noundef %2, ptr noundef %11, ptr noundef %12)
           to label %34 unwind label %28
 
 34:                                               ; preds = %30
@@ -20493,7 +20493,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit: ; preds 
 declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer31GetBracketingTimeSamplesForPathERKNS_7SdfPathEdPdS4_(ptr noundef nonnull align 8 dereferenceable(557), ptr noundef nonnull align 4 dereferenceable(8), double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSegmentERKSt6vectorINS_8Usd_Clip11TimeMappingESaIS2_EEdPmS7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, double noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSegmentERKSt6vectorINS_8Usd_Clip11TimeMappingESaIS2_EEdPmS7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, double noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8

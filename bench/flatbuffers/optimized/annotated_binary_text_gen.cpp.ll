@@ -237,7 +237,7 @@ for.body24:                                       ; preds = %for.body, %if.end40
   %__begin2.sroa.0.049 = phi ptr [ %incdec.ptr.i, %if.end40 ], [ %5, %for.body ]
   %call294348 = phi i64 [ %call2942, %if.end40 ], [ %output_config.promoted5463, %for.body ]
   %call374547 = phi i64 [ %call3744, %if.end40 ], [ %largest_value_string.i.promoted5962, %for.body ]
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_118GenerateTypeStringB5cxx11ERKNS_12BinaryRegionE(ptr noalias nonnull align 8 %s, ptr noundef nonnull align 8 dereferenceable(160) %__begin2.sroa.0.049)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_118GenerateTypeStringB5cxx11ERKNS_12BinaryRegionE(ptr noalias align 8 %s, ptr noundef nonnull align 8 dereferenceable(160) %__begin2.sroa.0.049)
   %call26 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #10
   %cmp28 = icmp ugt i64 %call26, %call294348
   br i1 %cmp28, label %if.then, label %if.end
@@ -257,7 +257,7 @@ if.end:                                           ; preds = %if.then, %for.body2
 
 if.then32:                                        ; preds = %if.end
   %8 = load ptr, ptr %binary_, align 8
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringB5cxx11ERKNS_12BinaryRegionEPKhRKNS0_12OutputConfigE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(160) %__begin2.sroa.0.049, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(34) %output_config)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringB5cxx11ERKNS_12BinaryRegionEPKhRKNS0_12OutputConfigE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(160) %__begin2.sroa.0.049, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(34) %output_config)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then32
@@ -1214,7 +1214,7 @@ eh.resume:                                        ; preds = %lpad46, %ehcleanup,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_118GenerateTypeStringB5cxx11ERKNS_12BinaryRegionE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %region) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_118GenerateTypeStringB5cxx11ERKNS_12BinaryRegionE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %region) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i197 = alloca %struct._Guard, align 8
   %__guard.i187 = alloca %struct._Guard, align 8
@@ -2434,7 +2434,7 @@ ehcleanup33:                                      ; preds = %cleanup.action17, %
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringB5cxx11ERKNS_12BinaryRegionEPKhRKNS0_12OutputConfigE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %region, ptr noundef %binary, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %output_config) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringB5cxx11ERKNS_12BinaryRegionEPKhRKNS0_12OutputConfigE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %region, ptr noundef %binary, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %output_config) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i218 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp.i219 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2590,7 +2590,7 @@ for.body.i:                                       ; preds = %invoke.cont8.i, %fo
   %9 = xor i64 %i.011.i, -1
   %arrayidx.i = getelementptr i8, ptr %8, i64 %9
   %10 = load i8, ptr %arrayidx.i, align 1, !noalias !19
-  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias nonnull align 8 %ref.tmp.i50, i8 noundef zeroext %10)
+  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias align 8 %ref.tmp.i50, i8 noundef zeroext %10)
           to label %invoke.cont6.i unwind label %lpad.loopexit.i
 
 invoke.cont6.i:                                   ; preds = %for.body.i
@@ -2676,7 +2676,7 @@ for.body.i66:                                     ; preds = %invoke.cont8.i74, %
   %18 = xor i64 %i.011.i67, -1
   %arrayidx.i68 = getelementptr i8, ptr %17, i64 %18
   %19 = load i8, ptr %arrayidx.i68, align 1, !noalias !23
-  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias nonnull align 8 %ref.tmp.i54, i8 noundef zeroext %19)
+  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias align 8 %ref.tmp.i54, i8 noundef zeroext %19)
           to label %invoke.cont6.i71 unwind label %lpad.loopexit.i69
 
 invoke.cont6.i71:                                 ; preds = %for.body.i66
@@ -2767,7 +2767,7 @@ for.body.i99:                                     ; preds = %invoke.cont8.i107, 
   %28 = xor i64 %i.011.i100, -1
   %arrayidx.i101 = getelementptr i8, ptr %27, i64 %28
   %29 = load i8, ptr %arrayidx.i101, align 1, !noalias !27
-  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias nonnull align 8 %ref.tmp.i87, i8 noundef zeroext %29)
+  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias align 8 %ref.tmp.i87, i8 noundef zeroext %29)
           to label %invoke.cont6.i104 unwind label %lpad.loopexit.i102
 
 invoke.cont6.i104:                                ; preds = %for.body.i99
@@ -2853,7 +2853,7 @@ for.body.i132:                                    ; preds = %invoke.cont8.i140, 
   %37 = xor i64 %i.011.i133, -1
   %arrayidx.i134 = getelementptr i8, ptr %36, i64 %37
   %38 = load i8, ptr %arrayidx.i134, align 1, !noalias !31
-  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias nonnull align 8 %ref.tmp.i120, i8 noundef zeroext %38)
+  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias align 8 %ref.tmp.i120, i8 noundef zeroext %38)
           to label %invoke.cont6.i137 unwind label %lpad.loopexit.i135
 
 invoke.cont6.i137:                                ; preds = %for.body.i132
@@ -2939,7 +2939,7 @@ for.body.i165:                                    ; preds = %invoke.cont8.i173, 
   %46 = xor i64 %i.011.i166, -1
   %arrayidx.i167 = getelementptr i8, ptr %45, i64 %46
   %47 = load i8, ptr %arrayidx.i167, align 1, !noalias !35
-  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias nonnull align 8 %ref.tmp.i153, i8 noundef zeroext %47)
+  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias align 8 %ref.tmp.i153, i8 noundef zeroext %47)
           to label %invoke.cont6.i170 unwind label %lpad.loopexit.i168
 
 invoke.cont6.i170:                                ; preds = %for.body.i165
@@ -3031,7 +3031,7 @@ for.body.i197:                                    ; preds = %invoke.cont8.i205, 
   %55 = xor i64 %i.011.i198, -1
   %arrayidx.i199 = getelementptr i8, ptr %54, i64 %55
   %56 = load i8, ptr %arrayidx.i199, align 1, !noalias !39
-  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias nonnull align 8 %ref.tmp.i185, i8 noundef zeroext %56)
+  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias align 8 %ref.tmp.i185, i8 noundef zeroext %56)
           to label %invoke.cont6.i202 unwind label %lpad.loopexit.i200
 
 invoke.cont6.i202:                                ; preds = %for.body.i197
@@ -3137,7 +3137,7 @@ for.body.i231:                                    ; preds = %invoke.cont8.i239, 
   %65 = xor i64 %i.011.i232, -1
   %arrayidx.i233 = getelementptr i8, ptr %64, i64 %65
   %66 = load i8, ptr %arrayidx.i233, align 1, !noalias !46
-  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias nonnull align 8 %ref.tmp.i219, i8 noundef zeroext %66)
+  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias align 8 %ref.tmp.i219, i8 noundef zeroext %66)
           to label %invoke.cont6.i236 unwind label %lpad.loopexit.i234
 
 invoke.cont6.i236:                                ; preds = %for.body.i231
@@ -3219,7 +3219,7 @@ _ZN11flatbuffers12_GLOBAL__N_113ToValueStringIfEENSt7__cxx1112basic_stringIcSt11
   br label %cleanup
 
 sw.bb43:                                          ; preds = %if.end16
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(160) %region, ptr noundef %binary)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(160) %region, ptr noundef %binary)
           to label %invoke.cont44 unwind label %lpad.loopexit.split-lp
 
 invoke.cont44:                                    ; preds = %sw.bb43
@@ -3233,7 +3233,7 @@ lpad45:                                           ; preds = %invoke.cont44
   br label %ehcleanup
 
 sw.bb48:                                          ; preds = %if.end16
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringIjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(160) %region, ptr noundef %binary)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringIjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(160) %region, ptr noundef %binary)
           to label %invoke.cont50 unwind label %lpad.loopexit.split-lp
 
 invoke.cont50:                                    ; preds = %sw.bb48
@@ -3247,7 +3247,7 @@ lpad51:                                           ; preds = %invoke.cont50
   br label %ehcleanup
 
 sw.bb54:                                          ; preds = %if.end16
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh(ptr noalias nonnull align 8 %ref.tmp55, ptr noundef nonnull align 8 dereferenceable(160) %region, ptr noundef %binary)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh(ptr noalias align 8 %ref.tmp55, ptr noundef nonnull align 8 dereferenceable(160) %region, ptr noundef %binary)
           to label %invoke.cont56 unwind label %lpad.loopexit.split-lp
 
 invoke.cont56:                                    ; preds = %sw.bb54
@@ -3261,7 +3261,7 @@ lpad57:                                           ; preds = %invoke.cont56
   br label %ehcleanup
 
 sw.bb60:                                          ; preds = %if.end16
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringItEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh(ptr noalias nonnull align 8 %ref.tmp61, ptr noundef nonnull align 8 dereferenceable(160) %region, ptr noundef %binary)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringItEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12BinaryRegionEPKh(ptr noalias align 8 %ref.tmp61, ptr noundef nonnull align 8 dereferenceable(160) %region, ptr noundef %binary)
           to label %invoke.cont62 unwind label %lpad.loopexit.split-lp
 
 invoke.cont62:                                    ; preds = %sw.bb60
@@ -3296,7 +3296,7 @@ invoke.cont70:                                    ; preds = %if.then69
   %76 = load i64, ptr %points_to_offset, align 8
   %offset_max_char = getelementptr inbounds i8, ptr %output_config, i64 24
   %77 = load i64, ptr %offset_max_char, align 8
-  invoke fastcc void @_ZN11flatbuffersL5ToHexImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_m(ptr noalias nonnull align 8 %ref.tmp72, i64 noundef %76, i64 noundef %77)
+  invoke fastcc void @_ZN11flatbuffersL5ToHexImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_m(ptr noalias align 8 %ref.tmp72, i64 noundef %76, i64 noundef %77)
           to label %invoke.cont73 unwind label %lpad.loopexit.split-lp
 
 invoke.cont73:                                    ; preds = %invoke.cont70
@@ -3712,7 +3712,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   %4 = xor i64 %i.011, -1
   %arrayidx = getelementptr i8, ptr %3, i64 %4
   %5 = load i8, ptr %arrayidx, align 1
-  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias nonnull align 8 %ref.tmp, i8 noundef zeroext %5)
+  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias align 8 %ref.tmp, i8 noundef zeroext %5)
           to label %invoke.cont6 unwind label %lpad.loopexit
 
 invoke.cont6:                                     ; preds = %for.body
@@ -3798,7 +3798,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   %4 = xor i64 %i.011, -1
   %arrayidx = getelementptr i8, ptr %3, i64 %4
   %5 = load i8, ptr %arrayidx, align 1
-  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias nonnull align 8 %ref.tmp, i8 noundef zeroext %5)
+  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias align 8 %ref.tmp, i8 noundef zeroext %5)
           to label %invoke.cont6 unwind label %lpad.loopexit
 
 invoke.cont6:                                     ; preds = %for.body
@@ -3884,7 +3884,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   %4 = xor i64 %i.011, -1
   %arrayidx = getelementptr i8, ptr %3, i64 %4
   %5 = load i8, ptr %arrayidx, align 1
-  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias nonnull align 8 %ref.tmp, i8 noundef zeroext %5)
+  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias align 8 %ref.tmp, i8 noundef zeroext %5)
           to label %invoke.cont6 unwind label %lpad.loopexit
 
 invoke.cont6:                                     ; preds = %for.body
@@ -3971,7 +3971,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   %4 = xor i64 %i.011, -1
   %arrayidx = getelementptr i8, ptr %3, i64 %4
   %5 = load i8, ptr %arrayidx, align 1
-  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias nonnull align 8 %ref.tmp, i8 noundef zeroext %5)
+  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias align 8 %ref.tmp, i8 noundef zeroext %5)
           to label %invoke.cont6 unwind label %lpad.loopexit
 
 invoke.cont6:                                     ; preds = %for.body
@@ -4058,7 +4058,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   %4 = xor i64 %i.011, -1
   %arrayidx = getelementptr i8, ptr %3, i64 %4
   %5 = load i8, ptr %arrayidx, align 1
-  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias nonnull align 8 %ref.tmp, i8 noundef zeroext %5)
+  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias align 8 %ref.tmp, i8 noundef zeroext %5)
           to label %invoke.cont6 unwind label %lpad.loopexit
 
 invoke.cont6:                                     ; preds = %for.body
@@ -4123,7 +4123,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffersL5ToHexImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_m(ptr noalias align 8 %agg.result, i64 noundef %i, i64 noundef %width) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffersL5ToHexImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_m(ptr noalias nonnull align 8 %agg.result, i64 noundef %i, i64 noundef %width) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %stream = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %stream)
@@ -4149,7 +4149,7 @@ invoke.cont11:                                    ; preds = %invoke.cont5
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %stream)
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %stream)
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont13
@@ -4166,7 +4166,7 @@ lpad:                                             ; preds = %invoke.cont13, %inv
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias align 8 %agg.result, i8 noundef zeroext %i) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias nonnull align 8 %agg.result, i8 noundef zeroext %i) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %stream.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %conv = zext i8 %i to i32
@@ -4193,7 +4193,7 @@ invoke.cont13.i:                                  ; preds = %invoke.cont6.i
           to label %invoke.cont15.i unwind label %lpad.i, !noalias !60
 
 invoke.cont15.i:                                  ; preds = %invoke.cont13.i
-  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %stream.i)
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %stream.i)
           to label %_ZN11flatbuffersL5ToHexIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_m.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont15.i, %invoke.cont13.i, %invoke.cont6.i, %invoke.cont1.i, %invoke.cont.i, %entry
@@ -4791,7 +4791,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
   %2 = load i64, ptr %region, align 8
   %add = add i64 %2, %i.08
   %3 = load i64, ptr %offset_max_char, align 8
-  invoke fastcc void @_ZN11flatbuffersL5ToHexImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_m(ptr noalias nonnull align 8 %ref.tmp, i64 noundef %add, i64 noundef %3)
+  invoke fastcc void @_ZN11flatbuffersL5ToHexImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_m(ptr noalias align 8 %ref.tmp, i64 noundef %add, i64 noundef %3)
           to label %invoke.cont4 unwind label %lpad.loopexit.split-lp
 
 invoke.cont4:                                     ; preds = %invoke.cont2
@@ -4833,7 +4833,7 @@ invoke.cont12:                                    ; preds = %if.end
   %7 = getelementptr i8, ptr %binary, i64 %6
   %arrayidx = getelementptr i8, ptr %7, i64 %i.08
   %8 = load i8, ptr %arrayidx, align 1
-  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias nonnull align 8 %ref.tmp14, i8 noundef zeroext %8)
+  invoke fastcc void @_ZN11flatbuffersL5ToHexB5cxx11Eh(ptr noalias align 8 %ref.tmp14, i8 noundef zeroext %8)
           to label %invoke.cont17 unwind label %lpad.loopexit.split-lp
 
 invoke.cont17:                                    ; preds = %invoke.cont12
@@ -5005,7 +5005,7 @@ invoke.cont24.i:                                  ; preds = %.noexc34
           to label %invoke.cont26.i unwind label %lpad23.i
 
 invoke.cont26.i:                                  ; preds = %invoke.cont24.i
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_118GenerateTypeStringB5cxx11ERKNS_12BinaryRegionE(ptr noalias nonnull align 8 %ref.tmp29.i, ptr noundef nonnull align 8 dereferenceable(160) %region)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_118GenerateTypeStringB5cxx11ERKNS_12BinaryRegionE(ptr noalias align 8 %ref.tmp29.i, ptr noundef nonnull align 8 dereferenceable(160) %region)
           to label %invoke.cont30.i unwind label %lpad23.i
 
 invoke.cont30.i:                                  ; preds = %invoke.cont26.i
@@ -5050,7 +5050,7 @@ call48.i.noexc:                                   ; preds = %call47.i.noexc
 if.then50.i:                                      ; preds = %call48.i.noexc
   %add.i = add i64 %call43.i, 3
   store i64 %add.i, ptr %doc_continuation, align 8
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringB5cxx11ERKNS_12BinaryRegionEPKhRKNS0_12OutputConfigE(ptr noalias nonnull align 8 %value52.i, ptr noundef nonnull align 8 dereferenceable(160) %region, ptr noundef %binary, ptr noundef nonnull readonly align 8 dereferenceable(34) %output_config)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringB5cxx11ERKNS_12BinaryRegionEPKhRKNS0_12OutputConfigE(ptr noalias align 8 %value52.i, ptr noundef nonnull align 8 dereferenceable(160) %region, ptr noundef %binary, ptr noundef nonnull readonly align 8 dereferenceable(34) %output_config)
           to label %.noexc38 unwind label %lpad.loopexit.split-lp
 
 .noexc38:                                         ; preds = %if.then50.i
@@ -5169,7 +5169,7 @@ invoke.cont101.i:                                 ; preds = %.noexc39
           to label %invoke.cont103.i unwind label %lpad100.i
 
 invoke.cont103.i:                                 ; preds = %invoke.cont101.i
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringB5cxx11ERKNS_12BinaryRegionEPKhRKNS0_12OutputConfigE(ptr noalias nonnull align 8 %ref.tmp106.i, ptr noundef nonnull align 8 dereferenceable(160) %region, ptr noundef %binary, ptr noundef nonnull readonly align 8 dereferenceable(34) %output_config)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113ToValueStringB5cxx11ERKNS_12BinaryRegionEPKhRKNS0_12OutputConfigE(ptr noalias align 8 %ref.tmp106.i, ptr noundef nonnull align 8 dereferenceable(160) %region, ptr noundef %binary, ptr noundef nonnull readonly align 8 dereferenceable(34) %output_config)
           to label %invoke.cont107.i unwind label %lpad100.i
 
 invoke.cont107.i:                                 ; preds = %invoke.cont103.i

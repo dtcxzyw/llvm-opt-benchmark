@@ -461,7 +461,7 @@ define dso_local void @release_ds_buffers() local_unnamed_addr #4 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @release_pebs_buffer(i32 noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc void @release_pebs_buffer(i32 noundef range(i32 0, 64) %0) unnamed_addr #4 align 16 {
   %2 = load i16, ptr getelementptr inbounds (i8, ptr @x86_pmu, i64 376), align 8
   %3 = and i16 %2, 4
   %4 = icmp eq i16 %3, 0
@@ -542,7 +542,7 @@ define internal fastcc void @release_pebs_buffer(i32 noundef %0) unnamed_addr #4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @release_bts_buffer(i32 noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc void @release_bts_buffer(i32 noundef range(i32 0, 64) %0) unnamed_addr #4 align 16 {
   %2 = load i16, ptr getelementptr inbounds (i8, ptr @x86_pmu, i64 376), align 8
   %3 = and i16 %2, 1
   %4 = icmp eq i16 %3, 0
@@ -3595,7 +3595,7 @@ declare dso_local void @perf_sched_cb_dec(ptr noundef) local_unnamed_addr #6
 declare dso_local void @do_trace_write_msr(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_pmu_save_and_restart_reload(ptr noundef %0, i32 noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc void @intel_pmu_save_and_restart_reload(ptr noundef %0, i32 noundef range(i32 -32768, -2147483648) %1) unnamed_addr #4 align 16 {
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @x86_pmu, i64 164), align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 496
   %5 = load i64, ptr %4, align 8
@@ -4346,7 +4346,7 @@ declare dso_local i32 @perf_event_account_interrupt(ptr noundef) local_unnamed_a
 declare dso_local i64 @_find_first_bit(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @setup_pebs_adaptive_sample_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #4 align 16 {
+define internal fastcc void @setup_pebs_adaptive_sample_data(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #4 align 16 {
   %6 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #15, !srcloc !111
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr i8, ptr %2, i64 32
@@ -4402,7 +4402,7 @@ define internal fastcc void @setup_pebs_adaptive_sample_data(ptr noundef %0, ptr
   br i1 %40, label %52, label %41
 
 41:                                               ; preds = %38
-  %42 = tail call ptr @perf_callchain(ptr noundef %0, ptr noundef %1) #14
+  %42 = tail call ptr @perf_callchain(ptr noundef nonnull %0, ptr noundef %1) #14
   %43 = getelementptr inbounds i8, ptr %3, i64 72
   store ptr %42, ptr %43, align 8
   %44 = load i64, ptr %42, align 8
@@ -4623,7 +4623,7 @@ define internal fastcc void @setup_pebs_adaptive_sample_data(ptr noundef %0, ptr
 185:                                              ; preds = %182
   %186 = getelementptr i8, ptr %2, i64 40
   %187 = load i64, ptr %186, align 8
-  %188 = tail call fastcc i64 @get_data_src(ptr noundef %0, i64 noundef %187)
+  %188 = tail call fastcc i64 @get_data_src(ptr noundef nonnull %0, i64 noundef %187)
   %189 = getelementptr inbounds i8, ptr %3, i64 112
   store i64 %188, ptr %189, align 16
   %190 = load i64, ptr %3, align 64
@@ -4711,7 +4711,7 @@ define internal fastcc void @setup_pebs_adaptive_sample_data(ptr noundef %0, ptr
 
 245:                                              ; preds = %235
   tail call void @intel_pmu_store_pebs_lbrs(ptr noundef %232) #14
-  tail call void @intel_pmu_lbr_save_brstack(ptr noundef %3, ptr noundef %7, ptr noundef %0) #14
+  tail call void @intel_pmu_lbr_save_brstack(ptr noundef %3, ptr noundef %7, ptr noundef nonnull %0) #14
   br label %246
 
 246:                                              ; preds = %245, %235, %231

@@ -2471,7 +2471,7 @@ if.end30:                                         ; preds = %if.then28, %PyMutex
   br i1 %cmp.not.i30, label %free_interpreter.exit, label %if.then.i31
 
 if.then.i31:                                      ; preds = %if.end30
-  tail call void @PyMem_RawFree(ptr noundef %interp) #14
+  tail call void @PyMem_RawFree(ptr noundef nonnull %interp) #14
   br label %free_interpreter.exit
 
 free_interpreter.exit:                            ; preds = %if.end30, %if.then.i31

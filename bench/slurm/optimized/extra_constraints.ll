@@ -38,13 +38,13 @@ define ptr @extra_constraints_2str(ptr noundef %0) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
-  call fastcc void @_tree2str_recursive(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %2)
+  call fastcc void @_tree2str_recursive(ptr noundef %0, i32 noundef 0, ptr noundef %3, ptr noundef %2)
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_tree2str_recursive(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_tree2str_recursive(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_element2str.exit, label %5
 
@@ -72,22 +72,22 @@ define internal fastcc void @_tree2str_recursive(ptr noundef readonly %0, i32 no
   br i1 %.not19.i, label %22, label %21
 
 21:                                               ; preds = %20
-  tail call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %9, i32 noundef %1, ptr noundef nonnull @.str.2, ptr noundef %13, ptr noundef %15, ptr noundef %19, i32 noundef %16, i32 noundef 0, ptr noundef nonnull %11) #7
+  tail call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %9, i32 noundef %1, ptr noundef nonnull @.str.2, ptr noundef %13, ptr noundef %15, ptr noundef %19, i32 noundef %16, i32 noundef 0, ptr noundef nonnull %11) #7
   br label %_element2str.exit
 
 22:                                               ; preds = %20
-  tail call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.4, ptr noundef nonnull %9, i32 noundef %1, ptr noundef nonnull @.str.2, ptr noundef %13, ptr noundef %15, ptr noundef %19, i32 noundef %16) #7
+  tail call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.4, ptr noundef nonnull %9, i32 noundef %1, ptr noundef nonnull @.str.2, ptr noundef %13, ptr noundef %15, ptr noundef %19, i32 noundef %16) #7
   br label %_element2str.exit
 
 23:                                               ; preds = %5
   br i1 %.not19.i, label %25, label %24
 
 24:                                               ; preds = %23
-  tail call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %9, i32 noundef %1, ptr noundef nonnull @.str.2, ptr noundef %13, ptr noundef %15, ptr noundef %19, i32 noundef %16, i32 noundef %7, ptr noundef nonnull %11) #7
+  tail call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %9, i32 noundef %1, ptr noundef nonnull @.str.2, ptr noundef %13, ptr noundef %15, ptr noundef %19, i32 noundef %16, i32 noundef %7, ptr noundef nonnull %11) #7
   br label %_element2str.exit21
 
 25:                                               ; preds = %23
-  tail call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.4, ptr noundef nonnull %9, i32 noundef %1, ptr noundef nonnull @.str.2, ptr noundef %13, ptr noundef %15, ptr noundef %19, i32 noundef %16) #7
+  tail call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.4, ptr noundef nonnull %9, i32 noundef %1, ptr noundef nonnull @.str.2, ptr noundef %13, ptr noundef %15, ptr noundef %19, i32 noundef %16) #7
   br label %_element2str.exit21
 
 _element2str.exit21:                              ; preds = %24, %25
@@ -104,7 +104,7 @@ _element2str.exit21:                              ; preds = %24, %25
   %30 = load ptr, ptr %10, align 8
   %31 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
-  tail call fastcc void @_tree2str_recursive(ptr noundef %32, i32 noundef %28, ptr noundef %2, ptr noundef nonnull %3)
+  tail call fastcc void @_tree2str_recursive(ptr noundef %32, i32 noundef %28, ptr noundef %2, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %6, align 8
   %34 = sext i32 %33 to i64
@@ -225,7 +225,7 @@ define range(i32 0, 2172) i32 @extra_constraints_parse(ptr noundef %0, ptr nocap
   store ptr %11, ptr %5, align 8
   %12 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 178, ptr noundef nonnull @__func__._alloc_tree) #7
   store ptr %12, ptr %6, align 8
-  call fastcc void @_recurse(ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef %12, ptr noundef nonnull %3)
+  call fastcc void @_recurse(ptr noundef %5, ptr noundef %4, ptr noundef %12, ptr noundef %3)
   %13 = load i32, ptr %3, align 4
   %.not5 = icmp eq i32 %13, 0
   br i1 %.not5, label %16, label %14
@@ -260,7 +260,7 @@ define range(i32 0, 2172) i32 @extra_constraints_parse(ptr noundef %0, ptr nocap
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_recurse(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @_recurse(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr %0, align 8
@@ -338,7 +338,7 @@ _add_child.exit:                                  ; preds = %28, %30, %33
   %44 = load ptr, ptr %0, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 1
   store ptr %45, ptr %0, align 8
-  tail call fastcc void @_recurse(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %25, ptr noundef nonnull %3)
+  tail call fastcc void @_recurse(ptr noundef %0, ptr noundef %1, ptr noundef %25, ptr noundef %3)
   %.pre = load ptr, ptr %0, align 8
   br label %.backedge
 
@@ -703,7 +703,7 @@ define zeroext i1 @extra_constraints_test(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not7, label %8, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call fastcc zeroext i1 @_test_extra_constraints(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %7 = tail call fastcc zeroext i1 @_test_extra_constraints(ptr noundef nonnull %0, ptr noundef %1)
   br label %8
 
 8:                                                ; preds = %5, %2, %6
@@ -712,7 +712,7 @@ define zeroext i1 @extra_constraints_test(ptr noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_test_extra_constraints(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_test_extra_constraints(ptr noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_test.exit, label %3
 
@@ -733,7 +733,7 @@ define internal fastcc zeroext i1 @_test_extra_constraints(ptr noundef readonly 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call ptr @data_key_get(ptr noundef %1, ptr noundef %10) #7
+  %11 = tail call ptr @data_key_get(ptr noundef nonnull %1, ptr noundef %10) #7
   %.not28 = icmp eq ptr %11, null
   br i1 %.not28, label %_test.exit, label %12
 

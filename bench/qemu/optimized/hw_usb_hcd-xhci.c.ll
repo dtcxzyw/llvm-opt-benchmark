@@ -508,7 +508,7 @@ do.end.i:                                         ; preds = %if.then32.i, %do.bo
   br label %xhci_dma_read_u32s.exit
 
 xhci_dma_read_u32s.exit:                          ; preds = %if.end, %do.end.i
-  %call32 = call fastcc ptr @xhci_lookup_uport(ptr noundef nonnull %opaque, ptr noundef nonnull %slot_ctx)
+  %call32 = call fastcc ptr @xhci_lookup_uport(ptr noundef nonnull %opaque, ptr noundef %slot_ctx)
   %uport = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store ptr %call32, ptr %uport, align 8
   %tobool34.not = icmp eq ptr %call32, null
@@ -721,7 +721,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc ptr @xhci_lookup_uport(ptr nocapture noundef readonly %xhci, ptr nocapture noundef readonly %slot_ctx) unnamed_addr #4 {
+define internal fastcc ptr @xhci_lookup_uport(ptr nocapture noundef readonly %xhci, ptr nocapture noundef nonnull readonly %slot_ctx) unnamed_addr #4 {
 entry:
   %path = alloca [32 x i8], align 16
   %arrayidx = getelementptr i8, ptr %slot_ctx, i64 4
@@ -797,7 +797,7 @@ return:                                           ; preds = %for.body16, %for.in
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @xhci_init_epctx(ptr nocapture noundef %epctx, i64 noundef %pctx, ptr nocapture noundef readonly %ctx) unnamed_addr #2 {
+define internal fastcc void @xhci_init_epctx(ptr nocapture noundef %epctx, i64 noundef %pctx, ptr nocapture noundef nonnull readonly %ctx) unnamed_addr #2 {
 entry:
   %arrayidx = getelementptr i8, ptr %ctx, i64 8
   %0 = load i32, ptr %arrayidx, align 4
@@ -1102,7 +1102,7 @@ if.end21:                                         ; preds = %if.end18, %if.end11
   %iso_xfer = getelementptr inbounds i8, ptr %14, i64 197
   %28 = load i8, ptr %iso_xfer, align 1
   %tobool22 = trunc i8 %28 to i1
-  %call24 = tail call fastcc i32 @xhci_setup_packet(ptr noundef nonnull %14)
+  %call24 = tail call fastcc i32 @xhci_setup_packet(ptr noundef %14)
   %cmp = icmp slt i32 %call24, 0
   br i1 %tobool22, label %if.then23, label %if.else35
 
@@ -1219,7 +1219,7 @@ if.end65:                                         ; preds = %if.end61
   br i1 %tobool66.not, label %if.else73, label %if.then67
 
 if.then67:                                        ; preds = %if.end65
-  %call68 = call fastcc ptr @xhci_find_stream(ptr noundef nonnull %epctx, i32 noundef %streamid, ptr noundef nonnull %err)
+  %call68 = call fastcc ptr @xhci_find_stream(ptr noundef nonnull %epctx, i32 noundef %streamid, ptr noundef %err)
   %cmp69 = icmp eq ptr %call68, null
   br i1 %cmp69, label %if.end160, label %if.end71
 
@@ -1396,7 +1396,7 @@ if.then86:                                        ; preds = %if.then82, %if.then
   %intr = getelementptr [64 x %struct.XHCISlot], ptr %slots.i, i64 0, i64 %idxprom, i32 2
   %60 = load i16, ptr %intr, align 2
   %conv97 = zext i16 %60 to i32
-  call fastcc void @xhci_event(ptr noundef %0, ptr noundef nonnull %ev, i32 noundef %conv97)
+  call fastcc void @xhci_event(ptr noundef %0, ptr noundef %ev, i32 noundef %conv97)
   br label %while.end
 
 if.end99:                                         ; preds = %xhci_ring_chain_length.exit
@@ -1581,7 +1581,7 @@ if.end31.i:                                       ; preds = %if.end25.i
   store i8 0, ptr %iso_xfer.i, align 1
   %timed_xfer.i = getelementptr inbounds i8, ptr %call.i127, i64 198
   store i8 0, ptr %timed_xfer.i, align 2
-  %call.i156 = call fastcc i32 @xhci_setup_packet(ptr noundef nonnull %call.i127)
+  %call.i156 = call fastcc i32 @xhci_setup_packet(ptr noundef %call.i127)
   %cmp35.i = icmp slt i32 %call.i156, 0
   br i1 %cmp35.i, label %if.end124, label %if.end38.i
 
@@ -1840,7 +1840,7 @@ trace_usb_xhci_unimplemented.exit.i.i:            ; preds = %if.else.i.i.i.i, %i
   br label %if.end124
 
 sw.epilog.i.i:                                    ; preds = %xhci_check_intr_iso_kick.exit69.i.i, %sw.bb3.i.i, %xhci_check_intr_iso_kick.exit.i.i
-  %call17.i.i = call fastcc i32 @xhci_setup_packet(ptr noundef nonnull %call.i127)
+  %call17.i.i = call fastcc i32 @xhci_setup_packet(ptr noundef %call.i127)
   %cmp.i.i = icmp slt i32 %call17.i.i, 0
   br i1 %cmp.i.i, label %if.end124, label %if.end19.i.i
 
@@ -1960,7 +1960,7 @@ if.end160:                                        ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @xhci_setup_packet(ptr noundef %xfer) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @xhci_setup_packet(ptr noundef nonnull %xfer) unnamed_addr #2 {
 entry:
   %in_xfer = getelementptr inbounds i8, ptr %xfer, i64 196
   %0 = load i8, ptr %in_xfer, align 4
@@ -2007,6 +2007,8 @@ xhci_epid_to_usbep.exit:                          ; preds = %lor.lhs.false.i
 
 if.end7:                                          ; preds = %entry, %xhci_epid_to_usbep.exit
   %ep.0 = phi ptr [ %call.i, %xhci_epid_to_usbep.exit ], [ %1, %entry ]
+  %tobool.mask = and i8 %0, 1
+  %conv = zext nneg i8 %tobool.mask to i32
   %8 = load ptr, ptr %xfer, align 8
   %9 = load ptr, ptr %8, align 8
   %int_req.i = getelementptr inbounds i8, ptr %xfer, i64 187
@@ -2023,13 +2025,12 @@ if.end7:                                          ; preds = %entry, %xhci_epid_t
   br i1 %cmp23.not.i, label %xhci_xfer_create_sgl.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end7
-  %tobool.mask = and i8 %0, 1
   %trbs.i = getelementptr inbounds i8, ptr %xfer, i64 208
-  %tobool9.not.i = icmp eq i8 %tobool.mask, 0
-  br i1 %tobool9.not.i, label %for.body.i, label %for.body.us.i
+  %tobool23.not.i = icmp eq i8 %tobool.mask, 0
+  br i1 %tobool23.not.i, label %for.body.i, label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %for.inc.us.i
-  %13 = phi i32 [ %20, %for.inc.us.i ], [ %12, %for.body.lr.ph.i ]
+  %13 = phi i32 [ %19, %for.inc.us.i ], [ %12, %for.body.lr.ph.i ]
   %i.024.us.i = phi i32 [ %inc.us.i, %for.inc.us.i ], [ 0, %for.body.lr.ph.i ]
   %14 = load ptr, ptr %trbs.i, align 8
   %idxprom.us.i = sext i32 %i.024.us.i to i64
@@ -2056,8 +2057,12 @@ if.end.us.i:                                      ; preds = %if.then.us.i, %for.
   ]
 
 sw.bb.us.i:                                       ; preds = %if.end.us.i
-  %17 = and i32 %16, 65600
-  %or.cond.i = icmp eq i32 %17, 65536
+  %and7.us.i = lshr i32 %16, 16
+  %and7.lobit.us.i = and i32 %and7.us.i, 1
+  %cmp12.not.us.i = icmp eq i32 %and7.lobit.us.i, %conv
+  %and19.us.i = and i32 %16, 64
+  %tobool20.not.us.i = icmp eq i32 %and19.us.i, 0
+  %or.cond.i = and i1 %tobool20.not.us.i, %cmp12.not.us.i
   br i1 %or.cond.i, label %if.else.us.i, label %err.i
 
 sw.bb15.us.i:                                     ; preds = %if.end.us.i, %if.end.us.i
@@ -2067,29 +2072,29 @@ sw.bb15.us.i:                                     ; preds = %if.end.us.i, %if.en
 
 if.else.us.i:                                     ; preds = %sw.bb15.us.i, %sw.bb.us.i
   %status.us.i = getelementptr inbounds i8, ptr %arrayidx.us.i, i64 8
-  %18 = load i32, ptr %status.us.i, align 8
-  %and17.us.i = and i32 %18, 131071
-  %19 = load i64, ptr %arrayidx.us.i, align 8
+  %17 = load i32, ptr %status.us.i, align 8
+  %and17.us.i = and i32 %17, 131071
+  %18 = load i64, ptr %arrayidx.us.i, align 8
   %conv31.us.i = zext nneg i32 %and17.us.i to i64
-  tail call void @qemu_sglist_add(ptr noundef nonnull %sgl.i, i64 noundef %19, i64 noundef %conv31.us.i) #16
+  tail call void @qemu_sglist_add(ptr noundef nonnull %sgl.i, i64 noundef %18, i64 noundef %conv31.us.i) #16
   %.pre27.i = load i32, ptr %trb_count.i, align 8
   br label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %if.else.us.i, %if.end.us.i
-  %20 = phi i32 [ %.pre27.i, %if.else.us.i ], [ %13, %if.end.us.i ]
+  %19 = phi i32 [ %.pre27.i, %if.else.us.i ], [ %13, %if.end.us.i ]
   %inc.us.i = add nuw i32 %i.024.us.i, 1
-  %cmp.us.i = icmp ult i32 %inc.us.i, %20
+  %cmp.us.i = icmp ult i32 %inc.us.i, %19
   br i1 %cmp.us.i, label %for.body.us.i, label %xhci_xfer_create_sgl.exit, !llvm.loop !14
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
-  %21 = phi i32 [ %28, %for.inc.i ], [ %12, %for.body.lr.ph.i ]
+  %20 = phi i32 [ %27, %for.inc.i ], [ %12, %for.body.lr.ph.i ]
   %i.024.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
-  %22 = load ptr, ptr %trbs.i, align 8
+  %21 = load ptr, ptr %trbs.i, align 8
   %idxprom.i15 = sext i32 %i.024.i to i64
-  %arrayidx.i = getelementptr %struct.XHCITRB, ptr %22, i64 %idxprom.i15
+  %arrayidx.i = getelementptr %struct.XHCITRB, ptr %21, i64 %idxprom.i15
   %control.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
-  %23 = load i32, ptr %control.i, align 4
-  %and.i16 = and i32 %23, 32
+  %22 = load i32, ptr %control.i, align 4
+  %and.i16 = and i32 %22, 32
   %tobool.not.i17 = icmp eq i32 %and.i16, 0
   br i1 %tobool.not.i17, label %if.end.i18, label %if.then.i
 
@@ -2099,8 +2104,8 @@ if.then.i:                                        ; preds = %for.body.i
   br label %if.end.i18
 
 if.end.i18:                                       ; preds = %if.then.i, %for.body.i
-  %24 = phi i32 [ %.pre28.i, %if.then.i ], [ %23, %for.body.i ]
-  %shr.i19 = lshr i32 %24, 10
+  %23 = phi i32 [ %.pre28.i, %if.then.i ], [ %22, %for.body.i ]
+  %shr.i19 = lshr i32 %23, 10
   %and5.i = and i32 %shr.i19, 63
   switch i32 %and5.i, label %for.inc.i [
     i32 3, label %sw.bb.i
@@ -2109,15 +2114,15 @@ if.end.i18:                                       ; preds = %if.then.i, %for.bod
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i18
-  %25 = and i32 %24, 65536
-  %.not.i = icmp eq i32 %25, 0
-  br i1 %.not.i, label %sw.bb15.i, label %err.i
+  %24 = and i32 %23, 65536
+  %cmp12.not.i = icmp eq i32 %24, 0
+  br i1 %cmp12.not.i, label %sw.bb15.i, label %err.i
 
 sw.bb15.i:                                        ; preds = %sw.bb.i, %if.end.i18, %if.end.i18
   %status.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %26 = load i32, ptr %status.i, align 8
-  %and17.i = and i32 %26, 131071
-  %and19.i = and i32 %24, 64
+  %25 = load i32, ptr %status.i, align 8
+  %and17.i = and i32 %25, 131071
+  %and19.i = and i32 %23, 64
   %tobool20.not.i = icmp eq i32 %and19.i, 0
   br i1 %tobool20.not.i, label %for.inc.sink.split.i, label %if.then21.i
 
@@ -2131,36 +2136,36 @@ if.end27.i:                                       ; preds = %if.then21.i
 
 for.inc.sink.split.i:                             ; preds = %if.end27.i, %sw.bb15.i
   %arrayidx.sink.i = phi ptr [ %addr29.i, %if.end27.i ], [ %arrayidx.i, %sw.bb15.i ]
-  %27 = load i64, ptr %arrayidx.sink.i, align 8
+  %26 = load i64, ptr %arrayidx.sink.i, align 8
   %conv31.i = zext nneg i32 %and17.i to i64
-  tail call void @qemu_sglist_add(ptr noundef nonnull %sgl.i, i64 noundef %27, i64 noundef %conv31.i) #16
+  tail call void @qemu_sglist_add(ptr noundef nonnull %sgl.i, i64 noundef %26, i64 noundef %conv31.i) #16
   %.pre = load i32, ptr %trb_count.i, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.inc.sink.split.i, %if.end.i18
-  %28 = phi i32 [ %.pre, %for.inc.sink.split.i ], [ %21, %if.end.i18 ]
+  %27 = phi i32 [ %.pre, %for.inc.sink.split.i ], [ %20, %if.end.i18 ]
   %inc.i = add nuw i32 %i.024.i, 1
-  %cmp.i = icmp ult i32 %inc.i, %28
+  %cmp.i = icmp ult i32 %inc.i, %27
   br i1 %cmp.i, label %for.body.i, label %xhci_xfer_create_sgl.exit, !llvm.loop !14
 
 err.i:                                            ; preds = %sw.bb15.us.i, %sw.bb.us.i, %if.then21.i, %sw.bb.i
   tail call void @qemu_sglist_destroy(ptr noundef nonnull %sgl.i) #16
   %usbsts.i.i = getelementptr inbounds i8, ptr %9, i64 1780
-  %29 = load i32, ptr %usbsts.i.i, align 4
-  %or.i.i = or i32 %29, 4096
+  %28 = load i32, ptr %usbsts.i.i, align 4
+  %or.i.i = or i32 %28, 4096
   store i32 %or.i.i, ptr %usbsts.i.i, align 4
   br label %xhci_xfer_create_sgl.exit
 
 xhci_xfer_create_sgl.exit:                        ; preds = %for.inc.us.i, %for.inc.i, %if.end7, %err.i
   %streamid = getelementptr inbounds i8, ptr %xfer, i64 192
-  %30 = load i32, ptr %streamid, align 8
+  %29 = load i32, ptr %streamid, align 8
   %trbs = getelementptr inbounds i8, ptr %xfer, i64 208
-  %31 = load ptr, ptr %trbs, align 8
-  %addr = getelementptr inbounds i8, ptr %31, i64 16
-  %32 = load i64, ptr %addr, align 8
-  %33 = load i8, ptr %int_req.i, align 1
-  %tobool10 = trunc i8 %33 to i1
-  tail call void @usb_packet_setup(ptr noundef nonnull %packet, i32 noundef %cond, ptr noundef nonnull %ep.0, i32 noundef %30, i64 noundef %32, i1 noundef zeroext false, i1 noundef zeroext %tobool10) #16
+  %30 = load ptr, ptr %trbs, align 8
+  %addr = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = load i64, ptr %addr, align 8
+  %32 = load i8, ptr %int_req.i, align 1
+  %tobool10 = trunc i8 %32 to i1
+  tail call void @usb_packet_setup(ptr noundef nonnull %packet, i32 noundef %cond, ptr noundef nonnull %ep.0, i32 noundef %29, i64 noundef %31, i1 noundef zeroext false, i1 noundef zeroext %tobool10) #16
   %call12 = tail call i32 @usb_packet_map(ptr noundef nonnull %packet, ptr noundef nonnull %sgl.i) #16
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %return, label %if.then14
@@ -2669,7 +2674,7 @@ if.end48:                                         ; preds = %trace_usb_xhci_ep_s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @xhci_find_stream(ptr nocapture noundef readonly %epctx, i32 noundef %streamid, ptr nocapture noundef writeonly %cc_error) unnamed_addr #2 {
+define internal fastcc ptr @xhci_find_stream(ptr nocapture noundef readonly %epctx, i32 noundef %streamid, ptr nocapture noundef nonnull writeonly %cc_error) unnamed_addr #2 {
 entry:
   %ctx = alloca [2 x i32], align 8
   %cmp.not = icmp eq i32 %streamid, 0
@@ -2782,7 +2787,7 @@ return:                                           ; preds = %if.end4, %if.end14,
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @xhci_event(ptr noundef %xhci, ptr nocapture noundef readonly %event, i32 noundef %v) unnamed_addr #2 {
+define internal fastcc void @xhci_event(ptr noundef %xhci, ptr nocapture noundef nonnull readonly %event, i32 noundef range(i32 0, 65536) %v) unnamed_addr #2 {
 entry:
   %numintrs = getelementptr inbounds i8, ptr %xhci, i64 1736
   %0 = load i32, ptr %numintrs, align 8
@@ -2839,34 +2844,28 @@ if.end18:                                         ; preds = %if.end11
   %add19 = add i32 %6, 2
   %rem = urem i32 %add19, %4
   %cmp21 = icmp eq i32 %rem, %conv13
-  br i1 %cmp21, label %do.end25, label %if.else26
-
-do.end25:                                         ; preds = %if.end18
-  tail call fastcc void @xhci_write_event(ptr noundef nonnull %xhci, ptr noundef nonnull @__const.xhci_event.full, i32 noundef %v)
-  br label %if.end38
+  br i1 %cmp21, label %if.end38.sink.split, label %if.else26
 
 if.else26:                                        ; preds = %if.end18
   %add28 = add i32 %6, 1
   %rem30 = urem i32 %add28, %4
   %cmp31 = icmp eq i32 %rem30, %conv13
-  br i1 %cmp31, label %if.end38, label %if.else36
+  br i1 %cmp31, label %if.end38, label %if.end38.sink.split
 
-if.else36:                                        ; preds = %if.else26
-  tail call fastcc void @xhci_write_event(ptr noundef nonnull %xhci, ptr noundef %event, i32 noundef %v)
+if.end38.sink.split:                              ; preds = %if.else26, %if.end18
+  %event.sink = phi ptr [ @__const.xhci_event.full, %if.end18 ], [ %event, %if.else26 ]
+  tail call fastcc void @xhci_write_event(ptr noundef nonnull %xhci, ptr noundef %event.sink, i32 noundef %v)
   br label %if.end38
 
-if.end38:                                         ; preds = %if.else36, %if.else26, %do.end25
-  %idxprom.i = sext i32 %v to i64
-  %arrayidx.i = getelementptr [16 x %struct.XHCIInterrupter], ptr %intr1, i64 0, i64 %idxprom.i
-  %erdp_low.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
-  %7 = load i32, ptr %erdp_low.i, align 4
+if.end38:                                         ; preds = %if.end38.sink.split, %if.else26
+  %7 = load i32, ptr %erdp_low, align 4
   %and.i = and i32 %7, 8
   %tobool.not.i = icmp ne i32 %and.i, 0
   %or.i27 = or i32 %7, 8
-  store i32 %or.i27, ptr %erdp_low.i, align 4
-  %8 = load i32, ptr %arrayidx.i, align 8
+  store i32 %or.i27, ptr %erdp_low, align 4
+  %8 = load i32, ptr %arrayidx, align 8
   %or8.i = or i32 %8, 1
-  store i32 %or8.i, ptr %arrayidx.i, align 8
+  store i32 %or8.i, ptr %arrayidx, align 8
   %usbsts.i28 = getelementptr inbounds i8, ptr %xhci, i64 1780
   %9 = load i32, ptr %usbsts.i28, align 4
   %or9.i = or i32 %9, 8
@@ -2894,9 +2893,9 @@ if.then24.i:                                      ; preds = %if.end22.i
   br i1 %call.i, label %if.then26.i, label %return
 
 if.then26.i:                                      ; preds = %if.then24.i
-  %12 = load i32, ptr %arrayidx.i, align 8
+  %12 = load i32, ptr %arrayidx, align 8
   %and31.i = and i32 %12, -2
-  store i32 %and31.i, ptr %arrayidx.i, align 8
+  store i32 %and31.i, ptr %arrayidx, align 8
   br label %return
 
 return:                                           ; preds = %if.then26.i, %if.then24.i, %if.end22.i, %if.end18.i, %if.end38, %entry, %do.end10
@@ -3339,7 +3338,7 @@ if.then51:                                        ; preds = %if.then28
 if.end56:                                         ; preds = %if.then51, %if.then28
   %edtla.3 = phi i32 [ 0, %if.then51 ], [ %edtla.148, %if.then28 ]
   %shr58 = lshr i32 %14, 22
-  call fastcc void @xhci_event(ptr noundef %1, ptr noundef nonnull %event, i32 noundef %shr58)
+  call fastcc void @xhci_event(ptr noundef %1, ptr noundef %event, i32 noundef %shr58)
   %18 = load i32, ptr %status9, align 8
   %cmp61.not = icmp eq i32 %18, 1
   br i1 %cmp61.not, label %if.end56.if.end65_crit_edge, label %for.end
@@ -3390,7 +3389,7 @@ if.end:                                           ; preds = %entry
 if.then5:                                         ; preds = %if.end
   %streamid = getelementptr inbounds i8, ptr %xfer, i64 192
   %4 = load i32, ptr %streamid, align 8
-  %call = call fastcc ptr @xhci_find_stream(ptr noundef nonnull %0, i32 noundef %4, ptr noundef nonnull %err)
+  %call = call fastcc ptr @xhci_find_stream(ptr noundef nonnull %0, i32 noundef %4, ptr noundef %err)
   %cmp6 = icmp eq ptr %call, null
   br i1 %cmp6, label %if.end26, label %if.end8
 
@@ -3443,7 +3442,7 @@ declare void @usb_packet_cleanup(ptr noundef) local_unnamed_addr #3
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @xhci_write_event(ptr nocapture noundef %xhci, ptr nocapture noundef readonly %event, i32 noundef %v) unnamed_addr #2 {
+define internal fastcc void @xhci_write_event(ptr nocapture noundef %xhci, ptr nocapture noundef nonnull readonly %event, i32 noundef range(i32 0, 65536) %v) unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %ev_trb = alloca %struct.XHCITRB, align 8
@@ -4198,7 +4197,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @xhci_mfwrap_timer(ptr noundef %opaque) #2 {
 entry:
-  tail call fastcc void @xhci_event(ptr noundef %opaque, ptr noundef nonnull @__const.xhci_mfwrap_timer.wrap, i32 noundef 0)
+  tail call fastcc void @xhci_event(ptr noundef %opaque, ptr noundef @__const.xhci_mfwrap_timer.wrap, i32 noundef 0)
   %usbcmd.i = getelementptr inbounds i8, ptr %opaque, i64 1776
   %0 = load i32, ptr %usbcmd.i, align 16
   %and.i = and i32 %0, 1025
@@ -4731,7 +4730,7 @@ if.end3:                                          ; preds = %xhci_ep_free_xfer.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @xhci_port_update(ptr noundef %port, i32 noundef %is_detach) unnamed_addr #2 {
+define internal fastcc void @xhci_port_update(ptr noundef %port, i32 noundef range(i32 0, 2) %is_detach) unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %tobool.not = icmp eq ptr %port, null
@@ -4834,7 +4833,7 @@ trace_usb_xhci_port_link.exit:                    ; preds = %do.body, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_usb_xhci_port_link(i32 noundef %port, i32 noundef %pls) unnamed_addr #2 {
+define internal fastcc void @trace_usb_xhci_port_link(i32 noundef %port, i32 noundef range(i32 0, 8) %pls) unnamed_addr #2 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -4875,7 +4874,7 @@ _nocheck__trace_usb_xhci_port_link.exit:          ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @xhci_port_notify(ptr nocapture noundef %port, i32 noundef %bits) unnamed_addr #2 {
+define internal fastcc void @xhci_port_notify(ptr nocapture noundef %port, i32 noundef range(i32 1, 4194305) %bits) unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %ev = alloca %struct.XHCIEvent, align 8
@@ -4942,7 +4941,7 @@ trace_usb_xhci_port_notify.exit:                  ; preds = %if.end, %land.lhs.t
   br i1 %tobool.not.not, label %if.end5, label %return
 
 if.end5:                                          ; preds = %trace_usb_xhci_port_notify.exit
-  call fastcc void @xhci_event(ptr noundef nonnull %9, ptr noundef nonnull %ev, i32 noundef 0)
+  call fastcc void @xhci_event(ptr noundef nonnull %9, ptr noundef %ev, i32 noundef 0)
   br label %return
 
 return:                                           ; preds = %trace_usb_xhci_port_notify.exit, %entry, %if.end5
@@ -4950,7 +4949,7 @@ return:                                           ; preds = %trace_usb_xhci_port
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @xhci_ep_nuke_xfers(ptr nocapture noundef readonly %xhci, i32 noundef %slotid, i32 noundef %epid, i32 noundef %report) unnamed_addr #2 {
+define internal fastcc void @xhci_ep_nuke_xfers(ptr nocapture noundef readonly %xhci, i32 noundef %slotid, i32 noundef range(i32 -2147483647, 32) %epid, i32 noundef range(i32 0, 27) %report) unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq i32 %slotid, 0
   br i1 %cmp.not, label %if.else, label %land.lhs.true
@@ -4966,7 +4965,7 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true
-  %1 = add i32 %epid, -1
+  %1 = add nsw i32 %epid, -1
   %or.cond = icmp ult i32 %1, 31
   br i1 %or.cond, label %do.end, label %if.else6
 
@@ -5829,7 +5828,7 @@ sw.bb46:                                          ; preds = %trace_usb_xhci_oper
 if.then55:                                        ; preds = %sw.bb46
   %and57 = and i32 %47, -9
   store i32 %and57, ptr %crcr_low48, align 4
-  tail call fastcc void @xhci_event(ptr noundef nonnull %call.i, ptr noundef nonnull @__const.xhci_oper_write.event, i32 noundef 0)
+  tail call fastcc void @xhci_event(ptr noundef nonnull %call.i, ptr noundef @__const.xhci_oper_write.event, i32 noundef 0)
   %.pre = load i32, ptr %crcr_low48, align 4
   br label %if.end63
 
@@ -6880,7 +6879,7 @@ do.end.i71.i.i:                                   ; preds = %if.then32.i70.i.i, 
   br label %xhci_dma_read_u32s.exit74.i.i
 
 xhci_dma_read_u32s.exit74.i.i:                    ; preds = %do.end.i71.i.i, %xhci_dma_read_u32s.exit63.i.i
-  %call52.i.i = call fastcc ptr @xhci_lookup_uport(ptr noundef nonnull %ptr, ptr noundef nonnull %slot_ctx.i.i)
+  %call52.i.i = call fastcc ptr @xhci_lookup_uport(ptr noundef nonnull %ptr, ptr noundef %slot_ctx.i.i)
   %cmp53.i.i = icmp eq ptr %call52.i.i, null
   br i1 %cmp53.i.i, label %xhci_address_slot.exit.i, label %if.end58.i.i
 
@@ -6990,7 +6989,7 @@ if.end100.i.i:                                    ; preds = %if.else92.i.i
 
 if.end101.i.i:                                    ; preds = %if.end100.i.i, %if.then90.i.i
   %add102.i.i = add i64 %27, 32
-  call fastcc void @xhci_enable_ep(ptr noundef nonnull %ptr, i32 noundef %shr.i64.i, i32 noundef 1, i64 noundef %add102.i.i, ptr noundef nonnull %ep0_ctx.i.i)
+  call fastcc void @xhci_enable_ep(ptr noundef nonnull %ptr, i32 noundef %shr.i64.i, i32 noundef 1, i64 noundef %add102.i.i, ptr noundef %ep0_ctx.i.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp.i.i.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %slot_ctx.i.i, i64 16, i1 false)
   %52 = load ptr, ptr %as.i487.i, align 8
@@ -7143,22 +7142,22 @@ for.cond.preheader.i149.i:                        ; preds = %if.end.i126.i
   br label %for.body.i150.i
 
 for.body.i150.i:                                  ; preds = %for.inc.i151.i, %for.cond.preheader.i149.i
-  %indvars.iv157.i.i = phi i64 [ 2, %for.cond.preheader.i149.i ], [ %indvars.iv.next158.i.i, %for.inc.i151.i ]
-  %69 = add nsw i64 %indvars.iv157.i.i, -1
+  %indvars.iv156.i.i = phi i64 [ 2, %for.cond.preheader.i149.i ], [ %indvars.iv.next157.i.i, %for.inc.i151.i ]
+  %69 = add nsw i64 %indvars.iv156.i.i, -1
   %arrayidx12.i.i = getelementptr [31 x ptr], ptr %eps.i.i, i64 0, i64 %69
   %70 = load ptr, ptr %arrayidx12.i.i, align 8
   %tobool13.not.i.i = icmp eq ptr %70, null
   br i1 %tobool13.not.i.i, label %for.inc.i151.i, label %if.then14.i.i
 
 if.then14.i.i:                                    ; preds = %for.body.i150.i
-  %71 = trunc nuw nsw i64 %indvars.iv157.i.i to i32
+  %71 = trunc nuw nsw i64 %indvars.iv156.i.i to i32
   call fastcc void @xhci_disable_ep(ptr noundef nonnull %ptr, i32 noundef %shr.i101.i, i32 noundef %71)
   br label %for.inc.i151.i
 
 for.inc.i151.i:                                   ; preds = %if.then14.i.i, %for.body.i150.i
-  %indvars.iv.next158.i.i = add nuw nsw i64 %indvars.iv157.i.i, 1
-  %exitcond161.not.i.i = icmp eq i64 %indvars.iv.next158.i.i, 32
-  br i1 %exitcond161.not.i.i, label %for.end.i152.i, label %for.body.i150.i, !llvm.loop !28
+  %indvars.iv.next157.i.i = add nuw nsw i64 %indvars.iv156.i.i, 1
+  %exitcond160.not.i.i = icmp eq i64 %indvars.iv.next157.i.i, 32
+  br i1 %exitcond160.not.i.i, label %for.end.i152.i, label %for.body.i150.i, !llvm.loop !28
 
 for.end.i152.i:                                   ; preds = %for.inc.i151.i
   %72 = load ptr, ptr %as.i487.i, align 8
@@ -7169,8 +7168,8 @@ for.end.i152.i:                                   ; preds = %for.inc.i151.i
   br i1 %cmp28.not.i.i154.i, label %for.end.xhci_dma_read_u32s.exit_crit_edge.i.i, label %do.body.i.i155.i
 
 for.end.xhci_dma_read_u32s.exit_crit_edge.i.i:    ; preds = %for.end.i152.i
-  %.pre163.i.i = load i32, ptr %arrayidx17.phi.trans.insert.i.i, align 4
-  %73 = and i32 %.pre163.i.i, 134217727
+  %.pre162.i.i = load i32, ptr %arrayidx17.phi.trans.insert.i.i, align 4
+  %73 = and i32 %.pre162.i.i, 134217727
   %74 = or disjoint i32 %73, 268435456
   br label %xhci_dma_read_u32s.exit.i161.i
 
@@ -7311,8 +7310,8 @@ xhci_dma_read_u32s.exit96.thread.i.i:             ; preds = %if.then32.i92.i.i, 
   br label %if.end42.i146.i
 
 xhci_dma_read_u32s.exit96.i.i:                    ; preds = %xhci_dma_read_u32s.exit85.i.i
-  %.pre162.i.i = load i32, ptr %arrayidx17.phi.trans.insert.i.i, align 4
-  %92 = icmp ult i32 %.pre162.i.i, 268435456
+  %.pre161.i.i = load i32, ptr %arrayidx17.phi.trans.insert.i.i, align 4
+  %92 = icmp ult i32 %.pre161.i.i, 268435456
   br i1 %92, label %xhci_configure_slot.exit.i, label %if.end42.i146.i
 
 if.end42.i146.i:                                  ; preds = %xhci_dma_read_u32s.exit96.i.i, %xhci_dma_read_u32s.exit96.thread.i.i
@@ -7453,7 +7452,7 @@ do.end.i105.i.i:                                  ; preds = %if.then32.i104.i.i,
 xhci_dma_read_u32s.exit108.i.i:                   ; preds = %do.end.i105.i.i, %if.then59.i.i
   call fastcc void @xhci_disable_ep(ptr noundef nonnull %ptr, i32 noundef %shr.i101.i, i32 noundef %108)
   %add68.i.i = add i64 %110, %68
-  call fastcc void @xhci_enable_ep(ptr noundef nonnull %ptr, i32 noundef %shr.i101.i, i32 noundef %108, i64 noundef %add68.i.i, ptr noundef nonnull %ep_ctx.i.i)
+  call fastcc void @xhci_enable_ep(ptr noundef nonnull %ptr, i32 noundef %shr.i101.i, i32 noundef %108, i64 noundef %add68.i.i, ptr noundef %ep_ctx.i.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i109.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %tmp.i109.i.i, ptr noundef nonnull readonly align 16 dereferenceable(20) %ep_ctx.i.i, i64 20, i1 false)
   %114 = load ptr, ptr %as.i487.i, align 8
@@ -7629,21 +7628,21 @@ xhci_alloc_device_streams.exit.i.i:               ; preds = %for.end.i.i.i
   br label %for.body93.i.i
 
 for.body93.i.i:                                   ; preds = %for.inc101.i.i, %xhci_alloc_device_streams.exit.i.i
-  %i.2152.i.i = phi i32 [ 2, %xhci_alloc_device_streams.exit.i.i ], [ %inc102.i.i, %for.inc101.i.i ]
+  %i.2151.i.i = phi i32 [ 2, %xhci_alloc_device_streams.exit.i.i ], [ %inc102.i.i, %for.inc101.i.i ]
   %139 = load i32, ptr %arrayidx27.i.i, align 4
-  %shl95.i.i = shl nuw i32 1, %i.2152.i.i
+  %shl95.i.i = shl nuw i32 1, %i.2151.i.i
   %and96.i.i = and i32 %139, %shl95.i.i
   %tobool97.not.i.i = icmp eq i32 %and96.i.i, 0
   br i1 %tobool97.not.i.i, label %for.inc101.i.i, label %if.then98.i.i
 
 if.then98.i.i:                                    ; preds = %for.body93.i.i
-  call fastcc void @xhci_disable_ep(ptr noundef %ptr, i32 noundef %shr.i101.i, i32 noundef %i.2152.i.i)
+  call fastcc void @xhci_disable_ep(ptr noundef %ptr, i32 noundef %shr.i101.i, i32 noundef %i.2151.i.i)
   br label %for.inc101.i.i
 
 for.inc101.i.i:                                   ; preds = %if.then98.i.i, %for.body93.i.i
-  %inc102.i.i = add nuw nsw i32 %i.2152.i.i, 1
-  %exitcond156.not.i.i = icmp eq i32 %inc102.i.i, 32
-  br i1 %exitcond156.not.i.i, label %xhci_configure_slot.exit.i, label %for.body93.i.i, !llvm.loop !32
+  %inc102.i.i = add nuw nsw i32 %i.2151.i.i, 1
+  %exitcond155.not.i.i = icmp eq i32 %inc102.i.i, 32
+  br i1 %exitcond155.not.i.i, label %xhci_configure_slot.exit.i, label %for.body93.i.i, !llvm.loop !32
 
 if.end104.i.i:                                    ; preds = %for.end.i.i.i, %xhci_epmask_to_eps_with_streams.exit.i131.i.i
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %epctxs.i.i.i)
@@ -7663,32 +7662,32 @@ if.end104.i.i:                                    ; preds = %for.end.i.i.i, %xhc
   %143 = load ptr, ptr %as.i487.i, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i139.i.i = call i32 @address_space_rw(ptr noundef %143, i64 noundef %68, i32 1, ptr noundef nonnull %tmp.i135.i.i, i64 noundef 16, i1 noundef zeroext true) #16
-  %cmp40.not.i140.i.i = icmp eq i32 %call.i.i.i.i139.i.i, 0
-  br i1 %cmp40.not.i140.i.i, label %xhci_dma_write_u32s.exit148.i.i, label %do.body.i141.i.i
+  %call.i.i.i.i138.i.i = call i32 @address_space_rw(ptr noundef %143, i64 noundef %68, i32 1, ptr noundef nonnull %tmp.i135.i.i, i64 noundef 16, i1 noundef zeroext true) #16
+  %cmp40.not.i139.i.i = icmp eq i32 %call.i.i.i.i138.i.i, 0
+  br i1 %cmp40.not.i139.i.i, label %xhci_dma_write_u32s.exit147.i.i, label %do.body.i140.i.i
 
-do.body.i141.i.i:                                 ; preds = %if.end104.i.i
+do.body.i140.i.i:                                 ; preds = %if.end104.i.i
   %144 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i142.i.i = and i32 %144, 2048
-  %cmp.i.not.i143.i.i = icmp eq i32 %and.i.i142.i.i, 0
-  br i1 %cmp.i.not.i143.i.i, label %do.end.i145.i.i, label %if.then46.i144.i.i
+  %and.i.i141.i.i = and i32 %144, 2048
+  %cmp.i.not.i142.i.i = icmp eq i32 %and.i.i141.i.i, 0
+  br i1 %cmp.i.not.i142.i.i, label %do.end.i144.i.i, label %if.then46.i143.i.i
 
-if.then46.i144.i.i:                               ; preds = %do.body.i141.i.i
+if.then46.i143.i.i:                               ; preds = %do.body.i140.i.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_write_u32s) #16
-  br label %do.end.i145.i.i
+  br label %do.end.i144.i.i
 
-do.end.i145.i.i:                                  ; preds = %if.then46.i144.i.i, %do.body.i141.i.i
+do.end.i144.i.i:                                  ; preds = %if.then46.i143.i.i, %do.body.i140.i.i
   %145 = load i32, ptr %6, align 4
-  %or.i.i147.i.i = or i32 %145, 4096
-  store i32 %or.i.i147.i.i, ptr %6, align 4
-  br label %xhci_dma_write_u32s.exit148.i.i
+  %or.i.i146.i.i = or i32 %145, 4096
+  store i32 %or.i.i146.i.i, ptr %6, align 4
+  br label %xhci_dma_write_u32s.exit147.i.i
 
-xhci_dma_write_u32s.exit148.i.i:                  ; preds = %do.end.i145.i.i, %if.end104.i.i
+xhci_dma_write_u32s.exit147.i.i:                  ; preds = %do.end.i144.i.i, %if.end104.i.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %tmp.i135.i.i)
   br label %xhci_configure_slot.exit.i
 
-xhci_configure_slot.exit.i:                       ; preds = %for.inc101.i.i, %xhci_dma_write_u32s.exit148.i.i, %xhci_dma_read_u32s.exit96.i.i, %lor.lhs.false.i143.i, %xhci_dma_read_u32s.exit74.i141.i, %xhci_dma_read_u32s.exit74.thread.i.i, %xhci_dma_write_u32s.exit.i165.i
-  %retval.0.i140.i = phi i32 [ 1, %xhci_dma_write_u32s.exit.i165.i ], [ 1, %xhci_dma_write_u32s.exit148.i.i ], [ 5, %lor.lhs.false.i143.i ], [ 5, %xhci_dma_read_u32s.exit74.i141.i ], [ 19, %xhci_dma_read_u32s.exit96.i.i ], [ 5, %xhci_dma_read_u32s.exit74.thread.i.i ], [ 7, %for.inc101.i.i ]
+xhci_configure_slot.exit.i:                       ; preds = %for.inc101.i.i, %xhci_dma_write_u32s.exit147.i.i, %xhci_dma_read_u32s.exit96.i.i, %lor.lhs.false.i143.i, %xhci_dma_read_u32s.exit74.i141.i, %xhci_dma_read_u32s.exit74.thread.i.i, %xhci_dma_write_u32s.exit.i165.i
+  %retval.0.i140.i = phi i32 [ 1, %xhci_dma_write_u32s.exit.i165.i ], [ 1, %xhci_dma_write_u32s.exit147.i.i ], [ 5, %lor.lhs.false.i143.i ], [ 5, %xhci_dma_read_u32s.exit74.i141.i ], [ 19, %xhci_dma_read_u32s.exit96.i.i ], [ 5, %xhci_dma_read_u32s.exit74.thread.i.i ], [ 7, %for.inc101.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ictl_ctx.i119.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %slot_ctx.i120.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %islot_ctx.i.i)
@@ -8349,7 +8348,7 @@ if.end21.i405.i:                                  ; preds = %if.end12.i401.i
   br i1 %tobool22.not.i407.i, label %if.end39.i.i, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %if.end21.i405.i
-  %call24.i.i = call fastcc ptr @xhci_find_stream(ptr noundef nonnull %229, i32 noundef %shr78.i, ptr noundef nonnull %err.i.i)
+  %call24.i.i = call fastcc ptr @xhci_find_stream(ptr noundef nonnull %229, i32 noundef %shr78.i, ptr noundef %err.i.i)
   %cmp25.i.i = icmp eq ptr %call24.i.i, null
   br i1 %cmp25.i.i, label %if.then26.i.i, label %if.end39.i.i
 
@@ -8662,7 +8661,7 @@ sw.epilog.i:                                      ; preds = %trace_usb_xhci_unim
   %slotid.1.i = phi i32 [ %slotid.0.i, %trace_usb_xhci_unimplemented.exit.i ], [ %shr118.i, %if.then107.i ], [ %slotid.0.i, %if.else120.i ], [ %slotid.0.i, %if.then99.i ], [ %slotid.0.i, %if.else101.i ], [ %slotid.0.i, %sw.bb95.i ], [ %slotid.0.i, %xhci_get_port_bandwidth.exit.i ], [ %shr.i419.i, %xhci_reset_slot.exit.i ], [ %shr.i369.i, %xhci_set_ep_dequeue.exit.i ], [ %shr.i310.i, %xhci_reset_ep.exit.i ], [ %shr.i267.i, %xhci_stop_ep.exit.i ], [ %shr.i177.i, %xhci_evaluate_slot.exit.i ], [ %shr.i101.i, %xhci_configure_slot.exit.i ], [ %shr.i64.i, %xhci_address_slot.exit.i ], [ %shr.i.i, %if.then19.i ], [ %slotid.0.i, %do.end12.i ], [ %add.i, %xhci_enable_slot.exit.i ], [ 0, %xhci_get_slot.exit.thread.i ], [ 0, %xhci_get_slot.exit79.thread.i ], [ 0, %xhci_get_slot.exit116.thread.i ], [ 0, %xhci_get_slot.exit192.thread.i ], [ 0, %xhci_get_slot.exit282.thread.i ], [ 0, %xhci_get_slot.exit325.thread.i ], [ 0, %xhci_get_slot.exit384.thread.i ], [ 0, %xhci_get_slot.exit434.thread.i ]
   %conv124.i = trunc i32 %slotid.1.i to i8
   store i8 %conv124.i, ptr %slotid125.i, align 8
-  call fastcc void @xhci_event(ptr noundef %ptr, ptr noundef nonnull %event.i, i32 noundef 0)
+  call fastcc void @xhci_event(ptr noundef %ptr, ptr noundef %event.i, i32 noundef 0)
   %inc126.i = add nuw nsw i32 %count.0.i, 1
   %exitcond537.i = icmp eq i32 %inc126.i, 258
   br i1 %exitcond537.i, label %if.then129.i, label %while.cond.i, !llvm.loop !35
@@ -8851,7 +8850,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @xhci_disable_ep(ptr nocapture noundef %xhci, i32 noundef %slotid, i32 noundef %epid) unnamed_addr #2 {
+define internal fastcc void @xhci_disable_ep(ptr nocapture noundef %xhci, i32 noundef range(i32 1, 0) %slotid, i32 noundef range(i32 -2147483648, 32) %epid) unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -8983,7 +8982,7 @@ declare void @usb_packet_addbuf(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare void @usb_device_handle_control(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @xhci_enable_ep(ptr noundef %xhci, i32 noundef %slotid, i32 noundef %epid, i64 noundef %pctx, ptr nocapture noundef %ctx) unnamed_addr #2 {
+define internal fastcc void @xhci_enable_ep(ptr noundef %xhci, i32 noundef range(i32 1, 256) %slotid, i32 noundef range(i32 -2147483648, 32) %epid, i64 noundef %pctx, ptr nocapture noundef nonnull %ctx) unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)

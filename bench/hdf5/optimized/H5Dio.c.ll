@@ -191,7 +191,7 @@ H5D__ioinfo_init.exit:                            ; preds = %17, %25
   call void @H5AC_tag(i64 noundef %56, ptr noundef nonnull %8) #9
   %57 = getelementptr inbounds i8, ptr %40, i64 200
   %58 = load ptr, ptr %57, align 8
-  %59 = call fastcc i32 @H5D__typeinfo_init(ptr noundef nonnull %4, ptr noundef nonnull %40, ptr noundef %58)
+  %59 = call fastcc i32 @H5D__typeinfo_init(ptr noundef %4, ptr noundef nonnull %40, ptr noundef %58)
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %61, label %65
 
@@ -532,7 +532,7 @@ H5D__dset_ioinfo_init.exit:                       ; preds = %164, %168
   br i1 %255, label %436, label %256
 
 256:                                              ; preds = %._crit_edge
-  %257 = call fastcc i32 @H5D__typeinfo_init_phase2(ptr noundef nonnull %4)
+  %257 = call fastcc i32 @H5D__typeinfo_init_phase2(ptr noundef %4)
   %258 = icmp slt i32 %257, 0
   br i1 %258, label %259, label %263
 
@@ -543,7 +543,7 @@ H5D__dset_ioinfo_init.exit:                       ; preds = %164, %168
   br label %436
 
 263:                                              ; preds = %256
-  %264 = call fastcc i32 @H5D__typeinfo_init_phase3(ptr noundef nonnull %4)
+  %264 = call fastcc i32 @H5D__typeinfo_init_phase3(ptr noundef %4)
   %265 = icmp slt i32 %264, 0
   br i1 %265, label %266, label %270
 
@@ -985,7 +985,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @H5AC_tag(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5D__typeinfo_init(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5D__typeinfo_init(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = load ptr, ptr %1, align 8
@@ -1179,7 +1179,7 @@ declare i32 @H5P_is_fill_value_defined(ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @H5D__fill(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5D__typeinfo_init_phase2(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5D__typeinfo_init_phase2(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load i32, ptr %3, align 8
@@ -1320,7 +1320,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__typeinfo_init_phase2(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5D__typeinfo_init_phase3(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5D__typeinfo_init_phase3(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
@@ -1699,7 +1699,7 @@ H5D__ioinfo_init.exit:                            ; preds = %17, %25
 90:                                               ; preds = %80
   %91 = getelementptr inbounds i8, ptr %41, i64 200
   %92 = load ptr, ptr %91, align 8
-  %93 = call fastcc i32 @H5D__typeinfo_init(ptr noundef nonnull %4, ptr noundef nonnull %41, ptr noundef %92)
+  %93 = call fastcc i32 @H5D__typeinfo_init(ptr noundef %4, ptr noundef nonnull %41, ptr noundef %92)
   %94 = icmp slt i32 %93, 0
   br i1 %94, label %95, label %99
 
@@ -2000,7 +2000,7 @@ H5D__dset_ioinfo_init.exit:                       ; preds = %198, %202
 ._crit_edge:                                      ; preds = %267, %37
   %.1215353 = phi ptr [ %6, %37 ], [ %.1215352, %267 ]
   %.1.lcssa = phi ptr [ null, %37 ], [ %.2, %267 ]
-  %271 = call fastcc i32 @H5D__typeinfo_init_phase2(ptr noundef nonnull %4)
+  %271 = call fastcc i32 @H5D__typeinfo_init_phase2(ptr noundef %4)
   %272 = icmp slt i32 %271, 0
   br i1 %272, label %273, label %277
 
@@ -2011,7 +2011,7 @@ H5D__dset_ioinfo_init.exit:                       ; preds = %198, %202
   br label %442
 
 277:                                              ; preds = %._crit_edge
-  %278 = call fastcc i32 @H5D__typeinfo_init_phase3(ptr noundef nonnull %4)
+  %278 = call fastcc i32 @H5D__typeinfo_init_phase3(ptr noundef %4)
   %279 = icmp slt i32 %278, 0
   br i1 %279, label %280, label %284
 

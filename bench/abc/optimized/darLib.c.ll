@@ -2720,8 +2720,8 @@ define void @Dar2_LibEvalAssignNums(ptr noundef %0, i32 noundef %1) local_unname
   %63 = trunc nuw nsw i64 %62 to i32
   %64 = and i32 %63, 1
   %65 = xor i32 %64, %54
-  %66 = icmp eq i32 %51, %60
-  %67 = icmp eq i32 %54, %64
+  %66 = icmp eq i32 %60, %51
+  %67 = icmp eq i32 %64, %54
   %or.cond = select i1 %66, i1 true, i1 %67
   %68 = xor i32 %65, %61
   %69 = icmp eq i32 %68, 1
@@ -3398,7 +3398,7 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #14
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

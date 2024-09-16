@@ -1403,7 +1403,7 @@ col_get_writable.exit:                            ; preds = %6, %32
 
 42:                                               ; preds = %35
   call void @llvm.va_start.p0(ptr nonnull %4)
-  call fastcc void @col_do_append_fstr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null, ptr noundef %2, ptr noundef nonnull %4)
+  call fastcc void @col_do_append_fstr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null, ptr noundef %2, ptr noundef %4)
   call void @llvm.va_end.p0(ptr nonnull %4)
   br label %col_get_writable.exit.thread
 
@@ -1412,7 +1412,7 @@ col_get_writable.exit.thread:                     ; preds = %23, %8, %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @col_do_append_fstr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @col_do_append_fstr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca [4096 x i8], align 16
   %7 = alloca [1 x %struct.__va_list_tag], align 16
   %.not = icmp eq ptr %2, null
@@ -1488,7 +1488,7 @@ define internal fastcc void @col_do_append_fstr(ptr nocapture noundef readonly %
   br i1 %49, label %50, label %58
 
 50:                                               ; preds = %48
-  call void @llvm.va_copy.p0(ptr nonnull %7, ptr %4)
+  call void @llvm.va_copy.p0(ptr nonnull %7, ptr nonnull %4)
   %51 = call i32 @vsnprintf(ptr noundef nonnull %6, i64 noundef 4096, ptr noundef %3, ptr noundef nonnull %7) #16
   %52 = sext i32 %51 to i64
   call void @llvm.va_end.p0(ptr nonnull %7)
@@ -1593,7 +1593,7 @@ col_get_writable.exit:                            ; preds = %7, %33
   %44 = icmp eq ptr %2, null
   %spec.store.select = select i1 %44, ptr @.str.5, ptr %2
   call void @llvm.va_start.p0(ptr nonnull %5)
-  call fastcc void @col_do_append_fstr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %spec.store.select, ptr noundef %3, ptr noundef nonnull %5)
+  call fastcc void @col_do_append_fstr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %spec.store.select, ptr noundef %3, ptr noundef %5)
   call void @llvm.va_end.p0(ptr nonnull %5)
   br label %col_get_writable.exit.thread
 
@@ -3286,7 +3286,7 @@ set_abs_ymd_time.exit:                            ; preds = %get_frame_timestamp
 declare i32 @timestamp_get_type() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_abs_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @set_abs_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca %struct.tm, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 50
   %7 = load i16, ptr %6, align 2
@@ -3378,7 +3378,7 @@ get_frame_timestamp_precision.exit:               ; preds = %33, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_abs_ydoy_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @set_abs_ydoy_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca %struct.tm, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 50
   %7 = load i16, ptr %6, align 2
@@ -4887,7 +4887,7 @@ col_set_addr.exit:                                ; preds = %16, %326, %315, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @col_set_port(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @col_set_port(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16

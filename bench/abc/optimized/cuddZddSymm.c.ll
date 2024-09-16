@@ -1926,7 +1926,7 @@ define internal fastcc ptr @cuddZddSymmSifting_down(ptr noundef %0, i32 noundef 
   br label %66
 
 56:                                               ; preds = %35, %33
-  %57 = call fastcc i32 @zdd_group_move(ptr noundef nonnull %0, i32 noundef %.07893, i32 noundef %.07794, ptr noundef nonnull %5)
+  %57 = call fastcc i32 @zdd_group_move(ptr noundef nonnull %0, i32 noundef %.07893, i32 noundef %.07794, ptr noundef %5)
   %58 = sitofp i32 %57 to double
   %59 = sitofp i32 %.07695 to double
   %60 = load double, ptr %8, align 8
@@ -2261,7 +2261,7 @@ define internal fastcc ptr @cuddZddSymmSifting_up(ptr noundef %0, i32 noundef %1
   br label %62
 
 52:                                               ; preds = %32, %27
-  %53 = call fastcc i32 @zdd_group_move(ptr noundef nonnull %0, i32 noundef %.06681, i32 noundef %.06780, ptr noundef nonnull %5)
+  %53 = call fastcc i32 @zdd_group_move(ptr noundef nonnull %0, i32 noundef %.06681, i32 noundef %.06780, ptr noundef %5)
   %54 = sitofp i32 %53 to double
   %55 = sitofp i32 %.06582 to double
   %56 = load double, ptr %8, align 8
@@ -2321,7 +2321,7 @@ declare i32 @cuddZddSwapInPlace(ptr noundef, i32 noundef, i32 noundef) local_unn
 declare ptr @cuddDynamicAllocNode(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zdd_group_move(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #3 {
+define internal fastcc i32 @zdd_group_move(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 160
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64

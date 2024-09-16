@@ -3440,7 +3440,7 @@ invoke.cont11:                                    ; preds = %if.then
   %vector_.i = getelementptr inbounds i8, ptr %singleRow, i64 8
   %5 = load ptr, ptr %vector_.i, align 8
   %call8.val = load ptr, ptr %valueVector_.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_118MapEntriesFunction9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERKS7_IKNS0_4TypeEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %5, ptr %call8.val, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_118MapEntriesFunction9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERKS7_IKNS0_4TypeEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %5, ptr %call8.val, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont15 unwind label %lpad12
 
 invoke.cont15:                                    ; preds = %invoke.cont11
@@ -3996,7 +3996,7 @@ ehcleanup:                                        ; preds = %lpad20, %lpad12
   br label %ehcleanup27
 
 if.else:                                          ; preds = %entry
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_118MapEntriesFunction9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERKS7_IKNS0_4TypeEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_118MapEntriesFunction9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERKS7_IKNS0_4TypeEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %if.else
@@ -4472,7 +4472,7 @@ lpad:                                             ; preds = %_ZN8facebook5velox4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_118MapEntriesFunction9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERKS7_IKNS0_4TypeEERNS0_4exec7EvalCtxE(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(38) %rows, ptr %arg.0.val, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_118MapEntriesFunction9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERKS7_IKNS0_4TypeEERNS0_4exec7EvalCtxE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(38) %rows, ptr %arg.0.val, ptr noundef nonnull align 8 dereferenceable(16) %outputType, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %resultElements = alloca %"class.std::shared_ptr.64", align 8
   %ref.tmp3 = alloca ptr, align 8

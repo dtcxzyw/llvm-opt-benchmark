@@ -813,7 +813,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @evws_send(ptr nocapture noundef readonly %evws, i32 noundef %frame_type, ptr noundef %packet_str, i64 noundef %str_len) unnamed_addr #0 {
+define internal fastcc void @evws_send(ptr nocapture noundef readonly %evws, i32 noundef range(i32 1, 3) %frame_type, ptr noundef %packet_str, i64 noundef %str_len) unnamed_addr #0 {
 entry:
   %header.i = alloca [16 x i8], align 16
   %bufev = getelementptr inbounds i8, ptr %evws, i64 16
@@ -823,8 +823,8 @@ entry:
   %call = tail call ptr @bufferevent_get_output(ptr noundef %1) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %header.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %header.i, i8 0, i64 16, i1 false)
-  %2 = trunc i32 %frame_type to i8
-  %conv2.i = or i8 %2, -128
+  %2 = trunc nuw nsw i32 %frame_type to i8
+  %conv2.i = or disjoint i8 %2, -128
   store i8 %conv2.i, ptr %header.i, align 16
   %cmp.i = icmp ult i64 %str_len, 126
   %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %header.i, i64 3

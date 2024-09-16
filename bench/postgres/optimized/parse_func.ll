@@ -2831,7 +2831,7 @@ declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unname
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @LookupFuncName(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
-  %6 = call fastcc i32 @LookupFuncNameInternal(i32 noundef 19, ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext false, i1 noundef zeroext %3, ptr noundef nonnull %5)
+  %6 = call fastcc i32 @LookupFuncNameInternal(i32 noundef 19, ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext false, i1 noundef zeroext %3, ptr noundef %5)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %26
 
@@ -2879,7 +2879,7 @@ define dso_local i32 @LookupFuncName(ptr noundef %0, i32 noundef %1, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @LookupFuncNameInternal(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc i32 @LookupFuncNameInternal(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
   store i32 0, ptr %6, align 4
   %8 = tail call ptr @FuncnameGetCandidates(ptr noundef %1, i32 noundef %2, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext %4, i1 noundef zeroext %5) #7
   %.not32 = icmp eq ptr %8, null
@@ -3089,7 +3089,7 @@ list_length.exit:                                 ; preds = %3
   %37 = select i1 %35, i32 %0, i32 34
   %38 = getelementptr inbounds i8, ptr %1, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = call fastcc i32 @LookupFuncNameInternal(i32 noundef %37, ptr noundef %39, i32 noundef %36, ptr noundef nonnull %4, i1 noundef zeroext false, i1 noundef zeroext %2, ptr noundef nonnull %5)
+  %40 = call fastcc i32 @LookupFuncNameInternal(i32 noundef %37, ptr noundef %39, i32 noundef %36, ptr noundef nonnull %4, i1 noundef zeroext false, i1 noundef zeroext %2, ptr noundef %5)
   switch i32 %0, label %.loopexit [
     i32 34, label %41
     i32 29, label %41
@@ -3132,7 +3132,7 @@ list_length.exit:                                 ; preds = %3
 
 .critedge:                                        ; preds = %51, %.preheader
   %57 = load ptr, ptr %38, align 8
-  %58 = call fastcc i32 @LookupFuncNameInternal(i32 noundef %0, ptr noundef %57, i32 noundef %32, ptr noundef nonnull %4, i1 noundef zeroext true, i1 noundef zeroext %2, ptr noundef nonnull %5)
+  %58 = call fastcc i32 @LookupFuncNameInternal(i32 noundef %0, ptr noundef %57, i32 noundef %32, ptr noundef nonnull %4, i1 noundef zeroext true, i1 noundef zeroext %2, ptr noundef %5)
   %.not96 = icmp eq i32 %58, 0
   br i1 %.not96, label %60, label %59
 

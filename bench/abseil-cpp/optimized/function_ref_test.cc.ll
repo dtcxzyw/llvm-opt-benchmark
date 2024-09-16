@@ -1938,7 +1938,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp3.i.i.i.i.i)
   store ptr %d, ptr %b.addr.i.i.i.i.i, align 8
   store ptr %d, ptr %ref.tmp.i.i.i.i.i, align 8
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIPZN4absl12_GLOBAL__N_132FunctionRef_CastFromDerived_Test8TestBodyEvE7DerivedPZNS5_8TestBodyEvE4BaseTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_(ptr noalias nonnull align 8 %gtest_ar.i.i.i.i.i, ptr noundef nonnull @.str.69, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %b.addr.i.i.i.i.i)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIPZN4absl12_GLOBAL__N_132FunctionRef_CastFromDerived_Test8TestBodyEvE7DerivedPZNS5_8TestBodyEvE4BaseTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_(ptr noalias align 8 %gtest_ar.i.i.i.i.i, ptr noundef nonnull @.str.69, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %b.addr.i.i.i.i.i)
   %0 = load i8, ptr %gtest_ar.i.i.i.i.i, align 8
   %tobool.i.i.i.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i.i.i.i, label %if.end.i.i.i.i.i, label %if.else.i.i.i.i.i
@@ -2041,7 +2041,7 @@ common.resume:                                    ; preds = %lpad, %_ZN7testing7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp3.i.i.i.i.i)
   store ptr %d, ptr %ref.tmp, align 8
   store ptr %d, ptr %ref.tmp2, align 8
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIPZN4absl12_GLOBAL__N_132FunctionRef_CastFromDerived_Test8TestBodyEvE7DerivedPZNS5_8TestBodyEvE4BaseTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_(ptr noalias nonnull align 8 %gtest_ar, ptr noundef nonnull @.str.68, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIPZN4absl12_GLOBAL__N_132FunctionRef_CastFromDerived_Test8TestBodyEvE7DerivedPZNS5_8TestBodyEvE4BaseTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull @.str.68, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
   %10 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %10 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -2135,7 +2135,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIPZN4absl12_GLOBAL__N_132FunctionRef_CastFromDerived_Test8TestBodyEvE7DerivedPZNS5_8TestBodyEvE4BaseTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_(ptr noalias align 8 %agg.result, ptr noundef %rhs_expression, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIPZN4absl12_GLOBAL__N_132FunctionRef_CastFromDerived_Test8TestBodyEvE7DerivedPZNS5_8TestBodyEvE4BaseTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_(ptr noalias nonnull align 8 %agg.result, ptr noundef %rhs_expression, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i.i4.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -2147,7 +2147,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  tail call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
   br label %_ZN7testing8internal11CmpHelperEQIPZN4absl12_GLOBAL__N_132FunctionRef_CastFromDerived_Test8TestBodyEvE7DerivedPZNS4_8TestBodyEvE4BaseEENS_15AssertionResultEPKcSB_RKT_RKT0_.exit
 
 if.end.i:                                         ; preds = %entry
@@ -2216,7 +2216,7 @@ lpad.i.i.i10.i.i:                                 ; preds = %invoke.cont.i.i.i11
 invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i11.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i) #17, !noalias !34
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !35
-  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull @.str.67, ptr noundef %rhs_expression, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
+  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull @.str.67, ptr noundef %rhs_expression, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
           to label %_ZN7testing8internal18CmpHelperEQFailureIPZN4absl12_GLOBAL__N_132FunctionRef_CastFromDerived_Test8TestBodyEvE7DerivedPZNS4_8TestBodyEvE4BaseEENS_15AssertionResultEPKcSB_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
 lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIPZN4absl12_GLOBAL__N_132FunctionRef_CastFromDerived_Test8TestBodyEvE7DerivedPZNS4_8TestBodyEvE4BaseEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i

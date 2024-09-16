@@ -497,7 +497,7 @@ define internal fastcc i32 @dissect_usbms_bot_cbw(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @usbms_bot_bulk_is_csw(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @usbms_bot_bulk_is_csw(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %12
 

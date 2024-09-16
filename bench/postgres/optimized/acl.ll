@@ -1228,7 +1228,7 @@ define dso_local i64 @aclitemin(ptr nocapture noundef %0) local_unnamed_addr #0 
   %9 = tail call ptr @palloc(i64 noundef 16) #15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
-  %10 = call fastcc ptr @getid(ptr noundef %6, ptr noundef nonnull %2, ptr noundef %8)
+  %10 = call fastcc ptr @getid(ptr noundef %6, ptr noundef %2, ptr noundef %8)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %125, label %12
 
@@ -1259,7 +1259,7 @@ define dso_local i64 @aclitemin(ptr nocapture noundef %0) local_unnamed_addr #0 
   br label %125
 
 22:                                               ; preds = %15, %14
-  %23 = call fastcc ptr @getid(ptr noundef nonnull %10, ptr noundef nonnull %2, ptr noundef %8)
+  %23 = call fastcc ptr @getid(ptr noundef nonnull %10, ptr noundef %2, ptr noundef %8)
   %24 = icmp eq ptr %23, null
   br i1 %24, label %125, label %25
 
@@ -1447,7 +1447,7 @@ define dso_local i64 @aclitemin(ptr nocapture noundef %0) local_unnamed_addr #0 
 
 95:                                               ; preds = %92
   %96 = getelementptr i8, ptr %.052.pn.lcssa.i, i64 2
-  %97 = call fastcc ptr @getid(ptr noundef %96, ptr noundef nonnull %3, ptr noundef %8)
+  %97 = call fastcc ptr @getid(ptr noundef %96, ptr noundef %3, ptr noundef %8)
   %98 = icmp eq ptr %97, null
   br i1 %98, label %125, label %99
 
@@ -7078,7 +7078,7 @@ declare zeroext i1 @superuser_arg(i32 noundef) local_unnamed_addr #2
 declare zeroext i1 @list_member_oid(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef range(i32 0, 3) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 
@@ -7715,7 +7715,7 @@ define dso_local void @select_best_grantor(i32 noundef %0, i64 noundef %1, ptr n
   br i1 %23, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.preheader
 
 .lr.ph.split.split.preheader:                     ; preds = %.lr.ph.split
-  br i1 %25, label %.lr.ph78, label %.thread
+  br i1 %25, label %.lr.ph77, label %.thread
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split
   br i1 %25, label %aclmask_direct.exit.us.us, label %.thread
@@ -7726,18 +7726,18 @@ aclmask_direct.exit.us.us:                        ; preds = %.lr.ph.split.split.
   tail call fastcc void @check_acl(ptr noundef nonnull readonly %2)
   br label %.thread.sink.split
 
-.lr.ph78:                                         ; preds = %.lr.ph.split.split.preheader, %.thread69
-  %.sroa.4.05377 = phi i32 [ %65, %.thread69 ], [ 0, %.lr.ph.split.split.preheader ]
-  %.05476 = phi i32 [ %.1, %.thread69 ], [ 0, %.lr.ph.split.split.preheader ]
+.lr.ph77:                                         ; preds = %.lr.ph.split.split.preheader, %.thread68
+  %.sroa.4.05276 = phi i32 [ %65, %.thread68 ], [ 0, %.lr.ph.split.split.preheader ]
+  %.05375 = phi i32 [ %.1, %.thread68 ], [ 0, %.lr.ph.split.split.preheader ]
   %28 = load ptr, ptr %14, align 8
-  %29 = sext i32 %.sroa.4.05377 to i64
+  %29 = sext i32 %.sroa.4.05276 to i64
   %30 = getelementptr %union.ListCell, ptr %28, i64 %29
   %31 = load i32, ptr %30, align 8
   tail call fastcc void @check_acl(ptr noundef nonnull readonly %2)
   %32 = icmp eq i32 %31, %3
   br i1 %32, label %.thread.sink.split, label %33
 
-33:                                               ; preds = %.lr.ph78
+33:                                               ; preds = %.lr.ph77
   %34 = load i32, ptr %16, align 4
   %35 = load i32, ptr %17, align 4
   %.not41.i = icmp eq i32 %35, 0
@@ -7759,7 +7759,7 @@ aclmask_direct.exit.us.us:                        ; preds = %.lr.ph.split.split.
   %45 = phi i64 [ %37, %36 ], [ %43, %38 ]
   %46 = getelementptr i8, ptr %2, i64 %45
   %47 = icmp sgt i32 %34, 0
-  br i1 %47, label %.lr.ph.preheader.i, label %.thread69
+  br i1 %47, label %.lr.ph.preheader.i, label %.thread68
 
 .lr.ph.preheader.i:                               ; preds = %44
   %wide.trip.count.i = zext nneg i32 %34 to i64
@@ -7793,42 +7793,42 @@ aclmask_direct.exit:                              ; preds = %57
 
 59:                                               ; preds = %aclmask_direct.exit
   %.not44 = icmp eq i64 %.2.i, 0
-  br i1 %.not44, label %.thread69, label %.lr.ph.i45
+  br i1 %.not44, label %.thread68, label %.preheader
 
-.lr.ph.i45:                                       ; preds = %59, %.lr.ph.i45
-  %.09.i = phi i32 [ %spec.select.i, %.lr.ph.i45 ], [ 0, %59 ]
-  %.058.i = phi i64 [ %62, %.lr.ph.i45 ], [ %.2.i, %59 ]
-  %60 = trunc i64 %.058.i to i32
+.preheader:                                       ; preds = %59, %.preheader
+  %.08.i = phi i32 [ %spec.select.i, %.preheader ], [ 0, %59 ]
+  %.057.i = phi i64 [ %62, %.preheader ], [ %.2.i, %59 ]
+  %60 = trunc i64 %.057.i to i32
   %61 = and i32 %60, 1
-  %spec.select.i = add i32 %61, %.09.i
-  %62 = lshr i64 %.058.i, 1
-  %.not.i = icmp ult i64 %.058.i, 2
-  br i1 %.not.i, label %count_one_bits.exit, label %.lr.ph.i45, !llvm.loop !31
+  %spec.select.i = add i32 %61, %.08.i
+  %62 = lshr i64 %.057.i, 1
+  %.not.i = icmp ult i64 %.057.i, 2
+  br i1 %.not.i, label %count_one_bits.exit, label %.preheader, !llvm.loop !31
 
-count_one_bits.exit:                              ; preds = %.lr.ph.i45
-  %63 = icmp sgt i32 %spec.select.i, %.05476
-  br i1 %63, label %64, label %.thread69
+count_one_bits.exit:                              ; preds = %.preheader
+  %63 = icmp sgt i32 %spec.select.i, %.05375
+  br i1 %63, label %64, label %.thread68
 
 64:                                               ; preds = %count_one_bits.exit
   store i32 %31, ptr %4, align 4
   store i64 %.2.i, ptr %5, align 8
-  br label %.thread69
+  br label %.thread68
 
-.thread69:                                        ; preds = %44, %59, %64, %count_one_bits.exit
-  %.1 = phi i32 [ %spec.select.i, %64 ], [ %.05476, %count_one_bits.exit ], [ %.05476, %59 ], [ %.05476, %44 ]
-  %65 = add nuw i32 %.sroa.4.05377, 1
+.thread68:                                        ; preds = %44, %59, %64, %count_one_bits.exit
+  %.1 = phi i32 [ %spec.select.i, %64 ], [ %.05375, %count_one_bits.exit ], [ %.05375, %59 ], [ %.05375, %44 ]
+  %65 = add nuw i32 %.sroa.4.05276, 1
   %66 = load i32, ptr %13, align 4
   %67 = icmp slt i32 %65, %66
-  br i1 %67, label %.lr.ph78, label %.thread
+  br i1 %67, label %.lr.ph77, label %.thread
 
-.thread.sink.split:                               ; preds = %.lr.ph78, %aclmask_direct.exit, %51, %aclmask_direct.exit.us.us, %6, %9
-  %.sink = phi i32 [ %3, %9 ], [ %3, %6 ], [ %27, %aclmask_direct.exit.us.us ], [ %31, %51 ], [ %31, %aclmask_direct.exit ], [ %3, %.lr.ph78 ]
-  %.0.i49.sink = phi i64 [ %7, %9 ], [ %7, %6 ], [ 0, %aclmask_direct.exit.us.us ], [ %7, %51 ], [ %7, %aclmask_direct.exit ], [ %7, %.lr.ph78 ]
+.thread.sink.split:                               ; preds = %.lr.ph77, %aclmask_direct.exit, %51, %aclmask_direct.exit.us.us, %6, %9
+  %.sink = phi i32 [ %3, %9 ], [ %3, %6 ], [ %27, %aclmask_direct.exit.us.us ], [ %31, %51 ], [ %31, %aclmask_direct.exit ], [ %3, %.lr.ph77 ]
+  %.0.i48.sink = phi i64 [ %7, %9 ], [ %7, %6 ], [ 0, %aclmask_direct.exit.us.us ], [ %7, %51 ], [ %7, %aclmask_direct.exit ], [ %7, %.lr.ph77 ]
   store i32 %.sink, ptr %4, align 4
-  store i64 %.0.i49.sink, ptr %5, align 8
+  store i64 %.0.i48.sink, ptr %5, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.thread69, %.lr.ph.split.split.preheader, %.thread.sink.split, %11, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us
+.thread:                                          ; preds = %.thread68, %.lr.ph.split.split.preheader, %.thread.sink.split, %11, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us
   ret void
 }
 
@@ -8040,7 +8040,7 @@ declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @getid(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @getid(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @__ctype_b_loc() #17
   %5 = load ptr, ptr %4, align 8
   br label %6

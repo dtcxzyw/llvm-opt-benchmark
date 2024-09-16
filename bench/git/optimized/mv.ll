@@ -595,7 +595,7 @@ prepare_move_submodule.exit:                      ; preds = %if.end4.i, %if.then
   br label %for.inc459
 
 if.else241:                                       ; preds = %if.then234
-  %call242 = call fastcc i32 @index_range_of_same_dir(ptr noundef %13, i32 noundef %conv145, ptr noundef nonnull %first, ptr noundef nonnull %last)
+  %call242 = call fastcc i32 @index_range_of_same_dir(ptr noundef %13, i32 noundef %conv145, ptr noundef %first, ptr noundef %last)
   %cmp243 = icmp slt i32 %call242, 1
   br i1 %cmp243, label %if.then245, label %if.end248
 
@@ -1246,7 +1246,7 @@ for.body609:                                      ; preds = %for.body609.lr.ph, 
   %106 = load ptr, ptr %buf, align 8
   %107 = load i64, ptr %len, align 8
   %conv612 = trunc i64 %107 to i32
-  %call613 = call fastcc i32 @index_range_of_same_dir(ptr noundef %106, i32 noundef %conv612, ptr noundef nonnull %dummy, ptr noundef nonnull %dummy)
+  %call613 = call fastcc i32 @index_range_of_same_dir(ptr noundef %106, i32 noundef %conv612, ptr noundef %dummy, ptr noundef %dummy)
   %cmp614 = icmp slt i32 %call613, 1
   br i1 %cmp614, label %if.then616, label %if.end618
 
@@ -1354,7 +1354,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @internal_prefix_pathspec(ptr noundef %prefix, ptr nocapture noundef readonly %pathspec, i32 noundef %count, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc ptr @internal_prefix_pathspec(ptr noundef %prefix, ptr nocapture noundef readonly %pathspec, i32 noundef range(i32 1, 2147483647) %count, i32 noundef range(i32 0, 3) %flags) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %prefix, null
   br i1 %tobool.not, label %st_mult.exit, label %cond.true
@@ -1370,42 +1370,31 @@ st_mult.exit:                                     ; preds = %cond.true, %entry
   %conv1 = zext nneg i32 %add to i64
   %mul.i = shl nuw nsw i64 %conv1, 3
   %call3 = tail call ptr @xmalloc(i64 noundef %mul.i) #11
-  %cmp37 = icmp sgt i32 %count, 0
-  br i1 %cmp37, label %for.body.lr.ph, label %for.end.thread
-
-for.end.thread:                                   ; preds = %st_mult.exit
-  %.pre = zext i32 %count to i64
-  %arrayidx3083 = getelementptr inbounds ptr, ptr %call3, i64 %.pre
-  store ptr null, ptr %arrayidx3083, align 8
-  br label %for.end44
-
-for.body.lr.ph:                                   ; preds = %st_mult.exit
-  %and = and i32 %flags, 2
-  %tobool7 = icmp eq i32 %and, 0
+  %tobool7 = icmp ult i32 %flags, 2
   %and21 = and i32 %flags, 1
   %tobool22.not = icmp eq i32 %and21, 0
-  %wide.trip.count75 = zext nneg i32 %count to i64
-  br i1 %tobool7, label %for.body.lr.ph.split, label %for.body.lr.ph.split.us
+  %wide.trip.count73 = zext nneg i32 %count to i64
+  br i1 %tobool7, label %st_mult.exit.split, label %st_mult.exit.split.us
 
-for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
+st_mult.exit.split.us:                            ; preds = %st_mult.exit
   br i1 %tobool22.not, label %for.body.us.us, label %for.body.us
 
-for.body.us.us:                                   ; preds = %for.body.lr.ph.split.us, %for.body.us.us
-  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %for.body.us.us ], [ 0, %for.body.lr.ph.split.us ]
-  %arrayidx.us.us = getelementptr inbounds ptr, ptr %pathspec, i64 %indvars.iv62
+for.body.us.us:                                   ; preds = %st_mult.exit.split.us, %for.body.us.us
+  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %for.body.us.us ], [ 0, %st_mult.exit.split.us ]
+  %arrayidx.us.us = getelementptr inbounds ptr, ptr %pathspec, i64 %indvars.iv60
   %1 = load ptr, ptr %arrayidx.us.us, align 8
   %call5.us.us = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
-  %sext57 = shl i64 %call5.us.us, 32
-  %conv19.us.us = ashr exact i64 %sext57, 32
+  %sext55 = shl i64 %call5.us.us, 32
+  %conv19.us.us = ashr exact i64 %sext55, 32
   %call20.us.us = tail call ptr @xmemdupz(ptr noundef %1, i64 noundef %conv19.us.us) #11
-  %arrayidx28.us.us = getelementptr inbounds ptr, ptr %call3, i64 %indvars.iv62
+  %arrayidx28.us.us = getelementptr inbounds ptr, ptr %call3, i64 %indvars.iv60
   store ptr %call20.us.us, ptr %arrayidx28.us.us, align 8
-  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count75
-  br i1 %exitcond66.not, label %for.end, label %for.body.us.us, !llvm.loop !10
+  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
+  %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count73
+  br i1 %exitcond64.not, label %for.end, label %for.body.us.us, !llvm.loop !10
 
-for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %for.body.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.us ], [ 0, %for.body.lr.ph.split.us ]
+for.body.us:                                      ; preds = %st_mult.exit.split.us, %for.body.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.us ], [ 0, %st_mult.exit.split.us ]
   %arrayidx.us = getelementptr inbounds ptr, ptr %pathspec, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx.us, align 8
   %call5.us = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #13
@@ -1418,48 +1407,48 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
   store ptr %call24.us, ptr %arrayidx26.us, align 8
   tail call void @free(ptr noundef %call20.us) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count75
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count73
   br i1 %exitcond.not, label %for.end, label %for.body.us, !llvm.loop !10
 
-for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
-  br i1 %tobool22.not, label %for.body.us39, label %for.body
+st_mult.exit.split:                               ; preds = %st_mult.exit
+  br i1 %tobool22.not, label %for.body.us38, label %for.body
 
-for.body.us39:                                    ; preds = %for.body.lr.ph.split, %while.end.us46
-  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %while.end.us46 ], [ 0, %for.body.lr.ph.split ]
-  %arrayidx.us42 = getelementptr inbounds ptr, ptr %pathspec, i64 %indvars.iv72
-  %3 = load ptr, ptr %arrayidx.us42, align 8
-  %call5.us43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #13
-  %conv6.us44 = trunc i64 %call5.us43 to i32
-  %invariant.gep.us45 = getelementptr i8, ptr %3, i64 -1
-  %cmp832.us = icmp sgt i32 %conv6.us44, 0
-  br i1 %cmp832.us, label %land.rhs.us, label %while.end.us46
+for.body.us38:                                    ; preds = %st_mult.exit.split, %while.end.us45
+  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %while.end.us45 ], [ 0, %st_mult.exit.split ]
+  %arrayidx.us41 = getelementptr inbounds ptr, ptr %pathspec, i64 %indvars.iv70
+  %3 = load ptr, ptr %arrayidx.us41, align 8
+  %call5.us42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #13
+  %conv6.us43 = trunc i64 %call5.us42 to i32
+  %invariant.gep.us44 = getelementptr i8, ptr %3, i64 -1
+  %cmp832.us = icmp sgt i32 %conv6.us43, 0
+  br i1 %cmp832.us, label %land.rhs.us, label %while.end.us45
 
-land.rhs.us:                                      ; preds = %for.body.us39, %while.body.us
-  %to_copy.034.us = phi i32 [ %dec.us, %while.body.us ], [ %conv6.us44, %for.body.us39 ]
+land.rhs.us:                                      ; preds = %for.body.us38, %while.body.us
+  %to_copy.034.us = phi i32 [ %dec.us, %while.body.us ], [ %conv6.us43, %for.body.us38 ]
   %4 = zext nneg i32 %to_copy.034.us to i64
-  %gep.us = getelementptr i8, ptr %invariant.gep.us45, i64 %4
+  %gep.us = getelementptr i8, ptr %invariant.gep.us44, i64 %4
   %5 = load i8, ptr %gep.us, align 1
   %cmp.i.not.us = icmp eq i8 %5, 47
-  br i1 %cmp.i.not.us, label %while.body.us, label %while.end.us46
+  br i1 %cmp.i.not.us, label %while.body.us, label %while.end.us45
 
-while.end.us46:                                   ; preds = %land.rhs.us, %while.body.us, %for.body.us39
-  %to_copy.0.lcssa.us47 = phi i32 [ %conv6.us44, %for.body.us39 ], [ 0, %while.body.us ], [ %to_copy.034.us, %land.rhs.us ]
-  %conv19.us48 = sext i32 %to_copy.0.lcssa.us47 to i64
-  %call20.us49 = tail call ptr @xmemdupz(ptr noundef %3, i64 noundef %conv19.us48) #11
-  %arrayidx28.us51 = getelementptr inbounds ptr, ptr %call3, i64 %indvars.iv72
-  store ptr %call20.us49, ptr %arrayidx28.us51, align 8
-  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
-  br i1 %exitcond76.not, label %for.end, label %for.body.us39, !llvm.loop !10
+while.end.us45:                                   ; preds = %land.rhs.us, %while.body.us, %for.body.us38
+  %to_copy.0.lcssa.us46 = phi i32 [ %conv6.us43, %for.body.us38 ], [ 0, %while.body.us ], [ %to_copy.034.us, %land.rhs.us ]
+  %conv19.us47 = sext i32 %to_copy.0.lcssa.us46 to i64
+  %call20.us48 = tail call ptr @xmemdupz(ptr noundef %3, i64 noundef %conv19.us47) #11
+  %arrayidx28.us50 = getelementptr inbounds ptr, ptr %call3, i64 %indvars.iv70
+  store ptr %call20.us48, ptr %arrayidx28.us50, align 8
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
+  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
+  br i1 %exitcond74.not, label %for.end, label %for.body.us38, !llvm.loop !10
 
 while.body.us:                                    ; preds = %land.rhs.us
   %dec.us = add nsw i32 %to_copy.034.us, -1
   %cmp8.us = icmp sgt i32 %to_copy.034.us, 1
-  br i1 %cmp8.us, label %land.rhs.us, label %while.end.us46, !llvm.loop !11
+  br i1 %cmp8.us, label %land.rhs.us, label %while.end.us45, !llvm.loop !11
 
-for.body:                                         ; preds = %for.body.lr.ph.split, %while.end
-  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %while.end ], [ 0, %for.body.lr.ph.split ]
-  %arrayidx = getelementptr inbounds ptr, ptr %pathspec, i64 %indvars.iv67
+for.body:                                         ; preds = %st_mult.exit.split, %while.end
+  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %while.end ], [ 0, %st_mult.exit.split ]
+  %arrayidx = getelementptr inbounds ptr, ptr %pathspec, i64 %indvars.iv65
   %6 = load ptr, ptr %arrayidx, align 8
   %call5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #13
   %conv6 = trunc i64 %call5 to i32
@@ -1486,31 +1475,31 @@ while.end:                                        ; preds = %land.rhs, %while.bo
   %call20 = tail call ptr @xmemdupz(ptr noundef %6, i64 noundef %conv19) #11
   %call23 = tail call ptr @__xpg_basename(ptr noundef %call20) #11
   %call24 = tail call ptr @xstrdup(ptr noundef %call23) #11
-  %arrayidx26 = getelementptr inbounds ptr, ptr %call3, i64 %indvars.iv67
+  %arrayidx26 = getelementptr inbounds ptr, ptr %call3, i64 %indvars.iv65
   store ptr %call24, ptr %arrayidx26, align 8
   tail call void @free(ptr noundef %call20) #11
-  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count75
-  br i1 %exitcond71.not, label %for.end, label %for.body, !llvm.loop !10
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count73
+  br i1 %exitcond69.not, label %for.end, label %for.body, !llvm.loop !10
 
-for.end:                                          ; preds = %for.body.us, %for.body.us.us, %while.end, %while.end.us46
-  %arrayidx30 = getelementptr inbounds ptr, ptr %call3, i64 %wide.trip.count75
+for.end:                                          ; preds = %for.body.us, %for.body.us.us, %while.end, %while.end.us45
+  %arrayidx30 = getelementptr inbounds ptr, ptr %call3, i64 %wide.trip.count73
   store ptr null, ptr %arrayidx30, align 8
   br label %for.body34
 
 for.body34:                                       ; preds = %for.end, %for.body34
-  %indvars.iv77 = phi i64 [ %indvars.iv.next78, %for.body34 ], [ 0, %for.end ]
-  %arrayidx36 = getelementptr inbounds ptr, ptr %call3, i64 %indvars.iv77
+  %indvars.iv75 = phi i64 [ 0, %for.end ], [ %indvars.iv.next76, %for.body34 ]
+  %arrayidx36 = getelementptr inbounds ptr, ptr %call3, i64 %indvars.iv75
   %9 = load ptr, ptr %arrayidx36, align 8
   %call37 = tail call ptr @prefix_path(ptr noundef %prefix, i32 noundef %cond, ptr noundef %9) #11
   %10 = load ptr, ptr %arrayidx36, align 8
   tail call void @free(ptr noundef %10) #11
   store ptr %call37, ptr %arrayidx36, align 8
-  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
-  %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count75
-  br i1 %exitcond81.not, label %for.end44, label %for.body34, !llvm.loop !12
+  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
+  %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count73
+  br i1 %exitcond79.not, label %for.end44, label %for.body34, !llvm.loop !12
 
-for.end44:                                        ; preds = %for.body34, %for.end.thread
+for.end44:                                        ; preds = %for.body34
   ret ptr %call3
 }
 
@@ -1620,7 +1609,7 @@ declare ptr @string_list_append(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @index_range_of_same_dir(ptr noundef %src, i32 noundef %length, ptr nocapture noundef writeonly %first_p, ptr nocapture noundef writeonly %last_p) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @index_range_of_same_dir(ptr noundef %src, i32 noundef %length, ptr nocapture noundef nonnull writeonly %first_p, ptr nocapture noundef nonnull writeonly %last_p) unnamed_addr #0 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %src) #13
   %tobool.not.i = icmp eq i64 %call.i, 0

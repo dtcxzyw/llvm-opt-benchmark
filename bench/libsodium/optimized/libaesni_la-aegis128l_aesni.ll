@@ -533,8 +533,8 @@ if.then36:                                        ; preds = %if.end31.thread333,
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %pad.i)
   %63 = sub nuw nsw i64 32, %rem32312356
   %64 = getelementptr i8, ptr %pad.i, i64 %rem32312356
-  call void @llvm.memset.p0.i64(ptr align 1 %64, i8 0, i64 %63, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i, ptr readonly align 1 %add.ptr38, i64 %rem32312356, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, i8 0, i64 %63, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %pad.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr38, i64 %rem32312356, i1 false)
   %65 = load <2 x i64>, ptr %pad.i, align 16
   %add.ptr.i = getelementptr inbounds i8, ptr %pad.i, i64 16
   %66 = load <2 x i64>, ptr %add.ptr.i, align 16
@@ -548,10 +548,8 @@ if.then36:                                        ; preds = %if.end31.thread333,
   %xor.i.i77 = xor <2 x i64> %70, %state.sroa.34.3308360
   store <2 x i64> %xor.i36.i, ptr %pad.i, align 16
   store <2 x i64> %xor.i.i77, ptr %add.ptr.i, align 16
-  %add.ptr24.i = getelementptr i8, ptr %pad.i, i64 %rem32312356
-  %sub.i = sub nuw nsw i64 32, %rem32312356
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr24.i, i8 0, i64 %sub.i, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr37, ptr nonnull align 16 %pad.i, i64 %rem32312356, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, i8 0, i64 %63, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr37, ptr noundef nonnull align 16 dereferenceable(1) %pad.i, i64 %rem32312356, i1 false)
   %71 = load <2 x i64>, ptr %pad.i, align 16
   %72 = load <2 x i64>, ptr %add.ptr.i, align 16
   %73 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.108.3304364, <2 x i64> %state.sroa.128.3303365)
@@ -582,8 +580,8 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %pad.i81)
   %81 = sub nuw nsw i64 32, %rem32312323
   %82 = getelementptr i8, ptr %pad.i81, i64 %rem32312323
-  call void @llvm.memset.p0.i64(ptr align 1 %82, i8 0, i64 %81, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i81, ptr readonly align 1 %add.ptr43, i64 %rem32312323, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %82, i8 0, i64 %81, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %pad.i81, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr43, i64 %rem32312323, i1 false)
   %83 = load <2 x i64>, ptr %pad.i81, align 16
   %add.ptr.i82 = getelementptr inbounds i8, ptr %pad.i81, i64 16
   %84 = load <2 x i64>, ptr %add.ptr.i82, align 16
@@ -597,9 +595,7 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   %xor.i.i93 = xor <2 x i64> %88, %state.sroa.34.3308327
   store <2 x i64> %xor.i36.i90, ptr %pad.i81, align 16
   store <2 x i64> %xor.i.i93, ptr %add.ptr.i82, align 16
-  %add.ptr24.i94 = getelementptr i8, ptr %pad.i81, i64 %rem32312323
-  %sub.i95 = sub nuw nsw i64 32, %rem32312323
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr24.i94, i8 0, i64 %sub.i95, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %82, i8 0, i64 %81, i1 false)
   %89 = load <2 x i64>, ptr %pad.i81, align 16
   %90 = load <2 x i64>, ptr %add.ptr.i82, align 16
   %91 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.108.3304331, <2 x i64> %state.sroa.128.3303332)

@@ -124,7 +124,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare i32 @llvm.bswap.i32(i32) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @do_one_pass(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @do_one_pass(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.anon.10, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.anon.10, align 8

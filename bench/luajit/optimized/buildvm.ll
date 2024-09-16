@@ -2965,7 +2965,7 @@ for.body.i.i24:                                   ; preds = %for.body.i.i24, %fo
   br i1 %exitcond.not.i, label %dasm_setup.exit.i, label %for.body.i.i24, !llvm.loop !9
 
 dasm_setup.exit.i:                                ; preds = %for.body.i.i24
-  call fastcc void @build_backend(ptr noundef nonnull %ctx_)
+  call fastcc void @build_backend(ptr noundef %ctx_)
   %npc.i = getelementptr inbounds i8, ptr %ctx_, i64 56
   store i32 97, ptr %npc.i, align 8
   %18 = load ptr, ptr %ctx_, align 8
@@ -3104,7 +3104,7 @@ if.end40.i:                                       ; preds = %dasm_getpclabel.exi
   store i32 %32, ptr %arrayidx43.i, align 4
   %arrayidx45.i = getelementptr inbounds [0 x ptr], ptr @bc_names, i64 0, i64 %indvars.iv.i
   %35 = load ptr, ptr %arrayidx45.i, align 8
-  call fastcc void @sym_insert(ptr noundef nonnull %ctx_, i32 noundef %32, ptr noundef nonnull @.str.428, ptr noundef %35)
+  call fastcc void @sym_insert(ptr noundef %ctx_, i32 noundef %32, ptr noundef nonnull @.str.428, ptr noundef %35)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %36 = load i32, ptr %npc.i, align 8
   %37 = sext i32 %36 to i64
@@ -3156,7 +3156,7 @@ if.then79.i:                                      ; preds = %land.lhs.true72.i, 
   %sub.ptr.rhs.cast.i = ptrtoint ptr %45 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv84.i = trunc i64 %sub.ptr.sub.i to i32
-  call fastcc void @sym_insert(ptr noundef nonnull %ctx_, i32 noundef %conv84.i, ptr noundef nonnull @.str.430, ptr noundef %39)
+  call fastcc void @sym_insert(ptr noundef %ctx_, i32 noundef %conv84.i, ptr noundef nonnull @.str.430, ptr noundef %39)
   %.pre139.i = load i32, ptr %nglob.i, align 4
   br label %for.inc88.i
 
@@ -3170,7 +3170,7 @@ for.inc88.i:                                      ; preds = %if.then79.i, %land.
 for.end90.i:                                      ; preds = %for.inc88.i, %for.cond49.preheader.i
   %48 = load i64, ptr %codesz.i, align 8
   %conv92.i = trunc i64 %48 to i32
-  call fastcc void @sym_insert(ptr noundef nonnull %ctx_, i32 noundef %conv92.i, ptr noundef nonnull @.str.368, ptr noundef nonnull @.str.368)
+  call fastcc void @sym_insert(ptr noundef %ctx_, i32 noundef %conv92.i, ptr noundef nonnull @.str.368, ptr noundef nonnull @.str.368)
   %49 = load i32, ptr %nsym.i, align 8
   %dec.i = add nsw i32 %49, -1
   store i32 %dec.i, ptr %nsym.i, align 8
@@ -3724,7 +3724,7 @@ for.end:                                          ; preds = %for.body
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @build_backend(ptr noundef readonly %ctx) unnamed_addr #4 {
+define internal fastcc void @build_backend(ptr noundef nonnull readonly %ctx) unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %pcsize.i = getelementptr inbounds i8, ptr %0, i64 40
@@ -4580,7 +4580,7 @@ for.end:                                          ; preds = %build_ins.exit
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @sym_insert(ptr nocapture noundef %ctx, i32 noundef %ofs, ptr noundef %prefix, ptr noundef %suffix) unnamed_addr #0 {
+define internal fastcc void @sym_insert(ptr nocapture noundef nonnull %ctx, i32 noundef %ofs, ptr noundef %prefix, ptr noundef %suffix) unnamed_addr #0 {
 entry:
   %name.i = alloca [256 x i8], align 16
   %nsym = getelementptr inbounds i8, ptr %ctx, i64 64

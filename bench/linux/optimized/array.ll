@@ -985,7 +985,7 @@ define dso_local noundef i32 @proc_tid_stat(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 align 16 {
   %6 = alloca [64 x i8], align 16
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8

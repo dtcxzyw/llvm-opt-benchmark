@@ -2977,7 +2977,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEE18syncWit
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %19, ptr %20, align 8
-  tail call fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr noundef nonnull %0)
+  tail call fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr noundef %0)
   %21 = getelementptr inbounds i8, ptr %17, i64 28
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds i8, ptr %0, i64 28
@@ -6111,7 +6111,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEEC2Ebb(ptr
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss19IndexShardsTemplateINS_11IndexBinaryEEE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 65
   store i8 %4, ptr %9, align 1
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr noundef nonnull %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr noundef %0)
           to label %10 unwind label %11
 
 10:                                               ; preds = %3
@@ -6125,7 +6125,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEEC2Ebb(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr nocapture noundef %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr nocapture noundef nonnull %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -6362,7 +6362,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEEC2Elbb(pt
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss19IndexShardsTemplateINS_11IndexBinaryEEE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 65
   store i8 %5, ptr %11, align 1
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr noundef nonnull %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr noundef %0)
           to label %12 unwind label %13
 
 12:                                               ; preds = %4
@@ -6390,7 +6390,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEEC2Eibb(pt
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss19IndexShardsTemplateINS_11IndexBinaryEEE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 65
   store i8 %5, ptr %11, align 1
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr noundef nonnull %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr noundef %0)
           to label %12 unwind label %13
 
 12:                                               ; preds = %4

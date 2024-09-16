@@ -597,7 +597,7 @@ declare ptr @nextGraph(ptr noundef) local_unnamed_addr #1
 declare i32 @agclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit(i32 noundef %0) unnamed_addr #2 {
+define internal fastcc void @graphviz_exit(i32 noundef range(i32 0, 2) %0) unnamed_addr #2 {
   tail call void @exit(i32 noundef %0) #17
   unreachable
 }
@@ -609,7 +609,7 @@ declare i32 @getopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @usage(ptr noundef %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc void @usage(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #5 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.11, ptr noundef %0) #14
   %5 = load ptr, ptr @stderr, align 8

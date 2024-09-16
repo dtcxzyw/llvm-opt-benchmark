@@ -101,7 +101,7 @@ define dso_local noundef i64 @rb_range_new(i64 noundef %0, i64 noundef %1, i32 n
 declare i64 @rb_obj_alloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @range_init(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @range_init(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef range(i64 0, 21) %3) unnamed_addr #0 {
   %5 = and i64 %1, 1
   %6 = and i64 %5, %2
   %or.cond = icmp ne i64 %6, 0
@@ -5860,7 +5860,7 @@ declare i64 @rb_obj_class(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_Float(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @bsearch_integer_range(i64 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @bsearch_integer_range(i64 noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = tail call i64 @rb_to_int(i64 noundef %0) #10
   %5 = tail call i64 @rb_to_int(i64 noundef %1) #10
   %.pr.i = load i64, ptr @bsearch_integer_range.rbimpl_id, align 8

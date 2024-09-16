@@ -195,7 +195,7 @@ define internal range(i32 0, 2) i32 @H5S__point_is_valid(ptr nocapture noundef r
 define internal range(i64 -9223372036854775795, -9223372036854775808) i64 @H5S__point_serial_size(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i8, align 1
-  %4 = call fastcc i32 @H5S__point_get_version_enc_size(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @H5S__point_get_version_enc_size(ptr noundef %0, ptr noundef %2, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %10
 
@@ -233,7 +233,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_serialize(ptr nocapture noundef
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
   %5 = load ptr, ptr %1, align 8
-  %6 = call fastcc i32 @H5S__point_get_version_enc_size(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %6 = call fastcc i32 @H5S__point_get_version_enc_size(ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %12
 
@@ -3065,7 +3065,7 @@ H5S__free_pnt_list.exit:                          ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5S__point_get_version_enc_size(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5S__point_get_version_enc_size(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca [32 x i64], align 16

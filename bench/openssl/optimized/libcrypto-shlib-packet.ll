@@ -301,7 +301,7 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false3
   br i1 %cmp2.i, label %WPACKET_close.exit.thread, label %WPACKET_close.exit
 
 WPACKET_close.exit:                               ; preds = %lor.lhs.false.i
-  %call.i5 = call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef nonnull %3, i32 noundef 1)
+  %call.i5 = call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef %3, i32 noundef 1)
   %call.i5.fr = freeze i32 %call.i5
   %tobool5.not = icmp eq i32 %call.i5.fr, 0
   br i1 %tobool5.not, label %WPACKET_close.exit.thread, label %return
@@ -381,7 +381,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef nonnull %0, i32 noundef 1)
+  %call = tail call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef %0, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -835,7 +835,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %sub.05 = phi ptr [ %1, %for.inc ], [ %0, %entry ]
-  %call = tail call fastcc i32 @wpacket_intern_close(ptr noundef %pkt, ptr noundef nonnull %sub.05, i32 noundef 0)
+  %call = tail call fastcc i32 @wpacket_intern_close(ptr noundef %pkt, ptr noundef %sub.05, i32 noundef 0)
   %tobool8.not = icmp eq i32 %call, 0
   br i1 %tobool8.not, label %return, label %for.inc
 
@@ -850,7 +850,7 @@ return:                                           ; preds = %for.inc, %for.body,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @wpacket_intern_close(ptr nocapture noundef %pkt, ptr noundef %sub, i32 noundef %doclose) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @wpacket_intern_close(ptr nocapture noundef %pkt, ptr noundef nonnull %sub, i32 noundef range(i32 0, 2) %doclose) unnamed_addr #0 {
 entry:
   %data.i = alloca ptr, align 8
   %written = getelementptr inbounds i8, ptr %pkt, i64 24
@@ -1189,7 +1189,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef nonnull %0, i32 noundef 1)
+  %call = tail call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef %0, i32 noundef 1)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.then4
 
@@ -1481,7 +1481,7 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false3
   br i1 %cmp2.i, label %WPACKET_close.exit.thread, label %WPACKET_close.exit
 
 WPACKET_close.exit:                               ; preds = %lor.lhs.false.i
-  %call.i9 = call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef nonnull %4, i32 noundef 1)
+  %call.i9 = call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef %4, i32 noundef 1)
   %call.i9.fr = freeze i32 %call.i9
   %tobool5.not = icmp eq i32 %call.i9.fr, 0
   br i1 %tobool5.not, label %WPACKET_close.exit.thread, label %return
@@ -1815,7 +1815,7 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false3
   br i1 %cmp2.i4, label %WPACKET_close.exit.thread, label %WPACKET_close.exit
 
 WPACKET_close.exit:                               ; preds = %lor.lhs.false.i
-  %call.i = call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef nonnull %5, i32 noundef 1)
+  %call.i = call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef %5, i32 noundef 1)
   %call.i.fr = freeze i32 %call.i
   %tobool5.not = icmp eq i32 %call.i.fr, 0
   br i1 %tobool5.not, label %WPACKET_close.exit.thread, label %return

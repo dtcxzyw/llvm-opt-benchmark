@@ -7844,7 +7844,7 @@ _ZNSt12__shared_ptrIN5folly5BatonILb1ESt6atomicEELN9__gnu_cxx12_Lock_policyE2EED
 declare void @_ZN5folly14SingletonVault24scheduleDestroyInstancesEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly19CoreCachedSharedPtrISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEELm64EE5resetES1_IS4_E(ptr noundef nonnull align 8 dereferenceable(1024) %this, ptr nocapture noundef %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly19CoreCachedSharedPtrISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEELm64EE5resetES1_IS4_E(ptr noundef nonnull align 8 dereferenceable(1024) %this, ptr nocapture noundef nonnull %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %guard.i = alloca %"class.folly::CoreAllocatorGuard", align 8
   %0 = load atomic i8, ptr @_ZGVZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEvE1_ acquire, align 8
@@ -23303,7 +23303,7 @@ cleanup.cont.i.i:                                 ; preds = %_ZNSt12__shared_ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118getImmutablePtrPtrIN5folly10IOExecutorEEESt10shared_ptrIS3_IT_EEv(ptr dead_on_unwind noalias nocapture writable align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118getImmutablePtrPtrIN5folly10IOExecutorEEESt10shared_ptrIS3_IT_EEv(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %cpu.i.i.i.i.i = alloca i32, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !680)
@@ -23547,7 +23547,7 @@ return:                                           ; preds = %cleanup.cont, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118getImmutablePtrPtrIN5folly8ExecutorEEESt10shared_ptrIS3_IT_EEv(ptr dead_on_unwind noalias nocapture writable align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118getImmutablePtrPtrIN5folly8ExecutorEEESt10shared_ptrIS3_IT_EEv(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %cpu.i.i.i.i.i = alloca i32, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !698)

@@ -26,7 +26,7 @@ define i32 @foreach_inode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %10 = load ptr, ptr @g_root_inode, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call fastcc i32 @foreach_inodelevel(ptr noundef %12, ptr noundef nonnull %3)
+  %13 = tail call fastcc i32 @foreach_inodelevel(ptr noundef %12, ptr noundef %3)
   tail call void @inode_unlock() #7
   br label %14
 
@@ -46,7 +46,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare i32 @inode_lock() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @foreach_inodelevel(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @foreach_inodelevel(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %.not29 = icmp eq ptr %0, null
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
@@ -87,7 +87,7 @@ define internal fastcc i32 @foreach_inodelevel(ptr noundef %0, ptr noundef %1) u
   %24 = sub nsw i64 256, %22
   %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %23, i64 noundef %24, ptr noundef nonnull @.str, ptr noundef nonnull %15) #7
   %26 = load ptr, ptr %10, align 8
-  %27 = tail call fastcc i32 @foreach_inodelevel(ptr noundef %26, ptr noundef nonnull %1)
+  %27 = tail call fastcc i32 @foreach_inodelevel(ptr noundef %26, ptr noundef %1)
   store i8 0, ptr %23, align 1
   %.not28 = icmp eq i32 %27, 0
   br i1 %.not28, label %28, label %._crit_edge

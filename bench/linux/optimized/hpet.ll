@@ -486,7 +486,7 @@ define internal fastcc zeroext i1 @hpet_cfg_working() unnamed_addr #4 section ".
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @_hpet_print_config(ptr noundef %0, i32 noundef %1) unnamed_addr #6 align 16 {
+define internal fastcc void @_hpet_print_config(ptr noundef %0, i32 noundef range(i32 323, 1149) %1) unnamed_addr #6 align 16 {
   %3 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, ptr noundef %0, i32 noundef %1) #22
   %4 = load ptr, ptr @hpet_virt_address, align 8
   %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #19, !srcloc !5

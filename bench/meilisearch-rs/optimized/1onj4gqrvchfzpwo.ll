@@ -431,7 +431,7 @@ define hidden void @"_ZN114_$LT$time..serde..visitor..Visitor$LT$time..offset_da
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
-  call fastcc void @_ZN4time4date4Date17from_ordinal_date17h4c006040c736e1e3E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, i32 noundef %30, i16 noundef %44)
+  call fastcc void @_ZN4time4date4Date17from_ordinal_date17h4c006040c736e1e3E(ptr noalias nocapture noundef align 8 dereferenceable(48) %7, i32 noundef %30, i16 noundef %44)
   %149 = getelementptr inbounds i8, ptr %7, i64 40
   %150 = load i8, ptr %149, align 8, !range !9, !noundef !5
   %151 = icmp eq i8 %150, 2
@@ -468,7 +468,7 @@ define hidden void @"_ZN114_$LT$time..serde..visitor..Visitor$LT$time..offset_da
   %.sroa.0214.0.copyload = load i32, ptr %8, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 4
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 4
-  call fastcc void @"_ZN114_$LT$time..serde..visitor..Visitor$LT$time..offset_date_time..OffsetDateTime$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_seq28_$u7b$$u7b$closure$u7d$$u7d$17h375f4968ca8af78eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6, i32 %.sroa.0214.0.copyload, i64 %.sroa.6.0.copyload)
+  call fastcc void @"_ZN114_$LT$time..serde..visitor..Visitor$LT$time..offset_date_time..OffsetDateTime$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_seq28_$u7b$$u7b$closure$u7d$$u7d$17h375f4968ca8af78eE"(ptr noalias nocapture noundef align 8 dereferenceable(48) %9, ptr noalias nocapture noundef align 8 dereferenceable(24) %6, i32 %.sroa.0214.0.copyload, i64 %.sroa.6.0.copyload)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   %163 = getelementptr inbounds i8, ptr %9, i64 40
   %164 = load i8, ptr %163, align 8, !range !9, !noundef !5
@@ -522,7 +522,7 @@ define hidden void @"_ZN114_$LT$time..serde..visitor..Visitor$LT$time..offset_da
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN114_$LT$time..serde..visitor..Visitor$LT$time..offset_date_time..OffsetDateTime$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_seq28_$u7b$$u7b$closure$u7d$$u7d$17h375f4968ca8af78eE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i32 %.0.val, i64 %.4.val) unnamed_addr #2 {
+define internal fastcc void @"_ZN114_$LT$time..serde..visitor..Visitor$LT$time..offset_date_time..OffsetDateTime$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_seq28_$u7b$$u7b$closure$u7d$$u7d$17h375f4968ca8af78eE"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 %.0.val, i64 %.4.val) unnamed_addr #2 {
   %3 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !align !18, !noundef !5
@@ -1942,7 +1942,7 @@ define hidden void @_ZN4core6option6Option4Some17h42211781ed54f05bE.llvm.5528481
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN4time4date4Date17from_ordinal_date17h4c006040c736e1e3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly align 8 dereferenceable(48) %0, i32 noundef %1, i16 noundef %2) unnamed_addr #8 {
+define internal fastcc void @_ZN4time4date4Date17from_ordinal_date17h4c006040c736e1e3E(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(48) %0, i32 noundef %1, i16 noundef %2) unnamed_addr #8 {
   %.sroa.916 = alloca [7 x i8], align 1
   %4 = add i32 %1, -10000
   %or.cond = icmp ult i32 %4, -19999
@@ -2202,7 +2202,7 @@ define hidden void @_ZN5serde2de7Visitor10visit_unit17h16428036f940c655E(ptr dea
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5serde2de7Visitor18visit_borrowed_str17h623aad20a61d919dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 {
+define internal fastcc void @_ZN5serde2de7Visitor18visit_borrowed_str17h623aad20a61d919dE(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [48 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !243)
@@ -2894,7 +2894,7 @@ default.unreachable1.i:                           ; preds = %138
   br label %123
 
 159:                                              ; preds = %154
-  call fastcc void @_ZN5serde2de7Visitor18visit_borrowed_str17h623aad20a61d919dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %29, ptr noalias noundef nonnull readonly align 1 %107, i64 noundef %.sroa.4.0.copyload)
+  call fastcc void @_ZN5serde2de7Visitor18visit_borrowed_str17h623aad20a61d919dE(ptr noalias nocapture noundef align 8 dereferenceable(16) %29, ptr noalias noundef nonnull readonly align 1 %107, i64 noundef %.sroa.4.0.copyload)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
   %160 = load i8, ptr %156, align 1, !range !8, !noundef !5
   %trunc64 = trunc nuw i8 %160 to i1

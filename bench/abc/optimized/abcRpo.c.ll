@@ -144,7 +144,7 @@ Lit_Free.exit:                                    ; preds = %32, %37
 declare i64 @clock() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
+define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load i32, ptr @enable_dbg_outs, align 4
   %.not = icmp eq i32 %4, 0
@@ -257,8 +257,8 @@ define void @Abc_TruthRpoTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %29 = select i1 %15, i32 0, i32 %16
   %30 = zext nneg i32 %29 to i64
   %31 = add nuw nsw i64 %30, 3
-  %32 = shl i64 %24, %31
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %32, i1 false)
+  %32 = shl nsw i64 %24, %31
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %28, i8 0, i64 %32, i1 false)
   %33 = icmp sgt i32 %11, 1
   br i1 %33, label %.lr.ph.preheader.i.i, label %Abc_TruthStoreAlloc.exit.i
 

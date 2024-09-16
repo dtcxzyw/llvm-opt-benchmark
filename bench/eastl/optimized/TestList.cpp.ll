@@ -20768,7 +20768,7 @@ invoke.cont2184:                                  ; preds = %call.i.i.i.i.i.i.no
   %this.val.i3273 = load ptr, ptr %a2171, align 8
   store ptr %this.val.i3273, ptr %agg.tmp.i3270, align 8, !alias.scope !618
   store ptr %a2171, ptr %agg.tmp2.i3271, align 8, !alias.scope !621
-  call fastcc void @"_ZN5eastl4listIZ8TestListvE1A_2NS_9allocatorEE6DoSortIZ8TestListvE3$_8EENS_12ListIteratorIS1_PS1_RS1_EES9_S9_mRT_"(ptr noalias nonnull align 8 %tmp.i3272, ptr noundef nonnull %agg.tmp.i3270, ptr noundef nonnull %agg.tmp2.i3271, i64 noundef %inc.i.i.i3265)
+  call fastcc void @"_ZN5eastl4listIZ8TestListvE1A_2NS_9allocatorEE6DoSortIZ8TestListvE3$_8EENS_12ListIteratorIS1_PS1_RS1_EES9_S9_mRT_"(ptr noalias align 8 %tmp.i3272, ptr noundef %agg.tmp.i3270, ptr noundef %agg.tmp2.i3271, i64 noundef %inc.i.i.i3265)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i3270)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i3271)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i3272)
@@ -22942,7 +22942,7 @@ declare noundef ptr @_ZnammmPKcijS0_i(i64 noundef, i64 noundef, i64 noundef, ptr
 declare noundef ptr @_ZN15MallocAllocator8allocateEmi(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZN5eastl4listIZ8TestListvE1A_2NS_9allocatorEE6DoSortIZ8TestListvE3$_8EENS_12ListIteratorIS1_PS1_RS1_EES9_S9_mRT_"(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef %i1, ptr nocapture noundef %end2, i64 noundef %n) unnamed_addr #8 align 2 {
+define internal fastcc void @"_ZN5eastl4listIZ8TestListvE1A_2NS_9allocatorEE6DoSortIZ8TestListvE3$_8EENS_12ListIteratorIS1_PS1_RS1_EES9_S9_mRT_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull %i1, ptr nocapture noundef nonnull %end2, i64 noundef %n) unnamed_addr #8 align 2 {
 entry:
   %ref.tmp = alloca %"struct.eastl::ListIterator.99", align 8
   %agg.tmp32 = alloca %"struct.eastl::ListIterator.99", align 8
@@ -23104,14 +23104,14 @@ while.body.i.i.i.i:                               ; preds = %sw.epilog, %while.b
 _ZN5eastl4nextINS_12ListIteratorIZ8TestListvE1A_2PS2_RS2_EEEET_S6_NS_15iterator_traitsIS6_E15difference_typeE.exit: ; preds = %while.body.i.i.i.i
   store ptr %i1.val21, ptr %agg.tmp32, align 8
   store ptr %24, ptr %agg.tmp33, align 8
-  call fastcc void @"_ZN5eastl4listIZ8TestListvE1A_2NS_9allocatorEE6DoSortIZ8TestListvE3$_8EENS_12ListIteratorIS1_PS1_RS1_EES9_S9_mRT_"(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull %agg.tmp32, ptr noundef nonnull %agg.tmp33, i64 noundef %div17)
+  call fastcc void @"_ZN5eastl4listIZ8TestListvE1A_2NS_9allocatorEE6DoSortIZ8TestListvE3$_8EENS_12ListIteratorIS1_PS1_RS1_EES9_S9_mRT_"(ptr noalias align 8 %ref.tmp, ptr noundef %agg.tmp32, ptr noundef %agg.tmp33, i64 noundef %div17)
   %25 = load i64, ptr %ref.tmp, align 8
   store i64 %25, ptr %i1, align 8
   store ptr %24, ptr %agg.tmp34, align 8
   %end2.val24 = load ptr, ptr %end2, align 8
   store ptr %end2.val24, ptr %agg.tmp35, align 8
   %sub = sub i64 %n, %div17
-  call fastcc void @"_ZN5eastl4listIZ8TestListvE1A_2NS_9allocatorEE6DoSortIZ8TestListvE3$_8EENS_12ListIteratorIS1_PS1_RS1_EES9_S9_mRT_"(ptr noalias nonnull align 8 %i2, ptr noundef nonnull %agg.tmp34, ptr noundef nonnull %agg.tmp35, i64 noundef %sub)
+  call fastcc void @"_ZN5eastl4listIZ8TestListvE1A_2NS_9allocatorEE6DoSortIZ8TestListvE3$_8EENS_12ListIteratorIS1_PS1_RS1_EES9_S9_mRT_"(ptr noalias align 8 %i2, ptr noundef %agg.tmp34, ptr noundef %agg.tmp35, i64 noundef %sub)
   %i2.val = load ptr, ptr %i2, align 8
   %mValue.i70 = getelementptr inbounds i8, ptr %i2.val, i64 16
   %i1.val27 = load ptr, ptr %i1, align 8

@@ -9850,11 +9850,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br i1 %.not83, label %69, label %30
 
 30:                                               ; preds = %28
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %4)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE_clEv(ptr dead_on_unwind noalias writable align 4 %4)
           to label %31 unwind label %.thread
 
 31:                                               ; preds = %30
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE0_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %5)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE0_clEv(ptr dead_on_unwind noalias writable align 4 %5)
           to label %32 unwind label %.thread7
 
 32:                                               ; preds = %31
@@ -9866,11 +9866,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %35, ptr %34, align 4
   store i32 0, ptr %5, align 4
   %36 = getelementptr inbounds i8, ptr %3, i64 8
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE1_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %6)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE1_clEv(ptr dead_on_unwind noalias writable align 4 %6)
           to label %37 unwind label %116
 
 37:                                               ; preds = %32
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE2_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %7)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE2_clEv(ptr dead_on_unwind noalias writable align 4 %7)
           to label %38 unwind label %118
 
 38:                                               ; preds = %37
@@ -9882,11 +9882,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %41, ptr %40, align 4
   store i32 0, ptr %7, align 4
   %42 = getelementptr inbounds i8, ptr %3, i64 16
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE3_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %8)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE3_clEv(ptr dead_on_unwind noalias writable align 4 %8)
           to label %43 unwind label %120
 
 43:                                               ; preds = %38
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE4_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %9)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE4_clEv(ptr dead_on_unwind noalias writable align 4 %9)
           to label %44 unwind label %122
 
 44:                                               ; preds = %43
@@ -9898,11 +9898,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %47, ptr %46, align 4
   store i32 0, ptr %9, align 4
   %48 = getelementptr inbounds i8, ptr %3, i64 24
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE5_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %10)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE5_clEv(ptr dead_on_unwind noalias writable align 4 %10)
           to label %49 unwind label %124
 
 49:                                               ; preds = %44
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE6_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %11)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE6_clEv(ptr dead_on_unwind noalias writable align 4 %11)
           to label %50 unwind label %126
 
 50:                                               ; preds = %49
@@ -9914,11 +9914,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %53, ptr %52, align 4
   store i32 0, ptr %11, align 4
   %54 = getelementptr inbounds i8, ptr %3, i64 32
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE7_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %12)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE7_clEv(ptr dead_on_unwind noalias writable align 4 %12)
           to label %55 unwind label %128
 
 55:                                               ; preds = %50
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE8_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %13)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE8_clEv(ptr dead_on_unwind noalias writable align 4 %13)
           to label %56 unwind label %130
 
 56:                                               ; preds = %55
@@ -9972,11 +9972,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br i1 %.not, label %113, label %74
 
 74:                                               ; preds = %72
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE9_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %16)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE9_clEv(ptr dead_on_unwind noalias writable align 4 %16)
           to label %75 unwind label %.thread12
 
 75:                                               ; preds = %74
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE10_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %17)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE10_clEv(ptr dead_on_unwind noalias writable align 4 %17)
           to label %76 unwind label %.thread18
 
 76:                                               ; preds = %75
@@ -9988,11 +9988,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %79, ptr %78, align 4
   store i32 0, ptr %17, align 4
   %80 = getelementptr inbounds i8, ptr %15, i64 8
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE11_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %18)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE11_clEv(ptr dead_on_unwind noalias writable align 4 %18)
           to label %81 unwind label %154
 
 81:                                               ; preds = %76
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE12_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %19)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE12_clEv(ptr dead_on_unwind noalias writable align 4 %19)
           to label %82 unwind label %156
 
 82:                                               ; preds = %81
@@ -10004,11 +10004,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %85, ptr %84, align 4
   store i32 0, ptr %19, align 4
   %86 = getelementptr inbounds i8, ptr %15, i64 16
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE13_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %20)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE13_clEv(ptr dead_on_unwind noalias writable align 4 %20)
           to label %87 unwind label %158
 
 87:                                               ; preds = %82
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE14_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %21)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE14_clEv(ptr dead_on_unwind noalias writable align 4 %21)
           to label %88 unwind label %160
 
 88:                                               ; preds = %87
@@ -10020,11 +10020,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %91, ptr %90, align 4
   store i32 0, ptr %21, align 4
   %92 = getelementptr inbounds i8, ptr %15, i64 24
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE15_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %22)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE15_clEv(ptr dead_on_unwind noalias writable align 4 %22)
           to label %93 unwind label %162
 
 93:                                               ; preds = %88
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE16_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %23)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE16_clEv(ptr dead_on_unwind noalias writable align 4 %23)
           to label %94 unwind label %164
 
 94:                                               ; preds = %93
@@ -10036,11 +10036,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %97, ptr %96, align 4
   store i32 0, ptr %23, align 4
   %98 = getelementptr inbounds i8, ptr %15, i64 32
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE17_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %24)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE17_clEv(ptr dead_on_unwind noalias writable align 4 %24)
           to label %99 unwind label %166
 
 99:                                               ; preds = %94
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE18_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %25)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE18_clEv(ptr dead_on_unwind noalias writable align 4 %25)
           to label %100 unwind label %168
 
 100:                                              ; preds = %99
@@ -10432,11 +10432,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br i1 %.not209, label %159, label %66
 
 66:                                               ; preds = %64
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %4)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE_clEv(ptr dead_on_unwind noalias writable align 4 %4)
           to label %67 unwind label %.thread
 
 67:                                               ; preds = %66
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE0_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %5)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE0_clEv(ptr dead_on_unwind noalias writable align 4 %5)
           to label %68 unwind label %.thread7
 
 68:                                               ; preds = %67
@@ -10448,11 +10448,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %71, ptr %70, align 4
   store i32 0, ptr %5, align 4
   %72 = getelementptr inbounds i8, ptr %3, i64 8
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE1_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %6)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE1_clEv(ptr dead_on_unwind noalias writable align 4 %6)
           to label %73 unwind label %260
 
 73:                                               ; preds = %68
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE2_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %7)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE2_clEv(ptr dead_on_unwind noalias writable align 4 %7)
           to label %74 unwind label %262
 
 74:                                               ; preds = %73
@@ -10464,11 +10464,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %77, ptr %76, align 4
   store i32 0, ptr %7, align 4
   %78 = getelementptr inbounds i8, ptr %3, i64 16
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE3_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %8)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE3_clEv(ptr dead_on_unwind noalias writable align 4 %8)
           to label %79 unwind label %264
 
 79:                                               ; preds = %74
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE4_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %9)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE4_clEv(ptr dead_on_unwind noalias writable align 4 %9)
           to label %80 unwind label %266
 
 80:                                               ; preds = %79
@@ -10480,11 +10480,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %83, ptr %82, align 4
   store i32 0, ptr %9, align 4
   %84 = getelementptr inbounds i8, ptr %3, i64 24
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE5_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %10)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE5_clEv(ptr dead_on_unwind noalias writable align 4 %10)
           to label %85 unwind label %268
 
 85:                                               ; preds = %80
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE6_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %11)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE6_clEv(ptr dead_on_unwind noalias writable align 4 %11)
           to label %86 unwind label %270
 
 86:                                               ; preds = %85
@@ -10496,11 +10496,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %89, ptr %88, align 4
   store i32 0, ptr %11, align 4
   %90 = getelementptr inbounds i8, ptr %3, i64 32
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE7_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %12)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE7_clEv(ptr dead_on_unwind noalias writable align 4 %12)
           to label %91 unwind label %272
 
 91:                                               ; preds = %86
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE8_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %13)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE8_clEv(ptr dead_on_unwind noalias writable align 4 %13)
           to label %92 unwind label %274
 
 92:                                               ; preds = %91
@@ -10512,11 +10512,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %95, ptr %94, align 4
   store i32 0, ptr %13, align 4
   %96 = getelementptr inbounds i8, ptr %3, i64 40
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE9_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %14)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE9_clEv(ptr dead_on_unwind noalias writable align 4 %14)
           to label %97 unwind label %276
 
 97:                                               ; preds = %92
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE10_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %15)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE10_clEv(ptr dead_on_unwind noalias writable align 4 %15)
           to label %98 unwind label %278
 
 98:                                               ; preds = %97
@@ -10528,11 +10528,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %101, ptr %100, align 4
   store i32 0, ptr %15, align 4
   %102 = getelementptr inbounds i8, ptr %3, i64 48
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE11_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %16)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE11_clEv(ptr dead_on_unwind noalias writable align 4 %16)
           to label %103 unwind label %280
 
 103:                                              ; preds = %98
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE12_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %17)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE12_clEv(ptr dead_on_unwind noalias writable align 4 %17)
           to label %104 unwind label %282
 
 104:                                              ; preds = %103
@@ -10544,11 +10544,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %107, ptr %106, align 4
   store i32 0, ptr %17, align 4
   %108 = getelementptr inbounds i8, ptr %3, i64 56
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE13_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %18)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE13_clEv(ptr dead_on_unwind noalias writable align 4 %18)
           to label %109 unwind label %284
 
 109:                                              ; preds = %104
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE14_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %19)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE14_clEv(ptr dead_on_unwind noalias writable align 4 %19)
           to label %110 unwind label %286
 
 110:                                              ; preds = %109
@@ -10560,11 +10560,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %113, ptr %112, align 4
   store i32 0, ptr %19, align 4
   %114 = getelementptr inbounds i8, ptr %3, i64 64
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE15_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %20)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE15_clEv(ptr dead_on_unwind noalias writable align 4 %20)
           to label %115 unwind label %288
 
 115:                                              ; preds = %110
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE16_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %21)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE16_clEv(ptr dead_on_unwind noalias writable align 4 %21)
           to label %116 unwind label %290
 
 116:                                              ; preds = %115
@@ -10576,11 +10576,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %119, ptr %118, align 4
   store i32 0, ptr %21, align 4
   %120 = getelementptr inbounds i8, ptr %3, i64 72
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE17_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %22)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE17_clEv(ptr dead_on_unwind noalias writable align 4 %22)
           to label %121 unwind label %292
 
 121:                                              ; preds = %116
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE18_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %23)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE18_clEv(ptr dead_on_unwind noalias writable align 4 %23)
           to label %122 unwind label %294
 
 122:                                              ; preds = %121
@@ -10592,11 +10592,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %125, ptr %124, align 4
   store i32 0, ptr %23, align 4
   %126 = getelementptr inbounds i8, ptr %3, i64 80
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE19_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %24)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE19_clEv(ptr dead_on_unwind noalias writable align 4 %24)
           to label %127 unwind label %296
 
 127:                                              ; preds = %122
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE20_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %25)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE20_clEv(ptr dead_on_unwind noalias writable align 4 %25)
           to label %128 unwind label %298
 
 128:                                              ; preds = %127
@@ -10608,11 +10608,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %131, ptr %130, align 4
   store i32 0, ptr %25, align 4
   %132 = getelementptr inbounds i8, ptr %3, i64 88
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE21_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %26)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE21_clEv(ptr dead_on_unwind noalias writable align 4 %26)
           to label %133 unwind label %300
 
 133:                                              ; preds = %128
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE22_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %27)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE22_clEv(ptr dead_on_unwind noalias writable align 4 %27)
           to label %134 unwind label %302
 
 134:                                              ; preds = %133
@@ -10624,11 +10624,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %137, ptr %136, align 4
   store i32 0, ptr %27, align 4
   %138 = getelementptr inbounds i8, ptr %3, i64 96
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE23_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %28)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE23_clEv(ptr dead_on_unwind noalias writable align 4 %28)
           to label %139 unwind label %304
 
 139:                                              ; preds = %134
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE24_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %29)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE24_clEv(ptr dead_on_unwind noalias writable align 4 %29)
           to label %140 unwind label %306
 
 140:                                              ; preds = %139
@@ -10640,11 +10640,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %143, ptr %142, align 4
   store i32 0, ptr %29, align 4
   %144 = getelementptr inbounds i8, ptr %3, i64 104
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE25_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %30)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE25_clEv(ptr dead_on_unwind noalias writable align 4 %30)
           to label %145 unwind label %308
 
 145:                                              ; preds = %140
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE26_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %31)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE26_clEv(ptr dead_on_unwind noalias writable align 4 %31)
           to label %146 unwind label %310
 
 146:                                              ; preds = %145
@@ -10716,11 +10716,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br i1 %.not, label %257, label %164
 
 164:                                              ; preds = %162
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE27_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %34)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE27_clEv(ptr dead_on_unwind noalias writable align 4 %34)
           to label %165 unwind label %.thread12
 
 165:                                              ; preds = %164
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE28_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %35)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE28_clEv(ptr dead_on_unwind noalias writable align 4 %35)
           to label %166 unwind label %.thread18
 
 166:                                              ; preds = %165
@@ -10732,11 +10732,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %169, ptr %168, align 4
   store i32 0, ptr %35, align 4
   %170 = getelementptr inbounds i8, ptr %33, i64 8
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE29_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %36)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE29_clEv(ptr dead_on_unwind noalias writable align 4 %36)
           to label %171 unwind label %352
 
 171:                                              ; preds = %166
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE30_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %37)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE30_clEv(ptr dead_on_unwind noalias writable align 4 %37)
           to label %172 unwind label %354
 
 172:                                              ; preds = %171
@@ -10748,11 +10748,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %175, ptr %174, align 4
   store i32 0, ptr %37, align 4
   %176 = getelementptr inbounds i8, ptr %33, i64 16
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE31_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %38)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE31_clEv(ptr dead_on_unwind noalias writable align 4 %38)
           to label %177 unwind label %356
 
 177:                                              ; preds = %172
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE32_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %39)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE32_clEv(ptr dead_on_unwind noalias writable align 4 %39)
           to label %178 unwind label %358
 
 178:                                              ; preds = %177
@@ -10764,11 +10764,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %181, ptr %180, align 4
   store i32 0, ptr %39, align 4
   %182 = getelementptr inbounds i8, ptr %33, i64 24
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE33_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %40)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE33_clEv(ptr dead_on_unwind noalias writable align 4 %40)
           to label %183 unwind label %360
 
 183:                                              ; preds = %178
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE34_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %41)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE34_clEv(ptr dead_on_unwind noalias writable align 4 %41)
           to label %184 unwind label %362
 
 184:                                              ; preds = %183
@@ -10780,11 +10780,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %187, ptr %186, align 4
   store i32 0, ptr %41, align 4
   %188 = getelementptr inbounds i8, ptr %33, i64 32
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE35_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %42)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE35_clEv(ptr dead_on_unwind noalias writable align 4 %42)
           to label %189 unwind label %364
 
 189:                                              ; preds = %184
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE36_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %43)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE36_clEv(ptr dead_on_unwind noalias writable align 4 %43)
           to label %190 unwind label %366
 
 190:                                              ; preds = %189
@@ -10796,11 +10796,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %193, ptr %192, align 4
   store i32 0, ptr %43, align 4
   %194 = getelementptr inbounds i8, ptr %33, i64 40
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE37_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %44)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE37_clEv(ptr dead_on_unwind noalias writable align 4 %44)
           to label %195 unwind label %368
 
 195:                                              ; preds = %190
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE38_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %45)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE38_clEv(ptr dead_on_unwind noalias writable align 4 %45)
           to label %196 unwind label %370
 
 196:                                              ; preds = %195
@@ -10812,11 +10812,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %199, ptr %198, align 4
   store i32 0, ptr %45, align 4
   %200 = getelementptr inbounds i8, ptr %33, i64 48
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE39_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %46)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE39_clEv(ptr dead_on_unwind noalias writable align 4 %46)
           to label %201 unwind label %372
 
 201:                                              ; preds = %196
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE40_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %47)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE40_clEv(ptr dead_on_unwind noalias writable align 4 %47)
           to label %202 unwind label %374
 
 202:                                              ; preds = %201
@@ -10828,11 +10828,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %205, ptr %204, align 4
   store i32 0, ptr %47, align 4
   %206 = getelementptr inbounds i8, ptr %33, i64 56
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE41_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %48)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE41_clEv(ptr dead_on_unwind noalias writable align 4 %48)
           to label %207 unwind label %376
 
 207:                                              ; preds = %202
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE42_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %49)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE42_clEv(ptr dead_on_unwind noalias writable align 4 %49)
           to label %208 unwind label %378
 
 208:                                              ; preds = %207
@@ -10844,11 +10844,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %211, ptr %210, align 4
   store i32 0, ptr %49, align 4
   %212 = getelementptr inbounds i8, ptr %33, i64 64
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE43_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %50)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE43_clEv(ptr dead_on_unwind noalias writable align 4 %50)
           to label %213 unwind label %380
 
 213:                                              ; preds = %208
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE44_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %51)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE44_clEv(ptr dead_on_unwind noalias writable align 4 %51)
           to label %214 unwind label %382
 
 214:                                              ; preds = %213
@@ -10860,11 +10860,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %217, ptr %216, align 4
   store i32 0, ptr %51, align 4
   %218 = getelementptr inbounds i8, ptr %33, i64 72
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE45_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %52)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE45_clEv(ptr dead_on_unwind noalias writable align 4 %52)
           to label %219 unwind label %384
 
 219:                                              ; preds = %214
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE46_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %53)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE46_clEv(ptr dead_on_unwind noalias writable align 4 %53)
           to label %220 unwind label %386
 
 220:                                              ; preds = %219
@@ -10876,11 +10876,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %223, ptr %222, align 4
   store i32 0, ptr %53, align 4
   %224 = getelementptr inbounds i8, ptr %33, i64 80
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE47_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %54)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE47_clEv(ptr dead_on_unwind noalias writable align 4 %54)
           to label %225 unwind label %388
 
 225:                                              ; preds = %220
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE48_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %55)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE48_clEv(ptr dead_on_unwind noalias writable align 4 %55)
           to label %226 unwind label %390
 
 226:                                              ; preds = %225
@@ -10892,11 +10892,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %229, ptr %228, align 4
   store i32 0, ptr %55, align 4
   %230 = getelementptr inbounds i8, ptr %33, i64 88
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE49_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %56)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE49_clEv(ptr dead_on_unwind noalias writable align 4 %56)
           to label %231 unwind label %392
 
 231:                                              ; preds = %226
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE50_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %57)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE50_clEv(ptr dead_on_unwind noalias writable align 4 %57)
           to label %232 unwind label %394
 
 232:                                              ; preds = %231
@@ -10908,11 +10908,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %235, ptr %234, align 4
   store i32 0, ptr %57, align 4
   %236 = getelementptr inbounds i8, ptr %33, i64 96
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE51_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %58)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE51_clEv(ptr dead_on_unwind noalias writable align 4 %58)
           to label %237 unwind label %396
 
 237:                                              ; preds = %232
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE52_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %59)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE52_clEv(ptr dead_on_unwind noalias writable align 4 %59)
           to label %238 unwind label %398
 
 238:                                              ; preds = %237
@@ -10924,11 +10924,11 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   store i32 %241, ptr %240, align 4
   store i32 0, ptr %59, align 4
   %242 = getelementptr inbounds i8, ptr %33, i64 104
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE53_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %60)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE53_clEv(ptr dead_on_unwind noalias writable align 4 %60)
           to label %243 unwind label %400
 
 243:                                              ; preds = %238
-  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE54_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %61)
+  invoke fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE54_clEv(ptr dead_on_unwind noalias writable align 4 %61)
           to label %244 unwind label %402
 
 244:                                              ; preds = %243
@@ -11707,7 +11707,7 @@ declare noundef zeroext i1 @_ZNK5Yosys5RTLIL10AttrObject13has_attributeERKNS0_8I
 declare void @_ZN5Yosys5RTLIL6Module6removeEPNS0_4CellE(ptr noundef nonnull align 8 dereferenceable(560), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -11753,7 +11753,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE0_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE0_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE0_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -11799,7 +11799,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE1_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE1_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE1_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -11845,7 +11845,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE2_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE2_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE2_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -11891,7 +11891,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE3_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE3_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE3_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -11937,7 +11937,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE4_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE4_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE4_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -11983,7 +11983,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE5_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE5_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE5_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -12029,7 +12029,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE6_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE6_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE6_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -12075,7 +12075,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE7_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE7_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE7_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -12121,7 +12121,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE8_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE8_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE8_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -12378,7 +12378,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE9_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE9_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE9_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -12424,7 +12424,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE10_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE10_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE10_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -12470,7 +12470,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE11_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE11_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE11_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -12516,7 +12516,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE12_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE12_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE12_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -12562,7 +12562,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE13_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE13_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE13_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -12608,7 +12608,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE14_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE14_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE14_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -12654,7 +12654,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE15_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE15_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE15_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -12700,7 +12700,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE16_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE16_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE16_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -12746,7 +12746,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE17_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE17_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE17_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -12792,7 +12792,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE18_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE18_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbENKUlvE18_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -13723,7 +13723,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringES4_NS1_8hash_opsIS4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -13769,7 +13769,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE0_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE0_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE0_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -13815,7 +13815,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE1_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE1_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE1_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -13861,7 +13861,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE2_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE2_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE2_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -13907,7 +13907,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE3_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE3_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE3_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -13953,7 +13953,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE4_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE4_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE4_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -13999,7 +13999,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE5_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE5_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE5_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -14045,7 +14045,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE6_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE6_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE6_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -14091,7 +14091,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE7_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE7_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE7_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -14137,7 +14137,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE8_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE8_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE8_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -14183,7 +14183,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE9_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE9_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE9_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -14229,7 +14229,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE10_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE10_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE10_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -14275,7 +14275,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE11_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE11_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE11_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -14321,7 +14321,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE12_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE12_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE12_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -14367,7 +14367,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE13_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE13_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE13_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -14413,7 +14413,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE14_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE14_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE14_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -14459,7 +14459,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE15_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE15_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE15_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -14505,7 +14505,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE16_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE16_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE16_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -14551,7 +14551,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE17_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE17_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE17_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -14597,7 +14597,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE18_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE18_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE18_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -14643,7 +14643,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE19_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE19_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE19_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -14689,7 +14689,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE20_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE20_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE20_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -14735,7 +14735,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE21_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE21_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE21_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -14781,7 +14781,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE22_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE22_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE22_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -14827,7 +14827,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE23_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE23_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE23_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -14873,7 +14873,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE24_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE24_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE24_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -14919,7 +14919,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE25_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE25_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE25_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -14965,7 +14965,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE26_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE26_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE26_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -15011,7 +15011,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE27_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE27_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE27_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -15057,7 +15057,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE28_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE28_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE28_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -15103,7 +15103,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE29_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE29_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE29_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -15149,7 +15149,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE30_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE30_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE30_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -15195,7 +15195,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE31_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE31_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE31_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -15241,7 +15241,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE32_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE32_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE32_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -15287,7 +15287,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE33_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE33_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE33_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -15333,7 +15333,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE34_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE34_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE34_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -15379,7 +15379,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE35_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE35_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE35_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -15425,7 +15425,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE36_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE36_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE36_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -15471,7 +15471,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE37_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE37_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE37_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -15517,7 +15517,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE38_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE38_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE38_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -15563,7 +15563,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE39_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE39_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE39_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -15609,7 +15609,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE40_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE40_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE40_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -15655,7 +15655,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE41_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE41_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE41_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -15701,7 +15701,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE42_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE42_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE42_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -15747,7 +15747,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE43_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE43_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE43_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -15793,7 +15793,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE44_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE44_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE44_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -15839,7 +15839,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE45_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE45_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE45_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -15885,7 +15885,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE46_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE46_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE46_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -15931,7 +15931,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE47_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE47_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE47_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -15977,7 +15977,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE48_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE48_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE48_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -16023,7 +16023,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE49_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE49_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE49_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -16069,7 +16069,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE50_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE50_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE50_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -16115,7 +16115,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE51_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE51_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE51_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -16161,7 +16161,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE52_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE52_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE52_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -16207,7 +16207,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE53_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE53_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE53_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11
@@ -16253,7 +16253,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE54_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE54_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbENKUlvE54_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !11

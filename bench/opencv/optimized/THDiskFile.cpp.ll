@@ -948,8 +948,8 @@ define internal noundef i64 @_ZN2THL20THDiskFile_readShortEPNS_8THFile__EPsl(ptr
   store i8 %40, ptr %41, align 1
   %43 = getelementptr i8, ptr %.031.us.i, i64 2
   %44 = add nuw nsw i64 %.02530.us.i, 1
-  %exitcond34.not.i = icmp eq i64 %44, %35
-  br i1 %exitcond34.not.i, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %.preheader.us.i, !llvm.loop !4
+  %exitcond35.not.i = icmp eq i64 %44, %35
+  br i1 %exitcond35.not.i, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %.preheader.us.i, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %.preheader, %49
   %.160 = phi i64 [ %50, %49 ], [ 0, %.preheader ]
@@ -1133,8 +1133,8 @@ define internal noundef i64 @_ZN2THL18THDiskFile_readIntEPNS_8THFile__EPil(ptr n
 ._crit_edge.us.i:                                 ; preds = %40
   %47 = getelementptr i8, ptr %.031.us.i, i64 4
   %48 = add nuw nsw i64 %.02530.us.i, 1
-  %exitcond34.not.i = icmp eq i64 %48, %35
-  br i1 %exitcond34.not.i, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %.preheader.us.i, !llvm.loop !4
+  %exitcond35.not.i = icmp eq i64 %48, %35
+  br i1 %exitcond35.not.i, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %.preheader.us.i, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %.preheader, %53
   %.160 = phi i64 [ %54, %53 ], [ 0, %.preheader ]
@@ -1329,8 +1329,8 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readLongEPNS_8THFile__EPll(ptr 
 ._crit_edge.us.i:                                 ; preds = %45
   %52 = getelementptr i8, ptr %.031.us.i, i64 8
   %53 = add nuw nsw i64 %.02530.us.i, 1
-  %exitcond34.not.i = icmp eq i64 %53, %40
-  br i1 %exitcond34.not.i, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %.preheader.us.i, !llvm.loop !4
+  %exitcond35.not.i = icmp eq i64 %53, %40
+  br i1 %exitcond35.not.i, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %.preheader.us.i, !llvm.loop !4
 
 54:                                               ; preds = %36
   %55 = tail call i64 @fread(ptr noundef %1, i64 noundef 4, i64 noundef %2, ptr noundef nonnull %12)
@@ -1362,8 +1362,8 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readLongEPNS_8THFile__EPll(ptr 
 ._crit_edge.us.i113:                              ; preds = %60
   %67 = getelementptr i8, ptr %.031.us.i108, i64 4
   %68 = add nuw nsw i64 %.02530.us.i109, 1
-  %exitcond34.not.i114 = icmp eq i64 %68, %55
-  br i1 %exitcond34.not.i114, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit115, label %.preheader.us.i107, !llvm.loop !4
+  %exitcond35.not.i114 = icmp eq i64 %68, %55
+  br i1 %exitcond35.not.i114, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit115, label %.preheader.us.i107, !llvm.loop !4
 
 _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit115: ; preds = %._crit_edge.us.i113, %54
   br i1 %59, label %.lr.ph, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
@@ -1445,8 +1445,8 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit115: ; preds = %._crit_edge.us.i11
 ._crit_edge.us.i122:                              ; preds = %94
   %101 = getelementptr i8, ptr %.031.us.i117, i64 4
   %102 = add nuw nsw i64 %.02530.us.i118, 1
-  %exitcond34.not.i123 = icmp eq i64 %102, %83
-  br i1 %exitcond34.not.i123, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %.preheader.us.i116, !llvm.loop !4
+  %exitcond35.not.i123 = icmp eq i64 %102, %83
+  br i1 %exitcond35.not.i123, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %.preheader.us.i116, !llvm.loop !4
 
 .lr.ph132:                                        ; preds = %.preheader, %106
   %.1131 = phi i64 [ %107, %106 ], [ 0, %.preheader ]
@@ -1632,8 +1632,8 @@ define internal noundef i64 @_ZN2THL20THDiskFile_readFloatEPNS_8THFile__EPfl(ptr
 ._crit_edge.us.i:                                 ; preds = %40
   %47 = getelementptr i8, ptr %.031.us.i, i64 4
   %48 = add nuw nsw i64 %.02530.us.i, 1
-  %exitcond34.not.i = icmp eq i64 %48, %35
-  br i1 %exitcond34.not.i, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %.preheader.us.i, !llvm.loop !4
+  %exitcond35.not.i = icmp eq i64 %48, %35
+  br i1 %exitcond35.not.i, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %.preheader.us.i, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %.preheader, %53
   %.160 = phi i64 [ %54, %53 ], [ 0, %.preheader ]
@@ -1817,8 +1817,8 @@ define internal noundef i64 @_ZN2THL21THDiskFile_readDoubleEPNS_8THFile__EPdl(pt
 ._crit_edge.us.i:                                 ; preds = %40
   %47 = getelementptr i8, ptr %.031.us.i, i64 8
   %48 = add nuw nsw i64 %.02530.us.i, 1
-  %exitcond34.not.i = icmp eq i64 %48, %35
-  br i1 %exitcond34.not.i, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %.preheader.us.i, !llvm.loop !4
+  %exitcond35.not.i = icmp eq i64 %48, %35
+  br i1 %exitcond35.not.i, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %.preheader.us.i, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %.preheader, %53
   %.160 = phi i64 [ %54, %53 ], [ 0, %.preheader ]

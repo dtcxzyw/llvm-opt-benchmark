@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StrtodTrimmedENS0_6VectorIKcEEi(ptr %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca double, align 8
-  %5 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd(ptr %0, i32 %1, i32 noundef %2, ptr noundef nonnull %4)
+  %5 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd(ptr %0, i32 %1, i32 noundef %2, ptr noundef %4)
   %6 = load double, ptr %4, align 8
   br i1 %5, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double10NextDoubleEv.exit, label %7
 
@@ -94,7 +94,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double10NextDouble
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd(ptr nocapture readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd(ptr nocapture readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::pxr_double_conversion::DiyFp", align 8
   %6 = alloca i32, align 4
   %7 = icmp eq i32 %1, 0
@@ -682,7 +682,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10TrimAndCutENS0_6V
   %.sroa.0.0 = phi ptr [ %5, %.preheader.i.preheader ], [ %.sroa.07.0.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i ], [ %.sroa.07.0.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i ]
   %.0 = phi i32 [ %28, %.preheader.i.preheader ], [ %18, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i ], [ %24, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %29 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd(ptr %.sroa.0.0, i32 %.sroa.4.0, i32 noundef %.0, ptr noundef nonnull %4)
+  %29 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd(ptr %.sroa.0.0, i32 %.sroa.4.0, i32 noundef %.0, ptr noundef %4)
   %30 = load double, ptr %4, align 8
   br i1 %29, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %31
 
@@ -839,7 +839,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10TrimAndCutENS0_6V
 ; Function Attrs: mustprogress uwtable
 define noundef float @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StrtofTrimmedENS0_6VectorIKcEEi(ptr %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca double, align 8
-  %5 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd(ptr %0, i32 %1, i32 noundef %2, ptr noundef nonnull %4)
+  %5 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd(ptr %0, i32 %1, i32 noundef %2, ptr noundef %4)
   %6 = load double, ptr %4, align 8
   %7 = fcmp ult double %6, 0x47EFFFFFE0000000
   br i1 %7, label %11, label %8

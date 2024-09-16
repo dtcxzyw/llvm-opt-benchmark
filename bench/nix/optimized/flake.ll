@@ -1881,7 +1881,7 @@ define internal void @__cxx_global_var_init.5() #0 section ".text.startup" comda
 define void @_ZN3nix5flake8getFlakeERNS_9EvalStateERKNS_8FlakeRefEbRSt6vectorISt4pairIS3_S7_INS_9StorePathES3_EESaISA_EE(ptr dead_on_unwind noalias writable sret(%"struct.nix::flake::Flake") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN3nix5flakeL8getFlakeERNS_9EvalStateERKNS_8FlakeRefEbRSt6vectorISt4pairIS3_S7_INS_9StorePathES3_EESaISA_EES6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %6)
+  invoke fastcc void @_ZN3nix5flakeL8getFlakeERNS_9EvalStateERKNS_8FlakeRefEbRSt6vectorISt4pairIS3_S7_INS_9StorePathES3_EESaISA_EES6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %6)
           to label %7 unwind label %20
 
 7:                                                ; preds = %5
@@ -1939,7 +1939,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nix5flakeL8getFlakeERNS_9EvalStateERKNS_8FlakeRefEbRSt6vectorISt4pairIS3_S7_INS_9StorePathES3_EESaISA_EES6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %5) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nix5flakeL8getFlakeERNS_9EvalStateERKNS_8FlakeRefEbRSt6vectorISt4pairIS3_S7_INS_9StorePathES3_EESaISA_EES6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %5) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %class.anon.511, align 1
@@ -1989,7 +1989,7 @@ define internal fastcc void @_ZN3nix5flakeL8getFlakeERNS_9EvalStateERKNS_8FlakeR
   %53 = alloca %"class.std::tuple", align 8
   %54 = alloca %"struct.nix::SourcePath", align 8
   %55 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN3nix5flakeL21fetchOrSubstituteTreeERNS_9EvalStateERKNS_8FlakeRefEbRSt6vectorISt4pairIS3_S7_INS_9StorePathES3_EESaISA_EE(ptr dead_on_unwind noalias nonnull writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  call fastcc void @_ZN3nix5flakeL21fetchOrSubstituteTreeERNS_9EvalStateERKNS_8FlakeRefEbRSt6vectorISt4pairIS3_S7_INS_9StorePathES3_EESaISA_EE(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %56 = getelementptr inbounds i8, ptr %53, i64 272
   %57 = getelementptr inbounds i8, ptr %53, i64 136
   %58 = getelementptr inbounds i8, ptr %1, i64 528
@@ -2694,7 +2694,7 @@ _ZN3nix8Bindings3getENS_6SymbolE.exit260.i:       ; preds = %307
           to label %317 unwind label %400
 
 317:                                              ; preds = %315
-  invoke fastcc void @_ZN3nix5flakeL16parseFlakeInputsERNS_9EvalStateEPNS_5ValueENS_6PosIdxERKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISC_SaISC_EE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef %311, i32 %.sroa.0105.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull %22)
+  invoke fastcc void @_ZN3nix5flakeL16parseFlakeInputsERNS_9EvalStateEPNS_5ValueENS_6PosIdxERKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISC_SaISC_EE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef %311, i32 %.sroa.0105.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef %22)
           to label %318 unwind label %402
 
 318:                                              ; preds = %317
@@ -4270,7 +4270,7 @@ define void @_ZN3nix5flake8getFlakeERNS_9EvalStateERKNS_8FlakeRefEb(ptr dead_on_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !noalias !13
-  invoke fastcc void @_ZN3nix5flakeL8getFlakeERNS_9EvalStateERKNS_8FlakeRefEbRSt6vectorISt4pairIS3_S7_INS_9StorePathES3_EESaISA_EES6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %5)
+  invoke fastcc void @_ZN3nix5flakeL8getFlakeERNS_9EvalStateERKNS_8FlakeRefEbRSt6vectorISt4pairIS3_S7_INS_9StorePathES3_EESaISA_EES6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %5)
           to label %7 unwind label %.body
 
 7:                                                ; preds = %4
@@ -4510,7 +4510,7 @@ define void @_ZN3nix5flake9lockFlakeERNS_9EvalStateERKNS_8FlakeRefERKNS0_9LockFl
   store i8 %114, ptr %21, align 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false), !noalias !17
-  invoke fastcc void @_ZN3nix5flakeL8getFlakeERNS_9EvalStateERKNS_8FlakeRefEbRSt6vectorISt4pairIS3_S7_INS_9StorePathES3_EESaISA_EES6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, i1 noundef zeroext %.0.i, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull %18)
+  invoke fastcc void @_ZN3nix5flakeL8getFlakeERNS_9EvalStateERKNS_8FlakeRefEbRSt6vectorISt4pairIS3_S7_INS_9StorePathES3_EESaISA_EES6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, i1 noundef zeroext %.0.i, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef %18)
           to label %115 unwind label %.body
 
 115:                                              ; preds = %4
@@ -4655,7 +4655,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
           to label %167 unwind label %286
 
 167:                                              ; preds = %165
-  invoke fastcc void @_ZN3nix5flakeL12readLockFileERKNS_10SourcePathE(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(48) %26)
+  invoke fastcc void @_ZN3nix5flakeL12readLockFileERKNS_10SourcePathE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(48) %26)
           to label %168 unwind label %288
 
 168:                                              ; preds = %167
@@ -7466,7 +7466,7 @@ _ZN3nix8FlakeRefC2ERKS0_.exit:                    ; preds = %.noexc419
   %1161 = trunc i8 %1160 to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !noalias !36
-  invoke fastcc void @_ZN3nix5flakeL8getFlakeERNS_9EvalStateERKNS_8FlakeRefEbRSt6vectorISt4pairIS3_S7_INS_9StorePathES3_EESaISA_EES6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr dead_on_unwind noalias nonnull writable align 8 %95, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, i1 noundef zeroext %1161, ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull %5)
+  invoke fastcc void @_ZN3nix5flakeL8getFlakeERNS_9EvalStateERKNS_8FlakeRefEbRSt6vectorISt4pairIS3_S7_INS_9StorePathES3_EESaISA_EES6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr dead_on_unwind noalias nonnull writable align 8 %95, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, i1 noundef zeroext %1161, ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef %5)
           to label %1162 unwind label %1175
 
 1162:                                             ; preds = %_ZN3nix8FlakeRefC2ERKS0_.exit
@@ -8562,7 +8562,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nix5flakeL12readLockFileERKNS_10SourcePathE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nix5flakeL12readLockFileERKNS_10SourcePathE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.boost::io::detail::put_holder", align 8
   %4 = alloca %"class.boost::basic_format", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13726,7 +13726,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #15
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nix5flakeL21fetchOrSubstituteTreeERNS_9EvalStateERKNS_8FlakeRefEbRSt6vectorISt4pairIS3_S7_INS_9StorePathES3_EESaISA_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nix5flakeL21fetchOrSubstituteTreeERNS_9EvalStateERKNS_8FlakeRefEbRSt6vectorISt4pairIS3_S7_INS_9StorePathES3_EESaISA_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.boost::io::detail::put_holder", align 8
   %7 = alloca %"struct.boost::io::detail::put_holder", align 8
   %8 = alloca %"class.boost::basic_format", align 8
@@ -13751,7 +13751,7 @@ define internal fastcc void @_ZN3nix5flakeL21fetchOrSubstituteTreeERNS_9EvalStat
   %.val = load ptr, ptr %4, align 8
   %27 = getelementptr inbounds i8, ptr %4, i64 8
   %.val48 = load ptr, ptr %27, align 8
-  call fastcc void @_ZN3nix5flakeL18lookupInFlakeCacheERKSt6vectorISt4pairINS_8FlakeRefES2_INS_9StorePathES3_EESaIS6_EERKS3_(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr %.val, ptr %.val48, ptr noundef nonnull align 8 dereferenceable(136) %2)
+  call fastcc void @_ZN3nix5flakeL18lookupInFlakeCacheERKSt6vectorISt4pairINS_8FlakeRefES2_INS_9StorePathES3_EESaIS6_EERKS3_(ptr dead_on_unwind noalias writable align 8 %9, ptr %.val, ptr %.val48, ptr noundef nonnull align 8 dereferenceable(136) %2)
   invoke void @_ZN3nix8fetchers5InputC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %2)
           to label %.noexc unwind label %103
 
@@ -14157,7 +14157,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZN3nix3refINS_5StoreEED2Ev.exit62:               ; preds = %_ZN3nix8FlakeRefD2Ev.exit, %186, %199, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i61
   %.val49 = load ptr, ptr %4, align 8
   %.val50 = load ptr, ptr %27, align 8
-  invoke fastcc void @_ZN3nix5flakeL18lookupInFlakeCacheERKSt6vectorISt4pairINS_8FlakeRefES2_INS_9StorePathES3_EESaIS6_EERKS3_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr %.val49, ptr %.val50, ptr noundef nonnull align 8 dereferenceable(136) %2)
+  invoke fastcc void @_ZN3nix5flakeL18lookupInFlakeCacheERKSt6vectorISt4pairINS_8FlakeRefES2_INS_9StorePathES3_EESaIS6_EERKS3_(ptr dead_on_unwind noalias writable align 8 %15, ptr %.val49, ptr %.val50, ptr noundef nonnull align 8 dereferenceable(136) %2)
           to label %204 unwind label %105
 
 204:                                              ; preds = %_ZN3nix3refINS_5StoreEED2Ev.exit62
@@ -14890,7 +14890,7 @@ _ZNSt8optionalISt4pairIN3nix9StorePathENS1_8FlakeRefEEED2Ev.exit117: ; preds = %
 declare void @_ZN3nix9EvalState8rootPathESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"struct.nix::SourcePath") align 8, ptr noundef nonnull align 8 dereferenceable(1248), i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nix5flakeL18lookupInFlakeCacheERKSt6vectorISt4pairINS_8FlakeRefES2_INS_9StorePathES3_EESaIS6_EERKS3_(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val, ptr readnone %.8.val, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nix5flakeL18lookupInFlakeCacheERKSt6vectorISt4pairINS_8FlakeRefES2_INS_9StorePathES3_EESaIS6_EERKS3_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr readnone %.8.val, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -25506,7 +25506,7 @@ declare void @_ZNK3nix10SourcePathdvERKNS_9CanonPathE(ptr dead_on_unwind writabl
 declare void @_ZNK3nix10SourcePathdvESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"struct.nix::SourcePath") align 8, ptr noundef nonnull align 8 dereferenceable(48), i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nix5flakeL10expectTypeERNS_9EvalStateENS_9ValueTypeERNS_5ValueENS_6PosIdxE(ptr noundef nonnull align 8 dereferenceable(1248) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nix5flakeL10expectTypeERNS_9EvalStateENS_9ValueTypeERNS_5ValueENS_6PosIdxE(ptr noundef nonnull align 8 dereferenceable(1248) %0, i32 noundef range(i32 3, 10) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::basic_string_view", align 8
@@ -25514,97 +25514,128 @@ define internal fastcc void @_ZN3nix5flakeL10expectTypeERNS_9EvalStateENS_9Value
   %9 = alloca %"struct.nix::Pos", align 8
   tail call fastcc void @_ZN3nix5flakeL17forceTrivialValueERNS_9EvalStateERNS_5ValueENS_6PosIdxE(ptr noundef nonnull align 8 dereferenceable(1248) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 %3)
   %10 = load i32, ptr %2, align 8
-  %switch.tableidx = add i32 %10, -1
-  %11 = icmp ult i32 %switch.tableidx, 16
-  br i1 %11, label %switch.lookup, label %12
+  switch i32 %10, label %17 [
+    i32 1, label %_ZNK3nix5Value4typeEb.exit.thread
+    i32 2, label %_ZNK3nix5Value4typeEb.exit
+    i32 3, label %11
+    i32 4, label %12
+    i32 5, label %13
+    i32 6, label %14
+    i32 7, label %15
+    i32 8, label %15
+    i32 9, label %15
+    i32 12, label %16
+    i32 13, label %16
+    i32 14, label %16
+    i32 15, label %_ZNK3nix5Value4typeEb.exit.thread
+    i32 16, label %_ZNK3nix5Value4typeEb.exit.thread
+    i32 10, label %_ZNK3nix5Value4typeEb.exit.thread
+    i32 11, label %_ZNK3nix5Value4typeEb.exit.thread
+  ]
+
+11:                                               ; preds = %4
+  br label %_ZNK3nix5Value4typeEb.exit
 
 12:                                               ; preds = %4
+  br label %_ZNK3nix5Value4typeEb.exit
+
+13:                                               ; preds = %4
+  br label %_ZNK3nix5Value4typeEb.exit
+
+14:                                               ; preds = %4
+  br label %_ZNK3nix5Value4typeEb.exit
+
+15:                                               ; preds = %4, %4, %4
+  br label %_ZNK3nix5Value4typeEb.exit
+
+16:                                               ; preds = %4, %4, %4
+  br label %_ZNK3nix5Value4typeEb.exit
+
+17:                                               ; preds = %4
   tail call void @abort() #33
   unreachable
 
-switch.lookup:                                    ; preds = %4
-  %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x i32], ptr @switch.table._ZNK3nix5Value4typeEb, i64 0, i64 %13
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %.not = icmp eq i32 %switch.load, %1
-  br i1 %.not, label %38, label %14
+_ZNK3nix5Value4typeEb.exit:                       ; preds = %4, %11, %12, %13, %14, %15, %16
+  %.0.i = phi i32 [ 9, %16 ], [ 8, %15 ], [ 7, %14 ], [ 6, %13 ], [ 5, %12 ], [ 4, %11 ], [ 3, %4 ]
+  %.not = icmp eq i32 %.0.i, %1
+  br i1 %.not, label %41, label %_ZNK3nix5Value4typeEb.exit.thread
 
-14:                                               ; preds = %switch.lookup
-  %15 = tail call ptr @__cxa_allocate_exception(i64 376) #29
+_ZNK3nix5Value4typeEb.exit.thread:                ; preds = %4, %4, %4, %4, %4, %_ZNK3nix5Value4typeEb.exit
+  %18 = tail call ptr @__cxa_allocate_exception(i64 376) #29
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #29
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.70, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %16 unwind label %.thread
+          to label %19 unwind label %.thread
 
-16:                                               ; preds = %14
-  %17 = invoke { i64, ptr } @_ZN3nix8showTypeENS_9ValueTypeEb(i32 noundef %1, i1 noundef zeroext true)
-          to label %18 unwind label %32
+19:                                               ; preds = %_ZNK3nix5Value4typeEb.exit.thread
+  %20 = invoke { i64, ptr } @_ZN3nix8showTypeENS_9ValueTypeEb(i32 noundef %1, i1 noundef zeroext true)
+          to label %21 unwind label %35
 
-18:                                               ; preds = %16
-  %19 = extractvalue { i64, ptr } %17, 0
-  store i64 %19, ptr %7, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
-  %21 = extractvalue { i64, ptr } %17, 1
-  store ptr %21, ptr %20, align 8
-  %22 = call noundef i32 @_ZNK3nix5Value4typeEb(ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext false)
-  %23 = invoke { i64, ptr } @_ZN3nix8showTypeENS_9ValueTypeEb(i32 noundef %22, i1 noundef zeroext true)
-          to label %24 unwind label %32
+21:                                               ; preds = %19
+  %22 = extractvalue { i64, ptr } %20, 0
+  store i64 %22, ptr %7, align 8
+  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  %24 = extractvalue { i64, ptr } %20, 1
+  store ptr %24, ptr %23, align 8
+  %25 = call noundef i32 @_ZNK3nix5Value4typeEb(ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext false)
+  %26 = invoke { i64, ptr } @_ZN3nix8showTypeENS_9ValueTypeEb(i32 noundef %25, i1 noundef zeroext true)
+          to label %27 unwind label %35
 
-24:                                               ; preds = %18
-  %25 = extractvalue { i64, ptr } %23, 0
-  store i64 %25, ptr %8, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 8
-  %27 = extractvalue { i64, ptr } %23, 1
-  store ptr %27, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 104
-  invoke void @_ZNK3nix8PosTableixENS_6PosIdxE(ptr dead_on_unwind nonnull writable sret(%"struct.nix::Pos") align 8 %9, ptr noundef nonnull align 8 dereferenceable(56) %28, i32 %3)
-          to label %29 unwind label %32
+27:                                               ; preds = %21
+  %28 = extractvalue { i64, ptr } %26, 0
+  store i64 %28, ptr %8, align 8
+  %29 = getelementptr inbounds i8, ptr %8, i64 8
+  %30 = extractvalue { i64, ptr } %26, 1
+  store ptr %30, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 104
+  invoke void @_ZNK3nix8PosTableixENS_6PosIdxE(ptr dead_on_unwind nonnull writable sret(%"struct.nix::Pos") align 8 %9, ptr noundef nonnull align 8 dereferenceable(56) %31, i32 %3)
+          to label %32 unwind label %35
 
-29:                                               ; preds = %24
-  invoke void @_ZN3nix5ErrorCI2NS_9BaseErrorEIJSt17basic_string_viewIcSt11char_traitsIcEES4_NS_3PosEEEERKNSt7__cxx1112basic_stringIcS3_SaIcEEEDpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %15, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(64) %9)
-          to label %30 unwind label %34
+32:                                               ; preds = %27
+  invoke void @_ZN3nix5ErrorCI2NS_9BaseErrorEIJSt17basic_string_viewIcSt11char_traitsIcEES4_NS_3PosEEEERKNSt7__cxx1112basic_stringIcS3_SaIcEEEDpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %18, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(64) %9)
+          to label %33 unwind label %37
 
-30:                                               ; preds = %29
-  invoke void @__cxa_throw(ptr nonnull %15, ptr nonnull @_ZTIN3nix5ErrorE, ptr nonnull @_ZN3nix5ErrorD2Ev) #30
-          to label %40 unwind label %34
+33:                                               ; preds = %32
+  invoke void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTIN3nix5ErrorE, ptr nonnull @_ZN3nix5ErrorD2Ev) #30
+          to label %43 unwind label %37
 
-.thread:                                          ; preds = %14
-  %31 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %_ZNK3nix5Value4typeEb.exit.thread
+  %34 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #29
-  br label %37
+  br label %40
 
-32:                                               ; preds = %24, %18, %16
-  %33 = landingpad { ptr, i32 }
+35:                                               ; preds = %27, %21, %19
+  %36 = landingpad { ptr, i32 }
           cleanup
-  br label %36
-
-34:                                               ; preds = %30, %29
-  %.0 = phi i1 [ false, %30 ], [ true, %29 ]
-  %35 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN3nix3PosD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #29
-  br label %36
-
-36:                                               ; preds = %32, %34
-  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ]
-  %.2 = phi i1 [ %.0, %34 ], [ true, %32 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #29
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #29
-  br i1 %.2, label %37, label %39
-
-37:                                               ; preds = %.thread, %36
-  %.pn.pn22 = phi { ptr, i32 } [ %31, %.thread ], [ %.pn, %36 ]
-  call void @__cxa_free_exception(ptr %15) #29
   br label %39
 
-38:                                               ; preds = %switch.lookup
+37:                                               ; preds = %33, %32
+  %.0 = phi i1 [ false, %33 ], [ true, %32 ]
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN3nix3PosD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #29
+  br label %39
+
+39:                                               ; preds = %35, %37
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %36, %35 ]
+  %.2 = phi i1 [ %.0, %37 ], [ true, %35 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #29
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #29
+  br i1 %.2, label %40, label %42
+
+40:                                               ; preds = %.thread, %39
+  %.pn.pn24 = phi { ptr, i32 } [ %34, %.thread ], [ %.pn, %39 ]
+  call void @__cxa_free_exception(ptr %18) #29
+  br label %42
+
+41:                                               ; preds = %_ZNK3nix5Value4typeEb.exit
   ret void
 
-39:                                               ; preds = %36, %37
-  %.pn.pn21 = phi { ptr, i32 } [ %.pn, %36 ], [ %.pn.pn22, %37 ]
-  resume { ptr, i32 } %.pn.pn21
+42:                                               ; preds = %39, %40
+  %.pn.pn23 = phi { ptr, i32 } [ %.pn, %39 ], [ %.pn.pn24, %40 ]
+  resume { ptr, i32 } %.pn.pn23
 
-40:                                               ; preds = %30
+43:                                               ; preds = %33
   unreachable
 }
 
@@ -25668,7 +25699,7 @@ _ZNSt8__detail9__variant13_Variant_baseIJSt9monostateN3nix3Pos5StdinENS4_6String
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nix5flakeL16parseFlakeInputsERNS_9EvalStateEPNS_5ValueENS_6PosIdxERKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISC_SaISC_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef nonnull %2, i32 %3, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %5) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nix5flakeL16parseFlakeInputsERNS_9EvalStateEPNS_5ValueENS_6PosIdxERKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISC_SaISC_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef nonnull %2, i32 %3, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %5) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.std::allocator", align 1
@@ -26453,7 +26484,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
 .loopexit212:                                     ; preds = %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i, %.noexc102.thread
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.noexc102.thread ], [ %301, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   store ptr %.0.lcssa.i.i.i.i.i, ptr %95, align 8
-  invoke fastcc void @_ZN3nix5flakeL16parseFlakeInputsERNS_9EvalStateEPNS_5ValueENS_6PosIdxERKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISC_SaISC_EE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef %.sroa.19.0.copyload, i32 %.sroa.14.0.copyload, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %14)
+  invoke fastcc void @_ZN3nix5flakeL16parseFlakeInputsERNS_9EvalStateEPNS_5ValueENS_6PosIdxERKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISC_SaISC_EE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef %.sroa.19.0.copyload, i32 %.sroa.14.0.copyload, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %14)
           to label %312 unwind label %335
 
 312:                                              ; preds = %.loopexit212
@@ -48620,7 +48651,7 @@ _ZN3nix3refINS_5flake4NodeEEC2ERKS3_.exit.i.i:    ; preds = %19, %16, %8
   store ptr null, ptr %4, align 8
   %25 = load i8, ptr %7, align 1
   %26 = trunc i8 %25 to i1
-  invoke fastcc void @"_ZZN3nix5flake9lockFlakeERNS_9EvalStateERKNS_8FlakeRefERKNS0_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10FlakeInputESt4lessISG_ESaISt4pairIKSG_SH_EEENS_3refINS0_4NodeEEERKSt6vectorISG_SaISG_EESt10shared_ptrIKSS_ESY_RSL_b"(ptr noundef nonnull readonly align 8 dereferenceable(88) %.val, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i1 noundef zeroext %26)
+  invoke fastcc void @"_ZZN3nix5flake9lockFlakeERNS_9EvalStateERKNS_8FlakeRefERKNS0_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10FlakeInputESt4lessISG_ESaISt4pairIKSG_SH_EEENS_3refINS0_4NodeEEERKSt6vectorISG_SaISG_EESt10shared_ptrIKSS_ESY_RSL_b"(ptr noundef nonnull readonly align 8 dereferenceable(88) %.val, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i1 noundef zeroext %26)
           to label %27 unwind label %97
 
 27:                                               ; preds = %_ZN3nix3refINS_5flake4NodeEEC2ERKS3_.exit.i.i
@@ -48820,7 +48851,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKSt3mapINSt7__c
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3nix5flake9lockFlakeERNS_9EvalStateERKNS_8FlakeRefERKNS0_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10FlakeInputESt4lessISG_ESaISt4pairIKSG_SH_EEENS_3refINS0_4NodeEEERKSt6vectorISG_SaISG_EESt10shared_ptrIKSS_ESY_RSL_b"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef readonly %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i1 noundef zeroext %7) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3nix5flake9lockFlakeERNS_9EvalStateERKNS_8FlakeRefERKNS0_9LockFlagsEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10FlakeInputESt4lessISG_ESaISt4pairIKSG_SH_EEENS_3refINS0_4NodeEEERKSt6vectorISG_SaISG_EESt10shared_ptrIKSS_ESY_RSL_b"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i1 noundef zeroext %7) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, nix::flake::FlakeInput>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, nix::flake::FlakeInput>>, std::less<std::__cxx11::basic_string<char>>>::_Reuse_or_alloc_node", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = alloca %"class.std::allocator", align 1
@@ -51679,7 +51710,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 1127:                                             ; preds = %.loopexit1069
   %1128 = getelementptr inbounds i8, ptr %1125, i64 72
-  invoke fastcc void @_ZN3nix5flakeL8getFlakeERNS_9EvalStateERKNS_8FlakeRefEbRSt6vectorISt4pairIS3_S7_INS_9StorePathES3_EESaISA_EES6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr dead_on_unwind noalias nonnull writable align 8 %63, ptr noundef nonnull align 8 dereferenceable(1248) %1124, ptr noundef nonnull align 8 dereferenceable(136) %1128, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(24) %1126, ptr noundef nonnull %64)
+  invoke fastcc void @_ZN3nix5flakeL8getFlakeERNS_9EvalStateERKNS_8FlakeRefEbRSt6vectorISt4pairIS3_S7_INS_9StorePathES3_EESaISA_EES6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr dead_on_unwind noalias nonnull writable align 8 %63, ptr noundef nonnull align 8 dereferenceable(1248) %1124, ptr noundef nonnull align 8 dereferenceable(136) %1128, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(24) %1126, ptr noundef %64)
           to label %1129 unwind label %1272
 
 1129:                                             ; preds = %1127
@@ -52807,7 +52838,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
 
 1543:                                             ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
   %1544 = trunc i8 %1541 to i1
-  invoke fastcc void @_ZN3nix5flakeL8getFlakeERNS_9EvalStateERKNS_8FlakeRefEbRSt6vectorISt4pairIS3_S7_INS_9StorePathES3_EESaISA_EES6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr dead_on_unwind noalias nonnull writable align 8 %82, ptr noundef nonnull align 8 dereferenceable(1248) %1539, ptr noundef nonnull align 8 dereferenceable(136) %77, i1 noundef zeroext %1544, ptr noundef nonnull align 8 dereferenceable(24) %1542, ptr noundef nonnull %83)
+  invoke fastcc void @_ZN3nix5flakeL8getFlakeERNS_9EvalStateERKNS_8FlakeRefEbRSt6vectorISt4pairIS3_S7_INS_9StorePathES3_EESaISA_EES6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr dead_on_unwind noalias nonnull writable align 8 %82, ptr noundef nonnull align 8 dereferenceable(1248) %1539, ptr noundef nonnull align 8 dereferenceable(136) %77, i1 noundef zeroext %1544, ptr noundef nonnull align 8 dereferenceable(24) %1542, ptr noundef %83)
           to label %1545 unwind label %1573
 
 1545:                                             ; preds = %1543
@@ -53124,7 +53155,7 @@ _ZN3nix10SourcePathD2Ev.exit613:                  ; preds = %_ZN3nix9CanonPathD2
           to label %1653 unwind label %1937
 
 1653:                                             ; preds = %1652
-  invoke fastcc void @_ZN3nix5flakeL12readLockFileERKNS_10SourcePathE(ptr dead_on_unwind noalias nonnull writable align 8 %91, ptr noundef nonnull align 8 dereferenceable(48) %92)
+  invoke fastcc void @_ZN3nix5flakeL12readLockFileERKNS_10SourcePathE(ptr dead_on_unwind noalias writable align 8 %91, ptr noundef nonnull align 8 dereferenceable(48) %92)
           to label %1654 unwind label %1939
 
 1654:                                             ; preds = %1653
@@ -53851,7 +53882,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit677: ; preds = %_Z
   %1949 = load i8, ptr %1948, align 1
   %1950 = trunc i8 %1949 to i1
   %1951 = load ptr, ptr %615, align 8
-  invoke fastcc void @_ZN3nix5flakeL21fetchOrSubstituteTreeERNS_9EvalStateERKNS_8FlakeRefEbRSt6vectorISt4pairIS3_S7_INS_9StorePathES3_EESaISA_EE(ptr dead_on_unwind noalias nonnull writable align 8 %93, ptr noundef nonnull align 8 dereferenceable(1248) %1947, ptr noundef nonnull align 8 dereferenceable(136) %769, i1 noundef zeroext %1950, ptr noundef nonnull align 8 dereferenceable(24) %1951)
+  invoke fastcc void @_ZN3nix5flakeL21fetchOrSubstituteTreeERNS_9EvalStateERKNS_8FlakeRefEbRSt6vectorISt4pairIS3_S7_INS_9StorePathES3_EESaISA_EE(ptr dead_on_unwind noalias writable align 8 %93, ptr noundef nonnull align 8 dereferenceable(1248) %1947, ptr noundef nonnull align 8 dereferenceable(136) %769, i1 noundef zeroext %1950, ptr noundef nonnull align 8 dereferenceable(24) %1951)
           to label %1952 unwind label %1531
 
 1952:                                             ; preds = %1946

@@ -1047,7 +1047,7 @@ define internal fastcc range(i32 -1, 33) i32 @inet_abc_len(i32 noundef %0) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 32770, 2) i32 @inet_set_ifa(ptr %.952.val, ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 32770, 2) i32 @inet_set_ifa(ptr %.952.val, ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = tail call i32 @rtnl_is_locked() #18
   %3 = icmp ne i32 %2, 0
   %4 = load i1, ptr @inet_set_ifa.__already_done, align 1
@@ -1129,7 +1129,7 @@ define internal fastcc range(i32 32770, 2) i32 @inet_set_ifa(ptr %.952.val, ptr 
   br label %40
 
 40:                                               ; preds = %38, %33
-  %41 = tail call fastcc i32 @__inet_insert_ifa(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef null)
+  %41 = tail call fastcc i32 @__inet_insert_ifa(ptr noundef nonnull %0, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %42
 
 42:                                               ; preds = %40, %9
@@ -1439,7 +1439,7 @@ define dso_local i32 @inet_confirm_addr(ptr noundef %0, ptr noundef %1, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal fastcc i32 @confirm_addr_indev(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc i32 @confirm_addr_indev(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 272
   %7 = load ptr, ptr %6, align 8
@@ -1841,7 +1841,7 @@ define dso_local void @inet_netconf_notify_devconf(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -90, 1) i32 @inet_netconf_fill_devconf(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @inet_netconf_fill_devconf(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 3) %6, i32 noundef %7) unnamed_addr #0 align 16 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -3683,7 +3683,7 @@ declare dso_local void @__rcu_read_unlock() local_unnamed_addr #4
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__inet_del_ifa(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc void @__inet_del_ifa(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 272
   %8 = load ptr, ptr %7, align 8
@@ -4034,7 +4034,7 @@ define internal fastcc void @__inet_del_ifa(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rtmsg_ifa(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc void @rtmsg_ifa(i32 noundef range(i32 20, 22) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.inet_fill_args, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18
   store i32 %3, ptr %5, align 4

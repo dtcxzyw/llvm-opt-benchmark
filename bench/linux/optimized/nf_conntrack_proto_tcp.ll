@@ -1716,7 +1716,7 @@ define internal zeroext i1 @tcp_can_early_drop(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @nf_tcp_handle_invalid(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #6 align 16 {
+define internal fastcc void @nf_tcp_handle_invalid(ptr noundef %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 6) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #6 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   %7 = load volatile i64, ptr %6, align 8
   %8 = and i64 %7, 4
@@ -2079,7 +2079,7 @@ declare dso_local zeroext i1 @nf_ct_delete(ptr noundef, i32 noundef, i32 noundef
 declare dso_local i32 @nf_ct_seq_offset(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 3) i32 @nf_tcp_log_invalid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5, ...) unnamed_addr #0 align 16 {
+define internal noundef range(i32 0, 3) i32 @nf_tcp_log_invalid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 0, 2) %4, ptr noundef %5, ...) unnamed_addr #0 align 16 {
   %7 = alloca %struct.va_format, align 8
   %8 = alloca [1 x %struct.__va_list_tag], align 16
   %9 = getelementptr inbounds i8, ptr %1, i64 136

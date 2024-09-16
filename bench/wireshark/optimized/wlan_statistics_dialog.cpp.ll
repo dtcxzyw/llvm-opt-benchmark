@@ -2274,7 +2274,7 @@ _ZN10QByteArrayixEx.exit:                         ; preds = %_ZNK17QArrayDataPoi
   br i1 %.14194, label %110, label %111
 
 .thread73:                                        ; preds = %64
-  %108 = call fastcc noundef i32 @_ZL15addresses_equalPK8_addressS1_(ptr noundef nonnull %7, ptr noundef nonnull %1)
+  %108 = call fastcc noundef i32 @_ZL15addresses_equalPK8_addressS1_(ptr noundef %7, ptr noundef nonnull %1)
   %.not48.not = icmp eq i32 %108, 0
   br i1 %.not48.not, label %.thread73.thread, label %112
 
@@ -5369,7 +5369,7 @@ declare void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32), 
 declare void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL15addresses_equalPK8_addressS1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #13 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL15addresses_equalPK8_addressS1_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #13 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4

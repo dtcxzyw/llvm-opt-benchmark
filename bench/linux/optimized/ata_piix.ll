@@ -1126,7 +1126,7 @@ declare dso_local i32 @pci_write_config_byte(ptr noundef, i32 noundef, i8 nounde
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #0 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @do_pata_set_dmamode(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc void @do_pata_set_dmamode(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2

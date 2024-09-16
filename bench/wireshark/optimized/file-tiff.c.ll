@@ -1305,7 +1305,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef %5, i32 noundef range(i32 -2147483648, 1) %6, i32 noundef %7) unnamed_addr #0 {
   %.not = icmp eq i32 %5, 1
   br i1 %.not, label %11, label %9
 
@@ -1343,7 +1343,7 @@ define internal fastcc void @dissect_tiff_single_uint(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_tiff_array_uint(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @dissect_tiff_array_uint(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef %5, i32 noundef range(i32 -2147483648, 1) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   switch i16 %4, label %10 [
     i16 4, label %14
@@ -1409,7 +1409,7 @@ tiff_data_len.exit.thread:                        ; preds = %switch.lookup
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_tiff_single_urational(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 {
+define internal fastcc void @dissect_tiff_single_urational(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef %5, i32 noundef range(i32 -2147483648, 1) %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4

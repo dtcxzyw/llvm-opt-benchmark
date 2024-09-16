@@ -1796,11 +1796,11 @@ define internal i32 @dissect_usb_audio_control(ptr noundef %0, ptr noundef %1, p
   ]
 
 36:                                               ; preds = %33
-  %37 = tail call fastcc i32 @dissect_v1_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3)
+  %37 = tail call fastcc i32 @dissect_v1_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
   br label %40
 
 38:                                               ; preds = %33
-  %39 = tail call fastcc i32 @dissect_v2_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3)
+  %39 = tail call fastcc i32 @dissect_v2_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
   br label %40
 
 40:                                               ; preds = %36, %38, %33, %29, %17
@@ -2893,7 +2893,7 @@ declare void @proto_item_prepend_text(ptr noundef, ptr noundef, ...) local_unnam
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_v1_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #1 {
+define internal fastcc i32 @dissect_v1_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = alloca [3 x ptr], align 16
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 64
@@ -3094,7 +3094,7 @@ has_data_stage.exit.thread:                       ; preds = %72, %89, %91, %has_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_v2_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #1 {
+define internal fastcc i32 @dissect_v2_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
   %5 = alloca [3 x ptr], align 16
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4

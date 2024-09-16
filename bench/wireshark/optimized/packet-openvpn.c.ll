@@ -237,7 +237,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_openvpn_msg_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_openvpn_msg_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 3) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.55) #2
@@ -272,7 +272,7 @@ define internal fastcc i32 @dissect_openvpn_msg_common(ptr noundef %0, ptr nound
 27:                                               ; preds = %5
   %28 = load i32, ptr @hf_openvpn_peerid, align 4
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %26, i32 noundef 3, i32 noundef 0) #2
-  %30 = add nuw nsw i32 %4, 4
+  %30 = or disjoint i32 %4, 4
   br label %122
 
 31:                                               ; preds = %5

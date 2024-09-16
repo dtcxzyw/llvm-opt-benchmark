@@ -266,7 +266,7 @@ return:                                           ; preds = %for.cond, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cms_check_attribute(i32 noundef %nid, i32 noundef %flags, i32 noundef %type, ptr noundef %attrs, i32 noundef %have_attrs) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_check_attribute(i32 noundef %nid, i32 noundef %flags, i32 noundef range(i32 1, 3) %type, ptr noundef %attrs, i32 noundef range(i32 0, 2) %have_attrs) unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @X509at_get_attr_by_NID(ptr noundef %attrs, i32 noundef %nid, i32 noundef -1) #2
   %cmp.i = icmp slt i32 %call.i, 0

@@ -1207,7 +1207,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local i32 @__SCT__tp_func_iomap_dio_invalidate_fail(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @iomap_dio_bio_iter(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i64 @iomap_dio_bio_iter(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 142
@@ -1700,7 +1700,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #9
 declare dso_local i64 @iov_iter_zero(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @iomap_dio_zero(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc void @iomap_dio_zero(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i32 noundef range(i32 -2147483646, -2147483648) %3) unnamed_addr #0 align 16 {
   %5 = load i64, ptr @vmemmap_base, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = load i64, ptr @phys_base, align 8

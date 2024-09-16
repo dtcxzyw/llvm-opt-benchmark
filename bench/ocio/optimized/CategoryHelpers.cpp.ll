@@ -670,7 +670,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114GetColorSpacesESt10shared_ptrIKNS_6ConfigEEbNS_24SearchReferenceSpaceTypeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias nonnull align 8 %allCS, ptr noundef nonnull %agg.tmp, i1 noundef zeroext true, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(24) %categories)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114GetColorSpacesESt10shared_ptrIKNS_6ConfigEEbNS_24SearchReferenceSpaceTypeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias align 8 %allCS, ptr noundef %agg.tmp, i1 noundef zeroext true, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(24) %categories)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit
@@ -841,7 +841,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i16, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114GetColorSpacesESt10shared_ptrIKNS_6ConfigEEbNS_24SearchReferenceSpaceTypeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias nocapture align 8 %agg.result, ptr nocapture noundef readonly %config, i1 noundef zeroext %includeColorSpaces, i32 noundef %colorSpaceType, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %categories) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114GetColorSpacesESt10shared_ptrIKNS_6ConfigEEbNS_24SearchReferenceSpaceTypeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %config, i1 noundef zeroext %includeColorSpaces, i32 noundef %colorSpaceType, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %categories) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %cs = alloca %"class.std::shared_ptr.18", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -2195,7 +2195,7 @@ if.else.i.i.i.i.i245:                             ; preds = %if.then.i.i.i240
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit246
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit246: ; preds = %if.then21, %if.then.i.i.i.i.i243, %if.else.i.i.i.i.i245
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114GetColorSpacesESt10shared_ptrIKNS_6ConfigEEbNS_24SearchReferenceSpaceTypeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias nonnull align 8 %ref.tmp24, ptr noundef nonnull %agg.tmp25, i1 noundef zeroext %includeColorSpaces, i32 noundef %colorSpaceType, ptr noundef nonnull align 8 dereferenceable(24) %appCategories)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114GetColorSpacesESt10shared_ptrIKNS_6ConfigEEbNS_24SearchReferenceSpaceTypeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias align 8 %ref.tmp24, ptr noundef %agg.tmp25, i1 noundef zeroext %includeColorSpaces, i32 noundef %colorSpaceType, ptr noundef nonnull align 8 dereferenceable(24) %appCategories)
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit246
@@ -2317,7 +2317,7 @@ if.else.i.i.i.i.i297:                             ; preds = %if.then.i.i.i292
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit298
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit298: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev.exit288, %if.then.i.i.i.i.i295, %if.else.i.i.i.i.i297
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118GetNamedTransformsESt10shared_ptrIKNS_6ConfigEEbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noalias nonnull align 8 %ref.tmp30, ptr noundef nonnull %agg.tmp31, i1 noundef zeroext %includeNamedTransforms, ptr noundef nonnull align 8 dereferenceable(24) %appCategories)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118GetNamedTransformsESt10shared_ptrIKNS_6ConfigEEbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noalias align 8 %ref.tmp30, ptr noundef %agg.tmp31, i1 noundef zeroext %includeNamedTransforms, ptr noundef nonnull align 8 dereferenceable(24) %appCategories)
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit298
@@ -2647,7 +2647,7 @@ if.else.i.i.i.i.i415:                             ; preds = %if.then.i.i.i410
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit416
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit416: ; preds = %if.then47, %if.then.i.i.i.i.i413, %if.else.i.i.i.i.i415
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_127GetColorSpacesFromEncodingsESt10shared_ptrIKNS_6ConfigEEbNS_24SearchReferenceSpaceTypeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias nonnull align 8 %ref.tmp50, ptr noundef nonnull %agg.tmp51, i1 noundef zeroext %includeColorSpaces, i32 noundef %colorSpaceType, ptr noundef nonnull align 8 dereferenceable(24) %encodings)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_127GetColorSpacesFromEncodingsESt10shared_ptrIKNS_6ConfigEEbNS_24SearchReferenceSpaceTypeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias align 8 %ref.tmp50, ptr noundef %agg.tmp51, i1 noundef zeroext %includeColorSpaces, i32 noundef %colorSpaceType, ptr noundef nonnull align 8 dereferenceable(24) %encodings)
           to label %invoke.cont54 unwind label %lpad53
 
 invoke.cont54:                                    ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit416
@@ -2769,7 +2769,7 @@ if.else.i.i.i.i.i467:                             ; preds = %if.then.i.i.i462
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit468
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit468: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev.exit458, %if.then.i.i.i.i.i465, %if.else.i.i.i.i.i467
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_131GetNamedTransformsFromEncodingsESt10shared_ptrIKNS_6ConfigEEbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noalias nonnull align 8 %ref.tmp56, ptr noundef nonnull %agg.tmp57, i1 noundef zeroext %includeNamedTransforms, ptr noundef nonnull align 8 dereferenceable(24) %encodings)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_131GetNamedTransformsFromEncodingsESt10shared_ptrIKNS_6ConfigEEbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noalias align 8 %ref.tmp56, ptr noundef %agg.tmp57, i1 noundef zeroext %includeNamedTransforms, ptr noundef nonnull align 8 dereferenceable(24) %encodings)
           to label %invoke.cont60 unwind label %lpad59
 
 invoke.cont60:                                    ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit468
@@ -2928,7 +2928,7 @@ if.else.i.i.i.i.i529:                             ; preds = %if.then.i.i.i524
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit530
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit530: ; preds = %if.then71, %if.then.i.i.i.i.i527, %if.else.i.i.i.i.i529
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_127GetColorSpacesFromEncodingsESt10shared_ptrIKNS_6ConfigEEbNS_24SearchReferenceSpaceTypeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias nonnull align 8 %ref.tmp72, ptr noundef nonnull %agg.tmp73, i1 noundef zeroext %includeColorSpaces, i32 noundef %colorSpaceType, ptr noundef nonnull align 8 dereferenceable(24) %encodings)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_127GetColorSpacesFromEncodingsESt10shared_ptrIKNS_6ConfigEEbNS_24SearchReferenceSpaceTypeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias align 8 %ref.tmp72, ptr noundef %agg.tmp73, i1 noundef zeroext %includeColorSpaces, i32 noundef %colorSpaceType, ptr noundef nonnull align 8 dereferenceable(24) %encodings)
           to label %invoke.cont76 unwind label %lpad75
 
 invoke.cont76:                                    ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit530
@@ -3050,7 +3050,7 @@ if.else.i.i.i.i.i581:                             ; preds = %if.then.i.i.i576
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit582
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit582: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev.exit572, %if.then.i.i.i.i.i579, %if.else.i.i.i.i.i581
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_131GetNamedTransformsFromEncodingsESt10shared_ptrIKNS_6ConfigEEbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noalias nonnull align 8 %ref.tmp78, ptr noundef nonnull %agg.tmp79, i1 noundef zeroext %includeNamedTransforms, ptr noundef nonnull align 8 dereferenceable(24) %encodings)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_131GetNamedTransformsFromEncodingsESt10shared_ptrIKNS_6ConfigEEbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noalias align 8 %ref.tmp78, ptr noundef %agg.tmp79, i1 noundef zeroext %includeNamedTransforms, ptr noundef nonnull align 8 dereferenceable(24) %encodings)
           to label %invoke.cont82 unwind label %lpad81
 
 invoke.cont82:                                    ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit582
@@ -3213,7 +3213,7 @@ if.else.i.i.i.i.i645:                             ; preds = %if.then.i.i.i640
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit646
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit646: ; preds = %if.then90, %if.then.i.i.i.i.i643, %if.else.i.i.i.i.i645
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114GetColorSpacesESt10shared_ptrIKNS_6ConfigEEbNS_24SearchReferenceSpaceTypeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias nonnull align 8 %ref.tmp91, ptr noundef nonnull %agg.tmp92, i1 noundef zeroext %includeColorSpaces, i32 noundef %colorSpaceType, ptr noundef nonnull align 8 dereferenceable(24) %userCategories)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114GetColorSpacesESt10shared_ptrIKNS_6ConfigEEbNS_24SearchReferenceSpaceTypeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias align 8 %ref.tmp91, ptr noundef %agg.tmp92, i1 noundef zeroext %includeColorSpaces, i32 noundef %colorSpaceType, ptr noundef nonnull align 8 dereferenceable(24) %userCategories)
           to label %_ZNSt6vectorIPKN19OpenColorIO_v2_4dev10ColorSpaceESaIS3_EEaSEOS5_.exit653 unwind label %lpad94
 
 _ZNSt6vectorIPKN19OpenColorIO_v2_4dev10ColorSpaceESaIS3_EEaSEOS5_.exit653: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit646
@@ -3319,7 +3319,7 @@ if.else.i.i.i.i.i697:                             ; preds = %if.then.i.i.i692
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit698
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit698: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev.exit688, %if.then.i.i.i.i.i695, %if.else.i.i.i.i.i697
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118GetNamedTransformsESt10shared_ptrIKNS_6ConfigEEbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noalias nonnull align 8 %ref.tmp97, ptr noundef nonnull %agg.tmp98, i1 noundef zeroext %includeNamedTransforms, ptr noundef nonnull align 8 dereferenceable(24) %userCategories)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118GetNamedTransformsESt10shared_ptrIKNS_6ConfigEEbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noalias align 8 %ref.tmp97, ptr noundef %agg.tmp98, i1 noundef zeroext %includeNamedTransforms, ptr noundef nonnull align 8 dereferenceable(24) %userCategories)
           to label %invoke.cont101 unwind label %lpad100
 
 invoke.cont101:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit698
@@ -3975,7 +3975,7 @@ if.else.i.i.i.i.i891:                             ; preds = %if.then.i.i.i886
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit892
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit892: ; preds = %if.then135, %if.then.i.i.i.i.i889, %if.else.i.i.i.i.i891
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114GetColorSpacesESt10shared_ptrIKNS_6ConfigEEbNS_24SearchReferenceSpaceTypeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias nonnull align 8 %ref.tmp136, ptr noundef nonnull %agg.tmp137, i1 noundef zeroext %includeColorSpaces, i32 noundef %colorSpaceType, ptr noundef nonnull align 8 dereferenceable(24) %appCategories)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114GetColorSpacesESt10shared_ptrIKNS_6ConfigEEbNS_24SearchReferenceSpaceTypeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias align 8 %ref.tmp136, ptr noundef %agg.tmp137, i1 noundef zeroext %includeColorSpaces, i32 noundef %colorSpaceType, ptr noundef nonnull align 8 dereferenceable(24) %appCategories)
           to label %invoke.cont140 unwind label %lpad139
 
 invoke.cont140:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit892
@@ -4092,7 +4092,7 @@ if.else.i.i.i.i.i944:                             ; preds = %if.then.i.i.i939
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit945
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit945: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev.exit935, %if.then.i.i.i.i.i942, %if.else.i.i.i.i.i944
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118GetNamedTransformsESt10shared_ptrIKNS_6ConfigEEbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noalias nonnull align 8 %ref.tmp142, ptr noundef nonnull %agg.tmp143, i1 noundef zeroext %includeNamedTransforms, ptr noundef nonnull align 8 dereferenceable(24) %appCategories)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118GetNamedTransformsESt10shared_ptrIKNS_6ConfigEEbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noalias align 8 %ref.tmp142, ptr noundef %agg.tmp143, i1 noundef zeroext %includeNamedTransforms, ptr noundef nonnull align 8 dereferenceable(24) %appCategories)
           to label %invoke.cont146 unwind label %lpad145
 
 invoke.cont146:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit945
@@ -4887,7 +4887,7 @@ ehcleanup246:                                     ; preds = %if.then.i.i.i1057, 
 declare noundef i32 @_ZNK19OpenColorIO_v2_4dev6Config15getMajorVersionEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118GetNamedTransformsESt10shared_ptrIKNS_6ConfigEEbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noalias nocapture align 8 %agg.result, ptr nocapture noundef readonly %config, i1 noundef zeroext %includeNamedTransforms, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %categories) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118GetNamedTransformsESt10shared_ptrIKNS_6ConfigEEbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %config, i1 noundef zeroext %includeNamedTransforms, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %categories) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %nt = alloca %"class.std::shared_ptr.24", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -5131,7 +5131,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt10shared_ptrIK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_127GetColorSpacesFromEncodingsESt10shared_ptrIKNS_6ConfigEEbNS_24SearchReferenceSpaceTypeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias nocapture align 8 %agg.result, ptr nocapture noundef readonly %config, i1 noundef zeroext %includeColorSpaces, i32 noundef %colorSpaceType, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %encodings) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_127GetColorSpacesFromEncodingsESt10shared_ptrIKNS_6ConfigEEbNS_24SearchReferenceSpaceTypeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %config, i1 noundef zeroext %includeColorSpaces, i32 noundef %colorSpaceType, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %encodings) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::allocator.0", align 1
@@ -5426,7 +5426,7 @@ _ZNSt6vectorIPKN19OpenColorIO_v2_4dev10ColorSpaceESaIS3_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_131GetNamedTransformsFromEncodingsESt10shared_ptrIKNS_6ConfigEEbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noalias nocapture align 8 %agg.result, ptr nocapture noundef readonly %config, i1 noundef zeroext %includeNamedTransforms, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %encodings) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_131GetNamedTransformsFromEncodingsESt10shared_ptrIKNS_6ConfigEEbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %config, i1 noundef zeroext %includeNamedTransforms, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %encodings) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::allocator.0", align 1

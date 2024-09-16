@@ -1734,7 +1734,7 @@ define internal fastcc noundef i32 @_ZL11triangulateiPKiPiS1_(i32 noundef %0, pt
   %.neg8.i.i32.i.i = mul i32 %.neg.i.i31.i.i, %126
   %127 = add i32 %.neg8.i.i32.i.i, %125
   %128 = icmp slt i32 %127, 1
-  br i1 %128, label %.lr.ph.i.i, label %_ZL13diagonalLooseiiiPKiPi.exit.thread
+  br i1 %128, label %_ZL11inConeLooseiiiPKiPi.exit.thread.i, label %_ZL13diagonalLooseiiiPKiPi.exit.thread
 
 129:                                              ; preds = %.lr.ph167
   %130 = sub nsw i32 %102, %110
@@ -1747,7 +1747,7 @@ define internal fastcc noundef i32 @_ZL11triangulateiPKiPiS1_(i32 noundef %0, pt
   %135 = add i32 %.neg8.i.i34.i.i, %131
   %136 = icmp slt i32 %135, 1
   %137 = sub i32 %98, %113
-  br i1 %136, label %_ZL11inConeLooseiiiPKiPi.exit.i, label %.lr.ph.i.i
+  br i1 %136, label %_ZL11inConeLooseiiiPKiPi.exit.i, label %_ZL11inConeLooseiiiPKiPi.exit.thread.i
 
 _ZL11inConeLooseiiiPKiPi.exit.i:                  ; preds = %129
   %138 = sub nsw i32 %104, %134
@@ -1757,16 +1757,16 @@ _ZL11inConeLooseiiiPKiPi.exit.i:                  ; preds = %129
   %.neg8.i.i36.i.i = mul i32 %.neg.i.i35.i.i, %140
   %141 = add i32 %.neg8.i.i36.i.i, %139
   %142 = icmp sgt i32 %141, 0
-  br i1 %142, label %.lr.ph.i.i, label %_ZL13diagonalLooseiiiPKiPi.exit.thread
+  br i1 %142, label %_ZL11inConeLooseiiiPKiPi.exit.thread.i, label %_ZL13diagonalLooseiiiPKiPi.exit.thread
 
-.lr.ph.i.i:                                       ; preds = %129, %122, %_ZL11inConeLooseiiiPKiPi.exit.i
-  %.neg.i.i.i9.i.pre-phi = phi i32 [ %123, %122 ], [ %137, %_ZL11inConeLooseiiiPKiPi.exit.i ], [ %137, %129 ]
-  %.neg.i.i.i.i.i.pre-phi = phi i32 [ %.neg.i.i29.i.i, %122 ], [ %.neg.i.i33.i.i, %_ZL11inConeLooseiiiPKiPi.exit.i ], [ %.neg.i.i33.i.i, %129 ]
-  %.val46.pre.i.i = phi i32 [ %119, %122 ], [ %134, %_ZL11inConeLooseiiiPKiPi.exit.i ], [ %134, %129 ]
+_ZL11inConeLooseiiiPKiPi.exit.thread.i:           ; preds = %_ZL11inConeLooseiiiPKiPi.exit.i, %129, %122
+  %.neg.i.i.i.i.i.pre-phi = phi i32 [ %.neg.i.i33.i.i, %_ZL11inConeLooseiiiPKiPi.exit.i ], [ %.neg.i.i33.i.i, %129 ], [ %.neg.i.i29.i.i, %122 ]
+  %.neg.i.i.i9.pre-phi.i = phi i32 [ %137, %_ZL11inConeLooseiiiPKiPi.exit.i ], [ %137, %129 ], [ %123, %122 ]
+  %.val46.pre.i.i = phi i32 [ %134, %_ZL11inConeLooseiiiPKiPi.exit.i ], [ %134, %129 ], [ %119, %122 ]
   br label %143
 
-143:                                              ; preds = %_ZL13intersectPropPKiS0_S0_S0_.exit.thread.i.i, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZL13intersectPropPKiS0_S0_S0_.exit.thread.i.i ]
+143:                                              ; preds = %_ZL13intersectPropPKiS0_S0_S0_.exit.thread.i.i, %_ZL11inConeLooseiiiPKiPi.exit.thread.i
+  %indvars.iv.i.i = phi i64 [ 0, %_ZL11inConeLooseiiiPKiPi.exit.thread.i ], [ %indvars.iv.next.i.i, %_ZL13intersectPropPKiS0_S0_S0_.exit.thread.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %144 = icmp ult i64 %indvars.iv.next.i.i, %indvars.iv192
   %145 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
@@ -1839,7 +1839,7 @@ _ZL6vequalPKiS0_.exit51.thread.i.i:               ; preds = %_ZL6vequalPKiS0_.ex
   %183 = getelementptr i8, ptr %158, i64 8
   %.val48.i.i = load i32, ptr %183, align 4
   %184 = sub nsw i32 %.val48.i.i, %110
-  %.neg3.i.i.i.i = mul i32 %184, %.neg.i.i.i9.i.pre-phi
+  %.neg3.i.i.i.i = mul i32 %184, %.neg.i.i.i9.pre-phi.i
   %185 = sub nsw i32 %165, %98
   %.neg8.i.i.i.i.i = mul i32 %185, %.neg.i.i.i.i.i.pre-phi
   %186 = icmp eq i32 %.neg8.i.i.i.i.i, %.neg3.i.i.i.i
@@ -1849,7 +1849,7 @@ _ZL6vequalPKiS0_.exit51.thread.i.i:               ; preds = %_ZL6vequalPKiS0_.ex
   %188 = getelementptr inbounds i8, ptr %164, i64 8
   %189 = load i32, ptr %188, align 4
   %190 = sub nsw i32 %189, %110
-  %.neg3.i26.i.i.i = mul i32 %190, %.neg.i.i.i9.i.pre-phi
+  %.neg3.i26.i.i.i = mul i32 %190, %.neg.i.i.i9.pre-phi.i
   %191 = sub nsw i32 %174, %98
   %.neg8.i.i28.i.i.i = mul i32 %191, %.neg.i.i.i.i.i.pre-phi
   %192 = icmp eq i32 %.neg8.i.i28.i.i.i, %.neg3.i26.i.i.i
@@ -2599,7 +2599,7 @@ _ZN14rcScopedDeleteIiED2Ev.exit102:               ; preds = %.lr.ph129, %3, %._c
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL12removeVertexP9rcContextR10rcPolyMeshti(ptr noundef %0, ptr nocapture noundef nonnull align 8 dereferenceable(96) %1, i16 noundef zeroext %2, i32 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL12removeVertexP9rcContextR10rcPolyMeshti(ptr noundef %0, ptr nocapture noundef nonnull align 8 dereferenceable(96) %1, i16 noundef zeroext %2, i32 noundef range(i32 0, -2147483648) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 52

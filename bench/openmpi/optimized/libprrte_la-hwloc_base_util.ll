@@ -1826,7 +1826,7 @@ define zeroext i16 @prte_hwloc_base_get_relative_locality(ptr noundef %0, ptr no
   ]
 
 16:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  call fastcc void @prte_hwloc_base_get_relative_locality_by_depth(ptr noundef %0, i32 noundef %.04347, ptr noundef %10, ptr noundef %12, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @prte_hwloc_base_get_relative_locality_by_depth(ptr noundef %0, i32 noundef %.04347, ptr noundef %10, ptr noundef %12, ptr noundef %4, ptr noundef %5)
   %17 = load i8, ptr %5, align 1
   %18 = trunc i8 %17 to i1
   %19 = add nuw i32 %.04347, 1
@@ -1844,7 +1844,7 @@ define zeroext i16 @prte_hwloc_base_get_relative_locality(ptr noundef %0, ptr no
   br label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %21, %16, %8
-  call fastcc void @prte_hwloc_base_get_relative_locality_by_depth(ptr noundef %0, i32 noundef -3, ptr noundef %10, ptr noundef %12, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @prte_hwloc_base_get_relative_locality_by_depth(ptr noundef %0, i32 noundef -3, ptr noundef %10, ptr noundef %12, ptr noundef %4, ptr noundef %5)
   %22 = load i32, ptr @prte_hwloc_base_output, align 4
   %or.cond15 = icmp ult i32 %22, 64
   br i1 %or.cond15, label %23, label %._crit_edge._crit_edge
@@ -1886,7 +1886,7 @@ declare i32 @hwloc_bitmap_list_sscanf(ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @hwloc_get_depth_type(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc void @prte_hwloc_base_get_relative_locality_by_depth(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #10 {
+define internal fastcc void @prte_hwloc_base_get_relative_locality_by_depth(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #10 {
   %7 = tail call i32 @hwloc_get_nbobjs_by_depth(ptr noundef %0, i32 noundef %1) #17
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -3680,14 +3680,14 @@ define noundef i32 @prte_hwloc_print(ptr nocapture noundef writeonly %0, ptr nou
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %5 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %2, i32 noundef 0, i32 noundef 0) #17
-  call fastcc void @print_hwloc_obj(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2, ptr noundef %5)
+  call fastcc void @print_hwloc_obj(ptr noundef %4, ptr noundef %1, ptr noundef %2, ptr noundef %5)
   %6 = load ptr, ptr %4, align 8
   store ptr %6, ptr %0, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_hwloc_obj(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @print_hwloc_obj(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3805,7 +3805,7 @@ define internal fastcc void @print_hwloc_obj(ptr nocapture noundef %0, ptr nound
   %79 = getelementptr inbounds ptr, ptr %78, i64 %indvars.iv
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %8, align 8
-  call fastcc void @print_hwloc_obj(ptr noundef nonnull %7, ptr noundef %81, ptr noundef %2, ptr noundef %80)
+  call fastcc void @print_hwloc_obj(ptr noundef %7, ptr noundef %81, ptr noundef %2, ptr noundef %80)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %82 = load i32, ptr %13, align 8
   %83 = zext i32 %82 to i64

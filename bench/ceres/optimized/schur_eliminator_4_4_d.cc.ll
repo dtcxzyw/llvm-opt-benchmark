@@ -30175,7 +30175,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %invariant.op149.i = mul i32 %5, 3
   %invariant.op151.i = shl i32 %2, 2
   %invariant.op153.i = shl i32 %5, 2
-  %.not.i = icmp eq i32 %119, %1
+  %.not179.i = icmp eq i32 %119, %1
   %120 = sext i32 %5 to i64
   %121 = sext i32 %2 to i64
   br i1 %118, label %.preheader.lr.ph.split.us, label %.loopexit
@@ -30292,7 +30292,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
 
 .preheader.loopexit.i.us.us.us:                   ; preds = %.lr.ph.i.us.us.us
   %201 = getelementptr inbounds double, ptr %6, i64 %132
-  br i1 %.not.i, label %_ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us, label %.lr.ph174.i.us.us.us.preheader
+  br i1 %.not179.i, label %_ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us, label %.lr.ph174.i.us.us.us.preheader
 
 .lr.ph174.i.us.us.us.preheader:                   ; preds = %.preheader.loopexit.i.us.us.us
   %202 = sext i32 %.reass152.i.us.us.us to i64
@@ -30300,14 +30300,14 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   br label %.lr.ph174.i.us.us.us
 
 .lr.ph174.i.us.us.us:                             ; preds = %.lr.ph174.i.us.us.us.preheader, %.lr.ph174.i.us.us.us
-  %indvars.iv186.i.us.us.us = phi i64 [ %indvars.iv.next187.i.us.us.us, %.lr.ph174.i.us.us.us ], [ %202, %.lr.ph174.i.us.us.us.preheader ]
+  %indvars.iv187.i.us.us.us = phi i64 [ %indvars.iv.next188.i.us.us.us, %.lr.ph174.i.us.us.us ], [ %202, %.lr.ph174.i.us.us.us.preheader ]
   %indvars.iv.i.us.us.us = phi i64 [ %indvars.iv.next.i.us.us.us, %.lr.ph174.i.us.us.us ], [ %203, %.lr.ph174.i.us.us.us.preheader ]
   %.0173.i.us.us.us = phi i32 [ %218, %.lr.ph174.i.us.us.us ], [ %119, %.lr.ph174.i.us.us.us.preheader ]
   %.sroa.0.1170.i.us.us.us = phi double [ %208, %.lr.ph174.i.us.us.us ], [ %189, %.lr.ph174.i.us.us.us.preheader ]
   %.sroa.14.1169.i.us.us.us = phi double [ %211, %.lr.ph174.i.us.us.us ], [ %192, %.lr.ph174.i.us.us.us.preheader ]
   %.sroa.27.1168.i.us.us.us = phi double [ %214, %.lr.ph174.i.us.us.us ], [ %195, %.lr.ph174.i.us.us.us.preheader ]
   %.sroa.40.1167.i.us.us.us = phi double [ %217, %.lr.ph174.i.us.us.us ], [ %198, %.lr.ph174.i.us.us.us.preheader ]
-  %204 = getelementptr inbounds double, ptr %131, i64 %indvars.iv186.i.us.us.us
+  %204 = getelementptr inbounds double, ptr %131, i64 %indvars.iv187.i.us.us.us
   %205 = load double, ptr %204, align 8
   %206 = getelementptr inbounds double, ptr %126, i64 %indvars.iv.i.us.us.us
   %207 = load double, ptr %206, align 8
@@ -30321,7 +30321,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %215 = getelementptr inbounds i8, ptr %206, i64 24
   %216 = load double, ptr %215, align 8
   %217 = tail call double @llvm.fmuladd.f64(double %205, double %216, double %.sroa.40.1167.i.us.us.us)
-  %indvars.iv.next187.i.us.us.us = add nsw i64 %indvars.iv186.i.us.us.us, %121
+  %indvars.iv.next188.i.us.us.us = add nsw i64 %indvars.iv187.i.us.us.us, %121
   %indvars.iv.next.i.us.us.us = add nsw i64 %indvars.iv.i.us.us.us, %120
   %218 = add nuw nsw i32 %.0173.i.us.us.us, 1
   %219 = icmp slt i32 %218, %1
@@ -30357,7 +30357,7 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph174
   br i1 %231, label %.preheader.us.us, label %.loopexit, !llvm.loop !871
 
 .preheader.lr.ph.split.us.split:                  ; preds = %.preheader.lr.ph.split.us
-  br i1 %.not.i, label %.preheader.us.us162.preheader, label %.preheader.us.preheader
+  br i1 %.not179.i, label %.preheader.us.us162.preheader, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph.split.us.split
   %232 = zext nneg i32 %116 to i64
@@ -30470,14 +30470,14 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph174
   br label %.lr.ph174.i.us141
 
 .lr.ph174.i.us141:                                ; preds = %.lr.ph174.i.us141, %.preheader.i.us
-  %indvars.iv186.i.us142 = phi i64 [ 0, %.preheader.i.us ], [ %indvars.iv.next187.i.us149, %.lr.ph174.i.us141 ]
+  %indvars.iv187.i.us142 = phi i64 [ 0, %.preheader.i.us ], [ %indvars.iv.next188.i.us149, %.lr.ph174.i.us141 ]
   %indvars.iv.i.us143 = phi i64 [ 0, %.preheader.i.us ], [ %indvars.iv.next.i.us150, %.lr.ph174.i.us141 ]
   %.0173.i.us144 = phi i32 [ %119, %.preheader.i.us ], [ %303, %.lr.ph174.i.us141 ]
   %.sroa.0.1170.i.us145 = phi double [ 0.000000e+00, %.preheader.i.us ], [ %293, %.lr.ph174.i.us141 ]
   %.sroa.14.1169.i.us146 = phi double [ 0.000000e+00, %.preheader.i.us ], [ %296, %.lr.ph174.i.us141 ]
   %.sroa.27.1168.i.us147 = phi double [ 0.000000e+00, %.preheader.i.us ], [ %299, %.lr.ph174.i.us141 ]
   %.sroa.40.1167.i.us148 = phi double [ 0.000000e+00, %.preheader.i.us ], [ %302, %.lr.ph174.i.us141 ]
-  %289 = getelementptr inbounds double, ptr %287, i64 %indvars.iv186.i.us142
+  %289 = getelementptr inbounds double, ptr %287, i64 %indvars.iv187.i.us142
   %290 = load double, ptr %289, align 8
   %291 = getelementptr inbounds double, ptr %282, i64 %indvars.iv.i.us143
   %292 = load double, ptr %291, align 8
@@ -30491,7 +30491,7 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph174
   %300 = getelementptr inbounds i8, ptr %291, i64 24
   %301 = load double, ptr %300, align 8
   %302 = tail call double @llvm.fmuladd.f64(double %290, double %301, double %.sroa.40.1167.i.us148)
-  %indvars.iv.next187.i.us149 = add nuw nsw i64 %indvars.iv186.i.us142, %121
+  %indvars.iv.next188.i.us149 = add nuw nsw i64 %indvars.iv187.i.us142, %121
   %indvars.iv.next.i.us150 = add nsw i64 %indvars.iv.i.us143, %120
   %303 = add nsw i32 %.0173.i.us144, 1
   %304 = icmp slt i32 %303, %1

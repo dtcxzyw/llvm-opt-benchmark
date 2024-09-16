@@ -1338,7 +1338,7 @@ EncodePalette.exit:                               ; preds = %.lr.ph.i, %VP8LPutB
   %186 = load i32, ptr %75, align 4
   store i32 %186, ptr %10, align 16
   %187 = load ptr, ptr %72, align 8
-  %188 = call fastcc range(i32 0, 2) i32 @EncodeImageNoHuffman(ptr noundef nonnull %18, ptr noundef nonnull %10, ptr noundef nonnull %76, ptr noundef nonnull %67, i32 noundef %142, i32 noundef 1, i32 noundef 20, i32 noundef %34, ptr noundef %187, i32 noundef %.sext, ptr noundef nonnull %11)
+  %188 = call fastcc range(i32 0, 2) i32 @EncodeImageNoHuffman(ptr noundef nonnull %18, ptr noundef nonnull %10, ptr noundef nonnull %76, ptr noundef nonnull %67, i32 noundef %142, i32 noundef 1, i32 noundef 20, i32 noundef %34, ptr noundef %187, i32 noundef %.sext, ptr noundef %11)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10)
   %.not173 = icmp eq i32 %188, 0
   br i1 %.not173, label %MakeInputImageCopy.exit, label %189
@@ -1927,8 +1927,10 @@ ApplySubtractGreen.exit:                          ; preds = %VP8LPutBits.exit.i1
   %429 = getelementptr inbounds i8, ptr %.pre.i195, i64 96
   %430 = load i32, ptr %429, align 4
   %431 = load ptr, ptr %72, align 8
-  %432 = sdiv i32 %.0374, 6
-  %433 = call i32 @VP8LResidualImage(i32 noundef %412, i32 noundef %38, i32 noundef %414, i32 noundef %34, ptr noundef %426, ptr noundef %427, ptr noundef %428, i32 noundef %425, i32 noundef %430, i32 noundef %413, ptr noundef %431, i32 noundef %432, ptr noundef nonnull %11) #8
+  %.lhs.trunc.i = trunc nsw i32 %411 to i8
+  %432 = sdiv i8 %.lhs.trunc.i, 2
+  %.sext.i = sext i8 %432 to i32
+  %433 = call i32 @VP8LResidualImage(i32 noundef %412, i32 noundef %38, i32 noundef %414, i32 noundef %34, ptr noundef %426, ptr noundef %427, ptr noundef %428, i32 noundef %425, i32 noundef %430, i32 noundef %413, ptr noundef %431, i32 noundef %.sext.i, ptr noundef nonnull %11) #8
   %.not36.i = icmp eq i32 %433, 0
   br i1 %.not36.i, label %MakeInputImageCopy.exit, label %434
 
@@ -1984,8 +1986,8 @@ ApplyPredictFilter.exit:                          ; preds = %VP8LPutBits.exit38.
   store i32 %457, ptr %46, align 8
   %458 = load ptr, ptr %83, align 8
   %459 = load ptr, ptr %72, align 8
-  %460 = sub nsw i32 %411, %432
-  %461 = call fastcc i32 @EncodeImageNoHuffman(ptr noundef nonnull %18, ptr noundef %458, ptr noundef nonnull %76, ptr noundef nonnull %67, i32 noundef %417, i32 noundef %419, i32 noundef %30, i32 noundef %34, ptr noundef %459, i32 noundef %460, ptr noundef nonnull %11)
+  %460 = sub nsw i32 %411, %.sext.i
+  %461 = call fastcc i32 @EncodeImageNoHuffman(ptr noundef nonnull %18, ptr noundef %458, ptr noundef nonnull %76, ptr noundef nonnull %67, i32 noundef %417, i32 noundef %419, i32 noundef %30, i32 noundef %34, ptr noundef %459, i32 noundef %460, ptr noundef %11)
   %.not180 = icmp eq i32 %461, 0
   br i1 %.not180, label %MakeInputImageCopy.exit, label %462
 
@@ -2077,7 +2079,7 @@ ApplyCrossColorFilter.exit:                       ; preds = %VP8LPutBits.exit31.
   %508 = load ptr, ptr %83, align 8
   %509 = load ptr, ptr %72, align 8
   %510 = sub nsw i32 %467, %478
-  %511 = call fastcc i32 @EncodeImageNoHuffman(ptr noundef nonnull %18, ptr noundef %508, ptr noundef nonnull %76, ptr noundef nonnull %67, i32 noundef %472, i32 noundef %474, i32 noundef %30, i32 noundef %34, ptr noundef %509, i32 noundef %510, ptr noundef nonnull %11)
+  %511 = call fastcc i32 @EncodeImageNoHuffman(ptr noundef nonnull %18, ptr noundef %508, ptr noundef nonnull %76, ptr noundef nonnull %67, i32 noundef %472, i32 noundef %474, i32 noundef %30, i32 noundef %34, ptr noundef %509, i32 noundef %510, ptr noundef %11)
   %.not182 = icmp eq i32 %511, 0
   br i1 %.not182, label %MakeInputImageCopy.exit, label %512
 
@@ -2254,7 +2256,7 @@ VP8LPutBits.exit:                                 ; preds = %514, %517
   br i1 %600, label %603, label %601
 
 601:                                              ; preds = %595
-  %602 = call fastcc i32 @GetHuffBitLengthsAndCodes(ptr noundef nonnull %584, ptr noundef nonnull %599)
+  %602 = call fastcc i32 @GetHuffBitLengthsAndCodes(ptr noundef %584, ptr noundef %599)
   %.not248.i = icmp eq i32 %602, 0
   br i1 %.not248.i, label %603, label %605
 
@@ -2393,7 +2395,7 @@ VP8LPutBits.exit262.i:                            ; preds = %655, %._crit_edge.i
   %661 = add nsw i32 %656, 3
   store i32 %661, ptr %46, align 8
   %662 = sdiv i32 %592, 2
-  %663 = call fastcc i32 @EncodeImageNoHuffman(ptr noundef nonnull %18, ptr noundef nonnull %643, ptr noundef nonnull %5, ptr noundef nonnull %86, i32 noundef %525, i32 noundef %527, i32 noundef %30, i32 noundef %34, ptr noundef %16, i32 noundef %662, ptr noundef nonnull %11)
+  %663 = call fastcc i32 @EncodeImageNoHuffman(ptr noundef nonnull %18, ptr noundef nonnull %643, ptr noundef nonnull %5, ptr noundef nonnull %86, i32 noundef %525, i32 noundef %527, i32 noundef %30, i32 noundef %34, ptr noundef %16, i32 noundef %662, ptr noundef %11)
   %.not249.i = icmp eq i32 %663, 0
   br i1 %.not249.i, label %664, label %665
 
@@ -2447,7 +2449,7 @@ VP8LPutBits.exit262.i:                            ; preds = %655, %._crit_edge.i
 .lr.ph306.i:                                      ; preds = %._crit_edge302.i, %ClearHuffmanTreeIfOnlyOneSymbol.exit.i
   %indvars.iv343.i = phi i64 [ %indvars.iv.next344.i, %ClearHuffmanTreeIfOnlyOneSymbol.exit.i ], [ 0, %._crit_edge302.i ]
   %678 = getelementptr inbounds %struct.HuffmanTreeCode, ptr %599, i64 %indvars.iv343.i
-  call fastcc void @StoreHuffmanCode(ptr noundef nonnull %18, ptr noundef %530, ptr noundef nonnull %672, ptr noundef nonnull %678)
+  call fastcc void @StoreHuffmanCode(ptr noundef nonnull %18, ptr noundef %530, ptr noundef %672, ptr noundef %678)
   %679 = load i32, ptr %678, align 8
   %680 = icmp sgt i32 %679, 0
   br i1 %680, label %.lr.ph.i.i213, label %ClearHuffmanTreeIfOnlyOneSymbol.exit.i
@@ -2513,7 +2515,7 @@ ClearHuffmanTreeIfOnlyOneSymbol.exit.i:           ; preds = %687, %690, %.lr.ph3
   %708 = sub i64 %701, %707
   %709 = add i64 %708, %706
   %710 = trunc i64 %709 to i32
-  %711 = call fastcc i32 @StoreImageToBitMask(ptr noundef nonnull %18, i32 noundef %521, i32 noundef %522, ptr noundef nonnull %593, ptr noundef %532, ptr noundef nonnull %599, ptr noundef %16)
+  %711 = call fastcc i32 @StoreImageToBitMask(ptr noundef nonnull %18, i32 noundef %521, i32 noundef %522, ptr noundef nonnull %593, ptr noundef %532, ptr noundef %599, ptr noundef %16)
   %.not250.i = icmp eq i32 %711, 0
   br i1 %.not250.i, label %.loopexit.i, label %712
 
@@ -2899,7 +2901,7 @@ WriteRealAlphaAndVersion.exit:                    ; preds = %VP8LPutBits.exit.i6
   br i1 %.not56, label %32, label %95
 
 95:                                               ; preds = %93
-  %96 = call fastcc i32 @WriteImage(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %3)
+  %96 = call fastcc i32 @WriteImage(ptr noundef %1, ptr noundef %5, ptr noundef %3)
   %.not57 = icmp eq i32 %96, 0
   br i1 %.not57, label %118, label %97
 
@@ -2971,10 +2973,10 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare i32 @WebPPictureHasTransparency(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @WriteImage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @WriteImage(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca [21 x i8], align 16
   %5 = alloca [1 x i8], align 1
-  %6 = tail call ptr @VP8LBitWriterFinish(ptr noundef %1) #8
+  %6 = tail call ptr @VP8LBitWriterFinish(ptr noundef nonnull %1) #8
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2999,7 +3001,7 @@ define internal fastcc i32 @WriteImage(ptr noundef %0, ptr noundef %1, ptr nocap
   br i1 %.not, label %28, label %26
 
 26:                                               ; preds = %3
-  %27 = tail call i32 @WebPEncodingSetError(ptr noundef %0, i32 noundef 1) #8
+  %27 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 1) #8
   br label %67
 
 28:                                               ; preds = %3
@@ -3037,7 +3039,7 @@ define internal fastcc i32 @WriteImage(ptr noundef %0, ptr noundef %1, ptr nocap
   store i8 %49, ptr %50, align 1
   %51 = getelementptr inbounds i8, ptr %0, i64 96
   %52 = load ptr, ptr %51, align 8
-  %53 = call i32 %52(ptr noundef nonnull %4, i64 noundef 21, ptr noundef %0) #8
+  %53 = call i32 %52(ptr noundef nonnull %4, i64 noundef 21, ptr noundef nonnull %0) #8
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %4)
   %.not23 = icmp eq i32 %53, 0
   br i1 %.not23, label %57, label %54
@@ -3225,7 +3227,7 @@ declare void @VP8LBitWriterReset(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @EncodeImageNoHuffman(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9, ptr noundef %10) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @EncodeImageNoHuffman(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, ptr noundef %8, i32 noundef range(i32 -1610612735, 1610612736) %9, ptr noundef nonnull %10) unnamed_addr #0 {
   %12 = alloca [5 x %struct.HuffmanTreeCode], align 16
   %13 = alloca [1 x i16], align 2
   %14 = alloca i32, align 4
@@ -3242,13 +3244,13 @@ define internal fastcc range(i32 0, 2) i32 @EncodeImageNoHuffman(ptr noundef %0,
 
 19:                                               ; preds = %11
   %20 = sdiv i32 %9, 2
-  %21 = tail call i32 @VP8LHashChainFill(ptr noundef %2, i32 noundef %6, ptr noundef %1, i32 noundef %4, i32 noundef %5, i32 noundef %7, ptr noundef %8, i32 noundef %20, ptr noundef %10) #8
+  %21 = tail call i32 @VP8LHashChainFill(ptr noundef %2, i32 noundef %6, ptr noundef %1, i32 noundef %4, i32 noundef %5, i32 noundef %7, ptr noundef %8, i32 noundef %20, ptr noundef nonnull %10) #8
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %76, label %22
 
 22:                                               ; preds = %19
   %23 = sub nsw i32 %9, %20
-  %24 = call i32 @VP8LGetBackwardReferences(i32 noundef %4, i32 noundef %5, ptr noundef %1, i32 noundef %6, i32 noundef 0, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %14, ptr noundef %8, i32 noundef %23, ptr noundef %10) #8
+  %24 = call i32 @VP8LGetBackwardReferences(i32 noundef %4, i32 noundef %5, ptr noundef %1, i32 noundef %6, i32 noundef 0, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %14, ptr noundef %8, i32 noundef %23, ptr noundef nonnull %10) #8
   %.not64 = icmp eq i32 %24, 0
   br i1 %.not64, label %76, label %25
 
@@ -3268,7 +3270,7 @@ define internal fastcc range(i32 0, 2) i32 @EncodeImageNoHuffman(ptr noundef %0,
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
   call void @VP8LHistogramStoreRefs(ptr noundef %3, ptr noundef %34) #8
-  %35 = call fastcc i32 @GetHuffBitLengthsAndCodes(ptr noundef nonnull %27, ptr noundef nonnull %12)
+  %35 = call fastcc i32 @GetHuffBitLengthsAndCodes(ptr noundef %27, ptr noundef %12)
   %.not65 = icmp eq i32 %35, 0
   br i1 %.not65, label %36, label %38
 
@@ -3316,7 +3318,7 @@ VP8LPutBits.exit:                                 ; preds = %38, %42
 .preheader:                                       ; preds = %48, %ClearHuffmanTreeIfOnlyOneSymbol.exit
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %ClearHuffmanTreeIfOnlyOneSymbol.exit ], [ 0, %48 ]
   %54 = getelementptr inbounds [5 x %struct.HuffmanTreeCode], ptr %12, i64 0, i64 %indvars.iv72
-  call fastcc void @StoreHuffmanCode(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %50, ptr noundef nonnull %54)
+  call fastcc void @StoreHuffmanCode(ptr noundef %0, ptr noundef %15, ptr noundef %50, ptr noundef %54)
   %55 = load i32, ptr %54, align 8
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %.lr.ph.i, label %ClearHuffmanTreeIfOnlyOneSymbol.exit
@@ -3369,7 +3371,7 @@ ClearHuffmanTreeIfOnlyOneSymbol.exit:             ; preds = %63, %66, %.preheade
   br i1 %exitcond75.not, label %74, label %.preheader, !llvm.loop !41
 
 74:                                               ; preds = %ClearHuffmanTreeIfOnlyOneSymbol.exit
-  %75 = call fastcc i32 @StoreImageToBitMask(ptr noundef %0, i32 noundef %4, i32 noundef 0, ptr noundef %3, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef %8)
+  %75 = call fastcc i32 @StoreImageToBitMask(ptr noundef %0, i32 noundef %4, i32 noundef 0, ptr noundef %3, ptr noundef %13, ptr noundef %12, ptr noundef %8)
   br label %76
 
 76:                                               ; preds = %74, %22, %19, %52, %36, %29, %17
@@ -3399,7 +3401,7 @@ declare void @VP8LHistogramSetClear(ptr noundef) local_unnamed_addr #1
 declare void @VP8LHistogramStoreRefs(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @GetHuffBitLengthsAndCodes(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @GetHuffBitLengthsAndCodes(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge.thread
@@ -3521,7 +3523,7 @@ define internal fastcc range(i32 0, 2) i32 @GetHuffBitLengthsAndCodes(ptr nocapt
   %53 = getelementptr inbounds ptr, ptr %52, i64 %indvars.iv118
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %54, align 8
-  tail call void @VP8LCreateHuffmanTree(ptr noundef %55, i32 noundef 15, ptr noundef %44, ptr noundef %46, ptr noundef %51) #8
+  tail call void @VP8LCreateHuffmanTree(ptr noundef %55, i32 noundef 15, ptr noundef %44, ptr noundef %46, ptr noundef nonnull %51) #8
   %56 = getelementptr inbounds i8, ptr %54, i64 8
   %57 = getelementptr inbounds i8, ptr %51, i64 24
   tail call void @VP8LCreateHuffmanTree(ptr noundef nonnull %56, i32 noundef 15, ptr noundef %44, ptr noundef %46, ptr noundef nonnull %57) #8
@@ -3553,7 +3555,7 @@ define internal fastcc range(i32 0, 2) i32 @GetHuffBitLengthsAndCodes(ptr nocapt
   %66 = mul nsw i32 %3, 5
   %67 = sext i32 %66 to i64
   %68 = mul nsw i64 %67, 24
-  tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %68, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %1, i8 0, i64 %68, i1 false)
   br label %69
 
 69:                                               ; preds = %65, %.loopexit
@@ -3561,7 +3563,7 @@ define internal fastcc range(i32 0, 2) i32 @GetHuffBitLengthsAndCodes(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @StoreHuffmanCode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @StoreHuffmanCode(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca [19 x i8], align 16
   %6 = alloca [19 x i16], align 16
   %7 = alloca %struct.HuffmanTreeCode, align 8
@@ -3815,7 +3817,7 @@ VP8LPutBits.exit.i:                               ; preds = %121, %115
   %122 = phi i32 [ %.pre.i.i, %121 ], [ %119, %115 ]
   %123 = add nsw i32 %122, 1
   store i32 %123, ptr %118, align 8
-  %124 = call i32 @VP8LCreateCompressedHuffmanTree(ptr noundef nonnull %3, ptr noundef %2, i32 noundef %11) #8
+  %124 = call i32 @VP8LCreateCompressedHuffmanTree(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %11) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(76) %8, i8 0, i64 76, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(19) %9, i8 0, i64 19, i1 false)
   %125 = icmp sgt i32 %124, 0
@@ -3839,7 +3841,7 @@ VP8LPutBits.exit.i:                               ; preds = %121, %115
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !47
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %VP8LPutBits.exit.i
-  call void @VP8LCreateHuffmanTree(ptr noundef nonnull %8, i32 noundef 7, ptr noundef nonnull %9, ptr noundef %1, ptr noundef nonnull %7) #8
+  call void @VP8LCreateHuffmanTree(ptr noundef nonnull %8, i32 noundef 7, ptr noundef nonnull %9, ptr noundef nonnull %1, ptr noundef nonnull %7) #8
   br label %132
 
 132:                                              ; preds = %134, %._crit_edge.i
@@ -4252,7 +4254,7 @@ StoreFullHuffmanCode.exit:                        ; preds = %304, %245
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @StoreImageToBitMask(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @StoreImageToBitMask(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.VP8LRefsCursor, align 8
   %.not = icmp eq i32 %2, 0
   %9 = shl nuw i32 1, %2

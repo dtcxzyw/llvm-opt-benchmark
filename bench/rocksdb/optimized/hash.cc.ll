@@ -398,32 +398,31 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.t
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !6
 
 for.end.i.i:                                      ; preds = %for.body.i.i
+  %conv.i194.i = trunc nuw nsw i64 %n to i32
+  %div29.i.i = lshr i32 %conv.i194.i, 4
   %shr.i.i197.i = lshr i64 %add.i196.i, 37
   %xor.i32.i.i = xor i64 %shr.i.i197.i, %add.i196.i
   %mul.i.i198.i = mul i64 %xor.i32.i.i, 1609587929392839161
   %shr1.i.i.i = lshr i64 %mul.i.i198.i, 32
   %xor2.i.i.i = xor i64 %shr1.i.i.i, %mul.i.i198.i
-  %cmp73.i.i = icmp ugt i64 %n, 143
-  br i1 %cmp73.i.i, label %for.body8.preheader.i.i, label %_ZL22XXPH3_len_129to240_64bPKhmS0_mm.exit.i
+  %cmp73.not.i.i = icmp eq i32 %div29.i.i, 8
+  br i1 %cmp73.not.i.i, label %_ZL22XXPH3_len_129to240_64bPKhmS0_mm.exit.i, label %for.body8.preheader.i.i
 
 for.body8.preheader.i.i:                          ; preds = %for.end.i.i
-  %conv.i194.i = trunc nuw i64 %n to i32
-  %div29.i.i = lshr i32 %conv.i194.i, 4
-  %umax.i.i = tail call i32 @llvm.umax.i32(i32 %div29.i.i, i32 9)
-  %wide.trip.count.i.i = zext nneg i32 %umax.i.i to i64
+  %wide.trip.count.i.i = zext nneg i32 %div29.i.i to i64
   br label %for.body8.i.i
 
 for.body8.i.i:                                    ; preds = %for.body8.i.i, %for.body8.preheader.i.i
   %indvars.iv8.i.i = phi i64 [ 8, %for.body8.preheader.i.i ], [ %indvars.iv.next9.i.i, %for.body8.i.i ]
   %acc.14.i.i = phi i64 [ %xor2.i.i.i, %for.body8.preheader.i.i ], [ %add17.i.i, %for.body8.i.i ]
   %5 = shl nsw i64 %indvars.iv8.i.i, 4
-  %add.ptr11.i200.i = getelementptr inbounds i8, ptr %data, i64 %5
+  %add.ptr11.i199.i = getelementptr inbounds i8, ptr %data, i64 %5
   %6 = getelementptr i8, ptr @_ZL7kSecret, i64 %5
-  %add.ptr15.i201.i = getelementptr i8, ptr %6, i64 -125
-  %add.ptr11.val.i.i = load i64, ptr %add.ptr11.i200.i, align 1
-  %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %add.ptr11.i200.i, i64 8
+  %add.ptr15.i200.i = getelementptr i8, ptr %6, i64 -125
+  %add.ptr11.val.i.i = load i64, ptr %add.ptr11.i199.i, align 1
+  %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %add.ptr11.i199.i, i64 8
   %add.ptr.i38.val.i.i = load i64, ptr %add.ptr.i38.i.i, align 1
-  %add.ptr15.val.i.i = load i64, ptr %add.ptr15.i201.i, align 1
+  %add.ptr15.val.i.i = load i64, ptr %add.ptr15.i200.i, align 1
   %add.i41.i.i = add i64 %add.ptr15.val.i.i, %seed
   %xor.i42.i.i = xor i64 %add.i41.i.i, %add.ptr11.val.i.i
   %add.ptr3.i43.i.i = getelementptr i8, ptr %6, i64 -117
@@ -443,10 +442,10 @@ for.body8.i.i:                                    ; preds = %for.body8.i.i, %for
 
 _ZL22XXPH3_len_129to240_64bPKhmS0_mm.exit.i:      ; preds = %for.body8.i.i, %for.end.i.i
   %acc.1.lcssa.i.i = phi i64 [ %xor2.i.i.i, %for.end.i.i ], [ %add17.i.i, %for.body8.i.i ]
-  %add.ptr21.i199.i = getelementptr inbounds i8, ptr %data, i64 %n
-  %add.ptr22.i.i = getelementptr inbounds i8, ptr %add.ptr21.i199.i, i64 -16
+  %add.ptr21.i201.i = getelementptr inbounds i8, ptr %data, i64 %n
+  %add.ptr22.i.i = getelementptr inbounds i8, ptr %add.ptr21.i201.i, i64 -16
   %add.ptr22.val.i.i = load i64, ptr %add.ptr22.i.i, align 1
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr21.i199.i, i64 -8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr21.i201.i, i64 -8
   %add.ptr.i.val.i.i = load i64, ptr %add.ptr.i.i.i, align 1
   %add.i.i.i = add i64 %seed, 8320639771003045937
   %xor.i.i.i = xor i64 %add.ptr22.val.i.i, %add.i.i.i
@@ -1004,32 +1003,31 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.t
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !6
 
 for.end.i.i:                                      ; preds = %for.body.i.i
+  %conv.i192.i = trunc nuw nsw i64 %n to i32
+  %div29.i.i = lshr i32 %conv.i192.i, 4
   %shr.i.i194.i = lshr i64 %add.i.i, 37
   %xor.i32.i.i = xor i64 %shr.i.i194.i, %add.i.i
   %mul.i.i195.i = mul i64 %xor.i32.i.i, 1609587929392839161
   %shr1.i.i.i = lshr i64 %mul.i.i195.i, 32
   %xor2.i.i.i = xor i64 %shr1.i.i.i, %mul.i.i195.i
-  %cmp73.i.i = icmp ugt i64 %n, 143
-  br i1 %cmp73.i.i, label %for.body8.preheader.i.i, label %_ZL22XXPH3_len_129to240_64bPKhmS0_mm.exit.i
+  %cmp73.not.i.i = icmp eq i32 %div29.i.i, 8
+  br i1 %cmp73.not.i.i, label %_ZL22XXPH3_len_129to240_64bPKhmS0_mm.exit.i, label %for.body8.preheader.i.i
 
 for.body8.preheader.i.i:                          ; preds = %for.end.i.i
-  %conv.i192.i = trunc nuw i64 %n to i32
-  %div29.i.i = lshr i32 %conv.i192.i, 4
-  %umax.i.i = tail call i32 @llvm.umax.i32(i32 %div29.i.i, i32 9)
-  %wide.trip.count.i.i = zext nneg i32 %umax.i.i to i64
+  %wide.trip.count.i.i = zext nneg i32 %div29.i.i to i64
   br label %for.body8.i.i
 
 for.body8.i.i:                                    ; preds = %for.body8.i.i, %for.body8.preheader.i.i
   %indvars.iv8.i.i = phi i64 [ 8, %for.body8.preheader.i.i ], [ %indvars.iv.next9.i.i, %for.body8.i.i ]
   %acc.14.i.i = phi i64 [ %xor2.i.i.i, %for.body8.preheader.i.i ], [ %add17.i.i, %for.body8.i.i ]
   %5 = shl nsw i64 %indvars.iv8.i.i, 4
-  %add.ptr11.i197.i = getelementptr inbounds i8, ptr %data, i64 %5
+  %add.ptr11.i196.i = getelementptr inbounds i8, ptr %data, i64 %5
   %6 = getelementptr i8, ptr @_ZL7kSecret, i64 %5
-  %add.ptr15.i198.i = getelementptr i8, ptr %6, i64 -125
-  %add.ptr11.val.i.i = load i64, ptr %add.ptr11.i197.i, align 1
-  %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %add.ptr11.i197.i, i64 8
+  %add.ptr15.i197.i = getelementptr i8, ptr %6, i64 -125
+  %add.ptr11.val.i.i = load i64, ptr %add.ptr11.i196.i, align 1
+  %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %add.ptr11.i196.i, i64 8
   %add.ptr.i38.val.i.i = load i64, ptr %add.ptr.i38.i.i, align 1
-  %add.ptr15.val.i.i = load i64, ptr %add.ptr15.i198.i, align 1
+  %add.ptr15.val.i.i = load i64, ptr %add.ptr15.i197.i, align 1
   %xor.i42.i.i = xor i64 %add.ptr15.val.i.i, %add.ptr11.val.i.i
   %add.ptr3.i43.i.i = getelementptr i8, ptr %6, i64 -117
   %add.ptr3.i43.val.i.i = load i64, ptr %add.ptr3.i43.i.i, align 1
@@ -1047,10 +1045,10 @@ for.body8.i.i:                                    ; preds = %for.body8.i.i, %for
 
 _ZL22XXPH3_len_129to240_64bPKhmS0_mm.exit.i:      ; preds = %for.body8.i.i, %for.end.i.i
   %acc.1.lcssa.i.i = phi i64 [ %xor2.i.i.i, %for.end.i.i ], [ %add17.i.i, %for.body8.i.i ]
-  %add.ptr21.i196.i = getelementptr inbounds i8, ptr %data, i64 %n
-  %add.ptr22.i.i = getelementptr inbounds i8, ptr %add.ptr21.i196.i, i64 -16
+  %add.ptr21.i198.i = getelementptr inbounds i8, ptr %data, i64 %n
+  %add.ptr22.i.i = getelementptr inbounds i8, ptr %add.ptr21.i198.i, i64 -16
   %add.ptr22.val.i.i = load i64, ptr %add.ptr22.i.i, align 1
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr21.i196.i, i64 -8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr21.i198.i, i64 -8
   %add.ptr.i.val.i.i = load i64, ptr %add.ptr.i.i.i, align 1
   %xor.i.i.i = xor i64 %add.ptr22.val.i.i, 8320639771003045937
   %xor5.i.i.i = xor i64 %add.ptr.i.val.i.i, -1453760514566526364
@@ -1103,7 +1101,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %entry
   %concat_len.0.lcssa = phi i64 [ 0, %entry ], [ %add, %for.body ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %concat_data) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %concat_data) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %concat_data, i64 noundef %concat_len.0.lcssa)
           to label %for.cond2.preheader unwind label %lpad.loopexit.split-lp
 
@@ -1141,13 +1139,13 @@ lpad.loopexit.split-lp:                           ; preds = %for.end
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %concat_data) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %concat_data) #14
   resume { ptr, i32 } %lpad.phi
 
 invoke.cont22:                                    ; preds = %for.inc18, %for.cond2.preheader
-  %call21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %concat_data) #15
+  %call21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %concat_data) #14
   %call.i = call noundef i64 @_ZN7rocksdb6Hash64EPKcmm(ptr noundef %call21, i64 noundef %concat_len.0.lcssa, i64 noundef %seed)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %concat_data) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %concat_data) #14
   ret i64 %call.i
 }
 
@@ -1169,7 +1167,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define { i64, i64 } @_ZN7rocksdb7Hash128EPKcmm(ptr nocapture noundef readonly %data, i64 noundef %n, i64 noundef %seed) local_unnamed_addr #6 {
 entry:
-  %call = tail call { i64, i64 } @ROCKSDB_XXH3_128bits_withSeed(ptr nocapture noundef %data, i64 noundef %n, i64 noundef %seed) #16
+  %call = tail call { i64, i64 } @ROCKSDB_XXH3_128bits_withSeed(ptr nocapture noundef %data, i64 noundef %n, i64 noundef %seed) #15
   ret { i64, i64 } %call
 }
 
@@ -1179,7 +1177,7 @@ declare { i64, i64 } @ROCKSDB_XXH3_128bits_withSeed(ptr nocapture noundef, i64 n
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define { i64, i64 } @_ZN7rocksdb7Hash128EPKcm(ptr nocapture noundef readonly %data, i64 noundef %n) local_unnamed_addr #6 {
 entry:
-  %call = tail call { i64, i64 } @ROCKSDB_XXH3_128bits(ptr nocapture noundef %data, i64 noundef %n) #16
+  %call = tail call { i64, i64 } @ROCKSDB_XXH3_128bits(ptr nocapture noundef %data, i64 noundef %n) #15
   ret { i64, i64 } %call
 }
 
@@ -1189,7 +1187,7 @@ declare { i64, i64 } @ROCKSDB_XXH3_128bits(ptr nocapture noundef, i64 noundef) l
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
 define void @_ZN7rocksdb8Hash2x64EPKcmPmS2_(ptr nocapture noundef readonly %data, i64 noundef %n, ptr nocapture noundef writeonly %high64, ptr nocapture noundef writeonly %low64) local_unnamed_addr #8 {
 entry:
-  %call = tail call { i64, i64 } @ROCKSDB_XXH3_128bits(ptr nocapture noundef %data, i64 noundef %n) #16
+  %call = tail call { i64, i64 } @ROCKSDB_XXH3_128bits(ptr nocapture noundef %data, i64 noundef %n) #15
   %0 = extractvalue { i64, i64 } %call, 0
   %1 = extractvalue { i64, i64 } %call, 1
   store i64 %1, ptr %high64, align 8
@@ -1200,7 +1198,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
 define void @_ZN7rocksdb8Hash2x64EPKcmmPmS2_(ptr nocapture noundef readonly %data, i64 noundef %n, i64 noundef %seed, ptr nocapture noundef writeonly %high64, ptr nocapture noundef writeonly %low64) local_unnamed_addr #8 {
 entry:
-  %call = tail call { i64, i64 } @ROCKSDB_XXH3_128bits_withSeed(ptr nocapture noundef %data, i64 noundef %n, i64 noundef %seed) #16
+  %call = tail call { i64, i64 } @ROCKSDB_XXH3_128bits_withSeed(ptr nocapture noundef %data, i64 noundef %n, i64 noundef %seed) #15
   %0 = extractvalue { i64, i64 } %call, 0
   %1 = extractvalue { i64, i64 } %call, 1
   store i64 %1, ptr %high64, align 8
@@ -1474,7 +1472,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef i64 @_ZL32XXPH3_hashLong_64b_defaultSecretPKhm(ptr nocapture noundef readonly %input, i64 noundef %len) unnamed_addr #2 {
+define internal fastcc noundef i64 @_ZL32XXPH3_hashLong_64b_defaultSecretPKhm(ptr nocapture noundef readonly %input, i64 noundef range(i64 241, 0) %len) unnamed_addr #2 {
 entry:
   %acc.i.sroa.0 = alloca [4 x i64], align 32
   %acc.i.sroa.9 = alloca [4 x i64], align 32
@@ -1692,14 +1690,11 @@ declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #13
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
@@ -1714,10 +1709,9 @@ attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind willreturn memory(read) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

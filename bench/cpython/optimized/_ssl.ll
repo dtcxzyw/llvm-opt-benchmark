@@ -4040,7 +4040,7 @@ declare i32 @i2a_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @BIO_gets(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_setSSLError(ptr nocapture noundef readonly %state, ptr noundef %errstr, i32 noundef %lineno) unnamed_addr #0 {
+define internal fastcc void @_setSSLError(ptr nocapture noundef readonly %state, ptr noundef %errstr, i32 noundef range(i32 105, 5142) %lineno) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %errstr, null
   br i1 %cmp, label %if.then, label %if.else.split
@@ -4674,7 +4674,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_aia_uri(ptr noundef %certificate, i32 noundef %nid) unnamed_addr #0 {
+define internal fastcc ptr @_get_aia_uri(ptr noundef %certificate, i32 noundef range(i32 178, 180) %nid) unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_get_ext_d2i(ptr noundef %certificate, i32 noundef 177, ptr noundef null, ptr noundef null) #11
   %cmp = icmp eq ptr %call, null
@@ -4953,7 +4953,7 @@ declare ptr @X509_NAME_ENTRY_get_object(ptr noundef) local_unnamed_addr #1
 declare ptr @X509_NAME_ENTRY_get_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_asn1obj2py(ptr nocapture noundef readonly %state, ptr noundef %name, i32 noundef %no_name) unnamed_addr #0 {
+define internal fastcc ptr @_asn1obj2py(ptr nocapture noundef readonly %state, ptr noundef %name, i32 noundef range(i32 0, 2) %no_name) unnamed_addr #0 {
 entry:
   %buf = alloca [256 x i8], align 16
   %call = call i32 @OBJ_obj2txt(ptr noundef nonnull %buf, i32 noundef 256, ptr noundef %name, i32 noundef %no_name) #11
@@ -5064,7 +5064,7 @@ declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 declare i64 @ERR_peek_last_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_and_set_sslerror(ptr nocapture noundef readonly %state, ptr noundef readonly %sslsock, ptr noundef %type, i32 noundef %ssl_errno, ptr noundef %errstr, i32 noundef %lineno, i64 noundef %errcode) unnamed_addr #0 {
+define internal fastcc void @fill_and_set_sslerror(ptr nocapture noundef readonly %state, ptr noundef readonly %sslsock, ptr noundef %type, i32 noundef %ssl_errno, ptr noundef %errstr, i32 noundef range(i32 105, 5142) %lineno, i64 noundef %errcode) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i64 %errcode, 0
   br i1 %cmp.not, label %if.end28, label %if.then
@@ -9191,7 +9191,7 @@ declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PyArg_Parse(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @newPySSLSocket(ptr noundef %sslctx, ptr noundef %sock, i32 noundef %socket_type, ptr noundef %server_hostname, ptr noundef %owner, ptr noundef readonly %session, ptr nocapture noundef readonly %inbio, ptr nocapture noundef readonly %outbio) unnamed_addr #0 {
+define internal fastcc ptr @newPySSLSocket(ptr noundef %sslctx, ptr noundef %sock, i32 noundef range(i32 0, -2147483648) %socket_type, ptr noundef %server_hostname, ptr noundef %owner, ptr noundef readonly %session, ptr nocapture noundef readonly %inbio, ptr nocapture noundef readonly %outbio) unnamed_addr #0 {
 entry:
   %ctx1 = getelementptr inbounds i8, ptr %sslctx, i64 16
   %0 = load ptr, ptr %ctx1, align 8
@@ -10193,7 +10193,7 @@ declare void @DH_free(ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_AsASCIIString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_add_ca_certs(ptr nocapture noundef readonly %self, ptr noundef %data, i64 noundef %len, i32 noundef %filetype) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_add_ca_certs(ptr nocapture noundef readonly %self, ptr noundef %data, i64 noundef %len, i32 noundef range(i32 1, 3) %filetype) unnamed_addr #0 {
 entry:
   %cmp = icmp slt i64 %len, 1
   br i1 %cmp, label %if.then, label %if.else
@@ -11605,7 +11605,7 @@ declare ptr @PyLong_FromUnsignedLong(i64 noundef) local_unnamed_addr #1
 declare ptr @SSL_CTX_get0_param(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @set_min_max_proto_version(ptr nocapture noundef readonly %self, ptr noundef %arg, i32 noundef %what) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @set_min_max_proto_version(ptr nocapture noundef readonly %self, ptr noundef %arg, i32 noundef range(i32 0, 2) %what) unnamed_addr #0 {
 entry:
   %v = alloca i64, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %arg, ptr noundef nonnull @.str.180, ptr noundef nonnull %v) #11
@@ -14778,7 +14778,7 @@ if.end.i:                                         ; preds = %entry
   %1 = load ptr, ptr %ctx.i, align 8
   %state.i = getelementptr inbounds i8, ptr %1, i64 88
   %2 = load ptr, ptr %state.i, align 8
-  %call2.i = tail call fastcc ptr @_PySSL_CertificateFromX509Stack(ptr noundef %2, ptr noundef nonnull %call.i)
+  %call2.i = tail call fastcc ptr @_PySSL_CertificateFromX509Stack(ptr noundef %2, ptr noundef %call.i)
   %cmp3.i = icmp eq ptr %call2.i, null
   br i1 %cmp3.i, label %_ssl__SSLSocket_get_unverified_chain_impl.exit, label %if.end5.i
 
@@ -14893,7 +14893,7 @@ if.end.i:                                         ; preds = %entry
   %1 = load ptr, ptr %ctx.i, align 8
   %state.i = getelementptr inbounds i8, ptr %1, i64 88
   %2 = load ptr, ptr %state.i, align 8
-  %call1.i = tail call fastcc ptr @_PySSL_CertificateFromX509Stack(ptr noundef %2, ptr noundef nonnull %call.i)
+  %call1.i = tail call fastcc ptr @_PySSL_CertificateFromX509Stack(ptr noundef %2, ptr noundef %call.i)
   br label %_ssl__SSLSocket_get_verified_chain_impl.exit
 
 _ssl__SSLSocket_get_verified_chain_impl.exit:     ; preds = %entry, %if.end.i
@@ -14910,7 +14910,7 @@ declare i32 @PyErr_CheckSignals() local_unnamed_addr #1
 declare i64 @_PyDeadline_Get(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @PySSL_SetError(ptr noundef %sslsock, i32 noundef %ret, i32 noundef %lineno) unnamed_addr #0 {
+define internal fastcc ptr @PySSL_SetError(ptr noundef %sslsock, i32 noundef range(i32 -2147483648, 1) %ret, i32 noundef range(i32 1034, 2721) %lineno) unnamed_addr #0 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %sslsock, i64 32
   %0 = load ptr, ptr %ctx, align 8
@@ -15236,7 +15236,7 @@ declare i32 @SSL_verify_client_post_handshake(ptr noundef) local_unnamed_addr #1
 declare ptr @SSL_get_peer_cert_chain(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_PySSL_CertificateFromX509Stack(ptr nocapture noundef readonly %state, ptr noundef %stack) unnamed_addr #0 {
+define internal fastcc ptr @_PySSL_CertificateFromX509Stack(ptr nocapture noundef readonly %state, ptr noundef nonnull %stack) unnamed_addr #0 {
 entry:
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %stack) #11
   %conv = sext i32 %call1 to i64

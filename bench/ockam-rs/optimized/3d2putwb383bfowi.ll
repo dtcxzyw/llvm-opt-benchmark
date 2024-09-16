@@ -980,7 +980,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN4core3pin24Pin$LT$$RF$mut$u20$T$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$$GT$17hc41e5f465beb54ecE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$$GT$17hc41e5f465beb54ecE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !263, !noundef !19
@@ -1043,7 +1043,7 @@ define internal fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$ockam_vault..types..public_keys..VerifyingPublicKey$C$ockam_core..error..Error$GT$$GT$17h9fe8830bed373b02E"(ptr noalias noundef align 8 dereferenceable(72) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$ockam_vault..types..public_keys..VerifyingPublicKey$C$ockam_core..error..Error$GT$$GT$17h9fe8830bed373b02E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !102, !noundef !19
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %5
@@ -1080,7 +1080,7 @@ define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$C$ockam_core..error..Error$GT$$GT$17h467bbe83ed7c4e04E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$C$ockam_core..error..Error$GT$$GT$17h467bbe83ed7c4e04E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !263, !noundef !19
@@ -1329,7 +1329,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr64drop
 .body:                                            ; preds = %36, %41
   %eh.lpad-body = phi { ptr, i32 } [ %42, %41 ], [ %37, %36 ]
   %43 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h63ddc25c278bcde2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %43) #26
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h63ddc25c278bcde2E"(ptr noalias noundef align 8 dereferenceable(32) %43) #26
           to label %40 unwind label %66
 
 "_ZN4core3ptr212drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17ha0f468ecf1ebade5E.exit": ; preds = %"_ZN4core3ptr190drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17hbb0c3ade73d94f61E.llvm.9405825265181994393.exit.i"
@@ -1473,7 +1473,7 @@ common.resume:                                    ; preds = %.body, %12
 .body:                                            ; preds = %22, %26
   %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %23, %22 ]
   %28 = getelementptr inbounds i8, ptr %0, i64 40
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h63ddc25c278bcde2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %28) #26
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h63ddc25c278bcde2E"(ptr noalias noundef align 8 dereferenceable(32) %28) #26
           to label %common.resume unwind label %51
 
 "_ZN4core3ptr259drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$ockam_vault..types..public_keys..VerifyingPublicKey$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hf8b242277bd4badfE.exit": ; preds = %"_ZN4core3ptr237drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$ockam_vault..types..public_keys..VerifyingPublicKey$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h9be065bed2a0dd9cE.llvm.9405825265181994393.exit.i"
@@ -1560,7 +1560,7 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h63ddc25c278bcde2E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h63ddc25c278bcde2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !7, !noundef !19
@@ -3206,7 +3206,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.9405825265181994393.exit.th
 .body59:                                          ; preds = %93, %79, %101, %106, %.body67
   %.pn30.pn = phi { ptr, i32 } [ %.pn37, %.body67 ], [ %94, %93 ], [ %80, %79 ], [ %107, %106 ], [ %102, %101 ]
   %179 = getelementptr inbounds i8, ptr %1, i64 40
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h63ddc25c278bcde2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %179) #26
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h63ddc25c278bcde2E"(ptr noalias noundef align 8 dereferenceable(32) %179) #26
           to label %.body unwind label %86
 
 180:                                              ; preds = %"_ZN4core3ptr259drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$ockam_vault..types..public_keys..VerifyingPublicKey$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hf8b242277bd4badfE.exit"
@@ -3547,7 +3547,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
   %84 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$ockam_vault..types..public_keys..VerifyingPublicKey$C$ockam_core..error..Error$GT$$GT$17h9fe8830bed373b02E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %9) #26
+  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$ockam_vault..types..public_keys..VerifyingPublicKey$C$ockam_core..error..Error$GT$$GT$17h9fe8830bed373b02E"(ptr noalias noundef align 8 dereferenceable(72) %9) #26
           to label %87 unwind label %85
 
 "_ZN4core3ptr132drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$alloc..vec..Vec$LT$ockam_vault_aws..aws_signing_vault..AwsKeyPair$GT$$GT$$GT$17h8d000e95e940287fE.exit": ; preds = %78, %82
@@ -3841,7 +3841,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
   %81 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$C$ockam_core..error..Error$GT$$GT$17h467bbe83ed7c4e04E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10) #26
+  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$C$ockam_core..error..Error$GT$$GT$17h467bbe83ed7c4e04E"(ptr noalias noundef align 8 dereferenceable(32) %10) #26
           to label %88 unwind label %82
 
 "_ZN4core3ptr132drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$alloc..vec..Vec$LT$ockam_vault_aws..aws_signing_vault..AwsKeyPair$GT$$GT$$GT$17h8d000e95e940287fE.exit": ; preds = %75, %79
@@ -3868,7 +3868,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
   %86 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
-  invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$$GT$17hc41e5f465beb54ecE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #26
+  invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$$GT$17hc41e5f465beb54ecE"(ptr noalias noundef align 8 dereferenceable(32) %9) #26
           to label %84 unwind label %82
 
 87:                                               ; preds = %84, %.body
@@ -4368,7 +4368,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.9405825265181994393.exit.th
 .body45:                                          ; preds = %70, %65, %57, %39, %.body53
   %.pn28.pn = phi { ptr, i32 } [ %.pn34, %.body53 ], [ %58, %57 ], [ %40, %39 ], [ %71, %70 ], [ %66, %65 ]
   %156 = getelementptr inbounds i8, ptr %1, i64 48
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h63ddc25c278bcde2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %156) #26
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h63ddc25c278bcde2E"(ptr noalias noundef align 8 dereferenceable(32) %156) #26
           to label %46 unwind label %154
 
 157:                                              ; preds = %"_ZN4core3ptr212drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17ha0f468ecf1ebade5E.exit"
@@ -4503,7 +4503,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.9405825265181994393.exit.th
   br label %203
 
 206:                                              ; preds = %46
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h63ddc25c278bcde2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #26
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h63ddc25c278bcde2E"(ptr noalias noundef align 8 dereferenceable(32) %1) #26
           to label %203 unwind label %154
 }
 

@@ -219,10 +219,10 @@ define i32 @_spank_init(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_do_call_stack(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @_do_call_stack(ptr noundef %0, i32 noundef range(i32 0, 13) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [1 x %struct.spank_handle], align 16
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %55, label %6
+  br i1 %.not, label %52, label %6
 
 6:                                                ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %5, i8 0, i64 40, i1 false)
@@ -232,7 +232,7 @@ define internal fastcc i32 @_do_call_stack(ptr noundef %0, i32 noundef %1, ptr n
   %8 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %0, ptr %8, align 8
   %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %_spank_handle_init.exit, label %9
+  br i1 %.not.i, label %switch.lookup, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %5, i64 24
@@ -241,7 +241,7 @@ define internal fastcc i32 @_do_call_stack(ptr noundef %0, i32 noundef %1, ptr n
   %12 = icmp eq i32 %11, 2
   %13 = icmp sgt i32 %3, -1
   %or.cond.i = and i1 %13, %12
-  br i1 %or.cond.i, label %14, label %_spank_handle_init.exit
+  br i1 %or.cond.i, label %14, label %switch.lookup
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds i8, ptr %2, i64 472
@@ -251,98 +251,86 @@ define internal fastcc i32 @_do_call_stack(ptr noundef %0, i32 noundef %1, ptr n
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %19, ptr %20, align 16
-  br label %_spank_handle_init.exit
+  br label %switch.lookup
 
-_spank_handle_init.exit:                          ; preds = %6, %9, %14
-  %21 = icmp ult i32 %1, 13
-  br i1 %21, label %switch.lookup, label %_step_fn_name.exit
-
-switch.lookup:                                    ; preds = %_spank_handle_init.exit
-  %22 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table._do_call_stack, i64 0, i64 %22
+switch.lookup:                                    ; preds = %14, %9, %6
+  %21 = zext nneg i32 %1 to i64
+  %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table._do_call_stack, i64 0, i64 %21
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %_step_fn_name.exit
-
-_step_fn_name.exit:                               ; preds = %_spank_handle_init.exit, %switch.lookup
-  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.71, %_spank_handle_init.exit ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call ptr @list_iterator_create(ptr noundef %24) #19
-  %26 = tail call ptr @list_next(ptr noundef %25) #19
-  %.not3136 = icmp eq ptr %26, null
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call ptr @list_iterator_create(ptr noundef %23) #19
+  %25 = tail call ptr @list_next(ptr noundef %24) #19
+  %.not3136 = icmp eq ptr %25, null
   br i1 %.not3136, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_step_fn_name.exit
-  %27 = getelementptr inbounds i8, ptr %5, i64 8
-  %28 = icmp ult i32 %1, 13
-  %switch.maskindex = trunc nuw i32 %1 to i16
+.lr.ph:                                           ; preds = %switch.lookup
+  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %switch.maskindex = trunc nuw nsw i32 %1 to i16
   %switch.shifted = lshr i16 8189, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %29 = zext nneg i32 %1 to i64
-  %switch.gep48 = getelementptr inbounds [13 x i64], ptr @switch.table._do_call_stack.7, i64 0, i64 %29
-  br label %30
+  %27 = zext nneg i32 %1 to i64
+  %switch.gep48 = getelementptr inbounds [13 x i64], ptr @switch.table._do_call_stack.7, i64 0, i64 %27
+  br label %switch.hole_check
 
-30:                                               ; preds = %.lr.ph, %.backedge
-  %31 = phi ptr [ %26, %.lr.ph ], [ %54, %.backedge ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = call ptr @xbasename(ptr noundef %33) #19
-  store ptr %31, ptr %27, align 8
-  %.not54 = xor i1 %28, true
-  %switch.lobit.not = xor i1 %switch.lobit, true
-  %brmerge = select i1 %.not54, i1 true, i1 %switch.lobit.not
-  br i1 %brmerge, label %spank_plugin_get_fn.exit.thread, label %switch.lookup47
+switch.hole_check:                                ; preds = %.lr.ph, %.backedge
+  %28 = phi ptr [ %25, %.lr.ph ], [ %51, %.backedge ]
+  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = call ptr @xbasename(ptr noundef %30) #19
+  store ptr %28, ptr %26, align 8
+  br i1 %switch.lobit, label %switch.lookup47, label %spank_plugin_get_fn.exit.thread
 
-spank_plugin_get_fn.exit.thread:                  ; preds = %30
-  %35 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.72, i32 noundef %1) #19
+spank_plugin_get_fn.exit.thread:                  ; preds = %switch.hole_check
+  %32 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.72, i32 noundef %1) #19
   br label %.backedge
 
-switch.lookup47:                                  ; preds = %30
+switch.lookup47:                                  ; preds = %switch.hole_check
   %switch.load49 = load i64, ptr %switch.gep48, align 8
-  %36 = getelementptr inbounds i8, ptr %31, i64 %switch.load49
-  %37 = load ptr, ptr %36, align 8
-  %.not32 = icmp eq ptr %37, null
-  br i1 %.not32, label %.backedge, label %38
+  %33 = getelementptr inbounds i8, ptr %28, i64 %switch.load49
+  %34 = load ptr, ptr %33, align 8
+  %.not32 = icmp eq ptr %34, null
+  br i1 %.not32, label %.backedge, label %35
 
-38:                                               ; preds = %switch.lookup47
-  %39 = getelementptr inbounds i8, ptr %31, i64 28
-  %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %31, i64 32
-  %42 = load ptr, ptr %41, align 8
-  %43 = call i32 %37(ptr noundef nonnull %5, i32 noundef %40, ptr noundef %42) #19
-  %44 = call i32 @get_log_level() #19
-  %45 = icmp sgt i32 %44, 5
-  br i1 %45, label %46, label %47
+35:                                               ; preds = %switch.lookup47
+  %36 = getelementptr inbounds i8, ptr %28, i64 28
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds i8, ptr %28, i64 32
+  %39 = load ptr, ptr %38, align 8
+  %40 = call i32 %34(ptr noundef nonnull %5, i32 noundef %37, ptr noundef %39) #19
+  %41 = call i32 @get_log_level() #19
+  %42 = icmp sgt i32 %41, 5
+  br i1 %42, label %43, label %44
 
-46:                                               ; preds = %38
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.57, ptr noundef %34, ptr noundef nonnull %.0.i, i32 noundef %43) #19
-  br label %47
+43:                                               ; preds = %35
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.57, ptr noundef %31, ptr noundef nonnull %switch.load, i32 noundef %40) #19
+  br label %44
 
-47:                                               ; preds = %46, %38
-  %.not33 = icmp eq i32 %43, 0
-  br i1 %.not33, label %.backedge, label %48
+44:                                               ; preds = %43, %35
+  %.not33 = icmp eq i32 %40, 0
+  br i1 %.not33, label %.backedge, label %45
 
-48:                                               ; preds = %47
-  %49 = getelementptr inbounds i8, ptr %31, i64 24
-  %50 = load i8, ptr %49, align 8
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %52, label %.backedge
+45:                                               ; preds = %44
+  %46 = getelementptr inbounds i8, ptr %28, i64 24
+  %47 = load i8, ptr %46, align 8
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %.backedge
 
-52:                                               ; preds = %48
-  %53 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.58, ptr noundef %34, ptr noundef nonnull %.0.i, i32 noundef %43) #19
+49:                                               ; preds = %45
+  %50 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.58, ptr noundef %31, ptr noundef nonnull %switch.load, i32 noundef %40) #19
   br label %.loopexit
 
-.backedge:                                        ; preds = %spank_plugin_get_fn.exit.thread, %47, %48, %switch.lookup47
-  %54 = call ptr @list_next(ptr noundef %25) #19
-  %.not31 = icmp eq ptr %54, null
-  br i1 %.not31, label %.loopexit, label %30, !llvm.loop !6
+.backedge:                                        ; preds = %spank_plugin_get_fn.exit.thread, %44, %45, %switch.lookup47
+  %51 = call ptr @list_next(ptr noundef %24) #19
+  %.not31 = icmp eq ptr %51, null
+  br i1 %.not31, label %.loopexit, label %switch.hole_check, !llvm.loop !6
 
-.loopexit:                                        ; preds = %.backedge, %_step_fn_name.exit, %52
-  %.1 = phi i32 [ %43, %52 ], [ 0, %_step_fn_name.exit ], [ 0, %.backedge ]
-  call void @list_iterator_destroy(ptr noundef %25) #19
-  br label %55
+.loopexit:                                        ; preds = %.backedge, %switch.lookup, %49
+  %.1 = phi i32 [ %40, %49 ], [ 0, %switch.lookup ], [ 0, %.backedge ]
+  call void @list_iterator_destroy(ptr noundef %24) #19
+  br label %52
 
-55:                                               ; preds = %4, %.loopexit
+52:                                               ; preds = %4, %.loopexit
   %.0 = phi i32 [ %.1, %.loopexit ], [ 3001, %4 ]
   ret i32 %.0
 }
@@ -516,7 +504,7 @@ _spank_stack_get_remote_options.exit.i.i:         ; preds = %._crit_edge.i.i.i, 
   %.val17.i.i.i = load ptr, ptr %68, align 8
   %.val.val.i.i.i = load ptr, ptr %.val.i9.i.i, align 8
   %.val17.val.i.i.i = load ptr, ptr %.val17.i.i.i, align 8
-  %69 = call fastcc ptr @_opt_env_name(ptr %.val.val.i.i.i, ptr %.val17.val.i.i.i, ptr noundef nonnull %2, i64 noundef 1024)
+  %69 = call fastcc ptr @_opt_env_name(ptr %.val.val.i.i.i, ptr %.val17.val.i.i.i, ptr noundef %2, i64 noundef 1024)
   %70 = call ptr @getenvp(ptr noundef %62, ptr noundef nonnull %2) #19
   %.not15.i.i.i = icmp eq ptr %70, null
   br i1 %.not15.i.i.i, label %.backedge.i14.i.i, label %71
@@ -670,7 +658,7 @@ define i32 @spank_init_post_opt() local_unnamed_addr #0 {
   %.val7.i.i = load ptr, ptr %21, align 8
   %.val.val.i.i = load ptr, ptr %.val.i.i, align 8
   %.val7.val.i.i = load ptr, ptr %.val7.i.i, align 8
-  %22 = call fastcc ptr @_opt_env_name(ptr %.val.val.i.i, ptr %.val7.val.i.i, ptr noundef nonnull %1, i64 noundef 1024)
+  %22 = call fastcc ptr @_opt_env_name(ptr %.val.val.i.i, ptr %.val7.val.i.i, ptr noundef %1, i64 noundef 1024)
   %23 = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %23, null
   %spec.select.i.i = select i1 %.not.i.i, ptr @.str.84, ptr %20
@@ -846,7 +834,7 @@ define i32 @spank_job_prolog(i32 noundef %0, i32 noundef %1, i32 noundef %2) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @spank_job_script(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @spank_job_script(i32 noundef range(i32 2, 11) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.job_script_info, align 4
   store i32 %1, ptr %6, align 4
@@ -937,7 +925,7 @@ define range(i32 0, 3006) i32 @spank_option_register(ptr nocapture noundef reado
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %6, align 8
-  %18 = tail call fastcc i32 @_spank_option_register(ptr noundef %17, ptr noundef nonnull %1)
+  %18 = tail call fastcc i32 @_spank_option_register(ptr noundef %17, ptr noundef %1)
   br label %19
 
 19:                                               ; preds = %10, %11, %13, %2, %16
@@ -948,7 +936,7 @@ define range(i32 0, 3006) i32 @spank_option_register(ptr nocapture noundef reado
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3006) i32 @_spank_option_register(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3006) i32 @_spank_option_register(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1008,7 +996,7 @@ define internal fastcc range(i32 0, 3006) i32 @_spank_option_register(ptr nounde
   br label %39
 
 39:                                               ; preds = %37, %34
-  %40 = tail call fastcc ptr @_spank_plugin_opt_create(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.019)
+  %40 = tail call fastcc ptr @_spank_plugin_opt_create(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.019)
   tail call void @list_append(ptr noundef %11, ptr noundef %40) #19
   br label %41
 
@@ -1276,7 +1264,7 @@ get_global_option_cache.exit:                     ; preds = %0
   %.val19 = load ptr, ptr %14, align 8
   %.val.val = load ptr, ptr %.val, align 8
   %.val19.val = load ptr, ptr %.val19, align 8
-  %15 = call fastcc ptr @_opt_env_name(ptr %.val.val, ptr %.val19.val, ptr noundef nonnull %1, i64 noundef 1024)
+  %15 = call fastcc ptr @_opt_env_name(ptr %.val.val, ptr %.val19.val, ptr noundef %1, i64 noundef 1024)
   %16 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.17, ptr noundef nonnull %1) #19
   store ptr %16, ptr %2, align 8
   %17 = call ptr @getenv(ptr noundef %16) #19
@@ -1349,8 +1337,8 @@ get_global_option_cache.exit.thread:              ; preds = %0, %get_global_opti
 declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc nonnull ptr @_opt_env_name(ptr nocapture readonly %.0.val.0.val, ptr nocapture readonly %.8.val.0.val, ptr noundef returned %0, i64 noundef %1) unnamed_addr #3 {
-  %3 = tail call i64 @strlcpy(ptr noundef %0, ptr noundef nonnull dereferenceable(1) @.str.23, i64 noundef %1) #19
+define internal fastcc noundef nonnull ptr @_opt_env_name(ptr nocapture readonly %.0.val.0.val, ptr nocapture readonly %.8.val.0.val, ptr noundef nonnull returned %0, i64 noundef range(i64 1018, 1025) %1) unnamed_addr #3 {
+  %3 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.23, i64 noundef %1) #19
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
   %5 = add nsw i64 %1, -1
   %sext = shl i64 %4, 32
@@ -1526,7 +1514,7 @@ _term_columns.exit.i:                             ; preds = %32, %29, %26
   %48 = getelementptr inbounds i8, ptr %27, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %49, i64 noundef 4096) #19
-  %51 = call fastcc ptr @_get_next_segment(ptr noundef nonnull %5, i32 noundef %37, ptr noundef nonnull %7)
+  %51 = call fastcc ptr @_get_next_segment(ptr noundef %5, i32 noundef %37, ptr noundef %7)
   %52 = icmp slt i32 %41, %2
   br i1 %52, label %53, label %55
 
@@ -1539,7 +1527,7 @@ _term_columns.exit.i:                             ; preds = %32, %29, %26
   br label %57
 
 57:                                               ; preds = %55, %53
-  %58 = call fastcc ptr @_get_next_segment(ptr noundef nonnull %5, i32 noundef %37, ptr noundef nonnull %7)
+  %58 = call fastcc ptr @_get_next_segment(ptr noundef %5, i32 noundef %37, ptr noundef %7)
   %.not3335.i = icmp eq ptr %58, null
   br i1 %.not3335.i, label %_spank_opt_print.exit, label %.lr.ph.i.preheader
 
@@ -1825,7 +1813,7 @@ define range(i32 0, 3010) i32 @spank_option_getopt(ptr nocapture noundef readonl
 
 38:                                               ; preds = %22
   %39 = load ptr, ptr %8, align 8
-  %40 = tail call fastcc ptr @_spank_plugin_opt_create(ptr noundef %39, ptr noundef nonnull %1, i32 noundef 0)
+  %40 = tail call fastcc ptr @_spank_plugin_opt_create(ptr noundef %39, ptr noundef %1, i32 noundef 0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %4, ptr noundef nonnull align 1 dereferenceable(6) @.str.22, i64 6, i1 false)
   %41 = getelementptr inbounds i8, ptr %4, i64 6
   %.val = load ptr, ptr %40, align 8
@@ -1833,7 +1821,7 @@ define range(i32 0, 3010) i32 @spank_option_getopt(ptr nocapture noundef readonl
   %.val52 = load ptr, ptr %42, align 8
   %.val.val = load ptr, ptr %.val, align 8
   %.val52.val = load ptr, ptr %.val52, align 8
-  %43 = call fastcc ptr @_opt_env_name(ptr %.val.val, ptr %.val52.val, ptr noundef nonnull %41, i64 noundef 1018)
+  %43 = call fastcc ptr @_opt_env_name(ptr %.val.val, ptr %.val52.val, ptr noundef %41, i64 noundef 1018)
   %44 = call ptr @getenv(ptr noundef nonnull %41) #19
   %.not50 = icmp eq ptr %44, null
   br i1 %.not50, label %45, label %47
@@ -1883,7 +1871,7 @@ define internal range(i32 0, 2) i32 @_opt_by_name(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_spank_plugin_opt_create(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @_spank_plugin_opt_create(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.32, i32 noundef 990, ptr noundef nonnull @__func__._spank_plugin_opt_create) #19
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.32, i32 noundef 959, ptr noundef nonnull @__func__._spank_option_copy) #19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
@@ -1945,10 +1933,9 @@ _spank_option_copy.exit:                          ; preds = %22, %25
   store i8 0, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %4, i64 33
   store i8 0, ptr %38, align 1
-  %39 = icmp ne i32 %2, 0
-  %40 = getelementptr inbounds i8, ptr %4, i64 21
-  %41 = zext i1 %39 to i8
-  store i8 %41, ptr %40, align 1
+  %39 = getelementptr inbounds i8, ptr %4, i64 21
+  %40 = trunc nuw nsw i32 %2 to i8
+  store i8 %40, ptr %39, align 1
   ret ptr %4
 }
 
@@ -5301,7 +5288,7 @@ _spank_plugin_destroy.exit:                       ; preds = %229, %._crit_edge.i
 
 .lr.ph80:                                         ; preds = %.lr.ph80.preheader, %.lr.ph80
   %.0.i7994 = phi ptr [ %249, %.lr.ph80 ], [ %246, %.lr.ph80.preheader ]
-  %248 = call fastcc i32 @_spank_option_register(ptr noundef nonnull %159, ptr noundef nonnull %.0.i7994)
+  %248 = call fastcc i32 @_spank_option_register(ptr noundef nonnull %159, ptr noundef %.0.i7994)
   %249 = getelementptr inbounds i8, ptr %.0.i7994, i64 40
   %250 = load ptr, ptr %249, align 8
   %.not45.i = icmp eq ptr %250, null
@@ -5419,7 +5406,7 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 declare i32 @optz_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef ptr @_get_next_segment(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 {
+define internal fastcc noundef ptr @_get_next_segment(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
@@ -5495,7 +5482,7 @@ define internal fastcc noundef ptr @_get_next_segment(ptr nocapture noundef %0, 
   store ptr %4, ptr %0, align 8
   %37 = add nsw i32 %1, 1
   %38 = sext i32 %37 to i64
-  %39 = tail call i64 @strlcpy(ptr noundef %2, ptr noundef nonnull dereferenceable(1) %4, i64 noundef %38) #19
+  %39 = tail call i64 @strlcpy(ptr noundef nonnull %2, ptr noundef nonnull dereferenceable(1) %4, i64 noundef %38) #19
   %40 = getelementptr i8, ptr %2, i64 %14
   %41 = getelementptr i8, ptr %40, i64 -1
   store i8 45, ptr %41, align 1

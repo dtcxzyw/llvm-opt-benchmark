@@ -14,9 +14,9 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as
 .preheader.i:                                     ; preds = %3, %.preheader.i
   %.0.i.in.i = phi i64 [ %.0.i.i, %.preheader.i ], [ %0, %3 ]
   %.0.i.i = add i64 %.0.i.in.i, -1
-  tail call fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %1)
-  %.not.i.i = icmp eq i64 %.0.i.i, 0
-  br i1 %.not.i.i, label %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$13spec_for_each17h9bc333581fbb8989E.llvm.14277958325137290771.exit", label %.preheader.i
+  tail call fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef align 8 dereferenceable(24) %2, i32 noundef %1)
+  %4 = icmp eq i64 %.0.i.i, 0
+  br i1 %4, label %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$13spec_for_each17h9bc333581fbb8989E.llvm.14277958325137290771.exit", label %.preheader.i
 
 "_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$13spec_for_each17h9bc333581fbb8989E.llvm.14277958325137290771.exit": ; preds = %.preheader.i, %3
   ret void
@@ -92,7 +92,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17h47650f5a99b40e0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hc837ed62ef544522E"(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 {
-  tail call fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  tail call fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1)
   ret i1 false
 }
 
@@ -123,7 +123,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.0 = alloca i32, align 4
   %3 = icmp ult i32 %1, 128
   br i1 %3, label %.critedge, label %4
@@ -277,9 +277,9 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %.preheader.i.i
   %.0.i.in.i.i = phi i64 [ %.0.i.i.i, %.preheader.i.i ], [ %1, %.preheader.i.i.preheader ]
   %.0.i.i.i = add i64 %.0.i.in.i.i, -1
-  tail call fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %2)
-  %.not.i.i.i = icmp eq i64 %.0.i.i.i, 0
-  br i1 %.not.i.i.i, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h954394dc15929c19E.llvm.14277958325137290771.exit", label %.preheader.i.i
+  tail call fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %2)
+  %9 = icmp eq i64 %.0.i.i.i, 0
+  br i1 %9, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h954394dc15929c19E.llvm.14277958325137290771.exit", label %.preheader.i.i
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h954394dc15929c19E.llvm.14277958325137290771.exit": ; preds = %.preheader.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf7fa3c0366a2885eE.exit"
   ret void
@@ -303,41 +303,41 @@ define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..trai
 
 .preheader.i.i.i:                                 ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf7fa3c0366a2885eE.exit.thread.i", %.noexc3
   %.0.i.in.i.i.i = phi i64 [ %.0.i.i.i.i, %.noexc3 ], [ %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf7fa3c0366a2885eE.exit.thread.i" ]
-  invoke fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %2)
+  invoke fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef align 8 dereferenceable(24) %4, i32 noundef %2)
           to label %.noexc3 unwind label %.loopexit
 
 .noexc3:                                          ; preds = %.preheader.i.i.i
   %.0.i.i.i.i = add i64 %.0.i.in.i.i.i, -1
-  %.not.i.i.i.i = icmp eq i64 %.0.i.i.i.i, 0
-  br i1 %.not.i.i.i.i, label %"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..Extend$LT$char$GT$$GT$6extend17h1c4370f637e765e3E.llvm.14277958325137290771.exit", label %.preheader.i.i.i
+  %5 = icmp eq i64 %.0.i.i.i.i, 0
+  br i1 %5, label %"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..Extend$LT$char$GT$$GT$6extend17h1c4370f637e765e3E.llvm.14277958325137290771.exit", label %.preheader.i.i.i
 
 .loopexit:                                        ; preds = %.preheader.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %5
+  br label %6
 
 .loopexit.split-lp:                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf7fa3c0366a2885eE.exit.thread.i"
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %5
+  br label %6
 
-5:                                                ; preds = %.loopexit.split-lp, %.loopexit
+6:                                                ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbe614eedd24fc738E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #8
-          to label %8 unwind label %6
+          to label %9 unwind label %7
 
 "_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..Extend$LT$char$GT$$GT$6extend17h1c4370f637e765e3E.llvm.14277958325137290771.exit": ; preds = %.noexc3, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 
-6:                                                ; preds = %5
-  %7 = landingpad { ptr, i32 }
+7:                                                ; preds = %6
+  %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #9
   unreachable
 
-8:                                                ; preds = %5
+9:                                                ; preds = %6
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -349,9 +349,9 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$
 .preheader:                                       ; preds = %3, %.preheader
   %.0.i.in = phi i64 [ %.0.i, %.preheader ], [ %0, %3 ]
   %.0.i = add i64 %.0.i.in, -1
-  tail call fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %1)
-  %.not.i = icmp eq i64 %.0.i, 0
-  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hbb3f1f2effa74a09E.exit, label %.preheader
+  tail call fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef align 8 dereferenceable(24) %2, i32 noundef %1)
+  %4 = icmp eq i64 %.0.i, 0
+  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hbb3f1f2effa74a09E.exit, label %.preheader
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hbb3f1f2effa74a09E.exit: ; preds = %.preheader, %3
   ret void

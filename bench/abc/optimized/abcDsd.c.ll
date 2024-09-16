@@ -1295,7 +1295,7 @@ define ptr @Abc_NtkSparsifyInternal(ptr nocapture noundef readonly %0, i32 nound
   %40 = getelementptr i8, ptr %39, i64 20
   %.val107 = load i32, ptr %40, align 4
   %41 = and i32 %.val107, 15
-  switch i32 %41, label %66 [
+  switch i32 %41, label %68 [
     i32 5, label %42
     i32 2, label %42
   ]
@@ -1308,159 +1308,160 @@ define ptr @Abc_NtkSparsifyInternal(ptr nocapture noundef readonly %0, i32 nound
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr i8, ptr %33, i64 20
   %.val93 = load i32, ptr %48, align 4
-  %49 = ptrtoint ptr %47 to i64
-  %50 = lshr i32 %.val93, 10
-  %.lobit = and i32 %50, 1
-  %51 = zext nneg i32 %.lobit to i64
-  %52 = xor i64 %51, %49
-  %53 = inttoptr i64 %52 to ptr
-  tail call void @Abc_ObjAddFanin(ptr noundef %45, ptr noundef %53) #10
-  %54 = load ptr, ptr %44, align 8
-  %55 = tail call ptr @Abc_ObjName(ptr noundef nonnull %33) #10
-  %56 = tail call ptr @Abc_ObjAssignName(ptr noundef %54, ptr noundef %55, ptr noundef nonnull @.str.6) #10
-  %57 = tail call ptr @Abc_NtkDupObj(ptr noundef %4, ptr noundef nonnull %33, i32 noundef 0) #10
-  %58 = load ptr, ptr %44, align 8
-  %59 = load ptr, ptr %46, align 8
+  %49 = lshr i32 %.val93, 10
+  %50 = and i32 %49, 1
+  %51 = ptrtoint ptr %47 to i64
+  %52 = zext nneg i32 %50 to i64
+  %53 = xor i64 %52, %51
+  %54 = inttoptr i64 %53 to ptr
+  tail call void @Abc_ObjAddFanin(ptr noundef %45, ptr noundef %54) #10
+  %55 = load ptr, ptr %44, align 8
+  %56 = tail call ptr @Abc_ObjName(ptr noundef nonnull %33) #10
+  %57 = tail call ptr @Abc_ObjAssignName(ptr noundef %55, ptr noundef %56, ptr noundef nonnull @.str.6) #10
+  %58 = tail call ptr @Abc_NtkDupObj(ptr noundef %4, ptr noundef nonnull %33, i32 noundef 0) #10
+  %59 = load ptr, ptr %44, align 8
+  %60 = load ptr, ptr %46, align 8
   %.val94 = load i32, ptr %48, align 4
-  %60 = ptrtoint ptr %59 to i64
-  %61 = and i32 %.val94, 1024
-  %62 = icmp eq i32 %61, 0
-  %63 = zext i1 %62 to i64
-  %64 = xor i64 %63, %60
-  %65 = inttoptr i64 %64 to ptr
-  tail call void @Abc_ObjAddFanin(ptr noundef %58, ptr noundef %65) #10
+  %61 = lshr i32 %.val94, 10
+  %62 = and i32 %61, 1
+  %63 = xor i32 %62, 1
+  %64 = ptrtoint ptr %60 to i64
+  %65 = zext nneg i32 %63 to i64
+  %66 = xor i64 %65, %64
+  %67 = inttoptr i64 %66 to ptr
+  tail call void @Abc_ObjAddFanin(ptr noundef %59, ptr noundef %67) #10
   br label %.loopexit.sink.split
 
-66:                                               ; preds = %.lr.ph122
-  %67 = getelementptr i8, ptr %39, i64 28
-  %.val102 = load i32, ptr %67, align 4
-  %68 = icmp eq i32 %.val102, 0
-  br i1 %68, label %72, label %.preheader
+68:                                               ; preds = %.lr.ph122
+  %69 = getelementptr i8, ptr %39, i64 28
+  %.val102 = load i32, ptr %69, align 4
+  %70 = icmp eq i32 %.val102, 0
+  br i1 %70, label %74, label %.preheader
 
-.preheader:                                       ; preds = %66
-  %69 = getelementptr i8, ptr %39, i64 32
-  %70 = getelementptr inbounds i8, ptr %39, i64 64
-  %71 = getelementptr inbounds i8, ptr %33, i64 64
+.preheader:                                       ; preds = %68
+  %71 = getelementptr i8, ptr %39, i64 32
+  %72 = getelementptr inbounds i8, ptr %39, i64 64
+  %73 = getelementptr inbounds i8, ptr %33, i64 64
+  br label %98
+
+74:                                               ; preds = %68
+  %75 = tail call ptr @Abc_NtkDupObj(ptr noundef %4, ptr noundef nonnull %33, i32 noundef 0) #10
+  %76 = getelementptr inbounds i8, ptr %33, i64 64
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr i8, ptr %33, i64 20
+  %.val95 = load i32, ptr %78, align 4
+  %79 = and i32 %.val95, 1024
+  %.not89 = icmp eq i32 %79, 0
+  br i1 %.not89, label %82, label %80
+
+80:                                               ; preds = %74
+  %81 = tail call ptr @Abc_NtkCreateNodeConst0(ptr noundef %4) #10
+  br label %84
+
+82:                                               ; preds = %74
+  %83 = tail call ptr @Abc_NtkCreateNodeConst1(ptr noundef %4) #10
+  br label %84
+
+84:                                               ; preds = %82, %80
+  %85 = phi ptr [ %81, %80 ], [ %83, %82 ]
+  tail call void @Abc_ObjAddFanin(ptr noundef %77, ptr noundef %85) #10
+  %86 = load ptr, ptr %76, align 8
+  %87 = tail call ptr @Abc_ObjName(ptr noundef nonnull %33) #10
+  %88 = tail call ptr @Abc_ObjAssignName(ptr noundef %86, ptr noundef %87, ptr noundef nonnull @.str.6) #10
+  %89 = tail call ptr @Abc_NtkDupObj(ptr noundef %4, ptr noundef nonnull %33, i32 noundef 0) #10
+  %90 = load ptr, ptr %76, align 8
+  %.val96 = load i32, ptr %78, align 4
+  %91 = and i32 %.val96, 1024
+  %.not90 = icmp eq i32 %91, 0
+  br i1 %.not90, label %94, label %92
+
+92:                                               ; preds = %84
+  %93 = tail call ptr @Abc_NtkCreateNodeConst1(ptr noundef %4) #10
   br label %96
 
-72:                                               ; preds = %66
-  %73 = tail call ptr @Abc_NtkDupObj(ptr noundef %4, ptr noundef nonnull %33, i32 noundef 0) #10
-  %74 = getelementptr inbounds i8, ptr %33, i64 64
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr i8, ptr %33, i64 20
-  %.val95 = load i32, ptr %76, align 4
-  %77 = and i32 %.val95, 1024
-  %.not89 = icmp eq i32 %77, 0
-  br i1 %.not89, label %80, label %78
+94:                                               ; preds = %84
+  %95 = tail call ptr @Abc_NtkCreateNodeConst0(ptr noundef %4) #10
+  br label %96
 
-78:                                               ; preds = %72
-  %79 = tail call ptr @Abc_NtkCreateNodeConst0(ptr noundef %4) #10
-  br label %82
-
-80:                                               ; preds = %72
-  %81 = tail call ptr @Abc_NtkCreateNodeConst1(ptr noundef %4) #10
-  br label %82
-
-82:                                               ; preds = %80, %78
-  %83 = phi ptr [ %79, %78 ], [ %81, %80 ]
-  tail call void @Abc_ObjAddFanin(ptr noundef %75, ptr noundef %83) #10
-  %84 = load ptr, ptr %74, align 8
-  %85 = tail call ptr @Abc_ObjName(ptr noundef nonnull %33) #10
-  %86 = tail call ptr @Abc_ObjAssignName(ptr noundef %84, ptr noundef %85, ptr noundef nonnull @.str.6) #10
-  %87 = tail call ptr @Abc_NtkDupObj(ptr noundef %4, ptr noundef nonnull %33, i32 noundef 0) #10
-  %88 = load ptr, ptr %74, align 8
-  %.val96 = load i32, ptr %76, align 4
-  %89 = and i32 %.val96, 1024
-  %.not90 = icmp eq i32 %89, 0
-  br i1 %.not90, label %92, label %90
-
-90:                                               ; preds = %82
-  %91 = tail call ptr @Abc_NtkCreateNodeConst1(ptr noundef %4) #10
-  br label %94
-
-92:                                               ; preds = %82
-  %93 = tail call ptr @Abc_NtkCreateNodeConst0(ptr noundef %4) #10
-  br label %94
-
-94:                                               ; preds = %92, %90
-  %95 = phi ptr [ %91, %90 ], [ %93, %92 ]
-  tail call void @Abc_ObjAddFanin(ptr noundef %88, ptr noundef %95) #10
+96:                                               ; preds = %94, %92
+  %97 = phi ptr [ %93, %92 ], [ %95, %94 ]
+  tail call void @Abc_ObjAddFanin(ptr noundef %90, ptr noundef %97) #10
   br label %.loopexit.sink.split
 
-96:                                               ; preds = %.preheader, %.critedge4
+98:                                               ; preds = %.preheader, %.critedge4
   %.not88 = phi i1 [ true, %.preheader ], [ false, %.critedge4 ]
   %indvars.iv128 = phi i64 [ 0, %.preheader ], [ 1, %.critedge4 ]
   tail call void @Cudd_Srandom(i64 noundef 0) #10
-  %97 = tail call ptr @Abc_NtkDupObj(ptr noundef %4, ptr noundef nonnull %39, i32 noundef 0) #10
-  %.val103114 = load i32, ptr %67, align 4
-  %98 = icmp sgt i32 %.val103114, 0
-  br i1 %98, label %.lr.ph116, label %.critedge4
+  %99 = tail call ptr @Abc_NtkDupObj(ptr noundef %4, ptr noundef nonnull %39, i32 noundef 0) #10
+  %.val103114 = load i32, ptr %69, align 4
+  %100 = icmp sgt i32 %.val103114, 0
+  br i1 %100, label %.lr.ph116, label %.critedge4
 
-.lr.ph116:                                        ; preds = %96, %.lr.ph116
-  %indvars.iv125 = phi i64 [ %indvars.iv.next126, %.lr.ph116 ], [ 0, %96 ]
+.lr.ph116:                                        ; preds = %98, %.lr.ph116
+  %indvars.iv125 = phi i64 [ %indvars.iv.next126, %.lr.ph116 ], [ 0, %98 ]
   %.val105 = load ptr, ptr %39, align 8
-  %.val106 = load ptr, ptr %69, align 8
-  %99 = getelementptr i8, ptr %.val105, i64 32
-  %.val105.val = load ptr, ptr %99, align 8
-  %100 = getelementptr i8, ptr %.val105.val, i64 8
-  %.val105.val.val = load ptr, ptr %100, align 8
-  %101 = getelementptr inbounds i32, ptr %.val106, i64 %indvars.iv125
-  %102 = load i32, ptr %101, align 4
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds ptr, ptr %.val105.val.val, i64 %103
-  %105 = load ptr, ptr %104, align 8
-  %106 = load ptr, ptr %70, align 8
-  %107 = getelementptr inbounds i8, ptr %105, i64 64
-  %108 = load ptr, ptr %107, align 8
-  tail call void @Abc_ObjAddFanin(ptr noundef %106, ptr noundef %108) #10
+  %.val106 = load ptr, ptr %71, align 8
+  %101 = getelementptr i8, ptr %.val105, i64 32
+  %.val105.val = load ptr, ptr %101, align 8
+  %102 = getelementptr i8, ptr %.val105.val, i64 8
+  %.val105.val.val = load ptr, ptr %102, align 8
+  %103 = getelementptr inbounds i32, ptr %.val106, i64 %indvars.iv125
+  %104 = load i32, ptr %103, align 4
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr inbounds ptr, ptr %.val105.val.val, i64 %105
+  %107 = load ptr, ptr %106, align 8
+  %108 = load ptr, ptr %72, align 8
+  %109 = getelementptr inbounds i8, ptr %107, i64 64
+  %110 = load ptr, ptr %109, align 8
+  tail call void @Abc_ObjAddFanin(ptr noundef %108, ptr noundef %110) #10
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %.val103 = load i32, ptr %67, align 4
-  %109 = sext i32 %.val103 to i64
-  %110 = icmp slt i64 %indvars.iv.next126, %109
-  br i1 %110, label %.lr.ph116, label %.critedge4, !llvm.loop !19
+  %.val103 = load i32, ptr %69, align 4
+  %111 = sext i32 %.val103 to i64
+  %112 = icmp slt i64 %indvars.iv.next126, %111
+  br i1 %112, label %.lr.ph116, label %.critedge4, !llvm.loop !19
 
-.critedge4:                                       ; preds = %.lr.ph116, %96
-  %.val103.lcssa = phi i32 [ %.val103114, %96 ], [ %.val103, %.lr.ph116 ]
-  %111 = load ptr, ptr %70, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 56
-  %113 = load ptr, ptr %112, align 8
-  %114 = ptrtoint ptr %113 to i64
-  %115 = xor i64 %indvars.iv128, %114
-  %116 = inttoptr i64 %115 to ptr
-  %117 = tail call ptr @Abc_NtkSparsifyInternalOne(ptr noundef %24, ptr noundef %116, i32 noundef %.val103.lcssa, i32 noundef %1)
-  tail call void @Cudd_Ref(ptr noundef %117) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %24, ptr noundef %116) #10
-  %118 = load ptr, ptr %70, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 56
-  store ptr %117, ptr %119, align 8
-  %120 = tail call ptr @Abc_NtkDupObj(ptr noundef %4, ptr noundef nonnull %33, i32 noundef 0) #10
-  %121 = load ptr, ptr %71, align 8
-  %122 = load ptr, ptr %70, align 8
-  tail call void @Abc_ObjAddFanin(ptr noundef %121, ptr noundef %122) #10
-  %123 = load ptr, ptr %71, align 8
-  %124 = tail call ptr @Abc_ObjName(ptr noundef nonnull %33) #10
-  %125 = select i1 %.not88, ptr @.str.6, ptr @.str.7
-  %126 = tail call ptr @Abc_ObjAssignName(ptr noundef %123, ptr noundef %124, ptr noundef nonnull %125) #10
-  br i1 %.not88, label %96, label %.loopexit, !llvm.loop !20
+.critedge4:                                       ; preds = %.lr.ph116, %98
+  %.val103.lcssa = phi i32 [ %.val103114, %98 ], [ %.val103, %.lr.ph116 ]
+  %113 = load ptr, ptr %72, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 56
+  %115 = load ptr, ptr %114, align 8
+  %116 = ptrtoint ptr %115 to i64
+  %117 = xor i64 %indvars.iv128, %116
+  %118 = inttoptr i64 %117 to ptr
+  %119 = tail call ptr @Abc_NtkSparsifyInternalOne(ptr noundef %24, ptr noundef %118, i32 noundef %.val103.lcssa, i32 noundef %1)
+  tail call void @Cudd_Ref(ptr noundef %119) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef %24, ptr noundef %118) #10
+  %120 = load ptr, ptr %72, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 56
+  store ptr %119, ptr %121, align 8
+  %122 = tail call ptr @Abc_NtkDupObj(ptr noundef %4, ptr noundef nonnull %33, i32 noundef 0) #10
+  %123 = load ptr, ptr %73, align 8
+  %124 = load ptr, ptr %72, align 8
+  tail call void @Abc_ObjAddFanin(ptr noundef %123, ptr noundef %124) #10
+  %125 = load ptr, ptr %73, align 8
+  %126 = tail call ptr @Abc_ObjName(ptr noundef nonnull %33) #10
+  %127 = select i1 %.not88, ptr @.str.6, ptr @.str.7
+  %128 = tail call ptr @Abc_ObjAssignName(ptr noundef %125, ptr noundef %126, ptr noundef nonnull %127) #10
+  br i1 %.not88, label %98, label %.loopexit, !llvm.loop !20
 
-.loopexit.sink.split:                             ; preds = %42, %94
-  %.sink136 = phi ptr [ %74, %94 ], [ %44, %42 ]
-  %127 = load ptr, ptr %.sink136, align 8
-  %128 = tail call ptr @Abc_ObjName(ptr noundef nonnull %33) #10
-  %129 = tail call ptr @Abc_ObjAssignName(ptr noundef %127, ptr noundef %128, ptr noundef nonnull @.str.7) #10
+.loopexit.sink.split:                             ; preds = %42, %96
+  %.sink136 = phi ptr [ %76, %96 ], [ %44, %42 ]
+  %129 = load ptr, ptr %.sink136, align 8
+  %130 = tail call ptr @Abc_ObjName(ptr noundef nonnull %33) #10
+  %131 = tail call ptr @Abc_ObjAssignName(ptr noundef %129, ptr noundef %130, ptr noundef nonnull @.str.7) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge4, %.loopexit.sink.split
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %.val = load ptr, ptr %28, align 8
-  %130 = getelementptr i8, ptr %.val, i64 4
-  %.val.val = load i32, ptr %130, align 4
-  %131 = sext i32 %.val.val to i64
-  %132 = icmp slt i64 %indvars.iv.next132, %131
-  br i1 %132, label %.lr.ph122, label %.critedge2, !llvm.loop !21
+  %132 = getelementptr i8, ptr %.val, i64 4
+  %.val.val = load i32, ptr %132, align 4
+  %133 = sext i32 %.val.val to i64
+  %134 = icmp slt i64 %indvars.iv.next132, %133
+  br i1 %134, label %.lr.ph122, label %.critedge2, !llvm.loop !21
 
 .critedge2:                                       ; preds = %.loopexit, %.critedge
-  %133 = tail call i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef %4, i32 noundef 0) #10
+  %135 = tail call i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef %4, i32 noundef 0) #10
   ret ptr %4
 }
 

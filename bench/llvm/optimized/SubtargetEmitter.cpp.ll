@@ -11464,21 +11464,21 @@ _ZN4llvm11raw_ostreamlsEPKc.exit133:              ; preds = %298, %300
   %303 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %303, ptr noundef nonnull align 1 dereferenceable(1) %8) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.399, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.399, i64 9))
-  call fastcc void @"_ZZN12_GLOBAL__N_116SubtargetEmitter15EmitHwModeCheckERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN4llvm11raw_ostreamEENK3$_0clES6_j"(ptr nonnull %2, ptr noundef nonnull %7, i32 noundef %.0.lcssa)
+  call fastcc void @"_ZZN12_GLOBAL__N_116SubtargetEmitter15EmitHwModeCheckERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN4llvm11raw_ostreamEENK3$_0clES6_j"(ptr nonnull %2, ptr noundef %7, i32 noundef %.0.lcssa)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #20
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #20
   %304 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %304, ptr noundef nonnull align 1 dereferenceable(1) %10) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.400, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.400, i64 7))
-  call fastcc void @"_ZZN12_GLOBAL__N_116SubtargetEmitter15EmitHwModeCheckERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN4llvm11raw_ostreamEENK3$_0clES6_j"(ptr nonnull %2, ptr noundef nonnull %9, i32 noundef %.044.lcssa)
+  call fastcc void @"_ZZN12_GLOBAL__N_116SubtargetEmitter15EmitHwModeCheckERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN4llvm11raw_ostreamEENK3$_0clES6_j"(ptr nonnull %2, ptr noundef %9, i32 noundef %.044.lcssa)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #20
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #20
   %305 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %305, ptr noundef nonnull align 1 dereferenceable(1) %12) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.415, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.415, i64 12))
-  call fastcc void @"_ZZN12_GLOBAL__N_116SubtargetEmitter15EmitHwModeCheckERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN4llvm11raw_ostreamEENK3$_0clES6_j"(ptr nonnull %2, ptr noundef nonnull %11, i32 noundef %.048.lcssa)
+  call fastcc void @"_ZZN12_GLOBAL__N_116SubtargetEmitter15EmitHwModeCheckERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN4llvm11raw_ostreamEENK3$_0clES6_j"(ptr nonnull %2, ptr noundef %11, i32 noundef %.048.lcssa)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #20
   %306 = load ptr, ptr %118, align 8
@@ -31167,7 +31167,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_116SubtargetEmitter15EmitHwModeCheckERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN4llvm11raw_ostreamEENK3$_0clES6_j"(ptr %.0.val, ptr noundef %0, i32 noundef %1) unnamed_addr #2 align 2 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_116SubtargetEmitter15EmitHwModeCheckERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN4llvm11raw_ostreamEENK3$_0clES6_j"(ptr %.0.val, ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32

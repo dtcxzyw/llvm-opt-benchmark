@@ -82,17 +82,17 @@ lexbor_diyfp_normalize_boundaries.exit.i:         ; preds = %.lr.ph.i.i.i, %20
   %43 = extractvalue { i64, i32 } %42, 0
   %44 = extractvalue { i64, i32 } %42, 1
   %45 = icmp eq i64 %.sroa.05.0.i.i, 0
-  br i1 %45, label %lexbor_diyfp_normalize.exit.i, label %.lr.ph.i.i38.i
+  br i1 %45, label %lexbor_diyfp_normalize.exit.i, label %.preheader.i.i.i
 
-.lr.ph.i.i38.i:                                   ; preds = %lexbor_diyfp_normalize_boundaries.exit.i, %.lr.ph.i.i38.i
-  %.010.i.i.i = phi i64 [ %46, %.lr.ph.i.i38.i ], [ 0, %lexbor_diyfp_normalize_boundaries.exit.i ]
-  %.069.i.i.i = phi i64 [ %47, %.lr.ph.i.i38.i ], [ %.sroa.05.0.i.i, %lexbor_diyfp_normalize_boundaries.exit.i ]
+.preheader.i.i.i:                                 ; preds = %lexbor_diyfp_normalize_boundaries.exit.i, %.preheader.i.i.i
+  %.010.i.i.i = phi i64 [ %46, %.preheader.i.i.i ], [ 0, %lexbor_diyfp_normalize_boundaries.exit.i ]
+  %.069.i.i.i = phi i64 [ %47, %.preheader.i.i.i ], [ %.sroa.05.0.i.i, %lexbor_diyfp_normalize_boundaries.exit.i ]
   %46 = add i64 %.010.i.i.i, 1
   %47 = shl nuw i64 %.069.i.i.i, 1
   %48 = icmp sgt i64 %47, -1
-  br i1 %48, label %.lr.ph.i.i38.i, label %lexbor_diyfp_normalize.exit.loopexit.i
+  br i1 %48, label %.preheader.i.i.i, label %lexbor_diyfp_normalize.exit.loopexit.i
 
-lexbor_diyfp_normalize.exit.loopexit.i:           ; preds = %.lr.ph.i.i38.i
+lexbor_diyfp_normalize.exit.loopexit.i:           ; preds = %.preheader.i.i.i
   %49 = and i64 %46, 4294967295
   br label %lexbor_diyfp_normalize.exit.i
 
@@ -132,7 +132,7 @@ lexbor_diyfp_normalize.exit.i:                    ; preds = %lexbor_diyfp_normal
   %81 = lshr i64 %71, 32
   %82 = lshr i64 %79, 32
   %83 = add i32 %.sroa.5.0.lcssa.i.i.i, %44
-  %.neg51.i = sub i32 -54, %83
+  %.neg50.i = sub i32 -54, %83
   %84 = lshr i64 %41, 32
   %85 = and i64 %41, 4294967295
   %86 = mul nuw i64 %84, %53
@@ -161,7 +161,7 @@ lexbor_diyfp_normalize.exit.i:                    ; preds = %lexbor_diyfp_normal
   %108 = add nuw i64 %107, %66
   %109 = add i64 %108, %67
   %110 = sub i64 %105, %109
-  %111 = zext i32 %.neg51.i to i64
+  %111 = zext i32 %.neg50.i to i64
   %112 = shl nuw i64 1, %111
   %113 = lshr i64 %105, %111
   %114 = trunc i64 %113 to i32
@@ -316,15 +316,15 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
   %187 = sub nuw i64 %106, %175
   %.not21.i.i.i = icmp ult i64 %187, %185
   %or.cond22.i.i.i = or i1 %186, %.not21.i.i.i
-  br i1 %or.cond22.i.i.i, label %lexbor_grisu2.exit, label %.lr.ph.i.i45.i
+  br i1 %or.cond22.i.i.i, label %lexbor_grisu2.exit, label %.lr.ph.i.i44.i
 
-.lr.ph.i.i45.i:                                   ; preds = %176
+.lr.ph.i.i44.i:                                   ; preds = %176
   %188 = getelementptr i8, ptr %.021, i64 %181
   %189 = getelementptr i8, ptr %188, i64 -1
   br label %190
 
-190:                                              ; preds = %.critedge2.i.i.i, %.lr.ph.i.i45.i
-  %.023.i.i.i = phi i64 [ %175, %.lr.ph.i.i45.i ], [ %191, %.critedge2.i.i.i ]
+190:                                              ; preds = %.critedge2.i.i.i, %.lr.ph.i.i44.i
+  %.023.i.i.i = phi i64 [ %175, %.lr.ph.i.i44.i ], [ %191, %.critedge2.i.i.i ]
   %191 = add i64 %.023.i.i.i, %185
   %192 = icmp ult i64 %191, %110
   br i1 %192, label %.critedge2.i.i.i, label %193
@@ -354,9 +354,9 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
   %202 = mul i64 %.098.i.i, 10
   %203 = lshr i64 %201, %111
   %204 = and i64 %203, 255
-  %.not.i46.i = icmp eq i64 %204, 0
+  %.not.i45.i = icmp eq i64 %204, 0
   %.not117.i.i = icmp eq ptr %.2.i.i, %.021
-  %or.cond121.i.i = and i1 %.not117.i.i, %.not.i46.i
+  %or.cond121.i.i = and i1 %.not117.i.i, %.not.i45.i
   br i1 %or.cond121.i.i, label %214, label %205
 
 205:                                              ; preds = %.preheader.i.i

@@ -1557,7 +1557,7 @@ if.then580:                                       ; preds = %for.end578
   br i1 %cmp581, label %if.end584, label %if.end587
 
 if.end584:                                        ; preds = %if.then580
-  %call583 = call fastcc ptr @x509_load_serial(ptr noundef nonnull %CAfile.0.lcssa, ptr noundef %CAserial.0.lcssa, i32 noundef %CA_createserial.0.lcssa)
+  %call583 = call fastcc ptr @x509_load_serial(ptr noundef %CAfile.0.lcssa, ptr noundef %CAserial.0.lcssa, i32 noundef %CA_createserial.0.lcssa)
   %cmp585 = icmp eq ptr %call583, null
   br i1 %cmp585, label %end, label %if.end587
 
@@ -1568,7 +1568,7 @@ if.end587:                                        ; preds = %if.then580, %if.end
   br i1 %or.cond16.not, label %land.lhs.true593, label %land.lhs.true608
 
 land.lhs.true593:                                 ; preds = %if.end587
-  %call594 = call fastcc i32 @self_signed(ptr noundef nonnull %call, ptr noundef nonnull %x.2383)
+  %call594 = call fastcc i32 @self_signed(ptr noundef %call, ptr noundef %x.2383)
   %tobool595.not = icmp eq i32 %call594, 0
   br i1 %tobool595.not, label %end, label %land.lhs.true608
 
@@ -1687,7 +1687,7 @@ if.then668:                                       ; preds = %if.end664
   br label %err
 
 if.end670:                                        ; preds = %if.end664
-  %call671 = call fastcc ptr @x509_to_req(ptr noundef nonnull %x.2383, i32 noundef %60, ptr noundef %ext_names.0.lcssa)
+  %call671 = call fastcc ptr @x509_to_req(ptr noundef %x.2383, i32 noundef %60, ptr noundef %ext_names.0.lcssa)
   %cmp672 = icmp eq ptr %call671, null
   br i1 %cmp672, label %end, label %if.end674
 
@@ -1956,7 +1956,7 @@ if.then820:                                       ; preds = %if.else818
 for.body825:                                      ; preds = %if.then820, %for.body825
   %j.11091 = phi i32 [ %inc829, %for.body825 ], [ 0, %if.then820 ]
   %call826 = call ptr @X509_PURPOSE_get0(i32 noundef %j.11091) #7
-  call fastcc void @purpose_print(ptr noundef %call516, ptr noundef nonnull %x.2383, ptr noundef %call826)
+  call fastcc void @purpose_print(ptr noundef %call516, ptr noundef %x.2383, ptr noundef %call826)
   %inc829 = add nuw nsw i32 %j.11091, 1
   %call823 = call i32 @X509_PURPOSE_get_count() #7
   %cmp824 = icmp slt i32 %inc829, %call823
@@ -2112,7 +2112,7 @@ if.else912:                                       ; preds = %if.else907
   br i1 %cmp913, label %if.then915, label %for.inc936
 
 if.then915:                                       ; preds = %if.else912
-  call fastcc void @print_x509v3_exts(ptr noundef %call516, ptr noundef nonnull %x.2383, ptr noundef %ext_names.0.lcssa)
+  call fastcc void @print_x509v3_exts(ptr noundef %call516, ptr noundef %x.2383, ptr noundef %ext_names.0.lcssa)
   br label %for.inc936
 
 for.inc936:                                       ; preds = %for.body899, %for.body825, %if.end895, %if.then820, %if.then735, %if.then743, %for.end787, %if.then800, %if.then810, %if.then856, %if.then865, %if.else912, %if.then915, %if.then910, %if.then872, %if.then860, %if.end852, %if.then815, %if.then805, %if.then793, %if.else795, %if.end762, %if.then739
@@ -2409,7 +2409,7 @@ declare void @X509_EXTENSION_free(ptr noundef) local_unnamed_addr #1
 declare ptr @X509_delete_ext(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @x509_load_serial(ptr noundef %CAfile, ptr noundef %serialfile, i32 noundef %create) unnamed_addr #0 {
+define internal fastcc ptr @x509_load_serial(ptr noundef nonnull %CAfile, ptr noundef %serialfile, i32 noundef %create) unnamed_addr #0 {
 entry:
   %bs = alloca ptr, align 8
   %file_exists = alloca i32, align 4
@@ -2436,7 +2436,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %cond = phi i64 [ %sub.ptr.sub, %cond.true ], [ %call2, %cond.false ]
   %add = add i64 %cond, 5
   %call3 = tail call ptr @app_malloc(i64 noundef %add, ptr noundef nonnull @.str.235) #7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call3, ptr align 1 %CAfile, i64 %cond, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call3, ptr nonnull align 1 %CAfile, i64 %cond, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %call3, i64 %cond
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr, ptr noundef nonnull align 1 dereferenceable(5) @.str.236, i64 5, i1 false)
   br label %if.end
@@ -2484,14 +2484,14 @@ end:                                              ; preds = %if.then16, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @self_signed(ptr noundef %ctx, ptr noundef %cert) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @self_signed(ptr noundef nonnull %ctx, ptr noundef nonnull %cert) unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_STORE_CTX_new() #7
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call i32 @X509_STORE_CTX_init(ptr noundef nonnull %call, ptr noundef %ctx, ptr noundef %cert, ptr noundef null) #7
+  %call1 = tail call i32 @X509_STORE_CTX_init(ptr noundef nonnull %call, ptr noundef nonnull %ctx, ptr noundef nonnull %cert, ptr noundef null) #7
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.then, label %if.else
 
@@ -2528,13 +2528,13 @@ declare i32 @X509V3_set_issuer_pkey(ptr noundef, ptr noundef) local_unnamed_addr
 declare ptr @X509_get0_pubkey(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @x509_to_req(ptr noundef %cert, i32 noundef %ext_copy, ptr noundef readonly %names) unnamed_addr #0 {
+define internal fastcc ptr @x509_to_req(ptr noundef nonnull %cert, i32 noundef %ext_copy, ptr noundef readonly %names) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @X509_get0_extensions(ptr noundef %cert) #7
+  %call = tail call ptr @X509_get0_extensions(ptr noundef nonnull %cert) #7
   %call2 = tail call i32 @OPENSSL_sk_num(ptr noundef %call) #7
   %call3 = tail call ptr @OBJ_nid2obj(i32 noundef 82) #7
   %call4 = tail call ptr @OBJ_nid2obj(i32 noundef 90) #7
-  %call5 = tail call ptr @X509_to_X509_REQ(ptr noundef %cert, ptr noundef null, ptr noundef null) #7
+  %call5 = tail call ptr @X509_to_X509_REQ(ptr noundef nonnull %cert, ptr noundef null, ptr noundef null) #7
   %cmp = icmp eq ptr %call5, null
   br i1 %cmp, label %return, label %if.end
 
@@ -2690,7 +2690,7 @@ declare i64 @X509_issuer_name_hash_old(ptr noundef) local_unnamed_addr #1
 declare i32 @X509_PURPOSE_get_count() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @purpose_print(ptr noundef %bio, ptr noundef %cert, ptr noundef %pt) unnamed_addr #0 {
+define internal fastcc void @purpose_print(ptr noundef nonnull %bio, ptr noundef nonnull %cert, ptr noundef %pt) unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_PURPOSE_get_id(ptr noundef %pt) #7
   %call1 = tail call ptr @X509_PURPOSE_get0_name(ptr noundef %pt) #7
@@ -2699,24 +2699,24 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %tobool.not = phi i1 [ true, %entry ], [ false, %for.inc ]
   %i.010 = phi i32 [ 0, %entry ], [ 1, %for.inc ]
-  %call2 = tail call i32 @X509_check_purpose(ptr noundef %cert, i32 noundef %call, i32 noundef %i.010) #7
+  %call2 = tail call i32 @X509_check_purpose(ptr noundef nonnull %cert, i32 noundef %call, i32 noundef %i.010) #7
   %cond = select i1 %tobool.not, ptr @.str.115, ptr @.str.241
-  %call3 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.240, ptr noundef %call1, ptr noundef nonnull %cond) #7
+  %call3 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %bio, ptr noundef nonnull @.str.240, ptr noundef %call1, ptr noundef nonnull %cond) #7
   switch i32 %call2, label %if.else9 [
     i32 1, label %if.then
     i32 0, label %if.then7
   ]
 
 if.then:                                          ; preds = %for.body
-  %call5 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.242) #7
+  %call5 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %bio, ptr noundef nonnull @.str.242) #7
   br label %for.inc
 
 if.then7:                                         ; preds = %for.body
-  %call8 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.243) #7
+  %call8 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %bio, ptr noundef nonnull @.str.243) #7
   br label %for.inc
 
 if.else9:                                         ; preds = %for.body
-  %call10 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.244, i32 noundef %call2) #7
+  %call10 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %bio, ptr noundef nonnull @.str.244, i32 noundef %call2) #7
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %if.else9, %if.then7
@@ -2753,9 +2753,9 @@ declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
 declare i32 @X509_ocspid_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_x509v3_exts(ptr noundef %bio, ptr noundef %x, ptr noundef %ext_names) unnamed_addr #0 {
+define internal fastcc void @print_x509v3_exts(ptr noundef nonnull %bio, ptr noundef nonnull %x, ptr noundef %ext_names) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @X509_get0_extensions(ptr noundef %x) #7
+  %call = tail call ptr @X509_get0_extensions(ptr noundef nonnull %x) #7
   %call2 = tail call i32 @OPENSSL_sk_num(ptr noundef %call) #7
   %cmp = icmp slt i32 %call2, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -2815,7 +2815,7 @@ parse_ext_names.exit:                             ; preds = %if.end.us.i, %if.th
   br i1 %cmp9, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %if.end7, %parse_ext_names.exit
-  %call11 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.246, ptr noundef %ext_names) #7
+  %call11 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %bio, ptr noundef nonnull @.str.246, ptr noundef %ext_names) #7
   br label %end
 
 if.end12:                                         ; preds = %parse_ext_names.exit
@@ -2949,11 +2949,11 @@ for.end56:                                        ; preds = %for.body, %for.inc5
   br i1 %tobool59.not, label %if.then60, label %if.end62
 
 if.then60:                                        ; preds = %for.end56
-  %call61 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.248, ptr noundef %ext_names) #7
+  %call61 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %bio, ptr noundef nonnull @.str.248, ptr noundef %ext_names) #7
   br label %end
 
 if.end62:                                         ; preds = %for.end56
-  %call63 = tail call i32 @X509V3_extensions_print(ptr noundef %bio, ptr noundef null, ptr noundef %exts2.1.lcssa, i64 noundef 0, i32 noundef 0) #7
+  %call63 = tail call i32 @X509V3_extensions_print(ptr noundef nonnull %bio, ptr noundef null, ptr noundef %exts2.1.lcssa, i64 noundef 0, i32 noundef 0) #7
   br label %end
 
 end:                                              ; preds = %if.end47.us, %land.lhs.true.us, %if.end12, %if.end, %if.end62, %if.then60, %if.then10, %if.then

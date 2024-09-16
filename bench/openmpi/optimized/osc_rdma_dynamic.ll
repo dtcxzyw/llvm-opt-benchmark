@@ -946,7 +946,7 @@ ompi_osc_rdma_lock_try_acquire_exclusive.exit:    ; preds = %ompi_osc_rdma_btl_c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -104, 1) i32 @ompi_osc_rdma_add_attachment(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -104, 1) i32 @ompi_osc_rdma_add_attachment(ptr noundef %0, i64 noundef %1, i64 noundef range(i64 1, 0) %2) unnamed_addr #0 {
   %4 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_osc_rdma_attachment_t_class, i64 56), align 8
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #11
   %6 = load i32, ptr @opal_class_init_epoch, align 4
@@ -2236,7 +2236,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_btl_op(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_btl_op(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef range(i64 -9223372036854775808, 0) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 1072
   %8 = load i8, ptr %7, align 16
   %9 = trunc i8 %8 to i1
@@ -2451,7 +2451,7 @@ opal_obj_run_destructors.exit87:                  ; preds = %.lr.ph.i84, %92
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_btl_fop(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_btl_fop(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef range(i64 1, 0) %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 1072
   %10 = load i8, ptr %9, align 16
   %11 = trunc i8 %10 to i1

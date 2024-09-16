@@ -649,7 +649,7 @@ if.end43.i:                                       ; preds = %if.then40.i
   %47 = load i32, ptr %cipher_alg.i, align 8
   %ivgen_hash_alg45.i = getelementptr inbounds i8, ptr %call10, i64 604
   %48 = load i32, ptr %ivgen_hash_alg45.i, align 4
-  %call46.i = call fastcc i32 @qcrypto_block_luks_essiv_cipher(i32 noundef %47, i32 noundef %48, ptr noundef nonnull %local_err.i)
+  %call46.i = call fastcc i32 @qcrypto_block_luks_essiv_cipher(i32 noundef %47, i32 noundef %48, ptr noundef %local_err.i)
   %ivgen_cipher_alg.i = getelementptr inbounds i8, ptr %call10, i64 608
   store i32 %call46.i, ptr %ivgen_cipher_alg.i, align 8
   %49 = load ptr, ptr %local_err.i, align 8
@@ -941,7 +941,7 @@ if.end82:                                         ; preds = %if.end78
   br i1 %cmp, label %if.then85, label %if.else92
 
 if.then85:                                        ; preds = %if.end82
-  %call88 = call fastcc i32 @qcrypto_block_luks_essiv_cipher(i32 noundef %luks_opts.sroa.325.0, i32 noundef %spec.select132, ptr noundef nonnull %local_err)
+  %call88 = call fastcc i32 @qcrypto_block_luks_essiv_cipher(i32 noundef %luks_opts.sroa.325.0, i32 noundef %spec.select132, ptr noundef %local_err)
   %ivgen_cipher_alg = getelementptr inbounds i8, ptr %call, i64 608
   store i32 %call88, ptr %ivgen_cipher_alg, align 8
   %6 = load ptr, ptr %local_err, align 8
@@ -1801,7 +1801,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @qcrypto_block_luks_essiv_cipher(i32 noundef %cipher, i32 noundef %hash, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc noundef i32 @qcrypto_block_luks_essiv_cipher(i32 noundef %cipher, i32 noundef %hash, ptr noundef nonnull %errp) unnamed_addr #1 {
 entry:
   %call = tail call i64 @qcrypto_hash_digest_len(i32 noundef %hash) #16
   %call1 = tail call i64 @qcrypto_cipher_get_key_len(i32 noundef %cipher) #16
@@ -1837,7 +1837,7 @@ if.else8:                                         ; preds = %if.else
   br i1 %cmp10, label %return, label %if.else12
 
 if.else12:                                        ; preds = %if.else8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 279, ptr noundef nonnull @__func__.qcrypto_block_luks_essiv_cipher, ptr noundef nonnull @.str.27, i64 noundef %call) #16
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str, i32 noundef 279, ptr noundef nonnull @__func__.qcrypto_block_luks_essiv_cipher, ptr noundef nonnull @.str.27, i64 noundef %call) #16
   br label %return
 
 sw.bb13:                                          ; preds = %if.end, %if.end, %if.end
@@ -1856,7 +1856,7 @@ if.else21:                                        ; preds = %if.else17
   br i1 %cmp23, label %return, label %if.else25
 
 if.else25:                                        ; preds = %if.else21
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 297, ptr noundef nonnull @__func__.qcrypto_block_luks_essiv_cipher, ptr noundef nonnull @.str.28, i64 noundef %call) #16
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str, i32 noundef 297, ptr noundef nonnull @__func__.qcrypto_block_luks_essiv_cipher, ptr noundef nonnull @.str.28, i64 noundef %call) #16
   br label %return
 
 sw.bb26:                                          ; preds = %if.end, %if.end, %if.end
@@ -1875,12 +1875,12 @@ if.else34:                                        ; preds = %if.else30
   br i1 %cmp36, label %return, label %if.else38
 
 if.else38:                                        ; preds = %if.else34
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 315, ptr noundef nonnull @__func__.qcrypto_block_luks_essiv_cipher, ptr noundef nonnull @.str.29, i64 noundef %call) #16
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str, i32 noundef 315, ptr noundef nonnull @__func__.qcrypto_block_luks_essiv_cipher, ptr noundef nonnull @.str.29, i64 noundef %call) #16
   br label %return
 
 sw.default:                                       ; preds = %if.end
   %call39 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @QCryptoCipherAlgorithm_lookup, i32 noundef %cipher) #16
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 321, ptr noundef nonnull @__func__.qcrypto_block_luks_essiv_cipher, ptr noundef nonnull @.str.30, ptr noundef %call39) #16
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str, i32 noundef 321, ptr noundef nonnull @__func__.qcrypto_block_luks_essiv_cipher, ptr noundef nonnull @.str.30, ptr noundef %call39) #16
   br label %return
 
 return:                                           ; preds = %if.else34, %if.else30, %sw.bb26, %if.else21, %if.else17, %sw.bb13, %if.else8, %if.else, %sw.bb, %entry, %sw.default, %if.else38, %if.else25, %if.else12
@@ -1899,7 +1899,7 @@ declare i64 @qcrypto_cipher_get_key_len(i32 noundef) local_unnamed_addr #4
 declare ptr @qapi_enum_lookup(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 2) i32 @qcrypto_block_luks_load_key(ptr noundef %block, i64 noundef %slot_idx, ptr noundef %password, ptr noundef %masterkey, ptr nocapture noundef readonly %readfunc, ptr noundef %opaque, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @qcrypto_block_luks_load_key(ptr noundef %block, i64 noundef range(i64 0, 8) %slot_idx, ptr noundef %password, ptr noundef %masterkey, ptr nocapture noundef readonly %readfunc, ptr noundef %opaque, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %keydigest = alloca [20 x i8], align 16
   %opaque1 = getelementptr inbounds i8, ptr %block, i64 16
@@ -2318,7 +2318,7 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 declare void @error_append_hint(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @qcrypto_block_luks_erase_key(ptr noundef %block, i32 noundef %slot_idx, ptr nocapture noundef readonly %writefunc, ptr noundef %opaque, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @qcrypto_block_luks_erase_key(ptr noundef %block, i32 noundef range(i32 0, 8) %slot_idx, ptr nocapture noundef readonly %writefunc, ptr noundef %opaque, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %local_err = alloca ptr, align 8
   %opaque1 = getelementptr inbounds i8, ptr %block, i64 16

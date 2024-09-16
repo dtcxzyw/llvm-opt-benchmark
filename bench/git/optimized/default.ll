@@ -312,7 +312,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mark_common(ptr noundef %ns, ptr noundef %commit, i32 noundef %ancestors_only, i32 noundef %dont_parse) unnamed_addr #0 {
+define internal fastcc void @mark_common(ptr noundef %ns, ptr noundef %commit, i32 noundef range(i32 0, 2) %ancestors_only, i32 noundef range(i32 0, 2) %dont_parse) unnamed_addr #0 {
 entry:
   %queue = alloca %struct.prio_queue, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %queue, i8 0, i64 40, i1 false)

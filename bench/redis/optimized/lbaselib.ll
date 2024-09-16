@@ -905,7 +905,7 @@ declare void @lua_concat(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @lua_pushinteger(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @getfunc(ptr noundef %L, i32 noundef %opt) unnamed_addr #0 {
+define internal fastcc void @getfunc(ptr noundef %L, i32 noundef range(i32 0, 2) %opt) unnamed_addr #0 {
 entry:
   %ar = alloca %struct.lua_Debug, align 8
   %call = tail call i32 @lua_type(ptr noundef %L, i32 noundef 1) #8

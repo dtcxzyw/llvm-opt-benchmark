@@ -210,7 +210,7 @@ declare ptr @EVP_sha1() local_unnamed_addr #1
 declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_dir(ptr noundef %dirname, i32 noundef %h) unnamed_addr #0 {
+define internal fastcc i32 @do_dir(ptr noundef %dirname, i32 noundef range(i32 0, 3) %h) unnamed_addr #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   %ok.i = alloca i32, align 4
@@ -325,9 +325,9 @@ while.end:                                        ; preds = %if.end34, %while.co
 
 for.body.lr.ph:                                   ; preds = %while.end
   %st_mode = getelementptr inbounds i8, ptr %st, i64 24
-  %9 = add i32 %h, -1
+  %9 = add nsw i32 %h, -1
   %or.cond.i103 = icmp ult i32 %9, 2
-  %10 = and i32 %h, -3
+  %10 = and i32 %h, 1
   %or.cond1.i = icmp eq i32 %10, 0
   br label %for.body
 
@@ -907,7 +907,7 @@ declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) l
 declare noundef i64 @readlink(ptr nocapture noundef readonly, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @add_entry(i32 noundef %type, i32 noundef %hash, ptr noundef %filename, ptr noundef readonly %digest, i32 noundef %need_symlink, i16 noundef zeroext %old_id) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @add_entry(i32 noundef range(i32 0, 2) %type, i32 noundef %hash, ptr noundef %filename, ptr noundef readonly %digest, i32 noundef range(i32 0, 2) %need_symlink, i16 noundef zeroext %old_id) unnamed_addr #0 {
 entry:
   %add = add i32 %hash, %type
   %0 = urem i32 %add, 257

@@ -397,27 +397,27 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr nocapture
   br i1 %11, label %.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %.not63 = icmp sgt i32 %3, %10
-  br i1 %.not63, label %._crit_edge67, label %.lr.ph66
+  %.not62 = icmp sgt i32 %3, %10
+  br i1 %.not62, label %._crit_edge66, label %.lr.ph65
 
-.lr.ph66:                                         ; preds = %.preheader
+.lr.ph65:                                         ; preds = %.preheader
   %12 = getelementptr inbounds i8, ptr %1, i64 8
   br label %13
 
-13:                                               ; preds = %.lr.ph66, %._crit_edge62
-  %.03765 = phi i32 [ %3, %.lr.ph66 ], [ %.lcssa52, %._crit_edge62 ]
-  %.03864 = phi ptr [ %8, %.lr.ph66 ], [ %94, %._crit_edge62 ]
-  %14 = load i32, ptr %.03864, align 4
+13:                                               ; preds = %.lr.ph65, %._crit_edge61
+  %.03764 = phi i32 [ %3, %.lr.ph65 ], [ %.lcssa51, %._crit_edge61 ]
+  %.03863 = phi ptr [ %8, %.lr.ph65 ], [ %94, %._crit_edge61 ]
+  %14 = load i32, ptr %.03863, align 4
   %15 = icmp ugt i32 %14, -131073
   %16 = add nsw i32 %14, 1
   %17 = lshr i32 %16, 1
   %18 = and i32 %17, 2147450879
   %.0.i45 = select i1 %15, i32 %18, i32 %14
   %19 = add nuw i32 %.0.i45, 65537
-  store i32 %19, ptr %.03864, align 4
+  store i32 %19, ptr %.03863, align 4
   %20 = load ptr, ptr %12, align 8
-  %21 = add i32 %.03765, 1
-  %22 = sext i32 %.03765 to i64
+  %21 = add i32 %.03764, 1
+  %22 = sext i32 %.03764 to i64
   %23 = getelementptr inbounds i16, ptr %20, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = icmp eq i16 %24, 0
@@ -429,8 +429,8 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr nocapture
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %26, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.13954 = phi ptr [ %.03864, %.lr.ph.preheader ], [ %38, %.lr.ph ]
-  %27 = getelementptr inbounds i8, ptr %.13954, i64 4
+  %.13953 = phi ptr [ %.03863, %.lr.ph.preheader ], [ %38, %.lr.ph ]
+  %27 = getelementptr inbounds i8, ptr %.13953, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = icmp ugt i32 %28, -131073
   %30 = add nsw i32 %28, 1
@@ -456,10 +456,10 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr nocapture
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %13
-  %.lcssa53 = phi i16 [ %24, %13 ], [ %41, %._crit_edge.loopexit ]
-  %.139.lcssa = phi ptr [ %.03864, %13 ], [ %38, %._crit_edge.loopexit ]
-  %.lcssa52 = phi i32 [ %21, %13 ], [ %43, %._crit_edge.loopexit ]
-  %44 = sext i16 %.lcssa53 to i32
+  %.lcssa52 = phi i16 [ %24, %13 ], [ %41, %._crit_edge.loopexit ]
+  %.139.lcssa = phi ptr [ %.03863, %13 ], [ %38, %._crit_edge.loopexit ]
+  %.lcssa51 = phi i32 [ %21, %13 ], [ %43, %._crit_edge.loopexit ]
+  %44 = sext i16 %.lcssa52 to i32
   %45 = getelementptr inbounds i8, ptr %.139.lcssa, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = icmp ugt i32 %46, -131073
@@ -469,8 +469,8 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr nocapture
   %.0.i47 = select i1 %47, i32 %50, i32 %46
   %51 = add nuw i32 %.0.i47, 65537
   store i32 %51, ptr %45, align 4
-  %52 = add nsw i32 %44, 1
-  %53 = icmp ult i32 %52, 3
+  %52 = add nsw i32 %44, -2
+  %53 = icmp ult i32 %52, -3
   %54 = getelementptr inbounds i8, ptr %.139.lcssa, i64 8
   %55 = load i32, ptr %54, align 4
   %56 = icmp ugt i32 %55, -131073
@@ -478,10 +478,10 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr nocapture
   %58 = lshr i32 %57, 1
   %59 = and i32 %58, 2147450879
   %.0.i48 = select i1 %56, i32 %59, i32 %55
-  %60 = select i1 %53, i32 65536, i32 65537
-  %61 = add nuw i32 %.0.i48, %60
+  %60 = select i1 %53, i32 65537, i32 65536
+  %61 = add nuw i32 %60, %.0.i48
   store i32 %61, ptr %54, align 4
-  br i1 %53, label %._crit_edge62, label %62
+  br i1 %53, label %62, label %._crit_edge61
 
 62:                                               ; preds = %._crit_edge
   %63 = tail call i32 @llvm.abs.i32(i32 %44, i1 true)
@@ -493,19 +493,19 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr nocapture
   %68 = load i16, ptr %67, align 2
   %69 = zext i16 %68 to i32
   %70 = load i16, ptr %66, align 4
-  %.not4357 = icmp ult i16 %70, 2
-  br i1 %.not4357, label %._crit_edge62, label %.lr.ph61
+  %.not4356 = icmp ult i16 %70, 2
+  br i1 %.not4356, label %._crit_edge61, label %.lr.ph60
 
-.lr.ph61:                                         ; preds = %62
+.lr.ph60:                                         ; preds = %62
   %71 = zext i16 %70 to i32
   %72 = getelementptr inbounds i8, ptr %.139.lcssa, i64 12
   br label %73
 
-73:                                               ; preds = %.lr.ph61, %88
-  %indvars.iv73 = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next74, %88 ]
-  %.03658 = phi i32 [ %71, %.lr.ph61 ], [ %74, %88 ]
-  %74 = lshr i32 %.03658, 1
-  %75 = and i32 %.03658, 2
+73:                                               ; preds = %.lr.ph60, %88
+  %indvars.iv73 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next74, %88 ]
+  %.03657 = phi i32 [ %71, %.lr.ph60 ], [ %74, %88 ]
+  %74 = lshr i32 %.03657, 1
+  %75 = and i32 %.03657, 2
   %.not44 = icmp eq i32 %75, 0
   br i1 %.not44, label %88, label %76
 
@@ -513,7 +513,7 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr nocapture
   %77 = trunc nuw nsw i64 %indvars.iv73 to i32
   %78 = shl i32 2, %77
   %79 = and i32 %78, %69
-  %.not51 = icmp eq i32 %79, 0
+  %.not69 = icmp eq i32 %79, 0
   %80 = getelementptr inbounds i32, ptr %72, i64 %indvars.iv73
   %81 = load i32, ptr %80, align 4
   %82 = icmp ugt i32 %81, -131073
@@ -521,37 +521,37 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr nocapture
   %84 = lshr i32 %83, 1
   %85 = and i32 %84, 2147450879
   %.0.i49 = select i1 %82, i32 %85, i32 %81
-  %86 = select i1 %.not51, i32 65536, i32 65537
-  %87 = add nuw i32 %.0.i49, %86
+  %86 = select i1 %.not69, i32 65536, i32 65537
+  %87 = add nuw i32 %86, %.0.i49
   store i32 %87, ptr %80, align 4
   br label %88
 
 88:                                               ; preds = %73, %76
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %.not43 = icmp ult i32 %.03658, 4
-  br i1 %.not43, label %._crit_edge62, label %73, !llvm.loop !18
+  %.not43 = icmp ult i32 %.03657, 4
+  br i1 %.not43, label %._crit_edge61, label %73, !llvm.loop !18
 
-._crit_edge62:                                    ; preds = %88, %62, %._crit_edge
+._crit_edge61:                                    ; preds = %88, %62, %._crit_edge
   %.sink78 = phi i64 [ 1, %._crit_edge ], [ 2, %62 ], [ 2, %88 ]
   %89 = load ptr, ptr %4, align 8
-  %90 = sext i32 %.lcssa52 to i64
+  %90 = sext i32 %.lcssa51 to i64
   %91 = getelementptr inbounds [17 x i8], ptr @VP8EncBands, i64 0, i64 %90
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i64
   %94 = getelementptr inbounds [3 x [11 x i32]], ptr %89, i64 %93, i64 %.sink78
   %95 = load i32, ptr %9, align 4
-  %.not = icmp sgt i32 %.lcssa52, %95
-  br i1 %.not, label %._crit_edge67, label %13, !llvm.loop !19
+  %.not = icmp sgt i32 %.lcssa51, %95
+  br i1 %.not, label %._crit_edge66, label %13, !llvm.loop !19
 
-._crit_edge67:                                    ; preds = %._crit_edge62, %.preheader
-  %.038.lcssa = phi ptr [ %8, %.preheader ], [ %94, %._crit_edge62 ]
-  %.037.lcssa = phi i32 [ %3, %.preheader ], [ %.lcssa52, %._crit_edge62 ]
+._crit_edge66:                                    ; preds = %._crit_edge61, %.preheader
+  %.038.lcssa = phi ptr [ %8, %.preheader ], [ %94, %._crit_edge61 ]
+  %.037.lcssa = phi i32 [ %3, %.preheader ], [ %.lcssa51, %._crit_edge61 ]
   %96 = icmp slt i32 %.037.lcssa, 16
   br i1 %96, label %.sink.split, label %103
 
-.sink.split:                                      ; preds = %._crit_edge67, %2
-  %.038.lcssa.sink88 = phi ptr [ %8, %2 ], [ %.038.lcssa, %._crit_edge67 ]
-  %.0.ph = phi i32 [ 0, %2 ], [ 1, %._crit_edge67 ]
+.sink.split:                                      ; preds = %._crit_edge66, %2
+  %.038.lcssa.sink88 = phi ptr [ %8, %2 ], [ %.038.lcssa, %._crit_edge66 ]
+  %.0.ph = phi i32 [ 0, %2 ], [ 1, %._crit_edge66 ]
   %97 = load i32, ptr %.038.lcssa.sink88, align 4
   %98 = icmp ugt i32 %97, -131073
   %99 = add nsw i32 %97, 1
@@ -562,8 +562,8 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr nocapture
   store i32 %102, ptr %.038.lcssa.sink88, align 4
   br label %103
 
-103:                                              ; preds = %.sink.split, %._crit_edge67
-  %.0 = phi i32 [ 1, %._crit_edge67 ], [ %.0.ph, %.sink.split ]
+103:                                              ; preds = %.sink.split, %._crit_edge66
+  %.0 = phi i32 [ 1, %._crit_edge66 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

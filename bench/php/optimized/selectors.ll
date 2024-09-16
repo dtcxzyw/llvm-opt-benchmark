@@ -264,7 +264,7 @@ define internal fastcc ptr @lxb_selectors_next_by_selector(ptr nocapture noundef
 
 lxb_selectors_descendant_next.exit:               ; preds = %54, %52, %.preheader59, %41, %39, %30, %.preheader, %24, %.preheader61, %34, %47, %32
   %.041 = phi ptr [ %..i, %32 ], [ %.0..i, %47 ], [ null, %34 ], [ null, %.preheader61 ], [ null, %24 ], [ null, %.preheader ], [ %.1.i, %30 ], [ null, %41 ], [ %.0.i4574, %39 ], [ null, %.preheader59 ], [ null, %54 ], [ %.0.i5369, %52 ]
-  %57 = tail call fastcc i32 @lxb_selectors_find_by(ptr noundef %0, ptr noundef nonnull %.042, ptr noundef %1, ptr noundef %.041, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %57 = tail call fastcc i32 @lxb_selectors_find_by(ptr noundef %0, ptr noundef %.042, ptr noundef %1, ptr noundef %.041, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %57, 0
   %.042. = select i1 %.not, ptr %.042, ptr null
   br label %58
@@ -438,7 +438,7 @@ lxb_selectors_find_by_reverse.exit.thread16:      ; preds = %50, %.lr.ph, %14, %
 declare ptr @lexbor_dobject_calloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @lxb_selectors_find_by(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc noundef i32 @lxb_selectors_find_by(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
   br label %lxb_selectors_descendant_next.exit
 
 lxb_selectors_descendant_next.exit:               ; preds = %lxb_selectors_descendant_next.exit.backedge, %7
@@ -1845,7 +1845,7 @@ switch.early.test.i.i177.i:                       ; preds = %421
   %448 = load ptr, ptr %447, align 8
   %449 = getelementptr inbounds i8, ptr %2, i64 48
   %450 = load ptr, ptr %449, align 8
-  %451 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %448, ptr noundef %450, ptr noundef nonnull %5)
+  %451 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %448, ptr noundef %450, ptr noundef %5)
   store ptr %451, ptr %447, align 8
   %452 = icmp eq ptr %451, null
   br i1 %452, label %lxb_selectors_pseudo_class_function.exit, label %453
@@ -1860,7 +1860,7 @@ switch.early.test.i.i177.i:                       ; preds = %421
   %458 = load ptr, ptr %457, align 8
   %459 = getelementptr inbounds i8, ptr %2, i64 48
   %460 = load ptr, ptr %459, align 8
-  %461 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %458, ptr noundef %460, ptr noundef nonnull %5)
+  %461 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %458, ptr noundef %460, ptr noundef %5)
   store ptr %461, ptr %457, align 8
   %462 = icmp eq ptr %461, null
   br i1 %462, label %lxb_selectors_pseudo_class_function.exit, label %463
@@ -1875,7 +1875,7 @@ switch.early.test.i.i177.i:                       ; preds = %421
   %468 = load ptr, ptr %467, align 8
   %469 = getelementptr inbounds i8, ptr %2, i64 48
   %470 = load ptr, ptr %469, align 8
-  %471 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %468, ptr noundef %470, ptr noundef nonnull %5)
+  %471 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %468, ptr noundef %470, ptr noundef %5)
   store ptr %471, ptr %467, align 8
   %472 = icmp eq ptr %471, null
   br i1 %472, label %lxb_selectors_pseudo_class_function.exit, label %473
@@ -1890,7 +1890,7 @@ switch.early.test.i.i177.i:                       ; preds = %421
   %478 = load ptr, ptr %477, align 8
   %479 = getelementptr inbounds i8, ptr %2, i64 48
   %480 = load ptr, ptr %479, align 8
-  %481 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %478, ptr noundef %480, ptr noundef nonnull %5)
+  %481 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %478, ptr noundef %480, ptr noundef %5)
   store ptr %481, ptr %477, align 8
   %482 = icmp eq ptr %481, null
   br i1 %482, label %lxb_selectors_pseudo_class_function.exit, label %483
@@ -1933,7 +1933,7 @@ switch.early.test.i.i177.i:                       ; preds = %421
 496:                                              ; preds = %493
   %497 = load ptr, ptr %492, align 8
   %498 = load ptr, ptr %490, align 8
-  %499 = call fastcc ptr @lxb_selectors_current(ptr noundef %0, ptr noundef nonnull %.095.i199, ptr noundef %497, ptr noundef %498, ptr noundef nonnull %5)
+  %499 = call fastcc ptr @lxb_selectors_current(ptr noundef %0, ptr noundef %.095.i199, ptr noundef %497, ptr noundef %498, ptr noundef %5)
   store ptr %499, ptr %492, align 8
   %500 = icmp eq ptr %499, null
   br i1 %500, label %lxb_selectors_pseudo_class_function.exit, label %501
@@ -2011,7 +2011,7 @@ switch.early.test.i.i177.i:                       ; preds = %421
 525:                                              ; preds = %522
   %526 = load ptr, ptr %521, align 8
   %527 = load ptr, ptr %519, align 8
-  %528 = call fastcc ptr @lxb_selectors_current(ptr noundef %0, ptr noundef nonnull %.297.i186, ptr noundef %526, ptr noundef %527, ptr noundef nonnull %5)
+  %528 = call fastcc ptr @lxb_selectors_current(ptr noundef %0, ptr noundef %.297.i186, ptr noundef %526, ptr noundef %527, ptr noundef %5)
   store ptr %528, ptr %521, align 8
   %529 = icmp eq ptr %528, null
   br i1 %529, label %lxb_selectors_pseudo_class_function.exit, label %530
@@ -2144,7 +2144,7 @@ switch.early.test.i.i177.i:                       ; preds = %421
   %587 = load ptr, ptr %586, align 8
   %588 = getelementptr inbounds i8, ptr %2, i64 48
   %589 = load ptr, ptr %588, align 8
-  %590 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %587, ptr noundef %589, ptr noundef nonnull %5)
+  %590 = call fastcc ptr @lxb_selectors_next(ptr noundef %0, ptr noundef %3, ptr noundef %587, ptr noundef %589, ptr noundef %5)
   store ptr %590, ptr %586, align 8
   %591 = icmp eq ptr %590, null
   br i1 %591, label %lxb_selectors_pseudo_class_function.exit, label %592
@@ -2334,7 +2334,7 @@ declare zeroext i1 @lxb_dom_node_is_empty(ptr noundef) local_unnamed_addr #1
 declare ptr @lxb_dom_document_root(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @lxb_selectors_next(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @lxb_selectors_next(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %.loopexit, label %7
 
@@ -2353,7 +2353,7 @@ define internal fastcc noundef ptr @lxb_selectors_next(ptr nocapture noundef %0,
   %.0 = phi ptr [ %2, %7 ], [ %12, %9 ]
   %15 = load ptr, ptr %.0, align 8
   %16 = load ptr, ptr %3, align 8
-  %17 = tail call fastcc ptr @lxb_selectors_next_by_selector(ptr noundef %0, ptr noundef %1, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @lxb_selectors_first_match, ptr noundef %4)
+  %17 = tail call fastcc ptr @lxb_selectors_next_by_selector(ptr noundef %0, ptr noundef %1, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @lxb_selectors_first_match, ptr noundef nonnull %4)
   store ptr %17, ptr %.0, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.loopexit, label %.lr.ph
@@ -2392,7 +2392,7 @@ define internal fastcc noundef ptr @lxb_selectors_next(ptr nocapture noundef %0,
   %34 = phi ptr [ %30, %._crit_edge ], [ %26, %24 ]
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %33, align 8
-  %37 = tail call fastcc ptr @lxb_selectors_next_by_selector(ptr noundef %0, ptr noundef %1, ptr noundef %35, ptr noundef %36, ptr noundef nonnull @lxb_selectors_first_match, ptr noundef %4)
+  %37 = tail call fastcc ptr @lxb_selectors_next_by_selector(ptr noundef %0, ptr noundef %1, ptr noundef %35, ptr noundef %36, ptr noundef nonnull @lxb_selectors_first_match, ptr noundef nonnull %4)
   store ptr %37, ptr %34, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.loopexit, label %20
@@ -2414,7 +2414,7 @@ define internal noundef i32 @lxb_selectors_first_match(ptr nocapture readnone %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lxb_selectors_current(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @lxb_selectors_current(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %.loopexit, label %7
 
@@ -2511,7 +2511,7 @@ define internal fastcc ptr @lxb_selectors_current(ptr nocapture noundef %0, ptr 
   br i1 %.not18.i, label %lxb_selectors_descendant.exit, label %.lr.ph31
 
 44:                                               ; preds = %27
-  %45 = tail call fastcc zeroext i1 @lxb_selectors_match(ptr noundef %0, ptr noundef nonnull %.040.i, ptr noundef nonnull %19, ptr noundef %1)
+  %45 = tail call fastcc zeroext i1 @lxb_selectors_match(ptr noundef %0, ptr noundef nonnull %.040.i, ptr noundef nonnull %19, ptr noundef nonnull %1)
   %..i = select i1 %45, ptr %1, ptr null
   br label %lxb_selectors_descendant.exit
 
@@ -2574,7 +2574,7 @@ define internal fastcc ptr @lxb_selectors_current(ptr nocapture noundef %0, ptr 
 
 lxb_selectors_descendant.exit:                    ; preds = %65, %63, %.preheader5, %52, %50, %33, %.preheader, %41, %.preheader7, %46, %58, %44
   %.039.i = phi ptr [ %..i, %44 ], [ %.0..i, %58 ], [ null, %46 ], [ null, %.preheader7 ], [ null, %41 ], [ null, %.preheader ], [ %.0.i41, %33 ], [ null, %52 ], [ %.0.i3824, %50 ], [ null, %.preheader5 ], [ null, %65 ], [ %.0.i3019, %63 ]
-  %66 = tail call fastcc i32 @lxb_selectors_find_by(ptr noundef %0, ptr noundef nonnull %.040.i, ptr noundef %1, ptr noundef %.039.i, ptr noundef %19, ptr noundef nonnull @lxb_selectors_first_match, ptr noundef %4)
+  %66 = tail call fastcc i32 @lxb_selectors_find_by(ptr noundef %0, ptr noundef %.040.i, ptr noundef nonnull %1, ptr noundef %.039.i, ptr noundef %19, ptr noundef nonnull @lxb_selectors_first_match, ptr noundef nonnull %4)
   %.not.i = icmp eq i32 %66, 0
   br i1 %.not.i, label %lxb_selectors_find_by_selector.exit, label %lxb_selectors_find_by_selector.exit.thread
 

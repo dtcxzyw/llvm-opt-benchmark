@@ -2298,7 +2298,7 @@ common.ret1118:                                   ; preds = %.thread741, %976, %
   %145 = getelementptr inbounds i8, ptr %.tr786, i64 13
   %146 = load i8, ptr %145, align 1
   %147 = trunc i8 %146 to i1
-  %148 = call fastcc ptr @simplify_function(i32 noundef %137, i32 noundef %139, i32 noundef %140, i32 noundef %142, i32 noundef %144, ptr noundef nonnull %6, i1 noundef zeroext %147, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %1)
+  %148 = call fastcc ptr @simplify_function(i32 noundef %137, i32 noundef %139, i32 noundef %140, i32 noundef %142, i32 noundef %144, ptr noundef %6, i1 noundef zeroext %147, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %1)
   %.not696 = icmp eq ptr %148, null
   br i1 %.not696, label %149, label %common.ret1118
 
@@ -2352,7 +2352,7 @@ common.ret1118:                                   ; preds = %.thread741, %976, %
   %182 = load i32, ptr %181, align 4
   %183 = getelementptr inbounds i8, ptr %.tr786, i64 24
   %184 = load i32, ptr %183, align 8
-  %185 = call fastcc ptr @simplify_function(i32 noundef %178, i32 noundef %180, i32 noundef -1, i32 noundef %182, i32 noundef %184, ptr noundef nonnull %7, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %1)
+  %185 = call fastcc ptr @simplify_function(i32 noundef %178, i32 noundef %180, i32 noundef -1, i32 noundef %182, i32 noundef %184, ptr noundef %7, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %1)
   %.not694 = icmp eq ptr %185, null
   br i1 %.not694, label %186, label %common.ret1118
 
@@ -2491,7 +2491,7 @@ common.ret1118:                                   ; preds = %.thread741, %976, %
   %247 = load i32, ptr %246, align 4
   %248 = getelementptr inbounds i8, ptr %.tr786, i64 24
   %249 = load i32, ptr %248, align 8
-  %250 = call fastcc ptr @simplify_function(i32 noundef %243, i32 noundef %245, i32 noundef -1, i32 noundef %247, i32 noundef %249, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %1)
+  %250 = call fastcc ptr @simplify_function(i32 noundef %243, i32 noundef %245, i32 noundef -1, i32 noundef %247, i32 noundef %249, ptr noundef %8, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %1)
   %.not693 = icmp eq ptr %250, null
   br i1 %.not693, label %._crit_edge922, label %251
 
@@ -2670,7 +2670,7 @@ ece_function_is_safe.exit709.thread:              ; preds = %315, %ece_function_
   store i8 0, ptr %10, align 1
   %331 = getelementptr inbounds i8, ptr %.tr786, i64 8
   %332 = load ptr, ptr %331, align 8
-  %333 = call fastcc ptr @simplify_or_arguments(ptr noundef %332, ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %333 = call fastcc ptr @simplify_or_arguments(ptr noundef %332, ptr noundef %1, ptr noundef %9, ptr noundef %10)
   %334 = load i8, ptr %10, align 1
   %335 = trunc i8 %334 to i1
   br i1 %335, label %336, label %338
@@ -2719,7 +2719,7 @@ list_length.exit:                                 ; preds = %344
   store i8 0, ptr %12, align 1
   %357 = getelementptr inbounds i8, ptr %.tr786, i64 8
   %358 = load ptr, ptr %357, align 8
-  %359 = call fastcc ptr @simplify_and_arguments(ptr noundef %358, ptr noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %359 = call fastcc ptr @simplify_and_arguments(ptr noundef %358, ptr noundef %1, ptr noundef %11, ptr noundef %12)
   %360 = load i8, ptr %12, align 1
   %361 = trunc i8 %360 to i1
   br i1 %361, label %362, label %364
@@ -2822,7 +2822,7 @@ list_length.exit711:                              ; preds = %370
   %422 = load i32, ptr %421, align 8
   call void @getTypeInputInfo(i32 noundef %422, ptr noundef nonnull %16, ptr noundef nonnull %17) #9
   %423 = load i32, ptr %14, align 4
-  %424 = call fastcc ptr @simplify_function(i32 noundef %423, i32 noundef 2275, i32 noundef -1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %13, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %1)
+  %424 = call fastcc ptr @simplify_function(i32 noundef %423, i32 noundef 2275, i32 noundef -1, i32 noundef 0, i32 noundef 0, ptr noundef %13, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %1)
   %.not686 = icmp eq ptr %424, null
   br i1 %.not686, label %436, label %425
 
@@ -2837,7 +2837,7 @@ list_length.exit711:                              ; preds = %370
   %432 = load i32, ptr %421, align 8
   %433 = getelementptr inbounds i8, ptr %.tr786, i64 20
   %434 = load i32, ptr %433, align 4
-  %435 = call fastcc ptr @simplify_function(i32 noundef %431, i32 noundef %432, i32 noundef -1, i32 noundef %434, i32 noundef 0, ptr noundef nonnull %13, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %1)
+  %435 = call fastcc ptr @simplify_function(i32 noundef %431, i32 noundef %432, i32 noundef -1, i32 noundef %434, i32 noundef 0, ptr noundef %13, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %1)
   %.not687 = icmp eq ptr %435, null
   br i1 %.not687, label %436, label %common.ret1118
 
@@ -4206,7 +4206,7 @@ declare i64 @SysCacheGetAttr(i32 noundef, ptr noundef, i16 noundef signext, ptr 
 declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @recheck_cast_function_args(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture readonly %.16.val) unnamed_addr #0 {
+define internal fastcc void @recheck_cast_function_args(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -32768, -2147483648) %3, ptr nocapture readonly %.16.val) unnamed_addr #0 {
   %5 = alloca [100 x i32], align 16
   %6 = alloca [100 x i32], align 16
   %7 = getelementptr inbounds i8, ptr %.16.val, i64 22
@@ -4975,7 +4975,7 @@ declare i32 @get_negator(i32 noundef) local_unnamed_addr #1
 declare ptr @expression_tree_mutator_impl(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @simplify_function(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, ptr noundef %9) unnamed_addr #0 {
+define internal fastcc ptr @simplify_function(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, ptr noundef %9) unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca %struct.substitute_actual_parameters_context, align 8
   %13 = alloca i8, align 1
@@ -5800,7 +5800,7 @@ define internal zeroext i1 @contain_non_const_walker(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @simplify_or_arguments(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc ptr @simplify_or_arguments(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = tail call ptr @list_copy(ptr noundef %0) #9
   %.not3538 = icmp eq ptr %5, null
   br i1 %.not3538, label %.loopexit, label %.lr.ph
@@ -5895,7 +5895,7 @@ is_orclause.exit29:                               ; preds = %20
 declare ptr @make_orclause(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @simplify_and_arguments(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc ptr @simplify_and_arguments(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = tail call ptr @list_copy(ptr noundef %0) #9
   %.not3538 = icmp eq ptr %5, null
   br i1 %.not3538, label %.loopexit, label %.lr.ph
@@ -6005,7 +6005,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @makeNullConst(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @rowtype_field_matches(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @rowtype_field_matches(i32 noundef %0, i32 noundef range(i32 -32768, 32768) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = icmp eq i32 %0, 2249
   br i1 %6, label %42, label %7
 

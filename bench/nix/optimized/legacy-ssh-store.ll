@@ -1973,7 +1973,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19: ; preds = %_ZN
   %76 = load i32, ptr %75, align 4
   %.val.sroa.speculated = call i32 @llvm.smax.i32(i32 %76, i32 1)
   %77 = ptrtoint ptr %0 to i64
-  invoke fastcc void @"_ZN3nix8make_refINS_4PoolINS_14LegacySSHStore10ConnectionEEEJRKiZNS2_C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RKSt3mapISC_SC_St4lessISC_ESaISt4pairISD_SC_EEEE3$_0ZNS2_C1ESE_SE_SN_E3$_1EEENS_3refIT_EEDpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %70, i32 %.val.sroa.speculated, i64 %77)
+  invoke fastcc void @"_ZN3nix8make_refINS_4PoolINS_14LegacySSHStore10ConnectionEEEJRKiZNS2_C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RKSt3mapISC_SC_St4lessISC_ESaISt4pairISD_SC_EEEE3$_0ZNS2_C1ESE_SE_SN_E3$_1EEENS_3refIT_EEDpOT0_"(ptr dead_on_unwind noalias writable align 8 %70, i32 %.val.sroa.speculated, i64 %77)
           to label %78 unwind label %114
 
 78:                                               ; preds = %69
@@ -2182,7 +2182,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN3nix8make_refINS_4PoolINS_14LegacySSHStore10ConnectionEEEJRKiZNS2_C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RKSt3mapISC_SC_St4lessISC_ESaISt4pairISD_SC_EEEE3$_0ZNS2_C1ESE_SE_SN_E3$_1EEENS_3refIT_EEDpOT0_"(ptr dead_on_unwind noalias writable align 8 %0, i32 %.0.val, i64 %.0.val1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN3nix8make_refINS_4PoolINS_14LegacySSHStore10ConnectionEEEJRKiZNS2_C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RKSt3mapISC_SC_St4lessISC_ESaISt4pairISD_SC_EEEE3$_0ZNS2_C1ESE_SE_SN_E3$_1EEENS_3refIT_EEDpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 %.0.val, i64 %.0.val1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::function", align 8
   %3 = alloca %"class.std::function.48", align 8
   %4 = alloca %"class.std::shared_ptr", align 8
@@ -2829,7 +2829,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
   %122 = load i32, ptr %121, align 4
   %.val.sroa.speculated = call i32 @llvm.smax.i32(i32 %122, i32 1)
   %123 = ptrtoint ptr %0 to i64
-  invoke fastcc void @"_ZN3nix8make_refINS_4PoolINS_14LegacySSHStore10ConnectionEEEJRKiZNS2_C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RKSt3mapISC_SC_St4lessISC_ESaISt4pairISD_SC_EEEE3$_0ZNS2_C1ESE_SE_SN_E3$_1EEENS_3refIT_EEDpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %116, i32 %.val.sroa.speculated, i64 %123)
+  invoke fastcc void @"_ZN3nix8make_refINS_4PoolINS_14LegacySSHStore10ConnectionEEEJRKiZNS2_C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RKSt3mapISC_SC_St4lessISC_ESaISt4pairISD_SC_EEEE3$_0ZNS2_C1ESE_SE_SN_E3$_1EEENS_3refIT_EEDpOT0_"(ptr dead_on_unwind noalias writable align 8 %116, i32 %.val.sroa.speculated, i64 %123)
           to label %124 unwind label %172
 
 124:                                              ; preds = %115

@@ -1308,7 +1308,7 @@ define internal ptr @Type_Text_Description_Read(ptr nocapture noundef readonly %
 
 62:                                               ; preds = %56
   %63 = load i32, ptr %7, align 4
-  %64 = call fastcc i32 @_cmsReadWCharArray(ptr noundef nonnull %1, i32 noundef %63, ptr noundef nonnull %60)
+  %64 = call fastcc i32 @_cmsReadWCharArray(ptr noundef nonnull %1, i32 noundef %63, ptr noundef %60)
   %.not70 = icmp eq i32 %64, 0
   br i1 %.not70, label %65, label %67
 
@@ -1989,7 +1989,7 @@ define internal ptr @Type_LUT8_Read(ptr nocapture noundef readonly %0, ptr nound
   %68 = load ptr, ptr %28, align 8
   %69 = load i8, ptr %5, align 1
   %70 = zext i8 %69 to i32
-  %71 = call fastcc i32 @Read8bitTables(ptr noundef %68, ptr noundef %1, ptr noundef nonnull %30, i32 noundef %70)
+  %71 = call fastcc i32 @Read8bitTables(ptr noundef %68, ptr noundef %1, ptr noundef %30, i32 noundef %70)
   %.not93 = icmp eq i32 %71, 0
   br i1 %.not93, label %.thread, label %72
 
@@ -2105,7 +2105,7 @@ uipow.exit:                                       ; preds = %._crit_edge.i
 uipow.exit.thread100:                             ; preds = %72, %uipow.exit, %115
   %.pre-phi = phi i32 [ %74, %72 ], [ %74, %uipow.exit ], [ %.pre115, %115 ]
   %116 = load ptr, ptr %28, align 8
-  %117 = call fastcc i32 @Read8bitTables(ptr noundef %116, ptr noundef %1, ptr noundef nonnull %30, i32 noundef %.pre-phi)
+  %117 = call fastcc i32 @Read8bitTables(ptr noundef %116, ptr noundef %1, ptr noundef %30, i32 noundef %.pre-phi)
   %.not97 = icmp eq i32 %117, 0
   br i1 %.not97, label %.thread, label %118
 
@@ -2607,7 +2607,7 @@ define internal ptr @Type_LUT16_Read(ptr nocapture noundef readonly %0, ptr noun
   %79 = load ptr, ptr %27, align 8
   %80 = load i8, ptr %5, align 1
   %81 = zext i8 %80 to i32
-  %82 = call fastcc i32 @Read16bitTables(ptr noundef %79, ptr noundef %1, ptr noundef nonnull %29, i32 noundef %81, i32 noundef %78)
+  %82 = call fastcc i32 @Read16bitTables(ptr noundef %79, ptr noundef %1, ptr noundef %29, i32 noundef %81, i32 noundef %78)
   %.not81 = icmp eq i32 %82, 0
   br i1 %.not81, label %.thread, label %83
 
@@ -2696,7 +2696,7 @@ uipow.exit.thread88:                              ; preds = %83, %uipow.exit, %1
   %114 = load ptr, ptr %27, align 8
   %115 = load i16, ptr %10, align 2
   %116 = zext i16 %115 to i32
-  %117 = call fastcc i32 @Read16bitTables(ptr noundef %114, ptr noundef %1, ptr noundef nonnull %29, i32 noundef %.pre-phi, i32 noundef %116)
+  %117 = call fastcc i32 @Read16bitTables(ptr noundef %114, ptr noundef %1, ptr noundef %29, i32 noundef %.pre-phi, i32 noundef %116)
   %.not85 = icmp eq i32 %117, 0
   br i1 %.not85, label %.thread, label %118
 
@@ -2986,7 +2986,7 @@ define internal range(i32 0, 2) i32 @Type_LUT16_Write(ptr nocapture noundef read
   br i1 %.not224, label %.loopexit211.thread, label %.lr.ph221
 
 116:                                              ; preds = %115
-  %117 = tail call fastcc i32 @Write16bitTables(ptr noundef %1, ptr noundef nonnull %.0100155171193)
+  %117 = tail call fastcc i32 @Write16bitTables(ptr noundef %1, ptr noundef %.0100155171193)
   %.not133 = icmp eq i32 %117, 0
   br i1 %.not133, label %uipow.exit.thread, label %.loopexit211
 
@@ -3065,7 +3065,7 @@ define internal range(i32 0, 2) i32 @Type_LUT16_Write(ptr nocapture noundef read
   br i1 %138, label %.loopexit, label %.lr.ph223
 
 139:                                              ; preds = %.thread205
-  %140 = tail call fastcc i32 @Write16bitTables(ptr noundef %1, ptr noundef nonnull %.099194)
+  %140 = tail call fastcc i32 @Write16bitTables(ptr noundef %1, ptr noundef %.099194)
   %.not137 = icmp eq i32 %140, 0
   br i1 %.not137, label %uipow.exit.thread, label %.loopexit
 
@@ -3578,7 +3578,7 @@ define internal ptr @Type_MLU_Read(ptr nocapture noundef readonly %0, ptr nounde
 
 68:                                               ; preds = %64
   %69 = lshr i32 %62, 2
-  %70 = call fastcc i32 @_cmsReadWCharArray(ptr noundef %1, i32 noundef %69, ptr noundef nonnull %66)
+  %70 = call fastcc i32 @_cmsReadWCharArray(ptr noundef %1, i32 noundef %69, ptr noundef %66)
   %.not63 = icmp eq i32 %70, 0
   br i1 %.not63, label %71, label %._crit_edge.thread
 
@@ -5270,27 +5270,27 @@ define internal noundef ptr @Type_CrdInfo_Read(ptr nocapture noundef readonly %0
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @cmsMLUalloc(ptr noundef %7, i32 noundef 5) #13
   store i32 0, ptr %2, align 4
-  %9 = call fastcc i32 @ReadCountAndString(ptr noundef %0, ptr noundef %1, ptr noundef %8, ptr noundef nonnull %5, ptr noundef nonnull @.str.21)
+  %9 = call fastcc i32 @ReadCountAndString(ptr noundef %0, ptr noundef %1, ptr noundef %8, ptr noundef %5, ptr noundef nonnull @.str.21)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %4
-  %11 = call fastcc i32 @ReadCountAndString(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8, ptr noundef nonnull %5, ptr noundef nonnull @.str.22)
+  %11 = call fastcc i32 @ReadCountAndString(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8, ptr noundef %5, ptr noundef nonnull @.str.22)
   %.not21 = icmp eq i32 %11, 0
   br i1 %.not21, label %19, label %12
 
 12:                                               ; preds = %10
-  %13 = call fastcc i32 @ReadCountAndString(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8, ptr noundef nonnull %5, ptr noundef nonnull @.str.23)
+  %13 = call fastcc i32 @ReadCountAndString(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8, ptr noundef %5, ptr noundef nonnull @.str.23)
   %.not22 = icmp eq i32 %13, 0
   br i1 %.not22, label %19, label %14
 
 14:                                               ; preds = %12
-  %15 = call fastcc i32 @ReadCountAndString(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8, ptr noundef nonnull %5, ptr noundef nonnull @.str.24)
+  %15 = call fastcc i32 @ReadCountAndString(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8, ptr noundef %5, ptr noundef nonnull @.str.24)
   %.not23 = icmp eq i32 %15, 0
   br i1 %.not23, label %19, label %16
 
 16:                                               ; preds = %14
-  %17 = call fastcc i32 @ReadCountAndString(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8, ptr noundef nonnull %5, ptr noundef nonnull @.str.25)
+  %17 = call fastcc i32 @ReadCountAndString(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8, ptr noundef %5, ptr noundef nonnull @.str.25)
   %.not24 = icmp eq i32 %17, 0
   br i1 %.not24, label %19, label %18
 
@@ -5481,7 +5481,7 @@ define internal ptr @Type_MPE_Read(ptr noundef %0, ptr noundef %1, ptr nocapture
 
 30:                                               ; preds = %28
   %31 = load i32, ptr %7, align 4
-  %32 = call fastcc i32 @ReadPositionTable(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %31, i32 noundef %11, ptr noundef nonnull %26, ptr noundef nonnull @ReadMPEElem)
+  %32 = call fastcc i32 @ReadPositionTable(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %31, i32 noundef %11, ptr noundef %26, ptr noundef nonnull @ReadMPEElem)
   %.not28 = icmp eq i32 %32, 0
   br i1 %.not28, label %43, label %33
 
@@ -6047,7 +6047,7 @@ define internal ptr @Type_ProfileSequenceId_Read(ptr noundef %0, ptr noundef %1,
 
 17:                                               ; preds = %11
   %18 = load i32, ptr %5, align 4
-  %19 = call fastcc i32 @ReadPositionTable(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %18, i32 noundef %9, ptr noundef nonnull %15, ptr noundef nonnull @ReadSeqID)
+  %19 = call fastcc i32 @ReadPositionTable(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %18, i32 noundef %9, ptr noundef %15, ptr noundef nonnull @ReadSeqID)
   %.not14 = icmp eq i32 %19, 0
   br i1 %.not14, label %20, label %21
 
@@ -6158,7 +6158,7 @@ define internal ptr @Type_Dictionary_Read(ptr nocapture noundef readonly %0, ptr
   %36 = load ptr, ptr %31, align 8
   %37 = load i32, ptr %7, align 4
   %38 = load i32, ptr %8, align 4
-  %39 = call fastcc i32 @AllocArray(ptr noundef %36, ptr noundef nonnull %9, i32 noundef %37, i32 noundef %38)
+  %39 = call fastcc i32 @AllocArray(ptr noundef %36, ptr noundef %9, i32 noundef %37, i32 noundef %38)
   %.not50 = icmp eq i32 %39, 0
   br i1 %.not50, label %.thread96, label %40
 
@@ -6396,12 +6396,12 @@ ReadOffsetArray.exit:                             ; preds = %ReadOneElem.exit40.
   %.071106 = phi ptr [ null, %.lr.ph ], [ %.1, %137 ]
   %.072105 = phi ptr [ null, %.lr.ph ], [ %.17385, %137 ]
   %142 = trunc nuw i64 %indvars.iv to i32
-  %143 = call fastcc i32 @ReadOneWChar(ptr noundef %1, ptr noundef nonnull %9, i32 noundef %142, ptr noundef nonnull %10)
+  %143 = call fastcc i32 @ReadOneWChar(ptr noundef %1, ptr noundef %9, i32 noundef %142, ptr noundef %10)
   %.not52 = icmp eq i32 %143, 0
   br i1 %.not52, label %.thread96, label %144
 
 144:                                              ; preds = %141
-  %145 = call fastcc i32 @ReadOneWChar(ptr noundef %1, ptr noundef nonnull %131, i32 noundef %142, ptr noundef nonnull %11)
+  %145 = call fastcc i32 @ReadOneWChar(ptr noundef %1, ptr noundef %131, i32 noundef %142, ptr noundef %11)
   %.not53 = icmp eq i32 %145, 0
   br i1 %.not53, label %.thread96, label %146
 
@@ -6554,16 +6554,16 @@ ReadOneMLUC.exit65:                               ; preds = %176
   br i1 %.0, label %.thread96, label %137
 
 ._crit_edge:                                      ; preds = %137, %40, %ReadOffsetArray.exit
-  call fastcc void @FreeArray(ptr noundef nonnull %9)
+  call fastcc void @FreeArray(ptr noundef %9)
   store i32 1, ptr %2, align 4
   br label %203
 
 .thread93:                                        ; preds = %4, %20
-  call fastcc void @FreeArray(ptr noundef nonnull %9)
+  call fastcc void @FreeArray(ptr noundef %9)
   br label %203
 
 .thread96:                                        ; preds = %124, %ReadOneElem.exit.i, %115, %111, %.lr.ph.split.i, %.lr.ph.split.us.i, %66, %69, %ReadOneElem.exit.us.i, %78, %ReadOneElem.exit40.us.i, %86, %90, %97, %99, %103, %141, %144, %ReadOneMLUC.exit, %ReadOneMLUC.exit65, %202, %ReadOneMLUC.exit.thread80, %ReadOneMLUC.exit65.thread89, %35
-  call fastcc void @FreeArray(ptr noundef nonnull %9)
+  call fastcc void @FreeArray(ptr noundef %9)
   call void @cmsDictFree(ptr noundef nonnull %33) #13
   br label %203
 
@@ -6631,12 +6631,12 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr nocapture noundef
   %29 = tail call i32 %28(ptr noundef %1) #13
   %30 = getelementptr inbounds i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8
-  %32 = call fastcc i32 @AllocArray(ptr noundef %31, ptr noundef nonnull %5, i32 noundef %.067.lcssa146, i32 noundef %23)
+  %32 = call fastcc i32 @AllocArray(ptr noundef %31, ptr noundef %5, i32 noundef %.067.lcssa146, i32 noundef %23)
   %.not78 = icmp eq i32 %32, 0
   br i1 %.not78, label %WriteOneMLUC.exit, label %33
 
 33:                                               ; preds = %27
-  %34 = call fastcc i32 @WriteOffsetArray(ptr noundef nonnull %1, ptr noundef nonnull %5, i32 noundef %.067.lcssa146, i32 noundef %23)
+  %34 = call fastcc i32 @WriteOffsetArray(ptr noundef nonnull %1, ptr noundef %5, i32 noundef %.067.lcssa146, i32 noundef %23)
   %.not79 = icmp eq i32 %34, 0
   br i1 %.not79, label %WriteOneMLUC.exit, label %35
 
@@ -6875,7 +6875,7 @@ WriteOneMLUC.exit115.thread:                      ; preds = %134, %135, %WriteOn
   br i1 %.not80, label %WriteOneMLUC.exit, label %146
 
 146:                                              ; preds = %._crit_edge137
-  %147 = call fastcc i32 @WriteOffsetArray(ptr noundef nonnull %1, ptr noundef nonnull %5, i32 noundef %.067.lcssa146, i32 noundef %23)
+  %147 = call fastcc i32 @WriteOffsetArray(ptr noundef nonnull %1, ptr noundef %5, i32 noundef %.067.lcssa146, i32 noundef %23)
   %.not81 = icmp eq i32 %147, 0
   br i1 %.not81, label %WriteOneMLUC.exit, label %148
 
@@ -6890,7 +6890,7 @@ WriteOneMLUC.exit:                                ; preds = %132, %116, %.lr.ph.
 
 .sink.split:                                      ; preds = %148, %WriteOneMLUC.exit
   %.0.ph = phi i32 [ 0, %WriteOneMLUC.exit ], [ 1, %148 ]
-  call fastcc void @FreeArray(ptr noundef nonnull %5)
+  call fastcc void @FreeArray(ptr noundef %5)
   br label %151
 
 151:                                              ; preds = %.sink.split, %25, %._crit_edge.thread, %4
@@ -7847,7 +7847,7 @@ declare i32 @cmsMLUgetASCII(ptr noundef, ptr noundef, ptr noundef, ptr noundef, 
 declare ptr @cmsMLUdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_cmsReadWCharArray(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_cmsReadWCharArray(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
@@ -7956,9 +7956,9 @@ declare i32 @cmsPipelineInsertStage(ptr noundef, i32 noundef, ptr noundef) local
 declare ptr @cmsStageAllocMatrix(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Read8bitTables(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Read8bitTables(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
   %5 = alloca [16 x ptr], align 16
-  %6 = add i32 %3, -17
+  %6 = add nsw i32 %3, -17
   %or.cond = icmp ult i32 %6, -16
   br i1 %or.cond, label %.loopexit, label %7
 
@@ -8025,7 +8025,7 @@ define internal fastcc range(i32 0, 2) i32 @Read8bitTables(ptr noundef %0, ptr n
 ._crit_edge:                                      ; preds = %28
   tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %8) #13
   %29 = call ptr @cmsStageAllocToneCurves(ptr noundef %0, i32 noundef %3, ptr noundef nonnull %5) #13
-  %30 = call i32 @cmsPipelineInsertStage(ptr noundef %2, i32 noundef 1, ptr noundef %29) #13
+  %30 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %2, i32 noundef 1, ptr noundef %29) #13
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %.lr.ph63.preheader, label %.lr.ph60.preheader
 
@@ -8177,11 +8177,12 @@ define internal fastcc range(i32 0, 2) i32 @Write8bitTables(ptr noundef %0, ptr 
 declare ptr @cmsPipelineDup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Read16bitTables(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Read16bitTables(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef range(i32 0, 256) %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #0 {
   %6 = alloca [16 x ptr], align 16
-  switch i32 %4, label %8 [
-    i32 0, label %.loopexit
-    i32 1, label %7
+  %trunc = trunc nuw i32 %4 to i16
+  switch i16 %trunc, label %8 [
+    i16 0, label %.loopexit
+    i16 1, label %7
   ]
 
 7:                                                ; preds = %5
@@ -8222,7 +8223,7 @@ define internal fastcc range(i32 0, 2) i32 @Read16bitTables(ptr noundef %0, ptr 
 
 ._crit_edge:                                      ; preds = %11, %10
   %19 = call ptr @cmsStageAllocToneCurves(ptr noundef %0, i32 noundef %3, ptr noundef nonnull %6) #13
-  %20 = call i32 @cmsPipelineInsertStage(ptr noundef %2, i32 noundef 1, ptr noundef %19) #13
+  %20 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %2, i32 noundef 1, ptr noundef %19) #13
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %.loopexit33, label %.preheader
 
@@ -8271,7 +8272,7 @@ define internal fastcc range(i32 0, 2) i32 @Read16bitTables(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Write16bitTables(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Write16bitTables(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8
   %.not6 = icmp eq i32 %3, 0
   br i1 %.not6, label %.loopexit, label %.lr.ph5
@@ -8421,7 +8422,7 @@ declare i32 @_cmsReadXYZNumber(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @_cmsWriteXYZNumber(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ReadSetOfCurves(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @ReadSetOfCurves(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca [5 x i8], align 1
   %7 = alloca [16 x ptr], align 16
@@ -8524,7 +8525,7 @@ ReadEmbeddedCurve.exit:                           ; preds = %16, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ReadCLUT(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @ReadCLUT(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
   %6 = alloca [16 x i8], align 16
   %7 = alloca [16 x i32], align 16
   %8 = alloca i8, align 1
@@ -8936,7 +8937,7 @@ Type_Curve_Write.exit.thread:                     ; preds = %23, %Type_Curve_Wri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @WriteCLUT(ptr nocapture noundef readonly %0, ptr noundef %1, i8 noundef zeroext %2, ptr nocapture readonly %.48.val) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @WriteCLUT(ptr nocapture noundef readonly %0, ptr noundef %1, i8 noundef zeroext range(i8 1, 3) %2, ptr nocapture readonly %.48.val) unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %.48.val, i64 20
   %6 = load i32, ptr %5, align 4
@@ -9133,7 +9134,7 @@ declare ptr @_cmsStageGetPtrToCurveSet(ptr noundef) local_unnamed_addr #1
 declare i32 @_cmsWriteAlignment(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ReadCountAndString(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ReadCountAndString(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr %3, align 4
   %8 = icmp ult i32 %7, 4
@@ -9199,7 +9200,7 @@ define internal fastcc range(i32 0, 2) i32 @ReadCountAndString(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ReadPositionTable(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ReadPositionTable(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 304
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %1) #13
@@ -9275,7 +9276,7 @@ define internal fastcc range(i32 0, 2) i32 @ReadPositionTable(ptr noundef %0, pt
   %40 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv78
   %41 = load i32, ptr %40, align 4
   %42 = trunc nuw i64 %indvars.iv78 to i32
-  %43 = tail call i32 %5(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4, i32 noundef %42, i32 noundef %41) #13, !callees !84
+  %43 = tail call i32 %5(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef %42, i32 noundef %41) #13, !callees !84
   %.not56 = icmp eq i32 %43, 0
   br i1 %.not56, label %.thread66.sink.split.sink.split92, label %33
 
@@ -9409,7 +9410,7 @@ define internal ptr @Type_MPEcurve_Read(ptr noundef %0, ptr noundef %1, ptr noca
 23:                                               ; preds = %17
   %24 = load i16, ptr %5, align 2
   %25 = zext i16 %24 to i32
-  %26 = call fastcc i32 @ReadPositionTable(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %25, i32 noundef %10, ptr noundef nonnull %21, ptr noundef nonnull @ReadMPECurve)
+  %26 = call fastcc i32 @ReadPositionTable(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %25, i32 noundef %10, ptr noundef %21, ptr noundef nonnull @ReadMPECurve)
   %.not31 = icmp eq i32 %26, 0
   br i1 %.not31, label %32, label %27
 
@@ -10641,7 +10642,7 @@ SaveDescription.exit.thread:                      ; preds = %24, %20, %SaveDescr
 declare ptr @cmsDictAlloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @AllocArray(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @AllocArray(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %1, i8 0, i64 96, i1 false)
   %5 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %2, i32 noundef 4) #13
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -10723,7 +10724,7 @@ AllocElem.exit.thread.sink.split:                 ; preds = %39, %28, %17, %8
   br label %AllocElem.exit.thread
 
 AllocElem.exit.thread:                            ; preds = %AllocElem.exit.thread.sink.split, %34, %23, %12, %4
-  tail call fastcc void @FreeArray(ptr noundef nonnull %1)
+  tail call fastcc void @FreeArray(ptr noundef %1)
   br label %.thread
 
 .thread:                                          ; preds = %21, %AllocElem.exit24, %32, %AllocElem.exit.thread
@@ -10732,7 +10733,7 @@ AllocElem.exit.thread:                            ; preds = %AllocElem.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ReadOneWChar(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ReadOneWChar(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -10855,7 +10856,7 @@ define internal fastcc range(i32 0, 2) i32 @ReadOneWChar(ptr noundef %0, ptr noc
 declare i32 @cmsDictAddEntry(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @FreeArray(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @FreeArray(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -10961,7 +10962,7 @@ declare ptr @cmsDictGetEntryList(ptr noundef) local_unnamed_addr #1
 declare ptr @cmsDictNextEntry(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @WriteOffsetArray(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @WriteOffsetArray(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, i32 noundef range(i32 16, 33) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = getelementptr inbounds i8, ptr %1, i64 32

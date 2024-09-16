@@ -1098,7 +1098,7 @@ declare void @makeStar(i32 noundef, ptr noundef) local_unnamed_addr #3
 declare void @makeWheel(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit(i32 noundef %0) unnamed_addr #4 {
+define internal fastcc void @graphviz_exit(i32 noundef range(i32 0, 2) %0) unnamed_addr #4 {
   tail call void @exit(i32 noundef %0) #15
   unreachable
 }
@@ -1107,7 +1107,7 @@ define internal fastcc void @graphviz_exit(i32 noundef %0) unnamed_addr #4 {
 declare i32 @getopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @errexit(i32 noundef %0) unnamed_addr #6 {
+define internal fastcc void @errexit(i32 noundef range(i32 0, -1) %0) unnamed_addr #6 {
   %2 = load ptr, ptr @stderr, align 8
   %sext = shl i32 %0, 24
   %3 = ashr exact i32 %sext, 24

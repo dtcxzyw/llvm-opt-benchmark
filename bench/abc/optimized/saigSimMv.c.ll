@@ -469,7 +469,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare ptr @Aig_MmFixedStart(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc i32 @Saig_MvCreateObj(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 {
+define internal fastcc i32 @Saig_MvCreateObj(ptr nocapture noundef %0, i32 noundef range(i32 -2147483648, 536870912) %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 164
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 160
@@ -545,8 +545,8 @@ define internal fastcc i32 @Saig_MvCreateObj(ptr nocapture noundef %0, i32 nound
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %42, i64 %45
   %47 = load i8, ptr %46, align 1
-  %48 = ashr i32 %2, 1
-  %49 = sext i32 %48 to i64
+  %48 = lshr i32 %2, 1
+  %49 = zext nneg i32 %48 to i64
   %50 = getelementptr inbounds i8, ptr %42, i64 %49
   %51 = load i8, ptr %50, align 1
   %52 = tail call i8 @llvm.umax.i8(i8 %47, i8 %51)
@@ -811,16 +811,16 @@ define void @Saig_MvSimulateFrame(ptr nocapture noundef %0, i32 noundef %1, i32 
   %9 = getelementptr inbounds i8, ptr %0, i64 160
   br label %10
 
-10:                                               ; preds = %123, %3
-  %.031 = phi ptr [ %5, %3 ], [ %124, %123 ]
+10:                                               ; preds = %121, %3
+  %.031 = phi ptr [ %5, %3 ], [ %122, %121 ]
   %11 = getelementptr inbounds i8, ptr %.031, i64 8
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 7
-  switch i32 %13, label %123 [
+  switch i32 %13, label %121 [
     i32 7, label %.preheader
     i32 5, label %18
-    i32 3, label %100
-    i32 2, label %112
+    i32 3, label %98
+    i32 2, label %110
     i32 1, label %.sink.split
   ]
 
@@ -868,8 +868,8 @@ define void @Saig_MvSimulateFrame(ptr nocapture noundef %0, i32 noundef %1, i32 
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %39
-  %.not.i40 = icmp eq i32 %.0.i, 0
-  %spec.select56.i = select i1 %.not.i40, i32 %.0.i39, i32 1
+  %.not54.i = icmp eq i32 %.0.i, 1
+  %spec.select56.i = select i1 %.not54.i, i32 1, i32 %.0.i39
   br label %Saig_MvAnd.exit
 
 42:                                               ; preds = %39
@@ -877,181 +877,181 @@ define void @Saig_MvSimulateFrame(ptr nocapture noundef %0, i32 noundef %1, i32 
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %42
-  %.not58.i = icmp eq i32 %.0.i39, 0
-  %spec.select57.i = select i1 %.not58.i, i32 %.0.i, i32 1
+  %.not53.i = icmp eq i32 %.0.i39, 1
+  %spec.select57.i = select i1 %.not53.i, i32 1, i32 %.0.i
   br label %Saig_MvAnd.exit
 
 45:                                               ; preds = %42
-  %.not59.i = icmp eq i32 %.0.i, 536870910
+  %.not.i41 = icmp eq i32 %.0.i, 536870910
   %46 = icmp eq i32 %.0.i39, 536870910
-  %47 = or i1 %46, %.not59.i
+  %47 = or i1 %46, %.not.i41
   %or.cond = or i1 %47, %.not33
   br i1 %or.cond, label %Saig_MvAnd.exit, label %48
 
 48:                                               ; preds = %45
-  %49 = tail call i32 @llvm.umax.i32(i32 %.0.i, i32 %.0.i39)
-  %50 = tail call i32 @llvm.umin.i32(i32 %.0.i, i32 %.0.i39)
-  %51 = load ptr, ptr %6, align 8
-  %52 = load i32, ptr %7, align 8
-  %53 = lshr i32 %50, 1
-  %54 = mul nuw nsw i32 %53, 7937
-  %55 = lshr i32 %49, 1
-  %56 = mul nuw nsw i32 %55, 2971
-  %57 = trunc i32 %50 to i1
-  %58 = select i1 %57, i32 911, i32 0
-  %59 = trunc i32 %49 to i1
-  %60 = select i1 %59, i32 353, i32 0
-  %61 = xor i32 %58, %54
-  %62 = xor i32 %61, %56
-  %63 = xor i32 %62, %60
-  %64 = urem i32 %63, %52
-  %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds i32, ptr %51, i64 %65
-  %67 = load i32, ptr %66, align 4
-  %.not.i46 = icmp eq i32 %67, 0
+  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %.0.i, i32 %.0.i39)
+  %spec.select55.i = tail call i32 @llvm.umin.i32(i32 %.0.i, i32 %.0.i39)
+  %49 = load ptr, ptr %6, align 8
+  %50 = load i32, ptr %7, align 8
+  %51 = lshr i32 %spec.select55.i, 1
+  %52 = mul nuw nsw i32 %51, 7937
+  %53 = lshr i32 %spec.select.i, 1
+  %54 = mul nuw nsw i32 %53, 2971
+  %55 = trunc i32 %spec.select55.i to i1
+  %56 = select i1 %55, i32 911, i32 0
+  %57 = trunc i32 %spec.select.i to i1
+  %58 = select i1 %57, i32 353, i32 0
+  %59 = xor i32 %56, %52
+  %60 = xor i32 %59, %54
+  %61 = xor i32 %60, %58
+  %62 = urem i32 %61, %50
+  %63 = zext nneg i32 %62 to i64
+  %64 = getelementptr inbounds i32, ptr %49, i64 %63
+  %65 = load i32, ptr %64, align 4
+  %.not.i46 = icmp eq i32 %65, 0
   %.pre = load ptr, ptr %8, align 8
   br i1 %.not.i46, label %Saig_MvTableFind.exit.thread, label %.preheader55
 
-.preheader55:                                     ; preds = %48, %74
-  %.pr = phi i32 [ %76, %74 ], [ %67, %48 ]
+.preheader55:                                     ; preds = %48, %72
+  %.pr = phi i32 [ %74, %72 ], [ %65, %48 ]
   %.pn = sext i32 %.pr to i64
   %.01622.i = getelementptr inbounds %struct.Saig_MvAnd_t_, ptr %.pre, i64 %.pn
-  %68 = load i32, ptr %.01622.i, align 4
-  %69 = icmp eq i32 %68, %50
-  br i1 %69, label %70, label %74
+  %66 = load i32, ptr %.01622.i, align 4
+  %67 = icmp eq i32 %66, %spec.select55.i
+  br i1 %67, label %68, label %72
 
-70:                                               ; preds = %.preheader55
-  %71 = getelementptr inbounds i8, ptr %.01622.i, i64 4
-  %72 = load i32, ptr %71, align 4
-  %73 = icmp eq i32 %72, %49
-  br i1 %73, label %Saig_MvTableFind.exit, label %74
+68:                                               ; preds = %.preheader55
+  %69 = getelementptr inbounds i8, ptr %.01622.i, i64 4
+  %70 = load i32, ptr %69, align 4
+  %71 = icmp eq i32 %70, %spec.select.i
+  br i1 %71, label %Saig_MvTableFind.exit, label %72
 
-74:                                               ; preds = %70, %.preheader55
-  %75 = getelementptr inbounds i8, ptr %.01622.i, i64 8
-  %76 = load i32, ptr %75, align 4
-  %.not20.i = icmp eq i32 %76, 0
+72:                                               ; preds = %68, %.preheader55
+  %73 = getelementptr inbounds i8, ptr %.01622.i, i64 8
+  %74 = load i32, ptr %73, align 4
+  %.not20.i = icmp eq i32 %74, 0
   br i1 %.not20.i, label %Saig_MvTableFind.exit.thread.loopexit, label %.preheader55
 
-Saig_MvTableFind.exit.thread.loopexit:            ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %.01622.i, i64 8
+Saig_MvTableFind.exit.thread.loopexit:            ; preds = %72
+  %75 = getelementptr inbounds i8, ptr %.01622.i, i64 8
   br label %Saig_MvTableFind.exit.thread
 
 Saig_MvTableFind.exit.thread:                     ; preds = %Saig_MvTableFind.exit.thread.loopexit, %48
-  %.0.lcssa.i48 = phi ptr [ %66, %48 ], [ %77, %Saig_MvTableFind.exit.thread.loopexit ]
+  %.0.lcssa.i48 = phi ptr [ %64, %48 ], [ %75, %Saig_MvTableFind.exit.thread.loopexit ]
   %.not52.i = icmp ult ptr %.0.lcssa.i48, %.pre
-  br i1 %.not52.i, label %92, label %78
+  br i1 %.not52.i, label %90, label %76
 
-78:                                               ; preds = %Saig_MvTableFind.exit.thread
-  %79 = load i32, ptr %9, align 8
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds %struct.Saig_MvAnd_t_, ptr %.pre, i64 %80
-  %82 = icmp ult ptr %.0.lcssa.i48, %81
-  br i1 %82, label %83, label %92
+76:                                               ; preds = %Saig_MvTableFind.exit.thread
+  %77 = load i32, ptr %9, align 8
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr inbounds %struct.Saig_MvAnd_t_, ptr %.pre, i64 %78
+  %80 = icmp ult ptr %.0.lcssa.i48, %79
+  br i1 %80, label %81, label %90
 
-83:                                               ; preds = %78
-  %84 = ptrtoint ptr %.0.lcssa.i48 to i64
-  %85 = ptrtoint ptr %.pre to i64
-  %86 = sub i64 %84, %85
-  %87 = tail call fastcc i32 @Saig_MvCreateObj(ptr noundef nonnull %0, i32 noundef %50, i32 noundef %49)
-  %88 = load ptr, ptr %8, align 8
-  %sext.i = shl i64 %86, 30
-  %89 = ashr i64 %sext.i, 32
-  %90 = getelementptr inbounds i32, ptr %88, i64 %89
-  store i32 %87, ptr %90, align 4
-  %91 = shl i32 %87, 1
+81:                                               ; preds = %76
+  %82 = ptrtoint ptr %.0.lcssa.i48 to i64
+  %83 = ptrtoint ptr %.pre to i64
+  %84 = sub i64 %82, %83
+  %85 = tail call fastcc i32 @Saig_MvCreateObj(ptr noundef nonnull %0, i32 noundef %spec.select55.i, i32 noundef %spec.select.i)
+  %86 = load ptr, ptr %8, align 8
+  %sext.i = shl i64 %84, 30
+  %87 = ashr i64 %sext.i, 32
+  %88 = getelementptr inbounds i32, ptr %86, i64 %87
+  store i32 %85, ptr %88, align 4
+  %89 = shl i32 %85, 1
   br label %Saig_MvAnd.exit
 
-92:                                               ; preds = %78, %Saig_MvTableFind.exit.thread
-  %93 = tail call fastcc i32 @Saig_MvCreateObj(ptr noundef nonnull %0, i32 noundef %50, i32 noundef %49)
-  store i32 %93, ptr %.0.lcssa.i48, align 4
+90:                                               ; preds = %76, %Saig_MvTableFind.exit.thread
+  %91 = tail call fastcc i32 @Saig_MvCreateObj(ptr noundef nonnull %0, i32 noundef %spec.select55.i, i32 noundef %spec.select.i)
+  store i32 %91, ptr %.0.lcssa.i48, align 4
   br label %Saig_MvTableFind.exit
 
-Saig_MvTableFind.exit:                            ; preds = %70, %92
-  %94 = phi i32 [ %93, %92 ], [ %.pr, %70 ]
-  %95 = shl i32 %94, 1
+Saig_MvTableFind.exit:                            ; preds = %68, %90
+  %92 = phi i32 [ %91, %90 ], [ %.pr, %68 ]
+  %93 = shl i32 %92, 1
   br label %Saig_MvAnd.exit
 
-Saig_MvAnd.exit:                                  ; preds = %18, %36, %41, %44, %45, %83, %Saig_MvTableFind.exit
-  %.0.i41 = phi i32 [ %91, %83 ], [ %95, %Saig_MvTableFind.exit ], [ %.0.i, %18 ], [ 1, %36 ], [ 536870910, %45 ], [ %spec.select56.i, %41 ], [ %spec.select57.i, %44 ]
-  %96 = load i32, ptr %11, align 4
-  %97 = shl i32 %.0.i41, 3
-  %98 = and i32 %96, 7
-  %99 = or disjoint i32 %98, %97
+Saig_MvAnd.exit:                                  ; preds = %18, %36, %41, %44, %45, %81, %Saig_MvTableFind.exit
+  %.0.i40 = phi i32 [ %89, %81 ], [ %93, %Saig_MvTableFind.exit ], [ %.0.i, %18 ], [ 1, %36 ], [ 536870910, %45 ], [ %spec.select56.i, %41 ], [ %spec.select57.i, %44 ]
+  %94 = load i32, ptr %11, align 4
+  %95 = shl i32 %.0.i40, 3
+  %96 = and i32 %94, 7
+  %97 = or disjoint i32 %96, %95
   br label %.sink.split
 
-100:                                              ; preds = %10
-  %101 = load ptr, ptr %4, align 8
+98:                                               ; preds = %10
+  %99 = load ptr, ptr %4, align 8
   %.031.val35 = load i32, ptr %.031, align 4
-  %102 = ashr i32 %.031.val35, 1
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds %struct.Saig_MvObj_t_, ptr %101, i64 %103, i32 2
-  %105 = load i32, ptr %104, align 4
-  %106 = lshr i32 %105, 3
-  %.not.i42 = icmp eq i32 %106, 536870910
-  %107 = and i32 %.031.val35, 1
-  %108 = xor i32 %106, %107
-  %109 = shl nuw i32 %108, 3
-  %110 = or disjoint i32 %109, 3
-  %111 = select i1 %.not.i42, i32 -13, i32 %110
+  %100 = ashr i32 %.031.val35, 1
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds %struct.Saig_MvObj_t_, ptr %99, i64 %101, i32 2
+  %103 = load i32, ptr %102, align 4
+  %104 = lshr i32 %103, 3
+  %.not.i42 = icmp eq i32 %104, 536870910
+  %105 = and i32 %.031.val35, 1
+  %106 = xor i32 %104, %105
+  %107 = shl nuw i32 %106, 3
+  %108 = or disjoint i32 %107, 3
+  %109 = select i1 %.not.i42, i32 -13, i32 %108
   br label %.sink.split
 
-112:                                              ; preds = %10
-  %113 = getelementptr inbounds i8, ptr %.031, i64 4
-  %114 = load i32, ptr %113, align 4
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %116, label %123
+110:                                              ; preds = %10
+  %111 = getelementptr inbounds i8, ptr %.031, i64 4
+  %112 = load i32, ptr %111, align 4
+  %113 = icmp eq i32 %112, 0
+  br i1 %113, label %114, label %121
 
-116:                                              ; preds = %112
-  br i1 %.not33, label %.sink.split, label %117
+114:                                              ; preds = %110
+  br i1 %.not33, label %.sink.split, label %115
 
-117:                                              ; preds = %116
-  %118 = tail call fastcc i32 @Saig_MvCreateObj(ptr noundef %0, i32 noundef 0, i32 noundef 0)
-  %119 = shl i32 %118, 4
-  %120 = load i32, ptr %11, align 4
-  %121 = and i32 %120, 7
-  %122 = or disjoint i32 %121, %119
+115:                                              ; preds = %114
+  %116 = tail call fastcc i32 @Saig_MvCreateObj(ptr noundef %0, i32 noundef 0, i32 noundef 0)
+  %117 = shl i32 %116, 4
+  %118 = load i32, ptr %11, align 4
+  %119 = and i32 %118, 7
+  %120 = or disjoint i32 %119, %117
   br label %.sink.split
 
-.sink.split:                                      ; preds = %10, %116, %100, %117, %Saig_MvAnd.exit
-  %.sink = phi i32 [ %99, %Saig_MvAnd.exit ], [ %122, %117 ], [ %111, %100 ], [ -14, %116 ], [ %13, %10 ]
+.sink.split:                                      ; preds = %10, %114, %98, %115, %Saig_MvAnd.exit
+  %.sink = phi i32 [ %97, %Saig_MvAnd.exit ], [ %120, %115 ], [ %109, %98 ], [ -14, %114 ], [ %13, %10 ]
   store i32 %.sink, ptr %11, align 4
-  br label %123
+  br label %121
 
-123:                                              ; preds = %.sink.split, %10, %112
-  %124 = getelementptr inbounds i8, ptr %.031, i64 12
+121:                                              ; preds = %.sink.split, %10, %110
+  %122 = getelementptr inbounds i8, ptr %.031, i64 12
   br label %10, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %125 = phi ptr [ %143, %.lr.ph ], [ %15, %.preheader ]
-  %126 = getelementptr i8, ptr %125, i64 8
-  %.val34 = load ptr, ptr %126, align 8
-  %127 = getelementptr inbounds ptr, ptr %.val34, i64 %indvars.iv
-  %128 = load ptr, ptr %127, align 8
-  %129 = load ptr, ptr %4, align 8
-  %.val36 = load i32, ptr %128, align 4
-  %130 = ashr i32 %.val36, 1
-  %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds %struct.Saig_MvObj_t_, ptr %129, i64 %131, i32 2
-  %133 = load i32, ptr %132, align 4
-  %134 = lshr i32 %133, 3
-  %.not.i44 = icmp eq i32 %134, 536870910
-  %135 = and i32 %.val36, 1
-  %136 = xor i32 %134, %135
-  %137 = shl nuw i32 %136, 3
-  %138 = getelementptr inbounds i8, ptr %128, i64 8
-  %139 = load i32, ptr %138, align 4
-  %140 = select i1 %.not.i44, i32 -16, i32 %137
-  %141 = and i32 %139, 7
-  %142 = or disjoint i32 %140, %141
-  store i32 %142, ptr %138, align 4
+  %123 = phi ptr [ %141, %.lr.ph ], [ %15, %.preheader ]
+  %124 = getelementptr i8, ptr %123, i64 8
+  %.val34 = load ptr, ptr %124, align 8
+  %125 = getelementptr inbounds ptr, ptr %.val34, i64 %indvars.iv
+  %126 = load ptr, ptr %125, align 8
+  %127 = load ptr, ptr %4, align 8
+  %.val36 = load i32, ptr %126, align 4
+  %128 = ashr i32 %.val36, 1
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds %struct.Saig_MvObj_t_, ptr %127, i64 %129, i32 2
+  %131 = load i32, ptr %130, align 4
+  %132 = lshr i32 %131, 3
+  %.not.i44 = icmp eq i32 %132, 536870910
+  %133 = and i32 %.val36, 1
+  %134 = xor i32 %132, %133
+  %135 = shl nuw i32 %134, 3
+  %136 = getelementptr inbounds i8, ptr %126, i64 8
+  %137 = load i32, ptr %136, align 4
+  %138 = select i1 %.not.i44, i32 -16, i32 %135
+  %139 = and i32 %137, 7
+  %140 = or disjoint i32 %138, %139
+  store i32 %140, ptr %136, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %143 = load ptr, ptr %14, align 8
-  %144 = getelementptr i8, ptr %143, i64 4
-  %.val = load i32, ptr %144, align 4
-  %145 = sext i32 %.val to i64
-  %146 = icmp slt i64 %indvars.iv.next, %145
-  br i1 %146, label %.lr.ph, label %.critedge, !llvm.loop !11
+  %141 = load ptr, ptr %14, align 8
+  %142 = getelementptr i8, ptr %141, i64 4
+  %.val = load i32, ptr %142, align 4
+  %143 = sext i32 %.val to i64
+  %144 = icmp slt i64 %indvars.iv.next, %143
+  br i1 %144, label %.lr.ph, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader
   ret void

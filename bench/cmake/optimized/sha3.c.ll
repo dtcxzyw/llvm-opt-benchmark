@@ -120,7 +120,7 @@ define dso_local void @rhash_sha3_update(ptr noundef %0, ptr noundef %1, i64 nou
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @rhash_sha3_process_block(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #3 {
+define internal fastcc void @rhash_sha3_process_block(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #3 {
   %4 = load i64, ptr %1, align 8
   %5 = load i64, ptr %0, align 8
   %6 = xor i64 %5, %4

@@ -217,12 +217,12 @@ define void @_ZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwS
   br i1 %or.cond.i21, label %76, label %80
 
 76:                                               ; preds = %73
-  %77 = trunc nuw i32 %75 to i8
-  %.lhs.trunc.i = add nsw i8 %77, -1
-  %78 = sdiv i8 %.lhs.trunc.i, 2
-  %.sext.i = zext nneg i8 %78 to i32
+  %77 = trunc nuw nsw i32 %75 to i8
+  %.lhs.trunc.i.i = add nsw i8 %77, -1
+  %78 = sdiv i8 %.lhs.trunc.i.i, 2
+  %.sext.i.i = zext nneg i8 %78 to i32
   %79 = getelementptr inbounds i8, ptr %9, i64 4
-  store i32 %.sext.i, ptr %79, align 4, !noalias !22
+  store i32 %.sext.i.i, ptr %79, align 4, !noalias !22
   br label %80
 
 80:                                               ; preds = %76, %73

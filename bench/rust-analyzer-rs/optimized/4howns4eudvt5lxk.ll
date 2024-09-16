@@ -55,7 +55,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6parser7grammar11expressions16postfix_dot_expr17h4cc6c840b66449eeE(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) %0, ptr noalias noundef align 8 dereferenceable(48) %1, i32 noundef %2, i16 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6parser7grammar11expressions16postfix_dot_expr17h4cc6c840b66449eeE(ptr noalias nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2, i16 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { { { { i64, [2 x i64] }, i8, [7 x i8] } }, i32, [1 x i32] }, align 8
   %7 = alloca { { { { i64, [2 x i64] }, i8, [7 x i8] } }, i32, [1 x i32] }, align 8
@@ -561,7 +561,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit: ; preds = %175
   %202 = call { i32, i16 } @_ZN6parser6parser6Marker8complete17h245dafe3ae51cd9dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %8, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i16 noundef 216), !noalias !48
   %203 = extractvalue { i32, i16 } %202, 0
   %204 = extractvalue { i32, i16 } %202, 1
-  tail call fastcc void @_ZN6parser7grammar11expressions16postfix_dot_expr17h4cc6c840b66449eeE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %203, i16 noundef %204)
+  tail call fastcc void @_ZN6parser7grammar11expressions16postfix_dot_expr17h4cc6c840b66449eeE(ptr noalias nocapture noundef align 4 dereferenceable(12) %0, ptr noalias noundef align 8 dereferenceable(48) %1, i32 noundef %203, i16 noundef %204)
   br label %205
 
 205:                                              ; preds = %201, %195
@@ -1295,7 +1295,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit12.i: ; preds = %229
   %270 = call { i32, i16 } @_ZN6parser6parser6Marker8complete17h245dafe3ae51cd9dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %8, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i16 noundef 216), !noalias !126
   %271 = extractvalue { i32, i16 } %270, 0
   %272 = extractvalue { i32, i16 } %270, 1
-  tail call fastcc void @_ZN6parser7grammar11expressions16postfix_dot_expr17h4cc6c840b66449eeE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %271, i16 noundef %272)
+  tail call fastcc void @_ZN6parser7grammar11expressions16postfix_dot_expr17h4cc6c840b66449eeE(ptr noalias nocapture noundef align 4 dereferenceable(12) %0, ptr noalias noundef align 8 dereferenceable(48) %1, i32 noundef %271, i16 noundef %272)
   br label %273
 
 273:                                              ; preds = %269, %263
@@ -1681,7 +1681,7 @@ _ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit: ; preds = %34, %.noexc23
   ret void
 
 49:                                               ; preds = %30
-  invoke fastcc void @_ZN6parser7grammar5items3adt16tuple_field_list17he91b31fb652e7750E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
+  invoke fastcc void @_ZN6parser7grammar5items3adt16tuple_field_list17he91b31fb652e7750E(ptr noalias noundef align 8 dereferenceable(48) %0)
           to label %50 unwind label %.body.thread50
 
 50:                                               ; preds = %49
@@ -2408,7 +2408,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread: ; preds = %31,
   br label %58
 
 55:                                               ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit
-  invoke fastcc void @_ZN6parser7grammar5items3adt16tuple_field_list17he91b31fb652e7750E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
+  invoke fastcc void @_ZN6parser7grammar5items3adt16tuple_field_list17he91b31fb652e7750E(ptr noalias noundef align 8 dereferenceable(48) %0)
           to label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread unwind label %.loopexit.split-lp
 
 56:                                               ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit
@@ -2780,7 +2780,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit13: ; preds = %68
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6parser7grammar5items3adt16tuple_field_list17he91b31fb652e7750E(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6parser7grammar5items3adt16tuple_field_list17he91b31fb652e7750E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [3 x i64] }, align 8
   %3 = alloca { { { { i64, [2 x i64] }, i8, [7 x i8] } }, i32, [1 x i32] }, align 8
   %4 = alloca { { { { i64, [2 x i64] }, i8, [7 x i8] } }, i32, [1 x i32] }, align 8
@@ -3445,7 +3445,7 @@ _ZN6parser6parser6Parser7do_bump17h7d8f0bfaf2addffbE.llvm.6580822817679657170.ex
   br label %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit36.i
 
 _ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit36.i: ; preds = %_ZN6parser6parser6Parser7do_bump17h7d8f0bfaf2addffbE.llvm.6580822817679657170.exit.i29.i, %.noexc34.i
-  invoke fastcc void @_ZN6parser7grammar6params12self_as_name17hb293e9e22d3ee935E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
+  invoke fastcc void @_ZN6parser7grammar6params12self_as_name17hb293e9e22d3ee935E(ptr noalias noundef align 8 dereferenceable(48) %0)
           to label %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit40.i unwind label %202, !noalias !465
 
 _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit40.i: ; preds = %199, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit38.i, %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit36.i
@@ -3463,7 +3463,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit40.i: ; preds = %199, %_ZN6p
   br i1 %196, label %_ZN6parser7grammar6params14opt_self_param17h2f9b3d86a67666b7E.exit.thread, label %200
 
 _ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i58: ; preds = %_ZN6parser6parser6Parser7do_bump17h7d8f0bfaf2addffbE.llvm.6580822817679657170.exit.i.i, %.noexc15.i
-  invoke fastcc void @_ZN6parser7grammar6params12self_as_name17hb293e9e22d3ee935E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
+  invoke fastcc void @_ZN6parser7grammar6params12self_as_name17hb293e9e22d3ee935E(ptr noalias noundef align 8 dereferenceable(48) %0)
           to label %197 unwind label %202, !noalias !465
 
 197:                                              ; preds = %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i58
@@ -3913,7 +3913,7 @@ _ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i98: ; preds = %.noexc.i
 
 307:                                              ; preds = %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i98
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !612
-  %308 = invoke fastcc noundef zeroext i1 @_ZN6parser7grammar6params14variadic_param17hd026f5ef7a30b976E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
+  %308 = invoke fastcc noundef zeroext i1 @_ZN6parser7grammar6params14variadic_param17hd026f5ef7a30b976E(ptr noalias noundef align 8 dereferenceable(48) %0)
           to label %309 unwind label %.body.thread49.i.loopexit, !noalias !581
 
 309:                                              ; preds = %307
@@ -4057,7 +4057,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.i95: ; preds = %340
 
 361:                                              ; preds = %360
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !628
-  %362 = invoke fastcc noundef zeroext i1 @_ZN6parser7grammar6params14variadic_param17hd026f5ef7a30b976E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
+  %362 = invoke fastcc noundef zeroext i1 @_ZN6parser7grammar6params14variadic_param17hd026f5ef7a30b976E(ptr noalias noundef align 8 dereferenceable(48) %0)
           to label %363 unwind label %.body.thread49.i.loopexit, !noalias !581
 
 363:                                              ; preds = %361
@@ -4473,7 +4473,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i125._crit_edge: ; pre
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN6parser7grammar6params14variadic_param17hd026f5ef7a30b976E(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN6parser7grammar6params14variadic_param17hd026f5ef7a30b976E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = tail call noundef zeroext i1 @_ZN6parser6parser6Parser6nth_at17h20e46c565405313aE(ptr noundef nonnull align 8 %0, i64 noundef 0, i16 noundef 29)
   br i1 %2, label %3, label %34
 
@@ -4562,7 +4562,7 @@ _ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit6: ; preds = %23, %._crit_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6parser7grammar6params12self_as_name17hb293e9e22d3ee935E(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6parser7grammar6params12self_as_name17hb293e9e22d3ee935E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { { { i64, [2 x i64] }, i8, [7 x i8] } }, i32, [1 x i32] }, align 8
   %3 = alloca { { { { i64, [2 x i64] }, i8, [7 x i8] } }, i32, [1 x i32] }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)

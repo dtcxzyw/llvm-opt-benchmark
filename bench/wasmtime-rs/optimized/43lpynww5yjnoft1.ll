@@ -325,7 +325,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %13 = phi ptr [ %.pre, %.noexc ], [ %7, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hbe3ceb29fd6ed8c5E.exit.i.i" ]
   %14 = phi i64 [ %11, %.noexc ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hbe3ceb29fd6ed8c5E.exit.i.i" ]
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %13, i64 %14
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i.i.i.i.i, i8 %2, i64 %1, i1 false), !noalias !80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i.i.i.i.i, i8 %2, i64 %1, i1 false), !noalias !80
   %15 = add i64 %14, %1
   br label %18
 
@@ -1992,7 +1992,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %13 = phi ptr [ %.pre.i, %.noexc.i ], [ %7, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hbe3ceb29fd6ed8c5E.exit.i.i.i" ]
   %14 = phi i64 [ %11, %.noexc.i ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hbe3ceb29fd6ed8c5E.exit.i.i.i" ]
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %13, i64 %14
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i.i.i.i.i.i, i8 %2, i64 %1, i1 false), !noalias !282
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i.i.i.i.i.i, i8 %2, i64 %1, i1 false), !noalias !282
   %15 = add i64 %14, %1
   br label %"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hadf5edb90063c20aE.llvm.11489394707175253082.exit"
 

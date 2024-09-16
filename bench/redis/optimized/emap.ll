@@ -480,12 +480,12 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback) #4
-  %call18 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef null, ptr noundef %emap, ptr noundef nonnull %rtree_ctx_fallback, ptr noundef %edata, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %elm_a, ptr noundef nonnull %elm_b)
+  %call18 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef null, ptr noundef %emap, ptr noundef %rtree_ctx_fallback, ptr noundef %edata, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %elm_a, ptr noundef nonnull %elm_b)
   br i1 %call18, label %return, label %do.end6
 
 tsdn_rtree_ctx.exit:                              ; preds = %entry
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i = getelementptr inbounds i8, ptr %tsdn, i64 448
-  %call19 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef nonnull %tsdn, ptr noundef %emap, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, ptr noundef %edata, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %elm_a, ptr noundef nonnull %elm_b)
+  %call19 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef nonnull %tsdn, ptr noundef %emap, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, ptr noundef %edata, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %elm_a, ptr noundef nonnull %elm_b)
   br i1 %call19, label %return, label %do.end6
 
 do.end6:                                          ; preds = %if.then.i, %tsdn_rtree_ctx.exit
@@ -528,7 +528,7 @@ return:                                           ; preds = %release.i.i50.i, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef %tsdn, ptr noundef %emap, ptr noundef %rtree_ctx, ptr nocapture noundef readonly %edata, i1 noundef zeroext %dependent, i1 noundef zeroext %init_missing, ptr nocapture noundef writeonly %r_elm_a, ptr nocapture noundef writeonly %r_elm_b) unnamed_addr #0 {
+define internal fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef %tsdn, ptr noundef %emap, ptr noundef nonnull %rtree_ctx, ptr nocapture noundef readonly %edata, i1 noundef zeroext %dependent, i1 noundef zeroext %init_missing, ptr nocapture noundef writeonly %r_elm_a, ptr nocapture noundef writeonly %r_elm_b) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %edata, i64 8
   %edata.val = load ptr, ptr %0, align 8
@@ -857,7 +857,7 @@ entry:
 
 if.then.i9:                                       ; preds = %entry
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback) #4
-  %call313 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef null, ptr noundef %emap, ptr noundef nonnull %rtree_ctx_fallback, ptr noundef %edata, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %elm_a, ptr noundef nonnull %elm_b)
+  %call313 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef null, ptr noundef %emap, ptr noundef %rtree_ctx_fallback, ptr noundef %edata, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %elm_a, ptr noundef nonnull %elm_b)
   %0 = load ptr, ptr %elm_a, align 8
   %1 = load ptr, ptr %elm_b, align 8
   store atomic i64 66146619527004160, ptr %0 release, align 8
@@ -866,7 +866,7 @@ if.then.i9:                                       ; preds = %entry
 
 if.end.i7.split:                                  ; preds = %entry
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i = getelementptr inbounds i8, ptr %tsdn, i64 448
-  %call314 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef nonnull %tsdn, ptr noundef %emap, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, ptr noundef %edata, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %elm_a, ptr noundef nonnull %elm_b)
+  %call314 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef nonnull %tsdn, ptr noundef %emap, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, ptr noundef %edata, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %elm_a, ptr noundef nonnull %elm_b)
   %2 = load ptr, ptr %elm_a, align 8
   %3 = load ptr, ptr %elm_b, align 8
   store atomic i64 66146619527004160, ptr %2 release, align 8
@@ -1280,10 +1280,10 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i, %if.then.
   store i64 %size_a, ptr %2, align 8
   store i64 0, ptr %lead, align 8
   %lead_elm_b = getelementptr inbounds i8, ptr %prepare, i64 8
-  %call2 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef %tsdn, ptr noundef %emap, ptr noundef nonnull %retval.i.0, ptr noundef nonnull %lead, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %prepare, ptr noundef nonnull %lead_elm_b)
+  %call2 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef %tsdn, ptr noundef %emap, ptr noundef %retval.i.0, ptr noundef nonnull %lead, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %prepare, ptr noundef nonnull %lead_elm_b)
   %trail_elm_a = getelementptr inbounds i8, ptr %prepare, i64 16
   %trail_elm_b = getelementptr inbounds i8, ptr %prepare, i64 24
-  %call3 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef %tsdn, ptr noundef %emap, ptr noundef nonnull %retval.i.0, ptr noundef %trail, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %trail_elm_a, ptr noundef nonnull %trail_elm_b)
+  %call3 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef %tsdn, ptr noundef %emap, ptr noundef %retval.i.0, ptr noundef %trail, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %trail_elm_a, ptr noundef nonnull %trail_elm_b)
   %3 = load ptr, ptr %prepare, align 8
   %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1390,14 +1390,14 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback) #4
-  %call112 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef null, ptr noundef %emap, ptr noundef nonnull %rtree_ctx_fallback, ptr noundef %lead, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %prepare, ptr noundef nonnull %lead_elm_b11)
-  %call217 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef null, ptr noundef %emap, ptr noundef nonnull %rtree_ctx_fallback, ptr noundef %trail, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %trail_elm_a15, ptr noundef nonnull %trail_elm_b16)
+  %call112 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef null, ptr noundef %emap, ptr noundef %rtree_ctx_fallback, ptr noundef %lead, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %prepare, ptr noundef nonnull %lead_elm_b11)
+  %call217 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef null, ptr noundef %emap, ptr noundef %rtree_ctx_fallback, ptr noundef %trail, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %trail_elm_a15, ptr noundef nonnull %trail_elm_b16)
   br label %tsdn_rtree_ctx.exit
 
 if.end.i:                                         ; preds = %entry
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i = getelementptr inbounds i8, ptr %tsdn, i64 448
-  %call114 = tail call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef nonnull %tsdn, ptr noundef %emap, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, ptr noundef %lead, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %prepare, ptr noundef nonnull %lead_elm_b11)
-  %call220 = tail call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef nonnull %tsdn, ptr noundef %emap, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, ptr noundef %trail, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %trail_elm_a15, ptr noundef nonnull %trail_elm_b16)
+  %call114 = tail call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef nonnull %tsdn, ptr noundef %emap, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, ptr noundef %lead, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %prepare, ptr noundef nonnull %lead_elm_b11)
+  %call220 = tail call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef nonnull %tsdn, ptr noundef %emap, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, ptr noundef %trail, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %trail_elm_a15, ptr noundef nonnull %trail_elm_b16)
   br label %tsdn_rtree_ctx.exit
 
 tsdn_rtree_ctx.exit:                              ; preds = %if.end.i, %if.then.i
@@ -1476,7 +1476,7 @@ if.then.i:                                        ; preds = %entry
   %edata.val7 = load ptr, ptr %0, align 8
   %1 = ptrtoint ptr %edata.val7 to i64
   %and.i = and i64 %1, -4096
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %contents, ptr noundef null, ptr noundef %emap, ptr noundef nonnull %rtree_ctx_fallback, i64 noundef %and.i)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %contents, ptr noundef null, ptr noundef %emap, ptr noundef %rtree_ctx_fallback, i64 noundef %and.i)
   br label %tsdn_rtree_ctx.exit
 
 if.end.i.split:                                   ; preds = %entry
@@ -1484,7 +1484,7 @@ if.end.i.split:                                   ; preds = %entry
   %edata.val = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %edata.val to i64
   %and.i8 = and i64 %2, -4096
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %contents, ptr noundef nonnull %tsdn, ptr noundef %emap, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %and.i8)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %contents, ptr noundef nonnull %tsdn, ptr noundef %emap, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %and.i8)
   br label %tsdn_rtree_ctx.exit
 
 tsdn_rtree_ctx.exit:                              ; preds = %if.end.i.split, %if.then.i
@@ -1492,7 +1492,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i.split, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, ptr noundef %tsdn, ptr noundef %rtree, ptr noundef %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
+define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef %tsdn, ptr noundef %rtree, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %key, 30
   %and.i = and i64 %shr.i, 15
@@ -1613,7 +1613,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i14) #4
-  call fastcc void @rtree_read_independent(ptr noundef null, ptr noundef %emap, ptr noundef nonnull %rtree_ctx_fallback.i14, i64 noundef %and.i, ptr noundef nonnull %contents.i16)
+  call fastcc void @rtree_read_independent(ptr noundef null, ptr noundef %emap, ptr noundef %rtree_ctx_fallback.i14, i64 noundef %and.i, ptr noundef %contents.i16)
   %edata.val2325 = load ptr, ptr %0, align 8
   %edata.val2426 = load i64, ptr %2, align 8
   %3 = ptrtoint ptr %edata.val2325 to i64
@@ -1622,12 +1622,12 @@ if.then.i.i:                                      ; preds = %entry
   %add.i29 = add i64 %and.i.i27, -4096
   %sub.i30 = add i64 %add.i29, %and.i3.i28
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i) #4
-  call fastcc void @rtree_read_independent(ptr noundef null, ptr noundef %emap, ptr noundef nonnull %rtree_ctx_fallback.i, i64 noundef %sub.i30, ptr noundef nonnull %contents.i)
+  call fastcc void @rtree_read_independent(ptr noundef null, ptr noundef %emap, ptr noundef %rtree_ctx_fallback.i, i64 noundef %sub.i30, ptr noundef %contents.i)
   br label %do.end5
 
 if.end.i.i.split:                                 ; preds = %entry
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i = getelementptr inbounds i8, ptr %tsdn, i64 448
-  call fastcc void @rtree_read_independent(ptr noundef nonnull %tsdn, ptr noundef %emap, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %and.i, ptr noundef nonnull %contents.i16)
+  call fastcc void @rtree_read_independent(ptr noundef nonnull %tsdn, ptr noundef %emap, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %and.i, ptr noundef %contents.i16)
   %edata.val23 = load ptr, ptr %0, align 8
   %edata.val24 = load i64, ptr %2, align 8
   %4 = ptrtoint ptr %edata.val23 to i64
@@ -1635,7 +1635,7 @@ if.end.i.i.split:                                 ; preds = %entry
   %and.i3.i = and i64 %edata.val24, -4096
   %add.i = add i64 %and.i.i, -4096
   %sub.i = add i64 %add.i, %and.i3.i
-  call fastcc void @rtree_read_independent(ptr noundef nonnull %tsdn, ptr noundef %emap, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %sub.i, ptr noundef nonnull %contents.i)
+  call fastcc void @rtree_read_independent(ptr noundef nonnull %tsdn, ptr noundef %emap, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %sub.i, ptr noundef %contents.i)
   br label %do.end5
 
 do.end5:                                          ; preds = %if.then.i.i, %if.end.i.i.split
@@ -1647,7 +1647,7 @@ declare void @rtree_ctx_data_init(ptr noundef) local_unnamed_addr #1
 declare ptr @rtree_leaf_elm_lookup_hard(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtree_read_independent(ptr noundef %tsdn, ptr noundef %rtree, ptr noundef %rtree_ctx, i64 noundef %key, ptr nocapture noundef writeonly %r_contents) unnamed_addr #0 {
+define internal fastcc void @rtree_read_independent(ptr noundef %tsdn, ptr noundef %rtree, ptr noundef nonnull %rtree_ctx, i64 noundef %key, ptr nocapture noundef nonnull writeonly %r_contents) unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %key, 30
   %and.i = and i64 %shr.i, 15

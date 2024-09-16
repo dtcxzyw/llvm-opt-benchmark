@@ -4736,7 +4736,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEEC2ERKS3_.exit: ; preds = %if.then, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %call5 = invoke fastcc noundef i32 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114GetInputFileBDESt10shared_ptrIKNS_6OpDataEE(ptr noundef nonnull %agg.tmp)
+  %call5 = invoke fastcc noundef i32 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114GetInputFileBDESt10shared_ptrIKNS_6OpDataEE(ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEEC2ERKS3_.exit
@@ -4955,7 +4955,7 @@ if.else.i.i.i.i.i130:                             ; preds = %if.then.i.i.i125
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEEC2ERKS3_.exit131
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEEC2ERKS3_.exit131: ; preds = %if.then8, %if.then.i.i.i.i.i128, %if.else.i.i.i.i.i130
-  %call14 = invoke fastcc noundef i32 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114GetInputFileBDESt10shared_ptrIKNS_6OpDataEE(ptr noundef nonnull %agg.tmp11)
+  %call14 = invoke fastcc noundef i32 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114GetInputFileBDESt10shared_ptrIKNS_6OpDataEE(ptr noundef %agg.tmp11)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEEC2ERKS3_.exit131
@@ -10751,7 +10751,7 @@ _ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 1, 0) i32 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114GetInputFileBDESt10shared_ptrIKNS_6OpDataEE(ptr nocapture noundef readonly %op) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 1, 0) i32 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114GetInputFileBDESt10shared_ptrIKNS_6OpDataEE(ptr nocapture noundef nonnull readonly %op) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %mat = alloca %"class.std::shared_ptr.86", align 8
   %range = alloca %"class.std::shared_ptr.93", align 8
@@ -12755,7 +12755,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataELN9__gnu_cxx12_Lock_pol
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 1, 0) i32 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124GetValidatedFileBitDepthENS_8BitDepthENS_6OpData4TypeE(i32 noundef %bd, i32 noundef %type) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 1, 0) i32 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124GetValidatedFileBitDepthENS_8BitDepthENS_6OpData4TypeE(i32 noundef %bd, i32 noundef range(i32 9, 13) %type) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %typeName = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -24602,7 +24602,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef no
 declare noundef double @_ZN19OpenColorIO_v2_4dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111WriteValuesIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfEEvRNS_12XmlFormatterET_SC_jNS_8BitDepthEjT0_(ptr noundef nonnull align 8 dereferenceable(16) %formatter, ptr %valuesBegin.coerce, ptr readnone %valuesEnd.coerce, i32 noundef %valuesPerLine, i32 noundef %bitDepth, i32 noundef %iterStep, float noundef %scale) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111WriteValuesIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfEEvRNS_12XmlFormatterET_SC_jNS_8BitDepthEjT0_(ptr noundef nonnull align 8 dereferenceable(16) %formatter, ptr %valuesBegin.coerce, ptr readnone %valuesEnd.coerce, i32 noundef %valuesPerLine, i32 noundef %bitDepth, i32 noundef range(i32 1, 4) %iterStep, float noundef %scale) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -26123,7 +26123,7 @@ if.else249.invoke:                                ; preds = %if.then77, %if.else
   %112 = phi ptr [ %add.ptr281, %if.else249 ], [ %add.ptr247, %if.then203 ], [ %add.ptr196, %if.else143 ], [ %add.ptr141, %if.then77 ]
   %113 = phi i32 [ 3, %if.else249 ], [ 4, %if.then203 ], [ 4, %if.else143 ], [ 5, %if.then77 ]
   %114 = load ptr, ptr %m_formatter, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111WriteValuesIPKddEEvRNS_12XmlFormatterET_S6_jNS_8BitDepthEjT0_(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef nonnull %111, ptr noundef nonnull %112, i32 noundef %113)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111WriteValuesIPKddEEvRNS_12XmlFormatterET_S6_jNS_8BitDepthEjT0_(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef %111, ptr noundef %112, i32 noundef %113)
           to label %if.end284 unwind label %lpad44
 
 if.end284:                                        ; preds = %if.else249.invoke
@@ -26278,7 +26278,7 @@ ehcleanup296:                                     ; preds = %ehcleanup295, %lpad
 declare void @_ZNK19OpenColorIO_v2_4dev12MatrixOpData12getAsForwardEv(ptr sret(%"class.std::shared_ptr.90") align 8, ptr noundef nonnull align 8 dereferenceable(260)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111WriteValuesIPKddEEvRNS_12XmlFormatterET_S6_jNS_8BitDepthEjT0_(ptr noundef nonnull align 8 dereferenceable(16) %formatter, ptr noundef %valuesBegin, ptr noundef readnone %valuesEnd, i32 noundef %valuesPerLine) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111WriteValuesIPKddEEvRNS_12XmlFormatterET_S6_jNS_8BitDepthEjT0_(ptr noundef nonnull align 8 dereferenceable(16) %formatter, ptr noundef nonnull %valuesBegin, ptr noundef nonnull readnone %valuesEnd, i32 noundef range(i32 3, 6) %valuesPerLine) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

@@ -739,7 +739,7 @@ _ZNSt6vectorImSaImEED2Ev.exit5:                   ; preds = %if.then.i.i.i4, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL17QueryEdgeToStringB5cxx11EPKNS_15QueryGraphEdges9QueryEdgeENS_6vectorImLb1EEE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr nocapture noundef readonly %info, ptr noundef %prefix) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL17QueryEdgeToStringB5cxx11EPKNS_15QueryGraphEdges9QueryEdgeENS_6vectorImLb1EEE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr nocapture noundef readonly %info, ptr noundef nonnull %prefix) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %values.i.i = alloca %"class.std::vector.756", align 8
   %source = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15875,7 +15875,7 @@ _ZNSt6vectorImSaImEED2Ev.exit224:                 ; preds = %if.then.i.i.i223, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL18GetAllNeighborSetsENS_6vectorImLb1EEE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr nocapture noundef readonly %neighbors) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL18GetAllNeighborSetsENS_6vectorImLb1EEE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef nonnull readonly %neighbors) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__alloc_node_gen.i.i.i.i.i = alloca %"struct.std::__detail::_AllocNode.815", align 8
   %__alloc_node_gen.i.i.i.i.i.i = alloca %"struct.std::__detail::_AllocNode.815", align 8
@@ -35789,7 +35789,7 @@ _ZN6duckdb6vectorINS_10unique_ptrINS_10FilterInfoESt14default_deleteIS2_ELb1EEEL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL10PushFilterENS_10unique_ptrINS_15LogicalOperatorESt14default_deleteIS1_ELb1EEENS0_INS_10ExpressionES2_IS5_ELb1EEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, ptr noundef nonnull %node, ptr noundef %expr) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL10PushFilterENS_10unique_ptrINS_15LogicalOperatorESt14default_deleteIS1_ELb1EEENS0_INS_10ExpressionES2_IS5_ELb1EEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef nonnull %node, ptr noundef nonnull %expr) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %filter = alloca %"class.duckdb::unique_ptr.853", align 8
   %call = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_15LogicalOperatorESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %node)
@@ -37121,7 +37121,7 @@ ehcleanup37:                                      ; preds = %_ZNSt6vectorIN6duck
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL21GetChildColumnBindingERNS_10ExpressionE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %expr) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL21GetChildColumnBindingERNS_10ExpressionE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %expr) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp10 = alloca %"class.std::function.869", align 8
   %child_binding.i = getelementptr inbounds i8, ptr %agg.result, i64 8

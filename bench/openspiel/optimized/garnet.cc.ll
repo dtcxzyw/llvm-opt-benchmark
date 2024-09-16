@@ -6065,7 +6065,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel6garnet12_GLOBAL__N_113StateToStringB5cxx11Eiilib(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel6garnet12_GLOBAL__N_113StateToStringB5cxx11Eiilib(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1, i32 noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %7 = alloca [3 x %"class.absl::debian2::string_view"], align 16
   %8 = alloca [2 x %"class.absl::debian2::string_view"], align 16
   %9 = alloca [2 x %"class.absl::debian2::string_view"], align 16

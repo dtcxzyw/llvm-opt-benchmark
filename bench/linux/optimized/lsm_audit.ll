@@ -687,22 +687,22 @@ define dso_local void @common_lsm_audit(ptr noundef %0, ptr noundef readonly %1,
   %133 = load i32, ptr %132, align 4
   %134 = getelementptr inbounds i8, ptr %126, i64 766
   %135 = load i16, ptr %134, align 2
-  call fastcc void @print_ipv4_addr(ptr noundef nonnull %15, i32 noundef %133, i16 noundef zeroext %135, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
+  call fastcc void @print_ipv4_addr(ptr noundef %15, i32 noundef %133, i16 noundef zeroext %135, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
   %136 = load i32, ptr %126, align 8
   %137 = getelementptr inbounds i8, ptr %126, i64 12
   %138 = load i16, ptr %137, align 4
-  call fastcc void @print_ipv4_addr(ptr noundef nonnull %15, i32 noundef %136, i16 noundef zeroext %138, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
+  call fastcc void @print_ipv4_addr(ptr noundef %15, i32 noundef %136, i16 noundef zeroext %138, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
   br label %166
 
 139:                                              ; preds = %128
   %140 = getelementptr inbounds i8, ptr %126, i64 72
   %141 = getelementptr inbounds i8, ptr %126, i64 766
   %142 = load i16, ptr %141, align 2
-  call fastcc void @print_ipv6_addr(ptr noundef nonnull %15, ptr noundef %140, i16 noundef zeroext %142, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
+  call fastcc void @print_ipv6_addr(ptr noundef %15, ptr noundef %140, i16 noundef zeroext %142, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
   %143 = getelementptr inbounds i8, ptr %126, i64 56
   %144 = getelementptr inbounds i8, ptr %126, i64 12
   %145 = load i16, ptr %144, align 4
-  call fastcc void @print_ipv6_addr(ptr noundef nonnull %15, ptr noundef %143, i16 noundef zeroext %145, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
+  call fastcc void @print_ipv6_addr(ptr noundef %15, ptr noundef %143, i16 noundef zeroext %145, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
   br label %166
 
 146:                                              ; preds = %128
@@ -976,14 +976,14 @@ declare dso_local void @audit_log_d_path(ptr noundef, ptr noundef, ptr noundef) 
 declare dso_local ptr @d_find_alias_rcu(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @print_ipv4_addr(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #7 align 16 {
+define internal fastcc void @print_ipv4_addr(ptr noundef nonnull %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #7 align 16 {
   %6 = alloca i32, align 4
   store i32 %1, ptr %6, align 4
   %7 = icmp eq i32 %1, 0
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %5
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef %3, ptr noundef nonnull %6) #8
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %0, ptr noundef nonnull @.str.25, ptr noundef %3, ptr noundef nonnull %6) #8
   br label %9
 
 9:                                                ; preds = %8, %5
@@ -993,7 +993,7 @@ define internal fastcc void @print_ipv4_addr(ptr noundef %0, i32 noundef %1, i16
 11:                                               ; preds = %9
   %12 = call i16 @llvm.bswap.i16(i16 %2)
   %13 = zext i16 %12 to i32
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef %4, i32 noundef %13) #8
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef %4, i32 noundef %13) #8
   br label %14
 
 14:                                               ; preds = %11, %9
@@ -1001,7 +1001,7 @@ define internal fastcc void @print_ipv4_addr(ptr noundef %0, i32 noundef %1, i16
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @print_ipv6_addr(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #7 align 16 {
+define internal fastcc void @print_ipv6_addr(ptr noundef nonnull %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #7 align 16 {
   %6 = load i64, ptr %1, align 8
   %7 = getelementptr i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
@@ -1010,7 +1010,7 @@ define internal fastcc void @print_ipv6_addr(ptr noundef %0, ptr noundef %1, i16
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %5
-  tail call void (ptr, ptr, ...) @audit_log_format(ptr noundef %0, ptr noundef nonnull @.str.27, ptr noundef %3, ptr noundef %1) #8
+  tail call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %0, ptr noundef nonnull @.str.27, ptr noundef %3, ptr noundef %1) #8
   br label %12
 
 12:                                               ; preds = %11, %5
@@ -1020,7 +1020,7 @@ define internal fastcc void @print_ipv6_addr(ptr noundef %0, ptr noundef %1, i16
 14:                                               ; preds = %12
   %15 = tail call i16 @llvm.bswap.i16(i16 %2)
   %16 = zext i16 %15 to i32
-  tail call void (ptr, ptr, ...) @audit_log_format(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef %4, i32 noundef %16) #8
+  tail call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef %4, i32 noundef %16) #8
   br label %17
 
 17:                                               ; preds = %14, %12

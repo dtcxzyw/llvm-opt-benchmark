@@ -947,7 +947,7 @@ _ZNK2cv11_InputArray6getMatEi.exit50:             ; preds = %99, %102
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_8colormap8ColorMapclERKNS0_11_InputArrayERKNS0_12_OutputArrayEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %118, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_8colormap8ColorMapclERKNS0_11_InputArrayERKNS0_12_OutputArrayEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %115, align 8
   %119 = sitofp i32 %110 to double
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %16, ptr noundef nonnull %18, double noundef %119)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %16, ptr noundef %18, double noundef %119)
           to label %120 unwind label %129
 
 120:                                              ; preds = %117
@@ -1011,7 +1011,7 @@ _ZNK2cv11_InputArray6getMatEi.exit50:             ; preds = %99, %102
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_8colormap8ColorMapclERKNS0_11_InputArrayERKNS0_12_OutputArrayEE3$_1E9_M_invokeERKSt9_Any_dataS3_", ptr %143, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_8colormap8ColorMapclERKNS0_11_InputArrayERKNS0_12_OutputArrayEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %140, align 8
   %144 = sitofp i32 %110 to double
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %16, ptr noundef nonnull %20, double noundef %144)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %16, ptr noundef %20, double noundef %144)
           to label %145 unwind label %152
 
 145:                                              ; preds = %142
@@ -1128,7 +1128,7 @@ declare void @_ZN2cv8cvtColorERKNS_11_InputArrayERKNS_12_OutputArrayEii(ptr noun
 declare void @_ZNK2cv12_OutputArray6createENS_5Size_IiEEiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24), i64, i32 noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef %1, double noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull %1, double noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::ParallelLoopBodyLambdaWrapper", align 8
   %5 = alloca %"class.std::function", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1319,7 +1319,7 @@ define hidden void @_ZN2cv8colormap8ColorMap15linear_colormapERKNS_11_InputArray
   %10 = alloca %"class.cv::_OutputArray", align 8
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #18
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #18
-  invoke fastcc void @_ZN2cvL7interp1ERKNS_11_InputArrayES2_S2_(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  invoke fastcc void @_ZN2cvL7interp1ERKNS_11_InputArrayES2_S2_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %12 unwind label %.thread
 
 .thread:                                          ; preds = %6
@@ -1329,12 +1329,12 @@ define hidden void @_ZN2cv8colormap8ColorMap15linear_colormapERKNS_11_InputArray
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds i8, ptr %8, i64 96
-  invoke fastcc void @_ZN2cvL7interp1ERKNS_11_InputArrayES2_S2_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  invoke fastcc void @_ZN2cvL7interp1ERKNS_11_InputArrayES2_S2_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %14 unwind label %24
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %8, i64 192
-  invoke fastcc void @_ZN2cvL7interp1ERKNS_11_InputArrayES2_S2_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  invoke fastcc void @_ZN2cvL7interp1ERKNS_11_InputArrayES2_S2_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %16 unwind label %24
 
 16:                                               ; preds = %14
@@ -1413,7 +1413,7 @@ define hidden void @_ZN2cv8colormap8ColorMap15linear_colormapERKNS_11_InputArray
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7interp1ERKNS_11_InputArrayES2_S2_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7interp1ERKNS_11_InputArrayES2_S2_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::_OutputArray", align 8
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.cv::Mat", align 8
@@ -1680,7 +1680,7 @@ _ZNK2cv11_InputArray6getMatEi.exit27:             ; preds = %105, %108
   store i32 16842752, ptr %74, align 8, !noalias !19
   %157 = getelementptr inbounds i8, ptr %74, i64 8
   store ptr %82, ptr %157, align 8, !noalias !19
-  invoke fastcc void @_ZN2cvL7argsortERKNS_11_InputArrayEb(ptr dead_on_unwind noalias nonnull writable align 8 %73, ptr noundef nonnull align 8 dereferenceable(24) %74)
+  invoke fastcc void @_ZN2cvL7argsortERKNS_11_InputArrayEb(ptr dead_on_unwind noalias writable align 8 %73, ptr noundef nonnull align 8 dereferenceable(24) %74)
           to label %.noexc28 unwind label %283
 
 .noexc28:                                         ; preds = %152
@@ -1723,7 +1723,7 @@ _ZNK2cv11_InputArray6getMatEi.exit27:             ; preds = %105, %108
   store i32 -2130509820, ptr %77, align 8, !noalias !19
   %170 = getelementptr inbounds i8, ptr %77, i64 8
   store ptr %72, ptr %170, align 8, !noalias !19
-  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias nonnull writable align 8 %75, ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef nonnull align 8 dereferenceable(24) %77)
+  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias writable align 8 %75, ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef nonnull align 8 dereferenceable(24) %77)
           to label %171 unwind label %227, !noalias !19
 
 171:                                              ; preds = %164
@@ -1741,7 +1741,7 @@ _ZNK2cv11_InputArray6getMatEi.exit27:             ; preds = %105, %108
   store i32 -2130509820, ptr %80, align 8, !noalias !19
   %177 = getelementptr inbounds i8, ptr %80, i64 8
   store ptr %72, ptr %177, align 8, !noalias !19
-  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias nonnull writable align 8 %78, ptr noundef nonnull align 8 dereferenceable(24) %79, ptr noundef nonnull align 8 dereferenceable(24) %80)
+  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias writable align 8 %78, ptr noundef nonnull align 8 dereferenceable(24) %79, ptr noundef nonnull align 8 dereferenceable(24) %80)
           to label %178 unwind label %229, !noalias !19
 
 178:                                              ; preds = %171
@@ -1979,7 +1979,7 @@ _ZN2cvL8interp1_IcEENS_3MatERKS1_S3_S3_.exit:     ; preds = %._crit_edge71.i, %2
   store i32 16842752, ptr %63, align 8, !noalias !32
   %290 = getelementptr inbounds i8, ptr %63, i64 8
   store ptr %82, ptr %290, align 8, !noalias !32
-  invoke fastcc void @_ZN2cvL7argsortERKNS_11_InputArrayEb(ptr dead_on_unwind noalias nonnull writable align 8 %62, ptr noundef nonnull align 8 dereferenceable(24) %63)
+  invoke fastcc void @_ZN2cvL7argsortERKNS_11_InputArrayEb(ptr dead_on_unwind noalias writable align 8 %62, ptr noundef nonnull align 8 dereferenceable(24) %63)
           to label %.noexc64 unwind label %283
 
 .noexc64:                                         ; preds = %285
@@ -2022,7 +2022,7 @@ _ZN2cvL8interp1_IcEENS_3MatERKS1_S3_S3_.exit:     ; preds = %._crit_edge71.i, %2
   store i32 -2130509820, ptr %66, align 8, !noalias !32
   %303 = getelementptr inbounds i8, ptr %66, i64 8
   store ptr %61, ptr %303, align 8, !noalias !32
-  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias nonnull writable align 8 %64, ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %66)
+  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias writable align 8 %64, ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %66)
           to label %304 unwind label %360, !noalias !32
 
 304:                                              ; preds = %297
@@ -2040,7 +2040,7 @@ _ZN2cvL8interp1_IcEENS_3MatERKS1_S3_S3_.exit:     ; preds = %._crit_edge71.i, %2
   store i32 -2130509820, ptr %69, align 8, !noalias !32
   %310 = getelementptr inbounds i8, ptr %69, i64 8
   store ptr %61, ptr %310, align 8, !noalias !32
-  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias nonnull writable align 8 %67, ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %69)
+  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias writable align 8 %67, ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %69)
           to label %311 unwind label %362, !noalias !32
 
 311:                                              ; preds = %304
@@ -2273,7 +2273,7 @@ _ZN2cvL8interp1_IhEENS_3MatERKS1_S3_S3_.exit:     ; preds = %._crit_edge71.i43, 
   store i32 16842752, ptr %52, align 8, !noalias !44
   %421 = getelementptr inbounds i8, ptr %52, i64 8
   store ptr %82, ptr %421, align 8, !noalias !44
-  invoke fastcc void @_ZN2cvL7argsortERKNS_11_InputArrayEb(ptr dead_on_unwind noalias nonnull writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(24) %52)
+  invoke fastcc void @_ZN2cvL7argsortERKNS_11_InputArrayEb(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(24) %52)
           to label %.noexc102 unwind label %283
 
 .noexc102:                                        ; preds = %416
@@ -2316,7 +2316,7 @@ _ZN2cvL8interp1_IhEENS_3MatERKS1_S3_S3_.exit:     ; preds = %._crit_edge71.i43, 
   store i32 -2130509820, ptr %55, align 8, !noalias !44
   %434 = getelementptr inbounds i8, ptr %55, i64 8
   store ptr %50, ptr %434, align 8, !noalias !44
-  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias nonnull writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 8 dereferenceable(24) %55)
+  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 8 dereferenceable(24) %55)
           to label %435 unwind label %491, !noalias !44
 
 435:                                              ; preds = %428
@@ -2334,7 +2334,7 @@ _ZN2cvL8interp1_IhEENS_3MatERKS1_S3_S3_.exit:     ; preds = %._crit_edge71.i43, 
   store i32 -2130509820, ptr %58, align 8, !noalias !44
   %441 = getelementptr inbounds i8, ptr %58, i64 8
   store ptr %50, ptr %441, align 8, !noalias !44
-  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias nonnull writable align 8 %56, ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %58)
+  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias writable align 8 %56, ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %58)
           to label %442 unwind label %493, !noalias !44
 
 442:                                              ; preds = %435
@@ -2567,7 +2567,7 @@ _ZN2cvL8interp1_IsEENS_3MatERKS1_S3_S3_.exit:     ; preds = %._crit_edge71.i81, 
   store i32 16842752, ptr %41, align 8, !noalias !56
   %552 = getelementptr inbounds i8, ptr %41, i64 8
   store ptr %82, ptr %552, align 8, !noalias !56
-  invoke fastcc void @_ZN2cvL7argsortERKNS_11_InputArrayEb(ptr dead_on_unwind noalias nonnull writable align 8 %40, ptr noundef nonnull align 8 dereferenceable(24) %41)
+  invoke fastcc void @_ZN2cvL7argsortERKNS_11_InputArrayEb(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef nonnull align 8 dereferenceable(24) %41)
           to label %.noexc140 unwind label %283
 
 .noexc140:                                        ; preds = %547
@@ -2610,7 +2610,7 @@ _ZN2cvL8interp1_IsEENS_3MatERKS1_S3_S3_.exit:     ; preds = %._crit_edge71.i81, 
   store i32 -2130509820, ptr %44, align 8, !noalias !56
   %565 = getelementptr inbounds i8, ptr %44, i64 8
   store ptr %39, ptr %565, align 8, !noalias !56
-  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias nonnull writable align 8 %42, ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %44)
+  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %44)
           to label %566 unwind label %622, !noalias !56
 
 566:                                              ; preds = %559
@@ -2628,7 +2628,7 @@ _ZN2cvL8interp1_IsEENS_3MatERKS1_S3_S3_.exit:     ; preds = %._crit_edge71.i81, 
   store i32 -2130509820, ptr %47, align 8, !noalias !56
   %572 = getelementptr inbounds i8, ptr %47, i64 8
   store ptr %39, ptr %572, align 8, !noalias !56
-  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %47)
+  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %47)
           to label %573 unwind label %624, !noalias !56
 
 573:                                              ; preds = %566
@@ -2861,7 +2861,7 @@ _ZN2cvL8interp1_ItEENS_3MatERKS1_S3_S3_.exit:     ; preds = %._crit_edge71.i119,
   store i32 16842752, ptr %30, align 8, !noalias !68
   %683 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %82, ptr %683, align 8, !noalias !68
-  invoke fastcc void @_ZN2cvL7argsortERKNS_11_InputArrayEb(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(24) %30)
+  invoke fastcc void @_ZN2cvL7argsortERKNS_11_InputArrayEb(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(24) %30)
           to label %.noexc178 unwind label %283
 
 .noexc178:                                        ; preds = %678
@@ -2904,7 +2904,7 @@ _ZN2cvL8interp1_ItEENS_3MatERKS1_S3_S3_.exit:     ; preds = %._crit_edge71.i119,
   store i32 -2130509820, ptr %33, align 8, !noalias !68
   %696 = getelementptr inbounds i8, ptr %33, i64 8
   store ptr %28, ptr %696, align 8, !noalias !68
-  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %33)
+  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %33)
           to label %697 unwind label %753, !noalias !68
 
 697:                                              ; preds = %690
@@ -2922,7 +2922,7 @@ _ZN2cvL8interp1_ItEENS_3MatERKS1_S3_S3_.exit:     ; preds = %._crit_edge71.i119,
   store i32 -2130509820, ptr %36, align 8, !noalias !68
   %703 = getelementptr inbounds i8, ptr %36, i64 8
   store ptr %28, ptr %703, align 8, !noalias !68
-  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %36)
+  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %36)
           to label %704 unwind label %755, !noalias !68
 
 704:                                              ; preds = %697
@@ -3149,7 +3149,7 @@ _ZN2cvL8interp1_IiEENS_3MatERKS1_S3_S3_.exit:     ; preds = %._crit_edge71.i157,
   store i32 16842752, ptr %19, align 8, !noalias !80
   %808 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %82, ptr %808, align 8, !noalias !80
-  invoke fastcc void @_ZN2cvL7argsortERKNS_11_InputArrayEb(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(24) %19)
+  invoke fastcc void @_ZN2cvL7argsortERKNS_11_InputArrayEb(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(24) %19)
           to label %.noexc215 unwind label %283
 
 .noexc215:                                        ; preds = %803
@@ -3192,7 +3192,7 @@ _ZN2cvL8interp1_IiEENS_3MatERKS1_S3_S3_.exit:     ; preds = %._crit_edge71.i157,
   store i32 -2130509820, ptr %22, align 8, !noalias !80
   %821 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %17, ptr %821, align 8, !noalias !80
-  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %22)
+  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %22)
           to label %822 unwind label %878, !noalias !80
 
 822:                                              ; preds = %815
@@ -3210,7 +3210,7 @@ _ZN2cvL8interp1_IiEENS_3MatERKS1_S3_S3_.exit:     ; preds = %._crit_edge71.i157,
   store i32 -2130509820, ptr %25, align 8, !noalias !80
   %828 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %17, ptr %828, align 8, !noalias !80
-  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25)
+  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25)
           to label %829 unwind label %880, !noalias !80
 
 829:                                              ; preds = %822
@@ -3437,7 +3437,7 @@ _ZN2cvL8interp1_IfEENS_3MatERKS1_S3_S3_.exit:     ; preds = %._crit_edge71.i195,
   store i32 16842752, ptr %8, align 8, !noalias !92
   %933 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %82, ptr %933, align 8, !noalias !92
-  invoke fastcc void @_ZN2cvL7argsortERKNS_11_InputArrayEb(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  invoke fastcc void @_ZN2cvL7argsortERKNS_11_InputArrayEb(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %.noexc253 unwind label %283
 
 .noexc253:                                        ; preds = %928
@@ -3480,7 +3480,7 @@ _ZN2cvL8interp1_IfEENS_3MatERKS1_S3_S3_.exit:     ; preds = %._crit_edge71.i195,
   store i32 -2130509820, ptr %11, align 8, !noalias !92
   %946 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %6, ptr %946, align 8, !noalias !92
-  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %947 unwind label %1003, !noalias !92
 
 947:                                              ; preds = %940
@@ -3498,7 +3498,7 @@ _ZN2cvL8interp1_IfEENS_3MatERKS1_S3_S3_.exit:     ; preds = %._crit_edge71.i195,
   store i32 -2130509820, ptr %14, align 8, !noalias !92
   %953 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %6, ptr %953, align 8, !noalias !92
-  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14)
+  invoke fastcc void @_ZN2cvL23sortMatrixRowsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14)
           to label %954 unwind label %1005, !noalias !92
 
 954:                                              ; preds = %947
@@ -4494,7 +4494,7 @@ declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #4
 declare void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7argsortERKNS_11_InputArrayEb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7argsortERKNS_11_InputArrayEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::Mat", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1

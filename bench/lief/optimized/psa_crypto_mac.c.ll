@@ -132,26 +132,24 @@ mac_init.exit:                                    ; preds = %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
   store i64 %3, ptr %6, align 8
-  %33 = and i32 %4, 255
-  %trunc.i = trunc i32 %4 to i8
-  switch i8 %trunc.i, label %34 [
-    i8 3, label %.thread84.i
-    i8 4, label %.fold.split81.i
-    i8 5, label %.fold.split81.i
-    i8 8, label %.fold.split.i
-    i8 9, label %.fold.split66.i
-    i8 10, label %.thread.i
-    i8 11, label %.fold.split68.i
-    i8 12, label %.fold.split69.i
-    i8 13, label %.fold.split70.i
-    i8 16, label %.thread91.i
-    i8 17, label %.thread91.i
-    i8 18, label %.thread87.thread.i
+  switch i32 %32, label %33 [
+    i32 33554435, label %.thread84.i
+    i32 33554436, label %.fold.split81.i
+    i32 33554437, label %.fold.split81.i
+    i32 33554440, label %.fold.split.i
+    i32 33554441, label %.fold.split66.i
+    i32 33554442, label %.thread.i
+    i32 33554443, label %.fold.split68.i
+    i32 33554444, label %.fold.split69.i
+    i32 33554445, label %.fold.split70.i
+    i32 33554448, label %.thread91.i
+    i32 33554449, label %.thread91.i
+    i32 33554450, label %.thread87.thread.i
   ]
 
-34:                                               ; preds = %30
-  %35 = icmp eq i32 %33, 19
-  %36 = select i1 %35, i64 64, i64 0
+33:                                               ; preds = %30
+  %34 = icmp eq i32 %32, 33554451
+  %35 = select i1 %34, i64 64, i64 0
   br label %.fold.split81.i
 
 .fold.split.i:                                    ; preds = %30
@@ -175,20 +173,21 @@ mac_init.exit:                                    ; preds = %12
 .thread84.i:                                      ; preds = %30
   br label %.thread87.thread.i
 
-.fold.split81.i:                                  ; preds = %34, %30, %30
-  %37 = phi i64 [ %36, %34 ], [ 20, %30 ], [ 20, %30 ]
-  switch i8 %trunc.i, label %.thread87.i [
-    i8 9, label %.thread87.thread.i
-    i8 8, label %.thread87.thread.i
-    i8 5, label %.thread87.thread.i
-    i8 4, label %.thread87.thread.i
-    i8 18, label %.fold.split79.i
-    i8 10, label %.fold.split80.i
-    i8 11, label %.fold.split80.i
-    i8 12, label %.fold.split80.i
-    i8 13, label %.fold.split80.i
-    i8 16, label %.thread91.i
-    i8 17, label %.thread91.i
+.fold.split81.i:                                  ; preds = %33, %30, %30
+  %36 = phi i64 [ %35, %33 ], [ 20, %30 ], [ 20, %30 ]
+  switch i32 %32, label %.thread87.i [
+    i32 33554441, label %.thread87.thread.i
+    i32 33554440, label %.thread87.thread.i
+    i32 33554437, label %.thread87.thread.i
+    i32 33554436, label %.thread87.thread.i
+    i32 33554435, label %.thread87.thread.i
+    i32 33554442, label %.fold.split80.i
+    i32 33554443, label %.fold.split80.i
+    i32 33554444, label %.fold.split80.i
+    i32 33554445, label %.fold.split80.i
+    i32 33554448, label %.thread91.i
+    i32 33554449, label %.thread91.i
+    i32 33554450, label %.fold.split79.i
   ]
 
 .fold.split79.i:                                  ; preds = %.fold.split81.i
@@ -201,99 +200,99 @@ mac_init.exit:                                    ; preds = %12
   store i32 %32, ptr %31, align 8
   br label %psa_hmac_setup_internal.exit
 
-.thread87.thread.i:                               ; preds = %.fold.split80.i, %.fold.split79.i, %.fold.split81.i, %.fold.split81.i, %.fold.split81.i, %.fold.split81.i, %.thread84.i, %.thread.i, %.fold.split70.i, %.fold.split69.i, %.fold.split68.i, %.fold.split66.i, %.fold.split.i, %30
-  %.ph103.i = phi i64 [ 64, %.thread84.i ], [ 64, %.fold.split.i ], [ 64, %.fold.split66.i ], [ 128, %.thread.i ], [ 128, %.fold.split68.i ], [ 128, %.fold.split69.i ], [ 128, %.fold.split70.i ], [ 104, %30 ], [ 128, %.fold.split80.i ], [ 104, %.fold.split79.i ], [ 64, %.fold.split81.i ], [ 64, %.fold.split81.i ], [ 64, %.fold.split81.i ], [ 64, %.fold.split81.i ]
+.thread87.thread.i:                               ; preds = %.fold.split80.i, %.fold.split79.i, %.fold.split81.i, %.fold.split81.i, %.fold.split81.i, %.fold.split81.i, %.fold.split81.i, %.thread84.i, %.thread.i, %.fold.split70.i, %.fold.split69.i, %.fold.split68.i, %.fold.split66.i, %.fold.split.i, %30
+  %.ph102.i = phi i64 [ 64, %.thread84.i ], [ 64, %.fold.split.i ], [ 64, %.fold.split66.i ], [ 128, %.thread.i ], [ 128, %.fold.split68.i ], [ 128, %.fold.split69.i ], [ 128, %.fold.split70.i ], [ 104, %30 ], [ 128, %.fold.split80.i ], [ 104, %.fold.split79.i ], [ 64, %.fold.split81.i ], [ 64, %.fold.split81.i ], [ 64, %.fold.split81.i ], [ 64, %.fold.split81.i ], [ 64, %.fold.split81.i ]
   store i32 %32, ptr %31, align 8
-  br label %41
+  br label %40
 
 .thread87.i:                                      ; preds = %.fold.split81.i
-  %38 = icmp eq i32 %33, 19
-  %39 = select i1 %38, i64 72, i64 0
+  %37 = icmp eq i32 %32, 33554451
+  %38 = select i1 %37, i64 72, i64 0
   store i32 %32, ptr %31, align 8
-  %40 = icmp ult i64 %39, %37
-  br i1 %40, label %psa_hmac_setup_internal.exit, label %41
+  %39 = icmp ult i64 %38, %36
+  br i1 %39, label %psa_hmac_setup_internal.exit, label %40
 
-41:                                               ; preds = %.thread87.i, %.thread87.thread.i
-  %42 = phi i64 [ %.ph103.i, %.thread87.thread.i ], [ %39, %.thread87.i ]
-  %43 = icmp ugt i64 %3, %42
-  br i1 %43, label %44, label %46
+40:                                               ; preds = %.thread87.i, %.thread87.thread.i
+  %41 = phi i64 [ %.ph102.i, %.thread87.thread.i ], [ %38, %.thread87.i ]
+  %42 = icmp ugt i64 %3, %41
+  br i1 %42, label %43, label %45
 
-44:                                               ; preds = %41
-  %45 = call i32 @psa_hash_compute(i32 noundef %32, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %7, i64 noundef 128, ptr noundef nonnull %6) #5
-  %.not64.i = icmp eq i32 %45, 0
-  br i1 %.not64.i, label %47, label %70
+43:                                               ; preds = %40
+  %44 = call i32 @psa_hash_compute(i32 noundef %32, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %7, i64 noundef 128, ptr noundef nonnull %6) #5
+  %.not64.i = icmp eq i32 %44, 0
+  br i1 %.not64.i, label %46, label %69
 
-46:                                               ; preds = %41
+45:                                               ; preds = %40
   %.not.i21 = icmp eq i64 %3, 0
-  br i1 %.not.i21, label %._crit_edge.thread.i, label %.thread107.i
+  br i1 %.not.i21, label %._crit_edge.thread.i, label %.thread106.i
 
-.thread107.i:                                     ; preds = %46
+.thread106.i:                                     ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %2, i64 %3, i1 false)
   br label %.lr.ph.preheader.i
 
-47:                                               ; preds = %44
+46:                                               ; preds = %43
   %.pre.i = load i64, ptr %6, align 8
-  %.not99.i = icmp eq i64 %.pre.i, 0
-  br i1 %.not99.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
+  %.not98.i = icmp eq i64 %.pre.i, 0
+  br i1 %.not98.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %47, %.thread107.i
-  %48 = phi i64 [ %3, %.thread107.i ], [ %.pre.i, %47 ]
+.lr.ph.preheader.i:                               ; preds = %46, %.thread106.i
+  %47 = phi i64 [ %3, %.thread106.i ], [ %.pre.i, %46 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.05594.i = phi i64 [ %52, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %49 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %.05594.i
-  %50 = load i8, ptr %49, align 1
-  %51 = xor i8 %50, 54
-  store i8 %51, ptr %49, align 1
-  %52 = add nuw i64 %.05594.i, 1
-  %exitcond.not.i = icmp eq i64 %52, %48
+  %.05593.i = phi i64 [ %51, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %48 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %.05593.i
+  %49 = load i8, ptr %48, align 1
+  %50 = xor i8 %49, 54
+  store i8 %50, ptr %48, align 1
+  %51 = add nuw i64 %.05593.i, 1
+  %exitcond.not.i = icmp eq i64 %51, %47
   br i1 %exitcond.not.i, label %._crit_edge.i22, label %.lr.ph.i, !llvm.loop !4
 
-._crit_edge.thread.i:                             ; preds = %47, %46
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 54, i64 %42, i1 false)
-  br label %._crit_edge98.i
+._crit_edge.thread.i:                             ; preds = %46, %45
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 54, i64 %41, i1 false)
+  br label %._crit_edge97.i
 
 ._crit_edge.i22:                                  ; preds = %.lr.ph.i
-  %53 = getelementptr inbounds i8, ptr %7, i64 %48
-  %54 = sub i64 %42, %48
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %53, i8 54, i64 %54, i1 false)
-  %55 = getelementptr inbounds i8, ptr %0, i64 248
-  br label %56
+  %52 = getelementptr inbounds i8, ptr %7, i64 %47
+  %53 = sub i64 %41, %47
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %52, i8 54, i64 %53, i1 false)
+  %54 = getelementptr inbounds i8, ptr %0, i64 248
+  br label %55
 
-56:                                               ; preds = %56, %._crit_edge.i22
-  %.195.i = phi i64 [ 0, %._crit_edge.i22 ], [ %61, %56 ]
-  %57 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %.195.i
-  %58 = load i8, ptr %57, align 1
-  %59 = xor i8 %58, 106
-  %60 = getelementptr inbounds [128 x i8], ptr %55, i64 0, i64 %.195.i
-  store i8 %59, ptr %60, align 1
-  %61 = add nuw i64 %.195.i, 1
-  %exitcond101.not.i = icmp eq i64 %61, %48
-  br i1 %exitcond101.not.i, label %._crit_edge98.i, label %56, !llvm.loop !6
+55:                                               ; preds = %55, %._crit_edge.i22
+  %.194.i = phi i64 [ 0, %._crit_edge.i22 ], [ %60, %55 ]
+  %56 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %.194.i
+  %57 = load i8, ptr %56, align 1
+  %58 = xor i8 %57, 106
+  %59 = getelementptr inbounds [128 x i8], ptr %54, i64 0, i64 %.194.i
+  store i8 %58, ptr %59, align 1
+  %60 = add nuw i64 %.194.i, 1
+  %exitcond100.not.i = icmp eq i64 %60, %47
+  br i1 %exitcond100.not.i, label %._crit_edge97.i, label %55, !llvm.loop !6
 
-._crit_edge98.i:                                  ; preds = %56, %._crit_edge.thread.i
-  %62 = phi i64 [ %42, %._crit_edge.thread.i ], [ %54, %56 ]
-  %63 = phi i64 [ 0, %._crit_edge.thread.i ], [ %48, %56 ]
-  %64 = getelementptr inbounds i8, ptr %0, i64 248
-  %65 = getelementptr inbounds i8, ptr %64, i64 %63
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %65, i8 92, i64 %62, i1 false)
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
-  %67 = call i32 @psa_hash_setup(ptr noundef nonnull %66, i32 noundef %32) #5
-  %.not65.i = icmp eq i32 %67, 0
-  br i1 %.not65.i, label %68, label %70
+._crit_edge97.i:                                  ; preds = %55, %._crit_edge.thread.i
+  %61 = phi i64 [ %41, %._crit_edge.thread.i ], [ %53, %55 ]
+  %62 = phi i64 [ 0, %._crit_edge.thread.i ], [ %47, %55 ]
+  %63 = getelementptr inbounds i8, ptr %0, i64 248
+  %64 = getelementptr inbounds i8, ptr %63, i64 %62
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %64, i8 92, i64 %61, i1 false)
+  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = call i32 @psa_hash_setup(ptr noundef nonnull %65, i32 noundef %32) #5
+  %.not65.i = icmp eq i32 %66, 0
+  br i1 %.not65.i, label %67, label %69
 
-68:                                               ; preds = %._crit_edge98.i
-  %69 = call i32 @psa_hash_update(ptr noundef nonnull %66, ptr noundef nonnull %7, i64 noundef %42) #5
-  br label %70
+67:                                               ; preds = %._crit_edge97.i
+  %68 = call i32 @psa_hash_update(ptr noundef nonnull %65, ptr noundef nonnull %7, i64 noundef %41) #5
+  br label %69
 
-70:                                               ; preds = %68, %._crit_edge98.i, %44
-  %.0.i23 = phi i32 [ %45, %44 ], [ %67, %._crit_edge98.i ], [ %69, %68 ]
+69:                                               ; preds = %67, %._crit_edge97.i, %43
+  %.0.i23 = phi i32 [ %44, %43 ], [ %66, %._crit_edge97.i ], [ %68, %67 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 128) #5
   br label %psa_hmac_setup_internal.exit
 
-psa_hmac_setup_internal.exit:                     ; preds = %.thread91.i, %.thread87.i, %70
-  %.054.i = phi i32 [ %.0.i23, %70 ], [ -134, %.thread87.i ], [ -134, %.thread91.i ]
+psa_hmac_setup_internal.exit:                     ; preds = %.thread91.i, %.thread87.i, %69
+  %.054.i = phi i32 [ %.0.i23, %69 ], [ -134, %.thread87.i ], [ -134, %.thread91.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
   br label %cmac_setup.exit
@@ -305,42 +304,42 @@ cmac_setup.exit:                                  ; preds = %28, %psa_hmac_setup
 
 cmac_setup.exit.thread:                           ; preds = %._crit_edge.i, %19, %19, %cmac_setup.exit
   %.029 = phi i32 [ %.0, %cmac_setup.exit ], [ -134, %19 ], [ -134, %19 ], [ -134, %._crit_edge.i ]
-  %71 = load i32, ptr %0, align 8
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %mbedtls_psa_mac_abort.exit, label %73
+  %70 = load i32, ptr %0, align 8
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %mbedtls_psa_mac_abort.exit, label %72
 
-73:                                               ; preds = %cmac_setup.exit.thread
-  %74 = and i32 %71, -4161537
-  %75 = icmp eq i32 %74, 62915072
-  br i1 %75, label %76, label %78
+72:                                               ; preds = %cmac_setup.exit.thread
+  %73 = and i32 %70, -4161537
+  %74 = icmp eq i32 %73, 62915072
+  br i1 %74, label %75, label %77
 
-76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @mbedtls_cipher_free(ptr noundef nonnull %77) #5
-  br label %85
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @mbedtls_cipher_free(ptr noundef nonnull %76) #5
+  br label %84
 
-78:                                               ; preds = %73
-  %79 = and i32 %71, 2143289344
-  %80 = icmp eq i32 %79, 58720256
-  br i1 %80, label %81, label %86
+77:                                               ; preds = %72
+  %78 = and i32 %70, 2143289344
+  %79 = icmp eq i32 %78, 58720256
+  br i1 %79, label %80, label %85
 
-81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %0, i64 248
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %82, i64 noundef 128) #5
-  %83 = getelementptr inbounds i8, ptr %0, i64 16
-  %84 = call i32 @psa_hash_abort(ptr noundef nonnull %83) #5
-  br label %85
+80:                                               ; preds = %77
+  %81 = getelementptr inbounds i8, ptr %0, i64 248
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %81, i64 noundef 128) #5
+  %82 = getelementptr inbounds i8, ptr %0, i64 16
+  %83 = call i32 @psa_hash_abort(ptr noundef nonnull %82) #5
+  br label %84
 
-85:                                               ; preds = %81, %76
+84:                                               ; preds = %80, %75
   store i32 0, ptr %0, align 8
   br label %mbedtls_psa_mac_abort.exit
 
-86:                                               ; preds = %78
+85:                                               ; preds = %77
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %0, i8 0, i64 376, i1 false)
   br label %mbedtls_psa_mac_abort.exit
 
-mbedtls_psa_mac_abort.exit:                       ; preds = %86, %85, %cmac_setup.exit.thread, %mac_init.exit, %cmac_setup.exit, %5
-  %.017 = phi i32 [ -137, %5 ], [ -134, %mac_init.exit ], [ 0, %cmac_setup.exit ], [ %.029, %cmac_setup.exit.thread ], [ %.029, %85 ], [ %.029, %86 ]
+mbedtls_psa_mac_abort.exit:                       ; preds = %85, %84, %cmac_setup.exit.thread, %mac_init.exit, %cmac_setup.exit, %5
+  %.017 = phi i32 [ -137, %5 ], [ -134, %mac_init.exit ], [ 0, %cmac_setup.exit ], [ %.029, %cmac_setup.exit.thread ], [ %.029, %84 ], [ %.029, %85 ]
   ret i32 %.017
 }
 

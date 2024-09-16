@@ -631,11 +631,11 @@ common.resume:                                    ; preds = %arraydestroy.body.i
 _ZN12CollatorSpecC2Ev.exit:                       ; preds = %invoke.cont10.i
   %options.i = getelementptr inbounds i8, ptr %s, i64 448
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %options.i, i8 -1, i64 32, i1 false)
-  %call5 = invoke fastcc noundef ptr @_ZL18ucol_sit_readSpecsP12CollatorSpecPKcP11UParseErrorP10UErrorCode(ptr noundef nonnull %s, ptr noundef %definition, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %status)
+  %call5 = invoke fastcc noundef ptr @_ZL18ucol_sit_readSpecsP12CollatorSpecPKcP11UParseErrorP10UErrorCode(ptr noundef %s, ptr noundef %definition, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %status)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN12CollatorSpecC2Ev.exit
-  invoke fastcc void @_ZL29ucol_sit_calculateWholeLocaleP12CollatorSpecR10UErrorCode(ptr noundef nonnull %s, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZL29ucol_sit_calculateWholeLocaleP12CollatorSpecR10UErrorCode(ptr noundef %s, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont
@@ -821,7 +821,7 @@ arraydestroy.body4.i42:                           ; preds = %arraydestroy.body4.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL18ucol_sit_readSpecsP12CollatorSpecPKcP11UParseErrorP10UErrorCode(ptr noundef %s, ptr noundef %string, ptr nocapture noundef writeonly %parseError, ptr noundef %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL18ucol_sit_readSpecsP12CollatorSpecPKcP11UParseErrorP10UErrorCode(ptr noundef nonnull %s, ptr noundef %string, ptr nocapture noundef writeonly %parseError, ptr noundef %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.icu_75::CharString", align 8
   %0 = load i32, ptr %status, align 4
@@ -867,7 +867,7 @@ if.then.i:                                        ; preds = %for.body.i
   %attr.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %5 = load i32, ptr %attr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %string.addr.019, i64 1
-  %call.i = call noundef ptr %4(ptr noundef %s, i32 noundef %5, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %status)
+  %call.i = call noundef ptr %4(ptr noundef nonnull %s, i32 noundef %5, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %status)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %string.addr.019 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -935,7 +935,7 @@ if.end:                                           ; preds = %land.rhs, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL29ucol_sit_calculateWholeLocaleP12CollatorSpecR10UErrorCode(ptr noundef %s, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 {
+define internal fastcc void @_ZL29ucol_sit_calculateWholeLocaleP12CollatorSpecR10UErrorCode(ptr noundef nonnull %s, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 {
 entry:
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
   %agg.tmp20 = alloca %"class.icu_75::StringPiece", align 8
@@ -1210,11 +1210,11 @@ common.resume:                                    ; preds = %arraydestroy.body.i
 _ZN12CollatorSpecC2Ev.exit:                       ; preds = %invoke.cont10.i
   %options.i = getelementptr inbounds i8, ptr %s, i64 448
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %options.i, i8 -1, i64 32, i1 false)
-  %call5 = invoke fastcc noundef ptr @_ZL18ucol_sit_readSpecsP12CollatorSpecPKcP11UParseErrorP10UErrorCode(ptr noundef nonnull %s, ptr noundef %definition, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %status)
+  %call5 = invoke fastcc noundef ptr @_ZL18ucol_sit_readSpecsP12CollatorSpecPKcP11UParseErrorP10UErrorCode(ptr noundef %s, ptr noundef %definition, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %status)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN12CollatorSpecC2Ev.exit
-  invoke fastcc void @_ZL29ucol_sit_calculateWholeLocaleP12CollatorSpecR10UErrorCode(ptr noundef nonnull %s, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZL29ucol_sit_calculateWholeLocaleP12CollatorSpecR10UErrorCode(ptr noundef %s, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont
@@ -1558,7 +1558,7 @@ common.resume:                                    ; preds = %arraydestroy.body.i
 _ZN12CollatorSpecC2Ev.exit:                       ; preds = %invoke.cont10.i
   %options.i = getelementptr inbounds i8, ptr %s, i64 448
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %options.i, i8 -1, i64 32, i1 false)
-  %call7 = invoke fastcc noundef ptr @_ZL18ucol_sit_readSpecsP12CollatorSpecPKcP11UParseErrorP10UErrorCode(ptr noundef nonnull %s, ptr noundef %definition, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %status)
+  %call7 = invoke fastcc noundef ptr @_ZL18ucol_sit_readSpecsP12CollatorSpecPKcP11UParseErrorP10UErrorCode(ptr noundef %s, ptr noundef %definition, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %status)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %_ZN12CollatorSpecC2Ev.exit

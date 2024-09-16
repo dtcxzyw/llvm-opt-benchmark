@@ -1639,7 +1639,7 @@ declare ptr @proto_tree_add_item_ret_int(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cql_transaction_add_request(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @cql_transaction_add_request(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = sext i32 %2 to i64
   %7 = inttoptr i64 %6 to ptr
@@ -1713,7 +1713,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_cql_query_parameters(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_cql_query_parameters(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1967,7 +1967,7 @@ define internal fastcc i32 @parse_option(ptr noundef %0, ptr noundef %1, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_row(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @parse_row(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 0) %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   store i32 %3, ptr %8, align 4
@@ -2116,7 +2116,7 @@ proto_item_set_hidden.exit42:                     ; preds = %proto_item_set_hidd
   %81 = load i32, ptr %8, align 4
   %82 = add i32 %81, %80
   store i32 %82, ptr %8, align 4
-  %83 = call fastcc i32 @parse_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, i32 noundef %.02743)
+  %83 = call fastcc i32 @parse_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %8, i32 noundef %.02743)
   %84 = add nuw nsw i32 %.044, 1
   %exitcond.not = icmp eq i32 %84, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
@@ -2153,7 +2153,7 @@ declare ptr @wmem_list_head(ptr noundef) local_unnamed_addr #1
 declare ptr @wmem_list_frame_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @parse_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct._e_guid_t, align 4
   %7 = alloca %struct._e_guid_t, align 4
   %8 = alloca i32, align 4
@@ -2494,7 +2494,7 @@ add_cql_uuid.exit232:                             ; preds = %143
   %.2263 = phi i32 [ %183, %.lr.ph ], [ %181, %180 ]
   %.0216262 = phi i32 [ %184, %.lr.ph ], [ 0, %180 ]
   store i32 %182, ptr %3, align 4
-  %183 = call fastcc i32 @parse_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %.2263)
+  %183 = call fastcc i32 @parse_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.2263)
   %184 = add nuw nsw i32 %.0216262, 1
   %185 = load i32, ptr %12, align 4
   %186 = icmp slt i32 %184, %185
@@ -2531,8 +2531,8 @@ add_cql_uuid.exit232:                             ; preds = %143
   %.3265 = phi i32 [ %205, %.lr.ph266 ], [ %192, %199 ]
   %.1217264 = phi i32 [ %206, %.lr.ph266 ], [ 0, %199 ]
   store i32 %201, ptr %3, align 4
-  %204 = call fastcc i32 @parse_value(ptr noundef %189, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %.3265)
-  %205 = call fastcc i32 @parse_value(ptr noundef %189, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %204)
+  %204 = call fastcc i32 @parse_value(ptr noundef %189, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.3265)
+  %205 = call fastcc i32 @parse_value(ptr noundef %189, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %204)
   %206 = add nuw nsw i32 %.1217264, 1
   %207 = load i32, ptr %13, align 4
   %208 = icmp slt i32 %206, %207
@@ -2567,7 +2567,7 @@ add_cql_uuid.exit232:                             ; preds = %143
   %.4269 = phi i32 [ %225, %.lr.ph270 ], [ %214, %220 ]
   %.2218268 = phi i32 [ %226, %.lr.ph270 ], [ 0, %220 ]
   store i32 %222, ptr %3, align 4
-  %225 = call fastcc i32 @parse_value(ptr noundef %211, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %.4269)
+  %225 = call fastcc i32 @parse_value(ptr noundef %211, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.4269)
   %226 = add nuw nsw i32 %.2218268, 1
   %227 = load i32, ptr %14, align 4
   %228 = icmp slt i32 %226, %227
@@ -2742,7 +2742,7 @@ proto_item_set_hidden.exit253:                    ; preds = %proto_item_set_hidd
   %313 = load i32, ptr %3, align 4
   %314 = add i32 %313, %312
   store i32 %314, ptr %3, align 4
-  %315 = call fastcc i32 @parse_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %.5273)
+  %315 = call fastcc i32 @parse_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.5273)
   %316 = add nuw i32 %.0219272, 1
   %317 = load i32, ptr %15, align 4
   %318 = icmp ult i32 %316, %317
@@ -2778,7 +2778,7 @@ proto_item_set_hidden.exit256:                    ; preds = %319, %322, %325
 .lr.ph278:                                        ; preds = %proto_item_set_hidden.exit256, %.lr.ph278
   %.6277 = phi i32 [ %332, %.lr.ph278 ], [ %20, %proto_item_set_hidden.exit256 ]
   %.1220276 = phi i32 [ %333, %.lr.ph278 ], [ 0, %proto_item_set_hidden.exit256 ]
-  %332 = call fastcc i32 @parse_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %.6277)
+  %332 = call fastcc i32 @parse_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.6277)
   %333 = add nuw i32 %.1220276, 1
   %334 = load i32, ptr %11, align 4
   %335 = icmp ult i32 %333, %334

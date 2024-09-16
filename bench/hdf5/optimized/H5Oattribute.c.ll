@@ -582,7 +582,7 @@ define ptr @H5O__attr_open_by_name(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %84
 
 25:                                               ; preds = %17, %12
-  %26 = call fastcc i32 @H5O__attr_find_opened_attr(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %1)
+  %26 = call fastcc i32 @H5O__attr_find_opened_attr(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %1)
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %28, label %32
 
@@ -721,7 +721,7 @@ declare void @H5AC_tag(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @H5O_protect(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @H5O__attr_find_opened_attr(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @H5O__attr_find_opened_attr(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -958,7 +958,7 @@ define ptr @H5O__attr_open_by_idx(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = call fastcc i32 @H5O__attr_find_opened_attr(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %21)
+  %22 = call fastcc i32 @H5O__attr_find_opened_attr(ptr noundef %0, ptr noundef %6, ptr noundef %21)
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %28
 
@@ -2030,7 +2030,7 @@ define range(i32 -1, 1) i32 @H5O__attr_remove(ptr noundef %0, ptr noundef %1) lo
   br i1 %.not30, label %58, label %51
 
 51:                                               ; preds = %50
-  %52 = call fastcc i32 @H5O__attr_remove_update(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %3)
+  %52 = call fastcc i32 @H5O__attr_remove_update(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %3)
   %53 = icmp slt i32 %52, 0
   br i1 %53, label %54, label %58
 
@@ -2117,7 +2117,7 @@ define internal range(i32 -1, 2) i32 @H5O__attr_remove_cb(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.H5A_attr_table_t, align 8
   %5 = alloca ptr, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -2170,7 +2170,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr nocaptu
   %31 = load ptr, ptr %21, align 8
   %32 = getelementptr inbounds ptr, ptr %31, i64 %.04958
   %33 = load ptr, ptr %32, align 8
-  %34 = call i64 @H5O_msg_size_oh(ptr noundef %30, ptr noundef %1, i32 noundef 12, ptr noundef %33, i64 noundef 0) #9
+  %34 = call i64 @H5O_msg_size_oh(ptr noundef %30, ptr noundef nonnull %1, i32 noundef 12, ptr noundef %33, i64 noundef 0) #9
   %35 = icmp ugt i64 %34, 65535
   br i1 %35, label %.loopexit, label %26
 
@@ -2207,7 +2207,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr nocaptu
   %52 = load ptr, ptr %37, align 8
   %53 = getelementptr inbounds ptr, ptr %52, i64 %.15059
   %54 = load ptr, ptr %53, align 8
-  %55 = call i32 @H5O__attr_link(ptr noundef %51, ptr noundef %1, ptr noundef %54) #9
+  %55 = call i32 @H5O__attr_link(ptr noundef %51, ptr noundef nonnull %1, ptr noundef %54) #9
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %57, label %65
 
@@ -2232,7 +2232,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr nocaptu
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
-  %73 = call fastcc i32 @H5O__attr_find_opened_attr(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %72)
+  %73 = call fastcc i32 @H5O__attr_find_opened_attr(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %72)
   %74 = icmp slt i32 %73, 0
   br i1 %74, label %75, label %79
 
@@ -2251,7 +2251,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr nocaptu
   br i1 %or.cond, label %84, label %91
 
 84:                                               ; preds = %79
-  %85 = call i32 @H5O__msg_append_real(ptr noundef %83, ptr noundef %1, ptr noundef nonnull @H5O_MSG_ATTR, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %81) #9
+  %85 = call i32 @H5O__msg_append_real(ptr noundef %83, ptr noundef nonnull %1, ptr noundef nonnull @H5O_MSG_ATTR, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %81) #9
   %86 = icmp slt i32 %85, 0
   br i1 %86, label %87, label %101
 
@@ -2265,7 +2265,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr nocaptu
   %92 = load ptr, ptr %37, align 8
   %93 = getelementptr inbounds ptr, ptr %92, i64 %.15059
   %94 = load ptr, ptr %93, align 8
-  %95 = call i32 @H5O__msg_append_real(ptr noundef %83, ptr noundef %1, ptr noundef nonnull @H5O_MSG_ATTR, i32 noundef 0, i32 noundef 0, ptr noundef %94) #9
+  %95 = call i32 @H5O__msg_append_real(ptr noundef %83, ptr noundef nonnull %1, ptr noundef nonnull @H5O_MSG_ATTR, i32 noundef 0, i32 noundef 0, ptr noundef %94) #9
   %96 = icmp slt i32 %95, 0
   br i1 %96, label %97, label %101
 
@@ -2295,7 +2295,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr nocaptu
 
 .loopexit:                                        ; preds = %29, %._crit_edge, %11, %3
   %112 = load ptr, ptr %0, align 8
-  %113 = call i32 @H5O__msg_write_real(ptr noundef %112, ptr noundef %1, ptr noundef nonnull @H5O_MSG_AINFO, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %2) #9
+  %113 = call i32 @H5O__msg_write_real(ptr noundef %112, ptr noundef nonnull %1, ptr noundef nonnull @H5O_MSG_AINFO, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %2) #9
   %114 = icmp slt i32 %113, 0
   br i1 %114, label %115, label %119
 
@@ -2312,7 +2312,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr nocaptu
 
 122:                                              ; preds = %119
   %123 = load ptr, ptr %0, align 8
-  %124 = call i32 @H5O__msg_remove_real(ptr noundef %123, ptr noundef %1, ptr noundef nonnull @H5O_MSG_AINFO, i32 noundef -1, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #9
+  %124 = call i32 @H5O__msg_remove_real(ptr noundef %123, ptr noundef nonnull %1, ptr noundef nonnull @H5O_MSG_AINFO, i32 noundef -1, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #9
   %125 = icmp slt i32 %124, 0
   br i1 %125, label %126, label %130
 
@@ -2467,7 +2467,7 @@ define range(i32 -1, 1) i32 @H5O__attr_remove_by_idx(ptr noundef %0, i32 noundef
   br i1 %.not42, label %83, label %76
 
 76:                                               ; preds = %75
-  %77 = call fastcc i32 @H5O__attr_remove_update(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %5)
+  %77 = call fastcc i32 @H5O__attr_remove_update(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %5)
   %78 = icmp slt i32 %77, 0
   br i1 %78, label %79, label %83
 

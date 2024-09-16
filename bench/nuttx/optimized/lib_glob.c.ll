@@ -54,7 +54,7 @@ define range(i32 0, 4) i32 @glob(ptr nocapture noundef readonly %0, i32 noundef 
 
 22:                                               ; preds = %20
   store i8 0, ptr %7, align 16
-  %23 = call fastcc i32 @do_glob(ptr noundef nonnull %7, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %21, i32 noundef %1, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %6)
+  %23 = call fastcc i32 @do_glob(ptr noundef %7, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %21, i32 noundef %1, ptr noundef nonnull %spec.store.select, ptr noundef %6)
   call void @free(ptr noundef nonnull %21)
   %24 = icmp eq i32 %23, 3
   %.pre = load ptr, ptr %5, align 8
@@ -225,7 +225,7 @@ define internal noundef i32 @ignore_err(ptr nocapture readnone %0, i32 %1) #1 {
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef nonnull %0, i64 noundef %1, i32 noundef range(i32 0, 256) %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca %struct.stat, align 8
   %.not = icmp eq i32 %2, 0
   %9 = and i32 %4, 8
@@ -508,14 +508,14 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef %0, i64 noundef 
   %.0155 = phi i8 [ 47, %101 ], [ %spec.select213, %.critedge9 ]
   %.not190 = icmp eq i64 %.2, 0
   %113 = select i1 %.not190, ptr @.str, ptr %0
-  %114 = tail call ptr @opendir(ptr noundef %113)
+  %114 = tail call ptr @opendir(ptr noundef nonnull %113)
   %.not191 = icmp eq ptr %114, null
   %115 = tail call ptr @__errno() #13
   %116 = load i32, ptr %115, align 4
   br i1 %.not191, label %117, label %121
 
 117:                                              ; preds = %112
-  %118 = tail call i32 %5(ptr noundef %0, i32 noundef %116) #13
+  %118 = tail call i32 %5(ptr noundef nonnull %0, i32 noundef %116) #13
   %119 = and i32 %4, 4
   %120 = or i32 %118, %119
   %or.cond214 = icmp ne i32 %120, 0
@@ -619,7 +619,7 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef %0, i64 noundef 
 160:                                              ; preds = %158
   %161 = tail call ptr @__errno() #13
   %162 = load i32, ptr %161, align 4
-  %163 = tail call i32 %5(ptr noundef %0, i32 noundef %162) #13
+  %163 = tail call i32 %5(ptr noundef nonnull %0, i32 noundef %162) #13
   %164 = and i32 %4, 4
   %165 = or i32 %163, %164
   %or.cond215 = icmp eq i32 %165, 0

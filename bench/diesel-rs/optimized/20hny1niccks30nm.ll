@@ -1464,7 +1464,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$diesel..pg..connection..PgCo
   %22 = landingpad { ptr, i32 }
           cleanup
   %23 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke fastcc void @"_ZN4core3ptr65drop_in_place$LT$diesel..pg..metadata_lookup..PgMetadataCache$GT$17hee087c072cbd2180E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %23) #14
+  invoke fastcc void @"_ZN4core3ptr65drop_in_place$LT$diesel..pg..metadata_lookup..PgMetadataCache$GT$17hee087c072cbd2180E"(ptr noalias noundef align 8 dereferenceable(48) %23) #14
           to label %42 unwind label %47
 
 "_ZN4core3ptr145drop_in_place$LT$diesel..connection..statement_cache..StatementCache$LT$diesel..pg..backend..Pg$C$diesel..pg..connection..stmt..Statement$GT$$GT$17h9404ce7b9a475222E.exit": ; preds = %17, %.noexc2, %1
@@ -1514,7 +1514,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$diesel..pg..connection..PgCo
 42:                                               ; preds = %44, %21
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %22, %21 ]
   %43 = getelementptr inbounds i8, ptr %0, i64 96
-  invoke fastcc void @"_ZN4core3ptr85drop_in_place$LT$diesel..pg..connection..private..ConnectionAndTransactionManager$GT$17hb8d4b29df26692d7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %43) #14
+  invoke fastcc void @"_ZN4core3ptr85drop_in_place$LT$diesel..pg..connection..private..ConnectionAndTransactionManager$GT$17hb8d4b29df26692d7E"(ptr noalias noundef align 8 dereferenceable(32) %43) #14
           to label %49 unwind label %47
 
 44:                                               ; preds = %.noexc3, %28
@@ -1524,7 +1524,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$diesel..pg..connection..PgCo
 
 "_ZN4core3ptr65drop_in_place$LT$diesel..pg..metadata_lookup..PgMetadataCache$GT$17hee087c072cbd2180E.exit": ; preds = %38, %.noexc4, %"_ZN4core3ptr145drop_in_place$LT$diesel..connection..statement_cache..StatementCache$LT$diesel..pg..backend..Pg$C$diesel..pg..connection..stmt..Statement$GT$$GT$17h9404ce7b9a475222E.exit"
   %46 = getelementptr inbounds i8, ptr %0, i64 96
-  tail call fastcc void @"_ZN4core3ptr85drop_in_place$LT$diesel..pg..connection..private..ConnectionAndTransactionManager$GT$17hb8d4b29df26692d7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %46)
+  tail call fastcc void @"_ZN4core3ptr85drop_in_place$LT$diesel..pg..connection..private..ConnectionAndTransactionManager$GT$17hb8d4b29df26692d7E"(ptr noalias noundef align 8 dereferenceable(32) %46)
   ret void
 
 47:                                               ; preds = %42, %21
@@ -1835,7 +1835,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$diesel..pg..backend..FailedT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$diesel..pg..metadata_lookup..PgMetadataCache$GT$17hee087c072cbd2180E"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$diesel..pg..metadata_lookup..PgMetadataCache$GT$17hee087c072cbd2180E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 {
   %2 = alloca { i64, [2 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1144)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1147)
@@ -2425,7 +2425,7 @@ define hidden void @"_ZN4core3ptr84drop_in_place$LT$$u5b$core..option..Option$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr85drop_in_place$LT$diesel..pg..connection..private..ConnectionAndTransactionManager$GT$17hb8d4b29df26692d7E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr85drop_in_place$LT$diesel..pg..connection..private..ConnectionAndTransactionManager$GT$17hb8d4b29df26692d7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   invoke void @"_ZN84_$LT$diesel..pg..connection..raw..RawConnection$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc86ae6757281c89dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
           to label %"_ZN4core3ptr63drop_in_place$LT$diesel..pg..connection..raw..RawConnection$GT$17h6330ad4be71d2d64E.exit" unwind label %3

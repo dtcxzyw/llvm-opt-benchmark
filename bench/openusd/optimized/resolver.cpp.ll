@@ -1720,8 +1720,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__23ArGetAvailableResolversEv(pt
   %2 = alloca %"class.std::vector.55", align 8
   %3 = alloca %"class.std::vector.55", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_GetAvailableResolversEv(ptr dead_on_unwind noalias nonnull writable align 8 %3)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_GetAvailablePrimaryResolversERKSt6vectorINS0_13_ResolverInfoESaIS2_EE(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_GetAvailableResolversEv(ptr dead_on_unwind noalias writable align 8 %3)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_GetAvailablePrimaryResolversERKSt6vectorINS0_13_ResolverInfoESaIS2_EE(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %4 unwind label %65
 
 4:                                                ; preds = %1
@@ -1958,7 +1958,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__6TfTypeESaIS1_EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_GetAvailablePrimaryResolversERKSt6vectorINS0_13_ResolverInfoESaIS2_EE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_GetAvailablePrimaryResolversERKSt6vectorINS0_13_ResolverInfoESaIS2_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.55", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__6TfType13_FindByTypeidERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__17ArDefaultResolverE)
@@ -2402,7 +2402,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ResolverInfoESa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_GetAvailableResolversEv(ptr dead_on_unwind noalias nocapture writable align 8 %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_GetAvailableResolversEv(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfType", align 8
   %3 = alloca %"class.std::vector.50", align 8
   %4 = alloca %"class.std::set", align 8
@@ -2600,7 +2600,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ResolverInfoESa
 
 94:                                               ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit
   %.sroa.0114.0149 = phi ptr [ %54, %.lr.ph ], [ %517, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit ]
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetPluginForTypeERKNS_6TfTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0114.0149)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetPluginForTypeERKNS_6TfTypeE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0114.0149)
           to label %95 unwind label %.loopexit
 
 95:                                               ; preds = %94
@@ -3003,7 +3003,7 @@ _ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7JsValueEED2Ev.exit56: ; preds
 
 253:                                              ; preds = %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7JsValueEED2Ev.exit56
   %254 = getelementptr inbounds nuw i8, ptr %252, i64 16
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_FindMetadataValueOnTypeOrBaseIbEESt8optionalINS_7JsValueEERKNS_7TfTokenERKNS_6TfTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %254, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0114.0149)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_FindMetadataValueOnTypeOrBaseIbEESt8optionalINS_7JsValueEERKNS_7TfTokenERKNS_6TfTypeE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %254, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0114.0149)
           to label %255 unwind label %.loopexit121
 
 255:                                              ; preds = %253
@@ -3012,7 +3012,7 @@ _ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7JsValueEED2Ev.exit56: ; preds
 
 257:                                              ; preds = %255
   %258 = getelementptr inbounds nuw i8, ptr %256, i64 24
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_FindMetadataValueOnTypeOrBaseIbEESt8optionalINS_7JsValueEERKNS_7TfTokenERKNS_6TfTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %258, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0114.0149)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_FindMetadataValueOnTypeOrBaseIbEESt8optionalINS_7JsValueEERKNS_7TfTokenERKNS_6TfTypeE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %258, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0114.0149)
           to label %259 unwind label %306
 
 259:                                              ; preds = %257
@@ -3936,7 +3936,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__6TfType3IsAINS_10ArResolverEEEbv.exit: ; p
   br i1 %.not, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit, label %75
 
 75:                                               ; preds = %73
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetPluginForTypeERKNS_6TfTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetPluginForTypeERKNS_6TfTypeE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %76 unwind label %60
 
 76:                                               ; preds = %75
@@ -3969,7 +3969,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PluginResolverINS_10ArReso
   %90 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %91 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %90, i8 0, i64 56, i1 false)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PluginResolverINS_10ArResolverENS_22Ar_ResolverFactoryBaseEE6CreateEv(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(88) %12)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PluginResolverINS_10ArResolverENS_22Ar_ResolverFactoryBaseEE6CreateEv(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(88) %12)
           to label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10ArResolverESt14default_deleteIS1_EED2Ev.exit unwind label %194
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10ArResolverESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PluginResolverINS_10ArResolverENS_22Ar_ResolverFactoryBaseEEC2ERKNS_9TfWeakPtrINS_10PlugPluginEEERKNS_6TfTypeERKSt10shared_ptrIS2_E.exit
@@ -4493,7 +4493,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificISt6vectorIPKN32pxrInternal_v0_24__
   br label %.body8
 
 _ZN32pxrInternal_v0_24__pxrReserved__24ArThreadLocalScopedCacheINS_12_GLOBAL__N_120_DispatchingResolver6_CacheEEC2Ev.exit: ; preds = %52
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_GetAvailableResolversEv(ptr dead_on_unwind noalias nonnull writable align 8 %43)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_GetAvailableResolversEv(ptr dead_on_unwind noalias writable align 8 %43)
           to label %57 unwind label %1157
 
 57:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__24ArThreadLocalScopedCacheINS_12_GLOBAL__N_120_DispatchingResolver6_CacheEEC2Ev.exit
@@ -4514,7 +4514,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__24ArThreadLocalScopedCacheINS_12_GLOBAL__N_
   %59 = load i64, ptr %58, align 8
   store i64 %59, ptr %33, align 8
   store i64 %59, ptr %34, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_GetAvailablePrimaryResolversERKSt6vectorINS0_13_ResolverInfoESaIS2_EE(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull readonly align 8 dereferenceable(24) %43)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_GetAvailablePrimaryResolversERKSt6vectorINS0_13_ResolverInfoESaIS2_EE(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull readonly align 8 dereferenceable(24) %43)
           to label %.noexc13 unwind label %1159
 
 .noexc13:                                         ; preds = %.noexc
@@ -17648,7 +17648,7 @@ define internal fastcc noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   br i1 %5, label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10ArResolverESt14default_deleteIS1_EED2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PluginResolverINS_10ArResolverENS_22Ar_ResolverFactoryBaseEE6CreateEv(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(88) %0)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PluginResolverINS_10ArResolverENS_22Ar_ResolverFactoryBaseEE6CreateEv(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(88) %0)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %7) #15
   %.not.i.i = icmp eq i32 %8, 0
@@ -17721,7 +17721,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10ArResolverESt14default_de
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PluginResolverINS_10ArResolverENS_22Ar_ResolverFactoryBaseEE6CreateEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PluginResolverINS_10ArResolverENS_22Ar_ResolverFactoryBaseEE6CreateEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -23761,11 +23761,11 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ResolverInfoESa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetPluginForTypeERKNS_6TfTypeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetPluginForTypeERKNS_6TfTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(104) ptr @_ZN32pxrInternal_v0_24__pxrReserved__12PlugRegistry11GetInstanceEv()
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
-  tail call void @_ZNK32pxrInternal_v0_24__pxrReserved__12PlugRegistry16GetPluginForTypeENS_6TfTypeE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %4, ptr %.sroa.0.0.copyload)
+  tail call void @_ZNK32pxrInternal_v0_24__pxrReserved__12PlugRegistry16GetPluginForTypeENS_6TfTypeE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %4, ptr %.sroa.0.0.copyload)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %6, null
@@ -23826,7 +23826,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_FindMetadataValueOnTypeOrBaseIbEESt8optionalINS_7JsValueEERKNS_7TfTokenERKNS_6TfTypeE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_FindMetadataValueOnTypeOrBaseIbEESt8optionalINS_7JsValueEERKNS_7TfTokenERKNS_6TfTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr", align 8
   %5 = alloca %"class.std::optional", align 8
   %6 = alloca %"class.std::map", align 8
@@ -23848,7 +23848,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit
 
 19:                                               ; preds = %3
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetPluginForTypeERKNS_6TfTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_GetPluginForTypeERKNS_6TfTypeE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %21, null
@@ -24201,7 +24201,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7JsValueD2Ev.exit: ; preds = %_ZNSt16_Sp_co
 
 176:                                              ; preds = %.lr.ph, %174
   %.sroa.052.057 = phi ptr [ %169, %.lr.ph ], [ %175, %174 ]
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_FindMetadataValueOnTypeOrBaseIbEESt8optionalINS_7JsValueEERKNS_7TfTokenERKNS_6TfTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.052.057)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_FindMetadataValueOnTypeOrBaseIbEESt8optionalINS_7JsValueEERKNS_7TfTokenERKNS_6TfTypeE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.052.057)
           to label %177 unwind label %230
 
 177:                                              ; preds = %176

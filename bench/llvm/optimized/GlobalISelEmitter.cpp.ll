@@ -3144,7 +3144,7 @@ _ZN12_GLOBAL__N_117GlobalISelEmitter18declareHwModeCheckEN4llvm9StringRefE.exit.
 701:                                              ; preds = %_ZN12_GLOBAL__N_117GlobalISelEmitter18declareHwModeCheckEN4llvm9StringRefE.exit.i, %_ZN4llvm5ErrorD2Ev.exit171.i
   %702 = load ptr, ptr %613, align 8, !noalias !21
   %703 = load ptr, ptr %616, align 8, !noalias !21
-  call fastcc void @_ZN12_GLOBAL__N_121isTrivialOperatorNodeERKN4llvm15TreePatternNodeE(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(184) %703)
+  call fastcc void @_ZN12_GLOBAL__N_121isTrivialOperatorNodeERKN4llvm15TreePatternNodeE(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(184) %703)
   %704 = load ptr, ptr %45, align 8, !noalias !21
   %.not429.i = icmp eq ptr %704, null
   br i1 %.not429.i, label %_ZN4llvm5ErrorD2Ev.exit179.i, label %_ZN4llvm5ErrorD2Ev.exit176.i
@@ -3196,7 +3196,7 @@ _ZN4llvm5ErrorD2Ev.exit177.i:                     ; preds = %715, %_ZN4llvm5Erro
   br label %_ZN4llvm5ErrorD2Ev.exit178.i
 
 _ZN4llvm5ErrorD2Ev.exit179.i:                     ; preds = %701
-  call fastcc void @_ZN12_GLOBAL__N_121isTrivialOperatorNodeERKN4llvm15TreePatternNodeE(ptr dead_on_unwind noalias nonnull writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(184) %702)
+  call fastcc void @_ZN12_GLOBAL__N_121isTrivialOperatorNodeERKN4llvm15TreePatternNodeE(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(184) %702)
   %725 = load ptr, ptr %51, align 8, !noalias !21
   %.not430.i = icmp eq ptr %725, null
   br i1 %.not430.i, label %_ZN4llvm5ErrorD2Ev.exit183.i, label %_ZN4llvm5ErrorD2Ev.exit180.i
@@ -3255,7 +3255,7 @@ _ZN4llvm5ErrorD2Ev.exit183.i:                     ; preds = %_ZN4llvm5ErrorD2Ev.
   store i32 0, ptr %57, align 4, !noalias !21
   %750 = load ptr, ptr %.sroa.0222.0331, align 8, !noalias !21
   call void @_ZN4llvm2gi11RuleMatcher13setGISelFlagsEPKNS_6RecordE(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::SaveAndRestore") align 8 %58, ptr noundef nonnull align 8 dereferenceable(448) %38, ptr noundef %750) #26
-  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter28createAndImportSelDAGMatcherERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeERj(ptr dead_on_unwind noalias nonnull writable align 8 %59, ptr noundef nonnull align 8 dereferenceable(1608) %0, ptr noundef nonnull align 8 dereferenceable(448) %38, ptr noundef nonnull align 8 dereferenceable(208) %749, ptr noundef nonnull align 8 dereferenceable(184) %702, ptr noundef nonnull align 4 dereferenceable(4) %57)
+  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter28createAndImportSelDAGMatcherERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeERj(ptr dead_on_unwind noalias writable align 8 %59, ptr noundef nonnull align 8 dereferenceable(1608) %0, ptr noundef nonnull align 8 dereferenceable(448) %38, ptr noundef nonnull align 8 dereferenceable(208) %749, ptr noundef nonnull align 8 dereferenceable(184) %702, ptr noundef nonnull align 4 dereferenceable(4) %57)
   %751 = load i8, ptr %476, align 8, !noalias !82
   %752 = trunc i8 %751 to i1
   br i1 %752, label %_ZN4llvm8ExpectedIRNS_2gi18InstructionMatcherEE9takeErrorEv.exit.i, label %_ZN4llvm5ErrorD2Ev.exit183._ZN4llvm5ErrorD2Ev.exit185_crit_edge.i
@@ -3939,7 +3939,7 @@ _ZN4llvm5ErrorD2Ev.exit204.i:                     ; preds = %_ZN12_GLOBAL__N_122
   store i8 1, ptr %512, align 1, !noalias !21
   store ptr @.str.125, ptr %74, align 8, !noalias !21
   store i8 3, ptr %511, align 8, !noalias !21
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %73, ptr noundef nonnull align 8 dereferenceable(34) %74)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %73, ptr noundef nonnull align 8 dereferenceable(34) %74)
   %1067 = load i8, ptr %473, align 8, !alias.scope !21
   %1068 = or i8 %1067, 1
   store i8 %1068, ptr %473, align 8, !alias.scope !21
@@ -3997,7 +3997,7 @@ _ZN4llvm5ErrorD2Ev.exit217.i:                     ; preds = %_ZN12_GLOBAL__N_122
   store i8 1, ptr %510, align 1, !noalias !21
   store ptr @.str.127, ptr %76, align 8, !noalias !21
   store i8 3, ptr %509, align 8, !noalias !21
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %75, ptr noundef nonnull align 8 dereferenceable(34) %76)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %75, ptr noundef nonnull align 8 dereferenceable(34) %76)
   %1092 = load i8, ptr %473, align 8, !alias.scope !21
   %1093 = or i8 %1092, 1
   store i8 %1093, ptr %473, align 8, !alias.scope !21
@@ -4023,7 +4023,7 @@ _ZN4llvm5ErrorD2Ev.exit223.i:                     ; preds = %_ZN4llvmeqENS_9Stri
   store i8 1, ptr %508, align 1, !noalias !21
   store ptr @.str.129, ptr %78, align 8, !noalias !21
   store i8 3, ptr %507, align 8, !noalias !21
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %77, ptr noundef nonnull align 8 dereferenceable(34) %78)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %77, ptr noundef nonnull align 8 dereferenceable(34) %78)
   %1101 = load i8, ptr %473, align 8, !alias.scope !21
   %1102 = or i8 %1101, 1
   store i8 %1102, ptr %473, align 8, !alias.scope !21
@@ -4069,7 +4069,7 @@ _ZN4llvm5ErrorD2Ev.exit229.i:                     ; preds = %_ZN12_GLOBAL__N_117
   store i8 1, ptr %506, align 1, !noalias !21
   store ptr @.str.131, ptr %80, align 8, !noalias !21
   store i8 3, ptr %505, align 8, !noalias !21
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %79, ptr noundef nonnull align 8 dereferenceable(34) %80)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %79, ptr noundef nonnull align 8 dereferenceable(34) %80)
   %1121 = load i8, ptr %473, align 8, !alias.scope !21
   %1122 = or i8 %1121, 1
   store i8 %1122, ptr %473, align 8, !alias.scope !21
@@ -4103,7 +4103,7 @@ _ZN4llvm5ErrorD2Ev.exit235.i:                     ; preds = %_ZN4llvmeqENS_9Stri
   store i8 1, ptr %504, align 1, !noalias !21
   store ptr @.str.133, ptr %82, align 8, !noalias !21
   store i8 3, ptr %503, align 8, !noalias !21
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %81, ptr noundef nonnull align 8 dereferenceable(34) %82)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %81, ptr noundef nonnull align 8 dereferenceable(34) %82)
   %1135 = load i8, ptr %473, align 8, !alias.scope !21
   %1136 = or i8 %1135, 1
   store i8 %1136, ptr %473, align 8, !alias.scope !21
@@ -4236,7 +4236,7 @@ _ZN4llvm5ErrorD2Ev.exit239.i:                     ; preds = %1149
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %.val.i129 = load i64, ptr %758, align 8, !noalias !241
-  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter25createInstructionRendererESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERKNS3_15TreePatternNodeE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(1608) %0, ptr nonnull %419, ptr noundef nonnull align 8 dereferenceable(448) %38, i64 %.val.i129), !noalias !241
+  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter25createInstructionRendererESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERKNS3_15TreePatternNodeE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(1608) %0, ptr nonnull %419, ptr noundef nonnull align 8 dereferenceable(448) %38, i64 %.val.i129), !noalias !241
   %1187 = load i8, ptr %520, align 8, !noalias !241
   %1188 = trunc i8 %1187 to i1
   %.pre.i130 = load i64, ptr %15, align 8, !noalias !241
@@ -4476,7 +4476,7 @@ _ZN4llvm2gi13BuildMIAction11addRendererINS0_19CopyPhysRegRendererEJRPNS_6RecordE
   %.sroa.076.0.lcssa.i = phi ptr [ %1192, %_ZN4llvm5ErrorD2Ev.exit39.i ], [ %1257, %_ZN4llvm2gi13BuildMIAction11addRendererINS0_19CopyPhysRegRendererEJRPNS_6RecordEEEERT_DpOT0_.exit.i ]
   %.val37.i = load ptr, ptr %968, align 8, !noalias !241
   %.val38.i = load ptr, ptr %969, align 8, !noalias !241
-  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter26importExplicitDefRenderersESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeESG_j(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr nonnull %.sroa.076.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(448) %38, ptr noundef nonnull align 8 dereferenceable(192) %1194, ptr %.val37.i, ptr %.val38.i, ptr noundef nonnull readonly align 8 dereferenceable(184) %703, i32 noundef 0), !noalias !241
+  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter26importExplicitDefRenderersESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeESG_j(ptr dead_on_unwind noalias writable align 8 %16, ptr nonnull %.sroa.076.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(448) %38, ptr noundef nonnull align 8 dereferenceable(192) %1194, ptr %.val37.i, ptr %.val38.i, ptr noundef nonnull readonly align 8 dereferenceable(184) %703, i32 noundef 0), !noalias !241
   %1295 = load i8, ptr %522, align 8, !noalias !241
   %1296 = trunc i8 %1295 to i1
   %1297 = load i64, ptr %16, align 8
@@ -4485,7 +4485,7 @@ _ZN4llvm2gi13BuildMIAction11addRendererINS0_19CopyPhysRegRendererEJRPNS_6RecordE
   br i1 %or.cond.not, label %_ZN4llvm5ErrorD2Ev.exit47.i, label %_ZN4llvm5ErrorD2Ev.exit48.i
 
 _ZN4llvm5ErrorD2Ev.exit48.i:                      ; preds = %._crit_edge.i136
-  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter26importExplicitUseRenderersESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeESG_(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(1608) %0, ptr nonnull %.sroa.076.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(448) %38, ptr noundef nonnull align 8 dereferenceable(192) %1194, ptr noundef nonnull readonly align 8 dereferenceable(184) %703, ptr noundef nonnull readonly align 8 dereferenceable(184) %702), !noalias !241
+  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter26importExplicitUseRenderersESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeESG_(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(1608) %0, ptr nonnull %.sroa.076.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(448) %38, ptr noundef nonnull align 8 dereferenceable(192) %1194, ptr noundef nonnull readonly align 8 dereferenceable(184) %703, ptr noundef nonnull readonly align 8 dereferenceable(184) %702), !noalias !241
   %1298 = load i8, ptr %523, align 8, !noalias !241
   %1299 = trunc i8 %1298 to i1
   %1300 = load i64, ptr %17, align 8
@@ -4585,7 +4585,7 @@ _ZN4llvm5ErrorD2Ev.exit257.i:                     ; preds = %_ZN4llvmeqENS_9Stri
   store i8 1, ptr %547, align 1, !noalias !21
   store ptr @.str.125, ptr %88, align 8, !noalias !21
   store i8 3, ptr %546, align 8, !noalias !21
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %87, ptr noundef nonnull align 8 dereferenceable(34) %88)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %87, ptr noundef nonnull align 8 dereferenceable(34) %88)
   %1328 = load i8, ptr %473, align 8, !alias.scope !21
   %1329 = or i8 %1328, 1
   store i8 %1329, ptr %473, align 8, !alias.scope !21
@@ -4621,7 +4621,7 @@ _ZN4llvm5ErrorD2Ev.exit263.i:                     ; preds = %_ZN4llvmeqENS_9Stri
   store i8 1, ptr %539, align 1, !noalias !21
   store ptr @.str.138, ptr %92, align 8, !noalias !21
   store i8 3, ptr %538, align 8, !noalias !21
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %91, ptr noundef nonnull align 8 dereferenceable(34) %92)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %91, ptr noundef nonnull align 8 dereferenceable(34) %92)
   %1343 = load i8, ptr %473, align 8, !alias.scope !21
   %1344 = or i8 %1343, 1
   store i8 %1344, ptr %473, align 8, !alias.scope !21
@@ -4646,7 +4646,7 @@ _ZN4llvm5ErrorD2Ev.exit265.i:                     ; preds = %1346
   store i8 1, ptr %541, align 1, !noalias !21
   store ptr @.str.139, ptr %94, align 8, !noalias !21
   store i8 3, ptr %540, align 8, !noalias !21
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %93, ptr noundef nonnull align 8 dereferenceable(34) %94)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %93, ptr noundef nonnull align 8 dereferenceable(34) %94)
   %1354 = load i8, ptr %473, align 8, !alias.scope !21
   %1355 = or i8 %1354, 1
   store i8 %1355, ptr %473, align 8, !alias.scope !21
@@ -4667,7 +4667,7 @@ _ZN4llvm5ErrorD2Ev.exit267.i:                     ; preds = %1357
   store i8 1, ptr %544, align 1, !noalias !21
   store ptr @.str.140, ptr %97, align 8, !noalias !21
   store i8 3, ptr %543, align 8, !noalias !21
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %96, ptr noundef nonnull align 8 dereferenceable(34) %97)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %96, ptr noundef nonnull align 8 dereferenceable(34) %97)
   %1362 = load i8, ptr %473, align 8, !alias.scope !21
   %1363 = or i8 %1362, 1
   store i8 %1363, ptr %473, align 8, !alias.scope !21
@@ -4707,7 +4707,7 @@ _ZN4llvm5ErrorD2Ev.exit273.i:                     ; preds = %_ZN4llvmeqENS_9Stri
   store i8 1, ptr %535, align 1, !noalias !21
   store ptr @.str.141, ptr %103, align 8, !noalias !21
   store i8 3, ptr %534, align 8, !noalias !21
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %102, ptr noundef nonnull align 8 dereferenceable(34) %103)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %102, ptr noundef nonnull align 8 dereferenceable(34) %103)
   %1379 = load i8, ptr %473, align 8, !alias.scope !21
   %1380 = or i8 %1379, 1
   store i8 %1380, ptr %473, align 8, !alias.scope !21
@@ -4731,7 +4731,7 @@ _ZN4llvm5ErrorD2Ev.exit275.i:                     ; preds = %1382
   store i8 1, ptr %537, align 1, !noalias !21
   store ptr @.str.131, ptr %105, align 8, !noalias !21
   store i8 3, ptr %536, align 8, !noalias !21
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %104, ptr noundef nonnull align 8 dereferenceable(34) %105)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %104, ptr noundef nonnull align 8 dereferenceable(34) %105)
   %1391 = load i8, ptr %473, align 8, !alias.scope !21
   %1392 = or i8 %1391, 1
   store i8 %1392, ptr %473, align 8, !alias.scope !21
@@ -4773,7 +4773,7 @@ _ZN4llvm5ErrorD2Ev.exit281.i:                     ; preds = %_ZN4llvmeqENS_9Stri
   store i8 1, ptr %531, align 1, !noalias !21
   store ptr @.str.142, ptr %113, align 8, !noalias !21
   store i8 3, ptr %530, align 8, !noalias !21
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %112, ptr noundef nonnull align 8 dereferenceable(34) %113)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %112, ptr noundef nonnull align 8 dereferenceable(34) %113)
   %1408 = load i8, ptr %473, align 8, !alias.scope !21
   %1409 = or i8 %1408, 1
   store i8 %1409, ptr %473, align 8, !alias.scope !21
@@ -4796,7 +4796,7 @@ _ZN4llvm5ErrorD2Ev.exit283.i:                     ; preds = %1411
   store i8 1, ptr %533, align 1, !noalias !21
   store ptr @.str.133, ptr %115, align 8, !noalias !21
   store i8 3, ptr %532, align 8, !noalias !21
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %114, ptr noundef nonnull align 8 dereferenceable(34) %115)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %114, ptr noundef nonnull align 8 dereferenceable(34) %115)
   %1419 = load i8, ptr %473, align 8, !alias.scope !21
   %1420 = or i8 %1419, 1
   store i8 %1420, ptr %473, align 8, !alias.scope !21
@@ -4868,7 +4868,7 @@ _ZN4llvm5ErrorD2Ev.exit289.i:                     ; preds = %.lr.ph450.i, %1448
   store i8 1, ptr %529, align 1, !noalias !21
   store ptr @.str.143, ptr %123, align 8, !noalias !21
   store i8 3, ptr %528, align 8, !noalias !21
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %122, ptr noundef nonnull align 8 dereferenceable(34) %123)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %122, ptr noundef nonnull align 8 dereferenceable(34) %123)
   %1454 = load i8, ptr %473, align 8, !alias.scope !21
   %1455 = or i8 %1454, 1
   store i8 %1455, ptr %473, align 8, !alias.scope !21
@@ -11236,7 +11236,7 @@ define linkonce_odr void @_ZN4llvm9to_stringINS_15TreePatternNodeEEENSt7__cxx111
 declare void @_ZNK4llvm14PatternToMatch19getPredicateRecordsERNS_15SmallVectorImplIPNS_6RecordEEE(ptr noundef nonnull align 8 dereferenceable(100), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121isTrivialOperatorNodeERKN4llvm15TreePatternNodeE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %1) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_121isTrivialOperatorNodeERKN4llvm15TreePatternNodeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11413,7 +11413,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %89, %2
 91:                                               ; preds = %87
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %4) #26
   %92 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.145) #26
-  call fastcc void @_ZN12_GLOBAL__N_117explainPredicatesB5cxx11ERKN4llvm15TreePatternNodeE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(184) %1)
+  call fastcc void @_ZN12_GLOBAL__N_117explainPredicatesB5cxx11ERKN4llvm15TreePatternNodeE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(184) %1)
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
   %93 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.113) #26, !noalias !423
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %93) #26
@@ -11465,7 +11465,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %89, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1) unnamed_addr #0 {
   %3 = tail call { i32, ptr } @_ZN4llvm22inconvertibleErrorCodeEv() #26
   %4 = extractvalue { i32, ptr } %3, 0
   %5 = extractvalue { i32, ptr } %3, 1
@@ -11481,7 +11481,7 @@ declare noundef nonnull align 8 dereferenceable(208) ptr @_ZN4llvm2gi11RuleMatch
 declare void @_ZN4llvm2gi11RuleMatcher13setGISelFlagsEPKNS_6RecordE(ptr dead_on_unwind writable sret(%"struct.llvm::SaveAndRestore") align 8, ptr noundef nonnull align 8 dereferenceable(448), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter28createAndImportSelDAGMatcherERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeERj(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr noundef nonnull align 8 dereferenceable(448) %2, ptr noundef nonnull align 8 dereferenceable(208) %3, ptr noundef nonnull align 8 dereferenceable(184) %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter28createAndImportSelDAGMatcherERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeERj(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr noundef nonnull align 8 dereferenceable(448) %2, ptr noundef nonnull align 8 dereferenceable(208) %3, ptr noundef nonnull align 8 dereferenceable(184) %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
@@ -13443,7 +13443,7 @@ _ZNSt10unique_ptrIN4llvm2gi34GenericInstructionPredicateMatcherESt14default_dele
   br i1 %.0659, label %.thread846, label %_ZN4llvm5ErrorD2Ev.exit226
 
 _ZN4llvm5ErrorD2Ev.exit226:                       ; preds = %935
-  call fastcc void @_ZN12_GLOBAL__N_117explainPredicatesB5cxx11ERKN4llvm15TreePatternNodeE(ptr dead_on_unwind noalias nonnull writable align 8 %107, ptr noundef nonnull align 8 dereferenceable(184) %4)
+  call fastcc void @_ZN12_GLOBAL__N_117explainPredicatesB5cxx11ERKN4llvm15TreePatternNodeE(ptr dead_on_unwind noalias writable align 8 %107, ptr noundef nonnull align 8 dereferenceable(184) %4)
   %936 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %107, i64 noundef 0, ptr noundef nonnull @.str.174) #26, !noalias !593
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull align 8 dereferenceable(32) %936) #26
   %937 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull @.str.113) #26, !noalias !596
@@ -13786,7 +13786,7 @@ _ZN4llvm5ErrorD2Ev.exit292:                       ; preds = %1064, %1070, %1073
   store i8 1, ptr %1076, align 1
   store ptr @.str.184, ptr %113, align 8
   store i8 3, ptr %1075, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %112, ptr noundef nonnull align 8 dereferenceable(34) %113)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %112, ptr noundef nonnull align 8 dereferenceable(34) %113)
   %1077 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1078 = load i8, ptr %1077, align 8
   %1079 = or i8 %1078, 1
@@ -14499,7 +14499,7 @@ _ZN4llvm5ErrorD2Ev.exit426:                       ; preds = %1337, %_ZN4llvmeqEN
   %1398 = inttoptr i64 %1397 to ptr
   %.val.i = load ptr, ptr %1130, align 8, !noalias !644
   %.val167.i = load i32, ptr %1131, align 8, !noalias !644
-  call fastcc void @_ZNK12_GLOBAL__N_117GlobalISelEmitter34importComplexPatternOperandMatcherERN4llvm2gi14OperandMatcherEPNS1_6RecordERj(ptr dead_on_unwind noalias nonnull writable align 8 %119, ptr %.val.i, i32 %.val167.i, ptr noundef nonnull align 8 dereferenceable(153) %1264, ptr noundef %1398, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  call fastcc void @_ZNK12_GLOBAL__N_117GlobalISelEmitter34importComplexPatternOperandMatcherERN4llvm2gi14OperandMatcherEPNS1_6RecordERj(ptr dead_on_unwind noalias writable align 8 %119, ptr %.val.i, i32 %.val167.i, ptr noundef nonnull align 8 dereferenceable(153) %1264, ptr noundef %1398, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %1399 = load ptr, ptr %119, align 8
   %.not744 = icmp eq ptr %1399, null
   br i1 %.not744, label %_ZN4llvm5ErrorD2Ev.exit422, label %_ZN12_GLOBAL__N_117GlobalISelEmitter18importChildMatcherERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeEbbjRj.exit
@@ -14566,14 +14566,14 @@ _ZN4llvm12ErrorSuccessD2Ev.exit419:               ; preds = %_ZN4llvm5ErrorD2Ev.
   store i8 1, ptr %1139, align 1, !noalias !644
   store ptr @.str.228, ptr %33, align 8, !noalias !644
   store i8 3, ptr %1138, align 8, !noalias !644
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %119, ptr noundef nonnull align 8 dereferenceable(34) %33)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %119, ptr noundef nonnull align 8 dereferenceable(34) %33)
   br label %_ZN12_GLOBAL__N_117GlobalISelEmitter18importChildMatcherERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeEbbjRj.exit
 
 1430:                                             ; preds = %1424
   %1431 = extractvalue { ptr, i8 } %1426, 0
   %1432 = getelementptr inbounds nuw i8, ptr %1431, i64 24
   %1433 = load ptr, ptr %1432, align 8, !noalias !644
-  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter28createAndImportSelDAGMatcherERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeERj(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr noundef nonnull align 8 dereferenceable(448) %2, ptr noundef nonnull align 8 dereferenceable(208) %1433, ptr noundef nonnull align 8 dereferenceable(184) %1171, ptr noundef nonnull align 4 dereferenceable(4) %5), !noalias !644
+  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter28createAndImportSelDAGMatcherERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeERj(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr noundef nonnull align 8 dereferenceable(448) %2, ptr noundef nonnull align 8 dereferenceable(208) %1433, ptr noundef nonnull align 8 dereferenceable(184) %1171, ptr noundef nonnull align 4 dereferenceable(4) %5), !noalias !644
   %1434 = load i8, ptr %1140, align 8
   %1435 = trunc i8 %1434 to i1
   br i1 %1435, label %_ZN4llvm8ExpectedIRNS_2gi18InstructionMatcherEE9takeErrorEv.exit416, label %.critedge164.i
@@ -14678,7 +14678,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit399:               ; preds = %1463, %1467
   store i8 1, ptr %1134, align 1, !noalias !644
   store ptr @.str.231, ptr %39, align 8, !noalias !644
   store i8 3, ptr %1133, align 8, !noalias !644
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %119, ptr noundef nonnull align 8 dereferenceable(34) %39)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %119, ptr noundef nonnull align 8 dereferenceable(34) %39)
   br label %1480
 
 _ZN4llvm12ErrorSuccessD2Ev.exit396:               ; preds = %1475
@@ -14706,7 +14706,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit394:               ; preds = %1482
 1486:                                             ; preds = %1484
   %.val168.i = load ptr, ptr %1130, align 8, !noalias !644
   %.val169.i = load i32, ptr %1131, align 8, !noalias !644
-  call fastcc void @_ZNK12_GLOBAL__N_117GlobalISelEmitter34importComplexPatternOperandMatcherERN4llvm2gi14OperandMatcherEPNS1_6RecordERj(ptr dead_on_unwind noalias nonnull writable align 8 %119, ptr %.val168.i, i32 %.val169.i, ptr noundef nonnull align 8 dereferenceable(153) %1264, ptr noundef nonnull %1465, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  call fastcc void @_ZNK12_GLOBAL__N_117GlobalISelEmitter34importComplexPatternOperandMatcherERN4llvm2gi14OperandMatcherEPNS1_6RecordERj(ptr dead_on_unwind noalias writable align 8 %119, ptr %.val168.i, i32 %.val169.i, ptr noundef nonnull align 8 dereferenceable(153) %1264, ptr noundef nonnull %1465, ptr noundef nonnull align 4 dereferenceable(4) %5)
   br label %_ZN12_GLOBAL__N_117GlobalISelEmitter18importChildMatcherERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeEbbjRj.exit
 
 1487:                                             ; preds = %1484
@@ -14717,7 +14717,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit394:               ; preds = %1482
   store i8 1, ptr %1129, align 1, !noalias !644
   store ptr @.str.234, ptr %40, align 8, !noalias !644
   store i8 3, ptr %1128, align 8, !noalias !644
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %119, ptr noundef nonnull align 8 dereferenceable(34) %40)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %119, ptr noundef nonnull align 8 dereferenceable(34) %40)
   br label %_ZN12_GLOBAL__N_117GlobalISelEmitter18importChildMatcherERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeEbbjRj.exit
 
 1490:                                             ; preds = %1487
@@ -14829,7 +14829,7 @@ _ZNK4llvm12RecordKeeper6getDefENS_9StringRefE.exit361: ; preds = %_ZNK4llvm12Rec
   store i8 4, ptr %1123, align 8, !noalias !644
   store i8 1, ptr %1124, align 1, !noalias !644
   store ptr %50, ptr %49, align 8, !noalias !644
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %119, ptr noundef nonnull align 8 dereferenceable(34) %49)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %119, ptr noundef nonnull align 8 dereferenceable(34) %49)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #26, !noalias !644
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #26, !noalias !644
   %1531 = load ptr, ptr %52, align 8, !noalias !644
@@ -14871,14 +14871,14 @@ _ZN4llvmeqENS_9StringRefES0_.exit366.thread730:   ; preds = %_ZN4llvmeqENS_9Stri
   store i8 1, ptr %1127, align 1, !noalias !644
   store ptr @.str.240, ptr %54, align 8, !noalias !644
   store i8 3, ptr %1126, align 8, !noalias !644
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %119, ptr noundef nonnull align 8 dereferenceable(34) %54)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %119, ptr noundef nonnull align 8 dereferenceable(34) %54)
   br label %_ZN12_GLOBAL__N_117GlobalISelEmitter18importChildMatcherERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeEbbjRj.exit
 
 1546:                                             ; preds = %1461
   store i8 1, ptr %1137, align 1, !noalias !644
   store ptr @.str.241, ptr %55, align 8, !noalias !644
   store i8 3, ptr %1136, align 8, !noalias !644
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %119, ptr noundef nonnull align 8 dereferenceable(34) %55)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %119, ptr noundef nonnull align 8 dereferenceable(34) %55)
   br label %_ZN12_GLOBAL__N_117GlobalISelEmitter18importChildMatcherERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeEbbjRj.exit
 
 _ZN12_GLOBAL__N_117GlobalISelEmitter18importChildMatcherERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeEbbjRj.exit: ; preds = %1415, %_ZN4llvm8ExpectedIRNS_2gi18InstructionMatcherEE9takeErrorEv.exit416, %.critedge164.i, %1365, %_ZN4llvm5ErrorD2Ev.exit428, %_ZN4llvm12ErrorSuccessD2Ev.exit454, %1291, %_ZN4llvm12ErrorSuccessD2Ev.exit442, %_ZN4llvm12ErrorSuccessD2Ev.exit430, %1395, %_ZN4llvm12ErrorSuccessD2Ev.exit419, %1429, %1443, %_ZN4llvm12ErrorSuccessD2Ev.exit403, %_ZN4llvm12ErrorSuccessD2Ev.exit399, %1480, %_ZN4llvm12ErrorSuccessD2Ev.exit394, %1486, %1489, %_ZN4llvm12ErrorSuccessD2Ev.exit382, %_ZN4llvm5ErrorD2Ev.exit359, %_ZN4llvmeqENS_9StringRefES0_.exit366.thread730, %1546
@@ -21192,7 +21192,7 @@ _ZN4llvm2gi14OperandMatcher22isSameAsAnotherOperandEv.exit: ; preds = %.lr.ph.i,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_117GlobalISelEmitter34importComplexPatternOperandMatcherERN4llvm2gi14OperandMatcherEPNS1_6RecordERj(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr readonly %.1424.val, i32 %.1440.val, ptr noundef nonnull align 8 dereferenceable(153) %1, ptr noundef %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_117GlobalISelEmitter34importComplexPatternOperandMatcherERN4llvm2gi14OperandMatcherEPNS1_6RecordERj(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr readonly %.1424.val, i32 %.1440.val, ptr noundef nonnull align 8 dereferenceable(153) %1, ptr noundef %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = icmp eq i32 %.1440.val, 0
@@ -23198,7 +23198,7 @@ declare noundef ptr @_ZN4llvm14CodeGenRegBank12getSubRegIdxEPNS_6RecordE(ptr nou
 declare { ptr, i8 } @_ZNK4llvm13CodeGenTarget20getSuperRegForSubRegERKNS_17ValueTypeByHwModeERNS_14CodeGenRegBankEPKNS_18CodeGenSubRegIndexEb(ptr noundef nonnull align 8 dereferenceable(724), ptr noundef nonnull align 8 dereferenceable(52), ptr noundef nonnull align 8 dereferenceable(1008), ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter25createInstructionRendererESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERKNS3_15TreePatternNodeE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1608) %1, ptr %2, ptr nocapture noundef nonnull align 8 dereferenceable(448) %3, i64 %.56.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter25createInstructionRendererESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERKNS3_15TreePatternNodeE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1608) %1, ptr %2, ptr nocapture noundef nonnull align 8 dereferenceable(448) %3, i64 %.56.val) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -23457,7 +23457,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit17.thread18:     ; preds = %_ZN4llvmeqENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter26importExplicitDefRenderersESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeESG_j(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(448) %2, ptr noundef nonnull align 8 dereferenceable(192) %3, ptr %.8.val, ptr %.16.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %4, i32 noundef %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter26importExplicitDefRenderersESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeESG_j(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(448) %2, ptr noundef nonnull align 8 dereferenceable(192) %3, ptr %.8.val, ptr %.16.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.std::unique_ptr.1313", align 8
   %8 = alloca %"class.llvm::gi::LLTCodeGenOrTempType", align 8
   %9 = alloca %"class.std::unique_ptr.1212", align 8
@@ -23496,7 +23496,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter26importExplici
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %39 = zext i32 %5 to i64
+  %39 = zext nneg i32 %5 to i64
   br label %45
 
 40:                                               ; preds = %6
@@ -23842,7 +23842,7 @@ _ZN4llvm2gi13BuildMIAction11addRendererINS0_15TempRegRendererEJRjbDnbEEERT_DpOT0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter26importExplicitUseRenderersESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeESG_(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter26importExplicitUseRenderersESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeESG_(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::raw_string_ostream", align 8
   %9 = alloca %"class.llvm::raw_string_ostream", align 8
   %10 = alloca %"class.llvm::raw_string_ostream", align 8
@@ -24049,7 +24049,7 @@ _ZN4llvm5ErrorD2Ev.exit134:                       ; preds = %115
 
 140:                                              ; preds = %130
   %141 = load ptr, ptr %51, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117getInstResultTypeERKN4llvm15TreePatternNodeERKNS0_13CodeGenTargetE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(184) %137, ptr noundef nonnull align 8 dereferenceable(724) %141)
+  call fastcc void @_ZN12_GLOBAL__N_117getInstResultTypeERKN4llvm15TreePatternNodeERKNS0_13CodeGenTargetE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(184) %137, ptr noundef nonnull align 8 dereferenceable(724) %141)
   %142 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %143 = load i8, ptr %142, align 8
   %144 = trunc i8 %143 to i1
@@ -24122,7 +24122,7 @@ _ZN4llvm2gi11RuleMatcher12insertActionINS0_22MakeTempRegisterActionEJRNS0_10LLTC
   %174 = add i64 %173, 1
   store i64 %174, ptr %172, align 8
   %175 = load ptr, ptr %170, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter37createAndImportSubInstructionRendererESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERKNS3_15TreePatternNodeESE_j(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr %175, ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull align 8 dereferenceable(184) %137, ptr noundef nonnull align 8 dereferenceable(184) %6, i32 noundef %152)
+  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter37createAndImportSubInstructionRendererESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERKNS3_15TreePatternNodeESE_j(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr %175, ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull align 8 dereferenceable(184) %137, ptr noundef nonnull align 8 dereferenceable(184) %6, i32 noundef %152)
   %176 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %177 = load i8, ptr %176, align 8
   %178 = trunc i8 %177 to i1
@@ -24236,7 +24236,7 @@ _ZN4llvm5ErrorD2Ev.exit151:                       ; preds = %219
   store i8 1, ptr %228, align 1
   store ptr @.str.254, ptr %31, align 8
   store i8 3, ptr %227, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(34) %31)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(34) %31)
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %230 = load i8, ptr %229, align 8
   %231 = or i8 %230, 1
@@ -24445,7 +24445,7 @@ _ZN4llvm5ErrorD2Ev.exit167:                       ; preds = %308
   %343 = getelementptr inbounds nuw i8, ptr %334, i64 24
   %344 = load ptr, ptr %343, align 8
   %345 = call noundef ptr @_ZN4llvm14CodeGenRegBank12getSubRegIdxEPNS_6RecordE(ptr noundef nonnull align 8 dereferenceable(1008) %342, ptr noundef %344) #26
-  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter25importExplicitUseRendererESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeESG_(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr %.sroa.0264.0337, ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(184) %341, ptr noundef nonnull align 8 dereferenceable(184) %6)
+  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter25importExplicitUseRendererESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeESG_(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr %.sroa.0264.0337, ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(184) %341, ptr noundef nonnull align 8 dereferenceable(184) %6)
   %346 = load i8, ptr %311, align 8
   %347 = trunc i8 %346 to i1
   %.pre = load i64, ptr %37, align 8
@@ -25252,7 +25252,7 @@ _ZNK4llvm18CodeGenDAGPatterns17operandHasDefaultEPNS_6RecordE.exit197.thread: ; 
   %697 = load ptr, ptr %92, align 8
   %698 = getelementptr inbounds %"class.llvm::IntrusiveRefCntPtr", ptr %697, i64 %696
   %699 = load ptr, ptr %698, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter25importExplicitUseRendererESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeESG_(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr %.sroa.0264.3341, ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(184) %699, ptr noundef nonnull align 8 dereferenceable(184) %6)
+  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter25importExplicitUseRendererESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeESG_(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr %.sroa.0264.3341, ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(184) %699, ptr noundef nonnull align 8 dereferenceable(184) %6)
   %700 = load i8, ptr %444, align 8
   %701 = trunc i8 %700 to i1
   %702 = load i64, ptr %38, align 8
@@ -25868,7 +25868,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm2gi15OperandRendererESt14default_delete
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117getInstResultTypeERKN4llvm15TreePatternNodeERKNS0_13CodeGenTargetE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %1, ptr noundef nonnull align 8 dereferenceable(724) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_117getInstResultTypeERKN4llvm15TreePatternNodeERKNS0_13CodeGenTargetE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %1, ptr noundef nonnull align 8 dereferenceable(724) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -26072,7 +26072,7 @@ _ZN4llvm5ErrorD2Ev.exit31:                        ; preds = %69, %73, %.critedge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter37createAndImportSubInstructionRendererESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERKNS3_15TreePatternNodeESE_j(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(448) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %5, i32 noundef %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter37createAndImportSubInstructionRendererESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERKNS3_15TreePatternNodeESE_j(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(448) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %5, i32 noundef %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.std::unique_ptr.1313", align 8
   %9 = alloca %"class.llvm::Expected.1263", align 8
   %10 = alloca %"class.llvm::Expected.1263", align 8
@@ -26103,7 +26103,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter37createAndImpo
   %35 = alloca i32, align 4
   %36 = getelementptr inbounds i8, ptr %4, i64 56
   %.val = load i64, ptr %36, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter25createInstructionRendererESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERKNS3_15TreePatternNodeE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(448) %3, i64 %.val)
+  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter25createInstructionRendererESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERKNS3_15TreePatternNodeE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(448) %3, i64 %.val)
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %38 = load i8, ptr %37, align 8
   %39 = trunc i8 %38 to i1
@@ -26189,7 +26189,7 @@ _ZN4llvm2gi13BuildMIAction11addRendererINS0_15TempRegRendererEJRjbEEERT_DpOT0_.e
   %.val92 = load ptr, ptr %74, align 8
   %75 = getelementptr inbounds i8, ptr %5, i64 16
   %.val93 = load ptr, ptr %75, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter26importExplicitDefRenderersESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeESG_j(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr %73, ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull align 8 dereferenceable(192) %41, ptr %.val92, ptr %.val93, ptr noundef nonnull align 8 dereferenceable(184) %4, i32 noundef 1)
+  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter26importExplicitDefRenderersESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeESG_j(ptr dead_on_unwind noalias writable align 8 %10, ptr %73, ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull align 8 dereferenceable(192) %41, ptr %.val92, ptr %.val93, ptr noundef nonnull align 8 dereferenceable(184) %4, i32 noundef 1)
   %76 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %77 = load i8, ptr %76, align 8
   %78 = and i8 %77, 1
@@ -26218,14 +26218,14 @@ _ZN4llvm5ErrorD2Ev.exit104:                       ; preds = %_ZN4llvm8ExpectedIS
 _ZN4llvm5ErrorD2Ev.exit105:                       ; preds = %.lr.ph.i.i.i.preheader, %_ZN4llvm2gi13BuildMIAction11addRendererINS0_15TempRegRendererEJRjbEEERT_DpOT0_.exit
   %87 = phi i8 [ %38, %_ZN4llvm2gi13BuildMIAction11addRendererINS0_15TempRegRendererEJRjbEEERT_DpOT0_.exit ], [ %80, %.lr.ph.i.i.i.preheader ]
   %.sroa.033.0.copyload.pr = phi ptr [ %.pr, %_ZN4llvm2gi13BuildMIAction11addRendererINS0_15TempRegRendererEJRjbEEERT_DpOT0_.exit ], [ %83, %.lr.ph.i.i.i.preheader ]
-  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter26importExplicitUseRenderersESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeESG_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr %.sroa.033.0.copyload.pr, ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull align 8 dereferenceable(192) %41, ptr noundef nonnull align 8 dereferenceable(184) %4, ptr noundef nonnull align 8 dereferenceable(184) %5)
+  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter26importExplicitUseRenderersESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeESG_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr %.sroa.033.0.copyload.pr, ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull align 8 dereferenceable(192) %41, ptr noundef nonnull align 8 dereferenceable(184) %4, ptr noundef nonnull align 8 dereferenceable(184) %5)
   %88 = trunc i8 %87 to i1
   %.not.i.i.i.i107 = icmp ne ptr %.sroa.033.0.copyload.pr, null
   %or.cond.not = select i1 %88, i1 %.not.i.i.i.i107, i1 false
   br i1 %or.cond.not, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i108, label %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEED2Ev.exit.i.i106
 
 _ZN4llvm5ErrorD2Ev.exit105.thread:                ; preds = %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEE9takeErrorEv.exit103
-  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter26importExplicitUseRenderersESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeESG_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr null, ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull align 8 dereferenceable(192) %41, ptr noundef nonnull align 8 dereferenceable(184) %4, ptr noundef nonnull align 8 dereferenceable(184) %5)
+  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter26importExplicitUseRenderersESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeESG_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr null, ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull align 8 dereferenceable(192) %41, ptr noundef nonnull align 8 dereferenceable(184) %4, ptr noundef nonnull align 8 dereferenceable(184) %5)
   br label %_ZN4llvm8ExpectedISt14_List_iteratorISt10unique_ptrINS_2gi11MatchActionESt14default_deleteIS4_EEEED2Ev.exit.i.i106
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i108: ; preds = %_ZN4llvm5ErrorD2Ev.exit105
@@ -26534,7 +26534,7 @@ _ZN4llvm5ErrorD2Ev.exit136:                       ; preds = %244, %237
   store i8 1, ptr %251, align 1
   store ptr @.str.139, ptr %16, align 8
   store i8 3, ptr %250, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(34) %16)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(34) %16)
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %253 = load i8, ptr %252, align 8
   %254 = or i8 %253, 1
@@ -26591,7 +26591,7 @@ _ZN4llvm5ErrorD2Ev.exit142:                       ; preds = %_ZN4llvmeqENS_9Stri
   store i8 1, ptr %282, align 1
   store ptr @.str.142, ptr %23, align 8
   store i8 3, ptr %281, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(34) %23)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(34) %23)
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %284 = load i8, ptr %283, align 8
   %285 = or i8 %284, 1
@@ -26618,7 +26618,7 @@ _ZN4llvm5ErrorD2Ev.exit144:                       ; preds = %287
   store i8 1, ptr %297, align 1
   store ptr @.str.133, ptr %25, align 8
   store i8 3, ptr %296, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(34) %25)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(34) %25)
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %299 = load i8, ptr %298, align 8
   %300 = or i8 %299, 1
@@ -26708,7 +26708,7 @@ _ZN4llvm5ErrorD2Ev.exit158:                       ; preds = %339, %331
   store i8 1, ptr %346, align 1
   store ptr @.str.143, ptr %33, align 8
   store i8 3, ptr %345, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(34) %33)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(34) %33)
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %348 = load i8, ptr %347, align 8
   %349 = or i8 %348, 1
@@ -26978,7 +26978,7 @@ _ZNSt10unique_ptrIN4llvm2gi18CopySubRegRendererESt14default_deleteIS2_EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter25importExplicitUseRendererESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeESG_(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(184) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter25importExplicitUseRendererESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERNS4_13BuildMIActionERKNS3_15TreePatternNodeESG_(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(184) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.std::unique_ptr.1446", align 8
   %9 = alloca %"class.std::unique_ptr.1212", align 8
   %10 = alloca %"class.std::unique_ptr.1212", align 8
@@ -27536,7 +27536,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit198.thread345:   ; preds = %_ZN4llvmeqENS_9Stri
 264:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit198.thread345
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 1360
   %266 = load ptr, ptr %265, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117getInstResultTypeERKN4llvm15TreePatternNodeERKNS0_13CodeGenTargetE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(184) %5, ptr noundef nonnull align 8 dereferenceable(724) %266)
+  call fastcc void @_ZN12_GLOBAL__N_117getInstResultTypeERKN4llvm15TreePatternNodeERKNS0_13CodeGenTargetE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(184) %5, ptr noundef nonnull align 8 dereferenceable(724) %266)
   %267 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %268 = load i8, ptr %267, align 8
   %269 = trunc i8 %268 to i1
@@ -27563,7 +27563,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   %280 = call noundef nonnull align 8 dereferenceable(34) ptr @_ZN4llvm2gi13BuildMIAction11addRendererINS0_15TempRegRendererEJRjEEERT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 4 dereferenceable(4) %19)
   %281 = load ptr, ptr %279, align 8
   %282 = load i32, ptr %19, align 4
-  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter37createAndImportSubInstructionRendererESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERKNS3_15TreePatternNodeESE_j(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr %281, ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull align 8 dereferenceable(184) %5, ptr noundef nonnull align 8 dereferenceable(184) %6, i32 noundef %282)
+  call fastcc void @_ZN12_GLOBAL__N_117GlobalISelEmitter37createAndImportSubInstructionRendererESt14_List_iteratorISt10unique_ptrIN4llvm2gi11MatchActionESt14default_deleteIS5_EEERNS4_11RuleMatcherERKNS3_15TreePatternNodeESE_j(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(1608) %1, ptr %281, ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef nonnull align 8 dereferenceable(184) %5, ptr noundef nonnull align 8 dereferenceable(184) %6, i32 noundef %282)
   %283 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %284 = load i8, ptr %283, align 8
   %285 = trunc i8 %284 to i1
@@ -27629,7 +27629,7 @@ _ZN4llvm5ErrorD2Ev.exit210:                       ; preds = %_ZN4llvmeqENS_9Stri
   %308 = getelementptr inbounds nuw i8, ptr %22, i64 33
   store i8 1, ptr %308, align 1
   store ptr %23, ptr %22, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(34) %22)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(34) %22)
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %310 = load i8, ptr %309, align 8
   %311 = or i8 %310, 1
@@ -27807,7 +27807,7 @@ _ZN4llvm5ErrorD2Ev.exit222:                       ; preds = %362, %366, %.crited
   store i8 1, ptr %391, align 1
   store ptr @.str.264, ptr %28, align 8
   store i8 3, ptr %390, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(34) %28)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(34) %28)
   %392 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %393 = load i8, ptr %392, align 8
   %394 = or i8 %393, 1
@@ -27918,7 +27918,7 @@ _ZN4llvm5ErrorD2Ev.exit226:                       ; preds = %446
   store i8 1, ptr %457, align 1
   store ptr @.str.277, ptr %31, align 8
   store i8 3, ptr %456, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(34) %31)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(34) %31)
   %458 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %459 = load i8, ptr %458, align 8
   %460 = or i8 %459, 1
@@ -27952,7 +27952,7 @@ _ZN4llvm5ErrorD2Ev.exit228:                       ; preds = %444
   store i8 1, ptr %476, align 1
   store ptr @.str.278, ptr %34, align 8
   store i8 3, ptr %475, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(34) %34)
+  call fastcc void @_ZN12_GLOBAL__N_112failedImportERKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(34) %34)
   %477 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %478 = load i8, ptr %477, align 8
   %479 = or i8 %478, 1

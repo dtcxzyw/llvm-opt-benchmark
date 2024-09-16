@@ -70,7 +70,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28Sdf_VisitPathTableInParallel
 
 12:                                               ; preds = %4
   %13 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__18WorkHasConcurrencyEv()
-  br i1 %13, label %14, label %.lr.ph.i.i.i.i
+  br i1 %13, label %14, label %.preheader
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -154,7 +154,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28Sdf_VisitPathTableInParallel
   call void @_ZN3tbb6detail2d118task_group_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %7) #12
   resume { ptr, i32 } %46
 
-.lr.ph.i.i.i.i:                                   ; preds = %12, %51
+.preheader:                                       ; preds = %12, %51
   %.07.i.i.i.i = phi i64 [ %52, %51 ], [ 0, %12 ]
   %47 = load ptr, ptr %8, align 8
   %48 = getelementptr inbounds ptr, ptr %47, i64 %.07.i.i.i.i
@@ -162,14 +162,14 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28Sdf_VisitPathTableInParallel
   %.not5.i.i.i.i = icmp eq ptr %49, null
   br i1 %.not5.i.i.i.i, label %51, label %50
 
-50:                                               ; preds = %.lr.ph.i.i.i.i
+50:                                               ; preds = %.preheader
   call void %3(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %48)
   br label %51
 
-51:                                               ; preds = %50, %.lr.ph.i.i.i.i
+51:                                               ; preds = %50, %.preheader
   %52 = add nuw i64 %.07.i.i.i.i, 1
   %.not.i.i9.i.i = icmp eq i64 %52, %1
-  br i1 %.not.i.i9.i.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS_28Sdf_VisitPathTableInParallelEPPvmNS_13TfFunctionRefIFvRS1_EEEE3$_0EEvmOT_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !4
+  br i1 %.not.i.i9.i.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS_28Sdf_VisitPathTableInParallelEPPvmNS_13TfFunctionRefIFvRS1_EEEE3$_0EEvmOT_.exit", label %.preheader, !llvm.loop !4
 
 "_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS_28Sdf_VisitPathTableInParallelEPPvmNS_13TfFunctionRefIFvRS1_EEEE3$_0EEvmOT_.exit": ; preds = %51, %4, %37, %41
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)

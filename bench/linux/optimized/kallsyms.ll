@@ -1488,7 +1488,7 @@ define dso_local i32 @sprint_symbol(ptr noundef %0, i64 noundef %1) #1 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__sprint_symbol(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc i32 @__sprint_symbol(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 -1, 1) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8

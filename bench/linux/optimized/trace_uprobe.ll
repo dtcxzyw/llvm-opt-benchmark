@@ -1013,7 +1013,7 @@ declare dso_local i32 @kern_path(ptr noundef, i32 noundef, ptr noundef) local_un
 declare dso_local void @path_put(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @alloc_trace_uprobe(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc ptr @alloc_trace_uprobe(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2147483646) %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = zext nneg i32 %2 to i64
   %6 = mul nuw nsw i64 %5, 56
   %7 = add nuw nsw i64 %6, 152

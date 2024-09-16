@@ -102,7 +102,7 @@ define dso_local void @_ZN4llvm15MCSubtargetInfo19InitMCProcessorInfoENS_9String
   %.sroa.0.0.copyload12 = load ptr, ptr %12, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 136
   %.sroa.2.0.copyload13 = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  call fastcc void @_ZL11getFeaturesN4llvm9StringRefES0_S0_NS_8ArrayRefINS_18SubtargetSubTypeKVEEENS1_INS_18SubtargetFeatureKVEEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %1, i64 %2, ptr %3, i64 %4, ptr %.sroa.016.0.copyload, i64 %.sroa.217.0.copyload, ptr %.sroa.014.0.copyload, i64 %.sroa.215.0.copyload, ptr %.sroa.0.0.copyload12, i64 %.sroa.2.0.copyload13)
+  call fastcc void @_ZL11getFeaturesN4llvm9StringRefES0_S0_NS_8ArrayRefINS_18SubtargetSubTypeKVEEENS1_INS_18SubtargetFeatureKVEEE(ptr dead_on_unwind noalias writable align 8 %8, ptr %1, i64 %2, ptr %3, i64 %4, ptr %.sroa.016.0.copyload, i64 %.sroa.217.0.copyload, ptr %.sroa.014.0.copyload, i64 %.sroa.215.0.copyload, ptr %.sroa.0.0.copyload12, i64 %.sroa.2.0.copyload13)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #22
@@ -135,7 +135,7 @@ define dso_local void @_ZN4llvm15MCSubtargetInfo19InitMCProcessorInfoENS_9String
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11getFeaturesN4llvm9StringRefES0_S0_NS_8ArrayRefINS_18SubtargetSubTypeKVEEENS1_INS_18SubtargetFeatureKVEEE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val, ptr %.0.val1, i64 %.8.val3, ptr %.0.val5, i64 %.8.val7) unnamed_addr #0 {
+define internal fastcc void @_ZL11getFeaturesN4llvm9StringRefES0_S0_NS_8ArrayRefINS_18SubtargetSubTypeKVEEENS1_INS_18SubtargetFeatureKVEEE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val, ptr %.0.val1, i64 %.8.val3, ptr %.0.val5, i64 %.8.val7) unnamed_addr #0 {
   %6 = alloca %"class.llvm::SubtargetFeatures", align 8
   call void @_ZN4llvm17SubtargetFeaturesC1ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %.0.val, i64 %.8.val) #22
   %7 = icmp eq i64 %.8.val3, 0
@@ -770,7 +770,7 @@ define dso_local void @_ZN4llvm15MCSubtargetInfo18setDefaultFeaturesENS_9StringR
   %.sroa.0.0.copyload = load ptr, ptr %12, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 136
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  call fastcc void @_ZL11getFeaturesN4llvm9StringRefES0_S0_NS_8ArrayRefINS_18SubtargetSubTypeKVEEENS1_INS_18SubtargetFeatureKVEEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %1, i64 %2, ptr %3, i64 %4, ptr %.sroa.014.0.copyload, i64 %.sroa.215.0.copyload, ptr %.sroa.012.0.copyload, i64 %.sroa.213.0.copyload, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
+  call fastcc void @_ZL11getFeaturesN4llvm9StringRefES0_S0_NS_8ArrayRefINS_18SubtargetSubTypeKVEEENS1_INS_18SubtargetFeatureKVEEE(ptr dead_on_unwind noalias writable align 8 %8, ptr %1, i64 %2, ptr %3, i64 %4, ptr %.sroa.014.0.copyload, i64 %.sroa.215.0.copyload, ptr %.sroa.012.0.copyload, i64 %.sroa.213.0.copyload, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #22

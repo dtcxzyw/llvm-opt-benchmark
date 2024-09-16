@@ -751,7 +751,7 @@ match_parameters.exit.i:                          ; preds = %173, %197
   %259 = load ptr, ptr %2, align 16
   %spec.select.i.i = select i1 %258, ptr %259, ptr %.0115186.i.i
   %260 = load ptr, ptr %110, align 8
-  call fastcc void @decode_de(ptr noundef nonnull %2, ptr noundef nonnull %3)
+  call fastcc void @decode_de(ptr noundef %2, ptr noundef %3)
   br label %.thread149.i.i
 
 .thread149.i.i:                                   ; preds = %256, %._crit_edge183.i.i, %.preheader162.i.i, %232, %230, %224, %.lr.ph189.i.i
@@ -838,7 +838,7 @@ match_parameters.exit.i:                          ; preds = %173, %197
 .thread229.i.i:                                   ; preds = %.preheader.i105.i, %285
   %287 = load ptr, ptr %2, align 16
   %288 = load ptr, ptr %110, align 8
-  call fastcc void @decode_de(ptr noundef nonnull %2, ptr noundef nonnull %3)
+  call fastcc void @decode_de(ptr noundef %2, ptr noundef %3)
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.thread149.i.i, %.thread229.i.i
@@ -1663,21 +1663,21 @@ parseOperator.exit114.i:                          ; preds = %165
   br label %yylex.exit
 
 173:                                              ; preds = %textbuf_clean.exit.i
-  %174 = call fastcc range(i32 0, 21) i32 @parseString(ptr noundef nonnull %4, ptr noundef nonnull %26, i8 noundef signext 34, i32 noundef 4)
+  %174 = call fastcc range(i32 0, 21) i32 @parseString(ptr noundef %4, ptr noundef nonnull %26, i8 noundef signext 34, i32 noundef 4)
   br label %yylex.exit
 
 175:                                              ; preds = %textbuf_clean.exit.i
-  %176 = call fastcc range(i32 0, 21) i32 @parseString(ptr noundef nonnull %4, ptr noundef nonnull %26, i8 noundef signext 39, i32 noundef 5)
+  %176 = call fastcc range(i32 0, 21) i32 @parseString(ptr noundef %4, ptr noundef nonnull %26, i8 noundef signext 39, i32 noundef 5)
   br label %yylex.exit
 
 177:                                              ; preds = %textbuf_clean.exit.i
   store i64 %70, ptr %32, align 8
-  %178 = call fastcc i32 @parseNumber(ptr noundef nonnull %4, ptr noundef nonnull %26)
+  %178 = call fastcc i32 @parseNumber(ptr noundef %4, ptr noundef nonnull %26)
   br label %yylex.exit
 
 179:                                              ; preds = %textbuf_clean.exit.i
   store i64 %70, ptr %32, align 8
-  %180 = call fastcc i32 @parseId(ptr noundef nonnull %4, ptr noundef nonnull %26)
+  %180 = call fastcc i32 @parseId(ptr noundef %4, ptr noundef nonnull %26)
   br label %yylex.exit
 
 yylex.exit.thread.thread156:                      ; preds = %textbuf_clean.exit.i
@@ -1735,15 +1735,15 @@ yylex.exit.thread.thread165:                      ; preds = %textbuf_clean.exit.
   br label %.loopexit184
 
 181:                                              ; preds = %55
-  %182 = call fastcc i32 @parseString(ptr noundef nonnull %4, ptr noundef nonnull %26, i8 noundef signext 34, i32 noundef 4)
+  %182 = call fastcc i32 @parseString(ptr noundef %4, ptr noundef nonnull %26, i8 noundef signext 34, i32 noundef 4)
   br label %yylex.exit
 
 183:                                              ; preds = %55
-  %184 = call fastcc i32 @parseString(ptr noundef nonnull %4, ptr noundef nonnull %26, i8 noundef signext 39, i32 noundef 5)
+  %184 = call fastcc i32 @parseString(ptr noundef %4, ptr noundef nonnull %26, i8 noundef signext 39, i32 noundef 5)
   br label %yylex.exit
 
 185:                                              ; preds = %55
-  %186 = call fastcc i32 @parseId(ptr noundef nonnull %4, ptr noundef nonnull %26)
+  %186 = call fastcc i32 @parseId(ptr noundef %4, ptr noundef nonnull %26)
   br label %yylex.exit
 
 .lr.ph142.i:                                      ; preds = %.preheader.i, %197
@@ -1777,7 +1777,7 @@ yylex.exit.thread.thread165:                      ; preds = %textbuf_clean.exit.
   br label %.backedge.i
 
 199:                                              ; preds = %55
-  %200 = call fastcc i32 @parseNumber(ptr noundef nonnull %4, ptr noundef nonnull %26)
+  %200 = call fastcc i32 @parseNumber(ptr noundef %4, ptr noundef nonnull %26)
   br label %yylex.exit
 
 .lr.ph.i:                                         ; preds = %.preheader115.i, %204
@@ -3755,7 +3755,7 @@ tokens_ensure_capacity.exit:                      ; preds = %31, %9, %50
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_de(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @decode_de(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 12
   %5 = load i32, ptr %4, align 4
@@ -4075,7 +4075,7 @@ declare i32 @cli_hashtab_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @cli_hashtab_clear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 20) i32 @parseNumber(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 20) i32 @parseNumber(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 56
@@ -4359,7 +4359,7 @@ textbuffer_putc.exit83:                           ; preds = %111, %116
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parseId(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @parseId(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 72
@@ -4600,7 +4600,7 @@ textbuffer_putc.exit:                             ; preds = %56, %51, %32, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @parseString(ptr nocapture noundef %0, ptr noundef %1, i8 noundef signext %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @parseString(ptr nocapture noundef nonnull %0, ptr noundef %1, i8 noundef signext range(i8 34, 40) %2, i32 noundef range(i32 4, 6) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 56

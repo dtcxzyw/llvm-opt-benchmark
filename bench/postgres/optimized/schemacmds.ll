@@ -440,14 +440,14 @@ define dso_local void @AlterSchemaOwner_oid(i32 noundef %0, i32 noundef %1) loca
   unreachable
 
 9:                                                ; preds = %2
-  tail call fastcc void @AlterSchemaOwner_internal(ptr noundef nonnull %5, ptr noundef %3, i32 noundef %1)
+  tail call fastcc void @AlterSchemaOwner_internal(ptr noundef %5, ptr noundef %3, i32 noundef %1)
   tail call void @ReleaseSysCache(ptr noundef nonnull %5) #4
   tail call void @table_close(ptr noundef %3, i32 noundef 3) #4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @AlterSchemaOwner_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @AlterSchemaOwner_internal(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca [4 x i64], align 16
   %5 = alloca [4 x i8], align 4
   %6 = alloca [4 x i8], align 4
@@ -561,7 +561,7 @@ define dso_local { i64, i32 } @AlterSchemaOwner(ptr noundef %0, i32 noundef %1) 
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
   %17 = load i32, ptr %16, align 4
-  tail call fastcc void @AlterSchemaOwner_internal(ptr noundef nonnull %5, ptr noundef %3, i32 noundef %1)
+  tail call fastcc void @AlterSchemaOwner_internal(ptr noundef %5, ptr noundef %3, i32 noundef %1)
   tail call void @ReleaseSysCache(ptr noundef nonnull %5) #4
   tail call void @table_close(ptr noundef %3, i32 noundef 3) #4
   %.sroa.212.0.insert.ext = zext i32 %17 to i64

@@ -610,7 +610,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h3368b4ecc4e038acE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly align 8 dereferenceable(24) %0, i8 %.0.val) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h3368b4ecc4e038acE"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(24) %0, i8 %.0.val) unnamed_addr #5 personality ptr @rust_eh_personality {
 switch.lookup:
   %1 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
@@ -5224,7 +5224,7 @@ switch.lookup:
   %3 = zext i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [256 x i8], ptr @switch.table._ZN17meilisearch_types5error4Code5type_17h3a69f4d9af420c5aE, i64 0, i64 %3
   %switch.load = load i8, ptr %switch.gep, align 1
-  tail call fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h3368b4ecc4e038acE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, i8 %switch.load)
+  tail call fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h3368b4ecc4e038acE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, i8 %switch.load)
   ret void
 }
 

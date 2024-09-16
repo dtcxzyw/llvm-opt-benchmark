@@ -374,7 +374,7 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
   br i1 %.not128, label %155, label %153
 
 153:                                              ; preds = %152
-  %154 = call fastcc i32 @ValidateRestrictionEstimator(ptr noundef nonnull %.0107152.lcssa)
+  %154 = call fastcc i32 @ValidateRestrictionEstimator(ptr noundef %.0107152.lcssa)
   br label %155
 
 155:                                              ; preds = %152, %153
@@ -383,7 +383,7 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
   br i1 %.not129, label %158, label %156
 
 156:                                              ; preds = %155
-  %157 = call fastcc i32 @ValidateJoinEstimator(ptr noundef nonnull %.0105153.lcssa)
+  %157 = call fastcc i32 @ValidateJoinEstimator(ptr noundef %.0105153.lcssa)
   br label %158
 
 158:                                              ; preds = %155, %156
@@ -436,7 +436,7 @@ declare ptr @NameListToString(ptr noundef) local_unnamed_addr #1
 declare i32 @get_func_rettype(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ValidateRestrictionEstimator(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @ValidateRestrictionEstimator(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [4 x i32], align 16
   store i32 2281, ptr %2, align 16
   %3 = getelementptr inbounds i8, ptr %2, i64 4
@@ -445,7 +445,7 @@ define internal fastcc noundef i32 @ValidateRestrictionEstimator(ptr noundef %0)
   store i32 2281, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 23, ptr %5, align 4
-  %6 = call i32 @LookupFuncName(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %2, i1 noundef zeroext false) #6
+  %6 = call i32 @LookupFuncName(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull %2, i1 noundef zeroext false) #6
   %7 = call i32 @get_func_rettype(i32 noundef %6) #6
   %.not = icmp eq i32 %7, 701
   br i1 %.not, label %13, label %8
@@ -454,7 +454,7 @@ define internal fastcc noundef i32 @ValidateRestrictionEstimator(ptr noundef %0)
   %9 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %9)
   %10 = call i32 @errcode(i32 noundef 117833860) #6
-  %11 = call ptr @NameListToString(ptr noundef %0) #6
+  %11 = call ptr @NameListToString(ptr noundef nonnull %0) #6
   %12 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25, ptr noundef %11, ptr noundef nonnull @.str.26) #6
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 296, ptr noundef nonnull @__func__.ValidateRestrictionEstimator) #6
   unreachable
@@ -466,7 +466,7 @@ define internal fastcc noundef i32 @ValidateRestrictionEstimator(ptr noundef %0)
   br i1 %.not7, label %18, label %16
 
 16:                                               ; preds = %13
-  %17 = call ptr @NameListToString(ptr noundef %0) #6
+  %17 = call ptr @NameListToString(ptr noundef nonnull %0) #6
   call void @aclcheck_error(i32 noundef %15, i32 noundef 19, ptr noundef %17) #6
   br label %18
 
@@ -475,7 +475,7 @@ define internal fastcc noundef i32 @ValidateRestrictionEstimator(ptr noundef %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ValidateJoinEstimator(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @ValidateJoinEstimator(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [5 x i32], align 16
   store i32 2281, ptr %2, align 16
   %3 = getelementptr inbounds i8, ptr %2, i64 4
@@ -486,8 +486,8 @@ define internal fastcc noundef i32 @ValidateJoinEstimator(ptr noundef %0) unname
   store i32 21, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   store i32 2281, ptr %6, align 16
-  %7 = call i32 @LookupFuncName(ptr noundef %0, i32 noundef 5, ptr noundef nonnull %2, i1 noundef zeroext true) #6
-  %8 = call i32 @LookupFuncName(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %2, i1 noundef zeroext true) #6
+  %7 = call i32 @LookupFuncName(ptr noundef nonnull %0, i32 noundef 5, ptr noundef nonnull %2, i1 noundef zeroext true) #6
+  %8 = call i32 @LookupFuncName(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull %2, i1 noundef zeroext true) #6
   %.not = icmp eq i32 %7, 0
   %.not17 = icmp eq i32 %8, 0
   br i1 %.not, label %15, label %9
@@ -499,7 +499,7 @@ define internal fastcc noundef i32 @ValidateJoinEstimator(ptr noundef %0) unname
   %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %11)
   %12 = call i32 @errcode(i32 noundef 84439172) #6
-  %13 = call ptr @NameListToString(ptr noundef %0) #6
+  %13 = call ptr @NameListToString(ptr noundef nonnull %0) #6
   %14 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef %13) #6
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 339, ptr noundef nonnull @__func__.ValidateJoinEstimator) #6
   unreachable
@@ -508,7 +508,7 @@ define internal fastcc noundef i32 @ValidateJoinEstimator(ptr noundef %0) unname
   br i1 %.not17, label %16, label %18
 
 16:                                               ; preds = %15
-  %17 = call i32 @LookupFuncName(ptr noundef %0, i32 noundef 5, ptr noundef nonnull %2, i1 noundef zeroext false) #6
+  %17 = call i32 @LookupFuncName(ptr noundef nonnull %0, i32 noundef 5, ptr noundef nonnull %2, i1 noundef zeroext false) #6
   br label %18
 
 18:                                               ; preds = %15, %16, %9
@@ -521,7 +521,7 @@ define internal fastcc noundef i32 @ValidateJoinEstimator(ptr noundef %0) unname
   %21 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %21)
   %22 = call i32 @errcode(i32 noundef 117833860) #6
-  %23 = call ptr @NameListToString(ptr noundef %0) #6
+  %23 = call ptr @NameListToString(ptr noundef nonnull %0) #6
   %24 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28, ptr noundef %23, ptr noundef nonnull @.str.26) #6
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 354, ptr noundef nonnull @__func__.ValidateJoinEstimator) #6
   unreachable
@@ -533,7 +533,7 @@ define internal fastcc noundef i32 @ValidateJoinEstimator(ptr noundef %0) unname
   br i1 %.not20, label %30, label %28
 
 28:                                               ; preds = %25
-  %29 = call ptr @NameListToString(ptr noundef %0) #6
+  %29 = call ptr @NameListToString(ptr noundef nonnull %0) #6
   call void @aclcheck_error(i32 noundef %27, i32 noundef 19, ptr noundef %29) #6
   br label %30
 
@@ -818,7 +818,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br i1 %.not140, label %99, label %97
 
 97:                                               ; preds = %96
-  %98 = tail call fastcc i32 @ValidateRestrictionEstimator(ptr noundef nonnull %.0109.lcssa)
+  %98 = tail call fastcc i32 @ValidateRestrictionEstimator(ptr noundef %.0109.lcssa)
   br label %99
 
 99:                                               ; preds = %96, %97
@@ -827,7 +827,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br i1 %.not141, label %102, label %100
 
 100:                                              ; preds = %99
-  %101 = tail call fastcc i32 @ValidateJoinEstimator(ptr noundef nonnull %.0114.lcssa)
+  %101 = tail call fastcc i32 @ValidateJoinEstimator(ptr noundef %.0114.lcssa)
   br label %102
 
 102:                                              ; preds = %99, %100
@@ -840,7 +840,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   %105 = load i32, ptr %104, align 4
   %106 = getelementptr inbounds i8, ptr %20, i64 80
   %107 = load i32, ptr %106, align 4
-  %108 = tail call fastcc i32 @ValidateOperatorReference(ptr noundef nonnull %.0130.lcssa, i32 noundef %105, i32 noundef %107)
+  %108 = tail call fastcc i32 @ValidateOperatorReference(ptr noundef %.0130.lcssa, i32 noundef %105, i32 noundef %107)
   br label %109
 
 109:                                              ; preds = %102, %103
@@ -853,7 +853,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   %112 = load i32, ptr %111, align 4
   %113 = getelementptr inbounds i8, ptr %20, i64 84
   %114 = load i32, ptr %113, align 4
-  %115 = tail call fastcc i32 @ValidateOperatorReference(ptr noundef nonnull %.0127.lcssa, i32 noundef %112, i32 noundef %114)
+  %115 = tail call fastcc i32 @ValidateOperatorReference(ptr noundef %.0127.lcssa, i32 noundef %112, i32 noundef %114)
   %116 = load i32, ptr %20, align 4
   %117 = icmp eq i32 %115, %116
   br i1 %117, label %118, label %122
@@ -1067,9 +1067,9 @@ declare ptr @SearchSysCacheCopy(i32 noundef, i64 noundef, i64 noundef, i64 nound
 declare zeroext i1 @object_ownercheck(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 0) i32 @ValidateOperatorReference(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @ValidateOperatorReference(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
-  %5 = call i32 @OperatorLookup(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %4) #6
+  %5 = call i32 @OperatorLookup(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %4) #6
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %11
 
@@ -1077,7 +1077,7 @@ define internal fastcc range(i32 1, 0) i32 @ValidateOperatorReference(ptr nounde
   %7 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %7)
   %8 = call i32 @errcode(i32 noundef 52461700) #6
-  %9 = call ptr @op_signature_string(ptr noundef %0, i32 noundef %1, i32 noundef %2) #6
+  %9 = call ptr @op_signature_string(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) #6
   %10 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %9) #6
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 394, ptr noundef nonnull @__func__.ValidateOperatorReference) #6
   unreachable
@@ -1091,7 +1091,7 @@ define internal fastcc range(i32 1, 0) i32 @ValidateOperatorReference(ptr nounde
   %15 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %15)
   %16 = call i32 @errcode(i32 noundef 52461700) #6
-  %17 = call ptr @op_signature_string(ptr noundef %0, i32 noundef %1, i32 noundef %2) #6
+  %17 = call ptr @op_signature_string(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) #6
   %18 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30, ptr noundef %17) #6
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 402, ptr noundef nonnull @__func__.ValidateOperatorReference) #6
   unreachable
@@ -1102,7 +1102,7 @@ define internal fastcc range(i32 1, 0) i32 @ValidateOperatorReference(ptr nounde
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %19
-  %23 = call ptr @NameListToString(ptr noundef %0) #6
+  %23 = call ptr @NameListToString(ptr noundef nonnull %0) #6
   call void @aclcheck_error(i32 noundef 2, i32 noundef 25, ptr noundef %23) #6
   br label %24
 

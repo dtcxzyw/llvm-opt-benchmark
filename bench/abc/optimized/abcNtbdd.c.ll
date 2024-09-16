@@ -885,7 +885,7 @@ Abc_ObjSetGlobalBdd.exit178:                      ; preds = %77, %90, %104
   %132 = sext i32 %.val154.val to i64
   %133 = getelementptr inbounds ptr, ptr %.val153.val.val, i64 %132
   %134 = load ptr, ptr %133, align 8
-  %135 = call fastcc ptr @Abc_NodeGlobalBdds_rec(ptr noundef %13, ptr noundef %134, i32 noundef %1, i32 noundef %2, ptr noundef %122, ptr noundef nonnull %7, i32 noundef %5)
+  %135 = call fastcc ptr @Abc_NodeGlobalBdds_rec(ptr noundef %13, ptr noundef %134, i32 noundef %1, i32 noundef %2, ptr noundef %122, ptr noundef %7, i32 noundef %5)
   %136 = icmp eq ptr %135, null
   br i1 %136, label %137, label %190
 
@@ -1336,7 +1336,7 @@ declare ptr @Abc_AigConst1(ptr noundef) local_unnamed_addr #1
 declare ptr @Extra_ProgressBarStart(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Abc_NodeGlobalBdds_rec(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc ptr @Abc_NodeGlobalBdds_rec(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull %5, i32 noundef %6) unnamed_addr #0 {
   %8 = tail call i32 @Cudd_ReadKeys(ptr noundef %0) #14
   %9 = tail call i32 @Cudd_ReadDead(ptr noundef %0) #14
   %10 = sub i32 %8, %9

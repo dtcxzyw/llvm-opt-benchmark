@@ -1868,7 +1868,7 @@ define dso_local noundef range(i32 -37, 1) i32 @nlmclnt_reclaim(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @nlmclnt_call(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @nlmclnt_call(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.wait_queue_entry, align 8
   %5 = alloca %struct.rpc_message, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8

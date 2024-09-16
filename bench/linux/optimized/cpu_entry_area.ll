@@ -241,7 +241,7 @@ define internal fastcc void @init_cea_offsets() unnamed_addr #3 section ".init.t
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @setup_cpu_entry_area(i32 noundef %0) unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc void @setup_cpu_entry_area(i32 noundef range(i32 0, 64) %0) unnamed_addr #3 section ".init.text" align 16 {
   %2 = tail call ptr @get_cpu_entry_area(i32 noundef %0)
   %3 = load i64, ptr @__default_kernel_pte_mask, align 8
   %4 = and i64 %3, -9223372036854775519
@@ -273,7 +273,7 @@ define internal fastcc void @setup_cpu_entry_area(i32 noundef %0) unnamed_addr #
 declare dso_local i32 @get_random_u32() local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @cea_map_percpu_pages(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 %3) unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc void @cea_map_percpu_pages(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 6) %2, i64 range(i64 0, -9223372036854775452) %3) unnamed_addr #3 section ".init.text" align 16 {
   br label %5
 
 5:                                                ; preds = %4, %5
@@ -293,7 +293,7 @@ define internal fastcc void @cea_map_percpu_pages(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @percpu_setup_exception_stacks(i32 noundef %0) unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc void @percpu_setup_exception_stacks(i32 noundef range(i32 0, 64) %0) unnamed_addr #3 section ".init.text" align 16 {
   %2 = zext nneg i32 %0 to i64
   %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
   %4 = load i64, ptr %3, align 8
@@ -327,7 +327,7 @@ define internal fastcc void @percpu_setup_exception_stacks(i32 noundef %0) unnam
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @percpu_setup_debug_store(i32 noundef %0) unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc void @percpu_setup_debug_store(i32 noundef range(i32 0, 64) %0) unnamed_addr #3 section ".init.text" align 16 {
   %2 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %.loopexit

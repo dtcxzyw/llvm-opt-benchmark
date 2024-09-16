@@ -403,7 +403,7 @@ invoke.cont9.us.i:                                ; preds = %invoke.cont9.lr.ph.
   %retval.sroa.0.0.insert.ext.i.i.i.us.i = zext i8 %15 to i16
   %retval.sroa.0.0.insert.insert.i.i.i.us.i = or disjoint i16 %retval.sroa.2.0.insert.shift.i.i.i.us.i, %retval.sroa.0.0.insert.ext.i.i.i.us.i
   store i16 %retval.sroa.0.0.insert.insert.i.i.i.us.i, ptr %ref.tmp8.i, align 2
-  invoke fastcc void @_ZN3ue2L4stepERKNS_8NGHolderERKSt6vectorINS_9StateInfoESaIS4_EERKN5boost14dynamic_bitsetImSaImEEEPSC_(ptr noundef nonnull readonly align 8 dereferenceable(24) %info, ptr noundef nonnull align 8 dereferenceable(32) %work_states, ptr noundef nonnull %next.i)
+  invoke fastcc void @_ZN3ue2L4stepERKNS_8NGHolderERKSt6vectorINS_9StateInfoESaIS4_EERKN5boost14dynamic_bitsetImSaImEEEPSC_(ptr noundef nonnull readonly align 8 dereferenceable(24) %info, ptr noundef nonnull align 8 dereferenceable(32) %work_states, ptr noundef %next.i)
           to label %invoke.cont14.us.i unwind label %lpad1.split.us.i
 
 invoke.cont14.us.i:                               ; preds = %invoke.cont9.us.i
@@ -415,7 +415,7 @@ invoke.cont14.us.i:                               ; preds = %invoke.cont9.us.i
           to label %invoke.cont17.us.i unwind label %lpad1.split.us.i
 
 invoke.cont17.us.i:                               ; preds = %invoke.cont14.us.i
-  invoke fastcc void @_ZN3ue2L15filter_by_reachERKSt6vectorINS_9StateInfoESaIS1_EEPN5boost14dynamic_bitsetImSaImEEERKNS_9CharReachE(ptr noundef nonnull readonly align 8 dereferenceable(24) %info, ptr noundef nonnull %next.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16.i)
+  invoke fastcc void @_ZN3ue2L15filter_by_reachERKSt6vectorINS_9StateInfoESaIS1_EEPN5boost14dynamic_bitsetImSaImEEERKNS_9CharReachE(ptr noundef nonnull readonly align 8 dereferenceable(24) %info, ptr noundef %next.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16.i)
           to label %invoke.cont18.us.i unwind label %lpad1.split.us.i
 
 invoke.cont18.us.i:                               ; preds = %invoke.cont17.us.i
@@ -462,7 +462,7 @@ invoke.cont9.i:                                   ; preds = %invoke.cont9.lr.ph.
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i8 %31 to i16
   %retval.sroa.0.0.insert.insert.i.i.i.i = or disjoint i16 %retval.sroa.2.0.insert.shift.i.i.i.i, %retval.sroa.0.0.insert.ext.i.i.i.i
   store i16 %retval.sroa.0.0.insert.insert.i.i.i.i, ptr %ref.tmp8.i, align 2
-  invoke fastcc void @_ZN3ue2L4stepERKNS_8NGHolderERKSt6vectorINS_9StateInfoESaIS4_EERKN5boost14dynamic_bitsetImSaImEEEPSC_(ptr noundef nonnull readonly align 8 dereferenceable(24) %info, ptr noundef nonnull align 8 dereferenceable(32) %work_states, ptr noundef nonnull %next.i)
+  invoke fastcc void @_ZN3ue2L4stepERKNS_8NGHolderERKSt6vectorINS_9StateInfoESaIS4_EERKN5boost14dynamic_bitsetImSaImEEEPSC_(ptr noundef nonnull readonly align 8 dereferenceable(24) %info, ptr noundef nonnull align 8 dereferenceable(32) %work_states, ptr noundef %next.i)
           to label %invoke.cont14.i16 unwind label %lpad1.split.i
 
 invoke.cont14.i16:                                ; preds = %invoke.cont9.i
@@ -485,7 +485,7 @@ if.then.i.i.i.i12.i:                              ; preds = %lpad1.i
   br label %lpad1.body
 
 invoke.cont17.i:                                  ; preds = %invoke.cont14.i16
-  invoke fastcc void @_ZN3ue2L15filter_by_reachERKSt6vectorINS_9StateInfoESaIS1_EEPN5boost14dynamic_bitsetImSaImEEERKNS_9CharReachE(ptr noundef nonnull readonly align 8 dereferenceable(24) %info, ptr noundef nonnull %next.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16.i)
+  invoke fastcc void @_ZN3ue2L15filter_by_reachERKSt6vectorINS_9StateInfoESaIS1_EEPN5boost14dynamic_bitsetImSaImEEERKNS_9CharReachE(ptr noundef nonnull readonly align 8 dereferenceable(24) %info, ptr noundef %next.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16.i)
           to label %invoke.cont18.i unwind label %lpad1.split.i
 
 invoke.cont18.i:                                  ; preds = %invoke.cont17.i
@@ -876,7 +876,7 @@ for.body.lr.ph.i:                                 ; preds = %invoke.cont.i
 
 for.body.i:                                       ; preds = %invoke.cont12.i, %for.body.lr.ph.i
   %__begin0.sroa.0.04.i = phi ptr [ %13, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %invoke.cont12.i ]
-  invoke fastcc void @_ZN3ue2L4stepERKNS_8NGHolderERKSt6vectorINS_9StateInfoESaIS4_EERKN5boost14dynamic_bitsetImSaImEEEPSC_(ptr noundef nonnull readonly align 8 dereferenceable(24) %info, ptr noundef nonnull align 8 dereferenceable(32) %work_states, ptr noundef nonnull %next.i)
+  invoke fastcc void @_ZN3ue2L4stepERKNS_8NGHolderERKSt6vectorINS_9StateInfoESaIS4_EERKN5boost14dynamic_bitsetImSaImEEEPSC_(ptr noundef nonnull readonly align 8 dereferenceable(24) %info, ptr noundef nonnull align 8 dereferenceable(32) %work_states, ptr noundef %next.i)
           to label %if.end.i unwind label %lpad9.i
 
 lpad9.i:                                          ; preds = %if.end.i, %for.body.i
@@ -891,7 +891,7 @@ if.then.i.i.i.i8.i:                               ; preds = %lpad9.i
   br label %lpad1.body
 
 if.end.i:                                         ; preds = %for.body.i
-  invoke fastcc void @_ZN3ue2L15filter_by_reachERKSt6vectorINS_9StateInfoESaIS1_EEPN5boost14dynamic_bitsetImSaImEEERKNS_9CharReachE(ptr noundef nonnull readonly align 8 dereferenceable(24) %info, ptr noundef nonnull %next.i, ptr noundef nonnull align 8 dereferenceable(32) %__begin0.sroa.0.04.i)
+  invoke fastcc void @_ZN3ue2L15filter_by_reachERKSt6vectorINS_9StateInfoESaIS1_EEPN5boost14dynamic_bitsetImSaImEEERKNS_9CharReachE(ptr noundef nonnull readonly align 8 dereferenceable(24) %info, ptr noundef %next.i, ptr noundef nonnull align 8 dereferenceable(32) %__begin0.sroa.0.04.i)
           to label %invoke.cont12.i unwind label %lpad9.i
 
 invoke.cont12.i:                                  ; preds = %if.end.i
@@ -2480,7 +2480,7 @@ invoke.cont11.i.i.i:                              ; preds = %for.body.i.i.i.i.pr
   %112 = load ptr, ptr %info.i, align 8
   %agg.tmp10.sroa.0.0.copyload.i.i.i = load ptr, ptr %input_v.i.i.i, align 8
   %props.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp10.sroa.0.0.copyload.i.i.i, i64 16
-  invoke fastcc void @_ZN3ue2L15filter_by_reachERKSt6vectorINS_9StateInfoESaIS1_EEPN5boost14dynamic_bitsetImSaImEEERKNS_9CharReachE(ptr noundef nonnull align 8 dereferenceable(24) %112, ptr noundef nonnull %our_states.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %props.i.i.i.i)
+  invoke fastcc void @_ZN3ue2L15filter_by_reachERKSt6vectorINS_9StateInfoESaIS1_EEPN5boost14dynamic_bitsetImSaImEEERKNS_9CharReachE(ptr noundef nonnull align 8 dereferenceable(24) %112, ptr noundef %our_states.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %props.i.i.i.i)
           to label %invoke.cont13.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i.i.i
 
 invoke.cont13.i.i.i:                              ; preds = %invoke.cont11.i.i.i
@@ -3455,7 +3455,7 @@ for.body.i.i.i.i.preheader.i139.i.i.i:            ; preds = %do.end50.i.i.i
   br label %invoke.cont52.i.i.i
 
 invoke.cont52.i.i.i:                              ; preds = %for.body.i.i.i.i.preheader.i139.i.i.i, %do.end50.i.i.i
-  invoke fastcc void @_ZN3ue2L4stepERKNS_8NGHolderERKSt6vectorINS_9StateInfoESaIS4_EERKN5boost14dynamic_bitsetImSaImEEEPSC_(ptr noundef nonnull align 8 dereferenceable(24) %112, ptr noundef nonnull align 8 dereferenceable(32) %our_states.i.i.i, ptr noundef nonnull readonly %succs.i)
+  invoke fastcc void @_ZN3ue2L4stepERKNS_8NGHolderERKSt6vectorINS_9StateInfoESaIS4_EERKN5boost14dynamic_bitsetImSaImEEEPSC_(ptr noundef nonnull align 8 dereferenceable(24) %112, ptr noundef nonnull align 8 dereferenceable(32) %our_states.i.i.i, ptr noundef readonly %succs.i)
           to label %invoke.cont61.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i.i.i
 
 invoke.cont61.i.i.i:                              ; preds = %invoke.cont52.i.i.i
@@ -4797,7 +4797,7 @@ invoke.cont:                                      ; preds = %if.end8, %_ZNSt12_V
   %6 = phi ptr [ null, %if.end8 ], [ %add.ptr37.i, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit33.i ]
   %7 = phi ptr [ null, %if.end8 ], [ %call5.i.i.i.i42, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit33.i ]
   store i64 %4, ptr %m_num_bits.i20, align 8
-  invoke fastcc void @_ZN3ue2L4stepERKNS_8NGHolderERKSt6vectorINS_9StateInfoESaIS4_EERKN5boost14dynamic_bitsetImSaImEEEPSC_(ptr noundef nonnull align 8 dereferenceable(24) %info, ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %all_succ)
+  invoke fastcc void @_ZN3ue2L4stepERKNS_8NGHolderERKSt6vectorINS_9StateInfoESaIS4_EERKN5boost14dynamic_bitsetImSaImEEEPSC_(ptr noundef nonnull align 8 dereferenceable(24) %info, ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef %all_succ)
           to label %invoke.cont11 unwind label %lpad10.loopexit.split-lp
 
 invoke.cont11:                                    ; preds = %invoke.cont
@@ -4829,7 +4829,7 @@ for.body.us:                                      ; preds = %invoke.cont11, %_ZN
   %9 = load i64, ptr %arrayidx.i.i.i.i.i.us, align 8
   %or.i.i.i.us = or i64 %9, %shl.i.i.i.i.us
   store i64 %or.i.i.i.us, ptr %arrayidx.i.i.i.i.i.us, align 8
-  invoke fastcc void @_ZN3ue2L15filter_by_reachERKSt6vectorINS_9StateInfoESaIS1_EEPN5boost14dynamic_bitsetImSaImEEERKNS_9CharReachE(ptr noundef nonnull align 8 dereferenceable(24) %info, ptr noundef nonnull %next, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15)
+  invoke fastcc void @_ZN3ue2L15filter_by_reachERKSt6vectorINS_9StateInfoESaIS1_EEPN5boost14dynamic_bitsetImSaImEEERKNS_9CharReachE(ptr noundef nonnull align 8 dereferenceable(24) %info, ptr noundef %next, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15)
           to label %invoke.cont18.us unwind label %lpad16.split.us
 
 invoke.cont18.us:                                 ; preds = %for.body.us
@@ -4889,7 +4889,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body
   %12 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
   %or.i.i.i = or i64 %12, %shl.i.i.i.i
   store i64 %or.i.i.i, ptr %arrayidx.i.i.i.i.i, align 8
-  invoke fastcc void @_ZN3ue2L15filter_by_reachERKSt6vectorINS_9StateInfoESaIS1_EEPN5boost14dynamic_bitsetImSaImEEERKNS_9CharReachE(ptr noundef nonnull align 8 dereferenceable(24) %info, ptr noundef nonnull %next, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15)
+  invoke fastcc void @_ZN3ue2L15filter_by_reachERKSt6vectorINS_9StateInfoESaIS1_EEPN5boost14dynamic_bitsetImSaImEEERKNS_9CharReachE(ptr noundef nonnull align 8 dereferenceable(24) %info, ptr noundef %next, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15)
           to label %invoke.cont18 unwind label %lpad16.split
 
 invoke.cont18:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
@@ -5902,7 +5902,7 @@ if.end:                                           ; preds = %for.cond.i.i, %if.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L4stepERKNS_8NGHolderERKSt6vectorINS_9StateInfoESaIS4_EERKN5boost14dynamic_bitsetImSaImEEEPSC_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %info, ptr noundef nonnull align 8 dereferenceable(32) %in, ptr nocapture noundef readonly %out) unnamed_addr #2 {
+define internal fastcc void @_ZN3ue2L4stepERKNS_8NGHolderERKSt6vectorINS_9StateInfoESaIS4_EERKN5boost14dynamic_bitsetImSaImEEEPSC_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %info, ptr noundef nonnull align 8 dereferenceable(32) %in, ptr nocapture noundef nonnull readonly %out) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %out, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %out, i64 8

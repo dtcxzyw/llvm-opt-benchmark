@@ -594,10 +594,10 @@ define hidden void @_ZN5ropey4tree9node_text8NodeText16insert_str_split17hc04ccf
   %21 = add i64 %4, %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 0, ptr %10, align 8
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %20, i64 4)
+  %.sroa.0.0.sroa.speculated.i = tail call noundef range(i64 0, -9223372036854775804) i64 @llvm.umin.i64(i64 %20, i64 4)
   %22 = sub nsw i64 %20, %.sroa.0.0.sroa.speculated.i
   %23 = add nuw i64 %20, 4
-  %.sroa.0.0.sroa.speculated.i45 = tail call noundef i64 @llvm.umin.i64(i64 %23, i64 %19)
+  %.sroa.0.0.sroa.speculated.i45 = tail call noundef range(i64 0, -9223372036854775804) i64 @llvm.umin.i64(i64 %23, i64 %19)
   %24 = icmp ult i64 %22, %.sroa.0.0.sroa.speculated.i45
   br i1 %24, label %.lr.ph, label %._crit_edge
 

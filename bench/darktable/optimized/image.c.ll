@@ -1396,7 +1396,7 @@ declare void @dt_conf_set_bool(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare ptr @dt_action_locate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_execute_metadata(ptr nocapture readonly %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @_execute_metadata(ptr nocapture readonly %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #1 {
   %3 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.37) #9
   %4 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.40) #9
   %5 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.48) #9

@@ -87,7 +87,7 @@ define internal fastcc zeroext i8 @sbf_read() unnamed_addr #0 section ".init.tex
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @sbf_write(i8 noundef zeroext %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @sbf_write(i8 noundef zeroext range(i8 0, -126) %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = load i32, ptr @sbf_port, align 4
   %3 = icmp eq i32 %2, -1
   br i1 %3, label %25, label %4

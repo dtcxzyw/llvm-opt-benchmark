@@ -4513,7 +4513,7 @@ declare i32 @Gia_ManHashAnd(ptr noundef, i32 noundef, i32 noundef) local_unnamed
 declare i32 @Gia_ManHashXor(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Gia_ObjLevelId(ptr nocapture %.160.val, i32 noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @Gia_ObjLevelId(ptr nocapture %.160.val, i32 noundef range(i32 -1073741824, 1073741824) %0) unnamed_addr #0 {
   %2 = add nsw i32 %0, 1
   %3 = getelementptr inbounds i8, ptr %.160.val, i64 4
   %4 = load i32, ptr %3, align 4

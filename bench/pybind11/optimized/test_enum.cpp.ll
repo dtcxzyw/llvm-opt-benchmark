@@ -13943,7 +13943,7 @@ _ZN8pybind116class_IZ20test_submodule_enumsRNS_7module_EE21ClassWithUnscopedEnum
 declare void @_ZN16test_initializerC1EPKcPFvRN8pybind117module_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind115enum_IZ20test_submodule_enumsRNS_7module_EE12UnscopedEnumE5valueEPKcS3_S6_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind115enum_IZ20test_submodule_enumsRNS_7module_EE12UnscopedEnumE5valueEPKcS3_S6_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef range(i32 1, 4) %2, ptr noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pybind11::object", align 8
   %6 = alloca i32, align 4
   %7 = alloca %"class.pybind11::object", align 8
@@ -14109,7 +14109,7 @@ _ZN8pybind116class_IZ20test_submodule_enumsRNS_7module_EE12UnscopedEnumJEED2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind115enum_IZ20test_submodule_enumsRNS_7module_EE10ScopedEnumE5valueEPKcS3_S6_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind115enum_IZ20test_submodule_enumsRNS_7module_EE10ScopedEnumE5valueEPKcS3_S6_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef range(i32 2, 4) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pybind11::object", align 8
   %5 = alloca i32, align 4
   %6 = alloca %"class.pybind11::object", align 8
@@ -14275,7 +14275,7 @@ _ZN8pybind116class_IZ20test_submodule_enumsRNS_7module_EE10ScopedEnumJEED2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind115enum_IZ20test_submodule_enumsRNS_7module_EE5FlagsE5valueEPKcS3_S6_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind115enum_IZ20test_submodule_enumsRNS_7module_EE5FlagsE5valueEPKcS3_S6_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef range(i32 1, 5) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pybind11::object", align 8
   %5 = alloca i32, align 4
   %6 = alloca %"class.pybind11::object", align 8
@@ -14449,7 +14449,7 @@ define internal noundef i32 @_ZZ20test_submodule_enumsRN8pybind117module_EEN21Cl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind115enum_IZ20test_submodule_enumsRNS_7module_EEN21ClassWithUnscopedEnum5EModeEE5valueEPKcS4_S7_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind115enum_IZ20test_submodule_enumsRNS_7module_EEN21ClassWithUnscopedEnum5EModeEE5valueEPKcS4_S7_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pybind11::object", align 8
   %5 = alloca i32, align 4
   %6 = alloca %"class.pybind11::object", align 8
@@ -14642,7 +14642,7 @@ _ZN8pybind117module_D2Ev.exit:                    ; preds = %0, %1, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind115enum_IZ20test_submodule_enumsRNS_7module_EE14ScopedCharEnumE5valueEPKcS3_S6_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef %1, i8 noundef signext %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind115enum_IZ20test_submodule_enumsRNS_7module_EE14ScopedCharEnumE5valueEPKcS3_S6_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef %1, i8 noundef signext range(i8 0, 2) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pybind11::object", align 8
   %5 = alloca i8, align 1
   %6 = alloca %"class.pybind11::object", align 8
@@ -14808,7 +14808,7 @@ _ZN8pybind116class_IZ20test_submodule_enumsRNS_7module_EE14ScopedCharEnumJEED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind115enum_IZ20test_submodule_enumsRNS_7module_EE15ScopedWCharEnumE5valueEPKcS3_S6_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef signext %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind115enum_IZ20test_submodule_enumsRNS_7module_EE15ScopedWCharEnumE5valueEPKcS3_S6_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef signext range(i32 0, 2) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pybind11::object", align 8
   %5 = alloca i32, align 4
   %6 = alloca %"class.pybind11::object", align 8
@@ -14974,7 +14974,7 @@ _ZN8pybind116class_IZ20test_submodule_enumsRNS_7module_EE15ScopedWCharEnumJEED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind115enum_IZ20test_submodule_enumsRNS_7module_EE16ScopedChar32EnumE5valueEPKcS3_S6_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef zeroext %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind115enum_IZ20test_submodule_enumsRNS_7module_EE16ScopedChar32EnumE5valueEPKcS3_S6_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef zeroext range(i32 0, 2) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pybind11::object", align 8
   %5 = alloca i32, align 4
   %6 = alloca %"class.pybind11::object", align 8
@@ -15140,7 +15140,7 @@ _ZN8pybind116class_IZ20test_submodule_enumsRNS_7module_EE16ScopedChar32EnumJEED2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind115enum_IZ20test_submodule_enumsRNS_7module_EE16ScopedChar16EnumE5valueEPKcS3_S6_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind115enum_IZ20test_submodule_enumsRNS_7module_EE16ScopedChar16EnumE5valueEPKcS3_S6_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef %1, i16 noundef zeroext range(i16 0, 2) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pybind11::object", align 8
   %5 = alloca i16, align 2
   %6 = alloca %"class.pybind11::object", align 8
@@ -57129,7 +57129,7 @@ _ZN8pybind116detail15argument_loaderIJZ20test_submodule_enumsRNS_7module_EE10Sco
   br i1 %.not.i, label %27, label %_ZN8pybind114noneD2Ev.exit.i
 
 _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %20
-  call fastcc void @"_ZNO8pybind116detail15argument_loaderIJZ20test_submodule_enumsRNS_7module_EE10ScopedEnumEE4callINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9void_typeERZ20test_submodule_enumsS3_E3$_0EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESH_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %.val19.i)
+  call fastcc void @"_ZNO8pybind116detail15argument_loaderIJZ20test_submodule_enumsRNS_7module_EE10ScopedEnumEE4callINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9void_typeERZ20test_submodule_enumsS3_E3$_0EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESH_E4typeEOT1_"(ptr dead_on_unwind noalias writable align 8 %4, ptr %.val19.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
   %25 = load i64, ptr @_Py_NoneStruct, align 8
   %26 = add nsw i64 %25, 1
@@ -57137,7 +57137,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %20
   br label %"_ZZN8pybind1112cpp_function10initializeIZ20test_submodule_enumsRNS_7module_EE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJZ20test_submodule_enumsS3_E10ScopedEnumEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESS_.exit"
 
 27:                                               ; preds = %20
-  call fastcc void @"_ZNO8pybind116detail15argument_loaderIJZ20test_submodule_enumsRNS_7module_EE10ScopedEnumEE4callINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9void_typeERZ20test_submodule_enumsS3_E3$_0EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESH_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %.val19.i)
+  call fastcc void @"_ZNO8pybind116detail15argument_loaderIJZ20test_submodule_enumsRNS_7module_EE10ScopedEnumEE4callINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9void_typeERZ20test_submodule_enumsS3_E3$_0EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESH_E4typeEOT1_"(ptr dead_on_unwind noalias writable align 8 %5, ptr %.val19.i)
   %28 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
   %29 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
   %30 = invoke ptr @PyUnicode_DecodeUTF8(ptr noundef %28, i64 noundef %29, ptr noundef null)
@@ -57188,7 +57188,7 @@ _ZN8pybind116detail13string_casterINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJZ20test_submodule_enumsRNS_7module_EE10ScopedEnumEE4callINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9void_typeERZ20test_submodule_enumsS3_E3$_0EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESH_E4typeEOT1_"(ptr dead_on_unwind noalias writable align 8 %0, ptr readonly %.16.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJZ20test_submodule_enumsRNS_7module_EE10ScopedEnumEE4callINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9void_typeERZ20test_submodule_enumsS3_E3$_0EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESH_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly %.16.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %.not.i.i.i = icmp eq ptr %.16.val, null
@@ -60620,7 +60620,7 @@ _ZN8pybind115enum_IZ20test_submodule_enumsRNS_7module_EE10SimpleEnumE13export_va
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind115enum_IZ20test_submodule_enumsRNS_7module_EE10SimpleEnumE5valueEPKcS3_S6_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind115enum_IZ20test_submodule_enumsRNS_7module_EE10SimpleEnumE5valueEPKcS3_S6_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pybind11::object", align 8
   %4 = alloca i32, align 4
   %5 = alloca %"class.pybind11::object", align 8

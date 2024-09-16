@@ -2935,7 +2935,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119IndexingDeclVisito
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_119IndexingDeclVisitor23indexTemplateParametersEPN5clang21TemplateParameterListEPKNS1_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %4, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_119IndexingDeclVisitor23indexTemplateParametersEPN5clang21TemplateParameterListEPKNS1_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %4, ptr noundef nonnull %1)
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -5111,7 +5111,7 @@ _ZN12_GLOBAL__N_119IndexingDeclVisitor40shouldIndexTemplateParameterDefaultValue
   br i1 %36, label %_ZN12_GLOBAL__N_119IndexingDeclVisitor40shouldIndexTemplateParameterDefaultValueEPKN5clang9NamedDeclE.exit.thread, label %37
 
 _ZN12_GLOBAL__N_119IndexingDeclVisitor40shouldIndexTemplateParameterDefaultValueEPKN5clang9NamedDeclE.exit.thread: ; preds = %29, %23, %14, %_ZN12_GLOBAL__N_119IndexingDeclVisitor40shouldIndexTemplateParameterDefaultValueEPKN5clang9NamedDeclE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_119IndexingDeclVisitor23indexTemplateParametersEPN5clang21TemplateParameterListEPKNS1_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %7, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN12_GLOBAL__N_119IndexingDeclVisitor23indexTemplateParametersEPN5clang21TemplateParameterListEPKNS1_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %7, ptr noundef nonnull %4)
   br label %37
 
 37:                                               ; preds = %23, %14, %_ZN12_GLOBAL__N_119IndexingDeclVisitor40shouldIndexTemplateParameterDefaultValueEPKN5clang9NamedDeclE.exit.thread, %_ZN12_GLOBAL__N_119IndexingDeclVisitor40shouldIndexTemplateParameterDefaultValueEPKN5clang9NamedDeclE.exit, %5
@@ -5124,7 +5124,7 @@ _ZN12_GLOBAL__N_119IndexingDeclVisitor40shouldIndexTemplateParameterDefaultValue
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119IndexingDeclVisitor23indexTemplateParametersEPN5clang21TemplateParameterListEPKNS1_9NamedDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119IndexingDeclVisitor23indexTemplateParametersEPN5clang21TemplateParameterListEPKNS1_9NamedDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::ArrayRef", align 8
   %.ptr = getelementptr inbounds i8, ptr %1, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -5528,7 +5528,7 @@ _ZN12_GLOBAL__N_119IndexingDeclVisitor40shouldIndexTemplateParameterDefaultValue
   br i1 %36, label %_ZN12_GLOBAL__N_119IndexingDeclVisitor40shouldIndexTemplateParameterDefaultValueEPKN5clang9NamedDeclE.exit.thread, label %37
 
 _ZN12_GLOBAL__N_119IndexingDeclVisitor40shouldIndexTemplateParameterDefaultValueEPKN5clang9NamedDeclE.exit.thread: ; preds = %29, %23, %14, %_ZN12_GLOBAL__N_119IndexingDeclVisitor40shouldIndexTemplateParameterDefaultValueEPKN5clang9NamedDeclE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_119IndexingDeclVisitor23indexTemplateParametersEPN5clang21TemplateParameterListEPKNS1_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %7, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN12_GLOBAL__N_119IndexingDeclVisitor23indexTemplateParametersEPN5clang21TemplateParameterListEPKNS1_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %7, ptr noundef nonnull %4)
   br label %37
 
 37:                                               ; preds = %23, %14, %_ZN12_GLOBAL__N_119IndexingDeclVisitor40shouldIndexTemplateParameterDefaultValueEPKN5clang9NamedDeclE.exit.thread, %_ZN12_GLOBAL__N_119IndexingDeclVisitor40shouldIndexTemplateParameterDefaultValueEPKN5clang9NamedDeclE.exit, %5

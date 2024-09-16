@@ -1357,7 +1357,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = call fastcc i32 @faulthandler_get_fileno(ptr noundef nonnull %file)
+  %call1 = call fastcc i32 @faulthandler_get_fileno(ptr noundef %file)
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %return, label %if.end3
 
@@ -1573,7 +1573,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = call fastcc i32 @faulthandler_get_fileno(ptr noundef nonnull %file)
+  %call1 = call fastcc i32 @faulthandler_get_fileno(ptr noundef %file)
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %return, label %if.end3
 
@@ -1673,7 +1673,7 @@ get_thread_state.exit.thread:                     ; preds = %if.end11
   br label %return
 
 if.end15:                                         ; preds = %if.end11
-  %call16 = call fastcc i32 @faulthandler_get_fileno(ptr noundef nonnull %file)
+  %call16 = call fastcc i32 @faulthandler_get_fileno(ptr noundef %file)
   %cmp17 = icmp slt i32 %call16, 0
   br i1 %cmp17, label %return, label %if.end19
 
@@ -1904,7 +1904,7 @@ get_thread_state.exit.thread:                     ; preds = %if.end4
   br label %return
 
 if.end7:                                          ; preds = %if.end4
-  %call8 = call fastcc i32 @faulthandler_get_fileno(ptr noundef nonnull %file)
+  %call8 = call fastcc i32 @faulthandler_get_fileno(ptr noundef %file)
   %cmp9 = icmp slt i32 %call8, 0
   br i1 %cmp9, label %return, label %if.end11
 
@@ -2335,7 +2335,7 @@ faulthandler_suppress_crash_report.exit:          ; preds = %entry, %if.then.i
   %cmp1 = icmp ult ptr %depth, inttoptr (i64 -104857600 to ptr)
   %add = add nuw i64 %0, 104857600
   %upper_limit.0 = select i1 %cmp1, i64 %add, i64 -1
-  %call = call fastcc i64 @stack_overflow(i64 noundef %lower_limit.0, i64 noundef %upper_limit.0, ptr noundef nonnull %depth)
+  %call = call fastcc i64 @stack_overflow(i64 noundef %lower_limit.0, i64 noundef %upper_limit.0, ptr noundef %depth)
   %cmp5 = icmp ugt i64 %call, %0
   %sub7 = sub nuw i64 %call, %0
   %sub9 = sub nuw i64 %0, %call
@@ -2349,7 +2349,7 @@ faulthandler_suppress_crash_report.exit:          ; preds = %entry, %if.then.i
 declare i32 @PyArg_ParseTupleAndKeywords(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @faulthandler_get_fileno(ptr nocapture noundef %file_ptr) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @faulthandler_get_fileno(ptr nocapture noundef nonnull %file_ptr) unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   %0 = load ptr, ptr %file_ptr, align 8
@@ -2840,7 +2840,7 @@ declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #9
 declare void @abort() local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc i64 @stack_overflow(i64 noundef %min_sp, i64 noundef %max_sp, ptr nocapture noundef %depth) unnamed_addr #13 {
+define internal fastcc i64 @stack_overflow(i64 noundef range(i64 0, -104857600) %min_sp, i64 noundef range(i64 104857600, 0) %max_sp, ptr nocapture noundef nonnull %depth) unnamed_addr #13 {
 entry:
   %buffer = alloca [4096 x i8], align 16
   %0 = ptrtoint ptr %buffer to i64
@@ -2856,7 +2856,7 @@ if.end:                                           ; preds = %entry
   store volatile i8 1, ptr %buffer, align 16
   %arrayidx2 = getelementptr inbounds i8, ptr %buffer, i64 4095
   store volatile i8 0, ptr %arrayidx2, align 1
-  %call = call fastcc i64 @stack_overflow(i64 noundef %min_sp, i64 noundef %max_sp, ptr noundef nonnull %depth)
+  %call = call fastcc i64 @stack_overflow(i64 noundef %min_sp, i64 noundef %max_sp, ptr noundef %depth)
   br label %return
 
 return:                                           ; preds = %entry, %if.end

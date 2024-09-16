@@ -1034,7 +1034,7 @@ define void @hwloc__xml_export_topology(ptr noundef %0, ptr noundef %1, i64 noun
   br i1 %.not14.i, label %19, label %20
 
 19:                                               ; preds = %.lr.ph.i
-  tail call fastcc void @hwloc___xml_v2export_distances(ptr noundef %0, ptr noundef nonnull %.017.i)
+  tail call fastcc void @hwloc___xml_v2export_distances(ptr noundef %0, ptr noundef %.017.i)
   br label %20
 
 20:                                               ; preds = %19, %.lr.ph.i
@@ -1051,7 +1051,7 @@ define void @hwloc__xml_export_topology(ptr noundef %0, ptr noundef %1, i64 noun
   br i1 %.not13.i, label %25, label %24
 
 24:                                               ; preds = %.lr.ph21.i
-  tail call fastcc void @hwloc___xml_v2export_distances(ptr noundef %0, ptr noundef nonnull %.120.i)
+  tail call fastcc void @hwloc___xml_v2export_distances(ptr noundef %0, ptr noundef %.120.i)
   br label %25
 
 25:                                               ; preds = %24, %.lr.ph21.i
@@ -4513,7 +4513,7 @@ hwloc_get_info_by_name.exit:                      ; preds = %7, %2, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hwloc___xml_v2export_distances(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
+define internal fastcc void @hwloc___xml_v2export_distances(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #5 {
   %3 = alloca [255 x i8], align 16
   %4 = alloca %struct.hwloc__xml_export_state_s, align 8
   %5 = alloca [255 x i8], align 16
@@ -5030,7 +5030,7 @@ hwloc__xml_verbose.exit175:                       ; preds = %64, %69
   br i1 %.not137, label %86, label %.loopexit
 
 86:                                               ; preds = %83
-  %87 = call fastcc i32 @hwloc__xml_import_object(ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef null, ptr noundef %29, ptr noundef nonnull %22, ptr noundef nonnull %20)
+  %87 = call fastcc i32 @hwloc__xml_import_object(ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef null, ptr noundef %29, ptr noundef %22, ptr noundef %20)
   %88 = icmp slt i32 %87, 0
   br i1 %88, label %.loopexit, label %89
 
@@ -5075,7 +5075,7 @@ hwloc__xml_verbose.exit175:                       ; preds = %64, %69
   br i1 %.not139, label %117, label %120
 
 117:                                              ; preds = %114
-  %118 = call fastcc i32 @hwloc__xml_import_distances(ptr noundef %24, ptr noundef nonnull %20, i32 noundef 0)
+  %118 = call fastcc i32 @hwloc__xml_import_distances(ptr noundef %24, ptr noundef %20, i32 noundef 0)
   %119 = icmp slt i32 %118, 0
   br i1 %119, label %.loopexit, label %635
 
@@ -5085,7 +5085,7 @@ hwloc__xml_verbose.exit175:                       ; preds = %64, %69
   br i1 %.not140, label %122, label %125
 
 122:                                              ; preds = %120
-  %123 = call fastcc i32 @hwloc__xml_import_distances(ptr noundef %24, ptr noundef nonnull %20, i32 noundef 1)
+  %123 = call fastcc i32 @hwloc__xml_import_distances(ptr noundef %24, ptr noundef %20, i32 noundef 1)
   %124 = icmp slt i32 %123, 0
   br i1 %124, label %.loopexit, label %635
 
@@ -6165,7 +6165,7 @@ hwloc__xml_import_memattr.exit:                   ; preds = %576, %._crit_edge.t
   br i1 %.not143, label %592, label %595
 
 592:                                              ; preds = %590
-  %593 = call fastcc i32 @hwloc__xml_import_cpukind(ptr noundef %24, ptr noundef nonnull %20)
+  %593 = call fastcc i32 @hwloc__xml_import_cpukind(ptr noundef %24, ptr noundef %20)
   %594 = icmp slt i32 %593, 0
   br i1 %594, label %.loopexit, label %635
 
@@ -6638,7 +6638,7 @@ define internal void @hwloc_xml_backend_disable(ptr noundef %0) #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @hwloc__xml_import_object(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5) unnamed_addr #5 {
+define internal fastcc i32 @hwloc__xml_import_object(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly %4, ptr noundef nonnull %5) unnamed_addr #5 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -6677,7 +6677,7 @@ define internal fastcc i32 @hwloc__xml_import_object(ptr noundef %0, ptr nocaptu
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
-  %43 = call i32 %42(ptr noundef %5, ptr noundef nonnull %36, ptr noundef nonnull %37) #21
+  %43 = call i32 %42(ptr noundef nonnull %5, ptr noundef nonnull %36, ptr noundef nonnull %37) #21
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %.preheader384, label %.lr.ph
 
@@ -7927,14 +7927,14 @@ hwloc__xml_import_object_attr.exit:               ; preds = %584, %586, %450, %4
 
 660:                                              ; preds = %657
   %661 = load ptr, ptr %70, align 8
-  %662 = call fastcc i32 @hwloc__xml_import_pagetype(ptr noundef %661, ptr noundef nonnull %35)
+  %662 = call fastcc i32 @hwloc__xml_import_pagetype(ptr noundef %661, ptr noundef %35)
   br label %hwloc__xml_import_obj_info.exit
 
 663:                                              ; preds = %657
   br i1 %.not289, label %664, label %666
 
 664:                                              ; preds = %663
-  %665 = call fastcc i32 @hwloc__xml_import_pagetype(ptr noundef nonnull %69, ptr noundef nonnull %35)
+  %665 = call fastcc i32 @hwloc__xml_import_pagetype(ptr noundef nonnull %69, ptr noundef %35)
   br label %hwloc__xml_import_obj_info.exit
 
 666:                                              ; preds = %663
@@ -9183,7 +9183,7 @@ hwloc_filter_check_keep_object.exit:              ; preds = %.thread351, %1182, 
   %1212 = call ptr @hwloc_alloc_setup_object(ptr noundef %0, i32 noundef 20, i32 noundef -1) #21
   %1213 = getelementptr inbounds i8, ptr %1212, i64 72
   store ptr %1207, ptr %1213, align 8
-  %1214 = call fastcc i32 @hwloc__xml_import_object(ptr noundef %0, ptr noundef %1, ptr noundef %1207, ptr noundef %1212, ptr noundef nonnull %33, ptr noundef nonnull %35)
+  %1214 = call fastcc i32 @hwloc__xml_import_object(ptr noundef %0, ptr noundef %1, ptr noundef %1207, ptr noundef %1212, ptr noundef %33, ptr noundef %35)
   %1215 = icmp slt i32 %1214, 0
   br i1 %1215, label %.critedge295, label %1225
 
@@ -9214,7 +9214,7 @@ hwloc_filter_check_keep_object.exit:              ; preds = %.thread351, %1182, 
   %1229 = load ptr, ptr %39, align 8
   %1230 = getelementptr inbounds i8, ptr %1229, i64 32
   %1231 = load ptr, ptr %1230, align 8
-  %1232 = call i32 %1231(ptr noundef %5, ptr noundef nonnull %35, ptr noundef nonnull %34) #21
+  %1232 = call i32 %1231(ptr noundef nonnull %5, ptr noundef nonnull %35, ptr noundef nonnull %34) #21
   %1233 = icmp slt i32 %1232, 0
   br i1 %1233, label %1234, label %1235
 
@@ -9273,7 +9273,7 @@ hwloc_filter_check_keep_object.exit:              ; preds = %.thread351, %1182, 
   br i1 %1255, label %1256, label %1257
 
 1256:                                             ; preds = %1253
-  call fastcc void @hwloc__xml_import_report_outoforder(ptr noundef %0, ptr noundef nonnull %.0, ptr noundef nonnull %.0204)
+  call fastcc void @hwloc__xml_import_report_outoforder(ptr noundef %0, ptr noundef %.0, ptr noundef %.0204)
   store i1 true, ptr @hwloc__xml_import_object.reported, align 4
   br label %1257
 
@@ -9285,7 +9285,7 @@ hwloc_filter_check_keep_object.exit:              ; preds = %.thread351, %1182, 
   %1258 = load ptr, ptr %39, align 8
   %1259 = getelementptr inbounds i8, ptr %1258, i64 40
   %1260 = load ptr, ptr %1259, align 8
-  %1261 = call i32 %1260(ptr noundef %5) #21
+  %1261 = call i32 %1260(ptr noundef nonnull %5) #21
   br label %hwloc__xml_import_obj_info.exit.thread
 
 1262:                                             ; preds = %1090, %1092, %hwloc__xml_verbose.exit335, %1043, %hwloc__xml_verbose.exit332, %1026, %hwloc__xml_verbose.exit329, %1006, %hwloc__xml_verbose.exit303, %127, %hwloc__xml_verbose.exit300, %111
@@ -9302,7 +9302,7 @@ hwloc__xml_import_obj_info.exit.thread:           ; preds = %hwloc__xml_import_o
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @hwloc__xml_import_distances(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #5 {
+define internal fastcc i32 @hwloc__xml_import_distances(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #5 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -9321,7 +9321,7 @@ define internal fastcc i32 @hwloc__xml_import_distances(ptr noundef %0, ptr noun
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = call i32 %20(ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %8) #21
+  %21 = call i32 %20(ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull %8) #21
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %._crit_edge.thread, label %.lr.ph
 
@@ -10084,7 +10084,7 @@ hwloc__xml_verbose.exit239:                       ; preds = %194, %199
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @hwloc__xml_import_cpukind(ptr noundef %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc i32 @hwloc__xml_import_cpukind(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #5 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct.hwloc_infos_s, align 8
@@ -10097,7 +10097,7 @@ define internal fastcc i32 @hwloc__xml_import_cpukind(ptr noundef %0, ptr nounde
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = call i32 %13(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7) #21
+  %14 = call i32 %13(ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef nonnull %7) #21
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %.preheader, label %.lr.ph
 
@@ -10397,7 +10397,7 @@ declare i32 @hwloc_type_sscanf(ptr noundef, ptr noundef, ptr noundef, i64 nounde
 declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @hwloc__xml_import_pagetype(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc i32 @hwloc__xml_import_pagetype(ptr nocapture noundef %0, ptr noundef nonnull %1) unnamed_addr #5 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -10406,7 +10406,7 @@ define internal fastcc i32 @hwloc__xml_import_pagetype(ptr nocapture noundef %0,
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = call i32 %10(ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6) #21
+  %11 = call i32 %10(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %6) #21
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %._crit_edge.thread, label %.lr.ph
 
@@ -10542,7 +10542,7 @@ declare i32 @hwloc_bitmap_compare_first(ptr noundef, ptr noundef) local_unnamed_
 declare i32 @hwloc_hide_errors() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hwloc__xml_import_report_outoforder(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc void @hwloc__xml_import_report_outoforder(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #5 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca [64 x i8], align 16
@@ -10616,7 +10616,7 @@ hwloc_obj_get_info_by_name.exit34:                ; preds = %27, %3, %32
   %38 = getelementptr inbounds i8, ptr %1, i64 192
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 @hwloc_bitmap_asprintf(ptr noundef nonnull %5, ptr noundef %39) #21
-  %41 = call i32 @hwloc_obj_type_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef %1, i64 noundef 0) #21
+  %41 = call i32 @hwloc_obj_type_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull %1, i64 noundef 0) #21
   %42 = getelementptr inbounds i8, ptr %2, i64 184
   %43 = load ptr, ptr %42, align 8
   %.not = icmp eq ptr %43, null

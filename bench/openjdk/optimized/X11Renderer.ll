@@ -430,7 +430,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawPoly(ptr noundef %0, ptr nocap
 
 34:                                               ; preds = %32
   %35 = zext i8 %9 to i32
-  %36 = call fastcc ptr @transformPoints(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %12, ptr noundef nonnull %11, i32 noundef %35)
+  %36 = call fastcc ptr @transformPoints(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %7, i32 noundef %4, i32 noundef %5, ptr noundef %12, ptr noundef %11, i32 noundef %35)
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %62, label %37
 
@@ -483,20 +483,20 @@ declare void @JNU_ThrowNullPointerException(ptr noundef, ptr noundef) local_unna
 declare void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull %6, i32 noundef range(i32 0, 256) %7) unnamed_addr #0 {
   %9 = load i32, ptr %6, align 4
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 1776
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null) #10
+  %13 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef null) #10
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %93, label %15
+  br i1 %14, label %91, label %15
 
 15:                                               ; preds = %8
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 1776
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef %2, ptr noundef null) #10
+  %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef null) #10
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %25
 
@@ -504,8 +504,8 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 1784
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %13, i32 noundef 2) #10
-  br label %93
+  tail call void %24(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %13, i32 noundef 2) #10
+  br label %91
 
 25:                                               ; preds = %15
   %.not = icmp eq i32 %7, 0
@@ -538,125 +538,123 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
   %.0105 = phi i32 [ %9, %25 ], [ %32, %.thread ], [ %spec.select, %33 ]
   %.0104.shrunk = phi i1 [ false, %25 ], [ true, %.thread ], [ %cond.fr, %33 ]
   %40 = icmp sgt i32 %.0105, 64
-  br i1 %40, label %41, label %45
+  br i1 %40, label %41, label %.thread124
 
 41:                                               ; preds = %39
   %42 = zext nneg i32 %.0105 to i64
   %43 = shl nuw nsw i64 %42, 2
   %44 = tail call noalias ptr @malloc(i64 noundef %43) #11
-  br label %45
+  %.not115 = icmp eq ptr %44, null
+  br i1 %.not115, label %84, label %.thread124
 
-45:                                               ; preds = %41, %39
-  %.097 = phi ptr [ %44, %41 ], [ %5, %39 ]
-  %.not115 = icmp eq ptr %.097, null
-  br i1 %.not115, label %86, label %46
+.thread124:                                       ; preds = %39, %41
+  %.097127 = phi ptr [ %44, %41 ], [ %5, %39 ]
+  %45 = load i32, ptr %13, align 4
+  %46 = add nsw i32 %45, %3
+  %spec.select118 = tail call i32 @llvm.smax.i32(i32 %46, i32 -32768)
+  %47 = tail call i32 @llvm.smin.i32(i32 %spec.select118, i32 32767)
+  %48 = load i32, ptr %19, align 4
+  %49 = add nsw i32 %48, %4
+  %spec.select119 = tail call i32 @llvm.smax.i32(i32 %49, i32 -32768)
+  %50 = tail call i32 @llvm.smin.i32(i32 %spec.select119, i32 32767)
+  %51 = trunc nsw i32 %47 to i16
+  store i16 %51, ptr %.097127, align 2
+  %52 = trunc nsw i32 %50 to i16
+  %53 = getelementptr inbounds i8, ptr %.097127, i64 2
+  store i16 %52, ptr %53, align 2
+  %54 = sext i1 %.0104.shrunk to i32
+  %spec.select120 = add nsw i32 %.0105, %54
+  %55 = icmp sgt i32 %spec.select120, 1
+  br i1 %55, label %.lr.ph.preheader, label %._crit_edge.thread
 
-46:                                               ; preds = %45
-  %47 = load i32, ptr %13, align 4
-  %48 = add nsw i32 %47, %3
-  %spec.select118 = tail call i32 @llvm.smax.i32(i32 %48, i32 -32768)
-  %49 = tail call i32 @llvm.smin.i32(i32 %spec.select118, i32 32767)
-  %50 = load i32, ptr %19, align 4
-  %51 = add nsw i32 %50, %4
-  %spec.select119 = tail call i32 @llvm.smax.i32(i32 %51, i32 -32768)
-  %52 = tail call i32 @llvm.smin.i32(i32 %spec.select119, i32 32767)
-  %53 = trunc nsw i32 %49 to i16
-  store i16 %53, ptr %.097, align 2
-  %54 = trunc nsw i32 %52 to i16
-  %55 = getelementptr inbounds i8, ptr %.097, i64 2
-  store i16 %54, ptr %55, align 2
-  %56 = sext i1 %.0104.shrunk to i32
-  %spec.select120 = add nsw i32 %.0105, %56
-  %57 = icmp sgt i32 %spec.select120, 1
-  br i1 %57, label %.lr.ph.preheader, label %._crit_edge.thread
-
-.lr.ph.preheader:                                 ; preds = %46
+.lr.ph.preheader:                                 ; preds = %.thread124
   %wide.trip.count = zext nneg i32 %spec.select120 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %73
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %73 ]
-  %.098127 = phi i32 [ %52, %.lr.ph.preheader ], [ %.1, %73 ]
-  %.099126 = phi i32 [ %49, %.lr.ph.preheader ], [ %.1100, %73 ]
-  %.0101125 = phi i32 [ 1, %.lr.ph.preheader ], [ %.1102, %73 ]
-  %58 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
-  %59 = load i32, ptr %58, align 4
-  %60 = add nsw i32 %59, %3
-  %spec.select121 = tail call i32 @llvm.smax.i32(i32 %60, i32 -32768)
-  %61 = tail call i32 @llvm.smin.i32(i32 %spec.select121, i32 32767)
-  %62 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv
-  %63 = load i32, ptr %62, align 4
-  %64 = add nsw i32 %63, %4
-  %spec.select122 = tail call i32 @llvm.smax.i32(i32 %64, i32 -32768)
-  %65 = tail call i32 @llvm.smin.i32(i32 %spec.select122, i32 32767)
-  %.not116 = icmp eq i32 %61, %.099126
-  %.not117 = icmp eq i32 %65, %.098127
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %71
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %71 ]
+  %.098132 = phi i32 [ %50, %.lr.ph.preheader ], [ %.1, %71 ]
+  %.099131 = phi i32 [ %47, %.lr.ph.preheader ], [ %.1100, %71 ]
+  %.0101130 = phi i32 [ 1, %.lr.ph.preheader ], [ %.1102, %71 ]
+  %56 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
+  %57 = load i32, ptr %56, align 4
+  %58 = add nsw i32 %57, %3
+  %spec.select121 = tail call i32 @llvm.smax.i32(i32 %58, i32 -32768)
+  %59 = tail call i32 @llvm.smin.i32(i32 %spec.select121, i32 32767)
+  %60 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv
+  %61 = load i32, ptr %60, align 4
+  %62 = add nsw i32 %61, %4
+  %spec.select122 = tail call i32 @llvm.smax.i32(i32 %62, i32 -32768)
+  %63 = tail call i32 @llvm.smin.i32(i32 %spec.select122, i32 32767)
+  %.not116 = icmp eq i32 %59, %.099131
+  %.not117 = icmp eq i32 %63, %.098132
   %or.cond = select i1 %.not116, i1 %.not117, i1 false
-  br i1 %or.cond, label %73, label %66
+  br i1 %or.cond, label %71, label %64
 
-66:                                               ; preds = %.lr.ph
-  %67 = trunc nsw i32 %61 to i16
-  %68 = sext i32 %.0101125 to i64
-  %69 = getelementptr inbounds %struct.XPoint, ptr %.097, i64 %68
-  store i16 %67, ptr %69, align 2
-  %70 = trunc nsw i32 %65 to i16
-  %71 = getelementptr inbounds i8, ptr %69, i64 2
-  store i16 %70, ptr %71, align 2
-  %72 = add nsw i32 %.0101125, 1
-  br label %73
+64:                                               ; preds = %.lr.ph
+  %65 = trunc nsw i32 %59 to i16
+  %66 = sext i32 %.0101130 to i64
+  %67 = getelementptr inbounds %struct.XPoint, ptr %.097127, i64 %66
+  store i16 %65, ptr %67, align 2
+  %68 = trunc nsw i32 %63 to i16
+  %69 = getelementptr inbounds i8, ptr %67, i64 2
+  store i16 %68, ptr %69, align 2
+  %70 = add nsw i32 %.0101130, 1
+  br label %71
 
-73:                                               ; preds = %.lr.ph, %66
-  %.1102 = phi i32 [ %72, %66 ], [ %.0101125, %.lr.ph ]
-  %.1100 = phi i32 [ %61, %66 ], [ %.099126, %.lr.ph ]
-  %.1 = phi i32 [ %65, %66 ], [ %.098127, %.lr.ph ]
+71:                                               ; preds = %.lr.ph, %64
+  %.1102 = phi i32 [ %70, %64 ], [ %.0101130, %.lr.ph ]
+  %.1100 = phi i32 [ %59, %64 ], [ %.099131, %.lr.ph ]
+  %.1 = phi i32 [ %63, %64 ], [ %.098132, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %73
-  %74 = icmp eq i32 %.1102, 1
-  br i1 %74, label %._crit_edge.thread, label %79
+._crit_edge:                                      ; preds = %71
+  %72 = icmp eq i32 %.1102, 1
+  br i1 %72, label %._crit_edge.thread, label %77
 
-._crit_edge.thread:                               ; preds = %46, %._crit_edge
-  %.098.lcssa135 = phi i32 [ %.1, %._crit_edge ], [ %52, %46 ]
-  %.099.lcssa134 = phi i32 [ %.1100, %._crit_edge ], [ %49, %46 ]
-  %75 = trunc nsw i32 %.099.lcssa134 to i16
-  %76 = getelementptr inbounds i8, ptr %.097, i64 4
+._crit_edge.thread:                               ; preds = %.thread124, %._crit_edge
+  %.098.lcssa140 = phi i32 [ %.1, %._crit_edge ], [ %50, %.thread124 ]
+  %.099.lcssa139 = phi i32 [ %.1100, %._crit_edge ], [ %47, %.thread124 ]
+  %73 = trunc nsw i32 %.099.lcssa139 to i16
+  %74 = getelementptr inbounds i8, ptr %.097127, i64 4
+  store i16 %73, ptr %74, align 2
+  %75 = trunc nsw i32 %.098.lcssa140 to i16
+  %76 = getelementptr inbounds i8, ptr %.097127, i64 6
   store i16 %75, ptr %76, align 2
-  %77 = trunc nsw i32 %.098.lcssa135 to i16
-  %78 = getelementptr inbounds i8, ptr %.097, i64 6
-  store i16 %77, ptr %78, align 2
-  br label %85
+  br label %83
 
-79:                                               ; preds = %._crit_edge
-  br i1 %.0104.shrunk, label %80, label %85
+77:                                               ; preds = %._crit_edge
+  br i1 %.0104.shrunk, label %78, label %83
 
-80:                                               ; preds = %79
-  %81 = add nsw i32 %.1102, 1
-  %82 = sext i32 %.1102 to i64
-  %83 = getelementptr inbounds %struct.XPoint, ptr %.097, i64 %82
-  %84 = load i32, ptr %.097, align 2
-  store i32 %84, ptr %83, align 2
-  br label %85
+78:                                               ; preds = %77
+  %79 = add nsw i32 %.1102, 1
+  %80 = sext i32 %.1102 to i64
+  %81 = getelementptr inbounds %struct.XPoint, ptr %.097127, i64 %80
+  %82 = load i32, ptr %.097127, align 2
+  store i32 %82, ptr %81, align 2
+  br label %83
 
-85:                                               ; preds = %79, %80, %._crit_edge.thread
-  %.2 = phi i32 [ 2, %._crit_edge.thread ], [ %81, %80 ], [ %.1102, %79 ]
+83:                                               ; preds = %77, %78, %._crit_edge.thread
+  %.2 = phi i32 [ 2, %._crit_edge.thread ], [ %79, %78 ], [ %.1102, %77 ]
   store i32 %.2, ptr %6, align 4
-  br label %86
+  br label %84
 
-86:                                               ; preds = %85, %45
-  %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 1784
-  %89 = load ptr, ptr %88, align 8
-  tail call void %89(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %13, i32 noundef 2) #10
-  %90 = load ptr, ptr %0, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 1784
-  %92 = load ptr, ptr %91, align 8
-  tail call void %92(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %19, i32 noundef 2) #10
-  br label %93
+84:                                               ; preds = %83, %41
+  %.097128 = phi ptr [ %.097127, %83 ], [ null, %41 ]
+  %85 = load ptr, ptr %0, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 1784
+  %87 = load ptr, ptr %86, align 8
+  tail call void %87(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %13, i32 noundef 2) #10
+  %88 = load ptr, ptr %0, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 1784
+  %90 = load ptr, ptr %89, align 8
+  tail call void %90(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %19, i32 noundef 2) #10
+  br label %91
 
-93:                                               ; preds = %8, %86, %21
-  %.0 = phi ptr [ null, %21 ], [ %.097, %86 ], [ null, %8 ]
+91:                                               ; preds = %8, %84, %21
+  %.0 = phi ptr [ null, %21 ], [ %.097128, %84 ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -1457,7 +1455,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillPoly(ptr noundef %0, ptr nocap
   br i1 %32, label %46, label %33
 
 33:                                               ; preds = %31
-  %34 = call fastcc ptr @transformPoints(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef 0)
+  %34 = call fastcc ptr @transformPoints(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %7, i32 noundef %4, i32 noundef %5, ptr noundef %11, ptr noundef %10, i32 noundef 0)
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %46, label %35
 

@@ -4590,7 +4590,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI19TrafficTypesRowDa
   store ptr %48, ptr %39, align 8
   store i64 %50, ptr %40, align 8
   store i8 %53, ptr %41, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN5QListI19TrafficTypesRowDataE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN17TrafficTypesModelC1EPP6_GListP7QObjectE3$_0EEEvT_T0_SG_T1_T2_"(ptr nonnull %0, i64 noundef %.012.i.i.i, i64 noundef %35, ptr noundef nonnull %9)
+  call fastcc void @"_ZSt13__adjust_heapIN5QListI19TrafficTypesRowDataE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN17TrafficTypesModelC1EPP6_GListP7QObjectE3$_0EEEvT_T0_SG_T1_T2_"(ptr nonnull %0, i64 noundef %.012.i.i.i, i64 noundef %35, ptr noundef %9)
   %54 = load ptr, ptr %38, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN19TrafficTypesRowDataD2Ev.exit16.i.i.i, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i
@@ -4659,7 +4659,7 @@ _ZN19TrafficTypesRowDataD2Ev.exit16.i.i.i:        ; preds = %56, %_ZN17QArrayDat
   store ptr %68, ptr %60, align 8
   store i64 %70, ptr %61, align 8
   store i8 %73, ptr %62, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN5QListI19TrafficTypesRowDataE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN17TrafficTypesModelC1EPP6_GListP7QObjectE3$_0EEEvT_T0_SG_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %84, ptr noundef nonnull %4)
+  call fastcc void @"_ZSt13__adjust_heapIN5QListI19TrafficTypesRowDataE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN17TrafficTypesModelC1EPP6_GListP7QObjectE3$_0EEEvT_T0_SG_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %84, ptr noundef %4)
   %85 = load ptr, ptr %59, align 8
   %.not.i.i.i.i.i = icmp eq ptr %85, null
   br i1 %.not.i.i.i.i.i, label %"_ZSt10__pop_heapIN5QListI19TrafficTypesRowDataE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN17TrafficTypesModelC1EPP6_GListP7QObjectE3$_0EEEvT_SF_SF_RT0_.exit", label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i
@@ -5326,7 +5326,7 @@ _ZN19TrafficTypesRowDataD2Ev.exit12:              ; preds = %_ZN19TrafficTypesRo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN5QListI19TrafficTypesRowDataE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN17TrafficTypesModelC1EPP6_GListP7QObjectE3$_0EEEvT_T0_SG_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN5QListI19TrafficTypesRowDataE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN17TrafficTypesModelC1EPP6_GListP7QObjectE3$_0EEEvT_T0_SG_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = add i64 %2, -1

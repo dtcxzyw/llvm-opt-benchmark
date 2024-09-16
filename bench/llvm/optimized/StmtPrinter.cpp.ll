@@ -30537,7 +30537,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit188:              ; preds = %469, %471
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter6IndentEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter6IndentEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i32 noundef range(i32 -1, 1) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, %1
@@ -30741,7 +30741,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull ali
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter9PrintStmtEPN5clang4StmtEi(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter9PrintStmtEPN5clang4StmtEi(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, %2

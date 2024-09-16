@@ -4045,7 +4045,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL18TryLoadCompressionERNS_8DBConfigERNS_6vectorISt17reference_wrapperINS_19CompressionFunctionEELb1EEENS_15CompressionTypeENS_12PhysicalTypeE(ptr noundef nonnull align 8 dereferenceable(896) %config, ptr nocapture noundef nonnull align 8 dereferenceable(24) %result, i8 noundef zeroext %type, i8 noundef zeroext %data_type) unnamed_addr #3 {
+define internal fastcc void @_ZN6duckdbL18TryLoadCompressionERNS_8DBConfigERNS_6vectorISt17reference_wrapperINS_19CompressionFunctionEELb1EEENS_15CompressionTypeENS_12PhysicalTypeE(ptr noundef nonnull align 8 dereferenceable(896) %config, ptr nocapture noundef nonnull align 8 dereferenceable(24) %result, i8 noundef zeroext range(i8 1, 10) %type, i8 noundef zeroext %data_type) unnamed_addr #3 {
 entry:
   %function = alloca %"class.duckdb::optional_ptr.184", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %function) #30

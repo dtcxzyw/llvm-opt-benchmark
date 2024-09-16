@@ -480,7 +480,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread1123:     ; preds = %133, %_ZN4llvmeqENS
   %.sroa.0.0.copyload.i.i = load ptr, ptr %139, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %138, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  call fastcc void @_ZL12escapeForRSTB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i)
+  call fastcc void @_ZL12escapeForRSTB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %15, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i)
   %140 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #14
   %141 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)

@@ -858,7 +858,7 @@ define dso_local i64 @textregexreplace(ptr nocapture noundef readonly %0) local_
   unreachable
 
 50:                                               ; preds = %.thread, %38
-  call fastcc void @parse_re_flags(ptr noundef nonnull %2, ptr noundef nonnull %18)
+  call fastcc void @parse_re_flags(ptr noundef %2, ptr noundef nonnull %18)
   %51 = load i32, ptr %2, align 4
   %52 = getelementptr inbounds i8, ptr %0, i64 24
   %53 = load i32, ptr %52, align 8
@@ -877,7 +877,7 @@ declare i32 @pg_mblen(ptr noundef) local_unnamed_addr #2
 declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_re_flags(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @parse_re_flags(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1) unnamed_addr #0 {
   store i32 3, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 0, ptr %3, align 4
@@ -1101,7 +1101,7 @@ define dso_local i64 @textregexreplace_extended(ptr nocapture noundef readonly %
 .thread:                                          ; preds = %23, %37, %36
   %.026 = phi i32 [ %30, %37 ], [ %30, %36 ], [ 1, %23 ]
   %.020 = phi i32 [ %40, %37 ], [ 1, %36 ], [ 1, %23 ]
-  call fastcc void @parse_re_flags(ptr noundef nonnull %2, ptr noundef %25)
+  call fastcc void @parse_re_flags(ptr noundef %2, ptr noundef %25)
   %46 = load i16, ptr %15, align 2
   %47 = icmp slt i16 %46, 5
   %48 = getelementptr inbounds i8, ptr %2, i64 4
@@ -1651,7 +1651,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @regexp_count(ptr nocapt
 
 32:                                               ; preds = %23, %19
   %.0 = phi i32 [ %26, %23 ], [ 1, %19 ]
-  call fastcc void @parse_re_flags(ptr noundef nonnull %2, ptr noundef %21)
+  call fastcc void @parse_re_flags(ptr noundef %2, ptr noundef %21)
   %33 = getelementptr inbounds i8, ptr %2, i64 4
   %34 = load i8, ptr %33, align 4
   %35 = trunc i8 %34 to i1
@@ -1670,7 +1670,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @regexp_count(ptr nocapt
   %41 = add nsw i32 %.0, -1
   %42 = getelementptr inbounds i8, ptr %0, i64 24
   %43 = load i32, ptr %42, align 8
-  %44 = call fastcc ptr @setup_regexp_matches(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %2, i32 noundef %41, i32 noundef %43, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
+  %44 = call fastcc ptr @setup_regexp_matches(ptr noundef %6, ptr noundef %10, ptr noundef %2, i32 noundef %41, i32 noundef %43, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
   %45 = getelementptr inbounds i8, ptr %44, i64 8
   %46 = load i32, ptr %45, align 8
   %47 = sext i32 %46 to i64
@@ -1678,7 +1678,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @regexp_count(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, i32 noundef range(i32 0, 2147483647) %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = tail call ptr @palloc0(i64 noundef 72) #8
   %10 = tail call i32 @pg_database_encoding_max_length() #8
   store ptr %0, ptr %9, align 8
@@ -2109,7 +2109,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @regexp_instr(ptr nocapt
   %.046596371 = phi i32 [ %26, %54 ], [ %26, %52 ], [ %26, %42 ], [ %26, %32 ], [ 1, %19 ]
   %.0486470 = phi i32 [ %36, %54 ], [ %36, %52 ], [ %36, %42 ], [ 1, %32 ], [ 1, %19 ]
   %.045 = phi i32 [ %57, %54 ], [ 0, %52 ], [ 0, %42 ], [ 0, %32 ], [ 0, %19 ]
-  call fastcc void @parse_re_flags(ptr noundef nonnull %2, ptr noundef %21)
+  call fastcc void @parse_re_flags(ptr noundef %2, ptr noundef %21)
   %63 = getelementptr inbounds i8, ptr %2, i64 4
   %64 = load i8, ptr %63, align 4
   %65 = trunc i8 %64 to i1
@@ -2129,7 +2129,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @regexp_instr(ptr nocapt
   %72 = getelementptr inbounds i8, ptr %0, i64 24
   %73 = load i32, ptr %72, align 8
   %74 = icmp ne i32 %.045, 0
-  %75 = call fastcc ptr @setup_regexp_matches(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %2, i32 noundef %71, i32 noundef %73, i1 noundef zeroext %74, i1 noundef zeroext false, i1 noundef zeroext false)
+  %75 = call fastcc ptr @setup_regexp_matches(ptr noundef %6, ptr noundef %10, ptr noundef %2, i32 noundef %71, i32 noundef %73, i1 noundef zeroext %74, i1 noundef zeroext false, i1 noundef zeroext false)
   %76 = getelementptr inbounds i8, ptr %75, i64 8
   %77 = load i32, ptr %76, align 8
   %78 = icmp sgt i32 %.0486470, %77
@@ -2221,7 +2221,7 @@ define dso_local range(i64 0, 2) i64 @regexp_like(ptr nocapture noundef readonly
 
 19:                                               ; preds = %1, %14
   %20 = phi ptr [ %18, %14 ], [ null, %1 ]
-  call fastcc void @parse_re_flags(ptr noundef nonnull %2, ptr noundef %20)
+  call fastcc void @parse_re_flags(ptr noundef %2, ptr noundef %20)
   %21 = getelementptr inbounds i8, ptr %2, i64 4
   %22 = load i8, ptr %21, align 4
   %23 = trunc i8 %22 to i1
@@ -2320,7 +2320,7 @@ define dso_local i64 @regexp_match(ptr nocapture noundef %0) local_unnamed_addr 
 
 19:                                               ; preds = %1, %14
   %20 = phi ptr [ %18, %14 ], [ null, %1 ]
-  call fastcc void @parse_re_flags(ptr noundef nonnull %2, ptr noundef %20)
+  call fastcc void @parse_re_flags(ptr noundef %2, ptr noundef %20)
   %21 = getelementptr inbounds i8, ptr %2, i64 4
   %22 = load i8, ptr %21, align 4
   %23 = trunc i8 %22 to i1
@@ -2338,7 +2338,7 @@ define dso_local i64 @regexp_match(ptr nocapture noundef %0) local_unnamed_addr 
 29:                                               ; preds = %19
   %30 = getelementptr inbounds i8, ptr %0, i64 24
   %31 = load i32, ptr %30, align 8
-  %32 = call fastcc ptr @setup_regexp_matches(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %31, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false)
+  %32 = call fastcc ptr @setup_regexp_matches(ptr noundef %6, ptr noundef %10, ptr noundef %2, i32 noundef 0, i32 noundef %31, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false)
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, 0
@@ -2525,13 +2525,13 @@ define dso_local i64 @regexp_matches(ptr noundef %0) local_unnamed_addr #0 {
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %25, ptr @CurrentMemoryContext, align 8
-  call fastcc void @parse_re_flags(ptr noundef nonnull %2, ptr noundef %22)
+  call fastcc void @parse_re_flags(ptr noundef %2, ptr noundef %22)
   %27 = load i64, ptr %8, align 8
   %28 = inttoptr i64 %27 to ptr
   %29 = tail call ptr @pg_detoast_datum_copy(ptr noundef %28) #8
   %30 = getelementptr inbounds i8, ptr %0, i64 24
   %31 = load i32, ptr %30, align 8
-  %32 = call fastcc ptr @setup_regexp_matches(ptr noundef %29, ptr noundef %12, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %31, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false)
+  %32 = call fastcc ptr @setup_regexp_matches(ptr noundef %29, ptr noundef %12, ptr noundef %2, i32 noundef 0, i32 noundef %31, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false)
   %33 = getelementptr inbounds i8, ptr %32, i64 12
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
@@ -2638,7 +2638,7 @@ define dso_local i64 @regexp_split_to_table(ptr noundef %0) local_unnamed_addr #
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %25, ptr @CurrentMemoryContext, align 8
-  call fastcc void @parse_re_flags(ptr noundef nonnull %2, ptr noundef %22)
+  call fastcc void @parse_re_flags(ptr noundef %2, ptr noundef %22)
   %27 = getelementptr inbounds i8, ptr %2, i64 4
   %28 = load i8, ptr %27, align 4
   %29 = trunc i8 %28 to i1
@@ -2659,7 +2659,7 @@ define dso_local i64 @regexp_split_to_table(ptr noundef %0) local_unnamed_addr #
   %37 = tail call ptr @pg_detoast_datum_copy(ptr noundef %36) #8
   %38 = getelementptr inbounds i8, ptr %0, i64 24
   %39 = load i32, ptr %38, align 8
-  %40 = call fastcc ptr @setup_regexp_matches(ptr noundef %37, ptr noundef %12, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %39, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true)
+  %40 = call fastcc ptr @setup_regexp_matches(ptr noundef %37, ptr noundef %12, ptr noundef %2, i32 noundef 0, i32 noundef %39, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true)
   store ptr %26, ptr @CurrentMemoryContext, align 8
   %41 = getelementptr inbounds i8, ptr %23, i64 16
   store ptr %40, ptr %41, align 8
@@ -2799,7 +2799,7 @@ define dso_local i64 @regexp_split_to_array(ptr nocapture noundef readonly %0) l
 
 11:                                               ; preds = %1, %6
   %12 = phi ptr [ %10, %6 ], [ null, %1 ]
-  call fastcc void @parse_re_flags(ptr noundef nonnull %2, ptr noundef %12)
+  call fastcc void @parse_re_flags(ptr noundef %2, ptr noundef %12)
   %13 = getelementptr inbounds i8, ptr %2, i64 4
   %14 = load i8, ptr %13, align 4
   %15 = trunc i8 %14 to i1
@@ -2825,7 +2825,7 @@ define dso_local i64 @regexp_split_to_array(ptr nocapture noundef readonly %0) l
   %28 = tail call ptr @pg_detoast_datum_packed(ptr noundef %27) #8
   %29 = getelementptr inbounds i8, ptr %0, i64 24
   %30 = load i32, ptr %29, align 8
-  %31 = call fastcc ptr @setup_regexp_matches(ptr noundef %24, ptr noundef %28, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %30, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true)
+  %31 = call fastcc ptr @setup_regexp_matches(ptr noundef %24, ptr noundef %28, ptr noundef %2, i32 noundef 0, i32 noundef %30, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true)
   %32 = getelementptr inbounds i8, ptr %31, i64 24
   %33 = getelementptr inbounds i8, ptr %31, i64 8
   %34 = load i32, ptr %32, align 8
@@ -2949,7 +2949,7 @@ define dso_local i64 @regexp_substr(ptr nocapture noundef %0) local_unnamed_addr
   %.04864 = phi i32 [ %36, %44 ], [ %36, %42 ], [ 1, %32 ], [ 1, %19 ]
   %.0475963 = phi i32 [ %26, %44 ], [ %26, %42 ], [ %26, %32 ], [ 1, %19 ]
   %.049 = phi i32 [ %47, %44 ], [ 0, %42 ], [ 0, %32 ], [ 0, %19 ]
-  call fastcc void @parse_re_flags(ptr noundef nonnull %2, ptr noundef %21)
+  call fastcc void @parse_re_flags(ptr noundef %2, ptr noundef %21)
   %53 = getelementptr inbounds i8, ptr %2, i64 4
   %54 = load i8, ptr %53, align 4
   %55 = trunc i8 %54 to i1
@@ -2969,7 +2969,7 @@ define dso_local i64 @regexp_substr(ptr nocapture noundef %0) local_unnamed_addr
   %62 = getelementptr inbounds i8, ptr %0, i64 24
   %63 = load i32, ptr %62, align 8
   %64 = icmp ne i32 %.049, 0
-  %65 = call fastcc ptr @setup_regexp_matches(ptr noundef %6, ptr noundef %10, ptr noundef nonnull %2, i32 noundef %61, i32 noundef %63, i1 noundef zeroext %64, i1 noundef zeroext false, i1 noundef zeroext false)
+  %65 = call fastcc ptr @setup_regexp_matches(ptr noundef %6, ptr noundef %10, ptr noundef %2, i32 noundef %61, i32 noundef %63, i1 noundef zeroext %64, i1 noundef zeroext false, i1 noundef zeroext false)
   %66 = getelementptr inbounds i8, ptr %65, i64 8
   %67 = load i32, ptr %66, align 8
   %68 = icmp sgt i32 %.04864, %67

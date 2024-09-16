@@ -4757,7 +4757,7 @@ define internal fastcc noundef zeroext i1 @_ZL16ProcessUCNEscapePKcRS0_S0_RjRtN5
   br i1 %.not64.i, label %_ZL21ProcessNamedUCNEscapePKcRS0_S0_RjRtN5clang13FullSourceLocEPNS4_17DiagnosticsEngineERKNS4_11LangOptionsE.exit.thread, label %50
 
 50:                                               ; preds = %49
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef nonnull %40, ptr noundef nonnull %45, i32 noundef 1033)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef nonnull %40, ptr noundef nonnull %45, i32 noundef 1033)
   %51 = load ptr, ptr %1, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 -1
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr nonnull %52, i64 1)
@@ -4991,7 +4991,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i:     ; preds = %56, %50
 
 148:                                              ; preds = %"_ZSt7find_ifIPKcZL21ProcessNamedUCNEscapeS1_RS1_S1_RjRtN5clang13FullSourceLocEPNS5_17DiagnosticsEngineERKNS5_11LangOptionsEE3$_0ET_SD_SD_T0_.exit.thread.i"
   %149 = select i1 %147, i32 1031, i32 1187
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef %40, ptr noundef nonnull %79, i32 noundef %149)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef %40, ptr noundef nonnull %79, i32 noundef %149)
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr nonnull %41, i64 1)
   %150 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %151 = load i8, ptr %150, align 8
@@ -5074,7 +5074,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit76.i:        ; preds = %174, %168, %161, %_
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %31)
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef nonnull %79, ptr noundef nonnull %.028.i.i.i.i, i32 noundef 1052)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef nonnull %79, ptr noundef nonnull %.028.i.i.i.i, i32 noundef 1052)
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr nonnull %79, i64 %178)
   %184 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %185 = load i8, ptr %184, align 8
@@ -5138,7 +5138,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit.i.i:        ; preds = %_ZN5clang19Streamin
   br i1 %211, label %212, label %272
 
 212:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit.i.i
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef nonnull %79, ptr noundef nonnull %.028.i.i.i.i, i32 noundef 1261)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef nonnull %79, ptr noundef nonnull %.028.i.i.i.i, i32 noundef 1261)
   %213 = ptrtoint ptr %0 to i64
   %214 = sub i64 %81, %213
   %215 = trunc i64 %214 to i32
@@ -5316,7 +5316,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i82.i.i: ; preds = %250, %_ZNK5clang17D
   %303 = load i32, ptr %302, align 4
   store i32 %303, ptr %28, align 4
   %304 = call noundef zeroext i1 @_ZN4llvm24convertUTF32ToUTF8StringENS_8ArrayRefIjEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull %28, i64 1, ptr noundef nonnull align 8 dereferenceable(32) %27) #19
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef nonnull %79, ptr noundef nonnull %.028.i.i.i.i, i32 noundef 1260)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef nonnull %79, ptr noundef nonnull %.028.i.i.i.i, i32 noundef 1260)
   %305 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i) #19
   %306 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i) #19
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr %305, i64 %306)
@@ -5594,7 +5594,7 @@ _ZL21ProcessNamedUCNEscapePKcRS0_S0_RjRtN5clang13FullSourceLocEPNS4_17Diagnostic
   br i1 %.not102.i, label %.thread, label %401
 
 401:                                              ; preds = %400
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef nonnull %40, ptr noundef nonnull %385, i32 noundef 1045)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef nonnull %40, ptr noundef nonnull %385, i32 noundef 1045)
   %402 = load ptr, ptr %1, align 8
   %403 = getelementptr inbounds i8, ptr %402, i64 -1
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull %403, i64 1)
@@ -5703,7 +5703,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i116:  ; preds = %407, %401
   br label %481
 
 457:                                              ; preds = %445
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef %40, ptr noundef nonnull %442, i32 noundef 1032)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef %40, ptr noundef nonnull %442, i32 noundef 1032)
   %458 = load ptr, ptr %1, align 8
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr %458, i64 1)
   %459 = load i8, ptr %437, align 8
@@ -5920,7 +5920,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit122.us.i.us: ; preds = %487
   br i1 %.not106.i, label %.thread, label %542
 
 542:                                              ; preds = %540
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef %40, ptr noundef %541, i32 noundef 1038)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef %40, ptr noundef %541, i32 noundef 1038)
   %543 = load ptr, ptr %11, align 8
   %.not.i.i.i123.i = icmp eq ptr %543, null
   br i1 %.not.i.i.i123.i, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i.i, label %_ZNK5clang17DiagnosticBuilderlsIivEERKS0_OT_.exit.i
@@ -5997,7 +5997,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i124.i:  ; preds = %558, %_ZNK5clang17D
   br i1 %.not107.i, label %.thread, label %581
 
 581:                                              ; preds = %580
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef %40, ptr noundef %578, i32 noundef 15)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef %40, ptr noundef %578, i32 noundef 15)
   %582 = load ptr, ptr %12, align 8
   %.not.i.i.i130.i = icmp eq ptr %582, null
   br i1 %.not.i.i.i130.i, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i131.i, label %_ZNK5clang17DiagnosticBuilderlsINS_3tok9TokenKindEvEERKS0_OT_.exit.i
@@ -6082,7 +6082,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i132.i:  ; preds = %597, %_ZNK5clang17D
 
 624:                                              ; preds = %623
   %625 = select i1 %618, i32 1031, i32 1187
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef %40, ptr noundef %619, i32 noundef %625)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef %40, ptr noundef %619, i32 noundef %625)
   %626 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %627 = load i8, ptr %626, align 8
   %628 = trunc i8 %627 to i1
@@ -6162,7 +6162,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i138.i:  ; preds = %629, %624
 
 657:                                              ; preds = %656
   %658 = load ptr, ptr %1, align 8
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef %40, ptr noundef %658, i32 noundef 1188)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef %40, ptr noundef %658, i32 noundef 1188)
   %659 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %660 = load i8, ptr %659, align 8
   %661 = trunc i8 %660 to i1
@@ -6241,14 +6241,14 @@ switch.early.test:                                ; preds = %684
 693:                                              ; preds = %689
   %694 = select i1 %.not99, i32 1307, i32 1334
   %695 = select i1 %or.cond108, i32 1186, i32 %694
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef %40, ptr noundef %691, i32 noundef %695)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef %40, ptr noundef %691, i32 noundef %695)
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr nonnull %35, i64 1)
   br label %.sink.split
 
 696:                                              ; preds = %689
   %697 = select i1 %.not99, i32 1306, i32 1333
   %698 = select i1 %or.cond108, i32 1185, i32 %697
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef %40, ptr noundef %691, i32 noundef %698)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef %40, ptr noundef %691, i32 noundef %698)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %696, %693
@@ -6274,7 +6274,7 @@ switch.early.test:                                ; preds = %684
 
 707:                                              ; preds = %703
   %708 = load ptr, ptr %1, align 8
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef %40, ptr noundef %708, i32 noundef 1407)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef %40, ptr noundef %708, i32 noundef 1407)
   %709 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %710 = load i8, ptr %709, align 8
   %711 = trunc i8 %710 to i1
@@ -6341,7 +6341,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit126:         ; preds = %727, %733, %720, %_
   %741 = and i64 %740, 65536
   %.not101 = icmp eq i64 %741, 0
   %742 = select i1 %.not101, i32 1213, i32 1329
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef %40, ptr noundef %739, i32 noundef %742)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %39, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(841) %7, i32 %.sroa.0141.0.copyload, ptr %.sroa.2143.0.copyload, ptr noundef %0, ptr noundef %40, ptr noundef %739, i32 noundef %742)
   %743 = load ptr, ptr %39, align 8
   %.not.i.i.i127 = icmp eq ptr %743, null
   br i1 %.not.i.i.i127, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, label %_ZNK5clang17DiagnosticBuilderlsIivEERKS0_OT_.exit130
@@ -6497,7 +6497,7 @@ define internal fastcc noundef i32 @_ZL17ProcessCharEscapePKcRS0_S0_RbN5clang13F
   br i1 %.not337, label %_ZN5clang17DiagnosticBuilderD2Ev.exit405, label %42
 
 42:                                               ; preds = %41
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef nonnull %34, ptr noundef nonnull %36, i32 noundef 1227)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef nonnull %34, ptr noundef nonnull %36, i32 noundef 1227)
   %43 = load ptr, ptr %11, align 8
   %.not.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, label %_ZNK5clang17DiagnosticBuilderlsIA2_cEERKS0_RKT_.exit
@@ -6567,7 +6567,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang17Diagnos
   br i1 %.not336, label %_ZN5clang17DiagnosticBuilderD2Ev.exit405, label %79
 
 79:                                               ; preds = %78
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef nonnull %34, ptr noundef nonnull %36, i32 noundef 1227)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef nonnull %34, ptr noundef nonnull %36, i32 noundef 1227)
   %80 = load ptr, ptr %12, align 8
   %.not.i.i.i348 = icmp eq ptr %80, null
   br i1 %.not.i.i.i348, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i349, label %_ZNK5clang17DiagnosticBuilderlsIA2_cEERKS0_RKT_.exit350
@@ -6670,7 +6670,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i351:    ; preds = %_ZNK5clang17Diagnos
   br i1 %.not329, label %148, label %129
 
 129:                                              ; preds = %128
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef nonnull %34, ptr noundef %.pre539, i32 noundef 1031)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef nonnull %34, ptr noundef %.pre539, i32 noundef 1031)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %13) #19
   %.pre538 = load ptr, ptr %1, align 8
   br label %148
@@ -6688,7 +6688,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i351:    ; preds = %_ZNK5clang17Diagnos
   br i1 %.not328, label %_ZL39IsEscapeValidInUnevaluatedStringLiteralc.exit.thread, label %135
 
 135:                                              ; preds = %.thread
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef nonnull %34, ptr noundef nonnull %36, i32 noundef 1045)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef nonnull %34, ptr noundef nonnull %36, i32 noundef 1045)
   %136 = load ptr, ptr %14, align 8
   %.not.i.i.i357 = icmp eq ptr %136, null
   br i1 %.not.i.i.i357, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i358, label %_ZNK5clang17DiagnosticBuilderlsIA2_cEERKS0_RKT_.exit359
@@ -6796,7 +6796,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit365.us.us:   ; preds = %166, %162
 181:                                              ; preds = %172
   store i8 1, ptr %3, align 1
   %182 = load ptr, ptr %1, align 8
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef %34, ptr noundef %182, i32 noundef 1032)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef %34, ptr noundef %182, i32 noundef 1032)
   %183 = load ptr, ptr %1, align 8
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr %183, i64 1)
   %184 = load i8, ptr %150, align 8
@@ -6914,7 +6914,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit365:         ; preds = %.thread436
 
 226:                                              ; preds = %225
   %227 = load ptr, ptr %1, align 8
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef %34, ptr noundef %227, i32 noundef 1038)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef %34, ptr noundef %227, i32 noundef 1038)
   %228 = load ptr, ptr %16, align 8
   %.not.i.i.i366 = icmp eq ptr %228, null
   br i1 %.not.i.i.i366, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i367, label %_ZNK5clang17DiagnosticBuilderlsIivEERKS0_OT_.exit
@@ -6979,7 +6979,7 @@ _ZNK5clang17DiagnosticBuilderlsIivEERKS0_OT_.exit: ; preds = %226, %_ZNK5clang19
   br i1 %.not326, label %_ZN5clang17DiagnosticBuilderD2Ev.exit376, label %259
 
 259:                                              ; preds = %258
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef %34, ptr noundef nonnull %246, i32 noundef 1038)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef %34, ptr noundef nonnull %246, i32 noundef 1038)
   %260 = load ptr, ptr %17, align 8
   %.not.i.i.i368 = icmp eq ptr %260, null
   br i1 %.not.i.i.i368, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i369, label %_ZNK5clang17DiagnosticBuilderlsIivEERKS0_OT_.exit370
@@ -7066,7 +7066,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit376:         ; preds = %288, %294, %_ZN5cla
 
 303:                                              ; preds = %302
   %304 = load ptr, ptr %1, align 8
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef nonnull %34, ptr noundef %304, i32 noundef 1033)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef nonnull %34, ptr noundef %304, i32 noundef 1033)
   %305 = load ptr, ptr %18, align 8
   %.not.i.i.i377 = icmp eq ptr %305, null
   br i1 %.not.i.i.i377, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i378, label %_ZNK5clang17DiagnosticBuilderlsIA2_cEERKS0_RKT_.exit379
@@ -7107,7 +7107,7 @@ _ZNK5clang17DiagnosticBuilderlsIA2_cEERKS0_RKT_.exit379: ; preds = %303, %_ZNK5c
   br i1 %.not316, label %.thread541, label %322
 
 322:                                              ; preds = %321
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef nonnull %34, ptr noundef %.pre537, i32 noundef 1031)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef nonnull %34, ptr noundef %.pre537, i32 noundef 1031)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %19) #19
   %.pre = load ptr, ptr %1, align 8
   br label %323
@@ -7199,7 +7199,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit388.us.us:   ; preds = %334
 352:                                              ; preds = %350
   store i8 1, ptr %3, align 1
   %353 = load ptr, ptr %1, align 8
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef %34, ptr noundef %353, i32 noundef 1032)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef %34, ptr noundef %353, i32 noundef 1032)
   %354 = load ptr, ptr %1, align 8
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr %354, i64 1)
   %355 = load i8, ptr %325, align 8
@@ -7297,7 +7297,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit388:         ; preds = %_ZN5clang19Streamin
 
 390:                                              ; preds = %389
   %391 = load ptr, ptr %1, align 8
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef %34, ptr noundef %391, i32 noundef 1038)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef %34, ptr noundef %391, i32 noundef 1038)
   %392 = load ptr, ptr %21, align 8
   %.not.i.i.i389 = icmp eq ptr %392, null
   br i1 %.not.i.i.i389, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i390, label %_ZNK5clang17DiagnosticBuilderlsIivEERKS0_OT_.exit391
@@ -7338,7 +7338,7 @@ _ZNK5clang17DiagnosticBuilderlsIivEERKS0_OT_.exit391: ; preds = %390, %_ZNK5clan
   br i1 %.not, label %_ZN5clang17DiagnosticBuilderD2Ev.exit405, label %412
 
 412:                                              ; preds = %411
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef nonnull %34, ptr noundef nonnull %36, i32 noundef 1227)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef nonnull %34, ptr noundef nonnull %36, i32 noundef 1227)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #19
   %413 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef %413, ptr noundef nonnull align 1 dereferenceable(1) %24) #19
@@ -7415,7 +7415,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   br i1 %.not445, label %449, label %447
 
 447:                                              ; preds = %442
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef nonnull %34, ptr noundef nonnull %36, i32 noundef 1254)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef nonnull %34, ptr noundef nonnull %36, i32 noundef 1254)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %26, i64 noundef 1, i8 noundef signext %37, ptr noundef nonnull align 1 dereferenceable(1) %27)
   %448 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEERKS0_OT_(ptr noundef nonnull align 8 dereferenceable(26) %25, ptr noundef nonnull align 8 dereferenceable(32) %26)
@@ -7425,7 +7425,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit405
 
 449:                                              ; preds = %442
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef nonnull %34, ptr noundef nonnull %36, i32 noundef 1254)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef nonnull %34, ptr noundef nonnull %36, i32 noundef 1254)
   %450 = zext i32 %38 to i64
   call void @_ZN4llvm9utohexstrB5cxx11Embj(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %30, i64 noundef %450, i1 noundef zeroext false, i32 noundef 0)
   %451 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %30, i64 noundef 0, ptr noundef nonnull @.str.19) #19, !noalias !135
@@ -7450,7 +7450,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %.loopexit, %387, %4
 
 456:                                              ; preds = %455
   %457 = load ptr, ptr %1, align 8
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef %34, ptr noundef %457, i32 noundef 15)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef %34, ptr noundef %457, i32 noundef 15)
   %458 = load ptr, ptr %31, align 8
   %.not.i.i.i398 = icmp eq ptr %458, null
   br i1 %.not.i.i.i398, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i399, label %_ZNK5clang17DiagnosticBuilderlsINS_3tok9TokenKindEvEERKS0_OT_.exit
@@ -7526,7 +7526,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i400:    ; preds = %_ZNK5clang17Diagnos
   %499 = and i64 %498, 65536
   %.not339 = icmp eq i64 %499, 0
   %500 = select i1 %.not339, i32 1213, i32 1329
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef %34, ptr noundef %497, i32 noundef %500)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef %34, ptr noundef %497, i32 noundef %500)
   %501 = load ptr, ptr %32, align 8
   %.not.i.i.i406 = icmp eq ptr %501, null
   br i1 %.not.i.i.i406, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i407, label %_ZNK5clang17DiagnosticBuilderlsIivEERKS0_OT_.exit411
@@ -7623,7 +7623,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit405:         ; preds = %536, %542, %486, %4
 
 _ZL39IsEscapeValidInUnevaluatedStringLiteralc.exit: ; preds = %544
   %545 = load ptr, ptr %1, align 8
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef %34, ptr noundef %545, i32 noundef 1191)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(841) %8, i32 %4, ptr %5, ptr noundef %0, ptr noundef %34, ptr noundef %545, i32 noundef 1191)
   %546 = load ptr, ptr %1, align 8
   %547 = ptrtoint ptr %546 to i64
   %548 = ptrtoint ptr %34 to i64
@@ -9385,7 +9385,7 @@ define dso_local noundef zeroext i1 @_ZN5clang19StringLiteralParser18CopyStringF
 
 _ZL10resyncUTF8PKcS0_.exit.thread:                ; preds = %26
   %34 = select i1 %18, i32 1024, i32 1302
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(841) %31, i32 %28, ptr %29, ptr noundef %2, ptr noundef %27, ptr noundef %32, i32 noundef %34)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(841) %31, i32 %28, ptr %29, ptr noundef %2, ptr noundef %27, ptr noundef %32, i32 noundef %34)
   br label %_ZL10resyncUTF8PKcS0_.exit33
 
 35:                                               ; preds = %26
@@ -9414,7 +9414,7 @@ _ZL10resyncUTF8PKcS0_.exit.thread:                ; preds = %26
 _ZL10resyncUTF8PKcS0_.exit:                       ; preds = %43, %45
   %.012.i = phi ptr [ %44, %45 ], [ %42, %43 ]
   %49 = select i1 %18, i32 1024, i32 1302
-  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(841) %31, i32 %28, ptr %29, ptr noundef %2, ptr noundef nonnull %27, ptr noundef %.012.i, i32 noundef %49)
+  call fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(841) %31, i32 %28, ptr %29, ptr noundef %2, ptr noundef nonnull %27, ptr noundef %.012.i, i32 noundef %49)
   %50 = load i8, ptr %27, align 1
   %51 = call noundef i32 @_ZN4llvm18getNumBytesForUTF8Eh(i8 noundef zeroext %50) #19
   %.sroa.speculated.i29 = call i32 @llvm.umin.i32(i32 %51, i32 %40)
@@ -9599,7 +9599,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %121, %127, %23, %_Z
 declare noundef zeroext i1 @_ZN4llvm17ConvertUTF8toWideEjNS_9StringRefERPcRPKh(i32 noundef, ptr, i64, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(841) %2, i32 %3, ptr nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(841) %2, i32 %3, ptr nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef range(i32 15, 1408) %8) unnamed_addr #0 {
   %10 = alloca %"class.clang::DiagnosticBuilder", align 8
   %11 = alloca %"class.clang::CharSourceRange", align 8
   %12 = ptrtoint ptr %6 to i64

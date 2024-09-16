@@ -1150,7 +1150,7 @@ _bt_dedup_save_htid.exit:                         ; preds = %BTreeTupleIsPosting
   br label %188
 
 _bt_dedup_save_htid.exit.thread:                  ; preds = %137, %135, %106
-  call fastcc void @_bt_bottomupdel_finish_pending(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %29, ptr noundef nonnull %5)
+  call fastcc void @_bt_bottomupdel_finish_pending(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %29, ptr noundef %5)
   %155 = getelementptr inbounds i8, ptr %70, i64 6
   %156 = load i16, ptr %155, align 2
   %157 = and i16 %156, 8192
@@ -1222,7 +1222,7 @@ _bt_dedup_start_pending.exit78:                   ; preds = %BTreeTupleIsPosting
   br i1 %.not, label %._crit_edge, label %64, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %188, %BufferGetPage.exit
-  call fastcc void @_bt_bottomupdel_finish_pending(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %29, ptr noundef nonnull %5)
+  call fastcc void @_bt_bottomupdel_finish_pending(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %29, ptr noundef %5)
   %190 = load i32, ptr %40, align 8
   %191 = icmp eq i32 %190, 0
   %192 = load ptr, ptr %36, align 8
@@ -1249,7 +1249,7 @@ _bt_dedup_start_pending.exit78:                   ; preds = %BTreeTupleIsPosting
 declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_bt_bottomupdel_finish_pending(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #4 {
+define internal fastcc void @_bt_bottomupdel_finish_pending(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 1

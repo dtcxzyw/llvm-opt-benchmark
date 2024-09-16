@@ -55,7 +55,7 @@ define dso_local noundef i64 @box_in(ptr nocapture noundef %0) local_unnamed_add
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @palloc(i64 noundef 32) #15
-  %9 = call fastcc zeroext i1 @path_decode(ptr noundef %5, i1 noundef zeroext false, i32 noundef 2, ptr noundef %8, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @.str, ptr noundef %5, ptr noundef %7)
+  %9 = call fastcc zeroext i1 @path_decode(ptr noundef %5, i1 noundef zeroext false, i32 noundef 2, ptr noundef %8, ptr noundef %2, ptr noundef null, ptr noundef nonnull @.str, ptr noundef %5, ptr noundef %7)
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %1
@@ -112,7 +112,7 @@ float8_lt.exit22.thread:                          ; preds = %float8_lt.exit.thre
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @path_decode(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, ptr noundef writeonly %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @path_decode(ptr noundef %0, i1 noundef zeroext %1, i32 noundef range(i32 1, -2147483648) %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef nonnull %4, ptr noundef writeonly %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = tail call ptr @__ctype_b_loc() #16
   %.pre = load ptr, ptr %11, align 8
@@ -176,93 +176,91 @@ define internal fastcc noundef zeroext i1 @path_decode(ptr noundef %0, i1 nounde
 38:                                               ; preds = %.sink.split, %23, %35
   %39 = phi ptr [ %storemerge, %35 ], [ %storemerge, %23 ], [ %.032.lcssa.sink, %.sink.split ]
   %40 = phi i1 [ false, %35 ], [ false, %23 ], [ true, %.sink.split ]
-  %41 = icmp sgt i32 %2, 0
-  br i1 %41, label %.lr.ph, label %.preheader
+  br label %41
 
-.preheader:                                       ; preds = %52, %38
-  %42 = phi ptr [ %39, %38 ], [ %53, %52 ]
-  br i1 %40, label %.lr.ph50.split, label %._crit_edge
+.preheader:                                       ; preds = %51
+  br i1 %40, label %.lr.ph.split, label %._crit_edge
 
-.lr.ph:                                           ; preds = %38, %52
-  %43 = phi ptr [ %53, %52 ], [ %39, %38 ]
-  %.03149 = phi i32 [ %55, %52 ], [ 0, %38 ]
-  %.03448 = phi ptr [ %54, %52 ], [ %3, %38 ]
-  %44 = getelementptr inbounds i8, ptr %.03448, i64 8
-  %45 = call fastcc zeroext i1 @pair_decode(ptr noundef %43, ptr noundef %.03448, ptr noundef nonnull %44, ptr noundef nonnull %10, ptr noundef %6, ptr noundef %7, ptr noundef %8)
-  br i1 %45, label %46, label %.loopexit44
+41:                                               ; preds = %38, %51
+  %42 = phi ptr [ %39, %38 ], [ %52, %51 ]
+  %.03149 = phi i32 [ 0, %38 ], [ %54, %51 ]
+  %.03448 = phi ptr [ %3, %38 ], [ %53, %51 ]
+  %43 = getelementptr inbounds i8, ptr %.03448, i64 8
+  %44 = call fastcc zeroext i1 @pair_decode(ptr noundef %42, ptr noundef %.03448, ptr noundef nonnull %43, ptr noundef nonnull %10, ptr noundef %6, ptr noundef %7, ptr noundef %8)
+  br i1 %44, label %45, label %.loopexit44
 
-46:                                               ; preds = %.lr.ph
-  %47 = load ptr, ptr %10, align 8
-  %48 = load i8, ptr %47, align 1
-  %49 = icmp eq i8 %48, 44
-  br i1 %49, label %50, label %52
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %10, align 8
+  %47 = load i8, ptr %46, align 1
+  %48 = icmp eq i8 %47, 44
+  br i1 %48, label %49, label %51
 
-50:                                               ; preds = %46
-  %51 = getelementptr i8, ptr %47, i64 1
-  store ptr %51, ptr %10, align 8
-  br label %52
+49:                                               ; preds = %45
+  %50 = getelementptr i8, ptr %46, i64 1
+  store ptr %50, ptr %10, align 8
+  br label %51
 
-52:                                               ; preds = %50, %46
-  %53 = phi ptr [ %51, %50 ], [ %47, %46 ]
-  %54 = getelementptr i8, ptr %.03448, i64 16
-  %55 = add nuw nsw i32 %.03149, 1
-  %exitcond.not = icmp eq i32 %55, %2
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !8
+51:                                               ; preds = %49, %45
+  %52 = phi ptr [ %50, %49 ], [ %46, %45 ]
+  %53 = getelementptr i8, ptr %.03448, i64 16
+  %54 = add nuw nsw i32 %.03149, 1
+  %exitcond.not = icmp eq i32 %54, %2
+  br i1 %exitcond.not, label %.preheader, label %41, !llvm.loop !8
 
-.lr.ph50.split:                                   ; preds = %.preheader
-  %56 = load i8, ptr %42, align 1
-  switch i8 %56, label %.loopexit43 [
-    i8 41, label %60
-    i8 93, label %57
+.lr.ph.split:                                     ; preds = %.preheader
+  %55 = load i8, ptr %52, align 1
+  switch i8 %55, label %.loopexit43 [
+    i8 41, label %59
+    i8 93, label %56
   ]
 
-57:                                               ; preds = %.lr.ph50.split
-  %58 = load i8, ptr %4, align 1
-  %59 = trunc i8 %58 to i1
-  br i1 %59, label %60, label %.loopexit43
+56:                                               ; preds = %.lr.ph.split
+  %57 = load i8, ptr %4, align 1
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %59, label %.loopexit43
 
-60:                                               ; preds = %.lr.ph50.split, %57
-  %.pre52 = load ptr, ptr %11, align 8
-  br label %61
+59:                                               ; preds = %.lr.ph.split, %56
+  %.pre51 = load ptr, ptr %11, align 8
+  br label %60
 
-61:                                               ; preds = %61, %60
-  %.pn42 = phi ptr [ %42, %60 ], [ %storemerge40, %61 ]
+60:                                               ; preds = %60, %59
+  %.pn42 = phi ptr [ %52, %59 ], [ %storemerge40, %60 ]
   %storemerge40 = getelementptr i8, ptr %.pn42, i64 1
   store ptr %storemerge40, ptr %10, align 8
-  %62 = load i8, ptr %storemerge40, align 1
-  %63 = zext i8 %62 to i64
-  %64 = getelementptr i16, ptr %.pre52, i64 %63
-  %65 = load i16, ptr %64, align 2
-  %66 = and i16 %65, 8192
-  %.not41 = icmp eq i16 %66, 0
-  br i1 %.not41, label %._crit_edge, label %61, !llvm.loop !9
+  %61 = load i8, ptr %storemerge40, align 1
+  %62 = zext i8 %61 to i64
+  %63 = getelementptr i16, ptr %.pre51, i64 %62
+  %64 = load i16, ptr %63, align 2
+  %65 = and i16 %64, 8192
+  %.not41 = icmp eq i16 %65, 0
+  br i1 %.not41, label %._crit_edge, label %60, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %61, %.preheader
-  %67 = phi ptr [ %42, %.preheader ], [ %storemerge40, %61 ]
+._crit_edge:                                      ; preds = %60, %.preheader
+  %66 = phi ptr [ %52, %.preheader ], [ %storemerge40, %60 ]
   %.not38 = icmp eq ptr %5, null
-  br i1 %.not38, label %69, label %68
+  br i1 %.not38, label %68, label %67
 
-68:                                               ; preds = %._crit_edge
-  store ptr %67, ptr %5, align 8
+67:                                               ; preds = %._crit_edge
+  store ptr %66, ptr %5, align 8
   br label %.loopexit44
 
-69:                                               ; preds = %._crit_edge
-  %70 = load i8, ptr %67, align 1
-  %.not39 = icmp eq i8 %70, 0
+68:                                               ; preds = %._crit_edge
+  %69 = load i8, ptr %66, align 1
+  %.not39 = icmp eq i8 %69, 0
   br i1 %.not39, label %.loopexit44, label %.loopexit43
 
-.loopexit43:                                      ; preds = %57, %.lr.ph50.split, %69, %22
-  %71 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #15
-  br i1 %71, label %72, label %.loopexit44
+.loopexit43:                                      ; preds = %56, %.lr.ph.split, %68, %22
+  %70 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #15
+  br i1 %70, label %71, label %.loopexit44
 
-72:                                               ; preds = %.loopexit43
-  %73 = call i32 @errcode(i32 noundef 33685634) #15
-  %74 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %6, ptr noundef %7) #15
+71:                                               ; preds = %.loopexit43
+  %72 = call i32 @errcode(i32 noundef 33685634) #15
+  %73 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %6, ptr noundef %7) #15
   call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.2, i32 noundef 336, ptr noundef nonnull @__func__.path_decode) #15
   br label %.loopexit44
 
-.loopexit44:                                      ; preds = %.lr.ph, %72, %.loopexit43, %68, %69
-  %.0 = phi i1 [ true, %69 ], [ true, %68 ], [ false, %.loopexit43 ], [ false, %72 ], [ false, %.lr.ph ]
+.loopexit44:                                      ; preds = %41, %71, %.loopexit43, %67, %68
+  %.0 = phi i1 [ true, %68 ], [ true, %67 ], [ false, %.loopexit43 ], [ false, %71 ], [ false, %41 ]
   ret i1 %.0
 }
 
@@ -277,7 +275,7 @@ define dso_local i64 @box_out(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @path_encode(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc ptr @path_encode(i32 noundef range(i32 0, 3) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca %struct.StringInfoData, align 8
   call void @initStringInfo(ptr noundef nonnull %4) #15
   switch i32 %0, label %6 [
@@ -1621,7 +1619,7 @@ single_decode.exit21.thread.i:                    ; preds = %single_decode.exit2
   br label %169
 
 90:                                               ; preds = %20
-  %91 = call fastcc zeroext i1 @path_decode(ptr noundef nonnull %.025, i1 noundef zeroext true, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef %7, ptr noundef %9)
+  %91 = call fastcc zeroext i1 @path_decode(ptr noundef nonnull %.025, i1 noundef zeroext true, i32 noundef 2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef %7, ptr noundef %9)
   br i1 %91, label %94, label %92
 
 92:                                               ; preds = %90
@@ -3755,7 +3753,7 @@ pair_count.exit.thread:                           ; preds = %1, %pair_count.exit
   %52 = getelementptr inbounds i8, ptr %50, i64 4
   store i32 %17, ptr %52, align 4
   %53 = getelementptr inbounds i8, ptr %50, i64 16
-  %54 = call fastcc zeroext i1 @path_decode(ptr noundef %38, i1 noundef zeroext true, i32 noundef %17, ptr noundef nonnull %53, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.7, ptr noundef %6, ptr noundef %8)
+  %54 = call fastcc zeroext i1 @path_decode(ptr noundef %38, i1 noundef zeroext true, i32 noundef %17, ptr noundef nonnull %53, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.7, ptr noundef %6, ptr noundef %8)
   br i1 %54, label %57, label %55
 
 55:                                               ; preds = %47
@@ -8080,7 +8078,7 @@ define dso_local noundef i64 @lseg_in(ptr nocapture noundef %0) local_unnamed_ad
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @palloc(i64 noundef 32) #15
-  %9 = call fastcc zeroext i1 @path_decode(ptr noundef %5, i1 noundef zeroext true, i32 noundef 2, ptr noundef %8, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef %5, ptr noundef %7)
+  %9 = call fastcc zeroext i1 @path_decode(ptr noundef %5, i1 noundef zeroext true, i32 noundef 2, ptr noundef %8, ptr noundef %2, ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef %5, ptr noundef %7)
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %1
@@ -11040,7 +11038,7 @@ pair_count.exit.thread:                           ; preds = %1, %pair_count.exit
   %35 = getelementptr inbounds i8, ptr %33, i64 4
   store i32 %16, ptr %35, align 4
   %36 = getelementptr inbounds i8, ptr %33, i64 40
-  %37 = call fastcc zeroext i1 @path_decode(ptr noundef %5, i1 noundef zeroext false, i32 noundef %16, ptr noundef nonnull %36, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef %5, ptr noundef %7)
+  %37 = call fastcc zeroext i1 @path_decode(ptr noundef %5, i1 noundef zeroext false, i32 noundef %16, ptr noundef nonnull %36, ptr noundef %2, ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef %5, ptr noundef %7)
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %30
@@ -20357,7 +20355,7 @@ define internal fastcc zeroext i1 @lseg_inside_poly(ptr nocapture noundef readon
 45:                                               ; preds = %44
   %46 = add nsw i64 %indvars.iv, 1
   %47 = trunc nsw i64 %46 to i32
-  %48 = call fastcc zeroext i1 @touched_lseg_inside_poly(ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef nonnull %2, i32 noundef %47)
+  %48 = call fastcc zeroext i1 @touched_lseg_inside_poly(ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef %5, ptr noundef nonnull %2, i32 noundef %47)
   %49 = zext i1 %48 to i8
   br label %._crit_edge53
 
@@ -20367,7 +20365,7 @@ define internal fastcc zeroext i1 @lseg_inside_poly(ptr nocapture noundef readon
 51:                                               ; preds = %50
   %52 = add nsw i64 %indvars.iv, 1
   %53 = trunc nsw i64 %52 to i32
-  %54 = call fastcc zeroext i1 @touched_lseg_inside_poly(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %2, i32 noundef %53)
+  %54 = call fastcc zeroext i1 @touched_lseg_inside_poly(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef %5, ptr noundef nonnull %2, i32 noundef %53)
   %55 = zext i1 %54 to i8
   br label %._crit_edge53
 
@@ -20510,7 +20508,7 @@ declare void @check_stack_depth() local_unnamed_addr #1
 declare void @ProcessInterrupts() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @touched_lseg_inside_poly(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc zeroext i1 @touched_lseg_inside_poly(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.LSEG, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   %7 = getelementptr inbounds i8, ptr %6, i64 16

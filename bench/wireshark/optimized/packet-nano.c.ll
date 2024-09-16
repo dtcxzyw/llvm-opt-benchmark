@@ -256,7 +256,7 @@ define internal i32 @dissect_nano(ptr noundef %0, ptr nocapture noundef readonly
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %19 = load i32, ptr @ett_nano, align 4
   %20 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19) #4
-  call fastcc void @dissect_nano_header(ptr noundef %0, ptr noundef %1, ptr noundef %20, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  call fastcc void @dissect_nano_header(ptr noundef %0, ptr noundef %1, ptr noundef %20, ptr noundef %9, ptr noundef %10)
   %21 = load i32, ptr %9, align 4
   switch i32 %21, label %133 [
     i32 2, label %22
@@ -620,7 +620,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_nano_header(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_nano_header(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = load i32, ptr @ett_nano_header, align 4
   %7 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef %6, ptr noundef null, ptr noundef nonnull @.str.98) #4
   %8 = getelementptr inbounds i8, ptr %1, i64 408
@@ -636,10 +636,10 @@ define internal fastcc void @dissect_nano_header(ptr noundef %0, ptr nocapture n
   %18 = load i32, ptr @hf_nano_version_min, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %18, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #4
   %20 = load i32, ptr @hf_nano_packet_type, align 4
-  %21 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %7, i32 noundef %20, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0, ptr noundef %3) #4
+  %21 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %7, i32 noundef %20, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3) #4
   %22 = load i32, ptr @hf_nano_extensions, align 4
   %23 = load i32, ptr @ett_nano_extensions, align 4
-  %24 = tail call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %7, ptr noundef %0, i32 noundef 6, i32 noundef %22, i32 noundef %23, ptr noundef nonnull @dissect_nano_header.nano_extensions, i32 noundef -2147483648, ptr noundef %4) #4
+  %24 = tail call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %7, ptr noundef %0, i32 noundef 6, i32 noundef %22, i32 noundef %23, ptr noundef nonnull @dissect_nano_header.nano_extensions, i32 noundef -2147483648, ptr noundef nonnull %4) #4
   ret void
 }
 
@@ -650,7 +650,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_nano_state(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_nano_state(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 113) %2) unnamed_addr #0 {
   %4 = load i32, ptr @ett_nano_block, align 4
   %5 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef 216, i32 noundef %4, ptr noundef null, ptr noundef nonnull @.str.121) #4
   %6 = load i32, ptr @hf_nano_block_account, align 4
@@ -907,7 +907,7 @@ define internal i32 @dissect_nano_tcp_client_message(ptr noundef %0, ptr nocaptu
   br label %104
 
 66:                                               ; preds = %4
-  call fastcc void @dissect_nano_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %7)
+  call fastcc void @dissect_nano_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5, ptr noundef %7)
   %67 = load i32, ptr %5, align 4
   store i32 %67, ptr %3, align 4
   switch i32 %67, label %104 [

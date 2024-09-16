@@ -11218,7 +11218,7 @@ _ZN4llvm5APIntoRERKS0_.exit:                      ; preds = %7, %11
 declare noundef ptr @_ZN4llvm8Constant15getIntegerValueEPNS_4TypeERKNS_5APIntE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL22ShrinkDemandedConstantPN4llvm11InstructionEjRKNS_5APIntE(ptr noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL22ShrinkDemandedConstantPN4llvm11InstructionEjRKNS_5APIntE(ptr noundef %0, i32 noundef range(i32 0, 3) %1, ptr noundef nonnull align 8 dereferenceable(12) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -11241,7 +11241,7 @@ define internal fastcc noundef zeroext i1 @_ZL22ShrinkDemandedConstantPN4llvm11I
 
 _ZNK4llvm4User10getOperandEj.exit:                ; preds = %9, %12
   %17 = phi ptr [ %11, %9 ], [ %16, %12 ]
-  %18 = zext i32 %1 to i64
+  %18 = zext nneg i32 %1 to i64
   %19 = getelementptr inbounds %"class.llvm::Use", ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = load i8, ptr %20, align 8
@@ -12138,7 +12138,7 @@ _ZNK4llvm5APInteqEm.exit:                         ; preds = %_ZNK4llvm5APInt13ge
 declare noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeERKNS_5APIntE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_0clES2_jS5_"(ptr noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl23SimplifyDemandedUseBitsEPNS_11InstructionERKNS_5APIntERNS_9KnownBitsEjRKNS_13SimplifyQueryEENK3$_0clES2_jS5_"(ptr noundef %0, i32 noundef range(i32 1, 3) %1, ptr noundef nonnull align 8 dereferenceable(12) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
@@ -12163,7 +12163,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl23Simplif
 
 _ZNK4llvm4User10getOperandEj.exit:                ; preds = %11, %14
   %19 = phi ptr [ %13, %11 ], [ %18, %14 ]
-  %20 = zext i32 %1 to i64
+  %20 = zext nneg i32 %1 to i64
   %21 = getelementptr inbounds %"class.llvm::Use", ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = load i8, ptr %22, align 8
@@ -15643,7 +15643,7 @@ _ZNK4llvm4User10getOperandEj.exit365:             ; preds = %262, %264
 
 _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %281, %283
   %284 = trunc nuw nsw i64 %indvars.iv607 to i32
-  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %spec.select.i.i360, i32 noundef %284, ptr noundef nonnull %16, ptr noundef nonnull align 8 dereferenceable(12) %15)
+  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %spec.select.i.i360, i32 noundef %284, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(12) %15)
   %285 = load i32, ptr %224, align 8
   %286 = icmp ugt i32 %285, 64
   br i1 %286, label %287, label %_ZN4llvm5APIntD2Ev.exit
@@ -15742,7 +15742,7 @@ _ZNK4llvm4User10getOperandEj.exit368:             ; preds = %313, %316
   br label %_ZN4llvm5APIntC2ERKS0_.exit370
 
 _ZN4llvm5APIntC2ERKS0_.exit370:                   ; preds = %329, %331
-  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %spec.select.i.i360, i32 noundef 0, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(12) %13)
+  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %spec.select.i.i360, i32 noundef 0, ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(12) %13)
   %332 = load i32, ptr %326, align 8
   %333 = icmp ult i32 %332, 65
   %334 = load ptr, ptr %17, align 8
@@ -15853,7 +15853,7 @@ _ZNK4llvm4User10getOperandEj.exit375:             ; preds = %367, %370
   br label %_ZN4llvm5APIntC2ERKS0_.exit376
 
 _ZN4llvm5APIntC2ERKS0_.exit376:                   ; preds = %391, %393
-  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %spec.select.i.i360, i32 noundef 0, ptr noundef nonnull %21, ptr noundef nonnull align 8 dereferenceable(12) %3)
+  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %spec.select.i.i360, i32 noundef 0, ptr noundef %21, ptr noundef nonnull align 8 dereferenceable(12) %3)
   %394 = load i32, ptr %388, align 8
   %395 = icmp ugt i32 %394, 64
   br i1 %395, label %396, label %_ZN4llvm5APIntD2Ev.exit377
@@ -16016,7 +16016,7 @@ _ZNK4llvm4User10getOperandEj.exit388:             ; preds = %_ZNK4llvm4User10get
   br label %_ZN4llvm5APIntC2ERKS0_.exit389
 
 _ZN4llvm5APIntC2ERKS0_.exit389:                   ; preds = %482, %484
-  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %455, i32 noundef 0, ptr noundef nonnull %24, ptr noundef nonnull align 8 dereferenceable(12) %23)
+  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %455, i32 noundef 0, ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(12) %23)
   %485 = load i32, ptr %478, align 8
   %486 = icmp ugt i32 %485, 64
   br i1 %486, label %487, label %_ZN4llvm5APIntD2Ev.exit390
@@ -16165,7 +16165,7 @@ _ZN4llvm5APIntD2Ev.exit393:                       ; preds = %_ZN4llvm5APInt12cle
   br label %_ZN4llvm5APIntC2ERKS0_.exit398
 
 _ZN4llvm5APIntC2ERKS0_.exit398:                   ; preds = %552, %554
-  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %547, i32 noundef 0, ptr noundef nonnull %28, ptr noundef nonnull align 8 dereferenceable(12) %27)
+  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %547, i32 noundef 0, ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(12) %27)
   %555 = load i32, ptr %548, align 8
   %556 = icmp ugt i32 %555, 64
   br i1 %556, label %557, label %_ZN4llvm5APIntD2Ev.exit399
@@ -16198,7 +16198,7 @@ _ZN4llvm5APIntD2Ev.exit399:                       ; preds = %_ZN4llvm5APIntC2ERK
   br label %_ZN4llvm5APIntC2ERKS0_.exit400
 
 _ZN4llvm5APIntC2ERKS0_.exit400:                   ; preds = %565, %567
-  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %547, i32 noundef 1, ptr noundef nonnull %30, ptr noundef nonnull align 8 dereferenceable(12) %29)
+  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %547, i32 noundef 1, ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(12) %29)
   %568 = load i32, ptr %561, align 8
   %569 = icmp ugt i32 %568, 64
   br i1 %569, label %570, label %_ZN4llvm5APIntD2Ev.exit401
@@ -16660,7 +16660,7 @@ _ZN4llvm5APIntD2Ev.exit418:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZN4llvm5APIntC2ERKS0_.exit420
 
 _ZN4llvm5APIntC2ERKS0_.exit420:                   ; preds = %810, %812
-  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %spec.select.i.i360, i32 noundef 0, ptr noundef nonnull %33, ptr noundef nonnull align 8 dereferenceable(12) %3)
+  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %spec.select.i.i360, i32 noundef 0, ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(12) %3)
   %813 = load i32, ptr %807, align 8
   %814 = icmp ugt i32 %813, 64
   br i1 %814, label %815, label %_ZN4llvm5APIntD2Ev.exit421
@@ -16764,7 +16764,7 @@ _ZN4llvm5APIntC2ERKS0_.exit423:                   ; preds = %825, %827
   br label %_ZN4llvm5APIntC2ERKS0_.exit427
 
 _ZN4llvm5APIntC2ERKS0_.exit427:                   ; preds = %853, %855
-  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %spec.select.i.i360, i32 noundef 1, ptr noundef nonnull %36, ptr noundef nonnull align 8 dereferenceable(12) %13)
+  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %spec.select.i.i360, i32 noundef 1, ptr noundef %36, ptr noundef nonnull align 8 dereferenceable(12) %13)
   %856 = load i32, ptr %850, align 8
   %857 = icmp ugt i32 %856, 64
   br i1 %857, label %858, label %_ZN4llvm5APIntD2Ev.exit428
@@ -16795,7 +16795,7 @@ _ZN4llvm5APIntD2Ev.exit428:                       ; preds = %_ZN4llvm5APIntC2ERK
   br label %_ZN4llvm5APIntC2ERKS0_.exit429
 
 _ZN4llvm5APIntC2ERKS0_.exit429:                   ; preds = %865, %867
-  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %spec.select.i.i360, i32 noundef 2, ptr noundef nonnull %37, ptr noundef nonnull align 8 dereferenceable(12) %14)
+  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %spec.select.i.i360, i32 noundef 2, ptr noundef %37, ptr noundef nonnull align 8 dereferenceable(12) %14)
   %868 = load i32, ptr %862, align 8
   %869 = icmp ugt i32 %868, 64
   br i1 %869, label %870, label %_ZN4llvm5APIntD2Ev.exit430
@@ -17070,7 +17070,7 @@ _ZN4llvm5APIntD2Ev.exit440:                       ; preds = %935, %932, %926
   br label %_ZN4llvm5APIntC2ERKS0_.exit445
 
 _ZN4llvm5APIntC2ERKS0_.exit445:                   ; preds = %1012, %1014
-  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %spec.select.i.i360, i32 noundef 0, ptr noundef nonnull %42, ptr noundef nonnull align 8 dereferenceable(12) %13)
+  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %spec.select.i.i360, i32 noundef 0, ptr noundef %42, ptr noundef nonnull align 8 dereferenceable(12) %13)
   %1015 = load i32, ptr %1008, align 8
   %1016 = icmp ugt i32 %1015, 64
   br i1 %1016, label %1017, label %_ZN4llvm5APIntD2Ev.exit446
@@ -17247,7 +17247,7 @@ _ZN4llvm5APIntD2Ev.exit452:                       ; preds = %1085, %1088, %1091
   br label %_ZN4llvm5APIntC2ERKS0_.exit454
 
 _ZN4llvm5APIntC2ERKS0_.exit454:                   ; preds = %1102, %1104
-  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %spec.select.i.i360, i32 noundef 0, ptr noundef nonnull %45, ptr noundef nonnull align 8 dereferenceable(12) %3)
+  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %spec.select.i.i360, i32 noundef 0, ptr noundef %45, ptr noundef nonnull align 8 dereferenceable(12) %3)
   %1105 = load i32, ptr %1099, align 8
   %1106 = icmp ult i32 %1105, 65
   %1107 = load ptr, ptr %45, align 8
@@ -17382,7 +17382,7 @@ _ZN4llvm5APIntC2ERKS0_.exit456:                   ; preds = %1127, %1129
   br label %_ZN4llvm5APIntC2ERKS0_.exit460
 
 _ZN4llvm5APIntC2ERKS0_.exit460:                   ; preds = %1176, %1178
-  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %1110, i32 noundef 0, ptr noundef nonnull %48, ptr noundef nonnull align 8 dereferenceable(12) %13)
+  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %1110, i32 noundef 0, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(12) %13)
   %1179 = load i32, ptr %1172, align 8
   %1180 = icmp ugt i32 %1179, 64
   br i1 %1180, label %1181, label %_ZN4llvm5APIntD2Ev.exit461
@@ -17413,7 +17413,7 @@ _ZN4llvm5APIntD2Ev.exit461:                       ; preds = %1184, %1181, %_ZN4l
   br label %_ZN4llvm5APIntC2ERKS0_.exit462
 
 _ZN4llvm5APIntC2ERKS0_.exit462:                   ; preds = %1188, %1190
-  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %1110, i32 noundef 3, ptr noundef nonnull %49, ptr noundef nonnull align 8 dereferenceable(12) %14)
+  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %1110, i32 noundef 3, ptr noundef %49, ptr noundef nonnull align 8 dereferenceable(12) %14)
   %1191 = load i32, ptr %1185, align 8
   %1192 = icmp ugt i32 %1191, 64
   br i1 %1192, label %1193, label %_ZN4llvm5APIntD2Ev.exit463
@@ -17671,7 +17671,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit481.thread:       ; preds = %._ZNK4llvm5Value9ha
   br label %_ZN4llvm5APIntC2ERKS0_.exit482
 
 _ZN4llvm5APIntC2ERKS0_.exit482:                   ; preds = %1296, %1298
-  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %1292, i32 noundef 0, ptr noundef nonnull %58, ptr noundef nonnull align 8 dereferenceable(12) %3)
+  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %1292, i32 noundef 0, ptr noundef %58, ptr noundef nonnull align 8 dereferenceable(12) %3)
   %1299 = load i32, ptr %1293, align 8
   %1300 = icmp ugt i32 %1299, 64
   br i1 %1300, label %1301, label %_ZN4llvm5APIntD2Ev.exit483
@@ -17703,7 +17703,7 @@ _ZN4llvm5APIntD2Ev.exit483:                       ; preds = %_ZN4llvm5APIntC2ERK
   br label %_ZN4llvm5APIntC2ERKS0_.exit484
 
 _ZN4llvm5APIntC2ERKS0_.exit484:                   ; preds = %1309, %1311
-  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %1305, i32 noundef 1, ptr noundef nonnull %59, ptr noundef nonnull align 8 dereferenceable(12) %13)
+  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %1305, i32 noundef 1, ptr noundef %59, ptr noundef nonnull align 8 dereferenceable(12) %13)
   %1312 = load i32, ptr %1306, align 8
   %1313 = icmp ugt i32 %1312, 64
   br i1 %1313, label %1314, label %_ZN4llvm5APIntD2Ev.exit485
@@ -17953,7 +17953,7 @@ _ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEi.exit: ; preds = %34, %42, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"class.llvm::APInt", align 8
@@ -23148,7 +23148,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPN4llvm11InstructionEjNS0_5API
   %10 = load i64, ptr %3, align 8
   store i64 %10, ptr %6, align 8
   store i32 0, ptr %8, align 8
-  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val, ptr noundef %.val5, i32 noundef %.val6, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(12) %4)
+  call fastcc void @"_ZZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jbENK3$_0clEPNS_11InstructionEjS3_S4_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val, ptr noundef %.val5, i32 noundef %.val6, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(12) %4)
   %11 = load i32, ptr %7, align 8
   %12 = icmp ugt i32 %11, 64
   br i1 %12, label %13, label %"_ZSt10__invoke_rIvRZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS0_5ValueENS0_5APIntERS4_jbE3$_0JPNS0_11InstructionEjS4_S5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"

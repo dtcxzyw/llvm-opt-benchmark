@@ -259,7 +259,7 @@ for.cond.preheader:                               ; preds = %while.cond65
   br label %do.body.preheader
 
 while.body68:                                     ; preds = %while.cond65
-  call fastcc void @wait_for_activity(ptr noundef nonnull %call52)
+  call fastcc void @wait_for_activity(ptr noundef %call52)
   %call69 = call i32 @ossl_quic_tserver_tick(ptr noundef nonnull %call52) #9
   %call70 = call i32 @ossl_quic_tserver_is_terminated(ptr noundef nonnull %call52) #9
   %tobool71.not = icmp eq i32 %call70, 0
@@ -283,7 +283,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   br i1 %cmp81, label %if.then83, label %if.end84
 
 if.then83:                                        ; preds = %do.body
-  call fastcc void @wait_for_activity(ptr noundef nonnull %call52)
+  call fastcc void @wait_for_activity(ptr noundef %call52)
   br label %if.end84
 
 if.end84:                                         ; preds = %if.then83, %do.body
@@ -303,7 +303,7 @@ do.body92:                                        ; preds = %do.cond, %do.body92
   br i1 %first.1, label %if.else95, label %if.end96
 
 if.else95:                                        ; preds = %do.body92
-  call fastcc void @wait_for_activity(ptr noundef nonnull %call52)
+  call fastcc void @wait_for_activity(ptr noundef %call52)
   br label %if.end96
 
 if.end96:                                         ; preds = %do.body92, %if.else95
@@ -433,15 +433,15 @@ declare i32 @ossl_quic_tserver_tick(ptr noundef) local_unnamed_addr #3
 declare i32 @ossl_quic_tserver_is_handshake_confirmed(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @wait_for_activity(ptr noundef %qtserv) unnamed_addr #0 {
+define internal fastcc void @wait_for_activity(ptr noundef nonnull %qtserv) unnamed_addr #0 {
 entry:
   %readfds = alloca %struct.fd_set, align 8
   %writefds = alloca %struct.fd_set, align 8
   %timeout = alloca %struct.timeval, align 8
   %sock = alloca i32, align 4
-  %call = tail call ptr @ossl_quic_tserver_get0_rbio(ptr noundef %qtserv) #9
+  %call = tail call ptr @ossl_quic_tserver_get0_rbio(ptr noundef nonnull %qtserv) #9
   %call1 = call i64 @BIO_ctrl(ptr noundef %call, i32 noundef 105, i64 noundef 0, ptr noundef nonnull %sock) #9
-  %call2 = call i32 @ossl_quic_tserver_get_net_read_desired(ptr noundef %qtserv) #9
+  %call2 = call i32 @ossl_quic_tserver_get_net_read_desired(ptr noundef nonnull %qtserv) #9
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.end, label %for.body.preheader
 
@@ -461,7 +461,7 @@ for.body.preheader:                               ; preds = %entry
 
 if.end:                                           ; preds = %for.body.preheader, %entry
   %readfdsp.0 = phi ptr [ %readfds, %for.body.preheader ], [ null, %entry ]
-  %call7 = call i32 @ossl_quic_tserver_get_net_write_desired(ptr noundef %qtserv) #9
+  %call7 = call i32 @ossl_quic_tserver_get_net_write_desired(ptr noundef nonnull %qtserv) #9
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.end33, label %for.body17.preheader
 
@@ -481,7 +481,7 @@ for.body17.preheader:                             ; preds = %if.end
 
 if.end33:                                         ; preds = %for.body17.preheader, %if.end
   %writefdsp.0 = phi ptr [ %writefds, %for.body17.preheader ], [ null, %if.end ]
-  %call34 = call i64 @ossl_quic_tserver_get_deadline(ptr noundef %qtserv) #9
+  %call34 = call i64 @ossl_quic_tserver_get_deadline(ptr noundef nonnull %qtserv) #9
   %cmp.i.not = icmp eq i64 %call34, -1
   br i1 %cmp.i.not, label %if.end49, label %if.end49.thread
 

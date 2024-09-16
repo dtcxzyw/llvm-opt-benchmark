@@ -588,7 +588,7 @@ define dso_local i64 @efi_call_acpi_prm_handler(ptr noundef %0, i64 noundef %1, 
 declare dso_local i32 @down_interruptible(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__efi_queue_work(i32 noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i64 @__efi_queue_work(i32 noundef range(i32 1, 14) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   store i32 %0, ptr getelementptr inbounds (i8, ptr @efi_rts_work, i64 48), align 8
   store ptr %1, ptr @efi_rts_work, align 8
   %3 = tail call ptr @llvm.returnaddress(i32 0)

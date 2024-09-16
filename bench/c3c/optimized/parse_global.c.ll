@@ -4911,7 +4911,7 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
 define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
-  %4 = call fastcc zeroext i1 @parse_contracts(ptr noundef %0, ptr noundef nonnull %3)
+  %4 = call fastcc zeroext i1 @parse_contracts(ptr noundef %0, ptr noundef %3)
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %2
@@ -5415,7 +5415,7 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @parse_contracts(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @parse_contracts(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
   store i32 0, ptr %1, align 4
@@ -5832,7 +5832,7 @@ parse_doc_optreturn.exit:                         ; preds = %extend_span_with_to
 
 211:                                              ; preds = %208
   %212 = load ptr, ptr %3, align 8
-  %213 = call fastcc zeroext i1 @parse_doc_contract(ptr noundef %0, ptr noundef %212, ptr noundef nonnull %3, i32 noundef 2)
+  %213 = call fastcc zeroext i1 @parse_doc_contract(ptr noundef %0, ptr noundef %212, ptr noundef %3, i32 noundef 2)
   br i1 %213, label %254, label %parse_contract_param.exit.thread
 
 214:                                              ; preds = %208
@@ -5842,7 +5842,7 @@ parse_doc_optreturn.exit:                         ; preds = %extend_span_with_to
 
 217:                                              ; preds = %214
   %218 = load ptr, ptr %3, align 8
-  %219 = call fastcc zeroext i1 @parse_doc_contract(ptr noundef %0, ptr noundef %218, ptr noundef nonnull %3, i32 noundef 5)
+  %219 = call fastcc zeroext i1 @parse_doc_contract(ptr noundef %0, ptr noundef %218, ptr noundef %3, i32 noundef 5)
   br i1 %219, label %254, label %parse_contract_param.exit.thread
 
 220:                                              ; preds = %214
@@ -7826,7 +7826,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
 .lr.ph:                                           ; preds = %.critedge73, %103
   %.06092 = phi ptr [ %106, %103 ], [ null, %.critedge73 ]
   store i32 0, ptr %2, align 4
-  %70 = call fastcc zeroext i1 @parse_contracts(ptr noundef %0, ptr noundef nonnull %2)
+  %70 = call fastcc zeroext i1 @parse_contracts(ptr noundef %0, ptr noundef %2)
   br i1 %70, label %73, label %71
 
 71:                                               ; preds = %.lr.ph
@@ -9236,7 +9236,7 @@ declare zeroext i1 @decl_needs_prefix(ptr noundef) local_unnamed_addr #1
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @parse_doc_contract(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @parse_doc_contract(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 2, 6) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #8
@@ -9246,137 +9246,136 @@ define internal fastcc noundef zeroext i1 @parse_doc_contract(ptr noundef %0, pt
   %9 = getelementptr inbounds i8, ptr %7, i64 16
   %10 = trunc nuw nsw i32 %3 to i8
   %11 = load i8, ptr %9, align 8
-  %12 = and i8 %10, 15
-  %13 = and i8 %11, -16
-  %14 = or disjoint i8 %13, %12
-  store i8 %14, ptr %9, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 136
-  %16 = load ptr, ptr %15, align 8
+  %12 = and i8 %11, -16
+  %13 = or disjoint i8 %12, %10
+  store i8 %13, ptr %9, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 136
+  %15 = load ptr, ptr %14, align 8
   tail call void @advance(ptr noundef %0) #8
-  %17 = tail call ptr @parse_expression_list(ptr noundef %0, i1 noundef zeroext false) #8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %.critedge, label %19
+  %16 = tail call ptr @parse_expression_list(ptr noundef %0, i1 noundef zeroext false) #8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %.critedge, label %18
 
-19:                                               ; preds = %4
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
-  %21 = load i16, ptr %20, align 8
-  %22 = and i16 %21, 255
-  %.not = icmp eq i16 %22, 0
-  br i1 %.not, label %68, label %.critedge
+18:                                               ; preds = %4
+  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %20 = load i16, ptr %19, align 8
+  %21 = and i16 %20, 255
+  %.not = icmp eq i16 %21, 0
+  br i1 %.not, label %67, label %.critedge
 
-.critedge:                                        ; preds = %4, %19
-  %23 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr %17, ptr %23, align 8
-  br label %24
+.critedge:                                        ; preds = %4, %18
+  %22 = getelementptr inbounds i8, ptr %7, i64 24
+  store ptr %16, ptr %22, align 8
+  br label %23
 
-24:                                               ; preds = %24, %.critedge
-  %.pn = phi ptr [ %16, %.critedge ], [ %.0, %24 ]
+23:                                               ; preds = %23, %.critedge
+  %.pn = phi ptr [ %15, %.critedge ], [ %.0, %23 ]
   %.0 = getelementptr inbounds i8, ptr %.pn, i64 1
-  %25 = load i8, ptr %.0, align 1
-  switch i8 %25, label %24 [
+  %24 = load i8, ptr %.0, align 1
+  switch i8 %24, label %23 [
     i8 10, label %.critedge2
     i8 0, label %.critedge2
   ], !llvm.loop !31
 
-.critedge2:                                       ; preds = %24, %24
-  %26 = load ptr, ptr %0, align 8
-  %27 = icmp ugt ptr %.0, %26
-  %spec.select = select i1 %27, ptr %26, ptr %.0
-  br label %28
+.critedge2:                                       ; preds = %23, %23
+  %25 = load ptr, ptr %0, align 8
+  %26 = icmp ugt ptr %.0, %25
+  %spec.select = select i1 %26, ptr %25, ptr %.0
+  br label %27
 
-28:                                               ; preds = %.backedge, %.critedge2
-  %.2 = phi ptr [ %spec.select, %.critedge2 ], [ %29, %.backedge ]
-  %29 = getelementptr inbounds i8, ptr %.2, i64 -1
-  %30 = load i8, ptr %29, align 1
-  switch i8 %30, label %31 [
+27:                                               ; preds = %.backedge, %.critedge2
+  %.2 = phi ptr [ %spec.select, %.critedge2 ], [ %28, %.backedge ]
+  %28 = getelementptr inbounds i8, ptr %.2, i64 -1
+  %29 = load i8, ptr %28, align 1
+  switch i8 %29, label %30 [
     i8 32, label %.backedge
     i8 9, label %.backedge
   ]
 
-.backedge:                                        ; preds = %28, %28
-  br label %28, !llvm.loop !32
+.backedge:                                        ; preds = %27, %27
+  br label %27, !llvm.loop !32
 
-31:                                               ; preds = %28
+30:                                               ; preds = %27
   tail call void @scratch_buffer_clear() #8
   %cond = icmp eq i32 %3, 5
   %.str.99..str.100 = select i1 %cond, ptr @.str.99, ptr @.str.100
   tail call void @scratch_buffer_append(ptr noundef nonnull %.str.99..str.100) #8
-  %32 = ptrtoint ptr %.2 to i64
-  %33 = ptrtoint ptr %16 to i64
-  %34 = sub i64 %32, %33
-  tail call void @scratch_buffer_append_len(ptr noundef %16, i64 noundef %34) #8
+  %31 = ptrtoint ptr %.2 to i64
+  %32 = ptrtoint ptr %15 to i64
+  %33 = sub i64 %31, %32
+  tail call void @scratch_buffer_append_len(ptr noundef %15, i64 noundef %33) #8
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.101) #8
-  %35 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 7) #8
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
-  %37 = load i32, ptr %36, align 8
-  %38 = icmp eq i32 %37, 76
-  br i1 %35, label %39, label %43
+  %34 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 7) #8
+  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = load i32, ptr %35, align 8
+  %37 = icmp eq i32 %36, 76
+  br i1 %34, label %38, label %42
 
-39:                                               ; preds = %31
-  br i1 %38, label %.thread, label %40
+38:                                               ; preds = %30
+  br i1 %37, label %.thread, label %39
 
-40:                                               ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %0, i64 56
-  %42 = load i64, ptr %41, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %42, ptr noundef nonnull @.str.102) #8
-  br label %68
+39:                                               ; preds = %38
+  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %41 = load i64, ptr %40, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %41, ptr noundef nonnull @.str.102) #8
+  br label %67
 
-43:                                               ; preds = %31
-  br i1 %38, label %.thread, label %48
+42:                                               ; preds = %30
+  br i1 %37, label %.thread, label %47
 
-.thread:                                          ; preds = %39, %43
+.thread:                                          ; preds = %38, %42
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.103) #8
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
-  %45 = load ptr, ptr %44, align 8
-  tail call void @scratch_buffer_append(ptr noundef %45) #8
+  %43 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = load ptr, ptr %43, align 8
+  tail call void @scratch_buffer_append(ptr noundef %44) #8
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.104) #8
-  %46 = tail call ptr @scratch_buffer_copy() #8
-  %47 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr %46, ptr %47, align 8
+  %45 = tail call ptr @scratch_buffer_copy() #8
+  %46 = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr %45, ptr %46, align 8
   tail call void @advance(ptr noundef nonnull %0) #8
-  br label %51
+  br label %50
 
-48:                                               ; preds = %43
+47:                                               ; preds = %42
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.105) #8
-  %49 = tail call ptr @scratch_buffer_copy() #8
-  %50 = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr %49, ptr %50, align 8
-  br label %51
+  %48 = tail call ptr @scratch_buffer_copy() #8
+  %49 = getelementptr inbounds i8, ptr %7, i64 40
+  store ptr %48, ptr %49, align 8
+  br label %50
 
-51:                                               ; preds = %48, %.thread
-  %52 = load i32, ptr %1, align 4
-  %.not63 = icmp eq i32 %52, 0
-  br i1 %.not63, label %53, label %._crit_edge64
+50:                                               ; preds = %47, %.thread
+  %51 = load i32, ptr %1, align 4
+  %.not63 = icmp eq i32 %51, 0
+  br i1 %.not63, label %52, label %._crit_edge64
 
-._crit_edge64:                                    ; preds = %51
+._crit_edge64:                                    ; preds = %50
   %.pre65 = ptrtoint ptr %7 to i64
-  br label %60
+  br label %59
 
-53:                                               ; preds = %51
-  %54 = load ptr, ptr @ast_arena, align 8
-  %55 = ptrtoint ptr %7 to i64
-  %56 = ptrtoint ptr %54 to i64
-  %57 = sub i64 %55, %56
-  %58 = sdiv exact i64 %57, 48
-  %59 = trunc i64 %58 to i32
-  store i32 %59, ptr %1, align 4
-  br label %60
+52:                                               ; preds = %50
+  %53 = load ptr, ptr @ast_arena, align 8
+  %54 = ptrtoint ptr %7 to i64
+  %55 = ptrtoint ptr %53 to i64
+  %56 = sub i64 %54, %55
+  %57 = sdiv exact i64 %56, 48
+  %58 = trunc i64 %57 to i32
+  store i32 %58, ptr %1, align 4
+  br label %59
 
-60:                                               ; preds = %._crit_edge64, %53
-  %.pre-phi = phi i64 [ %.pre65, %._crit_edge64 ], [ %55, %53 ]
-  %61 = load ptr, ptr @ast_arena, align 8
-  %62 = ptrtoint ptr %61 to i64
-  %63 = sub i64 %.pre-phi, %62
-  %64 = sdiv exact i64 %63, 48
-  %65 = trunc i64 %64 to i32
-  %66 = load ptr, ptr %2, align 8
-  store i32 %65, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %67, ptr %2, align 8
-  br label %68
+59:                                               ; preds = %._crit_edge64, %52
+  %.pre-phi = phi i64 [ %.pre65, %._crit_edge64 ], [ %54, %52 ]
+  %60 = load ptr, ptr @ast_arena, align 8
+  %61 = ptrtoint ptr %60 to i64
+  %62 = sub i64 %.pre-phi, %61
+  %63 = sdiv exact i64 %62, 48
+  %64 = trunc i64 %63 to i32
+  %65 = load ptr, ptr %2, align 8
+  store i32 %64, ptr %65, align 4
+  %66 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %66, ptr %2, align 8
+  br label %67
 
-68:                                               ; preds = %19, %60, %40
-  %.057 = phi i1 [ true, %60 ], [ false, %40 ], [ false, %19 ]
+67:                                               ; preds = %18, %59, %39
+  %.057 = phi i1 [ true, %59 ], [ false, %39 ], [ false, %18 ]
   ret i1 %.057
 }
 

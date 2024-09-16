@@ -1572,7 +1572,7 @@ _ZN12_GLOBAL__N_121BitwiseShiftValidator14checkOvershiftEv.exit.i: ; preds = %27
   %274 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %65) #18, !noalias !13
   %275 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %68) #18, !noalias !13
   %276 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %68) #18, !noalias !13
-  call fastcc void @_ZNK12_GLOBAL__N_121BitwiseShiftValidator15createBugReportEN4llvm9StringRefES2_(ptr dead_on_unwind noalias nonnull writable align 8 %71, ptr noundef nonnull align 8 dereferenceable(48) %75, ptr %273, i64 %274, ptr %275, i64 %276)
+  call fastcc void @_ZNK12_GLOBAL__N_121BitwiseShiftValidator15createBugReportEN4llvm9StringRefES2_(ptr dead_on_unwind noalias writable align 8 %71, ptr noundef nonnull align 8 dereferenceable(48) %75, ptr %273, i64 %274, ptr %275, i64 %276)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #18, !noalias !13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #18, !noalias !13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #18, !noalias !13
@@ -1628,7 +1628,7 @@ _ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED
 
 290:                                              ; preds = %_ZN12_GLOBAL__N_121BitwiseShiftValidator14checkOvershiftEv.exit.i, %_ZN12_GLOBAL__N_121BitwiseShiftValidator14checkOvershiftEv.exit.thread.i
   store ptr null, ptr %71, align 8
-  call fastcc void @_ZN12_GLOBAL__N_121BitwiseShiftValidator20checkOperandNegativeENS_11OperandSideE(ptr dead_on_unwind noalias nonnull writable align 8 %72, ptr noundef nonnull align 8 dereferenceable(48) %75, i32 noundef 1)
+  call fastcc void @_ZN12_GLOBAL__N_121BitwiseShiftValidator20checkOperandNegativeENS_11OperandSideE(ptr dead_on_unwind noalias writable align 8 %72, ptr noundef nonnull align 8 dereferenceable(48) %75, i32 noundef 1)
   %291 = load ptr, ptr %72, align 8
   %.not89.i = icmp eq ptr %291, null
   br i1 %.not89.i, label %305, label %292
@@ -1683,7 +1683,7 @@ _ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.exit.i:
   br i1 %.not.i22.i, label %318, label %_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.exit.thread.i
 
 318:                                              ; preds = %_ZNK12_GLOBAL__N_121BitwiseShiftValidator27shouldPerformPedanticChecksEv.exit.i
-  call fastcc void @_ZN12_GLOBAL__N_121BitwiseShiftValidator20checkOperandNegativeENS_11OperandSideE(ptr dead_on_unwind noalias nonnull writable align 8 %73, ptr noundef nonnull align 8 dereferenceable(48) %75, i32 noundef 0)
+  call fastcc void @_ZN12_GLOBAL__N_121BitwiseShiftValidator20checkOperandNegativeENS_11OperandSideE(ptr dead_on_unwind noalias writable align 8 %73, ptr noundef nonnull align 8 dereferenceable(48) %75, i32 noundef 0)
   %319 = load ptr, ptr %73, align 8
   %.not90.i = icmp eq ptr %319, null
   br i1 %.not90.i, label %333, label %320
@@ -2312,7 +2312,7 @@ _ZN12_GLOBAL__N_121BitwiseShiftValidator22checkLeftShiftOverflowEv.exit.i: ; pre
   %560 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %29) #18, !noalias !70
   %561 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #18, !noalias !70
   %562 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #18, !noalias !70
-  call fastcc void @_ZNK12_GLOBAL__N_121BitwiseShiftValidator15createBugReportEN4llvm9StringRefES2_(ptr dead_on_unwind noalias nonnull writable align 8 %74, ptr noundef nonnull align 8 dereferenceable(48) %75, ptr %559, i64 %560, ptr %561, i64 %562)
+  call fastcc void @_ZNK12_GLOBAL__N_121BitwiseShiftValidator15createBugReportEN4llvm9StringRefES2_(ptr dead_on_unwind noalias writable align 8 %74, ptr noundef nonnull align 8 dereferenceable(48) %75, ptr %559, i64 %560, ptr %561, i64 %562)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #18, !noalias !70
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #18, !noalias !70
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #18, !noalias !70
@@ -2597,7 +2597,7 @@ _ZN12_GLOBAL__N_121BitwiseShiftValidatorD2Ev.exit: ; preds = %663, %_ZN12_GLOBAL
 declare void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121BitwiseShiftValidator20checkOperandNegativeENS_11OperandSideE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_121BitwiseShiftValidator20checkOperandNegativeENS_11OperandSideE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::raw_string_ostream", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2763,7 +2763,7 @@ _ZNK4llvm19formatv_object_base3strB5cxx11Ev.exit12: ; preds = %_ZNK4llvm19format
 declare noundef i32 @_ZNK5clang10ASTContext11getIntWidthENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096), i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121BitwiseShiftValidator17assumeRequirementENS_11OperandSideEN5clang18BinaryOperatorKindEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121BitwiseShiftValidator17assumeRequirementENS_11OperandSideEN5clang18BinaryOperatorKindEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 10, 14) %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %6 = alloca %"class.clang::ento::EnvironmentEntry", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -3018,7 +3018,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_121BitwiseShiftValidator15createBugReportEN4llvm9StringRefES2_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr %2, i64 %3, ptr %4, i64 %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_121BitwiseShiftValidator15createBugReportEN4llvm9StringRefES2_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr %2, i64 %3, ptr %4, i64 %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %9 = load ptr, ptr %1, align 8

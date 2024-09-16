@@ -2942,7 +2942,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit452:    ; preds = %1085
   %1152 = load i8, ptr %30, align 1
   %1153 = trunc i8 %1152 to i1
   %1154 = load ptr, ptr %31, align 8
-  invoke fastcc void @_ZL16analyze_clustersiP10t_clustersPPfiP7t_atomsPA3_fS1_PS6_S1_PA3_S5_PiiSA_iSA_PKcSC_SC_SC_SC_SC_biifbP8_IO_FILE5t_rgbSF_PK16gmx_output_env_t(i32 noundef %.1, ptr noundef nonnull %13, ptr noundef %1131, i32 noundef %.0296597, ptr noundef nonnull %17, ptr noundef %1087, ptr noundef %.0569, ptr noundef %.0303, ptr noundef %.1572, ptr noundef %.0573, ptr noundef %.0579, i32 noundef %1132, ptr noundef %1133, i32 noundef %1134, ptr noundef %1135, ptr noundef %1136, ptr noundef %1137, ptr noundef %1139, ptr noundef %1141, ptr noundef %1143, ptr noundef %1145, i1 noundef zeroext %1148, i32 noundef %1149, i32 noundef %1150, float noundef %1151, i1 noundef zeroext %1153, ptr noundef %306, ptr noundef nonnull byval(%struct.t_rgb) align 8 @_ZZ11gmx_clusteriPPcE7rlo_bot, ptr noundef nonnull byval(%struct.t_rgb) align 8 @_ZZ11gmx_clusteriPPcE7rhi_bot, ptr noundef %1154)
+  invoke fastcc void @_ZL16analyze_clustersiP10t_clustersPPfiP7t_atomsPA3_fS1_PS6_S1_PA3_S5_PiiSA_iSA_PKcSC_SC_SC_SC_SC_biifbP8_IO_FILE5t_rgbSF_PK16gmx_output_env_t(i32 noundef %.1, ptr noundef %13, ptr noundef %1131, i32 noundef %.0296597, ptr noundef %17, ptr noundef %1087, ptr noundef %.0569, ptr noundef %.0303, ptr noundef %.1572, ptr noundef %.0573, ptr noundef %.0579, i32 noundef %1132, ptr noundef %1133, i32 noundef %1134, ptr noundef %1135, ptr noundef %1136, ptr noundef %1137, ptr noundef %1139, ptr noundef %1141, ptr noundef %1143, ptr noundef %1145, i1 noundef zeroext %1148, i32 noundef %1149, i32 noundef %1150, float noundef %1151, i1 noundef zeroext %1153, ptr noundef %306, ptr noundef nonnull byval(%struct.t_rgb) align 8 @_ZZ11gmx_clusteriPPcE7rlo_bot, ptr noundef nonnull byval(%struct.t_rgb) align 8 @_ZZ11gmx_clusteriPPcE7rhi_bot, ptr noundef %1154)
           to label %1155 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 1155:                                             ; preds = %1146
@@ -3801,7 +3801,7 @@ declare void @_Z6gromosiPPffP10t_clusters(i32 noundef, ptr noundef, float nounde
 declare void @_Z12init_t_atomsP7t_atomsib(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @_ZL16analyze_clustersiP10t_clustersPPfiP7t_atomsPA3_fS1_PS6_S1_PA3_S5_PiiSA_iSA_PKcSC_SC_SC_SC_SC_biifbP8_IO_FILE5t_rgbSF_PK16gmx_output_env_t(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr noundef %9, ptr noundef readonly %10, i32 noundef %11, ptr noundef %12, i32 noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, i1 noundef zeroext %21, i32 noundef %22, i32 noundef %23, float noundef %24, i1 noundef zeroext %25, ptr nocapture noundef %26, ptr nocapture noundef readonly byval(%struct.t_rgb) align 8 %27, ptr nocapture noundef readonly byval(%struct.t_rgb) align 8 %28, ptr noundef %29) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16analyze_clustersiP10t_clustersPPfiP7t_atomsPA3_fS1_PS6_S1_PA3_S5_PiiSA_iSA_PKcSC_SC_SC_SC_SC_biifbP8_IO_FILE5t_rgbSF_PK16gmx_output_env_t(i32 noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr noundef %9, ptr noundef readonly %10, i32 noundef %11, ptr noundef %12, i32 noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, i1 noundef zeroext %21, i32 noundef %22, i32 noundef %23, float noundef %24, i1 noundef zeroext %25, ptr nocapture noundef %26, ptr nocapture noundef readonly byval(%struct.t_rgb) align 8 %27, ptr nocapture noundef readonly byval(%struct.t_rgb) align 8 %28, ptr noundef %29) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %31 = alloca %struct._Guard, align 8
   %32 = alloca %struct._Guard, align 8
   %33 = alloca %struct._Guard, align 8
@@ -5286,7 +5286,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit329:       ; preds = %541, %543
   %578 = getelementptr inbounds ptr, ptr %7, i64 %574
   %579 = load ptr, ptr %578, align 8
   %580 = trunc nuw nsw i64 %indvars.iv500 to i32
-  %581 = call noundef i32 @_Z9write_trxP11t_trxstatusiPKiPK7t_atomsifPA3_fS7_S7_P12gmx_conect_t(ptr noundef %540, i32 noundef %13, ptr noundef %14, ptr noundef %4, i32 noundef %580, float noundef %576, ptr noundef %577, ptr noundef %579, ptr noundef null, ptr noundef null)
+  %581 = call noundef i32 @_Z9write_trxP11t_trxstatusiPKiPK7t_atomsifPA3_fS7_S7_P12gmx_conect_t(ptr noundef %540, i32 noundef %13, ptr noundef %14, ptr noundef nonnull %4, i32 noundef %580, float noundef %576, ptr noundef %577, ptr noundef %579, ptr noundef null, ptr noundef null)
   br label %582
 
 582:                                              ; preds = %.critedge, %.critedge.thread
@@ -5371,7 +5371,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit329:       ; preds = %541, %543
 .critedge304:                                     ; preds = %._crit_edge444, %609, %._crit_edge447
   %610 = load float, ptr %531, align 4
   %611 = getelementptr inbounds [3 x [3 x float]], ptr %9, i64 %.0245.lcssa518524
-  %612 = call noundef i32 @_Z9write_trxP11t_trxstatusiPKiPK7t_atomsifPA3_fS7_S7_P12gmx_conect_t(ptr noundef %.0262, i32 noundef %13, ptr noundef %14, ptr noundef %4, i32 noundef %.0253449, float noundef %610, ptr noundef %611, ptr noundef %.0387, ptr noundef null, ptr noundef null)
+  %612 = call noundef i32 @_Z9write_trxP11t_trxstatusiPKiPK7t_atomsifPA3_fS7_S7_P12gmx_conect_t(ptr noundef %.0262, i32 noundef %13, ptr noundef %14, ptr noundef nonnull %4, i32 noundef %.0253449, float noundef %610, ptr noundef %611, ptr noundef %.0387, ptr noundef null, ptr noundef null)
   br label %613
 
 613:                                              ; preds = %533, %.critedge304

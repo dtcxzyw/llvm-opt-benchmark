@@ -532,7 +532,7 @@ declare zeroext i1 @list_member_oid(ptr noundef, i32 noundef) local_unnamed_addr
 declare zeroext i1 @index_insert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @check_exclusion_or_unique_constraint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7, i32 noundef %8, i1 noundef zeroext %9, ptr noundef writeonly %10) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @check_exclusion_or_unique_constraint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7, i32 noundef range(i32 0, 3) %8, i1 noundef zeroext %9, ptr noundef writeonly %10) unnamed_addr #0 {
   %12 = alloca [32 x %struct.ScanKeyData], align 16
   %13 = alloca %struct.SnapshotData, align 8
   %14 = alloca [32 x i64], align 16

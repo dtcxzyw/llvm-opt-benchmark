@@ -604,7 +604,7 @@ define hidden void @zim_PDOStatement_execute(ptr noundef %0, ptr nocapture nound
   br label %76
 
 76:                                               ; preds = %69, %73
-  %77 = call fastcc zeroext i1 @really_register_bound_param(ptr noundef nonnull %3, ptr noundef nonnull %15, i1 noundef zeroext true)
+  %77 = call fastcc zeroext i1 @really_register_bound_param(ptr noundef %3, ptr noundef nonnull %15, i1 noundef zeroext true)
   br i1 %77, label %84, label %78
 
 78:                                               ; preds = %76
@@ -969,7 +969,7 @@ declare void @_efree_56(ptr noundef) local_unnamed_addr #3
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @really_register_bound_param(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @really_register_bound_param(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca ptr, align 8
@@ -3093,7 +3093,7 @@ do_fetch_opt_finish.exit116:                      ; preds = %88, %90
 declare zeroext i1 @zend_parse_arg_class(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_fetch_opt_finish(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @do_fetch_opt_finish(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   %5 = load i64, ptr %4, align 8
@@ -4711,7 +4711,7 @@ define hidden void @zim_PDOStatement_bindValue(ptr noundef %0, ptr nocapture nou
   br label %73
 
 73:                                               ; preds = %64, %70
-  %74 = call fastcc zeroext i1 @really_register_bound_param(ptr noundef nonnull %3, ptr noundef nonnull %33, i1 noundef zeroext true)
+  %74 = call fastcc zeroext i1 @really_register_bound_param(ptr noundef %3, ptr noundef nonnull %33, i1 noundef zeroext true)
   br i1 %74, label %81, label %75
 
 75:                                               ; preds = %73
@@ -4744,7 +4744,7 @@ define hidden void @zim_PDOStatement_bindParam(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @register_bound_param(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @register_bound_param(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca %struct.pdo_bound_param_data, align 8
   %5 = alloca i64, align 8
   store i64 2, ptr %5, align 8
@@ -4949,7 +4949,7 @@ define internal fastcc void @register_bound_param(ptr noundef %0, ptr nocapture 
 
 105:                                              ; preds = %96, %102
   %106 = icmp ne i32 %2, 0
-  %107 = call fastcc zeroext i1 @really_register_bound_param(ptr noundef nonnull %4, ptr noundef nonnull %54, i1 noundef zeroext %106)
+  %107 = call fastcc zeroext i1 @really_register_bound_param(ptr noundef %4, ptr noundef nonnull %54, i1 noundef zeroext %106)
   br i1 %107, label %114, label %108
 
 108:                                              ; preds = %105

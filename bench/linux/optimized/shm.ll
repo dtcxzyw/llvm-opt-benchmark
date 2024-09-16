@@ -1148,7 +1148,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @compat_ksys_old_shmctl(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_shmctl(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_shmctl(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 257) %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.compat_shmid64_ds, align 4
   %6 = alloca %struct.compat_shmid_ds, align 4
   %7 = alloca %struct.compat_shm_info, align 4
@@ -1849,7 +1849,7 @@ define internal fastcc void @mmap_write_unlock(ptr noundef %0) unnamed_addr #7 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc ptr @shm_lock(ptr noundef %0, i32 noundef %1) unnamed_addr #7 align 16 {
+define internal fastcc ptr @shm_lock(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #7 align 16 {
   tail call void @__rcu_read_lock() #12
   %3 = getelementptr i8, ptr %0, i64 432
   %4 = tail call ptr @ipc_obtain_object_idr(ptr noundef %3, i32 noundef %1) #12

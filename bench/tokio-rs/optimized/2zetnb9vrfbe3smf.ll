@@ -1435,7 +1435,7 @@ _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i14: ;
 200:                                              ; preds = %3
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr86drop_in_place$LT$tokio..task..local..Shared..schedule..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0cce0b77a8d33dabE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11) #27
+  invoke fastcc void @"_ZN4core3ptr86drop_in_place$LT$tokio..task..local..Shared..schedule..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0cce0b77a8d33dabE"(ptr noalias noundef align 8 dereferenceable(16) %11) #27
           to label %.body.thread unwind label %201
 
 201:                                              ; preds = %200
@@ -1646,7 +1646,7 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr111drop_in_place$LT$alloc..boxed..Box$LT$$u5b$tokio..runtime..scheduler..multi_thread..worker..Remote$u5d$$GT$$GT$17h3d03103215f92643E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr111drop_in_place$LT$alloc..boxed..Box$LT$$u5b$tokio..runtime..scheduler..multi_thread..worker..Remote$u5d$$GT$$GT$17h3d03103215f92643E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !19
@@ -1774,7 +1774,7 @@ define hidden void @"_ZN4core3ptr113drop_in_place$LT$tokio..runtime..scheduler..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr116drop_in_place$LT$tokio..runtime..scheduler..multi_thread..worker..Context..run_task..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9668be19ce29a6feE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr116drop_in_place$LT$tokio..runtime..scheduler..multi_thread..worker..Context..run_task..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9668be19ce29a6feE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !362)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !365)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !368)
@@ -2010,7 +2010,7 @@ define hidden void @"_ZN4core3ptr137drop_in_place$LT$$LT$tokio..fs..file..File$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..task..local..Shared$GT$$GT$$GT$$GT$17he7068d9beffa5335E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..task..local..Shared$GT$$GT$$GT$$GT$17he7068d9beffa5335E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr109drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..task..local..Shared$GT$$GT$$GT$17hde242ce25ce1f459E.exit", label %4
@@ -2323,7 +2323,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$std..thread..local..AccessEr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$tokio..runtime..scheduler..Handle$GT$17h9b41ce396e51ab7eE"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$tokio..runtime..scheduler..Handle$GT$17h9b41ce396e51ab7eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !50, !noundef !19
   %3 = icmp eq i64 %2, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2403,7 +2403,7 @@ define internal fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Resul
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$tokio..task..local..LocalSet..tick..$u7b$$u7b$closure$u7d$$u7d$$GT$17haa7b118fbef04af3E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$tokio..task..local..LocalSet..tick..$u7b$$u7b$closure$u7d$$u7d$$GT$17haa7b118fbef04af3E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !547)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !550)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !553)
@@ -2434,7 +2434,7 @@ _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i: ; pre
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr86drop_in_place$LT$tokio..task..local..Shared..schedule..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0cce0b77a8d33dabE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr86drop_in_place$LT$tokio..task..local..Shared..schedule..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0cce0b77a8d33dabE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !557)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !560)
@@ -3007,7 +3007,7 @@ define hidden noundef i64 @_ZN5tokio4loom3std3sys8num_cpus17h124ef60a292f75ebE()
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %7, i64 1
   %27 = load i8, ptr %26, align 1, !range !613, !noundef !19
-  invoke fastcc void @"_ZN5tokio4loom3std3sys8num_cpus28_$u7b$$u7b$closure$u7d$$u7d$17h835b4718e8f63a91E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i8 noundef %27)
+  invoke fastcc void @"_ZN5tokio4loom3std3sys8num_cpus28_$u7b$$u7b$closure$u7d$$u7d$17h835b4718e8f63a91E"(ptr noalias noundef readonly align 8 dereferenceable(24) %8, i8 noundef %27)
           to label %.thread.unreachable unwind label %21
 
 .thread.unreachable:                              ; preds = %25
@@ -3117,7 +3117,7 @@ define hidden noundef i64 @_ZN5tokio4loom3std3sys8num_cpus17h124ef60a292f75ebE()
 }
 
 ; Function Attrs: cold inlinehint noreturn nonlazybind uwtable
-define internal fastcc void @"_ZN5tokio4loom3std3sys8num_cpus28_$u7b$$u7b$closure$u7d$$u7d$17h835b4718e8f63a91E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, i8 noundef %1) unnamed_addr #8 {
+define internal fastcc void @"_ZN5tokio4loom3std3sys8num_cpus28_$u7b$$u7b$closure$u7d$$u7d$17h835b4718e8f63a91E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i8 noundef range(i8 0, 5) %1) unnamed_addr #8 {
   %3 = alloca [3 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %5 = alloca i8, align 1
@@ -3955,7 +3955,7 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread6worker6create17he2
 "_ZN4core3ptr146drop_in_place$LT$tokio..runtime..task..list..OwnedTasks$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h5aeceb602446b18aE.exit": ; preds = %191, %102
   %.2107 = phi i8 [ 1, %102 ], [ 0, %191 ]
   %.pn113.pn = phi { ptr, i32 } [ %103, %102 ], [ %106, %191 ]
-  invoke fastcc void @"_ZN4core3ptr111drop_in_place$LT$alloc..boxed..Box$LT$$u5b$tokio..runtime..scheduler..multi_thread..worker..Remote$u5d$$GT$$GT$17h3d03103215f92643E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %22) #27
+  invoke fastcc void @"_ZN4core3ptr111drop_in_place$LT$alloc..boxed..Box$LT$$u5b$tokio..runtime..scheduler..multi_thread..worker..Remote$u5d$$GT$$GT$17h3d03103215f92643E"(ptr noalias noundef align 8 dereferenceable(16) %22) #27
           to label %.body129 unwind label %184
 
 102:                                              ; preds = %.noexc, %"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$20gen_shared_list_size17h114ea8f473f0b062E.llvm.9340333246167201960.exit.i"
@@ -4863,7 +4863,7 @@ define void @_ZN5tokio7runtime9scheduler12multi_thread6worker3run17h395eefb01f78
 20:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6f3907895b95f1a6E.exit"
   %21 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tokio..runtime..scheduler..Handle$GT$17h9b41ce396e51ab7eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2) #27
+  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tokio..runtime..scheduler..Handle$GT$17h9b41ce396e51ab7eE"(ptr noalias noundef align 8 dereferenceable(16) %2) #27
           to label %.thread unwind label %26
 
 22:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6f3907895b95f1a6E.exit"
@@ -6565,7 +6565,7 @@ _ZN5tokio7runtime4task3raw7RawTask4poll17h1e6c599c93371073E.exit.i: ; preds = %"
 130:                                              ; preds = %59
   %131 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$tokio..runtime..scheduler..multi_thread..worker..Context..run_task..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9668be19ce29a6feE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #27
+  invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$tokio..runtime..scheduler..multi_thread..worker..Context..run_task..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9668be19ce29a6feE"(ptr noalias noundef align 8 dereferenceable(16) %6) #27
           to label %.body9.thread58 unwind label %128
 
 132:                                              ; preds = %126, %"_ZN5tokio7runtime9scheduler12multi_thread6worker7Context8run_task28_$u7b$$u7b$closure$u7d$$u7d$17hdf04f210c1ea72f9E.exit"
@@ -6602,7 +6602,7 @@ _ZN5tokio7runtime4task3raw7RawTask4poll17h1e6c599c93371073E.exit.i: ; preds = %"
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler12multi_thread6worker7Context12park_timeout17h5667328b2caf6934E(ptr nocapture noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 %1, i64 %2, i32 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler12multi_thread6worker7Context12park_timeout17h5667328b2caf6934E(ptr nocapture noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 %1, i64 %2, i32 noundef range(i32 0, 1000000001) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -10279,7 +10279,7 @@ _ZN4core3ops8function6FnOnce9call_once17h65dde83566e07db4E.exit.i.i.i: ; preds =
 73:                                               ; preds = %72, %_ZN4core3ops8function6FnOnce9call_once17h65dde83566e07db4E.exit.i.i.i, %50
   %74 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..task..local..Shared$GT$$GT$$GT$$GT$17he7068d9beffa5335E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6) #27
+  invoke fastcc void @"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..task..local..Shared$GT$$GT$$GT$$GT$17he7068d9beffa5335E"(ptr noalias noundef align 8 dereferenceable(8) %6) #27
           to label %common.resume unwind label %87
 
 75:                                               ; preds = %72, %.noexc3.i.i
@@ -10513,7 +10513,7 @@ common.resume:                                    ; preds = %161, %151, %154, %7
 161:                                              ; preds = %143
   %162 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$tokio..task..local..LocalSet..tick..$u7b$$u7b$closure$u7d$$u7d$$GT$17haa7b118fbef04af3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8) #27
+  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$tokio..task..local..LocalSet..tick..$u7b$$u7b$closure$u7d$$u7d$$GT$17haa7b118fbef04af3E"(ptr noalias noundef align 8 dereferenceable(8) %8) #27
           to label %common.resume unwind label %159
 
 _ZN5tokio7runtime4coop6budget17ha1612e184467b881E.exit: ; preds = %157, %"_ZN5tokio4task5local8LocalSet4tick28_$u7b$$u7b$closure$u7d$$u7d$17h0bedff4e7fb4ae31E.exit"
@@ -11563,7 +11563,7 @@ define hidden void @_ZN5tokio4time5clock10with_clock17h4b1fbde4caadbc96E(ptr noa
   unreachable
 
 .critedge:                                        ; preds = %1
-  tail call fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h49b38166abfb6959E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0) #25
+  tail call fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h49b38166abfb6959E(ptr noalias noundef readonly align 8 dereferenceable(24) %0) #25
   unreachable
 
 28:                                               ; preds = %24
@@ -11575,7 +11575,7 @@ define hidden void @_ZN5tokio4time5clock10with_clock17h4b1fbde4caadbc96E(ptr noa
   store ptr %.sroa.0.0, ptr %2, align 8
   %30 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %.sroa.6.0, ptr %30, align 8
-  call fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h914155c5fce988f7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0) #25
+  call fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h914155c5fce988f7E(ptr noalias noundef readonly align 8 dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0) #25
   unreachable
 
 31:                                               ; preds = %5
@@ -11662,7 +11662,7 @@ define hidden void @_ZN5tokio4time5clock10with_clock17h9ff4b14bf1cff588E(ptr noa
   unreachable
 
 .critedge:                                        ; preds = %1
-  tail call fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h49b38166abfb6959E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0) #25
+  tail call fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h49b38166abfb6959E(ptr noalias noundef readonly align 8 dereferenceable(24) %0) #25
   unreachable
 
 28:                                               ; preds = %24
@@ -11674,7 +11674,7 @@ define hidden void @_ZN5tokio4time5clock10with_clock17h9ff4b14bf1cff588E(ptr noa
   store ptr %.sroa.0.0, ptr %2, align 8
   %30 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %.sroa.6.0, ptr %30, align 8
-  call fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h914155c5fce988f7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0) #25
+  call fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h914155c5fce988f7E(ptr noalias noundef readonly align 8 dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0) #25
   unreachable
 
 31:                                               ; preds = %5
@@ -11758,7 +11758,7 @@ define hidden { i64, i32 } @_ZN5tokio4time5clock10with_clock17he3856ee9ad98972dE
   unreachable
 
 .critedge:                                        ; preds = %1
-  tail call fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h49b38166abfb6959E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0) #25
+  tail call fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h49b38166abfb6959E(ptr noalias noundef readonly align 8 dereferenceable(24) %0) #25
   unreachable
 
 27:                                               ; preds = %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..handle..Handle$GT$17hd3e825ab53fbf6c0E.exit", %4
@@ -11770,7 +11770,7 @@ define hidden { i64, i32 } @_ZN5tokio4time5clock10with_clock17he3856ee9ad98972dE
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-define internal fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h49b38166abfb6959E(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #12 {
+define internal fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h49b38166abfb6959E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #12 {
   %2 = alloca [1 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
@@ -11792,7 +11792,7 @@ define internal fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_displa
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-define internal fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h914155c5fce988f7E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #12 {
+define internal fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h914155c5fce988f7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #12 {
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)

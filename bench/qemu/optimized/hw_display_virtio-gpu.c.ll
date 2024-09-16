@@ -1537,7 +1537,7 @@ do.end23.i:                                       ; preds = %if.then20.i111, %do
   br label %virtio_gpu_resource_unref.exit
 
 if.end24.i:                                       ; preds = %for.body.i.i104
-  call fastcc void @virtio_gpu_resource_destroy(ptr noundef %g, ptr noundef nonnull %res.06.i.i105)
+  call fastcc void @virtio_gpu_resource_destroy(ptr noundef %g, ptr noundef %res.06.i.i105)
   br label %virtio_gpu_resource_unref.exit
 
 virtio_gpu_resource_unref.exit:                   ; preds = %do.body2.i126, %if.then5.i129, %do.end23.i, %if.end24.i
@@ -2433,7 +2433,7 @@ if.end39.i:                                       ; preds = %land.lhs.true.i.i27
   %offset.i271 = getelementptr inbounds i8, ptr %fb.i, i64 20
   store i32 %add60.i, ptr %offset.i271, align 4
   %240 = load i32, ptr %scanout_id.i, align 8
-  call fastcc void @virtio_gpu_do_set_scanout(ptr noundef %g, i32 noundef %240, ptr noundef nonnull %fb.i, ptr noundef nonnull %res.06.i.i22.i, ptr noundef nonnull %r.i243, ptr noundef nonnull %error35.i)
+  call fastcc void @virtio_gpu_do_set_scanout(ptr noundef %g, i32 noundef %240, ptr noundef %fb.i, ptr noundef %res.06.i.i22.i, ptr noundef %r.i243, ptr noundef nonnull %error35.i)
   br label %virtio_gpu_set_scanout.exit
 
 virtio_gpu_set_scanout.exit:                      ; preds = %do.body2.i299, %if.then5.i302, %do.end26.i, %if.then31.i, %if.end4.i.i, %virtio_gpu_find_check_resource.exit.i259, %if.end39.i
@@ -2770,7 +2770,7 @@ do.end105.i:                                      ; preds = %if.then103.i, %do.b
   br label %virtio_gpu_set_scanout_blob.exit
 
 if.end107.i:                                      ; preds = %if.end58.i
-  call fastcc void @virtio_gpu_do_set_scanout(ptr noundef %g, i32 noundef %259, ptr noundef nonnull %fb.i304, ptr noundef nonnull %res.06.i.i23.i, ptr noundef nonnull %r.i316, ptr noundef nonnull %error35.i332)
+  call fastcc void @virtio_gpu_do_set_scanout(ptr noundef %g, i32 noundef %259, ptr noundef %fb.i304, ptr noundef %res.06.i.i23.i, ptr noundef %r.i316, ptr noundef nonnull %error35.i332)
   br label %virtio_gpu_set_scanout_blob.exit
 
 virtio_gpu_set_scanout_blob.exit:                 ; preds = %do.body2.i403, %if.then5.i406, %do.end26.i327, %if.then31.i368, %if.end4.i.i384, %virtio_gpu_find_check_resource.exit.i340, %do.end56.i, %do.end105.i, %if.end107.i
@@ -3410,7 +3410,7 @@ land.rhs:                                         ; preds = %entry, %land.rhs
   %res.011 = phi ptr [ %2, %land.rhs ], [ %0, %entry ]
   %next = getelementptr inbounds i8, ptr %res.011, i64 88
   %2 = load ptr, ptr %next, align 8
-  tail call fastcc void @virtio_gpu_resource_destroy(ptr noundef %call.i, ptr noundef nonnull %res.011)
+  tail call fastcc void @virtio_gpu_resource_destroy(ptr noundef %call.i, ptr noundef %res.011)
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %for.cond1.preheader, label %land.rhs, !llvm.loop !14
 
@@ -3483,7 +3483,7 @@ land.rhs.i:                                       ; preds = %if.else, %land.rhs.
   %res.011.i = phi ptr [ %5, %land.rhs.i ], [ %3, %if.else ]
   %next.i = getelementptr inbounds i8, ptr %res.011.i, i64 88
   %5 = load ptr, ptr %next.i, align 8
-  tail call fastcc void @virtio_gpu_resource_destroy(ptr noundef %call.i.i, ptr noundef nonnull %res.011.i)
+  tail call fastcc void @virtio_gpu_resource_destroy(ptr noundef %call.i.i, ptr noundef %res.011.i)
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %for.cond1.preheader.i, label %land.rhs.i, !llvm.loop !14
 
@@ -3788,7 +3788,7 @@ declare ptr @pixman_image_create_bits(i32 noundef, i32 noundef, i32 noundef, ptr
 declare void @virtio_gpu_init_udmabuf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtio_gpu_resource_destroy(ptr noundef %g, ptr noundef %res) unnamed_addr #0 {
+define internal fastcc void @virtio_gpu_resource_destroy(ptr noundef %g, ptr noundef nonnull %res) unnamed_addr #0 {
 entry:
   %scanout_bitmask = getelementptr inbounds i8, ptr %res, i64 36
   %0 = load i32, ptr %scanout_bitmask, align 4
@@ -3867,7 +3867,7 @@ if.end4:                                          ; preds = %for.inc, %for.cond.
   %image = getelementptr inbounds i8, ptr %res, i64 40
   %9 = load ptr, ptr %image, align 8
   tail call void @qemu_pixman_image_unref(ptr noundef %9) #12
-  tail call void @virtio_gpu_cleanup_mapping(ptr noundef %g, ptr noundef %res)
+  tail call void @virtio_gpu_cleanup_mapping(ptr noundef %g, ptr noundef nonnull %res)
   %next = getelementptr inbounds i8, ptr %res, i64 88
   %10 = load ptr, ptr %next, align 8
   %cmp5.not = icmp eq ptr %10, null
@@ -3905,7 +3905,7 @@ declare i32 @pixman_image_get_format(ptr noundef) local_unnamed_addr #1
 declare i32 @pixman_image_get_stride(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtio_gpu_do_set_scanout(ptr noundef %g, i32 noundef %scanout_id, ptr noundef %fb, ptr noundef %res, ptr noundef %r, ptr nocapture noundef writeonly %error) unnamed_addr #0 {
+define internal fastcc void @virtio_gpu_do_set_scanout(ptr noundef %g, i32 noundef %scanout_id, ptr noundef nonnull %fb, ptr noundef nonnull %res, ptr noundef nonnull %r, ptr nocapture noundef writeonly %error) unnamed_addr #0 {
 entry:
   %scanout1 = getelementptr inbounds i8, ptr %g, i64 864
   %idxprom = zext i32 %scanout_id to i64
@@ -3988,7 +3988,7 @@ if.then41:                                        ; preds = %if.then39
   br i1 %tobool43.not, label %if.then44, label %if.else
 
 if.then44:                                        ; preds = %if.then41
-  tail call fastcc void @virtio_gpu_update_scanout(ptr noundef nonnull %g, i32 noundef %scanout_id, ptr noundef nonnull %res, ptr noundef nonnull %r)
+  tail call fastcc void @virtio_gpu_update_scanout(ptr noundef nonnull %g, i32 noundef %scanout_id, ptr noundef %res, ptr noundef %r)
   br label %return
 
 if.else:                                          ; preds = %if.then41
@@ -4145,7 +4145,7 @@ return:                                           ; preds = %if.then44, %if.else
 declare i32 @virtio_gpu_update_dmabuf(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @virtio_gpu_update_scanout(ptr nocapture noundef %g, i32 noundef %scanout_id, ptr nocapture noundef %res, ptr nocapture noundef readonly %r) unnamed_addr #8 {
+define internal fastcc void @virtio_gpu_update_scanout(ptr nocapture noundef %g, i32 noundef %scanout_id, ptr nocapture noundef nonnull %res, ptr nocapture noundef nonnull readonly %r) unnamed_addr #8 {
 entry:
   %scanout1 = getelementptr inbounds i8, ptr %g, i64 864
   %idxprom = zext i32 %scanout_id to i64

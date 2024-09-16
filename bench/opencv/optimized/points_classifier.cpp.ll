@@ -663,7 +663,7 @@ _ZNSt6vectorIiSaIiEE14_M_fill_assignEmRKi.exit:   ; preds = %_ZNSt6vectorIiSaIiE
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39)
-  call fastcc void @_ZL18prepare_train_datav(ptr dead_on_unwind noalias nonnull writable align 8 %38)
+  call fastcc void @_ZL18prepare_train_datav(ptr dead_on_unwind noalias writable align 8 %38)
   invoke void @_ZN2cv2ml9StatModel5trainINS0_21NormalBayesClassifierEEENS_3PtrIT_EERKNS4_INS0_9TrainDataEEEi(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 %37, ptr noundef nonnull align 8 dereferenceable(16) %38, i32 noundef 0)
           to label %269 unwind label %386
 
@@ -1067,7 +1067,7 @@ _ZL26find_decision_boundary_NBCv.exit:            ; preds = %_ZN2cv3PtrINS_2ml9S
 
 429:                                              ; preds = %424
   %430 = load ptr, ptr %34, align 8
-  invoke fastcc void @_ZL18prepare_train_datav(ptr dead_on_unwind noalias nonnull writable align 8 %35)
+  invoke fastcc void @_ZL18prepare_train_datav(ptr dead_on_unwind noalias writable align 8 %35)
           to label %431 unwind label %553
 
 431:                                              ; preds = %429
@@ -1421,7 +1421,7 @@ _ZL25find_decision_boundary_DTv.exit:             ; preds = %_ZN2cv3PtrINS_2ml9S
 591:                                              ; preds = %586
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #18
   %592 = load ptr, ptr %30, align 8
-  invoke fastcc void @_ZL18prepare_train_datav(ptr dead_on_unwind noalias nonnull writable align 8 %32)
+  invoke fastcc void @_ZL18prepare_train_datav(ptr dead_on_unwind noalias writable align 8 %32)
           to label %593 unwind label %715
 
 593:                                              ; preds = %591
@@ -1810,7 +1810,7 @@ _ZL25find_decision_boundary_BTv.exit:             ; preds = %_ZN2cv3PtrINS_2ml9S
 
 770:                                              ; preds = %765
   %771 = load ptr, ptr %25, align 8
-  invoke fastcc void @_ZL18prepare_train_datav(ptr dead_on_unwind noalias nonnull writable align 8 %28)
+  invoke fastcc void @_ZL18prepare_train_datav(ptr dead_on_unwind noalias writable align 8 %28)
           to label %772 unwind label %894
 
 772:                                              ; preds = %770
@@ -2299,7 +2299,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %.noexc
   br label %1178
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZNK2cv7MatExprcvNS_3MatEEv.exit.i
-  invoke fastcc void @_ZL21prepare_train_samplesRKSt6vectorIN2cv6Point_IiEESaIS2_EE(ptr dead_on_unwind noalias nonnull writable align 8 %18)
+  invoke fastcc void @_ZL21prepare_train_samplesRKSt6vectorIN2cv6Point_IiEESaIS2_EE(ptr dead_on_unwind noalias writable align 8 %18)
           to label %1012 unwind label %1010
 
 1012:                                             ; preds = %._crit_edge.i
@@ -2718,7 +2718,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
           to label %.noexc168 unwind label %1568
 
 .noexc168:                                        ; preds = %1181
-  invoke fastcc void @_ZL21prepare_train_samplesRKSt6vectorIN2cv6Point_IiEESaIS2_EE(ptr dead_on_unwind noalias nonnull writable align 8 %4)
+  invoke fastcc void @_ZL21prepare_train_samplesRKSt6vectorIN2cv6Point_IiEESaIS2_EE(ptr dead_on_unwind noalias writable align 8 %4)
           to label %.noexc169 unwind label %1568
 
 .noexc169:                                        ; preds = %.noexc168
@@ -4030,7 +4030,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv() loca
 declare void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL26find_decision_boundary_KNNi(i32 noundef %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL26find_decision_boundary_KNNi(i32 noundef range(i32 3, 16) %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.cv::Ptr.26", align 8
   %3 = alloca %"struct.cv::Ptr.16", align 8
   %4 = alloca %"struct.cv::Ptr.20", align 8
@@ -4052,7 +4052,7 @@ define internal fastcc void @_ZL26find_decision_boundary_KNNi(i32 noundef %0) un
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr %2, align 8
-  invoke fastcc void @_ZL18prepare_train_datav(ptr dead_on_unwind noalias nonnull writable align 8 %3)
+  invoke fastcc void @_ZL18prepare_train_datav(ptr dead_on_unwind noalias writable align 8 %3)
           to label %16 unwind label %141
 
 16:                                               ; preds = %14
@@ -4426,7 +4426,7 @@ define internal fastcc void @_ZL26find_decision_boundary_SVMd(double noundef %0)
 
 55:                                               ; preds = %50
   %56 = load ptr, ptr %2, align 8
-  invoke fastcc void @_ZL18prepare_train_datav(ptr dead_on_unwind noalias nonnull writable align 8 %4)
+  invoke fastcc void @_ZL18prepare_train_datav(ptr dead_on_unwind noalias writable align 8 %4)
           to label %57 unwind label %178
 
 57:                                               ; preds = %55
@@ -4929,12 +4929,12 @@ _ZN2cv3PtrINS_2ml21NormalBayesClassifierEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_2m
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL18prepare_train_datav(ptr dead_on_unwind noalias writable align 8 %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL18prepare_train_datav(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::Mat", align 8
   %3 = alloca %"class.cv::_InputArray", align 8
   %4 = alloca %"class.cv::_InputArray", align 8
   %5 = alloca %"class.cv::Mat", align 8
-  call fastcc void @_ZL21prepare_train_samplesRKSt6vectorIN2cv6Point_IiEESaIS2_EE(ptr dead_on_unwind noalias nonnull writable align 8 %2)
+  call fastcc void @_ZL21prepare_train_samplesRKSt6vectorIN2cv6Point_IiEESaIS2_EE(ptr dead_on_unwind noalias writable align 8 %2)
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 20
@@ -5008,7 +5008,7 @@ define internal fastcc void @_ZL18prepare_train_datav(ptr dead_on_unwind noalias
           to label %43 unwind label %45
 
 43:                                               ; preds = %41
-  invoke void @_ZN2cv2ml9TrainData6createERKNS_11_InputArrayEiS4_S4_S4_S4_S4_(ptr dead_on_unwind writable sret(%"struct.cv::Ptr.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %42)
+  invoke void @_ZN2cv2ml9TrainData6createERKNS_11_InputArrayEiS4_S4_S4_S4_S4_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %42)
           to label %44 unwind label %45
 
 44:                                               ; preds = %43

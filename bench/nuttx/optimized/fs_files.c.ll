@@ -224,7 +224,7 @@ files_fget_by_index.exit45:                       ; preds = %files_fget_by_index
 declare ptr @nxsched_get_files_from_tcb(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -24, 1) i32 @files_extend(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 -24, 1) i32 @files_extend(ptr nocapture noundef %0, i64 noundef range(i64 -2147483647, 268435458) %1) unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1

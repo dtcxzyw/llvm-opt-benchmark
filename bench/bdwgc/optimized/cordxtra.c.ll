@@ -1324,7 +1324,7 @@ declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) loca
 declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @CORD_from_file_lazy_inner(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @CORD_from_file_lazy_inner(ptr noundef %0, i64 noundef range(i64 0, -9223372036854775808) %1) unnamed_addr #0 {
   %3 = alloca [1 x i8], align 1
   %4 = tail call noalias dereferenceable_or_null(272) ptr @GC_malloc(i64 noundef 272) #17
   %5 = icmp eq ptr %4, null

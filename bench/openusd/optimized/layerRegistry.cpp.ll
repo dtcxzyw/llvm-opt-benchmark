@@ -238,8 +238,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_LayerRegistry7_Layers6Up
   %6 = alloca %"struct.std::_Hashtable<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, pxrInternal_v0_24__pxrReserved__::TfWeakPtr<pxrInternal_v0_24__pxrReserved__::SdfLayer>>, std::allocator<std::pair<const std::__cxx11::basic_string<char>, pxrInternal_v0_24__pxrReserved__::TfWeakPtr<pxrInternal_v0_24__pxrReserved__::SdfLayer>>>, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char>>, pxrInternal_v0_24__pxrReserved__::TfHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, false>>::_Scoped_node", align 8
   %7 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_RegistryAliases", align 8
   %8 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_RegistryAliases", align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_AssetInfoToAliasesERKNS_13Sdf_AssetInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(200) %2)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_AssetInfoToAliasesERKNS_13Sdf_AssetInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(200) %3)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_AssetInfoToAliasesERKNS_13Sdf_AssetInfoE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(200) %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_AssetInfoToAliasesERKNS_13Sdf_AssetInfoE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(200) %3)
           to label %9 unwind label %47
 
 9:                                                ; preds = %4
@@ -750,7 +750,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_AssetInfoToAliasesERKNS_13Sdf_AssetInfoE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_AssetInfoToAliasesERKNS_13Sdf_AssetInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -952,7 +952,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_LayerRegistry7_Layers6In
   %6 = alloca %"struct.std::_Hashtable<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, pxrInternal_v0_24__pxrReserved__::TfWeakPtr<pxrInternal_v0_24__pxrReserved__::SdfLayer>>, std::allocator<std::pair<const std::__cxx11::basic_string<char>, pxrInternal_v0_24__pxrReserved__::TfWeakPtr<pxrInternal_v0_24__pxrReserved__::SdfLayer>>>, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char>>, pxrInternal_v0_24__pxrReserved__::TfHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, false>>::_Scoped_node", align 8
   %7 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_RegistryAliases", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_AssetInfoToAliasesERKNS_13Sdf_AssetInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(200) %3)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_AssetInfoToAliasesERKNS_13Sdf_AssetInfoE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(200) %3)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %10 = invoke ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS8_8SdfLayerEEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ENS8_6TfHashENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS6_8SdfLayerEEENS6_6TfHashESt8equal_toIS5_ESaISt4pairIKS5_S9_EEE4findERSE_.exit unwind label %17
@@ -1175,7 +1175,7 @@ declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVeri
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_LayerRegistry7_Layers5EraseERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS_13Sdf_AssetInfoE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(200) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_RegistryAliases", align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_AssetInfoToAliasesERKNS_13Sdf_AssetInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(200) %2)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_AssetInfoToAliasesERKNS_13Sdf_AssetInfoE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(200) %2)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br i1 %6, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_TryToRemoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9TfWeakPtrINS_8SdfLayerEEEPSt13unordered_mapIS5_SA_NS_6TfHashESt8equal_toIS5_ESaISt4pairIS6_SA_EEE.exit.thread, label %7
@@ -1560,7 +1560,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
   br i1 %44, label %45, label %51
 
 45:                                               ; preds = %43
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18Sdf_LayerDebugReprB5cxx11ERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18Sdf_LayerDebugReprB5cxx11ERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %46 unwind label %36
 
 46:                                               ; preds = %45
@@ -1672,7 +1672,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEKNS_13SdfF
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %78, %82
   %86 = phi ptr [ %85, %82 ], [ @.str.2, %78 ]
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18Sdf_LayerDebugReprB5cxx11ERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18Sdf_LayerDebugReprB5cxx11ERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %87 unwind label %118
 
 87:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit
@@ -1752,7 +1752,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrEKNS_13SdfF
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit37: ; preds = %107, %111
   %115 = phi ptr [ %114, %111 ], [ @.str.2, %107 ]
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18Sdf_LayerDebugReprB5cxx11ERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %12)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18Sdf_LayerDebugReprB5cxx11ERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %12)
           to label %116 unwind label %120
 
 116:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit37
@@ -1864,7 +1864,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit42: ; preds = %_ZN
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33), i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18Sdf_LayerDebugReprB5cxx11ERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18Sdf_LayerDebugReprB5cxx11ERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2091,7 +2091,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
   br i1 %37, label %38, label %44
 
 38:                                               ; preds = %36
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18Sdf_LayerDebugReprB5cxx11ERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18Sdf_LayerDebugReprB5cxx11ERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %39 unwind label %29
 
 39:                                               ; preds = %38
@@ -2166,7 +2166,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_21SDF_ASSET__DebugCod
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_21SDF_ASSET__DebugCodesEEEbT_.exit
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18Sdf_LayerDebugReprB5cxx11ERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18Sdf_LayerDebugReprB5cxx11ERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   %13 = select i1 %5, ptr @.str.24, ptr @.str.25
   invoke void (ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug6Helper3MsgEPKcz(ptr noundef nonnull @.str.23, ptr noundef %12, ptr noundef nonnull %13)
@@ -2444,7 +2444,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit: ; preds
 
 106:                                              ; preds = %104
   %107 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18Sdf_LayerDebugReprB5cxx11ERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18Sdf_LayerDebugReprB5cxx11ERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %108 unwind label %31
 
 108:                                              ; preds = %106

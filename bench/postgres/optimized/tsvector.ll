@@ -29,7 +29,7 @@ define dso_local range(i32 -1, 2) i32 @compareWordEntryPos(ptr nocapture noundef
   %6 = load i16, ptr %1, align 2
   %7 = and i16 %6, 16383
   %8 = zext nneg i16 %7 to i32
-  %9 = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %5, i32 %8)
+  %9 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %5, i32 %8)
   ret i32 %9
 }
 
@@ -215,15 +215,15 @@ define dso_local noundef i64 @tsvectorin(ptr nocapture noundef %0) local_unnamed
 
 93:                                               ; preds = %91
   %.not141 = icmp eq i32 %.0115.lcssa, 1
-  %94 = zext nneg i32 %.0115.lcssa to i64
-  br i1 %.not141, label %95, label %.lr.ph.preheader.i
+  br i1 %.not141, label %94, label %.lr.ph.preheader.i
 
-95:                                               ; preds = %93
-  %96 = ptrtoint ptr %.0112.lcssa to i64
+94:                                               ; preds = %93
+  %95 = ptrtoint ptr %.0112.lcssa to i64
   br label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %93
-  call void @qsort_arg(ptr noundef %.0112.lcssa, i64 noundef %94, i64 noundef 24, ptr noundef nonnull @compareentry, ptr noundef %.0119.lcssa) #10
+  %96 = zext nneg i32 %.0115.lcssa to i64
+  call void @qsort_arg(ptr noundef %.0112.lcssa, i64 noundef %96, i64 noundef 24, ptr noundef nonnull @compareentry, ptr noundef %.0119.lcssa) #10
   %97 = ptrtoint ptr %.0112.lcssa to i64
   %.06487.i = getelementptr i8, ptr %.0112.lcssa, i64 24
   br label %.lr.ph.i
@@ -403,13 +403,13 @@ uniquePos.exit.i:                                 ; preds = %._crit_edge.i.i, %1
   %195 = ptrtoint ptr %.064.i to i64
   %196 = sub i64 %195, %97
   %197 = sdiv exact i64 %196, 24
-  %198 = icmp slt i64 %197, %94
+  %198 = icmp slt i64 %197, %96
   br i1 %198, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
 
-._crit_edge.i:                                    ; preds = %194, %95
-  %199 = phi i64 [ %96, %95 ], [ %97, %194 ]
-  %.062.lcssa.i = phi ptr [ %.0112.lcssa, %95 ], [ %.163.i, %194 ]
-  %.0.lcssa.i = phi i32 [ 0, %95 ], [ %.2.i, %194 ]
+._crit_edge.i:                                    ; preds = %194, %94
+  %199 = phi i64 [ %95, %94 ], [ %97, %194 ]
+  %.062.lcssa.i = phi ptr [ %.0112.lcssa, %94 ], [ %.163.i, %194 ]
+  %.0.lcssa.i = phi i32 [ 0, %94 ], [ %.2.i, %194 ]
   %200 = load i32, ptr %.062.lcssa.i, align 8
   %201 = lshr i32 %200, 1
   %202 = and i32 %201, 2047
@@ -1352,7 +1352,7 @@ declare i32 @tsCompareString(ptr noundef, i32 noundef, ptr noundef, i32 noundef,
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i32(i32, i32) #8
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9

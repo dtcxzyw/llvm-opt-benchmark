@@ -450,8 +450,8 @@ do.body:                                          ; preds = %sweeplist.exit, %en
   %1 = load i8, ptr %currentwhite.i, align 4
   %and.i = and i8 %1, 24
   %2 = load ptr, ptr %p.addr.0, align 8
-  %cmp17.i.not = icmp eq ptr %2, null
-  br i1 %cmp17.i.not, label %sweeplist.exit, label %for.body.i
+  %cmp17.not.i = icmp eq ptr %2, null
+  br i1 %cmp17.not.i, label %sweeplist.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %do.body
   %3 = xor i8 %1, 24
@@ -986,8 +986,8 @@ do.body.i.i:                                      ; preds = %sweeplist.exit.i.i,
   %18 = load i8, ptr %currentwhite.i.i.i, align 4
   %and.i.i.i = and i8 %18, 24
   %19 = load ptr, ptr %p.addr.0.i.i, align 8
-  %cmp17.i.not.i.i = icmp eq ptr %19, null
-  br i1 %cmp17.i.not.i.i, label %entersweep.exit, label %for.body.i.i.i
+  %cmp17.not.i.i.i = icmp eq ptr %19, null
+  br i1 %cmp17.not.i.i.i, label %entersweep.exit, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %do.body.i.i
   %20 = xor i8 %18, 24
@@ -1045,13 +1045,13 @@ if.then.i31:                                      ; preds = %sw.bb7
   %33 = xor i8 %32, 24
   %and.i.i = and i8 %32, 24
   %34 = load ptr, ptr %29, align 8
-  %cmp17.i.not.i = icmp eq ptr %34, null
-  br i1 %cmp17.i.not.i, label %sweeplist.exit.i, label %for.body.i.i32
+  %cmp17.not.i.i = icmp eq ptr %34, null
+  br i1 %cmp17.not.i.i, label %sweeplist.exit.i, label %for.body.i.i32
 
 for.body.i.i32:                                   ; preds = %if.then.i31, %for.inc.i.i35
   %35 = phi ptr [ %39, %for.inc.i.i35 ], [ %34, %if.then.i31 ]
-  %p.addr.020.i.i = phi ptr [ %p.addr.1.i.i, %for.inc.i.i35 ], [ %29, %if.then.i31 ]
-  %i.019.i.i = phi i32 [ %inc.i.i, %for.inc.i.i35 ], [ 0, %if.then.i31 ]
+  %p.addr.019.i.i = phi ptr [ %p.addr.1.i.i, %for.inc.i.i35 ], [ %29, %if.then.i31 ]
+  %i.018.i.i = phi i32 [ %inc.i.i, %for.inc.i.i35 ], [ 0, %if.then.i31 ]
   %marked8.i.i = getelementptr inbounds i8, ptr %35, i64 9
   %36 = load i8, ptr %marked8.i.i, align 1
   %and1015.i.i = and i8 %36, %33
@@ -1060,7 +1060,7 @@ for.body.i.i32:                                   ; preds = %if.then.i31, %for.i
 
 if.then.i.i34:                                    ; preds = %for.body.i.i32
   %37 = load ptr, ptr %35, align 8
-  store ptr %37, ptr %p.addr.020.i.i, align 8
+  store ptr %37, ptr %p.addr.019.i.i, align 8
   tail call fastcc void @freeobj(ptr noundef %L, ptr noundef nonnull %35)
   br label %for.inc.i.i35
 
@@ -1071,11 +1071,11 @@ if.else.i.i:                                      ; preds = %for.body.i.i32
   br label %for.inc.i.i35
 
 for.inc.i.i35:                                    ; preds = %if.else.i.i, %if.then.i.i34
-  %p.addr.1.i.i = phi ptr [ %p.addr.020.i.i, %if.then.i.i34 ], [ %35, %if.else.i.i ]
-  %inc.i.i = add nuw nsw i32 %i.019.i.i, 1
+  %p.addr.1.i.i = phi ptr [ %p.addr.019.i.i, %if.then.i.i34 ], [ %35, %if.else.i.i ]
+  %inc.i.i = add nuw nsw i32 %i.018.i.i, 1
   %39 = load ptr, ptr %p.addr.1.i.i, align 8
   %cmp.i.i36 = icmp ne ptr %39, null
-  %cmp6.i.i = icmp ult i32 %i.019.i.i, 99
+  %cmp6.i.i = icmp ult i32 %i.018.i.i, 99
   %40 = select i1 %cmp.i.i36, i1 %cmp6.i.i, i1 false
   br i1 %40, label %for.body.i.i32, label %sweeplist.exit.loopexit.i, !llvm.loop !7
 
@@ -1119,13 +1119,13 @@ if.then.i40:                                      ; preds = %sw.bb10
   %50 = xor i8 %49, 24
   %and.i.i44 = and i8 %49, 24
   %51 = load ptr, ptr %46, align 8
-  %cmp17.i.not.i45 = icmp eq ptr %51, null
-  br i1 %cmp17.i.not.i45, label %sweeplist.exit.i60, label %for.body.i.i46
+  %cmp17.not.i.i45 = icmp eq ptr %51, null
+  br i1 %cmp17.not.i.i45, label %sweeplist.exit.i60, label %for.body.i.i46
 
 for.body.i.i46:                                   ; preds = %if.then.i40, %for.inc.i.i53
   %52 = phi ptr [ %56, %for.inc.i.i53 ], [ %51, %if.then.i40 ]
-  %p.addr.020.i.i47 = phi ptr [ %p.addr.1.i.i54, %for.inc.i.i53 ], [ %46, %if.then.i40 ]
-  %i.019.i.i48 = phi i32 [ %inc.i.i55, %for.inc.i.i53 ], [ 0, %if.then.i40 ]
+  %p.addr.019.i.i47 = phi ptr [ %p.addr.1.i.i54, %for.inc.i.i53 ], [ %46, %if.then.i40 ]
+  %i.018.i.i48 = phi i32 [ %inc.i.i55, %for.inc.i.i53 ], [ 0, %if.then.i40 ]
   %marked8.i.i49 = getelementptr inbounds i8, ptr %52, i64 9
   %53 = load i8, ptr %marked8.i.i49, align 1
   %and1015.i.i50 = and i8 %53, %50
@@ -1134,7 +1134,7 @@ for.body.i.i46:                                   ; preds = %if.then.i40, %for.i
 
 if.then.i.i52:                                    ; preds = %for.body.i.i46
   %54 = load ptr, ptr %52, align 8
-  store ptr %54, ptr %p.addr.020.i.i47, align 8
+  store ptr %54, ptr %p.addr.019.i.i47, align 8
   tail call fastcc void @freeobj(ptr noundef %L, ptr noundef nonnull %52)
   br label %for.inc.i.i53
 
@@ -1145,11 +1145,11 @@ if.else.i.i67:                                    ; preds = %for.body.i.i46
   br label %for.inc.i.i53
 
 for.inc.i.i53:                                    ; preds = %if.else.i.i67, %if.then.i.i52
-  %p.addr.1.i.i54 = phi ptr [ %p.addr.020.i.i47, %if.then.i.i52 ], [ %52, %if.else.i.i67 ]
-  %inc.i.i55 = add nuw nsw i32 %i.019.i.i48, 1
+  %p.addr.1.i.i54 = phi ptr [ %p.addr.019.i.i47, %if.then.i.i52 ], [ %52, %if.else.i.i67 ]
+  %inc.i.i55 = add nuw nsw i32 %i.018.i.i48, 1
   %56 = load ptr, ptr %p.addr.1.i.i54, align 8
   %cmp.i.i56 = icmp ne ptr %56, null
-  %cmp6.i.i57 = icmp ult i32 %i.019.i.i48, 99
+  %cmp6.i.i57 = icmp ult i32 %i.018.i.i48, 99
   %57 = select i1 %cmp.i.i56, i1 %cmp6.i.i57, i1 false
   br i1 %57, label %for.body.i.i46, label %sweeplist.exit.loopexit.i58, !llvm.loop !7
 
@@ -1193,13 +1193,13 @@ if.then.i74:                                      ; preds = %sw.bb13
   %67 = xor i8 %66, 24
   %and.i.i78 = and i8 %66, 24
   %68 = load ptr, ptr %63, align 8
-  %cmp17.i.not.i79 = icmp eq ptr %68, null
-  br i1 %cmp17.i.not.i79, label %sweeplist.exit.i94, label %for.body.i.i80
+  %cmp17.not.i.i79 = icmp eq ptr %68, null
+  br i1 %cmp17.not.i.i79, label %sweeplist.exit.i94, label %for.body.i.i80
 
 for.body.i.i80:                                   ; preds = %if.then.i74, %for.inc.i.i87
   %69 = phi ptr [ %73, %for.inc.i.i87 ], [ %68, %if.then.i74 ]
-  %p.addr.020.i.i81 = phi ptr [ %p.addr.1.i.i88, %for.inc.i.i87 ], [ %63, %if.then.i74 ]
-  %i.019.i.i82 = phi i32 [ %inc.i.i89, %for.inc.i.i87 ], [ 0, %if.then.i74 ]
+  %p.addr.019.i.i81 = phi ptr [ %p.addr.1.i.i88, %for.inc.i.i87 ], [ %63, %if.then.i74 ]
+  %i.018.i.i82 = phi i32 [ %inc.i.i89, %for.inc.i.i87 ], [ 0, %if.then.i74 ]
   %marked8.i.i83 = getelementptr inbounds i8, ptr %69, i64 9
   %70 = load i8, ptr %marked8.i.i83, align 1
   %and1015.i.i84 = and i8 %70, %67
@@ -1208,7 +1208,7 @@ for.body.i.i80:                                   ; preds = %if.then.i74, %for.i
 
 if.then.i.i86:                                    ; preds = %for.body.i.i80
   %71 = load ptr, ptr %69, align 8
-  store ptr %71, ptr %p.addr.020.i.i81, align 8
+  store ptr %71, ptr %p.addr.019.i.i81, align 8
   tail call fastcc void @freeobj(ptr noundef %L, ptr noundef nonnull %69)
   br label %for.inc.i.i87
 
@@ -1219,11 +1219,11 @@ if.else.i.i101:                                   ; preds = %for.body.i.i80
   br label %for.inc.i.i87
 
 for.inc.i.i87:                                    ; preds = %if.else.i.i101, %if.then.i.i86
-  %p.addr.1.i.i88 = phi ptr [ %p.addr.020.i.i81, %if.then.i.i86 ], [ %69, %if.else.i.i101 ]
-  %inc.i.i89 = add nuw nsw i32 %i.019.i.i82, 1
+  %p.addr.1.i.i88 = phi ptr [ %p.addr.019.i.i81, %if.then.i.i86 ], [ %69, %if.else.i.i101 ]
+  %inc.i.i89 = add nuw nsw i32 %i.018.i.i82, 1
   %73 = load ptr, ptr %p.addr.1.i.i88, align 8
   %cmp.i.i90 = icmp ne ptr %73, null
-  %cmp6.i.i91 = icmp ult i32 %i.019.i.i82, 99
+  %cmp6.i.i91 = icmp ult i32 %i.018.i.i82, 99
   %74 = select i1 %cmp.i.i90, i1 %cmp6.i.i91, i1 false
   br i1 %74, label %for.body.i.i80, label %sweeplist.exit.loopexit.i92, !llvm.loop !7
 
@@ -1496,8 +1496,8 @@ do.body.i.i.i.i:                                  ; preds = %sweeplist.exit.i.i.
   %29 = load i8, ptr %currentwhite.i.i.i.i.i, align 4
   %and.i.i.i.i.i = and i8 %29, 24
   %30 = load ptr, ptr %p.addr.0.i.i.i.i, align 8
-  %cmp17.i.not.i.i.i.i = icmp eq ptr %30, null
-  br i1 %cmp17.i.not.i.i.i.i, label %entersweep.exit.i.i, label %for.body.i.i.i.i.i
+  %cmp17.not.i.i.i.i.i = icmp eq ptr %30, null
+  br i1 %cmp17.not.i.i.i.i.i, label %entersweep.exit.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %do.body.i.i.i.i
   %31 = xor i8 %29, 24
@@ -2231,8 +2231,8 @@ do.body.i.i.i:                                    ; preds = %sweeplist.exit.i.i.
   %5 = load i8, ptr %currentwhite.i.i.i.i, align 4
   %and.i.i.i.i = and i8 %5, 24
   %6 = load ptr, ptr %p.addr.0.i.i.i, align 8
-  %cmp17.i.not.i.i.i = icmp eq ptr %6, null
-  br i1 %cmp17.i.not.i.i.i, label %entersweep.exit.i, label %for.body.i.i.i.i
+  %cmp17.not.i.i.i.i = icmp eq ptr %6, null
+  br i1 %cmp17.not.i.i.i.i, label %entersweep.exit.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %do.body.i.i.i
   %7 = xor i8 %5, 24
@@ -4545,7 +4545,7 @@ return:                                           ; preds = %traverseCclosure.ex
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @traverseephemeron(ptr nocapture noundef %g, ptr noundef %h, i32 noundef %inv) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @traverseephemeron(ptr nocapture noundef %g, ptr noundef %h, i32 noundef range(i32 0, 2) %inv) unnamed_addr #2 {
 entry:
   %call = tail call i32 @luaH_realasize(ptr noundef %h) #8
   %lsizenode = getelementptr inbounds i8, ptr %h, i64 11

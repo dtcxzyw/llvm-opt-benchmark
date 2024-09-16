@@ -183,7 +183,7 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit:       ; preds = %.lr.ph, %30
   %35 = add i64 %.0115152, 1
   %36 = getelementptr inbounds ptr, ptr %26, i64 %.0115152
   store ptr %.0113153, ptr %36, align 8
-  call fastcc void @_ZL14add_selectionsPP12LogSelectionPmS2_RK9LogTagSetN8LogLevel4typeE(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(112) %.0113153, i32 noundef %.0.i.i)
+  call fastcc void @_ZL14add_selectionsPP12LogSelectionPmS2_RK9LogTagSetN8LogLevel4typeE(ptr noundef %6, ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(112) %.0113153, i32 noundef %.0.i.i)
   br label %37
 
 37:                                               ; preds = %_ZNK9LogTagSet9level_forEPK9LogOutput.exit, %34
@@ -469,7 +469,7 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit139:    ; preds = %.lr.ph184, %120
 
 _ZNK9LogTagSet9level_forEPK9LogOutput.exit141:    ; preds = %.lr.ph189, %139
   %.0.i.i140 = phi i32 [ %141, %139 ], [ 0, %.lr.ph189 ]
-  call fastcc void @_ZL14add_selectionsPP12LogSelectionPmS2_RK9LogTagSetN8LogLevel4typeE(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(112) %135, i32 noundef %.0.i.i140)
+  call fastcc void @_ZL14add_selectionsPP12LogSelectionPmS2_RK9LogTagSetN8LogLevel4typeE(ptr noundef %6, ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(112) %135, i32 noundef %.0.i.i140)
   %142 = add nuw i64 %.0187, 1
   %exitcond204.not = icmp eq i64 %142, %.4.lcssa
   br i1 %exitcond204.not, label %._crit_edge190, label %.lr.ph189, !llvm.loop !16
@@ -496,7 +496,7 @@ declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14add_selectionsPP12LogSelectionPmS2_RK9LogTagSetN8LogLevel4typeE(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL14add_selectionsPP12LogSelectionPmS2_RK9LogTagSetN8LogLevel4typeE(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca [5 x i32], align 16
   %7 = alloca i64, align 8
   %8 = alloca [32 x [5 x i32]], align 16
@@ -516,7 +516,7 @@ define internal fastcc void @_ZL14add_selectionsPP12LogSelectionPmS2_RK9LogTagSe
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   store i64 0, ptr %7, align 8
-  call fastcc void @_ZL23generate_all_subsets_ofPA5_N6LogTag4typeEPmPKS0_PS0_mm(ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef null, i64 noundef 0, i64 noundef 0)
+  call fastcc void @_ZL23generate_all_subsets_ofPA5_N6LogTag4typeEPmPKS0_PS0_mm(ptr noundef %8, ptr noundef %7, ptr noundef %6, ptr noundef null, i64 noundef 0, i64 noundef 0)
   %15 = load i64, ptr %7, align 8
   %.not73 = icmp eq i64 %15, 0
   br i1 %.not73, label %._crit_edge71, label %.lr.ph70
@@ -772,14 +772,13 @@ declare noundef ptr @_ZNK13LogOutputList4findEPK9LogOutput(ptr noundef nonnull a
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL23generate_all_subsets_ofPA5_N6LogTag4typeEPmPKS0_PS0_mm(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #5 {
+define internal fastcc void @_ZL23generate_all_subsets_ofPA5_N6LogTag4typeEPmPKS0_PS0_mm(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3, i64 noundef %4, i64 noundef range(i64 0, 6) %5) unnamed_addr #5 {
   %7 = icmp eq ptr %3, null
   %spec.select38 = select i1 %7, ptr %0, ptr %3
   %8 = icmp eq i64 %5, 5
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %tailrecurse
-  %spec.select41 = phi ptr [ %spec.select, %tailrecurse ], [ %spec.select38, %6 ]
   %.tr3740 = phi i64 [ %18, %tailrecurse ], [ %5, %6 ]
   %.tr3639 = phi i64 [ %21, %tailrecurse ], [ %4, %6 ]
   %9 = getelementptr inbounds i32, ptr %2, i64 %.tr3740
@@ -789,14 +788,13 @@ define internal fastcc void @_ZL23generate_all_subsets_ofPA5_N6LogTag4typeEPmPKS
 
 ._crit_edge:                                      ; preds = %tailrecurse, %.lr.ph, %6
   %.tr36.lcssa = phi i64 [ %4, %6 ], [ %.tr3639, %.lr.ph ], [ %21, %tailrecurse ]
-  %spec.select.lcssa = phi ptr [ %spec.select38, %6 ], [ %spec.select41, %.lr.ph ], [ %spec.select, %tailrecurse ]
   switch i64 %.tr36.lcssa, label %12 [
-    i64 0, label %24
+    i64 0, label %23
     i64 5, label %14
   ]
 
 12:                                               ; preds = %._crit_edge
-  %13 = getelementptr inbounds i32, ptr %spec.select.lcssa, i64 %.tr36.lcssa
+  %13 = getelementptr inbounds i32, ptr %spec.select38, i64 %.tr36.lcssa
   store i32 0, ptr %13, align 4
   br label %14
 
@@ -805,22 +803,20 @@ define internal fastcc void @_ZL23generate_all_subsets_ofPA5_N6LogTag4typeEPmPKS
   %16 = add i64 %15, 1
   store i64 %16, ptr %1, align 8
   %17 = getelementptr inbounds [5 x i32], ptr %0, i64 %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %17, ptr noundef nonnull align 4 dereferenceable(20) %spec.select.lcssa, i64 20, i1 false)
-  br label %24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %17, ptr noundef nonnull align 4 dereferenceable(20) %spec.select38, i64 20, i1 false)
+  br label %23
 
 tailrecurse:                                      ; preds = %.lr.ph
   %18 = add nuw nsw i64 %.tr3740, 1
-  tail call fastcc void @_ZL23generate_all_subsets_ofPA5_N6LogTag4typeEPmPKS0_PS0_mm(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %spec.select41, i64 noundef %.tr3639, i64 noundef %18)
+  tail call fastcc void @_ZL23generate_all_subsets_ofPA5_N6LogTag4typeEPmPKS0_PS0_mm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %spec.select38, i64 noundef %.tr3639, i64 noundef %18)
   %19 = load i32, ptr %9, align 4
-  %20 = getelementptr inbounds i32, ptr %spec.select41, i64 %.tr3639
+  %20 = getelementptr inbounds i32, ptr %spec.select38, i64 %.tr3639
   store i32 %19, ptr %20, align 4
   %21 = add i64 %.tr3639, 1
-  %22 = icmp eq ptr %spec.select41, null
-  %spec.select = select i1 %22, ptr %0, ptr %spec.select41
-  %23 = icmp eq i64 %18, 5
-  br i1 %23, label %._crit_edge, label %.lr.ph
+  %22 = icmp eq i64 %18, 5
+  br i1 %22, label %._crit_edge, label %.lr.ph
 
-24:                                               ; preds = %._crit_edge, %14
+23:                                               ; preds = %._crit_edge, %14
   ret void
 }
 

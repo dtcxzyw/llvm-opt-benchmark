@@ -251,7 +251,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef readonly %0, ptr %1, ptr nocapture readonly %2, float noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr noundef %6, i32 noundef %7, ptr noundef writeonly %8) unnamed_addr #6 {
+define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef readonly %0, ptr %1, ptr nocapture readonly %2, float noundef %3, i32 noundef range(i32 0, 2) %4, ptr nocapture noundef readonly %5, ptr noundef nonnull %6, i32 noundef range(i32 0, 2) %7, ptr noundef writeonly %8) unnamed_addr #6 {
   %10 = alloca %struct._cairo_rectangle_int, align 16
   %11 = alloca %struct._cairo_rectangle_int, align 8
   %12 = alloca %struct.distort_params_t, align 8
@@ -347,7 +347,7 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
 
 .loopexit59:                                      ; preds = %62, %28
   %67 = phi ptr [ null, %28 ], [ %63, %62 ]
-  call void @cairo_region_get_extents(ptr noundef %32, ptr noundef %6) #29
+  call void @cairo_region_get_extents(ptr noundef %32, ptr noundef nonnull %6) #29
   call void @cairo_region_destroy(ptr noundef %32) #29
   call void @cairo_region_destroy(ptr noundef %31) #29
   %68 = call ptr @g_slist_reverse(ptr noundef %67) #29
@@ -1100,7 +1100,7 @@ define noundef range(i32 0, 2) i32 @distort_transform(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_distort_xtransform(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noalias nocapture noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 2) i32 @_distort_xtransform(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noalias nocapture noundef %2, i64 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #1 {
   %6 = alloca %struct._cairo_rectangle_int, align 16
   %7 = alloca %struct.dt_iop_roi_t, align 16
   %8 = alloca ptr, align 8
@@ -1453,7 +1453,7 @@ define void @distort_mask(ptr nocapture noundef readonly %0, ptr nocapture nound
 declare void @dt_iop_copy_image_roi(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_apply_global_distortion_map(i32 %0, ptr noalias noundef %1, ptr noalias noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6) unnamed_addr #1 {
+define internal fastcc void @_apply_global_distortion_map(i32 %0, ptr noalias noundef %1, ptr noalias noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #1 {
   %8 = freeze i32 %0
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !90
@@ -2151,7 +2151,7 @@ define internal fastcc float @find_nearest_on_curve_t(<2 x float> noundef %0, <2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @casteljau(float %0, float %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, float noundef %5) unnamed_addr #15 {
+define internal fastcc void @casteljau(float %0, float %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef nonnull %4, float noundef %5) unnamed_addr #15 {
   %7 = load <2 x float>, ptr %2, align 4
   %8 = insertelement <2 x float> poison, float %0, i64 0
   %9 = insertelement <2 x float> %8, float %1, i64 1
@@ -5876,7 +5876,7 @@ define noundef range(i32 0, 2) i32 @scrolled(ptr nocapture noundef readonly %0, 
 declare i32 @dt_mask_scroll_increases(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_stamp_params(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 {
+define internal fastcc void @get_stamp_params(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #1 {
   %4 = alloca %struct._cairo_rectangle_int, align 4
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
   %6 = load ptr, ptr %5, align 8, !tbaa !169
@@ -7925,7 +7925,7 @@ define internal fastcc void @node_delete(ptr noundef %0, ptr nocapture noundef %
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @mix_warps(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, <2 x float> noundef %3, float noundef %4) unnamed_addr #19 {
+define internal fastcc void @mix_warps(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, <2 x float> noundef %3, float noundef %4) unnamed_addr #19 {
   %6 = extractelement <2 x float> %3, i64 1
   %7 = extractelement <2 x float> %3, i64 0
   %8 = getelementptr inbounds i8, ptr %1, i64 32
@@ -8763,7 +8763,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
 declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @interpolate_paths(ptr nocapture noundef readonly %0) unnamed_addr #6 {
+define internal fastcc ptr @interpolate_paths(ptr nocapture noundef nonnull readonly %0) unnamed_addr #6 {
   br label %2
 
 2:                                                ; preds = %.loopexit18, %1
@@ -9386,7 +9386,7 @@ declare void @g_slist_free(ptr noundef) local_unnamed_addr #3
 declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_distort_paths_locked(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #1 {
+define internal fastcc void @_distort_paths_locked(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #1 {
   br label %4
 
 4:                                                ; preds = %54, %3

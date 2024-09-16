@@ -866,7 +866,7 @@ define internal float @FastLog2Slow_C(i32 noundef %0) #7 {
   br i1 %2, label %3, label %24
 
 3:                                                ; preds = %1
-  %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %0, i1 true)
+  %4 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %0, i1 true)
   %5 = sub nsw i32 24, %4
   %6 = lshr i32 %0, %5
   %7 = zext nneg i32 %6 to i64
@@ -909,7 +909,7 @@ define internal float @FastSLog2Slow_C(i32 noundef %0) #7 {
   br i1 %2, label %3, label %19
 
 3:                                                ; preds = %1
-  %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %0, i1 true)
+  %4 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %0, i1 true)
   %5 = sub nsw i32 24, %4
   %6 = uitofp nneg i32 %0 to float
   %7 = lshr i32 %0, %5

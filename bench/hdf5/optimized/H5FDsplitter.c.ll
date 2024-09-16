@@ -255,7 +255,7 @@ define i32 @H5Pset_fapl_splitter(i64 noundef %0, ptr noundef %1) local_unnamed_a
   br label %.thread51
 
 50:                                               ; preds = %43
-  %51 = tail call fastcc i32 @H5FD__splitter_populate_config(ptr noundef nonnull %1, ptr noundef nonnull %44)
+  %51 = tail call fastcc i32 @H5FD__splitter_populate_config(ptr noundef nonnull %1, ptr noundef %44)
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %57
 
@@ -303,7 +303,7 @@ declare ptr @H5I_object(i64 noundef) local_unnamed_addr #1
 declare noalias ptr @H5FL_reg_calloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FD__splitter_populate_config(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FD__splitter_populate_config(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.H5FD_driver_prop_t, align 8
   %4 = alloca i64, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8216) %1, i8 0, i64 8216, i1 false)
@@ -682,7 +682,7 @@ define range(i32 -1, 1) i32 @H5Pget_fapl_splitter(i64 noundef %0, ptr noundef %1
   br label %.thread87
 
 76:                                               ; preds = %69
-  %77 = tail call fastcc i32 @H5FD__splitter_populate_config(ptr noundef null, ptr noundef nonnull %70)
+  %77 = tail call fastcc i32 @H5FD__splitter_populate_config(ptr noundef null, ptr noundef %70)
   %78 = icmp slt i32 %77, 0
   br i1 %78, label %.thread59, label %82
 
@@ -707,7 +707,7 @@ define range(i32 -1, 1) i32 @H5Pget_fapl_splitter(i64 noundef %0, ptr noundef %1
   %92 = and i8 %90, 1
   store i8 %92, ptr %91, align 2
   %93 = load i64, ptr %.041, align 8
-  %94 = tail call fastcc i32 @H5FD__copy_plist(i64 noundef %93, ptr noundef nonnull %50)
+  %94 = tail call fastcc i32 @H5FD__copy_plist(i64 noundef %93, ptr noundef %50)
   %95 = icmp slt i32 %94, 0
   br i1 %95, label %96, label %100
 
@@ -720,7 +720,7 @@ define range(i32 -1, 1) i32 @H5Pget_fapl_splitter(i64 noundef %0, ptr noundef %1
 100:                                              ; preds = %82
   %101 = getelementptr inbounds i8, ptr %.041, i64 8
   %102 = load i64, ptr %101, align 8
-  %103 = tail call fastcc i32 @H5FD__copy_plist(i64 noundef %102, ptr noundef nonnull %51)
+  %103 = tail call fastcc i32 @H5FD__copy_plist(i64 noundef %102, ptr noundef %51)
   %104 = icmp slt i32 %103, 0
   br i1 %104, label %105, label %.thread
 
@@ -780,7 +780,7 @@ declare ptr @H5P_peek_driver_info(ptr noundef) local_unnamed_addr #1
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FD__copy_plist(i64 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FD__copy_plist(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = load i64, ptr @H5P_CLS_FILE_ACCESS_ID_g, align 8
   %4 = tail call i32 @H5P_isa_class(i64 noundef %0, i64 noundef %3) #11
   %5 = icmp eq i32 %4, 0
@@ -912,7 +912,7 @@ define internal ptr @H5FD__splitter_fapl_copy(ptr nocapture noundef readonly %0)
   %13 = getelementptr inbounds i8, ptr %0, i64 4113
   %14 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %13, i64 noundef 4097) #11
   %15 = load i64, ptr %0, align 8
-  %16 = tail call fastcc i32 @H5FD__copy_plist(i64 noundef %15, ptr noundef nonnull %2)
+  %16 = tail call fastcc i32 @H5FD__copy_plist(i64 noundef %15, ptr noundef %2)
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %22
 
@@ -926,7 +926,7 @@ define internal ptr @H5FD__splitter_fapl_copy(ptr nocapture noundef readonly %0)
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %2, i64 8
-  %26 = tail call fastcc i32 @H5FD__copy_plist(i64 noundef %24, ptr noundef nonnull %25)
+  %26 = tail call fastcc i32 @H5FD__copy_plist(i64 noundef %24, ptr noundef %25)
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %28, label %.thread
 
@@ -1071,7 +1071,7 @@ define internal ptr @H5FD__splitter_open(ptr noundef %0, i32 noundef %1, i64 nou
   br label %.thread.thread127
 
 55:                                               ; preds = %48
-  %56 = tail call fastcc i32 @H5FD__splitter_populate_config(ptr noundef null, ptr noundef nonnull %49)
+  %56 = tail call fastcc i32 @H5FD__splitter_populate_config(ptr noundef null, ptr noundef %49)
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %58, label %62
 
@@ -1088,7 +1088,7 @@ define internal ptr @H5FD__splitter_open(ptr noundef %0, i32 noundef %1, i64 nou
   br i1 %65, label %66, label %73
 
 66:                                               ; preds = %62
-  %67 = tail call fastcc i32 @H5FD__splitter_get_default_wo_path(ptr noundef nonnull %63, ptr noundef nonnull %0)
+  %67 = tail call fastcc i32 @H5FD__splitter_get_default_wo_path(ptr noundef %63, ptr noundef nonnull %0)
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %69, label %73
 
@@ -1113,7 +1113,7 @@ define internal ptr @H5FD__splitter_open(ptr noundef %0, i32 noundef %1, i64 nou
   %83 = and i8 %81, 1
   store i8 %83, ptr %82, align 2
   %84 = load i64, ptr %.080, align 8
-  %85 = tail call fastcc i32 @H5FD__copy_plist(i64 noundef %84, ptr noundef nonnull %37)
+  %85 = tail call fastcc i32 @H5FD__copy_plist(i64 noundef %84, ptr noundef %37)
   %86 = icmp slt i32 %85, 0
   br i1 %86, label %87, label %91
 
@@ -1126,7 +1126,7 @@ define internal ptr @H5FD__splitter_open(ptr noundef %0, i32 noundef %1, i64 nou
 91:                                               ; preds = %73
   %92 = getelementptr inbounds i8, ptr %.080, i64 8
   %93 = load i64, ptr %92, align 8
-  %94 = tail call fastcc i32 @H5FD__copy_plist(i64 noundef %93, ptr noundef nonnull %38)
+  %94 = tail call fastcc i32 @H5FD__copy_plist(i64 noundef %93, ptr noundef %38)
   %95 = icmp slt i32 %94, 0
   br i1 %95, label %96, label %100
 
@@ -1865,7 +1865,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_delete(ptr noundef %0, i64 
   br label %.thread44
 
 12:                                               ; preds = %5
-  %13 = tail call fastcc i32 @H5FD__splitter_populate_config(ptr noundef null, ptr noundef nonnull %6)
+  %13 = tail call fastcc i32 @H5FD__splitter_populate_config(ptr noundef null, ptr noundef %6)
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %15, label %19
 
@@ -1882,7 +1882,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_delete(ptr noundef %0, i64 
   br i1 %22, label %23, label %65
 
 23:                                               ; preds = %19
-  %24 = tail call fastcc i32 @H5FD__splitter_get_default_wo_path(ptr noundef nonnull %20, ptr noundef %0)
+  %24 = tail call fastcc i32 @H5FD__splitter_get_default_wo_path(ptr noundef %20, ptr noundef %0)
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %26, label %65
 
@@ -1920,7 +1920,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_delete(ptr noundef %0, i64 
   br label %.thread44
 
 47:                                               ; preds = %40
-  %48 = tail call fastcc i32 @H5FD__splitter_populate_config(ptr noundef null, ptr noundef nonnull %41)
+  %48 = tail call fastcc i32 @H5FD__splitter_populate_config(ptr noundef null, ptr noundef %41)
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %50, label %54
 
@@ -1937,7 +1937,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_delete(ptr noundef %0, i64 
   br i1 %57, label %58, label %65
 
 58:                                               ; preds = %54
-  %59 = tail call fastcc i32 @H5FD__splitter_get_default_wo_path(ptr noundef nonnull %55, ptr noundef %0)
+  %59 = tail call fastcc i32 @H5FD__splitter_get_default_wo_path(ptr noundef %55, ptr noundef %0)
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %61, label %65
 
@@ -2040,7 +2040,7 @@ declare i32 @H5I_dec_ref(i64 noundef) local_unnamed_addr #1
 declare i64 @H5Pget_driver(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FD__splitter_get_default_wo_path(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FD__splitter_get_default_wo_path(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %4 = icmp ugt i64 %3, 4092
   br i1 %4, label %5, label %9

@@ -516,7 +516,7 @@ if.end37:                                         ; preds = %if.then31.if.end37_
   br i1 %tobool40.not.not, label %if.then41, label %if.end61
 
 if.then41:                                        ; preds = %if.end37
-  %call42 = call fastcc ptr @rsa_get_blinding(ptr noundef nonnull %rsa, ptr noundef nonnull %local_blinding, ptr noundef nonnull %call)
+  %call42 = call fastcc ptr @rsa_get_blinding(ptr noundef nonnull %rsa, ptr noundef %local_blinding, ptr noundef %call)
   %cmp43 = icmp eq ptr %call42, null
   br i1 %cmp43, label %if.then45, label %if.then50
 
@@ -544,7 +544,7 @@ if.then55:                                        ; preds = %land.lhs.true
 
 if.end56:                                         ; preds = %land.lhs.true, %if.then50
   %unblind.1 = phi ptr [ null, %if.then50 ], [ %call52, %land.lhs.true ]
-  %call57 = tail call fastcc i32 @rsa_blinding_convert(ptr noundef nonnull %call42, ptr noundef %call1, ptr noundef %unblind.1, ptr noundef nonnull %call)
+  %call57 = tail call fastcc i32 @rsa_blinding_convert(ptr noundef %call42, ptr noundef %call1, ptr noundef %unblind.1, ptr noundef %call)
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %err, label %if.end56.if.end61_crit_edge
 
@@ -648,7 +648,7 @@ if.end106:                                        ; preds = %if.end97, %if.then8
 
 if.then108:                                       ; preds = %if.end106
   tail call void @BN_set_flags(ptr noundef nonnull %call2, i32 noundef 4) #8
-  %call.i = tail call i32 @BN_BLINDING_invert_ex(ptr noundef nonnull %call2, ptr noundef %unblind.0, ptr noundef %blinding.077, ptr noundef nonnull %call) #8
+  %call.i = tail call i32 @BN_BLINDING_invert_ex(ptr noundef nonnull %call2, ptr noundef %unblind.0, ptr noundef nonnull %blinding.077, ptr noundef nonnull %call) #8
   %tobool110.not = icmp eq i32 %call.i, 0
   br i1 %tobool110.not, label %err, label %if.end113
 
@@ -791,7 +791,7 @@ if.end43:                                         ; preds = %if.then37.if.end43_
   br i1 %tobool46.not.not, label %if.then47, label %if.end68
 
 if.then47:                                        ; preds = %if.end43
-  %call48 = call fastcc ptr @rsa_get_blinding(ptr noundef nonnull %rsa, ptr noundef nonnull %local_blinding, ptr noundef nonnull %call)
+  %call48 = call fastcc ptr @rsa_get_blinding(ptr noundef nonnull %rsa, ptr noundef %local_blinding, ptr noundef %call)
   %cmp49 = icmp eq ptr %call48, null
   br i1 %cmp49, label %if.then51, label %if.then56
 
@@ -819,7 +819,7 @@ if.then62:                                        ; preds = %land.lhs.true58
 
 if.end63:                                         ; preds = %land.lhs.true58, %if.then56
   %unblind.1 = phi ptr [ null, %if.then56 ], [ %call59, %land.lhs.true58 ]
-  %call64 = tail call fastcc i32 @rsa_blinding_convert(ptr noundef nonnull %call48, ptr noundef %call4, ptr noundef %unblind.1, ptr noundef nonnull %call)
+  %call64 = tail call fastcc i32 @rsa_blinding_convert(ptr noundef %call48, ptr noundef %call4, ptr noundef %unblind.1, ptr noundef %call)
   %tobool65.not = icmp eq i32 %call64, 0
   br i1 %tobool65.not, label %err, label %if.end63.if.end68_crit_edge
 
@@ -923,7 +923,7 @@ if.end112:                                        ; preds = %if.end103, %if.then
 
 if.then114:                                       ; preds = %if.end112
   tail call void @BN_set_flags(ptr noundef nonnull %call5, i32 noundef 4) #8
-  %call.i = tail call i32 @BN_BLINDING_invert_ex(ptr noundef nonnull %call5, ptr noundef %unblind.0, ptr noundef %blinding.088, ptr noundef nonnull %call) #8
+  %call.i = tail call i32 @BN_BLINDING_invert_ex(ptr noundef nonnull %call5, ptr noundef %unblind.0, ptr noundef nonnull %blinding.088, ptr noundef nonnull %call) #8
   %tobool116.not = icmp eq i32 %call.i, 0
   br i1 %tobool116.not, label %err, label %if.end119
 
@@ -932,7 +932,7 @@ if.end119:                                        ; preds = %if.then114, %if.end
   br i1 %cmp120, label %if.then122, label %if.end128
 
 if.then122:                                       ; preds = %if.end119
-  %call123 = call fastcc i32 @derive_kdk(i32 noundef %flen, ptr noundef %from, ptr noundef nonnull %rsa, ptr noundef nonnull %call10, i32 noundef %div, ptr noundef nonnull %kdk)
+  %call123 = call fastcc i32 @derive_kdk(i32 noundef %flen, ptr noundef %from, ptr noundef nonnull %rsa, ptr noundef %call10, i32 noundef %div, ptr noundef %kdk)
   %cmp124 = icmp eq i32 %call123, 0
   br i1 %cmp124, label %err, label %if.end128
 
@@ -1711,7 +1711,7 @@ declare i32 @RSA_padding_add_PKCS1_type_1(ptr noundef, i32 noundef, ptr noundef,
 declare i32 @RSA_padding_add_X931(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @rsa_get_blinding(ptr noundef %rsa, ptr nocapture noundef writeonly %local, ptr noundef %ctx) unnamed_addr #3 {
+define internal fastcc ptr @rsa_get_blinding(ptr noundef %rsa, ptr nocapture noundef nonnull writeonly %local, ptr noundef nonnull %ctx) unnamed_addr #3 {
 entry:
   %lock = getelementptr inbounds i8, ptr %rsa, i64 208
   %0 = load ptr, ptr %lock, align 8
@@ -1739,7 +1739,7 @@ if.end8:                                          ; preds = %if.then1
   br i1 %cmp10, label %if.end15, label %if.end19
 
 if.end15:                                         ; preds = %if.end8
-  %call12 = tail call ptr @RSA_setup_blinding(ptr noundef nonnull %rsa, ptr noundef %ctx) #8
+  %call12 = tail call ptr @RSA_setup_blinding(ptr noundef nonnull %rsa, ptr noundef nonnull %ctx) #8
   store ptr %call12, ptr %blinding, align 8
   %cmp17 = icmp eq ptr %call12, null
   br i1 %cmp17, label %err, label %if.end19
@@ -1775,7 +1775,7 @@ if.end31:                                         ; preds = %if.then24
   br i1 %cmp33, label %if.then34, label %err
 
 if.then34:                                        ; preds = %if.end31
-  %call35 = tail call ptr @RSA_setup_blinding(ptr noundef nonnull %rsa, ptr noundef %ctx) #8
+  %call35 = tail call ptr @RSA_setup_blinding(ptr noundef nonnull %rsa, ptr noundef nonnull %ctx) #8
   store ptr %call35, ptr %mt_blinding, align 8
   br label %err
 
@@ -1791,23 +1791,23 @@ return:                                           ; preds = %if.then24, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rsa_blinding_convert(ptr noundef %b, ptr noundef %f, ptr noundef %unblind, ptr noundef %ctx) unnamed_addr #3 {
+define internal fastcc i32 @rsa_blinding_convert(ptr noundef nonnull %b, ptr noundef %f, ptr noundef %unblind, ptr noundef nonnull %ctx) unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %unblind, null
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @BN_BLINDING_convert_ex(ptr noundef %f, ptr noundef null, ptr noundef %b, ptr noundef %ctx) #8
+  %call = tail call i32 @BN_BLINDING_convert_ex(ptr noundef %f, ptr noundef null, ptr noundef nonnull %b, ptr noundef nonnull %ctx) #8
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call1 = tail call i32 @BN_BLINDING_lock(ptr noundef %b) #8
+  %call1 = tail call i32 @BN_BLINDING_lock(ptr noundef nonnull %b) #8
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %if.else
-  %call3 = tail call i32 @BN_BLINDING_convert_ex(ptr noundef %f, ptr noundef nonnull %unblind, ptr noundef %b, ptr noundef %ctx) #8
-  %call4 = tail call i32 @BN_BLINDING_unlock(ptr noundef %b) #8
+  %call3 = tail call i32 @BN_BLINDING_convert_ex(ptr noundef %f, ptr noundef nonnull %unblind, ptr noundef nonnull %b, ptr noundef nonnull %ctx) #8
+  %call4 = tail call i32 @BN_BLINDING_unlock(ptr noundef nonnull %b) #8
   br label %return
 
 return:                                           ; preds = %if.else, %if.end, %if.then
@@ -1847,7 +1847,7 @@ declare i32 @BN_BLINDING_invert_ex(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @derive_kdk(i32 noundef %flen, ptr noundef %from, ptr nocapture noundef readonly %rsa, ptr noundef %buf, i32 noundef %num, ptr noundef %kdk) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @derive_kdk(i32 noundef range(i32 1, 268435456) %flen, ptr noundef %from, ptr nocapture noundef readonly %rsa, ptr noundef nonnull %buf, i32 noundef range(i32 -268435455, 268435456) %num, ptr noundef nonnull %kdk) unnamed_addr #3 {
 entry:
   %md_len = alloca i32, align 4
   %d_hash = alloca [32 x i8], align 16
@@ -1878,7 +1878,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   tail call void @BN_with_flags(ptr noundef nonnull %call, ptr noundef nonnull %0, i32 noundef 4) #8
-  %call6 = tail call i32 @BN_bn2binpad(ptr noundef nonnull %call, ptr noundef %buf, i32 noundef %num) #8
+  %call6 = tail call i32 @BN_bn2binpad(ptr noundef nonnull %call, ptr noundef nonnull %buf, i32 noundef %num) #8
   %cmp7 = icmp slt i32 %call6, 0
   br i1 %cmp7, label %if.then8, label %if.end9
 
@@ -1905,7 +1905,7 @@ if.then12:                                        ; preds = %if.end9
 
 if.end13:                                         ; preds = %if.end9
   %conv = sext i32 %num to i64
-  %call14 = call i32 @EVP_Digest(ptr noundef %buf, i64 noundef %conv, ptr noundef nonnull %d_hash, ptr noundef null, ptr noundef nonnull %call10, ptr noundef null) #8
+  %call14 = call i32 @EVP_Digest(ptr noundef nonnull %buf, i64 noundef %conv, ptr noundef nonnull %d_hash, ptr noundef null, ptr noundef nonnull %call10, ptr noundef null) #8
   %cmp15 = icmp slt i32 %call14, 1
   br i1 %cmp15, label %if.then17, label %if.end18
 
@@ -1944,8 +1944,8 @@ if.end29:                                         ; preds = %if.end23
 if.then32:                                        ; preds = %if.end29
   %sub = sub nsw i32 %num, %flen
   %conv33 = sext i32 %sub to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %buf, i8 0, i64 %conv33, i1 false)
-  %call36 = call i32 @HMAC_Update(ptr noundef nonnull %call19, ptr noundef %buf, i64 noundef %conv33) #8
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %buf, i8 0, i64 %conv33, i1 false)
+  %call36 = call i32 @HMAC_Update(ptr noundef nonnull %call19, ptr noundef nonnull %buf, i64 noundef %conv33) #8
   %cmp37 = icmp slt i32 %call36, 1
   br i1 %cmp37, label %if.then39, label %if.end41
 
@@ -1969,7 +1969,7 @@ if.then46:                                        ; preds = %if.end41
 
 if.end47:                                         ; preds = %if.end41
   store i32 32, ptr %md_len, align 4
-  %call48 = call i32 @HMAC_Final(ptr noundef nonnull %call19, ptr noundef %kdk, ptr noundef nonnull %md_len) #8
+  %call48 = call i32 @HMAC_Final(ptr noundef nonnull %call19, ptr noundef nonnull %kdk, ptr noundef nonnull %md_len) #8
   %cmp49 = icmp slt i32 %call48, 1
   br i1 %cmp49, label %if.then51, label %err
 

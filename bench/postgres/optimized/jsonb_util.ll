@@ -145,7 +145,7 @@ pushJsonbValueScalar.exit:                        ; preds = %10, %26, %27
   %42 = sext i32 %40 to i64
   %43 = getelementptr i8, ptr %41, i64 %42
   store i8 0, ptr %43, align 1
-  call fastcc void @convertJsonbValue(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %21, i32 noundef 0)
+  call fastcc void @convertJsonbValue(ptr noundef %4, ptr noundef %5, ptr noundef nonnull %21, i32 noundef 0)
   %44 = load ptr, ptr %4, align 8
   %45 = load i32, ptr %38, align 8
   %46 = shl i32 %45, 2
@@ -167,7 +167,7 @@ pushJsonbValueScalar.exit:                        ; preds = %10, %26, %27
   %52 = sext i32 %50 to i64
   %53 = getelementptr i8, ptr %51, i64 %52
   store i8 0, ptr %53, align 1
-  call fastcc void @convertJsonbValue(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %0, i32 noundef 0)
+  call fastcc void @convertJsonbValue(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %0, i32 noundef 0)
   %54 = load ptr, ptr %2, align 8
   %55 = load i32, ptr %48, align 8
   %56 = shl i32 %55, 2
@@ -2868,7 +2868,7 @@ declare i64 @numeric_cmp(ptr noundef) #2
 declare void @initStringInfo(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @convertJsonbValue(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @convertJsonbValue(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -2901,7 +2901,7 @@ define internal fastcc void @convertJsonbValue(ptr noundef %0, ptr nocapture nou
   %18 = add i32 %17, 3
   %19 = and i32 %18, -4
   %20 = sub i32 %19, %17
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef %20) #13
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef %20) #13
   %21 = load i32, ptr %16, align 8
   %22 = add i32 %20, %21
   store i32 %22, ptr %16, align 8
@@ -2970,7 +2970,7 @@ padBufferToInt.exit:                              ; preds = %.lr.ph.i, %13
   %.029.i39 = phi i32 [ 0, %.lr.ph42 ], [ %56, %69 ]
   %52 = load ptr, ptr %49, align 8
   %53 = getelementptr %struct.JsonbValue, ptr %52, i64 %indvars.iv52
-  call fastcc void @convertJsonbValue(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %53, i32 noundef %50)
+  call fastcc void @convertJsonbValue(ptr noundef %0, ptr noundef %7, ptr noundef %53, i32 noundef %50)
   %54 = load i32, ptr %7, align 4
   %55 = and i32 %54, 268435455
   %56 = add nuw nsw i32 %55, %.029.i39
@@ -3038,7 +3038,7 @@ convertJsonbArray.exit:                           ; preds = %._crit_edge43
   %87 = add i32 %86, 3
   %88 = and i32 %87, -4
   %89 = sub i32 %88, %86
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef %89) #13
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef %89) #13
   %90 = load i32, ptr %85, align 8
   %91 = add i32 %89, %90
   store i32 %91, ptr %85, align 8
@@ -3108,7 +3108,7 @@ padBufferToInt.exit27:                            ; preds = %.lr.ph.i23, %82
   %.045.i31 = phi i32 [ 0, %.lr.ph ], [ %125, %138 ]
   %121 = load ptr, ptr %116, align 8
   %122 = getelementptr %struct.JsonbPair, ptr %121, i64 %indvars.iv
-  call fastcc void @convertJsonbScalar(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %122)
+  call fastcc void @convertJsonbScalar(ptr noundef %0, ptr noundef %5, ptr noundef %122)
   %123 = load i32, ptr %5, align 4
   %124 = and i32 %123, 268435455
   %125 = add nuw nsw i32 %124, %.045.i31
@@ -3152,7 +3152,7 @@ padBufferToInt.exit27:                            ; preds = %.lr.ph.i23, %82
   %.146.i35 = phi i32 [ %125, %.lr.ph38 ], [ %148, %163 ]
   %144 = load ptr, ptr %117, align 8
   %145 = getelementptr %struct.JsonbPair, ptr %144, i64 %indvars.iv47, i32 1
-  call fastcc void @convertJsonbValue(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %145, i32 noundef %118)
+  call fastcc void @convertJsonbValue(ptr noundef %0, ptr noundef %6, ptr noundef %145, i32 noundef %118)
   %146 = load i32, ptr %6, align 4
   %147 = and i32 %146, 268435455
   %148 = add nuw nsw i32 %147, %.146.i35
@@ -3227,7 +3227,7 @@ convertJsonbObject.exit:                          ; preds = %._crit_edge
 declare void @enlargeStringInfo(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @convertJsonbScalar(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @convertJsonbScalar(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca [129 x i8], align 16
   %5 = load i32, ptr %2, align 8
   switch i32 %5, label %96 [
@@ -3243,7 +3243,7 @@ define internal fastcc void @convertJsonbScalar(ptr noundef %0, ptr nocapture no
   %8 = getelementptr inbounds i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %7, align 8
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef %10) #13
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef %10) #13
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %12, %10
@@ -3301,7 +3301,7 @@ define internal fastcc void @convertJsonbScalar(ptr noundef %0, ptr nocapture no
   %47 = add i32 %46, 3
   %48 = and i32 %47, -4
   %49 = sub i32 %48, %46
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef %49) #13
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef %49) #13
   %50 = load i32, ptr %45, align 8
   %51 = add i32 %49, %50
   store i32 %51, ptr %45, align 8
@@ -3365,7 +3365,7 @@ padBufferToInt.exit:                              ; preds = %.lr.ph.i, %43
   %84 = call ptr @JsonEncodeDateTime(ptr noundef nonnull %4, i64 noundef %80, i32 noundef %82, ptr noundef nonnull %83) #13
   %85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #15
   %86 = trunc i64 %85 to i32
-  call void @enlargeStringInfo(ptr noundef %0, i32 noundef %86) #13
+  call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef %86) #13
   %87 = getelementptr inbounds i8, ptr %0, i64 8
   %88 = load i32, ptr %87, align 8
   %89 = add i32 %88, %86

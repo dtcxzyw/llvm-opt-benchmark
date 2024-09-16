@@ -4711,7 +4711,7 @@ if.end10:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_1clEjjRNS_6clauseE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %i, i32 noundef %j, ptr noundef nonnull align 8 dereferenceable(53) %cl) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_1clEjjRNS_6clauseE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef range(i32 0, 2) %i, i32 noundef range(i32 0, 2) %j, ptr noundef nonnull align 8 dereferenceable(53) %cl) unnamed_addr #3 align 2 {
 entry:
   %d = alloca ptr, align 8
   %ref.tmp = alloca %class.obj_ref.1, align 8
@@ -4720,10 +4720,10 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %m_literals = getelementptr inbounds i8, ptr %cl, i64 8
   %2 = load ptr, ptr %m_literals, align 8
-  %idxprom.i = zext i32 %i to i64
+  %idxprom.i = zext nneg i32 %i to i64
   %arrayidx.i = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %idxprom.i
   %second.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
-  %idxprom.i23 = zext i32 %j to i64
+  %idxprom.i23 = zext nneg i32 %j to i64
   %arrayidx.i24 = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %idxprom.i23
   %second.i.i25 = getelementptr inbounds i8, ptr %arrayidx.i24, i64 16
   store ptr null, ptr %d, align 8

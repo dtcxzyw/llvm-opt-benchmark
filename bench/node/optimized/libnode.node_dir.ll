@@ -2543,7 +2543,7 @@ do.end179:                                        ; preds = %do.body165
   %107 = load ptr, ptr %dir_.i128, align 8
   %108 = load ptr, ptr %107, align 8
   %conv185 = trunc i64 %102 to i32
-  %call186 = call fastcc ptr @_ZN4node6fs_dirL17DirentListToArrayEPNS_11EnvironmentEP11uv_dirent_siNS_8encodingEPN2v85LocalINS6_5ValueEEE(ptr noundef nonnull %retval.0.i.i, ptr noundef %108, i32 noundef %conv185, i32 noundef %call13, ptr noundef nonnull %error)
+  %call186 = call fastcc ptr @_ZN4node6fs_dirL17DirentListToArrayEPNS_11EnvironmentEP11uv_dirent_siNS_8encodingEPN2v85LocalINS6_5ValueEEE(ptr noundef nonnull %retval.0.i.i, ptr noundef %108, i32 noundef %conv185, i32 noundef %call13, ptr noundef %error)
   %cmp.i.i = icmp eq ptr %call186, null
   br i1 %cmp.i.i, label %lor.lhs.false.i, label %if.else.i451
 
@@ -2777,7 +2777,7 @@ if.end33:                                         ; preds = %if.end16
   %conv36 = trunc i64 %17 to i32
   %encoding_.i = getelementptr inbounds i8, ptr %1, i64 536
   %24 = load i32, ptr %encoding_.i, align 8
-  %call39 = call fastcc ptr @_ZN4node6fs_dirL17DirentListToArrayEPNS_11EnvironmentEP11uv_dirent_siNS_8encodingEPN2v85LocalINS6_5ValueEEE(ptr noundef nonnull %16, ptr noundef %23, i32 noundef %conv36, i32 noundef %24, ptr noundef nonnull %error)
+  %call39 = call fastcc ptr @_ZN4node6fs_dirL17DirentListToArrayEPNS_11EnvironmentEP11uv_dirent_siNS_8encodingEPN2v85LocalINS6_5ValueEEE(ptr noundef nonnull %16, ptr noundef %23, i32 noundef %conv36, i32 noundef %24, ptr noundef %error)
   %cmp.i.i = icmp eq ptr %call39, null
   call void @_ZN4node2fs15FSReqAfterScope5ClearEv(ptr noundef nonnull align 8 dereferenceable(48) %after) #20
   br i1 %cmp.i.i, label %if.then45, label %if.end53
@@ -2816,7 +2816,7 @@ _ZN4node17BaseObjectPtrImplINS_2fs9FSReqBaseELb0EED2Ev.exit: ; preds = %cleanup,
 declare i32 @uv_fs_readdir(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN4node6fs_dirL17DirentListToArrayEPNS_11EnvironmentEP11uv_dirent_siNS_8encodingEPN2v85LocalINS6_5ValueEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef readonly %ents, i32 noundef %num, i32 noundef %encoding, ptr nocapture noundef writeonly %err_out) unnamed_addr #3 {
+define internal fastcc ptr @_ZN4node6fs_dirL17DirentListToArrayEPNS_11EnvironmentEP11uv_dirent_siNS_8encodingEPN2v85LocalINS6_5ValueEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef readonly %ents, i32 noundef %num, i32 noundef %encoding, ptr nocapture noundef nonnull writeonly %err_out) unnamed_addr #3 {
 entry:
   %entries = alloca %"class.node::MaybeStackBuffer.467", align 8
   %error = alloca %"class.v8::Local.298", align 8

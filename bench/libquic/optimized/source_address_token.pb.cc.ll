@@ -1313,7 +1313,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3net12_GLOBAL__N_113MergeFromFailEi(i32 noundef %line) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3net12_GLOBAL__N_113MergeFromFailEi(i32 noundef range(i32 336, 694) %line) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %ref.tmp7 = alloca %"class.google::protobuf::internal::LogFinisher", align 1

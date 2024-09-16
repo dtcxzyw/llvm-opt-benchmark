@@ -619,7 +619,7 @@ _ZN15actix_multipart4form8tempfile14TempFileConfig15create_tempfile17h36d768ed61
   %.val.i.i = load ptr, ptr %83, align 8, !noalias !121, !noundef !4
   %84 = getelementptr i8, ptr %72, i64 32
   %.val3.i.i = load ptr, ptr %84, align 8, !noalias !121
-  invoke fastcc void @_ZN15actix_multipart4form8tempfile14TempFileConfig9map_error17h69e4f07e7a528809E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11, ptr %.val.i.i, ptr %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %73, ptr noalias noundef nonnull readonly align 1 %81, i64 noundef %82, ptr noundef nonnull %80)
+  invoke fastcc void @_ZN15actix_multipart4form8tempfile14TempFileConfig9map_error17h69e4f07e7a528809E(ptr noalias nocapture noundef align 8 dereferenceable(48) %11, ptr %.val.i.i, ptr %.val3.i.i, ptr noalias noundef readonly align 8 dereferenceable(8) %73, ptr noalias noundef nonnull readonly align 1 %81, i64 noundef %82, ptr noundef nonnull %80)
           to label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2e1cd5d6f5be078E.exit" unwind label %85
 
 85:                                               ; preds = %78
@@ -684,7 +684,7 @@ _ZN15actix_multipart4form8tempfile14TempFileConfig15create_tempfile17h36d768ed61
   %.val.i.i67 = load ptr, ptr %103, align 8, !noalias !139, !noundef !4
   %104 = getelementptr i8, ptr %93, i64 32
   %.val3.i.i68 = load ptr, ptr %104, align 8, !noalias !139
-  invoke fastcc void @_ZN15actix_multipart4form8tempfile14TempFileConfig9map_error17h69e4f07e7a528809E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr %.val.i.i67, ptr %.val3.i.i68, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %94, ptr noalias noundef nonnull readonly align 1 %101, i64 noundef %102, ptr noundef nonnull %100)
+  invoke fastcc void @_ZN15actix_multipart4form8tempfile14TempFileConfig9map_error17h69e4f07e7a528809E(ptr noalias nocapture noundef align 8 dereferenceable(48) %10, ptr %.val.i.i67, ptr %.val3.i.i68, ptr noalias noundef readonly align 8 dereferenceable(8) %94, ptr noalias noundef nonnull readonly align 1 %101, i64 noundef %102, ptr noundef nonnull %100)
           to label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h25314388720d416dE.exit" unwind label %105
 
 105:                                              ; preds = %98
@@ -867,7 +867,7 @@ _ZN15actix_multipart4form8tempfile14TempFileConfig15create_tempfile17h36d768ed61
   %.val.i.i78 = load ptr, ptr %168, align 8, !noalias !186, !noundef !4
   %169 = getelementptr i8, ptr %163, i64 32
   %.val3.i.i79 = load ptr, ptr %169, align 8, !noalias !186
-  invoke fastcc void @_ZN15actix_multipart4form8tempfile14TempFileConfig9map_error17h69e4f07e7a528809E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr %.val.i.i78, ptr %.val3.i.i79, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %161, ptr noalias noundef nonnull readonly align 1 %165, i64 noundef %167, ptr noundef nonnull %157)
+  invoke fastcc void @_ZN15actix_multipart4form8tempfile14TempFileConfig9map_error17h69e4f07e7a528809E(ptr noalias nocapture noundef align 8 dereferenceable(48) %8, ptr %.val.i.i78, ptr %.val3.i.i79, ptr noalias noundef readonly align 8 dereferenceable(8) %161, ptr noalias noundef nonnull readonly align 1 %165, i64 noundef %167, ptr noundef nonnull %157)
           to label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf77c4c23caf2a3e5E.exit" unwind label %171
 
 common.ret:                                       ; preds = %316, %269, %195, %170
@@ -1173,7 +1173,7 @@ common.ret:                                       ; preds = %316, %269, %195, %1
   %.val.i.i96 = load ptr, ptr %267, align 8, !noalias !235, !noundef !4
   %268 = getelementptr i8, ptr %262, i64 32
   %.val3.i.i97 = load ptr, ptr %268, align 8, !noalias !235
-  invoke fastcc void @_ZN15actix_multipart4form8tempfile14TempFileConfig9map_error17h69e4f07e7a528809E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr %.val.i.i96, ptr %.val3.i.i97, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %260, ptr noalias noundef nonnull readonly align 1 %264, i64 noundef %266, ptr noundef nonnull %255)
+  invoke fastcc void @_ZN15actix_multipart4form8tempfile14TempFileConfig9map_error17h69e4f07e7a528809E(ptr noalias nocapture noundef align 8 dereferenceable(48) %6, ptr %.val.i.i96, ptr %.val3.i.i97, ptr noalias noundef readonly align 8 dereferenceable(8) %260, ptr noalias noundef nonnull readonly align 1 %264, i64 noundef %266, ptr noundef nonnull %255)
           to label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h36d78940576cbab3E.exit" unwind label %270
 
 269:                                              ; preds = %"_ZN87_$LT$tokio..io..util..flush..Flush$LT$A$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf3e8c273f93e380cE.exit"
@@ -1407,7 +1407,7 @@ define noundef i16 @"_ZN114_$LT$actix_multipart..form..tempfile..TempFileError$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15actix_multipart4form8tempfile14TempFileConfig9map_error17h69e4f07e7a528809E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) %0, ptr %.24.val, ptr readonly %.32.val, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN15actix_multipart4form8tempfile14TempFileConfig9map_error17h69e4f07e7a528809E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr %.24.val, ptr readonly %.32.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca { { { { { ptr, ptr } }, {} }, {} } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)

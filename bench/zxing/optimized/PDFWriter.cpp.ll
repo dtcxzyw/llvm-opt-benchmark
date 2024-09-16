@@ -1067,7 +1067,7 @@ _ZNSt12_Vector_baseISt6vectorIbSaIbEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5ZXing6Pdf417L21BitMatrixFromBitArrayERKSt6vectorIS1_IbSaIbEESaIS3_EEi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5ZXing6Pdf417L21BitMatrixFromBitArrayERKSt6vectorIS1_IbSaIbEESaIS3_EEi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -1130,7 +1130,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L21BitMatrixFromBitArrayERKSt6vecto
   br i1 %.not.us, label %56, label %44
 
 44:                                               ; preds = %33
-  %45 = add nsw i32 %.026.us, %2
+  %45 = add nuw nsw i32 %.026.us, %2
   %46 = load i32, ptr %0, align 8
   %47 = mul nsw i32 %46, %.02327.us
   %48 = add nsw i32 %45, %47

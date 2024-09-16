@@ -2004,7 +2004,7 @@ declare i64 @adler32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #6 {
+define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef range(i32 0, 3) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #6 {
 .preheader247:
   %6 = alloca [16 x i16], align 16
   %7 = alloca [16 x i16], align 16

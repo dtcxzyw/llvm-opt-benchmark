@@ -1187,7 +1187,7 @@ if.end40.thread.i:                                ; preds = %if.then35.i, %if.th
   br label %for.inc.i40
 
 if.end40.i:                                       ; preds = %if.then35.i
-  %call39.i = call fastcc ptr @get_rev_name(ptr noundef nonnull %call36.i, ptr noundef nonnull %buf.i36)
+  %call39.i = call fastcc ptr @get_rev_name(ptr noundef nonnull %call36.i, ptr noundef %buf.i36)
   store i8 %106, ptr %add.ptr.i, align 1
   %tobool42.not.i = icmp eq ptr %call39.i, null
   br i1 %tobool42.not.i, label %for.inc.i40, label %if.end44.i
@@ -1634,8 +1634,8 @@ add_to_tip_table.exit:                            ; preds = %do.end.i, %cond.fal
   %bf.load.i = load i8, ptr %from_tag34.i, align 8
   %bf.value.i = and i8 %34, 1
   %bf.clear.i = and i8 %bf.load.i, -4
-  %bf.set.i = or disjoint i8 %bf.value.i, %deref.059
-  %bf.set41.i = or disjoint i8 %bf.set.i, %bf.clear.i
+  %bf.set.i = or i8 %bf.value.i, %deref.059
+  %bf.set41.i = or i8 %bf.set.i, %bf.clear.i
   store i8 %bf.set41.i, ptr %from_tag34.i, align 8
   %inc.i = add nsw i32 %32, 1
   store i32 %inc.i, ptr @tip_table.1, align 8
@@ -1680,7 +1680,7 @@ cond.end:                                         ; preds = %if.then, %cond.fals
   br label %if.end
 
 if.end:                                           ; preds = %cond.end, %entry
-  %call4 = call fastcc ptr @get_rev_name(ptr noundef %obj, ptr noundef nonnull %buf)
+  %call4 = call fastcc ptr @get_rev_name(ptr noundef %obj, ptr noundef %buf)
   %tobool5.not = icmp eq ptr %call4, null
   br i1 %tobool5.not, label %if.else, label %if.end20
 
@@ -1796,7 +1796,7 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 declare ptr @lookup_object(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_rev_name(ptr noundef %o, ptr noundef %buf) unnamed_addr #0 {
+define internal fastcc ptr @get_rev_name(ptr noundef %o, ptr noundef nonnull %buf) unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %o, align 4
   %0 = and i32 %bf.load, 14

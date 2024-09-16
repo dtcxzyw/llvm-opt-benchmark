@@ -602,7 +602,7 @@ while.body.i.i.i.preheader.i:                     ; preds = %if.end.i28, %if.end
   %it.sroa.0.011.i = phi ptr [ %84, %if.end15.i ], [ %83, %if.end.i28 ]
   %Next.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.011.i, i64 8
   %84 = load ptr, ptr %Next.i.i.i.i.i.i.i, align 8
-  %call.i.i31 = call noundef zeroext i1 @_ZN6hermes33isSimpleSideEffectFreeInstructionEPNS_11InstructionE(ptr noundef %it.sroa.0.011.i) #5
+  %call.i.i31 = call noundef zeroext i1 @_ZN6hermes33isSimpleSideEffectFreeInstructionEPNS_11InstructionE(ptr noundef nonnull %it.sroa.0.011.i) #5
   br i1 %call.i.i31, label %if.end.i.i, label %if.end15.i
 
 if.end.i.i:                                       ; preds = %while.body.i.i.i.preheader.i
@@ -620,7 +620,7 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.in
 
 land.lhs.true.i.i36:                              ; preds = %for.body.i.i
   %sub.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i35, i64 -16
-  %call4.i.i = call noundef zeroext i1 @_ZNK6hermes13DominanceInfo17properlyDominatesEPKNS_11InstructionES3_(ptr noundef nonnull align 8 dereferenceable(72) %dominance, ptr noundef nonnull %sub.ptr.i.i.i.i.i, ptr noundef %82) #5
+  %call4.i.i = call noundef zeroext i1 @_ZNK6hermes13DominanceInfo17properlyDominatesEPKNS_11InstructionES3_(ptr noundef nonnull align 8 dereferenceable(72) %dominance, ptr noundef nonnull %sub.ptr.i.i.i.i.i, ptr noundef nonnull %82) #5
   br i1 %call4.i.i, label %for.inc.i.i, label %if.end15.i
 
 for.inc.i.i:                                      ; preds = %land.lhs.true.i.i36, %for.body.i.i

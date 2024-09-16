@@ -279,7 +279,7 @@ declare i32 @mbedtls_asn1_write_len(ptr noundef, ptr noundef, i64 noundef) local
 declare i32 @mbedtls_asn1_write_tag(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pk_write_ec_param(ptr noundef %0, ptr noundef %1, i32 %.0.val) unnamed_addr #0 {
+define internal fastcc i32 @pk_write_ec_param(ptr noundef nonnull %0, ptr noundef %1, i32 %.0.val) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = call i32 @mbedtls_oid_get_oid_by_ec_grp(i32 noundef %.0.val, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
@@ -289,7 +289,7 @@ define internal fastcc i32 @pk_write_ec_param(ptr noundef %0, ptr noundef %1, i3
 6:                                                ; preds = %2
   %7 = load ptr, ptr %3, align 8
   %8 = load i64, ptr %4, align 8
-  %9 = call i32 @mbedtls_asn1_write_oid(ptr noundef %0, ptr noundef %1, ptr noundef %7, i64 noundef %8) #5
+  %9 = call i32 @mbedtls_asn1_write_oid(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7, i64 noundef %8) #5
   br label %10
 
 10:                                               ; preds = %6, %2
@@ -563,7 +563,7 @@ pk_write_ec_pubkey.exit:                          ; preds = %91, %109
   %140 = zext nneg i32 %134 to i64
   %141 = zext nneg i32 %137 to i64
   %.val = load i32, ptr %.0.i182, align 8
-  %142 = call fastcc i32 @pk_write_ec_param(ptr noundef nonnull %8, ptr noundef %1, i32 %.val)
+  %142 = call fastcc i32 @pk_write_ec_param(ptr noundef %8, ptr noundef %1, i32 %.val)
   %143 = icmp slt i32 %142, 0
   br i1 %143, label %177, label %144
 
@@ -579,7 +579,7 @@ pk_write_ec_pubkey.exit:                          ; preds = %91, %109
   br i1 %150, label %177, label %151
 
 151:                                              ; preds = %148
-  %152 = call fastcc i32 @pk_write_ec_private(ptr noundef nonnull %8, ptr noundef %1, ptr noundef nonnull %.0.i182)
+  %152 = call fastcc i32 @pk_write_ec_private(ptr noundef %8, ptr noundef %1, ptr noundef nonnull %.0.i182)
   %153 = icmp slt i32 %152, 0
   br i1 %153, label %177, label %154
 
@@ -636,7 +636,7 @@ declare void @mbedtls_mpi_free(ptr noundef) local_unnamed_addr #1
 declare i32 @mbedtls_asn1_write_int(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pk_write_ec_private(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @pk_write_ec_private(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [66 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %2, i64 176
   %6 = load i64, ptr %5, align 8
@@ -647,7 +647,7 @@ define internal fastcc i32 @pk_write_ec_private(ptr noundef %0, ptr noundef %1, 
   br i1 %.not, label %10, label %12
 
 10:                                               ; preds = %3
-  %11 = call i32 @mbedtls_asn1_write_octet_string(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i64 noundef %8) #5
+  %11 = call i32 @mbedtls_asn1_write_octet_string(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4, i64 noundef %8) #5
   br label %12
 
 12:                                               ; preds = %3, %10

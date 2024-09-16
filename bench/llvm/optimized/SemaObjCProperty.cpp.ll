@@ -7779,7 +7779,7 @@ _ZNK5clang8QualType15getObjCLifetimeEv.exit577.thread: ; preds = %1065, %.crited
   br i1 %.not408, label %1196, label %1198
 
 1196:                                             ; preds = %1189
-  %1197 = call fastcc noundef ptr @_ZL25RedeclarePropertyAccessorRN5clang10ASTContextEPNS_22ObjCImplementationDeclEPNS_14ObjCMethodDeclENS_14SourceLocationES6_(ptr noundef nonnull align 8 dereferenceable(23096) %146, ptr noundef %spec.select.i.i446, ptr noundef nonnull %1187, i32 %2, i32 %3)
+  %1197 = call fastcc noundef ptr @_ZL25RedeclarePropertyAccessorRN5clang10ASTContextEPNS_22ObjCImplementationDeclEPNS_14ObjCMethodDeclENS_14SourceLocationES6_(ptr noundef nonnull align 8 dereferenceable(23096) %146, ptr noundef %spec.select.i.i446, ptr noundef %1187, i32 %2, i32 %3)
   br label %1198
 
 1198:                                             ; preds = %1196, %1189
@@ -8046,7 +8046,7 @@ _ZNK5clang4Decl7hasAttrINS_24NSReturnsNotRetainedAttrEEEbv.exit.thread: ; preds 
   br i1 %.not413, label %1322, label %1324
 
 1322:                                             ; preds = %1315
-  %1323 = call fastcc noundef ptr @_ZL25RedeclarePropertyAccessorRN5clang10ASTContextEPNS_22ObjCImplementationDeclEPNS_14ObjCMethodDeclENS_14SourceLocationES6_(ptr noundef nonnull align 8 dereferenceable(23096) %146, ptr noundef %spec.select.i.i446, ptr noundef nonnull %1313, i32 %2, i32 %3)
+  %1323 = call fastcc noundef ptr @_ZL25RedeclarePropertyAccessorRN5clang10ASTContextEPNS_22ObjCImplementationDeclEPNS_14ObjCMethodDeclENS_14SourceLocationES6_(ptr noundef nonnull align 8 dereferenceable(23096) %146, ptr noundef %spec.select.i.i446, ptr noundef %1313, i32 %2, i32 %3)
   br label %1324
 
 1324:                                             ; preds = %1322, %1315
@@ -9759,7 +9759,7 @@ declare void @_ZN5clang14ObjCMethodDecl20createImplicitParamsERNS_10ASTContextEP
 declare noundef ptr @_ZNK5clang17ObjCContainerDecl9getMethodENS_8SelectorEbb(ptr noundef nonnull align 8 dereferenceable(88), i64, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL25RedeclarePropertyAccessorRN5clang10ASTContextEPNS_22ObjCImplementationDeclEPNS_14ObjCMethodDeclENS_14SourceLocationES6_(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1, ptr noundef %2, i32 %3, i32 %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL25RedeclarePropertyAccessorRN5clang10ASTContextEPNS_22ObjCImplementationDeclEPNS_14ObjCMethodDeclENS_14SourceLocationES6_(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1, ptr noundef nonnull %2, i32 %3, i32 %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::SmallVector.1571", align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %7, label %9

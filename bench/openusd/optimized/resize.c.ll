@@ -125,7 +125,7 @@ fill_arr_to_col.exit.loopexit.us.us:              ; preds = %36
   br i1 %exitcond93.not, label %.loopexit, label %.lr.ph.i.preheader.us.us, !llvm.loop !7
 
 fill_col_to_arr.exit.loopexit.us.us:              ; preds = %.lr.ph.i.us.us
-  tail call fastcc void @resize_multistep(ptr noundef %16, i32 noundef %1, ptr noundef %18, i32 noundef %5, ptr noundef %15)
+  tail call fastcc void @resize_multistep(ptr noundef nonnull %16, i32 noundef %1, ptr noundef %18, i32 noundef %5, ptr noundef %15)
   %41 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv89
   br label %36
 
@@ -147,7 +147,7 @@ fill_col_to_arr.exit.loopexit.us.us:              ; preds = %.lr.ph.i.us.us
   br i1 %exitcond.not.i.us, label %fill_col_to_arr.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !4
 
 fill_col_to_arr.exit.loopexit.us:                 ; preds = %.lr.ph.i.us
-  tail call fastcc void @resize_multistep(ptr noundef %16, i32 noundef %1, ptr noundef %18, i32 noundef %5, ptr noundef %15)
+  tail call fastcc void @resize_multistep(ptr noundef nonnull %16, i32 noundef %1, ptr noundef %18, i32 noundef %5, ptr noundef %15)
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count92
   br i1 %exitcond88.not, label %.loopexit, label %.lr.ph.i.preheader.us, !llvm.loop !7
@@ -158,7 +158,7 @@ fill_col_to_arr.exit.us65.preheader:              ; preds = %.lr.ph64.thread
 
 fill_col_to_arr.exit.us65:                        ; preds = %fill_col_to_arr.exit.us65.preheader, %fill_arr_to_col.exit.loopexit.us73
   %indvars.iv79 = phi i64 [ 0, %fill_col_to_arr.exit.us65.preheader ], [ %indvars.iv.next80, %fill_arr_to_col.exit.loopexit.us73 ]
-  tail call fastcc void @resize_multistep(ptr noundef %16, i32 noundef %1, ptr noundef %18, i32 noundef %5, ptr noundef %15)
+  tail call fastcc void @resize_multistep(ptr noundef nonnull %16, i32 noundef %1, ptr noundef %18, i32 noundef %5, ptr noundef %15)
   %47 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv79
   br label %48
 
@@ -192,7 +192,7 @@ fill_arr_to_col.exit.loopexit.us73:               ; preds = %48
 
 fill_col_to_arr.exit:                             ; preds = %.lr.ph64.thread, %fill_col_to_arr.exit
   %.163 = phi i32 [ %57, %fill_col_to_arr.exit ], [ 0, %.lr.ph64.thread ]
-  tail call fastcc void @resize_multistep(ptr noundef %16, i32 noundef %1, ptr noundef %18, i32 noundef %5, ptr noundef %15)
+  tail call fastcc void @resize_multistep(ptr noundef nonnull %16, i32 noundef %1, ptr noundef %18, i32 noundef %5, ptr noundef %15)
   %57 = add nuw nsw i32 %.163, 1
   %exitcond78.not = icmp eq i32 %57, %6
   br i1 %exitcond78.not, label %.loopexit, label %fill_col_to_arr.exit, !llvm.loop !7
@@ -208,13 +208,13 @@ fill_col_to_arr.exit:                             ; preds = %.lr.ph64.thread, %f
 declare ptr @aom_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @resize_multistep(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #3 {
+define internal fastcc void @resize_multistep(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull %2, i32 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #3 {
   %6 = icmp eq i32 %1, %3
   br i1 %6, label %7, label %.preheader
 
 7:                                                ; preds = %5
   %8 = sext i32 %1 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %0, i64 %8, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr align 1 %0, i64 %8, i1 false)
   br label %274
 
 .preheader:                                       ; preds = %5, %11
@@ -691,7 +691,7 @@ down2_symodd.exit:                                ; preds = %149, %59, %263, %18
   br i1 %.not, label %274, label %272
 
 272:                                              ; preds = %._crit_edge
-  tail call fastcc void @interpolate(ptr noundef %.1, i32 noundef %18, ptr noundef %2, i32 noundef %3)
+  tail call fastcc void @interpolate(ptr noundef nonnull %.1, i32 noundef %18, ptr noundef %2, i32 noundef %3)
   br label %274
 
 273:                                              ; preds = %get_down2_steps.exit
@@ -785,7 +785,7 @@ fill_arr_to_col_double_prec.exit.loopexit.us.us:  ; preds = %34
   br i1 %exitcond82.not, label %.loopexit, label %.lr.ph.i.preheader.us.us, !llvm.loop !29
 
 fill_col_to_arr_double_prec.exit.loopexit.us.us:  ; preds = %.lr.ph.i.us.us
-  tail call fastcc void @upscale_multistep_double_prec(ptr noundef %14, i32 noundef %1, ptr noundef %17, i32 noundef %5)
+  tail call fastcc void @upscale_multistep_double_prec(ptr noundef nonnull %14, i32 noundef %1, ptr noundef %17, i32 noundef %5)
   %39 = getelementptr inbounds double, ptr %4, i64 %indvars.iv78
   br label %34
 
@@ -807,7 +807,7 @@ fill_col_to_arr_double_prec.exit.loopexit.us.us:  ; preds = %.lr.ph.i.us.us
   br i1 %exitcond.not.i.us, label %fill_col_to_arr_double_prec.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !27
 
 fill_col_to_arr_double_prec.exit.loopexit.us:     ; preds = %.lr.ph.i.us
-  tail call fastcc void @upscale_multistep_double_prec(ptr noundef %14, i32 noundef %1, ptr noundef %17, i32 noundef %5)
+  tail call fastcc void @upscale_multistep_double_prec(ptr noundef nonnull %14, i32 noundef %1, ptr noundef %17, i32 noundef %5)
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count81
   br i1 %exitcond77.not, label %.loopexit, label %.lr.ph.i.preheader.us, !llvm.loop !29
@@ -818,7 +818,7 @@ fill_col_to_arr_double_prec.exit.us54.preheader:  ; preds = %.lr.ph53.thread
 
 fill_col_to_arr_double_prec.exit.us54:            ; preds = %fill_col_to_arr_double_prec.exit.us54.preheader, %fill_arr_to_col_double_prec.exit.loopexit.us62
   %indvars.iv68 = phi i64 [ 0, %fill_col_to_arr_double_prec.exit.us54.preheader ], [ %indvars.iv.next69, %fill_arr_to_col_double_prec.exit.loopexit.us62 ]
-  tail call fastcc void @upscale_multistep_double_prec(ptr noundef %14, i32 noundef %1, ptr noundef %17, i32 noundef %5)
+  tail call fastcc void @upscale_multistep_double_prec(ptr noundef nonnull %14, i32 noundef %1, ptr noundef %17, i32 noundef %5)
   %45 = getelementptr inbounds double, ptr %4, i64 %indvars.iv68
   br label %46
 
@@ -852,7 +852,7 @@ fill_arr_to_col_double_prec.exit.loopexit.us62:   ; preds = %46
 
 fill_col_to_arr_double_prec.exit:                 ; preds = %.lr.ph53.thread, %fill_col_to_arr_double_prec.exit
   %.152 = phi i32 [ %55, %fill_col_to_arr_double_prec.exit ], [ 0, %.lr.ph53.thread ]
-  tail call fastcc void @upscale_multistep_double_prec(ptr noundef %14, i32 noundef %1, ptr noundef %17, i32 noundef %5)
+  tail call fastcc void @upscale_multistep_double_prec(ptr noundef nonnull %14, i32 noundef %1, ptr noundef %17, i32 noundef %5)
   %55 = add nuw nsw i32 %.152, 1
   %exitcond67.not = icmp eq i32 %55, %6
   br i1 %exitcond67.not, label %.loopexit, label %fill_col_to_arr_double_prec.exit, !llvm.loop !29
@@ -865,7 +865,7 @@ fill_col_to_arr_double_prec.exit:                 ; preds = %.lr.ph53.thread, %f
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @upscale_multistep_double_prec(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) unnamed_addr #4 {
+define internal fastcc void @upscale_multistep_double_prec(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef %3) unnamed_addr #4 {
   %5 = shl nsw i32 %3, 4
   %.not.i.i = icmp slt i32 %3, %1
   br i1 %.not.i.i, label %6, label %choose_interp_filter.exit.i
@@ -1198,7 +1198,7 @@ highbd_fill_arr_to_col.exit.loopexit.us.us:       ; preds = %37
   br i1 %exitcond95.not, label %.loopexit, label %.lr.ph.i.preheader.us.us, !llvm.loop !43
 
 highbd_fill_col_to_arr.exit.loopexit.us.us:       ; preds = %.lr.ph.i.us.us
-  tail call fastcc void @highbd_resize_multistep(ptr noundef %19, i32 noundef %1, ptr noundef %22, i32 noundef %5, ptr noundef %18, i32 noundef %8)
+  tail call fastcc void @highbd_resize_multistep(ptr noundef nonnull %19, i32 noundef %1, ptr noundef %22, i32 noundef %5, ptr noundef %18, i32 noundef %8)
   %42 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv91
   %43 = ptrtoint ptr %42 to i64
   %44 = shl i64 %43, 1
@@ -1207,7 +1207,7 @@ highbd_fill_col_to_arr.exit.loopexit.us.us:       ; preds = %.lr.ph.i.us.us
 
 highbd_fill_col_to_arr.exit.us:                   ; preds = %.lr.ph66.split.us, %highbd_fill_arr_to_col.exit.loopexit.us
   %indvars.iv86 = phi i64 [ %indvars.iv.next87, %highbd_fill_arr_to_col.exit.loopexit.us ], [ 0, %.lr.ph66.split.us ]
-  tail call fastcc void @highbd_resize_multistep(ptr noundef %19, i32 noundef %1, ptr noundef %22, i32 noundef %5, ptr noundef %18, i32 noundef %8)
+  tail call fastcc void @highbd_resize_multistep(ptr noundef nonnull %19, i32 noundef %1, ptr noundef %22, i32 noundef %5, ptr noundef %18, i32 noundef %8)
   %46 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv86
   %47 = ptrtoint ptr %46 to i64
   %48 = shl i64 %47, 1
@@ -1256,7 +1256,7 @@ highbd_fill_arr_to_col.exit.loopexit.us:          ; preds = %50
   br i1 %exitcond.not.i.us72, label %highbd_fill_col_to_arr.exit.loopexit.us75, label %.lr.ph.i.us68, !llvm.loop !41
 
 highbd_fill_col_to_arr.exit.loopexit.us75:        ; preds = %.lr.ph.i.us68
-  tail call fastcc void @highbd_resize_multistep(ptr noundef %19, i32 noundef %1, ptr noundef %22, i32 noundef %5, ptr noundef %18, i32 noundef %8)
+  tail call fastcc void @highbd_resize_multistep(ptr noundef nonnull %19, i32 noundef %1, ptr noundef %22, i32 noundef %5, ptr noundef %18, i32 noundef %8)
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
   br i1 %exitcond85.not, label %.loopexit, label %.lr.ph.i.preheader.us74, !llvm.loop !43
@@ -1277,7 +1277,7 @@ highbd_fill_col_to_arr.exit.loopexit.us75:        ; preds = %.lr.ph.i.us68
 
 highbd_fill_col_to_arr.exit:                      ; preds = %.lr.ph66.split, %highbd_fill_col_to_arr.exit
   %.165 = phi i32 [ %67, %highbd_fill_col_to_arr.exit ], [ 0, %.lr.ph66.split ]
-  tail call fastcc void @highbd_resize_multistep(ptr noundef %19, i32 noundef %1, ptr noundef %22, i32 noundef %5, ptr noundef %18, i32 noundef %8)
+  tail call fastcc void @highbd_resize_multistep(ptr noundef nonnull %19, i32 noundef %1, ptr noundef %22, i32 noundef %5, ptr noundef %18, i32 noundef %8)
   %67 = add nuw nsw i32 %.165, 1
   %exitcond80.not = icmp eq i32 %67, %6
   br i1 %exitcond80.not, label %.loopexit, label %highbd_fill_col_to_arr.exit, !llvm.loop !43
@@ -1291,14 +1291,14 @@ highbd_fill_col_to_arr.exit:                      ; preds = %.lr.ph66.split, %hi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @highbd_resize_multistep(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5) unnamed_addr #3 {
+define internal fastcc void @highbd_resize_multistep(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull %2, i32 noundef %3, ptr nocapture noundef nonnull %4, i32 noundef %5) unnamed_addr #3 {
   %7 = icmp eq i32 %1, %3
   br i1 %7, label %8, label %.preheader
 
 8:                                                ; preds = %6
   %9 = sext i32 %1 to i64
   %10 = shl nsw i64 %9, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %2, ptr align 2 %0, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %2, ptr align 2 %0, i64 %10, i1 false)
   br label %313
 
 .preheader:                                       ; preds = %6, %13
@@ -1924,7 +1924,7 @@ highbd_down2_symodd.exit:                         ; preds = %clip_pixel_highbd.e
   br i1 %.not, label %313, label %311
 
 311:                                              ; preds = %._crit_edge
-  tail call fastcc void @highbd_interpolate(ptr noundef %.1, i32 noundef %20, ptr noundef %2, i32 noundef %3, i32 noundef %5)
+  tail call fastcc void @highbd_interpolate(ptr noundef nonnull %.1, i32 noundef %20, ptr noundef %2, i32 noundef %3, i32 noundef %5)
   br label %313
 
 312:                                              ; preds = %get_down2_steps.exit
@@ -2987,7 +2987,7 @@ declare i32 @aom_free_frame_buffer(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @interpolate(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) unnamed_addr #4 {
+define internal fastcc void @interpolate(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef %3) unnamed_addr #4 {
   %5 = shl nsw i32 %3, 4
   %.not.i = icmp slt i32 %3, %1
   br i1 %.not.i, label %6, label %choose_interp_filter.exit
@@ -3267,7 +3267,7 @@ interpolate_core.exit:                            ; preds = %137, %57, %.prehead
 declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @highbd_interpolate(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 {
+define internal fastcc void @highbd_interpolate(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 {
   %6 = shl nsw i32 %3, 4
   %.not.i = icmp slt i32 %3, %1
   br i1 %.not.i, label %7, label %choose_interp_filter.exit

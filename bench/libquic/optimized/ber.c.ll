@@ -13,7 +13,7 @@ define hidden range(i32 0, 2) i32 @CBS_asn1_ber_to_der(ptr noundef %in, ptr noun
 entry:
   %cbb = alloca %struct.cbb_st, align 8
   %conversion_needed = alloca i8, align 1
-  %call = call fastcc i32 @cbs_find_ber(ptr noundef %in, ptr noundef nonnull %conversion_needed, i32 noundef 0)
+  %call = call fastcc i32 @cbs_find_ber(ptr noundef %in, ptr noundef %conversion_needed, i32 noundef 0)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -34,7 +34,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool6.not, label %if.then12, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %call7 = call fastcc i32 @cbs_convert_ber(ptr noundef %in, ptr noundef nonnull %cbb, i32 noundef 0, i8 noundef signext 0, i32 noundef 0)
+  %call7 = call fastcc i32 @cbs_convert_ber(ptr noundef %in, ptr noundef %cbb, i32 noundef 0, i8 noundef signext 0, i32 noundef 0)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.then12, label %lor.lhs.false9
 
@@ -53,7 +53,7 @@ return:                                           ; preds = %lor.lhs.false9, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cbs_find_ber(ptr noundef %orig_in, ptr nocapture noundef writeonly %ber_found, i32 noundef %depth) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cbs_find_ber(ptr noundef %orig_in, ptr nocapture noundef nonnull writeonly %ber_found, i32 noundef %depth) unnamed_addr #0 {
 entry:
   %in = alloca %struct.cbs_st, align 8
   %contents = alloca %struct.cbs_st, align 8
@@ -133,7 +133,7 @@ if.end21:                                         ; preds = %if.end.i, %if.then1
   br i1 %tobool23.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end21
-  %call24 = call fastcc i32 @cbs_find_ber(ptr noundef nonnull %contents, ptr noundef nonnull %ber_found, i32 noundef %add)
+  %call24 = call fastcc i32 @cbs_find_ber(ptr noundef nonnull %contents, ptr noundef %ber_found, i32 noundef %add)
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %return, label %if.end28
 
@@ -156,7 +156,7 @@ declare i32 @CBB_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @CBS_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cbs_convert_ber(ptr noundef %in, ptr noundef %out, i32 noundef %string_tag, i8 noundef signext %looking_for_eoc, i32 noundef %depth) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cbs_convert_ber(ptr noundef %in, ptr noundef nonnull %out, i32 noundef range(i32 0, -32) %string_tag, i8 noundef signext range(i8 0, 2) %looking_for_eoc, i32 noundef %depth) unnamed_addr #0 {
 entry:
   %contents = alloca %struct.cbs_st, align 8
   %tag = alloca i32, align 4
@@ -194,11 +194,7 @@ is_eoc.exit:                                      ; preds = %land.lhs.true.i
   %call2.i = call ptr @CBS_data(ptr noundef nonnull %contents) #3
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %call2.i, ptr noundef nonnull dereferenceable(2) @.str, i64 2)
   %cmp4.i.not = icmp eq i32 %bcmp.i, 0
-  br i1 %cmp4.i.not, label %if.then7, label %if.end8
-
-if.then7:                                         ; preds = %is_eoc.exit
-  %conv = zext nneg i8 %looking_for_eoc to i32
-  br label %return
+  br i1 %cmp4.i.not, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end4, %land.lhs.true.i, %is_eoc.exit
   %1 = load i32, ptr %tag, align 4
@@ -240,7 +236,7 @@ if.end22:                                         ; preds = %if.end.i, %3, %if.e
   %child_string_tag.1 = phi i32 [ 0, %if.else ], [ %and21, %3 ], [ 0, %if.end.i ]
   %out_tag.0 = phi i32 [ %1, %if.else ], [ %and21, %3 ], [ %1, %if.end.i ]
   %conv23 = trunc i32 %out_tag.0 to i8
-  %call24 = call i32 @CBB_add_asn1(ptr noundef %out, ptr noundef nonnull %out_contents_storage, i8 noundef zeroext %conv23) #3
+  %call24 = call i32 @CBB_add_asn1(ptr noundef nonnull %out, ptr noundef nonnull %out_contents_storage, i8 noundef zeroext %conv23) #3
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %return, label %if.end28
 
@@ -269,7 +265,7 @@ if.then40:                                        ; preds = %land.lhs.true35
   br i1 %tobool42.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then40
-  %call43 = call i32 @CBB_flush(ptr noundef %out) #3
+  %call43 = call i32 @CBB_flush(ptr noundef nonnull %out) #3
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %return, label %while.cond.backedge
 
@@ -298,22 +294,22 @@ if.then54:                                        ; preds = %if.end51
 if.else60:                                        ; preds = %if.end51
   %call61 = call ptr @CBS_data(ptr noundef nonnull %contents) #3
   %call62 = call i64 @CBS_len(ptr noundef nonnull %contents) #3
-  %call63 = call i32 @CBB_add_bytes(ptr noundef %out_contents.0, ptr noundef %call61, i64 noundef %call62) #3
+  %call63 = call i32 @CBB_add_bytes(ptr noundef nonnull %out_contents.0, ptr noundef %call61, i64 noundef %call62) #3
   %tobool64.not = icmp eq i32 %call63, 0
   br i1 %tobool64.not, label %return, label %if.end67
 
 if.end67:                                         ; preds = %if.else60, %if.then54
-  %call68 = call i32 @CBB_flush(ptr noundef %out) #3
+  %call68 = call i32 @CBB_flush(ptr noundef nonnull %out) #3
   %tobool69.not = icmp eq i32 %call68, 0
   br i1 %tobool69.not, label %return, label %while.cond.backedge
 
 while.end:                                        ; preds = %while.cond.backedge, %while.cond.preheader
-  %cmp73 = icmp eq i8 %looking_for_eoc, 0
-  %conv74 = zext i1 %cmp73 to i32
+  %10 = xor i8 %looking_for_eoc, 1
   br label %return
 
-return:                                           ; preds = %if.end67, %if.else60, %if.then54, %if.end47, %if.then40, %lor.lhs.false, %if.end22, %if.then11, %while.body, %entry, %while.end, %if.then7
-  %retval.0 = phi i32 [ %conv, %if.then7 ], [ %conv74, %while.end ], [ 0, %entry ], [ 0, %while.body ], [ 0, %if.then11 ], [ 0, %if.end22 ], [ 0, %lor.lhs.false ], [ 0, %if.then40 ], [ 0, %if.end47 ], [ 0, %if.then54 ], [ 0, %if.else60 ], [ 0, %if.end67 ]
+return:                                           ; preds = %if.end67, %if.else60, %if.then54, %if.end47, %if.then40, %lor.lhs.false, %if.end22, %if.then11, %is_eoc.exit, %while.body, %entry, %while.end
+  %retval.0.shrunk = phi i8 [ %10, %while.end ], [ 0, %entry ], [ 0, %if.end67 ], [ 0, %if.else60 ], [ 0, %if.then54 ], [ 0, %if.end47 ], [ 0, %if.then40 ], [ 0, %lor.lhs.false ], [ 0, %if.end22 ], [ 0, %if.then11 ], [ %looking_for_eoc, %is_eoc.exit ], [ 0, %while.body ]
+  %retval.0 = zext nneg i8 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
 

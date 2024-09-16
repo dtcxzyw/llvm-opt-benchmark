@@ -143,6 +143,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.83 = private unnamed_addr constant [21 x i8] c"Good CRC-16 in burst\00", align 1
 @.str.84 = private unnamed_addr constant [20 x i8] c"Bad CRC-16 in burst\00", align 1
 @.str.85 = private unnamed_addr constant [9 x i8] c"PHY-attr\00", align 1
+@switch.table.dissect_m2m = private unnamed_addr constant [3 x ptr] [ptr @.str.75, ptr @.str.77, ptr @.str.76], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_tree_add_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
@@ -270,8 +271,8 @@ define internal i32 @dissect_m2m(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.0155183 = phi i32 [ %.1177, %.thread ], [ 0, %.lr.ph.preheader ]
   %.0156182 = phi i32 [ %.1157176, %.thread ], [ 0, %.lr.ph.preheader ]
   %.0158181 = phi i32 [ %.1159175, %.thread ], [ 0, %.lr.ph.preheader ]
-  %.0160180 = phi i32 [ %142, %.thread ], [ %19, %.lr.ph.preheader ]
-  %.0161179 = phi i32 [ %141, %.thread ], [ 4, %.lr.ph.preheader ]
+  %.0160180 = phi i32 [ %144, %.thread ], [ %19, %.lr.ph.preheader ]
+  %.0161179 = phi i32 [ %143, %.thread ], [ 4, %.lr.ph.preheader ]
   %20 = call i32 @init_tlv_info(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %.0161179) #2
   %21 = call i32 @get_tlv_type(ptr noundef nonnull %5) #2
   %22 = call i32 @get_tlv_length(ptr noundef nonnull %5) #2
@@ -298,23 +299,23 @@ define internal i32 @dissect_m2m(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %37 = load i32, ptr @ett_m2m_tlv, align 4
   %38 = call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37) #2
   %39 = add i32 %32, %.0161179
-  switch i32 %21, label %134 [
+  switch i32 %21, label %136 [
     i32 1, label %40
     i32 3, label %43
     i32 4, label %46
     i32 5, label %50
     i32 9, label %53
-    i32 10, label %79
-    i32 2, label %86
-    i32 8, label %90
-    i32 7, label %98
-    i32 11, label %106
-    i32 12, label %110
-    i32 13, label %113
-    i32 14, label %116
-    i32 15, label %119
-    i32 16, label %126
-    i32 255, label %133
+    i32 10, label %81
+    i32 2, label %88
+    i32 8, label %92
+    i32 7, label %100
+    i32 11, label %108
+    i32 12, label %112
+    i32 13, label %115
+    i32 14, label %118
+    i32 15, label %121
+    i32 16, label %128
+    i32 255, label %135
   ]
 
 40:                                               ; preds = %31
@@ -344,232 +345,230 @@ define internal i32 @dissect_m2m(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 53:                                               ; preds = %31
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.44, i32 noundef %22) #2
-  switch i32 %.0156182, label %59 [
-    i32 1, label %.sink.split.i
-    i32 3, label %54
-    i32 2, label %55
-    i32 0, label %56
-  ]
+  %trunc.i = trunc nuw i32 %.0156182 to i8
+  %switch.tableidx = add i8 %trunc.i, -1
+  %54 = icmp ult i8 %switch.tableidx, 3
+  br i1 %54, label %switch.lookup, label %57
 
-54:                                               ; preds = %53
-  br label %.sink.split.i
+switch.lookup:                                    ; preds = %53
+  %55 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_m2m, i64 0, i64 %55
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %56 = load ptr, ptr %6, align 8
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %56, i32 noundef 25, ptr noundef null, ptr noundef nonnull %switch.load, i32 noundef %.0155183) #2
+  br label %57
 
-55:                                               ; preds = %53
-  br label %.sink.split.i
+57:                                               ; preds = %53, %switch.lookup
+  %58 = icmp eq i32 %.0156182, 0
+  br i1 %58, label %59, label %61
 
-56:                                               ; preds = %53
-  %57 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef %22) #2
-  br label %72
+59:                                               ; preds = %57
+  %60 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef %22) #2
+  br label %74
 
-.sink.split.i:                                    ; preds = %55, %54, %53
-  %.str.75.sink.i = phi ptr [ @.str.76, %54 ], [ @.str.77, %55 ], [ @.str.75, %53 ]
-  %58 = load ptr, ptr %6, align 8
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %58, i32 noundef 25, ptr noundef null, ptr noundef nonnull %.str.75.sink.i, i32 noundef %.0155183) #2
-  br label %59
+61:                                               ; preds = %57
+  %62 = add nsw i32 %.0155183, -1
+  %63 = icmp eq i32 %.0156182, 3
+  %not..i = xor i1 %63, true
+  %64 = zext i1 %not..i to i32
+  %65 = call ptr @fragment_add_seq(ptr noundef nonnull @pdu_reassembly_table, ptr noundef %0, i32 noundef %39, ptr noundef %1, i32 noundef %.0158181, ptr noundef null, i32 noundef %62, i32 noundef %22, i32 noundef %64, i32 noundef 0) #2
+  %66 = icmp ne ptr %65, null
+  %or.cond.i = and i1 %63, %66
+  br i1 %or.cond.i, label %67, label %71
 
-59:                                               ; preds = %.sink.split.i, %53
-  %60 = add nsw i32 %.0155183, -1
-  %61 = icmp eq i32 %.0156182, 3
-  %not..i = xor i1 %61, true
-  %62 = zext i1 %not..i to i32
-  %63 = call ptr @fragment_add_seq(ptr noundef nonnull @pdu_reassembly_table, ptr noundef %0, i32 noundef %39, ptr noundef %1, i32 noundef %.0158181, ptr noundef null, i32 noundef %60, i32 noundef %22, i32 noundef %62, i32 noundef 0) #2
-  %64 = icmp ne ptr %63, null
-  %or.cond.i = and i1 %61, %64
-  br i1 %or.cond.i, label %65, label %69
+67:                                               ; preds = %61
+  %68 = getelementptr inbounds i8, ptr %65, i64 56
+  %69 = load ptr, ptr %68, align 8
+  %70 = call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %69) #2
+  call void @add_new_data_source(ptr noundef %1, ptr noundef %70, ptr noundef nonnull @.str.78) #2
+  br label %74
 
-65:                                               ; preds = %59
-  %66 = getelementptr inbounds i8, ptr %63, i64 56
-  %67 = load ptr, ptr %66, align 8
-  %68 = call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %67) #2
-  call void @add_new_data_source(ptr noundef %1, ptr noundef %68, ptr noundef nonnull @.str.78) #2
-  br label %72
+71:                                               ; preds = %61
+  br i1 %63, label %72, label %pdu_burst_decoder.exit
 
-69:                                               ; preds = %59
-  br i1 %61, label %70, label %pdu_burst_decoder.exit
-
-70:                                               ; preds = %69
-  %71 = load ptr, ptr %6, align 8
-  call void @col_append_sep_str(ptr noundef %71, i32 noundef 25, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.79) #2
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %6, align 8
+  call void @col_append_sep_str(ptr noundef %73, i32 noundef 25, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.79) #2
   br label %pdu_burst_decoder.exit
 
-72:                                               ; preds = %65, %56
-  %.0.i = phi ptr [ %57, %56 ], [ %68, %65 ]
+74:                                               ; preds = %67, %59
+  %.0.i = phi ptr [ %60, %59 ], [ %70, %67 ]
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %pdu_burst_decoder.exit, label %73
+  br i1 %.not.i, label %pdu_burst_decoder.exit, label %75
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr @wimax_pdu_burst_handle, align 8
-  %.not34.i = icmp eq ptr %74, null
-  br i1 %.not34.i, label %77, label %75
+75:                                               ; preds = %74
+  %76 = load ptr, ptr @wimax_pdu_burst_handle, align 8
+  %.not34.i = icmp eq ptr %76, null
+  br i1 %.not34.i, label %79, label %77
 
-75:                                               ; preds = %73
-  %76 = call i32 @call_dissector(ptr noundef nonnull %74, ptr noundef nonnull %.0.i, ptr noundef %1, ptr noundef %2) #2
+77:                                               ; preds = %75
+  %78 = call i32 @call_dissector(ptr noundef nonnull %76, ptr noundef nonnull %.0.i, ptr noundef %1, ptr noundef %2) #2
   br label %pdu_burst_decoder.exit
 
-77:                                               ; preds = %73
-  %78 = load ptr, ptr %6, align 8
-  call void @col_append_str(ptr noundef %78, i32 noundef 25, ptr noundef nonnull @.str.62) #2
+79:                                               ; preds = %75
+  %80 = load ptr, ptr %6, align 8
+  call void @col_append_str(ptr noundef %80, i32 noundef 25, ptr noundef nonnull @.str.62) #2
   br label %pdu_burst_decoder.exit
 
-79:                                               ; preds = %31
+81:                                               ; preds = %31
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.44, i32 noundef %22) #2
-  %80 = load ptr, ptr @wimax_ffb_burst_handle, align 8
-  %.not.i164 = icmp eq ptr %80, null
-  br i1 %.not.i164, label %84, label %81
+  %82 = load ptr, ptr @wimax_ffb_burst_handle, align 8
+  %.not.i164 = icmp eq ptr %82, null
+  br i1 %.not.i164, label %86, label %83
 
-81:                                               ; preds = %79
-  %82 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef %22) #2
-  %83 = call i32 @call_dissector(ptr noundef nonnull %80, ptr noundef %82, ptr noundef %1, ptr noundef %2) #2
+83:                                               ; preds = %81
+  %84 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef %22) #2
+  %85 = call i32 @call_dissector(ptr noundef nonnull %82, ptr noundef %84, ptr noundef %1, ptr noundef %2) #2
   br label %pdu_burst_decoder.exit
 
-84:                                               ; preds = %79
-  %85 = load ptr, ptr %6, align 8
-  call void @col_append_str(ptr noundef %85, i32 noundef 25, ptr noundef nonnull @.str.63) #2
+86:                                               ; preds = %81
+  %87 = load ptr, ptr %6, align 8
+  call void @col_append_str(ptr noundef %87, i32 noundef 25, ptr noundef nonnull @.str.63) #2
   br label %pdu_burst_decoder.exit
 
-86:                                               ; preds = %31
-  %87 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %39) #2
-  %88 = load i32, ptr @hf_m2m_frame_number, align 4
-  %89 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %88, ptr noundef %0, i32 noundef %39, i32 noundef 3, i32 noundef 0) #2
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.49, i32 noundef %87) #2
+88:                                               ; preds = %31
+  %89 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %39) #2
+  %90 = load i32, ptr @hf_m2m_frame_number, align 4
+  %91 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %90, ptr noundef %0, i32 noundef %39, i32 noundef 3, i32 noundef 0) #2
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.49, i32 noundef %89) #2
   br label %.thread
 
-90:                                               ; preds = %31
-  %91 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %39) #2
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.52, i32 noundef %91) #2
-  %92 = load ptr, ptr @wimax_fch_burst_handle, align 8
-  %.not.i165 = icmp eq ptr %92, null
-  br i1 %.not.i165, label %96, label %93
+92:                                               ; preds = %31
+  %93 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %39) #2
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.52, i32 noundef %93) #2
+  %94 = load ptr, ptr @wimax_fch_burst_handle, align 8
+  %.not.i165 = icmp eq ptr %94, null
+  br i1 %.not.i165, label %98, label %95
 
-93:                                               ; preds = %90
-  %94 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef %22) #2
-  %95 = call i32 @call_dissector(ptr noundef nonnull %92, ptr noundef %94, ptr noundef %1, ptr noundef %2) #2
+95:                                               ; preds = %92
+  %96 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef %22) #2
+  %97 = call i32 @call_dissector(ptr noundef nonnull %94, ptr noundef %96, ptr noundef %1, ptr noundef %2) #2
   br label %pdu_burst_decoder.exit
 
-96:                                               ; preds = %90
-  %97 = load ptr, ptr %6, align 8
-  call void @col_append_str(ptr noundef %97, i32 noundef 25, ptr noundef nonnull @.str.80) #2
+98:                                               ; preds = %92
+  %99 = load ptr, ptr %6, align 8
+  call void @col_append_str(ptr noundef %99, i32 noundef 25, ptr noundef nonnull @.str.80) #2
   br label %pdu_burst_decoder.exit
 
-98:                                               ; preds = %31
-  %99 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %39) #2
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.52, i32 noundef %99) #2
-  %100 = load ptr, ptr @wimax_cdma_code_burst_handle, align 8
-  %.not.i166 = icmp eq ptr %100, null
-  br i1 %.not.i166, label %104, label %101
+100:                                              ; preds = %31
+  %101 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %39) #2
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.52, i32 noundef %101) #2
+  %102 = load ptr, ptr @wimax_cdma_code_burst_handle, align 8
+  %.not.i166 = icmp eq ptr %102, null
+  br i1 %.not.i166, label %106, label %103
 
-101:                                              ; preds = %98
-  %102 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef %22) #2
-  %103 = call i32 @call_dissector(ptr noundef nonnull %100, ptr noundef %102, ptr noundef %1, ptr noundef %2) #2
+103:                                              ; preds = %100
+  %104 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef %22) #2
+  %105 = call i32 @call_dissector(ptr noundef nonnull %102, ptr noundef %104, ptr noundef %1, ptr noundef %2) #2
   br label %pdu_burst_decoder.exit
 
-104:                                              ; preds = %98
-  %105 = load ptr, ptr %6, align 8
-  call void @col_append_str(ptr noundef %105, i32 noundef 25, ptr noundef nonnull @.str.81) #2
+106:                                              ; preds = %100
+  %107 = load ptr, ptr %6, align 8
+  call void @col_append_str(ptr noundef %107, i32 noundef 25, ptr noundef nonnull @.str.81) #2
   br label %pdu_burst_decoder.exit
 
-106:                                              ; preds = %31
-  %107 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %39) #2
-  %108 = zext i8 %107 to i32
-  %109 = call ptr @val_to_str_const(i32 noundef %108, ptr noundef nonnull @tlv_crc16_status, ptr noundef nonnull @.str.51) #2
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.50, ptr noundef %109) #2
+108:                                              ; preds = %31
+  %109 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %39) #2
+  %110 = zext i8 %109 to i32
+  %111 = call ptr @val_to_str_const(i32 noundef %110, ptr noundef nonnull @tlv_crc16_status, ptr noundef nonnull @.str.51) #2
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.50, ptr noundef %111) #2
   br label %pdu_burst_decoder.exit
 
-110:                                              ; preds = %31
-  %111 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %39) #2
-  %112 = zext i16 %111 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.49, i32 noundef %112) #2
+112:                                              ; preds = %31
+  %113 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %39) #2
+  %114 = zext i16 %113 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.49, i32 noundef %114) #2
   br label %pdu_burst_decoder.exit
 
-113:                                              ; preds = %31
-  %114 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %39) #2
-  %115 = zext i16 %114 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.52, i32 noundef %115) #2
+115:                                              ; preds = %31
+  %116 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %39) #2
+  %117 = zext i16 %116 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.52, i32 noundef %117) #2
   br label %pdu_burst_decoder.exit
 
-116:                                              ; preds = %31
-  %117 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %39) #2
-  %118 = zext i16 %117 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.52, i32 noundef %118) #2
+118:                                              ; preds = %31
+  %119 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %39) #2
+  %120 = zext i16 %119 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.52, i32 noundef %120) #2
   br label %pdu_burst_decoder.exit
 
-119:                                              ; preds = %31
+121:                                              ; preds = %31
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.44, i32 noundef %22) #2
-  %120 = load ptr, ptr @wimax_hack_burst_handle, align 8
-  %.not.i167 = icmp eq ptr %120, null
-  br i1 %.not.i167, label %124, label %121
+  %122 = load ptr, ptr @wimax_hack_burst_handle, align 8
+  %.not.i167 = icmp eq ptr %122, null
+  br i1 %.not.i167, label %126, label %123
 
-121:                                              ; preds = %119
-  %122 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef %22) #2
-  %123 = call i32 @call_dissector(ptr noundef nonnull %120, ptr noundef %122, ptr noundef %1, ptr noundef %2) #2
+123:                                              ; preds = %121
+  %124 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef %22) #2
+  %125 = call i32 @call_dissector(ptr noundef nonnull %122, ptr noundef %124, ptr noundef %1, ptr noundef %2) #2
   br label %pdu_burst_decoder.exit
 
-124:                                              ; preds = %119
-  %125 = load ptr, ptr %6, align 8
-  call void @col_append_str(ptr noundef %125, i32 noundef 25, ptr noundef nonnull @.str.68) #2
+126:                                              ; preds = %121
+  %127 = load ptr, ptr %6, align 8
+  call void @col_append_str(ptr noundef %127, i32 noundef 25, ptr noundef nonnull @.str.68) #2
   br label %pdu_burst_decoder.exit
 
-126:                                              ; preds = %31
+128:                                              ; preds = %31
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.44, i32 noundef %22) #2
-  %127 = load ptr, ptr @wimax_phy_attributes_burst_handle, align 8
-  %.not.i168 = icmp eq ptr %127, null
-  br i1 %.not.i168, label %131, label %128
+  %129 = load ptr, ptr @wimax_phy_attributes_burst_handle, align 8
+  %.not.i168 = icmp eq ptr %129, null
+  br i1 %.not.i168, label %133, label %130
 
-128:                                              ; preds = %126
-  %129 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef %22) #2
-  %130 = call i32 @call_dissector(ptr noundef nonnull %127, ptr noundef %129, ptr noundef %1, ptr noundef %2) #2
+130:                                              ; preds = %128
+  %131 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef %22) #2
+  %132 = call i32 @call_dissector(ptr noundef nonnull %129, ptr noundef %131, ptr noundef %1, ptr noundef %2) #2
   br label %pdu_burst_decoder.exit
 
-131:                                              ; preds = %126
-  %132 = load ptr, ptr %6, align 8
-  call void @col_append_str(ptr noundef %132, i32 noundef 25, ptr noundef nonnull @.str.85) #2
+133:                                              ; preds = %128
+  %134 = load ptr, ptr %6, align 8
+  call void @col_append_str(ptr noundef %134, i32 noundef 25, ptr noundef nonnull @.str.85) #2
   br label %pdu_burst_decoder.exit
 
-133:                                              ; preds = %31
+135:                                              ; preds = %31
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.44, i32 noundef %22) #2
   %.val = load ptr, ptr %6, align 8
   call void @col_append_str(ptr noundef %.val, i32 noundef 25, ptr noundef nonnull @.str.70) #2
   br label %.thread
 
-134:                                              ; preds = %31
-  %135 = load ptr, ptr %6, align 8
-  call void @col_append_sep_str(ptr noundef %135, i32 noundef 25, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.53) #2
+136:                                              ; preds = %31
+  %137 = load ptr, ptr %6, align 8
+  call void @col_append_sep_str(ptr noundef %137, i32 noundef 25, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.53) #2
   br label %.thread
 
-pdu_burst_decoder.exit:                           ; preds = %131, %128, %124, %121, %104, %101, %96, %93, %84, %81, %77, %75, %72, %70, %69, %116, %113, %110, %106, %50, %46, %43, %40
-  %.1159 = phi i32 [ %.0158181, %116 ], [ %.0158181, %113 ], [ %.0158181, %110 ], [ %.0158181, %106 ], [ %.0158181, %50 ], [ %.0158181, %46 ], [ %45, %43 ], [ %.0158181, %40 ], [ %.0158181, %69 ], [ %.0158181, %70 ], [ %.0158181, %72 ], [ %.0158181, %75 ], [ %.0158181, %77 ], [ %.0158181, %81 ], [ %.0158181, %84 ], [ %.0158181, %93 ], [ %.0158181, %96 ], [ %.0158181, %101 ], [ %.0158181, %104 ], [ %.0158181, %121 ], [ %.0158181, %124 ], [ %.0158181, %128 ], [ %.0158181, %131 ]
-  %.1157 = phi i32 [ %.0156182, %116 ], [ %.0156182, %113 ], [ %.0156182, %110 ], [ %.0156182, %106 ], [ %.0156182, %50 ], [ %48, %46 ], [ %.0156182, %43 ], [ %.0156182, %40 ], [ %.0156182, %69 ], [ 3, %70 ], [ %.0156182, %72 ], [ %.0156182, %75 ], [ %.0156182, %77 ], [ %.0156182, %81 ], [ %.0156182, %84 ], [ %.0156182, %93 ], [ %.0156182, %96 ], [ %.0156182, %101 ], [ %.0156182, %104 ], [ %.0156182, %121 ], [ %.0156182, %124 ], [ %.0156182, %128 ], [ %.0156182, %131 ]
-  %.1 = phi i32 [ %.0155183, %116 ], [ %.0155183, %113 ], [ %.0155183, %110 ], [ %.0155183, %106 ], [ %52, %50 ], [ %.0155183, %46 ], [ %.0155183, %43 ], [ %.0155183, %40 ], [ %.0155183, %69 ], [ %.0155183, %70 ], [ %.0155183, %72 ], [ %.0155183, %75 ], [ %.0155183, %77 ], [ %.0155183, %81 ], [ %.0155183, %84 ], [ %.0155183, %93 ], [ %.0155183, %96 ], [ %.0155183, %101 ], [ %.0155183, %104 ], [ %.0155183, %121 ], [ %.0155183, %124 ], [ %.0155183, %128 ], [ %.0155183, %131 ]
-  %.0154.in = phi ptr [ @hf_m2m_value_preamble_uint16, %116 ], [ @hf_m2m_value_burst_cinr_uint16, %113 ], [ @hf_m2m_value_burst_power_uint16, %110 ], [ @hf_m2m_value_crc16_status_uint8, %106 ], [ @hf_m2m_value_frag_num_uint8, %50 ], [ @hf_m2m_value_frag_type_uint8, %46 ], [ @hf_m2m_value_burst_num_uint8, %43 ], [ @hf_m2m_value_protocol_vers_uint8, %40 ], [ @hf_m2m_value_pdu_burst, %69 ], [ @hf_m2m_value_pdu_burst, %70 ], [ @hf_m2m_value_pdu_burst, %72 ], [ @hf_m2m_value_pdu_burst, %75 ], [ @hf_m2m_value_pdu_burst, %77 ], [ @hf_m2m_value_fast_fb, %81 ], [ @hf_m2m_value_fast_fb, %84 ], [ @hf_m2m_value_fch_burst_uint24, %93 ], [ @hf_m2m_value_fch_burst_uint24, %96 ], [ @hf_m2m_value_cdma_code_uint24, %101 ], [ @hf_m2m_value_cdma_code_uint24, %104 ], [ @hf_m2m_value_harq_ack_burst_bytes, %121 ], [ @hf_m2m_value_harq_ack_burst_bytes, %124 ], [ @hf_m2m_phy_attributes, %128 ], [ @hf_m2m_phy_attributes, %131 ]
-  %.0 = phi i32 [ 2, %116 ], [ 2, %113 ], [ 2, %110 ], [ 1, %106 ], [ 1, %50 ], [ 1, %46 ], [ 1, %43 ], [ 1, %40 ], [ 0, %69 ], [ 0, %70 ], [ 0, %72 ], [ 0, %75 ], [ 0, %77 ], [ 0, %81 ], [ 0, %84 ], [ 3, %93 ], [ 3, %96 ], [ 3, %101 ], [ 3, %104 ], [ 0, %121 ], [ 0, %124 ], [ 0, %128 ], [ 0, %131 ]
+pdu_burst_decoder.exit:                           ; preds = %133, %130, %126, %123, %106, %103, %98, %95, %86, %83, %79, %77, %74, %72, %71, %118, %115, %112, %108, %50, %46, %43, %40
+  %.1159 = phi i32 [ %.0158181, %118 ], [ %.0158181, %115 ], [ %.0158181, %112 ], [ %.0158181, %108 ], [ %.0158181, %50 ], [ %.0158181, %46 ], [ %45, %43 ], [ %.0158181, %40 ], [ %.0158181, %71 ], [ %.0158181, %72 ], [ %.0158181, %74 ], [ %.0158181, %77 ], [ %.0158181, %79 ], [ %.0158181, %83 ], [ %.0158181, %86 ], [ %.0158181, %95 ], [ %.0158181, %98 ], [ %.0158181, %103 ], [ %.0158181, %106 ], [ %.0158181, %123 ], [ %.0158181, %126 ], [ %.0158181, %130 ], [ %.0158181, %133 ]
+  %.1157 = phi i32 [ %.0156182, %118 ], [ %.0156182, %115 ], [ %.0156182, %112 ], [ %.0156182, %108 ], [ %.0156182, %50 ], [ %48, %46 ], [ %.0156182, %43 ], [ %.0156182, %40 ], [ %.0156182, %71 ], [ 3, %72 ], [ %.0156182, %74 ], [ %.0156182, %77 ], [ %.0156182, %79 ], [ %.0156182, %83 ], [ %.0156182, %86 ], [ %.0156182, %95 ], [ %.0156182, %98 ], [ %.0156182, %103 ], [ %.0156182, %106 ], [ %.0156182, %123 ], [ %.0156182, %126 ], [ %.0156182, %130 ], [ %.0156182, %133 ]
+  %.1 = phi i32 [ %.0155183, %118 ], [ %.0155183, %115 ], [ %.0155183, %112 ], [ %.0155183, %108 ], [ %52, %50 ], [ %.0155183, %46 ], [ %.0155183, %43 ], [ %.0155183, %40 ], [ %.0155183, %71 ], [ %.0155183, %72 ], [ %.0155183, %74 ], [ %.0155183, %77 ], [ %.0155183, %79 ], [ %.0155183, %83 ], [ %.0155183, %86 ], [ %.0155183, %95 ], [ %.0155183, %98 ], [ %.0155183, %103 ], [ %.0155183, %106 ], [ %.0155183, %123 ], [ %.0155183, %126 ], [ %.0155183, %130 ], [ %.0155183, %133 ]
+  %.0154.in = phi ptr [ @hf_m2m_value_preamble_uint16, %118 ], [ @hf_m2m_value_burst_cinr_uint16, %115 ], [ @hf_m2m_value_burst_power_uint16, %112 ], [ @hf_m2m_value_crc16_status_uint8, %108 ], [ @hf_m2m_value_frag_num_uint8, %50 ], [ @hf_m2m_value_frag_type_uint8, %46 ], [ @hf_m2m_value_burst_num_uint8, %43 ], [ @hf_m2m_value_protocol_vers_uint8, %40 ], [ @hf_m2m_value_pdu_burst, %71 ], [ @hf_m2m_value_pdu_burst, %72 ], [ @hf_m2m_value_pdu_burst, %74 ], [ @hf_m2m_value_pdu_burst, %77 ], [ @hf_m2m_value_pdu_burst, %79 ], [ @hf_m2m_value_fast_fb, %83 ], [ @hf_m2m_value_fast_fb, %86 ], [ @hf_m2m_value_fch_burst_uint24, %95 ], [ @hf_m2m_value_fch_burst_uint24, %98 ], [ @hf_m2m_value_cdma_code_uint24, %103 ], [ @hf_m2m_value_cdma_code_uint24, %106 ], [ @hf_m2m_value_harq_ack_burst_bytes, %123 ], [ @hf_m2m_value_harq_ack_burst_bytes, %126 ], [ @hf_m2m_phy_attributes, %130 ], [ @hf_m2m_phy_attributes, %133 ]
+  %.0 = phi i32 [ 2, %118 ], [ 2, %115 ], [ 2, %112 ], [ 1, %108 ], [ 1, %50 ], [ 1, %46 ], [ 1, %43 ], [ 1, %40 ], [ 0, %71 ], [ 0, %72 ], [ 0, %74 ], [ 0, %77 ], [ 0, %79 ], [ 0, %83 ], [ 0, %86 ], [ 3, %95 ], [ 3, %98 ], [ 3, %103 ], [ 3, %106 ], [ 0, %123 ], [ 0, %126 ], [ 0, %130 ], [ 0, %133 ]
   %.0154 = load i32, ptr %.0154.in, align 4
   %.not = icmp eq i32 %.0154, 0
-  br i1 %.not, label %.thread, label %136
+  br i1 %.not, label %.thread, label %138
 
-136:                                              ; preds = %pdu_burst_decoder.exit
-  %137 = icmp eq i32 %.0161179, %.0
-  br i1 %137, label %138, label %139
+138:                                              ; preds = %pdu_burst_decoder.exit
+  %139 = icmp eq i32 %.0161179, %.0
+  br i1 %139, label %140, label %141
 
-138:                                              ; preds = %136
+140:                                              ; preds = %138
   call void @proto_tree_add_tlv(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %.0161179, ptr noundef %1, ptr noundef %38, i32 noundef %.0154, i32 noundef 0)
   br label %.thread
 
-139:                                              ; preds = %136
-  %140 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_m2m_unexpected_length, ptr noundef nonnull @.str.54, i32 noundef %.0, i32 noundef %.0161179) #2
+141:                                              ; preds = %138
+  %142 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_m2m_unexpected_length, ptr noundef nonnull @.str.54, i32 noundef %.0, i32 noundef %.0161179) #2
   br label %.thread
 
-.thread:                                          ; preds = %86, %133, %134, %138, %139, %pdu_burst_decoder.exit
-  %.1177 = phi i32 [ %.1, %138 ], [ %.1, %139 ], [ %.1, %pdu_burst_decoder.exit ], [ %.0155183, %134 ], [ %.0155183, %133 ], [ %.0155183, %86 ]
-  %.1157176 = phi i32 [ %.1157, %138 ], [ %.1157, %139 ], [ %.1157, %pdu_burst_decoder.exit ], [ %.0156182, %134 ], [ %.0156182, %133 ], [ %.0156182, %86 ]
-  %.1159175 = phi i32 [ %.1159, %138 ], [ %.1159, %139 ], [ %.1159, %pdu_burst_decoder.exit ], [ %.0158181, %134 ], [ %.0158181, %133 ], [ %.0158181, %86 ]
-  %141 = add i32 %39, %22
-  %142 = add nsw i32 %.0160180, -1
-  %143 = icmp sgt i32 %.0160180, 1
-  br i1 %143, label %.lr.ph, label %.loopexit, !llvm.loop !4
+.thread:                                          ; preds = %88, %135, %136, %140, %141, %pdu_burst_decoder.exit
+  %.1177 = phi i32 [ %.1, %140 ], [ %.1, %141 ], [ %.1, %pdu_burst_decoder.exit ], [ %.0155183, %136 ], [ %.0155183, %135 ], [ %.0155183, %88 ]
+  %.1157176 = phi i32 [ %.1157, %140 ], [ %.1157, %141 ], [ %.1157, %pdu_burst_decoder.exit ], [ %.0156182, %136 ], [ %.0156182, %135 ], [ %.0156182, %88 ]
+  %.1159175 = phi i32 [ %.1159, %140 ], [ %.1159, %141 ], [ %.1159, %pdu_burst_decoder.exit ], [ %.0158181, %136 ], [ %.0158181, %135 ], [ %.0158181, %88 ]
+  %143 = add i32 %39, %22
+  %144 = add nsw i32 %.0160180, -1
+  %145 = icmp sgt i32 %.0160180, 1
+  br i1 %145, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.thread, %4, %26
-  %144 = call i32 @tvb_captured_length(ptr noundef %0) #2
-  ret i32 %144
+  %146 = call i32 @tvb_captured_length(ptr noundef %0) #2
+  ret i32 %146
 }
 
 declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_addr #1

@@ -1509,7 +1509,7 @@ define noundef nonnull align 8 dereferenceable(120) ptr @"_ZN80_$LT$ring..rsa..p
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN84_$LT$ring..rsa..padding..pkcs1..PKCS1$u20$as$u20$ring..rsa..padding..RsaEncoding$GT$6encode17h20461708570364cfE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %1, ptr noalias nocapture noundef nonnull writeonly align 1 %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef nonnull readnone align 1 %5, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %6) unnamed_addr #4 {
-  tail call fastcc void @_ZN4ring3rsa7padding5pkcs112pkcs1_encode17hde4117c1ab4641c7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3)
+  tail call fastcc void @_ZN4ring3rsa7padding5pkcs112pkcs1_encode17hde4117c1ab4641c7E(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3)
   ret i1 false
 }
 
@@ -1532,7 +1532,7 @@ define noundef zeroext i1 @"_ZN85_$LT$ring..rsa..padding..pkcs1..PKCS1$u20$as$u2
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.6801758991666044160.exit": ; preds = %4
-  call fastcc void @_ZN4ring3rsa7padding5pkcs112pkcs1_encode17hde4117c1ab4641c7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef %11)
+  call fastcc void @_ZN4ring3rsa7padding5pkcs112pkcs1_encode17hde4117c1ab4641c7E(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef %11)
   %14 = getelementptr inbounds i8, ptr %2, i64 8
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = getelementptr inbounds i8, ptr %2, i64 16
@@ -1573,7 +1573,7 @@ define noundef zeroext i1 @"_ZN85_$LT$ring..rsa..padding..pkcs1..PKCS1$u20$as$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4ring3rsa7padding5pkcs112pkcs1_encode17hde4117c1ab4641c7E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %1, ptr noalias nocapture noundef nonnull writeonly align 1 %2, i64 noundef %3) unnamed_addr #4 {
+define internal fastcc void @_ZN4ring3rsa7padding5pkcs112pkcs1_encode17hde4117c1ab4641c7E(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noalias nocapture noundef nonnull writeonly align 1 %2, i64 noundef %3) unnamed_addr #4 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = load ptr, ptr %0, align 8, !nonnull !4, !align !123, !noundef !4
@@ -1804,7 +1804,7 @@ define noundef zeroext i1 @"_ZN80_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
 
 49:                                               ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.exit33"
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
-  call fastcc void @_ZN4ring3rsa7padding3pss10pss_digest17h470883e22287f7adE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %45, i64 noundef %.val)
+  call fastcc void @_ZN4ring3rsa7padding3pss10pss_digest17h470883e22287f7adE(ptr noalias nocapture noundef align 8 dereferenceable(72) %8, ptr noalias noundef readonly align 8 dereferenceable(120) %12, ptr noalias nocapture noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %45, i64 noundef %.val)
   %50 = icmp ugt i64 %41, %22
   br i1 %50, label %51, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.6801758991666044160.exit"
 
@@ -2088,7 +2088,7 @@ define noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
 99:                                               ; preds = %95
   %100 = getelementptr inbounds i8, ptr %8, i64 %97
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
-  call fastcc void @_ZN4ring3rsa7padding3pss10pss_digest17h470883e22287f7adE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %100, i64 noundef %96)
+  call fastcc void @_ZN4ring3rsa7padding3pss10pss_digest17h470883e22287f7adE(ptr noalias nocapture noundef align 8 dereferenceable(72) %7, ptr noalias noundef readonly align 8 dereferenceable(120) %10, ptr noalias nocapture noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %100, i64 noundef %96)
   %101 = getelementptr inbounds i8, ptr %7, i64 8
   %102 = load ptr, ptr %7, align 8, !nonnull !4, !align !123, !noundef !4
   %103 = getelementptr inbounds i8, ptr %102, i64 16
@@ -2128,7 +2128,7 @@ define noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4ring3rsa7padding3pss10pss_digest17h470883e22287f7adE(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1, ptr noalias nocapture noundef align 8 dereferenceable(72) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #4 {
+define internal fastcc void @_ZN4ring3rsa7padding3pss10pss_digest17h470883e22287f7adE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #4 {
   %6 = alloca { ptr, { [8 x i64] }, i64 }, align 8
   %7 = alloca { { ptr, { [8 x i64] }, i64 }, [128 x i8], i64 }, align 8
   %8 = alloca { { ptr, { [8 x i64] }, i64 }, [128 x i8], i64 }, align 8

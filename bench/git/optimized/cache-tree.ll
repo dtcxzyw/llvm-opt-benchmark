@@ -186,7 +186,7 @@ entry:
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_subtree(ptr nocapture noundef %it, ptr nocapture noundef readonly %path, i32 noundef %pathlen, i32 noundef %create) unnamed_addr #0 {
+define internal fastcc ptr @find_subtree(ptr nocapture noundef %it, ptr nocapture noundef readonly %path, i32 noundef %pathlen, i32 noundef range(i32 0, 2) %create) unnamed_addr #0 {
 entry:
   %down1.i = getelementptr inbounds i8, ptr %it, i64 48
   %0 = load ptr, ptr %down1.i, align 8
@@ -765,7 +765,7 @@ if.end10:                                         ; preds = %if.then9, %land.lhs
   %31 = load ptr, ptr %cache_tree, align 8
   %32 = load ptr, ptr %istate, align 8
   %33 = load i32, ptr %cache_nr.i, align 4
-  %call13 = call fastcc i32 @update_one(ptr noundef %31, ptr noundef %32, i32 noundef %33, ptr noundef nonnull @.str.3, i32 noundef 0, ptr noundef nonnull %skip, i32 noundef %flags)
+  %call13 = call fastcc i32 @update_one(ptr noundef %31, ptr noundef %32, i32 noundef %33, ptr noundef nonnull @.str.3, i32 noundef 0, ptr noundef %skip, i32 noundef %flags)
   tail call void @end_odb_transaction() #14
   %34 = load ptr, ptr @the_repository, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 487, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %34) #14
@@ -830,7 +830,7 @@ declare void @trace2_region_enter_fl(ptr noundef, i32 noundef, ptr noundef, ptr 
 declare void @begin_odb_transaction() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @update_one(ptr noundef %it, ptr nocapture noundef readonly %cache, i32 noundef %entries, ptr nocapture noundef readonly %base, i32 noundef %baselen, ptr nocapture noundef %skip_count, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc i32 @update_one(ptr noundef %it, ptr nocapture noundef readonly %cache, i32 noundef %entries, ptr nocapture noundef readonly %base, i32 noundef range(i32 -2147483647, -2147483648) %baselen, ptr nocapture noundef nonnull %skip_count, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %buffer = alloca %struct.strbuf, align 8
   %subskip = alloca i32, align 4
@@ -972,7 +972,7 @@ if.end52:                                         ; preds = %if.then49, %if.end4
   %16 = phi ptr [ %call.i, %if.then49 ], [ %15, %if.end41 ]
   %sub56 = sub nsw i32 %entries, %i.1152
   %add57 = add i32 %add, %conv44
-  %call58 = call fastcc i32 @update_one(ptr noundef nonnull %16, ptr noundef nonnull %arrayidx26, i32 noundef %sub56, ptr noundef nonnull %name27, i32 noundef %add57, ptr noundef nonnull %subskip, i32 noundef %flags)
+  %call58 = call fastcc i32 @update_one(ptr noundef nonnull %16, ptr noundef nonnull %arrayidx26, i32 noundef %sub56, ptr noundef nonnull %name27, i32 noundef %add57, ptr noundef %subskip, i32 noundef %flags)
   %cmp59 = icmp slt i32 %call58, 0
   br i1 %cmp59, label %return, label %if.end62
 
@@ -1527,7 +1527,7 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr @the_repository, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str, i32 noundef 633, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, ptr noundef %1) #14
-  %call = call fastcc ptr @read_one(ptr noundef nonnull %buffer.addr, ptr noundef nonnull %size.addr)
+  %call = call fastcc ptr @read_one(ptr noundef %buffer.addr, ptr noundef %size.addr)
   %2 = load ptr, ptr @the_repository, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 635, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, ptr noundef %2) #14
   br label %return
@@ -1538,7 +1538,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @read_one(ptr nocapture noundef %buffer, ptr nocapture noundef %size_p) unnamed_addr #0 {
+define internal fastcc noundef ptr @read_one(ptr nocapture noundef nonnull %buffer, ptr nocapture noundef nonnull %size_p) unnamed_addr #0 {
 entry:
   %buf = alloca ptr, align 8
   %size = alloca i64, align 8
@@ -1658,7 +1658,7 @@ if.end46:                                         ; preds = %if.end44, %if.end33
 for.body:                                         ; preds = %if.end46, %if.end56
   %i.040 = phi i32 [ %inc, %if.end56 ], [ 0, %if.end46 ]
   %15 = load ptr, ptr %buf, align 8
-  %call53 = call fastcc ptr @read_one(ptr noundef nonnull %buf, ptr noundef nonnull %size)
+  %call53 = call fastcc ptr @read_one(ptr noundef %buf, ptr noundef %size)
   %tobool54.not = icmp eq ptr %call53, null
   br i1 %tobool54.not, label %free_return, label %if.end56
 
@@ -1857,7 +1857,7 @@ entry:
   %call.i = tail call noundef ptr @xcalloc(i64 noundef 1, i64 noundef 56) #14
   store i32 -1, ptr %call.i, align 8
   store ptr %call.i, ptr %cache_tree, align 8
-  call fastcc void @prime_cache_tree_rec(ptr noundef %r, ptr noundef nonnull %call.i, ptr noundef %tree, ptr noundef nonnull %tree_path)
+  call fastcc void @prime_cache_tree_rec(ptr noundef %r, ptr noundef nonnull %call.i, ptr noundef %tree, ptr noundef %tree_path)
   call void @strbuf_release(ptr noundef nonnull %tree_path) #14
   %cache_changed = getelementptr inbounds i8, ptr %istate, i64 20
   %0 = load i32, ptr %cache_changed, align 4
@@ -1871,7 +1871,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @prime_cache_tree_rec(ptr noundef %r, ptr nocapture noundef %it, ptr nocapture noundef readonly %tree, ptr noundef %tree_path) unnamed_addr #0 {
+define internal fastcc void @prime_cache_tree_rec(ptr noundef %r, ptr nocapture noundef %it, ptr nocapture noundef readonly %tree, ptr noundef nonnull %tree_path) unnamed_addr #0 {
 entry:
   %desc = alloca %struct.tree_desc, align 8
   %entry1 = alloca %struct.name_entry, align 8
@@ -2229,7 +2229,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = call fastcc i32 @verify_one(ptr noundef %r, ptr noundef nonnull %istate, ptr noundef nonnull %0, ptr noundef nonnull %path)
+  %call = call fastcc i32 @verify_one(ptr noundef %r, ptr noundef nonnull %istate, ptr noundef nonnull %0, ptr noundef %path)
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %if.end9, label %if.then3
 
@@ -2247,7 +2247,7 @@ if.then4.i:                                       ; preds = %if.then3
 
 strbuf_setlen.exit:                               ; preds = %if.then3, %if.then4.i
   %2 = load ptr, ptr %cache_tree, align 8
-  %call5 = call fastcc i32 @verify_one(ptr noundef %r, ptr noundef nonnull %istate, ptr noundef %2, ptr noundef nonnull %path)
+  %call5 = call fastcc i32 @verify_one(ptr noundef %r, ptr noundef nonnull %istate, ptr noundef %2, ptr noundef %path)
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.end9, label %if.then7
 
@@ -2264,7 +2264,7 @@ return:                                           ; preds = %entry, %if.end9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @verify_one(ptr noundef %r, ptr noundef %istate, ptr noundef %it, ptr noundef %path) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @verify_one(ptr noundef %r, ptr noundef %istate, ptr noundef %it, ptr noundef nonnull %path) unnamed_addr #0 {
 entry:
   %tree_buf = alloca %struct.strbuf, align 8
   %new_oid = alloca %struct.object_id, align 4
@@ -2294,7 +2294,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %st
   %arrayidx5 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx5, align 8
   %6 = load ptr, ptr %5, align 8
-  %call = tail call fastcc i32 @verify_one(ptr noundef %r, ptr noundef %istate, ptr noundef %6, ptr noundef nonnull %path)
+  %call = tail call fastcc i32 @verify_one(ptr noundef %r, ptr noundef %istate, ptr noundef %6, ptr noundef %path)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 

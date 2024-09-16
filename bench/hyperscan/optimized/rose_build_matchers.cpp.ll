@@ -2951,7 +2951,7 @@ unreachable:                                      ; preds = %invoke.cont36
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L16makeMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EENS_18rose_literal_tableEbmj(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr %fragments.0.val, ptr readnone %fragments.8.val, i32 noundef %table, i1 noundef zeroext %delay_rebuild, i64 noundef %max_len, i32 noundef %max_offset) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L16makeMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EENS_18rose_literal_tableEbmj(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr %fragments.0.val, ptr readnone %fragments.8.val, i32 noundef range(i32 1, 4) %table, i1 noundef zeroext %delay_rebuild, i64 noundef %max_len, i32 noundef range(i32 -1, 33) %max_offset) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %msk.i316 = alloca %"class.std::vector.93", align 8

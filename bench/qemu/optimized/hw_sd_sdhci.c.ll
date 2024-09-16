@@ -5187,7 +5187,7 @@ return:                                           ; preds = %for.cond, %for.cond
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_sdhci_access(ptr noundef %access, i32 noundef %size, i64 noundef %offset, ptr noundef %dir, i64 noundef %val, i64 noundef %val2) unnamed_addr #0 {
+define internal fastcc void @trace_sdhci_access(ptr noundef %access, i32 noundef range(i32 0, -7) %size, i64 noundef %offset, ptr noundef %dir, i64 noundef range(i64 0, 4294967296) %val, i64 noundef range(i64 0, 4294967296) %val2) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)

@@ -155,7 +155,7 @@ define dso_local void @fsnotify_recalc_mask(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__fsnotify_recalc_mask(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__fsnotify_recalc_mask(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = load volatile i32, ptr %0, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %5, !prof !5

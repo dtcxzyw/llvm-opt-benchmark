@@ -64,50 +64,49 @@ _Z12writeuleb128Phm.exit:
   store i8 12, ptr %12, align 1
   %13 = getelementptr inbounds i8, ptr %3, i64 14
   %14 = getelementptr inbounds i8, ptr %3, i64 15
-  br i1 %8, label %_Z12writeuleb128Phm.exit.i, label %_Z12writeuleb128Phm.exit.i17
-
-_Z12writeuleb128Phm.exit.i:                       ; preds = %_Z12writeuleb128Phm.exit
-  store i8 31, ptr %13, align 1
   %15 = getelementptr inbounds i8, ptr %3, i64 16
-  store i8 0, ptr %14, align 1
-  br label %_ZL19defineCfaExpressionPhij.exit, !llvm.loop !5
+  br i1 %8, label %16, label %17
 
-_Z12writeuleb128Phm.exit.i17:                     ; preds = %_Z12writeuleb128Phm.exit
+16:                                               ; preds = %_Z12writeuleb128Phm.exit
+  store i8 31, ptr %13, align 1
+  store i8 0, ptr %14, align 1
+  br label %_ZL27defineSavedRegisterLocationPhij.exit
+
+17:                                               ; preds = %_Z12writeuleb128Phm.exit
   store i8 7, ptr %13, align 1
   store i8 8, ptr %14, align 1
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
-  store i8 -112, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %3, i64 17
-  %18 = getelementptr inbounds i8, ptr %3, i64 18
-  store i8 1, ptr %17, align 1
-  br label %_ZL19defineCfaExpressionPhij.exit, !llvm.loop !5
+  store i8 -112, ptr %15, align 1
+  %18 = getelementptr inbounds i8, ptr %3, i64 17
+  %19 = getelementptr inbounds i8, ptr %3, i64 18
+  store i8 1, ptr %18, align 1
+  br label %_ZL27defineSavedRegisterLocationPhij.exit, !llvm.loop !5
 
-_ZL19defineCfaExpressionPhij.exit:                ; preds = %_Z12writeuleb128Phm.exit.i, %_Z12writeuleb128Phm.exit.i17
-  %storemerge = phi ptr [ %15, %_Z12writeuleb128Phm.exit.i ], [ %18, %_Z12writeuleb128Phm.exit.i17 ]
-  %19 = ptrtoint ptr %storemerge to i64
-  %20 = ptrtoint ptr %3 to i64
-  %21 = sub i64 %19, %20
-  %22 = add i64 %21, 7
-  %23 = and i64 %22, -8
-  %.not.i26 = icmp eq i64 %23, %21
-  br i1 %.not.i26, label %_ZL13alignPositionPhS_.exit, label %.lr.ph.preheader.i
+_ZL27defineSavedRegisterLocationPhij.exit:        ; preds = %17, %16
+  %storemerge = phi ptr [ %15, %16 ], [ %19, %17 ]
+  %20 = ptrtoint ptr %storemerge to i64
+  %21 = ptrtoint ptr %3 to i64
+  %22 = sub i64 %20, %21
+  %23 = add i64 %22, 7
+  %24 = and i64 %23, -8
+  %.not.i13 = icmp eq i64 %24, %22
+  br i1 %.not.i13, label %_ZL13alignPositionPhS_.exit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %_ZL19defineCfaExpressionPhij.exit
-  %24 = sub i64 %23, %21
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
+.lr.ph.preheader.i:                               ; preds = %_ZL27defineSavedRegisterLocationPhij.exit
+  %25 = sub i64 %24, %22
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %storemerge, i8 0, i64 %umax.i, i1 false)
   %scevgep.i = getelementptr i8, ptr %storemerge, i64 %umax.i
   %.pre = ptrtoint ptr %scevgep.i to i64
-  %.pre27 = sub i64 %.pre, %20
+  %.pre14 = sub i64 %.pre, %21
   br label %_ZL13alignPositionPhS_.exit
 
-_ZL13alignPositionPhS_.exit:                      ; preds = %_ZL19defineCfaExpressionPhij.exit, %.lr.ph.preheader.i
-  %.pre-phi28 = phi i64 [ %21, %_ZL19defineCfaExpressionPhij.exit ], [ %.pre27, %.lr.ph.preheader.i ]
-  %.08.lcssa.i = phi ptr [ %storemerge, %_ZL19defineCfaExpressionPhij.exit ], [ %scevgep.i, %.lr.ph.preheader.i ]
+_ZL13alignPositionPhS_.exit:                      ; preds = %_ZL27defineSavedRegisterLocationPhij.exit, %.lr.ph.preheader.i
+  %.pre-phi15 = phi i64 [ %22, %_ZL27defineSavedRegisterLocationPhij.exit ], [ %.pre14, %.lr.ph.preheader.i ]
+  %.08.lcssa.i = phi ptr [ %storemerge, %_ZL27defineSavedRegisterLocationPhij.exit ], [ %scevgep.i, %.lr.ph.preheader.i ]
   store ptr %.08.lcssa.i, ptr %2, align 8
-  %25 = trunc i64 %.pre-phi28 to i32
-  %26 = add i32 %25, -4
-  store i32 %26, ptr %3, align 1
+  %26 = trunc i64 %.pre-phi15 to i32
+  %27 = add i32 %26, -4
+  store i32 %27, ptr %3, align 1
   ret void
 }
 

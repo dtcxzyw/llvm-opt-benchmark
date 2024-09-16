@@ -139,8 +139,6 @@ $_ZN7testing8internal15TestFactoryImplI25Symbolize_Truncation_TestED0Ev = comdat
 
 $_ZN7testing8internal15TestFactoryImplI25Symbolize_Truncation_TestE10CreateTestEv = comdat any
 
-$_ZN4absl12log_internal10LogMessagelsILi34EEERS1_RAT__Kc = comdat any
-
 $_ZN4absl12log_internal10LogMessagelsILi56EEERS1_RAT__Kc = comdat any
 
 $_ZN7testing8internal15TestFactoryImplI38Symbolize_SymbolizeWithDemangling_TestED2Ev = comdat any
@@ -563,8 +561,6 @@ $_ZZN7testing8internal31CanonicalizeForStdLibVersioningENSt7__cxx1112basic_strin
 @_ZTVN7testing8internal15TestFactoryImplI25Symbolize_Truncation_TestEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplI25Symbolize_Truncation_TestEE, ptr @_ZN7testing8internal15TestFactoryImplI25Symbolize_Truncation_TestED2Ev, ptr @_ZN7testing8internal15TestFactoryImplI25Symbolize_Truncation_TestED0Ev, ptr @_ZN7testing8internal15TestFactoryImplI25Symbolize_Truncation_TestE10CreateTestEv] }, comdat, align 8
 @_ZTSN7testing8internal15TestFactoryImplI25Symbolize_Truncation_TestEE = linkonce_odr dso_local constant [66 x i8] c"N7testing8internal15TestFactoryImplI25Symbolize_Truncation_TestEE\00", comdat, align 1
 @_ZTIN7testing8internal15TestFactoryImplI25Symbolize_Truncation_TestEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplI25Symbolize_Truncation_TestEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
-@.str.121 = private unnamed_addr constant [38 x i8] c"limit <= sizeof(try_symbolize_buffer)\00", align 1
-@.str.122 = private unnamed_addr constant [34 x i8] c"try_symbolize_buffer is too small\00", align 1
 @.str.123 = private unnamed_addr constant [82 x i8] c"static_cast<int>( strnlen(heap_buffer.get(), static_cast<size_t>(limit))) < limit\00", align 1
 @.str.124 = private unnamed_addr constant [56 x i8] c"absl::Symbolize() did not properly terminate the string\00", align 1
 @_ZL20try_symbolize_buffer = internal global [4096 x i8] zeroinitializer, align 16
@@ -2199,70 +2195,12 @@ eh.resume:                                        ; preds = %lpad163, %_ZN7testi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL21TrySymbolizeWithLimitPvi(ptr noundef %pc, i32 noundef %limit) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
-entry:
-  %comb.i.i = alloca %"class.absl::log_internal::CheckOpMessageBuilder", align 8
-  %ref.tmp5 = alloca %"class.absl::log_internal::LogMessageFatal", align 8
+define internal fastcc noundef ptr @_ZL21TrySymbolizeWithLimitPvi(ptr noundef %pc, i32 noundef range(i32 0, 4097) %limit) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+while.end:
   %ref.tmp29 = alloca %"class.absl::log_internal::LogMessageFatal", align 8
-  %conv.i = sext i32 %limit to i64
-  %cmp.not.i = icmp ugt i32 %limit, 4096
-  br i1 %cmp.not.i, label %cond.false.i, label %while.end
-
-cond.false.i:                                     ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %comb.i.i)
-  call void @_ZN4absl12log_internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(376) %comb.i.i, ptr noundef nonnull @.str.121)
-  %call1.i1.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i, i64 noundef %conv.i)
-          to label %invoke.cont.i.i unwind label %lpad.i.i
-
-invoke.cont.i.i:                                  ; preds = %cond.false.i
-  %call2.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12log_internal21CheckOpMessageBuilder7ForVar2Ev(ptr noundef nonnull align 8 dereferenceable(376) %comb.i.i)
-          to label %invoke.cont1.i.i unwind label %lpad.i.i
-
-invoke.cont1.i.i:                                 ; preds = %invoke.cont.i.i
-  %call1.i2.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call2.i.i, i64 noundef 4096)
-          to label %invoke.cont3.i.i unwind label %lpad.i.i
-
-invoke.cont3.i.i:                                 ; preds = %invoke.cont1.i.i
-  %call5.i.i = invoke noundef ptr @_ZN4absl12log_internal21CheckOpMessageBuilder9NewStringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(376) %comb.i.i)
-          to label %_ZN4absl12log_internal12Check_LEImplIimEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit unwind label %lpad.i.i
-
-common.resume:                                    ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i.i ], [ %6, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit ]
-  resume { ptr, i32 } %common.resume.op
-
-lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %invoke.cont1.i.i, %invoke.cont.i.i, %cond.false.i
-  %0 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %comb.i.i) #28
-  br label %common.resume
-
-_ZN4absl12log_internal12Check_LEImplIimEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont3.i.i
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %comb.i.i) #28
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %comb.i.i)
-  %tobool.not = icmp eq ptr %call5.i.i, null
-  br i1 %tobool.not, label %while.end, label %while.body
-
-while.body:                                       ; preds = %_ZN4absl12log_internal12Check_LEImplIimEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
-  %call6 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i) #28
-  %1 = extractvalue { i64, ptr } %call6, 0
-  %2 = extractvalue { i64, ptr } %call6, 1
-  call void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5, ptr noundef nonnull @.str.1, i32 noundef 137, i64 %1, ptr %2) #29
-  %call8 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessagelsILi34EEERS1_RAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5, ptr noundef nonnull align 1 dereferenceable(34) @.str.122)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %while.body
-  call void @_ZN4absl12log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5) #30
-  unreachable
-
-lpad:                                             ; preds = %while.body
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN4absl12log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5) #30
-  unreachable
-
-while.end:                                        ; preds = %entry, %_ZN4absl12log_internal12Check_LEImplIimEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
-  %call.i = call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #33, !noalias !11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %call.i, i8 0, i64 4096, i1 false), !noalias !11
+  %conv.i = zext nneg i32 %limit to i64
+  %call.i = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #33, !noalias !11
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %call.i, i8 0, i64 4096, i1 false), !noalias !11
   %call13 = invoke noundef zeroext i1 @_ZN4absl9SymbolizeEPKvPci(ptr noundef %pc, ptr noundef nonnull %call.i, i32 noundef %limit)
           to label %invoke.cont12 unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
@@ -2270,23 +2208,21 @@ invoke.cont12:                                    ; preds = %while.end
   br i1 %call13, label %while.cond15, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit11
 
 while.cond15:                                     ; preds = %invoke.cont12
-  %conv = zext nneg i32 %limit to i64
-  %call18 = call i64 @strnlen(ptr noundef nonnull %call.i, i64 noundef %conv) #32
+  %call18 = tail call i64 @strnlen(ptr noundef nonnull %call.i, i64 noundef %conv.i) #32
   %conv19 = trunc i64 %call18 to i32
   %cmp.i.i = icmp sgt i32 %limit, %conv19
   br i1 %cmp.i.i, label %while.end38, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %while.cond15
-  %sext = shl i64 %call18, 32
-  %conv.i.i = ashr exact i64 %sext, 32
+  %conv.i.i = and i64 %call18, 4294967295
   %call.i.i7 = invoke noundef nonnull ptr @_ZN4absl12log_internal17MakeCheckOpStringIllEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %conv.i.i, i64 noundef %conv.i, ptr noundef nonnull @.str.123)
           to label %while.body27 unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
 while.body27:                                     ; preds = %cond.false.i.i
-  %call31 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i7) #28
-  %4 = extractvalue { i64, ptr } %call31, 0
-  %5 = extractvalue { i64, ptr } %call31, 1
-  invoke void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp29, ptr noundef nonnull @.str.1, i32 noundef 146, i64 %4, ptr %5) #29
+  %call31 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i7) #28
+  %0 = extractvalue { i64, ptr } %call31, 0
+  %1 = extractvalue { i64, ptr } %call31, 1
+  invoke void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp29, ptr noundef nonnull @.str.1, i32 noundef 146, i64 %0, ptr %1) #29
           to label %invoke.cont32 unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
 invoke.cont32:                                    ; preds = %while.body27
@@ -2298,25 +2234,25 @@ invoke.cont35:                                    ; preds = %invoke.cont32
   unreachable
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %cond.false.i.i, %while.body27, %while.end
-  %6 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdaPv(ptr noundef nonnull %call.i) #31
-  br label %common.resume
+  resume { ptr, i32 } %2
 
 lpad34:                                           ; preds = %invoke.cont32
-  %7 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp29) #30
   unreachable
 
 while.end38:                                      ; preds = %while.cond15
-  %call40 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZL20try_symbolize_buffer, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 4095) #28
+  %call40 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZL20try_symbolize_buffer, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 4095) #28
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL20try_symbolize_buffer, i64 4095), align 1
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit11
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit11: ; preds = %while.end38, %invoke.cont12
   %cond = phi ptr [ @_ZL20try_symbolize_buffer, %while.end38 ], [ null, %invoke.cont12 ]
-  call void @_ZdaPv(ptr noundef nonnull %call.i) #31
+  tail call void @_ZdaPv(ptr noundef nonnull %call.i) #31
   ret ptr %cond
 }
 
@@ -7287,14 +7223,6 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %0
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessagelsILi34EEERS1_RAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(34) %buf) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #28
-  tail call void @_ZN4absl12log_internal10LogMessage19CopyToEncodedBufferILNS1_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 %call.i.i, ptr nonnull %buf)
-  ret ptr %this
-}
-
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
 
@@ -7308,8 +7236,6 @@ entry:
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #20
-
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 

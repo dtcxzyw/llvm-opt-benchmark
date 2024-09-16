@@ -826,7 +826,7 @@ define internal i32 @js_os_init(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not36, label %26, label %21
 
 21:                                               ; preds = %18
-  %22 = tail call fastcc { i64, i64 } @js_worker_ctor_internal(ptr noundef %0, i64 0, i64 3, ptr noundef nonnull %17, ptr noundef nonnull %20)
+  %22 = tail call fastcc { i64, i64 } @js_worker_ctor_internal(ptr noundef %0, i64 0, i64 3, ptr noundef %17, ptr noundef nonnull %20)
   %23 = extractvalue { i64, i64 } %22, 0
   %24 = extractvalue { i64, i64 } %22, 1
   %25 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %13, i64 %14, ptr noundef nonnull @.str.101, i64 %23, i64 %24, i32 noundef 7) #30
@@ -4336,7 +4336,7 @@ define internal { i64, i64 } @js_std_sprintf(ptr noundef %0, i64 %1, i64 %2, i32
 declare void @JS_RunGC(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @get_bool_option(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 %2, i64 %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @get_bool_option(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, i64 %2, i64 %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %2, i64 %3, ptr noundef %4) #30
   %7 = extractvalue { i64, i64 } %6, 0
   %8 = extractvalue { i64, i64 } %6, 1
@@ -5177,7 +5177,7 @@ js_new_message_pipe.exit83.thread:                ; preds = %62, %47
   %78 = getelementptr inbounds i8, ptr %calloc, i64 24
   store ptr %61, ptr %78, align 8
   %79 = load ptr, ptr %57, align 8
-  %80 = call fastcc { i64, i64 } @js_worker_ctor_internal(ptr noundef %0, i64 %1, i64 %2, ptr noundef nonnull %61, ptr noundef %79)
+  %80 = call fastcc { i64, i64 } @js_worker_ctor_internal(ptr noundef %0, i64 %1, i64 %2, ptr noundef %61, ptr noundef %79)
   %81 = extractvalue { i64, i64 } %80, 0
   %82 = extractvalue { i64, i64 } %80, 1
   %83 = and i64 %82, 4294967295
@@ -5268,7 +5268,7 @@ JS_FreeValue.exit:                                ; preds = %112, %107, %104, %9
 declare void @JS_SetConstructor(ptr noundef, i64, i64, i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @js_worker_ctor_internal(ptr noundef %0, i64 %1, i64 %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @js_worker_ctor_internal(ptr noundef %0, i64 %1, i64 %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = and i64 %2, 4294967295
   %.not = icmp eq i64 %6, 3
   br i1 %.not, label %7, label %11
@@ -8178,12 +8178,12 @@ JS_FreeValue.exit280:                             ; preds = %47, %51, %56
   %.sroa.0147.0.copyload = load i64, ptr %70, align 8
   %.sroa.9.0..sroa_idx = getelementptr i8, ptr %4, i64 24
   %.sroa.9.0.copyload = load i64, ptr %.sroa.9.0..sroa_idx, align 8
-  %71 = call fastcc i32 @get_bool_option(ptr noundef %0, ptr noundef nonnull %8, i64 %.sroa.0147.0.copyload, i64 %.sroa.9.0.copyload, ptr noundef nonnull @.str.200)
+  %71 = call fastcc i32 @get_bool_option(ptr noundef %0, ptr noundef %8, i64 %.sroa.0147.0.copyload, i64 %.sroa.9.0.copyload, ptr noundef nonnull @.str.200)
   %.not249 = icmp eq i32 %71, 0
   br i1 %.not249, label %72, label %.loopexit
 
 72:                                               ; preds = %69
-  %73 = call fastcc i32 @get_bool_option(ptr noundef %0, ptr noundef nonnull %9, i64 %.sroa.0147.0.copyload, i64 %.sroa.9.0.copyload, ptr noundef nonnull @.str.201)
+  %73 = call fastcc i32 @get_bool_option(ptr noundef %0, ptr noundef %9, i64 %.sroa.0147.0.copyload, i64 %.sroa.9.0.copyload, ptr noundef nonnull @.str.201)
   %.not250 = icmp eq i32 %73, 0
   br i1 %.not250, label %74, label %.loopexit
 
@@ -8504,7 +8504,7 @@ JS_FreeValue.exit286:                             ; preds = %150, %153, %158
   br i1 %.not271, label %204, label %203
 
 203:                                              ; preds = %201
-  call fastcc void @my_execvpe(ptr noundef %.3, ptr noundef nonnull %40, ptr noundef %.1222)
+  call fastcc void @my_execvpe(ptr noundef %.3, ptr noundef %40, ptr noundef %.1222)
   br label %206
 
 204:                                              ; preds = %201
@@ -9108,7 +9108,7 @@ declare i32 @setuid(i32 noundef) local_unnamed_addr #16
 declare i32 @setgid(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @my_execvpe(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #25 {
+define internal fastcc void @my_execvpe(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #25 {
   %4 = alloca [4096 x i8], align 16
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #32
   %6 = icmp eq i64 %5, 0
@@ -9125,7 +9125,7 @@ define internal fastcc void @my_execvpe(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @execve(ptr noundef %0, ptr noundef %1, ptr noundef %2) #30
+  %12 = tail call i32 @execve(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #30
   br label %.loopexit
 
 13:                                               ; preds = %9
@@ -9175,7 +9175,7 @@ define internal fastcc void @my_execvpe(ptr noundef %0, ptr noundef %1, ptr noun
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %gep, ptr align 1 %0, i64 %5, i1 false)
   %30 = getelementptr [4096 x i8], ptr %4, i64 0, i64 %28
   store i8 0, ptr %30, align 1
-  %31 = call i32 @execve(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2) #30
+  %31 = call i32 @execve(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef %2) #30
   %32 = tail call ptr @__errno_location() #29
   %33 = load i32, ptr %32, align 4
   switch i32 %33, label %.loopexit [

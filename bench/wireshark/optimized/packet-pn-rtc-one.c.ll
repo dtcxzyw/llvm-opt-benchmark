@@ -687,7 +687,7 @@ addresses_equal.exit561:                          ; preds = %144, %136, %130, %1
 
 263:                                              ; preds = %250
   %264 = load i32, ptr @hf_pn_io_ps_f_data, align 4
-  %265 = call fastcc i32 @dissect_pn_io_ps_uint(ptr noundef %0, i32 noundef %.2460645, ptr noundef %2, ptr noundef %216, ptr noundef %4, i32 noundef %264, i8 noundef zeroext %262, ptr noundef nonnull %7)
+  %265 = call fastcc i32 @dissect_pn_io_ps_uint(ptr noundef %0, i32 noundef %.2460645, ptr noundef %2, ptr noundef %216, ptr noundef %4, i32 noundef %264, i8 noundef zeroext %262, ptr noundef %7)
   br label %266
 
 266:                                              ; preds = %263, %250
@@ -1192,7 +1192,7 @@ dissect_PNIO_IOCS.exit:                           ; preds = %397, %398
 
 536:                                              ; preds = %523
   %537 = load i32, ptr @hf_pn_io_ps_f_data, align 4
-  %538 = call fastcc i32 @dissect_pn_io_ps_uint(ptr noundef %0, i32 noundef %.11669, ptr noundef %2, ptr noundef %489, ptr noundef %4, i32 noundef %537, i8 noundef zeroext %535, ptr noundef nonnull %7)
+  %538 = call fastcc i32 @dissect_pn_io_ps_uint(ptr noundef %0, i32 noundef %.11669, ptr noundef %2, ptr noundef %489, ptr noundef %4, i32 noundef %537, i8 noundef zeroext %535, ptr noundef %7)
   br label %539
 
 539:                                              ; preds = %536, %523
@@ -1544,7 +1544,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_pn_io_ps_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i8 noundef zeroext %6, ptr nocapture noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_pn_io_ps_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i8 noundef zeroext %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #0 {
   %9 = zext i8 %6 to i32
   switch i8 %6, label %.thread [
     i8 1, label %10

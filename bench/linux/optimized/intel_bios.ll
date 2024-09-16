@@ -7063,7 +7063,7 @@ declare dso_local void @drm_mode_set_name(ptr noundef) local_unnamed_addr #6
 declare dso_local i32 @drm_mode_vrefresh(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @fill_detail_timing_data(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #5 align 16 {
+define internal fastcc void @fill_detail_timing_data(ptr noundef readonly %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #5 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   %5 = load i8, ptr %4, align 1
   %6 = lshr i8 %5, 4
@@ -7236,7 +7236,7 @@ define internal fastcc void @fill_detail_timing_data(ptr noundef readonly %0, pt
   br label %139
 
 139:                                              ; preds = %134, %125
-  tail call void @drm_mode_set_name(ptr noundef %1) #17
+  tail call void @drm_mode_set_name(ptr noundef nonnull %1) #17
   ret void
 }
 

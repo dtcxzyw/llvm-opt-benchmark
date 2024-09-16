@@ -1570,7 +1570,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_forceip_cmd(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_forceip_cmd(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %4
 
@@ -1592,7 +1592,7 @@ define internal fastcc void @dissect_forceip_cmd(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_packetresend_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_packetresend_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 -1, 17) %4) unnamed_addr #0 {
   %6 = icmp eq i32 %4, 0
   br i1 %6, label %7, label %14
 
@@ -1656,7 +1656,7 @@ define internal fastcc void @dissect_packetresend_cmd(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_readreg_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_readreg_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   store ptr null, ptr %7, align 8
@@ -1761,7 +1761,7 @@ dissect_extended_bootstrap_register.exit.us.us:   ; preds = %.lr.ph.split.us, %d
   %.03955.us.us = phi i32 [ %50, %dissect_extended_bootstrap_register.exit.us.us ], [ 8, %.lr.ph.split.us ]
   %49 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.03955.us.us) #5
   store i32 %49, ptr %8, align 4
-  %50 = add i32 %.03955.us.us, 4
+  %50 = add nuw nsw i32 %.03955.us.us, 4
   %51 = add nuw nsw i32 %.03856.us.us, 1
   %exitcond64.not = icmp eq i32 %51, %9
   br i1 %exitcond64.not, label %._crit_edge, label %dissect_extended_bootstrap_register.exit.us.us, !llvm.loop !8
@@ -1784,7 +1784,7 @@ dissect_extended_bootstrap_register.exit.us.us:   ; preds = %.lr.ph.split.us, %d
   br label %dissect_extended_bootstrap_register.exit.us
 
 dissect_extended_bootstrap_register.exit.us:      ; preds = %57, %.lr.ph.split.us.split
-  %59 = add i32 %.03955.us, 4
+  %59 = add nuw nsw i32 %.03955.us, 4
   %60 = add nuw nsw i32 %.03856.us, 1
   %exitcond63.not = icmp eq i32 %60, %9
   br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !8
@@ -1863,7 +1863,7 @@ switch.lookup:                                    ; preds = %is_extended_bootstr
   br label %dissect_extended_bootstrap_register.exit
 
 dissect_extended_bootstrap_register.exit:         ; preds = %is_extended_bootstrap_address.exit, %switch.lookup, %72, %89
-  %92 = add i32 %.03955, 4
+  %92 = add nuw nsw i32 %.03955, 4
   %93 = add nuw nsw i32 %.03856, 1
   %exitcond.not = icmp eq i32 %93, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
@@ -1873,7 +1873,7 @@ dissect_extended_bootstrap_register.exit:         ; preds = %is_extended_bootstr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_writereg_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_writereg_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef readonly %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
   %8 = lshr i32 %3, 3
@@ -2121,7 +2121,7 @@ dissect_extended_bootstrap_register.exit:         ; preds = %is_extended_bootstr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_writemem_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_writemem_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 8) #5
   store i32 %8, ptr %7, align 4
@@ -2321,7 +2321,7 @@ dissect_register_data.exit:                       ; preds = %is_extended_bootstr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_event_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_event_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 -1, 17) %4) unnamed_addr #0 {
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef 10) #5
   %7 = zext i16 %6 to i32
   %8 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2339,11 +2339,13 @@ define internal fastcc void @dissect_event_cmd(ptr noundef %0, ptr noundef %1, p
   br label %16
 
 14:                                               ; preds = %10
-  %15 = udiv i32 %3, 24
+  %.lhs.trunc = trunc nuw i32 %3 to i16
+  %15 = udiv i16 %.lhs.trunc, 24
+  %.zext = zext nneg i16 %15 to i32
   br label %16
 
 16:                                               ; preds = %14, %12
-  %.0 = phi i32 [ %13, %12 ], [ %15, %14 ]
+  %.0 = phi i32 [ %13, %12 ], [ %.zext, %14 ]
   %17 = icmp ugt i32 %.0, 1
   br i1 %17, label %.thread, label %20
 
@@ -2402,7 +2404,7 @@ define internal fastcc void @dissect_event_cmd(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_eventdata_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_eventdata_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 17) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef 8) #5
   %6 = icmp sgt i32 %5, 12
   br i1 %6, label %.lr.ph, label %.loopexit
@@ -2482,7 +2484,7 @@ define internal fastcc void @dissect_eventdata_cmd(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_action_cmd(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_action_cmd(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 129) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %4
 
@@ -2512,7 +2514,7 @@ declare noalias ptr @wmem_array_new(ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_discovery_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_discovery_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 408
@@ -2604,7 +2606,7 @@ define internal fastcc void @dissect_discovery_ack(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_readreg_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, ptr noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_readreg_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef %4, ptr noundef readonly %5) unnamed_addr #0 {
   %7 = lshr i32 %3, 2
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %8
@@ -2728,7 +2730,7 @@ dissect_extended_bootstrap_register.exit.us:      ; preds = %dissect_extended_bo
   %.080132.us = phi i32 [ %54, %dissect_extended_bootstrap_register.exit.us ], [ 0, %dissect_extended_bootstrap_register.exit.us.preheader ]
   %51 = load i32, ptr @hf_gvcp_custom_register_value, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %.079165167, i32 noundef %51, ptr noundef %1, i32 noundef %.078133.us, i32 noundef 4, i32 noundef 0) #5
-  %53 = add i32 %.078133.us, 4
+  %53 = add nuw nsw i32 %.078133.us, 4
   %54 = add nuw nsw i32 %.080132.us, 1
   %exitcond.not = icmp eq i32 %54, %7
   br i1 %exitcond.not, label %.loopexit124, label %dissect_extended_bootstrap_register.exit.us, !llvm.loop !12
@@ -2852,7 +2854,7 @@ switch.lookup:                                    ; preds = %is_extended_bootstr
   br label %dissect_extended_bootstrap_register.exit
 
 dissect_extended_bootstrap_register.exit:         ; preds = %is_extended_bootstrap_address.exit, %switch.lookup, %97, %94, %102
-  %105 = add i32 %.078133, 4
+  %105 = add nuw nsw i32 %.078133, 4
   %106 = add nuw nsw i32 %.080132, 1
   %exitcond144.not = icmp eq i32 %106, %7
   br i1 %exitcond144.not, label %.loopexit124, label %.lr.ph.split, !llvm.loop !12
@@ -2917,153 +2919,153 @@ define internal fastcc void @dissect_writereg_ack(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_readmem_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
-  %6 = icmp sgt i32 %3, 0
-  br i1 %6, label %7, label %dissect_register_data.exit
+define internal fastcc void @dissect_readmem_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %dissect_register_data.exit, label %6
 
-7:                                                ; preds = %5
-  %8 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 8) #5
-  %9 = getelementptr inbounds i8, ptr %2, i64 408
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call ptr @try_val_to_str(i32 noundef %8, ptr noundef nonnull @bootstrapregisternames) #5
-  %.not16.i = icmp eq ptr %11, null
-  br i1 %.not16.i, label %12, label %get_register_name_from_address.exit
+6:                                                ; preds = %5
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 8) #5
+  %8 = getelementptr inbounds i8, ptr %2, i64 408
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call ptr @try_val_to_str(i32 noundef %7, ptr noundef nonnull @bootstrapregisternames) #5
+  %.not16.i = icmp eq ptr %10, null
+  br i1 %.not16.i, label %11, label %get_register_name_from_address.exit
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
-  br label %15
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  br label %14
 
-14:                                               ; preds = %15
+13:                                               ; preds = %14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 512
-  br i1 %exitcond.not.i.i, label %.thread.i, label %15, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.thread.i, label %14, !llvm.loop !7
 
-15:                                               ; preds = %14, %12
-  %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %14 ]
-  %16 = getelementptr [512 x i32], ptr %13, i64 0, i64 %indvars.iv.i.i
-  %17 = load i32, ptr %16, align 4
-  %18 = add i32 %17, -1
-  %or.cond.i.i = icmp uge i32 %18, %8
-  %19 = add i32 %17, 12
-  %.not19.i.i = icmp ugt i32 %8, %19
+14:                                               ; preds = %13, %11
+  %indvars.iv.i.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i.i, %13 ]
+  %15 = getelementptr [512 x i32], ptr %12, i64 0, i64 %indvars.iv.i.i
+  %16 = load i32, ptr %15, align 4
+  %17 = add i32 %16, -1
+  %or.cond.i.i = icmp uge i32 %17, %7
+  %18 = add i32 %16, 12
+  %.not19.i.i = icmp ugt i32 %7, %18
   %or.cond20.i.i = or i1 %or.cond.i.i, %.not19.i.i
-  br i1 %or.cond20.i.i, label %14, label %20
+  br i1 %or.cond20.i.i, label %13, label %19
 
-20:                                               ; preds = %15
-  %21 = sub i32 %8, %17
-  %22 = tail call ptr @try_val_to_str(i32 noundef %21, ptr noundef nonnull @extendedbootstrapregisternames) #5
-  %.not18.i = icmp eq ptr %22, null
+19:                                               ; preds = %14
+  %20 = sub i32 %7, %16
+  %21 = tail call ptr @try_val_to_str(i32 noundef %20, ptr noundef nonnull @extendedbootstrapregisternames) #5
+  %.not18.i = icmp eq ptr %21, null
   br i1 %.not18.i, label %.thread.i, label %get_register_name_from_address.exit
 
-.thread.i:                                        ; preds = %14, %20
-  %23 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %10, ptr noundef nonnull @.str.738, i32 noundef %8) #5
+.thread.i:                                        ; preds = %13, %19
+  %22 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %9, ptr noundef nonnull @.str.738, i32 noundef %7) #5
   br label %get_register_name_from_address.exit
 
-get_register_name_from_address.exit:              ; preds = %7, %20, %.thread.i
-  %.0.i = phi ptr [ %11, %7 ], [ %22, %20 ], [ %23, %.thread.i ]
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
-  %25 = load ptr, ptr %24, align 8
-  tail call void @col_append_str(ptr noundef %25, i32 noundef 25, ptr noundef %.0.i) #5
-  %.not = icmp eq ptr %0, null
-  br i1 %.not, label %dissect_register_data.exit, label %26
+get_register_name_from_address.exit:              ; preds = %6, %19, %.thread.i
+  %.0.i = phi ptr [ %10, %6 ], [ %21, %19 ], [ %22, %.thread.i ]
+  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = load ptr, ptr %23, align 8
+  tail call void @col_append_str(ptr noundef %24, i32 noundef 25, ptr noundef %.0.i) #5
+  %.not40 = icmp eq ptr %0, null
+  br i1 %.not40, label %dissect_register_data.exit, label %25
 
-26:                                               ; preds = %get_register_name_from_address.exit
-  %27 = add nsw i32 %3, -4
-  %28 = load i32, ptr @hf_gvcp_readmemcmd_address, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %28, ptr noundef %1, i32 noundef 8, i32 noundef 4, i32 noundef 0) #5
-  %30 = tail call ptr @try_val_to_str(i32 noundef %8, ptr noundef nonnull @bootstrapregisternames) #5
-  %.not40 = icmp eq ptr %30, null
-  br i1 %.not40, label %48, label %31
+25:                                               ; preds = %get_register_name_from_address.exit
+  %26 = add nsw i32 %3, -4
+  %27 = load i32, ptr @hf_gvcp_readmemcmd_address, align 4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %27, ptr noundef %1, i32 noundef 8, i32 noundef 4, i32 noundef 0) #5
+  %29 = tail call ptr @try_val_to_str(i32 noundef %7, ptr noundef nonnull @bootstrapregisternames) #5
+  %.not41 = icmp eq ptr %29, null
+  br i1 %.not41, label %47, label %30
 
-31:                                               ; preds = %26
-  switch i32 %8, label %dissect_register_data.exit [
-    i32 72, label %32
-    i32 104, label %34
-    i32 136, label %36
-    i32 168, label %38
-    i32 216, label %40
-    i32 232, label %42
-    i32 512, label %44
-    i32 1024, label %46
+30:                                               ; preds = %25
+  switch i32 %7, label %dissect_register_data.exit [
+    i32 72, label %31
+    i32 104, label %33
+    i32 136, label %35
+    i32 168, label %37
+    i32 216, label %39
+    i32 232, label %41
+    i32 512, label %43
+    i32 1024, label %45
   ]
 
-32:                                               ; preds = %31
-  %33 = icmp eq i32 %27, 32
-  br i1 %33, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
+31:                                               ; preds = %30
+  %32 = icmp eq i32 %26, 32
+  br i1 %32, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
-34:                                               ; preds = %31
-  %35 = icmp eq i32 %27, 32
-  br i1 %35, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
+33:                                               ; preds = %30
+  %34 = icmp eq i32 %26, 32
+  br i1 %34, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
-36:                                               ; preds = %31
-  %37 = icmp eq i32 %27, 32
-  br i1 %37, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
+35:                                               ; preds = %30
+  %36 = icmp eq i32 %26, 32
+  br i1 %36, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
-38:                                               ; preds = %31
-  %39 = icmp eq i32 %27, 48
-  br i1 %39, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
+37:                                               ; preds = %30
+  %38 = icmp eq i32 %26, 48
+  br i1 %38, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
-40:                                               ; preds = %31
-  %41 = icmp eq i32 %27, 16
-  br i1 %41, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
+39:                                               ; preds = %30
+  %40 = icmp eq i32 %26, 16
+  br i1 %40, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
-42:                                               ; preds = %31
-  %43 = icmp eq i32 %27, 16
-  br i1 %43, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
+41:                                               ; preds = %30
+  %42 = icmp eq i32 %26, 16
+  br i1 %42, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
-44:                                               ; preds = %31
-  %45 = icmp eq i32 %27, 512
-  br i1 %45, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
+43:                                               ; preds = %30
+  %44 = icmp eq i32 %26, 512
+  br i1 %44, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
-46:                                               ; preds = %31
-  %47 = icmp eq i32 %27, 512
-  br i1 %47, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
+45:                                               ; preds = %30
+  %46 = icmp eq i32 %26, 512
+  br i1 %46, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
-48:                                               ; preds = %26
-  %49 = getelementptr inbounds i8, ptr %4, i64 8
-  br label %51
+47:                                               ; preds = %25
+  %48 = getelementptr inbounds i8, ptr %4, i64 8
+  br label %50
 
-50:                                               ; preds = %51
+49:                                               ; preds = %50
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
-  br i1 %exitcond.not.i, label %dissect_register_data.exit.sink.split, label %51, !llvm.loop !7
+  br i1 %exitcond.not.i, label %dissect_register_data.exit.sink.split, label %50, !llvm.loop !7
 
-51:                                               ; preds = %50, %48
-  %indvars.iv.i = phi i64 [ 0, %48 ], [ %indvars.iv.next.i, %50 ]
-  %52 = getelementptr [512 x i32], ptr %49, i64 0, i64 %indvars.iv.i
-  %53 = load i32, ptr %52, align 4
-  %54 = add i32 %53, -1
-  %or.cond.i = icmp uge i32 %54, %8
-  %55 = add i32 %53, 12
-  %.not19.i = icmp ugt i32 %8, %55
+50:                                               ; preds = %49, %47
+  %indvars.iv.i = phi i64 [ 0, %47 ], [ %indvars.iv.next.i, %49 ]
+  %51 = getelementptr [512 x i32], ptr %48, i64 0, i64 %indvars.iv.i
+  %52 = load i32, ptr %51, align 4
+  %53 = add i32 %52, -1
+  %or.cond.i = icmp uge i32 %53, %7
+  %54 = add i32 %52, 12
+  %.not19.i = icmp ugt i32 %7, %54
   %or.cond20.i = or i1 %or.cond.i, %.not19.i
-  br i1 %or.cond20.i, label %50, label %is_extended_bootstrap_address.exit
+  br i1 %or.cond20.i, label %49, label %is_extended_bootstrap_address.exit
 
-is_extended_bootstrap_address.exit:               ; preds = %51
-  %56 = sub i32 %8, %53
-  %57 = tail call i32 @llvm.fshl.i32(i32 %56, i32 %56, i32 30)
-  %58 = icmp ult i32 %57, 4
-  br i1 %58, label %switch.lookup, label %dissect_register_data.exit
+is_extended_bootstrap_address.exit:               ; preds = %50
+  %55 = sub i32 %7, %52
+  %56 = tail call i32 @llvm.fshl.i32(i32 %55, i32 %55, i32 30)
+  %57 = icmp ult i32 %56, 4
+  br i1 %57, label %switch.lookup, label %dissect_register_data.exit
 
 switch.lookup:                                    ; preds = %is_extended_bootstrap_address.exit
-  %59 = zext nneg i32 %57 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %59
+  %58 = zext nneg i32 %56 to i64
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %58
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dissect_register_data.exit.sink.split
 
-dissect_register_data.exit.sink.split:            ; preds = %50, %switch.lookup, %32, %34, %36, %38, %40, %42, %44, %46
-  %hf_gvcp_sc_gendc_descriptor_address_v2_2.sink.i.sink = phi ptr [ @hf_gvcp_manufacturer_name, %32 ], [ @hf_gvcp_model_name, %34 ], [ @hf_gvcp_device_version, %36 ], [ @hf_gvcp_manufacturer_specific_info, %38 ], [ @hf_gvcp_serial_number, %40 ], [ @hf_gvcp_user_defined_name, %42 ], [ @hf_gvcp_first_xml_device_description_file, %44 ], [ @hf_gvcp_second_xml_device_description_file, %46 ], [ %switch.load, %switch.lookup ], [ @hf_gvcp_readmemcmd_data_read, %50 ]
-  %.sink58 = phi i32 [ -1, %32 ], [ -1, %34 ], [ -1, %36 ], [ -1, %38 ], [ -1, %40 ], [ -1, %42 ], [ -1, %44 ], [ -1, %46 ], [ 4, %switch.lookup ], [ %27, %50 ]
-  %60 = load i32, ptr %hf_gvcp_sc_gendc_descriptor_address_v2_2.sink.i.sink, align 4
-  %61 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %60, ptr noundef %1, i32 noundef 12, i32 noundef %.sink58, i32 noundef 0) #5
+dissect_register_data.exit.sink.split:            ; preds = %49, %switch.lookup, %31, %33, %35, %37, %39, %41, %43, %45
+  %hf_gvcp_sc_gendc_descriptor_address_v2_2.sink.i.sink = phi ptr [ @hf_gvcp_manufacturer_name, %31 ], [ @hf_gvcp_model_name, %33 ], [ @hf_gvcp_device_version, %35 ], [ @hf_gvcp_manufacturer_specific_info, %37 ], [ @hf_gvcp_serial_number, %39 ], [ @hf_gvcp_user_defined_name, %41 ], [ @hf_gvcp_first_xml_device_description_file, %43 ], [ @hf_gvcp_second_xml_device_description_file, %45 ], [ %switch.load, %switch.lookup ], [ @hf_gvcp_readmemcmd_data_read, %49 ]
+  %.sink59 = phi i32 [ -1, %31 ], [ -1, %33 ], [ -1, %35 ], [ -1, %37 ], [ -1, %39 ], [ -1, %41 ], [ -1, %43 ], [ -1, %45 ], [ 4, %switch.lookup ], [ %26, %49 ]
+  %59 = load i32, ptr %hf_gvcp_sc_gendc_descriptor_address_v2_2.sink.i.sink, align 4
+  %60 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %59, ptr noundef %1, i32 noundef 12, i32 noundef %.sink59, i32 noundef 0) #5
   br label %dissect_register_data.exit
 
-dissect_register_data.exit:                       ; preds = %is_extended_bootstrap_address.exit, %dissect_register_data.exit.sink.split, %46, %44, %42, %40, %38, %36, %34, %32, %31, %get_register_name_from_address.exit, %5
+dissect_register_data.exit:                       ; preds = %is_extended_bootstrap_address.exit, %dissect_register_data.exit.sink.split, %45, %43, %41, %39, %37, %35, %33, %31, %30, %get_register_name_from_address.exit, %5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_writemem_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_writemem_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef readonly %4, ptr noundef readonly %5) unnamed_addr #0 {
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.thread, label %7
 
@@ -3169,7 +3171,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread, %42, %39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_pending_ack(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_pending_ack(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %4
 
@@ -3195,7 +3197,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_register(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_register(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #0 {
   switch i32 %0, label %442 [
     i32 0, label %6
     i32 4, label %11

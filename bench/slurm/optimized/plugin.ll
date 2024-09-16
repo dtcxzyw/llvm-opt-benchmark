@@ -348,7 +348,7 @@ define range(i32 0, 8011) i32 @plugin_peek(ptr noundef %0, ptr noundef %1, i64 n
   br label %14
 
 11:                                               ; preds = %3
-  %12 = tail call fastcc i32 @_verify_syms(ptr noundef nonnull %5, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @__func__.plugin_peek, ptr noundef %0)
+  %12 = tail call fastcc i32 @_verify_syms(ptr noundef %5, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @__func__.plugin_peek, ptr noundef %0)
   %13 = tail call i32 @dlclose(ptr noundef nonnull %5) #10
   br label %14
 
@@ -368,8 +368,8 @@ declare i32 @get_log_level() local_unnamed_addr #2
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 8011) i32 @_verify_syms(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = tail call ptr @dlsym(ptr noundef %0, ptr noundef nonnull @.str.11) #10
+define internal fastcc range(i32 0, 8011) i32 @_verify_syms(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+  %6 = tail call ptr @dlsym(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #10
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %12
 
@@ -384,7 +384,7 @@ define internal fastcc range(i32 0, 8011) i32 @_verify_syms(ptr noundef %0, ptr 
   br label %46
 
 12:                                               ; preds = %5
-  %13 = tail call ptr @dlsym(ptr noundef %0, ptr noundef nonnull @.str.30) #10
+  %13 = tail call ptr @dlsym(ptr noundef nonnull %0, ptr noundef nonnull @.str.30) #10
   %.not35 = icmp eq ptr %13, null
   br i1 %.not35, label %14, label %19
 
@@ -407,7 +407,7 @@ define internal fastcc range(i32 0, 8011) i32 @_verify_syms(ptr noundef %0, ptr 
   br label %22
 
 22:                                               ; preds = %20, %19
-  %23 = tail call ptr @dlsym(ptr noundef %0, ptr noundef nonnull @.str.31) #10
+  %23 = tail call ptr @dlsym(ptr noundef nonnull %0, ptr noundef nonnull @.str.31) #10
   %.not37 = icmp eq ptr %23, null
   %24 = tail call i32 @get_log_level() #10
   br i1 %.not37, label %25, label %29
@@ -475,7 +475,7 @@ define range(i32 0, 8011) i32 @plugin_load_from_file(ptr nocapture noundef write
   br label %20
 
 9:                                                ; preds = %2
-  %10 = tail call fastcc i32 @_verify_syms(ptr noundef nonnull %4, ptr noundef null, i64 noundef 0, ptr noundef nonnull @__func__.plugin_load_from_file, ptr noundef %1)
+  %10 = tail call fastcc i32 @_verify_syms(ptr noundef %4, ptr noundef null, i64 noundef 0, ptr noundef nonnull @__func__.plugin_load_from_file, ptr noundef %1)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %13, label %11
 

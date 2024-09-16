@@ -1660,7 +1660,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local void @crypto_destroy_tfm(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @gss_krb5_cts_crypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @gss_krb5_cts_crypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 align 16 {
   %7 = alloca [1 x %struct.scatterlist], align 16
   %8 = alloca [464 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #8

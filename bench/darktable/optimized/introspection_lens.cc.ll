@@ -11354,7 +11354,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare noundef ptr @_ZNK10lfDatabase10GetCamerasEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16camera_menu_fillP15dt_iop_module_tPKPK8lfCamera(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+define internal fastcc void @_ZL16camera_menu_fillP15dt_iop_module_tPKPK8lfCamera(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 704
   %4 = load ptr, ptr %3, align 16, !tbaa !91
   %5 = getelementptr inbounds i8, ptr %4, i64 40
@@ -11660,7 +11660,7 @@ declare ptr @g_object_get_data(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @dt_dev_add_history_item(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15_lens_menu_fillP15dt_iop_module_tPKPK6lfLens(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+define internal fastcc void @_ZL15_lens_menu_fillP15dt_iop_module_tPKPK6lfLens(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 704
   %4 = load ptr, ptr %3, align 16, !tbaa !91
   %5 = getelementptr inbounds i8, ptr %4, i64 56

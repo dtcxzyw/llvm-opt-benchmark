@@ -671,7 +671,7 @@ leader_of.exit44.i:                               ; preds = %226, %224
   br i1 %265, label %interclrep.exit, label %266
 
 266:                                              ; preds = %258
-  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef nonnull %spec.select41.i, ptr noundef nonnull %spec.select.i, ptr noundef nonnull %.1200260)
+  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef nonnull %spec.select41.i, ptr noundef nonnull %spec.select.i, ptr noundef %.1200260)
   %267 = load ptr, ptr %65, align 8
   %268 = getelementptr inbounds i8, ptr %267, i64 232
   %.03445.i = load ptr, ptr %268, align 8
@@ -862,7 +862,7 @@ leader_of.exit44.i:                               ; preds = %226, %224
   br i1 %386, label %387, label %388
 
 387:                                              ; preds = %385
-  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef nonnull %368, ptr noundef nonnull %373, ptr noundef nonnull %.1200260)
+  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef nonnull %368, ptr noundef nonnull %373, ptr noundef %.1200260)
   br label %interclrep.exit
 
 388:                                              ; preds = %385
@@ -916,7 +916,7 @@ leader_of.exit44.i:                               ; preds = %226, %224
   %420 = getelementptr inbounds i8, ptr %.0255, i64 %.idx228
   %421 = getelementptr inbounds i8, ptr %420, i64 56
   %422 = load ptr, ptr %421, align 8
-  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef %422, ptr noundef %395, ptr noundef nonnull %.0255)
+  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef %422, ptr noundef %395, ptr noundef %.0255)
   br label %423
 
 423:                                              ; preds = %418, %414
@@ -976,7 +976,7 @@ leader_of.exit44.i:                               ; preds = %226, %224
   %456 = select i1 %455, ptr %.1200260, ptr %343
   %457 = getelementptr inbounds i8, ptr %456, i64 56
   %458 = load ptr, ptr %457, align 8
-  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef %454, ptr noundef %458, ptr noundef nonnull %.1200260)
+  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef %454, ptr noundef %458, ptr noundef %.1200260)
   br label %interclrep.exit
 
 interclrep.exit:                                  ; preds = %283, %.lr.ph.i, %443, %438, %266, %258, %257, %leader_of.exit44.i, %.lr.ph263, %354, %369, %334, %337, %merge_chain.exit, %193, %191, %.critedge, %387, %384, %353, %318
@@ -1049,7 +1049,7 @@ declare void @merge_oneway(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @flat_edge(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @make_chain(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @make_chain(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 120
@@ -1171,7 +1171,7 @@ label_vnode.exit:                                 ; preds = %.sink.split.i, %19,
 
 69:                                               ; preds = %14, %label_vnode.exit
   %.1 = phi ptr [ %.022, %label_vnode.exit ], [ %2, %14 ]
-  %70 = tail call ptr @virtual_edge(ptr noundef nonnull %.02329, ptr noundef nonnull %.1, ptr noundef %3) #9
+  %70 = tail call ptr @virtual_edge(ptr noundef nonnull %.02329, ptr noundef nonnull %.1, ptr noundef nonnull %3) #9
   tail call void @virtual_weight(ptr noundef %70) #9
   %71 = load ptr, ptr %12, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 360

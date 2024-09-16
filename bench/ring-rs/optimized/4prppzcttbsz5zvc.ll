@@ -2153,8 +2153,7 @@ define hidden void @_ZN4ring2io6writer12TooLongError3new17h513b2f9deb057fb6E() u
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZN4ring6digest4sha116block_data_order17hcdd7d842b3d63616E(ptr noalias nocapture noundef align 8 dereferenceable(64) %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd6ea9ecaac1dc75cE.exit":
-  %3 = alloca [80 x i32], align 4
+  %4 = alloca [80 x i32], align 4
   %.sroa.0.0.copyload = load i32, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
@@ -2165,161 +2164,161 @@ define void @_ZN4ring6digest4sha116block_data_order17hcdd7d842b3d63616E(ptr noal
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.12.0.copyload = load i32, ptr %.sroa.12.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
-  %4 = getelementptr inbounds [16 x [4 x i8]], ptr %1, i64 %2
-  %5 = icmp eq i64 %2, 0
-  br i1 %5, label %_ZN4ring6digest4sha117block_data_order_17hb9d1e648c365597dE.exit, label %.lr.ph.i
+  %5 = getelementptr inbounds [16 x [4 x i8]], ptr %1, i64 %2
+  %6 = icmp eq i64 %2, 0
+  br i1 %6, label %_ZN4ring6digest4sha117block_data_order_17hb9d1e648c365597dE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd6ea9ecaac1dc75cE.exit", %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i
-  %6 = phi i32 [ %60, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ], [ %.sroa.12.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd6ea9ecaac1dc75cE.exit" ]
-  %7 = phi i32 [ %59, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ], [ %.sroa.10.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd6ea9ecaac1dc75cE.exit" ]
-  %8 = phi i32 [ %58, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ], [ %.sroa.8.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd6ea9ecaac1dc75cE.exit" ]
-  %9 = phi i32 [ %57, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ], [ %.sroa.6.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd6ea9ecaac1dc75cE.exit" ]
-  %.sroa.0.0135.i = phi ptr [ %55, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ], [ %1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd6ea9ecaac1dc75cE.exit" ]
-  %10 = phi i32 [ %56, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ], [ %.sroa.0.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd6ea9ecaac1dc75cE.exit" ]
-  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %3), !noalias !188
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %3, i8 0, i64 320, i1 false), !noalias !188
-  br label %80
+.lr.ph.i:                                         ; preds = %3, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i
+  %7 = phi i32 [ %61, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ], [ %.sroa.12.0.copyload, %3 ]
+  %8 = phi i32 [ %60, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ], [ %.sroa.10.0.copyload, %3 ]
+  %9 = phi i32 [ %59, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ], [ %.sroa.8.0.copyload, %3 ]
+  %10 = phi i32 [ %58, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ], [ %.sroa.6.0.copyload, %3 ]
+  %.sroa.0.0135.i = phi ptr [ %56, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ], [ %1, %3 ]
+  %11 = phi i32 [ %57, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ], [ %.sroa.0.0.copyload, %3 ]
+  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %4), !noalias !188
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %4, i8 0, i64 320, i1 false), !noalias !188
+  br label %81
 
 .preheader140.i:                                  ; preds = %.preheader.preheader.i, %.preheader140.i
-  %.0.i39116.i = phi i32 [ %20, %.preheader140.i ], [ %10, %.preheader.preheader.i ]
-  %.025.i38115.i = phi i32 [ %.0.i39116.i, %.preheader140.i ], [ %9, %.preheader.preheader.i ]
-  %.026.i37114.i = phi i32 [ %21, %.preheader140.i ], [ %8, %.preheader.preheader.i ]
-  %.027.i36113.i = phi i32 [ %.026.i37114.i, %.preheader140.i ], [ %7, %.preheader.preheader.i ]
-  %.028.i35112.i = phi i32 [ %.027.i36113.i, %.preheader140.i ], [ %6, %.preheader.preheader.i ]
+  %.0.i39116.i = phi i32 [ %21, %.preheader140.i ], [ %11, %.preheader.preheader.i ]
+  %.025.i38115.i = phi i32 [ %.0.i39116.i, %.preheader140.i ], [ %10, %.preheader.preheader.i ]
+  %.026.i37114.i = phi i32 [ %22, %.preheader140.i ], [ %9, %.preheader.preheader.i ]
+  %.027.i36113.i = phi i32 [ %.026.i37114.i, %.preheader140.i ], [ %8, %.preheader.preheader.i ]
+  %.028.i35112.i = phi i32 [ %.027.i36113.i, %.preheader140.i ], [ %7, %.preheader.preheader.i ]
   %.sroa.073.0.idx111.i = phi i64 [ %.sroa.073.0.add.i, %.preheader140.i ], [ 0, %.preheader.preheader.i ]
-  %.sroa.073.0.ptr.i = getelementptr inbounds i8, ptr %3, i64 %.sroa.073.0.idx111.i
+  %.sroa.073.0.ptr.i = getelementptr inbounds i8, ptr %4, i64 %.sroa.073.0.idx111.i
   %.sroa.073.0.add.i = add nuw nsw i64 %.sroa.073.0.idx111.i, 4
-  %11 = and i32 %.026.i37114.i, %.025.i38115.i
-  %12 = xor i32 %.025.i38115.i, -1
-  %13 = and i32 %.027.i36113.i, %12
-  %14 = tail call i32 @llvm.fshl.i32(i32 %.0.i39116.i, i32 %.0.i39116.i, i32 5)
-  %15 = load i32, ptr %.sroa.073.0.ptr.i, align 4, !noalias !191, !noundef !4
-  %16 = add i32 %14, 1518500249
-  %17 = add i32 %16, %11
-  %18 = add i32 %17, %.028.i35112.i
-  %19 = add i32 %18, %13
-  %20 = add i32 %19, %15
-  %21 = tail call i32 @llvm.fshl.i32(i32 %.025.i38115.i, i32 %.025.i38115.i, i32 30)
-  %22 = icmp eq i64 %.sroa.073.0.add.i, 80
-  br i1 %22, label %_ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i, label %.preheader140.i
+  %12 = and i32 %.026.i37114.i, %.025.i38115.i
+  %13 = xor i32 %.025.i38115.i, -1
+  %14 = and i32 %.027.i36113.i, %13
+  %15 = tail call i32 @llvm.fshl.i32(i32 %.0.i39116.i, i32 %.0.i39116.i, i32 5)
+  %16 = load i32, ptr %.sroa.073.0.ptr.i, align 4, !noalias !191, !noundef !4
+  %17 = add i32 %15, 1518500249
+  %18 = add i32 %17, %12
+  %19 = add i32 %18, %.028.i35112.i
+  %20 = add i32 %19, %14
+  %21 = add i32 %20, %16
+  %22 = tail call i32 @llvm.fshl.i32(i32 %.025.i38115.i, i32 %.025.i38115.i, i32 30)
+  %23 = icmp eq i64 %.sroa.073.0.add.i, 80
+  br i1 %23, label %_ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i, label %.preheader140.i
 
 _ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i: ; preds = %.preheader140.i, %_ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i
-  %.0.i33122.i = phi i32 [ %30, %_ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i ], [ %20, %.preheader140.i ]
+  %.0.i33122.i = phi i32 [ %31, %_ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i ], [ %21, %.preheader140.i ]
   %.025.i32121.i = phi i32 [ %.0.i33122.i, %_ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i ], [ %.0.i39116.i, %.preheader140.i ]
-  %.026.i31120.i = phi i32 [ %31, %_ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i ], [ %21, %.preheader140.i ]
+  %.026.i31120.i = phi i32 [ %32, %_ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i ], [ %22, %.preheader140.i ]
   %.027.i30119.i = phi i32 [ %.026.i31120.i, %_ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i ], [ %.026.i37114.i, %.preheader140.i ]
   %.028.i29118.i = phi i32 [ %.027.i30119.i, %_ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i ], [ %.027.i36113.i, %.preheader140.i ]
   %.sroa.071.0.idx117.i = phi i64 [ %.sroa.071.0.add.i, %_ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i ], [ 80, %.preheader140.i ]
-  %.sroa.071.0.ptr.i = getelementptr inbounds i8, ptr %3, i64 %.sroa.071.0.idx117.i
+  %.sroa.071.0.ptr.i = getelementptr inbounds i8, ptr %4, i64 %.sroa.071.0.idx117.i
   %.sroa.071.0.add.i = add nuw nsw i64 %.sroa.071.0.idx117.i, 4
-  %23 = xor i32 %.026.i31120.i, %.025.i32121.i
-  %24 = xor i32 %23, %.027.i30119.i
-  %25 = tail call i32 @llvm.fshl.i32(i32 %.0.i33122.i, i32 %.0.i33122.i, i32 5)
-  %26 = load i32, ptr %.sroa.071.0.ptr.i, align 4, !noalias !194, !noundef !4
-  %27 = add i32 %25, 1859775393
-  %28 = add i32 %27, %.028.i29118.i
-  %29 = add i32 %28, %24
-  %30 = add i32 %29, %26
-  %31 = tail call i32 @llvm.fshl.i32(i32 %.025.i32121.i, i32 %.025.i32121.i, i32 30)
-  %32 = icmp eq i64 %.sroa.071.0.add.i, 160
-  br i1 %32, label %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i, label %_ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i
+  %24 = xor i32 %.026.i31120.i, %.025.i32121.i
+  %25 = xor i32 %24, %.027.i30119.i
+  %26 = tail call i32 @llvm.fshl.i32(i32 %.0.i33122.i, i32 %.0.i33122.i, i32 5)
+  %27 = load i32, ptr %.sroa.071.0.ptr.i, align 4, !noalias !194, !noundef !4
+  %28 = add i32 %26, 1859775393
+  %29 = add i32 %28, %.028.i29118.i
+  %30 = add i32 %29, %25
+  %31 = add i32 %30, %27
+  %32 = tail call i32 @llvm.fshl.i32(i32 %.025.i32121.i, i32 %.025.i32121.i, i32 30)
+  %33 = icmp eq i64 %.sroa.071.0.add.i, 160
+  br i1 %33, label %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i, label %_ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i
 
 _ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i: ; preds = %_ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i
-  %.0.i44128.i = phi i32 [ %42, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i ], [ %30, %_ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i ]
+  %.0.i44128.i = phi i32 [ %43, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i ], [ %31, %_ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i ]
   %.025.i43127.i = phi i32 [ %.0.i44128.i, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i ], [ %.0.i33122.i, %_ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i ]
-  %.026.i42126.i = phi i32 [ %43, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i ], [ %31, %_ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i ]
+  %.026.i42126.i = phi i32 [ %44, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i ], [ %32, %_ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i ]
   %.027.i41125.i = phi i32 [ %.026.i42126.i, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i ], [ %.026.i31120.i, %_ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i ]
   %.028.i40124.i = phi i32 [ %.027.i41125.i, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i ], [ %.027.i30119.i, %_ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i ]
   %.sroa.075.0.idx123.i = phi i64 [ %.sroa.075.0.add.i, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i ], [ 160, %_ZN4ring6digest4sha15step317h9550c5b45923f627E.exit.i ]
-  %.sroa.075.0.ptr.i = getelementptr inbounds i8, ptr %3, i64 %.sroa.075.0.idx123.i
+  %.sroa.075.0.ptr.i = getelementptr inbounds i8, ptr %4, i64 %.sroa.075.0.idx123.i
   %.sroa.075.0.add.i = add nuw nsw i64 %.sroa.075.0.idx123.i, 4
-  %33 = or i32 %.027.i41125.i, %.026.i42126.i
-  %34 = and i32 %33, %.025.i43127.i
-  %35 = and i32 %.027.i41125.i, %.026.i42126.i
-  %36 = or i32 %34, %35
-  %37 = tail call i32 @llvm.fshl.i32(i32 %.0.i44128.i, i32 %.0.i44128.i, i32 5)
-  %38 = load i32, ptr %.sroa.075.0.ptr.i, align 4, !noalias !197, !noundef !4
-  %39 = add i32 %37, -1894007588
-  %40 = add i32 %39, %.028.i40124.i
-  %41 = add i32 %40, %36
-  %42 = add i32 %41, %38
-  %43 = tail call i32 @llvm.fshl.i32(i32 %.025.i43127.i, i32 %.025.i43127.i, i32 30)
-  %44 = icmp eq i64 %.sroa.075.0.add.i, 240
-  br i1 %44, label %_ZN4ring6digest4sha15step317hc44189b0d9866650E.exit.i, label %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i
+  %34 = or i32 %.027.i41125.i, %.026.i42126.i
+  %35 = and i32 %34, %.025.i43127.i
+  %36 = and i32 %.027.i41125.i, %.026.i42126.i
+  %37 = or i32 %35, %36
+  %38 = tail call i32 @llvm.fshl.i32(i32 %.0.i44128.i, i32 %.0.i44128.i, i32 5)
+  %39 = load i32, ptr %.sroa.075.0.ptr.i, align 4, !noalias !197, !noundef !4
+  %40 = add i32 %38, -1894007588
+  %41 = add i32 %40, %.028.i40124.i
+  %42 = add i32 %41, %37
+  %43 = add i32 %42, %39
+  %44 = tail call i32 @llvm.fshl.i32(i32 %.025.i43127.i, i32 %.025.i43127.i, i32 30)
+  %45 = icmp eq i64 %.sroa.075.0.add.i, 240
+  br i1 %45, label %_ZN4ring6digest4sha15step317hc44189b0d9866650E.exit.i, label %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i
 
 _ZN4ring6digest4sha15step317hc44189b0d9866650E.exit.i: ; preds = %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i, %_ZN4ring6digest4sha15step317hc44189b0d9866650E.exit.i
-  %.0.i134.i = phi i32 [ %52, %_ZN4ring6digest4sha15step317hc44189b0d9866650E.exit.i ], [ %42, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i ]
+  %.0.i134.i = phi i32 [ %53, %_ZN4ring6digest4sha15step317hc44189b0d9866650E.exit.i ], [ %43, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i ]
   %.025.i133.i = phi i32 [ %.0.i134.i, %_ZN4ring6digest4sha15step317hc44189b0d9866650E.exit.i ], [ %.0.i44128.i, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i ]
-  %.026.i132.i = phi i32 [ %53, %_ZN4ring6digest4sha15step317hc44189b0d9866650E.exit.i ], [ %43, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i ]
+  %.026.i132.i = phi i32 [ %54, %_ZN4ring6digest4sha15step317hc44189b0d9866650E.exit.i ], [ %44, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i ]
   %.027.i131.i = phi i32 [ %.026.i132.i, %_ZN4ring6digest4sha15step317hc44189b0d9866650E.exit.i ], [ %.026.i42126.i, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i ]
   %.028.i130.i = phi i32 [ %.027.i131.i, %_ZN4ring6digest4sha15step317hc44189b0d9866650E.exit.i ], [ %.027.i41125.i, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i ]
   %.sroa.069.0.idx129.i = phi i64 [ %.sroa.069.0.add.i, %_ZN4ring6digest4sha15step317hc44189b0d9866650E.exit.i ], [ 240, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit34.i ]
-  %.sroa.069.0.ptr.i = getelementptr inbounds i8, ptr %3, i64 %.sroa.069.0.idx129.i
+  %.sroa.069.0.ptr.i = getelementptr inbounds i8, ptr %4, i64 %.sroa.069.0.idx129.i
   %.sroa.069.0.add.i = add nuw nsw i64 %.sroa.069.0.idx129.i, 4
-  %45 = xor i32 %.026.i132.i, %.025.i133.i
-  %46 = xor i32 %45, %.027.i131.i
-  %47 = tail call i32 @llvm.fshl.i32(i32 %.0.i134.i, i32 %.0.i134.i, i32 5)
-  %48 = load i32, ptr %.sroa.069.0.ptr.i, align 4, !noalias !200, !noundef !4
-  %49 = add i32 %47, -899497514
-  %50 = add i32 %49, %.028.i130.i
-  %51 = add i32 %50, %46
-  %52 = add i32 %51, %48
-  %53 = tail call i32 @llvm.fshl.i32(i32 %.025.i133.i, i32 %.025.i133.i, i32 30)
-  %54 = icmp eq i64 %.sroa.069.0.add.i, 320
-  br i1 %54, label %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i, label %_ZN4ring6digest4sha15step317hc44189b0d9866650E.exit.i
+  %46 = xor i32 %.026.i132.i, %.025.i133.i
+  %47 = xor i32 %46, %.027.i131.i
+  %48 = tail call i32 @llvm.fshl.i32(i32 %.0.i134.i, i32 %.0.i134.i, i32 5)
+  %49 = load i32, ptr %.sroa.069.0.ptr.i, align 4, !noalias !200, !noundef !4
+  %50 = add i32 %48, -899497514
+  %51 = add i32 %50, %.028.i130.i
+  %52 = add i32 %51, %47
+  %53 = add i32 %52, %49
+  %54 = tail call i32 @llvm.fshl.i32(i32 %.025.i133.i, i32 %.025.i133.i, i32 30)
+  %55 = icmp eq i64 %.sroa.069.0.add.i, 320
+  br i1 %55, label %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i, label %_ZN4ring6digest4sha15step317hc44189b0d9866650E.exit.i
 
 _ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i: ; preds = %_ZN4ring6digest4sha15step317hc44189b0d9866650E.exit.i
-  %55 = getelementptr inbounds i8, ptr %.sroa.0.0135.i, i64 64
-  %56 = add i32 %52, %10
-  %57 = add i32 %.0.i134.i, %9
-  %58 = add i32 %53, %8
-  %59 = add i32 %.026.i132.i, %7
-  %60 = add i32 %.027.i131.i, %6
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %3), !noalias !188
-  %61 = icmp eq ptr %55, %4
-  br i1 %61, label %_ZN4ring6digest4sha117block_data_order_17hb9d1e648c365597dE.exit, label %.lr.ph.i
+  %56 = getelementptr inbounds i8, ptr %.sroa.0.0135.i, i64 64
+  %57 = add i32 %53, %11
+  %58 = add i32 %.0.i134.i, %10
+  %59 = add i32 %54, %9
+  %60 = add i32 %.026.i132.i, %8
+  %61 = add i32 %.027.i131.i, %7
+  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %4), !noalias !188
+  %62 = icmp eq ptr %56, %5
+  br i1 %62, label %_ZN4ring6digest4sha117block_data_order_17hb9d1e648c365597dE.exit, label %.lr.ph.i
 
-.preheader.preheader.i:                           ; preds = %80, %.preheader.preheader.i
-  %.sroa.07.0110.i = phi i64 [ %62, %.preheader.preheader.i ], [ 16, %80 ]
-  %62 = add nuw nsw i64 %.sroa.07.0110.i, 1
-  %63 = add nsw i64 %.sroa.07.0110.i, -3
-  %64 = add nsw i64 %.sroa.07.0110.i, -8
-  %65 = add nsw i64 %.sroa.07.0110.i, -14
-  %66 = add nsw i64 %.sroa.07.0110.i, -16
-  %67 = getelementptr inbounds [80 x i32], ptr %3, i64 0, i64 %63
-  %68 = load i32, ptr %67, align 4, !noalias !188, !noundef !4
-  %69 = getelementptr inbounds [80 x i32], ptr %3, i64 0, i64 %64
-  %70 = load i32, ptr %69, align 4, !noalias !188, !noundef !4
-  %71 = xor i32 %70, %68
-  %72 = getelementptr inbounds [80 x i32], ptr %3, i64 0, i64 %65
-  %73 = load i32, ptr %72, align 4, !noalias !188, !noundef !4
-  %74 = xor i32 %71, %73
-  %75 = getelementptr inbounds [80 x i32], ptr %3, i64 0, i64 %66
-  %76 = load i32, ptr %75, align 4, !noalias !188, !noundef !4
-  %77 = xor i32 %74, %76
-  %78 = tail call i32 @llvm.fshl.i32(i32 %77, i32 %77, i32 1)
-  %79 = getelementptr inbounds [80 x i32], ptr %3, i64 0, i64 %.sroa.07.0110.i
-  store i32 %78, ptr %79, align 4, !noalias !188
-  %exitcond162.not.i = icmp eq i64 %62, 80
+.preheader.preheader.i:                           ; preds = %81, %.preheader.preheader.i
+  %.sroa.07.0110.i = phi i64 [ %63, %.preheader.preheader.i ], [ 16, %81 ]
+  %63 = add nuw nsw i64 %.sroa.07.0110.i, 1
+  %64 = add nsw i64 %.sroa.07.0110.i, -3
+  %65 = add nsw i64 %.sroa.07.0110.i, -8
+  %66 = add nsw i64 %.sroa.07.0110.i, -14
+  %67 = add nsw i64 %.sroa.07.0110.i, -16
+  %68 = getelementptr inbounds [80 x i32], ptr %4, i64 0, i64 %64
+  %69 = load i32, ptr %68, align 4, !noalias !188, !noundef !4
+  %70 = getelementptr inbounds [80 x i32], ptr %4, i64 0, i64 %65
+  %71 = load i32, ptr %70, align 4, !noalias !188, !noundef !4
+  %72 = xor i32 %71, %69
+  %73 = getelementptr inbounds [80 x i32], ptr %4, i64 0, i64 %66
+  %74 = load i32, ptr %73, align 4, !noalias !188, !noundef !4
+  %75 = xor i32 %72, %74
+  %76 = getelementptr inbounds [80 x i32], ptr %4, i64 0, i64 %67
+  %77 = load i32, ptr %76, align 4, !noalias !188, !noundef !4
+  %78 = xor i32 %75, %77
+  %79 = tail call i32 @llvm.fshl.i32(i32 %78, i32 %78, i32 1)
+  %80 = getelementptr inbounds [80 x i32], ptr %4, i64 0, i64 %.sroa.07.0110.i
+  store i32 %79, ptr %80, align 4, !noalias !188
+  %exitcond162.not.i = icmp eq i64 %63, 80
   br i1 %exitcond162.not.i, label %.preheader140.i, label %.preheader.preheader.i
 
-80:                                               ; preds = %80, %.lr.ph.i
-  %.sroa.02.0109.i = phi i64 [ 0, %.lr.ph.i ], [ %81, %80 ]
-  %81 = add nuw nsw i64 %.sroa.02.0109.i, 1
-  %82 = getelementptr inbounds [16 x [4 x i8]], ptr %.sroa.0.0135.i, i64 0, i64 %.sroa.02.0109.i
-  %83 = load i32, ptr %82, align 1, !alias.scope !185, !noalias !203
-  %84 = tail call i32 @llvm.bswap.i32(i32 %83)
-  %85 = getelementptr inbounds [80 x i32], ptr %3, i64 0, i64 %.sroa.02.0109.i
-  store i32 %84, ptr %85, align 4, !noalias !188
-  %exitcond.not.i = icmp eq i64 %81, 16
-  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %80
+81:                                               ; preds = %81, %.lr.ph.i
+  %.sroa.02.0109.i = phi i64 [ 0, %.lr.ph.i ], [ %82, %81 ]
+  %82 = add nuw nsw i64 %.sroa.02.0109.i, 1
+  %83 = getelementptr inbounds [16 x [4 x i8]], ptr %.sroa.0.0135.i, i64 0, i64 %.sroa.02.0109.i
+  %84 = load i32, ptr %83, align 1, !alias.scope !185, !noalias !203
+  %85 = tail call i32 @llvm.bswap.i32(i32 %84)
+  %86 = getelementptr inbounds [80 x i32], ptr %4, i64 0, i64 %.sroa.02.0109.i
+  store i32 %85, ptr %86, align 4, !noalias !188
+  %exitcond.not.i = icmp eq i64 %82, 16
+  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %81
 
-_ZN4ring6digest4sha117block_data_order_17hb9d1e648c365597dE.exit: ; preds = %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd6ea9ecaac1dc75cE.exit"
-  %.sroa.12.0 = phi i32 [ %.sroa.12.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd6ea9ecaac1dc75cE.exit" ], [ %60, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ]
-  %.sroa.10.0 = phi i32 [ %.sroa.10.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd6ea9ecaac1dc75cE.exit" ], [ %59, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ]
-  %.sroa.8.0 = phi i32 [ %.sroa.8.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd6ea9ecaac1dc75cE.exit" ], [ %58, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ]
-  %.sroa.6.0 = phi i32 [ %.sroa.6.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd6ea9ecaac1dc75cE.exit" ], [ %57, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ]
-  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd6ea9ecaac1dc75cE.exit" ], [ %56, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ]
+_ZN4ring6digest4sha117block_data_order_17hb9d1e648c365597dE.exit: ; preds = %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i, %3
+  %.sroa.12.0 = phi i32 [ %.sroa.12.0.copyload, %3 ], [ %61, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ]
+  %.sroa.10.0 = phi i32 [ %.sroa.10.0.copyload, %3 ], [ %60, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ]
+  %.sroa.8.0 = phi i32 [ %.sroa.8.0.copyload, %3 ], [ %59, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ]
+  %.sroa.6.0 = phi i32 [ %.sroa.6.0.copyload, %3 ], [ %58, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ]
+  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload, %3 ], [ %57, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ]
   store i32 %.sroa.0.0, ptr %0, align 8
   store i32 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 4
   store i32 %.sroa.8.0, ptr %.sroa.8.0..sroa_idx, align 8

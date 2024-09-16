@@ -666,7 +666,7 @@ declare void @rb_ast_dispose(ptr noundef) local_unnamed_addr #2
 declare void @rb_exc_raise(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @ast_new_internal(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = load i64, ptr @rb_cNode, align 8
   %4 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %3, i64 noundef 16, ptr noundef nonnull @rb_node_type) #10
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %4, ptr noundef nonnull @rb_node_type) #10
@@ -1271,7 +1271,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %141, label %124, label %142
 
 142:                                              ; preds = %137
-  %143 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %136)
+  %143 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %136)
   br label %.thread
 
 .thread:                                          ; preds = %132, %142
@@ -1298,7 +1298,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not521, label %158, label %156
 
 156:                                              ; preds = %155
-  %157 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %150)
+  %157 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %150)
   br label %158
 
 158:                                              ; preds = %155, %156
@@ -1309,7 +1309,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not522, label %164, label %162
 
 162:                                              ; preds = %158
-  %163 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %161)
+  %163 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %161)
   br label %164
 
 164:                                              ; preds = %158, %162
@@ -1339,7 +1339,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not519, label %183, label %181
 
 181:                                              ; preds = %179
-  %182 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %180)
+  %182 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %180)
   br label %183
 
 183:                                              ; preds = %179, %181
@@ -1368,7 +1368,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not518, label %201, label %199
 
 199:                                              ; preds = %197
-  %200 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %198)
+  %200 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %198)
   br label %201
 
 201:                                              ; preds = %197, %199
@@ -1386,7 +1386,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not517, label %212, label %210
 
 210:                                              ; preds = %204
-  %211 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %209)
+  %211 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %209)
   br label %212
 
 212:                                              ; preds = %204, %210
@@ -1404,7 +1404,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not516, label %223, label %221
 
 221:                                              ; preds = %215
-  %222 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %220)
+  %222 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %220)
   br label %223
 
 223:                                              ; preds = %215, %221
@@ -1422,7 +1422,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not515, label %234, label %232
 
 232:                                              ; preds = %226
-  %233 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %231)
+  %233 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %231)
   br label %234
 
 234:                                              ; preds = %226, %232
@@ -1444,7 +1444,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not514, label %246, label %244
 
 244:                                              ; preds = %240
-  %245 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %243)
+  %245 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %243)
   br label %246
 
 246:                                              ; preds = %240, %244
@@ -1455,7 +1455,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
 249:                                              ; preds = %237
   %250 = getelementptr inbounds i8, ptr %1, i64 48
   %251 = load ptr, ptr %250, align 8, !nonnull !13, !noundef !13
-  %252 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %251)
+  %252 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %251)
   %.pre531 = load ptr, ptr %250, align 8
   %253 = getelementptr inbounds i8, ptr %.pre531, i64 40
   %254 = load i64, ptr %253, align 8
@@ -1466,7 +1466,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not513, label %260, label %258
 
 258:                                              ; preds = %249
-  %259 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %257)
+  %259 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %257)
   br label %260
 
 260:                                              ; preds = %249, %258
@@ -1481,7 +1481,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not508, label %268, label %266
 
 266:                                              ; preds = %263
-  %267 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %265)
+  %267 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %265)
   br label %268
 
 268:                                              ; preds = %263, %266
@@ -1495,7 +1495,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not509, label %277, label %275
 
 275:                                              ; preds = %268
-  %276 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %274)
+  %276 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %274)
   br label %277
 
 277:                                              ; preds = %268, %275
@@ -1506,7 +1506,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not510, label %283, label %281
 
 281:                                              ; preds = %277
-  %282 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %280)
+  %282 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %280)
   br label %283
 
 283:                                              ; preds = %277, %281
@@ -1521,7 +1521,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not506, label %291, label %289
 
 289:                                              ; preds = %286
-  %290 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %288)
+  %290 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %288)
   br label %291
 
 291:                                              ; preds = %286, %289
@@ -1542,7 +1542,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not507, label %307, label %305
 
 305:                                              ; preds = %291
-  %306 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %304)
+  %306 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %304)
   br label %307
 
 307:                                              ; preds = %291, %305
@@ -1557,7 +1557,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not504, label %315, label %313
 
 313:                                              ; preds = %310
-  %314 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %312)
+  %314 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %312)
   br label %315
 
 315:                                              ; preds = %310, %313
@@ -1569,7 +1569,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not505, label %322, label %320
 
 320:                                              ; preds = %315
-  %321 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %319)
+  %321 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %319)
   br label %322
 
 322:                                              ; preds = %315, %320
@@ -1584,7 +1584,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not502, label %330, label %328
 
 328:                                              ; preds = %325
-  %329 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %327)
+  %329 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %327)
   br label %330
 
 330:                                              ; preds = %325, %328
@@ -1596,7 +1596,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not503, label %337, label %335
 
 335:                                              ; preds = %330
-  %336 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %334)
+  %336 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %334)
   br label %337
 
 337:                                              ; preds = %330, %335
@@ -1611,7 +1611,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not500, label %345, label %343
 
 343:                                              ; preds = %340
-  %344 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %342)
+  %344 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %342)
   br label %345
 
 345:                                              ; preds = %340, %343
@@ -1625,7 +1625,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not501, label %354, label %352
 
 352:                                              ; preds = %345
-  %353 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %351)
+  %353 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %351)
   br label %354
 
 354:                                              ; preds = %345, %352
@@ -1640,7 +1640,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not498, label %362, label %360
 
 360:                                              ; preds = %357
-  %361 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %359)
+  %361 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %359)
   br label %362
 
 362:                                              ; preds = %357, %360
@@ -1654,7 +1654,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not499, label %371, label %369
 
 369:                                              ; preds = %362
-  %370 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %368)
+  %370 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %368)
   br label %371
 
 371:                                              ; preds = %362, %369
@@ -1669,7 +1669,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not496, label %379, label %377
 
 377:                                              ; preds = %374
-  %378 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %376)
+  %378 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %376)
   br label %379
 
 379:                                              ; preds = %374, %377
@@ -1683,7 +1683,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not497, label %388, label %386
 
 386:                                              ; preds = %379
-  %387 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %385)
+  %387 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %385)
   br label %388
 
 388:                                              ; preds = %379, %386
@@ -1698,7 +1698,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not494, label %396, label %394
 
 394:                                              ; preds = %391
-  %395 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %393)
+  %395 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %393)
   br label %396
 
 396:                                              ; preds = %391, %394
@@ -1712,7 +1712,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not495, label %405, label %403
 
 403:                                              ; preds = %396
-  %404 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %402)
+  %404 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %402)
   br label %405
 
 405:                                              ; preds = %396, %403
@@ -1730,7 +1730,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not493, label %416, label %414
 
 414:                                              ; preds = %408
-  %415 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %413)
+  %415 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %413)
   br label %416
 
 416:                                              ; preds = %408, %414
@@ -1921,7 +1921,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not490, label %539, label %537
 
 537:                                              ; preds = %534
-  %538 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %536)
+  %538 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %536)
   br label %539
 
 539:                                              ; preds = %534, %537
@@ -1932,7 +1932,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not491, label %545, label %543
 
 543:                                              ; preds = %539
-  %544 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %542)
+  %544 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %542)
   br label %545
 
 545:                                              ; preds = %543, %539, %531
@@ -1993,7 +1993,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not488, label %585, label %583
 
 583:                                              ; preds = %577
-  %584 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %582)
+  %584 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %582)
   br label %585
 
 585:                                              ; preds = %577, %583
@@ -2008,7 +2008,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not486, label %593, label %591
 
 591:                                              ; preds = %588
-  %592 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %590)
+  %592 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %590)
   br label %593
 
 593:                                              ; preds = %588, %591
@@ -2022,7 +2022,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not487, label %602, label %600
 
 600:                                              ; preds = %593
-  %601 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %599)
+  %601 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %599)
   br label %602
 
 602:                                              ; preds = %593, %600
@@ -2087,7 +2087,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not485, label %648, label %646
 
 646:                                              ; preds = %643
-  %647 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %645)
+  %647 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %645)
   br label %648
 
 648:                                              ; preds = %643, %646
@@ -2152,7 +2152,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not483, label %688, label %686
 
 686:                                              ; preds = %683
-  %687 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %685)
+  %687 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %685)
   br label %688
 
 688:                                              ; preds = %683, %686
@@ -2166,7 +2166,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not484, label %697, label %695
 
 695:                                              ; preds = %688
-  %696 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %694)
+  %696 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %694)
   br label %697
 
 697:                                              ; preds = %688, %695
@@ -2216,7 +2216,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not482, label %729, label %727
 
 727:                                              ; preds = %723
-  %728 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %726)
+  %728 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %726)
   br label %729
 
 729:                                              ; preds = %723, %727
@@ -2236,7 +2236,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not474, label %742, label %740
 
 740:                                              ; preds = %732
-  %741 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %739)
+  %741 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %739)
   br label %742
 
 742:                                              ; preds = %732, %740
@@ -2247,7 +2247,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not475, label %748, label %746
 
 746:                                              ; preds = %742
-  %747 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %745)
+  %747 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %745)
   br label %748
 
 748:                                              ; preds = %742, %746
@@ -2266,7 +2266,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not476, label %762, label %760
 
 760:                                              ; preds = %748
-  %761 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %759)
+  %761 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %759)
   br label %762
 
 762:                                              ; preds = %748, %760
@@ -2300,7 +2300,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not478, label %782, label %780
 
 780:                                              ; preds = %777
-  %781 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %779)
+  %781 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %779)
   %.pre = load i8, ptr %774, align 8
   br label %782
 
@@ -2318,7 +2318,7 @@ define internal fastcc i64 @node_children(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not480, label %791, label %789
 
 789:                                              ; preds = %786
-  %790 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %788)
+  %790 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %788)
   br label %791
 
 791:                                              ; preds = %789, %786, %782
@@ -2382,7 +2382,7 @@ var_name.exit:                                    ; preds = %807, %810, %812
   br i1 %.not472, label %820, label %818
 
 818:                                              ; preds = %._crit_edge
-  %819 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %817)
+  %819 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %817)
   br label %820
 
 820:                                              ; preds = %._crit_edge, %818
@@ -2393,7 +2393,7 @@ var_name.exit:                                    ; preds = %807, %810, %812
   br i1 %.not473, label %826, label %824
 
 824:                                              ; preds = %820
-  %825 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %823)
+  %825 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %823)
   br label %826
 
 826:                                              ; preds = %820, %824
@@ -2411,7 +2411,7 @@ var_name.exit:                                    ; preds = %807, %810, %812
   br i1 %.not468, label %837, label %835
 
 835:                                              ; preds = %829
-  %836 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %834)
+  %836 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %834)
   br label %837
 
 837:                                              ; preds = %829, %835
@@ -2422,7 +2422,7 @@ var_name.exit:                                    ; preds = %807, %810, %812
   br i1 %.not469, label %843, label %841
 
 841:                                              ; preds = %837
-  %842 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %840)
+  %842 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %840)
   br label %843
 
 843:                                              ; preds = %837, %841
@@ -2433,7 +2433,7 @@ var_name.exit:                                    ; preds = %807, %810, %812
   br i1 %.not470, label %849, label %847
 
 847:                                              ; preds = %843
-  %848 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %846)
+  %848 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %846)
   br label %849
 
 849:                                              ; preds = %843, %847
@@ -2454,7 +2454,7 @@ var_name.exit:                                    ; preds = %807, %810, %812
   br i1 %.not466, label %863, label %861
 
 861:                                              ; preds = %852
-  %862 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %860)
+  %862 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %860)
   br label %863
 
 863:                                              ; preds = %852, %861
@@ -2465,7 +2465,7 @@ var_name.exit:                                    ; preds = %807, %810, %812
   br i1 %.not467, label %869, label %867
 
 867:                                              ; preds = %863
-  %868 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %866)
+  %868 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %866)
   br label %869
 
 869:                                              ; preds = %863, %867
@@ -2488,7 +2488,7 @@ var_name.exit:                                    ; preds = %807, %810, %812
   br label %880
 
 878:                                              ; preds = %872
-  %879 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %874)
+  %879 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %874)
   br label %880
 
 880:                                              ; preds = %872, %878, %875
@@ -2499,7 +2499,7 @@ var_name.exit:                                    ; preds = %807, %810, %812
   br i1 %.not464, label %886, label %884
 
 884:                                              ; preds = %880
-  %885 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %883)
+  %885 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %883)
   br label %886
 
 886:                                              ; preds = %880, %884
@@ -2510,7 +2510,7 @@ var_name.exit:                                    ; preds = %807, %810, %812
   br i1 %.not465, label %892, label %890
 
 890:                                              ; preds = %886
-  %891 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef nonnull %889)
+  %891 = tail call fastcc i64 @ast_new_internal(ptr noundef %0, ptr noundef %889)
   br label %892
 
 892:                                              ; preds = %886, %890
@@ -2597,61 +2597,61 @@ define internal fastcc i64 @dump_block(ptr noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_ary_new_from_node_args(ptr noundef %0, i64 noundef %1, ...) unnamed_addr #0 {
+define internal i64 @rb_ary_new_from_node_args(ptr noundef %0, i64 noundef range(i64 0, 4) %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = tail call i64 @rb_ary_new_capa(i64 noundef %1) #10
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %5 = icmp sgt i64 %1, 0
-  br i1 %5, label %.lr.ph, label %._crit_edge
+  %.not11 = icmp eq i64 %1, 0
+  br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  br label %8
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  br label %7
 
-8:                                                ; preds = %.lr.ph, %27
-  %.010 = phi i64 [ 0, %.lr.ph ], [ %30, %27 ]
-  %9 = load i32, ptr %3, align 16
-  %10 = icmp ult i32 %9, 41
-  br i1 %10, label %11, label %16
+7:                                                ; preds = %.lr.ph, %26
+  %.010 = phi i64 [ 0, %.lr.ph ], [ %29, %26 ]
+  %8 = load i32, ptr %3, align 16
+  %9 = icmp ult i32 %8, 41
+  br i1 %9, label %10, label %15
 
-11:                                               ; preds = %8
-  %12 = load ptr, ptr %7, align 16
-  %13 = zext nneg i32 %9 to i64
-  %14 = getelementptr i8, ptr %12, i64 %13
-  %15 = add nuw nsw i32 %9, 8
-  store i32 %15, ptr %3, align 16
-  br label %19
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %6, align 16
+  %12 = zext nneg i32 %8 to i64
+  %13 = getelementptr i8, ptr %11, i64 %12
+  %14 = add nuw nsw i32 %8, 8
+  store i32 %14, ptr %3, align 16
+  br label %18
 
-16:                                               ; preds = %8
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr i8, ptr %17, i64 8
-  store ptr %18, ptr %6, align 8
-  br label %19
+15:                                               ; preds = %7
+  %16 = load ptr, ptr %5, align 8
+  %17 = getelementptr i8, ptr %16, i64 8
+  store ptr %17, ptr %5, align 8
+  br label %18
 
-19:                                               ; preds = %16, %11
-  %20 = phi ptr [ %14, %11 ], [ %17, %16 ]
-  %21 = load ptr, ptr %20, align 8
-  %.not = icmp eq ptr %21, null
-  br i1 %.not, label %27, label %22
+18:                                               ; preds = %15, %10
+  %19 = phi ptr [ %13, %10 ], [ %16, %15 ]
+  %20 = load ptr, ptr %19, align 8
+  %.not = icmp eq ptr %20, null
+  br i1 %.not, label %26, label %21
 
-22:                                               ; preds = %19
-  %23 = load i64, ptr @rb_cNode, align 8
-  %24 = call i64 @rb_data_typed_object_zalloc(i64 noundef %23, i64 noundef 16, ptr noundef nonnull @rb_node_type) #10
-  %25 = call ptr @rb_check_typeddata(i64 noundef %24, ptr noundef nonnull @rb_node_type) #10
-  store ptr %0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
-  store ptr %21, ptr %26, align 8
-  br label %27
+21:                                               ; preds = %18
+  %22 = load i64, ptr @rb_cNode, align 8
+  %23 = call i64 @rb_data_typed_object_zalloc(i64 noundef %22, i64 noundef 16, ptr noundef nonnull @rb_node_type) #10
+  %24 = call ptr @rb_check_typeddata(i64 noundef %23, ptr noundef nonnull @rb_node_type) #10
+  store ptr %0, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  store ptr %20, ptr %25, align 8
+  br label %26
 
-27:                                               ; preds = %19, %22
-  %28 = phi i64 [ %24, %22 ], [ 4, %19 ]
-  %29 = call i64 @rb_ary_push(i64 noundef %4, i64 noundef %28) #10
-  %30 = add nuw nsw i64 %.010, 1
-  %exitcond.not = icmp eq i64 %30, %1
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !16
+26:                                               ; preds = %18, %21
+  %27 = phi i64 [ %23, %21 ], [ 4, %18 ]
+  %28 = call i64 @rb_ary_push(i64 noundef %4, i64 noundef %27) #10
+  %29 = add nuw nsw i64 %.010, 1
+  %exitcond.not = icmp eq i64 %29, %1
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %27, %2
+._crit_edge:                                      ; preds = %26, %2
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret i64 %4
 }

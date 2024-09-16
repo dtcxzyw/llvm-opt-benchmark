@@ -1619,7 +1619,7 @@ _ZN6hermes3hbc14checkBufferTagEPKh.exit:          ; preds = %if.then.i, %if.else
 
 for.body:                                         ; preds = %_ZN6hermes3hbc14checkBufferTagEPKh.exit, %_ZN4llvh11raw_ostreamlsEPKc.exit19
   %i.023 = phi i32 [ %inc, %_ZN4llvh11raw_ostreamlsEPKc.exit19 ], [ 0, %_ZN6hermes3hbc14checkBufferTagEPKh.exit ]
-  call fastcc void @_ZN6hermes3hbc12_GLOBAL__N_111SLPToStringB5cxx11EhPKhPi(ptr noalias nonnull align 8 %ref.tmp, i8 noundef zeroext %retval.sroa.3.0.i, ptr noundef %retval.sroa.0.0.copyload.i, ptr noundef nonnull %ind)
+  call fastcc void @_ZN6hermes3hbc12_GLOBAL__N_111SLPToStringB5cxx11EhPKhPi(ptr noalias align 8 %ref.tmp, i8 noundef zeroext %retval.sroa.3.0.i, ptr noundef %retval.sroa.0.0.copyload.i, ptr noundef %ind)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   %call3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef %call.i, i64 noundef %call2.i) #17
@@ -1652,7 +1652,7 @@ while.end:                                        ; preds = %while.cond.loopexit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes3hbc12_GLOBAL__N_111SLPToStringB5cxx11EhPKhPi(ptr noalias align 8 %agg.result, i8 noundef zeroext %tag, ptr noundef %buff, ptr nocapture noundef %ind) unnamed_addr #1 {
+define internal fastcc void @_ZN6hermes3hbc12_GLOBAL__N_111SLPToStringB5cxx11EhPKhPi(ptr noalias nonnull align 8 %agg.result, i8 noundef zeroext %tag, ptr noundef %buff, ptr nocapture noundef nonnull %ind) unnamed_addr #1 {
 entry:
   %rBracket = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -2039,7 +2039,7 @@ _ZN6hermes3hbc14checkBufferTagEPKh.exit:          ; preds = %if.then.i, %if.else
 
 for.body:                                         ; preds = %_ZN6hermes3hbc14checkBufferTagEPKh.exit, %_ZN4llvh11raw_ostreamlsEPKc.exit27
   %i.083 = phi i32 [ %inc, %_ZN4llvh11raw_ostreamlsEPKc.exit27 ], [ 0, %_ZN6hermes3hbc14checkBufferTagEPKh.exit ]
-  call fastcc void @_ZN6hermes3hbc12_GLOBAL__N_111SLPToStringB5cxx11EhPKhPi(ptr noalias nonnull align 8 %ref.tmp, i8 noundef zeroext %retval.sroa.3.0.i, ptr noundef %retval.sroa.0.0.copyload.i, ptr noundef nonnull %keyInd)
+  call fastcc void @_ZN6hermes3hbc12_GLOBAL__N_111SLPToStringB5cxx11EhPKhPi(ptr noalias align 8 %ref.tmp, i8 noundef zeroext %retval.sroa.3.0.i, ptr noundef %retval.sroa.0.0.copyload.i, ptr noundef %keyInd)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   %call3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef %call.i, i64 noundef %call2.i) #17
@@ -2135,7 +2135,7 @@ _ZN6hermes3hbc14checkBufferTagEPKh.exit60:        ; preds = %if.then.i46, %if.el
 
 for.body36:                                       ; preds = %_ZN6hermes3hbc14checkBufferTagEPKh.exit60, %_ZN4llvh11raw_ostreamlsEPKc.exit78
   %i32.088 = phi i32 [ %inc43, %_ZN4llvh11raw_ostreamlsEPKc.exit78 ], [ 0, %_ZN6hermes3hbc14checkBufferTagEPKh.exit60 ]
-  call fastcc void @_ZN6hermes3hbc12_GLOBAL__N_111SLPToStringB5cxx11EhPKhPi(ptr noalias nonnull align 8 %ref.tmp37, i8 noundef zeroext %retval.sroa.3.0.i53, ptr noundef %retval.sroa.0.0.copyload.i8, ptr noundef nonnull %valInd)
+  call fastcc void @_ZN6hermes3hbc12_GLOBAL__N_111SLPToStringB5cxx11EhPKhPi(ptr noalias align 8 %ref.tmp37, i8 noundef zeroext %retval.sroa.3.0.i53, ptr noundef %retval.sroa.0.0.copyload.i8, ptr noundef %valInd)
   %call.i61 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #17
   %call2.i62 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #17
   %call3.i63 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef %call.i61, i64 noundef %call2.i62) #17
@@ -2394,7 +2394,7 @@ if.then4.i.i145:                                  ; preds = %_ZN4llvh11raw_ostre
 
 _ZN4llvh11raw_ostreamlsEPKc.exit150:              ; preds = %if.then.i.i148, %if.then4.i.i145
   %phi.call.i147 = phi ptr [ %call3.i.i149, %if.then.i.i148 ], [ %call.i135, %if.then4.i.i145 ]
-  call fastcc void @_ZN6hermes3hbcL36bigintMagnitudeToLengthLimitedStringB5cxx11EN4llvh8ArrayRefIhEE(ptr noalias nonnull align 8 %ref.tmp, ptr %add.ptr.i, i64 %conv22)
+  call fastcc void @_ZN6hermes3hbcL36bigintMagnitudeToLengthLimitedStringB5cxx11EN4llvh8ArrayRefIhEE(ptr noalias align 8 %ref.tmp, ptr %add.ptr.i, i64 %conv22)
   %call.i151 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   %call3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i147, ptr noundef %call.i151, i64 noundef %call2.i) #17
@@ -4384,7 +4384,7 @@ entry:
   %conv9 = zext i32 %2 to i64
   %conv10 = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i, i64 %conv9
-  call fastcc void @_ZN6hermes3hbcL36bigintMagnitudeToLengthLimitedStringB5cxx11EN4llvh8ArrayRefIhEE(ptr noalias nonnull align 8 %ref.tmp8, ptr %add.ptr.i, i64 %conv10)
+  call fastcc void @_ZN6hermes3hbcL36bigintMagnitudeToLengthLimitedStringB5cxx11EN4llvh8ArrayRefIhEE(ptr noalias align 8 %ref.tmp8, ptr %add.ptr.i, i64 %conv10)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #17
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #17
   %call3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef %call.i, i64 noundef %call2.i) #17

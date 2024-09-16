@@ -160,7 +160,7 @@ define void @Java_sun_java2d_loops_DrawPolygons_DrawPolygons(ptr noundef %0, ptr
   br i1 %84, label %85, label %.thread164
 
 85:                                               ; preds = %83
-  call fastcc void @RefineBounds(ptr noundef nonnull %12, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %77, ptr noundef nonnull %82, i32 noundef %.1120.lcssa)
+  call fastcc void @RefineBounds(ptr noundef %12, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %77, ptr noundef nonnull %82, i32 noundef %.1120.lcssa)
   %86 = getelementptr inbounds i8, ptr %12, i64 8
   %87 = load i32, ptr %86, align 8
   %88 = load i32, ptr %12, align 8
@@ -200,7 +200,7 @@ define void @Java_sun_java2d_loops_DrawPolygons_DrawPolygons(ptr noundef %0, ptr
 110:                                              ; preds = %104
   %111 = getelementptr inbounds i8, ptr %37, i64 32
   %112 = load ptr, ptr %111, align 8
-  call fastcc void @ProcessPoly(ptr noundef nonnull %12, ptr noundef %112, ptr noundef nonnull %37, ptr noundef nonnull %13, i32 noundef %14, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %77, ptr noundef nonnull %82, ptr noundef nonnull %59, i32 noundef %7, i8 noundef zeroext %10)
+  call fastcc void @ProcessPoly(ptr noundef %12, ptr noundef %112, ptr noundef %37, ptr noundef %13, i32 noundef %14, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %77, ptr noundef nonnull %82, ptr noundef nonnull %59, i32 noundef %7, i8 noundef zeroext %10)
   br label %113
 
 113:                                              ; preds = %.thread164, %99, %104, %110
@@ -269,7 +269,7 @@ declare ptr @SurfaceData_GetOps(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @GrPrim_Sg2dGetClip(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @RefineBounds(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #2 {
+define internal fastcc void @RefineBounds(ptr nocapture noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #2 {
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %8, label %41
 
@@ -367,7 +367,7 @@ define internal fastcc void @RefineBounds(ptr nocapture noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ProcessPoly(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr nocapture noundef readonly %9, i32 noundef %10, i8 noundef zeroext %11) unnamed_addr #0 {
+define internal fastcc void @ProcessPoly(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr nocapture noundef readonly %9, i32 noundef %10, i8 noundef zeroext %11) unnamed_addr #0 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
@@ -467,7 +467,7 @@ define internal fastcc void @ProcessPoly(ptr noundef %0, ptr nocapture noundef r
 
 68:                                               ; preds = %56
   %69 = sub nsw i32 %spec.select238, %spec.select268
-  call void %1(ptr noundef nonnull %0, i32 noundef %spec.select268, i32 noundef %.0189251, i32 noundef %4, i32 noundef %69, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %2, ptr noundef %3) #4
+  call void %1(ptr noundef nonnull %0, i32 noundef %spec.select268, i32 noundef %.0189251, i32 noundef %4, i32 noundef %69, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3) #4
   br label %104
 
 70:                                               ; preds = %43
@@ -508,14 +508,14 @@ define internal fastcc void @ProcessPoly(ptr noundef %0, ptr nocapture noundef r
 
 88:                                               ; preds = %76
   %89 = sub nsw i32 %spec.select240, %spec.select270
-  call void %1(ptr noundef nonnull %0, i32 noundef %.0190250, i32 noundef %spec.select270, i32 noundef %4, i32 noundef %89, i32 noundef 0, i32 noundef 4, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %2, ptr noundef %3) #4
+  call void %1(ptr noundef nonnull %0, i32 noundef %.0190250, i32 noundef %spec.select270, i32 noundef %4, i32 noundef %89, i32 noundef 0, i32 noundef 4, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3) #4
   br label %104
 
 90:                                               ; preds = %70
   %91 = icmp ne i32 %.0192249, 2
   %92 = or i1 %30, %91
   %93 = zext i1 %92 to i32
-  %94 = call zeroext i8 @LineUtils_SetupBresenham(i32 noundef %.0190250, i32 noundef %.0189251, i32 noundef %46, i32 noundef %48, i32 noundef %93, ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %19, ptr noundef nonnull %18, ptr noundef nonnull %20) #4
+  %94 = call zeroext i8 @LineUtils_SetupBresenham(i32 noundef %.0190250, i32 noundef %.0189251, i32 noundef %46, i32 noundef %48, i32 noundef %93, ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %19, ptr noundef nonnull %18, ptr noundef nonnull %20) #4
   %.not233 = icmp eq i8 %94, 0
   br i1 %.not233, label %104, label %95
 
@@ -528,7 +528,7 @@ define internal fastcc void @ProcessPoly(ptr noundef %0, ptr nocapture noundef r
   %101 = load i32, ptr %17, align 4
   %102 = load i32, ptr %20, align 4
   %103 = load i32, ptr %18, align 4
-  call void %1(ptr noundef %0, i32 noundef %96, i32 noundef %97, i32 noundef %4, i32 noundef %98, i32 noundef %99, i32 noundef %100, i32 noundef %101, i32 noundef %102, i32 noundef %103, ptr noundef %2, ptr noundef %3) #4
+  call void %1(ptr noundef nonnull %0, i32 noundef %96, i32 noundef %97, i32 noundef %4, i32 noundef %98, i32 noundef %99, i32 noundef %100, i32 noundef %101, i32 noundef %102, i32 noundef %103, ptr noundef nonnull %2, ptr noundef nonnull %3) #4
   br label %104
 
 104:                                              ; preds = %56, %68, %53, %51, %90, %95, %71, %73, %88, %76
@@ -584,7 +584,7 @@ define internal fastcc void @ProcessPoly(ptr noundef %0, ptr nocapture noundef r
 
 124:                                              ; preds = %114
   %125 = sub nsw i32 %spec.select244, %spec.select272
-  call void %1(ptr noundef nonnull %0, i32 noundef %spec.select272, i32 noundef %48, i32 noundef %4, i32 noundef %125, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %2, ptr noundef %3) #4
+  call void %1(ptr noundef nonnull %0, i32 noundef %spec.select272, i32 noundef %48, i32 noundef %4, i32 noundef %125, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3) #4
   br label %161
 
 126:                                              ; preds = %108
@@ -623,12 +623,12 @@ define internal fastcc void @ProcessPoly(ptr noundef %0, ptr nocapture noundef r
 
 142:                                              ; preds = %132
   %143 = sub nsw i32 %spec.select246, %spec.select274
-  call void %1(ptr noundef nonnull %0, i32 noundef %46, i32 noundef %spec.select274, i32 noundef %4, i32 noundef %143, i32 noundef 0, i32 noundef 4, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %2, ptr noundef %3) #4
+  call void %1(ptr noundef nonnull %0, i32 noundef %46, i32 noundef %spec.select274, i32 noundef %4, i32 noundef %143, i32 noundef 0, i32 noundef 4, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3) #4
   br label %161
 
 144:                                              ; preds = %126
   %145 = zext i1 %.not220 to i32
-  %146 = call zeroext i8 @LineUtils_SetupBresenham(i32 noundef %46, i32 noundef %48, i32 noundef %40, i32 noundef %42, i32 noundef %145, ptr noundef %0, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %27, ptr noundef nonnull %26, ptr noundef nonnull %28) #4
+  %146 = call zeroext i8 @LineUtils_SetupBresenham(i32 noundef %46, i32 noundef %48, i32 noundef %40, i32 noundef %42, i32 noundef %145, ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %27, ptr noundef nonnull %26, ptr noundef nonnull %28) #4
   %.not224 = icmp eq i8 %146, 0
   br i1 %.not224, label %161, label %147
 
@@ -641,7 +641,7 @@ define internal fastcc void @ProcessPoly(ptr noundef %0, ptr nocapture noundef r
   %153 = load i32, ptr %25, align 4
   %154 = load i32, ptr %28, align 4
   %155 = load i32, ptr %26, align 4
-  call void %1(ptr noundef %0, i32 noundef %148, i32 noundef %149, i32 noundef %4, i32 noundef %150, i32 noundef %151, i32 noundef %152, i32 noundef %153, i32 noundef %154, i32 noundef %155, ptr noundef %2, ptr noundef %3) #4
+  call void %1(ptr noundef nonnull %0, i32 noundef %148, i32 noundef %149, i32 noundef %4, i32 noundef %150, i32 noundef %151, i32 noundef %152, i32 noundef %153, i32 noundef %154, i32 noundef %155, ptr noundef nonnull %2, ptr noundef nonnull %3) #4
   br label %161
 
 156:                                              ; preds = %34

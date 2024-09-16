@@ -1253,7 +1253,7 @@ arcfour_mic_key.exit.i:                           ; preds = %135, %133, %130
   %167 = sub i32 %91, %159
   %168 = load ptr, ptr %61, align 8
   %169 = call ptr @tvb_get_ptr(ptr noundef %168, i32 noundef 0, i32 noundef 8) #6
-  call fastcc void @arcfour_mic_cksum(ptr noundef nonnull %86, i32 noundef %88, ptr noundef nonnull %17, ptr noundef %169, ptr noundef nonnull %16, ptr noundef %76, i64 noundef %157)
+  call fastcc void @arcfour_mic_cksum(ptr noundef %86, i32 noundef %88, ptr noundef %17, ptr noundef %169, ptr noundef %16, ptr noundef %76, i64 noundef %157)
   %170 = load ptr, ptr %61, align 8
   %171 = call i32 @tvb_memeql(ptr noundef %170, i32 noundef 16, ptr noundef nonnull %17, i64 noundef 8) #6
   %.not55.i.i = icmp eq i32 %171, 0
@@ -1592,14 +1592,14 @@ declare i32 @gcry_cipher_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noun
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @arcfour_mic_cksum(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #0 {
+define internal fastcc void @arcfour_mic_cksum(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i64 noundef range(i64 -2147483648, 2147483648) %6) unnamed_addr #0 {
   %8 = alloca [16 x i8], align 16
   %9 = alloca [4 x i8], align 1
   %10 = alloca [16 x i8], align 16
   %11 = alloca [16 x i8], align 16
   %12 = alloca ptr, align 8
   %13 = sext i32 %1 to i64
-  %14 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull @arcfour_mic_cksum.signature, i64 noundef 13, ptr noundef %0, i64 noundef %13) #6
+  %14 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull @arcfour_mic_cksum.signature, i64 noundef 13, ptr noundef nonnull %0, i64 noundef %13) #6
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %31
 
@@ -1621,7 +1621,7 @@ define internal fastcc void @arcfour_mic_cksum(ptr noundef %0, i32 noundef %1, p
   %22 = load ptr, ptr %12, align 8
   call void @gcry_md_write(ptr noundef %22, ptr noundef %3, i64 noundef 8) #6
   %23 = load ptr, ptr %12, align 8
-  call void @gcry_md_write(ptr noundef %23, ptr noundef %4, i64 noundef 8) #6
+  call void @gcry_md_write(ptr noundef %23, ptr noundef nonnull %4, i64 noundef 8) #6
   %24 = load ptr, ptr %12, align 8
   call void @gcry_md_write(ptr noundef %24, ptr noundef %5, i64 noundef %6) #6
   %25 = load ptr, ptr %12, align 8

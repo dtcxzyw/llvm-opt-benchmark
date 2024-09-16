@@ -44,14 +44,14 @@ define hidden void @_cmsHandleExtraChannels(ptr nocapture noundef readonly %0, p
 31:                                               ; preds = %24
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   %33 = load i32, ptr %32, align 4
-  %34 = call fastcc i32 @ComputeComponentIncrements(i32 noundef %19, i32 noundef %33, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %34 = call fastcc i32 @ComputeComponentIncrements(i32 noundef %19, i32 noundef %33, ptr noundef %7, ptr noundef %8)
   %.not80 = icmp eq i32 %34, 0
   br i1 %.not80, label %.loopexit, label %35
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %5, i64 12
   %37 = load i32, ptr %36, align 4
-  %38 = call fastcc i32 @ComputeComponentIncrements(i32 noundef %21, i32 noundef %37, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %38 = call fastcc i32 @ComputeComponentIncrements(i32 noundef %21, i32 noundef %37, ptr noundef %9, ptr noundef %10)
   %.not81 = icmp eq i32 %38, 0
   br i1 %.not81, label %.loopexit, label %39
 
@@ -333,7 +333,7 @@ _cmsGetFormatterAlpha.exit:                       ; preds = %FormatterPos.exit22
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @ComputeComponentIncrements(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ComputeComponentIncrements(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #1 {
   %5 = alloca [16 x i32], align 16
   %6 = alloca [16 x i32], align 16
   %7 = and i32 %0, 4096
@@ -435,7 +435,7 @@ define internal fastcc range(i32 0, 2) i32 @ComputeComponentIncrements(i32 nound
   %36 = shl nuw nsw i32 %8, 2
   %37 = and i32 %36, 28
   %38 = zext nneg i32 %37 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr align 4 %scevgep89.i, i64 %38, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %2, ptr align 4 %scevgep89.i, i64 %38, i1 false)
   br label %ComputeIncrementsForPlanar.exit
 
 .lr.ph61.i:                                       ; preds = %.lr.ph61.i.preheader, %.lr.ph61.i
@@ -548,7 +548,7 @@ ComputeIncrementsForPlanar.exit:                  ; preds = %15, %.preheader.i, 
   %71 = shl nuw nsw i32 %8, 2
   %72 = and i32 %71, 28
   %73 = zext nneg i32 %72 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr align 4 %scevgep93.i, i64 %73, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %2, ptr align 4 %scevgep93.i, i64 %73, i1 false)
   br label %ComputeIncrementsForChunky.exit
 
 ComputeIncrementsForChunky.exit:                  ; preds = %42, %.loopexit54.i, %.lr.ph67.preheader.i

@@ -2316,7 +2316,7 @@ declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef no
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL10getLAScorePN4llvm7VPValueES1_jRNS_23VPInterleavedAccessInfoE(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #1 {
+define internal fastcc noundef i32 @_ZL10getLAScorePN4llvm7VPValueES1_jRNS_23VPInterleavedAccessInfoE(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 0, 5) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #1 {
   %5 = tail call noundef ptr @_ZNK4llvm7VPValue17getDefiningRecipeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #20
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4llvm8dyn_castINS_13VPInstructionENS_7VPValueEEEDcPT0_.exit, label %_ZN4llvm14CastIsPossibleINS_13VPInstructionEPNS_7VPValueEvE10isPossibleERKS3_.exit.i.i
@@ -2927,7 +2927,7 @@ _ZN4llvm11SmallVectorIPNS_7VPValueELj4EED2Ev.exit: ; preds = %3, %26
   %49 = load i8, ptr %48, align 8
   %50 = trunc i8 %49 to i1
   store i8 1, ptr %48, align 8
-  call fastcc void @_ZL11getOperandsN4llvm8ArrayRefIPNS_7VPValueEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr nonnull %1, i64 %2)
+  call fastcc void @_ZL11getOperandsN4llvm8ArrayRefIPNS_7VPValueEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr nonnull %1, i64 %2)
   %51 = load ptr, ptr %7, align 8
   %52 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #20
   %53 = getelementptr inbounds %"class.llvm::SmallVector.20", ptr %51, i64 %52
@@ -3248,7 +3248,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_7VPValueELb1EE9push_backES2_.exit93: ; pre
   br i1 %.not75, label %_ZN4llvm11SmallVectorISt4pairIPNS_13VPInstructionENS0_IPNS_7VPValueELj4EEEELj4EED2Ev.exit, label %.lr.ph165
 
 189:                                              ; preds = %_ZL14areCommutativeN4llvm8ArrayRefIPNS_7VPValueEEE.exit
-  call fastcc void @_ZL11getOperandsN4llvm8ArrayRefIPNS_7VPValueEEE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr nonnull %1, i64 %2)
+  call fastcc void @_ZL11getOperandsN4llvm8ArrayRefIPNS_7VPValueEEE(ptr dead_on_unwind noalias writable align 8 %12, ptr nonnull %1, i64 %2)
   %190 = load ptr, ptr %12, align 8
   %191 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #20
   %192 = getelementptr inbounds %"class.llvm::SmallVector.20", ptr %190, i64 %191
@@ -3565,7 +3565,7 @@ define internal fastcc void @_ZL11getOperandsN4llvm8ArrayRefIPNS_7VPValueEEE(ptr
   br i1 %cond, label %13, label %19
 
 13:                                               ; preds = %3
-  call fastcc void @_ZL11getOperandsN4llvm8ArrayRefIPNS_7VPValueEEEj(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr nonnull %1, i64 %2, i32 noundef 0)
+  call fastcc void @_ZL11getOperandsN4llvm8ArrayRefIPNS_7VPValueEEEj(ptr dead_on_unwind noalias writable align 8 %4, ptr nonnull %1, i64 %2, i32 noundef 0)
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIPNS_7VPValueELj4EEELb0EE9push_backEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(48) %4)
   %14 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
   %15 = load ptr, ptr %4, align 8
@@ -3590,7 +3590,7 @@ define internal fastcc void @_ZL11getOperandsN4llvm8ArrayRefIPNS_7VPValueEEE(ptr
 
 24:                                               ; preds = %.lr.ph, %_ZN4llvm11SmallVectorIPNS_7VPValueELj4EED2Ev.exit8
   %.010 = phi i32 [ 0, %.lr.ph ], [ %29, %_ZN4llvm11SmallVectorIPNS_7VPValueELj4EED2Ev.exit8 ]
-  call fastcc void @_ZL11getOperandsN4llvm8ArrayRefIPNS_7VPValueEEEj(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr nonnull %1, i64 %2, i32 noundef %.010)
+  call fastcc void @_ZL11getOperandsN4llvm8ArrayRefIPNS_7VPValueEEEj(ptr dead_on_unwind noalias writable align 8 %5, ptr nonnull %1, i64 %2, i32 noundef %.010)
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIPNS_7VPValueELj4EEELb0EE9push_backEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(48) %5)
   %25 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
   %26 = load ptr, ptr %5, align 8

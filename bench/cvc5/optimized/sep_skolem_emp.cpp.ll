@@ -355,7 +355,7 @@ if.then13.i.i53:                                  ; preds = %if.else.i.i51
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %if.else.i.i51, %if.then.i.i55, %if.then13.i.i53
-  invoke fastcc void @_ZN4cvc58internal13preprocessing6passes12_GLOBAL__N_112preSkolemEmpENS0_8TypeNodeES4_NS0_12NodeTemplateILb1EEEbRSt3mapIbS7_IS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEES8_IbESaISA_IKbSE_EEE(ptr noalias nonnull align 8 %next, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp16, ptr noundef nonnull %agg.tmp19, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %visited)
+  invoke fastcc void @_ZN4cvc58internal13preprocessing6passes12_GLOBAL__N_112preSkolemEmpENS0_8TypeNodeES4_NS0_12NodeTemplateILb1EEEbRSt3mapIbS7_IS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEES8_IbESaISA_IKbSE_EEE(ptr noalias align 8 %next, ptr noundef %agg.tmp, ptr noundef %agg.tmp16, ptr noundef %agg.tmp19, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %visited)
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %invoke.cont21
@@ -723,7 +723,7 @@ declare void @_ZNK4cvc58internal3Env13getSepLocTypeEv(ptr sret(%"class.cvc5::int
 declare void @_ZNK4cvc58internal3Env14getSepDataTypeEv(ptr sret(%"class.cvc5::internal::TypeNode") align 8, ptr noundef nonnull align 8 dereferenceable(576)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal13preprocessing6passes12_GLOBAL__N_112preSkolemEmpENS0_8TypeNodeES4_NS0_12NodeTemplateILb1EEEbRSt3mapIbS7_IS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEES8_IbESaISA_IKbSE_EEE(ptr noalias align 8 %agg.result, ptr noundef %locType, ptr noundef %dataType, ptr noundef %n, i1 noundef zeroext %pol, ptr noundef nonnull align 8 dereferenceable(48) %visited) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal13preprocessing6passes12_GLOBAL__N_112preSkolemEmpENS0_8TypeNodeES4_NS0_12NodeTemplateILb1EEEbRSt3mapIbS7_IS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEES8_IbESaISA_IKbSE_EEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %locType, ptr noundef nonnull %dataType, ptr noundef nonnull %n, i1 noundef zeroext %pol, ptr noundef nonnull align 8 dereferenceable(48) %visited) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i587 = alloca %"class.std::tuple.400", align 8
   %ref.tmp10.i588 = alloca %"class.std::tuple.390", align 1
@@ -1141,7 +1141,7 @@ invoke.cont65:                                    ; preds = %invoke.cont7.i204
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %nb.i194)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i195)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp4.i196)
-  invoke void @_ZNK4cvc58internal12NodeTemplateILb1EE6negateEv(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp45)
+  invoke void @_ZNK4cvc58internal12NodeTemplateILb1EE6negateEv(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp45)
           to label %invoke.cont67 unwind label %lpad66
 
 invoke.cont67:                                    ; preds = %invoke.cont65
@@ -1748,7 +1748,7 @@ if.then13.i.i.i390:                               ; preds = %if.else.i.i.i388
 invoke.cont117:                                   ; preds = %if.else.i.i.i388, %if.then.i.i.i392, %if.then13.i.i.i390
   %96 = load i8, ptr %newPol, align 1
   %tobool118 = trunc i8 %96 to i1
-  invoke fastcc void @_ZN4cvc58internal13preprocessing6passes12_GLOBAL__N_112preSkolemEmpENS0_8TypeNodeES4_NS0_12NodeTemplateILb1EEEbRSt3mapIbS7_IS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEES8_IbESaISA_IKbSE_EEE(ptr noalias nonnull align 8 %ref.tmp108, ptr noundef nonnull %agg.tmp109, ptr noundef nonnull %agg.tmp112, ptr noundef nonnull %agg.tmp115, i1 noundef zeroext %tobool118, ptr noundef nonnull align 8 dereferenceable(48) %visited)
+  invoke fastcc void @_ZN4cvc58internal13preprocessing6passes12_GLOBAL__N_112preSkolemEmpENS0_8TypeNodeES4_NS0_12NodeTemplateILb1EEEbRSt3mapIbS7_IS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEES8_IbESaISA_IKbSE_EEE(ptr noalias align 8 %ref.tmp108, ptr noundef %agg.tmp109, ptr noundef %agg.tmp112, ptr noundef %agg.tmp115, i1 noundef zeroext %tobool118, ptr noundef nonnull align 8 dereferenceable(48) %visited)
           to label %invoke.cont120 unwind label %lpad119
 
 invoke.cont120:                                   ; preds = %invoke.cont117
@@ -2156,7 +2156,7 @@ call3.i.i.noexc.i:                                ; preds = %for.body.i.i.i
 
 invoke.cont.i:                                    ; preds = %call3.i.i.noexc.i, %.noexc528
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i), !noalias !24
-  invoke void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(116) %nb.i526)
+  invoke void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(116) %nb.i526)
           to label %cleanup unwind label %lpad.loopexit.split-lp.i
 
 lpad.loopexit.i:                                  ; preds = %for.body.i.i.i

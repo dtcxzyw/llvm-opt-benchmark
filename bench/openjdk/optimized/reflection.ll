@@ -1319,7 +1319,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %43, %49
   br label %_ZN11MutexLockerD2Ev.exit
 
 64:                                               ; preds = %14
-  %65 = tail call fastcc noundef zeroext i1 @_ZL26can_relax_access_check_forPK5KlassS1_b(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext %2)
+  %65 = tail call fastcc noundef zeroext i1 @_ZL26can_relax_access_check_forPK5KlassS1_b(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2)
   %.32 = select i1 %65, i32 0, i32 3
   br label %_ZN11MutexLockerD2Ev.exit
 
@@ -1341,7 +1341,7 @@ declare noundef zeroext i1 @_ZNK11ModuleEntry8can_readEPS_(ptr noundef nonnull a
 declare noundef zeroext i1 @_ZNK12PackageEntry15is_qexported_toEP11ModuleEntry(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL26can_relax_access_check_forPK5KlassS1_b(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL26can_relax_access_check_forPK5KlassS1_b(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = load i8, ptr @RelaxAccessControlCheck, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %52
@@ -1727,7 +1727,7 @@ define hidden noundef zeroext i1 @_ZN10Reflection20verify_member_accessEPK5Klass
   br i1 %52, label %55, label %53
 
 53:                                               ; preds = %50
-  %54 = tail call fastcc noundef zeroext i1 @_ZL26can_relax_access_check_forPK5KlassS1_b(ptr noundef nonnull %0, ptr noundef %2, i1 noundef zeroext %4)
+  %54 = tail call fastcc noundef zeroext i1 @_ZL26can_relax_access_check_forPK5KlassS1_b(ptr noundef %0, ptr noundef %2, i1 noundef zeroext %4)
   br label %55
 
 55:                                               ; preds = %50, %46, %41, %31, %20, %25, %27, %7, %53
@@ -3746,7 +3746,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %76, %86
   br i1 %.not150, label %126, label %110
 
 110:                                              ; preds = %104
-  call fastcc void @_ZL22resolve_interface_callP13InstanceKlassRK12methodHandleP5Klass6HandleP10JavaThread(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull %0, ptr nonnull %93, ptr noundef %.0.i, ptr nonnull %2, ptr noundef nonnull %6)
+  call fastcc void @_ZL22resolve_interface_callP13InstanceKlassRK12methodHandleP5Klass6HandleP10JavaThread(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull %0, ptr nonnull %93, ptr noundef %.0.i, ptr nonnull %2, ptr noundef nonnull %6)
   %111 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN12methodHandleaSERKS_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9) #13
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #13
   %112 = load ptr, ptr %36, align 8
@@ -8197,7 +8197,7 @@ declare void @_ZN24ResolvingSignatureStreamC1EP6SymbolP5Klassb(ptr noundef nonnu
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN12methodHandleaSERKS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL22resolve_interface_callP13InstanceKlassRK12methodHandleP5Klass6HandleP10JavaThread(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, ptr nocapture readonly %.0.val.8.val, ptr noundef %2, ptr %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL22resolve_interface_callP13InstanceKlassRK12methodHandleP5Klass6HandleP10JavaThread(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, ptr nocapture readonly %.0.val.8.val, ptr noundef %2, ptr %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %class.CallInfo, align 8
   %7 = alloca %class.LinkInfo, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8

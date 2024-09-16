@@ -3570,8 +3570,8 @@ declare dso_local void @intel_dsi_vbt_exec_sequence(ptr noundef, i32 noundef) lo
 declare dso_local void @msleep(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @dpi_send_cmd(ptr %.0.val, i32 noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
-  %3 = or i32 %0, 64
+define internal fastcc void @dpi_send_cmd(ptr %.0.val, i32 noundef range(i32 1, 3) %0, i32 noundef %1) unnamed_addr #0 align 16 {
+  %3 = or disjoint i32 %0, 64
   %4 = icmp eq i32 %1, 0
   %5 = getelementptr inbounds i8, ptr %.0.val, i64 2304
   %6 = load i32, ptr %5, align 8

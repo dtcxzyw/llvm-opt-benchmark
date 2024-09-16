@@ -846,7 +846,7 @@ declare dso_local i32 @get_stack_info(ptr noundef, ptr noundef, ptr noundef, ptr
 declare dso_local ptr @stack_type_name(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @show_regs_if_on_stack(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #3 align 16 {
+define internal fastcc void @show_regs_if_on_stack(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #3 align 16 {
   br i1 %2, label %22, label %5
 
 5:                                                ; preds = %4
@@ -870,7 +870,7 @@ define internal fastcc void @show_regs_if_on_stack(ptr nocapture noundef readonl
   br i1 %20, label %21, label %54
 
 21:                                               ; preds = %16
-  tail call void @__show_regs(ptr noundef %1, i32 noundef 0, ptr noundef %3) #14
+  tail call void @__show_regs(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %3) #14
   br label %54
 
 22:                                               ; preds = %4
@@ -901,7 +901,7 @@ define internal fastcc void @show_regs_if_on_stack(ptr nocapture noundef readonl
   %43 = load i64, ptr %23, align 8
   %44 = inttoptr i64 %43 to ptr
   %45 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %3, i32 noundef %42, ptr noundef %44) #16
-  tail call void @show_opcodes(ptr noundef %1, ptr noundef %3)
+  tail call void @show_opcodes(ptr noundef nonnull %1, ptr noundef %3)
   %46 = getelementptr inbounds i8, ptr %1, i64 160
   %47 = load i64, ptr %46, align 8
   %48 = trunc i64 %47 to i32

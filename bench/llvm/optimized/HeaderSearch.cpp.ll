@@ -11367,7 +11367,7 @@ define dso_local void @_ZNK5clang12HeaderSearch31suggestPathToFileForDiagnostics
   %66 = getelementptr inbounds i8, ptr %64, i64 %65
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %54, i64 noundef 32) #22
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %64, ptr noundef nonnull %66)
-  %67 = call fastcc noundef zeroext i1 @"_ZZNK5clang12HeaderSearch31suggestPathToFileForDiagnosticsB5cxx11EN4llvm9StringRefES2_S2_PbENK3$_0clENS1_11SmallStringILj32EEE"(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull %16)
+  %67 = call fastcc noundef zeroext i1 @"_ZZNK5clang12HeaderSearch31suggestPathToFileForDiagnosticsB5cxx11EN4llvm9StringRefES2_S2_PbENK3$_0clENS1_11SmallStringILj32EEE"(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %16)
   %68 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #22
   %69 = load ptr, ptr %16, align 8
   %70 = icmp eq ptr %69, %54
@@ -11404,7 +11404,7 @@ _ZN4llvm11SmallStringILj32EED2Ev.exit:            ; preds = %61, %71
   %85 = getelementptr inbounds i8, ptr %83, i64 %84
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull %53, i64 noundef 32) #22
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull %83, ptr noundef nonnull %85)
-  %86 = call fastcc noundef zeroext i1 @"_ZZNK5clang12HeaderSearch31suggestPathToFileForDiagnosticsB5cxx11EN4llvm9StringRefES2_S2_PbENK3$_0clENS1_11SmallStringILj32EEE"(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull %17)
+  %86 = call fastcc noundef zeroext i1 @"_ZZNK5clang12HeaderSearch31suggestPathToFileForDiagnosticsB5cxx11EN4llvm9StringRefES2_S2_PbENK3$_0clENS1_11SmallStringILj32EEE"(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %17)
   %87 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #22
   %88 = load ptr, ptr %17, align 8
   %89 = icmp eq ptr %88, %53
@@ -11454,7 +11454,7 @@ _ZN4llvm11SmallStringILj32EED2Ev.exit62:          ; preds = %80, %90
   %101 = getelementptr inbounds i8, ptr %18, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull %101, i64 noundef 32) #22
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef %98, ptr noundef %100)
-  %102 = call fastcc noundef zeroext i1 @"_ZZNK5clang12HeaderSearch31suggestPathToFileForDiagnosticsB5cxx11EN4llvm9StringRefES2_S2_PbENK3$_0clENS1_11SmallStringILj32EEE"(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull %18)
+  %102 = call fastcc noundef zeroext i1 @"_ZZNK5clang12HeaderSearch31suggestPathToFileForDiagnosticsB5cxx11EN4llvm9StringRefES2_S2_PbENK3$_0clENS1_11SmallStringILj32EEE"(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %18)
   %103 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #22
   %104 = load ptr, ptr %18, align 8
   %105 = icmp eq ptr %104, %101
@@ -11582,7 +11582,7 @@ declare noundef zeroext i1 @_ZN4llvm3sys4path11remove_dotsERNS_15SmallVectorImpl
 declare void @_ZN4llvm3sys4path6nativeERNS_15SmallVectorImplIcEENS1_5StyleE(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK5clang12HeaderSearch31suggestPathToFileForDiagnosticsB5cxx11EN4llvm9StringRefES2_S2_PbENK3$_0clENS1_11SmallStringILj32EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZNK5clang12HeaderSearch31suggestPathToFileForDiagnosticsB5cxx11EN4llvm9StringRefES2_S2_PbENK3$_0clENS1_11SmallStringILj32EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::sys::path::const_iterator", align 8

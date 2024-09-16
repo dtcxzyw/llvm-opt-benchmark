@@ -114,12 +114,12 @@ define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN105_$LT$std..c
 
 ; Function Attrs: noreturn nonlazybind uwtable
 define hidden void @_ZN3std10sys_common9backtrace26__rust_end_short_backtrace17h97b51490428e94cbE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 {
-  tail call fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure$u7d$$u7d$17h6a4ded5bee47e6edE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) #17
+  tail call fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure$u7d$$u7d$17h6a4ded5bee47e6edE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) #17
   unreachable
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define internal fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure$u7d$$u7d$17h6a4ded5bee47e6edE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure$u7d$$u7d$17h6a4ded5bee47e6edE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { { ptr, [1 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !nonnull !11, !align !21, !noundef !11
@@ -182,7 +182,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$17h60bc5680736d405cE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$17h60bc5680736d405cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !34, !noundef !11
   %3 = icmp eq i64 %2, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -215,7 +215,7 @@ define internal fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr200drop_in_place$LT$$LT$salsa..input..InputStorage$LT$base_db..ToolchainQuery$GT$$u20$as$u20$salsa..plumbing..InputQueryStorageOps$LT$base_db..ToolchainQuery$GT$$GT$..set..$u7b$$u7b$closure$u7d$$u7d$$GT$17h91302fe5aeaeec6bE"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr200drop_in_place$LT$$LT$salsa..input..InputStorage$LT$base_db..ToolchainQuery$GT$$u20$as$u20$salsa..plumbing..InputQueryStorageOps$LT$base_db..ToolchainQuery$GT$$GT$..set..$u7b$$u7b$closure$u7d$$u7d$$GT$17h91302fe5aeaeec6bE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !alias.scope !49, !noundef !11
   %4 = icmp eq ptr %3, null
@@ -251,7 +251,7 @@ define internal fastcc void @"_ZN4core3ptr200drop_in_place$LT$$LT$salsa..input..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr202drop_in_place$LT$$LT$salsa..input..InputStorage$LT$base_db..DataLayoutQuery$GT$$u20$as$u20$salsa..plumbing..InputQueryStorageOps$LT$base_db..DataLayoutQuery$GT$$GT$..set..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd28c35b28af0d4deE"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr202drop_in_place$LT$$LT$salsa..input..InputStorage$LT$base_db..DataLayoutQuery$GT$$u20$as$u20$salsa..plumbing..InputQueryStorageOps$LT$base_db..DataLayoutQuery$GT$$GT$..set..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd28c35b28af0d4deE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %2 = load i64, ptr %0, align 8, !range !34, !alias.scope !52, !noundef !11
   %3 = icmp eq i64 %2, 0
@@ -295,7 +295,7 @@ define internal void @"_ZN4core3ptr41drop_in_place$LT$core..fmt..Arguments$GT$17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$semver..Version$GT$$GT$17h8414938af7aaf726E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$semver..Version$GT$$GT$17h8414938af7aaf726E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !11
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
@@ -3022,7 +3022,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   %189 = landingpad { ptr, i32 }
           cleanup
   %190 = getelementptr inbounds i8, ptr %9, i64 24
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$semver..Version$GT$$GT$17h8414938af7aaf726E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %190) #19
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$semver..Version$GT$$GT$17h8414938af7aaf726E"(ptr noalias noundef align 8 dereferenceable(40) %190) #19
           to label %.body unwind label %177
 
 191:                                              ; preds = %104
@@ -3181,7 +3181,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
 
 240:                                              ; preds = %.thread, %.noexc77
   %.pn64121 = phi { ptr, i32 } [ %.pn, %.noexc77 ], [ %lpad.thr_comm, %.thread ]
-  invoke fastcc void @"_ZN4core3ptr200drop_in_place$LT$$LT$salsa..input..InputStorage$LT$base_db..ToolchainQuery$GT$$u20$as$u20$salsa..plumbing..InputQueryStorageOps$LT$base_db..ToolchainQuery$GT$$GT$..set..$u7b$$u7b$closure$u7d$$u7d$$GT$17h91302fe5aeaeec6bE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1) #19
+  invoke fastcc void @"_ZN4core3ptr200drop_in_place$LT$$LT$salsa..input..InputStorage$LT$base_db..ToolchainQuery$GT$$u20$as$u20$salsa..plumbing..InputQueryStorageOps$LT$base_db..ToolchainQuery$GT$$GT$..set..$u7b$$u7b$closure$u7d$$u7d$$GT$17h91302fe5aeaeec6bE"(ptr noalias noundef align 8 dereferenceable(64) %1) #19
           to label %239 unwind label %237
 }
 
@@ -4913,7 +4913,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
 192:                                              ; preds = %109
   %193 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$17h60bc5680736d405cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #19
+  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$17h60bc5680736d405cE"(ptr noalias noundef align 8 dereferenceable(24) %9) #19
           to label %.body unwind label %181
 
 194:                                              ; preds = %104
@@ -5072,7 +5072,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
 
 243:                                              ; preds = %.thread, %.noexc77
   %.pn64121 = phi { ptr, i32 } [ %.pn, %.noexc77 ], [ %lpad.thr_comm, %.thread ]
-  invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$$LT$salsa..input..InputStorage$LT$base_db..DataLayoutQuery$GT$$u20$as$u20$salsa..plumbing..InputQueryStorageOps$LT$base_db..DataLayoutQuery$GT$$GT$..set..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd28c35b28af0d4deE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1) #19
+  invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$$LT$salsa..input..InputStorage$LT$base_db..DataLayoutQuery$GT$$u20$as$u20$salsa..plumbing..InputQueryStorageOps$LT$base_db..DataLayoutQuery$GT$$GT$..set..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd28c35b28af0d4deE"(ptr noalias noundef align 8 dereferenceable(48) %1) #19
           to label %242 unwind label %240
 }
 

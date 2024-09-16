@@ -362,7 +362,7 @@ for.body.i5:                                      ; preds = %land.rhs.i
   br i1 %tobool.not.i7, label %find_short_object_filename.exit, label %land.rhs.i, !llvm.loop !8
 
 find_short_object_filename.exit:                  ; preds = %land.rhs.i, %for.body.i5, %if.end
-  call fastcc void @find_short_packed_object(ptr noundef nonnull %ds)
+  call fastcc void @find_short_packed_object(ptr noundef %ds)
   %call5 = call i32 @oid_array_for_each_unique(ptr noundef nonnull %collect, ptr noundef %fn, ptr noundef %cb_data) #20
   call void @oid_array_clear(ptr noundef nonnull %collect) #20
   br label %return
@@ -386,7 +386,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @find_short_packed_object(ptr noundef %ds) unnamed_addr #0 {
+define internal fastcc void @find_short_packed_object(ptr noundef nonnull %ds) unnamed_addr #0 {
 entry:
   %first.i10 = alloca i32, align 4
   %oid.i11 = alloca %struct.object_id, align 4
@@ -1718,7 +1718,7 @@ return:                                           ; preds = %if.end17, %if.end14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483646, -2147483648) i32 @reinterpret(ptr noundef %r, ptr noundef %name, i32 noundef %namelen, i32 noundef %len, ptr noundef %buf, i32 noundef %allowed) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483646, -2147483648) i32 @reinterpret(ptr noundef %r, ptr noundef %name, i32 noundef %namelen, i32 noundef range(i32 1, -2147483648) %len, ptr noundef %buf, i32 noundef %allowed) unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.strbuf, align 8
   %options = alloca %struct.interpret_branch_name_options, align 4
@@ -1732,7 +1732,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %name, i64 %idx.ext
   %sub = sub nsw i32 %namelen, %len
   %conv3 = sext i32 %sub to i64
-  tail call void @strbuf_add(ptr noundef %buf, ptr noundef %add.ptr, i64 noundef %conv3) #20
+  tail call void @strbuf_add(ptr noundef %buf, ptr noundef nonnull %add.ptr, i64 noundef %conv3) #20
   %buf4 = getelementptr inbounds i8, ptr %buf, i64 16
   %1 = load ptr, ptr %buf4, align 8
   %2 = load i64, ptr %len1, align 8
@@ -1922,7 +1922,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
   br i1 %exitcond.not.i, label %at_mark.exit, label %for.body.i, !llvm.loop !20
 
 at_mark.exit:                                     ; preds = %land.lhs.true.i, %for.inc.i
-  %retval.0.i = phi i32 [ 0, %for.inc.i ], [ %conv.i, %land.lhs.true.i ]
+  %retval.0.i = phi i32 [ %conv.i, %land.lhs.true.i ], [ 0, %for.inc.i ]
   ret i32 %retval.0.i
 }
 
@@ -2401,7 +2401,7 @@ if.else167:                                       ; preds = %if.then155
   br i1 %or.cond1, label %if.then173, label %if.end175
 
 if.then173:                                       ; preds = %if.else167
-  call fastcc void @diagnose_invalid_oid_path(ptr noundef %repo, ptr noundef %prefix, ptr noundef nonnull %spec.select120, ptr noundef nonnull %tree_oid, ptr noundef nonnull %name, i32 noundef %conv151)
+  call fastcc void @diagnose_invalid_oid_path(ptr noundef %repo, ptr noundef %prefix, ptr noundef nonnull %spec.select120, ptr noundef %tree_oid, ptr noundef nonnull %name, i32 noundef %conv151)
   br label %if.end175
 
 if.end175:                                        ; preds = %if.else167, %if.then173, %if.then163
@@ -3840,7 +3840,7 @@ declare i32 @repo_read_index(ptr noundef) local_unnamed_addr #1
 declare i32 @index_name_pos(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @diagnose_invalid_index_path(ptr noundef %r, i32 noundef %stage, ptr noundef %prefix, ptr noundef %filename) unnamed_addr #0 {
+define internal fastcc void @diagnose_invalid_index_path(ptr noundef %r, i32 noundef range(i32 0, 4) %stage, ptr noundef %prefix, ptr noundef %filename) unnamed_addr #0 {
 entry:
   %fullname = alloca %struct.strbuf, align 8
   %index = getelementptr inbounds i8, ptr %r, i64 240
@@ -3975,7 +3975,7 @@ declare i32 @get_tree_entry_follow_symlinks(ptr noundef, ptr noundef, ptr nounde
 declare i32 @get_tree_entry(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @diagnose_invalid_oid_path(ptr noundef %r, ptr noundef %prefix, ptr noundef %filename, ptr noundef %tree_oid, ptr noundef %object_name, i32 noundef %object_name_len) unnamed_addr #0 {
+define internal fastcc void @diagnose_invalid_oid_path(ptr noundef %r, ptr noundef %prefix, ptr noundef %filename, ptr noundef nonnull %tree_oid, ptr noundef %object_name, i32 noundef %object_name_len) unnamed_addr #0 {
 entry:
   %oid = alloca %struct.object_id, align 4
   %mode = alloca i16, align 2
@@ -4000,7 +4000,7 @@ if.end4:                                          ; preds = %entry
 
 if.then8:                                         ; preds = %if.end4, %if.end4
   %call9 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.58, ptr noundef nonnull %spec.store.select, ptr noundef %filename) #20
-  %call10 = call i32 @get_tree_entry(ptr noundef %r, ptr noundef %tree_oid, ptr noundef %call9, ptr noundef nonnull %oid, ptr noundef nonnull %mode) #20
+  %call10 = call i32 @get_tree_entry(ptr noundef %r, ptr noundef nonnull %tree_oid, ptr noundef %call9, ptr noundef nonnull %oid, ptr noundef nonnull %mode) #20
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.then12, label %if.end14
 
@@ -4172,7 +4172,7 @@ for.body.i18:                                     ; preds = %land.rhs.i
   br i1 %tobool.not.i20, label %find_short_object_filename.exit, label %land.rhs.i, !llvm.loop !8
 
 find_short_object_filename.exit:                  ; preds = %land.rhs.i, %for.body.i18, %if.end36
-  call fastcc void @find_short_packed_object(ptr noundef nonnull %ds)
+  call fastcc void @find_short_packed_object(ptr noundef %ds)
   %bf.load.i22 = load i8, ptr %ambiguous.i, align 4
   %14 = and i8 %bf.load.i22, 16
   %tobool.not.i23 = icmp eq i8 %14, 0
@@ -4259,7 +4259,7 @@ for.body.i40:                                     ; preds = %land.rhs.i35
   br i1 %tobool.not.i44, label %find_short_object_filename.exit45, label %land.rhs.i35, !llvm.loop !8
 
 find_short_object_filename.exit45:                ; preds = %land.rhs.i35, %for.body.i40, %if.then39
-  call fastcc void @find_short_packed_object(ptr noundef nonnull %ds)
+  call fastcc void @find_short_packed_object(ptr noundef %ds)
   %bf.load.i47 = load i8, ptr %ambiguous.i, align 4
   %27 = and i8 %bf.load.i47, 16
   %tobool.not.i48 = icmp eq i8 %27, 0

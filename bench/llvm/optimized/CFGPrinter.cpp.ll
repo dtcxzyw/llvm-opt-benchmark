@@ -767,7 +767,7 @@ define dso_local void @_ZN4llvm14CFGPrinterPass3runERNS_8FunctionERNS_15Analysis
   %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm25BranchProbabilityAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %2) #19
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = call noundef i64 @_ZN4llvm10getMaxFreqERKNS_8FunctionEPKNS_18BlockFrequencyInfoE(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull %16) #19
-  call fastcc void @_ZL17writeCFGToDotFileRN4llvm8FunctionEPNS_18BlockFrequencyInfoEPNS_21BranchProbabilityInfoEmb(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull %16, ptr noundef nonnull %18, i64 noundef %19, i1 noundef zeroext false)
+  call fastcc void @_ZL17writeCFGToDotFileRN4llvm8FunctionEPNS_18BlockFrequencyInfoEPNS_21BranchProbabilityInfoEmb(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef %16, ptr noundef %18, i64 noundef %19, i1 noundef zeroext false)
   br label %20
 
 20:                                               ; preds = %7, %.critedge
@@ -797,7 +797,7 @@ define dso_local void @_ZN4llvm14CFGPrinterPass3runERNS_8FunctionERNS_15Analysis
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17writeCFGToDotFileRN4llvm8FunctionEPNS_18BlockFrequencyInfoEPNS_21BranchProbabilityInfoEmb(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_ZL17writeCFGToDotFileRN4llvm8FunctionEPNS_18BlockFrequencyInfoEPNS_21BranchProbabilityInfoEmb(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
 _ZN4llvmplERKNS_5TwineES2_.exit19:
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -991,7 +991,7 @@ define dso_local void @_ZN4llvm18CFGOnlyPrinterPass3runERNS_8FunctionERNS_15Anal
   %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm25BranchProbabilityAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %2) #19
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = call noundef i64 @_ZN4llvm10getMaxFreqERKNS_8FunctionEPKNS_18BlockFrequencyInfoE(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull %16) #19
-  call fastcc void @_ZL17writeCFGToDotFileRN4llvm8FunctionEPNS_18BlockFrequencyInfoEPNS_21BranchProbabilityInfoEmb(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull %16, ptr noundef nonnull %18, i64 noundef %19, i1 noundef zeroext true)
+  call fastcc void @_ZL17writeCFGToDotFileRN4llvm8FunctionEPNS_18BlockFrequencyInfoEPNS_21BranchProbabilityInfoEmb(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef %16, ptr noundef %18, i64 noundef %19, i1 noundef zeroext true)
   br label %20
 
 20:                                               ; preds = %7, %.critedge

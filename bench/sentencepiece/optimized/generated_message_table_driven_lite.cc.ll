@@ -16394,7 +16394,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11M
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal10HandleEnumINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE3EEEbRKNS1_10ParseTableEPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPjjlji(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal10HandleEnumINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE3EEEbRKNS1_10ParseTableEPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPjjlji(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i32 noundef %7) unnamed_addr #3 {
   %9 = load ptr, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8

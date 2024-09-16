@@ -54869,7 +54869,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN3nix9StorePathERKNS0_14Deri
   %19 = load ptr, ptr %13, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 528
   %21 = load ptr, ptr %20, align 8
-  call fastcc void @"_ZZZN3nix14DerivationGoal14inputsRealisedEvENK3$_3clERKNS_9StorePathERKNS_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEENKUlRKSC_E_clESM_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %18)
+  call fastcc void @"_ZZZN3nix14DerivationGoal14inputsRealisedEvENK3$_3clERKNS_9StorePathERKNS_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEENKUlRKSC_E_clESM_"(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %18)
   invoke void @_ZN3nix5Store16computeFSClosureERKNS_9StorePathERSt3setIS1_St4lessIS1_ESaIS1_EEbbb(ptr noundef nonnull align 8 dereferenceable(264) %21, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %14, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %22 unwind label %29
 
@@ -54916,7 +54916,7 @@ _ZN3nix9StorePathD2Ev.exit.i.i.i:                 ; preds = %_ZNKSt7__cxx1112bas
   %.sroa.020.028.i.i.i = phi ptr [ %32, %.lr.ph30.i.i.i ], [ %52, %_ZN3nix9StorePathD2Ev.exit19.i.i.i ]
   %39 = getelementptr inbounds i8, ptr %.sroa.020.028.i.i.i, i64 32
   %40 = load ptr, ptr %35, align 8
-  call fastcc void @"_ZZZN3nix14DerivationGoal14inputsRealisedEvENK3$_3clERKNS_9StorePathERKNS_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEENKUlRKSC_E_clESM_"(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %39)
+  call fastcc void @"_ZZZN3nix14DerivationGoal14inputsRealisedEvENK3$_3clERKNS_9StorePathERKNS_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEENKUlRKSC_E_clESM_"(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %39)
   %41 = getelementptr inbounds i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   %.not.i.i.i.i.i = icmp eq ptr %42, null
@@ -55005,7 +55005,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN3nix9StorePat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZZN3nix14DerivationGoal14inputsRealisedEvENK3$_3clERKNS_9StorePathERKNS_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEENKUlRKSC_E_clESM_"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN3nix14DerivationGoal14inputsRealisedEvENK3$_3clERKNS_9StorePathERKNS_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEENKUlRKSC_E_clESM_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x ptr], align 8
   %5 = alloca %"struct.std::pair.667", align 8
   %6 = alloca %"class.std::map.473", align 8

@@ -755,7 +755,7 @@ declare void @_ZN4llvm22report_bad_alloc_errorEPKcb(ptr noundef, i1 noundef zero
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZL20report_size_overflowmm(i64 noundef %0) unnamed_addr #6 {
+define internal fastcc void @_ZL20report_size_overflowmm(i64 noundef range(i64 4294967296, 0) %0) unnamed_addr #6 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -784,7 +784,7 @@ define internal fastcc void @_ZL20report_size_overflowmm(i64 noundef %0) unnamed
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZL26report_at_maximum_capacitym(i64 noundef %0) unnamed_addr #6 {
+define internal fastcc void @_ZL26report_at_maximum_capacitym(i64 noundef range(i64 -1, 4294967296) %0) unnamed_addr #6 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.llvm::Twine", align 8

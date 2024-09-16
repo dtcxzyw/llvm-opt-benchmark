@@ -2487,7 +2487,7 @@ define noundef ptr @_ZN5faiss13index_factoryEiPKcNS_10MetricTypeE(i32 noundef %0
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %11
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %13
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_117index_factory_subEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %4, i32 noundef %0, ptr noundef nonnull %5, i32 noundef %2)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_117index_factory_subEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr dead_on_unwind noalias writable align 8 %4, i32 noundef %0, ptr noundef %5, i32 noundef %2)
           to label %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit unwind label %19
 
 _ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -2514,7 +2514,7 @@ _ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss12_GLOBAL__N_117index_factory_subEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faiss12_GLOBAL__N_117index_factory_subEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct._Guard, align 8
   %6 = alloca %struct._Guard, align 8
   %7 = alloca %struct._Guard, align 8
@@ -2713,7 +2713,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
           to label %129 unwind label %154
 
 129:                                              ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_117index_factory_subEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %36, i32 noundef %1, ptr noundef nonnull %37, i32 noundef %3)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_117index_factory_subEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr dead_on_unwind noalias writable align 8 %36, i32 noundef %1, ptr noundef %37, i32 noundef %3)
           to label %130 unwind label %156
 
 130:                                              ; preds = %129
@@ -2734,7 +2734,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
           to label %139 unwind label %158
 
 139:                                              ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEE4sizeEv.exit.i271
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_117index_factory_subEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %38, i32 noundef %1, ptr noundef nonnull %39, i32 noundef %3)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_117index_factory_subEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr dead_on_unwind noalias writable align 8 %38, i32 noundef %1, ptr noundef %39, i32 noundef %3)
           to label %140 unwind label %160
 
 140:                                              ; preds = %139
@@ -4095,7 +4095,7 @@ _ZNSt6vectorISt10unique_ptrIN5faiss15VectorTransformESt14default_deleteIS2_EESaI
           to label %603 unwind label %.loopexit.split-lp575
 
 603:                                              ; preds = %602
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_117index_factory_subEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %45, i32 noundef %.0, ptr noundef nonnull %46, i32 noundef %3)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_117index_factory_subEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr dead_on_unwind noalias writable align 8 %45, i32 noundef %.0, ptr noundef %46, i32 noundef %3)
           to label %604 unwind label %630
 
 604:                                              ; preds = %603
@@ -4391,7 +4391,7 @@ _ZNKSt14default_deleteIN5faiss5IndexEEclEPS1_.exit.i317: ; preds = %648
           to label %728 unwind label %791
 
 728:                                              ; preds = %722
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_117index_factory_subEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %49, i32 noundef %.0, ptr noundef nonnull %50, i32 noundef %3)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_117index_factory_subEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr dead_on_unwind noalias writable align 8 %49, i32 noundef %.0, ptr noundef %50, i32 noundef %3)
           to label %729 unwind label %793
 
 729:                                              ; preds = %728
@@ -4761,7 +4761,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
           to label %846 unwind label %859
 
 846:                                              ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit353
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_117index_factory_subEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %61, i32 noundef %.0, ptr noundef nonnull %62, i32 noundef %3)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_117index_factory_subEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr dead_on_unwind noalias writable align 8 %61, i32 noundef %.0, ptr noundef %62, i32 noundef %3)
           to label %847 unwind label %861
 
 847:                                              ; preds = %846
@@ -4933,7 +4933,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
           to label %891 unwind label %904
 
 891:                                              ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit375
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_117index_factory_subEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %67, i32 noundef %.0, ptr noundef nonnull %68, i32 noundef %3)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_117index_factory_subEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr dead_on_unwind noalias writable align 8 %67, i32 noundef %.0, ptr noundef %68, i32 noundef %3)
           to label %892 unwind label %906
 
 892:                                              ; preds = %891
@@ -5205,7 +5205,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
           to label %996 unwind label %993
 
 996:                                              ; preds = %995
-  %997 = invoke fastcc noundef ptr @_ZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEi(ptr noundef nonnull %74, i32 noundef %.0, i32 noundef %3, i32 noundef %931)
+  %997 = invoke fastcc noundef ptr @_ZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEi(ptr noundef %74, i32 noundef %.0, i32 noundef %3, i32 noundef %931)
           to label %998 unwind label %1014
 
 998:                                              ; preds = %996
@@ -5455,7 +5455,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
           to label %1100 unwind label %1097
 
 1100:                                             ; preds = %1099
-  %1101 = invoke fastcc noundef ptr @_ZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEi(ptr noundef nonnull %81, i32 noundef %.0, i32 noundef %3, i32 noundef %1039)
+  %1101 = invoke fastcc noundef ptr @_ZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEi(ptr noundef %81, i32 noundef %.0, i32 noundef %3, i32 noundef %1039)
           to label %1102 unwind label %1118
 
 1102:                                             ; preds = %1100
@@ -5541,7 +5541,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
           to label %1135 unwind label %1141
 
 1135:                                             ; preds = %1134
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_117index_factory_subEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %84, i32 noundef %.0, ptr noundef nonnull %85, i32 noundef %3)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_117index_factory_subEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr dead_on_unwind noalias writable align 8 %84, i32 noundef %.0, ptr noundef %85, i32 noundef %3)
           to label %1136 unwind label %1143
 
 1136:                                             ; preds = %1135
@@ -5617,7 +5617,7 @@ _ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit425: ; preds = 
           to label %1159 unwind label %1165
 
 1159:                                             ; preds = %1158
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_117index_factory_subEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %87, i32 noundef %.0, ptr noundef nonnull %88, i32 noundef %3)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_117index_factory_subEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr dead_on_unwind noalias writable align 8 %87, i32 noundef %.0, ptr noundef %88, i32 noundef %3)
           to label %1160 unwind label %1167
 
 1160:                                             ; preds = %1159
@@ -5950,7 +5950,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
   br label %1305
 
 .critedge261:                                     ; preds = %1264
-  %1285 = call fastcc noundef ptr @_ZN5faiss12_GLOBAL__N_114fix_ivf_fieldsEPNS_8IndexIVFE(ptr noundef nonnull %1263)
+  %1285 = call fastcc noundef ptr @_ZN5faiss12_GLOBAL__N_114fix_ivf_fieldsEPNS_8IndexIVFE(ptr noundef %1263)
   %.pre769 = load ptr, ptr %92, align 8
   store ptr %1263, ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %94) #29
@@ -7471,7 +7471,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
           to label %416 unwind label %438
 
 416:                                              ; preds = %415
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_114aq_parse_nbitsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull %28)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_114aq_parse_nbitsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef %28)
           to label %417 unwind label %440
 
 417:                                              ; preds = %416
@@ -7579,7 +7579,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
           to label %462 unwind label %442
 
 462:                                              ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit237
-  %463 = invoke fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_120aq_parse_search_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr noundef nonnull %30, i32 noundef %2)
+  %463 = invoke fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_120aq_parse_search_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr noundef %30, i32 noundef %2)
           to label %464 unwind label %467
 
 464:                                              ; preds = %462
@@ -7637,7 +7637,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
           to label %481 unwind label %438
 
 481:                                              ; preds = %480
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_114aq_parse_nbitsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull %33)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_114aq_parse_nbitsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef %33)
           to label %482 unwind label %531
 
 482:                                              ; preds = %481
@@ -7800,7 +7800,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
           to label %553 unwind label %533
 
 553:                                              ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit266
-  %554 = invoke fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_120aq_parse_search_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr noundef nonnull %35, i32 noundef %2)
+  %554 = invoke fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_120aq_parse_search_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr noundef %35, i32 noundef %2)
           to label %555 unwind label %560
 
 555:                                              ; preds = %553
@@ -7981,7 +7981,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
           to label %631 unwind label %438
 
 631:                                              ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit299
-  %632 = invoke fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_120aq_parse_search_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr noundef nonnull %38, i32 noundef %2)
+  %632 = invoke fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_120aq_parse_search_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr noundef %38, i32 noundef %2)
           to label %633 unwind label %644
 
 633:                                              ; preds = %631
@@ -8163,7 +8163,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
           to label %710 unwind label %438
 
 710:                                              ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit328
-  %711 = invoke fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_120aq_parse_search_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr noundef nonnull %41, i32 noundef %2)
+  %711 = invoke fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_120aq_parse_search_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr noundef %41, i32 noundef %2)
           to label %712 unwind label %723
 
 712:                                              ; preds = %710
@@ -8316,7 +8316,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
           to label %776 unwind label %438
 
 776:                                              ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit349
-  %777 = invoke fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_120aq_parse_search_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr noundef nonnull %44, i32 noundef %2)
+  %777 = invoke fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_120aq_parse_search_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr noundef %44, i32 noundef %2)
           to label %778 unwind label %799
 
 778:                                              ; preds = %776
@@ -8576,7 +8576,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
           to label %887 unwind label %438
 
 887:                                              ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit388
-  %888 = invoke fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_120aq_parse_search_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr noundef nonnull %50, i32 noundef %2)
+  %888 = invoke fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_120aq_parse_search_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr noundef %50, i32 noundef %2)
           to label %889 unwind label %913
 
 889:                                              ; preds = %887
@@ -8754,7 +8754,7 @@ _ZNSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_string
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_111mres_to_intERKNSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS1_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEii(ptr noundef nonnull align 8 dereferenceable(17) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_111mres_to_intERKNSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS1_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEii(ptr noundef nonnull align 8 dereferenceable(17) %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8853,7 +8853,7 @@ define internal fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_111mres_to_intERKNSt7_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEi(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEi(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca %"class.std::__cxx11::match_results", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9569,7 +9569,7 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEi(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEi(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca %"class.std::__cxx11::match_results", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12345,7 +12345,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
           to label %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEE3strEm.exit unwind label %63
 
 _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEE3strEm.exit: ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit.i
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_114aq_parse_nbitsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull %24)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_114aq_parse_nbitsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef %24)
           to label %313 unwind label %356
 
 313:                                              ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEE3strEm.exit
@@ -12381,7 +12381,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
           to label %329 unwind label %358
 
 329:                                              ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit285
-  %330 = invoke fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_120aq_parse_search_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr noundef nonnull %25, i32 noundef %3)
+  %330 = invoke fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_120aq_parse_search_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr noundef %25, i32 noundef %3)
           to label %331 unwind label %360
 
 331:                                              ; preds = %329
@@ -12696,7 +12696,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
           to label %463 unwind label %63
 
 463:                                              ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit322
-  %464 = invoke fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_120aq_parse_search_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr noundef nonnull %30, i32 noundef %3)
+  %464 = invoke fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_120aq_parse_search_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr noundef %30, i32 noundef %3)
           to label %465 unwind label %493
 
 465:                                              ; preds = %463
@@ -12905,7 +12905,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
           to label %554 unwind label %63
 
 554:                                              ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit349
-  %555 = invoke fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_120aq_parse_search_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr noundef nonnull %34, i32 noundef %3)
+  %555 = invoke fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_120aq_parse_search_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr noundef %34, i32 noundef %3)
           to label %556 unwind label %581
 
 556:                                              ; preds = %554
@@ -13179,7 +13179,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
           to label %671 unwind label %63
 
 671:                                              ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit388
-  %672 = invoke fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_120aq_parse_search_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr noundef nonnull %40, i32 noundef %3)
+  %672 = invoke fastcc noundef i32 @_ZN5faiss12_GLOBAL__N_120aq_parse_search_typeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10MetricTypeE(ptr noundef %40, i32 noundef %3)
           to label %673 unwind label %701
 
 673:                                              ; preds = %671
@@ -13766,7 +13766,7 @@ _ZNSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_string
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define internal fastcc noundef nonnull ptr @_ZN5faiss12_GLOBAL__N_114fix_ivf_fieldsEPNS_8IndexIVFE(ptr noundef returned %0) unnamed_addr #17 {
+define internal fastcc noundef nonnull ptr @_ZN5faiss12_GLOBAL__N_114fix_ivf_fieldsEPNS_8IndexIVFE(ptr noundef nonnull returned %0) unnamed_addr #17 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -39766,7 +39766,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss12_GLOBAL__N_114aq_parse_nbitsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faiss12_GLOBAL__N_114aq_parse_nbitsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__cxx11::match_results", align 8

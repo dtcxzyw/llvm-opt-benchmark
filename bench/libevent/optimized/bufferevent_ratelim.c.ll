@@ -202,7 +202,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @bufferevent_get_rlim_max_(ptr noundef %bev, i32 noundef %is_write) unnamed_addr #2 {
+define internal fastcc i64 @bufferevent_get_rlim_max_(ptr noundef %bev, i32 noundef range(i32 0, 2) %is_write) unnamed_addr #2 {
 entry:
   %now.i = alloca %struct.timeval, align 8
   %tobool.not = icmp eq i32 %is_write, 0

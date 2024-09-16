@@ -1523,7 +1523,7 @@ entry:
   %ref.tmp46 = alloca %"class.testing::internal::AssertHelper", align 8
   store i32 0, ptr %ref.tmp, align 4
   store i32 0, ptr %ref.tmp2, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIN12_GLOBAL__N_18TypeEnumES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_(ptr noalias nonnull align 8 %gtest_ar, ptr noundef nonnull @.str.273, ptr noundef nonnull @.str.274, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIN12_GLOBAL__N_18TypeEnumES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull @.str.273, ptr noundef nonnull @.str.274, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2)
   %0 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -1616,7 +1616,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store ptr null, ptr %message_.i, align 8
   store i32 1, ptr %ref.tmp14, align 4
   store i32 1, ptr %ref.tmp15, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIN12_GLOBAL__N_18TypeEnumES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_(ptr noalias nonnull align 8 %gtest_ar13, ptr noundef nonnull @.str.275, ptr noundef nonnull @.str.276, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp14, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIN12_GLOBAL__N_18TypeEnumES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_(ptr noalias align 8 %gtest_ar13, ptr noundef nonnull @.str.275, ptr noundef nonnull @.str.276, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp14, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15)
   %10 = load i8, ptr %gtest_ar13, align 8
   %tobool.i16 = trunc i8 %10 to i1
   br i1 %tobool.i16, label %if.end33, label %if.else20
@@ -1709,7 +1709,7 @@ _ZN7testing15AssertionResultD2Ev.exit36:          ; preds = %if.end33, %_ZNKSt14
   store ptr null, ptr %message_.i33, align 8
   store i32 2, ptr %ref.tmp36, align 4
   store i32 2, ptr %ref.tmp37, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIN12_GLOBAL__N_18TypeEnumES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_(ptr noalias nonnull align 8 %gtest_ar35, ptr noundef nonnull @.str.277, ptr noundef nonnull @.str.278, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp36, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp37)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIN12_GLOBAL__N_18TypeEnumES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_(ptr noalias align 8 %gtest_ar35, ptr noundef nonnull @.str.277, ptr noundef nonnull @.str.278, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp36, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp37)
   %20 = load i8, ptr %gtest_ar35, align 8
   %tobool.i37 = trunc i8 %20 to i1
   br i1 %tobool.i37, label %if.end55, label %if.else42
@@ -1809,7 +1809,7 @@ eh.resume:                                        ; preds = %lpad44, %_ZN7testin
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIN12_GLOBAL__N_18TypeEnumES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_(ptr noalias align 8 %agg.result, ptr noundef %lhs_expression, ptr noundef %rhs_expression, ptr noundef nonnull align 4 dereferenceable(4) %lhs, ptr noundef nonnull align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIN12_GLOBAL__N_18TypeEnumES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_(ptr noalias nonnull align 8 %agg.result, ptr noundef %lhs_expression, ptr noundef %rhs_expression, ptr noundef nonnull align 4 dereferenceable(4) %lhs, ptr noundef nonnull align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i.i4.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -1821,7 +1821,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  tail call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
   br label %_ZN7testing8internal11CmpHelperEQIN12_GLOBAL__N_18TypeEnumES3_EENS_15AssertionResultEPKcS6_RKT_RKT0_.exit
 
 if.end.i:                                         ; preds = %entry
@@ -1872,7 +1872,7 @@ lpad.i.i.i6.i.i:                                  ; preds = %invoke.cont.i.i.i7.
 invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i7.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i) #12, !noalias !18
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !19
-  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef %lhs_expression, ptr noundef %rhs_expression, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
+  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef %lhs_expression, ptr noundef %rhs_expression, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
           to label %_ZN7testing8internal18CmpHelperEQFailureIN12_GLOBAL__N_18TypeEnumES3_EENS_15AssertionResultEPKcS6_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
 lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIN12_GLOBAL__N_18TypeEnumES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
@@ -2142,7 +2142,7 @@ entry:
   %ref.tmp68 = alloca %"class.testing::internal::AssertHelper", align 8
   store i32 0, ptr %ref.tmp, align 4
   store i32 0, ptr %ref.tmp2, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIN12_GLOBAL__N_18TypeEnumES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_(ptr noalias nonnull align 8 %gtest_ar, ptr noundef nonnull @.str.273, ptr noundef nonnull @.str.290, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIN12_GLOBAL__N_18TypeEnumES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull @.str.273, ptr noundef nonnull @.str.290, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2)
   %0 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -2235,7 +2235,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store ptr null, ptr %message_.i, align 8
   store i32 1, ptr %ref.tmp15, align 4
   store i32 1, ptr %ref.tmp16, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIN12_GLOBAL__N_18TypeEnumES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_(ptr noalias nonnull align 8 %gtest_ar14, ptr noundef nonnull @.str.275, ptr noundef nonnull @.str.291, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp16)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIN12_GLOBAL__N_18TypeEnumES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_(ptr noalias align 8 %gtest_ar14, ptr noundef nonnull @.str.275, ptr noundef nonnull @.str.291, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp16)
   %10 = load i8, ptr %gtest_ar14, align 8
   %tobool.i19 = trunc i8 %10 to i1
   br i1 %tobool.i19, label %if.end34, label %if.else21
@@ -2328,7 +2328,7 @@ _ZN7testing15AssertionResultD2Ev.exit39:          ; preds = %if.end34, %_ZNKSt14
   store ptr null, ptr %message_.i36, align 8
   store i32 2, ptr %ref.tmp37, align 4
   store i32 2, ptr %ref.tmp38, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIN12_GLOBAL__N_18TypeEnumES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_(ptr noalias nonnull align 8 %gtest_ar36, ptr noundef nonnull @.str.277, ptr noundef nonnull @.str.292, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp37, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp38)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIN12_GLOBAL__N_18TypeEnumES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_(ptr noalias align 8 %gtest_ar36, ptr noundef nonnull @.str.277, ptr noundef nonnull @.str.292, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp37, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp38)
   %20 = load i8, ptr %gtest_ar36, align 8
   %tobool.i40 = trunc i8 %20 to i1
   br i1 %tobool.i40, label %if.end56, label %if.else43
@@ -2421,7 +2421,7 @@ _ZN7testing15AssertionResultD2Ev.exit60:          ; preds = %if.end56, %_ZNKSt14
   store ptr null, ptr %message_.i57, align 8
   store i32 3, ptr %ref.tmp59, align 4
   store i32 3, ptr %ref.tmp60, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIN12_GLOBAL__N_18TypeEnumES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_(ptr noalias nonnull align 8 %gtest_ar58, ptr noundef nonnull @.str.293, ptr noundef nonnull @.str.294, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp59, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp60)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIN12_GLOBAL__N_18TypeEnumES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_(ptr noalias align 8 %gtest_ar58, ptr noundef nonnull @.str.293, ptr noundef nonnull @.str.294, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp59, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp60)
   %30 = load i8, ptr %gtest_ar58, align 8
   %tobool.i61 = trunc i8 %30 to i1
   br i1 %tobool.i61, label %if.end77, label %if.else64

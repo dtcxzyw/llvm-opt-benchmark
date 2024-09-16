@@ -411,7 +411,7 @@ if.end221:                                        ; preds = %do.body, %if.then20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bn_mul_recursive(ptr noundef %r, ptr noundef %a, ptr noundef %b, i32 noundef %n2, i32 noundef %dna, i32 noundef %dnb, ptr noundef %t) unnamed_addr #0 {
+define internal fastcc void @bn_mul_recursive(ptr noundef %r, ptr noundef %a, ptr noundef %b, i32 noundef range(i32 -1073741824, -2147483648) %n2, i32 noundef %dna, i32 noundef %dnb, ptr noundef %t) unnamed_addr #0 {
 entry:
   %div = sdiv i32 %n2, 2
   %add = add nsw i32 %div, %dna
@@ -910,7 +910,7 @@ declare void @bn_sqr_comba4(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @bn_sqr_comba8(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bn_sqr_normal(ptr noundef %r, ptr noundef %a, i32 noundef %n, ptr noundef %tmp) unnamed_addr #0 {
+define internal fastcc void @bn_sqr_normal(ptr noundef %r, ptr noundef %a, i32 noundef range(i32 0, -2147483648) %n, ptr noundef %tmp) unnamed_addr #0 {
 entry:
   %mul = shl nuw nsw i32 %n, 1
   %0 = zext nneg i32 %mul to i64
@@ -918,7 +918,7 @@ entry:
   %arrayidx = getelementptr i8, ptr %1, i64 -8
   store i64 0, ptr %arrayidx, align 8
   store i64 0, ptr %r, align 8
-  %cmp = icmp sgt i32 %n, 1
+  %cmp = icmp ugt i32 %n, 1
   br i1 %cmp, label %if.end, label %for.end
 
 if.end:                                           ; preds = %entry
@@ -965,7 +965,7 @@ for.end:                                          ; preds = %for.body, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bn_sqr_recursive(ptr noundef %r, ptr noundef %a, i32 noundef %n2, ptr noundef %t) unnamed_addr #0 {
+define internal fastcc void @bn_sqr_recursive(ptr noundef %r, ptr noundef %a, i32 noundef range(i32 0, -2147483648) %n2, ptr noundef %t) unnamed_addr #0 {
 entry:
   %div77 = lshr i32 %n2, 1
   switch i32 %n2, label %if.end3 [
@@ -982,7 +982,7 @@ if.then2:                                         ; preds = %entry
   br label %if.end69
 
 if.end3:                                          ; preds = %entry
-  %cmp4 = icmp slt i32 %n2, 16
+  %cmp4 = icmp ult i32 %n2, 16
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end3

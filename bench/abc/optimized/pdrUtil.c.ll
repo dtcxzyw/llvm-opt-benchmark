@@ -1507,7 +1507,7 @@ define void @Pdr_QueuePush(ptr nocapture noundef %0, ptr noundef %1) local_unnam
   store i32 %8, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 348
   %10 = load i32, ptr %9, align 4
-  %11 = tail call noundef i32 @llvm.smax.i32(i32 %10, i32 %8)
+  %11 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %10, i32 %8)
   store i32 %11, ptr %9, align 4
   %12 = getelementptr inbounds i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 8

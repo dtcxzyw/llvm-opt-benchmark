@@ -1105,7 +1105,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %136 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 12) #5
   %137 = getelementptr inbounds i8, ptr %.1, i64 32
   store i64 %136, ptr %137, align 8
-  %138 = call fastcc ptr @get_register_name_from_address(i64 noundef %136, ptr noundef nonnull %7, ptr noundef %.0203)
+  %138 = call fastcc ptr @get_register_name_from_address(i64 noundef %136, ptr noundef %7, ptr noundef %.0203)
   %139 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 22) #5
   %140 = zext i16 %139 to i32
   %141 = getelementptr inbounds i8, ptr %.1, i64 40
@@ -1206,7 +1206,7 @@ dissect_u3v_read_mem_cmd.exit:                    ; preds = %179, %182
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %190 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 12) #5
   %191 = add nsw i32 %94, -8
-  %192 = call fastcc ptr @get_register_name_from_address(i64 noundef %190, ptr noundef nonnull %6, ptr noundef %.0203)
+  %192 = call fastcc ptr @get_register_name_from_address(i64 noundef %190, ptr noundef %6, ptr noundef %.0203)
   %193 = getelementptr inbounds i8, ptr %.1, i64 32
   store i64 %190, ptr %193, align 8
   %194 = getelementptr inbounds i8, ptr %.1, i64 40
@@ -1337,7 +1337,7 @@ dissect_u3v_write_mem_cmd.exit:                   ; preds = %228, %231
   br i1 %.not.i229, label %263, label %260
 
 260:                                              ; preds = %258
-  %261 = call fastcc ptr @get_register_name_from_address(i64 noundef %.1.val220, ptr noundef nonnull %5, ptr noundef %.0203)
+  %261 = call fastcc ptr @get_register_name_from_address(i64 noundef %.1.val220, ptr noundef %5, ptr noundef %.0203)
   %262 = load ptr, ptr %44, align 8
   tail call void @col_append_str(ptr noundef %262, i32 noundef 25, ptr noundef %261) #5
   br label %263
@@ -1738,7 +1738,7 @@ declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare ptr @wmem_packet_scope() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_u3v_read_mem_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, i32 %.0.val, i64 %.32.val) unnamed_addr #0 {
+define internal fastcc void @dissect_u3v_read_mem_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr noundef %4, i32 %.0.val, i64 %.32.val) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %.not = icmp eq i32 %.0.val, 0
   %7 = icmp ult i64 %.32.val, 65536
@@ -1793,7 +1793,7 @@ dissect_u3v_register_bases.exit:                  ; preds = %12, %16, %.sink.spl
   br i1 %.not, label %26, label %22
 
 22:                                               ; preds = %dissect_u3v_register_bases.exit
-  %23 = call fastcc ptr @get_register_name_from_address(i64 noundef %.32.val, ptr noundef nonnull %6, ptr noundef nonnull %4)
+  %23 = call fastcc ptr @get_register_name_from_address(i64 noundef %.32.val, ptr noundef %6, ptr noundef nonnull %4)
   %24 = getelementptr inbounds i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @col_append_str(ptr noundef %25, i32 noundef 25, ptr noundef %23) #5
@@ -1897,7 +1897,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_register_name_from_address(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc ptr @get_register_name_from_address(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef readonly %2) unnamed_addr #0 {
   store i32 0, ptr %1, align 4
   %4 = icmp ult i64 %0, 65536
   br i1 %4, label %5, label %8
@@ -1976,7 +1976,7 @@ declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_u3v_register(i64 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_u3v_register(i64 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 12, 21) %3, i32 noundef range(i32 -8, 65536) %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = icmp ult i64 %0, 65536
   br i1 %7, label %8, label %86
 

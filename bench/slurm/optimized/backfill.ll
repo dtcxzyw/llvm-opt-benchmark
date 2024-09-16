@@ -1301,7 +1301,7 @@ define internal void @_het_job_map_del(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_my_sleep(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @_my_sleep(i64 noundef range(i64 -2147483648000000, 2147483647000001) %0) unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timeval, align 8
   %4 = alloca %struct.timeval, align 8
@@ -3976,7 +3976,7 @@ _set_job_time_limit.exit805:                      ; preds = %1191, %1193
   %1228 = load i32, ptr %10, align 4
   %1229 = load i32, ptr %11, align 4
   %1230 = load i32, ptr %12, align 4
-  %1231 = call fastcc i32 @_try_sched(ptr noundef nonnull %1222, ptr noundef nonnull %13, i32 noundef %1228, i32 noundef %1229, i32 noundef %1230, ptr noundef nonnull %23)
+  %1231 = call fastcc i32 @_try_sched(ptr noundef nonnull %1222, ptr noundef %13, i32 noundef %1228, i32 noundef %1229, i32 noundef %1230, ptr noundef %23)
   %1232 = icmp eq i32 %1231, 0
   br i1 %1232, label %1233, label %1236
 
@@ -4174,7 +4174,7 @@ _set_job_time_limit.exit805:                      ; preds = %1191, %1193
   %1317 = load i32, ptr %10, align 4
   %1318 = load i32, ptr %11, align 4
   %1319 = load i32, ptr %12, align 4
-  %1320 = call fastcc i32 @_try_sched(ptr noundef %1316, ptr noundef nonnull %14, i32 noundef %1317, i32 noundef %1318, i32 noundef %1319, ptr noundef nonnull %23)
+  %1320 = call fastcc i32 @_try_sched(ptr noundef %1316, ptr noundef %14, i32 noundef %1317, i32 noundef %1318, i32 noundef %1319, ptr noundef %23)
   %.pre2893 = load ptr, ptr %9, align 8
   br i1 %.not661.not, label %1327, label %1321
 
@@ -6574,7 +6574,7 @@ declare i32 @slurm_delta_tv(ptr noundef) local_unnamed_addr #4
 declare void @slurm_diff_tv_str(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_yield_locks(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_yield_locks(i64 noundef range(i64 -2147483648, 2147483648) %0) unnamed_addr #0 {
   %2 = load i32, ptr @max_rpc_cnt, align 4
   %3 = icmp sgt i32 %2, 209
   %4 = sdiv i32 %2, 10
@@ -7139,7 +7139,7 @@ define internal fastcc void @_dump_job_test(ptr noundef %0, ptr noundef %1, i64 
 declare void @build_active_feature_bitmap(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_try_sched(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @_try_sched(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca [100 x i8], align 16
@@ -7294,7 +7294,7 @@ _num_feature_count.exit:                          ; preds = %.thread
 
 71:                                               ; preds = %68
   %72 = load ptr, ptr %1, align 8
-  %73 = tail call i32 @select_g_job_test(ptr noundef %0, ptr noundef %72, i32 noundef %64, i32 noundef %3, i32 noundef %64, i16 noundef zeroext 2, ptr noundef %31, ptr noundef null, ptr noundef %5) #16
+  %73 = tail call i32 @select_g_job_test(ptr noundef %0, ptr noundef %72, i32 noundef %64, i32 noundef %3, i32 noundef %64, i16 noundef zeroext 2, ptr noundef %31, ptr noundef null, ptr noundef nonnull %5) #16
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %75, label %81
 
@@ -7388,7 +7388,7 @@ thread-pre-split:                                 ; preds = %81, %82
   %104 = sub i32 %2, %.0204
   %105 = sub i32 %3, %.0204
   %106 = sub nuw i32 %4, %.0204
-  %107 = tail call i32 @select_g_job_test(ptr noundef %0, ptr noundef %103, i32 noundef %104, i32 noundef %105, i32 noundef %106, i16 noundef zeroext 2, ptr noundef %31, ptr noundef null, ptr noundef %5) #16
+  %107 = tail call i32 @select_g_job_test(ptr noundef %0, ptr noundef %103, i32 noundef %104, i32 noundef %105, i32 noundef %106, i16 noundef zeroext 2, ptr noundef %31, ptr noundef null, ptr noundef nonnull %5) #16
   %108 = load ptr, ptr %1, align 8
   br i1 %.not249335, label %110, label %109
 
@@ -7547,7 +7547,7 @@ thread-pre-split:                                 ; preds = %81, %82
 
 170:                                              ; preds = %167
   %171 = load ptr, ptr %1, align 8
-  %172 = tail call i32 @select_g_job_test(ptr noundef %0, ptr noundef %171, i32 noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext 2, ptr noundef %135, ptr noundef null, ptr noundef %5) #16
+  %172 = tail call i32 @select_g_job_test(ptr noundef %0, ptr noundef %171, i32 noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext 2, ptr noundef %135, ptr noundef null, ptr noundef nonnull %5) #16
   %173 = icmp eq i32 %172, 0
   br i1 %173, label %174, label %178
 
@@ -7666,7 +7666,7 @@ thread-pre-split:                                 ; preds = %81, %82
 210:                                              ; preds = %206
   %211 = tail call ptr @slurm_find_preemptable_jobs(ptr noundef nonnull %0) #16
   %212 = load ptr, ptr %1, align 8
-  %213 = tail call i32 @select_g_job_test(ptr noundef nonnull %0, ptr noundef %212, i32 noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext 2, ptr noundef %211, ptr noundef null, ptr noundef %5) #16
+  %213 = tail call i32 @select_g_job_test(ptr noundef nonnull %0, ptr noundef %212, i32 noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext 2, ptr noundef %211, ptr noundef null, ptr noundef nonnull %5) #16
   br label %248
 
 .thread337.thread:                                ; preds = %6, %.thread337
@@ -8201,7 +8201,7 @@ define internal fastcc void @_het_job_start_test(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_dump_job_sched(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @_dump_job_sched(ptr noundef %0, i64 noundef range(i64 0, 4294967296) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca [256 x i8], align 16
   %6 = alloca [256 x i8], align 16
@@ -9101,7 +9101,7 @@ _het_job_start_compute.exit:                      ; preds = %61
   br label %268
 
 81:                                               ; preds = %_het_job_start_compute.exit
-  %82 = tail call fastcc zeroext i1 @_het_job_limit_check(ptr noundef nonnull %1, i64 noundef %10)
+  %82 = tail call fastcc zeroext i1 @_het_job_limit_check(ptr noundef %1, i64 noundef %10)
   %83 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %84 = and i64 %83, 562949953421312
   %.not28 = icmp eq i64 %84, 0
@@ -9532,7 +9532,7 @@ _het_job_kill_now.exit:                           ; preds = %.backedge.i41, %215
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_het_job_limit_check(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_het_job_limit_check(ptr nocapture noundef nonnull readonly %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.assoc_mgr_lock_t, align 4
   %5 = load i32, ptr @slurmctld_tres_cnt, align 4

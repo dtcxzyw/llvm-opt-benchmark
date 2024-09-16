@@ -1278,7 +1278,7 @@ if.then14:                                        ; preds = %if.end
   br i1 %tobool.not, label %if.then.i, label %if.end25
 
 if.end25:                                         ; preds = %if.then14
-  tail call fastcc void @removeUnsupportedArgs(ptr noundef nonnull %3, ptr noundef nonnull %numargs19, ptr noundef nonnull %version)
+  tail call fastcc void @removeUnsupportedArgs(ptr noundef nonnull %3, ptr noundef nonnull %numargs19, ptr noundef %version)
   %docs38.sroa.442.0.copyload.pre = load ptr, ptr %args17, align 1
   %tobool.not.i = icmp eq ptr %docs38.sroa.442.0.copyload.pre, null
   br i1 %tobool.not.i, label %if.end14.i, label %if.then.i
@@ -1938,7 +1938,7 @@ if.end13:                                         ; preds = %if.then12, %if.then
 
 if.end14:                                         ; preds = %clusterManagerNodeIsCluster.exit
   store ptr null, ptr %err, align 8
-  %call15 = call fastcc i32 @clusterManagerNodeLoadInfo(ptr noundef nonnull %call.i178, i32 noundef 0, ptr noundef nonnull %err)
+  %call15 = call fastcc i32 @clusterManagerNodeLoadInfo(ptr noundef nonnull %call.i178, i32 noundef 0, ptr noundef %err)
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %if.then17, label %if.end23
 
@@ -1962,7 +1962,7 @@ if.end22:                                         ; preds = %if.then19, %if.then
 
 if.end23:                                         ; preds = %if.end14
   store ptr null, ptr %err, align 8
-  %call24 = call fastcc i32 @clusterManagerNodeIsEmpty(ptr noundef nonnull %call.i178, ptr noundef nonnull %err)
+  %call24 = call fastcc i32 @clusterManagerNodeIsEmpty(ptr noundef nonnull %call.i178, ptr noundef %err)
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %if.then26, label %if.end30
 
@@ -2663,7 +2663,7 @@ while.body263:                                    ; preds = %if.then258, %if.end
   %value265 = getelementptr inbounds i8, ptr %call260357, i64 16
   %73 = load ptr, ptr %value265, align 8
   store ptr null, ptr %err266, align 8
-  %call267 = call fastcc i32 @clusterManagerFlushNodeConfig(ptr noundef %73, ptr noundef nonnull %err266)
+  %call267 = call fastcc i32 @clusterManagerFlushNodeConfig(ptr noundef %73, ptr noundef %err266)
   %tobool268.not = icmp eq i32 %call267, 0
   br i1 %tobool268.not, label %land.lhs.true269, label %if.else282
 
@@ -2846,7 +2846,7 @@ while.body365:                                    ; preds = %while.end359, %whil
 
 if.end371:                                        ; preds = %while.body365
   store ptr null, ptr %err372, align 8
-  %call374 = call fastcc i32 @clusterManagerFlushNodeConfig(ptr noundef nonnull %98, ptr noundef nonnull %err372)
+  %call374 = call fastcc i32 @clusterManagerFlushNodeConfig(ptr noundef nonnull %98, ptr noundef %err372)
   %tobool375.not = icmp eq i32 %call374, 0
   br i1 %tobool375.not, label %land.lhs.true376, label %if.else386
 
@@ -4568,7 +4568,7 @@ if.then36:                                        ; preds = %if.then34
   br label %if.then144
 
 if.end38:                                         ; preds = %clusterManagerNodeIsCluster.exit
-  %call39 = call fastcc i32 @clusterManagerNodeLoadInfo(ptr noundef nonnull %call.i83, i32 noundef 0, ptr noundef nonnull %err)
+  %call39 = call fastcc i32 @clusterManagerNodeLoadInfo(ptr noundef nonnull %call.i83, i32 noundef 0, ptr noundef %err)
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.then41, label %if.end47
 
@@ -4586,7 +4586,7 @@ if.then43:                                        ; preds = %if.then41
   br label %if.then144
 
 if.end47:                                         ; preds = %if.end38
-  %call48 = call fastcc i32 @clusterManagerNodeIsEmpty(ptr noundef nonnull %call.i83, ptr noundef nonnull %err)
+  %call48 = call fastcc i32 @clusterManagerNodeIsEmpty(ptr noundef nonnull %call.i83, ptr noundef %err)
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %if.then50, label %if.end54
 
@@ -7762,7 +7762,7 @@ if.then4.i:                                       ; preds = %if.then.i
   %idx.ext.i = sext i32 %16 to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %call1, i64 %idx.ext.i
   %sub.i = sub nsw i32 %cond, %16
-  %call7.i = call fastcc i32 @matchArgs(ptr noundef nonnull readonly %add.ptr.i, i32 noundef %sub.i, ptr noundef nonnull %docs10.sroa.415.0.copyload, i32 noundef %docs10.sroa.3.0.copyload)
+  %call7.i = call fastcc i32 @matchArgs(ptr noundef readonly %add.ptr.i, i32 noundef %sub.i, ptr noundef nonnull %docs10.sroa.415.0.copyload, i32 noundef %docs10.sroa.3.0.copyload)
   br label %if.end.i14
 
 if.end.i14:                                       ; preds = %if.then4.i, %if.then.if.end_crit_edge.i
@@ -10708,7 +10708,7 @@ do.body.i115:                                     ; preds = %if.end86.i, %if.end
   %conv5.i = uitofp i64 %sampled.0.i to double
   %mul.i116 = fmul double %conv5.i, 1.000000e+02
   %div.i117 = fdiv double %mul.i116, %conv6.i
-  %call7.i = call fastcc ptr @sendScan(ptr noundef nonnull %it.i)
+  %call7.i = call fastcc ptr @sendScan(ptr noundef %it.i)
   %inc.i118 = add i64 %scan_loops.0.i, 1
   %element.i = getelementptr inbounds i8, ptr %call7.i, i64 56
   %310 = load ptr, ptr %element.i, align 8
@@ -11503,7 +11503,7 @@ if.end116:                                        ; preds = %if.then111
   br label %do.body.i197
 
 do.body.i197:                                     ; preds = %do.cond.i214, %if.end116
-  %call1.i198 = call fastcc ptr @sendScan(ptr noundef nonnull %cur.i)
+  %call1.i198 = call fastcc ptr @sendScan(ptr noundef %cur.i)
   %element.i199 = getelementptr inbounds i8, ptr %call1.i198, i64 56
   %400 = load ptr, ptr %element.i199, align 8
   %arrayidx11.i = getelementptr inbounds i8, ptr %400, i64 8
@@ -12205,7 +12205,7 @@ declare void @init_genrand64(i64 noundef) local_unnamed_addr #3
 declare i32 @getpid() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @cliConnect(i32 noundef %flags) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @cliConnect(i32 noundef range(i32 0, 3) %flags) unnamed_addr #2 {
 entry:
   %err14 = alloca ptr, align 8
   %0 = load ptr, ptr @context, align 8
@@ -12291,8 +12291,7 @@ if.end22:                                         ; preds = %if.then13.if.end22_
   br i1 %tobool24.not, label %if.end43, label %if.then25
 
 if.then25:                                        ; preds = %if.end22
-  %and26 = and i32 %flags, 2
-  %tobool27.not = icmp eq i32 %and26, 0
+  %tobool27.not = icmp ult i32 %flags, 2
   br i1 %tobool27.not, label %if.then28, label %if.end42
 
 if.then28:                                        ; preds = %if.then25
@@ -12481,7 +12480,7 @@ return:                                           ; preds = %cliSwitchProto.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @slaveMode(i32 noundef %send_sync) unnamed_addr #2 {
+define internal fastcc void @slaveMode(i32 noundef range(i32 0, 2) %send_sync) unnamed_addr #2 {
 entry:
   %buf = alloca [1024 x i8], align 16
   %0 = load ptr, ptr @context, align 8
@@ -12908,7 +12907,7 @@ if.end93:                                         ; preds = %if.end89
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @findBigKeys(i32 noundef %memkeys, i32 noundef %memkeys_samples) unnamed_addr #21 {
+define internal fastcc void @findBigKeys(i32 noundef range(i32 0, 2) %memkeys, i32 noundef %memkeys_samples) unnamed_addr #21 {
 entry:
   %reply.i110 = alloca ptr, align 8
   %argv.i111 = alloca [2 x ptr], align 16
@@ -12993,7 +12992,7 @@ do.body:                                          ; preds = %if.end91, %entry
   %conv12 = uitofp i64 %sampled.0 to double
   %mul = fmul double %conv12, 1.000000e+02
   %div = fdiv double %mul, %conv13
-  %call14 = call fastcc ptr @sendScan(ptr noundef nonnull %it)
+  %call14 = call fastcc ptr @sendScan(ptr noundef %it)
   %inc = add i64 %scan_loops.0, 1
   %element = getelementptr inbounds i8, ptr %call14, i64 56
   %0 = load ptr, ptr %element, align 8
@@ -15104,7 +15103,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @matchArgs(ptr nocapture noundef readonly %words, i32 noundef %numwords, ptr nocapture noundef %args, i32 noundef %numargs) unnamed_addr #11 {
+define internal fastcc i32 @matchArgs(ptr nocapture noundef nonnull readonly %words, i32 noundef %numwords, ptr nocapture noundef %args, i32 noundef %numargs) unnamed_addr #11 {
 entry:
   %cmp66 = icmp ne i32 %numwords, 0
   %cmp167 = icmp ne i32 %numargs, 0
@@ -15680,7 +15679,7 @@ for.end64:                                        ; preds = %for.end.thread, %fo
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @matchArg(ptr nocapture noundef readonly %nextword, i32 noundef %numwords, ptr nocapture noundef %arg) unnamed_addr #11 {
+define internal fastcc i32 @matchArg(ptr nocapture noundef nonnull readonly %nextword, i32 noundef %numwords, ptr nocapture noundef %arg) unnamed_addr #11 {
 entry:
   %token.i = getelementptr inbounds i8, ptr %arg, i64 16
   %0 = load ptr, ptr %token.i, align 8
@@ -15840,7 +15839,7 @@ return:                                           ; preds = %matchArgOnce.exit, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @matchNoTokenArg(ptr nocapture noundef readonly %nextword, i32 noundef %numwords, ptr nocapture noundef %arg) unnamed_addr #11 {
+define internal fastcc i32 @matchNoTokenArg(ptr nocapture noundef nonnull readonly %nextword, i32 noundef %numwords, ptr nocapture noundef %arg) unnamed_addr #11 {
 entry:
   %value = alloca i64, align 8
   %value42 = alloca double, align 8
@@ -16252,7 +16251,7 @@ return:                                           ; preds = %addHintForRepeatedA
 declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc void @removeUnsupportedArgs(ptr nocapture noundef %args, ptr nocapture noundef %numargs, ptr noundef %version) unnamed_addr #24 {
+define internal fastcc void @removeUnsupportedArgs(ptr nocapture noundef %args, ptr nocapture noundef %numargs, ptr noundef nonnull %version) unnamed_addr #24 {
 entry:
   %0 = load i32, ptr %numargs, align 4
   %cmp.not2627 = icmp eq i32 %0, 0
@@ -16275,7 +16274,7 @@ for.body.i:                                       ; preds = %while.body, %if.end
   %i.013.i = phi i32 [ %inc.i, %if.end7.i ], [ 0, %while.body ]
   %sincePos.012.i = phi ptr [ %incdec.ptr14.i, %if.end7.i ], [ %3, %while.body ]
   %versionPos.011.i = phi ptr [ %incdec.ptr.i, %if.end7.i ], [ %version, %while.body ]
-  %call.i = tail call i32 @atoi(ptr nocapture noundef %versionPos.011.i) #33
+  %call.i = tail call i32 @atoi(ptr nocapture noundef nonnull %versionPos.011.i) #33
   %call1.i = tail call i32 @atoi(ptr nocapture noundef nonnull %sincePos.012.i) #33
   %cmp2.i = icmp sgt i32 %call.i, %call1.i
   br i1 %cmp2.i, label %if.then, label %if.else.i
@@ -16643,7 +16642,7 @@ if.end44:                                         ; preds = %freeClusterManagerN
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @clusterManagerNodeLoadInfo(ptr nocapture noundef %node, i32 noundef %opts, ptr nocapture noundef writeonly %err) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @clusterManagerNodeLoadInfo(ptr nocapture noundef %node, i32 noundef range(i32 0, 2) %opts, ptr nocapture noundef nonnull writeonly %err) unnamed_addr #2 {
 entry:
   %li.i = alloca %struct.listIter, align 8
   %0 = load ptr, ptr %node, align 8
@@ -16678,8 +16677,7 @@ if.end:                                           ; preds = %lor.lhs.false.i
   br i1 %cmp.not160, label %if.then270, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %and = and i32 %opts, 1
-  %tobool147.not = icmp eq i32 %and, 0
+  %tobool147.not = icmp eq i32 %opts, 0
   %friends = getelementptr inbounds i8, ptr %node, i64 16480
   %flags149 = getelementptr inbounds i8, ptr %node, i64 56
   %bus_port31 = getelementptr inbounds i8, ptr %node, i64 28
@@ -17222,7 +17220,7 @@ if.end271:                                        ; preds = %entry, %if.then270
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @clusterManagerLog(i32 noundef %level, ptr nocapture noundef readonly %fmt, ...) unnamed_addr #11 {
+define internal void @clusterManagerLog(i32 noundef range(i32 1, 5) %level, ptr nocapture noundef readonly %fmt, ...) unnamed_addr #11 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @config, i64 520), align 8
@@ -17254,7 +17252,7 @@ if.end15:                                         ; preds = %if.end15.critedge, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @clusterManagerNodeIsEmpty(ptr nocapture noundef readonly %node, ptr nocapture noundef writeonly %err) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @clusterManagerNodeIsEmpty(ptr nocapture noundef readonly %node, ptr nocapture noundef nonnull writeonly %err) unnamed_addr #2 {
 entry:
   %node.val = load ptr, ptr %node, align 8
   %call.i = tail call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %node.val, ptr noundef nonnull @.str.186) #34
@@ -17299,9 +17297,9 @@ if.end4:                                          ; preds = %if.end
 lor.lhs.false.i:                                  ; preds = %if.end4
   %6 = load i32, ptr %call5, align 8
   %cmp.i = icmp eq i32 %6, 6
-  br i1 %cmp.i, label %if.then5.i, label %if.end11
+  br i1 %cmp.i, label %if.then2.i, label %if.end11
 
-if.then5.i:                                       ; preds = %lor.lhs.false.i
+if.then2.i:                                       ; preds = %lor.lhs.false.i
   %len.i14 = getelementptr inbounds i8, ptr %call5, i64 24
   %7 = load i64, ptr %len.i14, align 8
   %add.i15 = add i64 %7, 1
@@ -17322,9 +17320,9 @@ if.end11:                                         ; preds = %lor.lhs.false.i
   %conv = zext i1 %cmp14 to i32
   br label %result
 
-result:                                           ; preds = %if.end4, %if.then5.i, %if.end, %if.end11
-  %info.0 = phi ptr [ %call5, %if.end11 ], [ %call.i, %if.end ], [ %call5, %if.then5.i ], [ null, %if.end4 ]
-  %is_empty.0 = phi i32 [ %conv, %if.end11 ], [ 0, %if.end ], [ 0, %if.then5.i ], [ 0, %if.end4 ]
+result:                                           ; preds = %if.end4, %if.then2.i, %if.end, %if.end11
+  %info.0 = phi ptr [ %call5, %if.end11 ], [ %call.i, %if.end ], [ %call5, %if.then2.i ], [ null, %if.end4 ]
+  %is_empty.0 = phi i32 [ %conv, %if.end11 ], [ 0, %if.end ], [ 0, %if.then2.i ], [ 0, %if.end4 ]
   tail call void @freeReplyObject(ptr noundef %info.0) #34
   br label %return
 
@@ -17343,7 +17341,7 @@ declare ptr @listNext(ptr noundef) local_unnamed_addr #3
 declare i64 @lround(double noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @clusterManagerFlushNodeConfig(ptr nocapture noundef %node, ptr nocapture noundef %err) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @clusterManagerFlushNodeConfig(ptr nocapture noundef %node, ptr nocapture noundef nonnull %err) unnamed_addr #2 {
 entry:
   %_reply.i = alloca ptr, align 8
   %dirty = getelementptr inbounds i8, ptr %node, i64 80
@@ -17500,9 +17498,9 @@ if.end33.i:                                       ; preds = %if.end26.i
 lor.lhs.false.i.i:                                ; preds = %if.end33.i
   %18 = load i32, ptr %17, align 8
   %cmp.i.i = icmp eq i32 %18, 6
-  br i1 %cmp.i.i, label %if.then5.i.i, label %cleanup.i
+  br i1 %cmp.i.i, label %if.then2.i.i, label %cleanup.i
 
-if.then5.i.i:                                     ; preds = %lor.lhs.false.i.i
+if.then2.i.i:                                     ; preds = %lor.lhs.false.i.i
   %len.i.i = getelementptr inbounds i8, ptr %17, i64 24
   %19 = load i64, ptr %len.i.i, align 8
   %add.i.i = add i64 %19, 1
@@ -17515,9 +17513,9 @@ if.then5.i.i:                                     ; preds = %lor.lhs.false.i.i
   %call8.i.i = call i64 @redis_strlcpy(ptr noundef %call.i.i, ptr noundef %20, i64 noundef %add7.i.i) #34
   br label %cleanup.i
 
-cleanup.i:                                        ; preds = %if.then5.i.i, %lor.lhs.false.i.i, %if.end33.i, %if.end26.i, %for.end.i
-  %tobool20.not = phi i1 [ true, %for.end.i ], [ true, %if.end26.i ], [ true, %if.then5.i.i ], [ false, %lor.lhs.false.i.i ], [ true, %if.end33.i ]
-  %reply.0.i = phi ptr [ null, %for.end.i ], [ null, %if.end26.i ], [ %17, %if.then5.i.i ], [ %17, %lor.lhs.false.i.i ], [ null, %if.end33.i ]
+cleanup.i:                                        ; preds = %if.then2.i.i, %lor.lhs.false.i.i, %if.end33.i, %if.end26.i, %for.end.i
+  %tobool20.not = phi i1 [ true, %for.end.i ], [ true, %if.end26.i ], [ true, %if.then2.i.i ], [ false, %lor.lhs.false.i.i ], [ true, %if.end33.i ]
+  %reply.0.i = phi ptr [ null, %for.end.i ], [ null, %if.end26.i ], [ %17, %if.then2.i.i ], [ %17, %lor.lhs.false.i.i ], [ null, %if.end33.i ]
   call void @zfree(ptr noundef nonnull %call3.i) #34
   %wide.trip.count.i = zext nneg i32 %add.i to i64
   br label %for.body41.i
@@ -18001,7 +17999,7 @@ if.then3:                                         ; preds = %clusterManagerNodeI
 
 if.end7:                                          ; preds = %clusterManagerNodeIsCluster.exit
   store ptr null, ptr %e, align 8
-  %call8 = call fastcc i32 @clusterManagerNodeLoadInfo(ptr noundef nonnull %node, i32 noundef 1, ptr noundef nonnull %e)
+  %call8 = call fastcc i32 @clusterManagerNodeLoadInfo(ptr noundef nonnull %node, i32 noundef 1, ptr noundef %e)
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.then10, label %if.end14
 
@@ -18084,7 +18082,7 @@ land.lhs.true38:                                  ; preds = %if.end35
   br i1 %tobool40.not, label %invalid_friend, label %if.end42
 
 if.end42:                                         ; preds = %land.lhs.true38, %if.end35
-  %call43 = call fastcc i32 @clusterManagerNodeLoadInfo(ptr noundef nonnull %17, i32 noundef 0, ptr noundef nonnull %e)
+  %call43 = call fastcc i32 @clusterManagerNodeLoadInfo(ptr noundef nonnull %17, i32 noundef 0, ptr noundef %e)
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %if.else, label %if.then45
 
@@ -18191,7 +18189,7 @@ return:                                           ; preds = %if.end79, %return.s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @clusterManagerCheckCluster(i32 noundef %quiet) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @clusterManagerCheckCluster(i32 noundef range(i32 0, 2) %quiet) unnamed_addr #2 {
 entry:
   %li.i174 = alloca %struct.listIter, align 8
   %buf.i102.i = alloca [4 x i8], align 1
@@ -21156,13 +21154,13 @@ entry:
 declare i64 @dictGenHashFunction(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @clusterManagerNodeInfo(ptr nocapture noundef readonly %node, i32 noundef %indent) unnamed_addr #2 {
+define internal fastcc ptr @clusterManagerNodeInfo(ptr nocapture noundef readonly %node, i32 noundef range(i32 0, 5) %indent) unnamed_addr #2 {
 entry:
   %li.i = alloca %struct.listIter, align 8
   %call = tail call ptr @hi_sdsempty() #34
   %call1 = tail call ptr @hi_sdsempty() #34
-  %cmp31 = icmp sgt i32 %indent, 0
-  br i1 %cmp31, label %for.body, label %for.end
+  %cmp31.not = icmp eq i32 %indent, 0
+  br i1 %cmp31.not, label %if.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %spaces.033 = phi ptr [ %call2, %for.body ], [ %call1, %entry ]
@@ -21172,18 +21170,13 @@ for.body:                                         ; preds = %entry, %for.body
   %exitcond.not = icmp eq i32 %inc, %indent
   br i1 %exitcond.not, label %if.then, label %for.body, !llvm.loop !202
 
-for.end:                                          ; preds = %entry
-  %tobool.not = icmp eq i32 %indent, 0
-  br i1 %tobool.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %for.body, %for.end
-  %spaces.0.lcssa36 = phi ptr [ %call1, %for.end ], [ %call2, %for.body ]
-  %call3 = tail call ptr @hi_sdscat(ptr noundef %call, ptr noundef %spaces.0.lcssa36) #34
+if.then:                                          ; preds = %for.body
+  %call3 = tail call ptr @hi_sdscat(ptr noundef %call, ptr noundef %call2) #34
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %for.end
-  %spaces.0.lcssa37 = phi ptr [ %spaces.0.lcssa36, %if.then ], [ %call1, %for.end ]
-  %info.0 = phi ptr [ %call3, %if.then ], [ %call, %for.end ]
+if.end:                                           ; preds = %entry, %if.then
+  %spaces.0.lcssa35 = phi ptr [ %call2, %if.then ], [ %call1, %entry ]
+  %info.0 = phi ptr [ %call3, %if.then ], [ %call, %entry ]
   %flags = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 2
@@ -21263,7 +21256,7 @@ clusterManagerNodeFlagString.exit:                ; preds = %while.cond.i, %if.e
   %10 = load i32, ptr %port15, align 8
   %slots_count = getelementptr inbounds i8, ptr %node, i64 16468
   %11 = load i32, ptr %slots_count, align 4
-  %call16 = call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %info.0, ptr noundef nonnull @.str.217, ptr noundef nonnull %cond, ptr noundef %8, ptr noundef %9, i32 noundef %10, ptr noundef %spaces.0.lcssa37, ptr noundef %call10, i32 noundef %11, ptr noundef %retval.0.i) #34
+  %call16 = call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %info.0, ptr noundef nonnull @.str.217, ptr noundef nonnull %cond, ptr noundef %8, ptr noundef %9, i32 noundef %10, ptr noundef %spaces.0.lcssa35, ptr noundef %call10, i32 noundef %11, ptr noundef %retval.0.i) #34
   call void @hi_sdsfree(ptr noundef %call10) #34
   call void @hi_sdsfree(ptr noundef %retval.0.i) #34
   br label %if.end17
@@ -21276,7 +21269,7 @@ if.end17:                                         ; preds = %clusterManagerNodeF
   br i1 %cmp19.not, label %if.else23, label %if.then20
 
 if.then20:                                        ; preds = %if.end17
-  %call22 = call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %info.1, ptr noundef nonnull @.str.218, ptr noundef %spaces.0.lcssa37, ptr noundef nonnull %12) #34
+  %call22 = call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %info.1, ptr noundef nonnull @.str.218, ptr noundef %spaces.0.lcssa35, ptr noundef nonnull %12) #34
   br label %if.end29
 
 if.else23:                                        ; preds = %if.end17
@@ -21286,12 +21279,12 @@ if.else23:                                        ; preds = %if.end17
   br i1 %tobool24.not, label %if.end29, label %if.then25
 
 if.then25:                                        ; preds = %if.else23
-  %call27 = call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %info.1, ptr noundef nonnull @.str.219, ptr noundef %spaces.0.lcssa37, i32 noundef %13) #34
+  %call27 = call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %info.1, ptr noundef nonnull @.str.219, ptr noundef %spaces.0.lcssa35, i32 noundef %13) #34
   br label %if.end29
 
 if.end29:                                         ; preds = %if.else23, %if.then25, %if.then20
   %info.2 = phi ptr [ %call22, %if.then20 ], [ %call27, %if.then25 ], [ %info.1, %if.else23 ]
-  call void @hi_sdsfree(ptr noundef %spaces.0.lcssa37) #34
+  call void @hi_sdsfree(ptr noundef %spaces.0.lcssa35) #34
   ret ptr %info.2
 }
 
@@ -21894,7 +21887,7 @@ while.end:                                        ; preds = %if.end22, %if.end4,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @clusterManagerSetSlotOwner(ptr nocapture noundef readonly %owner, i32 noundef %slot, i32 noundef %do_clear) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @clusterManagerSetSlotOwner(ptr nocapture noundef readonly %owner, i32 noundef %slot, i32 noundef range(i32 0, 2) %do_clear) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %owner, align 8
   %call.i = tail call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %0, ptr noundef nonnull @.str.283) #34
@@ -22134,7 +22127,8 @@ clusterManagerCheckRedisReply.exit:               ; preds = %lor.lhs.false.i
 
 if.then:                                          ; preds = %clusterManagerCheckRedisReply.exit
   store ptr null, ptr %get_owner_err, align 8
-  %call6 = call fastcc ptr @clusterManagerGetSlotOwner(ptr noundef nonnull %node, i32 noundef %slot, ptr noundef nonnull %get_owner_err)
+  %node.val = load ptr, ptr %node, align 8
+  %call6 = call fastcc ptr @clusterManagerGetSlotOwner(ptr %node.val, i32 noundef %slot, ptr noundef %get_owner_err)
   %tobool7.not = icmp eq ptr %call6, null
   br i1 %tobool7.not, label %if.then8, label %if.end12
 
@@ -22148,9 +22142,8 @@ if.else:                                          ; preds = %if.then8
   %7 = load ptr, ptr %ip, align 8
   %port = getelementptr inbounds i8, ptr %node, i64 24
   %8 = load i32, ptr %port, align 8
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.164, ptr noundef %7, i32 noundef %8, ptr noundef nonnull %6)
-  %9 = load ptr, ptr %get_owner_err, align 8
-  call void @zfree(ptr noundef %9) #34
+  tail call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.164, ptr noundef %7, i32 noundef %8, ptr noundef nonnull %6)
+  tail call void @zfree(ptr noundef nonnull %6) #34
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then, %if.else, %clusterManagerCheckRedisReply.exit
@@ -22159,16 +22152,16 @@ if.end12:                                         ; preds = %if.then, %if.else, 
 
 if.then16:                                        ; preds = %if.end12
   %ip17 = getelementptr inbounds i8, ptr %node, i64 16
-  %10 = load ptr, ptr %ip17, align 8
+  %9 = load ptr, ptr %ip17, align 8
   %port18 = getelementptr inbounds i8, ptr %node, i64 24
-  %11 = load i32, ptr %port18, align 8
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.164, ptr noundef %10, i32 noundef %11, ptr noundef nonnull %call.i)
-  call void @zfree(ptr noundef nonnull %call.i) #34
+  %10 = load i32, ptr %port18, align 8
+  tail call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.164, ptr noundef %9, i32 noundef %10, ptr noundef nonnull %call.i)
+  tail call void @zfree(ptr noundef nonnull %call.i) #34
   br label %if.then21
 
 if.then21:                                        ; preds = %if.end12, %if.then8, %if.then16, %lor.lhs.false.i
   %success.03234 = phi i32 [ 0, %if.then16 ], [ 1, %lor.lhs.false.i ], [ 1, %if.then8 ], [ 0, %if.end12 ]
-  call void @freeReplyObject(ptr noundef nonnull %call) #34
+  tail call void @freeReplyObject(ptr noundef nonnull %call) #34
   br label %if.end22
 
 if.end22:                                         ; preds = %entry, %if.then21
@@ -22242,7 +22235,7 @@ return:                                           ; preds = %if.end, %if.then3, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef %source, ptr noundef %target, i32 noundef %slot, i32 noundef %opts, ptr noundef %err) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef %source, ptr noundef %target, i32 noundef %slot, i32 noundef range(i32 68, 133) %opts, ptr noundef %err) unnamed_addr #2 {
 entry:
   %_reply1.i.i = alloca ptr, align 8
   %_reply2.i.i = alloca ptr, align 8
@@ -22278,7 +22271,6 @@ if.then4:                                         ; preds = %if.end
 if.end5:                                          ; preds = %if.then4, %if.end
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @config, i64 576), align 8
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @config, i64 572), align 4
-  %and6 = and i32 %opts, 128
   %and7 = and i32 %opts, 2
   %tobool8.not = icmp eq i32 %and7, 0
   br i1 %tobool8.not, label %if.then9, label %if.end18
@@ -22303,7 +22295,7 @@ if.end18:                                         ; preds = %if.end13, %if.end5
   %9 = load i32, ptr getelementptr inbounds (i8, ptr @config, i64 520), align 8
   %and.i = and i32 %9, 1
   %and1.i = and i32 %9, 64
-  %tobool18.not.i = icmp eq i32 %and6, 0
+  %tobool18.not.i = icmp ult i32 %opts, 128
   %ip45.i = getelementptr inbounds i8, ptr %source, i64 16
   %port46.i = getelementptr inbounds i8, ptr %source, i64 24
   %tobool53.not.i = icmp eq i32 %and.i, 0
@@ -22359,7 +22351,7 @@ if.then19.i:                                      ; preds = %if.end17.i
 
 if.end23.i:                                       ; preds = %if.then19.i, %if.end17.i
   %dots.1.i = phi ptr [ %call22.i, %if.then19.i ], [ null, %if.end17.i ]
-  %call24.i = call fastcc ptr @clusterManagerMigrateKeysInReply(ptr noundef nonnull readonly %source, ptr noundef readonly %target, ptr noundef nonnull %call.i68, i32 noundef 0, i32 noundef %6, ptr noundef %dots.1.i)
+  %call24.i = call fastcc ptr @clusterManagerMigrateKeysInReply(ptr noundef nonnull readonly %source, ptr noundef readonly %target, ptr noundef %call.i68, i32 noundef 0, i32 noundef %6, ptr noundef %dots.1.i)
   %cmp25.i = icmp eq ptr %call24.i, null
   br i1 %cmp25.i, label %if.end129.i.thread, label %if.end28.i
 
@@ -22378,7 +22370,8 @@ if.then32.i:                                      ; preds = %if.end28.i
 
 if.then38.i:                                      ; preds = %if.then32.i
   store ptr null, ptr %get_owner_err.i, align 8
-  %call39.i = call fastcc ptr @clusterManagerGetSlotOwner(ptr noundef nonnull readonly %source, i32 noundef %slot, ptr noundef nonnull %get_owner_err.i)
+  %source.val.i = load ptr, ptr %source, align 8
+  %call39.i = call fastcc ptr @clusterManagerGetSlotOwner(ptr %source.val.i, i32 noundef %slot, ptr noundef %get_owner_err.i)
   %tobool40.not.i = icmp eq ptr %call39.i, null
   br i1 %tobool40.not.i, label %if.then41.i, label %if.then98.i
 
@@ -22391,34 +22384,33 @@ if.else.i:                                        ; preds = %if.then41.i
   %23 = load ptr, ptr %ip45.i, align 8
   %24 = load i32, ptr %port46.i, align 8
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.164, ptr noundef %23, i32 noundef %24, ptr noundef nonnull %22)
-  %25 = load ptr, ptr %get_owner_err.i, align 8
-  call void @zfree(ptr noundef %25) #34
+  call void @zfree(ptr noundef nonnull %22) #34
   br label %if.then98.i
 
 if.then52.i:                                      ; preds = %if.then41.i
   br i1 %tobool53.not.i, label %if.end85.i, label %if.then55.i
 
 if.then55.i:                                      ; preds = %if.then52.i
-  %26 = load ptr, ptr %ip56.i, align 8
-  %27 = load i32, ptr %port57.i, align 8
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 2, ptr noundef nonnull @.str.295, ptr noundef %26, i32 noundef %27)
+  %25 = load ptr, ptr %ip56.i, align 8
+  %26 = load i32, ptr %port57.i, align 8
+  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 2, ptr noundef nonnull @.str.295, ptr noundef %25, i32 noundef %26)
   %target.val.i = load ptr, ptr %10, align 8
-  %28 = load ptr, ptr %source, align 8
-  %call.i.i = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %28, ptr noundef nonnull @.str.289, i32 noundef %slot, ptr noundef nonnull @.str.270, ptr noundef %target.val.i) #34
+  %27 = load ptr, ptr %source, align 8
+  %call.i.i = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %27, ptr noundef nonnull @.str.289, i32 noundef %slot, ptr noundef nonnull @.str.270, ptr noundef %target.val.i) #34
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %if.end85.i, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then55.i
-  %29 = load i32, ptr %call.i.i, align 8
-  %cmp7.i.i = icmp eq i32 %29, 6
+  %28 = load i32, ptr %call.i.i, align 8
+  %cmp7.i.i = icmp eq i32 %28, 6
   br i1 %cmp7.i.i, label %if.else.i.i, label %cleanup.i.i
 
 if.else.i.i:                                      ; preds = %if.end6.i.i
-  %30 = load ptr, ptr %ip45.i, align 8
-  %31 = load i32, ptr %port46.i, align 8
+  %29 = load ptr, ptr %ip45.i, align 8
+  %30 = load i32, ptr %port46.i, align 8
   %str15.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
-  %32 = load ptr, ptr %str15.i.i, align 8
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.164, ptr noundef %30, i32 noundef %31, ptr noundef %32)
+  %31 = load ptr, ptr %str15.i.i, align 8
+  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.164, ptr noundef %29, i32 noundef %30, ptr noundef %31)
   br label %cleanup.i.i
 
 cleanup.i.i:                                      ; preds = %if.else.i.i, %if.end6.i.i
@@ -22434,8 +22426,8 @@ if.then63.i:                                      ; preds = %if.then61.i
   %call64.i = call ptr @listCreate() #34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_reply1.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_reply2.i.i)
-  %33 = load i64, ptr %elements.i, align 8
-  %add.i.i = add i64 %33, 2
+  %32 = load i64, ptr %elements.i, align 8
+  %add.i.i = add i64 %32, 2
   %mul.i.i = shl i64 %add.i.i, 3
   %call.i75.i = call noalias ptr @zcalloc(i64 noundef %mul.i.i) #36
   %call2.i.i = call noalias ptr @zcalloc(i64 noundef %mul.i.i) #36
@@ -22445,159 +22437,159 @@ if.then63.i:                                      ; preds = %if.then61.i
   store ptr @.str.312, ptr %arrayidx4.i.i, align 8
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 8
   store i64 12, ptr %arrayidx5.i.i, align 8
-  %34 = load i64, ptr %elements.i, align 8
-  %cmp75.not.i.i = icmp eq i64 %34, 0
+  %33 = load i64, ptr %elements.i, align 8
+  %cmp75.not.i.i = icmp eq i64 %33, 0
   br i1 %cmp75.not.i.i, label %for.end.i.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.then63.i
   %element.i.i = getelementptr inbounds i8, ptr %call.i68, i64 56
-  %35 = load ptr, ptr %element.i.i, align 8
+  %34 = load ptr, ptr %element.i.i, align 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %i.076.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.body.i.i ]
-  %arrayidx8.i.i = getelementptr inbounds ptr, ptr %35, i64 %i.076.i.i
-  %36 = load ptr, ptr %arrayidx8.i.i, align 8
-  %str.i.i = getelementptr inbounds i8, ptr %36, i64 32
-  %37 = load ptr, ptr %str.i.i, align 8
+  %arrayidx8.i.i = getelementptr inbounds ptr, ptr %34, i64 %i.076.i.i
+  %35 = load ptr, ptr %arrayidx8.i.i, align 8
+  %str.i.i = getelementptr inbounds i8, ptr %35, i64 32
+  %36 = load ptr, ptr %str.i.i, align 8
   %conv.i.i = shl i64 %i.076.i.i, 32
   %sext.i.i = add i64 %conv.i.i, 8589934592
   %idxprom.i.i = ashr exact i64 %sext.i.i, 32
   %arrayidx10.i.i = getelementptr inbounds ptr, ptr %call.i75.i, i64 %idxprom.i.i
-  store ptr %37, ptr %arrayidx10.i.i, align 8
-  %len.i.i = getelementptr inbounds i8, ptr %36, i64 24
-  %38 = load i64, ptr %len.i.i, align 8
+  store ptr %36, ptr %arrayidx10.i.i, align 8
+  %len.i.i = getelementptr inbounds i8, ptr %35, i64 24
+  %37 = load i64, ptr %len.i.i, align 8
   %arrayidx12.i.i = getelementptr inbounds i64, ptr %call2.i.i, i64 %idxprom.i.i
-  store i64 %38, ptr %arrayidx12.i.i, align 8
+  store i64 %37, ptr %arrayidx12.i.i, align 8
   %inc.i.i = add nuw i64 %i.076.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %34
+  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %33
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !214
 
 for.end.i.i:                                      ; preds = %for.body.i.i, %if.then63.i
   store ptr null, ptr %_reply1.i.i, align 8
   store ptr null, ptr %_reply2.i.i, align 8
-  %39 = load ptr, ptr %source, align 8
+  %38 = load ptr, ptr %source, align 8
   %conv13.i.i = trunc i64 %add.i.i to i32
-  %call14.i.i = call i32 @redisAppendCommandArgv(ptr noundef %39, i32 noundef %conv13.i.i, ptr noundef nonnull %call.i75.i, ptr noundef nonnull %call2.i.i) #34
-  %40 = load ptr, ptr %source, align 8
-  %call16.i.i = call i32 @redisGetReply(ptr noundef %40, ptr noundef nonnull %_reply1.i.i) #34
+  %call14.i.i = call i32 @redisAppendCommandArgv(ptr noundef %38, i32 noundef %conv13.i.i, ptr noundef nonnull %call.i75.i, ptr noundef nonnull %call2.i.i) #34
+  %39 = load ptr, ptr %source, align 8
+  %call16.i.i = call i32 @redisGetReply(ptr noundef %39, ptr noundef nonnull %_reply1.i.i) #34
   %cmp17.i.i = icmp eq i32 %call16.i.i, 0
   br i1 %cmp17.i.i, label %if.end.i.i, label %if.then67.i
 
 if.end.i.i:                                       ; preds = %for.end.i.i
-  %41 = load ptr, ptr %_reply1.i.i, align 8
+  %40 = load ptr, ptr %_reply1.i.i, align 8
+  %41 = load ptr, ptr %target, align 8
+  %call21.i.i = call i32 @redisAppendCommandArgv(ptr noundef %41, i32 noundef %conv13.i.i, ptr noundef nonnull %call.i75.i, ptr noundef nonnull %call2.i.i) #34
   %42 = load ptr, ptr %target, align 8
-  %call21.i.i = call i32 @redisAppendCommandArgv(ptr noundef %42, i32 noundef %conv13.i.i, ptr noundef nonnull %call.i75.i, ptr noundef nonnull %call2.i.i) #34
-  %43 = load ptr, ptr %target, align 8
-  %call23.i.i = call i32 @redisGetReply(ptr noundef %43, ptr noundef nonnull %_reply2.i.i) #34
+  %call23.i.i = call i32 @redisGetReply(ptr noundef %42, ptr noundef nonnull %_reply2.i.i) #34
   %cmp24.i.i = icmp eq i32 %call23.i.i, 0
   br i1 %cmp24.i.i, label %if.end28.i.i, label %cleanup.i76.i
 
 if.end28.i.i:                                     ; preds = %if.end.i.i
-  %44 = load ptr, ptr %_reply2.i.i, align 8
-  %45 = load i32, ptr %41, align 8
-  %cmp29.not.i.i = icmp eq i32 %45, 6
+  %43 = load ptr, ptr %_reply2.i.i, align 8
+  %44 = load i32, ptr %40, align 8
+  %cmp29.not.i.i = icmp eq i32 %44, 6
   br i1 %cmp29.not.i.i, label %if.end39.thread.i.i, label %if.end39.i.i
 
 if.end39.i.i:                                     ; preds = %if.end28.i.i
-  %46 = load i32, ptr %44, align 8
-  %cmp41.i.i = icmp eq i32 %46, 6
+  %45 = load i32, ptr %43, align 8
+  %cmp41.i.i = icmp eq i32 %45, 6
   br i1 %cmp41.i.i, label %if.end47.thread.i.i, label %for.cond51.preheader.i.i
 
 if.end39.thread.i.i:                              ; preds = %if.end28.i.i
-  %47 = load ptr, ptr %ip45.i, align 8
-  %48 = load i32, ptr %port46.i, align 8
-  %str38.i.i = getelementptr inbounds i8, ptr %41, i64 32
-  %49 = load ptr, ptr %str38.i.i, align 8
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.164, ptr noundef %47, i32 noundef %48, ptr noundef %49)
-  %.pr.i.i = load i32, ptr %44, align 8
+  %46 = load ptr, ptr %ip45.i, align 8
+  %47 = load i32, ptr %port46.i, align 8
+  %str38.i.i = getelementptr inbounds i8, ptr %40, i64 32
+  %48 = load ptr, ptr %str38.i.i, align 8
+  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.164, ptr noundef %46, i32 noundef %47, ptr noundef %48)
+  %.pr.i.i = load i32, ptr %43, align 8
   %cmp4180.i.i = icmp eq i32 %.pr.i.i, 6
   br i1 %cmp4180.i.i, label %if.end47.thread.i.i, label %if.then67.critedge115.i
 
 if.end47.thread.i.i:                              ; preds = %if.end39.thread.i.i, %if.end39.i.i
-  %50 = load ptr, ptr %ip56.i, align 8
-  %51 = load i32, ptr %port57.i, align 8
-  %str46.i.i = getelementptr inbounds i8, ptr %44, i64 32
-  %52 = load ptr, ptr %str46.i.i, align 8
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.164, ptr noundef %50, i32 noundef %51, ptr noundef %52)
+  %49 = load ptr, ptr %ip56.i, align 8
+  %50 = load i32, ptr %port57.i, align 8
+  %str46.i.i = getelementptr inbounds i8, ptr %43, i64 32
+  %51 = load ptr, ptr %str46.i.i, align 8
+  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.164, ptr noundef %49, i32 noundef %50, ptr noundef %51)
   br label %if.then67.critedge115.i
 
 for.cond51.preheader.i.i:                         ; preds = %if.end39.i.i
-  %53 = load i64, ptr %elements.i, align 8
-  %cmp5377.not.i.i = icmp eq i64 %53, 0
+  %52 = load i64, ptr %elements.i, align 8
+  %cmp5377.not.i.i = icmp eq i64 %52, 0
   br i1 %cmp5377.not.i.i, label %if.then86.i.i, label %for.body55.lr.ph.i.i
 
 for.body55.lr.ph.i.i:                             ; preds = %for.cond51.preheader.i.i
   %element56.i.i = getelementptr inbounds i8, ptr %call.i68, i64 56
-  %element59.i.i = getelementptr inbounds i8, ptr %41, i64 56
-  %element62.i.i = getelementptr inbounds i8, ptr %44, i64 56
+  %element59.i.i = getelementptr inbounds i8, ptr %40, i64 56
+  %element62.i.i = getelementptr inbounds i8, ptr %43, i64 56
   br label %for.body55.i.i
 
 for.body55.i.i:                                   ; preds = %for.inc79.i.i, %for.body55.lr.ph.i.i
-  %54 = phi i64 [ %53, %for.body55.lr.ph.i.i ], [ %64, %for.inc79.i.i ]
+  %53 = phi i64 [ %52, %for.body55.lr.ph.i.i ], [ %63, %for.inc79.i.i ]
   %i.178.i.i = phi i64 [ 0, %for.body55.lr.ph.i.i ], [ %inc80.i.i, %for.inc79.i.i ]
-  %55 = load ptr, ptr %element56.i.i, align 8
-  %arrayidx57.i.i = getelementptr inbounds ptr, ptr %55, i64 %i.178.i.i
-  %56 = load ptr, ptr %arrayidx57.i.i, align 8
-  %str58.i.i = getelementptr inbounds i8, ptr %56, i64 32
-  %57 = load ptr, ptr %str58.i.i, align 8
-  %58 = load ptr, ptr %element59.i.i, align 8
-  %arrayidx60.i.i = getelementptr inbounds ptr, ptr %58, i64 %i.178.i.i
-  %59 = load ptr, ptr %arrayidx60.i.i, align 8
-  %str61.i.i = getelementptr inbounds i8, ptr %59, i64 32
-  %60 = load ptr, ptr %str61.i.i, align 8
-  %61 = load ptr, ptr %element62.i.i, align 8
-  %arrayidx63.i.i = getelementptr inbounds ptr, ptr %61, i64 %i.178.i.i
-  %62 = load ptr, ptr %arrayidx63.i.i, align 8
-  %str64.i.i = getelementptr inbounds i8, ptr %62, i64 32
-  %63 = load ptr, ptr %str64.i.i, align 8
-  %call65.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(41) @.str.310) #33
+  %54 = load ptr, ptr %element56.i.i, align 8
+  %arrayidx57.i.i = getelementptr inbounds ptr, ptr %54, i64 %i.178.i.i
+  %55 = load ptr, ptr %arrayidx57.i.i, align 8
+  %str58.i.i = getelementptr inbounds i8, ptr %55, i64 32
+  %56 = load ptr, ptr %str58.i.i, align 8
+  %57 = load ptr, ptr %element59.i.i, align 8
+  %arrayidx60.i.i = getelementptr inbounds ptr, ptr %57, i64 %i.178.i.i
+  %58 = load ptr, ptr %arrayidx60.i.i, align 8
+  %str61.i.i = getelementptr inbounds i8, ptr %58, i64 32
+  %59 = load ptr, ptr %str61.i.i, align 8
+  %60 = load ptr, ptr %element62.i.i, align 8
+  %arrayidx63.i.i = getelementptr inbounds ptr, ptr %60, i64 %i.178.i.i
+  %61 = load ptr, ptr %arrayidx63.i.i, align 8
+  %str64.i.i = getelementptr inbounds i8, ptr %61, i64 32
+  %62 = load ptr, ptr %str64.i.i, align 8
+  %call65.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(41) @.str.310) #33
   %cmp66.i.i = icmp eq i32 %call65.i.i, 0
   br i1 %cmp66.i.i, label %for.inc79.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %for.body55.i.i
-  %call68.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(41) @.str.310) #33
+  %call68.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(41) @.str.310) #33
   %cmp69.i.i = icmp eq i32 %call68.i.i, 0
   br i1 %cmp69.i.i, label %for.inc79.i.i, label %if.end72.i.i
 
 if.end72.i.i:                                     ; preds = %lor.lhs.false.i.i
-  %call73.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) %63) #33
+  %call73.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(1) %62) #33
   %cmp74.not.i.i = icmp eq i32 %call73.i.i, 0
   br i1 %cmp74.not.i.i, label %for.inc79.i.i, label %if.then76.i.i
 
 if.then76.i.i:                                    ; preds = %if.end72.i.i
-  %call77.i.i = call ptr @listAddNodeTail(ptr noundef %call64.i, ptr noundef %57) #34
+  %call77.i.i = call ptr @listAddNodeTail(ptr noundef %call64.i, ptr noundef %56) #34
   %.pre.i.i = load i64, ptr %elements.i, align 8
   br label %for.inc79.i.i
 
 for.inc79.i.i:                                    ; preds = %if.then76.i.i, %if.end72.i.i, %lor.lhs.false.i.i, %for.body55.i.i
-  %64 = phi i64 [ %54, %if.end72.i.i ], [ %.pre.i.i, %if.then76.i.i ], [ %54, %for.body55.i.i ], [ %54, %lor.lhs.false.i.i ]
+  %63 = phi i64 [ %53, %if.end72.i.i ], [ %.pre.i.i, %if.then76.i.i ], [ %53, %for.body55.i.i ], [ %53, %lor.lhs.false.i.i ]
   %inc80.i.i = add nuw i64 %i.178.i.i, 1
-  %cmp53.i.i = icmp ult i64 %inc80.i.i, %64
+  %cmp53.i.i = icmp ult i64 %inc80.i.i, %63
   br i1 %cmp53.i.i, label %for.body55.i.i, label %if.then86.i.i, !llvm.loop !215
 
 cleanup.i76.i:                                    ; preds = %if.end.i.i
-  %tobool82.not.i.i = icmp eq ptr %41, null
+  %tobool82.not.i.i = icmp eq ptr %40, null
   br i1 %tobool82.not.i.i, label %if.then67.i, label %if.then67.sink.split.i
 
 if.then86.i.i:                                    ; preds = %for.inc79.i.i, %for.cond51.preheader.i.i
-  call void @freeReplyObject(ptr noundef nonnull %41) #34
-  call void @freeReplyObject(ptr noundef nonnull %44) #34
+  call void @freeReplyObject(ptr noundef nonnull %40) #34
+  call void @freeReplyObject(ptr noundef nonnull %43) #34
   call void @zfree(ptr noundef nonnull %call.i75.i) #34
   call void @zfree(ptr noundef nonnull %call2.i.i) #34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_reply1.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_reply2.i.i)
   %len69.i = getelementptr inbounds i8, ptr %call64.i, i64 40
-  %65 = load i64, ptr %len69.i, align 8
-  %cmp70.not.i = icmp eq i64 %65, 0
+  %64 = load i64, ptr %len69.i, align 8
+  %cmp70.not.i = icmp eq i64 %64, 0
   br i1 %cmp70.not.i, label %if.end83.i, label %if.then72.i
 
 if.then67.critedge115.i:                          ; preds = %if.end47.thread.i.i, %if.end39.thread.i.i
-  call void @freeReplyObject(ptr noundef nonnull %41) #34
+  call void @freeReplyObject(ptr noundef nonnull %40) #34
   br label %if.then67.sink.split.i
 
 if.then67.sink.split.i:                           ; preds = %if.then67.critedge115.i, %cleanup.i76.i
-  %.sink.i = phi ptr [ %44, %if.then67.critedge115.i ], [ %41, %cleanup.i76.i ]
+  %.sink.i = phi ptr [ %43, %if.then67.critedge115.i ], [ %40, %cleanup.i76.i ]
   call void @freeReplyObject(ptr noundef nonnull %.sink.i) #34
   br label %if.then67.i
 
@@ -22609,11 +22601,11 @@ if.then67.i:                                      ; preds = %if.then67.sink.spli
   br label %if.then124.i
 
 if.then72.i:                                      ; preds = %if.then86.i.i
-  %66 = load ptr, ptr %ip45.i, align 8
-  %67 = load i32, ptr %port46.i, align 8
-  %68 = load ptr, ptr %ip56.i, align 8
-  %69 = load i32, ptr %port57.i, align 8
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.299, i64 noundef %65, ptr noundef %66, i32 noundef %67, ptr noundef %68, i32 noundef %69)
+  %65 = load ptr, ptr %ip45.i, align 8
+  %66 = load i32, ptr %port46.i, align 8
+  %67 = load ptr, ptr %ip56.i, align 8
+  %68 = load i32, ptr %port57.i, align 8
+  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.299, i64 noundef %64, ptr noundef %65, i32 noundef %66, ptr noundef %67, i32 noundef %68)
   call void @listRewind(ptr noundef nonnull %call64.i, ptr noundef nonnull %dli.i) #34
   %call79117.i = call ptr @listNext(ptr noundef nonnull %dli.i) #34
   %cmp80.not118.i = icmp eq ptr %call79117.i, null
@@ -22622,8 +22614,8 @@ if.then72.i:                                      ; preds = %if.then86.i.i
 while.body82.i:                                   ; preds = %if.then72.i, %while.body82.i
   %call79119.i = phi ptr [ %call79.i, %while.body82.i ], [ %call79117.i, %if.then72.i ]
   %value.i = getelementptr inbounds i8, ptr %call79119.i, i64 16
-  %70 = load ptr, ptr %value.i, align 8
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.300, ptr noundef %70)
+  %69 = load ptr, ptr %value.i, align 8
+  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.300, ptr noundef %69)
   %call79.i = call ptr @listNext(ptr noundef nonnull %dli.i) #34
   %cmp80.not.i = icmp eq ptr %call79.i, null
   br i1 %cmp80.not.i, label %if.then124.i, label %while.body82.i, !llvm.loop !216
@@ -22638,13 +22630,13 @@ if.end84.i:                                       ; preds = %if.end83.i, %if.the
 
 if.end85.i:                                       ; preds = %if.end84.i, %cleanup.i.i, %if.then55.i, %if.then52.i
   call void @freeReplyObject(ptr noundef nonnull %call24.i) #34
-  %call86.i = call fastcc ptr @clusterManagerMigrateKeysInReply(ptr noundef nonnull readonly %source, ptr noundef readonly %target, ptr noundef nonnull %call.i68, i32 noundef %conv36.i, i32 noundef %6, ptr noundef null)
+  %call86.i = call fastcc ptr @clusterManagerMigrateKeysInReply(ptr noundef nonnull readonly %source, ptr noundef readonly %target, ptr noundef %call.i68, i32 noundef %conv36.i, i32 noundef %6, ptr noundef null)
   %cmp87.not.i = icmp eq ptr %call86.i, null
   br i1 %cmp87.not.i, label %if.end129.i, label %if.end93.i
 
 if.end93.i:                                       ; preds = %if.end85.i
-  %71 = load i32, ptr %call86.i, align 8
-  %cmp90.not.i = icmp eq i32 %71, 6
+  %70 = load i32, ptr %call86.i, align 8
+  %cmp90.not.i = icmp eq i32 %70, 6
   br i1 %cmp90.not.i, label %if.then98.i, label %if.end116.i
 
 if.then98.i:                                      ; preds = %if.end93.i, %if.else.i, %if.then38.i
@@ -22653,24 +22645,24 @@ if.then98.i:                                      ; preds = %if.end93.i, %if.els
 
 if.then100.i:                                     ; preds = %if.then98.i
   %len101.i = getelementptr inbounds i8, ptr %migrate_reply.29194.i, i64 24
-  %72 = load i64, ptr %len101.i, align 8
-  %add102.i = add i64 %72, 1
+  %71 = load i64, ptr %len101.i, align 8
+  %add102.i = add i64 %71, 1
   %call104.i = call noalias ptr @zmalloc(i64 noundef %add102.i) #36
   store ptr %call104.i, ptr %err, align 8
   %str105.i = getelementptr inbounds i8, ptr %migrate_reply.29194.i, i64 32
-  %73 = load ptr, ptr %str105.i, align 8
-  %74 = load i64, ptr %len101.i, align 8
-  %add107.i = add i64 %74, 1
-  %call108.i = call i64 @redis_strlcpy(ptr noundef %call104.i, ptr noundef %73, i64 noundef %add107.i) #34
+  %72 = load ptr, ptr %str105.i, align 8
+  %73 = load i64, ptr %len101.i, align 8
+  %add107.i = add i64 %73, 1
+  %call108.i = call i64 @redis_strlcpy(ptr noundef %call104.i, ptr noundef %72, i64 noundef %add107.i) #34
   br label %if.end109.i
 
 if.end109.i:                                      ; preds = %if.then100.i, %if.then98.i
   %putchar.i = call i32 @putchar(i32 10)
-  %75 = load ptr, ptr %ip45.i, align 8
-  %76 = load i32, ptr %port46.i, align 8
+  %74 = load ptr, ptr %ip45.i, align 8
+  %75 = load i32, ptr %port46.i, align 8
   %str113.i = getelementptr inbounds i8, ptr %migrate_reply.29194.i, i64 32
-  %77 = load ptr, ptr %str113.i, align 8
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.164, ptr noundef %75, i32 noundef %76, ptr noundef %77)
+  %76 = load ptr, ptr %str113.i, align 8
+  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.164, ptr noundef %74, i32 noundef %75, ptr noundef %76)
   br label %if.then128.i
 
 if.end116.i:                                      ; preds = %if.end93.i, %if.end28.i
@@ -22679,8 +22671,8 @@ if.end116.i:                                      ; preds = %if.end93.i, %if.end
 
 if.then118.i:                                     ; preds = %if.end116.i
   %call119.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.237, ptr noundef %dots.1.i)
-  %78 = load ptr, ptr @stdout, align 8
-  %call120.i = call i32 @fflush(ptr noundef %78)
+  %77 = load ptr, ptr @stdout, align 8
+  %call120.i = call i32 @fflush(ptr noundef %77)
   br label %if.then128.i
 
 if.then124.i:                                     ; preds = %while.body82.i, %if.then72.i, %if.then67.i
@@ -22690,14 +22682,14 @@ if.then124.i:                                     ; preds = %while.body82.i, %if
   br label %if.then128.i
 
 if.then128.i:                                     ; preds = %if.then124.i, %if.then118.i, %if.end116.i, %if.end109.i
-  %79 = phi i1 [ true, %if.then124.i ], [ true, %if.end109.i ], [ false, %if.end116.i ], [ false, %if.then118.i ]
+  %78 = phi i1 [ true, %if.then124.i ], [ true, %if.end109.i ], [ false, %if.end116.i ], [ false, %if.then118.i ]
   %migrate_reply.0111.i = phi ptr [ %call24.i, %if.then124.i ], [ %migrate_reply.29194.i, %if.end109.i ], [ %migrate_reply.1.i, %if.end116.i ], [ %migrate_reply.1.i, %if.then118.i ]
   call void @freeReplyObject(ptr noundef nonnull %call.i68) #34
   br label %if.end129.i
 
 if.end129.i:                                      ; preds = %if.then128.i, %if.end85.i
   %call.sink.i = phi ptr [ %migrate_reply.0111.i, %if.then128.i ], [ %call.i68, %if.end85.i ]
-  %success.0103.i = phi i1 [ %79, %if.then128.i ], [ true, %if.end85.i ]
+  %success.0103.i = phi i1 [ %78, %if.then128.i ], [ true, %if.end85.i ]
   call void @freeReplyObject(ptr noundef nonnull %call.sink.i) #34
   %tobool130.not.i = icmp eq ptr %dots.1.i, null
   br i1 %tobool130.not.i, label %if.end132.i, label %if.then131.i
@@ -22719,8 +22711,8 @@ if.end132.i:                                      ; preds = %if.end129.i
   br i1 %success.0103.i, label %clusterManagerMigrateKeysInSlot.exit, label %while.body.i.backedge
 
 while.body.i.backedge:                            ; preds = %if.then131.i.thread, %if.end129.i.thread, %if.end132.i, %if.then131.i
-  %80 = load ptr, ptr %source, align 8
-  %call.i = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %80, ptr noundef nonnull @.str.278, i32 noundef %slot, i32 noundef %5) #34
+  %79 = load ptr, ptr %source, align 8
+  %call.i = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %79, ptr noundef nonnull @.str.278, i32 noundef %slot, i32 noundef %5) #34
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %clusterManagerMigrateKeysInSlot.exit, label %if.end.i
 
@@ -22758,19 +22750,19 @@ if.end33:                                         ; preds = %if.then29
   br i1 %or.cond, label %land.lhs.true37, label %if.end47
 
 land.lhs.true37:                                  ; preds = %if.end33
-  %81 = load ptr, ptr %err, align 8
-  %call39 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(42) @.str.293, i64 noundef 41) #33
+  %80 = load ptr, ptr %err, align 8
+  %call39 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %80, ptr noundef nonnull dereferenceable(42) @.str.293, i64 noundef 41) #33
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.then41, label %return
 
 if.then41:                                        ; preds = %land.lhs.true37
-  call void @zfree(ptr noundef %81) #34
+  call void @zfree(ptr noundef %80) #34
   store ptr null, ptr %err, align 8
   br label %if.end47
 
 if.end47:                                         ; preds = %if.end33, %if.then41
-  %82 = load ptr, ptr @cluster_manager.0, align 8
-  call void @listRewind(ptr noundef %82, ptr noundef nonnull %li) #34
+  %81 = load ptr, ptr @cluster_manager.0, align 8
+  call void @listRewind(ptr noundef %81, ptr noundef nonnull %li) #34
   %call4874 = call ptr @listNext(ptr noundef nonnull %li) #34
   %cmp49.not75 = icmp eq ptr %call4874, null
   br i1 %cmp49.not75, label %if.end62, label %while.body
@@ -22778,16 +22770,16 @@ if.end47:                                         ; preds = %if.end33, %if.then4
 while.body:                                       ; preds = %if.end47, %while.cond.backedge
   %call4876 = phi ptr [ %call48, %while.cond.backedge ], [ %call4874, %if.end47 ]
   %value = getelementptr inbounds i8, ptr %call4876, i64 16
-  %83 = load ptr, ptr %value, align 8
-  %cmp50 = icmp eq ptr %83, %target
-  %cmp51 = icmp eq ptr %83, %source
+  %82 = load ptr, ptr %value, align 8
+  %cmp50 = icmp eq ptr %82, %target
+  %cmp51 = icmp eq ptr %82, %source
   %or.cond54 = or i1 %cmp50, %cmp51
   br i1 %or.cond54, label %while.cond.backedge, label %if.end53
 
 if.end53:                                         ; preds = %while.body
-  %flags = getelementptr inbounds i8, ptr %83, i64 56
-  %84 = load i32, ptr %flags, align 8
-  %and54 = and i32 %84, 2
+  %flags = getelementptr inbounds i8, ptr %82, i64 56
+  %83 = load i32, ptr %flags, align 8
+  %and54 = and i32 %83, 2
   %tobool55.not = icmp eq i32 %and54, 0
   br i1 %tobool55.not, label %if.end57, label %while.cond.backedge
 
@@ -22798,7 +22790,7 @@ while.cond.backedge:                              ; preds = %if.end53, %if.end57
 
 if.end57:                                         ; preds = %if.end53
   %target.val = load ptr, ptr %10, align 8
-  %call58 = call fastcc i32 @clusterManagerSetSlot(ptr noundef nonnull %83, ptr %target.val, i32 noundef %slot, ptr noundef nonnull @.str.270, ptr noundef %err)
+  %call58 = call fastcc i32 @clusterManagerSetSlot(ptr noundef nonnull %82, ptr %target.val, i32 noundef %slot, ptr noundef nonnull @.str.270, ptr noundef %err)
   %tobool59.not = icmp eq i32 %call58, 0
   br i1 %tobool59.not, label %return, label %while.cond.backedge
 
@@ -22825,126 +22817,111 @@ return:                                           ; preds = %if.end57, %land.lhs
 declare void @listDelNode(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @clusterManagerGetSlotOwner(ptr nocapture noundef readonly %n, i32 noundef %slot, ptr noundef writeonly %err) unnamed_addr #2 {
+define internal fastcc ptr @clusterManagerGetSlotOwner(ptr %n.0.val, i32 noundef %slot, ptr nocapture noundef nonnull writeonly %err) unnamed_addr #2 {
 entry:
   %li = alloca %struct.listIter, align 8
-  %0 = load ptr, ptr %n, align 8
-  %call = tail call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %0, ptr noundef nonnull @.str.288) #34
+  %call = tail call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %n.0.val, ptr noundef nonnull @.str.288) #34
   %tobool.not.i = icmp eq ptr %call, null
   br i1 %tobool.not.i, label %if.end52, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %1 = load i32, ptr %call, align 8
-  %cmp.i = icmp eq i32 %1, 6
-  br i1 %cmp.i, label %if.then2.i, label %for.cond.preheader
+  %0 = load i32, ptr %call, align 8
+  %cmp.i = icmp eq i32 %0, 6
+  br i1 %cmp.i, label %if.end49.thread15, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %lor.lhs.false.i
   %elements = getelementptr inbounds i8, ptr %call, i64 48
-  %2 = load i64, ptr %elements, align 8
-  %cmp39.not = icmp eq i64 %2, 0
-  br i1 %cmp39.not, label %if.then51, label %for.body.lr.ph
+  %1 = load i64, ptr %elements, align 8
+  %cmp21.not = icmp eq i64 %1, 0
+  br i1 %cmp21.not, label %if.then51, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %element = getelementptr inbounds i8, ptr %call, i64 56
   br label %for.body
 
-if.then2.i:                                       ; preds = %lor.lhs.false.i
-  %cmp3.not.i = icmp eq ptr %err, null
-  br i1 %cmp3.not.i, label %if.else.i, label %if.then5.i
-
-if.then5.i:                                       ; preds = %if.then2.i
+if.end49.thread15:                                ; preds = %lor.lhs.false.i
   %len.i = getelementptr inbounds i8, ptr %call, i64 24
-  %3 = load i64, ptr %len.i, align 8
-  %add.i = add i64 %3, 1
+  %2 = load i64, ptr %len.i, align 8
+  %add.i = add i64 %2, 1
   %call.i = tail call noalias ptr @zmalloc(i64 noundef %add.i) #36
   store ptr %call.i, ptr %err, align 8
   %str.i = getelementptr inbounds i8, ptr %call, i64 32
-  %4 = load ptr, ptr %str.i, align 8
-  %5 = load i64, ptr %len.i, align 8
-  %add7.i = add i64 %5, 1
-  %call8.i = tail call i64 @redis_strlcpy(ptr noundef %call.i, ptr noundef %4, i64 noundef %add7.i) #34
-  br label %if.then51
-
-if.else.i:                                        ; preds = %if.then2.i
-  %ip.i = getelementptr inbounds i8, ptr %n, i64 16
-  %6 = load ptr, ptr %ip.i, align 8
-  %port.i = getelementptr inbounds i8, ptr %n, i64 24
-  %7 = load i32, ptr %port.i, align 8
-  %str9.i = getelementptr inbounds i8, ptr %call, i64 32
-  %8 = load ptr, ptr %str9.i, align 8
-  tail call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.164, ptr noundef %6, i32 noundef %7, ptr noundef %8)
+  %3 = load ptr, ptr %str.i, align 8
+  %4 = load i64, ptr %len.i, align 8
+  %add7.i = add i64 %4, 1
+  %call8.i = tail call i64 @redis_strlcpy(ptr noundef %call.i, ptr noundef %3, i64 noundef %add7.i) #34
   br label %if.then51
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.040 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %9 = load ptr, ptr %element, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %9, i64 %i.040
-  %10 = load ptr, ptr %arrayidx, align 8
-  %element2 = getelementptr inbounds i8, ptr %10, i64 56
-  %11 = load ptr, ptr %element2, align 8
-  %12 = load ptr, ptr %11, align 8
-  %integer = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = load i64, ptr %integer, align 8
-  %conv = trunc i64 %13 to i32
+  %i.022 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %5 = load ptr, ptr %element, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %i.022
+  %6 = load ptr, ptr %arrayidx, align 8
+  %element2 = getelementptr inbounds i8, ptr %6, i64 56
+  %7 = load ptr, ptr %element2, align 8
+  %8 = load ptr, ptr %7, align 8
+  %integer = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = load i64, ptr %integer, align 8
+  %conv = trunc i64 %9 to i32
   %cmp8 = icmp slt i32 %slot, %conv
   br i1 %cmp8, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %arrayidx5 = getelementptr inbounds i8, ptr %11, i64 8
-  %14 = load ptr, ptr %arrayidx5, align 8
-  %integer6 = getelementptr inbounds i8, ptr %14, i64 8
-  %15 = load i64, ptr %integer6, align 8
-  %conv7 = trunc i64 %15 to i32
+  %arrayidx5 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = load ptr, ptr %arrayidx5, align 8
+  %integer6 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = load i64, ptr %integer6, align 8
+  %conv7 = trunc i64 %11 to i32
   %cmp10 = icmp sgt i32 %slot, %conv7
   br i1 %cmp10, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %arrayidx14 = getelementptr inbounds i8, ptr %11, i64 16
-  %16 = load ptr, ptr %arrayidx14, align 8
-  %elements15 = getelementptr inbounds i8, ptr %16, i64 48
-  %17 = load i64, ptr %elements15, align 8
-  %cmp16 = icmp ugt i64 %17, 2
-  %element19 = getelementptr inbounds i8, ptr %16, i64 56
-  %18 = load ptr, ptr %element19, align 8
+  %arrayidx14 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = load ptr, ptr %arrayidx14, align 8
+  %elements15 = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = load i64, ptr %elements15, align 8
+  %cmp16 = icmp ugt i64 %13, 2
+  %element19 = getelementptr inbounds i8, ptr %12, i64 56
+  %14 = load ptr, ptr %element19, align 8
   br i1 %cmp16, label %if.end21, label %if.else
 
 if.end21:                                         ; preds = %if.end
-  %arrayidx20 = getelementptr inbounds i8, ptr %18, i64 16
-  %19 = load ptr, ptr %arrayidx20, align 8
-  %str = getelementptr inbounds i8, ptr %19, i64 32
-  %20 = load ptr, ptr %str, align 8
-  %cmp22.not = icmp eq ptr %20, null
+  %arrayidx20 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = load ptr, ptr %arrayidx20, align 8
+  %str = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = load ptr, ptr %str, align 8
+  %cmp22.not = icmp eq ptr %16, null
   br i1 %cmp22.not, label %if.else, label %if.end45
 
 if.else:                                          ; preds = %if.end, %if.end21
-  %21 = load ptr, ptr %18, align 8
-  %str28 = getelementptr inbounds i8, ptr %21, i64 32
-  %22 = load ptr, ptr %str28, align 8
-  %arrayidx30 = getelementptr inbounds i8, ptr %18, i64 8
-  %23 = load ptr, ptr %arrayidx30, align 8
-  %integer31 = getelementptr inbounds i8, ptr %23, i64 8
-  %24 = load i64, ptr %integer31, align 8
-  %conv32 = trunc i64 %24 to i32
-  %25 = load ptr, ptr @cluster_manager.0, align 8
-  call void @listRewind(ptr noundef %25, ptr noundef nonnull %li) #34
-  %call3336 = call ptr @listNext(ptr noundef nonnull %li) #34
-  %cmp34.not37 = icmp eq ptr %call3336, null
-  br i1 %cmp34.not37, label %for.inc, label %while.body
+  %17 = load ptr, ptr %14, align 8
+  %str28 = getelementptr inbounds i8, ptr %17, i64 32
+  %18 = load ptr, ptr %str28, align 8
+  %arrayidx30 = getelementptr inbounds i8, ptr %14, i64 8
+  %19 = load ptr, ptr %arrayidx30, align 8
+  %integer31 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = load i64, ptr %integer31, align 8
+  %conv32 = trunc i64 %20 to i32
+  %21 = load ptr, ptr @cluster_manager.0, align 8
+  call void @listRewind(ptr noundef %21, ptr noundef nonnull %li) #34
+  %call3318 = call ptr @listNext(ptr noundef nonnull %li) #34
+  %cmp34.not19 = icmp eq ptr %call3318, null
+  br i1 %cmp34.not19, label %for.inc, label %while.body
 
 while.body:                                       ; preds = %if.else, %if.end44
-  %call3338 = phi ptr [ %call33, %if.end44 ], [ %call3336, %if.else ]
-  %value = getelementptr inbounds i8, ptr %call3338, i64 16
-  %26 = load ptr, ptr %value, align 8
-  %ip36 = getelementptr inbounds i8, ptr %26, i64 16
-  %27 = load ptr, ptr %ip36, align 8
-  %call37 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %22) #33
+  %call3320 = phi ptr [ %call33, %if.end44 ], [ %call3318, %if.else ]
+  %value = getelementptr inbounds i8, ptr %call3320, i64 16
+  %22 = load ptr, ptr %value, align 8
+  %ip36 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = load ptr, ptr %ip36, align 8
+  %call37 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %18) #33
   %cmp38 = icmp eq i32 %call37, 0
   br i1 %cmp38, label %land.lhs.true, label %if.end44
 
 land.lhs.true:                                    ; preds = %while.body
-  %port40 = getelementptr inbounds i8, ptr %26, i64 24
-  %28 = load i32, ptr %port40, align 8
-  %cmp41 = icmp eq i32 %28, %conv32
+  %port40 = getelementptr inbounds i8, ptr %22, i64 24
+  %24 = load i32, ptr %port40, align 8
+  %cmp41 = icmp eq i32 %24, %conv32
   br i1 %cmp41, label %if.then51, label %if.end44
 
 if.end44:                                         ; preds = %land.lhs.true, %while.body
@@ -22953,30 +22930,30 @@ if.end44:                                         ; preds = %land.lhs.true, %whi
   br i1 %cmp34.not, label %for.inc, label %while.body, !llvm.loop !218
 
 if.end45:                                         ; preds = %if.end21
-  %call25 = call fastcc ptr @clusterManagerNodeByName(ptr noundef nonnull %20)
+  %call25 = call fastcc ptr @clusterManagerNodeByName(ptr noundef nonnull %16)
   %tobool46.not = icmp eq ptr %call25, null
   br i1 %tobool46.not, label %for.inc, label %if.then51
 
 for.inc:                                          ; preds = %if.end44, %if.else, %if.end45, %for.body, %lor.lhs.false
-  %inc = add nuw i64 %i.040, 1
-  %29 = load i64, ptr %elements, align 8
-  %cmp = icmp ult i64 %inc, %29
+  %inc = add nuw i64 %i.022, 1
+  %25 = load i64, ptr %elements, align 8
+  %cmp = icmp ult i64 %inc, %25
   br i1 %cmp, label %for.body, label %if.then51, !llvm.loop !219
 
-if.then51:                                        ; preds = %for.inc, %if.end45, %land.lhs.true, %for.cond.preheader, %if.then5.i, %if.else.i
-  %owner.028 = phi ptr [ null, %if.else.i ], [ null, %if.then5.i ], [ null, %for.cond.preheader ], [ %26, %land.lhs.true ], [ null, %for.inc ], [ %call25, %if.end45 ]
+if.then51:                                        ; preds = %for.inc, %if.end45, %land.lhs.true, %for.cond.preheader, %if.end49.thread15
+  %owner.011 = phi ptr [ null, %if.end49.thread15 ], [ null, %for.cond.preheader ], [ %22, %land.lhs.true ], [ null, %for.inc ], [ %call25, %if.end45 ]
   call void @freeReplyObject(ptr noundef nonnull %call) #34
   br label %if.end52
 
 if.end52:                                         ; preds = %entry, %if.then51
-  %owner.029 = phi ptr [ %owner.028, %if.then51 ], [ null, %entry ]
-  ret ptr %owner.029
+  %owner.012 = phi ptr [ %owner.011, %if.then51 ], [ null, %entry ]
+  ret ptr %owner.012
 }
 
 declare noalias ptr @zstrdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @clusterManagerMigrateKeysInReply(ptr nocapture noundef readonly %source, ptr nocapture noundef readonly %target, ptr nocapture noundef readonly %reply, i32 noundef %replace, i32 noundef %timeout, ptr noundef writeonly %dots) unnamed_addr #2 {
+define internal fastcc ptr @clusterManagerMigrateKeysInReply(ptr nocapture noundef readonly %source, ptr nocapture noundef readonly %target, ptr nocapture noundef nonnull readonly %reply, i32 noundef range(i32 0, 2) %replace, i32 noundef %timeout, ptr noundef writeonly %dots) unnamed_addr #2 {
 entry:
   %portstr = alloca [255 x i8], align 16
   %timeoutstr = alloca [255 x i8], align 16
@@ -24155,7 +24132,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 declare i64 @llvm.abs.i64(i64, i1 immarg) #15
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @usage(i32 noundef %err) unnamed_addr #21 {
+define internal fastcc void @usage(i32 noundef range(i32 0, 2) %err) unnamed_addr #21 {
 entry:
   %call = tail call fastcc ptr @cliVersion()
   %tobool.not = icmp eq i32 %err, 0
@@ -24590,7 +24567,7 @@ hi_sdslen.exit:                                   ; preds = %if.end, %sw.bb.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cliFormatReply(ptr nocapture noundef readonly %reply, i32 noundef %mode, i32 noundef %verbatim) unnamed_addr #2 {
+define internal fastcc ptr @cliFormatReply(ptr nocapture noundef readonly %reply, i32 noundef %mode, i32 noundef range(i32 0, 2) %verbatim) unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq i32 %verbatim, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -25153,7 +25130,7 @@ sw.epilog:                                        ; preds = %if.end, %sw.bb22, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cliFormatReplyJson(ptr noundef %out, ptr nocapture noundef readonly %r, i32 noundef %mode) unnamed_addr #2 {
+define internal fastcc ptr @cliFormatReplyJson(ptr noundef %out, ptr nocapture noundef readonly %r, i32 noundef range(i32 3, 0) %mode) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %r, align 8
   switch i32 %0, label %sw.default [
@@ -25362,7 +25339,7 @@ declare ptr @hi_sdscatrepr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare i32 @hi_sdsrange(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @jsonStringOutput(ptr noundef %out, ptr noundef %p, i32 noundef %len, i32 noundef %mode) unnamed_addr #2 {
+define internal fastcc ptr @jsonStringOutput(ptr noundef %out, ptr noundef %p, i32 noundef %len, i32 noundef range(i32 3, 0) %mode) unnamed_addr #2 {
 entry:
   switch i32 %mode, label %if.end18 [
     i32 3, label %if.then
@@ -25460,7 +25437,7 @@ if.end18:                                         ; preds = %entry, %while.end, 
 declare ptr @escapeJsonString(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @latencyModePrint(i64 noundef %min, i64 noundef %max, double noundef %avg, i64 noundef %count) unnamed_addr #11 {
+define internal fastcc void @latencyModePrint(i64 noundef range(i64 -18446744073709550, 18446744073709551) %min, i64 noundef range(i64 -18446744073709550, 18446744073709551) %max, double noundef %avg, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %count) unnamed_addr #11 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @config, i64 288), align 8
   switch i32 %0, label %if.end15 [
@@ -25496,7 +25473,7 @@ if.end15:                                         ; preds = %entry, %if.then3, %
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @cliReadReply(i32 noundef %output_raw_strings) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @cliReadReply(i32 noundef range(i32 0, 2) %output_raw_strings) unnamed_addr #2 {
 entry:
   %_reply = alloca ptr, align 8
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @config, i64 472), align 8
@@ -25841,7 +25818,7 @@ if.end8:                                          ; preds = %if.else, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @sendScan(ptr nocapture noundef %it) unnamed_addr #2 {
+define internal fastcc nonnull ptr @sendScan(ptr nocapture noundef nonnull %it) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @config, i64 232), align 8
   %tobool.not = icmp eq ptr %0, null

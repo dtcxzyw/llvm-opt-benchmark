@@ -342,7 +342,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit: ; p
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit8: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit.thread, %15, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit
   %18 = phi ptr [ %10, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit.thread ], [ %14, %15 ], [ %14, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_ComposeMappingForNodeENS_9TfWeakPtrINS_8SdfLayerEEERKNS_10PcpNodeRefE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_ComposeMappingForNodeENS_9TfWeakPtrINS_8SdfLayerEEERKNS_10PcpNodeRefE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %20 unwind label %29
 
 20:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit8
@@ -409,7 +409,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit15: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_ComposeMappingForNodeENS_9TfWeakPtrINS_8SdfLayerEEERKNS_10PcpNodeRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_ComposeMappingForNodeENS_9TfWeakPtrINS_8SdfLayerEEERKNS_10PcpNodeRefE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.std::tuple.121", align 8
   %6 = alloca %"class.std::tuple.124", align 1
@@ -1379,7 +1379,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2IS1_EERKNS_8TfRefPtrIT_EEPNSt9enable_ifIXsr3std14is_convertibleIPS5_PS1_EE5valueEvE4typeE.exit18: ; preds = %73, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i13, %66, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2IS1_EERKNS_8TfRefPtrIT_EEPNSt9enable_ifIXsr3std14is_convertibleIPS5_PS1_EE5valueEvE4typeE.exit
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_ComposeMappingForNodeENS_9TfWeakPtrINS_8SdfLayerEEERKNS_10PcpNodeRefE(ptr dead_on_unwind noalias nonnull writable align 8 %87, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_ComposeMappingForNodeENS_9TfWeakPtrINS_8SdfLayerEEERKNS_10PcpNodeRefE(ptr dead_on_unwind noalias writable align 8 %87, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %88 unwind label %97
 
 88:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2IS1_EERKNS_8TfRefPtrIT_EEPNSt9enable_ifIXsr3std14is_convertibleIPS5_PS1_EE5valueEvE4typeE.exit18

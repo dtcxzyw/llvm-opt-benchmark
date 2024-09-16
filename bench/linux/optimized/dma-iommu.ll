@@ -2658,7 +2658,7 @@ define internal range(i64 0, -9223372036854775808) i64 @iommu_dma_get_merge_boun
 declare dso_local i64 @dma_pgprot(ptr noundef, i64, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__iommu_dma_map(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #1 align 16 {
+define internal fastcc i64 @__iommu_dma_map(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 64) %3, i64 noundef %4) unnamed_addr #1 align 16 {
   %6 = tail call ptr @iommu_get_dma_domain(ptr noundef %0) #15
   %7 = getelementptr inbounds i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8

@@ -411,7 +411,7 @@ lzma_486248.exit599.us.us:                        ; preds = %205, %199
 212:                                              ; preds = %lzma_486248.exit599.us.us
   %213 = getelementptr inbounds i8, ptr %89, i64 456
   store ptr %213, ptr %9, align 8
-  %214 = call fastcc i32 @lzma_486248(ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %0, i32 noundef %2)
+  %214 = call fastcc i32 @lzma_486248(ptr noundef %6, ptr noundef %9, ptr noundef nonnull %0, i32 noundef %2)
   switch i32 %214, label %216 [
     i32 -1, label %lzma_4862e0.exit.thread
     i32 0, label %215
@@ -520,7 +520,7 @@ lzma_486248.exit611.us.us:                        ; preds = %255, %249
   %.3407.us.us = phi i32 [ %.2406.us.us, %216 ], [ %.0404.us.us, %lzma_486248.exit611.us.us ]
   %.4.us.us = phi i32 [ %storemerge511.us.us, %216 ], [ %.0388.us.us, %lzma_486248.exit611.us.us ]
   store ptr %27, ptr %9, align 8
-  %263 = call fastcc i32 @lzma_4863da(i32 noundef %35, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %0, i32 noundef %2)
+  %263 = call fastcc i32 @lzma_4863da(i32 noundef %35, ptr noundef %6, ptr noundef %9, ptr noundef %8, ptr noundef %7, ptr noundef nonnull %0, i32 noundef %2)
   %264 = icmp eq i32 %263, -1
   br i1 %264, label %lzma_4862e0.exit.thread, label %265
 
@@ -578,7 +578,7 @@ lzma_486248.exit611.us.us:                        ; preds = %255, %249
   %292 = select i1 %.inv.us.us, i32 7, i32 10
   store i32 %292, ptr %7, align 4
   store ptr %28, ptr %9, align 8
-  %293 = call fastcc i32 @lzma_4863da(i32 noundef %35, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %0, i32 noundef %2)
+  %293 = call fastcc i32 @lzma_4863da(i32 noundef %35, ptr noundef %6, ptr noundef %9, ptr noundef %8, ptr noundef %7, ptr noundef nonnull %0, i32 noundef %2)
   %294 = icmp eq i32 %293, -1
   br i1 %294, label %lzma_4862e0.exit.thread, label %295
 
@@ -706,7 +706,7 @@ lzma_486248.exit638.us.us:                        ; preds = %337, %331
 
 360:                                              ; preds = %353
   %361 = add nsw i32 %354, -5
-  %362 = call fastcc i32 @lzma_486204(ptr noundef nonnull %6, i32 noundef %361, ptr noundef nonnull %7, ptr noundef nonnull %0, i32 noundef %2)
+  %362 = call fastcc i32 @lzma_486204(ptr noundef %6, i32 noundef %361, ptr noundef %7, ptr noundef nonnull %0, i32 noundef %2)
   %363 = icmp eq i32 %362, -1
   br i1 %363, label %lzma_4862e0.exit.thread, label %.thread
 
@@ -1726,7 +1726,7 @@ lzma_4862e0.exit.thread:                          ; preds = %742, %743, %748, %7
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 2) i32 @lzma_486248(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 2) i32 @lzma_486248(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #2 {
   %5 = zext i32 %3 to i64
   %6 = icmp ugt i32 %3, 3
   br i1 %6, label %7, label %59
@@ -1826,9 +1826,9 @@ define internal fastcc range(i32 -1, 2) i32 @lzma_486248(ptr nocapture noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 1) i32 @lzma_4863da(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5, i32 noundef %6) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 1) i32 @lzma_4863da(i32 noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, ptr noundef %5, i32 noundef %6) unnamed_addr #3 {
   %8 = load ptr, ptr %2, align 8
-  %9 = tail call fastcc i32 @lzma_486248(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %5, i32 noundef %6)
+  %9 = tail call fastcc i32 @lzma_486248(ptr noundef %1, ptr noundef %2, ptr noundef %5, i32 noundef %6)
   switch i32 %9, label %10 [
     i32 -1, label %lzma_4862e0.exit.thread
     i32 0, label %44
@@ -1837,7 +1837,7 @@ define internal fastcc range(i32 -1, 1) i32 @lzma_4863da(i32 noundef %0, ptr noc
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %8, i64 2
   store ptr %11, ptr %2, align 8
-  %12 = tail call fastcc i32 @lzma_486248(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %5, i32 noundef %6)
+  %12 = tail call fastcc i32 @lzma_486248(ptr noundef %1, ptr noundef %2, ptr noundef %5, i32 noundef %6)
   switch i32 %12, label %13 [
     i32 -1, label %lzma_4862e0.exit.thread
     i32 0, label %27
@@ -1858,7 +1858,7 @@ define internal fastcc range(i32 -1, 1) i32 @lzma_4863da(i32 noundef %0, ptr noc
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds i8, ptr %14, i64 %17
   store ptr %18, ptr %2, align 8
-  %19 = tail call fastcc i32 @lzma_486248(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %5, i32 noundef %6)
+  %19 = tail call fastcc i32 @lzma_486248(ptr noundef %1, ptr noundef %2, ptr noundef %5, i32 noundef %6)
   %20 = icmp eq i32 %19, -1
   br i1 %20, label %lzma_4862e0.exit.thread, label %21
 
@@ -1895,7 +1895,7 @@ define internal fastcc range(i32 -1, 1) i32 @lzma_4863da(i32 noundef %0, ptr noc
   %34 = zext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %31, i64 %34
   store ptr %35, ptr %2, align 8
-  %36 = tail call fastcc i32 @lzma_486248(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %5, i32 noundef %6)
+  %36 = tail call fastcc i32 @lzma_486248(ptr noundef %1, ptr noundef %2, ptr noundef %5, i32 noundef %6)
   %37 = icmp eq i32 %36, -1
   br i1 %37, label %lzma_4862e0.exit.thread, label %38
 
@@ -1932,7 +1932,7 @@ define internal fastcc range(i32 -1, 1) i32 @lzma_4863da(i32 noundef %0, ptr noc
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds i8, ptr %48, i64 %51
   store ptr %52, ptr %2, align 8
-  %53 = tail call fastcc i32 @lzma_486248(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %5, i32 noundef %6)
+  %53 = tail call fastcc i32 @lzma_486248(ptr noundef %1, ptr noundef %2, ptr noundef %5, i32 noundef %6)
   %54 = icmp eq i32 %53, -1
   br i1 %54, label %lzma_4862e0.exit.thread, label %55
 
@@ -1961,7 +1961,7 @@ lzma_4862e0.exit.thread:                          ; preds = %.preheader.i54, %.p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 1) i32 @lzma_486204(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @lzma_486204(ptr nocapture noundef nonnull %0, i32 noundef range(i32 -1073741829, 1073741819) %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 12
@@ -1992,7 +1992,7 @@ define internal fastcc range(i32 -1, 1) i32 @lzma_486204(ptr nocapture noundef %
   %.2.us = or disjoint i32 %15, %17
   %18 = select i1 %.not61.us, i32 %16, i32 0
   %.246.us = sub nuw i32 %.145.us, %18
-  %19 = add i32 %.043.us, -1
+  %19 = add nsw i32 %.043.us, -1
   %.not65.us = icmp eq i32 %19, 0
   br i1 %.not65.us, label %.loopexit68, label %.preheader.split.us
 
@@ -2039,7 +2039,7 @@ define internal fastcc range(i32 -1, 1) i32 @lzma_486204(ptr nocapture noundef %
 39:                                               ; preds = %32, %.preheader.split
   %.249 = phi i32 [ %34, %32 ], [ %20, %.preheader.split ]
   %.3 = phi i32 [ %37, %32 ], [ %.246, %.preheader.split ]
-  %40 = add i32 %.043, -1
+  %40 = add nsw i32 %.043, -1
   %.not65 = icmp eq i32 %40, 0
   br i1 %.not65, label %.loopexit68, label %.preheader.split
 

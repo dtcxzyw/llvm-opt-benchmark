@@ -188,14 +188,14 @@ define void @_ZN10line_index9LineIndex3new17haaa10d7242ffbeb2E(ptr noalias nocap
   %29 = getelementptr inbounds i8, ptr %1, i64 %20
   %30 = load i8, ptr %29, align 1, !alias.scope !33, !noalias !42, !noundef !5
   %31 = icmp sgt i8 %30, -65
-  %32 = sub i64 %2, %20
+  %32 = sub nsw i64 %2, %20
   br i1 %31, label %"_ZN4core3str6traits66_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$str$GT$5index17h092230c0b7b61c29E.exit.i.i.i", label %.invoke.i
 
 "_ZN4core3str6traits66_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$str$GT$5index17h092230c0b7b61c29E.exit.i.i.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i.i", %27
   %.pre-phi.i.i.i = phi i64 [ %32, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i.i" ], [ %2, %27 ]
   %33 = getelementptr inbounds i8, ptr %1, i64 %20
   %34 = trunc nuw i64 %20 to i32
-  %35 = invoke fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic17h718c1b65ebf865faE(ptr noalias noundef nonnull readonly align 1 %33, i64 noundef %.pre-phi.i.i.i, i64 noundef %.pre-phi.i.i.i, i32 noundef %34, ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
+  %35 = invoke fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic17h718c1b65ebf865faE(ptr noalias noundef nonnull readonly align 1 %33, i64 noundef %.pre-phi.i.i.i, i64 noundef %.pre-phi.i.i.i, i32 noundef %34, ptr noalias noundef align 8 dereferenceable(24) %9, ptr noalias noundef align 8 dereferenceable(32) %8)
           to label %_ZN10line_index28analyze_source_file_dispatch17hc6f80359e4f7f36bE.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !16
 
 36:                                               ; preds = %.lr.ph169.i.i.i
@@ -221,7 +221,7 @@ define void @_ZN10line_index9LineIndex3new17haaa10d7242ffbeb2E(ptr noalias nocap
   %46 = getelementptr inbounds i8, ptr %1, i64 %40
   %47 = load i8, ptr %46, align 1, !alias.scope !45, !noalias !54, !noundef !5
   %48 = icmp sgt i8 %47, -65
-  %49 = sub nuw i64 %2, %40
+  %49 = sub nuw nsw i64 %2, %40
   br i1 %48, label %"_ZN4core3str6traits66_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$str$GT$5index17h092230c0b7b61c29E.exit33.i.i.i", label %.invoke.i
 
 .invoke.i:                                        ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i32.i.i.i", %43, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i.i"
@@ -238,7 +238,7 @@ define void @_ZN10line_index9LineIndex3new17haaa10d7242ffbeb2E(ptr noalias nocap
   %53 = getelementptr inbounds i8, ptr %1, i64 %40
   %54 = sub i64 16, %.0168.i.i.i
   %55 = trunc i64 %40 to i32
-  %56 = invoke fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic17h718c1b65ebf865faE(ptr noalias noundef nonnull readonly align 1 %53, i64 noundef %52, i64 noundef %54, i32 noundef %55, ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
+  %56 = invoke fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic17h718c1b65ebf865faE(ptr noalias noundef nonnull readonly align 1 %53, i64 noundef %52, i64 noundef %54, i32 noundef %55, ptr noalias noundef align 8 dereferenceable(24) %9, ptr noalias noundef align 8 dereferenceable(32) %8)
           to label %.backedge.i.i.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !16
 
 .backedge.i.i.i:                                  ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf305d59fb8d87cabE.exit.i.i.i", %62, %57, %"_ZN4core3str6traits66_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$str$GT$5index17h092230c0b7b61c29E.exit33.i.i.i"
@@ -300,7 +300,7 @@ define void @_ZN10line_index9LineIndex3new17haaa10d7242ffbeb2E(ptr noalias nocap
   store i64 %79, ptr %17, align 8, !alias.scope !57, !noalias !60
   %80 = shl nsw i32 -2, %70
   %81 = and i32 %80, %.023166.i.i.i
-  %82 = call noundef range(i32 0, 17) i32 @llvm.cttz.i32(i32 %81, i1 false)
+  %82 = call noundef range(i32 0, 17) i32 @llvm.cttz.i32(i32 %81, i1 true)
   %83 = icmp ugt i32 %82, 15
   br i1 %83, label %.backedge.i.i.i, label %.lr.ph.i.i.i
 
@@ -1023,7 +1023,7 @@ define noundef i32 @_ZN10line_index9LineIndex3len17h99091c1c4c072148E(ptr noalia
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic17h718c1b65ebf865faE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(24) %4, ptr noalias noundef align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic17h718c1b65ebf865faE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i32, [1 x i32], { { i64, ptr, {} }, i64 } }, align 8
   %8 = alloca i16, align 2
   %9 = alloca { ptr, ptr }, align 8

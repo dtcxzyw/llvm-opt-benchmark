@@ -1164,7 +1164,7 @@ invoke.cont176:                                   ; preds = %for.body.i.preheade
   %__begin1165.sroa.0.0399 = phi ptr [ %incdec.ptr.i148, %for.inc182 ], [ %67, %for.body.i.preheader ]
   %69 = load i64, ptr %__begin1165.sroa.0.0399, align 8
   store i64 %69, ptr %agg.tmp, align 8
-  invoke fastcc void @_ZN4pbrtL19updateMaterialNeedsENS_8MaterialEPN4pstd5arrayIbLi12EEES4_PbS5_(ptr noundef nonnull %agg.tmp, ptr noundef nonnull %haveBasicEvalMaterial, ptr noundef nonnull %haveUniversalEvalMaterial, ptr noundef nonnull %haveSubsurface, ptr noundef nonnull %haveMedia)
+  invoke fastcc void @_ZN4pbrtL19updateMaterialNeedsENS_8MaterialEPN4pstd5arrayIbLi12EEES4_PbS5_(ptr noundef %agg.tmp, ptr noundef %haveBasicEvalMaterial, ptr noundef %haveUniversalEvalMaterial, ptr noundef %haveSubsurface, ptr noundef %haveMedia)
           to label %for.inc182 unwind label %lpad156.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.inc182:                                       ; preds = %invoke.cont176
@@ -1207,7 +1207,7 @@ invoke.cont199:                                   ; preds = %for.end184, %for.in
   %second198 = getelementptr inbounds i8, ptr %__begin1186.sroa.0.0401, i64 64
   %71 = load i64, ptr %second198, align 8
   store i64 %71, ptr %agg.tmp197, align 8
-  invoke fastcc void @_ZN4pbrtL19updateMaterialNeedsENS_8MaterialEPN4pstd5arrayIbLi12EEES4_PbS5_(ptr noundef nonnull %agg.tmp197, ptr noundef nonnull %haveBasicEvalMaterial, ptr noundef nonnull %haveUniversalEvalMaterial, ptr noundef nonnull %haveSubsurface, ptr noundef nonnull %haveMedia)
+  invoke fastcc void @_ZN4pbrtL19updateMaterialNeedsENS_8MaterialEPN4pstd5arrayIbLi12EEES4_PbS5_(ptr noundef %agg.tmp197, ptr noundef %haveBasicEvalMaterial, ptr noundef %haveUniversalEvalMaterial, ptr noundef %haveSubsurface, ptr noundef %haveMedia)
           to label %for.inc205 unwind label %lpad156.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.inc205:                                       ; preds = %invoke.cont199
@@ -2753,7 +2753,7 @@ declare void @_ZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiP
 declare void @_ZN4pbrt10BasicScene15CreateMaterialsERKNS_13NamedTexturesEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8MaterialESt4lessISA_ESaISt4pairIKSA_SB_EEEPSt6vectorISB_SaISB_EE(ptr noundef nonnull align 8 dereferenceable(1520), ptr noundef nonnull align 8 dereferenceable(192), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pbrtL19updateMaterialNeedsENS_8MaterialEPN4pstd5arrayIbLi12EEES4_PbS5_(ptr nocapture noundef readonly %m, ptr noundef %haveBasicEvalMaterial, ptr noundef %haveUniversalEvalMaterial, ptr noundef %haveSubsurface, ptr noundef %haveMedia) unnamed_addr #3 {
+define internal fastcc void @_ZN4pbrtL19updateMaterialNeedsENS_8MaterialEPN4pstd5arrayIbLi12EEES4_PbS5_(ptr nocapture noundef nonnull readonly %m, ptr noundef nonnull %haveBasicEvalMaterial, ptr noundef nonnull %haveUniversalEvalMaterial, ptr noundef nonnull %haveSubsurface, ptr noundef nonnull %haveMedia) unnamed_addr #3 {
 entry:
   %texEval.i19 = alloca %"class.pbrt::BasicTextureEvaluator", align 1
   %eval.i20 = alloca %class.anon.211, align 8
@@ -2797,12 +2797,12 @@ if.end9:                                          ; preds = %if.then6
   %materials.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i64, ptr %materials.i, align 8, !noalias !24
   store i64 %7, ptr %agg.tmp10, align 8, !alias.scope !24
-  call fastcc void @_ZN4pbrtL19updateMaterialNeedsENS_8MaterialEPN4pstd5arrayIbLi12EEES4_PbS5_(ptr noundef nonnull %agg.tmp10, ptr noundef %haveBasicEvalMaterial, ptr noundef %haveUniversalEvalMaterial, ptr noundef %haveSubsurface, ptr noundef nonnull %haveMedia)
+  call fastcc void @_ZN4pbrtL19updateMaterialNeedsENS_8MaterialEPN4pstd5arrayIbLi12EEES4_PbS5_(ptr noundef %agg.tmp10, ptr noundef %haveBasicEvalMaterial, ptr noundef %haveUniversalEvalMaterial, ptr noundef %haveSubsurface, ptr noundef %haveMedia)
   call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %arrayidx.i = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load i64, ptr %arrayidx.i, align 8, !noalias !27
   store i64 %8, ptr %agg.tmp11, align 8, !alias.scope !27
-  call fastcc void @_ZN4pbrtL19updateMaterialNeedsENS_8MaterialEPN4pstd5arrayIbLi12EEES4_PbS5_(ptr noundef nonnull %agg.tmp11, ptr noundef %haveBasicEvalMaterial, ptr noundef %haveUniversalEvalMaterial, ptr noundef %haveSubsurface, ptr noundef nonnull %haveMedia)
+  call fastcc void @_ZN4pbrtL19updateMaterialNeedsENS_8MaterialEPN4pstd5arrayIbLi12EEES4_PbS5_(ptr noundef %agg.tmp11, ptr noundef %haveBasicEvalMaterial, ptr noundef %haveUniversalEvalMaterial, ptr noundef %haveSubsurface, ptr noundef %haveMedia)
   br label %if.end35
 
 if.end12:                                         ; preds = %if.end

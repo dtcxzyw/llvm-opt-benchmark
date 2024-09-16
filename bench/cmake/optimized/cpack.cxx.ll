@@ -1607,7 +1607,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit:                ; preds = %312
   br label %.body726
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit728: ; preds = %.noexc725
-  invoke fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEEC2IRKZ4mainE3$_1EES5_NSD_6ValuesEOT_"(ptr noundef nonnull align 8 dereferenceable(136) %398, ptr noundef nonnull %66, ptr noundef nonnull align 8 dereferenceable(8) %47)
+  invoke fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEEC2IRKZ4mainE3$_1EES5_NSD_6ValuesEOT_"(ptr noundef nonnull align 8 dereferenceable(136) %398, ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(8) %47)
           to label %402 unwind label %787
 
 402:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit728
@@ -1631,7 +1631,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit728: ;
   br label %.body731
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit733: ; preds = %.noexc730
-  invoke fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEEC2IRKZ4mainE3$_1EES5_NSD_6ValuesEOT_"(ptr noundef nonnull align 8 dereferenceable(136) %403, ptr noundef nonnull %68, ptr noundef nonnull align 8 dereferenceable(8) %47)
+  invoke fastcc void @"_ZN21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEEC2IRKZ4mainE3$_1EES5_NSD_6ValuesEOT_"(ptr noundef nonnull align 8 dereferenceable(136) %403, ptr noundef %68, ptr noundef nonnull align 8 dereferenceable(8) %47)
           to label %407 unwind label %791
 
 407:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit733
@@ -6172,7 +6172,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit1000:            ; preds = %1888
           to label %1891 unwind label %1878
 
 1891:                                             ; preds = %_ZN10cmCPackLog3LogEiPKciS1_.exit1000
-  invoke fastcc void @_ZN12_GLOBAL__N_117makeGeneratorDocsERK23cmCPackGeneratorFactory(ptr dead_on_unwind noalias nonnull writable align 8 %227, ptr noundef nonnull align 8 dereferenceable(104) %121)
+  invoke fastcc void @_ZN12_GLOBAL__N_117makeGeneratorDocsERK23cmCPackGeneratorFactory(ptr dead_on_unwind noalias writable align 8 %227, ptr noundef nonnull align 8 dereferenceable(104) %121)
           to label %1892 unwind label %1902
 
 1892:                                             ; preds = %1891
@@ -7022,7 +7022,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1029: 
           to label %_ZN15cmDocumentation14PrependSectionIA14_20cmDocumentationEntryEEvPKcRKT_.exit unwind label %1543
 
 _ZN15cmDocumentation14PrependSectionIA14_20cmDocumentationEntryEEvPKcRKT_.exit: ; preds = %.noexc1030
-  invoke fastcc void @_ZN12_GLOBAL__N_117makeGeneratorDocsERK23cmCPackGeneratorFactory(ptr dead_on_unwind noalias nonnull writable align 8 %262, ptr noundef nonnull align 8 dereferenceable(104) %121)
+  invoke fastcc void @_ZN12_GLOBAL__N_117makeGeneratorDocsERK23cmCPackGeneratorFactory(ptr dead_on_unwind noalias writable align 8 %262, ptr noundef nonnull align 8 dereferenceable(104) %121)
           to label %2148 unwind label %1543
 
 2148:                                             ; preds = %_ZN15cmDocumentation14PrependSectionIA14_20cmDocumentationEntryEEvPKcRKT_.exit

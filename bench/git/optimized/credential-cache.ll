@@ -149,7 +149,7 @@ if.then38:                                        ; preds = %if.end35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.do_cache.buf, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf.i, ptr noundef nonnull @.str.15, ptr noundef %0) #12
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf.i, ptr noundef nonnull @.str.16, i32 noundef %4) #12
-  %call3.i = call fastcc i32 @send_request(ptr noundef nonnull %3, ptr noundef nonnull %buf.i)
+  %call3.i = call fastcc i32 @send_request(ptr noundef nonnull %3, ptr noundef %buf.i)
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %if.then5.i, label %do_cache.exit
 
@@ -217,7 +217,7 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #4
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_cache(ptr noundef %socket, ptr noundef %action, i32 noundef %timeout, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc void @do_cache(ptr noundef %socket, ptr noundef %action, i32 noundef %timeout, i32 noundef range(i32 0, 4) %flags) unnamed_addr #0 {
 entry:
   %daemon.i = alloca %struct.child_process, align 8
   %buf.i = alloca [128 x i8], align 16
@@ -225,8 +225,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.do_cache.buf, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.15, ptr noundef %action) #12
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.16, i32 noundef %timeout) #12
-  %and = and i32 %flags, 2
-  %tobool.not = icmp eq i32 %and, 0
+  %tobool.not = icmp ult i32 %flags, 2
   br i1 %tobool.not, label %if.end2, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -239,7 +238,7 @@ if.then1:                                         ; preds = %if.then
   unreachable
 
 if.end2:                                          ; preds = %if.then, %entry
-  %call3 = call fastcc i32 @send_request(ptr noundef %socket, ptr noundef nonnull %buf)
+  %call3 = call fastcc i32 @send_request(ptr noundef %socket, ptr noundef %buf)
   %cmp4 = icmp slt i32 %call3, 0
   br i1 %cmp4, label %if.then5, label %if.end19
 
@@ -308,7 +307,7 @@ spawn_daemon.exit:                                ; preds = %lor.lhs.false.i
   %call18.i = call i32 @close(i32 noundef %2) #12
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %daemon.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %buf.i)
-  %call14 = call fastcc i32 @send_request(ptr noundef %socket, ptr noundef nonnull %buf)
+  %call14 = call fastcc i32 @send_request(ptr noundef %socket, ptr noundef %buf)
   %cmp15 = icmp slt i32 %call14, 0
   br i1 %cmp15, label %if.then16, label %if.end19
 
@@ -341,7 +340,7 @@ declare i64 @strbuf_read(ptr noundef, i32 noundef, i64 noundef) local_unnamed_ad
 declare void @die_errno(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @send_request(ptr noundef %socket, ptr nocapture noundef readonly %out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @send_request(ptr noundef %socket, ptr nocapture noundef nonnull readonly %out) unnamed_addr #0 {
 entry:
   %in = alloca [1024 x i8], align 16
   %call = tail call i32 @unix_stream_connect(ptr noundef %socket, i32 noundef 0) #12

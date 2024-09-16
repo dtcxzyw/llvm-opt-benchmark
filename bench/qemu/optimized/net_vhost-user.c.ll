@@ -178,13 +178,13 @@ if.end10:                                         ; preds = %if.end2, %cond.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i)
   store ptr null, ptr %err.i, align 8
   %tobool.not.i = icmp eq ptr %name, null
-  br i1 %tobool.not.i, label %if.else.i, label %for.body.lr.ph.i
+  br i1 %tobool.not.i, label %if.else.i, label %if.end3.i
 
 if.else.i:                                        ; preds = %if.end10
   tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 343, ptr noundef nonnull @__PRETTY_FUNCTION__.net_vhost_user_init) #9
   unreachable
 
-for.body.lr.ph.i:                                 ; preds = %if.end10
+if.end3.i:                                        ; preds = %if.end10
   %call.i8 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #11
   %label.i = getelementptr inbounds i8, ptr %call.i, i64 96
   br label %for.body.i
@@ -195,15 +195,15 @@ do.body.preheader.i:                              ; preds = %if.end15.i
   %started.i = getelementptr inbounds i8, ptr %nc0.1.i, i64 464
   br label %do.body.i
 
-for.body.i:                                       ; preds = %if.end15.i, %for.body.lr.ph.i
-  %nc0.05.i = phi ptr [ null, %for.body.lr.ph.i ], [ %nc0.1.i, %if.end15.i ]
-  %i.04.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %if.end15.i ]
+for.body.i:                                       ; preds = %if.end15.i, %if.end3.i
+  %nc0.04.i = phi ptr [ null, %if.end3.i ], [ %nc0.1.i, %if.end15.i ]
+  %i.03.i = phi i32 [ 0, %if.end3.i ], [ %inc.i, %if.end15.i ]
   %call5.i = call ptr @qemu_new_net_client(ptr noundef nonnull @net_vhost_user_info, ptr noundef %peer, ptr noundef nonnull @.str.4, ptr noundef nonnull %name) #10
   %9 = load ptr, ptr %label.i, align 8
-  call void (ptr, ptr, ...) @qemu_set_info_str(ptr noundef %call5.i, ptr noundef nonnull @.str.10, i32 noundef %i.04.i, ptr noundef %9) #10
+  call void (ptr, ptr, ...) @qemu_set_info_str(ptr noundef %call5.i, ptr noundef nonnull @.str.10, i32 noundef %i.03.i, ptr noundef %9) #10
   %queue_index.i = getelementptr inbounds i8, ptr %call5.i, i64 336
-  store i32 %i.04.i, ptr %queue_index.i, align 8
-  %tobool6.not.i = icmp eq ptr %nc0.05.i, null
+  store i32 %i.03.i, ptr %queue_index.i, align 8
+  %tobool6.not.i = icmp eq ptr %nc0.04.i, null
   br i1 %tobool6.not.i, label %if.then7.i10, label %if.end15.i
 
 if.then7.i10:                                     ; preds = %for.body.i
@@ -216,10 +216,10 @@ lor.lhs.false.i:                                  ; preds = %if.then7.i10
   br i1 %call12.i, label %if.end15.i, label %err38.i
 
 if.end15.i:                                       ; preds = %lor.lhs.false.i, %for.body.i
-  %nc0.1.i = phi ptr [ %nc0.05.i, %for.body.i ], [ %call5.i, %lor.lhs.false.i ]
+  %nc0.1.i = phi ptr [ %nc0.04.i, %for.body.i ], [ %call5.i, %lor.lhs.false.i ]
   %vhost_user.i = getelementptr inbounds i8, ptr %call5.i, i64 432
   store ptr %call.i8, ptr %vhost_user.i, align 8
-  %inc.i = add nuw nsw i32 %i.04.i, 1
+  %inc.i = add nuw nsw i32 %i.03.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %cond15
   br i1 %exitcond.not.i, label %do.body.preheader.i, label %for.body.i, !llvm.loop !5
 
@@ -259,7 +259,7 @@ if.end45.thread.i:                                ; preds = %err38.i
   store ptr null, ptr %vhost_user43.i, align 8
   br label %if.then47.i
 
-if.then47.i:                                      ; preds = %err38.i, %if.end45.thread.i
+if.then47.i:                                      ; preds = %if.end45.thread.i, %err38.i
   call void @qemu_del_net_client(ptr noundef nonnull %nc0.2.i) #10
   br label %net_vhost_user_init.exit
 

@@ -716,7 +716,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @eeepc_led_init(ptr noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc i32 @eeepc_led_init(ptr noundef nonnull %0) unnamed_addr #3 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -814,7 +814,7 @@ define internal fastcc i32 @eeepc_led_init(ptr noundef %0) unnamed_addr #3 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @eeepc_rfkill_init(ptr noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc noundef i32 @eeepc_rfkill_init(ptr noundef nonnull %0) unnamed_addr #3 align 16 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -891,7 +891,7 @@ define internal fastcc noundef i32 @eeepc_rfkill_init(ptr noundef %0) unnamed_ad
 
 36:                                               ; preds = %.thread
   %37 = load ptr, ptr %4, align 8
-  %38 = call i32 @acpi_install_notify_handler(ptr noundef %37, i32 noundef 1, ptr noundef nonnull @eeepc_rfkill_notify, ptr noundef %0) #13
+  %38 = call i32 @acpi_install_notify_handler(ptr noundef %37, i32 noundef 1, ptr noundef nonnull @eeepc_rfkill_notify, ptr noundef nonnull %0) #13
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %42, label %40
 
@@ -901,7 +901,7 @@ define internal fastcc noundef i32 @eeepc_rfkill_init(ptr noundef %0) unnamed_ad
 
 42:                                               ; preds = %40, %36
   %43 = load ptr, ptr %4, align 8
-  call fastcc void @eeepc_rfkill_hotplug(ptr noundef %0, ptr noundef %43)
+  call fastcc void @eeepc_rfkill_hotplug(ptr noundef nonnull %0, ptr noundef %43)
   br label %44
 
 44:                                               ; preds = %42, %.thread
@@ -914,7 +914,7 @@ define internal fastcc noundef i32 @eeepc_rfkill_init(ptr noundef %0) unnamed_ad
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr %3, align 8
-  %49 = call i32 @acpi_install_notify_handler(ptr noundef %48, i32 noundef 1, ptr noundef nonnull @eeepc_rfkill_notify, ptr noundef %0) #13
+  %49 = call i32 @acpi_install_notify_handler(ptr noundef %48, i32 noundef 1, ptr noundef nonnull @eeepc_rfkill_notify, ptr noundef nonnull %0) #13
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %53, label %51
 
@@ -924,7 +924,7 @@ define internal fastcc noundef i32 @eeepc_rfkill_init(ptr noundef %0) unnamed_ad
 
 53:                                               ; preds = %51, %47
   %54 = load ptr, ptr %3, align 8
-  call fastcc void @eeepc_rfkill_hotplug(ptr noundef %0, ptr noundef %54)
+  call fastcc void @eeepc_rfkill_hotplug(ptr noundef nonnull %0, ptr noundef %54)
   br label %55
 
 55:                                               ; preds = %53, %44
@@ -937,7 +937,7 @@ define internal fastcc noundef i32 @eeepc_rfkill_init(ptr noundef %0) unnamed_ad
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %2, align 8
-  %60 = call i32 @acpi_install_notify_handler(ptr noundef %59, i32 noundef 1, ptr noundef nonnull @eeepc_rfkill_notify, ptr noundef %0) #13
+  %60 = call i32 @acpi_install_notify_handler(ptr noundef %59, i32 noundef 1, ptr noundef nonnull @eeepc_rfkill_notify, ptr noundef nonnull %0) #13
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %64, label %62
 
@@ -947,7 +947,7 @@ define internal fastcc noundef i32 @eeepc_rfkill_init(ptr noundef %0) unnamed_ad
 
 64:                                               ; preds = %62, %58
   %65 = load ptr, ptr %2, align 8
-  call fastcc void @eeepc_rfkill_hotplug(ptr noundef %0, ptr noundef %65)
+  call fastcc void @eeepc_rfkill_hotplug(ptr noundef nonnull %0, ptr noundef %65)
   br label %66
 
 66:                                               ; preds = %64, %55
@@ -962,7 +962,7 @@ define internal fastcc noundef i32 @eeepc_rfkill_init(ptr noundef %0) unnamed_ad
   ]
 
 69:                                               ; preds = %67
-  call fastcc void @eeepc_rfkill_exit(ptr noundef %0)
+  call fastcc void @eeepc_rfkill_exit(ptr noundef nonnull %0)
   br label %70
 
 70:                                               ; preds = %69, %67, %67, %17
@@ -971,7 +971,7 @@ define internal fastcc noundef i32 @eeepc_rfkill_init(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @eeepc_led_exit(ptr noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc void @eeepc_led_exit(ptr noundef nonnull %0) unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 416
   tail call void @led_classdev_unregister(ptr noundef %2) #13
   %3 = getelementptr inbounds i8, ptr %0, i64 832
@@ -1006,7 +1006,7 @@ declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) loca
 declare dso_local i32 @acpi_bus_get_status(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @cmsg_quirks(ptr nocapture noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc void @cmsg_quirks(ptr nocapture noundef nonnull %0) unnamed_addr #3 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -1864,14 +1864,14 @@ declare dso_local i32 @led_classdev_register_ext(ptr noundef, ptr noundef, ptr n
 declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @eeepc_new_rfkill(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 16 {
+define internal fastcc i32 @eeepc_new_rfkill(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef range(i32 1, 6) %3, i32 noundef range(i32 0, 23) %4) unnamed_addr #3 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
   %8 = zext nneg i32 %4 to i64
   %9 = getelementptr [28 x ptr], ptr @cm_setv, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
-  %11 = shl nuw i64 1, %8
+  %11 = shl nuw nsw i64 1, %8
   %12 = and i64 %11, 59173100
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %.thread

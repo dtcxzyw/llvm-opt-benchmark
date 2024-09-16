@@ -2665,7 +2665,7 @@ define internal range(i32 -1, 2) i32 @object_mapping_cmp(ptr nocapture noundef r
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_eplpdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc i32 @dissect_eplpdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #2 {
   %5 = alloca i8, align 1
   %6 = alloca ptr, align 8
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #18
@@ -2978,7 +2978,7 @@ define internal fastcc void @dissect_epl_soc(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @epl_get_convo(ptr noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc ptr @epl_get_convo(ptr noundef %0, i32 noundef range(i32 1, 6) %1) unnamed_addr #2 {
   %3 = and i32 %1, 2
   %.not = icmp eq i32 %3, 0
   %. = select i1 %.not, i64 284, i64 288
@@ -2997,109 +2997,108 @@ define internal fastcc ptr @epl_get_convo(ptr noundef %0, i32 noundef %1) unname
   %13 = tail call ptr @find_conversation(i32 noundef %9, ptr noundef nonnull @epl_placeholder_mac, ptr noundef nonnull @epl_placeholder_mac, i32 noundef %12, i32 noundef %.047, i32 noundef %.047, i32 noundef 196608) #18
   %.not53 = icmp eq ptr %13, null
   %.pre61 = load i32, ptr %8, align 4
-  br i1 %.not53, label %24, label %14
+  br i1 %.not53, label %23, label %14
 
 14:                                               ; preds = %2
-  %15 = and i32 %1, 4
-  %.not54 = icmp eq i32 %15, 0
-  br i1 %.not54, label %19, label %16
+  %.not54 = icmp ult i32 %1, 4
+  br i1 %.not54, label %18, label %15
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %13, i64 28
-  %18 = load i32, ptr %17, align 4
-  %.not55 = icmp eq i32 %18, %.pre61
-  br i1 %.not55, label %19, label %24
+15:                                               ; preds = %14
+  %16 = getelementptr inbounds i8, ptr %13, i64 28
+  %17 = load i32, ptr %16, align 4
+  %.not55 = icmp eq i32 %17, %.pre61
+  br i1 %.not55, label %18, label %23
 
-19:                                               ; preds = %16, %14
-  %20 = getelementptr inbounds i8, ptr %13, i64 32
-  %21 = load i32, ptr %20, align 8
-  %22 = icmp ugt i32 %.pre61, %21
-  br i1 %22, label %23, label %28
+18:                                               ; preds = %15, %14
+  %19 = getelementptr inbounds i8, ptr %13, i64 32
+  %20 = load i32, ptr %19, align 8
+  %21 = icmp ugt i32 %.pre61, %20
+  br i1 %21, label %22, label %27
 
-23:                                               ; preds = %19
-  store i32 %.pre61, ptr %20, align 8
-  br label %28
+22:                                               ; preds = %18
+  store i32 %.pre61, ptr %19, align 8
+  br label %27
 
-24:                                               ; preds = %2, %16
-  %25 = load i32, ptr %10, align 8
-  %26 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %25) #18
-  %27 = tail call nonnull ptr @conversation_new(i32 noundef %.pre61, ptr noundef nonnull @epl_placeholder_mac, ptr noundef nonnull @epl_placeholder_mac, i32 noundef %26, i32 noundef %.047, i32 noundef %.047, i32 noundef 3) #18
-  br label %28
+23:                                               ; preds = %2, %15
+  %24 = load i32, ptr %10, align 8
+  %25 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %24) #18
+  %26 = tail call nonnull ptr @conversation_new(i32 noundef %.pre61, ptr noundef nonnull @epl_placeholder_mac, ptr noundef nonnull @epl_placeholder_mac, i32 noundef %25, i32 noundef %.047, i32 noundef %.047, i32 noundef 3) #18
+  br label %27
 
-28:                                               ; preds = %19, %23, %24
-  %.048 = phi ptr [ %27, %24 ], [ %13, %23 ], [ %13, %19 ]
-  %29 = load i32, ptr @proto_epl, align 4
-  %30 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %.048, i32 noundef %29) #18
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %56
+27:                                               ; preds = %18, %22, %23
+  %.048 = phi ptr [ %26, %23 ], [ %13, %22 ], [ %13, %18 ]
+  %28 = load i32, ptr @proto_epl, align 4
+  %29 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %.048, i32 noundef %28) #18
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %55
 
-32:                                               ; preds = %28
-  %33 = tail call ptr @wmem_file_scope() #18
-  %34 = tail call noalias ptr @wmem_alloc0(ptr noundef %33, i64 noundef 152) #18
-  %35 = trunc i32 %.047 to i8
-  store i8 %35, ptr %34, align 8
-  %36 = load i32, ptr @current_convo_generation, align 4
-  %37 = getelementptr inbounds i8, ptr %34, i64 16
-  store i32 %36, ptr %37, align 8
-  %38 = load ptr, ptr @pdo_mapping_scope, align 8
-  %39 = tail call noalias ptr @wmem_array_new(ptr noundef %38, i64 noundef 72) #18
-  %40 = getelementptr inbounds i8, ptr %34, i64 24
-  store ptr %39, ptr %40, align 8
-  %41 = load ptr, ptr @pdo_mapping_scope, align 8
-  %42 = tail call noalias ptr @wmem_array_new(ptr noundef %41, i64 noundef 72) #18
-  %43 = getelementptr inbounds i8, ptr %34, i64 32
-  store ptr %42, ptr %43, align 8
-  %44 = load ptr, ptr @epl_profiles_by_address, align 8
-  %45 = tail call ptr @wmem_map_lookup(ptr noundef %44, ptr noundef nonnull %spec.select59) #18
-  %46 = getelementptr inbounds i8, ptr %34, i64 40
-  store ptr %45, ptr %46, align 8
-  %.not56 = icmp eq ptr %45, null
-  br i1 %.not56, label %47, label %.thread
+31:                                               ; preds = %27
+  %32 = tail call ptr @wmem_file_scope() #18
+  %33 = tail call noalias ptr @wmem_alloc0(ptr noundef %32, i64 noundef 152) #18
+  %34 = trunc i32 %.047 to i8
+  store i8 %34, ptr %33, align 8
+  %35 = load i32, ptr @current_convo_generation, align 4
+  %36 = getelementptr inbounds i8, ptr %33, i64 16
+  store i32 %35, ptr %36, align 8
+  %37 = load ptr, ptr @pdo_mapping_scope, align 8
+  %38 = tail call noalias ptr @wmem_array_new(ptr noundef %37, i64 noundef 72) #18
+  %39 = getelementptr inbounds i8, ptr %33, i64 24
+  store ptr %38, ptr %39, align 8
+  %40 = load ptr, ptr @pdo_mapping_scope, align 8
+  %41 = tail call noalias ptr @wmem_array_new(ptr noundef %40, i64 noundef 72) #18
+  %42 = getelementptr inbounds i8, ptr %33, i64 32
+  store ptr %41, ptr %42, align 8
+  %43 = load ptr, ptr @epl_profiles_by_address, align 8
+  %44 = tail call ptr @wmem_map_lookup(ptr noundef %43, ptr noundef nonnull %spec.select59) #18
+  %45 = getelementptr inbounds i8, ptr %33, i64 40
+  store ptr %44, ptr %45, align 8
+  %.not56 = icmp eq ptr %44, null
+  br i1 %.not56, label %46, label %.thread
 
-47:                                               ; preds = %32
-  %48 = load ptr, ptr @epl_profiles_by_nodeid, align 8
+46:                                               ; preds = %31
+  %47 = load ptr, ptr @epl_profiles_by_nodeid, align 8
   %.mask = and i32 %.047, 255
-  %49 = zext nneg i32 %.mask to i64
-  %50 = inttoptr i64 %49 to ptr
-  %51 = tail call ptr @wmem_map_lookup(ptr noundef %48, ptr noundef %50) #18
-  store ptr %51, ptr %46, align 8
-  %.not57 = icmp eq ptr %51, null
-  br i1 %.not57, label %52, label %.thread
+  %48 = zext nneg i32 %.mask to i64
+  %49 = inttoptr i64 %48 to ptr
+  %50 = tail call ptr @wmem_map_lookup(ptr noundef %47, ptr noundef %49) #18
+  store ptr %50, ptr %45, align 8
+  %.not57 = icmp eq ptr %50, null
+  br i1 %.not57, label %51, label %.thread
 
-52:                                               ; preds = %47
-  %53 = load ptr, ptr @epl_default_profile, align 8
-  store ptr %53, ptr %46, align 8
+51:                                               ; preds = %46
+  %52 = load ptr, ptr @epl_default_profile, align 8
+  store ptr %52, ptr %45, align 8
   br label %.thread
 
-.thread:                                          ; preds = %32, %52, %47
-  %54 = getelementptr inbounds i8, ptr %34, i64 53
-  store i8 0, ptr %54, align 1
-  %55 = load i32, ptr @proto_epl, align 4
-  tail call void @conversation_add_proto_data(ptr noundef nonnull %.048, i32 noundef %55, ptr noundef nonnull %34) #18
-  br label %56
+.thread:                                          ; preds = %31, %51, %46
+  %53 = getelementptr inbounds i8, ptr %33, i64 53
+  store i8 0, ptr %53, align 1
+  %54 = load i32, ptr @proto_epl, align 4
+  tail call void @conversation_add_proto_data(ptr noundef nonnull %.048, i32 noundef %54, ptr noundef nonnull %33) #18
+  br label %55
 
-56:                                               ; preds = %.thread, %28
-  %.049 = phi ptr [ %34, %.thread ], [ %30, %28 ]
-  %57 = getelementptr inbounds i8, ptr %.049, i64 16
-  %58 = load i32, ptr %57, align 8
-  %59 = load i32, ptr @current_convo_generation, align 4
-  %.not58 = icmp eq i32 %58, %59
-  br i1 %.not58, label %68, label %60
+55:                                               ; preds = %.thread, %27
+  %.049 = phi ptr [ %33, %.thread ], [ %29, %27 ]
+  %56 = getelementptr inbounds i8, ptr %.049, i64 16
+  %57 = load i32, ptr %56, align 8
+  %58 = load i32, ptr @current_convo_generation, align 4
+  %.not58 = icmp eq i32 %57, %58
+  br i1 %.not58, label %67, label %59
 
-60:                                               ; preds = %56
-  %61 = load ptr, ptr @pdo_mapping_scope, align 8
-  %62 = tail call noalias ptr @wmem_array_new(ptr noundef %61, i64 noundef 72) #18
-  %63 = getelementptr inbounds i8, ptr %.049, i64 24
-  store ptr %62, ptr %63, align 8
-  %64 = load ptr, ptr @pdo_mapping_scope, align 8
-  %65 = tail call noalias ptr @wmem_array_new(ptr noundef %64, i64 noundef 72) #18
-  %66 = getelementptr inbounds i8, ptr %.049, i64 32
-  store ptr %65, ptr %66, align 8
-  %67 = load i32, ptr @current_convo_generation, align 4
-  store i32 %67, ptr %57, align 8
-  br label %68
+59:                                               ; preds = %55
+  %60 = load ptr, ptr @pdo_mapping_scope, align 8
+  %61 = tail call noalias ptr @wmem_array_new(ptr noundef %60, i64 noundef 72) #18
+  %62 = getelementptr inbounds i8, ptr %.049, i64 24
+  store ptr %61, ptr %62, align 8
+  %63 = load ptr, ptr @pdo_mapping_scope, align 8
+  %64 = tail call noalias ptr @wmem_array_new(ptr noundef %63, i64 noundef 72) #18
+  %65 = getelementptr inbounds i8, ptr %.049, i64 32
+  store ptr %64, ptr %65, align 8
+  %66 = load i32, ptr @current_convo_generation, align 4
+  store i32 %66, ptr %56, align 8
+  br label %67
 
-68:                                               ; preds = %60, %56
+67:                                               ; preds = %59, %55
   ret ptr %.049
 }
 
@@ -3670,7 +3669,7 @@ declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef)
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_epl_pdo(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5) unnamed_addr #2 {
+define internal fastcc i32 @dissect_epl_pdo(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 65536) %4, i8 noundef zeroext range(i8 3, 5) %5) unnamed_addr #2 {
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
   store i8 %5, ptr %7, align 1
@@ -3971,7 +3970,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @rval_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 162, 166) i32 @dissect_epl_asnd_ires(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #2 {
+define internal fastcc range(i32 162, 166) i32 @dissect_epl_asnd_ires(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 4, 8) %4) unnamed_addr #2 {
   %6 = load i32, ptr @hf_epl_asnd_identresponse_en, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %2, i32 noundef %4, i32 noundef 1, i32 noundef -2147483648) #18
   %8 = load i32, ptr @hf_epl_asnd_identresponse_ec, align 4
@@ -4054,7 +4053,7 @@ define internal fastcc range(i32 162, 166) i32 @dissect_epl_asnd_ires(ptr nocapt
   %82 = add nuw nsw i32 %4, 14
   %83 = load i32, ptr @hf_epl_asnd_identresponse_pos, align 4
   %84 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %83, ptr noundef %2, i32 noundef %82, i32 noundef 2, i32 noundef -2147483648) #18
-  %85 = add nuw nsw i32 %4, 16
+  %85 = or disjoint i32 %4, 16
   %86 = tail call i32 @tvb_get_letohl(ptr noundef %2, i32 noundef %85) #18
   %87 = load i32, ptr @hf_epl_asnd_identresponse_rst, align 4
   %88 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %87, ptr noundef %2, i32 noundef %85, i32 noundef 4, i32 noundef -2147483648) #18
@@ -4205,7 +4204,7 @@ epl_update_convo_cn_profile.exit:                 ; preds = %153, %149, %105, %1
   %.1 = phi ptr [ %163, %161 ], [ %166, %.thread ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %99, ptr noundef nonnull @.str.483, ptr noundef %.1) #18
   %168 = load i32, ptr @hf_epl_asnd_identresponse_dt_add, align 4
-  %169 = add nuw nsw i32 %4, 24
+  %169 = or disjoint i32 %4, 24
   %170 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %168, ptr noundef %2, i32 noundef %169, i32 noundef 2, i32 noundef -2147483648) #18
   %171 = load ptr, ptr %100, align 8
   %.not239 = icmp eq ptr %171, null
@@ -4299,7 +4298,7 @@ proto_item_set_generated.exit:                    ; preds = %181, %178, %175, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_epl_asnd_sres(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc i32 @dissect_epl_asnd_sres(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 4, 8) %3) unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_epl_asnd_statusresponse_en, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %3, i32 noundef 1, i32 noundef -2147483648) #18
@@ -4345,7 +4344,7 @@ define internal fastcc i32 @dissect_epl_asnd_sres(ptr noundef %0, ptr noundef %1
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %42, ptr noundef %1, i32 noundef %29, i32 noundef 1, i32 noundef -2147483648) #18
   %44 = load i32, ptr @hf_epl_asnd_statusresponse_seb_err_errorregister_u8_bit7, align 4
   %45 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %44, ptr noundef %1, i32 noundef %29, i32 noundef 1, i32 noundef -2147483648) #18
-  %46 = add nuw nsw i32 %3, 8
+  %46 = or disjoint i32 %3, 8
   %47 = load i32, ptr @hf_epl_asnd_statusresponse_seb_devicespecific_err, align 4
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %47, ptr noundef %1, i32 noundef %46, i32 noundef 6, i32 noundef 0) #18
   %49 = add nuw nsw i32 %3, 14
@@ -4380,13 +4379,13 @@ define internal fastcc i32 @dissect_epl_asnd_sres(ptr noundef %0, ptr noundef %1
   %68 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %67, ptr noundef %1, i32 noundef %.0106, i32 noundef 2, i32 noundef -2147483648) #18
   %69 = load i32, ptr @hf_epl_asnd_statusresponse_el_entry_type_bit15, align 4
   %70 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %69, ptr noundef %1, i32 noundef %.0106, i32 noundef 2, i32 noundef -2147483648) #18
-  %71 = add i32 %.0106, 2
+  %71 = add nuw i32 %.0106, 2
   %72 = load i32, ptr @hf_epl_asnd_statusresponse_el_entry_code, align 4
   %73 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %72, ptr noundef %1, i32 noundef %71, i32 noundef 2, i32 noundef -2147483648) #18
-  %74 = add i32 %.0106, 4
+  %74 = add nuw i32 %.0106, 4
   %75 = load i32, ptr @hf_epl_asnd_statusresponse_el_entry_time, align 4
   %76 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %75, ptr noundef %1, i32 noundef %74, i32 noundef 8, i32 noundef -2147483648) #18
-  %77 = add i32 %.0106, 12
+  %77 = add nuw i32 %.0106, 12
   %78 = load i32, ptr @hf_epl_asnd_statusresponse_el_entry_add, align 4
   %79 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %78, ptr noundef %1, i32 noundef %77, i32 noundef 8, i32 noundef -2147483648) #18
   %80 = add i32 %.0106, 20
@@ -4399,7 +4398,7 @@ define internal fastcc i32 @dissect_epl_asnd_sres(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 6, 42) i32 @dissect_epl_asnd_nmtcmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc range(i32 6, 42) i32 @dissect_epl_asnd_nmtcmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 4, 8) %3) unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %struct.nstime_t, align 8
@@ -4407,7 +4406,7 @@ define internal fastcc range(i32 6, 42) i32 @dissect_epl_asnd_nmtcmd(ptr noundef
   %9 = load i32, ptr @hf_epl_asnd_nmtcommand_cid, align 4
   %10 = zext i8 %8 to i32
   %11 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef %3, i32 noundef 1, i32 noundef %10) #18
-  %12 = add nsw i32 %3, 2
+  %12 = add nuw nsw i32 %3, 2
   %13 = getelementptr inbounds i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @val_to_str_ext(i32 noundef %10, ptr noundef nonnull @asnd_cid_vals_ext, ptr noundef nonnull @.str.691) #18
@@ -4435,11 +4434,11 @@ define internal fastcc range(i32 6, 42) i32 @dissect_epl_asnd_nmtcmd(ptr noundef
 24:                                               ; preds = %4
   %25 = load i32, ptr @hf_epl_asnd_nmtcommand_nmtpublishtime_dt, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %25, ptr noundef %1, i32 noundef %12, i32 noundef 6, i32 noundef 0) #18
-  %27 = add nuw nsw i32 %3, 8
+  %27 = or disjoint i32 %3, 8
   br label %75
 
 28:                                               ; preds = %4
-  %29 = add nsw i32 %3, 1
+  %29 = add nuw nsw i32 %3, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -4452,16 +4451,16 @@ define internal fastcc range(i32 6, 42) i32 @dissect_epl_asnd_nmtcmd(ptr noundef
   %36 = tail call ptr @proto_tree_add_bitmask(ptr noundef %33, ptr noundef %1, i32 noundef %29, i32 noundef %34, i32 noundef %35, ptr noundef nonnull @dissect_epl_asnd_nmtdna.dna_flags, i32 noundef 0) #18
   %37 = load i32, ptr @hf_epl_asnd_nmtcommand_nmtdna_currmac, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %37, ptr noundef %1, i32 noundef %12, i32 noundef 6, i32 noundef 0) #18
-  %39 = add nsw i32 %3, 8
+  %39 = or disjoint i32 %3, 8
   %40 = load i32, ptr @hf_epl_asnd_nmtcommand_nmtdna_hubenmsk, align 4
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %40, ptr noundef %1, i32 noundef %39, i32 noundef 8, i32 noundef -2147483648) #18
-  %42 = add nsw i32 %3, 16
+  %42 = or disjoint i32 %3, 16
   %43 = load i32, ptr @hf_epl_asnd_nmtcommand_nmtdna_currnn, align 4
   %44 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %33, i32 noundef %43, ptr noundef %1, i32 noundef %42, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %5) #18
-  %45 = add nsw i32 %3, 20
+  %45 = add nuw nsw i32 %3, 20
   %46 = load i32, ptr @hf_epl_asnd_nmtcommand_nmtdna_newnn, align 4
   %47 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %33, i32 noundef %46, ptr noundef %1, i32 noundef %45, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #18
-  %48 = add nsw i32 %3, 24
+  %48 = or disjoint i32 %3, 24
   %49 = call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %48, i32 noundef -2147483648) #18
   %50 = udiv i32 %49, 1000000
   %.neg.i = mul i32 %50, -1000000
@@ -4473,7 +4472,7 @@ define internal fastcc range(i32 6, 42) i32 @dissect_epl_asnd_nmtcmd(ptr noundef
   store i64 %54, ptr %7, align 8
   %55 = load i32, ptr @hf_epl_asnd_nmtcommand_nmtdna_leasetime, align 4
   %56 = call ptr @proto_tree_add_time(ptr noundef %33, i32 noundef %55, ptr noundef %1, i32 noundef %48, i32 noundef 4, ptr noundef nonnull %7) #18
-  %57 = add nsw i32 %3, 28
+  %57 = add nuw nsw i32 %3, 28
   %58 = load ptr, ptr %13, align 8
   %59 = load i32, ptr %5, align 4
   %60 = load i32, ptr %6, align 4
@@ -4513,7 +4512,7 @@ define internal fastcc range(i32 6, 42) i32 @dissect_epl_asnd_nmtcmd(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_epl_asnd_sdo(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc i32 @dissect_epl_asnd_sdo(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 4, 8) %3) unnamed_addr #2 {
   %5 = alloca %struct._GHashTableIter, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4900,7 +4899,7 @@ declare i32 @tvb_get_guint32(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_epl_sdo_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) unnamed_addr #2 {
+define internal fastcc i32 @dissect_epl_sdo_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 8, 12) %3, i8 noundef zeroext %4) unnamed_addr #2 {
   %6 = alloca i32, align 4
   store i32 0, ptr %6, align 4
   %7 = add nuw nsw i32 %3, 1
@@ -4927,7 +4926,7 @@ define internal fastcc i32 @dissect_epl_sdo_command(ptr noundef %0, ptr noundef 
   %25 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %12) #18
   %26 = lshr i8 %25, 4
   %27 = and i8 %26, 3
-  %28 = add nuw nsw i32 %3, 4
+  %28 = or disjoint i32 %3, 4
   %29 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %28) #18
   %30 = getelementptr inbounds i8, ptr %2, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -5094,7 +5093,7 @@ object_lookup.exit.i:                             ; preds = %112
   br i1 %.not281.i, label %.split265.i, label %124
 
 124:                                              ; preds = %object_lookup.exit.i
-  %125 = add i32 %.2, 2
+  %125 = add nuw nsw i32 %.2, 2
   %126 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %125) #18
   %127 = getelementptr inbounds i8, ptr %123, i64 88
   %128 = load ptr, ptr %127, align 8
@@ -5115,7 +5114,7 @@ object_lookup.exit.i:                             ; preds = %112
   %137 = icmp ne i32 %136, 255
   %138 = zext i1 %137 to i32
   %139 = trunc i32 %134 to i16
-  %140 = add i32 %.2, 2
+  %140 = add nuw nsw i32 %.2, 2
   %141 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %140) #18
   br label %subobject_lookup.exit.i
 
@@ -5281,7 +5280,7 @@ subobject_lookup.exit.i:                          ; preds = %.split265.i, %129, 
   br label %220
 
 220:                                              ; preds = %214, %212, %206, %201, %192, %183
-  %221 = add i32 %142, 2
+  %221 = add nuw nsw i32 %142, 2
   br label %288
 
 222:                                              ; preds = %110
@@ -6489,7 +6488,7 @@ object_lookup.exit.thread.i208:                   ; preds = %object_lookup.exit.
   %.0.i184.i = phi ptr [ %807, %808 ], [ null, %object_lookup.exit.thread.i208 ]
   %814 = phi ptr [ %809, %808 ], [ %812, %object_lookup.exit.thread.i208 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %799, ptr noundef nonnull @.str.483, ptr noundef %814) #18
-  %815 = add i32 %.2, 2
+  %815 = add nuw nsw i32 %.2, 2
   %816 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %815) #18
   %817 = load i32, ptr @hf_epl_asnd_sdo_cmd_data_subindex, align 4
   %818 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %817, ptr noundef %1, i32 noundef %815, i32 noundef 1, i32 noundef -2147483648) #18
@@ -6531,7 +6530,7 @@ subobject_lookup.exit.thread.i:                   ; preds = %subobject_lookup.ex
   %.0.i175190.i = phi ptr [ null, %subobject_lookup.exit.thread.i ], [ %823, %824 ]
   %832 = phi ptr [ %830, %subobject_lookup.exit.thread.i ], [ %825, %824 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %818, ptr noundef nonnull @.str.483, ptr noundef %832) #18
-  %833 = add i32 %.2, 3
+  %833 = add nuw nsw i32 %.2, 3
   %834 = load ptr, ptr %30, align 8
   %835 = call ptr @val_to_str_ext(i32 noundef 2, ptr noundef nonnull @epl_sdo_asnd_commands_short_ext, ptr noundef nonnull @.str.756) #18
   %836 = zext i16 %29 to i32

@@ -557,7 +557,7 @@ _ZNSt6vectorI13t_mde_delta_hSaIS0_EE6resizeEm.exit: ; preds = %233, %231, %229
   %239 = load i32, ptr %238, align 4
   %240 = getelementptr inbounds i8, ptr %237, i64 280
   %241 = load double, ptr %240, align 8
-  invoke fastcc void @_ZL16mde_delta_h_initP13t_mde_delta_hidjiiiPKd(ptr noundef nonnull %236, i32 noundef %239, double noundef %241, i32 noundef %11, i32 noundef 4, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  invoke fastcc void @_ZL16mde_delta_h_initP13t_mde_delta_hidjiiiPKd(ptr noundef %236, i32 noundef %239, double noundef %241, i32 noundef %11, i32 noundef 4, i32 noundef 0, i32 noundef 0, ptr noundef null)
           to label %242 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 242:                                              ; preds = %235, %_ZNSt6vectorI13t_mde_delta_hSaIS0_EE6resizeEm.exit
@@ -574,7 +574,7 @@ _ZNSt6vectorI13t_mde_delta_hSaIS0_EE6resizeEm.exit: ; preds = %233, %231, %229
   %249 = load i32, ptr %248, align 4
   %250 = getelementptr inbounds i8, ptr %247, i64 280
   %251 = load double, ptr %250, align 8
-  invoke fastcc void @_ZL16mde_delta_h_initP13t_mde_delta_hidjiiiPKd(ptr noundef nonnull %246, i32 noundef %249, double noundef %251, i32 noundef %11, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  invoke fastcc void @_ZL16mde_delta_h_initP13t_mde_delta_hidjiiiPKd(ptr noundef %246, i32 noundef %249, double noundef %251, i32 noundef %11, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef null)
           to label %252 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 252:                                              ; preds = %243
@@ -612,7 +612,7 @@ _ZNSt6vectorI13t_mde_delta_hSaIS0_EE6resizeEm.exit: ; preds = %233, %231, %229
   %271 = load i32, ptr %270, align 4
   %272 = getelementptr inbounds i8, ptr %261, i64 280
   %273 = load double, ptr %272, align 8
-  invoke fastcc void @_ZL16mde_delta_h_initP13t_mde_delta_hidjiiiPKd(ptr noundef nonnull %269, i32 noundef %271, double noundef %273, i32 noundef %11, i32 noundef 1, i32 noundef %.0135199, i32 noundef 1, ptr noundef nonnull %259)
+  invoke fastcc void @_ZL16mde_delta_h_initP13t_mde_delta_hidjiiiPKd(ptr noundef %269, i32 noundef %271, double noundef %273, i32 noundef %11, i32 noundef 1, i32 noundef %.0135199, i32 noundef 1, ptr noundef nonnull %259)
           to label %274 unwind label %.loopexit.split-lp.loopexit
 
 274:                                              ; preds = %266
@@ -706,7 +706,7 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit:          ; preds = %.loopexit182
   %317 = load i32, ptr %316, align 4
   %318 = getelementptr inbounds i8, ptr %315, i64 280
   %319 = load double, ptr %318, align 8
-  invoke fastcc void @_ZL16mde_delta_h_initP13t_mde_delta_hidjiiiPKd(ptr noundef nonnull %314, i32 noundef %317, double noundef %319, i32 noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef %.2137, ptr noundef %287)
+  invoke fastcc void @_ZL16mde_delta_h_initP13t_mde_delta_hidjiiiPKd(ptr noundef %314, i32 noundef %317, double noundef %319, i32 noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef %.2137, ptr noundef %287)
           to label %320 unwind label %.loopexit
 
 320:                                              ; preds = %312
@@ -741,7 +741,7 @@ _ZL14gmx_sfree_implIdEvPKcS1_iPT_.exit:           ; preds = %._crit_edge
   %333 = load i32, ptr %332, align 4
   %334 = getelementptr inbounds i8, ptr %331, i64 280
   %335 = load double, ptr %334, align 8
-  invoke fastcc void @_ZL16mde_delta_h_initP13t_mde_delta_hidjiiiPKd(ptr noundef nonnull %330, i32 noundef %333, double noundef %335, i32 noundef %11, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  invoke fastcc void @_ZL16mde_delta_h_initP13t_mde_delta_hidjiiiPKd(ptr noundef %330, i32 noundef %333, double noundef %335, i32 noundef %11, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef null)
           to label %336 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 336:                                              ; preds = %327, %_ZL14gmx_sfree_implIdEvPKcS1_iPT_.exit
@@ -758,7 +758,7 @@ declare noundef float @_Z27constantEnsembleTemperatureRK10t_inputrec(ptr noundef
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16mde_delta_h_initP13t_mde_delta_hidjiiiPKd(ptr noundef %0, i32 noundef %1, double noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16mde_delta_h_initP13t_mde_delta_hidjiiiPKd(ptr noundef nonnull %0, i32 noundef %1, double noundef %2, i32 noundef %3, i32 noundef range(i32 0, 5) %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 %4, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 156
@@ -1714,7 +1714,7 @@ define void @_Z23mde_delta_h_coll_add_dhP18t_mde_delta_h_colldddN3gmx8ArrayRefId
   %29 = getelementptr inbounds %struct.t_mde_delta_h, ptr %28, i64 %27
   %30 = getelementptr inbounds double, ptr %4, i64 %indvars.iv
   %31 = load double, ptr %30, align 8
-  tail call fastcc void @_ZL18mde_delta_h_add_dhP13t_mde_delta_hd(ptr noundef nonnull %29, double noundef %31)
+  tail call fastcc void @_ZL18mde_delta_h_add_dhP13t_mde_delta_hd(ptr noundef %29, double noundef %31)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load i32, ptr %15, align 4
   %33 = sext i32 %32 to i64
@@ -1731,7 +1731,7 @@ define void @_Z23mde_delta_h_coll_add_dhP18t_mde_delta_h_colldddN3gmx8ArrayRefId
   %41 = getelementptr inbounds %struct.t_mde_delta_h, ptr %40, i64 %39
   %42 = getelementptr inbounds double, ptr %6, i64 %indvars.iv37
   %43 = load double, ptr %42, align 8
-  tail call fastcc void @_ZL18mde_delta_h_add_dhP13t_mde_delta_hd(ptr noundef nonnull %41, double noundef %43)
+  tail call fastcc void @_ZL18mde_delta_h_add_dhP13t_mde_delta_hd(ptr noundef %41, double noundef %43)
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %44 = load i32, ptr %19, align 4
   %45 = sext i32 %44 to i64
@@ -1748,7 +1748,7 @@ define void @_Z23mde_delta_h_coll_add_dhP18t_mde_delta_h_colldddN3gmx8ArrayRefId
   %51 = zext nneg i32 %48 to i64
   %52 = load ptr, ptr %0, align 8
   %53 = getelementptr inbounds %struct.t_mde_delta_h, ptr %52, i64 %51
-  tail call fastcc void @_ZL18mde_delta_h_add_dhP13t_mde_delta_hd(ptr noundef nonnull %53, double noundef %3)
+  tail call fastcc void @_ZL18mde_delta_h_add_dhP13t_mde_delta_hd(ptr noundef %53, double noundef %3)
   br label %54
 
 54:                                               ; preds = %50, %._crit_edge
@@ -1761,7 +1761,7 @@ define void @_Z23mde_delta_h_coll_add_dhP18t_mde_delta_h_colldddN3gmx8ArrayRefId
   %59 = zext nneg i32 %56 to i64
   %60 = load ptr, ptr %0, align 8
   %61 = getelementptr inbounds %struct.t_mde_delta_h, ptr %60, i64 %59
-  tail call fastcc void @_ZL18mde_delta_h_add_dhP13t_mde_delta_hd(ptr noundef nonnull %61, double noundef %2)
+  tail call fastcc void @_ZL18mde_delta_h_add_dhP13t_mde_delta_hd(ptr noundef %61, double noundef %2)
   br label %62
 
 62:                                               ; preds = %58, %54
@@ -1774,7 +1774,7 @@ define void @_Z23mde_delta_h_coll_add_dhP18t_mde_delta_h_colldddN3gmx8ArrayRefId
   %67 = zext nneg i32 %64 to i64
   %68 = load ptr, ptr %0, align 8
   %69 = getelementptr inbounds %struct.t_mde_delta_h, ptr %68, i64 %67
-  tail call fastcc void @_ZL18mde_delta_h_add_dhP13t_mde_delta_hd(ptr noundef nonnull %69, double noundef %1)
+  tail call fastcc void @_ZL18mde_delta_h_add_dhP13t_mde_delta_hd(ptr noundef %69, double noundef %1)
   br label %70
 
 70:                                               ; preds = %66, %62
@@ -1782,7 +1782,7 @@ define void @_Z23mde_delta_h_coll_add_dhP18t_mde_delta_h_colldddN3gmx8ArrayRefId
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18mde_delta_h_add_dhP13t_mde_delta_hd(ptr nocapture noundef %0, double noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL18mde_delta_h_add_dhP13t_mde_delta_hd(ptr nocapture noundef nonnull %0, double noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.76", align 1
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8

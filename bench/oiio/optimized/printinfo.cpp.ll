@@ -1469,7 +1469,7 @@ for.body.i:                                       ; preds = %invoke.cont.i, %for
   %i.0155.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %invoke.cont.i ]
   %add.ptr.i.i = getelementptr inbounds float, ptr %17, i64 %conv1156.i
   %18 = load float, ptr %add.ptr.i.i, align 4
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_03pvtL9stats_numB5cxx11Efib(ptr noalias nonnull align 8 %ref.tmp.i, float noundef %18, i32 noundef %conv.i, i1 noundef zeroext true)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_03pvtL9stats_numB5cxx11Efib(ptr noalias align 8 %ref.tmp.i, float noundef %18, i32 noundef %conv.i, i1 noundef zeroext true)
           to label %.noexc34 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc34:                                         ; preds = %for.body.i
@@ -1545,7 +1545,7 @@ for.body14.i:                                     ; preds = %invoke.cont20.i, %f
   %i9.0162.i = phi i32 [ 0, %for.body14.lr.ph.i ], [ %inc22.i, %invoke.cont20.i ]
   %add.ptr.i69.i = getelementptr inbounds float, ptr %29, i64 %conv11163.i
   %30 = load float, ptr %add.ptr.i69.i, align 4
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_03pvtL9stats_numB5cxx11Efib(ptr noalias nonnull align 8 %ref.tmp15.i, float noundef %30, i32 noundef %conv.i, i1 noundef zeroext true)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_03pvtL9stats_numB5cxx11Efib(ptr noalias align 8 %ref.tmp15.i, float noundef %30, i32 noundef %conv.i, i1 noundef zeroext true)
           to label %.noexc37 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc37:                                         ; preds = %for.body14.i
@@ -1626,7 +1626,7 @@ for.body32.i:                                     ; preds = %invoke.cont38.i, %f
   %i27.0169.i = phi i32 [ 0, %for.body32.lr.ph.i ], [ %inc40.i, %invoke.cont38.i ]
   %add.ptr.i87.i = getelementptr inbounds float, ptr %42, i64 %conv29170.i
   %43 = load float, ptr %add.ptr.i87.i, align 4
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_03pvtL9stats_numB5cxx11Efib(ptr noalias nonnull align 8 %ref.tmp33.i, float noundef %43, i32 noundef %conv.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_03pvtL9stats_numB5cxx11Efib(ptr noalias align 8 %ref.tmp33.i, float noundef %43, i32 noundef %conv.i, i1 noundef zeroext false)
           to label %.noexc40 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc40:                                         ; preds = %for.body32.i
@@ -1707,7 +1707,7 @@ for.body50.i:                                     ; preds = %invoke.cont56.i, %f
   %i45.0176.i = phi i32 [ 0, %for.body50.lr.ph.i ], [ %inc58.i, %invoke.cont56.i ]
   %add.ptr.i105.i = getelementptr inbounds float, ptr %55, i64 %conv47177.i
   %56 = load float, ptr %add.ptr.i105.i, align 4
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_03pvtL9stats_numB5cxx11Efib(ptr noalias nonnull align 8 %ref.tmp51.i, float noundef %56, i32 noundef %conv.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_03pvtL9stats_numB5cxx11Efib(ptr noalias align 8 %ref.tmp51.i, float noundef %56, i32 noundef %conv.i, i1 noundef zeroext false)
           to label %.noexc43 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc43:                                         ; preds = %for.body50.i
@@ -2825,7 +2825,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   %i.0201 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont42 ]
   %add.ptr.i117 = getelementptr inbounds float, ptr %constantValues.sroa.0.0, i64 %conv35202
   %146 = load float, ptr %add.ptr.i117, align 4
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_03pvtL9stats_numB5cxx11Efib(ptr noalias nonnull align 8 %ref.tmp37, float noundef %146, i32 noundef %conv, i1 noundef zeroext false)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_03pvtL9stats_numB5cxx11Efib(ptr noalias align 8 %ref.tmp37, float noundef %146, i32 noundef %conv, i1 noundef zeroext false)
           to label %invoke.cont40 unwind label %ehcleanup.thread223
 
 invoke.cont40:                                    ; preds = %for.body

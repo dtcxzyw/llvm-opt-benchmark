@@ -818,7 +818,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @aprs_default_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @aprs_default_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -1, 11) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = icmp eq i32 %3, -1
   br i1 %6, label %7, label %9
 
@@ -1301,7 +1301,7 @@ dst_code_lookup.exit175:                          ; preds = %84, %85
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @aprs_position(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @aprs_position(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load ptr, ptr @g_ascii_table, align 8
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #6
   %8 = zext i8 %7 to i64

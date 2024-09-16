@@ -691,7 +691,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
 76:                                               ; preds = %57, %73
   %storemerge = phi ptr [ %75, %73 ], [ %59, %57 ]
   store ptr %storemerge, ptr %3, align 8
-  %77 = call fastcc i32 @check_modifiers(ptr noundef %storemerge, ptr noundef %0, ptr noundef nonnull %4)
+  %77 = call fastcc i32 @check_modifiers(ptr noundef %storemerge, ptr noundef %0, ptr noundef %4)
   switch i32 %77, label %80 [
     i32 0, label %81
     i32 -5, label %78
@@ -720,7 +720,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0,
 
 86:                                               ; preds = %83
   %87 = getelementptr inbounds i8, ptr %1, i64 1
-  %88 = call fastcc i32 @check_modifiers(ptr noundef nonnull %87, ptr noundef %0, ptr noundef nonnull %4)
+  %88 = call fastcc i32 @check_modifiers(ptr noundef nonnull %87, ptr noundef %0, ptr noundef %4)
   switch i32 %88, label %91 [
     i32 0, label %92
     i32 -5, label %89
@@ -1155,7 +1155,7 @@ declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #1
 declare i32 @prte_set_attribute(ptr noundef, i16 noundef zeroext, i1 noundef zeroext, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -43, 1) i32 @check_modifiers(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i16, align 2
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4

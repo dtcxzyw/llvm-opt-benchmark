@@ -18019,7 +18019,7 @@ _ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit:       ; preds = %_ZNSt10shared_ptrI1
   br label %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit56
 
 _ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit56:     ; preds = %_ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit, %236, %239
-  invoke fastcc void @_ZL23InsertNewClusterInQueueSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphERK14AlgoParameters(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(89) %2)
+  invoke fastcc void @_ZL23InsertNewClusterInQueueSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphERK14AlgoParameters(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(89) %2)
           to label %241 unwind label %383
 
 241:                                              ; preds = %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit56
@@ -18844,7 +18844,7 @@ _ZNSt12__shared_ptrI13ClusteredSeamLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL23InsertNewClusterInQueueSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphERK14AlgoParameters(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %3) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL23InsertNewClusterInQueueSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphERK14AlgoParameters(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %3) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::tuple.689", align 8
   %6 = alloca %"class.std::tuple.149", align 1
   %7 = alloca %"struct.std::_Hashtable<int, std::pair<const int, std::set<std::shared_ptr<ClusteredSeam>>>, std::allocator<std::pair<const int, std::set<std::shared_ptr<ClusteredSeam>>>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
@@ -19175,7 +19175,7 @@ _ZNSt13unordered_mapISt10shared_ptrI13ClusteredSeamEdSt4hashIS2_ESt8equal_toIS2_
 
 183:                                              ; preds = %_ZNSt13unordered_mapISt10shared_ptrI13ClusteredSeamEdSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_dEEE4findERS8_.exit.i
   %184 = load double, ptr %182, align 8
-  invoke fastcc void @_ZL11ComputeCostSt10shared_ptrI13ClusteredSeamES_I9MeshGraphERK14AlgoParametersd(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull align 8 dereferenceable(89) %3, double noundef %184)
+  invoke fastcc void @_ZL11ComputeCostSt10shared_ptrI13ClusteredSeamES_I9MeshGraphERK14AlgoParametersd(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef %34, ptr noundef %35, ptr noundef nonnull align 8 dereferenceable(89) %3, double noundef %184)
           to label %185 unwind label %2245
 
 185:                                              ; preds = %183
@@ -22549,7 +22549,7 @@ _ZNSt13unordered_mapISt10shared_ptrI13ClusteredSeamEdSt4hashIS2_ESt8equal_toIS2_
 
 1649:                                             ; preds = %_ZNSt13unordered_mapISt10shared_ptrI13ClusteredSeamEdSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_dEEE4findERS8_.exit.i.i
   %1650 = load double, ptr %1648, align 8, !noalias !322
-  invoke fastcc void @_ZL11ComputeCostSt10shared_ptrI13ClusteredSeamES_I9MeshGraphERK14AlgoParametersd(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull readonly align 8 dereferenceable(89) %3, double noundef %1650)
+  invoke fastcc void @_ZL11ComputeCostSt10shared_ptrI13ClusteredSeamES_I9MeshGraphERK14AlgoParametersd(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef %22, ptr noundef %23, ptr noundef nonnull readonly align 8 dereferenceable(89) %3, double noundef %1650)
           to label %1651 unwind label %2022, !noalias !322
 
 1651:                                             ; preds = %1649
@@ -23020,7 +23020,7 @@ _ZNSt13unordered_mapISt10shared_ptrI13ClusteredSeamEdSt4hashIS2_ESt8equal_toIS2_
 
 1870:                                             ; preds = %_ZNSt13unordered_mapISt10shared_ptrI13ClusteredSeamEdSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_dEEE4findERS8_.exit.i327.i
   %1871 = load double, ptr %1869, align 8, !noalias !322
-  invoke fastcc void @_ZL11ComputeCostSt10shared_ptrI13ClusteredSeamES_I9MeshGraphERK14AlgoParametersd(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull readonly align 8 dereferenceable(89) %3, double noundef %1871)
+  invoke fastcc void @_ZL11ComputeCostSt10shared_ptrI13ClusteredSeamES_I9MeshGraphERK14AlgoParametersd(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef %27, ptr noundef %28, ptr noundef nonnull readonly align 8 dereferenceable(89) %3, double noundef %1871)
           to label %1872 unwind label %2024, !noalias !322
 
 1872:                                             ; preds = %1870
@@ -27212,7 +27212,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @_Z12ColorizeSeamSt10shared_ptrI13ClusteredSeamERKN3vcg6Color4IhEE(ptr noundef, ptr noundef nonnull align 1 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11ComputeCostSt10shared_ptrI13ClusteredSeamES_I9MeshGraphERK14AlgoParametersd(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %3, double noundef %4) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11ComputeCostSt10shared_ptrI13ClusteredSeamES_I9MeshGraphERK14AlgoParametersd(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %3, double noundef %4) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %6 = alloca i8, align 1
   %7 = alloca %"struct.std::pair.477", align 8
   %8 = alloca %"class.std::shared_ptr.474", align 8
@@ -27948,7 +27948,7 @@ _ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit90:     ; preds = %361, %367, %370
   br label %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit93
 
 _ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit93:     ; preds = %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit90, %378, %381
-  %383 = invoke fastcc noundef zeroext i1 @_ZL15IslandLookaheadSt10shared_ptrI9FaceGroupES1_i(ptr noundef nonnull %24, ptr noundef nonnull %25)
+  %383 = invoke fastcc noundef zeroext i1 @_ZL15IslandLookaheadSt10shared_ptrI9FaceGroupES1_i(ptr noundef %24, ptr noundef %25)
           to label %.critedge unwind label %386
 
 .critedge:                                        ; preds = %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit93
@@ -28474,7 +28474,7 @@ _ZNSt12__shared_ptrI4SeamLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL15IslandLookaheadSt10shared_ptrI9FaceGroupES1_i(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL15IslandLookaheadSt10shared_ptrI9FaceGroupES1_i(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::__detail::_AllocNode.736", align 8
   %4 = alloca %"struct.std::__detail::_AllocNode.736", align 8
   %5 = alloca %"class.std::unordered_set.696", align 8
@@ -35992,7 +35992,7 @@ _ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit:       ; preds = %_ZL12ClearGlobalsv.
   br label %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit
 
 _ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit:       ; preds = %_ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit, %121, %124
-  invoke fastcc void @_ZL14PrintStateInfoSt10shared_ptrI9AlgoStateES_I9MeshGraphERK14AlgoParameters(ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef nonnull align 8 dereferenceable(89) %2)
+  invoke fastcc void @_ZL14PrintStateInfoSt10shared_ptrI9AlgoStateES_I9MeshGraphERK14AlgoParameters(ptr noundef %40, ptr noundef %41, ptr noundef nonnull align 8 dereferenceable(89) %2)
           to label %126 unwind label %747
 
 126:                                              ; preds = %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit
@@ -50258,7 +50258,7 @@ _ZNSt6vectorI8HalfEdgeSaIS0_EED2Ev.exit.i.i:      ; preds = %5812, %5810, %.loop
   br label %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit374
 
 _ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit374:    ; preds = %.thread1729, %5848, %5851
-  %5853 = invoke fastcc noundef i32 @_ZL13OptimizeChartR8SeamDataSt10shared_ptrI9MeshGraphEb(ptr noundef nonnull align 8 dereferenceable(1528) %50, ptr noundef nonnull %57, i1 noundef zeroext false)
+  %5853 = invoke fastcc noundef i32 @_ZL13OptimizeChartR8SeamDataSt10shared_ptrI9MeshGraphEb(ptr noundef nonnull align 8 dereferenceable(1528) %50, ptr noundef %57, i1 noundef zeroext false)
           to label %5854 unwind label %5896
 
 5854:                                             ; preds = %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit374
@@ -50412,7 +50412,7 @@ _ZNSt10shared_ptrI9MeshGraphED2Ev.exit381:        ; preds = %_ZNSt16_Sp_counted_
   br label %_ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit384
 
 _ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit384:    ; preds = %5899, %5905, %5908
-  %5910 = invoke fastcc noundef i32 @_ZL27CheckAfterLocalOptimizationR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParameters(ptr noundef nonnull align 8 dereferenceable(1528) %50, ptr noundef nonnull %58, ptr noundef nonnull align 8 dereferenceable(89) %2)
+  %5910 = invoke fastcc noundef i32 @_ZL27CheckAfterLocalOptimizationR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParameters(ptr noundef nonnull align 8 dereferenceable(1528) %50, ptr noundef %58, ptr noundef nonnull align 8 dereferenceable(89) %2)
           to label %5911 unwind label %5947
 
 5911:                                             ; preds = %_ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit384
@@ -50546,7 +50546,7 @@ _ZN7logging6BufferlsIA63_cEERS0_RKT_.exit:        ; preds = %5955
   br label %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit395
 
 _ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit395:    ; preds = %.critedge83, %5962, %5965
-  %5967 = invoke fastcc noundef i32 @_ZL13OptimizeChartR8SeamDataSt10shared_ptrI9MeshGraphEb(ptr noundef nonnull align 8 dereferenceable(1528) %50, ptr noundef nonnull %60, i1 noundef zeroext true)
+  %5967 = invoke fastcc noundef i32 @_ZL13OptimizeChartR8SeamDataSt10shared_ptrI9MeshGraphEb(ptr noundef nonnull align 8 dereferenceable(1528) %50, ptr noundef %60, i1 noundef zeroext true)
           to label %5968 unwind label %6012
 
 5968:                                             ; preds = %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit395
@@ -50672,7 +50672,7 @@ _ZNSt10shared_ptrI9MeshGraphED2Ev.exit402:        ; preds = %5968, %5986, %5999,
   br label %_ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit405
 
 _ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit405:    ; preds = %6014, %6020, %6023
-  %6025 = invoke fastcc noundef i32 @_ZL27CheckAfterLocalOptimizationR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParameters(ptr noundef nonnull align 8 dereferenceable(1528) %50, ptr noundef nonnull %61, ptr noundef nonnull align 8 dereferenceable(89) %2)
+  %6025 = invoke fastcc noundef i32 @_ZL27CheckAfterLocalOptimizationR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParameters(ptr noundef nonnull align 8 dereferenceable(1528) %50, ptr noundef %61, ptr noundef nonnull align 8 dereferenceable(89) %2)
           to label %6026 unwind label %6064
 
 6026:                                             ; preds = %_ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit405
@@ -50819,7 +50819,7 @@ _ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit415:    ; preds = %6072, %6078, %6081
   br label %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit418
 
 _ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit418:    ; preds = %_ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit415, %6088, %6091
-  invoke fastcc void @_ZL10AcceptMoveRK8SeamDataSt10shared_ptrI9AlgoStateES2_I9MeshGraphERK14AlgoParameters(ptr noundef nonnull align 8 dereferenceable(1528) %50, ptr noundef nonnull %62, ptr noundef nonnull %63, ptr noundef nonnull align 8 dereferenceable(89) %2)
+  invoke fastcc void @_ZL10AcceptMoveRK8SeamDataSt10shared_ptrI9AlgoStateES2_I9MeshGraphERK14AlgoParameters(ptr noundef nonnull align 8 dereferenceable(1528) %50, ptr noundef %62, ptr noundef %63, ptr noundef nonnull align 8 dereferenceable(89) %2)
           to label %6093 unwind label %6219
 
 6093:                                             ; preds = %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit418
@@ -51807,7 +51807,7 @@ _ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit.i:     ; preds = %6535, %6532, %_ZNSt
   br label %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit.i475
 
 _ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit.i475:  ; preds = %6545, %6542, %_ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit.i
-  invoke fastcc void @_ZL9EraseSeamSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  invoke fastcc void @_ZL9EraseSeamSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE(ptr noundef %5, ptr noundef %6, ptr noundef %7)
           to label %6547 unwind label %6852
 
 6547:                                             ; preds = %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit.i475
@@ -52102,7 +52102,7 @@ _ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit139.i:  ; preds = %6671, %6668, %_ZNSt
   br label %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit142.i
 
 _ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit142.i:  ; preds = %6681, %6678, %_ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit139.i
-  invoke fastcc void @_ZL17InvalidateClusterSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE11CheckStatusd(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %.2502150, double noundef 2.000000e+00)
+  invoke fastcc void @_ZL17InvalidateClusterSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE11CheckStatusd(ptr noundef %8, ptr noundef %9, ptr noundef %10, i32 noundef %.2502150, double noundef 2.000000e+00)
           to label %6683 unwind label %6854
 
 6683:                                             ; preds = %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit142.i
@@ -52875,7 +52875,7 @@ _ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit525:    ; preds = %.critedge71, %7000,
   br label %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit528
 
 _ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit528:    ; preds = %_ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit525, %7011, %7014
-  invoke fastcc void @_ZL14PrintStateInfoSt10shared_ptrI9AlgoStateES_I9MeshGraphERK14AlgoParameters(ptr noundef nonnull %70, ptr noundef nonnull %71, ptr noundef nonnull align 8 dereferenceable(89) %2)
+  invoke fastcc void @_ZL14PrintStateInfoSt10shared_ptrI9AlgoStateES_I9MeshGraphERK14AlgoParameters(ptr noundef %70, ptr noundef %71, ptr noundef nonnull align 8 dereferenceable(89) %2)
           to label %7016 unwind label %7096
 
 7016:                                             ; preds = %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit528
@@ -53071,7 +53071,7 @@ _ZN7logging6BufferlsIdEERS0_RKT_.exit545:         ; preds = %7094
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14PrintStateInfoSt10shared_ptrI9AlgoStateES_I9MeshGraphERK14AlgoParameters(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14PrintStateInfoSt10shared_ptrI9AlgoStateES_I9MeshGraphERK14AlgoParameters(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::tuple.843", align 8
   %5 = alloca %"class.std::tuple.149", align 1
   %6 = alloca %"class.std::set.590", align 8
@@ -53652,7 +53652,7 @@ _ZNSt13unordered_mapISt10shared_ptrI13ClusteredSeamEdSt4hashIS2_ESt8equal_toIS2_
 
 258:                                              ; preds = %_ZNSt13unordered_mapISt10shared_ptrI13ClusteredSeamEdSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_dEEE4findERS8_.exit.i
   %259 = load double, ptr %257, align 8
-  invoke fastcc void @_ZL11ComputeCostSt10shared_ptrI13ClusteredSeamES_I9MeshGraphERK14AlgoParametersd(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(89) %2, double noundef %259)
+  invoke fastcc void @_ZL11ComputeCostSt10shared_ptrI13ClusteredSeamES_I9MeshGraphERK14AlgoParametersd(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %13, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(89) %2, double noundef %259)
           to label %260 unwind label %465
 
 260:                                              ; preds = %258
@@ -54832,7 +54832,7 @@ _ZNSt6vectorIN3vcg6Point2IdEESaIS2_EED2Ev.exit10: ; preds = %_ZNSt6vectorIN3vcg6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 12) i32 @_ZL13OptimizeChartR8SeamDataSt10shared_ptrI9MeshGraphEb(ptr noundef nonnull align 8 dereferenceable(1528) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 12) i32 @_ZL13OptimizeChartR8SeamDataSt10shared_ptrI9MeshGraphEb(ptr noundef nonnull align 8 dereferenceable(1528) %0, ptr nocapture noundef nonnull readonly %1, i1 noundef zeroext %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__detail::_AllocNode.991", align 8
   %5 = alloca %"struct.std::__detail::_AllocNode.991", align 8
   %6 = alloca %"struct.std::__detail::_AllocNode.991", align 8
@@ -56102,7 +56102,7 @@ _ZN9FaceGroupD2Ev.exit:                           ; preds = %_ZN4ARAPD2Ev.exit, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 11) i32 @_ZL27CheckAfterLocalOptimizationR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParameters(ptr nocapture noundef nonnull align 8 dereferenceable(1528) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 11) i32 @_ZL27CheckAfterLocalOptimizationR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParameters(ptr nocapture noundef nonnull align 8 dereferenceable(1528) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.1034", align 8
   %5 = alloca %"class.std::vector.918", align 8
   %6 = alloca %"class.std::vector.1034", align 8
@@ -57026,7 +57026,7 @@ _ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EEaSEOS4_.exit218.i: ; preds = %383
 _ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EED2Ev.exit220.i: ; preds = %393, %_ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EEaSEOS4_.exit218.i, %383
   %394 = load ptr, ptr %384, align 8
   %395 = load ptr, ptr %386, align 8
-  %396 = call fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEEZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1ET_SJ_SJ_T0_"(ptr %394, ptr %395, ptr nonnull %0)
+  %396 = call fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEEZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1ET_SJ_SJ_T0_"(ptr %394, ptr %395, ptr %0)
   %397 = load ptr, ptr %386, align 8
   %.not.i.i221.i = icmp eq ptr %396, %397
   %.pre170.i = load ptr, ptr %384, align 8
@@ -57238,7 +57238,7 @@ _ZSt10_ConstructISt10shared_ptrI9FaceGroupEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i
   %482 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %478, ptr %482, align 8
   %.val.i = load ptr, ptr %10, align 8
-  invoke fastcc void @_ZL16ExtractHalfEdgesRKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EERKN3vcg4Box2IdEEb(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr %.val.i, ptr nonnull %478, ptr noundef nonnull align 8 dereferenceable(32) %8, i1 noundef zeroext true)
+  invoke fastcc void @_ZL16ExtractHalfEdgesRKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EERKN3vcg4Box2IdEEb(ptr dead_on_unwind noalias writable align 8 %9, ptr %.val.i, ptr nonnull %478, ptr noundef nonnull align 8 dereferenceable(32) %8, i1 noundef zeroext true)
           to label %483 unwind label %590
 
 483:                                              ; preds = %481
@@ -57468,7 +57468,7 @@ _ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EEaSEOS4_.exit248.i: ; preds = %570
 _ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EED2Ev.exit250.i: ; preds = %580, %_ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EEaSEOS4_.exit248.i, %570
   %581 = load ptr, ptr %571, align 8
   %582 = load ptr, ptr %573, align 8
-  %583 = call fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEEZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1ET_SJ_SJ_T0_"(ptr %581, ptr %582, ptr nonnull %0)
+  %583 = call fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEEZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1ET_SJ_SJ_T0_"(ptr %581, ptr %582, ptr %0)
   %584 = load ptr, ptr %573, align 8
   %.not.i.i251.i = icmp eq ptr %583, %584
   %.pre171.i = load ptr, ptr %571, align 8
@@ -57659,7 +57659,7 @@ _ZSt10_ConstructISt10shared_ptrI9FaceGroupEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i27
   %663 = phi ptr [ %.val162.pre.i, %661 ], [ %649, %658 ], [ %649, %.noexc3.i270.i ]
   %664 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %650, ptr %664, align 8
-  invoke fastcc void @_ZL16ExtractHalfEdgesRKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EERKN3vcg4Box2IdEEb(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr %663, ptr nonnull %650, ptr noundef nonnull align 8 dereferenceable(32) %13, i1 noundef zeroext false)
+  invoke fastcc void @_ZL16ExtractHalfEdgesRKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EERKN3vcg4Box2IdEEb(ptr dead_on_unwind noalias writable align 8 %14, ptr %663, ptr nonnull %650, ptr noundef nonnull align 8 dereferenceable(32) %13, i1 noundef zeroext false)
           to label %667 unwind label %859
 
 665:                                              ; preds = %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit267.i
@@ -57901,7 +57901,7 @@ _ZSt10_ConstructISt10shared_ptrI9FaceGroupEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i31
   %767 = phi ptr [ %.val164.pre.i, %765 ], [ %753, %762 ], [ %753, %.noexc3.i310.i ]
   %768 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %754, ptr %768, align 8
-  invoke fastcc void @_ZL16ExtractHalfEdgesRKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EERKN3vcg4Box2IdEEb(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr %767, ptr nonnull %754, ptr noundef nonnull align 8 dereferenceable(32) %13, i1 noundef zeroext false)
+  invoke fastcc void @_ZL16ExtractHalfEdgesRKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EERKN3vcg4Box2IdEEb(ptr dead_on_unwind noalias writable align 8 %17, ptr %767, ptr nonnull %754, ptr noundef nonnull align 8 dereferenceable(32) %13, i1 noundef zeroext false)
           to label %771 unwind label %861
 
 769:                                              ; preds = %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit307.i
@@ -58360,7 +58360,7 @@ _ZNSt10shared_ptrI9AlgoStateED2Ev.exit:           ; preds = %887, %905, %918, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10AcceptMoveRK8SeamDataSt10shared_ptrI9AlgoStateES2_I9MeshGraphERK14AlgoParameters(ptr noundef nonnull align 8 dereferenceable(1528) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %3) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10AcceptMoveRK8SeamDataSt10shared_ptrI9AlgoStateES2_I9MeshGraphERK14AlgoParameters(ptr noundef nonnull align 8 dereferenceable(1528) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %3) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Hashtable<std::shared_ptr<ClusteredSeam>, std::pair<const std::shared_ptr<ClusteredSeam>, CostInfo::MatchingValue>, std::allocator<std::pair<const std::shared_ptr<ClusteredSeam>, CostInfo::MatchingValue>>, std::__detail::_Select1st, std::equal_to<std::shared_ptr<ClusteredSeam>>, std::hash<std::shared_ptr<ClusteredSeam>>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %6 = alloca %"struct.std::_Hashtable<int, std::pair<const int, std::set<std::shared_ptr<ClusteredSeam>>>, std::allocator<std::pair<const int, std::set<std::shared_ptr<ClusteredSeam>>>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %7 = alloca %"struct.std::_Hashtable<int, std::pair<const int, std::set<int>>, std::allocator<std::pair<const int, std::set<int>>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
@@ -61556,7 +61556,7 @@ _ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit:       ; preds = %_ZNSt10shared_ptrI1
   br label %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit507
 
 _ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit507:    ; preds = %_ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit, %1521, %1524
-  invoke fastcc void @_ZL9EraseSeamSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE(ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35)
+  invoke fastcc void @_ZL9EraseSeamSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE(ptr noundef %33, ptr noundef %34, ptr noundef %35)
           to label %1526 unwind label %1718
 
 1526:                                             ; preds = %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit507
@@ -62059,7 +62059,7 @@ _ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit565:    ; preds = %_ZNSt10shared_ptrI1
   br label %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit568
 
 _ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit568:    ; preds = %_ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit565, %1752, %1755
-  invoke fastcc void @_ZL9EraseSeamSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE(ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %39)
+  invoke fastcc void @_ZL9EraseSeamSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE(ptr noundef %37, ptr noundef %38, ptr noundef %39)
           to label %1757 unwind label %2163
 
 1757:                                             ; preds = %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit568
@@ -62726,7 +62726,7 @@ _ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit609:    ; preds = %_ZNSt10shared_ptrI1
   br label %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit612
 
 _ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit612:    ; preds = %_ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit609, %2060, %2063
-  invoke fastcc void @_ZL17InvalidateClusterSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE11CheckStatusd(ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef nonnull %42, i32 noundef %1722, double noundef 1.000000e+00)
+  invoke fastcc void @_ZL17InvalidateClusterSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE11CheckStatusd(ptr noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef %1722, double noundef 1.000000e+00)
           to label %2065 unwind label %2165
 
 2065:                                             ; preds = %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit612
@@ -63020,7 +63020,7 @@ _ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit639:    ; preds = %_ZNSt10shared_ptrI1
   br label %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit642
 
 _ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit642:    ; preds = %_ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit639, %2193, %2196
-  invoke fastcc void @_ZL23InsertNewClusterInQueueSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphERK14AlgoParameters(ptr noundef nonnull %43, ptr noundef nonnull %44, ptr noundef nonnull %45, ptr noundef nonnull align 8 dereferenceable(89) %3)
+  invoke fastcc void @_ZL23InsertNewClusterInQueueSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphERK14AlgoParameters(ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef nonnull align 8 dereferenceable(89) %3)
           to label %2198 unwind label %2296
 
 2198:                                             ; preds = %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit642
@@ -63453,7 +63453,7 @@ _ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit679:    ; preds = %_ZNSt10shared_ptrI1
   br label %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit682
 
 _ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit682:    ; preds = %_ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit679, %2381, %2384
-  invoke fastcc void @_ZL9EraseSeamSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE(ptr noundef nonnull %47, ptr noundef nonnull %48, ptr noundef nonnull %49)
+  invoke fastcc void @_ZL9EraseSeamSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE(ptr noundef %47, ptr noundef %48, ptr noundef %49)
           to label %2386 unwind label %2528
 
 2386:                                             ; preds = %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit682
@@ -63884,7 +63884,7 @@ _ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit719:    ; preds = %_ZNSt10shared_ptrI1
   br label %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit722
 
 _ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit722:    ; preds = %_ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit719, %2571, %2574
-  invoke fastcc void @_ZL23InsertNewClusterInQueueSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphERK14AlgoParameters(ptr noundef nonnull %52, ptr noundef nonnull %53, ptr noundef nonnull %54, ptr noundef nonnull align 8 dereferenceable(89) %3)
+  invoke fastcc void @_ZL23InsertNewClusterInQueueSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphERK14AlgoParameters(ptr noundef %52, ptr noundef %53, ptr noundef %54, ptr noundef nonnull align 8 dereferenceable(89) %3)
           to label %2576 unwind label %2718
 
 2576:                                             ; preds = %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit722
@@ -65043,7 +65043,7 @@ _ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit796:    ; preds = %_ZNSt10shared_ptrI1
   br label %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit799
 
 _ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit799:    ; preds = %_ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit796, %3065, %3068
-  invoke fastcc void @_ZL9EraseSeamSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE(ptr noundef nonnull %59, ptr noundef nonnull %60, ptr noundef nonnull %61)
+  invoke fastcc void @_ZL9EraseSeamSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE(ptr noundef %59, ptr noundef %60, ptr noundef %61)
           to label %3070 unwind label %3348
 
 3070:                                             ; preds = %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit799
@@ -65338,7 +65338,7 @@ _ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit826:    ; preds = %_ZNSt10shared_ptrI1
   br label %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit829
 
 _ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit829:    ; preds = %_ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit826, %3201, %3204
-  invoke fastcc void @_ZL23InsertNewClusterInQueueSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphERK14AlgoParameters(ptr noundef nonnull %62, ptr noundef nonnull %63, ptr noundef nonnull %64, ptr noundef nonnull align 8 dereferenceable(89) %3)
+  invoke fastcc void @_ZL23InsertNewClusterInQueueSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphERK14AlgoParameters(ptr noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef nonnull align 8 dereferenceable(89) %3)
           to label %3206 unwind label %3350
 
 3206:                                             ; preds = %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit829
@@ -73104,7 +73104,7 @@ _ZNSt10_HashtableISt10shared_ptrI9FaceGroupES2_SaIS2_ENSt8__detail9_IdentityESt8
 declare void @_Z12IntersectionRKSt6vectorI8HalfEdgeSaIS0_EE(ptr dead_on_unwind writable sret(%"class.std::vector.918") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEEZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1ET_SJ_SJ_T0_"(ptr %0, ptr %1, ptr nocapture readonly %2) unnamed_addr #19 {
+define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEEZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1ET_SJ_SJ_T0_"(ptr %0, ptr %1, ptr nocapture nonnull readonly %2) unnamed_addr #19 {
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
@@ -73120,22 +73120,22 @@ define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4p
 .lr.ph.i.i.i:                                     ; preds = %20, %.lr.ph.preheader.i.i.i
   %.043.i.i.i = phi i64 [ %22, %20 ], [ %7, %.lr.ph.preheader.i.i.i ]
   %.sroa.032.042.i.i.i = phi ptr [ %21, %20 ], [ %0, %.lr.ph.preheader.i.i.i ]
-  %10 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr readonly %2, ptr %.sroa.032.042.i.i.i)
+  %10 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %2, ptr %.sroa.032.042.i.i.i)
   br i1 %10, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EEET_SM_SM_T0_.exit.i", label %11
 
 11:                                               ; preds = %.lr.ph.i.i.i
   %12 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i, i64 32
-  %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr readonly %2, ptr nonnull %12)
+  %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %2, ptr nonnull %12)
   br i1 %13, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EEET_SM_SM_T0_.exit.i", label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i, i64 64
-  %16 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr readonly %2, ptr nonnull %15)
+  %16 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %2, ptr nonnull %15)
   br i1 %16, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EEET_SM_SM_T0_.exit.i", label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i, i64 96
-  %19 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr readonly %2, ptr nonnull %18)
+  %19 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %2, ptr nonnull %18)
   br i1 %19, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EEET_SM_SM_T0_.exit.i", label %20
 
 20:                                               ; preds = %17
@@ -73160,7 +73160,7 @@ define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4p
   ]
 
 25:                                               ; preds = %._crit_edge.i.i.i
-  %26 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr readonly %2, ptr %.sroa.032.0.lcssa.i.i.i)
+  %26 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %2, ptr %.sroa.032.0.lcssa.i.i.i)
   br i1 %26, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EEET_SM_SM_T0_.exit.i", label %27
 
 27:                                               ; preds = %25
@@ -73169,7 +73169,7 @@ define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4p
 
 29:                                               ; preds = %27, %._crit_edge.i.i.i
   %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %28, %27 ]
-  %30 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr readonly %2, ptr %.sroa.032.1.i.i.i)
+  %30 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %2, ptr %.sroa.032.1.i.i.i)
   br i1 %30, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EEET_SM_SM_T0_.exit.i", label %31
 
 31:                                               ; preds = %29
@@ -73178,7 +73178,7 @@ define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4p
 
 33:                                               ; preds = %31, %._crit_edge.i.i.i
   %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %32, %31 ]
-  %34 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr readonly %2, ptr %.sroa.032.2.i.i.i)
+  %34 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %2, ptr %.sroa.032.2.i.i.i)
   %spec.select.i.i.i = select i1 %34, ptr %.sroa.032.2.i.i.i, ptr %1
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EEET_SM_SM_T0_.exit.i"
 
@@ -73194,7 +73194,7 @@ define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4p
   %.sroa.07.022.i = phi ptr [ %.sroa.07.0.i, %41 ], [ %.sroa.07.018.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EEET_SM_SM_T0_.exit.i" ]
   %.sroa.013.121.i = phi ptr [ %.sroa.013.2.i, %41 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EEET_SM_SM_T0_.exit.i" ]
   %.sroa.08.0.in.sroa.speculated.i.i.pn20.i = phi ptr [ %.sroa.07.022.i, %41 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI8HalfEdgeS3_ESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EEET_SM_SM_T0_.exit.i" ]
-  %36 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr readonly %2, ptr nonnull %.sroa.07.022.i)
+  %36 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersE3$_1EclINS_17__normal_iteratorIPSt4pairI8HalfEdgeSF_ESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull readonly %2, ptr nonnull %.sroa.07.022.i)
   br i1 %36, label %41, label %37
 
 37:                                               ; preds = %.lr.ph.i
@@ -73217,7 +73217,7 @@ define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16ExtractHalfEdgesRKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EERKN3vcg4Box2IdEEb(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr readonly %.0.val, ptr readnone %.8.val, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16ExtractHalfEdgesRKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EERKN3vcg4Box2IdEEb(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr readonly %.0.val, ptr readnone %.8.val, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.vcg::Segment2", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not23 = icmp eq ptr %.0.val, %.8.val
@@ -74329,7 +74329,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE22_M_insert_range_uniqueISt23_Rb
 declare void @_ZN9FaceGroup23ParameterizationChangedEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL9EraseSeamSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL9EraseSeamSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::tuple.689", align 8
   %5 = alloca %"class.std::tuple.149", align 1
   %6 = alloca %"struct.std::_Hashtable<int, std::pair<const int, std::set<std::shared_ptr<ClusteredSeam>>>, std::allocator<std::pair<const int, std::set<std::shared_ptr<ClusteredSeam>>>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
@@ -75670,7 +75670,7 @@ _ZNSt3setIiSt4lessIiESaIiEED2Ev.exit:             ; preds = %._crit_edge
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17InvalidateClusterSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE11CheckStatusd(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, double noundef %4) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17InvalidateClusterSt10shared_ptrI13ClusteredSeamES_I9AlgoStateES_I9MeshGraphE11CheckStatusd(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, i32 noundef range(i32 1, 0) %3, double noundef %4) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::tuple.689", align 8
   %7 = alloca %"class.std::tuple.149", align 1
   %8 = alloca %"struct.std::_Hashtable<int, std::pair<const int, std::set<std::shared_ptr<ClusteredSeam>>>, std::allocator<std::pair<const int, std::set<std::shared_ptr<ClusteredSeam>>>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8

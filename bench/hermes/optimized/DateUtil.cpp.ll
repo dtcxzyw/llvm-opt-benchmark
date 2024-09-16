@@ -595,14 +595,14 @@ entry:
 if.end.i:                                         ; preds = %entry
   %add.i.i = add nsw i32 %add23.i, 4
   %conv.i.i = sext i32 %add.i.i to i64
-  %div.i.i1.i.i = sdiv i32 %add.i.i, 7
-  %div.i.i.sext.i.i = sext i32 %div.i.i1.i.i to i64
+  %div.i1.i.i.i = sdiv i32 %add.i.i, 7
+  %div.i.sext.i.i.i = sext i32 %div.i1.i.i.i to i64
   %cmp.i.i.i.i = icmp slt i32 %add23.i, -4
-  %mul.i.i.i.i = mul nsw i64 %div.i.i.sext.i.i, 7
+  %mul.i.i.i.i = mul nsw i64 %div.i.sext.i.i.i, 7
   %cmp1.not.i.i.i.i = icmp ne i64 %mul.i.i.i.i, %conv.i.i
   %or.cond.not.i.i.i.i = select i1 %cmp.i.i.i.i, i1 %cmp1.not.i.i.i.i, i1 false
   %dec.i.i.i.i = sext i1 %or.cond.not.i.i.i.i to i32
-  %q.0.i.i.i.i = add nsw i32 %div.i.i1.i.i, %dec.i.i.i.i
+  %q.0.i.i.i.i = add nsw i32 %div.i1.i.i.i, %dec.i.i.i.i
   %mul2.i.neg.i.i.i = mul nsw i32 %q.0.i.i.i.i, -7
   %sub.i.i.i.i = add i32 %mul2.i.neg.i.i.i, %add.i.i
   %1 = and i32 %div19.i, 3
@@ -5372,7 +5372,7 @@ return:                                           ; preds = %_ZNK6hermes2vm10Str
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_4clEDs"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i16 noundef zeroext %ch) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_4clEDs"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i16 noundef zeroext range(i16 32, 59) %ch) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8

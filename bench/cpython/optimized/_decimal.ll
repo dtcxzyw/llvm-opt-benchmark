@@ -3596,7 +3596,7 @@ if.else57.i:                                      ; preds = %if.else53.i
   br i1 %cmp58.not.i, label %if.else74.i, label %if.then59.i
 
 if.then59.i:                                      ; preds = %if.else57.i
-  %call60.i = tail call fastcc ptr @numerator_as_decimal(ptr noundef nonnull %w, ptr noundef nonnull %call1)
+  %call60.i = tail call fastcc ptr @numerator_as_decimal(ptr noundef nonnull %w, ptr noundef %call1)
   %tobool61.not.i = icmp eq ptr %call60.i, null
   br i1 %tobool61.not.i, label %return, label %land.lhs.true62.i
 
@@ -3607,7 +3607,7 @@ land.lhs.true62.i:                                ; preds = %if.then59.i
   br i1 %tobool64.not.i, label %if.then65.i, label %if.end81.i
 
 if.then65.i:                                      ; preds = %land.lhs.true62.i
-  %call66.i = tail call fastcc ptr @multiply_by_denominator(ptr noundef nonnull %v, ptr noundef nonnull %w, ptr noundef nonnull %call1)
+  %call66.i = tail call fastcc ptr @multiply_by_denominator(ptr noundef nonnull %v, ptr noundef nonnull %w, ptr noundef %call1)
   %cmp67.i = icmp eq ptr %call66.i, null
   br i1 %cmp67.i, label %if.then70.i, label %if.end81.i
 
@@ -4041,12 +4041,12 @@ if.else5.i:                                       ; preds = %PyObject_TypeCheck.
   br i1 %tobool8.not.i, label %if.else11.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.else5.i
-  %call.i56.i = call fastcc ptr @numeric_as_ascii(ptr noundef nonnull readonly %7, i32 noundef 1, i32 noundef 1)
+  %call.i56.i = call fastcc ptr @numeric_as_ascii(ptr noundef readonly %7, i32 noundef 1, i32 noundef 1)
   %cmp.i57.i = icmp eq ptr %call.i56.i, null
   br i1 %cmp.i57.i, label %return, label %if.end.i58.i
 
 if.end.i58.i:                                     ; preds = %if.then9.i
-  %call1.i.i = call fastcc ptr @PyDecType_FromCStringExact(ptr noundef %type, ptr noundef nonnull %call.i56.i, ptr noundef %8)
+  %call1.i.i = call fastcc ptr @PyDecType_FromCStringExact(ptr noundef %type, ptr noundef %call.i56.i, ptr noundef %8)
   call void @PyMem_Free(ptr noundef nonnull %call.i56.i) #15
   br label %return
 
@@ -4096,7 +4096,7 @@ sequence_as_tuple.exit.i.i:                       ; preds = %if.end.i7.i78.i
 
 if.end.i71.i:                                     ; preds = %sequence_as_tuple.exit.i.i, %if.end.i.i.i.i.i, %if.then.i.i70.i
   %retval.0.i10.i.i = phi ptr [ %call7.i.i.i, %sequence_as_tuple.exit.i.i ], [ %7, %if.then.i.i70.i ], [ %7, %if.end.i.i.i.i.i ]
-  %call1.i72.i = call fastcc ptr @dectuple_as_str(ptr noundef nonnull %retval.0.i10.i.i)
+  %call1.i72.i = call fastcc ptr @dectuple_as_str(ptr noundef %retval.0.i10.i.i)
   %34 = load i64, ptr %retval.0.i10.i.i, align 8
   %35 = and i64 %34, 2147483648
   %cmp.i7.not.i.i = icmp eq i64 %35, 0
@@ -4117,7 +4117,7 @@ Py_DECREF.exit.i.i:                               ; preds = %if.then1.i.i77.i, %
   br i1 %cmp2.i.i, label %return, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %Py_DECREF.exit.i.i
-  %call5.i.i = call fastcc ptr @PyDecType_FromCStringExact(ptr noundef %type, ptr noundef nonnull %call1.i72.i, ptr noundef %8)
+  %call5.i.i = call fastcc ptr @PyDecType_FromCStringExact(ptr noundef %type, ptr noundef %call1.i72.i, ptr noundef %8)
   call void @PyMem_Free(ptr noundef nonnull %call1.i72.i) #15
   br label %return
 
@@ -6520,7 +6520,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end, %if.then1.i, %if.end.i
-  %call3 = tail call fastcc ptr @dec_as_long(ptr noundef nonnull %dec, ptr noundef nonnull %call2, i32 noundef 1)
+  %call3 = tail call fastcc ptr @dec_as_long(ptr noundef nonnull %dec, ptr noundef %call2, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %entry, %Py_DECREF.exit
@@ -7413,7 +7413,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @mpd_maxcontext(ptr noundef nonnull %maxctx) #15
-  %call2 = call fastcc ptr @dec_from_long(ptr noundef %type, ptr noundef nonnull %v, ptr noundef nonnull %maxctx, ptr noundef nonnull %status)
+  %call2 = call fastcc ptr @dec_from_long(ptr noundef %type, ptr noundef nonnull %v, ptr noundef nonnull %maxctx, ptr noundef %status)
   %cmp = icmp eq ptr %call2, null
   br i1 %cmp, label %return, label %if.end4
 
@@ -7805,7 +7805,7 @@ declare ptr @PyFloat_FromDouble(double noundef) local_unnamed_addr #1
 declare i32 @PyObject_IsInstance(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @numerator_as_decimal(ptr noundef %r, ptr nocapture noundef %context) unnamed_addr #0 {
+define internal fastcc ptr @numerator_as_decimal(ptr noundef %r, ptr nocapture noundef nonnull %context) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyObject_GetAttrString(ptr noundef %r, ptr noundef nonnull @.str.64) #15
   %cmp = icmp eq ptr %call, null
@@ -7819,7 +7819,7 @@ if.end:                                           ; preds = %entry
   %call.val.i = load ptr, ptr %1, align 8
   %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %2 = load ptr, ptr %PyDec_Type, align 8
-  %call3 = tail call fastcc ptr @PyDecType_FromLongExact(ptr noundef %2, ptr noundef nonnull %call, ptr noundef %context)
+  %call3 = tail call fastcc ptr @PyDecType_FromLongExact(ptr noundef %2, ptr noundef nonnull %call, ptr noundef nonnull %context)
   %3 = load i64, ptr %call, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i5.not = icmp eq i64 %4, 0
@@ -7841,7 +7841,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @multiply_by_denominator(ptr noundef %v, ptr noundef %r, ptr nocapture noundef %context) unnamed_addr #0 {
+define internal fastcc ptr @multiply_by_denominator(ptr noundef %v, ptr noundef %r, ptr nocapture noundef nonnull %context) unnamed_addr #0 {
 entry:
   %status = alloca i32, align 4
   %maxctx = alloca %struct.mpd_context_t, align 8
@@ -7858,7 +7858,7 @@ if.end:                                           ; preds = %entry
   %call.val.i = load ptr, ptr %1, align 8
   %PyDec_Type = getelementptr inbounds i8, ptr %call.val.i, i64 24
   %2 = load ptr, ptr %PyDec_Type, align 8
-  %call3 = tail call fastcc ptr @PyDecType_FromLongExact(ptr noundef %2, ptr noundef nonnull %call, ptr noundef %context)
+  %call3 = tail call fastcc ptr @PyDecType_FromLongExact(ptr noundef %2, ptr noundef nonnull %call, ptr noundef nonnull %context)
   %3 = load i64, ptr %call, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i62.not = icmp eq i64 %4, 0
@@ -8013,7 +8013,7 @@ return:                                           ; preds = %Py_DECREF.exit33, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dec_from_long(ptr noundef %type, ptr noundef %v, ptr noundef %ctx, ptr noundef %status) unnamed_addr #0 {
+define internal fastcc ptr @dec_from_long(ptr noundef %type, ptr noundef %v, ptr noundef %ctx, ptr noundef nonnull %status) unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %type, ptr noundef nonnull @_decimal_module) #15
   %0 = getelementptr i8, ptr %call.i.i, i64 32
@@ -8081,13 +8081,13 @@ if.then6:                                         ; preds = %if.end3
   tail call void @mpd_set_flags(ptr noundef nonnull %dec7.i, i8 noundef zeroext %conv) #15
   store i64 0, ptr %exp.i, align 8
   tail call void @mpd_setdigits(ptr noundef nonnull %dec7.i) #15
-  tail call void @mpd_qfinalize(ptr noundef nonnull %dec7.i, ptr noundef %ctx, ptr noundef %status) #15
+  tail call void @mpd_qfinalize(ptr noundef nonnull %dec7.i, ptr noundef %ctx, ptr noundef nonnull %status) #15
   br label %return
 
 if.end8:                                          ; preds = %if.end3
   %shr.i = lshr i64 %v.val, 3
   %ob_digit12 = getelementptr inbounds i8, ptr %v, i64 24
-  tail call void @mpd_qimport_u32(ptr noundef nonnull %dec7.i, ptr noundef nonnull %ob_digit12, i64 noundef %shr.i, i8 noundef zeroext %conv, i32 noundef 1073741824, ptr noundef %ctx, ptr noundef %status) #15
+  tail call void @mpd_qimport_u32(ptr noundef nonnull %dec7.i, ptr noundef nonnull %ob_digit12, i64 noundef %shr.i, i8 noundef zeroext %conv, i32 noundef 1073741824, ptr noundef %ctx, ptr noundef nonnull %status) #15
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.end8, %if.then6, %if.then2
@@ -17334,7 +17334,7 @@ cond.false:                                       ; preds = %if.end21
 cond.end:                                         ; preds = %if.end21, %cond.false
   %cond = phi i64 [ %12, %cond.false ], [ 0, %if.end21 ]
   store i64 0, ptr %exp.i, align 8
-  %call29 = call fastcc ptr @dec_as_long(ptr noundef nonnull %dec.0.i, ptr noundef nonnull %call8, i32 noundef 3)
+  %call29 = call fastcc ptr @dec_as_long(ptr noundef nonnull %dec.0.i, ptr noundef %call8, i32 noundef 3)
   %13 = load i64, ptr %dec.0.i, align 8
   %14 = and i64 %13, 2147483648
   %cmp.i177.not = icmp eq i64 %14, 0
@@ -17914,14 +17914,14 @@ lor.lhs.false:                                    ; preds = %dict_get_item_strin
   %dot.3103 = phi ptr [ %call8.i, %dict_get_item_string.exit.thread99 ], [ null, %dict_get_item_string.exit ]
   %29 = load ptr, ptr %override, align 8
   %sep64 = getelementptr inbounds i8, ptr %spec, i64 32
-  %call65 = call fastcc i32 @dict_get_item_string(ptr noundef %29, ptr noundef nonnull @.str.154, ptr noundef nonnull %sep, ptr noundef nonnull %sep64)
+  %call65 = call fastcc i32 @dict_get_item_string(ptr noundef %29, ptr noundef nonnull @.str.154, ptr noundef %sep, ptr noundef %sep64)
   %tobool66.not = icmp eq i32 %call65, 0
   br i1 %tobool66.not, label %lor.lhs.false67, label %finish
 
 lor.lhs.false67:                                  ; preds = %lor.lhs.false
   %30 = load ptr, ptr %override, align 8
   %grouping68 = getelementptr inbounds i8, ptr %spec, i64 40
-  %call69 = call fastcc i32 @dict_get_item_string(ptr noundef %30, ptr noundef nonnull @.str.155, ptr noundef nonnull %grouping, ptr noundef nonnull %grouping68)
+  %call69 = call fastcc i32 @dict_get_item_string(ptr noundef %30, ptr noundef nonnull @.str.155, ptr noundef %grouping, ptr noundef %grouping68)
   %tobool70.not = icmp eq i32 %call69, 0
   br i1 %tobool70.not, label %if.end72, label %finish
 
@@ -18043,7 +18043,7 @@ sw.bb148:                                         ; preds = %if.then139
 
 if.then156:                                       ; preds = %sw.bb148
   %ctx157 = getelementptr inbounds i8, ptr %call3, i64 16
-  call fastcc void @_mpd_round(ptr noundef nonnull %tmp, ptr noundef nonnull %tmp, i64 noundef %cond, ptr noundef nonnull %ctx157, ptr noundef nonnull %status)
+  call fastcc void @_mpd_round(ptr noundef %tmp, ptr noundef %tmp, i64 noundef %cond, ptr noundef %ctx157, ptr noundef %status)
   br label %if.end167
 
 sw.bb159:                                         ; preds = %if.then139
@@ -18055,7 +18055,7 @@ if.then162:                                       ; preds = %sw.bb159
   %40 = load i64, ptr %prec136, align 8
   %add164 = add i64 %40, 1
   %ctx165 = getelementptr inbounds i8, ptr %call3, i64 16
-  call fastcc void @_mpd_round(ptr noundef nonnull %tmp, ptr noundef nonnull %tmp, i64 noundef %add164, ptr noundef nonnull %ctx165, ptr noundef nonnull %status)
+  call fastcc void @_mpd_round(ptr noundef %tmp, ptr noundef %tmp, i64 noundef %add164, ptr noundef %ctx165, ptr noundef %status)
   br label %if.end167
 
 if.end167:                                        ; preds = %if.then139, %sw.bb, %sw.bb143, %if.then156, %sw.bb148, %if.then162, %sw.bb159, %if.then134
@@ -18401,7 +18401,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.else:                                          ; preds = %if.end5
-  %call31 = call fastcc ptr @dec_as_long(ptr noundef nonnull %dec, ptr noundef nonnull %call2, i32 noundef 6)
+  %call31 = call fastcc ptr @dec_as_long(ptr noundef nonnull %dec, ptr noundef %call2, i32 noundef 6)
   br label %return
 
 return:                                           ; preds = %if.end.i19, %if.end22, %if.end.i, %if.then1.i, %if.then29, %land.lhs.true, %Py_DECREF.exit40, %entry, %if.else, %if.then11
@@ -18438,7 +18438,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end, %if.then1.i, %if.end.i
-  %call3 = tail call fastcc ptr @dec_as_long(ptr noundef nonnull %self, ptr noundef nonnull %call2, i32 noundef 2)
+  %call3 = tail call fastcc ptr @dec_as_long(ptr noundef nonnull %self, ptr noundef %call2, i32 noundef 2)
   br label %return
 
 return:                                           ; preds = %entry, %Py_DECREF.exit
@@ -18475,7 +18475,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end, %if.then1.i, %if.end.i
-  %call3 = tail call fastcc ptr @dec_as_long(ptr noundef nonnull %self, ptr noundef nonnull %call2, i32 noundef 3)
+  %call3 = tail call fastcc ptr @dec_as_long(ptr noundef nonnull %self, ptr noundef %call2, i32 noundef 3)
   br label %return
 
 return:                                           ; preds = %entry, %Py_DECREF.exit
@@ -18512,7 +18512,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end, %if.then1.i, %if.end.i
-  %call3 = tail call fastcc ptr @dec_as_long(ptr noundef nonnull %self, ptr noundef nonnull %call2, i32 noundef 1)
+  %call3 = tail call fastcc ptr @dec_as_long(ptr noundef nonnull %self, ptr noundef %call2, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %entry, %Py_DECREF.exit
@@ -18691,7 +18691,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dec_as_long(ptr noundef %dec, ptr nocapture noundef %context, i32 noundef %round) unnamed_addr #0 {
+define internal fastcc ptr @dec_as_long(ptr noundef %dec, ptr nocapture noundef nonnull %context, i32 noundef range(i32 1, 7) %round) unnamed_addr #0 {
 entry:
   %ob_digit = alloca ptr, align 8
   %workctx = alloca %struct.mpd_context_t, align 8
@@ -18733,7 +18733,7 @@ if.end10:                                         ; preds = %if.end6
   store i32 %round, ptr %round11, align 4
   call void @mpd_qround_to_int(ptr noundef nonnull %call7, ptr noundef nonnull %dec1, ptr noundef nonnull %workctx, ptr noundef nonnull %status) #15
   %2 = load i32, ptr %status, align 4
-  %call13 = call fastcc i32 @dec_addstatus(ptr noundef %context, i32 noundef %2)
+  %call13 = call fastcc i32 @dec_addstatus(ptr noundef nonnull %context, i32 noundef %2)
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %if.end16, label %if.then15
 
@@ -18800,7 +18800,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare hidden i32 @mpd_parse_fmt_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @dict_get_item_string(ptr noundef %dict, ptr noundef %key, ptr nocapture noundef writeonly %valueobj, ptr nocapture noundef writeonly %valuestr) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dict_get_item_string(ptr noundef %dict, ptr noundef %key, ptr nocapture noundef nonnull writeonly %valueobj, ptr nocapture noundef nonnull writeonly %valuestr) unnamed_addr #0 {
 entry:
   store ptr null, ptr %valueobj, align 8
   %call = tail call ptr @PyUnicode_FromString(ptr noundef %key) #15
@@ -18895,7 +18895,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare hidden void @mpd_qrescale(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_round(ptr noundef %result, ptr noundef %a, i64 noundef %prec, ptr noundef %ctx, ptr noundef %status) unnamed_addr #0 {
+define internal fastcc void @_mpd_round(ptr noundef nonnull %result, ptr noundef nonnull %a, i64 noundef %prec, ptr noundef nonnull %ctx, ptr noundef nonnull %status) unnamed_addr #0 {
 entry:
   %exp1 = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i64, ptr %exp1, align 8
@@ -18907,7 +18907,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @mpd_seterror(ptr noundef %result, i32 noundef 256, ptr noundef %status) #15
+  tail call void @mpd_seterror(ptr noundef nonnull %result, i32 noundef 256, ptr noundef nonnull %status) #15
   br label %if.end11
 
 if.end:                                           ; preds = %entry
@@ -18921,11 +18921,11 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %tobool3.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %lor.lhs.false, %if.end
-  %call5 = tail call i32 @mpd_qcopy(ptr noundef %result, ptr noundef nonnull %a, ptr noundef %status) #15
+  %call5 = tail call i32 @mpd_qcopy(ptr noundef nonnull %result, ptr noundef nonnull %a, ptr noundef nonnull %status) #15
   br label %if.end11
 
 if.end6:                                          ; preds = %lor.lhs.false
-  tail call void @mpd_qrescale_fmt(ptr noundef %result, ptr noundef nonnull %a, i64 noundef %sub, ptr noundef %ctx, ptr noundef %status) #15
+  tail call void @mpd_qrescale_fmt(ptr noundef nonnull %result, ptr noundef nonnull %a, i64 noundef %sub, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %digits7 = getelementptr inbounds i8, ptr %result, i64 16
   %2 = load i64, ptr %digits7, align 8
   %cmp8 = icmp sgt i64 %2, %prec
@@ -18933,7 +18933,7 @@ if.end6:                                          ; preds = %lor.lhs.false
 
 if.then9:                                         ; preds = %if.end6
   %add10 = add i64 %sub, 1
-  tail call void @mpd_qrescale_fmt(ptr noundef nonnull %result, ptr noundef nonnull %result, i64 noundef %add10, ptr noundef %ctx, ptr noundef %status) #15
+  tail call void @mpd_qrescale_fmt(ptr noundef nonnull %result, ptr noundef nonnull %result, i64 noundef %add10, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then9, %if.end6, %if.then4, %if.then
@@ -19038,7 +19038,7 @@ return:                                           ; preds = %if.end.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @numeric_as_ascii(ptr nocapture noundef readonly %u, i32 noundef %strip_ws, i32 noundef %ignore_underscores) unnamed_addr #0 {
+define internal fastcc ptr @numeric_as_ascii(ptr nocapture noundef nonnull readonly %u, i32 noundef range(i32 0, 2) %strip_ws, i32 noundef range(i32 0, 2) %ignore_underscores) unnamed_addr #0 {
 entry:
   %state = getelementptr inbounds i8, ptr %u, i64 32
   %bf.load = load i32, ptr %state, align 8
@@ -19330,7 +19330,7 @@ return:                                           ; preds = %for.end, %if.then36
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @PyDecType_FromCStringExact(ptr noundef %type, ptr noundef %s, ptr nocapture noundef %context) unnamed_addr #0 {
+define internal fastcc ptr @PyDecType_FromCStringExact(ptr noundef %type, ptr noundef nonnull %s, ptr nocapture noundef %context) unnamed_addr #0 {
 entry:
   %status = alloca i32, align 4
   %maxctx = alloca %struct.mpd_context_t, align 8
@@ -19371,7 +19371,7 @@ if.end:                                           ; preds = %if.end.i8
   %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
   call void @mpd_maxcontext(ptr noundef nonnull %maxctx) #15
-  call void @mpd_qset_string(ptr noundef nonnull %dec7.i, ptr noundef %s, ptr noundef nonnull %maxctx, ptr noundef nonnull %status) #15
+  call void @mpd_qset_string(ptr noundef nonnull %dec7.i, ptr noundef nonnull %s, ptr noundef nonnull %maxctx, ptr noundef nonnull %status) #15
   %3 = load i32, ptr %status, align 4
   %and = and i32 %3, 4161
   %tobool.not = icmp eq i32 %and, 0
@@ -19418,10 +19418,10 @@ declare i32 @_PyUnicode_IsWhitespace(i32 noundef) local_unnamed_addr #1
 declare hidden void @mpd_qset_string(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dectuple_as_str(ptr noundef %dectuple) unnamed_addr #0 {
+define internal fastcc ptr @dectuple_as_str(ptr noundef nonnull %dectuple) unnamed_addr #0 {
 entry:
   %sign_special = alloca [6 x i8], align 1
-  %call = tail call i64 @PyTuple_Size(ptr noundef %dectuple) #15
+  %call = tail call i64 @PyTuple_Size(ptr noundef nonnull %dectuple) #15
   %cmp.not = icmp eq i64 %call, 3
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -32342,12 +32342,12 @@ if.else25.i:                                      ; preds = %PyObject_TypeCheck.
 
 if.then29.i:                                      ; preds = %if.else25.i
   %20 = load ptr, ptr %PyDec_Type.i, align 8
-  %call.i43.i = call fastcc ptr @numeric_as_ascii(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0)
+  %call.i43.i = call fastcc ptr @numeric_as_ascii(ptr noundef readonly %0, i32 noundef 0, i32 noundef 0)
   %cmp.i44.i = icmp eq ptr %call.i43.i, null
   br i1 %cmp.i44.i, label %return, label %if.end.i45.i
 
 if.end.i45.i:                                     ; preds = %if.then29.i
-  %call1.i.i = call fastcc ptr @PyDecType_FromCString(ptr noundef %20, ptr noundef nonnull %call.i43.i, ptr noundef nonnull %context)
+  %call1.i.i = call fastcc ptr @PyDecType_FromCString(ptr noundef %20, ptr noundef %call.i43.i, ptr noundef nonnull %context)
   call void @PyMem_Free(ptr noundef nonnull %call.i43.i) #15
   br label %return
 
@@ -32361,7 +32361,7 @@ if.then36.i:                                      ; preds = %if.else32.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i50.i)
   store i32 0, ptr %status.i50.i, align 4
   %ctx.i54.i = getelementptr inbounds i8, ptr %context, i64 16
-  %call2.i55.i = call fastcc ptr @dec_from_long(ptr noundef %21, ptr noundef nonnull %0, ptr noundef nonnull %ctx.i54.i, ptr noundef nonnull %status.i50.i)
+  %call2.i55.i = call fastcc ptr @dec_from_long(ptr noundef %21, ptr noundef nonnull %0, ptr noundef nonnull %ctx.i54.i, ptr noundef %status.i50.i)
   %cmp.i56.i = icmp eq ptr %call2.i55.i, null
   br i1 %cmp.i56.i, label %PyDecType_FromLong.exit.i, label %if.end4.i.i
 
@@ -32430,7 +32430,7 @@ sequence_as_tuple.exit.i.i:                       ; preds = %if.end.i7.i.i
 
 if.end.i71.i:                                     ; preds = %sequence_as_tuple.exit.i.i, %if.end.i.i.i.i.i, %if.then.i.i70.i
   %retval.0.i10.i.i = phi ptr [ %call7.i.i.i, %sequence_as_tuple.exit.i.i ], [ %0, %if.then.i.i70.i ], [ %0, %if.end.i.i.i.i.i ]
-  %call1.i72.i = call fastcc ptr @dectuple_as_str(ptr noundef nonnull %retval.0.i10.i.i)
+  %call1.i72.i = call fastcc ptr @dectuple_as_str(ptr noundef %retval.0.i10.i.i)
   %30 = load i64, ptr %retval.0.i10.i.i, align 8
   %31 = and i64 %30, 2147483648
   %cmp.i7.not.i.i = icmp eq i64 %31, 0
@@ -32451,7 +32451,7 @@ Py_DECREF.exit.i.i:                               ; preds = %if.then1.i.i79.i, %
   br i1 %cmp2.i.i, label %return, label %if.end4.i73.i
 
 if.end4.i73.i:                                    ; preds = %Py_DECREF.exit.i.i
-  %call5.i74.i = call fastcc ptr @PyDecType_FromCString(ptr noundef %26, ptr noundef nonnull %call1.i72.i, ptr noundef nonnull %context)
+  %call5.i74.i = call fastcc ptr @PyDecType_FromCString(ptr noundef %26, ptr noundef %call1.i72.i, ptr noundef nonnull %context)
   call void @PyMem_Free(ptr noundef nonnull %call1.i72.i) #15
   br label %return
 
@@ -32674,7 +32674,7 @@ return:                                           ; preds = %if.end, %if.end.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @PyDecType_FromCString(ptr noundef %type, ptr noundef %s, ptr noundef %context) unnamed_addr #0 {
+define internal fastcc ptr @PyDecType_FromCString(ptr noundef %type, ptr noundef nonnull %s, ptr noundef %context) unnamed_addr #0 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -32714,7 +32714,7 @@ if.end:                                           ; preds = %if.end.i8
   %data13.i = getelementptr inbounds i8, ptr %dec.0.i, i64 64
   store ptr %data.i, ptr %data13.i, align 8
   %ctx = getelementptr inbounds i8, ptr %context, i64 16
-  call void @mpd_qset_string(ptr noundef nonnull %dec7.i, ptr noundef %s, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
+  call void @mpd_qset_string(ptr noundef nonnull %dec7.i, ptr noundef nonnull %s, ptr noundef nonnull %ctx, ptr noundef nonnull %status) #15
   %3 = load i32, ptr %status, align 4
   %call2 = call fastcc i32 @dec_addstatus(ptr noundef %context, i32 noundef %3)
   %tobool.not = icmp eq i32 %call2, 0

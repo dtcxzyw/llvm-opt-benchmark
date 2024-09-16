@@ -3174,7 +3174,7 @@ declare void @_Z45read_checkpoint_simulation_part_and_filenamesP8t_fileioPSt6vec
 declare noundef i32 @_Z6fn2ftpPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @_ZN3gmx12_GLOBAL__N_132throwBecauseOfMissingOutputFilesERKNSt10filesystem7__cxx114pathENS_8ArrayRefIK19gmx_file_position_tEEiPK8t_filenmm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, ptr %2, i32 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmx12_GLOBAL__N_132throwBecauseOfMissingOutputFilesERKNSt10filesystem7__cxx114pathENS_8ArrayRefIK19gmx_file_position_tEEiPK8t_filenmm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, ptr %2, i32 noundef %3, ptr noundef %4, i64 noundef range(i64 1, 0) %5) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca %struct._Guard, align 8
   %9 = alloca i64, align 8

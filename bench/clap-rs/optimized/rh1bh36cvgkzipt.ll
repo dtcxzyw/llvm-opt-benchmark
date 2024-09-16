@@ -4013,7 +4013,7 @@ define hidden void @"_ZN4core3ptr452drop_in_place$LT$core..iter..traits..iterato
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4d41c4ae28d5d3f6E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4d41c4ae28d5d3f6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !580, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -8805,7 +8805,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 30:                                               ; preds = %94
   %31 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4d41c4ae28d5d3f6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #38
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4d41c4ae28d5d3f6E"(ptr noalias noundef align 8 dereferenceable(24) %8) #38
           to label %114 unwind label %103, !noalias !3956
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.noexc, %92

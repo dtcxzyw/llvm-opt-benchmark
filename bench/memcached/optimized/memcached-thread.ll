@@ -252,7 +252,7 @@ declare void @storage_write_resume() local_unnamed_addr #2
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @notify_worker_fd(ptr nocapture noundef readonly %t, i32 noundef %sfd, i32 noundef %mode) unnamed_addr #0 {
+define internal fastcc void @notify_worker_fd(ptr nocapture noundef readonly %t, i32 noundef %sfd, i32 noundef range(i32 1, 5) %mode) unnamed_addr #0 {
 entry:
   %u.i = alloca i64, align 8
   %ev_queue = getelementptr inbounds i8, ptr %t, i64 6872

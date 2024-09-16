@@ -90,7 +90,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_backend_init(ptr nocapture 
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds i8, ptr %5, i64 8
-  %17 = tail call fastcc i32 @hwloc_nolibxml_read_file(ptr noundef %1, ptr noundef nonnull %16, ptr noundef nonnull %5)
+  %17 = tail call fastcc i32 @hwloc_nolibxml_read_file(ptr noundef %1, ptr noundef %16, ptr noundef %5)
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %22, label %19
 
@@ -118,7 +118,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_file(ptr noundef %0,
   br i1 %.not.i, label %hwloc_nolibxml_export_buffer.exit.thread, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call fastcc i64 @hwloc___nolibxml_prepare_export(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 16384, i64 noundef %3)
+  %7 = tail call fastcc i64 @hwloc___nolibxml_prepare_export(ptr noundef %0, ptr noundef %1, ptr noundef %5, i32 noundef 16384, i64 noundef %3)
   %8 = icmp ugt i64 %7, 16384
   br i1 %8, label %9, label %._crit_edge.i
 
@@ -137,7 +137,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_file(ptr noundef %0,
 
 12:                                               ; preds = %9
   %13 = trunc i64 %7 to i32
-  %14 = tail call fastcc i64 @hwloc___nolibxml_prepare_export(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %10, i32 noundef %13, i64 noundef %3)
+  %14 = tail call fastcc i64 @hwloc___nolibxml_prepare_export(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %13, i64 noundef %3)
   br label %sub_0
 
 sub_0:                                            ; preds = %._crit_edge.i, %12
@@ -204,7 +204,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_buffer(ptr noundef %
   br i1 %.not, label %17, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call fastcc i64 @hwloc___nolibxml_prepare_export(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 16384, i64 noundef %4)
+  %8 = tail call fastcc i64 @hwloc___nolibxml_prepare_export(ptr noundef %0, ptr noundef %1, ptr noundef %6, i32 noundef 16384, i64 noundef %4)
   %9 = icmp ugt i64 %8, 16384
   br i1 %9, label %10, label %._crit_edge
 
@@ -223,7 +223,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_buffer(ptr noundef %
 
 13:                                               ; preds = %10
   %14 = trunc i64 %8 to i32
-  %15 = tail call fastcc i64 @hwloc___nolibxml_prepare_export(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %11, i32 noundef %14, i64 noundef %4)
+  %15 = tail call fastcc i64 @hwloc___nolibxml_prepare_export(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %14, i64 noundef %4)
   br label %16
 
 16:                                               ; preds = %._crit_edge, %13
@@ -271,7 +271,7 @@ define internal i32 @hwloc_nolibxml_import_diff(ptr noundef %0, ptr nocapture no
   br label %22
 
 19:                                               ; preds = %6
-  %20 = call fastcc i32 @hwloc_nolibxml_read_file(ptr noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %20 = call fastcc i32 @hwloc_nolibxml_read_file(ptr noundef %1, ptr noundef %8, ptr noundef %9)
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %90, label %._crit_edge63
 
@@ -449,7 +449,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_diff_file(ptr nounde
   br i1 %.not.i, label %hwloc_nolibxml_export_diff_buffer.exit.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call fastcc i64 @hwloc___nolibxml_prepare_export_diff(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 16384)
+  %6 = tail call fastcc i64 @hwloc___nolibxml_prepare_export_diff(ptr noundef %0, ptr noundef %1, ptr noundef %4, i32 noundef 16384)
   %7 = icmp ugt i64 %6, 16384
   br i1 %7, label %8, label %._crit_edge.i
 
@@ -468,7 +468,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_diff_file(ptr nounde
 
 11:                                               ; preds = %8
   %12 = trunc i64 %6 to i32
-  %13 = tail call fastcc i64 @hwloc___nolibxml_prepare_export_diff(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9, i32 noundef %12)
+  %13 = tail call fastcc i64 @hwloc___nolibxml_prepare_export_diff(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %12)
   br label %sub_0
 
 sub_0:                                            ; preds = %._crit_edge.i, %11
@@ -535,7 +535,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_diff_buffer(ptr noun
   br i1 %.not, label %16, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call fastcc i64 @hwloc___nolibxml_prepare_export_diff(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 16384)
+  %7 = tail call fastcc i64 @hwloc___nolibxml_prepare_export_diff(ptr noundef %0, ptr noundef %1, ptr noundef %5, i32 noundef 16384)
   %8 = icmp ugt i64 %7, 16384
   br i1 %8, label %9, label %._crit_edge
 
@@ -554,7 +554,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_diff_buffer(ptr noun
 
 12:                                               ; preds = %9
   %13 = trunc i64 %7 to i32
-  %14 = tail call fastcc i64 @hwloc___nolibxml_prepare_export_diff(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %10, i32 noundef %13)
+  %14 = tail call fastcc i64 @hwloc___nolibxml_prepare_export_diff(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %13)
   br label %15
 
 15:                                               ; preds = %._crit_edge, %12
@@ -576,7 +576,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @hwloc_nolibxml_read_file(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @hwloc_nolibxml_read_file(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
 sub_0:
   %3 = alloca %struct.stat, align 8
   %4 = load i8, ptr %0, align 1
@@ -1234,7 +1234,7 @@ declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #14
 declare ptr @__errno_location() local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @hwloc___nolibxml_prepare_export(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc i64 @hwloc___nolibxml_prepare_export(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.hwloc__xml_export_state_s, align 8
   %7 = alloca %struct.hwloc__xml_export_state_s, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 48
@@ -1259,7 +1259,7 @@ define internal fastcc i64 @hwloc___nolibxml_prepare_export(ptr noundef %0, ptr 
   %18 = getelementptr inbounds i8, ptr %6, i64 76
   %19 = getelementptr inbounds i8, ptr %6, i64 80
   store i32 0, ptr %19, align 8
-  %20 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef %16, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24) #20
+  %20 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %2, i64 noundef %16, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24) #20
   %21 = icmp sgt i32 %20, -1
   br i1 %21, label %22, label %hwloc__nolibxml_export_update_buffer.exit.i
 
@@ -1785,7 +1785,7 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 declare i32 @hwloc__xml_import_diff(ptr noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @hwloc___nolibxml_prepare_export_diff(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @hwloc___nolibxml_prepare_export_diff(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.hwloc__xml_export_state_s, align 8
   %6 = alloca %struct.hwloc__xml_export_state_s, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 48
@@ -1810,7 +1810,7 @@ define internal fastcc i64 @hwloc___nolibxml_prepare_export_diff(ptr noundef %0,
   %17 = getelementptr inbounds i8, ptr %5, i64 76
   %18 = getelementptr inbounds i8, ptr %5, i64 80
   store i32 0, ptr %18, align 8
-  %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef %15, ptr noundef nonnull @.str.46) #20
+  %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %2, i64 noundef %15, ptr noundef nonnull @.str.46) #20
   %20 = icmp sgt i32 %19, -1
   br i1 %20, label %21, label %hwloc__nolibxml_export_update_buffer.exit.i
 

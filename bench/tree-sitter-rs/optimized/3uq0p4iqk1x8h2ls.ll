@@ -521,7 +521,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i: ; preds = %9, %_ZN3std
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr123drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..option..Option$LT$tree_sitter_tags..TagsConfiguration$GT$$GT$$GT$17hb87ded8ea54ff39aE"(ptr noalias noundef align 8 dereferenceable(280) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr123drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..option..Option$LT$tree_sitter_tags..TagsConfiguration$GT$$GT$$GT$17hb87ded8ea54ff39aE"(ptr noalias noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !154, !noundef !4
   %switch = icmp slt i64 %2, -9223372036854775806
   br i1 %switch, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$tree_sitter_tags..TagsConfiguration$GT$$GT$17hf0ca20dbc7f17ebcE.exit", label %3
@@ -535,7 +535,7 @@ define internal fastcc void @"_ZN4core3ptr123drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr133drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..option..Option$LT$tree_sitter_highlight..HighlightConfiguration$GT$$GT$$GT$17h7aec2d24d10420c5E"(ptr noalias noundef align 8 dereferenceable(352) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr133drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..option..Option$LT$tree_sitter_highlight..HighlightConfiguration$GT$$GT$$GT$17h7aec2d24d10420c5E"(ptr noalias noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !154, !noundef !4
   %switch = icmp slt i64 %2, -9223372036854775806
   br i1 %switch, label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$tree_sitter_highlight..HighlightConfiguration$GT$$GT$17hec9273f3ca0fe5fcE.exit", label %3
@@ -750,7 +750,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$$u5b$$LP$usize$C$alloc..stri
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !206, !noundef !4
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %4, label %5
@@ -1317,7 +1317,7 @@ common.resume:                                    ; preds = %27, %47
   br label %.sink.split
 
 51:                                               ; preds = %"_ZN9once_cell6unsync17OnceCell$LT$T$GT$3set17h826f7d00fd8cb77eE.exit"
-  call fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  call fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE"(ptr noalias noundef align 8 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   store ptr @anon.5797861c9b37489455df470e033f6d21.34, ptr %6, align 8
@@ -2295,7 +2295,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i: ; preds = %218, %.
   %.sroa.7.8..sroa.2.0..sroa_idx.i24.sroa_idx = getelementptr inbounds i8, ptr %27, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %.sroa.7.8..sroa.2.0..sroa_idx.i24.sroa_idx, ptr noundef nonnull align 8 dereferenceable(336) %.sroa.7, i64 336, i1 false), !alias.scope !470
   call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %.sroa.7)
-  call fastcc void @"_ZN4core3ptr133drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..option..Option$LT$tree_sitter_highlight..HighlightConfiguration$GT$$GT$$GT$17h7aec2d24d10420c5E"(ptr noalias noundef nonnull align 8 dereferenceable(352) %27)
+  call fastcc void @"_ZN4core3ptr133drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..option..Option$LT$tree_sitter_highlight..HighlightConfiguration$GT$$GT$$GT$17h7aec2d24d10420c5E"(ptr noalias noundef align 8 dereferenceable(352) %27)
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %26)
   store ptr @anon.5797861c9b37489455df470e033f6d21.34, ptr %26, align 8
@@ -2782,7 +2782,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.7.sroa.7.0..sroa.7.8..sroa.2.0..sroa_idx.i24.sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.7.sroa.7, i64 216, i1 false), !alias.scope !534
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.7.sroa.0)
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %.sroa.7.sroa.7)
-  call fastcc void @"_ZN4core3ptr123drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..option..Option$LT$tree_sitter_tags..TagsConfiguration$GT$$GT$$GT$17hb87ded8ea54ff39aE"(ptr noalias noundef nonnull align 8 dereferenceable(280) %19)
+  call fastcc void @"_ZN4core3ptr123drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..option..Option$LT$tree_sitter_tags..TagsConfiguration$GT$$GT$$GT$17hb87ded8ea54ff39aE"(ptr noalias noundef align 8 dereferenceable(280) %19)
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18)
   store ptr @anon.5797861c9b37489455df470e033f6d21.34, ptr %18, align 8

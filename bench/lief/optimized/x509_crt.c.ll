@@ -337,7 +337,7 @@ x509_get_version.exit.i:                          ; preds = %73, %66
   store i64 %108, ptr %109, align 8
   %110 = getelementptr inbounds i8, ptr %.129, i64 288
   %111 = getelementptr inbounds i8, ptr %.129, i64 312
-  %112 = call fastcc i32 @x509_get_dates(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %110, ptr noundef nonnull %111)
+  %112 = call fastcc i32 @x509_get_dates(ptr noundef %9, ptr noundef %57, ptr noundef %110, ptr noundef %111)
   %.not151.i = icmp eq i32 %112, 0
   br i1 %.not151.i, label %113, label %x509_crt_parse_der_core.exit.thread.sink.split
 
@@ -397,7 +397,7 @@ x509_get_version.exit.i:                          ; preds = %73, %66
 
 145:                                              ; preds = %136
   %146 = getelementptr inbounds i8, ptr %.129, i64 376
-  %147 = call fastcc i32 @x509_get_uid(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %146, i32 noundef 1)
+  %147 = call fastcc i32 @x509_get_uid(ptr noundef %9, ptr noundef %57, ptr noundef %146, i32 noundef 1)
   %.not156.i = icmp eq i32 %147, 0
   br i1 %.not156.i, label %._crit_edge.i, label %148
 
@@ -417,7 +417,7 @@ x509_get_version.exit.i:                          ; preds = %73, %66
 
 152:                                              ; preds = %149
   %153 = getelementptr inbounds i8, ptr %.129, i64 400
-  %154 = call fastcc i32 @x509_get_uid(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %153, i32 noundef 2)
+  %154 = call fastcc i32 @x509_get_uid(ptr noundef %9, ptr noundef %57, ptr noundef %153, i32 noundef 2)
   %.not157.i = icmp eq i32 %154, 0
   br i1 %.not157.i, label %156, label %155
 
@@ -431,7 +431,7 @@ x509_get_version.exit.i:                          ; preds = %73, %66
   br i1 %157, label %158, label %.thread.i
 
 158:                                              ; preds = %156
-  %159 = call fastcc i32 @x509_get_crt_ext(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %.129, ptr noundef %4, ptr noundef %5)
+  %159 = call fastcc i32 @x509_get_crt_ext(ptr noundef %9, ptr noundef %57, ptr noundef %.129, ptr noundef %4, ptr noundef %5)
   %.not158.i = icmp eq i32 %159, 0
   br i1 %.not158.i, label %.thread.i, label %x509_crt_parse_der_core.exit.thread.sink.split
 
@@ -1230,7 +1230,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   %178 = getelementptr inbounds i8, ptr %168, i64 %175
   store ptr %178, ptr %6, align 8
   %179 = getelementptr inbounds i8, ptr %3, i64 448
-  %180 = call fastcc i32 @x509_info_subject_alt_name(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %179, ptr noundef %2)
+  %180 = call fastcc i32 @x509_info_subject_alt_name(ptr noundef %6, ptr noundef %5, ptr noundef %179, ptr noundef %2)
   %.not235 = icmp eq i32 %180, 0
   br i1 %.not235, label %._crit_edge, label %245
 
@@ -1265,7 +1265,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   store ptr %191, ptr %6, align 8
   %192 = getelementptr inbounds i8, ptr %3, i64 560
   %193 = load i8, ptr %192, align 8
-  %194 = call fastcc i32 @x509_info_cert_type(ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext %193)
+  %194 = call fastcc i32 @x509_info_cert_type(ptr noundef %6, ptr noundef %5, i8 noundef zeroext %193)
   %.not238 = icmp eq i32 %194, 0
   br i1 %.not238, label %._crit_edge250, label %245
 
@@ -1300,7 +1300,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   store ptr %205, ptr %6, align 8
   %206 = getelementptr inbounds i8, ptr %3, i64 524
   %207 = load i32, ptr %206, align 4
-  %208 = call fastcc i32 @x509_info_key_usage(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %207)
+  %208 = call fastcc i32 @x509_info_key_usage(ptr noundef %6, ptr noundef %5, i32 noundef %207)
   %.not241 = icmp eq i32 %208, 0
   br i1 %.not241, label %._crit_edge252, label %245
 
@@ -1334,7 +1334,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   %219 = getelementptr inbounds i8, ptr %.pre258.pre261, i64 %216
   store ptr %219, ptr %6, align 8
   %220 = getelementptr inbounds i8, ptr %3, i64 528
-  %221 = call fastcc i32 @x509_info_ext_key_usage(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %220)
+  %221 = call fastcc i32 @x509_info_ext_key_usage(ptr noundef %6, ptr noundef %5, ptr noundef %220)
   %.not244 = icmp eq i32 %221, 0
   br i1 %.not244, label %._crit_edge254, label %245
 
@@ -1368,7 +1368,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   %232 = getelementptr inbounds i8, ptr %.pre258, i64 %229
   store ptr %232, ptr %6, align 8
   %233 = getelementptr inbounds i8, ptr %3, i64 480
-  %234 = call fastcc i32 @x509_info_cert_policies(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %233)
+  %234 = call fastcc i32 @x509_info_cert_policies(ptr noundef %6, ptr noundef %5, ptr noundef %233)
   %.not247 = icmp eq i32 %234, 0
   br i1 %.not247, label %._crit_edge256, label %245
 
@@ -1413,14 +1413,10 @@ declare ptr @mbedtls_pk_get_name(ptr noundef) local_unnamed_addr #2
 declare i64 @mbedtls_pk_get_bitlen(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.mbedtls_x509_subject_alternative_name, align 8
   %6 = load i64, ptr %1, align 8
   %7 = load ptr, ptr %0, align 8
-  %.not178 = icmp eq ptr %2, null
-  br i1 %.not178, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %4
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = getelementptr inbounds i8, ptr %5, i64 24
   %10 = getelementptr inbounds i8, ptr %5, i64 32
@@ -1430,46 +1426,46 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr 
   %14 = getelementptr inbounds i8, ptr %5, i64 72
   br label %15
 
-15:                                               ; preds = %.lr.ph, %.backedge
-  %.0122181 = phi ptr [ %2, %.lr.ph ], [ %.0122.be, %.backedge ]
-  %.0123180 = phi ptr [ %7, %.lr.ph ], [ %.0123.be, %.backedge ]
-  %.0124179 = phi i64 [ %6, %.lr.ph ], [ %.0124.be, %.backedge ]
+15:                                               ; preds = %4, %.backedge
+  %.0122180 = phi ptr [ %2, %4 ], [ %.0122.be, %.backedge ]
+  %.0123179 = phi ptr [ %7, %4 ], [ %.0123.be, %.backedge ]
+  %.0124178 = phi i64 [ %6, %4 ], [ %.0124.be, %.backedge ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
-  %16 = call i32 @mbedtls_x509_parse_subject_alt_name(ptr noundef nonnull %.0122181, ptr noundef nonnull %5)
+  %16 = call i32 @mbedtls_x509_parse_subject_alt_name(ptr noundef nonnull %.0122180, ptr noundef nonnull %5)
   switch i32 %16, label %21 [
     i32 0, label %26
     i32 -8320, label %17
   ]
 
 17:                                               ; preds = %15
-  %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0123180, i64 noundef %.0124179, ptr noundef nonnull @.str.28, ptr noundef %3) #16
+  %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0123179, i64 noundef %.0124178, ptr noundef nonnull @.str.28, ptr noundef %3) #16
   %19 = icmp sgt i32 %18, -1
   %20 = zext nneg i32 %18 to i64
-  %.not167 = icmp ugt i64 %.0124179, %20
+  %.not167 = icmp ugt i64 %.0124178, %20
   %or.cond = select i1 %19, i1 %.not167, i1 false
   br i1 %or.cond, label %25, label %.loopexit
 
 21:                                               ; preds = %15
-  %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0123180, i64 noundef %.0124179, ptr noundef nonnull @.str.29, ptr noundef %3) #16
+  %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0123179, i64 noundef %.0124178, ptr noundef nonnull @.str.29, ptr noundef %3) #16
   %23 = icmp sgt i32 %22, -1
   %24 = zext nneg i32 %22 to i64
-  %.not166 = icmp ugt i64 %.0124179, %24
+  %.not166 = icmp ugt i64 %.0124178, %24
   %or.cond169 = select i1 %23, i1 %.not166, i1 false
   br i1 %or.cond169, label %25, label %.loopexit
 
 25:                                               ; preds = %21, %17
   %.pn = phi i64 [ %20, %17 ], [ %24, %21 ]
-  %.1 = getelementptr inbounds i8, ptr %.0123180, i64 %.pn
-  %.1125 = sub nuw i64 %.0124179, %.pn
+  %.1 = getelementptr inbounds i8, ptr %.0123179, i64 %.pn
+  %.1125 = sub nuw i64 %.0124178, %.pn
   br label %.backedge
 
 .backedge:                                        ; preds = %84, %94, %69, %37, %25
   %.0124.be = phi i64 [ %.1125, %25 ], [ %95, %94 ], [ %88, %84 ], [ %73, %69 ], [ %34, %37 ]
   %.0123.be = phi ptr [ %.1, %25 ], [ %96, %94 ], [ %87, %84 ], [ %72, %69 ], [ %35, %37 ]
-  %.0122.be.in = getelementptr inbounds i8, ptr %.0122181, i64 24
+  %.0122.be.in = getelementptr inbounds i8, ptr %.0122180, i64 24
   %.0122.be = load ptr, ptr %.0122.be.in, align 8
   %.not = icmp eq ptr %.0122.be, null
-  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !8
+  br i1 %.not, label %97, label %15, !llvm.loop !8
 
 26:                                               ; preds = %15
   %27 = load i32, ptr %5, align 8
@@ -1479,18 +1475,18 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr 
   ]
 
 28:                                               ; preds = %26
-  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0123180, i64 noundef %.0124179, ptr noundef nonnull @.str.30, ptr noundef %3) #16
+  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0123179, i64 noundef %.0124178, ptr noundef nonnull @.str.30, ptr noundef %3) #16
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %28
   %32 = zext nneg i32 %29 to i64
-  %.not158 = icmp ugt i64 %.0124179, %32
+  %.not158 = icmp ugt i64 %.0124178, %32
   br i1 %.not158, label %33, label %.loopexit
 
 33:                                               ; preds = %31
-  %34 = sub nuw i64 %.0124179, %32
-  %35 = getelementptr inbounds i8, ptr %.0123180, i64 %32
+  %34 = sub nuw i64 %.0124178, %32
+  %35 = getelementptr inbounds i8, ptr %.0123179, i64 %32
   %36 = load i64, ptr %11, align 8
   %.not159 = icmp eq i64 %36, 8
   br i1 %.not159, label %37, label %.critedge
@@ -1567,18 +1563,18 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr 
   br label %.backedge
 
 74:                                               ; preds = %26
-  %75 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0123180, i64 noundef %.0124179, ptr noundef nonnull @.str.34, ptr noundef %3) #16
+  %75 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0123179, i64 noundef %.0124178, ptr noundef nonnull @.str.34, ptr noundef %3) #16
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %.loopexit, label %77
 
 77:                                               ; preds = %74
   %78 = zext nneg i32 %75 to i64
-  %.not156 = icmp ugt i64 %.0124179, %78
+  %.not156 = icmp ugt i64 %.0124178, %78
   br i1 %.not156, label %79, label %.loopexit
 
 79:                                               ; preds = %77
-  %80 = sub nuw i64 %.0124179, %78
-  %81 = getelementptr inbounds i8, ptr %.0123180, i64 %78
+  %80 = sub nuw i64 %.0124178, %78
+  %81 = getelementptr inbounds i8, ptr %.0123179, i64 %78
   %82 = load i64, ptr %8, align 8
   %.not157 = icmp ult i64 %82, %80
   br i1 %.not157, label %84, label %83
@@ -1596,35 +1592,33 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr 
   br label %.backedge
 
 89:                                               ; preds = %26
-  %90 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0123180, i64 noundef %.0124179, ptr noundef nonnull @.str.28, ptr noundef %3) #16
+  %90 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0123179, i64 noundef %.0124178, ptr noundef nonnull @.str.28, ptr noundef %3) #16
   %91 = icmp slt i32 %90, 0
   br i1 %91, label %.loopexit, label %92
 
 92:                                               ; preds = %89
   %93 = zext nneg i32 %90 to i64
-  %.not165 = icmp ugt i64 %.0124179, %93
+  %.not165 = icmp ugt i64 %.0124178, %93
   br i1 %.not165, label %94, label %.loopexit
 
 94:                                               ; preds = %92
-  %95 = sub nuw i64 %.0124179, %93
-  %96 = getelementptr inbounds i8, ptr %.0123180, i64 %93
+  %95 = sub nuw i64 %.0124178, %93
+  %96 = getelementptr inbounds i8, ptr %.0123179, i64 %93
   br label %.backedge
 
-._crit_edge:                                      ; preds = %.backedge, %4
-  %.0124.lcssa = phi i64 [ %6, %4 ], [ %.0124.be, %.backedge ]
-  %.0123.lcssa = phi ptr [ %7, %4 ], [ %.0123.be, %.backedge ]
-  store i8 0, ptr %.0123.lcssa, align 1
-  store i64 %.0124.lcssa, ptr %1, align 8
-  store ptr %.0123.lcssa, ptr %0, align 8
+97:                                               ; preds = %.backedge
+  store i8 0, ptr %.0123.be, align 1
+  store i64 %.0124.be, ptr %1, align 8
+  store ptr %.0123.be, ptr %0, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %89, %92, %74, %77, %57, %62, %50, %55, %43, %48, %.critedge, %41, %28, %31, %21, %17, %._crit_edge, %83, %68
-  %.0 = phi i32 [ -10624, %83 ], [ -10624, %68 ], [ 0, %._crit_edge ], [ -10624, %17 ], [ -10624, %21 ], [ -10624, %31 ], [ -10624, %28 ], [ -10624, %41 ], [ -10624, %.critedge ], [ -10624, %48 ], [ -10624, %43 ], [ -10624, %55 ], [ -10624, %50 ], [ -10624, %62 ], [ -10624, %57 ], [ -10624, %77 ], [ -10624, %74 ], [ -10624, %92 ], [ -10624, %89 ]
+.loopexit:                                        ; preds = %89, %92, %74, %77, %57, %62, %50, %55, %43, %48, %.critedge, %41, %28, %31, %21, %17, %97, %83, %68
+  %.0 = phi i32 [ -10624, %83 ], [ -10624, %68 ], [ 0, %97 ], [ -10624, %17 ], [ -10624, %21 ], [ -10624, %31 ], [ -10624, %28 ], [ -10624, %41 ], [ -10624, %.critedge ], [ -10624, %48 ], [ -10624, %43 ], [ -10624, %55 ], [ -10624, %50 ], [ -10624, %62 ], [ -10624, %57 ], [ -10624, %77 ], [ -10624, %74 ], [ -10624, %92 ], [ -10624, %89 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_type(ptr nocapture noundef %0, ptr nocapture noundef %1, i8 noundef zeroext %2) unnamed_addr #7 {
+define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_type(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, i8 noundef zeroext %2) unnamed_addr #7 {
   %4 = load i64, ptr %1, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = zext i8 %2 to i32
@@ -1820,7 +1814,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_type(ptr nocaptu
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -10624, 1) i32 @x509_info_key_usage(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #7 {
+define internal fastcc range(i32 -10624, 1) i32 @x509_info_key_usage(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #7 {
   %4 = load i64, ptr %1, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = and i32 %2, 128
@@ -2039,114 +2033,108 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_key_usage(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -10624, 1) i32 @x509_info_ext_key_usage(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -10624, 1) i32 @x509_info_ext_key_usage(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i64, ptr %1, align 8
   %6 = load ptr, ptr %0, align 8
-  %.not30 = icmp eq ptr %2, null
-  br i1 %.not30, label %._crit_edge, label %.lr.ph
+  br label %7
 
-.lr.ph:                                           ; preds = %3, %15
-  %.034 = phi ptr [ @.str.37, %15 ], [ @.str.35, %3 ]
-  %.02033 = phi ptr [ %19, %15 ], [ %2, %3 ]
-  %.02132 = phi ptr [ %17, %15 ], [ %6, %3 ]
-  %.02231 = phi i64 [ %16, %15 ], [ %5, %3 ]
-  %7 = call i32 @mbedtls_oid_get_extended_key_usage(ptr noundef nonnull %.02033, ptr noundef nonnull %4) #16
-  %.not26 = icmp eq i32 %7, 0
-  br i1 %.not26, label %.lr.ph._crit_edge, label %8
+7:                                                ; preds = %3, %16
+  %.033 = phi ptr [ @.str.35, %3 ], [ @.str.37, %16 ]
+  %.02032 = phi ptr [ %2, %3 ], [ %20, %16 ]
+  %.02131 = phi ptr [ %6, %3 ], [ %18, %16 ]
+  %.02230 = phi i64 [ %5, %3 ], [ %17, %16 ]
+  %8 = call i32 @mbedtls_oid_get_extended_key_usage(ptr noundef nonnull %.02032, ptr noundef nonnull %4) #16
+  %.not26 = icmp eq i32 %8, 0
+  br i1 %.not26, label %._crit_edge, label %9
 
-.lr.ph._crit_edge:                                ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %7
   %.pre = load ptr, ptr %4, align 8
-  br label %9
+  br label %10
 
-8:                                                ; preds = %.lr.ph
+9:                                                ; preds = %7
   store ptr @.str.54, ptr %4, align 8
-  br label %9
+  br label %10
 
-9:                                                ; preds = %.lr.ph._crit_edge, %8
-  %10 = phi ptr [ %.pre, %.lr.ph._crit_edge ], [ @.str.54, %8 ]
-  %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.02132, i64 noundef %.02231, ptr noundef nonnull @.str.55, ptr noundef nonnull %.034, ptr noundef %10) #16
-  %12 = icmp slt i32 %11, 0
-  br i1 %12, label %.loopexit, label %13
+10:                                               ; preds = %._crit_edge, %9
+  %11 = phi ptr [ %.pre, %._crit_edge ], [ @.str.54, %9 ]
+  %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.02131, i64 noundef %.02230, ptr noundef nonnull @.str.55, ptr noundef nonnull %.033, ptr noundef %11) #16
+  %13 = icmp slt i32 %12, 0
+  br i1 %13, label %.loopexit, label %14
 
-13:                                               ; preds = %9
-  %14 = zext nneg i32 %11 to i64
-  %.not27 = icmp ugt i64 %.02231, %14
-  br i1 %.not27, label %15, label %.loopexit
+14:                                               ; preds = %10
+  %15 = zext nneg i32 %12 to i64
+  %.not27 = icmp ugt i64 %.02230, %15
+  br i1 %.not27, label %16, label %.loopexit
 
-15:                                               ; preds = %13
-  %16 = sub nuw i64 %.02231, %14
-  %17 = getelementptr inbounds i8, ptr %.02132, i64 %14
-  %18 = getelementptr inbounds i8, ptr %.02033, i64 24
-  %19 = load ptr, ptr %18, align 8
-  %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+16:                                               ; preds = %14
+  %17 = sub nuw i64 %.02230, %15
+  %18 = getelementptr inbounds i8, ptr %.02131, i64 %15
+  %19 = getelementptr inbounds i8, ptr %.02032, i64 24
+  %20 = load ptr, ptr %19, align 8
+  %.not = icmp eq ptr %20, null
+  br i1 %.not, label %21, label %7, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %15, %3
-  %.022.lcssa = phi i64 [ %5, %3 ], [ %16, %15 ]
-  %.021.lcssa = phi ptr [ %6, %3 ], [ %17, %15 ]
-  store i64 %.022.lcssa, ptr %1, align 8
-  store ptr %.021.lcssa, ptr %0, align 8
+21:                                               ; preds = %16
+  store i64 %17, ptr %1, align 8
+  store ptr %18, ptr %0, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %9, %13, %._crit_edge
-  %.023 = phi i32 [ 0, %._crit_edge ], [ -10624, %13 ], [ -10624, %9 ]
+.loopexit:                                        ; preds = %10, %14, %21
+  %.023 = phi i32 [ 0, %21 ], [ -10624, %14 ], [ -10624, %10 ]
   ret i32 %.023
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_policies(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_policies(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i64, ptr %1, align 8
   %6 = load ptr, ptr %0, align 8
-  %.not30 = icmp eq ptr %2, null
-  br i1 %.not30, label %._crit_edge, label %.lr.ph
+  br label %7
 
-.lr.ph:                                           ; preds = %3, %15
-  %.034 = phi ptr [ @.str.37, %15 ], [ @.str.35, %3 ]
-  %.02033 = phi ptr [ %19, %15 ], [ %2, %3 ]
-  %.02132 = phi ptr [ %17, %15 ], [ %6, %3 ]
-  %.02231 = phi i64 [ %16, %15 ], [ %5, %3 ]
-  %7 = call i32 @mbedtls_oid_get_certificate_policies(ptr noundef nonnull %.02033, ptr noundef nonnull %4) #16
-  %.not26 = icmp eq i32 %7, 0
-  br i1 %.not26, label %.lr.ph._crit_edge, label %8
+7:                                                ; preds = %3, %16
+  %.033 = phi ptr [ @.str.35, %3 ], [ @.str.37, %16 ]
+  %.02032 = phi ptr [ %2, %3 ], [ %20, %16 ]
+  %.02131 = phi ptr [ %6, %3 ], [ %18, %16 ]
+  %.02230 = phi i64 [ %5, %3 ], [ %17, %16 ]
+  %8 = call i32 @mbedtls_oid_get_certificate_policies(ptr noundef nonnull %.02032, ptr noundef nonnull %4) #16
+  %.not26 = icmp eq i32 %8, 0
+  br i1 %.not26, label %._crit_edge, label %9
 
-.lr.ph._crit_edge:                                ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %7
   %.pre = load ptr, ptr %4, align 8
-  br label %9
+  br label %10
 
-8:                                                ; preds = %.lr.ph
+9:                                                ; preds = %7
   store ptr @.str.54, ptr %4, align 8
-  br label %9
+  br label %10
 
-9:                                                ; preds = %.lr.ph._crit_edge, %8
-  %10 = phi ptr [ %.pre, %.lr.ph._crit_edge ], [ @.str.54, %8 ]
-  %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.02132, i64 noundef %.02231, ptr noundef nonnull @.str.55, ptr noundef nonnull %.034, ptr noundef %10) #16
-  %12 = icmp slt i32 %11, 0
-  br i1 %12, label %.loopexit, label %13
+10:                                               ; preds = %._crit_edge, %9
+  %11 = phi ptr [ %.pre, %._crit_edge ], [ @.str.54, %9 ]
+  %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.02131, i64 noundef %.02230, ptr noundef nonnull @.str.55, ptr noundef nonnull %.033, ptr noundef %11) #16
+  %13 = icmp slt i32 %12, 0
+  br i1 %13, label %.loopexit, label %14
 
-13:                                               ; preds = %9
-  %14 = zext nneg i32 %11 to i64
-  %.not27 = icmp ugt i64 %.02231, %14
-  br i1 %.not27, label %15, label %.loopexit
+14:                                               ; preds = %10
+  %15 = zext nneg i32 %12 to i64
+  %.not27 = icmp ugt i64 %.02230, %15
+  br i1 %.not27, label %16, label %.loopexit
 
-15:                                               ; preds = %13
-  %16 = sub nuw i64 %.02231, %14
-  %17 = getelementptr inbounds i8, ptr %.02132, i64 %14
-  %18 = getelementptr inbounds i8, ptr %.02033, i64 24
-  %19 = load ptr, ptr %18, align 8
-  %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+16:                                               ; preds = %14
+  %17 = sub nuw i64 %.02230, %15
+  %18 = getelementptr inbounds i8, ptr %.02131, i64 %15
+  %19 = getelementptr inbounds i8, ptr %.02032, i64 24
+  %20 = load ptr, ptr %19, align 8
+  %.not = icmp eq ptr %20, null
+  br i1 %.not, label %21, label %7, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %15, %3
-  %.022.lcssa = phi i64 [ %5, %3 ], [ %16, %15 ]
-  %.021.lcssa = phi ptr [ %6, %3 ], [ %17, %15 ]
-  store i64 %.022.lcssa, ptr %1, align 8
-  store ptr %.021.lcssa, ptr %0, align 8
+21:                                               ; preds = %16
+  store i64 %17, ptr %1, align 8
+  store ptr %18, ptr %0, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %9, %13, %._crit_edge
-  %.023 = phi i32 [ 0, %._crit_edge ], [ -10624, %13 ], [ -10624, %9 ]
+.loopexit:                                        ; preds = %10, %14, %21
+  %.023 = phi i32 [ 0, %21 ], [ -10624, %14 ], [ -10624, %10 ]
   ret i32 %.023
 }
 
@@ -2393,7 +2381,7 @@ x509_crt_verify_chain_reset.exit:                 ; preds = %16
   br i1 %33, label %x509_crt_check_san.exit.i, label %x509_crt_check_san.exit.thread.i
 
 x509_crt_check_san.exit.i:                        ; preds = %30
-  %34 = tail call fastcc i32 @x509_crt_check_cn(ptr noundef nonnull readonly %.02030.i, ptr noundef nonnull readonly %4, i64 noundef %24)
+  %34 = tail call fastcc i32 @x509_crt_check_cn(ptr noundef readonly %.02030.i, ptr noundef readonly %4, i64 noundef %24)
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %x509_crt_verify_name.exit, label %x509_crt_check_san.exit.thread.i
 
@@ -2423,7 +2411,7 @@ x509_crt_check_san.exit.thread.i:                 ; preds = %x509_crt_check_san.
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds i8, ptr %.031.i, i64 24
-  %48 = tail call fastcc i32 @x509_crt_check_cn(ptr noundef nonnull %47, ptr noundef nonnull readonly %4, i64 noundef %24)
+  %48 = tail call fastcc i32 @x509_crt_check_cn(ptr noundef %47, ptr noundef readonly %4, i64 noundef %24)
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %x509_crt_verify_name.exit, label %.critedge.i
 
@@ -3597,9 +3585,9 @@ declare i32 @mbedtls_x509_get_sig_alg(ptr noundef, ptr noundef, ptr noundef, ptr
 declare i32 @mbedtls_x509_get_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @x509_get_dates(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @x509_get_dates(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
-  %6 = call i32 @mbedtls_asn1_get_tag(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 48) #16
+  %6 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 48) #16
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
 
@@ -3611,12 +3599,12 @@ define internal fastcc i32 @x509_get_dates(ptr noundef %0, ptr noundef %1, ptr n
   %10 = load ptr, ptr %0, align 8
   %11 = load i64, ptr %5, align 8
   %12 = getelementptr inbounds i8, ptr %10, i64 %11
-  %13 = call i32 @mbedtls_x509_get_time(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %2) #16
+  %13 = call i32 @mbedtls_x509_get_time(ptr noundef nonnull %0, ptr noundef %12, ptr noundef nonnull %2) #16
   %.not17 = icmp eq i32 %13, 0
   br i1 %.not17, label %14, label %18
 
 14:                                               ; preds = %9
-  %15 = call i32 @mbedtls_x509_get_time(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %3) #16
+  %15 = call i32 @mbedtls_x509_get_time(ptr noundef nonnull %0, ptr noundef %12, ptr noundef nonnull %3) #16
   %.not18 = icmp eq i32 %15, 0
   br i1 %.not18, label %16, label %18
 
@@ -3634,7 +3622,7 @@ define internal fastcc i32 @x509_get_dates(ptr noundef %0, ptr noundef %1, ptr n
 declare i32 @mbedtls_pk_parse_subpubkey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2147475072) i32 @x509_get_uid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147475072) i32 @x509_get_uid(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq ptr %5, %1
   br i1 %6, label %20, label %7
@@ -3644,7 +3632,7 @@ define internal fastcc range(i32 -2147483648, 2147475072) i32 @x509_get_uid(ptr 
   %9 = zext i8 %8 to i32
   store i32 %9, ptr %2, align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 8
-  %11 = or i32 %3, 160
+  %11 = or disjoint i32 %3, 160
   %12 = tail call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %10, i32 noundef %11) #16
   switch i32 %12, label %13 [
     i32 0, label %15
@@ -3670,7 +3658,7 @@ define internal fastcc range(i32 -2147483648, 2147475072) i32 @x509_get_uid(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @x509_get_crt_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @x509_get_crt_ext(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca %struct.mbedtls_asn1_bitstring, align 8
   %8 = alloca i64, align 8
@@ -3789,7 +3777,7 @@ define internal fastcc i32 @x509_get_crt_ext(ptr noundef %0, ptr noundef %1, ptr
 74:                                               ; preds = %73
   %75 = load i32, ptr %15, align 4
   %76 = load ptr, ptr %0, align 8
-  %77 = call i32 %3(ptr noundef %4, ptr noundef %2, ptr noundef nonnull %14, i32 noundef %75, ptr noundef %76, ptr noundef %70) #16
+  %77 = call i32 %3(ptr noundef %4, ptr noundef nonnull %2, ptr noundef nonnull %14, i32 noundef %75, ptr noundef %76, ptr noundef %70) #16
   %78 = icmp ne i32 %77, 0
   %79 = load i32, ptr %15, align 4
   %80 = icmp ne i32 %79, 0
@@ -4272,7 +4260,7 @@ x509_get_certificate_policies.exit:               ; preds = %243, %192, %203, %2
 
 248:                                              ; preds = %246
   %249 = load i32, ptr %15, align 4
-  %250 = call i32 %3(ptr noundef %4, ptr noundef %2, ptr noundef nonnull %14, i32 noundef %249, ptr noundef %68, ptr noundef %70) #16
+  %250 = call i32 %3(ptr noundef %4, ptr noundef nonnull %2, ptr noundef nonnull %14, i32 noundef %249, ptr noundef %68, ptr noundef %70) #16
   %251 = icmp eq i32 %250, 0
   br i1 %251, label %.backedge, label %252
 
@@ -4332,7 +4320,7 @@ declare i32 @mbedtls_pk_get_type(ptr noundef) local_unnamed_addr #2
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 1) i32 @x509_crt_check_cn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #9 {
+define internal fastcc range(i32 -1, 1) i32 @x509_crt_check_cn(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2) unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, %2

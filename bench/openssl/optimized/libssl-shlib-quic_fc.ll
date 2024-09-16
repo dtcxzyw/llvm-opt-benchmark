@@ -459,7 +459,7 @@ return:                                           ; preds = %if.end6, %if.then10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rxfc_on_retire(ptr nocapture noundef %rxfc, i64 noundef %num_bytes, i64 noundef %min_window_size, i64 %rtt.coerce) unnamed_addr #5 {
+define internal fastcc void @rxfc_on_retire(ptr nocapture noundef %rxfc, i64 noundef range(i64 1, 0) %num_bytes, i64 noundef %min_window_size, i64 %rtt.coerce) unnamed_addr #5 {
 entry:
   %epoch_start = getelementptr inbounds i8, ptr %rxfc, i64 56
   %0 = load i64, ptr %epoch_start, align 8

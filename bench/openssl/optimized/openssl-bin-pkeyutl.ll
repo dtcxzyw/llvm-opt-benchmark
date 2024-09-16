@@ -456,7 +456,7 @@ if.end143:                                        ; preds = %if.else133, %if.the
 if.end143.split:                                  ; preds = %if.end143
   %5 = load i32, ptr %keyform, align 4
   %call153129 = call ptr @app_get0_propq() #5
-  %call154130 = call fastcc ptr @init_ctx(ptr noundef %kdfalg.0, ptr noundef nonnull %keysize, ptr noundef %inkey.0, i32 noundef %5, i32 noundef %key_type.0, ptr noundef %passinarg.0, i32 noundef %pkey_op.0, ptr noundef %e.0, i32 noundef %engine_impl.0, i32 noundef 0, ptr noundef nonnull %pkey, ptr noundef null, ptr noundef %digestname.0, ptr noundef %call, ptr noundef %call153129)
+  %call154130 = call fastcc ptr @init_ctx(ptr noundef %kdfalg.0, ptr noundef %keysize, ptr noundef %inkey.0, i32 noundef %5, i32 noundef %key_type.0, ptr noundef %passinarg.0, i32 noundef %pkey_op.0, ptr noundef %e.0, i32 noundef %engine_impl.0, i32 noundef 0, ptr noundef %pkey, ptr noundef null, ptr noundef %digestname.0, ptr noundef %call, ptr noundef %call153129)
   br label %if.end152
 
 if.then145:                                       ; preds = %if.end143
@@ -467,7 +467,7 @@ if.then145:                                       ; preds = %if.end143
 if.then145.split:                                 ; preds = %if.then145
   %6 = load i32, ptr %keyform, align 4
   %call153131 = call ptr @app_get0_propq() #5
-  %call154132 = call fastcc ptr @init_ctx(ptr noundef %kdfalg.0, ptr noundef nonnull %keysize, ptr noundef %inkey.0, i32 noundef %6, i32 noundef %key_type.0, ptr noundef %passinarg.0, i32 noundef %pkey_op.0, ptr noundef %e.0, i32 noundef %engine_impl.0, i32 noundef 1, ptr noundef nonnull %pkey, ptr noundef nonnull %call146, ptr noundef %digestname.0, ptr noundef %call, ptr noundef %call153131)
+  %call154132 = call fastcc ptr @init_ctx(ptr noundef %kdfalg.0, ptr noundef %keysize, ptr noundef %inkey.0, i32 noundef %6, i32 noundef %key_type.0, ptr noundef %passinarg.0, i32 noundef %pkey_op.0, ptr noundef %e.0, i32 noundef %engine_impl.0, i32 noundef 1, ptr noundef %pkey, ptr noundef nonnull %call146, ptr noundef %digestname.0, ptr noundef %call, ptr noundef %call153131)
   br label %if.end152
 
 if.then149:                                       ; preds = %if.then145
@@ -492,7 +492,7 @@ if.end159:                                        ; preds = %if.end152
 
 land.lhs.true162:                                 ; preds = %if.end159
   %9 = load i32, ptr %peerform, align 4
-  %call163 = call fastcc i32 @setup_peer(ptr noundef nonnull %phi.call, i32 noundef %9, ptr noundef nonnull %peerkey.0, ptr noundef %e.0)
+  %call163 = call fastcc i32 @setup_peer(ptr noundef %phi.call, i32 noundef %9, ptr noundef %peerkey.0, ptr noundef %e.0)
   %tobool164.not = icmp eq i32 %call163, 0
   br i1 %tobool164.not, label %if.then165, label %if.end167
 
@@ -798,7 +798,7 @@ if.then371:                                       ; preds = %if.else368
 if.else373:                                       ; preds = %if.else368
   %36 = load ptr, ptr %buf_in, align 8
   %conv374 = zext nneg i32 %buf_inlen.0139 to i64
-  %call375 = call fastcc i32 @do_keyop(ptr noundef %phi.call, i32 noundef %pkey_op.0, ptr noundef null, ptr noundef nonnull %buf_outlen, ptr noundef %36, i64 noundef %conv374)
+  %call375 = call fastcc i32 @do_keyop(ptr noundef %phi.call, i32 noundef %pkey_op.0, ptr noundef null, ptr noundef %buf_outlen, ptr noundef %36, i64 noundef %conv374)
   %.pre395 = load i64, ptr %buf_outlen, align 8
   br label %if.end376
 
@@ -815,7 +815,7 @@ if.then382:                                       ; preds = %if.end376
   store ptr %call383, ptr %buf_out, align 8
   %38 = load ptr, ptr %buf_in, align 8
   %conv384 = zext nneg i32 %buf_inlen.0139 to i64
-  %call385 = call fastcc i32 @do_keyop(ptr noundef %phi.call, i32 noundef %pkey_op.0, ptr noundef %call383, ptr noundef nonnull %buf_outlen, ptr noundef %38, i64 noundef %conv384)
+  %call385 = call fastcc i32 @do_keyop(ptr noundef %phi.call, i32 noundef %pkey_op.0, ptr noundef %call383, ptr noundef %buf_outlen, ptr noundef %38, i64 noundef %conv384)
   br label %if.end387
 
 if.end387:                                        ; preds = %if.end376, %if.then382, %if.then366
@@ -943,7 +943,7 @@ declare i32 @app_RAND_load() local_unnamed_addr #1
 declare ptr @EVP_MD_CTX_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @init_ctx(ptr noundef %kdfalg, ptr nocapture noundef writeonly %pkeysize, ptr noundef %keyfile, i32 noundef %keyform, i32 noundef %key_type, ptr noundef %passinarg, i32 noundef %pkey_op, ptr noundef %e, i32 noundef %engine_impl, i32 noundef %rawin, ptr nocapture noundef writeonly %ppkey, ptr noundef %mctx, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc ptr @init_ctx(ptr noundef %kdfalg, ptr nocapture noundef nonnull writeonly %pkeysize, ptr noundef %keyfile, i32 noundef %keyform, i32 noundef range(i32 0, 4) %key_type, ptr noundef %passinarg, i32 noundef range(i32 16, 2049) %pkey_op, ptr noundef %e, i32 noundef range(i32 0, 2) %engine_impl, i32 noundef range(i32 0, 2) %rawin, ptr nocapture noundef nonnull writeonly %ppkey, ptr noundef %mctx, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %passin = alloca ptr, align 8
   store ptr null, ptr %passin, align 8
@@ -974,10 +974,11 @@ if.then8:                                         ; preds = %if.end
   br label %end
 
 if.end10:                                         ; preds = %if.end
-  switch i32 %key_type, label %sw.epilog [
+  switch i32 %key_type, label %default.unreachable [
     i32 1, label %sw.bb
     i32 2, label %sw.bb12
     i32 3, label %sw.bb14
+    i32 0, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %if.end10
@@ -999,7 +1000,10 @@ if.then17:                                        ; preds = %sw.bb14
   call void @X509_free(ptr noundef nonnull %call15) #5
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb14, %if.then17, %sw.bb12, %sw.bb, %if.end10
+default.unreachable:                              ; preds = %if.end10
+  unreachable
+
+sw.epilog:                                        ; preds = %if.end10, %sw.bb14, %if.then17, %sw.bb12, %sw.bb
   %pkey.0 = phi ptr [ null, %if.end10 ], [ %call18, %if.then17 ], [ null, %sw.bb14 ], [ %call13, %sw.bb12 ], [ %call11, %sw.bb ]
   %tobool21.not = icmp eq i32 %engine_impl, 0
   %spec.select = select i1 %tobool21.not, ptr null, ptr %e
@@ -1134,21 +1138,21 @@ end:                                              ; preds = %if.end79, %if.then8
 declare ptr @app_get0_propq() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @setup_peer(ptr noundef %ctx, i32 noundef %peerform, ptr noundef %file, ptr noundef %e) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @setup_peer(ptr noundef nonnull %ctx, i32 noundef %peerform, ptr noundef nonnull %file, ptr noundef %e) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %peerform, 8
   %spec.select = select i1 %cmp, ptr %e, ptr null
-  %call = tail call ptr @load_pubkey(ptr noundef %file, i32 noundef %peerform, i32 noundef 0, ptr noundef null, ptr noundef %spec.select, ptr noundef nonnull @.str.109) #5
+  %call = tail call ptr @load_pubkey(ptr noundef nonnull %file, i32 noundef %peerform, i32 noundef 0, ptr noundef null, ptr noundef %spec.select, ptr noundef nonnull @.str.109) #5
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %entry
   %0 = load ptr, ptr @bio_err, align 8
-  %call3 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.110, ptr noundef %file) #5
+  %call3 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.110, ptr noundef nonnull %file) #5
   br label %return
 
 if.end4:                                          ; preds = %entry
-  %call5 = tail call i32 @EVP_PKEY_derive_set_peer(ptr noundef %ctx, ptr noundef nonnull %call) #5
+  %call5 = tail call i32 @EVP_PKEY_derive_set_peer(ptr noundef nonnull %ctx, ptr noundef nonnull %call) #5
   %cmp6 = icmp sgt i32 %call5, 0
   %conv = zext i1 %cmp6 to i32
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call) #5
@@ -1192,7 +1196,7 @@ declare i32 @bio_to_mem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_raw_keyop(i32 noundef %pkey_op, ptr noundef %mctx, ptr noundef %pkey, ptr noundef %in, i32 noundef %filesize, ptr noundef %sig, i32 noundef %siglen, ptr noundef writeonly %out, ptr noundef %poutlen) unnamed_addr #0 {
+define internal fastcc i32 @do_raw_keyop(i32 noundef range(i32 16, 2049) %pkey_op, ptr noundef %mctx, ptr noundef %pkey, ptr noundef %in, i32 noundef %filesize, ptr noundef %sig, i32 noundef range(i32 -1, -2147483648) %siglen, ptr noundef writeonly %out, ptr noundef %poutlen) unnamed_addr #0 {
 entry:
   %tbuf = alloca [2048 x i8], align 16
   %call = tail call i32 @EVP_PKEY_get_id(ptr noundef %pkey) #5
@@ -1347,7 +1351,7 @@ end:                                              ; preds = %if.end34, %for.end,
 declare i32 @EVP_PKEY_verify(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_keyop(ptr noundef %ctx, i32 noundef %pkey_op, ptr noundef %out, ptr noundef %poutlen, ptr noundef %in, i64 noundef %inlen) unnamed_addr #0 {
+define internal fastcc i32 @do_keyop(ptr noundef nonnull %ctx, i32 noundef range(i32 16, 2049) %pkey_op, ptr noundef %out, ptr noundef nonnull %poutlen, ptr noundef %in, i64 noundef range(i64 0, 2147483648) %inlen) unnamed_addr #0 {
 entry:
   switch i32 %pkey_op, label %sw.epilog [
     i32 64, label %sw.bb
@@ -1358,23 +1362,23 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %call = tail call i32 @EVP_PKEY_verify_recover(ptr noundef %ctx, ptr noundef %out, ptr noundef %poutlen, ptr noundef %in, i64 noundef %inlen) #5
+  %call = tail call i32 @EVP_PKEY_verify_recover(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef nonnull %poutlen, ptr noundef %in, i64 noundef %inlen) #5
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %call2 = tail call i32 @EVP_PKEY_sign(ptr noundef %ctx, ptr noundef %out, ptr noundef %poutlen, ptr noundef %in, i64 noundef %inlen) #5
+  %call2 = tail call i32 @EVP_PKEY_sign(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef nonnull %poutlen, ptr noundef %in, i64 noundef %inlen) #5
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %call4 = tail call i32 @EVP_PKEY_encrypt(ptr noundef %ctx, ptr noundef %out, ptr noundef %poutlen, ptr noundef %in, i64 noundef %inlen) #5
+  %call4 = tail call i32 @EVP_PKEY_encrypt(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef nonnull %poutlen, ptr noundef %in, i64 noundef %inlen) #5
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
-  %call6 = tail call i32 @EVP_PKEY_decrypt(ptr noundef %ctx, ptr noundef %out, ptr noundef %poutlen, ptr noundef %in, i64 noundef %inlen) #5
+  %call6 = tail call i32 @EVP_PKEY_decrypt(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef nonnull %poutlen, ptr noundef %in, i64 noundef %inlen) #5
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
-  %call8 = tail call i32 @EVP_PKEY_derive(ptr noundef %ctx, ptr noundef %out, ptr noundef %poutlen) #5
+  %call8 = tail call i32 @EVP_PKEY_derive(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef nonnull %poutlen) #5
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb, %entry

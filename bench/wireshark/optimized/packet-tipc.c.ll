@@ -1924,7 +1924,7 @@ define internal fastcc void @dissect_tipc_name_dist_data(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @call_tipc_v2_data_subdissectors(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i8 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @call_tipc_v2_data_subdissectors(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i8 noundef zeroext range(i8 0, 16) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @dissect_tipc_data, align 4
   %.not = icmp eq i32 %6, 0
@@ -1986,7 +1986,7 @@ define internal fastcc void @call_tipc_v2_data_subdissectors(ptr noundef %0, ptr
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4, i8 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 16) %3, i32 noundef range(i32 0, 131072) %4, i8 noundef zeroext range(i8 0, 16) %5) unnamed_addr #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #7
   %8 = lshr i8 %7, 5
   switch i8 %3, label %.loopexit [
@@ -2274,8 +2274,8 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   br i1 %233, label %234, label %.loopexit
 
 234:                                              ; preds = %232
-  %235 = zext nneg i8 %5 to i32
-  %236 = shl nuw nsw i32 %235, 2
+  %235 = shl nuw nsw i8 %5, 2
+  %236 = zext nneg i8 %235 to i32
   %.not843 = icmp eq i32 %4, %236
   br i1 %.not843, label %.loopexit, label %237
 
@@ -2766,8 +2766,8 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %631 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %630, ptr noundef %0, i32 noundef 32, i32 noundef 4, ptr noundef nonnull @.str.451) #7
   %632 = load i32, ptr @hf_tipc_unused_word, align 4
   %633 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %632, ptr noundef %0, i32 noundef 36, i32 noundef 4, ptr noundef nonnull @.str.457) #7
-  %634 = zext nneg i8 %5 to i32
-  %635 = shl nuw nsw i32 %634, 2
+  %634 = shl nuw nsw i8 %5, 2
+  %635 = zext nneg i8 %634 to i32
   %636 = sub nsw i32 %4, %635
   %637 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 40) #7
   %638 = load i32, ptr @tipc_defragment, align 4
@@ -2873,8 +2873,8 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   br label %706
 
 706:                                              ; preds = %701, %698
-  %707 = zext nneg i8 %5 to i32
-  %708 = shl nuw nsw i32 %707, 2
+  %707 = shl nuw nsw i8 %5, 2
+  %708 = zext nneg i8 %707 to i32
   %.not829 = icmp eq i32 %4, %708
   br i1 %.not829, label %.loopexit, label %709
 

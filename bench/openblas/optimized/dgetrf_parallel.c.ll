@@ -913,7 +913,7 @@ define internal noundef i32 @inner_advanced_thread(ptr nocapture noundef readonl
 declare i32 @exec_blas_async(i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @inner_basic_thread(ptr nocapture noundef readonly %0, i64 %.0.val, i64 %.8.val, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @inner_basic_thread(ptr nocapture noundef nonnull readonly %0, i64 %.0.val, i64 %.8.val, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %0, i64 64

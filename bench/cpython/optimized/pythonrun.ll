@@ -1407,7 +1407,7 @@ if.end4.i:                                        ; preds = %if.then2.i, %if.end
   br i1 %cmp5.not.i, label %if.end8.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %call7.i53 = tail call fastcc ptr @run_mod(ptr noundef nonnull %call1.i50, ptr noundef %filename, ptr noundef %call1, ptr noundef %call1, ptr noundef %flags, ptr noundef nonnull %call.i47, ptr noundef null, i32 noundef 0)
+  %call7.i53 = tail call fastcc ptr @run_mod(ptr noundef nonnull %call1.i50, ptr noundef %filename, ptr noundef %call1, ptr noundef %call1, ptr noundef %flags, ptr noundef %call.i47, ptr noundef null, i32 noundef 0)
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then6.i, %if.end4.i
@@ -1756,7 +1756,7 @@ if.then7:                                         ; preds = %if.end4
 if.end8:                                          ; preds = %if.end4
   %call9 = call ptr @PyModule_GetDict(ptr noundef nonnull %call5) #8
   %16 = load ptr, ptr %interactive_src, align 8
-  %call10 = call fastcc ptr @run_mod(ptr noundef nonnull %call48.i, ptr noundef %filename, ptr noundef %call9, ptr noundef %call9, ptr noundef %flags, ptr noundef nonnull %call, ptr noundef %16, i32 noundef 1)
+  %call10 = call fastcc ptr @run_mod(ptr noundef nonnull %call48.i, ptr noundef %filename, ptr noundef %call9, ptr noundef %call9, ptr noundef %flags, ptr noundef %call, ptr noundef %16, i32 noundef 1)
   call void @_PyArena_Free(ptr noundef nonnull %call) #8
   %17 = load i64, ptr %call5, align 8
   %18 = and i64 %17, 2147483648
@@ -2079,7 +2079,7 @@ if.end.i.i:                                       ; preds = %if.then3
   br i1 %cmp8.not.i.i, label %if.end11.i.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %if.end.i.i
-  %call10.i.i = tail call fastcc ptr @run_mod(ptr noundef nonnull %call7.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24752), ptr noundef %call1, ptr noundef %call1, ptr noundef %flags, ptr noundef nonnull %call.i.i, ptr noundef null, i32 noundef 0)
+  %call10.i.i = tail call fastcc ptr @run_mod(ptr noundef nonnull %call7.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24752), ptr noundef %call1, ptr noundef %call1, ptr noundef %flags, ptr noundef %call.i.i, ptr noundef null, i32 noundef 0)
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.then9.i.i, %if.end.i.i
@@ -2118,7 +2118,7 @@ if.end6.i:                                        ; preds = %if.then4.i, %if.the
   br i1 %cmp8.not.i, label %if.end11.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end6.i
-  %call10.i = tail call fastcc ptr @run_mod(ptr noundef nonnull %call7.i, ptr noundef nonnull %call5, ptr noundef %call1, ptr noundef %call1, ptr noundef %flags, ptr noundef nonnull %call.i, ptr noundef %call2.i, i32 noundef 0)
+  %call10.i = tail call fastcc ptr @run_mod(ptr noundef nonnull %call7.i, ptr noundef nonnull %call5, ptr noundef %call1, ptr noundef %call1, ptr noundef %flags, ptr noundef %call.i, ptr noundef %call2.i, i32 noundef 0)
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then9.i, %if.end6.i
@@ -2223,7 +2223,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp8.not.i, label %if.end11.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
-  %call10.i = tail call fastcc ptr @run_mod(ptr noundef nonnull %call7.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24752), ptr noundef %globals, ptr noundef %locals, ptr noundef %flags, ptr noundef nonnull %call.i, ptr noundef null, i32 noundef 0)
+  %call10.i = tail call fastcc ptr @run_mod(ptr noundef nonnull %call7.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24752), ptr noundef %globals, ptr noundef %locals, ptr noundef %flags, ptr noundef %call.i, ptr noundef null, i32 noundef 0)
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then9.i, %if.end.i
@@ -2773,7 +2773,7 @@ if.then28:                                        ; preds = %fallback
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then28, %fallback
-  %call30 = call fastcc i32 @print_exception_recursive(ptr noundef nonnull %ctx, ptr noundef nonnull %value)
+  %call30 = call fastcc i32 @print_exception_recursive(ptr noundef %ctx, ptr noundef nonnull %value)
   %cmp31 = icmp slt i32 %call30, 0
   br i1 %cmp31, label %if.then32, label %if.end34
 
@@ -2831,7 +2831,7 @@ declare ptr @PyObject_CallOneArg(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PySet_New(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @print_exception_recursive(ptr nocapture noundef readonly %ctx, ptr noundef %value) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @print_exception_recursive(ptr nocapture noundef nonnull readonly %ctx, ptr noundef %value) unnamed_addr #0 {
 entry:
   %tmp.i.i = alloca ptr, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -2954,7 +2954,7 @@ if.then3.i:                                       ; preds = %Py_DECREF.exit.i
   br label %if.end13.i
 
 if.then11.i:                                      ; preds = %Py_DECREF.exit.i
-  %call12.i = tail call fastcc i32 @print_chained(ptr noundef nonnull %ctx, ptr noundef nonnull %call7.i, ptr noundef nonnull @cause_message)
+  %call12.i = tail call fastcc i32 @print_chained(ptr noundef %ctx, ptr noundef %call7.i, ptr noundef nonnull @cause_message)
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %Py_DECREF.exit.i, %if.then3.i, %if.then.i29, %if.then11.i
@@ -2982,11 +2982,11 @@ if.end17.i:                                       ; preds = %if.end14.i
   br i1 %tobool19.not.i, label %if.end6, label %if.then20.i
 
 if.then20.i:                                      ; preds = %if.end17.i
-  %call22.i = tail call fastcc zeroext i1 @print_exception_seen_lookup(ptr noundef nonnull %ctx, ptr noundef nonnull %call18.i)
+  %call22.i = tail call fastcc zeroext i1 @print_exception_seen_lookup(ptr noundef %ctx, ptr noundef %call18.i)
   br i1 %call22.i, label %if.end25.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.then20.i
-  %call24.i = tail call fastcc i32 @print_chained(ptr noundef nonnull %ctx, ptr noundef nonnull %call18.i, ptr noundef nonnull @context_message)
+  %call24.i = tail call fastcc i32 @print_chained(ptr noundef %ctx, ptr noundef %call18.i, ptr noundef nonnull @context_message)
   br label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.then23.i, %if.then20.i
@@ -3590,7 +3590,7 @@ if.end4.i:                                        ; preds = %if.then2.i, %if.end
   br i1 %cmp5.not.i, label %if.end8.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %call7.i = tail call fastcc ptr @run_mod(ptr noundef nonnull %call1.i, ptr noundef nonnull %call, ptr noundef %globals, ptr noundef %locals, ptr noundef %flags, ptr noundef nonnull %call.i, ptr noundef null, i32 noundef 0)
+  %call7.i = tail call fastcc ptr @run_mod(ptr noundef nonnull %call1.i, ptr noundef nonnull %call, ptr noundef %globals, ptr noundef %locals, ptr noundef %flags, ptr noundef %call.i, ptr noundef null, i32 noundef 0)
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then6.i, %if.end4.i
@@ -4118,7 +4118,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp8.not.i.i, label %if.end11.i.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %if.end.i.i
-  %call10.i.i = tail call fastcc ptr @run_mod(ptr noundef nonnull %call7.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24752), ptr noundef %g, ptr noundef %l, ptr noundef null, ptr noundef nonnull %call.i.i, ptr noundef null, i32 noundef 0)
+  %call10.i.i = tail call fastcc ptr @run_mod(ptr noundef nonnull %call7.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24752), ptr noundef %g, ptr noundef %l, ptr noundef null, ptr noundef %call.i.i, ptr noundef null, i32 noundef 0)
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.then9.i.i, %if.end.i.i
@@ -4263,7 +4263,7 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @run_mod(ptr noundef %mod, ptr noundef %filename, ptr noundef %globals, ptr noundef %locals, ptr noundef %flags, ptr noundef %arena, ptr noundef %interactive_src, i32 noundef %generate_new_source) unnamed_addr #0 {
+define internal fastcc ptr @run_mod(ptr noundef %mod, ptr noundef %filename, ptr noundef %globals, ptr noundef %locals, ptr noundef %flags, ptr noundef nonnull %arena, ptr noundef %interactive_src, i32 noundef range(i32 0, 2) %generate_new_source) unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -4297,12 +4297,12 @@ if.end:                                           ; preds = %if.then
 
 if.end7:                                          ; preds = %if.end.i167, %if.else, %if.end
   %interactive_filename.0 = phi ptr [ %call4, %if.end ], [ %filename, %if.else ], [ %filename, %if.end.i167 ]
-  %call8 = tail call ptr @_PyAST_Compile(ptr noundef %mod, ptr noundef nonnull %interactive_filename.0, ptr noundef %flags, i32 noundef -1, ptr noundef %arena) #8
+  %call8 = tail call ptr @_PyAST_Compile(ptr noundef %mod, ptr noundef nonnull %interactive_filename.0, ptr noundef %flags, i32 noundef -1, ptr noundef nonnull %arena) #8
   %cmp9 = icmp eq ptr %call8, null
   br i1 %cmp9, label %if.then12, label %if.then16
 
 if.end7.thread:                                   ; preds = %entry
-  %call885 = tail call ptr @_PyAST_Compile(ptr noundef %mod, ptr noundef %filename, ptr noundef %flags, i32 noundef -1, ptr noundef %arena) #8
+  %call885 = tail call ptr @_PyAST_Compile(ptr noundef %mod, ptr noundef %filename, ptr noundef %flags, i32 noundef -1, ptr noundef nonnull %arena) #8
   %cmp986 = icmp eq ptr %call885, null
   br i1 %cmp986, label %return, label %if.end33
 
@@ -4713,9 +4713,9 @@ declare i32 @PySet_Add(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyException_GetCause(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @print_exception_seen_lookup(ptr nocapture noundef readonly %ctx, ptr noundef %value) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @print_exception_seen_lookup(ptr nocapture noundef nonnull readonly %ctx, ptr noundef nonnull %value) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @PyLong_FromVoidPtr(ptr noundef %value) #8
+  %call = tail call ptr @PyLong_FromVoidPtr(ptr noundef nonnull %value) #8
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -4761,7 +4761,7 @@ return:                                           ; preds = %Py_DECREF.exit, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @print_chained(ptr nocapture noundef readonly %ctx, ptr noundef %value, ptr noundef %message) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @print_chained(ptr nocapture noundef nonnull readonly %ctx, ptr noundef nonnull %value, ptr noundef %message) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -4779,7 +4779,7 @@ _Py_EnterRecursiveCall.exit:                      ; preds = %entry
   br i1 %tobool2.i.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry, %_Py_EnterRecursiveCall.exit
-  %call1 = tail call fastcc i32 @print_exception_recursive(ptr noundef nonnull %ctx, ptr noundef %value)
+  %call1 = tail call fastcc i32 @print_exception_recursive(ptr noundef %ctx, ptr noundef nonnull %value)
   %4 = load ptr, ptr %1, align 8
   %c_recursion_remaining.i.i = getelementptr inbounds i8, ptr %4, i64 44
   %5 = load i32, ptr %c_recursion_remaining.i.i, align 4

@@ -3989,7 +3989,7 @@ entry:
   %serverThread = alloca i64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %client_args, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %server_args, i8 0, i64 24, i1 false)
-  call fastcc void @InitTcpReady(ptr noundef nonnull %ready)
+  call fastcc void @InitTcpReady(ptr noundef %ready)
   %signal = getelementptr inbounds i8, ptr %server_args, i64 24
   store ptr %ready, ptr %signal, align 8
   %callbacks = getelementptr inbounds i8, ptr %server_args, i64 32
@@ -4012,7 +4012,7 @@ if.then.i:                                        ; preds = %entry
 
 start_thread.exit:                                ; preds = %entry
   call void @wait_tcp_ready(ptr noundef nonnull %server_args)
-  call fastcc void @test_client_nofail(ptr noundef nonnull %client_args, ptr noundef %client_on_handshake)
+  call fastcc void @test_client_nofail(ptr noundef %client_args, ptr noundef %client_on_handshake)
   %1 = load i64, ptr %serverThread, align 8
   %call.i3 = call i32 @wolfSSL_JoinThread(i64 noundef %1) #25
   %cmp.not.i4 = icmp eq i32 %call.i3, 0
@@ -4035,12 +4035,12 @@ join_thread.exit:                                 ; preds = %start_thread.exit
   %4 = load i32, ptr %return_code4, align 8
   %return_code5 = getelementptr inbounds i8, ptr %server_cb, i64 84
   store i32 %4, ptr %return_code5, align 4
-  call fastcc void @FreeTcpReady(ptr noundef nonnull %ready)
+  call fastcc void @FreeTcpReady(ptr noundef %ready)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @InitTcpReady(ptr noundef %ready) unnamed_addr #0 {
+define internal fastcc void @InitTcpReady(ptr noundef nonnull %ready) unnamed_addr #0 {
 entry:
   store i16 0, ptr %ready, align 8
   %port = getelementptr inbounds i8, ptr %ready, i64 2
@@ -4132,7 +4132,7 @@ if.end15:                                         ; preds = %if.end12
   br i1 %cmp.not, label %if.end26.thread, label %if.end26
 
 if.end26.thread:                                  ; preds = %if.end15
-  call fastcc void @tcp_accept(ptr noundef nonnull %sockfd, ptr noundef nonnull %clientfd, ptr noundef nonnull %args, i32 noundef 0)
+  call fastcc void @tcp_accept(ptr noundef %sockfd, ptr noundef %clientfd, ptr noundef nonnull %args, i32 noundef 0)
   br label %if.else44
 
 if.end26:                                         ; preds = %if.end12.thread90, %land.lhs.true, %if.end15
@@ -4143,7 +4143,7 @@ if.end26:                                         ; preds = %if.end12.thread90, 
   %bf.lshr24 = lshr i8 %bf.load23, 3
   %bf.clear25 = and i8 %bf.lshr24, 1
   %conv = zext nneg i8 %bf.clear25 to i32
-  call fastcc void @tcp_accept(ptr noundef nonnull %sockfd, ptr noundef nonnull %clientfd, ptr noundef nonnull %args, i32 noundef %conv)
+  call fastcc void @tcp_accept(ptr noundef %sockfd, ptr noundef %clientfd, ptr noundef nonnull %args, i32 noundef %conv)
   %tobool27.not = icmp eq i8 %bf.clear25, 0
   br i1 %tobool27.not, label %if.else44, label %if.then28
 
@@ -4376,7 +4376,7 @@ if.end181:                                        ; preds = %if.then180, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_client_nofail(ptr nocapture noundef %args, ptr noundef readonly %cb) unnamed_addr #0 {
+define internal fastcc void @test_client_nofail(ptr nocapture noundef nonnull %args, ptr noundef readonly %cb) unnamed_addr #0 {
 entry:
   %addr.i = alloca %struct.sockaddr_in, align 4
   %sockfd = alloca i32, align 4
@@ -4426,7 +4426,7 @@ if.end14:                                         ; preds = %if.then11, %if.end
   %2 = load ptr, ptr %signal, align 8
   %port = getelementptr inbounds i8, ptr %2, i64 2
   %3 = load i16, ptr %port, align 2
-  call fastcc void @tcp_connect(ptr noundef nonnull %sockfd, i16 noundef zeroext %3, i32 noundef %doUdp.0, ptr noundef null)
+  call fastcc void @tcp_connect(ptr noundef %sockfd, i16 noundef zeroext %3, i32 noundef %doUdp.0, ptr noundef null)
   %tobool = icmp ne i32 %doUdp.0, 0
   br i1 %tobool, label %if.then15, label %if.end18
 
@@ -4731,7 +4731,7 @@ if.end215:                                        ; preds = %done, %if.then213, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @FreeTcpReady(ptr noundef %ready) unnamed_addr #0 {
+define internal fastcc void @FreeTcpReady(ptr noundef nonnull %ready) unnamed_addr #0 {
 entry:
   %mutex = getelementptr inbounds i8, ptr %ready, i64 16
   %call = tail call i32 @wc_FreeMutex(ptr noundef nonnull %mutex) #25
@@ -22532,7 +22532,7 @@ entry:
   store i64 0, ptr %cert_sz, align 8
   store i32 0, ptr %eccKey, align 4
   store i64 0, ptr %info, align 8
-  %call = call fastcc i32 @load_file(ptr noundef nonnull @.str.7, ptr noundef nonnull %cert_buf, ptr noundef nonnull %cert_sz)
+  %call = call fastcc i32 @load_file(ptr noundef nonnull @.str.7, ptr noundef %cert_buf, ptr noundef %cert_sz)
   %cmp4.not = icmp eq i32 %call, 0
   br i1 %cmp4.not, label %if.then20, label %do.body6
 
@@ -22590,7 +22590,7 @@ if.end46:                                         ; preds = %if.then45, %do.end4
   br i1 %cmp48.not, label %do.end116.critedge, label %if.then49
 
 if.then49:                                        ; preds = %if.end46
-  %call51 = call fastcc i32 @load_file(ptr noundef nonnull @.str.1665, ptr noundef nonnull %cert_buf, ptr noundef nonnull %cert_sz)
+  %call51 = call fastcc i32 @load_file(ptr noundef nonnull @.str.1665, ptr noundef %cert_buf, ptr noundef %cert_sz)
   %cmp56 = icmp eq i32 %call51, 0
   br i1 %cmp56, label %do.end72, label %do.body58
 
@@ -22728,7 +22728,7 @@ entry:
   %cert_sz = alloca i64, align 8
   store ptr null, ptr %cert_buf, align 8
   store i64 0, ptr %cert_sz, align 8
-  %call = call fastcc i32 @load_file(ptr noundef nonnull @.str.5, ptr noundef nonnull %cert_buf, ptr noundef nonnull %cert_sz)
+  %call = call fastcc i32 @load_file(ptr noundef nonnull @.str.5, ptr noundef %cert_buf, ptr noundef %cert_sz)
   %cmp4.not = icmp eq i32 %call, 0
   br i1 %cmp4.not, label %if.then20, label %do.end17
 
@@ -25897,7 +25897,7 @@ do.body60:                                        ; preds = %if.then53
 
 do.end74:                                         ; preds = %if.then53
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %server_args, i8 0, i64 40, i1 false)
-  call fastcc void @InitTcpReady(ptr noundef nonnull %ready)
+  call fastcc void @InitTcpReady(ptr noundef %ready)
   %signal = getelementptr inbounds i8, ptr %server_args, i64 24
   store ptr %ready, ptr %signal, align 8
   %call.i = call i32 @wolfSSL_NewThread(ptr noundef nonnull %serverThread, ptr noundef nonnull @test_server_nofail, ptr noundef nonnull %server_args) #25
@@ -25938,7 +25938,7 @@ do.end95.critedge:                                ; preds = %do.body13.thread, %
   %26 = load ptr, ptr @stdout, align 8
   %call10 = tail call i32 @fflush(ptr noundef %26)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %server_args, i8 0, i64 40, i1 false)
-  call fastcc void @InitTcpReady(ptr noundef nonnull %ready)
+  call fastcc void @InitTcpReady(ptr noundef %ready)
   %signal.c = getelementptr inbounds i8, ptr %server_args, i64 24
   store ptr %ready, ptr %signal.c, align 8
   %call.i67 = call i32 @wolfSSL_NewThread(ptr noundef nonnull %serverThread, ptr noundef nonnull @test_server_nofail, ptr noundef nonnull %server_args) #25
@@ -25960,13 +25960,13 @@ start_thread.exit72:                              ; preds = %do.end95.critedge
 do.end95.thread:                                  ; preds = %do.body83, %start_thread.exit72
   %port84 = getelementptr inbounds i8, ptr %ready, i64 2
   %28 = load i16, ptr %port84, align 2
-  call fastcc void @tcp_connect(ptr noundef nonnull %sockfd, i16 noundef zeroext %28, i32 noundef 0, ptr noundef null)
+  call fastcc void @tcp_connect(ptr noundef %sockfd, i16 noundef zeroext %28, i32 noundef 0, ptr noundef null)
   br label %do.end121
 
 if.then98:                                        ; preds = %start_thread.exit
   %port = getelementptr inbounds i8, ptr %ready, i64 2
   %29 = load i16, ptr %port, align 2
-  call fastcc void @tcp_connect(ptr noundef nonnull %sockfd, i16 noundef zeroext %29, i32 noundef 0, ptr noundef nonnull %call80)
+  call fastcc void @tcp_connect(ptr noundef %sockfd, i16 noundef zeroext %29, i32 noundef 0, ptr noundef nonnull %call80)
   %30 = load i32, ptr %sockfd, align 4
   %call100 = call i32 @wolfSSL_set_fd(ptr noundef nonnull %call80, i32 noundef %30) #25
   %cmp105 = icmp eq i32 %call100, 1
@@ -26163,7 +26163,7 @@ if.then.i75:                                      ; preds = %do.end320
   unreachable
 
 join_thread.exit:                                 ; preds = %do.end320
-  call fastcc void @FreeTcpReady(ptr noundef nonnull %ready)
+  call fastcc void @FreeTcpReady(ptr noundef %ready)
   br i1 %cmp324.not, label %do.end376, label %if.then326
 
 if.then326:                                       ; preds = %join_thread.exit
@@ -27925,48 +27925,48 @@ if.else57.i:                                      ; preds = %if.else47.i
   br i1 %cmp.not.i, label %if.else67.i, label %do.body21.sink.split
 
 if.else67.i:                                      ; preds = %if.else57.i
-  %call74.i = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call, ptr noundef nonnull %arrayidx2.i)
+  %call74.i = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call, ptr noundef %arrayidx2.i)
   %cmp75.not.i = icmp eq i32 %call74.i, 0
   br i1 %cmp75.not.i, label %if.else77.i, label %do.body21
 
 if.else77.i:                                      ; preds = %if.else67.i
-  %call84.i = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call, ptr noundef nonnull %arrayidx12.i)
+  %call84.i = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call, ptr noundef %arrayidx12.i)
   %cmp85.not.i = icmp eq i32 %call84.i, 0
   br i1 %cmp85.not.i, label %if.else87.i, label %do.body21
 
 if.else87.i:                                      ; preds = %if.else77.i
-  %call94.i = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call, ptr noundef nonnull %arrayidx22.i)
+  %call94.i = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call, ptr noundef %arrayidx22.i)
   %cmp95.not.i = icmp eq i32 %call94.i, 0
   br i1 %cmp95.not.i, label %if.else97.i, label %do.body21
 
 if.else97.i:                                      ; preds = %if.else87.i
-  %call104.i = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call, ptr noundef nonnull %arrayidx32.i)
+  %call104.i = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call, ptr noundef %arrayidx32.i)
   %cmp105.not.i = icmp eq i32 %call104.i, 0
   br i1 %cmp105.not.i, label %if.else107.i, label %do.body21
 
 if.else107.i:                                     ; preds = %if.else97.i
-  %call114.i = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call, ptr noundef nonnull %arrayidx42.i)
+  %call114.i = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call, ptr noundef %arrayidx42.i)
   %cmp115.not.i = icmp eq i32 %call114.i, 0
   br i1 %cmp115.not.i, label %if.else117.i, label %do.body21
 
 if.else117.i:                                     ; preds = %if.else107.i
-  %call124.i = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call, ptr noundef nonnull %arrayidx52.i)
+  %call124.i = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call, ptr noundef %arrayidx52.i)
   %cmp125.not.i = icmp eq i32 %call124.i, 0
   br i1 %cmp125.not.i, label %if.else127.i, label %do.body21
 
 if.else127.i:                                     ; preds = %if.else117.i
-  %call134.i = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call, ptr noundef nonnull %arrayidx62.i)
+  %call134.i = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call, ptr noundef %arrayidx62.i)
   %cmp135.not.i = icmp eq i32 %call134.i, 0
   br i1 %cmp135.not.i, label %if.else137.i, label %do.body21
 
 if.else137.i:                                     ; preds = %if.else127.i
   %arrayidx142.i = getelementptr inbounds i8, ptr %chainGArr.i, i64 400
-  %call144.i = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call, ptr noundef nonnull %arrayidx142.i)
+  %call144.i = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call, ptr noundef %arrayidx142.i)
   %cmp145.not.i = icmp eq i32 %call144.i, 0
   br i1 %cmp145.not.i, label %if.else147.i, label %do.body21
 
 if.else147.i:                                     ; preds = %if.else137.i
-  %call154.i = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call, ptr noundef nonnull %arrayidx142.i)
+  %call154.i = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call, ptr noundef %arrayidx142.i)
   %cmp155.not.i = icmp eq i32 %call154.i, 0
   br i1 %cmp155.not.i, label %if.then38, label %do.body21
 
@@ -28074,28 +28074,28 @@ if.else27.i83:                                    ; preds = %if.else17.i81
   br i1 %cmp.not.i188, label %if.else37.i87, label %if.then109.sink.split
 
 if.else37.i87:                                    ; preds = %if.else27.i83
-  %call44.i88 = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call65, ptr noundef nonnull %arrayidx2.i78)
+  %call44.i88 = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call65, ptr noundef %arrayidx2.i78)
   %cmp45.not.i89 = icmp eq i32 %call44.i88, 0
   br i1 %cmp45.not.i89, label %if.else47.i90, label %if.then109
 
 if.else47.i90:                                    ; preds = %if.else37.i87
-  %call54.i91 = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call65, ptr noundef nonnull %arrayidx12.i80)
+  %call54.i91 = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call65, ptr noundef %arrayidx12.i80)
   %cmp55.not.i92 = icmp eq i32 %call54.i91, 0
   br i1 %cmp55.not.i92, label %if.else57.i93, label %if.then109
 
 if.else57.i93:                                    ; preds = %if.else47.i90
-  %call64.i94 = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call65, ptr noundef nonnull %arrayidx22.i82)
+  %call64.i94 = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call65, ptr noundef %arrayidx22.i82)
   %cmp65.not.i95 = icmp eq i32 %call64.i94, 0
   br i1 %cmp65.not.i95, label %if.else67.i96, label %if.then109
 
 if.else67.i96:                                    ; preds = %if.else57.i93
-  %call74.i97 = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call65, ptr noundef nonnull %arrayidx32.i84)
+  %call74.i97 = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call65, ptr noundef %arrayidx32.i84)
   %cmp75.not.i98 = icmp eq i32 %call74.i97, 0
   br i1 %cmp75.not.i98, label %if.else77.i99, label %if.then109
 
 if.else77.i99:                                    ; preds = %if.else67.i96
   %arrayidx82.i = getelementptr inbounds i8, ptr %chainHArr.i, i64 250
-  %call84.i100 = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call65, ptr noundef nonnull %arrayidx82.i)
+  %call84.i100 = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call65, ptr noundef %arrayidx82.i)
   %cmp85.not.i101 = icmp eq i32 %call84.i100, 0
   br i1 %cmp85.not.i101, label %do.body92, label %if.then109
 
@@ -28353,28 +28353,28 @@ if.else27.i138:                                   ; preds = %if.else17.i129
   br i1 %cmp.not.i197, label %if.else37.i142, label %if.then341.sink.split
 
 if.else37.i142:                                   ; preds = %if.else27.i138
-  %call44.i143 = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call297, ptr noundef nonnull %arrayidx2.i112)
+  %call44.i143 = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call297, ptr noundef %arrayidx2.i112)
   %cmp45.not.i144 = icmp eq i32 %call44.i143, 0
   br i1 %cmp45.not.i144, label %if.else47.i145, label %if.then341
 
 if.else47.i145:                                   ; preds = %if.else37.i142
-  %call54.i146 = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call297, ptr noundef nonnull %arrayidx12.i121)
+  %call54.i146 = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call297, ptr noundef %arrayidx12.i121)
   %cmp55.not.i147 = icmp eq i32 %call54.i146, 0
   br i1 %cmp55.not.i147, label %if.else57.i148, label %if.then341
 
 if.else57.i148:                                   ; preds = %if.else47.i145
-  %call64.i149 = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call297, ptr noundef nonnull %arrayidx22.i130)
+  %call64.i149 = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call297, ptr noundef %arrayidx22.i130)
   %cmp65.not.i150 = icmp eq i32 %call64.i149, 0
   br i1 %cmp65.not.i150, label %if.else67.i151, label %if.then341
 
 if.else67.i151:                                   ; preds = %if.else57.i148
-  %call74.i152 = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call297, ptr noundef nonnull %arrayidx32.i139)
+  %call74.i152 = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call297, ptr noundef %arrayidx32.i139)
   %cmp75.not.i153 = icmp eq i32 %call74.i152, 0
   br i1 %cmp75.not.i153, label %if.else77.i154, label %if.then341
 
 if.else77.i154:                                   ; preds = %if.else67.i151
   %arrayidx82.i155 = getelementptr inbounds i8, ptr %chainJArr.i, i64 250
-  %call84.i156 = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call297, ptr noundef nonnull %arrayidx82.i155)
+  %call84.i156 = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call297, ptr noundef %arrayidx82.i155)
   %cmp85.not.i157 = icmp eq i32 %call84.i156, 0
   br i1 %cmp85.not.i157, label %do.body324, label %if.then341
 
@@ -30955,7 +30955,7 @@ entry:
   %cert_sz = alloca i64, align 8
   store ptr null, ptr %cert_buf, align 8
   store i64 0, ptr %cert_sz, align 8
-  %call = call fastcc i32 @load_file(ptr noundef nonnull @.str.1959, ptr noundef nonnull %cert_buf, ptr noundef nonnull %cert_sz)
+  %call = call fastcc i32 @load_file(ptr noundef nonnull @.str.1959, ptr noundef %cert_buf, ptr noundef %cert_sz)
   %cmp4.not = icmp eq i32 %call, 0
   br i1 %cmp4.not, label %do.end17, label %do.end17.thread
 
@@ -31032,7 +31032,7 @@ entry:
   %cert_sz = alloca i64, align 8
   store ptr null, ptr %cert_buf, align 8
   store i64 0, ptr %cert_sz, align 8
-  %call = call fastcc i32 @load_file(ptr noundef nonnull @.str.1966, ptr noundef nonnull %cert_buf, ptr noundef nonnull %cert_sz)
+  %call = call fastcc i32 @load_file(ptr noundef nonnull @.str.1966, ptr noundef %cert_buf, ptr noundef %cert_sz)
   %cmp4.not = icmp eq i32 %call, 0
   br i1 %cmp4.not, label %do.end17, label %do.end17.thread
 
@@ -33698,7 +33698,7 @@ entry:
   %serverThread = alloca i64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %client_args, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %server_args, i8 0, i64 40, i1 false)
-  call fastcc void @InitTcpReady(ptr noundef nonnull %ready)
+  call fastcc void @InitTcpReady(ptr noundef %ready)
   %signal = getelementptr inbounds i8, ptr %server_args, i64 24
   store ptr %ready, ptr %signal, align 8
   %signal1 = getelementptr inbounds i8, ptr %client_args, i64 24
@@ -33717,7 +33717,7 @@ if.then.i:                                        ; preds = %entry
 
 start_thread.exit:                                ; preds = %entry
   call void @wait_tcp_ready(ptr noundef nonnull %server_args)
-  call fastcc void @test_client_nofail(ptr noundef nonnull %client_args, ptr noundef null)
+  call fastcc void @test_client_nofail(ptr noundef %client_args, ptr noundef null)
   %1 = load i64, ptr %serverThread, align 8
   %call.i3 = call i32 @wolfSSL_JoinThread(i64 noundef %1) #25
   %cmp.not.i4 = icmp eq i32 %call.i3, 0
@@ -33762,7 +33762,7 @@ do.end33.sink.split:                              ; preds = %if.then17, %join_th
 
 do.end33:                                         ; preds = %do.end33.sink.split, %if.then17
   %_ret.1 = phi i32 [ 1, %if.then17 ], [ 0, %do.end33.sink.split ]
-  call fastcc void @FreeTcpReady(ptr noundef nonnull %ready)
+  call fastcc void @FreeTcpReady(ptr noundef %ready)
   ret i32 %_ret.1
 }
 
@@ -34172,7 +34172,7 @@ for.body:                                         ; preds = %entry, %for.body
   store ptr @use_SNI_at_ctx, ptr %ctx_ready4, align 8
   store ptr null, ptr %ssl_ready5, align 8
   store ptr @verify_SNI_real_matching, ptr %on_result6, align 8
-  call fastcc void @test_wolfSSL_client_server(ptr noundef nonnull %client_cb, ptr noundef nonnull %server_cb)
+  call fastcc void @test_wolfSSL_client_server(ptr noundef %client_cb, ptr noundef %server_cb)
   %6 = load ptr, ptr @stderr, align 8
   %7 = call i64 @fwrite(ptr nonnull @.str.2107, i64 21, i64 1, ptr %6) #24
   store ptr null, ptr %ctx_ready, align 8
@@ -34181,7 +34181,7 @@ for.body:                                         ; preds = %entry, %for.body
   store ptr null, ptr %ctx_ready4, align 8
   store ptr @use_SNI_at_ssl, ptr %ssl_ready5, align 8
   store ptr @verify_SNI_real_matching, ptr %on_result6, align 8
-  call fastcc void @test_wolfSSL_client_server(ptr noundef nonnull %client_cb, ptr noundef nonnull %server_cb)
+  call fastcc void @test_wolfSSL_client_server(ptr noundef %client_cb, ptr noundef %server_cb)
   %8 = load ptr, ptr @stderr, align 8
   %9 = call i64 @fwrite(ptr nonnull @.str.2108, i64 27, i64 1, ptr %8) #24
   store ptr null, ptr %ctx_ready, align 8
@@ -34190,7 +34190,7 @@ for.body:                                         ; preds = %entry, %for.body
   store ptr null, ptr %ctx_ready4, align 8
   store ptr @use_SNI_at_ssl, ptr %ssl_ready5, align 8
   store ptr @verify_UNKNOWN_SNI_on_server, ptr %on_result6, align 8
-  call fastcc void @test_wolfSSL_client_server(ptr noundef nonnull %client_cb, ptr noundef nonnull %server_cb)
+  call fastcc void @test_wolfSSL_client_server(ptr noundef %client_cb, ptr noundef %server_cb)
   %10 = load ptr, ptr @stderr, align 8
   %11 = call i64 @fwrite(ptr nonnull @.str.2109, i64 22, i64 1, ptr %10) #24
   store ptr null, ptr %ctx_ready, align 8
@@ -34199,7 +34199,7 @@ for.body:                                         ; preds = %entry, %for.body
   store ptr null, ptr %ctx_ready4, align 8
   store ptr @use_SNI_WITH_CONTINUE_at_ssl, ptr %ssl_ready5, align 8
   store ptr @verify_SNI_no_matching, ptr %on_result6, align 8
-  call fastcc void @test_wolfSSL_client_server(ptr noundef nonnull %client_cb, ptr noundef nonnull %server_cb)
+  call fastcc void @test_wolfSSL_client_server(ptr noundef %client_cb, ptr noundef %server_cb)
   %12 = load ptr, ptr @stderr, align 8
   %13 = call i64 @fwrite(ptr nonnull @.str.2110, i64 25, i64 1, ptr %12) #24
   store ptr null, ptr %ctx_ready, align 8
@@ -34208,7 +34208,7 @@ for.body:                                         ; preds = %entry, %for.body
   store ptr null, ptr %ctx_ready4, align 8
   store ptr @use_SNI_WITH_FAKE_ANSWER_at_ssl, ptr %ssl_ready5, align 8
   store ptr @verify_SNI_fake_matching, ptr %on_result6, align 8
-  call fastcc void @test_wolfSSL_client_server(ptr noundef nonnull %client_cb, ptr noundef nonnull %server_cb)
+  call fastcc void @test_wolfSSL_client_server(ptr noundef %client_cb, ptr noundef %server_cb)
   %14 = load ptr, ptr @stderr, align 8
   %15 = call i64 @fwrite(ptr nonnull @.str.2111, i64 21, i64 1, ptr %14) #24
   store ptr @use_SNI_at_ctx, ptr %ctx_ready, align 8
@@ -34216,7 +34216,7 @@ for.body:                                         ; preds = %entry, %for.body
   store ptr @use_MANDATORY_SNI_at_ctx, ptr %ctx_ready4, align 8
   store ptr null, ptr %ssl_ready5, align 8
   store ptr @verify_SNI_real_matching, ptr %on_result6, align 8
-  call fastcc void @test_wolfSSL_client_server(ptr noundef nonnull %client_cb, ptr noundef nonnull %server_cb)
+  call fastcc void @test_wolfSSL_client_server(ptr noundef %client_cb, ptr noundef %server_cb)
   %16 = load ptr, ptr @stderr, align 8
   %17 = call i64 @fwrite(ptr nonnull @.str.2112, i64 37, i64 1, ptr %16) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ctx_ready, i8 0, i64 16, i1 false)
@@ -34224,7 +34224,7 @@ for.body:                                         ; preds = %entry, %for.body
   store ptr @use_MANDATORY_SNI_at_ctx, ptr %ctx_ready4, align 8
   store ptr null, ptr %ssl_ready5, align 8
   store ptr @verify_SNI_ABSENT_on_server, ptr %on_result6, align 8
-  call fastcc void @test_wolfSSL_client_server(ptr noundef nonnull %client_cb, ptr noundef nonnull %server_cb)
+  call fastcc void @test_wolfSSL_client_server(ptr noundef %client_cb, ptr noundef %server_cb)
   %18 = load ptr, ptr @stderr, align 8
   %19 = call i64 @fwrite(ptr nonnull @.str.2113, i64 37, i64 1, ptr %18) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ctx_ready, i8 0, i64 16, i1 false)
@@ -34232,14 +34232,14 @@ for.body:                                         ; preds = %entry, %for.body
   store ptr null, ptr %ctx_ready4, align 8
   store ptr @use_MANDATORY_SNI_at_ssl, ptr %ssl_ready5, align 8
   store ptr @verify_SNI_ABSENT_on_server, ptr %on_result6, align 8
-  call fastcc void @test_wolfSSL_client_server(ptr noundef nonnull %client_cb, ptr noundef nonnull %server_cb)
+  call fastcc void @test_wolfSSL_client_server(ptr noundef %client_cb, ptr noundef %server_cb)
   %20 = load ptr, ptr @stderr, align 8
   %21 = call i64 @fwrite(ptr nonnull @.str.2114, i64 38, i64 1, ptr %20) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ctx_ready, i8 0, i64 24, i1 false)
   store ptr @use_MANDATORY_SNI_at_ctx, ptr %ctx_ready4, align 8
   store ptr @use_SNI_at_ssl, ptr %ssl_ready5, align 8
   store ptr @verify_SNI_no_matching, ptr %on_result6, align 8
-  call fastcc void @test_wolfSSL_client_server(ptr noundef nonnull %client_cb, ptr noundef nonnull %server_cb)
+  call fastcc void @test_wolfSSL_client_server(ptr noundef %client_cb, ptr noundef %server_cb)
   %22 = load ptr, ptr @stderr, align 8
   %23 = call i64 @fwrite(ptr nonnull @.str.2115, i64 46, i64 1, ptr %22) #24
   store ptr null, ptr %ctx_ready, align 8
@@ -34248,7 +34248,7 @@ for.body:                                         ; preds = %entry, %for.body
   store ptr @use_PSEUDO_MANDATORY_SNI_at_ctx, ptr %ctx_ready4, align 8
   store ptr null, ptr %ssl_ready5, align 8
   store ptr @verify_SNI_fake_matching, ptr %on_result6, align 8
-  call fastcc void @test_wolfSSL_client_server(ptr noundef nonnull %client_cb, ptr noundef nonnull %server_cb)
+  call fastcc void @test_wolfSSL_client_server(ptr noundef %client_cb, ptr noundef %server_cb)
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !50
 
 for.end:                                          ; preds = %for.body
@@ -36227,7 +36227,7 @@ declare i32 @wc_InitMutex(ptr noundef) local_unnamed_addr #4
 declare i32 @wolfSSL_CondInit(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tcp_accept(ptr nocapture noundef %sockfd, ptr nocapture noundef writeonly %clientfd, ptr noundef readonly %args, i32 noundef %udp) unnamed_addr #0 {
+define internal fastcc void @tcp_accept(ptr nocapture noundef nonnull %sockfd, ptr nocapture noundef nonnull writeonly %clientfd, ptr noundef readonly %args, i32 noundef range(i32 0, 2) %udp) unnamed_addr #0 {
 entry:
   %on.i.i = alloca i32, align 4
   %addr.i26 = alloca %struct.sockaddr_in, align 4
@@ -36681,7 +36681,7 @@ declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #14
 declare ptr @strerror(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tcp_connect(ptr nocapture noundef %sockfd, i16 noundef zeroext %port, i32 noundef %udp, ptr noundef %ssl) unnamed_addr #0 {
+define internal fastcc void @tcp_connect(ptr nocapture noundef nonnull %sockfd, i16 noundef zeroext %port, i32 noundef range(i32 0, 2) %udp, ptr noundef %ssl) unnamed_addr #0 {
 entry:
   %on.i = alloca i32, align 4
   %addr = alloca %struct.sockaddr_in, align 4
@@ -36875,7 +36875,7 @@ declare i32 @wc_Sha512_224Update(ptr noundef, ptr noundef, i32 noundef) local_un
 declare i32 @wc_Sha512_224Final(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_Sha512_Family_Final(i32 noundef %type, i32 noundef %isRaw) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_Sha512_Family_Final(i32 noundef range(i32 16, 18) %type, i32 noundef range(i32 0, 2) %isRaw) unnamed_addr #0 {
 entry:
   %sha512 = alloca %struct.wc_Sha512, align 8
   %hash_test = alloca [3 x ptr], align 16
@@ -37227,7 +37227,7 @@ declare i32 @wc_SignatureGetSize(i32 noundef, ptr noundef, i32 noundef) local_un
 declare i32 @wc_InitRsaKey_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -244, 1) i32 @load_file(ptr noundef %fname, ptr nocapture noundef writeonly %buf, ptr nocapture noundef %bufLen) unnamed_addr #3 {
+define internal fastcc range(i32 -244, 1) i32 @load_file(ptr noundef %fname, ptr nocapture noundef nonnull writeonly %buf, ptr nocapture noundef nonnull %bufLen) unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %fname, null
   br i1 %cmp, label %return, label %if.end
@@ -37400,7 +37400,7 @@ entry:
   store ptr null, ptr %cert_buf, align 8
   store i64 0, ptr %cert_sz, align 8
   store ptr null, ptr %pDer, align 8
-  %call = call fastcc i32 @load_file(ptr noundef %ca_cert_file, ptr noundef nonnull %cert_buf, ptr noundef nonnull %cert_sz)
+  %call = call fastcc i32 @load_file(ptr noundef %ca_cert_file, ptr noundef %cert_buf, ptr noundef %cert_sz)
   %cmp = icmp eq i32 %call, 0
   %.pre = load ptr, ptr %cert_buf, align 8
   br i1 %cmp, label %if.then, label %if.end19
@@ -37493,7 +37493,7 @@ declare ptr @wolfSSL_CertManagerNew() local_unnamed_addr #4
 declare i32 @wolfSSL_CertManagerLoadCABuffer(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_cm_load_ca_file_ex(ptr noundef %ca_cert_file, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc i32 @test_cm_load_ca_file_ex(ptr noundef %ca_cert_file, i32 noundef range(i32 0, 3) %flags) unnamed_addr #0 {
 entry:
   %cert_buf = alloca ptr, align 8
   %cert_sz = alloca i64, align 8
@@ -37501,7 +37501,7 @@ entry:
   store ptr null, ptr %cert_buf, align 8
   store i64 0, ptr %cert_sz, align 8
   store ptr null, ptr %pDer, align 8
-  %call = call fastcc i32 @load_file(ptr noundef %ca_cert_file, ptr noundef nonnull %cert_buf, ptr noundef nonnull %cert_sz)
+  %call = call fastcc i32 @load_file(ptr noundef %ca_cert_file, ptr noundef %cert_buf, ptr noundef %cert_sz)
   %cmp = icmp eq i32 %call, 0
   %.pre = load ptr, ptr %cert_buf, align 8
   br i1 %cmp, label %if.then, label %if.end19
@@ -37714,23 +37714,23 @@ load_ca_into_cm.exit57:                           ; preds = %if.else17
   br label %return
 
 if.else27:                                        ; preds = %if.else17
-  %call34 = call fastcc i32 @verify_cert_with_cm(ptr noundef %cm, ptr noundef nonnull %arrayidx2)
+  %call34 = call fastcc i32 @verify_cert_with_cm(ptr noundef %cm, ptr noundef %arrayidx2)
   %cmp35.not = icmp eq i32 %call34, 0
   br i1 %cmp35.not, label %if.else37, label %return
 
 if.else37:                                        ; preds = %if.else27
-  %call44 = call fastcc i32 @verify_cert_with_cm(ptr noundef %cm, ptr noundef nonnull %arrayidx12)
+  %call44 = call fastcc i32 @verify_cert_with_cm(ptr noundef %cm, ptr noundef %arrayidx12)
   %cmp45.not = icmp eq i32 %call44, 0
   br i1 %cmp45.not, label %if.else47, label %return
 
 if.else47:                                        ; preds = %if.else37
-  %call54 = call fastcc i32 @verify_cert_with_cm(ptr noundef %cm, ptr noundef nonnull %arrayidx22)
+  %call54 = call fastcc i32 @verify_cert_with_cm(ptr noundef %cm, ptr noundef %arrayidx22)
   %cmp55.not = icmp eq i32 %call54, 0
   br i1 %cmp55.not, label %if.else57, label %return
 
 if.else57:                                        ; preds = %if.else47
   %arrayidx62 = getelementptr inbounds i8, ptr %chainIArr, i64 200
-  %call64 = call fastcc i32 @verify_cert_with_cm(ptr noundef %cm, ptr noundef nonnull %arrayidx62)
+  %call64 = call fastcc i32 @verify_cert_with_cm(ptr noundef %cm, ptr noundef %arrayidx62)
   %cmp65.not = icmp eq i32 %call64, 0
   %. = select i1 %cmp65.not, i32 0, i32 -8
   br label %return
@@ -37741,15 +37741,15 @@ return:                                           ; preds = %load_ca_into_cm.exi
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @verify_cert_with_cm(ptr noundef %cm, ptr noundef %certA) unnamed_addr #9 {
+define internal fastcc range(i32 -1, 1) i32 @verify_cert_with_cm(ptr noundef %cm, ptr noundef nonnull %certA) unnamed_addr #9 {
 entry:
-  %call = tail call i32 @wolfSSL_CertManagerVerify(ptr noundef %cm, ptr noundef %certA, i32 noundef 1) #25
+  %call = tail call i32 @wolfSSL_CertManagerVerify(ptr noundef %cm, ptr noundef nonnull %certA, i32 noundef 1) #25
   %cmp.not = icmp eq i32 %call, 1
   %0 = load ptr, ptr @stderr, align 8
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1824, ptr noundef %certA) #24
+  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1824, ptr noundef nonnull %certA) #24
   %1 = load ptr, ptr @stderr, align 8
   %conv = sext i32 %call to i64
   %call2 = tail call ptr @wolfSSL_ERR_reason_error_string(i64 noundef %conv) #25
@@ -37757,7 +37757,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1825, ptr noundef %certA) #24
+  %call4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1825, ptr noundef nonnull %certA) #24
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -38020,7 +38020,7 @@ do.end60:                                         ; preds = %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_wolfSSL_client_server(ptr nocapture noundef %client_callbacks, ptr noundef %server_callbacks) unnamed_addr #0 {
+define internal fastcc void @test_wolfSSL_client_server(ptr nocapture noundef nonnull %client_callbacks, ptr noundef nonnull %server_callbacks) unnamed_addr #0 {
 entry:
   %sfd.i = alloca i32, align 4
   %msg.i = alloca [22 x i8], align 16
@@ -38032,7 +38032,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %server_args, i8 0, i64 24, i1 false)
   %callbacks1 = getelementptr inbounds i8, ptr %server_args, i64 32
   store ptr %server_callbacks, ptr %callbacks1, align 8
-  call fastcc void @InitTcpReady(ptr noundef nonnull %ready)
+  call fastcc void @InitTcpReady(ptr noundef %ready)
   %signal = getelementptr inbounds i8, ptr %server_args, i64 24
   store ptr %ready, ptr %signal, align 8
   %call.i = call i32 @wolfSSL_NewThread(ptr noundef nonnull %serverThread, ptr noundef nonnull @run_wolfssl_server, ptr noundef nonnull %server_args) #25
@@ -38152,7 +38152,7 @@ if.end52.i:                                       ; preds = %if.then50.i, %if.en
   %port58.i = getelementptr inbounds i8, ptr %ready, i64 2
   %14 = load i16, ptr %port58.i, align 2
   %..i = zext i1 %tobool55.not.i to i32
-  call fastcc void @tcp_connect(ptr noundef nonnull %sfd.i, i16 noundef zeroext %14, i32 noundef %..i, ptr noundef %call53.i)
+  call fastcc void @tcp_connect(ptr noundef %sfd.i, i16 noundef zeroext %14, i32 noundef %..i, ptr noundef %call53.i)
   %15 = load i32, ptr %sfd.i, align 4
   %call60.i = call i32 @wolfSSL_set_fd(ptr noundef %call53.i, i32 noundef %15) #25
   %cmp61.not.i = icmp eq i32 %call60.i, 1
@@ -38273,7 +38273,7 @@ if.then.i7:                                       ; preds = %run_wolfssl_client.
   unreachable
 
 join_thread.exit:                                 ; preds = %run_wolfssl_client.exit
-  call fastcc void @FreeTcpReady(ptr noundef nonnull %ready)
+  call fastcc void @FreeTcpReady(ptr noundef %ready)
   %return_code3 = getelementptr inbounds i8, ptr %client_callbacks, i64 84
   store i32 %client_args.sroa.1.1, ptr %return_code3, align 4
   %return_code4 = getelementptr inbounds i8, ptr %server_args, i64 16
@@ -38639,7 +38639,7 @@ entry:
   %conv = trunc i64 %call to i32
   %return_code = getelementptr inbounds i8, ptr %args, i64 16
   store i32 0, ptr %return_code, align 8
-  call fastcc void @tcp_accept(ptr noundef nonnull %sfd, ptr noundef nonnull %cfd, ptr noundef %args, i32 noundef 0)
+  call fastcc void @tcp_accept(ptr noundef %sfd, ptr noundef %cfd, ptr noundef %args, i32 noundef 0)
   %1 = load ptr, ptr %0, align 8
   %call2 = tail call ptr %1() #25
   %call3 = tail call ptr @wolfSSL_CTX_new(ptr noundef %call2) #25

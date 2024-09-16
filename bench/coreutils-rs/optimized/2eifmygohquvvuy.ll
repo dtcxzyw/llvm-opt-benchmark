@@ -328,7 +328,7 @@ define hidden void @"_ZN120_$LT$$LP$A$C$B$C$C$C$D$C$E$C$F$C$G$C$H$C$I$C$J$C$K$C$
 "_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E.exit213": ; preds = %"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E.exit204"
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %28)
   %113 = getelementptr inbounds i8, ptr %1, i64 192
-  call fastcc void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %28, ptr noalias noundef nonnull align 8 dereferenceable(32) %113, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  call fastcc void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %28, ptr noalias noundef align 8 dereferenceable(32) %113, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %114 = load i64, ptr %28, align 8, !range !264, !noundef !28
   %115 = icmp ne i64 %114, 0
   %116 = getelementptr inbounds i8, ptr %28, i64 8
@@ -344,7 +344,7 @@ define hidden void @"_ZN120_$LT$$LP$A$C$B$C$C$C$D$C$E$C$F$C$G$C$H$C$I$C$J$C$K$C$
 120:                                              ; preds = %"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E.exit213"
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %27)
   %121 = getelementptr inbounds i8, ptr %1, i64 224
-  call fastcc void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %27, ptr noalias noundef nonnull align 8 dereferenceable(32) %121, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  call fastcc void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %27, ptr noalias noundef align 8 dereferenceable(32) %121, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %122 = load i64, ptr %27, align 8, !range !264, !noundef !28
   %123 = icmp ne i64 %122, 0
   %124 = getelementptr inbounds i8, ptr %27, i64 8
@@ -360,7 +360,7 @@ define hidden void @"_ZN120_$LT$$LP$A$C$B$C$C$C$D$C$E$C$F$C$G$C$H$C$I$C$J$C$K$C$
 128:                                              ; preds = %120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26)
   %129 = getelementptr inbounds i8, ptr %1, i64 256
-  call fastcc void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %26, ptr noalias noundef nonnull align 8 dereferenceable(32) %129, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  call fastcc void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %26, ptr noalias noundef align 8 dereferenceable(32) %129, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %130 = load i64, ptr %26, align 8, !range !264, !noundef !28
   %131 = icmp ne i64 %130, 0
   %132 = getelementptr inbounds i8, ptr %26, i64 8
@@ -376,7 +376,7 @@ define hidden void @"_ZN120_$LT$$LP$A$C$B$C$C$C$D$C$E$C$F$C$G$C$H$C$I$C$J$C$K$C$
 136:                                              ; preds = %128
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25)
   %137 = getelementptr inbounds i8, ptr %1, i64 288
-  call fastcc void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %25, ptr noalias noundef nonnull align 8 dereferenceable(32) %137, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  call fastcc void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %25, ptr noalias noundef align 8 dereferenceable(32) %137, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %138 = load i64, ptr %25, align 8, !range !264, !noundef !28
   %139 = icmp ne i64 %138, 0
   %140 = getelementptr inbounds i8, ptr %25, i64 8
@@ -392,7 +392,7 @@ define hidden void @"_ZN120_$LT$$LP$A$C$B$C$C$C$D$C$E$C$F$C$G$C$H$C$I$C$J$C$K$C$
 144:                                              ; preds = %136
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24)
   %145 = getelementptr inbounds i8, ptr %1, i64 320
-  call fastcc void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %24, ptr noalias noundef nonnull align 8 dereferenceable(32) %145, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  call fastcc void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %24, ptr noalias noundef align 8 dereferenceable(32) %145, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %146 = load i64, ptr %24, align 8, !range !264, !noundef !28
   %147 = icmp ne i64 %146, 0
   %148 = getelementptr inbounds i8, ptr %24, i64 8
@@ -408,7 +408,7 @@ define hidden void @"_ZN120_$LT$$LP$A$C$B$C$C$C$D$C$E$C$F$C$G$C$H$C$I$C$J$C$K$C$
 152:                                              ; preds = %144
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23)
   %153 = getelementptr inbounds i8, ptr %1, i64 352
-  call fastcc void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %23, ptr noalias noundef nonnull align 8 dereferenceable(32) %153, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  call fastcc void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %23, ptr noalias noundef align 8 dereferenceable(32) %153, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %154 = load i64, ptr %23, align 8, !range !264, !noundef !28
   %155 = icmp ne i64 %154, 0
   %156 = getelementptr inbounds i8, ptr %23, i64 8
@@ -608,7 +608,7 @@ define hidden void @"_ZN3nom10combinator9recognize28_$u7b$$u7b$closure$u7d$$u7d$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$$LP$$RF$$u5b$u8$u5d$$C$core..result..Result$LT$uu_tr..operation..Sequence$C$uu_tr..operation..BadSequence$GT$$RP$$C$nom..internal..Err$LT$nom..error..Error$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17he4c9636a7a4849b4E"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$$LP$$RF$$u5b$u8$u5d$$C$core..result..Result$LT$uu_tr..operation..Sequence$C$uu_tr..operation..BadSequence$GT$$RP$$C$nom..internal..Err$LT$nom..error..Error$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17he4c9636a7a4849b4E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !264, !noundef !28
   %4 = icmp eq i64 %3, 0
@@ -717,7 +717,7 @@ define hidden void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he14254f6e8d64029E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, { ptr, i64 } }, align 8
   %6 = alloca i64, align 8
   %7 = alloca { { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }, align 8
@@ -979,7 +979,7 @@ define hidden void @"_ZN80_$LT$$LP$A$C$B$RP$$u20$as$u20$nom..branch..Alt$LT$Inpu
   br i1 %.not54, label %60, label %"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$$LP$$RF$$u5b$u8$u5d$$C$core..result..Result$LT$uu_tr..operation..Sequence$C$uu_tr..operation..BadSequence$GT$$RP$$C$nom..internal..Err$LT$nom..error..Error$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17he4c9636a7a4849b4E.exit37"
 
 59:                                               ; preds = %18
-  invoke fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$$LP$$RF$$u5b$u8$u5d$$C$core..result..Result$LT$uu_tr..operation..Sequence$C$uu_tr..operation..BadSequence$GT$$RP$$C$nom..internal..Err$LT$nom..error..Error$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17he4c9636a7a4849b4E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11) #9
+  invoke fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$$LP$$RF$$u5b$u8$u5d$$C$core..result..Result$LT$uu_tr..operation..Sequence$C$uu_tr..operation..BadSequence$GT$$RP$$C$nom..internal..Err$LT$nom..error..Error$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17he4c9636a7a4849b4E"(ptr noalias noundef align 8 dereferenceable(48) %11) #9
           to label %74 unwind label %55
 
 "_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$$LP$$RF$$u5b$u8$u5d$$C$core..result..Result$LT$uu_tr..operation..Sequence$C$uu_tr..operation..BadSequence$GT$$RP$$C$nom..internal..Err$LT$nom..error..Error$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17he4c9636a7a4849b4E.exit37": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd293d72c5dda3819E.exit.i.i.i.i36", %63, %60, %.thread50, %57

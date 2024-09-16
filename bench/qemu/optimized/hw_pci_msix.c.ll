@@ -357,7 +357,7 @@ lor.lhs.false:                                    ; preds = %entry
   %add.i.i = add nsw i64 %conv1, -1
   %sub.i.i = add nsw i64 %add.i.i, %conv2
   %cmp1.i = icmp ugt i64 %add, %sub.i.i
-  %narrow.i.not = or i1 %cmp.not.i, %cmp1.i
+  %narrow.i.not = select i1 %cmp.not.i, i1 true, i1 %cmp1.i
   br i1 %narrow.i.not, label %for.end, label %msix_enabled.exit
 
 msix_enabled.exit:                                ; preds = %lor.lhs.false
@@ -605,7 +605,7 @@ land.lhs.true:                                    ; preds = %if.end6
   %sub.i4.i = add nsw i64 %add.i3.i, %conv17
   %cmp.i = icmp ult i64 %sub.i4.i, %conv15
   %cmp2.i = icmp ult i64 %sub.i.i, %conv17
-  %.not.i.not = or i1 %cmp2.i, %cmp.i
+  %.not.i.not = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %.not.i.not, label %lor.lhs.false20, label %if.then34
 
 lor.lhs.false20:                                  ; preds = %land.lhs.true, %if.end6
@@ -808,7 +808,7 @@ entry:
   %narrow = tail call i32 @llvm.umax.i32(i32 %add8, i32 4096)
   %bar_size.0 = zext nneg i32 %narrow to i64
   %sub.i = add nsw i64 %bar_size.0, -1
-  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 true)
+  %0 = tail call range(i64 43, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 true)
   %sub2.i = add nuw nsw i64 %0, 4294967295
   %sh_prom.i = and i64 %sub2.i, 4294967295
   %shr.i = lshr exact i64 -9223372036854775808, %sh_prom.i

@@ -1719,7 +1719,7 @@ define internal fastcc i32 @LZ4_decompress_safe_withPrefix64k(ptr noundef %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc i32 @LZ4_decompress_safe_withSmallPrefix(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @LZ4_decompress_safe_withSmallPrefix(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef range(i64 -2147483648, 2147483648) %4) unnamed_addr #0 align 16 {
   %6 = sub nsw i64 0, %4
   %7 = getelementptr i8, ptr %1, i64 %6
   %8 = sext i32 %2 to i64

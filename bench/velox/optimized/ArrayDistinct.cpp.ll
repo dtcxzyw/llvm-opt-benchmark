@@ -3578,7 +3578,7 @@ invoke.cont11:                                    ; preds = %if.then
   %vector_.i = getelementptr inbounds i8, ptr %singleRow, i64 8
   %5 = load ptr, ptr %vector_.i, align 8
   %call8.val = load ptr, ptr %valueVector_.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIbE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %5, ptr %call8.val, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIbE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %5, ptr %call8.val, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont15 unwind label %lpad12
 
 invoke.cont15:                                    ; preds = %invoke.cont11
@@ -4134,7 +4134,7 @@ ehcleanup:                                        ; preds = %lpad20, %lpad12
   br label %ehcleanup27
 
 if.else:                                          ; preds = %entry
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIbE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIbE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %if.else
@@ -4608,7 +4608,7 @@ lpad:                                             ; preds = %_ZN8facebook5velox4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIbE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %arg.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIbE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %arg.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp24.i.i.i = alloca %class.anon.237, align 8
   %agg.tmp3.i.i.i = alloca %class.anon.236, align 8
@@ -12888,7 +12888,7 @@ invoke.cont:                                      ; preds = %if.then
   %vector_.i = getelementptr inbounds i8, ptr %singleRow, i64 8
   %5 = load ptr, ptr %vector_.i, align 8
   %call6.val = load ptr, ptr %valueVector_.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIiE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %5, ptr %call6.val, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIiE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %5, ptr %call6.val, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont
@@ -13444,7 +13444,7 @@ ehcleanup:                                        ; preds = %lpad14, %lpad9
   br label %ehcleanup21
 
 if.else:                                          ; preds = %entry
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIiE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIiE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %if.else
@@ -13688,7 +13688,7 @@ ehcleanup21:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIiE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %arg.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIiE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %arg.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp24.i.i.i = alloca %class.anon.304, align 8
   %agg.tmp3.i.i.i = alloca %class.anon.303, align 8
@@ -15991,7 +15991,7 @@ invoke.cont:                                      ; preds = %if.then
   %vector_.i = getelementptr inbounds i8, ptr %singleRow, i64 8
   %5 = load ptr, ptr %vector_.i, align 8
   %call6.val = load ptr, ptr %valueVector_.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIaE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %5, ptr %call6.val, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIaE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %5, ptr %call6.val, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont
@@ -16547,7 +16547,7 @@ ehcleanup:                                        ; preds = %lpad14, %lpad9
   br label %ehcleanup21
 
 if.else:                                          ; preds = %entry
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIaE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIaE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %if.else
@@ -16791,7 +16791,7 @@ ehcleanup21:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIaE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %arg.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIaE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %arg.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp24.i.i.i = alloca %class.anon.354, align 8
   %agg.tmp3.i.i.i = alloca %class.anon.353, align 8
@@ -19075,7 +19075,7 @@ invoke.cont:                                      ; preds = %if.then
   %vector_.i = getelementptr inbounds i8, ptr %singleRow, i64 8
   %5 = load ptr, ptr %vector_.i, align 8
   %call6.val = load ptr, ptr %valueVector_.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIsE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %5, ptr %call6.val, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIsE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %5, ptr %call6.val, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont
@@ -19631,7 +19631,7 @@ ehcleanup:                                        ; preds = %lpad14, %lpad9
   br label %ehcleanup21
 
 if.else:                                          ; preds = %entry
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIsE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIsE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %if.else
@@ -19875,7 +19875,7 @@ ehcleanup21:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIsE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %arg.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIsE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %arg.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp24.i.i.i = alloca %class.anon.406, align 8
   %agg.tmp3.i.i.i = alloca %class.anon.405, align 8
@@ -22166,7 +22166,7 @@ invoke.cont:                                      ; preds = %if.then
   %vector_.i = getelementptr inbounds i8, ptr %singleRow, i64 8
   %5 = load ptr, ptr %vector_.i, align 8
   %call6.val = load ptr, ptr %valueVector_.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIlE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %5, ptr %call6.val, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIlE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %5, ptr %call6.val, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont
@@ -22722,7 +22722,7 @@ ehcleanup:                                        ; preds = %lpad14, %lpad9
   br label %ehcleanup21
 
 if.else:                                          ; preds = %entry
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIlE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIlE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %if.else
@@ -22966,7 +22966,7 @@ ehcleanup21:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIlE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %arg.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIlE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %arg.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp24.i.i.i = alloca %class.anon.457, align 8
   %agg.tmp3.i.i.i = alloca %class.anon.456, align 8
@@ -25257,7 +25257,7 @@ invoke.cont:                                      ; preds = %if.then
   %vector_.i = getelementptr inbounds i8, ptr %singleRow, i64 8
   %5 = load ptr, ptr %vector_.i, align 8
   %call6.val = load ptr, ptr %valueVector_.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionInE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %5, ptr %call6.val, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionInE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %5, ptr %call6.val, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont
@@ -25813,7 +25813,7 @@ ehcleanup:                                        ; preds = %lpad14, %lpad9
   br label %ehcleanup21
 
 if.else:                                          ; preds = %entry
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionInE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionInE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %if.else
@@ -26057,7 +26057,7 @@ ehcleanup21:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionInE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %arg.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionInE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %arg.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp24.i.i.i = alloca %class.anon.508, align 8
   %agg.tmp3.i.i.i = alloca %class.anon.507, align 8
@@ -28342,7 +28342,7 @@ invoke.cont:                                      ; preds = %if.then
   %vector_.i = getelementptr inbounds i8, ptr %singleRow, i64 8
   %5 = load ptr, ptr %vector_.i, align 8
   %call6.val = load ptr, ptr %valueVector_.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIfE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %5, ptr %call6.val, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIfE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %5, ptr %call6.val, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont
@@ -28898,7 +28898,7 @@ ehcleanup:                                        ; preds = %lpad14, %lpad9
   br label %ehcleanup21
 
 if.else:                                          ; preds = %entry
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIfE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIfE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %if.else
@@ -29142,7 +29142,7 @@ ehcleanup21:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIfE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %arg.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIfE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %arg.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp24.i.i.i = alloca %class.anon.558, align 8
   %agg.tmp3.i.i.i = alloca %class.anon.557, align 8
@@ -31485,7 +31485,7 @@ invoke.cont:                                      ; preds = %if.then
   %vector_.i = getelementptr inbounds i8, ptr %singleRow, i64 8
   %5 = load ptr, ptr %vector_.i, align 8
   %call6.val = load ptr, ptr %valueVector_.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIdE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %5, ptr %call6.val, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIdE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %5, ptr %call6.val, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont
@@ -32041,7 +32041,7 @@ ehcleanup:                                        ; preds = %lpad14, %lpad9
   br label %ehcleanup21
 
 if.else:                                          ; preds = %entry
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIdE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIdE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %if.else
@@ -32285,7 +32285,7 @@ ehcleanup21:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIdE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %arg.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionIdE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %arg.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp24.i.i.i = alloca %class.anon.608, align 8
   %agg.tmp3.i.i.i = alloca %class.anon.607, align 8
@@ -34616,7 +34616,7 @@ invoke.cont:                                      ; preds = %if.then
   %vector_.i = getelementptr inbounds i8, ptr %singleRow, i64 8
   %5 = load ptr, ptr %vector_.i, align 8
   %call6.val = load ptr, ptr %valueVector_.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionINS0_10StringViewEE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %5, ptr %call6.val, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionINS0_10StringViewEE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %5, ptr %call6.val, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont
@@ -35172,7 +35172,7 @@ ehcleanup:                                        ; preds = %lpad14, %lpad9
   br label %ehcleanup21
 
 if.else:                                          ; preds = %entry
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionINS0_10StringViewEE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionINS0_10StringViewEE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %if.else
@@ -35416,7 +35416,7 @@ ehcleanup21:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionINS0_10StringViewEE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %arg.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionINS0_10StringViewEE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %arg.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp24.i.i.i = alloca %class.anon.660, align 8
   %agg.tmp3.i.i.i = alloca %class.anon.659, align 8
@@ -37864,7 +37864,7 @@ invoke.cont:                                      ; preds = %if.then
   %vector_.i = getelementptr inbounds i8, ptr %singleRow, i64 8
   %5 = load ptr, ptr %vector_.i, align 8
   %call6.val = load ptr, ptr %valueVector_.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionINS0_9TimestampEE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %5, ptr %call6.val, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionINS0_9TimestampEE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(38) %5, ptr %call6.val, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont
@@ -38420,7 +38420,7 @@ ehcleanup:                                        ; preds = %lpad14, %lpad9
   br label %ehcleanup21
 
 if.else:                                          ; preds = %entry
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionINS0_9TimestampEE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %context)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionINS0_9TimestampEE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %context)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %if.else
@@ -38664,7 +38664,7 @@ ehcleanup21:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionINS0_9TimestampEE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %arg.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121ArrayDistinctFunctionINS0_9TimestampEE9applyFlatERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_4exec7EvalCtxE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %arg.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp24.i.i.i = alloca %class.anon.709, align 8
   %agg.tmp3.i.i.i = alloca %class.anon.708, align 8

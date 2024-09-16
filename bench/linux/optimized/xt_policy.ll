@@ -326,7 +326,7 @@ define internal noundef range(i32 -22, 1) i32 @policy_mt_check(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal fastcc zeroext i1 @match_xfrm_state(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) unnamed_addr #4 align 16 {
+define internal fastcc zeroext i1 @match_xfrm_state(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext range(i16 0, 256) %2) unnamed_addr #4 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 74
   %5 = load i8, ptr %4, align 2
   %6 = and i8 %5, 1
@@ -336,9 +336,10 @@ define internal fastcc zeroext i1 @match_xfrm_state(ptr nocapture noundef readon
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = getelementptr inbounds i8, ptr %0, i64 228
-  switch i16 %2, label %._crit_edge [
-    i16 2, label %15
-    i16 10, label %22
+  %trunc = trunc nuw i16 %2 to i8
+  switch i8 %trunc, label %._crit_edge [
+    i8 2, label %15
+    i8 10, label %22
   ]
 
 ._crit_edge:                                      ; preds = %8
@@ -393,12 +394,13 @@ define internal fastcc zeroext i1 @match_xfrm_state(ptr nocapture noundef readon
   %49 = getelementptr inbounds i8, ptr %1, i64 32
   %50 = getelementptr inbounds i8, ptr %1, i64 48
   %51 = getelementptr inbounds i8, ptr %0, i64 80
-  switch i16 %2, label %._crit_edge1 [
-    i16 2, label %56
-    i16 10, label %63
+  %trunc1 = trunc nuw i16 %2 to i8
+  switch i8 %trunc1, label %._crit_edge2 [
+    i8 2, label %56
+    i8 10, label %63
   ]
 
-._crit_edge1:                                     ; preds = %48
+._crit_edge2:                                     ; preds = %48
   %52 = getelementptr inbounds i8, ptr %1, i64 75
   %53 = load i8, ptr %52, align 1
   %54 = and i8 %53, 2
@@ -441,7 +443,7 @@ define internal fastcc zeroext i1 @match_xfrm_state(ptr nocapture noundef readon
   %85 = xor i1 %80, %84
   br i1 %85, label %142, label %86
 
-86:                                               ; preds = %._crit_edge1, %79, %45
+86:                                               ; preds = %._crit_edge2, %79, %45
   %87 = and i8 %5, 4
   %88 = icmp eq i8 %87, 0
   br i1 %88, label %100, label %89
@@ -513,8 +515,8 @@ define internal fastcc zeroext i1 @match_xfrm_state(ptr nocapture noundef readon
   %141 = xor i1 %136, %140
   br label %142
 
-142:                                              ; preds = %._crit_edge1, %._crit_edge, %131, %128, %117, %103, %89, %79, %38
-  %143 = phi i1 [ false, %117 ], [ false, %103 ], [ false, %89 ], [ false, %79 ], [ false, %38 ], [ true, %128 ], [ %141, %131 ], [ false, %._crit_edge ], [ false, %._crit_edge1 ]
+142:                                              ; preds = %._crit_edge2, %._crit_edge, %131, %128, %117, %103, %89, %79, %38
+  %143 = phi i1 [ false, %117 ], [ false, %103 ], [ false, %89 ], [ false, %79 ], [ false, %38 ], [ true, %128 ], [ %141, %131 ], [ false, %._crit_edge ], [ false, %._crit_edge2 ]
   ret i1 %143
 }
 

@@ -158,7 +158,7 @@ land.lhs.true:                                    ; preds = %throughput_string.e
   br i1 %tobool41.not, label %if.end44, label %if.then42
 
 if.then42:                                        ; preds = %land.lhs.true
-  tail call fastcc void @display(ptr noundef nonnull %progress, i64 noundef %14, ptr noundef null)
+  tail call fastcc void @display(ptr noundef %progress, i64 noundef %14, ptr noundef null)
   br label %if.end44
 
 if.end44:                                         ; preds = %if.end5, %entry, %if.then42, %land.lhs.true, %throughput_string.exit, %if.then2
@@ -170,7 +170,7 @@ declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare void @strbuf_init(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @display(ptr noundef %progress, i64 noundef %n, ptr noundef %done) unnamed_addr #1 {
+define internal fastcc void @display(ptr noundef nonnull %progress, i64 noundef %n, ptr noundef %done) unnamed_addr #1 {
 entry:
   %counters_sb1 = getelementptr inbounds i8, ptr %progress, i64 56
   %len = getelementptr inbounds i8, ptr %progress, i64 64
@@ -359,7 +359,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @display(ptr noundef nonnull %progress, i64 noundef %n, ptr noundef null)
+  tail call fastcc void @display(ptr noundef %progress, i64 noundef %n, ptr noundef null)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -386,7 +386,7 @@ get_default_delay.exit:                           ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @start_progress_delay(ptr noundef %title, i64 noundef %total, i32 noundef %delay, i32 noundef %sparse) unnamed_addr #1 {
+define internal fastcc noundef ptr @start_progress_delay(ptr noundef %title, i64 noundef %total, i32 noundef %delay, i32 noundef range(i32 0, 2) %sparse) unnamed_addr #1 {
 entry:
   %sa.i = alloca %struct.sigaction, align 8
   %v.i = alloca %struct.itimerval, align 8
@@ -507,13 +507,13 @@ land.lhs.true.i:                                  ; preds = %if.end3
   %total.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %total.i, align 8
   %cmp.not.i = icmp eq i64 %2, %3
-  br i1 %cmp.not.i, label %finish_if_sparse.exit, label %display_progress.exit.i
+  br i1 %cmp.not.i, label %finish_if_sparse.exit, label %if.then.i
 
-display_progress.exit.i:                          ; preds = %land.lhs.true.i
-  tail call fastcc void @display(ptr noundef nonnull %0, i64 noundef %3, ptr noundef null)
+if.then.i:                                        ; preds = %land.lhs.true.i
+  tail call fastcc void @display(ptr noundef %0, i64 noundef %3, ptr noundef null)
   br label %finish_if_sparse.exit
 
-finish_if_sparse.exit:                            ; preds = %if.end3, %land.lhs.true.i, %display_progress.exit.i
+finish_if_sparse.exit:                            ; preds = %if.end3, %land.lhs.true.i, %if.then.i
   %last_value = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %last_value, align 8
   %cmp.not = icmp eq i64 %4, -1
@@ -523,21 +523,21 @@ if.then4:                                         ; preds = %finish_if_sparse.ex
   %throughput.i = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %throughput.i, align 8
   %tobool.not.i13 = icmp eq ptr %5, null
-  br i1 %tobool.not.i13, label %force_last_update.exit, label %if.then.i
+  br i1 %tobool.not.i13, label %force_last_update.exit, label %if.then.i14
 
-if.then.i:                                        ; preds = %if.then4
+if.then.i14:                                      ; preds = %if.then4
   %6 = load i32, ptr @progress_testing, align 4
   %tobool.not.i.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %if.then.i
+if.then.i.i:                                      ; preds = %if.then.i14
   %start_ns.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load i64, ptr %start_ns.i.i, align 8
   %8 = load i64, ptr @progress_test_ns, align 8
   %add.i.i = add i64 %8, %7
   br label %progress_getnanotime.exit.i
 
-if.else.i.i:                                      ; preds = %if.then.i
+if.else.i.i:                                      ; preds = %if.then.i14
   %call.i.i = tail call i64 @getnanotime() #11
   %start_ns.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 48
   %.pre.i = load i64, ptr %start_ns.phi.trans.insert.i, align 8
@@ -578,35 +578,35 @@ force_last_update.exit:                           ; preds = %if.then4, %throughp
   store volatile i32 1, ptr @progress_update, align 4
   %call5.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.15, ptr noundef %msg) #11
   %12 = load i64, ptr %last_value, align 8
-  tail call fastcc void @display(ptr noundef nonnull %0, i64 noundef %12, ptr noundef %call5.i)
+  tail call fastcc void @display(ptr noundef %0, i64 noundef %12, ptr noundef %call5.i)
   tail call void @free(ptr noundef %call5.i) #11
   br label %if.end5
 
 if.end5:                                          ; preds = %force_last_update.exit, %finish_if_sparse.exit
   %13 = load ptr, ptr @the_repository, align 8
-  %total.i15 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = load i64, ptr %total.i15, align 8
+  %total.i16 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = load i64, ptr %total.i16, align 8
   tail call void @trace2_data_intmax_fl(ptr noundef nonnull @.str, i32 noundef 342, ptr noundef nonnull @.str.13, ptr noundef %13, ptr noundef nonnull @.str.16, i64 noundef %14) #11
-  %throughput.i16 = getelementptr inbounds i8, ptr %0, i64 40
-  %15 = load ptr, ptr %throughput.i16, align 8
-  %tobool.not.i17 = icmp eq ptr %15, null
-  br i1 %tobool.not.i17, label %log_trace2.exit, label %if.then.i18
+  %throughput.i17 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = load ptr, ptr %throughput.i17, align 8
+  %tobool.not.i18 = icmp eq ptr %15, null
+  br i1 %tobool.not.i18, label %log_trace2.exit, label %if.then.i19
 
-if.then.i18:                                      ; preds = %if.end5
+if.then.i19:                                      ; preds = %if.end5
   %16 = load ptr, ptr @the_repository, align 8
   %17 = load i64, ptr %15, align 8
   tail call void @trace2_data_intmax_fl(ptr noundef nonnull @.str, i32 noundef 346, ptr noundef nonnull @.str.13, ptr noundef %16, ptr noundef nonnull @.str.17, i64 noundef %17) #11
   br label %log_trace2.exit
 
-log_trace2.exit:                                  ; preds = %if.end5, %if.then.i18
+log_trace2.exit:                                  ; preds = %if.end5, %if.then.i19
   %18 = load ptr, ptr %0, align 8
   %19 = load ptr, ptr @the_repository, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 348, ptr noundef nonnull @.str.13, ptr noundef %18, ptr noundef %19) #11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %v.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %v.i, i8 0, i64 32, i1 false)
   %20 = load i32, ptr @progress_testing, align 4
-  %tobool.not.i19 = icmp eq i32 %20, 0
-  br i1 %tobool.not.i19, label %if.end.i, label %clear_progress_signal.exit
+  %tobool.not.i20 = icmp eq i32 %20, 0
+  br i1 %tobool.not.i20, label %if.end.i, label %clear_progress_signal.exit
 
 if.end.i:                                         ; preds = %log_trace2.exit
   %call.i = call i32 @setitimer(i32 noundef 0, ptr noundef nonnull %v.i, ptr noundef null) #11
@@ -618,14 +618,14 @@ clear_progress_signal.exit:                       ; preds = %log_trace2.exit, %i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %v.i)
   %counters_sb = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @strbuf_release(ptr noundef nonnull %counters_sb) #11
-  %21 = load ptr, ptr %throughput.i16, align 8
+  %21 = load ptr, ptr %throughput.i17, align 8
   %tobool6.not = icmp eq ptr %21, null
   br i1 %tobool6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %clear_progress_signal.exit
   %display = getelementptr inbounds i8, ptr %21, i64 104
   tail call void @strbuf_release(ptr noundef nonnull %display) #11
-  %.pre = load ptr, ptr %throughput.i16, align 8
+  %.pre = load ptr, ptr %throughput.i17, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %clear_progress_signal.exit

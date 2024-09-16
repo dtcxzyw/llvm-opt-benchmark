@@ -655,7 +655,7 @@ alloc_var.exit.i13:                               ; preds = %10
 
 48:                                               ; preds = %46, %.loopexit
   %.010 = phi i32 [ %47, %46 ], [ %1, %.loopexit ]
-  %49 = tail call fastcc ptr @get_str_from_var(ptr noundef nonnull %3, i32 noundef %.010)
+  %49 = tail call fastcc ptr @get_str_from_var(ptr noundef %3, i32 noundef %.010)
   %50 = load ptr, ptr %6, align 8
   tail call void @free(ptr noundef %50) #14
   br label %PGTYPESnumeric_new.exit.thread.sink.split
@@ -742,7 +742,7 @@ alloc_var.exit.thread:                            ; preds = %30, %alloc_var.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_str_from_var(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @get_str_from_var(ptr nocapture noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 49152
@@ -2833,7 +2833,7 @@ PGTYPESnumeric_copy.exit.i:                       ; preds = %12
 
 .loopexit.i:                                      ; preds = %38, %alloc_var.exit.i17.i
   %47 = load i32, ptr %25, align 4
-  %48 = tail call fastcc ptr @get_str_from_var(ptr noundef nonnull %4, i32 noundef %47)
+  %48 = tail call fastcc ptr @get_str_from_var(ptr noundef %4, i32 noundef %47)
   %49 = load ptr, ptr %7, align 8
   tail call void @free(ptr noundef %49) #14
   tail call void @free(ptr noundef nonnull %4) #14

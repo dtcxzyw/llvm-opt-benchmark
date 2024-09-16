@@ -476,7 +476,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define noundef zeroext i1 @ECPGis_noind_null(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
-  switch i32 %0, label %53 [
+  switch i32 %0, label %49 [
     i32 1, label %3
     i32 2, label %3
     i32 30, label %3
@@ -490,116 +490,116 @@ define noundef zeroext i1 @ECPGis_noind_null(i32 noundef %0, ptr nocapture nound
     i32 9, label %15
     i32 10, label %15
     i32 12, label %.preheader
-    i32 13, label %.preheader23
-    i32 14, label %28
-    i32 32, label %32
-    i32 17, label %35
-    i32 16, label %39
-    i32 20, label %.preheader26
-    i32 19, label %.preheader29
+    i32 13, label %.preheader26
+    i32 14, label %26
+    i32 32, label %30
+    i32 17, label %33
+    i32 16, label %37
+    i32 20, label %.preheader29
+    i32 19, label %.preheader32
   ]
 
 3:                                                ; preds = %2, %2, %2
   %4 = load i8, ptr %1, align 1
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %_check.exit, label %53
+  br i1 %5, label %_check.exit, label %49
 
 6:                                                ; preds = %2, %2
   %7 = load i16, ptr %1, align 2
   %8 = icmp eq i16 %7, -32768
-  br i1 %8, label %_check.exit, label %53
+  br i1 %8, label %_check.exit, label %49
 
 9:                                                ; preds = %2, %2
   %10 = load i32, ptr %1, align 4
   %11 = icmp eq i32 %10, -2147483648
-  br i1 %11, label %_check.exit, label %53
+  br i1 %11, label %_check.exit, label %49
 
 12:                                               ; preds = %2, %2, %2
   %13 = load i64, ptr %1, align 8
   %14 = icmp eq i64 %13, -9223372036854775808
-  br i1 %14, label %_check.exit, label %53
+  br i1 %14, label %_check.exit, label %49
 
 15:                                               ; preds = %2, %2
   %16 = load i64, ptr %1, align 8
   %17 = icmp eq i64 %16, -9223372036854775808
-  br i1 %17, label %_check.exit, label %53
+  br i1 %17, label %_check.exit, label %49
 
 .preheader:                                       ; preds = %2, %19
-  %indvars.iv.i = phi i64 [ %20, %19 ], [ 4, %2 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %19 ], [ 4, %2 ]
   %18 = icmp eq i64 %indvars.iv.i, 0
   br i1 %18, label %_check.exit, label %19
 
 19:                                               ; preds = %.preheader
-  %20 = add nsw i64 %indvars.iv.i, -1
-  %21 = getelementptr i8, ptr %1, i64 %20
-  %22 = load i8, ptr %21, align 1
-  %.not.i = icmp eq i8 %22, -1
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
+  %20 = getelementptr i8, ptr %1, i64 %indvars.iv.next.i
+  %21 = load i8, ptr %20, align 1
+  %.not.i = icmp eq i8 %21, -1
   br i1 %.not.i, label %.preheader, label %_check.exit, !llvm.loop !4
 
-.preheader23:                                     ; preds = %2, %24
-  %indvars.iv.i14 = phi i64 [ %25, %24 ], [ 8, %2 ]
-  %23 = icmp eq i64 %indvars.iv.i14, 0
-  br i1 %23, label %_check.exit, label %24
+.preheader26:                                     ; preds = %2, %23
+  %indvars.iv.i14 = phi i64 [ %indvars.iv.next.i15, %23 ], [ 8, %2 ]
+  %22 = icmp eq i64 %indvars.iv.i14, 0
+  br i1 %22, label %_check.exit, label %23
 
-24:                                               ; preds = %.preheader23
-  %25 = add nsw i64 %indvars.iv.i14, -1
-  %26 = getelementptr i8, ptr %1, i64 %25
-  %27 = load i8, ptr %26, align 1
-  %.not.i15 = icmp eq i8 %27, -1
-  br i1 %.not.i15, label %.preheader23, label %_check.exit, !llvm.loop !4
+23:                                               ; preds = %.preheader26
+  %indvars.iv.next.i15 = add nsw i64 %indvars.iv.i14, -1
+  %24 = getelementptr i8, ptr %1, i64 %indvars.iv.next.i15
+  %25 = load i8, ptr %24, align 1
+  %.not.i16 = icmp eq i8 %25, -1
+  br i1 %.not.i16, label %.preheader26, label %_check.exit, !llvm.loop !4
 
-28:                                               ; preds = %2
-  %29 = getelementptr inbounds i8, ptr %1, i64 4
-  %30 = load i8, ptr %29, align 4
-  %31 = icmp eq i8 %30, 0
-  br i1 %31, label %_check.exit, label %53
+26:                                               ; preds = %2
+  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %28 = load i8, ptr %27, align 4
+  %29 = icmp eq i8 %28, 0
+  br i1 %29, label %_check.exit, label %49
 
-32:                                               ; preds = %2
-  %33 = load i32, ptr %1, align 4
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %_check.exit, label %53
+30:                                               ; preds = %2
+  %31 = load i32, ptr %1, align 4
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %_check.exit, label %49
 
-35:                                               ; preds = %2
-  %36 = getelementptr inbounds i8, ptr %1, i64 16
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp eq i32 %37, 61440
-  br i1 %38, label %_check.exit, label %53
+33:                                               ; preds = %2
+  %34 = getelementptr inbounds i8, ptr %1, i64 16
+  %35 = load i32, ptr %34, align 4
+  %36 = icmp eq i32 %35, 61440
+  br i1 %36, label %_check.exit, label %49
 
-39:                                               ; preds = %2
-  %40 = getelementptr inbounds i8, ptr %1, i64 16
-  %41 = load i32, ptr %40, align 8
-  %42 = icmp eq i32 %41, 61440
-  br i1 %42, label %_check.exit, label %53
+37:                                               ; preds = %2
+  %38 = getelementptr inbounds i8, ptr %1, i64 16
+  %39 = load i32, ptr %38, align 8
+  %40 = icmp eq i32 %39, 61440
+  br i1 %40, label %_check.exit, label %49
 
-.preheader26:                                     ; preds = %2, %44
-  %indvars.iv.i17 = phi i64 [ %45, %44 ], [ 16, %2 ]
-  %43 = icmp eq i64 %indvars.iv.i17, 0
-  br i1 %43, label %_check.exit, label %44
+.preheader29:                                     ; preds = %2, %42
+  %indvars.iv.i18 = phi i64 [ %indvars.iv.next.i19, %42 ], [ 16, %2 ]
+  %41 = icmp eq i64 %indvars.iv.i18, 0
+  br i1 %41, label %_check.exit, label %42
 
-44:                                               ; preds = %.preheader26
-  %45 = add nsw i64 %indvars.iv.i17, -1
-  %46 = getelementptr i8, ptr %1, i64 %45
-  %47 = load i8, ptr %46, align 1
-  %.not.i18 = icmp eq i8 %47, -1
-  br i1 %.not.i18, label %.preheader26, label %_check.exit, !llvm.loop !4
+42:                                               ; preds = %.preheader29
+  %indvars.iv.next.i19 = add nsw i64 %indvars.iv.i18, -1
+  %43 = getelementptr i8, ptr %1, i64 %indvars.iv.next.i19
+  %44 = load i8, ptr %43, align 1
+  %.not.i20 = icmp eq i8 %44, -1
+  br i1 %.not.i20, label %.preheader29, label %_check.exit, !llvm.loop !4
 
-.preheader29:                                     ; preds = %2, %49
-  %indvars.iv.i20 = phi i64 [ %50, %49 ], [ 8, %2 ]
-  %48 = icmp eq i64 %indvars.iv.i20, 0
-  br i1 %48, label %_check.exit, label %49
+.preheader32:                                     ; preds = %2, %46
+  %indvars.iv.i22 = phi i64 [ %indvars.iv.next.i23, %46 ], [ 8, %2 ]
+  %45 = icmp eq i64 %indvars.iv.i22, 0
+  br i1 %45, label %_check.exit, label %46
 
-49:                                               ; preds = %.preheader29
-  %50 = add nsw i64 %indvars.iv.i20, -1
-  %51 = getelementptr i8, ptr %1, i64 %50
-  %52 = load i8, ptr %51, align 1
-  %.not.i21 = icmp eq i8 %52, -1
-  br i1 %.not.i21, label %.preheader29, label %_check.exit, !llvm.loop !4
+46:                                               ; preds = %.preheader32
+  %indvars.iv.next.i23 = add nsw i64 %indvars.iv.i22, -1
+  %47 = getelementptr i8, ptr %1, i64 %indvars.iv.next.i23
+  %48 = load i8, ptr %47, align 1
+  %.not.i24 = icmp eq i8 %48, -1
+  br i1 %.not.i24, label %.preheader32, label %_check.exit, !llvm.loop !4
 
-53:                                               ; preds = %2, %39, %35, %32, %28, %15, %12, %9, %6, %3
+49:                                               ; preds = %2, %37, %33, %30, %26, %15, %12, %9, %6, %3
   br label %_check.exit
 
-_check.exit:                                      ; preds = %49, %.preheader29, %44, %.preheader26, %24, %.preheader23, %19, %.preheader, %39, %35, %32, %28, %15, %12, %9, %6, %3, %53
-  %.0 = phi i1 [ false, %53 ], [ true, %3 ], [ true, %6 ], [ true, %9 ], [ true, %12 ], [ true, %15 ], [ true, %28 ], [ true, %32 ], [ true, %35 ], [ true, %39 ], [ %18, %.preheader ], [ %18, %19 ], [ %23, %.preheader23 ], [ %23, %24 ], [ %43, %.preheader26 ], [ %43, %44 ], [ %48, %.preheader29 ], [ %48, %49 ]
+_check.exit:                                      ; preds = %46, %.preheader32, %42, %.preheader29, %23, %.preheader26, %19, %.preheader, %37, %33, %30, %26, %15, %12, %9, %6, %3, %49
+  %.0 = phi i1 [ false, %49 ], [ true, %3 ], [ true, %6 ], [ true, %9 ], [ true, %12 ], [ true, %15 ], [ true, %26 ], [ true, %30 ], [ true, %33 ], [ true, %37 ], [ %18, %.preheader ], [ %18, %19 ], [ %22, %.preheader26 ], [ %22, %23 ], [ %41, %.preheader29 ], [ %41, %42 ], [ %45, %.preheader32 ], [ %45, %46 ]
   ret i1 %.0
 }
 

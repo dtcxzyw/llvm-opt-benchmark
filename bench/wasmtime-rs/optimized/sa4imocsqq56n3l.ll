@@ -17111,7 +17111,7 @@ _ZN17cranelift_codegen6cursor6Cursor9prev_inst17h099e1dea2b33f89fE.exit: ; preds
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17cranelift_codegen6cursor6Cursor12insert_block17h114a7a915a6c0cc2E(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17cranelift_codegen6cursor6Cursor12insert_block17h114a7a915a6c0cc2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = load i32, ptr %0, align 8, !range !1463, !alias.scope !1570, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !alias.scope !1570
@@ -24090,7 +24090,7 @@ _ZN17cranelift_codegen6cursor6Cursor10after_inst17h51350eb2cbde09f7E.exit.i: ; p
   %331 = add i32 %328, %.0.i1.i.i.i
   %.0.i2.i.i.i = select i1 %or.cond.i.i.i.i, i32 -1, i32 %331
   store i32 %.0.i2.i.i.i, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !2500, !noalias !2452
-  call fastcc void @_ZN17cranelift_codegen6cursor6Cursor12insert_block17h114a7a915a6c0cc2E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19, i32 noundef %289), !noalias !2460
+  call fastcc void @_ZN17cranelift_codegen6cursor6Cursor12insert_block17h114a7a915a6c0cc2E(ptr noalias noundef align 8 dereferenceable(24) %19, i32 noundef %289), !noalias !2460
   switch i8 %159, label %332 [
     i8 6, label %333
     i8 8, label %333
@@ -24175,7 +24175,7 @@ _ZN17cranelift_codegen6cursor6Cursor10after_inst17h51350eb2cbde09f7E.exit.i: ; p
   br label %_ZN17cranelift_codegen9legalizer16expand_cond_trap17hdbc44eb3fad28901E.exit
 
 _ZN17cranelift_codegen9legalizer16expand_cond_trap17hdbc44eb3fad28901E.exit: ; preds = %333, %345
-  call fastcc void @_ZN17cranelift_codegen6cursor6Cursor12insert_block17h114a7a915a6c0cc2E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19, i32 noundef %291), !noalias !2460
+  call fastcc void @_ZN17cranelift_codegen6cursor6Cursor12insert_block17h114a7a915a6c0cc2E(ptr noalias noundef align 8 dereferenceable(24) %19, i32 noundef %291), !noalias !2460
   %371 = load ptr, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !2452, !nonnull !4, !align !15, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !2613)
   call void @llvm.experimental.noalias.scope.decl(metadata !2616)

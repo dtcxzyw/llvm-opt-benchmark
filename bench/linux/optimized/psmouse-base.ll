@@ -2719,7 +2719,7 @@ define internal fastcc zeroext i1 @psmouse_do_detect(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i1 noundef zeroext %3) unnamed_addr #2 align 16 {
+define internal fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noundef range(i32 2, 12) %1, ptr nocapture noundef %2, i1 noundef zeroext %3) unnamed_addr #2 align 16 {
   br label %8
 
 5:                                                ; preds = %8

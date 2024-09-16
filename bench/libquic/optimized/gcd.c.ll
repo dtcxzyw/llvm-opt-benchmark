@@ -37,7 +37,7 @@ if.end10:                                         ; preds = %if.end6
   %cmp13 = icmp slt i32 %call12, 0
   %spec.select = select i1 %cmp13, ptr %call1, ptr %call
   %spec.select16 = select i1 %cmp13, ptr %call, ptr %call1
-  %call43.i = tail call i32 @BN_is_zero(ptr noundef %spec.select16) #3
+  %call43.i = tail call i32 @BN_is_zero(ptr noundef nonnull %spec.select16) #3
   %tobool.not44.i = icmp eq i32 %call43.i, 0
   br i1 %tobool.not44.i, label %while.body.i, label %if.end19
 

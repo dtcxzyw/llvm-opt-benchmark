@@ -375,7 +375,7 @@ define ptr @Io_ReadDsd(ptr nocapture noundef readonly %0) local_unnamed_addr #2 
   %4 = add i8 %3, -97
   %or.cond = icmp ult i8 %4, 26
   %5 = zext nneg i8 %4 to i32
-  %6 = tail call range(i32 0, 26) i32 @llvm.smax.i32(i32 %.062, i32 %5)
+  %6 = tail call range(i32 0, 26) i32 @llvm.umax.i32(i32 %.062, i32 %5)
   %.1 = select i1 %or.cond, i32 %6, i32 %.062
   %7 = getelementptr inbounds i8, ptr %.04861, i64 1
   %8 = load i8, ptr %7, align 1
@@ -510,7 +510,7 @@ declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #7
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+declare i32 @llvm.umax.i32(i32, i32) #8
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

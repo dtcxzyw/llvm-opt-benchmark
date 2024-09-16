@@ -781,7 +781,7 @@ define i32 @load_program(ptr noundef %0, ptr noundef %1, ptr nocapture noundef w
   %60 = call { i64, ptr } @jq_get_prog_origin(ptr noundef %0) #11
   %61 = extractvalue { i64, ptr } %60, 0
   %62 = extractvalue { i64, ptr } %60, 1
-  %63 = call fastcc i32 @process_dependencies(ptr noundef %0, i64 %58, ptr %59, i64 %61, ptr %62, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %63 = call fastcc i32 @process_dependencies(ptr noundef %0, i64 %58, ptr %59, i64 %61, ptr %62, ptr noundef %4, ptr noundef %5)
   %64 = call { ptr, ptr } (...) @gen_noop() #11
   %65 = extractvalue { ptr, ptr } %64, 0
   %66 = extractvalue { ptr, ptr } %64, 1
@@ -910,10 +910,10 @@ declare { i64, ptr } @jv_true() local_unnamed_addr #1
 declare { ptr, ptr } @block_join(ptr, ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @process_dependencies(ptr noundef %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @process_dependencies(ptr noundef %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca %struct.block, align 8
   %9 = alloca %struct.block, align 8
-  %10 = tail call { i64, ptr } @block_take_imports(ptr noundef %5) #11
+  %10 = tail call { i64, ptr } @block_take_imports(ptr noundef nonnull %5) #11
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   %.sroa.0110.0.copyload = load ptr, ptr %5, align 8
@@ -1110,7 +1110,7 @@ default_search.exit:                              ; preds = %94, %110, %112
   br i1 %.not, label %._crit_edge193.thread, label %.lr.ph192
 
 145:                                              ; preds = %141
-  %146 = call fastcc i32 @load_library(ptr noundef %0, i64 %127, ptr %128, i32 noundef %142, i32 noundef %spec.select.le, i32 noundef %.0155.le, ptr noundef %.0153, ptr noundef nonnull %8, ptr noundef %6)
+  %146 = call fastcc i32 @load_library(ptr noundef %0, i64 %127, ptr %128, i32 noundef %142, i32 noundef %spec.select.le, i32 noundef %.0155.le, ptr noundef %.0153, ptr noundef %8, ptr noundef %6)
   %147 = add nsw i32 %146, %.0150.ph198
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %149, label %.outer
@@ -1165,7 +1165,7 @@ default_search.exit:                              ; preds = %94, %110, %112
   store ptr %178, ptr %9, align 8
   %179 = extractvalue { ptr, ptr } %177, 1
   store ptr %179, ptr %19, align 8
-  %180 = call fastcc i32 @load_library(ptr noundef %0, i64 %127, ptr %128, i32 noundef %142, i32 noundef %spec.select.le, i32 noundef %.0155.le, ptr noundef %.0153, ptr noundef nonnull %9, ptr noundef nonnull %6)
+  %180 = call fastcc i32 @load_library(ptr noundef %0, i64 %127, ptr %128, i32 noundef %142, i32 noundef %spec.select.le, i32 noundef %.0155.le, ptr noundef %.0153, ptr noundef %9, ptr noundef %6)
   %181 = add nsw i32 %180, %.0150.ph198
   %182 = icmp eq i32 %181, 0
   br i1 %182, label %183, label %.outer
@@ -1254,7 +1254,7 @@ declare i32 @jv_equal(i64, ptr, i64, ptr) local_unnamed_addr #1
 declare { i64, ptr } @jv_object_get(i64, ptr, i64, ptr) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @load_library(ptr noundef %0, i64 %1, ptr %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef %8) unnamed_addr #0 {
+define internal fastcc i32 @load_library(ptr noundef %0, i64 %1, ptr %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5, ptr noundef %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull %8) unnamed_addr #0 {
   %10 = alloca %struct.block, align 8
   %11 = icmp eq i32 %3, 0
   %12 = icmp ne i32 %4, 0
@@ -1344,7 +1344,7 @@ define internal fastcc i32 @load_library(ptr noundef %0, i64 %1, ptr %2, i32 nou
   %60 = call { i64, ptr } @jv_string(ptr noundef %59) #11
   %61 = extractvalue { i64, ptr } %60, 0
   %62 = extractvalue { i64, ptr } %60, 1
-  %63 = call fastcc i32 @process_dependencies(ptr noundef %0, i64 %57, ptr %58, i64 %61, ptr %62, ptr noundef nonnull %10, ptr noundef %8)
+  %63 = call fastcc i32 @process_dependencies(ptr noundef %0, i64 %57, ptr %58, i64 %61, ptr %62, ptr noundef %10, ptr noundef %8)
   call void @free(ptr noundef %55) #11
   %64 = load ptr, ptr %10, align 8
   %65 = getelementptr inbounds i8, ptr %10, i64 8

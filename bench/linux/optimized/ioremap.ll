@@ -527,7 +527,7 @@ define dso_local void @early_ioremap_init() local_unnamed_addr #6 section ".init
 declare dso_local void @early_ioremap_setup() local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid optsize
-define internal fastcc ptr @early_ioremap_pmd(i64 noundef %0) unnamed_addr #7 section ".init.text" align 16 {
+define internal fastcc ptr @early_ioremap_pmd(i64 noundef range(i64 -14680064, -12587007) %0) unnamed_addr #7 section ".init.text" align 16 {
   %2 = tail call i64 asm sideeffect "mov %cr3,$0\0A\09", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 4096 to ptr)) #12, !srcloc !26
   %3 = and i64 %2, 4503599627366400
   %4 = load i64, ptr @page_offset_base, align 8

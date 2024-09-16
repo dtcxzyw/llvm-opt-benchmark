@@ -5733,8 +5733,8 @@ _ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit.i.i.i: ; preds = %760, %_ZNSt10
   br label %_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator16setStopUncheckedES1_.exit.i
 
 _ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator16setStopUncheckedES1_.exit.i: ; preds = %844, %860, %836, %812, %793
-  call fastcc void @_ZNK12_GLOBAL__N_116DbgVariableValue11changeLocNoEjj(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef %301, i32 noundef %.260.i.i.i)
-  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator8setValueES3_(ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef nonnull %14)
+  call fastcc void @_ZNK12_GLOBAL__N_116DbgVariableValue11changeLocNoEjj(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef %301, i32 noundef %.260.i.i.i)
+  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator8setValueES3_(ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef %14)
   %866 = load ptr, ptr %14, align 8
   %.not.i.i.i.i41.i = icmp eq ptr %866, null
   br i1 %.not.i.i.i.i41.i, label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit.i.i.i, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i
@@ -5791,7 +5791,7 @@ _ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_d
   br i1 %.not.i80.i.i.i, label %_ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit94.i.i.i, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i96.i.i.i
 
 _ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit94.i.i.i: ; preds = %890
-  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %11, i64 %725, i64 %.sroa.06.0.copyload.i.i.i, ptr noundef nonnull %15)
+  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %11, i64 %725, i64 %.sroa.06.0.copyload.i.i.i, ptr noundef %15)
   br label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit97.i.i.i
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i96.i.i.i: ; preds = %890
@@ -5802,7 +5802,7 @@ _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %906 = shl i8 %753, 2
   %.idx.i93.i.i.i = zext i8 %906 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %905, ptr align 4 %762, i64 %.idx.i93.i.i.i, i1 false)
-  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %11, i64 %725, i64 %.sroa.06.0.copyload.i.i.i, ptr noundef nonnull %15)
+  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %11, i64 %725, i64 %.sroa.06.0.copyload.i.i.i, ptr noundef %15)
   call void @_ZdaPv(ptr noundef nonnull %905) #23
   br label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit97.i.i.i
 
@@ -5896,7 +5896,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15I
   br i1 %.not.i80.i.i.i, label %_ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit114.i.i.i, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i116.i.i.i
 
 _ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit114.i.i.i: ; preds = %_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iteratorppEv.exit103.i.i.i
-  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %11, i64 %.sroa.04.0.copyload.i.i.i, i64 %738, ptr noundef nonnull %16)
+  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %11, i64 %.sroa.04.0.copyload.i.i.i, i64 %738, ptr noundef %16)
   br label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit117.i.i.i
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i116.i.i.i: ; preds = %_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iteratorppEv.exit103.i.i.i
@@ -5907,7 +5907,7 @@ _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %964 = shl i8 %753, 2
   %.idx.i113.i.i.i = zext i8 %964 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %963, ptr align 4 %762, i64 %.idx.i113.i.i.i, i1 false)
-  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %11, i64 %.sroa.04.0.copyload.i.i.i, i64 %738, ptr noundef nonnull %16)
+  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %11, i64 %.sroa.04.0.copyload.i.i.i, i64 %738, ptr noundef %16)
   call void @_ZdaPv(ptr noundef nonnull %963) #23
   br label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit117.i.i.i
 
@@ -8378,12 +8378,12 @@ _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %748 = shl i8 %742, 2
   %.idx.i.i.i.i = zext i8 %748 to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %747, ptr align 4 %.val14.i.i.i.i, i64 %.idx.i.i.i.i, i1 false)
-  %749 = call fastcc noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator15canCoalesceLeftES1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %37, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull %30)
+  %749 = call fastcc noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator15canCoalesceLeftES1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %37, i64 %.sroa.0.0.copyload.i.i, ptr noundef %30)
   call void @_ZdaPv(ptr noundef nonnull %747) #23
   br i1 %749, label %752, label %.thread12.i.i.i
 
 750:                                              ; preds = %727
-  %751 = call fastcc noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator15canCoalesceLeftES1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %37, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull %30)
+  %751 = call fastcc noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator15canCoalesceLeftES1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %37, i64 %.sroa.0.0.copyload.i.i, ptr noundef %30)
   br i1 %751, label %752, label %.thread12.i.i.i
 
 .thread12.i.i.i:                                  ; preds = %750, %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i, %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit.i.i
@@ -9003,7 +9003,7 @@ _ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit59.i.i: ; preds = %1053, %_ZNK4l
   %1060 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %26) #20
   %1061 = load ptr, ptr %27, align 8
   %1062 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #20
-  call fastcc void @_ZN12_GLOBAL__N_19UserValue16insertDebugValueEPN4llvm17MachineBasicBlockENS1_9SlotIndexES4_NS_16DbgVariableValueENS1_8ArrayRefIbEENS6_IjEERNS1_13LiveIntervalsERKNS1_15TargetInstrInfoERKNS1_18TargetRegisterInfoERNS1_8DenseMapIS3_NS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_SK_EEEE(ptr noundef nonnull align 8 dereferenceable(456) %.0.val123.i, ptr noundef nonnull %.0.i.i.i146.i, i64 %.sroa.05.0.copyload.i.i, i64 %885, ptr noundef nonnull %28, ptr %1059, i64 %1060, ptr %1061, ptr noundef nonnull readonly align 8 dereferenceable(440) %834, ptr noundef nonnull readonly align 8 dereferenceable(80) %61, ptr noundef nonnull align 8 dereferenceable(308) %835, ptr noundef nonnull align 8 dereferenceable(20) %39)
+  call fastcc void @_ZN12_GLOBAL__N_19UserValue16insertDebugValueEPN4llvm17MachineBasicBlockENS1_9SlotIndexES4_NS_16DbgVariableValueENS1_8ArrayRefIbEENS6_IjEERNS1_13LiveIntervalsERKNS1_15TargetInstrInfoERKNS1_18TargetRegisterInfoERNS1_8DenseMapIS3_NS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_SK_EEEE(ptr noundef nonnull align 8 dereferenceable(456) %.0.val123.i, ptr noundef %.0.i.i.i146.i, i64 %.sroa.05.0.copyload.i.i, i64 %885, ptr noundef %28, ptr %1059, i64 %1060, ptr %1061, ptr noundef nonnull readonly align 8 dereferenceable(440) %834, ptr noundef nonnull readonly align 8 dereferenceable(80) %61, ptr noundef nonnull align 8 dereferenceable(308) %835, ptr noundef nonnull align 8 dereferenceable(20) %39)
   %.not.i.i60.i148.i = icmp eq ptr %1058, null
   br i1 %.not.i.i60.i148.i, label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit.i150.i, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i149.i
 
@@ -9074,7 +9074,7 @@ _ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit72.i.i: ; preds = %1095, %1087
   %1099 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %26) #20
   %1100 = load ptr, ptr %27, align 8
   %1101 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #20
-  call fastcc void @_ZN12_GLOBAL__N_19UserValue16insertDebugValueEPN4llvm17MachineBasicBlockENS1_9SlotIndexES4_NS_16DbgVariableValueENS1_8ArrayRefIbEENS6_IjEERNS1_13LiveIntervalsERKNS1_15TargetInstrInfoERKNS1_18TargetRegisterInfoERNS1_8DenseMapIS3_NS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_SK_EEEE(ptr noundef nonnull align 8 dereferenceable(456) %.0.val123.i, ptr noundef nonnull %1085, i64 %.sroa.06.057.i.i, i64 %885, ptr noundef nonnull %29, ptr %1098, i64 %1099, ptr %1100, ptr noundef nonnull readonly align 8 dereferenceable(440) %834, ptr noundef nonnull readonly align 8 dereferenceable(80) %61, ptr noundef nonnull align 8 dereferenceable(308) %835, ptr noundef nonnull align 8 dereferenceable(20) %39)
+  call fastcc void @_ZN12_GLOBAL__N_19UserValue16insertDebugValueEPN4llvm17MachineBasicBlockENS1_9SlotIndexES4_NS_16DbgVariableValueENS1_8ArrayRefIbEENS6_IjEERNS1_13LiveIntervalsERKNS1_15TargetInstrInfoERKNS1_18TargetRegisterInfoERNS1_8DenseMapIS3_NS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_SK_EEEE(ptr noundef nonnull align 8 dereferenceable(456) %.0.val123.i, ptr noundef %1085, i64 %.sroa.06.057.i.i, i64 %885, ptr noundef %29, ptr %1098, i64 %1099, ptr %1100, ptr noundef nonnull readonly align 8 dereferenceable(440) %834, ptr noundef nonnull readonly align 8 dereferenceable(80) %61, ptr noundef nonnull align 8 dereferenceable(308) %835, ptr noundef nonnull align 8 dereferenceable(20) %39)
   %.not.i.i73.i.i = icmp eq ptr %1097, null
   br i1 %.not.i.i73.i.i, label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit75.i.i, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i74.i.i
 
@@ -9301,7 +9301,7 @@ _ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit.i155.i: ; preds = 
   %.val.val.i.i = load ptr, ptr %1199, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
-  %1200 = call fastcc ptr @_ZL18findInsertLocationPN4llvm17MachineBasicBlockENS_9SlotIndexERNS_13LiveIntervalsERNS_8DenseMapIS1_NS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S8_EEEE(ptr noundef %.0.i.i.i158.i, i64 %.sroa.0.0.copyload.i156.i, ptr readonly %.val.val.i.i, ptr noundef nonnull align 8 dereferenceable(20) %39)
+  %1200 = call fastcc ptr @_ZL18findInsertLocationPN4llvm17MachineBasicBlockENS_9SlotIndexERNS_13LiveIntervalsERNS_8DenseMapIS1_NS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S8_EEEE(ptr noundef nonnull %.0.i.i.i158.i, i64 %.sroa.0.0.copyload.i156.i, ptr readonly %.val.val.i.i, ptr noundef nonnull align 8 dereferenceable(20) %39)
   %1201 = getelementptr inbounds nuw i8, ptr %.0107.val.i, i64 8
   %1202 = load ptr, ptr %1201, align 8
   store ptr %1202, ptr %22, align 8
@@ -10193,7 +10193,7 @@ _ZNK4llvm9SlotIndex11getNextSlotEv.exit:          ; preds = %55, %61
   br i1 %.not.i, label %_ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit: ; preds = %_ZNK4llvm9SlotIndex11getNextSlotEv.exit
-  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %10, i64 %1, i64 %.sroa.05.0.i, ptr noundef nonnull %11)
+  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %10, i64 %1, i64 %.sroa.05.0.i, ptr noundef %11)
   br label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %_ZNK4llvm9SlotIndex11getNextSlotEv.exit
@@ -10205,7 +10205,7 @@ _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %75 = shl i8 %68, 2
   %.idx.i = zext i8 %75 to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %74, ptr align 4 %.val14.i, i64 %.idx.i, i1 false)
-  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %10, i64 %1, i64 %.sroa.05.0.i, ptr noundef nonnull %11)
+  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %10, i64 %1, i64 %.sroa.05.0.i, ptr noundef %11)
   call void @_ZdaPv(ptr noundef nonnull %74) #23
   br label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit
 
@@ -10224,7 +10224,7 @@ _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br i1 %.not.i17, label %_ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit23, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i25
 
 _ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit23: ; preds = %76
-  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator8setValueES3_(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull %12)
+  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator8setValueES3_(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef %12)
   br label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i25: ; preds = %76
@@ -10236,7 +10236,7 @@ _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %86 = shl i8 %79, 2
   %.idx.i22 = zext i8 %86 to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %85, ptr align 4 %.val14.i21, i64 %.idx.i22, i1 false)
-  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator8setValueES3_(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull %12)
+  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator8setValueES3_(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef %12)
   call void @_ZdaPv(ptr noundef nonnull %85) #23
   br label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit
 
@@ -11263,7 +11263,7 @@ _ZN4llvm11SmallVectorIjLj12EED2Ev.exit:           ; preds = %_ZSt4copyIPjS0_ET0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %1, i64 %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 align 2 {
   %5 = alloca [2 x i32], align 4
   %6 = alloca [2 x %"class.llvm::IntervalMapImpl::NodeRef"], align 16
   %7 = alloca %"class.(anonymous namespace)::DbgVariableValue", align 8
@@ -11290,7 +11290,7 @@ define internal fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_1
   br i1 %.not.i, label %_ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit: ; preds = %11
-  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator10treeInsertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %1, i64 %2, ptr noundef nonnull %7)
+  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator10treeInsertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %1, i64 %2, ptr noundef %7)
   br label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %11
@@ -11302,7 +11302,7 @@ _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %21 = shl i8 %14, 2
   %.idx.i = zext i8 %21 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %20, ptr align 4 %.val14.i, i64 %.idx.i, i1 false)
-  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator10treeInsertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %1, i64 %2, ptr noundef nonnull %7)
+  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator10treeInsertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %1, i64 %2, ptr noundef %7)
   tail call void @_ZdaPv(ptr noundef nonnull %20) #23
   br label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit
 
@@ -11328,7 +11328,7 @@ _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br i1 %.not.i29, label %_ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit35.thread, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i37
 
 _ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit35.thread: ; preds = %22
-  %36 = call fastcc noundef i32 @_ZN4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS2_EEE10insertFromERjjS2_S2_S4_(ptr noundef nonnull align 8 dereferenceable(160) %.val, ptr noundef nonnull align 4 dereferenceable(4) %27, i32 noundef %29, i64 %1, i64 %2, ptr noundef nonnull %8)
+  %36 = call fastcc noundef i32 @_ZN4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS2_EEE10insertFromERjjS2_S2_S4_(ptr noundef nonnull align 8 dereferenceable(160) %.val, ptr noundef nonnull align 4 dereferenceable(4) %27, i32 noundef %29, i64 %1, i64 %2, ptr noundef %8)
   br label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit38
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i37: ; preds = %22
@@ -11340,7 +11340,7 @@ _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %40 = shl i8 %32, 2
   %.idx.i34 = zext i8 %40 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %39, ptr align 4 %.val14.i33, i64 %.idx.i34, i1 false)
-  %41 = call fastcc noundef i32 @_ZN4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS2_EEE10insertFromERjjS2_S2_S4_(ptr noundef nonnull align 8 dereferenceable(160) %.val, ptr noundef nonnull align 4 dereferenceable(4) %27, i32 noundef %29, i64 %1, i64 %2, ptr noundef nonnull %8)
+  %41 = call fastcc noundef i32 @_ZN4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS2_EEE10insertFromERjjS2_S2_S4_(ptr noundef nonnull align 8 dereferenceable(160) %.val, ptr noundef nonnull align 4 dereferenceable(4) %27, i32 noundef %29, i64 %1, i64 %2, ptr noundef %8)
   call void @_ZdaPv(ptr noundef nonnull %39) #23
   br label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit38
 
@@ -11520,7 +11520,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15I
   br i1 %.not.i45, label %_ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit51, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i53
 
 _ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit51: ; preds = %_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE10branchRootEj.exit
-  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator10treeInsertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %1, i64 %2, ptr noundef nonnull %9)
+  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator10treeInsertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %1, i64 %2, ptr noundef %9)
   br label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i53: ; preds = %_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE10branchRootEj.exit
@@ -11532,7 +11532,7 @@ _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %122 = shl i8 %116, 2
   %.idx.i50 = zext i8 %122 to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %121, ptr align 4 %.val14.i49, i64 %.idx.i50, i1 false)
-  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator10treeInsertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %1, i64 %2, ptr noundef nonnull %9)
+  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator10treeInsertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %1, i64 %2, ptr noundef %9)
   call void @_ZdaPv(ptr noundef nonnull %121) #23
   br label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit
 
@@ -11541,7 +11541,7 @@ _ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit:     ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator8setValueES3_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator8setValueES3_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.(anonymous namespace)::DbgVariableValue", align 8
   %4 = alloca %"class.(anonymous namespace)::DbgVariableValue", align 8
   store ptr null, ptr %3, align 8
@@ -11569,7 +11569,7 @@ define internal fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_1
   br label %_ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit
 
 _ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit: ; preds = %2, %11
-  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator17setValueUncheckedES3_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %3)
+  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator17setValueUncheckedES3_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %3)
   %16 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
@@ -11863,12 +11863,12 @@ _ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit34.thread: ; preds = %153
   %173 = shl i8 %167, 2
   %.idx.i33 = zext i8 %173 to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %172, ptr align 4 %.val14.i32, i64 %.idx.i33, i1 false)
-  %174 = call fastcc noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator15canCoalesceLeftES1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %.sroa.02.0.copyload, ptr noundef nonnull %4)
+  %174 = call fastcc noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator15canCoalesceLeftES1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %.sroa.02.0.copyload, ptr noundef %4)
   call void @_ZdaPv(ptr noundef nonnull %172) #23
   br i1 %174, label %176, label %241
 
 _ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit37:   ; preds = %153
-  %175 = call fastcc noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator15canCoalesceLeftES1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %.sroa.02.0.copyload, ptr noundef nonnull %4)
+  %175 = call fastcc noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator15canCoalesceLeftES1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %.sroa.02.0.copyload, ptr noundef %4)
   br i1 %175, label %176, label %241
 
 176:                                              ; preds = %_ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit34.thread, %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit37
@@ -12339,7 +12339,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl4Path5EntryELb1EE9push_bac
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator10treeInsertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %1, i64 %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator10treeInsertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %1, i64 %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 align 2 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [4 x ptr], align 16
   %7 = alloca [4 x i32], align 16
@@ -12576,7 +12576,7 @@ _ZN12_GLOBAL__N_1eqERKNS_16DbgVariableValueES2_.exit.thread: ; preds = %67, %_ZS
   br label %_ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit
 
 _ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit: ; preds = %_ZN12_GLOBAL__N_1eqERKNS_16DbgVariableValueES2_.exit.thread, %154
-  %159 = call fastcc noundef i32 @_ZN4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS2_EEE10insertFromERjjS2_S2_S4_(ptr noundef nonnull align 8 dereferenceable(160) %143, ptr noundef nonnull align 4 dereferenceable(4) %147, i32 noundef %132, i64 %.sroa.084.0, i64 %2, ptr noundef nonnull %8)
+  %159 = call fastcc noundef i32 @_ZN4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS2_EEE10insertFromERjjS2_S2_S4_(ptr noundef nonnull align 8 dereferenceable(160) %143, ptr noundef nonnull align 4 dereferenceable(4) %147, i32 noundef %132, i64 %.sroa.084.0, i64 %2, ptr noundef %8)
   %160 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %160, null
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
@@ -13608,7 +13608,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15I
   br i1 %.not.i61, label %_ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit67.thread, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i69
 
 _ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit67.thread: ; preds = %_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator8overflowINS_15IntervalMapImpl8LeafNodeIS1_S3_Lj4ES5_EEEEbj.exit
-  %628 = call fastcc noundef i32 @_ZN4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS2_EEE10insertFromERjjS2_S2_S4_(ptr noundef nonnull align 8 dereferenceable(160) %614, ptr noundef nonnull align 4 dereferenceable(4) %618, i32 noundef %623, i64 %.sroa.084.0, i64 %2, ptr noundef nonnull %9)
+  %628 = call fastcc noundef i32 @_ZN4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS2_EEE10insertFromERjjS2_S2_S4_(ptr noundef nonnull align 8 dereferenceable(160) %614, ptr noundef nonnull align 4 dereferenceable(4) %618, i32 noundef %623, i64 %.sroa.084.0, i64 %2, ptr noundef %9)
   br label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit70
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i69: ; preds = %_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator8overflowINS_15IntervalMapImpl8LeafNodeIS1_S3_Lj4ES5_EEEEbj.exit
@@ -13620,7 +13620,7 @@ _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %632 = shl i8 %625, 2
   %.idx.i66 = zext i8 %632 to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %631, ptr align 4 %.val14.i65, i64 %.idx.i66, i1 false)
-  %633 = call fastcc noundef i32 @_ZN4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS2_EEE10insertFromERjjS2_S2_S4_(ptr noundef nonnull align 8 dereferenceable(160) %614, ptr noundef nonnull align 4 dereferenceable(4) %618, i32 noundef %623, i64 %.sroa.084.0, i64 %2, ptr noundef nonnull %9)
+  %633 = call fastcc noundef i32 @_ZN4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS2_EEE10insertFromERjjS2_S2_S4_(ptr noundef nonnull align 8 dereferenceable(160) %614, ptr noundef nonnull align 4 dereferenceable(4) %618, i32 noundef %623, i64 %.sroa.084.0, i64 %2, ptr noundef %9)
   call void @_ZdaPv(ptr noundef nonnull %631) #23
   br label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit70
 
@@ -13716,7 +13716,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15I
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS2_EEE10insertFromERjjS2_S2_S4_(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, i64 %3, i64 %4, ptr noundef readonly %5) unnamed_addr #0 align 2 {
+define internal fastcc noundef i32 @_ZN4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS2_EEE10insertFromERjjS2_S2_S4_(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, i64 %3, i64 %4, ptr noundef nonnull readonly %5) unnamed_addr #0 align 2 {
   %7 = load i32, ptr %1, align 4
   %cond = icmp eq i32 %7, 0
   br i1 %cond, label %56, label %8
@@ -15773,7 +15773,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit: ; preds = %1, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EN12_GLOBAL__N_116DbgVariableValueELj4EE9moveRightEjjj(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EN12_GLOBAL__N_116DbgVariableValueELj4EE9moveRightEjjj(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0, i32 noundef range(i32 5, 4) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %.not9 = icmp eq i32 %3, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -15870,7 +15870,7 @@ _ZSt4copyIPKjPjET0_T_S4_S3_.exit.i:               ; preds = %28, %_ZNSt10unique_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator17setValueUncheckedES3_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator17setValueUncheckedES3_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
@@ -15955,7 +15955,7 @@ _ZN12_GLOBAL__N_116DbgVariableValueaSERKS0_.exit: ; preds = %2, %_ZSt4copyIPKjPj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator15canCoalesceLeftES1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator15canCoalesceLeftES1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val24 = load ptr, ptr %0, align 8
   %5 = getelementptr i8, ptr %.val24, i64 160
@@ -17615,7 +17615,7 @@ _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %758 = call noalias noundef nonnull ptr @_Znam(i64 noundef %756) #22
   store ptr %758, ptr %17, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %758, ptr nonnull align 4 %406, i64 %.idx.i.i, i1 false)
-  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %14, i64 %.sroa.075.0.i, i64 %.sroa.069.2.i, ptr noundef nonnull %17)
+  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %14, i64 %.sroa.075.0.i, i64 %.sroa.069.2.i, ptr noundef %17)
   call void @_ZdaPv(ptr noundef nonnull %758) #23
   br label %_ZNSt8optionalISt4pairIN4llvm9SlotIndexENS1_11SmallVectorIjLj12EEEEEaSESt9nullopt_t.exit.i
 
@@ -18547,7 +18547,7 @@ _ZNK4llvm9LiveRange11getVNInfoAtENS_9SlotIndexE.exit99.i: ; preds = %1201, %_ZNK
   %1212 = load ptr, ptr %1211, align 8
   %1213 = call fastcc noundef i32 @_ZN12_GLOBAL__N_19UserValue13getLocationNoERKN4llvm14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(32) %1212)
   %1214 = load i32, ptr %10, align 4
-  call fastcc void @_ZNK12_GLOBAL__N_116DbgVariableValue11changeLocNoEjj(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef %1214, i32 noundef %1213)
+  call fastcc void @_ZNK12_GLOBAL__N_116DbgVariableValue11changeLocNoEjj(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef %1214, i32 noundef %1213)
   %.val15.i.i = load i8, ptr %91, align 8
   %1215 = and i8 %.val15.i.i, 63
   %.not.i100.i = icmp eq i8 %1215, 0
@@ -18631,7 +18631,7 @@ _ZNK4llvm9SlotIndex11getNextSlotEv.exit.i152:     ; preds = %1234, %1228
   br i1 %.not.i282, label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit111.i.thread, label %1240
 
 _ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit111.i.thread: ; preds = %_ZNK4llvm9SlotIndex11getNextSlotEv.exit.i152
-  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %.sroa.028.0.copyload, i64 %.sroa.05.0.i.i153, ptr noundef nonnull %12)
+  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %.sroa.028.0.copyload, i64 %.sroa.05.0.i.i153, ptr noundef %12)
   store ptr null, ptr %12, align 8
   store i64 %.sroa.028.0.copyload, ptr %13, align 8, !alias.scope !242
   store ptr null, ptr %95, align 8, !alias.scope !242
@@ -18647,7 +18647,7 @@ _ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit111.i.thread: ; preds = %_ZNK4llvm9S
   %1244 = shl i8 %1226, 2
   %.idx.i287 = zext i8 %1244 to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %1243, ptr align 4 %.val14.i.i.i.i, i64 %.idx.i287, i1 false)
-  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %.sroa.028.0.copyload, i64 %.sroa.05.0.i.i153, ptr noundef nonnull %12)
+  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %.sroa.028.0.copyload, i64 %.sroa.05.0.i.i153, ptr noundef %12)
   call void @_ZdaPv(ptr noundef nonnull %1243) #23
   store ptr null, ptr %12, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !245)
@@ -19366,12 +19366,12 @@ _ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit251.thread: ; preds = %1575
   %1579 = shl i8 %1534, 2
   %.idx.i250 = zext i8 %1579 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1578, ptr align 4 %.sroa.0.0, i64 %.idx.i250, i1 false)
-  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %26, i64 %.0.copyload.i.i.i.i.i.i240, i64 %.sroa.012.0.copyload, ptr noundef nonnull %28)
+  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %26, i64 %.0.copyload.i.i.i.i.i.i240, i64 %.sroa.012.0.copyload, ptr noundef %28)
   call void @_ZdaPv(ptr noundef nonnull %1578) #23
   br label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit254
 
 _ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit251: ; preds = %1575
-  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %26, i64 %.0.copyload.i.i.i.i.i.i240, i64 %.sroa.012.0.copyload, ptr noundef nonnull %28)
+  call fastcc void @_ZN4llvm11IntervalMapINS_9SlotIndexEN12_GLOBAL__N_116DbgVariableValueELj4ENS_15IntervalMapInfoIS1_EEE8iterator6insertES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(88) %26, i64 %.0.copyload.i.i.i.i.i.i240, i64 %.sroa.012.0.copyload, ptr noundef %28)
   br label %_ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit254
 
 _ZN12_GLOBAL__N_116DbgVariableValueD2Ev.exit254:  ; preds = %_ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit251, %_ZN12_GLOBAL__N_116DbgVariableValueC2ERKS0_.exit251.thread
@@ -20984,7 +20984,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_116DbgVariableValue11changeLocNoEjj(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_116DbgVariableValue11changeLocNoEjj(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SmallVector.378", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6, i64 noundef 12) #20
@@ -23998,7 +23998,7 @@ _ZNKSt3setIN4llvm9SlotIndexESt4lessIS1_ESaIS1_EE5countERKS1_.exit: ; preds = %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19UserValue16insertDebugValueEPN4llvm17MachineBasicBlockENS1_9SlotIndexES4_NS_16DbgVariableValueENS1_8ArrayRefIbEENS6_IjEERNS1_13LiveIntervalsERKNS1_15TargetInstrInfoERKNS1_18TargetRegisterInfoERNS1_8DenseMapIS3_NS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_SK_EEEE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef %1, i64 %2, i64 %3, ptr nocapture noundef readonly %4, ptr nocapture readonly %.0.val, i64 %.8.val, ptr nocapture readonly %.0.val1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(440) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(308) %7, ptr noundef nonnull align 8 dereferenceable(20) %8) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_19UserValue16insertDebugValueEPN4llvm17MachineBasicBlockENS1_9SlotIndexES4_NS_16DbgVariableValueENS1_8ArrayRefIbEENS6_IjEERNS1_13LiveIntervalsERKNS1_15TargetInstrInfoERKNS1_18TargetRegisterInfoERNS1_8DenseMapIS3_NS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEENS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_SK_EEEE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull %1, i64 %2, i64 %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture readonly %.0.val, i64 %.8.val, ptr nocapture readonly %.0.val1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(440) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(308) %7, ptr noundef nonnull align 8 dereferenceable(20) %8) unnamed_addr #0 align 2 {
   %10 = alloca %"class.llvm::SmallVector.496", align 8
   %11 = alloca %"class.llvm::SmallVector.754", align 8
   %12 = alloca %"class.llvm::MachineOperand", align 8
@@ -24031,7 +24031,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19UserValue16insertDebugValueEPN4ll
   %38 = or i32 %34, %37
   %39 = icmp ult i32 %30, %38
   %40 = select i1 %39, i64 %.sroa.0.0.copyload.i.i, i64 %3
-  %41 = tail call fastcc ptr @_ZL18findInsertLocationPN4llvm17MachineBasicBlockENS_9SlotIndexERNS_13LiveIntervalsERNS_8DenseMapIS1_NS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S8_EEEE(ptr noundef %1, i64 %2, ptr %21, ptr noundef nonnull align 8 dereferenceable(20) %8)
+  %41 = tail call fastcc ptr @_ZL18findInsertLocationPN4llvm17MachineBasicBlockENS_9SlotIndexERNS_13LiveIntervalsERNS_8DenseMapIS1_NS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S8_EEEE(ptr noundef nonnull %1, i64 %2, ptr %21, ptr noundef nonnull align 8 dereferenceable(20) %8)
   %42 = getelementptr inbounds i8, ptr %11, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %42, i64 noundef 8) #20
   %.val56 = load ptr, ptr %4, align 8

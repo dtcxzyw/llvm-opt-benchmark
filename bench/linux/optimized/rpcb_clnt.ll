@@ -995,7 +995,7 @@ declare dso_local i32 @rpc_task_gfp_mask() local_unnamed_addr #2
 declare dso_local ptr @rpc_sockaddr2uaddr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @rpcb_call_async(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @rpcb_call_async(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.rpc_message, align 8
   %5 = alloca %struct.rpc_task_setup, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10

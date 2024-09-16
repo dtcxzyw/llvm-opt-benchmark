@@ -126,13 +126,13 @@ define internal noundef i64 @pty_getpty(i32 noundef %0, ptr noundef %1, i64 %2) 
   %32 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %31, ptr %32, align 8
   call void @rb_execarg_parent_start(i64 noundef %29) #10
-  %33 = call fastcc i32 @get_device_once(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 0)
+  %33 = call fastcc i32 @get_device_once(ptr noundef %4, ptr noundef %5, ptr noundef %12, i32 noundef 0, i32 noundef 0)
   %.not.i.i = icmp eq i32 %33, 0
   br i1 %.not.i.i, label %getDevice.exit.i, label %34
 
 34:                                               ; preds = %28
   call void @rb_gc() #10
-  %35 = call fastcc i32 @get_device_once(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 1)
+  %35 = call fastcc i32 @get_device_once(ptr noundef %4, ptr noundef %5, ptr noundef %12, i32 noundef 0, i32 noundef 1)
   br label %getDevice.exit.i
 
 getDevice.exit.i:                                 ; preds = %34, %28
@@ -280,13 +280,13 @@ define internal i64 @pty_open(i64 %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca [16 x i8], align 16
-  %5 = call fastcc i32 @get_device_once(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 0)
+  %5 = call fastcc i32 @get_device_once(ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef 1, i32 noundef 0)
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %getDevice.exit, label %6
 
 6:                                                ; preds = %1
   call void @rb_gc() #10
-  %7 = call fastcc i32 @get_device_once(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 1)
+  %7 = call fastcc i32 @get_device_once(ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef 1, i32 noundef 1)
   br label %getDevice.exit
 
 getDevice.exit:                                   ; preds = %1, %6
@@ -441,7 +441,7 @@ declare void @rb_execarg_parent_end(i64 noundef) local_unnamed_addr #1
 declare void @rb_jump_tag(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @get_device_once(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @get_device_once(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef nonnull %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = tail call i32 @posix_openpt(i32 noundef 524546) #10
   %cond = icmp eq i32 %6, -1
   br i1 %cond, label %25, label %7
@@ -554,7 +554,7 @@ declare i32 @rb_scan_args(i32 noundef, ptr noundef, ptr noundef, ...) local_unna
 declare i64 @rb_last_status_get() local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @raise_from_check(i32 noundef %0, i32 noundef %1) unnamed_addr #7 {
+define internal fastcc void @raise_from_check(i32 noundef range(i32 1, -1) %0, i32 noundef %1) unnamed_addr #7 {
   %3 = and i32 %1, 255
   %4 = icmp eq i32 %3, 127
   br i1 %4, label %8, label %5

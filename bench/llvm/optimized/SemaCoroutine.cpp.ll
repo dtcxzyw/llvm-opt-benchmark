@@ -3138,7 +3138,7 @@ _ZN5clang11CoawaitExprC2ENS_14SourceLocationENS_8QualTypeEPNS_4ExprES4_b.exit: ;
   %55 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.1) #18
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %57 = load ptr, ptr %56, align 8
-  call fastcc void @_ZL17buildCoawaitCallsRN5clang4SemaEPNS_7VarDeclENS_14SourceLocationEPNS_4ExprE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %57, i32 %55, ptr noundef nonnull %.1)
+  call fastcc void @_ZL17buildCoawaitCallsRN5clang4SemaEPNS_7VarDeclENS_14SourceLocationEPNS_4ExprE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %57, i32 %55, ptr noundef nonnull %.1)
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %59 = load i8, ptr %58, align 8
   %60 = trunc i8 %59 to i1
@@ -3223,7 +3223,7 @@ declare noundef ptr @_ZN5clang4Sema30CreateMaterializeTemporaryExprENS_8QualType
 declare i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17buildCoawaitCallsRN5clang4SemaEPNS_7VarDeclENS_14SourceLocationEPNS_4ExprE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr nocapture noundef readonly %2, i32 %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL17buildCoawaitCallsRN5clang4SemaEPNS_7VarDeclENS_14SourceLocationEPNS_4ExprE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr nocapture noundef readonly %2, i32 %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %7 = alloca %"class.clang::QualType", align 8
   %8 = alloca %"class.clang::LookupResult", align 8
@@ -4051,7 +4051,7 @@ _ZN5clang11CoyieldExprC2ENS_14SourceLocationENS_8QualTypeEPNS_4ExprES4_.exit: ; 
   %.1 = phi ptr [ %51, %50 ], [ %.0, %45 ]
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %54 = load ptr, ptr %53, align 8
-  call fastcc void @_ZL17buildCoawaitCallsRN5clang4SemaEPNS_7VarDeclENS_14SourceLocationEPNS_4ExprE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %54, i32 %1, ptr noundef %.1)
+  call fastcc void @_ZL17buildCoawaitCallsRN5clang4SemaEPNS_7VarDeclENS_14SourceLocationEPNS_4ExprE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %54, i32 %1, ptr noundef %.1)
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %56 = load i8, ptr %55, align 8
   %57 = trunc i8 %56 to i1
@@ -7180,7 +7180,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang20CoroutineStmtBuilder20makeNewAndDeleteExprEvENK3$_1clENS_4Sema23AllocationFunctionScopeEbb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang20CoroutineStmtBuilder20makeNewAndDeleteExprEvENK3$_1clENS_4Sema23AllocationFunctionScopeEbb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef range(i32 0, 3) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::MutableArrayRef.1270", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10025,7 +10025,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefEENK3$_0clEZL23isValidCoroutineContextS1_S2_S4_E15InvalidFuncDiag"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZL23isValidCoroutineContextRN5clang4SemaENS_14SourceLocationEN4llvm9StringRefEENK3$_0clEZL23isValidCoroutineContextS1_S2_S4_E15InvalidFuncDiag"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 0, 7) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %4 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %5 = load ptr, ptr %0, align 8
@@ -10157,7 +10157,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i.i: ; preds = %_ZN4llvm1
 .sink.split.i:                                    ; preds = %.sink.split.i.sink.split, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_.exit.i, %13
   %.sink35.i = phi ptr [ %14, %13 ], [ %68, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_.exit.i ], [ %71, %.sink.split.i.sink.split ]
   %.sink29.i = phi ptr [ %9, %13 ], [ %67, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_.exit.i ], [ %.sink11, %.sink.split.i.sink.split ]
-  %72 = sext i32 %1 to i64
+  %72 = zext nneg i32 %1 to i64
   %73 = getelementptr inbounds nuw i8, ptr %.sink35.i, i64 1
   %74 = load i8, ptr %.sink35.i, align 8
   %75 = zext i8 %74 to i64

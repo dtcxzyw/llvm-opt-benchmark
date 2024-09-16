@@ -817,7 +817,7 @@ define dso_local void @_ZN4llvm8LICMPass3runERNS_4LoopERNS_15AnalysisManagerIS1_
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %9, align 8
-  %38 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_123LoopInvariantCodeMotion9runOnLoopEPN4llvm4LoopEPNS1_9AAResultsEPNS1_8LoopInfoEPNS1_13DominatorTreeEPNS1_15AssumptionCacheEPNS1_17TargetLibraryInfoEPNS1_19TargetTransformInfoEPNS1_15ScalarEvolutionEPNS1_9MemorySSAEPNS1_25OptimizationRemarkEmitterEb(ptr noundef nonnull align 4 dereferenceable(9) %8, ptr noundef nonnull %2, ptr noundef %24, ptr noundef %26, ptr noundef %28, ptr noundef %30, ptr noundef %32, ptr noundef %34, ptr noundef %36, ptr noundef %37, ptr noundef nonnull %7, i1 noundef zeroext false)
+  %38 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_123LoopInvariantCodeMotion9runOnLoopEPN4llvm4LoopEPNS1_9AAResultsEPNS1_8LoopInfoEPNS1_13DominatorTreeEPNS1_15AssumptionCacheEPNS1_17TargetLibraryInfoEPNS1_19TargetTransformInfoEPNS1_15ScalarEvolutionEPNS1_9MemorySSAEPNS1_25OptimizationRemarkEmitterEb(ptr noundef nonnull align 4 dereferenceable(9) %8, ptr noundef nonnull %2, ptr noundef %24, ptr noundef %26, ptr noundef %28, ptr noundef %30, ptr noundef %32, ptr noundef %34, ptr noundef %36, ptr noundef %37, ptr noundef %7, i1 noundef zeroext false)
   br i1 %38, label %51, label %39
 
 39:                                               ; preds = %12
@@ -873,7 +873,7 @@ declare noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE9getHeaderEv(p
 declare void @_ZN4llvm25OptimizationRemarkEmitterC1EPKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_123LoopInvariantCodeMotion9runOnLoopEPN4llvm4LoopEPNS1_9AAResultsEPNS1_8LoopInfoEPNS1_13DominatorTreeEPNS1_15AssumptionCacheEPNS1_17TargetLibraryInfoEPNS1_19TargetTransformInfoEPNS1_15ScalarEvolutionEPNS1_9MemorySSAEPNS1_25OptimizationRemarkEmitterEb(ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, i1 noundef zeroext %11) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_123LoopInvariantCodeMotion9runOnLoopEPN4llvm4LoopEPNS1_9AAResultsEPNS1_8LoopInfoEPNS1_13DominatorTreeEPNS1_15AssumptionCacheEPNS1_17TargetLibraryInfoEPNS1_19TargetTransformInfoEPNS1_15ScalarEvolutionEPNS1_9MemorySSAEPNS1_25OptimizationRemarkEmitterEb(ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef nonnull %10, i1 noundef zeroext %11) unnamed_addr #0 align 2 {
   %13 = alloca %"class.llvm::BatchAAResults", align 8
   %14 = alloca %"class.llvm::AliasSetTracker", align 8
   %15 = alloca %"class.llvm::SmallPtrSet.593", align 8
@@ -1436,11 +1436,11 @@ _ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS
   br i1 %11, label %272, label %274
 
 272:                                              ; preds = %269
-  %273 = call noundef zeroext i1 @_ZN4llvm21sinkRegionForLoopNestEPNS_15DomTreeNodeBaseINS_10BasicBlockEEEPNS_9AAResultsEPNS_8LoopInfoEPNS_13DominatorTreeEPNS_17TargetLibraryInfoEPNS_19TargetTransformInfoEPNS_4LoopERNS_16MemorySSAUpdaterEPNS_17ICFLoopSafetyInfoERNS_21SinkAndHoistLICMFlagsEPNS_25OptimizationRemarkEmitterE(ptr poison, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(632) %20, ptr noundef nonnull %22, ptr noundef nonnull align 4 dereferenceable(17) %21, ptr noundef %10)
+  %273 = call noundef zeroext i1 @_ZN4llvm21sinkRegionForLoopNestEPNS_15DomTreeNodeBaseINS_10BasicBlockEEEPNS_9AAResultsEPNS_8LoopInfoEPNS_13DominatorTreeEPNS_17TargetLibraryInfoEPNS_19TargetTransformInfoEPNS_4LoopERNS_16MemorySSAUpdaterEPNS_17ICFLoopSafetyInfoERNS_21SinkAndHoistLICMFlagsEPNS_25OptimizationRemarkEmitterE(ptr poison, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(632) %20, ptr noundef nonnull %22, ptr noundef nonnull align 4 dereferenceable(17) %21, ptr noundef nonnull %10)
   br label %276
 
 274:                                              ; preds = %269
-  %275 = call noundef zeroext i1 @_ZN4llvm10sinkRegionEPNS_15DomTreeNodeBaseINS_10BasicBlockEEEPNS_9AAResultsEPNS_8LoopInfoEPNS_13DominatorTreeEPNS_17TargetLibraryInfoEPNS_19TargetTransformInfoEPNS_4LoopERNS_16MemorySSAUpdaterEPNS_17ICFLoopSafetyInfoERNS_21SinkAndHoistLICMFlagsEPNS_25OptimizationRemarkEmitterESF_(ptr noundef %271, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(632) %20, ptr noundef nonnull %22, ptr noundef nonnull align 4 dereferenceable(17) %21, ptr noundef %10, ptr noundef null)
+  %275 = call noundef zeroext i1 @_ZN4llvm10sinkRegionEPNS_15DomTreeNodeBaseINS_10BasicBlockEEEPNS_9AAResultsEPNS_8LoopInfoEPNS_13DominatorTreeEPNS_17TargetLibraryInfoEPNS_19TargetTransformInfoEPNS_4LoopERNS_16MemorySSAUpdaterEPNS_17ICFLoopSafetyInfoERNS_21SinkAndHoistLICMFlagsEPNS_25OptimizationRemarkEmitterESF_(ptr noundef %271, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(632) %20, ptr noundef nonnull %22, ptr noundef nonnull align 4 dereferenceable(17) %21, ptr noundef nonnull %10, ptr noundef null)
   br label %276
 
 276:                                              ; preds = %272, %274, %"_ZN4llvm6any_ofINS_8ArrayRefIPNS_10BasicBlockEEEZN12_GLOBAL__N_123LoopInvariantCodeMotion9runOnLoopEPNS_4LoopEPNS_9AAResultsEPNS_8LoopInfoEPNS_13DominatorTreeEPNS_15AssumptionCacheEPNS_17TargetLibraryInfoEPNS_19TargetTransformInfoEPNS_15ScalarEvolutionEPNS_9MemorySSAEPNS_25OptimizationRemarkEmitterEbE3$_0EEbOT_T0_.exit"
@@ -1456,7 +1456,7 @@ _ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %283 = load i8, ptr %282, align 4
   %284 = trunc i8 %283 to i1
-  %285 = call noundef zeroext i1 @_ZN4llvm11hoistRegionEPNS_15DomTreeNodeBaseINS_10BasicBlockEEEPNS_9AAResultsEPNS_8LoopInfoEPNS_13DominatorTreeEPNS_15AssumptionCacheEPNS_17TargetLibraryInfoEPNS_4LoopERNS_16MemorySSAUpdaterEPNS_15ScalarEvolutionEPNS_17ICFLoopSafetyInfoERNS_21SinkAndHoistLICMFlagsEPNS_25OptimizationRemarkEmitterEbb(ptr poison, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(632) %20, ptr noundef %8, ptr noundef nonnull %22, ptr noundef nonnull align 4 dereferenceable(17) %21, ptr noundef %10, i1 noundef zeroext %11, i1 noundef zeroext %284)
+  %285 = call noundef zeroext i1 @_ZN4llvm11hoistRegionEPNS_15DomTreeNodeBaseINS_10BasicBlockEEEPNS_9AAResultsEPNS_8LoopInfoEPNS_13DominatorTreeEPNS_15AssumptionCacheEPNS_17TargetLibraryInfoEPNS_4LoopERNS_16MemorySSAUpdaterEPNS_15ScalarEvolutionEPNS_17ICFLoopSafetyInfoERNS_21SinkAndHoistLICMFlagsEPNS_25OptimizationRemarkEmitterEbb(ptr poison, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(632) %20, ptr noundef %8, ptr noundef nonnull %22, ptr noundef nonnull align 4 dereferenceable(17) %21, ptr noundef nonnull %10, i1 noundef zeroext %11, i1 noundef zeroext %284)
   %286 = or i1 %.093, %285
   %287 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL16DisablePromotion, i64 128), align 8
   %288 = trunc i8 %287 to i1
@@ -2659,7 +2659,7 @@ _ZN4llvm11SmallVectorISt4pairINS_14SmallSetVectorIPNS_5ValueELj8EEEbELj0EED2Ev.e
   %810 = load i8, ptr %282, align 4
   %811 = trunc i8 %810 to i1
   %812 = trunc i8 %808 to i1
-  %813 = call noundef zeroext i1 @_ZN4llvm28promoteLoopAccessesToScalarsERKNS_14SmallSetVectorIPNS_5ValueELj8EEERNS_15SmallVectorImplIPNS_10BasicBlockEEERNS6_INS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES7_EELb0ELb0EEEEERNS6_IPNS_12MemoryAccessEEERNS_17PredIteratorCacheEPNS_8LoopInfoEPNS_13DominatorTreeEPNS_15AssumptionCacheEPKNS_17TargetLibraryInfoEPNS_19TargetTransformInfoEPNS_4LoopERNS_16MemorySSAUpdaterEPNS_17ICFLoopSafetyInfoEPNS_25OptimizationRemarkEmitterEbb(ptr noundef nonnull align 8 dereferenceable(104) %28, ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(120) %26, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(632) %20, ptr noundef nonnull %22, ptr noundef %10, i1 noundef zeroext %811, i1 noundef zeroext %812)
+  %813 = call noundef zeroext i1 @_ZN4llvm28promoteLoopAccessesToScalarsERKNS_14SmallSetVectorIPNS_5ValueELj8EEERNS_15SmallVectorImplIPNS_10BasicBlockEEERNS6_INS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES7_EELb0ELb0EEEEERNS6_IPNS_12MemoryAccessEEERNS_17PredIteratorCacheEPNS_8LoopInfoEPNS_13DominatorTreeEPNS_15AssumptionCacheEPKNS_17TargetLibraryInfoEPNS_19TargetTransformInfoEPNS_4LoopERNS_16MemorySSAUpdaterEPNS_17ICFLoopSafetyInfoEPNS_25OptimizationRemarkEmitterEbb(ptr noundef nonnull align 8 dereferenceable(104) %28, ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(120) %26, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(632) %20, ptr noundef nonnull %22, ptr noundef nonnull %10, i1 noundef zeroext %811, i1 noundef zeroext %812)
   %814 = or i1 %.097165, %813
   %815 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %439) #21
   %816 = load ptr, ptr %439, align 8
@@ -3038,7 +3038,7 @@ define dso_local void @_ZN4llvm9LNICMPass3runERNS_8LoopNestERNS_15AnalysisManage
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %9, align 8
-  %43 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_123LoopInvariantCodeMotion9runOnLoopEPN4llvm4LoopEPNS1_9AAResultsEPNS1_8LoopInfoEPNS1_13DominatorTreeEPNS1_15AssumptionCacheEPNS1_17TargetLibraryInfoEPNS1_19TargetTransformInfoEPNS1_15ScalarEvolutionEPNS1_9MemorySSAEPNS1_25OptimizationRemarkEmitterEb(ptr noundef nonnull align 4 dereferenceable(9) %8, ptr noundef nonnull %28, ptr noundef %29, ptr noundef %31, ptr noundef %33, ptr noundef %35, ptr noundef %37, ptr noundef %39, ptr noundef %41, ptr noundef %42, ptr noundef nonnull %7, i1 noundef zeroext true)
+  %43 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_123LoopInvariantCodeMotion9runOnLoopEPN4llvm4LoopEPNS1_9AAResultsEPNS1_8LoopInfoEPNS1_13DominatorTreeEPNS1_15AssumptionCacheEPNS1_17TargetLibraryInfoEPNS1_19TargetTransformInfoEPNS1_15ScalarEvolutionEPNS1_9MemorySSAEPNS1_25OptimizationRemarkEmitterEb(ptr noundef nonnull align 4 dereferenceable(9) %8, ptr noundef nonnull %28, ptr noundef %29, ptr noundef %31, ptr noundef %33, ptr noundef %35, ptr noundef %37, ptr noundef %39, ptr noundef %41, ptr noundef %42, ptr noundef %7, i1 noundef zeroext true)
   br i1 %43, label %56, label %44
 
 44:                                               ; preds = %12
@@ -6191,7 +6191,7 @@ _ZNK4llvm11Instruction11hasMetadataEj.exit128:    ; preds = %50, %54
   br i1 %60, label %61, label %_ZN12_GLOBAL__N_118isOnlyMemoryAccessEPKN4llvm11InstructionEPKNS0_4LoopERKNS0_16MemorySSAUpdaterE.exit
 
 61:                                               ; preds = %58
-  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_18canSinkOrHoistInstERNS_11InstructionEPNS_9AAResultsEPNS_13DominatorTreeEPNS_4LoopERNS_16MemorySSAUpdaterEbRNS_21SinkAndHoistLICMFlagsEPS0_E3$_0EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr nonnull %10)
+  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_18canSinkOrHoistInstERNS_11InstructionEPNS_9AAResultsEPNS_13DominatorTreeEPNS_4LoopERNS_16MemorySSAUpdaterEbRNS_21SinkAndHoistLICMFlagsEPS0_E3$_0EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %10)
   br label %_ZN12_GLOBAL__N_118isOnlyMemoryAccessEPKN4llvm11InstructionEPKNS0_4LoopERKNS0_16MemorySSAUpdaterE.exit
 
 62:                                               ; preds = %_ZN12_GLOBAL__N_126isHoistableAndSinkableInstERN4llvm11InstructionE.exit.thread.thread, %_ZN12_GLOBAL__N_126isHoistableAndSinkableInstERN4llvm11InstructionE.exit.thread
@@ -6459,7 +6459,7 @@ _ZNK4llvm9MemorySSA16getBlockAccessesEPKNS_10BasicBlockE.exit.thread.i: ; preds 
   br i1 %190, label %191, label %_ZN12_GLOBAL__N_118isOnlyMemoryAccessEPKN4llvm11InstructionEPKNS0_4LoopERKNS0_16MemorySSAUpdaterE.exit
 
 191:                                              ; preds = %186
-  %192 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118isOnlyMemoryAccessEPKN4llvm11InstructionEPKNS0_4LoopERKNS0_16MemorySSAUpdaterE(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(632) %4)
+  %192 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118isOnlyMemoryAccessEPKN4llvm11InstructionEPKNS0_4LoopERKNS0_16MemorySSAUpdaterE(ptr noundef %0, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(632) %4)
   br i1 %192, label %_ZN12_GLOBAL__N_118isOnlyMemoryAccessEPKN4llvm11InstructionEPKNS0_4LoopERKNS0_16MemorySSAUpdaterE.exit, label %193
 
 193:                                              ; preds = %191
@@ -8861,7 +8861,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i:             ; preds = %1070
   %1093 = sub nsw i64 0, %1092
   %1094 = getelementptr inbounds %"class.llvm::Use", ptr %262, i64 %1093
   %1095 = getelementptr inbounds i8, ptr %1094, i64 32
-  %1096 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_3UseEEEZL8hoistGEPRNS_11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeEE3$_0EEbOT_T0_"(ptr nonnull %1095, ptr nonnull %262, ptr nonnull %6)
+  %1096 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_3UseEEEZL8hoistGEPRNS_11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeEE3$_0EEbOT_T0_"(ptr nonnull %1095, ptr nonnull %262, ptr %6)
   br i1 %1096, label %1097, label %1244
 
 1097:                                             ; preds = %1089
@@ -8871,7 +8871,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i:             ; preds = %1070
   %1101 = sub nsw i64 0, %1100
   %1102 = getelementptr inbounds %"class.llvm::Use", ptr %1068, i64 %1101
   %1103 = getelementptr inbounds i8, ptr %1102, i64 32
-  %1104 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_3UseEEEZL8hoistGEPRNS_11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeEE3$_0EEbOT_T0_"(ptr nonnull %1103, ptr nonnull %1068, ptr nonnull %6)
+  %1104 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_3UseEEEZL8hoistGEPRNS_11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeEE3$_0EEbOT_T0_"(ptr nonnull %1103, ptr nonnull %1068, ptr %6)
   br i1 %1104, label %1244, label %1105
 
 1105:                                             ; preds = %1097
@@ -12839,7 +12839,7 @@ declare noundef ptr @_ZNK4llvm15DomTreeNodeBaseINS_10BasicBlockEE7getIDomEv(ptr 
 declare noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE9dominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124), ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21moveInstructionBeforeRN4llvm11InstructionENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsIS0_Lb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull align 8 dereferenceable(632) %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @_ZL21moveInstructionBeforeRN4llvm11InstructionENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsIS0_Lb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %1, i64 range(i64 0, 65536) %2, ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull align 8 dereferenceable(632) %4, ptr noundef %5) unnamed_addr #0 {
   tail call void @_ZN4llvm17ICFLoopSafetyInfo17removeInstructionEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull %0) #21
   %7 = icmp eq ptr %1, null
   %8 = getelementptr inbounds i8, ptr %1, i64 -24
@@ -13493,7 +13493,7 @@ _ZN4llvm14BatchAAResultsD2Ev.exit:                ; preds = %132, %128, %184, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_18canSinkOrHoistInstERNS_11InstructionEPNS_9AAResultsEPNS_13DominatorTreeEPNS_4LoopERNS_16MemorySSAUpdaterEbRNS_21SinkAndHoistLICMFlagsEPS0_E3$_0EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_18canSinkOrHoistInstERNS_11InstructionEPNS_9AAResultsEPNS_13DominatorTreeEPNS_4LoopERNS_16MemorySSAUpdaterEbRNS_21SinkAndHoistLICMFlagsEPS0_E3$_0EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::OptimizationRemarkMissed", align 8
   %4 = alloca %"class.llvm::OptimizationRemarkMissed", align 8
   %5 = load ptr, ptr %0, align 8
@@ -13693,7 +13693,7 @@ _ZNK4llvm9MemorySSA12getBlockDefsEPKNS_10BasicBlockE.exit.thread: ; preds = %.lr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118isOnlyMemoryAccessEPKN4llvm11InstructionEPKNS0_4LoopERKNS0_16MemorySSAUpdaterE(ptr noundef readnone %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118isOnlyMemoryAccessEPKN4llvm11InstructionEPKNS0_4LoopERKNS0_16MemorySSAUpdaterE(ptr noundef nonnull readnone %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %2) unnamed_addr #0 {
   %4 = tail call { ptr, i64 } @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE9getBlocksEv(ptr noundef nonnull align 8 dereferenceable(152) %1) #21
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
@@ -15456,7 +15456,7 @@ _ZNK4llvm4Pass11getAnalysisINS_30TargetTransformInfoWrapperPassEEERT_v.exit: ; p
 
 146:                                              ; preds = %_ZNK4llvm4Pass11getAnalysisINS_30TargetTransformInfoWrapperPassEEERT_v.exit, %143
   %147 = phi ptr [ %145, %143 ], [ null, %_ZNK4llvm4Pass11getAnalysisINS_30TargetTransformInfoWrapperPassEEERT_v.exit ]
-  %148 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_123LoopInvariantCodeMotion9runOnLoopEPN4llvm4LoopEPNS1_9AAResultsEPNS1_8LoopInfoEPNS1_13DominatorTreeEPNS1_15AssumptionCacheEPNS1_17TargetLibraryInfoEPNS1_19TargetTransformInfoEPNS1_15ScalarEvolutionEPNS1_9MemorySSAEPNS1_25OptimizationRemarkEmitterEb(ptr noundef nonnull align 4 dereferenceable(9) %40, ptr noundef nonnull %1, ptr noundef nonnull %57, ptr noundef nonnull %73, ptr noundef nonnull %89, ptr noundef nonnull %105, ptr noundef nonnull %122, ptr noundef nonnull %142, ptr noundef %147, ptr noundef nonnull %36, ptr noundef nonnull %6, i1 noundef zeroext false)
+  %148 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_123LoopInvariantCodeMotion9runOnLoopEPN4llvm4LoopEPNS1_9AAResultsEPNS1_8LoopInfoEPNS1_13DominatorTreeEPNS1_15AssumptionCacheEPNS1_17TargetLibraryInfoEPNS1_19TargetTransformInfoEPNS1_15ScalarEvolutionEPNS1_9MemorySSAEPNS1_25OptimizationRemarkEmitterEb(ptr noundef nonnull align 4 dereferenceable(9) %40, ptr noundef nonnull %1, ptr noundef nonnull %57, ptr noundef nonnull %73, ptr noundef nonnull %89, ptr noundef nonnull %105, ptr noundef nonnull %122, ptr noundef nonnull %142, ptr noundef %147, ptr noundef nonnull %36, ptr noundef %6, i1 noundef zeroext false)
   %149 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %150 = load ptr, ptr %149, align 8
   %.not.i.i = icmp eq ptr %150, null
@@ -22618,7 +22618,7 @@ declare void @_ZN4llvm24IRBuilderDefaultInserterD1Ev(ptr noundef nonnull align 8
 declare void @_ZN4llvm15IRBuilderFolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_3UseEEEZL8hoistGEPRNS_11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeEE3$_0EEbOT_T0_"(ptr %.0.val, ptr %.8.val, ptr %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_3UseEEEZL8hoistGEPRNS_11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeEE3$_0EEbOT_T0_"(ptr %.0.val, ptr %.8.val, ptr nonnull %0) unnamed_addr #0 {
   %2 = ptrtoint ptr %.8.val to i64
   %3 = ptrtoint ptr %.0.val to i64
   %4 = sub i64 %2, %3

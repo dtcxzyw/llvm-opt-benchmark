@@ -507,7 +507,7 @@ entry:
   %2 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 8
   store ptr %2, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %filters, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118CreateChannelStackERKNS_11ChannelArgsESt6vectorIPK19grpc_channel_filterSaIS7_EE(ptr noalias nonnull align 8 %p, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118CreateChannelStackERKNS_11ChannelArgsESt6vectorIPK19grpc_channel_filterSaIS7_EE(ptr noalias align 8 %p, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -564,7 +564,7 @@ invoke.cont16:                                    ; preds = %invoke.cont10
   store ptr @_ZN9grpc_core16LameClientFilter7kFilterE, ptr %call5.i.i.i.i2.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.tmp11, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118CreateChannelStackERKNS_11ChannelArgsESt6vectorIPK19grpc_channel_filterSaIS7_EE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6, ptr noundef nonnull %agg.tmp11)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118CreateChannelStackERKNS_11ChannelArgsESt6vectorIPK19grpc_channel_filterSaIS7_EE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6, ptr noundef %agg.tmp11)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont16
@@ -746,7 +746,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i19, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118CreateChannelStackERKNS_11ChannelArgsESt6vectorIPK19grpc_channel_filterSaIS7_EE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr nocapture noundef readonly %filters) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118CreateChannelStackERKNS_11ChannelArgsESt6vectorIPK19grpc_channel_filterSaIS7_EE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly %filters) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %builder = alloca %"class.grpc_core::ChannelStackBuilderImpl", align 8
   call void @_ZN9grpc_core19ChannelStackBuilderC2EPKc23grpc_channel_stack_typeRKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(88) %builder, ptr noundef nonnull @.str.7, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %args)
@@ -784,7 +784,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 for.end:                                          ; preds = %for.inc, %entry
-  invoke void @_ZN9grpc_core23ChannelStackBuilderImpl5BuildEv(ptr sret(%"class.absl::lts_20230802::StatusOr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %builder)
+  invoke void @_ZN9grpc_core23ChannelStackBuilderImpl5BuildEv(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %builder)
           to label %invoke.cont6 unwind label %lpad.loopexit.split-lp
 
 invoke.cont6:                                     ; preds = %for.end

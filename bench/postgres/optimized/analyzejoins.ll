@@ -570,7 +570,7 @@ remove_leftjoinrel_from_query.exit:               ; preds = %311, %.lr.ph67.i, %
   store ptr null, ptr %317, align 8
   call void @pfree(ptr noundef %218) #7
   store i32 0, ptr %4, align 4
-  %318 = call fastcc ptr @remove_rel_from_joinlist(ptr noundef %.051, i32 noundef %216, ptr noundef nonnull %4)
+  %318 = call fastcc ptr @remove_rel_from_joinlist(ptr noundef %.051, i32 noundef %216, ptr noundef %4)
   %319 = load i32, ptr %4, align 4
   %.not21 = icmp eq i32 %319, 1
   br i1 %.not21, label %323, label %320
@@ -604,7 +604,7 @@ remove_leftjoinrel_from_query.exit:               ; preds = %311, %.lr.ph67.i, %
 declare i32 @bms_singleton_member(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @remove_rel_from_joinlist(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @remove_rel_from_joinlist(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1783,7 +1783,7 @@ list_length.exit:                                 ; preds = %2
 .lr.ph:                                           ; preds = %17, %.lr.ph
   %20 = phi i32 [ %22, %.lr.ph ], [ %18, %17 ]
   %.120 = phi ptr [ %21, %.lr.ph ], [ %1, %17 ]
-  %21 = call fastcc ptr @remove_rel_from_joinlist(ptr noundef %.120, i32 noundef %20, ptr noundef nonnull %3)
+  %21 = call fastcc ptr @remove_rel_from_joinlist(ptr noundef %.120, i32 noundef %20, ptr noundef %3)
   %22 = tail call i32 @bms_next_member(ptr noundef nonnull %16, i32 noundef %20) #7
   %23 = icmp sgt i32 %22, -1
   br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !13

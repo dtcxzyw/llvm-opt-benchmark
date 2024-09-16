@@ -3898,7 +3898,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit.i71:               ; preds = %1228, %1226
           to label %1251 unwind label %.loopexit.split-lp197.i
 
 1251:                                             ; preds = %1249
-  invoke fastcc void @_ZZN12_GLOBAL__N_114OptFfInvWorker10push_q_invERN5Yosys6FfDataEENKUlvE5_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %12)
+  invoke fastcc void @_ZZN12_GLOBAL__N_114OptFfInvWorker10push_q_invERN5Yosys6FfDataEENKUlvE5_clEv(ptr dead_on_unwind noalias writable align 4 %12)
           to label %1252 unwind label %.loopexit.split-lp197.i
 
 1252:                                             ; preds = %1251
@@ -20310,7 +20310,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkEEvT_S4_.exit: ; preds = %_ZSt8_DestroyIN5Y
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_114OptFfInvWorker10push_q_invERN5Yosys6FfDataEENKUlvE5_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_114OptFfInvWorker10push_q_invERN5Yosys6FfDataEENKUlvE5_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_114OptFfInvWorker10push_q_invERN5Yosys6FfDataEENKUlvE5_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !10

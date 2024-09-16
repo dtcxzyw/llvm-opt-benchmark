@@ -3506,7 +3506,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %it.sroa.2.036 = phi ptr [ %0, %for.body.lr.ph ], [ %call.i.i, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit16 ]
   %second.i = getelementptr inbounds i8, ptr %it.sroa.2.036, i64 64
   %4 = load ptr, ptr %second.i, align 8
-  invoke fastcc void @_ZN4base12_GLOBAL__N_124CopyWithoutEmptyChildrenERKNS_5ValueE(ptr noalias nonnull align 8 %child_copy, ptr noundef nonnull align 8 dereferenceable(12) %4)
+  invoke fastcc void @_ZN4base12_GLOBAL__N_124CopyWithoutEmptyChildrenERKNS_5ValueE(ptr noalias align 8 %child_copy, ptr noundef nonnull align 8 dereferenceable(12) %4)
           to label %invoke.cont5 unwind label %lpad1
 
 invoke.cont5:                                     ; preds = %for.body
@@ -6333,7 +6333,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeINSt7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4base12_GLOBAL__N_124CopyWithoutEmptyChildrenERKNS_5ValueE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %node) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4base12_GLOBAL__N_124CopyWithoutEmptyChildrenERKNS_5ValueE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %node) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %child_copy.i = alloca %"class.std::unique_ptr", align 8
   %ref.tmp2 = alloca %"class.std::unique_ptr.25", align 8
@@ -6357,7 +6357,7 @@ for.body.i:                                       ; preds = %sw.bb, %_ZNSt10uniq
   %ref.tmp.sroa.0.072 = phi ptr [ %ref.tmp.sroa.0.258, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit25 ], [ null, %sw.bb ]
   %__begin2.i.sroa.0.071 = phi ptr [ %incdec.ptr.i, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit25 ], [ %1, %sw.bb ]
   %3 = load ptr, ptr %__begin2.i.sroa.0.071, align 8
-  invoke fastcc void @_ZN4base12_GLOBAL__N_124CopyWithoutEmptyChildrenERKNS_5ValueE(ptr noalias nonnull align 8 %child_copy.i, ptr noundef nonnull align 8 dereferenceable(12) %3)
+  invoke fastcc void @_ZN4base12_GLOBAL__N_124CopyWithoutEmptyChildrenERKNS_5ValueE(ptr noalias align 8 %child_copy.i, ptr noundef nonnull align 8 dereferenceable(12) %3)
           to label %invoke.cont8.i unwind label %lpad.i
 
 invoke.cont8.i:                                   ; preds = %for.body.i

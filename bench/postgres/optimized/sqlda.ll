@@ -955,7 +955,7 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @sqlda_common_total_size(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @sqlda_common_total_size(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @PQnfields(ptr noundef %0) #6
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge

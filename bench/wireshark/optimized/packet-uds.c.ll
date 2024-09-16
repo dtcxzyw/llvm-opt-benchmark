@@ -2977,11 +2977,11 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br i1 %79, label %414, label %415
 
 414:                                              ; preds = %412
-  call fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef nonnull %19, i32 noundef %413, ptr noundef nonnull @uds_cc_types, i32 noundef 0)
+  call fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %19, i32 noundef %413, ptr noundef nonnull @uds_cc_types, i32 noundef 0)
   br label %.loopexit
 
 415:                                              ; preds = %412
-  call fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef nonnull %19, i32 noundef %413, ptr noundef nonnull @uds_cc_types, i32 noundef 1)
+  call fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %19, i32 noundef %413, ptr noundef nonnull @uds_cc_types, i32 noundef 1)
   %416 = load i32, ptr @hf_uds_cc_comm_type_and_subnet_number, align 4
   %417 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %416, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #9
   store ptr %417, ptr %18, align 8
@@ -3006,7 +3006,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br i1 %79, label %431, label %566
 
 431:                                              ; preds = %429
-  call fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef nonnull %19, i32 noundef %430, ptr noundef nonnull @uds_ars_types, i32 noundef 0)
+  call fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %19, i32 noundef %430, ptr noundef nonnull @uds_ars_types, i32 noundef 0)
   %432 = load i32, ptr %19, align 4
   switch i32 %432, label %.loopexit [
     i32 0, label %433
@@ -3191,7 +3191,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br label %.loopexit
 
 566:                                              ; preds = %429
-  call fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef nonnull %19, i32 noundef %430, ptr noundef nonnull @uds_ars_types, i32 noundef 1)
+  call fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %19, i32 noundef %430, ptr noundef nonnull @uds_ars_types, i32 noundef 1)
   %567 = load i32, ptr %19, align 4
   switch i32 %567, label %.loopexit [
     i32 7, label %626
@@ -3367,7 +3367,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br i1 %79, label %683, label %688
 
 683:                                              ; preds = %681
-  call fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef nonnull %19, i32 noundef %682, ptr noundef nonnull @uds_dddi_types, i32 noundef 0)
+  call fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %19, i32 noundef %682, ptr noundef nonnull @uds_dddi_types, i32 noundef 0)
   %684 = icmp ugt i32 %60, 3
   br i1 %684, label %685, label %.loopexit
 
@@ -3377,7 +3377,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br label %.loopexit
 
 688:                                              ; preds = %681
-  call fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef nonnull %19, i32 noundef %682, ptr noundef nonnull @uds_dddi_types, i32 noundef 1)
+  call fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %19, i32 noundef %682, ptr noundef nonnull @uds_dddi_types, i32 noundef 1)
   %689 = load i32, ptr %19, align 4
   switch i32 %689, label %.loopexit [
     i32 1, label %690
@@ -3790,7 +3790,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %948 = load i32, ptr @hf_uds_tp_subfunction_no_suppress, align 4
   %949 = xor i1 %79, true
   %950 = zext i1 %949 to i32
-  call fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef nonnull %19, i32 noundef %948, ptr noundef null, i32 noundef %950)
+  call fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %19, i32 noundef %948, ptr noundef null, i32 noundef %950)
   br label %.loopexit
 
 951:                                              ; preds = %190
@@ -3971,7 +3971,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @uds_proto_tree_add_address_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @uds_proto_tree_add_address_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = zext nneg i32 %3 to i64
@@ -4048,7 +4048,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 -1, 65536) %3, i8 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
@@ -4702,7 +4702,7 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %160, %uds_lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @protoitem_append_data_name(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @protoitem_append_data_name(ptr noundef %0, i32 noundef range(i32 -1, 65536) %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = zext i16 %2 to i32
   %6 = load ptr, ptr @uds_ht_data_ids, align 8
@@ -4751,7 +4751,7 @@ uds_lookup_data_name.exit.thread:                 ; preds = %generic_lookup_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @infocol_append_data_name(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @infocol_append_data_name(ptr nocapture noundef readonly %0, i32 noundef range(i32 -1, 65536) %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = zext i16 %2 to i32
   %6 = load ptr, ptr @uds_ht_data_ids, align 8
@@ -4806,7 +4806,7 @@ declare ptr @tvb_bytes_to_str_punct(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @call_heur_subdissector_uds(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @call_heur_subdissector_uds(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext range(i8 0, -64) %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6, i32 noundef range(i32 -1, 65536) %7) unnamed_addr #0 {
   %9 = alloca %struct.uds_info, align 4
   store i32 %6, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %9, i64 4
@@ -4876,7 +4876,7 @@ define internal fastcc i32 @call_heur_subdissector_uds(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_uds_memory_addr_size(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_uds_memory_addr_size(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -4929,13 +4929,13 @@ define internal fastcc i32 @dissect_uds_memory_addr_size(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_uds_subfunction, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
   %11 = load i32, ptr @ett_uds_subfunction, align 4
   %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #9
-  %13 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %12, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef %3) #9
+  %13 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %12, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3) #9
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %21, label %14
 
@@ -5037,7 +5037,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @proto_tree_add_item_ret_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @protoitem_append_routine_name(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @protoitem_append_routine_name(ptr noundef %0, i32 noundef range(i32 -1, 65536) %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = zext i16 %2 to i32
   %6 = load ptr, ptr @uds_ht_routine_ids, align 8
@@ -5086,7 +5086,7 @@ uds_lookup_routine_name.exit.thread:              ; preds = %generic_lookup_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @infocol_append_routine_name(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @infocol_append_routine_name(ptr nocapture noundef readonly %0, i32 noundef range(i32 -1, 65536) %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = zext i16 %2 to i32
   %6 = load ptr, ptr @uds_ht_routine_ids, align 8
@@ -5147,7 +5147,7 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 declare ptr @wmem_packet_scope() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_uds_dtc_and_status_record(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_uds_dtc_and_status_record(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -1, 65536) %4, i32 noundef range(i32 0, 2) %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca ptr, align 8

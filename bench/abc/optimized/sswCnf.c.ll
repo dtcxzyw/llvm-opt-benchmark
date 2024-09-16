@@ -550,10 +550,10 @@ define void @Ssw_AddClausesSuper(ptr nocapture noundef readonly %0, ptr nocaptur
   %31 = sext i32 %.val72 to i64
   %32 = getelementptr inbounds i32, ptr %.val.i.i, i64 %31
   %33 = load i32, ptr %32, align 4
-  %34 = shl nsw i32 %33, 1
-  %35 = trunc i64 %25 to i32
-  %36 = and i32 %35, 1
-  %37 = or disjoint i32 %34, %36
+  %34 = trunc i64 %25 to i32
+  %35 = and i32 %34, 1
+  %36 = shl nsw i32 %33, 1
+  %37 = or disjoint i32 %36, %35
   store i32 %37, ptr %8, align 4
   %.val69 = load ptr, ptr %11, align 8
   %.val70 = load i32, ptr %12, align 4
@@ -621,10 +621,10 @@ define void @Ssw_AddClausesSuper(ptr nocapture noundef readonly %0, ptr nocaptur
   %71 = sext i32 %.val68 to i64
   %72 = getelementptr inbounds i32, ptr %.val.i.i79, i64 %71
   %73 = load i32, ptr %72, align 4
-  %74 = shl nsw i32 %73, 1
-  %75 = trunc i64 %65 to i32
-  %76 = and i32 %75, 1
-  %77 = or disjoint i32 %74, %76
+  %74 = trunc i64 %65 to i32
+  %75 = and i32 %74, 1
+  %76 = shl nsw i32 %73, 1
+  %77 = or disjoint i32 %76, %75
   %78 = xor i32 %77, 1
   %79 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv87
   store i32 %78, ptr %79, align 4
@@ -1318,7 +1318,7 @@ common.ret24:                                     ; preds = %20, %11, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

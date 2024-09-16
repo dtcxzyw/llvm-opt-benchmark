@@ -5693,7 +5693,7 @@ _ZNSt10unique_ptrI13InventoryListNS0_14ResizeUnlockerEED2Ev.exit2116: ; preds = 
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @"_ZZN11IMoveAction5applyEP16InventoryManagerP18ServerActiveObjectP8IGameDefENK3$_0clERK17InventoryLocationRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, ptr %this.0.val, ptr noundef nonnull align 8 dereferenceable(46) %invloc, ptr noundef nonnull align 8 dereferenceable(32) %listname) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN11IMoveAction5applyEP16InventoryManagerP18ServerActiveObjectP8IGameDefENK3$_0clERK17InventoryLocationRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr %this.0.val, ptr noundef nonnull align 8 dereferenceable(46) %invloc, ptr noundef nonnull align 8 dereferenceable(32) %listname) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this.0.val, align 8, !tbaa !25
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16

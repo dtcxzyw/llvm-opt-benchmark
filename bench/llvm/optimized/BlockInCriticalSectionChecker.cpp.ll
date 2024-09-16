@@ -2376,7 +2376,7 @@ _ZNK12_GLOBAL__N_129BlockInCriticalSectionChecker24reportBlockInCritSectionERKN5
   br label %_ZNK12_GLOBAL__N_129BlockInCriticalSectionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_129BlockInCriticalSectionChecker23isBlockingInCritSectionERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_129BlockInCriticalSectionChecker23isBlockingInCritSectionERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.i, %25, %3
-  call fastcc void @_ZNK12_GLOBAL__N_129BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNS2_14CheckerContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(1248) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext true)
+  call fastcc void @_ZNK12_GLOBAL__N_129BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNS2_14CheckerContextEb(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(1248) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext true)
   %145 = getelementptr inbounds i8, ptr %21, i64 136
   %.val.i = load i8, ptr %145, align 8
   %146 = trunc i8 %.val.i to i1
@@ -2607,7 +2607,7 @@ _ZNK12_GLOBAL__N_129BlockInCriticalSectionChecker10handleLockERKSt7variantIJNS_2
   br label %_ZNSt8optionalISt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS1_21MemberMutexDescriptorENS1_19RAIIMutexDescriptorEEEED2Ev.exit.i
 
 230:                                              ; preds = %_ZNK12_GLOBAL__N_129BlockInCriticalSectionChecker23isBlockingInCritSectionERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.thread.i
-  call fastcc void @_ZNK12_GLOBAL__N_129BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNS2_14CheckerContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(1248) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext false)
+  call fastcc void @_ZNK12_GLOBAL__N_129BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNS2_14CheckerContextEb(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(1248) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext false)
   %231 = getelementptr inbounds i8, ptr %22, i64 136
   %.val13.i = load i8, ptr %231, align 8
   %232 = trunc i8 %.val13.i to i1
@@ -2879,7 +2879,7 @@ _ZNK12_GLOBAL__N_129BlockInCriticalSectionChecker13checkPostCallERKN5clang4ento9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_129BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNS2_14CheckerContextEb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_129BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNS2_14CheckerContextEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = zext i1 %3 to i8
   br label %.lr.ph.i.i.i.i
 
@@ -2887,25 +2887,25 @@ define internal fastcc void @_ZNK12_GLOBAL__N_129BlockInCriticalSectionChecker20
   %.051.i.i.i.i = phi i64 [ %14, %13 ], [ 2, %4 ]
   %.02950.i.i.i.i.idx = phi i64 [ %.02950.i.i.i.i.add5, %13 ], [ 32, %4 ]
   %.02950.i.i.i.i.ptr = getelementptr inbounds i8, ptr %1, i64 %.02950.i.i.i.i.idx
-  %6 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_129BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNS5_14CheckerContextEbE3$_0EclIPKSt7variantIJNS2_23FirstArgMutexDescriptorENS2_21MemberMutexDescriptorENS2_19RAIIMutexDescriptorEEEEEbT_"(ptr nonnull %2, i8 %5, ptr noundef nonnull %.02950.i.i.i.i.ptr)
+  %6 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_129BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNS5_14CheckerContextEbE3$_0EclIPKSt7variantIJNS2_23FirstArgMutexDescriptorENS2_21MemberMutexDescriptorENS2_19RAIIMutexDescriptorEEEEEbT_"(ptr nonnull %2, i8 %5, ptr noundef %.02950.i.i.i.i.ptr)
   br i1 %6, label %"_ZN4llvm7find_ifIRKSt5arrayISt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS3_21MemberMutexDescriptorENS3_19RAIIMutexDescriptorEEELm8EEZNKS3_29BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNSD_14CheckerContextEbE3$_0EEDaOT_T0_.exit", label %7
 
 7:                                                ; preds = %.lr.ph.i.i.i.i
   %.02950.i.i.i.i.add4 = add nuw nsw i64 %.02950.i.i.i.i.idx, 136
   %.ptr8 = getelementptr inbounds i8, ptr %1, i64 %.02950.i.i.i.i.add4
-  %8 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_129BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNS5_14CheckerContextEbE3$_0EclIPKSt7variantIJNS2_23FirstArgMutexDescriptorENS2_21MemberMutexDescriptorENS2_19RAIIMutexDescriptorEEEEEbT_"(ptr nonnull %2, i8 %5, ptr noundef nonnull %.ptr8)
+  %8 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_129BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNS5_14CheckerContextEbE3$_0EclIPKSt7variantIJNS2_23FirstArgMutexDescriptorENS2_21MemberMutexDescriptorENS2_19RAIIMutexDescriptorEEEEEbT_"(ptr nonnull %2, i8 %5, ptr noundef %.ptr8)
   br i1 %8, label %"_ZN4llvm7find_ifIRKSt5arrayISt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS3_21MemberMutexDescriptorENS3_19RAIIMutexDescriptorEEELm8EEZNKS3_29BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNSD_14CheckerContextEbE3$_0EEDaOT_T0_.exit.thread16", label %9
 
 9:                                                ; preds = %7
   %.02950.i.i.i.i.add3 = add nuw nsw i64 %.02950.i.i.i.i.idx, 272
   %.ptr7 = getelementptr inbounds i8, ptr %1, i64 %.02950.i.i.i.i.add3
-  %10 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_129BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNS5_14CheckerContextEbE3$_0EclIPKSt7variantIJNS2_23FirstArgMutexDescriptorENS2_21MemberMutexDescriptorENS2_19RAIIMutexDescriptorEEEEEbT_"(ptr nonnull %2, i8 %5, ptr noundef nonnull %.ptr7)
+  %10 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_129BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNS5_14CheckerContextEbE3$_0EclIPKSt7variantIJNS2_23FirstArgMutexDescriptorENS2_21MemberMutexDescriptorENS2_19RAIIMutexDescriptorEEEEEbT_"(ptr nonnull %2, i8 %5, ptr noundef %.ptr7)
   br i1 %10, label %"_ZN4llvm7find_ifIRKSt5arrayISt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS3_21MemberMutexDescriptorENS3_19RAIIMutexDescriptorEEELm8EEZNKS3_29BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNSD_14CheckerContextEbE3$_0EEDaOT_T0_.exit.thread16", label %11
 
 11:                                               ; preds = %9
   %.02950.i.i.i.i.add = add nuw nsw i64 %.02950.i.i.i.i.idx, 408
   %.ptr = getelementptr inbounds i8, ptr %1, i64 %.02950.i.i.i.i.add
-  %12 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_129BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNS5_14CheckerContextEbE3$_0EclIPKSt7variantIJNS2_23FirstArgMutexDescriptorENS2_21MemberMutexDescriptorENS2_19RAIIMutexDescriptorEEEEEbT_"(ptr nonnull %2, i8 %5, ptr noundef nonnull %.ptr)
+  %12 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_129BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNS5_14CheckerContextEbE3$_0EclIPKSt7variantIJNS2_23FirstArgMutexDescriptorENS2_21MemberMutexDescriptorENS2_19RAIIMutexDescriptorEEEEEbT_"(ptr nonnull %2, i8 %5, ptr noundef %.ptr)
   br i1 %12, label %"_ZN4llvm7find_ifIRKSt5arrayISt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS3_21MemberMutexDescriptorENS3_19RAIIMutexDescriptorEEELm8EEZNKS3_29BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNSD_14CheckerContextEbE3$_0EEDaOT_T0_.exit.thread16", label %13
 
 13:                                               ; preds = %11
@@ -3140,7 +3140,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull ali
 declare void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_129BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNS5_14CheckerContextEbE3$_0EclIPKSt7variantIJNS2_23FirstArgMutexDescriptorENS2_21MemberMutexDescriptorENS2_19RAIIMutexDescriptorEEEEEbT_"(ptr %.0.val, i8 %.8.val, ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_129BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNS5_14CheckerContextEbE3$_0EclIPKSt7variantIJNS2_23FirstArgMutexDescriptorENS2_21MemberMutexDescriptorENS2_19RAIIMutexDescriptorEEEEEbT_"(ptr %.0.val, i8 %.8.val, ptr noundef nonnull %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %.val.i.i = load i8, ptr %2, align 8
   %.not.i.i.i = icmp eq i8 %.val.i.i, -1

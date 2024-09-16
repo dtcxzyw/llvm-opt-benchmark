@@ -2705,8 +2705,8 @@ nbd_iter_channel_error.exit:                      ; preds = %if.then7.i, %if.els
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end
-  %tobool.i.not = icmp sgt i16 %2, -1
-  br i1 %tobool.i.not, label %if.then12, label %sw.epilog
+  %tobool.i = icmp slt i16 %2, 0
+  br i1 %tobool.i, label %sw.epilog, label %if.then12
 
 if.then12:                                        ; preds = %sw.default
   %20 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
@@ -3496,23 +3496,23 @@ if.end58:                                         ; preds = %if.then55
   br label %return
 
 if.end60:                                         ; preds = %if.end37
-  %tobool.i.not43 = icmp slt i16 %7, 0
-  %spec.select = select i1 %tobool.i.not43, ptr %local_payload, ptr %payload
+  %tobool.i = icmp slt i16 %7, 0
+  %spec.select = select i1 %tobool.i, ptr %local_payload, ptr %payload
   %call66 = call i32 @nbd_co_receive_structured_payload(ptr noundef nonnull %s, ptr noundef %spec.select, ptr noundef %errp)
   %cmp67 = icmp slt i32 %call66, 0
   br i1 %cmp67, label %return, label %if.end70
 
 if.end70:                                         ; preds = %if.end60
   %12 = load i16, ptr %type, align 1
-  %tobool.i41.not = icmp sgt i16 %12, -1
-  br i1 %tobool.i41.not, label %return, label %if.end.i
+  %tobool.i40 = icmp slt i16 %12, 0
+  br i1 %tobool.i40, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end70
   %13 = load ptr, ptr %local_payload, align 8
   %length.i = getelementptr inbounds i8, ptr %s, i64 680
   %14 = load i32, ptr %length.i, align 1
-  %cmp.i42 = icmp ult i32 %14, 6
-  br i1 %cmp.i42, label %if.then3.i, label %if.end4.i
+  %cmp.i41 = icmp ult i32 %14, 6
+  br i1 %cmp.i41, label %if.then3.i, label %if.end4.i
 
 if.then3.i:                                       ; preds = %if.end.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 730, ptr noundef nonnull @__func__.nbd_parse_error_payload, ptr noundef nonnull @.str.108) #15
@@ -4825,8 +4825,8 @@ nbd_iter_channel_error.exit31:                    ; preds = %if.then7.i28, %if.e
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end6
-  %tobool.i.not = icmp sgt i16 %2, -1
-  br i1 %tobool.i.not, label %if.then30, label %sw.epilog
+  %tobool.i = icmp slt i16 %2, 0
+  br i1 %tobool.i, label %sw.epilog, label %if.then30
 
 if.then30:                                        ; preds = %sw.default
   %59 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8

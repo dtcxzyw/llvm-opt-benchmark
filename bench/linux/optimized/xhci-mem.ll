@@ -4424,7 +4424,7 @@ define internal fastcc noundef ptr @xhci_alloc_interrupter(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @xhci_add_interrupter(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @xhci_add_interrupter(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 78
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32

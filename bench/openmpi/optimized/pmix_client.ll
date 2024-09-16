@@ -230,7 +230,7 @@ define i32 @PMIx_Init(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unna
   br i1 %.not282, label %36, label %35
 
 35:                                               ; preds = %30
-  tail call fastcc void @_check_for_notify(ptr noundef nonnull %1, i64 noundef %2)
+  tail call fastcc void @_check_for_notify(ptr noundef %1, i64 noundef %2)
   br label %36
 
 36:                                               ; preds = %35, %30
@@ -1888,7 +1888,7 @@ pmix_obj_run_destructors.exit406:                 ; preds = %.lr.ph.i403, %._cri
   br i1 %.not255, label %800, label %801
 
 800:                                              ; preds = %799
-  call fastcc void @_check_for_notify(ptr noundef nonnull %1, i64 noundef %2)
+  call fastcc void @_check_for_notify(ptr noundef %1, i64 noundef %2)
   br label %801
 
 801:                                              ; preds = %800, %799
@@ -2166,7 +2166,7 @@ declare void @PMIx_Load_procid(ptr noundef, ptr noundef, i32 noundef) local_unna
 declare i32 @pthread_cond_broadcast(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_check_for_notify(ptr noundef %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc void @_check_for_notify(ptr noundef nonnull %0, i64 noundef %1) unnamed_addr #1 {
   %.not81 = icmp eq i64 %1, 0
   br i1 %.not81, label %._crit_edge.thread, label %.lr.ph
 

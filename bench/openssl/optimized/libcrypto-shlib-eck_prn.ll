@@ -228,7 +228,7 @@ land.lhs.true129:                                 ; preds = %if.end119
   %switch.selectcmp = icmp eq i32 %call61, 4
   %switch.select = select i1 %switch.selectcmp, ptr @.str.2, ptr @.str.3
   %switch.select69 = select i1 %switch.selectcmp68, ptr @.str.1, ptr %switch.select
-  %call130 = call fastcc i32 @print_bin(ptr noundef %bp, ptr noundef nonnull %switch.select69, ptr noundef nonnull %0, i64 noundef %call62, i32 noundef %off)
+  %call130 = call fastcc i32 @print_bin(ptr noundef %bp, ptr noundef nonnull %switch.select69, ptr noundef %0, i64 noundef %call62, i32 noundef %off)
   %tobool131.not = icmp eq i32 %call130, 0
   br i1 %tobool131.not, label %if.then154, label %land.lhs.true135
 
@@ -250,7 +250,7 @@ if.end145:                                        ; preds = %land.lhs.true141, %
   br i1 %cmp67.not, label %if.end155, label %land.lhs.true147
 
 land.lhs.true147:                                 ; preds = %if.end145
-  %call148 = call fastcc i32 @print_bin(ptr noundef %bp, ptr noundef nonnull @.str.15, ptr noundef nonnull %call66, i64 noundef %seed_len.0, i32 noundef %off)
+  %call148 = call fastcc i32 @print_bin(ptr noundef %bp, ptr noundef nonnull @.str.15, ptr noundef %call66, i64 noundef %seed_len.0, i32 noundef %off)
   %tobool149.not = icmp eq i32 %call148, 0
   br i1 %tobool149.not, label %if.then154, label %if.end155
 
@@ -377,7 +377,7 @@ declare i32 @EC_GROUP_get_basis_type(ptr noundef) local_unnamed_addr #1
 declare i32 @ASN1_bn_print(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @print_bin(ptr noundef %fp, ptr noundef %name, ptr nocapture noundef readonly %buf, i64 noundef %len, i32 noundef %off) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @print_bin(ptr noundef %fp, ptr noundef %name, ptr nocapture noundef nonnull readonly %buf, i64 noundef %len, i32 noundef %off) unnamed_addr #0 {
 entry:
   %str = alloca [133 x i8], align 16
   %cmp1 = icmp sgt i32 %off, 0

@@ -3927,7 +3927,7 @@ define internal fastcc i32 @next_insert(ptr nocapture noundef readonly %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @insert_tobeinserted(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @insert_tobeinserted(i32 noundef range(i32 1, 0) %0, i32 noundef range(i32 1, 3) %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #15

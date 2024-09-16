@@ -2063,7 +2063,7 @@ while.end.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end8.i.i.i.i.i.i
 
 cleanup.i:                                        ; preds = %if.else.i.i.i.i.i.i.i.i18.i, %lor.lhs.false.i.i.i.i.i.i.i.i16.i, %while.body.i.i.i.i.i.i.i.i13.i, %while.end.i.i.i.i.i.i.i.i.i, %if.then.i
   %91 = phi i1 [ true, %if.then.i ], [ %cmp.i4.i.i.i.i.i.i.i.i.i, %while.end.i.i.i.i.i.i.i.i.i ], [ false, %lor.lhs.false.i.i.i.i.i.i.i.i16.i ], [ false, %while.body.i.i.i.i.i.i.i.i13.i ], [ true, %if.else.i.i.i.i.i.i.i.i18.i ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %91, ptr noundef nonnull %call5.i.i.i.i.i.i, ptr noundef %retval.sroa.12.0.i17.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #22
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %91, ptr noundef nonnull %call5.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.12.0.i17.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #22
   %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %92 = load i64, ptr %_M_node_count.i.i.i, align 8
   %inc.i.i.i = add i64 %92, 1
@@ -3101,7 +3101,7 @@ invoke.cont73.i:                                  ; preds = %for.inc.i.i, %for.b
   br i1 %tobool74.not.i, label %if.end77.i, label %if.then75.i
 
 if.then75.i:                                      ; preds = %invoke.cont73.i
-  invoke fastcc void @_ZN3ue2L12fillAccelOutERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS1_EEEPSt3setItS3_SaItEE(ptr noundef nonnull align 8 dereferenceable(48) %accelInfo.i, ptr noundef nonnull %accel_states)
+  invoke fastcc void @_ZN3ue2L12fillAccelOutERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS1_EEEPSt3setItS3_SaItEE(ptr noundef nonnull align 8 dereferenceable(48) %accelInfo.i, ptr noundef %accel_states)
           to label %if.end77.i unwind label %lpad35.loopexit.split-lp.i, !noalias !144
 
 if.end77.i:                                       ; preds = %if.then75.i, %invoke.cont73.i
@@ -4095,7 +4095,7 @@ invoke.cont67.i:                                  ; preds = %for.inc.i.i, %for.b
   br i1 %tobool68.not.i, label %if.end71.i, label %if.then69.i
 
 if.then69.i:                                      ; preds = %invoke.cont67.i
-  invoke fastcc void @_ZN3ue2L12fillAccelOutERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS1_EEEPSt3setItS3_SaItEE(ptr noundef nonnull align 8 dereferenceable(48) %accelInfo.i, ptr noundef nonnull %accel_states)
+  invoke fastcc void @_ZN3ue2L12fillAccelOutERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS1_EEEPSt3setItS3_SaItEE(ptr noundef nonnull align 8 dereferenceable(48) %accelInfo.i, ptr noundef %accel_states)
           to label %if.end71.i unwind label %lpad38.loopexit.split-lp.i, !noalias !157
 
 if.end71.i:                                       ; preds = %if.then69.i, %invoke.cont67.i
@@ -4977,7 +4977,7 @@ invoke.cont67.i:                                  ; preds = %for.inc.i.i, %for.b
   br i1 %tobool68.not.i, label %if.end71.i, label %if.then69.i
 
 if.then69.i:                                      ; preds = %invoke.cont67.i
-  invoke fastcc void @_ZN3ue2L12fillAccelOutERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS1_EEEPSt3setItS3_SaItEE(ptr noundef nonnull align 8 dereferenceable(48) %accelInfo.i, ptr noundef nonnull %accel_states)
+  invoke fastcc void @_ZN3ue2L12fillAccelOutERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS1_EEEPSt3setItS3_SaItEE(ptr noundef nonnull align 8 dereferenceable(48) %accelInfo.i, ptr noundef %accel_states)
           to label %if.end71.i unwind label %lpad38.loopexit.split-lp.i, !noalias !168
 
 if.end71.i:                                       ; preds = %if.then69.i, %invoke.cont67.i
@@ -6984,7 +6984,7 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE22_M_insert_range_uniqueIN3ue211
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L12fillAccelOutERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS1_EEEPSt3setItS3_SaItEE(ptr noundef nonnull readonly align 8 dereferenceable(48) %accel_escape_info, ptr noundef %accel_states) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L12fillAccelOutERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS1_EEEPSt3setItS3_SaItEE(ptr noundef nonnull readonly align 8 dereferenceable(48) %accel_escape_info, ptr noundef nonnull %accel_states) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_left.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %accel_escape_info, i64 24
   %0 = load ptr, ptr %_M_left.i.i.i.i.i.i.i, align 8, !noalias !211

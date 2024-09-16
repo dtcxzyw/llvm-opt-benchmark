@@ -1034,7 +1034,7 @@ RelationGetSmgr.exit:                             ; preds = %33, %37
   %42 = load ptr, ptr %7, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 114
   %44 = load i8, ptr %43, align 2
-  %45 = call fastcc i32 @ReadBuffer_common(ptr noundef %41, i8 noundef signext %44, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull %6)
+  %45 = call fastcc i32 @ReadBuffer_common(ptr noundef %41, i8 noundef signext %44, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %6)
   %46 = load i8, ptr %6, align 1
   %47 = trunc i8 %46 to i1
   br i1 %47, label %48, label %60
@@ -1070,7 +1070,7 @@ RelationGetSmgr.exit:                             ; preds = %33, %37
 declare void @pgstat_assoc_relation(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ReadBuffer_common(ptr noundef %0, i8 noundef signext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc i32 @ReadBuffer_common(ptr noundef %0, i8 noundef signext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
   %8 = alloca %struct.SpinDelayStatus, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %struct.SpinDelayStatus, align 8
@@ -1553,7 +1553,7 @@ define dso_local i32 @ReadBufferWithoutRelcache(i64 %0, i32 %1, i32 noundef %2, 
   %8 = alloca i8, align 1
   %9 = tail call ptr @smgropen(i64 %0, i32 %1, i32 noundef -1) #14
   %10 = select i1 %6, i8 112, i8 117
-  %11 = call fastcc i32 @ReadBuffer_common(ptr noundef %9, i8 noundef signext %10, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef nonnull %8)
+  %11 = call fastcc i32 @ReadBuffer_common(ptr noundef %9, i8 noundef signext %10, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %8)
   ret i32 %11
 }
 
@@ -2464,7 +2464,7 @@ ReleaseBuffer.exit:                               ; preds = %.lr.ph, %78, %77
   %89 = getelementptr inbounds i8, ptr %0, i64 16
   %90 = load i8, ptr %89, align 8
   %91 = add i32 %4, -1
-  %92 = call fastcc i32 @ReadBuffer_common(ptr noundef %88, i8 noundef signext %90, i32 noundef %1, i32 noundef %91, i32 noundef %5, ptr noundef %2, ptr noundef nonnull %9)
+  %92 = call fastcc i32 @ReadBuffer_common(ptr noundef %88, i8 noundef signext %90, i32 noundef %1, i32 noundef %91, i32 noundef %5, ptr noundef %2, ptr noundef %9)
   br label %93
 
 93:                                               ; preds = %._crit_edge.thread, %._crit_edge
@@ -5699,7 +5699,7 @@ define dso_local void @CreateAndCopyRelationData(i64 %0, i32 %1, i64 %2, i32 %3,
 declare ptr @RelationCreateStorage(i64, i32, i8 noundef signext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RelationCopyStorageUsingBuffer(i64 %0, i32 %1, i64 %2, i32 %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @RelationCopyStorageUsingBuffer(i64 %0, i32 %1, i64 %2, i32 %3, i32 noundef range(i32 -2147483648, 4) %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
   %9 = alloca %union.PGIOAlignedBlock, align 4096
@@ -5742,7 +5742,7 @@ define internal fastcc void @RelationCopyStorageUsingBuffer(i64 %0, i32 %1, i64 
 29:                                               ; preds = %26, %28
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   %30 = call ptr @smgropen(i64 %0, i32 %1, i32 noundef -1) #14
-  %31 = call fastcc i32 @ReadBuffer_common(ptr noundef %30, i8 noundef signext %25, i32 noundef %4, i32 noundef %.049, i32 noundef 0, ptr noundef %23, ptr noundef nonnull %8)
+  %31 = call fastcc i32 @ReadBuffer_common(ptr noundef %30, i8 noundef signext %25, i32 noundef %4, i32 noundef %.049, i32 noundef 0, ptr noundef %23, ptr noundef %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %39
@@ -5771,7 +5771,7 @@ BufferGetPage.exit:                               ; preds = %33, %39
   %.0.i.i = phi ptr [ %38, %33 ], [ %48, %39 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   %49 = call ptr @smgropen(i64 %2, i32 %3, i32 noundef -1) #14
-  %50 = call fastcc i32 @ReadBuffer_common(ptr noundef %49, i8 noundef signext %25, i32 noundef %4, i32 noundef %.049, i32 noundef 1, ptr noundef %24, ptr noundef nonnull %7)
+  %50 = call fastcc i32 @ReadBuffer_common(ptr noundef %49, i8 noundef signext %25, i32 noundef %4, i32 noundef %.049, i32 noundef 1, ptr noundef %24, ptr noundef %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %52, label %58
@@ -7222,7 +7222,7 @@ define dso_local void @IssuePendingWritebacks(ptr noundef %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @sort_pending_writebacks(ptr noundef %0, i64 noundef %1) unnamed_addr #10 {
+define internal fastcc void @sort_pending_writebacks(ptr noundef %0, i64 noundef range(i64 -461168601842738790, 461168601842738791) %1) unnamed_addr #10 {
   %.sroa.0.i.i200 = alloca %struct.buftag, align 8
   %.sroa.0.i.i = alloca %struct.buftag, align 8
   %.sroa.0.i198 = alloca %struct.buftag, align 8
@@ -8379,7 +8379,7 @@ declare void @AtProcExit_LocalBuffers() local_unnamed_addr #2
 declare void @ProcessProcSignalBarrier() local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @sort_checkpoint_bufferids(ptr noundef %0, i64 noundef %1) unnamed_addr #10 {
+define internal fastcc void @sort_checkpoint_bufferids(ptr noundef %0, i64 noundef range(i64 -461168601842738790, 461168601842738791) %1) unnamed_addr #10 {
   %3 = alloca %struct.CkptSortItem, align 4
   %4 = alloca %struct.CkptSortItem, align 4
   %5 = alloca %struct.CkptSortItem, align 4

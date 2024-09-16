@@ -4870,7 +4870,7 @@ if.else128:                                       ; preds = %if.end123
   store ptr %acc, ptr %p.sroa.2.0.p2.sroa_idx.i.i, align 8, !alias.scope !47
   %f3.i.i = getelementptr inbounds i8, ptr %ref.tmp135, i64 16
   store ptr @_ZL11hb_identity, ptr %f3.i.i, align 8, !alias.scope !47
-  call fastcc void @"_ZorI10hb_array_tIKN3CFF23cff1_font_dict_values_tEE24hb_filter_iter_factory_tIZN2OT16cff1_subset_plan6createERKNS6_4cff120accelerator_subset_tEP16hb_subset_plan_tEUlRS3_E_RK4$_11ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSL_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISL_Efp_EEEOSL_OSR_"(ptr noalias nonnull align 8 %ref.tmp129, ptr %fontDicts.val39, i64 %retval.sroa.2.8.insert.ext.i.i.i.i166, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp135)
+  call fastcc void @"_ZorI10hb_array_tIKN3CFF23cff1_font_dict_values_tEE24hb_filter_iter_factory_tIZN2OT16cff1_subset_plan6createERKNS6_4cff120accelerator_subset_tEP16hb_subset_plan_tEUlRS3_E_RK4$_11ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSL_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISL_Efp_EEEOSL_OSR_"(ptr noalias align 8 %ref.tmp129, ptr %fontDicts.val39, i64 %retval.sroa.2.8.insert.ext.i.i.i.i166, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp135)
   %f.i.i.i = getelementptr inbounds i8, ptr %ref.tmp129, i64 40
   store ptr %this, ptr %f.i.i.i, align 8, !alias.scope !50
   %fontdicts_mod142 = getelementptr inbounds i8, ptr %this, i64 304
@@ -10812,7 +10812,7 @@ if.end.i.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %while.body.lr.ph.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @"_ZorI10hb_array_tIKN3CFF23cff1_font_dict_values_tEE24hb_filter_iter_factory_tIZN2OT16cff1_subset_plan6createERKNS6_4cff120accelerator_subset_tEP16hb_subset_plan_tEUlRS3_E_RK4$_11ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSL_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISL_Efp_EEEOSL_OSR_"(ptr noalias nocapture writeonly align 8 %agg.result, ptr %lhs.0.val, i64 %lhs.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rhs) unnamed_addr #8 {
+define internal fastcc void @"_ZorI10hb_array_tIKN3CFF23cff1_font_dict_values_tEE24hb_filter_iter_factory_tIZN2OT16cff1_subset_plan6createERKNS6_4cff120accelerator_subset_tEP16hb_subset_plan_tEUlRS3_E_RK4$_11ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSL_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISL_Efp_EEEOSL_OSR_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %lhs.0.val, i64 %lhs.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rhs) unnamed_addr #8 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %rhs, align 8, !noalias !105

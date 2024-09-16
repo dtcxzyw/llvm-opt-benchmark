@@ -146316,7 +146316,7 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_0EEEvT_SG_T0_T1_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef %__last, i64 noundef %__depth_limit) unnamed_addr #18 {
+define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_0EEEvT_SG_T0_T1_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull %__last, i64 noundef range(i64 0, 128) %__depth_limit) unnamed_addr #18 {
 entry:
   %agg.tmp8 = alloca %"class.std::reverse_iterator.962", align 8
   %agg.tmp9 = alloca %"class.std::reverse_iterator.962", align 8
@@ -147118,7 +147118,7 @@ lpad.body:                                        ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S17_S10_S11_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef %__last, i64 noundef %__depth_limit, ptr nocapture noundef readonly %__comp) unnamed_addr #18 {
+define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S17_S10_S11_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull %__last, i64 noundef range(i64 0, 128) %__depth_limit, ptr nocapture noundef nonnull readonly %__comp) unnamed_addr #18 {
 entry:
   %agg.tmp.i.i6.i = alloca %"class.std::reverse_iterator.962", align 8
   %agg.tmp4.i.i7.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.969", align 8
@@ -147436,7 +147436,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S10_S10_S11_T2_"(ptr nocapture noundef readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, i32 noundef %__value, ptr nocapture noundef readonly %__comp) unnamed_addr #19 {
+define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S10_S10_S11_T2_"(ptr nocapture noundef nonnull readonly %__first, i64 noundef %__holeIndex, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %__len, i32 noundef %__value, ptr nocapture noundef nonnull readonly %__comp) unnamed_addr #19 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -147611,7 +147611,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S17_S10_"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nocapture noundef readonly %__comp) unnamed_addr #20 {
+define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S17_S10_"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nocapture noundef nonnull readonly %__comp) unnamed_addr #20 {
 entry:
   %cmp.i.i = icmp eq ptr %__first.0.val, %__last.0.val
   %0 = ptrtoint ptr %__first.0.val to i64
@@ -147833,7 +147833,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_2NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S17_S10_S11_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef %__last, i64 noundef %__depth_limit, ptr nocapture noundef readonly %__comp) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_2NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S17_S10_S11_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull %__last, i64 noundef range(i64 0, 128) %__depth_limit, ptr nocapture noundef nonnull readonly %__comp) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i6.i = alloca %"class.std::reverse_iterator.962", align 8
   %agg.tmp4.i.i7.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.973", align 8
@@ -148151,7 +148151,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_2NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S10_S10_S11_T2_"(ptr nocapture noundef readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, i32 noundef %__value, ptr nocapture noundef readonly %__comp) unnamed_addr #19 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_2NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S10_S10_S11_T2_"(ptr nocapture noundef nonnull readonly %__first, i64 noundef %__holeIndex, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %__len, i32 noundef %__value, ptr nocapture noundef nonnull readonly %__comp) unnamed_addr #19 personality ptr @__gxx_personality_v0 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -148326,7 +148326,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_2NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S17_S10_"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nocapture noundef readonly %__comp) unnamed_addr #20 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_2NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S17_S10_"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nocapture noundef nonnull readonly %__comp) unnamed_addr #20 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.i = icmp eq ptr %__first.0.val, %__last.0.val
   %0 = ptrtoint ptr %__first.0.val to i64
@@ -177080,7 +177080,7 @@ if.end:                                           ; preds = %_ZNK4entt4sighIFvRN
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN28OwningGroup_SortOrdered_Test8TestBodyEvE3$_0EEEvT_SG_T0_T1_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef %__last, i64 noundef %__depth_limit, ptr nocapture readonly %__comp.coerce) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN28OwningGroup_SortOrdered_Test8TestBodyEvE3$_0EEEvT_SG_T0_T1_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull %__last, i64 noundef range(i64 0, 128) %__depth_limit, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i9.i = alloca %"class.std::reverse_iterator.962", align 8
   %agg.tmp.i.i.i = alloca %"class.std::reverse_iterator.962", align 8
@@ -177387,7 +177387,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZN28OwningGroup_SortOrdered_Test8TestBodyEvE3$_0EEEvT_T0_SH_T1_T2_"(ptr nocapture noundef readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, i32 noundef %__value, ptr nocapture readonly %__comp.coerce) unnamed_addr #19 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZN28OwningGroup_SortOrdered_Test8TestBodyEvE3$_0EEEvT_T0_SH_T1_T2_"(ptr nocapture noundef nonnull readonly %__first, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %__holeIndex, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %__len, i32 noundef %__value, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #19 personality ptr @__gxx_personality_v0 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -178188,7 +178188,7 @@ lpad.body:                                        ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNKS3_11basic_groupINS3_7owned_tIJNS3_16basic_sigh_mixinINS3_13basic_storageIN4test9boxed_intES4_SaISI_EvEENS3_14basic_registryIS4_S7_EEEENSF_INSG_IcS4_SaIcEvEESM_EEEEENS3_5get_tIJEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN28OwningGroup_SortReverse_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S18_S11_S12_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef %__last, i64 noundef %__depth_limit, ptr nocapture readonly %__comp.coerce1) unnamed_addr #18 {
+define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNKS3_11basic_groupINS3_7owned_tIJNS3_16basic_sigh_mixinINS3_13basic_storageIN4test9boxed_intES4_SaISI_EvEENS3_14basic_registryIS4_S7_EEEENSF_INSG_IcS4_SaIcEvEESM_EEEEENS3_5get_tIJEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN28OwningGroup_SortReverse_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S18_S11_S12_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull %__last, i64 noundef range(i64 0, 128) %__depth_limit, ptr nocapture nonnull readonly %__comp.coerce1) unnamed_addr #18 {
 entry:
   %agg.tmp.i.i6.i = alloca %"class.std::reverse_iterator.962", align 8
   %agg.tmp.i.i.i = alloca %"class.std::reverse_iterator.962", align 8
@@ -178492,7 +178492,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNKS3_11basic_groupINS3_7owned_tIJNS3_16basic_sigh_mixinINS3_13basic_storageIN4test9boxed_intES4_SaISI_EvEENS3_14basic_registryIS4_S7_EEEENSF_INSG_IcS4_SaIcEvEESM_EEEEENS3_5get_tIJEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN28OwningGroup_SortReverse_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S11_S11_S12_T2_"(ptr nocapture noundef readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, i32 noundef %__value, ptr nocapture readonly %__comp.coerce1) unnamed_addr #19 {
+define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNKS3_11basic_groupINS3_7owned_tIJNS3_16basic_sigh_mixinINS3_13basic_storageIN4test9boxed_intES4_SaISI_EvEENS3_14basic_registryIS4_S7_EEEENSF_INSG_IcS4_SaIcEvEESM_EEEEENS3_5get_tIJEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN28OwningGroup_SortReverse_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S11_S11_S12_T2_"(ptr nocapture noundef nonnull readonly %__first, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %__holeIndex, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %__len, i32 noundef %__value, ptr nocapture nonnull readonly %__comp.coerce1) unnamed_addr #19 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -180232,7 +180232,7 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNKS3_11basic_groupINS3_7owned_tIJNS3_16basic_sigh_mixinINS3_13basic_storageIN4test9boxed_intES4_SaISI_EvEENS3_14basic_registryIS4_S7_EEEEEEENS3_5get_tIJNSF_INSG_IcS4_SaIcEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN30OwningGroup_SortUnordered_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S18_S11_S12_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef %__last, i64 noundef %__depth_limit, ptr nocapture readonly %__comp.coerce1) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNKS3_11basic_groupINS3_7owned_tIJNS3_16basic_sigh_mixinINS3_13basic_storageIN4test9boxed_intES4_SaISI_EvEENS3_14basic_registryIS4_S7_EEEEEEENS3_5get_tIJNSF_INSG_IcS4_SaIcEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN30OwningGroup_SortUnordered_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S18_S11_S12_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull %__last, i64 noundef range(i64 0, 128) %__depth_limit, ptr nocapture nonnull readonly %__comp.coerce1) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i6.i = alloca %"class.std::reverse_iterator.962", align 8
   %agg.tmp.i.i.i = alloca %"class.std::reverse_iterator.962", align 8
@@ -180532,7 +180532,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNKS3_11basic_groupINS3_7owned_tIJNS3_16basic_sigh_mixinINS3_13basic_storageIN4test9boxed_intES4_SaISI_EvEENS3_14basic_registryIS4_S7_EEEEEEENS3_5get_tIJNSF_INSG_IcS4_SaIcEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN30OwningGroup_SortUnordered_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S11_S11_S12_T2_"(ptr nocapture noundef readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, i32 noundef %__value, ptr nocapture readonly %__comp.coerce1) unnamed_addr #19 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNKS3_11basic_groupINS3_7owned_tIJNS3_16basic_sigh_mixinINS3_13basic_storageIN4test9boxed_intES4_SaISI_EvEENS3_14basic_registryIS4_S7_EEEEEEENS3_5get_tIJNSF_INSG_IcS4_SaIcEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN30OwningGroup_SortUnordered_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S11_S11_S12_T2_"(ptr nocapture noundef nonnull readonly %__first, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %__holeIndex, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %__len, i32 noundef %__value, ptr nocapture nonnull readonly %__comp.coerce1) unnamed_addr #19 personality ptr @__gxx_personality_v0 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -182333,7 +182333,7 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN38OwningGroup_SortWithExclusionList_Test8TestBodyEvE3$_0EEEvT_SG_T0_T1_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef %__last, i64 noundef %__depth_limit) unnamed_addr #18 {
+define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN38OwningGroup_SortWithExclusionList_Test8TestBodyEvE3$_0EEEvT_SG_T0_T1_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull %__last, i64 noundef range(i64 0, 128) %__depth_limit) unnamed_addr #18 {
 entry:
   %agg.tmp8 = alloca %"class.std::reverse_iterator.962", align 8
   %agg.tmp9 = alloca %"class.std::reverse_iterator.962", align 8

@@ -662,7 +662,7 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IhhiNS_11scale_fixptEN
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %19 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.0.0.insert.ext
-  %154 = call fastcc noundef ptr @_ZN2cvL10adjustRectEPKhmiNS_5Size_IiEES3_NS_6Point_IiEEPNS_5Rect_IiEE(ptr noundef %0, i64 noundef %1, i32 noundef %7, i64 %2, i64 %5, i64 %.sroa.0.0.insert.insert, ptr noundef nonnull %9)
+  %154 = call fastcc noundef ptr @_ZN2cvL10adjustRectEPKhmiNS_5Size_IiEES3_NS_6Point_IiEEPNS_5Rect_IiEE(ptr noundef %0, i64 noundef %1, i32 noundef %7, i64 %2, i64 %5, i64 %.sroa.0.0.insert.insert, ptr noundef %9)
   %155 = icmp sgt i32 %.sroa.9.0.extract.trunc, 0
   br i1 %155, label %.lr.ph215, label %.loopexit
 
@@ -1041,7 +1041,7 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IfffNS_3nopIfEES2_EEvP
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %19 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.0.0.insert.ext
-  %110 = call fastcc noundef ptr @_ZN2cvL10adjustRectEPKhmiNS_5Size_IiEES3_NS_6Point_IiEEPNS_5Rect_IiEE(ptr noundef %0, i64 noundef %108, i32 noundef %109, i64 %2, i64 %5, i64 %.sroa.0.0.insert.insert, ptr noundef nonnull %9)
+  %110 = call fastcc noundef ptr @_ZN2cvL10adjustRectEPKhmiNS_5Size_IiEES3_NS_6Point_IiEEPNS_5Rect_IiEE(ptr noundef %0, i64 noundef %108, i32 noundef %109, i64 %2, i64 %5, i64 %.sroa.0.0.insert.insert, ptr noundef %9)
   %111 = icmp sgt i32 %.sroa.9.0.extract.trunc, 0
   br i1 %111, label %.lr.ph215, label %.loopexit
 
@@ -2326,7 +2326,7 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IhffNS_3nopIfEES2_EEvP
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %19 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.0.0.insert.ext
-  %119 = call fastcc noundef ptr @_ZN2cvL10adjustRectEPKhmiNS_5Size_IiEES3_NS_6Point_IiEEPNS_5Rect_IiEE(ptr noundef %0, i64 noundef %1, i32 noundef %7, i64 %2, i64 %5, i64 %.sroa.0.0.insert.insert, ptr noundef nonnull %9)
+  %119 = call fastcc noundef ptr @_ZN2cvL10adjustRectEPKhmiNS_5Size_IiEES3_NS_6Point_IiEEPNS_5Rect_IiEE(ptr noundef %0, i64 noundef %1, i32 noundef %7, i64 %2, i64 %5, i64 %.sroa.0.0.insert.insert, ptr noundef %9)
   %120 = icmp sgt i32 %.sroa.9.0.extract.trunc, 0
   br i1 %120, label %.lr.ph215, label %.loopexit
 
@@ -2513,7 +2513,7 @@ define linkonce_odr hidden void @_ZN2cv17getRectSubPix_Cn_IhffNS_3nopIfEES2_EEvP
 declare float @llvm.floor.f32(float) #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN2cvL10adjustRectEPKhmiNS_5Size_IiEES3_NS_6Point_IiEEPNS_5Rect_IiEE(ptr noundef readnone %0, i64 noundef %1, i32 noundef %2, i64 %3, i64 %4, i64 %5, ptr nocapture noundef writeonly %6) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN2cvL10adjustRectEPKhmiNS_5Size_IiEES3_NS_6Point_IiEEPNS_5Rect_IiEE(ptr noundef readnone %0, i64 noundef %1, i32 noundef %2, i64 %3, i64 %4, i64 %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator", align 1
   %.sroa.027.0.extract.trunc = trunc i64 %3 to i32

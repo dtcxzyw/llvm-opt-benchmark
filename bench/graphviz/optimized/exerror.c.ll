@@ -33,7 +33,7 @@ define void @exerror(ptr nocapture noundef readonly %0, ...) local_unnamed_addr 
 11:                                               ; preds = %8
   store i32 1, ptr %9, align 4
   call void @llvm.va_start.p0(ptr nonnull %2)
-  %12 = call fastcc ptr @make_msg(ptr noundef %0, ptr noundef nonnull %2)
+  %12 = call fastcc ptr @make_msg(ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 160
@@ -51,13 +51,13 @@ define void @exerror(ptr nocapture noundef readonly %0, ...) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @make_msg(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @make_msg(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %6 = call ptr @excontext(ptr noundef %5, ptr noundef nonnull %3, i32 noundef 64) #7
   %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull %3) #7
-  call void @llvm.va_copy.p0(ptr nonnull %4, ptr %1)
+  call void @llvm.va_copy.p0(ptr nonnull %4, ptr nonnull %1)
   %8 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %0, ptr noundef nonnull %4) #7
   call void @llvm.va_end.p0(ptr nonnull %4)
   %9 = icmp slt i32 %8, 0
@@ -81,7 +81,7 @@ define internal fastcc noalias noundef ptr @make_msg(ptr nocapture noundef reado
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i8, ptr %16, i64 %20
   %22 = sub nsw i64 %15, %20
-  %23 = call i32 @vsnprintf(ptr noundef nonnull %21, i64 noundef %22, ptr noundef %0, ptr noundef %1) #7
+  %23 = call i32 @vsnprintf(ptr noundef nonnull %21, i64 noundef %22, ptr noundef %0, ptr noundef nonnull %1) #7
   br label %24
 
 24:                                               ; preds = %12, %18, %10
@@ -105,7 +105,7 @@ define void @exwarn(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #
 
 8:                                                ; preds = %1
   call void @llvm.va_start.p0(ptr nonnull %2)
-  %9 = call fastcc ptr @make_msg(ptr noundef %0, ptr noundef nonnull %2)
+  %9 = call fastcc ptr @make_msg(ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 160

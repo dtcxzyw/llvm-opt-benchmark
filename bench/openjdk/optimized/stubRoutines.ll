@@ -617,7 +617,7 @@ define hidden void @_ZN12StubRoutines24initialize_initial_stubsEv() local_unname
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc noundef nonnull ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_(i32 noundef range(i32 0, 4) %0, i32 noundef range(i32 2000, 66001) %1, i32 noundef range(i32 10, 101) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
   %6 = alloca %class.TraceTime, align 8
   %7 = alloca %class.CodeBuffer, align 8
   %8 = alloca %class.LogStream, align 8

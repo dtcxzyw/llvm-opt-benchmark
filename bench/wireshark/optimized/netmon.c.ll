@@ -1006,7 +1006,7 @@ declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_un
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @utf_16_to_utf_8(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @utf_16_to_utf_8(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, -12) %1) unnamed_addr #0 {
   %3 = icmp ugt i32 %1, 1
   br i1 %3, label %.lr.ph, label %.critedge.thread
 

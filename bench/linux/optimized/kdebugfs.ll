@@ -197,7 +197,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare dso_local void @memunmap(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @create_setup_data_node(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @create_setup_data_node(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !9
@@ -205,7 +205,7 @@ define internal fastcc void @create_setup_data_node(ptr noundef %0, i32 noundef 
   %6 = call ptr @debugfs_create_dir(ptr noundef nonnull %4, ptr noundef %0) #8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   call void @debugfs_create_x32(ptr noundef nonnull @.str.7, i16 noundef zeroext 292, ptr noundef %6, ptr noundef %7) #8
-  %8 = call ptr @debugfs_create_file(ptr noundef nonnull @.str.3, i16 noundef zeroext 292, ptr noundef %6, ptr noundef %2, ptr noundef nonnull @fops_setup_data) #8
+  %8 = call ptr @debugfs_create_file(ptr noundef nonnull @.str.3, i16 noundef zeroext 292, ptr noundef %6, ptr noundef nonnull %2, ptr noundef nonnull @fops_setup_data) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
   ret void
 }

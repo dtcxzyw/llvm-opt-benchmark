@@ -1420,7 +1420,7 @@ statistic_proc_security_check.exit:               ; preds = %.statistic_proc_sec
   %112 = load i64, ptr %111, align 8
   %113 = getelementptr inbounds i8, ptr %1, i64 32
   %114 = load i32, ptr %113, align 8
-  %115 = call fastcc zeroext i1 @convert_to_scalar(i64 noundef %7, i32 noundef %8, i32 noundef %6, ptr noundef nonnull %11, i64 noundef %109, i64 noundef %112, i32 noundef %114, ptr noundef nonnull %13, ptr noundef nonnull %12)
+  %115 = call fastcc zeroext i1 @convert_to_scalar(i64 noundef %7, i32 noundef %8, i32 noundef %6, ptr noundef %11, i64 noundef %109, i64 noundef %112, i32 noundef %114, ptr noundef %13, ptr noundef %12)
   br i1 %115, label %116, label %130
 
 116:                                              ; preds = %103
@@ -1704,7 +1704,7 @@ define internal fastcc zeroext i1 @get_actual_variable_range(ptr nocapture nound
   %80 = load i16, ptr %7, align 2
   %81 = load i8, ptr %8, align 1
   %82 = trunc i8 %81 to i1
-  %83 = call fastcc zeroext i1 @get_actual_variable_endpoint(ptr noundef %72, ptr noundef %75, i32 noundef %.051, ptr noundef nonnull %9, i16 noundef signext %80, i1 noundef zeroext %82, ptr noundef %76, ptr noundef %69, ptr noundef nonnull %4)
+  %83 = call fastcc zeroext i1 @get_actual_variable_endpoint(ptr noundef %72, ptr noundef %75, i32 noundef %.051, ptr noundef %9, i16 noundef signext %80, i1 noundef zeroext %82, ptr noundef %76, ptr noundef %69, ptr noundef %4)
   %84 = zext i1 %83 to i8
   br label %85
 
@@ -1722,7 +1722,7 @@ define internal fastcc zeroext i1 @get_actual_variable_range(ptr nocapture nound
   %90 = load i16, ptr %7, align 2
   %91 = load i8, ptr %8, align 1
   %92 = trunc i8 %91 to i1
-  %93 = call fastcc zeroext i1 @get_actual_variable_endpoint(ptr noundef %72, ptr noundef %75, i32 noundef %89, ptr noundef nonnull %9, i16 noundef signext %90, i1 noundef zeroext %92, ptr noundef %76, ptr noundef %69, ptr noundef nonnull %5)
+  %93 = call fastcc zeroext i1 @get_actual_variable_endpoint(ptr noundef %72, ptr noundef %75, i32 noundef %89, ptr noundef %9, i16 noundef signext %90, i1 noundef zeroext %92, ptr noundef %76, ptr noundef %69, ptr noundef %5)
   %94 = zext i1 %93 to i8
   br label %95
 
@@ -1751,7 +1751,7 @@ define internal fastcc zeroext i1 @get_actual_variable_range(ptr nocapture nound
 declare i64 @FunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @convert_to_scalar(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8) unnamed_addr #0 {
+define internal fastcc zeroext i1 @convert_to_scalar(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #0 {
   %10 = alloca i8, align 1
   store i8 0, ptr %10, align 1
   switch i32 %1, label %211 [
@@ -1793,11 +1793,11 @@ define internal fastcc zeroext i1 @convert_to_scalar(i64 noundef %0, i32 noundef
   ]
 
 11:                                               ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9
-  %12 = call fastcc double @convert_numeric_to_scalar(i64 noundef %0, i32 noundef %1, ptr noundef nonnull %10)
+  %12 = call fastcc double @convert_numeric_to_scalar(i64 noundef %0, i32 noundef %1, ptr noundef %10)
   store double %12, ptr %3, align 8
-  %13 = call fastcc double @convert_numeric_to_scalar(i64 noundef %4, i32 noundef %6, ptr noundef nonnull %10)
+  %13 = call fastcc double @convert_numeric_to_scalar(i64 noundef %4, i32 noundef %6, ptr noundef %10)
   store double %13, ptr %7, align 8
-  %14 = call fastcc double @convert_numeric_to_scalar(i64 noundef %5, i32 noundef %6, ptr noundef nonnull %10)
+  %14 = call fastcc double @convert_numeric_to_scalar(i64 noundef %5, i32 noundef %6, ptr noundef %10)
   store double %14, ptr %8, align 8
   %15 = load i8, ptr %10, align 1
   %16 = trunc i8 %15 to i1
@@ -1805,9 +1805,9 @@ define internal fastcc zeroext i1 @convert_to_scalar(i64 noundef %0, i32 noundef
   br label %212
 
 18:                                               ; preds = %9, %9, %9, %9, %9
-  %19 = call fastcc ptr @convert_string_datum(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %10)
-  %20 = call fastcc ptr @convert_string_datum(i64 noundef %4, i32 noundef %6, i32 noundef %2, ptr noundef nonnull %10)
-  %21 = call fastcc ptr @convert_string_datum(i64 noundef %5, i32 noundef %6, i32 noundef %2, ptr noundef nonnull %10)
+  %19 = call fastcc ptr @convert_string_datum(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %10)
+  %20 = call fastcc ptr @convert_string_datum(i64 noundef %4, i32 noundef %6, i32 noundef %2, ptr noundef %10)
+  %21 = call fastcc ptr @convert_string_datum(i64 noundef %5, i32 noundef %6, i32 noundef %2, ptr noundef %10)
   %22 = load i8, ptr %10, align 1
   %23 = trunc i8 %22 to i1
   br i1 %23, label %212, label %24
@@ -1948,8 +1948,8 @@ define internal fastcc zeroext i1 @convert_to_scalar(i64 noundef %0, i32 noundef
   %73 = getelementptr i8, ptr %.02530.i.i, i64 1
   %74 = load i8, ptr %.02530.i.i, align 1
   %75 = zext i8 %74 to i32
-  %76 = icmp sgt i32 %spec.select88.i, %75
-  %77 = icmp slt i32 %spec.select89.i, %75
+  %76 = icmp ugt i32 %spec.select88.i, %75
+  %77 = icmp ult i32 %spec.select89.i, %75
   %spec.select.i.i = select i1 %77, i32 %70, i32 %75
   %.0.i.i = select i1 %76, i32 %69, i32 %spec.select.i.i
   %78 = sub nsw i32 %.0.i.i, %spec.select88.i
@@ -1985,8 +1985,8 @@ convert_one_string_to_scalar.exit.i:              ; preds = %71, %._crit_edge128
   %94 = getelementptr i8, ptr %.02530.i94.i, i64 1
   %95 = load i8, ptr %.02530.i94.i, align 1
   %96 = zext i8 %95 to i32
-  %97 = icmp sgt i32 %spec.select88.i, %96
-  %98 = icmp slt i32 %spec.select89.i, %96
+  %97 = icmp ugt i32 %spec.select88.i, %96
+  %98 = icmp ult i32 %spec.select89.i, %96
   %spec.select.i95.i = select i1 %98, i32 %reass.sub.i90.i, i32 %96
   %.0.i96.i = select i1 %97, i32 %91, i32 %spec.select.i95.i
   %99 = sub nsw i32 %.0.i96.i, %spec.select88.i
@@ -2022,8 +2022,8 @@ convert_one_string_to_scalar.exit98.i:            ; preds = %92, %convert_one_st
   %115 = getelementptr i8, ptr %.02530.i103.i, i64 1
   %116 = load i8, ptr %.02530.i103.i, align 1
   %117 = zext i8 %116 to i32
-  %118 = icmp sgt i32 %spec.select88.i, %117
-  %119 = icmp slt i32 %spec.select89.i, %117
+  %118 = icmp ugt i32 %spec.select88.i, %117
+  %119 = icmp ult i32 %spec.select89.i, %117
   %spec.select.i104.i = select i1 %119, i32 %reass.sub.i99.i, i32 %117
   %.0.i105.i = select i1 %118, i32 %112, i32 %spec.select.i104.i
   %120 = sub nsw i32 %.0.i105.i, %spec.select88.i
@@ -2303,7 +2303,7 @@ define internal fastcc i64 @scalarineqsel_wrapper(ptr nocapture noundef readonly
 59:                                               ; preds = %57, %42
   %.020 = phi i32 [ %12, %42 ], [ %50, %57 ]
   %.019.in = phi i1 [ %1, %42 ], [ %58, %57 ]
-  %60 = call fastcc double @scalarineqsel(ptr noundef %9, i32 noundef %.020, i1 noundef zeroext %.019.in, i1 noundef zeroext %2, i32 noundef %20, ptr noundef nonnull %4, i64 noundef %44, i32 noundef %46)
+  %60 = call fastcc double @scalarineqsel(ptr noundef %9, i32 noundef %.020, i1 noundef zeroext %.019.in, i1 noundef zeroext %2, i32 noundef %20, ptr noundef %4, i64 noundef %44, i32 noundef %46)
   %61 = getelementptr inbounds i8, ptr %4, i64 16
   %62 = load ptr, ptr %61, align 8
   %.not28 = icmp eq ptr %62, null
@@ -5330,7 +5330,7 @@ find_join_input_rel.exit:                         ; preds = %304
   %312 = trunc i8 %289 to i1
   %313 = getelementptr inbounds i8, ptr %6, i64 8
   %.val = load ptr, ptr %313, align 8
-  %314 = call fastcc double @eqjoinsel_semi(i32 noundef %28, i32 noundef %25, ptr %.val, double noundef %26, double noundef %27, i1 noundef zeroext %311, i1 noundef zeroext %312, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %.0578798, i1 noundef zeroext %.05985100, i1 noundef zeroext %.060102, ptr noundef nonnull %.0.i78)
+  %314 = call fastcc double @eqjoinsel_semi(i32 noundef %28, i32 noundef %25, ptr %.val, double noundef %26, double noundef %27, i1 noundef zeroext %311, i1 noundef zeroext %312, ptr noundef %9, ptr noundef %10, ptr noundef %.0578798, i1 noundef zeroext %.05985100, i1 noundef zeroext %.060102, ptr noundef %.0.i78)
   br label %325
 
 315:                                              ; preds = %find_join_input_rel.exit
@@ -5348,7 +5348,7 @@ find_join_input_rel.exit:                         ; preds = %304
   %322 = trunc i8 %290 to i1
   %323 = getelementptr inbounds i8, ptr %5, i64 8
   %.val72 = load ptr, ptr %323, align 8
-  %324 = call fastcc double @eqjoinsel_semi(i32 noundef %320, i32 noundef %25, ptr %.val72, double noundef %27, double noundef %26, i1 noundef zeroext %321, i1 noundef zeroext %322, ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef %.058104, i1 noundef zeroext %.060102, i1 noundef zeroext %.05985100, ptr noundef nonnull %.0.i78)
+  %324 = call fastcc double @eqjoinsel_semi(i32 noundef %320, i32 noundef %25, ptr %.val72, double noundef %27, double noundef %26, i1 noundef zeroext %321, i1 noundef zeroext %322, ptr noundef %10, ptr noundef %9, ptr noundef %.058104, i1 noundef zeroext %.060102, i1 noundef zeroext %.05985100, ptr noundef %.0.i78)
   br label %325
 
 325:                                              ; preds = %319, %310
@@ -5476,7 +5476,7 @@ list_length.exit.thread:                          ; preds = %6, %list_length.exi
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @eqjoinsel_semi(i32 noundef %0, i32 noundef %1, ptr readonly %.8.val, double noundef %2, double noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr noundef readonly %8, i1 noundef zeroext %9, i1 noundef zeroext %10, ptr nocapture noundef readonly %11) unnamed_addr #0 {
+define internal fastcc double @eqjoinsel_semi(i32 noundef %0, i32 noundef %1, ptr readonly %.8.val, double noundef %2, double noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr nocapture noundef nonnull readonly %6, ptr nocapture noundef nonnull readonly %7, ptr noundef readonly %8, i1 noundef zeroext %9, i1 noundef zeroext %10, ptr nocapture noundef nonnull readonly %11) unnamed_addr #0 {
   %13 = alloca %union.anon.8, align 8
   %14 = alloca %struct.FmgrInfo, align 8
   %.not = icmp eq ptr %.8.val, null
@@ -6014,25 +6014,25 @@ get_rightop.exit:                                 ; preds = %list_length.exit.i
   br i1 %.0, label %103, label %99
 
 99:                                               ; preds = %98
-  %100 = call fastcc zeroext i1 @get_variable_range(ptr noundef nonnull %10, i32 noundef %.0164, i32 noundef %25, ptr noundef nonnull %15, ptr noundef nonnull %16)
+  %100 = call fastcc zeroext i1 @get_variable_range(ptr noundef %10, i32 noundef %.0164, i32 noundef %25, ptr noundef %15, ptr noundef %16)
   br i1 %100, label %101, label %206
 
 101:                                              ; preds = %99
-  %102 = call fastcc zeroext i1 @get_variable_range(ptr noundef nonnull %11, i32 noundef %.0163, i32 noundef %25, ptr noundef nonnull %17, ptr noundef nonnull %18)
+  %102 = call fastcc zeroext i1 @get_variable_range(ptr noundef %11, i32 noundef %.0163, i32 noundef %25, ptr noundef %17, ptr noundef %18)
   br i1 %102, label %107, label %206
 
 103:                                              ; preds = %98
-  %104 = call fastcc zeroext i1 @get_variable_range(ptr noundef nonnull %10, i32 noundef %.0164, i32 noundef %25, ptr noundef nonnull %16, ptr noundef nonnull %15)
+  %104 = call fastcc zeroext i1 @get_variable_range(ptr noundef %10, i32 noundef %.0164, i32 noundef %25, ptr noundef %16, ptr noundef %15)
   br i1 %104, label %105, label %206
 
 105:                                              ; preds = %103
-  %106 = call fastcc zeroext i1 @get_variable_range(ptr noundef nonnull %11, i32 noundef %.0163, i32 noundef %25, ptr noundef nonnull %18, ptr noundef nonnull %17)
+  %106 = call fastcc zeroext i1 @get_variable_range(ptr noundef %11, i32 noundef %.0163, i32 noundef %25, ptr noundef %18, ptr noundef %17)
   br i1 %106, label %107, label %206
 
 107:                                              ; preds = %105, %101
   %108 = load i64, ptr %18, align 8
   %109 = load i32, ptr %14, align 4
-  %110 = call fastcc double @scalarineqsel(ptr noundef %0, i32 noundef %.0161, i1 noundef zeroext %.0, i1 noundef zeroext true, i32 noundef %25, ptr noundef nonnull %10, i64 noundef %108, i32 noundef %109)
+  %110 = call fastcc double @scalarineqsel(ptr noundef %0, i32 noundef %.0161, i1 noundef zeroext %.0, i1 noundef zeroext true, i32 noundef %25, ptr noundef %10, i64 noundef %108, i32 noundef %109)
   %111 = fcmp une double %110, 0x3FD5555555555555
   br i1 %111, label %112, label %113
 
@@ -6043,7 +6043,7 @@ get_rightop.exit:                                 ; preds = %list_length.exit.i
 113:                                              ; preds = %112, %107
   %114 = load i64, ptr %16, align 8
   %115 = load i32, ptr %13, align 4
-  %116 = call fastcc double @scalarineqsel(ptr noundef %0, i32 noundef %.0159, i1 noundef zeroext %.0, i1 noundef zeroext true, i32 noundef %25, ptr noundef nonnull %11, i64 noundef %114, i32 noundef %115)
+  %116 = call fastcc double @scalarineqsel(ptr noundef %0, i32 noundef %.0159, i1 noundef zeroext %.0, i1 noundef zeroext true, i32 noundef %25, ptr noundef %11, i64 noundef %114, i32 noundef %115)
   %117 = fcmp une double %116, 0x3FD5555555555555
   br i1 %117, label %118, label %._crit_edge
 
@@ -6073,7 +6073,7 @@ get_rightop.exit:                                 ; preds = %list_length.exit.i
 125:                                              ; preds = %.sink.split, %123
   %126 = load i64, ptr %17, align 8
   %127 = load i32, ptr %14, align 4
-  %128 = call fastcc double @scalarineqsel(ptr noundef %0, i32 noundef %.0162, i1 noundef zeroext %.0, i1 noundef zeroext false, i32 noundef %25, ptr noundef nonnull %10, i64 noundef %126, i32 noundef %127)
+  %128 = call fastcc double @scalarineqsel(ptr noundef %0, i32 noundef %.0162, i1 noundef zeroext %.0, i1 noundef zeroext false, i32 noundef %25, ptr noundef %10, i64 noundef %126, i32 noundef %127)
   %129 = fcmp une double %128, 0x3FD5555555555555
   br i1 %129, label %130, label %131
 
@@ -6084,7 +6084,7 @@ get_rightop.exit:                                 ; preds = %list_length.exit.i
 131:                                              ; preds = %130, %125
   %132 = load i64, ptr %15, align 8
   %133 = load i32, ptr %13, align 4
-  %134 = call fastcc double @scalarineqsel(ptr noundef %0, i32 noundef %.0160, i1 noundef zeroext %.0, i1 noundef zeroext false, i32 noundef %25, ptr noundef nonnull %11, i64 noundef %132, i32 noundef %133)
+  %134 = call fastcc double @scalarineqsel(ptr noundef %0, i32 noundef %.0160, i1 noundef zeroext %.0, i1 noundef zeroext false, i32 noundef %25, ptr noundef %11, i64 noundef %132, i32 noundef %133)
   %135 = fcmp une double %134, 0x3FD5555555555555
   br i1 %135, label %136, label %._crit_edge204
 
@@ -6267,7 +6267,7 @@ declare void @get_op_opfamily_properties(i32 noundef, i32 noundef, i1 noundef ze
 declare i32 @get_opfamily_member(i32 noundef, i32 noundef, i32 noundef, i16 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @get_variable_range(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc zeroext i1 @get_variable_range(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i8, align 1
@@ -6367,7 +6367,7 @@ statistic_proc_security_check.exit:               ; preds = %21, %15
   %63 = load i16, ptr %9, align 2
   %64 = load i8, ptr %10, align 1
   %65 = trunc i8 %64 to i1
-  call fastcc void @get_stats_slot_range(ptr noundef nonnull %12, i32 noundef %16, ptr noundef nonnull %11, i32 noundef %2, i16 noundef signext %63, i1 noundef zeroext %65, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  call fastcc void @get_stats_slot_range(ptr noundef %12, i32 noundef %16, ptr noundef %11, i32 noundef %2, i16 noundef signext %63, i1 noundef zeroext %65, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   call void @free_attstatsslot(ptr noundef nonnull %12) #13
   %.pre = load i8, ptr %8, align 1
   %66 = trunc i8 %.pre to i1
@@ -6426,7 +6426,7 @@ statistic_proc_security_check.exit:               ; preds = %21, %15
   %95 = load i16, ptr %9, align 2
   %96 = load i8, ptr %10, align 1
   %97 = trunc i8 %96 to i1
-  call fastcc void @get_stats_slot_range(ptr noundef nonnull %12, i32 noundef %16, ptr noundef nonnull %11, i32 noundef %2, i16 noundef signext %95, i1 noundef zeroext %97, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  call fastcc void @get_stats_slot_range(ptr noundef %12, i32 noundef %16, ptr noundef %11, i32 noundef %2, i16 noundef signext %95, i1 noundef zeroext %97, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   %.pre6.pre = load i8, ptr %8, align 1
   %.pre9 = trunc i8 %.pre6.pre to i1
   br label %98
@@ -6450,7 +6450,7 @@ statistic_proc_security_check.exit.thread:        ; preds = %25, %23, %20, %5, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @scalarineqsel(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, ptr nocapture noundef readonly %5, i64 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc double @scalarineqsel(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, ptr nocapture noundef nonnull readonly %5, i64 noundef %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca %struct.FmgrInfo, align 8
   %10 = alloca double, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 16
@@ -6677,7 +6677,7 @@ define dso_local double @estimate_num_groups(ptr noundef %0, ptr noundef readonl
   br i1 %41, label %42, label %47
 
 42:                                               ; preds = %39, %37
-  %43 = call fastcc ptr @add_unique_group_var(ptr noundef %0, ptr noundef %.0127250, ptr noundef %25, ptr noundef nonnull %6)
+  %43 = call fastcc ptr @add_unique_group_var(ptr noundef %0, ptr noundef %.0127250, ptr noundef %25, ptr noundef %6)
   %44 = load ptr, ptr %19, align 8
   %.not192 = icmp eq ptr %44, null
   br i1 %.not192, label %.loopexit227, label %45
@@ -6713,7 +6713,7 @@ define dso_local double @estimate_num_groups(ptr noundef %0, ptr noundef readonl
   %57 = getelementptr %union.ListCell, ptr %56, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8
   call void @examine_variable(ptr noundef %0, ptr noundef %58, i32 noundef 0, ptr noundef nonnull %6)
-  %59 = call fastcc ptr @add_unique_group_var(ptr noundef %0, ptr noundef %.2244, ptr noundef %58, ptr noundef nonnull %6)
+  %59 = call fastcc ptr @add_unique_group_var(ptr noundef %0, ptr noundef %.2244, ptr noundef %58, ptr noundef %6)
   %60 = load ptr, ptr %19, align 8
   %.not191 = icmp eq ptr %60, null
   br i1 %.not191, label %63, label %61
@@ -7384,9 +7384,9 @@ declare zeroext i1 @list_member_int(ptr noundef, i32 noundef) local_unnamed_addr
 declare double @expression_returns_set_rows(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @add_unique_group_var(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc ptr @add_unique_group_var(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
-  %6 = call double @get_variable_numdistinct(ptr noundef %3, ptr noundef nonnull %5)
+  %6 = call double @get_variable_numdistinct(ptr noundef nonnull %3, ptr noundef nonnull %5)
   %.not38 = icmp eq ptr %1, null
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 
@@ -9332,7 +9332,7 @@ gincost_opexpr.exit.thread:                       ; preds = %180
 gincost_opexpr.exit:                              ; preds = %187
   %191 = getelementptr inbounds i8, ptr %.0.i224, i64 24
   %192 = load i64, ptr %191, align 8
-  %193 = call fastcc zeroext i1 @gincost_pattern(ptr noundef readonly %22, i32 noundef %169, i32 noundef %.val, i64 noundef %192, ptr noundef nonnull %18)
+  %193 = call fastcc zeroext i1 @gincost_pattern(ptr noundef readonly %22, i32 noundef %169, i32 noundef %.val, i64 noundef %192, ptr noundef %18)
   br i1 %193, label %343, label %.thread236
 
 194:                                              ; preds = %.lr.ph300
@@ -9551,7 +9551,7 @@ estimate_array_length.exit:                       ; preds = %227, %231, %245, %2
   %302 = load ptr, ptr %15, align 8
   %303 = getelementptr i64, ptr %302, i64 %indvars.iv.i226
   %304 = load i64, ptr %303, align 8
-  %305 = call fastcc zeroext i1 @gincost_pattern(ptr noundef readonly %22, i32 noundef %196, i32 noundef %.val216, i64 noundef %304, ptr noundef nonnull %17)
+  %305 = call fastcc zeroext i1 @gincost_pattern(ptr noundef readonly %22, i32 noundef %196, i32 noundef %.val216, i64 noundef %304, ptr noundef %17)
   br i1 %305, label %306, label %321
 
 306:                                              ; preds = %301
@@ -10261,7 +10261,7 @@ declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @bms_num_members(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @convert_numeric_to_scalar(i64 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc double @convert_numeric_to_scalar(i64 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   switch i32 %1, label %27 [
     i32 16, label %4
     i32 21, label %7
@@ -10333,7 +10333,7 @@ define internal fastcc double @convert_numeric_to_scalar(i64 noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @convert_string_datum(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc ptr @convert_string_datum(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   switch i32 %1, label %15 [
     i32 18, label %5
     i32 1042, label %9
@@ -10383,7 +10383,7 @@ define internal fastcc ptr @convert_string_datum(i64 noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @convert_bytea_to_scalar(i64 noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @convert_bytea_to_scalar(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly %3, i64 noundef %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = inttoptr i64 %0 to ptr
   %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #13
   %9 = inttoptr i64 %2 to ptr
@@ -10681,7 +10681,7 @@ declare zeroext i1 @targetIsInSortList(ptr noundef, i32 noundef, ptr noundef) lo
 declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_stats_slot_range(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4, i1 noundef zeroext %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8) unnamed_addr #0 {
+define internal fastcc void @get_stats_slot_range(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, i16 noundef signext %4, i1 noundef zeroext %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull %7, ptr nocapture noundef nonnull %8) unnamed_addr #0 {
   %10 = load i64, ptr %6, align 8
   %11 = load i64, ptr %7, align 8
   %12 = load i8, ptr %8, align 1
@@ -10722,14 +10722,14 @@ define internal fastcc void @get_stats_slot_range(ptr nocapture noundef readonly
   br label %34
 
 27:                                               ; preds = %21
-  %28 = tail call i64 @FunctionCall2Coll(ptr noundef %2, i32 noundef %3, i64 noundef %25, i64 noundef %.04450) #13
+  %28 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %2, i32 noundef %3, i64 noundef %25, i64 noundef %.04450) #13
   %.not48 = icmp ne i64 %28, 0
   %.pre = load ptr, ptr %20, align 8
   %.phi.trans.insert = getelementptr i64, ptr %.pre, i64 %indvars.iv
   %.pre60 = load i64, ptr %.phi.trans.insert, align 8
   %.04450..pre60 = select i1 %.not48, i64 %.pre60, i64 %.04450
   %.03853. = select i1 %.not48, i1 true, i1 %.03853
-  %29 = tail call i64 @FunctionCall2Coll(ptr noundef %2, i32 noundef %3, i64 noundef %.04251, i64 noundef %.pre60) #13
+  %29 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %2, i32 noundef %3, i64 noundef %.04251, i64 noundef %.pre60) #13
   %.not49 = icmp eq i64 %29, 0
   br i1 %.not49, label %34, label %30
 
@@ -10784,7 +10784,7 @@ declare ptr @table_slot_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @ScanKeyEntryInitialize(ptr noundef, i32 noundef, i16 noundef signext, i16 noundef zeroext, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @get_actual_variable_endpoint(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i16 noundef signext %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef writeonly %8) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @get_actual_variable_endpoint(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 2) %2, ptr noundef nonnull %3, i16 noundef signext %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #0 {
   %10 = alloca %struct.SnapshotData, align 8
   %11 = alloca i32, align 4
   %12 = alloca [32 x i64], align 16
@@ -10797,7 +10797,7 @@ define internal fastcc noundef zeroext i1 @get_actual_variable_endpoint(ptr noun
   %16 = call ptr @index_beginscan(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %10, i32 noundef 1, i32 noundef 0) #13
   %17 = getelementptr inbounds i8, ptr %16, i64 48
   store i8 1, ptr %17, align 8
-  call void @index_rescan(ptr noundef %16, ptr noundef %3, i32 noundef 1, ptr noundef null, i32 noundef 0) #13
+  call void @index_rescan(ptr noundef %16, ptr noundef nonnull %3, i32 noundef 1, ptr noundef null, i32 noundef 0) #13
   %18 = call ptr @index_getnext_tid(ptr noundef %16, i32 noundef %2) #13
   %.not44 = icmp eq ptr %18, null
   br i1 %.not44, label %.loopexit, label %.lr.ph
@@ -10940,7 +10940,7 @@ declare void @ReleaseBuffer(i32 noundef) local_unnamed_addr #1
 declare void @index_endscan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @gincost_pattern(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @gincost_pattern(ptr nocapture noundef readonly %0, i32 noundef range(i32 -32768, 32768) %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %struct.FmgrInfo, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4

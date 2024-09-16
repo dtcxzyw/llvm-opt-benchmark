@@ -2845,7 +2845,7 @@ define dso_local ptr @shmem_kernel_file_setup(ptr noundef %0, i64 noundef %1, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__shmem_file_setup(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #1 align 16 {
+define internal fastcc ptr @__shmem_file_setup(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef range(i32 0, 513) %4) unnamed_addr #1 align 16 {
   %6 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   br i1 %6, label %44, label %7
 
@@ -3126,7 +3126,7 @@ declare dso_local i32 @truncate_inode_folio(ptr noundef, ptr noundef) local_unna
 declare dso_local void @folio_batch_remove_exceptionals(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @shmem_get_partial_folio(ptr noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc ptr @shmem_get_partial_folio(ptr noundef %0, i64 noundef range(i64 -2251799813685248, 2251799813685248) %1) unnamed_addr #1 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -3887,7 +3887,7 @@ declare dso_local void @delete_from_swap_cache(ptr noundef) local_unnamed_addr #
 declare dso_local void @swap_free(i64) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @put_swap_device(ptr noundef %0) unnamed_addr #10 align 16 {
+define internal fastcc void @put_swap_device(ptr noundef nonnull %0) unnamed_addr #10 align 16 {
   tail call void @__rcu_read_lock() #18
   %2 = load volatile i64, ptr %0, align 8
   %3 = and i64 %2, 3
@@ -3912,7 +3912,7 @@ define internal fastcc void @put_swap_device(ptr noundef %0) unnamed_addr #10 al
   %14 = load ptr, ptr %8, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef %0) #18
+  tail call void %16(ptr noundef nonnull %0) #18
   br label %17
 
 17:                                               ; preds = %13, %7, %5

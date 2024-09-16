@@ -1574,7 +1574,7 @@ define hidden void @_ZN4ring4aead5shift13shift_partial17h3d5439878fc854a3E(ptr n
 
 _ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit.i: ; preds = %21
   %24 = getelementptr inbounds i8, ptr %13, i64 %11
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0.i.i, ptr nonnull readonly align 1 %24, i64 %18, i1 false), !alias.scope !171, !noalias !175
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %.sroa.0.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %24, i64 %18, i1 false), !alias.scope !171, !noalias !175
   %.sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i = load <16 x i8>, ptr %.sroa.0.i.i, align 16, !noalias !160
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i)
   %25 = icmp ne ptr %.sroa.015.0.copyload, null
@@ -2078,13 +2078,13 @@ define void @_ZN4ring6pbkdf26derive17h38f75382a469d03bE(ptr noalias noundef read
   %24 = sub nuw i64 %.sroa.5.0714, %.0.sroa.speculated.i.i
   %25 = getelementptr inbounds i8, ptr %.sroa.06.013, i64 %.0.sroa.speculated.i.i
   %26 = extractvalue { i32, i1 } %21, 0
-  call fastcc void @_ZN4ring6pbkdf212derive_block17h23076b73e2eeec55E(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %10, i32 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i32 noundef %26, ptr noalias noundef nonnull align 1 %.sroa.06.013, i64 noundef %.0.sroa.speculated.i.i)
+  call fastcc void @_ZN4ring6pbkdf212derive_block17h23076b73e2eeec55E(ptr noalias noundef readonly align 8 dereferenceable(160) %10, i32 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i32 noundef %26, ptr noalias noundef nonnull align 1 %.sroa.06.013, i64 noundef %.0.sroa.speculated.i.i)
   %27 = icmp eq i64 %24, 0
   br i1 %27, label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heddf377f49250887E.exit.thread", label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heddf377f49250887E.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4ring6pbkdf212derive_block17h23076b73e2eeec55E(ptr noalias nocapture noundef readonly align 8 dereferenceable(160) %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 1 %5, i64 noundef %6) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4ring6pbkdf212derive_block17h23076b73e2eeec55E(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(160) %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 1 %5, i64 noundef %6) unnamed_addr #2 personality ptr @rust_eh_personality {
   %8 = alloca { { { ptr, { [8 x i64] }, i64 }, [128 x i8], i64 }, { ptr, { [8 x i64] }, i64 } }, align 8
   %9 = alloca { { { ptr, { [8 x i64] }, i64 }, [128 x i8], i64 }, { ptr, { [8 x i64] }, i64 } }, align 8
   %10 = alloca { { ptr, { [64 x i8] } } }, align 8
@@ -2280,7 +2280,7 @@ define noundef zeroext i1 @_ZN4ring6pbkdf26verify17h3b62a3be952bcf4dE(ptr noalia
 
 .lr.ph.preheader.i:                               ; preds = %30
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %11, i8 0, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !314
-  call fastcc void @_ZN4ring6pbkdf212derive_block17h23076b73e2eeec55E(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %10, i32 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i32 noundef %28, ptr noalias noundef nonnull align 1 %11, i64 noundef %.0.sroa.speculated.i.i)
+  call fastcc void @_ZN4ring6pbkdf212derive_block17h23076b73e2eeec55E(ptr noalias noundef readonly align 8 dereferenceable(160) %10, i32 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i32 noundef %28, ptr noalias noundef nonnull align 1 %11, i64 noundef %.0.sroa.speculated.i.i)
   %33 = call noundef i32 @ring_core_0_17_8__CRYPTO_memcmp(ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %.sroa.016.026, i64 noundef %.0.sroa.speculated.i.i)
   %.not = icmp eq i32 %33, 0
   %34 = select i1 %.not, i32 %.029, i32 0

@@ -1214,7 +1214,7 @@ declare ptr @archive_entry_symlink(ptr noundef) local_unnamed_addr #1
 declare void @__archive_write_entry_filetype_unsupported(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @shar_quote(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @shar_quote(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = load i8, ptr %1, align 1
   %.not19 = icmp eq i8 %4, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
@@ -1331,7 +1331,7 @@ declare i32 @__archive_write_output(ptr noundef, ptr noundef, i64 noundef) local
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @_uuencode_line(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @_uuencode_line(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef range(i64 1, 0) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 96
   %6 = getelementptr inbounds i8, ptr %1, i64 104
   %7 = load i64, ptr %6, align 8
@@ -1342,7 +1342,7 @@ define internal fastcc range(i32 -30, 1) i32 @_uuencode_line(ptr noundef %0, ptr
 
 11:                                               ; preds = %4
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.25) #8
-  br label %97
+  br label %96
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %5, align 8
@@ -1354,7 +1354,7 @@ define internal fastcc range(i32 -30, 1) i32 @_uuencode_line(ptr noundef %0, ptr
   %19 = getelementptr inbounds i8, ptr %15, i64 1
   store i8 %18, ptr %15, align 1
   %20 = icmp ugt i64 %3, 2
-  br i1 %20, label %.lr.ph, label %._crit_edge
+  br i1 %20, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %.02939 = phi ptr [ %55, %.lr.ph ], [ %19, %12 ]
@@ -1406,79 +1406,79 @@ define internal fastcc range(i32 -30, 1) i32 @_uuencode_line(ptr noundef %0, ptr
   %56 = icmp ugt i64 %53, 2
   br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %.lr.ph, %12
-  %.031.lcssa = phi ptr [ %2, %12 ], [ %54, %.lr.ph ]
-  %.030.lcssa = phi i64 [ %3, %12 ], [ %53, %.lr.ph ]
-  %.029.lcssa = phi ptr [ %19, %12 ], [ %55, %.lr.ph ]
-  %.not = icmp eq i64 %.030.lcssa, 0
-  br i1 %.not, label %86, label %57
+._crit_edge:                                      ; preds = %.lr.ph
+  %.not = icmp eq i64 %53, 0
+  br i1 %.not, label %85, label %._crit_edge.thread
 
-57:                                               ; preds = %._crit_edge
-  %58 = load i8, ptr %.031.lcssa, align 1
-  %59 = icmp eq i64 %.030.lcssa, 1
-  br i1 %59, label %65, label %60
+._crit_edge.thread:                               ; preds = %12, %._crit_edge
+  %.029.lcssa50 = phi ptr [ %55, %._crit_edge ], [ %19, %12 ]
+  %.030.lcssa49 = phi i64 [ %53, %._crit_edge ], [ %3, %12 ]
+  %.031.lcssa48 = phi ptr [ %54, %._crit_edge ], [ %2, %12 ]
+  %57 = load i8, ptr %.031.lcssa48, align 1
+  %58 = icmp eq i64 %.030.lcssa49, 1
+  br i1 %58, label %64, label %59
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %.031.lcssa, i64 1
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i32
-  %64 = shl nuw nsw i32 %63, 8
-  br label %65
+59:                                               ; preds = %._crit_edge.thread
+  %60 = getelementptr inbounds i8, ptr %.031.lcssa48, i64 1
+  %61 = load i8, ptr %60, align 1
+  %62 = zext i8 %61 to i32
+  %63 = shl nuw nsw i32 %62, 8
+  br label %64
 
-65:                                               ; preds = %57, %60
-  %.sroa.2.0 = phi i32 [ %64, %60 ], [ 0, %57 ]
-  %66 = zext i8 %58 to i32
-  %67 = shl nuw nsw i32 %66, 16
-  %68 = add nuw nsw i32 %.sroa.2.0, %67
-  %.not.i33 = icmp ult i8 %58, 4
-  %69 = lshr i8 %58, 2
-  %70 = add nuw nsw i8 %69, 32
-  %71 = select i1 %.not.i33, i8 96, i8 %70
-  store i8 %71, ptr %.029.lcssa, align 1
-  %72 = lshr i32 %68, 12
-  %73 = and i32 %72, 63
-  %.not17.i34 = icmp eq i32 %73, 0
-  %74 = trunc nuw nsw i32 %73 to i8
-  %75 = add nuw nsw i8 %74, 32
-  %76 = select i1 %.not17.i34, i8 96, i8 %75
-  %77 = getelementptr inbounds i8, ptr %.029.lcssa, i64 1
-  store i8 %76, ptr %77, align 1
-  %78 = lshr exact i32 %.sroa.2.0, 6
-  %79 = and i32 %78, 60
-  %.not18.i35 = icmp eq i32 %79, 0
-  %80 = trunc nuw nsw i32 %79 to i8
-  %81 = add nuw nsw i8 %80, 32
-  %82 = select i1 %.not18.i35, i8 96, i8 %81
-  %83 = getelementptr inbounds i8, ptr %.029.lcssa, i64 2
-  store i8 %82, ptr %83, align 1
-  %84 = getelementptr inbounds i8, ptr %.029.lcssa, i64 3
-  store i8 96, ptr %84, align 1
-  %85 = getelementptr inbounds i8, ptr %.029.lcssa, i64 4
-  br label %86
+64:                                               ; preds = %._crit_edge.thread, %59
+  %.sroa.2.0 = phi i32 [ %63, %59 ], [ 0, %._crit_edge.thread ]
+  %65 = zext i8 %57 to i32
+  %66 = shl nuw nsw i32 %65, 16
+  %67 = add nuw nsw i32 %.sroa.2.0, %66
+  %.not.i33 = icmp ult i8 %57, 4
+  %68 = lshr i8 %57, 2
+  %69 = add nuw nsw i8 %68, 32
+  %70 = select i1 %.not.i33, i8 96, i8 %69
+  store i8 %70, ptr %.029.lcssa50, align 1
+  %71 = lshr i32 %67, 12
+  %72 = and i32 %71, 63
+  %.not17.i34 = icmp eq i32 %72, 0
+  %73 = trunc nuw nsw i32 %72 to i8
+  %74 = add nuw nsw i8 %73, 32
+  %75 = select i1 %.not17.i34, i8 96, i8 %74
+  %76 = getelementptr inbounds i8, ptr %.029.lcssa50, i64 1
+  store i8 %75, ptr %76, align 1
+  %77 = lshr exact i32 %.sroa.2.0, 6
+  %78 = and i32 %77, 60
+  %.not18.i35 = icmp eq i32 %78, 0
+  %79 = trunc nuw nsw i32 %78 to i8
+  %80 = add nuw nsw i8 %79, 32
+  %81 = select i1 %.not18.i35, i8 96, i8 %80
+  %82 = getelementptr inbounds i8, ptr %.029.lcssa50, i64 2
+  store i8 %81, ptr %82, align 1
+  %83 = getelementptr inbounds i8, ptr %.029.lcssa50, i64 3
+  store i8 96, ptr %83, align 1
+  %84 = getelementptr inbounds i8, ptr %.029.lcssa50, i64 4
+  br label %85
 
-86:                                               ; preds = %65, %._crit_edge
-  %.1 = phi ptr [ %85, %65 ], [ %.029.lcssa, %._crit_edge ]
-  %87 = getelementptr inbounds i8, ptr %.1, i64 1
+85:                                               ; preds = %64, %._crit_edge
+  %.1 = phi ptr [ %84, %64 ], [ %55, %._crit_edge ]
+  %86 = getelementptr inbounds i8, ptr %.1, i64 1
   store i8 10, ptr %.1, align 1
-  %88 = load ptr, ptr %5, align 8
+  %87 = load ptr, ptr %5, align 8
+  %88 = ptrtoint ptr %86 to i64
   %89 = ptrtoint ptr %87 to i64
-  %90 = ptrtoint ptr %88 to i64
-  %91 = sub i64 %89, %90
-  %92 = load i64, ptr %6, align 8
-  %93 = add i64 %92, 62
-  %94 = icmp sgt i64 %91, %93
-  br i1 %94, label %95, label %96
+  %90 = sub i64 %88, %89
+  %91 = load i64, ptr %6, align 8
+  %92 = add i64 %91, 62
+  %93 = icmp sgt i64 %90, %92
+  br i1 %93, label %94, label %95
 
-95:                                               ; preds = %86
+94:                                               ; preds = %85
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.26) #8
-  br label %97
+  br label %96
 
-96:                                               ; preds = %86
-  store i64 %91, ptr %6, align 8
-  br label %97
+95:                                               ; preds = %85
+  store i64 %90, ptr %6, align 8
+  br label %96
 
-97:                                               ; preds = %96, %95, %11
-  %.0 = phi i32 [ -30, %11 ], [ -30, %95 ], [ 0, %96 ]
+96:                                               ; preds = %95, %94, %11
+  %.0 = phi i32 [ -30, %11 ], [ -30, %94 ], [ 0, %95 ]
   ret i32 %.0
 }
 

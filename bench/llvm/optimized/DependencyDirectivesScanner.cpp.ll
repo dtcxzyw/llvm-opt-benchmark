@@ -369,7 +369,7 @@ _ZL21isStartOfRelevantLinec.exit.i.i.i:           ; preds = %125
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %39)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35)
-  call fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLineERPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(2056) %44, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %65)
+  call fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLineERPKcS2_(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(2056) %44, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %65)
   %151 = load i8, ptr %113, align 8
   %152 = trunc i8 %151 to i1
   br i1 %152, label %153, label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_0ED2Ev.exit.i.i.i"
@@ -401,7 +401,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread11.i.i.i.i.i: ; preds = %_ZN4llvmeqENS_9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32)
-  call fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLineERPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(2056) %44, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %65)
+  call fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLineERPKcS2_(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(2056) %44, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %65)
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %32, align 8
   %.sroa.2.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32)
@@ -414,7 +414,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i:        ; preds = %158
   br i1 %159, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit.i.i.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i
-  call fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLineERPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(2056) %44, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %65)
+  call fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLineERPKcS2_(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(2056) %44, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %65)
   %160 = load i8, ptr %105, align 8
   %161 = trunc i8 %160 to i1
   br i1 %161, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread63.i.i.i.i, label %_ZN12_GLOBAL__N_17Scanner9lexModuleERPKcS2_.exit.i.i.i
@@ -492,7 +492,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit47.thread72.i.i.i.i: ; preds = %_ZN4llvmeqENS_9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
-  call fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLineERPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(2056) %44, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %65)
+  call fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLineERPKcS2_(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(2056) %44, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %65)
   %184 = load i8, ptr %109, align 8
   %185 = trunc i8 %184 to i1
   br i1 %185, label %_ZN4llvmeqENS_9StringRefES0_.exit47.thread72._crit_edge.i.i.i.i, label %_ZN12_GLOBAL__N_17Scanner9lexModuleERPKcS2_.exit.i.i.i
@@ -543,7 +543,7 @@ _ZN12_GLOBAL__N_17Scanner9lexModuleERPKcS2_.exit.i.i.i: ; preds = %_ZN12_GLOBAL_
 
 201:                                              ; preds = %127
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26)
-  call fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLineERPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(2056) %44, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %65)
+  call fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLineERPKcS2_(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(2056) %44, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %65)
   %202 = load i8, ptr %82, align 8
   %203 = trunc i8 %202 to i1
   br i1 %203, label %204, label %_ZN12_GLOBAL__N_17Scanner26isNextIdentifierOrSkipLineEN4llvm9StringRefERPKcS4_.exit.i.i.i
@@ -767,7 +767,7 @@ _ZN12_GLOBAL__N_17Scanner10lex_PragmaERPKcS2_.exit.i.i.i: ; preds = %266, %_ZN4l
   br label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.exit.i.i.i"
 
 292:                                              ; preds = %268
-  call fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLineERPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(2056) %44, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %65)
+  call fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLineERPKcS2_(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(2056) %44, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %65)
   %293 = load i8, ptr %118, align 8
   %294 = trunc i8 %293 to i1
   br i1 %294, label %295, label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.exit.i.i.i"
@@ -2597,7 +2597,7 @@ declare void @_ZN5clang5Lexer4seekEjb(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_17Scanner26isNextIdentifierOrSkipLineEN4llvm9StringRefERPKcS4_(ptr noundef nonnull align 8 dereferenceable(2056) %0, ptr nocapture readonly %1, i64 %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::optional.37", align 8
-  call fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLineERPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(2056) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4)
+  call fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLineERPKcS2_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(2056) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
@@ -2629,7 +2629,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %11, %5, %_ZN4llvmeq
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLineERPKcS2_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(2056) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLineERPKcS2_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(2056) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::Token", align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -2723,7 +2723,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_17Scanner9lexPragmaERPKcS2_(ptr nou
   %12 = alloca i16, align 2
   %13 = alloca i32, align 4
   %14 = alloca %"class.std::optional.37", align 8
-  call fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLineERPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(2056) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2)
+  call fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLineERPKcS2_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(2056) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
@@ -2833,7 +2833,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   br label %99
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread110:      ; preds = %_ZN4llvmneENS_9StringRefES0_.exit
-  call fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLineERPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(2056) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2)
+  call fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLineERPKcS2_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(2056) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2)
   %58 = load i8, ptr %15, align 8
   %59 = trunc i8 %58 to i1
   br i1 %59, label %60, label %99
@@ -3089,7 +3089,7 @@ _ZN12_GLOBAL__N_17Scanner18lexPPDirectiveBodyERPKcS2_.exit: ; preds = %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_17Scanner22lexModuleDirectiveBodyEN5clang26dependency_directives_scan13DirectiveKindERPKcS5_(ptr noundef nonnull align 8 dereferenceable(2056) %0, i8 noundef zeroext %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_17Scanner22lexModuleDirectiveBodyEN5clang26dependency_directives_scan13DirectiveKindERPKcS5_(ptr noundef nonnull align 8 dereferenceable(2056) %0, i8 noundef zeroext range(i8 21, 26) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::Token", align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -3319,7 +3319,7 @@ declare noundef zeroext i1 @_ZN5clang17DiagnosticsEngine21EmitCurrentDiagnosticE
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_17Scanner21isNextTokenOrSkipLineEN5clang3tok9TokenKindERPKcS5_(ptr noundef nonnull align 8 dereferenceable(2056) %0, i16 noundef zeroext %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_17Scanner21isNextTokenOrSkipLineEN5clang3tok9TokenKindERPKcS5_(ptr noundef nonnull align 8 dereferenceable(2056) %0, i16 noundef zeroext range(i16 22, 24) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::Token", align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

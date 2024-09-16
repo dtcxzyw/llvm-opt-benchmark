@@ -839,7 +839,7 @@ define internal i32 @dissect_gbcs_gbz(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.loopexit
 
 56:                                               ; preds = %22
-  call fastcc void @dissect_gbcs_gbz_component(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, ptr noundef nonnull %5, i32 noundef 0)
+  call fastcc void @dissect_gbcs_gbz_component(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, ptr noundef %5, i32 noundef 0)
   br label %.loopexit
 
 57:                                               ; preds = %22
@@ -850,7 +850,7 @@ define internal i32 @dissect_gbcs_gbz(ptr noundef %0, ptr noundef %1, ptr nounde
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.043 = phi i32 [ %60, %.lr.ph ], [ 0, %.preheader ]
   %60 = add i32 %.043, 1
-  call fastcc void @dissect_gbcs_gbz_component(ptr noundef %0, ptr noundef %1, ptr noundef %14, ptr noundef nonnull %5, i32 noundef %.043)
+  call fastcc void @dissect_gbcs_gbz_component(ptr noundef %0, ptr noundef %1, ptr noundef %14, ptr noundef %5, i32 noundef %.043)
   %61 = load i32, ptr %5, align 4
   %62 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %61) #5
   %63 = icmp sgt i32 %62, 0
@@ -1045,17 +1045,17 @@ define internal i32 @dissect_gbcs_message(ptr noundef %0, ptr noundef %1, ptr no
   store i32 1, ptr %12, align 4
   %38 = load i32, ptr @hf_gbcs_message_mac_header_cra_flag, align 4
   %39 = load i32, ptr @hf_gbcs_message_mac_header_originator_counter, align 4
-  call fastcc void @dissect_gbcs_message_element_transaction_id(ptr noundef %35, i32 noundef %38, i32 noundef %39, ptr noundef %0, ptr noundef nonnull %12)
+  call fastcc void @dissect_gbcs_message_element_transaction_id(ptr noundef %35, i32 noundef %38, i32 noundef %39, ptr noundef %0, ptr noundef %12)
   %40 = load i32, ptr @hf_gbcs_message_mac_header_business_originator_id, align 4
-  call fastcc void @dissect_gbcs_message_element(ptr noundef %35, i32 noundef %40, ptr noundef %0, ptr noundef nonnull %12)
+  call fastcc void @dissect_gbcs_message_element(ptr noundef %35, i32 noundef %40, ptr noundef %0, ptr noundef %12)
   %41 = load i32, ptr @hf_gbcs_message_mac_header_business_target_id, align 4
-  call fastcc void @dissect_gbcs_message_element(ptr noundef %35, i32 noundef %41, ptr noundef %0, ptr noundef nonnull %12)
+  call fastcc void @dissect_gbcs_message_element(ptr noundef %35, i32 noundef %41, ptr noundef %0, ptr noundef %12)
   %42 = load i32, ptr @hf_gbcs_message_mac_header_date_time, align 4
-  call fastcc void @dissect_gbcs_message_element_date_time(ptr noundef %35, i32 noundef %42, ptr noundef %0, ptr noundef nonnull %12)
+  call fastcc void @dissect_gbcs_message_element_date_time(ptr noundef %35, i32 noundef %42, ptr noundef %0, ptr noundef %12)
   %43 = load i32, ptr @hf_gbcs_message_mac_header_other_info, align 4
-  call fastcc void @dissect_gbcs_message_element(ptr noundef %35, i32 noundef %43, ptr noundef %0, ptr noundef nonnull %12)
+  call fastcc void @dissect_gbcs_message_element(ptr noundef %35, i32 noundef %43, ptr noundef %0, ptr noundef %12)
   %44 = load i32, ptr @hf_gbcs_message_mac_header_key_info, align 4
-  call fastcc void @dissect_gbcs_message_element(ptr noundef %35, i32 noundef %44, ptr noundef %0, ptr noundef nonnull %12)
+  call fastcc void @dissect_gbcs_message_element(ptr noundef %35, i32 noundef %44, ptr noundef %0, ptr noundef %12)
   %45 = load i32, ptr %12, align 4
   %46 = call i32 @get_ber_length(ptr noundef %0, i32 noundef %45, ptr noundef nonnull %11, ptr noundef null) #5
   %47 = load i32, ptr @hf_gbcs_message_element_length, align 4
@@ -1073,12 +1073,12 @@ define internal i32 @dissect_gbcs_message(ptr noundef %0, ptr noundef %1, ptr no
   call void @proto_item_set_end(ptr noundef %57, ptr noundef %0, i32 noundef %56) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call fastcc void @dissect_gbcs_message_grouping_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  call fastcc void @dissect_gbcs_message_grouping_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, ptr noundef %12, ptr noundef %13, ptr noundef %14)
   %58 = load i32, ptr %13, align 4
   %59 = load i8, ptr %14, align 1
-  call fastcc void @dissect_gbcs_message_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %12, i32 noundef %58, i8 noundef zeroext %59)
+  call fastcc void @dissect_gbcs_message_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %12, i32 noundef %58, i8 noundef zeroext %59)
   %60 = load i32, ptr @hf_gbcs_message_krp, align 4
-  call fastcc void @dissect_gbcs_message_element(ptr noundef %21, i32 noundef %60, ptr noundef %0, ptr noundef nonnull %12)
+  call fastcc void @dissect_gbcs_message_element(ptr noundef %21, i32 noundef %60, ptr noundef %0, ptr noundef %12)
   %61 = load i32, ptr @hf_gbcs_message_mac, align 4
   %62 = load i32, ptr %12, align 4
   %63 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %61, ptr noundef %0, i32 noundef %62, i32 noundef 12, i32 noundef 0) #5
@@ -1108,16 +1108,16 @@ define internal i32 @dissect_gbcs_message(ptr noundef %0, ptr noundef %1, ptr no
   %76 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef 3, i32 noundef 0) #5
   %77 = load i32, ptr @hf_gbcs_message_routing_header_cra_flag, align 4
   %78 = load i32, ptr @hf_gbcs_message_routing_header_originator_counter, align 4
-  call fastcc void @dissect_gbcs_message_element_transaction_id(ptr noundef %73, i32 noundef %77, i32 noundef %78, ptr noundef %0, ptr noundef nonnull %12)
+  call fastcc void @dissect_gbcs_message_element_transaction_id(ptr noundef %73, i32 noundef %77, i32 noundef %78, ptr noundef %0, ptr noundef %12)
   %79 = load i32, ptr %12, align 4
   %80 = add i32 %79, 1
   %81 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %80, i32 noundef 0) #5
   %82 = load i32, ptr @hf_gbcs_message_routing_header_business_originator_id, align 4
-  call fastcc void @dissect_gbcs_message_element(ptr noundef %73, i32 noundef %82, ptr noundef %0, ptr noundef nonnull %12)
+  call fastcc void @dissect_gbcs_message_element(ptr noundef %73, i32 noundef %82, ptr noundef %0, ptr noundef %12)
   %83 = load i32, ptr @hf_gbcs_message_routing_header_business_target_id, align 4
-  call fastcc void @dissect_gbcs_message_element(ptr noundef %73, i32 noundef %83, ptr noundef %0, ptr noundef nonnull %12)
+  call fastcc void @dissect_gbcs_message_element(ptr noundef %73, i32 noundef %83, ptr noundef %0, ptr noundef %12)
   %84 = load i32, ptr @hf_gbcs_message_routing_header_date_time, align 4
-  call fastcc void @dissect_gbcs_message_element_date_time(ptr noundef %73, i32 noundef %84, ptr noundef %0, ptr noundef nonnull %12)
+  call fastcc void @dissect_gbcs_message_element_date_time(ptr noundef %73, i32 noundef %84, ptr noundef %0, ptr noundef %12)
   %85 = load i32, ptr %12, align 4
   %86 = load i32, ptr @ett_gbcs_message_routing_header_other_info, align 4
   %87 = call ptr @proto_tree_add_subtree(ptr noundef %73, ptr noundef %0, i32 noundef %85, i32 noundef 1, i32 noundef %86, ptr noundef nonnull %7, ptr noundef nonnull @.str.577) #5
@@ -1131,7 +1131,7 @@ define internal i32 @dissect_gbcs_message(ptr noundef %0, ptr noundef %1, ptr no
   %95 = add i32 %88, 2
   store i32 %95, ptr %12, align 4
   %96 = load i32, ptr @hf_gbcs_message_routing_header_key_info, align 4
-  call fastcc void @dissect_gbcs_message_element(ptr noundef %73, i32 noundef %96, ptr noundef %0, ptr noundef nonnull %12)
+  call fastcc void @dissect_gbcs_message_element(ptr noundef %73, i32 noundef %96, ptr noundef %0, ptr noundef %12)
   %97 = load i32, ptr %12, align 4
   %98 = call i32 @get_ber_length(ptr noundef %0, i32 noundef %97, ptr noundef nonnull %9, ptr noundef null) #5
   %99 = load i32, ptr @hf_gbcs_message_element_length, align 4
@@ -1216,12 +1216,12 @@ dissect_gbcs_gbt_payload.exit:                    ; preds = %146, %150
   br label %159
 
 .critedge:                                        ; preds = %30
-  call fastcc void @dissect_gbcs_message_grouping_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  call fastcc void @dissect_gbcs_message_grouping_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, ptr noundef %12, ptr noundef %13, ptr noundef %14)
   %156 = load i32, ptr %13, align 4
   %157 = load i8, ptr %14, align 1
-  call fastcc void @dissect_gbcs_message_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %12, i32 noundef %156, i8 noundef zeroext %157)
+  call fastcc void @dissect_gbcs_message_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %12, i32 noundef %156, i8 noundef zeroext %157)
   %158 = load i32, ptr @hf_gbcs_message_krp, align 4
-  call fastcc void @dissect_gbcs_message_element(ptr noundef %21, i32 noundef %158, ptr noundef %0, ptr noundef nonnull %12)
+  call fastcc void @dissect_gbcs_message_element(ptr noundef %21, i32 noundef %158, ptr noundef %0, ptr noundef %12)
   %.pre = load i32, ptr %12, align 4
   br label %159
 
@@ -1264,7 +1264,7 @@ declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_gbcs_gbz_component(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_gbcs_gbz_component(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -1517,7 +1517,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_gbcs_message_grouping_header(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_gbcs_message_grouping_header(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -1541,13 +1541,13 @@ define internal fastcc void @dissect_gbcs_message_grouping_header(ptr noundef %0
   call void @col_append_sep_str(ptr noundef %22, i32 noundef 25, ptr noundef null, ptr noundef %24) #5
   %25 = load i32, ptr @hf_gbcs_message_grouping_header_cra_flag, align 4
   %26 = load i32, ptr @hf_gbcs_message_grouping_header_originator_counter, align 4
-  call fastcc void @dissect_gbcs_message_element_transaction_id(ptr noundef %13, i32 noundef %25, i32 noundef %26, ptr noundef %0, ptr noundef nonnull %3)
+  call fastcc void @dissect_gbcs_message_element_transaction_id(ptr noundef %13, i32 noundef %25, i32 noundef %26, ptr noundef %0, ptr noundef %3)
   %27 = load i32, ptr @hf_gbcs_message_grouping_header_business_originator_id, align 4
-  call fastcc void @dissect_gbcs_message_element(ptr noundef %13, i32 noundef %27, ptr noundef %0, ptr noundef nonnull %3)
+  call fastcc void @dissect_gbcs_message_element(ptr noundef %13, i32 noundef %27, ptr noundef %0, ptr noundef %3)
   %28 = load i32, ptr @hf_gbcs_message_grouping_header_business_target_id, align 4
-  call fastcc void @dissect_gbcs_message_element(ptr noundef %13, i32 noundef %28, ptr noundef %0, ptr noundef nonnull %3)
+  call fastcc void @dissect_gbcs_message_element(ptr noundef %13, i32 noundef %28, ptr noundef %0, ptr noundef %3)
   %29 = load i32, ptr @hf_gbcs_message_grouping_header_date_time, align 4
-  call fastcc void @dissect_gbcs_message_element_date_time(ptr noundef %13, i32 noundef %29, ptr noundef %0, ptr noundef nonnull %3)
+  call fastcc void @dissect_gbcs_message_element_date_time(ptr noundef %13, i32 noundef %29, ptr noundef %0, ptr noundef %3)
   %30 = load i32, ptr %3, align 4
   %31 = load i32, ptr @ett_gbcs_message_grouping_header_other_info, align 4
   %32 = call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef %30, i32 noundef 1, i32 noundef %31, ptr noundef nonnull %8, ptr noundef nonnull @.str.577) #5
@@ -1625,7 +1625,7 @@ define internal fastcc void @dissect_gbcs_message_grouping_header(ptr noundef %0
   %76 = load ptr, ptr %8, align 8
   call void @proto_item_set_end(ptr noundef %76, ptr noundef %0, i32 noundef %75) #5
   %77 = load i32, ptr %3, align 4
-  %78 = call i32 @get_ber_length(ptr noundef %0, i32 noundef %77, ptr noundef %4, ptr noundef null) #5
+  %78 = call i32 @get_ber_length(ptr noundef %0, i32 noundef %77, ptr noundef nonnull %4, ptr noundef null) #5
   store i32 %78, ptr %3, align 4
   %79 = load i32, ptr @hf_gbcs_message_element_length, align 4
   %80 = sub i32 %78, %77
@@ -1638,7 +1638,7 @@ define internal fastcc void @dissect_gbcs_message_grouping_header(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_gbcs_message_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i8 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @dissect_gbcs_message_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef %4, i8 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca i8, align 1
   store i8 %5, ptr %7, align 1
   %8 = load i32, ptr %3, align 4
@@ -1713,7 +1713,7 @@ define internal fastcc void @dissect_gbcs_message_payload(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_gbcs_message_element_transaction_id(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_gbcs_message_element_transaction_id(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = load i32, ptr %4, align 4
@@ -1784,7 +1784,7 @@ define internal fastcc void @dissect_gbcs_message_element_transaction_id(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_gbcs_message_element(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_gbcs_message_element(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = load i32, ptr %3, align 4
@@ -1835,7 +1835,7 @@ define internal fastcc void @dissect_gbcs_message_element(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_gbcs_message_element_date_time(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_gbcs_message_element_date_time(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.tm, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4

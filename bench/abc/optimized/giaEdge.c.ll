@@ -296,7 +296,7 @@ define noalias noundef ptr @Gia_ManEdgeToArray(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_IntPushTwo(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc void @Vec_IntPushTwo(ptr nocapture noundef %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 -2147483647, -2147483648) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8

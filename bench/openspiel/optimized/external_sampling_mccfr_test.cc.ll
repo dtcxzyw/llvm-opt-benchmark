@@ -242,7 +242,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc11
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_116MCCFR_2PGameTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEid(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull %44, i32 noundef 1000, double noundef 5.000000e-02)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_116MCCFR_2PGameTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEid(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef %44, i32 noundef 1000, double noundef 5.000000e-02)
           to label %64 unwind label %539
 
 64:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -267,7 +267,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %.body14
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit16: ; preds = %.noexc13
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_116MCCFR_2PGameTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEid(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull %44, i32 noundef 1000, double noundef 2.500000e+00)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_116MCCFR_2PGameTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEid(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef %44, i32 noundef 1000, double noundef 2.500000e+00)
           to label %68 unwind label %543
 
 68:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit16
@@ -292,7 +292,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit16: ; 
   br label %.body19
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit21: ; preds = %.noexc18
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_116MCCFR_2PGameTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEid(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull %44, i32 noundef 100, double noundef 1.600000e+00)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_116MCCFR_2PGameTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEid(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef %44, i32 noundef 100, double noundef 1.600000e+00)
           to label %72 unwind label %547
 
 72:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit21
@@ -1717,7 +1717,7 @@ _ZN10open_spiel10algorithms12_GLOBAL__N_123MCCFR_SerializationTestEv.exit: ; pre
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_116MCCFR_2PGameTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEid(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i32 noundef %2, double noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_116MCCFR_2PGameTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEid(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, i32 noundef range(i32 100, 1001) %2, double noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = alloca %"class.open_spiel::algorithms::ExternalSamplingMCCFRSolver", align 8
   %7 = alloca %"class.std::shared_ptr.7", align 8
@@ -1728,43 +1728,39 @@ define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_116MCCFR_2P
   call void @_ZN10open_spiel8LoadGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %12 = load ptr, ptr %5, align 8
   invoke void @_ZN10open_spiel10algorithms27ExternalSamplingMCCFRSolverC1ERKNS_4GameEiNS0_11AverageTypeE(ptr noundef nonnull align 8 dereferenceable(120) %6, ptr noundef nonnull align 8 dereferenceable(280) %12, i32 noundef 0, i32 noundef 0)
-          to label %.preheader unwind label %16
+          to label %.preheader unwind label %15
 
-.preheader:                                       ; preds = %4
-  %13 = icmp sgt i32 %2, 0
-  br i1 %13, label %.lr.ph, label %._crit_edge
+.preheader:                                       ; preds = %4, %13
+  %.01126 = phi i32 [ %14, %13 ], [ 0, %4 ]
+  invoke void @_ZN10open_spiel10algorithms27ExternalSamplingMCCFRSolver12RunIterationEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE(ptr noundef nonnull align 8 dereferenceable(120) %6, ptr noundef nonnull %1)
+          to label %13 unwind label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader, %14
-  %.01126 = phi i32 [ %15, %14 ], [ 0, %.preheader ]
-  invoke void @_ZN10open_spiel10algorithms27ExternalSamplingMCCFRSolver12RunIterationEPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE(ptr noundef nonnull align 8 dereferenceable(120) %6, ptr noundef %1)
-          to label %14 unwind label %.loopexit
+13:                                               ; preds = %.preheader
+  %14 = add nuw nsw i32 %.01126, 1
+  %exitcond.not = icmp eq i32 %14, %2
+  br i1 %exitcond.not, label %17, label %.preheader, !llvm.loop !47
 
-14:                                               ; preds = %.lr.ph
-  %15 = add nuw nsw i32 %.01126, 1
-  %exitcond.not = icmp eq i32 %15, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
-
-16:                                               ; preds = %4
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %120
 
-.loopexit:                                        ; preds = %.lr.ph
+.loopexit:                                        ; preds = %.preheader
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %._crit_edge
+.loopexit.split-lp:                               ; preds = %17
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-._crit_edge:                                      ; preds = %14, %.preheader
+17:                                               ; preds = %13
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %18 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %._crit_edge
+.noexc:                                           ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -2000,8 +1996,8 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN
   call void @_ZN10open_spiel10algorithms27ExternalSamplingMCCFRSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %6) #17
   br label %120
 
-120:                                              ; preds = %.body, %16
-  %.pn17.pn = phi { ptr, i32 } [ %.pn17, %.body ], [ %17, %16 ]
+120:                                              ; preds = %.body, %15
+  %.pn17.pn = phi { ptr, i32 } [ %.pn17, %.body ], [ %16, %15 ]
   call void @_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   resume { ptr, i32 } %.pn17.pn
 }

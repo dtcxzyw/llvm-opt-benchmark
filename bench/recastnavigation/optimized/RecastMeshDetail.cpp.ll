@@ -3278,7 +3278,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i637: ; preds = %
   br i1 %1295, label %1461, label %1462
 
 1461:                                             ; preds = %.noexc382
-  invoke fastcc void @_ZL11setTriFlagsR10rcIntArrayiPi(ptr noundef nonnull align 8 dereferenceable(24) %33, i32 noundef %.0223.i804, ptr noundef nonnull %19)
+  invoke fastcc void @_ZL11setTriFlagsR10rcIntArrayiPi(ptr noundef nonnull align 8 dereferenceable(24) %33, i32 noundef %.0223.i804, ptr noundef %19)
           to label %_ZL15buildPolyDetailP9rcContextPKfiffiRK20rcCompactHeightfieldRK13rcHeightPatchPfRiR10rcIntArraySC_SC_.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1462:                                             ; preds = %.noexc382
@@ -4427,7 +4427,7 @@ _ZN10rcIntArrayixEi.exit111.i.i:                  ; preds = %1979, %.noexc415
 _ZN10rcIntArrayixEi.exit113.i.i:                  ; preds = %1989, %.noexc417
   %1990 = load ptr, ptr %246, align 8
   %1991 = trunc nuw nsw i64 %indvars.iv178.i.i to i32
-  invoke fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noundef %0, ptr noundef nonnull readonly %36, i32 noundef %indvars, ptr noundef nonnull %1990, ptr noundef nonnull align 4 dereferenceable(4) %17, i32 noundef %1904, ptr noundef nonnull align 4 dereferenceable(4) %16, i32 noundef %1991)
+  invoke fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noundef %0, ptr noundef readonly %36, i32 noundef %indvars, ptr noundef %1990, ptr noundef nonnull align 4 dereferenceable(4) %17, i32 noundef %1904, ptr noundef nonnull align 4 dereferenceable(4) %16, i32 noundef %1991)
           to label %.noexc419 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc419:                                        ; preds = %_ZN10rcIntArrayixEi.exit113.i.i, %_ZN10rcIntArrayixEi.exit111.i.i
@@ -4471,7 +4471,7 @@ _ZN10rcIntArrayixEi.exit115.i.i:                  ; preds = %1997, %.noexc420
 _ZN10rcIntArrayixEi.exit117.i.i:                  ; preds = %2007, %.noexc422
   %2008 = load ptr, ptr %246, align 8
   %2009 = trunc nuw nsw i64 %indvars.iv178.i.i to i32
-  invoke fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noundef %0, ptr noundef nonnull readonly %36, i32 noundef %indvars, ptr noundef nonnull %2008, ptr noundef nonnull align 4 dereferenceable(4) %17, i32 noundef %1904, ptr noundef nonnull align 4 dereferenceable(4) %16, i32 noundef %2009)
+  invoke fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noundef %0, ptr noundef readonly %36, i32 noundef %indvars, ptr noundef %2008, ptr noundef nonnull align 4 dereferenceable(4) %17, i32 noundef %1904, ptr noundef nonnull align 4 dereferenceable(4) %16, i32 noundef %2009)
           to label %.noexc424 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc424:                                        ; preds = %_ZN10rcIntArrayixEi.exit117.i.i, %_ZN10rcIntArrayixEi.exit115.i.i
@@ -5120,7 +5120,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i536: ; preds = %
           to label %.noexc447 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc447:                                        ; preds = %.sink.split.i531, %.loopexit.i363
-  invoke fastcc void @_ZL11setTriFlagsR10rcIntArrayiPi(ptr noundef nonnull align 8 dereferenceable(24) %33, i32 noundef %.0223.i804, ptr noundef nonnull %19)
+  invoke fastcc void @_ZL11setTriFlagsR10rcIntArrayiPi(ptr noundef nonnull align 8 dereferenceable(24) %33, i32 noundef %.0223.i804, ptr noundef %19)
           to label %_ZL15buildPolyDetailP9rcContextPKfiffiRK20rcCompactHeightfieldRK13rcHeightPatchPfRiR10rcIntArraySC_SC_.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZL15buildPolyDetailP9rcContextPKfiffiRK20rcCompactHeightfieldRK13rcHeightPatchPfRiR10rcIntArraySC_SC_.exit: ; preds = %.noexc447, %1466, %1461
@@ -6219,7 +6219,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #2
 declare float @llvm.floor.f32(float) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11setTriFlagsR10rcIntArrayiPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @_ZL11setTriFlagsR10rcIntArrayiPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = load i64, ptr %0, align 8
   %5 = trunc i64 %4 to i32
   %6 = icmp sgt i32 %5, 0
@@ -6397,7 +6397,7 @@ _ZN10rcIntArrayixEi.exit57:                       ; preds = %_ZL6onHulliiiPi.exi
 declare noundef float @_Z6rcSqrtf(float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %5, ptr nocapture noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %5, ptr nocapture noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = shl nsw i32 %7, 2
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i32, ptr %3, i64 %10

@@ -796,7 +796,7 @@ hdev_get_max_segments.exit.thread:                ; preds = %if.then.i32
   br label %if.end27
 
 if.end3.i:                                        ; preds = %if.end19
-  %call4.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull readonly %st, ptr noundef nonnull @.str.61)
+  %call4.i = call fastcc i64 @get_sysfs_long_val(ptr noundef readonly %st, ptr noundef nonnull @.str.61)
   %conv.i30 = trunc nsw i64 %call4.i to i32
   br label %hdev_get_max_segments.exit
 
@@ -875,7 +875,7 @@ get_sysfs_zoned_model.exit.i:                     ; preds = %if.else.i.i, %if.en
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i)
   %zoned2.i = getelementptr inbounds i8, ptr %bs, i64 16552
   store i32 %zoned.0.i, ptr %zoned2.i, align 8
-  %call3.i36 = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull readonly %st, ptr noundef nonnull @.str.63)
+  %call3.i36 = call fastcc i64 @get_sysfs_long_val(ptr noundef readonly %st, ptr noundef nonnull @.str.63)
   %cmp4.i37 = icmp sgt i64 %call3.i36, -1
   br i1 %cmp4.i37, label %if.then6.i43, label %if.end8.i38
 
@@ -886,7 +886,7 @@ if.then6.i43:                                     ; preds = %get_sysfs_zoned_mod
   br label %if.end8.i38
 
 if.end8.i38:                                      ; preds = %if.then6.i43, %get_sysfs_zoned_model.exit.i
-  %call9.i39 = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull readonly %st, ptr noundef nonnull @.str.64)
+  %call9.i39 = call fastcc i64 @get_sysfs_long_val(ptr noundef readonly %st, ptr noundef nonnull @.str.64)
   %cmp11.i = icmp sgt i64 %call9.i39, -1
   br i1 %cmp11.i, label %if.then13.i, label %if.end15.i
 
@@ -897,7 +897,7 @@ if.then13.i:                                      ; preds = %if.end8.i38
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then13.i, %if.end8.i38
-  %call16.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull readonly %st, ptr noundef nonnull @.str.65)
+  %call16.i = call fastcc i64 @get_sysfs_long_val(ptr noundef readonly %st, ptr noundef nonnull @.str.65)
   %conv17.i = trunc nsw i64 %call16.i to i32
   %cmp18.i = icmp slt i64 %call16.i, 0
   br i1 %cmp18.i, label %if.then20.i, label %if.else.i40
@@ -919,7 +919,7 @@ if.end23.i:                                       ; preds = %if.else.i40
   %shl.i = shl i32 %conv17.i, 9
   %zone_size.i = getelementptr inbounds i8, ptr %bs, i64 16556
   store i32 %shl.i, ptr %zone_size.i, align 4
-  %call25.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull readonly %st, ptr noundef nonnull @.str.68)
+  %call25.i = call fastcc i64 @get_sysfs_long_val(ptr noundef readonly %st, ptr noundef nonnull @.str.68)
   %conv26.i = trunc nsw i64 %call25.i to i32
   %cmp27.i = icmp slt i64 %call25.i, 0
   br i1 %cmp27.i, label %if.then29.i, label %if.else31.i
@@ -940,7 +940,7 @@ if.then33.i:                                      ; preds = %if.else31.i
 if.end35.i:                                       ; preds = %if.else31.i
   %nr_zones.i = getelementptr inbounds i8, ptr %bs, i64 16560
   store i32 %conv26.i, ptr %nr_zones.i, align 8
-  %call37.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull readonly %st, ptr noundef nonnull @.str.71)
+  %call37.i = call fastcc i64 @get_sysfs_long_val(ptr noundef readonly %st, ptr noundef nonnull @.str.71)
   %cmp39.i = icmp sgt i64 %call37.i, 0
   br i1 %cmp39.i, label %if.then41.i, label %if.end43.i
 
@@ -952,7 +952,7 @@ if.then41.i:                                      ; preds = %if.end35.i
   br label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.then41.i, %if.end35.i
-  %call44.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull readonly %st, ptr noundef nonnull @.str.72)
+  %call44.i = call fastcc i64 @get_sysfs_long_val(ptr noundef readonly %st, ptr noundef nonnull @.str.72)
   %cmp46.i = icmp sgt i64 %call44.i, -1
   br i1 %cmp46.i, label %if.then48.i, label %if.end50.i
 
@@ -1109,15 +1109,15 @@ if.then20.i:                                      ; preds = %if.end14.i
 if.then23.i:                                      ; preds = %if.then20.i
   %call.i.i = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %call.i, i32 noundef 3) #18
   %cmp.i.i = icmp eq i32 %call.i.i, -1
-  br i1 %cmp.i.i, label %fcntl_setfl.exit.i, label %if.end.i29.i
+  br i1 %cmp.i.i, label %fcntl_setfl.exit.i, label %if.end.i.i
 
-if.end.i29.i:                                     ; preds = %if.then23.i
+if.end.i.i:                                       ; preds = %if.then23.i
   %or.i.i = or i32 %call.i.i, %spec.select
   %call2.i.i = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %call.i, i32 noundef 4, i32 noundef %or.i.i) #18
   %cmp3.i.i = icmp eq i32 %call2.i.i, -1
   br i1 %cmp3.i.i, label %fcntl_setfl.exit.i, label %land.lhs.true43.i
 
-fcntl_setfl.exit.i:                               ; preds = %if.end.i29.i, %if.then23.i
+fcntl_setfl.exit.i:                               ; preds = %if.end.i.i, %if.then23.i
   %call5.i.i = tail call ptr @__errno_location() #21
   %9 = load i32, ptr %call5.i.i, align 4
   %tobool25.not.i = icmp eq i32 %9, 0
@@ -1137,8 +1137,8 @@ if.then32.i:                                      ; preds = %if.end30.i, %if.the
   %cmp37.i = icmp eq i32 %call36.i, -1
   br i1 %cmp37.i, label %return, label %land.lhs.true43.i
 
-land.lhs.true43.i:                                ; preds = %if.then32.i, %if.end30.i, %fcntl_setfl.exit.i, %if.end.i29.i
-  %fd.1.i = phi i32 [ %call36.i, %if.then32.i ], [ %call.i, %if.end30.i ], [ %call.i, %fcntl_setfl.exit.i ], [ %call.i, %if.end.i29.i ]
+land.lhs.true43.i:                                ; preds = %if.then32.i, %if.end30.i, %fcntl_setfl.exit.i, %if.end.i.i
+  %fd.1.i = phi i32 [ %call36.i, %if.then32.i ], [ %call.i, %if.end30.i ], [ %call.i, %fcntl_setfl.exit.i ], [ %call.i, %if.end.i.i ]
   %and44.i = and i32 %open_flags2.0, 2
   %tobool45.not.i = icmp eq i32 %and44.i, 0
   br i1 %tobool45.not.i, label %raw_reconfigure_getfd.exit, label %if.then46.i
@@ -1147,18 +1147,18 @@ if.then46.i:                                      ; preds = %land.lhs.true43.i
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %readonly.i.i)
   store i32 0, ptr %readonly.i.i, align 4
-  %call.i30.i = call i32 @fstat64(i32 noundef %fd.1.i, ptr noundef nonnull %st.i.i) #18
-  %tobool.not.i31.i = icmp eq i32 %call.i30.i, 0
-  br i1 %tobool.not.i31.i, label %if.end.i33.i, label %check_hdev_writable.exit.i
+  %call.i29.i = call i32 @fstat64(i32 noundef %fd.1.i, ptr noundef nonnull %st.i.i) #18
+  %tobool.not.i30.i = icmp eq i32 %call.i29.i, 0
+  br i1 %tobool.not.i30.i, label %if.end.i32.i, label %check_hdev_writable.exit.i
 
-if.end.i33.i:                                     ; preds = %if.then46.i
+if.end.i32.i:                                     ; preds = %if.then46.i
   %st_mode.i.i = getelementptr inbounds i8, ptr %st.i.i, i64 24
   %10 = load i32, ptr %st_mode.i.i, align 8
-  %and.i34.i = and i32 %10, 61440
-  %cmp.i35.i = icmp eq i32 %and.i34.i, 24576
-  br i1 %cmp.i35.i, label %if.end3.i.i, label %check_hdev_writable.exit.thread.i
+  %and.i33.i = and i32 %10, 61440
+  %cmp.i34.i = icmp eq i32 %and.i33.i, 24576
+  br i1 %cmp.i34.i, label %if.end3.i.i, label %check_hdev_writable.exit.thread.i
 
-if.end3.i.i:                                      ; preds = %if.end.i33.i
+if.end3.i.i:                                      ; preds = %if.end.i32.i
   %call4.i.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %fd.1.i, i64 noundef 4702, ptr noundef nonnull %readonly.i.i) #18
   %cmp5.i.i = icmp slt i32 %call4.i.i, 0
   br i1 %cmp5.i.i, label %check_hdev_writable.exit.i, label %if.end9.i.i
@@ -1166,14 +1166,14 @@ if.end3.i.i:                                      ; preds = %if.end.i33.i
 if.end9.i.i:                                      ; preds = %if.end3.i.i
   %11 = load i32, ptr %readonly.i.i, align 4
   %tobool10.not.i.i = icmp eq i32 %11, 0
-  br i1 %tobool10.not.i.i, label %check_hdev_writable.exit.thread.i, label %check_hdev_writable.exit.thread46.i
+  br i1 %tobool10.not.i.i, label %check_hdev_writable.exit.thread.i, label %check_hdev_writable.exit.thread45.i
 
-check_hdev_writable.exit.thread46.i:              ; preds = %if.end9.i.i
+check_hdev_writable.exit.thread45.i:              ; preds = %if.end9.i.i
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %readonly.i.i)
   br label %if.then49.i
 
-check_hdev_writable.exit.thread.i:                ; preds = %if.end9.i.i, %if.end.i33.i
+check_hdev_writable.exit.thread.i:                ; preds = %if.end9.i.i, %if.end.i32.i
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %readonly.i.i)
   br label %raw_reconfigure_getfd.exit
@@ -1187,10 +1187,10 @@ check_hdev_writable.exit.i:                       ; preds = %if.end3.i.i, %if.th
   %cmp48.i = icmp sgt i32 %notsub.i, -1
   br i1 %cmp48.i, label %if.then49.i, label %raw_reconfigure_getfd.exit
 
-if.then49.i:                                      ; preds = %check_hdev_writable.exit.i, %check_hdev_writable.exit.thread46.i
-  %retval.0.i3249.neg.i = phi i32 [ 13, %check_hdev_writable.exit.thread46.i ], [ %.pn.i, %check_hdev_writable.exit.i ]
+if.then49.i:                                      ; preds = %check_hdev_writable.exit.i, %check_hdev_writable.exit.thread45.i
+  %retval.0.i3148.neg.i = phi i32 [ 13, %check_hdev_writable.exit.thread45.i ], [ %.pn.i, %check_hdev_writable.exit.i ]
   %call50.i = call i32 @qemu_close(i32 noundef %fd.1.i) #18
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.14, i32 noundef 1117, ptr noundef nonnull @__func__.raw_reconfigure_getfd, i32 noundef %retval.0.i3249.neg.i, ptr noundef nonnull @.str.34) #18
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.14, i32 noundef 1117, ptr noundef nonnull @__func__.raw_reconfigure_getfd, i32 noundef %retval.0.i3148.neg.i, ptr noundef nonnull @.str.34) #18
   br label %return
 
 raw_reconfigure_getfd.exit:                       ; preds = %if.then12.i, %land.lhs.true43.i, %check_hdev_writable.exit.thread.i, %check_hdev_writable.exit.i
@@ -2092,7 +2092,7 @@ declare void @qemu_opts_del(ptr noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @raw_open_common(ptr noundef %bs, ptr noundef %options, i32 noundef %bdrv_flags, i32 noundef %open_flags, i1 noundef zeroext %device, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc i32 @raw_open_common(ptr noundef %bs, ptr noundef %options, i32 noundef %bdrv_flags, i32 noundef range(i32 0, 2049) %open_flags, i1 noundef zeroext %device, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %local_err = alloca ptr, align 8
   %st = alloca %struct.stat, align 8
@@ -2205,7 +2205,7 @@ if.end49:                                         ; preds = %if.then44, %sw.epil
   %frombool53 = zext i1 %call52 to i8
   store i8 %frombool53, ptr %check_cache_dropped, align 4
   %open_flags54 = getelementptr inbounds i8, ptr %0, i64 12
-  %and.i = and i32 %open_flags, -4
+  %and.i = and i32 %open_flags, 4092
   %4 = and i32 %bdrv_flags, 131074
   %or.cond94.not = icmp eq i32 %4, 2
   %and17.i = and i32 %bdrv_flags, 32
@@ -2214,7 +2214,7 @@ if.end49:                                         ; preds = %if.then44, %sw.epil
   %or13.i = or disjoint i32 %and.i, 2
   %6 = select i1 %or.cond94.not, i32 %or13.i, i32 %and.i
   %7 = shl nuw nsw i32 %and17.i, 9
-  %simplifycfg.merge = or i32 %6, %7
+  %simplifycfg.merge = or disjoint i32 %6, %7
   %storemerge = select i1 %5, i32 %simplifycfg.merge, i32 %and.i
   store i32 %storemerge, ptr %open_flags54, align 4
   store i32 -1, ptr %0, align 8
@@ -3393,7 +3393,7 @@ declare zeroext i1 @bdrv_is_sg(ptr noundef) local_unnamed_addr #1
 declare i64 @pread64(i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @get_sysfs_long_val(ptr nocapture noundef readonly %st, ptr noundef %attribute) unnamed_addr #0 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @get_sysfs_long_val(ptr nocapture noundef nonnull readonly %st, ptr noundef %attribute) unnamed_addr #0 {
 entry:
   %len.i = alloca i64, align 8
   %str = alloca ptr, align 8
@@ -3633,7 +3633,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @error_reportf_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @raw_handle_perm_lock(ptr noundef %bs, i32 noundef %op, i64 noundef %new_perm, i64 noundef %new_shared, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc i32 @raw_handle_perm_lock(ptr noundef %bs, i32 noundef range(i32 0, 3) %op, i64 noundef %new_perm, i64 noundef %new_shared, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %local_err = alloca ptr, align 8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -3651,7 +3651,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  switch i32 %op, label %default.unreachable [
+  switch i32 %op, label %default.unreachable30 [
     i32 0, label %sw.bb
     i32 2, label %sw.bb24
     i32 1, label %sw.bb33
@@ -3708,7 +3708,7 @@ sw.bb33:                                          ; preds = %if.end3
   %tobool37.not = icmp eq ptr %11, null
   br i1 %tobool37.not, label %return, label %return.sink.split
 
-default.unreachable:                              ; preds = %if.end3
+default.unreachable30:                            ; preds = %if.end3
   unreachable
 
 return.sink.split:                                ; preds = %sw.bb33, %sw.bb24

@@ -15671,7 +15671,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
   br label %.body
 
 _ZN3nix20StorePathWithOutputsC2ERKS0_.exit:       ; preds = %445, %.noexc157
-  invoke fastcc void @_ZN9nix_storeL11realisePathB5cxx11EN3nix20StorePathWithOutputsEb(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull %25, i1 noundef zeroext false)
+  invoke fastcc void @_ZN9nix_storeL11realisePathB5cxx11EN3nix20StorePathWithOutputsEb(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef %25, i1 noundef zeroext false)
           to label %450 unwind label %558
 
 450:                                              ; preds = %_ZN3nix20StorePathWithOutputsC2ERKS0_.exit
@@ -18298,7 +18298,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit: ; preds = %_ZNSt3setIN3
           to label %286 unwind label %.loopexit
 
 286:                                              ; preds = %280
-  invoke fastcc void @_ZN9nix_storeL15maybeUseOutputsERKN3nix9StorePathEbb(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(32) %42, i1 noundef zeroext true, i1 noundef zeroext %.0157.lcssa)
+  invoke fastcc void @_ZN9nix_storeL15maybeUseOutputsERKN3nix9StorePathEbb(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(32) %42, i1 noundef zeroext true, i1 noundef zeroext %.0157.lcssa)
           to label %287 unwind label %396
 
 287:                                              ; preds = %286
@@ -18771,7 +18771,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit428: ; preds = %._crit_ed
           to label %430 unwind label %.loopexit1466
 
 430:                                              ; preds = %424
-  invoke fastcc void @_ZN9nix_storeL15maybeUseOutputsERKN3nix9StorePathEbb(ptr dead_on_unwind noalias nonnull writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(32) %49, i1 noundef zeroext %.0.lcssa, i1 noundef zeroext %.0157.lcssa)
+  invoke fastcc void @_ZN9nix_storeL15maybeUseOutputsERKN3nix9StorePathEbb(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(32) %49, i1 noundef zeroext %.0.lcssa, i1 noundef zeroext %.0157.lcssa)
           to label %431 unwind label %606
 
 431:                                              ; preds = %430
@@ -20844,7 +20844,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit545: ; preds = %._crit_ed
           to label %1133 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 1133:                                             ; preds = %1127
-  invoke fastcc void @_ZN9nix_storeL15maybeUseOutputsERKN3nix9StorePathEbb(ptr dead_on_unwind noalias nonnull writable align 8 %81, ptr noundef nonnull align 8 dereferenceable(32) %82, i1 noundef zeroext %.0.lcssa, i1 noundef zeroext %.0157.lcssa)
+  invoke fastcc void @_ZN9nix_storeL15maybeUseOutputsERKN3nix9StorePathEbb(ptr dead_on_unwind noalias writable align 8 %81, ptr noundef nonnull align 8 dereferenceable(32) %82, i1 noundef zeroext %.0.lcssa, i1 noundef zeroext %.0157.lcssa)
           to label %1134 unwind label %1145
 
 1134:                                             ; preds = %1133
@@ -21639,7 +21639,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit602: ; preds = %._crit_ed
           to label %1386 unwind label %1398
 
 1386:                                             ; preds = %1380
-  invoke fastcc void @_ZN9nix_storeL15maybeUseOutputsERKN3nix9StorePathEbb(ptr dead_on_unwind noalias nonnull writable align 8 %98, ptr noundef nonnull align 8 dereferenceable(32) %99, i1 noundef zeroext %.0.lcssa, i1 noundef zeroext %.0157.lcssa)
+  invoke fastcc void @_ZN9nix_storeL15maybeUseOutputsERKN3nix9StorePathEbb(ptr dead_on_unwind noalias writable align 8 %98, ptr noundef nonnull align 8 dereferenceable(32) %99, i1 noundef zeroext %.0.lcssa, i1 noundef zeroext %.0157.lcssa)
           to label %1387 unwind label %1400
 
 1387:                                             ; preds = %1386
@@ -21989,7 +21989,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit628: ; preds = %._crit_ed
           to label %1516 unwind label %1528
 
 1516:                                             ; preds = %1510
-  invoke fastcc void @_ZN9nix_storeL15maybeUseOutputsERKN3nix9StorePathEbb(ptr dead_on_unwind noalias nonnull writable align 8 %102, ptr noundef nonnull align 8 dereferenceable(32) %103, i1 noundef zeroext %.0.lcssa, i1 noundef zeroext %.0157.lcssa)
+  invoke fastcc void @_ZN9nix_storeL15maybeUseOutputsERKN3nix9StorePathEbb(ptr dead_on_unwind noalias writable align 8 %102, ptr noundef nonnull align 8 dereferenceable(32) %103, i1 noundef zeroext %.0.lcssa, i1 noundef zeroext %.0157.lcssa)
           to label %1517 unwind label %1530
 
 1517:                                             ; preds = %1516
@@ -22509,7 +22509,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit676: ; preds = %._crit_ed
           to label %1696 unwind label %1708
 
 1696:                                             ; preds = %1690
-  invoke fastcc void @_ZN9nix_storeL15maybeUseOutputsERKN3nix9StorePathEbb(ptr dead_on_unwind noalias nonnull writable align 8 %111, ptr noundef nonnull align 8 dereferenceable(32) %112, i1 noundef zeroext %.0.lcssa, i1 noundef zeroext %.0157.lcssa)
+  invoke fastcc void @_ZN9nix_storeL15maybeUseOutputsERKN3nix9StorePathEbb(ptr dead_on_unwind noalias writable align 8 %111, ptr noundef nonnull align 8 dereferenceable(32) %112, i1 noundef zeroext %.0.lcssa, i1 noundef zeroext %.0157.lcssa)
           to label %1697 unwind label %1710
 
 1697:                                             ; preds = %1696
@@ -34529,7 +34529,7 @@ _ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EED2Ev.exit
 declare void @_ZN3nix12printMissingENS_3refINS_5StoreEEERKSt3setINS_9StorePathESt4lessIS4_ESaIS4_EESA_SA_mmNS_9VerbosityE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9nix_storeL11realisePathB5cxx11EN3nix20StorePathWithOutputsEb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9nix_storeL11realisePathB5cxx11EN3nix20StorePathWithOutputsEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"class.std::shared_ptr.202", align 8
@@ -40797,7 +40797,7 @@ _ZN3nix5ErrorCI2NS_9BaseErrorEIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
 declare void @_ZN3nix8RunPagerC1Ev(ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9nix_storeL15maybeUseOutputsERKN3nix9StorePathEbb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9nix_storeL15maybeUseOutputsERKN3nix9StorePathEbb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
   %6 = alloca %"class.std::set.63", align 8
   %7 = alloca %"struct.nix::StorePathWithOutputs", align 8
@@ -40823,7 +40823,7 @@ define internal fastcc void @_ZN9nix_storeL15maybeUseOutputsERKN3nix9StorePathEb
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %7, i64 72
   store i64 0, ptr %22, align 8
-  invoke fastcc void @_ZN9nix_storeL11realisePathB5cxx11EN3nix20StorePathWithOutputsEb(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull %7, i1 noundef zeroext true)
+  invoke fastcc void @_ZN9nix_storeL11realisePathB5cxx11EN3nix20StorePathWithOutputsEb(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %7, i1 noundef zeroext true)
           to label %23 unwind label %39
 
 23:                                               ; preds = %16
@@ -40905,7 +40905,7 @@ _ZN3nix20StorePathWithOutputsD2Ev.exit:           ; preds = %_ZNKSt7__cxx1112bas
 53:                                               ; preds = %44
   %54 = getelementptr inbounds i8, ptr %52, i64 104
   %55 = load ptr, ptr %54, align 8
-  invoke void %55(ptr dead_on_unwind writable sret(%"class.std::set.142") align 8 %0, ptr noundef nonnull align 8 dereferenceable(264) %51, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke void %55(ptr dead_on_unwind nonnull writable sret(%"class.std::set.142") align 8 %0, ptr noundef nonnull align 8 dereferenceable(264) %51, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %._crit_edge37 unwind label %56
 
 ._crit_edge37:                                    ; preds = %53

@@ -2314,7 +2314,7 @@ switch.edge226:                                   ; preds = %204, %204, %204, %2
   br label %bdf_list_shift_.exit
 
 bdf_list_shift_.exit:                             ; preds = %209, %.sink.split.i
-  %221 = call fastcc ptr @bdf_list_join_(ptr noundef nonnull %207, ptr noundef nonnull %7)
+  %221 = call fastcc ptr @bdf_list_join_(ptr noundef nonnull %207, ptr noundef %7)
   %.not206 = icmp eq ptr %221, null
   br i1 %.not206, label %.loopexit, label %222
 
@@ -3579,7 +3579,7 @@ define internal fastcc signext i16 @bdf_atos_(ptr noundef readonly %0) unnamed_a
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @bdf_list_join_(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #7 {
+define internal fastcc ptr @bdf_list_join_(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #7 {
   store i64 0, ptr %1, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %32, label %4
@@ -4693,7 +4693,7 @@ switch.edge410:                                   ; preds = %153, %153, %153, %1
   br label %bdf_list_shift_.exit
 
 bdf_list_shift_.exit:                             ; preds = %162, %.sink.split.i
-  %174 = call fastcc ptr @bdf_list_join_(ptr noundef nonnull %160, ptr noundef nonnull %7)
+  %174 = call fastcc ptr @bdf_list_join_(ptr noundef nonnull %160, ptr noundef %7)
   %.not394 = icmp eq ptr %174, null
   br i1 %.not394, label %.thread438.sink.split, label %175
 

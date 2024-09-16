@@ -103,7 +103,7 @@ define internal noundef i32 @system_pnp_probe(ptr noundef %0, ptr nocapture read
 declare dso_local ptr @pnp_get_resource(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @reserve_range(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc void @reserve_range(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -146,7 +146,7 @@ define internal fastcc void @reserve_range(ptr noundef %0, ptr noundef %1, i32 n
 
 29:                                               ; preds = %28, %24
   %30 = phi ptr [ @.str.3, %24 ], [ @.str.4, %28 ]
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %1, ptr noundef nonnull %30) #8
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %1, ptr noundef nonnull %30) #8
   br label %31
 
 31:                                               ; preds = %29, %9

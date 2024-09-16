@@ -706,7 +706,7 @@ define dso_local i32 @blkg_conf_prep(ptr noundef %0, ptr noundef readonly %1, pt
 declare dso_local i32 @blk_queue_enter(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @blkg_alloc(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef ptr @blkg_alloc(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 3264, 10241) %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 488

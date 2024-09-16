@@ -4442,7 +4442,7 @@ invoke.cont366:                                   ; preds = %invoke.cont358
 invoke.cont383:                                   ; preds = %invoke.cont366
   %update_time_373 = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp372.sroa.0.0.copyload = load i64, ptr %update_time_373, align 8
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_127CreateResourceMetadataAckedENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9TimestampE(ptr noalias nonnull align 8 %ref.tmp362, ptr noundef nonnull %agg.tmp363, ptr noundef nonnull %agg.tmp367, i64 %agg.tmp372.sroa.0.0.copyload)
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_127CreateResourceMetadataAckedENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9TimestampE(ptr noalias align 8 %ref.tmp362, ptr noundef %agg.tmp363, ptr noundef %agg.tmp367, i64 %agg.tmp372.sroa.0.0.copyload)
   %meta377 = getelementptr inbounds i8, ptr %call.i235236, i64 152
   %call378 = call noundef nonnull align 8 dereferenceable(152) ptr @_ZN9grpc_core6XdsApi16ResourceMetadataaSEOS1_(ptr noundef nonnull align 8 dereferenceable(152) %meta377, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp362) #26
   call void @_ZN9grpc_core6XdsApi16ResourceMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp362) #26
@@ -5775,7 +5775,7 @@ _ZNSt12__shared_ptrIKN9grpc_core15XdsResourceType12ResourceDataELN9__gnu_cxx12_L
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_127CreateResourceMetadataAckedENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9TimestampE(ptr noalias align 8 %agg.result, ptr noundef %serialized_proto, ptr noundef %version, i64 %update_time.coerce) unnamed_addr #4 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_127CreateResourceMetadataAckedENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9TimestampE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %serialized_proto, ptr noundef nonnull %version, i64 %update_time.coerce) unnamed_addr #4 {
 entry:
   store i32 1, ptr %agg.result, align 8
   %serialized_proto.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -14189,7 +14189,7 @@ invoke.cont10:                                    ; preds = %invoke.cont6
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont10
-  invoke fastcc void @"_ZZN9grpc_core9XdsClient13WatchResourceEPKNS_15XdsResourceTypeESt17basic_string_viewIcSt11char_traitsIcEENS_13RefCountedPtrINS0_24ResourceWatcherInterfaceEEEEN3$_0clEN4absl12lts_202308026StatusE"(ptr noundef nonnull align 8 dereferenceable(32) %fail, ptr noundef nonnull %agg.tmp3)
+  invoke fastcc void @"_ZZN9grpc_core9XdsClient13WatchResourceEPKNS_15XdsResourceTypeESt17basic_string_viewIcSt11char_traitsIcEENS_13RefCountedPtrINS0_24ResourceWatcherInterfaceEEEEN3$_0clEN4absl12lts_202308026StatusE"(ptr noundef nonnull align 8 dereferenceable(32) %fail, ptr noundef %agg.tmp3)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont13
@@ -14295,7 +14295,7 @@ invoke.cont45:                                    ; preds = %invoke.cont44
           to label %invoke.cont48 unwind label %lpad47
 
 invoke.cont48:                                    ; preds = %invoke.cont45
-  invoke fastcc void @"_ZZN9grpc_core9XdsClient13WatchResourceEPKNS_15XdsResourceTypeESt17basic_string_viewIcSt11char_traitsIcEENS_13RefCountedPtrINS0_24ResourceWatcherInterfaceEEEEN3$_0clEN4absl12lts_202308026StatusE"(ptr noundef nonnull align 8 dereferenceable(32) %fail, ptr noundef nonnull %agg.tmp35)
+  invoke fastcc void @"_ZZN9grpc_core9XdsClient13WatchResourceEPKNS_15XdsResourceTypeESt17basic_string_viewIcSt11char_traitsIcEENS_13RefCountedPtrINS0_24ResourceWatcherInterfaceEEEEN3$_0clEN4absl12lts_202308026StatusE"(ptr noundef nonnull align 8 dereferenceable(32) %fail, ptr noundef %agg.tmp35)
           to label %invoke.cont50 unwind label %lpad49
 
 invoke.cont50:                                    ; preds = %invoke.cont48
@@ -15374,7 +15374,7 @@ ehcleanup270:                                     ; preds = %ehcleanup267, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN9grpc_core9XdsClient13WatchResourceEPKNS_15XdsResourceTypeESt17basic_string_viewIcSt11char_traitsIcEENS_13RefCountedPtrINS0_24ResourceWatcherInterfaceEEEEN3$_0clEN4absl12lts_202308026StatusE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN9grpc_core9XdsClient13WatchResourceEPKNS_15XdsResourceTypeESt17basic_string_viewIcSt11char_traitsIcEENS_13RefCountedPtrINS0_24ResourceWatcherInterfaceEEEEN3$_0clEN4absl12lts_202308026StatusE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.571", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.479", align 1

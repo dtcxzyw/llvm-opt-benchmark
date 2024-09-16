@@ -665,7 +665,7 @@ define dso_local void @rb_compile_warn(ptr noundef nonnull %0, i32 noundef %1, p
 
 9:                                                ; preds = %3
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %10 = call fastcc i64 @warn_vsprintf(ptr noundef null, ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %5)
+  %10 = call fastcc i64 @warn_vsprintf(ptr noundef null, ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %5)
   call void @llvm.va_end.p0(ptr nonnull %5)
   %11 = load i64, ptr @rb_mWarning, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -682,7 +682,7 @@ define dso_local void @rb_compile_warn(ptr noundef nonnull %0, i32 noundef %1, p
 declare ptr @rb_ruby_verbose_ptr() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @warn_vsprintf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i64 @warn_vsprintf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = tail call i64 @rb_enc_str_new_static(ptr noundef null, i64 noundef 0, ptr noundef %0) #29
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %err_vcatf.exit, label %7
@@ -702,7 +702,7 @@ define internal fastcc i64 @warn_vsprintf(ptr noundef %0, ptr noundef %1, i32 no
 
 err_vcatf.exit:                                   ; preds = %5, %11
   %13 = tail call i64 @rb_str_cat_cstr(i64 noundef %6, ptr noundef nonnull @.str.255) #29
-  %14 = tail call i64 @rb_str_vcatf(i64 noundef %6, ptr noundef %3, ptr noundef %4) #29
+  %14 = tail call i64 @rb_str_vcatf(i64 noundef %6, ptr noundef %3, ptr noundef nonnull %4) #29
   %15 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull @.str, i64 noundef 1) #29
   ret i64 %15
 }
@@ -719,7 +719,7 @@ define dso_local void @rb_compile_warning(ptr noundef nonnull %0, i32 noundef %1
 
 9:                                                ; preds = %3
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %10 = call fastcc i64 @warn_vsprintf(ptr noundef null, ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %5)
+  %10 = call fastcc i64 @warn_vsprintf(ptr noundef null, ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %5)
   call void @llvm.va_end.p0(ptr nonnull %5)
   %11 = load i64, ptr @rb_mWarning, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -744,7 +744,7 @@ define dso_local void @rb_category_compile_warn(i32 noundef %0, ptr noundef nonn
 
 10:                                               ; preds = %4
   call void @llvm.va_start.p0(ptr nonnull %6)
-  %11 = call fastcc i64 @warn_vsprintf(ptr noundef null, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %6)
+  %11 = call fastcc i64 @warn_vsprintf(ptr noundef null, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %6)
   call void @llvm.va_end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %12 = load ptr, ptr @warning_categories.1, align 8
@@ -833,7 +833,7 @@ define dso_local void @rb_warn(ptr noundef nonnull %0, ...) local_unnamed_addr #
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %9 = call ptr @rb_source_location_cstr(ptr noundef nonnull %3) #29
   %10 = load i32, ptr %3, align 4
-  %11 = call fastcc i64 @warn_vsprintf(ptr noundef null, ptr noundef %9, i32 noundef %10, ptr noundef nonnull %0, ptr noundef nonnull %4)
+  %11 = call fastcc i64 @warn_vsprintf(ptr noundef null, ptr noundef %9, i32 noundef %10, ptr noundef nonnull %0, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   %12 = load i64, ptr @rb_mWarning, align 8
@@ -863,7 +863,7 @@ define dso_local void @rb_category_warn(i32 noundef %0, ptr noundef nonnull %1, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %10 = call ptr @rb_source_location_cstr(ptr noundef nonnull %4) #29
   %11 = load i32, ptr %4, align 4
-  %12 = call fastcc i64 @warn_vsprintf(ptr noundef null, ptr noundef %10, i32 noundef %11, ptr noundef nonnull %1, ptr noundef nonnull %5)
+  %12 = call fastcc i64 @warn_vsprintf(ptr noundef null, ptr noundef %10, i32 noundef %11, ptr noundef nonnull %1, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -912,7 +912,7 @@ define hidden void @rb_enc_warn(ptr noundef %0, ptr noundef %1, ...) local_unnam
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %10 = call ptr @rb_source_location_cstr(ptr noundef nonnull %4) #29
   %11 = load i32, ptr %4, align 4
-  %12 = call fastcc i64 @warn_vsprintf(ptr noundef %0, ptr noundef %10, i32 noundef %11, ptr noundef %1, ptr noundef nonnull %5)
+  %12 = call fastcc i64 @warn_vsprintf(ptr noundef %0, ptr noundef %10, i32 noundef %11, ptr noundef %1, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %5)
   %13 = load i64, ptr @rb_mWarning, align 8
@@ -943,7 +943,7 @@ define dso_local void @rb_warning(ptr noundef nonnull %0, ...) local_unnamed_add
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %9 = call ptr @rb_source_location_cstr(ptr noundef nonnull %3) #29
   %10 = load i32, ptr %3, align 4
-  %11 = call fastcc i64 @warn_vsprintf(ptr noundef null, ptr noundef %9, i32 noundef %10, ptr noundef nonnull %0, ptr noundef nonnull %4)
+  %11 = call fastcc i64 @warn_vsprintf(ptr noundef null, ptr noundef %9, i32 noundef %10, ptr noundef nonnull %0, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   %12 = load i64, ptr @rb_mWarning, align 8
@@ -974,7 +974,7 @@ define dso_local void @rb_category_warning(i32 noundef %0, ptr noundef nonnull %
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %10 = call ptr @rb_source_location_cstr(ptr noundef nonnull %4) #29
   %11 = load i32, ptr %4, align 4
-  %12 = call fastcc i64 @warn_vsprintf(ptr noundef null, ptr noundef %10, i32 noundef %11, ptr noundef nonnull %1, ptr noundef nonnull %5)
+  %12 = call fastcc i64 @warn_vsprintf(ptr noundef null, ptr noundef %10, i32 noundef %11, ptr noundef nonnull %1, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -1016,7 +1016,7 @@ define hidden i64 @rb_warning_string(ptr noundef %0, ...) local_unnamed_addr #0 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   %4 = call ptr @rb_source_location_cstr(ptr noundef nonnull %2) #29
   %5 = load i32, ptr %2, align 4
-  %6 = call fastcc i64 @warn_vsprintf(ptr noundef null, ptr noundef %4, i32 noundef %5, ptr noundef %0, ptr noundef nonnull %3)
+  %6 = call fastcc i64 @warn_vsprintf(ptr noundef null, ptr noundef %4, i32 noundef %5, ptr noundef %0, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret i64 %6
@@ -1040,7 +1040,7 @@ define hidden void @rb_warn_deprecated(ptr noundef %0, ptr noundef %1, ...) loca
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %11 = call ptr @rb_source_location_cstr(ptr noundef nonnull %3) #29
   %12 = load i32, ptr %3, align 4
-  %13 = call fastcc i64 @warn_vsprintf(ptr noundef null, ptr noundef %11, i32 noundef %12, ptr noundef %0, ptr noundef nonnull %4)
+  %13 = call fastcc i64 @warn_vsprintf(ptr noundef null, ptr noundef %11, i32 noundef %12, ptr noundef %0, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   %14 = inttoptr i64 %13 to ptr
@@ -1085,7 +1085,7 @@ define hidden void @rb_warn_deprecated_to_remove(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %12 = call ptr @rb_source_location_cstr(ptr noundef nonnull %4) #29
   %13 = load i32, ptr %4, align 4
-  %14 = call fastcc i64 @warn_vsprintf(ptr noundef null, ptr noundef %12, i32 noundef %13, ptr noundef %1, ptr noundef nonnull %5)
+  %14 = call fastcc i64 @warn_vsprintf(ptr noundef null, ptr noundef %12, i32 noundef %13, ptr noundef %1, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %5)
   %15 = inttoptr i64 %14 to ptr
@@ -1167,7 +1167,7 @@ define hidden void @rb_bug_without_die(ptr noundef %0, ptr noundef %1) local_unn
   %11 = phi i32 [ %.pre, %8 ], [ 0, %2 ]
   %.0 = phi ptr [ %9, %8 ], [ null, %2 ]
   store i32 -1, ptr %5, align 4
-  %12 = call fastcc ptr @bug_report_file(ptr noundef %.0, i32 noundef %11, ptr noundef nonnull %5)
+  %12 = call fastcc ptr @bug_report_file(ptr noundef %.0, i32 noundef %11, ptr noundef %5)
   %.not8 = icmp eq ptr %12, null
   br i1 %.not8, label %bug_report_end.exit, label %13
 
@@ -1226,7 +1226,7 @@ bug_report_end.exit:                              ; preds = %37, %35, %10
 declare ptr @rb_source_location_cstr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @bug_report_file(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @bug_report_file(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.report_expansion, align 8
   %6 = alloca [16 x ptr], align 16
@@ -1283,7 +1283,7 @@ define internal fastcc ptr @bug_report_file(ptr noundef %0, i32 noundef %1, ptr 
   %21 = icmp ne i8 %18, 32
   %22 = add nsw i32 %20, -14
   %23 = icmp ult i32 %22, -5
-  %narrow.i.not.i = and i1 %21, %23
+  %narrow.i.not.i = select i1 %21, i1 %23, i1 false
   br i1 %narrow.i.not.i, label %.critedge.i, label %24
 
 24:                                               ; preds = %.lr.ph.i
@@ -1297,7 +1297,7 @@ define internal fastcc ptr @bug_report_file(ptr noundef %0, i32 noundef %1, ptr 
   store ptr %.lcssa.i, ptr %4, align 8
   %27 = ptrtoint ptr %.01937.i to i64
   %28 = sub i64 %16, %27
-  %29 = call fastcc ptr @expand_report_argument(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %.01937.i, i64 noundef %28, i1 noundef zeroext true)
+  %29 = call fastcc ptr @expand_report_argument(ptr noundef %4, ptr noundef %5, ptr noundef %.01937.i, i64 noundef %28, i1 noundef zeroext true)
   %.not27.i = icmp eq ptr %29, null
   br i1 %.not27.i, label %.thread.i, label %33
 
@@ -1306,7 +1306,7 @@ define internal fastcc ptr @bug_report_file(ptr noundef %0, i32 noundef %1, ptr 
   %30 = ashr exact i64 %sext.i, 32
   %31 = getelementptr [16 x ptr], ptr %6, i64 0, i64 %30
   store ptr null, ptr %31, align 8
-  %32 = call ptr @ruby_popen_writer(ptr noundef nonnull %6, ptr noundef %2) #29
+  %32 = call ptr @ruby_popen_writer(ptr noundef nonnull %6, ptr noundef nonnull %2) #29
   br label %open_report_path.exit
 
 33:                                               ; preds = %.critedge.i
@@ -1317,7 +1317,7 @@ define internal fastcc ptr @bug_report_file(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %exitcond.not.i, label %open_report_path.exit, label %.preheader.i, !llvm.loop !16
 
 35:                                               ; preds = %11
-  %36 = call fastcc ptr @expand_report_argument(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %7, i64 noundef 256, i1 noundef zeroext false)
+  %36 = call fastcc ptr @expand_report_argument(ptr noundef %4, ptr noundef %5, ptr noundef %7, i64 noundef 256, i1 noundef zeroext false)
   %37 = call noalias ptr @fopen(ptr noundef nonnull %7, ptr noundef nonnull @.str.261)
   br label %open_report_path.exit
 
@@ -1461,7 +1461,7 @@ define hidden void @rb_bug_for_fatal_signal(ptr noundef readonly %0, i32 noundef
   %14 = phi i32 [ %.pre, %11 ], [ 0, %4 ]
   %.0 = phi ptr [ %12, %11 ], [ null, %4 ]
   store i32 -1, ptr %7, align 4
-  %15 = call fastcc ptr @bug_report_file(ptr noundef %.0, i32 noundef %14, ptr noundef nonnull %7)
+  %15 = call fastcc ptr @bug_report_file(ptr noundef %.0, i32 noundef %14, ptr noundef %7)
   %.not12 = icmp eq ptr %15, null
   br i1 %.not12, label %bug_report_end.exit, label %16
 
@@ -1556,7 +1556,7 @@ define dso_local void @rb_bug_errno(ptr noundef nonnull %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal fastcc noundef ptr @rb_strerrno(i32 noundef %0) unnamed_addr #9 {
+define internal fastcc noundef ptr @rb_strerrno(i32 noundef range(i32 1, 0) %0) unnamed_addr #9 {
   switch i32 %0, label %129 [
     i32 7, label %133
     i32 13, label %2
@@ -2192,7 +2192,7 @@ define hidden void @rb_report_bug_valist(i64 noundef %0, i32 noundef %1, ptr nou
 
 RSTRING_PTR.exit:                                 ; preds = %4, %11
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %11 ], [ %10, %4 ]
-  %12 = call fastcc ptr @bug_report_file(ptr noundef %.sroa.2.0.i, i32 noundef %1, ptr noundef nonnull %6)
+  %12 = call fastcc ptr @bug_report_file(ptr noundef %.sroa.2.0.i, i32 noundef %1, ptr noundef %6)
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %bug_report_end.exit, label %13
 
@@ -2489,7 +2489,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: cold noreturn nounwind sspstrong uwtable
-define internal fastcc void @unexpected_type(i64 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 {
+define internal fastcc void @unexpected_type(i64 noundef %0, i32 noundef range(i32 0, 32) %1, i32 noundef %2) unnamed_addr #7 {
   %4 = icmp ugt i32 %2, 28
   br i1 %4, label %rb_builtin_type_name.exit.thread, label %5
 
@@ -5972,7 +5972,7 @@ define dso_local void @rb_sys_warning(ptr noundef nonnull %0, ...) local_unnamed
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %11 = call ptr @rb_source_location_cstr(ptr noundef nonnull %3) #29
   %12 = load i32, ptr %3, align 4
-  %13 = call fastcc i64 @warn_vsprintf(ptr noundef null, ptr noundef %11, i32 noundef %12, ptr noundef nonnull %0, ptr noundef nonnull %4)
+  %13 = call fastcc i64 @warn_vsprintf(ptr noundef null, ptr noundef %11, i32 noundef %12, ptr noundef nonnull %0, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   %14 = inttoptr i64 %13 to ptr
@@ -6014,7 +6014,7 @@ define hidden void @rb_sys_enc_warning(ptr noundef %0, ptr noundef %1, ...) loca
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %12 = call ptr @rb_source_location_cstr(ptr noundef nonnull %4) #29
   %13 = load i32, ptr %4, align 4
-  %14 = call fastcc i64 @warn_vsprintf(ptr noundef %0, ptr noundef %12, i32 noundef %13, ptr noundef %1, ptr noundef nonnull %5)
+  %14 = call fastcc i64 @warn_vsprintf(ptr noundef %0, ptr noundef %12, i32 noundef %13, ptr noundef %1, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %5)
   %15 = inttoptr i64 %14 to ptr
@@ -6054,7 +6054,7 @@ define hidden void @rb_syserr_enc_warning(i32 noundef %0, ptr noundef %1, ptr no
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %11 = call ptr @rb_source_location_cstr(ptr noundef nonnull %5) #29
   %12 = load i32, ptr %5, align 4
-  %13 = call fastcc i64 @warn_vsprintf(ptr noundef %1, ptr noundef %11, i32 noundef %12, ptr noundef %2, ptr noundef nonnull %6)
+  %13 = call fastcc i64 @warn_vsprintf(ptr noundef %1, ptr noundef %11, i32 noundef %12, ptr noundef %2, ptr noundef %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.va_end.p0(ptr nonnull %6)
   %14 = inttoptr i64 %13 to ptr
@@ -9887,7 +9887,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #15
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @expand_report_argument(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @expand_report_argument(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = getelementptr i8, ptr %2, i64 %3
   %8 = getelementptr i8, ptr %7, i64 -1
@@ -9922,7 +9922,7 @@ define internal fastcc noundef ptr @expand_report_argument(ptr nocapture noundef
   %21 = icmp ne i8 %17, 32
   %22 = add nsw i32 %20, -14
   %23 = icmp ult i32 %22, -5
-  %narrow.i.not = and i1 %21, %23
+  %narrow.i.not = select i1 %21, i1 %23, i1 false
   br i1 %narrow.i.not, label %24, label %215
 
 24:                                               ; preds = %19, %16

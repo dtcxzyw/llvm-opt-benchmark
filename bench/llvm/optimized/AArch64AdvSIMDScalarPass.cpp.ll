@@ -555,7 +555,7 @@ _ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i: ; preds 
   %.sroa.0.0.i.i.i = phi ptr [ %.0.i.i.i.i.i, %110 ], [ %115, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i ]
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 8
   %119 = load ptr, ptr %118, align 8
-  %120 = call fastcc noundef ptr @_ZL14getSrcFromCopyPN4llvm12MachineInstrEPKNS_19MachineRegisterInfoERj(ptr noundef nonnull %119, ptr noundef nonnull %99, ptr noundef nonnull align 4 dereferenceable(4) %26)
+  %120 = call fastcc noundef ptr @_ZL14getSrcFromCopyPN4llvm12MachineInstrEPKNS_19MachineRegisterInfoERj(ptr noundef %119, ptr noundef nonnull %99, ptr noundef nonnull align 4 dereferenceable(4) %26)
   %.not.i.i = icmp eq ptr %120, null
   br i1 %.not.i.i, label %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread.i.i, label %121
 
@@ -608,7 +608,7 @@ _ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit66.i.i: ; pred
   %.sroa.0.0.i62.i.i = phi ptr [ %.0.i.i.i51.i.i, %132 ], [ %137, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit57.i.i ]
   %140 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i62.i.i, i64 8
   %141 = load ptr, ptr %140, align 8
-  %142 = call fastcc noundef ptr @_ZL14getSrcFromCopyPN4llvm12MachineInstrEPKNS_19MachineRegisterInfoERj(ptr noundef nonnull %141, ptr noundef nonnull %125, ptr noundef nonnull align 4 dereferenceable(4) %27)
+  %142 = call fastcc noundef ptr @_ZL14getSrcFromCopyPN4llvm12MachineInstrEPKNS_19MachineRegisterInfoERj(ptr noundef %141, ptr noundef nonnull %125, ptr noundef nonnull align 4 dereferenceable(4) %27)
   %.not38.i.i = icmp eq ptr %142, null
   br i1 %.not38.i.i, label %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit57.thread.i.i, label %143
 
@@ -674,7 +674,7 @@ _ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit57.thread.i.i: ; pred
   %.03199.i.i = phi i8 [ 1, %.lr.ph.preheader.i.i ], [ %.1.i.i, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i.i.i ]
   %.23698.i.i = phi i32 [ %.135.i.i, %.lr.ph.preheader.i.i ], [ %.337.i.i, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i.i.i ]
   %.sroa.076.097.i.i = phi ptr [ %.sroa.0.0.i71.i.i, %.lr.ph.preheader.i.i ], [ %storemerge.i.i.i.i, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i.i.i ]
-  %166 = call fastcc noundef ptr @_ZL14getSrcFromCopyPN4llvm12MachineInstrEPKNS_19MachineRegisterInfoERj(ptr noundef nonnull %165, ptr noundef %149, ptr noundef nonnull align 4 dereferenceable(4) %28)
+  %166 = call fastcc noundef ptr @_ZL14getSrcFromCopyPN4llvm12MachineInstrEPKNS_19MachineRegisterInfoERj(ptr noundef %165, ptr noundef %149, ptr noundef nonnull align 4 dereferenceable(4) %28)
   %.not40.i.i = icmp eq ptr %166, null
   br i1 %.not40.i.i, label %167, label %_ZL15isTransformableRKN4llvm12MachineInstrE.exit73.i.i
 
@@ -827,7 +827,7 @@ _ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i12.i: ; pred
   %.sroa.0.0.i.i13.i = phi ptr [ %.0.i.i.i.i9.i, %207 ], [ %212, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i20.i ]
   %215 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i13.i, i64 8
   %216 = load ptr, ptr %215, align 8
-  %217 = call fastcc noundef ptr @_ZL14getSrcFromCopyPN4llvm12MachineInstrEPKNS_19MachineRegisterInfoERj(ptr noundef nonnull %216, ptr noundef nonnull %149, ptr noundef nonnull align 4 dereferenceable(4) %22)
+  %217 = call fastcc noundef ptr @_ZL14getSrcFromCopyPN4llvm12MachineInstrEPKNS_19MachineRegisterInfoERj(ptr noundef %216, ptr noundef nonnull %149, ptr noundef nonnull align 4 dereferenceable(4) %22)
   %.not.i14.i = icmp eq ptr %217, null
   br i1 %.not.i14.i, label %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread.i15.i, label %218
 
@@ -893,7 +893,7 @@ _ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit67.i.i: ; pred
   %.sroa.0.0.i63.i.i = phi ptr [ %.0.i.i.i52.i.i, %243 ], [ %248, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit58.i.i ]
   %251 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i63.i.i, i64 8
   %252 = load ptr, ptr %251, align 8
-  %253 = call fastcc noundef ptr @_ZL14getSrcFromCopyPN4llvm12MachineInstrEPKNS_19MachineRegisterInfoERj(ptr noundef nonnull %252, ptr noundef nonnull %232, ptr noundef nonnull align 4 dereferenceable(4) %23)
+  %253 = call fastcc noundef ptr @_ZL14getSrcFromCopyPN4llvm12MachineInstrEPKNS_19MachineRegisterInfoERj(ptr noundef %252, ptr noundef nonnull %232, ptr noundef nonnull align 4 dereferenceable(4) %23)
   %.not46.i.i = icmp eq ptr %253, null
   br i1 %.not46.i.i, label %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit58.thread.i.i, label %254
 
@@ -1551,7 +1551,7 @@ declare void @_ZNK4llvm19MachineFunctionPass16getAnalysisUsageERNS_13AnalysisUsa
 declare noundef zeroext i1 @_ZNK4llvm12FunctionPass12skipFunctionERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZL14getSrcFromCopyPN4llvm12MachineInstrEPKNS_19MachineRegisterInfoERj(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) unnamed_addr #8 {
+define internal fastcc noundef ptr @_ZL14getSrcFromCopyPN4llvm12MachineInstrEPKNS_19MachineRegisterInfoERj(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) unnamed_addr #8 {
   store i32 0, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load i16, ptr %4, align 4

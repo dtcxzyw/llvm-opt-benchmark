@@ -1082,46 +1082,46 @@ entry:
   %call.i = tail call noalias ptr @zcalloc(i64 noundef %mul2.i) #9
   %val.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %call.i, ptr %val.i, align 8
-  %cmp29.not.i = icmp eq i64 %len, 0
-  br i1 %cmp29.not.i, label %callReplyParseCollection.exit, label %for.cond4.preheader.lr.ph.i
+  %cmp28.not.i = icmp eq i64 %len, 0
+  br i1 %cmp28.not.i, label %callReplyParseCollection.exit, label %for.cond4.preheader.lr.ph.i
 
 for.cond4.preheader.lr.ph.i:                      ; preds = %entry
   %flags19.i = getelementptr inbounds i8, ptr %ctx, i64 36
-  br label %for.cond4.preheader.us.i
+  br label %for.cond4.preheader.i
 
-for.cond4.preheader.us.i:                         ; preds = %for.inc.us.i, %for.cond4.preheader.lr.ph.i
-  %0 = phi ptr [ %5, %for.inc.us.i ], [ %call.i, %for.cond4.preheader.lr.ph.i ]
-  %i.030.us.i = phi i64 [ %add22.us.i, %for.inc.us.i ], [ 0, %for.cond4.preheader.lr.ph.i ]
+for.cond4.preheader.i:                            ; preds = %for.inc.i, %for.cond4.preheader.lr.ph.i
+  %0 = phi ptr [ %call.i, %for.cond4.preheader.lr.ph.i ], [ %5, %for.inc.i ]
+  %i.029.i = phi i64 [ 0, %for.cond4.preheader.lr.ph.i ], [ %add22.i, %for.inc.i ]
   %1 = load ptr, ptr %ctx, align 8
-  %arrayidx.us.i = getelementptr inbounds %struct.CallReply, ptr %0, i64 %i.030.us.i
-  store ptr %1, ptr %arrayidx.us.i, align 8
+  %arrayidx.i = getelementptr inbounds %struct.CallReply, ptr %0, i64 %i.029.i
+  store ptr %1, ptr %arrayidx.i, align 8
   %2 = load ptr, ptr %val.i, align 8
-  %add.ptr.us.i = getelementptr inbounds %struct.CallReply, ptr %2, i64 %i.030.us.i
-  %call11.us.i = tail call i32 @parseReply(ptr noundef %parser, ptr noundef %add.ptr.us.i) #8
+  %add.ptr.i = getelementptr inbounds %struct.CallReply, ptr %2, i64 %i.029.i
+  %call11.i = tail call i32 @parseReply(ptr noundef %parser, ptr noundef %add.ptr.i) #8
   %3 = load ptr, ptr %val.i, align 8
-  %flags.us.i = getelementptr inbounds %struct.CallReply, ptr %3, i64 %i.030.us.i, i32 5
-  %4 = load i32, ptr %flags.us.i, align 4
-  %or.us.i = or i32 %4, 2
-  store i32 %or.us.i, ptr %flags.us.i, align 4
+  %flags.i = getelementptr inbounds %struct.CallReply, ptr %3, i64 %i.029.i, i32 5
+  %4 = load i32, ptr %flags.i, align 4
+  %or.i = or i32 %4, 2
+  store i32 %or.i, ptr %flags.i, align 4
   %5 = load ptr, ptr %val.i, align 8
-  %flags18.us.i = getelementptr inbounds %struct.CallReply, ptr %5, i64 %i.030.us.i, i32 5
-  %6 = load i32, ptr %flags18.us.i, align 4
-  %and.us.i = and i32 %6, 4
-  %tobool.not.us.i = icmp eq i32 %and.us.i, 0
-  br i1 %tobool.not.us.i, label %for.inc.us.i, label %if.then.us.i
+  %flags18.i = getelementptr inbounds %struct.CallReply, ptr %5, i64 %i.029.i, i32 5
+  %6 = load i32, ptr %flags18.i, align 4
+  %and.i = and i32 %6, 4
+  %tobool.not.i = icmp eq i32 %and.i, 0
+  br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
 
-if.then.us.i:                                     ; preds = %for.cond4.preheader.us.i
+if.then.i:                                        ; preds = %for.cond4.preheader.i
   %7 = load i32, ptr %flags19.i, align 4
-  %or20.us.i = or i32 %7, 4
-  store i32 %or20.us.i, ptr %flags19.i, align 4
-  br label %for.inc.us.i
+  %or20.i = or i32 %7, 4
+  store i32 %or20.i, ptr %flags19.i, align 4
+  br label %for.inc.i
 
-for.inc.us.i:                                     ; preds = %if.then.us.i, %for.cond4.preheader.us.i
-  %add22.us.i = add nuw i64 %i.030.us.i, 1
-  %exitcond.not = icmp eq i64 %add22.us.i, %len
-  br i1 %exitcond.not, label %callReplyParseCollection.exit, label %for.cond4.preheader.us.i, !llvm.loop !8
+for.inc.i:                                        ; preds = %if.then.i, %for.cond4.preheader.i
+  %add22.i = add nuw i64 %i.029.i, 1
+  %exitcond.not = icmp eq i64 %add22.i, %len
+  br i1 %exitcond.not, label %callReplyParseCollection.exit, label %for.cond4.preheader.i, !llvm.loop !8
 
-callReplyParseCollection.exit:                    ; preds = %for.inc.us.i, %entry
+callReplyParseCollection.exit:                    ; preds = %for.inc.i, %entry
   %proto24.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %proto, ptr %proto24.i, align 8
   %8 = load ptr, ptr %parser, align 8
@@ -1144,46 +1144,46 @@ entry:
   %call.i = tail call noalias ptr @zcalloc(i64 noundef %mul2.i) #9
   %val.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %call.i, ptr %val.i, align 8
-  %cmp29.not.i = icmp eq i64 %len, 0
-  br i1 %cmp29.not.i, label %callReplyParseCollection.exit, label %for.cond4.preheader.lr.ph.i
+  %cmp28.not.i = icmp eq i64 %len, 0
+  br i1 %cmp28.not.i, label %callReplyParseCollection.exit, label %for.cond4.preheader.lr.ph.i
 
 for.cond4.preheader.lr.ph.i:                      ; preds = %entry
   %flags19.i = getelementptr inbounds i8, ptr %ctx, i64 36
-  br label %for.cond4.preheader.us.i
+  br label %for.cond4.preheader.i
 
-for.cond4.preheader.us.i:                         ; preds = %for.inc.us.i, %for.cond4.preheader.lr.ph.i
-  %0 = phi ptr [ %5, %for.inc.us.i ], [ %call.i, %for.cond4.preheader.lr.ph.i ]
-  %i.030.us.i = phi i64 [ %add22.us.i, %for.inc.us.i ], [ 0, %for.cond4.preheader.lr.ph.i ]
+for.cond4.preheader.i:                            ; preds = %for.inc.i, %for.cond4.preheader.lr.ph.i
+  %0 = phi ptr [ %call.i, %for.cond4.preheader.lr.ph.i ], [ %5, %for.inc.i ]
+  %i.029.i = phi i64 [ 0, %for.cond4.preheader.lr.ph.i ], [ %add22.i, %for.inc.i ]
   %1 = load ptr, ptr %ctx, align 8
-  %arrayidx.us.i = getelementptr inbounds %struct.CallReply, ptr %0, i64 %i.030.us.i
-  store ptr %1, ptr %arrayidx.us.i, align 8
+  %arrayidx.i = getelementptr inbounds %struct.CallReply, ptr %0, i64 %i.029.i
+  store ptr %1, ptr %arrayidx.i, align 8
   %2 = load ptr, ptr %val.i, align 8
-  %add.ptr.us.i = getelementptr inbounds %struct.CallReply, ptr %2, i64 %i.030.us.i
-  %call11.us.i = tail call i32 @parseReply(ptr noundef %parser, ptr noundef %add.ptr.us.i) #8
+  %add.ptr.i = getelementptr inbounds %struct.CallReply, ptr %2, i64 %i.029.i
+  %call11.i = tail call i32 @parseReply(ptr noundef %parser, ptr noundef %add.ptr.i) #8
   %3 = load ptr, ptr %val.i, align 8
-  %flags.us.i = getelementptr inbounds %struct.CallReply, ptr %3, i64 %i.030.us.i, i32 5
-  %4 = load i32, ptr %flags.us.i, align 4
-  %or.us.i = or i32 %4, 2
-  store i32 %or.us.i, ptr %flags.us.i, align 4
+  %flags.i = getelementptr inbounds %struct.CallReply, ptr %3, i64 %i.029.i, i32 5
+  %4 = load i32, ptr %flags.i, align 4
+  %or.i = or i32 %4, 2
+  store i32 %or.i, ptr %flags.i, align 4
   %5 = load ptr, ptr %val.i, align 8
-  %flags18.us.i = getelementptr inbounds %struct.CallReply, ptr %5, i64 %i.030.us.i, i32 5
-  %6 = load i32, ptr %flags18.us.i, align 4
-  %and.us.i = and i32 %6, 4
-  %tobool.not.us.i = icmp eq i32 %and.us.i, 0
-  br i1 %tobool.not.us.i, label %for.inc.us.i, label %if.then.us.i
+  %flags18.i = getelementptr inbounds %struct.CallReply, ptr %5, i64 %i.029.i, i32 5
+  %6 = load i32, ptr %flags18.i, align 4
+  %and.i = and i32 %6, 4
+  %tobool.not.i = icmp eq i32 %and.i, 0
+  br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
 
-if.then.us.i:                                     ; preds = %for.cond4.preheader.us.i
+if.then.i:                                        ; preds = %for.cond4.preheader.i
   %7 = load i32, ptr %flags19.i, align 4
-  %or20.us.i = or i32 %7, 4
-  store i32 %or20.us.i, ptr %flags19.i, align 4
-  br label %for.inc.us.i
+  %or20.i = or i32 %7, 4
+  store i32 %or20.i, ptr %flags19.i, align 4
+  br label %for.inc.i
 
-for.inc.us.i:                                     ; preds = %if.then.us.i, %for.cond4.preheader.us.i
-  %add22.us.i = add nuw i64 %i.030.us.i, 1
-  %exitcond.not = icmp eq i64 %add22.us.i, %len
-  br i1 %exitcond.not, label %callReplyParseCollection.exit, label %for.cond4.preheader.us.i, !llvm.loop !8
+for.inc.i:                                        ; preds = %if.then.i, %for.cond4.preheader.i
+  %add22.i = add nuw i64 %i.029.i, 1
+  %exitcond.not = icmp eq i64 %add22.i, %len
+  br i1 %exitcond.not, label %callReplyParseCollection.exit, label %for.cond4.preheader.i, !llvm.loop !8
 
-callReplyParseCollection.exit:                    ; preds = %for.inc.us.i, %entry
+callReplyParseCollection.exit:                    ; preds = %for.inc.i, %entry
   %proto24.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %proto, ptr %proto24.i, align 8
   %8 = load ptr, ptr %parser, align 8
@@ -1211,58 +1211,58 @@ entry:
   %call.i = tail call noalias ptr @zcalloc(i64 noundef %mul2.i) #9
   %val.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %call.i, ptr %val.i, align 8
-  %cmp29.not.i = icmp eq i64 %mul.i, 0
-  br i1 %cmp29.not.i, label %callReplyParseCollection.exit, label %for.cond4.preheader.lr.ph.i
+  %cmp28.not.i = icmp eq i64 %mul.i, 0
+  br i1 %cmp28.not.i, label %callReplyParseCollection.exit, label %for.cond4.preheader.lr.ph.i
 
 for.cond4.preheader.lr.ph.i:                      ; preds = %entry
   %flags19.i = getelementptr inbounds i8, ptr %ctx, i64 36
-  br label %for.cond4.preheader.us.i
+  br label %for.cond4.preheader.i
 
-for.cond4.preheader.us.i:                         ; preds = %for.cond4.for.inc21_crit_edge.us.i, %for.cond4.preheader.lr.ph.i
-  %0 = phi ptr [ %6, %for.cond4.for.inc21_crit_edge.us.i ], [ %call.i, %for.cond4.preheader.lr.ph.i ]
-  %i.030.us.i = phi i64 [ %add22.us.i, %for.cond4.for.inc21_crit_edge.us.i ], [ 0, %for.cond4.preheader.lr.ph.i ]
-  br label %for.body6.us.i
+for.cond4.preheader.i:                            ; preds = %for.inc21.i, %for.cond4.preheader.lr.ph.i
+  %0 = phi ptr [ %call.i, %for.cond4.preheader.lr.ph.i ], [ %6, %for.inc21.i ]
+  %i.029.i = phi i64 [ 0, %for.cond4.preheader.lr.ph.i ], [ %add22.i, %for.inc21.i ]
+  br label %for.body6.i
 
-for.body6.us.i:                                   ; preds = %for.inc.us.i, %for.cond4.preheader.us.i
-  %1 = phi ptr [ %0, %for.cond4.preheader.us.i ], [ %6, %for.inc.us.i ]
-  %j.028.us.i = phi i64 [ 0, %for.cond4.preheader.us.i ], [ %inc.us.i, %for.inc.us.i ]
+for.body6.i:                                      ; preds = %for.inc.i, %for.cond4.preheader.i
+  %1 = phi ptr [ %0, %for.cond4.preheader.i ], [ %6, %for.inc.i ]
+  %j.027.i = phi i64 [ 0, %for.cond4.preheader.i ], [ %inc.i, %for.inc.i ]
   %2 = load ptr, ptr %ctx, align 8
-  %add.us.i = add nuw nsw i64 %j.028.us.i, %i.030.us.i
-  %arrayidx.us.i = getelementptr inbounds %struct.CallReply, ptr %1, i64 %add.us.i
-  store ptr %2, ptr %arrayidx.us.i, align 8
+  %add.i = add nuw nsw i64 %j.027.i, %i.029.i
+  %arrayidx.i = getelementptr inbounds %struct.CallReply, ptr %1, i64 %add.i
+  store ptr %2, ptr %arrayidx.i, align 8
   %3 = load ptr, ptr %val.i, align 8
-  %add.ptr.us.i = getelementptr inbounds %struct.CallReply, ptr %3, i64 %i.030.us.i
-  %add.ptr10.us.i = getelementptr inbounds %struct.CallReply, ptr %add.ptr.us.i, i64 %j.028.us.i
-  %call11.us.i = tail call i32 @parseReply(ptr noundef %parser, ptr noundef %add.ptr10.us.i) #8
+  %add.ptr.i = getelementptr inbounds %struct.CallReply, ptr %3, i64 %i.029.i
+  %add.ptr10.i = getelementptr inbounds %struct.CallReply, ptr %add.ptr.i, i64 %j.027.i
+  %call11.i = tail call i32 @parseReply(ptr noundef %parser, ptr noundef %add.ptr10.i) #8
   %4 = load ptr, ptr %val.i, align 8
-  %flags.us.i = getelementptr inbounds %struct.CallReply, ptr %4, i64 %add.us.i, i32 5
-  %5 = load i32, ptr %flags.us.i, align 4
-  %or.us.i = or i32 %5, 2
-  store i32 %or.us.i, ptr %flags.us.i, align 4
+  %flags.i = getelementptr inbounds %struct.CallReply, ptr %4, i64 %add.i, i32 5
+  %5 = load i32, ptr %flags.i, align 4
+  %or.i = or i32 %5, 2
+  store i32 %or.i, ptr %flags.i, align 4
   %6 = load ptr, ptr %val.i, align 8
-  %flags18.us.i = getelementptr inbounds %struct.CallReply, ptr %6, i64 %add.us.i, i32 5
-  %7 = load i32, ptr %flags18.us.i, align 4
-  %and.us.i = and i32 %7, 4
-  %tobool.not.us.i = icmp eq i32 %and.us.i, 0
-  br i1 %tobool.not.us.i, label %for.inc.us.i, label %if.then.us.i
+  %flags18.i = getelementptr inbounds %struct.CallReply, ptr %6, i64 %add.i, i32 5
+  %7 = load i32, ptr %flags18.i, align 4
+  %and.i = and i32 %7, 4
+  %tobool.not.i = icmp eq i32 %and.i, 0
+  br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
 
-if.then.us.i:                                     ; preds = %for.body6.us.i
+if.then.i:                                        ; preds = %for.body6.i
   %8 = load i32, ptr %flags19.i, align 4
-  %or20.us.i = or i32 %8, 4
-  store i32 %or20.us.i, ptr %flags19.i, align 4
-  br label %for.inc.us.i
+  %or20.i = or i32 %8, 4
+  store i32 %or20.i, ptr %flags19.i, align 4
+  br label %for.inc.i
 
-for.inc.us.i:                                     ; preds = %if.then.us.i, %for.body6.us.i
-  %inc.us.i = add nuw nsw i64 %j.028.us.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.us.i, 2
-  br i1 %exitcond.not.i, label %for.cond4.for.inc21_crit_edge.us.i, label %for.body6.us.i, !llvm.loop !9
+for.inc.i:                                        ; preds = %if.then.i, %for.body6.i
+  %inc.i = add nuw nsw i64 %j.027.i, 1
+  %exitcond.not.i = icmp eq i64 %inc.i, 2
+  br i1 %exitcond.not.i, label %for.inc21.i, label %for.body6.i, !llvm.loop !9
 
-for.cond4.for.inc21_crit_edge.us.i:               ; preds = %for.inc.us.i
-  %add22.us.i = add nuw i64 %i.030.us.i, 2
-  %cmp.us.i = icmp ult i64 %add22.us.i, %mul.i
-  br i1 %cmp.us.i, label %for.cond4.preheader.us.i, label %callReplyParseCollection.exit, !llvm.loop !8
+for.inc21.i:                                      ; preds = %for.inc.i
+  %add22.i = add nuw i64 %i.029.i, 2
+  %cmp.i = icmp ult i64 %add22.i, %mul.i
+  br i1 %cmp.i, label %for.cond4.preheader.i, label %callReplyParseCollection.exit, !llvm.loop !8
 
-callReplyParseCollection.exit:                    ; preds = %for.cond4.for.inc21_crit_edge.us.i, %entry
+callReplyParseCollection.exit:                    ; preds = %for.inc21.i, %entry
   %proto24.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %proto, ptr %proto24.i, align 8
   %9 = load ptr, ptr %parser, align 8
@@ -1372,58 +1372,58 @@ entry:
   %call.i = tail call noalias ptr @zcalloc(i64 noundef %mul2.i) #9
   %val.i = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %call.i, ptr %val.i, align 8
-  %cmp29.not.i = icmp eq i64 %mul.i, 0
-  br i1 %cmp29.not.i, label %callReplyParseCollection.exit, label %for.cond4.preheader.lr.ph.i
+  %cmp28.not.i = icmp eq i64 %mul.i, 0
+  br i1 %cmp28.not.i, label %callReplyParseCollection.exit, label %for.cond4.preheader.lr.ph.i
 
 for.cond4.preheader.lr.ph.i:                      ; preds = %entry
   %flags19.i = getelementptr inbounds i8, ptr %call, i64 36
-  br label %for.cond4.preheader.us.i
+  br label %for.cond4.preheader.i
 
-for.cond4.preheader.us.i:                         ; preds = %for.cond4.for.inc21_crit_edge.us.i, %for.cond4.preheader.lr.ph.i
-  %0 = phi ptr [ %6, %for.cond4.for.inc21_crit_edge.us.i ], [ %call.i, %for.cond4.preheader.lr.ph.i ]
-  %i.030.us.i = phi i64 [ %add22.us.i, %for.cond4.for.inc21_crit_edge.us.i ], [ 0, %for.cond4.preheader.lr.ph.i ]
-  br label %for.body6.us.i
+for.cond4.preheader.i:                            ; preds = %for.inc21.i, %for.cond4.preheader.lr.ph.i
+  %0 = phi ptr [ %call.i, %for.cond4.preheader.lr.ph.i ], [ %6, %for.inc21.i ]
+  %i.029.i = phi i64 [ 0, %for.cond4.preheader.lr.ph.i ], [ %add22.i, %for.inc21.i ]
+  br label %for.body6.i
 
-for.body6.us.i:                                   ; preds = %for.inc.us.i, %for.cond4.preheader.us.i
-  %1 = phi ptr [ %0, %for.cond4.preheader.us.i ], [ %6, %for.inc.us.i ]
-  %j.028.us.i = phi i64 [ 0, %for.cond4.preheader.us.i ], [ %inc.us.i, %for.inc.us.i ]
+for.body6.i:                                      ; preds = %for.inc.i, %for.cond4.preheader.i
+  %1 = phi ptr [ %0, %for.cond4.preheader.i ], [ %6, %for.inc.i ]
+  %j.027.i = phi i64 [ 0, %for.cond4.preheader.i ], [ %inc.i, %for.inc.i ]
   %2 = load ptr, ptr %call, align 8
-  %add.us.i = add nuw nsw i64 %j.028.us.i, %i.030.us.i
-  %arrayidx.us.i = getelementptr inbounds %struct.CallReply, ptr %1, i64 %add.us.i
-  store ptr %2, ptr %arrayidx.us.i, align 8
+  %add.i = add nuw nsw i64 %j.027.i, %i.029.i
+  %arrayidx.i = getelementptr inbounds %struct.CallReply, ptr %1, i64 %add.i
+  store ptr %2, ptr %arrayidx.i, align 8
   %3 = load ptr, ptr %val.i, align 8
-  %add.ptr.us.i = getelementptr inbounds %struct.CallReply, ptr %3, i64 %i.030.us.i
-  %add.ptr10.us.i = getelementptr inbounds %struct.CallReply, ptr %add.ptr.us.i, i64 %j.028.us.i
-  %call11.us.i = tail call i32 @parseReply(ptr noundef %parser, ptr noundef %add.ptr10.us.i) #8
+  %add.ptr.i = getelementptr inbounds %struct.CallReply, ptr %3, i64 %i.029.i
+  %add.ptr10.i = getelementptr inbounds %struct.CallReply, ptr %add.ptr.i, i64 %j.027.i
+  %call11.i = tail call i32 @parseReply(ptr noundef %parser, ptr noundef %add.ptr10.i) #8
   %4 = load ptr, ptr %val.i, align 8
-  %flags.us.i = getelementptr inbounds %struct.CallReply, ptr %4, i64 %add.us.i, i32 5
-  %5 = load i32, ptr %flags.us.i, align 4
-  %or.us.i = or i32 %5, 2
-  store i32 %or.us.i, ptr %flags.us.i, align 4
+  %flags.i = getelementptr inbounds %struct.CallReply, ptr %4, i64 %add.i, i32 5
+  %5 = load i32, ptr %flags.i, align 4
+  %or.i = or i32 %5, 2
+  store i32 %or.i, ptr %flags.i, align 4
   %6 = load ptr, ptr %val.i, align 8
-  %flags18.us.i = getelementptr inbounds %struct.CallReply, ptr %6, i64 %add.us.i, i32 5
-  %7 = load i32, ptr %flags18.us.i, align 4
-  %and.us.i = and i32 %7, 4
-  %tobool.not.us.i = icmp eq i32 %and.us.i, 0
-  br i1 %tobool.not.us.i, label %for.inc.us.i, label %if.then.us.i
+  %flags18.i = getelementptr inbounds %struct.CallReply, ptr %6, i64 %add.i, i32 5
+  %7 = load i32, ptr %flags18.i, align 4
+  %and.i = and i32 %7, 4
+  %tobool.not.i = icmp eq i32 %and.i, 0
+  br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
 
-if.then.us.i:                                     ; preds = %for.body6.us.i
+if.then.i:                                        ; preds = %for.body6.i
   %8 = load i32, ptr %flags19.i, align 4
-  %or20.us.i = or i32 %8, 4
-  store i32 %or20.us.i, ptr %flags19.i, align 4
-  br label %for.inc.us.i
+  %or20.i = or i32 %8, 4
+  store i32 %or20.i, ptr %flags19.i, align 4
+  br label %for.inc.i
 
-for.inc.us.i:                                     ; preds = %if.then.us.i, %for.body6.us.i
-  %inc.us.i = add nuw nsw i64 %j.028.us.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.us.i, 2
-  br i1 %exitcond.not.i, label %for.cond4.for.inc21_crit_edge.us.i, label %for.body6.us.i, !llvm.loop !9
+for.inc.i:                                        ; preds = %if.then.i, %for.body6.i
+  %inc.i = add nuw nsw i64 %j.027.i, 1
+  %exitcond.not.i = icmp eq i64 %inc.i, 2
+  br i1 %exitcond.not.i, label %for.inc21.i, label %for.body6.i, !llvm.loop !9
 
-for.cond4.for.inc21_crit_edge.us.i:               ; preds = %for.inc.us.i
-  %add22.us.i = add nuw i64 %i.030.us.i, 2
-  %cmp.us.i = icmp ult i64 %add22.us.i, %mul.i
-  br i1 %cmp.us.i, label %for.cond4.preheader.us.i, label %callReplyParseCollection.exit, !llvm.loop !8
+for.inc21.i:                                      ; preds = %for.inc.i
+  %add22.i = add nuw i64 %i.029.i, 2
+  %cmp.i = icmp ult i64 %add22.i, %mul.i
+  br i1 %cmp.i, label %for.cond4.preheader.i, label %callReplyParseCollection.exit, !llvm.loop !8
 
-callReplyParseCollection.exit:                    ; preds = %for.cond4.for.inc21_crit_edge.us.i, %entry
+callReplyParseCollection.exit:                    ; preds = %for.inc21.i, %entry
   %proto24.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %proto, ptr %proto24.i, align 8
   %9 = load ptr, ptr %parser, align 8

@@ -1405,7 +1405,7 @@ report_parameters.exit:                           ; preds = %._crit_edge59.i, %4
   br i1 %.not.i20, label %505, label %504
 
 504:                                              ; preds = %._crit_edge.i19
-  call fastcc void @run_test(i32 noundef 0, ptr noundef nonnull byval(%struct.parameters_) align 8 %3, ptr noundef nonnull readonly %12)
+  call fastcc void @run_test(i32 noundef 0, ptr noundef nonnull byval(%struct.parameters_) align 8 %3, ptr noundef readonly %12)
   %.pre.i = load i64, ptr %12, align 8
   br label %505
 
@@ -1416,7 +1416,7 @@ report_parameters.exit:                           ; preds = %._crit_edge59.i, %4
   br i1 %.not37.i, label %run_test_loop.exit, label %508
 
 508:                                              ; preds = %505
-  call fastcc void @run_test(i32 noundef 1, ptr noundef nonnull byval(%struct.parameters_) align 8 %3, ptr noundef nonnull readonly %12)
+  call fastcc void @run_test(i32 noundef 1, ptr noundef nonnull byval(%struct.parameters_) align 8 %3, ptr noundef readonly %12)
   br label %run_test_loop.exit
 
 run_test_loop.exit:                               ; preds = %505, %508
@@ -1455,7 +1455,7 @@ define internal void @output_report(ptr nocapture noundef readonly %0, ...) unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @run_test(i32 noundef %0, ptr noundef byval(%struct.parameters_) align 8 %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @run_test(i32 noundef range(i32 0, 2) %0, ptr noundef byval(%struct.parameters_) align 8 %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = alloca %struct.results_, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
@@ -1472,9 +1472,9 @@ define internal fastcc void @run_test(i32 noundef %0, ptr noundef byval(%struct.
 
 print_indent.exit:                                ; preds = %.lr.ph.i
   tail call void (ptr, ...) @output_report(ptr noundef nonnull @.str.5)
-  %switch = icmp eq i32 %0, 0
-  %.str.6..str.7 = select i1 %switch, ptr @.str.6, ptr @.str.7
-  tail call void (ptr, ...) @output_report(ptr noundef nonnull %.str.6..str.7)
+  %trunc = trunc nuw i32 %0 to i1
+  %.str.7..str.6 = select i1 %trunc, ptr @.str.7, ptr @.str.6
+  tail call void (ptr, ...) @output_report(ptr noundef nonnull %.str.7..str.6)
   %11 = getelementptr inbounds i8, ptr %1, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
@@ -1856,7 +1856,7 @@ print_indent.exit15:                              ; preds = %.lr.ph.i13
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @output_results(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4) unnamed_addr #4 {
+define internal fastcc void @output_results(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4) unnamed_addr #4 {
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph.i, label %accumulate_minmax_stuff.exit
 

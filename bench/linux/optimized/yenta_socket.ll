@@ -409,7 +409,7 @@ declare dso_local ptr @ioremap(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @yenta_config_init(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc void @yenta_config_init(ptr nocapture noundef nonnull readonly %0) unnamed_addr #2 align 16 {
   %2 = alloca i16, align 2
   %3 = alloca %struct.pci_bus_region, align 8
   %4 = load ptr, ptr %0, align 8
@@ -464,7 +464,7 @@ define internal fastcc void @yenta_config_init(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @yenta_allocate_resources(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc void @yenta_allocate_resources(ptr nocapture noundef nonnull readonly %0) unnamed_addr #2 align 16 {
   %2 = tail call fastcc i32 @yenta_allocate_res(ptr noundef %0, i32 noundef 7, i32 noundef 256, i32 noundef 44, i32 noundef 48), !range !10
   %3 = tail call fastcc i32 @yenta_allocate_res(ptr noundef %0, i32 noundef 8, i32 noundef 256, i32 noundef 52, i32 noundef 56), !range !10
   %4 = add nuw nsw i32 %3, %2
@@ -591,7 +591,7 @@ define internal void @yenta_interrupt_wrapper(ptr noundef %0) #2 align 16 {
 declare dso_local i32 @mod_timer(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @yenta_interrogate(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc void @yenta_interrogate(ptr nocapture noundef nonnull readonly %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 8
@@ -620,7 +620,7 @@ define internal fastcc void @yenta_interrogate(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @yenta_get_socket_capabilities(ptr nocapture noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc void @yenta_get_socket_capabilities(ptr nocapture noundef nonnull %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 396
@@ -630,7 +630,7 @@ define internal fastcc void @yenta_get_socket_capabilities(ptr nocapture noundef
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %1
-  %8 = tail call fastcc i32 @yenta_probe_irq(ptr noundef %0)
+  %8 = tail call fastcc i32 @yenta_probe_irq(ptr noundef nonnull %0)
   %.pre = load i32, ptr %2, align 8
   br label %9
 
@@ -1760,7 +1760,7 @@ declare dso_local i32 @pci_write_config_dword(ptr noundef, i32 noundef, i32 noun
 declare dso_local i32 @pci_write_config_byte(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @yenta_allocate_res(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @yenta_allocate_res(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 7, 11) %1, i32 noundef range(i32 256, 8705) %2, i32 noundef range(i32 28, 53) %3, i32 noundef range(i32 32, 57) %4) unnamed_addr #2 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca %struct.pci_bus_region, align 8
@@ -1772,7 +1772,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @yenta_allocate_res(ptr nocap
   %13 = getelementptr inbounds i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %85
+  br i1 %15, label %16, label %84
 
 16:                                               ; preds = %5
   %17 = and i32 %2, 256
@@ -1822,7 +1822,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @yenta_allocate_res(ptr nocap
   call void @pcibios_bus_to_resource(ptr noundef %46, ptr noundef %12, ptr noundef nonnull %8) #11
   %47 = call i32 @pci_claim_resource(ptr noundef %9, i32 noundef %1) #11
   %48 = icmp eq i32 %47, 0
-  br i1 %48, label %85, label %49
+  br i1 %48, label %84, label %49
 
 49:                                               ; preds = %44
   %50 = getelementptr inbounds i8, ptr %9, i64 184
@@ -1835,68 +1835,67 @@ define internal fastcc noundef range(i32 0, 2) i32 @yenta_allocate_res(ptr nocap
 52:                                               ; preds = %51
   %53 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 512), !range !10
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %85
+  br i1 %54, label %55, label %84
 
 55:                                               ; preds = %52
   %56 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 256), !range !10
   %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %85
+  br i1 %57, label %58, label %84
 
 58:                                               ; preds = %55
   %59 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 32), !range !10
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %83, label %85
+  br i1 %60, label %82, label %84
 
 61:                                               ; preds = %51
-  %62 = and i32 %2, 8192
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %74, label %64
+  %62 = icmp ult i32 %2, 8192
+  br i1 %62, label %73, label %63
 
-64:                                               ; preds = %61
-  %65 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 4194304), !range !10
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %85
+63:                                               ; preds = %61
+  %64 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 4194304), !range !10
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %84
 
-67:                                               ; preds = %64
-  %68 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 131072), !range !10
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %85
+66:                                               ; preds = %63
+  %67 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 131072), !range !10
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %84
 
-70:                                               ; preds = %67
-  %71 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 16384), !range !10
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %85
+69:                                               ; preds = %66
+  %70 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 16384), !range !10
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %72, label %84
 
-73:                                               ; preds = %70
+72:                                               ; preds = %69
   store i64 512, ptr %25, align 8
-  br label %74
+  br label %73
 
-74:                                               ; preds = %73, %61
-  %75 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 4194304), !range !10
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %85
+73:                                               ; preds = %72, %61
+  %74 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 4194304), !range !10
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %76, label %84
 
-77:                                               ; preds = %74
-  %78 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 131072), !range !10
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %85
+76:                                               ; preds = %73
+  %77 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 131072), !range !10
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %84
 
-80:                                               ; preds = %77
-  %81 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 16384), !range !10
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %83, label %85
+79:                                               ; preds = %76
+  %80 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 16384), !range !10
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %82, label %84
 
-83:                                               ; preds = %80, %58
-  %84 = getelementptr inbounds i8, ptr %9, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %84, ptr noundef nonnull @.str.11, i32 noundef %2) #12
+82:                                               ; preds = %79, %58
+  %83 = getelementptr inbounds i8, ptr %9, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %83, ptr noundef nonnull @.str.11, i32 noundef %2) #12
   store i64 0, ptr %25, align 8
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  br label %85
+  br label %84
 
-85:                                               ; preds = %83, %80, %77, %74, %70, %67, %64, %58, %55, %52, %44, %5
-  %86 = phi i32 [ 0, %83 ], [ 0, %5 ], [ 0, %44 ], [ 1, %58 ], [ 1, %55 ], [ 1, %52 ], [ 1, %70 ], [ 1, %67 ], [ 1, %64 ], [ 1, %80 ], [ 1, %77 ], [ 1, %74 ]
+84:                                               ; preds = %82, %79, %76, %73, %69, %66, %63, %58, %55, %52, %44, %5
+  %85 = phi i32 [ 0, %82 ], [ 0, %5 ], [ 0, %44 ], [ 1, %58 ], [ 1, %55 ], [ 1, %52 ], [ 1, %69 ], [ 1, %66 ], [ 1, %63 ], [ 1, %79 ], [ 1, %76 ], [ 1, %73 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
-  ret i32 %86
+  ret i32 %85
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1909,7 +1908,7 @@ declare dso_local void @pcibios_bus_to_resource(ptr noundef, ptr noundef, ptr no
 declare dso_local i32 @pci_claim_resource(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @yenta_search_res(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @yenta_search_res(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i32 noundef range(i32 32, 4194305) %2) unnamed_addr #2 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8

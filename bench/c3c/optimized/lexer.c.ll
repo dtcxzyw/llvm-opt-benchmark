@@ -1716,7 +1716,7 @@ lex_doc_directive.exit:                           ; preds = %47, %46, %40, %.loo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @scan_ident(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef signext %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @scan_ident(ptr nocapture noundef %0, i32 noundef range(i32 64, 74) %1, i32 noundef range(i32 65, 75) %2, i32 noundef range(i32 66, 76) %3, i8 noundef signext range(i8 0, 65) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   store i32 0, ptr %6, align 4
   %.not = icmp eq i8 %4, 0
@@ -2272,9 +2272,9 @@ scan_hex_literal.exit.thread:                     ; preds = %scan_hex_literal.ex
 
 129:                                              ; preds = %146, %125
   %130 = phi ptr [ %94, %125 ], [ %147, %146 ]
-  %.01519.i110 = phi i32 [ 0, %125 ], [ %150, %146 ]
-  %.01618.i111 = phi i64 [ 0, %125 ], [ %149, %146 ]
-  %131 = shl i64 %.01618.i111, 4
+  %.01519.i109 = phi i32 [ 0, %125 ], [ %150, %146 ]
+  %.01618.i110 = phi i64 [ 0, %125 ], [ %149, %146 ]
+  %131 = shl i64 %.01618.i110, 4
   %132 = load i8, ptr %130, align 1
   %133 = sext i8 %132 to i64
   %134 = and i64 %133, 4294967295
@@ -2302,9 +2302,9 @@ scan_hex_literal.exit.thread:                     ; preds = %scan_hex_literal.ex
   store ptr %147, ptr %2, align 8
   %148 = and i64 %138, 4294967295
   %149 = add nsw i64 %148, %131
-  %150 = add nuw nsw i32 %.01519.i110, 1
-  %exitcond.not.i112 = icmp eq i32 %150, %128
-  br i1 %exitcond.not.i112, label %scan_hex_literal.exit113, label %129, !llvm.loop !18
+  %150 = add nuw nsw i32 %.01519.i109, 1
+  %exitcond.not.i111 = icmp eq i32 %150, %128
+  br i1 %exitcond.not.i111, label %scan_hex_literal.exit113, label %129, !llvm.loop !18
 
 scan_hex_literal.exit113:                         ; preds = %146
   %151 = icmp slt i64 %149, 0
@@ -2972,7 +2972,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   %218 = add i64 %.0107, 1
   %219 = getelementptr inbounds i8, ptr %16, i64 %.0107
   store i8 %60, ptr %219, align 1, !alias.scope !23, !noalias !26
-  br label %.lr.ph.i
+  br label %append_esc_string_token.exit
 
 220:                                              ; preds = %200, %120, %80
   %.083.in.i = phi i32 [ %216, %200 ], [ %128, %120 ], [ %84, %80 ]
@@ -2985,7 +2985,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   %224 = add i64 %.0107, 1
   %225 = getelementptr inbounds i8, ptr %16, i64 %.0107
   store i8 %223, ptr %225, align 1, !alias.scope !23, !noalias !26
-  br label %.lr.ph.i
+  br label %append_esc_string_token.exit
 
 226:                                              ; preds = %220
   %227 = icmp ult i32 %.083.in.i, 2048
@@ -3003,7 +3003,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   %236 = add i64 %.0107, 2
   %237 = getelementptr i8, ptr %232, i64 1
   store i8 %235, ptr %237, align 1, !alias.scope !23, !noalias !26
-  br label %.lr.ph.i
+  br label %append_esc_string_token.exit
 
 238:                                              ; preds = %226
   %239 = icmp ult i32 %.083.in.i, 65536
@@ -3027,7 +3027,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   %253 = or disjoint i8 %252, -128
   %254 = add i64 %.0107, 3
   store i8 %253, ptr %242, align 1, !alias.scope !23, !noalias !26
-  br label %.lr.ph.i
+  br label %append_esc_string_token.exit
 
 255:                                              ; preds = %238
   %256 = lshr i32 %.083.in.i, 18
@@ -3050,7 +3050,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   %270 = add i64 %.0107, 4
   %271 = getelementptr i8, ptr %240, i64 3
   store i8 %269, ptr %271, align 1, !alias.scope !23, !noalias !26
-  br label %.lr.ph.i
+  br label %append_esc_string_token.exit
 
 272:                                              ; preds = %59, %63, %72, %85, %94, %103, %112, %129, %138, %147, %156, %165, %174, %183, %192
   tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.92)
@@ -3079,15 +3079,15 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   store ptr %281, ptr %2, align 8
   br label %273, !llvm.loop !22
 
-.lr.ph.i:                                         ; preds = %217, %222, %228, %243, %255
+append_esc_string_token.exit:                     ; preds = %255, %243, %228, %222, %217
   %.1 = phi i64 [ %218, %217 ], [ %224, %222 ], [ %236, %228 ], [ %254, %243 ], [ %270, %255 ]
   %.0.i = phi i32 [ 1, %217 ], [ %.082.i, %222 ], [ %.082.i, %228 ], [ %.082.i, %243 ], [ %.082.i, %255 ]
   %.promoted.i73 = load ptr, ptr %2, align 8
   br label %282
 
-282:                                              ; preds = %290, %.lr.ph.i
-  %283 = phi ptr [ %.promoted.i73, %.lr.ph.i ], [ %291, %290 ]
-  %.08.i = phi i32 [ 0, %.lr.ph.i ], [ %292, %290 ]
+282:                                              ; preds = %290, %append_esc_string_token.exit
+  %283 = phi ptr [ %.promoted.i73, %append_esc_string_token.exit ], [ %291, %290 ]
+  %.08.i = phi i32 [ 0, %append_esc_string_token.exit ], [ %292, %290 ]
   %284 = load i8, ptr %283, align 1
   %285 = icmp eq i8 %284, 10
   br i1 %285, label %286, label %290
@@ -4118,7 +4118,7 @@ backtrack.exit.i:                                 ; preds = %94, %91
   br label %scan_hex.exit
 
 97:                                               ; preds = %char_is_hex_or_.exit57.thread.i
-  %98 = call fastcc zeroext i1 @scan_number_suffix(ptr noundef nonnull %0, ptr noundef nonnull %5)
+  %98 = call fastcc zeroext i1 @scan_number_suffix(ptr noundef nonnull %0, ptr noundef %5)
   br i1 %98, label %99, label %scan_hex.exit
 
 99:                                               ; preds = %97
@@ -4268,7 +4268,7 @@ skip.exit14:                                      ; preds = %149
 
 178:                                              ; preds = %._crit_edge.i16
   store i8 0, ptr %4, align 1
-  %179 = call fastcc zeroext i1 @scan_number_suffix(ptr noundef nonnull %0, ptr noundef nonnull %4)
+  %179 = call fastcc zeroext i1 @scan_number_suffix(ptr noundef nonnull %0, ptr noundef %4)
   br i1 %179, label %180, label %scan_oct.exit
 
 180:                                              ; preds = %178
@@ -4424,7 +4424,7 @@ skip.exit27:                                      ; preds = %231
 
 255:                                              ; preds = %251
   store i8 0, ptr %3, align 1
-  %256 = call fastcc zeroext i1 @scan_number_suffix(ptr noundef nonnull %0, ptr noundef nonnull %3)
+  %256 = call fastcc zeroext i1 @scan_number_suffix(ptr noundef nonnull %0, ptr noundef %3)
   br i1 %256, label %257, label %scan_binary.exit
 
 257:                                              ; preds = %255
@@ -4624,7 +4624,7 @@ backtrack.exit.i45:                               ; preds = %348, %345
   br label %scan_dec.exit
 
 352:                                              ; preds = %.loopexit.thread.i
-  %353 = call fastcc zeroext i1 @scan_number_suffix(ptr noundef nonnull %0, ptr noundef nonnull %2)
+  %353 = call fastcc zeroext i1 @scan_number_suffix(ptr noundef nonnull %0, ptr noundef %2)
   br i1 %353, label %354, label %scan_dec.exit
 
 354:                                              ; preds = %352
@@ -5063,7 +5063,7 @@ backtrack.exit:                                   ; preds = %41, %45
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @scan_number_suffix(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @scan_number_suffix(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 1

@@ -3673,7 +3673,7 @@ declare i64 @cm_zlib_crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_winzip_aes_encryption_supported(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_winzip_aes_encryption_supported(i32 noundef range(i32 2, 4) %0) unnamed_addr #0 {
   %2 = alloca [18 x i8], align 16
   %3 = alloca [66 x i8], align 16
   %4 = alloca %struct.archive_crypto_ctx, align 8

@@ -596,7 +596,7 @@ default.unreachable12:                            ; preds = %2
   %42 = call noundef i64 @_ZN6parser9shortcuts18n_attached_trivias17h4589d607ed801645E(i16 noundef %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %43 = sub i64 %.1.i.i, %42
-  tail call fastcc void @_ZN6parser9shortcuts7Builder13eat_n_trivias17h8d412b025a33b23aE(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %43)
+  tail call fastcc void @_ZN6parser9shortcuts7Builder13eat_n_trivias17h8d412b025a33b23aE(ptr noalias noundef align 8 dereferenceable(40) %0, i64 noundef %43)
   %44 = getelementptr inbounds i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !nonnull !26, !align !53, !noundef !26
   %46 = getelementptr inbounds i8, ptr %0, i64 16
@@ -609,7 +609,7 @@ default.unreachable12:                            ; preds = %2
   %49 = load ptr, ptr %48, align 8, !invariant.load !26, !nonnull !26
   call void %49(ptr noundef nonnull align 1 %45, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  tail call fastcc void @_ZN6parser9shortcuts7Builder13eat_n_trivias17h8d412b025a33b23aE(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %42)
+  tail call fastcc void @_ZN6parser9shortcuts7Builder13eat_n_trivias17h8d412b025a33b23aE(ptr noalias noundef align 8 dereferenceable(40) %0, i64 noundef %42)
   br label %57
 
 50:                                               ; preds = %2
@@ -736,7 +736,7 @@ _ZN6parser9lexed_str8LexedStr4kind17h4b0f0d8337e99de9E.exit._crit_edge: ; preds 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6parser9shortcuts7Builder13eat_n_trivias17h8d412b025a33b23aE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #9 {
+define internal fastcc void @_ZN6parser9shortcuts7Builder13eat_n_trivias17h8d412b025a33b23aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #9 {
   %3 = alloca { { i16, [15 x i16] } }, align 8
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -899,7 +899,7 @@ define hidden void @_ZN6parser9shortcuts7Builder14do_float_split17hd6bf0c8a0b232
   br i1 %33, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %34
 
 34:                                               ; preds = %.lr.ph.i.i.i
-  %35 = add nuw i64 %.05.i.i.i, 1
+  %35 = add nuw nsw i64 %.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %35, %.sroa.3.0.i47.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 

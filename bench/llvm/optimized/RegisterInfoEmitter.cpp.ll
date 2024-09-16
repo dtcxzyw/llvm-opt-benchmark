@@ -9380,22 +9380,22 @@ _ZN16BitVectorEmitter3addEj.exit:                 ; preds = %.lr.ph142, %_ZN4llv
 ._crit_edge143:                                   ; preds = %_ZN16BitVectorEmitter3addEj.exit
   %.pre219 = load i32, ptr %1225, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %.not29.i.i = icmp eq i32 %.pre219, 0
-  br i1 %.not29.i.i, label %_ZN16BitVectorEmitter5printERN4llvm11raw_ostreamE.exit, label %.preheader.lr.ph.i.i
+  %.not26.i.i = icmp eq i32 %.pre219, 0
+  br i1 %.not26.i.i, label %_ZN16BitVectorEmitter5printERN4llvm11raw_ostreamE.exit, label %.preheader.lr.ph.i.i
 
 .preheader.lr.ph.i.i:                             ; preds = %._crit_edge143
   %1447 = zext i32 %.pre219 to i64
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.critedge.i.i, %.preheader.lr.ph.i.i
-  %.01628.i.i = phi i32 [ %1465, %.critedge.i.i ], [ 0, %.preheader.lr.ph.i.i ]
+  %.01625.i.i = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %1465, %.critedge.i.i ]
   %1448 = load ptr, ptr %38, align 8
-  %1449 = zext i32 %.01628.i.i to i64
+  %1449 = zext i32 %.01625.i.i to i64
   br label %1450
 
 1450:                                             ; preds = %1452, %.preheader.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %1452 ], [ 0, %.preheader.i.i ]
-  %.02224.i.i = phi i32 [ %1463, %1452 ], [ 0, %.preheader.i.i ]
+  %.02223.i.i = phi i32 [ %1463, %1452 ], [ 0, %.preheader.i.i ]
   %1451 = add nuw nsw i64 %indvars.iv.i, %1449
   %.not19.i.i = icmp eq i64 %1451, %1447
   br i1 %.not19.i.i, label %.critedge.i.i, label %1452
@@ -9411,19 +9411,19 @@ _ZN16BitVectorEmitter3addEj.exit:                 ; preds = %.lr.ph142, %_ZN4llv
   %1460 = and i32 %1459, 1
   %1461 = trunc nuw nsw i64 %indvars.iv.i to i32
   %1462 = shl nuw i32 %1460, %1461
-  %1463 = or i32 %1462, %.02224.i.i
+  %1463 = or i32 %1462, %.02223.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i.i446 = icmp eq i64 %indvars.iv.next.i, 8
   br i1 %.not.i.i446, label %.critedge.i.i, label %1450, !llvm.loop !106
 
 .critedge.i.i:                                    ; preds = %1452, %1450
-  %.022.lcssa.i.i = phi i32 [ %1463, %1452 ], [ %.02224.i.i, %1450 ]
+  %.022.lcssa.i.i = phi i32 [ %1463, %1452 ], [ %.02223.i.i, %1450 ]
   store ptr @.str.120, ptr %1226, align 8, !alias.scope !107
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjjEEE, i64 16), ptr %6, align 8, !alias.scope !107
   store i32 %.022.lcssa.i.i, ptr %1227, align 8, !alias.scope !107
   store i32 2, ptr %1228, align 4, !alias.scope !107
   %1464 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %6) #21
-  %1465 = add i32 %.01628.i.i, 8
+  %1465 = add i32 %.01625.i.i, 8
   %1466 = icmp ult i32 %1465, %.pre219
   br i1 %1466, label %.preheader.i.i, label %_ZN16BitVectorEmitter5printERN4llvm11raw_ostreamE.exit, !llvm.loop !110
 
@@ -13094,22 +13094,22 @@ _ZN4llvm11raw_ostreamlsEPKc.exit802:              ; preds = %1048, %1050
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20)
   %1054 = getelementptr inbounds nuw i8, ptr %.sroa.02071.02295, i64 128
   %1055 = load i32, ptr %1054, align 8
-  %.not29.i = icmp eq i32 %1055, 0
-  br i1 %.not29.i, label %_ZL19printBitVectorAsHexRN4llvm11raw_ostreamERKNS_9BitVectorEj.exit, label %.preheader.i.preheader
+  %.not26.i = icmp eq i32 %1055, 0
+  br i1 %.not26.i, label %_ZL19printBitVectorAsHexRN4llvm11raw_ostreamERKNS_9BitVectorEj.exit, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit802
   %1056 = zext i32 %1055 to i64
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.critedge.i
-  %.01628.i = phi i32 [ %1074, %.critedge.i ], [ 0, %.preheader.i.preheader ]
+  %.01625.i = phi i32 [ %1074, %.critedge.i ], [ 0, %.preheader.i.preheader ]
   %1057 = load ptr, ptr %1053, align 8
-  %1058 = zext i32 %.01628.i to i64
+  %1058 = zext i32 %.01625.i to i64
   br label %1059
 
 1059:                                             ; preds = %1061, %.preheader.i
   %indvars.iv2510 = phi i64 [ %indvars.iv.next2511, %1061 ], [ 0, %.preheader.i ]
-  %.02224.i = phi i32 [ %1072, %1061 ], [ 0, %.preheader.i ]
+  %.02223.i = phi i32 [ %1072, %1061 ], [ 0, %.preheader.i ]
   %1060 = add nuw nsw i64 %indvars.iv2510, %1058
   %.not19.i = icmp eq i64 %1060, %1056
   br i1 %.not19.i, label %.critedge.i, label %1061
@@ -13125,19 +13125,19 @@ _ZN4llvm11raw_ostreamlsEPKc.exit802:              ; preds = %1048, %1050
   %1069 = and i32 %1068, 1
   %1070 = trunc nuw nsw i64 %indvars.iv2510 to i32
   %1071 = shl nuw i32 %1069, %1070
-  %1072 = or i32 %1071, %.02224.i
+  %1072 = or i32 %1071, %.02223.i
   %indvars.iv.next2511 = add nuw nsw i64 %indvars.iv2510, 1
   %.not.i803 = icmp eq i64 %indvars.iv.next2511, 32
   br i1 %.not.i803, label %.critedge.i, label %1059, !llvm.loop !106
 
 .critedge.i:                                      ; preds = %1061, %1059
-  %.022.lcssa.i = phi i32 [ %1072, %1061 ], [ %.02224.i, %1059 ]
+  %.022.lcssa.i = phi i32 [ %1072, %1061 ], [ %.02223.i, %1059 ]
   store ptr @.str.120, ptr %1017, align 8, !alias.scope !177
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjjEEE, i64 16), ptr %20, align 8, !alias.scope !177
   store i32 %.022.lcssa.i, ptr %1018, align 8, !alias.scope !177
   store i32 8, ptr %1019, align 4, !alias.scope !177
   %1073 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %20) #21
-  %1074 = add i32 %.01628.i, 32
+  %1074 = add i32 %.01625.i, 32
   %1075 = icmp ult i32 %1074, %1055
   br i1 %1075, label %.preheader.i, label %_ZL19printBitVectorAsHexRN4llvm11raw_ostreamERKNS_9BitVectorEj.exit, !llvm.loop !110
 
@@ -13366,22 +13366,22 @@ _ZNSt6vectorIPKN4llvm18CodeGenSubRegIndexESaIS3_EE9push_backEOS3_.exit: ; preds 
 _ZN4llvm11raw_ostreamlsEPKc.exit810:              ; preds = %1160, %1162
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
   %1165 = load i32, ptr %1016, align 8
-  %.not29.i811 = icmp eq i32 %1165, 0
-  br i1 %.not29.i811, label %_ZL19printBitVectorAsHexRN4llvm11raw_ostreamERKNS_9BitVectorEj.exit822, label %.preheader.i813.preheader
+  %.not26.i811 = icmp eq i32 %1165, 0
+  br i1 %.not26.i811, label %_ZL19printBitVectorAsHexRN4llvm11raw_ostreamERKNS_9BitVectorEj.exit822, label %.preheader.i813.preheader
 
 .preheader.i813.preheader:                        ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit810
   %1166 = zext i32 %1165 to i64
   br label %.preheader.i813
 
 .preheader.i813:                                  ; preds = %.preheader.i813.preheader, %.critedge.i819
-  %.01628.i814 = phi i32 [ %1184, %.critedge.i819 ], [ 0, %.preheader.i813.preheader ]
+  %.01625.i814 = phi i32 [ %1184, %.critedge.i819 ], [ 0, %.preheader.i813.preheader ]
   %1167 = load ptr, ptr %28, align 8
-  %1168 = zext i32 %.01628.i814 to i64
+  %1168 = zext i32 %.01625.i814 to i64
   br label %1169
 
 1169:                                             ; preds = %1171, %.preheader.i813
   %indvars.iv2513 = phi i64 [ %indvars.iv.next2514, %1171 ], [ 0, %.preheader.i813 ]
-  %.02224.i816 = phi i32 [ %1182, %1171 ], [ 0, %.preheader.i813 ]
+  %.02223.i816 = phi i32 [ %1182, %1171 ], [ 0, %.preheader.i813 ]
   %1170 = add nuw nsw i64 %indvars.iv2513, %1168
   %.not19.i817 = icmp eq i64 %1170, %1166
   br i1 %.not19.i817, label %.critedge.i819, label %1171
@@ -13397,19 +13397,19 @@ _ZN4llvm11raw_ostreamlsEPKc.exit810:              ; preds = %1160, %1162
   %1179 = and i32 %1178, 1
   %1180 = trunc nuw nsw i64 %indvars.iv2513 to i32
   %1181 = shl nuw i32 %1179, %1180
-  %1182 = or i32 %1181, %.02224.i816
+  %1182 = or i32 %1181, %.02223.i816
   %indvars.iv.next2514 = add nuw nsw i64 %indvars.iv2513, 1
   %.not.i818 = icmp eq i64 %indvars.iv.next2514, 32
   br i1 %.not.i818, label %.critedge.i819, label %1169, !llvm.loop !106
 
 .critedge.i819:                                   ; preds = %1171, %1169
-  %.022.lcssa.i820 = phi i32 [ %1182, %1171 ], [ %.02224.i816, %1169 ]
+  %.022.lcssa.i820 = phi i32 [ %1182, %1171 ], [ %.02223.i816, %1169 ]
   store ptr @.str.120, ptr %1020, align 8, !alias.scope !187
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjjEEE, i64 16), ptr %19, align 8, !alias.scope !187
   store i32 %.022.lcssa.i820, ptr %1021, align 8, !alias.scope !187
   store i32 8, ptr %1022, align 4, !alias.scope !187
   %1183 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %19) #21
-  %1184 = add i32 %.01628.i814, 32
+  %1184 = add i32 %.01625.i814, 32
   %1185 = icmp ult i32 %1184, %1165
   br i1 %1185, label %.preheader.i813, label %_ZL19printBitVectorAsHexRN4llvm11raw_ostreamERKNS_9BitVectorEj.exit822, !llvm.loop !110
 
@@ -24275,22 +24275,22 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit1573:  ; preds = %6917, %6919, %6920
 _ZN4llvm11raw_ostreamlsEPKc.exit1576:             ; preds = %6930, %6932
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %6936 = load i32, ptr %6752, align 8
-  %.not29.i1577 = icmp eq i32 %6936, 0
-  br i1 %.not29.i1577, label %_ZL19printBitVectorAsHexRN4llvm11raw_ostreamERKNS_9BitVectorEj.exit1588, label %.preheader.i1579.preheader
+  %.not26.i1577 = icmp eq i32 %6936, 0
+  br i1 %.not26.i1577, label %_ZL19printBitVectorAsHexRN4llvm11raw_ostreamERKNS_9BitVectorEj.exit1588, label %.preheader.i1579.preheader
 
 .preheader.i1579.preheader:                       ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit1576
   %6937 = zext i32 %6936 to i64
   br label %.preheader.i1579
 
 .preheader.i1579:                                 ; preds = %.preheader.i1579.preheader, %.critedge.i1585
-  %.01628.i1580 = phi i32 [ %6955, %.critedge.i1585 ], [ 0, %.preheader.i1579.preheader ]
+  %.01625.i1580 = phi i32 [ %6955, %.critedge.i1585 ], [ 0, %.preheader.i1579.preheader ]
   %6938 = load ptr, ptr %51, align 8
-  %6939 = zext i32 %.01628.i1580 to i64
+  %6939 = zext i32 %.01625.i1580 to i64
   br label %6940
 
 6940:                                             ; preds = %6942, %.preheader.i1579
   %indvars.iv2533 = phi i64 [ %indvars.iv.next2534, %6942 ], [ 0, %.preheader.i1579 ]
-  %.02224.i1582 = phi i32 [ %6953, %6942 ], [ 0, %.preheader.i1579 ]
+  %.02223.i1582 = phi i32 [ %6953, %6942 ], [ 0, %.preheader.i1579 ]
   %6941 = add nuw nsw i64 %indvars.iv2533, %6939
   %.not19.i1583 = icmp eq i64 %6941, %6937
   br i1 %.not19.i1583, label %.critedge.i1585, label %6942
@@ -24306,19 +24306,19 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1576:             ; preds = %6930, %6932
   %6950 = and i32 %6949, 1
   %6951 = trunc nuw nsw i64 %indvars.iv2533 to i32
   %6952 = shl nuw i32 %6950, %6951
-  %6953 = or i32 %6952, %.02224.i1582
+  %6953 = or i32 %6952, %.02223.i1582
   %indvars.iv.next2534 = add nuw nsw i64 %indvars.iv2533, 1
   %.not.i1584 = icmp eq i64 %indvars.iv.next2534, 32
   br i1 %.not.i1584, label %.critedge.i1585, label %6940, !llvm.loop !106
 
 .critedge.i1585:                                  ; preds = %6942, %6940
-  %.022.lcssa.i1586 = phi i32 [ %6953, %6942 ], [ %.02224.i1582, %6940 ]
+  %.022.lcssa.i1586 = phi i32 [ %6953, %6942 ], [ %.02223.i1582, %6940 ]
   store ptr @.str.120, ptr %6753, align 8, !alias.scope !319
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjjEEE, i64 16), ptr %5, align 8, !alias.scope !319
   store i32 %.022.lcssa.i1586, ptr %6754, align 8, !alias.scope !319
   store i32 8, ptr %6755, align 4, !alias.scope !319
   %6954 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %5) #21
-  %6955 = add i32 %.01628.i1580, 32
+  %6955 = add i32 %.01625.i1580, 32
   %6956 = icmp ult i32 %6955, %6936
   br i1 %6956, label %.preheader.i1579, label %_ZL19printBitVectorAsHexRN4llvm11raw_ostreamERKNS_9BitVectorEj.exit1588, !llvm.loop !110
 

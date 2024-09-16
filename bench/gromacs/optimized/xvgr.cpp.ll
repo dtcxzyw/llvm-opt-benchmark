@@ -256,16 +256,16 @@ define void @_Z11xvgr_headerP8_IO_FILEPKcRKNSt7__cxx1112basic_stringIcSt11char_t
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %43
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %45
-  %48 = invoke fastcc noundef ptr @_ZL7xvgrstrRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK16gmx_output_env_tPci(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %5, ptr noundef nonnull %7)
+  %48 = invoke fastcc noundef ptr @_ZL7xvgrstrRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK16gmx_output_env_tPci(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %5, ptr noundef %7)
           to label %49 unwind label %57
 
 49:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull %7) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #21
-  %51 = call fastcc noundef ptr @_ZL7xvgrstrRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK16gmx_output_env_tPci(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %5, ptr noundef nonnull %7)
+  %51 = call fastcc noundef ptr @_ZL7xvgrstrRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK16gmx_output_env_tPci(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %5, ptr noundef %7)
   %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %7) #21
-  %53 = call fastcc noundef ptr @_ZL7xvgrstrRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK16gmx_output_env_tPci(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %5, ptr noundef nonnull %7)
+  %53 = call fastcc noundef ptr @_ZL7xvgrstrRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK16gmx_output_env_tPci(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %5, ptr noundef %7)
   %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %7) #21
   switch i32 %4, label %70 [
     i32 1, label %59
@@ -366,7 +366,7 @@ declare noundef ptr @_Z35output_env_get_program_display_namePK16gmx_output_env_t
 declare void @_ZN3gmx7bromacsB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZL7xvgrstrRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK16gmx_output_env_tPci(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef returned %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZL7xvgrstrRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK16gmx_output_env_tPci(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull returned %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %5 = tail call noundef i32 @_Z25output_env_get_xvg_formatPK16gmx_output_env_t(ptr noundef %1)
   %6 = icmp ult i32 %5, 2
@@ -979,7 +979,7 @@ define void @_Z13xvgr_subtitleP8_IO_FILEPKcPK16gmx_output_env_t(ptr nocapture no
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %14
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %16
-  %19 = invoke fastcc noundef ptr @_ZL7xvgrstrRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK16gmx_output_env_tPci(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %2, ptr noundef nonnull %4)
+  %19 = invoke fastcc noundef ptr @_ZL7xvgrstrRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK16gmx_output_env_tPci(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %2, ptr noundef %4)
           to label %20 unwind label %24
 
 20:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -1078,7 +1078,7 @@ _Z9xvgr_viewP8_IO_FILEffffPK16gmx_output_env_t.exit: ; preds = %8, %11
 .sink.split:                                      ; preds = %.lr.ph
   %19 = call noundef i32 @_Z25output_env_get_xvg_formatPK16gmx_output_env_t(ptr noundef %3)
   %20 = icmp eq i32 %19, 1
-  %21 = call fastcc noundef ptr @_ZL7xvgrstrRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK16gmx_output_env_tPci(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.026, ptr noundef %3, ptr noundef nonnull %5)
+  %21 = call fastcc noundef ptr @_ZL7xvgrstrRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK16gmx_output_env_tPci(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.026, ptr noundef %3, ptr noundef %5)
   %.str.40..str.41 = select i1 %20, ptr @.str.40, ptr @.str.41
   %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.40..str.41, i32 noundef %.027, ptr noundef nonnull %5) #21
   br label %23
@@ -1117,7 +1117,7 @@ define void @_Z14xvgrNewDatasetP8_IO_FILEiN3gmx8ArrayRefIKNSt7__cxx1112basic_str
 .sink.split:                                      ; preds = %.lr.ph
   %12 = call noundef i32 @_Z25output_env_get_xvg_formatPK16gmx_output_env_t(ptr noundef %4)
   %13 = icmp eq i32 %12, 1
-  %14 = call fastcc noundef ptr @_ZL7xvgrstrRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK16gmx_output_env_tPci(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.022, ptr noundef %4, ptr noundef nonnull %6)
+  %14 = call fastcc noundef ptr @_ZL7xvgrstrRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK16gmx_output_env_tPci(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.022, ptr noundef %4, ptr noundef %6)
   %.str.40..str.41 = select i1 %13, ptr @.str.40, ptr @.str.41
   %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.40..str.41, i32 noundef %.023, ptr noundef nonnull %6) #21
   br label %16
@@ -1217,7 +1217,7 @@ define noundef i32 @_Z15read_xvg_legendRKNSt10filesystem7__cxx114pathEPPPdPiPPcP
   br label %19
 
 19:                                               ; preds = %18, %17
-  %20 = call fastcc noundef ptr @_ZL6fgets3P8_IO_FILEPPcPii(ptr noundef %14, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %20 = call fastcc noundef ptr @_ZL6fgets3P8_IO_FILEPPcPii(ptr noundef %14, ptr noundef %11, ptr noundef %12)
   %.not108178 = icmp eq ptr %20, null
   br i1 %.not108178, label %.critedge, label %.lr.ph188
 
@@ -1595,7 +1595,7 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit:    ; preds = %155
   %.188 = phi i32 [ %172, %.loopexit147 ], [ %.087184, %23 ], [ %.087184, %26 ], [ %.087184, %71 ], [ %.087184, %_ZL16read_xvgr_stringPKc.exit120 ]
   %.186 = phi i32 [ %.2217223, %.loopexit147 ], [ %.085185, %23 ], [ %.085185, %26 ], [ %.085185, %71 ], [ %.085185, %_ZL16read_xvgr_stringPKc.exit120 ]
   %.1 = phi i32 [ %.0186, %.loopexit147 ], [ %.0186, %23 ], [ %.0186, %26 ], [ %.0186, %71 ], [ %75, %_ZL16read_xvgr_stringPKc.exit120 ]
-  %174 = call fastcc noundef ptr @_ZL6fgets3P8_IO_FILEPPcPii(ptr noundef %14, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %174 = call fastcc noundef ptr @_ZL6fgets3P8_IO_FILEPPcPii(ptr noundef %14, ptr noundef %11, ptr noundef %12)
   %.not108 = icmp eq ptr %174, null
   br i1 %.not108, label %.critedge, label %.lr.ph188, !llvm.loop !18
 
@@ -1652,7 +1652,7 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit:    ; preds = %155
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL6fgets3P8_IO_FILEPPcPii(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL6fgets3P8_IO_FILEPPcPii(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   br label %5
 
@@ -1906,7 +1906,7 @@ _ZN3gmx13MultiDimArrayISt6vectorIdSaIdEENS_7extentsIJLln1ELln1EEEENS_12layout_ri
 ; Function Attrs: mustprogress uwtable
 define void @_Z11readXvgDataRKNSt10filesystem7__cxx114pathE(ptr dead_on_unwind noalias writable sret(%"class.gmx::MultiDimArray") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.gmx::MultiDimArray", align 8
-  call fastcc void @_ZN12_GLOBAL__N_119readXvgDataInternalERKNSt10filesystem7__cxx114pathE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  call fastcc void @_ZN12_GLOBAL__N_119readXvgDataInternalERKNSt10filesystem7__cxx114pathE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 40
@@ -2023,7 +2023,7 @@ _ZN3gmx13MultiDimArrayISt6vectorIdSaIdEENS_7extentsIJLln1ELln1EEEENS_12layout_ri
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119readXvgDataInternalERKNSt10filesystem7__cxx114pathE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_119readXvgDataInternalERKNSt10filesystem7__cxx114pathE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %.sroa.0.i.i.i = alloca %"struct.gmx::detail::extents_analyse", align 8
   %.sroa.0.i.i = alloca { %"class.gmx::accessor_basic", %"class.gmx::layout_right::mapping" }, align 8
@@ -2067,7 +2067,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %13, %16
   %.043 = phi i32 [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %.144, %.loopexit ]
   %.042 = phi i32 [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %129, %.loopexit ]
   %.038 = phi i32 [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %.139, %.loopexit ]
-  %19 = invoke fastcc noundef ptr @_ZL6fgets3P8_IO_FILEPPcPii(ptr noundef %12, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %19 = invoke fastcc noundef ptr @_ZL6fgets3P8_IO_FILEPPcPii(ptr noundef %12, ptr noundef %7, ptr noundef %8)
           to label %20 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 20:                                               ; preds = %18
@@ -2726,7 +2726,7 @@ define void @_Z17readXvgTimeSeriesRKNSt10filesystem7__cxx114pathESt8optionalIfES
   %.sroa.0.0.extract.trunc = trunc i64 %3 to i32
   %7 = bitcast i32 %.sroa.0.0.extract.trunc to float
   %.sroa.2.0.extract.shift = lshr i64 %3, 32
-  call fastcc void @_ZN12_GLOBAL__N_119readXvgDataInternalERKNSt10filesystem7__cxx114pathE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  call fastcc void @_ZN12_GLOBAL__N_119readXvgDataInternalERKNSt10filesystem7__cxx114pathE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %8 = and i64 %2, 4294967296
   %.not43 = icmp eq i64 %8, 0
   br i1 %.not43, label %9, label %21

@@ -310,14 +310,14 @@ if.then9.i:                                       ; preds = %if.end5.i
   br label %return
 
 for.body.i:                                       ; preds = %if.end5.i, %for.body.i
-  %i.030.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end5.i ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %call2.i, i64 %i.030.i
+  %i.029.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end5.i ]
+  %arrayidx.i = getelementptr inbounds i8, ptr %call2.i, i64 %i.029.i
   %10 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx12.i = getelementptr inbounds i8, ptr %key, i64 %i.030.i
+  %arrayidx12.i = getelementptr inbounds i8, ptr %key, i64 %i.029.i
   %11 = load i8, ptr %arrayidx12.i, align 1
   %xor28.i = xor i8 %11, %10
   store i8 %xor28.i, ptr %arrayidx12.i, align 1
-  %inc.i = add nuw i64 %i.030.i, 1
+  %inc.i = add nuw i64 %i.029.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %keylen
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !4
 
@@ -521,7 +521,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @ossl_tls1_prf_ems_check_enabled(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @tls1_prf_P_hash(ptr noundef %ctx_init, ptr noundef %sec, i64 noundef %sec_len, ptr noundef %seed, i64 noundef %seed_len, ptr noundef %out, i64 noundef %olen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @tls1_prf_P_hash(ptr noundef %ctx_init, ptr noundef %sec, i64 noundef %sec_len, ptr noundef %seed, i64 noundef %seed_len, ptr noundef %out, i64 noundef range(i64 1, 0) %olen) unnamed_addr #0 {
 entry:
   %Ai = alloca [64 x i8], align 16
   %Ai_len = alloca i64, align 8

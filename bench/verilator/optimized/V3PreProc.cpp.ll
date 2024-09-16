@@ -11925,7 +11925,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK8FileLine10lastLinenoEv(ptr nound
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13yy_push_statei(i32 noundef %0) unnamed_addr #6 {
+define internal fastcc void @_ZL13yy_push_statei(i32 noundef range(i32 1, 19) %0) unnamed_addr #6 {
   %2 = load i32, ptr @_ZL18yy_start_stack_ptr, align 4
   %3 = load i32, ptr @_ZL20yy_start_stack_depth, align 4
   %.not = icmp slt i32 %2, %3
@@ -12141,7 +12141,7 @@ define internal fastcc void @_ZL12yy_pop_statev() unnamed_addr #11 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL7yyunputiPc(i32 noundef %0, ptr noundef %1) unnamed_addr #11 {
+define internal fastcc void @_ZL7yyunputiPc(i32 noundef range(i32 -128, 128) %0, ptr noundef %1) unnamed_addr #11 {
   %3 = load ptr, ptr @_ZL10yy_c_buf_p, align 8
   %4 = load i8, ptr @_ZL12yy_hold_char, align 1
   store i8 %4, ptr %3, align 1

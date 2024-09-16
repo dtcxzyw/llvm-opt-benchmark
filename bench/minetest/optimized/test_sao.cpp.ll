@@ -3122,7 +3122,7 @@ declare noundef nonnull align 8 dereferenceable(144) ptr @_ZN17ServerEnvironment
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL10add_entityP17ServerEnvironmentN3irr4core8vector3dIfEEPKc(ptr noundef %env, <2 x float> %pos.coerce0, ptr noundef %name) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL10add_entityP17ServerEnvironmentN3irr4core8vector3dIfEEPKc(ptr noundef nonnull %env, <2 x float> %pos.coerce0, ptr noundef %name) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
 entry:
   %pos = alloca %"class.irr::core::vector3d.438", align 8
   %env.addr = alloca ptr, align 8
@@ -3424,7 +3424,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144), i48) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext range(i16 1, 0) i16 @_ZL22assert_active_in_blockP8MapBlockt(ptr noundef readonly %block, i16 noundef zeroext %obj_id) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext range(i16 1, 0) i16 @_ZL22assert_active_in_blockP8MapBlockt(ptr noundef nonnull readonly %block, i16 noundef zeroext %obj_id) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %message = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8

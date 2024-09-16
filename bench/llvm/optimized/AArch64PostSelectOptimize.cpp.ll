@@ -1166,7 +1166,7 @@ declare void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull alig
 declare noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_125AArch64PostSelectOptimize11foldCopyDupERN4llvm12MachineInstrEENK3$_0clEPKNS1_19TargetRegisterClassES7_jj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef readnone %1, ptr noundef readnone %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_125AArch64PostSelectOptimize11foldCopyDupERN4llvm12MachineInstrEENK3$_0clEPKNS1_19TargetRegisterClassES7_jj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef readnone %1, ptr noundef readnone %2, i32 noundef range(i32 2286, 2288) %3, i32 noundef range(i32 7470, 7473) %4) unnamed_addr #1 align 2 {
   %6 = alloca %"class.llvm::MachineOperand", align 8
   %7 = alloca %"class.llvm::MachineOperand", align 8
   %8 = alloca %"class.llvm::MIMetadata", align 8
@@ -1374,7 +1374,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %_ZN4llvm10M
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 8
   %115 = load ptr, ptr %114, align 8
-  %116 = zext i32 %4 to i64
+  %116 = zext nneg i32 %4 to i64
   %117 = sub nsw i64 0, %116
   %118 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %115, i64 %117
   %119 = load ptr, ptr %11, align 8

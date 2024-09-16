@@ -50,7 +50,7 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
   %28 = getelementptr inbounds i8, ptr %0, i64 52
   %29 = getelementptr inbounds i8, ptr %0, i64 56
   %30 = getelementptr inbounds i8, ptr %0, i64 60
-  %invariant.gep.i = getelementptr i8, ptr %6, i64 16
+  %invariant.gep.i = getelementptr inbounds i8, ptr %6, i64 16
   %31 = getelementptr inbounds i8, ptr %0, i64 80
   br label %.backedge
 
@@ -135,12 +135,12 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.preheader.i:                               ; preds = %73
   %77 = lshr i32 %71, 2
   %wide.trip.count.i = zext nneg i32 %77 to i64
-  %invariant.gep245.i = getelementptr %struct._ir_insn, ptr %invariant.gep.i, i64 %51
+  %invariant.gep245.i = getelementptr inbounds %struct._ir_insn, ptr %invariant.gep.i, i64 %51
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %gep246.i = getelementptr %struct._ir_insn, ptr %invariant.gep245.i, i64 %indvars.iv.i
+  %gep246.i = getelementptr inbounds %struct._ir_insn, ptr %invariant.gep245.i, i64 %indvars.iv.i
   store i32 106, ptr %gep246.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2506,7 +2506,7 @@ ir_sccp_remove_insn2.exit:                        ; preds = %ir_sccp_remove_insn
 
 1285:                                             ; preds = %1283
   %1286 = call fastcc i32 @ir_promote_d2f(ptr noundef nonnull %0, i32 noundef %1282, i32 noundef %1213)
-  call fastcc void @ir_sccp_replace_insn2(ptr noundef nonnull %0, i32 noundef %1213, i32 noundef %1286, ptr noundef nonnull %2)
+  call fastcc void @ir_sccp_replace_insn2(ptr noundef nonnull %0, i32 noundef %1213, i32 noundef %1286, ptr noundef %2)
   br label %ir_sccp_remove_insn2.exit.backedge
 
 1287:                                             ; preds = %1277
@@ -2515,7 +2515,7 @@ ir_sccp_remove_insn2.exit:                        ; preds = %ir_sccp_remove_insn
 
 1289:                                             ; preds = %1287
   %1290 = call fastcc i32 @ir_promote_f2d(ptr noundef nonnull %0, i32 noundef %1282, i32 noundef %1213)
-  call fastcc void @ir_sccp_replace_insn2(ptr noundef nonnull %0, i32 noundef %1213, i32 noundef %1290, ptr noundef nonnull %2)
+  call fastcc void @ir_sccp_replace_insn2(ptr noundef nonnull %0, i32 noundef %1213, i32 noundef %1290, ptr noundef %2)
   br label %ir_sccp_remove_insn2.exit.backedge
 
 1291:                                             ; preds = %1276
@@ -2557,7 +2557,7 @@ ir_sccp_remove_insn2.exit:                        ; preds = %ir_sccp_remove_insn
 
 1314:                                             ; preds = %1307
   %1315 = call fastcc i32 @ir_promote_i2i(ptr noundef nonnull %0, i32 noundef %1310, i32 noundef %1312, i32 noundef %1213)
-  call fastcc void @ir_sccp_replace_insn2(ptr noundef nonnull %0, i32 noundef %1213, i32 noundef %1315, ptr noundef nonnull %2)
+  call fastcc void @ir_sccp_replace_insn2(ptr noundef nonnull %0, i32 noundef %1213, i32 noundef %1315, ptr noundef %2)
   br label %ir_sccp_remove_insn2.exit.backedge
 
 1316:                                             ; preds = %1276
@@ -2832,7 +2832,7 @@ thread-pre-split161.i:                            ; preds = %1406, %1404, %1402,
 
 .loopexit.sink.split.i:                           ; preds = %1447, %1445
   %.sink.i = phi i32 [ %1450, %1447 ], [ %1446, %1445 ]
-  call fastcc void @ir_sccp_replace_insn2(ptr noundef nonnull %0, i32 noundef %1213, i32 noundef %.sink.i, ptr noundef nonnull %2)
+  call fastcc void @ir_sccp_replace_insn2(ptr noundef nonnull %0, i32 noundef %1213, i32 noundef %.sink.i, ptr noundef %2)
   br label %ir_sccp_remove_insn2.exit.backedge
 
 1451:                                             ; preds = %1217
@@ -3362,7 +3362,7 @@ tailrecurse.backedge:                             ; preds = %19, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ir_promote_d2f(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @ir_promote_d2f(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds %struct._ir_insn, ptr %4, i64 %5
@@ -3450,7 +3450,7 @@ common.ret49:                                     ; preds = %13, %43, %25, %23, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ir_sccp_replace_insn2(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @ir_sccp_replace_insn2(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = zext nneg i32 %1 to i64
   %7 = getelementptr inbounds %struct._ir_insn, ptr %5, i64 %6
@@ -3780,7 +3780,7 @@ tailrecurse.backedge:                             ; preds = %22, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ir_promote_f2d(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @ir_promote_f2d(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds %struct._ir_insn, ptr %4, i64 %5
@@ -3873,7 +3873,7 @@ common.ret51:                                     ; preds = %13, %45, %28, %25, 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @ir_may_promote_i2i(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc zeroext i1 @ir_may_promote_i2i(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 256) %1, i32 noundef %2) unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds %struct._ir_insn, ptr %4, i64 %5
@@ -3957,7 +3957,7 @@ switch.edge:                                      ; preds = %11, %33, %38, %24, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ir_promote_i2i(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @ir_promote_i2i(ptr noundef %0, i32 noundef range(i32 0, 256) %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3) unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = sext i32 %2 to i64
   %7 = getelementptr inbounds %struct._ir_insn, ptr %5, i64 %6

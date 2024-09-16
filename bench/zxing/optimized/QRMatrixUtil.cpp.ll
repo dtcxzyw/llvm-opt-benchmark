@@ -429,8 +429,8 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit.i.i.i:     ; preds = %_ZNSt6vectorIhSaIhE
 
 _ZN5ZXing8BitArray10appendBitsEii.exit.i.i:       ; preds = %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i.i.i
   %200 = shl i32 %171, 10
-  %.not11.i.i.i = icmp eq i32 %200, 0
-  br i1 %.not11.i.i.i, label %_ZN5ZXing6QRCodeL16CalculateBCHCodeEii.exit.i.i, label %.lr.ph.i.preheader.i.i
+  %.not12.i.i.i = icmp eq i32 %200, 0
+  br i1 %.not12.i.i.i, label %_ZN5ZXing6QRCodeL16CalculateBCHCodeEii.exit.i.i, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN5ZXing8BitArray10appendBitsEii.exit.i.i
   %201 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %200, i1 true)
@@ -438,10 +438,10 @@ _ZN5ZXing8BitArray10appendBitsEii.exit.i.i:       ; preds = %_ZNSt6vectorIhSaIhE
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.preheader.i.i
   %202 = phi i32 [ %206, %.lr.ph.i.i.i ], [ %201, %.lr.ph.i.preheader.i.i ]
-  %.012.i.i.i = phi i32 [ %205, %.lr.ph.i.i.i ], [ %200, %.lr.ph.i.preheader.i.i ]
+  %.013.i.i.i = phi i32 [ %205, %.lr.ph.i.i.i ], [ %200, %.lr.ph.i.preheader.i.i ]
   %203 = sub nuw nsw i32 21, %202
   %204 = shl nuw i32 1335, %203
-  %205 = xor i32 %204, %.012.i.i.i
+  %205 = xor i32 %204, %.013.i.i.i
   %206 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %205, i1 false)
   %.not.i24.i.i = icmp ult i32 %205, 1024
   br i1 %.not.i24.i.i, label %_ZN5ZXing6QRCodeL16CalculateBCHCodeEii.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !17
@@ -941,8 +941,8 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit.i.i.i22:   ; preds = %_ZNSt6vectorIhSaIhE
 _ZN5ZXing8BitArray10appendBitsEii.exit.i.i25:     ; preds = %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i.i.i22
   %383 = load i32, ptr %2, align 8, !noalias !19
   %384 = shl i32 %383, 12
-  %.not11.i.i.i26 = icmp eq i32 %384, 0
-  br i1 %.not11.i.i.i26, label %_ZN5ZXing6QRCodeL16CalculateBCHCodeEii.exit.i.i30, label %.lr.ph.i.preheader.i.i27
+  %.not12.i.i.i26 = icmp eq i32 %384, 0
+  br i1 %.not12.i.i.i26, label %_ZN5ZXing6QRCodeL16CalculateBCHCodeEii.exit.i.i30, label %.lr.ph.i.preheader.i.i27
 
 .lr.ph.i.preheader.i.i27:                         ; preds = %_ZN5ZXing8BitArray10appendBitsEii.exit.i.i25
   %385 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %384, i1 true)
@@ -950,10 +950,10 @@ _ZN5ZXing8BitArray10appendBitsEii.exit.i.i25:     ; preds = %_ZNSt6vectorIhSaIhE
 
 .lr.ph.i.i.i28:                                   ; preds = %.lr.ph.i.i.i28, %.lr.ph.i.preheader.i.i27
   %386 = phi i32 [ %390, %.lr.ph.i.i.i28 ], [ %385, %.lr.ph.i.preheader.i.i27 ]
-  %.012.i.i.i29 = phi i32 [ %389, %.lr.ph.i.i.i28 ], [ %384, %.lr.ph.i.preheader.i.i27 ]
+  %.013.i.i.i29 = phi i32 [ %389, %.lr.ph.i.i.i28 ], [ %384, %.lr.ph.i.preheader.i.i27 ]
   %387 = sub nuw nsw i32 19, %386
   %388 = shl nuw i32 7973, %387
-  %389 = xor i32 %388, %.012.i.i.i29
+  %389 = xor i32 %388, %.013.i.i.i29
   %390 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %389, i1 false)
   %.not.i13.i.i = icmp ult i32 %389, 4096
   br i1 %.not.i13.i.i, label %_ZN5ZXing6QRCodeL16CalculateBCHCodeEii.exit.i.i30, label %.lr.ph.i.i.i28, !llvm.loop !17
@@ -1467,7 +1467,7 @@ _ZN5ZXing6QRCodeL13EmbedDataBitsERKNS_8BitArrayEiRNS_6MatrixINS_4TritEEE.exit: ;
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEE(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #2 {
+define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEE(i32 noundef range(i32 -2147483648, 2147483641) %0, i32 noundef range(i32 -2147483648, 2147483641) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   br label %.preheader51
 

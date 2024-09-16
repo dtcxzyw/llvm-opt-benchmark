@@ -427,15 +427,15 @@ select_common_collation.exit:                     ; preds = %71
   ]
 
 150:                                              ; preds = %147
-  call fastcc void @assign_aggregate_collations(ptr noundef nonnull %0, ptr noundef nonnull %9)
+  call fastcc void @assign_aggregate_collations(ptr noundef %0, ptr noundef %9)
   br label %158
 
 151:                                              ; preds = %147
-  call fastcc void @assign_ordered_set_collations(ptr noundef nonnull %0, ptr noundef nonnull %9)
+  call fastcc void @assign_ordered_set_collations(ptr noundef %0, ptr noundef %9)
   br label %158
 
 152:                                              ; preds = %147
-  call fastcc void @assign_hypothetical_collations(ptr noundef nonnull %0, ptr noundef nonnull %9)
+  call fastcc void @assign_hypothetical_collations(ptr noundef %0, ptr noundef %9)
   br label %158
 
 153:                                              ; preds = %147
@@ -685,7 +685,7 @@ declare void @exprSetCollation(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @exprCollation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @assign_aggregate_collations(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @assign_aggregate_collations(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.assign_collations_context, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -724,7 +724,7 @@ define internal fastcc void @assign_aggregate_collations(ptr nocapture noundef r
   br label %24
 
 22:                                               ; preds = %.lr.ph18
-  %23 = tail call zeroext i1 @assign_collations_walker(ptr noundef nonnull %15, ptr noundef %1)
+  %23 = tail call zeroext i1 @assign_collations_walker(ptr noundef nonnull %15, ptr noundef nonnull %1)
   br label %24
 
 24:                                               ; preds = %19, %22
@@ -739,7 +739,7 @@ define internal fastcc void @assign_aggregate_collations(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @assign_ordered_set_collations(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @assign_ordered_set_collations(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.assign_collations_context, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -764,7 +764,7 @@ list_length.exit.thread:                          ; preds = %2, %9, %list_length
   %.fr = phi i1 [ false, %list_length.exit ], [ %13, %9 ], [ false, %2 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call zeroext i1 @assign_collations_walker(ptr noundef %15, ptr noundef %1)
+  %16 = tail call zeroext i1 @assign_collations_walker(ptr noundef %15, ptr noundef nonnull %1)
   %17 = load ptr, ptr %4, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 4
   %.not = icmp eq ptr %17, null
@@ -787,7 +787,7 @@ list_length.exit.thread:                          ; preds = %2, %9, %list_length
   %25 = load ptr, ptr %19, align 8
   %26 = getelementptr %union.ListCell, ptr %25, i64 %indvars.iv28
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call zeroext i1 @assign_collations_walker(ptr noundef %27, ptr noundef %1)
+  %28 = tail call zeroext i1 @assign_collations_walker(ptr noundef %27, ptr noundef nonnull %1)
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %29 = load i32, ptr %18, align 4
   %30 = sext i32 %29 to i64
@@ -821,7 +821,7 @@ list_length.exit.thread:                          ; preds = %2, %9, %list_length
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @assign_hypothetical_collations(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @assign_hypothetical_collations(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.assign_collations_context, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -905,7 +905,7 @@ list_length.exit43:                               ; preds = %list_length.exit41,
   %.02948 = phi i32 [ %44, %.lr.ph ], [ %34, %list_length.exit43 ]
   %44 = add nsw i32 %.02948, -1
   %45 = load ptr, ptr %.049, align 8
-  %46 = tail call zeroext i1 @assign_collations_walker(ptr noundef %45, ptr noundef %1)
+  %46 = tail call zeroext i1 @assign_collations_walker(ptr noundef %45, ptr noundef nonnull %1)
   %47 = load ptr, ptr %4, align 8
   %48 = getelementptr i8, ptr %47, i64 4
   %.val = load i32, ptr %48, align 4

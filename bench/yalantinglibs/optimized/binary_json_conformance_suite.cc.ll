@@ -1535,15 +1535,15 @@ entry:
   %multiple_repeated_field_proto = alloca %"class.std::__cxx11::basic_string", align 8
   %expected_proto = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp16 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %message_tag, i64 noundef 218)
+  call fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %message_tag, i64 noundef 218)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %field_proto, i64 8
   %0 = load i64, ptr %_M_string_length.i.i, align 8, !noalias !17
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i, i64 noundef %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i, i64 noundef %0)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %field_proto, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %field_proto, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
@@ -1572,7 +1572,7 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont:                                      ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %message_proto, ptr noundef nonnull align 8 dereferenceable(32) %message_tag, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %message_proto, ptr noundef nonnull align 8 dereferenceable(32) %message_tag, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -1784,11 +1784,11 @@ lpad10.loopexit.split-lp:                         ; preds = %if.then.i.i.i40, %f
 for.end15:                                        ; preds = %for.inc13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i44)
   %28 = load i64, ptr %_M_string_length.i.i.i18, align 8, !noalias !23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i44, i64 noundef %28)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i44, i64 noundef %28)
           to label %.noexc53 unwind label %lpad10.loopexit.split-lp
 
 .noexc53:                                         ; preds = %for.end15
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i44, ptr noundef nonnull readonly align 8 dereferenceable(32) %multiple_repeated_field_proto, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i44, ptr noundef nonnull readonly align 8 dereferenceable(32) %multiple_repeated_field_proto, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i47 unwind label %lpad.i46
 
 invoke.cont.i47:                                  ; preds = %.noexc53
@@ -1817,7 +1817,7 @@ lpad.i46:                                         ; preds = %.noexc53
 invoke.cont17:                                    ; preds = %if.then.i.i.i49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i50
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i44) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i44)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %expected_proto, ptr noundef nonnull align 8 dereferenceable(32) %message_tag, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %expected_proto, ptr noundef nonnull align 8 dereferenceable(32) %message_tag, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont17
@@ -1960,7 +1960,7 @@ ehcleanup24:                                      ; preds = %lpad, %lpad.i, %ehc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %b, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %d, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %e, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %f) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %b, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %d, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %e, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %f) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
@@ -3310,7 +3310,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81: ; preds = %_ZN
   %conv.i82 = ashr exact i32 %sext, 24
   %or.i = or i32 %shl.i, %conv.i82
   %conv1.i = zext i32 %or.i to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp12, i64 noundef %conv1.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp12, i64 noundef %conv1.i)
           to label %invoke.cont16 unwind label %lpad13
 
 invoke.cont16:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81
@@ -3367,7 +3367,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95: ; preds = %_ZN
   %shl.i97 = shl i32 %22, 3
   %or.i99 = or i32 %shl.i97, %conv.i82
   %conv1.i100 = zext i32 %or.i99 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp24, i64 noundef %conv1.i100)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp24, i64 noundef %conv1.i100)
           to label %invoke.cont28 unwind label %lpad13
 
 invoke.cont28:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95
@@ -3421,7 +3421,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117: ; preds = %_Z
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24) #23
   %or.i119 = or i32 %conv.i82, 5328
   %conv1.i120 = zext i32 %or.i119 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp36, i64 noundef %conv1.i120)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp36, i64 noundef %conv1.i120)
           to label %invoke.cont38 unwind label %lpad13
 
 invoke.cont38:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117
@@ -3477,11 +3477,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit137: ; preds = %_Z
   %shl.i139 = shl i32 %35, 3
   %or.i141 = or i32 %shl.i139, %conv.i82
   %conv1.i142 = zext i32 %or.i141 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp47, i64 noundef %conv1.i142)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp47, i64 noundef %conv1.i142)
           to label %invoke.cont51 unwind label %lpad13
 
 invoke.cont51:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit137
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp46, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp46, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont53 unwind label %lpad52
 
 invoke.cont53:                                    ; preds = %invoke.cont51
@@ -3555,11 +3555,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165: ; preds = %_Z
   %shl.i167 = shl i32 %45, 3
   %or.i169 = or i32 %shl.i167, %conv.i82
   %conv1.i170 = zext i32 %or.i169 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp63, i64 noundef %conv1.i170)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp63, i64 noundef %conv1.i170)
           to label %invoke.cont67 unwind label %lpad13
 
 invoke.cont67:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp62, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp62, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont69 unwind label %lpad68
 
 invoke.cont69:                                    ; preds = %invoke.cont67
@@ -3629,11 +3629,11 @@ if.then.i.i189:                                   ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i190, %if.then.i.i189
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp63) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp79, i64 noundef %conv1.i120)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp79, i64 noundef %conv1.i120)
           to label %invoke.cont81 unwind label %lpad13
 
 invoke.cont81:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp78, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp79, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp78, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp79, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont83 unwind label %lpad82
 
 invoke.cont83:                                    ; preds = %invoke.cont81
@@ -3711,15 +3711,15 @@ if.then:                                          ; preds = %_ZNSt7__cxx1112basi
   %shl.i221 = shl i32 %64, 3
   %or.i223 = or disjoint i32 %shl.i221, 2
   %conv1.i224 = zext i32 %or.i223 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp93, i64 noundef %conv1.i224)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp93, i64 noundef %conv1.i224)
           to label %invoke.cont97 unwind label %lpad13
 
 invoke.cont97:                                    ; preds = %if.then
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp98, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp98, i64 noundef 1)
           to label %invoke.cont100 unwind label %lpad99
 
 invoke.cont100:                                   ; preds = %invoke.cont97
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp92, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp93, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp98, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp92, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp93, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp98, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont102 unwind label %lpad101
 
 invoke.cont102:                                   ; preds = %invoke.cont100
@@ -3811,15 +3811,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit253: ; preds = %_Z
   %shl.i255 = shl i32 %77, 3
   %or.i257 = or disjoint i32 %shl.i255, 2
   %conv1.i258 = zext i32 %or.i257 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp113, i64 noundef %conv1.i258)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp113, i64 noundef %conv1.i258)
           to label %invoke.cont117 unwind label %lpad13
 
 invoke.cont117:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit253
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp118, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp118, i64 noundef 1)
           to label %invoke.cont120 unwind label %lpad119
 
 invoke.cont120:                                   ; preds = %invoke.cont117
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp112, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp113, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp118, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp112, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp113, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp118, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont122 unwind label %lpad121
 
 invoke.cont122:                                   ; preds = %invoke.cont120
@@ -3907,15 +3907,15 @@ if.then.i.i283:                                   ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit287: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i284, %if.then.i.i283
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp113) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp133, i64 noundef %conv1.i120)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp133, i64 noundef %conv1.i120)
           to label %invoke.cont135 unwind label %lpad13
 
 invoke.cont135:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit287
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp136, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp136, i64 noundef 1)
           to label %invoke.cont138 unwind label %lpad137
 
 invoke.cont138:                                   ; preds = %invoke.cont135
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp132, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp133, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp136, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp132, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp133, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp136, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont140 unwind label %lpad139
 
 invoke.cont140:                                   ; preds = %invoke.cont138
@@ -4007,11 +4007,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319: ; preds = %_Z
   br i1 %cmp150, label %if.then151, label %if.end221
 
 if.then151:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp152, i64 noundef 40)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp152, i64 noundef 40)
           to label %invoke.cont153 unwind label %lpad13
 
 invoke.cont153:                                   ; preds = %if.then151
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %incomplete_submsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp152, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN6google8protobuf29BinaryAndJsonConformanceSuite23TestPrematureEOFForTypeENS0_15FieldDescriptor4TypeEE11incompletesB5cxx11, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %incomplete_submsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp152, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN6google8protobuf29BinaryAndJsonConformanceSuite23TestPrematureEOFForTypeENS0_15FieldDescriptor4TypeEE11incompletesB5cxx11, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont155 unwind label %lpad154
 
 invoke.cont155:                                   ; preds = %invoke.cont153
@@ -4037,17 +4037,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit327: ; preds = %_Z
   %shl.i329 = shl i32 %105, 3
   %or.i330 = or disjoint i32 %shl.i329, 2
   %conv1.i331 = zext i32 %or.i330 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp158, i64 noundef %conv1.i331)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp158, i64 noundef %conv1.i331)
           to label %invoke.cont162 unwind label %lpad159
 
 invoke.cont162:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit327
   %_M_string_length.i = getelementptr inbounds i8, ptr %incomplete_submsg, i64 8
   %106 = load i64, ptr %_M_string_length.i, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp163, i64 noundef %106)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp163, i64 noundef %106)
           to label %invoke.cont166 unwind label %lpad165
 
 invoke.cont166:                                   ; preds = %invoke.cont162
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp157, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp158, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp163, ptr noundef nonnull align 8 dereferenceable(32) %incomplete_submsg, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp157, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp158, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp163, ptr noundef nonnull align 8 dereferenceable(32) %incomplete_submsg, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont168 unwind label %lpad167
 
 invoke.cont168:                                   ; preds = %invoke.cont166
@@ -4466,17 +4466,17 @@ if.then180:                                       ; preds = %if.else
   %shl.i367 = shl i32 %158, 3
   %or.i368 = or disjoint i32 %shl.i367, 2
   %conv1.i369 = zext i32 %or.i368 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp182, i64 noundef %conv1.i369)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp182, i64 noundef %conv1.i369)
           to label %invoke.cont185 unwind label %lpad13
 
 invoke.cont185:                                   ; preds = %if.then180
   %_M_string_length.i372 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %159 = load i64, ptr %_M_string_length.i372, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp186, i64 noundef %159)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp186, i64 noundef %159)
           to label %invoke.cont189 unwind label %lpad188
 
 invoke.cont189:                                   ; preds = %invoke.cont185
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp181, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp182, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp186, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp181, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp182, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp186, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont191 unwind label %lpad190
 
 invoke.cont191:                                   ; preds = %invoke.cont189
@@ -4568,15 +4568,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399: ; preds = %_Z
   %shl.i401 = shl i32 %172, 3
   %or.i402 = or disjoint i32 %shl.i401, 2
   %conv1.i403 = zext i32 %or.i402 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp202, i64 noundef %conv1.i403)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp202, i64 noundef %conv1.i403)
           to label %invoke.cont205 unwind label %lpad13
 
 invoke.cont205:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp206, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp206, i64 noundef 1)
           to label %invoke.cont208 unwind label %lpad207
 
 invoke.cont208:                                   ; preds = %invoke.cont205
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp201, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp202, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp206, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp201, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp202, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp206, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont210 unwind label %lpad209
 
 invoke.cont210:                                   ; preds = %invoke.cont208
@@ -4769,7 +4769,7 @@ eh.resume:                                        ; preds = %ehcleanup222, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115GetFieldForTypeEN6google8protobuf15FieldDescriptor4TypeEbbNS_6PackedE(i32 noundef %type, i1 noundef zeroext %repeated, i1 noundef zeroext %is_proto3, i32 noundef %packed) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115GetFieldForTypeEN6google8protobuf15FieldDescriptor4TypeEbbNS_6PackedE(i32 noundef %type, i1 noundef zeroext %repeated, i1 noundef zeroext %is_proto3, i32 noundef range(i32 0, 3) %packed) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__callable.i.i.i = alloca %class.anon, align 8
   %ref.tmp.i = alloca ptr, align 8
@@ -5497,7 +5497,7 @@ nrvo.skipdtor:                                    ; preds = %if.end.i.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %agg.result, i64 noundef %x) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %agg.result, i64 noundef %x) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %buf = alloca [10 x i8], align 1
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -6139,7 +6139,7 @@ invoke.cont24:                                    ; preds = %if.end.i.i.i1418, %
   %113 = load i64, ptr %i, align 8
   %114 = load ptr, ptr %values, align 8
   %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %114, i64 %113
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %proto, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %proto, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %invoke.cont24
@@ -6561,7 +6561,7 @@ sw.bb13.i:                                        ; preds = %invoke.cont31, %inv
   store i8 0, ptr %arrayidx.i.i.i.i1449, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1430) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1430)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp14.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp15.i, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp14.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp15.i, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %sw.bb13.i
@@ -6780,7 +6780,7 @@ invoke.cont43:                                    ; preds = %if.end.i.i.i1526, %
   %166 = load i64, ptr %i, align 8
   %167 = load ptr, ptr %values, align 8
   %second46 = getelementptr inbounds %"struct.std::pair", ptr %167, i64 %166, i32 1
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %expected_proto, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(32) %second46, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %expected_proto, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(32) %second46, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %cleanup.action unwind label %lpad47
 
 cleanup.action:                                   ; preds = %invoke.cont43
@@ -8929,7 +8929,7 @@ invoke.cont100:                                   ; preds = %if.end.i.i.i1740, %
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1724)
   %334 = load ptr, ptr %values, align 8
   %add.ptr.i273 = getelementptr inbounds %"struct.std::pair", ptr %334, i64 %i89.04264
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp94, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp95, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i273, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp94, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp95, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i273, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont104 unwind label %lpad103
 
 invoke.cont104:                                   ; preds = %invoke.cont100
@@ -9144,13 +9144,13 @@ for.end112:                                       ; preds = %_ZNSt7__cxx1112basi
   %shl.i295 = shl i32 %353, 3
   %or.i297 = or i32 %shl.i295, %conv.i296.pre-phi
   %conv1.i298 = zext i32 %or.i297 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp114, i64 noundef %conv1.i298)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp114, i64 noundef %conv1.i298)
           to label %invoke.cont118 unwind label %lpad96
 
 invoke.cont118:                                   ; preds = %for.end112
   %354 = load ptr, ptr %_M_finish.i, align 8
   %second120 = getelementptr inbounds i8, ptr %354, i64 -32
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %expected_proto113, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp114, ptr noundef nonnull align 8 dereferenceable(32) %second120, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %expected_proto113, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp114, ptr noundef nonnull align 8 dereferenceable(32) %second120, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont122 unwind label %lpad121
 
 invoke.cont122:                                   ; preds = %invoke.cont118
@@ -9561,7 +9561,7 @@ invoke.cont167:                                   ; preds = %if.end.i.i.i1796, %
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1780)
   %391 = load ptr, ptr %values, align 8
   %add.ptr.i394 = getelementptr inbounds %"struct.std::pair", ptr %391, i64 %i156.04270
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp161, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp162, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i394, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp161, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp162, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i394, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont171 unwind label %lpad170
 
 invoke.cont171:                                   ; preds = %invoke.cont167
@@ -9831,7 +9831,7 @@ invoke.cont182:                                   ; preds = %if.end.i.i.i1884, %
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1868)
   %410 = load ptr, ptr %values, align 8
   %second184 = getelementptr inbounds %"struct.std::pair", ptr %410, i64 %i156.04270, i32 1
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp177, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp178, ptr noundef nonnull align 8 dereferenceable(32) %second184, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp177, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp178, ptr noundef nonnull align 8 dereferenceable(32) %second184, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont186 unwind label %lpad185
 
 invoke.cont186:                                   ; preds = %invoke.cont182
@@ -10341,7 +10341,7 @@ invoke.cont205:                                   ; preds = %if.end.i.i.i2076, %
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i2060)
   %449 = load ptr, ptr %values, align 8
   %add.ptr.i540 = getelementptr inbounds %"struct.std::pair", ptr %449, i64 %i156.04270
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp200, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp201, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i540, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp200, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp201, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i540, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont209 unwind label %lpad208
 
 invoke.cont209:                                   ; preds = %invoke.cont205
@@ -10851,7 +10851,7 @@ invoke.cont228:                                   ; preds = %if.end.i.i.i2268, %
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i2252)
   %488 = load ptr, ptr %values, align 8
   %add.ptr.i639 = getelementptr inbounds %"struct.std::pair", ptr %488, i64 %i156.04270
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp223, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp224, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i639, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp223, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp224, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i639, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont232 unwind label %lpad231
 
 invoke.cont232:                                   ; preds = %invoke.cont228
@@ -11256,7 +11256,7 @@ invoke.cont247:                                   ; preds = %if.end.i.i.i2408, %
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i2392)
   %518 = load ptr, ptr %values, align 8
   %second249 = getelementptr inbounds %"struct.std::pair", ptr %518, i64 %i156.04270, i32 1
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp242, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp243, ptr noundef nonnull align 8 dereferenceable(32) %second249, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp242, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp243, ptr noundef nonnull align 8 dereferenceable(32) %second249, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont251 unwind label %lpad250
 
 invoke.cont251:                                   ; preds = %invoke.cont247
@@ -11580,17 +11580,17 @@ for.end259:                                       ; preds = %_ZNSt7__cxx1112basi
   %shl.i753 = shl i32 %540, 3
   %or.i754 = or disjoint i32 %shl.i753, 2
   %conv1.i755 = zext i32 %or.i754 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp261, i64 noundef %conv1.i755)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp261, i64 noundef %conv1.i755)
           to label %invoke.cont264 unwind label %lpad163.loopexit.split-lp.loopexit
 
 invoke.cont264:                                   ; preds = %for.end259
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i758)
   %541 = load i64, ptr %_M_string_length.i.i.i363, align 8, !noalias !137
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i758, i64 noundef %541)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i758, i64 noundef %541)
           to label %.noexc768 unwind label %lpad266
 
 .noexc768:                                        ; preds = %invoke.cont264
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp265, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i758, ptr noundef nonnull readonly align 8 dereferenceable(32) %default_proto_packed, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp265, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i758, ptr noundef nonnull readonly align 8 dereferenceable(32) %default_proto_packed, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i761 unwind label %lpad.i760
 
 invoke.cont.i761:                                 ; preds = %.noexc768
@@ -11617,7 +11617,7 @@ lpad.i760:                                        ; preds = %.noexc768
 invoke.cont267:                                   ; preds = %if.then.i.i.i763, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i765
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i758) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i758)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp260, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp261, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp265, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp260, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp261, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp265, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont269 unwind label %lpad268
 
 invoke.cont269:                                   ; preds = %invoke.cont267
@@ -11749,17 +11749,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit797: ; preds = %_Z
   %shl.i799 = shl i32 %566, 3
   %or.i800 = or disjoint i32 %shl.i799, 2
   %conv1.i801 = zext i32 %or.i800 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp274, i64 noundef %conv1.i801)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp274, i64 noundef %conv1.i801)
           to label %invoke.cont277 unwind label %lpad163.loopexit.split-lp.loopexit
 
 invoke.cont277:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit797
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i804)
   %567 = load i64, ptr %_M_string_length.i.i.i367, align 8, !noalias !140
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i804, i64 noundef %567)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i804, i64 noundef %567)
           to label %.noexc814 unwind label %lpad279
 
 .noexc814:                                        ; preds = %invoke.cont277
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp278, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i804, ptr noundef nonnull readonly align 8 dereferenceable(32) %default_proto_packed_expected, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp278, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i804, ptr noundef nonnull readonly align 8 dereferenceable(32) %default_proto_packed_expected, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i807 unwind label %lpad.i806
 
 invoke.cont.i807:                                 ; preds = %.noexc814
@@ -11786,7 +11786,7 @@ lpad.i806:                                        ; preds = %.noexc814
 invoke.cont280:                                   ; preds = %if.then.i.i.i809, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i811
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i804) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i804)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp273, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp274, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp278, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp273, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp274, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp278, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont282 unwind label %lpad281
 
 invoke.cont282:                                   ; preds = %invoke.cont280
@@ -11919,17 +11919,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit866: ; preds = %_Z
   %shl.i868 = shl i32 %592, 3
   %or.i869 = or disjoint i32 %shl.i868, 2
   %conv1.i870 = zext i32 %or.i869 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp287, i64 noundef %conv1.i870)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp287, i64 noundef %conv1.i870)
           to label %invoke.cont290 unwind label %lpad163.loopexit.split-lp.loopexit
 
 invoke.cont290:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit866
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i873)
   %593 = load i64, ptr %_M_string_length.i.i.i371, align 8, !noalias !143
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i873, i64 noundef %593)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i873, i64 noundef %593)
           to label %.noexc883 unwind label %lpad292
 
 .noexc883:                                        ; preds = %invoke.cont290
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp291, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i873, ptr noundef nonnull readonly align 8 dereferenceable(32) %packed_proto_packed, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp291, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i873, ptr noundef nonnull readonly align 8 dereferenceable(32) %packed_proto_packed, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i876 unwind label %lpad.i875
 
 invoke.cont.i876:                                 ; preds = %.noexc883
@@ -11956,7 +11956,7 @@ lpad.i875:                                        ; preds = %.noexc883
 invoke.cont293:                                   ; preds = %if.then.i.i.i878, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i880
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i873) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i873)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp286, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp287, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp291, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp286, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp287, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp291, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont295 unwind label %lpad294
 
 invoke.cont295:                                   ; preds = %invoke.cont293
@@ -12088,17 +12088,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit935: ; preds = %_Z
   %shl.i937 = shl i32 %618, 3
   %or.i938 = or disjoint i32 %shl.i937, 2
   %conv1.i939 = zext i32 %or.i938 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp300, i64 noundef %conv1.i939)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp300, i64 noundef %conv1.i939)
           to label %invoke.cont303 unwind label %lpad163.loopexit.split-lp.loopexit
 
 invoke.cont303:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit935
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i942)
   %619 = load i64, ptr %_M_string_length.i.i.i375, align 8, !noalias !146
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i942, i64 noundef %619)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i942, i64 noundef %619)
           to label %.noexc952 unwind label %lpad305
 
 .noexc952:                                        ; preds = %invoke.cont303
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp304, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i942, ptr noundef nonnull readonly align 8 dereferenceable(32) %packed_proto_expected, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp304, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i942, ptr noundef nonnull readonly align 8 dereferenceable(32) %packed_proto_expected, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i945 unwind label %lpad.i944
 
 invoke.cont.i945:                                 ; preds = %.noexc952
@@ -12125,7 +12125,7 @@ lpad.i944:                                        ; preds = %.noexc952
 invoke.cont306:                                   ; preds = %if.then.i.i.i947, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i949
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i942) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i942)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp299, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp300, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp304, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp299, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp300, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp304, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont308 unwind label %lpad307
 
 invoke.cont308:                                   ; preds = %invoke.cont306
@@ -12258,17 +12258,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1004: ; preds = %_
   %shl.i1006 = shl i32 %644, 3
   %or.i1007 = or disjoint i32 %shl.i1006, 2
   %conv1.i1008 = zext i32 %or.i1007 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp313, i64 noundef %conv1.i1008)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp313, i64 noundef %conv1.i1008)
           to label %invoke.cont316 unwind label %lpad163.loopexit.split-lp.loopexit
 
 invoke.cont316:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1004
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i1011)
   %645 = load i64, ptr %_M_string_length.i.i.i377, align 8, !noalias !149
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i1011, i64 noundef %645)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i1011, i64 noundef %645)
           to label %.noexc1021 unwind label %lpad318
 
 .noexc1021:                                       ; preds = %invoke.cont316
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp317, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1011, ptr noundef nonnull readonly align 8 dereferenceable(32) %unpacked_proto_packed, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp317, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1011, ptr noundef nonnull readonly align 8 dereferenceable(32) %unpacked_proto_packed, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i1014 unwind label %lpad.i1013
 
 invoke.cont.i1014:                                ; preds = %.noexc1021
@@ -12295,7 +12295,7 @@ lpad.i1013:                                       ; preds = %.noexc1021
 invoke.cont319:                                   ; preds = %if.then.i.i.i1016, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i1018
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1011) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1011)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp312, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp313, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp317, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp312, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp313, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp317, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont321 unwind label %lpad320
 
 invoke.cont321:                                   ; preds = %invoke.cont319
@@ -13181,7 +13181,7 @@ invoke.cont419:                                   ; preds = %if.end.i.i.i2496, %
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i2480)
   %745 = load ptr, ptr %values, align 8
   %add.ptr.i1258 = getelementptr inbounds %"struct.std::pair", ptr %745, i64 %i408.04276
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp413, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp414, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1258, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp413, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp414, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1258, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont423 unwind label %lpad422
 
 invoke.cont423:                                   ; preds = %invoke.cont419
@@ -13451,7 +13451,7 @@ invoke.cont434:                                   ; preds = %if.end.i.i.i2584, %
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i2568)
   %764 = load ptr, ptr %values, align 8
   %second436 = getelementptr inbounds %"struct.std::pair", ptr %764, i64 %i408.04276, i32 1
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp429, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp430, ptr noundef nonnull align 8 dereferenceable(32) %second436, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp429, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp430, ptr noundef nonnull align 8 dereferenceable(32) %second436, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont438 unwind label %lpad437
 
 invoke.cont438:                                   ; preds = %invoke.cont434
@@ -14717,43 +14717,43 @@ entry:
   %ref.tmp122 = alloca %"class.std::allocator", align 1
   %ref.tmp125 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp126 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp3, i64 noundef 18)
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp6, i64 noundef 8)
+  call fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp3, i64 noundef 18)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp6, i64 noundef 8)
           to label %invoke.cont8 unwind label %ehcleanup92.thread331
 
 invoke.cont8:                                     ; preds = %entry
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp9, i64 noundef 1234)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp9, i64 noundef 1234)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont8
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp12, i64 noundef 16)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp12, i64 noundef 16)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %invoke.cont11
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp15, i64 noundef 1234)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp15, i64 noundef 1234)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont14
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp18, i64 noundef 248)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp18, i64 noundef 248)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont17
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp21, i64 noundef 1234)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp21, i64 noundef 1234)
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %invoke.cont20
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %invoke.cont23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   %0 = load i64, ptr %_M_string_length.i.i, align 8, !noalias !190
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i, i64 noundef %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i, i64 noundef %0)
           to label %.noexc unwind label %lpad26
 
 .noexc:                                           ; preds = %invoke.cont25
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
@@ -14782,18 +14782,18 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont27:                                    ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i40)
   %_M_string_length.i.i41 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %5 = load i64, ptr %_M_string_length.i.i41, align 8, !noalias !193
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i40, i64 noundef %5)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i40, i64 noundef %5)
           to label %.noexc49 unwind label %lpad30
 
 .noexc49:                                         ; preds = %invoke.cont29
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i40, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i40, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i43 unwind label %lpad.i42
 
 invoke.cont.i43:                                  ; preds = %.noexc49
@@ -14823,46 +14823,46 @@ invoke.cont31:                                    ; preds = %if.then.i.i.i45, %_
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i40) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i40)
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp33, i64 noundef 18)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp33, i64 noundef 18)
           to label %invoke.cont34 unwind label %lpad30
 
 invoke.cont34:                                    ; preds = %invoke.cont31
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp37, i64 noundef 8)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp37, i64 noundef 8)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont34
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp40, i64 noundef 4321)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp40, i64 noundef 4321)
           to label %invoke.cont42 unwind label %lpad41
 
 invoke.cont42:                                    ; preds = %invoke.cont39
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp43, i64 noundef 24)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp43, i64 noundef 24)
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %invoke.cont42
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp46, i64 noundef 4321)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp46, i64 noundef 4321)
           to label %invoke.cont48 unwind label %lpad47
 
 invoke.cont48:                                    ; preds = %invoke.cont45
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp49, i64 noundef 248)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp49, i64 noundef 248)
           to label %invoke.cont51 unwind label %lpad50
 
 invoke.cont51:                                    ; preds = %invoke.cont48
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp52, i64 noundef 4321)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp52, i64 noundef 4321)
           to label %invoke.cont54 unwind label %lpad53
 
 invoke.cont54:                                    ; preds = %invoke.cont51
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp36, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp36, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52)
           to label %invoke.cont56 unwind label %lpad55
 
 invoke.cont56:                                    ; preds = %invoke.cont54
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i60)
   %_M_string_length.i.i61 = getelementptr inbounds i8, ptr %ref.tmp36, i64 8
   %10 = load i64, ptr %_M_string_length.i.i61, align 8, !noalias !196
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i60, i64 noundef %10)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i60, i64 noundef %10)
           to label %.noexc69 unwind label %lpad57
 
 .noexc69:                                         ; preds = %invoke.cont56
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i60, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp36, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i60, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp36, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i63 unwind label %lpad.i62
 
 invoke.cont.i63:                                  ; preds = %.noexc69
@@ -14891,18 +14891,18 @@ lpad.i62:                                         ; preds = %.noexc69
 invoke.cont58:                                    ; preds = %if.then.i.i.i65, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i66
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i60) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i60)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont60 unwind label %lpad59
 
 invoke.cont60:                                    ; preds = %invoke.cont58
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i72)
   %_M_string_length.i.i73 = getelementptr inbounds i8, ptr %ref.tmp32, i64 8
   %15 = load i64, ptr %_M_string_length.i.i73, align 8, !noalias !199
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i72, i64 noundef %15)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i72, i64 noundef %15)
           to label %.noexc81 unwind label %lpad61
 
 .noexc81:                                         ; preds = %invoke.cont60
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %arrayinit.element, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i72, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %arrayinit.element, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i72, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i75 unwind label %lpad.i74
 
 invoke.cont.i75:                                  ; preds = %.noexc81
@@ -15525,7 +15525,7 @@ invoke.cont112:                                   ; preds = %if.then.i.i.i.i.i30
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i297)
   %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %98, i64 %i.0346
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp108, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp109, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp108, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp109, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont115 unwind label %lpad114
 
 invoke.cont115:                                   ; preds = %invoke.cont112
@@ -16648,15 +16648,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
   %conv.i154 = ashr exact i32 %sext, 24
   %or.i = or i32 %conv.i154, 8
   %conv1.i = zext i32 %or.i to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp28, i64 noundef %conv1.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp28, i64 noundef %conv1.i)
           to label %invoke.cont29 unwind label %lpad23
 
 invoke.cont29:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149
-  invoke fastcc void @_ZN12_GLOBAL__N_115GetDefaultValueB5cxx11EN6google8protobuf15FieldDescriptor4TypeE(ptr noalias nonnull align 8 %ref.tmp30, i32 noundef %key_type)
+  invoke fastcc void @_ZN12_GLOBAL__N_115GetDefaultValueB5cxx11EN6google8protobuf15FieldDescriptor4TypeE(ptr noalias align 8 %ref.tmp30, i32 noundef %key_type)
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %invoke.cont29
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %key1_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %key1_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %invoke.cont32
@@ -16700,15 +16700,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit166: ; preds = %_Z
   %conv.i167 = ashr exact i32 %sext903, 24
   %or.i168 = or i32 %conv.i167, 16
   %conv1.i169 = zext i32 %or.i168 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp37, i64 noundef %conv1.i169)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp37, i64 noundef %conv1.i169)
           to label %invoke.cont40 unwind label %lpad39
 
 invoke.cont40:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit166
-  invoke fastcc void @_ZN12_GLOBAL__N_115GetDefaultValueB5cxx11EN6google8protobuf15FieldDescriptor4TypeE(ptr noalias nonnull align 8 %ref.tmp41, i32 noundef %value_type)
+  invoke fastcc void @_ZN12_GLOBAL__N_115GetDefaultValueB5cxx11EN6google8protobuf15FieldDescriptor4TypeE(ptr noalias align 8 %ref.tmp41, i32 noundef %value_type)
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %invoke.cont40
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %value1_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %value1_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %invoke.cont43
@@ -16748,15 +16748,15 @@ if.then.i.i178:                                   ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i179, %if.then.i.i178
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp37) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp48, i64 noundef %conv1.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp48, i64 noundef %conv1.i)
           to label %invoke.cont51 unwind label %lpad50
 
 invoke.cont51:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182
-  invoke fastcc void @_ZN12_GLOBAL__N_118GetNonDefaultValueB5cxx11EN6google8protobuf15FieldDescriptor4TypeE(ptr noalias nonnull align 8 %ref.tmp52, i32 noundef %key_type)
+  invoke fastcc void @_ZN12_GLOBAL__N_118GetNonDefaultValueB5cxx11EN6google8protobuf15FieldDescriptor4TypeE(ptr noalias align 8 %ref.tmp52, i32 noundef %key_type)
           to label %invoke.cont54 unwind label %lpad53
 
 invoke.cont54:                                    ; preds = %invoke.cont51
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %key2_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %key2_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont56 unwind label %lpad55
 
 invoke.cont56:                                    ; preds = %invoke.cont54
@@ -16796,15 +16796,15 @@ if.then.i.i194:                                   ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit198: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i195, %if.then.i.i194
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp59, i64 noundef %conv1.i169)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp59, i64 noundef %conv1.i169)
           to label %invoke.cont62 unwind label %lpad61
 
 invoke.cont62:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit198
-  invoke fastcc void @_ZN12_GLOBAL__N_118GetNonDefaultValueB5cxx11EN6google8protobuf15FieldDescriptor4TypeE(ptr noalias nonnull align 8 %ref.tmp63, i32 noundef %value_type)
+  invoke fastcc void @_ZN12_GLOBAL__N_118GetNonDefaultValueB5cxx11EN6google8protobuf15FieldDescriptor4TypeE(ptr noalias align 8 %ref.tmp63, i32 noundef %value_type)
           to label %invoke.cont65 unwind label %lpad64
 
 invoke.cont65:                                    ; preds = %invoke.cont62
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %value2_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp59, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %value2_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp59, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont67 unwind label %lpad66
 
 invoke.cont67:                                    ; preds = %invoke.cont65
@@ -16968,21 +16968,21 @@ invoke.cont71:                                    ; preds = %for.body
   %shl.i = shl i32 %109, 3
   %or.i215 = or disjoint i32 %shl.i, 2
   %conv1.i216 = zext i32 %or.i215 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp73, i64 noundef %conv1.i216)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp73, i64 noundef %conv1.i216)
           to label %invoke.cont76 unwind label %lpad70
 
 invoke.cont76:                                    ; preds = %invoke.cont71
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp78, ptr noundef nonnull align 8 dereferenceable(32) %key1_data, ptr noundef nonnull align 8 dereferenceable(32) %value1_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp78, ptr noundef nonnull align 8 dereferenceable(32) %key1_data, ptr noundef nonnull align 8 dereferenceable(32) %value1_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont80 unwind label %lpad79
 
 invoke.cont80:                                    ; preds = %invoke.cont76
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %110 = load i64, ptr %_M_string_length.i.i218, align 8, !noalias !215
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i, i64 noundef %110)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i, i64 noundef %110)
           to label %.noexc unwind label %lpad81
 
 .noexc:                                           ; preds = %invoke.cont80
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp77, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp78, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp77, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp78, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
@@ -17009,7 +17009,7 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont82:                                    ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %proto, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp73, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %proto, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp73, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont84 unwind label %lpad83
 
 invoke.cont84:                                    ; preds = %invoke.cont82
@@ -17179,7 +17179,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit265: ; preds = %_Z
   %shl.i267 = shl i32 %131, 3
   %or.i268 = or disjoint i32 %shl.i267, 2
   %conv1.i269 = zext i32 %or.i268 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp109, i64 noundef %conv1.i269)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp109, i64 noundef %conv1.i269)
           to label %invoke.cont112 unwind label %lpad70
 
 invoke.cont112:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit265
@@ -17190,11 +17190,11 @@ invoke.cont112:                                   ; preds = %_ZNSt7__cxx1112basi
 invoke.cont117:                                   ; preds = %invoke.cont112
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i272)
   %132 = load i64, ptr %_M_string_length.i.i273, align 8, !noalias !221
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i272, i64 noundef %132)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i272, i64 noundef %132)
           to label %.noexc281 unwind label %lpad118
 
 .noexc281:                                        ; preds = %invoke.cont117
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp113, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i272, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp114, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp113, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i272, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp114, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i275 unwind label %lpad.i274
 
 invoke.cont.i275:                                 ; preds = %.noexc281
@@ -17221,7 +17221,7 @@ lpad.i274:                                        ; preds = %.noexc281
 invoke.cont119:                                   ; preds = %if.then.i.i.i277, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i278
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i272) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i272)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %proto108, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp109, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp113, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %proto108, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp109, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp113, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont121 unwind label %lpad120
 
 invoke.cont121:                                   ; preds = %invoke.cont119
@@ -17392,21 +17392,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit346: ; preds = %_Z
   %shl.i348 = shl i32 %153, 3
   %or.i349 = or disjoint i32 %shl.i348, 2
   %conv1.i350 = zext i32 %or.i349 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp149, i64 noundef %conv1.i350)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp149, i64 noundef %conv1.i350)
           to label %invoke.cont152 unwind label %lpad70
 
 invoke.cont152:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit346
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp154, ptr noundef nonnull align 8 dereferenceable(32) %key2_data, ptr noundef nonnull align 8 dereferenceable(32) %value2_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp154, ptr noundef nonnull align 8 dereferenceable(32) %key2_data, ptr noundef nonnull align 8 dereferenceable(32) %value2_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont156 unwind label %lpad155
 
 invoke.cont156:                                   ; preds = %invoke.cont152
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i353)
   %154 = load i64, ptr %_M_string_length.i.i354, align 8, !noalias !227
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i353, i64 noundef %154)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i353, i64 noundef %154)
           to label %.noexc362 unwind label %lpad157
 
 .noexc362:                                        ; preds = %invoke.cont156
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp153, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i353, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp154, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp153, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i353, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp154, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i356 unwind label %lpad.i355
 
 invoke.cont.i356:                                 ; preds = %.noexc362
@@ -17433,7 +17433,7 @@ lpad.i355:                                        ; preds = %.noexc362
 invoke.cont158:                                   ; preds = %if.then.i.i.i358, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i359
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i353) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i353)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %proto148, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp149, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp153, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %proto148, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp149, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp153, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont160 unwind label %lpad159
 
 invoke.cont160:                                   ; preds = %invoke.cont158
@@ -17603,21 +17603,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit427: ; preds = %_Z
   %shl.i429 = shl i32 %175, 3
   %or.i430 = or disjoint i32 %shl.i429, 2
   %conv1.i431 = zext i32 %or.i430 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp187, i64 noundef %conv1.i431)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp187, i64 noundef %conv1.i431)
           to label %invoke.cont190 unwind label %lpad70
 
 invoke.cont190:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit427
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp192, ptr noundef nonnull align 8 dereferenceable(32) %value2_data, ptr noundef nonnull align 8 dereferenceable(32) %key2_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp192, ptr noundef nonnull align 8 dereferenceable(32) %value2_data, ptr noundef nonnull align 8 dereferenceable(32) %key2_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont194 unwind label %lpad193
 
 invoke.cont194:                                   ; preds = %invoke.cont190
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i434)
   %176 = load i64, ptr %_M_string_length.i.i435, align 8, !noalias !233
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i434, i64 noundef %176)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i434, i64 noundef %176)
           to label %.noexc443 unwind label %lpad195
 
 .noexc443:                                        ; preds = %invoke.cont194
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp191, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i434, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp192, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp191, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i434, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp192, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i437 unwind label %lpad.i436
 
 invoke.cont.i437:                                 ; preds = %.noexc443
@@ -17644,7 +17644,7 @@ lpad.i436:                                        ; preds = %.noexc443
 invoke.cont196:                                   ; preds = %if.then.i.i.i439, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i440
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i434) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i434)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %proto186, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp187, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp191, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %proto186, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp187, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp191, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont198 unwind label %lpad197
 
 invoke.cont198:                                   ; preds = %invoke.cont196
@@ -17814,21 +17814,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit508: ; preds = %_Z
   %shl.i510 = shl i32 %197, 3
   %or.i511 = or disjoint i32 %shl.i510, 2
   %conv1.i512 = zext i32 %or.i511 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp224, i64 noundef %conv1.i512)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp224, i64 noundef %conv1.i512)
           to label %invoke.cont227 unwind label %lpad70
 
 invoke.cont227:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit508
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp229, ptr noundef nonnull align 8 dereferenceable(32) %key2_data, ptr noundef nonnull align 8 dereferenceable(32) %value1_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp229, ptr noundef nonnull align 8 dereferenceable(32) %key2_data, ptr noundef nonnull align 8 dereferenceable(32) %value1_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont231 unwind label %lpad230
 
 invoke.cont231:                                   ; preds = %invoke.cont227
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i515)
   %198 = load i64, ptr %_M_string_length.i.i516, align 8, !noalias !239
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i515, i64 noundef %198)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i515, i64 noundef %198)
           to label %.noexc524 unwind label %lpad232
 
 .noexc524:                                        ; preds = %invoke.cont231
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp228, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i515, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp229, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp228, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i515, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp229, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i518 unwind label %lpad.i517
 
 invoke.cont.i518:                                 ; preds = %.noexc524
@@ -17855,7 +17855,7 @@ lpad.i517:                                        ; preds = %.noexc524
 invoke.cont233:                                   ; preds = %if.then.i.i.i520, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i521
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i515) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i515)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %proto1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp224, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp228, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %proto1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp224, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp228, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont235 unwind label %lpad234
 
 invoke.cont235:                                   ; preds = %invoke.cont233
@@ -17911,21 +17911,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit547: ; preds = %_Z
   %shl.i549 = shl i32 %208, 3
   %or.i550 = or disjoint i32 %shl.i549, 2
   %conv1.i551 = zext i32 %or.i550 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp239, i64 noundef %conv1.i551)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp239, i64 noundef %conv1.i551)
           to label %invoke.cont243 unwind label %lpad240
 
 invoke.cont243:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit547
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp245, ptr noundef nonnull align 8 dereferenceable(32) %key2_data, ptr noundef nonnull align 8 dereferenceable(32) %value2_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp245, ptr noundef nonnull align 8 dereferenceable(32) %key2_data, ptr noundef nonnull align 8 dereferenceable(32) %value2_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont247 unwind label %lpad246
 
 invoke.cont247:                                   ; preds = %invoke.cont243
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i554)
   %209 = load i64, ptr %_M_string_length.i.i555, align 8, !noalias !242
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i554, i64 noundef %209)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i554, i64 noundef %209)
           to label %.noexc563 unwind label %lpad248
 
 .noexc563:                                        ; preds = %invoke.cont247
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp244, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i554, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp245, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp244, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i554, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp245, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i557 unwind label %lpad.i556
 
 invoke.cont.i557:                                 ; preds = %.noexc563
@@ -17952,7 +17952,7 @@ lpad.i556:                                        ; preds = %.noexc563
 invoke.cont249:                                   ; preds = %if.then.i.i.i559, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i560
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i554) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i554)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %proto2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp239, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp244, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %proto2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp239, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp244, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont251 unwind label %lpad250
 
 invoke.cont251:                                   ; preds = %invoke.cont249
@@ -18004,7 +18004,7 @@ if.then.i.i581:                                   ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit586: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i583, %if.then.i.i581
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp239) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %proto255, ptr noundef nonnull align 8 dereferenceable(32) %proto1, ptr noundef nonnull align 8 dereferenceable(32) %proto2, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %proto255, ptr noundef nonnull align 8 dereferenceable(32) %proto1, ptr noundef nonnull align 8 dereferenceable(32) %proto2, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont257 unwind label %lpad256
 
 invoke.cont257:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit586
@@ -18158,21 +18158,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit642: ; preds = %_Z
   %shl.i644 = shl i32 %234, 3
   %or.i645 = or disjoint i32 %shl.i644, 2
   %conv1.i646 = zext i32 %or.i645 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp283, i64 noundef %conv1.i646)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp283, i64 noundef %conv1.i646)
           to label %invoke.cont286 unwind label %lpad70
 
 invoke.cont286:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit642
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp288, ptr noundef nonnull align 8 dereferenceable(32) %key1_data, ptr noundef nonnull align 8 dereferenceable(32) %key2_data, ptr noundef nonnull align 8 dereferenceable(32) %value2_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp288, ptr noundef nonnull align 8 dereferenceable(32) %key1_data, ptr noundef nonnull align 8 dereferenceable(32) %key2_data, ptr noundef nonnull align 8 dereferenceable(32) %value2_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont290 unwind label %lpad289
 
 invoke.cont290:                                   ; preds = %invoke.cont286
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i649)
   %235 = load i64, ptr %_M_string_length.i.i650, align 8, !noalias !248
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i649, i64 noundef %235)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i649, i64 noundef %235)
           to label %.noexc658 unwind label %lpad291
 
 .noexc658:                                        ; preds = %invoke.cont290
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp287, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i649, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp288, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp287, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i649, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp288, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i652 unwind label %lpad.i651
 
 invoke.cont.i652:                                 ; preds = %.noexc658
@@ -18199,7 +18199,7 @@ lpad.i651:                                        ; preds = %.noexc658
 invoke.cont292:                                   ; preds = %if.then.i.i.i654, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i655
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i649) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i649)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %proto282, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp283, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp287, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %proto282, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp283, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp287, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont294 unwind label %lpad293
 
 invoke.cont294:                                   ; preds = %invoke.cont292
@@ -18369,21 +18369,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit723: ; preds = %_Z
   %shl.i725 = shl i32 %256, 3
   %or.i726 = or disjoint i32 %shl.i725, 2
   %conv1.i727 = zext i32 %or.i726 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp321, i64 noundef %conv1.i727)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp321, i64 noundef %conv1.i727)
           to label %invoke.cont324 unwind label %lpad70
 
 invoke.cont324:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit723
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp326, ptr noundef nonnull align 8 dereferenceable(32) %key2_data, ptr noundef nonnull align 8 dereferenceable(32) %value1_data, ptr noundef nonnull align 8 dereferenceable(32) %value2_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp326, ptr noundef nonnull align 8 dereferenceable(32) %key2_data, ptr noundef nonnull align 8 dereferenceable(32) %value1_data, ptr noundef nonnull align 8 dereferenceable(32) %value2_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont328 unwind label %lpad327
 
 invoke.cont328:                                   ; preds = %invoke.cont324
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i730)
   %257 = load i64, ptr %_M_string_length.i.i731, align 8, !noalias !254
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i730, i64 noundef %257)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i730, i64 noundef %257)
           to label %.noexc739 unwind label %lpad329
 
 .noexc739:                                        ; preds = %invoke.cont328
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp325, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i730, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp326, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp325, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i730, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp326, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i733 unwind label %lpad.i732
 
 invoke.cont.i733:                                 ; preds = %.noexc739
@@ -18410,7 +18410,7 @@ lpad.i732:                                        ; preds = %.noexc739
 invoke.cont330:                                   ; preds = %if.then.i.i.i735, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i736
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i730) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i730)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %proto320, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp321, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp325, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %proto320, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp321, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp325, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont332 unwind label %lpad331
 
 invoke.cont332:                                   ; preds = %invoke.cont330
@@ -19309,7 +19309,7 @@ eh.resume:                                        ; preds = %ehcleanup363, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115GetDefaultValueB5cxx11EN6google8protobuf15FieldDescriptor4TypeE(ptr noalias align 8 %agg.result, i32 noundef %type) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115GetDefaultValueB5cxx11EN6google8protobuf15FieldDescriptor4TypeE(ptr noalias nonnull align 8 %agg.result, i32 noundef %type) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i.i10 = alloca %"class.std::allocator", align 1
@@ -19428,7 +19428,7 @@ invoke.cont:                                      ; preds = %sw.bb7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %4 = load i64, ptr %_M_string_length.i.i, align 8, !noalias !289
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i, i64 noundef %4)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i, i64 noundef %4)
           to label %.noexc unwind label %lpad9
 
 .noexc:                                           ; preds = %invoke.cont
@@ -19521,7 +19521,7 @@ eh.resume:                                        ; preds = %lpad, %lpad9.body, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118GetNonDefaultValueB5cxx11EN6google8protobuf15FieldDescriptor4TypeE(ptr noalias align 8 %agg.result, i32 noundef %type) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118GetNonDefaultValueB5cxx11EN6google8protobuf15FieldDescriptor4TypeE(ptr noalias nonnull align 8 %agg.result, i32 noundef %type) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i17 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19644,7 +19644,7 @@ invoke.cont:                                      ; preds = %sw.bb7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %4 = load i64, ptr %_M_string_length.i.i, align 8, !noalias !320
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i, i64 noundef %4)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i, i64 noundef %4)
           to label %.noexc unwind label %lpad9
 
 .noexc:                                           ; preds = %invoke.cont
@@ -19718,19 +19718,19 @@ ehcleanup:                                        ; preds = %lpad9.body, %lpad
   br label %eh.resume
 
 sw.bb11:                                          ; preds = %entry
-  call fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp13, i64 noundef 8)
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp14, i64 noundef 1234)
+  call fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp13, i64 noundef 8)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp14, i64 noundef 1234)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %sw.bb11
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i17)
   %_M_string_length.i.i18 = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
   %14 = load i64, ptr %_M_string_length.i.i18, align 8, !noalias !323
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i17, i64 noundef %14)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i17, i64 noundef %14)
           to label %.noexc26 unwind label %lpad19
 
 .noexc26:                                         ; preds = %invoke.cont18
@@ -20897,7 +20897,7 @@ entry:
   %text = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp135 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp136 = alloca %"class.std::allocator", align 1
-  call fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp, i64 noundef 10)
+  call fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp, i64 noundef 10)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.28, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %invoke.cont unwind label %lpad
@@ -20906,11 +20906,11 @@ invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   %0 = load i64, ptr %_M_string_length.i.i, align 8, !noalias !348
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i, i64 noundef %0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i, i64 noundef %0)
           to label %.noexc unwind label %lpad5
 
 .noexc:                                           ; preds = %invoke.cont
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
@@ -20939,7 +20939,7 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont6:                                     ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %key_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %key_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont6
@@ -20997,15 +20997,15 @@ if.then.i.i53:                                    ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i55, %if.then.i.i53
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp11, i64 noundef 8)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp11, i64 noundef 8)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp14, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp14, i64 noundef 1)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont13
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %field1_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %field1_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont16
@@ -21045,15 +21045,15 @@ if.then.i.i68:                                    ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i70, %if.then.i.i68
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp21, i64 noundef 16)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp21, i64 noundef 16)
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp24, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp24, i64 noundef 1)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %invoke.cont23
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %field2_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %field2_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont26
@@ -21093,15 +21093,15 @@ if.then.i.i84:                                    ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i86, %if.then.i.i84
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp31, i64 noundef 248)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp31, i64 noundef 248)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp34, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp34, i64 noundef 1)
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %invoke.cont33
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %field31_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %field31_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont38 unwind label %lpad37
 
 invoke.cont38:                                    ; preds = %invoke.cont36
@@ -21141,18 +21141,18 @@ if.then.i.i100:                                   ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i102, %if.then.i.i100
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp31) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(32) %field1_data, ptr noundef nonnull align 8 dereferenceable(32) %field31_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(32) %field1_data, ptr noundef nonnull align 8 dereferenceable(32) %field31_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i106)
   %_M_string_length.i.i107 = getelementptr inbounds i8, ptr %ref.tmp41, i64 8
   %32 = load i64, ptr %_M_string_length.i.i107, align 8, !noalias !351
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i106, i64 noundef %32)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i106, i64 noundef %32)
           to label %.noexc115 unwind label %lpad44
 
 .noexc115:                                        ; preds = %invoke.cont43
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %submsg1_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i106, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %submsg1_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i106, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i109 unwind label %lpad.i108
 
 invoke.cont.i109:                                 ; preds = %.noexc115
@@ -21198,18 +21198,18 @@ if.then.i.i119:                                   ; preds = %invoke.cont45
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i121, %if.then.i.i119
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp41) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp47, ptr noundef nonnull align 8 dereferenceable(32) %field2_data, ptr noundef nonnull align 8 dereferenceable(32) %field31_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp47, ptr noundef nonnull align 8 dereferenceable(32) %field2_data, ptr noundef nonnull align 8 dereferenceable(32) %field31_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont49 unwind label %lpad48
 
 invoke.cont49:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i125)
   %_M_string_length.i.i126 = getelementptr inbounds i8, ptr %ref.tmp47, i64 8
   %40 = load i64, ptr %_M_string_length.i.i126, align 8, !noalias !354
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i125, i64 noundef %40)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i125, i64 noundef %40)
           to label %.noexc134 unwind label %lpad50
 
 .noexc134:                                        ; preds = %invoke.cont49
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %submsg2_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i125, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp47, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %submsg2_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i125, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp47, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i128 unwind label %lpad.i127
 
 invoke.cont.i128:                                 ; preds = %.noexc134
@@ -21255,26 +21255,26 @@ if.then.i.i138:                                   ; preds = %invoke.cont51
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i140, %if.then.i.i138
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp47) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp53, i64 noundef 18)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp53, i64 noundef 18)
           to label %invoke.cont55 unwind label %lpad54
 
 invoke.cont55:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp58, i64 noundef 18)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp58, i64 noundef 18)
           to label %invoke.cont60 unwind label %lpad59
 
 invoke.cont60:                                    ; preds = %invoke.cont55
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp57, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp58, ptr noundef nonnull align 8 dereferenceable(32) %submsg1_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp57, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp58, ptr noundef nonnull align 8 dereferenceable(32) %submsg1_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont62 unwind label %lpad61
 
 invoke.cont62:                                    ; preds = %invoke.cont60
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i148)
   %_M_string_length.i.i149 = getelementptr inbounds i8, ptr %ref.tmp57, i64 8
   %48 = load i64, ptr %_M_string_length.i.i149, align 8, !noalias !357
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i148, i64 noundef %48)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i148, i64 noundef %48)
           to label %.noexc157 unwind label %lpad63
 
 .noexc157:                                        ; preds = %invoke.cont62
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i148, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp57, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i148, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp57, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i151 unwind label %lpad.i150
 
 invoke.cont.i151:                                 ; preds = %.noexc157
@@ -21303,7 +21303,7 @@ lpad.i150:                                        ; preds = %.noexc157
 invoke.cont64:                                    ; preds = %if.then.i.i.i153, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i154
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i148) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i148)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %value1_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %value1_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont66 unwind label %lpad65
 
 invoke.cont66:                                    ; preds = %invoke.cont64
@@ -21378,26 +21378,26 @@ if.then.i.i182:                                   ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit187: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i184, %if.then.i.i182
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp53) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp71, i64 noundef 18)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp71, i64 noundef 18)
           to label %invoke.cont73 unwind label %lpad72
 
 invoke.cont73:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit187
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp76, i64 noundef 18)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp76, i64 noundef 18)
           to label %invoke.cont78 unwind label %lpad77
 
 invoke.cont78:                                    ; preds = %invoke.cont73
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp75, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76, ptr noundef nonnull align 8 dereferenceable(32) %submsg2_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp75, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76, ptr noundef nonnull align 8 dereferenceable(32) %submsg2_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont80 unwind label %lpad79
 
 invoke.cont80:                                    ; preds = %invoke.cont78
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i192)
   %_M_string_length.i.i193 = getelementptr inbounds i8, ptr %ref.tmp75, i64 8
   %65 = load i64, ptr %_M_string_length.i.i193, align 8, !noalias !360
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i192, i64 noundef %65)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i192, i64 noundef %65)
           to label %.noexc201 unwind label %lpad81
 
 .noexc201:                                        ; preds = %invoke.cont80
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp74, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i192, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp75, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp74, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i192, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp75, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i195 unwind label %lpad.i194
 
 invoke.cont.i195:                                 ; preds = %.noexc201
@@ -21426,7 +21426,7 @@ lpad.i194:                                        ; preds = %.noexc201
 invoke.cont82:                                    ; preds = %if.then.i.i.i197, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i198
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i192) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i192)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %value2_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp71, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %value2_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp71, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont84 unwind label %lpad83
 
 invoke.cont84:                                    ; preds = %invoke.cont82
@@ -21541,21 +21541,21 @@ invoke.cont90:                                    ; preds = %for.body
   %shl.i = shl i32 %95, 3
   %or.i = or disjoint i32 %shl.i, 2
   %conv1.i = zext i32 %or.i to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp91, i64 noundef %conv1.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp91, i64 noundef %conv1.i)
           to label %invoke.cont94 unwind label %lpad89
 
 invoke.cont94:                                    ; preds = %invoke.cont90
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp96, ptr noundef nonnull align 8 dereferenceable(32) %key_data, ptr noundef nonnull align 8 dereferenceable(32) %value1_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp96, ptr noundef nonnull align 8 dereferenceable(32) %key_data, ptr noundef nonnull align 8 dereferenceable(32) %value1_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont98 unwind label %lpad97
 
 invoke.cont98:                                    ; preds = %invoke.cont94
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i234)
   %96 = load i64, ptr %_M_string_length.i.i235, align 8, !noalias !363
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i234, i64 noundef %96)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i234, i64 noundef %96)
           to label %.noexc243 unwind label %lpad99
 
 .noexc243:                                        ; preds = %invoke.cont98
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp95, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i234, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp96, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp95, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i234, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp96, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i237 unwind label %lpad.i236
 
 invoke.cont.i237:                                 ; preds = %.noexc243
@@ -21582,7 +21582,7 @@ lpad.i236:                                        ; preds = %.noexc243
 invoke.cont100:                                   ; preds = %if.then.i.i.i239, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i240
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i234) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i234)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %proto1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp91, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp95, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %proto1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp91, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp95, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont102 unwind label %lpad101
 
 invoke.cont102:                                   ; preds = %invoke.cont100
@@ -21638,21 +21638,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266: ; preds = %_Z
   %shl.i268 = shl i32 %106, 3
   %or.i269 = or disjoint i32 %shl.i268, 2
   %conv1.i270 = zext i32 %or.i269 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp106, i64 noundef %conv1.i270)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp106, i64 noundef %conv1.i270)
           to label %invoke.cont110 unwind label %lpad107
 
 invoke.cont110:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp112, ptr noundef nonnull align 8 dereferenceable(32) %key_data, ptr noundef nonnull align 8 dereferenceable(32) %value2_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp112, ptr noundef nonnull align 8 dereferenceable(32) %key_data, ptr noundef nonnull align 8 dereferenceable(32) %value2_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont114 unwind label %lpad113
 
 invoke.cont114:                                   ; preds = %invoke.cont110
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i273)
   %107 = load i64, ptr %_M_string_length.i.i274, align 8, !noalias !366
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i273, i64 noundef %107)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i273, i64 noundef %107)
           to label %.noexc282 unwind label %lpad115
 
 .noexc282:                                        ; preds = %invoke.cont114
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp111, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i273, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp112, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp111, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i273, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp112, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i276 unwind label %lpad.i275
 
 invoke.cont.i276:                                 ; preds = %.noexc282
@@ -21679,7 +21679,7 @@ lpad.i275:                                        ; preds = %.noexc282
 invoke.cont116:                                   ; preds = %if.then.i.i.i278, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i279
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i273) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i273)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %proto2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp106, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp111, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %proto2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp106, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp111, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont118 unwind label %lpad117
 
 invoke.cont118:                                   ; preds = %invoke.cont116
@@ -21731,7 +21731,7 @@ if.then.i.i300:                                   ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit305: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i302, %if.then.i.i300
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp106) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %proto, ptr noundef nonnull align 8 dereferenceable(32) %proto1, ptr noundef nonnull align 8 dereferenceable(32) %proto2, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %proto, ptr noundef nonnull align 8 dereferenceable(32) %proto1, ptr noundef nonnull align 8 dereferenceable(32) %proto2, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont123 unwind label %lpad122
 
 invoke.cont123:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit305
@@ -22595,15 +22595,15 @@ invoke.cont12:                                    ; preds = %for.body
   %shl.i = shl i32 %45, 3
   %or.i = or i32 %shl.i, %conv.i67
   %conv1.i = zext i32 %or.i to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp14, i64 noundef %conv1.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp14, i64 noundef %conv1.i)
           to label %invoke.cont17 unwind label %lpad9
 
 invoke.cont17:                                    ; preds = %invoke.cont12
-  invoke fastcc void @_ZN12_GLOBAL__N_115GetDefaultValueB5cxx11EN6google8protobuf15FieldDescriptor4TypeE(ptr noalias nonnull align 8 %ref.tmp18, i32 noundef %type)
+  invoke fastcc void @_ZN12_GLOBAL__N_115GetDefaultValueB5cxx11EN6google8protobuf15FieldDescriptor4TypeE(ptr noalias align 8 %ref.tmp18, i32 noundef %type)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont17
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %default_value, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %default_value, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont20
@@ -22643,15 +22643,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %_ZN
   %shl.i81 = shl i32 %50, 3
   %or.i83 = or i32 %shl.i81, %conv.i67
   %conv1.i84 = zext i32 %or.i83 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp25, i64 noundef %conv1.i84)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp25, i64 noundef %conv1.i84)
           to label %invoke.cont30 unwind label %lpad26
 
 invoke.cont30:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79
-  invoke fastcc void @_ZN12_GLOBAL__N_118GetNonDefaultValueB5cxx11EN6google8protobuf15FieldDescriptor4TypeE(ptr noalias nonnull align 8 %ref.tmp31, i32 noundef %type)
+  invoke fastcc void @_ZN12_GLOBAL__N_118GetNonDefaultValueB5cxx11EN6google8protobuf15FieldDescriptor4TypeE(ptr noalias align 8 %ref.tmp31, i32 noundef %type)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont30
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %non_default_value, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %non_default_value, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont33
@@ -23203,15 +23203,15 @@ invoke.cont132:                                   ; preds = %_ZN6google8protobuf
   %conv.i239 = ashr exact i32 %sext373, 24
   %or.i240 = or i32 %shl.i238, %conv.i239
   %conv1.i241 = zext i32 %or.i240 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp136, i64 noundef %conv1.i241)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp136, i64 noundef %conv1.i241)
           to label %invoke.cont140 unwind label %lpad38
 
 invoke.cont140:                                   ; preds = %invoke.cont132
-  invoke fastcc void @_ZN12_GLOBAL__N_115GetDefaultValueB5cxx11EN6google8protobuf15FieldDescriptor4TypeE(ptr noalias nonnull align 8 %ref.tmp141, i32 noundef %97)
+  invoke fastcc void @_ZN12_GLOBAL__N_115GetDefaultValueB5cxx11EN6google8protobuf15FieldDescriptor4TypeE(ptr noalias align 8 %ref.tmp141, i32 noundef %97)
           to label %invoke.cont143 unwind label %lpad142
 
 invoke.cont143:                                   ; preds = %invoke.cont140
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %other_value, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp136, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp141, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %other_value, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp136, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp141, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont145 unwind label %lpad144
 
 invoke.cont145:                                   ; preds = %invoke.cont143
@@ -24815,12 +24815,12 @@ entry:
   %ref.tmp128 = alloca %"class.std::allocator", align 1
   %ref.tmp136 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp137 = alloca %"class.std::allocator", align 1
-  call fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp, i64 noundef 8)
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp2, i64 noundef 1)
+  call fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp, i64 noundef 8)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp2, i64 noundef 1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %field1_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %field1_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -24860,15 +24860,15 @@ if.then.i.i49:                                    ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i50, %if.then.i.i49
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp5, i64 noundef 16)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp5, i64 noundef 16)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp8, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp8, i64 noundef 1)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont7
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %field2a_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %field2a_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -24908,15 +24908,15 @@ if.then.i.i61:                                    ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i62, %if.then.i.i61
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp15, i64 noundef 16)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp15, i64 noundef 16)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp18, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp18, i64 noundef 1)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont17
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %field2b_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %field2b_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont20
@@ -24956,15 +24956,15 @@ if.then.i.i74:                                    ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i75, %if.then.i.i74
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp25, i64 noundef 712)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp25, i64 noundef 712)
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp28, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp28, i64 noundef 1)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont27
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %field89_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %field89_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %invoke.cont30
@@ -25004,22 +25004,22 @@ if.then.i.i87:                                    ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i88, %if.then.i.i87
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp35, i64 noundef 18)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp35, i64 noundef 18)
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(32) %field1_data, ptr noundef nonnull align 8 dereferenceable(32) %field2a_data, ptr noundef nonnull align 8 dereferenceable(32) %field89_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(32) %field1_data, ptr noundef nonnull align 8 dereferenceable(32) %field2a_data, ptr noundef nonnull align 8 dereferenceable(32) %field89_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %invoke.cont37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %ref.tmp39, i64 8
   %24 = load i64, ptr %_M_string_length.i.i, align 8, !noalias !414
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i, i64 noundef %24)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i, i64 noundef %24)
           to label %.noexc unwind label %lpad42
 
 .noexc:                                           ; preds = %invoke.cont41
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
@@ -25048,7 +25048,7 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont43:                                    ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %submsg1_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %submsg1_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %invoke.cont43
@@ -25105,22 +25105,22 @@ if.then.i.i108:                                   ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i110, %if.then.i.i108
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp49, i64 noundef 18)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp49, i64 noundef 18)
           to label %invoke.cont51 unwind label %lpad50
 
 invoke.cont51:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp53, ptr noundef nonnull align 8 dereferenceable(32) %field2b_data, ptr noundef nonnull align 8 dereferenceable(32) %field89_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp53, ptr noundef nonnull align 8 dereferenceable(32) %field2b_data, ptr noundef nonnull align 8 dereferenceable(32) %field89_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont55 unwind label %lpad54
 
 invoke.cont55:                                    ; preds = %invoke.cont51
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i116)
   %_M_string_length.i.i117 = getelementptr inbounds i8, ptr %ref.tmp53, i64 8
   %38 = load i64, ptr %_M_string_length.i.i117, align 8, !noalias !417
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i116, i64 noundef %38)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i116, i64 noundef %38)
           to label %.noexc125 unwind label %lpad56
 
 .noexc125:                                        ; preds = %invoke.cont55
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i116, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp53, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i116, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp53, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i119 unwind label %lpad.i118
 
 invoke.cont.i119:                                 ; preds = %.noexc125
@@ -25149,7 +25149,7 @@ lpad.i118:                                        ; preds = %.noexc125
 invoke.cont57:                                    ; preds = %if.then.i.i.i121, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i122
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i116) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i116)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %submsg2_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %submsg2_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont59 unwind label %lpad58
 
 invoke.cont59:                                    ; preds = %invoke.cont57
@@ -25206,22 +25206,22 @@ if.then.i.i143:                                   ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i145, %if.then.i.i143
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp49) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp63, i64 noundef 18)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp63, i64 noundef 18)
           to label %invoke.cont65 unwind label %lpad64
 
 invoke.cont65:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(32) %field1_data, ptr noundef nonnull align 8 dereferenceable(32) %field2b_data, ptr noundef nonnull align 8 dereferenceable(32) %field89_data, ptr noundef nonnull align 8 dereferenceable(32) %field89_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(32) %field1_data, ptr noundef nonnull align 8 dereferenceable(32) %field2b_data, ptr noundef nonnull align 8 dereferenceable(32) %field89_data, ptr noundef nonnull align 8 dereferenceable(32) %field89_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont69 unwind label %lpad68
 
 invoke.cont69:                                    ; preds = %invoke.cont65
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i151)
   %_M_string_length.i.i152 = getelementptr inbounds i8, ptr %ref.tmp67, i64 8
   %52 = load i64, ptr %_M_string_length.i.i152, align 8, !noalias !420
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i151, i64 noundef %52)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i151, i64 noundef %52)
           to label %.noexc160 unwind label %lpad70
 
 .noexc160:                                        ; preds = %invoke.cont69
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp66, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i151, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp66, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i151, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i154 unwind label %lpad.i153
 
 invoke.cont.i154:                                 ; preds = %.noexc160
@@ -25250,7 +25250,7 @@ lpad.i153:                                        ; preds = %.noexc160
 invoke.cont71:                                    ; preds = %if.then.i.i.i156, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i157
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i151) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i151)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %merged_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %merged_data, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont73 unwind label %lpad72
 
 invoke.cont73:                                    ; preds = %invoke.cont71
@@ -25356,17 +25356,17 @@ invoke.cont78:                                    ; preds = %for.body
   %shl.i = shl i32 %82, 3
   %or.i = or disjoint i32 %shl.i, 2
   %conv1.i = zext i32 %or.i to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp79, i64 noundef %conv1.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp79, i64 noundef %conv1.i)
           to label %invoke.cont82 unwind label %lpad77
 
 invoke.cont82:                                    ; preds = %invoke.cont78
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i186)
   %83 = load i64, ptr %_M_string_length.i.i187, align 8, !noalias !423
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i186, i64 noundef %83)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i186, i64 noundef %83)
           to label %.noexc195 unwind label %lpad84
 
 .noexc195:                                        ; preds = %invoke.cont82
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp83, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i186, ptr noundef nonnull readonly align 8 dereferenceable(32) %submsg1_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp83, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i186, ptr noundef nonnull readonly align 8 dereferenceable(32) %submsg1_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i189 unwind label %lpad.i188
 
 invoke.cont.i189:                                 ; preds = %.noexc195
@@ -25393,7 +25393,7 @@ lpad.i188:                                        ; preds = %.noexc195
 invoke.cont85:                                    ; preds = %if.then.i.i.i191, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i192
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i186) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i186)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %proto1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp79, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp83, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %proto1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp79, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp83, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont87 unwind label %lpad86
 
 invoke.cont87:                                    ; preds = %invoke.cont85
@@ -25433,17 +25433,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit211: ; preds = %_Z
   %shl.i213 = shl i32 %91, 3
   %or.i214 = or disjoint i32 %shl.i213, 2
   %conv1.i215 = zext i32 %or.i214 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp90, i64 noundef %conv1.i215)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp90, i64 noundef %conv1.i215)
           to label %invoke.cont94 unwind label %lpad91
 
 invoke.cont94:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit211
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i218)
   %92 = load i64, ptr %_M_string_length.i.i219, align 8, !noalias !426
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i218, i64 noundef %92)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i218, i64 noundef %92)
           to label %.noexc227 unwind label %lpad96
 
 .noexc227:                                        ; preds = %invoke.cont94
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp95, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i218, ptr noundef nonnull readonly align 8 dereferenceable(32) %submsg2_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp95, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i218, ptr noundef nonnull readonly align 8 dereferenceable(32) %submsg2_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i221 unwind label %lpad.i220
 
 invoke.cont.i221:                                 ; preds = %.noexc227
@@ -25470,7 +25470,7 @@ lpad.i220:                                        ; preds = %.noexc227
 invoke.cont97:                                    ; preds = %if.then.i.i.i223, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i224
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i218) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i218)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %proto2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp90, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp95, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %proto2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp90, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp95, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont99 unwind label %lpad98
 
 invoke.cont99:                                    ; preds = %invoke.cont97
@@ -25506,7 +25506,7 @@ if.then.i.i238:                                   ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit243: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i240, %if.then.i.i238
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp90) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %proto, ptr noundef nonnull align 8 dereferenceable(32) %proto1, ptr noundef nonnull align 8 dereferenceable(32) %proto2, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %proto, ptr noundef nonnull align 8 dereferenceable(32) %proto1, ptr noundef nonnull align 8 dereferenceable(32) %proto2, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont103 unwind label %lpad102
 
 invoke.cont103:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit243
@@ -25514,17 +25514,17 @@ invoke.cont103:                                   ; preds = %_ZNSt7__cxx1112basi
   %shl.i245 = shl i32 %100, 3
   %or.i246 = or disjoint i32 %shl.i245, 2
   %conv1.i247 = zext i32 %or.i246 to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp104, i64 noundef %conv1.i247)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp104, i64 noundef %conv1.i247)
           to label %invoke.cont108 unwind label %lpad105
 
 invoke.cont108:                                   ; preds = %invoke.cont103
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i250)
   %101 = load i64, ptr %_M_string_length.i.i251, align 8, !noalias !429
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i250, i64 noundef %101)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i250, i64 noundef %101)
           to label %.noexc259 unwind label %lpad110
 
 .noexc259:                                        ; preds = %invoke.cont108
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp109, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i250, ptr noundef nonnull readonly align 8 dereferenceable(32) %merged_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp109, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i250, ptr noundef nonnull readonly align 8 dereferenceable(32) %merged_data, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i253 unwind label %lpad.i252
 
 invoke.cont.i253:                                 ; preds = %.noexc259
@@ -25551,7 +25551,7 @@ lpad.i252:                                        ; preds = %.noexc259
 invoke.cont111:                                   ; preds = %if.then.i.i.i255, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i256
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i250) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i250)
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %expected_proto, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp104, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp109, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %expected_proto, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp104, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp109, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont113 unwind label %lpad112
 
 invoke.cont113:                                   ; preds = %invoke.cont111
@@ -26453,12 +26453,12 @@ entry:
   %proto = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp22 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp23 = alloca %"class.std::allocator", align 1
-  call fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp, i64 noundef 5328)
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp2, i64 noundef 1234)
+  call fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp, i64 noundef 5328)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp2, i64 noundef 1234)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %unknown_field_1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %unknown_field_1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -26498,15 +26498,15 @@ if.then.i.i14:                                    ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15, %if.then.i.i14
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp5, i64 noundef 5336)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp5, i64 noundef 5336)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp8, i64 noundef 5678)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp8, i64 noundef 5678)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont7
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %unknown_field_2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %unknown_field_2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -27096,15 +27096,15 @@ invoke.cont10:                                    ; preds = %for.body
   %conv.i26 = ashr exact i32 %sext, 24
   %or.i = or i32 %conv.i26, %shl.i
   %conv1.i = zext i32 %or.i to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp14, i64 noundef %conv1.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp14, i64 noundef %conv1.i)
           to label %invoke.cont17 unwind label %lpad9
 
 invoke.cont17:                                    ; preds = %invoke.cont10
-  invoke fastcc void @_ZN12_GLOBAL__N_118GetNonDefaultValueB5cxx11EN6google8protobuf15FieldDescriptor4TypeE(ptr noalias nonnull align 8 %ref.tmp18, i32 noundef %type)
+  invoke fastcc void @_ZN12_GLOBAL__N_118GetNonDefaultValueB5cxx11EN6google8protobuf15FieldDescriptor4TypeE(ptr noalias align 8 %ref.tmp18, i32 noundef %type)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont17
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %rep_field_proto, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %rep_field_proto, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont20
@@ -27364,15 +27364,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZN
   %conv.i24 = ashr exact i32 %sext, 24
   %or.i = or i32 %conv.i24, 5328
   %conv1.i = zext i32 %or.i to i64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp9, i64 noundef %conv1.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp9, i64 noundef %conv1.i)
           to label %invoke.cont13 unwind label %lpad10
 
 invoke.cont13:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21
-  invoke fastcc void @_ZN12_GLOBAL__N_118GetNonDefaultValueB5cxx11EN6google8protobuf15FieldDescriptor4TypeE(ptr noalias nonnull align 8 %ref.tmp14, i32 noundef %type)
+  invoke fastcc void @_ZN12_GLOBAL__N_118GetNonDefaultValueB5cxx11EN6google8protobuf15FieldDescriptor4TypeE(ptr noalias align 8 %ref.tmp14, i32 noundef %type)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont13
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %unknown_field_proto, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %unknown_field_proto, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont16
@@ -29717,11 +29717,11 @@ if.then.i.i716:                                   ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit721: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i718, %if.then.i.i716
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp133) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp216, i64 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp216, i64 noundef 0)
           to label %invoke.cont218 unwind label %ehcleanup275.thread
 
 invoke.cont218:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit721
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp219, i64 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp219, i64 noundef 0)
           to label %invoke.cont221 unwind label %ehcleanup275.thread4705
 
 invoke.cont221:                                   ; preds = %invoke.cont218
@@ -29793,11 +29793,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i730, align 8
   store i8 0, ptr %242, align 8
   %arrayinit.element222 = getelementptr inbounds i8, ptr %ref.tmp213, i64 64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp223, i64 noundef 12345)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp223, i64 noundef 12345)
           to label %invoke.cont225 unwind label %lpad224
 
 invoke.cont225:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit740
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp226, i64 noundef 12345)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp226, i64 noundef 12345)
           to label %invoke.cont228 unwind label %lpad227
 
 invoke.cont228:                                   ; preds = %invoke.cont225
@@ -29869,11 +29869,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i749, align 8
   store i8 0, ptr %254, align 8
   %arrayinit.element229 = getelementptr inbounds i8, ptr %ref.tmp213, i64 128
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp230, i64 noundef 9223372036854775807)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp230, i64 noundef 9223372036854775807)
           to label %invoke.cont232 unwind label %lpad231
 
 invoke.cont232:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit759
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp233, i64 noundef 9223372036854775807)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp233, i64 noundef 9223372036854775807)
           to label %invoke.cont235 unwind label %lpad234
 
 invoke.cont235:                                   ; preds = %invoke.cont232
@@ -29945,11 +29945,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i768, align 8
   store i8 0, ptr %266, align 8
   %arrayinit.element236 = getelementptr inbounds i8, ptr %ref.tmp213, i64 192
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp237, i64 noundef -9223372036854775808)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp237, i64 noundef -9223372036854775808)
           to label %invoke.cont239 unwind label %lpad238
 
 invoke.cont239:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit778
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp240, i64 noundef -9223372036854775808)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp240, i64 noundef -9223372036854775808)
           to label %invoke.cont242 unwind label %lpad241
 
 invoke.cont242:                                   ; preds = %invoke.cont239
@@ -30282,11 +30282,11 @@ if.then.i.i901:                                   ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit906: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i903, %if.then.i.i901
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp216) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp290, i64 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp290, i64 noundef 0)
           to label %invoke.cont292 unwind label %ehcleanup340.thread
 
 invoke.cont292:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit906
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp293, i64 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp293, i64 noundef 0)
           to label %invoke.cont295 unwind label %ehcleanup340.thread4716
 
 invoke.cont295:                                   ; preds = %invoke.cont292
@@ -30358,11 +30358,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i915, align 8
   store i8 0, ptr %321, align 8
   %arrayinit.element296 = getelementptr inbounds i8, ptr %ref.tmp287, i64 64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp297, i64 noundef 12345)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp297, i64 noundef 12345)
           to label %invoke.cont299 unwind label %lpad298
 
 invoke.cont299:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit925
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp300, i64 noundef 12345)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp300, i64 noundef 12345)
           to label %invoke.cont302 unwind label %lpad301
 
 invoke.cont302:                                   ; preds = %invoke.cont299
@@ -30434,11 +30434,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i934, align 8
   store i8 0, ptr %333, align 8
   %arrayinit.element303 = getelementptr inbounds i8, ptr %ref.tmp287, i64 128
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp304, i64 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp304, i64 noundef -1)
           to label %invoke.cont306 unwind label %lpad305
 
 invoke.cont306:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit944
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp307, i64 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp307, i64 noundef -1)
           to label %invoke.cont309 unwind label %lpad308
 
 invoke.cont309:                                   ; preds = %invoke.cont306
@@ -30739,11 +30739,11 @@ if.then.i.i1053:                                  ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1058: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1055, %if.then.i.i1053
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp290) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp355, i64 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp355, i64 noundef 0)
           to label %invoke.cont357 unwind label %ehcleanup471.thread
 
 invoke.cont357:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1058
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp358, i64 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp358, i64 noundef 0)
           to label %invoke.cont360 unwind label %ehcleanup471.thread4727
 
 invoke.cont360:                                   ; preds = %invoke.cont357
@@ -30815,11 +30815,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i1067, align 8
   store i8 0, ptr %384, align 8
   %arrayinit.element361 = getelementptr inbounds i8, ptr %ref.tmp352, i64 64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp362, i64 noundef 12345)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp362, i64 noundef 12345)
           to label %invoke.cont364 unwind label %lpad363
 
 invoke.cont364:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit1077
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp365, i64 noundef 12345)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp365, i64 noundef 12345)
           to label %invoke.cont367 unwind label %lpad366
 
 invoke.cont367:                                   ; preds = %invoke.cont364
@@ -30891,11 +30891,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i1086, align 8
   store i8 0, ptr %396, align 8
   %arrayinit.element368 = getelementptr inbounds i8, ptr %ref.tmp352, i64 128
-  invoke fastcc void @_ZN12_GLOBAL__N_110longvarintB5cxx11Emi(ptr noalias nonnull align 8 %ref.tmp369, i32 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_110longvarintB5cxx11Emi(ptr noalias align 8 %ref.tmp369, i32 noundef 2)
           to label %invoke.cont371 unwind label %lpad370
 
 invoke.cont371:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit1096
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp372, i64 noundef 12345)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp372, i64 noundef 12345)
           to label %invoke.cont374 unwind label %lpad373
 
 invoke.cont374:                                   ; preds = %invoke.cont371
@@ -30967,11 +30967,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i1105, align 8
   store i8 0, ptr %408, align 8
   %arrayinit.element375 = getelementptr inbounds i8, ptr %ref.tmp352, i64 192
-  invoke fastcc void @_ZN12_GLOBAL__N_110longvarintB5cxx11Emi(ptr noalias nonnull align 8 %ref.tmp376, i32 noundef 7)
+  invoke fastcc void @_ZN12_GLOBAL__N_110longvarintB5cxx11Emi(ptr noalias align 8 %ref.tmp376, i32 noundef 7)
           to label %invoke.cont378 unwind label %lpad377
 
 invoke.cont378:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit1115
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp379, i64 noundef 12345)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp379, i64 noundef 12345)
           to label %invoke.cont381 unwind label %lpad380
 
 invoke.cont381:                                   ; preds = %invoke.cont378
@@ -31043,11 +31043,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i1124, align 8
   store i8 0, ptr %420, align 8
   %arrayinit.element382 = getelementptr inbounds i8, ptr %ref.tmp352, i64 256
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp383, i64 noundef 2147483647)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp383, i64 noundef 2147483647)
           to label %invoke.cont385 unwind label %lpad384
 
 invoke.cont385:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit1134
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp386, i64 noundef 2147483647)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp386, i64 noundef 2147483647)
           to label %invoke.cont389 unwind label %lpad388
 
 invoke.cont389:                                   ; preds = %invoke.cont385
@@ -31119,11 +31119,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i1143, align 8
   store i8 0, ptr %432, align 8
   %arrayinit.element390 = getelementptr inbounds i8, ptr %ref.tmp352, i64 320
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp391, i64 noundef -2147483648)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp391, i64 noundef -2147483648)
           to label %invoke.cont394 unwind label %lpad393
 
 invoke.cont394:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit1153
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp395, i64 noundef -2147483648)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp395, i64 noundef -2147483648)
           to label %invoke.cont398 unwind label %lpad397
 
 invoke.cont398:                                   ; preds = %invoke.cont394
@@ -31195,11 +31195,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i1162, align 8
   store i8 0, ptr %444, align 8
   %arrayinit.element399 = getelementptr inbounds i8, ptr %ref.tmp352, i64 384
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp400, i64 noundef 8589934592)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp400, i64 noundef 8589934592)
           to label %invoke.cont402 unwind label %lpad401
 
 invoke.cont402:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit1172
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp403, i64 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp403, i64 noundef 0)
           to label %invoke.cont405 unwind label %lpad404
 
 invoke.cont405:                                   ; preds = %invoke.cont402
@@ -31271,11 +31271,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i1181, align 8
   store i8 0, ptr %456, align 8
   %arrayinit.element406 = getelementptr inbounds i8, ptr %ref.tmp352, i64 448
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp407, i64 noundef 8589934591)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp407, i64 noundef 8589934591)
           to label %invoke.cont409 unwind label %lpad408
 
 invoke.cont409:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit1191
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp410, i64 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp410, i64 noundef -1)
           to label %invoke.cont412 unwind label %lpad411
 
 invoke.cont412:                                   ; preds = %invoke.cont409
@@ -31347,11 +31347,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i1200, align 8
   store i8 0, ptr %468, align 8
   %arrayinit.element413 = getelementptr inbounds i8, ptr %ref.tmp352, i64 512
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp414, i64 noundef 9223372036854775807)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp414, i64 noundef 9223372036854775807)
           to label %invoke.cont416 unwind label %lpad415
 
 invoke.cont416:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit1210
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp417, i64 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp417, i64 noundef -1)
           to label %invoke.cont419 unwind label %lpad418
 
 invoke.cont419:                                   ; preds = %invoke.cont416
@@ -31423,11 +31423,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i1219, align 8
   store i8 0, ptr %480, align 8
   %arrayinit.element420 = getelementptr inbounds i8, ptr %ref.tmp352, i64 576
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp421, i64 noundef -9223372036854775807)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp421, i64 noundef -9223372036854775807)
           to label %invoke.cont423 unwind label %lpad422
 
 invoke.cont423:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit1229
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp424, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp424, i64 noundef 1)
           to label %invoke.cont426 unwind label %lpad425
 
 invoke.cont426:                                   ; preds = %invoke.cont423
@@ -31952,11 +31952,11 @@ if.then.i.i1436:                                  ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1441: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1438, %if.then.i.i1436
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp355) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp486, i64 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp486, i64 noundef 0)
           to label %invoke.cont488 unwind label %ehcleanup602.thread
 
 invoke.cont488:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1441
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp489, i64 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp489, i64 noundef 0)
           to label %invoke.cont491 unwind label %ehcleanup602.thread4738
 
 invoke.cont491:                                   ; preds = %invoke.cont488
@@ -32028,11 +32028,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i1450, align 8
   store i8 0, ptr %559, align 8
   %arrayinit.element492 = getelementptr inbounds i8, ptr %ref.tmp483, i64 64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp493, i64 noundef 12345)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp493, i64 noundef 12345)
           to label %invoke.cont495 unwind label %lpad494
 
 invoke.cont495:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit1460
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp496, i64 noundef 12345)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp496, i64 noundef 12345)
           to label %invoke.cont498 unwind label %lpad497
 
 invoke.cont498:                                   ; preds = %invoke.cont495
@@ -32104,11 +32104,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i1469, align 8
   store i8 0, ptr %571, align 8
   %arrayinit.element499 = getelementptr inbounds i8, ptr %ref.tmp483, i64 128
-  invoke fastcc void @_ZN12_GLOBAL__N_110longvarintB5cxx11Emi(ptr noalias nonnull align 8 %ref.tmp500, i32 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_110longvarintB5cxx11Emi(ptr noalias align 8 %ref.tmp500, i32 noundef 2)
           to label %invoke.cont502 unwind label %lpad501
 
 invoke.cont502:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit1479
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp503, i64 noundef 12345)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp503, i64 noundef 12345)
           to label %invoke.cont505 unwind label %lpad504
 
 invoke.cont505:                                   ; preds = %invoke.cont502
@@ -32180,11 +32180,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i1488, align 8
   store i8 0, ptr %583, align 8
   %arrayinit.element506 = getelementptr inbounds i8, ptr %ref.tmp483, i64 192
-  invoke fastcc void @_ZN12_GLOBAL__N_110longvarintB5cxx11Emi(ptr noalias nonnull align 8 %ref.tmp507, i32 noundef 7)
+  invoke fastcc void @_ZN12_GLOBAL__N_110longvarintB5cxx11Emi(ptr noalias align 8 %ref.tmp507, i32 noundef 7)
           to label %invoke.cont509 unwind label %lpad508
 
 invoke.cont509:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit1498
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp510, i64 noundef 12345)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp510, i64 noundef 12345)
           to label %invoke.cont512 unwind label %lpad511
 
 invoke.cont512:                                   ; preds = %invoke.cont509
@@ -32256,11 +32256,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i1507, align 8
   store i8 0, ptr %595, align 8
   %arrayinit.element513 = getelementptr inbounds i8, ptr %ref.tmp483, i64 256
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp514, i64 noundef 4294967295)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp514, i64 noundef 4294967295)
           to label %invoke.cont517 unwind label %lpad516
 
 invoke.cont517:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit1517
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp518, i64 noundef 4294967295)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp518, i64 noundef 4294967295)
           to label %invoke.cont521 unwind label %lpad520
 
 invoke.cont521:                                   ; preds = %invoke.cont517
@@ -32332,11 +32332,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i1526, align 8
   store i8 0, ptr %607, align 8
   %arrayinit.element522 = getelementptr inbounds i8, ptr %ref.tmp483, i64 320
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp523, i64 noundef 8589934592)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp523, i64 noundef 8589934592)
           to label %invoke.cont525 unwind label %lpad524
 
 invoke.cont525:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit1536
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp526, i64 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp526, i64 noundef 0)
           to label %invoke.cont528 unwind label %lpad527
 
 invoke.cont528:                                   ; preds = %invoke.cont525
@@ -32408,11 +32408,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i1545, align 8
   store i8 0, ptr %619, align 8
   %arrayinit.element529 = getelementptr inbounds i8, ptr %ref.tmp483, i64 384
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp530, i64 noundef 8589934593)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp530, i64 noundef 8589934593)
           to label %invoke.cont532 unwind label %lpad531
 
 invoke.cont532:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit1555
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp533, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp533, i64 noundef 1)
           to label %invoke.cont535 unwind label %lpad534
 
 invoke.cont535:                                   ; preds = %invoke.cont532
@@ -32484,11 +32484,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i1564, align 8
   store i8 0, ptr %631, align 8
   %arrayinit.element536 = getelementptr inbounds i8, ptr %ref.tmp483, i64 448
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp537, i64 noundef 8589934591)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp537, i64 noundef 8589934591)
           to label %invoke.cont539 unwind label %lpad538
 
 invoke.cont539:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit1574
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp540, i64 noundef 4294967295)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp540, i64 noundef 4294967295)
           to label %invoke.cont542 unwind label %lpad541
 
 invoke.cont542:                                   ; preds = %invoke.cont539
@@ -32560,11 +32560,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i1583, align 8
   store i8 0, ptr %643, align 8
   %arrayinit.element543 = getelementptr inbounds i8, ptr %ref.tmp483, i64 512
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp544, i64 noundef 9223372036854775807)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp544, i64 noundef 9223372036854775807)
           to label %invoke.cont546 unwind label %lpad545
 
 invoke.cont546:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit1593
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp547, i64 noundef 4294967295)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp547, i64 noundef 4294967295)
           to label %invoke.cont549 unwind label %lpad548
 
 invoke.cont549:                                   ; preds = %invoke.cont546
@@ -32636,11 +32636,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i1602, align 8
   store i8 0, ptr %655, align 8
   %arrayinit.element550 = getelementptr inbounds i8, ptr %ref.tmp483, i64 576
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp551, i64 noundef -9223372036854775807)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp551, i64 noundef -9223372036854775807)
           to label %invoke.cont554 unwind label %lpad553
 
 invoke.cont554:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit1612
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp555, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp555, i64 noundef 1)
           to label %invoke.cont557 unwind label %lpad556
 
 invoke.cont557:                                   ; preds = %invoke.cont554
@@ -35377,11 +35377,11 @@ if.then.i.i2577:                                  ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2582: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2579, %if.then.i.i2577
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp821) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp895, i64 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp895, i64 noundef 0)
           to label %invoke.cont897 unwind label %ehcleanup981.thread
 
 invoke.cont897:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2582
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp898, i64 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp898, i64 noundef 0)
           to label %invoke.cont900 unwind label %ehcleanup981.thread4793
 
 invoke.cont900:                                   ; preds = %invoke.cont897
@@ -35453,11 +35453,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i2591, align 8
   store i8 0, ptr %1018, align 8
   %arrayinit.element901 = getelementptr inbounds i8, ptr %ref.tmp892, i64 64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp902, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp902, i64 noundef 1)
           to label %invoke.cont904 unwind label %lpad903
 
 invoke.cont904:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit2601
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp905, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp905, i64 noundef 1)
           to label %invoke.cont907 unwind label %lpad906
 
 invoke.cont907:                                   ; preds = %invoke.cont904
@@ -35529,11 +35529,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i2610, align 8
   store i8 0, ptr %1030, align 8
   %arrayinit.element908 = getelementptr inbounds i8, ptr %ref.tmp892, i64 128
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp909, i64 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp909, i64 noundef -1)
           to label %invoke.cont911 unwind label %lpad910
 
 invoke.cont911:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit2620
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp912, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp912, i64 noundef 1)
           to label %invoke.cont914 unwind label %lpad913
 
 invoke.cont914:                                   ; preds = %invoke.cont911
@@ -35605,11 +35605,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i2629, align 8
   store i8 0, ptr %1042, align 8
   %arrayinit.element915 = getelementptr inbounds i8, ptr %ref.tmp892, i64 192
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp916, i64 noundef 12345678)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp916, i64 noundef 12345678)
           to label %invoke.cont918 unwind label %lpad917
 
 invoke.cont918:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit2639
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp919, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp919, i64 noundef 1)
           to label %invoke.cont921 unwind label %lpad920
 
 invoke.cont921:                                   ; preds = %invoke.cont918
@@ -35681,11 +35681,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i2648, align 8
   store i8 0, ptr %1054, align 8
   %arrayinit.element922 = getelementptr inbounds i8, ptr %ref.tmp892, i64 256
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp923, i64 noundef 8589934592)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp923, i64 noundef 8589934592)
           to label %invoke.cont925 unwind label %lpad924
 
 invoke.cont925:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit2658
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp926, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp926, i64 noundef 1)
           to label %invoke.cont928 unwind label %lpad927
 
 invoke.cont928:                                   ; preds = %invoke.cont925
@@ -35757,11 +35757,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i2667, align 8
   store i8 0, ptr %1066, align 8
   %arrayinit.element929 = getelementptr inbounds i8, ptr %ref.tmp892, i64 320
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp930, i64 noundef 9223372036854775807)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp930, i64 noundef 9223372036854775807)
           to label %invoke.cont932 unwind label %lpad931
 
 invoke.cont932:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit2677
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp933, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp933, i64 noundef 1)
           to label %invoke.cont935 unwind label %lpad934
 
 invoke.cont935:                                   ; preds = %invoke.cont932
@@ -35833,11 +35833,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i2686, align 8
   store i8 0, ptr %1078, align 8
   %arrayinit.element936 = getelementptr inbounds i8, ptr %ref.tmp892, i64 384
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp937, i64 noundef -9223372036854775808)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp937, i64 noundef -9223372036854775808)
           to label %invoke.cont939 unwind label %lpad938
 
 invoke.cont939:                                   ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit2696
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp940, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp940, i64 noundef 1)
           to label %invoke.cont942 unwind label %lpad941
 
 invoke.cont942:                                   ; preds = %invoke.cont939
@@ -36266,11 +36266,11 @@ if.then.i.i2861:                                  ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2866: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2863, %if.then.i.i2861
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp895) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp996, i64 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp996, i64 noundef 0)
           to label %invoke.cont998 unwind label %ehcleanup1066.thread
 
 invoke.cont998:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2866
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp999, i64 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp999, i64 noundef 0)
           to label %invoke.cont1001 unwind label %ehcleanup1066.thread4804
 
 invoke.cont1001:                                  ; preds = %invoke.cont998
@@ -36342,11 +36342,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i2876, align 8
   store i8 0, ptr %1145, align 8
   %arrayinit.element1002 = getelementptr inbounds i8, ptr %ref.tmp993, i64 64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1003, i64 noundef 24690)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1003, i64 noundef 24690)
           to label %invoke.cont1005 unwind label %lpad1004
 
 invoke.cont1005:                                  ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit2886
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1006, i64 noundef 24690)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1006, i64 noundef 24690)
           to label %invoke.cont1008 unwind label %lpad1007
 
 invoke.cont1008:                                  ; preds = %invoke.cont1005
@@ -36418,11 +36418,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i2897, align 8
   store i8 0, ptr %1157, align 8
   %arrayinit.element1009 = getelementptr inbounds i8, ptr %ref.tmp993, i64 128
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1010, i64 noundef 4294967294)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1010, i64 noundef 4294967294)
           to label %invoke.cont1012 unwind label %lpad1011
 
 invoke.cont1012:                                  ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit2907
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1013, i64 noundef 4294967294)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1013, i64 noundef 4294967294)
           to label %invoke.cont1015 unwind label %lpad1014
 
 invoke.cont1015:                                  ; preds = %invoke.cont1012
@@ -36494,11 +36494,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i2918, align 8
   store i8 0, ptr %1169, align 8
   %arrayinit.element1016 = getelementptr inbounds i8, ptr %ref.tmp993, i64 192
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1017, i64 noundef 4294967295)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1017, i64 noundef 4294967295)
           to label %invoke.cont1019 unwind label %lpad1018
 
 invoke.cont1019:                                  ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit2928
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1020, i64 noundef 4294967295)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1020, i64 noundef 4294967295)
           to label %invoke.cont1022 unwind label %lpad1021
 
 invoke.cont1022:                                  ; preds = %invoke.cont1019
@@ -36570,11 +36570,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i2939, align 8
   store i8 0, ptr %1181, align 8
   %arrayinit.element1023 = getelementptr inbounds i8, ptr %ref.tmp993, i64 256
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1024, i64 noundef 4294967298)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1024, i64 noundef 4294967298)
           to label %invoke.cont1028 unwind label %lpad1027
 
 invoke.cont1028:                                  ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit2949
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1029, i64 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1029, i64 noundef 2)
           to label %invoke.cont1031 unwind label %lpad1030
 
 invoke.cont1031:                                  ; preds = %invoke.cont1028
@@ -36939,11 +36939,11 @@ if.then.i.i3087:                                  ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3092: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3089, %if.then.i.i3087
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp996) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1081, i64 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1081, i64 noundef 0)
           to label %invoke.cont1083 unwind label %ehcleanup1140.thread
 
 invoke.cont1083:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3092
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1084, i64 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1084, i64 noundef 0)
           to label %invoke.cont1086 unwind label %ehcleanup1140.thread4815
 
 invoke.cont1086:                                  ; preds = %invoke.cont1083
@@ -37015,11 +37015,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i3103, align 8
   store i8 0, ptr %1240, align 8
   %arrayinit.element1087 = getelementptr inbounds i8, ptr %ref.tmp1078, i64 64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1088, i64 noundef 24690)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1088, i64 noundef 24690)
           to label %invoke.cont1090 unwind label %lpad1089
 
 invoke.cont1090:                                  ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit3113
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1091, i64 noundef 24690)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1091, i64 noundef 24690)
           to label %invoke.cont1093 unwind label %lpad1092
 
 invoke.cont1093:                                  ; preds = %invoke.cont1090
@@ -37091,11 +37091,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i3124, align 8
   store i8 0, ptr %1252, align 8
   %arrayinit.element1094 = getelementptr inbounds i8, ptr %ref.tmp1078, i64 128
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1095, i64 noundef -2)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1095, i64 noundef -2)
           to label %invoke.cont1097 unwind label %lpad1096
 
 invoke.cont1097:                                  ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit3134
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1098, i64 noundef -2)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1098, i64 noundef -2)
           to label %invoke.cont1100 unwind label %lpad1099
 
 invoke.cont1100:                                  ; preds = %invoke.cont1097
@@ -37167,11 +37167,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i3145, align 8
   store i8 0, ptr %1264, align 8
   %arrayinit.element1101 = getelementptr inbounds i8, ptr %ref.tmp1078, i64 192
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1102, i64 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1102, i64 noundef -1)
           to label %invoke.cont1104 unwind label %lpad1103
 
 invoke.cont1104:                                  ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit3155
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1105, i64 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1105, i64 noundef -1)
           to label %invoke.cont1107 unwind label %lpad1106
 
 invoke.cont1107:                                  ; preds = %invoke.cont1104
@@ -37512,11 +37512,11 @@ invoke.cont1159:                                  ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3286)
   %_M_string_length.i.i3287 = getelementptr inbounds i8, ptr %ref.tmp1156, i64 8
   %1311 = load i64, ptr %_M_string_length.i.i3287, align 8, !noalias !774
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i3286, i64 noundef %1311)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i3286, i64 noundef %1311)
           to label %.noexc unwind label %lpad1160
 
 .noexc:                                           ; preds = %invoke.cont1159
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1155, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3286, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1156, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1155, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3286, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1156, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i3289 unwind label %lpad.i3288
 
 invoke.cont.i3289:                                ; preds = %.noexc
@@ -37553,11 +37553,11 @@ invoke.cont1166:                                  ; preds = %invoke.cont1161
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3297)
   %_M_string_length.i.i3298 = getelementptr inbounds i8, ptr %ref.tmp1163, i64 8
   %1316 = load i64, ptr %_M_string_length.i.i3298, align 8, !noalias !777
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i3297, i64 noundef %1316)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i3297, i64 noundef %1316)
           to label %.noexc3307 unwind label %lpad1167
 
 .noexc3307:                                       ; preds = %invoke.cont1166
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1162, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3297, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1163, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1162, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3297, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1163, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i3300 unwind label %lpad.i3299
 
 invoke.cont.i3300:                                ; preds = %.noexc3307
@@ -37662,11 +37662,11 @@ invoke.cont1174:                                  ; preds = %_ZNSt4pairINSt7__cx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3329)
   %_M_string_length.i.i3330 = getelementptr inbounds i8, ptr %ref.tmp1171, i64 8
   %1333 = load i64, ptr %_M_string_length.i.i3330, align 8, !noalias !780
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i3329, i64 noundef %1333)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i3329, i64 noundef %1333)
           to label %.noexc3339 unwind label %lpad1175
 
 .noexc3339:                                       ; preds = %invoke.cont1174
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1170, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3329, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1171, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1170, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3329, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1171, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i3332 unwind label %lpad.i3331
 
 invoke.cont.i3332:                                ; preds = %.noexc3339
@@ -37703,11 +37703,11 @@ invoke.cont1181:                                  ; preds = %invoke.cont1176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3342)
   %_M_string_length.i.i3343 = getelementptr inbounds i8, ptr %ref.tmp1178, i64 8
   %1338 = load i64, ptr %_M_string_length.i.i3343, align 8, !noalias !783
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i3342, i64 noundef %1338)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i3342, i64 noundef %1338)
           to label %.noexc3352 unwind label %lpad1182
 
 .noexc3352:                                       ; preds = %invoke.cont1181
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1177, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3342, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1178, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1177, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3342, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1178, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i3345 unwind label %lpad.i3344
 
 invoke.cont.i3345:                                ; preds = %.noexc3352
@@ -37812,11 +37812,11 @@ invoke.cont1189:                                  ; preds = %_ZNSt4pairINSt7__cx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3374)
   %_M_string_length.i.i3375 = getelementptr inbounds i8, ptr %ref.tmp1186, i64 8
   %1355 = load i64, ptr %_M_string_length.i.i3375, align 8, !noalias !786
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i3374, i64 noundef %1355)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i3374, i64 noundef %1355)
           to label %.noexc3384 unwind label %lpad1190
 
 .noexc3384:                                       ; preds = %invoke.cont1189
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1185, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3374, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1186, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1185, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3374, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1186, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i3377 unwind label %lpad.i3376
 
 invoke.cont.i3377:                                ; preds = %.noexc3384
@@ -37853,11 +37853,11 @@ invoke.cont1196:                                  ; preds = %invoke.cont1191
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3387)
   %_M_string_length.i.i3388 = getelementptr inbounds i8, ptr %ref.tmp1193, i64 8
   %1360 = load i64, ptr %_M_string_length.i.i3388, align 8, !noalias !789
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i3387, i64 noundef %1360)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i3387, i64 noundef %1360)
           to label %.noexc3397 unwind label %lpad1197
 
 .noexc3397:                                       ; preds = %invoke.cont1196
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1192, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3387, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1193, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1192, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3387, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1193, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i3390 unwind label %lpad.i3389
 
 invoke.cont.i3390:                                ; preds = %.noexc3397
@@ -37962,11 +37962,11 @@ invoke.cont1204:                                  ; preds = %_ZNSt4pairINSt7__cx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3419)
   %_M_string_length.i.i3420 = getelementptr inbounds i8, ptr %ref.tmp1201, i64 8
   %1377 = load i64, ptr %_M_string_length.i.i3420, align 8, !noalias !792
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i3419, i64 noundef %1377)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i3419, i64 noundef %1377)
           to label %.noexc3429 unwind label %lpad1205
 
 .noexc3429:                                       ; preds = %invoke.cont1204
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1200, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3419, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1201, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1200, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3419, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1201, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i3422 unwind label %lpad.i3421
 
 invoke.cont.i3422:                                ; preds = %.noexc3429
@@ -38003,11 +38003,11 @@ invoke.cont1211:                                  ; preds = %invoke.cont1206
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3432)
   %_M_string_length.i.i3433 = getelementptr inbounds i8, ptr %ref.tmp1208, i64 8
   %1382 = load i64, ptr %_M_string_length.i.i3433, align 8, !noalias !795
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i3432, i64 noundef %1382)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i3432, i64 noundef %1382)
           to label %.noexc3442 unwind label %lpad1212
 
 .noexc3442:                                       ; preds = %invoke.cont1211
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1207, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3432, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1208, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1207, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3432, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1208, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i3435 unwind label %lpad.i3434
 
 invoke.cont.i3435:                                ; preds = %.noexc3442
@@ -38112,11 +38112,11 @@ invoke.cont1219:                                  ; preds = %_ZNSt4pairINSt7__cx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3464)
   %_M_string_length.i.i3465 = getelementptr inbounds i8, ptr %ref.tmp1216, i64 8
   %1399 = load i64, ptr %_M_string_length.i.i3465, align 8, !noalias !798
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i3464, i64 noundef %1399)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i3464, i64 noundef %1399)
           to label %.noexc3474 unwind label %lpad1220
 
 .noexc3474:                                       ; preds = %invoke.cont1219
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1215, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3464, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1216, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1215, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3464, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1216, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i3467 unwind label %lpad.i3466
 
 invoke.cont.i3467:                                ; preds = %.noexc3474
@@ -38153,11 +38153,11 @@ invoke.cont1226:                                  ; preds = %invoke.cont1221
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3477)
   %_M_string_length.i.i3478 = getelementptr inbounds i8, ptr %ref.tmp1223, i64 8
   %1404 = load i64, ptr %_M_string_length.i.i3478, align 8, !noalias !801
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i3477, i64 noundef %1404)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i3477, i64 noundef %1404)
           to label %.noexc3487 unwind label %lpad1227
 
 .noexc3487:                                       ; preds = %invoke.cont1226
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1222, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3477, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1223, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1222, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3477, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1223, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i3480 unwind label %lpad.i3479
 
 invoke.cont.i3480:                                ; preds = %.noexc3487
@@ -38262,11 +38262,11 @@ invoke.cont1234:                                  ; preds = %_ZNSt4pairINSt7__cx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3509)
   %_M_string_length.i.i3510 = getelementptr inbounds i8, ptr %ref.tmp1231, i64 8
   %1421 = load i64, ptr %_M_string_length.i.i3510, align 8, !noalias !804
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i3509, i64 noundef %1421)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i3509, i64 noundef %1421)
           to label %.noexc3519 unwind label %lpad1235
 
 .noexc3519:                                       ; preds = %invoke.cont1234
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1230, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3509, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1231, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1230, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3509, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1231, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i3512 unwind label %lpad.i3511
 
 invoke.cont.i3512:                                ; preds = %.noexc3519
@@ -38303,11 +38303,11 @@ invoke.cont1241:                                  ; preds = %invoke.cont1236
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3522)
   %_M_string_length.i.i3523 = getelementptr inbounds i8, ptr %ref.tmp1238, i64 8
   %1426 = load i64, ptr %_M_string_length.i.i3523, align 8, !noalias !807
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i3522, i64 noundef %1426)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i3522, i64 noundef %1426)
           to label %.noexc3532 unwind label %lpad1242
 
 .noexc3532:                                       ; preds = %invoke.cont1241
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1237, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3522, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1238, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1237, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3522, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1238, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i3525 unwind label %lpad.i3524
 
 invoke.cont.i3525:                                ; preds = %.noexc3532
@@ -38412,11 +38412,11 @@ invoke.cont1249:                                  ; preds = %_ZNSt4pairINSt7__cx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3554)
   %_M_string_length.i.i3555 = getelementptr inbounds i8, ptr %ref.tmp1246, i64 8
   %1443 = load i64, ptr %_M_string_length.i.i3555, align 8, !noalias !810
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i3554, i64 noundef %1443)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i3554, i64 noundef %1443)
           to label %.noexc3564 unwind label %lpad1250
 
 .noexc3564:                                       ; preds = %invoke.cont1249
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1245, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3554, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1246, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1245, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3554, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1246, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i3557 unwind label %lpad.i3556
 
 invoke.cont.i3557:                                ; preds = %.noexc3564
@@ -38453,11 +38453,11 @@ invoke.cont1256:                                  ; preds = %invoke.cont1251
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3567)
   %_M_string_length.i.i3568 = getelementptr inbounds i8, ptr %ref.tmp1253, i64 8
   %1448 = load i64, ptr %_M_string_length.i.i3568, align 8, !noalias !813
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i3567, i64 noundef %1448)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i3567, i64 noundef %1448)
           to label %.noexc3577 unwind label %lpad1257
 
 .noexc3577:                                       ; preds = %invoke.cont1256
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1252, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3567, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1253, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1252, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3567, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1253, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i3570 unwind label %lpad.i3569
 
 invoke.cont.i3570:                                ; preds = %.noexc3577
@@ -39176,11 +39176,11 @@ invoke.cont1344:                                  ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3848)
   %_M_string_length.i.i3849 = getelementptr inbounds i8, ptr %ref.tmp1341, i64 8
   %1552 = load i64, ptr %_M_string_length.i.i3849, align 8, !noalias !816
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i3848, i64 noundef %1552)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i3848, i64 noundef %1552)
           to label %.noexc3858 unwind label %lpad1345
 
 .noexc3858:                                       ; preds = %invoke.cont1344
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1340, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3848, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1341, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1340, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3848, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1341, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i3851 unwind label %lpad.i3850
 
 invoke.cont.i3851:                                ; preds = %.noexc3858
@@ -39217,11 +39217,11 @@ invoke.cont1351:                                  ; preds = %invoke.cont1346
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3861)
   %_M_string_length.i.i3862 = getelementptr inbounds i8, ptr %ref.tmp1348, i64 8
   %1557 = load i64, ptr %_M_string_length.i.i3862, align 8, !noalias !819
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i3861, i64 noundef %1557)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i3861, i64 noundef %1557)
           to label %.noexc3871 unwind label %lpad1352
 
 .noexc3871:                                       ; preds = %invoke.cont1351
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1347, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3861, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1348, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1347, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3861, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1348, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i3864 unwind label %lpad.i3863
 
 invoke.cont.i3864:                                ; preds = %.noexc3871
@@ -39326,11 +39326,11 @@ invoke.cont1359:                                  ; preds = %_ZNSt4pairINSt7__cx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3893)
   %_M_string_length.i.i3894 = getelementptr inbounds i8, ptr %ref.tmp1356, i64 8
   %1574 = load i64, ptr %_M_string_length.i.i3894, align 8, !noalias !822
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i3893, i64 noundef %1574)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i3893, i64 noundef %1574)
           to label %.noexc3903 unwind label %lpad1360
 
 .noexc3903:                                       ; preds = %invoke.cont1359
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1355, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3893, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1356, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1355, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3893, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1356, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i3896 unwind label %lpad.i3895
 
 invoke.cont.i3896:                                ; preds = %.noexc3903
@@ -39367,11 +39367,11 @@ invoke.cont1366:                                  ; preds = %invoke.cont1361
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3906)
   %_M_string_length.i.i3907 = getelementptr inbounds i8, ptr %ref.tmp1363, i64 8
   %1579 = load i64, ptr %_M_string_length.i.i3907, align 8, !noalias !825
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i3906, i64 noundef %1579)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i3906, i64 noundef %1579)
           to label %.noexc3916 unwind label %lpad1367
 
 .noexc3916:                                       ; preds = %invoke.cont1366
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1362, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3906, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1363, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1362, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3906, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1363, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i3909 unwind label %lpad.i3908
 
 invoke.cont.i3909:                                ; preds = %.noexc3916
@@ -39476,11 +39476,11 @@ invoke.cont1374:                                  ; preds = %_ZNSt4pairINSt7__cx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3938)
   %_M_string_length.i.i3939 = getelementptr inbounds i8, ptr %ref.tmp1371, i64 8
   %1596 = load i64, ptr %_M_string_length.i.i3939, align 8, !noalias !828
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i3938, i64 noundef %1596)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i3938, i64 noundef %1596)
           to label %.noexc3948 unwind label %lpad1375
 
 .noexc3948:                                       ; preds = %invoke.cont1374
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1370, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3938, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1371, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1370, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3938, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1371, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i3941 unwind label %lpad.i3940
 
 invoke.cont.i3941:                                ; preds = %.noexc3948
@@ -39517,11 +39517,11 @@ invoke.cont1381:                                  ; preds = %invoke.cont1376
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3951)
   %_M_string_length.i.i3952 = getelementptr inbounds i8, ptr %ref.tmp1378, i64 8
   %1601 = load i64, ptr %_M_string_length.i.i3952, align 8, !noalias !831
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i3951, i64 noundef %1601)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i3951, i64 noundef %1601)
           to label %.noexc3961 unwind label %lpad1382
 
 .noexc3961:                                       ; preds = %invoke.cont1381
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1377, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3951, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1378, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1377, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3951, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1378, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i3954 unwind label %lpad.i3953
 
 invoke.cont.i3954:                                ; preds = %.noexc3961
@@ -39626,11 +39626,11 @@ invoke.cont1389:                                  ; preds = %_ZNSt4pairINSt7__cx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3983)
   %_M_string_length.i.i3984 = getelementptr inbounds i8, ptr %ref.tmp1386, i64 8
   %1618 = load i64, ptr %_M_string_length.i.i3984, align 8, !noalias !834
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i3983, i64 noundef %1618)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i3983, i64 noundef %1618)
           to label %.noexc3993 unwind label %lpad1390
 
 .noexc3993:                                       ; preds = %invoke.cont1389
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1385, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3983, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1386, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1385, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3983, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1386, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i3986 unwind label %lpad.i3985
 
 invoke.cont.i3986:                                ; preds = %.noexc3993
@@ -39667,11 +39667,11 @@ invoke.cont1396:                                  ; preds = %invoke.cont1391
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3996)
   %_M_string_length.i.i3997 = getelementptr inbounds i8, ptr %ref.tmp1393, i64 8
   %1623 = load i64, ptr %_M_string_length.i.i3997, align 8, !noalias !837
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i3996, i64 noundef %1623)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i3996, i64 noundef %1623)
           to label %.noexc4006 unwind label %lpad1397
 
 .noexc4006:                                       ; preds = %invoke.cont1396
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1392, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3996, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1393, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1392, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3996, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1393, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i3999 unwind label %lpad.i3998
 
 invoke.cont.i3999:                                ; preds = %.noexc4006
@@ -40173,11 +40173,11 @@ if.then.i.i4187:                                  ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4192: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4189, %if.then.i.i4187
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1341) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1342) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1462, i64 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1462, i64 noundef 0)
           to label %invoke.cont1464 unwind label %ehcleanup1540.thread
 
 invoke.cont1464:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4192
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1465, i64 noundef 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1465, i64 noundef 0)
           to label %invoke.cont1467 unwind label %ehcleanup1540.thread4836
 
 invoke.cont1467:                                  ; preds = %invoke.cont1464
@@ -40249,11 +40249,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i4201, align 8
   store i8 0, ptr %1703, align 8
   %arrayinit.element1468 = getelementptr inbounds i8, ptr %ref.tmp1459, i64 64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1469, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1469, i64 noundef 1)
           to label %invoke.cont1471 unwind label %lpad1470
 
 invoke.cont1471:                                  ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit4211
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1472, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1472, i64 noundef 1)
           to label %invoke.cont1474 unwind label %lpad1473
 
 invoke.cont1474:                                  ; preds = %invoke.cont1471
@@ -40325,11 +40325,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i4220, align 8
   store i8 0, ptr %1715, align 8
   %arrayinit.element1475 = getelementptr inbounds i8, ptr %ref.tmp1459, i64 128
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1476, i64 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1476, i64 noundef 2)
           to label %invoke.cont1478 unwind label %lpad1477
 
 invoke.cont1478:                                  ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit4230
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1479, i64 noundef 2)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1479, i64 noundef 2)
           to label %invoke.cont1481 unwind label %lpad1480
 
 invoke.cont1481:                                  ; preds = %invoke.cont1478
@@ -40401,11 +40401,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i4239, align 8
   store i8 0, ptr %1727, align 8
   %arrayinit.element1482 = getelementptr inbounds i8, ptr %ref.tmp1459, i64 192
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1483, i64 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1483, i64 noundef -1)
           to label %invoke.cont1485 unwind label %lpad1484
 
 invoke.cont1485:                                  ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit4249
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1486, i64 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1486, i64 noundef -1)
           to label %invoke.cont1488 unwind label %lpad1487
 
 invoke.cont1488:                                  ; preds = %invoke.cont1485
@@ -40477,11 +40477,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i4258, align 8
   store i8 0, ptr %1739, align 8
   %arrayinit.element1489 = getelementptr inbounds i8, ptr %ref.tmp1459, i64 256
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1490, i64 noundef 9223372036854775807)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1490, i64 noundef 9223372036854775807)
           to label %invoke.cont1492 unwind label %lpad1491
 
 invoke.cont1492:                                  ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit4268
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1493, i64 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1493, i64 noundef -1)
           to label %invoke.cont1495 unwind label %lpad1494
 
 invoke.cont1495:                                  ; preds = %invoke.cont1492
@@ -40553,11 +40553,11 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i4277, align 8
   store i8 0, ptr %1751, align 8
   %arrayinit.element1496 = getelementptr inbounds i8, ptr %ref.tmp1459, i64 320
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1497, i64 noundef -9223372036854775807)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1497, i64 noundef -9223372036854775807)
           to label %invoke.cont1500 unwind label %lpad1499
 
 invoke.cont1500:                                  ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit4287
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1501, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1501, i64 noundef 1)
           to label %invoke.cont1503 unwind label %lpad1502
 
 invoke.cont1503:                                  ; preds = %invoke.cont1500
@@ -40966,11 +40966,11 @@ invoke.cont1560:                                  ; preds = %invoke.cont1550
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i4444)
   %_M_string_length.i.i4445 = getelementptr inbounds i8, ptr %ref.tmp1557, i64 8
   %1806 = load i64, ptr %_M_string_length.i.i4445, align 8, !noalias !840
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i4444, i64 noundef %1806)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i4444, i64 noundef %1806)
           to label %.noexc4454 unwind label %lpad1561
 
 .noexc4454:                                       ; preds = %invoke.cont1560
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1556, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i4444, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1557, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1556, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i4444, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1557, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i4447 unwind label %lpad.i4446
 
 invoke.cont.i4447:                                ; preds = %.noexc4454
@@ -41007,11 +41007,11 @@ invoke.cont1567:                                  ; preds = %invoke.cont1562
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i4457)
   %_M_string_length.i.i4458 = getelementptr inbounds i8, ptr %ref.tmp1564, i64 8
   %1811 = load i64, ptr %_M_string_length.i.i4458, align 8, !noalias !843
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i4457, i64 noundef %1811)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i4457, i64 noundef %1811)
           to label %.noexc4467 unwind label %lpad1568
 
 .noexc4467:                                       ; preds = %invoke.cont1567
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1563, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i4457, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1564, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1563, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i4457, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1564, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i4460 unwind label %lpad.i4459
 
 invoke.cont.i4460:                                ; preds = %.noexc4467
@@ -41108,26 +41108,26 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl1
   store i64 0, ptr %_M_string_length.i12.i3.i4478, align 8
   store i8 0, ptr %1824, align 8
   %arrayinit.element1570 = getelementptr inbounds i8, ptr %ref.tmp1553, i64 64
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1573, i64 noundef 8)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1573, i64 noundef 8)
           to label %invoke.cont1575 unwind label %lpad1574
 
 invoke.cont1575:                                  ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_.exit4488
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1576, i64 noundef 1234)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1576, i64 noundef 1234)
           to label %invoke.cont1578 unwind label %lpad1577
 
 invoke.cont1578:                                  ; preds = %invoke.cont1575
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1572, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1573, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1576, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1572, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1573, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1576, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont1580 unwind label %lpad1579
 
 invoke.cont1580:                                  ; preds = %invoke.cont1578
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i4490)
   %_M_string_length.i.i4491 = getelementptr inbounds i8, ptr %ref.tmp1572, i64 8
   %1828 = load i64, ptr %_M_string_length.i.i4491, align 8, !noalias !846
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i4490, i64 noundef %1828)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i4490, i64 noundef %1828)
           to label %.noexc4500 unwind label %lpad1581
 
 .noexc4500:                                       ; preds = %invoke.cont1580
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1571, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i4490, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1572, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1571, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i4490, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1572, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i4493 unwind label %lpad.i4492
 
 invoke.cont.i4493:                                ; preds = %.noexc4500
@@ -41156,26 +41156,26 @@ lpad.i4492:                                       ; preds = %.noexc4500
 invoke.cont1582:                                  ; preds = %if.then.i.i.i4495, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i4497
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i4490) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i4490)
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1585, i64 noundef 8)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1585, i64 noundef 8)
           to label %invoke.cont1587 unwind label %lpad1586
 
 invoke.cont1587:                                  ; preds = %invoke.cont1582
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp1588, i64 noundef 1234)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp1588, i64 noundef 1234)
           to label %invoke.cont1590 unwind label %lpad1589
 
 invoke.cont1590:                                  ; preds = %invoke.cont1587
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1584, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1585, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1588, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1584, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1585, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1588, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont1592 unwind label %lpad1591
 
 invoke.cont1592:                                  ; preds = %invoke.cont1590
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i4505)
   %_M_string_length.i.i4506 = getelementptr inbounds i8, ptr %ref.tmp1584, i64 8
   %1833 = load i64, ptr %_M_string_length.i.i4506, align 8, !noalias !849
-  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias nonnull align 8 %ref.tmp.i4505, i64 noundef %1833)
+  invoke fastcc void @_ZN12_GLOBAL__N_16varintB5cxx11Em(ptr noalias align 8 %ref.tmp.i4505, i64 noundef %1833)
           to label %.noexc4515 unwind label %lpad1593
 
 .noexc4515:                                       ; preds = %invoke.cont1592
-  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias nonnull align 8 %ref.tmp1583, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i4505, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1584, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
+  invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp1583, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i4505, ptr noundef nonnull readonly align 8 dereferenceable(32) %ref.tmp1584, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont.i4508 unwind label %lpad.i4507
 
 invoke.cont.i4508:                                ; preds = %.noexc4515
@@ -44217,12 +44217,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110longvarintB5cxx11Emi(ptr noalias align 8 %agg.result, i32 noundef %extra) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110longvarintB5cxx11Emi(ptr noalias nonnull align 8 %agg.result, i32 noundef range(i32 2, 8) %extra) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %buf = alloca [10 x i8], align 1
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %tobool2.not.i = icmp eq i32 %extra, 0
-  br i1 %tobool2.not.i, label %while.body.i, label %while.body.us.i
+  br label %while.body.us.i
 
 while.body.us.i:                                  ; preds = %entry, %while.body.us.i
   %i.013.us.i = phi i64 [ %inc.us.i, %while.body.us.i ], [ 0, %entry ]
@@ -44234,29 +44233,11 @@ while.body.us.i:                                  ; preds = %entry, %while.body.
   %arrayidx7.us.i = getelementptr inbounds i8, ptr %buf, i64 %i.013.us.i
   store i8 %byte.0.us.i, ptr %arrayidx7.us.i, align 1
   %exitcond = icmp eq i64 %inc.us.i, 2
-  br i1 %exitcond, label %while.cond8.preheader.i, label %while.body.us.i, !llvm.loop !31
+  br i1 %exitcond, label %while.body10.i, label %while.body.us.i, !llvm.loop !31
 
-while.cond8.preheader.i:                          ; preds = %while.body.us.i, %while.body.i
-  br i1 %tobool2.not.i, label %_ZN12_GLOBAL__N_19vencode64EmiPc.exit, label %while.body10.i
-
-while.body.i:                                     ; preds = %entry, %while.body.i
-  %i.013.i = phi i64 [ %inc.i, %while.body.i ], [ 0, %entry ]
-  %val.addr.012.i = phi i64 [ %shr.i, %while.body.i ], [ 12345, %entry ]
-  %1 = trunc i64 %val.addr.012.i to i8
-  %conv.i = and i8 %1, 127
-  %shr.i = lshr i64 %val.addr.012.i, 7
-  %tobool1.i = icmp ugt i64 %val.addr.012.i, 127
-  %spec.select.i = select i1 %tobool1.i, i8 -128, i8 0
-  %byte.0.i = or disjoint i8 %spec.select.i, %conv.i
-  %inc.i = add nuw nsw i64 %i.013.i, 1
-  %arrayidx7.i = getelementptr inbounds i8, ptr %buf, i64 %i.013.i
-  store i8 %byte.0.i, ptr %arrayidx7.i, align 1
-  %exitcond3 = icmp eq i64 %inc.i, 2
-  br i1 %exitcond3, label %while.cond8.preheader.i, label %while.body.i, !llvm.loop !31
-
-while.body10.i:                                   ; preds = %while.cond8.preheader.i, %while.body10.i
-  %i.116.i = phi i64 [ %inc14.i, %while.body10.i ], [ 2, %while.cond8.preheader.i ]
-  %over_encoded_bytes.addr.015.i = phi i32 [ %dec.i, %while.body10.i ], [ %extra, %while.cond8.preheader.i ]
+while.body10.i:                                   ; preds = %while.body.us.i, %while.body10.i
+  %i.116.i = phi i64 [ %inc14.i, %while.body10.i ], [ 2, %while.body.us.i ]
+  %over_encoded_bytes.addr.015.i = phi i32 [ %dec.i, %while.body10.i ], [ %extra, %while.body.us.i ]
   %dec.i = add nsw i32 %over_encoded_bytes.addr.015.i, -1
   %tobool12.not.i = icmp eq i32 %dec.i, 0
   %conv13.i = select i1 %tobool12.not.i, i8 0, i8 -128
@@ -44265,49 +44246,48 @@ while.body10.i:                                   ; preds = %while.cond8.prehead
   store i8 %conv13.i, ptr %arrayidx15.i, align 1
   br i1 %tobool12.not.i, label %_ZN12_GLOBAL__N_19vencode64EmiPc.exit, label %while.body10.i, !llvm.loop !852
 
-_ZN12_GLOBAL__N_19vencode64EmiPc.exit:            ; preds = %while.body10.i, %while.cond8.preheader.i
-  %retval.0.i = phi i64 [ 2, %while.cond8.preheader.i ], [ %inc14.i, %while.body10.i ]
+_ZN12_GLOBAL__N_19vencode64EmiPc.exit:            ; preds = %while.body10.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %1 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
-  store ptr %2, ptr %agg.result, align 8
-  %cmp.i.i = icmp ugt i64 %retval.0.i, 15
-  br i1 %cmp.i.i, label %if.end11.i.i.i, label %invoke.cont
+  store ptr %1, ptr %agg.result, align 8
+  %cmp.i.i = icmp ugt i64 %i.116.i, 14
+  br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont
 
 lpad.i:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i, %if.end.i.i.i.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %2
 
-if.end11.i.i.i:                                   ; preds = %_ZN12_GLOBAL__N_19vencode64EmiPc.exit
-  %add.i.i.i = add nuw i64 %retval.0.i, 1
+if.then.i.i:                                      ; preds = %_ZN12_GLOBAL__N_19vencode64EmiPc.exit
+  %add.i.i.i = add nuw i64 %i.116.i, 2
   %cmp.i.i.i.i.i = icmp slt i64 %add.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i
 
-if.end.i.i.i.i.i:                                 ; preds = %if.end11.i.i.i
+if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i
   invoke void @_ZSt17__throw_bad_allocv() #26
           to label %.noexc4.i unwind label %lpad.i
 
 .noexc4.i:                                        ; preds = %if.end.i.i.i.i.i
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i: ; preds = %if.end11.i.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i: ; preds = %if.then.i.i
   %call5.i.i.i.i5.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i.i.i) #25
           to label %call5.i.i.i.i.noexc.i unwind label %lpad.i
 
 call5.i.i.i.i.noexc.i:                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i
   store ptr %call5.i.i.i.i5.i, ptr %agg.result, align 8
-  store i64 %retval.0.i, ptr %2, align 8
+  store i64 %inc14.i, ptr %1, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %call5.i.i.i.i.noexc.i, %_ZN12_GLOBAL__N_19vencode64EmiPc.exit
-  %4 = phi ptr [ %call5.i.i.i.i5.i, %call5.i.i.i.i.noexc.i ], [ %2, %_ZN12_GLOBAL__N_19vencode64EmiPc.exit ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %buf, i64 %retval.0.i, i1 false)
+  %3 = phi ptr [ %call5.i.i.i.i5.i, %call5.i.i.i.i.noexc.i ], [ %1, %_ZN12_GLOBAL__N_19vencode64EmiPc.exit ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %buf, i64 %inc14.i, i1 false)
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i64 %retval.0.i, ptr %_M_string_length.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %4, i64 %retval.0.i
+  store i64 %inc14.i, ptr %_M_string_length.i.i.i.i, align 8
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 %inc14.i
   store i8 0, ptr %arrayidx.i.i.i, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
   ret void

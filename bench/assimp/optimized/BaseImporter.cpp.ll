@@ -1413,7 +1413,7 @@ define noundef zeroext i1 @_ZN6Assimp12BaseImporter12HasExtensionERKNSt7__cxx111
 entry:
   %file = alloca %"class.std::__cxx11::basic_string", align 8
   %dotExt = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN12_GLOBAL__N_116StripVersionHashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %file, ptr noundef nonnull align 8 dereferenceable(32) %pFile)
+  call fastcc void @_ZN12_GLOBAL__N_116StripVersionHashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %file, ptr noundef nonnull align 8 dereferenceable(32) %pFile)
   %_M_left.i.i = getelementptr inbounds i8, ptr %extensions, i64 24
   %0 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %extensions, i64 8
@@ -1506,7 +1506,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116StripVersionHashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116StripVersionHashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12find_last_ofEcm(ptr noundef nonnull align 8 dereferenceable(32) %filename, i8 noundef signext 35, i64 noundef -1) #26
@@ -1651,7 +1651,7 @@ cleanup.done:                                     ; preds = %for.body.i.i.i.i.i,
   br i1 %cmp.i.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cleanup.done.thread11, %cleanup.done
-  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %filename, i64 noundef 0, i64 noundef %call)
+  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %filename, i64 noundef 0, i64 noundef %call)
   br label %return
 
 if.end:                                           ; preds = %entry, %land.lhs.true, %cleanup.done.thread9, %cleanup.done
@@ -1704,7 +1704,7 @@ define void @_ZN6Assimp12BaseImporter12GetExtensionERKNSt7__cxx1112basic_stringI
 entry:
   %file = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN12_GLOBAL__N_116StripVersionHashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %file, ptr noundef nonnull align 8 dereferenceable(32) %pFile)
+  call fastcc void @_ZN12_GLOBAL__N_116StripVersionHashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %file, ptr noundef nonnull align 8 dereferenceable(32) %pFile)
   %call = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12find_last_ofEcm(ptr noundef nonnull align 8 dereferenceable(32) %file, i8 noundef signext 46, i64 noundef -1) #26
   %cmp = icmp eq i64 %call, -1
   br i1 %cmp, label %if.then, label %if.end

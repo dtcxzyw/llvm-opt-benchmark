@@ -1796,7 +1796,7 @@ switch.lookup:                                    ; preds = %806
   br i1 %.not492, label %865, label %863
 
 863:                                              ; preds = %860, %856
-  %864 = call fastcc i32 @scan_files(ptr noundef %62, ptr noundef %0, ptr noundef nonnull %2, i32 noundef %11, i32 noundef %19)
+  %864 = call fastcc i32 @scan_files(ptr noundef %62, ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %19)
   br label %872
 
 865:                                              ; preds = %860
@@ -1811,7 +1811,7 @@ switch.lookup:                                    ; preds = %806
 869:                                              ; preds = %865
   %870 = call i32 @stat(ptr noundef nonnull %7, ptr noundef nonnull %3) #21
   %871 = load i64, ptr %3, align 8
-  call fastcc void @scandirs(ptr noundef nonnull %7, ptr noundef %62, ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1, i64 noundef %871)
+  call fastcc void @scandirs(ptr noundef %7, ptr noundef %62, ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, i64 noundef %871)
   br label %872
 
 872:                                              ; preds = %867, %869, %863
@@ -2736,7 +2736,7 @@ declare i64 @cl_engine_get_num(ptr noundef, i32 noundef, ptr noundef) local_unna
 declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @scan_files(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @scan_files(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef range(i32 0, 3) %3, i32 noundef range(i32 0, 3) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca [8192 x i8], align 16
   %8 = alloca %struct.clamscan_cb_data, align 8
@@ -2795,7 +2795,7 @@ sub_0:                                            ; preds = %26
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr null, ptr %6, align 8
-  %34 = call ptr @cl_engine_get_str(ptr noundef %0, i32 noundef 13, ptr noundef null) #21
+  %34 = call ptr @cl_engine_get_str(ptr noundef nonnull %0, i32 noundef 13, ptr noundef null) #21
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %38
 
@@ -2865,7 +2865,7 @@ sub_0:                                            ; preds = %26
   store i64 %69, ptr getelementptr inbounds (i8, ptr @info, i64 32), align 8
   store ptr @.str.178, ptr %25, align 8
   store ptr null, ptr %8, align 8
-  %70 = call i32 @cl_scanfile_callback(ptr noundef nonnull %44, ptr noundef nonnull %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @info, i64 24), ptr noundef %0, ptr noundef %2, ptr noundef nonnull %8) #21
+  %70 = call i32 @cl_scanfile_callback(ptr noundef nonnull %44, ptr noundef nonnull %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @info, i64 24), ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %8) #21
   switch i32 %70, label %80 [
     i32 1, label %71
     i32 0, label %77
@@ -2989,7 +2989,7 @@ scanstdin.exit:                                   ; preds = %41, %45, %49, %58, 
   br i1 %or.cond3, label %117, label %118
 
 117:                                              ; preds = %113
-  call fastcc void @scanfile(ptr noundef nonnull %28, ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  call fastcc void @scanfile(ptr noundef %28, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %131
 
 118:                                              ; preds = %113
@@ -2999,7 +2999,7 @@ scanstdin.exit:                                   ; preds = %41, %45, %49, %58, 
 
 120:                                              ; preds = %118
   %121 = load i64, ptr %10, align 8
-  call fastcc void @scandirs(ptr noundef nonnull %28, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i64 noundef %121)
+  call fastcc void @scandirs(ptr noundef %28, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i64 noundef %121)
   br label %131
 
 122:                                              ; preds = %118
@@ -3012,12 +3012,12 @@ scanstdin.exit:                                   ; preds = %41, %45, %49, %58, 
   br label %131
 
 126:                                              ; preds = %._crit_edge
-  call fastcc void @scanfile(ptr noundef nonnull %28, ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  call fastcc void @scanfile(ptr noundef %28, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %131
 
 127:                                              ; preds = %._crit_edge
   %128 = load i64, ptr %10, align 8
-  call fastcc void @scandirs(ptr noundef nonnull %28, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i64 noundef %128)
+  call fastcc void @scandirs(ptr noundef %28, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i64 noundef %128)
   br label %131
 
 129:                                              ; preds = %._crit_edge
@@ -3040,7 +3040,7 @@ scanstdin.exit:                                   ; preds = %41, %45, %49, %58, 
 declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @scandirs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc void @scandirs(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.stat, align 8
   %8 = tail call ptr @optget(ptr noundef %2, ptr noundef nonnull @.str.200) #21
   %9 = getelementptr inbounds i8, ptr %8, i64 32
@@ -3054,7 +3054,7 @@ define internal fastcc void @scandirs(ptr noundef %0, ptr noundef %1, ptr nounde
   %.076 = phi ptr [ %23, %21 ], [ %8, %6 ]
   %13 = getelementptr inbounds i8, ptr %.076, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @match_regex(ptr noundef %0, ptr noundef %14) #21
+  %15 = tail call i32 @match_regex(ptr noundef nonnull %0, ptr noundef %14) #21
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %17, label %21
 
@@ -3064,7 +3064,7 @@ define internal fastcc void @scandirs(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not102, label %19, label %140
 
 19:                                               ; preds = %17
-  %20 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.186, ptr noundef %0) #21
+  %20 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.186, ptr noundef nonnull %0) #21
   br label %140
 
 21:                                               ; preds = %.preheader113
@@ -3084,7 +3084,7 @@ define internal fastcc void @scandirs(ptr noundef %0, ptr noundef %1, ptr nounde
   %.1116 = phi ptr [ %33, %31 ], [ %24, %.loopexit114 ]
   %27 = getelementptr inbounds i8, ptr %.1116, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 @match_regex(ptr noundef %0, ptr noundef %28) #21
+  %29 = tail call i32 @match_regex(ptr noundef nonnull %0, ptr noundef %28) #21
   %30 = icmp eq i32 %29, 1
   br i1 %30, label %.loopexit112, label %31
 
@@ -3100,7 +3100,7 @@ define internal fastcc void @scandirs(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not86, label %35, label %140
 
 35:                                               ; preds = %.critedge
-  %36 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.186, ptr noundef %0) #21
+  %36 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.186, ptr noundef nonnull %0) #21
   br label %140
 
 .loopexit112:                                     ; preds = %.lr.ph, %.loopexit114
@@ -3120,7 +3120,7 @@ define internal fastcc void @scandirs(ptr noundef %0, ptr noundef %1, ptr nounde
   %48 = getelementptr inbounds i8, ptr %47, i64 24
   %49 = load i64, ptr %48, align 8
   %50 = trunc i64 %49 to i32
-  %51 = tail call ptr @opendir(ptr noundef %0)
+  %51 = tail call ptr @opendir(ptr noundef nonnull %0)
   %.not87 = icmp eq ptr %51, null
   br i1 %.not87, label %133, label %52
 
@@ -3271,7 +3271,7 @@ sub_0109:                                         ; preds = %.tail104.thread
   br i1 %or.cond3, label %116, label %117
 
 116:                                              ; preds = %112
-  tail call fastcc void @scanfile(ptr noundef nonnull %80, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @scanfile(ptr noundef %80, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %.backedge.sink.split
 
 117:                                              ; preds = %112
@@ -3285,7 +3285,7 @@ sub_0109:                                         ; preds = %.tail104.thread
   br i1 %.not100, label %.backedge.sink.split, label %121
 
 121:                                              ; preds = %119
-  tail call fastcc void @scandirs(ptr noundef nonnull %80, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %55, i64 noundef %5)
+  tail call fastcc void @scandirs(ptr noundef %80, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %55, i64 noundef %5)
   br label %.backedge.sink.split
 
 122:                                              ; preds = %117
@@ -3298,7 +3298,7 @@ sub_0109:                                         ; preds = %.tail104.thread
   br label %.backedge.sink.split
 
 126:                                              ; preds = %102
-  tail call fastcc void @scanfile(ptr noundef nonnull %80, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @scanfile(ptr noundef %80, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %.backedge.sink.split
 
 127:                                              ; preds = %102
@@ -3309,7 +3309,7 @@ sub_0109:                                         ; preds = %.tail104.thread
   br i1 %or.cond8, label %131, label %.backedge.sink.split
 
 131:                                              ; preds = %127
-  tail call fastcc void @scandirs(ptr noundef nonnull %80, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %55, i64 noundef %5)
+  tail call fastcc void @scandirs(ptr noundef %80, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %55, i64 noundef %5)
   br label %.backedge.sink.split
 
 .loopexit:                                        ; preds = %.backedge, %52, %82
@@ -3322,7 +3322,7 @@ sub_0109:                                         ; preds = %.tail104.thread
   br i1 %.not88, label %135, label %137
 
 135:                                              ; preds = %133
-  %136 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.209, ptr noundef %0) #21
+  %136 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.209, ptr noundef nonnull %0) #21
   br label %137
 
 137:                                              ; preds = %135, %133
@@ -3367,7 +3367,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @print_chain(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #13 {
+define internal fastcc range(i32 0, 2) i32 @print_chain(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %.not30 = icmp eq i64 %4, 1
@@ -3401,7 +3401,7 @@ define internal fastcc range(i32 0, 2) i32 @print_chain(ptr nocapture noundef re
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds ptr, ptr %18, i64 %.025
   %20 = load ptr, ptr %19, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %20, i64 %8, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %20, i64 %8, i1 false)
   %21 = add nuw i64 %.025, 1
   %22 = load i64, ptr %3, align 8
   %23 = add i64 %22, -1
@@ -3437,7 +3437,7 @@ declare noundef i32 @lstat(ptr nocapture noundef readonly, ptr nocapture noundef
 declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @scanfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @scanfile(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca %struct.stat, align 8
@@ -3455,12 +3455,12 @@ define internal fastcc void @scanfile(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %213
 
 14:                                               ; preds = %4
-  %15 = call i32 @cli_realpath(ptr noundef %0, ptr noundef nonnull %10) #21
+  %15 = call i32 @cli_realpath(ptr noundef nonnull %0, ptr noundef nonnull %10) #21
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %19, label %16
 
 16:                                               ; preds = %14
-  %17 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.183, ptr noundef %0) #21
+  %17 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.183, ptr noundef nonnull %0) #21
   %18 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.184) #21
   br label %21
 
@@ -3725,7 +3725,7 @@ checkaccess.exit:                                 ; preds = %78
   store ptr %8, ptr %9, align 8
   %138 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %.0, ptr %138, align 8
-  %139 = call i32 @cl_scandesc_callback(i32 noundef %128, ptr noundef %.0, ptr noundef nonnull %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @info, i64 24), ptr noundef %1, ptr noundef %3, ptr noundef nonnull %9) #21
+  %139 = call i32 @cl_scandesc_callback(i32 noundef %128, ptr noundef %.0, ptr noundef nonnull %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @info, i64 24), ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %9) #21
   %140 = icmp eq i32 %139, 1
   br i1 %140, label %141, label %177
 
@@ -3743,7 +3743,7 @@ checkaccess.exit:                                 ; preds = %78
   br i1 %148, label %149, label %162
 
 149:                                              ; preds = %145
-  %150 = call fastcc i32 @print_chain(ptr noundef nonnull %8, ptr noundef nonnull %11)
+  %150 = call fastcc i32 @print_chain(ptr noundef %8, ptr noundef %11)
   %.not92 = icmp eq i32 %150, 0
   %151 = select i1 %.not92, ptr @.str.166, ptr @.str.165
   %152 = getelementptr inbounds i8, ptr %8, i64 16

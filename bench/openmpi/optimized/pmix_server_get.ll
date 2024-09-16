@@ -1208,7 +1208,7 @@ pmix_obj_run_constructors.exit470:                ; preds = %.lr.ph.i467, %552
   %561 = getelementptr inbounds i8, ptr %.0302, i64 144
   %562 = load ptr, ptr %561, align 8
   %563 = load ptr, ptr %7, align 8
-  %564 = call fastcc i32 @get_job_data(ptr noundef %562, ptr noundef %2, ptr noundef %563, ptr noundef nonnull %11)
+  %564 = call fastcc i32 @get_job_data(ptr noundef %562, ptr noundef %2, ptr noundef %563, ptr noundef %11)
   %.not367 = icmp eq i32 %564, 0
   br i1 %.not367, label %573, label %565
 
@@ -1285,7 +1285,7 @@ pmix_obj_run_destructors.exit480:                 ; preds = %.lr.ph.i477, %573
 601:                                              ; preds = %597, %592, %590
   %602 = phi i32 [ %.pre619, %597 ], [ %546, %592 ], [ %546, %590 ]
   %603 = load ptr, ptr %7, align 8
-  %604 = call fastcc i32 @defer_response(ptr noundef nonnull %8, i32 noundef %602, ptr noundef %603, ptr noundef %2, i1 noundef zeroext %.0308.lcssa, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %9)
+  %604 = call fastcc i32 @defer_response(ptr noundef %8, i32 noundef %602, ptr noundef %603, ptr noundef %2, i1 noundef zeroext %.0308.lcssa, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %10, ptr noundef %9)
   %605 = icmp eq i32 %604, -46
   %606 = icmp eq i32 %604, -64
   %spec.store.select = select i1 %606, i32 -46, i32 %604
@@ -1327,7 +1327,7 @@ pmix_obj_run_destructors.exit480:                 ; preds = %.lr.ph.i477, %573
 
 625:                                              ; preds = %621
   %626 = load ptr, ptr %7, align 8
-  %627 = call fastcc i32 @defer_response(ptr noundef nonnull %8, i32 noundef %546, ptr noundef %626, ptr noundef %2, i1 noundef zeroext %.0308.lcssa, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %9)
+  %627 = call fastcc i32 @defer_response(ptr noundef %8, i32 noundef %546, ptr noundef %626, ptr noundef %2, i1 noundef zeroext %.0308.lcssa, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %10, ptr noundef %9)
   %628 = icmp eq i32 %627, -46
   %629 = icmp eq i32 %627, -64
   %spec.store.select18 = select i1 %629, i32 -46, i32 %627
@@ -1597,7 +1597,7 @@ pmix_obj_run_destructors.exit500:                 ; preds = %.lr.ph.i497, %742
 755:                                              ; preds = %754, %751
   %756 = load i32, ptr %5, align 4
   %757 = load ptr, ptr %7, align 8
-  %758 = call fastcc i32 @defer_response(ptr noundef nonnull %8, i32 noundef %756, ptr noundef %757, ptr noundef %2, i1 noundef zeroext %.0308.lcssa, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %9)
+  %758 = call fastcc i32 @defer_response(ptr noundef %8, i32 noundef %756, ptr noundef %757, ptr noundef %2, i1 noundef zeroext %.0308.lcssa, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %10, ptr noundef %9)
   %759 = icmp eq i32 %758, -46
   %760 = icmp eq i32 %758, -64
   %spec.store.select23 = select i1 %760, i32 -46, i32 %758
@@ -1642,7 +1642,7 @@ pmix_obj_run_destructors.exit500:                 ; preds = %.lr.ph.i497, %742
 
 pmix_obj_run_constructors.exit505:                ; preds = %.lr.ph.i502, %768
   %777 = load ptr, ptr %7, align 8
-  %778 = call fastcc i32 @get_job_data(ptr noundef nonnull %8, ptr noundef %2, ptr noundef %777, ptr noundef nonnull %11)
+  %778 = call fastcc i32 @get_job_data(ptr noundef nonnull %8, ptr noundef %2, ptr noundef %777, ptr noundef %11)
   %.not361 = icmp eq i32 %778, 0
   br i1 %.not361, label %787, label %779
 
@@ -1732,7 +1732,7 @@ pmix_obj_run_destructors.exit515:                 ; preds = %.lr.ph.i512, %787
   %.0310 = phi i8 [ 0, %535 ], [ %.2312554, %647 ], [ %.2312554, %645 ], [ %.2312554636, %750 ], [ %.2312554636, %820 ], [ %.2312554636, %815 ], [ %.2312554636, %813 ]
   %823 = load i32, ptr %5, align 4
   %824 = load ptr, ptr %7, align 8
-  %825 = call fastcc i32 @defer_response(ptr noundef nonnull %8, i32 noundef %823, ptr noundef %824, ptr noundef %2, i1 noundef zeroext %.0308.lcssa, ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef nonnull %9)
+  %825 = call fastcc i32 @defer_response(ptr noundef %8, i32 noundef %823, ptr noundef %824, ptr noundef %2, i1 noundef zeroext %.0308.lcssa, ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef %9)
   switch i32 %825, label %827 [
     i32 0, label %pmix_obj_run_destructors.exit415
     i32 -64, label %826
@@ -2126,7 +2126,7 @@ define internal void @relfn(ptr noundef %0) #6 {
 declare ptr @pmix_util_print_pname_args(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @get_job_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc noundef i32 @get_job_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #1 {
   %5 = alloca %struct.pmix_buffer_t, align 8
   %6 = alloca %struct.pmix_proc, align 4
   %7 = alloca %struct.pmix_cb_t, align 8
@@ -2649,7 +2649,7 @@ pmix_obj_run_destructors.exit77:                  ; preds = %.lr.ph.i114, %.lr.p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -64, 1) i32 @defer_response(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef writeonly %8) unnamed_addr #1 {
+define internal fastcc range(i32 -64, 1) i32 @defer_response(ptr noundef nonnull %0, i32 noundef %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #1 {
   store ptr null, ptr %8, align 8
   br i1 %4, label %10, label %19
 
@@ -2682,7 +2682,7 @@ define internal fastcc range(i32 -64, 1) i32 @defer_response(ptr noundef %0, i32
 .lr.ph.i:                                         ; preds = %19, %29
   %.070100.i = phi ptr [ %.070.i, %29 ], [ %.07098.i, %19 ]
   %24 = getelementptr inbounds i8, ptr %.070100.i, i64 144
-  %25 = tail call zeroext i1 @PMIx_Check_nspace(ptr noundef %0, ptr noundef nonnull %24) #13
+  %25 = tail call zeroext i1 @PMIx_Check_nspace(ptr noundef nonnull %0, ptr noundef nonnull %24) #13
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %.lr.ph.i
@@ -2763,7 +2763,7 @@ define internal fastcc range(i32 -64, 1) i32 @defer_response(ptr noundef %0, i32
 
 pmix_obj_new_tma.exit.thread95.i:                 ; preds = %.lr.ph.i.i.i, %48
   %59 = getelementptr inbounds i8, ptr %43, i64 144
-  tail call void @PMIx_Load_procid(ptr noundef nonnull %59, ptr noundef %0, i32 noundef %1) #13
+  tail call void @PMIx_Load_procid(ptr noundef nonnull %59, ptr noundef nonnull %0, i32 noundef %1) #13
   %.not83.i = icmp eq i64 %23, 0
   br i1 %.not83.i, label %.loopexit.i, label %60
 
@@ -3045,7 +3045,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %30
 
 43:                                               ; preds = %pmix_obj_run_constructors.exit
   %44 = load ptr, ptr %39, align 8
-  %45 = call fastcc i32 @get_job_data(ptr noundef %44, ptr noundef %3, ptr noundef null, ptr noundef nonnull %10)
+  %45 = call fastcc i32 @get_job_data(ptr noundef %44, ptr noundef %3, ptr noundef null, ptr noundef %10)
   %.not113 = icmp eq i32 %45, 0
   br i1 %.not113, label %._crit_edge255, label %46
 

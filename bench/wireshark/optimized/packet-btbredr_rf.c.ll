@@ -3377,25 +3377,24 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_crc(i8 noundef zeroext %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_crc(i8 noundef zeroext %0, ptr noundef %1, i32 noundef range(i32 22, 565) %2, i32 noundef range(i32 3, 1028) %3) unnamed_addr #0 {
   %rev.i = tail call noundef i8 @llvm.bitreverse.i8(i8 %0)
   %5 = zext i8 %rev.i to i16
   %6 = shl nuw i16 %5, 8
-  %7 = icmp sgt i32 %3, 0
-  br i1 %7, label %.lr.ph, label %._crit_edge
+  br label %7
 
-.lr.ph:                                           ; preds = %4, %18
-  %.021 = phi i32 [ %20, %18 ], [ %2, %4 ]
-  %.01520 = phi i16 [ %16, %18 ], [ %6, %4 ]
-  %.01619 = phi i32 [ %19, %18 ], [ %3, %4 ]
+7:                                                ; preds = %4, %18
+  %.021 = phi i32 [ %2, %4 ], [ %20, %18 ]
+  %.01520 = phi i16 [ %6, %4 ], [ %16, %18 ]
+  %.01619 = phi i32 [ %3, %4 ], [ %19, %18 ]
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.021) #7
   %9 = zext i8 %8 to i16
   %10 = xor i16 %.01520, %9
   br label %11
 
-11:                                               ; preds = %.lr.ph, %11
-  %.01418 = phi i32 [ 0, %.lr.ph ], [ %17, %11 ]
-  %.117 = phi i16 [ %10, %.lr.ph ], [ %16, %11 ]
+11:                                               ; preds = %7, %11
+  %.01418 = phi i32 [ 0, %7 ], [ %17, %11 ]
+  %.117 = phi i16 [ %10, %7 ], [ %16, %11 ]
   %12 = and i16 %.117, 1
   %13 = lshr i16 %.117, 1
   %14 = icmp eq i16 %12, 0
@@ -3407,15 +3406,14 @@ define internal fastcc range(i32 0, 2) i32 @check_crc(i8 noundef zeroext %0, ptr
 
 18:                                               ; preds = %11
   %19 = add nsw i32 %.01619, -1
-  %20 = add i32 %.021, 1
+  %20 = add nuw nsw i32 %.021, 1
   %21 = icmp sgt i32 %.01619, 1
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %21, label %7, label %22, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %18, %4
-  %.015.lcssa = phi i16 [ %6, %4 ], [ %16, %18 ]
-  %.not = icmp eq i16 %.015.lcssa, 0
-  %22 = zext i1 %.not to i32
-  ret i32 %22
+22:                                               ; preds = %18
+  %.not = icmp eq i16 %15, %13
+  %23 = zext i1 %.not to i32
+  ret i32 %23
 }
 
 declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

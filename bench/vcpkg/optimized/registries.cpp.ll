@@ -1480,7 +1480,7 @@ _ZNSt6vectorIZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17Reg
   %storemerge26.i.i.in.in.i.i = phi i64 [ %storemerge26.i.i.i.i, %select.unfold.i.i.i.i ], [ %68, %64 ]
   %storemerge26.i.i.in.i.i = add nuw nsw i64 %storemerge26.i.i.in.in.i.i, 1
   %storemerge26.i.i.i.i = lshr i64 %storemerge26.i.i.in.i.i, 1
-  %70 = shl nuw nsw i64 %storemerge26.i.i.i.i, 4
+  %70 = shl i64 %storemerge26.i.i.i.i, 4
   %71 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %70, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #32
   %.not.i.i.i.i34 = icmp eq ptr %71, null
   br i1 %.not.i.i.i.i34, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit.i.i
@@ -2491,7 +2491,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122load_git_versions_fileERKN5vcpkg
   %23 = alloca %"struct.vcpkg::LocalizedString", align 8
   %24 = alloca %"struct.vcpkg::StringView", align 8
   %25 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN12_GLOBAL__N_125relative_path_to_versionsEN5vcpkg10StringViewE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr %3, i64 %4)
+  call fastcc void @_ZN12_GLOBAL__N_125relative_path_to_versionsEN5vcpkg10StringViewE(ptr dead_on_unwind noalias writable align 8 %11, ptr %3, i64 %4)
   %26 = call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #27
   %27 = extractvalue { ptr, i64 } %26, 0
   %28 = extractvalue { ptr, i64 } %26, 1
@@ -3079,7 +3079,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_120BuiltinErrorRegistryESt14default_deleteIS1_EE
   br label %8
 
 6:                                                ; preds = %2
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120BuiltinFilesRegistryEJRKN5vcpkg10VcpkgPathsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(400) %1)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120BuiltinFilesRegistryEJRKN5vcpkg10VcpkgPathsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(400) %1)
   %7 = load ptr, ptr %3, align 8
   store ptr null, ptr %3, align 8
   call fastcc void @_ZNSt10unique_ptrIN12_GLOBAL__N_120BuiltinFilesRegistryESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #27
@@ -3094,7 +3094,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_120BuiltinErrorRegistryESt14default_deleteIS1_EE
 declare noundef zeroext i1 @_ZNK5vcpkg10VcpkgPaths24use_git_default_registryEv(ptr noundef nonnull align 8 dereferenceable(400)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120BuiltinFilesRegistryEJRKN5vcpkg10VcpkgPathsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(400) %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120BuiltinFilesRegistryEJRKN5vcpkg10VcpkgPathsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(400) %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #31
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_120BuiltinFilesRegistryE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -3325,7 +3325,7 @@ common.resume:                                    ; preds = %.body.i4, %.body
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %30, i8 0, i64 72, i1 false), !noalias !77
   store ptr %30, ptr %29, align 8, !alias.scope !74, !noalias !71
   %32 = getelementptr inbounds i8, ptr %27, i64 48
-  invoke fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120BuiltinFilesRegistryEJRKN5vcpkg10VcpkgPathsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(400) %1)
+  invoke fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120BuiltinFilesRegistryEJRKN5vcpkg10VcpkgPathsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(400) %1)
           to label %_ZNSt10unique_ptrIN12_GLOBAL__N_118BuiltinGitRegistryESt14default_deleteIS1_EED2Ev.exit unwind label %35, !noalias !71
 
 33:                                               ; preds = %26
@@ -4204,7 +4204,7 @@ _ZSt5equalIPKcS1_EbT_S2_T0_.exit.i.i.i74.i.i.i.i.i: ; preds = %171
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125relative_path_to_versionsEN5vcpkg10StringViewE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_125relative_path_to_versionsEN5vcpkg10StringViewE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.vcpkg::StringView", align 8
   %5 = alloca [3 x i8], align 1
   %6 = alloca %"struct.vcpkg::Path", align 8
@@ -4233,7 +4233,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125relative_path_to_versionsEN5vcpk
           to label %18 unwind label %22
 
 18:                                               ; preds = %14
-  invoke void @_ZNO5vcpkg4PathplENS_10StringViewE(ptr dead_on_unwind writable sret(%"struct.vcpkg::Path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr nonnull @.str.9, i64 5)
+  invoke void @_ZNO5vcpkg4PathplENS_10StringViewE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr nonnull @.str.9, i64 5)
           to label %19 unwind label %24
 
 19:                                               ; preds = %18
@@ -14850,7 +14850,7 @@ define internal void @_ZNK12_GLOBAL__N_111GitRegistry14get_port_entryEN5vcpkg10S
   %11 = alloca %"struct.vcpkg::ExpectedT.459", align 8
   %12 = alloca %"struct.vcpkg::ExpectedT.65", align 8
   %13 = alloca %"class.std::unique_ptr.474", align 8
-  call fastcc void @_ZNK12_GLOBAL__N_111GitRegistry28get_stale_versions_tree_pathEv(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(176) %1)
+  call fastcc void @_ZNK12_GLOBAL__N_111GitRegistry28get_stale_versions_tree_pathEv(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(176) %1)
   %14 = getelementptr inbounds i8, ptr %8, i64 40
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
@@ -15047,7 +15047,7 @@ _ZNSt10unique_ptrIN5vcpkg13RegistryEntryESt14default_deleteIS1_EED2Ev.exit48: ; 
 
 86:                                               ; preds = %82
   %.sroa.gep = getelementptr inbounds i8, ptr %12, i64 8
-  invoke fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_116GitRegistryEntryEJRN5vcpkg10StringViewERKNS0_11GitRegistryEbSt6vectorINS2_17GitVersionDbEntryESaIS9_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(176) %1, i8 0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.gep)
+  invoke fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_116GitRegistryEntryEJRN5vcpkg10StringViewERKNS0_11GitRegistryEbSt6vectorINS2_17GitVersionDbEntryESaIS9_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %13, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(176) %1, i8 0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.gep)
           to label %87 unwind label %90
 
 87:                                               ; preds = %86
@@ -15177,7 +15177,7 @@ _ZN5vcpkg9ExpectedTINS_8OptionalISt6vectorINS_17GitVersionDbEntryESaIS3_EEEENS_1
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK12_GLOBAL__N_111GitRegistry21append_all_port_namesERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::ExpectedT.15") align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.vcpkg::ExpectedT.470", align 8
-  call fastcc void @_ZNK12_GLOBAL__N_111GitRegistry28get_stale_versions_tree_pathEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(176) %1)
+  call fastcc void @_ZNK12_GLOBAL__N_111GitRegistry28get_stale_versions_tree_pathEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(176) %1)
   %5 = getelementptr inbounds i8, ptr %4, i64 40
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
@@ -15502,7 +15502,7 @@ define internal void @_ZN12_GLOBAL__N_111GitRegistryD0Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_111GitRegistry28get_stale_versions_tree_pathEv(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK12_GLOBAL__N_111GitRegistry28get_stale_versions_tree_pathEv(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.vcpkg::LineInfo", align 8
   %4 = alloca %class.anon.484, align 8
   %5 = alloca %class.anon.483, align 8
@@ -15943,7 +15943,7 @@ _ZN5vcpkg14ExpectedHolderINS_8OptionalISt6vectorINS_17GitVersionDbEntryESaIS3_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_116GitRegistryEntryEJRN5vcpkg10StringViewERKNS0_11GitRegistryEbSt6vectorINS2_17GitVersionDbEntryESaIS9_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.0.val, i64 %.8.val, ptr noundef nonnull align 8 dereferenceable(176) %1, i8 %.0.val1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_116GitRegistryEntryEJRN5vcpkg10StringViewERKNS0_11GitRegistryEbSt6vectorINS2_17GitVersionDbEntryESaIS9_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, i64 %.8.val, ptr noundef nonnull align 8 dereferenceable(176) %1, i8 %.0.val1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #31
   %5 = trunc i8 %.0.val1 to i1
   invoke fastcc void @_ZN12_GLOBAL__N_116GitRegistryEntryC2EN5vcpkg10StringViewERKNS_11GitRegistryEbOSt6vectorINS1_17GitVersionDbEntryESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(104) %4, ptr %.0.val, i64 %.8.val, ptr noundef nonnull align 8 dereferenceable(176) %1, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(24) %2)
@@ -15961,7 +15961,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_116GitRegistryEntry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_111GitRegistry36get_unstale_stale_versions_tree_pathEv(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK12_GLOBAL__N_111GitRegistry36get_unstale_stale_versions_tree_pathEv(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.vcpkg::LineInfo", align 8
   %4 = alloca %class.anon.506, align 8
   %5 = alloca %class.anon.505, align 8
@@ -16306,7 +16306,7 @@ _ZN12_GLOBAL__N_134PortVersionsGitTreesStructOfArraysC2EOSt6vectorIN5vcpkg17GitV
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK12_GLOBAL__N_116GitRegistryEntry17get_port_versionsEv(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::ExpectedT.366") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.vcpkg::ExpectedT.15", align 8
-  call fastcc void @_ZNK12_GLOBAL__N_116GitRegistryEntry16ensure_not_staleEv(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(104) %1)
+  call fastcc void @_ZNK12_GLOBAL__N_116GitRegistryEntry16ensure_not_staleEv(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(104) %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -16371,7 +16371,7 @@ define internal void @_ZNK12_GLOBAL__N_116GitRegistryEntry11get_versionERKN5vcpk
   br i1 %20, label %21, label %.critedge.thread
 
 21:                                               ; preds = %17
-  call fastcc void @_ZNK12_GLOBAL__N_116GitRegistryEntry16ensure_not_staleEv(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(104) %1)
+  call fastcc void @_ZNK12_GLOBAL__N_116GitRegistryEntry16ensure_not_staleEv(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(104) %1)
   %22 = getelementptr inbounds i8, ptr %5, i64 32
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
@@ -16425,7 +16425,7 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit..critedge_crit_edge
   %40 = load ptr, ptr %7, align 8
   %41 = getelementptr inbounds i8, ptr %7, i64 8
   %42 = load i64, ptr %41, align 8
-  call fastcc void @_ZN12_GLOBAL__N_132format_version_git_entry_missingEN5vcpkg10StringViewERKNS0_7VersionERKSt6vectorIS2_SaIS2_EE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %40, i64 %42, ptr noundef nonnull align 8 dereferenceable(36) %2, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  call fastcc void @_ZN12_GLOBAL__N_132format_version_git_entry_missingEN5vcpkg10StringViewERKNS0_7VersionERKSt6vectorIS2_SaIS2_EE(ptr dead_on_unwind noalias writable align 8 %6, ptr %40, i64 %42, ptr noundef nonnull align 8 dereferenceable(36) %2, ptr noundef nonnull align 8 dereferenceable(24) %10)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6) #27
   %43 = getelementptr inbounds i8, ptr %0, i64 64
   store i8 1, ptr %43, align 8
@@ -17137,7 +17137,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_116GitRegistryEntry16ensure_not_staleEv(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK12_GLOBAL__N_116GitRegistryEntry16ensure_not_staleEv(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.fmt::v10::format_arg_store", align 16
   %4 = alloca %"struct.vcpkg::msg::TagArg.187", align 8
   %5 = alloca %class.anon.506, align 8
@@ -17270,7 +17270,7 @@ _ZNO5vcpkg9ExpectedTINS_8OptionalISt6vectorINS_17GitVersionDbEntryESaIS3_EEEENS_
   %65 = load ptr, ptr %14, align 8
   %66 = getelementptr inbounds i8, ptr %14, i64 8
   %67 = load i64, ptr %66, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_125relative_path_to_versionsEN5vcpkg10StringViewE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr %65, i64 %67)
+  invoke fastcc void @_ZN12_GLOBAL__N_125relative_path_to_versionsEN5vcpkg10StringViewE(ptr dead_on_unwind noalias writable align 8 %13, ptr %65, i64 %67)
           to label %68 unwind label %86
 
 68:                                               ; preds = %64
@@ -17431,7 +17431,7 @@ _ZN5vcpkg9ExpectedTINS_8OptionalISt6vectorINS_17GitVersionDbEntryESaIS3_EEEENS_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_132format_version_git_entry_missingEN5vcpkg10StringViewERKNS0_7VersionERKSt6vectorIS2_SaIS2_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(36) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_132format_version_git_entry_missingEN5vcpkg10StringViewERKNS0_7VersionERKSt6vectorIS2_SaIS2_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(36) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.fmt::v10::format_arg_store", align 16
   %7 = alloca %"struct.vcpkg::msg::TagArg", align 8
   %8 = alloca %"class.fmt::v10::format_arg_store.499", align 16
@@ -20371,7 +20371,7 @@ define internal void @_ZNK12_GLOBAL__N_118BuiltinGitRegistry14get_port_entryEN5v
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5vcpkg10VcpkgPaths14get_filesystemEv(ptr noundef nonnull align 8 dereferenceable(400) %10)
   %12 = load ptr, ptr %9, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 96
-  call fastcc void @_ZN12_GLOBAL__N_125relative_path_to_versionsEN5vcpkg10StringViewE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %2, i64 %3)
+  call fastcc void @_ZN12_GLOBAL__N_125relative_path_to_versionsEN5vcpkg10StringViewE(ptr dead_on_unwind noalias writable align 8 %6, ptr %2, i64 %3)
   %14 = call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
   %15 = extractvalue { ptr, i64 } %14, 0
   %16 = extractvalue { ptr, i64 } %14, 1
@@ -20992,7 +20992,7 @@ define internal void @_ZNK12_GLOBAL__N_123BuiltinGitRegistryEntry11get_versionER
   %20 = load ptr, ptr %8, align 8
   %21 = getelementptr inbounds i8, ptr %8, i64 8
   %22 = load i64, ptr %21, align 8
-  call fastcc void @_ZN12_GLOBAL__N_132format_version_git_entry_missingEN5vcpkg10StringViewERKNS0_7VersionERKSt6vectorIS2_SaIS2_EE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %20, i64 %22, ptr noundef nonnull align 8 dereferenceable(36) %2, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  call fastcc void @_ZN12_GLOBAL__N_132format_version_git_entry_missingEN5vcpkg10StringViewERKNS0_7VersionERKSt6vectorIS2_SaIS2_EE(ptr dead_on_unwind noalias writable align 8 %7, ptr %20, i64 %22, ptr noundef nonnull align 8 dereferenceable(36) %2, ptr noundef nonnull align 8 dereferenceable(24) %11)
   %23 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNO5vcpkg15LocalizedString10append_rawEc(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef signext 10)
           to label %24 unwind label %26
 
@@ -22224,7 +22224,7 @@ define internal void @_ZNK12_GLOBAL__N_118FilesystemRegistry14get_port_entryEN5v
   unreachable
 
 38:                                               ; preds = %4
-  invoke fastcc void @_ZN12_GLOBAL__N_125relative_path_to_versionsEN5vcpkg10StringViewE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr %2, i64 %3)
+  invoke fastcc void @_ZN12_GLOBAL__N_125relative_path_to_versionsEN5vcpkg10StringViewE(ptr dead_on_unwind noalias writable align 8 %11, ptr %2, i64 %3)
           to label %.noexc20 unwind label %200
 
 .noexc20:                                         ; preds = %38

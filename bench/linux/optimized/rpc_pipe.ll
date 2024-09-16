@@ -1411,7 +1411,7 @@ declare dso_local void @down_write(ptr noundef) local_unnamed_addr #1
 declare dso_local ptr @d_alloc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @__rpc_create_common(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @__rpc_create_common(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext range(i16 16384, 4481) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
   tail call void @d_drop(ptr noundef %1) #14
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
@@ -2088,7 +2088,7 @@ define internal fastcc i32 @__rpc_rmdir(ptr noundef %0, ptr noundef %1) unnamed_
 declare dso_local i32 @simple_rmdir(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @rpc_populate(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @rpc_populate(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 1, 10) %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.qstr, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
@@ -2251,7 +2251,7 @@ define internal fastcc i32 @rpc_populate(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__rpc_depopulate(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @__rpc_depopulate(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 1, 10) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.qstr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8

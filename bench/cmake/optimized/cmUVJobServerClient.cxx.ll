@@ -1114,11 +1114,11 @@ _Z18cmHasLiteralPrefixILm6EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.e
   %148 = load i32, ptr %21, align 4, !noalias !5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !5
-  invoke fastcc void @_ZN12_GLOBAL__N_19ImplPosix6OpenFDEi(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(178) %22, i32 noundef %147)
+  invoke fastcc void @_ZN12_GLOBAL__N_19ImplPosix6OpenFDEi(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(178) %22, i32 noundef %147)
           to label %.noexc27.i.i.i unwind label %.loopexit.split-lp.i.i.i, !noalias !5
 
 .noexc27.i.i.i:                                   ; preds = %146
-  invoke fastcc void @_ZN12_GLOBAL__N_19ImplPosix6OpenFDEi(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(178) %22, i32 noundef %148)
+  invoke fastcc void @_ZN12_GLOBAL__N_19ImplPosix6OpenFDEi(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(178) %22, i32 noundef %148)
           to label %149 unwind label %165, !noalias !5
 
 149:                                              ; preds = %.noexc27.i.i.i

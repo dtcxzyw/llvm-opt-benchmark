@@ -961,7 +961,7 @@ for.body220:                                      ; preds = %if.end214, %for.inc
 if.then225:                                       ; preds = %for.body220
   %server_stats = getelementptr inbounds i8, ptr %arrayidx222, i64 33288
   %68 = load ptr, ptr %arrayidx222, align 8
-  call fastcc void @print_stats(ptr noundef nonnull %server_stats, ptr noundef nonnull @.str.17, ptr noundef %68, ptr noundef nonnull %spec.select133, i32 noundef 1)
+  call fastcc void @print_stats(ptr noundef %server_stats, ptr noundef nonnull @.str.17, ptr noundef %68, ptr noundef nonnull %spec.select133, i32 noundef 1)
   br label %if.end227
 
 if.end227:                                        ; preds = %if.then225, %for.body220
@@ -970,7 +970,7 @@ if.end227:                                        ; preds = %if.then225, %for.bo
 if.then229:                                       ; preds = %if.end227
   %client_stats = getelementptr inbounds i8, ptr %arrayidx222, i64 33328
   %69 = load ptr, ptr %arrayidx222, align 8
-  call fastcc void @print_stats(ptr noundef nonnull %client_stats, ptr noundef nonnull @.str.18, ptr noundef %69, ptr noundef nonnull %spec.select133, i32 noundef 1)
+  call fastcc void @print_stats(ptr noundef %client_stats, ptr noundef nonnull @.str.18, ptr noundef %69, ptr noundef nonnull %spec.select133, i32 noundef 1)
   br label %for.inc232
 
 for.inc232:                                       ; preds = %if.end227, %if.then229
@@ -1071,7 +1071,7 @@ if.else290:                                       ; preds = %for.end286
 
 if.then293:                                       ; preds = %if.else290
   %95 = load ptr, ptr %call48, align 8
-  call fastcc void @print_stats(ptr noundef nonnull %srv_comb, ptr noundef nonnull @.str.17, ptr noundef %95, ptr noundef nonnull %spec.select133, i32 noundef 0)
+  call fastcc void @print_stats(ptr noundef %srv_comb, ptr noundef nonnull @.str.17, ptr noundef %95, ptr noundef nonnull %spec.select133, i32 noundef 0)
   br label %if.end296
 
 if.end296:                                        ; preds = %if.then293, %if.else290
@@ -1079,7 +1079,7 @@ if.end296:                                        ; preds = %if.then293, %if.els
 
 if.then298:                                       ; preds = %if.end296
   %96 = load ptr, ptr %call48, align 8
-  call fastcc void @print_stats(ptr noundef nonnull %cli_comb, ptr noundef nonnull @.str.18, ptr noundef %96, ptr noundef nonnull %spec.select133, i32 noundef 0)
+  call fastcc void @print_stats(ptr noundef %cli_comb, ptr noundef nonnull @.str.18, ptr noundef %96, ptr noundef nonnull %spec.select133, i32 noundef 0)
   br label %if.end302
 
 if.end302:                                        ; preds = %if.end296, %if.then298, %if.then288
@@ -2675,7 +2675,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @print_stats(ptr nocapture noundef readonly %wcStat, ptr noundef %desc, ptr noundef %cipher, ptr noundef %group, i32 noundef %verbose) unnamed_addr #2 {
+define internal fastcc void @print_stats(ptr nocapture noundef nonnull readonly %wcStat, ptr noundef %desc, ptr noundef %cipher, ptr noundef %group, i32 noundef range(i32 0, 2) %verbose) unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq i32 %verbose, 0
   %0 = load ptr, ptr @stderr, align 8

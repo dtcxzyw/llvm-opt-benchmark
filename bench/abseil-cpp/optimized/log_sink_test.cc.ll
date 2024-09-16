@@ -11691,13 +11691,10 @@ ehcleanup115:                                     ; preds = %ehcleanup114, %lpad
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessagelsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16), i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc { i64, ptr } @_ZN12_GLOBAL__N_114ReentrancyTest12LogAndReturnEN4absl11LogSeverityESt17basic_string_viewIcSt11char_traitsIcEES6_(i32 noundef %severity, i64 %to_log.coerce0, ptr %to_log.coerce1, i64 %to_return.coerce0, ptr %to_return.coerce1) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, ptr } @_ZN12_GLOBAL__N_114ReentrancyTest12LogAndReturnEN4absl11LogSeverityESt17basic_string_viewIcSt11char_traitsIcEES6_(i32 noundef range(i32 0, 4) %severity, i64 %to_log.coerce0, ptr %to_log.coerce1, i64 %to_return.coerce0, ptr %to_return.coerce1) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4 = alloca %"class.absl::log_internal::LogMessage", align 8
-  %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %severity, i32 0)
-  %cmp1.i = icmp sgt i32 %severity, 3
-  %spec.store.select1.i = select i1 %cmp1.i, i32 2, i32 %spec.store.select.i
-  call void @_ZN4absl12log_internal10LogMessageC1EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, ptr noundef nonnull @.str.4, i32 noundef 220, i32 noundef %spec.store.select1.i) #30
+  call void @_ZN4absl12log_internal10LogMessageC1EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, ptr noundef nonnull @.str.4, i32 noundef 220, i32 noundef %severity) #30
   %call6 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessagelsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, i64 %to_log.coerce0, ptr %to_log.coerce1)
           to label %invoke.cont unwind label %lpad
 

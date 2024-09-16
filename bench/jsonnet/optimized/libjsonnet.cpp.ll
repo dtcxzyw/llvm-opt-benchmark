@@ -3381,7 +3381,7 @@ define noundef ptr @jsonnet_evaluate_file(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZL25jsonnet_evaluate_file_auxP9JsonnetVmPKcPiN12_GLOBAL__N_18EvalKindE(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZL25jsonnet_evaluate_file_auxP9JsonnetVmPKcPiN12_GLOBAL__N_18EvalKindE(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::istreambuf_iterator", align 8
   %6 = alloca %"class.std::basic_ifstream", align 8
   %7 = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -3722,7 +3722,7 @@ define noundef ptr @jsonnet_evaluate_snippet(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZL28jsonnet_evaluate_snippet_auxP9JsonnetVmPKcS2_PiN12_GLOBAL__N_18EvalKindE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZL28jsonnet_evaluate_snippet_auxP9JsonnetVmPKcS2_PiN12_GLOBAL__N_18EvalKindE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, i32 noundef range(i32 0, 3) %4) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.jsonnet::internal::Allocator", align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"class.std::__cxx11::list.98", align 8
@@ -3823,7 +3823,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %56 = getelementptr inbounds i8, ptr %0, i64 184
   %57 = load i8, ptr %56, align 8
   %58 = trunc i8 %57 to i1
-  switch i32 %4, label %default.unreachable [
+  switch i32 %4, label %default.unreachable205 [
     i32 0, label %65
     i32 1, label %82
     i32 2, label %123
@@ -4071,7 +4071,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   call void @_ZdlPv(ptr noundef nonnull %148) #34
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit
 
-default.unreachable:                              ; preds = %44
+default.unreachable205:                           ; preds = %44
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit: ; preds = %149, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %._crit_edge195, %76

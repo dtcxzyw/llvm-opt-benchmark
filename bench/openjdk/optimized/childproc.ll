@@ -407,7 +407,7 @@ writeFully.exit.thread:                           ; preds = %18, %20, %101, %111
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @moveDescriptor(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @moveDescriptor(i32 noundef %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #0 {
   %.not = icmp eq i32 %0, %1
   br i1 %.not, label %11, label %.preheader
 
@@ -436,7 +436,7 @@ restartableDup2.exit.thread:                      ; preds = %5, %restartableDup2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @restartableDup2(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @restartableDup2(i32 noundef %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %6, %2
@@ -568,7 +568,7 @@ execve_as_traditional_shell_script.exit.i:        ; preds = %.lr.ph.i.i, %25
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 8 %29, i64 %32, i1 false)
   store ptr @.str.1, ptr %2, align 8
   store ptr %1, ptr %29, align 8
-  %33 = tail call i32 @execve(ptr noundef nonnull @.str.1, ptr noundef nonnull %2, ptr noundef %3) #14
+  %33 = tail call i32 @execve(ptr noundef nonnull @.str.1, ptr noundef nonnull %2, ptr noundef nonnull %3) #14
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %29, ptr nonnull align 8 %28, i64 %32, i1 false)
   store ptr %26, ptr %2, align 8
   br label %execve_with_shell_fallback.exit
@@ -634,7 +634,7 @@ execve_as_traditional_shell_script.exit.i:        ; preds = %.lr.ph.i.i, %25
   %62 = sext i32 %.pre-phi to i64
   %63 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %62
   store i8 0, ptr %63, align 1
-  %64 = call i32 @execve(ptr noundef nonnull %5, ptr noundef %2, ptr noundef %3) #14
+  %64 = call i32 @execve(ptr noundef nonnull %5, ptr noundef %2, ptr noundef nonnull %3) #14
   %65 = tail call ptr @__errno_location() #15
   %66 = load i32, ptr %65, align 4
   %67 = icmp eq i32 %66, 8
@@ -662,7 +662,7 @@ execve_as_traditional_shell_script.exit.i46.us:   ; preds = %execve_as_tradition
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull align 8 %44, i64 %71, i1 false)
   store ptr @.str.1, ptr %2, align 8
   store ptr %5, ptr %44, align 8
-  %72 = call i32 @execve(ptr noundef nonnull @.str.1, ptr noundef nonnull %2, ptr noundef %3) #14
+  %72 = call i32 @execve(ptr noundef nonnull @.str.1, ptr noundef nonnull %2, ptr noundef nonnull %3) #14
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %44, ptr nonnull align 8 %43, i64 %71, i1 false)
   store ptr %69, ptr %2, align 8
   %.pre = load i32, ptr %65, align 4

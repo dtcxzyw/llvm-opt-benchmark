@@ -317,7 +317,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 declare dso_local i32 @inet_dev_addr_type(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @match_type6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) unnamed_addr #2 align 16 {
+define internal fastcc zeroext i1 @match_type6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext range(i16 1, 0) %3) unnamed_addr #2 align 16 {
   %5 = alloca %struct.flowi6, align 8
   %6 = alloca ptr, align 8
   %7 = tail call i32 @__ipv6_addr_type(ptr noundef %2) #7

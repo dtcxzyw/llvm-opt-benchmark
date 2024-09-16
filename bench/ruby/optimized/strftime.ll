@@ -365,7 +365,7 @@ buffer_size_check.exit2319:                       ; preds = %resize_buffer.exit2
   br i1 %or.cond2293, label %121, label %123
 
 121:                                              ; preds = %116
-  %122 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %80, ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef 1, i64 noundef %9)
+  %122 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %80, ptr noundef %11, ptr noundef %12, i64 noundef 1, i64 noundef %9)
   call fastcc void @buffer_size_check(ptr noundef %122, ptr noundef nonnull %27, i64 noundef %2, ptr noundef %.01871)
   br label %123
 
@@ -606,7 +606,7 @@ buffer_size_check.exit2333:                       ; preds = %resize_buffer.exit2
   %240 = load i32, ptr %48, align 8
   %241 = lshr i32 %240, 13
   %242 = and i32 %241, 31
-  %243 = call i32 @llvm.umax.i32(i32 %242, i32 1)
+  %243 = call range(i32 0, 512) i32 @llvm.umax.i32(i32 %242, i32 1)
   %244 = and i32 %.018933425, 1
   %.not2263 = icmp eq i32 %244, 0
   %245 = icmp slt i32 %.018893426, 1
@@ -693,7 +693,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %buffer_size_check.e
   %281 = load i32, ptr %48, align 8
   %282 = lshr i32 %281, 18
   %283 = and i32 %282, 31
-  %284 = call i32 @llvm.umin.i32(i32 %283, i32 23)
+  %284 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 %283, i32 23)
   %285 = and i32 %.018933425, 1
   %.not2259 = icmp eq i32 %285, 0
   %286 = icmp slt i32 %.018893426, 1
@@ -780,7 +780,7 @@ rbimpl_rstring_getmem.exit2354:                   ; preds = %buffer_size_check.e
   %322 = load i32, ptr %48, align 8
   %323 = lshr i32 %322, 18
   %324 = and i32 %323, 31
-  %325 = call i32 @llvm.umin.i32(i32 %324, i32 23)
+  %325 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 %324, i32 23)
   %326 = icmp eq i32 %324, 0
   %327 = icmp ugt i32 %324, 12
   %328 = add nsw i32 %325, -12
@@ -871,8 +871,8 @@ rbimpl_rstring_getmem.exit2365:                   ; preds = %buffer_size_check.e
 365:                                              ; preds = %.lr.ph
   %366 = load i32, ptr %48, align 8
   %367 = and i32 %366, 511
-  %368 = call i32 @llvm.umin.i32(i32 %367, i32 366)
-  %369 = call i32 @llvm.umax.i32(i32 %368, i32 1)
+  %368 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 %367, i32 366)
+  %369 = call range(i32 0, 512) i32 @llvm.umax.i32(i32 %368, i32 1)
   %370 = and i32 %.018933425, 1
   %.not2251 = icmp eq i32 %370, 0
   %371 = icmp slt i32 %.018893426, 1
@@ -959,8 +959,8 @@ rbimpl_rstring_getmem.exit2376:                   ; preds = %buffer_size_check.e
   %407 = load i32, ptr %48, align 8
   %408 = lshr i32 %407, 9
   %409 = and i32 %408, 15
-  %410 = call i32 @llvm.umin.i32(i32 %409, i32 12)
-  %411 = call i32 @llvm.umax.i32(i32 %410, i32 1)
+  %410 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 %409, i32 12)
+  %411 = call range(i32 0, 512) i32 @llvm.umax.i32(i32 %410, i32 1)
   %412 = and i32 %.018933425, 1
   %.not2247 = icmp eq i32 %412, 0
   %413 = icmp slt i32 %.018893426, 1
@@ -1047,7 +1047,7 @@ rbimpl_rstring_getmem.exit2387:                   ; preds = %buffer_size_check.e
   %449 = load i32, ptr %48, align 8
   %450 = lshr i32 %449, 23
   %451 = and i32 %450, 63
-  %452 = call i32 @llvm.umin.i32(i32 %451, i32 59)
+  %452 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 %451, i32 59)
   %453 = and i32 %.018933425, 1
   %.not2243 = icmp eq i32 %453, 0
   %454 = icmp slt i32 %.018893426, 1
@@ -1284,7 +1284,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %542
   br i1 %.not2235, label %561, label %._crit_edge3828
 
 ._crit_edge3828:                                  ; preds = %547, %556
-  %560 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %80, ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %555, i64 noundef %9)
+  %560 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %80, ptr noundef %11, ptr noundef %12, i64 noundef %555, i64 noundef %9)
   call fastcc void @buffer_size_check(ptr noundef %560, ptr noundef nonnull %27, i64 noundef %2, ptr noundef %.01871)
   br label %561
 
@@ -1345,7 +1345,7 @@ rbimpl_rstring_getmem.exit2412:                   ; preds = %561, %570
   br i1 %.not2230, label %592, label %590
 
 590:                                              ; preds = %585, %583
-  %591 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %80, ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %581, i64 noundef %9)
+  %591 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %80, ptr noundef %11, ptr noundef %12, i64 noundef %581, i64 noundef %9)
   call fastcc void @buffer_size_check(ptr noundef %591, ptr noundef nonnull %27, i64 noundef %2, ptr noundef %.01871)
   br label %592
 
@@ -1370,7 +1370,7 @@ rbimpl_rstring_getmem.exit2412:                   ; preds = %561, %570
   br i1 %.not2232, label %604, label %602
 
 602:                                              ; preds = %597, %595
-  %603 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %80, ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %578, i64 noundef %9)
+  %603 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %80, ptr noundef %11, ptr noundef %12, i64 noundef %578, i64 noundef %9)
   call fastcc void @buffer_size_check(ptr noundef %603, ptr noundef nonnull %27, i64 noundef %2, ptr noundef %.01871)
   br label %604
 
@@ -2341,7 +2341,7 @@ format_value.exit:                                ; preds = %1032, %.critedge.i
   br i1 %.not2189, label %1056, label %1054
 
 1054:                                             ; preds = %1049, %1047
-  %1055 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %80, ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %1045, i64 noundef %9)
+  %1055 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %80, ptr noundef %11, ptr noundef %12, i64 noundef %1045, i64 noundef %9)
   call fastcc void @buffer_size_check(ptr noundef %1055, ptr noundef nonnull %27, i64 noundef %2, ptr noundef %.01871)
   br label %1056
 
@@ -2630,7 +2630,7 @@ rb_num2long_inline.exit.thread:                   ; preds = %1092, %rb_num2long_
   %.sink = phi i32 [ %1162, %1161 ], [ %1190, %1189 ], [ %1178, %1177 ], [ %1146, %1145 ], [ %1133, %1132 ], [ %1120, %1119 ]
   %.21891.ph = phi i32 [ %1153, %1161 ], [ %1182, %1189 ], [ %1170, %1177 ], [ %1137, %1145 ], [ %1124, %1132 ], [ %1111, %1119 ]
   %1191 = sext i32 %.sink to i64
-  %1192 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %80, ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %1191, i64 noundef %9)
+  %1192 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %80, ptr noundef %11, ptr noundef %12, i64 noundef %1191, i64 noundef %9)
   call fastcc void @buffer_size_check(ptr noundef %1192, ptr noundef nonnull %27, i64 noundef %2, ptr noundef %.01871)
   br label %1193
 
@@ -2883,7 +2883,7 @@ buffer_size_check.exit2570:                       ; preds = %resize_buffer.exit2
   br i1 %or.cond2303, label %1319, label %1321
 
 1319:                                             ; preds = %1314
-  %1320 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %80, ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef 1, i64 noundef %9)
+  %1320 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %80, ptr noundef %11, ptr noundef %12, i64 noundef 1, i64 noundef %9)
   call fastcc void @buffer_size_check(ptr noundef %1320, ptr noundef nonnull %27, i64 noundef %2, ptr noundef %.01871)
   br label %1321
 
@@ -2977,7 +2977,7 @@ buffer_size_check.exit2579:                       ; preds = %resize_buffer.exit2
   br i1 %or.cond2307, label %1359, label %1361
 
 1359:                                             ; preds = %1354
-  %1360 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %80, ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef 1, i64 noundef %9)
+  %1360 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %80, ptr noundef %11, ptr noundef %12, i64 noundef 1, i64 noundef %9)
   call fastcc void @buffer_size_check(ptr noundef %1360, ptr noundef nonnull %27, i64 noundef %2, ptr noundef %.01871)
   br label %1361
 
@@ -3204,7 +3204,7 @@ buffer_size_check.exit2611:                       ; preds = %resize_buffer.exit2
   %1458 = load i32, ptr %48, align 8
   %1459 = lshr i32 %1458, 13
   %1460 = and i32 %1459, 31
-  %1461 = call i32 @llvm.umax.i32(i32 %1460, i32 1)
+  %1461 = call range(i32 0, 512) i32 @llvm.umax.i32(i32 %1460, i32 1)
   %1462 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef %1457, i32 noundef %1433, i32 noundef %1461) #10
   %1463 = load i64, ptr %18, align 8, !noalias !150
   %1464 = and i64 %1463, 8192
@@ -3688,7 +3688,7 @@ buffer_size_check.exit2682:                       ; preds = %resize_buffer.exit2
   %1668 = load i32, ptr %48, align 8
   %1669 = lshr i32 %1668, 18
   %1670 = and i32 %1669, 31
-  %1671 = call i32 @llvm.umin.i32(i32 %1670, i32 23)
+  %1671 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 %1670, i32 23)
   %1672 = and i32 %.018933425, 1
   %.not2130 = icmp eq i32 %1672, 0
   %1673 = icmp slt i32 %.018893426, 1
@@ -3773,7 +3773,7 @@ rbimpl_rstring_getmem.exit2693:                   ; preds = %buffer_size_check.e
   %1708 = load i32, ptr %48, align 8
   %1709 = lshr i32 %1708, 18
   %1710 = and i32 %1709, 31
-  %1711 = call i32 @llvm.umin.i32(i32 %1710, i32 23)
+  %1711 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 %1710, i32 23)
   %1712 = icmp eq i32 %1710, 0
   %1713 = icmp ugt i32 %1710, 12
   %1714 = add nsw i32 %1711, -12
@@ -4164,7 +4164,7 @@ format_value.exit2747:                            ; preds = %1864, %.critedge.i2
   br i1 %.not2115, label %1888, label %1886
 
 1886:                                             ; preds = %1881, %1879
-  %1887 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %80, ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %1877, i64 noundef %9)
+  %1887 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %80, ptr noundef %11, ptr noundef %12, i64 noundef %1877, i64 noundef %9)
   call fastcc void @buffer_size_check(ptr noundef %1887, ptr noundef nonnull %27, i64 noundef %2, ptr noundef %.01871)
   br label %1888
 
@@ -4456,7 +4456,7 @@ rbimpl_rstring_getmem.exit2780:                   ; preds = %buffer_size_check.e
 
 2015:                                             ; preds = %.lr.ph, %.lr.ph
   %2016 = load i64, ptr %5, align 8
-  %2017 = call fastcc i32 @iso8601wknum_v(ptr noundef nonnull %5)
+  %2017 = call fastcc i32 @iso8601wknum_v(ptr noundef %5)
   %2018 = load i32, ptr %48, align 8
   %2019 = lshr i32 %2018, 9
   %2020 = and i32 %2019, 15
@@ -4624,7 +4624,7 @@ format_value.exit2794:                            ; preds = %2078, %.critedge.i2
   br i1 %.not2092, label %2102, label %2100
 
 2100:                                             ; preds = %2095, %2093
-  %2101 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %80, ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %2091, i64 noundef %9)
+  %2101 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %80, ptr noundef %11, ptr noundef %12, i64 noundef %2091, i64 noundef %9)
   call fastcc void @buffer_size_check(ptr noundef %2101, ptr noundef nonnull %27, i64 noundef %2, ptr noundef %.01871)
   br label %2102
 
@@ -5492,7 +5492,7 @@ declare ptr @rb_locale_encoding() local_unnamed_addr #1
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = load ptr, ptr %2, align 8
   %8 = ptrtoint ptr %1 to i64
   %9 = ptrtoint ptr %7 to i64
@@ -5532,7 +5532,7 @@ RSTRING_PTR.exit:                                 ; preds = %15, %20
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @buffer_size_check(ptr noundef readnone %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @buffer_size_check(ptr noundef readnone %0, ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %3) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %9
 
@@ -5601,7 +5601,7 @@ declare i64 @rb_str_new_cstr(ptr noundef) local_unnamed_addr #1
 declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 306783380) i32 @iso8601wknum_v(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 306783380) i32 @iso8601wknum_v(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = alloca %struct.tm, align 8
   %3 = load i64, ptr %0, align 8
   %4 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef 37, i32 noundef 1, i64 noundef 801) #10
@@ -5671,7 +5671,7 @@ vtm2tm_noyear.exit:                               ; preds = %13, %15
   store i64 %.0.i.i, ptr %.sroa.101.0..sroa_idx.i, align 8
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 48
   store ptr %40, ptr %.sroa.11.0..sroa_idx.i, align 8
-  %41 = call fastcc i32 @iso8601wknum(ptr noundef nonnull %2)
+  %41 = call fastcc i32 @iso8601wknum(ptr noundef %2)
   ret i32 %41
 }
 
@@ -5708,7 +5708,7 @@ declare i64 @rb_num2int(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_num2long(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 306783380) i32 @iso8601wknum(ptr nocapture noundef readonly %0) unnamed_addr #8 {
+define internal fastcc range(i32 0, 306783380) i32 @iso8601wknum(ptr nocapture noundef nonnull readonly %0) unnamed_addr #8 {
   %2 = alloca %struct.tm, align 8
   %3 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %3, align 8
@@ -5778,7 +5778,7 @@ isleap.exit:                                      ; preds = %17, %32
   %37 = phi i32 [ %36, %32 ], [ 365, %17 ]
   %38 = getelementptr inbounds i8, ptr %2, i64 28
   store i32 %37, ptr %38, align 4
-  %39 = call fastcc i32 @iso8601wknum(ptr noundef nonnull %2)
+  %39 = call fastcc i32 @iso8601wknum(ptr noundef %2)
   br label %40
 
 40:                                               ; preds = %15, %isleap.exit, %13, %1

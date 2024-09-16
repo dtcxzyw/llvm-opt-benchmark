@@ -2386,7 +2386,7 @@ define hidden void @_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder17hd5d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle17h6d2b0d6fca84e063E(ptr align 8 %0, i64 %1, ptr align 8 %2, ptr align 8 %3, i1 zeroext %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle17h6d2b0d6fca84e063E(ptr align 8 %0, i64 %1, ptr align 8 %2, ptr nonnull align 8 %3, i1 zeroext %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca {}, align 1
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %8 = alloca [1 x { ptr, ptr }], align 8
@@ -2500,8 +2500,8 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
   store ptr %2, ptr %110, align 8
   %113 = zext i1 %4 to i8
   store i8 %113, ptr %109, align 1
-  tail call void @_ZN22cranelift_codegen_meta6srcgen9Formatter10multi_line17hee06f81a5eb5212eE(ptr align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.139, i64 218)
-  tail call void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr align 8 %3)
+  tail call void @_ZN22cranelift_codegen_meta6srcgen9Formatter10multi_line17hee06f81a5eb5212eE(ptr nonnull align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.139, i64 218)
+  tail call void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr nonnull align 8 %3)
   %114 = getelementptr inbounds ptr, ptr %0, i64 %1
   store ptr %0, ptr %107, align 8
   %.sroa.0194.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %107, i64 8
@@ -2563,7 +2563,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %106, ptr noundef nonnull align 8 dereferenceable(24) %104, i64 24, i1 false)
   %128 = getelementptr inbounds i8, ptr %104, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef nonnull align 8 dereferenceable(24) %128, i64 24, i1 false)
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.140, i64 80)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr nonnull align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.140, i64 80)
           to label %129 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %369, %358, %340, %329, %240, %193, %.body
@@ -2589,7 +2589,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
   br label %.loopexit.split-lp
 
 129:                                              ; preds = %127
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr align 8 %3)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr nonnull align 8 %3)
           to label %130 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 130:                                              ; preds = %129
@@ -2633,7 +2633,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
   br i1 %142, label %143, label %144
 
 143:                                              ; preds = %141
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr align 8 %3)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr nonnull align 8 %3)
           to label %145 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 144:                                              ; preds = %141
@@ -2707,11 +2707,11 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
           to label %440 unwind label %.loopexit326
 
 168:                                              ; preds = %163
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.141, i64 80)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr nonnull align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.141, i64 80)
           to label %169 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 169:                                              ; preds = %168
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr align 8 %3)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr nonnull align 8 %3)
           to label %170 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 170:                                              ; preds = %169
@@ -2777,11 +2777,11 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
           to label %407 unwind label %194
 
 202:                                              ; preds = %199
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.142, i64 80)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr nonnull align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.142, i64 80)
           to label %203 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 203:                                              ; preds = %202
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr align 8 %3)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr nonnull align 8 %3)
           to label %204 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 204:                                              ; preds = %203
@@ -2901,27 +2901,27 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
           to label %377 unwind label %241
 
 249:                                              ; preds = %246
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.143, i64 80)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr nonnull align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.143, i64 80)
           to label %250 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 250:                                              ; preds = %249
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr align 8 %3)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr nonnull align 8 %3)
           to label %251 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 251:                                              ; preds = %250
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.144, i64 19)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr nonnull align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.144, i64 19)
           to label %252 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 252:                                              ; preds = %251
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17hf67d69810aa2a56dE(ptr align 8 %3, ptr nonnull align 8 %110)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17hf67d69810aa2a56dE(ptr nonnull align 8 %3, ptr nonnull align 8 %110)
           to label %253 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 253:                                              ; preds = %252
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.42, i64 1)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr nonnull align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.42, i64 1)
           to label %254 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 254:                                              ; preds = %253
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr align 8 %3)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr nonnull align 8 %3)
           to label %255 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 255:                                              ; preds = %254
@@ -2938,27 +2938,27 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
           to label %260 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 260:                                              ; preds = %255
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %3, ptr nonnull align 8 %47)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr nonnull align 8 %3, ptr nonnull align 8 %47)
           to label %261 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 261:                                              ; preds = %260
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr align 8 %3)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr nonnull align 8 %3)
           to label %262 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 262:                                              ; preds = %261
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.147, i64 28)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr nonnull align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.147, i64 28)
           to label %263 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 263:                                              ; preds = %262
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17hd10cd31826cdd57eE(ptr align 8 %3, ptr nonnull align 8 %111)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17hd10cd31826cdd57eE(ptr nonnull align 8 %3, ptr nonnull align 8 %111)
           to label %264 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 264:                                              ; preds = %263
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.42, i64 1)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr nonnull align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.42, i64 1)
           to label %265 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 265:                                              ; preds = %264
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr align 8 %3)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr nonnull align 8 %3)
           to label %266 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 266:                                              ; preds = %265
@@ -2975,11 +2975,11 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
           to label %271 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 271:                                              ; preds = %266
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %3, ptr nonnull align 8 %45)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr nonnull align 8 %3, ptr nonnull align 8 %45)
           to label %272 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 272:                                              ; preds = %271
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr align 8 %3)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr nonnull align 8 %3)
           to label %273 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 273:                                              ; preds = %272
@@ -3144,19 +3144,19 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
 
 343:                                              ; preds = %339
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %3, ptr nonnull align 8 %41)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr nonnull align 8 %3, ptr nonnull align 8 %41)
           to label %344 unwind label %.loopexit
 
 344:                                              ; preds = %343
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.156, i64 10)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr nonnull align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.156, i64 10)
           to label %345 unwind label %.loopexit
 
 345:                                              ; preds = %344
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17h70dabfb18e829c80E(ptr align 8 %3, ptr nonnull align 8 %298, ptr nonnull align 1 %109)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17h70dabfb18e829c80E(ptr nonnull align 8 %3, ptr nonnull align 8 %298, ptr nonnull align 1 %109)
           to label %346 unwind label %.loopexit
 
 346:                                              ; preds = %345
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.42, i64 1)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr nonnull align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.42, i64 1)
           to label %347 unwind label %.loopexit
 
 347:                                              ; preds = %346
@@ -3172,7 +3172,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
           to label %355 unwind label %.loopexit
 
 354:                                              ; preds = %374, %347
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr align 8 %3)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr nonnull align 8 %3)
           to label %.backedge.backedge unwind label %.loopexit
 
 355:                                              ; preds = %350
@@ -3236,15 +3236,15 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
 
 372:                                              ; preds = %368
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %33, i64 24, i1 false)
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %3, ptr nonnull align 8 %34)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr nonnull align 8 %3, ptr nonnull align 8 %34)
           to label %373 unwind label %.loopexit
 
 373:                                              ; preds = %372
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17he425de393cca19a7E(ptr align 8 %3, ptr nonnull align 8 %298)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17he425de393cca19a7E(ptr nonnull align 8 %3, ptr nonnull align 8 %298)
           to label %374 unwind label %.loopexit
 
 374:                                              ; preds = %373
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.42, i64 1)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr nonnull align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.42, i64 1)
           to label %354 unwind label %.loopexit
 
 375:                                              ; preds = %472, %429, %426, %422, %418, %398, %395, %392, %388, %369, %366, %362, %358, %340, %337, %333, %329, %240, %193, %.body, %.loopexit.split-lp, %124
@@ -3258,7 +3258,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
           to label %378 unwind label %241
 
 378:                                              ; preds = %377
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %3, ptr nonnull align 8 %68)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr nonnull align 8 %3, ptr nonnull align 8 %68)
           to label %379 unwind label %241
 
 379:                                              ; preds = %378
@@ -3272,11 +3272,11 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
           to label %381 unwind label %241
 
 381:                                              ; preds = %380
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %3, ptr nonnull align 8 %65)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr nonnull align 8 %3, ptr nonnull align 8 %65)
           to label %382 unwind label %241
 
 382:                                              ; preds = %381
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr align 8 %3)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr nonnull align 8 %3)
           to label %383 unwind label %241
 
 383:                                              ; preds = %382
@@ -3367,7 +3367,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
 
 401:                                              ; preds = %397
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(24) %61, i64 24, i1 false)
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %3, ptr nonnull align 8 %62)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr nonnull align 8 %3, ptr nonnull align 8 %62)
           to label %402 unwind label %241
 
 402:                                              ; preds = %401
@@ -3397,7 +3397,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
           to label %403 unwind label %241
 
 403:                                              ; preds = %402
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %3, ptr nonnull align 8 %55)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr nonnull align 8 %3, ptr nonnull align 8 %55)
           to label %404 unwind label %241
 
 404:                                              ; preds = %403
@@ -3427,11 +3427,11 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
           to label %405 unwind label %241
 
 405:                                              ; preds = %404
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %3, ptr nonnull align 8 %51)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr nonnull align 8 %3, ptr nonnull align 8 %51)
           to label %406 unwind label %241
 
 406:                                              ; preds = %405
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr align 8 %3)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr nonnull align 8 %3)
           to label %238 unwind label %241
 
 407:                                              ; preds = %200
@@ -3439,7 +3439,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
           to label %408 unwind label %194
 
 408:                                              ; preds = %407
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %3, ptr nonnull align 8 %89)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr nonnull align 8 %3, ptr nonnull align 8 %89)
           to label %409 unwind label %194
 
 409:                                              ; preds = %408
@@ -3453,11 +3453,11 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
           to label %411 unwind label %194
 
 411:                                              ; preds = %410
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %3, ptr nonnull align 8 %86)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr nonnull align 8 %3, ptr nonnull align 8 %86)
           to label %412 unwind label %194
 
 412:                                              ; preds = %411
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr align 8 %3)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr nonnull align 8 %3)
           to label %413 unwind label %194
 
 413:                                              ; preds = %412
@@ -3528,7 +3528,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
 
 432:                                              ; preds = %428
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef nonnull align 8 dereferenceable(24) %82, i64 24, i1 false)
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %3, ptr nonnull align 8 %83)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr nonnull align 8 %3, ptr nonnull align 8 %83)
           to label %433 unwind label %194
 
 433:                                              ; preds = %432
@@ -3544,7 +3544,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
           to label %435 unwind label %194
 
 435:                                              ; preds = %434
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %3, ptr nonnull align 8 %77)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr nonnull align 8 %3, ptr nonnull align 8 %77)
           to label %436 unwind label %194
 
 436:                                              ; preds = %435
@@ -3560,11 +3560,11 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
           to label %438 unwind label %194
 
 438:                                              ; preds = %437
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %3, ptr nonnull align 8 %74)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr nonnull align 8 %3, ptr nonnull align 8 %74)
           to label %439 unwind label %194
 
 439:                                              ; preds = %438
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr align 8 %3)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr nonnull align 8 %3)
           to label %191 unwind label %194
 
 440:                                              ; preds = %164
@@ -3657,11 +3657,11 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
           to label %452 unwind label %467
 
 458:                                              ; preds = %455
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %3, ptr nonnull align 8 %14)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr nonnull align 8 %3, ptr nonnull align 8 %14)
           to label %459 unwind label %456
 
 459:                                              ; preds = %458
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr align 8 %3)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr nonnull align 8 %3)
           to label %460 unwind label %456
 
 460:                                              ; preds = %459
@@ -3675,20 +3675,20 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
           to label %462 unwind label %456
 
 462:                                              ; preds = %461
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %3, ptr nonnull align 8 %10)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr nonnull align 8 %3, ptr nonnull align 8 %10)
           to label %463 unwind label %456
 
 463:                                              ; preds = %462
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %94, i64 24, i1 false)
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17h36d57910a6c83df5E(ptr align 8 %3, ptr nonnull align 8 %7)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17h36d57910a6c83df5E(ptr nonnull align 8 %3, ptr nonnull align 8 %7)
           to label %464 unwind label %456
 
 464:                                              ; preds = %463
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.42, i64 1)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr nonnull align 8 %3, ptr nonnull align 1 @anon.9ab4b5496d0f80d34150a5d25f0f517e.42, i64 1)
           to label %465 unwind label %456
 
 465:                                              ; preds = %464
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr align 8 %3)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter10empty_line17h978852ce87ecfe7bE(ptr nonnull align 8 %3)
           to label %466 unwind label %456
 
 466:                                              ; preds = %465
@@ -3727,7 +3727,7 @@ _ZN22cranelift_codegen_meta8gen_inst13gen_isle_enum17h68b35059053060fdE.exit: ; 
           to label %471 unwind label %.loopexit.split-lp.loopexit
 
 471:                                              ; preds = %470
-  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %3, ptr nonnull align 8 %100)
+  invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr nonnull align 8 %3, ptr nonnull align 8 %100)
           to label %139 unwind label %.loopexit.split-lp.loopexit
 
 472:                                              ; preds = %305
@@ -4317,7 +4317,7 @@ define hidden align 8 ptr @_ZN22cranelift_codegen_meta8gen_inst8generate17h818bd
           to label %149 unwind label %54
 
 149:                                              ; preds = %148
-  invoke fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle17h6d2b0d6fca84e063E(ptr align 8 %0, i64 %1, ptr nonnull align 8 %2, ptr nonnull align 8 %51, i1 zeroext true)
+  invoke fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle17h6d2b0d6fca84e063E(ptr align 8 %0, i64 %1, ptr nonnull align 8 %2, ptr align 8 %51, i1 zeroext true)
           to label %_ZN22cranelift_codegen_meta8gen_inst12gen_opt_isle17h138a2d6d657034e2E.exit unwind label %151
 
 150:                                              ; preds = %158, %151
@@ -4343,7 +4343,7 @@ _ZN22cranelift_codegen_meta8gen_inst12gen_opt_isle17h138a2d6d657034e2E.exit: ; p
           to label %157 unwind label %151
 
 157:                                              ; preds = %156
-  invoke fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle17h6d2b0d6fca84e063E(ptr align 8 %0, i64 %1, ptr nonnull align 8 %2, ptr nonnull align 8 %50, i1 zeroext false)
+  invoke fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle17h6d2b0d6fca84e063E(ptr align 8 %0, i64 %1, ptr nonnull align 8 %2, ptr align 8 %50, i1 zeroext false)
           to label %_ZN22cranelift_codegen_meta8gen_inst14gen_lower_isle17h790988203db05d7aE.exit unwind label %159
 
 158:                                              ; preds = %168, %159

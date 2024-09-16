@@ -187,7 +187,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 for.end:                                          ; preds = %for.cond
   call void @ossl_statm_update_rtt(ptr noundef nonnull %statm, i64 0, i64 1000000) #10
-  %call49 = call fastcc i32 @test_generic(ptr noundef nonnull %info, i32 noundef %idx)
+  %call49 = call fastcc i32 @test_generic(ptr noundef %info, i32 noundef %idx)
   %call52 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 350, ptr noundef nonnull @.str.10, i32 noundef %call49) #10
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %err, label %lor.lhs.false54
@@ -321,7 +321,7 @@ declare ptr @ossl_quic_sstream_new(i64 noundef) local_unnamed_addr #1
 declare void @ossl_statm_update_rtt(ptr noundef, i64, i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_generic(ptr noundef %info, i32 noundef %kind) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_generic(ptr noundef nonnull %info, i32 noundef %kind) unnamed_addr #0 {
 entry:
   %consumed = alloca i64, align 8
   %hdr = alloca %struct.ossl_quic_frame_stream_st, align 8

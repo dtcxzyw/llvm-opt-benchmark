@@ -1955,7 +1955,7 @@ define internal void @"_ZN4core3ptr163drop_in_place$LT$$RF$core..ptr..non_null..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr172drop_in_place$LT$core..option..Option$LT$moka..sync_base..invalidator..ScanResult$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$GT$17h653b03742536a07cE"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr172drop_in_place$LT$core..option..Option$LT$moka..sync_base..invalidator..ScanResult$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$GT$17h653b03742536a07cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !236, !noundef !9
   %4 = icmp eq i64 %3, 2
@@ -2048,7 +2048,7 @@ define hidden void @"_ZN4core3ptr242drop_in_place$LT$lock_api..mutex..MutexGuard
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$RP$$GT$$GT$17h8657bfddd9cd5838E"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$RP$$GT$$GT$17h8657bfddd9cd5838E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !9
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr222drop_in_place$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$RP$$GT$17h6493ca2b58a37212E.exit", label %4
@@ -2130,7 +2130,7 @@ define hidden void @"_ZN4core3ptr33drop_in_place$LT$tagptr..Null$GT$17h8a6c3096e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr387drop_in_place$LT$moka..cht..map..bucket..ValueOrFunction$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$C$moka..sync_base..base_cache..BaseCache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$..do_insert_with_hash..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4c023ef635e3eb52E"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr387drop_in_place$LT$moka..cht..map..bucket..ValueOrFunction$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$C$moka..sync_base..base_cache..BaseCache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$..do_insert_with_hash..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4c023ef635e3eb52E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !9
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %"_ZN4core3ptr166drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$GT$17hb943db42e74cdd18E.exit"
@@ -2155,7 +2155,7 @@ define internal fastcc void @"_ZN4core3ptr387drop_in_place$LT$moka..cht..map..bu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr404drop_in_place$LT$moka..cht..map..bucket..ValueOrFunction$LT$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$C$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h478fa0be21b8948aE"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr404drop_in_place$LT$moka..cht..map..bucket..ValueOrFunction$LT$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$C$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h478fa0be21b8948aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !23, !noundef !9
   %3 = icmp eq i64 %2, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2204,7 +2204,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h38
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr439drop_in_place$LT$moka..cht..map..bucket..InsertOrModifyState$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$C$moka..sync_base..base_cache..BaseCache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$..do_insert_with_hash..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9af047cedcbaf78bE"(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr439drop_in_place$LT$moka..cht..map..bucket..InsertOrModifyState$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$C$moka..sync_base..base_cache..BaseCache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$..do_insert_with_hash..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9af047cedcbaf78bE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = load i64, ptr %0, align 8, !range !236, !noundef !9
@@ -2321,7 +2321,7 @@ common.resume:                                    ; preds = %.body, %33
 .body:                                            ; preds = %15, %37
   %eh.lpad-body = phi { ptr, i32 } [ %38, %37 ], [ %16, %15 ]
   %39 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke fastcc void @"_ZN4core3ptr387drop_in_place$LT$moka..cht..map..bucket..ValueOrFunction$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$C$moka..sync_base..base_cache..BaseCache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$..do_insert_with_hash..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4c023ef635e3eb52E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %39) #37
+  invoke fastcc void @"_ZN4core3ptr387drop_in_place$LT$moka..cht..map..bucket..ValueOrFunction$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$C$moka..sync_base..base_cache..BaseCache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$..do_insert_with_hash..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4c023ef635e3eb52E"(ptr noalias noundef align 8 dereferenceable(64) %39) #37
           to label %common.resume unwind label %52
 
 40:                                               ; preds = %"_ZN81_$LT$crossbeam_epoch..atomic..Owned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0cfce7c978fb3af4E.llvm.14689451251361528239.exit.i"
@@ -2360,7 +2360,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$$RF$$LP$f64$C$usize$RP$$GT$1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr456drop_in_place$LT$moka..cht..map..bucket..InsertOrModifyState$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$C$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd20b6387875b2b00E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr456drop_in_place$LT$moka..cht..map..bucket..InsertOrModifyState$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$C$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd20b6387875b2b00E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = load i64, ptr %0, align 8, !range !432, !noundef !9
@@ -2520,7 +2520,7 @@ common.resume:                                    ; preds = %.body, %47, %41, %3
 
 .body:                                            ; preds = %17, %59
   %eh.lpad-body = phi { ptr, i32 } [ %60, %59 ], [ %18, %17 ]
-  invoke fastcc void @"_ZN4core3ptr404drop_in_place$LT$moka..cht..map..bucket..ValueOrFunction$LT$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$C$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h478fa0be21b8948aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) #37
+  invoke fastcc void @"_ZN4core3ptr404drop_in_place$LT$moka..cht..map..bucket..ValueOrFunction$LT$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$C$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h478fa0be21b8948aE"(ptr noalias noundef align 8 dereferenceable(16) %0) #37
           to label %common.resume unwind label %57
 
 61:                                               ; preds = %"_ZN81_$LT$crossbeam_epoch..atomic..Owned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4444e4102effe93fE.llvm.14689451251361528239.exit.i"
@@ -2620,7 +2620,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$$RF$$LP$usize$C$alloc..vec..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr828drop_in_place$LT$moka..cht..map..bucket..ValueOrFunction$LT$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$C$moka..cht..segment..HashMap$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$core..any..TypeId$RP$$C$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9d212e191d53ad4bE"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr828drop_in_place$LT$moka..cht..map..bucket..ValueOrFunction$LT$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$C$moka..cht..segment..HashMap$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$core..any..TypeId$RP$$C$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9d212e191d53ad4bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !23, !noundef !9
   %3 = icmp eq i64 %2, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2654,7 +2654,7 @@ define internal fastcc void @"_ZN4core3ptr828drop_in_place$LT$moka..cht..map..bu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr908drop_in_place$LT$moka..cht..map..bucket..InsertOrModifyState$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$core..any..TypeId$RP$$C$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$C$moka..cht..segment..HashMap$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$core..any..TypeId$RP$$C$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha158adf98f174457E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr908drop_in_place$LT$moka..cht..map..bucket..InsertOrModifyState$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$core..any..TypeId$RP$$C$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$C$moka..cht..segment..HashMap$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$core..any..TypeId$RP$$C$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha158adf98f174457E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = load i64, ptr %0, align 8, !range !236, !noundef !9
@@ -2816,7 +2816,7 @@ common.resume:                                    ; preds = %.body, %45, %39, %3
 .body:                                            ; preds = %15, %57
   %eh.lpad-body = phi { ptr, i32 } [ %58, %57 ], [ %16, %15 ]
   %59 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke fastcc void @"_ZN4core3ptr828drop_in_place$LT$moka..cht..map..bucket..ValueOrFunction$LT$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$C$moka..cht..segment..HashMap$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$core..any..TypeId$RP$$C$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9d212e191d53ad4bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %59) #37
+  invoke fastcc void @"_ZN4core3ptr828drop_in_place$LT$moka..cht..map..bucket..ValueOrFunction$LT$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$C$moka..cht..segment..HashMap$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$core..any..TypeId$RP$$C$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9d212e191d53ad4bE"(ptr noalias noundef align 8 dereferenceable(16) %59) #37
           to label %common.resume unwind label %55
 
 60:                                               ; preds = %"_ZN81_$LT$crossbeam_epoch..atomic..Owned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h93c52adcb8953e6bE.llvm.14689451251361528239.exit.i"
@@ -3724,7 +3724,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
           to label %57 unwind label %75
 
 57:                                               ; preds = %"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$19remove_entry_if_and28_$u7b$$u7b$closure$u7d$$u7d$17h371fca8172fb0895E.exit", %56
-  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %.020)
+  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef readonly align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %.020)
           to label %58 unwind label %75
 
 58:                                               ; preds = %57
@@ -3953,7 +3953,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
           to label %54 unwind label %70
 
 54:                                               ; preds = %"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$19remove_entry_if_and28_$u7b$$u7b$closure$u7d$$u7d$17he29be6e60911ac45E.exit", %53
-  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h82dc43e490240882E"(ptr %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %.019)
+  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h82dc43e490240882E"(ptr %.val, ptr noalias noundef readonly align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %.019)
           to label %55 unwind label %70
 
 55:                                               ; preds = %54
@@ -4196,7 +4196,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
           to label %57 unwind label %73
 
 57:                                               ; preds = %"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$19remove_entry_if_and28_$u7b$$u7b$closure$u7d$$u7d$17hc4b3be5ece3ac041E.exit", %56
-  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %.018)
+  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef readonly align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %.018)
           to label %58 unwind label %73
 
 58:                                               ; preds = %57
@@ -4439,7 +4439,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
           to label %57 unwind label %73
 
 57:                                               ; preds = %"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$19remove_entry_if_and28_$u7b$$u7b$closure$u7d$$u7d$17h61974d410b3322c9E.exit", %56
-  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %.018)
+  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef readonly align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %.018)
           to label %58 unwind label %73
 
 58:                                               ; preds = %57
@@ -4663,7 +4663,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
           to label %54 unwind label %70
 
 54:                                               ; preds = %"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$19remove_entry_if_and28_$u7b$$u7b$closure$u7d$$u7d$17hded2b325efd1a118E.exit", %53
-  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %.019)
+  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef readonly align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %.019)
           to label %55 unwind label %70
 
 55:                                               ; preds = %54
@@ -4923,7 +4923,7 @@ define hidden { ptr, ptr } @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$
           to label %68 unwind label %88
 
 68:                                               ; preds = %66, %65
-  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %.021)
+  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef readonly align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %.021)
           to label %69 unwind label %88
 
 69:                                               ; preds = %68
@@ -4971,7 +4971,7 @@ define hidden { ptr, ptr } @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$
 88:                                               ; preds = %68, %66
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$RP$$GT$$GT$17h8657bfddd9cd5838E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #37
+  invoke fastcc void @"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$RP$$GT$$GT$17h8657bfddd9cd5838E"(ptr noalias noundef align 8 dereferenceable(16) %10) #37
           to label %.body.thread unwind label %89
 
 89:                                               ; preds = %88, %.body.thread
@@ -5148,7 +5148,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
           to label %57 unwind label %75
 
 57:                                               ; preds = %"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$19remove_entry_if_and28_$u7b$$u7b$closure$u7d$$u7d$17h864b5af9e06e8493E.exit", %56
-  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %.020)
+  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef readonly align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %.020)
           to label %58 unwind label %75
 
 58:                                               ; preds = %57
@@ -5377,7 +5377,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
           to label %54 unwind label %70
 
 54:                                               ; preds = %"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$19remove_entry_if_and28_$u7b$$u7b$closure$u7d$$u7d$17hf1af6e940f0fcd03E.exit", %53
-  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %.019)
+  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef readonly align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %.019)
           to label %55 unwind label %70
 
 55:                                               ; preds = %54
@@ -5601,7 +5601,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
           to label %54 unwind label %70
 
 54:                                               ; preds = %"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$19remove_entry_if_and28_$u7b$$u7b$closure$u7d$$u7d$17h90a19582f3814432E.exit", %53
-  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h0b62d3f003aa26e0E"(ptr %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %.019)
+  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h0b62d3f003aa26e0E"(ptr %.val, ptr noalias noundef readonly align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %.019)
           to label %55 unwind label %70
 
 55:                                               ; preds = %54
@@ -5765,7 +5765,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$17get_key_value_and28_$u7b$$u7b$closure$u7d$$u7d$17h7f32818698fa3c6bE.exit": ; preds = %23, %.thread30, %18
   %29 = phi ptr [ null, %18 ], [ null, %.thread30 ], [ %.val15, %23 ]
   store ptr %29, ptr %5, align 8
-  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 %9, ptr noundef nonnull align 8 %.010)
+  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef readonly align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 %9, ptr noundef nonnull align 8 %.010)
           to label %30 unwind label %45
 
 30:                                               ; preds = %"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$17get_key_value_and28_$u7b$$u7b$closure$u7d$$u7d$17h7f32818698fa3c6bE.exit"
@@ -5927,7 +5927,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$17get_key_value_and28_$u7b$$u7b$closure$u7d$$u7d$17h81004adca9c43e5bE.exit": ; preds = %23, %.thread30, %18
   %29 = phi ptr [ null, %18 ], [ null, %.thread30 ], [ %.val15, %23 ]
   store ptr %29, ptr %5, align 8
-  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 %9, ptr noundef nonnull align 8 %.010)
+  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef readonly align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 %9, ptr noundef nonnull align 8 %.010)
           to label %30 unwind label %45
 
 30:                                               ; preds = %"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$17get_key_value_and28_$u7b$$u7b$closure$u7d$$u7d$17h81004adca9c43e5bE.exit"
@@ -6089,7 +6089,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$17get_key_value_and28_$u7b$$u7b$closure$u7d$$u7d$17ha44ac9a0bda0d085E.exit": ; preds = %23, %.thread30, %18
   %29 = phi ptr [ null, %18 ], [ null, %.thread30 ], [ %.val15, %23 ]
   store ptr %29, ptr %5, align 8
-  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 %9, ptr noundef nonnull align 8 %.010)
+  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef readonly align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 %9, ptr noundef nonnull align 8 %.010)
           to label %30 unwind label %45
 
 30:                                               ; preds = %"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$17get_key_value_and28_$u7b$$u7b$closure$u7d$$u7d$17ha44ac9a0bda0d085E.exit"
@@ -6375,7 +6375,7 @@ _ZN4moka9sync_base10base_cache17is_expired_by_tti17hc1a15f27364046efE.exit.i.i: 
 69:                                               ; preds = %_ZN4moka9sync_base10base_cache17is_expired_by_tti17hc1a15f27364046efE.exit.i.i, %_ZN4moka9sync_base10base_cache17is_expired_by_tti17hc1a15f27364046efE.exit.thread.i.i, %.noexc22
   %70 = load ptr, ptr %35, align 8, !noalias !951, !nonnull !9, !noundef !9
   %71 = getelementptr inbounds i8, ptr %70, i64 16
-  %72 = invoke fastcc noundef zeroext i1 @"_ZN4moka9sync_base10base_cache22Inner$LT$K$C$V$C$S$GT$20is_invalidated_entry17hf3b87127f1e4d075E"(ptr noundef nonnull align 8 %71, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %28)
+  %72 = invoke fastcc noundef zeroext i1 @"_ZN4moka9sync_base10base_cache22Inner$LT$K$C$V$C$S$GT$20is_invalidated_entry17hf3b87127f1e4d075E"(ptr noundef nonnull align 8 %71, ptr noalias noundef readonly align 8 dereferenceable(8) %23, ptr noalias noundef readonly align 8 dereferenceable(8) %28)
           to label %.noexc25 unwind label %.thread.loopexit.split-lp
 
 .noexc25:                                         ; preds = %69
@@ -6396,7 +6396,7 @@ _ZN4moka9sync_base10base_cache17is_expired_by_tti17hc1a15f27364046efE.exit.i.i: 
 "_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$16do_get_with_hash28_$u7b$$u7b$closure$u7d$$u7d$17h5a8fe1149239b609E.exit": ; preds = %.noexc17, %52, %_ZN4moka9sync_base10base_cache17is_expired_by_ttl17hfcf1887dcb45b85eE.exit.i.i, %62, %_ZN4moka9sync_base10base_cache17is_expired_by_tti17hc1a15f27364046efE.exit.i.i, %.noexc25, %73, %.thread40, %21
   %77 = phi ptr [ null, %21 ], [ null, %.thread40 ], [ null, %.noexc17 ], [ null, %.noexc25 ], [ null, %52 ], [ null, %_ZN4moka9sync_base10base_cache17is_expired_by_ttl17hfcf1887dcb45b85eE.exit.i.i ], [ null, %62 ], [ null, %_ZN4moka9sync_base10base_cache17is_expired_by_tti17hc1a15f27364046efE.exit.i.i ], [ %.val6.pre.i, %73 ]
   store ptr %77, ptr %8, align 8
-  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 %12, ptr noundef nonnull align 8 %.010)
+  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef readonly align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 %12, ptr noundef nonnull align 8 %.010)
           to label %78 unwind label %93
 
 78:                                               ; preds = %"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$16do_get_with_hash28_$u7b$$u7b$closure$u7d$$u7d$17h5a8fe1149239b609E.exit"
@@ -6682,7 +6682,7 @@ _ZN4moka9sync_base10base_cache17is_expired_by_tti17hc1a15f27364046efE.exit.i.i: 
 69:                                               ; preds = %_ZN4moka9sync_base10base_cache17is_expired_by_tti17hc1a15f27364046efE.exit.i.i, %_ZN4moka9sync_base10base_cache17is_expired_by_tti17hc1a15f27364046efE.exit.thread.i.i, %.noexc22
   %70 = load ptr, ptr %35, align 8, !noalias !988, !nonnull !9, !noundef !9
   %71 = getelementptr inbounds i8, ptr %70, i64 16
-  %72 = invoke fastcc noundef zeroext i1 @"_ZN4moka9sync_base10base_cache22Inner$LT$K$C$V$C$S$GT$20is_invalidated_entry17hf3b87127f1e4d075E"(ptr noundef nonnull align 8 %71, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %28)
+  %72 = invoke fastcc noundef zeroext i1 @"_ZN4moka9sync_base10base_cache22Inner$LT$K$C$V$C$S$GT$20is_invalidated_entry17hf3b87127f1e4d075E"(ptr noundef nonnull align 8 %71, ptr noalias noundef readonly align 8 dereferenceable(8) %23, ptr noalias noundef readonly align 8 dereferenceable(8) %28)
           to label %.noexc25 unwind label %.thread.loopexit.split-lp
 
 .noexc25:                                         ; preds = %69
@@ -6703,7 +6703,7 @@ _ZN4moka9sync_base10base_cache17is_expired_by_tti17hc1a15f27364046efE.exit.i.i: 
 "_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$16do_get_with_hash28_$u7b$$u7b$closure$u7d$$u7d$17hdf9e7809f4f8f199E.exit": ; preds = %.noexc17, %52, %_ZN4moka9sync_base10base_cache17is_expired_by_ttl17hfcf1887dcb45b85eE.exit.i.i, %62, %_ZN4moka9sync_base10base_cache17is_expired_by_tti17hc1a15f27364046efE.exit.i.i, %.noexc25, %73, %.thread40, %21
   %77 = phi ptr [ null, %21 ], [ null, %.thread40 ], [ null, %.noexc17 ], [ null, %.noexc25 ], [ null, %52 ], [ null, %_ZN4moka9sync_base10base_cache17is_expired_by_ttl17hfcf1887dcb45b85eE.exit.i.i ], [ null, %62 ], [ null, %_ZN4moka9sync_base10base_cache17is_expired_by_tti17hc1a15f27364046efE.exit.i.i ], [ %.val6.pre.i, %73 ]
   store ptr %77, ptr %8, align 8
-  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 %12, ptr noundef nonnull align 8 %.010)
+  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef readonly align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 %12, ptr noundef nonnull align 8 %.010)
           to label %78 unwind label %93
 
 78:                                               ; preds = %"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$16do_get_with_hash28_$u7b$$u7b$closure$u7d$$u7d$17hdf9e7809f4f8f199E.exit"
@@ -6865,7 +6865,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$17get_key_value_and28_$u7b$$u7b$closure$u7d$$u7d$17h2a1b52a9bf717c24E.exit": ; preds = %23, %.thread30, %18
   %29 = phi ptr [ null, %18 ], [ null, %.thread30 ], [ %.val15, %23 ]
   store ptr %29, ptr %5, align 8
-  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 %9, ptr noundef nonnull align 8 %.010)
+  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef readonly align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 %9, ptr noundef nonnull align 8 %.010)
           to label %30 unwind label %45
 
 30:                                               ; preds = %"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$17get_key_value_and28_$u7b$$u7b$closure$u7d$$u7d$17h2a1b52a9bf717c24E.exit"
@@ -7087,7 +7087,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h794113c7eb88d869E.exit: ; preds 
   %.sink = phi ptr [ null, %47 ], [ null, %74 ], [ %.val40, %63 ]
   store ptr %.sink, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h82dc43e490240882E"(ptr %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 %15, ptr noundef nonnull align 8 %.032)
+  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h82dc43e490240882E"(ptr %.val, ptr noalias noundef readonly align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 %15, ptr noundef nonnull align 8 %.032)
           to label %75 unwind label %92
 
 .invoke:                                          ; preds = %71, %49, %60, %54
@@ -7207,7 +7207,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h794113c7eb88d869E.exit: ; preds 
 
 103:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke fastcc void @"_ZN4core3ptr456drop_in_place$LT$moka..cht..map..bucket..InsertOrModifyState$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$C$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd20b6387875b2b00E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #37
+  invoke fastcc void @"_ZN4core3ptr456drop_in_place$LT$moka..cht..map..bucket..InsertOrModifyState$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$C$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd20b6387875b2b00E"(ptr noalias noundef align 8 dereferenceable(24) %8) #37
           to label %.thread54 unwind label %101
 
 104:                                              ; preds = %.thread54
@@ -7403,7 +7403,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17hd18fc2241054a9f5E.exit: ; preds 
   %.sink = phi ptr [ null, %50 ], [ null, %77 ], [ %.val40, %66 ]
   store ptr %.sink, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
-  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h0b62d3f003aa26e0E"(ptr %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 %17, ptr noundef nonnull align 8 %.032)
+  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h0b62d3f003aa26e0E"(ptr %.val, ptr noalias noundef readonly align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 %17, ptr noundef nonnull align 8 %.032)
           to label %78 unwind label %95
 
 .invoke:                                          ; preds = %74, %52, %63, %57
@@ -7523,7 +7523,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17hd18fc2241054a9f5E.exit: ; preds 
 
 106:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke fastcc void @"_ZN4core3ptr908drop_in_place$LT$moka..cht..map..bucket..InsertOrModifyState$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$core..any..TypeId$RP$$C$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$C$moka..cht..segment..HashMap$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$core..any..TypeId$RP$$C$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha158adf98f174457E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9) #37
+  invoke fastcc void @"_ZN4core3ptr908drop_in_place$LT$moka..cht..map..bucket..InsertOrModifyState$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$core..any..TypeId$RP$$C$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$C$moka..cht..segment..HashMap$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$core..any..TypeId$RP$$C$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha158adf98f174457E"(ptr noalias noundef align 8 dereferenceable(40) %9) #37
           to label %.thread54 unwind label %104
 
 107:                                              ; preds = %.thread54
@@ -7710,7 +7710,7 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
 
 _ZN4moka3cht3map6bucket20defer_destroy_bucket17h04c9be76dc78ce2aE.exit: ; preds = %63, %54
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8)
-  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 %16, ptr noundef nonnull align 8 %.027)
+  invoke fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.val, ptr noalias noundef readonly align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 %16, ptr noundef nonnull align 8 %.027)
           to label %64 unwind label %81
 
 64:                                               ; preds = %_ZN4moka3cht3map6bucket20defer_destroy_bucket17h04c9be76dc78ce2aE.exit
@@ -7811,7 +7811,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h04c9be76dc78ce2aE.exit: ; preds 
 
 92:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke fastcc void @"_ZN4core3ptr439drop_in_place$LT$moka..cht..map..bucket..InsertOrModifyState$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$C$moka..sync_base..base_cache..BaseCache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$..do_insert_with_hash..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9af047cedcbaf78bE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %10) #37
+  invoke fastcc void @"_ZN4core3ptr439drop_in_place$LT$moka..cht..map..bucket..InsertOrModifyState$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$C$moka..sync_base..base_cache..BaseCache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$..do_insert_with_hash..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9af047cedcbaf78bE"(ptr noalias noundef align 8 dereferenceable(80) %10) #37
           to label %.thread51 unwind label %90
 
 93:                                               ; preds = %.thread51
@@ -8267,7 +8267,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN4moka3cht3map16bucket_ar
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h0b62d3f003aa26e0E"(ptr %.0.val, ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 %1, ptr noundef nonnull align 8 %2) unnamed_addr #0 {
+define internal fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h0b62d3f003aa26e0E"(ptr %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 %1, ptr noundef nonnull align 8 %2) unnamed_addr #0 {
 _ZN15crossbeam_epoch6atomic14ensure_aligned17hba64ccb65c2ca334E.exit:
   %3 = alloca ptr, align 8
   %4 = alloca { ptr, { [3 x i64] }, {} }, align 8
@@ -8388,7 +8388,7 @@ _ZN4moka3cht3map6bucket21defer_acquire_destroy17h1bc9ef4d7ea8f42dE.exit: ; preds
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.0.val, ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 %1, ptr noundef nonnull align 8 %2) unnamed_addr #0 {
+define internal fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h19bf98980eb4a5ceE"(ptr %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 %1, ptr noundef nonnull align 8 %2) unnamed_addr #0 {
 _ZN15crossbeam_epoch6atomic14ensure_aligned17h045aa4333c90a396E.exit:
   %3 = alloca ptr, align 8
   %4 = alloca { ptr, { [3 x i64] }, {} }, align 8
@@ -8509,7 +8509,7 @@ _ZN4moka3cht3map6bucket21defer_acquire_destroy17h8de83b13c95f7328E.exit: ; preds
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h82dc43e490240882E"(ptr %.0.val, ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 %1, ptr noundef nonnull align 8 %2) unnamed_addr #0 {
+define internal fastcc void @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$5swing17h82dc43e490240882E"(ptr %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 %1, ptr noundef nonnull align 8 %2) unnamed_addr #0 {
 _ZN15crossbeam_epoch6atomic14ensure_aligned17haadd6e88a6a8b7d5E.exit:
   %3 = alloca ptr, align 8
   %4 = alloca { ptr, { [3 x i64] }, {} }, align 8
@@ -10920,7 +10920,7 @@ define hidden noundef nonnull ptr @"_ZN4moka6common5deque14Deque$LT$T$GT$9push_b
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4moka9sync_base10base_cache22Inner$LT$K$C$V$C$S$GT$20is_invalidated_entry17hf3b87127f1e4d075E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN4moka9sync_base10base_cache22Inner$LT$K$C$V$C$S$GT$20is_invalidated_entry17hf3b87127f1e4d075E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } }, align 8
   %.sroa.0.sroa.7.i = alloca [3 x i16], align 2
   %5 = getelementptr inbounds i8, ptr %0, i64 672
@@ -11610,7 +11610,7 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
 160:                                              ; preds = %158
   %161 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr172drop_in_place$LT$core..option..Option$LT$moka..sync_base..invalidator..ScanResult$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$GT$17h653b03742536a07cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11) #37
+  invoke fastcc void @"_ZN4core3ptr172drop_in_place$LT$core..option..Option$LT$moka..sync_base..invalidator..ScanResult$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$GT$17h653b03742536a07cE"(ptr noalias noundef align 8 dereferenceable(48) %11) #37
           to label %.thread unwind label %190
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.3998950267652723875.exit35": ; preds = %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$10do_execute17hea2eab2f23064e9eE.exit", %158
@@ -11728,7 +11728,7 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
 196:                                              ; preds = %153
   %197 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr172drop_in_place$LT$core..option..Option$LT$moka..sync_base..invalidator..ScanResult$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$GT$17h653b03742536a07cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %10) #37
+  invoke fastcc void @"_ZN4core3ptr172drop_in_place$LT$core..option..Option$LT$moka..sync_base..invalidator..ScanResult$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$GT$17h653b03742536a07cE"(ptr noalias noundef align 8 dereferenceable(48) %10) #37
           to label %"_ZN4core3ptr195drop_in_place$LT$alloc..sync..Arc$LT$moka..sync_base..base_cache..Inner$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17he580a07c53f4c99cE.exit" unwind label %190
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.llvm.3998950267652723875.exit32": ; preds = %150, %153

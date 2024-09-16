@@ -2323,7 +2323,7 @@ ExecHashGetBucketAndBatch.exit.thread:            ; preds = %.backedge, %ExecHas
   %23 = load i32, ptr %7, align 4
   %24 = zext i32 %23 to i64
   %25 = add nuw nsw i64 %24, 16
-  %26 = call fastcc ptr @ExecParallelHashTupleAlloc(ptr noundef nonnull %0, i64 noundef %25, ptr noundef nonnull %6)
+  %26 = call fastcc ptr @ExecParallelHashTupleAlloc(ptr noundef nonnull %0, i64 noundef %25, ptr noundef %6)
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.backedge.backedge, label %28
 
@@ -2476,13 +2476,13 @@ ExecParallelHashPushTuple.exit:                   ; preds = %43, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ExecParallelHashTupleAlloc(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc ptr @ExecParallelHashTupleAlloc(ptr noundef %0, i64 noundef range(i64 16, 4294967312) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 68
   %7 = load i32, ptr %6, align 4
   %8 = add nuw nsw i64 %1, 7
-  %9 = and i64 %8, -8
+  %9 = and i64 %8, 17179869176
   %10 = getelementptr inbounds i8, ptr %0, i64 232
   %11 = load ptr, ptr %10, align 8
   %12 = icmp ne ptr %11, null
@@ -2675,7 +2675,7 @@ ExecHashGetBucketAndBatch.exit:
   %9 = load i32, ptr %5, align 4
   %10 = zext i32 %9 to i64
   %11 = add nuw nsw i64 %10, 16
-  %12 = call fastcc ptr @ExecParallelHashTupleAlloc(ptr noundef nonnull %0, i64 noundef %11, ptr noundef nonnull %4)
+  %12 = call fastcc ptr @ExecParallelHashTupleAlloc(ptr noundef nonnull %0, i64 noundef %11, ptr noundef %4)
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   store i32 %2, ptr %13, align 8
   %14 = getelementptr i8, ptr %12, i64 16
@@ -4315,7 +4315,7 @@ ExecHashGetBucketAndBatch.exit.thread:            ; preds = %175, %ExecHashGetBu
   %193 = load i32, ptr %177, align 4
   %194 = zext i32 %193 to i64
   %195 = add nuw nsw i64 %194, 16
-  %196 = call fastcc ptr @ExecParallelHashTupleAlloc(ptr noundef nonnull %0, i64 noundef %195, ptr noundef nonnull %3)
+  %196 = call fastcc ptr @ExecParallelHashTupleAlloc(ptr noundef nonnull %0, i64 noundef %195, ptr noundef %3)
   %197 = load i32, ptr %178, align 8
   %198 = getelementptr inbounds i8, ptr %196, i64 8
   store i32 %197, ptr %198, align 8

@@ -1772,7 +1772,7 @@ define hidden i32 @png_image_begin_read_from_stdio(ptr noundef %0, ptr noundef %
   br i1 %.not13, label %15, label %8
 
 8:                                                ; preds = %7
-  %9 = tail call fastcc i32 @png_image_read_init(ptr noundef nonnull %0)
+  %9 = tail call fastcc i32 @png_image_read_init(ptr noundef %0)
   %.not14 = icmp eq i32 %9, 0
   br i1 %.not14, label %.critedge, label %10
 
@@ -1798,7 +1798,7 @@ define hidden i32 @png_image_begin_read_from_stdio(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @png_image_read_init(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @png_image_read_init(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8
@@ -1990,7 +1990,7 @@ define hidden i32 @png_image_begin_read_from_file(ptr noundef %0, ptr noundef re
   br i1 %.not20, label %23, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call fastcc i32 @png_image_read_init(ptr noundef nonnull %0)
+  %11 = tail call fastcc i32 @png_image_read_init(ptr noundef %0)
   %.not21 = icmp eq i32 %11, 0
   br i1 %.not21, label %21, label %12
 
@@ -2061,7 +2061,7 @@ define hidden i32 @png_image_begin_read_from_memory(ptr noundef %0, ptr noundef 
   br i1 %or.cond, label %11, label %25
 
 11:                                               ; preds = %8
-  %12 = tail call fastcc i32 @png_image_read_init(ptr noundef nonnull %0)
+  %12 = tail call fastcc i32 @png_image_read_init(ptr noundef %0)
   %.not21 = icmp eq i32 %12, 0
   br i1 %.not21, label %.critedge, label %13
 
@@ -2420,13 +2420,13 @@ define internal noundef i32 @png_image_read_colormap(ptr nocapture noundef %0) #
   br label %83
 
 83:                                               ; preds = %82, %86
-  %.0408687 = phi i32 [ 0, %82 ], [ %87, %86 ]
-  %.0410686 = phi i32 [ 0, %82 ], [ %88, %86 ]
-  %.not448 = icmp eq i32 %.0408687, %.0419.shrunk
+  %.0408633 = phi i32 [ 0, %82 ], [ %87, %86 ]
+  %.0410632 = phi i32 [ 0, %82 ], [ %88, %86 ]
+  %.not448 = icmp eq i32 %.0408633, %.0419.shrunk
   br i1 %.not448, label %85, label %84
 
 84:                                               ; preds = %83
-  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.0408687, i32 noundef %.0410686, i32 noundef %.0410686, i32 noundef %.0410686, i32 noundef 255, i32 noundef 3)
+  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.0408633, i32 noundef %.0410632, i32 noundef %.0410632, i32 noundef %.0410632, i32 noundef 255, i32 noundef 3)
   br label %86
 
 85:                                               ; preds = %83
@@ -2434,19 +2434,19 @@ define internal noundef i32 @png_image_read_colormap(ptr nocapture noundef %0) #
   br label %86
 
 86:                                               ; preds = %84, %85
-  %87 = add nuw nsw i32 %.0408687, 1
-  %88 = add i32 %.0410686, %.zext
-  %exitcond710.not = icmp eq i32 %87, %65
-  br i1 %exitcond710.not, label %89, label %83, !llvm.loop !31
+  %87 = add nuw nsw i32 %.0408633, 1
+  %88 = add i32 %.0410632, %.zext
+  %exitcond656.not = icmp eq i32 %87, %65
+  br i1 %exitcond656.not, label %89, label %83, !llvm.loop !31
 
 89:                                               ; preds = %86
   %90 = load i8, ptr %60, align 8
   %91 = icmp ult i8 %90, 8
-  br i1 %91, label %92, label %make_ga_colormap.exit.thread.thread626
+  br i1 %91, label %92, label %make_ga_colormap.exit.thread.thread572
 
 92:                                               ; preds = %89
   tail call void @png_set_packing(ptr noundef nonnull %8) #11
-  br label %make_ga_colormap.exit.thread.thread626
+  br label %make_ga_colormap.exit.thread.thread572
 
 93:                                               ; preds = %59
   %94 = getelementptr inbounds i8, ptr %6, i64 28
@@ -2537,14 +2537,14 @@ make_gray_colormap.exit:                          ; preds = %.preheader
   %135 = getelementptr inbounds i8, ptr %6, i64 28
   %136 = load i32, ptr %135, align 4
   %137 = icmp ult i32 %136, 256
-  br i1 %137, label %138, label %.preheader636
+  br i1 %137, label %138, label %.preheader582
 
 138:                                              ; preds = %134
   tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.34) #12
   unreachable
 
-.preheader636:                                    ; preds = %134, %.preheader636
-  %.01921.i = phi i32 [ %141, %.preheader636 ], [ 0, %134 ]
+.preheader582:                                    ; preds = %134, %.preheader582
+  %.01921.i = phi i32 [ %141, %.preheader582 ], [ 0, %134 ]
   %.019.tr.i = trunc nuw i32 %.01921.i to i16
   %139 = shl nuw i16 %.019.tr.i, 8
   %.lhs.trunc.i = or disjoint i16 %139, 115
@@ -2553,9 +2553,9 @@ make_gray_colormap.exit:                          ; preds = %.preheader
   %141 = add nuw nsw i32 %.01921.i, 1
   tail call fastcc void @png_create_colormap_entry(ptr noundef %0, i32 noundef %.01921.i, i32 noundef %.zext.i, i32 noundef %.zext.i, i32 noundef %.zext.i, i32 noundef 255, i32 noundef 1)
   %exitcond.not.i460 = icmp eq i32 %141, 231
-  br i1 %exitcond.not.i460, label %142, label %.preheader636, !llvm.loop !33
+  br i1 %exitcond.not.i460, label %142, label %.preheader582, !llvm.loop !33
 
-142:                                              ; preds = %.preheader636
+142:                                              ; preds = %.preheader582
   tail call fastcc void @png_create_colormap_entry(ptr noundef %0, i32 noundef 231, i32 noundef 255, i32 noundef 255, i32 noundef 255, i32 noundef 0, i32 noundef 1)
   br label %.preheader.i
 
@@ -2595,20 +2595,20 @@ make_gray_colormap.exit:                          ; preds = %.preheader
   %157 = getelementptr inbounds i8, ptr %6, i64 28
   %158 = load i32, ptr %157, align 4
   %159 = icmp ult i32 %158, 256
-  br i1 %159, label %160, label %.preheader633
+  br i1 %159, label %160, label %.preheader579
 
 160:                                              ; preds = %156
   tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.35) #12
   unreachable
 
-.preheader633:                                    ; preds = %156, %.preheader633
-  %.07.i461 = phi i32 [ %161, %.preheader633 ], [ 0, %156 ]
+.preheader579:                                    ; preds = %156, %.preheader579
+  %.07.i461 = phi i32 [ %161, %.preheader579 ], [ 0, %156 ]
   tail call fastcc void @png_create_colormap_entry(ptr noundef %0, i32 noundef %.07.i461, i32 noundef %.07.i461, i32 noundef %.07.i461, i32 noundef %.07.i461, i32 noundef 255, i32 noundef 1)
   %161 = add nuw nsw i32 %.07.i461, 1
   %exitcond.not.i462 = icmp eq i32 %161, 256
-  br i1 %exitcond.not.i462, label %make_gray_colormap.exit463, label %.preheader633, !llvm.loop !32
+  br i1 %exitcond.not.i462, label %make_gray_colormap.exit463, label %.preheader579, !llvm.loop !32
 
-make_gray_colormap.exit463:                       ; preds = %.preheader633
+make_gray_colormap.exit463:                       ; preds = %.preheader579
   br i1 %.not.not, label %178, label %162
 
 162:                                              ; preds = %make_gray_colormap.exit463
@@ -2649,25 +2649,25 @@ make_gray_colormap.exit463:                       ; preds = %.preheader633
   %185 = getelementptr inbounds i8, ptr %6, i64 28
   %186 = load i32, ptr %185, align 4
   %187 = icmp ult i32 %186, 256
-  br i1 %187, label %188, label %.preheader634
+  br i1 %187, label %188, label %.preheader580
 
 188:                                              ; preds = %184
   tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.36) #12
   unreachable
 
-.preheader634:                                    ; preds = %184, %.preheader634
-  %.0412681 = phi i32 [ %191, %.preheader634 ], [ 0, %184 ]
-  %.0412.tr = trunc nuw i32 %.0412681 to i16
+.preheader580:                                    ; preds = %184, %.preheader580
+  %.0412627 = phi i32 [ %191, %.preheader580 ], [ 0, %184 ]
+  %.0412.tr = trunc nuw i32 %.0412627 to i16
   %189 = shl nuw i16 %.0412.tr, 8
   %.lhs.trunc = or disjoint i16 %189, 115
   %190 = udiv i16 %.lhs.trunc, 231
-  %.zext631 = zext nneg i16 %190 to i32
-  %191 = add nuw nsw i32 %.0412681, 1
-  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.0412681, i32 noundef %.zext631, i32 noundef %.zext631, i32 noundef %.zext631, i32 noundef 255, i32 noundef 1)
-  %exitcond704.not = icmp eq i32 %191, 231
-  br i1 %exitcond704.not, label %192, label %.preheader634, !llvm.loop !36
+  %.zext577 = zext nneg i16 %190 to i32
+  %191 = add nuw nsw i32 %.0412627, 1
+  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.0412627, i32 noundef %.zext577, i32 noundef %.zext577, i32 noundef %.zext577, i32 noundef 255, i32 noundef 1)
+  %exitcond650.not = icmp eq i32 %191, 231
+  br i1 %exitcond650.not, label %192, label %.preheader580, !llvm.loop !36
 
-192:                                              ; preds = %.preheader634
+192:                                              ; preds = %.preheader580
   %193 = select i1 %.not.not, i32 255, i32 65535
   tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef 231, i32 noundef %.0400, i32 noundef %.0402, i32 noundef %.0404, i32 noundef %193, i32 noundef %12)
   br i1 %.not.not, label %194, label %207
@@ -2694,9 +2694,9 @@ make_gray_colormap.exit463:                       ; preds = %.preheader633
   br label %208
 
 208:                                              ; preds = %207, %266
-  %.0411685 = phi i32 [ 1, %207 ], [ %267, %266 ]
-  %.1413684 = phi i32 [ 232, %207 ], [ %220, %266 ]
-  %209 = mul nuw nsw i32 %.0411685, 51
+  %.0411631 = phi i32 [ 1, %207 ], [ %267, %266 ]
+  %.1413630 = phi i32 [ 232, %207 ], [ %220, %266 ]
+  %209 = mul nuw nsw i32 %.0411631, 51
   %210 = sub nuw nsw i32 255, %209
   %211 = mul nuw nsw i32 %210, %.1401
   %212 = mul nuw nsw i32 %210, %.1403
@@ -2704,14 +2704,14 @@ make_gray_colormap.exit463:                       ; preds = %.preheader633
   br label %214
 
 214:                                              ; preds = %208, %214
-  %indvars.iv705 = phi i64 [ 0, %208 ], [ %indvars.iv.next706, %214 ]
-  %.2414682 = phi i32 [ %.1413684, %208 ], [ %220, %214 ]
-  %215 = mul nuw nsw i64 %indvars.iv705, 51
+  %indvars.iv651 = phi i64 [ 0, %208 ], [ %indvars.iv.next652, %214 ]
+  %.2414628 = phi i32 [ %.1413630, %208 ], [ %220, %214 ]
+  %215 = mul nuw nsw i64 %indvars.iv651, 51
   %216 = getelementptr inbounds [256 x i16], ptr @png_sRGB_table, i64 0, i64 %215
   %217 = load i16, ptr %216, align 2
   %218 = zext i16 %217 to i32
   %219 = mul nuw nsw i32 %209, %218
-  %220 = add i32 %.2414682, 1
+  %220 = add i32 %.2414628, 1
   %221 = add nuw nsw i32 %219, %211
   %222 = lshr i32 %221, 15
   %223 = zext nneg i32 %222 to i64
@@ -2757,15 +2757,15 @@ make_gray_colormap.exit463:                       ; preds = %.preheader633
   %263 = add nuw nsw i32 %262, %256
   %264 = lshr i32 %263, 8
   %265 = and i32 %264, 255
-  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.2414682, i32 noundef %235, i32 noundef %250, i32 noundef %265, i32 noundef 255, i32 noundef 1)
-  %indvars.iv.next706 = add nuw nsw i64 %indvars.iv705, 1
-  %exitcond708.not = icmp eq i64 %indvars.iv.next706, 6
-  br i1 %exitcond708.not, label %266, label %214, !llvm.loop !37
+  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.2414628, i32 noundef %235, i32 noundef %250, i32 noundef %265, i32 noundef 255, i32 noundef 1)
+  %indvars.iv.next652 = add nuw nsw i64 %indvars.iv651, 1
+  %exitcond654.not = icmp eq i64 %indvars.iv.next652, 6
+  br i1 %exitcond654.not, label %266, label %214, !llvm.loop !37
 
 266:                                              ; preds = %214
-  %267 = add nuw nsw i32 %.0411685, 1
-  %exitcond709.not = icmp eq i32 %267, 5
-  br i1 %exitcond709.not, label %make_ga_colormap.exit.thread.thread, label %208, !llvm.loop !38
+  %267 = add nuw nsw i32 %.0411631, 1
+  %exitcond655.not = icmp eq i32 %267, 5
+  br i1 %exitcond655.not, label %make_ga_colormap.exit.thread.thread, label %208, !llvm.loop !38
 
 268:                                              ; preds = %58, %58
   %269 = and i32 %10, 2
@@ -2796,14 +2796,14 @@ make_gray_colormap.exit463:                       ; preds = %.preheader633
   %280 = getelementptr inbounds i8, ptr %6, i64 28
   %281 = load i32, ptr %280, align 4
   %282 = icmp ult i32 %281, 256
-  br i1 %282, label %283, label %.preheader638
+  br i1 %282, label %283, label %.preheader584
 
 283:                                              ; preds = %279
   tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.37) #12
   unreachable
 
-.preheader638:                                    ; preds = %279, %.preheader638
-  %.01921.i464 = phi i32 [ %286, %.preheader638 ], [ 0, %279 ]
+.preheader584:                                    ; preds = %279, %.preheader584
+  %.01921.i464 = phi i32 [ %286, %.preheader584 ], [ 0, %279 ]
   %.019.tr.i465 = trunc nuw i32 %.01921.i464 to i16
   %284 = shl nuw i16 %.019.tr.i465, 8
   %.lhs.trunc.i466 = or disjoint i16 %284, 115
@@ -2812,9 +2812,9 @@ make_gray_colormap.exit463:                       ; preds = %.preheader633
   %286 = add nuw nsw i32 %.01921.i464, 1
   tail call fastcc void @png_create_colormap_entry(ptr noundef %0, i32 noundef %.01921.i464, i32 noundef %.zext.i467, i32 noundef %.zext.i467, i32 noundef %.zext.i467, i32 noundef 255, i32 noundef 1)
   %exitcond.not.i468 = icmp eq i32 %286, 231
-  br i1 %exitcond.not.i468, label %287, label %.preheader638, !llvm.loop !33
+  br i1 %exitcond.not.i468, label %287, label %.preheader584, !llvm.loop !33
 
-287:                                              ; preds = %.preheader638
+287:                                              ; preds = %.preheader584
   tail call fastcc void @png_create_colormap_entry(ptr noundef %0, i32 noundef 231, i32 noundef 255, i32 noundef 255, i32 noundef 255, i32 noundef 0, i32 noundef 1)
   br label %.preheader.i469
 
@@ -2864,7 +2864,7 @@ png_gamma_not_sRGB.exit.thread.preheader:         ; preds = %307, %png_gamma_not
 304:                                              ; preds = %295, %303
   %305 = load i32, ptr %41, align 8
   %306 = icmp slt i32 %305, 100000
-  br i1 %306, label %307, label %png_gamma_not_sRGB.exit.thread583.preheader
+  br i1 %306, label %307, label %png_gamma_not_sRGB.exit.thread529.preheader
 
 307:                                              ; preds = %304
   %308 = icmp eq i32 %305, 0
@@ -2876,17 +2876,17 @@ png_gamma_not_sRGB.exit:                          ; preds = %307
   %311 = sdiv i32 %310, 5
   %312 = tail call i32 @png_gamma_significant(i32 noundef %311) #11
   %.not436 = icmp eq i32 %312, 0
-  br i1 %.not436, label %png_gamma_not_sRGB.exit.thread.preheader, label %png_gamma_not_sRGB.exit.thread583.preheader
+  br i1 %.not436, label %png_gamma_not_sRGB.exit.thread.preheader, label %png_gamma_not_sRGB.exit.thread529.preheader
 
-png_gamma_not_sRGB.exit.thread583.preheader:      ; preds = %304, %png_gamma_not_sRGB.exit
-  br label %png_gamma_not_sRGB.exit.thread583
+png_gamma_not_sRGB.exit.thread529.preheader:      ; preds = %304, %png_gamma_not_sRGB.exit
+  br label %png_gamma_not_sRGB.exit.thread529
 
-png_gamma_not_sRGB.exit.thread583:                ; preds = %png_gamma_not_sRGB.exit.thread583.preheader, %png_gamma_not_sRGB.exit.thread583
-  %.07.i477 = phi i32 [ %313, %png_gamma_not_sRGB.exit.thread583 ], [ 0, %png_gamma_not_sRGB.exit.thread583.preheader ]
+png_gamma_not_sRGB.exit.thread529:                ; preds = %png_gamma_not_sRGB.exit.thread529.preheader, %png_gamma_not_sRGB.exit.thread529
+  %.07.i477 = phi i32 [ %313, %png_gamma_not_sRGB.exit.thread529 ], [ 0, %png_gamma_not_sRGB.exit.thread529.preheader ]
   tail call fastcc void @png_create_colormap_entry(ptr noundef %0, i32 noundef %.07.i477, i32 noundef %.07.i477, i32 noundef %.07.i477, i32 noundef %.07.i477, i32 noundef 255, i32 noundef 3)
   %313 = add nuw nsw i32 %.07.i477, 1
   %exitcond.not.i478 = icmp eq i32 %313, 256
-  br i1 %exitcond.not.i478, label %make_gray_file_colormap.exit, label %png_gamma_not_sRGB.exit.thread583, !llvm.loop !39
+  br i1 %exitcond.not.i478, label %make_gray_file_colormap.exit, label %png_gamma_not_sRGB.exit.thread529, !llvm.loop !39
 
 png_gamma_not_sRGB.exit.thread:                   ; preds = %png_gamma_not_sRGB.exit.thread.preheader, %png_gamma_not_sRGB.exit.thread
   %.07.i479 = phi i32 [ %314, %png_gamma_not_sRGB.exit.thread ], [ 0, %png_gamma_not_sRGB.exit.thread.preheader ]
@@ -2895,9 +2895,9 @@ png_gamma_not_sRGB.exit.thread:                   ; preds = %png_gamma_not_sRGB.
   %exitcond.not.i480 = icmp eq i32 %314, 256
   br i1 %exitcond.not.i480, label %make_gray_file_colormap.exit, label %png_gamma_not_sRGB.exit.thread, !llvm.loop !32
 
-make_gray_file_colormap.exit:                     ; preds = %png_gamma_not_sRGB.exit.thread583, %png_gamma_not_sRGB.exit.thread
-  %315 = phi i1 [ false, %png_gamma_not_sRGB.exit.thread ], [ true, %png_gamma_not_sRGB.exit.thread583 ]
-  %.1386 = phi i32 [ 1, %png_gamma_not_sRGB.exit.thread ], [ 3, %png_gamma_not_sRGB.exit.thread583 ]
+make_gray_file_colormap.exit:                     ; preds = %png_gamma_not_sRGB.exit.thread529, %png_gamma_not_sRGB.exit.thread
+  %315 = phi i1 [ false, %png_gamma_not_sRGB.exit.thread ], [ true, %png_gamma_not_sRGB.exit.thread529 ]
+  %.1386 = phi i32 [ 1, %png_gamma_not_sRGB.exit.thread ], [ 3, %png_gamma_not_sRGB.exit.thread529 ]
   %316 = load i8, ptr %13, align 1
   %317 = icmp eq i8 %316, 6
   br i1 %317, label %321, label %318
@@ -3029,39 +3029,39 @@ make_gray_file_colormap.exit:                     ; preds = %png_gamma_not_sRGB.
 make_rgb_colormap.exit:                           ; preds = %378
   tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %373, i32 noundef 255, i32 noundef 255, i32 noundef 255, i32 noundef 0, i32 noundef 1)
   %380 = add i32 %.215.i, 2
-  br label %.preheader643
+  br label %.preheader589
 
-.preheader643:                                    ; preds = %make_rgb_colormap.exit, %390
-  %.2658 = phi i32 [ %380, %make_rgb_colormap.exit ], [ %382, %390 ]
-  %.0397657 = phi i32 [ 0, %make_rgb_colormap.exit ], [ %392, %390 ]
-  br label %.preheader642
+.preheader589:                                    ; preds = %make_rgb_colormap.exit, %390
+  %.2604 = phi i32 [ %380, %make_rgb_colormap.exit ], [ %382, %390 ]
+  %.0397603 = phi i32 [ 0, %make_rgb_colormap.exit ], [ %392, %390 ]
+  br label %.preheader588
 
-.preheader642:                                    ; preds = %.preheader643, %386
-  %.3656 = phi i32 [ %.2658, %.preheader643 ], [ %382, %386 ]
-  %.0396655 = phi i32 [ 0, %.preheader643 ], [ %388, %386 ]
+.preheader588:                                    ; preds = %.preheader589, %386
+  %.3602 = phi i32 [ %.2604, %.preheader589 ], [ %382, %386 ]
+  %.0396601 = phi i32 [ 0, %.preheader589 ], [ %388, %386 ]
   br label %381
 
-381:                                              ; preds = %.preheader642, %381
-  %.4654 = phi i32 [ %.3656, %.preheader642 ], [ %382, %381 ]
-  %.0395653 = phi i32 [ 0, %.preheader642 ], [ %384, %381 ]
-  %382 = add i32 %.4654, 1
-  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.4654, i32 noundef %.0397657, i32 noundef %.0396655, i32 noundef %.0395653, i32 noundef 128, i32 noundef 1)
-  %383 = shl nuw nsw i32 %.0395653, 1
+381:                                              ; preds = %.preheader588, %381
+  %.4600 = phi i32 [ %.3602, %.preheader588 ], [ %382, %381 ]
+  %.0395599 = phi i32 [ 0, %.preheader588 ], [ %384, %381 ]
+  %382 = add i32 %.4600, 1
+  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.4600, i32 noundef %.0397603, i32 noundef %.0396601, i32 noundef %.0395599, i32 noundef 128, i32 noundef 1)
+  %383 = shl nuw nsw i32 %.0395599, 1
   %384 = or i32 %383, 127
-  %385 = icmp ult i32 %.0395653, 128
+  %385 = icmp ult i32 %.0395599, 128
   br i1 %385, label %381, label %386, !llvm.loop !43
 
 386:                                              ; preds = %381
-  %387 = shl nuw nsw i32 %.0396655, 1
+  %387 = shl nuw nsw i32 %.0396601, 1
   %388 = or i32 %387, 127
-  %389 = icmp ult i32 %.0396655, 128
-  br i1 %389, label %.preheader642, label %390, !llvm.loop !44
+  %389 = icmp ult i32 %.0396601, 128
+  br i1 %389, label %.preheader588, label %390, !llvm.loop !44
 
 390:                                              ; preds = %386
-  %391 = shl nuw nsw i32 %.0397657, 1
+  %391 = shl nuw nsw i32 %.0397603, 1
   %392 = or i32 %391, 127
-  %393 = icmp ult i32 %.0397657, 128
-  br i1 %393, label %.preheader643, label %make_ga_colormap.exit, !llvm.loop !45
+  %393 = icmp ult i32 %.0397603, 128
+  br i1 %393, label %.preheader589, label %make_ga_colormap.exit, !llvm.loop !45
 
 394:                                              ; preds = %363
   %395 = lshr exact i32 %11, 2
@@ -3194,35 +3194,35 @@ make_rgb_colormap.exit495:                        ; preds = %410
 482:                                              ; preds = %458
   %483 = add i32 %.215.i491, 2
   %.reass = mul nuw nsw i32 %.0400, 32639
-  %invariant.op677 = add nuw nsw i32 %.reass, 32768
-  %.reass662 = mul nuw nsw i32 %.0402, 32639
-  %invariant.op = add nuw nsw i32 %.reass662, 32768
-  %.reass665 = mul nuw nsw i32 %.0404, 32639
-  %invariant.op670 = add nuw nsw i32 %.reass665, 32768
+  %invariant.op623 = add nuw nsw i32 %.reass, 32768
+  %.reass608 = mul nuw nsw i32 %.0402, 32639
+  %invariant.op = add nuw nsw i32 %.reass608, 32768
+  %.reass611 = mul nuw nsw i32 %.0404, 32639
+  %invariant.op616 = add nuw nsw i32 %.reass611, 32768
   %484 = zext nneg i32 %.0400 to i64
   %485 = getelementptr inbounds [256 x i16], ptr @png_sRGB_table, i64 0, i64 %484
   %486 = zext nneg i32 %.0402 to i64
   %487 = getelementptr inbounds [256 x i16], ptr @png_sRGB_table, i64 0, i64 %486
   %488 = zext nneg i32 %.0404 to i64
   %489 = getelementptr inbounds [256 x i16], ptr @png_sRGB_table, i64 0, i64 %488
-  br label %.preheader640
+  br label %.preheader586
 
-.preheader640:                                    ; preds = %482, %.split675.us
-  %.5680 = phi i32 [ %483, %482 ], [ %.us-phi676, %.split675.us ]
-  %.1393679 = phi i32 [ 0, %482 ], [ %594, %.split675.us ]
-  %490 = zext nneg i32 %.1393679 to i64
+.preheader586:                                    ; preds = %482, %.split621.us
+  %.5626 = phi i32 [ %483, %482 ], [ %.us-phi622, %.split621.us ]
+  %.1393625 = phi i32 [ 0, %482 ], [ %594, %.split621.us ]
+  %490 = zext nneg i32 %.1393625 to i64
   %491 = getelementptr inbounds [256 x i16], ptr @png_sRGB_table, i64 0, i64 %490
   %492 = load i16, ptr %491, align 2
   %493 = zext i16 %492 to i32
-  %factor.op.mul659.reass = mul nuw i32 %493, 32896
-  %494 = add nuw i32 %factor.op.mul659.reass, %.reass
+  %factor.op.mul605.reass = mul nuw i32 %493, 32896
+  %494 = add nuw i32 %factor.op.mul605.reass, %.reass
   %495 = lshr i32 %494, 16
-  %.reass678 = add nuw i32 %factor.op.mul659.reass, %invariant.op677
-  %496 = add nuw i32 %.reass678, %495
+  %.reass624 = add nuw i32 %factor.op.mul605.reass, %invariant.op623
+  %496 = add nuw i32 %.reass624, %495
   %497 = lshr i32 %496, 16
-  br i1 %.not.not, label %.preheader640.split.us, label %.preheader639
+  br i1 %.not.not, label %.preheader586.split.us, label %.preheader585
 
-.preheader640.split.us:                           ; preds = %.preheader640
+.preheader586.split.us:                           ; preds = %.preheader586
   %498 = shl nuw nsw i32 %493, 7
   %499 = load i16, ptr %485, align 2
   %500 = zext i16 %499 to i32
@@ -3248,12 +3248,12 @@ make_rgb_colormap.exit495:                        ; preds = %410
   %520 = load i16, ptr %489, align 2
   %521 = zext i16 %520 to i32
   %522 = mul nuw nsw i32 %521, 127
-  br label %.preheader639.us
+  br label %.preheader585.us
 
-.preheader639.us:                                 ; preds = %.split.us.us, %.preheader640.split.us
-  %.6673.us = phi i32 [ %.5680, %.preheader640.split.us ], [ %543, %.split.us.us ]
-  %.1391672.us = phi i32 [ 0, %.preheader640.split.us ], [ %568, %.split.us.us ]
-  %523 = zext nneg i32 %.1391672.us to i64
+.preheader585.us:                                 ; preds = %.split.us.us, %.preheader586.split.us
+  %.6619.us = phi i32 [ %.5626, %.preheader586.split.us ], [ %543, %.split.us.us ]
+  %.1391618.us = phi i32 [ 0, %.preheader586.split.us ], [ %568, %.split.us.us ]
+  %523 = zext nneg i32 %.1391618.us to i64
   %524 = getelementptr inbounds [256 x i16], ptr @png_sRGB_table, i64 0, i64 %523
   %525 = load i16, ptr %524, align 2
   %526 = zext i16 %525 to i32
@@ -3273,13 +3273,13 @@ make_rgb_colormap.exit495:                        ; preds = %410
   %540 = add nuw nsw i32 %539, %533
   %541 = lshr i32 %540, 8
   %542 = and i32 %541, 255
-  br label %set_file_encoding.exit.i.us.us
+  br label %png_colormap_compose.exit.us.us
 
-set_file_encoding.exit.i.us.us:                   ; preds = %set_file_encoding.exit.i.us.us, %.preheader639.us
-  %.7668.us.us = phi i32 [ %.6673.us, %.preheader639.us ], [ %543, %set_file_encoding.exit.i.us.us ]
-  %.1389667.us.us = phi i32 [ 0, %.preheader639.us ], [ %565, %set_file_encoding.exit.i.us.us ]
-  %543 = add i32 %.7668.us.us, 1
-  %544 = zext nneg i32 %.1389667.us.us to i64
+png_colormap_compose.exit.us.us:                  ; preds = %png_colormap_compose.exit.us.us, %.preheader585.us
+  %.7614.us.us = phi i32 [ %.6619.us, %.preheader585.us ], [ %543, %png_colormap_compose.exit.us.us ]
+  %.1389613.us.us = phi i32 [ 0, %.preheader585.us ], [ %565, %png_colormap_compose.exit.us.us ]
+  %543 = add i32 %.7614.us.us, 1
+  %544 = zext nneg i32 %.1389613.us.us to i64
   %545 = getelementptr inbounds [256 x i16], ptr @png_sRGB_table, i64 0, i64 %544
   %546 = load i16, ptr %545, align 2
   %547 = zext i16 %546 to i32
@@ -3299,65 +3299,65 @@ set_file_encoding.exit.i.us.us:                   ; preds = %set_file_encoding.e
   %561 = add nuw nsw i32 %560, %554
   %562 = lshr i32 %561, 8
   %563 = and i32 %562, 255
-  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.7668.us.us, i32 noundef %516, i32 noundef %542, i32 noundef %563, i32 noundef 0, i32 noundef %12)
-  %564 = shl nuw nsw i32 %.1389667.us.us, 1
+  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.7614.us.us, i32 noundef %516, i32 noundef %542, i32 noundef %563, i32 noundef 0, i32 noundef %12)
+  %564 = shl nuw nsw i32 %.1389613.us.us, 1
   %565 = or i32 %564, 127
-  %566 = icmp ult i32 %.1389667.us.us, 128
-  br i1 %566, label %set_file_encoding.exit.i.us.us, label %.split.us.us, !llvm.loop !46
+  %566 = icmp ult i32 %.1389613.us.us, 128
+  br i1 %566, label %png_colormap_compose.exit.us.us, label %.split.us.us, !llvm.loop !46
 
-.split.us.us:                                     ; preds = %set_file_encoding.exit.i.us.us
-  %567 = shl nuw nsw i32 %.1391672.us, 1
+.split.us.us:                                     ; preds = %png_colormap_compose.exit.us.us
+  %567 = shl nuw nsw i32 %.1391618.us, 1
   %568 = or i32 %567, 127
-  %569 = icmp ult i32 %.1391672.us, 128
-  br i1 %569, label %.preheader639.us, label %.split675.us, !llvm.loop !47
+  %569 = icmp ult i32 %.1391618.us, 128
+  br i1 %569, label %.preheader585.us, label %.split621.us, !llvm.loop !47
 
-.preheader639:                                    ; preds = %.preheader640, %.split
-  %.6673 = phi i32 [ %578, %.split ], [ %.5680, %.preheader640 ]
-  %.1391672 = phi i32 [ %591, %.split ], [ 0, %.preheader640 ]
-  %570 = zext nneg i32 %.1391672 to i64
+.preheader585:                                    ; preds = %.preheader586, %.split
+  %.6619 = phi i32 [ %578, %.split ], [ %.5626, %.preheader586 ]
+  %.1391618 = phi i32 [ %591, %.split ], [ 0, %.preheader586 ]
+  %570 = zext nneg i32 %.1391618 to i64
   %571 = getelementptr inbounds [256 x i16], ptr @png_sRGB_table, i64 0, i64 %570
   %572 = load i16, ptr %571, align 2
   %573 = zext i16 %572 to i32
-  %.reass663 = mul nuw i32 %573, 32896
-  %574 = add nuw i32 %.reass663, %.reass662
+  %.reass609 = mul nuw i32 %573, 32896
+  %574 = add nuw i32 %.reass609, %.reass608
   %575 = lshr i32 %574, 16
-  %.reass669 = add nuw i32 %.reass663, %invariant.op
-  %576 = add nuw i32 %.reass669, %575
+  %.reass615 = add nuw i32 %.reass609, %invariant.op
+  %576 = add nuw i32 %.reass615, %575
   %577 = lshr i32 %576, 16
-  br label %set_file_encoding.exit.i
+  br label %decode_gamma.exit521.thread
 
-set_file_encoding.exit.i:                         ; preds = %.preheader639, %set_file_encoding.exit.i
-  %.7668 = phi i32 [ %.6673, %.preheader639 ], [ %578, %set_file_encoding.exit.i ]
-  %.1389667 = phi i32 [ 0, %.preheader639 ], [ %588, %set_file_encoding.exit.i ]
-  %578 = add i32 %.7668, 1
-  %579 = zext nneg i32 %.1389667 to i64
+decode_gamma.exit521.thread:                      ; preds = %.preheader585, %decode_gamma.exit521.thread
+  %.7614 = phi i32 [ %.6619, %.preheader585 ], [ %578, %decode_gamma.exit521.thread ]
+  %.1389613 = phi i32 [ 0, %.preheader585 ], [ %588, %decode_gamma.exit521.thread ]
+  %578 = add i32 %.7614, 1
+  %579 = zext nneg i32 %.1389613 to i64
   %580 = getelementptr inbounds [256 x i16], ptr @png_sRGB_table, i64 0, i64 %579
   %581 = load i16, ptr %580, align 2
   %582 = zext i16 %581 to i32
-  %.reass666 = mul nuw i32 %582, 32896
-  %583 = add nuw i32 %.reass666, %.reass665
+  %.reass612 = mul nuw i32 %582, 32896
+  %583 = add nuw i32 %.reass612, %.reass611
   %584 = lshr i32 %583, 16
-  %.reass671 = add nuw i32 %.reass666, %invariant.op670
-  %585 = add nuw i32 %.reass671, %584
+  %.reass617 = add nuw i32 %.reass612, %invariant.op616
+  %585 = add nuw i32 %.reass617, %584
   %586 = lshr i32 %585, 16
-  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.7668, i32 noundef %497, i32 noundef %577, i32 noundef %586, i32 noundef 0, i32 noundef %12)
-  %587 = shl nuw nsw i32 %.1389667, 1
+  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %.7614, i32 noundef %497, i32 noundef %577, i32 noundef %586, i32 noundef 0, i32 noundef %12)
+  %587 = shl nuw nsw i32 %.1389613, 1
   %588 = or i32 %587, 127
-  %589 = icmp ult i32 %.1389667, 128
-  br i1 %589, label %set_file_encoding.exit.i, label %.split, !llvm.loop !46
+  %589 = icmp ult i32 %.1389613, 128
+  br i1 %589, label %decode_gamma.exit521.thread, label %.split, !llvm.loop !46
 
-.split:                                           ; preds = %set_file_encoding.exit.i
-  %590 = shl nuw nsw i32 %.1391672, 1
+.split:                                           ; preds = %decode_gamma.exit521.thread
+  %590 = shl nuw nsw i32 %.1391618, 1
   %591 = or i32 %590, 127
-  %592 = icmp ult i32 %.1391672, 128
-  br i1 %592, label %.preheader639, label %.split675.us, !llvm.loop !47
+  %592 = icmp ult i32 %.1391618, 128
+  br i1 %592, label %.preheader585, label %.split621.us, !llvm.loop !47
 
-.split675.us:                                     ; preds = %.split, %.split.us.us
-  %.us-phi676 = phi i32 [ %543, %.split.us.us ], [ %578, %.split ]
-  %593 = shl nuw nsw i32 %.1393679, 1
+.split621.us:                                     ; preds = %.split, %.split.us.us
+  %.us-phi622 = phi i32 [ %543, %.split.us.us ], [ %578, %.split ]
+  %593 = shl nuw nsw i32 %.1393625, 1
   %594 = or i32 %593, 127
-  %595 = icmp ult i32 %.1393679, 128
-  br i1 %595, label %.preheader640, label %make_ga_colormap.exit, !llvm.loop !48
+  %595 = icmp ult i32 %.1393625, 128
+  br i1 %595, label %.preheader586, label %make_ga_colormap.exit, !llvm.loop !48
 
 596:                                              ; preds = %458
   store i8 0, ptr %5, align 2
@@ -3443,13 +3443,13 @@ set_file_encoding.exit.i:                         ; preds = %.preheader639, %set
   %636 = getelementptr inbounds i8, ptr %6, i64 28
   %637 = load i32, ptr %636, align 4
   %638 = icmp ult i32 %637, %spec.store.select
-  br i1 %638, label %640, label %.preheader646
+  br i1 %638, label %640, label %.preheader592
 
-.preheader646:                                    ; preds = %625
+.preheader592:                                    ; preds = %625
   %.not = icmp eq i16 %634, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.preheader646
+.lr.ph.preheader:                                 ; preds = %.preheader592
   %639 = zext i16 %621 to i64
   %wide.trip.count = zext nneg i16 %635 to i64
   br label %.lr.ph
@@ -3602,10 +3602,10 @@ png_colormap_compose.exit516:                     ; preds = %691, %697
   br label %749
 
 749:                                              ; preds = %732, %723
-  %.0.i517712 = phi i32 [ %728, %723 ], [ %746, %732 ]
+  %.0.i517658 = phi i32 [ %728, %723 ], [ %746, %732 ]
   %750 = phi i32 [ %731, %723 ], [ %748, %732 ]
   %751 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %751, i32 noundef %.0.i513, i32 noundef %.0.i515, i32 noundef %.0.i517712, i32 noundef %750, i32 noundef %12)
+  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %751, i32 noundef %.0.i513, i32 noundef %.0.i515, i32 noundef %.0.i517658, i32 noundef %750, i32 noundef %12)
   br label %769
 
 752:                                              ; preds = %643, %.lr.ph
@@ -3637,25 +3637,25 @@ png_colormap_compose.exit516:                     ; preds = %691, %697
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
-._crit_edge:                                      ; preds = %769, %.preheader646
+._crit_edge:                                      ; preds = %769, %.preheader592
   %770 = getelementptr inbounds i8, ptr %8, i64 520
   %771 = load i8, ptr %770, align 8
   %772 = icmp ult i8 %771, 8
-  br i1 %772, label %773, label %make_ga_colormap.exit.thread.thread626
+  br i1 %772, label %773, label %make_ga_colormap.exit.thread.thread572
 
 773:                                              ; preds = %._crit_edge
   tail call void @png_set_packing(ptr noundef nonnull %8) #11
-  br label %make_ga_colormap.exit.thread.thread626
+  br label %make_ga_colormap.exit.thread.thread572
 
 774:                                              ; preds = %58
   tail call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.43) #12
   unreachable
 
-make_ga_colormap.exit:                            ; preds = %390, %.split675.us, %293, %131, %352
-  %.0394 = phi i32 [ 254, %131 ], [ 256, %352 ], [ 231, %293 ], [ %405, %.split675.us ], [ %373, %390 ]
-  %.0385 = phi i32 [ 1, %131 ], [ %.1386, %352 ], [ 1, %293 ], [ 1, %.split675.us ], [ 1, %390 ]
-  %.0384 = phi i32 [ 2, %131 ], [ 0, %352 ], [ 1, %293 ], [ 4, %.split675.us ], [ 4, %390 ]
-  %.0383 = phi i32 [ 256, %131 ], [ 256, %352 ], [ %290, %293 ], [ %.us-phi676, %.split675.us ], [ %382, %390 ]
+make_ga_colormap.exit:                            ; preds = %390, %.split621.us, %293, %131, %352
+  %.0394 = phi i32 [ 254, %131 ], [ 256, %352 ], [ 231, %293 ], [ %405, %.split621.us ], [ %373, %390 ]
+  %.0385 = phi i32 [ 1, %131 ], [ %.1386, %352 ], [ 1, %293 ], [ 1, %.split621.us ], [ 1, %390 ]
+  %.0384 = phi i32 [ 2, %131 ], [ 0, %352 ], [ 1, %293 ], [ 4, %.split621.us ], [ 4, %390 ]
+  %.0383 = phi i32 [ 256, %131 ], [ 256, %352 ], [ %290, %293 ], [ %.us-phi622, %.split621.us ], [ %382, %390 ]
   %775 = getelementptr inbounds i8, ptr %8, i64 512
   %776 = load i16, ptr %775, align 8
   %.not443 = icmp eq i16 %776, 0
@@ -3672,32 +3672,32 @@ make_ga_colormap.exit:                            ; preds = %390, %.split675.us,
   br label %make_ga_colormap.exit.thread
 
 make_ga_colormap.exit.thread:                     ; preds = %318, %781, %777, %make_ga_colormap.exit
-  %.0383613 = phi i32 [ %.0383, %781 ], [ %.0383, %777 ], [ %.0383, %make_ga_colormap.exit ], [ 256, %318 ]
-  %.0384612 = phi i32 [ %.0384, %781 ], [ %.0384, %777 ], [ %.0384, %make_ga_colormap.exit ], [ 0, %318 ]
-  %.0385611 = phi i32 [ %.0385, %781 ], [ %.0385, %777 ], [ %.0385, %make_ga_colormap.exit ], [ %.1386, %318 ]
-  %.0394610 = phi i32 [ %.0394, %781 ], [ %.0394, %777 ], [ %.0394, %make_ga_colormap.exit ], [ 256, %318 ]
-  switch i32 %.0385611, label %786 [
+  %.0383559 = phi i32 [ %.0383, %781 ], [ %.0383, %777 ], [ %.0383, %make_ga_colormap.exit ], [ 256, %318 ]
+  %.0384558 = phi i32 [ %.0384, %781 ], [ %.0384, %777 ], [ %.0384, %make_ga_colormap.exit ], [ 0, %318 ]
+  %.0385557 = phi i32 [ %.0385, %781 ], [ %.0385, %777 ], [ %.0385, %make_ga_colormap.exit ], [ %.1386, %318 ]
+  %.0394556 = phi i32 [ %.0394, %781 ], [ %.0394, %777 ], [ %.0394, %make_ga_colormap.exit ], [ 256, %318 ]
+  switch i32 %.0385557, label %786 [
     i32 1, label %make_ga_colormap.exit.thread.thread
-    i32 3, label %make_ga_colormap.exit.thread.thread626
+    i32 3, label %make_ga_colormap.exit.thread.thread572
   ]
 
 make_ga_colormap.exit.thread.thread:              ; preds = %617, %148, %266, %596, %178, %123, %make_gray_colormap.exit, %make_ga_colormap.exit.thread
-  %.0394610623 = phi i32 [ %.0394610, %make_ga_colormap.exit.thread ], [ 256, %596 ], [ 256, %178 ], [ 256, %123 ], [ 256, %make_gray_colormap.exit ], [ 231, %266 ], [ 231, %148 ], [ 256, %617 ]
-  %.0384612621 = phi i32 [ %.0384612, %make_ga_colormap.exit.thread ], [ 3, %596 ], [ 0, %178 ], [ 0, %123 ], [ 0, %make_gray_colormap.exit ], [ 1, %266 ], [ 1, %148 ], [ 3, %617 ]
-  %.0383613619 = phi i32 [ %.0383613, %make_ga_colormap.exit.thread ], [ %405, %596 ], [ 256, %178 ], [ 256, %123 ], [ 256, %make_gray_colormap.exit ], [ %220, %266 ], [ %145, %148 ], [ %612, %617 ]
+  %.0394556569 = phi i32 [ %.0394556, %make_ga_colormap.exit.thread ], [ 256, %596 ], [ 256, %178 ], [ 256, %123 ], [ 256, %make_gray_colormap.exit ], [ 231, %266 ], [ 231, %148 ], [ 256, %617 ]
+  %.0384558567 = phi i32 [ %.0384558, %make_ga_colormap.exit.thread ], [ 3, %596 ], [ 0, %178 ], [ 0, %123 ], [ 0, %make_gray_colormap.exit ], [ 1, %266 ], [ 1, %148 ], [ 3, %617 ]
+  %.0383559565 = phi i32 [ %.0383559, %make_ga_colormap.exit.thread ], [ %405, %596 ], [ 256, %178 ], [ 256, %123 ], [ 256, %make_gray_colormap.exit ], [ %220, %266 ], [ %145, %148 ], [ %612, %617 ]
   call void @png_set_alpha_mode_fixed(ptr noundef %8, i32 noundef 0, i32 noundef 220000) #11
-  br label %make_ga_colormap.exit.thread.thread626
+  br label %make_ga_colormap.exit.thread.thread572
 
-make_ga_colormap.exit.thread.thread626:           ; preds = %773, %._crit_edge, %92, %89, %make_ga_colormap.exit.thread.thread, %make_ga_colormap.exit.thread
-  %.0394610622 = phi i32 [ %.0394610623, %make_ga_colormap.exit.thread.thread ], [ %.0394610, %make_ga_colormap.exit.thread ], [ 256, %89 ], [ 256, %92 ], [ 256, %._crit_edge ], [ 256, %773 ]
-  %.0384612620 = phi i32 [ %.0384612621, %make_ga_colormap.exit.thread.thread ], [ %.0384612, %make_ga_colormap.exit.thread ], [ 0, %89 ], [ 0, %92 ], [ 0, %._crit_edge ], [ 0, %773 ]
-  %.0383613618 = phi i32 [ %.0383613619, %make_ga_colormap.exit.thread.thread ], [ %.0383613, %make_ga_colormap.exit.thread ], [ %65, %89 ], [ %65, %92 ], [ %spec.store.select, %._crit_edge ], [ %spec.store.select, %773 ]
+make_ga_colormap.exit.thread.thread572:           ; preds = %773, %._crit_edge, %92, %89, %make_ga_colormap.exit.thread.thread, %make_ga_colormap.exit.thread
+  %.0394556568 = phi i32 [ %.0394556569, %make_ga_colormap.exit.thread.thread ], [ %.0394556, %make_ga_colormap.exit.thread ], [ 256, %89 ], [ 256, %92 ], [ 256, %._crit_edge ], [ 256, %773 ]
+  %.0384558566 = phi i32 [ %.0384558567, %make_ga_colormap.exit.thread.thread ], [ %.0384558, %make_ga_colormap.exit.thread ], [ 0, %89 ], [ 0, %92 ], [ 0, %._crit_edge ], [ 0, %773 ]
+  %.0383559564 = phi i32 [ %.0383559565, %make_ga_colormap.exit.thread.thread ], [ %.0383559, %make_ga_colormap.exit.thread ], [ %65, %89 ], [ %65, %92 ], [ %spec.store.select, %._crit_edge ], [ %spec.store.select, %773 ]
   %782 = getelementptr inbounds i8, ptr %8, i64 520
   %783 = load i8, ptr %782, align 8
   %784 = icmp ugt i8 %783, 8
   br i1 %784, label %785, label %787
 
-785:                                              ; preds = %make_ga_colormap.exit.thread.thread626
+785:                                              ; preds = %make_ga_colormap.exit.thread.thread572
   call void @png_set_scale_16(ptr noundef nonnull %8) #11
   br label %787
 
@@ -3705,14 +3705,14 @@ make_ga_colormap.exit.thread.thread626:           ; preds = %773, %._crit_edge, 
   call void @png_error(ptr noundef nonnull %8, ptr noundef nonnull @.str.44) #12
   unreachable
 
-787:                                              ; preds = %make_ga_colormap.exit.thread.thread626, %785
-  %788 = icmp ugt i32 %.0383613618, 256
+787:                                              ; preds = %make_ga_colormap.exit.thread.thread572, %785
+  %788 = icmp ugt i32 %.0383559564, 256
   br i1 %788, label %793, label %789
 
 789:                                              ; preds = %787
   %790 = getelementptr inbounds i8, ptr %6, i64 28
   %791 = load i32, ptr %790, align 4
-  %792 = icmp ugt i32 %.0383613618, %791
+  %792 = icmp ugt i32 %.0383559564, %791
   br i1 %792, label %793, label %794
 
 793:                                              ; preds = %789, %787
@@ -3720,8 +3720,8 @@ make_ga_colormap.exit.thread.thread626:           ; preds = %773, %._crit_edge, 
   unreachable
 
 794:                                              ; preds = %789
-  store i32 %.0383613618, ptr %790, align 4
-  switch i32 %.0384612620, label %default.unreachable [
+  store i32 %.0383559564, ptr %790, align 4
+  switch i32 %.0384558566, label %default.unreachable [
     i32 0, label %795
     i32 1, label %796
     i32 2, label %797
@@ -3730,25 +3730,25 @@ make_ga_colormap.exit.thread.thread626:           ; preds = %773, %._crit_edge, 
   ]
 
 795:                                              ; preds = %794
-  %.not447 = icmp eq i32 %.0394610622, 256
+  %.not447 = icmp eq i32 %.0394556568, 256
   br i1 %.not447, label %803, label %802
 
 796:                                              ; preds = %794
-  %.not446 = icmp eq i32 %.0394610622, 231
+  %.not446 = icmp eq i32 %.0394556568, 231
   br i1 %.not446, label %803, label %802
 
 797:                                              ; preds = %794
-  %798 = icmp ne i32 %.0394610622, 254
-  %799 = icmp ult i32 %.0383613618, 255
+  %798 = icmp ne i32 %.0394556568, 254
+  %799 = icmp ult i32 %.0383559564, 255
   %or.cond = or i1 %798, %799
   br i1 %or.cond, label %802, label %803
 
 800:                                              ; preds = %794
-  %.not445 = icmp eq i32 %.0394610622, 256
+  %.not445 = icmp eq i32 %.0394556568, 256
   br i1 %.not445, label %803, label %802
 
 801:                                              ; preds = %794
-  %.not444 = icmp eq i32 %.0394610622, 216
+  %.not444 = icmp eq i32 %.0394556568, 216
   br i1 %.not444, label %803, label %802
 
 default.unreachable:                              ; preds = %794
@@ -3760,7 +3760,7 @@ default.unreachable:                              ; preds = %794
 
 803:                                              ; preds = %801, %800, %797, %796, %795
   %804 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 %.0384612620, ptr %804, align 8
+  store i32 %.0384558566, ptr %804, align 8
   ret i32 1
 }
 
@@ -4478,7 +4478,7 @@ declare noalias ptr @png_malloc_warn(ptr noundef, i64 noundef) local_unnamed_add
 declare void @png_set_benign_errors(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @png_create_colormap_entry(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @png_create_colormap_entry(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 65536) %5, i32 noundef range(i32 1, 4) %6) unnamed_addr #0 {
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 20
   %10 = load i32, ptr %9, align 4
@@ -4700,8 +4700,8 @@ set_file_encoding.exit:                           ; preds = %28, %png_gamma_not_
   %154 = add nuw nsw i32 %153, %147
   %155 = lshr i32 %154, 8
   %156 = and i32 %155, 255
-  %157 = mul i32 %.0148166, 255
-  %158 = add i32 %157, 32895
+  %157 = mul nuw i32 %.0148166, 255
+  %158 = add nuw i32 %157, 32895
   %159 = lshr i32 %158, 16
   br label %.thread174
 
@@ -4754,8 +4754,8 @@ set_file_encoding.exit:                           ; preds = %28, %png_gamma_not_
   %204 = add nuw nsw i32 %203, %197
   %205 = lshr i32 %204, 8
   %206 = and i32 %205, 255
-  %207 = mul i32 %.0148166, 255
-  %208 = add i32 %207, 32895
+  %207 = mul nuw i32 %.0148166, 255
+  %208 = add nuw i32 %207, 32895
   %209 = lshr i32 %208, 16
   br label %.thread174
 
@@ -4945,102 +4945,95 @@ declare i32 @png_gamma_significant(i32 noundef) local_unnamed_addr #1
 declare i32 @png_reciprocal(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 16842496) i32 @decode_gamma(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 16842496) i32 @decode_gamma(ptr nocapture noundef %0, i32 noundef range(i32 0, 65536) %1, i32 noundef range(i32 1, 4) %2) unnamed_addr #0 {
   %4 = icmp eq i32 %2, 3
-  br i1 %4, label %5, label %8
+  br i1 %4, label %5, label %.thread
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8
-  br label %8
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %9, label %.thread
 
-8:                                                ; preds = %5, %3
-  %.0 = phi i32 [ %7, %5 ], [ %2, %3 ]
-  %9 = icmp eq i32 %.0, 0
-  br i1 %9, label %10, label %set_file_encoding.exit
-
-10:                                               ; preds = %8
-  %11 = load ptr, ptr %0, align 8
+9:                                                ; preds = %5
+  %10 = load ptr, ptr %0, align 8
+  %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1072
-  %15 = load i32, ptr %14, align 8
-  %16 = tail call i32 @png_gamma_significant(i32 noundef %15) #11
-  %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %set_file_encoding.exit.thread14, label %17
+  %13 = getelementptr inbounds i8, ptr %12, i64 1072
+  %14 = load i32, ptr %13, align 8
+  %15 = tail call i32 @png_gamma_significant(i32 noundef %14) #11
+  %.not.i = icmp eq i32 %15, 0
+  br i1 %.not.i, label %.thread.thread15, label %16
 
-17:                                               ; preds = %10
-  %18 = icmp slt i32 %15, 100000
-  br i1 %18, label %19, label %png_gamma_not_sRGB.exit.thread10.i
+16:                                               ; preds = %9
+  %17 = icmp slt i32 %14, 100000
+  br i1 %17, label %18, label %png_gamma_not_sRGB.exit.thread10.i
 
-19:                                               ; preds = %17
-  %20 = icmp eq i32 %15, 0
-  br i1 %20, label %set_file_encoding.exit.thread, label %png_gamma_not_sRGB.exit.i
+18:                                               ; preds = %16
+  %19 = icmp eq i32 %14, 0
+  br i1 %19, label %.thread.thread, label %png_gamma_not_sRGB.exit.i
 
-png_gamma_not_sRGB.exit.i:                        ; preds = %19
-  %21 = mul nsw i32 %15, 11
-  %22 = add nsw i32 %21, 2
-  %23 = sdiv i32 %22, 5
-  %24 = tail call i32 @png_gamma_significant(i32 noundef %23) #11
-  %.not7.i = icmp eq i32 %24, 0
-  br i1 %.not7.i, label %set_file_encoding.exit.thread, label %png_gamma_not_sRGB.exit.thread10.i
+png_gamma_not_sRGB.exit.i:                        ; preds = %18
+  %20 = mul nsw i32 %14, 11
+  %21 = add nsw i32 %20, 2
+  %22 = sdiv i32 %21, 5
+  %23 = tail call i32 @png_gamma_significant(i32 noundef %22) #11
+  %.not7.i = icmp eq i32 %23, 0
+  br i1 %.not7.i, label %.thread.thread, label %png_gamma_not_sRGB.exit.thread10.i
 
-png_gamma_not_sRGB.exit.thread10.i:               ; preds = %png_gamma_not_sRGB.exit.i, %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 3, ptr %25, align 8
-  %26 = tail call i32 @png_reciprocal(i32 noundef %15) #11
-  %27 = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 %26, ptr %27, align 4
-  %.pre = load i32, ptr %25, align 8
-  br label %set_file_encoding.exit
+png_gamma_not_sRGB.exit.thread10.i:               ; preds = %png_gamma_not_sRGB.exit.i, %16
+  store i32 3, ptr %6, align 8
+  %24 = tail call i32 @png_reciprocal(i32 noundef %14) #11
+  %25 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 %24, ptr %25, align 4
+  %.pre = load i32, ptr %6, align 8
+  br label %.thread
 
-set_file_encoding.exit.thread:                    ; preds = %19, %png_gamma_not_sRGB.exit.i
-  %28 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 1, ptr %28, align 8
-  br label %36
+.thread.thread:                                   ; preds = %18, %png_gamma_not_sRGB.exit.i
+  store i32 1, ptr %6, align 8
+  br label %32
 
-set_file_encoding.exit.thread14:                  ; preds = %10
-  %29 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 4, ptr %29, align 8
-  br label %41
+.thread.thread15:                                 ; preds = %9
+  store i32 4, ptr %6, align 8
+  br label %37
 
-set_file_encoding.exit:                           ; preds = %png_gamma_not_sRGB.exit.thread10.i, %8
-  %.1 = phi i32 [ %.0, %8 ], [ %.pre, %png_gamma_not_sRGB.exit.thread10.i ]
-  switch i32 %.1, label %43 [
-    i32 3, label %30
-    i32 1, label %36
-    i32 2, label %47
-    i32 4, label %41
+.thread:                                          ; preds = %png_gamma_not_sRGB.exit.thread10.i, %3, %5
+  %.1 = phi i32 [ %7, %5 ], [ %2, %3 ], [ %.pre, %png_gamma_not_sRGB.exit.thread10.i ]
+  switch i32 %.1, label %39 [
+    i32 3, label %26
+    i32 1, label %32
+    i32 2, label %43
+    i32 4, label %37
   ]
 
-30:                                               ; preds = %set_file_encoding.exit
-  %31 = mul nuw nsw i32 %1, 257
-  %32 = getelementptr inbounds i8, ptr %0, i64 68
-  %33 = load i32, ptr %32, align 4
-  %34 = tail call zeroext i16 @png_gamma_16bit_correct(i32 noundef %31, i32 noundef %33) #11
-  %35 = zext i16 %34 to i32
-  br label %47
+26:                                               ; preds = %.thread
+  %27 = mul nuw nsw i32 %1, 257
+  %28 = getelementptr inbounds i8, ptr %0, i64 68
+  %29 = load i32, ptr %28, align 4
+  %30 = tail call zeroext i16 @png_gamma_16bit_correct(i32 noundef %27, i32 noundef %29) #11
+  %31 = zext i16 %30 to i32
+  br label %43
 
-36:                                               ; preds = %set_file_encoding.exit.thread, %set_file_encoding.exit
-  %37 = zext nneg i32 %1 to i64
-  %38 = getelementptr inbounds [256 x i16], ptr @png_sRGB_table, i64 0, i64 %37
-  %39 = load i16, ptr %38, align 2
-  %40 = zext i16 %39 to i32
-  br label %47
+32:                                               ; preds = %.thread.thread, %.thread
+  %33 = zext nneg i32 %1 to i64
+  %34 = getelementptr inbounds [256 x i16], ptr @png_sRGB_table, i64 0, i64 %33
+  %35 = load i16, ptr %34, align 2
+  %36 = zext i16 %35 to i32
+  br label %43
 
-41:                                               ; preds = %set_file_encoding.exit.thread14, %set_file_encoding.exit
-  %42 = mul nuw nsw i32 %1, 257
-  br label %47
+37:                                               ; preds = %.thread.thread15, %.thread
+  %38 = mul nuw nsw i32 %1, 257
+  br label %43
 
-43:                                               ; preds = %set_file_encoding.exit
-  %44 = load ptr, ptr %0, align 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = load ptr, ptr %45, align 8
-  tail call void @png_error(ptr noundef %46, ptr noundef nonnull @.str.50) #12
+39:                                               ; preds = %.thread
+  %40 = load ptr, ptr %0, align 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %41, align 8
+  tail call void @png_error(ptr noundef %42, ptr noundef nonnull @.str.50) #12
   unreachable
 
-47:                                               ; preds = %set_file_encoding.exit, %41, %36, %30
-  %.011 = phi i32 [ %42, %41 ], [ %1, %set_file_encoding.exit ], [ %40, %36 ], [ %35, %30 ]
+43:                                               ; preds = %.thread, %37, %32, %26
+  %.011 = phi i32 [ %38, %37 ], [ %1, %.thread ], [ %36, %32 ], [ %31, %26 ]
   ret i32 %.011
 }
 

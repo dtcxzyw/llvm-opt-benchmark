@@ -221,7 +221,7 @@ validate_zone.exit.thread:                        ; preds = %17, %1, %15, %valid
   br i1 %68, label %69, label %.loopexit.i.i
 
 69:                                               ; preds = %66
-  %70 = call fastcc i32 @score_timezone(ptr noundef nonnull %64, ptr noundef nonnull %7)
+  %70 = call fastcc i32 @score_timezone(ptr noundef nonnull %64, ptr noundef %7)
   %71 = load i32, ptr %7, align 8
   %72 = icmp eq i32 %70, %71
   br i1 %72, label %check_system_link_file.exit.i, label %..loopexit_crit_edge.i.i
@@ -248,7 +248,7 @@ check_system_link_file.exit.i:                    ; preds = %69
   %76 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #14
   %77 = getelementptr i8, ptr %9, i64 %76
   %78 = getelementptr i8, ptr %77, i64 1
-  call fastcc void @scan_available_timezones(ptr noundef nonnull %9, ptr noundef %78, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  call fastcc void @scan_available_timezones(ptr noundef %9, ptr noundef %78, ptr noundef %7, ptr noundef %8)
   %79 = load i32, ptr %8, align 4
   %80 = icmp sgt i32 %79, 0
   br i1 %80, label %81, label %82
@@ -347,14 +347,14 @@ check_system_link_file.exit.i:                    ; preds = %69
   %120 = sub i32 0, %.13743.i
   %121 = sdiv i32 %120, 3600
   %122 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @identify_system_timezone.resultbuf, i64 noundef 256, ptr noundef nonnull @.str.7, ptr noundef nonnull %10, i32 noundef %121, ptr noundef nonnull %11) #13
-  %123 = call fastcc i32 @score_timezone(ptr noundef nonnull @identify_system_timezone.resultbuf, ptr noundef nonnull %7)
+  %123 = call fastcc i32 @score_timezone(ptr noundef nonnull @identify_system_timezone.resultbuf, ptr noundef %7)
   %124 = icmp sgt i32 %123, 0
   br i1 %124, label %139, label %125
 
 125:                                              ; preds = %.thread40.i, %119
   %.13744.i = phi i32 [ %.13743.i, %.thread40.i ], [ %.2.i, %119 ]
   %126 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @identify_system_timezone.resultbuf, ptr noundef nonnull dereferenceable(1) %10) #13
-  %127 = call fastcc i32 @score_timezone(ptr noundef nonnull @identify_system_timezone.resultbuf, ptr noundef nonnull %7)
+  %127 = call fastcc i32 @score_timezone(ptr noundef nonnull @identify_system_timezone.resultbuf, ptr noundef %7)
   %128 = icmp sgt i32 %127, 0
   br i1 %128, label %139, label %129
 
@@ -362,7 +362,7 @@ check_system_link_file.exit.i:                    ; preds = %69
   %130 = sub i32 0, %.13744.i
   %131 = sdiv i32 %130, 3600
   %132 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @identify_system_timezone.resultbuf, i64 noundef 256, ptr noundef nonnull @.str.8, ptr noundef nonnull %10, i32 noundef %131) #13
-  %133 = call fastcc i32 @score_timezone(ptr noundef nonnull @identify_system_timezone.resultbuf, ptr noundef nonnull %7)
+  %133 = call fastcc i32 @score_timezone(ptr noundef nonnull @identify_system_timezone.resultbuf, ptr noundef %7)
   %134 = icmp sgt i32 %133, 0
   br i1 %134, label %139, label %135
 
@@ -477,10 +477,10 @@ declare i64 @time(ptr noundef) local_unnamed_addr #7
 declare ptr @localtime(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @scan_available_timezones(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #4 {
+define internal fastcc void @scan_available_timezones(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #4 {
   %5 = alloca %struct.stat, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
-  %7 = tail call ptr @pgfnames(ptr noundef %0) #13
+  %7 = tail call ptr @pgfnames(ptr noundef nonnull %0) #13
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %67, label %.preheader
 
@@ -507,7 +507,7 @@ define internal fastcc void @scan_available_timezones(ptr noundef %0, ptr nounde
 
 17:                                               ; preds = %13
   %18 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %10, i64 noundef %11, ptr noundef nonnull @.str.12, ptr noundef nonnull %14) #13
-  %19 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %5) #13
+  %19 = call i32 @stat(ptr noundef nonnull %0, ptr noundef nonnull %5) #13
   %.not53 = icmp eq i32 %19, 0
   br i1 %.not53, label %20, label %.sink.split
 
@@ -632,7 +632,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @score_timezone(ptr noundef %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc i32 @score_timezone(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #4 {
   %3 = alloca i64, align 8
   %4 = alloca [256 x i8], align 16
   %5 = tail call fastcc ptr @pg_load_tz(ptr noundef %0)

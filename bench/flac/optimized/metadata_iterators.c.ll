@@ -102,7 +102,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @get_one_metadata_block_(ptr noundef %filename, i32 noundef %type) unnamed_addr #0 {
+define internal fastcc ptr @get_one_metadata_block_(ptr noundef %filename, i32 noundef range(i32 0, 6) %type) unnamed_addr #0 {
 entry:
   %cd = alloca %struct.level0_client_data, align 8
   store i32 0, ptr %cd, align 8
@@ -3150,7 +3150,7 @@ return:                                           ; preds = %if.end22, %write_me
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @rewrite_whole_file_(ptr noundef %iterator, ptr noundef %block, i32 noundef %append) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rewrite_whole_file_(ptr noundef %iterator, ptr noundef %block, i32 noundef range(i32 0, 2) %append) unnamed_addr #0 {
 entry:
   %raw_header.i.i.i120 = alloca [4 x i8], align 1
   %raw_header.i.i.i.i = alloca [4 x i8], align 1
@@ -3376,7 +3376,7 @@ if.end.i66:                                       ; preds = %cond.end.i
   %tempfile_path_prefix.i = getelementptr inbounds i8, ptr %iterator, i64 16
   %26 = load ptr, ptr %tempfile_path_prefix.i, align 8
   %status7.i = getelementptr inbounds i8, ptr %iterator, i64 176
-  %call8.i = call fastcc i32 @open_tempfile_(ptr noundef %25, ptr noundef %26, ptr noundef nonnull %tempfile, ptr noundef nonnull %tempfilename, ptr noundef nonnull %status7.i)
+  %call8.i = call fastcc i32 @open_tempfile_(ptr noundef %25, ptr noundef %26, ptr noundef %tempfile, ptr noundef %tempfilename, ptr noundef nonnull %status7.i)
   %tobool9.not.i = icmp eq i32 %call8.i, 0
   br i1 %tobool9.not.i, label %if.then10.i, label %if.end11.i
 
@@ -3691,7 +3691,7 @@ if.end22.i:                                       ; preds = %if.end16.i
   br i1 %cmp32.not.i, label %if.end36.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.end22.i
-  call fastcc void @cleanup_tempfile_(ptr noundef nonnull %tempfile, ptr noundef nonnull %tempfilename)
+  call fastcc void @cleanup_tempfile_(ptr noundef %tempfile, ptr noundef %tempfilename)
   store i32 7, ptr %status7.i, align 8
   br label %simple_iterator_copy_file_postfix_.exit.thread
 
@@ -3701,7 +3701,7 @@ if.end36.i:                                       ; preds = %if.end22.i
   br i1 %cmp38.not.i, label %if.end43.i, label %if.then40.i
 
 if.then40.i:                                      ; preds = %if.end36.i
-  call fastcc void @cleanup_tempfile_(ptr noundef nonnull %tempfile, ptr noundef nonnull %tempfilename)
+  call fastcc void @cleanup_tempfile_(ptr noundef %tempfile, ptr noundef %tempfilename)
   store i32 8, ptr %status7.i, align 8
   br label %simple_iterator_copy_file_postfix_.exit.thread
 
@@ -3709,7 +3709,7 @@ if.end43.i:                                       ; preds = %if.end36.i, %if.end
   %49 = load ptr, ptr %iterator, align 8
   %call45.i = tail call i32 @fclose(ptr noundef %49)
   %50 = load ptr, ptr %filename.i, align 8
-  %call47.i = call fastcc i32 @transport_tempfile_(ptr noundef %50, ptr noundef nonnull %tempfile, ptr noundef nonnull %tempfilename, ptr noundef nonnull %status7.i)
+  %call47.i = call fastcc i32 @transport_tempfile_(ptr noundef %50, ptr noundef %tempfile, ptr noundef %tempfilename, ptr noundef nonnull %status7.i)
   %tobool48.not.i = icmp eq i32 %call47.i, 0
   br i1 %tobool48.not.i, label %simple_iterator_copy_file_postfix_.exit.thread, label %if.end50.i
 
@@ -4500,7 +4500,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @chain_read_(ptr noundef %chain, ptr nocapture noundef readonly %filename, i32 noundef %is_ogg) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @chain_read_(ptr noundef %chain, ptr nocapture noundef readonly %filename, i32 noundef range(i32 0, 2) %is_ogg) unnamed_addr #0 {
 entry:
   %head.i = getelementptr inbounds i8, ptr %chain, i64 16
   %0 = load ptr, ptr %head.i, align 8
@@ -6187,7 +6187,7 @@ if.end.i26:                                       ; preds = %if.else
   br i1 %cmp4.i.i, label %err.thread.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i26
-  tail call void (ptr, i64, ptr, ...) @local_snprintf(ptr noundef nonnull %call.i.i.i27, i64 noundef %add2.i.i, ptr noundef nonnull @.str.33, ptr noundef %113, ptr noundef nonnull @.str.32)
+  tail call void (ptr, i64, ptr, ...) @local_snprintf(ptr noundef %call.i.i.i27, i64 noundef %add2.i.i, ptr noundef nonnull @.str.33, ptr noundef %113, ptr noundef nonnull @.str.32)
   %call25.i.i = tail call noalias ptr @fopen64(ptr noundef nonnull %call.i.i.i27, ptr noundef nonnull @.str.35)
   store ptr %call25.i.i, ptr %tempfile.i, align 8
   %cmp26.i.i = icmp eq ptr %call25.i.i, null
@@ -6360,7 +6360,7 @@ chain_rewrite_file_.exit:                         ; preds = %if.end10.i.i, %if.e
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %buffer.i70.i)
   %call39.i = tail call i32 @fclose(ptr noundef nonnull %call.i24)
   %123 = load ptr, ptr %chain, align 8
-  %call41.i = call fastcc i32 @transport_tempfile_(ptr noundef %123, ptr noundef nonnull %tempfile.i, ptr noundef nonnull %tempfilename.i, ptr noundef nonnull %status.i23)
+  %call41.i = call fastcc i32 @transport_tempfile_(ptr noundef %123, ptr noundef %tempfile.i, ptr noundef %tempfilename.i, ptr noundef nonnull %status.i23)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tempfile.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tempfilename.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i23)
@@ -9698,7 +9698,7 @@ return:                                           ; preds = %if.then21, %if.end1
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @open_tempfile_(ptr noundef %filename, ptr noundef %tempfile_path_prefix, ptr nocapture noundef writeonly %tempfile, ptr nocapture noundef %tempfilename, ptr nocapture noundef writeonly %status) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @open_tempfile_(ptr noundef %filename, ptr noundef %tempfile_path_prefix, ptr nocapture noundef nonnull writeonly %tempfile, ptr nocapture noundef nonnull %tempfilename, ptr nocapture noundef writeonly %status) unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %tempfile_path_prefix, null
   br i1 %cmp, label %if.then, label %if.else
@@ -9713,7 +9713,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp4, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %if.then
-  tail call void (ptr, i64, ptr, ...) @local_snprintf(ptr noundef nonnull %call.i, i64 noundef %add2, ptr noundef nonnull @.str.33, ptr noundef %filename, ptr noundef nonnull @.str.32)
+  tail call void (ptr, i64, ptr, ...) @local_snprintf(ptr noundef %call.i, i64 noundef %add2, ptr noundef nonnull @.str.33, ptr noundef %filename, ptr noundef nonnull @.str.32)
   br label %if.end24
 
 if.else:                                          ; preds = %entry
@@ -9732,7 +9732,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp20, label %return.sink.split, label %if.end22
 
 if.end22:                                         ; preds = %if.else
-  tail call void (ptr, i64, ptr, ...) @local_snprintf(ptr noundef nonnull %call.i18, i64 noundef %add18, ptr noundef nonnull @.str.34, ptr noundef nonnull %tempfile_path_prefix, ptr noundef %p.0, ptr noundef nonnull @.str.32)
+  tail call void (ptr, i64, ptr, ...) @local_snprintf(ptr noundef %call.i18, i64 noundef %add18, ptr noundef nonnull @.str.34, ptr noundef nonnull %tempfile_path_prefix, ptr noundef %p.0, ptr noundef nonnull @.str.32)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end22, %if.end
@@ -10863,7 +10863,7 @@ write_metadata_block_data_cb_.exit:               ; preds = %write_metadata_bloc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @transport_tempfile_(ptr nocapture noundef readonly %filename, ptr nocapture noundef %tempfile, ptr nocapture noundef %tempfilename, ptr nocapture noundef writeonly %status) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @transport_tempfile_(ptr nocapture noundef readonly %filename, ptr nocapture noundef nonnull %tempfile, ptr nocapture noundef nonnull %tempfilename, ptr nocapture noundef writeonly %status) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %tempfile, align 8
   %call = tail call i32 @fclose(ptr noundef %0)
@@ -10925,7 +10925,7 @@ return:                                           ; preds = %if.then2.i11, %if.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @cleanup_tempfile_(ptr nocapture noundef %tempfile, ptr nocapture noundef %tempfilename) unnamed_addr #0 {
+define internal fastcc void @cleanup_tempfile_(ptr nocapture noundef nonnull %tempfile, ptr nocapture noundef nonnull %tempfilename) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %tempfile, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -10956,11 +10956,11 @@ if.end4:                                          ; preds = %if.then2, %if.end
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal void @local_snprintf(ptr nocapture noundef %str, i64 noundef %size, ptr nocapture noundef readonly %fmt, ...) unnamed_addr #6 {
+define internal void @local_snprintf(ptr nocapture noundef nonnull %str, i64 noundef %size, ptr nocapture noundef readonly %fmt, ...) unnamed_addr #6 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
-  %call = call i32 @vsnprintf(ptr noundef %str, i64 noundef %size, ptr noundef %fmt, ptr noundef nonnull %va) #28
+  %call = call i32 @vsnprintf(ptr noundef nonnull %str, i64 noundef %size, ptr noundef %fmt, ptr noundef nonnull %va) #28
   call void @llvm.va_end.p0(ptr nonnull %va)
   ret void
 }

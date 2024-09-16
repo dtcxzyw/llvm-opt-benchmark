@@ -2200,7 +2200,7 @@ _ZSt11make_uniqueIN4llvm11DbgValueLocEJRS1_EENSt8__detail9_MakeUniqIT_E15__singl
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm3Loc6SingleC2EPKNS_12MachineInstrE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::DbgValueLoc", align 8
-  call fastcc void @_ZL16getDebugLocValuePKN4llvm12MachineInstrE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %1)
+  call fastcc void @_ZL16getDebugLocValuePKN4llvm12MachineInstrE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %1)
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %4 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #28, !noalias !31
   %5 = load ptr, ptr %3, align 8, !noalias !31
@@ -2257,7 +2257,7 @@ _ZN4llvm11DbgValueLocD2Ev.exit:                   ; preds = %_ZN4llvm3Loc6Single
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16getDebugLocValuePKN4llvm12MachineInstrE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @_ZL16getDebugLocValuePKN4llvm12MachineInstrE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::SmallVector.1346", align 8
   %4 = alloca %"class.llvm::DbgValueLocEntry", align 8
   %5 = alloca %"class.llvm::DbgValueLocEntry", align 8
@@ -5408,7 +5408,7 @@ _ZNK4llvm12MachineInstr12hasDelaySlotENS0_9QueryTypeE.exit.i: ; preds = %._crit_
 .preheader.i.i.i60.i:                             ; preds = %_ZNK4llvm12MachineInstr12hasDelaySlotENS0_9QueryTypeE.exit.i, %237
   %244 = getelementptr inbounds nuw i8, ptr %.sroa.063.088, i64 8
   %245 = load ptr, ptr %244, align 8
-  %246 = call fastcc noundef zeroext i1 @_ZL18interpretNextInstrPKN4llvm12MachineInstrERNS_9MapVectorIjNS_11SmallVectorI15FwdRegParamInfoLj2EEENS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEENS4_ISt4pairIjS6_ELj0EEEEERNS4_INS_16DbgCallSiteParamELj4EEERNS_8SmallSetINS_8RegisterELj16ESt4lessISN_EEE(ptr noundef nonnull %245, ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(368) %12, ptr noundef nonnull align 8 dereferenceable(128) %10)
+  %246 = call fastcc noundef zeroext i1 @_ZL18interpretNextInstrPKN4llvm12MachineInstrERNS_9MapVectorIjNS_11SmallVectorI15FwdRegParamInfoLj2EEENS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEENS4_ISt4pairIjS6_ELj0EEEEERNS4_INS_16DbgCallSiteParamELj4EEERNS_8SmallSetINS_8RegisterELj16ESt4lessISN_EEE(ptr noundef %245, ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(368) %12, ptr noundef nonnull align 8 dereferenceable(128) %10)
   br i1 %246, label %247, label %.loopexit.i
 
 247:                                              ; preds = %.preheader.i.i.i60.i, %_ZNK4llvm12MachineInstr12hasDelaySlotENS0_9QueryTypeE.exit.i, %237
@@ -5418,7 +5418,7 @@ _ZNK4llvm12MachineInstr12hasDelaySlotENS0_9QueryTypeE.exit.i: ; preds = %._crit_
 
 .lr.ph108.i:                                      ; preds = %247, %250
   %.sroa.083.0106.i = phi ptr [ %252, %250 ], [ %154, %247 ]
-  %249 = call fastcc noundef zeroext i1 @_ZL18interpretNextInstrPKN4llvm12MachineInstrERNS_9MapVectorIjNS_11SmallVectorI15FwdRegParamInfoLj2EEENS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEENS4_ISt4pairIjS6_ELj0EEEEERNS4_INS_16DbgCallSiteParamELj4EEERNS_8SmallSetINS_8RegisterELj16ESt4lessISN_EEE(ptr noundef nonnull %.sroa.083.0106.i, ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(368) %12, ptr noundef nonnull align 8 dereferenceable(128) %10)
+  %249 = call fastcc noundef zeroext i1 @_ZL18interpretNextInstrPKN4llvm12MachineInstrERNS_9MapVectorIjNS_11SmallVectorI15FwdRegParamInfoLj2EEENS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEENS4_ISt4pairIjS6_ELj0EEEEERNS4_INS_16DbgCallSiteParamELj4EEERNS_8SmallSetINS_8RegisterELj16ESt4lessISN_EEE(ptr noundef %.sroa.083.0106.i, ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(368) %12, ptr noundef nonnull align 8 dereferenceable(128) %10)
   br i1 %249, label %250, label %.loopexit.i
 
 250:                                              ; preds = %.lr.ph108.i
@@ -12252,7 +12252,7 @@ _ZN4llvm9MapVectorINS_12MBBSectionIDENS_10AsmPrinter15MBBSectionRangeENS_8DenseM
   br i1 %.not.i, label %.loopexit162, label %.lr.ph.i
 
 .loopexit162:                                     ; preds = %.critedge.i, %130, %134
-  call fastcc void @_ZL16getDebugLocValuePKN4llvm12MachineInstrE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull %32)
+  call fastcc void @_ZL16getDebugLocValuePKN4llvm12MachineInstrE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull %32)
   %150 = getelementptr inbounds nuw i8, ptr %.088178, i64 8
   %151 = load i64, ptr %150, align 8
   store i64 %151, ptr %13, align 8
@@ -26939,7 +26939,7 @@ declare noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9Q
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL18interpretNextInstrPKN4llvm12MachineInstrERNS_9MapVectorIjNS_11SmallVectorI15FwdRegParamInfoLj2EEENS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEENS4_ISt4pairIjS6_ELj0EEEEERNS4_INS_16DbgCallSiteParamELj4EEERNS_8SmallSetINS_8RegisterELj16ESt4lessISN_EEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(368) %2, ptr noundef nonnull align 8 dereferenceable(128) %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL18interpretNextInstrPKN4llvm12MachineInstrERNS_9MapVectorIjNS_11SmallVectorI15FwdRegParamInfoLj2EEENS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEENS4_ISt4pairIjS6_ELj0EEEEERNS4_INS_16DbgCallSiteParamELj4EEERNS_8SmallSetINS_8RegisterELj16ESt4lessISN_EEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(368) %2, ptr noundef nonnull align 8 dereferenceable(128) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %"struct.std::pair.1526", align 8
   %7 = alloca %"class.llvm::DbgValueLoc", align 8
@@ -31646,7 +31646,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm16DwarfCompileUnit10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm16DwarfCompileUnit10GlobalExprElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_SD_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr %3, ptr %4) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm16DwarfCompileUnit10GlobalExprElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_SD_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 288230376151711743) %1, i64 noundef range(i64 -576460752303423488, 576460752303423488) %2, ptr %3, ptr %4) unnamed_addr #0 {
   %6 = alloca %"class.std::optional.1329", align 8
   %7 = alloca %"class.std::optional.1329", align 8
   %8 = alloca %"class.std::optional.1329", align 8

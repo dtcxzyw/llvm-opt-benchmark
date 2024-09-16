@@ -1646,7 +1646,7 @@ do.end28:                                         ; preds = %do.body22
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %6) #24
   store ptr null, ptr %fn, align 8
-  %call30 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef nonnull %env, ptr noundef nonnull %cb, ptr noundef %callback_data, ptr noundef nonnull %fn)
+  %call30 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef %env, ptr noundef nonnull %cb, ptr noundef %callback_data, ptr noundef %fn)
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %do.end35, label %cleanup
 
@@ -1734,7 +1734,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 10) i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef %env, ptr noundef %cb, ptr noundef %cb_data, ptr nocapture noundef writeonly %result) unnamed_addr #3 align 2 {
+define internal fastcc noundef range(i32 0, 10) i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef nonnull %env, ptr noundef %cb, ptr noundef %cb_data, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #3 align 2 {
 entry:
   %initial_refcount.addr.i.i = alloca i32, align 4
   %ownership.addr.i.i = alloca i32, align 4
@@ -1761,7 +1761,7 @@ entry:
   store ptr %call.i, ptr %finalize_data.addr.i.i, align 8
   store ptr null, ptr %finalize_hint.addr.i.i, align 8
   %call.i.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #25
-  call void @_ZN6v8impl9ReferenceC2IJRjRNS_9OwnershipERPFvP10napi_env__PvS7_ERS7_SB_EEES6_N2v85LocalINSC_5ValueEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(81) %call.i.i, ptr noundef %env, ptr %call3.i, ptr noundef nonnull align 4 dereferenceable(4) %initial_refcount.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ownership.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_callback.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_data.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_hint.addr.i.i)
+  call void @_ZN6v8impl9ReferenceC2IJRjRNS_9OwnershipERPFvP10napi_env__PvS7_ERS7_SB_EEES6_N2v85LocalINSC_5ValueEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(81) %call.i.i, ptr noundef nonnull %env, ptr %call3.i, ptr noundef nonnull align 4 dereferenceable(4) %initial_refcount.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ownership.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_callback.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_data.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_hint.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %initial_refcount.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ownership.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finalize_callback.addr.i.i)
@@ -1927,7 +1927,7 @@ if.end38:                                         ; preds = %do.end28
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %6) #24
   store ptr null, ptr %tpl, align 8
-  %call43 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef nonnull %env, ptr noundef nonnull %constructor, ptr noundef %callback_data, ptr noundef nonnull %tpl, ptr null)
+  %call43 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef %env, ptr noundef nonnull %constructor, ptr noundef %callback_data, ptr noundef %tpl, ptr null)
   %cmp44.not = icmp eq i32 %call43, 0
   br i1 %cmp44.not, label %do.end48, label %cleanup298
 
@@ -1966,7 +1966,7 @@ if.then91:                                        ; preds = %for.body
 
 if.end92:                                         ; preds = %for.body
   store ptr null, ptr %property_name, align 8
-  %call95 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_128V8NameFromPropertyDescriptorEP10napi_env__PK24napi_property_descriptorPN2v85LocalINS6_4NameEEE(ptr noundef nonnull %env, ptr noundef nonnull %add.ptr, ptr noundef nonnull %property_name)
+  %call95 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_128V8NameFromPropertyDescriptorEP10napi_env__PK24napi_property_descriptorPN2v85LocalINS6_4NameEEE(ptr noundef %env, ptr noundef nonnull %add.ptr, ptr noundef %property_name)
   %cmp96.not = icmp eq i32 %call95, 0
   br i1 %cmp96.not, label %do.end100, label %cleanup298
 
@@ -1993,7 +1993,7 @@ do.body110:                                       ; preds = %do.end100
   store ptr null, ptr %setter_tpl, align 8
   %data = getelementptr inbounds i8, ptr %add.ptr, i64 56
   %13 = load ptr, ptr %data, align 8
-  %call117 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef nonnull %env, ptr noundef nonnull %11, ptr noundef %13, ptr noundef nonnull %getter_tpl, ptr null)
+  %call117 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef %env, ptr noundef nonnull %11, ptr noundef %13, ptr noundef %getter_tpl, ptr null)
   %cmp118.not = icmp eq i32 %call117, 0
   br i1 %cmp118.not, label %if.end123, label %cleanup298
 
@@ -2007,7 +2007,7 @@ do.body127:                                       ; preds = %if.end123.thread, %
   %14 = phi ptr [ %12, %if.end123.thread ], [ %.pre, %if.end123 ]
   %data130 = getelementptr inbounds i8, ptr %add.ptr, i64 56
   %15 = load ptr, ptr %data130, align 8
-  %call135 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef nonnull %env, ptr noundef nonnull %14, ptr noundef %15, ptr noundef nonnull %setter_tpl, ptr null)
+  %call135 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef %env, ptr noundef nonnull %14, ptr noundef %15, ptr noundef %setter_tpl, ptr null)
   %cmp136.not = icmp eq i32 %call135, 0
   br i1 %cmp136.not, label %do.body127.if.end141_crit_edge, label %cleanup298
 
@@ -2034,7 +2034,7 @@ if.then162:                                       ; preds = %if.else
   %data166 = getelementptr inbounds i8, ptr %add.ptr, i64 56
   %17 = load ptr, ptr %data166, align 8
   %call172 = call ptr @_ZN2v89Signature3NewEPNS_7IsolateENS_5LocalINS_16FunctionTemplateEEE(ptr noundef %6, ptr nonnull %9) #24
-  %call179 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef nonnull %env, ptr noundef nonnull %16, ptr noundef %17, ptr noundef nonnull %t, ptr %call172)
+  %call179 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef %env, ptr noundef nonnull %16, ptr noundef %17, ptr noundef %t, ptr %call172)
   %cmp180.not = icmp eq i32 %call179, 0
   br i1 %cmp180.not, label %do.end184, label %cleanup298
 
@@ -2181,7 +2181,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 10) i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef %env, ptr noundef %cb, ptr noundef %cb_data, ptr nocapture noundef writeonly %result, ptr %sig.coerce) unnamed_addr #3 align 2 {
+define internal fastcc noundef range(i32 0, 10) i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef nonnull %env, ptr noundef %cb, ptr noundef %cb_data, ptr nocapture noundef nonnull writeonly %result, ptr %sig.coerce) unnamed_addr #3 align 2 {
 entry:
   %initial_refcount.addr.i.i = alloca i32, align 4
   %ownership.addr.i.i = alloca i32, align 4
@@ -2208,7 +2208,7 @@ entry:
   store ptr %call.i, ptr %finalize_data.addr.i.i, align 8
   store ptr null, ptr %finalize_hint.addr.i.i, align 8
   %call.i.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #25
-  call void @_ZN6v8impl9ReferenceC2IJRjRNS_9OwnershipERPFvP10napi_env__PvS7_ERS7_SB_EEES6_N2v85LocalINSC_5ValueEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(81) %call.i.i, ptr noundef %env, ptr %call3.i, ptr noundef nonnull align 4 dereferenceable(4) %initial_refcount.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ownership.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_callback.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_data.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_hint.addr.i.i)
+  call void @_ZN6v8impl9ReferenceC2IJRjRNS_9OwnershipERPFvP10napi_env__PvS7_ERS7_SB_EEES6_N2v85LocalINSC_5ValueEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(81) %call.i.i, ptr noundef nonnull %env, ptr %call3.i, ptr noundef nonnull align 4 dereferenceable(4) %initial_refcount.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ownership.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_callback.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_data.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_hint.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %initial_refcount.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ownership.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finalize_callback.addr.i.i)
@@ -2242,7 +2242,7 @@ return:                                           ; preds = %do.end, %if.then
 declare void @_ZN2v816FunctionTemplate12SetClassNameENS_5LocalINS_6StringEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 10) i32 @_ZN6v8impl12_GLOBAL__N_128V8NameFromPropertyDescriptorEP10napi_env__PK24napi_property_descriptorPN2v85LocalINS6_4NameEEE(ptr nocapture noundef %env, ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %result) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 10) i32 @_ZN6v8impl12_GLOBAL__N_128V8NameFromPropertyDescriptorEP10napi_env__PK24napi_property_descriptorPN2v85LocalINS6_4NameEEE(ptr nocapture noundef nonnull %env, ptr nocapture noundef readonly %p, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %p, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -2640,7 +2640,7 @@ do.body77:                                        ; preds = %do.end70
   store ptr null, ptr %local_setter, align 8
   %data = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %11 = load ptr, ptr %data, align 8
-  %call80 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef nonnull %env, ptr noundef nonnull %9, ptr noundef %11, ptr noundef nonnull %local_getter)
+  %call80 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef %env, ptr noundef nonnull %9, ptr noundef %11, ptr noundef %local_getter)
   %cmp81.not = icmp eq i32 %call80, 0
   br i1 %cmp81.not, label %if.end86, label %cleanup274
 
@@ -2654,7 +2654,7 @@ do.body90:                                        ; preds = %if.end86.thread, %i
   %12 = phi ptr [ %10, %if.end86.thread ], [ %.pre, %if.end86 ]
   %data93 = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %13 = load ptr, ptr %data93, align 8
-  %call94 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef nonnull %env, ptr noundef nonnull %12, ptr noundef %13, ptr noundef nonnull %local_setter)
+  %call94 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef %env, ptr noundef nonnull %12, ptr noundef %13, ptr noundef %local_setter)
   %cmp95.not = icmp eq i32 %call94, 0
   br i1 %cmp95.not, label %do.body90.if.end100_crit_edge, label %cleanup274
 
@@ -2704,7 +2704,7 @@ if.then142:                                       ; preds = %if.else
   store ptr null, ptr %method143, align 8
   %data147 = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %18 = load ptr, ptr %data147, align 8
-  %call148 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef nonnull %env, ptr noundef nonnull %17, ptr noundef %18, ptr noundef nonnull %method143)
+  %call148 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef %env, ptr noundef nonnull %17, ptr noundef %18, ptr noundef %method143)
   %cmp149.not = icmp eq i32 %call148, 0
   br i1 %cmp149.not, label %do.end153, label %cleanup274
 
@@ -10924,7 +10924,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 24) i32 @_ZN6v8impl12_GLOBAL__N_16UnwrapEP10napi_env__P12napi_value__PPvNS0_12UnwrapActionE(ptr noundef %env, ptr noundef %js_object, ptr noundef writeonly %result, i32 noundef %action) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 24) i32 @_ZN6v8impl12_GLOBAL__N_16UnwrapEP10napi_env__P12napi_value__PPvNS0_12UnwrapActionE(ptr noundef %env, ptr noundef %js_object, ptr noundef writeonly %result, i32 noundef range(i32 0, 2) %action) unnamed_addr #3 {
 entry:
   %try_catch = alloca %"class.v8impl::TryCatch", align 8
   %cmp = icmp eq ptr %env, null
@@ -11031,8 +11031,8 @@ if.then92:                                        ; preds = %do.end84
   br label %if.end94
 
 if.end94:                                         ; preds = %if.then92, %do.end84
-  %cmp95 = icmp eq i32 %action, 1
-  br i1 %cmp95, label %do.body97, label %if.end134
+  %cmp95.not = icmp eq i32 %action, 0
+  br i1 %cmp95.not, label %if.end134, label %do.body97
 
 do.body97:                                        ; preds = %if.end94
   %call106 = call noundef ptr @_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE(ptr %retval.sroa.0.0.copyload.i.i)

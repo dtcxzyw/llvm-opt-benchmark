@@ -564,7 +564,7 @@ define internal i32 @dissect_opa_9b(ptr noundef %0, ptr noundef %1, ptr noundef 
   %25 = load ptr, ptr @infiniband_handle, align 8
   %26 = tail call i32 @call_dissector(ptr noundef %25, ptr noundef %24, ptr noundef %1, ptr noundef %2) #5
   %27 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
-  br label %252
+  br label %253
 
 28:                                               ; preds = %15, %19, %13
   %29 = tail call ptr @proto_tree_get_parent_tree(ptr noundef %2) #5
@@ -635,7 +635,7 @@ define internal i32 @dissect_opa_9b(ptr noundef %0, ptr noundef %1, ptr noundef 
   switch i8 %55, label %default.unreachable [
     i8 3, label %79
     i8 2, label %104
-    i8 1, label %203
+    i8 1, label %204
     i8 0, label %.critedge
   ]
 
@@ -722,390 +722,390 @@ define internal i32 @dissect_opa_9b(ptr noundef %0, ptr noundef %1, ptr noundef 
   %144 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %143, ptr noundef %0, i32 noundef %140, i32 noundef 4, i32 noundef 0) #5
   %145 = add nuw nsw i32 %105, 12
   store i32 %145, ptr %5, align 4
-  br label %.lr.ph.i.i
+  br label %147
 
-146:                                              ; preds = %.lr.ph.i.i
+146:                                              ; preds = %147
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 13
-  br i1 %exitcond.not.i.i, label %.lr.ph.i39.i, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %.preheader154.i, label %147, !llvm.loop !4
 
-.lr.ph.i.i:                                       ; preds = %146, %104
+147:                                              ; preds = %146, %104
   %indvars.iv.i.i = phi i64 [ 0, %104 ], [ %indvars.iv.next.i.i, %146 ]
-  %147 = getelementptr i32, ptr @opCode_PAYLD, i64 %indvars.iv.i.i
-  %148 = load i32, ptr %147, align 4
-  %149 = icmp eq i32 %148, %115
-  br i1 %149, label %.thread, label %146
+  %148 = getelementptr i32, ptr @opCode_PAYLD, i64 %indvars.iv.i.i
+  %149 = load i32, ptr %148, align 4
+  %150 = icmp eq i32 %149, %115
+  br i1 %150, label %.thread, label %146
 
-150:                                              ; preds = %.lr.ph.i39.i
-  %indvars.iv.next.i41.i = add nuw nsw i64 %indvars.iv.i40.i, 1
-  %exitcond.not.i42.i = icmp eq i64 %indvars.iv.next.i41.i, 6
-  br i1 %exitcond.not.i42.i, label %.lr.ph.i45.i, label %.lr.ph.i39.i, !llvm.loop !4
+151:                                              ; preds = %.preheader154.i
+  %indvars.iv.next.i40.i = add nuw nsw i64 %indvars.iv.i39.i, 1
+  %exitcond.not.i41.i = icmp eq i64 %indvars.iv.next.i40.i, 6
+  br i1 %exitcond.not.i41.i, label %.preheader152.i, label %.preheader154.i, !llvm.loop !4
 
-.lr.ph.i39.i:                                     ; preds = %146, %150
-  %indvars.iv.i40.i = phi i64 [ %indvars.iv.next.i41.i, %150 ], [ 0, %146 ]
-  %151 = getelementptr i32, ptr @opCode_IMMDT_PAYLD, i64 %indvars.iv.i40.i
-  %152 = load i32, ptr %151, align 4
-  %153 = icmp eq i32 %152, %115
-  br i1 %153, label %222, label %150
+.preheader154.i:                                  ; preds = %146, %151
+  %indvars.iv.i39.i = phi i64 [ %indvars.iv.next.i40.i, %151 ], [ 0, %146 ]
+  %152 = getelementptr i32, ptr @opCode_IMMDT_PAYLD, i64 %indvars.iv.i39.i
+  %153 = load i32, ptr %152, align 4
+  %154 = icmp eq i32 %153, %115
+  br i1 %154, label %223, label %151
 
-154:                                              ; preds = %.lr.ph.i45.i
-  %indvars.iv.next.i47.i = add nuw nsw i64 %indvars.iv.i46.i, 1
-  %exitcond.not.i48.i = icmp eq i64 %indvars.iv.next.i47.i, 6
-  br i1 %exitcond.not.i48.i, label %.lr.ph.i51.i, label %.lr.ph.i45.i, !llvm.loop !4
+155:                                              ; preds = %.preheader152.i
+  %indvars.iv.next.i45.i = add nuw nsw i64 %indvars.iv.i44.i, 1
+  %exitcond.not.i46.i = icmp eq i64 %indvars.iv.next.i45.i, 6
+  br i1 %exitcond.not.i46.i, label %.preheader150.i, label %.preheader152.i, !llvm.loop !4
 
-.lr.ph.i45.i:                                     ; preds = %150, %154
-  %indvars.iv.i46.i = phi i64 [ %indvars.iv.next.i47.i, %154 ], [ 0, %150 ]
-  %155 = getelementptr i32, ptr @opCode_RDETH_DETH_PAYLD, i64 %indvars.iv.i46.i
-  %156 = load i32, ptr %155, align 4
-  %157 = icmp eq i32 %156, %115
-  br i1 %157, label %210, label %154
+.preheader152.i:                                  ; preds = %151, %155
+  %indvars.iv.i44.i = phi i64 [ %indvars.iv.next.i45.i, %155 ], [ 0, %151 ]
+  %156 = getelementptr i32, ptr @opCode_RDETH_DETH_PAYLD, i64 %indvars.iv.i44.i
+  %157 = load i32, ptr %156, align 4
+  %158 = icmp eq i32 %157, %115
+  br i1 %158, label %211, label %155
 
-158:                                              ; preds = %.lr.ph.i51.i
-  %indvars.iv.next.i53.i = add nuw nsw i64 %indvars.iv.i52.i, 1
-  %exitcond.not.i54.i = icmp eq i64 %indvars.iv.next.i53.i, 4
-  br i1 %exitcond.not.i54.i, label %.lr.ph.i57.i, label %.lr.ph.i51.i, !llvm.loop !4
+159:                                              ; preds = %.preheader150.i
+  %indvars.iv.next.i50.i = add nuw nsw i64 %indvars.iv.i49.i, 1
+  %exitcond.not.i51.i = icmp eq i64 %indvars.iv.next.i50.i, 4
+  br i1 %exitcond.not.i51.i, label %.preheader148.i, label %.preheader150.i, !llvm.loop !4
 
-.lr.ph.i51.i:                                     ; preds = %154, %158
-  %indvars.iv.i52.i = phi i64 [ %indvars.iv.next.i53.i, %158 ], [ 0, %154 ]
-  %159 = getelementptr i32, ptr @opCode_RETH_PAYLD, i64 %indvars.iv.i52.i
-  %160 = load i32, ptr %159, align 4
-  %161 = icmp eq i32 %160, %115
-  br i1 %161, label %223, label %158
+.preheader150.i:                                  ; preds = %155, %159
+  %indvars.iv.i49.i = phi i64 [ %indvars.iv.next.i50.i, %159 ], [ 0, %155 ]
+  %160 = getelementptr i32, ptr @opCode_RETH_PAYLD, i64 %indvars.iv.i49.i
+  %161 = load i32, ptr %160, align 4
+  %162 = icmp eq i32 %161, %115
+  br i1 %162, label %224, label %159
 
-162:                                              ; preds = %.lr.ph.i57.i
-  %indvars.iv.next.i59.i = add nuw nsw i64 %indvars.iv.i58.i, 1
-  %exitcond.not.i60.i = icmp eq i64 %indvars.iv.next.i59.i, 3
-  br i1 %exitcond.not.i60.i, label %.lr.ph.i63.i, label %.lr.ph.i57.i, !llvm.loop !4
+163:                                              ; preds = %.preheader148.i
+  %indvars.iv.next.i55.i = add nuw nsw i64 %indvars.iv.i54.i, 1
+  %exitcond.not.i56.i = icmp eq i64 %indvars.iv.next.i55.i, 3
+  br i1 %exitcond.not.i56.i, label %.preheader146.i, label %.preheader148.i, !llvm.loop !4
 
-.lr.ph.i57.i:                                     ; preds = %158, %162
-  %indvars.iv.i58.i = phi i64 [ %indvars.iv.next.i59.i, %162 ], [ 0, %158 ]
-  %163 = getelementptr i32, ptr @opCode_RDETH_AETH_PAYLD, i64 %indvars.iv.i58.i
-  %164 = load i32, ptr %163, align 4
-  %165 = icmp eq i32 %164, %115
-  br i1 %165, label %215, label %162
+.preheader148.i:                                  ; preds = %159, %163
+  %indvars.iv.i54.i = phi i64 [ %indvars.iv.next.i55.i, %163 ], [ 0, %159 ]
+  %164 = getelementptr i32, ptr @opCode_RDETH_AETH_PAYLD, i64 %indvars.iv.i54.i
+  %165 = load i32, ptr %164, align 4
+  %166 = icmp eq i32 %165, %115
+  br i1 %166, label %216, label %163
 
-166:                                              ; preds = %.lr.ph.i63.i
+167:                                              ; preds = %.preheader146.i
+  %indvars.iv.next.i60.i = add nuw nsw i64 %indvars.iv.i59.i, 1
+  %exitcond.not.i61.i = icmp eq i64 %indvars.iv.next.i60.i, 3
+  br i1 %exitcond.not.i61.i, label %.preheader144.i, label %.preheader146.i, !llvm.loop !4
+
+.preheader146.i:                                  ; preds = %163, %167
+  %indvars.iv.i59.i = phi i64 [ %indvars.iv.next.i60.i, %167 ], [ 0, %163 ]
+  %168 = getelementptr i32, ptr @opCode_AETH_PAYLD, i64 %indvars.iv.i59.i
+  %169 = load i32, ptr %168, align 4
+  %170 = icmp eq i32 %169, %115
+  br i1 %170, label %226, label %167
+
+171:                                              ; preds = %.preheader144.i
   %indvars.iv.next.i65.i = add nuw nsw i64 %indvars.iv.i64.i, 1
   %exitcond.not.i66.i = icmp eq i64 %indvars.iv.next.i65.i, 3
-  br i1 %exitcond.not.i66.i, label %.lr.ph.i69.i, label %.lr.ph.i63.i, !llvm.loop !4
+  br i1 %exitcond.not.i66.i, label %.preheader142.i, label %.preheader144.i, !llvm.loop !4
 
-.lr.ph.i63.i:                                     ; preds = %162, %166
-  %indvars.iv.i64.i = phi i64 [ %indvars.iv.next.i65.i, %166 ], [ 0, %162 ]
-  %167 = getelementptr i32, ptr @opCode_AETH_PAYLD, i64 %indvars.iv.i64.i
-  %168 = load i32, ptr %167, align 4
-  %169 = icmp eq i32 %168, %115
-  br i1 %169, label %225, label %166
+.preheader144.i:                                  ; preds = %167, %171
+  %indvars.iv.i64.i = phi i64 [ %indvars.iv.next.i65.i, %171 ], [ 0, %167 ]
+  %172 = getelementptr i32, ptr @opCode_RDETH_DETH_IMMDT_PAYLD, i64 %indvars.iv.i64.i
+  %173 = load i32, ptr %172, align 4
+  %174 = icmp eq i32 %173, %115
+  br i1 %174, label %213, label %171
 
-170:                                              ; preds = %.lr.ph.i69.i
-  %indvars.iv.next.i71.i = add nuw nsw i64 %indvars.iv.i70.i, 1
-  %exitcond.not.i72.i = icmp eq i64 %indvars.iv.next.i71.i, 3
-  br i1 %exitcond.not.i72.i, label %.lr.ph.i75.i, label %.lr.ph.i69.i, !llvm.loop !4
+175:                                              ; preds = %.preheader142.i
+  %indvars.iv.next.i70.i = add nuw nsw i64 %indvars.iv.i69.i, 1
+  %exitcond.not.i71.i = icmp eq i64 %indvars.iv.next.i70.i, 2
+  br i1 %exitcond.not.i71.i, label %.preheader140.i, label %.preheader142.i, !llvm.loop !4
 
-.lr.ph.i69.i:                                     ; preds = %166, %170
-  %indvars.iv.i70.i = phi i64 [ %indvars.iv.next.i71.i, %170 ], [ 0, %166 ]
-  %171 = getelementptr i32, ptr @opCode_RDETH_DETH_IMMDT_PAYLD, i64 %indvars.iv.i70.i
-  %172 = load i32, ptr %171, align 4
-  %173 = icmp eq i32 %172, %115
-  br i1 %173, label %212, label %170
+.preheader142.i:                                  ; preds = %171, %175
+  %indvars.iv.i69.i = phi i64 [ %indvars.iv.next.i70.i, %175 ], [ 0, %171 ]
+  %176 = getelementptr i32, ptr @opCode_RETH_IMMDT_PAYLD, i64 %indvars.iv.i69.i
+  %177 = load i32, ptr %176, align 4
+  %178 = icmp eq i32 %177, %115
+  br i1 %178, label %find_next_header_sequence.exit.thread..critedge_crit_edge, label %175
 
-174:                                              ; preds = %.lr.ph.i75.i
-  %indvars.iv.next.i77.i = add nuw nsw i64 %indvars.iv.i76.i, 1
-  %exitcond.not.i78.i = icmp eq i64 %indvars.iv.next.i77.i, 2
-  br i1 %exitcond.not.i78.i, label %.lr.ph.i81.i, label %.lr.ph.i75.i, !llvm.loop !4
+179:                                              ; preds = %.preheader140.i
+  %indvars.iv.next.i75.i = add nuw nsw i64 %indvars.iv.i74.i, 1
+  %exitcond.not.i76.i = icmp eq i64 %indvars.iv.next.i75.i, 2
+  br i1 %exitcond.not.i76.i, label %.preheader138.i, label %.preheader140.i, !llvm.loop !4
 
-.lr.ph.i75.i:                                     ; preds = %170, %174
-  %indvars.iv.i76.i = phi i64 [ %indvars.iv.next.i77.i, %174 ], [ 0, %170 ]
-  %175 = getelementptr i32, ptr @opCode_RETH_IMMDT_PAYLD, i64 %indvars.iv.i76.i
-  %176 = load i32, ptr %175, align 4
-  %177 = icmp eq i32 %176, %115
-  br i1 %177, label %find_next_header_sequence.exit.thread..critedge_crit_edge, label %174
+.preheader140.i:                                  ; preds = %175, %179
+  %indvars.iv.i74.i = phi i64 [ %indvars.iv.next.i75.i, %179 ], [ 0, %175 ]
+  %180 = getelementptr i32, ptr @opCode_RDETH_DETH_RETH_PAYLD, i64 %indvars.iv.i74.i
+  %181 = load i32, ptr %180, align 4
+  %182 = icmp eq i32 %181, %115
+  br i1 %182, label %212, label %179
 
-178:                                              ; preds = %.lr.ph.i81.i
-  %indvars.iv.next.i83.i = add nuw nsw i64 %indvars.iv.i82.i, 1
-  %exitcond.not.i84.i = icmp eq i64 %indvars.iv.next.i83.i, 2
-  br i1 %exitcond.not.i84.i, label %.lr.ph.i87.i, label %.lr.ph.i81.i, !llvm.loop !4
+183:                                              ; preds = %.preheader138.i
+  %indvars.iv.next.i80.i = add nuw nsw i64 %indvars.iv.i79.i, 1
+  %exitcond.not.i81.i = icmp eq i64 %indvars.iv.next.i80.i, 2
+  br i1 %exitcond.not.i81.i, label %.preheader136.i, label %.preheader138.i, !llvm.loop !4
 
-.lr.ph.i81.i:                                     ; preds = %174, %178
-  %indvars.iv.i82.i = phi i64 [ %indvars.iv.next.i83.i, %178 ], [ 0, %174 ]
-  %179 = getelementptr i32, ptr @opCode_RDETH_DETH_RETH_PAYLD, i64 %indvars.iv.i82.i
-  %180 = load i32, ptr %179, align 4
-  %181 = icmp eq i32 %180, %115
-  br i1 %181, label %211, label %178
+.preheader138.i:                                  ; preds = %179, %183
+  %indvars.iv.i79.i = phi i64 [ %indvars.iv.next.i80.i, %183 ], [ 0, %179 ]
+  %184 = getelementptr i32, ptr @opCode_ATOMICETH, i64 %indvars.iv.i79.i
+  %185 = load i32, ptr %184, align 4
+  %186 = icmp eq i32 %185, %115
+  br i1 %186, label %229, label %183
 
-182:                                              ; preds = %.lr.ph.i87.i
-  %indvars.iv.next.i89.i = add nuw nsw i64 %indvars.iv.i88.i, 1
-  %exitcond.not.i90.i = icmp eq i64 %indvars.iv.next.i89.i, 2
-  br i1 %exitcond.not.i90.i, label %.lr.ph.i93.i, label %.lr.ph.i87.i, !llvm.loop !4
+187:                                              ; preds = %.preheader136.i
+  %indvars.iv.next.i85.i = add nuw nsw i64 %indvars.iv.i84.i, 1
+  %exitcond.not.i86.i = icmp eq i64 %indvars.iv.next.i85.i, 2
+  br i1 %exitcond.not.i86.i, label %.preheader134.i, label %.preheader136.i, !llvm.loop !4
 
-.lr.ph.i87.i:                                     ; preds = %178, %182
-  %indvars.iv.i88.i = phi i64 [ %indvars.iv.next.i89.i, %182 ], [ 0, %178 ]
-  %183 = getelementptr i32, ptr @opCode_ATOMICETH, i64 %indvars.iv.i88.i
-  %184 = load i32, ptr %183, align 4
-  %185 = icmp eq i32 %184, %115
-  br i1 %185, label %228, label %182
+.preheader136.i:                                  ; preds = %183, %187
+  %indvars.iv.i84.i = phi i64 [ %indvars.iv.next.i85.i, %187 ], [ 0, %183 ]
+  %188 = getelementptr i32, ptr @opCode_IETH_PAYLD, i64 %indvars.iv.i84.i
+  %189 = load i32, ptr %188, align 4
+  %190 = icmp eq i32 %189, %115
+  br i1 %190, label %230, label %187
 
-186:                                              ; preds = %.lr.ph.i93.i
+191:                                              ; preds = %.preheader134.i
+  %indvars.iv.next.i90.i = add nuw nsw i64 %indvars.iv.i89.i, 1
+  %exitcond.not.i91.i = icmp eq i64 %indvars.iv.next.i90.i, 2
+  br i1 %exitcond.not.i91.i, label %.preheader132.i, label %.preheader134.i, !llvm.loop !4
+
+.preheader134.i:                                  ; preds = %187, %191
+  %indvars.iv.i89.i = phi i64 [ %indvars.iv.next.i90.i, %191 ], [ 0, %187 ]
+  %192 = getelementptr i32, ptr @opCode_RDETH_DETH_ATOMICETH, i64 %indvars.iv.i89.i
+  %193 = load i32, ptr %192, align 4
+  %194 = icmp eq i32 %193, %115
+  br i1 %194, label %220, label %191
+
+195:                                              ; preds = %.preheader132.i
   %indvars.iv.next.i95.i = add nuw nsw i64 %indvars.iv.i94.i, 1
-  %exitcond.not.i96.i = icmp eq i64 %indvars.iv.next.i95.i, 2
-  br i1 %exitcond.not.i96.i, label %.lr.ph.i99.i, label %.lr.ph.i93.i, !llvm.loop !4
+  %exitcond.not.i96.i = icmp eq i64 %indvars.iv.next.i95.i, 27
+  br i1 %exitcond.not.i96.i, label %.preheader.i, label %.preheader132.i, !llvm.loop !4
 
-.lr.ph.i93.i:                                     ; preds = %182, %186
-  %indvars.iv.i94.i = phi i64 [ %indvars.iv.next.i95.i, %186 ], [ 0, %182 ]
-  %187 = getelementptr i32, ptr @opCode_IETH_PAYLD, i64 %indvars.iv.i94.i
-  %188 = load i32, ptr %187, align 4
-  %189 = icmp eq i32 %188, %115
-  br i1 %189, label %229, label %186
+.preheader132.i:                                  ; preds = %191, %195
+  %indvars.iv.i94.i = phi i64 [ %indvars.iv.next.i95.i, %195 ], [ 0, %191 ]
+  %196 = getelementptr i32, ptr @opCode_PSM, i64 %indvars.iv.i94.i
+  %197 = load i32, ptr %196, align 4
+  %198 = icmp eq i32 %197, %115
+  br i1 %198, label %232, label %195
 
-190:                                              ; preds = %.lr.ph.i99.i
-  %indvars.iv.next.i101.i = add nuw nsw i64 %indvars.iv.i100.i, 1
-  %exitcond.not.i102.i = icmp eq i64 %indvars.iv.next.i101.i, 2
-  br i1 %exitcond.not.i102.i, label %.lr.ph.i105.i, label %.lr.ph.i99.i, !llvm.loop !4
+199:                                              ; preds = %.preheader.i
+  %indvars.iv.next.i100.i = add nuw nsw i64 %indvars.iv.i99.i, 1
+  %exitcond.not.i101.i = icmp eq i64 %indvars.iv.next.i100.i, 8
+  br i1 %exitcond.not.i101.i, label %203, label %.preheader.i, !llvm.loop !4
 
-.lr.ph.i99.i:                                     ; preds = %186, %190
-  %indvars.iv.i100.i = phi i64 [ %indvars.iv.next.i101.i, %190 ], [ 0, %186 ]
-  %191 = getelementptr i32, ptr @opCode_RDETH_DETH_ATOMICETH, i64 %indvars.iv.i100.i
-  %192 = load i32, ptr %191, align 4
-  %193 = icmp eq i32 %192, %115
-  br i1 %193, label %219, label %190
+.preheader.i:                                     ; preds = %195, %199
+  %indvars.iv.i99.i = phi i64 [ %indvars.iv.next.i100.i, %199 ], [ 0, %195 ]
+  %200 = getelementptr i32, ptr @opCode_TIDRDMA, i64 %indvars.iv.i99.i
+  %201 = load i32, ptr %200, align 4
+  %202 = icmp eq i32 %201, %115
+  br i1 %202, label %find_next_header_sequence.exit.thread, label %199
 
-194:                                              ; preds = %.lr.ph.i105.i
-  %indvars.iv.next.i107.i = add nuw nsw i64 %indvars.iv.i106.i, 1
-  %exitcond.not.i108.i = icmp eq i64 %indvars.iv.next.i107.i, 27
-  br i1 %exitcond.not.i108.i, label %.lr.ph.i111.i, label %.lr.ph.i105.i, !llvm.loop !4
-
-.lr.ph.i105.i:                                    ; preds = %190, %194
-  %indvars.iv.i106.i = phi i64 [ %indvars.iv.next.i107.i, %194 ], [ 0, %190 ]
-  %195 = getelementptr i32, ptr @opCode_PSM, i64 %indvars.iv.i106.i
-  %196 = load i32, ptr %195, align 4
-  %197 = icmp eq i32 %196, %115
-  br i1 %197, label %231, label %194
-
-198:                                              ; preds = %.lr.ph.i111.i
-  %indvars.iv.next.i113.i = add nuw nsw i64 %indvars.iv.i112.i, 1
-  %exitcond.not.i114.i = icmp eq i64 %indvars.iv.next.i113.i, 8
-  br i1 %exitcond.not.i114.i, label %202, label %.lr.ph.i111.i, !llvm.loop !4
-
-.lr.ph.i111.i:                                    ; preds = %194, %198
-  %indvars.iv.i112.i = phi i64 [ %indvars.iv.next.i113.i, %198 ], [ 0, %194 ]
-  %199 = getelementptr i32, ptr @opCode_TIDRDMA, i64 %indvars.iv.i112.i
-  %200 = load i32, ptr %199, align 4
-  %201 = icmp eq i32 %200, %115
-  br i1 %201, label %find_next_header_sequence.exit.thread, label %198
-
-202:                                              ; preds = %198
+203:                                              ; preds = %199
   switch i8 %113, label %find_next_header_sequence.exit.thread..critedge_crit_edge [
-    i8 17, label %226
-    i8 12, label %224
-    i8 18, label %227
-    i8 78, label %216
-    i8 81, label %217
-    i8 82, label %218
-    i8 75, label %213
-    i8 76, label %214
-    i8 85, label %220
-    i8 100, label %221
-    i8 101, label %230
+    i8 17, label %227
+    i8 12, label %225
+    i8 18, label %228
+    i8 78, label %217
+    i8 81, label %218
+    i8 82, label %219
+    i8 75, label %214
+    i8 76, label %215
+    i8 85, label %221
+    i8 100, label %222
+    i8 101, label %231
   ]
 
-203:                                              ; preds = %28
-  %204 = load ptr, ptr %58, align 8
-  %205 = tail call noalias ptr @wmem_strdup(ptr noundef %204, ptr noundef nonnull @.str.312) #5
+204:                                              ; preds = %28
+  %205 = load ptr, ptr %58, align 8
+  %206 = tail call noalias ptr @wmem_strdup(ptr noundef %205, ptr noundef nonnull @.str.312) #5
   store i32 7, ptr %62, align 8
   store i32 21, ptr %63, align 4
-  store ptr %205, ptr %64, align 8
+  store ptr %206, ptr %64, align 8
   store ptr null, ptr %65, align 8
-  %206 = load ptr, ptr @ipv6_handle, align 8
-  %207 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 8) #5
-  %208 = tail call i32 @call_dissector(ptr noundef %206, ptr noundef %207, ptr noundef nonnull %1, ptr noundef %38) #5
-  %209 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
+  %207 = load ptr, ptr @ipv6_handle, align 8
+  %208 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 8) #5
+  %209 = tail call i32 @call_dissector(ptr noundef %207, ptr noundef %208, ptr noundef nonnull %1, ptr noundef %38) #5
+  %210 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   br label %.critedge
 
-210:                                              ; preds = %.lr.ph.i45.i
+211:                                              ; preds = %.preheader152.i
   %.val = load ptr, ptr %30, align 8
-  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val, ptr noundef %38, ptr noundef nonnull %5)
-  call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
-211:                                              ; preds = %.lr.ph.i81.i
+212:                                              ; preds = %.preheader140.i
   %.val200 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val200, ptr noundef %38, ptr noundef nonnull %5)
-  call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val200, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef %5)
   %.val209 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RETH(ptr noundef %0, ptr %.val209, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_RETH(ptr noundef %0, ptr %.val209, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
-212:                                              ; preds = %.lr.ph.i69.i
+213:                                              ; preds = %.preheader144.i
   %.val201 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val201, ptr noundef %38, ptr noundef nonnull %5)
-  call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val201, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef %5)
   %.val214 = load ptr, ptr %30, align 8
-  call fastcc void @parse_IMMDT(ptr noundef %0, ptr %.val214, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_IMMDT(ptr noundef %0, ptr %.val214, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
-213:                                              ; preds = %202
+214:                                              ; preds = %203
   %.val202 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val202, ptr noundef %38, ptr noundef nonnull %5)
-  call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val202, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef %5)
   %.val210 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RETH(ptr noundef %0, ptr %.val210, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_RETH(ptr noundef %0, ptr %.val210, ptr noundef %38, ptr noundef %5)
   %.val215 = load ptr, ptr %30, align 8
-  call fastcc void @parse_IMMDT(ptr noundef %0, ptr %.val215, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_IMMDT(ptr noundef %0, ptr %.val215, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
-214:                                              ; preds = %202
+215:                                              ; preds = %203
   %.val203 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val203, ptr noundef %38, ptr noundef nonnull %5)
-  call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val203, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef %5)
   %.val211 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RETH(ptr noundef %0, ptr %.val211, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_RETH(ptr noundef %0, ptr %.val211, ptr noundef %38, ptr noundef %5)
   br label %find_next_header_sequence.exit.thread..critedge_crit_edge
 
-215:                                              ; preds = %.lr.ph.i57.i
+216:                                              ; preds = %.preheader148.i
   %.val204 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val204, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val204, ptr noundef %38, ptr noundef %5)
   %.val218 = load ptr, ptr %30, align 8
-  call fastcc void @parse_AETH(ptr noundef %0, ptr %.val218, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_AETH(ptr noundef %0, ptr %.val218, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
-216:                                              ; preds = %202
+217:                                              ; preds = %203
   %.val205 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val205, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val205, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
-217:                                              ; preds = %202
+218:                                              ; preds = %203
   %.val219 = load ptr, ptr %30, align 8
-  call fastcc void @parse_AETH(ptr noundef %0, ptr %.val219, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_AETH(ptr noundef %0, ptr %.val219, ptr noundef %38, ptr noundef %5)
   br label %find_next_header_sequence.exit.thread..critedge_crit_edge
 
-218:                                              ; preds = %202
+219:                                              ; preds = %203
   %.val206 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val206, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val206, ptr noundef %38, ptr noundef %5)
   %.val220 = load ptr, ptr %30, align 8
-  call fastcc void @parse_AETH(ptr noundef %0, ptr %.val220, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_AETH(ptr noundef %0, ptr %.val220, ptr noundef %38, ptr noundef %5)
   %.val224 = load ptr, ptr %30, align 8
-  call fastcc void @parse_ATOMICACKETH(ptr noundef %0, ptr %.val224, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_ATOMICACKETH(ptr noundef %0, ptr %.val224, ptr noundef %38, ptr noundef %5)
   br label %find_next_header_sequence.exit.thread..critedge_crit_edge
 
-219:                                              ; preds = %.lr.ph.i99.i
+220:                                              ; preds = %.preheader134.i
   %.val207 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val207, ptr noundef %38, ptr noundef nonnull %5)
-  call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val207, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef %5)
   %.val226 = load ptr, ptr %30, align 8
-  call fastcc void @parse_ATOMICETH(ptr noundef %0, ptr %.val226, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_ATOMICETH(ptr noundef %0, ptr %.val226, ptr noundef %38, ptr noundef %5)
   br label %find_next_header_sequence.exit.thread..critedge_crit_edge
 
-220:                                              ; preds = %202
+221:                                              ; preds = %203
   %.val208 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val208, ptr noundef %38, ptr noundef nonnull %5)
-  call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_RDETH(ptr noundef %0, ptr %.val208, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef %5)
   br label %find_next_header_sequence.exit.thread..critedge_crit_edge
 
-221:                                              ; preds = %202
-  call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef nonnull %5)
+222:                                              ; preds = %203
+  call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
-222:                                              ; preds = %.lr.ph.i39.i
+223:                                              ; preds = %.preheader154.i
   %.val216 = load ptr, ptr %30, align 8
-  call fastcc void @parse_IMMDT(ptr noundef %0, ptr %.val216, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_IMMDT(ptr noundef %0, ptr %.val216, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
-223:                                              ; preds = %.lr.ph.i51.i
+224:                                              ; preds = %.preheader150.i
   %.val212 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RETH(ptr noundef %0, ptr %.val212, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_RETH(ptr noundef %0, ptr %.val212, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
-224:                                              ; preds = %202
+225:                                              ; preds = %203
   %.val213 = load ptr, ptr %30, align 8
-  call fastcc void @parse_RETH(ptr noundef %0, ptr %.val213, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_RETH(ptr noundef %0, ptr %.val213, ptr noundef %38, ptr noundef %5)
   br label %find_next_header_sequence.exit.thread..critedge_crit_edge
 
-225:                                              ; preds = %.lr.ph.i63.i
+226:                                              ; preds = %.preheader146.i
   %.val221 = load ptr, ptr %30, align 8
-  call fastcc void @parse_AETH(ptr noundef %0, ptr %.val221, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_AETH(ptr noundef %0, ptr %.val221, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
-226:                                              ; preds = %202
+227:                                              ; preds = %203
   %.val222 = load ptr, ptr %30, align 8
-  call fastcc void @parse_AETH(ptr noundef %0, ptr %.val222, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_AETH(ptr noundef %0, ptr %.val222, ptr noundef %38, ptr noundef %5)
   br label %find_next_header_sequence.exit.thread..critedge_crit_edge
 
-227:                                              ; preds = %202
+228:                                              ; preds = %203
   %.val223 = load ptr, ptr %30, align 8
-  call fastcc void @parse_AETH(ptr noundef %0, ptr %.val223, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_AETH(ptr noundef %0, ptr %.val223, ptr noundef %38, ptr noundef %5)
   %.val225 = load ptr, ptr %30, align 8
-  call fastcc void @parse_ATOMICACKETH(ptr noundef %0, ptr %.val225, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_ATOMICACKETH(ptr noundef %0, ptr %.val225, ptr noundef %38, ptr noundef %5)
   br label %find_next_header_sequence.exit.thread..critedge_crit_edge
 
-228:                                              ; preds = %.lr.ph.i87.i
+229:                                              ; preds = %.preheader138.i
   %.val227 = load ptr, ptr %30, align 8
-  call fastcc void @parse_ATOMICETH(ptr noundef %0, ptr %.val227, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_ATOMICETH(ptr noundef %0, ptr %.val227, ptr noundef %38, ptr noundef %5)
   br label %find_next_header_sequence.exit.thread..critedge_crit_edge
 
-229:                                              ; preds = %.lr.ph.i93.i
+230:                                              ; preds = %.preheader136.i
   %.val228 = load ptr, ptr %30, align 8
-  call fastcc void @parse_IETH(ptr noundef %0, ptr %.val228, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_IETH(ptr noundef %0, ptr %.val228, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
-230:                                              ; preds = %202
-  call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef nonnull %5)
+231:                                              ; preds = %203
+  call fastcc void @parse_DETH(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef %5)
   %.val217 = load ptr, ptr %30, align 8
-  call fastcc void @parse_IMMDT(ptr noundef %0, ptr %.val217, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_IMMDT(ptr noundef %0, ptr %.val217, ptr noundef %38, ptr noundef %5)
   br label %.thread
 
-231:                                              ; preds = %.lr.ph.i105.i
+232:                                              ; preds = %.preheader132.i
   %.val229 = load ptr, ptr %30, align 8
-  call fastcc void @parse_KDETH(ptr noundef %0, ptr %.val229, ptr noundef %38, ptr noundef nonnull %5)
+  call fastcc void @parse_KDETH(ptr noundef %0, ptr %.val229, ptr noundef %38, ptr noundef %5)
   %.val231 = load ptr, ptr %30, align 8
-  call fastcc void @parse_PSM(ptr noundef %0, ptr %.val231, ptr noundef %38, ptr noundef nonnull %5, i32 noundef %115)
+  call fastcc void @parse_PSM(ptr noundef %0, ptr %.val231, ptr noundef %38, ptr noundef %5, i32 noundef %115)
   br label %find_next_header_sequence.exit.thread..critedge_crit_edge
 
-find_next_header_sequence.exit.thread:            ; preds = %.lr.ph.i111.i
+find_next_header_sequence.exit.thread:            ; preds = %.preheader.i
   %.val230 = load ptr, ptr %30, align 8
-  call fastcc void @parse_KDETH(ptr noundef %0, ptr %.val230, ptr noundef %38, ptr noundef nonnull %5)
-  call fastcc void @parse_TIDRDMA(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef nonnull %5, i32 noundef %115, ptr noundef nonnull %6)
+  call fastcc void @parse_KDETH(ptr noundef %0, ptr %.val230, ptr noundef %38, ptr noundef %5)
+  call fastcc void @parse_TIDRDMA(ptr noundef %0, ptr noundef %1, ptr noundef %38, ptr noundef %5, i32 noundef %115, ptr noundef %6)
   %.pr.pre = load i32, ptr %6, align 4
-  %232 = icmp eq i32 %.pr.pre, 0
-  br i1 %232, label %find_next_header_sequence.exit.thread..critedge_crit_edge, label %.thread
+  %233 = icmp eq i32 %.pr.pre, 0
+  br i1 %233, label %find_next_header_sequence.exit.thread..critedge_crit_edge, label %.thread
 
-find_next_header_sequence.exit.thread..critedge_crit_edge: ; preds = %.lr.ph.i75.i, %214, %217, %218, %219, %220, %224, %226, %227, %228, %231, %202, %find_next_header_sequence.exit.thread
+find_next_header_sequence.exit.thread..critedge_crit_edge: ; preds = %.preheader142.i, %215, %218, %219, %220, %221, %225, %227, %228, %229, %232, %203, %find_next_header_sequence.exit.thread
   %.pre = load i32, ptr %5, align 4
   br label %.critedge
 
-.thread:                                          ; preds = %.lr.ph.i.i, %210, %211, %212, %213, %215, %216, %221, %222, %223, %225, %229, %230, %find_next_header_sequence.exit.thread
-  %233 = load i32, ptr %5, align 4
-  %234 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %233) #5
-  %235 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %233) #5
-  %236 = icmp sgt i32 %235, 3
-  %237 = add nsw i32 %235, -4
-  %spec.select = select i1 %236, i32 %237, i32 %235
-  %.0191 = tail call i32 @llvm.smin.i32(i32 %234, i32 %spec.select)
-  %238 = icmp sgt i32 %.0191, 0
-  br i1 %238, label %239, label %.critedge
+.thread:                                          ; preds = %147, %211, %212, %213, %214, %216, %217, %222, %223, %224, %226, %230, %231, %find_next_header_sequence.exit.thread
+  %234 = load i32, ptr %5, align 4
+  %235 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %234) #5
+  %236 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %234) #5
+  %237 = icmp sgt i32 %236, 3
+  %238 = add nsw i32 %236, -4
+  %spec.select = select i1 %237, i32 %238, i32 %236
+  %.0191 = tail call i32 @llvm.smin.i32(i32 %235, i32 %spec.select)
+  %239 = icmp sgt i32 %.0191, 0
+  br i1 %239, label %240, label %.critedge
 
-239:                                              ; preds = %.thread
-  %240 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %233, i32 noundef %.0191, i32 noundef %spec.select) #5
-  %241 = load ptr, ptr @opa_mad_handle, align 8
-  %242 = tail call i32 @call_dissector(ptr noundef %241, ptr noundef %240, ptr noundef %1, ptr noundef %38) #5
-  %243 = add i32 %.0191, %233
+240:                                              ; preds = %.thread
+  %241 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %234, i32 noundef %.0191, i32 noundef %spec.select) #5
+  %242 = load ptr, ptr @opa_mad_handle, align 8
+  %243 = tail call i32 @call_dissector(ptr noundef %242, ptr noundef %241, ptr noundef %1, ptr noundef %38) #5
+  %244 = add i32 %.0191, %234
   br label %.critedge
 
 default.unreachable:                              ; preds = %28
   unreachable
 
-.critedge:                                        ; preds = %find_next_header_sequence.exit.thread..critedge_crit_edge, %28, %203, %79, %239, %.thread
-  %244 = phi i32 [ %.pre, %find_next_header_sequence.exit.thread..critedge_crit_edge ], [ 8, %28 ], [ %209, %203 ], [ 48, %79 ], [ %243, %239 ], [ %233, %.thread ]
-  %245 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %244) #5
-  %.not199 = icmp eq i32 %245, 4
-  %246 = add i32 %244, -4
-  %247 = add i32 %246, %245
-  %248 = select i1 %.not199, i32 %244, i32 %247
-  %249 = load i32, ptr @hf_opa_9b_ICRC, align 4
-  %250 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %249, ptr noundef %0, i32 noundef %248, i32 noundef 4, i32 noundef 0) #5
-  %251 = add i32 %248, 4
-  br label %252
+.critedge:                                        ; preds = %find_next_header_sequence.exit.thread..critedge_crit_edge, %28, %204, %79, %240, %.thread
+  %245 = phi i32 [ %.pre, %find_next_header_sequence.exit.thread..critedge_crit_edge ], [ 8, %28 ], [ %210, %204 ], [ 48, %79 ], [ %244, %240 ], [ %234, %.thread ]
+  %246 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %245) #5
+  %.not199 = icmp eq i32 %246, 4
+  %247 = add i32 %245, -4
+  %248 = add i32 %247, %246
+  %249 = select i1 %.not199, i32 %245, i32 %248
+  %250 = load i32, ptr @hf_opa_9b_ICRC, align 4
+  %251 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %250, ptr noundef %0, i32 noundef %249, i32 noundef 4, i32 noundef 0) #5
+  %252 = add i32 %249, 4
+  br label %253
 
-252:                                              ; preds = %.critedge, %23
-  %.0193 = phi i32 [ %27, %23 ], [ %251, %.critedge ]
+253:                                              ; preds = %.critedge, %23
+  %.0193 = phi i32 [ %27, %23 ], [ %252, %.critedge ]
   ret i32 %.0193
 }
 
@@ -1154,7 +1154,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_RDETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @parse_RDETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.318) #5
   %5 = load i32, ptr @hf_opa_RDETH, align 4
@@ -1172,7 +1172,7 @@ define internal fastcc void @parse_RDETH(ptr noundef %0, ptr %.8.val, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_DETH(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @parse_DETH(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1198,7 +1198,7 @@ define internal fastcc void @parse_DETH(ptr noundef %0, ptr nocapture noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_RETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @parse_RETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.320) #5
   %5 = load i32, ptr @hf_opa_RETH, align 4
@@ -1219,7 +1219,7 @@ define internal fastcc void @parse_RETH(ptr noundef %0, ptr %.8.val, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_IMMDT(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @parse_IMMDT(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.321) #5
   %5 = load i32, ptr @hf_opa_IMMDT, align 4
@@ -1234,7 +1234,7 @@ define internal fastcc void @parse_IMMDT(ptr noundef %0, ptr %.8.val, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_AETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @parse_AETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.322) #5
   %5 = load i32, ptr @hf_opa_AETH, align 4
@@ -1252,7 +1252,7 @@ define internal fastcc void @parse_AETH(ptr noundef %0, ptr %.8.val, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_ATOMICACKETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @parse_ATOMICACKETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.323) #5
   %5 = load i32, ptr @hf_opa_AtomicAckETH, align 4
@@ -1267,7 +1267,7 @@ define internal fastcc void @parse_ATOMICACKETH(ptr noundef %0, ptr %.8.val, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_ATOMICETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @parse_ATOMICETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.324) #5
   %5 = load i32, ptr @hf_opa_AtomicETH, align 4
@@ -1291,7 +1291,7 @@ define internal fastcc void @parse_ATOMICETH(ptr noundef %0, ptr %.8.val, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_IETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @parse_IETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.325) #5
   %5 = load i32, ptr @hf_opa_IETH, align 4
@@ -1306,7 +1306,7 @@ define internal fastcc void @parse_IETH(ptr noundef %0, ptr %.8.val, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_KDETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @parse_KDETH(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.326) #5
   %5 = load i32, ptr @hf_opa_KDETH, align 4
@@ -1322,7 +1322,7 @@ define internal fastcc void @parse_KDETH(ptr noundef %0, ptr %.8.val, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_PSM(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @parse_PSM(ptr noundef %0, ptr %.8.val, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
   %5 = load i32, ptr %2, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.327) #5
   %6 = load i32, ptr @hf_opa_psm, align 4
@@ -1344,32 +1344,33 @@ define internal fastcc void @parse_PSM(ptr noundef %0, ptr %.8.val, ptr noundef 
   %22 = load i32, ptr @hf_opa_psm_flowid, align 4
   %23 = add i32 %5, 11
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %22, ptr noundef %0, i32 noundef %23, i32 noundef 1, i32 noundef -2147483648) #5
-  switch i32 %3, label %203 [
-    i32 193, label %25
-    i32 194, label %38
-    i32 195, label %52
-    i32 196, label %65
-    i32 197, label %75
-    i32 198, label %88
-    i32 199, label %99
-    i32 200, label %110
-    i32 201, label %121
-    i32 202, label %126
-    i32 203, label %134
-    i32 204, label %139
-    i32 205, label %144
-    i32 206, label %152
-    i32 207, label %157
-    i32 208, label %165
-    i32 209, label %165
-    i32 210, label %173
-    i32 218, label %186
-    i32 212, label %181
-    i32 213, label %181
-    i32 214, label %181
-    i32 215, label %181
-    i32 216, label %186
-    i32 217, label %186
+  %trunc = trunc nuw i32 %3 to i8
+  switch i8 %trunc, label %203 [
+    i8 -63, label %25
+    i8 -62, label %38
+    i8 -61, label %52
+    i8 -60, label %65
+    i8 -59, label %75
+    i8 -58, label %88
+    i8 -57, label %99
+    i8 -56, label %110
+    i8 -55, label %121
+    i8 -54, label %126
+    i8 -53, label %134
+    i8 -52, label %139
+    i8 -51, label %144
+    i8 -50, label %152
+    i8 -49, label %157
+    i8 -48, label %165
+    i8 -47, label %165
+    i8 -46, label %173
+    i8 -38, label %186
+    i8 -44, label %181
+    i8 -43, label %181
+    i8 -42, label %181
+    i8 -41, label %181
+    i8 -40, label %186
+    i8 -39, label %186
   ]
 
 25:                                               ; preds = %4
@@ -1595,17 +1596,18 @@ define internal fastcc void @parse_PSM(ptr noundef %0, ptr %.8.val, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_TIDRDMA(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @parse_TIDRDMA(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef range(i32 0, 256) %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = load i32, ptr %3, align 4
-  switch i32 %4, label %179 [
-    i32 224, label %8
-    i32 225, label %30
-    i32 226, label %59
-    i32 227, label %68
-    i32 228, label %77
-    i32 229, label %106
-    i32 230, label %130
-    i32 231, label %139
+  %trunc = trunc nuw i32 %4 to i8
+  switch i8 %trunc, label %179 [
+    i8 -32, label %8
+    i8 -31, label %30
+    i8 -30, label %59
+    i8 -29, label %68
+    i8 -28, label %77
+    i8 -27, label %106
+    i8 -26, label %130
+    i8 -25, label %139
   ]
 
 8:                                                ; preds = %6

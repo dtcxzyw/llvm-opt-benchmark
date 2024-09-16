@@ -2841,10 +2841,10 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i16 0, 256) i16 @dissect_bssap_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4, i32 noundef %5, i16 noundef returned zeroext %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc noundef zeroext range(i16 0, 256) i16 @dissect_bssap_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext range(i8 0, 3) %4, i32 noundef range(i32 1, 512) %5, i16 noundef returned zeroext range(i16 0, 256) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = zext nneg i16 %6 to i32
   %10 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %5, i32 noundef %9) #2
-  switch i8 %4, label %default.unreachable [
+  switch i8 %4, label %default.unreachable24 [
     i8 0, label %11
     i8 1, label %28
     i8 2, label %33
@@ -2922,7 +2922,7 @@ define internal fastcc zeroext range(i16 0, 256) i16 @dissect_bssap_parameter(pt
   %54 = tail call i32 @call_data_dissector(ptr noundef %10, ptr noundef nonnull %1, ptr noundef %2) #2
   br label %dissect_bssap_data_param.exit
 
-default.unreachable:                              ; preds = %8
+default.unreachable24:                            ; preds = %8
   unreachable
 
 dissect_bssap_data_param.exit:                    ; preds = %53, %49, %45, %41, %28, %11

@@ -109,7 +109,7 @@ define range(i32 -1, 1) i32 @H5T__conv_struct(ptr noundef %0, ptr noundef %1, pt
   br label %.loopexit
 
 39:                                               ; preds = %30
-  %40 = tail call fastcc i32 @H5T__conv_struct_init(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
+  %40 = tail call fastcc i32 @H5T__conv_struct_init(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3)
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %42, label %.loopexit
 
@@ -161,7 +161,7 @@ define range(i32 -1, 1) i32 @H5T__conv_struct(ptr noundef %0, ptr noundef %1, pt
   br i1 %69, label %70, label %77
 
 70:                                               ; preds = %66
-  %71 = tail call fastcc i32 @H5T__conv_struct_init(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %71 = tail call fastcc i32 @H5T__conv_struct_init(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %72 = icmp slt i32 %71, 0
   br i1 %72, label %73, label %77
 
@@ -504,7 +504,7 @@ define range(i32 -1, 1) i32 @H5T__conv_struct(ptr noundef %0, ptr noundef %1, pt
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5T__conv_struct_init(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @H5T__conv_struct_init(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -633,8 +633,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_struct_init(ptr noundef %
   store i32 0, ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %16, i64 56
   store i64 0, ptr %72, align 8
-  %73 = tail call i32 @H5T__sort_value(ptr noundef %0, ptr noundef null) #7
-  %74 = tail call i32 @H5T__sort_value(ptr noundef %1, ptr noundef null) #7
+  %73 = tail call i32 @H5T__sort_value(ptr noundef nonnull %0, ptr noundef null) #7
+  %74 = tail call i32 @H5T__sort_value(ptr noundef nonnull %1, ptr noundef null) #7
   br i1 %.not221, label %.loopexit, label %.lr.ph209
 
 .lr.ph209:                                        ; preds = %._crit_edge203, %thread-pre-split.thread
@@ -1213,7 +1213,7 @@ define range(i32 -1, 1) i32 @H5T__conv_struct_opt(ptr noundef %0, ptr noundef %1
   br label %.loopexit
 
 37:                                               ; preds = %28
-  %38 = tail call fastcc i32 @H5T__conv_struct_init(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
+  %38 = tail call fastcc i32 @H5T__conv_struct_init(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3)
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %40, label %44
 
@@ -1378,7 +1378,7 @@ define range(i32 -1, 1) i32 @H5T__conv_struct_opt(ptr noundef %0, ptr noundef %1
   br i1 %132, label %133, label %140
 
 133:                                              ; preds = %129
-  %134 = tail call fastcc i32 @H5T__conv_struct_init(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %134 = tail call fastcc i32 @H5T__conv_struct_init(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %135 = icmp slt i32 %134, 0
   br i1 %135, label %136, label %140
 

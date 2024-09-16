@@ -988,7 +988,7 @@ define internal void @"_ZN4core3ptr61drop_in_place$LT$$RF$core..ops..range..Rang
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hed511e905ab3f0deE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hed511e905ab3f0deE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !106, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -1049,7 +1049,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$17h77d58e69bfb89fceE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$17h77d58e69bfb89fceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !106, !noundef !5
@@ -1105,7 +1105,7 @@ define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Resul
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..io..error..Error$GT$$GT$17h0e625ae4b8fa8f15E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..io..error..Error$GT$$GT$17h0e625ae4b8fa8f15E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !106, !noundef !5
@@ -1161,7 +1161,7 @@ define internal fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..result..Resul
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..result..Result$LT$wasmtime_cache..config..Config$C$toml..de..Error$GT$$GT$17hc0fc97eb76c6b861E"(ptr noalias noundef align 8 dereferenceable(184) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..result..Result$LT$wasmtime_cache..config..Config$C$toml..de..Error$GT$$GT$17hc0fc97eb76c6b861E"(ptr noalias noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !178, !noundef !5
   %.not = icmp eq i64 %2, 2
   br i1 %.not, label %4, label %3
@@ -2075,7 +2075,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.12646480017171244602.e
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %.sroa.7 = alloca { ptr, [1 x i64] }, align 8
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -2328,7 +2328,7 @@ define void @_ZN14wasmtime_cache6config19default_config_path17h48f04dd3e4a096c4E
   store ptr @anon.20743d27dff1ab677f85e911d9ad6f4c.16.llvm.12646480017171244602, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 0, ptr %12, align 8
-  %13 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2)
+  %13 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %13, ptr %14, align 8
@@ -2460,7 +2460,7 @@ define void @_ZN14wasmtime_cache6config11CacheConfig18new_cache_disabled17h50985
 "_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$wasmtime_cache..worker..Worker$GT$$GT$17h79c9773e5ce9b887E.exit": ; preds = %6
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hed511e905ab3f0deE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #23
+  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hed511e905ab3f0deE"(ptr noalias noundef align 8 dereferenceable(24) %2) #23
           to label %25 unwind label %22
 
 25:                                               ; preds = %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$wasmtime_cache..worker..Worker$GT$$GT$17h79c9773e5ce9b887E.exit"
@@ -2679,7 +2679,7 @@ define void @_ZN14wasmtime_cache6config11CacheConfig9from_file17h170ea0b1c74caa6
 "_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$wasmtime_cache..worker..Worker$GT$$GT$17h79c9773e5ce9b887E.exit.i.i.i": ; preds = %108
   %111 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hed511e905ab3f0deE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %63) #23
+  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hed511e905ab3f0deE"(ptr noalias noundef align 8 dereferenceable(24) %63) #23
           to label %.body.i unwind label %109, !noalias !435
 
 112:                                              ; preds = %104
@@ -3122,7 +3122,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit94.i: ; preds = %159
 204:                                              ; preds = %159
   %lpad.thr_comm161.i = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..result..Result$LT$wasmtime_cache..config..Config$C$toml..de..Error$GT$$GT$17hc0fc97eb76c6b861E"(ptr noalias noundef nonnull align 8 dereferenceable(184) %70) #23
+  invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..result..Result$LT$wasmtime_cache..config..Config$C$toml..de..Error$GT$$GT$17hc0fc97eb76c6b861E"(ptr noalias noundef align 8 dereferenceable(184) %70) #23
           to label %155 unwind label %205, !noalias !398
 
 205:                                              ; preds = %207, %204, %155, %.body.i
@@ -3134,7 +3134,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit94.i: ; preds = %159
 207:                                              ; preds = %123
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..io..error..Error$GT$$GT$17h0e625ae4b8fa8f15E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %74) #23
+  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..io..error..Error$GT$$GT$17h0e625ae4b8fa8f15E"(ptr noalias noundef align 8 dereferenceable(24) %74) #23
           to label %.body.i unwind label %205, !noalias !398
 
 common.resume:                                    ; preds = %.body, %.body.i
@@ -3248,7 +3248,7 @@ common.resume:                                    ; preds = %.body, %.body.i
   store ptr @anon.20743d27dff1ab677f85e911d9ad6f4c.16.llvm.12646480017171244602, ptr %219, align 8, !noalias !570
   %220 = getelementptr inbounds i8, ptr %44, i64 24
   store i64 0, ptr %220, align 8, !noalias !570
-  %221 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %44)
+  %221 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %44)
           to label %.noexc59 unwind label %308
 
 .noexc59:                                         ; preds = %216
@@ -3564,7 +3564,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit77.i: ; preds = %.noexc67
 301:                                              ; preds = %.noexc67
   %lpad.thr_comm111.i = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$17h77d58e69bfb89fceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #23
+  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$17h77d58e69bfb89fceE"(ptr noalias noundef align 8 dereferenceable(24) %36) #23
           to label %.body unwind label %302
 
 302:                                              ; preds = %304, %301, %227
@@ -3979,7 +3979,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i107: ; preds = %369
 373:                                              ; preds = %.thread248, %369
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !759
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %374 = invoke fastcc noundef ptr @_ZN14wasmtime_cache6config11CacheConfig62validate_files_total_size_limit_percent_if_deleting_or_default17ha68c1d95f80ea6b4E(ptr noalias noundef nonnull align 8 dereferenceable(184) %78)
+  %374 = invoke fastcc noundef ptr @_ZN14wasmtime_cache6config11CacheConfig62validate_files_total_size_limit_percent_if_deleting_or_default17ha68c1d95f80ea6b4E(ptr noalias noundef align 8 dereferenceable(184) %78)
           to label %376 unwind label %308
 
 375:                                              ; preds = %.noexc113
@@ -3992,7 +3992,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i107: ; preds = %369
   br i1 %377, label %378, label %381
 
 378:                                              ; preds = %376
-  invoke fastcc void @_ZN14wasmtime_cache6config11CacheConfig12spawn_worker17hc48f1fbbd10f55dcE(ptr noalias noundef nonnull align 8 dereferenceable(184) %78)
+  invoke fastcc void @_ZN14wasmtime_cache6config11CacheConfig12spawn_worker17hc48f1fbbd10f55dcE(ptr noalias noundef align 8 dereferenceable(184) %78)
           to label %379 unwind label %308
 
 379:                                              ; preds = %378
@@ -4019,7 +4019,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i107: ; preds = %369
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14wasmtime_cache6config11CacheConfig12spawn_worker17hc48f1fbbd10f55dcE(ptr noalias noundef align 8 dereferenceable(184) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14wasmtime_cache6config11CacheConfig12spawn_worker17hc48f1fbbd10f55dcE(ptr noalias noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 180
   %3 = load i8, ptr %2, align 4, !range !393, !noundef !5
   %4 = trunc nuw i8 %3 to i1
@@ -4100,7 +4100,7 @@ define noundef i64 @_ZN14wasmtime_cache6config11CacheConfig12cache_misses17h8eb5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef ptr @_ZN14wasmtime_cache6config11CacheConfig62validate_files_total_size_limit_percent_if_deleting_or_default17ha68c1d95f80ea6b4E(ptr noalias nocapture noundef align 8 dereferenceable(184) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef ptr @_ZN14wasmtime_cache6config11CacheConfig62validate_files_total_size_limit_percent_if_deleting_or_default17ha68c1d95f80ea6b4E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8

@@ -978,7 +978,7 @@ define dso_local range(i32 -1, 1) i32 @PyThread_start_joinable_thread(ptr nounde
 entry:
   %th = alloca i64, align 8
   store i64 0, ptr %th, align 8
-  %call = call fastcc i32 @do_start_joinable_thread(ptr noundef %func, ptr noundef %arg, ptr noundef nonnull %th)
+  %call = call fastcc i32 @do_start_joinable_thread(ptr noundef %func, ptr noundef %arg, ptr noundef %th)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -994,7 +994,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @do_start_joinable_thread(ptr noundef %func, ptr noundef %arg, ptr nocapture noundef writeonly %out_id) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @do_start_joinable_thread(ptr noundef %func, ptr noundef %arg, ptr nocapture noundef nonnull writeonly %out_id) unnamed_addr #0 {
 entry:
   %th = alloca i64, align 8
   %attrs = alloca %union.pthread_attr_t, align 8
@@ -1083,7 +1083,7 @@ define dso_local noundef i64 @PyThread_start_new_thread(ptr noundef %func, ptr n
 entry:
   %th = alloca i64, align 8
   store i64 0, ptr %th, align 8
-  %call = call fastcc i32 @do_start_joinable_thread(ptr noundef %func, ptr noundef %arg, ptr noundef nonnull %th)
+  %call = call fastcc i32 @do_start_joinable_thread(ptr noundef %func, ptr noundef %arg, ptr noundef %th)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 

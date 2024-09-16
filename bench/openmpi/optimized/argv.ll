@@ -373,7 +373,7 @@ define noalias ptr @opal_argv_split(ptr noundef %0, i32 noundef %1) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @opal_argv_split_inter(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @opal_argv_split_inter(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca [128 x i8], align 16
   %.not131 = icmp eq ptr %0, null
   br i1 %.not131, label %.critedge, label %.lr.ph134

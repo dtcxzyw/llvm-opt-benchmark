@@ -1700,11 +1700,11 @@ if.end5:                                          ; preds = %invoke.cont1
   br i1 %cmp6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.end5
-  invoke fastcc void @_ZN7msdfgenL22findPathByForwardIndexERPN8tinyxml210XMLElementERiS4_S2_b(ptr noundef nonnull align 8 dereferenceable(8) %path, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull align 4 dereferenceable(4) %skippedPaths, ptr noundef nonnull %call.i12, i1 noundef zeroext false)
+  invoke fastcc void @_ZN7msdfgenL22findPathByForwardIndexERPN8tinyxml210XMLElementERiS4_S2_b(ptr noundef nonnull align 8 dereferenceable(8) %path, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull align 4 dereferenceable(4) %skippedPaths, ptr noundef %call.i12, i1 noundef zeroext false)
           to label %if.end10 unwind label %lpad
 
 if.else:                                          ; preds = %if.end5
-  invoke fastcc void @_ZN7msdfgenL23findPathByBackwardIndexERPN8tinyxml210XMLElementERiS4_S2_b(ptr noundef nonnull align 8 dereferenceable(8) %path, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull align 4 dereferenceable(4) %skippedPaths, ptr noundef nonnull %call.i12, i1 noundef zeroext false)
+  invoke fastcc void @_ZN7msdfgenL23findPathByBackwardIndexERPN8tinyxml210XMLElementERiS4_S2_b(ptr noundef nonnull align 8 dereferenceable(8) %path, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull align 4 dereferenceable(4) %skippedPaths, ptr noundef %call.i12, i1 noundef zeroext false)
           to label %if.end10 unwind label %lpad
 
 if.end10:                                         ; preds = %if.else, %if.then7
@@ -1965,7 +1965,7 @@ lor.rhs:                                          ; preds = %if.then21
 
 lor.end:                                          ; preds = %lor.rhs, %if.then21
   %9 = phi i1 [ true, %if.then21 ], [ %tobool24, %lor.rhs ]
-  tail call fastcc void @_ZN7msdfgenL22findPathByForwardIndexERPN8tinyxml210XMLElementERiS4_S2_b(ptr noundef nonnull align 8 dereferenceable(8) %path, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull align 4 dereferenceable(4) %skips, ptr noundef nonnull %cur.034, i1 noundef zeroext %9)
+  tail call fastcc void @_ZN7msdfgenL22findPathByForwardIndexERPN8tinyxml210XMLElementERiS4_S2_b(ptr noundef nonnull align 8 dereferenceable(8) %path, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull align 4 dereferenceable(4) %skips, ptr noundef %cur.034, i1 noundef zeroext %9)
   br label %for.inc
 
 if.else25:                                        ; preds = %if.else17, %if.else17.tail
@@ -2107,7 +2107,7 @@ lor.rhs:                                          ; preds = %if.then21
 
 lor.end:                                          ; preds = %lor.rhs, %if.then21
   %9 = phi i1 [ true, %if.then21 ], [ %tobool24, %lor.rhs ]
-  tail call fastcc void @_ZN7msdfgenL23findPathByBackwardIndexERPN8tinyxml210XMLElementERiS4_S2_b(ptr noundef nonnull align 8 dereferenceable(8) %path, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull align 4 dereferenceable(4) %skips, ptr noundef nonnull %cur.034, i1 noundef zeroext %9)
+  tail call fastcc void @_ZN7msdfgenL23findPathByBackwardIndexERPN8tinyxml210XMLElementERiS4_S2_b(ptr noundef nonnull align 8 dereferenceable(8) %path, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull align 4 dereferenceable(4) %skips, ptr noundef %cur.034, i1 noundef zeroext %9)
   br label %for.inc
 
 if.else25:                                        ; preds = %if.else17, %if.else17.tail
@@ -2230,7 +2230,7 @@ invoke.cont8:                                     ; preds = %if.end5
   store float 1.000000e+00, ptr %arrayinit.element8.i.i, align 4
   %fTypeMask.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
   store i32 16, ptr %fTypeMask.i.i, align 4
-  invoke fastcc void @_ZN7msdfgenL11gatherPathsER6SkPathRiPN8tinyxml210XMLElementERK8SkMatrix(ptr noundef nonnull align 8 dereferenceable(15) %fullPath, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull %call.i15, ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp)
+  invoke fastcc void @_ZN7msdfgenL11gatherPathsER6SkPathRiPN8tinyxml210XMLElementERK8SkMatrix(ptr noundef nonnull align 8 dereferenceable(15) %fullPath, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef %call.i15, ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp)
           to label %invoke.cont9 unwind label %lpad7
 
 invoke.cont9:                                     ; preds = %invoke.cont8
@@ -2413,8 +2413,8 @@ for.body.tail:                                    ; preds = %for.body
 if.then:                                          ; preds = %for.body.tail
   %call4 = call noundef ptr @_ZNK8tinyxml210XMLElement9AttributeEPKcS2_(ptr noundef nonnull align 8 dereferenceable(120) %cur.0157, ptr noundef nonnull @.str.6, ptr noundef null)
   %call5 = call noundef ptr @_ZNK8tinyxml210XMLElement9AttributeEPKcS2_(ptr noundef nonnull align 8 dereferenceable(120) %cur.0157, ptr noundef nonnull @.str.14, ptr noundef null)
-  call fastcc void @_ZN7msdfgenL21combineTransformationERiRK8SkMatrixPKcS5_(ptr noalias nonnull align 4 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull align 4 dereferenceable(40) %transformation, ptr noundef %call4, ptr noundef %call5)
-  call fastcc void @_ZN7msdfgenL11gatherPathsER6SkPathRiPN8tinyxml210XMLElementERK8SkMatrix(ptr noundef nonnull align 8 dereferenceable(15) %fullPath, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull %cur.0157, ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp)
+  call fastcc void @_ZN7msdfgenL21combineTransformationERiRK8SkMatrixPKcS5_(ptr noalias align 4 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull align 4 dereferenceable(40) %transformation, ptr noundef %call4, ptr noundef %call5)
+  call fastcc void @_ZN7msdfgenL11gatherPathsER6SkPathRiPN8tinyxml210XMLElementERK8SkMatrix(ptr noundef nonnull align 8 dereferenceable(15) %fullPath, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef %cur.0157, ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp)
   br label %for.inc
 
 if.else:                                          ; preds = %for.body, %for.body.tail
@@ -2868,7 +2868,7 @@ invoke.cont181:                                   ; preds = %if.end179
           to label %invoke.cont183 unwind label %lpad.loopexit.split-lp
 
 invoke.cont183:                                   ; preds = %invoke.cont181
-  invoke fastcc void @_ZN7msdfgenL21combineTransformationERiRK8SkMatrixPKcS5_(ptr noalias nonnull align 4 %ref.tmp180, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull align 4 dereferenceable(40) %transformation, ptr noundef %call182, ptr noundef %call184)
+  invoke fastcc void @_ZN7msdfgenL21combineTransformationERiRK8SkMatrixPKcS5_(ptr noalias align 4 %ref.tmp180, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull align 4 dereferenceable(40) %transformation, ptr noundef %call182, ptr noundef %call184)
           to label %invoke.cont185 unwind label %lpad.loopexit.split-lp
 
 invoke.cont185:                                   ; preds = %invoke.cont183
@@ -2956,7 +2956,7 @@ declare noundef ptr @_ZNK8tinyxml27XMLNode16LastChildElementEPKc(ptr noundef non
 declare noundef ptr @_ZNK8tinyxml27XMLNode22PreviousSiblingElementEPKc(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7msdfgenL21combineTransformationERiRK8SkMatrixPKcS5_(ptr noalias align 4 %agg.result, ptr nocapture noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull align 4 dereferenceable(40) %parentTransformation, ptr noundef %transformationString, ptr noundef %transformationOriginString) unnamed_addr #0 {
+define internal fastcc void @_ZN7msdfgenL21combineTransformationERiRK8SkMatrixPKcS5_(ptr noalias nonnull align 4 %agg.result, ptr nocapture noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull align 4 dereferenceable(40) %parentTransformation, ptr noundef %transformationString, ptr noundef %transformationOriginString) unnamed_addr #0 {
 entry:
   %end.i3.i = alloca ptr, align 8
   %end.i.i = alloca ptr, align 8
@@ -3063,7 +3063,7 @@ while.body.i:                                     ; preds = %while.cond.loopexit
   store float 0.000000e+00, ptr %arrayinit.element7.i.i12.i, align 4, !noalias !14
   store float 1.000000e+00, ptr %arrayinit.element8.i.i13.i, align 4, !noalias !14
   store i32 16, ptr %fTypeMask.i.i14.i, align 4, !noalias !14
-  %call.i = call fastcc noundef zeroext i1 @_ZN7msdfgenL20readTransformationOpEPfRiRPKcS3_(ptr noundef nonnull %values.i, ptr noundef nonnull align 4 dereferenceable(4) %count.i, ptr noundef nonnull align 8 dereferenceable(8) %str.addr.i, ptr noundef nonnull @.str.25)
+  %call.i = call fastcc noundef zeroext i1 @_ZN7msdfgenL20readTransformationOpEPfRiRPKcS3_(ptr noundef %values.i, ptr noundef nonnull align 4 dereferenceable(4) %count.i, ptr noundef nonnull align 8 dereferenceable(8) %str.addr.i, ptr noundef nonnull @.str.25)
   %1 = load i32, ptr %count.i, align 4, !noalias !14
   %cmp.i = icmp eq i32 %1, 6
   %or.cond.i = select i1 %call.i, i1 %cmp.i, i1 false
@@ -3089,7 +3089,7 @@ if.then.i:                                        ; preds = %while.body.i
   br label %if.end81.i
 
 if.else.i:                                        ; preds = %while.body.i
-  %call8.i = call fastcc noundef zeroext i1 @_ZN7msdfgenL20readTransformationOpEPfRiRPKcS3_(ptr noundef nonnull %values.i, ptr noundef nonnull align 4 dereferenceable(4) %count.i, ptr noundef nonnull align 8 dereferenceable(8) %str.addr.i, ptr noundef nonnull @.str.26)
+  %call8.i = call fastcc noundef zeroext i1 @_ZN7msdfgenL20readTransformationOpEPfRiRPKcS3_(ptr noundef %values.i, ptr noundef nonnull align 4 dereferenceable(4) %count.i, ptr noundef nonnull align 8 dereferenceable(8) %str.addr.i, ptr noundef nonnull @.str.26)
   br i1 %call8.i, label %land.lhs.true9.i, label %if.else19.i
 
 land.lhs.true9.i:                                 ; preds = %if.else.i
@@ -3117,7 +3117,7 @@ if.end.i:                                         ; preds = %if.then14.i, %if.th
   br label %if.end81.i
 
 if.else19.i:                                      ; preds = %land.lhs.true9.i, %if.else.i
-  %call21.i = call fastcc noundef zeroext i1 @_ZN7msdfgenL20readTransformationOpEPfRiRPKcS3_(ptr noundef nonnull %values.i, ptr noundef nonnull align 4 dereferenceable(4) %count.i, ptr noundef nonnull align 8 dereferenceable(8) %str.addr.i, ptr noundef nonnull @.str.27)
+  %call21.i = call fastcc noundef zeroext i1 @_ZN7msdfgenL20readTransformationOpEPfRiRPKcS3_(ptr noundef %values.i, ptr noundef nonnull align 4 dereferenceable(4) %count.i, ptr noundef nonnull align 8 dereferenceable(8) %str.addr.i, ptr noundef nonnull @.str.27)
   br i1 %call21.i, label %land.lhs.true22.i, label %if.else35.i
 
 land.lhs.true22.i:                                ; preds = %if.else19.i
@@ -3145,7 +3145,7 @@ if.end31.i:                                       ; preds = %if.then28.i, %if.th
   br label %if.end81.i
 
 if.else35.i:                                      ; preds = %land.lhs.true22.i, %if.else19.i
-  %call37.i = call fastcc noundef zeroext i1 @_ZN7msdfgenL20readTransformationOpEPfRiRPKcS3_(ptr noundef nonnull %values.i, ptr noundef nonnull align 4 dereferenceable(4) %count.i, ptr noundef nonnull align 8 dereferenceable(8) %str.addr.i, ptr noundef nonnull @.str.28)
+  %call37.i = call fastcc noundef zeroext i1 @_ZN7msdfgenL20readTransformationOpEPfRiRPKcS3_(ptr noundef %values.i, ptr noundef nonnull align 4 dereferenceable(4) %count.i, ptr noundef nonnull align 8 dereferenceable(8) %str.addr.i, ptr noundef nonnull @.str.28)
   br i1 %call37.i, label %land.lhs.true38.i, label %if.else53.i
 
 land.lhs.true38.i:                                ; preds = %if.else35.i
@@ -3168,7 +3168,7 @@ if.else49.i:                                      ; preds = %land.lhs.true38.i
   br label %if.end81.i
 
 if.else53.i:                                      ; preds = %land.lhs.true38.i, %if.else35.i
-  %call55.i = call fastcc noundef zeroext i1 @_ZN7msdfgenL20readTransformationOpEPfRiRPKcS3_(ptr noundef nonnull %values.i, ptr noundef nonnull align 4 dereferenceable(4) %count.i, ptr noundef nonnull align 8 dereferenceable(8) %str.addr.i, ptr noundef nonnull @.str.29)
+  %call55.i = call fastcc noundef zeroext i1 @_ZN7msdfgenL20readTransformationOpEPfRiRPKcS3_(ptr noundef %values.i, ptr noundef nonnull align 4 dereferenceable(4) %count.i, ptr noundef nonnull align 8 dereferenceable(8) %str.addr.i, ptr noundef nonnull @.str.29)
   %20 = load i32, ptr %count.i, align 4, !noalias !14
   %cmp57.i = icmp eq i32 %20, 1
   %or.cond4.i = select i1 %call55.i, i1 %cmp57.i, i1 false
@@ -3185,7 +3185,7 @@ if.then58.i:                                      ; preds = %if.else53.i
   br label %if.end81.i
 
 if.else63.i:                                      ; preds = %if.else53.i
-  %call65.i = call fastcc noundef zeroext i1 @_ZN7msdfgenL20readTransformationOpEPfRiRPKcS3_(ptr noundef nonnull %values.i, ptr noundef nonnull align 4 dereferenceable(4) %count.i, ptr noundef nonnull align 8 dereferenceable(8) %str.addr.i, ptr noundef nonnull @.str.30)
+  %call65.i = call fastcc noundef zeroext i1 @_ZN7msdfgenL20readTransformationOpEPfRiRPKcS3_(ptr noundef %values.i, ptr noundef nonnull align 4 dereferenceable(4) %count.i, ptr noundef nonnull align 8 dereferenceable(8) %str.addr.i, ptr noundef nonnull @.str.30)
   %22 = load i32, ptr %count.i, align 4, !noalias !14
   %cmp67.i = icmp eq i32 %22, 1
   %or.cond5.i = select i1 %call65.i, i1 %cmp67.i, i1 false
@@ -3443,7 +3443,7 @@ declare noundef nonnull align 8 dereferenceable(15) ptr @_ZN6SkPath5closeEv(ptr 
 declare noundef zeroext i1 @_Z2OpRK6SkPathS1_8SkPathOpPS_(ptr noundef nonnull align 8 dereferenceable(15), ptr noundef nonnull align 8 dereferenceable(15), i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL20readTransformationOpEPfRiRPKcS3_(ptr nocapture noundef writeonly %dst, ptr nocapture noundef nonnull align 4 dereferenceable(4) %count, ptr nocapture noundef nonnull align 8 dereferenceable(8) %str, ptr nocapture noundef readonly %name) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL20readTransformationOpEPfRiRPKcS3_(ptr nocapture noundef nonnull writeonly %dst, ptr nocapture noundef nonnull align 4 dereferenceable(4) %count, ptr nocapture noundef nonnull align 8 dereferenceable(8) %str, ptr nocapture noundef readonly %name) unnamed_addr #4 {
 entry:
   %end.i = alloca ptr, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #18

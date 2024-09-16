@@ -1162,7 +1162,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @io_init_bl_list(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @io_buffer_add_list(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @io_buffer_add_list(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = trunc i32 %2 to i16
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   store i16 %4, ptr %5, align 8
@@ -1175,7 +1175,7 @@ define internal fastcc i32 @io_buffer_add_list(ptr noundef %0, ptr noundef %1, i
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 272
   %10 = zext i32 %2 to i64
-  %11 = tail call ptr @xa_store(ptr noundef %9, i64 noundef %10, ptr noundef %1, i32 noundef 3264) #8
+  %11 = tail call ptr @xa_store(ptr noundef %9, i64 noundef %10, ptr noundef nonnull %1, i32 noundef 3264) #8
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 3
   %14 = icmp eq i64 %13, 2
@@ -1366,7 +1366,7 @@ define dso_local i32 @io_register_pbuf_ring(ptr noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @io_pin_pbuf_ring(i64 %.0.val, i32 %.8.val, ptr nocapture noundef writeonly %0) unnamed_addr #0 align 16 {
+define internal fastcc i32 @io_pin_pbuf_ring(i64 %.0.val, i32 %.8.val, ptr nocapture noundef nonnull writeonly %0) unnamed_addr #0 align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #8
   store i32 0, ptr %2, align 4, !annotation !22
@@ -1410,7 +1410,7 @@ define internal fastcc i32 @io_pin_pbuf_ring(i64 %.0.val, i32 %.8.val, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @io_alloc_pbuf_ring(ptr noundef %0, i32 %.8.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @io_alloc_pbuf_ring(ptr noundef %0, i32 %.8.val, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 align 16 {
   %3 = zext i32 %.8.val to i64
   %4 = shl nuw nsw i64 %3, 4
   %5 = getelementptr inbounds i8, ptr %0, i64 1056

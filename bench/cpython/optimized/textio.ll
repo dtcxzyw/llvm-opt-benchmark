@@ -4097,12 +4097,12 @@ _Py_NewRef.exit152.i:                             ; preds = %if.end.i.i151.i, %i
   %call.val.i.i = load ptr, ptr %79, align 8
   %state164.i = getelementptr inbounds i8, ptr %self, i64 192
   store ptr %call.val.i.i, ptr %state164.i, align 8
-  %call165.i = call fastcc i32 @_textiowrapper_set_decoder(ptr noundef nonnull %self, ptr noundef nonnull %call138.i, ptr noundef nonnull %call23.i)
+  %call165.i = call fastcc i32 @_textiowrapper_set_decoder(ptr noundef nonnull %self, ptr noundef %call138.i, ptr noundef %call23.i)
   %cmp166.not.i = icmp eq i32 %call165.i, 0
   br i1 %cmp166.not.i, label %if.end169.i, label %if.then.i163.i
 
 if.end169.i:                                      ; preds = %_Py_NewRef.exit152.i
-  %call170.i = call fastcc i32 @_textiowrapper_set_encoder(ptr noundef nonnull %self, ptr noundef nonnull %call138.i, ptr noundef nonnull %call23.i)
+  %call170.i = call fastcc i32 @_textiowrapper_set_encoder(ptr noundef nonnull %self, ptr noundef %call138.i, ptr noundef %call23.i)
   %cmp171.not.i = icmp eq i32 %call170.i, 0
   br i1 %cmp171.not.i, label %if.then180.i, label %if.then.i163.i
 
@@ -6040,7 +6040,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @textiowrapper_read_chunk(ptr nocapture noundef %self, i64 noundef %size_hint) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @textiowrapper_read_chunk(ptr nocapture noundef %self, i64 noundef range(i64 0, -9223372036854775808) %size_hint) unnamed_addr #0 {
 entry:
   %args.i = alloca [2 x ptr], align 16
   %self.addr.i = alloca ptr, align 8
@@ -6193,8 +6193,8 @@ if.then1.i117:                                    ; preds = %if.end.i114
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end.i114, %if.then1.i117, %Py_INCREF.exit, %if.end
-  %cmp25 = icmp sgt i64 %size_hint, 0
-  br i1 %cmp25, label %if.then26, label %if.end30
+  %cmp25.not = icmp eq i64 %size_hint, 0
+  br i1 %cmp25.not, label %if.end30, label %if.then26
 
 if.then26:                                        ; preds = %if.end24
   %b2cratio = getelementptr inbounds i8, ptr %self, i64 160
@@ -7048,12 +7048,12 @@ if.then1.i98.i.i:                                 ; preds = %if.end.i95.i.i
   br label %exit
 
 if.end33.i.i:                                     ; preds = %if.end29.i.i
-  %call34.i.i = call fastcc i32 @_textiowrapper_set_decoder(ptr noundef nonnull %self, ptr noundef nonnull %call30.i.i, ptr noundef nonnull %call26.i.i)
+  %call34.i.i = call fastcc i32 @_textiowrapper_set_decoder(ptr noundef nonnull %self, ptr noundef %call30.i.i, ptr noundef %call26.i.i)
   %cmp35.not.i.i = icmp eq i32 %call34.i.i, 0
   br i1 %cmp35.not.i.i, label %lor.lhs.false.i.i, label %if.then38.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end33.i.i
-  %call36.i.i = call fastcc i32 @_textiowrapper_set_encoder(ptr noundef nonnull %self, ptr noundef nonnull %call30.i.i, ptr noundef nonnull %call26.i.i)
+  %call36.i.i = call fastcc i32 @_textiowrapper_set_encoder(ptr noundef nonnull %self, ptr noundef %call30.i.i, ptr noundef %call26.i.i)
   %cmp37.not.i.i = icmp eq i32 %call36.i.i, 0
   br i1 %cmp37.not.i.i, label %if.end39.i.i, label %if.then38.i.i
 
@@ -9097,7 +9097,7 @@ if.end104.i:                                      ; preds = %if.end100.i
   br i1 %cmp106.i, label %if.then.i127.i, label %if.end108.i
 
 if.end108.i:                                      ; preds = %if.end104.i
-  %call109.i = call fastcc i32 @textiowrapper_parse_cookie(ptr noundef nonnull %cookie.i, ptr noundef nonnull %cookieObj.addr.1.i)
+  %call109.i = call fastcc i32 @textiowrapper_parse_cookie(ptr noundef %cookie.i, ptr noundef nonnull %cookieObj.addr.1.i)
   %cmp110.i = icmp slt i32 %call109.i, 0
   br i1 %cmp110.i, label %if.then.i127.i, label %if.end112.i
 
@@ -9526,7 +9526,7 @@ if.end61.i:                                       ; preds = %if.end55.i
   br i1 %cmp64.i, label %if.then65.i, label %if.end67.i
 
 if.then65.i:                                      ; preds = %if.end61.i
-  %call66.i = call fastcc ptr @textiowrapper_build_cookie(ptr noundef nonnull %cookie.i)
+  %call66.i = call fastcc ptr @textiowrapper_build_cookie(ptr noundef %cookie.i)
   br label %_io_TextIOWrapper_tell_impl.exit
 
 if.end67.i:                                       ; preds = %if.end61.i
@@ -10005,7 +10005,7 @@ if.then1.i252.i:                                  ; preds = %if.end.i249.i
 Py_DECREF.exit254.i:                              ; preds = %if.then1.i252.i, %if.end.i249.i, %if.end236.i
   %conv237.i = trunc i64 %chars_to_skip.1.i to i32
   store i32 %conv237.i, ptr %chars_to_skip143.i, align 8
-  %call239.i = call fastcc ptr @textiowrapper_build_cookie(ptr noundef nonnull %cookie.i)
+  %call239.i = call fastcc ptr @textiowrapper_build_cookie(ptr noundef %cookie.i)
   br label %_io_TextIOWrapper_tell_impl.exit
 
 if.then241.i:                                     ; preds = %do.body96.i, %do.body83.i, %while.body.i, %do.end165.i, %do.body155.i, %if.then228.i, %if.then216.i, %if.then1.i288.i, %if.end.i285.i, %if.then189.i, %if.then1.i297.i, %if.end.i294.i, %if.then184.i, %if.then1.i306.i, %if.end.i303.i, %if.then180.i, %if.then134.i, %if.then1.i333.i, %if.end.i330.i, %if.then115.i, %if.then1.i342.i, %if.end.i339.i, %if.then110.i, %if.then1.i351.i, %if.end.i348.i, %if.then106.i
@@ -10257,7 +10257,7 @@ declare ptr @_Py_GetLocaleEncodingObject() local_unnamed_addr #1
 declare ptr @_PyCodec_LookupTextEncoding(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_set_decoder(ptr nocapture noundef %self, ptr noundef %codec_info, ptr noundef %errors) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_set_decoder(ptr nocapture noundef %self, ptr noundef nonnull %codec_info, ptr noundef nonnull %errors) unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   %buffer = getelementptr inbounds i8, ptr %self, i64 32
@@ -10319,7 +10319,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then9, %if.then1.i, %if.end.i
-  %call11 = call ptr @_PyCodecInfo_GetIncrementalDecoder(ptr noundef %codec_info, ptr noundef %errors) #10
+  %call11 = call ptr @_PyCodecInfo_GetIncrementalDecoder(ptr noundef nonnull %codec_info, ptr noundef nonnull %errors) #10
   store ptr %call11, ptr %decoder, align 8
   %cmp14 = icmp eq ptr %call11, null
   br i1 %cmp14, label %return, label %if.end16
@@ -10371,7 +10371,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_set_encoder(ptr nocapture noundef %self, ptr noundef %codec_info, ptr noundef %errors) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_set_encoder(ptr nocapture noundef %self, ptr noundef nonnull %codec_info, ptr noundef nonnull %errors) unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   %res = alloca ptr, align 8
@@ -10437,13 +10437,13 @@ if.then1.i:                                       ; preds = %if.end.i
 do.end:                                           ; preds = %do.body, %if.then9, %if.then1.i, %if.end.i
   %encodefunc = getelementptr inbounds i8, ptr %self, i64 104
   store ptr null, ptr %encodefunc, align 8
-  %call11 = call ptr @_PyCodecInfo_GetIncrementalEncoder(ptr noundef %codec_info, ptr noundef %errors) #10
+  %call11 = call ptr @_PyCodecInfo_GetIncrementalEncoder(ptr noundef nonnull %codec_info, ptr noundef nonnull %errors) #10
   store ptr %call11, ptr %encoder, align 8
   %cmp14 = icmp eq ptr %call11, null
   br i1 %cmp14, label %return, label %if.end16
 
 if.end16:                                         ; preds = %do.end
-  %call17 = call i32 @PyObject_GetOptionalAttr(ptr noundef %codec_info, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52416), ptr noundef nonnull %res) #10
+  %call17 = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %codec_info, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52416), ptr noundef nonnull %res) #10
   %cmp18 = icmp slt i32 %call17, 0
   br i1 %cmp18, label %return, label %if.end20
 
@@ -10716,7 +10716,7 @@ declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 n
 declare i32 @_Py_convert_optional_to_ssize_t(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @textiowrapper_get_decoded_chars(ptr nocapture noundef %self, i64 noundef %n) unnamed_addr #0 {
+define internal fastcc ptr @textiowrapper_get_decoded_chars(ptr nocapture noundef %self, i64 noundef range(i64 -1, -9223372036854775808) %n) unnamed_addr #0 {
 entry:
   %decoded_chars = getelementptr inbounds i8, ptr %self, i64 120
   %0 = load ptr, ptr %decoded_chars, align 8
@@ -10780,7 +10780,7 @@ declare ptr @PyErr_GetRaisedException() local_unnamed_addr #1
 declare void @_PyErr_ChainExceptions1(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_encoder_reset(ptr nocapture noundef %self, i32 noundef %start_of_stream) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_encoder_reset(ptr nocapture noundef %self, i32 noundef range(i32 0, -2147483648) %start_of_stream) unnamed_addr #0 {
 entry:
   %args.i = alloca [2 x ptr], align 16
   %self.addr.i = alloca ptr, align 8
@@ -10835,7 +10835,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @textiowrapper_parse_cookie(ptr nocapture noundef writeonly %cookie, ptr noundef %cookieObj) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @textiowrapper_parse_cookie(ptr nocapture noundef nonnull writeonly %cookie, ptr noundef %cookieObj) unnamed_addr #0 {
 entry:
   %buffer = alloca [21 x i8], align 16
   %call = tail call ptr @PyNumber_Long(ptr noundef %cookieObj) #10
@@ -11025,7 +11025,7 @@ declare i32 @_PyLong_AsByteArray(ptr noundef, ptr noundef, i64 noundef, i32 noun
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @textiowrapper_build_cookie(ptr nocapture noundef readonly %cookie) unnamed_addr #0 {
+define internal fastcc ptr @textiowrapper_build_cookie(ptr nocapture noundef nonnull readonly %cookie) unnamed_addr #0 {
 entry:
   %buffer = alloca [21 x i8], align 16
   %0 = load i64, ptr %cookie, align 8

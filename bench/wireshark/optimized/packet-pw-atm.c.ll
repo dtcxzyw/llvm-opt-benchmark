@@ -644,7 +644,7 @@ proto_item_set_hidden.exit132:                    ; preds = %79, %76, %75, %73, 
   %135 = load ptr, ptr @dh_cell_header, align 8
   %136 = tail call i32 @call_dissector_with_data(ptr noundef %135, ptr noundef %134, ptr noundef %1, ptr noundef %16, ptr noundef nonnull %3) #6
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.139) #6
-  tail call fastcc void @proto_item_append_text_cwb3_fields(ptr noundef %10, ptr noundef nonnull %3)
+  tail call fastcc void @proto_item_append_text_cwb3_fields(ptr noundef %10, ptr noundef %3)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %130, %133, %11
@@ -1113,7 +1113,7 @@ pw_cell_header_size.exit268.thread275:            ; preds = %pw_cell_header_size
   br label %173
 
 173:                                              ; preds = %172, %169
-  tail call fastcc void @proto_item_append_text_cwb3_fields(ptr noundef %156, ptr noundef nonnull %3)
+  tail call fastcc void @proto_item_append_text_cwb3_fields(ptr noundef %156, ptr noundef %3)
   br label %174
 
 174:                                              ; preds = %173, %159
@@ -1495,7 +1495,7 @@ number_of_cells.exit:                             ; preds = %.thread91
   %.07196104 = phi i32 [ %.07197, %72 ], [ %.071, %69 ]
   %79 = load ptr, ptr %77, align 8
   tail call void @col_clear(ptr noundef %79, i32 noundef 25) #6
-  call fastcc void @col_append_pw_info(ptr noundef nonnull %1, i32 noundef %.07196104, i32 noundef %.073108, i32 noundef %.07294106, ptr noundef nonnull %5)
+  call fastcc void @col_append_pw_info(ptr noundef nonnull %1, i32 noundef %.07196104, i32 noundef %.073108, i32 noundef %.07294106, ptr noundef %5)
   %80 = load i32, ptr @proto_aal5_sdu, align 4
   %81 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %80, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
   %82 = load i32, ptr @ett_encaps, align 4
@@ -1544,7 +1544,7 @@ proto_item_set_generated.exit:                    ; preds = %76, %86, %89
   br i1 %104, label %105, label %106
 
 105:                                              ; preds = %98
-  call fastcc void @dissect_payload_and_padding(ptr noundef %102, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.07196104, i32 noundef %.07294106, ptr noundef nonnull %5)
+  call fastcc void @dissect_payload_and_padding(ptr noundef %102, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.07196104, i32 noundef %.07294106, ptr noundef %5)
   br label %134
 
 106:                                              ; preds = %98
@@ -1731,7 +1731,7 @@ number_of_cells.exit105:                          ; preds = %42
   tail call void @col_set_str(ptr noundef %53, i32 noundef 34, ptr noundef nonnull %.080) #6
   %54 = load ptr, ptr %52, align 8
   tail call void @col_clear(ptr noundef %54, i32 noundef 25) #6
-  call fastcc void @col_append_pw_info(ptr noundef %1, i32 noundef %.082, i32 noundef %.083, i32 noundef 0, ptr noundef nonnull %5)
+  call fastcc void @col_append_pw_info(ptr noundef %1, i32 noundef %.082, i32 noundef %.083, i32 noundef 0, ptr noundef %5)
   br label %55
 
 55:                                               ; preds = %51, %50
@@ -1846,7 +1846,7 @@ pw_cell_size.exit:                                ; preds = %87, %88, %89
   br i1 %or.cond15, label %101, label %102
 
 101:                                              ; preds = %94
-  call fastcc void @dissect_payload_and_padding(ptr noundef %98, ptr noundef %1, ptr noundef %2, i32 noundef %.082, i32 noundef 0, ptr noundef nonnull %5)
+  call fastcc void @dissect_payload_and_padding(ptr noundef %98, ptr noundef %1, ptr noundef %2, i32 noundef %.082, i32 noundef 0, ptr noundef %5)
   br label %125
 
 102:                                              ; preds = %94
@@ -1898,7 +1898,7 @@ pw_cell_size.exit:                                ; preds = %87, %88, %89
   call void @col_set_str(ptr noundef %130, i32 noundef 34, ptr noundef nonnull %.080) #6
   %131 = load ptr, ptr %129, align 8
   call void @col_clear(ptr noundef %131, i32 noundef 25) #6
-  call fastcc void @col_append_pw_info(ptr noundef %1, i32 noundef %.082, i32 noundef %.083, i32 noundef 0, ptr noundef nonnull %5)
+  call fastcc void @col_append_pw_info(ptr noundef %1, i32 noundef %.082, i32 noundef %.083, i32 noundef 0, ptr noundef %5)
   br label %132
 
 132:                                              ; preds = %125, %128
@@ -2108,13 +2108,13 @@ proto_item_set_generated.exit81:                  ; preds = %proto_item_set_gene
   %94 = load ptr, ptr @dh_control_word, align 8
   %95 = call i32 @call_dissector_with_data(ptr noundef %94, ptr noundef %93, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5) #6
   %96 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4) #6
-  call fastcc void @dissect_payload_and_padding(ptr noundef %96, ptr noundef %1, ptr noundef %2, i32 noundef %.064, i32 noundef 0, ptr noundef nonnull %5)
+  call fastcc void @dissect_payload_and_padding(ptr noundef %96, ptr noundef %1, ptr noundef %2, i32 noundef %.064, i32 noundef 0, ptr noundef %5)
   %97 = getelementptr inbounds i8, ptr %1, i64 8
   %98 = load ptr, ptr %97, align 8
   call void @col_set_str(ptr noundef %98, i32 noundef 34, ptr noundef nonnull @shortname_n1_cw) #6
   %99 = load ptr, ptr %97, align 8
   call void @col_clear(ptr noundef %99, i32 noundef 25) #6
-  call fastcc void @col_append_pw_info(ptr noundef %1, i32 noundef %.064, i32 noundef %56, i32 noundef 0, ptr noundef nonnull %5)
+  call fastcc void @col_append_pw_info(ptr noundef %1, i32 noundef %.064, i32 noundef %56, i32 noundef 0, ptr noundef %5)
   %100 = call i32 @tvb_captured_length(ptr noundef %0) #6
   br label %101
 
@@ -2214,13 +2214,13 @@ proto_item_set_generated.exit38:                  ; preds = %proto_item_set_gene
   br label %45
 
 45:                                               ; preds = %40, %43, %proto_item_set_generated.exit38
-  call fastcc void @dissect_payload_and_padding(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef 0, ptr noundef nonnull %5)
+  call fastcc void @dissect_payload_and_padding(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef 0, ptr noundef %5)
   %46 = getelementptr inbounds i8, ptr %1, i64 8
   %47 = load ptr, ptr %46, align 8
   call void @col_set_str(ptr noundef %47, i32 noundef 34, ptr noundef nonnull @shortname_n1_nocw) #6
   %48 = load ptr, ptr %46, align 8
   call void @col_clear(ptr noundef %48, i32 noundef 25) #6
-  call fastcc void @col_append_pw_info(ptr noundef %1, i32 noundef %7, i32 noundef %12, i32 noundef 0, ptr noundef nonnull %5)
+  call fastcc void @col_append_pw_info(ptr noundef %1, i32 noundef %7, i32 noundef %12, i32 noundef 0, ptr noundef %5)
   %49 = call i32 @tvb_captured_length(ptr noundef %0) #6
   ret i32 %49
 }
@@ -2279,7 +2279,7 @@ declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_item_append_text_cwb3_fields(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @proto_item_append_text_cwb3_fields(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %34, label %4
 
@@ -2405,7 +2405,7 @@ declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @col_append_pw_info(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @col_append_pw_info(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 -250, 2147483647) %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %4, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 1855
@@ -2531,7 +2531,7 @@ declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 n
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_payload_and_padding(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_payload_and_padding(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -250, 2147483647) %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca %struct.pw_atm_phdr, align 4
   store i32 0, ptr %5, align 4
   %8 = icmp sgt i32 %3, 0

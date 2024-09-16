@@ -397,7 +397,7 @@ declare i32 @tap_probe_vnet_hdr(i32 noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @close(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @net_tap_fd_init(ptr noundef %peer, ptr noundef %model, ptr noundef %name, i32 noundef %fd, i32 noundef %vnet_hdr) unnamed_addr #2 {
+define internal fastcc ptr @net_tap_fd_init(ptr noundef %peer, ptr noundef %model, ptr noundef %name, i32 noundef range(i32 0, -1) %fd, i32 noundef %vnet_hdr) unnamed_addr #2 {
 entry:
   %call = tail call ptr @qemu_new_net_client(ptr noundef nonnull @net_tap_info, ptr noundef %peer, ptr noundef %model, ptr noundef %name) #15
   %fd2 = getelementptr inbounds i8, ptr %call, i64 376
@@ -606,7 +606,7 @@ if.then51:                                        ; preds = %if.end48
   br label %return
 
 if.end53:                                         ; preds = %if.end48
-  call fastcc void @net_init_tap_one(ptr noundef nonnull %u, ptr noundef %peer, ptr noundef nonnull @.str.11, ptr noundef %name, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %13, i32 noundef %call49, i32 noundef %call39, ptr noundef nonnull %err)
+  call fastcc void @net_init_tap_one(ptr noundef nonnull %u, ptr noundef %peer, ptr noundef nonnull @.str.11, ptr noundef %name, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %13, i32 noundef %call49, i32 noundef %call39, ptr noundef %err)
   %22 = load ptr, ptr %err, align 8
   %tobool54.not = icmp eq ptr %22, null
   br i1 %tobool54.not, label %return, label %if.then55
@@ -735,7 +735,7 @@ cond.true123:                                     ; preds = %if.end120
 
 cond.end127:                                      ; preds = %if.end120, %cond.true123
   %cond128 = phi ptr [ %34, %cond.true123 ], [ null, %if.end120 ]
-  call fastcc void @net_init_tap_one(ptr noundef nonnull %u, ptr noundef %peer, ptr noundef nonnull @.str.11, ptr noundef %name, ptr noundef nonnull %ifname, ptr noundef null, ptr noundef null, ptr noundef %cond128, i32 noundef %32, i32 noundef %call100, ptr noundef nonnull %err)
+  call fastcc void @net_init_tap_one(ptr noundef nonnull %u, ptr noundef %peer, ptr noundef nonnull @.str.11, ptr noundef %name, ptr noundef nonnull %ifname, ptr noundef null, ptr noundef null, ptr noundef %cond128, i32 noundef %32, i32 noundef %call100, ptr noundef %err)
   %35 = load ptr, ptr %err, align 8
   %tobool129.not = icmp eq ptr %35, null
   br i1 %tobool129.not, label %for.cond, label %if.then130
@@ -847,7 +847,7 @@ if.then188:                                       ; preds = %if.end185
   br label %return
 
 if.end190:                                        ; preds = %if.end185
-  call fastcc void @net_init_tap_one(ptr noundef nonnull %u, ptr noundef %peer, ptr noundef nonnull @.str.5, ptr noundef %name, ptr noundef nonnull %ifname, ptr noundef null, ptr noundef null, ptr noundef %13, i32 noundef %call186, i32 noundef %call177, ptr noundef nonnull %err)
+  call fastcc void @net_init_tap_one(ptr noundef nonnull %u, ptr noundef %peer, ptr noundef nonnull @.str.5, ptr noundef %name, ptr noundef nonnull %ifname, ptr noundef null, ptr noundef null, ptr noundef %13, i32 noundef %call186, i32 noundef %call177, ptr noundef %err)
   %44 = load ptr, ptr %err, align 8
   %tobool192.not = icmp eq ptr %44, null
   br i1 %tobool192.not, label %return, label %if.then193
@@ -977,7 +977,7 @@ land.lhs.true16.tail.i:                           ; preds = %sub_1.i
   br i1 %56, label %if.end231, label %if.then20.i
 
 if.then20.i:                                      ; preds = %land.lhs.true16.tail.i, %sub_1.i, %land.lhs.true.i
-  call fastcc void @launch_script(ptr noundef nonnull %cond224, ptr noundef nonnull %ifname, i32 noundef %call.i, ptr noundef nonnull %err.i)
+  call fastcc void @launch_script(ptr noundef nonnull %cond224, ptr noundef nonnull %ifname, i32 noundef %call.i, ptr noundef %err.i)
   %57 = load ptr, ptr %err.i, align 8
   %tobool21.not.i = icmp eq ptr %57, null
   br i1 %tobool21.not.i, label %if.end231, label %if.then22.i
@@ -1015,7 +1015,7 @@ if.then244:                                       ; preds = %if.then240
 if.end247:                                        ; preds = %if.then240, %land.lhs.true237, %if.end231
   %cond260 = select i1 %cmp220.not, ptr %downscript.0, ptr @.str.19
   %59 = load i32, ptr %vnet_hdr, align 4
-  call fastcc void @net_init_tap_one(ptr noundef nonnull %u, ptr noundef %peer, ptr noundef nonnull @.str.11, ptr noundef %name, ptr noundef nonnull %ifname, ptr noundef %cond224, ptr noundef %cond260, ptr noundef %13, i32 noundef %59, i32 noundef %call.i, ptr noundef nonnull %err)
+  call fastcc void @net_init_tap_one(ptr noundef nonnull %u, ptr noundef %peer, ptr noundef nonnull @.str.11, ptr noundef %name, ptr noundef nonnull %ifname, ptr noundef %cond224, ptr noundef %cond260, ptr noundef %13, i32 noundef %59, i32 noundef %call.i, ptr noundef %err)
   %60 = load ptr, ptr %err, align 8
   %tobool261.not = icmp eq ptr %60, null
   br i1 %tobool261.not, label %for.cond217, label %if.then262
@@ -1049,7 +1049,7 @@ declare i32 @monitor_fd_param(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare ptr @monitor_cur() local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @net_init_tap_one(ptr noundef %tap, ptr noundef %peer, ptr noundef %model, ptr noundef %name, ptr noundef %ifname, ptr noundef %script, ptr noundef %downscript, ptr noundef %vhostfdname, i32 noundef %vnet_hdr, i32 noundef %fd, ptr noundef %errp) unnamed_addr #2 {
+define internal fastcc void @net_init_tap_one(ptr noundef %tap, ptr noundef %peer, ptr noundef %model, ptr noundef %name, ptr noundef %ifname, ptr noundef %script, ptr noundef %downscript, ptr noundef %vhostfdname, i32 noundef %vnet_hdr, i32 noundef range(i32 0, -1) %fd, ptr noundef nonnull %errp) unnamed_addr #2 {
 entry:
   %err = alloca ptr, align 8
   %options = alloca %struct.VhostNetOptions, align 8
@@ -1063,7 +1063,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %1) #15
+  call void @error_propagate(ptr noundef nonnull %errp, ptr noundef nonnull %1) #15
   br label %failed
 
 if.end:                                           ; preds = %entry
@@ -1186,7 +1186,7 @@ land.lhs.true41:                                  ; preds = %if.then38
 
 if.then44:                                        ; preds = %land.lhs.true41
   %20 = load ptr, ptr %err, align 8
-  call void @error_propagate(ptr noundef %errp, ptr noundef %20) #15
+  call void @error_propagate(ptr noundef nonnull %errp, ptr noundef %20) #15
   br label %failed
 
 if.else45:                                        ; preds = %land.lhs.true41, %if.then38
@@ -1202,7 +1202,7 @@ if.end47:                                         ; preds = %if.then34
 if.then50:                                        ; preds = %if.end47
   %call51 = tail call ptr @__errno_location() #17
   %22 = load i32, ptr %call51, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 755, ptr noundef nonnull @__func__.net_init_tap_one, i32 noundef %22, ptr noundef nonnull @.str.10, ptr noundef %name, i32 noundef %fd) #15
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.1, i32 noundef 755, ptr noundef nonnull @__func__.net_init_tap_one, i32 noundef %22, ptr noundef nonnull @.str.10, ptr noundef %name, i32 noundef %fd) #15
   br label %failed
 
 if.else53:                                        ; preds = %if.end32
@@ -1225,7 +1225,7 @@ land.lhs.true59:                                  ; preds = %if.then56
 if.then62:                                        ; preds = %land.lhs.true59
   %call63 = tail call ptr @__errno_location() #17
   %25 = load i32, ptr %call63, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 763, ptr noundef nonnull @__func__.net_init_tap_one, i32 noundef %25, ptr noundef nonnull @.str.45) #15
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.1, i32 noundef 763, ptr noundef nonnull @__func__.net_init_tap_one, i32 noundef %25, ptr noundef nonnull @.str.45) #15
   br label %failed
 
 if.else64:                                        ; preds = %land.lhs.true59, %if.then56
@@ -1243,7 +1243,7 @@ if.end68:                                         ; preds = %if.else53
 if.then71:                                        ; preds = %if.end68
   %call72 = tail call ptr @__errno_location() #17
   %27 = load i32, ptr %call72, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 771, ptr noundef nonnull @__func__.net_init_tap_one, i32 noundef %27, ptr noundef nonnull @.str.4) #15
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.1, i32 noundef 771, ptr noundef nonnull @__func__.net_init_tap_one, i32 noundef %27, ptr noundef nonnull @.str.4) #15
   br label %failed
 
 if.end74:                                         ; preds = %if.end68, %if.end47
@@ -1273,7 +1273,7 @@ land.lhs.true82:                                  ; preds = %if.then78
   br i1 %tobool84, label %if.then86, label %if.else87
 
 if.then86:                                        ; preds = %land.lhs.true82
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 781, ptr noundef nonnull @__func__.net_init_tap_one, ptr noundef nonnull @.str.47) #15
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.1, i32 noundef 781, ptr noundef nonnull @__func__.net_init_tap_one, ptr noundef nonnull @.str.47) #15
   br label %failed
 
 if.else87:                                        ; preds = %land.lhs.true82, %if.then78
@@ -1285,7 +1285,7 @@ if.else90:                                        ; preds = %cond.true
   br i1 %tobool91.not, label %return, label %if.then92
 
 if.then92:                                        ; preds = %if.else90
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 788, ptr noundef nonnull @__func__.net_init_tap_one, ptr noundef nonnull @.str.48) #15
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.1, i32 noundef 788, ptr noundef nonnull @__func__.net_init_tap_one, ptr noundef nonnull @.str.48) #15
   br label %failed
 
 failed:                                           ; preds = %if.then86, %if.else87, %if.then62, %if.else64, %if.then44, %if.else45, %if.then92, %if.then71, %if.then50, %if.then
@@ -1520,7 +1520,7 @@ if.then:                                          ; preds = %entry
   %down_script_arg = getelementptr i8, ptr %notifier, i64 -69788
   %fd = getelementptr i8, ptr %notifier, i64 -70816
   %1 = load i32, ptr %fd, align 8
-  call fastcc void @launch_script(ptr noundef nonnull %down_script, ptr noundef %down_script_arg, i32 noundef %1, ptr noundef nonnull %err)
+  call fastcc void @launch_script(ptr noundef nonnull %down_script, ptr noundef %down_script_arg, i32 noundef %1, ptr noundef %err)
   %2 = load ptr, ptr %err, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.end5, label %if.then4
@@ -1813,7 +1813,7 @@ if.then.i:                                        ; preds = %if.end
   %down_script_arg.i = getelementptr i8, ptr %nc, i64 1404
   %fd.i = getelementptr i8, ptr %nc, i64 376
   %3 = load i32, ptr %fd.i, align 8
-  call fastcc void @launch_script(ptr noundef nonnull %down_script.i, ptr noundef %down_script_arg.i, i32 noundef %3, ptr noundef nonnull %err.i)
+  call fastcc void @launch_script(ptr noundef nonnull %down_script.i, ptr noundef %down_script_arg.i, i32 noundef %3, ptr noundef %err.i)
   %4 = load ptr, ptr %err.i, align 8
   %tobool3.not.i = icmp eq ptr %4, null
   br i1 %tobool3.not.i, label %tap_exit_notify.exit, label %if.then4.i
@@ -2147,7 +2147,7 @@ declare i32 @tap_fd_set_steering_ebpf(i32 noundef, i32 noundef) local_unnamed_ad
 declare void @tap_fd_set_offload(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @launch_script(ptr noundef %setup_script, ptr noundef %ifname, i32 noundef %fd, ptr noundef %errp) unnamed_addr #2 {
+define internal fastcc void @launch_script(ptr noundef %setup_script, ptr noundef %ifname, i32 noundef %fd, ptr noundef nonnull %errp) unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   %args = alloca [3 x ptr], align 16
@@ -2158,7 +2158,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call1 = tail call ptr @__errno_location() #17
   %0 = load i32, ptr %call1, align 4
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 458, ptr noundef nonnull @__func__.launch_script, i32 noundef %0, ptr noundef nonnull @.str.38, ptr noundef %setup_script) #15
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.1, i32 noundef 458, ptr noundef nonnull @__func__.launch_script, i32 noundef %0, ptr noundef nonnull @.str.38, ptr noundef %setup_script) #15
   br label %if.end25
 
 if.end:                                           ; preds = %entry
@@ -2207,7 +2207,7 @@ while.end:                                        ; preds = %while.cond
   br i1 %or.cond, label %if.end25, label %if.end24
 
 if.end24:                                         ; preds = %while.end
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 484, ptr noundef nonnull @__func__.launch_script, ptr noundef nonnull @.str.39, ptr noundef %setup_script, i32 noundef %1) #15
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.1, i32 noundef 484, ptr noundef nonnull @__func__.launch_script, ptr noundef nonnull @.str.39, ptr noundef %setup_script, i32 noundef %1) #15
   br label %if.end25
 
 if.end25:                                         ; preds = %while.end, %if.end24, %if.then

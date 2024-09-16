@@ -54,7 +54,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %call4 = tail call fastcc ptr @get_genm_itav(ptr noundef %ctx, ptr noundef nonnull %call, i32 noundef 1223, ptr noundef nonnull @.str.1)
+  %call4 = tail call fastcc ptr @get_genm_itav(ptr noundef %ctx, ptr noundef %call, i32 noundef 1223, ptr noundef nonnull @.str.1)
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %return, label %if.end7
 
@@ -167,7 +167,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare ptr @OSSL_CMP_ITAV_new_caCerts(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @get_genm_itav(ptr noundef %ctx, ptr noundef %req, i32 noundef %expected, ptr noundef %desc) unnamed_addr #0 {
+define internal fastcc noundef ptr @get_genm_itav(ptr noundef %ctx, ptr noundef nonnull %req, i32 noundef range(i32 1223, 1225) %expected, ptr noundef %desc) unnamed_addr #0 {
 entry:
   %name = alloca [128 x i8], align 16
   %cmp = icmp eq ptr %ctx, null
@@ -191,7 +191,7 @@ if.then2:                                         ; preds = %if.end
   br label %err
 
 if.end3:                                          ; preds = %if.end
-  %call4 = tail call i32 @OSSL_CMP_CTX_push0_genm_ITAV(ptr noundef nonnull %ctx, ptr noundef %req) #4
+  %call4 = tail call i32 @OSSL_CMP_CTX_push0_genm_ITAV(ptr noundef nonnull %ctx, ptr noundef nonnull %req) #4
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %err, label %if.end6
 
@@ -335,7 +335,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %call4 = tail call fastcc ptr @get_genm_itav(ptr noundef %ctx, ptr noundef nonnull %call, i32 noundef 1224, ptr noundef nonnull @.str.3)
+  %call4 = tail call fastcc ptr @get_genm_itav(ptr noundef %ctx, ptr noundef %call, i32 noundef 1224, ptr noundef nonnull @.str.3)
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %return, label %if.end7
 

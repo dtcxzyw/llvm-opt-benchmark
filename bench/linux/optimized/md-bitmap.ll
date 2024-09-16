@@ -945,7 +945,7 @@ define dso_local void @md_bitmap_unplug(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @md_bitmap_wait_writes(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @md_bitmap_wait_writes(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.wait_queue_entry, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
@@ -1574,7 +1574,7 @@ define dso_local void @md_bitmap_daemon_work(ptr noundef %0) local_unnamed_addr 
   br i1 %298, label %.loopexit, label %280, !llvm.loop !20
 
 299:                                              ; preds = %265
-  tail call fastcc void @write_sb_page(ptr noundef %4, i64 noundef %266, ptr noundef %248, i1 noundef zeroext false)
+  tail call fastcc void @write_sb_page(ptr noundef nonnull %4, i64 noundef %266, ptr noundef %248, i1 noundef zeroext false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %295, %280, %299, %274, %238, %235
@@ -2743,7 +2743,7 @@ define dso_local void @md_bitmap_dirty_bits(ptr noundef %0, i64 noundef %1, i64 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @md_bitmap_set_memory_bits(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @md_bitmap_set_memory_bits(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
   tail call void @_raw_spin_lock_irq(ptr noundef %0) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
@@ -5649,7 +5649,7 @@ declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_
 declare dso_local i32 @seq_file_path(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @md_bitmap_checkpage(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @md_bitmap_checkpage(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp ugt i64 %5, %1
@@ -5964,7 +5964,7 @@ declare dso_local ptr @kernfs_find_and_get_ns(ptr noundef, ptr noundef, ptr noun
 declare dso_local ptr @alloc_pages(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @read_file_page(ptr %.168.val, i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @read_file_page(ptr %.168.val, i64 noundef %0, ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19

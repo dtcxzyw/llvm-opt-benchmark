@@ -857,7 +857,7 @@ if.end9.thread:                                   ; preds = %if.end, %lor.lhs.fa
   br label %return.sink.split
 
 if.then12:                                        ; preds = %lor.lhs.false
-  %call13 = call fastcc i32 @execute_HDR_init_test(ptr noundef nonnull %call)
+  %call13 = call fastcc i32 @execute_HDR_init_test(ptr noundef %call)
   %hdr.i7 = getelementptr inbounds i8, ptr %call, i64 24
   %2 = load ptr, ptr %hdr.i7, align 8
   call void @OSSL_CMP_PKIHEADER_free(ptr noundef %2) #8
@@ -922,7 +922,7 @@ if.end14.thread:                                  ; preds = %if.end, %lor.lhs.fa
 
 if.then17:                                        ; preds = %lor.lhs.false7
   tail call void @X509_NAME_free(ptr noundef %call1) #8
-  %call18 = tail call fastcc i32 @execute_HDR_init_test(ptr noundef nonnull %call)
+  %call18 = tail call fastcc i32 @execute_HDR_init_test(ptr noundef %call)
   %hdr.i9 = getelementptr inbounds i8, ptr %call, i64 24
   %3 = load ptr, ptr %hdr.i9, align 8
   tail call void @OSSL_CMP_PKIHEADER_free(ptr noundef %3) #8
@@ -1105,7 +1105,7 @@ declare i32 @ossl_cmp_hdr_set_implicitConfirm(ptr noundef) local_unnamed_addr #2
 declare i32 @OSSL_CMP_CTX_set1_referenceValue(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @execute_HDR_init_test(ptr nocapture noundef readonly %fixture) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @execute_HDR_init_test(ptr nocapture noundef nonnull readonly %fixture) unnamed_addr #1 {
 entry:
   %expected = getelementptr inbounds i8, ptr %fixture, i64 8
   %0 = load i32, ptr %expected, align 8

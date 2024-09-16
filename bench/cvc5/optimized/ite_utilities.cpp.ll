@@ -6477,7 +6477,7 @@ invoke.cont94:                                    ; preds = %.noexc202, %if.then
   %stack.sroa.9.5 = phi ptr [ %incdec.ptr.i283, %.noexc202 ], [ %incdec.ptr.i.i200, %if.then.i.i197 ]
   %stack.sroa.0.7 = phi ptr [ %cond.i19.i268, %.noexc202 ], [ %stack.sroa.0.0387, %if.then.i.i197 ]
   store ptr %child.sroa.0.0, ptr %agg.tmp97, align 8
-  %call101 = invoke fastcc noundef zeroext i1 @_ZN4cvc58internal13preprocessing4util3iteL9isTermITEENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %agg.tmp97)
+  %call101 = invoke fastcc noundef zeroext i1 @_ZN4cvc58internal13preprocessing4util3iteL9isTermITEENS0_12NodeTemplateILb0EEE(ptr noundef %agg.tmp97)
           to label %invoke.cont100 unwind label %lpad99
 
 invoke.cont100:                                   ; preds = %invoke.cont94
@@ -6671,7 +6671,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4cvc58internal13preprocessing4util3iteL9isTermITEENS0_12NodeTemplateILb0EEE(ptr noundef %e) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4cvc58internal13preprocessing4util3iteL9isTermITEENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %e) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::TypeNode", align 8
   %0 = load ptr, ptr %e, align 8
@@ -14413,7 +14413,7 @@ invoke.cont32:                                    ; preds = %while.body
 if.then34:                                        ; preds = %invoke.cont32
   %28 = load i32, ptr %maxChildHeight, align 4
   store ptr %26, ptr %agg.tmp36, align 8
-  %call40 = invoke fastcc noundef zeroext i1 @_ZN4cvc58internal13preprocessing4util3iteL9isTermITEENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %agg.tmp36)
+  %call40 = invoke fastcc noundef zeroext i1 @_ZN4cvc58internal13preprocessing4util3iteL9isTermITEENS0_12NodeTemplateILb0EEE(ptr noundef %agg.tmp36)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %if.then34
@@ -16777,7 +16777,7 @@ entry:
 if.else:                                          ; preds = %entry
   %0 = load ptr, ptr %e, align 8
   store ptr %0, ptr %agg.tmp, align 8
-  %call2 = call fastcc noundef zeroext i1 @_ZN4cvc58internal13preprocessing4util3iteL9isTermITEENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %agg.tmp)
+  %call2 = call fastcc noundef zeroext i1 @_ZN4cvc58internal13preprocessing4util3iteL9isTermITEENS0_12NodeTemplateILb0EEE(ptr noundef %agg.tmp)
   br i1 %call2, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.else
@@ -21498,7 +21498,7 @@ land.lhs.true324:                                 ; preds = %land.lhs.true321
   %arrayidx.i.i754 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i752, i64 0, i64 %idxprom.i.i753
   %147 = load ptr, ptr %arrayidx.i.i754, align 8, !noalias !372
   store ptr %147, ptr %agg.tmp325, align 8, !alias.scope !372
-  %call329 = call fastcc noundef zeroext i1 @_ZN4cvc58internal13preprocessing4util3iteL9isTermITEENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %agg.tmp325)
+  %call329 = call fastcc noundef zeroext i1 @_ZN4cvc58internal13preprocessing4util3iteL9isTermITEENS0_12NodeTemplateILb0EEE(ptr noundef %agg.tmp325)
   br i1 %call329, label %land.lhs.true330, label %if.end724
 
 land.lhs.true330:                                 ; preds = %land.lhs.true324
@@ -21608,7 +21608,7 @@ land.lhs.true370:                                 ; preds = %land.lhs.true357
   %arrayidx.i.i850 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i848, i64 0, i64 %spec.select.i.i847
   %157 = load ptr, ptr %arrayidx.i.i850, align 8, !noalias !387
   store ptr %157, ptr %agg.tmp371, align 8, !alias.scope !387
-  %call380 = call fastcc noundef zeroext i1 @_ZN4cvc58internal13preprocessing4util3iteL9isTermITEENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %agg.tmp371)
+  %call380 = call fastcc noundef zeroext i1 @_ZN4cvc58internal13preprocessing4util3iteL9isTermITEENS0_12NodeTemplateILb0EEE(ptr noundef %agg.tmp371)
   br i1 %call380, label %land.lhs.true381, label %if.end724
 
 land.lhs.true381:                                 ; preds = %land.lhs.true370
@@ -23969,7 +23969,7 @@ invoke.cont5.thread:                              ; preds = %if.then
 if.else.i:                                        ; preds = %if.then
   %4 = load ptr, ptr %agg.tmp, align 8
   store ptr %4, ptr %agg.tmp.i, align 8
-  %call2.i19 = call fastcc noundef zeroext i1 @_ZN4cvc58internal13preprocessing4util3iteL9isTermITEENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %agg.tmp.i)
+  %call2.i19 = call fastcc noundef zeroext i1 @_ZN4cvc58internal13preprocessing4util3iteL9isTermITEENS0_12NodeTemplateILb0EEE(ptr noundef %agg.tmp.i)
   br i1 %call2.i19, label %if.then3.i, label %invoke.cont5.thread39
 
 invoke.cont5.thread39:                            ; preds = %if.else.i
@@ -24001,7 +24001,7 @@ cleanup.done.thread42:                            ; preds = %land.rhs
 if.else.i23:                                      ; preds = %land.rhs
   %6 = load ptr, ptr %agg.tmp7, align 8
   store ptr %6, ptr %agg.tmp.i21, align 8
-  %call2.i30 = call fastcc noundef zeroext i1 @_ZN4cvc58internal13preprocessing4util3iteL9isTermITEENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %agg.tmp.i21)
+  %call2.i30 = call fastcc noundef zeroext i1 @_ZN4cvc58internal13preprocessing4util3iteL9isTermITEENS0_12NodeTemplateILb0EEE(ptr noundef %agg.tmp.i21)
   br i1 %call2.i30, label %if.then3.i25, label %cleanup.done.thread45
 
 cleanup.done.thread45:                            ; preds = %if.else.i23
@@ -25632,7 +25632,7 @@ invoke.cont11.thread:                             ; preds = %land.lhs.true8
 if.else.i:                                        ; preds = %land.lhs.true8
   %5 = load ptr, ptr %agg.tmp, align 8
   store ptr %5, ptr %agg.tmp.i, align 8
-  %call2.i28 = call fastcc noundef zeroext i1 @_ZN4cvc58internal13preprocessing4util3iteL9isTermITEENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %agg.tmp.i)
+  %call2.i28 = call fastcc noundef zeroext i1 @_ZN4cvc58internal13preprocessing4util3iteL9isTermITEENS0_12NodeTemplateILb0EEE(ptr noundef %agg.tmp.i)
   br i1 %call2.i28, label %if.then3.i, label %invoke.cont11.thread177
 
 invoke.cont11.thread177:                          ; preds = %if.else.i
@@ -25671,7 +25671,7 @@ land.rhs:                                         ; preds = %land.lhs.true15
 if.else.i36:                                      ; preds = %land.rhs
   %8 = load ptr, ptr %agg.tmp19, align 8
   store ptr %8, ptr %agg.tmp.i34, align 8
-  %call2.i43 = call fastcc noundef zeroext i1 @_ZN4cvc58internal13preprocessing4util3iteL9isTermITEENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %agg.tmp.i34)
+  %call2.i43 = call fastcc noundef zeroext i1 @_ZN4cvc58internal13preprocessing4util3iteL9isTermITEENS0_12NodeTemplateILb0EEE(ptr noundef %agg.tmp.i34)
   br i1 %call2.i43, label %if.then3.i38, label %if.end110.critedge
 
 if.then3.i38:                                     ; preds = %if.else.i36

@@ -416,8 +416,8 @@ if.then87:                                        ; preds = %if.end82
 
 if.end88:                                         ; preds = %if.end82.thread, %if.then87, %if.end82
   %add.ptr89 = getelementptr i8, ptr %add.ptr, i64 2
-  %cmp4.i.not = icmp eq i64 %add, 0
-  br i1 %cmp4.i.not, label %acpi_checksum.exit, label %for.body.i
+  %cmp4.not.i = icmp eq i64 %add, 0
+  br i1 %cmp4.not.i, label %acpi_checksum.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end88, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %if.end88 ]

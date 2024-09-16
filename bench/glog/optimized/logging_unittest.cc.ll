@@ -10892,7 +10892,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr null, ptr %37, align 8
   store i32 0, ptr %42, align 4
   store i32 0, ptr %43, align 4
-  call fastcc void @"_ZN6google7logging8internal12Check_GEImplI3$_2S3_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EERKT_RKT0_PKc"(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull align 4 dereferenceable(4) %42, ptr noundef nonnull align 4 dereferenceable(4) %43, ptr noundef nonnull @.str.359)
+  call fastcc void @"_ZN6google7logging8internal12Check_GEImplI3$_2S3_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EERKT_RKT0_PKc"(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 4 dereferenceable(4) %42, ptr noundef nonnull align 4 dereferenceable(4) %43, ptr noundef nonnull @.str.359)
   %131 = load i64, ptr %41, align 8
   store i64 %131, ptr %40, align 8
   store ptr null, ptr %41, align 8
@@ -10928,7 +10928,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr null, ptr %40, align 8
   store i32 1, ptr %47, align 4
   store i32 0, ptr %48, align 4
-  call fastcc void @"_ZN6google7logging8internal12Check_GEImplI3$_2S3_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EERKT_RKT0_PKc"(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef nonnull align 4 dereferenceable(4) %47, ptr noundef nonnull align 4 dereferenceable(4) %48, ptr noundef nonnull @.str.360)
+  call fastcc void @"_ZN6google7logging8internal12Check_GEImplI3$_2S3_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EERKT_RKT0_PKc"(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef nonnull align 4 dereferenceable(4) %47, ptr noundef nonnull align 4 dereferenceable(4) %48, ptr noundef nonnull @.str.360)
   %141 = load i64, ptr %46, align 8
   store i64 %141, ptr %45, align 8
   store ptr null, ptr %46, align 8
@@ -10964,7 +10964,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr null, ptr %45, align 8
   store i32 0, ptr %52, align 4
   store i32 0, ptr %53, align 4
-  call fastcc void @"_ZN6google7logging8internal12Check_LEImplI3$_2S3_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EERKT_RKT0_PKc"(ptr dead_on_unwind noalias nonnull writable align 8 %51, ptr noundef nonnull align 4 dereferenceable(4) %52, ptr noundef nonnull align 4 dereferenceable(4) %53, ptr noundef nonnull @.str.361)
+  call fastcc void @"_ZN6google7logging8internal12Check_LEImplI3$_2S3_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EERKT_RKT0_PKc"(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef nonnull align 4 dereferenceable(4) %52, ptr noundef nonnull align 4 dereferenceable(4) %53, ptr noundef nonnull @.str.361)
   %151 = load i64, ptr %51, align 8
   store i64 %151, ptr %50, align 8
   store ptr null, ptr %51, align 8
@@ -11000,7 +11000,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr null, ptr %50, align 8
   store i32 0, ptr %57, align 4
   store i32 1, ptr %58, align 4
-  call fastcc void @"_ZN6google7logging8internal12Check_LEImplI3$_2S3_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EERKT_RKT0_PKc"(ptr dead_on_unwind noalias nonnull writable align 8 %56, ptr noundef nonnull align 4 dereferenceable(4) %57, ptr noundef nonnull align 4 dereferenceable(4) %58, ptr noundef nonnull @.str.362)
+  call fastcc void @"_ZN6google7logging8internal12Check_LEImplI3$_2S3_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EERKT_RKT0_PKc"(ptr dead_on_unwind noalias writable align 8 %56, ptr noundef nonnull align 4 dereferenceable(4) %57, ptr noundef nonnull align 4 dereferenceable(4) %58, ptr noundef nonnull @.str.362)
   %161 = load i64, ptr %56, align 8
   store i64 %161, ptr %55, align 8
   store ptr null, ptr %56, align 8
@@ -12944,7 +12944,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %.body17
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit19: ; preds = %.noexc16
-  invoke fastcc void @_ZL8GetFilesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS4_SaIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %6)
+  invoke fastcc void @_ZL8GetFilesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS4_SaIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %6)
           to label %42 unwind label %66
 
 42:                                               ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit19
@@ -24821,8 +24821,8 @@ _ZNSt3mapIiSt10unique_ptrIN6google14CapturedStreamESt14default_deleteIS2_EESt4le
 .critedge33:                                      ; preds = %.critedge, %27
   tail call void @_ZN6google14CapturedStream11StopCaptureEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   %47 = getelementptr inbounds i8, ptr %1, i64 8
-  call fastcc void @_ZN6googleL5MungeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %47)
-  invoke fastcc void @_ZN6googleL5MungeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  call fastcc void @_ZN6googleL5MungeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %47)
+  invoke fastcc void @_ZN6googleL5MungeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %48 unwind label %90
 
 48:                                               ; preds = %.critedge33
@@ -25038,7 +25038,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN6googleL5MungeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6googleL5MungeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::LogMessageFatal", align 8
   %4 = alloca [4096 x i8], align 16
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25130,7 +25130,7 @@ define internal fastcc void @_ZN6googleL5MungeERKNSt7__cxx1112basic_stringIcSt11
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc52
-  invoke fastcc void @_ZN6googleL9MungeLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke fastcc void @_ZN6googleL9MungeLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %53 unwind label %129
 
 53:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -25733,7 +25733,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6googleL9MungeLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6googleL9MungeLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -26134,7 +26134,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_.exi
 
 154:                                              ; preds = %152
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %153) #39
-  invoke fastcc void @_ZN6googleL9MungeLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(32) %27)
+  invoke fastcc void @_ZN6googleL9MungeLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(32) %27)
           to label %155 unwind label %176
 
 155:                                              ; preds = %154
@@ -26911,7 +26911,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #17
 declare void @_ZN6google7LogSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @"_ZN6google7logging8internal12Check_GEImplI3$_2S3_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EERKT_RKT0_PKc"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr noundef %3) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN6google7logging8internal12Check_GEImplI3$_2S3_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EERKT_RKT0_PKc"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr noundef %3) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.google::logging::internal::CheckOpMessageBuilder", align 8
   %6 = load i32, ptr %1, align 4
   %7 = load i32, ptr %2, align 4
@@ -26940,7 +26940,7 @@ define internal fastcc void @"_ZN6google7logging8internal12Check_GEImplI3$_2S3_E
           to label %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit5.i" unwind label %15, !noalias !310
 
 "_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit5.i": ; preds = %13
-  invoke void @_ZN6google7logging8internal21CheckOpMessageBuilder9NewStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  invoke void @_ZN6google7logging8internal21CheckOpMessageBuilder9NewStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %"_ZN6google7logging8internal17MakeCheckOpStringI3$_2S3_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EERKT_RKT0_PKc.exit" unwind label %15
 
 15:                                               ; preds = %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit5.i", %13, %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit.i", %9
@@ -26959,7 +26959,7 @@ define internal fastcc void @"_ZN6google7logging8internal12Check_GEImplI3$_2S3_E
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @"_ZN6google7logging8internal12Check_LEImplI3$_2S3_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EERKT_RKT0_PKc"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr noundef %3) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN6google7logging8internal12Check_LEImplI3$_2S3_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EERKT_RKT0_PKc"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr noundef %3) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.google::logging::internal::CheckOpMessageBuilder", align 8
   %6 = load i32, ptr %1, align 4
   %7 = load i32, ptr %2, align 4
@@ -26988,7 +26988,7 @@ define internal fastcc void @"_ZN6google7logging8internal12Check_LEImplI3$_2S3_E
           to label %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit5.i" unwind label %15, !noalias !313
 
 "_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit5.i": ; preds = %13
-  invoke void @_ZN6google7logging8internal21CheckOpMessageBuilder9NewStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  invoke void @_ZN6google7logging8internal21CheckOpMessageBuilder9NewStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %"_ZN6google7logging8internal17MakeCheckOpStringI3$_2S3_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISA_EERKT_RKT0_PKc.exit" unwind label %15
 
 15:                                               ; preds = %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit5.i", %13, %"_ZN6google7logging8internal22MakeCheckOpValueStringI3$_2EEvPSoRKT_.exit.i", %9
@@ -27417,7 +27417,7 @@ define internal fastcc void @_ZL11DeleteFilesRKNSt7__cxx1112basic_stringIcSt11ch
   %2 = alloca %"class.std::vector", align 8
   %3 = alloca %"class.google::LogMessageFatal", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZL8GetFilesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS4_SaIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %2)
+  invoke fastcc void @_ZL8GetFilesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS4_SaIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %2)
           to label %4 unwind label %26
 
 4:                                                ; preds = %1
@@ -27552,7 +27552,7 @@ define internal fastcc void @_ZL9CheckFileRKNSt7__cxx1112basic_stringIcSt11char_
   br label %.body
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %.noexc
-  invoke fastcc void @_ZL8GetFilesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS4_SaIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %4)
+  invoke fastcc void @_ZL8GetFilesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS4_SaIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %4)
           to label %17 unwind label %31
 
 17:                                               ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit
@@ -27777,7 +27777,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 declare void @_ZN6google11LogToStderrEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL8GetFilesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS4_SaIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL8GetFilesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS4_SaIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.glob_t, align 8
   %4 = alloca %"class.google::LogMessageFatal", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -28032,7 +28032,7 @@ declare void @_ZN6google4base6LoggerD2Ev(ptr noundef nonnull align 8 dereference
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL15TestOneTruncatePKcmmmmm(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15TestOneTruncatePKcmmmmm(ptr noundef %0, i64 noundef range(i64 10, 2097153) %1, i64 noundef range(i64 0, 4097) %2, i64 noundef range(i64 0, 3145729) %3, i64 noundef range(i64 0, 4097) %4, i64 noundef range(i64 0, 4097) %5) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.google::glog_internal_namespace_::FileDescriptor", align 4
   %9 = alloca %"class.google::ErrnoLogMessage", align 8

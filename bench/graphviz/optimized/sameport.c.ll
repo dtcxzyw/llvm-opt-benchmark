@@ -105,7 +105,7 @@ define void @dot_sameports(ptr noundef %0) local_unnamed_addr #0 {
 
 35:                                               ; preds = %.lr.ph.i
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 8
-  tail call fastcc void @edge_list_append(ptr noundef nonnull %.sroa.2.0..sroa_idx.i, ptr noundef nonnull %.047196)
+  tail call fastcc void @edge_list_append(ptr noundef nonnull %.sroa.2.0..sroa_idx.i, ptr noundef %.047196)
   br label %sameedge.exit
 
 ._crit_edge.i:                                    ; preds = %30, %29
@@ -204,7 +204,7 @@ same_list_append.exit.i:                          ; preds = %edge_list_append.ex
 
 76:                                               ; preds = %.lr.ph.i68
   %.sroa.2.0..sroa_idx.i86 = getelementptr inbounds i8, ptr %73, i64 8
-  tail call fastcc void @edge_list_append(ptr noundef nonnull %.sroa.2.0..sroa_idx.i86, ptr noundef nonnull %.047196)
+  tail call fastcc void @edge_list_append(ptr noundef nonnull %.sroa.2.0..sroa_idx.i86, ptr noundef %.047196)
   br label %sameedge.exit
 
 ._crit_edge.i73:                                  ; preds = %71, %70
@@ -288,7 +288,7 @@ sameedge.exit:                                    ; preds = %same_list_append.ex
 104:                                              ; preds = %.lr.ph203
   %105 = getelementptr inbounds i8, ptr %101, i64 8
   %.sroa.1111.0.copyload = load ptr, ptr %105, align 8
-  tail call fastcc void @sameport(ptr noundef nonnull %.048212, ptr %.sroa.1111.0.copyload, i64 %.val60)
+  tail call fastcc void @sameport(ptr noundef %.048212, ptr %.sroa.1111.0.copyload, i64 %.val60)
   br label %106
 
 106:                                              ; preds = %.lr.ph203, %104
@@ -320,7 +320,7 @@ same_list_clear.exit:                             ; preds = %.lr.ph.i89, %.prehe
 112:                                              ; preds = %.lr.ph205
   %113 = getelementptr inbounds i8, ptr %109, i64 8
   %.sroa.1.0.copyload = load ptr, ptr %113, align 8
-  tail call fastcc void @sameport(ptr noundef nonnull %.048212, ptr %.sroa.1.0.copyload, i64 %.val61)
+  tail call fastcc void @sameport(ptr noundef %.048212, ptr %.sroa.1.0.copyload, i64 %.val61)
   br label %114
 
 114:                                              ; preds = %.lr.ph205, %112
@@ -371,7 +371,7 @@ declare ptr @agxget(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @agnxtedge(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sameport(ptr noundef %0, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @sameport(ptr noundef nonnull %0, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 {
   %2 = alloca [4 x %struct.pointf_s], align 16
   %.not16 = icmp eq i64 %.8.val, 0
   br i1 %.not16, label %._crit_edge, label %.lr.ph
@@ -447,7 +447,7 @@ define internal fastcc void @sameport(ptr noundef %0, ptr nocapture readonly %.0
   %52 = fadd double %49, %51
   %53 = getelementptr inbounds i8, ptr %43, i64 96
   %54 = load double, ptr %53, align 8
-  %55 = tail call ptr @agraphof(ptr noundef %0) #12
+  %55 = tail call ptr @agraphof(ptr noundef nonnull %0) #12
   %56 = getelementptr inbounds i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 364
@@ -804,7 +804,7 @@ declare ptr @agnxtnode(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @edge_list_append(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @edge_list_append(ptr nocapture noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16

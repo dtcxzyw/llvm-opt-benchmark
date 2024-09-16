@@ -1131,7 +1131,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dbAddInternal(ptr noundef %db, ptr noundef %key, ptr noundef %val, i32 noundef %update_if_existing) unnamed_addr #0 {
+define internal fastcc void @dbAddInternal(ptr noundef %db, ptr noundef %key, ptr noundef %val, i32 noundef range(i32 0, 2) %update_if_existing) unnamed_addr #0 {
 entry:
   %existing = alloca ptr, align 8
   %ptr = getelementptr inbounds i8, ptr %key, i64 8
@@ -1773,7 +1773,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dbSetValue(ptr noundef %db, ptr noundef %key, ptr noundef %val, i32 noundef %overwrite, ptr noundef %de) unnamed_addr #0 {
+define internal fastcc void @dbSetValue(ptr noundef %db, ptr noundef %key, ptr noundef %val, i32 noundef range(i32 0, 2) %overwrite, ptr noundef %de) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %de, null
   br i1 %tobool.not, label %if.then, label %cond.end

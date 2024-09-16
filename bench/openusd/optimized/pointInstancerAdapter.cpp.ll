@@ -26865,7 +26865,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit54:         ; preds = %111
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapterEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapterEEC2ERKS2_.exit: ; preds = %125, %133, %136
-  %138 = invoke fastcc noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__L35_GatherAuthoredTransformTimeSamplesERKNS_7UsdPrimENS_10GfIntervalEPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfInterval") align 8 %13, ptr noundef nonnull %14)
+  %138 = invoke fastcc noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__L35_GatherAuthoredTransformTimeSamplesERKNS_7UsdPrimENS_10GfIntervalEPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfInterval") align 8 %13, ptr noundef %14)
           to label %139 unwind label %.loopexit.split-lp117
 
 139:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapterEEC2ERKS2_.exit
@@ -27140,7 +27140,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInter
           to label %256 unwind label %.loopexit.split-lp
 
 256:                                              ; preds = %255
-  %257 = invoke fastcc noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__L35_GatherAuthoredTransformTimeSamplesERKNS_7UsdPrimENS_10GfIntervalEPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfInterval") align 8 %13, ptr noundef nonnull %14)
+  %257 = invoke fastcc noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__L35_GatherAuthoredTransformTimeSamplesERKNS_7UsdPrimENS_10GfIntervalEPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::GfInterval") align 8 %13, ptr noundef %14)
           to label %258 unwind label %311
 
 258:                                              ; preds = %256
@@ -27363,7 +27363,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit77: ; preds = %346
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter31_GetCurrentTimeSamplingIntervalEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfInterval") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZN32pxrInternal_v0_24__pxrReserved__L35_GatherAuthoredTransformTimeSamplesERKNS_7UsdPrimENS_10GfIntervalEPSt6vectorIdSaIdEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef byval(%"class.pxrInternal_v0_24__pxrReserved__::GfInterval") align 8 %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZN32pxrInternal_v0_24__pxrReserved__L35_GatherAuthoredTransformTimeSamplesERKNS_7UsdPrimENS_10GfIntervalEPSt6vectorIdSaIdEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef byval(%"class.pxrInternal_v0_24__pxrReserved__::GfInterval") align 8 %1, ptr noundef nonnull %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdGeomXformable", align 8
   %6 = alloca %"class.std::vector.163", align 8

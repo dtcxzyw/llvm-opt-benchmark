@@ -350,7 +350,7 @@ define internal noundef range(i32 -22, 1) i32 @tcpmss_tg6_check(ptr nocapture no
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -1, 5) i32 @tcpmss_mangle_packet(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -1, 5) i32 @tcpmss_mangle_packet(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 2, 11) %2, i32 noundef range(i32 0, -2147483648) %3, i32 noundef range(i32 40, 61) %4) unnamed_addr #2 align 16 {
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 28
@@ -615,7 +615,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 declare dso_local i32 @skb_ensure_writable(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tcpmss_reverse_mtu(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc i32 @tcpmss_reverse_mtu(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 2, 11) %2) unnamed_addr #2 align 16 {
   %4 = alloca %struct.flowi, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #10

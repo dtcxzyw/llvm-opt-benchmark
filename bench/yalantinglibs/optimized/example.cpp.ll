@@ -75237,7 +75237,7 @@ if.end45:                                         ; preds = %if.end35
   br i1 %cmp47, label %return, label %if.end49
 
 if.end49:                                         ; preds = %if.end45
-  %call50 = tail call fastcc noundef ptr @_ZN7cinatra6detailL13parse_headersEPKcS2_PNS_11http_headerEPmmPi(ptr noundef nonnull %call46, ptr noundef %buf_end, ptr noundef %headers, ptr noundef %num_headers, i64 noundef %max_headers, ptr noundef %ret)
+  %call50 = tail call fastcc noundef ptr @_ZN7cinatra6detailL13parse_headersEPKcS2_PNS_11http_headerEPmmPi(ptr noundef %call46, ptr noundef %buf_end, ptr noundef %headers, ptr noundef %num_headers, i64 noundef %max_headers, ptr noundef %ret)
   br label %return
 
 return:                                           ; preds = %if.then38.i, %if.then32.i, %if.then27.i, %if.then22.i, %if.then17.i, %if.then12.i, %if.then7.i, %if.then2.i, %if.then.i, %if.end45, %if.end49, %if.then44, %if.then33, %if.then21, %if.then11, %if.then5, %if.then2
@@ -75428,7 +75428,7 @@ return:                                           ; preds = %if.end168, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZN7cinatra6detailL13parse_headersEPKcS2_PNS_11http_headerEPmmPi(ptr noundef %buf, ptr noundef %buf_end, ptr nocapture noundef writeonly %headers, ptr nocapture noundef %num_headers, i64 noundef %max_headers, ptr nocapture noundef writeonly %ret) unnamed_addr #33 {
+define internal fastcc noundef ptr @_ZN7cinatra6detailL13parse_headersEPKcS2_PNS_11http_headerEPmmPi(ptr noundef nonnull %buf, ptr noundef %buf_end, ptr nocapture noundef writeonly %headers, ptr nocapture noundef %num_headers, i64 noundef %max_headers, ptr nocapture noundef writeonly %ret) unnamed_addr #33 {
 entry:
   %value = alloca ptr, align 8
   %value_len = alloca i64, align 8
@@ -86209,7 +86209,7 @@ if.then106.i:                                     ; preds = %if.end90.i
 
 _ZN7cinatra6detailL13parse_requestEPKcS2_PS2_PmS3_S4_PiPNS_11http_headerES4_mS5_.exit: ; preds = %if.end97.i, %if.then106.i
   %buf.addr.3.i = phi ptr [ %incdec.ptr98.i, %if.end97.i ], [ %incdec.ptr107.i, %if.then106.i ]
-  %call111.i = call fastcc noundef ptr @_ZN7cinatra6detailL13parse_headersEPKcS2_PNS_11http_headerEPmmPi(ptr noundef nonnull %buf.addr.3.i, ptr noundef %add.ptr, ptr noundef %headers, ptr noundef nonnull %num_headers, i64 noundef %0, ptr noundef nonnull %r)
+  %call111.i = call fastcc noundef ptr @_ZN7cinatra6detailL13parse_headersEPKcS2_PNS_11http_headerEPmmPi(ptr noundef %buf.addr.3.i, ptr noundef %add.ptr, ptr noundef %headers, ptr noundef nonnull %num_headers, i64 noundef %0, ptr noundef nonnull %r)
   %cmp4 = icmp eq ptr %call111.i, null
   br i1 %cmp4, label %_ZN7cinatra6detailL13parse_requestEPKcS2_PS2_PmS3_S4_PiPNS_11http_headerES4_mS5_.exit.if.then5_crit_edge, label %if.end6
 

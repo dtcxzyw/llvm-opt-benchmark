@@ -79,7 +79,7 @@ define range(i32 -1, 1) i32 @common_file_read_uints(ptr noundef %0, ptr noundef 
   br i1 %or.cond, label %43, label %9
 
 9:                                                ; preds = %4
-  %10 = call fastcc i64 @_read_cg_file(ptr noundef %0, ptr noundef nonnull %5)
+  %10 = call fastcc i64 @_read_cg_file(ptr noundef %0, ptr noundef %5)
   %11 = icmp slt i64 %10, 0
   br i1 %11, label %43, label %12
 
@@ -187,7 +187,7 @@ define range(i32 -1, 1) i32 @common_file_read_uints(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @_read_cg_file(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc i64 @_read_cg_file(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 0, i32 noundef 448) #8
   %5 = icmp slt i32 %4, 0
@@ -543,7 +543,7 @@ define range(i32 -1, 1) i32 @common_file_read_content(ptr noundef %0, ptr nounde
   br i1 %or.cond, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = call fastcc i64 @_read_cg_file(ptr noundef %0, ptr noundef nonnull %4)
+  %8 = call fastcc i64 @_read_cg_file(ptr noundef %0, ptr noundef %4)
   %9 = icmp slt i64 %8, 0
   br i1 %9, label %12, label %10
 
@@ -1224,7 +1224,7 @@ define range(i32 -1, 1) i32 @common_cgroup_get_param(ptr nocapture noundef reado
   br i1 %or.cond.i, label %25, label %21
 
 21:                                               ; preds = %18
-  %22 = call fastcc i64 @_read_cg_file(ptr noundef nonnull %6, ptr noundef nonnull %5)
+  %22 = call fastcc i64 @_read_cg_file(ptr noundef nonnull %6, ptr noundef %5)
   %23 = icmp slt i64 %22, 0
   br i1 %23, label %25, label %common_file_read_content.exit
 

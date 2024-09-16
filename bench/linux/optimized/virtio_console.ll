@@ -1669,7 +1669,7 @@ reclaim_dma_bufs.exit:                            ; preds = %free_buf.exit, %7, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__send_control_msg(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 align 16 {
+define internal fastcc void @__send_control_msg(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 7) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #4 align 16 {
   %5 = alloca [1 x %struct.scatterlist], align 16
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #17
@@ -2887,7 +2887,7 @@ declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) loca
 declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i64 @__send_to_port(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #4 align 16 {
+define internal fastcc noundef i64 @__send_to_port(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef nonnull %4, i1 noundef zeroext %5) unnamed_addr #4 align 16 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
@@ -2924,7 +2924,7 @@ define internal fastcc noundef i64 @__send_to_port(ptr noundef %0, ptr noundef %
 
 .loopexit1:                                       ; preds = %22, %16, %6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
-  %27 = call i32 @virtqueue_add_outbuf(ptr noundef %10, ptr noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef 2080) #17
+  %27 = call i32 @virtqueue_add_outbuf(ptr noundef %10, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %4, i32 noundef 2080) #17
   %28 = call zeroext i1 @virtqueue_kick(ptr noundef %10) #17
   %29 = icmp eq i32 %27, 0
   br i1 %29, label %30, label %.loopexit

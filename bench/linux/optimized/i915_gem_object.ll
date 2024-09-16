@@ -761,7 +761,7 @@ define dso_local void @i915_gem_flush_free_objects(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__i915_gem_free_objects(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @__i915_gem_free_objects(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -576
   %3 = icmp eq ptr %2, inttoptr (i64 -576 to ptr)
   br i1 %3, label %.loopexit, label %.preheader
@@ -1535,7 +1535,7 @@ declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #2
 declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 2) i32 @kref_get_unless_zero(ptr noundef %0) unnamed_addr #15 align 16 {
+define internal fastcc range(i32 0, 2) i32 @kref_get_unless_zero(ptr noundef nonnull %0) unnamed_addr #15 align 16 {
   %2 = load volatile i32, ptr %0, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %.thread, label %.preheader
@@ -1543,7 +1543,7 @@ define internal fastcc range(i32 0, 2) i32 @kref_get_unless_zero(ptr noundef %0)
 .preheader:                                       ; preds = %1, %9
   %4 = phi i32 [ %10, %9 ], [ %2, %1 ]
   %5 = add i32 %4, 1
-  %6 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 %5, ptr elementtype(i32) %0, i32 %4) #18, !srcloc !41
+  %6 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 %5, ptr nonnull elementtype(i32) %0, i32 %4) #18, !srcloc !41
   %7 = extractvalue { i8, i32 } %6, 0
   %8 = icmp ult i8 %7, 2
   tail call void @llvm.assume(i1 %8)
@@ -1563,7 +1563,7 @@ define internal fastcc range(i32 0, 2) i32 @kref_get_unless_zero(ptr noundef %0)
   br i1 %15, label %17, label %16, !prof !18
 
 16:                                               ; preds = %.thread
-  tail call void @refcount_warn_saturate(ptr noundef %0, i32 noundef 0) #18
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %0, i32 noundef 0) #18
   br label %17
 
 17:                                               ; preds = %16, %.thread

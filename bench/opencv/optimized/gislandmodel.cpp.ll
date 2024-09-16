@@ -12593,7 +12593,7 @@ common.resume.sink.split.i.i:                     ; preds = %414, %338
 
 _ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEENSF_12InEdgeMapperEEEE8iteratordeEv.exit.i.i: ; preds = %323, %321, %311
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17), !noalias !288
-  invoke fastcc void @"_ZZN2cv5gimpl12GIslandModel14compileIslandsERN3ade10TypedGraphIJNS0_8NodeKindENS0_11FusedIslandENS0_8DataSlotENS0_10IslandExecENS0_7EmitterENS0_4SinkENS0_15IslandsCompiledENS0_13DesyncIslEdgeENS2_6passes19TopologicalSortDataEEEERKNS2_5GraphERKSt6vectorINS_11GCompileArgESaISK_EEENK3$_0clERKNS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %20)
+  invoke fastcc void @"_ZZN2cv5gimpl12GIslandModel14compileIslandsERN3ade10TypedGraphIJNS0_8NodeKindENS0_11FusedIslandENS0_8DataSlotENS0_10IslandExecENS0_7EmitterENS0_4SinkENS0_15IslandsCompiledENS0_13DesyncIslEdgeENS2_6passes19TopologicalSortDataEEEERKNS2_5GraphERKSt6vectorINS_11GCompileArgESaISK_EEENK3$_0clERKNS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %20)
           to label %343 unwind label %400
 
 343:                                              ; preds = %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEENSF_12InEdgeMapperEEEE8iteratordeEv.exit.i.i
@@ -12963,7 +12963,7 @@ common.resume.sink.split.i.i100:                  ; preds = %569, %493
 
 _ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEENSF_13OutEdgeMapperEEEE8iteratordeEv.exit.i.i: ; preds = %478, %476, %466
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !301
-  invoke fastcc void @"_ZZN2cv5gimpl12GIslandModel14compileIslandsERN3ade10TypedGraphIJNS0_8NodeKindENS0_11FusedIslandENS0_8DataSlotENS0_10IslandExecENS0_7EmitterENS0_4SinkENS0_15IslandsCompiledENS0_13DesyncIslEdgeENS2_6passes19TopologicalSortDataEEEERKNS2_5GraphERKSt6vectorINS_11GCompileArgESaISK_EEENK3$_0clERKNS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %15)
+  invoke fastcc void @"_ZZN2cv5gimpl12GIslandModel14compileIslandsERN3ade10TypedGraphIJNS0_8NodeKindENS0_11FusedIslandENS0_8DataSlotENS0_10IslandExecENS0_7EmitterENS0_4SinkENS0_15IslandsCompiledENS0_13DesyncIslEdgeENS2_6passes19TopologicalSortDataEEEERKNS2_5GraphERKSt6vectorINS_11GCompileArgESaISK_EEENK3$_0clERKNS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %15)
           to label %498 unwind label %555
 
 498:                                              ; preds = %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEENSF_13OutEdgeMapperEEEE8iteratordeEv.exit.i.i
@@ -25428,7 +25428,7 @@ define linkonce_odr hidden void @_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDes
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN2cv5gimpl12GIslandModel14compileIslandsERN3ade10TypedGraphIJNS0_8NodeKindENS0_11FusedIslandENS0_8DataSlotENS0_10IslandExecENS0_7EmitterENS0_4SinkENS0_15IslandsCompiledENS0_13DesyncIslEdgeENS2_6passes19TopologicalSortDataEEEERKNS2_5GraphERKSt6vectorINS_11GCompileArgESaISK_EEENK3$_0clERKNS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN2cv5gimpl12GIslandModel14compileIslandsERN3ade10TypedGraphIJNS0_8NodeKindENS0_11FusedIslandENS0_8DataSlotENS0_10IslandExecENS0_7EmitterENS0_4SinkENS0_15IslandsCompiledENS0_13DesyncIslEdgeENS2_6passes19TopologicalSortDataEEEERKNS2_5GraphERKSt6vectorINS_11GCompileArgESaISK_EEENK3$_0clERKNS2_6HandleINS2_4NodeEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.ade::details::MetadataId", align 8
   %5 = alloca %"class.ade::Handle", align 8
   %6 = alloca %"class.ade::details::MetadataId", align 8

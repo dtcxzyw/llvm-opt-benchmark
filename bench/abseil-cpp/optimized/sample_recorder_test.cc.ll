@@ -985,7 +985,7 @@ terminate.lpad.i.i:                               ; preds = %entry
   unreachable
 
 _ZN4absl18profiling_internal14SampleRecorderINS0_12_GLOBAL__N_14InfoEEC2Ev.exit: ; preds = %entry
-  %call = invoke fastcc noundef ptr @_ZN4absl18profiling_internal12_GLOBAL__N_18RegisterEPNS0_14SampleRecorderINS1_4InfoEEElm(ptr noundef nonnull %sampler, i64 noundef 31, i64 noundef 1)
+  %call = invoke fastcc noundef ptr @_ZN4absl18profiling_internal12_GLOBAL__N_18RegisterEPNS0_14SampleRecorderINS1_4InfoEEElm(ptr noundef %sampler, i64 noundef 31, i64 noundef 1)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %_ZN4absl18profiling_internal14SampleRecorderINS0_12_GLOBAL__N_14InfoEEC2Ev.exit
@@ -1347,7 +1347,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit83:          ; preds = %if.end49, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i82
   store ptr null, ptr %message_.i80, align 8
-  %call52 = invoke fastcc noundef ptr @_ZN4absl18profiling_internal12_GLOBAL__N_18RegisterEPNS0_14SampleRecorderINS1_4InfoEEElm(ptr noundef nonnull %sampler, i64 noundef 32, i64 noundef 2)
+  %call52 = invoke fastcc noundef ptr @_ZN4absl18profiling_internal12_GLOBAL__N_18RegisterEPNS0_14SampleRecorderINS1_4InfoEEElm(ptr noundef %sampler, i64 noundef 32, i64 noundef 2)
           to label %invoke.cont59 unwind label %lpad
 
 invoke.cont59:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit83
@@ -1954,7 +1954,7 @@ entry:
 declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN4absl18profiling_internal12_GLOBAL__N_18RegisterEPNS0_14SampleRecorderINS1_4InfoEEElm(ptr noundef %s, i64 noundef %weight, i64 noundef %size) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN4absl18profiling_internal12_GLOBAL__N_18RegisterEPNS0_14SampleRecorderINS1_4InfoEEElm(ptr noundef nonnull %s, i64 noundef range(i64 31, 41) %weight, i64 noundef range(i64 0, 5) %size) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %size_estimate_.i = getelementptr inbounds i8, ptr %s, i64 8
   %0 = atomicrmw add ptr %size_estimate_.i, i64 1 monotonic, align 8
@@ -8662,7 +8662,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %infos.sroa.14.0600 = phi ptr [ %infos.sroa.14.1, %for.inc ], [ null, %entry ]
   %infos.sroa.26.0599 = phi ptr [ %infos.sroa.26.1, %for.inc ], [ null, %entry ]
   %add = add nuw nsw i64 %i.0602, 33
-  %call = invoke fastcc noundef ptr @_ZN4absl18profiling_internal12_GLOBAL__N_18RegisterEPNS0_14SampleRecorderINS1_4InfoEEElm(ptr noundef nonnull %sampler, i64 noundef %add, i64 noundef %i.0602)
+  %call = invoke fastcc noundef ptr @_ZN4absl18profiling_internal12_GLOBAL__N_18RegisterEPNS0_14SampleRecorderINS1_4InfoEEElm(ptr noundef %sampler, i64 noundef %add, i64 noundef %i.0602)
           to label %invoke.cont unwind label %lpad.loopexit
 
 invoke.cont:                                      ; preds = %for.body
@@ -9473,7 +9473,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit213:         ; preds = %if.end113, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i212
   store ptr null, ptr %message_.i210, align 8
-  %call117 = invoke fastcc noundef ptr @_ZN4absl18profiling_internal12_GLOBAL__N_18RegisterEPNS0_14SampleRecorderINS1_4InfoEEElm(ptr noundef nonnull %sampler, i64 noundef 36, i64 noundef 3)
+  %call117 = invoke fastcc noundef ptr @_ZN4absl18profiling_internal12_GLOBAL__N_18RegisterEPNS0_14SampleRecorderINS1_4InfoEEElm(ptr noundef %sampler, i64 noundef 36, i64 noundef 3)
           to label %invoke.cont116 unwind label %lpad.loopexit.split-lp
 
 invoke.cont116:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit213
@@ -9536,7 +9536,7 @@ invoke.cont118:                                   ; preds = %_ZNSt6vectorIPN4abs
   %add.ptr.i.i.i.i.i.i240.pn = phi ptr [ %add.ptr.i.i.i.i.i.i240, %_ZNSt6vectorIPN4absl18profiling_internal12_GLOBAL__N_14InfoESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i244 ], [ %infos.sroa.14.1, %if.then.i.i217 ]
   %infos.sroa.0.8 = phi ptr [ %cond.i12.i.i.i236, %_ZNSt6vectorIPN4absl18profiling_internal12_GLOBAL__N_14InfoESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i244 ], [ %infos.sroa.0.3, %if.then.i.i217 ]
   %infos.sroa.14.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i240.pn, i64 8
-  %call121 = invoke fastcc noundef ptr @_ZN4absl18profiling_internal12_GLOBAL__N_18RegisterEPNS0_14SampleRecorderINS1_4InfoEEElm(ptr noundef nonnull %sampler, i64 noundef 37, i64 noundef 4)
+  %call121 = invoke fastcc noundef ptr @_ZN4absl18profiling_internal12_GLOBAL__N_18RegisterEPNS0_14SampleRecorderINS1_4InfoEEElm(ptr noundef %sampler, i64 noundef 37, i64 noundef 4)
           to label %invoke.cont120 unwind label %lpad.loopexit.split-lp
 
 invoke.cont120:                                   ; preds = %invoke.cont118
@@ -16936,11 +16936,11 @@ terminate.lpad.i.i:                               ; preds = %entry
   unreachable
 
 _ZN4absl18profiling_internal14SampleRecorderINS0_12_GLOBAL__N_14InfoEEC2Ev.exit: ; preds = %entry
-  %call = invoke fastcc noundef ptr @_ZN4absl18profiling_internal12_GLOBAL__N_18RegisterEPNS0_14SampleRecorderINS1_4InfoEEElm(ptr noundef nonnull %sampler, i64 noundef 39, i64 noundef 1)
+  %call = invoke fastcc noundef ptr @_ZN4absl18profiling_internal12_GLOBAL__N_18RegisterEPNS0_14SampleRecorderINS1_4InfoEEElm(ptr noundef %sampler, i64 noundef 39, i64 noundef 1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN4absl18profiling_internal14SampleRecorderINS0_12_GLOBAL__N_14InfoEEC2Ev.exit
-  %call3 = invoke fastcc noundef ptr @_ZN4absl18profiling_internal12_GLOBAL__N_18RegisterEPNS0_14SampleRecorderINS1_4InfoEEElm(ptr noundef nonnull %sampler, i64 noundef 40, i64 noundef 2)
+  %call3 = invoke fastcc noundef ptr @_ZN4absl18profiling_internal12_GLOBAL__N_18RegisterEPNS0_14SampleRecorderINS1_4InfoEEElm(ptr noundef %sampler, i64 noundef 40, i64 noundef 2)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont

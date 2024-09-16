@@ -253,7 +253,7 @@ define dso_local void @_ZN5clang13parseTargetIDERKN4llvm6TripleENS0_9StringRefEP
   %8 = alloca %"class.llvm::SmallVector", align 8
   %9 = alloca %"struct.std::pair.3", align 8
   %10 = alloca %"class.llvm::StringRef", align 8
-  call fastcc void @_ZN5clangL35parseTargetIDWithFormatCheckingOnlyEN4llvm9StringRefEPNS0_9StringMapIbNS0_15MallocAllocatorEEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %2, i64 %3, ptr noundef %4)
+  call fastcc void @_ZN5clangL35parseTargetIDWithFormatCheckingOnlyEN4llvm9StringRefEPNS0_9StringMapIbNS0_15MallocAllocatorEEE(ptr dead_on_unwind noalias writable align 8 %6, ptr %2, i64 %3, ptr noundef %4)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
@@ -416,7 +416,7 @@ _ZN4llvm8SmallSetINS_9StringRefELj4ESt4lessIS1_EED2Ev.exit: ; preds = %64, %.loo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clangL35parseTargetIDWithFormatCheckingOnlyEN4llvm9StringRefEPNS0_9StringMapIbNS0_15MallocAllocatorEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %1, i64 %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZN5clangL35parseTargetIDWithFormatCheckingOnlyEN4llvm9StringRefEPNS0_9StringMapIbNS0_15MallocAllocatorEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i64 %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca %"class.llvm::StringRef", align 8
@@ -1357,7 +1357,7 @@ define dso_local void @_ZN5clang30getConflictTargetIDCombinationERKSt3setIN4llvm
   %.sroa.04.0.copyload = load ptr, ptr %25, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.057.069, i64 40
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 8
-  call fastcc void @_ZN5clangL35parseTargetIDWithFormatCheckingOnlyEN4llvm9StringRefEPNS0_9StringMapIbNS0_15MallocAllocatorEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %.sroa.04.0.copyload, i64 %.sroa.25.0.copyload, ptr noundef nonnull %4)
+  call fastcc void @_ZN5clangL35parseTargetIDWithFormatCheckingOnlyEN4llvm9StringRefEPNS0_9StringMapIbNS0_15MallocAllocatorEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr %.sroa.04.0.copyload, i64 %.sroa.25.0.copyload, ptr noundef nonnull %4)
   %.sroa.06.0.copyload = load ptr, ptr %5, align 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %26 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.06.0.copyload, i64 %.sroa.3.0.copyload) #14
@@ -1882,11 +1882,11 @@ define dso_local noundef zeroext i1 @_ZN5clang20isCompatibleTargetIDEN4llvm9Stri
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   store i32 16, ptr %10, align 4
-  call fastcc void @_ZN5clangL35parseTargetIDWithFormatCheckingOnlyEN4llvm9StringRefEPNS0_9StringMapIbNS0_15MallocAllocatorEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %0, i64 %1, ptr noundef nonnull %5)
+  call fastcc void @_ZN5clangL35parseTargetIDWithFormatCheckingOnlyEN4llvm9StringRefEPNS0_9StringMapIbNS0_15MallocAllocatorEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr %0, i64 %1, ptr noundef nonnull %5)
   %.sroa.014.0.copyload = load ptr, ptr %7, align 8
   %.sroa.215.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
   %.sroa.215.0.copyload = load i64, ptr %.sroa.215.0..sroa_idx, align 8
-  call fastcc void @_ZN5clangL35parseTargetIDWithFormatCheckingOnlyEN4llvm9StringRefEPNS0_9StringMapIbNS0_15MallocAllocatorEEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %2, i64 %3, ptr noundef nonnull %6)
+  call fastcc void @_ZN5clangL35parseTargetIDWithFormatCheckingOnlyEN4llvm9StringRefEPNS0_9StringMapIbNS0_15MallocAllocatorEEE(ptr dead_on_unwind noalias writable align 8 %8, ptr %2, i64 %3, ptr noundef nonnull %6)
   %.sroa.010.0.copyload = load ptr, ptr %8, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   %.sroa.211.0.copyload = load i64, ptr %.sroa.211.0..sroa_idx, align 8

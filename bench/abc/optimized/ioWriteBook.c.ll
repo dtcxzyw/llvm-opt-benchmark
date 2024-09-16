@@ -149,17 +149,17 @@ define void @Io_WriteBook(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 19:                                               ; preds = %2
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.6, ptr noundef %1, ptr noundef %1, ptr noundef %1, ptr noundef %1, ptr noundef %1) #15
   %21 = tail call i32 @fclose(ptr noundef nonnull %11)
-  %22 = tail call fastcc i32 @Io_NtkWriteNodes(ptr noundef nonnull %7, ptr noundef %0)
-  tail call fastcc void @Io_NtkWriteNets(ptr noundef nonnull %9, ptr noundef %0)
+  %22 = tail call fastcc i32 @Io_NtkWriteNodes(ptr noundef %7, ptr noundef %0)
+  tail call fastcc void @Io_NtkWriteNets(ptr noundef %9, ptr noundef %0)
   %23 = getelementptr i8, ptr %0, i64 328
   %.val86 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %.val86, null
   br i1 %.not, label %27, label %24
 
 24:                                               ; preds = %19
-  %25 = tail call fastcc i32 @Io_NtkWriteNodes(ptr noundef nonnull %7, ptr noundef nonnull %0)
+  %25 = tail call fastcc i32 @Io_NtkWriteNodes(ptr noundef %7, ptr noundef nonnull %0)
   %26 = add i32 %25, %22
-  tail call fastcc void @Io_NtkWriteNets(ptr noundef nonnull %9, ptr noundef nonnull %0)
+  tail call fastcc void @Io_NtkWriteNets(ptr noundef %9, ptr noundef nonnull %0)
   br label %27
 
 27:                                               ; preds = %24, %19
@@ -212,8 +212,8 @@ define void @Io_WriteBook(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 .loopexit:                                        ; preds = %45, %.preheader, %27
   %.1 = phi i32 [ %.068, %27 ], [ %.068, %.preheader ], [ %.3, %45 ]
-  %52 = tail call i32 @fclose(ptr noundef %7)
-  %53 = tail call i32 @fclose(ptr noundef %9)
+  %52 = tail call i32 @fclose(ptr noundef nonnull %7)
+  %53 = tail call i32 @fclose(ptr noundef nonnull %9)
   %54 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %1) #15
   %strlen78 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %5)
   %endptr79 = getelementptr inbounds i8, ptr %5, i64 %strlen78
@@ -2119,7 +2119,7 @@ Io_NtkOrderingPads.exit.i.i:                      ; preds = %Extra_ProgressBarUp
   br i1 %.not228.i.i, label %928, label %931
 
 928:                                              ; preds = %925
-  %929 = tail call fastcc i32 @Io_NtkWriteIntNode(ptr noundef %57, ptr noundef nonnull %923, i32 noundef 1)
+  %929 = tail call fastcc i32 @Io_NtkWriteIntNode(ptr noundef %57, ptr noundef %923, i32 noundef 1)
   %930 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.82, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.57) #15
   %.pre301.i.i = load ptr, ptr %916, align 8
   br label %931
@@ -2161,7 +2161,7 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Io_NtkWriteNodes(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i32 @Io_NtkWriteNodes(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 40
   %.val46 = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val46, i64 4
@@ -2179,9 +2179,9 @@ define internal fastcc i32 @Io_NtkWriteNodes(ptr nocapture noundef %0, ptr nocap
   %11 = add i32 %9, %.val50
   %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %11)
   %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %7)
-  %14 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 21, i64 1, ptr %0)
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %11) #15
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %7) #15
+  %14 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 21, i64 1, ptr nonnull %0)
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, i32 noundef %11) #15
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, i32 noundef %7) #15
   %.val28.i = load ptr, ptr %3, align 8
   %17 = getelementptr i8, ptr %.val28.i, i64 4
   %.val.val29.i = load i32, ptr %17, align 4
@@ -2214,9 +2214,9 @@ define internal fastcc i32 @Io_NtkWriteNodes(ptr nocapture noundef %0, ptr nocap
   %28 = getelementptr inbounds ptr, ptr %.val23.val.val.i, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @Abc_ObjName(ptr noundef %29) #15
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef %30) #15
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 9, i64 1, ptr %0)
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef 1, i32 noundef 1) #15
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, ptr noundef %30) #15
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 9, i64 1, ptr nonnull %0)
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i32 noundef 1, i32 noundef 1) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val.i = load ptr, ptr %3, align 8
   %34 = getelementptr i8, ptr %.val.i, i64 4
@@ -2244,9 +2244,9 @@ define internal fastcc i32 @Io_NtkWriteNodes(ptr nocapture noundef %0, ptr nocap
   %44 = getelementptr inbounds ptr, ptr %.val26.val.val.i, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = tail call ptr @Abc_ObjName(ptr noundef %45) #15
-  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef %46) #15
-  %48 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 9, i64 1, ptr %0)
-  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef 1, i32 noundef 1) #15
+  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, ptr noundef %46) #15
+  %48 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 9, i64 1, ptr nonnull %0)
+  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i32 noundef 1, i32 noundef 1) #15
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %.val21.i = load ptr, ptr %5, align 8
   %50 = getelementptr i8, ptr %.val21.i, i64 4
@@ -2324,8 +2324,8 @@ Io_NtkWritePiPoNodes.exit:                        ; preds = %.critedge.i, %.crit
   %85 = load ptr, ptr %84, align 8
   %86 = tail call ptr @Abc_ObjName(ptr noundef %75) #15
   %87 = tail call ptr @Abc_ObjName(ptr noundef %85) #15
-  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef %86, ptr noundef %87) #15
-  %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef 6, i32 noundef 1) #15
+  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, ptr noundef %86, ptr noundef %87) #15
+  %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i32 noundef 6, i32 noundef 1) #15
   %90 = add i32 %.14159, 6
   %.pre = load ptr, ptr %53, align 8
   br label %91
@@ -2389,7 +2389,7 @@ Io_NtkWritePiPoNodes.exit:                        ; preds = %.critedge.i, %.crit
   br label %Extra_ProgressBarUpdate.exit
 
 Extra_ProgressBarUpdate.exit:                     ; preds = %112, %116
-  %118 = tail call fastcc i32 @Io_NtkWriteIntNode(ptr noundef %0, ptr noundef nonnull %106, i32 noundef 0)
+  %118 = tail call fastcc i32 @Io_NtkWriteIntNode(ptr noundef nonnull %0, ptr noundef %106, i32 noundef 0)
   %119 = add i32 %118, %.362
   %.pre71 = load ptr, ptr %98, align 8
   br label %120
@@ -2411,7 +2411,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %112, %116
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_NtkWriteNets(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @Io_NtkWriteNets(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
@@ -2461,10 +2461,10 @@ define internal fastcc void @Io_NtkWriteNets(ptr nocapture noundef %0, ptr nocap
   %.val43 = load i32, ptr %21, align 8
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i32 noundef %.val43)
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, i32 noundef %.031.lcssa)
-  %24 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 20, i64 1, ptr %0)
+  %24 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 20, i64 1, ptr nonnull %0)
   %.val44 = load i32, ptr %21, align 8
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.36, i32 noundef %.val44) #15
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.37, i32 noundef %.031.lcssa) #15
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.36, i32 noundef %.val44) #15
+  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.37, i32 noundef %.031.lcssa) #15
   %27 = load ptr, ptr @stdout, align 8
   %.val45 = load i32, ptr %21, align 8
   %28 = tail call ptr @Extra_ProgressBarStart(ptr noundef %27, i32 noundef %.val45) #15
@@ -2527,7 +2527,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %42, %46
   %55 = getelementptr inbounds ptr, ptr %.val115.val.val.i, i64 %54
   %56 = load ptr, ptr %55, align 8
   %57 = tail call ptr @Abc_ObjName(ptr noundef %56) #15
-  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.38, i32 noundef %50, ptr noundef %57) #15
+  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.38, i32 noundef %50, ptr noundef %57) #15
   %.val113.i = load ptr, ptr %36, align 8
   %.val114.i = load ptr, ptr %51, align 8
   %59 = getelementptr i8, ptr %.val113.i, i64 32
@@ -2546,7 +2546,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %42, %46
 
 66:                                               ; preds = %Extra_ProgressBarUpdate.exit
   %67 = tail call ptr @Abc_ObjName(ptr noundef nonnull %36) #15
-  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef %67) #15
+  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.39, ptr noundef %67) #15
   br label %146
 
 69:                                               ; preds = %Extra_ProgressBarUpdate.exit
@@ -2621,7 +2621,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %42, %46
   %103 = load ptr, ptr %102, align 8
   %104 = tail call ptr @Abc_ObjName(ptr noundef %93) #15
   %105 = tail call ptr @Abc_ObjName(ptr noundef %103) #15
-  %106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %104, ptr noundef %105) #15
+  %106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.40, ptr noundef %104, ptr noundef %105) #15
   br label %144
 
 ._crit_edge.i:                                    ; preds = %72, %69
@@ -2656,7 +2656,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %42, %46
   %118 = getelementptr inbounds ptr, ptr %.val125.val.val.i, i64 %117
   %119 = load ptr, ptr %118, align 8
   %120 = tail call ptr @Abc_ObjName(ptr noundef %119) #15
-  %121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef %120) #15
+  %121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.19, ptr noundef %120) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val128.i = load i32, ptr %.phi.trans.insert.i, align 4
   %122 = sext i32 %.val128.i to i64
@@ -2677,7 +2677,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %42, %46
   %129 = getelementptr inbounds ptr, ptr %.val140.val.val.i, i64 %128
   %130 = load ptr, ptr %129, align 8
   %131 = tail call ptr @Abc_ObjName(ptr noundef %130) #15
-  %132 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef %131) #15
+  %132 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.19, ptr noundef %131) #15
   %indvars.iv.next167.i = add nuw nsw i64 %indvars.iv166.i, 1
   %.val134.i = load i32, ptr %109, align 4
   %133 = sext i32 %.val134.i to i64
@@ -2695,15 +2695,15 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %42, %46
   %138 = getelementptr inbounds i8, ptr %63, i64 56
   %139 = load ptr, ptr %138, align 8
   %140 = tail call ptr @Mio_GateReadName(ptr noundef %139) #15
-  %141 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.41, ptr noundef %140) #15
+  %141 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.41, ptr noundef %140) #15
   br label %144
 
 142:                                              ; preds = %.critedge2.i
-  %143 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 9, i64 1, ptr %0)
+  %143 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 9, i64 1, ptr nonnull %0)
   br label %144
 
 144:                                              ; preds = %142, %137, %81
-  %145 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.43, double noundef 0.000000e+00, double noundef 0.000000e+00) #15
+  %145 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.43, double noundef 0.000000e+00, double noundef 0.000000e+00) #15
   br label %146
 
 146:                                              ; preds = %144, %66
@@ -2736,7 +2736,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %42, %46
 
 159:                                              ; preds = %149
   %160 = tail call ptr @Abc_ObjName(ptr noundef nonnull %36) #15
-  %161 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.44, ptr noundef %160) #15
+  %161 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.44, ptr noundef %160) #15
   br label %242
 
 162:                                              ; preds = %149
@@ -2811,7 +2811,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %42, %46
   %197 = load ptr, ptr %196, align 8
   %198 = tail call ptr @Abc_ObjName(ptr noundef %187) #15
   %199 = tail call ptr @Abc_ObjName(ptr noundef %197) #15
-  %200 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.45, ptr noundef %198, ptr noundef %199) #15
+  %200 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.45, ptr noundef %198, ptr noundef %199) #15
   br label %240
 
 201:                                              ; preds = %166, %164, %162
@@ -2848,7 +2848,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %42, %46
   %214 = getelementptr inbounds ptr, ptr %.val123.val.val.i, i64 %213
   %215 = load ptr, ptr %214, align 8
   %216 = tail call ptr @Abc_ObjName(ptr noundef %215) #15
-  %217 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef %216) #15
+  %217 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.19, ptr noundef %216) #15
   %indvars.iv.next170.i = add nuw nsw i64 %indvars.iv169.i, 1
   %.val127.i = load i32, ptr %202, align 4
   %218 = sext i32 %.val127.i to i64
@@ -2869,7 +2869,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %42, %46
   %225 = getelementptr inbounds ptr, ptr %.val136.val.val.i, i64 %224
   %226 = load ptr, ptr %225, align 8
   %227 = tail call ptr @Abc_ObjName(ptr noundef %226) #15
-  %228 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef %227) #15
+  %228 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.19, ptr noundef %227) #15
   %indvars.iv.next173.i = add nuw nsw i64 %indvars.iv172.i, 1
   %.val131.i = load i32, ptr %205, align 4
   %229 = sext i32 %.val131.i to i64
@@ -2887,15 +2887,15 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %42, %46
   %234 = getelementptr inbounds i8, ptr %156, i64 56
   %235 = load ptr, ptr %234, align 8
   %236 = tail call ptr @Mio_GateReadName(ptr noundef %235) #15
-  %237 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.41, ptr noundef %236) #15
+  %237 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.41, ptr noundef %236) #15
   br label %240
 
 238:                                              ; preds = %.critedge8.i
-  %239 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 9, i64 1, ptr %0)
+  %239 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 9, i64 1, ptr nonnull %0)
   br label %240
 
 240:                                              ; preds = %238, %233, %175
-  %241 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.43, double noundef 0.000000e+00, double noundef 0.000000e+00) #15
+  %241 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.43, double noundef 0.000000e+00, double noundef 0.000000e+00) #15
   br label %242
 
 242:                                              ; preds = %240, %159
@@ -2928,7 +2928,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare ptr @Extra_ProgressBarStart(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Io_NtkWriteIntNode(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @Io_NtkWriteIntNode(ptr nocapture noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr i8, ptr %4, i64 4
   %.val = load i32, ptr %5, align 4
@@ -3056,32 +3056,32 @@ define internal fastcc i32 @Io_NtkWriteIntNode(ptr nocapture noundef %0, ptr nou
   br i1 %.not46, label %61, label %.thread
 
 61:                                               ; preds = %59
-  %62 = tail call fastcc i32 @Abc_NodeIsNand2(ptr noundef nonnull %1)
+  %62 = tail call fastcc i32 @Abc_NodeIsNand2(ptr noundef %1)
   %.not47 = icmp eq i32 %62, 0
   br i1 %.not47, label %63, label %.thread
 
 63:                                               ; preds = %61
-  %64 = tail call fastcc i32 @Abc_NodeIsNor2(ptr noundef nonnull %1)
+  %64 = tail call fastcc i32 @Abc_NodeIsNor2(ptr noundef %1)
   %.not48 = icmp eq i32 %64, 0
   br i1 %.not48, label %65, label %.thread
 
 65:                                               ; preds = %63
-  %66 = tail call fastcc i32 @Abc_NodeIsAnd2(ptr noundef nonnull %1)
+  %66 = tail call fastcc i32 @Abc_NodeIsAnd2(ptr noundef %1)
   %.not49 = icmp eq i32 %66, 0
   br i1 %.not49, label %67, label %.thread
 
 67:                                               ; preds = %65
-  %68 = tail call fastcc i32 @Abc_NodeIsOr2(ptr noundef nonnull %1)
+  %68 = tail call fastcc i32 @Abc_NodeIsOr2(ptr noundef %1)
   %.not50 = icmp eq i32 %68, 0
   br i1 %.not50, label %69, label %.thread
 
 69:                                               ; preds = %67
-  %70 = tail call fastcc i32 @Abc_NodeIsXor2(ptr noundef nonnull %1)
+  %70 = tail call fastcc i32 @Abc_NodeIsXor2(ptr noundef %1)
   %.not51 = icmp eq i32 %70, 0
   br i1 %.not51, label %71, label %.thread
 
 71:                                               ; preds = %69
-  %72 = tail call fastcc i32 @Abc_NodeIsXnor2(ptr noundef nonnull %1)
+  %72 = tail call fastcc i32 @Abc_NodeIsXnor2(ptr noundef %1)
   %.not52 = icmp eq i32 %72, 0
   br i1 %.not52, label %73, label %.thread
 
@@ -3137,7 +3137,7 @@ declare i32 @Abc_NodeIsInv(ptr noundef) local_unnamed_addr #1
 declare i32 @Abc_NodeIsBuf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsNand2(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsNand2(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 28
   %.val13 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %.val13, 2
@@ -3184,7 +3184,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsNand2(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsNor2(ptr nocapture noundef readonly %0) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsNor2(ptr nocapture noundef nonnull readonly %0) unnamed_addr #7 {
   %2 = getelementptr i8, ptr %0, i64 28
   %.val = load i32, ptr %2, align 4
   %.not = icmp eq i32 %.val, 2
@@ -3211,7 +3211,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsNor2(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Abc_NodeIsAnd2(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc i32 @Abc_NodeIsAnd2(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 28
   %.val8 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %.val8, 2
@@ -3247,7 +3247,7 @@ define internal fastcc i32 @Abc_NodeIsAnd2(ptr nocapture noundef readonly %0) un
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsOr2(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsOr2(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 28
   %.val = load i32, ptr %2, align 4
   %.not = icmp eq i32 %.val, 2
@@ -3290,7 +3290,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsOr2(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsXor2(ptr nocapture noundef readonly %0) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsXor2(ptr nocapture noundef nonnull readonly %0) unnamed_addr #7 {
   %2 = getelementptr i8, ptr %0, i64 28
   %.val = load i32, ptr %2, align 4
   %.not = icmp eq i32 %.val, 2
@@ -3322,7 +3322,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsXor2(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsXnor2(ptr nocapture noundef readonly %0) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsXnor2(ptr nocapture noundef nonnull readonly %0) unnamed_addr #7 {
   %2 = getelementptr i8, ptr %0, i64 28
   %.val = load i32, ptr %2, align 4
   %.not = icmp eq i32 %.val, 2

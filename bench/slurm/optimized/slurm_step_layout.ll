@@ -1246,11 +1246,11 @@ _task_layout_hostfile.exit:                       ; preds = %206, %217, %293, %2
   br i1 %298, label %299, label %301
 
 299:                                              ; preds = %297
-  %300 = call fastcc i32 @_task_layout_plane(ptr noundef nonnull %1, ptr noundef nonnull %11)
+  %300 = call fastcc i32 @_task_layout_plane(ptr noundef nonnull %1, ptr noundef %11)
   br label %_task_layout_cyclic.exit
 
 301:                                              ; preds = %297
-  call fastcc void @_task_layout_block(ptr noundef nonnull %1, ptr noundef nonnull %11)
+  call fastcc void @_task_layout_block(ptr noundef nonnull %1, ptr noundef %11)
   br label %_task_layout_cyclic.exit
 
 _task_layout_cyclic.exit:                         ; preds = %.critedge.i, %111, %13, %3, %301, %299, %_task_layout_hostfile.exit, %68
@@ -1988,7 +1988,7 @@ declare i32 @get_log_level() local_unnamed_addr #1
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -2369,7 +2369,7 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = load i16, ptr @_task_layout_block.select_params, align 2
   %4 = icmp eq i16 %3, -2
   br i1 %4, label %5, label %7

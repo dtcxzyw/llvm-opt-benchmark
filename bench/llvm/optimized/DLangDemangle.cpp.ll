@@ -268,7 +268,7 @@ _ZN12_GLOBAL__N_19Demangler12decodeNumberERSt17basic_string_viewIcSt11char_trait
   br i1 %117, label %.sink.split.i.i.i.i.i, label %118
 
 118:                                              ; preds = %_ZN12_GLOBAL__N_19Demangler12decodeNumberERSt17basic_string_viewIcSt11char_traitsIcEERm.exit.i.i.i.i.i
-  call fastcc void @_ZN12_GLOBAL__N_19Demangler10parseLNameEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEEm(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %114)
+  call fastcc void @_ZN12_GLOBAL__N_19Demangler10parseLNameEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEEm(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %114)
   %119 = load i64, ptr %3, align 8
   %120 = icmp eq i64 %119, 0
   br i1 %120, label %.sink.split.i.i.i.i.i, label %_ZN12_GLOBAL__N_19Demangler18parseSymbolBackrefEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i.i
@@ -371,7 +371,7 @@ tailrecurse.i.i.i.i:                              ; preds = %151, %.critedge.i.i
   br i1 %157, label %_ZN12_GLOBAL__N_19Demangler11parseMangleEPN4llvm16itanium_demangle12OutputBufferE.exit.thread, label %.lr.ph74.i.i.i.i
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.thread.i.i.i.i: ; preds = %.critedge.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %141
-  call fastcc void @_ZN12_GLOBAL__N_19Demangler10parseLNameEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEEm(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %137)
+  call fastcc void @_ZN12_GLOBAL__N_19Demangler10parseLNameEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEEm(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %137)
   %.pr.i.i.pre.i = load i64, ptr %4, align 8
   br label %.critedge.i.i.i
 
@@ -688,7 +688,7 @@ _ZN12_GLOBAL__N_19Demangler16parseTypeBackrefERSt17basic_string_viewIcSt11char_t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19Demangler10parseLNameEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEEm(ptr nocapture noundef %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_19Demangler10parseLNameEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEEm(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %.pre = load i64, ptr %1, align 8
   switch i64 %2, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit49.thread [
     i64 6, label %4

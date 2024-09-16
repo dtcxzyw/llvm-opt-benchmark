@@ -2366,7 +2366,7 @@ if.then:                                          ; preds = %trace_multifd_new_s
   call void @qio_channel_set_delay(ptr noundef %call.i, i1 noundef zeroext false) #15
   %running = getelementptr inbounds i8, ptr %opaque, i64 328
   store i8 1, ptr %running, align 8
-  %call3 = call fastcc zeroext i1 @multifd_channel_connect(ptr noundef nonnull %opaque, ptr noundef %call.i, ptr noundef nonnull %local_err)
+  %call3 = call fastcc zeroext i1 @multifd_channel_connect(ptr noundef nonnull %opaque, ptr noundef %call.i, ptr noundef %local_err)
   br i1 %call3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.then, %trace_multifd_new_send_channel_async.exit
@@ -2433,7 +2433,7 @@ declare zeroext i1 @qio_task_propagate_error(ptr noundef, ptr noundef) local_unn
 declare void @qio_channel_set_delay(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @multifd_channel_connect(ptr noundef %p, ptr noundef %ioc, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @multifd_channel_connect(ptr noundef %p, ptr noundef %ioc, ptr noundef nonnull %errp) unnamed_addr #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -2482,7 +2482,7 @@ if.then:                                          ; preds = %trace_multifd_set_o
   %call.i = tail call ptr @migrate_get_current() #15
   %hostname1.i = getelementptr inbounds i8, ptr %call.i, i64 1664
   %7 = load ptr, ptr %hostname1.i, align 8
-  %call2.i = tail call ptr @migration_tls_client_create(ptr noundef %ioc, ptr noundef %7, ptr noundef %errp) #15
+  %call2.i = tail call ptr @migration_tls_client_create(ptr noundef %ioc, ptr noundef %7, ptr noundef nonnull %errp) #15
   %tobool.not.i.not = icmp eq ptr %call2.i, null
   br i1 %tobool.not.i.not, label %return, label %if.end.i
 
@@ -3085,7 +3085,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_multifd_tls_outgoing_handshake_complete.exit: ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %call3 = call fastcc zeroext i1 @multifd_channel_connect(ptr noundef %opaque, ptr noundef %call.i, ptr noundef nonnull %err)
+  %call3 = call fastcc zeroext i1 @multifd_channel_connect(ptr noundef %opaque, ptr noundef %call.i, ptr noundef %err)
   br i1 %call3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %trace_multifd_tls_outgoing_handshake_complete.exit, %entry

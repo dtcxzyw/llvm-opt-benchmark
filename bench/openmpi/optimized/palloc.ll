@@ -393,7 +393,7 @@ pmix_cmd_line_get_param.exit345:                  ; preds = %.lr.ph.i340
   br label %167
 
 .thread537:                                       ; preds = %133, %._crit_edge
-  %139 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %5, ptr noundef nonnull @.str.20)
+  %139 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %5, ptr noundef nonnull @.str.20)
   br i1 %139, label %140, label %142
 
 140:                                              ; preds = %.thread537
@@ -401,7 +401,7 @@ pmix_cmd_line_get_param.exit345:                  ; preds = %.lr.ph.i340
   br label %167
 
 142:                                              ; preds = %.thread537
-  %143 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %5, ptr noundef nonnull @.str.22)
+  %143 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %5, ptr noundef nonnull @.str.22)
   br i1 %143, label %144, label %146
 
 144:                                              ; preds = %142
@@ -433,7 +433,7 @@ pmix_cmd_line_get_param.exit353:                  ; preds = %.lr.ph.i348
   br label %167
 
 .loopexit:                                        ; preds = %151, %146
-  %157 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %5, ptr noundef nonnull @.str.26)
+  %157 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %5, ptr noundef nonnull @.str.26)
   br i1 %157, label %158, label %160
 
 158:                                              ; preds = %.loopexit
@@ -1617,7 +1617,7 @@ declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #8 {
+define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 240
   %4 = getelementptr inbounds i8, ptr %0, i64 360
   %.09.i = load ptr, ptr %4, align 8

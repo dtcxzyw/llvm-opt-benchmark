@@ -4367,7 +4367,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_subobj_ipv4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @dissect_subobj_ipv4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 2, 256) %6) unnamed_addr #0 {
   %8 = load i32, ptr @hf_PCEPF_SUBOBJ_IPv4, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef %6, i32 noundef 0) #2
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %5) #2
@@ -4477,7 +4477,7 @@ define internal fastcc void @dissect_subobj_ipv4(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_subobj_ipv6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @dissect_subobj_ipv6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 2, 256) %6) unnamed_addr #0 {
   %8 = load i32, ptr @hf_PCEPF_SUBOBJ_IPv6, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef %6, i32 noundef 0) #2
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %5) #2
@@ -4587,7 +4587,7 @@ define internal fastcc void @dissect_subobj_ipv6(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_subobj_label_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @dissect_subobj_label_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 2, 256) %6) unnamed_addr #0 {
   %8 = load i32, ptr @hf_PCEPF_SUBOBJ_LABEL_CONTROL, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef %6, i32 noundef 0) #2
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %5) #2
@@ -4660,7 +4660,7 @@ define internal fastcc void @dissect_subobj_label_control(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_subobj_unnumb_interfaceID(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @dissect_subobj_unnumb_interfaceID(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 2, 256) %6) unnamed_addr #0 {
   %8 = load i32, ptr @hf_PCEPF_SUBOBJ_UNNUM_INTERFACEID, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef %6, i32 noundef 0) #2
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %5) #2
@@ -4757,7 +4757,7 @@ define internal fastcc void @dissect_subobj_unnumb_interfaceID(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_subobj_autonomous_sys_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @dissect_subobj_autonomous_sys_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 2, 256) %6) unnamed_addr #0 {
   %8 = icmp eq i32 %4, 17
   %9 = load i32, ptr @hf_PCEPF_SUBOBJ_AUTONOMOUS_SYS_NUM, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %2, i32 noundef %3, i32 noundef %6, i32 noundef 0) #2
@@ -4823,7 +4823,7 @@ define internal fastcc void @dissect_subobj_autonomous_sys_num(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_subobj_pksv4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_subobj_pksv4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 2, 256) %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_PCEPF_SUBOBJ_PKSv4, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %7, ptr noundef %2, i32 noundef %3, i32 noundef %5, i32 noundef 0) #2
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %4) #2
@@ -4861,7 +4861,7 @@ define internal fastcc void @dissect_subobj_pksv4(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_subobj_sr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @dissect_subobj_sr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 2, 256) %6) unnamed_addr #0 {
   %8 = load i32, ptr @hf_PCEPF_SUBOBJ_SR, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef %6, i32 noundef 0) #2
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %5) #2
@@ -5039,7 +5039,7 @@ define internal fastcc void @dissect_subobj_sr(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_subobj_srv6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @dissect_subobj_srv6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 2, 256) %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -5224,7 +5224,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_subobj_srlg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_subobj_srlg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 2, 256) %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_PCEPF_SUBOBJ_SRLG, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %7, ptr noundef %2, i32 noundef %3, i32 noundef %5, i32 noundef 0) #2
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %4) #2

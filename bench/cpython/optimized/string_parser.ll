@@ -257,7 +257,7 @@ while.end.i:                                      ; preds = %if.end43.i, %if.the
   br i1 %or.cond1.i, label %if.then52.i, label %if.end58.i
 
 if.then52.i:                                      ; preds = %while.end.i
-  %call53.i = call fastcc i32 @warn_invalid_escape_sequence(ptr noundef %p, ptr noundef nonnull %18, ptr noundef nonnull %t)
+  %call53.i = call fastcc i32 @warn_invalid_escape_sequence(ptr noundef %p, ptr noundef %18, ptr noundef nonnull %t)
   %cmp54.i = icmp slt i32 %call53.i, 0
   br i1 %cmp54.i, label %if.then56.i, label %if.end58.i
 
@@ -536,7 +536,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %p, ptr noundef %errtype, i64 noundef %lineno, i64 noundef %col_offset, i64 noundef %end_lineno, i64 noundef %end_col_offset, ptr nocapture readnone %errmsg, ...) unnamed_addr #0 {
+define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %p, ptr noundef %errtype, i64 noundef range(i64 -2147483648, 2147483648) %lineno, i64 noundef range(i64 -2147483648, 2147483648) %col_offset, i64 noundef range(i64 -2147483648, 2147483648) %end_lineno, i64 noundef range(i64 -2147483648, 2147483648) %end_col_offset, ptr nocapture readnone %errmsg, ...) unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
@@ -554,7 +554,7 @@ entry:
 declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @decode_bytes_with_escapes(ptr noundef %p, ptr noundef %s, i64 noundef %len, ptr noundef %t) unnamed_addr #0 {
+define internal fastcc ptr @decode_bytes_with_escapes(ptr noundef %p, ptr noundef %s, i64 noundef range(i64 -5, 2147483647) %len, ptr noundef %t) unnamed_addr #0 {
 entry:
   %first_invalid_escape = alloca ptr, align 8
   %call = call ptr @_PyBytes_DecodeEscape(ptr noundef %s, i64 noundef %len, ptr noundef null, ptr noundef nonnull %first_invalid_escape) #7
@@ -567,7 +567,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call3 = call fastcc i32 @warn_invalid_escape_sequence(ptr noundef %p, ptr noundef nonnull %0, ptr noundef %t)
+  %call3 = call fastcc i32 @warn_invalid_escape_sequence(ptr noundef %p, ptr noundef %0, ptr noundef %t)
   %cmp4 = icmp slt i32 %call3, 0
   br i1 %cmp4, label %if.then5, label %return
 
@@ -598,7 +598,7 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare ptr @_PyUnicode_DecodeUnicodeEscapeInternal(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @warn_invalid_escape_sequence(ptr noundef %p, ptr noundef %first_invalid_escape, ptr noundef %t) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @warn_invalid_escape_sequence(ptr noundef %p, ptr noundef nonnull %first_invalid_escape, ptr noundef %t) unnamed_addr #0 {
 entry:
   %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %0 = load i32, ptr %call_invalid_rules, align 4

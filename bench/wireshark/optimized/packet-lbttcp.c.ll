@@ -1288,7 +1288,7 @@ lbttcp_client_transport_find.exit:                ; preds = %197
 
 lbttcp_client_transport_find.exit.thread:         ; preds = %lbttcp_transport_find.exit121.thread180, %197, %lbttcp_client_transport_find.exit
   %204 = load i32, ptr %154, align 4
-  %205 = call fastcc ptr @lbttcp_client_transport_add(ptr noundef nonnull %.076183, ptr noundef nonnull %6, i16 noundef zeroext %.077, i32 noundef %204)
+  %205 = call fastcc ptr @lbttcp_client_transport_add(ptr noundef %.076183, ptr noundef %6, i16 noundef zeroext %.077, i32 noundef %204)
   %.not99 = icmp eq ptr %205, null
   br i1 %.not99, label %230, label %.thread185
 
@@ -1317,7 +1317,7 @@ lbttcp_transport_find.exit121.thread:             ; preds = %175, %172, %168, %l
   %217 = getelementptr inbounds i8, ptr %215, i64 32
   %218 = load i64, ptr %217, align 8
   %219 = load i32, ptr %154, align 4
-  %220 = call fastcc ptr @lbttcp_client_transport_add(ptr noundef nonnull %215, ptr noundef nonnull %6, i16 noundef zeroext %.077, i32 noundef %219)
+  %220 = call fastcc ptr @lbttcp_client_transport_add(ptr noundef %215, ptr noundef %6, i16 noundef zeroext %.077, i32 noundef %219)
   %.not98 = icmp eq ptr %220, null
   br i1 %.not98, label %230, label %221
 
@@ -1423,12 +1423,12 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lbttcp_client_transport_add(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @lbttcp_client_transport_add(ptr noundef nonnull %0, ptr noundef nonnull %1, i16 noundef zeroext %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i16, ptr %5, align 8
   %7 = zext i16 %6 to i32
   %8 = zext i16 %2 to i32
-  %9 = tail call ptr @find_conversation(i32 noundef %3, ptr noundef %0, ptr noundef %1, i32 noundef 2, i32 noundef %7, i32 noundef %8, i32 noundef 0) #4
+  %9 = tail call ptr @find_conversation(i32 noundef %3, ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef %7, i32 noundef %8, i32 noundef 0) #4
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %lbttcp_client_transport_find.exit.thread, label %10
 

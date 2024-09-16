@@ -547,7 +547,7 @@ tvb_read_sane_word.exit65:                        ; preds = %78
   br i1 %exitcond.not, label %94, label %85, !llvm.loop !4
 
 94:                                               ; preds = %90
-  %95 = call fastcc i32 @tvb_read_sane_word(ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %95 = call fastcc i32 @tvb_read_sane_word(ptr noundef %5, ptr noundef nonnull %6)
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %tvb_read_sane_word.exit.thread, label %97
 
@@ -611,7 +611,7 @@ tvb_read_sane_string.exit72:                      ; preds = %125
   br i1 %133, label %tvb_read_sane_word.exit.thread, label %134
 
 134:                                              ; preds = %tvb_read_sane_string.exit72
-  %135 = call fastcc i32 @tvb_read_sane_string(ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
+  %135 = call fastcc i32 @tvb_read_sane_string(ptr noundef %5, ptr noundef null, ptr noundef null)
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %tvb_read_sane_word.exit.thread, label %.loopexit
 
@@ -659,7 +659,7 @@ tvb_read_sane_string.exit72:                      ; preds = %125
   %155 = add i32 %2, 8
   store i32 %155, ptr %11, align 8
   store i32 8, ptr %12, align 4
-  %156 = call fastcc i32 @tvb_read_sane_string(ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
+  %156 = call fastcc i32 @tvb_read_sane_string(ptr noundef %5, ptr noundef null, ptr noundef null)
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %tvb_read_sane_word.exit.thread, label %.loopexit
 
@@ -751,7 +751,7 @@ tvb_read_sane_string.exit84:                      ; preds = %179
   br i1 %exitcond234.not, label %205, label %.preheader173, !llvm.loop !8
 
 205:                                              ; preds = %199
-  %206 = call fastcc i32 @tvb_read_sane_word(ptr noundef nonnull %5, ptr noundef nonnull %7)
+  %206 = call fastcc i32 @tvb_read_sane_word(ptr noundef %5, ptr noundef nonnull %7)
   %207 = icmp eq i32 %206, 0
   br i1 %207, label %tvb_read_sane_word.exit.thread, label %208
 
@@ -768,7 +768,7 @@ tvb_read_sane_string.exit84:                      ; preds = %179
   br label %.preheader170
 
 210:                                              ; preds = %208
-  %211 = call fastcc i32 @tvb_read_sane_word(ptr noundef nonnull %5, ptr noundef nonnull %8)
+  %211 = call fastcc i32 @tvb_read_sane_word(ptr noundef %5, ptr noundef nonnull %8)
   %212 = icmp eq i32 %211, 0
   br i1 %212, label %tvb_read_sane_word.exit.thread, label %.preheader164
 
@@ -821,7 +821,7 @@ tvb_read_sane_string.exit88:                      ; preds = %223
   br i1 %238, label %tvb_read_sane_word.exit.thread, label %215
 
 239:                                              ; preds = %208
-  %240 = call fastcc i32 @tvb_read_sane_word(ptr noundef nonnull %5, ptr noundef nonnull %9)
+  %240 = call fastcc i32 @tvb_read_sane_word(ptr noundef %5, ptr noundef nonnull %9)
   %241 = icmp eq i32 %240, 0
   br i1 %241, label %tvb_read_sane_word.exit.thread, label %.preheader167
 
@@ -896,7 +896,7 @@ tvb_read_sane_string.exit88:                      ; preds = %223
   br i1 %exitcond232.not, label %275, label %.preheader178, !llvm.loop !13
 
 275:                                              ; preds = %271
-  %276 = call fastcc i32 @tvb_read_sane_word(ptr noundef nonnull %5, ptr noundef nonnull %10)
+  %276 = call fastcc i32 @tvb_read_sane_word(ptr noundef %5, ptr noundef nonnull %10)
   %277 = icmp eq i32 %276, 0
   br i1 %277, label %tvb_read_sane_word.exit.thread, label %278
 
@@ -920,7 +920,7 @@ tvb_skip_bytes.exit96:                            ; preds = %278
   br i1 %289, label %tvb_read_sane_word.exit.thread, label %290
 
 290:                                              ; preds = %tvb_skip_bytes.exit96
-  %291 = call fastcc i32 @tvb_read_sane_string(ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
+  %291 = call fastcc i32 @tvb_read_sane_string(ptr noundef %5, ptr noundef null, ptr noundef null)
   %292 = icmp eq i32 %291, 0
   br i1 %292, label %tvb_read_sane_word.exit.thread, label %.loopexit
 
@@ -1068,7 +1068,7 @@ tvb_read_sane_string.exit110:                     ; preds = %350
   br i1 %exitcond230.not, label %374, label %.preheader181, !llvm.loop !15
 
 374:                                              ; preds = %370
-  %375 = call fastcc i32 @tvb_read_sane_string(ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
+  %375 = call fastcc i32 @tvb_read_sane_string(ptr noundef %5, ptr noundef null, ptr noundef null)
   %376 = icmp eq i32 %375, 0
   br i1 %376, label %tvb_read_sane_word.exit.thread, label %.loopexit
 
@@ -1338,7 +1338,7 @@ dissect_sane_word.exit9.i.i:                      ; preds = %115, %dissect_sane_
   br label %dissect_sane_net_control_option_request.exit.i
 
 dissect_sane_net_control_option_request.exit.i:   ; preds = %122, %dissect_sane_word.exit9.i.i
-  call fastcc void @dissect_control_option_value(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef %21)
+  call fastcc void @dissect_control_option_value(ptr noundef %7, ptr noundef nonnull readonly %1, ptr noundef %21)
   br label %dissect_sane_request.exit
 
 124:                                              ; preds = %dissect_sane_word.exit.i, %dissect_sane_word.exit.i, %dissect_sane_word.exit.i, %dissect_sane_word.exit.i, %dissect_sane_word.exit.i
@@ -1502,7 +1502,7 @@ tvb_read_sane_string.exit:                        ; preds = %tvb_read_sane_strin
 
 200:                                              ; preds = %195
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef nonnull %6)
+  call fastcc void @dissect_sane_status(ptr noundef %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef nonnull %6)
   %201 = load i32, ptr @hf_sane_version, align 4
   %202 = load ptr, ptr %7, align 8
   %203 = load i32, ptr %8, align 8
@@ -1549,7 +1549,7 @@ dissect_sane_net_init_response.exit.i:            ; preds = %209, %200
 232:                                              ; preds = %195
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 -1, ptr %5, align 4
-  call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef nonnull %5)
+  call fastcc void @dissect_sane_status(ptr noundef %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef nonnull %5)
   %233 = load i32, ptr @hf_sane_device_handle, align 4
   %234 = load ptr, ptr %7, align 8
   %235 = load i32, ptr %8, align 8
@@ -2178,7 +2178,7 @@ dissect_sane_word.exit100.i.i:                    ; preds = %552, %dissect_sane_
   br i1 %exitcond139.not.i.i, label %dissect_sane_request.exit, label %291, !llvm.loop !19
 
 563:                                              ; preds = %195
-  call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
+  call fastcc void @dissect_sane_status(ptr noundef %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
   %564 = load i32, ptr @hf_sane_data_port, align 4
   %565 = load ptr, ptr %7, align 8
   %566 = load i32, ptr %8, align 8
@@ -2260,7 +2260,7 @@ tvb_read_sane_string.exit43:                      ; preds = %dissect_sane_net_st
   br label %dissect_sane_request.exit
 
 608:                                              ; preds = %195
-  call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
+  call fastcc void @dissect_sane_status(ptr noundef %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
   %609 = load i32, ptr @hf_sane_frame_format, align 4
   %610 = load ptr, ptr %7, align 8
   %611 = load i32, ptr %8, align 8
@@ -2358,7 +2358,7 @@ dissect_sane_word.exit18.i.i:                     ; preds = %651, %dissect_sane_
   br label %dissect_sane_request.exit
 
 664:                                              ; preds = %195
-  call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
+  call fastcc void @dissect_sane_status(ptr noundef %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
   %665 = load ptr, ptr %7, align 8
   %666 = load i32, ptr %8, align 8
   %667 = load i32, ptr @hf_sane_control_option_info, align 4
@@ -2377,7 +2377,7 @@ dissect_sane_word.exit18.i.i:                     ; preds = %651, %dissect_sane_
   br label %dissect_sane_net_control_option_response.exit.i
 
 dissect_sane_net_control_option_response.exit.i:  ; preds = %672, %664
-  call fastcc void @dissect_control_option_value(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef %21)
+  call fastcc void @dissect_control_option_value(ptr noundef %7, ptr noundef nonnull readonly %1, ptr noundef %21)
   %676 = load i32, ptr @hf_sane_resource_name, align 4
   %677 = getelementptr i8, ptr %1, i64 408
   %.val.i37.i = load ptr, ptr %677, align 8
@@ -2427,7 +2427,7 @@ tvb_read_sane_string.exit41:                      ; preds = %dissect_sane_net_co
   br label %dissect_sane_request.exit
 
 702:                                              ; preds = %195
-  call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
+  call fastcc void @dissect_sane_status(ptr noundef %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
   %703 = load i32, ptr @hf_sane_array_length, align 4
   %704 = load ptr, ptr %7, align 8
   %705 = load i32, ptr %8, align 8
@@ -2708,7 +2708,7 @@ declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef)
 declare i32 @value_is_in_range(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @tvb_read_sane_word(ptr nocapture noundef %0, ptr noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @tvb_read_sane_word(ptr nocapture noundef nonnull %0, ptr noundef writeonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -2743,7 +2743,7 @@ define internal fastcc range(i32 0, 5) i32 @tvb_read_sane_word(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tvb_read_sane_string(ptr nocapture noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @tvb_read_sane_string(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -2884,7 +2884,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_control_option_value(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_control_option_value(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @hf_sane_option_value_type, align 4
   %6 = load ptr, ptr %0, align 8
@@ -2953,7 +2953,7 @@ dissect_sane_word.exit24:                         ; preds = %dissect_sane_word.e
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %49 = load i32, ptr %7, align 8
   store ptr @.str.176, ptr %4, align 8
-  %50 = call fastcc i32 @tvb_read_sane_string(ptr noundef nonnull %0, ptr noundef %.val, ptr noundef nonnull %4)
+  %50 = call fastcc i32 @tvb_read_sane_string(ptr noundef %0, ptr noundef %.val, ptr noundef nonnull %4)
   %51 = load i32, ptr @hf_sane_string, align 4
   %52 = load ptr, ptr %0, align 8
   %53 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %51, ptr noundef %52, i32 noundef %49, i32 noundef %50, i32 noundef 0) #4
@@ -3105,7 +3105,7 @@ dissect_sane_word.exit28.us44:                    ; preds = %129, %.lr.ph.split.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sane_status(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_sane_status(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8

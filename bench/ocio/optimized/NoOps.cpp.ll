@@ -263,7 +263,7 @@ define hidden void @_ZN19OpenColorIO_v2_4dev23CreateGpuAllocationNoOpERNS_10OpRc
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %ref.tmp1 = alloca %"class.std::shared_ptr.13", align 8
-  call fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_114AllocationNoOpEJRKNS0_14AllocationDataEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nonnull align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %allocationData)
+  call fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_114AllocationNoOpEJRKNS0_14AllocationDataEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %allocationData)
   %0 = load ptr, ptr %ref.tmp1, align 8
   store ptr %0, ptr %ref.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -435,7 +435,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN19OpenColorIO_v2_4dev10OpRcPtrVec9push_backERKSt10shared_ptrINS_2OpEE(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_114AllocationNoOpEJRKNS0_14AllocationDataEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %__args) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_114AllocationNoOpEJRKNS0_14AllocationDataEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %__args) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %call5.i.i.i5.i.i.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
@@ -2224,7 +2224,7 @@ define hidden void @_ZN19OpenColorIO_v2_4dev14CreateFileNoOpERNS_10OpRcPtrVecERK
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %ref.tmp1 = alloca %"class.std::shared_ptr.28", align 8
-  call fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_18FileNoOpEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_(ptr noalias nonnull align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %fileReference)
+  call fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_18FileNoOpEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_(ptr noalias align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %fileReference)
   %0 = load ptr, ptr %ref.tmp1, align 8
   store ptr %0, ptr %ref.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -2394,7 +2394,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_18FileNoOpEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %__args) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_18FileNoOpEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %__args) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %call5.i.i.i5.i.i.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
@@ -2548,7 +2548,7 @@ define hidden void @_ZN19OpenColorIO_v2_4dev14CreateLookNoOpERNS_10OpRcPtrVecERK
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %ref.tmp1 = alloca %"class.std::shared_ptr.31", align 8
-  call fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_18LookNoOpEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_(ptr noalias nonnull align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %look)
+  call fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_18LookNoOpEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_(ptr noalias align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %look)
   %0 = load ptr, ptr %ref.tmp1, align 8
   store ptr %0, ptr %ref.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -2718,7 +2718,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_18LookNoOpEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %__args) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_18LookNoOpEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %__args) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %call5.i.i.i5.i.i.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
@@ -3364,7 +3364,7 @@ define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_114AllocationNoOp5cl
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_114AllocationNoOpEED2Ev.exit:
   %ref.tmp = alloca %"class.std::shared_ptr.13", align 8
   %m_allocationData = getelementptr inbounds i8, ptr %this, i64 24
-  call fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_114AllocationNoOpEJRKNS0_14AllocationDataEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %m_allocationData)
+  call fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_114AllocationNoOpEJRKNS0_14AllocationDataEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %m_allocationData)
   %0 = load ptr, ptr %ref.tmp, align 8
   store ptr %0, ptr %agg.result, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4398,7 +4398,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEED2Ev.exit: ; preds = %if.then.i.i, %_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_12FileNoOpDataEKNS_6OpDataEEESt10shared_ptrIT_ERKS5_IT0_E.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %20 = load ptr, ptr %fileData, align 8
   %m_path.i = getelementptr inbounds i8, ptr %20, i64 168
-  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_18FileNoOpEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %m_path.i)
+  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_18FileNoOpEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %m_path.i)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_18FileNoOpEED2Ev.exit unwind label %lpad3
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_18FileNoOpEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEED2Ev.exit
@@ -5277,7 +5277,7 @@ define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_18LookNoOp5cloneEv(p
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_18LookNoOpEED2Ev.exit:
   %ref.tmp = alloca %"class.std::shared_ptr.31", align 8
   %m_look = getelementptr inbounds i8, ptr %this, i64 24
-  call fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_18LookNoOpEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %m_look)
+  call fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_18LookNoOpEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %m_look)
   %0 = load ptr, ptr %ref.tmp, align 8
   store ptr %0, ptr %agg.result, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8

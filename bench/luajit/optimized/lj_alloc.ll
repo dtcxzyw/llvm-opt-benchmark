@@ -76,7 +76,7 @@ return:                                           ; preds = %entry, %init_bins.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mmap_probe(ptr noundef %rs, i64 noundef %size) unnamed_addr #0 {
+define internal fastcc ptr @mmap_probe(ptr noundef %rs, i64 noundef range(i64 1, -4095) %size) unnamed_addr #0 {
 entry:
   %call = tail call ptr @__errno_location() #9
   %0 = load i32, ptr %call, align 4
@@ -1112,7 +1112,7 @@ return:                                           ; preds = %if.then38.i, %land.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lj_alloc_malloc(ptr noundef %msp, i64 noundef %nsize) unnamed_addr #0 {
+define internal fastcc ptr @lj_alloc_malloc(ptr noundef %msp, i64 noundef range(i64 1, 0) %nsize) unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %nsize, 241
   br i1 %cmp, label %if.then, label %if.else125

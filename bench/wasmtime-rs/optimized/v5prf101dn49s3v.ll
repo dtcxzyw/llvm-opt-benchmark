@@ -803,7 +803,7 @@ common.ret:                                       ; preds = %19, %15, %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$17h622f140c7ea6b33cE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$17h622f140c7ea6b33cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = load i64, ptr %0, align 8, !range !58, !noundef !5
   %.not = icmp eq i64 %3, 2
@@ -1007,7 +1007,7 @@ define internal void @"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$c
   ret void
 
 5:                                                ; preds = %1
-  tail call fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$17h622f140c7ea6b33cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$17h622f140c7ea6b33cE"(ptr noalias noundef align 8 dereferenceable(32) %0)
   br label %4
 }
 
@@ -3351,7 +3351,7 @@ define hidden void @"_ZN4core3ptr481drop_in_place$LT$wasmtime_wasi..runtime..spa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !921, !noundef !5
   %3 = add nsw i64 %2, -2
   %4 = icmp ult i64 %3, 9
@@ -3505,7 +3505,7 @@ common.resume:                                    ; preds = %63, %.body, %46
 
 50:                                               ; preds = %1
   %51 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$17h622f140c7ea6b33cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %51)
+  tail call fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$17h622f140c7ea6b33cE"(ptr noalias noundef align 8 dereferenceable(32) %51)
   br label %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17hf6d994dad34c12a3E.exit"
 
 52:                                               ; preds = %1
@@ -3535,7 +3535,7 @@ common.resume:                                    ; preds = %63, %.body, %46
   br i1 %62, label %common.resume, label %63
 
 63:                                               ; preds = %.body
-  invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$17h622f140c7ea6b33cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %60)
+  invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$17h622f140c7ea6b33cE"(ptr noalias noundef align 8 dereferenceable(32) %60)
           to label %common.resume unwind label %68
 
 "_ZN4core3ptr59drop_in_place$LT$tokio..net..tcp..listener..TcpListener$GT$17h27fc59c5b8b2e37aE.exit": ; preds = %"_ZN4core3ptr101drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$mio..net..tcp..listener..TcpListener$GT$$GT$17h3498b35fe0960b05E.llvm.10377456559187600216.exit.i"
@@ -3545,7 +3545,7 @@ common.resume:                                    ; preds = %63, %.body, %46
   br i1 %66, label %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17hf6d994dad34c12a3E.exit", label %67
 
 67:                                               ; preds = %"_ZN4core3ptr59drop_in_place$LT$tokio..net..tcp..listener..TcpListener$GT$17h27fc59c5b8b2e37aE.exit"
-  tail call fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$17h622f140c7ea6b33cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %64)
+  tail call fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$17h622f140c7ea6b33cE"(ptr noalias noundef align 8 dereferenceable(32) %64)
   br label %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17hf6d994dad34c12a3E.exit"
 
 68:                                               ; preds = %63
@@ -3693,7 +3693,7 @@ define hidden void @"_ZN4core3ptr547drop_in_place$LT$wasmtime_wasi..runtime..spa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_wasi..stream..InputStream$GT$17h7d69792f6d8bbbbbE"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_wasi..stream..InputStream$GT$17h7d69792f6d8bbbbbE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8, !range !1116, !noundef !5
   %4 = icmp eq i8 %3, 2
@@ -3764,7 +3764,7 @@ define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_wasi..stre
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr572drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hde65d0c186214b2aE"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr572drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hde65d0c186214b2aE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   invoke void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8ed2a16d68d066b6E.llvm.6128706887224790261"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
           to label %9 unwind label %2
 
@@ -3812,7 +3812,7 @@ define internal fastcc void @"_ZN4core3ptr572drop_in_place$LT$wasmtime_wasi..run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr574drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3937af7d80263da2E"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr574drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3937af7d80263da2E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   invoke void @"_ZN4core3ptr261drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6c81fe9880398b46E.llvm.6128706887224790261"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
           to label %9 unwind label %2
 
@@ -3860,7 +3860,7 @@ define internal fastcc void @"_ZN4core3ptr574drop_in_place$LT$wasmtime_wasi..run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr575drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h58981c1910e6966eE"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr575drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h58981c1910e6966eE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   invoke void @"_ZN4core3ptr262drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb0920c7dffd3e41cE.llvm.6128706887224790261"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
           to label %9 unwind label %2
 
@@ -6357,7 +6357,7 @@ common.ret:                                       ; preds = %132, %"_ZN4core3ptr
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN5tokio3net3tcp6stream9TcpStream5ready28_$u7b$$u7b$closure$u7d$$u7d$17ha99a42a477c00540E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5tokio3net3tcp6stream9TcpStream5ready28_$u7b$$u7b$closure$u7d$$u7d$17ha99a42a477c00540E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = alloca { [9 x i8], i8, [6 x i8] }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 97
   %6 = load i8, ptr %5, align 1, !range !37, !noundef !5
@@ -6642,7 +6642,7 @@ common.ret:                                       ; preds = %86, %85
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { i64, ptr } @"_ZN5tokio3net3tcp6stream9TcpStream8writable28_$u7b$$u7b$closure$u7d$$u7d$17h839ae12c3805373bE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc { i64, ptr } @"_ZN5tokio3net3tcp6stream9TcpStream8writable28_$u7b$$u7b$closure$u7d$$u7d$17h839ae12c3805373bE"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [1 x i64] }, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load i8, ptr %4, align 8, !range !37, !noundef !5
@@ -6682,7 +6682,7 @@ default.unreachable11:                            ; preds = %2
 10:                                               ; preds = %2, %6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %11 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke fastcc void @"_ZN5tokio3net3tcp6stream9TcpStream5ready28_$u7b$$u7b$closure$u7d$$u7d$17ha99a42a477c00540E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 %11, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @"_ZN5tokio3net3tcp6stream9TcpStream5ready28_$u7b$$u7b$closure$u7d$$u7d$17ha99a42a477c00540E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 %11, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %14 unwind label %12
 
 12:                                               ; preds = %10
@@ -7759,7 +7759,7 @@ define hidden void @"_ZN69_$LT$core..hash..sip..Sip13Rounds$u20$as$u20$core..has
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #17 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #17 personality ptr @rust_eh_personality {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %.sroa.7 = alloca { ptr, [1 x i64] }, align 8
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -9562,7 +9562,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.58.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
   store ptr %67, ptr %.sroa.58.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN13wasmtime_wasi4host7network147_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17h0138a9dc472fa813E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %15)
+  invoke fastcc void @"_ZN13wasmtime_wasi4host7network147_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17h0138a9dc472fa813E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %15)
           to label %123 unwind label %25
 
 123:                                              ; preds = %117
@@ -9913,7 +9913,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %60, ptr %.sroa.5.0..sroa_idx, align 8
-  call fastcc void @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17ha5fb096cf360cb78E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  call fastcc void @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17ha5fb096cf360cb78E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %13)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
@@ -12267,7 +12267,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
 
 39:                                               ; preds = %7, %6
   %.pn315 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %7 ], [ %.pn, %6 ]
-  invoke fastcc void @"_ZN4core3ptr574drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3937af7d80263da2E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) #36
+  invoke fastcc void @"_ZN4core3ptr574drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3937af7d80263da2E"(ptr noalias noundef align 8 dereferenceable(64) %0) #36
           to label %38 unwind label %36
 }
 
@@ -13207,7 +13207,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
 
 39:                                               ; preds = %7, %6
   %.pn315 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %7 ], [ %.pn, %6 ]
-  invoke fastcc void @"_ZN4core3ptr572drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hde65d0c186214b2aE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) #36
+  invoke fastcc void @"_ZN4core3ptr572drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hde65d0c186214b2aE"(ptr noalias noundef align 8 dereferenceable(64) %0) #36
           to label %38 unwind label %36
 }
 
@@ -15773,7 +15773,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
 
 39:                                               ; preds = %7, %6
   %.pn315 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %7 ], [ %.pn, %6 ]
-  invoke fastcc void @"_ZN4core3ptr575drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h58981c1910e6966eE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) #36
+  invoke fastcc void @"_ZN4core3ptr575drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h58981c1910e6966eE"(ptr noalias noundef align 8 dereferenceable(56) %0) #36
           to label %38 unwind label %36
 }
 
@@ -15897,7 +15897,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket3new17h001b7dc7b398b048E(ptr noalia
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %2
-  invoke fastcc void @"_ZN13wasmtime_wasi3tcp9TcpSocket3new28_$u7b$$u7b$closure$u7d$$u7d$17hd986312e3a9802e8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %0, i8 %5)
+  invoke fastcc void @"_ZN13wasmtime_wasi3tcp9TcpSocket3new28_$u7b$$u7b$closure$u7d$$u7d$17hd986312e3a9802e8E"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, i8 %5)
           to label %13 unwind label %11
 
 9:                                                ; preds = %2
@@ -15959,7 +15959,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket3new17h001b7dc7b398b048E(ptr noalia
           to label %28 unwind label %11, !noalias !3075
 
 28:                                               ; preds = %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit.i"
-  invoke fastcc void @"_ZN13wasmtime_wasi3tcp9TcpSocket3new28_$u7b$$u7b$closure$u7d$$u7d$17hd986312e3a9802e8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %0, i8 %5)
+  invoke fastcc void @"_ZN13wasmtime_wasi3tcp9TcpSocket3new28_$u7b$$u7b$closure$u7d$$u7d$17hd986312e3a9802e8E"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0, i8 %5)
           to label %31 unwind label %29
 
 29:                                               ; preds = %28
@@ -15991,7 +15991,7 @@ _ZN13wasmtime_wasi7runtime26with_ambient_tokio_runtime17hc7116aa9180e8a9cE.exit:
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN13wasmtime_wasi3tcp9TcpSocket3new28_$u7b$$u7b$closure$u7d$$u7d$17hd986312e3a9802e8E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(72) %0, i8 %.0.val) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN13wasmtime_wasi3tcp9TcpSocket3new28_$u7b$$u7b$closure$u7d$$u7d$17hd986312e3a9802e8E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i8 %.0.val) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = alloca i32, align 4
   %3 = alloca { i32, [3 x i32] }, align 8
   %4 = alloca i32, align 4
@@ -16305,7 +16305,7 @@ common.resume:                                    ; preds = %82, %90, %.thread61
 72:                                               ; preds = %70
   %73 = getelementptr inbounds i8, ptr %7, i64 8
   %74 = load i32, ptr %73, align 8, !range !1450, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %0)
           to label %76 unwind label %82
 
 75:                                               ; preds = %70
@@ -16324,7 +16324,7 @@ common.resume:                                    ; preds = %82, %90, %.thread61
   br label %81
 
 80:                                               ; preds = %76
-  call fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
+  call fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %7)
   br label %79
 
 81:                                               ; preds = %14, %65, %2, %10, %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread52, %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread54, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8ad3e32dd4d4c906E.exit", %79
@@ -16352,7 +16352,7 @@ common.resume:                                    ; preds = %82, %90, %.thread61
 
 90:                                               ; preds = %.thread, %82
   %.pn59 = phi { ptr, i32 } [ %86, %.thread ], [ %83, %82 ]
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7) #36
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %7) #36
           to label %common.resume unwind label %94
 
 .thread61:                                        ; preds = %.thread
@@ -16382,11 +16382,11 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket11finish_bind17he97c4c19fd85
   br i1 %2, label %3, label %4
 
 3:                                                ; preds = %1
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %0)
           to label %5 unwind label %6
 
 4:                                                ; preds = %1
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %0)
           to label %10 unwind label %8
 
 5:                                                ; preds = %3
@@ -16591,7 +16591,7 @@ _ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37e
   br label %80
 
 62:                                               ; preds = %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread
-  call fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %6)
+  call fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %6)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e0d190dfcd430a6cce254ddb52ad54a9.3, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e0d190dfcd430a6cce254ddb52ad54a9.160) #34
   unreachable
@@ -16631,7 +16631,7 @@ _ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37e
 
 76:                                               ; preds = %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %69, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false)
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %0)
           to label %79 unwind label %77
 
 77:                                               ; preds = %76
@@ -16688,7 +16688,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket14finish_connect17h63354e123793f82a
 
 17:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 64, i1 false)
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %.critedge unwind label %.thread103
 
 18:                                               ; preds = %2
@@ -16872,7 +16872,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket14finish_connect17h63354e123793f82a
 70:                                               ; preds = %58
   %71 = load ptr, ptr %14, align 8, !nonnull !5, !align !1725, !noundef !5
   %72 = load ptr, ptr %23, align 8, !nonnull !5, !align !7, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %77 unwind label %.thread
 
 "_ZN4core3ptr239drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h3b2fde8a073b0b93E.exit": ; preds = %"_ZN4core3ptr217drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h0252ed7c915ce526E.llvm.10377456559187600216.exit.i"
@@ -16966,7 +16966,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket14finish_connect17h63354e123793f82a
   %96 = icmp ne ptr %74, null
   call void @llvm.assume(i1 %96)
   store ptr %74, ptr %7, align 8
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %137 unwind label %145
 
 97:                                               ; preds = %84
@@ -16982,7 +16982,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket14finish_connect17h63354e123793f82a
   unreachable
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4e442dd0faf1cc3bE.exit": ; preds = %97
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %103 unwind label %101
 
 101:                                              ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4e442dd0faf1cc3bE.exit"
@@ -17034,7 +17034,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket14finish_connect17h63354e123793f82a
   unreachable
 
 .body:                                            ; preds = %126
-  invoke fastcc void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_wasi..stream..InputStream$GT$17h7d69792f6d8bbbbbE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9) #36
+  invoke fastcc void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_wasi..stream..InputStream$GT$17h7d69792f6d8bbbbbE"(ptr noalias noundef align 8 dereferenceable(40) %9) #36
           to label %.thread106 unwind label %82
 
 117:                                              ; preds = %107
@@ -17127,7 +17127,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket14finish_connect17h63354e123793f82a
   br label %131
 
 143:                                              ; preds = %131
-  call fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %15)
+  call fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %15)
   br label %144
 
 144:                                              ; preds = %143, %131, %150, %.critedge, %79
@@ -17157,7 +17157,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket14finish_connect17h63354e123793f82a
   br label %144
 
 150:                                              ; preds = %79
-  call fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %15)
+  call fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %15)
   br label %144
 
 151:                                              ; preds = %.thread103, %.thread106, %153
@@ -17172,7 +17172,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket14finish_connect17h63354e123793f82a
   br i1 %switch59, label %151, label %153
 
 153:                                              ; preds = %.thread106
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %15) #36
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %15) #36
           to label %151 unwind label %82
 }
 
@@ -17192,19 +17192,19 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket12start_listen17h7f8f3cb0b52
 
 5:                                                ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %0)
           to label %21 unwind label %.thread31
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   %8 = load i32, ptr %7, align 8, !range !1450, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %0)
           to label %14 unwind label %12
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   %11 = load i32, ptr %10, align 8, !range !1450, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %0)
           to label %17 unwind label %15
 
 12:                                               ; preds = %6
@@ -17261,7 +17261,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket12start_listen17h7f8f3cb0b52
   br i1 %switch, label %23, label %27
 
 27:                                               ; preds = %24
-  call fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3)
+  call fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %3)
   br label %23
 
 28:                                               ; preds = %.thread31, %.thread26, %31
@@ -17276,7 +17276,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket12start_listen17h7f8f3cb0b52
   br i1 %switch20, label %28, label %31
 
 31:                                               ; preds = %.thread26
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3) #36
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %3) #36
           to label %28 unwind label %32
 
 32:                                               ; preds = %31
@@ -17304,7 +17304,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket13finish_listen17hdadb665416
 
 7:                                                ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.445, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.7.0..sroa_idx, i64 52, i1 false)
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %0)
           to label %68 unwind label %66
 
 8:                                                ; preds = %1
@@ -17429,7 +17429,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket13finish_listen17hdadb665416
   br i1 %41, label %43, label %42
 
 42:                                               ; preds = %39
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %0)
           to label %48 unwind label %46
 
 43:                                               ; preds = %39
@@ -17437,7 +17437,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket13finish_listen17hdadb665416
   %44 = getelementptr inbounds i8, ptr %5, i64 8
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
   store ptr %45, ptr %4, align 8
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %0)
           to label %50 unwind label %.thread
 
 46:                                               ; preds = %42
@@ -17875,7 +17875,7 @@ _ZN13wasmtime_wasi7runtime26with_ambient_tokio_runtime17h63e36aff2b761837E.exit:
   unreachable
 
 .body:                                            ; preds = %118
-  invoke fastcc void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_wasi..stream..InputStream$GT$17h7d69792f6d8bbbbbE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10) #36
+  invoke fastcc void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_wasi..stream..InputStream$GT$17h7d69792f6d8bbbbbE"(ptr noalias noundef align 8 dereferenceable(40) %10) #36
           to label %.body67 unwind label %130
 
 112:                                              ; preds = %105
@@ -19759,7 +19759,7 @@ define { i64, ptr } @"_ZN94_$LT$wasmtime_wasi..tcp..TcpWriteStream$u20$as$u20$wa
   store ptr @anon.e0d190dfcd430a6cce254ddb52ad54a9.13.llvm.6128706887224790261, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %19, i64 24
   store i64 0, ptr %35, align 8
-  %36 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %19)
+  %36 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %19)
           to label %.thread29 unwind label %.thread.loopexit.split-lp
 
 .thread38:                                        ; preds = %149
@@ -20308,7 +20308,7 @@ default.unreachable46:                            ; preds = %2
   store i8 0, ptr %.sroa.59.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @_ZN12futures_task10noop_waker14noop_waker_ref19NOOP_WAKER_INSTANCE17hc52067a4ad97856eE, ptr %4, align 8
-  %16 = invoke fastcc { i64, ptr } @"_ZN5tokio3net3tcp6stream9TcpStream8writable28_$u7b$$u7b$closure$u7d$$u7d$17h839ae12c3805373bE"(ptr noundef nonnull align 8 %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
+  %16 = invoke fastcc { i64, ptr } @"_ZN5tokio3net3tcp6stream9TcpStream8writable28_$u7b$$u7b$closure$u7d$$u7d$17h839ae12c3805373bE"(ptr noundef nonnull align 8 %5, ptr noalias noundef align 8 dereferenceable(8) %4)
           to label %23 unwind label %21
 
 17:                                               ; preds = %2
@@ -20775,7 +20775,7 @@ define noundef nonnull ptr @"_ZN266_$LT$wasmtime_wasi..host..filesystem..$LT$imp
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN13wasmtime_wasi4host7network147_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17h0138a9dc472fa813E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #5 {
+define internal fastcc void @"_ZN13wasmtime_wasi4host7network147_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17h0138a9dc472fa813E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 {
   %2 = alloca { i64, { ptr, i64 } }, align 8
   %3 = alloca { i64, { ptr, i64 } }, align 8
   %4 = load ptr, ptr @"_ZN13wasmtime_wasi4host7network147_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from8CALLSITE17h6727e642f82d0e13E", align 8, !nonnull !5, !align !7, !noundef !5
@@ -20827,7 +20827,7 @@ define internal fastcc void @"_ZN13wasmtime_wasi4host7network147_$LT$impl$u20$co
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17ha5fb096cf360cb78E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #5 {
+define internal fastcc void @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17ha5fb096cf360cb78E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 {
   %2 = alloca { i64, { ptr, i64 } }, align 8
   %3 = alloca { i64, { ptr, i64 } }, align 8
   %4 = load ptr, ptr @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from8CALLSITE17h68d0f6f969e1a38aE", align 8, !nonnull !5, !align !7, !noundef !5
@@ -21027,7 +21027,7 @@ common.ret:                                       ; preds = %8, %8, %8, %8, %8, 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %41 = getelementptr inbounds i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8, !nonnull !5, !align !7, !noundef !5
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %42)
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %42)
           to label %47 unwind label %44
 
 43:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h964f990bba2c7363E.exit"
@@ -21106,7 +21106,7 @@ common.ret:                                       ; preds = %8, %8, %8, %8, %8, 
   br i1 %63, label %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$$GT$17h9b76248b16c9b75fE.exit", label %64
 
 64:                                               ; preds = %59
-  invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$17h622f140c7ea6b33cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %61)
+  invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$17h622f140c7ea6b33cE"(ptr noalias noundef align 8 dereferenceable(32) %61)
           to label %"._ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$$GT$17h9b76248b16c9b75fE.exit_crit_edge" unwind label %66
 
 "._ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$std..io..error..Error$GT$$GT$$GT$17h9b76248b16c9b75fE.exit_crit_edge": ; preds = %64
@@ -21689,7 +21689,7 @@ common.ret:                                       ; preds = %"_ZN5tokio3net3tcp6
   %30 = phi ptr [ %19, %18 ], [ %23, %21 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !3835
   %31 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke fastcc void @"_ZN5tokio3net3tcp6stream9TcpStream5ready28_$u7b$$u7b$closure$u7d$$u7d$17ha99a42a477c00540E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 %31, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @"_ZN5tokio3net3tcp6stream9TcpStream5ready28_$u7b$$u7b$closure$u7d$$u7d$17ha99a42a477c00540E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 %31, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %34 unwind label %32
 
 32:                                               ; preds = %28
@@ -22067,7 +22067,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr94drop
 
 61:                                               ; preds = %2, %57
   %62 = getelementptr inbounds i8, ptr %0, i64 24
-  %63 = invoke fastcc { i64, ptr } @"_ZN5tokio3net3tcp6stream9TcpStream8writable28_$u7b$$u7b$closure$u7d$$u7d$17h839ae12c3805373bE"(ptr noundef nonnull align 8 %62, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  %63 = invoke fastcc { i64, ptr } @"_ZN5tokio3net3tcp6stream9TcpStream8writable28_$u7b$$u7b$closure$u7d$$u7d$17h839ae12c3805373bE"(ptr noundef nonnull align 8 %62, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %66 unwind label %64
 
 64:                                               ; preds = %61

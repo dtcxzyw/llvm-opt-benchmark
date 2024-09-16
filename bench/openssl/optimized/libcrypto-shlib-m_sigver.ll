@@ -22,7 +22,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %ctx, ptr noundef writeonly %pctx, ptr noundef %type, ptr noundef %mdname, ptr noundef %libctx, ptr noundef %props, ptr noundef %e, ptr noundef %pkey, i32 noundef %ver, ptr noundef %params) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %ctx, ptr noundef writeonly %pctx, ptr noundef %type, ptr noundef %mdname, ptr noundef %libctx, ptr noundef %props, ptr noundef %e, ptr noundef %pkey, i32 noundef range(i32 0, 2) %ver, ptr noundef %params) unnamed_addr #0 {
 entry:
   %tmp_keymgmt = alloca ptr, align 8
   %locmdname = alloca [80 x i8], align 16

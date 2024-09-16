@@ -1058,7 +1058,7 @@ define noundef ptr @compile_file(ptr noundef %0, i32 noundef %1) local_unnamed_a
 declare void @zend_message_dispatcher(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @zend_compile(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @zend_compile(i32 noundef range(i32 2, 5) %0) unnamed_addr #0 {
   %2 = alloca %struct._zend_file_context, align 8
   %3 = alloca %struct._zend_oparray_context, align 8
   %4 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
@@ -20646,7 +20646,7 @@ report_bad_nesting.exit:                          ; preds = %3, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @zend_scan_escape_string(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i8 noundef signext %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @zend_scan_escape_string(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i8 noundef signext range(i8 0, 97) %3) unnamed_addr #0 {
   %5 = alloca [3 x i8], align 1
   %6 = alloca [4 x i8], align 4
   %7 = alloca i64, align 8

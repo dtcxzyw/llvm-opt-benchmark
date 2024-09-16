@@ -3973,7 +3973,7 @@ define dso_local void @_ZN4llvm15DWARFDebugNames6Header7extractERKNS_18DWARFData
   call void @llvm.experimental.noalias.scope.decl(metadata !146)
   store ptr %36, ptr %9, align 8, !alias.scope !146
   store ptr null, ptr %12, align 8, !noalias !146
-  call fastcc void @"_ZZN4llvm15DWARFDebugNames6Header7extractERKNS_18DWARFDataExtractorEPmENK3$_0clENS_5ErrorE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %9)
+  call fastcc void @"_ZZN4llvm15DWARFDebugNames6Header7extractERKNS_18DWARFDataExtractorEPmENK3$_0clENS_5ErrorE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %9)
   %38 = load ptr, ptr %9, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZN4llvm5ErrorD2Ev.exit.sink.split
@@ -4003,7 +4003,7 @@ define dso_local void @_ZN4llvm15DWARFDebugNames6Header7extractERKNS_18DWARFData
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call fastcc void @"_ZZN4llvm15DWARFDebugNames6Header7extractERKNS_18DWARFDataExtractorEPmENK3$_0clENS_5ErrorE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %10)
+  call fastcc void @"_ZZN4llvm15DWARFDebugNames6Header7extractERKNS_18DWARFDataExtractorEPmENK3$_0clENS_5ErrorE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %10)
   %52 = load ptr, ptr %10, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZN4llvm5ErrorD2Ev.exit.sink.split
@@ -4048,7 +4048,7 @@ _ZN4llvm13DataExtractor6CursorD2Ev.exit:          ; preds = %_ZN4llvm5ErrorD2Ev.
 declare void @_ZNK4llvm13DataExtractor4skipERNS0_6CursorEm(ptr noundef nonnull align 8 dereferenceable(18), ptr noundef nonnull align 8 dereferenceable(16), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm15DWARFDebugNames6Header7extractERKNS_18DWARFDataExtractorEPmENK3$_0clENS_5ErrorE"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef %2) unnamed_addr #3 align 2 {
+define internal fastcc void @"_ZZN4llvm15DWARFDebugNames6Header7extractERKNS_18DWARFDataExtractorEPmENK3$_0clENS_5ErrorE"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull %2) unnamed_addr #3 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.llvm::raw_string_ostream", align 8

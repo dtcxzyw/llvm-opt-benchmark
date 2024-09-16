@@ -2429,7 +2429,7 @@ unreachable:                                      ; preds = %invoke.cont92, %inv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN13ModifySafeMapIiN12_GLOBAL__N_17TrackerEE4takeERKi(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %key) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN13ModifySafeMapIiN12_GLOBAL__N_17TrackerEE4takeERKi(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %key) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 8, !tbaa !57
   %m_iterating = getelementptr inbounds i8, ptr %this, i64 96

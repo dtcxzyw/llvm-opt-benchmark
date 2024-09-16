@@ -27,7 +27,7 @@ define noundef i32 @mca_coll_base_reduce_local(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -1613,7 +1613,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %59, %57
   %74 = mul nsw i64 %34, %71
   %75 = getelementptr inbounds i8, ptr %52, i64 %74
   %76 = sext i32 %69 to i64
-  %77 = tail call fastcc i32 @ompi_coll_base_sendrecv(ptr noundef %.0301406, i64 noundef %71, ptr noundef %3, i32 noundef %73, ptr noundef nonnull %75, i64 noundef %76, ptr noundef %3, i32 noundef %73, ptr noundef %6, i32 noundef %.val)
+  %77 = tail call fastcc i32 @ompi_coll_base_sendrecv(ptr noundef %.0301406, i64 noundef %71, ptr noundef %3, i32 noundef %73, ptr noundef %75, i64 noundef %76, ptr noundef %3, i32 noundef %73, ptr noundef %6, i32 noundef %.val)
   %.not363 = icmp eq i32 %77, 0
   br i1 %.not363, label %78, label %ompi_datatype_copy_content_same_ddt.exit.thread427
 
@@ -1630,7 +1630,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %59, %57
   %84 = getelementptr inbounds i8, ptr %.0301406, i64 %83
   %85 = sext i32 %69 to i64
   %86 = or disjoint i32 %.val, 1
-  %87 = tail call fastcc i32 @ompi_coll_base_sendrecv(ptr noundef %84, i64 noundef %85, ptr noundef %3, i32 noundef %86, ptr noundef nonnull %52, i64 noundef %71, ptr noundef %3, i32 noundef %86, ptr noundef %6, i32 noundef %.val)
+  %87 = tail call fastcc i32 @ompi_coll_base_sendrecv(ptr noundef %84, i64 noundef %85, ptr noundef %3, i32 noundef %86, ptr noundef %52, i64 noundef %71, ptr noundef %3, i32 noundef %86, ptr noundef %6, i32 noundef %.val)
   %.not361 = icmp eq i32 %87, 0
   br i1 %.not361, label %88, label %ompi_datatype_copy_content_same_ddt.exit.thread427
 
@@ -1962,7 +1962,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread427: ; preds = %.lr.ph.i, %ompi_c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ompi_coll_base_sendrecv(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) unnamed_addr #0 {
+define internal fastcc i32 @ompi_coll_base_sendrecv(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i64 noundef range(i64 -2147483648, 2147483648) %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) unnamed_addr #0 {
   %11 = icmp eq i32 %3, %7
   %12 = icmp eq i32 %7, %9
   %or.cond = and i1 %11, %12
@@ -1971,11 +1971,11 @@ define internal fastcc i32 @ompi_coll_base_sendrecv(ptr noundef %0, i64 noundef 
 13:                                               ; preds = %10
   %14 = trunc nsw i64 %1 to i32
   %15 = trunc nsw i64 %5 to i32
-  %16 = tail call i32 @ompi_datatype_sndrcv(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %4, i32 noundef %15, ptr noundef %6) #8
+  %16 = tail call i32 @ompi_datatype_sndrcv(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %15, ptr noundef %6) #8
   br label %19
 
 17:                                               ; preds = %10
-  %18 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef -21, ptr noundef %4, i64 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef -21, ptr noundef %8, ptr noundef null) #8
+  %18 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef -21, ptr noundef nonnull %4, i64 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef -21, ptr noundef %8, ptr noundef null) #8
   br label %19
 
 19:                                               ; preds = %17, %13

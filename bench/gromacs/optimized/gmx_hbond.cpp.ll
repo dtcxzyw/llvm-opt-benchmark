@@ -3023,7 +3023,7 @@ _ZL13gmx_snew_implIhEvPKcS1_iRPT_m.exit355.preheader: ; preds = %482
   %530 = xor i1 %529, true
   %531 = or i1 %496, %530
   %532 = trunc nuw nsw i64 %indvars.iv1067 to i32
-  invoke fastcc void @_ZL16search_acceptorsPK10t_topologyiPKiP11t_acceptorsibbbPh(ptr noundef nonnull %74, i32 noundef %522, ptr noundef %524, ptr noundef nonnull %487, i32 noundef %532, i1 noundef zeroext %526, i1 noundef zeroext true, i1 noundef zeroext %531, ptr noundef %485)
+  invoke fastcc void @_ZL16search_acceptorsPK10t_topologyiPKiP11t_acceptorsibbbPh(ptr noundef %74, i32 noundef %522, ptr noundef %524, ptr noundef %487, i32 noundef %532, i1 noundef zeroext %526, i1 noundef zeroext true, i1 noundef zeroext %531, ptr noundef %485)
           to label %533 unwind label %.loopexit.split-lp835.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 533:                                              ; preds = %527
@@ -3144,7 +3144,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i: ; preds = %567, %_ZNSt6
   %581 = or i8 %580, 2
   store i8 %581, ptr %579, align 1
   %582 = load i32, ptr %576, align 4
-  invoke fastcc void @_ZL6add_dhP8t_donorsiiiPKh(ptr noundef nonnull %488, i32 noundef %582, i32 noundef -1, i32 noundef %532, ptr noundef nonnull %485)
+  invoke fastcc void @_ZL6add_dhP8t_donorsiiiPKh(ptr noundef %488, i32 noundef %582, i32 noundef -1, i32 noundef %532, ptr noundef nonnull %485)
           to label %.noexc372 unwind label %.loopexit.split-lp835.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc372:                                        ; preds = %.lr.ph114.i
@@ -3154,7 +3154,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i: ; preds = %567, %_ZNSt6
 
 583:                                              ; preds = %.loopexit863
   %584 = trunc nuw nsw i64 %indvars.iv1067 to i32
-  invoke fastcc void @_ZL16search_acceptorsPK10t_topologyiPKiP11t_acceptorsibbbPh(ptr noundef nonnull %74, i32 noundef %522, ptr noundef %524, ptr noundef nonnull %487, i32 noundef %584, i1 noundef zeroext %526, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %485)
+  invoke fastcc void @_ZL16search_acceptorsPK10t_topologyiPKiP11t_acceptorsibbbPh(ptr noundef %74, i32 noundef %522, ptr noundef %524, ptr noundef %487, i32 noundef %584, i1 noundef zeroext %526, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %485)
           to label %585 unwind label %.loopexit.split-lp835.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 585:                                              ; preds = %583
@@ -3328,7 +3328,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i685: ; preds = %613, %_ZN
   %660 = or i8 %650, 2
   store i8 %660, ptr %649, align 1
   %661 = add nsw i32 %645, 1
-  invoke fastcc void @_ZL6add_dhP8t_donorsiiiPKh(ptr noundef nonnull %488, i32 noundef %645, i32 noundef %661, i32 noundef %584, ptr noundef nonnull %485)
+  invoke fastcc void @_ZL6add_dhP8t_donorsiiiPKh(ptr noundef %488, i32 noundef %645, i32 noundef %661, i32 noundef %584, ptr noundef nonnull %485)
           to label %.noexc383 unwind label %.loopexit.split-lp835.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc383:                                        ; preds = %659, %652
@@ -3344,7 +3344,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i685: ; preds = %613, %_ZN
   %668 = or i8 %667, 2
   store i8 %668, ptr %649, align 1
   %669 = add nsw i32 %645, 2
-  invoke fastcc void @_ZL6add_dhP8t_donorsiiiPKh(ptr noundef nonnull %488, i32 noundef %645, i32 noundef %669, i32 noundef %584, ptr noundef nonnull %485)
+  invoke fastcc void @_ZL6add_dhP8t_donorsiiiPKh(ptr noundef %488, i32 noundef %645, i32 noundef %669, i32 noundef %584, ptr noundef nonnull %485)
           to label %_ZL11IS_CHEMBONDi.exit.thread.us.i unwind label %.loopexit.split-lp835.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZL11IS_CHEMBONDi.exit.thread.us.i:               ; preds = %666, %.noexc383, %643, %639
@@ -3448,7 +3448,7 @@ _ZL11IS_CHEMBONDi.exit.i:                         ; preds = %697
 737:                                              ; preds = %733
   %738 = or i8 %735, 2
   store i8 %738, ptr %734, align 1
-  invoke fastcc void @_ZL6add_dhP8t_donorsiiiPKh(ptr noundef nonnull %488, i32 noundef %714, i32 noundef %709, i32 noundef %584, ptr noundef nonnull %485)
+  invoke fastcc void @_ZL6add_dhP8t_donorsiiiPKh(ptr noundef %488, i32 noundef %714, i32 noundef %709, i32 noundef %584, ptr noundef nonnull %485)
           to label %.noexc385 unwind label %.loopexit.split-lp835.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc385:                                        ; preds = %737, %733, %729, %722, %703
@@ -10436,7 +10436,7 @@ declare noundef ptr @_Z11ftp2fn_nulliiPK8t_filenm(i32 noundef, i32 noundef, ptr 
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16search_acceptorsPK10t_topologyiPKiP11t_acceptorsibbbPh(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, ptr nocapture noundef %8) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16search_acceptorsPK10t_topologyiPKiP11t_acceptorsibbbPh(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, ptr nocapture noundef %8) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %10 = icmp sgt i32 %1, 0
   %or.cond42 = and i1 %7, %10
   br i1 %or.cond42, label %.lr.ph, label %.loopexit
@@ -10877,7 +10877,7 @@ define internal void @_Z9gmx_hbondiPPc.omp_outlined(ptr noalias nocapture nounde
   %129 = getelementptr inbounds %struct.HydrogenBondData, ptr %128, i64 %74
   %130 = load i32, ptr %5, align 4
   %131 = add nsw i32 %130, 1
-  invoke fastcc void @_ZL13resize_hbdataP16HydrogenBondDatai(ptr noundef nonnull %129, i32 noundef %131)
+  invoke fastcc void @_ZL13resize_hbdataP16HydrogenBondDatai(ptr noundef %129, i32 noundef %131)
           to label %139 unwind label %132
 
 132:                                              ; preds = %126
@@ -11757,7 +11757,7 @@ _ZNSt6vectorIiSaIiEE12emplace_backIJRiEEES3_DpOT_.exit.i: ; preds = %_ZNSt6vecto
 _ZL13reset_nhbondsP8t_donors.exit:                ; preds = %490, %479
   %498 = load i32, ptr %5, align 4
   %499 = add nsw i32 %498, 1
-  invoke fastcc void @_ZL13resize_hbdataP16HydrogenBondDatai(ptr noundef nonnull %6, i32 noundef %499)
+  invoke fastcc void @_ZL13resize_hbdataP16HydrogenBondDatai(ptr noundef %6, i32 noundef %499)
           to label %504 unwind label %.loopexit.split-lp.loopexit
 
 .loopexit:                                        ; preds = %466
@@ -14257,7 +14257,7 @@ _ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit341:        ; preds = %_ZL14gmx_sfree_impl
 declare noundef i32 @_Z22gmx_omp_get_thread_numv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL13resize_hbdataP16HydrogenBondDatai(ptr noundef %0, i32 noundef %1) unnamed_addr #21 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13resize_hbdataP16HydrogenBondDatai(ptr noundef nonnull %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #21 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 96
@@ -15047,7 +15047,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35: ; preds = %_ZNSt6vectorIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL6add_dhP8t_donorsiiiPKh(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL6add_dhP8t_donorsiiiPKh(ptr nocapture noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %.not = icmp eq ptr %4, null
   %.pre = sext i32 %1 to i64

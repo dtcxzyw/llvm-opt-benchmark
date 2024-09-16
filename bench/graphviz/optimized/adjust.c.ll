@@ -204,7 +204,7 @@ define noalias noundef ptr @getSizes(ptr noundef %0, double %1, double %2, ptr n
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef range(i64 4, 113) %1) unnamed_addr #1 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
@@ -2202,7 +2202,7 @@ declare double @llvm.maxnum.f64(double, double) #3
 declare double @atof(ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @countOverlap(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @countOverlap(i32 noundef range(i32 -2147483647, -2147483648) %0) unnamed_addr #0 {
   %2 = load i64, ptr @nsites, align 8
   %.not30 = icmp eq i64 %2, 0
   br i1 %.not30, label %.lr.ph28.preheader, label %.lr.ph

@@ -29846,7 +29846,7 @@ if.then.i.i340:                                   ; preds = %_ZN2dd3pddC2EjPNS_1
 
 invoke.cont60:                                    ; preds = %if.then.i.i340, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i, %invoke.cont56
   %call30.val = load ptr, ptr %1, align 8
-  invoke fastcc void @"_ZZNK2dd3pdd11var_factorsEvENK3$_1clERK7svectorIjjES0_"(ptr noalias nonnull align 8 %ref.tmp59, ptr nonnull %this, ptr %call30.val, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @"_ZZNK2dd3pdd11var_factorsEvENK3$_1clERK7svectorIjjES0_"(ptr noalias align 8 %ref.tmp59, ptr nonnull %this, ptr %call30.val, ptr noundef %agg.tmp)
           to label %invoke.cont62 unwind label %lpad61
 
 invoke.cont62:                                    ; preds = %invoke.cont60
@@ -29890,7 +29890,7 @@ if.then.i.i364:                                   ; preds = %_ZN2dd3pddC2EjPNS_1
 
 invoke.cont66:                                    ; preds = %if.then.i.i364, %_ZN2dd3pddC2EjPNS_11pdd_managerE.exit.i352, %invoke.cont62
   %call47.val = load ptr, ptr %2, align 8
-  invoke fastcc void @"_ZZNK2dd3pdd11var_factorsEvENK3$_1clERK7svectorIjjES0_"(ptr noalias nonnull align 8 %ref.tmp63, ptr nonnull %this, ptr %call47.val, ptr noundef nonnull %agg.tmp64)
+  invoke fastcc void @"_ZZNK2dd3pdd11var_factorsEvENK3$_1clERK7svectorIjjES0_"(ptr noalias align 8 %ref.tmp63, ptr nonnull %this, ptr %call47.val, ptr noundef %agg.tmp64)
           to label %invoke.cont68 unwind label %lpad67
 
 invoke.cont68:                                    ; preds = %invoke.cont66
@@ -30323,7 +30323,7 @@ if.else:                                          ; preds = %_ZNK6vectorIjLb0EjE
 
 invoke.cont100:                                   ; preds = %if.else
   %call30.val32 = load ptr, ptr %1, align 8
-  invoke fastcc void @"_ZZNK2dd3pdd11var_factorsEvENK3$_1clERK7svectorIjjES0_"(ptr noalias nonnull align 8 %ref.tmp98, ptr nonnull %this, ptr %call30.val32, ptr noundef nonnull %agg.tmp99)
+  invoke fastcc void @"_ZZNK2dd3pdd11var_factorsEvENK3$_1clERK7svectorIjjES0_"(ptr noalias align 8 %ref.tmp98, ptr nonnull %this, ptr %call30.val32, ptr noundef %agg.tmp99)
           to label %invoke.cont102 unwind label %lpad101
 
 invoke.cont102:                                   ; preds = %invoke.cont100
@@ -30332,7 +30332,7 @@ invoke.cont102:                                   ; preds = %invoke.cont100
 
 invoke.cont106:                                   ; preds = %invoke.cont102
   %call47.val34 = load ptr, ptr %2, align 8
-  invoke fastcc void @"_ZZNK2dd3pdd11var_factorsEvENK3$_1clERK7svectorIjjES0_"(ptr noalias nonnull align 8 %ref.tmp103, ptr nonnull %this, ptr %call47.val34, ptr noundef nonnull %agg.tmp104)
+  invoke fastcc void @"_ZZNK2dd3pdd11var_factorsEvENK3$_1clERK7svectorIjjES0_"(ptr noalias align 8 %ref.tmp103, ptr nonnull %this, ptr %call47.val34, ptr noundef %agg.tmp104)
           to label %invoke.cont108 unwind label %lpad107
 
 invoke.cont108:                                   ; preds = %invoke.cont106
@@ -30990,7 +30990,7 @@ _ZN6vectorIjLb0EjE6shrinkEj.exit89:               ; preds = %_ZN6vectorIjLb0EjE6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZNK2dd3pdd11var_factorsEvENK3$_1clERK7svectorIjjES0_"(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture readonly %this.0.val, ptr readonly %vars.0.val, ptr noundef %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZNK2dd3pdd11var_factorsEvENK3$_1clERK7svectorIjjES0_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture readonly %this.0.val, ptr readonly %vars.0.val, ptr noundef nonnull %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.dd::pdd", align 8
   %ref.tmp = alloca %"class.dd::pdd", align 8

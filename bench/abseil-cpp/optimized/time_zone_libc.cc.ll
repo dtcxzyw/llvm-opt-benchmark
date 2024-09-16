@@ -421,11 +421,11 @@ if.then56:                                        ; preds = %if.else
   br label %return
 
 if.end66:                                         ; preds = %if.else, %if.then38
-  %call67 = call fastcc noundef zeroext i1 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm(ptr noundef nonnull align 8 dereferenceable(16) %cs, i32 noundef 0, ptr noundef nonnull %t0, ptr noundef nonnull %tm0)
+  %call67 = call fastcc noundef zeroext i1 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm(ptr noundef nonnull align 8 dereferenceable(16) %cs, i32 noundef 0, ptr noundef %t0, ptr noundef %tm0)
   br i1 %call67, label %land.lhs.true, label %if.end125
 
 land.lhs.true:                                    ; preds = %if.end66
-  %call68 = call fastcc noundef zeroext i1 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm(ptr noundef nonnull align 8 dereferenceable(16) %cs, i32 noundef 1, ptr noundef nonnull %t1, ptr noundef nonnull %tm1)
+  %call68 = call fastcc noundef zeroext i1 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm(ptr noundef nonnull align 8 dereferenceable(16) %cs, i32 noundef 1, ptr noundef %t1, ptr noundef %tm1)
   br i1 %call68, label %if.then69, label %if.end125
 
 if.then69:                                        ; preds = %land.lhs.true
@@ -660,7 +660,7 @@ entry:
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cs, i32 noundef %is_dst, ptr noundef %t, ptr nocapture noundef %tm) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeINS3_10second_tagEEEiPlP2tm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cs, i32 noundef range(i32 0, 2) %is_dst, ptr noundef nonnull %t, ptr nocapture noundef nonnull %tm) unnamed_addr #3 {
 entry:
   %tm2 = alloca %struct.tm, align 8
   %0 = load i64, ptr %cs, align 8

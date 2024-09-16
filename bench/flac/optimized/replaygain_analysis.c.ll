@@ -349,8 +349,8 @@ if.end43:                                         ; preds = %if.then28, %if.else
   %downsample.0 = phi i32 [ %11, %if.else ], [ 1, %if.then28 ]
   %curleft.0 = phi ptr [ %add.ptr39, %if.else ], [ %add.ptr, %if.then28 ]
   %curright.0 = phi ptr [ %add.ptr42, %if.else ], [ %add.ptr29, %if.then28 ]
-  %cmp20.not.i = icmp eq i64 %7, %conv21
-  br i1 %cmp20.not.i, label %for.end86, label %for.body.lr.ph.i
+  %cmp19.not.i = icmp eq i64 %7, %conv21
+  br i1 %cmp19.not.i, label %for.end86, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then28, %if.end43
   %cursamples.0180 = phi i64 [ %cond, %if.end43 ], [ %sub30, %if.then28 ]
@@ -366,192 +366,192 @@ for.body.lr.ph.i:                                 ; preds = %if.then28, %if.end4
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.cond1.for.end_crit_edge.i, %for.body.lr.ph.i
-  %output_head.023.i = phi ptr [ %incdec.ptr16.i, %for.cond1.for.end_crit_edge.i ], [ %add.ptr44182, %for.body.lr.ph.i ]
-  %input_head.022.i = phi ptr [ %add.ptr15.i, %for.cond1.for.end_crit_edge.i ], [ %curleft.0177, %for.body.lr.ph.i ]
-  %i.021.i = phi i64 [ %inc13.i, %for.cond1.for.end_crit_edge.i ], [ 0, %for.body.lr.ph.i ]
-  %13 = load float, ptr %input_head.022.i, align 4
+for.body.i:                                       ; preds = %for.end.i, %for.body.lr.ph.i
+  %output_head.022.i = phi ptr [ %add.ptr44182, %for.body.lr.ph.i ], [ %incdec.ptr16.i, %for.end.i ]
+  %input_head.021.i = phi ptr [ %curleft.0177, %for.body.lr.ph.i ], [ %add.ptr15.i, %for.end.i ]
+  %i.020.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc13.i, %for.end.i ]
+  %13 = load float, ptr %input_head.021.i, align 4
   %14 = load float, ptr %BYule186, align 4
   %mul.i = fmul float %13, %14
   %conv.i = fpext float %mul.i to double
   br label %for.body4.i
 
 for.body4.i:                                      ; preds = %for.body4.i, %for.body.i
-  %output_tail.019.i = phi ptr [ %output_head.023.i, %for.body.i ], [ %incdec.ptr.i, %for.body4.i ]
-  %input_tail.018.i = phi ptr [ %input_head.022.i, %for.body.i ], [ %add.ptr.i, %for.body4.i ]
-  %k.017.i = phi i64 [ 1, %for.body.i ], [ %inc.i, %for.body4.i ]
-  %y.016.i = phi double [ %conv.i, %for.body.i ], [ %add.i, %for.body4.i ]
-  %add.ptr.i = getelementptr inbounds float, ptr %input_tail.018.i, i64 %idx.neg.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %output_tail.019.i, i64 -4
+  %output_tail.018.i = phi ptr [ %output_head.022.i, %for.body.i ], [ %incdec.ptr.i, %for.body4.i ]
+  %input_tail.017.i = phi ptr [ %input_head.021.i, %for.body.i ], [ %add.ptr.i, %for.body4.i ]
+  %k.016.i = phi i64 [ 1, %for.body.i ], [ %inc.i, %for.body4.i ]
+  %y.015.i = phi double [ %conv.i, %for.body.i ], [ %add.i, %for.body4.i ]
+  %add.ptr.i = getelementptr inbounds float, ptr %input_tail.017.i, i64 %idx.neg.i
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %output_tail.018.i, i64 -4
   %15 = load float, ptr %add.ptr.i, align 4
-  %arrayidx5.i = getelementptr inbounds float, ptr %BYule186, i64 %k.017.i
+  %arrayidx5.i = getelementptr inbounds float, ptr %BYule186, i64 %k.016.i
   %16 = load float, ptr %arrayidx5.i, align 4
   %17 = load float, ptr %incdec.ptr.i, align 4
-  %arrayidx7.i = getelementptr inbounds float, ptr %AYule184, i64 %k.017.i
+  %arrayidx7.i = getelementptr inbounds float, ptr %AYule184, i64 %k.016.i
   %18 = load float, ptr %arrayidx7.i, align 4
   %19 = fneg float %18
   %neg.i = fmul float %17, %19
   %20 = tail call float @llvm.fmuladd.f32(float %15, float %16, float %neg.i)
   %conv9.i = fpext float %20 to double
-  %add.i = fadd double %y.016.i, %conv9.i
-  %inc.i = add nuw nsw i64 %k.017.i, 1
-  %exitcond.not.i = icmp eq i64 %k.017.i, 10
-  br i1 %exitcond.not.i, label %for.cond1.for.end_crit_edge.i, label %for.body4.i, !llvm.loop !10
+  %add.i = fadd double %y.015.i, %conv9.i
+  %inc.i = add nuw nsw i64 %k.016.i, 1
+  %exitcond.not.i = icmp eq i64 %k.016.i, 10
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body4.i, !llvm.loop !10
 
-for.cond1.for.end_crit_edge.i:                    ; preds = %for.body4.i
+for.end.i:                                        ; preds = %for.body4.i
   %conv10.i = fptrunc double %add.i to float
-  %arrayidx11.i = getelementptr inbounds float, ptr %add.ptr44182, i64 %i.021.i
+  %arrayidx11.i = getelementptr inbounds float, ptr %add.ptr44182, i64 %i.020.i
   store float %conv10.i, ptr %arrayidx11.i, align 4
-  %inc13.i = add nuw i64 %i.021.i, 1
-  %add.ptr15.i = getelementptr inbounds float, ptr %input_head.022.i, i64 %idx.ext.i
-  %incdec.ptr16.i = getelementptr inbounds i8, ptr %output_head.023.i, i64 4
-  %exitcond25.not.i = icmp eq i64 %inc13.i, %cursamples.0180
-  br i1 %exitcond25.not.i, label %filter.exit, label %for.body.i, !llvm.loop !11
+  %inc13.i = add nuw i64 %i.020.i, 1
+  %add.ptr15.i = getelementptr inbounds float, ptr %input_head.021.i, i64 %idx.ext.i
+  %incdec.ptr16.i = getelementptr inbounds i8, ptr %output_head.022.i, i64 4
+  %exitcond23.not.i = icmp eq i64 %inc13.i, %cursamples.0180
+  br i1 %exitcond23.not.i, label %filter.exit, label %for.body.i, !llvm.loop !11
 
-filter.exit:                                      ; preds = %for.cond1.for.end_crit_edge.i
+filter.exit:                                      ; preds = %for.end.i
   %21 = load ptr, ptr @rstep, align 8
   %add.ptr46 = getelementptr inbounds float, ptr %21, i64 %7
   br label %for.body.i79
 
-for.body.i79:                                     ; preds = %for.cond1.for.end_crit_edge.i99, %filter.exit
-  %output_head.023.i80 = phi ptr [ %incdec.ptr16.i104, %for.cond1.for.end_crit_edge.i99 ], [ %add.ptr46, %filter.exit ]
-  %input_head.022.i81 = phi ptr [ %add.ptr15.i103, %for.cond1.for.end_crit_edge.i99 ], [ %curright.0178, %filter.exit ]
-  %i.021.i82 = phi i64 [ %inc13.i102, %for.cond1.for.end_crit_edge.i99 ], [ 0, %filter.exit ]
-  %22 = load float, ptr %input_head.022.i81, align 4
+for.body.i79:                                     ; preds = %for.end.i99, %filter.exit
+  %output_head.022.i80 = phi ptr [ %add.ptr46, %filter.exit ], [ %incdec.ptr16.i104, %for.end.i99 ]
+  %input_head.021.i81 = phi ptr [ %curright.0178, %filter.exit ], [ %add.ptr15.i103, %for.end.i99 ]
+  %i.020.i82 = phi i64 [ 0, %filter.exit ], [ %inc13.i102, %for.end.i99 ]
+  %22 = load float, ptr %input_head.021.i81, align 4
   %23 = load float, ptr %BYule186, align 4
   %mul.i83 = fmul float %22, %23
   %conv.i84 = fpext float %mul.i83 to double
   br label %for.body4.i85
 
 for.body4.i85:                                    ; preds = %for.body4.i85, %for.body.i79
-  %output_tail.019.i86 = phi ptr [ %output_head.023.i80, %for.body.i79 ], [ %incdec.ptr.i91, %for.body4.i85 ]
-  %input_tail.018.i87 = phi ptr [ %input_head.022.i81, %for.body.i79 ], [ %add.ptr.i90, %for.body4.i85 ]
-  %k.017.i88 = phi i64 [ 1, %for.body.i79 ], [ %inc.i97, %for.body4.i85 ]
-  %y.016.i89 = phi double [ %conv.i84, %for.body.i79 ], [ %add.i96, %for.body4.i85 ]
-  %add.ptr.i90 = getelementptr inbounds float, ptr %input_tail.018.i87, i64 %idx.neg.i
-  %incdec.ptr.i91 = getelementptr inbounds i8, ptr %output_tail.019.i86, i64 -4
+  %output_tail.018.i86 = phi ptr [ %output_head.022.i80, %for.body.i79 ], [ %incdec.ptr.i91, %for.body4.i85 ]
+  %input_tail.017.i87 = phi ptr [ %input_head.021.i81, %for.body.i79 ], [ %add.ptr.i90, %for.body4.i85 ]
+  %k.016.i88 = phi i64 [ 1, %for.body.i79 ], [ %inc.i97, %for.body4.i85 ]
+  %y.015.i89 = phi double [ %conv.i84, %for.body.i79 ], [ %add.i96, %for.body4.i85 ]
+  %add.ptr.i90 = getelementptr inbounds float, ptr %input_tail.017.i87, i64 %idx.neg.i
+  %incdec.ptr.i91 = getelementptr inbounds i8, ptr %output_tail.018.i86, i64 -4
   %24 = load float, ptr %add.ptr.i90, align 4
-  %arrayidx5.i92 = getelementptr inbounds float, ptr %BYule186, i64 %k.017.i88
+  %arrayidx5.i92 = getelementptr inbounds float, ptr %BYule186, i64 %k.016.i88
   %25 = load float, ptr %arrayidx5.i92, align 4
   %26 = load float, ptr %incdec.ptr.i91, align 4
-  %arrayidx7.i93 = getelementptr inbounds float, ptr %AYule184, i64 %k.017.i88
+  %arrayidx7.i93 = getelementptr inbounds float, ptr %AYule184, i64 %k.016.i88
   %27 = load float, ptr %arrayidx7.i93, align 4
   %28 = fneg float %27
   %neg.i94 = fmul float %26, %28
   %29 = tail call float @llvm.fmuladd.f32(float %24, float %25, float %neg.i94)
   %conv9.i95 = fpext float %29 to double
-  %add.i96 = fadd double %y.016.i89, %conv9.i95
-  %inc.i97 = add nuw nsw i64 %k.017.i88, 1
-  %exitcond.not.i98 = icmp eq i64 %k.017.i88, 10
-  br i1 %exitcond.not.i98, label %for.cond1.for.end_crit_edge.i99, label %for.body4.i85, !llvm.loop !10
+  %add.i96 = fadd double %y.015.i89, %conv9.i95
+  %inc.i97 = add nuw nsw i64 %k.016.i88, 1
+  %exitcond.not.i98 = icmp eq i64 %k.016.i88, 10
+  br i1 %exitcond.not.i98, label %for.end.i99, label %for.body4.i85, !llvm.loop !10
 
-for.cond1.for.end_crit_edge.i99:                  ; preds = %for.body4.i85
+for.end.i99:                                      ; preds = %for.body4.i85
   %conv10.i100 = fptrunc double %add.i96 to float
-  %arrayidx11.i101 = getelementptr inbounds float, ptr %add.ptr46, i64 %i.021.i82
+  %arrayidx11.i101 = getelementptr inbounds float, ptr %add.ptr46, i64 %i.020.i82
   store float %conv10.i100, ptr %arrayidx11.i101, align 4
-  %inc13.i102 = add nuw i64 %i.021.i82, 1
-  %add.ptr15.i103 = getelementptr inbounds float, ptr %input_head.022.i81, i64 %idx.ext.i
-  %incdec.ptr16.i104 = getelementptr inbounds i8, ptr %output_head.023.i80, i64 4
-  %exitcond25.not.i105 = icmp eq i64 %inc13.i102, %cursamples.0180
-  br i1 %exitcond25.not.i105, label %filter.exit106, label %for.body.i79, !llvm.loop !11
+  %inc13.i102 = add nuw i64 %i.020.i82, 1
+  %add.ptr15.i103 = getelementptr inbounds float, ptr %input_head.021.i81, i64 %idx.ext.i
+  %incdec.ptr16.i104 = getelementptr inbounds i8, ptr %output_head.022.i80, i64 4
+  %exitcond23.not.i105 = icmp eq i64 %inc13.i102, %cursamples.0180
+  br i1 %exitcond23.not.i105, label %filter.exit106, label %for.body.i79, !llvm.loop !11
 
-filter.exit106:                                   ; preds = %for.cond1.for.end_crit_edge.i99
+filter.exit106:                                   ; preds = %for.end.i99
   %30 = load ptr, ptr @lout, align 8
   %add.ptr52 = getelementptr float, ptr %30, i64 %7
   %AButter = getelementptr inbounds i8, ptr %12, i64 112
   %BButter = getelementptr inbounds i8, ptr %12, i64 100
   br label %for.body.i109
 
-for.body.i109:                                    ; preds = %for.cond1.for.end_crit_edge.i129, %filter.exit106
-  %output_head.023.i110 = phi ptr [ %incdec.ptr16.i134, %for.cond1.for.end_crit_edge.i129 ], [ %add.ptr52, %filter.exit106 ]
-  %input_head.022.i111 = phi ptr [ %add.ptr15.i133, %for.cond1.for.end_crit_edge.i129 ], [ %add.ptr44182, %filter.exit106 ]
-  %i.021.i112 = phi i64 [ %inc13.i132, %for.cond1.for.end_crit_edge.i129 ], [ 0, %filter.exit106 ]
-  %31 = load float, ptr %input_head.022.i111, align 4
+for.body.i109:                                    ; preds = %for.end.i129, %filter.exit106
+  %output_head.022.i110 = phi ptr [ %add.ptr52, %filter.exit106 ], [ %incdec.ptr16.i134, %for.end.i129 ]
+  %input_head.021.i111 = phi ptr [ %add.ptr44182, %filter.exit106 ], [ %add.ptr15.i133, %for.end.i129 ]
+  %i.020.i112 = phi i64 [ 0, %filter.exit106 ], [ %inc13.i132, %for.end.i129 ]
+  %31 = load float, ptr %input_head.021.i111, align 4
   %32 = load float, ptr %BButter, align 4
   %mul.i113 = fmul float %31, %32
   %conv.i114 = fpext float %mul.i113 to double
   br label %for.body4.i115
 
 for.body4.i115:                                   ; preds = %for.body4.i115, %for.body.i109
-  %output_tail.019.i116 = phi ptr [ %output_head.023.i110, %for.body.i109 ], [ %incdec.ptr.i121, %for.body4.i115 ]
-  %input_tail.018.i117 = phi ptr [ %input_head.022.i111, %for.body.i109 ], [ %add.ptr.i120, %for.body4.i115 ]
-  %k.017.i118 = phi i64 [ 1, %for.body.i109 ], [ %inc.i127, %for.body4.i115 ]
-  %y.016.i119 = phi double [ %conv.i114, %for.body.i109 ], [ %add.i126, %for.body4.i115 ]
-  %add.ptr.i120 = getelementptr inbounds i8, ptr %input_tail.018.i117, i64 -4
-  %incdec.ptr.i121 = getelementptr inbounds i8, ptr %output_tail.019.i116, i64 -4
+  %output_tail.018.i116 = phi ptr [ %output_head.022.i110, %for.body.i109 ], [ %incdec.ptr.i121, %for.body4.i115 ]
+  %input_tail.017.i117 = phi ptr [ %input_head.021.i111, %for.body.i109 ], [ %add.ptr.i120, %for.body4.i115 ]
+  %k.016.i118 = phi i64 [ 1, %for.body.i109 ], [ %inc.i127, %for.body4.i115 ]
+  %y.015.i119 = phi double [ %conv.i114, %for.body.i109 ], [ %add.i126, %for.body4.i115 ]
+  %add.ptr.i120 = getelementptr inbounds i8, ptr %input_tail.017.i117, i64 -4
+  %incdec.ptr.i121 = getelementptr inbounds i8, ptr %output_tail.018.i116, i64 -4
   %33 = load float, ptr %add.ptr.i120, align 4
-  %arrayidx5.i122 = getelementptr inbounds float, ptr %BButter, i64 %k.017.i118
+  %arrayidx5.i122 = getelementptr inbounds float, ptr %BButter, i64 %k.016.i118
   %34 = load float, ptr %arrayidx5.i122, align 4
   %35 = load float, ptr %incdec.ptr.i121, align 4
-  %arrayidx7.i123 = getelementptr inbounds float, ptr %AButter, i64 %k.017.i118
+  %arrayidx7.i123 = getelementptr inbounds float, ptr %AButter, i64 %k.016.i118
   %36 = load float, ptr %arrayidx7.i123, align 4
   %37 = fneg float %36
   %neg.i124 = fmul float %35, %37
   %38 = tail call float @llvm.fmuladd.f32(float %33, float %34, float %neg.i124)
   %conv9.i125 = fpext float %38 to double
-  %add.i126 = fadd double %y.016.i119, %conv9.i125
-  %inc.i127 = add nuw nsw i64 %k.017.i118, 1
-  %exitcond.not.i128 = icmp eq i64 %k.017.i118, 2
-  br i1 %exitcond.not.i128, label %for.cond1.for.end_crit_edge.i129, label %for.body4.i115, !llvm.loop !10
+  %add.i126 = fadd double %y.015.i119, %conv9.i125
+  %inc.i127 = add nuw nsw i64 %k.016.i118, 1
+  %exitcond.not.i128 = icmp eq i64 %k.016.i118, 2
+  br i1 %exitcond.not.i128, label %for.end.i129, label %for.body4.i115, !llvm.loop !10
 
-for.cond1.for.end_crit_edge.i129:                 ; preds = %for.body4.i115
+for.end.i129:                                     ; preds = %for.body4.i115
   %conv10.i130 = fptrunc double %add.i126 to float
-  %arrayidx11.i131 = getelementptr inbounds float, ptr %add.ptr52, i64 %i.021.i112
+  %arrayidx11.i131 = getelementptr inbounds float, ptr %add.ptr52, i64 %i.020.i112
   store float %conv10.i130, ptr %arrayidx11.i131, align 4
-  %inc13.i132 = add nuw i64 %i.021.i112, 1
-  %add.ptr15.i133 = getelementptr inbounds i8, ptr %input_head.022.i111, i64 4
-  %incdec.ptr16.i134 = getelementptr inbounds i8, ptr %output_head.023.i110, i64 4
-  %exitcond25.not.i135 = icmp eq i64 %inc13.i132, %cursamples.0180
-  br i1 %exitcond25.not.i135, label %filter.exit136, label %for.body.i109, !llvm.loop !11
+  %inc13.i132 = add nuw i64 %i.020.i112, 1
+  %add.ptr15.i133 = getelementptr inbounds i8, ptr %input_head.021.i111, i64 4
+  %incdec.ptr16.i134 = getelementptr inbounds i8, ptr %output_head.022.i110, i64 4
+  %exitcond23.not.i135 = icmp eq i64 %inc13.i132, %cursamples.0180
+  br i1 %exitcond23.not.i135, label %filter.exit136, label %for.body.i109, !llvm.loop !11
 
-filter.exit136:                                   ; preds = %for.cond1.for.end_crit_edge.i129
+filter.exit136:                                   ; preds = %for.end.i129
   %39 = load ptr, ptr @rout, align 8
   %add.ptr56 = getelementptr float, ptr %39, i64 %7
   br label %for.body.i139
 
-for.body.i139:                                    ; preds = %for.cond1.for.end_crit_edge.i159, %filter.exit136
-  %output_head.023.i140 = phi ptr [ %incdec.ptr16.i164, %for.cond1.for.end_crit_edge.i159 ], [ %add.ptr56, %filter.exit136 ]
-  %input_head.022.i141 = phi ptr [ %add.ptr15.i163, %for.cond1.for.end_crit_edge.i159 ], [ %add.ptr46, %filter.exit136 ]
-  %i.021.i142 = phi i64 [ %inc13.i162, %for.cond1.for.end_crit_edge.i159 ], [ 0, %filter.exit136 ]
-  %40 = load float, ptr %input_head.022.i141, align 4
+for.body.i139:                                    ; preds = %for.end.i159, %filter.exit136
+  %output_head.022.i140 = phi ptr [ %add.ptr56, %filter.exit136 ], [ %incdec.ptr16.i164, %for.end.i159 ]
+  %input_head.021.i141 = phi ptr [ %add.ptr46, %filter.exit136 ], [ %add.ptr15.i163, %for.end.i159 ]
+  %i.020.i142 = phi i64 [ 0, %filter.exit136 ], [ %inc13.i162, %for.end.i159 ]
+  %40 = load float, ptr %input_head.021.i141, align 4
   %41 = load float, ptr %BButter, align 4
   %mul.i143 = fmul float %40, %41
   %conv.i144 = fpext float %mul.i143 to double
   br label %for.body4.i145
 
 for.body4.i145:                                   ; preds = %for.body4.i145, %for.body.i139
-  %output_tail.019.i146 = phi ptr [ %output_head.023.i140, %for.body.i139 ], [ %incdec.ptr.i151, %for.body4.i145 ]
-  %input_tail.018.i147 = phi ptr [ %input_head.022.i141, %for.body.i139 ], [ %add.ptr.i150, %for.body4.i145 ]
-  %k.017.i148 = phi i64 [ 1, %for.body.i139 ], [ %inc.i157, %for.body4.i145 ]
-  %y.016.i149 = phi double [ %conv.i144, %for.body.i139 ], [ %add.i156, %for.body4.i145 ]
-  %add.ptr.i150 = getelementptr inbounds i8, ptr %input_tail.018.i147, i64 -4
-  %incdec.ptr.i151 = getelementptr inbounds i8, ptr %output_tail.019.i146, i64 -4
+  %output_tail.018.i146 = phi ptr [ %output_head.022.i140, %for.body.i139 ], [ %incdec.ptr.i151, %for.body4.i145 ]
+  %input_tail.017.i147 = phi ptr [ %input_head.021.i141, %for.body.i139 ], [ %add.ptr.i150, %for.body4.i145 ]
+  %k.016.i148 = phi i64 [ 1, %for.body.i139 ], [ %inc.i157, %for.body4.i145 ]
+  %y.015.i149 = phi double [ %conv.i144, %for.body.i139 ], [ %add.i156, %for.body4.i145 ]
+  %add.ptr.i150 = getelementptr inbounds i8, ptr %input_tail.017.i147, i64 -4
+  %incdec.ptr.i151 = getelementptr inbounds i8, ptr %output_tail.018.i146, i64 -4
   %42 = load float, ptr %add.ptr.i150, align 4
-  %arrayidx5.i152 = getelementptr inbounds float, ptr %BButter, i64 %k.017.i148
+  %arrayidx5.i152 = getelementptr inbounds float, ptr %BButter, i64 %k.016.i148
   %43 = load float, ptr %arrayidx5.i152, align 4
   %44 = load float, ptr %incdec.ptr.i151, align 4
-  %arrayidx7.i153 = getelementptr inbounds float, ptr %AButter, i64 %k.017.i148
+  %arrayidx7.i153 = getelementptr inbounds float, ptr %AButter, i64 %k.016.i148
   %45 = load float, ptr %arrayidx7.i153, align 4
   %46 = fneg float %45
   %neg.i154 = fmul float %44, %46
   %47 = tail call float @llvm.fmuladd.f32(float %42, float %43, float %neg.i154)
   %conv9.i155 = fpext float %47 to double
-  %add.i156 = fadd double %y.016.i149, %conv9.i155
-  %inc.i157 = add nuw nsw i64 %k.017.i148, 1
-  %exitcond.not.i158 = icmp eq i64 %k.017.i148, 2
-  br i1 %exitcond.not.i158, label %for.cond1.for.end_crit_edge.i159, label %for.body4.i145, !llvm.loop !10
+  %add.i156 = fadd double %y.015.i149, %conv9.i155
+  %inc.i157 = add nuw nsw i64 %k.016.i148, 1
+  %exitcond.not.i158 = icmp eq i64 %k.016.i148, 2
+  br i1 %exitcond.not.i158, label %for.end.i159, label %for.body4.i145, !llvm.loop !10
 
-for.cond1.for.end_crit_edge.i159:                 ; preds = %for.body4.i145
+for.end.i159:                                     ; preds = %for.body4.i145
   %conv10.i160 = fptrunc double %add.i156 to float
-  %arrayidx11.i161 = getelementptr inbounds float, ptr %add.ptr56, i64 %i.021.i142
+  %arrayidx11.i161 = getelementptr inbounds float, ptr %add.ptr56, i64 %i.020.i142
   store float %conv10.i160, ptr %arrayidx11.i161, align 4
-  %inc13.i162 = add nuw i64 %i.021.i142, 1
-  %add.ptr15.i163 = getelementptr inbounds i8, ptr %input_head.022.i141, i64 4
-  %incdec.ptr16.i164 = getelementptr inbounds i8, ptr %output_head.023.i140, i64 4
-  %exitcond25.not.i165 = icmp eq i64 %inc13.i162, %cursamples.0180
-  br i1 %exitcond25.not.i165, label %filter.exit166, label %for.body.i139, !llvm.loop !11
+  %inc13.i162 = add nuw i64 %i.020.i142, 1
+  %add.ptr15.i163 = getelementptr inbounds i8, ptr %input_head.021.i141, i64 4
+  %incdec.ptr16.i164 = getelementptr inbounds i8, ptr %output_head.022.i140, i64 4
+  %exitcond23.not.i165 = icmp eq i64 %inc13.i162, %cursamples.0180
+  br i1 %exitcond23.not.i165, label %filter.exit166, label %for.body.i139, !llvm.loop !11
 
-filter.exit166:                                   ; preds = %for.cond1.for.end_crit_edge.i159
+filter.exit166:                                   ; preds = %for.end.i159
   %cmp63230 = icmp sgt i64 %cursamples.0180, 0
   br i1 %cmp63230, label %for.body65.lr.ph, label %for.end86
 

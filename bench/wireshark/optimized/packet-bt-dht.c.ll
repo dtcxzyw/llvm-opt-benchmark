@@ -332,7 +332,7 @@ define internal fastcc noundef i32 @dissect_bencoded_dict(ptr noundef %0, ptr no
   %37 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %36, ptr noundef %0, i32 noundef %.040127, i32 noundef 0, i32 noundef 0) #5
   %38 = load i32, ptr @ett_bencoded_dict_entry, align 4
   %39 = call ptr @proto_item_add_subtree(ptr noundef %37, i32 noundef %38) #5
-  %40 = call fastcc i32 @dissect_bencoded_string(ptr noundef %0, ptr noundef %1, ptr noundef %39, i32 noundef %.040127, ptr noundef nonnull %9, i32 noundef 0, ptr noundef nonnull @.str.48)
+  %40 = call fastcc i32 @dissect_bencoded_string(ptr noundef %0, ptr noundef %1, ptr noundef %39, i32 noundef %.040127, ptr noundef %9, i32 noundef 0, ptr noundef nonnull @.str.48)
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %44
 
@@ -380,12 +380,12 @@ sub_0:                                            ; preds = %47
   %59 = load i32, ptr @ett_bt_dht_error, align 4
   %60 = call ptr @proto_item_add_subtree(ptr noundef %58, i32 noundef %59) #5
   %61 = add i32 %40, 1
-  %62 = call fastcc i32 @dissect_bencoded_int(ptr noundef %0, ptr noundef readonly %1, ptr noundef %60, i32 noundef %61, ptr noundef nonnull %6, ptr noundef nonnull @.str.70)
+  %62 = call fastcc i32 @dissect_bencoded_int(ptr noundef %0, ptr noundef readonly %1, ptr noundef %60, i32 noundef %61, ptr noundef %6, ptr noundef nonnull @.str.70)
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %dissect_bt_dht_error.exit, label %64
 
 64:                                               ; preds = %56
-  %65 = call fastcc i32 @dissect_bencoded_string(ptr noundef %0, ptr noundef readonly %1, ptr noundef %60, i32 noundef %62, ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull @.str.71)
+  %65 = call fastcc i32 @dissect_bencoded_string(ptr noundef %0, ptr noundef readonly %1, ptr noundef %60, i32 noundef %62, ptr noundef %7, i32 noundef 0, ptr noundef nonnull @.str.71)
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %dissect_bt_dht_error.exit, label %67
 
@@ -555,7 +555,7 @@ dissect_bt_dht_values.exit:                       ; preds = %.loopexit.i, %142
   br label %218
 
 148:                                              ; preds = %47
-  %149 = call fastcc i32 @dissect_bencoded_int(ptr noundef %0, ptr noundef %1, ptr noundef %39, i32 noundef %40, ptr noundef nonnull %10, ptr noundef nonnull @.str.50)
+  %149 = call fastcc i32 @dissect_bencoded_int(ptr noundef %0, ptr noundef %1, ptr noundef %39, i32 noundef %40, ptr noundef %10, ptr noundef nonnull @.str.50)
   br label %218
 
 150:                                              ; preds = %47
@@ -565,7 +565,7 @@ dissect_bt_dht_values.exit:                       ; preds = %.loopexit.i, %142
   br i1 %153, label %154, label %156
 
 154:                                              ; preds = %150
-  %155 = call fastcc i32 @dissect_bt_dht_nodes(ptr noundef %0, ptr noundef %1, ptr noundef %39, i32 noundef %40, ptr noundef nonnull %10, i32 noundef 0)
+  %155 = call fastcc i32 @dissect_bt_dht_nodes(ptr noundef %0, ptr noundef %1, ptr noundef %39, i32 noundef %40, ptr noundef %10, i32 noundef 0)
   br label %218
 
 156:                                              ; preds = %150
@@ -574,7 +574,7 @@ dissect_bt_dht_values.exit:                       ; preds = %.loopexit.i, %142
   br i1 %158, label %159, label %sub_079
 
 159:                                              ; preds = %156
-  %160 = call fastcc i32 @dissect_bt_dht_nodes(ptr noundef %0, ptr noundef %1, ptr noundef %39, i32 noundef %40, ptr noundef nonnull %10, i32 noundef 1)
+  %160 = call fastcc i32 @dissect_bt_dht_nodes(ptr noundef %0, ptr noundef %1, ptr noundef %39, i32 noundef %40, ptr noundef %10, i32 noundef 1)
   br label %218
 
 sub_079:                                          ; preds = %156
@@ -648,7 +648,7 @@ sub_180:                                          ; preds = %sub_079
   br label %218
 
 194:                                              ; preds = %181
-  %195 = call fastcc i32 @dissect_bencoded_string(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %39, i32 noundef %40, ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull @.str.50)
+  %195 = call fastcc i32 @dissect_bencoded_string(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %39, i32 noundef %40, ptr noundef %10, i32 noundef 1, ptr noundef nonnull @.str.50)
   br label %218
 
 sub_184:                                          ; preds = %.tail78, %sub_180
@@ -699,7 +699,7 @@ sub_088:                                          ; preds = %203
 
 215:                                              ; preds = %.tail91.thread, %.tail91, %.tail87, %203, %.tail82.thread, %.tail82
   %216 = phi i32 [ 1, %.tail91 ], [ 1, %.tail87 ], [ 1, %203 ], [ 1, %.tail82.thread ], [ 1, %.tail82 ], [ %214, %.tail91.thread ]
-  %217 = call fastcc i32 @dissect_bencoded_string(ptr noundef %0, ptr noundef %1, ptr noundef %39, i32 noundef %40, ptr noundef nonnull %10, i32 noundef %216, ptr noundef nonnull @.str.50)
+  %217 = call fastcc i32 @dissect_bencoded_string(ptr noundef %0, ptr noundef %1, ptr noundef %39, i32 noundef %40, ptr noundef %10, i32 noundef %216, ptr noundef nonnull @.str.50)
   br label %218
 
 218:                                              ; preds = %215, %194, %184, %159, %154, %148, %146, %dissect_bt_dht_values.exit, %dissect_bt_dht_error.exit, %49
@@ -879,7 +879,7 @@ declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_bencoded_string(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_bencoded_string(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly %4, i32 noundef range(i32 0, 2) %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %3) #5
   %10 = icmp eq i32 %9, 0
@@ -992,7 +992,7 @@ define internal fastcc noundef i32 @dissect_bencoded_list(ptr noundef %0, ptr no
   ]
 
 22:                                               ; preds = %20
-  %23 = call fastcc i32 @dissect_bencoded_int(ptr noundef %0, ptr noundef %1, ptr noundef %13, i32 noundef %.046, ptr noundef nonnull %6, ptr noundef nonnull @.str.83)
+  %23 = call fastcc i32 @dissect_bencoded_int(ptr noundef %0, ptr noundef %1, ptr noundef %13, i32 noundef %.046, ptr noundef %6, ptr noundef nonnull @.str.83)
   br label %30
 
 24:                                               ; preds = %20
@@ -1004,7 +1004,7 @@ define internal fastcc noundef i32 @dissect_bencoded_list(ptr noundef %0, ptr no
   br label %30
 
 28:                                               ; preds = %20
-  %29 = call fastcc i32 @dissect_bencoded_string(ptr noundef %0, ptr noundef %1, ptr noundef %13, i32 noundef %.046, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull @.str)
+  %29 = call fastcc i32 @dissect_bencoded_string(ptr noundef %0, ptr noundef %1, ptr noundef %13, i32 noundef %.046, ptr noundef %6, i32 noundef 0, ptr noundef nonnull @.str)
   br label %30
 
 30:                                               ; preds = %28, %26, %24, %22
@@ -1033,7 +1033,7 @@ define internal fastcc noundef i32 @dissect_bencoded_list(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bencoded_int(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_bencoded_int(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %3) #5
   %8 = icmp ult i32 %7, 3
   br i1 %8, label %.critedge.thread, label %9
@@ -1086,7 +1086,7 @@ define internal fastcc noundef i32 @dissect_bencoded_int(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_bt_dht_nodes(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_bt_dht_nodes(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %3) #5
   %9 = icmp eq i32 %8, 0

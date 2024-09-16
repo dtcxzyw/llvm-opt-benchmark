@@ -4525,7 +4525,7 @@ if.then6:                                         ; preds = %if.end
   store i8 1, ptr %RHSKind.i.i, align 1
   store ptr @.str.288, ptr %agg.tmp1.i, align 8
   store i8 3, ptr %LHSKind.i.i, align 8
-  call fastcc void @_ZN12_GLOBAL__N_125getFileFromDirectoryOrZipEP5zip_tN4llvh9StringRefENS2_5TwineEb(ptr noalias nonnull align 8 %metadataBuf.i, ptr noundef %call3, ptr %call.i, i64 %call2.i, ptr noundef nonnull byval(%"class.llvh::Twine") align 8 %agg.tmp1.i, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_125getFileFromDirectoryOrZipEP5zip_tN4llvh9StringRefENS2_5TwineEb(ptr noalias align 8 %metadataBuf.i, ptr noundef %call3, ptr %call.i, i64 %call2.i, ptr noundef nonnull byval(%"class.llvh::Twine") align 8 %agg.tmp1.i, i1 noundef zeroext false)
   %140 = load ptr, ptr %metadataBuf.i, align 8
   %cmp.i.not.i32 = icmp eq ptr %140, null
   br i1 %cmp.i.not.i32, label %if.then.i66, label %if.end.i33
@@ -5346,7 +5346,7 @@ if.end51.i46:                                     ; preds = %land.lhs.true.i100.
   store i8 5, ptr %LHSKind.i120.i, align 8
   store i8 1, ptr %RHSKind.i121.i, align 1
   store ptr %filename.i, ptr %agg.tmp56.i, align 8
-  call fastcc void @_ZN12_GLOBAL__N_125getFileFromDirectoryOrZipEP5zip_tN4llvh9StringRefENS2_5TwineEb(ptr noalias nonnull align 8 %fileBuf.i, ptr noundef %call3, ptr %call.i, i64 %call2.i, ptr noundef nonnull byval(%"class.llvh::Twine") align 8 %agg.tmp56.i, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_125getFileFromDirectoryOrZipEP5zip_tN4llvh9StringRefENS2_5TwineEb(ptr noalias align 8 %fileBuf.i, ptr noundef %call3, ptr %call.i, i64 %call2.i, ptr noundef nonnull byval(%"class.llvh::Twine") align 8 %agg.tmp56.i, i1 noundef zeroext false)
   %244 = load ptr, ptr %fileBuf.i, align 8
   %cmp.i122.not.i = icmp eq ptr %244, null
   %245 = ptrtoint ptr %244 to i64
@@ -5357,7 +5357,7 @@ if.end59.i:                                       ; preds = %if.end51.i46
   store i8 3, ptr %RHSKind.i124.i, align 1
   store ptr %filename.i, ptr %agg.tmp61.i, align 8
   store ptr @.str.296, ptr %RHS5.i.i, align 8
-  call fastcc void @_ZN12_GLOBAL__N_125getFileFromDirectoryOrZipEP5zip_tN4llvh9StringRefENS2_5TwineEb(ptr noalias nonnull align 8 %mapBuf.i, ptr noundef %call3, ptr %call.i, i64 %call2.i, ptr noundef nonnull byval(%"class.llvh::Twine") align 8 %agg.tmp61.i, i1 noundef zeroext true)
+  call fastcc void @_ZN12_GLOBAL__N_125getFileFromDirectoryOrZipEP5zip_tN4llvh9StringRefENS2_5TwineEb(ptr noalias align 8 %mapBuf.i, ptr noundef %call3, ptr %call.i, i64 %call2.i, ptr noundef nonnull byval(%"class.llvh::Twine") align 8 %agg.tmp61.i, i1 noundef zeroext true)
   %246 = load i8, ptr %hasVal.i.i, align 8
   %tobool.i.i = trunc i8 %246 to i1
   br i1 %tobool.i.i, label %if.then63.i49, label %if.else.i
@@ -6572,7 +6572,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %entry18.sroa.18.0668 = phi ptr [ null, %for.body.lr.ph ], [ %entry18.sroa.18.1, %for.cond ]
   %call.i77 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.0669) #25
   %call2.i79 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.0669) #25
-  call fastcc void @_ZN12_GLOBAL__N_120memoryBufferFromFileEN4llvh9StringRefEbb(ptr noalias nonnull align 8 %fileBuf, ptr %call.i77, i64 %call2.i79, i1 noundef zeroext true, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_120memoryBufferFromFileEN4llvh9StringRefEbb(ptr noalias align 8 %fileBuf, ptr %call.i77, i64 %call2.i79, i1 noundef zeroext true, i1 noundef zeroext false)
   %374 = load ptr, ptr %fileBuf, align 8
   %cmp.i211.not = icmp eq ptr %374, null
   %375 = ptrtoint ptr %374 to i64
@@ -6782,7 +6782,7 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i266, %if.e
 if.end43:                                         ; preds = %if.then37
   %call.i89 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN2clL14InputSourceMapB5cxx11E, i64 152)) #25
   %call2.i91 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN2clL14InputSourceMapB5cxx11E, i64 152)) #25
-  call fastcc void @_ZN12_GLOBAL__N_120memoryBufferFromFileEN4llvh9StringRefEbb(ptr noalias nonnull align 8 %ref.tmp44, ptr %call.i89, i64 %call2.i91, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_120memoryBufferFromFileEN4llvh9StringRefEbb(ptr noalias align 8 %ref.tmp44, ptr %call.i89, i64 %call2.i91, i1 noundef zeroext false, i1 noundef zeroext false)
   %sourceMap47 = getelementptr inbounds i8, ptr %entry18.sroa.0.0.lcssa, i64 16
   %392 = load ptr, ptr %ref.tmp44, align 8
   %393 = load ptr, ptr %sourceMap47, align 8
@@ -7100,7 +7100,7 @@ _ZNSt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS2_EEaSE
 
 if.then18.i317:                                   ; preds = %_ZNSt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS2_EEaSEOS5_.exit.i
   store ptr %423, ptr %agg.tmp19.i, align 8, !noalias !85
-  call fastcc void @_ZN12_GLOBAL__N_119disassembleBytecodeESt10unique_ptrIN6hermes3hbc14BCProviderBaseESt14default_deleteIS3_EE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp19.i)
+  call fastcc void @_ZN12_GLOBAL__N_119disassembleBytecodeESt10unique_ptrIN6hermes3hbc14BCProviderBaseESt14default_deleteIS3_EE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp19.i)
   %428 = load ptr, ptr %agg.tmp19.i, align 8, !noalias !85
   %cmp.not.i6.i = icmp eq ptr %428, null
   br i1 %cmp.not.i6.i, label %_ZNSt10unique_ptrIN6hermes3hbc14BCProviderBaseESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN6hermes3hbc14BCProviderBaseEEclEPS2_.exit.i.i
@@ -8353,7 +8353,7 @@ if.else.i.i.i.i430:                               ; preds = %_ZNSt10shared_ptrIN
 _ZNSt3mapIjSt6vectorIN12_GLOBAL__N_115ModuleInSegmentESaIS2_EESt4lessIjESaISt4pairIKjS4_EEEC2EOSB_.exit: ; preds = %if.then.i.i.i.i425, %if.else.i.i.i.i430
   %_M_node_count.i5.sink.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i, %if.else.i.i.i.i430 ], [ %_M_node_count.i.i.i.i.i, %if.then.i.i.i.i425 ]
   store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i, align 8
-  call fastcc void @_ZN12_GLOBAL__N_118processSourceFilesESt10shared_ptrIN6hermes7ContextEESt3mapIjSt6vectorINS_15ModuleInSegmentESaIS6_EESt4lessIjESaISt4pairIKjS8_EEE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp67, ptr noundef nonnull %agg.tmp68)
+  call fastcc void @_ZN12_GLOBAL__N_118processSourceFilesESt10shared_ptrIN6hermes7ContextEESt3mapIjSt6vectorINS_15ModuleInSegmentESaIS6_EESt4lessIjESaISt4pairIKjS8_EEE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp67, ptr noundef %agg.tmp68)
   %603 = getelementptr inbounds i8, ptr %agg.tmp68, i64 16
   %agg.tmp68.val = load ptr, ptr %603, align 8
   call fastcc void @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIN12_GLOBAL__N_115ModuleInSegmentESaIS4_EEESt10_Select1stIS7_ESt4lessIjESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef %agg.tmp68.val)
@@ -8624,7 +8624,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataE
 declare void @zip_close(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120memoryBufferFromFileEN4llvh9StringRefEbb(ptr noalias nocapture writeonly align 8 %agg.result, ptr %path.coerce0, i64 %path.coerce1, i1 noundef zeroext %stdinOk, i1 noundef zeroext %silent) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120memoryBufferFromFileEN4llvh9StringRefEbb(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %path.coerce0, i64 %path.coerce1, i1 noundef zeroext %stdinOk, i1 noundef zeroext %silent) unnamed_addr #0 {
 entry:
   %path = alloca %"class.llvh::StringRef", align 8
   %fileBuf = alloca %"class.llvh::ErrorOr", align 8
@@ -8890,7 +8890,7 @@ if.end:                                           ; preds = %_ZNSt8_Rb_treeIjSt4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118processSourceFilesESt10shared_ptrIN6hermes7ContextEESt3mapIjSt6vectorINS_15ModuleInSegmentESaIS6_EESt4lessIjESaISt4pairIKjS8_EEE(ptr noalias align 8 %agg.result, ptr noundef %context, ptr noundef %fileBufs) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118processSourceFilesESt10shared_ptrIN6hermes7ContextEESt3mapIjSt6vectorINS_15ModuleInSegmentESaIS6_EESt4lessIjESaISt4pairIKjS8_EEE(ptr noalias align 8 %agg.result, ptr noundef nonnull %context, ptr noundef nonnull %fileBufs) unnamed_addr #0 {
 entry:
   %__tmp.sroa.0.i.i.i.i.i.i = alloca { ptr, i64 }, align 8
   %ref.tmp.i.i.i = alloca %"class.std::allocator.74", align 1
@@ -9056,7 +9056,7 @@ sw.epilog:                                        ; preds = %_ZSt4copyIPKcPhET0_
   %libBuffer.sroa.0.0 = phi i64 [ %11, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EEaSEOS4_.exit ], [ 0, %_ZSt4copyIPKcPhET0_T_S4_S3_.exit ]
   %12 = load ptr, ptr %context, align 8
   store i64 %libBuffer.sroa.0.0, ptr %agg.tmp33, align 8
-  %call34 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120loadGlobalDefinitionERN6hermes7ContextESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS5_EERSt6vectorIPNS0_6ESTree11ProgramNodeESaISC_EE(ptr noundef nonnull align 8 dereferenceable(656) %12, ptr noundef nonnull %agg.tmp33, ptr noundef nonnull align 8 dereferenceable(24) %declFileList)
+  %call34 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120loadGlobalDefinitionERN6hermes7ContextESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS5_EERSt6vectorIPNS0_6ESTree11ProgramNodeESaISC_EE(ptr noundef nonnull align 8 dereferenceable(656) %12, ptr noundef %agg.tmp33, ptr noundef nonnull align 8 dereferenceable(24) %declFileList)
   %13 = load ptr, ptr %agg.tmp33, align 8
   %cmp.not.i54 = icmp eq ptr %13, null
   br i1 %cmp.not.i54, label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit58, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i55
@@ -9090,7 +9090,7 @@ for.body44:                                       ; preds = %if.end, %_ZNSt10uni
   %__begin136.sroa.0.0577 = phi ptr [ %incdec.ptr.i75, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit74 ], [ %15, %if.end ]
   %call.i432 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin136.sroa.0.0577) #25
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin136.sroa.0.0577) #25
-  call fastcc void @_ZN12_GLOBAL__N_120memoryBufferFromFileEN4llvh9StringRefEbb(ptr noalias nonnull align 8 %fileBuf, ptr %call.i432, i64 %call2.i, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_120memoryBufferFromFileEN4llvh9StringRefEbb(ptr noalias align 8 %fileBuf, ptr %call.i432, i64 %call2.i, i1 noundef zeroext false, i1 noundef zeroext false)
   %17 = load ptr, ptr %fileBuf, align 8
   %cmp.i60.not = icmp eq ptr %17, null
   br i1 %cmp.i60.not, label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit514, label %do.end
@@ -9099,7 +9099,7 @@ do.end:                                           ; preds = %for.body44
   %18 = ptrtoint ptr %17 to i64
   %19 = load ptr, ptr %context, align 8
   store i64 %18, ptr %agg.tmp51, align 8
-  %call52 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120loadGlobalDefinitionERN6hermes7ContextESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS5_EERSt6vectorIPNS0_6ESTree11ProgramNodeESaISC_EE(ptr noundef nonnull align 8 dereferenceable(656) %19, ptr noundef nonnull %agg.tmp51, ptr noundef nonnull align 8 dereferenceable(24) %declFileList)
+  %call52 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120loadGlobalDefinitionERN6hermes7ContextESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS5_EERSt6vectorIPNS0_6ESTree11ProgramNodeESaISC_EE(ptr noundef nonnull align 8 dereferenceable(656) %19, ptr noundef %agg.tmp51, ptr noundef nonnull align 8 dereferenceable(24) %declFileList)
   %20 = load ptr, ptr %agg.tmp51, align 8
   %cmp.not.i63 = icmp eq ptr %20, null
   br i1 %cmp.not.i63, label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit67, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i64
@@ -9584,7 +9584,7 @@ _ZNSt10shared_ptrIN6hermes19SourceMapTranslatorEED2Ev.exit.i: ; preds = %if.then
   store ptr null, ptr %globalMemBuffer.i, align 8
   store ptr null, ptr %agg.tmp20.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp21.i, i8 0, i64 16, i1 false)
-  %call22.i = call fastcc noundef ptr @_ZN12_GLOBAL__N_17parseJSERSt10shared_ptrIN6hermes7ContextEERNS1_3sem10SemContextESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteISA_EES8_INS1_9SourceMapESB_ISE_EES0_INS1_19SourceMapTranslatorEEb(ptr noundef nonnull align 8 dereferenceable(16) %context.i, ptr noundef nonnull align 8 dereferenceable(80) %semCtx, ptr noundef nonnull %agg.tmp19.i, ptr noundef nonnull %agg.tmp20.i, ptr noundef nonnull %agg.tmp21.i, i1 noundef zeroext false)
+  %call22.i = call fastcc noundef ptr @_ZN12_GLOBAL__N_17parseJSERSt10shared_ptrIN6hermes7ContextEERNS1_3sem10SemContextESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteISA_EES8_INS1_9SourceMapESB_ISE_EES0_INS1_19SourceMapTranslatorEEb(ptr noundef nonnull align 8 dereferenceable(16) %context.i, ptr noundef nonnull align 8 dereferenceable(80) %semCtx, ptr noundef %agg.tmp19.i, ptr noundef %agg.tmp20.i, ptr noundef %agg.tmp21.i, i1 noundef zeroext false)
   %.pre435.i = load ptr, ptr %agg.tmp20.i, align 8
   %cmp.not.i.i = icmp eq ptr %.pre435.i, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN6hermes9SourceMapEEclEPS1_.exit.i.i
@@ -10084,7 +10084,7 @@ _ZNSt10shared_ptrIN6hermes19SourceMapTranslatorEED2Ev.exit148.i: ; preds = %if.e
   store ptr null, ptr %file47.i, align 8
   store ptr null, ptr %agg.tmp80.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp81.i, i8 0, i64 16, i1 false)
-  %call82.i = call fastcc noundef ptr @_ZN12_GLOBAL__N_17parseJSERSt10shared_ptrIN6hermes7ContextEERNS1_3sem10SemContextESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteISA_EES8_INS1_9SourceMapESB_ISE_EES0_INS1_19SourceMapTranslatorEEb(ptr noundef nonnull align 8 dereferenceable(16) %context.i, ptr noundef nonnull align 8 dereferenceable(80) %semCtx, ptr noundef nonnull %agg.tmp79.i, ptr noundef nonnull %agg.tmp80.i, ptr noundef nonnull %agg.tmp81.i, i1 noundef zeroext true)
+  %call82.i = call fastcc noundef ptr @_ZN12_GLOBAL__N_17parseJSERSt10shared_ptrIN6hermes7ContextEERNS1_3sem10SemContextESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteISA_EES8_INS1_9SourceMapESB_ISE_EES0_INS1_19SourceMapTranslatorEEb(ptr noundef nonnull align 8 dereferenceable(16) %context.i, ptr noundef nonnull align 8 dereferenceable(80) %semCtx, ptr noundef %agg.tmp79.i, ptr noundef %agg.tmp80.i, ptr noundef %agg.tmp81.i, i1 noundef zeroext true)
   %.pre437.i = load ptr, ptr %agg.tmp80.i, align 8
   %cmp.not.i149.i = icmp eq ptr %.pre437.i, null
   br i1 %cmp.not.i149.i, label %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit151.i, label %_ZNKSt14default_deleteIN6hermes9SourceMapEEclEPS1_.exit.i150.i
@@ -10920,13 +10920,13 @@ _ZNSt10shared_ptrIN6hermes19SourceMapTranslatorEEC2ERKS2_.exit.thread: ; preds =
   %240 = load i32, ptr %_M_use_count.i.i.i.i.i.i134, align 4
   %add.i.i.i.i.i196 = add nsw i32 %240, 1
   store i32 %add.i.i.i.i.i196, ptr %_M_use_count.i.i.i.i.i.i134, align 4
-  %call128589 = call fastcc noundef ptr @_ZN12_GLOBAL__N_17parseJSERSt10shared_ptrIN6hermes7ContextEERNS1_3sem10SemContextESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteISA_EES8_INS1_9SourceMapESB_ISE_EES0_INS1_19SourceMapTranslatorEEb(ptr noundef nonnull align 8 dereferenceable(16) %context, ptr noundef nonnull align 8 dereferenceable(80) %semCtx, ptr noundef nonnull %agg.tmp124, ptr noundef nonnull %agg.tmp126, ptr noundef nonnull %agg.tmp127, i1 noundef zeroext false)
+  %call128589 = call fastcc noundef ptr @_ZN12_GLOBAL__N_17parseJSERSt10shared_ptrIN6hermes7ContextEERNS1_3sem10SemContextESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteISA_EES8_INS1_9SourceMapESB_ISE_EES0_INS1_19SourceMapTranslatorEEb(ptr noundef nonnull align 8 dereferenceable(16) %context, ptr noundef nonnull align 8 dereferenceable(80) %semCtx, ptr noundef %agg.tmp124, ptr noundef %agg.tmp126, ptr noundef %agg.tmp127, i1 noundef zeroext false)
   br label %if.then.i.i.i200
 
 _ZNSt10shared_ptrIN6hermes19SourceMapTranslatorEEC2ERKS2_.exit: ; preds = %if.then.i.i.i192
   %241 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i134, i32 1 acq_rel, align 4
   %.pre = load ptr, ptr %_M_refcount.i.i189, align 8
-  %call128 = call fastcc noundef ptr @_ZN12_GLOBAL__N_17parseJSERSt10shared_ptrIN6hermes7ContextEERNS1_3sem10SemContextESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteISA_EES8_INS1_9SourceMapESB_ISE_EES0_INS1_19SourceMapTranslatorEEb(ptr noundef nonnull align 8 dereferenceable(16) %context, ptr noundef nonnull align 8 dereferenceable(80) %semCtx, ptr noundef nonnull %agg.tmp124, ptr noundef nonnull %agg.tmp126, ptr noundef nonnull %agg.tmp127, i1 noundef zeroext false)
+  %call128 = call fastcc noundef ptr @_ZN12_GLOBAL__N_17parseJSERSt10shared_ptrIN6hermes7ContextEERNS1_3sem10SemContextESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteISA_EES8_INS1_9SourceMapESB_ISE_EES0_INS1_19SourceMapTranslatorEEb(ptr noundef nonnull align 8 dereferenceable(16) %context, ptr noundef nonnull align 8 dereferenceable(80) %semCtx, ptr noundef %agg.tmp124, ptr noundef %agg.tmp126, ptr noundef %agg.tmp127, i1 noundef zeroext false)
   %cmp.not.i.i.i199 = icmp eq ptr %.pre, null
   br i1 %cmp.not.i.i.i199, label %_ZNSt10shared_ptrIN6hermes19SourceMapTranslatorEED2Ev.exit, label %if.then.i.i.i200
 
@@ -11453,7 +11453,7 @@ if.end250:                                        ; preds = %land.lhs.true246, %
   %306 = load i8, ptr %hasVal.i.i, align 8
   %tobool.i340 = trunc i8 %306 to i1
   %spec.select = select i1 %tobool.i340, ptr %sourceMapGen, ptr null
-  call fastcc void @_ZN12_GLOBAL__N_132generateBytecodeForSerializationERN4llvh11raw_ostreamERN6hermes6ModuleERKNS3_25BytecodeGenerationOptionsERKSt5arrayIhLm20EENS3_8OptValueIjEEPNS3_18SourceMapGeneratorERNS0_8DenseMapIjSt10unique_ptrINS3_3hbc20BCProviderFromBufferESt14default_deleteISK_EENS0_12DenseMapInfoIjEENS0_6detail12DenseMapPairIjSN_EEEE(ptr noalias nonnull align 8 %result251, ptr noundef nonnull align 8 dereferenceable(36) %fileOS.val, ptr noundef nonnull align 8 dereferenceable(1033) %M, ptr noundef nonnull align 4 dereferenceable(17) %genOptions, ptr noundef nonnull align 1 dereferenceable(20) %sourceHash, i64 0, ptr noundef %spec.select, ptr noundef nonnull align 8 dereferenceable(20) %baseBytecodeMap)
+  call fastcc void @_ZN12_GLOBAL__N_132generateBytecodeForSerializationERN4llvh11raw_ostreamERN6hermes6ModuleERKNS3_25BytecodeGenerationOptionsERKSt5arrayIhLm20EENS3_8OptValueIjEEPNS3_18SourceMapGeneratorERNS0_8DenseMapIjSt10unique_ptrINS3_3hbc20BCProviderFromBufferESt14default_deleteISK_EENS0_12DenseMapInfoIjEENS0_6detail12DenseMapPairIjSN_EEEE(ptr noalias align 8 %result251, ptr noundef nonnull align 8 dereferenceable(36) %fileOS.val, ptr noundef nonnull align 8 dereferenceable(1033) %M, ptr noundef nonnull align 4 dereferenceable(17) %genOptions, ptr noundef nonnull align 1 dereferenceable(20) %sourceHash, i64 0, ptr noundef %spec.select, ptr noundef nonnull align 8 dereferenceable(20) %baseBytecodeMap)
   %307 = load i32, ptr %result251, align 8
   %cmp260.not = icmp eq i32 %307, 0
   br i1 %cmp260.not, label %if.end262, label %if.then261
@@ -11675,7 +11675,7 @@ if.end320:                                        ; preds = %land.lhs.true316, %
   %spec.select565 = select i1 %tobool.i393, ptr %sourceMapGen, ptr null
   %agg.tmp322.sroa.0.0.insert.ext = zext i32 %319 to i64
   %agg.tmp322.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp322.sroa.0.0.insert.ext, 4294967296
-  call fastcc void @_ZN12_GLOBAL__N_132generateBytecodeForSerializationERN4llvh11raw_ostreamERN6hermes6ModuleERKNS3_25BytecodeGenerationOptionsERKSt5arrayIhLm20EENS3_8OptValueIjEEPNS3_18SourceMapGeneratorERNS0_8DenseMapIjSt10unique_ptrINS3_3hbc20BCProviderFromBufferESt14default_deleteISK_EENS0_12DenseMapInfoIjEENS0_6detail12DenseMapPairIjSN_EEEE(ptr noalias nonnull align 8 %segResult, ptr noundef nonnull align 8 dereferenceable(36) %fileOS313.val, ptr noundef nonnull align 8 dereferenceable(1033) %M, ptr noundef nonnull align 4 dereferenceable(17) %genOptions, ptr noundef nonnull align 1 dereferenceable(20) %sourceHash, i64 %agg.tmp322.sroa.0.0.insert.insert, ptr noundef %spec.select565, ptr noundef nonnull align 8 dereferenceable(20) %baseBytecodeMap)
+  call fastcc void @_ZN12_GLOBAL__N_132generateBytecodeForSerializationERN4llvh11raw_ostreamERN6hermes6ModuleERKNS3_25BytecodeGenerationOptionsERKSt5arrayIhLm20EENS3_8OptValueIjEEPNS3_18SourceMapGeneratorERNS0_8DenseMapIjSt10unique_ptrINS3_3hbc20BCProviderFromBufferESt14default_deleteISK_EENS0_12DenseMapInfoIjEENS0_6detail12DenseMapPairIjSN_EEEE(ptr noalias align 8 %segResult, ptr noundef nonnull align 8 dereferenceable(36) %fileOS313.val, ptr noundef nonnull align 8 dereferenceable(1033) %M, ptr noundef nonnull align 4 dereferenceable(17) %genOptions, ptr noundef nonnull align 1 dereferenceable(20) %sourceHash, i64 %agg.tmp322.sroa.0.0.insert.insert, ptr noundef %spec.select565, ptr noundef nonnull align 8 dereferenceable(20) %baseBytecodeMap)
   %322 = load i32, ptr %segResult, align 8
   %cmp330.not = icmp eq i32 %322, 0
   br i1 %cmp330.not, label %if.end332, label %if.then331
@@ -15630,7 +15630,7 @@ declare i32 @isatty(i32 noundef) local_unnamed_addr #5
 declare { i32, ptr } @_ZN4llvh3sys2fs12is_directoryERKNS_5TwineERb(ptr noundef nonnull align 8 dereferenceable(18), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125getFileFromDirectoryOrZipEP5zip_tN4llvh9StringRefENS2_5TwineEb(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %zip, ptr %rootPath.coerce0, i64 %rootPath.coerce1, ptr noundef byval(%"class.llvh::Twine") align 8 %fileName, i1 noundef zeroext %silent) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_125getFileFromDirectoryOrZipEP5zip_tN4llvh9StringRefENS2_5TwineEb(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %zip, ptr %rootPath.coerce0, i64 %rootPath.coerce1, ptr noundef byval(%"class.llvh::Twine") align 8 %fileName, i1 noundef zeroext %silent) unnamed_addr #0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr.228", align 8
   %ref.tmp11.i = alloca %"class.llvh::Twine", align 8
@@ -18379,7 +18379,7 @@ _ZNSt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS2_EED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119disassembleBytecodeESt10unique_ptrIN6hermes3hbc14BCProviderBaseESt14default_deleteIS3_EE(ptr noalias align 8 %agg.result, ptr noundef %bytecode) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_119disassembleBytecodeESt10unique_ptrIN6hermes3hbc14BCProviderBaseESt14default_deleteIS3_EE(ptr noalias align 8 %agg.result, ptr noundef nonnull %bytecode) unnamed_addr #0 {
 entry:
   %ref.tmp.i.i = alloca %"class.llvh::Twine", align 8
   %fileOS = alloca %"class.(anonymous namespace)::OutputStream", align 8
@@ -18935,7 +18935,7 @@ declare void @llvm.trap() #15
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4outsEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OutputStream4openEN4llvh5TwineENS1_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef byval(%"class.llvh::Twine") align 8 %fileName, i32 noundef %openFlags) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OutputStream4openEN4llvh5TwineENS1_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef byval(%"class.llvh::Twine") align 8 %fileName, i32 noundef range(i32 0, 2) %openFlags) unnamed_addr #0 align 2 {
 entry:
   %EC = alloca %"class.std::error_code", align 8
   %ref.tmp = alloca %"class.llvh::Twine", align 8
@@ -21405,7 +21405,7 @@ declare { ptr, i64 } @_ZN4llvh4SHA15finalEv(ptr noundef nonnull align 4 derefere
 declare void @_ZN4llvh12MemoryBuffer12getMemBufferENS_9StringRefES1_b(ptr sret(%"class.std::unique_ptr.173") align 8, ptr, i64, ptr, i64, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120loadGlobalDefinitionERN6hermes7ContextESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS5_EERSt6vectorIPNS0_6ESTree11ProgramNodeESaISC_EE(ptr noundef nonnull align 8 dereferenceable(656) %context, ptr nocapture noundef %content, ptr nocapture noundef nonnull align 8 dereferenceable(24) %declFileList) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120loadGlobalDefinitionERN6hermes7ContextESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS5_EERSt6vectorIPNS0_6ESTree11ProgramNodeESaISC_EE(ptr noundef nonnull align 8 dereferenceable(656) %context, ptr nocapture noundef nonnull %content, ptr nocapture noundef nonnull align 8 dereferenceable(24) %declFileList) unnamed_addr #0 {
 entry:
   %jsParser = alloca %"class.hermes::parser::JSParser", align 8
   %agg.tmp = alloca %"class.std::unique_ptr.173", align 8
@@ -21997,7 +21997,7 @@ declare noundef i32 @_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefEN
 declare void @_ZN6hermes15SourceMapParser5parseEN4llvh15MemoryBufferRefERNS_18SourceErrorManagerE(ptr sret(%"class.std::unique_ptr.672") align 8, ptr noundef byval(%"class.llvh::MemoryBufferRef") align 8, ptr noundef nonnull align 8 dereferenceable(464)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_17parseJSERSt10shared_ptrIN6hermes7ContextEERNS1_3sem10SemContextESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteISA_EES8_INS1_9SourceMapESB_ISE_EES0_INS1_19SourceMapTranslatorEEb(ptr noundef nonnull align 8 dereferenceable(16) %context, ptr noundef nonnull align 8 dereferenceable(80) %semCtx, ptr nocapture noundef %fileBuf, ptr nocapture noundef %sourceMap, ptr nocapture noundef readonly %sourceMapTranslator, i1 noundef zeroext %wrapCJSModule) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_17parseJSERSt10shared_ptrIN6hermes7ContextEERNS1_3sem10SemContextESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteISA_EES8_INS1_9SourceMapESB_ISE_EES0_INS1_19SourceMapTranslatorEEb(ptr noundef nonnull align 8 dereferenceable(16) %context, ptr noundef nonnull align 8 dereferenceable(80) %semCtx, ptr nocapture noundef nonnull %fileBuf, ptr nocapture noundef nonnull %sourceMap, ptr nocapture noundef nonnull readonly %sourceMapTranslator, i1 noundef zeroext %wrapCJSModule) unnamed_addr #0 {
 entry:
   %useStaticBuiltinDetected = alloca i8, align 1
   %agg.tmp = alloca %"class.std::unique_ptr.173", align 8
@@ -22581,7 +22581,7 @@ if.then:                                          ; preds = %entry
   store i8 1, ptr %RHSKind.i.i, align 1
   store ptr @.str.116, ptr %agg.tmp1.i, align 8
   store i8 3, ptr %LHSKind.i.i, align 8
-  call fastcc void @_ZN12_GLOBAL__N_125getFileFromDirectoryOrZipEP5zip_tN4llvh9StringRefENS2_5TwineEb(ptr noalias nonnull align 8 %manifestBuf.i, ptr noundef %call1, ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload, ptr noundef nonnull byval(%"class.llvh::Twine") align 8 %agg.tmp1.i, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_125getFileFromDirectoryOrZipEP5zip_tN4llvh9StringRefENS2_5TwineEb(ptr noalias align 8 %manifestBuf.i, ptr noundef %call1, ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload, ptr noundef nonnull byval(%"class.llvh::Twine") align 8 %agg.tmp1.i, i1 noundef zeroext false)
   %5 = load ptr, ptr %manifestBuf.i, align 8
   %cmp.i28.not.i = icmp eq ptr %5, null
   br i1 %cmp.i28.not.i, label %if.then.i, label %if.end.i
@@ -23019,7 +23019,7 @@ if.end62.i:                                       ; preds = %land.lhs.true.i184.
   store i8 5, ptr %LHSKind.i190.i, align 8
   store i8 1, ptr %RHSKind.i191.i, align 1
   store ptr %60, ptr %agg.tmp64.i, align 8
-  call fastcc void @_ZN12_GLOBAL__N_125getFileFromDirectoryOrZipEP5zip_tN4llvh9StringRefENS2_5TwineEb(ptr noalias nonnull align 8 %fileBuf.i, ptr noundef %call1, ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload, ptr noundef nonnull byval(%"class.llvh::Twine") align 8 %agg.tmp64.i, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_125getFileFromDirectoryOrZipEP5zip_tN4llvh9StringRefENS2_5TwineEb(ptr noalias align 8 %fileBuf.i, ptr noundef %call1, ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload, ptr noundef nonnull byval(%"class.llvh::Twine") align 8 %agg.tmp64.i, i1 noundef zeroext false)
   %61 = load ptr, ptr %fileBuf.i, align 8
   %cmp.i192.not.i = icmp eq ptr %61, null
   br i1 %cmp.i192.not.i, label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i, label %if.end74.i
@@ -23039,7 +23039,7 @@ _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i: ; pr
 if.end74.i:                                       ; preds = %if.end62.i
   %63 = ptrtoint ptr %61 to i64
   store i64 %63, ptr %agg.tmp75.i, align 8
-  call fastcc void @_ZN12_GLOBAL__N_124loadBaseBytecodeProviderESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EE(ptr noalias nonnull align 8 %bcProvider.i, ptr noundef nonnull %agg.tmp75.i)
+  call fastcc void @_ZN12_GLOBAL__N_124loadBaseBytecodeProviderESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EE(ptr noalias align 8 %bcProvider.i, ptr noundef %agg.tmp75.i)
   %64 = load ptr, ptr %agg.tmp75.i, align 8
   %cmp.not.i196.i = icmp eq ptr %64, null
   br i1 %cmp.not.i196.i, label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit201.i, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i197.i
@@ -23167,8 +23167,8 @@ if.then5:                                         ; preds = %_ZN12_GLOBAL__N_134
   br label %return
 
 if.end7:                                          ; preds = %entry
-  call fastcc void @_ZN12_GLOBAL__N_120memoryBufferFromFileEN4llvh9StringRefEbb(ptr noalias nonnull align 8 %agg.tmp8, ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false)
-  call fastcc void @_ZN12_GLOBAL__N_124loadBaseBytecodeProviderESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EE(ptr noalias nonnull align 8 %bcProvider, ptr noundef nonnull %agg.tmp8)
+  call fastcc void @_ZN12_GLOBAL__N_120memoryBufferFromFileEN4llvh9StringRefEbb(ptr noalias align 8 %agg.tmp8, ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_124loadBaseBytecodeProviderESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EE(ptr noalias align 8 %bcProvider, ptr noundef %agg.tmp8)
   %77 = load ptr, ptr %agg.tmp8, align 8
   %cmp.not.i5 = icmp eq ptr %77, null
   br i1 %cmp.not.i5, label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i
@@ -23255,7 +23255,7 @@ return:                                           ; preds = %_ZN4llvh12DenseMapB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_132generateBytecodeForSerializationERN4llvh11raw_ostreamERN6hermes6ModuleERKNS3_25BytecodeGenerationOptionsERKSt5arrayIhLm20EENS3_8OptValueIjEEPNS3_18SourceMapGeneratorERNS0_8DenseMapIjSt10unique_ptrINS3_3hbc20BCProviderFromBufferESt14default_deleteISK_EENS0_12DenseMapInfoIjEENS0_6detail12DenseMapPairIjSN_EEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(1033) %M, ptr noundef nonnull align 4 dereferenceable(17) %genOptions, ptr noundef nonnull align 1 dereferenceable(20) %sourceHash, i64 %segment.coerce, ptr noundef %sourceMapGenOrNull, ptr nocapture noundef nonnull align 8 dereferenceable(20) %baseBytecodeMap) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_132generateBytecodeForSerializationERN4llvh11raw_ostreamERN6hermes6ModuleERKNS3_25BytecodeGenerationOptionsERKSt5arrayIhLm20EENS3_8OptValueIjEEPNS3_18SourceMapGeneratorERNS0_8DenseMapIjSt10unique_ptrINS3_3hbc20BCProviderFromBufferESt14default_deleteISK_EENS0_12DenseMapInfoIjEENS0_6detail12DenseMapPairIjSN_EEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(1033) %M, ptr noundef nonnull align 4 dereferenceable(17) %genOptions, ptr noundef nonnull align 1 dereferenceable(20) %sourceHash, i64 %segment.coerce, ptr noundef %sourceMapGenOrNull, ptr nocapture noundef nonnull align 8 dereferenceable(20) %baseBytecodeMap) unnamed_addr #0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.838", align 8
   %bytecodeModule = alloca %"class.std::unique_ptr.838", align 8
@@ -23437,7 +23437,7 @@ _ZNSt10unique_ptrIN6hermes3hbc14BytecodeModuleESt14default_deleteIS2_EED2Ev.exit
   %sourceHash_.i = getelementptr inbounds i8, ptr %call.i26, i64 289
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %sourceHash_.i, ptr noundef nonnull align 1 dereferenceable(20) %sourceHash, i64 20, i1 false)
   store ptr %call.i26, ptr %agg.tmp26, align 8
-  call fastcc void @_ZN12_GLOBAL__N_119disassembleBytecodeESt10unique_ptrIN6hermes3hbc14BCProviderBaseESt14default_deleteIS3_EE(ptr noalias nonnull align 8 %agg.tmp.ensured, ptr noundef nonnull %agg.tmp26)
+  call fastcc void @_ZN12_GLOBAL__N_119disassembleBytecodeESt10unique_ptrIN6hermes3hbc14BCProviderBaseESt14default_deleteIS3_EE(ptr noalias nonnull align 8 %agg.tmp.ensured, ptr noundef %agg.tmp26)
   %filename.i.i30 = getelementptr inbounds i8, ptr %agg.tmp.ensured, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename.i.i30) #25
   %bytecodeProvider.i31 = getelementptr inbounds i8, ptr %agg.tmp.ensured, i64 8
@@ -25039,7 +25039,7 @@ _ZNSt10shared_ptrIN6hermes7ContextEED2Ev.exit:    ; preds = %_ZNSt10shared_ptrIK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124loadBaseBytecodeProviderESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EE(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef %fileBuf) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_124loadBaseBytecodeProviderESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull %fileBuf) unnamed_addr #0 {
 entry:
   %ret = alloca %"struct.std::pair.388", align 8
   %agg.tmp = alloca %"class.std::unique_ptr.390", align 8

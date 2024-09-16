@@ -3817,7 +3817,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit71:               ; preds = %516, %514, %293, %2
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL12PrintPercentll(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL12PrintPercentll(i64 noundef %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #0 {
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8

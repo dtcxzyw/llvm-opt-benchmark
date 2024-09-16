@@ -4565,7 +4565,7 @@ define hidden i32 @dissect_get_dfs_request_data(ptr noundef %0, ptr nocapture no
   store i32 %15, ptr %7, align 4
   %16 = add i16 %10, -2
   store i16 %16, ptr %9, align 2
-  %17 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %5, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
+  %17 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %5, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %18 = icmp eq ptr %17, null
   %.0.pre = load i32, ptr %7, align 4
   br i1 %18, label %33, label %19
@@ -4594,7 +4594,7 @@ define hidden i32 @dissect_get_dfs_request_data(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5, ptr nocapture noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   store i32 0, ptr %8, align 4
   %9 = load i16, ptr %6, align 2
@@ -4718,7 +4718,7 @@ unicode_to_str.exit:                              ; preds = %23, %51, %54
 64:                                               ; preds = %58
   %65 = tail call ptr @wmem_packet_scope() #15
   %66 = load i32, ptr %1, align 4
-  %67 = tail call ptr @tvb_get_stringz_enc(ptr noundef %65, ptr noundef %0, i32 noundef %66, ptr noundef %3, i32 noundef 0) #15
+  %67 = tail call ptr @tvb_get_stringz_enc(ptr noundef %65, ptr noundef %0, i32 noundef %66, ptr noundef nonnull %3, i32 noundef 0) #15
   br label %68
 
 68:                                               ; preds = %16, %7, %unicode_to_str.exit, %64, %59
@@ -4857,7 +4857,7 @@ define hidden i32 @dissect_get_dfs_referral_data(ptr noundef %0, ptr nocapture r
   ]
 
 90:                                               ; preds = %82
-  %91 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %5, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4)
+  %91 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %5, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4)
   %92 = icmp eq ptr %91, null
   br i1 %92, label %93, label %95
 
@@ -4942,7 +4942,7 @@ define hidden i32 @dissect_get_dfs_referral_data(ptr noundef %0, ptr nocapture r
 147:                                              ; preds = %139
   %148 = load i32, ptr @hf_smb_dfs_referral_path, align 4
   %149 = add i32 %49, %124
-  call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %54, i32 noundef %148, i32 noundef %149, i32 noundef %49, i32 noundef %144, i16 noundef zeroext %146, i32 noundef %5, ptr noundef nonnull %9)
+  call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %54, i32 noundef %148, i32 noundef %149, i32 noundef %49, i32 noundef %144, i16 noundef zeroext %146, i32 noundef %5, ptr noundef %9)
   br label %150
 
 150:                                              ; preds = %147, %139
@@ -4953,7 +4953,7 @@ define hidden i32 @dissect_get_dfs_referral_data(ptr noundef %0, ptr nocapture r
   %152 = load i32, ptr @hf_smb_dfs_referral_alt_path, align 4
   %153 = add i32 %49, %133
   %154 = load i16, ptr %4, align 2
-  call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %54, i32 noundef %152, i32 noundef %153, i32 noundef %49, i32 noundef %144, i16 noundef zeroext %154, i32 noundef %5, ptr noundef nonnull %9)
+  call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %54, i32 noundef %152, i32 noundef %153, i32 noundef %49, i32 noundef %144, i16 noundef zeroext %154, i32 noundef %5, ptr noundef %9)
   br label %155
 
 155:                                              ; preds = %151, %150
@@ -4964,7 +4964,7 @@ define hidden i32 @dissect_get_dfs_referral_data(ptr noundef %0, ptr nocapture r
   %157 = load i32, ptr @hf_smb_dfs_referral_node, align 4
   %158 = add i32 %49, %142
   %159 = load i16, ptr %4, align 2
-  call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %54, i32 noundef %157, i32 noundef %158, i32 noundef %49, i32 noundef %144, i16 noundef zeroext %159, i32 noundef %5, ptr noundef nonnull %9)
+  call fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %54, i32 noundef %157, i32 noundef %158, i32 noundef %49, i32 noundef %144, i16 noundef zeroext %159, i32 noundef %5, ptr noundef %9)
   br label %dissect_dfs_referral_entry_v2.exit
 
 dissect_dfs_referral_entry_v2.exit:               ; preds = %105, %107, %114, %121, %130, %155, %156
@@ -4973,12 +4973,12 @@ dissect_dfs_referral_entry_v2.exit:               ; preds = %105, %107, %114, %1
   br label %164
 
 160:                                              ; preds = %82
-  %161 = call fastcc i32 @dissect_dfs_referral_entry_v3(ptr noundef %0, ptr noundef %54, i32 noundef %49, i32 noundef %87, i16 noundef zeroext %83, ptr noundef nonnull %4, i32 noundef %5, ptr noundef nonnull %9)
+  %161 = call fastcc i32 @dissect_dfs_referral_entry_v3(ptr noundef %0, ptr noundef %54, i32 noundef %49, i32 noundef %87, i16 noundef zeroext %83, ptr noundef nonnull %4, i32 noundef %5, ptr noundef %9)
   store i32 %161, ptr %7, align 4
   br label %164
 
 162:                                              ; preds = %82
-  %163 = call fastcc i32 @dissect_dfs_referral_entry_v3(ptr noundef %0, ptr noundef %54, i32 noundef %49, i32 noundef %87, i16 noundef zeroext %83, ptr noundef nonnull %4, i32 noundef %5, ptr noundef nonnull %9)
+  %163 = call fastcc i32 @dissect_dfs_referral_entry_v3(ptr noundef %0, ptr noundef %54, i32 noundef %49, i32 noundef %87, i16 noundef zeroext %83, ptr noundef nonnull %4, i32 noundef %5, ptr noundef %9)
   store i32 %163, ptr %7, align 4
   br label %164
 
@@ -5048,7 +5048,7 @@ declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_dfs_referral_entry_v3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, ptr nocapture noundef %5, i32 noundef %6, ptr nocapture noundef %7) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_dfs_referral_entry_v3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, ptr nocapture noundef %5, i32 noundef %6, ptr nocapture noundef nonnull %7) unnamed_addr #0 {
   %9 = load i16, ptr %5, align 2
   %10 = icmp ult i16 %9, 4
   br i1 %10, label %105, label %11
@@ -7719,7 +7719,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7, ptr nocapture noundef %8) unnamed_addr #0 {
+define internal fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7, ptr nocapture noundef nonnull %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i16, align 2
   %12 = alloca i32, align 4
@@ -7739,7 +7739,7 @@ define internal fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr nou
   br i1 %16, label %.lr.ph.split.i.preheader, label %dissect_dfs_referral_strings.exit
 
 .lr.ph.split.i.preheader:                         ; preds = %13
-  %17 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %7, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %11)
+  %17 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %10, i32 noundef %7, ptr noundef %12, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %11)
   %18 = icmp eq ptr %17, null
   br i1 %18, label %dissect_dfs_referral_strings.exit, label %19
 
@@ -7765,7 +7765,7 @@ dissect_dfs_referral_strings.exit:                ; preds = %.lr.ph.split.i.preh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dfs_referral_strings(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i16 noundef zeroext %7, i32 noundef %8, ptr nocapture noundef %9) unnamed_addr #0 {
+define internal fastcc void @dissect_dfs_referral_strings(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 65536) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i16 noundef zeroext %7, i32 noundef %8, ptr nocapture noundef nonnull %9) unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca i16, align 2
   %13 = alloca i32, align 4
@@ -7778,48 +7778,48 @@ define internal fastcc void @dissect_dfs_referral_strings(ptr noundef %0, ptr no
   %15 = trunc i32 %.neg to i16
   %16 = add i16 %7, %15
   store i16 %16, ptr %12, align 2
-  %17 = icmp sgt i32 %3, 0
-  %18 = icmp sgt i16 %16, 0
-  %or.cond = and i1 %17, %18
+  %.not26 = icmp ne i32 %3, 0
+  %17 = icmp sgt i16 %16, 0
+  %or.cond = and i1 %.not26, %17
   br i1 %or.cond, label %.lr.ph.split, label %.loopexit
 
-.lr.ph.split:                                     ; preds = %14, %36
-  %19 = phi i16 [ %37, %36 ], [ %16, %14 ]
-  %.01824 = phi i32 [ %38, %36 ], [ 0, %14 ]
-  %20 = icmp sgt i16 %19, 0
-  br i1 %20, label %21, label %36
+.lr.ph.split:                                     ; preds = %14, %35
+  %18 = phi i16 [ %36, %35 ], [ %16, %14 ]
+  %.01824 = phi i32 [ %37, %35 ], [ 0, %14 ]
+  %19 = icmp sgt i16 %18, 0
+  br i1 %19, label %20, label %35
 
-21:                                               ; preds = %.lr.ph.split
-  %22 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %8, ptr noundef nonnull %13, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12)
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %.loopexit, label %24
+20:                                               ; preds = %.lr.ph.split
+  %21 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %11, i32 noundef %8, ptr noundef %13, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12)
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %.loopexit, label %23
 
-24:                                               ; preds = %21
-  %25 = load i32, ptr %11, align 4
-  %26 = load i32, ptr %13, align 4
-  %27 = call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %2, ptr noundef %0, i32 noundef %25, i32 noundef %26, ptr noundef nonnull %22) #15
-  %28 = load i32, ptr %13, align 4
-  %29 = add i32 %28, %25
-  store i32 %29, ptr %11, align 4
-  %30 = load i16, ptr %12, align 2
-  %31 = trunc i32 %28 to i16
-  %32 = sub i16 %30, %31
-  store i16 %32, ptr %12, align 2
-  %33 = load i32, ptr %9, align 4
-  %34 = icmp slt i32 %33, %29
-  br i1 %34, label %35, label %36
+23:                                               ; preds = %20
+  %24 = load i32, ptr %11, align 4
+  %25 = load i32, ptr %13, align 4
+  %26 = call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %2, ptr noundef %0, i32 noundef %24, i32 noundef %25, ptr noundef nonnull %21) #15
+  %27 = load i32, ptr %13, align 4
+  %28 = add i32 %27, %24
+  store i32 %28, ptr %11, align 4
+  %29 = load i16, ptr %12, align 2
+  %30 = trunc i32 %27 to i16
+  %31 = sub i16 %29, %30
+  store i16 %31, ptr %12, align 2
+  %32 = load i32, ptr %9, align 4
+  %33 = icmp slt i32 %32, %28
+  br i1 %33, label %34, label %35
 
-35:                                               ; preds = %24
-  store i32 %29, ptr %9, align 4
-  br label %36
+34:                                               ; preds = %23
+  store i32 %28, ptr %9, align 4
+  br label %35
 
-36:                                               ; preds = %.lr.ph.split, %35, %24
-  %37 = phi i16 [ %19, %.lr.ph.split ], [ %32, %35 ], [ %32, %24 ]
-  %38 = add nuw nsw i32 %.01824, 1
-  %exitcond.not = icmp eq i32 %38, %3
+35:                                               ; preds = %.lr.ph.split, %34, %23
+  %36 = phi i16 [ %18, %.lr.ph.split ], [ %31, %34 ], [ %31, %23 ]
+  %37 = add nuw nsw i32 %.01824, 1
+  %exitcond.not = icmp eq i32 %37, %3
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !13
 
-.loopexit:                                        ; preds = %21, %36, %14, %10
+.loopexit:                                        ; preds = %20, %35, %14, %10
   ret void
 }
 
@@ -7966,7 +7966,7 @@ declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_smb_tid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef %5, ptr noundef readonly %6) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_smb_tid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef range(i32 0, 2) %5, ptr noundef readonly %6) unnamed_addr #0 {
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %9
 
@@ -8122,7 +8122,7 @@ proto_item_set_generated.exit67:                  ; preds = %83, %80, %77, %prot
 declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i8 noundef zeroext %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i8 noundef zeroext %4, i32 noundef range(i32 0, 2) %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %10
@@ -8268,7 +8268,7 @@ define internal i32 @dissect_old_dir_request(ptr noundef %0, ptr nocapture nound
   store i16 %27, ptr %9, align 2
   %28 = getelementptr inbounds i8, ptr %5, i64 24
   %29 = load i32, ptr %28, align 8
-  %30 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %29, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
+  %30 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %29, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %31 = getelementptr inbounds i8, ptr %1, i64 80
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 50
@@ -8472,7 +8472,7 @@ define internal i32 @dissect_open_file_request(ptr noundef %0, ptr nocapture nou
   store i16 %39, ptr %9, align 2
   %40 = getelementptr inbounds i8, ptr %5, i64 24
   %41 = load i32, ptr %40, align 8
-  %42 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %41, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
+  %42 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %41, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %43 = icmp eq ptr %42, null
   %.pre = load i32, ptr %7, align 4
   br i1 %43, label %85, label %44
@@ -8741,7 +8741,7 @@ dissect_smb_UTIME.exit:                           ; preds = %31, %33
   store i16 %53, ptr %10, align 2
   %54 = getelementptr inbounds i8, ptr %5, i64 24
   %55 = load i32, ptr %54, align 8
-  %56 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %55, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %10)
+  %56 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %8, i32 noundef %55, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %10)
   %57 = icmp eq ptr %56, null
   %.pre = load i32, ptr %8, align 4
   br i1 %57, label %100, label %58
@@ -9068,7 +9068,7 @@ define internal i32 @dissect_delete_file_request(ptr noundef %0, ptr nocapture n
   store i16 %35, ptr %9, align 2
   %36 = getelementptr inbounds i8, ptr %5, i64 24
   %37 = load i32, ptr %36, align 8
-  %38 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %37, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
+  %38 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %37, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %39 = getelementptr inbounds i8, ptr %1, i64 80
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 50
@@ -9189,7 +9189,7 @@ define internal i32 @dissect_rename_file_request(ptr noundef %0, ptr nocapture n
   store i16 %35, ptr %9, align 2
   %36 = getelementptr inbounds i8, ptr %5, i64 24
   %37 = load i32, ptr %36, align 8
-  %38 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %37, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
+  %38 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %37, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %39 = icmp eq ptr %38, null
   br i1 %39, label %87, label %40
 
@@ -9221,7 +9221,7 @@ define internal i32 @dissect_rename_file_request(ptr noundef %0, ptr nocapture n
   %60 = add i16 %47, %59
   store i16 %60, ptr %9, align 2
   %61 = load i32, ptr %36, align 8
-  %62 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %61, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
+  %62 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %61, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %63 = icmp eq ptr %62, null
   br i1 %63, label %87, label %64
 
@@ -9442,7 +9442,7 @@ define internal i32 @dissect_query_information_request(ptr noundef %0, ptr nocap
   store i16 %27, ptr %8, align 2
   %28 = getelementptr inbounds i8, ptr %5, i64 24
   %29 = load i32, ptr %28, align 8
-  %30 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %29, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
+  %30 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %29, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
   %31 = icmp eq ptr %30, null
   %.pre = load i32, ptr %7, align 4
   br i1 %31, label %55, label %32
@@ -9656,7 +9656,7 @@ dissect_smb_UTIME.exit:                           ; preds = %29, %31
   store i16 %54, ptr %10, align 2
   %55 = getelementptr inbounds i8, ptr %5, i64 24
   %56 = load i32, ptr %55, align 8
-  %57 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %56, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %10)
+  %57 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %8, i32 noundef %56, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %10)
   %58 = icmp eq ptr %57, null
   %.pre = load i32, ptr %8, align 4
   br i1 %58, label %82, label %59
@@ -9858,7 +9858,7 @@ define internal i32 @dissect_read_file_response(ptr noundef %0, ptr noundef %1, 
 
 43:                                               ; preds = %36
   %44 = load ptr, ptr @top_tree_global, align 8
-  %45 = tail call fastcc i32 @dissect_file_data_maybe_dcerpc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %44, i32 noundef %41, i16 noundef zeroext %42, i32 noundef -1, i16 noundef zeroext %42, i32 noundef 0, i16 noundef zeroext 0, ptr noundef nonnull %5)
+  %45 = tail call fastcc i32 @dissect_file_data_maybe_dcerpc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %44, i32 noundef %41, i16 noundef zeroext %42, i32 noundef -1, i16 noundef zeroext %42, i32 noundef 0, i16 noundef zeroext 0, ptr noundef %5)
   br label %46
 
 46:                                               ; preds = %43, %36
@@ -9958,7 +9958,7 @@ proto_item_set_generated.exit126:                 ; preds = %proto_item_set_gene
   %91 = getelementptr inbounds i8, ptr %.0107134, i64 8
   %92 = load i32, ptr %91, align 8
   %93 = load i64, ptr %.0107134, align 8
-  tail call fastcc void @feed_eo_smb(i16 noundef zeroext 10, i16 noundef zeroext %.1106, ptr noundef %0, ptr noundef %1, i16 noundef zeroext %90, i32 noundef %40, i32 noundef %92, i64 noundef %93, ptr noundef nonnull %5)
+  tail call fastcc void @feed_eo_smb(i16 noundef zeroext 10, i16 noundef zeroext %.1106, ptr noundef %0, ptr noundef %1, i16 noundef zeroext %90, i32 noundef %40, i32 noundef %92, i64 noundef %93, ptr noundef %5)
   br label %94
 
 94:                                               ; preds = %.thread131, %89, %31, %24
@@ -10133,7 +10133,7 @@ proto_item_set_generated.exit151:                 ; preds = %15, %74, %71, %prot
 
 98:                                               ; preds = %93
   %99 = load ptr, ptr @top_tree_global, align 8
-  %100 = tail call fastcc i32 @dissect_file_data_maybe_dcerpc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %99, i32 noundef %96, i16 noundef zeroext %97, i32 noundef -1, i16 noundef zeroext %97, i32 noundef %.0128, i16 noundef zeroext %.0131, ptr noundef nonnull %5)
+  %100 = tail call fastcc i32 @dissect_file_data_maybe_dcerpc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %99, i32 noundef %96, i16 noundef zeroext %97, i32 noundef -1, i16 noundef zeroext %97, i32 noundef %.0128, i16 noundef zeroext %.0131, ptr noundef %5)
   br label %101
 
 101:                                              ; preds = %98, %93
@@ -10155,7 +10155,7 @@ proto_item_set_generated.exit151:                 ; preds = %15, %74, %71, %prot
   %110 = getelementptr inbounds i8, ptr %.0133, i64 8
   %111 = load i32, ptr %110, align 8
   %112 = load i64, ptr %.0133, align 8
-  tail call fastcc void @feed_eo_smb(i16 noundef zeroext 11, i16 noundef zeroext %.0131, ptr noundef %0, ptr noundef %1, i16 noundef zeroext %109, i32 noundef %.0132, i32 noundef %111, i64 noundef %112, ptr noundef nonnull %5)
+  tail call fastcc void @feed_eo_smb(i16 noundef zeroext 11, i16 noundef zeroext %.0131, ptr noundef %0, ptr noundef %1, i16 noundef zeroext %109, i32 noundef %.0132, i32 noundef %111, i64 noundef %112, ptr noundef %5)
   br label %113
 
 113:                                              ; preds = %101, %105, %108, %88, %81
@@ -10416,7 +10416,7 @@ dissect_smb_UTIME.exit:                           ; preds = %28, %30
   store i16 %50, ptr %10, align 2
   %51 = getelementptr inbounds i8, ptr %5, i64 24
   %52 = load i32, ptr %51, align 8
-  %53 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %52, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %10)
+  %53 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %8, i32 noundef %52, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %10)
   %54 = icmp eq ptr %53, null
   %.pre = load i32, ptr %8, align 4
   br i1 %54, label %78, label %55
@@ -12651,7 +12651,7 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %103, %104, %105, %1
 189:                                              ; preds = %186
   %190 = getelementptr inbounds i8, ptr %5, i64 24
   %191 = load i32, ptr %190, align 8
-  %192 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %14, i32 noundef %191, ptr noundef nonnull %15, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %16)
+  %192 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %14, i32 noundef %191, ptr noundef %15, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %16)
   %193 = icmp eq ptr %192, null
   %.pre = load i32, ptr %14, align 4
   br i1 %193, label %980, label %194
@@ -12822,7 +12822,7 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %103, %104, %105, %1
   store i16 %287, ptr %12, align 2
   %288 = getelementptr inbounds i8, ptr %5, i64 24
   %289 = load i32, ptr %288, align 8
-  %290 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %289, ptr noundef nonnull %13, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12)
+  %290 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %11, i32 noundef %289, ptr noundef %13, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12)
   %291 = icmp eq ptr %290, null
   %.0.pre298.i = load i32, ptr %11, align 4
   br i1 %291, label %dissect_transaction2_request_parameters.exit, label %292
@@ -12867,7 +12867,7 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %103, %104, %105, %1
   br i1 %319, label %dissect_transaction2_request_parameters.exit, label %320
 
 320:                                              ; preds = %315
-  %321 = call fastcc i32 @dissect_ff2_flags(ptr noundef %0, ptr noundef readonly %1, ptr noundef %238, i32 noundef %318, ptr noundef nonnull %5)
+  %321 = call fastcc i32 @dissect_ff2_flags(ptr noundef %0, ptr noundef readonly %1, ptr noundef %238, i32 noundef %318, ptr noundef %5)
   %322 = icmp eq i16 %313, 6
   br i1 %322, label %dissect_transaction2_request_parameters.exit, label %323
 
@@ -12912,7 +12912,7 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %103, %104, %105, %1
   store i16 %346, ptr %12, align 2
   %347 = getelementptr inbounds i8, ptr %5, i64 24
   %348 = load i32, ptr %347, align 8
-  %349 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %348, ptr noundef nonnull %13, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12)
+  %349 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %11, i32 noundef %348, ptr noundef %13, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12)
   %350 = icmp eq ptr %349, null
   br i1 %350, label %._crit_edge.i, label %351
 
@@ -13014,13 +13014,13 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %103, %104, %105, %1
   br i1 %409, label %dissect_transaction2_request_parameters.exit, label %410
 
 410:                                              ; preds = %405
-  %411 = call fastcc i32 @dissect_ff2_flags(ptr noundef %0, ptr noundef readonly %1, ptr noundef %238, i32 noundef %408, ptr noundef nonnull %5)
+  %411 = call fastcc i32 @dissect_ff2_flags(ptr noundef %0, ptr noundef readonly %1, ptr noundef %238, i32 noundef %408, ptr noundef %5)
   store i32 %411, ptr %11, align 4
   %412 = add i16 %.0272, -12
   store i16 %412, ptr %12, align 2
   %413 = getelementptr inbounds i8, ptr %5, i64 24
   %414 = load i32, ptr %413, align 8
-  %415 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %414, ptr noundef nonnull %13, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12)
+  %415 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %11, i32 noundef %414, ptr noundef %13, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12)
   %416 = icmp eq ptr %415, null
   %.0.pre297.i = load i32, ptr %11, align 4
   br i1 %416, label %dissect_transaction2_request_parameters.exit, label %417
@@ -13261,7 +13261,7 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %103, %104, %105, %1
   store i16 %560, ptr %12, align 2
   %561 = getelementptr inbounds i8, ptr %5, i64 24
   %562 = load i32, ptr %561, align 8
-  %563 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %562, ptr noundef nonnull %13, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12)
+  %563 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %11, i32 noundef %562, ptr noundef %13, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12)
   %564 = icmp eq ptr %563, null
   %.0.pre295.i = load i32, ptr %11, align 4
   br i1 %564, label %dissect_transaction2_request_parameters.exit, label %565
@@ -13448,7 +13448,7 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %103, %104, %105, %1
   store i16 %677, ptr %12, align 2
   %678 = getelementptr inbounds i8, ptr %5, i64 24
   %679 = load i32, ptr %678, align 8
-  %680 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %679, ptr noundef nonnull %13, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12)
+  %680 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %11, i32 noundef %679, ptr noundef %13, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12)
   %681 = icmp eq ptr %680, null
   %.0.pre294.i = load i32, ptr %11, align 4
   br i1 %681, label %dissect_transaction2_request_parameters.exit, label %682
@@ -13506,7 +13506,7 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %103, %104, %105, %1
   store i16 %715, ptr %12, align 2
   %716 = getelementptr inbounds i8, ptr %5, i64 24
   %717 = load i32, ptr %716, align 8
-  %718 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %717, ptr noundef nonnull %13, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12)
+  %718 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %11, i32 noundef %717, ptr noundef %13, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12)
   %719 = icmp eq ptr %718, null
   %.0.pre293.i = load i32, ptr %11, align 4
   br i1 %719, label %dissect_transaction2_request_parameters.exit, label %720
@@ -13541,7 +13541,7 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %103, %104, %105, %1
 738:                                              ; preds = %235
   %739 = getelementptr inbounds i8, ptr %5, i64 24
   %740 = load i32, ptr %739, align 8
-  %741 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %740, ptr noundef nonnull %13, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12)
+  %741 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %11, i32 noundef %740, ptr noundef %13, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12)
   %742 = icmp eq ptr %741, null
   %.0.pre292.i = load i32, ptr %11, align 4
   br i1 %742, label %dissect_transaction2_request_parameters.exit, label %743
@@ -13643,7 +13643,7 @@ dissect_transaction2_request_parameters.exit:     ; preds = %239, %241, %245, %2
   %790 = load i32, ptr @ett_smb_transaction_data, align 4
   %791 = call ptr @val_to_str_ext(i32 noundef %.0279, ptr noundef nonnull @trans2_cmd_vals_ext, ptr noundef nonnull @.str.2599) #15
   %792 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %782, i32 noundef %785, i32 noundef %790, ptr noundef nonnull %10, ptr noundef nonnull @.str.2639, ptr noundef %791) #15
-  switch i32 %.0279, label %dissect_sfsi_request.exit.i.thread [
+  switch i32 %.0279, label %dissect_sfsi_request.exit.thread35.i [
     i32 17, label %816
     i32 8, label %813
     i32 6, label %810
@@ -13681,12 +13681,12 @@ dissect_sfsi_request.exit.thread.i:               ; preds = %793
 
 810:                                              ; preds = %789
   %811 = load ptr, ptr %10, align 8
-  %812 = call fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1, ptr noundef %792, ptr noundef %811, i32 noundef %782, ptr noundef nonnull %9, ptr noundef nonnull readonly %5)
+  %812 = call fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1, ptr noundef %792, ptr noundef %811, i32 noundef %782, ptr noundef %9, ptr noundef readonly %5)
   br label %dissect_sfsi_request.exit.i
 
 813:                                              ; preds = %789
   %814 = load ptr, ptr %10, align 8
-  %815 = call fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1, ptr noundef %792, ptr noundef %814, i32 noundef %782, ptr noundef nonnull %9, ptr noundef nonnull readonly %5)
+  %815 = call fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1, ptr noundef %792, ptr noundef %814, i32 noundef %782, ptr noundef %9, ptr noundef readonly %5)
   br label %dissect_sfsi_request.exit.i
 
 816:                                              ; preds = %789
@@ -13732,7 +13732,7 @@ dissect_sfsi_request.exit.thread.i:               ; preds = %793
   store i16 %841, ptr %9, align 2
   %842 = getelementptr inbounds i8, ptr %5, i64 24
   %843 = load i32, ptr %842, align 8
-  %844 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %843, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
+  %844 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %843, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %845 = icmp eq ptr %844, null
   br i1 %845, label %846, label %848
 
@@ -13759,43 +13759,43 @@ dissect_dfs_inconsistency_data.exit.i:            ; preds = %848, %846, %830, %8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %dissect_sfsi_request.exit.i
 
-dissect_sfsi_request.exit.i:                      ; preds = %793, %808, %810, %813, %dissect_dfs_inconsistency_data.exit.i
+dissect_sfsi_request.exit.i:                      ; preds = %dissect_dfs_inconsistency_data.exit.i, %813, %810, %808, %793
   %.0.ph.i = phi i32 [ %809, %808 ], [ %782, %793 ], [ %.0.i32.i, %dissect_dfs_inconsistency_data.exit.i ], [ %815, %813 ], [ %812, %810 ]
   %.pr.i320 = load i16, ptr %9, align 2
-  %.not.i322 = icmp eq i16 %.pr.i320, 0
-  br i1 %.not.i322, label %dissect_transaction2_request_data.exit, label %dissect_sfsi_request.exit.i.dissect_sfsi_request.exit.i.thread_crit_edge
+  %.not.i321 = icmp eq i16 %.pr.i320, 0
+  br i1 %.not.i321, label %dissect_transaction2_request_data.exit, label %dissect_sfsi_request.exit.dissect_sfsi_request.exit.thread35_crit_edge.i
 
-dissect_sfsi_request.exit.i.dissect_sfsi_request.exit.i.thread_crit_edge: ; preds = %dissect_sfsi_request.exit.i
-  %.pre337 = zext i16 %.pr.i320 to i32
-  br label %dissect_sfsi_request.exit.i.thread
+dissect_sfsi_request.exit.dissect_sfsi_request.exit.thread35_crit_edge.i: ; preds = %dissect_sfsi_request.exit.i
+  %.pre.i322 = zext i16 %.pr.i320 to i32
+  br label %dissect_sfsi_request.exit.thread35.i
 
-dissect_sfsi_request.exit.i.thread:               ; preds = %dissect_sfsi_request.exit.i.dissect_sfsi_request.exit.i.thread_crit_edge, %789
-  %.pre-phi338 = phi i32 [ %.pre337, %dissect_sfsi_request.exit.i.dissect_sfsi_request.exit.i.thread_crit_edge ], [ %785, %789 ]
-  %.0.i321325 = phi i32 [ %.0.ph.i, %dissect_sfsi_request.exit.i.dissect_sfsi_request.exit.i.thread_crit_edge ], [ %782, %789 ]
+dissect_sfsi_request.exit.thread35.i:             ; preds = %dissect_sfsi_request.exit.dissect_sfsi_request.exit.thread35_crit_edge.i, %789
+  %.pre-phi.i = phi i32 [ %.pre.i322, %dissect_sfsi_request.exit.dissect_sfsi_request.exit.thread35_crit_edge.i ], [ %785, %789 ]
+  %.038.i = phi i32 [ %.0.ph.i, %dissect_sfsi_request.exit.dissect_sfsi_request.exit.thread35_crit_edge.i ], [ %782, %789 ]
   %858 = load i32, ptr @hf_smb_unknown, align 4
-  %859 = call ptr @proto_tree_add_item(ptr noundef %792, i32 noundef %858, ptr noundef %0, i32 noundef %.0.i321325, i32 noundef %.pre-phi338, i32 noundef 0) #15
-  %860 = add i32 %.0.i321325, %.pre-phi338
+  %859 = call ptr @proto_tree_add_item(ptr noundef %792, i32 noundef %858, ptr noundef %0, i32 noundef %.038.i, i32 noundef %.pre-phi.i, i32 noundef 0) #15
+  %860 = add i32 %.038.i, %.pre-phi.i
   br label %dissect_transaction2_request_data.exit
 
-dissect_transaction2_request_data.exit:           ; preds = %dissect_sfsi_request.exit.thread.i, %dissect_sfsi_request.exit.i, %dissect_sfsi_request.exit.i.thread
-  %.1.i = phi i32 [ %860, %dissect_sfsi_request.exit.i.thread ], [ %.0.ph.i, %dissect_sfsi_request.exit.i ], [ %807, %dissect_sfsi_request.exit.thread.i ]
+dissect_transaction2_request_data.exit:           ; preds = %dissect_sfsi_request.exit.thread.i, %dissect_sfsi_request.exit.i, %dissect_sfsi_request.exit.thread35.i
+  %.1.i = phi i32 [ %860, %dissect_sfsi_request.exit.thread35.i ], [ %.0.ph.i, %dissect_sfsi_request.exit.i ], [ %807, %dissect_sfsi_request.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %.sink.split342
+  br label %.sink.split337
 
 861:                                              ; preds = %787
   %862 = add i32 %782, %785
-  br label %.sink.split342
+  br label %.sink.split337
 
-.sink.split342:                                   ; preds = %861, %dissect_transaction2_request_data.exit
+.sink.split337:                                   ; preds = %861, %dissect_transaction2_request_data.exit
   %.1.i.sink = phi i32 [ %.1.i, %dissect_transaction2_request_data.exit ], [ %862, %861 ]
   store i32 %.1.i.sink, ptr %14, align 4
   %863 = sub i16 %783, %.0276
   store i16 %863, ptr %16, align 2
   br label %864
 
-864:                                              ; preds = %.sink.split342, %781
-  %865 = phi i32 [ %782, %781 ], [ %.1.i.sink, %.sink.split342 ]
+864:                                              ; preds = %.sink.split337, %781
+  %865 = phi i32 [ %782, %781 ], [ %.1.i.sink, %.sink.split337 ]
   %.pr = load i8, ptr %5, align 8
   %866 = icmp eq i8 %.pr, 37
   br i1 %866, label %867, label %.thread
@@ -13956,7 +13956,7 @@ dissect_transaction2_request_data.exit:           ; preds = %dissect_sfsi_reques
 956:                                              ; preds = %920
   %957 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.2631, ptr noundef nonnull dereferenceable(1) %.0277, i64 noundef 10) #17
   %958 = icmp eq i32 %957, 0
-  br i1 %958, label %959, label %.thread326
+  br i1 %958, label %959, label %.thread323
 
 959:                                              ; preds = %956
   %.not312 = icmp eq ptr %.0275, null
@@ -13976,9 +13976,9 @@ dissect_transaction2_request_data.exit:           ; preds = %dissect_sfsi_reques
 966:                                              ; preds = %961, %948
   %.0273 = phi i32 [ %930, %948 ], [ %965, %961 ]
   %.not315 = icmp eq i32 %.0273, 0
-  br i1 %.not315, label %.thread326, label %.thread
+  br i1 %.not315, label %.thread323, label %.thread
 
-.thread326:                                       ; preds = %956, %966
+.thread323:                                       ; preds = %956, %966
   call fastcc void @dissect_trans_data(ptr noundef %.0266, ptr noundef %.0268, ptr noundef %.0267, ptr noundef %2)
   br label %.thread
 
@@ -13988,39 +13988,39 @@ dissect_transaction2_request_data.exit:           ; preds = %dissect_sfsi_reques
   call void @col_append_str(ptr noundef %969, i32 noundef 25, ptr noundef nonnull @.str.2632) #15
   br label %.thread
 
-.thread:                                          ; preds = %967, %.thread326, %966, %864
-  %.pr331 = load i16, ptr %16, align 2
-  %.not316 = icmp eq i16 %.pr331, 0
-  %.pre335 = load i32, ptr %14, align 4
+.thread:                                          ; preds = %967, %.thread323, %966, %864
+  %.pr328 = load i16, ptr %16, align 2
+  %.not316 = icmp eq i16 %.pr328, 0
+  %.pre332 = load i32, ptr %14, align 4
   br i1 %.not316, label %980, label %.thread.thread
 
 .thread.thread:                                   ; preds = %.thread, %787
-  %970 = phi i32 [ %782, %787 ], [ %.pre335, %.thread ]
-  %.pr330 = phi i16 [ %783, %787 ], [ %.pr331, %.thread ]
+  %970 = phi i32 [ %782, %787 ], [ %.pre332, %.thread ]
+  %.pr327 = phi i16 [ %783, %787 ], [ %.pr328, %.thread ]
   %971 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %970) #15
-  %972 = zext i16 %.pr330 to i32
+  %972 = zext i16 %.pr327 to i32
   %973 = icmp slt i32 %971, %972
-  br i1 %973, label %thread-pre-split329, label %thread-pre-split329.thread
+  br i1 %973, label %thread-pre-split326, label %thread-pre-split326.thread
 
-thread-pre-split329:                              ; preds = %.thread.thread
+thread-pre-split326:                              ; preds = %.thread.thread
   %974 = trunc i32 %971 to i16
   %.not317 = icmp eq i16 %974, 0
-  br i1 %.not317, label %._crit_edge, label %thread-pre-split329.thread
+  br i1 %.not317, label %._crit_edge, label %thread-pre-split326.thread
 
-thread-pre-split329.thread:                       ; preds = %.thread.thread, %thread-pre-split329
-  %975 = phi i16 [ %974, %thread-pre-split329 ], [ %.pr330, %.thread.thread ]
+thread-pre-split326.thread:                       ; preds = %.thread.thread, %thread-pre-split326
+  %975 = phi i16 [ %974, %thread-pre-split326 ], [ %.pr327, %.thread.thread ]
   %976 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
   %977 = zext i16 %975 to i32
   %978 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %976, ptr noundef %0, i32 noundef %970, i32 noundef %977, i32 noundef 0) #15
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %thread-pre-split329, %thread-pre-split329.thread
-  %.pre-phi = phi i32 [ %977, %thread-pre-split329.thread ], [ 0, %thread-pre-split329 ]
+._crit_edge:                                      ; preds = %thread-pre-split326, %thread-pre-split326.thread
+  %.pre-phi = phi i32 [ %977, %thread-pre-split326.thread ], [ 0, %thread-pre-split326 ]
   %979 = add i32 %970, %.pre-phi
   br label %980
 
 980:                                              ; preds = %.thread, %._crit_edge, %918, %784, %220, %189, %177
-  %981 = phi i32 [ %.pre335, %.thread ], [ %979, %._crit_edge ], [ %865, %918 ], [ %782, %784 ], [ %218, %220 ], [ %.pre, %189 ], [ %183, %177 ]
+  %981 = phi i32 [ %.pre332, %.thread ], [ %979, %._crit_edge ], [ %865, %918 ], [ %782, %784 ], [ %218, %220 ], [ %.pre, %189 ], [ %183, %177 ]
   ret i32 %981
 }
 
@@ -14427,7 +14427,7 @@ proto_item_set_generated.exit473:                 ; preds = %proto_item_set_gene
   %226 = zext i16 %.0380 to i32
   %227 = zext i16 %.0409 to i32
   %228 = add nuw nsw i32 %227, %220
-  %229 = tail call fastcc ptr @smb_trans_defragment(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0379, i32 noundef %226, i32 noundef %.0381, i32 noundef %228, ptr noundef nonnull %5)
+  %229 = tail call fastcc ptr @smb_trans_defragment(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0379, i32 noundef %226, i32 noundef %.0381, i32 noundef %228, ptr noundef %5)
   br label %230
 
 230:                                              ; preds = %225, %224
@@ -14441,7 +14441,7 @@ proto_item_set_generated.exit473:                 ; preds = %proto_item_set_gene
   %234 = zext i16 %.0409 to i32
   %235 = add nuw nsw i32 %.0411, %234
   %236 = add nuw nsw i32 %234, %220
-  %237 = tail call fastcc ptr @smb_trans_defragment(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0378, i32 noundef %221, i32 noundef %235, i32 noundef %236, ptr noundef nonnull %5)
+  %237 = tail call fastcc ptr @smb_trans_defragment(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0378, i32 noundef %221, i32 noundef %235, i32 noundef %236, ptr noundef %5)
   br label %238
 
 238:                                              ; preds = %233, %230
@@ -14926,7 +14926,7 @@ dissect_transaction2_response_parameters.exit:    ; preds = %326, %328, %442, %4
 
 503:                                              ; preds = %502
   %504 = add i32 %.070.i, -1
-  %505 = call fastcc i32 @dissect_ff2_response_data(ptr noundef %.0396, ptr noundef %1, ptr noundef %.07395.i, i32 noundef %.1.i, ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef %5)
+  %505 = call fastcc i32 @dissect_ff2_response_data(ptr noundef %.0396, ptr noundef %1, ptr noundef %.07395.i, i32 noundef %.1.i, ptr noundef %11, ptr noundef %10, ptr noundef %5)
   %506 = load i32, ptr %10, align 4
   %.not90.i = icmp eq i32 %506, 0
   br i1 %.not90.i, label %502, label %dissect_sfsi_response.exit.i, !llvm.loop !19
@@ -14957,7 +14957,7 @@ dissect_transaction2_response_parameters.exit:    ; preds = %326, %328, %442, %4
 
 514:                                              ; preds = %513
   %515 = add i32 %.171.i, -1
-  %516 = call fastcc i32 @dissect_ff2_response_data(ptr noundef %.0396, ptr noundef %1, ptr noundef %.07395.i, i32 noundef %.2.i, ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef %5)
+  %516 = call fastcc i32 @dissect_ff2_response_data(ptr noundef %.0396, ptr noundef %1, ptr noundef %.07395.i, i32 noundef %.2.i, ptr noundef %11, ptr noundef %10, ptr noundef %5)
   %517 = load i32, ptr %10, align 4
   %.not87.i = icmp eq i32 %517, 0
   br i1 %.not87.i, label %513, label %dissect_sfsi_response.exit.i, !llvm.loop !20
@@ -15063,7 +15063,7 @@ dissect_transaction2_response_parameters.exit:    ; preds = %326, %328, %442, %4
   store i16 %566, ptr %11, align 2
   %567 = getelementptr inbounds i8, ptr %5, i64 24
   %568 = load i32, ptr %567, align 8
-  %569 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef nonnull %.0396, ptr noundef nonnull %7, i32 noundef %568, ptr noundef nonnull %8, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %11)
+  %569 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef nonnull %.0396, ptr noundef %7, i32 noundef %568, ptr noundef %8, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %11)
   %570 = icmp eq ptr %569, null
   br i1 %570, label %571, label %573
 
@@ -15328,7 +15328,7 @@ get_unicode_or_ascii_string.exit.i.i:             ; preds = %601, %595
 
 738:                                              ; preds = %.lr.ph.i.i
   %739 = load i32, ptr @hf_smb_unix_file_gid, align 4
-  %740 = call ptr @proto_tree_add_item(ptr noundef %734, i32 noundef %739, ptr noundef %.0396, i32 noundef %736, i32 noundef 8, i32 noundef -2147483648) #15
+  %740 = call ptr @proto_tree_add_item(ptr noundef %734, i32 noundef %739, ptr noundef nonnull %.0396, i32 noundef %736, i32 noundef 8, i32 noundef -2147483648) #15
   %741 = add i32 %736, 8
   %742 = load i16, ptr %11, align 2
   %743 = add i16 %742, -8
@@ -15340,14 +15340,14 @@ get_unicode_or_ascii_string.exit.i.i:             ; preds = %601, %595
 ._crit_edge.i.i:                                  ; preds = %738, %727
   %745 = phi i32 [ 40, %727 ], [ %741, %738 ]
   %746 = load i32, ptr @ett_smb_unix_whoami_sids, align 4
-  %747 = call ptr @proto_tree_add_subtree(ptr noundef %.07395.i, ptr noundef %.0396, i32 noundef %745, i32 noundef %721, i32 noundef %746, ptr noundef null, ptr noundef nonnull @.str.2658) #15
+  %747 = call ptr @proto_tree_add_subtree(ptr noundef %.07395.i, ptr noundef nonnull %.0396, i32 noundef %745, i32 noundef %721, i32 noundef %746, ptr noundef null, ptr noundef nonnull @.str.2658) #15
   %.not248.i.i = icmp eq i32 %714, 0
   br i1 %.not248.i.i, label %dissect_qfsi_vals.exit.i, label %.lr.ph243.i.i
 
 .lr.ph243.i.i:                                    ; preds = %._crit_edge.i.i, %754
   %.1241.i.i = phi i32 [ %757, %754 ], [ 0, %._crit_edge.i.i ]
   %748 = phi i32 [ %749, %754 ], [ %745, %._crit_edge.i.i ]
-  %749 = call i32 @dissect_nt_sid(ptr noundef %.0396, i32 noundef %748, ptr noundef %747, ptr noundef nonnull @.str.25, ptr noundef null, i32 noundef -1) #15
+  %749 = call i32 @dissect_nt_sid(ptr noundef nonnull %.0396, i32 noundef %748, ptr noundef %747, ptr noundef nonnull @.str.25, ptr noundef null, i32 noundef -1) #15
   %750 = load i16, ptr %11, align 2
   %751 = zext i16 %750 to i32
   %752 = sub i32 %749, %748
@@ -15540,12 +15540,12 @@ dissect_qfsi_vals.exit.i:                         ; preds = %.lr.ph.i.i, %754, %
 
 871:                                              ; preds = %494
   %872 = load ptr, ptr %9, align 8
-  %873 = call fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %.0396, ptr noundef nonnull %1, ptr noundef %.07395.i, ptr noundef %872, ptr noundef nonnull %11, ptr noundef nonnull %5)
+  %873 = call fastcc i32 @dissect_qpi_loi_vals(ptr noundef %.0396, ptr noundef nonnull %1, ptr noundef %.07395.i, ptr noundef %872, ptr noundef %11, ptr noundef %5)
   br label %dissect_sfsi_response.exit.i
 
 874:                                              ; preds = %494
   %875 = load ptr, ptr %9, align 8
-  %876 = call fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %.0396, ptr noundef nonnull %1, ptr noundef %.07395.i, ptr noundef %875, ptr noundef nonnull %11, ptr noundef nonnull %5)
+  %876 = call fastcc i32 @dissect_qpi_loi_vals(ptr noundef %.0396, ptr noundef nonnull %1, ptr noundef %.07395.i, ptr noundef %875, ptr noundef %11, ptr noundef %5)
   br label %dissect_sfsi_response.exit.i
 
 877:                                              ; preds = %494
@@ -15563,7 +15563,7 @@ dissect_sfsi_response.exit.i:                     ; preds = %514, %513, %503, %5
 881:                                              ; preds = %dissect_sfsi_response.exit.i
   %882 = zext i16 %.pr.i to i32
   %883 = load i32, ptr @hf_smb_unknown, align 4
-  %884 = call ptr @proto_tree_add_item(ptr noundef %.07395.i, i32 noundef %883, ptr noundef %.0396, i32 noundef %.0.ph.i, i32 noundef %882, i32 noundef 0) #15
+  %884 = call ptr @proto_tree_add_item(ptr noundef %.07395.i, i32 noundef %883, ptr noundef nonnull %.0396, i32 noundef %.0.ph.i, i32 noundef %882, i32 noundef 0) #15
   br label %dissect_transaction2_response_data.exit
 
 dissect_transaction2_response_data.exit:          ; preds = %494, %492, %854, %859, %dissect_sfsi_response.exit.i, %881
@@ -15724,7 +15724,7 @@ define internal i32 @dissect_copy_request(ptr noundef %0, ptr nocapture noundef 
   store i16 %41, ptr %9, align 2
   %42 = getelementptr inbounds i8, ptr %5, i64 24
   %43 = load i32, ptr %42, align 8
-  %44 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %43, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
+  %44 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %43, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %45 = icmp eq ptr %44, null
   %.pre65 = load i32, ptr %7, align 4
   br i1 %45, label %97, label %46
@@ -15758,7 +15758,7 @@ define internal i32 @dissect_copy_request(ptr noundef %0, ptr nocapture noundef 
   %68 = add i16 %55, %67
   store i16 %68, ptr %9, align 2
   %69 = load i32, ptr %42, align 8
-  %70 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %69, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
+  %70 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %69, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %71 = icmp eq ptr %70, null
   %.pre = load i32, ptr %7, align 4
   br i1 %71, label %97, label %72
@@ -15854,7 +15854,7 @@ define internal i32 @dissect_move_copy_response(ptr noundef %0, ptr nocapture re
   store i16 %34, ptr %9, align 2
   %35 = getelementptr inbounds i8, ptr %5, i64 24
   %36 = load i32, ptr %35, align 8
-  %37 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %36, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
+  %37 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %36, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %38 = icmp eq ptr %37, null
   %.pre = load i32, ptr %7, align 4
   br i1 %38, label %57, label %39
@@ -15949,7 +15949,7 @@ define internal i32 @dissect_move_request(ptr noundef %0, ptr nocapture noundef 
   store i16 %41, ptr %9, align 2
   %42 = getelementptr inbounds i8, ptr %5, i64 24
   %43 = load i32, ptr %42, align 8
-  %44 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %43, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
+  %44 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %43, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %45 = icmp eq ptr %44, null
   %.pre65 = load i32, ptr %7, align 4
   br i1 %45, label %97, label %46
@@ -15983,7 +15983,7 @@ define internal i32 @dissect_move_request(ptr noundef %0, ptr nocapture noundef 
   %68 = add i16 %55, %67
   store i16 %68, ptr %9, align 2
   %69 = load i32, ptr %42, align 8
-  %70 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %69, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
+  %70 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %69, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %71 = icmp eq ptr %70, null
   %.pre = load i32, ptr %7, align 4
   br i1 %71, label %97, label %72
@@ -16366,7 +16366,7 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %79, %80, %81, %82, 
 99:                                               ; preds = %91
   %100 = getelementptr inbounds i8, ptr %5, i64 24
   %101 = load i32, ptr %100, align 8
-  %102 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %101, ptr noundef nonnull %10, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
+  %102 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %8, i32 noundef %101, ptr noundef %10, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %103 = icmp eq ptr %102, null
   %.pre.pre = load i32, ptr %8, align 4
   br i1 %103, label %145, label %104
@@ -17110,7 +17110,7 @@ proto_item_set_generated.exit183:                 ; preds = %proto_item_set_gene
 121:                                              ; preds = %114
   %122 = load ptr, ptr @top_tree_global, align 8
   %123 = trunc i32 %.0159 to i16
-  %124 = tail call fastcc i32 @dissect_file_data_maybe_dcerpc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %122, i32 noundef %119, i16 noundef zeroext %115, i32 noundef -1, i16 noundef zeroext %123, i32 noundef 0, i16 noundef zeroext %.0153, ptr noundef nonnull %5)
+  %124 = tail call fastcc i32 @dissect_file_data_maybe_dcerpc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %122, i32 noundef %119, i16 noundef zeroext %115, i32 noundef -1, i16 noundef zeroext %123, i32 noundef 0, i16 noundef zeroext %.0153, ptr noundef %5)
   %125 = zext i16 %.0160 to i32
   %126 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %125) #15
   %127 = load i32, ptr @smb_eo_tap, align 4
@@ -17128,7 +17128,7 @@ proto_item_set_generated.exit183:                 ; preds = %proto_item_set_gene
   %133 = getelementptr inbounds i8, ptr %.0156, i64 8
   %134 = load i32, ptr %133, align 8
   %135 = load i64, ptr %.0156, align 8
-  tail call fastcc void @feed_eo_smb(i16 noundef zeroext 46, i16 noundef zeroext %.0153, ptr noundef %0, ptr noundef %1, i16 noundef zeroext %.0160, i32 noundef %.0159, i32 noundef %134, i64 noundef %135, ptr noundef nonnull %5)
+  tail call fastcc void @feed_eo_smb(i16 noundef zeroext 46, i16 noundef zeroext %.0153, ptr noundef %0, ptr noundef %1, i16 noundef zeroext %.0160, i32 noundef %.0159, i32 noundef %134, i64 noundef %135, ptr noundef %5)
   br label %136
 
 136:                                              ; preds = %121, %129, %132, %114
@@ -17454,7 +17454,7 @@ proto_item_set_generated.exit237:                 ; preds = %74, %122, %119, %pr
   %184 = load ptr, ptr @top_tree_global, align 8
   %185 = zext i16 %.1209249 to i32
   %186 = trunc i32 %.1201252 to i16
-  %187 = tail call fastcc i32 @dissect_file_data_maybe_dcerpc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %184, i32 noundef %.3254, i16 noundef zeroext %.0204251, i32 noundef %185, i16 noundef zeroext %186, i32 noundef 0, i16 noundef zeroext %.0199, ptr noundef nonnull %5)
+  %187 = tail call fastcc i32 @dissect_file_data_maybe_dcerpc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %184, i32 noundef %.3254, i16 noundef zeroext %.0204251, i32 noundef %185, i16 noundef zeroext %186, i32 noundef 0, i16 noundef zeroext %.0199, ptr noundef %5)
   br label %188
 
 188:                                              ; preds = %._crit_edge, %.thread243
@@ -17478,7 +17478,7 @@ proto_item_set_generated.exit237:                 ; preds = %74, %122, %119, %pr
   %196 = getelementptr inbounds i8, ptr %.0195, i64 8
   %197 = load i32, ptr %196, align 8
   %198 = load i64, ptr %.0195, align 8
-  tail call fastcc void @feed_eo_smb(i16 noundef zeroext 47, i16 noundef zeroext %.0199, ptr noundef %0, ptr noundef %1, i16 noundef zeroext %.1209250, i32 noundef %.1201253, i32 noundef %197, i64 noundef %198, ptr noundef nonnull %5)
+  tail call fastcc void @feed_eo_smb(i16 noundef zeroext 47, i16 noundef zeroext %.0199, ptr noundef %0, ptr noundef %1, i16 noundef zeroext %.1209250, i32 noundef %.1201253, i32 noundef %197, i64 noundef %198, ptr noundef %5)
   br label %199
 
 199:                                              ; preds = %188, %192, %195, %proto_item_set_generated.exit237
@@ -17818,7 +17818,7 @@ define internal i32 @dissect_tree_connect_request(ptr noundef %0, ptr nocapture 
   store i16 %27, ptr %9, align 2
   %28 = getelementptr inbounds i8, ptr %5, i64 24
   %29 = load i32, ptr %28, align 8
-  %30 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %29, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
+  %30 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %29, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %31 = icmp eq ptr %30, null
   %.pre60 = load i32, ptr %7, align 4
   br i1 %31, label %88, label %32
@@ -17868,7 +17868,7 @@ define internal i32 @dissect_tree_connect_request(ptr noundef %0, ptr nocapture 
   %66 = add i16 %51, %65
   store i16 %66, ptr %9, align 2
   %67 = load i32, ptr %28, align 8
-  %68 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %67, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
+  %68 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %67, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %69 = icmp eq ptr %68, null
   %.pre = load i32, ptr %7, align 4
   br i1 %69, label %88, label %70
@@ -18313,7 +18313,7 @@ dissect_negprot_security_mode.exit200:            ; preds = %37
 153:                                              ; preds = %147, %144
   %154 = getelementptr inbounds i8, ptr %5, i64 24
   %155 = load i32, ptr %154, align 8
-  %156 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %155, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
+  %156 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %155, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %157 = icmp eq ptr %156, null
   %.pre209 = load i32, ptr %7, align 4
   br i1 %157, label %thread-pre-split.thread, label %158
@@ -18379,7 +18379,7 @@ dissect_negprot_security_mode.exit200:            ; preds = %37
 
 186:                                              ; preds = %183, %181, %177
   %187 = phi i32 [ 1, %183 ], [ 1, %181 ], [ 0, %177 ]
-  %188 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %187, ptr noundef nonnull %8, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
+  %188 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %187, ptr noundef %8, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
   %189 = icmp eq ptr %188, null
   %.pre208 = load i32, ptr %7, align 4
   br i1 %189, label %thread-pre-split.thread, label %190
@@ -18396,7 +18396,7 @@ dissect_negprot_security_mode.exit200:            ; preds = %37
   %198 = sub i16 %196, %197
   store i16 %198, ptr %9, align 2
   %199 = load i32, ptr %176, align 8
-  %200 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %199, ptr noundef nonnull %8, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
+  %200 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %199, ptr noundef %8, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
   %201 = icmp eq ptr %200, null
   %.pre = load i32, ptr %7, align 4
   br i1 %201, label %thread-pre-split.thread, label %202
@@ -18779,7 +18779,7 @@ define internal i32 @dissect_session_setup_andx_request(ptr noundef %0, ptr noun
   %175 = tail call i32 @tvb_strneql(ptr noundef %0, i32 noundef %172, ptr noundef nonnull @.str.2674, i64 noundef 3) #15
   %176 = icmp eq i32 %175, 0
   %spec.select = select i1 %176, i32 0, i32 %174
-  %177 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %spec.select, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
+  %177 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %spec.select, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
   %178 = icmp eq ptr %177, null
   %.pre.pre267 = load i32, ptr %7, align 4
   br i1 %178, label %321, label %179
@@ -18799,7 +18799,7 @@ define internal i32 @dissect_session_setup_andx_request(ptr noundef %0, ptr noun
   %189 = call i32 @tvb_strneql(ptr noundef %0, i32 noundef %184, ptr noundef nonnull @.str.2674, i64 noundef 3) #15
   %190 = icmp eq i32 %189, 0
   %spec.select261 = select i1 %190, i32 0, i32 %188
-  %191 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %spec.select261, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
+  %191 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %spec.select261, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
   %192 = icmp eq ptr %191, null
   %.pre.pre266 = load i32, ptr %7, align 4
   br i1 %192, label %321, label %193
@@ -18816,7 +18816,7 @@ define internal i32 @dissect_session_setup_andx_request(ptr noundef %0, ptr noun
   %201 = sub i16 %199, %200
   store i16 %201, ptr %8, align 2
   %202 = load i32, ptr %173, align 8
-  %203 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %202, ptr noundef nonnull %10, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
+  %203 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %202, ptr noundef %10, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
   %204 = icmp eq ptr %203, null
   %.pre.pre265 = load i32, ptr %7, align 4
   br i1 %204, label %321, label %205
@@ -18899,7 +18899,7 @@ define internal i32 @dissect_session_setup_andx_request(ptr noundef %0, ptr noun
 244:                                              ; preds = %.sink.split, %108, %227, %209
   %245 = getelementptr inbounds i8, ptr %5, i64 24
   %246 = load i32, ptr %245, align 8
-  %247 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %246, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
+  %247 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %246, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
   %248 = icmp eq ptr %247, null
   %.pre.pre264 = load i32, ptr %7, align 4
   br i1 %248, label %321, label %249
@@ -18916,7 +18916,7 @@ define internal i32 @dissect_session_setup_andx_request(ptr noundef %0, ptr noun
   %257 = sub i16 %255, %256
   store i16 %257, ptr %8, align 2
   %258 = load i32, ptr %245, align 8
-  %259 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %258, ptr noundef nonnull %10, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
+  %259 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %258, ptr noundef %10, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
   %260 = icmp eq ptr %259, null
   %.pre.pre263 = load i32, ptr %7, align 4
   br i1 %260, label %321, label %261
@@ -18962,7 +18962,7 @@ define internal i32 @dissect_session_setup_andx_request(ptr noundef %0, ptr noun
 
 285:                                              ; preds = %277, %275
   %286 = load i32, ptr %245, align 8
-  %287 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %286, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
+  %287 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %286, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
   %288 = icmp eq ptr %287, null
   %.pre.pre262 = load i32, ptr %7, align 4
   br i1 %288, label %321, label %289
@@ -18979,7 +18979,7 @@ define internal i32 @dissect_session_setup_andx_request(ptr noundef %0, ptr noun
   %297 = sub i16 %295, %296
   store i16 %297, ptr %8, align 2
   %298 = load i32, ptr %245, align 8
-  %299 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %298, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
+  %299 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %298, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
   %300 = icmp eq ptr %299, null
   %.pre.pre = load i32, ptr %7, align 4
   br i1 %300, label %321, label %301
@@ -19229,7 +19229,7 @@ define internal i32 @dissect_session_setup_andx_response(ptr noundef %0, ptr nou
 114:                                              ; preds = %91, %109, %82
   %115 = getelementptr inbounds i8, ptr %5, i64 24
   %116 = load i32, ptr %115, align 8
-  %117 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %116, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
+  %117 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %116, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
   %118 = icmp eq ptr %117, null
   %.pre.pre132 = load i32, ptr %7, align 4
   br i1 %118, label %166, label %119
@@ -19246,7 +19246,7 @@ define internal i32 @dissect_session_setup_andx_response(ptr noundef %0, ptr nou
   %127 = sub i16 %125, %126
   store i16 %127, ptr %8, align 2
   %128 = load i32, ptr %115, align 8
-  %129 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %128, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
+  %129 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %128, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
   %130 = icmp eq ptr %129, null
   %.pre.pre131 = load i32, ptr %7, align 4
   br i1 %130, label %166, label %131
@@ -19268,7 +19268,7 @@ define internal i32 @dissect_session_setup_andx_response(ptr noundef %0, ptr nou
 
 141:                                              ; preds = %131
   %142 = load i32, ptr %115, align 8
-  %143 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %142, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
+  %143 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %142, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
   %144 = icmp eq ptr %143, null
   %.pre.pre = load i32, ptr %7, align 4
   br i1 %144, label %166, label %145
@@ -19510,7 +19510,7 @@ define internal i32 @dissect_tree_connect_andx_request(ptr noundef %0, ptr nound
   store i16 %61, ptr %8, align 2
   %62 = getelementptr inbounds i8, ptr %5, i64 24
   %63 = load i32, ptr %62, align 8
-  %64 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %63, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
+  %64 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %63, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
   store ptr %64, ptr %10, align 8
   %65 = icmp eq ptr %64, null
   %.pre.pre = load i32, ptr %7, align 4
@@ -19772,7 +19772,7 @@ define internal i32 @dissect_tree_connect_andx_response(ptr noundef %0, ptr noun
 113:                                              ; preds = %112
   %114 = getelementptr inbounds i8, ptr %5, i64 24
   %115 = load i32, ptr %114, align 8
-  %116 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %115, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
+  %116 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %115, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
   store ptr %116, ptr %10, align 8
   %117 = icmp eq ptr %116, null
   %.pre.pre = load i32, ptr %7, align 4
@@ -20288,7 +20288,7 @@ dissect_nt_trans_setup_request.exit:              ; preds = %126, %130, %143
 
 169:                                              ; preds = %168
   %170 = add i32 %.0303, %.0304
-  %171 = tail call fastcc ptr @smb_trans_defragment(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0284, i32 noundef %.0283, i32 noundef 0, i32 noundef %170, ptr noundef nonnull %5)
+  %171 = tail call fastcc ptr @smb_trans_defragment(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0284, i32 noundef %.0283, i32 noundef 0, i32 noundef %170, ptr noundef %5)
   br label %172
 
 172:                                              ; preds = %169, %168
@@ -20301,7 +20301,7 @@ dissect_nt_trans_setup_request.exit:              ; preds = %126, %130, %143
 175:                                              ; preds = %172
   %176 = add i32 %.0287, %.0304
   %177 = add i32 %.0303, %.0304
-  %178 = tail call fastcc ptr @smb_trans_defragment(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0286, i32 noundef %.0285, i32 noundef %176, i32 noundef %177, ptr noundef nonnull %5)
+  %178 = tail call fastcc ptr @smb_trans_defragment(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0286, i32 noundef %.0285, i32 noundef %176, i32 noundef %177, ptr noundef %5)
   br label %179
 
 179:                                              ; preds = %175, %172
@@ -20321,7 +20321,7 @@ dissect_nt_trans_setup_request.exit:              ; preds = %126, %130, %143
 .thread365:                                       ; preds = %180
   %185 = call i32 @tvb_reported_length(ptr noundef nonnull %183) #15
   %186 = trunc i32 %185 to i16
-  call fastcc void @dissect_nt_trans_param_request(ptr noundef nonnull %183, ptr noundef nonnull %1, i32 noundef 0, ptr noundef %2, i32 noundef %.0304, i16 noundef zeroext %186, ptr noundef %.0292, ptr noundef nonnull %5, i32 noundef %.0301, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  call fastcc void @dissect_nt_trans_param_request(ptr noundef nonnull %183, ptr noundef nonnull %1, i32 noundef 0, ptr noundef %2, i32 noundef %.0304, i16 noundef zeroext %186, ptr noundef %.0292, ptr noundef %5, i32 noundef %.0301, ptr noundef %7, ptr noundef %8)
   %187 = load i32, ptr %7, align 4
   %188 = load i32, ptr %8, align 4
   call fastcc void @dissect_nt_trans_data_request(ptr noundef nonnull %183, ptr noundef nonnull %1, i32 noundef %.0304, ptr noundef %2, i32 noundef %.0303, ptr noundef %.0292, i32 noundef %.0301, i32 noundef %187, i32 noundef %188)
@@ -20354,7 +20354,7 @@ dissect_nt_trans_setup_request.exit:              ; preds = %126, %130, %143
   br i1 %201, label %237, label %202
 
 202:                                              ; preds = %199
-  call fastcc void @dissect_nt_trans_param_request(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.8, ptr noundef %2, i32 noundef %.0283, i16 noundef zeroext %.1297, ptr noundef %.0292, ptr noundef nonnull %5, i32 noundef %.0301, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  call fastcc void @dissect_nt_trans_param_request(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.8, ptr noundef %2, i32 noundef %.0283, i16 noundef zeroext %.1297, ptr noundef %.0292, ptr noundef %5, i32 noundef %.0301, ptr noundef %7, ptr noundef %8)
   %203 = add i32 %.8, %.0283
   %204 = trunc i32 %.0283 to i16
   %205 = sub i16 %.1297, %204
@@ -20615,7 +20615,7 @@ dissect_nt_trans_setup_response.exit:             ; preds = %88, %90, %95
 
 112:                                              ; preds = %111
   %113 = add i32 %.0261, %.0262
-  %114 = tail call fastcc ptr @smb_trans_defragment(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0245, i32 noundef %.0244, i32 noundef %.0246, i32 noundef %113, ptr noundef nonnull %5)
+  %114 = tail call fastcc ptr @smb_trans_defragment(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0245, i32 noundef %.0244, i32 noundef %.0246, i32 noundef %113, ptr noundef %5)
   br label %115
 
 115:                                              ; preds = %112, %111
@@ -20628,7 +20628,7 @@ dissect_nt_trans_setup_response.exit:             ; preds = %88, %90, %95
 118:                                              ; preds = %115
   %119 = add i32 %.0249, %.0261
   %120 = add i32 %.0261, %.0262
-  %121 = tail call fastcc ptr @smb_trans_defragment(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0248, i32 noundef %.0247, i32 noundef %119, i32 noundef %120, ptr noundef nonnull %5)
+  %121 = tail call fastcc ptr @smb_trans_defragment(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.0248, i32 noundef %.0247, i32 noundef %119, i32 noundef %120, ptr noundef %5)
   br label %122
 
 122:                                              ; preds = %118, %115
@@ -20648,7 +20648,7 @@ dissect_nt_trans_setup_response.exit:             ; preds = %88, %90, %95
 .thread306:                                       ; preds = %123
   %128 = call i32 @tvb_reported_length(ptr noundef nonnull %126) #15
   %129 = trunc i32 %128 to i16
-  call fastcc void @dissect_nt_trans_param_response(ptr noundef nonnull %126, ptr noundef nonnull %1, i32 noundef 0, ptr noundef %2, i32 noundef %.0261, i16 noundef zeroext %129, ptr noundef nonnull %5)
+  call fastcc void @dissect_nt_trans_param_response(ptr noundef nonnull %126, ptr noundef nonnull %1, i32 noundef 0, ptr noundef %2, i32 noundef %.0261, i16 noundef zeroext %129, ptr noundef %5)
   call fastcc void @dissect_nt_trans_data_response(ptr noundef nonnull %126, ptr noundef nonnull %1, i32 noundef %.0261, ptr noundef %2, i32 noundef %.0262, ptr noundef %.0260296)
   %130 = add i32 %103, %101
   store i32 %107, ptr %106, align 8
@@ -20680,7 +20680,7 @@ dissect_nt_trans_setup_response.exit:             ; preds = %88, %90, %95
   br i1 %142, label %176, label %143
 
 143:                                              ; preds = %140
-  call fastcc void @dissect_nt_trans_param_response(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.3, ptr noundef %2, i32 noundef %.0244, i16 noundef zeroext %.1256, ptr noundef nonnull %5)
+  call fastcc void @dissect_nt_trans_param_response(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.3, ptr noundef %2, i32 noundef %.0244, i16 noundef zeroext %.1256, ptr noundef %5)
   %144 = add i32 %.3, %.0244
   %145 = trunc i32 %.0244 to i16
   %146 = sub i16 %.1256, %145
@@ -20890,7 +20890,7 @@ define internal i32 @dissect_nt_create_andx_request(ptr noundef %0, ptr noundef 
 103:                                              ; preds = %100
   %104 = getelementptr inbounds i8, ptr %5, i64 24
   %105 = load i32, ptr %104, align 8
-  %106 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %105, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
+  %106 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %105, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
   %107 = icmp eq ptr %106, null
   %.pre.pre = load i32, ptr %7, align 4
   br i1 %107, label %155, label %108
@@ -21287,7 +21287,7 @@ define internal i32 @dissect_nt_rename_file_request(ptr noundef %0, ptr nocaptur
   store i16 %41, ptr %9, align 2
   %42 = getelementptr inbounds i8, ptr %5, i64 24
   %43 = load i32, ptr %42, align 8
-  %44 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %43, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
+  %44 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %43, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %45 = icmp eq ptr %44, null
   %.pre57 = load i32, ptr %7, align 4
   br i1 %45, label %91, label %46
@@ -21318,7 +21318,7 @@ define internal i32 @dissect_nt_rename_file_request(ptr noundef %0, ptr nocaptur
   %65 = add i16 %52, %64
   store i16 %65, ptr %9, align 2
   %66 = load i32, ptr %42, align 8
-  %67 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %66, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
+  %67 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %66, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %68 = icmp eq ptr %67, null
   %.pre = load i32, ptr %7, align 4
   br i1 %68, label %91, label %69
@@ -21414,7 +21414,7 @@ define internal i32 @dissect_open_print_file_request(ptr noundef %0, ptr nocaptu
   store i16 %37, ptr %9, align 2
   %38 = getelementptr inbounds i8, ptr %5, i64 24
   %39 = load i32, ptr %38, align 8
-  %40 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %39, ptr noundef nonnull %8, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
+  %40 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %39, ptr noundef %8, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
   %41 = icmp eq ptr %40, null
   %.pre = load i32, ptr %7, align 4
   br i1 %41, label %60, label %42
@@ -22289,7 +22289,7 @@ declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_time_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @TimeZoneFaster(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @TimeZoneFaster(i64 noundef range(i64 -2147483648, 6442450943) %0) unnamed_addr #0 {
   %2 = icmp eq i64 %0, 0
   br i1 %2, label %3, label %5
 
@@ -22557,7 +22557,7 @@ declare ptr @gmtime(ptr noundef) local_unnamed_addr #8
 declare ptr @localtime(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_file_data_maybe_dcerpc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, i32 noundef %6, i16 noundef zeroext %7, i32 noundef %8, i16 noundef zeroext %9, ptr noundef %10) unnamed_addr #0 {
+define internal fastcc i32 @dissect_file_data_maybe_dcerpc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, i32 noundef range(i32 -1, 65536) %6, i16 noundef zeroext %7, i32 noundef %8, i16 noundef zeroext %9, ptr noundef nonnull %10) unnamed_addr #0 {
   %12 = getelementptr inbounds i8, ptr %10, i64 48
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
@@ -22610,7 +22610,7 @@ declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare i32 @have_tap_listener(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @feed_eo_smb(i16 noundef zeroext %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, ptr nocapture noundef readonly %8) unnamed_addr #0 {
+define internal fastcc void @feed_eo_smb(i16 noundef zeroext range(i16 10, 48) %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, ptr nocapture noundef nonnull readonly %8) unnamed_addr #0 {
   %10 = zext i16 %4 to i32
   %11 = tail call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %10, i32 noundef %5) #15
   %12 = tail call ptr @wmem_packet_scope() #15
@@ -22823,79 +22823,78 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare ptr @signed_time_msecs_to_str(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_write_mode(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_write_mode(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 3, 132) %3) unnamed_addr #0 {
   %5 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %2) #15
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %40, label %6
+  br i1 %.not, label %39, label %6
 
 6:                                                ; preds = %4
   %7 = load i32, ptr @hf_smb_write_mode, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %7, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648) #15
   %9 = load i32, ptr @ett_smb_rawmode, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #15
-  %11 = and i32 %3, 128
-  %.not33 = icmp eq i32 %11, 0
-  br i1 %.not33, label %16, label %12
+  %.not33 = icmp ult i32 %3, 128
+  br i1 %.not33, label %15, label %11
 
-12:                                               ; preds = %6
-  %13 = load i32, ptr @hf_smb_write_mode_connectionless, align 4
-  %14 = zext i16 %5 to i64
-  %15 = tail call ptr @proto_tree_add_boolean(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef %2, i32 noundef 2, i64 noundef %14) #15
-  br label %16
+11:                                               ; preds = %6
+  %12 = load i32, ptr @hf_smb_write_mode_connectionless, align 4
+  %13 = zext i16 %5 to i64
+  %14 = tail call ptr @proto_tree_add_boolean(ptr noundef %10, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 2, i64 noundef %13) #15
+  br label %15
 
-16:                                               ; preds = %12, %6
-  %17 = and i32 %3, 8
-  %.not34 = icmp eq i32 %17, 0
-  br i1 %.not34, label %22, label %18
+15:                                               ; preds = %11, %6
+  %16 = and i32 %3, 8
+  %.not34 = icmp eq i32 %16, 0
+  br i1 %.not34, label %21, label %17
 
-18:                                               ; preds = %16
-  %19 = load i32, ptr @hf_smb_write_mode_message_start, align 4
-  %20 = zext i16 %5 to i64
-  %21 = tail call ptr @proto_tree_add_boolean(ptr noundef %10, i32 noundef %19, ptr noundef %0, i32 noundef %2, i32 noundef 2, i64 noundef %20) #15
-  br label %22
+17:                                               ; preds = %15
+  %18 = load i32, ptr @hf_smb_write_mode_message_start, align 4
+  %19 = zext i16 %5 to i64
+  %20 = tail call ptr @proto_tree_add_boolean(ptr noundef %10, i32 noundef %18, ptr noundef %0, i32 noundef %2, i32 noundef 2, i64 noundef %19) #15
+  br label %21
 
-22:                                               ; preds = %18, %16
-  %23 = and i32 %3, 4
-  %.not35 = icmp eq i32 %23, 0
-  br i1 %.not35, label %28, label %24
+21:                                               ; preds = %17, %15
+  %22 = and i32 %3, 4
+  %.not35 = icmp eq i32 %22, 0
+  br i1 %.not35, label %27, label %23
 
-24:                                               ; preds = %22
-  %25 = load i32, ptr @hf_smb_write_mode_raw, align 4
-  %26 = zext i16 %5 to i64
-  %27 = tail call ptr @proto_tree_add_boolean(ptr noundef %10, i32 noundef %25, ptr noundef %0, i32 noundef %2, i32 noundef 2, i64 noundef %26) #15
-  br label %28
+23:                                               ; preds = %21
+  %24 = load i32, ptr @hf_smb_write_mode_raw, align 4
+  %25 = zext i16 %5 to i64
+  %26 = tail call ptr @proto_tree_add_boolean(ptr noundef %10, i32 noundef %24, ptr noundef %0, i32 noundef %2, i32 noundef 2, i64 noundef %25) #15
+  br label %27
 
-28:                                               ; preds = %24, %22
-  %29 = and i32 %3, 2
-  %.not36 = icmp eq i32 %29, 0
-  br i1 %.not36, label %34, label %30
+27:                                               ; preds = %23, %21
+  %28 = and i32 %3, 2
+  %.not36 = icmp eq i32 %28, 0
+  br i1 %.not36, label %33, label %29
 
-30:                                               ; preds = %28
-  %31 = load i32, ptr @hf_smb_write_mode_return_remaining, align 4
-  %32 = zext i16 %5 to i64
-  %33 = tail call ptr @proto_tree_add_boolean(ptr noundef %10, i32 noundef %31, ptr noundef %0, i32 noundef %2, i32 noundef 2, i64 noundef %32) #15
-  br label %34
+29:                                               ; preds = %27
+  %30 = load i32, ptr @hf_smb_write_mode_return_remaining, align 4
+  %31 = zext i16 %5 to i64
+  %32 = tail call ptr @proto_tree_add_boolean(ptr noundef %10, i32 noundef %30, ptr noundef %0, i32 noundef %2, i32 noundef 2, i64 noundef %31) #15
+  br label %33
 
-34:                                               ; preds = %30, %28
-  %35 = and i32 %3, 1
-  %.not37 = icmp eq i32 %35, 0
-  br i1 %.not37, label %40, label %36
+33:                                               ; preds = %29, %27
+  %34 = and i32 %3, 1
+  %.not37 = icmp eq i32 %34, 0
+  br i1 %.not37, label %39, label %35
 
-36:                                               ; preds = %34
-  %37 = load i32, ptr @hf_smb_write_mode_write_through, align 4
-  %38 = zext i16 %5 to i64
-  %39 = tail call ptr @proto_tree_add_boolean(ptr noundef %10, i32 noundef %37, ptr noundef %0, i32 noundef %2, i32 noundef 2, i64 noundef %38) #15
-  br label %40
+35:                                               ; preds = %33
+  %36 = load i32, ptr @hf_smb_write_mode_write_through, align 4
+  %37 = zext i16 %5 to i64
+  %38 = tail call ptr @proto_tree_add_boolean(ptr noundef %10, i32 noundef %36, ptr noundef %0, i32 noundef %2, i32 noundef 2, i64 noundef %37) #15
+  br label %39
 
-40:                                               ; preds = %34, %36, %4
-  %41 = add i32 %2, 2
-  ret i32 %41
+39:                                               ; preds = %33, %35, %4
+  %40 = add i32 %2, 2
+  ret i32 %40
 }
 
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_smb_datetime(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_smb_datetime(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca %struct.tm, align 8
   %9 = alloca %struct.nstime_t, align 8
   %.not = icmp eq i32 %6, 0
@@ -23165,10 +23164,10 @@ define internal fastcc void @dissect_trans_data(ptr noundef %0, ptr noundef %1, 
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_open_flags(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_open_flags(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 7, 16) %3) unnamed_addr #0 {
   %5 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %2) #15
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %34, label %6
+  br i1 %.not, label %33, label %6
 
 6:                                                ; preds = %4
   %7 = load i32, ptr @hf_smb_open_flags, align 4
@@ -23208,23 +23207,22 @@ define internal fastcc noundef i32 @dissect_open_flags(ptr noundef %0, ptr nound
   br label %28
 
 28:                                               ; preds = %24, %22
-  %29 = and i32 %3, 8
-  %.not31 = icmp eq i32 %29, 0
-  br i1 %.not31, label %34, label %30
+  %.not31 = icmp ult i32 %3, 8
+  br i1 %.not31, label %33, label %29
 
-30:                                               ; preds = %28
-  %31 = load i32, ptr @hf_smb_open_flags_ealen, align 4
-  %32 = zext i16 %5 to i64
-  %33 = tail call ptr @proto_tree_add_boolean(ptr noundef %10, i32 noundef %31, ptr noundef %0, i32 noundef %2, i32 noundef 2, i64 noundef %32) #15
-  br label %34
+29:                                               ; preds = %28
+  %30 = load i32, ptr @hf_smb_open_flags_ealen, align 4
+  %31 = zext i16 %5 to i64
+  %32 = tail call ptr @proto_tree_add_boolean(ptr noundef %10, i32 noundef %30, ptr noundef %0, i32 noundef %2, i32 noundef 2, i64 noundef %31) #15
+  br label %33
 
-34:                                               ; preds = %28, %30, %4
-  %35 = add i32 %2, 2
-  ret i32 %35
+33:                                               ; preds = %28, %29, %4
+  %34 = add i32 %2, 2
+  ret i32 %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_ff2_flags(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_ff2_flags(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
   %6 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %3) #15
   %7 = getelementptr inbounds i8, ptr %4, i64 48
   %8 = load ptr, ptr %7, align 8
@@ -23270,7 +23268,7 @@ define internal fastcc noundef i32 @dissect_ff2_flags(ptr noundef %0, ptr nocapt
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = load i16, ptr %5, align 2
   %.not = icmp eq i16 %9, 0
@@ -23313,15 +23311,15 @@ define internal fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1,
   ]
 
 13:                                               ; preds = %10
-  %14 = call fastcc i32 @dissect_qsfi_SMB_INFO_STANDARD(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %8)
+  %14 = call fastcc i32 @dissect_qsfi_SMB_INFO_STANDARD(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 15:                                               ; preds = %10
-  %16 = call fastcc i32 @dissect_4_2_16_2(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %8)
+  %16 = call fastcc i32 @dissect_4_2_16_2(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 17:                                               ; preds = %10
-  %18 = call fastcc i32 @dissect_4_2_16_2(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %8)
+  %18 = call fastcc i32 @dissect_4_2_16_2(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 19:                                               ; preds = %10, %10
@@ -23383,23 +23381,23 @@ dissect_4_2_19_2.exit:                            ; preds = %10
   br label %dissect_4_2_16_4.exit
 
 55:                                               ; preds = %10
-  %56 = call fastcc i32 @dissect_4_2_16_12(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %8)
+  %56 = call fastcc i32 @dissect_4_2_16_12(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 57:                                               ; preds = %10
   %58 = getelementptr i8, ptr %6, i64 24
   %.val = load i32, ptr %58, align 8
-  %59 = call fastcc i32 @dissect_4_2_16_13(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %8, i32 %.val)
+  %59 = call fastcc i32 @dissect_4_2_16_13(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8, i32 %.val)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 60:                                               ; preds = %10
   %61 = getelementptr i8, ptr %6, i64 24
   %.val141 = load i32, ptr %61, align 8
-  %62 = call fastcc i32 @dissect_4_2_16_13(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %8, i32 %.val141)
+  %62 = call fastcc i32 @dissect_4_2_16_13(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8, i32 %.val141)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 63:                                               ; preds = %10
-  %64 = call fastcc i32 @dissect_qspi_unix_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %8)
+  %64 = call fastcc i32 @dissect_qspi_unix_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 65:                                               ; preds = %10
@@ -23423,7 +23421,7 @@ dissect_4_2_19_2.exit:                            ; preds = %10
   br label %dissect_4_2_16_4.exit.thread
 
 75:                                               ; preds = %10
-  %76 = call fastcc i32 @dissect_qspi_unix_info2(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %8)
+  %76 = call fastcc i32 @dissect_qspi_unix_info2(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef %8)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 77:                                               ; preds = %10
@@ -23601,7 +23599,7 @@ declare i32 @tvb_strneql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) loc
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_qsfi_SMB_INFO_STANDARD(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_qsfi_SMB_INFO_STANDARD(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = load i16, ptr %3, align 2
   %7 = icmp ult i16 %6, 4
   br i1 %7, label %61, label %8
@@ -23691,7 +23689,7 @@ define internal fastcc noundef i32 @dissect_qsfi_SMB_INFO_STANDARD(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_4_2_16_2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_4_2_16_2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = load i16, ptr %3, align 2
@@ -23791,7 +23789,7 @@ define internal fastcc i32 @dissect_4_2_16_2(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_4_2_16_12(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_4_2_16_12(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = load i16, ptr %3, align 2
   %7 = icmp ult i16 %6, 8
   br i1 %7, label %95, label %8
@@ -23930,7 +23928,7 @@ define internal fastcc i32 @dissect_4_2_16_12(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_4_2_16_13(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, i32 %.24.val) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_4_2_16_13(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, i32 %.24.val) unnamed_addr #0 {
   %6 = load i16, ptr %3, align 2
   %7 = icmp eq i16 %6, 0
   br i1 %7, label %get_unicode_or_ascii_string.exit.thread, label %8
@@ -23981,7 +23979,7 @@ get_unicode_or_ascii_string.exit.thread:          ; preds = %get_unicode_or_asci
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_qspi_unix_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_qspi_unix_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = load i16, ptr %4, align 2
   %9 = icmp ult i16 %8, 2
@@ -24175,7 +24173,7 @@ define internal fastcc noundef i32 @dissect_qspi_unix_acl(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_qspi_unix_info2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_qspi_unix_info2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = load i16, ptr %3, align 2
   %7 = icmp ult i16 %6, 8
   br i1 %7, label %117, label %8
@@ -24353,7 +24351,7 @@ declare ptr @proto_tree_add_item_ret_display_string(ptr noundef, i32 noundef, pt
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @smb_trans_defragment(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
+define internal fastcc ptr @smb_trans_defragment(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 0) %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 {
   %8 = tail call i32 @tvb_bytes_exist(ptr noundef %1, i32 noundef %2, i32 noundef %3) #15
   %.not = icmp eq i32 %8, 0
   %9 = icmp ugt i32 %4, %5
@@ -24458,7 +24456,7 @@ declare ptr @fragment_add(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i3
 declare ptr @fragment_get(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ff2_response_data(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ff2_response_data(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -24546,15 +24544,15 @@ define internal fastcc i32 @dissect_ff2_response_data(ptr noundef %0, ptr nocapt
   %57 = zext i16 %37 to i32
   %58 = load i32, ptr @ett_smb_ff2_data, align 4
   %59 = tail call ptr @val_to_str(i32 noundef 1, ptr noundef nonnull @ff2_il_vals, ptr noundef nonnull @.str.2599) #15
-  %60 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef %57, i32 noundef %58, ptr noundef nonnull %36, ptr noundef %59) #15
+  %60 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %57, i32 noundef %58, ptr noundef nonnull %36, ptr noundef %59) #15
   %spec.select = select i1 %.0.i, i32 23, i32 27
-  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %3, i32 noundef %spec.select) #15
+  call void @tvb_ensure_bytes_exist(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %spec.select) #15
   %61 = add i32 %3, -1
   %62 = add i32 %61, %spec.select
-  %63 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %62) #15
+  %63 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %62) #15
   %64 = zext i8 %63 to i32
   %65 = add nuw nsw i32 %spec.select, %64
-  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %3, i32 noundef %65) #15
+  call void @tvb_ensure_bytes_exist(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %65) #15
   %.pr.i = load i16, ptr %4, align 2
   br i1 %.0.i, label %thread-pre-split.i, label %66
 
@@ -24568,7 +24566,7 @@ define internal fastcc i32 @dissect_ff2_response_data(ptr noundef %0, ptr nocapt
 
 69:                                               ; preds = %66
   %70 = load i32, ptr @hf_smb_resume, align 4
-  %71 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %70, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #15
+  %71 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %70, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #15
   %72 = add i32 %3, 4
   store i32 %72, ptr %34, align 4
   %73 = load i16, ptr %4, align 2
@@ -24590,7 +24588,7 @@ thread-pre-split.i:                               ; preds = %69, %56
   %80 = load i32, ptr @hf_smb_create_time, align 4
   %81 = load i32, ptr @hf_smb_create_dos_date, align 4
   %82 = load i32, ptr @hf_smb_create_dos_time, align 4
-  %83 = call fastcc i32 @dissect_smb_datetime(ptr noundef %0, ptr noundef %60, i32 noundef %75, i32 noundef %80, i32 noundef %81, i32 noundef %82, i32 noundef 0)
+  %83 = call fastcc i32 @dissect_smb_datetime(ptr noundef nonnull %0, ptr noundef %60, i32 noundef %75, i32 noundef %80, i32 noundef %81, i32 noundef %82, i32 noundef 0)
   %84 = load i16, ptr %4, align 2
   %85 = add i16 %84, -4
   store i16 %85, ptr %4, align 2
@@ -24605,7 +24603,7 @@ thread-pre-split.i:                               ; preds = %69, %56
   %89 = load i32, ptr @hf_smb_access_time, align 4
   %90 = load i32, ptr @hf_smb_access_dos_date, align 4
   %91 = load i32, ptr @hf_smb_access_dos_time, align 4
-  %92 = call fastcc i32 @dissect_smb_datetime(ptr noundef %0, ptr noundef %60, i32 noundef %83, i32 noundef %89, i32 noundef %90, i32 noundef %91, i32 noundef 0)
+  %92 = call fastcc i32 @dissect_smb_datetime(ptr noundef nonnull %0, ptr noundef %60, i32 noundef %83, i32 noundef %89, i32 noundef %90, i32 noundef %91, i32 noundef 0)
   %93 = load i16, ptr %4, align 2
   %94 = add i16 %93, -4
   store i16 %94, ptr %4, align 2
@@ -24620,7 +24618,7 @@ thread-pre-split.i:                               ; preds = %69, %56
   %98 = load i32, ptr @hf_smb_last_write_time, align 4
   %99 = load i32, ptr @hf_smb_last_write_dos_date, align 4
   %100 = load i32, ptr @hf_smb_last_write_dos_time, align 4
-  %101 = call fastcc i32 @dissect_smb_datetime(ptr noundef %0, ptr noundef %60, i32 noundef %92, i32 noundef %98, i32 noundef %99, i32 noundef %100, i32 noundef 0)
+  %101 = call fastcc i32 @dissect_smb_datetime(ptr noundef nonnull %0, ptr noundef %60, i32 noundef %92, i32 noundef %98, i32 noundef %99, i32 noundef %100, i32 noundef 0)
   %102 = load i16, ptr %4, align 2
   %103 = add i16 %102, -4
   store i16 %103, ptr %4, align 2
@@ -24633,7 +24631,7 @@ thread-pre-split.i:                               ; preds = %69, %56
 
 106:                                              ; preds = %97
   %107 = load i32, ptr @hf_smb_data_size, align 4
-  %108 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %107, ptr noundef %0, i32 noundef %101, i32 noundef 4, i32 noundef -2147483648) #15
+  %108 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %107, ptr noundef nonnull %0, i32 noundef %101, i32 noundef 4, i32 noundef -2147483648) #15
   %109 = add i32 %101, 4
   %110 = load i16, ptr %4, align 2
   %111 = add i16 %110, -4
@@ -24647,7 +24645,7 @@ thread-pre-split.i:                               ; preds = %69, %56
 
 114:                                              ; preds = %106
   %115 = load i32, ptr @hf_smb_alloc_size, align 4
-  %116 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %115, ptr noundef %0, i32 noundef %109, i32 noundef 4, i32 noundef -2147483648) #15
+  %116 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %115, ptr noundef nonnull %0, i32 noundef %109, i32 noundef 4, i32 noundef -2147483648) #15
   %117 = add i32 %101, 8
   %118 = load i16, ptr %4, align 2
   %119 = add i16 %118, -4
@@ -24662,7 +24660,7 @@ thread-pre-split.i:                               ; preds = %69, %56
 122:                                              ; preds = %114
   %123 = load i32, ptr @hf_smb_file_attr_16bit, align 4
   %124 = load i32, ptr @ett_smb_file_attributes, align 4
-  %125 = call ptr @proto_tree_add_bitmask(ptr noundef %60, ptr noundef %0, i32 noundef %117, i32 noundef %123, i32 noundef %124, ptr noundef nonnull @dissect_file_attributes.flags, i32 noundef -2147483648) #15
+  %125 = call ptr @proto_tree_add_bitmask(ptr noundef %60, ptr noundef nonnull %0, i32 noundef %117, i32 noundef %123, i32 noundef %124, ptr noundef nonnull @dissect_file_attributes.flags, i32 noundef -2147483648) #15
   %126 = add i32 %101, 10
   %127 = load i16, ptr %4, align 2
   %128 = add i16 %127, -2
@@ -24675,10 +24673,10 @@ thread-pre-split.i:                               ; preds = %69, %56
   br label %dissect_4_3_4_1.exit
 
 131:                                              ; preds = %122
-  %132 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %126) #15
+  %132 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %126) #15
   %133 = zext i8 %132 to i32
   %134 = load i32, ptr @hf_smb_file_name_len, align 4
-  %135 = call ptr @proto_tree_add_uint(ptr noundef %60, i32 noundef %134, ptr noundef %0, i32 noundef %126, i32 noundef 1, i32 noundef %133) #15
+  %135 = call ptr @proto_tree_add_uint(ptr noundef %60, i32 noundef %134, ptr noundef nonnull %0, i32 noundef %126, i32 noundef 1, i32 noundef %133) #15
   %136 = add i32 %101, 11
   store i32 %136, ptr %34, align 4
   %137 = load i16, ptr %4, align 2
@@ -24690,7 +24688,7 @@ thread-pre-split.i:                               ; preds = %69, %56
   %storemerge.v.i = select i1 %.not83.i, i32 1, i32 2
   %storemerge.i = add nuw nsw i32 %storemerge.v.i, %133
   store i32 %storemerge.i, ptr %35, align 4
-  %141 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %34, i32 noundef %140, ptr noundef nonnull %35, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
+  %141 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef nonnull %0, ptr noundef %34, i32 noundef %140, ptr noundef %35, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
   %142 = icmp eq ptr %141, null
   br i1 %142, label %143, label %144
 
@@ -24703,7 +24701,7 @@ thread-pre-split.i:                               ; preds = %69, %56
   %145 = load i32, ptr @hf_smb_file_name, align 4
   %146 = load i32, ptr %34, align 4
   %147 = load i32, ptr %35, align 4
-  %148 = call ptr @proto_tree_add_string(ptr noundef %60, i32 noundef %145, ptr noundef %0, i32 noundef %146, i32 noundef %147, ptr noundef nonnull %141) #15
+  %148 = call ptr @proto_tree_add_string(ptr noundef %60, i32 noundef %145, ptr noundef nonnull %0, i32 noundef %146, i32 noundef %147, ptr noundef nonnull %141) #15
   %149 = load i32, ptr %35, align 4
   %150 = add i32 %149, %146
   %151 = load i16, ptr %4, align 2
@@ -24767,15 +24765,15 @@ dissect_4_3_4_1.exit:                             ; preds = %68, %78, %87, %96, 
   %180 = zext i16 %37 to i32
   %181 = load i32, ptr @ett_smb_ff2_data, align 4
   %182 = tail call ptr @val_to_str(i32 noundef 2, ptr noundef nonnull @ff2_il_vals, ptr noundef nonnull @.str.2599) #15
-  %183 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef %180, i32 noundef %181, ptr noundef nonnull %33, ptr noundef %182) #15
+  %183 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %180, i32 noundef %181, ptr noundef nonnull %33, ptr noundef %182) #15
   %spec.select139 = select i1 %.0.i87, i32 27, i32 31
-  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %3, i32 noundef %spec.select139) #15
+  call void @tvb_ensure_bytes_exist(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %spec.select139) #15
   %184 = add i32 %3, -1
   %185 = add i32 %184, %spec.select139
-  %186 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %185) #15
+  %186 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %185) #15
   %187 = zext i8 %186 to i32
   %188 = add nuw nsw i32 %spec.select139, %187
-  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %3, i32 noundef %188) #15
+  call void @tvb_ensure_bytes_exist(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %188) #15
   %.pr.i89 = load i16, ptr %4, align 2
   br i1 %.0.i87, label %thread-pre-split.i90, label %189
 
@@ -24789,7 +24787,7 @@ dissect_4_3_4_1.exit:                             ; preds = %68, %78, %87, %96, 
 
 192:                                              ; preds = %189
   %193 = load i32, ptr @hf_smb_resume, align 4
-  %194 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %193, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #15
+  %194 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %193, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #15
   %195 = add i32 %3, 4
   %196 = load i16, ptr %4, align 2
   %197 = add i16 %196, -4
@@ -24810,7 +24808,7 @@ thread-pre-split.i90:                             ; preds = %192, %179
   %203 = load i32, ptr @hf_smb_create_time, align 4
   %204 = load i32, ptr @hf_smb_create_dos_date, align 4
   %205 = load i32, ptr @hf_smb_create_dos_time, align 4
-  %206 = call fastcc i32 @dissect_smb_datetime(ptr noundef %0, ptr noundef %183, i32 noundef %198, i32 noundef %203, i32 noundef %204, i32 noundef %205, i32 noundef 0)
+  %206 = call fastcc i32 @dissect_smb_datetime(ptr noundef nonnull %0, ptr noundef %183, i32 noundef %198, i32 noundef %203, i32 noundef %204, i32 noundef %205, i32 noundef 0)
   %207 = load i16, ptr %4, align 2
   %208 = add i16 %207, -4
   store i16 %208, ptr %4, align 2
@@ -24825,7 +24823,7 @@ thread-pre-split.i90:                             ; preds = %192, %179
   %212 = load i32, ptr @hf_smb_access_time, align 4
   %213 = load i32, ptr @hf_smb_access_dos_date, align 4
   %214 = load i32, ptr @hf_smb_access_dos_time, align 4
-  %215 = call fastcc i32 @dissect_smb_datetime(ptr noundef %0, ptr noundef %183, i32 noundef %206, i32 noundef %212, i32 noundef %213, i32 noundef %214, i32 noundef 0)
+  %215 = call fastcc i32 @dissect_smb_datetime(ptr noundef nonnull %0, ptr noundef %183, i32 noundef %206, i32 noundef %212, i32 noundef %213, i32 noundef %214, i32 noundef 0)
   %216 = load i16, ptr %4, align 2
   %217 = add i16 %216, -4
   store i16 %217, ptr %4, align 2
@@ -24840,7 +24838,7 @@ thread-pre-split.i90:                             ; preds = %192, %179
   %221 = load i32, ptr @hf_smb_last_write_time, align 4
   %222 = load i32, ptr @hf_smb_last_write_dos_date, align 4
   %223 = load i32, ptr @hf_smb_last_write_dos_time, align 4
-  %224 = call fastcc i32 @dissect_smb_datetime(ptr noundef %0, ptr noundef %183, i32 noundef %215, i32 noundef %221, i32 noundef %222, i32 noundef %223, i32 noundef 0)
+  %224 = call fastcc i32 @dissect_smb_datetime(ptr noundef nonnull %0, ptr noundef %183, i32 noundef %215, i32 noundef %221, i32 noundef %222, i32 noundef %223, i32 noundef 0)
   %225 = load i16, ptr %4, align 2
   %226 = add i16 %225, -4
   store i16 %226, ptr %4, align 2
@@ -24853,7 +24851,7 @@ thread-pre-split.i90:                             ; preds = %192, %179
 
 229:                                              ; preds = %220
   %230 = load i32, ptr @hf_smb_data_size, align 4
-  %231 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %230, ptr noundef %0, i32 noundef %224, i32 noundef 4, i32 noundef -2147483648) #15
+  %231 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %230, ptr noundef nonnull %0, i32 noundef %224, i32 noundef 4, i32 noundef -2147483648) #15
   %232 = add i32 %224, 4
   %233 = load i16, ptr %4, align 2
   %234 = add i16 %233, -4
@@ -24867,7 +24865,7 @@ thread-pre-split.i90:                             ; preds = %192, %179
 
 237:                                              ; preds = %229
   %238 = load i32, ptr @hf_smb_alloc_size, align 4
-  %239 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %238, ptr noundef %0, i32 noundef %232, i32 noundef 4, i32 noundef -2147483648) #15
+  %239 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %238, ptr noundef nonnull %0, i32 noundef %232, i32 noundef 4, i32 noundef -2147483648) #15
   %240 = add i32 %224, 8
   %241 = load i16, ptr %4, align 2
   %242 = add i16 %241, -4
@@ -24882,7 +24880,7 @@ thread-pre-split.i90:                             ; preds = %192, %179
 245:                                              ; preds = %237
   %246 = load i32, ptr @hf_smb_file_attr_16bit, align 4
   %247 = load i32, ptr @ett_smb_file_attributes, align 4
-  %248 = call ptr @proto_tree_add_bitmask(ptr noundef %183, ptr noundef %0, i32 noundef %240, i32 noundef %246, i32 noundef %247, ptr noundef nonnull @dissect_file_attributes.flags, i32 noundef -2147483648) #15
+  %248 = call ptr @proto_tree_add_bitmask(ptr noundef %183, ptr noundef nonnull %0, i32 noundef %240, i32 noundef %246, i32 noundef %247, ptr noundef nonnull @dissect_file_attributes.flags, i32 noundef -2147483648) #15
   %249 = add i32 %224, 10
   %250 = load i16, ptr %4, align 2
   %251 = add i16 %250, -2
@@ -24896,7 +24894,7 @@ thread-pre-split.i90:                             ; preds = %192, %179
 
 254:                                              ; preds = %245
   %255 = load i32, ptr @hf_smb_ea_list_length, align 4
-  %256 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %255, ptr noundef %0, i32 noundef %249, i32 noundef 4, i32 noundef -2147483648) #15
+  %256 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %255, ptr noundef nonnull %0, i32 noundef %249, i32 noundef 4, i32 noundef -2147483648) #15
   %257 = add i32 %224, 14
   %258 = load i16, ptr %4, align 2
   %259 = add i16 %258, -4
@@ -24909,11 +24907,11 @@ thread-pre-split.i90:                             ; preds = %192, %179
   br label %dissect_4_3_4_2.exit
 
 262:                                              ; preds = %254
-  %263 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %257) #15
+  %263 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %257) #15
   %264 = zext i8 %263 to i32
   store i32 %264, ptr %32, align 4
   %265 = load i32, ptr @hf_smb_file_name_len, align 4
-  %266 = call ptr @proto_tree_add_uint(ptr noundef %183, i32 noundef %265, ptr noundef %0, i32 noundef %257, i32 noundef 1, i32 noundef %264) #15
+  %266 = call ptr @proto_tree_add_uint(ptr noundef %183, i32 noundef %265, ptr noundef nonnull %0, i32 noundef %257, i32 noundef 1, i32 noundef %264) #15
   %267 = add i32 %224, 15
   store i32 %267, ptr %31, align 4
   %268 = load i16, ptr %4, align 2
@@ -24921,7 +24919,7 @@ thread-pre-split.i90:                             ; preds = %192, %179
   store i16 %269, ptr %4, align 2
   %270 = getelementptr inbounds i8, ptr %6, i64 24
   %271 = load i32, ptr %270, align 8
-  %272 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %31, i32 noundef %271, ptr noundef nonnull %32, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4)
+  %272 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef nonnull %0, ptr noundef %31, i32 noundef %271, ptr noundef %32, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4)
   %273 = icmp eq ptr %272, null
   br i1 %273, label %274, label %275
 
@@ -24934,7 +24932,7 @@ thread-pre-split.i90:                             ; preds = %192, %179
   %276 = load i32, ptr @hf_smb_file_name, align 4
   %277 = load i32, ptr %31, align 4
   %278 = load i32, ptr %32, align 4
-  %279 = call ptr @proto_tree_add_string(ptr noundef %183, i32 noundef %276, ptr noundef %0, i32 noundef %277, i32 noundef %278, ptr noundef nonnull %272) #15
+  %279 = call ptr @proto_tree_add_string(ptr noundef %183, i32 noundef %276, ptr noundef nonnull %0, i32 noundef %277, i32 noundef %278, ptr noundef nonnull %272) #15
   %280 = load i32, ptr %32, align 4
   %281 = add i32 %280, %277
   %282 = load i16, ptr %4, align 2
@@ -25009,7 +25007,7 @@ dissect_4_3_4_2.exit:                             ; preds = %191, %201, %210, %2
   %317 = zext i16 %37 to i32
   %318 = load i32, ptr @ett_smb_ff2_data, align 4
   %319 = tail call ptr @val_to_str(i32 noundef 3, ptr noundef nonnull @ff2_il_vals, ptr noundef nonnull @.str.2599) #15
-  %320 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef %317, i32 noundef %318, ptr noundef nonnull %30, ptr noundef %319) #15
+  %320 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %317, i32 noundef %318, ptr noundef nonnull %30, ptr noundef %319) #15
   %.pr.i94 = load i16, ptr %4, align 2
   br i1 %.0.i93, label %thread-pre-split.i95, label %321
 
@@ -25023,7 +25021,7 @@ dissect_4_3_4_2.exit:                             ; preds = %191, %201, %210, %2
 
 324:                                              ; preds = %321
   %325 = load i32, ptr @hf_smb_resume, align 4
-  %326 = call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %325, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #15
+  %326 = call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %325, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #15
   %327 = add i32 %3, 4
   %328 = load i16, ptr %4, align 2
   %329 = add i16 %328, -4
@@ -25044,7 +25042,7 @@ thread-pre-split.i95:                             ; preds = %324, %316
   %335 = load i32, ptr @hf_smb_create_time, align 4
   %336 = load i32, ptr @hf_smb_create_dos_date, align 4
   %337 = load i32, ptr @hf_smb_create_dos_time, align 4
-  %338 = call fastcc i32 @dissect_smb_datetime(ptr noundef %0, ptr noundef %320, i32 noundef %330, i32 noundef %335, i32 noundef %336, i32 noundef %337, i32 noundef 0)
+  %338 = call fastcc i32 @dissect_smb_datetime(ptr noundef nonnull %0, ptr noundef %320, i32 noundef %330, i32 noundef %335, i32 noundef %336, i32 noundef %337, i32 noundef 0)
   %339 = load i16, ptr %4, align 2
   %340 = add i16 %339, -4
   store i16 %340, ptr %4, align 2
@@ -25059,7 +25057,7 @@ thread-pre-split.i95:                             ; preds = %324, %316
   %344 = load i32, ptr @hf_smb_access_time, align 4
   %345 = load i32, ptr @hf_smb_access_dos_date, align 4
   %346 = load i32, ptr @hf_smb_access_dos_time, align 4
-  %347 = call fastcc i32 @dissect_smb_datetime(ptr noundef %0, ptr noundef %320, i32 noundef %338, i32 noundef %344, i32 noundef %345, i32 noundef %346, i32 noundef 0)
+  %347 = call fastcc i32 @dissect_smb_datetime(ptr noundef nonnull %0, ptr noundef %320, i32 noundef %338, i32 noundef %344, i32 noundef %345, i32 noundef %346, i32 noundef 0)
   %348 = load i16, ptr %4, align 2
   %349 = add i16 %348, -4
   store i16 %349, ptr %4, align 2
@@ -25074,7 +25072,7 @@ thread-pre-split.i95:                             ; preds = %324, %316
   %353 = load i32, ptr @hf_smb_last_write_time, align 4
   %354 = load i32, ptr @hf_smb_last_write_dos_date, align 4
   %355 = load i32, ptr @hf_smb_last_write_dos_time, align 4
-  %356 = call fastcc i32 @dissect_smb_datetime(ptr noundef %0, ptr noundef %320, i32 noundef %347, i32 noundef %353, i32 noundef %354, i32 noundef %355, i32 noundef 0)
+  %356 = call fastcc i32 @dissect_smb_datetime(ptr noundef nonnull %0, ptr noundef %320, i32 noundef %347, i32 noundef %353, i32 noundef %354, i32 noundef %355, i32 noundef 0)
   %357 = load i16, ptr %4, align 2
   %358 = add i16 %357, -4
   store i16 %358, ptr %4, align 2
@@ -25087,7 +25085,7 @@ thread-pre-split.i95:                             ; preds = %324, %316
 
 361:                                              ; preds = %352
   %362 = load i32, ptr @hf_smb_data_size, align 4
-  %363 = call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %362, ptr noundef %0, i32 noundef %356, i32 noundef 4, i32 noundef -2147483648) #15
+  %363 = call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %362, ptr noundef nonnull %0, i32 noundef %356, i32 noundef 4, i32 noundef -2147483648) #15
   %364 = add i32 %356, 4
   %365 = load i16, ptr %4, align 2
   %366 = add i16 %365, -4
@@ -25101,7 +25099,7 @@ thread-pre-split.i95:                             ; preds = %324, %316
 
 369:                                              ; preds = %361
   %370 = load i32, ptr @hf_smb_alloc_size, align 4
-  %371 = call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %370, ptr noundef %0, i32 noundef %364, i32 noundef 4, i32 noundef -2147483648) #15
+  %371 = call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %370, ptr noundef nonnull %0, i32 noundef %364, i32 noundef 4, i32 noundef -2147483648) #15
   %372 = add i32 %356, 8
   %373 = load i16, ptr %4, align 2
   %374 = add i16 %373, -4
@@ -25116,7 +25114,7 @@ thread-pre-split.i95:                             ; preds = %324, %316
 377:                                              ; preds = %369
   %378 = load i32, ptr @hf_smb_file_attr_16bit, align 4
   %379 = load i32, ptr @ett_smb_file_attributes, align 4
-  %380 = call ptr @proto_tree_add_bitmask(ptr noundef %320, ptr noundef %0, i32 noundef %372, i32 noundef %378, i32 noundef %379, ptr noundef nonnull @dissect_file_attributes.flags, i32 noundef -2147483648) #15
+  %380 = call ptr @proto_tree_add_bitmask(ptr noundef %320, ptr noundef nonnull %0, i32 noundef %372, i32 noundef %378, i32 noundef %379, ptr noundef nonnull @dissect_file_attributes.flags, i32 noundef -2147483648) #15
   %381 = add i32 %356, 10
   %382 = load i16, ptr %4, align 2
   %383 = add i16 %382, -2
@@ -25129,15 +25127,15 @@ thread-pre-split.i95:                             ; preds = %324, %316
   br label %dissect_4_3_4_3.exit
 
 386:                                              ; preds = %377
-  %387 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %381) #15
+  %387 = call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %381) #15
   %388 = load i32, ptr @hf_smb_ea_list_length, align 4
-  %389 = call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %388, ptr noundef %0, i32 noundef %381, i32 noundef 4, i32 noundef -2147483648) #15
+  %389 = call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %388, ptr noundef nonnull %0, i32 noundef %381, i32 noundef 4, i32 noundef -2147483648) #15
   %390 = add i32 %356, 14
   %391 = load i16, ptr %4, align 2
   %392 = add i16 %391, -4
   store i16 %392, ptr %4, align 2
   %393 = load i32, ptr @hf_smb_file_data, align 4
-  %394 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %320, i32 noundef %393, ptr noundef %0, i32 noundef %390, i32 noundef %387, ptr noundef null, ptr noundef nonnull @.str.2656) #15
+  %394 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %320, i32 noundef %393, ptr noundef nonnull %0, i32 noundef %390, i32 noundef %387, ptr noundef null, ptr noundef nonnull @.str.2656) #15
   %395 = add i32 %387, %390
   %396 = load i16, ptr %4, align 2
   %397 = trunc i32 %387 to i16
@@ -25152,10 +25150,10 @@ thread-pre-split.i95:                             ; preds = %324, %316
   br label %dissect_4_3_4_3.exit
 
 402:                                              ; preds = %386
-  %403 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %395) #15
+  %403 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %395) #15
   %404 = zext i8 %403 to i32
   %405 = load i32, ptr @hf_smb_file_name_len, align 4
-  %406 = call ptr @proto_tree_add_uint(ptr noundef %320, i32 noundef %405, ptr noundef %0, i32 noundef %395, i32 noundef 1, i32 noundef %404) #15
+  %406 = call ptr @proto_tree_add_uint(ptr noundef %320, i32 noundef %405, ptr noundef nonnull %0, i32 noundef %395, i32 noundef 1, i32 noundef %404) #15
   %407 = add i32 %395, 1
   store i32 %407, ptr %28, align 4
   %408 = load i16, ptr %4, align 2
@@ -25167,7 +25165,7 @@ thread-pre-split.i95:                             ; preds = %324, %316
   %storemerge.v.i96 = select i1 %.not89.i, i32 1, i32 2
   %storemerge.i97 = add nuw nsw i32 %storemerge.v.i96, %404
   store i32 %storemerge.i97, ptr %29, align 4
-  %412 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %28, i32 noundef %411, ptr noundef nonnull %29, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
+  %412 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef nonnull %0, ptr noundef %28, i32 noundef %411, ptr noundef %29, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
   %413 = icmp eq ptr %412, null
   br i1 %413, label %414, label %415
 
@@ -25180,7 +25178,7 @@ thread-pre-split.i95:                             ; preds = %324, %316
   %416 = load i32, ptr @hf_smb_file_name, align 4
   %417 = load i32, ptr %28, align 4
   %418 = load i32, ptr %29, align 4
-  %419 = call ptr @proto_tree_add_string(ptr noundef %320, i32 noundef %416, ptr noundef %0, i32 noundef %417, i32 noundef %418, ptr noundef nonnull %412) #15
+  %419 = call ptr @proto_tree_add_string(ptr noundef %320, i32 noundef %416, ptr noundef nonnull %0, i32 noundef %417, i32 noundef %418, ptr noundef nonnull %412) #15
   %420 = load i32, ptr %29, align 4
   %421 = add i32 %420, %417
   %422 = load i16, ptr %4, align 2
@@ -25222,7 +25220,7 @@ dissect_4_3_4_3.exit:                             ; preds = %323, %333, %342, %3
   br label %dissect_4_3_4_4.exit
 
 439:                                              ; preds = %436
-  %440 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %3) #15
+  %440 = tail call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %3) #15
   %.not.i98 = icmp eq i32 %440, 0
   br i1 %.not.i98, label %441, label %444
 
@@ -25233,13 +25231,13 @@ dissect_4_3_4_3.exit:                             ; preds = %323, %333, %342, %3
 
 444:                                              ; preds = %441, %439
   %445 = phi i32 [ %443, %441 ], [ %440, %439 ]
-  tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %3, i32 noundef %445) #15
+  tail call void @tvb_ensure_bytes_exist(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %445) #15
   %446 = load i16, ptr %4, align 2
   %447 = zext i16 %446 to i32
   %448 = load i32, ptr @ett_smb_ff2_data, align 4
   %449 = load i32, ptr %40, align 4
   %450 = tail call ptr @val_to_str(i32 noundef %449, ptr noundef nonnull @ff2_il_vals, ptr noundef nonnull @.str.2599) #15
-  %451 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef %447, i32 noundef %448, ptr noundef nonnull %27, ptr noundef %450) #15
+  %451 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %447, i32 noundef %448, ptr noundef nonnull %27, ptr noundef %450) #15
   %452 = load i16, ptr %4, align 2
   %453 = icmp ult i16 %452, 4
   br i1 %453, label %454, label %455
@@ -25250,7 +25248,7 @@ dissect_4_3_4_3.exit:                             ; preds = %323, %333, %342, %3
 
 455:                                              ; preds = %444
   %456 = load i32, ptr @hf_smb_next_entry_offset, align 4
-  %457 = call ptr @proto_tree_add_uint(ptr noundef %451, i32 noundef %456, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef %440) #15
+  %457 = call ptr @proto_tree_add_uint(ptr noundef %451, i32 noundef %456, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 4, i32 noundef %440) #15
   %458 = add i32 %3, 4
   %459 = load i16, ptr %4, align 2
   %460 = add i16 %459, -4
@@ -25264,12 +25262,12 @@ dissect_4_3_4_3.exit:                             ; preds = %323, %333, %342, %3
 
 463:                                              ; preds = %455
   %464 = load i32, ptr @hf_smb_file_index, align 4
-  %465 = call ptr @proto_tree_add_item(ptr noundef %451, i32 noundef %464, ptr noundef %0, i32 noundef %458, i32 noundef 4, i32 noundef -2147483648) #15
+  %465 = call ptr @proto_tree_add_item(ptr noundef %451, i32 noundef %464, ptr noundef nonnull %0, i32 noundef %458, i32 noundef 4, i32 noundef -2147483648) #15
   %466 = add i32 %3, 8
   %467 = load i16, ptr %4, align 2
   %468 = add i16 %467, -4
   store i16 %468, ptr %4, align 2
-  %469 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef %0, ptr noundef %451, i32 noundef %466, ptr noundef nonnull %4, ptr noundef %5)
+  %469 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef nonnull %0, ptr noundef %451, i32 noundef %466, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %470 = load i32, ptr %5, align 4
   %.not80.i = icmp eq i32 %470, 0
   br i1 %.not80.i, label %471, label %dissect_4_3_4_4.exit
@@ -25285,7 +25283,7 @@ dissect_4_3_4_3.exit:                             ; preds = %323, %333, %342, %3
 
 475:                                              ; preds = %471
   %476 = load i32, ptr @hf_smb_end_of_file, align 4
-  %477 = call ptr @proto_tree_add_item(ptr noundef %451, i32 noundef %476, ptr noundef %0, i32 noundef %469, i32 noundef 8, i32 noundef -2147483648) #15
+  %477 = call ptr @proto_tree_add_item(ptr noundef %451, i32 noundef %476, ptr noundef nonnull %0, i32 noundef %469, i32 noundef 8, i32 noundef -2147483648) #15
   %478 = add i32 %469, 8
   %479 = load i16, ptr %4, align 2
   %480 = add i16 %479, -8
@@ -25299,7 +25297,7 @@ dissect_4_3_4_3.exit:                             ; preds = %323, %333, %342, %3
 
 483:                                              ; preds = %475
   %484 = load i32, ptr @hf_smb_alloc_size64, align 4
-  %485 = call ptr @proto_tree_add_item(ptr noundef %451, i32 noundef %484, ptr noundef %0, i32 noundef %478, i32 noundef 8, i32 noundef -2147483648) #15
+  %485 = call ptr @proto_tree_add_item(ptr noundef %451, i32 noundef %484, ptr noundef nonnull %0, i32 noundef %478, i32 noundef 8, i32 noundef -2147483648) #15
   %486 = add i32 %469, 16
   %487 = load i16, ptr %4, align 2
   %488 = add i16 %487, -8
@@ -25312,7 +25310,7 @@ dissect_4_3_4_3.exit:                             ; preds = %323, %333, %342, %3
   br label %dissect_4_3_4_4.exit
 
 491:                                              ; preds = %483
-  %492 = call fastcc i32 @dissect_file_ext_attr(ptr noundef %0, ptr noundef %451, i32 noundef %486)
+  %492 = call fastcc i32 @dissect_file_ext_attr(ptr noundef nonnull %0, ptr noundef %451, i32 noundef %486)
   %493 = load i16, ptr %4, align 2
   %494 = add i16 %493, -4
   store i16 %494, ptr %4, align 2
@@ -25324,10 +25322,10 @@ dissect_4_3_4_3.exit:                             ; preds = %323, %333, %342, %3
   br label %dissect_4_3_4_4.exit
 
 497:                                              ; preds = %491
-  %498 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %492) #15
+  %498 = call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %492) #15
   store i32 %498, ptr %26, align 4
   %499 = load i32, ptr @hf_smb_file_name_len, align 4
-  %500 = call ptr @proto_tree_add_uint(ptr noundef %451, i32 noundef %499, ptr noundef %0, i32 noundef %492, i32 noundef 4, i32 noundef %498) #15
+  %500 = call ptr @proto_tree_add_uint(ptr noundef %451, i32 noundef %499, ptr noundef nonnull %0, i32 noundef %492, i32 noundef 4, i32 noundef %498) #15
   %501 = add i32 %492, 4
   store i32 %501, ptr %25, align 4
   %502 = load i16, ptr %4, align 2
@@ -25335,7 +25333,7 @@ dissect_4_3_4_3.exit:                             ; preds = %323, %333, %342, %3
   store i16 %503, ptr %4, align 2
   %504 = getelementptr inbounds i8, ptr %6, i64 24
   %505 = load i32, ptr %504, align 8
-  %506 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %25, i32 noundef %505, ptr noundef nonnull %26, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
+  %506 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef nonnull %0, ptr noundef %25, i32 noundef %505, ptr noundef %26, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
   %507 = icmp eq ptr %506, null
   br i1 %507, label %508, label %510
 
@@ -25348,7 +25346,7 @@ dissect_4_3_4_3.exit:                             ; preds = %323, %333, %342, %3
   %511 = load i32, ptr @hf_smb_file_name, align 4
   %512 = load i32, ptr %25, align 4
   %513 = load i32, ptr %26, align 4
-  %514 = call ptr @proto_tree_add_string(ptr noundef %451, i32 noundef %511, ptr noundef %0, i32 noundef %512, i32 noundef %513, ptr noundef nonnull %506) #15
+  %514 = call ptr @proto_tree_add_string(ptr noundef %451, i32 noundef %511, ptr noundef nonnull %0, i32 noundef %512, i32 noundef %513, ptr noundef nonnull %506) #15
   %515 = load i32, ptr %26, align 4
   %516 = add i32 %515, %512
   %517 = load i16, ptr %4, align 2
@@ -25419,7 +25417,7 @@ dissect_4_3_4_4.exit:                             ; preds = %438, %454, %462, %4
   br label %dissect_4_3_4_5.exit
 
 548:                                              ; preds = %545
-  %549 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %3) #15
+  %549 = tail call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %3) #15
   %.not.i101 = icmp eq i32 %549, 0
   br i1 %.not.i101, label %550, label %553
 
@@ -25430,13 +25428,13 @@ dissect_4_3_4_4.exit:                             ; preds = %438, %454, %462, %4
 
 553:                                              ; preds = %550, %548
   %554 = phi i32 [ %552, %550 ], [ %549, %548 ]
-  tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %3, i32 noundef %554) #15
+  tail call void @tvb_ensure_bytes_exist(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %554) #15
   %555 = load i16, ptr %4, align 2
   %556 = zext i16 %555 to i32
   %557 = load i32, ptr @ett_smb_ff2_data, align 4
   %558 = load i32, ptr %40, align 4
   %559 = tail call ptr @val_to_str(i32 noundef %558, ptr noundef nonnull @ff2_il_vals, ptr noundef nonnull @.str.2599) #15
-  %560 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef %556, i32 noundef %557, ptr noundef nonnull %24, ptr noundef %559) #15
+  %560 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %556, i32 noundef %557, ptr noundef nonnull %24, ptr noundef %559) #15
   %561 = load i16, ptr %4, align 2
   %562 = icmp ult i16 %561, 4
   br i1 %562, label %563, label %564
@@ -25447,7 +25445,7 @@ dissect_4_3_4_4.exit:                             ; preds = %438, %454, %462, %4
 
 564:                                              ; preds = %553
   %565 = load i32, ptr @hf_smb_next_entry_offset, align 4
-  %566 = call ptr @proto_tree_add_uint(ptr noundef %560, i32 noundef %565, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef %549) #15
+  %566 = call ptr @proto_tree_add_uint(ptr noundef %560, i32 noundef %565, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 4, i32 noundef %549) #15
   %567 = add i32 %3, 4
   %568 = load i16, ptr %4, align 2
   %569 = add i16 %568, -4
@@ -25461,12 +25459,12 @@ dissect_4_3_4_4.exit:                             ; preds = %438, %454, %462, %4
 
 572:                                              ; preds = %564
   %573 = load i32, ptr @hf_smb_file_index, align 4
-  %574 = call ptr @proto_tree_add_item(ptr noundef %560, i32 noundef %573, ptr noundef %0, i32 noundef %567, i32 noundef 4, i32 noundef -2147483648) #15
+  %574 = call ptr @proto_tree_add_item(ptr noundef %560, i32 noundef %573, ptr noundef nonnull %0, i32 noundef %567, i32 noundef 4, i32 noundef -2147483648) #15
   %575 = add i32 %3, 8
   %576 = load i16, ptr %4, align 2
   %577 = add i16 %576, -4
   store i16 %577, ptr %4, align 2
-  %578 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef %0, ptr noundef %560, i32 noundef %575, ptr noundef nonnull %4, ptr noundef %5)
+  %578 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef nonnull %0, ptr noundef %560, i32 noundef %575, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %579 = load i32, ptr %5, align 4
   %.not85.i = icmp eq i32 %579, 0
   br i1 %.not85.i, label %580, label %dissect_4_3_4_5.exit
@@ -25482,7 +25480,7 @@ dissect_4_3_4_4.exit:                             ; preds = %438, %454, %462, %4
 
 584:                                              ; preds = %580
   %585 = load i32, ptr @hf_smb_end_of_file, align 4
-  %586 = call ptr @proto_tree_add_item(ptr noundef %560, i32 noundef %585, ptr noundef %0, i32 noundef %578, i32 noundef 8, i32 noundef -2147483648) #15
+  %586 = call ptr @proto_tree_add_item(ptr noundef %560, i32 noundef %585, ptr noundef nonnull %0, i32 noundef %578, i32 noundef 8, i32 noundef -2147483648) #15
   %587 = add i32 %578, 8
   %588 = load i16, ptr %4, align 2
   %589 = add i16 %588, -8
@@ -25496,7 +25494,7 @@ dissect_4_3_4_4.exit:                             ; preds = %438, %454, %462, %4
 
 592:                                              ; preds = %584
   %593 = load i32, ptr @hf_smb_alloc_size64, align 4
-  %594 = call ptr @proto_tree_add_item(ptr noundef %560, i32 noundef %593, ptr noundef %0, i32 noundef %587, i32 noundef 8, i32 noundef -2147483648) #15
+  %594 = call ptr @proto_tree_add_item(ptr noundef %560, i32 noundef %593, ptr noundef nonnull %0, i32 noundef %587, i32 noundef 8, i32 noundef -2147483648) #15
   %595 = add i32 %578, 16
   %596 = load i16, ptr %4, align 2
   %597 = add i16 %596, -8
@@ -25509,7 +25507,7 @@ dissect_4_3_4_4.exit:                             ; preds = %438, %454, %462, %4
   br label %dissect_4_3_4_5.exit
 
 600:                                              ; preds = %592
-  %601 = call fastcc i32 @dissect_file_ext_attr(ptr noundef %0, ptr noundef %560, i32 noundef %595)
+  %601 = call fastcc i32 @dissect_file_ext_attr(ptr noundef nonnull %0, ptr noundef %560, i32 noundef %595)
   %602 = load i16, ptr %4, align 2
   %603 = add i16 %602, -4
   store i16 %603, ptr %4, align 2
@@ -25521,10 +25519,10 @@ dissect_4_3_4_4.exit:                             ; preds = %438, %454, %462, %4
   br label %dissect_4_3_4_5.exit
 
 606:                                              ; preds = %600
-  %607 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %601) #15
+  %607 = call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %601) #15
   store i32 %607, ptr %23, align 4
   %608 = load i32, ptr @hf_smb_file_name_len, align 4
-  %609 = call ptr @proto_tree_add_uint(ptr noundef %560, i32 noundef %608, ptr noundef %0, i32 noundef %601, i32 noundef 4, i32 noundef %607) #15
+  %609 = call ptr @proto_tree_add_uint(ptr noundef %560, i32 noundef %608, ptr noundef nonnull %0, i32 noundef %601, i32 noundef 4, i32 noundef %607) #15
   %610 = add i32 %601, 4
   %611 = load i16, ptr %4, align 2
   %612 = add i16 %611, -4
@@ -25538,7 +25536,7 @@ dissect_4_3_4_4.exit:                             ; preds = %438, %454, %462, %4
 
 615:                                              ; preds = %606
   %616 = load i32, ptr @hf_smb_ea_list_length, align 4
-  %617 = call ptr @proto_tree_add_item(ptr noundef %560, i32 noundef %616, ptr noundef %0, i32 noundef %610, i32 noundef 4, i32 noundef -2147483648) #15
+  %617 = call ptr @proto_tree_add_item(ptr noundef %560, i32 noundef %616, ptr noundef nonnull %0, i32 noundef %610, i32 noundef 4, i32 noundef -2147483648) #15
   %618 = add i32 %601, 8
   store i32 %618, ptr %22, align 4
   %619 = load i16, ptr %4, align 2
@@ -25546,7 +25544,7 @@ dissect_4_3_4_4.exit:                             ; preds = %438, %454, %462, %4
   store i16 %620, ptr %4, align 2
   %621 = getelementptr inbounds i8, ptr %6, i64 24
   %622 = load i32, ptr %621, align 8
-  %623 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %22, i32 noundef %622, ptr noundef nonnull %23, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
+  %623 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef nonnull %0, ptr noundef %22, i32 noundef %622, ptr noundef %23, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
   %624 = icmp eq ptr %623, null
   br i1 %624, label %625, label %627
 
@@ -25559,7 +25557,7 @@ dissect_4_3_4_4.exit:                             ; preds = %438, %454, %462, %4
   %628 = load i32, ptr @hf_smb_file_name, align 4
   %629 = load i32, ptr %22, align 4
   %630 = load i32, ptr %23, align 4
-  %631 = call ptr @proto_tree_add_string(ptr noundef %560, i32 noundef %628, ptr noundef %0, i32 noundef %629, i32 noundef %630, ptr noundef nonnull %623) #15
+  %631 = call ptr @proto_tree_add_string(ptr noundef %560, i32 noundef %628, ptr noundef nonnull %0, i32 noundef %629, i32 noundef %630, ptr noundef nonnull %623) #15
   %632 = load i32, ptr %23, align 4
   %633 = add i32 %632, %629
   %634 = load i16, ptr %4, align 2
@@ -25624,7 +25622,7 @@ dissect_4_3_4_5.exit:                             ; preds = %547, %563, %571, %5
   br i1 %663, label %dissect_4_3_4_7.exit, label %664
 
 664:                                              ; preds = %662
-  %665 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %3) #15
+  %665 = tail call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %3) #15
   %.not.i104 = icmp eq i32 %665, 0
   br i1 %.not.i104, label %666, label %669
 
@@ -25635,20 +25633,20 @@ dissect_4_3_4_5.exit:                             ; preds = %547, %563, %571, %5
 
 669:                                              ; preds = %666, %664
   %670 = phi i32 [ %668, %666 ], [ %665, %664 ]
-  tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %3, i32 noundef %670) #15
+  tail call void @tvb_ensure_bytes_exist(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %670) #15
   %671 = load i16, ptr %4, align 2
   %672 = zext i16 %671 to i32
   %673 = load i32, ptr @ett_smb_ff2_data, align 4
   %674 = load i32, ptr %40, align 4
   %675 = tail call ptr @val_to_str(i32 noundef %674, ptr noundef nonnull @ff2_il_vals, ptr noundef nonnull @.str.2599) #15
-  %676 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef %672, i32 noundef %673, ptr noundef nonnull %21, ptr noundef %675) #15
+  %676 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %672, i32 noundef %673, ptr noundef nonnull %21, ptr noundef %675) #15
   %677 = load i16, ptr %4, align 2
   %678 = icmp ult i16 %677, 4
   br i1 %678, label %dissect_4_3_4_7.exit, label %679
 
 679:                                              ; preds = %669
   %680 = load i32, ptr @hf_smb_next_entry_offset, align 4
-  %681 = call ptr @proto_tree_add_uint(ptr noundef %676, i32 noundef %680, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef %665) #15
+  %681 = call ptr @proto_tree_add_uint(ptr noundef %676, i32 noundef %680, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 4, i32 noundef %665) #15
   %682 = add i32 %3, 4
   %683 = load i16, ptr %4, align 2
   %684 = add i16 %683, -4
@@ -25658,7 +25656,7 @@ dissect_4_3_4_5.exit:                             ; preds = %547, %563, %571, %5
 
 686:                                              ; preds = %679
   %687 = load i32, ptr @hf_smb_file_index, align 4
-  %688 = call ptr @proto_tree_add_item(ptr noundef %676, i32 noundef %687, ptr noundef %0, i32 noundef %682, i32 noundef 4, i32 noundef -2147483648) #15
+  %688 = call ptr @proto_tree_add_item(ptr noundef %676, i32 noundef %687, ptr noundef nonnull %0, i32 noundef %682, i32 noundef 4, i32 noundef -2147483648) #15
   %689 = add i32 %3, 8
   %690 = load i16, ptr %4, align 2
   %691 = add i16 %690, -4
@@ -25667,9 +25665,9 @@ dissect_4_3_4_5.exit:                             ; preds = %547, %563, %571, %5
   br i1 %692, label %dissect_4_3_4_7.exit, label %693
 
 693:                                              ; preds = %686
-  %694 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %689) #15
+  %694 = call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %689) #15
   %695 = load i32, ptr @hf_smb_file_name_len, align 4
-  %696 = call ptr @proto_tree_add_uint(ptr noundef %676, i32 noundef %695, ptr noundef %0, i32 noundef %689, i32 noundef 4, i32 noundef %694) #15
+  %696 = call ptr @proto_tree_add_uint(ptr noundef %676, i32 noundef %695, ptr noundef nonnull %0, i32 noundef %689, i32 noundef 4, i32 noundef %694) #15
   %697 = add i32 %3, 12
   %698 = load i16, ptr %4, align 2
   %699 = add i16 %698, -4
@@ -25703,13 +25701,13 @@ dissect_4_3_4_5.exit:                             ; preds = %547, %563, %571, %5
   %spec.select.i.i = call i32 @llvm.umin.i32(i32 %694, i32 %713)
   %714 = select i1 %712, i32 2147483647, i32 %spec.select.i.i
   %715 = call ptr @wmem_packet_scope() #15
-  %716 = call ptr @tvb_get_string_enc(ptr noundef %715, ptr noundef %0, i32 noundef %.2.i, i32 noundef %714, i32 noundef -2147483644) #15
+  %716 = call ptr @tvb_get_string_enc(ptr noundef %715, ptr noundef nonnull %0, i32 noundef %.2.i, i32 noundef %714, i32 noundef -2147483644) #15
   br label %get_unicode_or_ascii_string.exit.i
 
 717:                                              ; preds = %701
   %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %694, i32 2147483647)
   %718 = call ptr @wmem_packet_scope() #15
-  %719 = call ptr @tvb_get_string_enc(ptr noundef %718, ptr noundef %0, i32 noundef %697, i32 noundef %spec.store.select.i.i, i32 noundef 0) #15
+  %719 = call ptr @tvb_get_string_enc(ptr noundef %718, ptr noundef nonnull %0, i32 noundef %697, i32 noundef %spec.store.select.i.i, i32 noundef 0) #15
   br label %get_unicode_or_ascii_string.exit.i
 
 get_unicode_or_ascii_string.exit.i:               ; preds = %717, %710
@@ -25721,7 +25719,7 @@ get_unicode_or_ascii_string.exit.i:               ; preds = %717, %710
 
 721:                                              ; preds = %get_unicode_or_ascii_string.exit.i
   %722 = load i32, ptr @hf_smb_file_name, align 4
-  %723 = call ptr @proto_tree_add_string(ptr noundef %676, i32 noundef %722, ptr noundef %0, i32 noundef %.3.i, i32 noundef %.0.i105, ptr noundef nonnull %.0.i.i) #15
+  %723 = call ptr @proto_tree_add_string(ptr noundef %676, i32 noundef %722, ptr noundef nonnull %0, i32 noundef %.3.i, i32 noundef %.0.i105, ptr noundef nonnull %.0.i.i) #15
   %724 = add i32 %.0.i105, %.3.i
   %725 = load i16, ptr %4, align 2
   %726 = trunc i32 %.0.i105 to i16
@@ -25787,7 +25785,7 @@ dissect_4_3_4_7.exit:                             ; preds = %662, %669, %679, %6
   br label %dissect_4_3_4_6.exit
 
 754:                                              ; preds = %751
-  %755 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %3) #15
+  %755 = tail call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %3) #15
   %.not.i107 = icmp eq i32 %755, 0
   br i1 %.not.i107, label %756, label %759
 
@@ -25798,13 +25796,13 @@ dissect_4_3_4_7.exit:                             ; preds = %662, %669, %679, %6
 
 759:                                              ; preds = %756, %754
   %760 = phi i32 [ %758, %756 ], [ %755, %754 ]
-  tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %3, i32 noundef %760) #15
+  tail call void @tvb_ensure_bytes_exist(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %760) #15
   %761 = load i16, ptr %4, align 2
   %762 = zext i16 %761 to i32
   %763 = load i32, ptr @ett_smb_ff2_data, align 4
   %764 = load i32, ptr %40, align 4
   %765 = tail call ptr @val_to_str(i32 noundef %764, ptr noundef nonnull @ff2_il_vals, ptr noundef nonnull @.str.2599) #15
-  %766 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef %762, i32 noundef %763, ptr noundef nonnull %20, ptr noundef %765) #15
+  %766 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %762, i32 noundef %763, ptr noundef nonnull %20, ptr noundef %765) #15
   %767 = load i16, ptr %4, align 2
   %768 = icmp ult i16 %767, 4
   br i1 %768, label %769, label %770
@@ -25815,7 +25813,7 @@ dissect_4_3_4_7.exit:                             ; preds = %662, %669, %679, %6
 
 770:                                              ; preds = %759
   %771 = load i32, ptr @hf_smb_next_entry_offset, align 4
-  %772 = call ptr @proto_tree_add_uint(ptr noundef %766, i32 noundef %771, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef %755) #15
+  %772 = call ptr @proto_tree_add_uint(ptr noundef %766, i32 noundef %771, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 4, i32 noundef %755) #15
   %773 = add i32 %3, 4
   %774 = load i16, ptr %4, align 2
   %775 = add i16 %774, -4
@@ -25829,12 +25827,12 @@ dissect_4_3_4_7.exit:                             ; preds = %662, %669, %679, %6
 
 778:                                              ; preds = %770
   %779 = load i32, ptr @hf_smb_file_index, align 4
-  %780 = call ptr @proto_tree_add_item(ptr noundef %766, i32 noundef %779, ptr noundef %0, i32 noundef %773, i32 noundef 4, i32 noundef -2147483648) #15
+  %780 = call ptr @proto_tree_add_item(ptr noundef %766, i32 noundef %779, ptr noundef nonnull %0, i32 noundef %773, i32 noundef 4, i32 noundef -2147483648) #15
   %781 = add i32 %3, 8
   %782 = load i16, ptr %4, align 2
   %783 = add i16 %782, -4
   store i16 %783, ptr %4, align 2
-  %784 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef %0, ptr noundef %766, i32 noundef %781, ptr noundef nonnull %4, ptr noundef %5)
+  %784 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef nonnull %0, ptr noundef %766, i32 noundef %781, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %785 = load i32, ptr %5, align 4
   %.not106.i = icmp eq i32 %785, 0
   br i1 %.not106.i, label %786, label %dissect_4_3_4_6.exit
@@ -25850,7 +25848,7 @@ dissect_4_3_4_7.exit:                             ; preds = %662, %669, %679, %6
 
 790:                                              ; preds = %786
   %791 = load i32, ptr @hf_smb_end_of_file, align 4
-  %792 = call ptr @proto_tree_add_item(ptr noundef %766, i32 noundef %791, ptr noundef %0, i32 noundef %784, i32 noundef 8, i32 noundef -2147483648) #15
+  %792 = call ptr @proto_tree_add_item(ptr noundef %766, i32 noundef %791, ptr noundef nonnull %0, i32 noundef %784, i32 noundef 8, i32 noundef -2147483648) #15
   %793 = add i32 %784, 8
   %794 = load i16, ptr %4, align 2
   %795 = add i16 %794, -8
@@ -25864,7 +25862,7 @@ dissect_4_3_4_7.exit:                             ; preds = %662, %669, %679, %6
 
 798:                                              ; preds = %790
   %799 = load i32, ptr @hf_smb_alloc_size64, align 4
-  %800 = call ptr @proto_tree_add_item(ptr noundef %766, i32 noundef %799, ptr noundef %0, i32 noundef %793, i32 noundef 8, i32 noundef -2147483648) #15
+  %800 = call ptr @proto_tree_add_item(ptr noundef %766, i32 noundef %799, ptr noundef nonnull %0, i32 noundef %793, i32 noundef 8, i32 noundef -2147483648) #15
   %801 = add i32 %784, 16
   %802 = load i16, ptr %4, align 2
   %803 = add i16 %802, -8
@@ -25877,7 +25875,7 @@ dissect_4_3_4_7.exit:                             ; preds = %662, %669, %679, %6
   br label %dissect_4_3_4_6.exit
 
 806:                                              ; preds = %798
-  %807 = call fastcc i32 @dissect_file_ext_attr(ptr noundef %0, ptr noundef %766, i32 noundef %801)
+  %807 = call fastcc i32 @dissect_file_ext_attr(ptr noundef nonnull %0, ptr noundef %766, i32 noundef %801)
   %808 = load i16, ptr %4, align 2
   %809 = add i16 %808, -4
   store i16 %809, ptr %4, align 2
@@ -25889,10 +25887,10 @@ dissect_4_3_4_7.exit:                             ; preds = %662, %669, %679, %6
   br label %dissect_4_3_4_6.exit
 
 812:                                              ; preds = %806
-  %813 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %807) #15
+  %813 = call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %807) #15
   store i32 %813, ptr %18, align 4
   %814 = load i32, ptr @hf_smb_file_name_len, align 4
-  %815 = call ptr @proto_tree_add_uint(ptr noundef %766, i32 noundef %814, ptr noundef %0, i32 noundef %807, i32 noundef 4, i32 noundef %813) #15
+  %815 = call ptr @proto_tree_add_uint(ptr noundef %766, i32 noundef %814, ptr noundef nonnull %0, i32 noundef %807, i32 noundef 4, i32 noundef %813) #15
   %816 = add i32 %807, 4
   %817 = load i16, ptr %4, align 2
   %818 = add i16 %817, -4
@@ -25906,7 +25904,7 @@ dissect_4_3_4_7.exit:                             ; preds = %662, %669, %679, %6
 
 821:                                              ; preds = %812
   %822 = load i32, ptr @hf_smb_ea_list_length, align 4
-  %823 = call ptr @proto_tree_add_item(ptr noundef %766, i32 noundef %822, ptr noundef %0, i32 noundef %816, i32 noundef 4, i32 noundef -2147483648) #15
+  %823 = call ptr @proto_tree_add_item(ptr noundef %766, i32 noundef %822, ptr noundef nonnull %0, i32 noundef %816, i32 noundef 4, i32 noundef -2147483648) #15
   %824 = add i32 %807, 8
   %825 = load i16, ptr %4, align 2
   %826 = add i16 %825, -4
@@ -25919,11 +25917,11 @@ dissect_4_3_4_7.exit:                             ; preds = %662, %669, %679, %6
   br label %dissect_4_3_4_6.exit
 
 829:                                              ; preds = %821
-  %830 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %824) #15
+  %830 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %824) #15
   %831 = zext i8 %830 to i32
   store i32 %831, ptr %19, align 4
   %832 = load i32, ptr @hf_smb_short_file_name_len, align 4
-  %833 = call ptr @proto_tree_add_uint(ptr noundef %766, i32 noundef %832, ptr noundef %0, i32 noundef %824, i32 noundef 1, i32 noundef %831) #15
+  %833 = call ptr @proto_tree_add_uint(ptr noundef %766, i32 noundef %832, ptr noundef nonnull %0, i32 noundef %824, i32 noundef 1, i32 noundef %831) #15
   %834 = add i32 %807, 9
   %835 = load i16, ptr %4, align 2
   %836 = add i16 %835, -1
@@ -25937,7 +25935,7 @@ dissect_4_3_4_7.exit:                             ; preds = %662, %669, %679, %6
 
 839:                                              ; preds = %829
   %840 = load i32, ptr @hf_smb_reserved, align 4
-  %841 = call ptr @proto_tree_add_item(ptr noundef %766, i32 noundef %840, ptr noundef %0, i32 noundef %834, i32 noundef 1, i32 noundef 0) #15
+  %841 = call ptr @proto_tree_add_item(ptr noundef %766, i32 noundef %840, ptr noundef nonnull %0, i32 noundef %834, i32 noundef 1, i32 noundef 0) #15
   %842 = add i32 %807, 10
   store i32 %842, ptr %17, align 4
   %843 = load i16, ptr %4, align 2
@@ -25945,7 +25943,7 @@ dissect_4_3_4_7.exit:                             ; preds = %662, %669, %679, %6
   store i16 %844, ptr %4, align 2
   %845 = getelementptr inbounds i8, ptr %6, i64 24
   %846 = load i32, ptr %845, align 8
-  %847 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %17, i32 noundef %846, ptr noundef nonnull %19, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
+  %847 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef nonnull %0, ptr noundef %17, i32 noundef %846, ptr noundef %19, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
   %848 = icmp eq ptr %847, null
   br i1 %848, label %849, label %851
 
@@ -25957,14 +25955,14 @@ dissect_4_3_4_7.exit:                             ; preds = %662, %669, %679, %6
 851:                                              ; preds = %839
   %852 = load i32, ptr @hf_smb_short_file_name, align 4
   %853 = load i32, ptr %17, align 4
-  %854 = call ptr @proto_tree_add_string(ptr noundef %766, i32 noundef %852, ptr noundef %0, i32 noundef %853, i32 noundef 24, ptr noundef nonnull %847) #15
+  %854 = call ptr @proto_tree_add_string(ptr noundef %766, i32 noundef %852, ptr noundef nonnull %0, i32 noundef %853, i32 noundef 24, ptr noundef nonnull %847) #15
   %855 = add i32 %853, 24
   store i32 %855, ptr %17, align 4
   %856 = load i16, ptr %4, align 2
   %857 = add i16 %856, -24
   store i16 %857, ptr %4, align 2
   %858 = load i32, ptr %845, align 8
-  %859 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %17, i32 noundef %858, ptr noundef nonnull %18, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
+  %859 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef nonnull %0, ptr noundef %17, i32 noundef %858, ptr noundef %18, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
   %860 = icmp eq ptr %859, null
   br i1 %860, label %861, label %863
 
@@ -25977,7 +25975,7 @@ dissect_4_3_4_7.exit:                             ; preds = %662, %669, %679, %6
   %864 = load i32, ptr @hf_smb_file_name, align 4
   %865 = load i32, ptr %17, align 4
   %866 = load i32, ptr %18, align 4
-  %867 = call ptr @proto_tree_add_string(ptr noundef %766, i32 noundef %864, ptr noundef %0, i32 noundef %865, i32 noundef %866, ptr noundef nonnull %859) #15
+  %867 = call ptr @proto_tree_add_string(ptr noundef %766, i32 noundef %864, ptr noundef nonnull %0, i32 noundef %865, i32 noundef %866, ptr noundef nonnull %859) #15
   %868 = load i32, ptr %18, align 4
   %869 = add i32 %868, %865
   %870 = load i16, ptr %4, align 2
@@ -26049,7 +26047,7 @@ dissect_4_3_4_6.exit:                             ; preds = %753, %769, %777, %7
   br label %dissect_4_3_4_6full.exit
 
 901:                                              ; preds = %898
-  %902 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %3) #15
+  %902 = tail call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %3) #15
   %.not.i110 = icmp eq i32 %902, 0
   br i1 %.not.i110, label %903, label %906
 
@@ -26060,13 +26058,13 @@ dissect_4_3_4_6.exit:                             ; preds = %753, %769, %777, %7
 
 906:                                              ; preds = %903, %901
   %907 = phi i32 [ %905, %903 ], [ %902, %901 ]
-  tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %3, i32 noundef %907) #15
+  tail call void @tvb_ensure_bytes_exist(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %907) #15
   %908 = load i16, ptr %4, align 2
   %909 = zext i16 %908 to i32
   %910 = load i32, ptr @ett_smb_ff2_data, align 4
   %911 = load i32, ptr %40, align 4
   %912 = tail call ptr @val_to_str(i32 noundef %911, ptr noundef nonnull @ff2_il_vals, ptr noundef nonnull @.str.2599) #15
-  %913 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef %909, i32 noundef %910, ptr noundef nonnull %16, ptr noundef %912) #15
+  %913 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %909, i32 noundef %910, ptr noundef nonnull %16, ptr noundef %912) #15
   %914 = load i16, ptr %4, align 2
   %915 = icmp ult i16 %914, 4
   br i1 %915, label %916, label %917
@@ -26077,7 +26075,7 @@ dissect_4_3_4_6.exit:                             ; preds = %753, %769, %777, %7
 
 917:                                              ; preds = %906
   %918 = load i32, ptr @hf_smb_next_entry_offset, align 4
-  %919 = call ptr @proto_tree_add_uint(ptr noundef %913, i32 noundef %918, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef %902) #15
+  %919 = call ptr @proto_tree_add_uint(ptr noundef %913, i32 noundef %918, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 4, i32 noundef %902) #15
   %920 = add i32 %3, 4
   %921 = load i16, ptr %4, align 2
   %922 = add i16 %921, -4
@@ -26091,12 +26089,12 @@ dissect_4_3_4_6.exit:                             ; preds = %753, %769, %777, %7
 
 925:                                              ; preds = %917
   %926 = load i32, ptr @hf_smb_file_index, align 4
-  %927 = call ptr @proto_tree_add_item(ptr noundef %913, i32 noundef %926, ptr noundef %0, i32 noundef %920, i32 noundef 4, i32 noundef -2147483648) #15
+  %927 = call ptr @proto_tree_add_item(ptr noundef %913, i32 noundef %926, ptr noundef nonnull %0, i32 noundef %920, i32 noundef 4, i32 noundef -2147483648) #15
   %928 = add i32 %3, 8
   %929 = load i16, ptr %4, align 2
   %930 = add i16 %929, -4
   store i16 %930, ptr %4, align 2
-  %931 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef %0, ptr noundef %913, i32 noundef %928, ptr noundef nonnull %4, ptr noundef %5)
+  %931 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef nonnull %0, ptr noundef %913, i32 noundef %928, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %932 = load i32, ptr %5, align 4
   %.not91.i = icmp eq i32 %932, 0
   br i1 %.not91.i, label %933, label %dissect_4_3_4_6full.exit
@@ -26112,7 +26110,7 @@ dissect_4_3_4_6.exit:                             ; preds = %753, %769, %777, %7
 
 937:                                              ; preds = %933
   %938 = load i32, ptr @hf_smb_end_of_file, align 4
-  %939 = call ptr @proto_tree_add_item(ptr noundef %913, i32 noundef %938, ptr noundef %0, i32 noundef %931, i32 noundef 8, i32 noundef -2147483648) #15
+  %939 = call ptr @proto_tree_add_item(ptr noundef %913, i32 noundef %938, ptr noundef nonnull %0, i32 noundef %931, i32 noundef 8, i32 noundef -2147483648) #15
   %940 = add i32 %931, 8
   %941 = load i16, ptr %4, align 2
   %942 = add i16 %941, -8
@@ -26126,7 +26124,7 @@ dissect_4_3_4_6.exit:                             ; preds = %753, %769, %777, %7
 
 945:                                              ; preds = %937
   %946 = load i32, ptr @hf_smb_alloc_size64, align 4
-  %947 = call ptr @proto_tree_add_item(ptr noundef %913, i32 noundef %946, ptr noundef %0, i32 noundef %940, i32 noundef 8, i32 noundef -2147483648) #15
+  %947 = call ptr @proto_tree_add_item(ptr noundef %913, i32 noundef %946, ptr noundef nonnull %0, i32 noundef %940, i32 noundef 8, i32 noundef -2147483648) #15
   %948 = add i32 %931, 16
   %949 = load i16, ptr %4, align 2
   %950 = add i16 %949, -8
@@ -26139,7 +26137,7 @@ dissect_4_3_4_6.exit:                             ; preds = %753, %769, %777, %7
   br label %dissect_4_3_4_6full.exit
 
 953:                                              ; preds = %945
-  %954 = call fastcc i32 @dissect_file_ext_attr(ptr noundef %0, ptr noundef %913, i32 noundef %948)
+  %954 = call fastcc i32 @dissect_file_ext_attr(ptr noundef nonnull %0, ptr noundef %913, i32 noundef %948)
   %955 = load i16, ptr %4, align 2
   %956 = add i16 %955, -4
   store i16 %956, ptr %4, align 2
@@ -26151,10 +26149,10 @@ dissect_4_3_4_6.exit:                             ; preds = %753, %769, %777, %7
   br label %dissect_4_3_4_6full.exit
 
 959:                                              ; preds = %953
-  %960 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %954) #15
+  %960 = call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %954) #15
   store i32 %960, ptr %15, align 4
   %961 = load i32, ptr @hf_smb_file_name_len, align 4
-  %962 = call ptr @proto_tree_add_uint(ptr noundef %913, i32 noundef %961, ptr noundef %0, i32 noundef %954, i32 noundef 4, i32 noundef %960) #15
+  %962 = call ptr @proto_tree_add_uint(ptr noundef %913, i32 noundef %961, ptr noundef nonnull %0, i32 noundef %954, i32 noundef 4, i32 noundef %960) #15
   %963 = add i32 %954, 4
   %964 = load i16, ptr %4, align 2
   %965 = add i16 %964, -4
@@ -26168,7 +26166,7 @@ dissect_4_3_4_6.exit:                             ; preds = %753, %769, %777, %7
 
 968:                                              ; preds = %959
   %969 = load i32, ptr @hf_smb_ea_list_length, align 4
-  %970 = call ptr @proto_tree_add_item(ptr noundef %913, i32 noundef %969, ptr noundef %0, i32 noundef %963, i32 noundef 4, i32 noundef -2147483648) #15
+  %970 = call ptr @proto_tree_add_item(ptr noundef %913, i32 noundef %969, ptr noundef nonnull %0, i32 noundef %963, i32 noundef 4, i32 noundef -2147483648) #15
   %971 = load i16, ptr %4, align 2
   %972 = add i32 %954, 12
   %973 = add i16 %971, -8
@@ -26182,7 +26180,7 @@ dissect_4_3_4_6.exit:                             ; preds = %753, %769, %777, %7
 
 976:                                              ; preds = %968
   %977 = load i32, ptr @hf_smb_index_number, align 4
-  %978 = call ptr @proto_tree_add_item(ptr noundef %913, i32 noundef %977, ptr noundef %0, i32 noundef %972, i32 noundef 8, i32 noundef -2147483648) #15
+  %978 = call ptr @proto_tree_add_item(ptr noundef %913, i32 noundef %977, ptr noundef nonnull %0, i32 noundef %972, i32 noundef 8, i32 noundef -2147483648) #15
   %979 = add i32 %954, 20
   store i32 %979, ptr %14, align 4
   %980 = load i16, ptr %4, align 2
@@ -26190,7 +26188,7 @@ dissect_4_3_4_6.exit:                             ; preds = %753, %769, %777, %7
   store i16 %981, ptr %4, align 2
   %982 = getelementptr inbounds i8, ptr %6, i64 24
   %983 = load i32, ptr %982, align 8
-  %984 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %14, i32 noundef %983, ptr noundef nonnull %15, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
+  %984 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef nonnull %0, ptr noundef %14, i32 noundef %983, ptr noundef %15, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
   %985 = icmp eq ptr %984, null
   br i1 %985, label %986, label %988
 
@@ -26203,7 +26201,7 @@ dissect_4_3_4_6.exit:                             ; preds = %753, %769, %777, %7
   %989 = load i32, ptr @hf_smb_file_name, align 4
   %990 = load i32, ptr %14, align 4
   %991 = load i32, ptr %15, align 4
-  %992 = call ptr @proto_tree_add_string(ptr noundef %913, i32 noundef %989, ptr noundef %0, i32 noundef %990, i32 noundef %991, ptr noundef nonnull %984) #15
+  %992 = call ptr @proto_tree_add_string(ptr noundef %913, i32 noundef %989, ptr noundef nonnull %0, i32 noundef %990, i32 noundef %991, ptr noundef nonnull %984) #15
   %993 = load i32, ptr %15, align 4
   %994 = add i32 %993, %990
   %995 = load i16, ptr %4, align 2
@@ -26275,7 +26273,7 @@ dissect_4_3_4_6full.exit:                         ; preds = %900, %916, %924, %9
   br label %dissect_4_3_4_6_id_both.exit
 
 1026:                                             ; preds = %1023
-  %1027 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %3) #15
+  %1027 = tail call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %3) #15
   %.not.i113 = icmp eq i32 %1027, 0
   br i1 %.not.i113, label %1028, label %1031
 
@@ -26286,13 +26284,13 @@ dissect_4_3_4_6full.exit:                         ; preds = %900, %916, %924, %9
 
 1031:                                             ; preds = %1028, %1026
   %1032 = phi i32 [ %1030, %1028 ], [ %1027, %1026 ]
-  tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %3, i32 noundef %1032) #15
+  tail call void @tvb_ensure_bytes_exist(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %1032) #15
   %1033 = load i16, ptr %4, align 2
   %1034 = zext i16 %1033 to i32
   %1035 = load i32, ptr @ett_smb_ff2_data, align 4
   %1036 = load i32, ptr %40, align 4
   %1037 = tail call ptr @val_to_str(i32 noundef %1036, ptr noundef nonnull @ff2_il_vals, ptr noundef nonnull @.str.2599) #15
-  %1038 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef %1034, i32 noundef %1035, ptr noundef nonnull %13, ptr noundef %1037) #15
+  %1038 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %1034, i32 noundef %1035, ptr noundef nonnull %13, ptr noundef %1037) #15
   %1039 = load i16, ptr %4, align 2
   %1040 = icmp ult i16 %1039, 4
   br i1 %1040, label %1041, label %1042
@@ -26303,7 +26301,7 @@ dissect_4_3_4_6full.exit:                         ; preds = %900, %916, %924, %9
 
 1042:                                             ; preds = %1031
   %1043 = load i32, ptr @hf_smb_next_entry_offset, align 4
-  %1044 = call ptr @proto_tree_add_uint(ptr noundef %1038, i32 noundef %1043, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef %1027) #15
+  %1044 = call ptr @proto_tree_add_uint(ptr noundef %1038, i32 noundef %1043, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 4, i32 noundef %1027) #15
   %1045 = add i32 %3, 4
   %1046 = load i16, ptr %4, align 2
   %1047 = add i16 %1046, -4
@@ -26317,12 +26315,12 @@ dissect_4_3_4_6full.exit:                         ; preds = %900, %916, %924, %9
 
 1050:                                             ; preds = %1042
   %1051 = load i32, ptr @hf_smb_file_index, align 4
-  %1052 = call ptr @proto_tree_add_item(ptr noundef %1038, i32 noundef %1051, ptr noundef %0, i32 noundef %1045, i32 noundef 4, i32 noundef -2147483648) #15
+  %1052 = call ptr @proto_tree_add_item(ptr noundef %1038, i32 noundef %1051, ptr noundef nonnull %0, i32 noundef %1045, i32 noundef 4, i32 noundef -2147483648) #15
   %1053 = add i32 %3, 8
   %1054 = load i16, ptr %4, align 2
   %1055 = add i16 %1054, -4
   store i16 %1055, ptr %4, align 2
-  %1056 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef %0, ptr noundef %1038, i32 noundef %1053, ptr noundef nonnull %4, ptr noundef %5)
+  %1056 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef nonnull %0, ptr noundef %1038, i32 noundef %1053, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %1057 = load i32, ptr %5, align 4
   %.not116.i = icmp eq i32 %1057, 0
   br i1 %.not116.i, label %1058, label %dissect_4_3_4_6_id_both.exit
@@ -26338,7 +26336,7 @@ dissect_4_3_4_6full.exit:                         ; preds = %900, %916, %924, %9
 
 1062:                                             ; preds = %1058
   %1063 = load i32, ptr @hf_smb_end_of_file, align 4
-  %1064 = call ptr @proto_tree_add_item(ptr noundef %1038, i32 noundef %1063, ptr noundef %0, i32 noundef %1056, i32 noundef 8, i32 noundef -2147483648) #15
+  %1064 = call ptr @proto_tree_add_item(ptr noundef %1038, i32 noundef %1063, ptr noundef nonnull %0, i32 noundef %1056, i32 noundef 8, i32 noundef -2147483648) #15
   %1065 = add i32 %1056, 8
   %1066 = load i16, ptr %4, align 2
   %1067 = add i16 %1066, -8
@@ -26352,7 +26350,7 @@ dissect_4_3_4_6full.exit:                         ; preds = %900, %916, %924, %9
 
 1070:                                             ; preds = %1062
   %1071 = load i32, ptr @hf_smb_alloc_size64, align 4
-  %1072 = call ptr @proto_tree_add_item(ptr noundef %1038, i32 noundef %1071, ptr noundef %0, i32 noundef %1065, i32 noundef 8, i32 noundef -2147483648) #15
+  %1072 = call ptr @proto_tree_add_item(ptr noundef %1038, i32 noundef %1071, ptr noundef nonnull %0, i32 noundef %1065, i32 noundef 8, i32 noundef -2147483648) #15
   %1073 = add i32 %1056, 16
   %1074 = load i16, ptr %4, align 2
   %1075 = add i16 %1074, -8
@@ -26365,7 +26363,7 @@ dissect_4_3_4_6full.exit:                         ; preds = %900, %916, %924, %9
   br label %dissect_4_3_4_6_id_both.exit
 
 1078:                                             ; preds = %1070
-  %1079 = call fastcc i32 @dissect_file_ext_attr(ptr noundef %0, ptr noundef %1038, i32 noundef %1073)
+  %1079 = call fastcc i32 @dissect_file_ext_attr(ptr noundef nonnull %0, ptr noundef %1038, i32 noundef %1073)
   %1080 = load i16, ptr %4, align 2
   %1081 = add i16 %1080, -4
   store i16 %1081, ptr %4, align 2
@@ -26377,10 +26375,10 @@ dissect_4_3_4_6full.exit:                         ; preds = %900, %916, %924, %9
   br label %dissect_4_3_4_6_id_both.exit
 
 1084:                                             ; preds = %1078
-  %1085 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1079) #15
+  %1085 = call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %1079) #15
   store i32 %1085, ptr %11, align 4
   %1086 = load i32, ptr @hf_smb_file_name_len, align 4
-  %1087 = call ptr @proto_tree_add_uint(ptr noundef %1038, i32 noundef %1086, ptr noundef %0, i32 noundef %1079, i32 noundef 4, i32 noundef %1085) #15
+  %1087 = call ptr @proto_tree_add_uint(ptr noundef %1038, i32 noundef %1086, ptr noundef nonnull %0, i32 noundef %1079, i32 noundef 4, i32 noundef %1085) #15
   %1088 = add i32 %1079, 4
   %1089 = load i16, ptr %4, align 2
   %1090 = add i16 %1089, -4
@@ -26394,7 +26392,7 @@ dissect_4_3_4_6full.exit:                         ; preds = %900, %916, %924, %9
 
 1093:                                             ; preds = %1084
   %1094 = load i32, ptr @hf_smb_ea_list_length, align 4
-  %1095 = call ptr @proto_tree_add_item(ptr noundef %1038, i32 noundef %1094, ptr noundef %0, i32 noundef %1088, i32 noundef 4, i32 noundef -2147483648) #15
+  %1095 = call ptr @proto_tree_add_item(ptr noundef %1038, i32 noundef %1094, ptr noundef nonnull %0, i32 noundef %1088, i32 noundef 4, i32 noundef -2147483648) #15
   %1096 = add i32 %1079, 8
   %1097 = load i16, ptr %4, align 2
   %1098 = add i16 %1097, -4
@@ -26407,11 +26405,11 @@ dissect_4_3_4_6full.exit:                         ; preds = %900, %916, %924, %9
   br label %dissect_4_3_4_6_id_both.exit
 
 1101:                                             ; preds = %1093
-  %1102 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1096) #15
+  %1102 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %1096) #15
   %1103 = zext i8 %1102 to i32
   store i32 %1103, ptr %12, align 4
   %1104 = load i32, ptr @hf_smb_short_file_name_len, align 4
-  %1105 = call ptr @proto_tree_add_uint(ptr noundef %1038, i32 noundef %1104, ptr noundef %0, i32 noundef %1096, i32 noundef 1, i32 noundef %1103) #15
+  %1105 = call ptr @proto_tree_add_uint(ptr noundef %1038, i32 noundef %1104, ptr noundef nonnull %0, i32 noundef %1096, i32 noundef 1, i32 noundef %1103) #15
   %1106 = add i32 %1079, 9
   %1107 = load i16, ptr %4, align 2
   %1108 = add i16 %1107, -1
@@ -26425,7 +26423,7 @@ dissect_4_3_4_6full.exit:                         ; preds = %900, %916, %924, %9
 
 1111:                                             ; preds = %1101
   %1112 = load i32, ptr @hf_smb_reserved, align 4
-  %1113 = call ptr @proto_tree_add_item(ptr noundef %1038, i32 noundef %1112, ptr noundef %0, i32 noundef %1106, i32 noundef 1, i32 noundef 0) #15
+  %1113 = call ptr @proto_tree_add_item(ptr noundef %1038, i32 noundef %1112, ptr noundef nonnull %0, i32 noundef %1106, i32 noundef 1, i32 noundef 0) #15
   %1114 = add i32 %1079, 10
   store i32 %1114, ptr %10, align 4
   %1115 = load i16, ptr %4, align 2
@@ -26433,7 +26431,7 @@ dissect_4_3_4_6full.exit:                         ; preds = %900, %916, %924, %9
   store i16 %1116, ptr %4, align 2
   %1117 = getelementptr inbounds i8, ptr %6, i64 24
   %1118 = load i32, ptr %1117, align 8
-  %1119 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %1118, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
+  %1119 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef nonnull %0, ptr noundef %10, i32 noundef %1118, ptr noundef %12, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
   %1120 = icmp eq ptr %1119, null
   br i1 %1120, label %1121, label %1123
 
@@ -26445,7 +26443,7 @@ dissect_4_3_4_6full.exit:                         ; preds = %900, %916, %924, %9
 1123:                                             ; preds = %1111
   %1124 = load i32, ptr @hf_smb_short_file_name, align 4
   %1125 = load i32, ptr %10, align 4
-  %1126 = call ptr @proto_tree_add_string(ptr noundef %1038, i32 noundef %1124, ptr noundef %0, i32 noundef %1125, i32 noundef 24, ptr noundef nonnull %1119) #15
+  %1126 = call ptr @proto_tree_add_string(ptr noundef %1038, i32 noundef %1124, ptr noundef nonnull %0, i32 noundef %1125, i32 noundef 24, ptr noundef nonnull %1119) #15
   %1127 = add i32 %1125, 24
   %1128 = load i16, ptr %4, align 2
   %1129 = add i16 %1128, -24
@@ -26459,7 +26457,7 @@ dissect_4_3_4_6full.exit:                         ; preds = %900, %916, %924, %9
 
 1132:                                             ; preds = %1123
   %1133 = load i32, ptr @hf_smb_reserved, align 4
-  %1134 = call ptr @proto_tree_add_item(ptr noundef %1038, i32 noundef %1133, ptr noundef %0, i32 noundef %1127, i32 noundef 2, i32 noundef 0) #15
+  %1134 = call ptr @proto_tree_add_item(ptr noundef %1038, i32 noundef %1133, ptr noundef nonnull %0, i32 noundef %1127, i32 noundef 2, i32 noundef 0) #15
   %1135 = add i32 %1125, 26
   %1136 = load i16, ptr %4, align 2
   %1137 = add i16 %1136, -2
@@ -26473,14 +26471,14 @@ dissect_4_3_4_6full.exit:                         ; preds = %900, %916, %924, %9
 
 1140:                                             ; preds = %1132
   %1141 = load i32, ptr @hf_smb_index_number, align 4
-  %1142 = call ptr @proto_tree_add_item(ptr noundef %1038, i32 noundef %1141, ptr noundef %0, i32 noundef %1135, i32 noundef 8, i32 noundef -2147483648) #15
+  %1142 = call ptr @proto_tree_add_item(ptr noundef %1038, i32 noundef %1141, ptr noundef nonnull %0, i32 noundef %1135, i32 noundef 8, i32 noundef -2147483648) #15
   %1143 = add i32 %1125, 34
   store i32 %1143, ptr %10, align 4
   %1144 = load i16, ptr %4, align 2
   %1145 = add i16 %1144, -8
   store i16 %1145, ptr %4, align 2
   %1146 = load i32, ptr %1117, align 8
-  %1147 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %1146, ptr noundef nonnull %11, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
+  %1147 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef nonnull %0, ptr noundef %10, i32 noundef %1146, ptr noundef %11, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4)
   %1148 = icmp eq ptr %1147, null
   br i1 %1148, label %1149, label %1151
 
@@ -26493,7 +26491,7 @@ dissect_4_3_4_6full.exit:                         ; preds = %900, %916, %924, %9
   %1152 = load i32, ptr @hf_smb_file_name, align 4
   %1153 = load i32, ptr %10, align 4
   %1154 = load i32, ptr %11, align 4
-  %1155 = call ptr @proto_tree_add_string(ptr noundef %1038, i32 noundef %1152, ptr noundef %0, i32 noundef %1153, i32 noundef %1154, ptr noundef nonnull %1147) #15
+  %1155 = call ptr @proto_tree_add_string(ptr noundef %1038, i32 noundef %1152, ptr noundef nonnull %0, i32 noundef %1153, i32 noundef %1154, ptr noundef nonnull %1147) #15
   %1156 = load i32, ptr %11, align 4
   %1157 = add i32 %1156, %1153
   %1158 = load i16, ptr %4, align 2
@@ -26565,7 +26563,7 @@ dissect_4_3_4_6_id_both.exit:                     ; preds = %1025, %1041, %1049,
 
 1189:                                             ; preds = %1186
   %1190 = load i32, ptr @hf_smb_unix_find_file_nextoffset, align 4
-  %1191 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1190, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #15
+  %1191 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1190, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #15
   %1192 = add i32 %3, 4
   %1193 = load i16, ptr %4, align 2
   %1194 = add i16 %1193, -4
@@ -26579,12 +26577,12 @@ dissect_4_3_4_6_id_both.exit:                     ; preds = %1025, %1041, %1049,
 
 1197:                                             ; preds = %1189
   %1198 = load i32, ptr @hf_smb_unix_find_file_resumekey, align 4
-  %1199 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1198, ptr noundef %0, i32 noundef %1192, i32 noundef 4, i32 noundef -2147483648) #15
+  %1199 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1198, ptr noundef nonnull %0, i32 noundef %1192, i32 noundef 4, i32 noundef -2147483648) #15
   %1200 = add i32 %3, 8
   %1201 = load i16, ptr %4, align 2
   %1202 = add i16 %1201, -4
   store i16 %1202, ptr %4, align 2
-  %1203 = tail call fastcc i32 @dissect_4_2_16_12(ptr noundef %0, ptr noundef %2, i32 noundef %1200, ptr noundef nonnull %4, ptr noundef %5)
+  %1203 = tail call fastcc i32 @dissect_4_2_16_12(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1200, ptr noundef %4, ptr noundef %5)
   store i32 %1203, ptr %8, align 4
   %1204 = load i32, ptr %5, align 4
   %.not.i116 = icmp eq i32 %1204, 0
@@ -26593,7 +26591,7 @@ dissect_4_3_4_6_id_both.exit:                     ; preds = %1025, %1041, %1049,
 1205:                                             ; preds = %1197
   %1206 = getelementptr inbounds i8, ptr %6, i64 24
   %1207 = load i32, ptr %1206, align 8
-  %1208 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %1207, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4)
+  %1208 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef nonnull %0, ptr noundef %8, i32 noundef %1207, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4)
   %1209 = icmp eq ptr %1208, null
   br i1 %1209, label %1210, label %1212
 
@@ -26606,7 +26604,7 @@ dissect_4_3_4_6_id_both.exit:                     ; preds = %1025, %1041, %1049,
   %1213 = load i32, ptr @hf_smb_unix_file_name, align 4
   %1214 = load i32, ptr %8, align 4
   %1215 = load i32, ptr %9, align 4
-  %1216 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %1213, ptr noundef %0, i32 noundef %1214, i32 noundef %1215, ptr noundef nonnull %1208) #15
+  %1216 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %1213, ptr noundef nonnull %0, i32 noundef %1214, i32 noundef %1215, ptr noundef nonnull %1208) #15
   %1217 = load i32, ptr %9, align 4
   %1218 = add i32 %1217, %1214
   %1219 = load i16, ptr %4, align 2
@@ -26637,7 +26635,7 @@ dissect_4_3_4_8.exit:                             ; preds = %1188, %1196, %1197,
 
 1228:                                             ; preds = %1226
   %1229 = load i32, ptr @hf_smb_unix_find_file_nextoffset, align 4
-  %1230 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1229, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #15
+  %1230 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1229, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #15
   %1231 = add i32 %3, 4
   %1232 = load i16, ptr %4, align 2
   %1233 = add i16 %1232, -4
@@ -26647,12 +26645,12 @@ dissect_4_3_4_8.exit:                             ; preds = %1188, %1196, %1197,
 
 1235:                                             ; preds = %1228
   %1236 = load i32, ptr @hf_smb_unix_find_file_resumekey, align 4
-  %1237 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1236, ptr noundef %0, i32 noundef %1231, i32 noundef 4, i32 noundef -2147483648) #15
+  %1237 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1236, ptr noundef nonnull %0, i32 noundef %1231, i32 noundef 4, i32 noundef -2147483648) #15
   %1238 = add i32 %3, 8
   %1239 = load i16, ptr %4, align 2
   %1240 = add i16 %1239, -4
   store i16 %1240, ptr %4, align 2
-  %1241 = tail call fastcc i32 @dissect_qspi_unix_info2(ptr noundef %0, ptr noundef %2, i32 noundef %1238, ptr noundef nonnull %4, ptr noundef %5)
+  %1241 = tail call fastcc i32 @dissect_qspi_unix_info2(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1238, ptr noundef %4, ptr noundef %5)
   %1242 = load i32, ptr %5, align 4
   %.not.i119 = icmp eq i32 %1242, 0
   br i1 %.not.i119, label %1243, label %dissect_find_file_unix_info2.exit
@@ -26663,14 +26661,14 @@ dissect_4_3_4_8.exit:                             ; preds = %1188, %1196, %1197,
   br i1 %1245, label %.sink.split.i, label %1246
 
 1246:                                             ; preds = %1243
-  %1247 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1241) #15
+  %1247 = tail call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %1241) #15
   %1248 = load i32, ptr @hf_smb_unix_file_name_length, align 4
-  %1249 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %1248, ptr noundef %0, i32 noundef %1241, i32 noundef 4, i32 noundef %1247) #15
+  %1249 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %1248, ptr noundef nonnull %0, i32 noundef %1241, i32 noundef 4, i32 noundef %1247) #15
   %1250 = add i32 %1241, 4
   %1251 = load i16, ptr %4, align 2
   %1252 = add i16 %1251, -4
   store i16 %1252, ptr %4, align 2
-  tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %1250, i32 noundef %1247) #15
+  tail call void @tvb_ensure_bytes_exist(ptr noundef nonnull %0, i32 noundef %1250, i32 noundef %1247) #15
   %1253 = load i16, ptr %4, align 2
   %1254 = icmp eq i16 %1253, 0
   br i1 %1254, label %.sink.split.i, label %1255
@@ -26687,13 +26685,13 @@ dissect_4_3_4_8.exit:                             ; preds = %1188, %1196, %1197,
   %spec.select.i.i122 = tail call i32 @llvm.umin.i32(i32 %1247, i32 %1260)
   %1261 = select i1 %1259, i32 2147483647, i32 %spec.select.i.i122
   %1262 = tail call ptr @wmem_packet_scope() #15
-  %1263 = tail call ptr @tvb_get_string_enc(ptr noundef %1262, ptr noundef %0, i32 noundef %1250, i32 noundef %1261, i32 noundef -2147483644) #15
+  %1263 = tail call ptr @tvb_get_string_enc(ptr noundef %1262, ptr noundef nonnull %0, i32 noundef %1250, i32 noundef %1261, i32 noundef -2147483644) #15
   br label %get_unicode_or_ascii_string.exit.i123
 
 1264:                                             ; preds = %1255
   %spec.store.select.i.i126 = tail call i32 @llvm.umin.i32(i32 %1247, i32 2147483647)
   %1265 = tail call ptr @wmem_packet_scope() #15
-  %1266 = tail call ptr @tvb_get_string_enc(ptr noundef %1265, ptr noundef %0, i32 noundef %1250, i32 noundef %spec.store.select.i.i126, i32 noundef 0) #15
+  %1266 = tail call ptr @tvb_get_string_enc(ptr noundef %1265, ptr noundef nonnull %0, i32 noundef %1250, i32 noundef %spec.store.select.i.i126, i32 noundef 0) #15
   br label %get_unicode_or_ascii_string.exit.i123
 
 get_unicode_or_ascii_string.exit.i123:            ; preds = %1264, %1258
@@ -26704,7 +26702,7 @@ get_unicode_or_ascii_string.exit.i123:            ; preds = %1264, %1258
 
 1268:                                             ; preds = %get_unicode_or_ascii_string.exit.i123
   %1269 = load i32, ptr @hf_smb_unix_file_name, align 4
-  %1270 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %1269, ptr noundef %0, i32 noundef %1250, i32 noundef %.019.i, ptr noundef nonnull %.0.i.i124) #15
+  %1270 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %1269, ptr noundef nonnull %0, i32 noundef %1250, i32 noundef %.019.i, ptr noundef nonnull %.0.i.i124) #15
   %1271 = add i32 %.019.i, %1250
   %1272 = load i16, ptr %4, align 2
   %1273 = trunc i32 %.019.i to i16
@@ -26743,7 +26741,7 @@ dissect_find_file_unix_info2.exit:                ; preds = %.sink.split.i, %123
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -26802,25 +26800,25 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef %0, ptr noundef %1,
   br label %188
 
 14:                                               ; preds = %11
-  %15 = call fastcc i32 @dissect_qsfi_SMB_INFO_STANDARD(ptr noundef %0, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
+  %15 = call fastcc i32 @dissect_qsfi_SMB_INFO_STANDARD(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef %9)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 16:                                               ; preds = %11
-  %17 = call fastcc i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %9)
+  %17 = call fastcc i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE(ptr noundef %0, ptr noundef %2, ptr noundef %4, ptr noundef %9)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 18:                                               ; preds = %11, %11
-  %19 = call fastcc i32 @dissect_4_2_16_2(ptr noundef %0, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
+  %19 = call fastcc i32 @dissect_4_2_16_2(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef %9)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 20:                                               ; preds = %11
   %21 = getelementptr i8, ptr %5, i64 24
   %.val166 = load i32, ptr %21, align 8
-  %22 = call fastcc i32 @dissect_4_2_16_3(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %9, i32 %.val166)
+  %22 = call fastcc i32 @dissect_4_2_16_3(ptr noundef %0, ptr noundef %2, ptr noundef %4, ptr noundef %9, i32 %.val166)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 23:                                               ; preds = %11, %11
-  %24 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef %0, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
+  %24 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
   %25 = load i32, ptr %9, align 4
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %26, label %dissect_4_2_16_4.exit.thread185
@@ -26831,11 +26829,11 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef %0, ptr noundef %1,
   br i1 %28, label %dissect_4_2_16_4.exit, label %29
 
 29:                                               ; preds = %26
-  %30 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %24) #15
+  %30 = tail call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %24) #15
   %31 = load i32, ptr @hf_smb_file_eattr, align 4
   %32 = load i32, ptr @ett_smb_file_attributes, align 4
   %33 = zext i32 %30 to i64
-  %34 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef %24, i32 noundef %31, i32 noundef %32, ptr noundef nonnull @dissect_file_ext_attr_bits.mask_fields, i64 noundef %33, i32 noundef 1) #15
+  %34 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %24, i32 noundef %31, i32 noundef %32, ptr noundef nonnull @dissect_file_ext_attr_bits.mask_fields, i64 noundef %33, i32 noundef 1) #15
   %35 = add i32 %24, 4
   %36 = load i16, ptr %4, align 2
   %37 = add i16 %36, -4
@@ -26843,7 +26841,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef %0, ptr noundef %1,
   br label %dissect_4_2_16_4.exit
 
 38:                                               ; preds = %11, %11
-  %39 = call i32 @dissect_qfi_SMB_FILE_STANDARD_INFO(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
+  %39 = call i32 @dissect_qfi_SMB_FILE_STANDARD_INFO(ptr noundef nonnull %0, ptr poison, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 40:                                               ; preds = %11
@@ -26852,7 +26850,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef %0, ptr noundef %1,
 
 42:                                               ; preds = %40
   %43 = load i32, ptr @hf_smb_index_number, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #15
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %43, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #15
   %45 = load i16, ptr %4, align 2
   %46 = add i16 %45, -8
   store i16 %46, ptr %4, align 2
@@ -26864,7 +26862,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef %0, ptr noundef %1,
 
 49:                                               ; preds = %47
   %50 = load i32, ptr @hf_smb_ea_list_length, align 4
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %50, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #15
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %50, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #15
   %52 = load i16, ptr %4, align 2
   %53 = add i16 %52, -4
   store i16 %53, ptr %4, align 2
@@ -26873,7 +26871,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef %0, ptr noundef %1,
 54:                                               ; preds = %11, %11
   %55 = getelementptr inbounds i8, ptr %5, i64 24
   %56 = load i32, ptr %55, align 8
-  %57 = call i32 @dissect_qfi_SMB_FILE_NAME_INFO(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9, i32 noundef %56)
+  %57 = call i32 @dissect_qfi_SMB_FILE_NAME_INFO(ptr noundef nonnull %0, ptr poison, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9, i32 noundef %56)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 58:                                               ; preds = %11
@@ -26882,7 +26880,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef %0, ptr noundef %1,
 
 60:                                               ; preds = %58
   %61 = load i32, ptr @hf_smb_position, align 4
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %61, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #15
+  %62 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %61, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #15
   %63 = load i16, ptr %4, align 2
   %64 = add i16 %63, -8
   store i16 %64, ptr %4, align 2
@@ -26894,7 +26892,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef %0, ptr noundef %1,
 
 67:                                               ; preds = %65
   %68 = load i32, ptr @hf_smb_mode, align 4
-  %69 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %68, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #15
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %68, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #15
   %70 = load i16, ptr %4, align 2
   %71 = add i16 %70, -4
   store i16 %71, ptr %4, align 2
@@ -26906,7 +26904,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef %0, ptr noundef %1,
 
 74:                                               ; preds = %72
   %75 = load i32, ptr @hf_smb_t2_alignment, align 4
-  %76 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %75, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #15
+  %76 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %75, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #15
   %77 = load i16, ptr %4, align 2
   %78 = add i16 %77, -4
   store i16 %78, ptr %4, align 2
@@ -26915,7 +26913,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef %0, ptr noundef %1,
 79:                                               ; preds = %11, %11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %80 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef %0, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
+  %80 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
   %81 = load i32, ptr %9, align 4
   %.not.i176 = icmp eq i32 %81, 0
   br i1 %.not.i176, label %82, label %dissect_qfi_SMB_FILE_ALL_INFO.exit
@@ -26930,11 +26928,11 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef %0, ptr noundef %1,
   br label %dissect_qfi_SMB_FILE_ALL_INFO.exit
 
 86:                                               ; preds = %82
-  %87 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %80) #15
+  %87 = tail call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %80) #15
   %88 = load i32, ptr @hf_smb_file_eattr, align 4
   %89 = load i32, ptr @ett_smb_file_attributes, align 4
   %90 = zext i32 %87 to i64
-  %91 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef %80, i32 noundef %88, i32 noundef %89, ptr noundef nonnull @dissect_file_ext_attr_bits.mask_fields, i64 noundef %90, i32 noundef 1) #15
+  %91 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %80, i32 noundef %88, i32 noundef %89, ptr noundef nonnull @dissect_file_ext_attr_bits.mask_fields, i64 noundef %90, i32 noundef 1) #15
   %92 = load i16, ptr %4, align 2
   %93 = add i32 %80, 8
   %94 = add i16 %92, -8
@@ -26948,7 +26946,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef %0, ptr noundef %1,
 
 97:                                               ; preds = %86
   %98 = load i32, ptr @hf_smb_alloc_size64, align 4
-  %99 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %98, ptr noundef %0, i32 noundef %93, i32 noundef 8, i32 noundef -2147483648) #15
+  %99 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %98, ptr noundef nonnull %0, i32 noundef %93, i32 noundef 8, i32 noundef -2147483648) #15
   %100 = add i32 %80, 16
   %101 = load i16, ptr %4, align 2
   %102 = add i16 %101, -8
@@ -26962,7 +26960,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef %0, ptr noundef %1,
 
 105:                                              ; preds = %97
   %106 = load i32, ptr @hf_smb_end_of_file, align 4
-  %107 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %106, ptr noundef %0, i32 noundef %100, i32 noundef 8, i32 noundef -2147483648) #15
+  %107 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %106, ptr noundef nonnull %0, i32 noundef %100, i32 noundef 8, i32 noundef -2147483648) #15
   %108 = add i32 %80, 24
   %109 = load i16, ptr %4, align 2
   %110 = add i16 %109, -8
@@ -26976,7 +26974,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef %0, ptr noundef %1,
 
 113:                                              ; preds = %105
   %114 = load i32, ptr @hf_smb_number_of_links, align 4
-  %115 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %114, ptr noundef %0, i32 noundef %108, i32 noundef 4, i32 noundef -2147483648) #15
+  %115 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %114, ptr noundef nonnull %0, i32 noundef %108, i32 noundef 4, i32 noundef -2147483648) #15
   %116 = add i32 %80, 28
   %117 = load i16, ptr %4, align 2
   %118 = add i16 %117, -4
@@ -26990,7 +26988,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef %0, ptr noundef %1,
 
 121:                                              ; preds = %113
   %122 = load i32, ptr @hf_smb_delete_pending, align 4
-  %123 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %122, ptr noundef %0, i32 noundef %116, i32 noundef 1, i32 noundef -2147483648) #15
+  %123 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %122, ptr noundef nonnull %0, i32 noundef %116, i32 noundef 1, i32 noundef -2147483648) #15
   %124 = add i32 %80, 29
   %125 = load i16, ptr %4, align 2
   %126 = add i16 %125, -1
@@ -27004,7 +27002,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef %0, ptr noundef %1,
 
 129:                                              ; preds = %121
   %130 = load i32, ptr @hf_smb_is_directory, align 4
-  %131 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %130, ptr noundef %0, i32 noundef %124, i32 noundef 1, i32 noundef -2147483648) #15
+  %131 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %130, ptr noundef nonnull %0, i32 noundef %124, i32 noundef 1, i32 noundef -2147483648) #15
   %132 = load i16, ptr %4, align 2
   %133 = add i32 %80, 32
   %134 = add i16 %132, -3
@@ -27018,7 +27016,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef %0, ptr noundef %1,
 
 137:                                              ; preds = %129
   %138 = load i32, ptr @hf_smb_ea_list_length, align 4
-  %139 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %138, ptr noundef %0, i32 noundef %133, i32 noundef 4, i32 noundef -2147483648) #15
+  %139 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %138, ptr noundef nonnull %0, i32 noundef %133, i32 noundef 4, i32 noundef -2147483648) #15
   %140 = add i32 %80, 36
   %141 = load i16, ptr %4, align 2
   %142 = add i16 %141, -4
@@ -27031,10 +27029,10 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef %0, ptr noundef %1,
   br label %dissect_qfi_SMB_FILE_ALL_INFO.exit
 
 145:                                              ; preds = %137
-  %146 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %140) #15
+  %146 = tail call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %140) #15
   store i32 %146, ptr %8, align 4
   %147 = load i32, ptr @hf_smb_file_name_len, align 4
-  %148 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %147, ptr noundef %0, i32 noundef %140, i32 noundef 4, i32 noundef %146) #15
+  %148 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %147, ptr noundef nonnull %0, i32 noundef %140, i32 noundef 4, i32 noundef %146) #15
   %149 = add i32 %80, 40
   store i32 %149, ptr %7, align 4
   %150 = load i16, ptr %4, align 2
@@ -27051,7 +27049,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef %0, ptr noundef %1,
 155:                                              ; preds = %145
   %156 = getelementptr inbounds i8, ptr %5, i64 24
   %157 = load i32, ptr %156, align 8
-  %158 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %157, ptr noundef nonnull %8, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4)
+  %158 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef nonnull %0, ptr noundef %7, i32 noundef %157, ptr noundef %8, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4)
   %.not63.i = icmp eq ptr %158, null
   %.pre189 = load i32, ptr %7, align 4
   br i1 %.not63.i, label %dissect_qfi_SMB_FILE_ALL_INFO.exit, label %159
@@ -27059,7 +27057,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef %0, ptr noundef %1,
 159:                                              ; preds = %155
   %160 = load i32, ptr @hf_smb_file_name, align 4
   %161 = load i32, ptr %8, align 4
-  %162 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %160, ptr noundef %0, i32 noundef %.pre189, i32 noundef %161, ptr noundef nonnull %158) #15
+  %162 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %160, ptr noundef nonnull %0, i32 noundef %.pre189, i32 noundef %161, ptr noundef nonnull %158) #15
   %163 = load i32, ptr %8, align 4
   %164 = add i32 %163, %.pre189
   %165 = load i16, ptr %4, align 2
@@ -27080,7 +27078,7 @@ dissect_qfi_SMB_FILE_ALL_INFO.exit:               ; preds = %155, %159, %79, %85
 
 170:                                              ; preds = %168
   %171 = load i32, ptr @hf_smb_alloc_size64, align 4
-  %172 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %171, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #15
+  %172 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %171, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #15
   %173 = load i16, ptr %4, align 2
   %174 = add i16 %173, -8
   store i16 %174, ptr %4, align 2
@@ -27092,7 +27090,7 @@ dissect_qfi_SMB_FILE_ALL_INFO.exit:               ; preds = %155, %159, %79, %85
 
 177:                                              ; preds = %175
   %178 = load i32, ptr @hf_smb_end_of_file, align 4
-  %179 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %178, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #15
+  %179 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %178, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #15
   %180 = load i16, ptr %4, align 2
   %181 = add i16 %180, -8
   store i16 %181, ptr %4, align 2
@@ -27101,7 +27099,7 @@ dissect_qfi_SMB_FILE_ALL_INFO.exit:               ; preds = %155, %159, %79, %85
 182:                                              ; preds = %11, %11
   %183 = getelementptr inbounds i8, ptr %5, i64 24
   %184 = load i32, ptr %183, align 8
-  %185 = call i32 @dissect_qfi_SMB_FILE_NAME_INFO(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9, i32 noundef %184)
+  %185 = call i32 @dissect_qfi_SMB_FILE_NAME_INFO(ptr noundef nonnull %0, ptr poison, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9, i32 noundef %184)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 186:                                              ; preds = %11
@@ -27111,58 +27109,58 @@ dissect_qfi_SMB_FILE_ALL_INFO.exit:               ; preds = %155, %159, %79, %85
 
 188:                                              ; preds = %._crit_edge, %186
   %189 = phi i32 [ %.pre, %._crit_edge ], [ 1, %186 ]
-  %190 = call i32 @dissect_qfi_SMB_FILE_STREAM_INFO(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9, i32 noundef %189)
+  %190 = call i32 @dissect_qfi_SMB_FILE_STREAM_INFO(ptr noundef nonnull %0, ptr poison, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9, i32 noundef %189)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 191:                                              ; preds = %11, %11
-  %192 = call i32 @dissect_qfi_SMB_FILE_COMPRESSION_INFO(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
+  %192 = call i32 @dissect_qfi_SMB_FILE_COMPRESSION_INFO(ptr noundef nonnull %0, ptr poison, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 193:                                              ; preds = %11
-  %194 = call i32 @dissect_qfi_SMB_FILE_NETWORK_OPEN_INFO(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
+  %194 = call i32 @dissect_qfi_SMB_FILE_NETWORK_OPEN_INFO(ptr noundef nonnull %0, ptr poison, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 195:                                              ; preds = %11
-  %196 = call i32 @dissect_qfi_SMB_FILE_ATTRIBUTE_TAG_INFO(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
+  %196 = call i32 @dissect_qfi_SMB_FILE_ATTRIBUTE_TAG_INFO(ptr noundef nonnull %0, ptr poison, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 197:                                              ; preds = %11
-  %198 = call fastcc i32 @dissect_4_2_16_12(ptr noundef %0, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
+  %198 = call fastcc i32 @dissect_4_2_16_12(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef %9)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 199:                                              ; preds = %11
   %200 = getelementptr i8, ptr %5, i64 24
   %.val = load i32, ptr %200, align 8
-  %201 = call fastcc i32 @dissect_4_2_16_13(ptr noundef %0, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9, i32 %.val)
+  %201 = call fastcc i32 @dissect_4_2_16_13(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef %9, i32 %.val)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 202:                                              ; preds = %11
-  %203 = call fastcc i32 @dissect_qspi_unix_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
+  %203 = call fastcc i32 @dissect_qspi_unix_acl(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef %9)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 204:                                              ; preds = %11
-  %205 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_smb_not_implemented, ptr noundef %0, i32 noundef 0, i32 noundef 0) #15
+  %205 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_smb_not_implemented, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0) #15
   br label %dissect_4_2_16_4.exit.thread
 
 206:                                              ; preds = %11
-  %207 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_smb_not_implemented, ptr noundef %0, i32 noundef 0, i32 noundef 0) #15
+  %207 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_smb_not_implemented, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0) #15
   br label %dissect_4_2_16_4.exit.thread
 
 208:                                              ; preds = %11
-  %209 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_smb_not_implemented, ptr noundef %0, i32 noundef 0, i32 noundef 0) #15
+  %209 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_smb_not_implemented, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0) #15
   br label %dissect_4_2_16_4.exit.thread
 
 210:                                              ; preds = %11
-  %211 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_smb_not_implemented, ptr noundef %0, i32 noundef 0, i32 noundef 0) #15
+  %211 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_smb_not_implemented, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0) #15
   br label %dissect_4_2_16_4.exit.thread
 
 212:                                              ; preds = %11
-  %213 = call fastcc i32 @dissect_qspi_unix_info2(ptr noundef %0, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %9)
+  %213 = call fastcc i32 @dissect_qspi_unix_info2(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef %9)
   br label %dissect_4_2_16_4.exitthread-pre-split
 
 214:                                              ; preds = %11
   %215 = zext i16 %10 to i32
-  %216 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_smb_info_level_unknown, ptr noundef %0, i32 noundef 0, i32 noundef %215) #15
+  %216 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_smb_info_level_unknown, ptr noundef nonnull %0, i32 noundef 0, i32 noundef %215) #15
   %217 = load i16, ptr %4, align 2
   %218 = zext i16 %217 to i32
   store i16 0, ptr %4, align 2
@@ -27196,7 +27194,7 @@ declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @tvb_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = load i16, ptr %2, align 2
   %6 = icmp ult i16 %5, 4
   br i1 %6, label %59, label %7
@@ -27205,7 +27203,7 @@ define internal fastcc noundef i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE(ptr nound
   %8 = load i32, ptr @hf_smb_create_time, align 4
   %9 = load i32, ptr @hf_smb_create_dos_date, align 4
   %10 = load i32, ptr @hf_smb_create_dos_time, align 4
-  %11 = tail call fastcc i32 @dissect_smb_datetime(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef 0)
+  %11 = tail call fastcc i32 @dissect_smb_datetime(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef 0)
   %12 = load i16, ptr %2, align 2
   %13 = add i16 %12, -4
   store i16 %13, ptr %2, align 2
@@ -27216,7 +27214,7 @@ define internal fastcc noundef i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE(ptr nound
   %16 = load i32, ptr @hf_smb_access_time, align 4
   %17 = load i32, ptr @hf_smb_access_dos_date, align 4
   %18 = load i32, ptr @hf_smb_access_dos_time, align 4
-  %19 = tail call fastcc i32 @dissect_smb_datetime(ptr noundef %0, ptr noundef %1, i32 noundef %11, i32 noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef 0)
+  %19 = tail call fastcc i32 @dissect_smb_datetime(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %11, i32 noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef 0)
   %20 = load i16, ptr %2, align 2
   %21 = add i16 %20, -4
   store i16 %21, ptr %2, align 2
@@ -27227,7 +27225,7 @@ define internal fastcc noundef i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE(ptr nound
   %24 = load i32, ptr @hf_smb_last_write_time, align 4
   %25 = load i32, ptr @hf_smb_last_write_dos_date, align 4
   %26 = load i32, ptr @hf_smb_last_write_dos_time, align 4
-  %27 = tail call fastcc i32 @dissect_smb_datetime(ptr noundef %0, ptr noundef %1, i32 noundef %19, i32 noundef %24, i32 noundef %25, i32 noundef %26, i32 noundef 0)
+  %27 = tail call fastcc i32 @dissect_smb_datetime(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %19, i32 noundef %24, i32 noundef %25, i32 noundef %26, i32 noundef 0)
   %28 = load i16, ptr %2, align 2
   %29 = add i16 %28, -4
   store i16 %29, ptr %2, align 2
@@ -27236,7 +27234,7 @@ define internal fastcc noundef i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE(ptr nound
 
 31:                                               ; preds = %23
   %32 = load i32, ptr @hf_smb_data_size, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %32, ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef -2147483648) #15
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %32, ptr noundef nonnull %0, i32 noundef %27, i32 noundef 4, i32 noundef -2147483648) #15
   %34 = add i32 %27, 4
   %35 = load i16, ptr %2, align 2
   %36 = add i16 %35, -4
@@ -27246,7 +27244,7 @@ define internal fastcc noundef i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE(ptr nound
 
 38:                                               ; preds = %31
   %39 = load i32, ptr @hf_smb_alloc_size, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %39, ptr noundef %0, i32 noundef %34, i32 noundef 4, i32 noundef -2147483648) #15
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %39, ptr noundef nonnull %0, i32 noundef %34, i32 noundef 4, i32 noundef -2147483648) #15
   %41 = add i32 %27, 8
   %42 = load i16, ptr %2, align 2
   %43 = add i16 %42, -4
@@ -27257,7 +27255,7 @@ define internal fastcc noundef i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE(ptr nound
 45:                                               ; preds = %38
   %46 = load i32, ptr @hf_smb_file_attr_16bit, align 4
   %47 = load i32, ptr @ett_smb_file_attributes, align 4
-  %48 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %0, i32 noundef %41, i32 noundef %46, i32 noundef %47, ptr noundef nonnull @dissect_file_attributes.flags, i32 noundef -2147483648) #15
+  %48 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef nonnull %0, i32 noundef %41, i32 noundef %46, i32 noundef %47, ptr noundef nonnull @dissect_file_attributes.flags, i32 noundef -2147483648) #15
   %49 = add i32 %27, 10
   %50 = load i16, ptr %2, align 2
   %51 = add i16 %50, -2
@@ -27267,7 +27265,7 @@ define internal fastcc noundef i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE(ptr nound
 
 53:                                               ; preds = %45
   %54 = load i32, ptr @hf_smb_ea_list_length, align 4
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %54, ptr noundef %0, i32 noundef %49, i32 noundef 4, i32 noundef -2147483648) #15
+  %55 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %54, ptr noundef nonnull %0, i32 noundef %49, i32 noundef 4, i32 noundef -2147483648) #15
   %56 = add i32 %27, 14
   %57 = load i16, ptr %2, align 2
   %58 = add i16 %57, -4
@@ -27282,11 +27280,11 @@ define internal fastcc noundef i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_4_2_16_3(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, i32 %.24.val) unnamed_addr #0 {
+define internal fastcc i32 @dissect_4_2_16_3(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, i32 %.24.val) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %7 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %.24.val, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 0, ptr noundef %2)
+  %7 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef nonnull %0, ptr noundef %5, i32 noundef %.24.val, ptr noundef %6, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %2)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %11
 
@@ -27298,7 +27296,7 @@ define internal fastcc i32 @dissect_4_2_16_3(ptr noundef %0, ptr noundef %1, ptr
   %12 = load i32, ptr @hf_smb_file_name, align 4
   %13 = load i32, ptr %5, align 4
   %14 = load i32, ptr %6, align 4
-  %15 = call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef %14, ptr noundef nonnull %7) #15
+  %15 = call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %12, ptr noundef nonnull %0, i32 noundef %13, i32 noundef %14, ptr noundef nonnull %7) #15
   %16 = load i32, ptr %6, align 4
   %17 = add i32 %16, %13
   %18 = load i16, ptr %2, align 2
@@ -27336,7 +27334,7 @@ declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr nounde
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
@@ -27386,7 +27384,7 @@ define internal fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noca
   store i16 %39, ptr %9, align 2
   %40 = getelementptr inbounds i8, ptr %4, i64 24
   %41 = load i32, ptr %40, align 8
-  %42 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %41, ptr noundef nonnull %8, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
+  %42 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %41, ptr noundef %8, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
   %43 = icmp eq ptr %42, null
   %.pre = load i32, ptr %7, align 4
   br i1 %43, label %92, label %44
@@ -27429,7 +27427,7 @@ define internal fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noca
   br i1 %.not56, label %78, label %72
 
 72:                                               ; preds = %65
-  %73 = call fastcc i32 @dissect_search_resume_key(ptr noundef %0, ptr noundef %2, i32 noundef %70, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %5)
+  %73 = call fastcc i32 @dissect_search_resume_key(ptr noundef %0, ptr noundef %2, i32 noundef %70, ptr noundef %9, ptr noundef %10, i32 noundef %5)
   %74 = load i32, ptr %10, align 4
   %75 = icmp eq i32 %74, 0
   %76 = load i16, ptr %9, align 2
@@ -27472,7 +27470,7 @@ define internal fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_search_resume_key(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_search_resume_key(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = load i32, ptr @ett_smb_search_resume_key, align 4
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef 21, i32 noundef %7, ptr noundef null, ptr noundef nonnull @.str.1163) #15
   %9 = load i16, ptr %3, align 2
@@ -27559,7 +27557,7 @@ get_unicode_or_ascii_string.exit.thread:          ; preds = %44, %39, %29, %27, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_search_find_response(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readnone %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_search_find_response(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef readnone %4) unnamed_addr #0 {
   %6 = alloca i16, align 2
   %7 = alloca i32, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #15
@@ -27615,7 +27613,7 @@ define internal fastcc noundef i32 @dissect_search_find_response(ptr noundef %0,
   %37 = add i16 %.15112, -1
   %38 = load i32, ptr @ett_smb_search_dir_info, align 4
   %39 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %.213, i32 noundef 43, i32 noundef %38, ptr noundef null, ptr noundef nonnull @.str.2681) #15
-  %40 = call fastcc i32 @dissect_search_resume_key(ptr noundef %0, ptr noundef %39, i32 noundef %.213, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %3)
+  %40 = call fastcc i32 @dissect_search_resume_key(ptr noundef %0, ptr noundef %39, i32 noundef %.213, ptr noundef %6, ptr noundef %7, i32 noundef %3)
   %41 = load i32, ptr %7, align 4
   %.not37.i = icmp eq i32 %41, 0
   br i1 %.not37.i, label %43, label %dissect_search_dir_info.exit.thread
@@ -27706,14 +27704,15 @@ dissect_search_dir_info.exit.thread:              ; preds = %.lr.ph.split, %get_
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_nt_trans_param_request(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef writeonly %6, ptr noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10) unnamed_addr #0 {
+define internal fastcc void @dissect_nt_trans_param_request(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef writeonly %6, ptr noundef nonnull %7, i32 noundef range(i32 0, 65536) %8, ptr noundef nonnull %9, ptr noundef nonnull %10) unnamed_addr #0 {
   %12 = load i32, ptr @ett_smb_nt_trans_param, align 4
   %13 = tail call ptr @val_to_str_ext(i32 noundef %8, ptr noundef nonnull @nt_cmd_vals_ext, ptr noundef nonnull @.str.2684) #15
   %14 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef %4, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.2633, ptr noundef %13) #15
-  switch i32 %8, label %get_unicode_or_ascii_string.exit.thread [
-    i32 1, label %15
-    i32 6, label %111
-    i32 3, label %95
+  %trunc = trunc nuw i32 %8 to i16
+  switch i16 %trunc, label %get_unicode_or_ascii_string.exit.thread [
+    i16 1, label %15
+    i16 6, label %111
+    i16 3, label %95
   ]
 
 15:                                               ; preds = %11
@@ -27757,10 +27756,10 @@ define internal fastcc void @dissect_nt_trans_param_request(ptr noundef %0, ptr 
   %53 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %14, ptr noundef %0, i32 noundef %48, i32 noundef %50, i32 noundef %51, ptr noundef nonnull @dissect_nt_create_options_bits.fields, i64 noundef %52, i32 noundef 1) #15
   %54 = add i32 %2, 36
   %55 = load i32, ptr @hf_smb_sd_length, align 4
-  %56 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %55, ptr noundef %0, i32 noundef %54, i32 noundef 4, i32 noundef -2147483648, ptr noundef %9) #15
+  %56 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %55, ptr noundef %0, i32 noundef %54, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %9) #15
   %57 = add i32 %2, 40
   %58 = load i32, ptr @hf_smb_ea_list_length, align 4
-  %59 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %58, ptr noundef %0, i32 noundef %57, i32 noundef 4, i32 noundef -2147483648, ptr noundef %10) #15
+  %59 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %58, ptr noundef %0, i32 noundef %57, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #15
   %60 = add i32 %2, 44
   %61 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %60) #15
   %62 = load i32, ptr @hf_smb_file_name_len, align 4
@@ -27823,7 +27822,7 @@ get_unicode_or_ascii_string.exit:                 ; preds = %83, %89
 
 95:                                               ; preds = %11
   %96 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %2) #15
-  %97 = tail call ptr @dissect_smb_fid(ptr noundef %0, ptr noundef %1, ptr noundef %14, i32 noundef %2, i32 noundef 2, i16 noundef zeroext %96, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %7)
+  %97 = tail call ptr @dissect_smb_fid(ptr noundef %0, ptr noundef %1, ptr noundef %14, i32 noundef %2, i32 noundef 2, i16 noundef zeroext %96, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7)
   %98 = add i32 %2, 2
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %104, label %99
@@ -27854,7 +27853,7 @@ get_unicode_or_ascii_string.exit:                 ; preds = %83, %89
 
 111:                                              ; preds = %11
   %112 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %2) #15
-  %113 = tail call ptr @dissect_smb_fid(ptr noundef %0, ptr noundef %1, ptr noundef %14, i32 noundef %2, i32 noundef 2, i16 noundef zeroext %112, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %7)
+  %113 = tail call ptr @dissect_smb_fid(ptr noundef %0, ptr noundef %1, ptr noundef %14, i32 noundef %2, i32 noundef 2, i16 noundef zeroext %112, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7)
   %114 = add i32 %2, 2
   %.not101 = icmp eq ptr %6, null
   br i1 %.not101, label %120, label %115
@@ -27888,19 +27887,20 @@ get_unicode_or_ascii_string.exit.thread:          ; preds = %78, %get_unicode_or
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_nt_trans_data_request(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc void @dissect_nt_trans_data_request(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5, i32 noundef range(i32 0, 65536) %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca i16, align 2
   %11 = trunc i32 %4 to i16
   store i16 %11, ptr %10, align 2
   %12 = load i32, ptr @ett_smb_nt_trans_data, align 4
   %13 = tail call ptr @val_to_str_ext(i32 noundef %6, ptr noundef nonnull @nt_cmd_vals_ext, ptr noundef nonnull @.str.2684) #15
   %14 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef -1, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.2639, ptr noundef %13) #15
-  switch i32 %6, label %54 [
-    i32 1, label %15
-    i32 2, label %23
-    i32 3, label %37
-    i32 8, label %52
-    i32 7, label %44
+  %trunc = trunc nuw i32 %6 to i16
+  switch i16 %trunc, label %54 [
+    i16 1, label %15
+    i16 2, label %23
+    i16 3, label %37
+    i16 8, label %52
+    i16 7, label %44
   ]
 
 15:                                               ; preds = %9
@@ -28041,7 +28041,7 @@ define internal void @smb_dir_specific_rights(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_nt_trans_param_response(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @dissect_nt_trans_param_response(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %6, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null

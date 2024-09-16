@@ -7099,7 +7099,7 @@ define dso_local void @_ZN4Luau9DcrLogger20captureBoundaryStateERNS_16BoundarySn
   %6 = alloca %"struct.Luau::ConstraintSnapshot", align 8
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 752
-  call fastcc void @_ZN4LuauL13snapshotScopeEPKNS_5ScopeERNS_15ToStringOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(184) %8)
+  call fastcc void @_ZN4LuauL13snapshotScopeEPKNS_5ScopeERNS_15ToStringOptionsE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(184) %8)
   %9 = getelementptr inbounds i8, ptr %1, i64 40
   %10 = call noundef nonnull align 8 dereferenceable(192) ptr @_ZN4Luau13ScopeSnapshotaSEOS0_(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull align 8 dereferenceable(192) %5) #18
   call void @_ZN4Luau13ScopeSnapshotD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %5) #18
@@ -7268,7 +7268,7 @@ _ZN4Luau18ConstraintSnapshotD2Ev.exit:            ; preds = %_ZSt8_DestroyIPN4Lu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL13snapshotScopeEPKNS_5ScopeERNS_15ToStringOptionsE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(184) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL13snapshotScopeEPKNS_5ScopeERNS_15ToStringOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(184) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__detail::_AllocNode.245", align 8
   %5 = alloca %"struct.std::__detail::_AllocNode.245", align 8
   %6 = alloca %"struct.std::__detail::_AllocNode", align 8
@@ -7730,7 +7730,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau1
 174:                                              ; preds = %.lr.ph156, %_ZNSt6vectorIN4Luau13ScopeSnapshotESaIS1_EE9push_backEOS1_.exit
   %.sroa.087.0154 = phi ptr [ %146, %.lr.ph156 ], [ %248, %_ZNSt6vectorIN4Luau13ScopeSnapshotESaIS1_EE9push_backEOS1_.exit ]
   %175 = load ptr, ptr %.sroa.087.0154, align 8
-  invoke fastcc void @_ZN4LuauL13snapshotScopeEPKNS_5ScopeERNS_15ToStringOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef %175, ptr noundef nonnull align 8 dereferenceable(184) %2)
+  invoke fastcc void @_ZN4LuauL13snapshotScopeEPKNS_5ScopeERNS_15ToStringOptionsE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef %175, ptr noundef nonnull align 8 dereferenceable(184) %2)
           to label %176 unwind label %.loopexit
 
 176:                                              ; preds = %174
@@ -8810,7 +8810,7 @@ define dso_local void @_ZN4Luau9DcrLogger19prepareStepSnapshotEPKNS_5ScopeENS_7N
   %11 = alloca %"class.Luau::DenseHashMap.50", align 8
   %12 = zext i1 %4 to i8
   %13 = getelementptr inbounds i8, ptr %1, i64 752
-  call fastcc void @_ZN4LuauL13snapshotScopeEPKNS_5ScopeERNS_15ToStringOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(184) %13)
+  call fastcc void @_ZN4LuauL13snapshotScopeEPKNS_5ScopeERNS_15ToStringOptionsE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(184) %13)
   %14 = getelementptr inbounds i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %15 = load ptr, ptr %5, align 8

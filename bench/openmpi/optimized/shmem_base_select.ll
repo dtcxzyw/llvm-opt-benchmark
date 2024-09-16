@@ -41,7 +41,7 @@ define noalias ptr @opal_shmem_base_best_runnable_component_name() local_unnamed
   br label %7
 
 7:                                                ; preds = %0, %5
-  %8 = call fastcc i32 @opal_shmem_base_runtime_query(ptr noundef nonnull %2, ptr noundef nonnull %1)
+  %8 = call fastcc i32 @opal_shmem_base_runtime_query(ptr noundef %2, ptr noundef %1)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %23
 
@@ -84,7 +84,7 @@ declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -13, 1) i32 @opal_shmem_base_runtime_query(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -13, 1) i32 @opal_shmem_base_runtime_query(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr null, ptr %3, align 8
@@ -243,7 +243,7 @@ define i32 @opal_shmem_base_select() local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   store ptr null, ptr %2, align 8
-  %3 = call fastcc i32 @opal_shmem_base_runtime_query(ptr noundef nonnull %2, ptr noundef nonnull %1)
+  %3 = call fastcc i32 @opal_shmem_base_runtime_query(ptr noundef %2, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %10
 

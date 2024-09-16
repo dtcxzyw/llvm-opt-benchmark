@@ -174,7 +174,7 @@ _decode_seq.exit:                                 ; preds = %38, %35
   br label %.lr.ph
 
 48:                                               ; preds = %switch.early.test.i, %switch.early.test.i
-  call fastcc void @_handle_new_key_char(ptr noundef %7, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @_handle_new_key_char(ptr noundef %7, ptr noundef %4, ptr noundef %5)
   br label %.lr.ph
 
 49:                                               ; preds = %switch.early.test.i
@@ -240,13 +240,13 @@ _decode_seq.exit:                                 ; preds = %38, %35
   br i1 %.not, label %.critedge.thread, label %.lr.ph74, !llvm.loop !6
 
 .critedge.thread:                                 ; preds = %.lr.ph, %.lr.ph.preheader, %3
-  call fastcc void @_handle_new_key_char(ptr noundef %7, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @_handle_new_key_char(ptr noundef %7, ptr noundef %4, ptr noundef %5)
   %76 = load ptr, ptr %5, align 8
   %77 = icmp eq ptr %76, null
   br i1 %77, label %.thread, label %78
 
 78:                                               ; preds = %.critedge.thread
-  call fastcc void @_handle_new_key_char(ptr noundef %7, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @_handle_new_key_char(ptr noundef %7, ptr noundef %4, ptr noundef %5)
   br label %.thread
 
 .thread:                                          ; preds = %68, %71, %43, %46, %66, %54, %78, %.critedge.thread
@@ -292,7 +292,7 @@ declare i32 @slurm_get_log_level() local_unnamed_addr #2
 declare void @slurm_log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_handle_new_key_char(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @_handle_new_key_char(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #1 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, null
   %6 = load ptr, ptr %2, align 8
@@ -303,13 +303,13 @@ define internal fastcc void @_handle_new_key_char(ptr noundef %0, ptr noundef %1
   br i1 %7, label %.thread32, label %9
 
 9:                                                ; preds = %8
-  %10 = tail call fastcc ptr @_on_key(ptr noundef %0, ptr noundef nonnull %6)
+  %10 = tail call fastcc ptr @_on_key(ptr noundef %0, ptr noundef %6)
   %11 = tail call ptr @data_set_bool(ptr noundef %10, i1 noundef zeroext true) #3
   tail call void @slurm_xfree(ptr noundef nonnull %2) #3
   br label %.thread32.sink.split
 
 12:                                               ; preds = %3
-  %13 = tail call fastcc ptr @_on_key(ptr noundef %0, ptr noundef nonnull %4)
+  %13 = tail call fastcc ptr @_on_key(ptr noundef %0, ptr noundef %4)
   br i1 %7, label %14, label %16
 
 14:                                               ; preds = %12
@@ -343,13 +343,13 @@ declare void @data_free(ptr noundef) local_unnamed_addr #2
 declare i32 @slurm_char_to_hex(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_on_key(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
-  %3 = tail call ptr @data_key_get(ptr noundef %0, ptr noundef %1) #3
+define internal fastcc ptr @_on_key(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #1 {
+  %3 = tail call ptr @data_key_get(ptr noundef %0, ptr noundef nonnull %1) #3
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef %1) #3
+  %5 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull %1) #3
   br label %17
 
 6:                                                ; preds = %2

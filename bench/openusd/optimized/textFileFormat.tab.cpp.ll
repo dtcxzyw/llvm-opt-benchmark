@@ -13649,7 +13649,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1967: ; preds = %_ZNK32pxr
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2ERKS0_.exit unwind label %.loopexit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2ERKS0_.exit: ; preds = %4645
-  invoke fastcc void @_ZL11_SetDefaultRKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS_7VtValueEPNS_21Sdf_TextParserContextE(ptr noundef nonnull align 4 dereferenceable(8) %216, ptr noundef nonnull %177, ptr noundef %0)
+  invoke fastcc void @_ZL11_SetDefaultRKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS_7VtValueEPNS_21Sdf_TextParserContextE(ptr noundef nonnull align 4 dereferenceable(8) %216, ptr noundef %177, ptr noundef %0)
           to label %4646 unwind label %4659
 
 4646:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2ERKS0_.exit
@@ -13688,7 +13688,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit1971: ; preds = %4646, %46
 
 4661:                                             ; preds = %471
   store ptr %259, ptr %257, align 8
-  invoke fastcc void @_ZL11_SetDefaultRKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS_7VtValueEPNS_21Sdf_TextParserContextE(ptr noundef nonnull align 4 dereferenceable(8) %216, ptr noundef nonnull %178, ptr noundef %0)
+  invoke fastcc void @_ZL11_SetDefaultRKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS_7VtValueEPNS_21Sdf_TextParserContextE(ptr noundef nonnull align 4 dereferenceable(8) %216, ptr noundef %178, ptr noundef %0)
           to label %4662 unwind label %4675
 
 4662:                                             ; preds = %4661
@@ -15057,7 +15057,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTok
 5139:                                             ; preds = %5128, %5127, %.thread
   %5140 = load i32, ptr %226, align 4
   store i32 %5140, ptr %227, align 4
-  invoke fastcc void @_ZL11_SetDefaultRKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS_7VtValueEPNS_21Sdf_TextParserContextE(ptr noundef nonnull align 4 dereferenceable(8) %216, ptr noundef nonnull %200, ptr noundef %0)
+  invoke fastcc void @_ZL11_SetDefaultRKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS_7VtValueEPNS_21Sdf_TextParserContextE(ptr noundef nonnull align 4 dereferenceable(8) %216, ptr noundef %200, ptr noundef %0)
           to label %5141 unwind label %5177
 
 5141:                                             ; preds = %5139
@@ -16313,7 +16313,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11_CreateSpecRKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS_11SdfSpecTypeEPNS_21Sdf_TextParserContextE(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1, ptr %.888.val) unnamed_addr #0 {
+define internal fastcc void @_ZL11_CreateSpecRKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS_11SdfSpecTypeEPNS_21Sdf_TextParserContextE(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef range(i32 1, 12) %1, ptr %.888.val) unnamed_addr #0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   %.not.i = icmp eq ptr %.888.val, null
@@ -16524,7 +16524,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplINSt7__cxx1112b
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL21_GenericMetadataStartRKN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueENS_11SdfSpecTypeEPNS_21Sdf_TextParserContextE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL21_GenericMetadataStartRKN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueENS_11SdfSpecTypeEPNS_21Sdf_TextParserContextE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef range(i32 1, 9) %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfType", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfType", align 8
@@ -16587,7 +16587,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZN32pxrInter
 _ZN32pxrInternal_v0_24__pxrReserved__9SdfSchema11GetInstanceEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, %32
   %.0.i.i = phi ptr [ %.0.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit ], [ %33, %32 ]
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 72
-  %35 = zext i32 %1 to i64
+  %35 = zext nneg i32 %1 to i64
   %36 = getelementptr inbounds [12 x %"struct.std::pair.166"], ptr %34, i64 0, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 80
   %38 = load i8, ptr %37, align 8
@@ -16800,7 +16800,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit40: ; preds = %_ZN32pxrInt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19_GenericMetadataEndN32pxrInternal_v0_24__pxrReserved__11SdfSpecTypeEPNS_21Sdf_TextParserContextE(i32 noundef %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL19_GenericMetadataEndN32pxrInternal_v0_24__pxrReserved__11SdfSpecTypeEPNS_21Sdf_TextParserContextE(i32 noundef range(i32 1, 9) %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca [1 x %"class.pxrInternal_v0_24__pxrReserved__::SdfUnregisteredValue"], align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -16891,7 +16891,7 @@ define internal fastcc void @_ZL19_GenericMetadataEndN32pxrInternal_v0_24__pxrRe
 _ZN32pxrInternal_v0_24__pxrReserved__9SdfSchema11GetInstanceEv.exit: ; preds = %2, %82
   %.0.i.i = phi ptr [ %.0.i.i.i, %2 ], [ %83, %82 ]
   %84 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 72
-  %85 = zext i32 %0 to i64
+  %85 = zext nneg i32 %0 to i64
   %86 = getelementptr inbounds [12 x %"struct.std::pair.166"], ptr %84, i64 0, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 80
   %88 = load i8, ptr %87, align 8
@@ -21514,7 +21514,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL24_PrimSetPayloadListItemsN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeEPNS_21Sdf_TextParserContextE(i32 noundef %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL24_PrimSetPayloadListItemsN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeEPNS_21Sdf_TextParserContextE(i32 noundef range(i32 0, 6) %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.std::vector.43", align 8
@@ -22106,7 +22106,7 @@ _ZL15_SetListOpItemsISt6vectorIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadES
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL24_PrimSetInheritListItemsN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeEPNS_21Sdf_TextParserContextE(i32 noundef %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL24_PrimSetInheritListItemsN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeEPNS_21Sdf_TextParserContextE(i32 noundef range(i32 0, 6) %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfAllowed", align 8
@@ -22277,7 +22277,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTok
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL28_PrimSetSpecializesListItemsN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeEPNS_21Sdf_TextParserContextE(i32 noundef %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL28_PrimSetSpecializesListItemsN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeEPNS_21Sdf_TextParserContextE(i32 noundef range(i32 0, 6) %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfAllowed", align 8
@@ -22448,7 +22448,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTok
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL26_PrimSetReferenceListItemsN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeEPNS_21Sdf_TextParserContextE(i32 noundef %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL26_PrimSetReferenceListItemsN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeEPNS_21Sdf_TextParserContextE(i32 noundef range(i32 0, 6) %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.std::vector.38", align 8
@@ -23022,7 +23022,7 @@ _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL32_PrimSetVariantSetNamesListItemsN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeEPNS_21Sdf_TextParserContextE(i32 noundef %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL32_PrimSetVariantSetNamesListItemsN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeEPNS_21Sdf_TextParserContextE(i32 noundef range(i32 0, 6) %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -25864,7 +25864,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_ParserValueContext20Sta
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_ParserValueContext19StopRecordingStringEv(ptr noundef nonnull align 8 dereferenceable(328)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL34_AttributeSetConnectionTargetsListN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeEPNS_21Sdf_TextParserContextE(i32 noundef %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL34_AttributeSetConnectionTargetsListN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeEPNS_21Sdf_TextParserContextE(i32 noundef range(i32 0, 6) %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -26354,7 +26354,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %38, %43
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11_SetDefaultRKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS_7VtValueEPNS_21Sdf_TextParserContextE(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11_SetDefaultRKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS_7VtValueEPNS_21Sdf_TextParserContextE(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", align 8
@@ -28248,7 +28248,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL27_RelationshipSetTargetsListN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeEPNS_21Sdf_TextParserContextE(i32 noundef %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL27_RelationshipSetTargetsListN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeEPNS_21Sdf_TextParserContextE(i32 noundef range(i32 0, 6) %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfAllowed", align 8
@@ -49985,7 +49985,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_10SdfPayloadEE4
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfSchemaBase18IsValidInheritPathERKNS_7SdfPathE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfAllowed") align 8, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15_SetListOpItemsISt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS2_EEEvRKNS1_7TfTokenENS1_13SdfListOpTypeERKT_PNS1_21Sdf_TextParserContextE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15_SetListOpItemsISt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS2_EEEvRKNS1_7TfTokenENS1_13SdfListOpTypeERKT_PNS1_21Sdf_TextParserContextE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef range(i32 0, 6) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %7 = alloca %"class.std::vector.31", align 8

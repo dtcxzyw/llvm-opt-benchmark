@@ -50272,7 +50272,7 @@ define linkonce_odr dso_local void @_ZNK4crow8mustache10template_t13render_strin
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZN4crow7utilityL12lexical_castINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEET_RKT0_(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4crow7utilityL12lexical_castINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEET_RKT0_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %3) #36
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
@@ -52452,7 +52452,7 @@ _ZNSt6vectorISt6futureIvESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norm
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZN4crow7utilityL14normalize_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4crow7utilityL14normalize_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %3, ptr %0, align 8, !tbaa !5

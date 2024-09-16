@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.f21b7b4e9a2971774499c84fcca165e3.15 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.f21b7b4e9a2971774499c84fcca165e3.4.llvm.17272334559364260139, [16 x i8] c"[\00\00\00\00\00\00\00\DD\03\00\00\09\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr106drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$ockam_core..routing..address..Address$RP$$GT$17hbb9b29c4748b3fabE"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr106drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$ockam_core..routing..address..Address$RP$$GT$17hbb9b29c4748b3fabE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4
@@ -87,7 +87,7 @@ define internal fastcc void @"_ZN4core3ptr106drop_in_place$LT$$LP$ockam_core..ro
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$alloc..collections..btree..set_val..SetValZST$RP$$GT$17hc71b0e577f62c419E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$alloc..collections..btree..set_val..SetValZST$RP$$GT$17hc71b0e577f62c419E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !24
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h52e88670787a671eE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
@@ -113,7 +113,7 @@ define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$$LP$ockam_core..ro
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$ockam_core..flow_control..flow_control_id..FlowControlId$RP$$GT$17hb7868917e205522aE"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$ockam_core..flow_control..flow_control_id..FlowControlId$RP$$GT$17hb7868917e205522aE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !33
@@ -180,7 +180,7 @@ define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$$LP$ockam_core..ro
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr137drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$ockam_core..flow_control..flow_controls..producer_info..ProducerInfo$RP$$GT$17hbd87cb185fce5837E"(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr137drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$ockam_core..flow_control..flow_controls..producer_info..ProducerInfo$RP$$GT$17hbd87cb185fce5837E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !53
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h52e88670787a671eE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
@@ -227,7 +227,7 @@ define internal fastcc void @"_ZN4core3ptr137drop_in_place$LT$$LP$ockam_core..ro
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr158drop_in_place$LT$$LP$ockam_core..flow_control..flow_control_id..FlowControlId$C$ockam_core..flow_control..flow_controls..consumers_info..ConsumersInfo$RP$$GT$17hf6eb74335c4b536dE"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr158drop_in_place$LT$$LP$ockam_core..flow_control..flow_control_id..FlowControlId$C$ockam_core..flow_control..flow_controls..consumers_info..ConsumersInfo$RP$$GT$17hf6eb74335c4b536dE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { ptr, i64 }, i64, { {} }, {} }, align 8
   %3 = alloca { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64, {} }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -1777,7 +1777,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
   %.sroa.0.06.i.i.i = phi i64 [ %206, %.lr.ph.i.i.i ], [ %180, %.lr.ph.i.i.i.preheader ]
-  %206 = add nuw i64 %.sroa.0.06.i.i.i, 1
+  %206 = add nuw nsw i64 %.sroa.0.06.i.i.i, 1
   %207 = getelementptr inbounds ptr, ptr %205, i64 %.sroa.0.06.i.i.i
   %208 = load ptr, ptr %207, align 8, !noalias !212, !nonnull !14, !noundef !14
   %209 = getelementptr inbounds i8, ptr %208, i64 704
@@ -1871,7 +1871,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 243:                                              ; preds = %262, %259
   %244 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$ockam_core..routing..address..Address$RP$$GT$17hbb9b29c4748b3fabE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %10) #21
+  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$ockam_core..routing..address..Address$RP$$GT$17hbb9b29c4748b3fabE"(ptr noalias noundef align 8 dereferenceable(64) %10) #21
           to label %.body.i.i48 unwind label %273, !noalias !218
 
 245:                                              ; preds = %237
@@ -2013,7 +2013,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 .lr.ph.i.i13.i:                                   ; preds = %301, %.lr.ph.i.i13.i
   %.sroa.0.06.i.i14.i = phi i64 [ %304, %.lr.ph.i.i13.i ], [ %280, %301 ]
-  %304 = add nuw i64 %.sroa.0.06.i.i14.i, 1
+  %304 = add nuw nsw i64 %.sroa.0.06.i.i14.i, 1
   %305 = getelementptr inbounds ptr, ptr %293, i64 %.sroa.0.06.i.i14.i
   %306 = load ptr, ptr %305, align 8, !noalias !275, !nonnull !14, !noundef !14
   %307 = getelementptr inbounds i8, ptr %306, i64 704
@@ -2596,7 +2596,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
   %.sroa.0.06.i.i.i = phi i64 [ %205, %.lr.ph.i.i.i ], [ %178, %.lr.ph.i.i.i.preheader ]
-  %205 = add nuw i64 %.sroa.0.06.i.i.i, 1
+  %205 = add nuw nsw i64 %.sroa.0.06.i.i.i, 1
   %206 = getelementptr inbounds ptr, ptr %204, i64 %.sroa.0.06.i.i.i
   %207 = load ptr, ptr %206, align 8, !noalias !398, !nonnull !14, !noundef !14
   %208 = getelementptr inbounds i8, ptr %207, i64 352
@@ -2690,7 +2690,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 242:                                              ; preds = %262, %259
   %243 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$ockam_core..flow_control..flow_control_id..FlowControlId$RP$$GT$17hb7868917e205522aE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %9) #21
+  invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$ockam_core..flow_control..flow_control_id..FlowControlId$RP$$GT$17hb7868917e205522aE"(ptr noalias noundef align 8 dereferenceable(56) %9) #21
           to label %.body.i.i49 unwind label %273, !noalias !404
 
 244:                                              ; preds = %236
@@ -2832,7 +2832,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 .lr.ph.i.i14.i:                                   ; preds = %302, %.lr.ph.i.i14.i
   %.sroa.0.06.i.i15.i = phi i64 [ %305, %.lr.ph.i.i14.i ], [ %280, %302 ]
-  %305 = add nuw i64 %.sroa.0.06.i.i15.i, 1
+  %305 = add nuw nsw i64 %.sroa.0.06.i.i15.i, 1
   %306 = getelementptr inbounds ptr, ptr %294, i64 %.sroa.0.06.i.i15.i
   %307 = load ptr, ptr %306, align 8, !noalias !459, !nonnull !14, !noundef !14
   %308 = getelementptr inbounds i8, ptr %307, i64 352
@@ -3317,7 +3317,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
   %.sroa.0.06.i.i.i = phi i64 [ %166, %.lr.ph.i.i.i ], [ %146, %.lr.ph.i.i.i.preheader ]
-  %166 = add nuw i64 %.sroa.0.06.i.i.i, 1
+  %166 = add nuw nsw i64 %.sroa.0.06.i.i.i, 1
   %167 = getelementptr inbounds ptr, ptr %165, i64 %.sroa.0.06.i.i.i
   %168 = load ptr, ptr %167, align 8, !noalias !550, !nonnull !14, !noundef !14
   %169 = getelementptr inbounds i8, ptr %168, i64 352
@@ -3403,7 +3403,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 200:                                              ; preds = %217, %214
   %201 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$alloc..collections..btree..set_val..SetValZST$RP$$GT$17hc71b0e577f62c419E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #21
+  invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$alloc..collections..btree..set_val..SetValZST$RP$$GT$17hc71b0e577f62c419E"(ptr noalias noundef align 8 dereferenceable(32) %7) #21
           to label %.body.i.i39 unwind label %228, !noalias !556
 
 202:                                              ; preds = %194
@@ -3522,7 +3522,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 .lr.ph.i.i10.i:                                   ; preds = %252, %.lr.ph.i.i10.i
   %.sroa.0.06.i.i11.i = phi i64 [ %255, %.lr.ph.i.i10.i ], [ %235, %252 ]
-  %255 = add nuw i64 %.sroa.0.06.i.i11.i, 1
+  %255 = add nuw nsw i64 %.sroa.0.06.i.i11.i, 1
   %256 = getelementptr inbounds ptr, ptr %244, i64 %.sroa.0.06.i.i11.i
   %257 = load ptr, ptr %256, align 8, !noalias !599, !nonnull !14, !noundef !14
   %258 = getelementptr inbounds i8, ptr %257, i64 352
@@ -4095,7 +4095,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
   %.sroa.0.06.i.i.i = phi i64 [ %202, %.lr.ph.i.i.i ], [ %176, %.lr.ph.i.i.i.preheader ]
-  %202 = add nuw i64 %.sroa.0.06.i.i.i, 1
+  %202 = add nuw nsw i64 %.sroa.0.06.i.i.i, 1
   %203 = getelementptr inbounds ptr, ptr %201, i64 %.sroa.0.06.i.i.i
   %204 = load ptr, ptr %203, align 8, !noalias !723, !nonnull !14, !noundef !14
   store ptr %156, ptr %204, align 8, !noalias !728
@@ -4188,7 +4188,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 238:                                              ; preds = %258, %255
   %239 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr158drop_in_place$LT$$LP$ockam_core..flow_control..flow_control_id..FlowControlId$C$ockam_core..flow_control..flow_controls..consumers_info..ConsumersInfo$RP$$GT$17hf6eb74335c4b536dE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %9) #21
+  invoke fastcc void @"_ZN4core3ptr158drop_in_place$LT$$LP$ockam_core..flow_control..flow_control_id..FlowControlId$C$ockam_core..flow_control..flow_controls..consumers_info..ConsumersInfo$RP$$GT$17hf6eb74335c4b536dE"(ptr noalias noundef align 8 dereferenceable(48) %9) #21
           to label %.body.i.i48 unwind label %268, !noalias !729
 
 240:                                              ; preds = %232
@@ -4331,7 +4331,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 .lr.ph.i.i14.i:                                   ; preds = %297, %.lr.ph.i.i14.i
   %.sroa.0.06.i.i15.i = phi i64 [ %300, %.lr.ph.i.i14.i ], [ %276, %297 ]
-  %300 = add nuw i64 %.sroa.0.06.i.i15.i, 1
+  %300 = add nuw nsw i64 %.sroa.0.06.i.i15.i, 1
   %301 = getelementptr inbounds ptr, ptr %289, i64 %.sroa.0.06.i.i15.i
   %302 = load ptr, ptr %301, align 8, !noalias !786, !nonnull !14, !noundef !14
   store ptr %spec.select.i, ptr %302, align 8, !noalias !791
@@ -4917,7 +4917,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
   %.sroa.0.06.i.i.i = phi i64 [ %210, %.lr.ph.i.i.i ], [ %183, %.lr.ph.i.i.i.preheader ]
-  %210 = add nuw i64 %.sroa.0.06.i.i.i, 1
+  %210 = add nuw nsw i64 %.sroa.0.06.i.i.i, 1
   %211 = getelementptr inbounds ptr, ptr %209, i64 %.sroa.0.06.i.i.i
   %212 = load ptr, ptr %211, align 8, !noalias !910, !nonnull !14, !noundef !14
   %213 = getelementptr inbounds i8, ptr %212, i64 880
@@ -5011,7 +5011,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 247:                                              ; preds = %267, %264
   %248 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr137drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$ockam_core..flow_control..flow_controls..producer_info..ProducerInfo$RP$$GT$17hbd87cb185fce5837E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %10) #21
+  invoke fastcc void @"_ZN4core3ptr137drop_in_place$LT$$LP$ockam_core..routing..address..Address$C$ockam_core..flow_control..flow_controls..producer_info..ProducerInfo$RP$$GT$17hbd87cb185fce5837E"(ptr noalias noundef align 8 dereferenceable(80) %10) #21
           to label %.body.i.i48 unwind label %278, !noalias !916
 
 249:                                              ; preds = %241
@@ -5155,7 +5155,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 .lr.ph.i.i13.i:                                   ; preds = %307, %.lr.ph.i.i13.i
   %.sroa.0.06.i.i14.i = phi i64 [ %310, %.lr.ph.i.i13.i ], [ %285, %307 ]
-  %310 = add nuw i64 %.sroa.0.06.i.i14.i, 1
+  %310 = add nuw nsw i64 %.sroa.0.06.i.i14.i, 1
   %311 = getelementptr inbounds ptr, ptr %299, i64 %.sroa.0.06.i.i14.i
   %312 = load ptr, ptr %311, align 8, !noalias !973, !nonnull !14, !noundef !14
   %313 = getelementptr inbounds i8, ptr %312, i64 880

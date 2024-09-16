@@ -737,7 +737,7 @@ _ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_
           to label %_ZN7testing7MessagelsIA32_cEERS0_RKT_.exit.i unwind label %188
 
 _ZN7testing7MessagelsIA32_cEERS0_RKT_.exit.i:     ; preds = %_ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit.i
-  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_18ToStringB5cxx11ERKNS0_15PhoneNumberDescE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(72) %13)
+  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_18ToStringB5cxx11ERKNS0_15PhoneNumberDescE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(72) %13)
           to label %174 unwind label %188
 
 174:                                              ; preds = %_ZN7testing7MessagelsIA32_cEERS0_RKT_.exit.i
@@ -870,7 +870,7 @@ _ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_
           to label %_ZN7testing7MessagelsIA32_cEERS0_RKT_.exit36.i unwind label %232
 
 _ZN7testing7MessagelsIA32_cEERS0_RKT_.exit36.i:   ; preds = %_ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit35.i
-  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_18ToStringB5cxx11ERKNS0_15PhoneNumberDescE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(72) %13)
+  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_18ToStringB5cxx11ERKNS0_15PhoneNumberDescE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(72) %13)
           to label %218 unwind label %232
 
 218:                                              ; preds = %_ZN7testing7MessagelsIA32_cEERS0_RKT_.exit36.i
@@ -1830,7 +1830,7 @@ _ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_
           to label %_ZN7testing7MessagelsIA26_cEERS0_RKT_.exit unwind label %43
 
 _ZN7testing7MessagelsIA26_cEERS0_RKT_.exit:       ; preds = %_ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit
-  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_18ToStringB5cxx11ERKNS0_15PhoneNumberDescE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_18ToStringB5cxx11ERKNS0_15PhoneNumberDescE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(72) %2)
           to label %31 unwind label %43
 
 31:                                               ; preds = %_ZN7testing7MessagelsIA26_cEERS0_RKT_.exit
@@ -1961,7 +1961,7 @@ _ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_
           to label %_ZN7testing7MessagelsIA26_cEERS0_RKT_.exit36 unwind label %88
 
 _ZN7testing7MessagelsIA26_cEERS0_RKT_.exit36:     ; preds = %_ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit35
-  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_18ToStringB5cxx11ERKNS0_15PhoneNumberDescE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_18ToStringB5cxx11ERKNS0_15PhoneNumberDescE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(72) %2)
           to label %76 unwind label %88
 
 76:                                               ; preds = %_ZN7testing7MessagelsIA26_cEERS0_RKT_.exit36
@@ -2106,7 +2106,7 @@ _ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_
           to label %_ZN7testing7MessagelsIA22_cEERS0_RKT_.exit unwind label %42
 
 _ZN7testing7MessagelsIA22_cEERS0_RKT_.exit:       ; preds = %_ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit
-  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_18ToStringB5cxx11ERKNS0_15PhoneNumberDescE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_18ToStringB5cxx11ERKNS0_15PhoneNumberDescE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(72) %2)
           to label %28 unwind label %42
 
 28:                                               ; preds = %_ZN7testing7MessagelsIA22_cEERS0_RKT_.exit
@@ -2236,7 +2236,7 @@ _ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_
           to label %_ZN7testing7MessagelsIA22_cEERS0_RKT_.exit36 unwind label %86
 
 _ZN7testing7MessagelsIA22_cEERS0_RKT_.exit36:     ; preds = %_ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit35
-  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_18ToStringB5cxx11ERKNS0_15PhoneNumberDescE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(72) %2)
+  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_18ToStringB5cxx11ERKNS0_15PhoneNumberDescE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(72) %2)
           to label %72 unwind label %86
 
 72:                                               ; preds = %_ZN7testing7MessagelsIA22_cEERS0_RKT_.exit36
@@ -2432,7 +2432,7 @@ declare void @_ZN4i18n12phonenumbers15PhoneNumberDesc8CopyFromERKS1_(ptr noundef
 declare void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_18ToStringB5cxx11ERKNS0_15PhoneNumberDescE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_18ToStringB5cxx11ERKNS0_15PhoneNumberDescE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
   %4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)

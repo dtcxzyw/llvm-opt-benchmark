@@ -671,7 +671,7 @@ declare dso_local ptr @strim(ptr noundef) local_unnamed_addr #2
 declare dso_local ptr @css_next_descendant_pre(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @freezer_apply_state(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @freezer_apply_state(ptr noundef nonnull %0, i1 noundef zeroext %1, i32 noundef range(i32 2, 5) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.css_task_iter, align 8
   %5 = alloca %struct.css_task_iter, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 200
@@ -699,7 +699,7 @@ define internal fastcc void @freezer_apply_state(ptr noundef %0, i1 noundef zero
   store i32 %18, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 104, i1 false), !annotation !5
-  call void @css_task_iter_start(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5) #8
+  call void @css_task_iter_start(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %5) #8
   %19 = call ptr @css_task_iter_next(ptr noundef nonnull %5) #8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.loopexit, label %.preheader
@@ -738,7 +738,7 @@ define internal fastcc void @freezer_apply_state(ptr noundef %0, i1 noundef zero
 35:                                               ; preds = %34, %30
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4, i8 0, i64 104, i1 false), !annotation !5
-  call void @css_task_iter_start(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %4) #8
+  call void @css_task_iter_start(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %4) #8
   %36 = call ptr @css_task_iter_next(ptr noundef nonnull %4) #8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.loopexit3, label %.preheader2

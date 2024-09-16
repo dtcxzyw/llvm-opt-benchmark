@@ -1677,7 +1677,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @finish_(i8 noundef zeroext %a, ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %dst, i32 noundef %l) unnamed_addr #0 {
+define internal fastcc void @finish_(i8 noundef zeroext %a, ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %dst, i32 noundef range(i32 1, 0) %l) unnamed_addr #0 {
 entry:
   %block.i12.i110 = alloca [200 x i8], align 16
   %block.i12.i = alloca [200 x i8], align 16

@@ -1536,7 +1536,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %131, %124, %116
   store ptr %147, ptr %97, align 8
   %148 = load i32, ptr %98, align 8
   %149 = load i32, ptr %99, align 4
-  invoke fastcc void @_ZN2cv4faceL4elbpERKNS_11_InputArrayEii(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef %148, i32 noundef %149)
+  invoke fastcc void @_ZN2cv4faceL4elbpERKNS_11_InputArrayEii(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef %148, i32 noundef %149)
           to label %150 unwind label %170
 
 150:                                              ; preds = %145
@@ -1549,7 +1549,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %131, %124, %116
   %152 = fptosi double %ldexp to i32
   %153 = load i32, ptr %103, align 8
   %154 = load i32, ptr %104, align 4
-  invoke fastcc void @_ZN2cv4faceL17spatial_histogramERKNS_11_InputArrayEiiib(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef %152, i32 noundef %153, i32 noundef %154)
+  invoke fastcc void @_ZN2cv4faceL17spatial_histogramERKNS_11_InputArrayEiiib(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef %152, i32 noundef %153, i32 noundef %154)
           to label %155 unwind label %172
 
 155:                                              ; preds = %150
@@ -3602,7 +3602,7 @@ _ZN2cv4faceL5elbp_IdEEvRKNS_11_InputArrayERKNS_12_OutputArrayEii.exit.i: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4faceL17spatial_histogramERKNS_11_InputArrayEiiib(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4faceL17spatial_histogramERKNS_11_InputArrayEiiib(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::_OutputArray", align 8
   %7 = alloca %"class.cv::Mat", align 8
   %8 = alloca i32, align 4
@@ -4202,7 +4202,7 @@ _ZN2cv4faceL6histc_ERKNS_3MatEiib.exit59.us:      ; preds = %181
   br label %212
 
 .invoke:                                          ; preds = %._crit_edge.us, %80, %.preheader.lr.ph
-  invoke void @_ZNK2cv3Mat7reshapeEii(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %47, i32 noundef 1, i32 noundef 1)
+  invoke void @_ZNK2cv3Mat7reshapeEii(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %47, i32 noundef 1, i32 noundef 1)
           to label %214 unwind label %.loopexit.split-lp
 
 202:                                              ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
@@ -4404,7 +4404,7 @@ define hidden void @_ZNK2cv4face4LBPH7predictERKNS_11_InputArrayENS_3PtrINS0_16P
   %37 = load i32, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 68
   %39 = load i32, ptr %38, align 4
-  invoke fastcc void @_ZN2cv4faceL4elbpERKNS_11_InputArrayEii(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef %37, i32 noundef %39)
+  invoke fastcc void @_ZN2cv4faceL4elbpERKNS_11_InputArrayEii(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef %37, i32 noundef %39)
           to label %40 unwind label %130
 
 40:                                               ; preds = %32
@@ -4422,7 +4422,7 @@ define hidden void @_ZNK2cv4face4LBPH7predictERKNS_11_InputArrayENS_3PtrINS0_16P
   %47 = load i32, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 60
   %49 = load i32, ptr %48, align 4
-  invoke fastcc void @_ZN2cv4faceL17spatial_histogramERKNS_11_InputArrayEiiib(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %45, i32 noundef %47, i32 noundef %49)
+  invoke fastcc void @_ZN2cv4faceL17spatial_histogramERKNS_11_InputArrayEiiib(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %45, i32 noundef %47, i32 noundef %49)
           to label %50 unwind label %132
 
 50:                                               ; preds = %40

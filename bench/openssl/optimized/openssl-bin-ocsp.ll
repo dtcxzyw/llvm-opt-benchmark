@@ -741,7 +741,7 @@ if.end7.i:                                        ; preds = %if.end4.i, %if.end.
   br i1 %cmp9.i, label %add_ocsp_cert.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end7.i
-  %call12.i = call i32 @OPENSSL_sk_push(ptr noundef %call1, ptr noundef nonnull %call8.i) #9
+  %call12.i = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call1, ptr noundef nonnull %call8.i) #9
   %tobool.not.i = icmp eq i32 %call12.i, 0
   br i1 %tobool.not.i, label %add_ocsp_cert.exit.thread, label %if.end14.i
 
@@ -815,7 +815,7 @@ if.end14.i164:                                    ; preds = %if.end7.i162
   br i1 %cmp16.i, label %err.i, label %lor.lhs.false.i166
 
 lor.lhs.false.i166:                               ; preds = %if.end14.i164
-  %call19.i167 = call i32 @OPENSSL_sk_push(ptr noundef %call1, ptr noundef nonnull %call15.i165) #9
+  %call19.i167 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call1, ptr noundef nonnull %call15.i165) #9
   %tobool.not.i168 = icmp eq i32 %call19.i167, 0
   br i1 %tobool.not.i168, label %err.i, label %if.end21.i
 
@@ -1297,7 +1297,7 @@ if.else.us:                                       ; preds = %land.lhs.true361.us
 if.end366.us:                                     ; preds = %if.else.us, %if.then364.us, %redo_accept.us
   %rdb.4.us = phi ptr [ %call359.us, %if.then364.us ], [ %rdb.2.us, %if.else.us ], [ %rdb.2.us, %redo_accept.us ]
   store ptr null, ptr %req, align 8
-  %call367.us = call fastcc i32 @do_responder(ptr noundef nonnull %req, ptr noundef nonnull %cbio, ptr noundef nonnull %acbio.1, i32 noundef %req_timeout.0.lcssa9309821107)
+  %call367.us = call fastcc i32 @do_responder(ptr noundef %req, ptr noundef %cbio, ptr noundef %acbio.1, i32 noundef %req_timeout.0.lcssa9309821107)
   %cmp368.us = icmp eq i32 %call367.us, 0
   br i1 %cmp368.us, label %redo_accept.us, label %if.end370.split.us
 
@@ -1424,7 +1424,7 @@ if.then446:                                       ; preds = %if.end444
   %61 = load ptr, ptr %rsign_md, align 8
   %62 = load ptr, ptr %rother, align 8
   %63 = load ptr, ptr %resp_certid_md, align 8
-  call fastcc void @make_ocsp_response(ptr noundef %58, ptr noundef nonnull %resp, ptr noundef %59, ptr noundef nonnull %rdb.3182187190, ptr noundef %60, ptr noundef %rsigner.1, ptr noundef %rkey.1, ptr noundef %61, ptr noundef %rsign_sigopts.1.lcssa89510171073, ptr noundef %62, i64 noundef %rflags.0.lcssa9339791110, i32 noundef %nmin.0.lcssa9269861103, i32 noundef %ndays.0.lcssa9279851104, i32 noundef %badsig.0.lcssa9249881101, ptr noundef %63)
+  call fastcc void @make_ocsp_response(ptr noundef %58, ptr noundef %resp, ptr noundef %59, ptr noundef %rdb.3182187190, ptr noundef %60, ptr noundef %rsigner.1, ptr noundef %rkey.1, ptr noundef %61, ptr noundef %rsign_sigopts.1.lcssa89510171073, ptr noundef %62, i64 noundef %rflags.0.lcssa9339791110, i32 noundef %nmin.0.lcssa9269861103, i32 noundef %ndays.0.lcssa9279851104, i32 noundef %badsig.0.lcssa9249881101, ptr noundef %63)
   %64 = load ptr, ptr %resp, align 8
   %cmp447 = icmp eq ptr %64, null
   br i1 %cmp447, label %end, label %if.end449
@@ -1638,7 +1638,7 @@ if.end577:                                        ; preds = %if.then572, %if.els
   %85 = load ptr, ptr %req, align 8
   %86 = load i64, ptr %nsec, align 8
   %87 = load i64, ptr %maxage, align 8
-  %call578 = call fastcc i32 @print_ocsp_summary(ptr noundef %call255, ptr noundef nonnull %call535, ptr noundef %85, ptr noundef nonnull %call, ptr noundef %call1, i64 noundef %86, i64 noundef %87)
+  %call578 = call fastcc i32 @print_ocsp_summary(ptr noundef %call255, ptr noundef %call535, ptr noundef %85, ptr noundef %call, ptr noundef %call1, i64 noundef %86, i64 noundef %87)
   %tobool579.not = icmp eq i32 %call578, 0
   %spec.select158 = select i1 %tobool579.not, i32 1, i32 %ret.1
   br label %end
@@ -1845,11 +1845,11 @@ return:                                           ; preds = %entry, %land.lhs.tr
 declare void @free_index(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_responder(ptr noundef %preq, ptr noundef %pcbio, ptr noundef %acbio, i32 noundef %timeout) unnamed_addr #0 {
+define internal fastcc i32 @do_responder(ptr noundef nonnull %preq, ptr noundef nonnull %pcbio, ptr noundef nonnull %acbio, i32 noundef %timeout) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OCSP_REQUEST_it() #9
   %0 = load ptr, ptr @prog, align 8
-  %call1 = tail call i32 @http_server_get_asn1_req(ptr noundef %call, ptr noundef %preq, ptr noundef null, ptr noundef %pcbio, ptr noundef %acbio, ptr noundef null, ptr noundef %0, i32 noundef 1, i32 noundef %timeout) #9
+  %call1 = tail call i32 @http_server_get_asn1_req(ptr noundef %call, ptr noundef nonnull %preq, ptr noundef null, ptr noundef nonnull %pcbio, ptr noundef nonnull %acbio, ptr noundef null, ptr noundef %0, i32 noundef 1, i32 noundef %timeout) #9
   ret i32 %call1
 }
 
@@ -1875,7 +1875,7 @@ declare i32 @ASN1_i2d_bio(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @i2d_OCSP_REQUEST(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @make_ocsp_response(ptr noundef %err, ptr nocapture noundef writeonly %resp, ptr noundef %req, ptr nocapture noundef readonly %db, ptr noundef %ca, ptr noundef %rcert, ptr noundef %rkey, ptr noundef %rmd, ptr noundef %sigopts, ptr noundef %rother, i64 noundef %flags, i32 noundef %nmin, i32 noundef %ndays, i32 noundef %badsig, ptr noundef %resp_md) unnamed_addr #0 {
+define internal fastcc void @make_ocsp_response(ptr noundef %err, ptr nocapture noundef nonnull writeonly %resp, ptr noundef %req, ptr nocapture noundef nonnull readonly %db, ptr noundef %ca, ptr noundef %rcert, ptr noundef %rkey, ptr noundef %rmd, ptr noundef %sigopts, ptr noundef %rother, i64 noundef range(i64 0, 2048) %flags, i32 noundef %nmin, i32 noundef %ndays, i32 noundef range(i32 0, 2) %badsig, ptr noundef %resp_md) unnamed_addr #0 {
 entry:
   %row.i = alloca [6 x ptr], align 16
   %pkctx = alloca ptr, align 8
@@ -2240,7 +2240,7 @@ declare void @ERR_clear_error() local_unnamed_addr #1
 declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @print_ocsp_summary(ptr noundef %out, ptr noundef %bs, ptr noundef readnone %req, ptr noundef %names, ptr noundef %ids, i64 noundef %nsec, i64 noundef %maxage) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @print_ocsp_summary(ptr noundef nonnull %out, ptr noundef nonnull %bs, ptr noundef readnone %req, ptr noundef nonnull %names, ptr noundef nonnull %ids, i64 noundef %nsec, i64 noundef %maxage) unnamed_addr #0 {
 entry:
   %status = alloca i32, align 4
   %reason = alloca i32, align 4
@@ -2251,7 +2251,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %names) #9
+  %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %names) #9
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false3
 
@@ -2269,9 +2269,9 @@ for.body:                                         ; preds = %for.cond.preheader,
   %ret.025 = phi i32 [ %ret.1, %for.inc ], [ 1, %for.cond.preheader ]
   %i.024 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %call13 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %ids, i32 noundef %i.024) #9
-  %call15 = call ptr @OPENSSL_sk_value(ptr noundef %names, i32 noundef %i.024) #9
-  %call16 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.236, ptr noundef %call15) #9
-  %call17 = call i32 @OCSP_resp_find_status(ptr noundef %bs, ptr noundef %call13, ptr noundef nonnull %status, ptr noundef nonnull %reason, ptr noundef nonnull %rev, ptr noundef nonnull %thisupd, ptr noundef nonnull %nextupd) #9
+  %call15 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %names, i32 noundef %i.024) #9
+  %call16 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.236, ptr noundef %call15) #9
+  %call17 = call i32 @OCSP_resp_find_status(ptr noundef nonnull %bs, ptr noundef %call13, ptr noundef nonnull %status, ptr noundef nonnull %reason, ptr noundef nonnull %rev, ptr noundef nonnull %thisupd, ptr noundef nonnull %nextupd) #9
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %for.inc.sink.split, label %if.end21
 
@@ -2283,28 +2283,28 @@ if.end21:                                         ; preds = %for.body
   br i1 %tobool23.not, label %if.then24, label %if.end26
 
 if.then24:                                        ; preds = %if.end21
-  %call25 = call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull @.str.238) #9
-  call void @ERR_print_errors(ptr noundef %out) #9
+  %call25 = call i32 @BIO_puts(ptr noundef nonnull %out, ptr noundef nonnull @.str.238) #9
+  call void @ERR_print_errors(ptr noundef nonnull %out) #9
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then24, %if.end21
   %2 = load i32, ptr %status, align 4
   %conv = sext i32 %2 to i64
   %call27 = call ptr @OCSP_cert_status_str(i64 noundef %conv) #9
-  %call28 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.239, ptr noundef %call27) #9
-  %call29 = call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull @.str.240) #9
+  %call28 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.239, ptr noundef %call27) #9
+  %call29 = call i32 @BIO_puts(ptr noundef nonnull %out, ptr noundef nonnull @.str.240) #9
   %3 = load ptr, ptr %thisupd, align 8
-  %call30 = call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %out, ptr noundef %3) #9
-  %call31 = call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull @.str.241) #9
+  %call30 = call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef nonnull %out, ptr noundef %3) #9
+  %call31 = call i32 @BIO_puts(ptr noundef nonnull %out, ptr noundef nonnull @.str.241) #9
   %4 = load ptr, ptr %nextupd, align 8
   %tobool32.not = icmp eq ptr %4, null
   br i1 %tobool32.not, label %if.end37, label %if.then33
 
 if.then33:                                        ; preds = %if.end26
-  %call34 = call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull @.str.242) #9
+  %call34 = call i32 @BIO_puts(ptr noundef nonnull %out, ptr noundef nonnull @.str.242) #9
   %5 = load ptr, ptr %nextupd, align 8
-  %call35 = call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %out, ptr noundef %5) #9
-  %call36 = call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull @.str.241) #9
+  %call35 = call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef nonnull %out, ptr noundef %5) #9
+  %call36 = call i32 @BIO_puts(ptr noundef nonnull %out, ptr noundef nonnull @.str.241) #9
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then33, %if.end26
@@ -2320,19 +2320,19 @@ if.end41:                                         ; preds = %if.end37
 if.then44:                                        ; preds = %if.end41
   %conv45 = sext i32 %7 to i64
   %call46 = call ptr @OCSP_crl_reason_str(i64 noundef %conv45) #9
-  %call47 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.243, ptr noundef %call46) #9
+  %call47 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.243, ptr noundef %call46) #9
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then44, %if.end41
-  %call49 = call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull @.str.244) #9
+  %call49 = call i32 @BIO_puts(ptr noundef nonnull %out, ptr noundef nonnull @.str.244) #9
   %8 = load ptr, ptr %rev, align 8
-  %call50 = call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %out, ptr noundef %8) #9
+  %call50 = call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef nonnull %out, ptr noundef %8) #9
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %for.body, %if.end48
   %.str.241.sink = phi ptr [ @.str.241, %if.end48 ], [ @.str.237, %for.body ]
   %ret.1.ph = phi i32 [ %ret.025, %if.end48 ], [ 0, %for.body ]
-  %call51 = call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull %.str.241.sink) #9
+  %call51 = call i32 @BIO_puts(ptr noundef nonnull %out, ptr noundef nonnull %.str.241.sink) #9
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %if.end37

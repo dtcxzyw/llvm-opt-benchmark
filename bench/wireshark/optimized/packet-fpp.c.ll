@@ -1198,7 +1198,7 @@ define internal fastcc range(i32 0, 6) i32 @get_packet_type(ptr noundef %0) unna
 declare i32 @crc32_ccitt_tvb_offset(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @col_fstr_process(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @col_fstr_process(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 {
   %4 = tail call fastcc i32 @get_preamble_length(ptr noundef %0)
   %5 = tail call fastcc i32 @get_packet_type(ptr noundef %0)
   switch i32 %5, label %38 [

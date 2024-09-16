@@ -299,11 +299,11 @@ invoke.cont:
   store i64 0, ptr %local_notification2, align 8
   %notified_yet_.i2 = getelementptr inbounds i8, ptr %local_notification2, i64 8
   store i8 0, ptr %notified_yet_.i2, align 8
-  invoke fastcc void @_ZN4abslL10BasicTestsEbPNS_12NotificationE(i1 noundef zeroext false, ptr noundef nonnull %local_notification1)
+  invoke fastcc void @_ZN4abslL10BasicTestsEbPNS_12NotificationE(i1 noundef zeroext false, ptr noundef %local_notification1)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  invoke fastcc void @_ZN4abslL10BasicTestsEbPNS_12NotificationE(i1 noundef zeroext true, ptr noundef nonnull %local_notification2)
+  invoke fastcc void @_ZN4abslL10BasicTestsEbPNS_12NotificationE(i1 noundef zeroext true, ptr noundef %local_notification2)
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %invoke.cont3
@@ -320,7 +320,7 @@ lpad2:                                            ; preds = %invoke.cont3, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4abslL10BasicTestsEbPNS_12NotificationE(i1 noundef zeroext %notify_before_waiting, ptr noundef %notification) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4abslL10BasicTestsEbPNS_12NotificationE(i1 noundef zeroext %notify_before_waiting, ptr noundef nonnull %notification) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %cond.i = alloca %class.anon, align 8
   %ref.tmp.i = alloca %"class.absl::Condition", align 8

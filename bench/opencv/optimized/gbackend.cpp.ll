@@ -1210,7 +1210,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4ut
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv5gimpl8magazine12_GLOBAL__N_18bindRMatERNS1_5ClassIJNS_3MatENS_7Scalar_IdEENS_6detail9VectorRefENS7_9OpaqueRefENS_4RMatENSA_4ViewENS_10MediaFrameENS_4UMatEEEERKNS0_6RcDescERKSA_NSA_6AccessE(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv5gimpl8magazine12_GLOBAL__N_18bindRMatERNS1_5ClassIJNS_3MatENS_7Scalar_IdEENS_6detail9VectorRefENS7_9OpaqueRefENS_4RMatENSA_4ViewENS_10MediaFrameENS_4UMatEEEERKNS0_6RcDescERKSA_NSA_6AccessE(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::RMat::View", align 8
   %6 = alloca %"class.cv::Mat", align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 112

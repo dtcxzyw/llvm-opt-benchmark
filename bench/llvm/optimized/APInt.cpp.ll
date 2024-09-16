@@ -20181,7 +20181,7 @@ _ZN4llvm5APIntD2Ev.exit41:                        ; preds = %428, %424
   br label %_ZN4llvm5APIntD2Ev.exit43
 
 _ZN4llvm5APIntD2Ev.exit43:                        ; preds = %444, %_ZN4llvm5APIntD2Ev.exit41
-  call fastcc void @"_ZZN4llvm8APIntOps26SolveQuadraticEquationWrapENS_5APIntES1_S1_jENK3$_0clERKS1_S4_"(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(12) %10)
+  call fastcc void @"_ZZN4llvm8APIntOps26SolveQuadraticEquationWrapENS_5APIntES1_S1_jENK3$_0clERKS1_S4_"(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(12) %10)
   %445 = icmp ult i32 %439, 65
   %446 = icmp eq i64 %440, 0
   %or.cond745 = select i1 %445, i1 true, i1 %446
@@ -20312,7 +20312,7 @@ _ZN4llvm5APIntC2ERKS0_.exit46:                    ; preds = %.thread567, %500
   %508 = load i64, ptr %20, align 8, !noalias !380
   store i64 %508, ptr %19, align 8, !alias.scope !380
   store i32 0, ptr %505, align 8, !noalias !380
-  call fastcc void @"_ZZN4llvm8APIntOps26SolveQuadraticEquationWrapENS_5APIntES1_S1_jENK3$_0clERKS1_S4_"(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(12) %19, ptr noundef nonnull align 8 dereferenceable(12) %10)
+  call fastcc void @"_ZZN4llvm8APIntOps26SolveQuadraticEquationWrapENS_5APIntES1_S1_jENK3$_0clERKS1_S4_"(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(12) %19, ptr noundef nonnull align 8 dereferenceable(12) %10)
   call void @_ZN4llvm5APInt6negateEv(ptr noundef nonnull align 8 dereferenceable(12) %18), !noalias !383
   %509 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %510 = load i32, ptr %509, align 8, !noalias !383
@@ -21967,7 +21967,7 @@ _ZN4llvm5APIntD2Ev.exit374:                       ; preds = %1334, %1331, %_ZN4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm8APIntOps26SolveQuadraticEquationWrapENS_5APIntES1_S1_jENK3$_0clERKS1_S4_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm8APIntOps26SolveQuadraticEquationWrapENS_5APIntES1_S1_jENK3$_0clERKS1_S4_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8

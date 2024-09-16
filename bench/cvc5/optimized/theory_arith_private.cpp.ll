@@ -35692,7 +35692,7 @@ entry:
   %coefficients = alloca %"class.std::vector.277", align 8
   %0 = load i32, ptr @_ZN4cvc58internal6theory5arith6linear17ARITHVAR_SENTINELE, align 4
   %d_partialModel = getelementptr inbounds i8, ptr %this, i64 1416
-  call fastcc void @_ZN4cvc58internal6theory5arith6linearL9toSumNodeERKNS3_14ArithVariablesERKNS0_8DenseMapINS0_8RationalEEE(ptr noalias nonnull align 8 %sum, ptr noundef nonnull align 8 dereferenceable(568) %d_partialModel, ptr noundef nonnull align 8 dereferenceable(72) %lhs)
+  call fastcc void @_ZN4cvc58internal6theory5arith6linearL9toSumNodeERKNS3_14ArithVariablesERKNS0_8DenseMapINS0_8RationalEEE(ptr noalias align 8 %sum, ptr noundef nonnull align 8 dereferenceable(568) %d_partialModel, ptr noundef nonnull align 8 dereferenceable(72) %lhs)
   %1 = load ptr, ptr %sum, align 8
   %2 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %2, 0
@@ -36665,7 +36665,7 @@ ehcleanup245:                                     ; preds = %lpad29, %ehcleanup3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal6theory5arith6linearL9toSumNodeERKNS3_14ArithVariablesERKNS0_8DenseMapINS0_8RationalEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(568) %vars, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %sum) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal6theory5arith6linearL9toSumNodeERKNS3_14ArithVariablesERKNS0_8DenseMapINS0_8RationalEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(568) %vars, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %sum) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 cond.end:
   %agg.tmp.i.i.i = alloca %"class.cvc5::internal::NodeTemplate.691", align 8
   %nb.i250 = alloca %"class.cvc5::internal::NodeBuilder", align 8
@@ -36967,7 +36967,7 @@ if.then68:                                        ; preds = %cond.end, %cond.tru
           to label %invoke.cont70 unwind label %lpad.loopexit.split-lp
 
 invoke.cont70:                                    ; preds = %if.then68
-  invoke void @_ZN4cvc58internal11NodeManager11mkConstRealERKNS0_8RationalE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(3360) %call4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69)
+  invoke void @_ZN4cvc58internal11NodeManager11mkConstRealERKNS0_8RationalE(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(3360) %call4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69)
           to label %invoke.cont72 unwind label %lpad71
 
 invoke.cont72:                                    ; preds = %invoke.cont70
@@ -37049,7 +37049,7 @@ call3.i.i.noexc.i:                                ; preds = %for.body.i.i.i
 
 invoke.cont.i:                                    ; preds = %call3.i.i.noexc.i, %.noexc252
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i), !noalias !250
-  invoke void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(116) %nb.i250)
+  invoke void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(116) %nb.i250)
           to label %_ZN4cvc58internal11NodeManager6mkNodeILb1EEENS0_12NodeTemplateILb1EEENS0_4kind6Kind_tERKSt6vectorINS3_IXT_EEESaIS8_EE.exit unwind label %lpad.loopexit.split-lp.i
 
 lpad.loopexit.i:                                  ; preds = %for.body.i.i.i
@@ -40900,7 +40900,7 @@ entry:
   %agg.tmp21 = alloca %"class.cvc5::internal::NodeTemplate.691", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(104) ptr @_ZNK4cvc58internal6theory5arith6linear7CutInfo17getReconstructionEv(ptr noundef nonnull align 8 dereferenceable(88) %ci)
   %d_partialModel = getelementptr inbounds i8, ptr %this, i64 1416
-  call fastcc void @_ZN4cvc58internal6theory5arith6linearL9toSumNodeERKNS3_14ArithVariablesERKNS0_8DenseMapINS0_8RationalEEE(ptr noalias nonnull align 8 %sum, ptr noundef nonnull align 8 dereferenceable(568) %d_partialModel, ptr noundef nonnull align 8 dereferenceable(72) %call)
+  call fastcc void @_ZN4cvc58internal6theory5arith6linearL9toSumNodeERKNS3_14ArithVariablesERKNS0_8DenseMapINS0_8RationalEEE(ptr noalias align 8 %sum, ptr noundef nonnull align 8 dereferenceable(568) %d_partialModel, ptr noundef nonnull align 8 dereferenceable(72) %call)
   %0 = load ptr, ptr %sum, align 8
   %1 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %1, 0

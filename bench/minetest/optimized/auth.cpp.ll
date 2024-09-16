@@ -423,7 +423,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZL9gen_srp_vRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_PPcPmS8_S9_(ptr nocapture readonly %name.0.val, i64 %name.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %password, ptr noundef %salt, ptr noundef %salt_len, ptr noundef %bytes_v, ptr noundef %len_v) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL9gen_srp_vRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_PPcPmS8_S9_(ptr nocapture readonly %name.0.val, i64 %name.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %password, ptr noundef nonnull %salt, ptr noundef nonnull %salt_len, ptr noundef nonnull %bytes_v, ptr noundef nonnull %len_v) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %n_name = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %n_name) #20
@@ -480,7 +480,7 @@ _Z9lowercaseB5cxx11St17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %f
   %7 = load ptr, ptr %password, align 8, !tbaa !13
   %_M_string_length.i = getelementptr inbounds i8, ptr %password, i64 8
   %8 = load i64, ptr %_M_string_length.i, align 8, !tbaa !4
-  %call4 = invoke noundef i32 @_Z34srp_create_salted_verification_key17SRP_HashAlgorithm10SRP_NGTypePKcPKhmPPhPmS6_S7_S2_S2_(i32 noundef 0, i32 noundef 1, ptr noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %salt, ptr noundef %salt_len, ptr noundef %bytes_v, ptr noundef %len_v, ptr noundef null, ptr noundef null)
+  %call4 = invoke noundef i32 @_Z34srp_create_salted_verification_key17SRP_HashAlgorithm10SRP_NGTypePKcPKhmPPhPmS6_S7_S2_S2_(i32 noundef 0, i32 noundef 1, ptr noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef nonnull %salt, ptr noundef nonnull %salt_len, ptr noundef nonnull %bytes_v, ptr noundef nonnull %len_v, ptr noundef null, ptr noundef null)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_Z9lowercaseB5cxx11St17basic_string_viewIcSt11char_traitsIcEE.exit

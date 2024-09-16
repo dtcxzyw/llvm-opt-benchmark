@@ -469,7 +469,7 @@ lpad.i.i:                                         ; preds = %.noexc.i
 
 invoke.cont11.i:                                  ; preds = %.noexc.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9.i) #22
-  invoke fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_18TypeNameB5cxx11EPKNS0_15FieldDescriptorEPNS2_17ClassNameResolverEb(ptr noalias nonnull align 8 %ref.tmp12.i, ptr noundef %call4.i11, ptr noundef nonnull %call.i8, i1 noundef zeroext false)
+  invoke fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_18TypeNameB5cxx11EPKNS0_15FieldDescriptorEPNS2_17ClassNameResolverEb(ptr noalias align 8 %ref.tmp12.i, ptr noundef %call4.i11, ptr noundef nonnull %call.i8, i1 noundef zeroext false)
           to label %invoke.cont14.i unwind label %lpad13.i
 
 invoke.cont14.i:                                  ; preds = %invoke.cont11.i
@@ -497,7 +497,7 @@ invoke.cont16.i:                                  ; preds = %if.then.i.i.i96.i, 
   %second.i.i95.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %9, i64 %6, i32 0, i32 1
   %call18.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i95.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i) #22
-  invoke fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_18TypeNameB5cxx11EPKNS0_15FieldDescriptorEPNS2_17ClassNameResolverEb(ptr noalias nonnull align 8 %ref.tmp19.i, ptr noundef %call4.i11, ptr noundef nonnull %call.i8, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_18TypeNameB5cxx11EPKNS0_15FieldDescriptorEPNS2_17ClassNameResolverEb(ptr noalias align 8 %ref.tmp19.i, ptr noundef %call4.i11, ptr noundef nonnull %call.i8, i1 noundef zeroext true)
           to label %invoke.cont20.i unwind label %lpad13.i
 
 invoke.cont20.i:                                  ; preds = %invoke.cont16.i
@@ -525,7 +525,7 @@ invoke.cont22.i:                                  ; preds = %if.then.i.i.i107.i,
   %second.i.i106.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %13, i64 %10, i32 0, i32 1
   %call24.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i106.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19.i) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19.i) #22
-  invoke fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_114KotlinTypeNameB5cxx11EPKNS0_15FieldDescriptorEPNS2_17ClassNameResolverE(ptr noalias nonnull align 8 %ref.tmp25.i, ptr noundef %call4.i11, ptr noundef nonnull %call.i8)
+  invoke fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_114KotlinTypeNameB5cxx11EPKNS0_15FieldDescriptorEPNS2_17ClassNameResolverE(ptr noalias align 8 %ref.tmp25.i, ptr noundef %call4.i11, ptr noundef nonnull %call.i8)
           to label %invoke.cont26.i unwind label %lpad13.i
 
 invoke.cont26.i:                                  ; preds = %invoke.cont22.i
@@ -553,7 +553,7 @@ invoke.cont28.i:                                  ; preds = %if.then.i.i.i118.i,
   %second.i.i117.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %17, i64 %14, i32 0, i32 1
   %call30.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i117.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25.i) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25.i) #22
-  invoke fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_114KotlinTypeNameB5cxx11EPKNS0_15FieldDescriptorEPNS2_17ClassNameResolverE(ptr noalias nonnull align 8 %ref.tmp31.i, ptr noundef %call5.i12, ptr noundef nonnull %call.i8)
+  invoke fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_114KotlinTypeNameB5cxx11EPKNS0_15FieldDescriptorEPNS2_17ClassNameResolverE(ptr noalias align 8 %ref.tmp31.i, ptr noundef %call5.i12, ptr noundef nonnull %call.i8)
           to label %invoke.cont32.i unwind label %lpad13.i
 
 invoke.cont32.i:                                  ; preds = %invoke.cont28.i
@@ -581,7 +581,7 @@ invoke.cont34.i:                                  ; preds = %if.then.i.i.i129.i,
   %second.i.i128.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %21, i64 %18, i32 0, i32 1
   %call36.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i128.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31.i) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31.i) #22
-  invoke fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_18WireTypeB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias nonnull align 8 %ref.tmp37.i, ptr noundef %call4.i11)
+  invoke fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_18WireTypeB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias align 8 %ref.tmp37.i, ptr noundef %call4.i11)
           to label %invoke.cont38.i unwind label %lpad13.i
 
 invoke.cont38.i:                                  ; preds = %invoke.cont34.i
@@ -811,7 +811,7 @@ invoke.cont77.i:                                  ; preds = %if.then.i.i.i214.i,
           to label %invoke.cont79.i unwind label %lpad13.i
 
 invoke.cont79.i:                                  ; preds = %invoke.cont77.i
-  invoke fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_18WireTypeB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias nonnull align 8 %ref.tmp81.i, ptr noundef %call5.i12)
+  invoke fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_18WireTypeB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias align 8 %ref.tmp81.i, ptr noundef %call5.i12)
           to label %invoke.cont82.i unwind label %lpad13.i
 
 invoke.cont82.i:                                  ; preds = %invoke.cont79.i
@@ -896,7 +896,7 @@ invoke.cont99.i:                                  ; preds = %if.then.i.i.i252.i,
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp89.i) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i237.i) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i235.i) #22
-  invoke fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_18TypeNameB5cxx11EPKNS0_15FieldDescriptorEPNS2_17ClassNameResolverEb(ptr noalias nonnull align 8 %ref.tmp105.i, ptr noundef %call5.i12, ptr noundef nonnull %call.i8, i1 noundef zeroext false)
+  invoke fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_18TypeNameB5cxx11EPKNS0_15FieldDescriptorEPNS2_17ClassNameResolverEb(ptr noalias align 8 %ref.tmp105.i, ptr noundef %call5.i12, ptr noundef nonnull %call.i8, i1 noundef zeroext false)
           to label %invoke.cont106.i unwind label %lpad13.i
 
 invoke.cont106.i:                                 ; preds = %invoke.cont99.i
@@ -1269,7 +1269,7 @@ ehcleanup158.i:                                   ; preds = %lpad153.i, %lpad151
   br label %ehcleanup313.i
 
 if.else159.i:                                     ; preds = %invoke.cont67.i
-  invoke fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_18TypeNameB5cxx11EPKNS0_15FieldDescriptorEPNS2_17ClassNameResolverEb(ptr noalias nonnull align 8 %ref.tmp160.i, ptr noundef %call5.i12, ptr noundef nonnull %call.i8, i1 noundef zeroext false)
+  invoke fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_18TypeNameB5cxx11EPKNS0_15FieldDescriptorEPNS2_17ClassNameResolverEb(ptr noalias align 8 %ref.tmp160.i, ptr noundef %call5.i12, ptr noundef nonnull %call.i8, i1 noundef zeroext false)
           to label %invoke.cont161.i unwind label %lpad13.i
 
 invoke.cont161.i:                                 ; preds = %if.else159.i
@@ -1422,7 +1422,7 @@ cleanup.action.i:                                 ; preds = %invoke.cont188.i
   br label %cleanup.done.i
 
 cleanup.done.i:                                   ; preds = %cleanup.action.i, %invoke.cont188.i
-  invoke fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_18TypeNameB5cxx11EPKNS0_15FieldDescriptorEPNS2_17ClassNameResolverEb(ptr noalias nonnull align 8 %ref.tmp196.i, ptr noundef %call5.i12, ptr noundef nonnull %call.i8, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_18TypeNameB5cxx11EPKNS0_15FieldDescriptorEPNS2_17ClassNameResolverEb(ptr noalias align 8 %ref.tmp196.i, ptr noundef %call5.i12, ptr noundef nonnull %call.i8, i1 noundef zeroext true)
           to label %invoke.cont197.i unwind label %lpad13.i
 
 invoke.cont197.i:                                 ; preds = %cleanup.done.i
@@ -1450,7 +1450,7 @@ invoke.cont199.i:                                 ; preds = %if.then.i.i.i419.i,
   %second.i.i418.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %143, i64 %140, i32 0, i32 1
   %call201.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i418.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp196.i) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp196.i) #22
-  invoke fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_18WireTypeB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias nonnull align 8 %ref.tmp203.i, ptr noundef %call5.i12)
+  invoke fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_18WireTypeB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias align 8 %ref.tmp203.i, ptr noundef %call5.i12)
           to label %invoke.cont204.i unwind label %lpad13.i
 
 invoke.cont204.i:                                 ; preds = %invoke.cont199.i
@@ -7023,7 +7023,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_18TypeNameB5cxx11EPKNS0_15FieldDescriptorEPNS2_17ClassNameResolverEb(ptr noalias align 8 %agg.result, ptr noundef %field, ptr noundef %name_resolver, i1 noundef zeroext %boxed) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_18TypeNameB5cxx11EPKNS0_15FieldDescriptorEPNS2_17ClassNameResolverEb(ptr noalias nonnull align 8 %agg.result, ptr noundef %field, ptr noundef %name_resolver, i1 noundef zeroext %boxed) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp11 = alloca %"class.std::allocator.31", align 1
@@ -7033,7 +7033,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call1 = tail call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %field)
-  tail call void @_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_10DescriptorEb(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %name_resolver, ptr noundef %call1, i1 noundef zeroext true)
+  tail call void @_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_10DescriptorEb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %name_resolver, ptr noundef %call1, i1 noundef zeroext true)
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -7043,7 +7043,7 @@ if.else:                                          ; preds = %entry
 
 if.then4:                                         ; preds = %if.else
   %call5 = tail call noundef ptr @_ZNK6google8protobuf15FieldDescriptor9enum_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %field)
-  tail call void @_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_14EnumDescriptorEb(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %name_resolver, ptr noundef %call5, i1 noundef zeroext true)
+  tail call void @_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_14EnumDescriptorEb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %name_resolver, ptr noundef %call5, i1 noundef zeroext true)
   br label %return
 
 if.else6:                                         ; preds = %if.else
@@ -7090,7 +7090,7 @@ return:                                           ; preds = %invoke.cont, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_114KotlinTypeNameB5cxx11EPKNS0_15FieldDescriptorEPNS2_17ClassNameResolverE(ptr noalias align 8 %agg.result, ptr noundef %field, ptr noundef %name_resolver) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_114KotlinTypeNameB5cxx11EPKNS0_15FieldDescriptorEPNS2_17ClassNameResolverE(ptr noalias nonnull align 8 %agg.result, ptr noundef %field, ptr noundef %name_resolver) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp9 = alloca %"class.std::allocator.31", align 1
@@ -7100,7 +7100,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call1 = tail call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %field)
-  tail call void @_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_10DescriptorEb(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %name_resolver, ptr noundef %call1, i1 noundef zeroext true)
+  tail call void @_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_10DescriptorEb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %name_resolver, ptr noundef %call1, i1 noundef zeroext true)
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -7110,7 +7110,7 @@ if.else:                                          ; preds = %entry
 
 if.then4:                                         ; preds = %if.else
   %call5 = tail call noundef ptr @_ZNK6google8protobuf15FieldDescriptor9enum_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %field)
-  tail call void @_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_14EnumDescriptorEb(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %name_resolver, ptr noundef %call5, i1 noundef zeroext true)
+  tail call void @_ZN6google8protobuf8compiler4java17ClassNameResolver12GetClassNameB5cxx11EPKNS0_14EnumDescriptorEb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %name_resolver, ptr noundef %call5, i1 noundef zeroext true)
   br label %return
 
 if.else6:                                         ; preds = %if.else
@@ -7146,7 +7146,7 @@ return:                                           ; preds = %invoke.cont, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_18WireTypeB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias align 8 %agg.result, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler4java12_GLOBAL__N_18WireTypeB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias nonnull align 8 %agg.result, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp1 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -7193,7 +7193,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %entry, %if.then.i,
   store i64 %7, ptr %ref.tmp1, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   store ptr %8, ptr %pc.sroa.2.0.piece_.sroa_idx.i, align 8
-  call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1)
+  call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1)
   ret void
 }
 

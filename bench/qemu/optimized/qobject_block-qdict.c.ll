@@ -168,7 +168,7 @@ land.lhs.true19:                                  ; preds = %if.else17
   br i1 %tobool21.not, label %if.then22, label %if.else27
 
 if.then22:                                        ; preds = %land.lhs.true19
-  tail call fastcc void @qdict_flatten_qlist(ptr noundef nonnull %retval.0.i37, ptr noundef %target, ptr noundef %key.0)
+  tail call fastcc void @qdict_flatten_qlist(ptr noundef %retval.0.i37, ptr noundef %target, ptr noundef %key.0)
   br i1 %cmp13, label %if.then24, label %if.end35
 
 if.then24:                                        ; preds = %if.then22
@@ -1324,7 +1324,7 @@ declare ptr @qobject_input_visitor_new_keyval(ptr noundef) local_unnamed_addr #1
 declare ptr @qdict_entry_value(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qdict_flatten_qlist(ptr nocapture noundef readonly %qlist, ptr noundef %target, ptr noundef %prefix) unnamed_addr #0 {
+define internal fastcc void @qdict_flatten_qlist(ptr nocapture noundef nonnull readonly %qlist, ptr noundef %target, ptr noundef %prefix) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %prefix, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -1382,7 +1382,7 @@ land.lhs.true13:                                  ; preds = %if.else11
   br i1 %tobool15.not, label %if.then16, label %if.then.i
 
 if.then16:                                        ; preds = %land.lhs.true13
-  tail call fastcc void @qdict_flatten_qlist(ptr noundef nonnull %spec.select, ptr noundef %target, ptr noundef %call6)
+  tail call fastcc void @qdict_flatten_qlist(ptr noundef %spec.select, ptr noundef %target, ptr noundef %call6)
   br label %if.end22
 
 if.else17:                                        ; preds = %for.body

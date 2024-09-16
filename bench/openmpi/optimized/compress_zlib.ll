@@ -218,7 +218,7 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @doit(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @doit(ptr nocapture noundef writeonly %0, i64 noundef range(i64 0, 4294967296) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.z_stream_s, align 8
   store ptr null, ptr %0, align 8
   %calloc = tail call ptr @calloc(i64 1, i64 %1)

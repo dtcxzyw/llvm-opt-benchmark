@@ -1618,7 +1618,7 @@ _ZN6google17MakeCheckOpStringIP18cusparseSpMatDescrDnEEPNSt7__cxx1112basic_strin
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZN5ceres8internal12_GLOBAL__N_122GetTempBufferSizeForOpERKP15cusparseContext19cusparseOperation_tRKP18cusparseDnVecDescrSA_RKP18cusparseSpMatDescr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @_ZN5ceres8internal12_GLOBAL__N_122GetTempBufferSizeForOpERKP15cusparseContext19cusparseOperation_tRKP18cusparseDnVecDescrSA_RKP18cusparseSpMatDescr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef range(i32 0, 2) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %7 = alloca i64, align 8
   %8 = alloca double, align 8

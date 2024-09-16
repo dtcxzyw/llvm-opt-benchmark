@@ -726,7 +726,7 @@ opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i40, %288
 
 ompi_osc_rdma_release_peers.exit:                 ; preds = %296, %.preheader, %.loopexit45
   %.158 = phi i32 [ %.1, %.loopexit45 ], [ 0, %.preheader ], [ %.1, %296 ]
-  call void @free(ptr noundef %46) #13
+  call void @free(ptr noundef nonnull %46) #13
   br label %298
 
 298:                                              ; preds = %44, %39, %41, %29, %26, %3, %ompi_osc_rdma_release_peers.exit
@@ -1754,7 +1754,7 @@ opal_obj_run_destructors.exit.i56:                ; preds = %opal_obj_run_destru
   br i1 %exitcond.not.i, label %ompi_osc_rdma_release_peers.exit, label %.lr.ph.i50, !llvm.loop !11
 
 ompi_osc_rdma_release_peers.exit:                 ; preds = %228, %ompi_osc_rdma_sync_rdma_complete.exit
-  tail call void @free(ptr noundef %33) #13
+  tail call void @free(ptr noundef nonnull %33) #13
   br label %230
 
 230:                                              ; preds = %38, %35, %25, %22, %16, %13, %ompi_osc_rdma_release_peers.exit

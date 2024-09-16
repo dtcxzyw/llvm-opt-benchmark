@@ -70,7 +70,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$$RF$ockam_multiaddr..registr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$17h54b9d7184040fb61E"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$17h54b9d7184040fb61E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %2 = load ptr, ptr %0, align 8, !alias.scope !4, !nonnull !7, !noundef !7
   %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !4
@@ -286,7 +286,7 @@ define void @"_ZN91_$LT$ockam_multiaddr..iter..BytesIter$u20$as$u20$core..iter..
 73:                                               ; preds = %61
   %74 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$17h54b9d7184040fb61E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #13
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$17h54b9d7184040fb61E"(ptr noalias noundef align 8 dereferenceable(16) %6) #13
           to label %93 unwind label %91
 
 75:                                               ; preds = %61
@@ -612,7 +612,7 @@ _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i48: ; preds = %6
 98:                                               ; preds = %81
   %99 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$17h54b9d7184040fb61E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #13
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$17h54b9d7184040fb61E"(ptr noalias noundef align 8 dereferenceable(16) %5) #13
           to label %.thread unwind label %116
 
 100:                                              ; preds = %81

@@ -1286,7 +1286,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
 
 .lr.ph416.i:                                      ; preds = %._crit_edge.i, %.lr.ph416.i
   %434 = phi ptr [ %436, %.lr.ph416.i ], [ %433, %._crit_edge.i ]
-  %435 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %434) #13
+  %435 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %434) #13
   %436 = call ptr @list_next(ptr noundef %432) #13
   %.not277.i = icmp eq ptr %436, null
   br i1 %.not277.i, label %._crit_edge417.i, label %.lr.ph416.i, !llvm.loop !8
@@ -1309,7 +1309,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
 
 .lr.ph420.i:                                      ; preds = %438, %.lr.ph420.i
   %441 = phi ptr [ %443, %.lr.ph420.i ], [ %440, %438 ]
-  %442 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %441) #13
+  %442 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %441) #13
   %443 = call ptr @list_next(ptr noundef %439) #13
   %.not279.i = icmp eq ptr %443, null
   br i1 %.not279.i, label %._crit_edge421.i, label %.lr.ph420.i, !llvm.loop !9
@@ -1332,7 +1332,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
 
 .lr.ph424.i:                                      ; preds = %445, %.lr.ph424.i
   %448 = phi ptr [ %450, %.lr.ph424.i ], [ %447, %445 ]
-  %449 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %448) #13
+  %449 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %448) #13
   %450 = call ptr @list_next(ptr noundef %446) #13
   %.not281.i = icmp eq ptr %450, null
   br i1 %.not281.i, label %._crit_edge425.i, label %.lr.ph424.i, !llvm.loop !10
@@ -1355,7 +1355,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
 
 .lr.ph428.i:                                      ; preds = %452, %.lr.ph428.i
   %455 = phi ptr [ %457, %.lr.ph428.i ], [ %454, %452 ]
-  %456 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %455) #13
+  %456 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %455) #13
   %457 = call ptr @list_next(ptr noundef %453) #13
   %.not283.i = icmp eq ptr %457, null
   br i1 %.not283.i, label %._crit_edge429.i, label %.lr.ph428.i, !llvm.loop !11
@@ -1378,7 +1378,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
 
 .lr.ph432.i:                                      ; preds = %459, %.lr.ph432.i
   %462 = phi ptr [ %464, %.lr.ph432.i ], [ %461, %459 ]
-  %463 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %462) #13
+  %463 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %462) #13
   %464 = call ptr @list_next(ptr noundef %460) #13
   %.not285.i = icmp eq ptr %464, null
   br i1 %.not285.i, label %._crit_edge433.i, label %.lr.ph432.i, !llvm.loop !12
@@ -1401,7 +1401,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
 
 .lr.ph436.i:                                      ; preds = %466, %.lr.ph436.i
   %469 = phi ptr [ %471, %.lr.ph436.i ], [ %468, %466 ]
-  %470 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %469) #13
+  %470 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %469) #13
   %471 = call ptr @list_next(ptr noundef %467) #13
   %.not287.i = icmp eq ptr %471, null
   br i1 %.not287.i, label %._crit_edge437.i, label %.lr.ph436.i, !llvm.loop !13
@@ -1424,7 +1424,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
 
 .lr.ph440.i:                                      ; preds = %473, %.lr.ph440.i
   %476 = phi ptr [ %478, %.lr.ph440.i ], [ %475, %473 ]
-  %477 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %476) #13
+  %477 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %476) #13
   %478 = call ptr @list_next(ptr noundef %474) #13
   %.not289.i = icmp eq ptr %478, null
   br i1 %.not289.i, label %._crit_edge441.i, label %.lr.ph440.i, !llvm.loop !14
@@ -1447,7 +1447,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
 
 .lr.ph444.i:                                      ; preds = %480, %.lr.ph444.i
   %483 = phi ptr [ %485, %.lr.ph444.i ], [ %482, %480 ]
-  %484 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %483) #13
+  %484 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %483) #13
   %485 = call ptr @list_next(ptr noundef %481) #13
   %.not291.i = icmp eq ptr %485, null
   br i1 %.not291.i, label %._crit_edge445.i, label %.lr.ph444.i, !llvm.loop !15
@@ -1470,7 +1470,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
 
 .lr.ph448.i:                                      ; preds = %487, %.lr.ph448.i
   %490 = phi ptr [ %492, %.lr.ph448.i ], [ %489, %487 ]
-  %491 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %490) #13
+  %491 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %490) #13
   %492 = call ptr @list_next(ptr noundef %488) #13
   %.not293.i = icmp eq ptr %492, null
   br i1 %.not293.i, label %._crit_edge449.i, label %.lr.ph448.i, !llvm.loop !16
@@ -1493,7 +1493,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
 
 .lr.ph452.i:                                      ; preds = %494, %.lr.ph452.i
   %497 = phi ptr [ %499, %.lr.ph452.i ], [ %496, %494 ]
-  %498 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %497) #13
+  %498 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %497) #13
   %499 = call ptr @list_next(ptr noundef %495) #13
   %.not295.i = icmp eq ptr %499, null
   br i1 %.not295.i, label %._crit_edge453.i, label %.lr.ph452.i, !llvm.loop !17
@@ -1516,7 +1516,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
 
 .lr.ph456.i:                                      ; preds = %501, %.lr.ph456.i
   %504 = phi ptr [ %506, %.lr.ph456.i ], [ %503, %501 ]
-  %505 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %504) #13
+  %505 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %504) #13
   %506 = call ptr @list_next(ptr noundef %502) #13
   %.not297.i = icmp eq ptr %506, null
   br i1 %.not297.i, label %._crit_edge457.i, label %.lr.ph456.i, !llvm.loop !18
@@ -1539,7 +1539,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
 
 .lr.ph460.i:                                      ; preds = %508, %.lr.ph460.i
   %511 = phi ptr [ %513, %.lr.ph460.i ], [ %510, %508 ]
-  %512 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %511) #13
+  %512 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.375, ptr noundef nonnull %511) #13
   %513 = call ptr @list_next(ptr noundef %509) #13
   %.not299.i = icmp eq ptr %513, null
   br i1 %.not299.i, label %._crit_edge461.i, label %.lr.ph460.i, !llvm.loop !19
@@ -1870,7 +1870,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %658, label %907, label %659
 
 659:                                              ; preds = %.lr.ph449
-  %660 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.26, ptr noundef nonnull %657) #13
+  %660 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.26, ptr noundef nonnull %657) #13
   %661 = load ptr, ptr %655, align 8
   %.not371 = icmp eq ptr %661, null
   br i1 %.not371, label %667, label %662
@@ -1882,7 +1882,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
 
 664:                                              ; preds = %662
   %665 = load ptr, ptr %655, align 8
-  %666 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.28, ptr noundef %665) #13
+  %666 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.28, ptr noundef %665) #13
   br label %667
 
 667:                                              ; preds = %664, %662, %659
@@ -1898,7 +1898,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
 
 672:                                              ; preds = %670
   %673 = load ptr, ptr %668, align 8
-  %674 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.29, ptr noundef %673) #13
+  %674 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.29, ptr noundef %673) #13
   br label %675
 
 675:                                              ; preds = %672, %670, %667
@@ -1914,7 +1914,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
 
 680:                                              ; preds = %678
   %681 = load ptr, ptr %676, align 8
-  %682 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.30, ptr noundef %681) #13
+  %682 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.30, ptr noundef %681) #13
   br label %683
 
 683:                                              ; preds = %680, %678, %675
@@ -1930,7 +1930,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
 
 688:                                              ; preds = %686
   %689 = load ptr, ptr %684, align 8
-  %690 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.31, ptr noundef %689) #13
+  %690 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.31, ptr noundef %689) #13
   br label %691
 
 691:                                              ; preds = %688, %686, %683
@@ -1940,7 +1940,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not379, label %696, label %694
 
 694:                                              ; preds = %691
-  %695 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.32, ptr noundef nonnull %693) #13
+  %695 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.32, ptr noundef nonnull %693) #13
   br label %696
 
 696:                                              ; preds = %694, %691
@@ -1951,7 +1951,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not380, label %702, label %700
 
 700:                                              ; preds = %696
-  %701 = call i64 @fwrite(ptr nonnull @.str.33, i64 12, i64 1, ptr %24)
+  %701 = call i64 @fwrite(ptr nonnull @.str.33, i64 12, i64 1, ptr nonnull %24)
   br label %702
 
 702:                                              ; preds = %700, %696
@@ -1966,7 +1966,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
 
 706:                                              ; preds = %705
   %707 = and i64 %704, 9223372036854775807
-  %708 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.34, i64 noundef %707) #13
+  %708 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.34, i64 noundef %707) #13
   br label %712
 
 709:                                              ; preds = %702
@@ -1974,7 +1974,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not382, label %712, label %710
 
 710:                                              ; preds = %709
-  %711 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.35, i64 noundef %704) #13
+  %711 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.35, i64 noundef %704) #13
   br label %712
 
 712:                                              ; preds = %709, %710, %705, %706
@@ -1989,7 +1989,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not385, label %719, label %717
 
 717:                                              ; preds = %714
-  %718 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.36, ptr noundef nonnull %716) #13
+  %718 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.36, ptr noundef nonnull %716) #13
   br label %719
 
 719:                                              ; preds = %717, %714, %712
@@ -2004,7 +2004,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not387, label %726, label %724
 
 724:                                              ; preds = %721
-  %725 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.37, ptr noundef nonnull %723) #13
+  %725 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.37, ptr noundef nonnull %723) #13
   br label %726
 
 726:                                              ; preds = %724, %721, %719
@@ -2016,14 +2016,14 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   ]
 
 729:                                              ; preds = %726
-  %730 = call i64 @fwrite(ptr nonnull @.str.38, i64 22, i64 1, ptr %24)
+  %730 = call i64 @fwrite(ptr nonnull @.str.38, i64 22, i64 1, ptr nonnull %24)
   br label %735
 
 731:                                              ; preds = %726
   %732 = mul i32 %728, 60
   %733 = zext i32 %732 to i64
   call void @secs2time_str(i64 noundef %733, ptr noundef nonnull %8, i32 noundef 32) #13
-  %734 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.39, ptr noundef nonnull %8) #13
+  %734 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.39, ptr noundef nonnull %8) #13
   br label %735
 
 735:                                              ; preds = %726, %729, %731
@@ -2033,7 +2033,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not389, label %740, label %738
 
 738:                                              ; preds = %735
-  %739 = call i64 @fwrite(ptr nonnull @.str.40, i64 20, i64 1, ptr %24)
+  %739 = call i64 @fwrite(ptr nonnull @.str.40, i64 20, i64 1, ptr nonnull %24)
   %.pre468 = load i16, ptr %697, align 8
   br label %740
 
@@ -2044,7 +2044,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not390, label %745, label %743
 
 743:                                              ; preds = %740
-  %744 = call i64 @fwrite(ptr nonnull @.str.41, i64 18, i64 1, ptr %24)
+  %744 = call i64 @fwrite(ptr nonnull @.str.41, i64 18, i64 1, ptr nonnull %24)
   br label %745
 
 745:                                              ; preds = %743, %740
@@ -2054,7 +2054,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not391, label %750, label %748
 
 748:                                              ; preds = %745
-  %749 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.42, i32 noundef %747) #13
+  %749 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.42, i32 noundef %747) #13
   br label %750
 
 750:                                              ; preds = %748, %745
@@ -2064,7 +2064,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not392, label %755, label %753
 
 753:                                              ; preds = %750
-  %754 = call i64 @fwrite(ptr nonnull @.str.43, i64 11, i64 1, ptr %24)
+  %754 = call i64 @fwrite(ptr nonnull @.str.43, i64 11, i64 1, ptr nonnull %24)
   %.pre469 = load i16, ptr %697, align 8
   br label %755
 
@@ -2075,7 +2075,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not393, label %760, label %758
 
 758:                                              ; preds = %755
-  %759 = call i64 @fwrite(ptr nonnull @.str.44, i64 8, i64 1, ptr %24)
+  %759 = call i64 @fwrite(ptr nonnull @.str.44, i64 8, i64 1, ptr nonnull %24)
   br label %760
 
 760:                                              ; preds = %758, %755
@@ -2085,7 +2085,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not394, label %765, label %763
 
 763:                                              ; preds = %760
-  %764 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.45, i32 noundef %762) #13
+  %764 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.45, i32 noundef %762) #13
   br label %765
 
 765:                                              ; preds = %763, %760
@@ -2095,7 +2095,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not395, label %770, label %768
 
 768:                                              ; preds = %765
-  %769 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.46, i32 noundef %767) #13
+  %769 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.46, i32 noundef %767) #13
   br label %770
 
 770:                                              ; preds = %768, %765
@@ -2110,7 +2110,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
 
 774:                                              ; preds = %773
   %775 = and i64 %772, 9223372036854775807
-  %776 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.47, i64 noundef %775) #13
+  %776 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.47, i64 noundef %775) #13
   br label %780
 
 777:                                              ; preds = %770
@@ -2118,7 +2118,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not397, label %780, label %778
 
 778:                                              ; preds = %777
-  %779 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.48, i64 noundef %772) #13
+  %779 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.48, i64 noundef %772) #13
   br label %780
 
 780:                                              ; preds = %777, %778, %773, %774
@@ -2128,7 +2128,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not399, label %785, label %783
 
 783:                                              ; preds = %780
-  %784 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.49, i32 noundef %782) #13
+  %784 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.49, i32 noundef %782) #13
   br label %785
 
 785:                                              ; preds = %783, %780
@@ -2141,7 +2141,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   %789 = mul i32 %787, 60
   %790 = zext i32 %789 to i64
   call void @secs2time_str(i64 noundef %790, ptr noundef nonnull %9, i32 noundef 32) #13
-  %791 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.50, ptr noundef nonnull %9) #13
+  %791 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.50, ptr noundef nonnull %9) #13
   br label %792
 
 792:                                              ; preds = %788, %785
@@ -2151,7 +2151,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not401, label %797, label %795
 
 795:                                              ; preds = %792
-  %796 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.51, i32 noundef %794) #13
+  %796 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.51, i32 noundef %794) #13
   br label %797
 
 797:                                              ; preds = %795, %792
@@ -2161,7 +2161,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not402, label %802, label %800
 
 800:                                              ; preds = %797
-  %801 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.52, ptr noundef nonnull %799) #13
+  %801 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.52, ptr noundef nonnull %799) #13
   br label %802
 
 802:                                              ; preds = %800, %797
@@ -2172,7 +2172,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
 
 805:                                              ; preds = %802
   %806 = call ptr @preempt_mode_string(i16 noundef zeroext %804) #13
-  %807 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.53, ptr noundef %806) #13
+  %807 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.53, ptr noundef %806) #13
   br label %808
 
 808:                                              ; preds = %805, %802
@@ -2183,7 +2183,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
 
 811:                                              ; preds = %808
   %812 = zext i16 %810 to i32
-  %813 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.54, i32 noundef %812) #13
+  %813 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.54, i32 noundef %812) #13
   br label %814
 
 814:                                              ; preds = %811, %808
@@ -2194,7 +2194,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
 
 817:                                              ; preds = %814
   %818 = zext i16 %816 to i32
-  %819 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.55, i32 noundef %818) #13
+  %819 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.55, i32 noundef %818) #13
   br label %820
 
 820:                                              ; preds = %817, %814
@@ -2204,7 +2204,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not406, label %825, label %823
 
 823:                                              ; preds = %820
-  %824 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.56, ptr noundef nonnull %822) #13
+  %824 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.56, ptr noundef nonnull %822) #13
   br label %825
 
 825:                                              ; preds = %823, %820
@@ -2214,7 +2214,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not407, label %830, label %828
 
 828:                                              ; preds = %825
-  %829 = call i64 @fwrite(ptr nonnull @.str.57, i64 12, i64 1, ptr %24)
+  %829 = call i64 @fwrite(ptr nonnull @.str.57, i64 12, i64 1, ptr nonnull %24)
   %.pre470 = load i16, ptr %697, align 8
   br label %830
 
@@ -2225,7 +2225,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not408, label %835, label %833
 
 833:                                              ; preds = %830
-  %834 = call i64 @fwrite(ptr nonnull @.str.58, i64 13, i64 1, ptr %24)
+  %834 = call i64 @fwrite(ptr nonnull @.str.58, i64 13, i64 1, ptr nonnull %24)
   br label %835
 
 835:                                              ; preds = %833, %830
@@ -2237,7 +2237,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not409, label %842, label %840
 
 840:                                              ; preds = %835
-  %841 = call i64 @fwrite(ptr nonnull @.str.59, i64 29, i64 1, ptr %24)
+  %841 = call i64 @fwrite(ptr nonnull @.str.59, i64 29, i64 1, ptr nonnull %24)
   br label %846
 
 842:                                              ; preds = %835
@@ -2246,7 +2246,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not410, label %846, label %844
 
 844:                                              ; preds = %842
-  %845 = call i64 @fwrite(ptr nonnull @.str.60, i64 31, i64 1, ptr %24)
+  %845 = call i64 @fwrite(ptr nonnull @.str.60, i64 31, i64 1, ptr nonnull %24)
   br label %846
 
 846:                                              ; preds = %842, %844, %840
@@ -2256,7 +2256,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not411, label %851, label %849
 
 849:                                              ; preds = %846
-  %850 = call i64 @fwrite(ptr nonnull @.str.61, i64 20, i64 1, ptr %24)
+  %850 = call i64 @fwrite(ptr nonnull @.str.61, i64 20, i64 1, ptr nonnull %24)
   br label %851
 
 851:                                              ; preds = %849, %846
@@ -2268,7 +2268,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %856, label %857, label %859
 
 857:                                              ; preds = %851
-  %858 = call i64 @fwrite(ptr nonnull @.str.62, i64 24, i64 1, ptr %24)
+  %858 = call i64 @fwrite(ptr nonnull @.str.62, i64 24, i64 1, ptr nonnull %24)
   br label %865
 
 859:                                              ; preds = %851
@@ -2276,7 +2276,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not412, label %862, label %860
 
 860:                                              ; preds = %859
-  %861 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.63, i32 noundef %855) #13
+  %861 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.63, i32 noundef %855) #13
   br label %865
 
 862:                                              ; preds = %859
@@ -2284,7 +2284,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br i1 %.not413, label %865, label %863
 
 863:                                              ; preds = %862
-  %864 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.64, i32 noundef %855) #13
+  %864 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.64, i32 noundef %855) #13
   br label %865
 
 865:                                              ; preds = %860, %863, %862, %857
@@ -2310,11 +2310,11 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   br label %878
 
 874:                                              ; preds = %865
-  %875 = call i64 @fwrite(ptr nonnull @.str.68, i64 12, i64 1, ptr %24)
+  %875 = call i64 @fwrite(ptr nonnull @.str.68, i64 12, i64 1, ptr nonnull %24)
   br label %878
 
 876:                                              ; preds = %865
-  %877 = call i64 @fwrite(ptr nonnull @.str.69, i64 14, i64 1, ptr %24)
+  %877 = call i64 @fwrite(ptr nonnull @.str.69, i64 14, i64 1, ptr nonnull %24)
   br label %878
 
 878:                                              ; preds = %870, %874, %876, %872, %868
@@ -2394,7 +2394,7 @@ _write_key_pairs.exit:                            ; preds = %._crit_edge461.i, %
   %912 = load ptr, ptr %6, align 8
   %913 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %911, ptr noundef nonnull @.str.78, ptr noundef %912) #13
   call void @slurm_xfree(ptr noundef nonnull %6) #13
-  %914 = call i32 @fclose(ptr noundef %24)
+  %914 = call i32 @fclose(ptr noundef nonnull %24)
   br label %915
 
 915:                                              ; preds = %3, %._crit_edge450, %26
@@ -4775,7 +4775,7 @@ _reset_period_str.exit:                           ; preds = %815, %switch.lookup
 declare void @list_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @_write_group_header(ptr nocapture noundef %0, ptr noundef readonly %1) unnamed_addr #7 {
+define internal fastcc void @_write_group_header(ptr nocapture noundef nonnull %0, ptr noundef readonly %1) unnamed_addr #7 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %3
 
@@ -4786,12 +4786,12 @@ define internal fastcc void @_write_group_header(ptr nocapture noundef %0, ptr n
   %7 = sdiv i32 %6, 2
   %8 = and i32 %6, 1
   %.not27 = icmp eq i32 %8, 0
-  %9 = tail call i64 @fwrite(ptr nonnull @.str.387, i64 2, i64 1, ptr %0)
+  %9 = tail call i64 @fwrite(ptr nonnull @.str.387, i64 2, i64 1, ptr nonnull %0)
   br label %10
 
 10:                                               ; preds = %3, %10
   %.02532 = phi i32 [ 0, %3 ], [ %11, %10 ]
-  %fputc31 = tail call i32 @fputc(i32 35, ptr %0)
+  %fputc31 = tail call i32 @fputc(i32 35, ptr nonnull %0)
   %11 = add nuw nsw i32 %.02532, 1
   %exitcond.not = icmp eq i32 %11, 48
   br i1 %exitcond.not, label %12, label %10, !llvm.loop !26
@@ -4799,7 +4799,7 @@ define internal fastcc void @_write_group_header(ptr nocapture noundef %0, ptr n
 12:                                               ; preds = %10
   %13 = add nsw i32 %7, -1
   %spec.select = select i1 %.not27, i32 %13, i32 %7
-  %14 = tail call i64 @fwrite(ptr nonnull @.str.389, i64 2, i64 1, ptr %0)
+  %14 = tail call i64 @fwrite(ptr nonnull @.str.389, i64 2, i64 1, ptr nonnull %0)
   %15 = icmp slt i32 %5, 45
   br i1 %15, label %.lr.ph.preheader, label %._crit_edge
 
@@ -4809,36 +4809,36 @@ define internal fastcc void @_write_group_header(ptr nocapture noundef %0, ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.133 = phi i32 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %fputc30 = tail call i32 @fputc(i32 32, ptr %0)
+  %fputc30 = tail call i32 @fputc(i32 32, ptr nonnull %0)
   %16 = add nuw nsw i32 %.133, 1
   %exitcond39.not = icmp eq i32 %16, %smax
   br i1 %exitcond39.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
-  %fputs = tail call i32 @fputs(ptr nonnull %1, ptr %0)
+  %fputs = tail call i32 @fputs(ptr nonnull %1, ptr nonnull %0)
   %17 = icmp sgt i32 %spec.select, 0
   br i1 %17, label %.lr.ph36, label %._crit_edge37
 
 .lr.ph36:                                         ; preds = %._crit_edge, %.lr.ph36
   %.234 = phi i32 [ %18, %.lr.ph36 ], [ 0, %._crit_edge ]
-  %fputc29 = tail call i32 @fputc(i32 32, ptr %0)
+  %fputc29 = tail call i32 @fputc(i32 32, ptr nonnull %0)
   %18 = add nuw nsw i32 %.234, 1
   %exitcond40.not = icmp eq i32 %18, %spec.select
   br i1 %exitcond40.not, label %._crit_edge37, label %.lr.ph36, !llvm.loop !28
 
 ._crit_edge37:                                    ; preds = %.lr.ph36, %._crit_edge
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.387, i64 2, i64 1, ptr %0)
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.387, i64 2, i64 1, ptr nonnull %0)
   br label %20
 
 20:                                               ; preds = %._crit_edge37, %20
   %.338 = phi i32 [ 0, %._crit_edge37 ], [ %21, %20 ]
-  %fputc28 = tail call i32 @fputc(i32 35, ptr %0)
+  %fputc28 = tail call i32 @fputc(i32 35, ptr nonnull %0)
   %21 = add nuw nsw i32 %.338, 1
   %exitcond41.not = icmp eq i32 %21, 48
   br i1 %exitcond41.not, label %22, label %20, !llvm.loop !29
 
 22:                                               ; preds = %20
-  %fputc = tail call i32 @fputc(i32 10, ptr %0)
+  %fputc = tail call i32 @fputc(i32 10, ptr nonnull %0)
   br label %23
 
 23:                                               ; preds = %2, %22

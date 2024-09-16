@@ -816,7 +816,7 @@ define hidden { i32, i32 } @_ZN18cranelift_frontend3ssa10SSABuilder8find_var17h3
   br label %90
 
 109:                                              ; preds = %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h9f0b3a58f7cc16d4E.llvm.1812094323767051342.exit"
-  tail call fastcc void @_ZN18cranelift_frontend3ssa10SSABuilder25begin_predecessors_lookup17hbdb21570cb788264E(ptr noalias noundef nonnull align 8 dereferenceable(296) %0, i32 noundef %57, i32 noundef %.0)
+  tail call fastcc void @_ZN18cranelift_frontend3ssa10SSABuilder25begin_predecessors_lookup17hbdb21570cb788264E(ptr noalias noundef align 8 dereferenceable(296) %0, i32 noundef %57, i32 noundef %.0)
   br label %90
 }
 
@@ -1194,7 +1194,7 @@ _ZN18cranelift_frontend3ssa10SSABuilder12predecessors17h2b13db62e7443210E.llvm.1
   %105 = extractvalue { ptr, i64 } %100, 0
   %106 = getelementptr inbounds [0 x i32], ptr %105, i64 0, i64 %102
   %107 = load i32, ptr %106, align 4, !noundef !4
-  call fastcc void @_ZN18cranelift_frontend3ssa10SSABuilder25begin_predecessors_lookup17hbdb21570cb788264E(ptr noalias noundef nonnull align 8 dereferenceable(296) %0, i32 noundef %107, i32 noundef %1)
+  call fastcc void @_ZN18cranelift_frontend3ssa10SSABuilder25begin_predecessors_lookup17hbdb21570cb788264E(ptr noalias noundef align 8 dereferenceable(296) %0, i32 noundef %107, i32 noundef %1)
   %108 = call noundef align 8 dereferenceable(776) ptr @"_ZN85_$LT$cranelift_codegen..ir..function..Function$u20$as$u20$core..ops..deref..Deref$GT$5deref17h5b2c5c33452cbb1eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(872) %2)
   %109 = call noundef i16 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %108, i32 noundef %107)
   %110 = call noundef i32 @_ZN18cranelift_frontend3ssa10SSABuilder17run_state_machine17h50f3e39ce35b7e0cE.llvm.1812094323767051342(ptr noalias noundef nonnull align 8 dereferenceable(296) %0, ptr noalias noundef nonnull align 8 dereferenceable(872) %2, i32 noundef %98, i16 noundef %109)
@@ -1207,7 +1207,7 @@ _ZN18cranelift_frontend3ssa10SSABuilder12predecessors17h2b13db62e7443210E.llvm.1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN18cranelift_frontend3ssa10SSABuilder25begin_predecessors_lookup17hbdb21570cb788264E(ptr noalias noundef align 8 dereferenceable(296) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN18cranelift_frontend3ssa10SSABuilder25begin_predecessors_lookup17hbdb21570cb788264E(ptr noalias noundef nonnull align 8 dereferenceable(296) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = load i64, ptr %5, align 8, !alias.scope !162, !noalias !165, !noundef !4

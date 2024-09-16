@@ -13878,7 +13878,7 @@ declare i64 @_ZNK5clang10ASTContext18getTypeSizeInCharsENS_8QualTypeE(ptr nounde
 declare void @_ZNK5clang10ASTContext26getTypeInfoDataSizeInCharsENS_8QualTypeE(ptr dead_on_unwind writable sret(%"struct.clang::TypeInfoChars") align 8, ptr noundef nonnull align 8 dereferenceable(23096), i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i64 @_ZL11AlignOfTypeN5clang8QualTypeERKNS_10ASTContextENS_20UnaryExprOrTypeTraitE(i64 %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @_ZL11AlignOfTypeN5clang8QualTypeERKNS_10ASTContextENS_20UnaryExprOrTypeTraitE(i64 %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, i32 noundef range(i32 2, 0) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 200

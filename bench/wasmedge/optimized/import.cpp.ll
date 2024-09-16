@@ -861,7 +861,7 @@ define void @_ZN8WasmEdge8Executor8Executor11instantiateERNS_7Runtime12StoreMana
   br i1 %116, label %117, label %132
 
 117:                                              ; preds = %105
-  call fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_115logUnknownErrorESt17basic_string_viewIcSt11char_traitsIcEES5_NS_12ExternalTypeE(ptr dead_on_unwind noalias nonnull writable align 4 %59, i64 %109, ptr %110, i64 %113, ptr %114, i8 noundef zeroext %106)
+  call fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_115logUnknownErrorESt17basic_string_viewIcSt11char_traitsIcEES5_NS_12ExternalTypeE(ptr dead_on_unwind noalias writable align 4 %59, i64 %109, ptr %110, i64 %113, ptr %114, i8 noundef zeroext %106)
   switch i64 %109, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit332.thread [
     i64 22, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
     i64 7, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i305
@@ -1248,7 +1248,7 @@ _ZNK8WasmEdge7Runtime8Instance14ModuleInstance14findTagExportsESt17basic_string_
   br i1 %.not142.i, label %.loopexit, label %314
 
 218:                                              ; preds = %132
-  call fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_115logUnknownErrorESt17basic_string_viewIcSt11char_traitsIcEES5_NS_12ExternalTypeE(ptr dead_on_unwind noalias nonnull writable align 4 %47, i64 %109, ptr %110, i64 %113, ptr %114, i8 noundef zeroext %106), !noalias !4
+  call fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_115logUnknownErrorESt17basic_string_viewIcSt11char_traitsIcEES5_NS_12ExternalTypeE(ptr dead_on_unwind noalias writable align 4 %47, i64 %109, ptr %110, i64 %113, ptr %114, i8 noundef zeroext %106), !noalias !4
   br label %312
 
 .sink.split.i:                                    ; preds = %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance14findTagExportsESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i, %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance17findGlobalExportsESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i, %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance17findMemoryExportsESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i, %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance16findTableExportsESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i, %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance15findFuncExportsESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i
@@ -1320,7 +1320,7 @@ _ZNK8WasmEdge7Runtime8Instance14ModuleInstance15findFuncExportsESt17basic_string
 
 238:                                              ; preds = %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance15findFuncExportsESt17basic_string_viewIcSt11char_traitsIcEE.exit110.i
   store i8 0, ptr %49, align 1, !noalias !4
-  call fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_113logMatchErrorIJRKNS_12ExternalTypeES3_EEEDaSt17basic_string_viewIcSt11char_traitsIcEES9_S3_DpOT_(ptr dead_on_unwind noalias nonnull writable align 4 %48, i64 %109, ptr %110, i64 %113, ptr %114, i8 noundef zeroext %106, ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 1 dereferenceable(1) %49), !noalias !4
+  call fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_113logMatchErrorIJRKNS_12ExternalTypeES3_EEEDaSt17basic_string_viewIcSt11char_traitsIcEES9_S3_DpOT_(ptr dead_on_unwind noalias writable align 4 %48, i64 %109, ptr %110, i64 %113, ptr %114, i8 noundef zeroext %106, ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 1 dereferenceable(1) %49), !noalias !4
   br label %312
 
 239:                                              ; preds = %.preheader3097, %239
@@ -1383,7 +1383,7 @@ _ZNK8WasmEdge7Runtime8Instance14ModuleInstance16findTableExportsESt17basic_strin
 
 256:                                              ; preds = %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance16findTableExportsESt17basic_string_viewIcSt11char_traitsIcEE.exit116.i
   store i8 1, ptr %51, align 1, !noalias !4
-  call fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_113logMatchErrorIJRKNS_12ExternalTypeES3_EEEDaSt17basic_string_viewIcSt11char_traitsIcEES9_S3_DpOT_(ptr dead_on_unwind noalias nonnull writable align 4 %50, i64 %109, ptr %110, i64 %113, ptr %114, i8 noundef zeroext %106, ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 1 dereferenceable(1) %51), !noalias !4
+  call fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_113logMatchErrorIJRKNS_12ExternalTypeES3_EEEDaSt17basic_string_viewIcSt11char_traitsIcEES9_S3_DpOT_(ptr dead_on_unwind noalias writable align 4 %50, i64 %109, ptr %110, i64 %113, ptr %114, i8 noundef zeroext %106, ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 1 dereferenceable(1) %51), !noalias !4
   br label %312
 
 257:                                              ; preds = %.preheader3096, %257
@@ -1446,7 +1446,7 @@ _ZNK8WasmEdge7Runtime8Instance14ModuleInstance17findMemoryExportsESt17basic_stri
 
 274:                                              ; preds = %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance17findMemoryExportsESt17basic_string_viewIcSt11char_traitsIcEE.exit122.i
   store i8 2, ptr %53, align 1, !noalias !4
-  call fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_113logMatchErrorIJRKNS_12ExternalTypeES3_EEEDaSt17basic_string_viewIcSt11char_traitsIcEES9_S3_DpOT_(ptr dead_on_unwind noalias nonnull writable align 4 %52, i64 %109, ptr %110, i64 %113, ptr %114, i8 noundef zeroext %106, ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 1 dereferenceable(1) %53), !noalias !4
+  call fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_113logMatchErrorIJRKNS_12ExternalTypeES3_EEEDaSt17basic_string_viewIcSt11char_traitsIcEES9_S3_DpOT_(ptr dead_on_unwind noalias writable align 4 %52, i64 %109, ptr %110, i64 %113, ptr %114, i8 noundef zeroext %106, ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 1 dereferenceable(1) %53), !noalias !4
   br label %312
 
 275:                                              ; preds = %.preheader3095, %275
@@ -1509,7 +1509,7 @@ _ZNK8WasmEdge7Runtime8Instance14ModuleInstance14findTagExportsESt17basic_string_
 
 292:                                              ; preds = %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance14findTagExportsESt17basic_string_viewIcSt11char_traitsIcEE.exit128.i
   store i8 4, ptr %55, align 1, !noalias !4
-  call fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_113logMatchErrorIJRKNS_12ExternalTypeES3_EEEDaSt17basic_string_viewIcSt11char_traitsIcEES9_S3_DpOT_(ptr dead_on_unwind noalias nonnull writable align 4 %54, i64 %109, ptr %110, i64 %113, ptr %114, i8 noundef zeroext %106, ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 1 dereferenceable(1) %55), !noalias !4
+  call fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_113logMatchErrorIJRKNS_12ExternalTypeES3_EEEDaSt17basic_string_viewIcSt11char_traitsIcEES9_S3_DpOT_(ptr dead_on_unwind noalias writable align 4 %54, i64 %109, ptr %110, i64 %113, ptr %114, i8 noundef zeroext %106, ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 1 dereferenceable(1) %55), !noalias !4
   br label %312
 
 293:                                              ; preds = %.preheader3094, %293
@@ -1569,11 +1569,11 @@ _ZNK8WasmEdge7Runtime8Instance14ModuleInstance17findGlobalExportsESt17basic_stri
 
 310:                                              ; preds = %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance17findGlobalExportsESt17basic_string_viewIcSt11char_traitsIcEE.exit489
   store i8 3, ptr %57, align 1, !noalias !4
-  call fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_113logMatchErrorIJRKNS_12ExternalTypeES3_EEEDaSt17basic_string_viewIcSt11char_traitsIcEES9_S3_DpOT_(ptr dead_on_unwind noalias nonnull writable align 4 %56, i64 %109, ptr %110, i64 %113, ptr %114, i8 noundef zeroext %106, ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 1 dereferenceable(1) %57), !noalias !4
+  call fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_113logMatchErrorIJRKNS_12ExternalTypeES3_EEEDaSt17basic_string_viewIcSt11char_traitsIcEES9_S3_DpOT_(ptr dead_on_unwind noalias writable align 4 %56, i64 %109, ptr %110, i64 %113, ptr %114, i8 noundef zeroext %106, ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 1 dereferenceable(1) %57), !noalias !4
   br label %312
 
 311:                                              ; preds = %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance17findGlobalExportsESt17basic_string_viewIcSt11char_traitsIcEE.exit489.thread, %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance17findGlobalExportsESt17basic_string_viewIcSt11char_traitsIcEE.exit489
-  call fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_115logUnknownErrorESt17basic_string_viewIcSt11char_traitsIcEES5_NS_12ExternalTypeE(ptr dead_on_unwind noalias nonnull writable align 4 %58, i64 %109, ptr %110, i64 %113, ptr %114, i8 noundef zeroext %106), !noalias !4
+  call fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_115logUnknownErrorESt17basic_string_viewIcSt11char_traitsIcEES5_NS_12ExternalTypeE(ptr dead_on_unwind noalias writable align 4 %58, i64 %109, ptr %110, i64 %113, ptr %114, i8 noundef zeroext %106), !noalias !4
   br label %312
 
 312:                                              ; preds = %218, %311, %310, %292, %274, %256, %238
@@ -2387,7 +2387,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %527 = getelementptr inbounds i8, ptr %spec.select.i.i.i.le, i64 24
   %528 = getelementptr inbounds i8, ptr %374, i64 24
   %529 = getelementptr inbounds i8, ptr %0, i64 4
-  call fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_113logMatchErrorIJRKSt6vectorINS_7ValTypeESaIS4_EES8_S8_S8_EEEDaSt17basic_string_viewIcSt11char_traitsIcEESC_NS_12ExternalTypeEDpOT_(ptr dead_on_unwind noalias nonnull writable align 4 %529, i64 %.lcssa1681, ptr %110, i64 %113, ptr %114, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i.i.i.le, ptr noundef nonnull align 8 dereferenceable(24) %527, ptr noundef nonnull align 8 dereferenceable(24) %374, ptr noundef nonnull align 8 dereferenceable(24) %528)
+  call fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_113logMatchErrorIJRKSt6vectorINS_7ValTypeESaIS4_EES8_S8_S8_EEEDaSt17basic_string_viewIcSt11char_traitsIcEESC_NS_12ExternalTypeEDpOT_(ptr dead_on_unwind noalias writable align 4 %529, i64 %.lcssa1681, ptr %110, i64 %113, ptr %114, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i.i.i.le, ptr noundef nonnull align 8 dereferenceable(24) %527, ptr noundef nonnull align 8 dereferenceable(24) %374, ptr noundef nonnull align 8 dereferenceable(24) %528)
   store i8 0, ptr %0, align 4
   br label %937
 
@@ -3038,7 +3038,7 @@ _ZNK8WasmEdge7Runtime8Instance14ModuleInstance14findTagExportsESt17basic_string_
   %819 = getelementptr inbounds i8, ptr %spec.select.i.i.i460, i64 24
   %820 = getelementptr inbounds i8, ptr %spec.select.i.i.i461, i64 24
   %821 = getelementptr inbounds i8, ptr %0, i64 4
-  call fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_113logMatchErrorIJRKSt6vectorINS_7ValTypeESaIS4_EES8_S8_S8_EEEDaSt17basic_string_viewIcSt11char_traitsIcEESC_NS_12ExternalTypeEDpOT_(ptr dead_on_unwind noalias nonnull writable align 4 %821, i64 %109, ptr %110, i64 %113, ptr %114, i8 noundef zeroext 4, ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i.i.i460, ptr noundef nonnull align 8 dereferenceable(24) %819, ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i.i.i461, ptr noundef nonnull align 8 dereferenceable(24) %820)
+  call fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_113logMatchErrorIJRKSt6vectorINS_7ValTypeESaIS4_EES8_S8_S8_EEEDaSt17basic_string_viewIcSt11char_traitsIcEESC_NS_12ExternalTypeEDpOT_(ptr dead_on_unwind noalias writable align 4 %821, i64 %109, ptr %110, i64 %113, ptr %114, i8 noundef zeroext 4, ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i.i.i460, ptr noundef nonnull align 8 dereferenceable(24) %819, ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i.i.i461, ptr noundef nonnull align 8 dereferenceable(24) %820)
   store i8 0, ptr %0, align 4
   br label %937
 
@@ -3372,7 +3372,7 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit4:   ; preds = %_ZNSt11shared_lockI
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_115logUnknownErrorESt17basic_string_viewIcSt11char_traitsIcEES5_NS_12ExternalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, i64 %1, ptr %2, i64 %3, ptr %4, i8 noundef zeroext %5) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_115logUnknownErrorESt17basic_string_viewIcSt11char_traitsIcEES5_NS_12ExternalTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, i64 %1, ptr %2, i64 %3, ptr %4, i8 noundef zeroext %5) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.spdlog::source_loc", align 8
   %8 = alloca %"struct.spdlog::source_loc", align 8
   %9 = alloca %"struct.spdlog::source_loc", align 8
@@ -3570,7 +3570,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_113logMatchErrorIJRKSt6vectorINS_7ValTypeESaIS4_EES8_S8_S8_EEEDaSt17basic_string_viewIcSt11char_traitsIcEESC_NS_12ExternalTypeEDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, i64 %1, ptr %2, i64 %3, ptr %4, i8 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_113logMatchErrorIJRKSt6vectorINS_7ValTypeESaIS4_EES8_S8_S8_EEEDaSt17basic_string_viewIcSt11char_traitsIcEESC_NS_12ExternalTypeEDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, i64 %1, ptr %2, i64 %3, ptr %4, i8 noundef zeroext range(i8 0, 5) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"struct.spdlog::source_loc", align 8
   %12 = alloca %"struct.spdlog::source_loc", align 8
   %13 = alloca %"struct.spdlog::source_loc", align 8
@@ -31882,7 +31882,7 @@ define linkonce_odr hidden void @_ZN3fmt2v86detail5valueINS0_20basic_format_cont
 declare ptr @_ZNK3fmt2v89formatterIN8WasmEdge7ErrInfo7InfoASTEcvE6formatERKS4_RNS0_20basic_format_contextINS0_8appenderEcEE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_113logMatchErrorIJRKNS_12ExternalTypeES3_EEEDaSt17basic_string_viewIcSt11char_traitsIcEES9_S3_DpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, i64 %1, ptr %2, i64 %3, ptr %4, i8 noundef zeroext %5, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %6, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8WasmEdge8Executor12_GLOBAL__N_113logMatchErrorIJRKNS_12ExternalTypeES3_EEEDaSt17basic_string_viewIcSt11char_traitsIcEES9_S3_DpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, i64 %1, ptr %2, i64 %3, ptr %4, i8 noundef zeroext %5, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %6, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.spdlog::source_loc", align 8
   %10 = alloca %"struct.spdlog::source_loc", align 8
   %11 = alloca %"struct.spdlog::source_loc", align 8

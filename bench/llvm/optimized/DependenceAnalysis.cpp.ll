@@ -6080,7 +6080,7 @@ _ZN4llvmngENS_5APIntE.exit:                       ; preds = %_ZN4llvm5APInt15cle
   %241 = load i64, ptr %27, align 8, !noalias !39
   store i64 %241, ptr %26, align 8, !alias.scope !39
   store i32 0, ptr %223, align 8, !noalias !39
-  call fastcc void @_ZL17ceilingOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(12) %26, ptr noundef nonnull align 8 dereferenceable(12) %24)
+  call fastcc void @_ZL17ceilingOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(12) %26, ptr noundef nonnull align 8 dereferenceable(12) %24)
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(12) %25)
   %242 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %243 = load i32, ptr %242, align 8
@@ -6152,7 +6152,7 @@ _ZN4llvm5APIntC2ERKS0_.exit68:                    ; preds = %265, %267
   %271 = load i64, ptr %30, align 8, !noalias !42
   store i64 %271, ptr %29, align 8, !alias.scope !42
   store i32 0, ptr %262, align 8, !noalias !42
-  call fastcc void @_ZL15floorOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(12) %29, ptr noundef nonnull align 8 dereferenceable(12) %24)
+  call fastcc void @_ZL15floorOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(12) %29, ptr noundef nonnull align 8 dereferenceable(12) %24)
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(12) %28)
   %272 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %273 = load i32, ptr %272, align 8
@@ -6233,7 +6233,7 @@ _ZN4llvmngENS_5APIntE.exit75:                     ; preds = %_ZN4llvm5APInt15cle
   %307 = load i64, ptr %33, align 8, !noalias !45
   store i64 %307, ptr %32, align 8, !alias.scope !45
   store i32 0, ptr %289, align 8, !noalias !45
-  call fastcc void @_ZL15floorOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(12) %32, ptr noundef nonnull align 8 dereferenceable(12) %24)
+  call fastcc void @_ZL15floorOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(12) %32, ptr noundef nonnull align 8 dereferenceable(12) %24)
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(12) %31)
   %308 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %309 = load i32, ptr %308, align 8
@@ -6305,7 +6305,7 @@ _ZN4llvm5APIntC2ERKS0_.exit79:                    ; preds = %331, %333
   %337 = load i64, ptr %36, align 8, !noalias !48
   store i64 %337, ptr %35, align 8, !alias.scope !48
   store i32 0, ptr %328, align 8, !noalias !48
-  call fastcc void @_ZL17ceilingOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(12) %35, ptr noundef nonnull align 8 dereferenceable(12) %24)
+  call fastcc void @_ZL17ceilingOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(12) %35, ptr noundef nonnull align 8 dereferenceable(12) %24)
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(12) %34)
   %338 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %339 = load i32, ptr %338, align 8
@@ -6428,7 +6428,7 @@ _ZN4llvm5APIntC2ERKS0_.exit89:                    ; preds = %390, %392
   %396 = load i64, ptr %40, align 8, !noalias !51
   store i64 %396, ptr %39, align 8, !alias.scope !51
   store i32 0, ptr %387, align 8, !noalias !51
-  call fastcc void @_ZL15floorOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(12) %39, ptr noundef nonnull align 8 dereferenceable(12) %37)
+  call fastcc void @_ZL15floorOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(12) %39, ptr noundef nonnull align 8 dereferenceable(12) %37)
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(12) %38)
   %397 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %398 = load i32, ptr %397, align 8
@@ -6515,7 +6515,7 @@ _ZN4llvmngENS_5APIntE.exit96:                     ; preds = %_ZN4llvm5APInt15cle
   %434 = load i64, ptr %43, align 8, !noalias !54
   store i64 %434, ptr %42, align 8, !alias.scope !54
   store i32 0, ptr %416, align 8, !noalias !54
-  call fastcc void @_ZL17ceilingOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(12) %42, ptr noundef nonnull align 8 dereferenceable(12) %37)
+  call fastcc void @_ZL17ceilingOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(12) %42, ptr noundef nonnull align 8 dereferenceable(12) %37)
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(12) %41)
   %435 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %436 = load i32, ptr %435, align 8
@@ -6581,7 +6581,7 @@ _ZN4llvm5APIntC2ERKS0_.exit100:                   ; preds = %456, %458
   %462 = load i64, ptr %46, align 8, !noalias !57
   store i64 %462, ptr %45, align 8, !alias.scope !57
   store i32 0, ptr %453, align 8, !noalias !57
-  call fastcc void @_ZL17ceilingOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(12) %45, ptr noundef nonnull align 8 dereferenceable(12) %37)
+  call fastcc void @_ZL17ceilingOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(12) %45, ptr noundef nonnull align 8 dereferenceable(12) %37)
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(12) %44)
   %463 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %464 = load i32, ptr %463, align 8
@@ -6668,7 +6668,7 @@ _ZN4llvmngENS_5APIntE.exit107:                    ; preds = %_ZN4llvm5APInt15cle
   %500 = load i64, ptr %49, align 8, !noalias !60
   store i64 %500, ptr %48, align 8, !alias.scope !60
   store i32 0, ptr %482, align 8, !noalias !60
-  call fastcc void @_ZL15floorOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias nonnull writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(12) %48, ptr noundef nonnull align 8 dereferenceable(12) %37)
+  call fastcc void @_ZL15floorOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(12) %48, ptr noundef nonnull align 8 dereferenceable(12) %37)
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(12) %47)
   %501 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %502 = load i32, ptr %501, align 8
@@ -8725,7 +8725,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE28reserveForParamAndGetAddressE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17ceilingOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL17ceilingOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
@@ -9068,7 +9068,7 @@ _ZN4llvm5APIntD2Ev.exit29:                        ; preds = %_ZN4llvm5APIntD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15floorOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL15floorOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
@@ -10274,7 +10274,7 @@ _ZN4llvmngENS_5APIntE.exit:                       ; preds = %_ZN4llvm5APInt15cle
   %238 = load i64, ptr %27, align 8, !noalias !128
   store i64 %238, ptr %26, align 8, !alias.scope !128
   store i32 0, ptr %220, align 8, !noalias !128
-  call fastcc void @_ZL17ceilingOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(12) %26, ptr noundef nonnull align 8 dereferenceable(12) %24)
+  call fastcc void @_ZL17ceilingOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(12) %26, ptr noundef nonnull align 8 dereferenceable(12) %24)
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(12) %25)
   %239 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %240 = load i32, ptr %239, align 8
@@ -10346,7 +10346,7 @@ _ZN4llvm5APIntC2ERKS0_.exit64:                    ; preds = %262, %264
   %268 = load i64, ptr %30, align 8, !noalias !131
   store i64 %268, ptr %29, align 8, !alias.scope !131
   store i32 0, ptr %259, align 8, !noalias !131
-  call fastcc void @_ZL15floorOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(12) %29, ptr noundef nonnull align 8 dereferenceable(12) %24)
+  call fastcc void @_ZL15floorOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(12) %29, ptr noundef nonnull align 8 dereferenceable(12) %24)
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(12) %28)
   %269 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %270 = load i32, ptr %269, align 8
@@ -10427,7 +10427,7 @@ _ZN4llvmngENS_5APIntE.exit71:                     ; preds = %_ZN4llvm5APInt15cle
   %304 = load i64, ptr %33, align 8, !noalias !134
   store i64 %304, ptr %32, align 8, !alias.scope !134
   store i32 0, ptr %286, align 8, !noalias !134
-  call fastcc void @_ZL15floorOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(12) %32, ptr noundef nonnull align 8 dereferenceable(12) %24)
+  call fastcc void @_ZL15floorOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(12) %32, ptr noundef nonnull align 8 dereferenceable(12) %24)
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(12) %31)
   %305 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %306 = load i32, ptr %305, align 8
@@ -10499,7 +10499,7 @@ _ZN4llvm5APIntC2ERKS0_.exit75:                    ; preds = %328, %330
   %334 = load i64, ptr %36, align 8, !noalias !137
   store i64 %334, ptr %35, align 8, !alias.scope !137
   store i32 0, ptr %325, align 8, !noalias !137
-  call fastcc void @_ZL17ceilingOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(12) %35, ptr noundef nonnull align 8 dereferenceable(12) %24)
+  call fastcc void @_ZL17ceilingOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(12) %35, ptr noundef nonnull align 8 dereferenceable(12) %24)
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(12) %34)
   %335 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %336 = load i32, ptr %335, align 8
@@ -10637,7 +10637,7 @@ _ZN4llvmngENS_5APIntE.exit88:                     ; preds = %_ZN4llvm5APInt15cle
   %401 = load i64, ptr %40, align 8, !noalias !140
   store i64 %401, ptr %39, align 8, !alias.scope !140
   store i32 0, ptr %383, align 8, !noalias !140
-  call fastcc void @_ZL17ceilingOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(12) %39, ptr noundef nonnull align 8 dereferenceable(12) %37)
+  call fastcc void @_ZL17ceilingOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(12) %39, ptr noundef nonnull align 8 dereferenceable(12) %37)
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(12) %38)
   %402 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %403 = load i32, ptr %402, align 8
@@ -10709,7 +10709,7 @@ _ZN4llvm5APIntC2ERKS0_.exit92:                    ; preds = %425, %427
   %431 = load i64, ptr %43, align 8, !noalias !143
   store i64 %431, ptr %42, align 8, !alias.scope !143
   store i32 0, ptr %422, align 8, !noalias !143
-  call fastcc void @_ZL15floorOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(12) %42, ptr noundef nonnull align 8 dereferenceable(12) %37)
+  call fastcc void @_ZL15floorOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(12) %42, ptr noundef nonnull align 8 dereferenceable(12) %37)
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(12) %41)
   %432 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %433 = load i32, ptr %432, align 8
@@ -10790,7 +10790,7 @@ _ZN4llvmngENS_5APIntE.exit99:                     ; preds = %_ZN4llvm5APInt15cle
   %467 = load i64, ptr %46, align 8, !noalias !146
   store i64 %467, ptr %45, align 8, !alias.scope !146
   store i32 0, ptr %449, align 8, !noalias !146
-  call fastcc void @_ZL15floorOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(12) %45, ptr noundef nonnull align 8 dereferenceable(12) %37)
+  call fastcc void @_ZL15floorOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(12) %45, ptr noundef nonnull align 8 dereferenceable(12) %37)
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(12) %44)
   %468 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %469 = load i32, ptr %468, align 8
@@ -10862,7 +10862,7 @@ _ZN4llvm5APIntC2ERKS0_.exit103:                   ; preds = %491, %493
   %497 = load i64, ptr %49, align 8, !noalias !149
   store i64 %497, ptr %48, align 8, !alias.scope !149
   store i32 0, ptr %488, align 8, !noalias !149
-  call fastcc void @_ZL17ceilingOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias nonnull writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(12) %48, ptr noundef nonnull align 8 dereferenceable(12) %37)
+  call fastcc void @_ZL17ceilingOfQuotientRKN4llvm5APIntES2_(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(12) %48, ptr noundef nonnull align 8 dereferenceable(12) %37)
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(12) %47)
   %498 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %499 = load i32, ptr %498, align 8

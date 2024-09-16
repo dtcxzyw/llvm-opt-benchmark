@@ -1947,7 +1947,7 @@ phar_find_eocd.exit:                              ; preds = %.thread71.i
 881:                                              ; preds = %878
   %882 = call i64 @_php_stream_tell(ptr noundef %0) #15
   %883 = load i16, ptr %216, align 1
-  %884 = call fastcc i32 @phar_zip_process_extra(ptr noundef %0, ptr noundef nonnull %16, i16 noundef zeroext %883)
+  %884 = call fastcc i32 @phar_zip_process_extra(ptr noundef %0, ptr noundef %16, i16 noundef zeroext %883)
   %885 = icmp eq i32 %884, -1
   br i1 %885, label %886, label %927
 
@@ -4591,7 +4591,7 @@ phar_set_inode.exit:                              ; preds = %1927, %1936
   %2009 = getelementptr inbounds i8, ptr %99, i64 40
   %2010 = load i32, ptr %2009, align 8
   %2011 = zext i32 %2010 to i64
-  %2012 = call fastcc i32 @phar_validate_alias(ptr noundef nonnull %.01267.lcssa, i64 noundef %2011)
+  %2012 = call fastcc i32 @phar_validate_alias(ptr noundef %.01267.lcssa, i64 noundef %2011)
   %.not1411 = icmp eq i32 %2012, 0
   br i1 %.not1411, label %2013, label %2019
 
@@ -4861,7 +4861,7 @@ declare i32 @phar_verify_signature(ptr noundef, i64 noundef, i32 noundef, ptr no
 declare void @phar_add_virtual_dirs(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @phar_zip_process_extra(ptr noundef %0, ptr nocapture noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @phar_zip_process_extra(ptr noundef %0, ptr nocapture noundef nonnull %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %union.anon.7, align 1
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   %6 = getelementptr inbounds i8, ptr %4, i64 1
@@ -4997,33 +4997,33 @@ declare i32 @_php_stream_filter_flush(ptr noundef, i32 noundef) local_unnamed_ad
 declare ptr @php_stream_filter_remove(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @phar_validate_alias(ptr noundef readonly %0, i64 noundef %1) unnamed_addr #9 {
-  %3 = tail call ptr @memchr(ptr noundef %0, i32 noundef 47, i64 noundef %1) #16
+define internal fastcc range(i32 0, 2) i32 @phar_validate_alias(ptr noundef nonnull readonly %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #9 {
+  %3 = tail call ptr @memchr(ptr noundef nonnull %0, i32 noundef 47, i64 noundef %1) #16
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %16
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @memchr(ptr noundef %0, i32 noundef 92, i64 noundef %1) #16
+  %5 = tail call ptr @memchr(ptr noundef nonnull %0, i32 noundef 92, i64 noundef %1) #16
   %.not11 = icmp eq ptr %5, null
   br i1 %.not11, label %6, label %16
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @memchr(ptr noundef %0, i32 noundef 58, i64 noundef %1) #16
+  %7 = tail call ptr @memchr(ptr noundef nonnull %0, i32 noundef 58, i64 noundef %1) #16
   %.not12 = icmp eq ptr %7, null
   br i1 %.not12, label %8, label %16
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @memchr(ptr noundef %0, i32 noundef 59, i64 noundef %1) #16
+  %9 = tail call ptr @memchr(ptr noundef nonnull %0, i32 noundef 59, i64 noundef %1) #16
   %.not13 = icmp eq ptr %9, null
   br i1 %.not13, label %10, label %16
 
 10:                                               ; preds = %8
-  %11 = tail call ptr @memchr(ptr noundef %0, i32 noundef 10, i64 noundef %1) #16
+  %11 = tail call ptr @memchr(ptr noundef nonnull %0, i32 noundef 10, i64 noundef %1) #16
   %.not14 = icmp eq ptr %11, null
   br i1 %.not14, label %12, label %16
 
 12:                                               ; preds = %10
-  %13 = tail call ptr @memchr(ptr noundef %0, i32 noundef 13, i64 noundef %1) #16
+  %13 = tail call ptr @memchr(ptr noundef nonnull %0, i32 noundef 13, i64 noundef %1) #16
   %14 = icmp eq ptr %13, null
   %15 = zext i1 %14 to i32
   br label %16

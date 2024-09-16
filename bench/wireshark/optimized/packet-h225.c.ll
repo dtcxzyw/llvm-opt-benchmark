@@ -4259,7 +4259,7 @@ dissect_RasMessage_PDU.exit:                      ; preds = %4, %40, %44
 
 proto_item_set_hidden.exit.i:                     ; preds = %87, %78
   %126 = getelementptr inbounds i8, ptr %10, i64 20
-  %127 = call fastcc ptr @append_h225ras_call(ptr noundef nonnull %.0.i, ptr noundef nonnull %1, ptr noundef nonnull %126)
+  %127 = call fastcc ptr @append_h225ras_call(ptr noundef %.0.i, ptr noundef nonnull %1, ptr noundef nonnull %126)
   %.not104.i = icmp eq ptr %127, null
   br i1 %.not104.i, label %ras_call_matching.exit, label %proto_item_set_hidden.exit.thread.i
 
@@ -7654,7 +7654,7 @@ define internal i32 @dissect_h225_OCTET_STRING_SIZE_1_131(ptr noundef %0, i32 no
 declare nonnull ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @append_h225ras_call(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @append_h225ras_call(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = tail call ptr @wmem_file_scope() #10
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %4, i64 noundef 64) #10
   %6 = getelementptr inbounds i8, ptr %1, i64 20

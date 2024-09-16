@@ -12461,7 +12461,7 @@ do.end8.i:                                        ; preds = %_ZNK4node17BaseObje
   br label %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EEC2EPS1_.exit
 
 _ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EEC2EPS1_.exit: ; preds = %_ZN4node6UnwrapINS_10BaseObjectEEEPT_N2v85LocalINS4_5ValueEEE.exit, %do.end8.i
-  %call18 = call fastcc i16 @_ZN4node6worker12_GLOBAL__N_118SerializerDelegate15WriteHostObjectENS_17BaseObjectPtrImplINS_10BaseObjectELb0EEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %agg.tmp8)
+  %call18 = call fastcc i16 @_ZN4node6worker12_GLOBAL__N_118SerializerDelegate15WriteHostObjectENS_17BaseObjectPtrImplINS_10BaseObjectELb0EEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %agg.tmp8)
   %22 = load ptr, ptr %agg.tmp8, align 8
   %cmp.not.i = icmp eq ptr %22, null
   br i1 %cmp.not.i, label %return, label %if.then.i
@@ -12515,7 +12515,7 @@ do.end8.i.i:                                      ; preds = %_ZNK4node17BaseObje
   br label %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EEC2INS_6worker14JSTransferableELb0EEERKNS0_IT_XT0_EEE.exit
 
 _ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EEC2INS_6worker14JSTransferableELb0EEERKNS0_IT_XT0_EEE.exit: ; preds = %if.then29, %do.end8.i.i
-  %call36 = call fastcc i16 @_ZN4node6worker12_GLOBAL__N_118SerializerDelegate15WriteHostObjectENS_17BaseObjectPtrImplINS_10BaseObjectELb0EEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %agg.tmp35)
+  %call36 = call fastcc i16 @_ZN4node6worker12_GLOBAL__N_118SerializerDelegate15WriteHostObjectENS_17BaseObjectPtrImplINS_10BaseObjectELb0EEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %agg.tmp35)
   %29 = load ptr, ptr %agg.tmp35, align 8
   %cmp.not.i9 = icmp eq ptr %29, null
   br i1 %cmp.not.i9, label %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit12, label %if.then.i10
@@ -13088,7 +13088,7 @@ declare noundef ptr @_ZN2v815ValueSerializer8Delegate22ReallocateBufferMemoryEPv
 declare void @_ZN2v815ValueSerializer8Delegate16FreeBufferMemoryEPv(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i16 0, 258) i16 @_ZN4node6worker12_GLOBAL__N_118SerializerDelegate15WriteHostObjectENS_17BaseObjectPtrImplINS_10BaseObjectELb0EEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %host_object) unnamed_addr #6 align 2 {
+define internal fastcc range(i16 0, 258) i16 @_ZN4node6worker12_GLOBAL__N_118SerializerDelegate15WriteHostObjectENS_17BaseObjectPtrImplINS_10BaseObjectELb0EEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %host_object) unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %host_object, align 8
   %vtable = load ptr, ptr %0, align 8

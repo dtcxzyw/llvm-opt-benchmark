@@ -12706,7 +12706,7 @@ declare dso_local i32 @intel_fbc_atomic_check(ptr noundef) local_unnamed_addr #2
 declare dso_local void @intel_color_assert_luts(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @intel_async_flip_check_hw(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @intel_async_flip_check_hw(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -17349,7 +17349,7 @@ declare dso_local i32 @intel_fb_rc_ccs_cc_plane(ptr noundef) local_unnamed_addr 
 declare dso_local i32 @i915_gem_object_read_from_page(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_pre_plane_update(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_pre_plane_update(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -17526,20 +17526,20 @@ define internal fastcc void @intel_pre_plane_update(ptr noundef %0, ptr noundef 
 
 .thread:                                          ; preds = %115, %2, %.critedge8, %81, %.thread16, %68
   tail call void @intel_drrs_deactivate(ptr noundef %11) #25
-  tail call void @intel_psr_pre_plane_update(ptr noundef %0, ptr noundef %1) #25
-  %120 = tail call zeroext i1 @hsw_ips_pre_update(ptr noundef %0, ptr noundef %1) #25
+  tail call void @intel_psr_pre_plane_update(ptr noundef %0, ptr noundef nonnull %1) #25
+  %120 = tail call zeroext i1 @hsw_ips_pre_update(ptr noundef %0, ptr noundef nonnull %1) #25
   br i1 %120, label %121, label %122
 
 121:                                              ; preds = %.thread
-  tail call void @intel_crtc_wait_for_next_vblank(ptr noundef %1) #25
+  tail call void @intel_crtc_wait_for_next_vblank(ptr noundef nonnull %1) #25
   br label %122
 
 122:                                              ; preds = %121, %.thread
-  %123 = tail call zeroext i1 @intel_fbc_pre_update(ptr noundef %0, ptr noundef %1) #25
+  %123 = tail call zeroext i1 @intel_fbc_pre_update(ptr noundef %0, ptr noundef nonnull %1) #25
   br i1 %123, label %124, label %125
 
 124:                                              ; preds = %122
-  tail call void @intel_crtc_wait_for_next_vblank(ptr noundef %1) #25
+  tail call void @intel_crtc_wait_for_next_vblank(ptr noundef nonnull %1) #25
   br label %125
 
 125:                                              ; preds = %124, %122
@@ -17779,7 +17779,7 @@ define internal fastcc void @intel_pre_plane_update(ptr noundef %0, ptr noundef 
   br i1 %296, label %297, label %298
 
 297:                                              ; preds = %295
-  tail call void @intel_crtc_wait_for_next_vblank(ptr noundef %1) #25
+  tail call void @intel_crtc_wait_for_next_vblank(ptr noundef nonnull %1) #25
   br label %298
 
 298:                                              ; preds = %297, %295, %291, %281
@@ -17798,7 +17798,7 @@ define internal fastcc void @intel_pre_plane_update(ptr noundef %0, ptr noundef 
   br i1 %305, label %306, label %.thread11
 
 306:                                              ; preds = %304
-  tail call void @intel_crtc_wait_for_next_vblank(ptr noundef %1) #25
+  tail call void @intel_crtc_wait_for_next_vblank(ptr noundef nonnull %1) #25
   br label %.thread11
 
 .thread11:                                        ; preds = %288, %306, %304, %300, %298
@@ -17809,7 +17809,7 @@ define internal fastcc void @intel_pre_plane_update(ptr noundef %0, ptr noundef 
   br i1 %310, label %311, label %318
 
 311:                                              ; preds = %.thread11
-  %312 = tail call zeroext i1 @intel_initial_watermarks(ptr noundef %0, ptr noundef %1) #25
+  %312 = tail call zeroext i1 @intel_initial_watermarks(ptr noundef %0, ptr noundef nonnull %1) #25
   br i1 %312, label %318, label %313
 
 313:                                              ; preds = %311
@@ -17948,7 +17948,7 @@ define internal fastcc void @intel_pre_plane_update(ptr noundef %0, ptr noundef 
   br i1 %408, label %410, label %409
 
 409:                                              ; preds = %406
-  tail call void @intel_crtc_wait_for_next_vblank(ptr noundef %1) #25
+  tail call void @intel_crtc_wait_for_next_vblank(ptr noundef nonnull %1) #25
   br label %410
 
 410:                                              ; preds = %409, %406, %348, %338
@@ -21836,7 +21836,7 @@ declare dso_local void @intel_disable_shared_dpll(ptr noundef) local_unnamed_add
 declare dso_local void @intel_dmc_disable_pipe(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_pre_update_crtc(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_pre_update_crtc(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -21865,7 +21865,7 @@ define internal fastcc void @intel_pre_update_crtc(ptr noundef %0, ptr noundef %
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %22
-  tail call void @intel_dpt_configure(ptr noundef %1) #25
+  tail call void @intel_dpt_configure(ptr noundef nonnull %1) #25
   br label %27
 
 27:                                               ; preds = %26, %22
@@ -22049,7 +22049,7 @@ define internal fastcc void @intel_pre_update_crtc(ptr noundef %0, ptr noundef %
   br label %149
 
 149:                                              ; preds = %148, %142, %27
-  tail call void @intel_fbc_update(ptr noundef %0, ptr noundef %1) #25
+  tail call void @intel_fbc_update(ptr noundef %0, ptr noundef nonnull %1) #25
   %150 = tail call zeroext i1 @intel_display_power_is_enabled(ptr noundef %4, i32 noundef 73) #25
   br i1 %150, label %163, label %151, !prof !6
 
@@ -22099,7 +22099,7 @@ define internal fastcc void @intel_pre_update_crtc(ptr noundef %0, ptr noundef %
   br label %175
 
 175:                                              ; preds = %174, %168, %163
-  tail call void @intel_crtc_planes_update_noarm(ptr noundef %0, ptr noundef %1) #25
+  tail call void @intel_crtc_planes_update_noarm(ptr noundef %0, ptr noundef nonnull %1) #25
   ret void
 }
 
@@ -22107,7 +22107,7 @@ define internal fastcc void @intel_pre_update_crtc(ptr noundef %0, ptr noundef %
 declare dso_local zeroext i1 @skl_ddb_allocation_overlaps(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_update_crtc(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_update_crtc(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 144
@@ -22117,7 +22117,7 @@ define internal fastcc void @intel_update_crtc(ptr noundef %0, ptr noundef %1) u
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7, i32 3
   %11 = load ptr, ptr %10, align 8
-  tail call void @intel_pipe_update_start(ptr noundef %0, ptr noundef %1) #25
+  tail call void @intel_pipe_update_start(ptr noundef %0, ptr noundef nonnull %1) #25
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %3, align 8
@@ -22450,8 +22450,8 @@ intel_cpu_transcoder_set_m1_n1.exit:              ; preds = %142, %160
 
 258:                                              ; preds = %219, %186, %43, %2
   tail call void @intel_psr2_program_trans_man_trk_ctl(ptr noundef %20) #25
-  tail call void @intel_atomic_update_watermarks(ptr noundef %0, ptr noundef %1) #25
-  tail call void @intel_crtc_planes_update_arm(ptr noundef %0, ptr noundef %1) #25
+  tail call void @intel_atomic_update_watermarks(ptr noundef %0, ptr noundef nonnull %1) #25
+  tail call void @intel_crtc_planes_update_arm(ptr noundef %0, ptr noundef nonnull %1) #25
   %259 = load ptr, ptr %12, align 8
   %260 = load ptr, ptr %3, align 8
   %261 = load i32, ptr %5, align 8
@@ -22564,7 +22564,7 @@ intel_cpu_transcoder_set_m1_n1.exit:              ; preds = %142, %160
   br label %.thread
 
 .thread:                                          ; preds = %289, %333, %327, %293, %276
-  tail call void @intel_pipe_update_end(ptr noundef %0, ptr noundef %1) #25
+  tail call void @intel_pipe_update_end(ptr noundef %0, ptr noundef nonnull %1) #25
   %334 = getelementptr inbounds i8, ptr %11, i64 336
   %335 = load i8, ptr %334, align 8, !range !14, !noundef !15
   %336 = icmp eq i8 %335, 0
@@ -22704,7 +22704,7 @@ intel_cpu_transcoder_set_m1_n1.exit:              ; preds = %142, %160
   br i1 %425, label %429, label %426
 
 426:                                              ; preds = %422
-  %427 = tail call i32 @intel_crtc_pch_transcoder(ptr noundef %1) #25
+  %427 = tail call i32 @intel_crtc_pch_transcoder(ptr noundef nonnull %1) #25
   %428 = tail call zeroext i1 @intel_set_pch_fifo_underrun_reporting(ptr noundef %410, i32 noundef %427, i1 noundef zeroext true) #25
   br label %429
 

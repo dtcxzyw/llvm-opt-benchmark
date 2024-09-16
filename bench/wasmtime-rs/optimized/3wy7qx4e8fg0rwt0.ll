@@ -315,7 +315,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h28999f98cd601590E.exit.i.i: ;
   %76 = getelementptr inbounds i8, ptr %37, i64 192
   %77 = getelementptr inbounds ptr, ptr %76, i64 %56
   %78 = shl nuw nsw i64 %46, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %72, ptr nonnull readonly align 8 %77, i64 %78, i1 false), !alias.scope !29, !noalias !18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %72, ptr noundef nonnull readonly align 8 dereferenceable(1) %77, i64 %78, i1 false), !alias.scope !29, !noalias !18
   br label %79
 
 79:                                               ; preds = %79, %_ZN5alloc11collections5btree4node13move_to_slice17h28999f98cd601590E.exit.i.i

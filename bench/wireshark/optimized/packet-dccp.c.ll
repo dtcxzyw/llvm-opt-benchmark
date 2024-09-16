@@ -568,7 +568,7 @@ proto_item_set_hidden.exit596:                    ; preds = %proto_item_set_hidd
   %83 = getelementptr inbounds i8, ptr %1, i64 288
   store i32 %82, ptr %83, align 8
   %84 = tail call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #10
-  %85 = tail call fastcc ptr @get_dccp_conversation_data(ptr noundef nonnull %84, ptr noundef nonnull %1)
+  %85 = tail call fastcc ptr @get_dccp_conversation_data(ptr noundef %84, ptr noundef nonnull %1)
   %86 = load i32, ptr @hf_dccp_stream, align 4
   %87 = getelementptr inbounds i8, ptr %85, i64 48
   %88 = load i32, ptr %87, align 8
@@ -780,7 +780,7 @@ proto_item_set_hidden.exit601:                    ; preds = %172, %179, %182
 
 213:                                              ; preds = %211
   %214 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %104, ptr noundef nonnull @ei_dccp_advertised_header_length_bad, ptr noundef nonnull @.str.228, i32 noundef %102, i32 noundef 16) #10
-  br label %669
+  br label %667
 
 215:                                              ; preds = %211
   %216 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #10
@@ -843,7 +843,7 @@ proto_item_set_hidden.exit604:                    ; preds = %215, %221, %224
 
 248:                                              ; preds = %246
   %249 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %104, ptr noundef nonnull @ei_dccp_advertised_header_length_bad, ptr noundef nonnull @.str.228, i32 noundef %102, i32 noundef 12) #10
-  br label %669
+  br label %667
 
 250:                                              ; preds = %246
   %251 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef 9) #10
@@ -916,7 +916,7 @@ proto_item_set_hidden.exit604:                    ; preds = %215, %221, %224
   %282 = zext nneg i8 %277 to i32
   %283 = call ptr @val_to_str(i32 noundef %282, ptr noundef nonnull @dccp_packet_type_vals, ptr noundef nonnull @.str.232) #10
   %284 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %104, ptr noundef nonnull @ei_dccp_advertised_header_length_bad, ptr noundef nonnull @.str.231, i32 noundef %102, i32 noundef %279, ptr noundef %283) #10
-  br label %669
+  br label %667
 
 285:                                              ; preds = %278
   %286 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0534) #10
@@ -961,7 +961,7 @@ proto_item_set_hidden.exit604:                    ; preds = %215, %221, %224
 
 309:                                              ; preds = %306
   %310 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %104, ptr noundef nonnull @ei_dccp_advertised_header_length_bad, ptr noundef nonnull @.str.234, i32 noundef %102, i32 noundef %307) #10
-  br label %669
+  br label %667
 
 311:                                              ; preds = %306
   %312 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0534) #10
@@ -1093,7 +1093,7 @@ proto_item_set_hidden.exit607:                    ; preds = %321, %318, %314, %3
   %380 = zext nneg i8 %277 to i32
   %381 = call ptr @val_to_str(i32 noundef %380, ptr noundef nonnull @dccp_packet_type_vals, ptr noundef nonnull @.str.232) #10
   %382 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %104, ptr noundef nonnull @ei_dccp_advertised_header_length_bad, ptr noundef nonnull @.str.231, i32 noundef %102, i32 noundef %377, ptr noundef %381) #10
-  br label %669
+  br label %667
 
 383:                                              ; preds = %376
   %384 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0534) #10
@@ -1187,7 +1187,7 @@ proto_item_set_hidden.exit610:                    ; preds = %393, %390, %386, %3
   %429 = zext nneg i8 %277 to i32
   %430 = call ptr @val_to_str(i32 noundef %429, ptr noundef nonnull @dccp_packet_type_vals, ptr noundef nonnull @.str.232) #10
   %431 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %104, ptr noundef nonnull @ei_dccp_advertised_header_length_bad, ptr noundef nonnull @.str.231, i32 noundef %102, i32 noundef %426, ptr noundef %430) #10
-  br label %669
+  br label %667
 
 432:                                              ; preds = %425
   %433 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0534) #10
@@ -1281,7 +1281,7 @@ proto_item_set_hidden.exit613:                    ; preds = %443, %440, %436, %4
 
 479:                                              ; preds = %476
   %480 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %104, ptr noundef nonnull @ei_dccp_advertised_header_length_bad, ptr noundef nonnull @.str.237, i32 noundef %102, i32 noundef %477) #10
-  br label %669
+  br label %667
 
 481:                                              ; preds = %476
   %482 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0534) #10
@@ -1421,7 +1421,7 @@ proto_item_set_hidden.exit616:                    ; preds = %491, %488, %484, %4
   %564 = zext nneg i8 %277 to i32
   %565 = call ptr @val_to_str(i32 noundef %564, ptr noundef nonnull @dccp_packet_type_vals, ptr noundef nonnull @.str.232) #10
   %566 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %104, ptr noundef nonnull @ei_dccp_advertised_header_length_bad, ptr noundef nonnull @.str.231, i32 noundef %102, i32 noundef %561, ptr noundef %565) #10
-  br label %669
+  br label %667
 
 567:                                              ; preds = %560
   %568 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0534) #10
@@ -1511,7 +1511,7 @@ proto_item_set_hidden.exit619:                    ; preds = %577, %574, %570, %5
 
 612:                                              ; preds = %275
   %613 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %41, ptr noundef nonnull @ei_dccp_packet_type_reserved) #10
-  br label %669
+  br label %667
 
 614:                                              ; preds = %554, %610, %299, %291, %367, %359, %275, %474, %423
   %.1535 = phi i32 [ %561, %610 ], [ %559, %554 ], [ %377, %423 ], [ %426, %474 ], [ %.0534, %275 ], [ %307, %359 ], [ %307, %367 ], [ %279, %291 ], [ %279, %299 ]
@@ -1554,7 +1554,7 @@ proto_item_set_hidden.exit619:                    ; preds = %577, %574, %570, %5
 632:                                              ; preds = %626
   %633 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %627) #10
   %634 = icmp sgt i32 %633, 0
-  br i1 %634, label %635, label %669
+  br i1 %634, label %635, label %667
 
 635:                                              ; preds = %632, %626
   %636 = load i16, ptr %10, align 8
@@ -1590,49 +1590,49 @@ proto_item_set_hidden.exit619:                    ; preds = %577, %574, %570, %5
   br i1 %.not41.i, label %652, label %decode_dccp_ports.exit
 
 652:                                              ; preds = %649, %647
-  %653 = call i32 @llvm.umin.i32(i32 %637, i32 %639)
-  %654 = call i32 @llvm.umax.i32(i32 %637, i32 %639)
-  %.not42.i = icmp eq i32 %653, 0
-  br i1 %.not42.i, label %658, label %655
+  %..i = call i32 @llvm.umin.i32(i32 %637, i32 %639)
+  %.48.i = call i32 @llvm.umax.i32(i32 %637, i32 %639)
+  %.not42.i = icmp eq i32 %..i, 0
+  br i1 %.not42.i, label %656, label %653
 
-655:                                              ; preds = %652
-  %656 = load ptr, ptr @dccp_subdissector_table, align 8
-  %657 = call i32 @dissector_try_uint(ptr noundef %656, i32 noundef %653, ptr noundef %640, ptr noundef nonnull %1, ptr noundef %2) #10
-  %.not43.i = icmp eq i32 %657, 0
-  br i1 %.not43.i, label %658, label %decode_dccp_ports.exit
+653:                                              ; preds = %652
+  %654 = load ptr, ptr @dccp_subdissector_table, align 8
+  %655 = call i32 @dissector_try_uint(ptr noundef %654, i32 noundef %..i, ptr noundef %640, ptr noundef nonnull %1, ptr noundef %2) #10
+  %.not43.i = icmp eq i32 %655, 0
+  br i1 %.not43.i, label %656, label %decode_dccp_ports.exit
 
-658:                                              ; preds = %655, %652
-  %.not44.i = icmp eq i32 %654, 0
-  br i1 %.not44.i, label %662, label %659
+656:                                              ; preds = %653, %652
+  %.not44.i = icmp eq i32 %.48.i, 0
+  br i1 %.not44.i, label %660, label %657
 
-659:                                              ; preds = %658
-  %660 = load ptr, ptr @dccp_subdissector_table, align 8
-  %661 = call i32 @dissector_try_uint(ptr noundef %660, i32 noundef %654, ptr noundef %640, ptr noundef nonnull %1, ptr noundef %2) #10
-  %.not45.i = icmp eq i32 %661, 0
-  br i1 %.not45.i, label %662, label %decode_dccp_ports.exit
+657:                                              ; preds = %656
+  %658 = load ptr, ptr @dccp_subdissector_table, align 8
+  %659 = call i32 @dissector_try_uint(ptr noundef %658, i32 noundef %.48.i, ptr noundef %640, ptr noundef nonnull %1, ptr noundef %2) #10
+  %.not45.i = icmp eq i32 %659, 0
+  br i1 %.not45.i, label %660, label %decode_dccp_ports.exit
 
-662:                                              ; preds = %659, %658
-  %663 = load i32, ptr @try_heuristic_first, align 4
-  %.not46.i = icmp eq i32 %663, 0
-  br i1 %.not46.i, label %664, label %667
+660:                                              ; preds = %657, %656
+  %661 = load i32, ptr @try_heuristic_first, align 4
+  %.not46.i = icmp eq i32 %661, 0
+  br i1 %.not46.i, label %662, label %665
 
-664:                                              ; preds = %662
-  %665 = load ptr, ptr @heur_subdissector_list, align 8
-  %666 = call i32 @dissector_try_heuristic(ptr noundef %665, ptr noundef %640, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef null) #10
-  %.not47.i = icmp eq i32 %666, 0
-  br i1 %.not47.i, label %667, label %decode_dccp_ports.exit
+662:                                              ; preds = %660
+  %663 = load ptr, ptr @heur_subdissector_list, align 8
+  %664 = call i32 @dissector_try_heuristic(ptr noundef %663, ptr noundef %640, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef null) #10
+  %.not47.i = icmp eq i32 %664, 0
+  br i1 %.not47.i, label %665, label %decode_dccp_ports.exit
 
-667:                                              ; preds = %664, %662
-  %668 = call i32 @call_data_dissector(ptr noundef %640, ptr noundef nonnull %1, ptr noundef %2) #10
+665:                                              ; preds = %662, %660
+  %666 = call i32 @call_data_dissector(ptr noundef %640, ptr noundef nonnull %1, ptr noundef %2) #10
   br label %decode_dccp_ports.exit
 
-decode_dccp_ports.exit:                           ; preds = %645, %649, %655, %659, %664, %667
+decode_dccp_ports.exit:                           ; preds = %645, %649, %653, %657, %662, %665
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %669
+  br label %667
 
-669:                                              ; preds = %632, %decode_dccp_ports.exit, %612, %563, %479, %428, %379, %309, %281, %248, %213
-  %670 = call i32 @tvb_reported_length(ptr noundef %0) #10
-  ret i32 %670
+667:                                              ; preds = %632, %decode_dccp_ports.exit, %612, %563, %479, %428, %379, %309, %281, %248, %213
+  %668 = call i32 @tvb_reported_length(ptr noundef %0) #10
+  ret i32 %668
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -1794,7 +1794,7 @@ define internal noalias ptr @dccp_follow_conv_filter(ptr nocapture readnone %0, 
   br i1 %.not, label %.thread, label %28
 
 28:                                               ; preds = %19
-  %29 = tail call fastcc ptr @get_dccp_conversation_data(ptr noundef nonnull %27, ptr noundef nonnull %1)
+  %29 = tail call fastcc ptr @get_dccp_conversation_data(ptr noundef %27, ptr noundef nonnull %1)
   %30 = getelementptr inbounds i8, ptr %29, i64 48
   %31 = load i32, ptr %30, align 8
   store i32 %31, ptr %2, align 4
@@ -1873,9 +1873,9 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare nonnull ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_dccp_conversation_data(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc ptr @get_dccp_conversation_data(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
   %3 = load i32, ptr @proto_dccp, align 4
-  %4 = tail call ptr @conversation_get_proto_data(ptr noundef %0, i32 noundef %3) #10
+  %4 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %0, i32 noundef %3) #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %18
 
@@ -1900,7 +1900,7 @@ define internal fastcc ptr @get_dccp_conversation_data(ptr noundef %0, ptr nocap
   %16 = getelementptr inbounds i8, ptr %7, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %15, i64 16, i1 false)
   %17 = load i32, ptr @proto_dccp, align 4
-  tail call void @conversation_add_proto_data(ptr noundef %0, i32 noundef %17, ptr noundef nonnull %7) #10
+  tail call void @conversation_add_proto_data(ptr noundef nonnull %0, i32 noundef %17, ptr noundef nonnull %7) #10
   br label %18
 
 18:                                               ; preds = %5, %2

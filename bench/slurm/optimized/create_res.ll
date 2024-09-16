@@ -68,7 +68,7 @@ define dso_local i32 @scontrol_update_res(i32 noundef %0, ptr nocapture noundef 
   %4 = alloca i32, align 4
   store i32 0, ptr %4, align 4
   call void @slurm_init_resv_desc_msg(ptr noundef nonnull %3) #9
-  %5 = call fastcc i32 @_parse_res_options(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %5 = call fastcc i32 @_parse_res_options(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %17
 
@@ -107,7 +107,7 @@ define dso_local i32 @scontrol_update_res(i32 noundef %0, ptr nocapture noundef 
 declare void @slurm_init_resv_desc_msg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -270,12 +270,12 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
 91:                                               ; preds = %90
   %92 = call ptr @scontrol_process_plus_minus(i8 noundef signext %.0237, ptr noundef nonnull %44, i1 noundef zeroext false) #9
   store ptr %92, ptr %7, align 8
-  %93 = call i64 @parse_resv_flags(ptr noundef %92, ptr noundef %2, ptr noundef %3) #9
+  %93 = call i64 @parse_resv_flags(ptr noundef %92, ptr noundef %2, ptr noundef nonnull %3) #9
   call void @slurm_xfree(ptr noundef nonnull %7) #9
   br label %96
 
 94:                                               ; preds = %90
-  %95 = call i64 @parse_resv_flags(ptr noundef nonnull %44, ptr noundef %2, ptr noundef %3) #9
+  %95 = call i64 @parse_resv_flags(ptr noundef nonnull %44, ptr noundef %2, ptr noundef nonnull %3) #9
   br label %96
 
 96:                                               ; preds = %94, %91
@@ -729,7 +729,7 @@ define dso_local i32 @scontrol_create_res(i32 noundef %0, ptr nocapture noundef 
   %4 = alloca i32, align 4
   store i32 0, ptr %4, align 4
   call void @slurm_init_resv_desc_msg(ptr noundef nonnull %3) #9
-  %5 = call fastcc i32 @_parse_res_options(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %5 = call fastcc i32 @_parse_res_options(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %170
 

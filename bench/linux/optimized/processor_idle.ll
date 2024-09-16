@@ -2497,7 +2497,7 @@ declare dso_local void @ct_idle_exit() local_unnamed_addr #2
 declare dso_local void @acpi_processor_ffh_cstate_enter(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
-define internal fastcc void @io_idle(i64 noundef %0) unnamed_addr #13 section ".cpuidle.text" align 16 {
+define internal fastcc void @io_idle(i64 noundef range(i64 0, 4294967296) %0) unnamed_addr #13 section ".cpuidle.text" align 16 {
   %2 = trunc i64 %0 to i16
   %3 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %2) #17, !srcloc !36
   %4 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8

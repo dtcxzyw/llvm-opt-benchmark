@@ -990,7 +990,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_http(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = call fastcc ptr @get_http_conversation_data(ptr noundef %1, ptr noundef nonnull %5)
+  %6 = call fastcc ptr @get_http_conversation_data(ptr noundef %1, ptr noundef %5)
   tail call fastcc void @dissect_http_on_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %6, i32 noundef 0, ptr noundef null)
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #14
   ret i32 %7
@@ -999,7 +999,7 @@ define internal i32 @dissect_http(ptr noundef %0, ptr noundef %1, ptr noundef %2
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_http_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = call fastcc ptr @get_http_conversation_data(ptr noundef %1, ptr noundef nonnull %5)
+  %6 = call fastcc ptr @get_http_conversation_data(ptr noundef %1, ptr noundef %5)
   %7 = load ptr, ptr %5, align 8
   %8 = load i32, ptr @proto_http2, align 4
   %9 = tail call ptr @conversation_get_proto_data(ptr noundef %7, i32 noundef %8) #14
@@ -1300,7 +1300,7 @@ http_payload_subdissector.exit:                   ; preds = %addresses_equal.exi
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_http_tls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = call fastcc ptr @get_http_conversation_data(ptr noundef %1, ptr noundef nonnull %5)
+  %6 = call fastcc ptr @get_http_conversation_data(ptr noundef %1, ptr noundef %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.split, label %.split12
 
@@ -1324,7 +1324,7 @@ define internal i32 @dissect_http_tls(ptr noundef %0, ptr noundef %1, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_http_sctp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = call fastcc ptr @get_http_conversation_data(ptr noundef %1, ptr noundef nonnull %5)
+  %6 = call fastcc ptr @get_http_conversation_data(ptr noundef %1, ptr noundef %5)
   tail call fastcc void @dissect_http_on_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %6, i32 noundef 0, ptr noundef null)
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #14
   ret i32 %7
@@ -1764,7 +1764,7 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ssdp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = call fastcc ptr @get_http_conversation_data(ptr noundef %1, ptr noundef nonnull %5)
+  %6 = call fastcc ptr @get_http_conversation_data(ptr noundef %1, ptr noundef %5)
   %7 = load i32, ptr @proto_ssdp, align 4
   %8 = tail call fastcc i32 @dissect_http_message(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef %6, ptr noundef nonnull @.str.325, i32 noundef %7, i32 noundef 0, ptr noundef null)
   %9 = tail call i32 @tvb_captured_length(ptr noundef %0) #14
@@ -2354,7 +2354,7 @@ define internal range(i32 0, 2) i32 @dissect_http_heur_tls(ptr noundef %0, ptr n
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %12 = call fastcc ptr @get_http_conversation_data(ptr noundef %1, ptr noundef nonnull %6)
+  %12 = call fastcc ptr @get_http_conversation_data(ptr noundef %1, ptr noundef %6)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %.split.i, label %.split12.i
 
@@ -2395,7 +2395,7 @@ dissect_http_tls.exit:                            ; preds = %.split.i, %.split12
 
 25:                                               ; preds = %23, %20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %26 = call fastcc ptr @get_http_conversation_data(ptr noundef %1, ptr noundef nonnull %5)
+  %26 = call fastcc ptr @get_http_conversation_data(ptr noundef %1, ptr noundef %5)
   %.not.i22 = icmp eq ptr %3, null
   br i1 %.not.i22, label %.split.i24, label %.split12.i23
 
@@ -2437,7 +2437,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_http_conversation_data(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @get_http_conversation_data(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %0) #14
   store ptr %3, ptr %1, align 8
   %4 = load i32, ptr @proto_http, align 4
@@ -2467,7 +2467,7 @@ define internal fastcc ptr @get_http_conversation_data(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_http_on_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_http_on_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #14
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %.loopexit
@@ -2585,7 +2585,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_http_message(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_http_message(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, ptr noundef readonly %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -2892,7 +2892,7 @@ starts_with_chunk_size.exit:                      ; preds = %151
   %177 = phi i1 [ false, %174 ], [ false, %171 ], [ false, %.thread ], [ true, %starts_with_chunk_size.exit ], [ true, %136 ], [ true, %starts_with_chunk_size.exit.thread ], [ false, %168 ]
   %178 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.0663, i32 noundef %118) #14
   store i32 3, ptr %18, align 4
-  %179 = call fastcc i32 @is_http_request_or_reply(ptr noundef nonnull %2, ptr noundef %178, i32 noundef %118, ptr noundef nonnull %18, ptr noundef null)
+  %179 = call fastcc i32 @is_http_request_or_reply(ptr noundef nonnull %2, ptr noundef %178, i32 noundef %118, ptr noundef %18, ptr noundef null)
   %180 = icmp ne i32 %179, 0
   %or.cond5 = or i1 %175, %180
   br i1 %or.cond5, label %181, label %255
@@ -3272,7 +3272,7 @@ switch.early.test:                                ; preds = %226, %229
   %366 = zext nneg i32 %362 to i64
   %367 = getelementptr i8, ptr %365, i64 %366
   store ptr null, ptr %20, align 8
-  %368 = call fastcc i32 @is_http_request_or_reply(ptr noundef %2, ptr noundef %365, i32 noundef %362, ptr noundef nonnull %18, ptr noundef nonnull %20)
+  %368 = call fastcc i32 @is_http_request_or_reply(ptr noundef %2, ptr noundef %365, i32 noundef %362, ptr noundef %18, ptr noundef nonnull %20)
   %369 = icmp ne i32 %368, 0
   %370 = icmp eq i32 %362, 0
   %or.cond61 = or i1 %370, %369
@@ -4904,7 +4904,7 @@ declare i32 @req_resp_hdrs_do_reassembly(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_http_request_or_reply(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_http_request_or_reply(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @proto_http, align 4
@@ -5306,7 +5306,7 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_header(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef %8, ptr nocapture noundef writeonly %9, i32 noundef %10, ptr noundef %11, i32 noundef %12) unnamed_addr #0 {
+define internal fastcc void @process_header(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 1, -2147483648) %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef %8, ptr nocapture noundef writeonly %9, i32 noundef %10, ptr noundef %11, i32 noundef range(i32 0, 2) %12) unnamed_addr #0 {
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
   %16 = alloca i32, align 4

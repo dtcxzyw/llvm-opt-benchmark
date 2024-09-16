@@ -3654,7 +3654,7 @@ invoke.cont16:                                    ; preds = %invoke.cont14
 
 invoke.cont18:                                    ; preds = %invoke.cont16
   %m_redParams.i = getelementptr inbounds i8, ptr %this, i64 176
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GetParametersStringB5cxx11ERKSt6vectorIdSaIdEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GetParametersStringB5cxx11ERKSt6vectorIdSaIdEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i)
           to label %invoke.cont22 unwind label %lpad2
 
 invoke.cont22:                                    ; preds = %invoke.cont18
@@ -3672,7 +3672,7 @@ invoke.cont26:                                    ; preds = %invoke.cont24
 
 invoke.cont28:                                    ; preds = %invoke.cont26
   %m_greenParams.i = getelementptr inbounds i8, ptr %this, i64 200
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GetParametersStringB5cxx11ERKSt6vectorIdSaIdEE(ptr noalias nonnull align 8 %ref.tmp30, ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GetParametersStringB5cxx11ERKSt6vectorIdSaIdEE(ptr noalias align 8 %ref.tmp30, ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i)
           to label %invoke.cont33 unwind label %lpad2
 
 invoke.cont33:                                    ; preds = %invoke.cont28
@@ -3690,7 +3690,7 @@ invoke.cont37:                                    ; preds = %invoke.cont35
 
 invoke.cont39:                                    ; preds = %invoke.cont37
   %m_blueParams.i = getelementptr inbounds i8, ptr %this, i64 224
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GetParametersStringB5cxx11ERKSt6vectorIdSaIdEE(ptr noalias nonnull align 8 %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GetParametersStringB5cxx11ERKSt6vectorIdSaIdEE(ptr noalias align 8 %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i)
           to label %invoke.cont44 unwind label %lpad2
 
 invoke.cont44:                                    ; preds = %invoke.cont39
@@ -3708,7 +3708,7 @@ invoke.cont48:                                    ; preds = %invoke.cont46
 
 invoke.cont50:                                    ; preds = %invoke.cont48
   %m_alphaParams.i = getelementptr inbounds i8, ptr %this, i64 248
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GetParametersStringB5cxx11ERKSt6vectorIdSaIdEE(ptr noalias nonnull align 8 %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GetParametersStringB5cxx11ERKSt6vectorIdSaIdEE(ptr noalias align 8 %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i)
           to label %invoke.cont55 unwind label %lpad2
 
 invoke.cont55:                                    ; preds = %invoke.cont50
@@ -3772,7 +3772,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GetParametersStringB5cxx11ERKSt6vectorIdSaIdEE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %params) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GetParametersStringB5cxx11ERKSt6vectorIdSaIdEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %params) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss)
@@ -3836,7 +3836,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %oss)
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %oss)
           to label %invoke.cont10 unwind label %lpad.loopexit.split-lp
 
 invoke.cont10:                                    ; preds = %for.end

@@ -1126,7 +1126,7 @@ declare ptr @tvb_format_text_wsp(ptr noundef, ptr noundef, i32 noundef, i32 noun
 declare signext i8 @g_ascii_tolower(i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @rtpproxy_add_tid(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @rtpproxy_add_tid(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.nstime_t, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 80
   %9 = load ptr, ptr %8, align 8

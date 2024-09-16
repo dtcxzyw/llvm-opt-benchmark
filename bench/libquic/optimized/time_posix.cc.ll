@@ -286,17 +286,17 @@ entry:
   %tm_gmtoff = getelementptr inbounds i8, ptr %timestruct, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tm_gmtoff, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %timestruct0, ptr noundef nonnull align 8 dereferenceable(56) %timestruct, i64 56, i1 false)
-  %call = call fastcc noundef i64 @_ZN12_GLOBAL__N_121SysTimeFromTimeStructEP2tmb(ptr noundef nonnull %timestruct, i1 noundef zeroext %is_local)
+  %call = call fastcc noundef i64 @_ZN12_GLOBAL__N_121SysTimeFromTimeStructEP2tmb(ptr noundef %timestruct, i1 noundef zeroext %is_local)
   %cmp = icmp eq i64 %call, -1
   br i1 %cmp, label %if.then, label %if.else27
 
 if.then:                                          ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %timestruct, ptr noundef nonnull align 8 dereferenceable(56) %timestruct0, i64 56, i1 false)
   store i32 0, ptr %tm_isdst, align 8
-  %call4 = call fastcc noundef i64 @_ZN12_GLOBAL__N_121SysTimeFromTimeStructEP2tmb(ptr noundef nonnull %timestruct, i1 noundef zeroext %is_local)
+  %call4 = call fastcc noundef i64 @_ZN12_GLOBAL__N_121SysTimeFromTimeStructEP2tmb(ptr noundef %timestruct, i1 noundef zeroext %is_local)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %timestruct, ptr noundef nonnull align 8 dereferenceable(56) %timestruct0, i64 56, i1 false)
   store i32 1, ptr %tm_isdst, align 8
-  %call7 = call fastcc noundef i64 @_ZN12_GLOBAL__N_121SysTimeFromTimeStructEP2tmb(ptr noundef nonnull %timestruct, i1 noundef zeroext %is_local)
+  %call7 = call fastcc noundef i64 @_ZN12_GLOBAL__N_121SysTimeFromTimeStructEP2tmb(ptr noundef %timestruct, i1 noundef zeroext %is_local)
   %cmp8 = icmp slt i64 %call4, 0
   br i1 %cmp8, label %if.end15, label %if.else
 
@@ -348,7 +348,7 @@ if.end29:                                         ; preds = %if.then21, %if.else
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZN12_GLOBAL__N_121SysTimeFromTimeStructEP2tmb(ptr noundef %timestruct, i1 noundef zeroext %is_local) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @_ZN12_GLOBAL__N_121SysTimeFromTimeStructEP2tmb(ptr noundef nonnull %timestruct, i1 noundef zeroext %is_local) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic volatile i64, ptr @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE acquire, align 8
   %tobool.not.i.i = icmp ult i64 %0, 2
@@ -370,11 +370,11 @@ _ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3Get
   br i1 %is_local, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit
-  %call1 = tail call i64 @mktime(ptr noundef %timestruct) #13
+  %call1 = tail call i64 @mktime(ptr noundef nonnull %timestruct) #13
   br label %cleanup
 
 if.else:                                          ; preds = %_ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit
-  %call2 = tail call i64 @timegm(ptr noundef %timestruct) #13
+  %call2 = tail call i64 @timegm(ptr noundef nonnull %timestruct) #13
   br label %cleanup
 
 cleanup:                                          ; preds = %if.else, %if.then

@@ -3998,7 +3998,7 @@ Abc_TtElemInit2.exit:                             ; preds = %..loopexit22_crit_e
   %99 = add nuw nsw i32 %.0147227, %76
   %100 = shl nuw i32 %99, 1
   %101 = add i32 %100, -2
-  %102 = add i32 %100, -1
+  %102 = or disjoint i32 %101, 1
   %103 = sext i32 %.0151.lcssa to i64
   %104 = getelementptr inbounds [8 x i32], ptr %11, i64 0, i64 %103
   store i32 %102, ptr %104, align 4

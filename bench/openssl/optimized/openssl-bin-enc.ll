@@ -737,7 +737,7 @@ if.else358:                                       ; preds = %if.then354
 
 land.lhs.true361:                                 ; preds = %if.else358
   %33 = load i32, ptr %saltlen, align 4
-  %call363 = call fastcc i32 @set_hex(ptr noundef nonnull %hsalt.0, ptr noundef nonnull %salt, i32 noundef %33)
+  %call363 = call fastcc i32 @set_hex(ptr noundef %hsalt.0, ptr noundef %salt, i32 noundef %33)
   %tobool364.not = icmp eq i32 %call363, 0
   br i1 %tobool364.not, label %if.then365, label %if.end426
 
@@ -884,7 +884,7 @@ if.then472:                                       ; preds = %if.then468
   br label %if.end497
 
 if.else474:                                       ; preds = %if.then468
-  %call476 = call fastcc i32 @set_hex(ptr noundef nonnull %hiv.0, ptr noundef nonnull %iv, i32 noundef %call469)
+  %call476 = call fastcc i32 @set_hex(ptr noundef %hiv.0, ptr noundef %iv, i32 noundef %call469)
   %tobool477.not = icmp eq i32 %call476, 0
   br i1 %tobool477.not, label %if.then478, label %if.end497
 
@@ -912,7 +912,7 @@ if.end497:                                        ; preds = %if.end459, %if.else
 if.then500:                                       ; preds = %if.end497
   %59 = load ptr, ptr %cipher, align 8
   %call502 = call i32 @EVP_CIPHER_get_key_length(ptr noundef %59) #11
-  %call503 = call fastcc i32 @set_hex(ptr noundef nonnull %hkey.0, ptr noundef nonnull %key, i32 noundef %call502)
+  %call503 = call fastcc i32 @set_hex(ptr noundef %hkey.0, ptr noundef %key, i32 noundef %call502)
   %tobool504.not = icmp eq i32 %call503, 0
   br i1 %tobool504.not, label %if.then505, label %if.end507
 
@@ -1347,7 +1347,7 @@ declare ptr @BIO_f_base64() local_unnamed_addr #2
 declare void @BIO_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @set_hex(ptr nocapture noundef readonly %in, ptr nocapture noundef %out, i32 noundef %size) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @set_hex(ptr nocapture noundef nonnull readonly %in, ptr nocapture noundef nonnull %out, i32 noundef %size) unnamed_addr #0 {
 entry:
   %mul = shl nsw i32 %size, 1
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %in) #10
@@ -1369,7 +1369,7 @@ if.end7.sink.split:                               ; preds = %if.else, %entry
 if.end7:                                          ; preds = %if.end7.sink.split, %if.else
   %n.0 = phi i32 [ %conv, %if.else ], [ %n.0.ph, %if.end7.sink.split ]
   %conv8 = sext i32 %size to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %out, i8 0, i64 %conv8, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %out, i8 0, i64 %conv8, i1 false)
   %cmp918 = icmp sgt i32 %n.0, 0
   br i1 %cmp918, label %for.body.lr.ph, label %return
 

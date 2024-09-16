@@ -147,7 +147,7 @@ declare i32 @Pshortestpath(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare void @make_polyline(ptr, i32, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #2 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef range(i64 8, 33) %1) unnamed_addr #2 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
@@ -256,7 +256,7 @@ define noalias noundef ptr @routesplines(ptr nocapture noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @routesplines_(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @routesplines_(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca %struct.Ppoly_t, align 8
   %5 = alloca %struct.Ppoly_t, align 8
   %6 = alloca %struct.Ppoly_t, align 8
@@ -1608,7 +1608,7 @@ cycles_append.exit.i.i:                           ; preds = %73, %gv_alloc.exit.
   %82 = getelementptr inbounds ptr, ptr %.sroa.0.1.i.i, i64 %.sroa.7.028.i.i
   store ptr %60, ptr %82, align 8, !noalias !4
   %83 = add i64 %.sroa.7.028.i.i, 1
-  call fastcc void @dfs(ptr noundef %0, ptr noundef nonnull %.030.i.i, ptr noundef nonnull %60, ptr noundef nonnull %.030.i.i, ptr noundef nonnull %6)
+  call fastcc void @dfs(ptr noundef %0, ptr noundef nonnull %.030.i.i, ptr noundef nonnull %60, ptr noundef %.030.i.i, ptr noundef %6)
   %84 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.030.i.i) #21, !noalias !4
   %.not.i.i = icmp eq ptr %84, null
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -2226,7 +2226,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare ptr @agfstnode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cycles_append(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @cycles_append(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2284,7 +2284,7 @@ define internal fastcc void @cycles_append(ptr nocapture noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
   %.not.i = icmp eq i64 %7, 0

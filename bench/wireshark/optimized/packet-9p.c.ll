@@ -2072,7 +2072,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @conv_set_version(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @conv_set_version(ptr noundef %0, i32 noundef range(i32 1, 5) %1) unnamed_addr #0 {
   %3 = tail call ptr @wmem_file_scope() #6
   %4 = tail call noalias ptr @wmem_alloc(ptr noundef %3, i64 noundef 16) #6
   %5 = tail call ptr @wmem_file_scope() #6
@@ -2198,7 +2198,7 @@ _9p_hash_set.exit:                                ; preds = %20, %37
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @conv_set_tag(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @conv_set_tag(ptr noundef %0, i16 noundef zeroext %1, i32 noundef range(i32 0, 256) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 50
@@ -2462,7 +2462,7 @@ define internal fastcc void @dissect_9P_qid(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_9P_lflags(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_9P_lflags(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 11, 65549) %2) unnamed_addr #0 {
   %4 = load i32, ptr @ett_9P_lflags, align 4
   %5 = tail call ptr @proto_item_add_subtree(ptr noundef %1, i32 noundef %4) #6
   %.not = icmp eq ptr %5, null
@@ -2514,7 +2514,7 @@ define internal fastcc void @dissect_9P_lflags(ptr noundef %0, ptr noundef %1, i
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_9P_dm(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_9P_dm(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 13, 65553) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = load i32, ptr @ett_9P_dm, align 4
   %6 = tail call ptr @proto_item_add_subtree(ptr noundef %1, i32 noundef %5) #6
   %.not = icmp eq ptr %6, null
@@ -2571,7 +2571,7 @@ declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef,
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_9P_getattrflags(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_9P_getattrflags(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 7, 12) %2) unnamed_addr #0 {
   %4 = load i32, ptr @ett_9P_getattr_flags, align 4
   %5 = tail call ptr @proto_item_add_subtree(ptr noundef %1, i32 noundef %4) #6
   %.not = icmp eq ptr %5, null

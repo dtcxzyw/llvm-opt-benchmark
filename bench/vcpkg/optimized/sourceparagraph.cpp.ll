@@ -4762,7 +4762,7 @@ _ZN5vcpkg9ExpectedTISt10unique_ptrINS_16FeatureParagraphESt14default_deleteIS2_E
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS6_N5vcpkg10TextRowColEESt4lessIvESaIS7_IKS6_SA_EEESaISG_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKSG_SI_EE.exit
   %453 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %315, %_ZNSt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS6_N5vcpkg10TextRowColEESt4lessIvESaIS7_IKS6_SA_EEESaISG_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKSG_SI_EE.exit ]
   %454 = ptrtoint ptr %453 to i64
-  invoke fastcc void @_ZNK5vcpkg12_GLOBAL__N_112CanonicalizeclERNS_17SourceControlFileE(ptr dead_on_unwind noalias nonnull writable align 8 %56, ptr noundef nonnull align 8 dereferenceable(56) %453)
+  invoke fastcc void @_ZNK5vcpkg12_GLOBAL__N_112CanonicalizeclERNS_17SourceControlFileE(ptr dead_on_unwind noalias writable align 8 %56, ptr noundef nonnull align 8 dereferenceable(56) %453)
           to label %455 unwind label %444
 
 455:                                              ; preds = %._crit_edge
@@ -4870,7 +4870,7 @@ _ZN5vcpkg14ExpectedHolderISt10unique_ptrINS_16FeatureParagraphESt14default_delet
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK5vcpkg12_GLOBAL__N_112CanonicalizeclERNS_17SourceControlFileE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK5vcpkg12_GLOBAL__N_112CanonicalizeclERNS_17SourceControlFileE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.fmt::v10::format_arg_store", align 16
   %4 = alloca %"struct.vcpkg::msg::TagArg.289", align 8
   %5 = alloca %"struct.vcpkg::msg::TagArg.290", align 8
@@ -9555,7 +9555,7 @@ declare void @_ZNK5vcpkg13Configuration9serializeEv(ptr dead_on_unwind writable 
 declare void @_ZN5vcpkg25serialize_schemed_versionERNS_4Json6ObjectENS_13VersionSchemeERKNS_7VersionE(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, ptr noundef nonnull align 8 dereferenceable(36)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5vcpkg18serialize_manifestERKNS_17SourceControlFileEENK3$_2clERNS_4Json6ObjectENS_13StringLiteralERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEb"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5vcpkg18serialize_manifestERKNS_17SourceControlFileEENK3$_2clERNS_4Json6ObjectENS_13StringLiteralERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEb"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 range(i64 7, 12) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"struct.vcpkg::StringView", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10120,7 +10120,7 @@ _ZN5vcpkg4Json6Object6insertINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5vcpkg18serialize_manifestERKNS_17SourceControlFileEENK3$_0clISt6vectorINS_26DependencyRequestedFeatureESaIS6_EEEEDaRNS_4Json6ObjectENS_13StringLiteralERKT_"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5vcpkg18serialize_manifestERKNS_17SourceControlFileEENK3$_0clISt6vectorINS_26DependencyRequestedFeatureESaIS6_EEEEDaRNS_4Json6ObjectENS_13StringLiteralERKT_"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 range(i64 8, 17) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"struct.vcpkg::StringView", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19544,7 +19544,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %170 = load ptr, ptr %128, align 8
   store ptr %170, ptr %139, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %126, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg10DependencyESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112Canonicalize14DependencyLessEEEEvT_T0_SG_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %115, ptr noundef nonnull %14)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg10DependencyESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112Canonicalize14DependencyLessEEEEvT_T0_SG_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %115, ptr noundef %14)
           to label %171 unwind label %173
 
 171:                                              ; preds = %140
@@ -19660,7 +19660,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg10DependencyESt6vectorI
   %230 = load ptr, ptr %185, align 8
   store ptr %230, ptr %196, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %183, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg10DependencyESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112Canonicalize14DependencyLessEEEEvT_T0_SG_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %221, ptr noundef nonnull %5)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg10DependencyESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112Canonicalize14DependencyLessEEEEvT_T0_SG_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %221, ptr noundef %5)
           to label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg10DependencyESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112Canonicalize14DependencyLessEEEEvT_SF_SF_RT0_.exit unwind label %231
 
 231:                                              ; preds = %.lr.ph.i9.i
@@ -20784,7 +20784,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg10DependencyESt6vect
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg10DependencyESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112Canonicalize14DependencyLessEEEEvT_T0_SG_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg10DependencyESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112Canonicalize14DependencyLessEEEEvT_T0_SG_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.vcpkg::Dependency", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -21689,7 +21689,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   call void @_ZN5vcpkg18PlatformExpression4ExprC1EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(8) %40) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %13) #19
   call void @_ZN5vcpkg18PlatformExpression4ExprC1EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(8) %36) #19
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg26DependencyRequestedFeatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112Canonicalize21DependencyFeatureLessEEEEvT_T0_SG_T1_T2_(ptr %0, i64 noundef %.010.i.i.i, i64 noundef %33, ptr noundef nonnull %14)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg26DependencyRequestedFeatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112Canonicalize21DependencyFeatureLessEEEEvT_T0_SG_T1_T2_(ptr %0, i64 noundef %.010.i.i.i, i64 noundef %33, ptr noundef %14)
           to label %41 unwind label %43
 
 41:                                               ; preds = %38
@@ -21740,7 +21740,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg26DependencyRequestedFe
   %53 = sdiv exact i64 %52, 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   call void @_ZN5vcpkg18PlatformExpression4ExprC1EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 8 dereferenceable(8) %45) #19
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg26DependencyRequestedFeatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112Canonicalize21DependencyFeatureLessEEEEvT_T0_SG_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %53, ptr noundef nonnull %5)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg26DependencyRequestedFeatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112Canonicalize21DependencyFeatureLessEEEEvT_T0_SG_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %53, ptr noundef %5)
           to label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg26DependencyRequestedFeatureESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112Canonicalize21DependencyFeatureLessEEEEvT_SF_SF_RT0_.exit unwind label %54
 
 54:                                               ; preds = %.lr.ph.i9.i
@@ -21989,7 +21989,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg26DependencyRequeste
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg26DependencyRequestedFeatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112Canonicalize21DependencyFeatureLessEEEEvT_T0_SG_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg26DependencyRequestedFeatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112Canonicalize21DependencyFeatureLessEEEEvT_T0_SG_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.vcpkg::DependencyRequestedFeature", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -22230,7 +22230,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %19 = load i64, ptr %18, align 8
   store ptr null, ptr %18, align 8
   store i64 %19, ptr %5, align 8
-  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_112Canonicalize11FeatureLessEEEEvT_T0_SK_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa135, ptr noundef nonnull %5)
+  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_112Canonicalize11FeatureLessEEEEvT_T0_SK_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa135, ptr noundef %5)
   %20 = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS1_EED2Ev.exit13.i.i.i, label %_ZNKSt14default_deleteIN5vcpkg16FeatureParagraphEEclEPS1_.exit.i.i.i.i
@@ -22274,7 +22274,7 @@ _ZNSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS1_EEaSEOS4_.exit
   %28 = sub i64 %27, %6
   %29 = ashr exact i64 %28, 3
   store i64 %24, ptr %4, align 8
-  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_112Canonicalize11FeatureLessEEEEvT_T0_SK_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %29, ptr noundef nonnull %4)
+  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_112Canonicalize11FeatureLessEEEEvT_T0_SK_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %29, ptr noundef %4)
   %30 = load ptr, ptr %4, align 8
   %.not.i.i.i13.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i13.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_112Canonicalize11FeatureLessEEEEvT_SJ_SJ_RT0_.exit.i15.i, label %_ZNKSt14default_deleteIN5vcpkg16FeatureParagraphEEclEPS1_.exit.i.i.i14.i
@@ -22494,7 +22494,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5vcpkg16Fea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_112Canonicalize11FeatureLessEEEEvT_T0_SK_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_112Canonicalize11FeatureLessEEEEvT_T0_SK_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6
@@ -30626,7 +30626,7 @@ _ZN5vcpkg4Json6ObjectaSEOS1_.exit:                ; preds = %_ZSt8_DestroyIPSt4p
 
 174:                                              ; preds = %168, %148, %_ZN5vcpkg4Json6ObjectaSEOS1_.exit
   %175 = load ptr, ptr %5, align 8
-  invoke fastcc void @_ZNK5vcpkg12_GLOBAL__N_112CanonicalizeclERNS_17SourceControlFileE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(56) %175)
+  invoke fastcc void @_ZNK5vcpkg12_GLOBAL__N_112CanonicalizeclERNS_17SourceControlFileE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(56) %175)
           to label %176 unwind label %152
 
 176:                                              ; preds = %174

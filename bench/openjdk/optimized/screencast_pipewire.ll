@@ -1564,7 +1564,7 @@ arrayToRectangles.exit:                           ; preds = %._crit_edge.i, %46,
 76:                                               ; preds = %arrayToRectangles.exit, %71
   %77 = phi ptr [ %75, %71 ], [ null, %arrayToRectangles.exit ]
   tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl, i32 noundef 952, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %77)
-  %78 = call fastcc i32 @makeScreencast(ptr noundef %77, ptr noundef nonnull %11, ptr noundef nonnull %67, i32 noundef %.091)
+  %78 = call fastcc i32 @makeScreencast(ptr noundef %77, ptr noundef %11, ptr noundef %67, i32 noundef %.091)
   switch i32 %78, label %80 [
     i32 0, label %83
     i32 -11, label %79
@@ -1576,7 +1576,7 @@ arrayToRectangles.exit:                           ; preds = %._crit_edge.i, %46,
 
 80:                                               ; preds = %76
   call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl, i32 noundef 963, i32 noundef %78)
-  %81 = call fastcc i32 @makeScreencast(ptr noundef %77, ptr noundef nonnull %11, ptr noundef nonnull %67, i32 noundef %.091)
+  %81 = call fastcc i32 @makeScreencast(ptr noundef %77, ptr noundef %11, ptr noundef %67, i32 noundef %.091)
   %.not109 = icmp eq i32 %81, 0
   br i1 %.not109, label %83, label %82
 
@@ -1735,7 +1735,7 @@ releaseToken.exit:                                ; preds = %releaseToken.exit.s
 declare ptr @llvm.stacksave.p0() #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @makeScreencast(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #3 {
+define internal fastcc i32 @makeScreencast(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull %2, i32 noundef range(i32 -536870912, 536870912) %3) unnamed_addr #3 {
   %5 = alloca [1024 x i8], align 16
   %6 = alloca %struct.spa_pod_builder, align 8
   %7 = alloca ptr, align 8
@@ -1801,7 +1801,7 @@ initScreenSpace.exit.i:                           ; preds = %22
   br i1 %.not11.i, label %37, label %28
 
 28:                                               ; preds = %initScreenSpace.exit.i
-  %29 = tail call i32 @getPipewireFd(ptr noundef %0, ptr noundef %2, i32 noundef %3) #15
+  %29 = tail call i32 @getPipewireFd(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3) #15
   store i32 %29, ptr getelementptr inbounds (i8, ptr @pw, i64 72), align 8
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %37, label %31
@@ -2157,8 +2157,8 @@ checkScreen.exit.i:                               ; preds = %137, %._crit_edge.i
   store i32 1, ptr %89, align 4
   store i32 1000, ptr %14, align 4
   store i32 1, ptr %90, align 4
-  call void (ptr, ...) @spa_pod_builder_add(ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull @.str.76, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @.str.76, i32 noundef 1, i32 noundef 131073, ptr noundef nonnull @.str.76, i32 noundef 8, i32 noundef 131075, ptr noundef nonnull @.str.709, i32 noundef 3, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 131076, ptr noundef nonnull @.str.710, i32 noundef 3, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0)
-  %211 = call fastcc ptr @spa_pod_builder_pop(ptr noundef nonnull %6, ptr noundef nonnull %8)
+  call void (ptr, ...) @spa_pod_builder_add(ptr noundef %6, i32 noundef 1, ptr noundef nonnull @.str.76, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @.str.76, i32 noundef 1, i32 noundef 131073, ptr noundef nonnull @.str.76, i32 noundef 8, i32 noundef 131075, ptr noundef nonnull @.str.709, i32 noundef 3, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 131076, ptr noundef nonnull @.str.710, i32 noundef 3, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0)
+  %211 = call fastcc ptr @spa_pod_builder_pop(ptr noundef %6, ptr noundef %8)
   store ptr %211, ptr %7, align 8
   call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.711, ptr noundef nonnull @__func__.startStream, i32 noundef 414, i32 noundef %210, ptr noundef %207)
   %212 = load ptr, ptr @fp_pw_stream_connect, align 8
@@ -2650,7 +2650,7 @@ spa_format_parse.exit:                            ; preds = %41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   store ptr %7, ptr %26, align 8
   store i32 %25, ptr %27, align 8
-  %45 = call i32 (ptr, ...) @spa_pod_parser_get(ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull @.str.76, ptr noundef nonnull %8, i32 noundef 2, ptr noundef nonnull @.str.76, ptr noundef nonnull %9, i32 noundef 0)
+  %45 = call i32 (ptr, ...) @spa_pod_parser_get(ptr noundef %6, i32 noundef 1, ptr noundef nonnull @.str.76, ptr noundef nonnull %8, i32 noundef 2, ptr noundef nonnull @.str.76, ptr noundef nonnull %9, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %46 = icmp slt i32 %45, 0
@@ -2801,7 +2801,7 @@ spa_format_video_raw_parse.exit:                  ; preds = %103
   %118 = getelementptr inbounds i8, ptr %0, i64 128
   %119 = getelementptr inbounds i8, ptr %0, i64 132
   %120 = getelementptr inbounds i8, ptr %0, i64 136
-  %121 = call i32 (ptr, ...) @spa_pod_parser_get(ptr noundef nonnull %4, i32 noundef 131073, ptr noundef nonnull @.str.77, ptr noundef nonnull %53, i32 noundef 131074, ptr noundef nonnull @.str.78, ptr noundef nonnull %107, i32 noundef 131075, ptr noundef nonnull @.str.79, ptr noundef nonnull %108, i32 noundef 131076, ptr noundef nonnull @.str.80, ptr noundef nonnull %109, i32 noundef 131077, ptr noundef nonnull @.str.80, ptr noundef nonnull %110, i32 noundef 131078, ptr noundef nonnull @.str.81, ptr noundef nonnull %111, i32 noundef 131079, ptr noundef nonnull @.str.77, ptr noundef nonnull %112, i32 noundef 131080, ptr noundef nonnull @.str.80, ptr noundef nonnull %113, i32 noundef 131081, ptr noundef nonnull @.str.77, ptr noundef nonnull %114, i32 noundef 131082, ptr noundef nonnull @.str.77, ptr noundef nonnull %115, i32 noundef 131083, ptr noundef nonnull @.str.77, ptr noundef nonnull %116, i32 noundef 131084, ptr noundef nonnull @.str.77, ptr noundef nonnull %117, i32 noundef 131085, ptr noundef nonnull @.str.77, ptr noundef nonnull %118, i32 noundef 131086, ptr noundef nonnull @.str.77, ptr noundef nonnull %119, i32 noundef 131087, ptr noundef nonnull @.str.77, ptr noundef nonnull %120, i32 noundef 0)
+  %121 = call i32 (ptr, ...) @spa_pod_parser_get(ptr noundef %4, i32 noundef 131073, ptr noundef nonnull @.str.77, ptr noundef nonnull %53, i32 noundef 131074, ptr noundef nonnull @.str.78, ptr noundef nonnull %107, i32 noundef 131075, ptr noundef nonnull @.str.79, ptr noundef nonnull %108, i32 noundef 131076, ptr noundef nonnull @.str.80, ptr noundef nonnull %109, i32 noundef 131077, ptr noundef nonnull @.str.80, ptr noundef nonnull %110, i32 noundef 131078, ptr noundef nonnull @.str.81, ptr noundef nonnull %111, i32 noundef 131079, ptr noundef nonnull @.str.77, ptr noundef nonnull %112, i32 noundef 131080, ptr noundef nonnull @.str.80, ptr noundef nonnull %113, i32 noundef 131081, ptr noundef nonnull @.str.77, ptr noundef nonnull %114, i32 noundef 131082, ptr noundef nonnull @.str.77, ptr noundef nonnull %115, i32 noundef 131083, ptr noundef nonnull @.str.77, ptr noundef nonnull %116, i32 noundef 131084, ptr noundef nonnull @.str.77, ptr noundef nonnull %117, i32 noundef 131085, ptr noundef nonnull @.str.77, ptr noundef nonnull %118, i32 noundef 131086, ptr noundef nonnull @.str.77, ptr noundef nonnull %119, i32 noundef 131087, ptr noundef nonnull @.str.77, ptr noundef nonnull %120, i32 noundef 0)
   %122 = load ptr, ptr %106, align 8
   store ptr %122, ptr %93, align 8
   %123 = load i32, ptr %105, align 8
@@ -3076,7 +3076,7 @@ define internal void @onStreamProcess(ptr nocapture noundef readonly %0) #3 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i32 @spa_pod_parser_get(ptr nocapture noundef %0, ...) unnamed_addr #0 {
+define internal i32 @spa_pod_parser_get(ptr nocapture noundef nonnull %0, ...) unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4386,7 +4386,7 @@ define internal fastcc ptr @spa_debug_type_find(ptr noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @spa_pod_builder_add(ptr nocapture noundef %0, ...) unnamed_addr #3 {
+define internal void @spa_pod_builder_add(ptr nocapture noundef nonnull %0, ...) unnamed_addr #3 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.spa_pod, align 8
   %4 = alloca %struct.spa_pod_fd, align 8
@@ -4860,7 +4860,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   %234 = zext i1 %233 to i32
   store i32 %234, ptr %61, align 4
   store i32 0, ptr %62, align 4
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef nonnull %14)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -4891,7 +4891,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   store i32 3, ptr %57, align 4
   store i32 %248, ptr %58, align 4
   store i32 0, ptr %59, align 4
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef nonnull %13)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -4922,7 +4922,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   store i32 4, ptr %54, align 4
   store i32 %262, ptr %55, align 4
   store i32 0, ptr %56, align 4
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef nonnull %12)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -4952,7 +4952,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   store i32 8, ptr %11, align 8
   store i32 5, ptr %52, align 4
   store i64 %276, ptr %53, align 8
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef nonnull %11)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -4984,7 +4984,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   store i32 6, ptr %49, align 4
   store float %291, ptr %50, align 4
   store i32 0, ptr %51, align 4
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef nonnull %10)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -5014,7 +5014,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   store i32 8, ptr %9, align 8
   store i32 7, ptr %47, align 4
   store double %305, ptr %48, align 8
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef nonnull %9)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -5052,7 +5052,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
 323:                                              ; preds = %317
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store i64 4294967296, ptr %8, align 8
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef nonnull %8)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -5237,7 +5237,7 @@ spa_pod_builder_bytes.exit.i:                     ; preds = %.lr.ph.i.i153.i, %.
   store i32 10, ptr %43, align 4
   store i32 %411, ptr %44, align 4
   store i32 %413, ptr %45, align 4
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef nonnull %7)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -5271,7 +5271,7 @@ spa_pod_builder_bytes.exit.i:                     ; preds = %.lr.ph.i.i153.i, %.
   store i32 11, ptr %40, align 4
   store i32 %428, ptr %41, align 4
   store i32 %430, ptr %42, align 4
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef nonnull %6)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -5482,7 +5482,7 @@ spa_pod_builder_array.exit.i:                     ; preds = %.lr.ph.i.i169.i, %.
   store i32 %528, ptr %37, align 8
   store i32 0, ptr %38, align 4
   store ptr %530, ptr %39, align 8
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -5513,7 +5513,7 @@ spa_pod_builder_array.exit.i:                     ; preds = %.lr.ph.i.i169.i, %.
   store i32 8, ptr %4, align 8
   store i32 18, ptr %34, align 4
   store i64 %545, ptr %35, align 8
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef nonnull %4)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -5545,7 +5545,7 @@ spa_pod_builder_array.exit.i:                     ; preds = %.lr.ph.i.i169.i, %.
 561:                                              ; preds = %557
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 4294967296, ptr %3, align 8
-  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef nonnull %3)
+  call fastcc void @spa_pod_builder_primitive(ptr noundef %0, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %spa_pod_builder_primitive.exit.i
 
@@ -5719,7 +5719,7 @@ spa_pod_builder_primitive.exit.i:                 ; preds = %spa_pod_builder_pad
   br i1 %169, label %634, label %.backedge
 
 634:                                              ; preds = %._crit_edge.i
-  %635 = call fastcc ptr @spa_pod_builder_pop(ptr noundef %0, ptr noundef nonnull %15)
+  %635 = call fastcc ptr @spa_pod_builder_pop(ptr noundef %0, ptr noundef %15)
   br label %.backedge
 
 .backedge:                                        ; preds = %634, %._crit_edge.i
@@ -5732,7 +5732,7 @@ spa_pod_builder_addv.exit:                        ; preds = %75, %124, %163
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @spa_pod_builder_pop(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+define internal fastcc noundef ptr @spa_pod_builder_pop(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
@@ -5912,7 +5912,7 @@ spa_pod_builder_pad.exit:                         ; preds = %.lr.ph.i.i, %spa_po
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spa_pod_builder_string_len(ptr nocapture noundef %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc void @spa_pod_builder_string_len(ptr nocapture noundef nonnull %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #3 {
   %4 = alloca i64, align 8
   %5 = add i32 %2, 1
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6182,7 +6182,7 @@ spa_pod_builder_write_string.exit:                ; preds = %.lr.ph.i.i.i, %.cri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spa_pod_builder_primitive(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @spa_pod_builder_primitive(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #3 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
@@ -6354,7 +6354,7 @@ spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spa_pod_builder_raw_padded(ptr nocapture noundef %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc void @spa_pod_builder_raw_padded(ptr nocapture noundef nonnull %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #3 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8

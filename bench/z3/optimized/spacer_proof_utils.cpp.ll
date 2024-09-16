@@ -1438,7 +1438,7 @@ invoke.cont22.i:                                  ; preds = %_ZN11ast_manager7in
   store ptr %70, ptr %m_manager.i49.i, align 8, !noalias !11
   store ptr null, ptr %val2.i, align 8, !noalias !11
   store ptr %70, ptr %m_manager.i50.i, align 8, !noalias !11
-  invoke fastcc void @_ZN6spacerL9get_coeffEP4exprR7obj_refIS0_11ast_managerE(ptr noalias nonnull align 8 %ref.tmp29.i, ptr noundef %87, ptr noundef nonnull align 8 dereferenceable(16) %var.i)
+  invoke fastcc void @_ZN6spacerL9get_coeffEP4exprR7obj_refIS0_11ast_managerE(ptr noalias align 8 %ref.tmp29.i, ptr noundef %87, ptr noundef nonnull align 8 dereferenceable(16) %var.i)
           to label %_ZN7obj_refI4expr11ast_managerED2Ev.exit.i unwind label %lpad30.loopexit.split-lp.i, !noalias !11
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit.i:       ; preds = %invoke.cont22.i
@@ -1530,7 +1530,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i.i.i:      ; preds = %for.end.i.i187
 invoke.cont37.i:                                  ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i.i, %for.end.i.i187, %for.end.thread.i.i, %if.then6.i.i
   %101 = phi ptr [ %99, %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i.i ], [ %99, %for.end.i.i187 ], [ %98, %for.end.thread.i.i ], [ %97, %if.then6.i.i ]
   %102 = phi ptr [ %.pre.i.i188, %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i.i ], [ null, %for.end.i.i187 ], [ null, %for.end.thread.i.i ], [ null, %if.then6.i.i ]
-  invoke fastcc void @_ZN6spacerL9get_coeffEP4exprR7obj_refIS0_11ast_managerE(ptr noalias nonnull align 8 %ref.tmp35.i, ptr noundef %102, ptr noundef nonnull align 8 dereferenceable(16) %var.i)
+  invoke fastcc void @_ZN6spacerL9get_coeffEP4exprR7obj_refIS0_11ast_managerE(ptr noalias align 8 %ref.tmp35.i, ptr noundef %102, ptr noundef nonnull align 8 dereferenceable(16) %var.i)
           to label %_ZN7obj_refI4expr11ast_managerED2Ev.exit88.i unwind label %lpad38.i, !noalias !11
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit88.i:     ; preds = %invoke.cont37.i
@@ -8986,7 +8986,7 @@ lpad:                                             ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6spacerL9get_coeffEP4exprR7obj_refIS0_11ast_managerE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %lit0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %var) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6spacerL9get_coeffEP4exprR7obj_refIS0_11ast_managerE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %lit0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %var) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %class.arith_util, align 8
   %val = alloca %class.obj_ref.51, align 8

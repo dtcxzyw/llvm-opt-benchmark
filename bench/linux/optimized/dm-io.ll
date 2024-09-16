@@ -570,7 +570,7 @@ define internal void @sync_io_complete(i64 noundef %0, ptr noundef %1) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @dispatch_io(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc void @dispatch_io(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 align 16 {
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4

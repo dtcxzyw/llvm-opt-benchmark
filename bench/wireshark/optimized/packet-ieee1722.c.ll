@@ -2071,7 +2071,7 @@ define hidden void @proto_reg_handoff_1722_acf_lin() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_1722_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_1722_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [3 x ptr], align 16
@@ -2086,102 +2086,102 @@ define internal fastcc i32 @dissect_1722_common(ptr noundef %0, ptr noundef %1, 
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
   %13 = load i32, ptr @ett_1722, align 4
   %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #6
-  %15 = icmp eq i32 %3, 1
-  br i1 %15, label %16, label %54
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %53, label %15
 
-16:                                               ; preds = %4
-  %17 = load i32, ptr @hf_1722_encap_seqnum, align 4
-  %18 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %5) #6
-  %19 = load i32, ptr %5, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 80
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 50
-  %23 = load i16, ptr %22, align 2
-  %24 = and i16 %23, 8
-  %.not.i = icmp eq i16 %24, 0
-  br i1 %.not.i, label %25, label %42
+15:                                               ; preds = %4
+  %16 = load i32, ptr @hf_1722_encap_seqnum, align 4
+  %17 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %5) #6
+  %18 = load i32, ptr %5, align 4
+  %19 = getelementptr inbounds i8, ptr %1, i64 80
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 50
+  %22 = load i16, ptr %21, align 2
+  %23 = and i16 %22, 8
+  %.not.i = icmp eq i16 %23, 0
+  br i1 %.not.i, label %24, label %41
 
-25:                                               ; preds = %16
-  %26 = call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #6
-  %27 = load i32, ptr @proto_1722, align 4
-  %28 = call ptr @conversation_get_proto_data(ptr noundef nonnull %26, i32 noundef %27) #6
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %34
+24:                                               ; preds = %15
+  %25 = call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #6
+  %26 = load i32, ptr @proto_1722, align 4
+  %27 = call ptr @conversation_get_proto_data(ptr noundef nonnull %25, i32 noundef %26) #6
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %33
 
-30:                                               ; preds = %25
-  %31 = call ptr @wmem_file_scope() #6
-  %32 = call noalias ptr @wmem_alloc(ptr noundef %31, i64 noundef 4) #6
-  store i32 %19, ptr %32, align 4
-  %33 = load i32, ptr @proto_1722, align 4
-  call void @conversation_add_proto_data(ptr noundef nonnull %26, i32 noundef %33, ptr noundef nonnull %32) #6
+29:                                               ; preds = %24
+  %30 = call ptr @wmem_file_scope() #6
+  %31 = call noalias ptr @wmem_alloc(ptr noundef %30, i64 noundef 4) #6
+  store i32 %18, ptr %31, align 4
+  %32 = load i32, ptr @proto_1722, align 4
+  call void @conversation_add_proto_data(ptr noundef nonnull %25, i32 noundef %32, ptr noundef nonnull %31) #6
   br label %.thread.i
 
-34:                                               ; preds = %25
-  %35 = load i32, ptr %28, align 4
-  %36 = add i32 %35, 1
-  store i32 %36, ptr %28, align 4
+33:                                               ; preds = %24
+  %34 = load i32, ptr %27, align 4
+  %35 = add i32 %34, 1
+  store i32 %35, ptr %27, align 4
   br label %.thread.i
 
-.thread.i:                                        ; preds = %34, %30
-  %.015.i = phi ptr [ %32, %30 ], [ %28, %34 ]
-  %37 = call ptr @wmem_file_scope() #6
-  %38 = call noalias ptr @wmem_alloc(ptr noundef %37, i64 noundef 4) #6
-  %39 = load i32, ptr %.015.i, align 4
-  store i32 %39, ptr %38, align 4
-  %40 = call ptr @wmem_file_scope() #6
-  %41 = load i32, ptr @proto_1722, align 4
-  call void @p_add_proto_data(ptr noundef %40, ptr noundef nonnull %1, i32 noundef %41, i32 noundef 0, ptr noundef nonnull %38) #6
+.thread.i:                                        ; preds = %33, %29
+  %.015.i = phi ptr [ %31, %29 ], [ %27, %33 ]
+  %36 = call ptr @wmem_file_scope() #6
+  %37 = call noalias ptr @wmem_alloc(ptr noundef %36, i64 noundef 4) #6
+  %38 = load i32, ptr %.015.i, align 4
+  store i32 %38, ptr %37, align 4
+  %39 = call ptr @wmem_file_scope() #6
+  %40 = load i32, ptr @proto_1722, align 4
+  call void @p_add_proto_data(ptr noundef %39, ptr noundef nonnull %1, i32 noundef %40, i32 noundef 0, ptr noundef nonnull %37) #6
   br label %get_seqnum_exp_1722_udp.exit
 
-42:                                               ; preds = %16
-  %43 = call ptr @wmem_file_scope() #6
-  %44 = load i32, ptr @proto_1722, align 4
-  %45 = call ptr @p_get_proto_data(ptr noundef %43, ptr noundef nonnull %1, i32 noundef %44, i32 noundef 0) #6
-  %.not17.i = icmp eq ptr %45, null
-  br i1 %.not17.i, label %46, label %get_seqnum_exp_1722_udp.exit
+41:                                               ; preds = %15
+  %42 = call ptr @wmem_file_scope() #6
+  %43 = load i32, ptr @proto_1722, align 4
+  %44 = call ptr @p_get_proto_data(ptr noundef %42, ptr noundef nonnull %1, i32 noundef %43, i32 noundef 0) #6
+  %.not17.i = icmp eq ptr %44, null
+  br i1 %.not17.i, label %45, label %get_seqnum_exp_1722_udp.exit
 
-46:                                               ; preds = %42
+45:                                               ; preds = %41
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.332, ptr noundef nonnull @.str.333, i32 noundef 858, ptr noundef nonnull @.str.334) #7
   unreachable
 
-get_seqnum_exp_1722_udp.exit:                     ; preds = %.thread.i, %42
-  %.020.i = phi ptr [ %38, %.thread.i ], [ %45, %42 ]
-  %47 = load i32, ptr %.020.i, align 4
-  %48 = load i32, ptr %5, align 4
-  %.not = icmp eq i32 %48, %47
-  br i1 %.not, label %52, label %.sink.split
+get_seqnum_exp_1722_udp.exit:                     ; preds = %.thread.i, %41
+  %.020.i = phi ptr [ %37, %.thread.i ], [ %44, %41 ]
+  %46 = load i32, ptr %.020.i, align 4
+  %47 = load i32, ptr %5, align 4
+  %.not41 = icmp eq i32 %47, %46
+  br i1 %.not41, label %51, label %.sink.split
 
 .sink.split:                                      ; preds = %get_seqnum_exp_1722_udp.exit
-  %49 = add i32 %48, 1
-  %50 = icmp eq i32 %49, %47
-  %ei_1722_encap_seqnum_dup.ei_1722_encap_seqnum_ooo = select i1 %50, ptr @ei_1722_encap_seqnum_dup, ptr @ei_1722_encap_seqnum_ooo
-  %51 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %18, ptr noundef nonnull %ei_1722_encap_seqnum_dup.ei_1722_encap_seqnum_ooo) #6
-  br label %52
+  %48 = add i32 %47, 1
+  %49 = icmp eq i32 %48, %46
+  %ei_1722_encap_seqnum_dup.ei_1722_encap_seqnum_ooo = select i1 %49, ptr @ei_1722_encap_seqnum_dup, ptr @ei_1722_encap_seqnum_ooo
+  %50 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %17, ptr noundef nonnull %ei_1722_encap_seqnum_dup.ei_1722_encap_seqnum_ooo) #6
+  br label %51
 
-52:                                               ; preds = %.sink.split, %get_seqnum_exp_1722_udp.exit
-  %53 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4) #6
-  br label %54
+51:                                               ; preds = %.sink.split, %get_seqnum_exp_1722_udp.exit
+  %52 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4) #6
+  br label %53
 
-54:                                               ; preds = %4, %52
-  %.037 = phi ptr [ %53, %52 ], [ %0, %4 ]
-  %.036 = phi i32 [ 4, %52 ], [ 0, %4 ]
-  %55 = load i32, ptr @hf_1722_subtype, align 4
-  %56 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %55, ptr noundef %0, i32 noundef %.036, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #6
-  %57 = or disjoint i32 %.036, 1
-  call void @proto_tree_add_bitmask_list(ptr noundef %14, ptr noundef %0, i32 noundef %57, i32 noundef 1, ptr noundef nonnull %7, i32 noundef 0) #6
-  %58 = load ptr, ptr @avb_dissector_table, align 8
-  %59 = load i32, ptr %6, align 4
-  %60 = call i32 @dissector_try_uint(ptr noundef %58, i32 noundef %59, ptr noundef %.037, ptr noundef nonnull %1, ptr noundef %2) #6
-  %61 = icmp sgt i32 %60, 0
-  br i1 %61, label %65, label %62
+53:                                               ; preds = %4, %51
+  %.037 = phi ptr [ %52, %51 ], [ %0, %4 ]
+  %.036 = phi i32 [ 4, %51 ], [ 0, %4 ]
+  %54 = load i32, ptr @hf_1722_subtype, align 4
+  %55 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %54, ptr noundef %0, i32 noundef %.036, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #6
+  %56 = or disjoint i32 %.036, 1
+  call void @proto_tree_add_bitmask_list(ptr noundef %14, ptr noundef %0, i32 noundef %56, i32 noundef 1, ptr noundef nonnull %7, i32 noundef 0) #6
+  %57 = load ptr, ptr @avb_dissector_table, align 8
+  %58 = load i32, ptr %6, align 4
+  %59 = call i32 @dissector_try_uint(ptr noundef %57, i32 noundef %58, ptr noundef %.037, ptr noundef nonnull %1, ptr noundef %2) #6
+  %60 = icmp sgt i32 %59, 0
+  br i1 %60, label %64, label %61
 
-62:                                               ; preds = %54
-  %63 = call i32 @call_data_dissector(ptr noundef %.037, ptr noundef nonnull %1, ptr noundef %14) #6
-  %64 = call i32 @tvb_captured_length(ptr noundef %0) #6
-  br label %65
+61:                                               ; preds = %53
+  %62 = call i32 @call_data_dissector(ptr noundef %.037, ptr noundef nonnull %1, ptr noundef %14) #6
+  %63 = call i32 @tvb_captured_length(ptr noundef %0) #6
+  br label %64
 
-65:                                               ; preds = %54, %62
-  %.0 = phi i32 [ %64, %62 ], [ %60, %54 ]
+64:                                               ; preds = %53, %61
+  %.0 = phi i32 [ %63, %61 ], [ %59, %53 ]
   ret i32 %.0
 }
 
@@ -2256,7 +2256,7 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare ptr @rval_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_1722_acf_can_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_1722_acf_can_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca %struct.acf_can_t, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8

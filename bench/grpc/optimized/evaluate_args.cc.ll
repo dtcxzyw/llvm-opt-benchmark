@@ -331,7 +331,7 @@ if.then24:                                        ; preds = %if.end
 invoke.cont26:                                    ; preds = %if.then24
   %19 = extractvalue { i64, ptr } %call27, 0
   %20 = extractvalue { i64, ptr } %call27, 1
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_116ParseEndpointUriESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp25, i64 %19, ptr %20)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_116ParseEndpointUriESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp25, i64 %19, ptr %20)
           to label %invoke.cont28 unwind label %lpad
 
 invoke.cont28:                                    ; preds = %invoke.cont26
@@ -348,7 +348,7 @@ invoke.cont28:                                    ; preds = %invoke.cont26
 invoke.cont33:                                    ; preds = %invoke.cont28
   %22 = extractvalue { i64, ptr } %call34, 0
   %23 = extractvalue { i64, ptr } %call34, 1
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_116ParseEndpointUriESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp31, i64 %22, ptr %23)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_116ParseEndpointUriESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp31, i64 %22, ptr %23)
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %invoke.cont33
@@ -375,7 +375,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN9grpc_core20GetAuthPropertyArrayEP17grpc_auth_contextPKc(ptr sret(%"class.std::vector") align 8, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_116ParseEndpointUriESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.result, i64 %uri_text.coerce0, ptr %uri_text.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_116ParseEndpointUriESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.result, i64 %uri_text.coerce0, ptr %uri_text.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i13 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8

@@ -489,7 +489,7 @@ define hidden noundef i32 @av1_selfguided_restoration_c(ptr noundef %0, i32 noun
   %54 = add nsw i32 %1, 9
   %55 = and i32 %54, -4
   %56 = add nsw i32 %55, 16
-  call fastcc void @calculate_intermediate_result(ptr noundef nonnull readonly %20, i32 noundef %1, i32 noundef %2, i32 noundef %16, i32 noundef %8, i32 noundef %7, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  call fastcc void @calculate_intermediate_result(ptr noundef readonly %20, i32 noundef %1, i32 noundef %2, i32 noundef %16, i32 noundef %8, i32 noundef %7, i32 noundef 0, i32 noundef 1, ptr noundef %13, ptr noundef %14)
   %57 = mul nsw i32 %56, 3
   %58 = or disjoint i32 %57, 3
   %59 = sext i32 %58 to i64
@@ -646,7 +646,7 @@ selfguided_restoration_fast_internal.exit:        ; preds = %.loopexit109.us.i, 
   %156 = add nsw i32 %1, 9
   %157 = and i32 %156, -4
   %158 = add nsw i32 %157, 16
-  call fastcc void @calculate_intermediate_result(ptr noundef nonnull readonly %20, i32 noundef %1, i32 noundef %2, i32 noundef %16, i32 noundef %8, i32 noundef %7, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  call fastcc void @calculate_intermediate_result(ptr noundef readonly %20, i32 noundef %1, i32 noundef %2, i32 noundef %16, i32 noundef %8, i32 noundef %7, i32 noundef 1, i32 noundef 0, ptr noundef %11, ptr noundef %12)
   %159 = mul nsw i32 %158, 3
   %160 = or disjoint i32 %159, 3
   %161 = sext i32 %160 to i64
@@ -2803,7 +2803,7 @@ save_tile_row_boundary_lines.exit:                ; preds = %.split.i.i, %.split
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @calculate_intermediate_result(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9) unnamed_addr #9 {
+define internal fastcc void @calculate_intermediate_result(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 -2147483642, -2147483648) %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6, i32 noundef range(i32 0, 2) %7, ptr noundef nonnull %8, ptr noundef nonnull %9) unnamed_addr #9 {
   %11 = sext i32 %5 to i64
   %12 = getelementptr inbounds [16 x %struct.sgr_params_type], ptr @av1_sgr_params, i64 0, i64 %11
   %13 = zext nneg i32 %6 to i64
@@ -2821,8 +2821,8 @@ define internal fastcc void @calculate_intermediate_result(ptr nocapture noundef
   %25 = sub nsw i64 0, %24
   %26 = getelementptr inbounds i32, ptr %0, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -12
-  tail call fastcc void @boxsum(ptr noundef nonnull %27, i32 noundef %16, i32 noundef %17, i32 noundef %3, i32 noundef %15, i32 noundef 0, ptr noundef %9, i32 noundef %20)
-  tail call fastcc void @boxsum(ptr noundef nonnull %27, i32 noundef %16, i32 noundef %17, i32 noundef %3, i32 noundef %15, i32 noundef 1, ptr noundef %8, i32 noundef %20)
+  tail call fastcc void @boxsum(ptr noundef %27, i32 noundef %16, i32 noundef %17, i32 noundef %3, i32 noundef %15, i32 noundef 0, ptr noundef %9, i32 noundef %20)
+  tail call fastcc void @boxsum(ptr noundef %27, i32 noundef %16, i32 noundef %17, i32 noundef %3, i32 noundef %15, i32 noundef 1, ptr noundef %8, i32 noundef %20)
   %28 = mul nsw i32 %20, 3
   %29 = or disjoint i32 %28, 3
   %30 = sext i32 %29 to i64
@@ -2906,7 +2906,7 @@ define internal fastcc void @calculate_intermediate_result(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @boxsum(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) unnamed_addr #9 {
+define internal fastcc void @boxsum(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 -2147483642, -2147483648) %1, i32 noundef range(i32 -2147483642, -2147483648) %2, i32 noundef range(i32 -2147483642, -2147483648) %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef nonnull %6, i32 noundef range(i32 -2147483632, -2147483648) %7) unnamed_addr #9 {
   switch i32 %4, label %boxsum1.exit [
     i32 1, label %9
     i32 2, label %122
@@ -3004,7 +3004,7 @@ define internal fastcc void @boxsum(ptr nocapture noundef readonly %0, i32 nound
 
 .lr.ph177.i:                                      ; preds = %.preheader.i
   %45 = shl nsw i32 %3, 1
-  %46 = add i32 %2, -2
+  %46 = add nsw i32 %2, -2
   %47 = icmp sgt i32 %2, 3
   %48 = sext i32 %7 to i64
   %49 = sext i32 %3 to i64
@@ -3192,7 +3192,7 @@ define internal fastcc void @boxsum(ptr nocapture noundef readonly %0, i32 nound
   %124 = shl nsw i32 %3, 1
   %125 = mul nsw i32 %3, 3
   %126 = shl nsw i32 %3, 2
-  %127 = add i32 %2, -3
+  %127 = add nsw i32 %2, -3
   %128 = icmp sgt i32 %2, 5
   %129 = sext i32 %7 to i64
   %130 = sext i32 %3 to i64
@@ -3215,7 +3215,7 @@ define internal fastcc void @boxsum(ptr nocapture noundef readonly %0, i32 nound
   %134 = shl nsw i32 %3, 1
   %135 = mul nsw i32 %3, 3
   %136 = shl nsw i32 %3, 2
-  %137 = add i32 %2, -3
+  %137 = add nsw i32 %2, -3
   %138 = icmp sgt i32 %2, 5
   %139 = sext i32 %7 to i64
   %140 = sext i32 %3 to i64

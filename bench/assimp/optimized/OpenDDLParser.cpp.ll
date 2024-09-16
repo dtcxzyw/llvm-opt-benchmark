@@ -1980,7 +1980,7 @@ invoke.cont55:                                    ; preds = %if.then51
           to label %invoke.cont57 unwind label %lpad56
 
 invoke.cont57:                                    ; preds = %invoke.cont55
-  invoke fastcc void @_ZN10ODDLParserL20logInvalidTokenErrorEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvNS_11LogSeverityES9_EE(ptr noundef nonnull %in.addr.0.lcssa.i87, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN10ODDLParserL20logInvalidTokenErrorEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvNS_11LogSeverityES9_EE(ptr noundef nonnull %in.addr.0.lcssa.i87, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52, ptr noundef %agg.tmp)
           to label %invoke.cont59 unwind label %lpad58
 
 invoke.cont59:                                    ; preds = %invoke.cont57
@@ -2236,7 +2236,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 invoke.cont22:                                    ; preds = %invoke.cont.i, %invoke.cont
-  invoke fastcc void @_ZN10ODDLParserL20logInvalidTokenErrorEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvNS_11LogSeverityES9_EE(ptr noundef nonnull %incdec.ptr19, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN10ODDLParserL20logInvalidTokenErrorEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvNS_11LogSeverityES9_EE(ptr noundef nonnull %incdec.ptr19, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %agg.tmp)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %invoke.cont22
@@ -2930,7 +2930,7 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10ODDLParserL20logInvalidTokenErrorEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvNS_11LogSeverityES9_EE(ptr noundef %in, ptr noundef nonnull align 8 dereferenceable(32) %exp, ptr noundef %callback) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10ODDLParserL20logInvalidTokenErrorEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvNS_11LogSeverityES9_EE(ptr noundef %in, ptr noundef nonnull align 8 dereferenceable(32) %exp, ptr noundef nonnull %callback) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i = alloca i32, align 4
   %full = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3481,7 +3481,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 invoke.cont33:                                    ; preds = %invoke.cont.i, %invoke.cont
-  invoke fastcc void @_ZN10ODDLParserL20logInvalidTokenErrorEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvNS_11LogSeverityES9_EE(ptr noundef nonnull %cond, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN10ODDLParserL20logInvalidTokenErrorEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvNS_11LogSeverityES9_EE(ptr noundef nonnull %cond, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %agg.tmp)
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont33

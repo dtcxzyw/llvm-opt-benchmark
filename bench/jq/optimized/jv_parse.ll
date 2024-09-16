@@ -299,7 +299,7 @@ define { i64, ptr } @jv_parser_next(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not126, label %43, label %40
 
 40:                                               ; preds = %32
-  %41 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2)
+  %41 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef %2)
   %.not127 = icmp eq i32 %41, 0
   br i1 %.not127, label %43, label %42
 
@@ -485,12 +485,12 @@ seq_check_truncation.exit.thread124.i:            ; preds = %seq_check_truncatio
   br i1 %.not98.i, label %138, label %136
 
 136:                                              ; preds = %133
-  %137 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2)
+  %137 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef %2)
   %.not100.i = icmp eq i32 %137, 0
   br i1 %.not100.i, label %140, label %.critedge.thread
 
 138:                                              ; preds = %133
-  %139 = call fastcc i32 @parse_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2)
+  %139 = call fastcc i32 @parse_check_done(ptr noundef nonnull %0, ptr noundef %2)
   %.not99.i = icmp eq i32 %139, 0
   br i1 %.not99.i, label %140, label %.critedge.thread
 
@@ -544,7 +544,7 @@ classify.exit.thread.i:                           ; preds = %149, %148, %147
   br i1 %.not86.i, label %157, label %155
 
 155:                                              ; preds = %152
-  %156 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2)
+  %156 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef %2)
   %.not88.i = icmp eq i32 %156, 0
   br i1 %.not88.i, label %classify.exit.i, label %167
 
@@ -646,7 +646,7 @@ default.unreachable:                              ; preds = %classify.exit.i
   br i1 %.not91.i, label %197, label %195
 
 195:                                              ; preds = %192
-  %196 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2)
+  %196 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef %2)
   %.not93.i = icmp eq i32 %196, 0
   br i1 %.not93.i, label %.backedge, label %.critedge.thread
 
@@ -933,7 +933,7 @@ unhex4.exit83.i.i:                                ; preds = %271
   br i1 %.not81.i, label %323, label %321
 
 321:                                              ; preds = %316
-  %322 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2)
+  %322 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef %2)
   %.not83.i = icmp eq i32 %322, 0
   br i1 %.not83.i, label %.backedge, label %.critedge.thread
 
@@ -1304,7 +1304,7 @@ define internal fastcc void @parser_reset(ptr nocapture noundef %0) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @stream_check_done(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @stream_check_done(ptr nocapture noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -1843,7 +1843,7 @@ declare i32 @jv_array_length(i64, ptr) local_unnamed_addr #1
 declare { i64, ptr } @jv_array_slice(i64, ptr, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_check_done(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_check_done(ptr nocapture noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0

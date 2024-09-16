@@ -154,7 +154,7 @@ if.then8.i:                                       ; preds = %if.else.i
   %and.i = zext nneg i8 %5 to i32
   %add.i = add nuw nsw i32 %and.i, 1
   %conv9.i = zext nneg i32 %add.i to i64
-  %cmp10.not.i = icmp sgt i64 %max.1, %conv9.i
+  %cmp10.not.i = icmp ugt i64 %max.1, %conv9.i
   br i1 %cmp10.not.i, label %while.cond.preheader.i, label %err
 
 while.cond.preheader.i:                           ; preds = %if.then8.i

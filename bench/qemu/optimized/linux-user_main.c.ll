@@ -1532,7 +1532,7 @@ entry:
 }
 
 ; Function Attrs: nofree noreturn nounwind sspstrong uwtable
-define internal fastcc void @usage(i32 noundef %exitcode) unnamed_addr #18 {
+define internal fastcc void @usage(i32 noundef range(i32 0, 2) %exitcode) unnamed_addr #18 {
 entry:
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   br label %for.body

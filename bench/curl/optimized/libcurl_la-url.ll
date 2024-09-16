@@ -2024,7 +2024,7 @@ if.then127.i.i:                                   ; preds = %land.lhs.true123.i.
   %call131.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %incdec.ptr.i.i) #12
   %arrayidx132.i.i = getelementptr i8, ptr %78, i64 %call131.i.i
   store i8 0, ptr %arrayidx132.i.i, align 1
-  call fastcc void @zonefrom_url(ptr noundef nonnull %storemerge.i.i, ptr noundef nonnull %data, ptr noundef nonnull %call.i.i)
+  call fastcc void @zonefrom_url(ptr noundef %storemerge.i.i, ptr noundef nonnull %data, ptr noundef %call.i.i)
   br label %if.end133.i.i
 
 if.end133.i.i:                                    ; preds = %if.then127.i.i, %land.lhs.true123.i.i, %if.end118.i.i
@@ -2148,7 +2148,7 @@ if.then219.i.i:                                   ; preds = %land.lhs.true212.i.
 
 if.end225.i.i:                                    ; preds = %if.then219.i.i, %land.lhs.true212.i.i, %if.then157.i.i, %land.lhs.true151.i.i, %if.end149.i.i
   %95 = load ptr, ptr %up1.i.i.i, align 8
-  %call229.i.i = call fastcc i32 @findprotocol(ptr noundef nonnull %data, ptr noundef nonnull %call.i.i, ptr noundef %95)
+  %call229.i.i = call fastcc i32 @findprotocol(ptr noundef nonnull %data, ptr noundef %call.i.i, ptr noundef %95)
   %tobool230.not.i.i = icmp eq i32 %call229.i.i, 0
   br i1 %tobool230.not.i.i, label %if.end232.i.i, label %parseurlandfillconn.exit.thread.i
 
@@ -2727,7 +2727,7 @@ if.then113.i.i:                                   ; preds = %if.then111.i.i, %if
   %http_proxy122.i.i = phi ptr [ %http_proxy114.i.i, %if.end107.thread.i.i ], [ %http_proxy.i.i, %if.then111.i.i ]
   %socksproxy.3111120.i.i = phi ptr [ %socksproxy.2.i.i, %if.end107.thread.i.i ], [ null, %if.then111.i.i ]
   %tobool110113118.i.i = phi i1 [ true, %if.end107.thread.i.i ], [ false, %if.then111.i.i ]
-  %call114.i.i = call fastcc i32 @parse_proxy(ptr noundef %data, ptr noundef nonnull %call.i.i, ptr noundef nonnull %proxy.4.i.i, i32 noundef %conv124.i.i)
+  %call114.i.i = call fastcc i32 @parse_proxy(ptr noundef %data, ptr noundef %call.i.i, ptr noundef %proxy.4.i.i, i32 noundef %conv124.i.i)
   %156 = load ptr, ptr @Curl_cfree, align 8
   call void %156(ptr noundef nonnull %proxy.4.i.i) #11
   %tobool117.not.i.i = icmp eq i32 %call114.i.i, 0
@@ -2740,7 +2740,7 @@ if.then122.i.i:                                   ; preds = %if.end120.i.i, %if.
   %socksproxy.3111119144.i.i = phi ptr [ %socksproxy.3111120.i.i, %if.end120.i.i ], [ %socksproxy.2.i.i, %if.end107.thread.i.i ]
   %http_proxy121143.i.i = phi ptr [ %http_proxy122.i.i, %if.end120.i.i ], [ %http_proxy114.i.i, %if.end107.thread.i.i ]
   %conv123141.i.i = phi i32 [ %conv124.i.i, %if.end120.i.i ], [ %conv116.i.i, %if.end107.thread.i.i ]
-  %call123.i.i = call fastcc i32 @parse_proxy(ptr noundef %data, ptr noundef nonnull %call.i.i, ptr noundef nonnull %socksproxy.3111119144.i.i, i32 noundef %conv123141.i.i)
+  %call123.i.i = call fastcc i32 @parse_proxy(ptr noundef %data, ptr noundef %call.i.i, ptr noundef %socksproxy.3111119144.i.i, i32 noundef %conv123141.i.i)
   %157 = load ptr, ptr @Curl_cfree, align 8
   call void %157(ptr noundef nonnull %socksproxy.3111119144.i.i) #11
   %tobool126.not.i.i = icmp eq i32 %call123.i.i, 0
@@ -2914,19 +2914,19 @@ parse_remote_port.exit.i:                         ; preds = %if.then.i233.i
 
 if.end71.i:                                       ; preds = %if.then.i233.i, %land.lhs.true.i229.i, %if.end67.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %portbuf.i.i)
-  %call72.i = call fastcc i32 @override_login(ptr noundef nonnull %data, ptr noundef nonnull %call.i.i)
+  %call72.i = call fastcc i32 @override_login(ptr noundef nonnull %data, ptr noundef %call.i.i)
   %tobool73.not.i = icmp eq i32 %call72.i, 0
   br i1 %tobool73.not.i, label %if.end75.i, label %create_conn.exit.thread
 
 if.end75.i:                                       ; preds = %if.end71.i
-  %call76.i = call fastcc i32 @set_login(ptr noundef nonnull %data, ptr noundef nonnull %call.i.i)
+  %call76.i = call fastcc i32 @set_login(ptr noundef nonnull %data, ptr noundef %call.i.i)
   %tobool77.not.i = icmp eq i32 %call76.i, 0
   br i1 %tobool77.not.i, label %if.end79.i, label %create_conn.exit.thread
 
 if.end79.i:                                       ; preds = %if.end75.i
   %connect_to.i = getelementptr inbounds i8, ptr %data, i64 1272
   %178 = load ptr, ptr %connect_to.i, align 8
-  %call81.i = call fastcc i32 @parse_connect_to_slist(ptr noundef nonnull %data, ptr noundef nonnull %call.i.i, ptr noundef %178)
+  %call81.i = call fastcc i32 @parse_connect_to_slist(ptr noundef nonnull %data, ptr noundef %call.i.i, ptr noundef %178)
   %tobool82.not.i = icmp eq i32 %call81.i, 0
   br i1 %tobool82.not.i, label %if.end84.i, label %create_conn.exit.thread
 
@@ -3137,12 +3137,12 @@ lor.lhs.false230.i:                               ; preds = %land.lhs.true227.i,
   br i1 %tobool232.not.i, label %if.else.i, label %if.else275.i
 
 if.else.i:                                        ; preds = %lor.lhs.false230.i
-  %call234.i = call fastcc zeroext i1 @ConnectionExists(ptr noundef nonnull %data, ptr noundef nonnull %call.i.i, ptr noundef nonnull %existing.i, ptr noundef nonnull %force_reuse.i, ptr noundef nonnull %waitpipe.i)
+  %call234.i = call fastcc zeroext i1 @ConnectionExists(ptr noundef nonnull %data, ptr noundef %call.i.i, ptr noundef %existing.i, ptr noundef %force_reuse.i, ptr noundef %waitpipe.i)
   br i1 %call234.i, label %land.lhs.true240.i, label %if.else275.i
 
 land.lhs.true240.i:                               ; preds = %if.else.i
   %202 = load ptr, ptr %existing.i, align 8
-  call fastcc void @reuse_conn(ptr noundef nonnull %data, ptr noundef nonnull %call.i.i, ptr noundef %202)
+  call fastcc void @reuse_conn(ptr noundef nonnull %data, ptr noundef %call.i.i, ptr noundef %202)
   %bf.load242.i = load i64, ptr %opt_no_body, align 2
   %203 = and i64 %bf.load242.i, 536870912
   %tobool246.not.i = icmp eq i64 %203, 0
@@ -3598,7 +3598,7 @@ declare i64 @Curl_multi_max_host_connections(ptr noundef) local_unnamed_addr #1
 declare i64 @Curl_multi_max_total_connections(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @override_login(ptr noundef %data, ptr noundef %conn) unnamed_addr #0 {
+define internal fastcc i32 @override_login(ptr noundef %data, ptr noundef nonnull %conn) unnamed_addr #0 {
 entry:
   %user = getelementptr inbounds i8, ptr %conn, i64 304
   %passwd = getelementptr inbounds i8, ptr %conn, i64 312
@@ -3842,7 +3842,7 @@ return:                                           ; preds = %if.then145, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 28) i32 @set_login(ptr nocapture noundef readonly %data, ptr nocapture noundef %conn) unnamed_addr #0 {
+define internal fastcc range(i32 0, 28) i32 @set_login(ptr nocapture noundef readonly %data, ptr nocapture noundef nonnull %conn) unnamed_addr #0 {
 entry:
   %handler = getelementptr inbounds i8, ptr %conn, i64 712
   %0 = load ptr, ptr %handler, align 8
@@ -3896,7 +3896,7 @@ return:                                           ; preds = %if.then12, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 50) i32 @parse_connect_to_slist(ptr noundef %data, ptr nocapture noundef %conn, ptr noundef readonly %conn_to_host) unnamed_addr #0 {
+define internal fastcc range(i32 0, 50) i32 @parse_connect_to_slist(ptr noundef %data, ptr nocapture noundef nonnull %conn, ptr noundef readonly %conn_to_host) unnamed_addr #0 {
 entry:
   %endp.i.i = alloca ptr, align 8
   %endp.i = alloca ptr, align 8
@@ -4562,7 +4562,7 @@ if.end28:                                         ; preds = %if.end19, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ConnectionExists(ptr noundef %data, ptr noundef %needle, ptr nocapture noundef writeonly %usethis, ptr nocapture noundef writeonly %force_reuse, ptr nocapture noundef writeonly %waitpipe) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ConnectionExists(ptr noundef %data, ptr noundef nonnull %needle, ptr nocapture noundef nonnull writeonly %usethis, ptr nocapture noundef nonnull writeonly %force_reuse, ptr nocapture noundef nonnull writeonly %waitpipe) unnamed_addr #0 {
 entry:
   %state = getelementptr inbounds i8, ptr %data, i64 3144
   %authhost = getelementptr inbounds i8, ptr %data, i64 3560
@@ -4939,7 +4939,7 @@ if.end300:                                        ; preds = %lor.lhs.false288
 
 land.lhs.true306:                                 ; preds = %if.end300
   %socks_proxy307 = getelementptr inbounds i8, ptr %30, i64 144
-  %call308 = tail call fastcc zeroext i1 @socks_proxy_info_matches(ptr noundef nonnull %socks_proxy, ptr noundef nonnull %socks_proxy307)
+  %call308 = tail call fastcc zeroext i1 @socks_proxy_info_matches(ptr noundef %socks_proxy, ptr noundef nonnull %socks_proxy307)
   br i1 %call308, label %land.lhs.true306.if.end310_crit_edge, label %while.cond.backedge
 
 land.lhs.true306.if.end310_crit_edge:             ; preds = %land.lhs.true306
@@ -4961,7 +4961,7 @@ if.then315:                                       ; preds = %if.end310
 
 if.end327:                                        ; preds = %if.then315
   %http_proxy328 = getelementptr inbounds i8, ptr %30, i64 200
-  %call329 = tail call fastcc zeroext i1 @proxy_info_matches(ptr noundef nonnull %http_proxy, ptr noundef nonnull %http_proxy328)
+  %call329 = tail call fastcc zeroext i1 @proxy_info_matches(ptr noundef %http_proxy, ptr noundef nonnull %http_proxy328)
   br i1 %call329, label %if.end331, label %while.cond.backedge
 
 if.end331:                                        ; preds = %if.end327
@@ -5475,7 +5475,7 @@ return:                                           ; preds = %if.end775, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reuse_conn(ptr noundef %data, ptr noundef %temp, ptr noundef %existing) unnamed_addr #0 {
+define internal fastcc void @reuse_conn(ptr noundef %data, ptr noundef nonnull %temp, ptr noundef %existing) unnamed_addr #0 {
 entry:
   %user = getelementptr inbounds i8, ptr %temp, i64 304
   %0 = load ptr, ptr %user, align 8
@@ -5839,12 +5839,12 @@ declare ptr @curl_url_strerror(i32 noundef) local_unnamed_addr #1
 declare i32 @curl_url_get(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zonefrom_url(ptr noundef %uh, ptr noundef %data, ptr nocapture noundef writeonly %conn) unnamed_addr #0 {
+define internal fastcc void @zonefrom_url(ptr noundef nonnull %uh, ptr noundef %data, ptr nocapture noundef nonnull writeonly %conn) unnamed_addr #0 {
 entry:
   %zoneid = alloca ptr, align 8
   %endp = alloca ptr, align 8
   %buffer = alloca [256 x i8], align 16
-  %call = call i32 @curl_url_get(ptr noundef %uh, i32 noundef 10, ptr noundef nonnull %zoneid, i32 noundef 0) #11
+  %call = call i32 @curl_url_get(ptr noundef nonnull %uh, i32 noundef 10, ptr noundef nonnull %zoneid, i32 noundef 0) #11
   %tobool = icmp eq i32 %call, 0
   %0 = load ptr, ptr %zoneid, align 8
   %tobool1 = icmp ne ptr %0, null
@@ -5909,7 +5909,7 @@ if.end19:                                         ; preds = %if.end18, %entry
 declare ptr @Curl_hsts(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @findprotocol(ptr noundef %data, ptr nocapture noundef writeonly %conn, ptr noundef %protostr) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @findprotocol(ptr noundef %data, ptr nocapture noundef nonnull writeonly %conn, ptr noundef %protostr) unnamed_addr #0 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %protostr) #12
   %0 = add i64 %call.i, -1
@@ -6016,7 +6016,7 @@ declare ptr @curl_getenv(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @Curl_check_noproxy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_proxy(ptr noundef %data, ptr nocapture noundef %conn, ptr noundef %proxy, i32 noundef %proxytype) unnamed_addr #0 {
+define internal fastcc i32 @parse_proxy(ptr noundef %data, ptr nocapture noundef nonnull %conn, ptr noundef nonnull %proxy, i32 noundef range(i32 0, 256) %proxytype) unnamed_addr #0 {
 entry:
   %portptr = alloca ptr, align 8
   %proxyuser = alloca ptr, align 8
@@ -6035,7 +6035,7 @@ entry:
   br i1 %tobool.not, label %error, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @curl_url_set(ptr noundef nonnull %call, i32 noundef 0, ptr noundef %proxy, i32 noundef 520) #11
+  %call1 = tail call i32 @curl_url_set(ptr noundef nonnull %call, i32 noundef 0, ptr noundef nonnull %proxy, i32 noundef 520) #11
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.then3, label %if.else42
 
@@ -6092,32 +6092,32 @@ if.else31:                                        ; preds = %lor.lhs.false
   br i1 %tobool33.not, label %if.else35, label %if.end44
 
 if.else35:                                        ; preds = %if.else31
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.39, ptr noundef %proxy) #11
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.39, ptr noundef nonnull %proxy) #11
   br label %error
 
 if.else42:                                        ; preds = %if.end
   %call43 = tail call ptr @curl_url_strerror(i32 noundef %call1) #11
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.40, ptr noundef %proxy, ptr noundef %call43) #11
+  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.40, ptr noundef nonnull %proxy, ptr noundef %call43) #11
   br label %error
 
 if.end44:                                         ; preds = %if.else25, %lor.lhs.false, %if.else21, %if.else17, %if.else13, %if.then10, %if.else31
   %proxytype.addr.0 = phi i32 [ %proxytype, %if.else31 ], [ %., %if.then10 ], [ 7, %if.else13 ], [ 5, %if.else17 ], [ 6, %if.else21 ], [ 4, %lor.lhs.false ], [ 4, %if.else25 ]
   %call45 = call zeroext i1 @Curl_ssl_supports(ptr noundef %data, i32 noundef 16) #11
-  %7 = and i32 %proxytype.addr.0, -2
+  %7 = and i32 %proxytype.addr.0, 254
   %or.cond = icmp ne i32 %7, 2
   %or.cond72.not = or i1 %call45, %or.cond
   br i1 %or.cond72.not, label %if.end52, label %if.then50
 
 if.then50:                                        ; preds = %if.end44
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.41, ptr noundef %proxy) #11
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.41, ptr noundef nonnull %proxy) #11
   br label %error
 
 if.end52:                                         ; preds = %if.end44
-  %8 = and i32 %proxytype.addr.0, -4
-  %switch.selectcmp = icmp eq i32 %8, 4
+  %8 = and i32 %proxytype.addr.0, 252
+  %spec.select = icmp eq i32 %8, 4
   %socks_proxy = getelementptr inbounds i8, ptr %conn, i64 144
   %http_proxy = getelementptr inbounds i8, ptr %conn, i64 200
-  %cond = select i1 %switch.selectcmp, ptr %socks_proxy, ptr %http_proxy
+  %cond = select i1 %spec.select, ptr %socks_proxy, ptr %http_proxy
   %conv = trunc nuw i32 %proxytype.addr.0 to i8
   %proxytype60 = getelementptr inbounds i8, ptr %cond, i64 36
   store i8 %conv, ptr %proxytype60, align 4
@@ -6224,7 +6224,7 @@ if.then128:                                       ; preds = %if.else115, %if.the
   %port130 = getelementptr inbounds i8, ptr %conn, i64 1144
   %23 = load i32, ptr %port130, align 8
   %cmp131 = icmp slt i32 %23, 0
-  %brmerge = or i1 %switch.selectcmp, %cmp131
+  %brmerge = or i1 %spec.select, %cmp131
   br i1 %brmerge, label %if.then140, label %lor.lhs.false136
 
 lor.lhs.false136:                                 ; preds = %if.then128
@@ -6242,7 +6242,7 @@ if.end143:                                        ; preds = %lor.lhs.false136, %
   br i1 %tobool145.not, label %if.end147, label %error
 
 if.end147:                                        ; preds = %if.end143
-  br i1 %switch.selectcmp, label %land.lhs.true150, label %do.body178
+  br i1 %spec.select, label %land.lhs.true150, label %do.body178
 
 land.lhs.true150:                                 ; preds = %if.end147
   %25 = load ptr, ptr %host, align 8
@@ -6314,7 +6314,7 @@ if.then189:                                       ; preds = %do.body178
   %46 = load ptr, ptr %host, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %46, i64 1
   store ptr %incdec.ptr, ptr %host, align 8
-  call fastcc void @zonefrom_url(ptr noundef nonnull %call, ptr noundef %data, ptr noundef %conn)
+  call fastcc void @zonefrom_url(ptr noundef %call, ptr noundef %data, ptr noundef %conn)
   %.pre = load ptr, ptr %host, align 8
   br label %if.end192
 
@@ -6325,7 +6325,7 @@ if.end192:                                        ; preds = %if.then189, %do.bod
   store ptr null, ptr %host, align 8
   br label %error
 
-error:                                            ; preds = %do.body165, %if.then160, %if.then153, %if.end143, %if.then89, %if.end66, %if.end52, %if.then3, %entry, %if.end192, %if.end94, %do.body, %if.then50, %if.else42, %if.else35
+error:                                            ; preds = %if.end52, %do.body165, %if.then160, %if.then153, %if.end143, %if.then89, %if.end66, %if.then3, %entry, %if.end192, %if.end94, %do.body, %if.then50, %if.else42, %if.else35
   %result.0 = phi i32 [ 5, %if.else42 ], [ 0, %if.end52 ], [ 0, %if.end66 ], [ %call81, %do.body ], [ %call99, %if.end94 ], [ 0, %if.end192 ], [ 4, %if.then50 ], [ 7, %if.else35 ], [ 27, %entry ], [ 27, %if.then3 ], [ 27, %if.then89 ], [ 27, %if.end143 ], [ 27, %if.then153 ], [ 27, %if.then160 ], [ 0, %do.body165 ]
   %48 = load ptr, ptr @Curl_cfree, align 8
   %49 = load ptr, ptr %proxyuser, align 8
@@ -6506,7 +6506,7 @@ declare zeroext i1 @Curl_multiplex_wanted(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @Curl_conn_is_connected(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @socks_proxy_info_matches(ptr nocapture noundef readonly %data, ptr nocapture noundef readonly %needle) unnamed_addr #0 {
+define internal fastcc zeroext i1 @socks_proxy_info_matches(ptr nocapture noundef nonnull readonly %data, ptr nocapture noundef readonly %needle) unnamed_addr #0 {
 entry:
   %proxytype.i = getelementptr inbounds i8, ptr %data, i64 36
   %0 = load i8, ptr %proxytype.i, align 4
@@ -6556,7 +6556,7 @@ return:                                           ; preds = %land.lhs.true7.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @proxy_info_matches(ptr nocapture noundef readonly %data, ptr nocapture noundef readonly %needle) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @proxy_info_matches(ptr nocapture noundef nonnull readonly %data, ptr nocapture noundef readonly %needle) unnamed_addr #0 {
 entry:
   %proxytype = getelementptr inbounds i8, ptr %data, i64 36
   %0 = load i8, ptr %proxytype, align 4

@@ -507,7 +507,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit24: ; preds = %96, %108, %_ZNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL9initBlockjRN4llvm15BitstreamWriterERNS_15SmallVectorImplImEENS_9StringRefE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr %3, i64 %4) unnamed_addr #0 {
+define internal fastcc void @_ZL9initBlockjRN4llvm15BitstreamWriterERNS_15SmallVectorImplImEENS_9StringRefE(i32 noundef range(i32 8, 10) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr %3, i64 range(i64 4, 7) %4) unnamed_addr #0 {
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %7, align 8
@@ -538,7 +538,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %5, %11
   %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
   %22 = getelementptr inbounds i64, ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %3, i64 %4
-  %24 = tail call noundef ptr @_ZN4llvm15SmallVectorImplImE6insertIPKcvEEPmS5_T_S6_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %22, ptr noundef %3, ptr noundef %23)
+  %24 = tail call noundef ptr @_ZN4llvm15SmallVectorImplImE6insertIPKcvEEPmS5_T_S6_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %22, ptr noundef %3, ptr noundef nonnull %23)
   tail call void @_ZN4llvm15BitstreamWriter10EmitRecordINS_15SmallVectorImplImEEEEvjRKT_j(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 0)
   ret void
 }
@@ -547,7 +547,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %5, %11
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13setRecordNamejRN4llvm15BitstreamWriterERNS_15SmallVectorImplImEENS_9StringRefE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr %3, i64 %4) unnamed_addr #0 {
+define internal fastcc void @_ZL13setRecordNamejRN4llvm15BitstreamWriterERNS_15SmallVectorImplImEENS_9StringRefE(i32 noundef range(i32 1, 10) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr %3, i64 range(i64 8, 29) %4) unnamed_addr #0 {
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %7, align 8
@@ -575,7 +575,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %5, %11
   %20 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
   %21 = getelementptr inbounds i64, ptr %19, i64 %20
   %22 = getelementptr inbounds i8, ptr %3, i64 %4
-  %23 = tail call noundef ptr @_ZN4llvm15SmallVectorImplImE6insertIPKcvEEPmS5_T_S6_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %21, ptr noundef %3, ptr noundef %22)
+  %23 = tail call noundef ptr @_ZN4llvm15SmallVectorImplImE6insertIPKcvEEPmS5_T_S6_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %21, ptr noundef %3, ptr noundef nonnull %22)
   tail call void @_ZN4llvm15BitstreamWriter10EmitRecordINS_15SmallVectorImplImEEEEvjRKT_j(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 0)
   ret void
 }

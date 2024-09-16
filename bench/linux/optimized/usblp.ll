@@ -1802,7 +1802,7 @@ declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noun
 declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -28, 1) i32 @usblp_wwait(ptr noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -28, 1) i32 @usblp_wwait(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #11
   %4 = getelementptr inbounds i8, ptr %3, i64 8

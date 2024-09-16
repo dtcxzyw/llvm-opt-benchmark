@@ -652,7 +652,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN8Constant11make_randomEPK4Type(ptr noundef %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZL22GenerateRandomConstantB5cxx11PK4Type(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef %0)
+  call fastcc void @_ZL22GenerateRandomConstantB5cxx11PK4Type(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef %0)
   %3 = load i32, ptr @_ZN5Error8r_error_E, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %_ZN8ConstantC2EPK4TypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -706,7 +706,7 @@ _ZN8ConstantC2EPK4TypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL22GenerateRandomConstantB5cxx11PK4Type(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL22GenerateRandomConstantB5cxx11PK4Type(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
@@ -1059,7 +1059,7 @@ exp2.i.noexc:                                     ; preds = %98
   %145 = load ptr, ptr %53, align 8
   %146 = getelementptr inbounds ptr, ptr %145, i64 %.026.i54
   %147 = load ptr, ptr %146, align 8
-  invoke fastcc void @_ZL22GenerateRandomConstantB5cxx11PK4Type(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef %147)
+  invoke fastcc void @_ZL22GenerateRandomConstantB5cxx11PK4Type(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %147)
           to label %148 unwind label %.loopexit
 
 148:                                              ; preds = %144
@@ -1175,7 +1175,7 @@ exp2.i.noexc:                                     ; preds = %98
   %182 = getelementptr inbounds i8, ptr %1, i64 48
   %183 = load ptr, ptr %182, align 8
   %184 = load ptr, ptr %183, align 8
-  invoke fastcc void @_ZL22GenerateRandomConstantB5cxx11PK4Type(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %184)
+  invoke fastcc void @_ZL22GenerateRandomConstantB5cxx11PK4Type(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %184)
           to label %185 unwind label %191
 
 185:                                              ; preds = %181
@@ -1370,7 +1370,7 @@ exp2.i.noexc:                                     ; preds = %98
           to label %261 unwind label %240
 
 253:                                              ; preds = %237
-  invoke fastcc void @_ZL35GenerateSmallRandomFloatHexConstantB5cxx11i(ptr dead_on_unwind noalias nonnull writable align 8 %26, i32 noundef %.026)
+  invoke fastcc void @_ZL35GenerateSmallRandomFloatHexConstantB5cxx11i(ptr dead_on_unwind noalias writable align 8 %26, i32 noundef %.026)
           to label %254 unwind label %240
 
 254:                                              ; preds = %253
@@ -1503,7 +1503,7 @@ exp2.i.noexc:                                     ; preds = %98
           to label %337 unwind label %47
 
 298:                                              ; preds = %295
-  invoke fastcc void @_ZL26GenerateRandomCharConstantB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %32)
+  invoke fastcc void @_ZL26GenerateRandomCharConstantB5cxx11v(ptr dead_on_unwind noalias writable align 8 %32)
           to label %299 unwind label %47
 
 299:                                              ; preds = %298
@@ -1512,7 +1512,7 @@ exp2.i.noexc:                                     ; preds = %98
   br label %337
 
 301:                                              ; preds = %295
-  invoke fastcc void @_ZL25GenerateRandomIntConstantB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %33)
+  invoke fastcc void @_ZL25GenerateRandomIntConstantB5cxx11v(ptr dead_on_unwind noalias writable align 8 %33)
           to label %302 unwind label %47
 
 302:                                              ; preds = %301
@@ -1521,7 +1521,7 @@ exp2.i.noexc:                                     ; preds = %98
   br label %337
 
 304:                                              ; preds = %295
-  invoke fastcc void @_ZL27GenerateRandomShortConstantB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %34)
+  invoke fastcc void @_ZL27GenerateRandomShortConstantB5cxx11v(ptr dead_on_unwind noalias writable align 8 %34)
           to label %305 unwind label %47
 
 305:                                              ; preds = %304
@@ -1530,7 +1530,7 @@ exp2.i.noexc:                                     ; preds = %98
   br label %337
 
 307:                                              ; preds = %295
-  invoke fastcc void @_ZL26GenerateRandomLongConstantB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %35)
+  invoke fastcc void @_ZL26GenerateRandomLongConstantB5cxx11v(ptr dead_on_unwind noalias writable align 8 %35)
           to label %308 unwind label %47
 
 308:                                              ; preds = %307
@@ -1539,7 +1539,7 @@ exp2.i.noexc:                                     ; preds = %98
   br label %337
 
 310:                                              ; preds = %295
-  invoke fastcc void @_ZL30GenerateRandomLongLongConstantB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %36)
+  invoke fastcc void @_ZL30GenerateRandomLongLongConstantB5cxx11v(ptr dead_on_unwind noalias writable align 8 %36)
           to label %311 unwind label %47
 
 311:                                              ; preds = %310
@@ -1548,7 +1548,7 @@ exp2.i.noexc:                                     ; preds = %98
   br label %337
 
 313:                                              ; preds = %295
-  invoke fastcc void @_ZL26GenerateRandomCharConstantB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %37)
+  invoke fastcc void @_ZL26GenerateRandomCharConstantB5cxx11v(ptr dead_on_unwind noalias writable align 8 %37)
           to label %314 unwind label %47
 
 314:                                              ; preds = %313
@@ -1557,7 +1557,7 @@ exp2.i.noexc:                                     ; preds = %98
   br label %337
 
 316:                                              ; preds = %295
-  invoke fastcc void @_ZL25GenerateRandomIntConstantB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %38)
+  invoke fastcc void @_ZL25GenerateRandomIntConstantB5cxx11v(ptr dead_on_unwind noalias writable align 8 %38)
           to label %317 unwind label %47
 
 317:                                              ; preds = %316
@@ -1566,7 +1566,7 @@ exp2.i.noexc:                                     ; preds = %98
   br label %337
 
 319:                                              ; preds = %295
-  invoke fastcc void @_ZL27GenerateRandomShortConstantB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %39)
+  invoke fastcc void @_ZL27GenerateRandomShortConstantB5cxx11v(ptr dead_on_unwind noalias writable align 8 %39)
           to label %320 unwind label %47
 
 320:                                              ; preds = %319
@@ -1575,7 +1575,7 @@ exp2.i.noexc:                                     ; preds = %98
   br label %337
 
 322:                                              ; preds = %295
-  invoke fastcc void @_ZL26GenerateRandomLongConstantB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %40)
+  invoke fastcc void @_ZL26GenerateRandomLongConstantB5cxx11v(ptr dead_on_unwind noalias writable align 8 %40)
           to label %323 unwind label %47
 
 323:                                              ; preds = %322
@@ -1584,7 +1584,7 @@ exp2.i.noexc:                                     ; preds = %98
   br label %337
 
 325:                                              ; preds = %295
-  invoke fastcc void @_ZL30GenerateRandomLongLongConstantB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %41)
+  invoke fastcc void @_ZL30GenerateRandomLongLongConstantB5cxx11v(ptr dead_on_unwind noalias writable align 8 %41)
           to label %326 unwind label %47
 
 326:                                              ; preds = %325
@@ -1593,7 +1593,7 @@ exp2.i.noexc:                                     ; preds = %98
   br label %337
 
 328:                                              ; preds = %295
-  invoke fastcc void @_ZL30GenerateRandomFloatHexConstantB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %42)
+  invoke fastcc void @_ZL30GenerateRandomFloatHexConstantB5cxx11v(ptr dead_on_unwind noalias writable align 8 %42)
           to label %329 unwind label %47
 
 329:                                              ; preds = %328
@@ -1602,7 +1602,7 @@ exp2.i.noexc:                                     ; preds = %98
   br label %337
 
 331:                                              ; preds = %295
-  invoke fastcc void @_ZL28GenerateRandomInt128ConstantB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %43)
+  invoke fastcc void @_ZL28GenerateRandomInt128ConstantB5cxx11v(ptr dead_on_unwind noalias writable align 8 %43)
           to label %332 unwind label %47
 
 332:                                              ; preds = %331
@@ -1611,7 +1611,7 @@ exp2.i.noexc:                                     ; preds = %98
   br label %337
 
 334:                                              ; preds = %295
-  invoke fastcc void @_ZL28GenerateRandomInt128ConstantB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %44)
+  invoke fastcc void @_ZL28GenerateRandomInt128ConstantB5cxx11v(ptr dead_on_unwind noalias writable align 8 %44)
           to label %335 unwind label %47
 
 335:                                              ; preds = %334
@@ -1766,7 +1766,7 @@ declare noundef nonnull align 8 dereferenceable(136) ptr @_ZN4Type15get_simple_t
 define dso_local noundef ptr @_ZN8Constant19make_random_nonzeroEPK4Type(ptr noundef %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZL22GenerateRandomConstantB5cxx11PK4Type(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef %0)
+  call fastcc void @_ZL22GenerateRandomConstantB5cxx11PK4Type(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef %0)
   %4 = load i32, ptr @_ZN5Error8r_error_E, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.preheader, label %_ZN8ConstantC2EPK4TypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -1790,7 +1790,7 @@ define dso_local noundef ptr @_ZN8Constant19make_random_nonzeroEPK4Type(ptr noun
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %6
-  invoke fastcc void @_ZL22GenerateRandomConstantB5cxx11PK4Type(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %0)
+  invoke fastcc void @_ZL22GenerateRandomConstantB5cxx11PK4Type(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %0)
           to label %9 unwind label %.loopexit
 
 9:                                                ; preds = %8
@@ -2380,7 +2380,7 @@ declare noundef zeroext i1 @_ZN9CGOptions8longlongEv() local_unnamed_addr #0
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEy(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL35GenerateSmallRandomFloatHexConstantB5cxx11i(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL35GenerateSmallRandomFloatHexConstantB5cxx11i(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
@@ -2442,7 +2442,7 @@ define internal fastcc void @_ZL35GenerateSmallRandomFloatHexConstantB5cxx11i(pt
   br label %30
 
 28:                                               ; preds = %.invoke
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %3)
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %3)
           to label %29 unwind label %8
 
 29:                                               ; preds = %28
@@ -3488,7 +3488,7 @@ define internal fastcc void @_ZL30GenerateRandomLongLongConstantB5cxx11v(ptr dea
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL30GenerateRandomFloatHexConstantB5cxx11v(ptr dead_on_unwind noalias writable align 8 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL30GenerateRandomFloatHexConstantB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3558,7 +3558,7 @@ define internal fastcc void @_ZL30GenerateRandomFloatHexConstantB5cxx11v(ptr dea
           to label %30 unwind label %21
 
 30:                                               ; preds = %28
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %2)
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %2)
           to label %31 unwind label %21
 
 31:                                               ; preds = %30

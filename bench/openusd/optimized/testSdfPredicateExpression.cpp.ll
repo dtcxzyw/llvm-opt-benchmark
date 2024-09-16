@@ -26905,7 +26905,7 @@ _ZNSt6vectorIbSaIbEE6assignEmRKb.exit:            ; preds = %_ZNSt6vectorIbSaIbE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE11_TryBindOneIiEEvmmRT_RbRKSt6vectorINS_22SdfPredicateExpression5FnArgESaIS9_EERS7_IbSaIbEERKNS_33SdfPredicateParamNamesAndDefaultsE(i64 noundef %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr %.0.val, ptr %.8.val) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE11_TryBindOneIiEEvmmRT_RbRKSt6vectorINS_22SdfPredicateExpression5FnArgESaIS9_EERS7_IbSaIbEERKNS_33SdfPredicateParamNamesAndDefaultsE(i64 noundef range(i64 0, 2) %0, i64 noundef range(i64 1, 3) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr %.0.val, ptr %.8.val) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %8 = alloca %class.anon.298, align 8
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
@@ -26918,7 +26918,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicate
   %14 = ptrtoint ptr %.0.val to i64
   %15 = sub i64 %13, %14
   %16 = sdiv exact i64 %15, 48
-  %17 = sub i64 %16, %1
+  %17 = sub nsw i64 %16, %1
   %.not = icmp ult i64 %0, %17
   %18 = sub nuw nsw i64 %0, %17
   %19 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::SdfPredicateParamNamesAndDefaults::Param", ptr %.0.val, i64 %18
@@ -27324,12 +27324,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN32pxrInternal_v0
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE23_CheckOneNameAndDefaultIiEEvRbmmRKNS_33SdfPredicateParamNamesAndDefaultsE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %0, i64 noundef %1, i64 noundef %2, ptr %.0.val, ptr %.8.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE23_CheckOneNameAndDefaultIiEEvRbmmRKNS_33SdfPredicateParamNamesAndDefaultsE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %0, i64 noundef range(i64 0, 2) %1, i64 noundef range(i64 1, 3) %2, ptr %.0.val, ptr %.8.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = xor i64 %1, -1
-  %8 = add i64 %2, %7
+  %8 = add nsw i64 %2, %7
   %9 = ptrtoint ptr %.8.val to i64
   %10 = ptrtoint ptr %.0.val to i64
   %11 = sub i64 %9, %10
@@ -27338,7 +27338,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicate
   br i1 %.not, label %13, label %42
 
 13:                                               ; preds = %3
-  %14 = sub i64 %1, %2
+  %14 = sub nsw i64 %1, %2
   %15 = getelementptr %"struct.pxrInternal_v0_24__pxrReserved__::SdfPredicateParamNamesAndDefaults::Param", ptr %.0.val, i64 %14
   %16 = getelementptr i8, ptr %15, i64 %11
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32

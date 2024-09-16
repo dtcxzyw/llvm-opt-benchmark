@@ -964,7 +964,7 @@ declare i32 @BIO_zero_copy_get_read_buf(ptr noundef, ptr noundef, ptr noundef, p
 declare i32 @BIO_zero_copy_get_read_buf_done(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL8ReadASN1bPKhmmm(i1 noundef zeroext %should_succeed, ptr noundef %data, i64 noundef %data_len, i64 noundef %expected_len, i64 noundef %max_len) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL8ReadASN1bPKhmmm(i1 noundef zeroext %should_succeed, ptr noundef %data, i64 noundef range(i64 4, 8005) %data_len, i64 noundef range(i64 0, 8005) %expected_len, i64 noundef range(i64 100, 16001) %max_len) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %bio = alloca %"class.std::unique_ptr", align 8
   %out = alloca ptr, align 8

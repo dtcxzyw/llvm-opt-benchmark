@@ -1026,7 +1026,7 @@ define hidden void @zim_DOMElement_removeAttribute(ptr nocapture noundef readonl
   br label %35
 
 33:                                               ; preds = %26
-  call fastcc void @dom_remove_attribute(ptr noundef %27, ptr noundef nonnull %29)
+  call fastcc void @dom_remove_attribute(ptr noundef %27, ptr noundef %29)
   %34 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 3, ptr %34, align 8
   br label %35
@@ -1036,7 +1036,7 @@ define hidden void @zim_DOMElement_removeAttribute(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3960,7 +3960,7 @@ define hidden void @zim_DOMElement_toggleAttribute(ptr nocapture noundef readonl
   br i1 %89, label %dom_create_attribute.exit, label %90
 
 90:                                               ; preds = %87, %86
-  call fastcc void @dom_remove_attribute(ptr noundef nonnull %30, ptr noundef nonnull %58)
+  call fastcc void @dom_remove_attribute(ptr noundef nonnull %30, ptr noundef %58)
   br label %dom_create_attribute.exit
 
 dom_create_attribute.exit:                        ; preds = %79, %77, %87, %63, %81, %90

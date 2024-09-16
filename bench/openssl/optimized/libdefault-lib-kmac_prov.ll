@@ -748,7 +748,7 @@ if.else.i.i:                                      ; preds = %if.end6
   %mul.i.i = shl nuw nsw i64 %keylen, 3
   br label %while.body.i.i.i
 
-while.body.i.i.i:                                 ; preds = %if.else.i.i, %while.body.i.i.i
+while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %if.else.i.i
   %bits.addr.07.i.i.i = phi i64 [ %shr.i.i.i, %while.body.i.i.i ], [ %mul.i.i, %if.else.i.i ]
   %cnt.06.i.i.i = phi i32 [ %inc.i.i.i, %while.body.i.i.i ], [ 0, %if.else.i.i ]
   %inc.i.i.i = add nuw nsw i32 %cnt.06.i.i.i, 1
@@ -784,7 +784,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
 for.end.i.i:                                      ; preds = %for.body.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %tmp.i, i64 %conv.i.i
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr10.i.i, ptr nonnull readonly align 1 %key, i64 %keylen, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr10.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %key, i64 %keylen, i1 false)
   br label %if.end.i
 
 encode_string.exit.i:                             ; preds = %get_encode_size.exit.i.i

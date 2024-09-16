@@ -567,7 +567,7 @@ _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit44: ; preds = %_ZN9Stoc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN9Stockfish12_GLOBAL__N_111init_magicsENS_9PieceTypeEPmPNS_5MagicE(i32 noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #3 {
+define internal fastcc void @_ZN9Stockfish12_GLOBAL__N_111init_magicsENS_9PieceTypeEPmPNS_5MagicE(i32 noundef range(i32 3, 5) %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #3 {
   %4 = alloca [4096 x i64], align 16
   %5 = alloca [4096 x i64], align 16
   %6 = alloca [4096 x i32], align 16

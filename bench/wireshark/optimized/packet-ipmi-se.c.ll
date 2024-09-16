@@ -3538,32 +3538,32 @@ declare void @ipmi_add_timestamp(ptr noundef, ptr noundef, i32 noundef, ptr noun
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_thresholds(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @add_thresholds(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @ett_ipmi_se_XX_mask, align 4
   %6 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 1, ptr noundef %3, ptr noundef nonnull @.str.656, i32 noundef %5, ptr noundef nonnull @add_thresholds.threshold_mask, i32 noundef -2147483648, i32 noundef 0) #2
   %7 = load i32, ptr @hf_ipmi_se_XX_thr_lnc, align 4
   %8 = add nuw nsw i32 %1, 1
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef -2147483648) #2
   %10 = load i32, ptr @hf_ipmi_se_XX_thr_lc, align 4
-  %11 = add nuw nsw i32 %1, 2
+  %11 = or disjoint i32 %1, 2
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef -2147483648) #2
   %13 = load i32, ptr @hf_ipmi_se_XX_thr_lnr, align 4
   %14 = add nuw nsw i32 %1, 3
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %14, i32 noundef 1, i32 noundef -2147483648) #2
   %16 = load i32, ptr @hf_ipmi_se_XX_thr_unc, align 4
-  %17 = add nuw nsw i32 %1, 4
+  %17 = or disjoint i32 %1, 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef %17, i32 noundef 1, i32 noundef -2147483648) #2
   %19 = load i32, ptr @hf_ipmi_se_XX_thr_uc, align 4
   %20 = add nuw nsw i32 %1, 5
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef -2147483648) #2
   %22 = load i32, ptr @hf_ipmi_se_XX_thr_unr, align 4
-  %23 = add nuw nsw i32 %1, 6
+  %23 = or disjoint i32 %1, 6
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef %23, i32 noundef 1, i32 noundef -2147483648) #2
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_events(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @add_events(ptr noundef %0, i32 noundef range(i32 1, 3) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   %7 = icmp slt i32 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -3604,7 +3604,7 @@ define internal fastcc void @add_events(ptr noundef %0, i32 noundef %1, ptr noun
 
 27:                                               ; preds = %26
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %28 = add nsw i32 %.033, 1
+  %28 = add nuw nsw i32 %.033, 1
   %29 = icmp slt i32 %28, %6
   %30 = icmp ult i64 %indvars.iv35, 3
   %31 = select i1 %29, i1 %30, i1 false

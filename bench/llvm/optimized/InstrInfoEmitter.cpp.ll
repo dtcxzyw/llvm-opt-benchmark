@@ -2091,7 +2091,7 @@ _ZNK4llvm13CodeGenTarget26getInstructionsByEnumValueEv.exit.i215: ; preds = %656
   %.val.i = load ptr, ptr %673, align 8
   %674 = getelementptr i8, ptr %672, i64 80
   %.val12.i = load ptr, ptr %674, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116InstrInfoEmitter14GetOperandInfoB5cxx11ERKN4llvm18CodeGenInstructionE(ptr dead_on_unwind noalias nonnull writable align 8 %74, ptr %.val.i, ptr %.val12.i)
+  call fastcc void @_ZN12_GLOBAL__N_116InstrInfoEmitter14GetOperandInfoB5cxx11ERKN4llvm18CodeGenInstructionE(ptr dead_on_unwind noalias writable align 8 %74, ptr %.val.i, ptr %.val12.i)
   %675 = load ptr, ptr %664, align 8
   %676 = load ptr, ptr %74, align 8
   %677 = ptrtoint ptr %675 to i64
@@ -3790,7 +3790,7 @@ _ZNSt3mapISt6vectorIPN4llvm6RecordESaIS3_EEjSt4lessIS5_ESaISt4pairIKS5_jEEEixERS
 _ZN4llvm11raw_ostreamlsEPKc.exit214.i:            ; preds = %1504, %1502
   %.val.i347 = load ptr, ptr %1242, align 8
   %.val185.i = load ptr, ptr %1244, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116InstrInfoEmitter14GetOperandInfoB5cxx11ERKN4llvm18CodeGenInstructionE(ptr dead_on_unwind noalias nonnull writable align 8 %68, ptr %.val.i347, ptr %.val185.i)
+  call fastcc void @_ZN12_GLOBAL__N_116InstrInfoEmitter14GetOperandInfoB5cxx11ERKN4llvm18CodeGenInstructionE(ptr dead_on_unwind noalias writable align 8 %68, ptr %.val.i347, ptr %.val185.i)
   %1507 = call ptr @_ZNKSt8_Rb_treeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESt4pairIKS8_jESt10_Select1stISB_ESt4lessIS8_ESaISB_EE4findERSA_(ptr noundef nonnull align 8 dereferenceable(48) %82, ptr noundef nonnull align 8 dereferenceable(24) %68)
   %1508 = getelementptr inbounds nuw i8, ptr %1507, i64 56
   %1509 = load i32, ptr %1508, align 8
@@ -20169,7 +20169,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrappe
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32), i64, ptr, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116InstrInfoEmitter14GetOperandInfoB5cxx11ERKN4llvm18CodeGenInstructionE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr %.72.val, ptr readnone %.80.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116InstrInfoEmitter14GetOperandInfoB5cxx11ERKN4llvm18CodeGenInstructionE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %.72.val, ptr readnone %.80.val) unnamed_addr #0 align 2 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca [21 x i8], align 16
@@ -27045,7 +27045,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store ptr %25, ptr %5, align 8
   store ptr %27, ptr %21, align 8
   store ptr %29, ptr %22, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPN4llvm6RecordESaIS5_EES2_IS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_T0_SO_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %18, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPN4llvm6RecordESaIS5_EES2_IS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_T0_SO_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %18, ptr noundef %5)
   %30 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit10.i.i.i, label %31
@@ -27092,7 +27092,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit10.i.i.i: ; preds = %31, %23
   store ptr %41, ptr %4, align 8
   store ptr %43, ptr %37, align 8
   store ptr %45, ptr %38, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPN4llvm6RecordESaIS5_EES2_IS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_T0_SO_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %51, ptr noundef nonnull %4)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPN4llvm6RecordESaIS5_EES2_IS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_T0_SO_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %51, ptr noundef %4)
   %52 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i10.i = icmp eq ptr %52, null
   br i1 %.not.i.i.i.i.i10.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPN4llvm6RecordESaIS5_EES2_IS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SN_SN_RT0_.exit.i11.i", label %53
@@ -27694,7 +27694,7 @@ _ZN4llvmgtENS_9StringRefES0_.exit.i.i25.i.i:      ; preds = %_ZN4llvmltENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPN4llvm6RecordESaIS5_EES2_IS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_T0_SO_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPN4llvm6RecordESaIS5_EES2_IS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_T0_SO_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6

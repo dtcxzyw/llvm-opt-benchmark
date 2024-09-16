@@ -5144,7 +5144,7 @@ define internal fastcc void @close_file(ptr nocapture noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @usage(ptr noundef %0, i32 noundef %1) unnamed_addr #4 {
+define internal fastcc void @usage(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #4 {
   %3 = load ptr, ptr @progname, align 8
   %4 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.29, ptr noundef %3, ptr noundef %3, ptr noundef nonnull @.str.30) #26
   %5 = icmp eq i32 %1, 0
@@ -5503,7 +5503,7 @@ sub_068:                                          ; preds = %getfields.exit, %.t
   br label %inrule.exit
 
 83:                                               ; preds = %80
-  %84 = call fastcc zeroext i1 @inzsub(ptr noundef nonnull readonly %29, i32 noundef %66, i1 noundef zeroext true)
+  %84 = call fastcc zeroext i1 @inzsub(ptr noundef readonly %29, i32 noundef %66, i1 noundef zeroext true)
   %85 = zext i1 %84 to i8
   br label %inrule.exit
 
@@ -5783,7 +5783,7 @@ growalloc.exit.i:                                 ; preds = %size_product.exit.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %196, !llvm.loop !65
 
 ._crit_edge.i:                                    ; preds = %207, %.preheader.i57
-  %209 = call fastcc zeroext i1 @inzsub(ptr noundef nonnull readonly %29, i32 noundef %66, i1 noundef zeroext false)
+  %209 = call fastcc zeroext i1 @inzsub(ptr noundef readonly %29, i32 noundef %66, i1 noundef zeroext false)
   %210 = zext i1 %209 to i8
   br label %inrule.exit
 
@@ -5902,7 +5902,7 @@ growalloc.exit.i62:                               ; preds = %size_product.exit.i
   br label %inrule.exit
 
 261:                                              ; preds = %259
-  %262 = call fastcc i64 @getleapdatetime(ptr noundef nonnull readonly %29, i1 noundef zeroext false)
+  %262 = call fastcc i64 @getleapdatetime(ptr noundef readonly %29, i1 noundef zeroext false)
   %263 = icmp sgt i64 %262, -1
   br i1 %263, label %264, label %inrule.exit
 
@@ -6016,7 +6016,7 @@ leapadd.exit.i:                                   ; preds = %285, %._crit_edge.l
   br label %inrule.exit
 
 307:                                              ; preds = %303
-  %308 = call fastcc i64 @getleapdatetime(ptr noundef nonnull readonly %29, i1 noundef zeroext true)
+  %308 = call fastcc i64 @getleapdatetime(ptr noundef readonly %29, i1 noundef zeroext true)
   store i64 %308, ptr @leapexpires, align 8
   br label %inrule.exit
 
@@ -6850,7 +6850,7 @@ define internal fastcc ptr @byword(ptr noundef %0, ptr noundef readonly %1) unna
   br i1 %6, label %7, label %15
 
 7:                                                ; preds = %5
-  %8 = tail call fastcc zeroext i1 @ciprefix(ptr noundef nonnull @.str.131, ptr noundef nonnull %0)
+  %8 = tail call fastcc zeroext i1 @ciprefix(ptr noundef nonnull @.str.131, ptr noundef %0)
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %7
@@ -6914,7 +6914,7 @@ ciequal.exit:                                     ; preds = %lowerit.exit.i
   %29 = phi ptr [ %35, %33 ], [ %16, %26 ]
   %.13365 = phi ptr [ %34, %33 ], [ %.036, %26 ]
   %.03464 = phi ptr [ %.135, %33 ], [ null, %26 ]
-  %30 = tail call fastcc zeroext i1 @ciprefix(ptr noundef %.037, ptr noundef nonnull %29)
+  %30 = tail call fastcc zeroext i1 @ciprefix(ptr noundef %.037, ptr noundef %29)
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %.lr.ph
@@ -7017,7 +7017,7 @@ itsabbr.exit:                                     ; preds = %49, %lowerit.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @inzsub(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @inzsub(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 3, 10) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   br i1 %2, label %ecpyalloc.exit, label %4
 
 4:                                                ; preds = %3
@@ -7162,7 +7162,7 @@ ecpyalloc.exit74:                                 ; preds = %ecpyalloc.exit73
   br label %67
 
 67:                                               ; preds = %65, %59
-  %68 = icmp sgt i32 %1, %.051
+  %68 = icmp ugt i32 %1, %.051
   br i1 %68, label %69, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %67
@@ -8230,7 +8230,7 @@ define internal fastcc noundef i64 @tadd(i64 noundef %0, i64 noundef %1) unnamed
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @ciprefix(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #18 {
+define internal fastcc noundef zeroext i1 @ciprefix(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #18 {
   br label %3
 
 3:                                                ; preds = %lowerit.exit, %2
@@ -8260,7 +8260,7 @@ lowerit.exit:                                     ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @getleapdatetime(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc noundef i64 @getleapdatetime(ptr nocapture noundef nonnull readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1

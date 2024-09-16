@@ -2830,7 +2830,7 @@ declare void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(28))
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_0clEj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_0clEj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 21391, 21421) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::MachineOperand", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -2865,7 +2865,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = zext i32 %1 to i64
+  %33 = zext nneg i32 %1 to i64
   %34 = sub nsw i64 0, %33
   %35 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %32, i64 %34
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %28, ptr noundef nonnull align 8 dereferenceable(32) %35) #10
@@ -2884,7 +2884,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_1clEj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_1clEj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 21422, 21452) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::MachineOperand", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -2919,7 +2919,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = zext i32 %1 to i64
+  %33 = zext nneg i32 %1 to i64
   %34 = sub nsw i64 0, %33
   %35 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %32, i64 %34
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %28, ptr noundef nonnull align 8 dereferenceable(32) %35) #10
@@ -2938,7 +2938,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_3clEjj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_3clEjj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef range(i32 3409, 20298) %1, i32 noundef range(i32 4561, 21421) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::MachineOperand", align 8
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %5, align 8
@@ -2966,7 +2966,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = zext i32 %1 to i64
+  %26 = zext nneg i32 %1 to i64
   %27 = sub nsw i64 0, %26
   %28 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %25, i64 %27
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %21, ptr noundef nonnull align 8 dereferenceable(32) %28) #10
@@ -2989,7 +2989,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = zext i32 %2 to i64
+  %43 = zext nneg i32 %2 to i64
   %44 = sub nsw i64 0, %43
   %45 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %42, i64 %44
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %38, ptr noundef nonnull align 8 dereferenceable(32) %45) #10
@@ -3010,7 +3010,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_4clEjj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_4clEjj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef range(i32 3401, 20192) %1, i32 noundef range(i32 4561, 21421) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::MachineOperand", align 8
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %5, align 8
@@ -3038,7 +3038,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = zext i32 %1 to i64
+  %26 = zext nneg i32 %1 to i64
   %27 = sub nsw i64 0, %26
   %28 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %25, i64 %27
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %21, ptr noundef nonnull align 8 dereferenceable(32) %28) #10
@@ -3061,7 +3061,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = zext i32 %2 to i64
+  %43 = zext nneg i32 %2 to i64
   %44 = sub nsw i64 0, %43
   %45 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %42, i64 %44
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %38, ptr noundef nonnull align 8 dereferenceable(32) %45) #10
@@ -3084,7 +3084,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK3$_7clEjb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef range(i32 3398, 21452) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8
@@ -3105,7 +3105,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = zext i32 %1 to i64
+  %20 = zext nneg i32 %1 to i64
   %21 = sub nsw i64 0, %20
   %22 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %19, i64 %21, i32 4
   %23 = load i16, ptr %22, align 2
@@ -3209,7 +3209,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   br i1 %.not.not.i, label %_ZL12CmpOptionalsISt8optionalIjEES0_IbET_S3_.exit, label %105
 
 105:                                              ; preds = %93
-  %106 = zext i32 %1 to i64
+  %106 = zext nneg i32 %1 to i64
   %107 = sub nsw i64 0, %106
   %108 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %.val19.val.val, i64 %107, i32 3
   %109 = load i8, ptr %108, align 1

@@ -4570,7 +4570,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i62: ; preds = %397,
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit65
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit65: ; preds = %.invoke, %413, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i62, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i59
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_GetImagingSubprimsERKNS_7UsdPrimERKNS_13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EEE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(200) %71)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_GetImagingSubprimsERKNS_7UsdPrimERKNS_13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EEE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(200) %71)
           to label %414 unwind label %437
 
 414:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit65
@@ -5202,7 +5202,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22UsdPrimSiblingIteratorD2Ev.exit2: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_GetImagingSubprimsERKNS_7UsdPrimERKNS_13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_GetImagingSubprimsERKNS_7UsdPrimERKNS_13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(200) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
@@ -5351,7 +5351,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42: ; preds = %57, %62
   %73 = load ptr, ptr %71, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8
-  tail call void %75(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %72)
+  tail call void %75(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %72)
   %.val = load ptr, ptr %0, align 8
   %76 = getelementptr i8, ptr %0, i64 8
   %.val38 = load ptr, ptr %76, align 8
@@ -8143,7 +8143,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i: ; preds = %256, %
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit: ; preds = %.invoke, %270, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_GetImagingSubprimsERKNS_7UsdPrimERKNS_13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EEE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(200) %220)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_GetImagingSubprimsERKNS_7UsdPrimERKNS_13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EEE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(200) %220)
           to label %271 unwind label %429
 
 271:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit
@@ -10633,11 +10633,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i: ; preds = %260, %247
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i, %265, %268
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_DeletePrefixERKNS_7SdfPathEPSt3mapIS0_St6vectorINS_7TfTokenESaIS5_EESt4lessIS0_ESaISt4pairIS1_S7_EEE(ptr noundef nonnull align 4 dereferenceable(8) %54, ptr noundef nonnull %37)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_DeletePrefixERKNS_7SdfPathEPSt3mapIS0_St6vectorINS_7TfTokenESaIS5_EESt4lessIS0_ESaISt4pairIS1_S7_EEE(ptr noundef nonnull align 4 dereferenceable(8) %54, ptr noundef %37)
           to label %269 unwind label %87
 
 269:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_DeletePrefixERKNS_7SdfPathEPSt3mapIS0_St6vectorINS_7TfTokenESaIS5_EESt4lessIS0_ESaISt4pairIS1_S7_EEE(ptr noundef nonnull align 4 dereferenceable(8) %54, ptr noundef nonnull %50)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_DeletePrefixERKNS_7SdfPathEPSt3mapIS0_St6vectorINS_7TfTokenESaIS5_EESt4lessIS0_ESaISt4pairIS1_S7_EEE(ptr noundef nonnull align 4 dereferenceable(8) %54, ptr noundef %50)
           to label %270 unwind label %87
 
 270:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, %269
@@ -11013,7 +11013,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInter
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_DeletePrefixERKNS_7SdfPathEPSt3mapIS0_St6vectorINS_7TfTokenESaIS5_EESt4lessIS0_ESaISt4pairIS1_S7_EEE(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_DeletePrefixERKNS_7SdfPathEPSt3mapIS0_St6vectorINS_7TfTokenESaIS5_EESt4lessIS0_ESaISt4pairIS1_S7_EEE(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -11748,7 +11748,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit: ; preds 
   br label %192
 
 192:                                              ; preds = %.critedge, %62, %54
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_GetImagingSubprimsERKNS_7UsdPrimERKNS_13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EEE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(200) %53)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_GetImagingSubprimsERKNS_7UsdPrimERKNS_13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EEE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(200) %53)
           to label %193 unwind label %88
 
 193:                                              ; preds = %192

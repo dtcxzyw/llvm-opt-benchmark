@@ -148,7 +148,7 @@ _.exit:                                           ; preds = %if.then, %if.end3.i
 land.lhs.true9:                                   ; preds = %entry
   %other_arg = getelementptr inbounds i8, ptr %range_diff_opts, i64 16
   %4 = load ptr, ptr %other_arg, align 8
-  %call10 = call fastcc i32 @read_patches(ptr noundef %range1, ptr noundef nonnull %branch1, ptr noundef %4)
+  %call10 = call fastcc i32 @read_patches(ptr noundef %range1, ptr noundef %branch1, ptr noundef %4)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %land.lhs.true18, label %if.then12
 
@@ -168,7 +168,7 @@ _.exit15:                                         ; preds = %if.then12, %if.end3
 
 land.lhs.true18:                                  ; preds = %land.lhs.true9
   %6 = load ptr, ptr %other_arg, align 8
-  %call20 = call fastcc i32 @read_patches(ptr noundef %range2, ptr noundef nonnull %branch2, ptr noundef %6)
+  %call20 = call fastcc i32 @read_patches(ptr noundef %range2, ptr noundef %branch2, ptr noundef %6)
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %if.then28, label %if.then22
 
@@ -736,7 +736,7 @@ if.then63.i:                                      ; preds = %land.lhs.true.i42
   br i1 %tobool67.not.i, label %if.then68.i, label %if.end69.i
 
 if.then68.i:                                      ; preds = %if.then63.i
-  call fastcc void @output_pair_header(ptr noundef nonnull %opts.i, i32 noundef %call.i32, ptr noundef nonnull %buf.i, ptr noundef nonnull %dashes.i, ptr noundef nonnull %a_util.064.i.lcssa, ptr noundef null)
+  call fastcc void @output_pair_header(ptr noundef %opts.i, i32 noundef %call.i32, ptr noundef %buf.i, ptr noundef %dashes.i, ptr noundef nonnull %a_util.064.i.lcssa, ptr noundef null)
   br label %if.end69.i
 
 if.end69.i:                                       ; preds = %if.then68.i, %if.then63.i
@@ -767,7 +767,7 @@ while.body82.i:                                   ; preds = %land.rhs77.i.prehea
   br i1 %tobool87.not.i, label %if.then88.i, label %if.end89.i
 
 if.then88.i:                                      ; preds = %while.body82.i
-  call fastcc void @output_pair_header(ptr noundef nonnull %opts.i, i32 noundef %call.i32, ptr noundef nonnull %buf.i, ptr noundef nonnull %dashes.i, ptr noundef null, ptr noundef nonnull %b_util.071.i72)
+  call fastcc void @output_pair_header(ptr noundef %opts.i, i32 noundef %call.i32, ptr noundef %buf.i, ptr noundef %dashes.i, ptr noundef null, ptr noundef nonnull %b_util.071.i72)
   %.pre86.i = load i64, ptr %nr12.i, align 8
   br label %if.end89.i
 
@@ -794,7 +794,7 @@ if.then108.i:                                     ; preds = %cond.end101.i, %lan
   %idxprom111.i = zext nneg i32 %.lcssa57 to i64
   %util113.i = getelementptr inbounds %struct.string_list_item, ptr %101, i64 %idxprom111.i, i32 1
   %102 = load ptr, ptr %util113.i, align 8
-  call fastcc void @output_pair_header(ptr noundef nonnull %opts.i, i32 noundef %call.i32, ptr noundef nonnull %buf.i, ptr noundef nonnull %dashes.i, ptr noundef %102, ptr noundef nonnull %b_util.071.i.lcssa68)
+  call fastcc void @output_pair_header(ptr noundef %opts.i, i32 noundef %call.i32, ptr noundef %buf.i, ptr noundef %dashes.i, ptr noundef %102, ptr noundef nonnull %b_util.071.i.lcssa68)
   %103 = load i32, ptr %output_format.i, align 4
   %and.i = and i32 %103, 2048
   %tobool115.not.i = icmp eq i32 %and.i, 0
@@ -880,7 +880,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @read_patches(ptr noundef %range, ptr noundef %list, ptr noundef readonly %other_arg) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @read_patches(ptr noundef %range, ptr noundef nonnull %list, ptr noundef readonly %other_arg) unnamed_addr #0 {
 entry:
   %cp = alloca %struct.child_process, align 8
   %buf = alloca %struct.strbuf, align 8
@@ -1019,7 +1019,7 @@ if.then33:                                        ; preds = %do.body.i
 
 if.then35:                                        ; preds = %if.then33
   %8 = load ptr, ptr %buf.i82, align 8
-  %call37 = call ptr @string_list_append(ptr noundef %list, ptr noundef %8) #14
+  %call37 = call ptr @string_list_append(ptr noundef nonnull %list, ptr noundef %8) #14
   %util38 = getelementptr inbounds i8, ptr %call37, i64 8
   store ptr %util.1177, ptr %util38, align 8
   store i64 0, ptr %len.i.i, align 8
@@ -1052,7 +1052,7 @@ _.exit75:                                         ; preds = %if.then43, %if.end3
   %retval.0.i74 = phi ptr [ %call.i73, %if.end3.i72 ], [ @.str.24, %if.then43 ]
   %call45 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i74, ptr noundef %scevgep) #14
   call void @free(ptr noundef %call40) #14
-  call void @string_list_clear(ptr noundef %list, i32 noundef 1) #14
+  call void @string_list_clear(ptr noundef nonnull %list, i32 noundef 1) #14
   br label %cleanup.thread
 
 if.end47:                                         ; preds = %if.end39
@@ -1076,7 +1076,7 @@ if.end3.i77:                                      ; preds = %if.then50
 _.exit80:                                         ; preds = %if.then50, %if.end3.i77
   %retval.0.i79 = phi ptr [ %call.i78, %if.end3.i77 ], [ @.str.25, %if.then50 ]
   %call52 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i79, ptr noundef %line.0173) #14
-  call void @string_list_clear(ptr noundef %list, i32 noundef 1) #14
+  call void @string_list_clear(ptr noundef nonnull %list, i32 noundef 1) #14
   br label %cleanup.thread
 
 if.end54:                                         ; preds = %if.end48
@@ -1153,7 +1153,7 @@ _.exit88:                                         ; preds = %if.then72, %if.end3
   %retval.0.i87 = phi ptr [ %call.i86, %if.end3.i85 ], [ @.str.27, %if.then72 ]
   %call74 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i87, i32 noundef %conv, ptr noundef %line.0173) #14
   call void @free(ptr noundef nonnull %util.1177) #14
-  call void @string_list_clear(ptr noundef %list, i32 noundef 1) #14
+  call void @string_list_clear(ptr noundef nonnull %list, i32 noundef 1) #14
   br label %cleanup.thread
 
 if.end78:                                         ; preds = %if.end65
@@ -1372,28 +1372,28 @@ if.else170:                                       ; preds = %do.cond.i116
   ]
 
 if.then179:                                       ; preds = %if.else170
-  call fastcc void @strbuf_addch(ptr noundef nonnull %buf, i32 noundef 43)
+  call fastcc void @strbuf_addch(ptr noundef %buf, i32 noundef 43)
   %add.ptr180 = getelementptr inbounds i8, ptr %line.0173, i64 1
   %call.i124 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr180) #16
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull %add.ptr180, i64 noundef %call.i124) #14
   br label %if.end202
 
 if.then186:                                       ; preds = %if.else170
-  call fastcc void @strbuf_addch(ptr noundef nonnull %buf, i32 noundef 45)
+  call fastcc void @strbuf_addch(ptr noundef %buf, i32 noundef 45)
   %add.ptr187 = getelementptr inbounds i8, ptr %line.0173, i64 1
   %call.i125 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr187) #16
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull %add.ptr187, i64 noundef %call.i125) #14
   br label %if.end202
 
 if.then193:                                       ; preds = %if.else170
-  call fastcc void @strbuf_addch(ptr noundef nonnull %buf, i32 noundef 32)
+  call fastcc void @strbuf_addch(ptr noundef %buf, i32 noundef 32)
   %add.ptr194 = getelementptr inbounds i8, ptr %line.0173, i64 1
   %call.i126 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr194) #16
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull %add.ptr194, i64 noundef %call.i126) #14
   br label %if.end202
 
 if.else195:                                       ; preds = %if.else170
-  call fastcc void @strbuf_addch(ptr noundef nonnull %buf, i32 noundef 32)
+  call fastcc void @strbuf_addch(ptr noundef %buf, i32 noundef 32)
   %call.i127 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %line.0173) #16
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull %line.0173, i64 noundef %call.i127) #14
   br label %if.end202
@@ -1457,7 +1457,7 @@ cleanup:                                          ; preds = %for.inc
 if.then206:                                       ; preds = %cleanup
   %buf207 = getelementptr inbounds i8, ptr %buf, i64 16
   %58 = load ptr, ptr %buf207, align 8
-  %call208 = call ptr @string_list_append(ptr noundef %list, ptr noundef %58) #14
+  %call208 = call ptr @string_list_append(ptr noundef nonnull %list, ptr noundef %58) #14
   %util209 = getelementptr inbounds i8, ptr %call208, i64 8
   store ptr %util.2, ptr %util209, align 8
   br label %if.end210
@@ -1609,7 +1609,7 @@ declare i32 @repo_get_oid(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @starts_with(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @strbuf_addch(ptr noundef %sb, i32 noundef %c) unnamed_addr #0 {
+define internal fastcc void @strbuf_addch(ptr noundef nonnull %sb, i32 noundef range(i32 10, 63) %c) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %sb, align 8
   %tobool.not.i = icmp eq i64 %0, 0
@@ -1737,7 +1737,7 @@ entry:
 declare void @diff_setup_done(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @output_pair_header(ptr nocapture noundef readonly %diffopt, i32 noundef %patch_no_width, ptr noundef %buf, ptr noundef %dashes, ptr noundef %a_util, ptr noundef %b_util) unnamed_addr #0 {
+define internal fastcc void @output_pair_header(ptr nocapture noundef nonnull readonly %diffopt, i32 noundef %patch_no_width, ptr noundef nonnull %buf, ptr noundef nonnull %dashes, ptr noundef %a_util, ptr noundef %b_util) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %a_util, null
   %oid1 = getelementptr inbounds i8, ptr %a_util, i64 60

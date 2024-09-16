@@ -176,7 +176,7 @@ if.then34:                                        ; preds = %if.end32
 
 while.body.i:                                     ; preds = %if.then34, %while.body.i
   %p.04.i = phi ptr [ %19, %while.body.i ], [ %call.i, %if.then34 ]
-  tail call fastcc void @add_pack(ptr noundef nonnull %p.04.i)
+  tail call fastcc void @add_pack(ptr noundef %p.04.i)
   %next.i = getelementptr inbounds i8, ptr %p.04.i, i64 16
   %19 = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %19, null
@@ -218,7 +218,7 @@ while.end.i:                                      ; preds = %while.cond.preheade
   unreachable
 
 add_pack_file.exit:                               ; preds = %while.body.i32
-  tail call fastcc void @add_pack(ptr noundef nonnull %p.09.i)
+  tail call fastcc void @add_pack(ptr noundef %p.09.i)
   %add.ptr = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv.next617
   %23 = load ptr, ptr %add.ptr, align 8
   %cmp36.not = icmp eq ptr %23, null
@@ -2524,7 +2524,7 @@ declare ptr @gettext(ptr noundef) local_unnamed_addr #4
 declare ptr @get_all_packs(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_pack(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @add_pack(ptr noundef nonnull %p) unnamed_addr #0 {
 entry:
   %pack_local = getelementptr inbounds i8, ptr %p, i64 152
   %bf.load = load i8, ptr %pack_local, align 8

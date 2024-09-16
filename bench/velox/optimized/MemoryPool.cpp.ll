@@ -7359,7 +7359,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
   %peakUsage = getelementptr inbounds i8, ptr %usage, i64 48
   store i64 %6, ptr %peakUsage, align 8
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 16
-  invoke fastcc void @_ZNK8facebook5velox6memory12_GLOBAL__N_111MemoryUsage8toStringB5cxx11Ev(ptr noalias nonnull align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(56) %usage)
+  invoke fastcc void @_ZNK8facebook5velox6memory12_GLOBAL__N_111MemoryUsage8toStringB5cxx11Ev(ptr noalias align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(56) %usage)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont14
@@ -7571,7 +7571,7 @@ invoke.cont57:                                    ; preds = %.noexc33
           to label %invoke.cont59 unwind label %lpad58
 
 invoke.cont59:                                    ; preds = %invoke.cont57
-  invoke fastcc void @_ZNK8facebook5velox6memory12_GLOBAL__N_111MemoryUsage8toStringB5cxx11Ev(ptr noalias nonnull align 8 %ref.tmp61, ptr noundef nonnull align 8 dereferenceable(56) %__begin3.sroa.0.045)
+  invoke fastcc void @_ZNK8facebook5velox6memory12_GLOBAL__N_111MemoryUsage8toStringB5cxx11Ev(ptr noalias align 8 %ref.tmp61, ptr noundef nonnull align 8 dereferenceable(56) %__begin3.sroa.0.045)
           to label %invoke.cont62 unwind label %lpad58
 
 invoke.cont62:                                    ; preds = %invoke.cont59
@@ -7744,7 +7744,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(pt
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8facebook5velox6memory12_GLOBAL__N_111MemoryUsage8toStringB5cxx11Ev(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8facebook5velox6memory12_GLOBAL__N_111MemoryUsage8toStringB5cxx11Ev(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store", align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7793,7 +7793,7 @@ invoke.cont:                                      ; preds = %entry
   store i64 %6, ptr %arrayinit.element9.i.i, align 16, !alias.scope !70
   %ref.tmp17.i.sroa.2.0.arrayinit.element9.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
   store i64 %call2.i.i58.i, ptr %ref.tmp17.i.sroa.2.0.arrayinit.element9.i.sroa_idx.i, align 8, !alias.scope !70
-  invoke void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.21, i64 31, i64 56797, ptr nonnull %ref.tmp.i)
+  invoke void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.21, i64 31, i64 56797, ptr nonnull %ref.tmp.i)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %.noexc
@@ -9570,7 +9570,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8facebook5velox6memory12_GLOBA
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp37.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7.i.i) #28
   %currentUsage.i30.i.i.i = getelementptr inbounds i8, ptr %agg.tmp37.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %currentUsage.i30.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %currentUsage.i5.i.i, i64 24, i1 false)
-  call fastcc void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN8facebook5velox6memory12_GLOBAL__N_111MemoryUsageESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valINS5_15MemoryUsageCompEEEEvT_T0_SH_T1_RT2_(ptr nonnull %this.val1, i64 noundef %__holeIndex.addr.1.i.i.i, ptr noundef nonnull %agg.tmp37.i.i.i)
+  call fastcc void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN8facebook5velox6memory12_GLOBAL__N_111MemoryUsageESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valINS5_15MemoryUsageCompEEEEvT_T0_SH_T1_RT2_(ptr nonnull %this.val1, i64 noundef %__holeIndex.addr.1.i.i.i, ptr noundef %agg.tmp37.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp37.i.i.i) #28
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %agg.tmp37.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7.i.i) #28
@@ -9609,7 +9609,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN8facebook5velox6memory12_GLOBAL__N_111MemoryUsageESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valINS5_15MemoryUsageCompEEEEvT_T0_SH_T1_RT2_(ptr %__first.coerce, i64 noundef %__holeIndex, ptr noundef %__value) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN8facebook5velox6memory12_GLOBAL__N_111MemoryUsageESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valINS5_15MemoryUsageCompEEEEvT_T0_SH_T1_RT2_(ptr %__first.coerce, i64 noundef %__holeIndex, ptr noundef nonnull %__value) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp7 = icmp sgt i64 %__holeIndex, 0
   br i1 %cmp7, label %land.rhs.lr.ph, label %while.end
@@ -11433,7 +11433,7 @@ invoke.cont:                                      ; preds = %.noexc
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont
-  invoke fastcc void @_ZNK8facebook5velox6memory12_GLOBAL__N_111MemoryUsage8toStringB5cxx11Ev(ptr noalias nonnull align 8 %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(56) %usage)
+  invoke fastcc void @_ZNK8facebook5velox6memory12_GLOBAL__N_111MemoryUsage8toStringB5cxx11Ev(ptr noalias align 8 %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(56) %usage)
           to label %invoke.cont9 unwind label %lpad5
 
 invoke.cont9:                                     ; preds = %invoke.cont6
@@ -11481,7 +11481,7 @@ invoke.cont22:                                    ; preds = %if.then21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__value.i.i) #28
   %currentUsage.i2.i.i = getelementptr inbounds i8, ptr %agg.tmp6.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %currentUsage.i2.i.i, ptr noundef nonnull align 8 dereferenceable(24) %currentUsage.i.i.i, i64 24, i1 false)
-  call fastcc void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN8facebook5velox6memory12_GLOBAL__N_111MemoryUsageESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valINS5_15MemoryUsageCompEEEEvT_T0_SH_T1_RT2_(ptr %this.val1.i, i64 noundef %sub.i.i, ptr noundef nonnull %agg.tmp6.i.i)
+  call fastcc void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN8facebook5velox6memory12_GLOBAL__N_111MemoryUsageESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valINS5_15MemoryUsageCompEEEEvT_T0_SH_T1_RT2_(ptr %this.val1.i, i64 noundef %sub.i.i, ptr noundef %agg.tmp6.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__value.i.i) #28
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %__value.i.i)

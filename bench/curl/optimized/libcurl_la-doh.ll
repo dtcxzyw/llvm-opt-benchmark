@@ -79,7 +79,7 @@ if.end9:                                          ; preds = %if.end
   %2 = load ptr, ptr %arrayidx10, align 8
   %multi = getelementptr inbounds i8, ptr %data, i64 192
   %3 = load ptr, ptr %multi, align 8
-  %call12 = tail call fastcc i32 @dohprobe(ptr noundef nonnull %data, ptr noundef nonnull %probe, i32 noundef 1, ptr noundef %hostname, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %call5)
+  %call12 = tail call fastcc i32 @dohprobe(ptr noundef nonnull %data, ptr noundef %probe, i32 noundef 1, ptr noundef %hostname, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %call5)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %if.end15, label %error
 
@@ -102,7 +102,7 @@ if.then19:                                        ; preds = %land.lhs.true
   %6 = load ptr, ptr %arrayidx10, align 8
   %7 = load ptr, ptr %multi, align 8
   %8 = load ptr, ptr %call, align 8
-  %call27 = tail call fastcc i32 @dohprobe(ptr noundef nonnull %data, ptr noundef nonnull %arrayidx21, i32 noundef 28, ptr noundef %hostname, ptr noundef %6, ptr noundef %7, ptr noundef %8)
+  %call27 = tail call fastcc i32 @dohprobe(ptr noundef nonnull %data, ptr noundef %arrayidx21, i32 noundef 28, ptr noundef %hostname, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.end30, label %error
 
@@ -145,7 +145,7 @@ return:                                           ; preds = %entry, %error, %if.
 declare ptr @curl_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dohprobe(ptr noundef %data, ptr noundef %p, i32 noundef %dnstype, ptr noundef %host, ptr noundef %url, ptr noundef %multi, ptr noundef %headers) unnamed_addr #0 {
+define internal fastcc i32 @dohprobe(ptr noundef %data, ptr noundef nonnull %p, i32 noundef range(i32 1, 29) %dnstype, ptr noundef %host, ptr noundef %url, ptr noundef %multi, ptr noundef %headers) unnamed_addr #0 {
 entry:
   %doh = alloca ptr, align 8
   store ptr null, ptr %doh, align 8
@@ -231,7 +231,7 @@ if.end:                                           ; preds = %if.end31.i, %if.end
   store i8 0, ptr %dnsp.addr.0.lcssa.i, align 1
   %incdec.ptr41.i = getelementptr inbounds i8, ptr %dnsp.addr.0.lcssa.i, i64 2
   store i8 0, ptr %incdec.ptr39.i, align 1
-  %conv43.i = trunc i32 %dnstype to i8
+  %conv43.i = trunc nuw nsw i32 %dnstype to i8
   %incdec.ptr44.i = getelementptr inbounds i8, ptr %dnsp.addr.0.lcssa.i, i64 3
   store i8 %conv43.i, ptr %incdec.ptr41.i, align 1
   %incdec.ptr45.i = getelementptr inbounds i8, ptr %dnsp.addr.0.lcssa.i, i64 4
@@ -991,7 +991,7 @@ if.end85.i:                                       ; preds = %if.end78.i
   br i1 %cmp91.i, label %doh_decode.exit, label %if.end94.i
 
 if.end94.i:                                       ; preds = %if.end85.i
-  %call95.i = call fastcc i32 @rdata(ptr noundef nonnull %call27, i64 noundef %call29, i16 noundef zeroext %or.i120.i, i16 noundef zeroext %or.i102.i, i32 noundef %add80.i, ptr noundef nonnull %de)
+  %call95.i = call fastcc i32 @rdata(ptr noundef %call27, i64 noundef %call29, i16 noundef zeroext %or.i120.i, i16 noundef zeroext %or.i102.i, i32 noundef %add80.i, ptr noundef %de)
   %tobool96.not.i = icmp eq i32 %call95.i, 0
   br i1 %tobool96.not.i, label %while.cond26.i, label %doh_decode.exit
 
@@ -1109,7 +1109,7 @@ while.end136.i.while.end170.i_crit_edge:          ; preds = %while.end136.i
 
 while.body140.i:                                  ; preds = %while.end136.i, %if.end166.i
   %arcount.0191.i = phi i16 [ %dec169.i, %if.end166.i ], [ %or.i139.i, %while.end136.i ]
-  %call141.i = call fastcc i32 @skipqname(ptr noundef nonnull %call27, i64 noundef %call29, ptr noundef nonnull %index.i)
+  %call141.i = call fastcc i32 @skipqname(ptr noundef %call27, i64 noundef %call29, ptr noundef %index.i)
   %tobool142.not.i = icmp eq i32 %call141.i, 0
   br i1 %tobool142.not.i, label %if.end144.i, label %doh_decode.exit
 
@@ -1692,7 +1692,7 @@ declare ptr @curl_easy_strerror(i32 noundef) local_unnamed_addr #1
 declare void @Curl_expire(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 3) i32 @skipqname(ptr nocapture noundef readonly %doh, i64 noundef %dohlen, ptr nocapture noundef %indexp) unnamed_addr #5 {
+define internal fastcc range(i32 0, 3) i32 @skipqname(ptr nocapture noundef nonnull readonly %doh, i64 noundef range(i64 12, 0) %dohlen, ptr nocapture noundef nonnull %indexp) unnamed_addr #5 {
 entry:
   %indexp.promoted = load i32, ptr %indexp, align 4
   br label %do.body
@@ -1742,7 +1742,7 @@ return:                                           ; preds = %if.end25, %if.end17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 7) i32 @rdata(ptr noundef %doh, i64 noundef %dohlen, i16 noundef zeroext %rdlength, i16 noundef zeroext %type, i32 noundef %index, ptr noundef %d) unnamed_addr #0 {
+define internal fastcc range(i32 0, 7) i32 @rdata(ptr noundef nonnull %doh, i64 noundef range(i64 12, 0) %dohlen, i16 noundef zeroext %rdlength, i16 noundef zeroext %type, i32 noundef %index, ptr noundef nonnull %d) unnamed_addr #0 {
 entry:
   switch i16 %type, label %return [
     i16 1, label %sw.bb
@@ -1851,12 +1851,12 @@ if.else26.i:                                      ; preds = %if.end5.i
   br i1 %tobool30.not.i, label %return, label %if.then31.i
 
 if.then31.i:                                      ; preds = %if.else26.i
-  %call.i = tail call i64 @Curl_dyn_len(ptr noundef %arrayidx.i26) #8
+  %call.i = tail call i64 @Curl_dyn_len(ptr noundef nonnull %arrayidx.i26) #8
   %tobool32.not.i = icmp eq i64 %call.i, 0
   br i1 %tobool32.not.i, label %if.end38.i, label %if.then33.i
 
 if.then33.i:                                      ; preds = %if.then31.i
-  %call34.i = tail call i32 @Curl_dyn_addn(ptr noundef %arrayidx.i26, ptr noundef nonnull @.str.8, i64 noundef 1) #8
+  %call34.i = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %arrayidx.i26, ptr noundef nonnull @.str.8, i64 noundef 1) #8
   %tobool35.not.i = icmp eq i32 %call34.i, 0
   br i1 %tobool35.not.i, label %if.end38.i, label %return
 
@@ -1870,7 +1870,7 @@ if.end45.i:                                       ; preds = %if.end38.i
   %idxprom46.i = zext i32 %inc27.i to i64
   %arrayidx47.i = getelementptr inbounds i8, ptr %doh, i64 %idxprom46.i
   %conv48.i = zext i8 %.fr.i to i64
-  %call49.i = tail call i32 @Curl_dyn_addn(ptr noundef %arrayidx.i26, ptr noundef %arrayidx47.i, i64 noundef %conv48.i) #8
+  %call49.i = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %arrayidx.i26, ptr noundef nonnull %arrayidx47.i, i64 noundef %conv48.i) #8
   %tobool50.not.i = icmp eq i32 %call49.i, 0
   br i1 %tobool50.not.i, label %do.cond.i, label %return
 

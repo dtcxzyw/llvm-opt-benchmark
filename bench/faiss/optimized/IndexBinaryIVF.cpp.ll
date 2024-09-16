@@ -2476,7 +2476,7 @@ define void @_ZNK5faiss14IndexBinaryIVF18search_preassignedElPKhlPKlPKiPiPlbPKNS
 198:                                              ; preds = %10
   %199 = getelementptr inbounds i8, ptr %0, i64 12
   %200 = load i32, ptr %199, align 4
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_134Run_search_knn_hamming_per_invlistEJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEENT_1TEiRSH_DpT0_(i32 noundef %200, ptr noundef nonnull %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8, ptr noundef %9)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_134Run_search_knn_hamming_per_invlistEJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEENT_1TEiRSH_DpT0_(i32 noundef %200, ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8, ptr noundef %9)
   br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_128Run_search_knn_hamming_countILb1EEEJPKNS_14IndexBinaryIVFElPKhPKllPiPlPKNS_19SearchParametersIVFEEEENT_1TEiRSG_DpT0_.exit
 
 201:                                              ; preds = %10
@@ -9351,7 +9351,7 @@ default.unreachable92:                            ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_134Run_search_knn_hamming_per_invlistEJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEENT_1TEiRSH_DpT0_(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8, ptr noundef readonly %9) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_134Run_search_knn_hamming_per_invlistEJPKNS_14IndexBinaryIVFElPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFEEEENT_1TEiRSH_DpT0_(i32 noundef %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8, ptr noundef readonly %9) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"struct.faiss::(anonymous namespace)::BlockSearch.87", align 8

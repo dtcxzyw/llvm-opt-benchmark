@@ -9765,7 +9765,7 @@ invoke.cont8:                                     ; preds = %_ZNSt10shared_ptrIN
   %12 = load ptr, ptr %out, align 8
   %13 = load ptr, ptr %ctx, align 8
   %14 = load ptr, ptr %13, align 8
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_119GetNullBitmapBufferERKNS_9ArraySpanEPNS_10MemoryPoolE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef %14)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_119GetNullBitmapBufferERKNS_9ArraySpanEPNS_10MemoryPoolE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef %14)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont8
@@ -11301,7 +11301,7 @@ _ZNSt12_Vector_baseIN5arrow7compute9InputTypeESaIS2_EED2Ev.exit: ; preds = %invo
 declare void @_ZN5arrow7compute8internal12CastFunction9AddKernelENS_4Type4typeENS0_12ScalarKernelE(ptr sret(%"class.arrow::Status") align 8, ptr noundef nonnull align 8 dereferenceable(244), i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_119GetNullBitmapBufferERKNS_9ArraySpanEPNS_10MemoryPoolE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %in_array, ptr noundef %pool) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_119GetNullBitmapBufferERKNS_9ArraySpanEPNS_10MemoryPoolE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %in_array, ptr noundef %pool) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %buffers = getelementptr inbounds i8, ptr %in_array, i64 32
   %0 = load ptr, ptr %buffers, align 8
@@ -11379,7 +11379,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit:      ; preds = %if.else.i.i.i.i.i.i
 if.end4:                                          ; preds = %if.end
   %length = getelementptr inbounds i8, ptr %in_array, i64 8
   %10 = load i64, ptr %length, align 8
-  tail call void @_ZN5arrow8internal10CopyBitmapEPNS_10MemoryPoolEPKhll(ptr sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull %0, i64 noundef %1, i64 noundef %10)
+  tail call void @_ZN5arrow8internal10CopyBitmapEPNS_10MemoryPoolEPKhll(ptr nonnull sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull %0, i64 noundef %1, i64 noundef %10)
   br label %return
 
 return:                                           ; preds = %if.end4, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit, %if.then
@@ -13724,7 +13724,7 @@ invoke.cont7:                                     ; preds = %_ZNSt10shared_ptrIN
   %12 = load ptr, ptr %out, align 8
   %13 = load ptr, ptr %ctx, align 8
   %14 = load ptr, ptr %13, align 8
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_119GetNullBitmapBufferERKNS_9ArraySpanEPNS_10MemoryPoolE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef %14)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_119GetNullBitmapBufferERKNS_9ArraySpanEPNS_10MemoryPoolE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef %14)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont7
@@ -15507,7 +15507,7 @@ invoke.cont7:                                     ; preds = %_ZNSt10shared_ptrIN
   %12 = load ptr, ptr %out, align 8
   %13 = load ptr, ptr %ctx, align 8
   %14 = load ptr, ptr %13, align 8
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_119GetNullBitmapBufferERKNS_9ArraySpanEPNS_10MemoryPoolE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef %14)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_119GetNullBitmapBufferERKNS_9ArraySpanEPNS_10MemoryPoolE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef %14)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont7
@@ -16854,7 +16854,7 @@ invoke.cont7:                                     ; preds = %_ZNSt10shared_ptrIN
   %12 = load ptr, ptr %out, align 8
   %13 = load ptr, ptr %ctx, align 8
   %14 = load ptr, ptr %13, align 8
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_119GetNullBitmapBufferERKNS_9ArraySpanEPNS_10MemoryPoolE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef %14)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_119GetNullBitmapBufferERKNS_9ArraySpanEPNS_10MemoryPoolE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef %14)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont7
@@ -18500,7 +18500,7 @@ invoke.cont7:                                     ; preds = %_ZNSt10shared_ptrIN
   %12 = load ptr, ptr %out, align 8
   %13 = load ptr, ptr %ctx, align 8
   %14 = load ptr, ptr %13, align 8
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_119GetNullBitmapBufferERKNS_9ArraySpanEPNS_10MemoryPoolE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef %14)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_119GetNullBitmapBufferERKNS_9ArraySpanEPNS_10MemoryPoolE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef %14)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont7
@@ -19945,7 +19945,7 @@ invoke.cont7:                                     ; preds = %_ZNSt10shared_ptrIN
   %12 = load ptr, ptr %out, align 8
   %13 = load ptr, ptr %ctx, align 8
   %14 = load ptr, ptr %13, align 8
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_119GetNullBitmapBufferERKNS_9ArraySpanEPNS_10MemoryPoolE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef %14)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_119GetNullBitmapBufferERKNS_9ArraySpanEPNS_10MemoryPoolE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef %14)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont7
@@ -32936,7 +32936,7 @@ invoke.cont23:                                    ; preds = %invoke.cont17
   %72 = load ptr, ptr %out, align 8
   %73 = load ptr, ptr %ctx, align 8
   %74 = load ptr, ptr %73, align 8
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_119GetNullBitmapBufferERKNS_9ArraySpanEPNS_10MemoryPoolE(ptr noalias nonnull align 8 %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef %74)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_119GetNullBitmapBufferERKNS_9ArraySpanEPNS_10MemoryPoolE(ptr noalias align 8 %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef %74)
           to label %invoke.cont28 unwind label %lpad9
 
 invoke.cont28:                                    ; preds = %invoke.cont23
@@ -40034,7 +40034,7 @@ invoke.cont21:                                    ; preds = %invoke.cont15
   %72 = load ptr, ptr %out, align 8
   %73 = load ptr, ptr %ctx, align 8
   %74 = load ptr, ptr %73, align 8
-  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_119GetNullBitmapBufferERKNS_9ArraySpanEPNS_10MemoryPoolE(ptr noalias nonnull align 8 %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef %74)
+  invoke fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_119GetNullBitmapBufferERKNS_9ArraySpanEPNS_10MemoryPoolE(ptr noalias align 8 %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef %74)
           to label %invoke.cont26 unwind label %lpad13
 
 invoke.cont26:                                    ; preds = %invoke.cont21

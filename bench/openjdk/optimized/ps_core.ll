@@ -163,12 +163,12 @@ define noundef ptr @Pgrab_core(ptr noundef %0, ptr nocapture noundef readonly %1
   br label %61
 
 42:                                               ; preds = %37
-  %43 = call fastcc i32 @read_core_segments(ptr noundef nonnull %5, ptr noundef nonnull %3)
+  %43 = call fastcc i32 @read_core_segments(ptr noundef %5, ptr noundef %3)
   %.not36.not = icmp eq i32 %43, 0
   br i1 %.not36.not, label %61, label %44
 
 44:                                               ; preds = %42
-  %45 = call fastcc i64 @read_exec_segments(ptr noundef nonnull %5, ptr noundef nonnull %4)
+  %45 = call fastcc i64 @read_exec_segments(ptr noundef %5, ptr noundef %4)
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %61, label %47
 
@@ -182,17 +182,17 @@ define noundef ptr @Pgrab_core(ptr noundef %0, ptr nocapture noundef readonly %1
   br i1 %52, label %61, label %53
 
 53:                                               ; preds = %47
-  %54 = call fastcc i32 @sort_map_array(ptr noundef nonnull %5)
+  %54 = call fastcc i32 @sort_map_array(ptr noundef %5)
   %.not37.not = icmp eq i32 %54, 0
   br i1 %.not37.not, label %61, label %55
 
 55:                                               ; preds = %53
-  %56 = call fastcc i32 @read_shared_lib_info(ptr noundef nonnull %5)
+  %56 = call fastcc i32 @read_shared_lib_info(ptr noundef %5)
   %.not38.not = icmp eq i32 %56, 0
   br i1 %.not38.not, label %61, label %57
 
 57:                                               ; preds = %55
-  %58 = call fastcc i32 @sort_map_array(ptr noundef nonnull %5)
+  %58 = call fastcc i32 @sort_map_array(ptr noundef %5)
   %.not39.not = icmp eq i32 %58, 0
   br i1 %.not39.not, label %61, label %59
 
@@ -224,11 +224,11 @@ declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) lo
 declare i32 @read_elf_header(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @read_core_segments(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @read_core_segments(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
-  %6 = tail call ptr @read_program_header_table(i32 noundef %5, ptr noundef %1) #15
+  %6 = tail call ptr @read_program_header_table(i32 noundef %5, ptr noundef nonnull %1) #15
   %7 = icmp eq ptr %6, null
   br i1 %7, label %138, label %.preheader
 
@@ -307,7 +307,7 @@ define internal fastcc range(i32 0, 2) i32 @read_core_segments(ptr noundef %0, p
   %41 = load i32, ptr %40, align 8
   tail call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.11, i32 noundef %41) #15
   %42 = load i32, ptr %40, align 8
-  %43 = tail call ptr @add_thread_info(ptr noundef %0, i32 noundef %42) #15
+  %43 = tail call ptr @add_thread_info(ptr noundef nonnull %0, i32 noundef %42) #15
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.sink.split, label %45
 
@@ -456,7 +456,7 @@ core_handle_note.exit:                            ; preds = %core_handle_prstatu
   %127 = load i64, ptr %126, align 8
   %128 = getelementptr inbounds i8, ptr %.032, i64 4
   %129 = load i32, ptr %128, align 4
-  %130 = tail call ptr @add_map_info(ptr noundef %0, i32 noundef %123, i64 noundef %125, i64 noundef %127, i64 noundef %120, i32 noundef %129) #15
+  %130 = tail call ptr @add_map_info(ptr noundef nonnull %0, i32 noundef %123, i64 noundef %125, i64 noundef %127, i64 noundef %120, i32 noundef %129) #15
   %131 = icmp eq ptr %130, null
   br i1 %131, label %.sink.split, label %132
 
@@ -479,13 +479,13 @@ core_handle_note.exit:                            ; preds = %core_handle_prstatu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @read_exec_segments(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i64 @read_exec_segments(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [4353 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = tail call ptr @read_program_header_table(i32 noundef %7, ptr noundef %1) #15
+  %8 = tail call ptr @read_program_header_table(i32 noundef %7, ptr noundef nonnull %1) #15
   %9 = icmp eq ptr %8, null
   br i1 %9, label %78, label %.preheader
 
@@ -532,7 +532,7 @@ define internal fastcc i64 @read_exec_segments(ptr noundef %0, ptr noundef %1) u
   %28 = load i64, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %.03649, i64 16
   %30 = load i64, ptr %29, align 8
-  %31 = call ptr @add_map_info(ptr noundef %0, i32 noundef %26, i64 noundef %28, i64 noundef %30, i64 noundef %22, i32 noundef %18) #15
+  %31 = call ptr @add_map_info(ptr noundef nonnull %0, i32 noundef %26, i64 noundef %28, i64 noundef %30, i64 noundef %22, i32 noundef %18) #15
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.sink.split, label %72
 
@@ -624,7 +624,7 @@ define internal fastcc i64 @read_exec_segments(ptr noundef %0, ptr noundef %1) u
 declare ptr @add_lib_info_fd(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @sort_map_array(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @sort_map_array(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32
@@ -713,7 +713,7 @@ define internal fastcc range(i32 0, 2) i32 @sort_map_array(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @read_shared_lib_info(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @read_shared_lib_info(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %struct.Elf64_Ehdr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -733,7 +733,7 @@ define internal fastcc range(i32 0, 2) i32 @read_shared_lib_info(ptr noundef %0)
 15:                                               ; preds = %1, %19
   %.03056 = phi i64 [ %14, %1 ], [ %20, %19 ]
   %16 = inttoptr i64 %.03056 to ptr
-  %17 = call i32 @ps_pdread(ptr noundef %0, ptr noundef %16, ptr noundef nonnull %9, i64 noundef 16) #15
+  %17 = call i32 @ps_pdread(ptr noundef nonnull %0, ptr noundef %16, ptr noundef nonnull %9, i64 noundef 16) #15
   %.not48 = icmp eq i32 %17, 0
   br i1 %.not48, label %19, label %18
 
@@ -752,7 +752,7 @@ define internal fastcc range(i32 0, 2) i32 @read_shared_lib_info(ptr noundef %0)
   %23 = load i64, ptr %22, align 8
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds i8, ptr %24, i64 8
-  %26 = call i32 @ps_pdread(ptr noundef %0, ptr noundef nonnull %25, ptr noundef nonnull %3, i64 noundef 8) #15
+  %26 = call i32 @ps_pdread(ptr noundef nonnull %0, ptr noundef nonnull %25, ptr noundef nonnull %3, i64 noundef 8) #15
   %.not34 = icmp eq i32 %26, 0
   br i1 %.not34, label %28, label %27
 
@@ -762,7 +762,7 @@ define internal fastcc range(i32 0, 2) i32 @read_shared_lib_info(ptr noundef %0)
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %24, i64 32
-  %30 = call i32 @ps_pdread(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %4, i64 noundef 8) #15
+  %30 = call i32 @ps_pdread(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef nonnull %4, i64 noundef 8) #15
   %.not35 = icmp eq i32 %30, 0
   br i1 %.not35, label %32, label %31
 
@@ -790,7 +790,7 @@ define internal fastcc range(i32 0, 2) i32 @read_shared_lib_info(ptr noundef %0)
   %43 = load i32, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %41, i64 24
   %45 = load i64, ptr %44, align 8
-  %46 = call fastcc i32 @read_lib_segments(ptr noundef nonnull %0, i32 noundef %43, ptr noundef nonnull %2, i64 noundef %45)
+  %46 = call fastcc i32 @read_lib_segments(ptr noundef %0, i32 noundef %43, ptr noundef %2, i64 noundef %45)
   %.not4.not.i = icmp eq i32 %46, 0
   br i1 %.not4.not.i, label %read_interp_segments.exit.thread, label %47
 
@@ -802,7 +802,7 @@ read_interp_segments.exit.thread:                 ; preds = %32, %40
 
 47:                                               ; preds = %40
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
-  %48 = call fastcc i32 @sort_map_array(ptr noundef nonnull %0)
+  %48 = call fastcc i32 @sort_map_array(ptr noundef %0)
   %.not37.not = icmp eq i32 %48, 0
   br i1 %.not37.not, label %.loopexit, label %49
 
@@ -822,7 +822,7 @@ thread-pre-split:                                 ; preds = %.thread
 .lr.ph:                                           ; preds = %49, %thread-pre-split
   %52 = phi i64 [ %.pr51, %thread-pre-split ], [ %51, %49 ]
   %53 = inttoptr i64 %52 to ptr
-  %54 = call i32 @ps_pdread(ptr noundef %0, ptr noundef nonnull %53, ptr noundef nonnull %6, i64 noundef 8) #15
+  %54 = call i32 @ps_pdread(ptr noundef nonnull %0, ptr noundef nonnull %53, ptr noundef nonnull %6, i64 noundef 8) #15
   %.not39 = icmp eq i32 %54, 0
   br i1 %.not39, label %56, label %55
 
@@ -834,7 +834,7 @@ thread-pre-split:                                 ; preds = %.thread
   %57 = load i64, ptr %5, align 8
   %58 = inttoptr i64 %57 to ptr
   %59 = getelementptr inbounds i8, ptr %58, i64 8
-  %60 = call i32 @ps_pdread(ptr noundef %0, ptr noundef nonnull %59, ptr noundef nonnull %7, i64 noundef 8) #15
+  %60 = call i32 @ps_pdread(ptr noundef nonnull %0, ptr noundef nonnull %59, ptr noundef nonnull %7, i64 noundef 8) #15
   %.not40 = icmp eq i32 %60, 0
   br i1 %.not40, label %62, label %61
 
@@ -849,7 +849,7 @@ thread-pre-split:                                 ; preds = %.thread
   br i1 %.not41, label %.thread, label %64
 
 64:                                               ; preds = %62
-  %65 = call i32 @read_string(ptr noundef %0, i64 noundef %63, ptr noundef nonnull %8, i64 noundef 4352) #15
+  %65 = call i32 @read_string(ptr noundef nonnull %0, i64 noundef %63, ptr noundef nonnull %8, i64 noundef 4352) #15
   %.not42 = icmp eq i32 %65, 1
   br i1 %.not42, label %67, label %66
 
@@ -883,7 +883,7 @@ thread-pre-split:                                 ; preds = %.thread
 
 77:                                               ; preds = %74
   %78 = load i64, ptr %5, align 8
-  %79 = call fastcc i64 @calc_prelinked_load_address(ptr noundef %0, i32 noundef %69, ptr noundef nonnull %10, i64 noundef %78)
+  %79 = call fastcc i64 @calc_prelinked_load_address(ptr noundef %0, i32 noundef %69, ptr noundef %10, i64 noundef %78)
   store i64 %79, ptr %6, align 8
   %80 = icmp eq i64 %79, -1
   br i1 %80, label %81, label %83
@@ -899,7 +899,7 @@ thread-pre-split:                                 ; preds = %.thread
   %87 = load i64, ptr %6, align 8
   call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.56, ptr noundef nonnull %8, i64 noundef %86, i64 noundef %87) #15
   %88 = load i64, ptr %6, align 8
-  %89 = call fastcc i32 @read_lib_segments(ptr noundef %0, i32 noundef %69, ptr noundef nonnull %10, i64 noundef %88)
+  %89 = call fastcc i32 @read_lib_segments(ptr noundef %0, i32 noundef %69, ptr noundef %10, i64 noundef %88)
   %.not45 = icmp eq i32 %89, 0
   br i1 %.not45, label %90, label %92
 
@@ -909,7 +909,7 @@ thread-pre-split:                                 ; preds = %.thread
   br label %.loopexit
 
 92:                                               ; preds = %83
-  %93 = call ptr @add_lib_info_fd(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %69, i64 noundef %86) #15
+  %93 = call ptr @add_lib_info_fd(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef %69, i64 noundef %86) #15
   %94 = call fastcc i32 @sort_map_array(ptr noundef %0)
   %.not46.not = icmp eq i32 %94, 0
   br i1 %.not46.not, label %.loopexit, label %.thread
@@ -923,7 +923,7 @@ thread-pre-split:                                 ; preds = %.thread
   %97 = load i64, ptr %5, align 8
   %98 = inttoptr i64 %97 to ptr
   %99 = getelementptr inbounds i8, ptr %98, i64 24
-  %100 = call i32 @ps_pdread(ptr noundef %0, ptr noundef nonnull %99, ptr noundef nonnull %5, i64 noundef 8) #15
+  %100 = call i32 @ps_pdread(ptr noundef nonnull %0, ptr noundef nonnull %99, ptr noundef nonnull %5, i64 noundef 8) #15
   %.not47 = icmp eq i32 %100, 0
   br i1 %.not47, label %thread-pre-split, label %101, !llvm.loop !14
 
@@ -1100,9 +1100,9 @@ declare i32 @ps_pdread(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local
 declare i32 @read_string(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @calc_prelinked_load_address(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i64 @calc_prelinked_load_address(ptr noundef nonnull %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef nonnull %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
-  %6 = tail call ptr @read_program_header_table(i32 noundef %1, ptr noundef %2) #15
+  %6 = tail call ptr @read_program_header_table(i32 noundef %1, ptr noundef nonnull %2) #15
   %7 = icmp eq ptr %6, null
   br i1 %7, label %10, label %.preheader
 
@@ -1142,7 +1142,7 @@ define internal fastcc noundef i64 @calc_prelinked_load_address(ptr noundef %0, 
   tail call void @free(ptr noundef nonnull %6) #15
   %18 = inttoptr i64 %3 to ptr
   %19 = getelementptr inbounds i8, ptr %18, i64 16
-  %20 = call i32 @ps_pdread(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %5, i64 noundef 8) #15
+  %20 = call i32 @ps_pdread(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull %5, i64 noundef 8) #15
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %22, label %21
 
@@ -1166,9 +1166,9 @@ declare i32 @close(i32 noundef) local_unnamed_addr #2
 declare i64 @find_base_address(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @read_lib_segments(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @read_lib_segments(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call i64 @sysconf(i32 noundef 30) #15
-  %6 = tail call ptr @read_program_header_table(i32 noundef %1, ptr noundef %2) #15
+  %6 = tail call ptr @read_program_header_table(i32 noundef %1, ptr noundef nonnull %2) #15
   %7 = icmp eq ptr %6, null
   br i1 %7, label %75, label %.preheader
 
@@ -1209,7 +1209,7 @@ define internal fastcc range(i32 0, 2) i32 @read_lib_segments(ptr noundef %0, i3
   %23 = getelementptr inbounds i8, ptr %.05676, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %3
-  %26 = tail call ptr @core_lookup(ptr noundef %0, i64 noundef %25) #15
+  %26 = tail call ptr @core_lookup(ptr noundef nonnull %0, i64 noundef %25) #15
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %36
 
@@ -1219,7 +1219,7 @@ define internal fastcc range(i32 0, 2) i32 @read_lib_segments(ptr noundef %0, i3
   %31 = getelementptr inbounds i8, ptr %.05676, i64 40
   %32 = load i64, ptr %31, align 8
   %33 = load i32, ptr %16, align 4
-  %34 = tail call ptr @add_map_info(ptr noundef %0, i32 noundef %1, i64 noundef %30, i64 noundef %25, i64 noundef %32, i32 noundef %33) #15
+  %34 = tail call ptr @add_map_info(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %30, i64 noundef %25, i64 noundef %32, i32 noundef %33) #15
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.sink.split, label %68
 

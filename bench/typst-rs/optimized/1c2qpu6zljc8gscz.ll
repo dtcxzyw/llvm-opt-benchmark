@@ -4267,7 +4267,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr51drop_in_place$LT$pdf_writer..content..Operation$GT$17hbc06809aedc5b03dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr51drop_in_place$LT$pdf_writer..content..Operation$GT$17hbc06809aedc5b03dE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1065)
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !range !244, !alias.scope !1065, !noundef !13
@@ -8293,7 +8293,7 @@ define hidden void @"_ZN6flate23zio19Writer$LT$W$C$D$GT$17write_with_status17h15
   br i1 %.not, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %4
-  %7 = tail call fastcc noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h257717789127ae2fE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1)
+  %7 = tail call fastcc noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h257717789127ae2fE"(ptr noalias noundef align 8 dereferenceable(72) %1)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.split37.us, label %.split35.us
 
@@ -8309,7 +8309,7 @@ define hidden void @"_ZN6flate23zio19Writer$LT$W$C$D$GT$17write_with_status17h15
   br i1 %11, label %.thread, label %.critedge
 
 .split:                                           ; preds = %4, %24
-  %13 = tail call fastcc noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h257717789127ae2fE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1)
+  %13 = tail call fastcc noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h257717789127ae2fE"(ptr noalias noundef align 8 dereferenceable(72) %1)
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %.split35.us
 
@@ -8407,7 +8407,7 @@ define hidden void @"_ZN6flate23zio19Writer$LT$W$C$D$GT$3new17hca56261b6e31b4e6E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noalias noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h257717789127ae2fE"(ptr noalias noundef align 8 dereferenceable(72) %0) unnamed_addr #2 {
+define internal fastcc noalias noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h257717789127ae2fE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #2 {
   %2 = alloca { { ptr, ptr, {} }, ptr, i64, i64 }, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !13
@@ -8489,7 +8489,7 @@ define hidden noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$6finish17h177ec2b
   br label %4
 
 4:                                                ; preds = %10, %1
-  %5 = tail call fastcc noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h257717789127ae2fE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
+  %5 = tail call fastcc noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h257717789127ae2fE"(ptr noalias noundef align 8 dereferenceable(72) %0)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %.loopexit
 
@@ -10007,7 +10007,7 @@ define void @"_ZN9typst_pdf8gradient96_$LT$impl$u20$typst_pdf..color..PaintEncod
 29:                                               ; preds = %_ZN10pdf_writer6object3Obj9primitive17h1295cd226a0d2412E.exit.i.i
   %30 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr51drop_in_place$LT$pdf_writer..content..Operation$GT$17hbc06809aedc5b03dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #34
+  invoke fastcc void @"_ZN4core3ptr51drop_in_place$LT$pdf_writer..content..Operation$GT$17hbc06809aedc5b03dE"(ptr noalias noundef align 8 dereferenceable(32) %7) #34
           to label %.body.thread unwind label %64, !noalias !2058
 
 _ZN10pdf_writer6object3Obj9primitive17h1295cd226a0d2412E.exit.i.i: ; preds = %27
@@ -10124,7 +10124,7 @@ _ZN10pdf_writer6object3Obj9primitive17h1295cd226a0d2412E.exit.i.i: ; preds = %27
 75:                                               ; preds = %66
   %76 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr51drop_in_place$LT$pdf_writer..content..Operation$GT$17hbc06809aedc5b03dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6) #34
+  invoke fastcc void @"_ZN4core3ptr51drop_in_place$LT$pdf_writer..content..Operation$GT$17hbc06809aedc5b03dE"(ptr noalias noundef align 8 dereferenceable(32) %6) #34
           to label %.body.thread unwind label %98
 
 77:                                               ; preds = %66
@@ -10299,7 +10299,7 @@ define void @"_ZN9typst_pdf8gradient96_$LT$impl$u20$typst_pdf..color..PaintEncod
 29:                                               ; preds = %_ZN10pdf_writer6object3Obj9primitive17h1295cd226a0d2412E.exit.i.i
   %30 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr51drop_in_place$LT$pdf_writer..content..Operation$GT$17hbc06809aedc5b03dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #34
+  invoke fastcc void @"_ZN4core3ptr51drop_in_place$LT$pdf_writer..content..Operation$GT$17hbc06809aedc5b03dE"(ptr noalias noundef align 8 dereferenceable(32) %7) #34
           to label %.body.thread unwind label %64, !noalias !2145
 
 _ZN10pdf_writer6object3Obj9primitive17h1295cd226a0d2412E.exit.i.i: ; preds = %27
@@ -10416,7 +10416,7 @@ _ZN10pdf_writer6object3Obj9primitive17h1295cd226a0d2412E.exit.i.i: ; preds = %27
 75:                                               ; preds = %66
   %76 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr51drop_in_place$LT$pdf_writer..content..Operation$GT$17hbc06809aedc5b03dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6) #34
+  invoke fastcc void @"_ZN4core3ptr51drop_in_place$LT$pdf_writer..content..Operation$GT$17hbc06809aedc5b03dE"(ptr noalias noundef align 8 dereferenceable(32) %6) #34
           to label %.body.thread unwind label %98
 
 77:                                               ; preds = %66

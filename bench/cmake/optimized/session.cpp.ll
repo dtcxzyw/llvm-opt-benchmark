@@ -7101,7 +7101,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit.i.i.i.i:    ; preds = %38, %34, %_ZNSt11un
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #23
   %42 = getelementptr inbounds i8, ptr %12, i64 144
   %43 = load ptr, ptr %6, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_14Impl13EventHandlers12responseSentEPKN3dap8TypeInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(456) %42, ptr noundef %43)
+  invoke fastcc void @_ZN12_GLOBAL__N_14Impl13EventHandlers12responseSentEPKN3dap8TypeInfoE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(456) %42, ptr noundef %43)
           to label %44 unwind label %51
 
 44:                                               ; preds = %40
@@ -7265,7 +7265,7 @@ declare noundef zeroext i1 @_ZN3dap4json17JsonCppSerializer6objectERKSt8function
 declare void @_ZNK3dap4json17JsonCppSerializer4dumpB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(18)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_14Impl13EventHandlers12responseSentEPKN3dap8TypeInfoE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(456) %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_14Impl13EventHandlers12responseSentEPKN3dap8TypeInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(456) %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %4) #23
   %.not.i.i.i = icmp eq i32 %5, 0
@@ -8532,7 +8532,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit.i.i.i.i:    ; preds = %36, %32, %_ZNSt11un
   %39 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   %40 = getelementptr inbounds i8, ptr %10, i64 144
-  invoke fastcc void @_ZN12_GLOBAL__N_14Impl13EventHandlers12responseSentEPKN3dap8TypeInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(456) %40, ptr noundef %.val3)
+  invoke fastcc void @_ZN12_GLOBAL__N_14Impl13EventHandlers12responseSentEPKN3dap8TypeInfoE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(456) %40, ptr noundef %.val3)
           to label %41 unwind label %47
 
 41:                                               ; preds = %38

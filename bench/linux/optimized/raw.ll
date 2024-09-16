@@ -2780,7 +2780,7 @@ declare dso_local void @security_sk_classify_flow(ptr noundef, ptr noundef) loca
 declare dso_local ptr @ip6_dst_lookup_flow(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @rawv6_send_hdrinc(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 align 16 {
+define internal fastcc i32 @rawv6_send_hdrinc(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, -2147483648) %2, ptr noundef %3, ptr nocapture noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 align 16 {
   %8 = alloca %struct.nf_hook_state, align 8
   %9 = alloca i32, align 4
   %10 = getelementptr inbounds i8, ptr %0, i64 48

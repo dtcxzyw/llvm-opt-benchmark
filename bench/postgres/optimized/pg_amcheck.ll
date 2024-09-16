@@ -685,7 +685,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %164 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 2), align 2
   %165 = trunc i8 %164 to i1
   %166 = call ptr @connectMaintenanceDatabase(ptr noundef nonnull %8, ptr noundef %163, i1 noundef zeroext %165) #12
-  call fastcc void @compile_database_list(ptr noundef %166, ptr noundef nonnull %4, ptr noundef null)
+  call fastcc void @compile_database_list(ptr noundef %166, ptr noundef %4, ptr noundef null)
   br label %182
 
 167:                                              ; preds = %161
@@ -719,7 +719,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %179 = trunc i8 %178 to i1
   %180 = call ptr @connectDatabase(ptr noundef nonnull %8, ptr noundef %177, i1 noundef zeroext %179, i1 noundef zeroext false, i1 noundef zeroext true) #12
   %181 = call ptr @PQdb(ptr noundef %180) #12
-  call fastcc void @compile_database_list(ptr noundef %180, ptr noundef nonnull %4, ptr noundef %181)
+  call fastcc void @compile_database_list(ptr noundef %180, ptr noundef %4, ptr noundef %181)
   br label %182
 
 182:                                              ; preds = %176, %162
@@ -879,7 +879,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 251:                                              ; preds = %248
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.169) #12
-  call fastcc void @append_rel_pattern_raw_cte(ptr noundef nonnull %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @opts, i64 24), ptr noundef %.2)
+  call fastcc void @append_rel_pattern_raw_cte(ptr noundef %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @opts, i64 24), ptr noundef %.2)
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.170) #12
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.213, ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.171) #12
   %252 = call ptr @PQdb(ptr noundef %.2) #12
@@ -905,7 +905,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 262:                                              ; preds = %259, %256, %253
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.173) #12
-  call fastcc void @append_rel_pattern_raw_cte(ptr noundef nonnull %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @opts, i64 40), ptr noundef %.2)
+  call fastcc void @append_rel_pattern_raw_cte(ptr noundef %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @opts, i64 40), ptr noundef %.2)
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.170) #12
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.213, ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.174) #12
   %263 = call ptr @PQdb(ptr noundef %.2) #12
@@ -1644,7 +1644,7 @@ prepare_btree_command.exit:                       ; preds = %595, %585, %prepare
   %606 = getelementptr inbounds i8, ptr %513, i64 24
   store ptr %501, ptr %606, align 8
   %607 = load ptr, ptr %604, align 8
-  call fastcc void @run_command(ptr noundef nonnull %513, ptr noundef %607)
+  call fastcc void @run_command(ptr noundef %513, ptr noundef %607)
   %.2166 = load ptr, ptr %.2166319, align 8
   %.not215 = icmp eq ptr %.2166, null
   br i1 %.not215, label %.loopexit, label %.lr.ph321, !llvm.loop !11
@@ -1889,7 +1889,7 @@ declare void @setup_cancel_handler(ptr noundef) local_unnamed_addr #2
 declare ptr @connectMaintenanceDatabase(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @compile_database_list(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @compile_database_list(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.PQExpBufferData, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %5
@@ -1907,7 +1907,7 @@ define internal fastcc void @compile_database_list(ptr noundef %0, ptr noundef %
 10:                                               ; preds = %9, %5
   %11 = tail call ptr @pstrdup(ptr noundef nonnull %2) #12
   store ptr %11, ptr %6, align 8
-  tail call void @simple_ptr_list_append(ptr noundef %1, ptr noundef nonnull %6) #12
+  tail call void @simple_ptr_list_append(ptr noundef nonnull %1, ptr noundef nonnull %6) #12
   br label %12
 
 12:                                               ; preds = %10, %3
@@ -2159,7 +2159,7 @@ append_db_pattern_cte.exit56:                     ; preds = %._crit_edge.i54, %.
   %108 = call ptr @pg_malloc0(i64 noundef 24) #12
   %109 = call ptr @pstrdup(ptr noundef %.040) #12
   store ptr %109, ptr %108, align 8
-  call void @simple_ptr_list_append(ptr noundef %1, ptr noundef nonnull %108) #12
+  call void @simple_ptr_list_append(ptr noundef nonnull %1, ptr noundef nonnull %108) #12
   br label %110
 
 110:                                              ; preds = %107, %97, %98, %100
@@ -2230,7 +2230,7 @@ declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_add
 declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @progress_report(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @progress_report(i64 noundef range(i64 1, 0) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca [32 x i8], align 16
   %9 = alloca [32 x i8], align 16
   %10 = alloca [32 x i8], align 16
@@ -2512,7 +2512,7 @@ should_processing_continue.exit:                  ; preds = %.loopexit, %.loopex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @run_command(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @run_command(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 2), align 2
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %7
@@ -2839,7 +2839,7 @@ declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #10
 declare void @appendStringLiteralConn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @append_rel_pattern_raw_cte(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @append_rel_pattern_raw_cte(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
@@ -2855,52 +2855,52 @@ define internal fastcc void @append_rel_pattern_raw_cte(ptr noundef %0, ptr noca
   br i1 %.03542, label %10, label %9
 
 9:                                                ; preds = %.lr.ph
-  tail call void @appendPQExpBufferStr(ptr noundef %0, ptr noundef nonnull @.str.164) #12
+  tail call void @appendPQExpBufferStr(ptr noundef nonnull %0, ptr noundef nonnull @.str.164) #12
   br label %10
 
 10:                                               ; preds = %9, %.lr.ph
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %0, ptr noundef nonnull @.str.205, ptr noundef nonnull %.03641, i32 noundef %.043) #12
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %0, ptr noundef nonnull @.str.205, ptr noundef nonnull %.03641, i32 noundef %.043) #12
   %11 = getelementptr inbounds i8, ptr %8, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %10
-  tail call void @appendPQExpBufferStr(ptr noundef %0, ptr noundef nonnull @.str.206) #12
+  tail call void @appendPQExpBufferStr(ptr noundef nonnull %0, ptr noundef nonnull @.str.206) #12
   br label %16
 
 15:                                               ; preds = %10
-  tail call void @appendStringLiteralConn(ptr noundef %0, ptr noundef nonnull %12, ptr noundef %2) #12
+  tail call void @appendStringLiteralConn(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef %2) #12
   br label %16
 
 16:                                               ; preds = %15, %14
-  tail call void @appendPQExpBufferStr(ptr noundef %0, ptr noundef nonnull @.str.207) #12
+  tail call void @appendPQExpBufferStr(ptr noundef nonnull %0, ptr noundef nonnull @.str.207) #12
   %17 = getelementptr inbounds i8, ptr %8, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %16
-  tail call void @appendPQExpBufferStr(ptr noundef %0, ptr noundef nonnull @.str.206) #12
+  tail call void @appendPQExpBufferStr(ptr noundef nonnull %0, ptr noundef nonnull @.str.206) #12
   br label %22
 
 21:                                               ; preds = %16
-  tail call void @appendStringLiteralConn(ptr noundef %0, ptr noundef nonnull %18, ptr noundef %2) #12
+  tail call void @appendStringLiteralConn(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef %2) #12
   br label %22
 
 22:                                               ; preds = %21, %20
-  tail call void @appendPQExpBufferStr(ptr noundef %0, ptr noundef nonnull @.str.207) #12
+  tail call void @appendPQExpBufferStr(ptr noundef nonnull %0, ptr noundef nonnull @.str.207) #12
   %23 = getelementptr inbounds i8, ptr %8, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %22
-  tail call void @appendPQExpBufferStr(ptr noundef %0, ptr noundef nonnull @.str.206) #12
+  tail call void @appendPQExpBufferStr(ptr noundef nonnull %0, ptr noundef nonnull @.str.206) #12
   br label %28
 
 27:                                               ; preds = %22
-  tail call void @appendStringLiteralConn(ptr noundef %0, ptr noundef nonnull %24, ptr noundef %2) #12
+  tail call void @appendStringLiteralConn(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef %2) #12
   br label %28
 
 28:                                               ; preds = %27, %26
@@ -2908,13 +2908,13 @@ define internal fastcc void @append_rel_pattern_raw_cte(ptr noundef %0, ptr noca
   %30 = load i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
   %.str.208..str.209 = select i1 %31, ptr @.str.208, ptr @.str.209
-  tail call void @appendPQExpBufferStr(ptr noundef %0, ptr noundef nonnull %.str.208..str.209) #12
+  tail call void @appendPQExpBufferStr(ptr noundef nonnull %0, ptr noundef nonnull %.str.208..str.209) #12
   %32 = getelementptr inbounds i8, ptr %8, i64 33
   %33 = load i8, ptr %32, align 1
   %34 = trunc i8 %33 to i1
   %.str.211.sink = select i1 %34, ptr @.str.210, ptr @.str.211
-  tail call void @appendPQExpBufferStr(ptr noundef %0, ptr noundef nonnull %.str.211.sink) #12
-  tail call void @appendPQExpBufferChar(ptr noundef %0, i8 noundef signext 41) #12
+  tail call void @appendPQExpBufferStr(ptr noundef nonnull %0, ptr noundef nonnull %.str.211.sink) #12
+  tail call void @appendPQExpBufferChar(ptr noundef nonnull %0, i8 noundef signext 41) #12
   %35 = add i32 %.043, 1
   %36 = sext i32 %35 to i64
   %37 = load i64, ptr %4, align 8
@@ -2922,7 +2922,7 @@ define internal fastcc void @append_rel_pattern_raw_cte(ptr noundef %0, ptr noca
   br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 .critedge:                                        ; preds = %3
-  tail call void @appendPQExpBufferStr(ptr noundef %0, ptr noundef nonnull @.str.212) #12
+  tail call void @appendPQExpBufferStr(ptr noundef nonnull %0, ptr noundef nonnull @.str.212) #12
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %28, %.critedge

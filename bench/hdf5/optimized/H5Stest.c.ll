@@ -263,7 +263,7 @@ define range(i32 -1, 2) i32 @H5S__internal_consistency_test(i64 noundef %0) loca
   br i1 %.not57.i, label %H5S__check_internal_consistency.exit, label %92
 
 92:                                               ; preds = %.loopexit.i
-  %93 = call fastcc i32 @H5S__check_spans_tail_ptr(ptr noundef nonnull %91)
+  %93 = call fastcc i32 @H5S__check_spans_tail_ptr(ptr noundef %91)
   %94 = icmp slt i32 %93, 0
   br i1 %94, label %95, label %H5S__check_internal_consistency.exit
 
@@ -377,7 +377,7 @@ define range(i32 -1, 1) i32 @H5S__verify_offsets(i64 noundef %0, ptr nocapture n
 declare i32 @H5S_get_select_bounds(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @H5S__check_spans_tail_ptr(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @H5S__check_spans_tail_ptr(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %.01118 = load ptr, ptr %2, align 8
   %.not19 = icmp eq ptr %.01118, null
@@ -392,7 +392,7 @@ define internal fastcc range(i32 -1, 2) i32 @H5S__check_spans_tail_ptr(ptr nocap
   br i1 %.not15, label %8, label %5
 
 5:                                                ; preds = %.lr.ph
-  %6 = tail call fastcc i32 @H5S__check_spans_tail_ptr(ptr noundef nonnull %4)
+  %6 = tail call fastcc i32 @H5S__check_spans_tail_ptr(ptr noundef %4)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %.sink.split, label %8
 

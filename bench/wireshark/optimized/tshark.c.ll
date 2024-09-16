@@ -2143,7 +2143,7 @@ sub_0305:                                         ; preds = %546
   br i1 %577, label %640, label %637
 
 637:                                              ; preds = %634
-  %638 = call fastcc i32 @_compile_dfilter(ptr noundef nonnull %.0176.lcssa, ptr noundef nonnull %16)
+  %638 = call fastcc i32 @_compile_dfilter(ptr noundef nonnull %.0176.lcssa, ptr noundef %16)
   %.not237 = icmp eq i32 %638, 0
   br i1 %.not237, label %639, label %640
 
@@ -2162,7 +2162,7 @@ sub_0305:                                         ; preds = %546
 
 642:                                              ; preds = %640
   %.0..0..0..0.101 = load volatile ptr, ptr %15, align 8
-  %643 = call fastcc i32 @_compile_dfilter(ptr noundef %.0..0..0..0.101, ptr noundef nonnull %17)
+  %643 = call fastcc i32 @_compile_dfilter(ptr noundef %.0..0..0..0.101, ptr noundef %17)
   %.not239 = icmp eq i32 %643, 0
   br i1 %.not239, label %644, label %645
 
@@ -3261,7 +3261,7 @@ declare i32 @setup_enabled_and_disabled_protocols() local_unnamed_addr #1
 declare void @build_column_format_array(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_compile_dfilter(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_compile_dfilter(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call i64 @g_get_monotonic_time() #23
   %5 = call ptr @dfilter_expand(ptr noundef %0, ptr noundef nonnull %3) #23
@@ -3281,7 +3281,7 @@ define internal fastcc range(i32 0, 2) i32 @_compile_dfilter(ptr noundef %0, ptr
   %13 = sub i64 %12, %4
   store i64 %13, ptr @tshark_elapsed.0, align 8
   %14 = call i64 @g_get_monotonic_time() #23
-  %15 = call zeroext i1 @dfilter_compile_full(ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull %3, i32 noundef 4, ptr noundef nonnull @__func__.main) #23
+  %15 = call zeroext i1 @dfilter_compile_full(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef 4, ptr noundef nonnull @__func__.main) #23
   %16 = zext i1 %15 to i32
   br i1 %15, label %30, label %17
 

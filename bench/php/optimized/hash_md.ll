@@ -109,158 +109,158 @@ define void @PHP_MD4Update(ptr nocapture noundef %0, ptr nocapture noundef reado
 define void @PHP_MD4Final(ptr nocapture noundef writeonly %0, ptr noundef %1) #3 {
   %3 = alloca [8 x i8], align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 16
-  br label %.lr.ph.i
+  br label %5
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %2
-  %indvars.iv22.i = phi i64 [ 0, %2 ], [ %indvars.iv.next23.i, %.lr.ph.i ]
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %5 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv22.i
-  %6 = load i32, ptr %5, align 4
-  %7 = trunc i32 %6 to i8
-  %8 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
-  store i8 %7, ptr %8, align 1
-  %9 = lshr i32 %6, 8
-  %10 = trunc i32 %9 to i8
-  %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds i8, ptr %3, i64 %11
-  store i8 %10, ptr %12, align 1
-  %13 = lshr i32 %6, 16
-  %14 = trunc i32 %13 to i8
-  %15 = or disjoint i64 %indvars.iv.i, 2
-  %16 = getelementptr inbounds i8, ptr %3, i64 %15
-  store i8 %14, ptr %16, align 1
-  %17 = lshr i32 %6, 24
-  %18 = trunc nuw i32 %17 to i8
-  %19 = or disjoint i64 %indvars.iv.i, 3
-  %20 = getelementptr inbounds i8, ptr %3, i64 %19
-  store i8 %18, ptr %20, align 1
+5:                                                ; preds = %5, %2
+  %indvars.iv22.i = phi i64 [ 0, %2 ], [ %indvars.iv.next23.i, %5 ]
+  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv22.i
+  %7 = load i32, ptr %6, align 4
+  %8 = trunc i32 %7 to i8
+  %9 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  store i8 %8, ptr %9, align 1
+  %10 = lshr i32 %7, 8
+  %11 = trunc i32 %10 to i8
+  %12 = or disjoint i64 %indvars.iv.i, 1
+  %13 = getelementptr inbounds i8, ptr %3, i64 %12
+  store i8 %11, ptr %13, align 1
+  %14 = lshr i32 %7, 16
+  %15 = trunc i32 %14 to i8
+  %16 = or disjoint i64 %indvars.iv.i, 2
+  %17 = getelementptr inbounds i8, ptr %3, i64 %16
+  store i8 %15, ptr %17, align 1
+  %18 = lshr i32 %7, 24
+  %19 = trunc nuw i32 %18 to i8
+  %20 = or disjoint i64 %indvars.iv.i, 3
+  %21 = getelementptr inbounds i8, ptr %3, i64 %20
+  store i8 %19, ptr %21, align 1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 2
-  br i1 %exitcond.not.i, label %Encode.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %Encode.exit, label %5
 
-Encode.exit:                                      ; preds = %.lr.ph.i
-  %21 = load i32, ptr %4, align 4
-  %22 = lshr i32 %21, 3
-  %23 = and i32 %22, 63
-  %24 = icmp ult i32 %23, 56
-  %.v = select i1 %24, i32 56, i32 120
-  %25 = sub nsw i32 %.v, %23
-  %26 = zext i32 %25 to i64
-  %27 = shl nsw i32 %25, 3
-  %28 = add i32 %27, %21
-  store i32 %28, ptr %4, align 4
-  %29 = icmp ult i32 %28, %27
-  %30 = getelementptr inbounds i8, ptr %1, i64 20
-  %31 = load i32, ptr %30, align 4
-  %32 = zext i1 %29 to i32
-  %33 = lshr i32 %25, 29
-  %34 = add i32 %33, %31
+Encode.exit:                                      ; preds = %5
+  %22 = load i32, ptr %4, align 4
+  %23 = lshr i32 %22, 3
+  %24 = and i32 %23, 63
+  %25 = icmp ult i32 %24, 56
+  %.v = select i1 %25, i32 56, i32 120
+  %26 = sub nsw i32 %.v, %24
+  %27 = zext i32 %26 to i64
+  %28 = shl nsw i32 %26, 3
+  %29 = add i32 %28, %22
+  store i32 %29, ptr %4, align 4
+  %30 = icmp ult i32 %29, %28
+  %31 = getelementptr inbounds i8, ptr %1, i64 20
+  %32 = load i32, ptr %31, align 4
+  %33 = zext i1 %30 to i32
+  %34 = lshr i32 %26, 29
   %35 = add i32 %34, %32
-  store i32 %35, ptr %30, align 4
-  %36 = sub nuw nsw i32 64, %23
-  %.not.i = icmp ult i32 %25, %36
-  br i1 %.not.i, label %48, label %37
+  %36 = add i32 %35, %33
+  store i32 %36, ptr %31, align 4
+  %37 = sub nuw nsw i32 64, %24
+  %.not.i = icmp ult i32 %26, %37
+  br i1 %.not.i, label %49, label %38
 
-37:                                               ; preds = %Encode.exit
-  %38 = zext nneg i32 %36 to i64
-  %39 = getelementptr inbounds i8, ptr %1, i64 24
-  %40 = zext nneg i32 %23 to i64
-  %41 = getelementptr inbounds [64 x i8], ptr %39, i64 0, i64 %40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %41, ptr noundef nonnull readonly align 16 dereferenceable(1) @PADDING, i64 %38, i1 false)
-  tail call fastcc void @MD4Transform(ptr noundef nonnull %1, ptr noundef nonnull %39)
-  %42 = add nuw nsw i64 %38, 63
-  %43 = icmp ult i64 %42, %26
-  br i1 %43, label %.lr.ph.i10, label %PHP_MD4Update.exit
+38:                                               ; preds = %Encode.exit
+  %39 = zext nneg i32 %37 to i64
+  %40 = getelementptr inbounds i8, ptr %1, i64 24
+  %41 = zext nneg i32 %24 to i64
+  %42 = getelementptr inbounds [64 x i8], ptr %40, i64 0, i64 %41
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %42, ptr noundef nonnull readonly align 16 dereferenceable(1) @PADDING, i64 %39, i1 false)
+  tail call fastcc void @MD4Transform(ptr noundef nonnull %1, ptr noundef nonnull %40)
+  %43 = add nuw nsw i64 %39, 63
+  %44 = icmp ult i64 %43, %27
+  br i1 %44, label %.lr.ph.i, label %PHP_MD4Update.exit
 
-.lr.ph.i10:                                       ; preds = %37, %.lr.ph.i10
-  %.031.i = phi i64 [ %45, %.lr.ph.i10 ], [ %38, %37 ]
-  %44 = getelementptr inbounds i8, ptr @PADDING, i64 %.031.i
-  tail call fastcc void @MD4Transform(ptr noundef %1, ptr noundef nonnull readonly %44)
-  %45 = add nuw nsw i64 %.031.i, 64
-  %46 = add nuw nsw i64 %.031.i, 127
-  %47 = icmp ult i64 %46, %26
-  br i1 %47, label %.lr.ph.i10, label %PHP_MD4Update.exit
+.lr.ph.i:                                         ; preds = %38, %.lr.ph.i
+  %.031.i = phi i64 [ %46, %.lr.ph.i ], [ %39, %38 ]
+  %45 = getelementptr inbounds i8, ptr @PADDING, i64 %.031.i
+  tail call fastcc void @MD4Transform(ptr noundef %1, ptr noundef nonnull readonly %45)
+  %46 = add nuw nsw i64 %.031.i, 64
+  %47 = add nuw nsw i64 %.031.i, 127
+  %48 = icmp ult i64 %47, %27
+  br i1 %48, label %.lr.ph.i, label %PHP_MD4Update.exit
 
-48:                                               ; preds = %Encode.exit
-  %49 = zext nneg i32 %23 to i64
+49:                                               ; preds = %Encode.exit
+  %50 = zext nneg i32 %24 to i64
   br label %PHP_MD4Update.exit
 
-PHP_MD4Update.exit:                               ; preds = %.lr.ph.i10, %37, %48
-  %.028.i = phi i64 [ %49, %48 ], [ 0, %37 ], [ 0, %.lr.ph.i10 ]
-  %.1.i = phi i64 [ 0, %48 ], [ %38, %37 ], [ %45, %.lr.ph.i10 ]
-  %50 = getelementptr inbounds i8, ptr %1, i64 24
-  %51 = getelementptr inbounds [64 x i8], ptr %50, i64 0, i64 %.028.i
-  %52 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
-  %53 = sub i64 %26, %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull readonly align 1 %52, i64 %53, i1 false)
-  %54 = load i32, ptr %4, align 4
-  %55 = lshr i32 %54, 3
-  %56 = and i32 %55, 63
-  %57 = add i32 %54, 64
-  store i32 %57, ptr %4, align 4
-  %58 = icmp ugt i32 %54, -65
-  %59 = load i32, ptr %30, align 4
-  %60 = zext i1 %58 to i32
-  %61 = add i32 %59, %60
-  store i32 %61, ptr %30, align 4
-  %.not.i11 = icmp ult i32 %56, 56
-  br i1 %.not.i11, label %67, label %62
+PHP_MD4Update.exit:                               ; preds = %.lr.ph.i, %38, %49
+  %.028.i = phi i64 [ %50, %49 ], [ 0, %38 ], [ 0, %.lr.ph.i ]
+  %.1.i = phi i64 [ 0, %49 ], [ %39, %38 ], [ %46, %.lr.ph.i ]
+  %51 = getelementptr inbounds i8, ptr %1, i64 24
+  %52 = getelementptr inbounds [64 x i8], ptr %51, i64 0, i64 %.028.i
+  %53 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
+  %54 = sub i64 %27, %.1.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull readonly align 1 %53, i64 %54, i1 false)
+  %55 = load i32, ptr %4, align 4
+  %56 = lshr i32 %55, 3
+  %57 = and i32 %56, 63
+  %58 = add i32 %55, 64
+  store i32 %58, ptr %4, align 4
+  %59 = icmp ugt i32 %55, -65
+  %60 = load i32, ptr %31, align 4
+  %61 = zext i1 %59 to i32
+  %62 = add i32 %60, %61
+  store i32 %62, ptr %31, align 4
+  %.not.i10 = icmp ult i32 %57, 56
+  br i1 %.not.i10, label %68, label %63
 
-62:                                               ; preds = %PHP_MD4Update.exit
-  %63 = sub nuw nsw i32 64, %56
-  %64 = zext nneg i32 %63 to i64
-  %65 = zext nneg i32 %56 to i64
-  %66 = getelementptr inbounds [64 x i8], ptr %50, i64 0, i64 %65
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %66, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %64, i1 false)
-  tail call fastcc void @MD4Transform(ptr noundef nonnull %1, ptr noundef nonnull %50)
-  br label %PHP_MD4Update.exit16
+63:                                               ; preds = %PHP_MD4Update.exit
+  %64 = sub nuw nsw i32 64, %57
+  %65 = zext nneg i32 %64 to i64
+  %66 = zext nneg i32 %57 to i64
+  %67 = getelementptr inbounds [64 x i8], ptr %51, i64 0, i64 %66
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %67, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %65, i1 false)
+  tail call fastcc void @MD4Transform(ptr noundef nonnull %1, ptr noundef nonnull %51)
+  br label %PHP_MD4Update.exit15
 
-67:                                               ; preds = %PHP_MD4Update.exit
-  %68 = zext nneg i32 %56 to i64
-  br label %PHP_MD4Update.exit16
+68:                                               ; preds = %PHP_MD4Update.exit
+  %69 = zext nneg i32 %57 to i64
+  br label %PHP_MD4Update.exit15
 
-PHP_MD4Update.exit16:                             ; preds = %67, %62
-  %.028.i12 = phi i64 [ %68, %67 ], [ 0, %62 ]
-  %.1.i13 = phi i64 [ 0, %67 ], [ %64, %62 ]
-  %69 = getelementptr inbounds [64 x i8], ptr %50, i64 0, i64 %.028.i12
-  %70 = getelementptr inbounds i8, ptr %3, i64 %.1.i13
-  %71 = sub nuw nsw i64 8, %.1.i13
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %69, ptr nonnull readonly align 1 %70, i64 %71, i1 false)
-  br label %.lr.ph.i17
+PHP_MD4Update.exit15:                             ; preds = %68, %63
+  %.028.i11 = phi i64 [ %69, %68 ], [ 0, %63 ]
+  %.1.i12 = phi i64 [ 0, %68 ], [ %65, %63 ]
+  %70 = getelementptr inbounds [64 x i8], ptr %51, i64 0, i64 %.028.i11
+  %71 = getelementptr inbounds i8, ptr %3, i64 %.1.i12
+  %72 = sub nuw nsw i64 8, %.1.i12
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr nonnull readonly align 1 %71, i64 %72, i1 false)
+  br label %73
 
-.lr.ph.i17:                                       ; preds = %.lr.ph.i17, %PHP_MD4Update.exit16
-  %indvars.iv22.i18 = phi i64 [ 0, %PHP_MD4Update.exit16 ], [ %indvars.iv.next23.i20, %.lr.ph.i17 ]
-  %indvars.iv.i19 = phi i64 [ 0, %PHP_MD4Update.exit16 ], [ %indvars.iv.next.i21, %.lr.ph.i17 ]
-  %72 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i18
-  %73 = load i32, ptr %72, align 4
-  %74 = trunc i32 %73 to i8
-  %75 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i19
-  store i8 %74, ptr %75, align 1
-  %76 = load i32, ptr %72, align 4
-  %77 = lshr i32 %76, 8
-  %78 = trunc i32 %77 to i8
-  %79 = or disjoint i64 %indvars.iv.i19, 1
-  %80 = getelementptr inbounds i8, ptr %0, i64 %79
-  store i8 %78, ptr %80, align 1
-  %81 = load i32, ptr %72, align 4
-  %82 = lshr i32 %81, 16
-  %83 = trunc i32 %82 to i8
-  %84 = or disjoint i64 %indvars.iv.i19, 2
-  %85 = getelementptr inbounds i8, ptr %0, i64 %84
-  store i8 %83, ptr %85, align 1
-  %86 = load i32, ptr %72, align 4
-  %87 = lshr i32 %86, 24
-  %88 = trunc nuw i32 %87 to i8
-  %89 = or disjoint i64 %indvars.iv.i19, 3
-  %90 = getelementptr inbounds i8, ptr %0, i64 %89
-  store i8 %88, ptr %90, align 1
-  %indvars.iv.next23.i20 = add nuw nsw i64 %indvars.iv22.i18, 1
-  %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i19, 4
-  %exitcond.not.i22 = icmp eq i64 %indvars.iv.next23.i20, 4
-  br i1 %exitcond.not.i22, label %Encode.exit23, label %.lr.ph.i17
+73:                                               ; preds = %73, %PHP_MD4Update.exit15
+  %indvars.iv22.i16 = phi i64 [ 0, %PHP_MD4Update.exit15 ], [ %indvars.iv.next23.i18, %73 ]
+  %indvars.iv.i17 = phi i64 [ 0, %PHP_MD4Update.exit15 ], [ %indvars.iv.next.i19, %73 ]
+  %74 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i16
+  %75 = load i32, ptr %74, align 4
+  %76 = trunc i32 %75 to i8
+  %77 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i17
+  store i8 %76, ptr %77, align 1
+  %78 = load i32, ptr %74, align 4
+  %79 = lshr i32 %78, 8
+  %80 = trunc i32 %79 to i8
+  %81 = or disjoint i64 %indvars.iv.i17, 1
+  %82 = getelementptr inbounds i8, ptr %0, i64 %81
+  store i8 %80, ptr %82, align 1
+  %83 = load i32, ptr %74, align 4
+  %84 = lshr i32 %83, 16
+  %85 = trunc i32 %84 to i8
+  %86 = or disjoint i64 %indvars.iv.i17, 2
+  %87 = getelementptr inbounds i8, ptr %0, i64 %86
+  store i8 %85, ptr %87, align 1
+  %88 = load i32, ptr %74, align 4
+  %89 = lshr i32 %88, 24
+  %90 = trunc nuw i32 %89 to i8
+  %91 = or disjoint i64 %indvars.iv.i17, 3
+  %92 = getelementptr inbounds i8, ptr %0, i64 %91
+  store i8 %90, ptr %92, align 1
+  %indvars.iv.next23.i18 = add nuw nsw i64 %indvars.iv22.i16, 1
+  %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i17, 4
+  %exitcond.not.i20 = icmp eq i64 %indvars.iv.next23.i18, 4
+  br i1 %exitcond.not.i20, label %Encode.exit21, label %73
 
-Encode.exit23:                                    ; preds = %.lr.ph.i17
+Encode.exit21:                                    ; preds = %73
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 88) #8
   ret void
 }

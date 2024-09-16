@@ -997,7 +997,7 @@ if.end16:                                         ; preds = %if.then11, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN3irrL4BlitENS_8eBlitterEPNS_5video6IImageEPKNS_4core4rectIiEEPKNS4_8vector2dIiEES3_S8_j(i32 noundef %operation, ptr noundef readonly %dest, ptr noundef readonly %destClipping, <2 x i32> %destPos.0.val, ptr nocapture noundef readonly %source, ptr noundef readonly %sourceClipping, i32 noundef %argb) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN3irrL4BlitENS_8eBlitterEPNS_5video6IImageEPKNS_4core4rectIiEEPKNS4_8vector2dIiEES3_S8_j(i32 noundef range(i32 3, 7) %operation, ptr noundef readonly %dest, ptr noundef readonly %destClipping, <2 x i32> %destPos.0.val, ptr nocapture noundef nonnull readonly %source, ptr noundef readonly %sourceClipping, i32 noundef %argb) unnamed_addr #5 {
 entry:
   %job = alloca %"struct.irr::SBlitJob", align 16
   %Format.i.i = getelementptr inbounds i8, ptr %source, i64 8

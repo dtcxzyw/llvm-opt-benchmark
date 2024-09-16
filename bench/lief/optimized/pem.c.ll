@@ -118,7 +118,7 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br i1 %62, label %159, label %63
 
 63:                                               ; preds = %58
-  %64 = call fastcc i32 @pem_get_iv(ptr noundef nonnull %59, ptr noundef nonnull %9, i64 noundef 8)
+  %64 = call fastcc i32 @pem_get_iv(ptr noundef %59, ptr noundef %9, i64 noundef 8)
   %.not142 = icmp eq i32 %64, 0
   br i1 %.not142, label %65, label %159
 
@@ -143,7 +143,7 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br i1 %74, label %159, label %75
 
 75:                                               ; preds = %70
-  %76 = call fastcc i32 @pem_get_iv(ptr noundef nonnull %71, ptr noundef nonnull %9, i64 noundef 8)
+  %76 = call fastcc i32 @pem_get_iv(ptr noundef %71, ptr noundef %9, i64 noundef 8)
   %.not141 = icmp eq i32 %76, 0
   br i1 %.not141, label %77, label %159
 
@@ -193,7 +193,7 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br i1 %98, label %159, label %99
 
 99:                                               ; preds = %94
-  %100 = call fastcc i32 @pem_get_iv(ptr noundef nonnull %95, ptr noundef nonnull %9, i64 noundef 16)
+  %100 = call fastcc i32 @pem_get_iv(ptr noundef %95, ptr noundef %9, i64 noundef 16)
   %.not147 = icmp eq i32 %100, 0
   br i1 %.not147, label %.thread156, label %159
 
@@ -279,27 +279,27 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
 
 131:                                              ; preds = %130
   %132 = load i64, ptr %8, align 8
-  %133 = call fastcc i32 @pem_des3_decrypt(ptr noundef nonnull %9, ptr noundef nonnull %118, i64 noundef %132, ptr noundef nonnull %4, i64 noundef %5)
+  %133 = call fastcc i32 @pem_des3_decrypt(ptr noundef %9, ptr noundef %118, i64 noundef %132, ptr noundef %4, i64 noundef %5)
   br label %.thread161
 
 134:                                              ; preds = %130
   %135 = load i64, ptr %8, align 8
-  %136 = call fastcc i32 @pem_des_decrypt(ptr noundef nonnull %9, ptr noundef nonnull %118, i64 noundef %135, ptr noundef nonnull %4, i64 noundef %5)
+  %136 = call fastcc i32 @pem_des_decrypt(ptr noundef %9, ptr noundef %118, i64 noundef %135, ptr noundef %4, i64 noundef %5)
   br label %.thread161
 
 137:                                              ; preds = %130
   %138 = load i64, ptr %8, align 8
-  %139 = call fastcc i32 @pem_aes_decrypt(ptr noundef nonnull %9, i32 noundef 16, ptr noundef nonnull %118, i64 noundef %138, ptr noundef nonnull %4, i64 noundef %5)
+  %139 = call fastcc i32 @pem_aes_decrypt(ptr noundef %9, i32 noundef 16, ptr noundef %118, i64 noundef %138, ptr noundef %4, i64 noundef %5)
   br label %.thread161
 
 140:                                              ; preds = %130
   %141 = load i64, ptr %8, align 8
-  %142 = call fastcc i32 @pem_aes_decrypt(ptr noundef nonnull %9, i32 noundef 24, ptr noundef nonnull %118, i64 noundef %141, ptr noundef nonnull %4, i64 noundef %5)
+  %142 = call fastcc i32 @pem_aes_decrypt(ptr noundef %9, i32 noundef 24, ptr noundef %118, i64 noundef %141, ptr noundef %4, i64 noundef %5)
   br label %.thread161
 
 143:                                              ; preds = %130
   %144 = load i64, ptr %8, align 8
-  %145 = call fastcc i32 @pem_aes_decrypt(ptr noundef nonnull %9, i32 noundef 32, ptr noundef nonnull %118, i64 noundef %144, ptr noundef nonnull %4, i64 noundef %5)
+  %145 = call fastcc i32 @pem_aes_decrypt(ptr noundef %9, i32 noundef 32, ptr noundef %118, i64 noundef %144, ptr noundef %4, i64 noundef %5)
   br label %.thread161
 
 .thread161:                                       ; preds = %131, %134, %140, %143, %137
@@ -351,55 +351,50 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -4608, 1) i32 @pem_get_iv(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) unnamed_addr #4 {
-  tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 0, i64 %2, i1 false)
-  %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+define internal fastcc range(i32 -4608, 1) i32 @pem_get_iv(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1, i64 noundef range(i64 8, 17) %2) unnamed_addr #4 {
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1, i8 0, i64 %2, i1 false)
+  %4 = shl nuw nsw i64 %2, 1
+  br label %5
 
-.lr.ph.preheader:                                 ; preds = %3
-  %4 = shl i64 %2, 1
-  %umax = tail call i64 @llvm.umax.i64(i64 %4, i64 1)
-  br label %.lr.ph
+5:                                                ; preds = %3, %13
+  %.02432 = phi i64 [ 0, %3 ], [ %24, %13 ]
+  %.02531 = phi ptr [ %0, %3 ], [ %25, %13 ]
+  %6 = load i8, ptr %.02531, align 1
+  %7 = zext i8 %6 to i64
+  %8 = add i8 %6, -48
+  %or.cond = icmp ult i8 %8, 10
+  br i1 %or.cond, label %13, label %9
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %12
-  %.02432 = phi i64 [ %23, %12 ], [ 0, %.lr.ph.preheader ]
-  %.02531 = phi ptr [ %24, %12 ], [ %0, %.lr.ph.preheader ]
-  %5 = load i8, ptr %.02531, align 1
-  %6 = zext i8 %5 to i64
-  %7 = add i8 %5, -48
-  %or.cond = icmp ult i8 %7, 10
-  br i1 %or.cond, label %12, label %8
+9:                                                ; preds = %5
+  %10 = add i8 %6, -65
+  %or.cond29 = icmp ult i8 %10, 6
+  br i1 %or.cond29, label %13, label %11
 
-8:                                                ; preds = %.lr.ph
-  %9 = add i8 %5, -65
-  %or.cond29 = icmp ult i8 %9, 6
-  br i1 %or.cond29, label %12, label %10
+11:                                               ; preds = %9
+  %12 = add i8 %6, -97
+  %or.cond30 = icmp ult i8 %12, 6
+  br i1 %or.cond30, label %13, label %26
 
-10:                                               ; preds = %8
-  %11 = add i8 %5, -97
-  %or.cond30 = icmp ult i8 %11, 6
-  br i1 %or.cond30, label %12, label %._crit_edge
+13:                                               ; preds = %11, %9, %5
+  %.sink = phi i64 [ 4294967248, %5 ], [ 4294967241, %9 ], [ 4294967209, %11 ]
+  %14 = add nuw nsw i64 %.sink, %7
+  %15 = shl i64 %.02432, 2
+  %16 = and i64 %15, 4
+  %17 = xor i64 %16, 4
+  %18 = shl nuw nsw i64 %14, %17
+  %19 = lshr i64 %.02432, 1
+  %20 = getelementptr inbounds i8, ptr %1, i64 %19
+  %21 = load i8, ptr %20, align 1
+  %22 = trunc i64 %18 to i8
+  %23 = or i8 %21, %22
+  store i8 %23, ptr %20, align 1
+  %24 = add nuw nsw i64 %.02432, 1
+  %25 = getelementptr inbounds i8, ptr %.02531, i64 1
+  %exitcond.not = icmp eq i64 %24, %4
+  br i1 %exitcond.not, label %26, label %5, !llvm.loop !4
 
-12:                                               ; preds = %10, %8, %.lr.ph
-  %.sink = phi i64 [ 4294967248, %.lr.ph ], [ 4294967241, %8 ], [ 4294967209, %10 ]
-  %13 = add nuw nsw i64 %.sink, %6
-  %14 = shl i64 %.02432, 2
-  %15 = and i64 %14, 4
-  %16 = xor i64 %15, 4
-  %17 = shl nuw nsw i64 %13, %16
-  %18 = lshr i64 %.02432, 1
-  %19 = getelementptr inbounds i8, ptr %1, i64 %18
-  %20 = load i8, ptr %19, align 1
-  %21 = trunc i64 %17 to i8
-  %22 = or i8 %20, %21
-  store i8 %22, ptr %19, align 1
-  %23 = add nuw i64 %.02432, 1
-  %24 = getelementptr inbounds i8, ptr %.02531, i64 1
-  %exitcond.not = icmp eq i64 %23, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
-
-._crit_edge:                                      ; preds = %10, %12, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %12 ], [ -4608, %10 ]
+26:                                               ; preds = %13, %11
+  %.0 = phi i32 [ -4608, %11 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -414,11 +409,11 @@ declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_a
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pem_des3_decrypt(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #2 {
+define internal fastcc i32 @pem_des3_decrypt(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull %3, i64 noundef %4) unnamed_addr #2 {
   %6 = alloca %struct.mbedtls_des3_context, align 4
   %7 = alloca [24 x i8], align 16
   call void @mbedtls_des3_init(ptr noundef nonnull %6) #12
-  %8 = call fastcc i32 @pem_pbkdf1(ptr noundef nonnull %7, i64 noundef 24, ptr noundef %0, ptr noundef %3, i64 noundef %4)
+  %8 = call fastcc i32 @pem_pbkdf1(ptr noundef %7, i64 noundef 24, ptr noundef %0, ptr noundef %3, i64 noundef %4)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %13
 
@@ -428,7 +423,7 @@ define internal fastcc i32 @pem_des3_decrypt(ptr noundef %0, ptr noundef %1, i64
   br i1 %.not9, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = call i32 @mbedtls_des3_crypt_cbc(ptr noundef nonnull %6, i32 noundef 0, i64 noundef %2, ptr noundef %0, ptr noundef %1, ptr noundef %1) #12
+  %12 = call i32 @mbedtls_des3_crypt_cbc(ptr noundef nonnull %6, i32 noundef 0, i64 noundef %2, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %1) #12
   br label %13
 
 13:                                               ; preds = %9, %5, %11
@@ -439,11 +434,11 @@ define internal fastcc i32 @pem_des3_decrypt(ptr noundef %0, ptr noundef %1, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pem_des_decrypt(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #2 {
+define internal fastcc i32 @pem_des_decrypt(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull %3, i64 noundef %4) unnamed_addr #2 {
   %6 = alloca %struct.mbedtls_des_context, align 4
   %7 = alloca [8 x i8], align 1
   call void @mbedtls_des_init(ptr noundef nonnull %6) #12
-  %8 = call fastcc i32 @pem_pbkdf1(ptr noundef nonnull %7, i64 noundef 8, ptr noundef %0, ptr noundef %3, i64 noundef %4)
+  %8 = call fastcc i32 @pem_pbkdf1(ptr noundef %7, i64 noundef 8, ptr noundef %0, ptr noundef %3, i64 noundef %4)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %13
 
@@ -453,7 +448,7 @@ define internal fastcc i32 @pem_des_decrypt(ptr noundef %0, ptr noundef %1, i64 
   br i1 %.not9, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = call i32 @mbedtls_des_crypt_cbc(ptr noundef nonnull %6, i32 noundef 0, i64 noundef %2, ptr noundef %0, ptr noundef %1, ptr noundef %1) #12
+  %12 = call i32 @mbedtls_des_crypt_cbc(ptr noundef nonnull %6, i32 noundef 0, i64 noundef %2, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %1) #12
   br label %13
 
 13:                                               ; preds = %9, %5, %11
@@ -464,12 +459,12 @@ define internal fastcc i32 @pem_des_decrypt(ptr noundef %0, ptr noundef %1, i64 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pem_aes_decrypt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #2 {
+define internal fastcc i32 @pem_aes_decrypt(ptr noundef nonnull %0, i32 noundef range(i32 16, 33) %1, ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull %4, i64 noundef %5) unnamed_addr #2 {
   %7 = alloca %struct.mbedtls_aes_context, align 8
   %8 = alloca [32 x i8], align 16
   call void @mbedtls_aes_init(ptr noundef nonnull %7) #12
   %9 = zext nneg i32 %1 to i64
-  %10 = call fastcc i32 @pem_pbkdf1(ptr noundef nonnull %8, i64 noundef %9, ptr noundef %0, ptr noundef %4, i64 noundef %5)
+  %10 = call fastcc i32 @pem_pbkdf1(ptr noundef %8, i64 noundef %9, ptr noundef %0, ptr noundef %4, i64 noundef %5)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %16
 
@@ -480,7 +475,7 @@ define internal fastcc i32 @pem_aes_decrypt(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not12, label %14, label %16
 
 14:                                               ; preds = %11
-  %15 = call i32 @mbedtls_aes_crypt_cbc(ptr noundef nonnull %7, i32 noundef 0, i64 noundef %3, ptr noundef %0, ptr noundef %2, ptr noundef %2) #12
+  %15 = call i32 @mbedtls_aes_crypt_cbc(ptr noundef nonnull %7, i32 noundef 0, i64 noundef %3, ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %2) #12
   br label %16
 
 16:                                               ; preds = %11, %6, %14
@@ -604,7 +599,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @mbedtls_des3_init(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pem_pbkdf1(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #2 {
+define internal fastcc i32 @pem_pbkdf1(ptr nocapture noundef nonnull writeonly %0, i64 noundef range(i64 8, 33) %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %4) unnamed_addr #2 {
   %6 = alloca %struct.mbedtls_md5_context, align 4
   %7 = alloca [16 x i8], align 16
   call void @mbedtls_md5_init(ptr noundef nonnull %6) #12
@@ -613,12 +608,12 @@ define internal fastcc i32 @pem_pbkdf1(ptr nocapture noundef writeonly %0, i64 n
   br i1 %.not, label %9, label %32
 
 9:                                                ; preds = %5
-  %10 = call i32 @mbedtls_md5_update(ptr noundef nonnull %6, ptr noundef %3, i64 noundef %4) #12
+  %10 = call i32 @mbedtls_md5_update(ptr noundef nonnull %6, ptr noundef nonnull %3, i64 noundef %4) #12
   %.not27 = icmp eq i32 %10, 0
   br i1 %.not27, label %11, label %32
 
 11:                                               ; preds = %9
-  %12 = call i32 @mbedtls_md5_update(ptr noundef nonnull %6, ptr noundef %2, i64 noundef 8) #12
+  %12 = call i32 @mbedtls_md5_update(ptr noundef nonnull %6, ptr noundef nonnull %2, i64 noundef 8) #12
   %.not28 = icmp eq i32 %12, 0
   br i1 %.not28, label %13, label %32
 
@@ -632,7 +627,7 @@ define internal fastcc i32 @pem_pbkdf1(ptr nocapture noundef writeonly %0, i64 n
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %15
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 16 %7, i64 %1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 16 dereferenceable(1) %7, i64 %1, i1 false)
   br label %32
 
 18:                                               ; preds = %15
@@ -647,12 +642,12 @@ define internal fastcc i32 @pem_pbkdf1(ptr nocapture noundef writeonly %0, i64 n
   br i1 %.not31, label %22, label %32
 
 22:                                               ; preds = %20
-  %23 = call i32 @mbedtls_md5_update(ptr noundef nonnull %6, ptr noundef %3, i64 noundef %4) #12
+  %23 = call i32 @mbedtls_md5_update(ptr noundef nonnull %6, ptr noundef nonnull %3, i64 noundef %4) #12
   %.not32 = icmp eq i32 %23, 0
   br i1 %.not32, label %24, label %32
 
 24:                                               ; preds = %22
-  %25 = call i32 @mbedtls_md5_update(ptr noundef nonnull %6, ptr noundef %2, i64 noundef 8) #12
+  %25 = call i32 @mbedtls_md5_update(ptr noundef nonnull %6, ptr noundef nonnull %2, i64 noundef 8) #12
   %.not33 = icmp eq i32 %25, 0
   br i1 %.not33, label %26, label %32
 
@@ -713,9 +708,6 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

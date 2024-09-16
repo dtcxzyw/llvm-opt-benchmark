@@ -17,7 +17,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @bnrand(i32 noundef %flag, ptr noundef %rnd, i32 noundef %bits, i32 noundef %top, i32 noundef %bottom, i32 noundef %strength, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @bnrand(i32 noundef range(i32 0, 3) %flag, ptr noundef %rnd, i32 noundef %bits, i32 noundef %top, i32 noundef %bottom, i32 noundef %strength, ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %c = alloca i8, align 1
   %call = tail call ptr @ossl_bn_get_libctx(ptr noundef %ctx) #4
@@ -232,7 +232,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @bnrand_range(i32 noundef %flag, ptr noundef %r, ptr noundef %range, i32 noundef %strength, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @bnrand_range(i32 noundef range(i32 0, 3) %flag, ptr noundef %r, ptr noundef %range, i32 noundef %strength, ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %r, null
   br i1 %cmp, label %if.then, label %if.end

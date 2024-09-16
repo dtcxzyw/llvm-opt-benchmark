@@ -16039,7 +16039,7 @@ _ZN7TileDefD2Ev.exit984.5:                        ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15fillTileAttribsP14ITextureSourceP9TileLayerRK8TileSpecRK7TileDefN3irr5video6SColorEhjbRK15TextureSettings(ptr noundef %tsrc, ptr noundef %layer, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %tile, ptr noundef nonnull align 8 dereferenceable(60) %tiledef, i32 %color.coerce, i8 noundef zeroext %material_type, i32 noundef %shader_id, i1 noundef zeroext %backface_culling, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %tsettings) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15fillTileAttribsP14ITextureSourceP9TileLayerRK8TileSpecRK7TileDefN3irr5video6SColorEhjbRK15TextureSettings(ptr noundef %tsrc, ptr noundef nonnull %layer, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %tile, ptr noundef nonnull align 8 dereferenceable(60) %tiledef, i32 %color.coerce, i8 noundef zeroext range(i8 0, 10) %material_type, i32 noundef %shader_id, i1 noundef zeroext %backface_culling, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %tsettings) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %frame_count = alloca i32, align 4
   %frame_length_ms = alloca i32, align 4

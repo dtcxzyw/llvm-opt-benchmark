@@ -719,7 +719,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -202, 1) i32 @DoBase64_Encode(ptr nocapture noundef readonly %in, i32 noundef %inLen, ptr noundef writeonly %out, ptr noundef %outLen, i32 noundef %escaped) unnamed_addr #0 {
+define internal fastcc range(i32 -202, 1) i32 @DoBase64_Encode(ptr nocapture noundef readonly %in, i32 noundef %inLen, ptr noundef writeonly %out, ptr noundef %outLen, i32 noundef range(i32 0, 3) %escaped) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %out, null
   %sub = add i32 %inLen, 2

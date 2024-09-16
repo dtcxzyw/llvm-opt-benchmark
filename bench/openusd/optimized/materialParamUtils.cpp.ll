@@ -375,7 +375,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__44UsdImagingBuildHdMaterialNet
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr null, ptr %21, align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPIE, i64 16), ptr %8, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L10_WalkGraphERKNS_22UsdShadeConnectableAPIEPNS_17HdMaterialNetworkEPSt13unordered_setINS_7SdfPathENS6_4HashESt8equal_toIS6_ESaIS6_EERKSt6vectorINS_7TfTokenESaISE_EESI_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, double %5)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L10_WalkGraphERKNS_22UsdShadeConnectableAPIEPNS_17HdMaterialNetworkEPSt13unordered_setINS_7SdfPathENS6_4HashESt8equal_toIS6_ESaIS6_EERKSt6vectorINS_7TfTokenESaISE_EESI_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %13, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, double %5)
           to label %22 unwind label %36
 
 22:                                               ; preds = %20
@@ -784,7 +784,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit.thread
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L10_WalkGraphERKNS_22UsdShadeConnectableAPIEPNS_17HdMaterialNetworkEPSt13unordered_setINS_7SdfPathENS6_4HashESt8equal_toIS6_ESaIS6_EERKSt6vectorINS_7TfTokenESaISE_EESI_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, double %5) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L10_WalkGraphERKNS_22UsdShadeConnectableAPIEPNS_17HdMaterialNetworkEPSt13unordered_setINS_7SdfPathENS6_4HashESt8equal_toIS6_ESaIS6_EERKSt6vectorINS_7TfTokenESaISE_EESI_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, double %5) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
@@ -1404,7 +1404,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i203: ; preds = %357, %35
 362:                                              ; preds = %361
   store ptr null, ptr %244, align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPIE, i64 16), ptr %48, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L10_WalkGraphERKNS_22UsdShadeConnectableAPIEPNS_17HdMaterialNetworkEPSt13unordered_setINS_7SdfPathENS6_4HashESt8equal_toIS6_ESaIS6_EERKSt6vectorINS_7TfTokenESaISE_EESI_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, double %5)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L10_WalkGraphERKNS_22UsdShadeConnectableAPIEPNS_17HdMaterialNetworkEPSt13unordered_setINS_7SdfPathENS6_4HashESt8equal_toIS6_ESaIS6_EERKSt6vectorINS_7TfTokenESaISE_EESI_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, double %5)
           to label %363 unwind label %744
 
 363:                                              ; preds = %362
@@ -4610,7 +4610,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__40UsdImagingIsHd
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr null, ptr %10, align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPIE, i64 16), ptr %3, align 8
-  %11 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L19_IsGraphTimeVaryingERKNS_22UsdShadeConnectableAPIEPSt13unordered_setINS_7SdfPathENS4_4HashESt8equal_toIS4_ESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %2)
+  %11 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L19_IsGraphTimeVaryingERKNS_22UsdShadeConnectableAPIEPSt13unordered_setINS_7SdfPathENS4_4HashESt8equal_toIS4_ESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %2)
           to label %12 unwind label %44
 
 12:                                               ; preds = %9
@@ -4695,7 +4695,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_ENSt8__de
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L19_IsGraphTimeVaryingERKNS_22UsdShadeConnectableAPIEPSt13unordered_setINS_7SdfPathENS4_4HashESt8equal_toIS4_ESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L19_IsGraphTimeVaryingERKNS_22UsdShadeConnectableAPIEPSt13unordered_setINS_7SdfPathENS4_4HashESt8equal_toIS4_ESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::__detail::_AllocNode", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -5160,7 +5160,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPrimEv.exit: ; preds = %246
 249:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPrimEv.exit
   store ptr null, ptr %182, align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPIE, i64 16), ptr %10, align 8
-  %250 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L19_IsGraphTimeVaryingERKNS_22UsdShadeConnectableAPIEPSt13unordered_setINS_7SdfPathENS4_4HashESt8equal_toIS4_ESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull %1)
+  %250 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L19_IsGraphTimeVaryingERKNS_22UsdShadeConnectableAPIEPSt13unordered_setINS_7SdfPathENS4_4HashESt8equal_toIS4_ESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %1)
           to label %251 unwind label %288
 
 251:                                              ; preds = %249

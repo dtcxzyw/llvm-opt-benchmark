@@ -871,7 +871,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #6
-  %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef nonnull %bdrvs, ptr noundef %errp)
+  %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %bdrvs, ptr noundef %errp)
   %cmp = icmp slt i32 %call2, 0
   %bdrvs.val.pre = load ptr, ptr %bdrvs, align 8
   br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.cond.preheader
@@ -1031,7 +1031,7 @@ glib_autoptr_cleanup_GList.exit:                  ; preds = %glib_autoptr_cleanu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef readonly %devices, ptr nocapture noundef writeonly %all_bdrvs, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef readonly %devices, ptr nocapture noundef nonnull writeonly %all_bdrvs, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %it = alloca %struct.BdrvNextIterator, align 8
   br i1 %has_devices, label %if.then, label %if.else
@@ -1117,7 +1117,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #6
-  %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef nonnull %bdrvs, ptr noundef %errp)
+  %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %bdrvs, ptr noundef %errp)
   %cmp = icmp slt i32 %call2, 0
   %bdrvs.val.pre = load ptr, ptr %bdrvs, align 8
   br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.cond.preheader
@@ -1268,7 +1268,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #6
-  %call1 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef nonnull %bdrvs, ptr noundef %errp)
+  %call1 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %bdrvs, ptr noundef %errp)
   tail call void @bdrv_graph_rdunlock_main_loop() #6
   %cmp = icmp slt i32 %call1, 0
   %bdrvs.val.pre = load ptr, ptr %bdrvs, align 8
@@ -1411,7 +1411,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #6
-  %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef nonnull %bdrvs, ptr noundef %errp)
+  %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %bdrvs, ptr noundef %errp)
   %cmp = icmp slt i32 %call2, 0
   %bdrvs.val.pre = load ptr, ptr %bdrvs, align 8
   br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.cond.preheader
@@ -1591,7 +1591,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #6
-  %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef nonnull %bdrvs, ptr noundef %errp)
+  %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %bdrvs, ptr noundef %errp)
   %cmp = icmp slt i32 %call2, 0
   %bdrvs.val.pre = load ptr, ptr %bdrvs, align 8
   br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.cond.preheader
@@ -1770,7 +1770,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #6
-  %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef nonnull %bdrvs, ptr noundef %errp)
+  %call2 = call fastcc i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %bdrvs, ptr noundef %errp)
   %cmp = icmp slt i32 %call2, 0
   %bdrvs.val.pre = load ptr, ptr %bdrvs, align 8
   br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.cond.preheader

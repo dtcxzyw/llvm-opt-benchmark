@@ -231,7 +231,7 @@ entry:
   %tok.addr = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i)
   store ptr %tok, ptr %tok.addr.i, align 8
-  %call.i = call fastcc ptr @logand(ptr noundef nonnull %tok.addr.i, ptr noundef %tok)
+  %call.i = call fastcc ptr @logand(ptr noundef %tok.addr.i, ptr noundef %tok)
   %0 = load ptr, ptr %tok.addr.i, align 8
   %call1.i35 = tail call zeroext i1 @equal(ptr noundef %0, ptr noundef nonnull @.str.5) #13
   br i1 %call1.i35, label %while.body.i, label %logor.exit
@@ -241,7 +241,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %node.0.i36 = phi ptr [ %call.i.i31, %while.body.i ], [ %call.i, %entry ]
   %next.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %next.i, align 8
-  %call2.i = call fastcc ptr @logand(ptr noundef nonnull %tok.addr.i, ptr noundef %2)
+  %call2.i = call fastcc ptr @logand(ptr noundef %tok.addr.i, ptr noundef %2)
   %call.i.i31 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 25, ptr %call.i.i31, align 16
   %tok2.i.i32 = getelementptr inbounds i8, ptr %call.i.i31, i64 24
@@ -357,7 +357,7 @@ if.end15:                                         ; preds = %if.end
   %cond17 = getelementptr inbounds i8, ptr %call.i29, i64 48
   store ptr %node.0.i.lcssa, ptr %cond17, align 16
   %11 = load ptr, ptr %next, align 8
-  %call19 = call fastcc ptr @expr(ptr noundef nonnull %tok.addr, ptr noundef %11)
+  %call19 = call fastcc ptr @expr(ptr noundef %tok.addr, ptr noundef %11)
   %then20 = getelementptr inbounds i8, ptr %call.i29, i64 56
   store ptr %call19, ptr %then20, align 8
   %12 = load ptr, ptr %tok.addr, align 8
@@ -416,7 +416,7 @@ for.cond.preheader:                               ; preds = %while.cond.backedge
 while.body:                                       ; preds = %entry, %while.cond.backedge
   %6 = phi ptr [ %call1.sink, %while.cond.backedge ], [ %tok, %entry ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %attr, i8 0, i64 12, i1 false)
-  %call = call fastcc ptr @declspec(ptr noundef nonnull %tok.addr, ptr noundef nonnull %6, ptr noundef nonnull %attr)
+  %call = call fastcc ptr @declspec(ptr noundef %tok.addr, ptr noundef nonnull %6, ptr noundef nonnull %attr)
   %7 = load i8, ptr %attr, align 4
   %tobool = trunc i8 %7 to i1
   %8 = load ptr, ptr %tok.addr, align 8
@@ -447,7 +447,7 @@ is_function.exit.thread:                          ; preds = %if.end
 
 is_function.exit:                                 ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %dummy.i, i8 0, i64 120, i1 false)
-  %call1.i7 = call fastcc ptr @declarator(ptr noundef nonnull %tok.addr.i, ptr noundef %8, ptr noundef nonnull %dummy.i)
+  %call1.i7 = call fastcc ptr @declarator(ptr noundef %tok.addr.i, ptr noundef %8, ptr noundef nonnull %dummy.i)
   %10 = load i32, ptr %call1.i7, align 8
   %cmp.i = icmp eq i32 %10, 11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i)
@@ -455,11 +455,11 @@ is_function.exit:                                 ; preds = %if.end
   br i1 %cmp.i, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %is_function.exit
-  %call4 = call fastcc ptr @function(ptr noundef %8, ptr noundef %call, ptr noundef nonnull %attr)
+  %call4 = call fastcc ptr @function(ptr noundef %8, ptr noundef %call, ptr noundef %attr)
   br label %while.cond.backedge
 
 if.end5:                                          ; preds = %is_function.exit.thread, %is_function.exit
-  %call6 = call fastcc ptr @global_variable(ptr noundef %8, ptr noundef %call, ptr noundef nonnull %attr)
+  %call6 = call fastcc ptr @global_variable(ptr noundef %8, ptr noundef %call, ptr noundef %attr)
   br label %while.cond.backedge
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -470,7 +470,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %tobool8, label %if.then9, label %for.inc
 
 if.then9:                                         ; preds = %for.body
-  call fastcc void @mark_live(ptr noundef nonnull %var.013)
+  call fastcc void @mark_live(ptr noundef %var.013)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then9
@@ -552,7 +552,7 @@ scan_globals.exit:                                ; preds = %for.inc16.i, %for.e
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @declspec(ptr nocapture noundef writeonly %rest, ptr noundef %tok, ptr noundef %attr) unnamed_addr #0 {
+define internal fastcc ptr @declspec(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok, ptr noundef %attr) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   store ptr %tok, ptr %tok.addr, align 8
@@ -802,7 +802,7 @@ if.then75:                                        ; preds = %if.then72
   %43 = load ptr, ptr %tok.addr, align 8
   %next76 = getelementptr inbounds i8, ptr %43, i64 8
   %44 = load ptr, ptr %next76, align 8
-  %call77 = call fastcc ptr @typename(ptr noundef nonnull %tok.addr, ptr noundef %44)
+  %call77 = call fastcc ptr @typename(ptr noundef %tok.addr, ptr noundef %44)
   %45 = load ptr, ptr %tok.addr, align 8
   %call78 = call ptr @skip(ptr noundef %45, ptr noundef nonnull @.str.24) #13
   store ptr %call78, ptr %tok.addr, align 8
@@ -830,7 +830,7 @@ if.end85:                                         ; preds = %if.then82
   br i1 %call88, label %if.then89, label %if.else92
 
 if.then89:                                        ; preds = %if.end85
-  %call90 = call fastcc ptr @typename(ptr noundef nonnull %tok.addr, ptr noundef %48)
+  %call90 = call fastcc ptr @typename(ptr noundef %tok.addr, ptr noundef %48)
   %align = getelementptr inbounds i8, ptr %call90, i64 8
   %49 = load i32, ptr %align, align 8
   br label %if.end96
@@ -884,7 +884,7 @@ if.end116:                                        ; preds = %if.then113
 if.then118:                                       ; preds = %if.end116
   %next119 = getelementptr inbounds i8, ptr %56, i64 8
   %57 = load ptr, ptr %next119, align 8
-  %call120 = call fastcc ptr @struct_decl(ptr noundef nonnull %tok.addr, ptr noundef %57)
+  %call120 = call fastcc ptr @struct_decl(ptr noundef %tok.addr, ptr noundef %57)
   br label %while.cond.outer.backedge
 
 while.cond.outer.backedge:                        ; preds = %if.then118, %if.then128, %if.else136, %if.then133, %if.then123, %sw.epilog
@@ -900,7 +900,7 @@ if.else121:                                       ; preds = %if.end116
 if.then123:                                       ; preds = %if.else121
   %next124 = getelementptr inbounds i8, ptr %58, i64 8
   %59 = load ptr, ptr %next124, align 8
-  %call125 = call fastcc ptr @union_decl(ptr noundef nonnull %tok.addr, ptr noundef %59)
+  %call125 = call fastcc ptr @union_decl(ptr noundef %tok.addr, ptr noundef %59)
   br label %while.cond.outer.backedge
 
 if.else126:                                       ; preds = %if.else121
@@ -911,7 +911,7 @@ if.else126:                                       ; preds = %if.else121
 if.then128:                                       ; preds = %if.else126
   %next129 = getelementptr inbounds i8, ptr %60, i64 8
   %61 = load ptr, ptr %next129, align 8
-  %call130 = call fastcc ptr @enum_specifier(ptr noundef nonnull %tok.addr, ptr noundef %61)
+  %call130 = call fastcc ptr @enum_specifier(ptr noundef %tok.addr, ptr noundef %61)
   br label %while.cond.outer.backedge
 
 if.else131:                                       ; preds = %if.else126
@@ -922,7 +922,7 @@ if.else131:                                       ; preds = %if.else126
   br i1 %call132, label %if.then133, label %if.else136
 
 if.then133:                                       ; preds = %if.else131
-  %call135 = call fastcc ptr @typeof_specifier(ptr noundef nonnull %tok.addr, ptr noundef %63)
+  %call135 = call fastcc ptr @typeof_specifier(ptr noundef %tok.addr, ptr noundef %63)
   br label %while.cond.outer.backedge
 
 if.else136:                                       ; preds = %if.else131
@@ -1135,7 +1135,7 @@ entry:
 
 if.end.preheader:                                 ; preds = %entry
   %.pre = load ptr, ptr %tok.addr, align 8
-  %call221 = call fastcc ptr @declarator(ptr noundef nonnull %tok.addr, ptr noundef %.pre, ptr noundef %basety)
+  %call221 = call fastcc ptr @declarator(ptr noundef %tok.addr, ptr noundef %.pre, ptr noundef %basety)
   %name22 = getelementptr inbounds i8, ptr %call221, i64 32
   %0 = load ptr, ptr %name22, align 8
   %tobool3.not23 = icmp eq ptr %0, null
@@ -1145,7 +1145,7 @@ if.then.critedge:                                 ; preds = %get_ident.exit
   %1 = load ptr, ptr %tok.addr, align 8
   %call1 = call ptr @skip(ptr noundef %1, ptr noundef nonnull @.str.57) #13
   store ptr %call1, ptr %tok.addr, align 8
-  %call2 = call fastcc ptr @declarator(ptr noundef nonnull %tok.addr, ptr noundef %call1, ptr noundef %basety)
+  %call2 = call fastcc ptr @declarator(ptr noundef %tok.addr, ptr noundef %call1, ptr noundef %basety)
   %name = getelementptr inbounds i8, ptr %call2, i64 32
   %2 = load ptr, ptr %name, align 8
   %tobool3.not = icmp eq ptr %2, null
@@ -1192,11 +1192,11 @@ while.end:                                        ; preds = %get_ident.exit, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @function(ptr noundef %tok, ptr noundef %basety, ptr nocapture noundef readonly %attr) unnamed_addr #0 {
+define internal fastcc ptr @function(ptr noundef %tok, ptr noundef %basety, ptr nocapture noundef nonnull readonly %attr) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   store ptr %tok, ptr %tok.addr, align 8
-  %call = call fastcc ptr @declarator(ptr noundef nonnull %tok.addr, ptr noundef %tok, ptr noundef %basety)
+  %call = call fastcc ptr @declarator(ptr noundef %tok.addr, ptr noundef %tok, ptr noundef %basety)
   %name = getelementptr inbounds i8, ptr %call, i64 32
   %0 = load ptr, ptr %name, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1562,7 +1562,7 @@ if.end65:                                         ; preds = %if.then62, %if.end5
   call void @hashmap_put(ptr noundef nonnull %vars.i80, ptr noundef nonnull @.str.149, ptr noundef %call.i79) #13
   store ptr %call.i.i.i.i69, ptr %call.i79, align 8
   %66 = load ptr, ptr %tok.addr, align 8
-  %call84 = call fastcc ptr @compound_stmt(ptr noundef nonnull %tok.addr, ptr noundef %66)
+  %call84 = call fastcc ptr @compound_stmt(ptr noundef %tok.addr, ptr noundef %66)
   %body = getelementptr inbounds i8, ptr %fn.0, i64 88
   store ptr %call84, ptr %body, align 8
   %67 = load ptr, ptr @locals, align 8
@@ -1656,7 +1656,7 @@ return:                                           ; preds = %land.end46, %resolv
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @global_variable(ptr noundef %tok, ptr noundef %basety, ptr nocapture noundef readonly %attr) unnamed_addr #0 {
+define internal fastcc ptr @global_variable(ptr noundef %tok, ptr noundef %basety, ptr nocapture noundef nonnull readonly %attr) unnamed_addr #0 {
 entry:
   %head.i = alloca %struct.Relocation, align 8
   %tok.addr = alloca ptr, align 8
@@ -1670,7 +1670,7 @@ while.body.lr.ph:                                 ; preds = %entry
   %is_tls = getelementptr inbounds i8, ptr %attr, i64 4
   %align = getelementptr inbounds i8, ptr %attr, i64 8
   %.pre = load ptr, ptr %tok.addr, align 8
-  %call234 = call fastcc ptr @declarator(ptr noundef nonnull %tok.addr, ptr noundef %.pre, ptr noundef %basety)
+  %call234 = call fastcc ptr @declarator(ptr noundef %tok.addr, ptr noundef %.pre, ptr noundef %basety)
   %name35 = getelementptr inbounds i8, ptr %call234, i64 32
   %0 = load ptr, ptr %name35, align 8
   %tobool3.not36 = icmp eq ptr %0, null
@@ -1680,7 +1680,7 @@ if.then:                                          ; preds = %if.end30
   %1 = load ptr, ptr %tok.addr, align 8
   %call1 = call ptr @skip(ptr noundef %1, ptr noundef nonnull @.str.57) #13
   store ptr %call1, ptr %tok.addr, align 8
-  %call2 = call fastcc ptr @declarator(ptr noundef nonnull %tok.addr, ptr noundef %call1, ptr noundef %basety)
+  %call2 = call fastcc ptr @declarator(ptr noundef %tok.addr, ptr noundef %call1, ptr noundef %basety)
   %name = getelementptr inbounds i8, ptr %call2, i64 32
   %2 = load ptr, ptr %name, align 8
   %tobool3.not = icmp eq ptr %2, null
@@ -1760,7 +1760,7 @@ if.then23:                                        ; preds = %if.end21
   %17 = load ptr, ptr %next, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %head.i)
   %18 = load ptr, ptr %ty2.i.i, align 8
-  %call.i16 = call fastcc ptr @initializer(ptr noundef nonnull %tok.addr, ptr noundef %17, ptr noundef %18, ptr noundef nonnull %ty2.i.i)
+  %call.i16 = call fastcc ptr @initializer(ptr noundef %tok.addr, ptr noundef %17, ptr noundef %18, ptr noundef nonnull %ty2.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %head.i, i8 0, i64 32, i1 false)
   %19 = load ptr, ptr %ty2.i.i, align 8
   %size.i = getelementptr inbounds i8, ptr %19, i64 4
@@ -1802,7 +1802,7 @@ while.end:                                        ; preds = %if.end30, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mark_live(ptr nocapture noundef %var) unnamed_addr #0 {
+define internal fastcc void @mark_live(ptr nocapture noundef nonnull %var) unnamed_addr #0 {
 entry:
   %is_function = getelementptr inbounds i8, ptr %var, i64 44
   %0 = load i8, ptr %is_function, align 4
@@ -1858,7 +1858,7 @@ land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
   br i1 %tobool6.i, label %if.then5, label %for.inc
 
 if.then5:                                         ; preds = %land.lhs.true4.i
-  tail call fastcc void @mark_live(ptr noundef nonnull %7)
+  tail call fastcc void @mark_live(ptr noundef %7)
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true4.i, %land.lhs.true.i, %while.end.i, %if.then5
@@ -2602,11 +2602,11 @@ declare void @error_tok(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @expr(ptr nocapture noundef writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc ptr @expr(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   store ptr %tok, ptr %tok.addr, align 8
-  %call = call fastcc ptr @assign(ptr noundef nonnull %tok.addr, ptr noundef %tok)
+  %call = call fastcc ptr @assign(ptr noundef %tok.addr, ptr noundef %tok)
   %0 = load ptr, ptr %tok.addr, align 8
   %call1 = call zeroext i1 @equal(ptr noundef %0, ptr noundef nonnull @.str.57) #13
   %1 = load ptr, ptr %tok.addr, align 8
@@ -2639,7 +2639,7 @@ return:                                           ; preds = %if.end, %if.then
 declare ptr @skip(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @logand(ptr nocapture noundef writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc ptr @logand(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %tok.addr.i89 = alloca ptr, align 8
   %tok.addr.i67 = alloca ptr, align 8
@@ -2649,7 +2649,7 @@ entry:
   %tok.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i)
   store ptr %tok, ptr %tok.addr.i, align 8
-  %call.i = call fastcc ptr @bitxor(ptr noundef nonnull %tok.addr.i, ptr noundef %tok)
+  %call.i = call fastcc ptr @bitxor(ptr noundef %tok.addr.i, ptr noundef %tok)
   %0 = load ptr, ptr %tok.addr.i, align 8
   %call1.i124 = tail call zeroext i1 @equal(ptr noundef %0, ptr noundef nonnull @.str.7) #13
   br i1 %call1.i124, label %while.body.i, label %bitor.exit
@@ -2659,7 +2659,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %node.0.i125 = phi ptr [ %call.i.i12, %while.body.i ], [ %call.i, %entry ]
   %next.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %next.i, align 8
-  %call2.i = call fastcc ptr @bitxor(ptr noundef nonnull %tok.addr.i, ptr noundef %2)
+  %call2.i = call fastcc ptr @bitxor(ptr noundef %tok.addr.i, ptr noundef %2)
   %call.i.i12 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 8, ptr %call.i.i12, align 16
   %tok2.i.i13 = getelementptr inbounds i8, ptr %call.i.i12, i64 24
@@ -2686,7 +2686,7 @@ while.body:                                       ; preds = %bitor.exit, %bitor.
   %4 = load ptr, ptr %next, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i2)
   store ptr %4, ptr %tok.addr.i2, align 8
-  %call.i3 = call fastcc ptr @bitxor(ptr noundef nonnull %tok.addr.i2, ptr noundef %4)
+  %call.i3 = call fastcc ptr @bitxor(ptr noundef %tok.addr.i2, ptr noundef %4)
   %tok.addr.i2.promoted = load ptr, ptr %tok.addr.i2, align 8
   %call1.i6143 = tail call zeroext i1 @equal(ptr noundef %tok.addr.i2.promoted, ptr noundef nonnull @.str.7) #13
   br i1 %call1.i6143, label %while.body.i7, label %bitor.exit11
@@ -2698,7 +2698,7 @@ while.body.i7:                                    ; preds = %while.body, %bitxor
   %5 = load ptr, ptr %next.i8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i89)
   store ptr %5, ptr %tok.addr.i89, align 8
-  %call.i90 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i89, ptr noundef %5)
+  %call.i90 = call fastcc ptr @relational(ptr noundef %tok.addr.i89, ptr noundef %5)
   br label %for.cond.i91
 
 for.cond.i91:                                     ; preds = %for.cond.i91.backedge, %while.body.i7
@@ -2711,7 +2711,7 @@ for.cond.i91.backedge:                            ; preds = %for.cond.i91, %if.e
   %.sink = phi i32 [ 13, %if.end.i94 ], [ 12, %for.cond.i91 ]
   %next.i104 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %next.i104, align 8
-  %call2.i105 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i89, ptr noundef %7)
+  %call2.i105 = call fastcc ptr @relational(ptr noundef %tok.addr.i89, ptr noundef %7)
   %call.i.i.i106 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink, ptr %call.i.i.i106, align 16
   %tok2.i.i.i107 = getelementptr inbounds i8, ptr %call.i.i.i106, i64 24
@@ -2744,7 +2744,7 @@ while.body.i.i:                                   ; preds = %equality.exit110, %
   %8 = load ptr, ptr %next.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i67)
   store ptr %8, ptr %tok.addr.i67, align 8
-  %call.i68 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i67, ptr noundef %8)
+  %call.i68 = call fastcc ptr @relational(ptr noundef %tok.addr.i67, ptr noundef %8)
   br label %for.cond.i69
 
 for.cond.i69:                                     ; preds = %for.cond.i69.backedge, %while.body.i.i
@@ -2757,7 +2757,7 @@ for.cond.i69.backedge:                            ; preds = %for.cond.i69, %if.e
   %.sink168 = phi i32 [ 13, %if.end.i72 ], [ 12, %for.cond.i69 ]
   %next.i82 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %next.i82, align 8
-  %call2.i83 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i67, ptr noundef %10)
+  %call2.i83 = call fastcc ptr @relational(ptr noundef %tok.addr.i67, ptr noundef %10)
   %call.i.i.i84 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink168, ptr %call.i.i.i84, align 16
   %tok2.i.i.i85 = getelementptr inbounds i8, ptr %call.i.i.i84, i64 24
@@ -2792,7 +2792,7 @@ while.body.i25:                                   ; preds = %while.cond.i22.preh
   %11 = load ptr, ptr %next.i26, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i41)
   store ptr %11, ptr %tok.addr.i41, align 8
-  %call.i42 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i41, ptr noundef %11)
+  %call.i42 = call fastcc ptr @relational(ptr noundef %tok.addr.i41, ptr noundef %11)
   br label %for.cond.i43
 
 for.cond.i43:                                     ; preds = %for.cond.i43.backedge, %while.body.i25
@@ -2805,7 +2805,7 @@ for.cond.i43.backedge:                            ; preds = %for.cond.i43, %if.e
   %.sink173 = phi i32 [ 13, %if.end.i46 ], [ 12, %for.cond.i43 ]
   %next.i56 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %next.i56, align 8
-  %call2.i57 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i41, ptr noundef %13)
+  %call2.i57 = call fastcc ptr @relational(ptr noundef %tok.addr.i41, ptr noundef %13)
   %call.i.i.i58 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink173, ptr %call.i.i.i58, align 16
   %tok2.i.i.i59 = getelementptr inbounds i8, ptr %call.i.i.i58, i64 24
@@ -2832,7 +2832,7 @@ while.body.i7.i:                                  ; preds = %equality.exit62, %e
   %14 = load ptr, ptr %next.i8.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i31)
   store ptr %14, ptr %tok.addr.i31, align 8
-  %call.i32 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i31, ptr noundef %14)
+  %call.i32 = call fastcc ptr @relational(ptr noundef %tok.addr.i31, ptr noundef %14)
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.cond.i.backedge, %while.body.i7.i
@@ -2845,7 +2845,7 @@ for.cond.i.backedge:                              ; preds = %for.cond.i, %if.end
   %.sink178 = phi i32 [ 13, %if.end.i ], [ 12, %for.cond.i ]
   %next.i35 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %next.i35, align 8
-  %call2.i36 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i31, ptr noundef %16)
+  %call2.i36 = call fastcc ptr @relational(ptr noundef %tok.addr.i31, ptr noundef %16)
   %call.i.i.i37 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink178, ptr %call.i.i.i37, align 16
   %tok2.i.i.i38 = getelementptr inbounds i8, ptr %call.i.i.i37, i64 24
@@ -2924,7 +2924,7 @@ while.end:                                        ; preds = %bitor.exit11, %bito
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @bitxor(ptr nocapture noundef writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc ptr @bitxor(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %tok.addr.i79 = alloca ptr, align 8
   %tok.addr.i64 = alloca ptr, align 8
@@ -2932,7 +2932,7 @@ entry:
   %tok.addr.i20 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i51)
   store ptr %tok, ptr %tok.addr.i51, align 8
-  %call.i52 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i51, ptr noundef %tok)
+  %call.i52 = call fastcc ptr @relational(ptr noundef %tok.addr.i51, ptr noundef %tok)
   br label %for.cond.i53
 
 for.cond.i53:                                     ; preds = %for.cond.backedge.i, %entry
@@ -2945,7 +2945,7 @@ for.cond.backedge.i:                              ; preds = %if.end.i55, %for.co
   %.sink.i = phi i32 [ 13, %if.end.i55 ], [ 12, %for.cond.i53 ]
   %next.i57 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %next.i57, align 8
-  %call2.i58 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i51, ptr noundef %1)
+  %call2.i58 = call fastcc ptr @relational(ptr noundef %tok.addr.i51, ptr noundef %1)
   %call.i.i.i59 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink.i, ptr %call.i.i.i59, align 16
   %tok2.i.i.i60 = getelementptr inbounds i8, ptr %call.i.i.i59, i64 24
@@ -2972,7 +2972,7 @@ while.body.i:                                     ; preds = %equality.exit63, %e
   %3 = load ptr, ptr %next.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i64)
   store ptr %3, ptr %tok.addr.i64, align 8
-  %call.i = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i64, ptr noundef %3)
+  %call.i = call fastcc ptr @relational(ptr noundef %tok.addr.i64, ptr noundef %3)
   br label %for.cond.i65
 
 for.cond.i65:                                     ; preds = %for.cond.backedge.i70, %while.body.i
@@ -2985,7 +2985,7 @@ for.cond.backedge.i70:                            ; preds = %if.end.i68, %for.co
   %.sink.i71 = phi i32 [ 13, %if.end.i68 ], [ 12, %for.cond.i65 ]
   %next.i72 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %next.i72, align 8
-  %call2.i73 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i64, ptr noundef %5)
+  %call2.i73 = call fastcc ptr @relational(ptr noundef %tok.addr.i64, ptr noundef %5)
   %call.i.i.i74 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink.i71, ptr %call.i.i.i74, align 16
   %tok2.i.i.i75 = getelementptr inbounds i8, ptr %call.i.i.i74, i64 24
@@ -3026,7 +3026,7 @@ while.body:                                       ; preds = %bitand.exit, %bitan
   %6 = load ptr, ptr %next, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i79)
   store ptr %6, ptr %tok.addr.i79, align 8
-  %call.i80 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i79, ptr noundef %6)
+  %call.i80 = call fastcc ptr @relational(ptr noundef %tok.addr.i79, ptr noundef %6)
   br label %for.cond.i81
 
 for.cond.i81:                                     ; preds = %for.cond.backedge.i86, %while.body
@@ -3039,7 +3039,7 @@ for.cond.backedge.i86:                            ; preds = %if.end.i84, %for.co
   %.sink.i87 = phi i32 [ 13, %if.end.i84 ], [ 12, %for.cond.i81 ]
   %next.i88 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %next.i88, align 8
-  %call2.i = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i79, ptr noundef %8)
+  %call2.i = call fastcc ptr @relational(ptr noundef %tok.addr.i79, ptr noundef %8)
   %call.i.i.i89 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink.i87, ptr %call.i.i.i89, align 16
   %tok2.i.i.i90 = getelementptr inbounds i8, ptr %call.i.i.i89, i64 24
@@ -3066,7 +3066,7 @@ while.body.i7:                                    ; preds = %equality.exit93, %e
   %9 = load ptr, ptr %next.i8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i20)
   store ptr %9, ptr %tok.addr.i20, align 8
-  %call.i21 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i20, ptr noundef %9)
+  %call.i21 = call fastcc ptr @relational(ptr noundef %tok.addr.i20, ptr noundef %9)
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.cond.i.backedge, %while.body.i7
@@ -3079,7 +3079,7 @@ for.cond.i.backedge:                              ; preds = %for.cond.i, %if.end
   %.sink = phi i32 [ 13, %if.end.i ], [ 12, %for.cond.i ]
   %next.i24 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %next.i24, align 8
-  %call2.i25 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i20, ptr noundef %11)
+  %call2.i25 = call fastcc ptr @relational(ptr noundef %tok.addr.i20, ptr noundef %11)
   %call.i.i.i = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink, ptr %call.i.i.i, align 16
   %tok2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
@@ -3129,7 +3129,7 @@ while.end:                                        ; preds = %bitand.exit11, %bit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @relational(ptr nocapture noundef writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc ptr @relational(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %tok.addr.i896 = alloca ptr, align 8
   %tok.addr.i865 = alloca ptr, align 8
@@ -3151,7 +3151,7 @@ entry:
   %tok.addr.i142 = alloca ptr, align 8
   %tok.addr = alloca ptr, align 8
   store ptr %tok, ptr %tok.addr, align 8
-  %call = call fastcc ptr @shift(ptr noundef nonnull %tok.addr, ptr noundef %tok)
+  %call = call fastcc ptr @shift(ptr noundef %tok.addr, ptr noundef %tok)
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -3165,7 +3165,7 @@ if.then:                                          ; preds = %for.cond
   %1 = load ptr, ptr %next, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i472)
   store ptr %1, ptr %tok.addr.i472, align 8
-  %call.i473 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i472, ptr noundef %1)
+  %call.i473 = call fastcc ptr @cast(ptr noundef %tok.addr.i472, ptr noundef %1)
   br label %for.cond.i474
 
 for.cond.i474:                                    ; preds = %for.cond.i474.backedge, %if.then
@@ -3180,7 +3180,7 @@ for.cond.i474.backedge:                           ; preds = %if.end9.i479, %for.
   %.sink = phi i32 [ 4, %if.end.i477 ], [ 3, %for.cond.i474 ], [ 6, %if.end9.i479 ]
   %next.i496 = getelementptr inbounds i8, ptr %.sink1059, i64 8
   %4 = load ptr, ptr %next.i496, align 8
-  %call2.i = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i472, ptr noundef %4)
+  %call2.i = call fastcc ptr @cast(ptr noundef %tok.addr.i472, ptr noundef %4)
   %call.i.i.i497 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink, ptr %call.i.i.i497, align 16
   %tok2.i.i.i498 = getelementptr inbounds i8, ptr %call.i.i.i497, i64 24
@@ -3216,7 +3216,7 @@ if.then.i83:                                      ; preds = %for.cond.i74
   %7 = load ptr, ptr %next.i84, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i441)
   store ptr %7, ptr %tok.addr.i441, align 8
-  %call.i442 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i441, ptr noundef %7)
+  %call.i442 = call fastcc ptr @cast(ptr noundef %tok.addr.i441, ptr noundef %7)
   br label %for.cond.i443
 
 for.cond.i443:                                    ; preds = %for.cond.i443.backedge, %if.then.i83
@@ -3231,7 +3231,7 @@ for.cond.i443.backedge:                           ; preds = %if.end9.i448, %for.
   %.sink1062 = phi i32 [ 4, %if.end.i446 ], [ 3, %for.cond.i443 ], [ 6, %if.end9.i448 ]
   %next.i465 = getelementptr inbounds i8, ptr %.sink1065, i64 8
   %10 = load ptr, ptr %next.i465, align 8
-  %call2.i466 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i441, ptr noundef %10)
+  %call2.i466 = call fastcc ptr @cast(ptr noundef %tok.addr.i441, ptr noundef %10)
   %call.i.i.i467 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink1062, ptr %call.i.i.i467, align 16
   %tok2.i.i.i468 = getelementptr inbounds i8, ptr %call.i.i.i467, i64 24
@@ -3368,7 +3368,7 @@ if.then5.i79:                                     ; preds = %if.end.i77
   %24 = load ptr, ptr %next6.i80, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i361)
   store ptr %24, ptr %tok.addr.i361, align 8
-  %call.i362 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i361, ptr noundef %24)
+  %call.i362 = call fastcc ptr @cast(ptr noundef %tok.addr.i361, ptr noundef %24)
   br label %for.cond.i363
 
 for.cond.i363:                                    ; preds = %for.cond.i363.backedge, %if.then5.i79
@@ -3383,7 +3383,7 @@ for.cond.i363.backedge:                           ; preds = %if.end9.i368, %for.
   %.sink1068 = phi i32 [ 4, %if.end.i366 ], [ 3, %for.cond.i363 ], [ 6, %if.end9.i368 ]
   %next.i385 = getelementptr inbounds i8, ptr %.sink1071, i64 8
   %27 = load ptr, ptr %next.i385, align 8
-  %call2.i386 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i361, ptr noundef %27)
+  %call2.i386 = call fastcc ptr @cast(ptr noundef %tok.addr.i361, ptr noundef %27)
   %call.i.i.i387 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink1068, ptr %call.i.i.i387, align 16
   %tok2.i.i.i388 = getelementptr inbounds i8, ptr %call.i.i.i387, i64 24
@@ -3420,7 +3420,7 @@ if.then.i:                                        ; preds = %for.cond.i
   %30 = load ptr, ptr %next.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i330)
   store ptr %30, ptr %tok.addr.i330, align 8
-  %call.i331 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i330, ptr noundef %30)
+  %call.i331 = call fastcc ptr @cast(ptr noundef %tok.addr.i330, ptr noundef %30)
   br label %for.cond.i332
 
 for.cond.i332:                                    ; preds = %for.cond.i332.backedge, %if.then.i
@@ -3435,7 +3435,7 @@ for.cond.i332.backedge:                           ; preds = %if.end9.i337, %for.
   %.sink1074 = phi i32 [ 4, %if.end.i335 ], [ 3, %for.cond.i332 ], [ 6, %if.end9.i337 ]
   %next.i354 = getelementptr inbounds i8, ptr %.sink1077, i64 8
   %33 = load ptr, ptr %next.i354, align 8
-  %call2.i355 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i330, ptr noundef %33)
+  %call2.i355 = call fastcc ptr @cast(ptr noundef %tok.addr.i330, ptr noundef %33)
   %call.i.i.i356 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink1074, ptr %call.i.i.i356, align 16
   %tok2.i.i.i357 = getelementptr inbounds i8, ptr %call.i.i.i356, i64 24
@@ -3471,7 +3471,7 @@ if.then.i68:                                      ; preds = %for.cond.i60
   %36 = load ptr, ptr %next.i69, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i300)
   store ptr %36, ptr %tok.addr.i300, align 8
-  %call.i301 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i300, ptr noundef %36)
+  %call.i301 = call fastcc ptr @cast(ptr noundef %tok.addr.i300, ptr noundef %36)
   br label %for.cond.i302
 
 for.cond.i302:                                    ; preds = %for.cond.i302.backedge, %if.then.i68
@@ -3486,7 +3486,7 @@ for.cond.i302.backedge:                           ; preds = %if.end9.i307, %for.
   %.sink1080 = phi i32 [ 4, %if.end.i305 ], [ 3, %for.cond.i302 ], [ 6, %if.end9.i307 ]
   %next.i323 = getelementptr inbounds i8, ptr %.sink1083, i64 8
   %39 = load ptr, ptr %next.i323, align 8
-  %call2.i324 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i300, ptr noundef %39)
+  %call2.i324 = call fastcc ptr @cast(ptr noundef %tok.addr.i300, ptr noundef %39)
   %call.i.i.i325 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink1080, ptr %call.i.i.i325, align 16
   %tok2.i.i.i326 = getelementptr inbounds i8, ptr %call.i.i.i325, i64 24
@@ -3623,7 +3623,7 @@ if.then5.i65:                                     ; preds = %if.end.i63
   %53 = load ptr, ptr %next6.i66, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i220)
   store ptr %53, ptr %tok.addr.i220, align 8
-  %call.i221 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i220, ptr noundef %53)
+  %call.i221 = call fastcc ptr @cast(ptr noundef %tok.addr.i220, ptr noundef %53)
   br label %for.cond.i222
 
 for.cond.i222:                                    ; preds = %for.cond.i222.backedge, %if.then5.i65
@@ -3638,7 +3638,7 @@ for.cond.i222.backedge:                           ; preds = %if.end9.i227, %for.
   %.sink1086 = phi i32 [ 4, %if.end.i225 ], [ 3, %for.cond.i222 ], [ 6, %if.end9.i227 ]
   %next.i244 = getelementptr inbounds i8, ptr %.sink1089, i64 8
   %56 = load ptr, ptr %next.i244, align 8
-  %call2.i245 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i220, ptr noundef %56)
+  %call2.i245 = call fastcc ptr @cast(ptr noundef %tok.addr.i220, ptr noundef %56)
   %call.i.i.i246 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink1086, ptr %call.i.i.i246, align 16
   %tok2.i.i.i247 = getelementptr inbounds i8, ptr %call.i.i.i246, i64 24
@@ -3687,7 +3687,7 @@ if.then5.i:                                       ; preds = %if.end.i
   %59 = load ptr, ptr %next6.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i189)
   store ptr %59, ptr %tok.addr.i189, align 8
-  %call.i190 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i189, ptr noundef %59)
+  %call.i190 = call fastcc ptr @cast(ptr noundef %tok.addr.i189, ptr noundef %59)
   br label %for.cond.i191
 
 for.cond.i191:                                    ; preds = %for.cond.i191.backedge, %if.then5.i
@@ -3702,7 +3702,7 @@ for.cond.i191.backedge:                           ; preds = %if.end9.i196, %for.
   %.sink1096 = phi i32 [ 4, %if.end.i194 ], [ 3, %for.cond.i191 ], [ 6, %if.end9.i196 ]
   %next.i213 = getelementptr inbounds i8, ptr %.sink1099, i64 8
   %62 = load ptr, ptr %next.i213, align 8
-  %call2.i214 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i189, ptr noundef %62)
+  %call2.i214 = call fastcc ptr @cast(ptr noundef %tok.addr.i189, ptr noundef %62)
   %call.i.i.i215 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink1096, ptr %call.i.i.i215, align 16
   %tok2.i.i.i216 = getelementptr inbounds i8, ptr %call.i.i.i215, i64 24
@@ -3738,7 +3738,7 @@ if.then.i50:                                      ; preds = %for.cond.i42
   %65 = load ptr, ptr %next.i51, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i158)
   store ptr %65, ptr %tok.addr.i158, align 8
-  %call.i159 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i158, ptr noundef %65)
+  %call.i159 = call fastcc ptr @cast(ptr noundef %tok.addr.i158, ptr noundef %65)
   br label %for.cond.i160
 
 for.cond.i160:                                    ; preds = %for.cond.i160.backedge, %if.then.i50
@@ -3753,7 +3753,7 @@ for.cond.i160.backedge:                           ; preds = %if.end9.i165, %for.
   %.sink1102 = phi i32 [ 4, %if.end.i163 ], [ 3, %for.cond.i160 ], [ 6, %if.end9.i165 ]
   %next.i182 = getelementptr inbounds i8, ptr %.sink1105, i64 8
   %68 = load ptr, ptr %next.i182, align 8
-  %call2.i183 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i158, ptr noundef %68)
+  %call2.i183 = call fastcc ptr @cast(ptr noundef %tok.addr.i158, ptr noundef %68)
   %call.i.i.i184 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink1102, ptr %call.i.i.i184, align 16
   %tok2.i.i.i185 = getelementptr inbounds i8, ptr %call.i.i.i184, i64 24
@@ -3890,7 +3890,7 @@ if.then5.i47:                                     ; preds = %if.end.i45
   %82 = load ptr, ptr %next6.i48, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i142)
   store ptr %82, ptr %tok.addr.i142, align 8
-  %call.i143 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i142, ptr noundef %82)
+  %call.i143 = call fastcc ptr @cast(ptr noundef %tok.addr.i142, ptr noundef %82)
   br label %for.cond.i144
 
 for.cond.i144:                                    ; preds = %for.cond.i144.backedge, %if.then5.i47
@@ -3905,7 +3905,7 @@ for.cond.i144.backedge:                           ; preds = %if.end9.i, %for.con
   %.sink1108 = phi i32 [ 4, %if.end.i147 ], [ 3, %for.cond.i144 ], [ 6, %if.end9.i ]
   %next.i153 = getelementptr inbounds i8, ptr %.sink1111, i64 8
   %85 = load ptr, ptr %next.i153, align 8
-  %call2.i154 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i142, ptr noundef %85)
+  %call2.i154 = call fastcc ptr @cast(ptr noundef %tok.addr.i142, ptr noundef %85)
   %call.i.i.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink1108, ptr %call.i.i.i, align 16
   %tok2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
@@ -3958,7 +3958,7 @@ if.then5:                                         ; preds = %if.end
   %88 = load ptr, ptr %next6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i896)
   store ptr %88, ptr %tok.addr.i896, align 8
-  %call.i897 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i896, ptr noundef %88)
+  %call.i897 = call fastcc ptr @cast(ptr noundef %tok.addr.i896, ptr noundef %88)
   br label %for.cond.i898
 
 for.cond.i898:                                    ; preds = %for.cond.i898.backedge, %if.then5
@@ -3973,7 +3973,7 @@ for.cond.i898.backedge:                           ; preds = %if.end9.i903, %for.
   %.sink1118 = phi i32 [ 4, %if.end.i901 ], [ 3, %for.cond.i898 ], [ 6, %if.end9.i903 ]
   %next.i920 = getelementptr inbounds i8, ptr %.sink1121, i64 8
   %91 = load ptr, ptr %next.i920, align 8
-  %call2.i921 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i896, ptr noundef %91)
+  %call2.i921 = call fastcc ptr @cast(ptr noundef %tok.addr.i896, ptr noundef %91)
   %call.i.i.i922 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink1118, ptr %call.i.i.i922, align 16
   %tok2.i.i.i923 = getelementptr inbounds i8, ptr %call.i.i.i922, i64 24
@@ -4009,7 +4009,7 @@ if.then.i137:                                     ; preds = %for.cond.i128
   %94 = load ptr, ptr %next.i138, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i865)
   store ptr %94, ptr %tok.addr.i865, align 8
-  %call.i866 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i865, ptr noundef %94)
+  %call.i866 = call fastcc ptr @cast(ptr noundef %tok.addr.i865, ptr noundef %94)
   br label %for.cond.i867
 
 for.cond.i867:                                    ; preds = %for.cond.i867.backedge, %if.then.i137
@@ -4024,7 +4024,7 @@ for.cond.i867.backedge:                           ; preds = %if.end9.i872, %for.
   %.sink1124 = phi i32 [ 4, %if.end.i870 ], [ 3, %for.cond.i867 ], [ 6, %if.end9.i872 ]
   %next.i889 = getelementptr inbounds i8, ptr %.sink1127, i64 8
   %97 = load ptr, ptr %next.i889, align 8
-  %call2.i890 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i865, ptr noundef %97)
+  %call2.i890 = call fastcc ptr @cast(ptr noundef %tok.addr.i865, ptr noundef %97)
   %call.i.i.i891 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink1124, ptr %call.i.i.i891, align 16
   %tok2.i.i.i892 = getelementptr inbounds i8, ptr %call.i.i.i891, i64 24
@@ -4161,7 +4161,7 @@ if.then5.i133:                                    ; preds = %if.end.i131
   %111 = load ptr, ptr %next6.i134, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i785)
   store ptr %111, ptr %tok.addr.i785, align 8
-  %call.i786 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i785, ptr noundef %111)
+  %call.i786 = call fastcc ptr @cast(ptr noundef %tok.addr.i785, ptr noundef %111)
   br label %for.cond.i787
 
 for.cond.i787:                                    ; preds = %for.cond.i787.backedge, %if.then5.i133
@@ -4176,7 +4176,7 @@ for.cond.i787.backedge:                           ; preds = %if.end9.i792, %for.
   %.sink1130 = phi i32 [ 4, %if.end.i790 ], [ 3, %for.cond.i787 ], [ 6, %if.end9.i792 ]
   %next.i809 = getelementptr inbounds i8, ptr %.sink1133, i64 8
   %114 = load ptr, ptr %next.i809, align 8
-  %call2.i810 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i785, ptr noundef %114)
+  %call2.i810 = call fastcc ptr @cast(ptr noundef %tok.addr.i785, ptr noundef %114)
   %call.i.i.i811 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink1130, ptr %call.i.i.i811, align 16
   %tok2.i.i.i812 = getelementptr inbounds i8, ptr %call.i.i.i811, i64 24
@@ -4213,7 +4213,7 @@ if.then.i19:                                      ; preds = %for.cond.i10
   %117 = load ptr, ptr %next.i20, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i754)
   store ptr %117, ptr %tok.addr.i754, align 8
-  %call.i755 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i754, ptr noundef %117)
+  %call.i755 = call fastcc ptr @cast(ptr noundef %tok.addr.i754, ptr noundef %117)
   br label %for.cond.i756
 
 for.cond.i756:                                    ; preds = %for.cond.i756.backedge, %if.then.i19
@@ -4228,7 +4228,7 @@ for.cond.i756.backedge:                           ; preds = %if.end9.i761, %for.
   %.sink1136 = phi i32 [ 4, %if.end.i759 ], [ 3, %for.cond.i756 ], [ 6, %if.end9.i761 ]
   %next.i778 = getelementptr inbounds i8, ptr %.sink1139, i64 8
   %120 = load ptr, ptr %next.i778, align 8
-  %call2.i779 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i754, ptr noundef %120)
+  %call2.i779 = call fastcc ptr @cast(ptr noundef %tok.addr.i754, ptr noundef %120)
   %call.i.i.i780 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink1136, ptr %call.i.i.i780, align 16
   %tok2.i.i.i781 = getelementptr inbounds i8, ptr %call.i.i.i780, i64 24
@@ -4264,7 +4264,7 @@ if.then.i121:                                     ; preds = %for.cond.i112
   %123 = load ptr, ptr %next.i122, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i723)
   store ptr %123, ptr %tok.addr.i723, align 8
-  %call.i724 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i723, ptr noundef %123)
+  %call.i724 = call fastcc ptr @cast(ptr noundef %tok.addr.i723, ptr noundef %123)
   br label %for.cond.i725
 
 for.cond.i725:                                    ; preds = %for.cond.i725.backedge, %if.then.i121
@@ -4279,7 +4279,7 @@ for.cond.i725.backedge:                           ; preds = %if.end9.i730, %for.
   %.sink1142 = phi i32 [ 4, %if.end.i728 ], [ 3, %for.cond.i725 ], [ 6, %if.end9.i730 ]
   %next.i747 = getelementptr inbounds i8, ptr %.sink1145, i64 8
   %126 = load ptr, ptr %next.i747, align 8
-  %call2.i748 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i723, ptr noundef %126)
+  %call2.i748 = call fastcc ptr @cast(ptr noundef %tok.addr.i723, ptr noundef %126)
   %call.i.i.i749 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink1142, ptr %call.i.i.i749, align 16
   %tok2.i.i.i750 = getelementptr inbounds i8, ptr %call.i.i.i749, i64 24
@@ -4416,7 +4416,7 @@ if.then5.i117:                                    ; preds = %if.end.i115
   %140 = load ptr, ptr %next6.i118, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i644)
   store ptr %140, ptr %tok.addr.i644, align 8
-  %call.i = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i644, ptr noundef %140)
+  %call.i = call fastcc ptr @cast(ptr noundef %tok.addr.i644, ptr noundef %140)
   br label %for.cond.i645
 
 for.cond.i645:                                    ; preds = %for.cond.i645.backedge, %if.then5.i117
@@ -4431,7 +4431,7 @@ for.cond.i645.backedge:                           ; preds = %if.end9.i650, %for.
   %.sink1148 = phi i32 [ 4, %if.end.i648 ], [ 3, %for.cond.i645 ], [ 6, %if.end9.i650 ]
   %next.i667 = getelementptr inbounds i8, ptr %.sink1151, i64 8
   %143 = load ptr, ptr %next.i667, align 8
-  %call2.i668 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i644, ptr noundef %143)
+  %call2.i668 = call fastcc ptr @cast(ptr noundef %tok.addr.i644, ptr noundef %143)
   %call.i.i.i669 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink1148, ptr %call.i.i.i669, align 16
   %tok2.i.i.i670 = getelementptr inbounds i8, ptr %call.i.i.i669, i64 24
@@ -4480,7 +4480,7 @@ if.then5.i15:                                     ; preds = %if.end.i13
   %146 = load ptr, ptr %next6.i16, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i613)
   store ptr %146, ptr %tok.addr.i613, align 8
-  %call.i614 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i613, ptr noundef %146)
+  %call.i614 = call fastcc ptr @cast(ptr noundef %tok.addr.i613, ptr noundef %146)
   br label %for.cond.i615
 
 for.cond.i615:                                    ; preds = %for.cond.i615.backedge, %if.then5.i15
@@ -4495,7 +4495,7 @@ for.cond.i615.backedge:                           ; preds = %if.end9.i620, %for.
   %.sink1158 = phi i32 [ 4, %if.end.i618 ], [ 3, %for.cond.i615 ], [ 6, %if.end9.i620 ]
   %next.i637 = getelementptr inbounds i8, ptr %.sink1161, i64 8
   %149 = load ptr, ptr %next.i637, align 8
-  %call2.i638 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i613, ptr noundef %149)
+  %call2.i638 = call fastcc ptr @cast(ptr noundef %tok.addr.i613, ptr noundef %149)
   %call.i.i.i639 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink1158, ptr %call.i.i.i639, align 16
   %tok2.i.i.i640 = getelementptr inbounds i8, ptr %call.i.i.i639, i64 24
@@ -4531,7 +4531,7 @@ if.then.i101:                                     ; preds = %for.cond.i92
   %152 = load ptr, ptr %next.i102, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i582)
   store ptr %152, ptr %tok.addr.i582, align 8
-  %call.i583 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i582, ptr noundef %152)
+  %call.i583 = call fastcc ptr @cast(ptr noundef %tok.addr.i582, ptr noundef %152)
   br label %for.cond.i584
 
 for.cond.i584:                                    ; preds = %for.cond.i584.backedge, %if.then.i101
@@ -4546,7 +4546,7 @@ for.cond.i584.backedge:                           ; preds = %if.end9.i589, %for.
   %.sink1164 = phi i32 [ 4, %if.end.i587 ], [ 3, %for.cond.i584 ], [ 6, %if.end9.i589 ]
   %next.i606 = getelementptr inbounds i8, ptr %.sink1167, i64 8
   %155 = load ptr, ptr %next.i606, align 8
-  %call2.i607 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i582, ptr noundef %155)
+  %call2.i607 = call fastcc ptr @cast(ptr noundef %tok.addr.i582, ptr noundef %155)
   %call.i.i.i608 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink1164, ptr %call.i.i.i608, align 16
   %tok2.i.i.i609 = getelementptr inbounds i8, ptr %call.i.i.i608, i64 24
@@ -4683,7 +4683,7 @@ if.then5.i97:                                     ; preds = %if.end.i95
   %169 = load ptr, ptr %next6.i98, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i502)
   store ptr %169, ptr %tok.addr.i502, align 8
-  %call.i503 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i502, ptr noundef %169)
+  %call.i503 = call fastcc ptr @cast(ptr noundef %tok.addr.i502, ptr noundef %169)
   br label %for.cond.i504
 
 for.cond.i504:                                    ; preds = %for.cond.i504.backedge, %if.then5.i97
@@ -4698,7 +4698,7 @@ for.cond.i504.backedge:                           ; preds = %if.end9.i509, %for.
   %.sink1170 = phi i32 [ 4, %if.end.i507 ], [ 3, %for.cond.i504 ], [ 6, %if.end9.i509 ]
   %next.i526 = getelementptr inbounds i8, ptr %.sink1173, i64 8
   %172 = load ptr, ptr %next.i526, align 8
-  %call2.i527 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i502, ptr noundef %172)
+  %call2.i527 = call fastcc ptr @cast(ptr noundef %tok.addr.i502, ptr noundef %172)
   %call.i.i.i528 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink1170, ptr %call.i.i.i528, align 16
   %tok2.i.i.i529 = getelementptr inbounds i8, ptr %call.i.i.i528, i64 24
@@ -4735,7 +4735,7 @@ if.end9:                                          ; preds = %if.end
 if.then11:                                        ; preds = %if.end9
   %next12 = getelementptr inbounds i8, ptr %0, i64 8
   %175 = load ptr, ptr %next12, align 8
-  %call13 = call fastcc ptr @shift(ptr noundef nonnull %tok.addr, ptr noundef %175)
+  %call13 = call fastcc ptr @shift(ptr noundef %tok.addr, ptr noundef %175)
   br label %for.cond.backedge
 
 if.end15:                                         ; preds = %if.end9
@@ -4745,7 +4745,7 @@ if.end15:                                         ; preds = %if.end9
 if.then17:                                        ; preds = %if.end15
   %next18 = getelementptr inbounds i8, ptr %0, i64 8
   %176 = load ptr, ptr %next18, align 8
-  %call19 = call fastcc ptr @shift(ptr noundef nonnull %tok.addr, ptr noundef %176)
+  %call19 = call fastcc ptr @shift(ptr noundef %tok.addr, ptr noundef %176)
   br label %for.cond.backedge
 
 if.end21:                                         ; preds = %if.end15
@@ -4754,7 +4754,7 @@ if.end21:                                         ; preds = %if.end15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @shift(ptr nocapture noundef writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc ptr @shift(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %tok.addr.i = alloca ptr, align 8
   %tok.addr.i45 = alloca ptr, align 8
@@ -4762,7 +4762,7 @@ entry:
   %tok.addr.i12 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i)
   store ptr %tok, ptr %tok.addr.i, align 8
-  %call.i = call fastcc ptr @mul(ptr noundef nonnull %tok.addr.i, ptr noundef %tok)
+  %call.i = call fastcc ptr @mul(ptr noundef %tok.addr.i, ptr noundef %tok)
   br label %for.cond.i76
 
 for.cond.i76:                                     ; preds = %for.cond.i76.backedge, %entry
@@ -4774,7 +4774,7 @@ for.cond.i76:                                     ; preds = %for.cond.i76.backed
 if.then.i87:                                      ; preds = %for.cond.i76
   %next.i88 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %next.i88, align 8
-  %call2.i89 = call fastcc ptr @mul(ptr noundef nonnull %tok.addr.i, ptr noundef %1)
+  %call2.i89 = call fastcc ptr @mul(ptr noundef %tok.addr.i, ptr noundef %1)
   %call3.i = tail call fastcc ptr @new_add(ptr noundef %node.0.i77, ptr noundef %call2.i89, ptr noundef %0)
   br label %for.cond.i76.backedge
 
@@ -4785,7 +4785,7 @@ if.end.i79:                                       ; preds = %for.cond.i76
 if.then5.i82:                                     ; preds = %if.end.i79
   %next6.i83 = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %next6.i83, align 8
-  %call7.i = call fastcc ptr @mul(ptr noundef nonnull %tok.addr.i, ptr noundef %2)
+  %call7.i = call fastcc ptr @mul(ptr noundef %tok.addr.i, ptr noundef %2)
   %call8.i84 = tail call fastcc ptr @new_sub(ptr noundef %node.0.i77, ptr noundef %call7.i, ptr noundef %0)
   br label %for.cond.i76.backedge
 
@@ -4809,7 +4809,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   %4 = load ptr, ptr %next, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i45)
   store ptr %4, ptr %tok.addr.i45, align 8
-  %call.i46 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i45, ptr noundef %4)
+  %call.i46 = call fastcc ptr @cast(ptr noundef %tok.addr.i45, ptr noundef %4)
   br label %for.cond.i47
 
 for.cond.i47:                                     ; preds = %for.cond.backedge.i55, %for.cond.backedge
@@ -4824,7 +4824,7 @@ for.cond.backedge.i55:                            ; preds = %if.end9.i52, %if.en
   %.sink.i57 = phi i32 [ 4, %if.end.i50 ], [ 3, %for.cond.i47 ], [ 6, %if.end9.i52 ]
   %next.i58 = getelementptr inbounds i8, ptr %.sink18.i56, i64 8
   %7 = load ptr, ptr %next.i58, align 8
-  %call2.i = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i45, ptr noundef %7)
+  %call2.i = call fastcc ptr @cast(ptr noundef %tok.addr.i45, ptr noundef %7)
   %call.i.i.i59 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink.i57, ptr %call.i.i.i59, align 16
   %tok2.i.i.i60 = getelementptr inbounds i8, ptr %call.i.i.i59, i64 24
@@ -4860,7 +4860,7 @@ if.then.i:                                        ; preds = %for.cond.i
   %10 = load ptr, ptr %next.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i25)
   store ptr %10, ptr %tok.addr.i25, align 8
-  %call.i26 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i25, ptr noundef %10)
+  %call.i26 = call fastcc ptr @cast(ptr noundef %tok.addr.i25, ptr noundef %10)
   br label %for.cond.i27
 
 for.cond.i27:                                     ; preds = %for.cond.backedge.i35, %if.then.i
@@ -4875,7 +4875,7 @@ for.cond.backedge.i35:                            ; preds = %if.end9.i32, %if.en
   %.sink.i37 = phi i32 [ 4, %if.end.i30 ], [ 3, %for.cond.i27 ], [ 6, %if.end9.i32 ]
   %next.i38 = getelementptr inbounds i8, ptr %.sink18.i36, i64 8
   %13 = load ptr, ptr %next.i38, align 8
-  %call2.i39 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i25, ptr noundef %13)
+  %call2.i39 = call fastcc ptr @cast(ptr noundef %tok.addr.i25, ptr noundef %13)
   %call.i.i.i40 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink.i37, ptr %call.i.i.i40, align 16
   %tok2.i.i.i41 = getelementptr inbounds i8, ptr %call.i.i.i40, i64 24
@@ -5007,7 +5007,7 @@ if.then5.i:                                       ; preds = %if.end.i
   %27 = load ptr, ptr %next6.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i12)
   store ptr %27, ptr %tok.addr.i12, align 8
-  %call.i13 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i12, ptr noundef %27)
+  %call.i13 = call fastcc ptr @cast(ptr noundef %tok.addr.i12, ptr noundef %27)
   br label %for.cond.i14
 
 for.cond.i14:                                     ; preds = %for.cond.backedge.i19, %if.then5.i
@@ -5022,7 +5022,7 @@ for.cond.backedge.i19:                            ; preds = %if.end9.i, %if.end.
   %.sink.i = phi i32 [ 4, %if.end.i17 ], [ 3, %for.cond.i14 ], [ 6, %if.end9.i ]
   %next.i20 = getelementptr inbounds i8, ptr %.sink18.i, i64 8
   %30 = load ptr, ptr %next.i20, align 8
-  %call2.i21 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i12, ptr noundef %30)
+  %call2.i21 = call fastcc ptr @cast(ptr noundef %tok.addr.i12, ptr noundef %30)
   %call.i.i.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink.i, ptr %call.i.i.i, align 16
   %tok2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
@@ -5074,11 +5074,11 @@ if.end9:                                          ; preds = %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mul(ptr nocapture noundef writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc ptr @mul(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   store ptr %tok, ptr %tok.addr, align 8
-  %call = call fastcc ptr @cast(ptr noundef nonnull %tok.addr, ptr noundef %tok)
+  %call = call fastcc ptr @cast(ptr noundef %tok.addr, ptr noundef %tok)
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -5093,7 +5093,7 @@ for.cond.backedge:                                ; preds = %if.end9, %for.cond,
   %.sink = phi i32 [ 4, %if.end ], [ 3, %for.cond ], [ 6, %if.end9 ]
   %next = getelementptr inbounds i8, ptr %.sink18, i64 8
   %2 = load ptr, ptr %next, align 8
-  %call2 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr, ptr noundef %2)
+  %call2 = call fastcc ptr @cast(ptr noundef %tok.addr, ptr noundef %2)
   %call.i.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 %.sink, ptr %call.i.i, align 16
   %tok2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
@@ -5385,7 +5385,7 @@ return:                                           ; preds = %if.then36, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cast(ptr noundef %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc ptr @cast(ptr noundef nonnull %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %tok.addr.i = alloca ptr, align 8
   %tok.addr = alloca ptr, align 8
@@ -5447,9 +5447,9 @@ if.then:                                          ; preds = %if.end.i, %is_typen
   %9 = load ptr, ptr %next, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i)
   store ptr %9, ptr %tok.addr.i, align 8
-  %call.i5 = call fastcc ptr @declspec(ptr noundef nonnull %tok.addr.i, ptr noundef %9, ptr noundef null)
+  %call.i5 = call fastcc ptr @declspec(ptr noundef %tok.addr.i, ptr noundef %9, ptr noundef null)
   %10 = load ptr, ptr %tok.addr.i, align 8
-  %call1.i = call fastcc ptr @abstract_declarator(ptr noundef nonnull %tok.addr, ptr noundef %10, ptr noundef %call.i5)
+  %call1.i = call fastcc ptr @abstract_declarator(ptr noundef %tok.addr, ptr noundef %10, ptr noundef %call.i5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i)
   %11 = load ptr, ptr %tok.addr, align 8
   %call4 = call ptr @skip(ptr noundef %11, ptr noundef nonnull @.str.24) #13
@@ -5541,18 +5541,18 @@ lor.end:                                          ; preds = %for.cond.i.i, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @typename(ptr noundef %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc ptr @typename(ptr noundef nonnull %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   store ptr %tok, ptr %tok.addr, align 8
-  %call = call fastcc ptr @declspec(ptr noundef nonnull %tok.addr, ptr noundef %tok, ptr noundef null)
+  %call = call fastcc ptr @declspec(ptr noundef %tok.addr, ptr noundef %tok, ptr noundef null)
   %0 = load ptr, ptr %tok.addr, align 8
   %call1 = tail call fastcc ptr @abstract_declarator(ptr noundef %rest, ptr noundef %0, ptr noundef %call)
   ret ptr %call1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @unary(ptr noundef %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc ptr @unary(ptr noundef nonnull %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @equal(ptr noundef %tok, ptr noundef nonnull @.str.18) #13
   br i1 %call, label %if.then, label %if.end
@@ -5805,12 +5805,12 @@ return:                                           ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @abstract_declarator(ptr noundef %rest, ptr noundef %tok, ptr noundef %ty) unnamed_addr #0 {
+define internal fastcc ptr @abstract_declarator(ptr noundef nonnull %rest, ptr noundef %tok, ptr noundef %ty) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   %dummy = alloca %struct.Type, align 8
   store ptr %tok, ptr %tok.addr, align 8
-  %call = call fastcc ptr @pointers(ptr noundef nonnull %tok.addr, ptr noundef %tok, ptr noundef %ty)
+  %call = call fastcc ptr @pointers(ptr noundef %tok.addr, ptr noundef %tok, ptr noundef %ty)
   %0 = load ptr, ptr %tok.addr, align 8
   %call1 = tail call zeroext i1 @equal(ptr noundef %0, ptr noundef nonnull @.str.23) #13
   br i1 %call1, label %if.then, label %if.end
@@ -5819,7 +5819,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %dummy, i8 0, i64 120, i1 false)
   %next = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %next, align 8
-  %call2 = call fastcc ptr @abstract_declarator(ptr noundef nonnull %tok.addr, ptr noundef %1, ptr noundef nonnull %dummy)
+  %call2 = call fastcc ptr @abstract_declarator(ptr noundef %tok.addr, ptr noundef %1, ptr noundef nonnull %dummy)
   %2 = load ptr, ptr %tok.addr, align 8
   %call3 = call ptr @skip(ptr noundef %2, ptr noundef nonnull @.str.24) #13
   store ptr %call3, ptr %tok.addr, align 8
@@ -5849,7 +5849,7 @@ if.end6.i:                                        ; preds = %if.end.i
 type_suffix.exit:                                 ; preds = %if.then.i, %if.then3.i, %if.end6.i
   %retval.0.i = phi ptr [ %call1.i, %if.then.i ], [ %call5.i, %if.then3.i ], [ %call, %if.end6.i ]
   %5 = load ptr, ptr %next, align 8
-  %call6 = call fastcc ptr @abstract_declarator(ptr noundef nonnull %tok.addr, ptr noundef %5, ptr noundef %retval.0.i)
+  %call6 = call fastcc ptr @abstract_declarator(ptr noundef %tok.addr, ptr noundef %5, ptr noundef %retval.0.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -5882,7 +5882,7 @@ return:                                           ; preds = %if.end6.i9, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pointers(ptr nocapture noundef writeonly %rest, ptr noundef %tok, ptr noundef %ty) unnamed_addr #0 {
+define internal fastcc ptr @pointers(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok, ptr noundef %ty) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   store ptr %tok, ptr %tok.addr, align 8
@@ -5944,7 +5944,7 @@ declare zeroext i1 @consume(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare ptr @pointer_to(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @func_params(ptr nocapture noundef writeonly %rest, ptr noundef %tok, ptr noundef %ty) unnamed_addr #0 {
+define internal fastcc ptr @func_params(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok, ptr noundef %ty) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   %head = alloca %struct.Type, align 8
@@ -5996,9 +5996,9 @@ if.then10:                                        ; preds = %if.end8
   br label %while.end
 
 if.end13:                                         ; preds = %if.end8
-  %call14 = call fastcc ptr @declspec(ptr noundef nonnull %tok.addr, ptr noundef %4, ptr noundef null)
+  %call14 = call fastcc ptr @declspec(ptr noundef %tok.addr, ptr noundef %4, ptr noundef null)
   %6 = load ptr, ptr %tok.addr, align 8
-  %call15 = call fastcc ptr @declarator(ptr noundef nonnull %tok.addr, ptr noundef %6, ptr noundef %call14)
+  %call15 = call fastcc ptr @declarator(ptr noundef %tok.addr, ptr noundef %6, ptr noundef %call14)
   %name16 = getelementptr inbounds i8, ptr %call15, i64 32
   %7 = load ptr, ptr %name16, align 8
   %8 = load i32, ptr %call15, align 8
@@ -6057,7 +6057,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @array_dimensions(ptr noundef %rest, ptr noundef %tok, ptr noundef %ty) unnamed_addr #0 {
+define internal fastcc ptr @array_dimensions(ptr noundef nonnull %rest, ptr noundef %tok, ptr noundef %ty) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   br label %while.cond
@@ -6168,12 +6168,12 @@ return:                                           ; preds = %if.end12, %if.then1
 declare ptr @func_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @declarator(ptr noundef %rest, ptr noundef %tok, ptr noundef %ty) unnamed_addr #0 {
+define internal fastcc ptr @declarator(ptr noundef nonnull %rest, ptr noundef %tok, ptr noundef %ty) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   %dummy = alloca %struct.Type, align 8
   store ptr %tok, ptr %tok.addr, align 8
-  %call = call fastcc ptr @pointers(ptr noundef nonnull %tok.addr, ptr noundef %tok, ptr noundef %ty)
+  %call = call fastcc ptr @pointers(ptr noundef %tok.addr, ptr noundef %tok, ptr noundef %ty)
   %0 = load ptr, ptr %tok.addr, align 8
   %call1 = tail call zeroext i1 @equal(ptr noundef %0, ptr noundef nonnull @.str.23) #13
   br i1 %call1, label %if.then, label %if.end
@@ -6182,7 +6182,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %dummy, i8 0, i64 120, i1 false)
   %next = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %next, align 8
-  %call2 = call fastcc ptr @declarator(ptr noundef nonnull %tok.addr, ptr noundef %1, ptr noundef nonnull %dummy)
+  %call2 = call fastcc ptr @declarator(ptr noundef %tok.addr, ptr noundef %1, ptr noundef nonnull %dummy)
   %2 = load ptr, ptr %tok.addr, align 8
   %call3 = call ptr @skip(ptr noundef %2, ptr noundef nonnull @.str.24) #13
   store ptr %call3, ptr %tok.addr, align 8
@@ -6212,7 +6212,7 @@ if.end6.i:                                        ; preds = %if.end.i
 type_suffix.exit:                                 ; preds = %if.then.i, %if.then3.i, %if.end6.i
   %retval.0.i = phi ptr [ %call1.i, %if.then.i ], [ %call5.i, %if.then3.i ], [ %call, %if.end6.i ]
   %5 = load ptr, ptr %next, align 8
-  %call6 = call fastcc ptr @declarator(ptr noundef nonnull %tok.addr, ptr noundef %5, ptr noundef %retval.0.i)
+  %call6 = call fastcc ptr @declarator(ptr noundef %tok.addr, ptr noundef %5, ptr noundef %retval.0.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -6883,7 +6883,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @postfix(ptr noundef %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc ptr @postfix(ptr noundef nonnull %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %tok.addr.i232 = alloca ptr, align 8
   %tok.addr.i.i = alloca ptr, align 8
@@ -6953,9 +6953,9 @@ if.then:                                          ; preds = %if.end.i, %is_typen
   %9 = load ptr, ptr %next, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i)
   store ptr %9, ptr %tok.addr.i, align 8
-  %call.i15 = call fastcc ptr @declspec(ptr noundef nonnull %tok.addr.i, ptr noundef %9, ptr noundef null)
+  %call.i15 = call fastcc ptr @declspec(ptr noundef %tok.addr.i, ptr noundef %9, ptr noundef null)
   %10 = load ptr, ptr %tok.addr.i, align 8
-  %call1.i = call fastcc ptr @abstract_declarator(ptr noundef nonnull %tok.addr, ptr noundef %10, ptr noundef %call.i15)
+  %call1.i = call fastcc ptr @abstract_declarator(ptr noundef %tok.addr, ptr noundef %10, ptr noundef %call.i15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i)
   %11 = load ptr, ptr %tok.addr, align 8
   %call4 = call ptr @skip(ptr noundef %11, ptr noundef nonnull @.str.24) #13
@@ -7047,7 +7047,7 @@ if.end:                                           ; preds = %if.then
   %var4.i = getelementptr inbounds i8, ptr %call.i129, i64 256
   store ptr %call.i.i19, ptr %var4.i, align 16
   %25 = load ptr, ptr %ty2.i.i, align 8
-  %call6.i = call fastcc ptr @create_lvar_init(ptr noundef %call.i23, ptr noundef %25, ptr noundef nonnull %desg.i, ptr noundef %24)
+  %call6.i = call fastcc ptr @create_lvar_init(ptr noundef %call.i23, ptr noundef %25, ptr noundef %desg.i, ptr noundef %24)
   %call.i.i125 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 18, ptr %call.i.i125, align 16
   %tok2.i.i126 = getelementptr inbounds i8, ptr %call.i.i125, i64 24
@@ -7094,7 +7094,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %28 = load ptr, ptr %next.i, align 8
   %next4.i = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load ptr, ptr %next4.i, align 8
-  %call5.i38 = call fastcc ptr @compound_stmt(ptr noundef nonnull %tok.addr.i30, ptr noundef %29)
+  %call5.i38 = call fastcc ptr @compound_stmt(ptr noundef %tok.addr.i30, ptr noundef %29)
   %body.i = getelementptr inbounds i8, ptr %call5.i38, i64 104
   %30 = load ptr, ptr %body.i, align 8
   %body6.i = getelementptr inbounds i8, ptr %call.i259, i64 104
@@ -7111,7 +7111,7 @@ if.end.i32:                                       ; preds = %land.lhs.true.i, %i
 if.then9.i:                                       ; preds = %if.end.i32
   %next11.i = getelementptr inbounds i8, ptr %tok, i64 8
   %32 = load ptr, ptr %next11.i, align 8
-  %call12.i = call fastcc ptr @expr(ptr noundef nonnull %tok.addr.i30, ptr noundef %32)
+  %call12.i = call fastcc ptr @expr(ptr noundef %tok.addr.i30, ptr noundef %32)
   %33 = load ptr, ptr %tok.addr.i30, align 8
   %call13.i = tail call ptr @skip(ptr noundef %33, ptr noundef nonnull @.str.24) #13
   store ptr %call13.i, ptr %tok.addr, align 8
@@ -7184,9 +7184,9 @@ if.then23.i:                                      ; preds = %if.end.i236, %is_ty
   %46 = load ptr, ptr %next25.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i232)
   store ptr %46, ptr %tok.addr.i232, align 8
-  %call.i233 = call fastcc ptr @declspec(ptr noundef nonnull %tok.addr.i232, ptr noundef %46, ptr noundef null)
+  %call.i233 = call fastcc ptr @declspec(ptr noundef %tok.addr.i232, ptr noundef %46, ptr noundef null)
   %47 = load ptr, ptr %tok.addr.i232, align 8
-  %call1.i234 = call fastcc ptr @abstract_declarator(ptr noundef nonnull %tok.addr.i30, ptr noundef %47, ptr noundef %call.i233)
+  %call1.i234 = call fastcc ptr @abstract_declarator(ptr noundef %tok.addr.i30, ptr noundef %47, ptr noundef %call.i233)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i232)
   %48 = load ptr, ptr %tok.addr.i30, align 8
   %call27.i = call ptr @skip(ptr noundef %48, ptr noundef nonnull @.str.24) #13
@@ -7253,7 +7253,7 @@ if.end39.i:                                       ; preds = %for.cond.i.i.i243, 
 if.then41.i:                                      ; preds = %if.end39.i
   %next43.i = getelementptr inbounds i8, ptr %tok, i64 8
   %56 = load ptr, ptr %next43.i, align 8
-  %call44.i = call fastcc ptr @unary(ptr noundef nonnull %tok.addr, ptr noundef %56)
+  %call44.i = call fastcc ptr @unary(ptr noundef %tok.addr, ptr noundef %56)
   call void @add_type(ptr noundef %call44.i) #13
   %ty45.i = getelementptr inbounds i8, ptr %call44.i, i64 16
   %57 = load ptr, ptr %ty45.i, align 16
@@ -7354,7 +7354,7 @@ if.then70.i:                                      ; preds = %if.end.i188, %is_ty
   %75 = load ptr, ptr %next62.i, align 8
   %next73.i = getelementptr inbounds i8, ptr %75, i64 8
   %76 = load ptr, ptr %next73.i, align 8
-  %call74.i = call fastcc ptr @typename(ptr noundef nonnull %tok.addr.i30, ptr noundef %76)
+  %call74.i = call fastcc ptr @typename(ptr noundef %tok.addr.i30, ptr noundef %76)
   %77 = load ptr, ptr %tok.addr.i30, align 8
   %call75.i = call ptr @skip(ptr noundef %77, ptr noundef nonnull @.str.24) #13
   store ptr %call75.i, ptr %tok.addr, align 8
@@ -7380,7 +7380,7 @@ if.end78.i:                                       ; preds = %for.cond.i.i.i195, 
 if.then80.i:                                      ; preds = %if.end78.i
   %next82.i = getelementptr inbounds i8, ptr %tok, i64 8
   %81 = load ptr, ptr %next82.i, align 8
-  %call83.i = call fastcc ptr @unary(ptr noundef nonnull %tok.addr, ptr noundef %81)
+  %call83.i = call fastcc ptr @unary(ptr noundef %tok.addr, ptr noundef %81)
   call void @add_type(ptr noundef %call83.i) #13
   %ty84.i = getelementptr inbounds i8, ptr %call83.i, i64 16
   %82 = load ptr, ptr %ty84.i, align 16
@@ -7409,7 +7409,7 @@ if.then90.i:                                      ; preds = %if.end88.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i159)
   %call.i160 = tail call ptr @skip(ptr noundef %86, ptr noundef nonnull @.str.23) #13
   store ptr %call.i160, ptr %tok.addr.i159, align 8
-  %call1.i161 = call fastcc ptr @assign(ptr noundef nonnull %tok.addr.i159, ptr noundef %call.i160)
+  %call1.i161 = call fastcc ptr @assign(ptr noundef %tok.addr.i159, ptr noundef %call.i160)
   call void @add_type(ptr noundef %call1.i161) #13
   %ty.i162 = getelementptr inbounds i8, ptr %call1.i161, i64 16
   %87 = load ptr, ptr %ty.i162, align 16
@@ -7449,7 +7449,7 @@ if.then11.i:                                      ; preds = %while.body.i167
   %93 = load ptr, ptr %next.i170, align 8
   %call12.i171 = call ptr @skip(ptr noundef %93, ptr noundef nonnull @.str.3) #13
   store ptr %call12.i171, ptr %tok.addr.i159, align 8
-  %call13.i172 = call fastcc ptr @assign(ptr noundef nonnull %tok.addr.i159, ptr noundef %call12.i171)
+  %call13.i172 = call fastcc ptr @assign(ptr noundef %tok.addr.i159, ptr noundef %call12.i171)
   %tobool.not.i173 = icmp eq ptr %ret.0.i311, null
   %spec.select.i174 = select i1 %tobool.not.i173, ptr %call13.i172, ptr %ret.0.i311
   br label %while.cond.i165.backedge
@@ -7463,14 +7463,14 @@ while.cond.i165.backedge:                         ; preds = %if.then11.i, %if.en
 if.end16.i:                                       ; preds = %while.body.i167
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i.i)
   store ptr %92, ptr %tok.addr.i.i, align 8
-  %call.i.i168 = call fastcc ptr @declspec(ptr noundef nonnull %tok.addr.i.i, ptr noundef %92, ptr noundef null)
+  %call.i.i168 = call fastcc ptr @declspec(ptr noundef %tok.addr.i.i, ptr noundef %92, ptr noundef null)
   %95 = load ptr, ptr %tok.addr.i.i, align 8
-  %call1.i.i = call fastcc ptr @abstract_declarator(ptr noundef nonnull %tok.addr.i159, ptr noundef %95, ptr noundef %call.i.i168)
+  %call1.i.i = call fastcc ptr @abstract_declarator(ptr noundef %tok.addr.i159, ptr noundef %95, ptr noundef %call.i.i168)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i.i)
   %96 = load ptr, ptr %tok.addr.i159, align 8
   %call18.i169 = call ptr @skip(ptr noundef %96, ptr noundef nonnull @.str.3) #13
   store ptr %call18.i169, ptr %tok.addr.i159, align 8
-  %call20.i = call fastcc ptr @assign(ptr noundef nonnull %tok.addr.i159, ptr noundef %call18.i169)
+  %call20.i = call fastcc ptr @assign(ptr noundef %tok.addr.i159, ptr noundef %call18.i169)
   %call21.i = call zeroext i1 @is_compatible(ptr noundef %t1.0.i, ptr noundef %call1.i.i) #13
   %spec.select8.i = select i1 %call21.i, ptr %call20.i, ptr %ret.0.i311
   br label %while.cond.i165.backedge
@@ -7496,11 +7496,11 @@ if.then95.i:                                      ; preds = %if.end93.i
   %97 = load ptr, ptr %next96.i, align 8
   %call97.i = tail call ptr @skip(ptr noundef %97, ptr noundef nonnull @.str.23) #13
   store ptr %call97.i, ptr %tok.addr.i30, align 8
-  %call98.i = call fastcc ptr @typename(ptr noundef nonnull %tok.addr.i30, ptr noundef %call97.i)
+  %call98.i = call fastcc ptr @typename(ptr noundef %tok.addr.i30, ptr noundef %call97.i)
   %98 = load ptr, ptr %tok.addr.i30, align 8
   %call99.i = call ptr @skip(ptr noundef %98, ptr noundef nonnull @.str.57) #13
   store ptr %call99.i, ptr %tok.addr.i30, align 8
-  %call100.i = call fastcc ptr @typename(ptr noundef nonnull %tok.addr.i30, ptr noundef %call99.i)
+  %call100.i = call fastcc ptr @typename(ptr noundef %tok.addr.i30, ptr noundef %call99.i)
   %99 = load ptr, ptr %tok.addr.i30, align 8
   %call101.i = call ptr @skip(ptr noundef %99, ptr noundef nonnull @.str.24) #13
   store ptr %call101.i, ptr %tok.addr, align 8
@@ -7523,7 +7523,7 @@ if.then107.i:                                     ; preds = %if.end105.i
   %100 = load ptr, ptr %next108.i, align 8
   %call109.i = tail call ptr @skip(ptr noundef %100, ptr noundef nonnull @.str.23) #13
   store ptr %call109.i, ptr %tok.addr.i30, align 8
-  %call111.i = call fastcc ptr @typename(ptr noundef nonnull %tok.addr.i30, ptr noundef %call109.i)
+  %call111.i = call fastcc ptr @typename(ptr noundef %tok.addr.i30, ptr noundef %call109.i)
   %101 = load ptr, ptr %tok.addr.i30, align 8
   %call112.i = call ptr @skip(ptr noundef %101, ptr noundef nonnull @.str.24) #13
   store ptr %call112.i, ptr %tok.addr, align 8
@@ -7574,19 +7574,19 @@ if.then128.i:                                     ; preds = %if.end126.i
   %103 = load ptr, ptr %next131.i, align 8
   %call132.i = tail call ptr @skip(ptr noundef %103, ptr noundef nonnull @.str.23) #13
   store ptr %call132.i, ptr %tok.addr.i30, align 8
-  %call133.i = call fastcc ptr @assign(ptr noundef nonnull %tok.addr.i30, ptr noundef %call132.i)
+  %call133.i = call fastcc ptr @assign(ptr noundef %tok.addr.i30, ptr noundef %call132.i)
   %cas_addr.i = getelementptr inbounds i8, ptr %call.i145, i64 216
   store ptr %call133.i, ptr %cas_addr.i, align 8
   %104 = load ptr, ptr %tok.addr.i30, align 8
   %call134.i = call ptr @skip(ptr noundef %104, ptr noundef nonnull @.str.57) #13
   store ptr %call134.i, ptr %tok.addr.i30, align 8
-  %call135.i = call fastcc ptr @assign(ptr noundef nonnull %tok.addr.i30, ptr noundef %call134.i)
+  %call135.i = call fastcc ptr @assign(ptr noundef %tok.addr.i30, ptr noundef %call134.i)
   %cas_old.i = getelementptr inbounds i8, ptr %call.i145, i64 224
   store ptr %call135.i, ptr %cas_old.i, align 16
   %105 = load ptr, ptr %tok.addr.i30, align 8
   %call136.i = call ptr @skip(ptr noundef %105, ptr noundef nonnull @.str.57) #13
   store ptr %call136.i, ptr %tok.addr.i30, align 8
-  %call137.i = call fastcc ptr @assign(ptr noundef nonnull %tok.addr.i30, ptr noundef %call136.i)
+  %call137.i = call fastcc ptr @assign(ptr noundef %tok.addr.i30, ptr noundef %call136.i)
   %cas_new.i = getelementptr inbounds i8, ptr %call.i145, i64 232
   store ptr %call137.i, ptr %cas_new.i, align 8
   %106 = load ptr, ptr %tok.addr.i30, align 8
@@ -7607,13 +7607,13 @@ if.then141.i:                                     ; preds = %if.end139.i
   %107 = load ptr, ptr %next144.i, align 8
   %call145.i = tail call ptr @skip(ptr noundef %107, ptr noundef nonnull @.str.23) #13
   store ptr %call145.i, ptr %tok.addr.i30, align 8
-  %call146.i = call fastcc ptr @assign(ptr noundef nonnull %tok.addr.i30, ptr noundef %call145.i)
+  %call146.i = call fastcc ptr @assign(ptr noundef %tok.addr.i30, ptr noundef %call145.i)
   %lhs147.i = getelementptr inbounds i8, ptr %call.i143, i64 32
   store ptr %call146.i, ptr %lhs147.i, align 16
   %108 = load ptr, ptr %tok.addr.i30, align 8
   %call148.i = call ptr @skip(ptr noundef %108, ptr noundef nonnull @.str.57) #13
   store ptr %call148.i, ptr %tok.addr.i30, align 8
-  %call149.i = call fastcc ptr @assign(ptr noundef nonnull %tok.addr.i30, ptr noundef %call148.i)
+  %call149.i = call fastcc ptr @assign(ptr noundef %tok.addr.i30, ptr noundef %call148.i)
   %rhs150.i = getelementptr inbounds i8, ptr %call.i143, i64 40
   store ptr %call149.i, ptr %rhs150.i, align 8
   %109 = load ptr, ptr %tok.addr.i30, align 8
@@ -7841,7 +7841,7 @@ if.then16.i:                                      ; preds = %while.body.i
 
 if.end18.i:                                       ; preds = %if.then16.i, %while.body.i
   %137 = phi ptr [ %call17.i, %if.then16.i ], [ %.pre338, %while.body.i ]
-  %call19.i = call fastcc ptr @assign(ptr noundef nonnull %tok.addr.i40, ptr noundef %137)
+  %call19.i = call fastcc ptr @assign(ptr noundef %tok.addr.i40, ptr noundef %137)
   call void @add_type(ptr noundef %call19.i) #13
   %tobool.not.i47 = icmp eq ptr %param_ty.0.i314, null
   br i1 %tobool.not.i47, label %land.lhs.true20.i, label %if.then25.i
@@ -7990,7 +7990,7 @@ if.end20:                                         ; preds = %for.cond
 if.then22:                                        ; preds = %if.end20
   %next24 = getelementptr inbounds i8, ptr %158, i64 8
   %159 = load ptr, ptr %next24, align 8
-  %call25 = call fastcc ptr @expr(ptr noundef nonnull %tok.addr, ptr noundef %159)
+  %call25 = call fastcc ptr @expr(ptr noundef %tok.addr, ptr noundef %159)
   %160 = load ptr, ptr %tok.addr, align 8
   %call26 = call ptr @skip(ptr noundef %160, ptr noundef nonnull @.str.59) #13
   store ptr %call26, ptr %tok.addr, align 8
@@ -8331,7 +8331,7 @@ declare ptr @format(ptr noundef, ...) local_unnamed_addr #1
 declare noalias ptr @strndup(ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @initializer(ptr noundef %rest, ptr noundef %tok, ptr noundef %ty, ptr nocapture noundef writeonly %new_ty) unnamed_addr #0 {
+define internal fastcc noundef ptr @initializer(ptr noundef nonnull %rest, ptr noundef %tok, ptr noundef %ty, ptr nocapture noundef writeonly %new_ty) unnamed_addr #0 {
 entry:
   %head.sroa.0.i = alloca ptr, align 8
   %call = tail call fastcc ptr @new_initializer(ptr noundef %ty, i1 noundef zeroext true)
@@ -8804,7 +8804,7 @@ return:                                           ; preds = %for.body32, %for.in
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @initializer2(ptr noundef %rest, ptr noundef %tok, ptr nocapture noundef %init) unnamed_addr #0 {
+define internal fastcc void @initializer2(ptr noundef nonnull %rest, ptr noundef %tok, ptr nocapture noundef %init) unnamed_addr #0 {
 entry:
   %tok.addr.i52 = alloca ptr, align 8
   %tok.addr.i39 = alloca ptr, align 8
@@ -9056,7 +9056,7 @@ if.end20.i:                                       ; preds = %if.then18.i, %for.b
 if.then22.i:                                      ; preds = %if.end20.i
   %38 = load ptr, ptr %tok.addr.i, align 8
   %39 = load ptr, ptr %ty, align 8
-  call fastcc void @array_designator(ptr noundef nonnull %tok.addr.i, ptr noundef %38, ptr noundef %39, ptr noundef nonnull %begin.i, ptr noundef nonnull %end.i)
+  call fastcc void @array_designator(ptr noundef %tok.addr.i, ptr noundef %38, ptr noundef %39, ptr noundef %begin.i, ptr noundef %end.i)
   %40 = load i32, ptr %begin.i, align 4
   %41 = load i32, ptr %end.i, align 4
   %cmp.not.i100 = icmp sgt i32 %40, %41
@@ -9073,7 +9073,7 @@ for.body25.i32:                                   ; preds = %for.body25.i32.preh
   %45 = load ptr, ptr %children30.i30, align 8
   %arrayidx.i34 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv
   %46 = load ptr, ptr %arrayidx.i34, align 8
-  call fastcc void @designation(ptr noundef nonnull %tok2.i, ptr noundef %44, ptr noundef %46)
+  call fastcc void @designation(ptr noundef %tok2.i, ptr noundef %44, ptr noundef %46)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %43, %lftr.wideiv
@@ -9097,7 +9097,7 @@ if.then29.i:                                      ; preds = %if.end26.i
   %idxprom31.i = sext i32 %i.0.i105 to i64
   %arrayidx32.i31 = getelementptr inbounds ptr, ptr %51, i64 %idxprom31.i
   %52 = load ptr, ptr %arrayidx32.i31, align 8
-  call fastcc void @initializer2(ptr noundef nonnull %tok.addr.i, ptr noundef %50, ptr noundef %52)
+  call fastcc void @initializer2(ptr noundef %tok.addr.i, ptr noundef %50, ptr noundef %52)
   %.pre117 = load ptr, ptr %tok.addr.i, align 8
   br label %for.inc35.i
 
@@ -9181,7 +9181,7 @@ if.end.i46:                                       ; preds = %if.then.i44, %while
 if.then4.i:                                       ; preds = %if.end.i46
   %61 = load ptr, ptr %tok.addr.i39, align 8
   %62 = load ptr, ptr %ty, align 8
-  %call6.i = call fastcc ptr @struct_designator(ptr noundef nonnull %tok.addr.i39, ptr noundef %61, ptr noundef %62)
+  %call6.i = call fastcc ptr @struct_designator(ptr noundef %tok.addr.i39, ptr noundef %61, ptr noundef %62)
   %63 = load ptr, ptr %tok.addr.i39, align 8
   %64 = load ptr, ptr %children10.i, align 8
   %idx.i = getelementptr inbounds i8, ptr %call6.i, i64 32
@@ -9189,7 +9189,7 @@ if.then4.i:                                       ; preds = %if.end.i46
   %idxprom.i50 = sext i32 %65 to i64
   %arrayidx.i51 = getelementptr inbounds ptr, ptr %64, i64 %idxprom.i50
   %66 = load ptr, ptr %arrayidx.i51, align 8
-  call fastcc void @designation(ptr noundef nonnull %tok.addr.i39, ptr noundef %63, ptr noundef %66)
+  call fastcc void @designation(ptr noundef %tok.addr.i39, ptr noundef %63, ptr noundef %66)
   %67 = load ptr, ptr %call6.i, align 8
   br label %while.cond.i.backedge
 
@@ -9211,7 +9211,7 @@ if.then9.i:                                       ; preds = %if.end7.i
   %idxprom12.i = sext i32 %71 to i64
   %arrayidx13.i = getelementptr inbounds ptr, ptr %70, i64 %idxprom12.i
   %72 = load ptr, ptr %arrayidx13.i, align 8
-  call fastcc void @initializer2(ptr noundef nonnull %tok.addr.i39, ptr noundef %69, ptr noundef %72)
+  call fastcc void @initializer2(ptr noundef %tok.addr.i39, ptr noundef %69, ptr noundef %72)
   %73 = load ptr, ptr %mem.0.i98, align 8
   br label %while.cond.i.backedge
 
@@ -9264,7 +9264,7 @@ land.lhs.true.i:                                  ; preds = %if.then29
 if.then.i62:                                      ; preds = %land.lhs.true.i
   %80 = load ptr, ptr %next.i60, align 8
   %81 = load ptr, ptr %ty, align 8
-  %call3.i64 = call fastcc ptr @struct_designator(ptr noundef nonnull %tok.addr.i52, ptr noundef %80, ptr noundef %81)
+  %call3.i64 = call fastcc ptr @struct_designator(ptr noundef %tok.addr.i52, ptr noundef %80, ptr noundef %81)
   %mem4.i = getelementptr inbounds i8, ptr %init, i64 48
   store ptr %call3.i64, ptr %mem4.i, align 8
   %82 = load ptr, ptr %tok.addr.i52, align 8
@@ -9275,7 +9275,7 @@ if.then.i62:                                      ; preds = %land.lhs.true.i
   %idxprom.i67 = sext i32 %84 to i64
   %arrayidx.i68 = getelementptr inbounds ptr, ptr %83, i64 %idxprom.i67
   %85 = load ptr, ptr %arrayidx.i68, align 8
-  call fastcc void @designation(ptr noundef nonnull %tok.addr.i52, ptr noundef %82, ptr noundef %85)
+  call fastcc void @designation(ptr noundef %tok.addr.i52, ptr noundef %82, ptr noundef %85)
   %86 = load ptr, ptr %tok.addr.i52, align 8
   %call5.i = call ptr @skip(ptr noundef %86, ptr noundef nonnull @.str.69) #13
   store ptr %call5.i, ptr %rest, align 8
@@ -9296,7 +9296,7 @@ if.then9.i57:                                     ; preds = %if.end.i54
   %children11.i = getelementptr inbounds i8, ptr %init, i64 40
   %90 = load ptr, ptr %children11.i, align 8
   %91 = load ptr, ptr %90, align 8
-  call fastcc void @initializer2(ptr noundef nonnull %tok.addr.i52, ptr noundef %89, ptr noundef %91)
+  call fastcc void @initializer2(ptr noundef %tok.addr.i52, ptr noundef %89, ptr noundef %91)
   %92 = load ptr, ptr %tok.addr.i52, align 8
   %call13.i58 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr.i52, ptr noundef %92, ptr noundef nonnull @.str.57) #13
   %93 = load ptr, ptr %tok.addr.i52, align 8
@@ -9322,7 +9322,7 @@ if.end30:                                         ; preds = %entry
 if.then32:                                        ; preds = %if.end30
   %next = getelementptr inbounds i8, ptr %tok, i64 8
   %96 = load ptr, ptr %next, align 8
-  call fastcc void @initializer2(ptr noundef nonnull %tok.addr, ptr noundef %96, ptr noundef nonnull %init)
+  call fastcc void @initializer2(ptr noundef %tok.addr, ptr noundef %96, ptr noundef nonnull %init)
   %97 = load ptr, ptr %tok.addr, align 8
   %call33 = call ptr @skip(ptr noundef %97, ptr noundef nonnull @.str.69) #13
   store ptr %call33, ptr %rest, align 8
@@ -9339,7 +9339,7 @@ return:                                           ; preds = %array_initializer1.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @array_initializer2(ptr nocapture noundef writeonly %rest, ptr noundef %tok, ptr nocapture noundef %init, i32 noundef %i) unnamed_addr #0 {
+define internal fastcc void @array_initializer2(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok, ptr nocapture noundef %init, i32 noundef range(i32 -2147483647, -2147483648) %i) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   store ptr %tok, ptr %tok.addr, align 8
@@ -9414,7 +9414,7 @@ if.end13:                                         ; preds = %lor.lhs.false
   %13 = load ptr, ptr %children, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
   %14 = load ptr, ptr %arrayidx, align 8
-  call fastcc void @initializer2(ptr noundef nonnull %tok.addr, ptr noundef %12, ptr noundef %14)
+  call fastcc void @initializer2(ptr noundef %tok.addr, ptr noundef %12, ptr noundef %14)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %15 = load ptr, ptr %ty4, align 8
   %array_len = getelementptr inbounds i8, ptr %15, i64 48
@@ -9434,7 +9434,7 @@ return:                                           ; preds = %if.end9, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @assign(ptr noundef %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc ptr @assign(ptr noundef nonnull %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   store ptr %tok, ptr %tok.addr, align 8
@@ -9665,7 +9665,7 @@ return:                                           ; preds = %if.end73, %if.then6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_initializer2(ptr nocapture noundef writeonly %rest, ptr noundef %tok, ptr nocapture noundef readonly %init, ptr noundef readonly %mem) unnamed_addr #0 {
+define internal fastcc void @struct_initializer2(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok, ptr nocapture noundef readonly %init, ptr noundef readonly %mem) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   store ptr %tok, ptr %tok.addr, align 8
@@ -9720,7 +9720,7 @@ if.end6:                                          ; preds = %lor.lhs.false
   %idxprom = sext i32 %7 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
   %8 = load ptr, ptr %arrayidx, align 8
-  call fastcc void @initializer2(ptr noundef nonnull %tok.addr, ptr noundef %5, ptr noundef %8)
+  call fastcc void @initializer2(ptr noundef %tok.addr, ptr noundef %5, ptr noundef %8)
   %9 = load ptr, ptr %mem.addr.07, align 8
   %tobool.not = icmp eq ptr %9, null
   br i1 %tobool.not, label %for.end.loopexit, label %land.rhs, !llvm.loop !46
@@ -9804,11 +9804,11 @@ if.end11:                                         ; preds = %if.then7, %if.then4
   %9 = load ptr, ptr %tok.addr, align 8
   %call12 = call ptr @skip(ptr noundef %9, ptr noundef nonnull @.str.59) #13
   store ptr %call12, ptr %tok.addr, align 8
-  call fastcc void @designation(ptr noundef nonnull %tok.addr, ptr noundef %call12, ptr noundef %call)
+  call fastcc void @designation(ptr noundef %tok.addr, ptr noundef %call12, ptr noundef %call)
   br label %if.end13
 
 if.else:                                          ; preds = %if.end
-  call fastcc void @initializer2(ptr noundef nonnull %tok.addr, ptr noundef %4, ptr noundef %call)
+  call fastcc void @initializer2(ptr noundef %tok.addr, ptr noundef %4, ptr noundef %call)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %if.end11
@@ -9825,7 +9825,7 @@ while.end:                                        ; preds = %if.end13, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @array_designator(ptr nocapture noundef writeonly %rest, ptr noundef %tok, ptr nocapture noundef readonly %ty, ptr nocapture noundef %begin, ptr nocapture noundef writeonly %end) unnamed_addr #0 {
+define internal fastcc void @array_designator(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok, ptr nocapture noundef readonly %ty, ptr nocapture noundef nonnull %begin, ptr nocapture noundef nonnull writeonly %end) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   store ptr %tok, ptr %tok.addr, align 8
@@ -9889,7 +9889,7 @@ if.end16:                                         ; preds = %if.end11, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @designation(ptr noundef %rest, ptr noundef %tok, ptr nocapture noundef %init) unnamed_addr #0 {
+define internal fastcc void @designation(ptr noundef nonnull %rest, ptr noundef %tok, ptr nocapture noundef %init) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   %begin = alloca i32, align 4
@@ -9913,7 +9913,7 @@ if.then1:                                         ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call fastcc void @array_designator(ptr noundef nonnull %tok.addr, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %begin, ptr noundef nonnull %end)
+  call fastcc void @array_designator(ptr noundef %tok.addr, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %begin, ptr noundef %end)
   %3 = load i32, ptr %begin, align 4
   %4 = load i32, ptr %end, align 4
   %cmp3.not25 = icmp sle i32 %3, %4
@@ -9929,7 +9929,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %7 = load ptr, ptr %children, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
   %8 = load ptr, ptr %arrayidx, align 8
-  call fastcc void @designation(ptr noundef nonnull %tok2, ptr noundef %.pre, ptr noundef %8)
+  call fastcc void @designation(ptr noundef %tok2, ptr noundef %.pre, ptr noundef %8)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %6, %lftr.wideiv
@@ -9955,7 +9955,7 @@ land.lhs.true:                                    ; preds = %if.end4
   br i1 %cmp8, label %if.then9, label %if.end15
 
 if.then9:                                         ; preds = %land.lhs.true
-  %call11 = call fastcc ptr @struct_designator(ptr noundef nonnull %tok.addr, ptr noundef %9, ptr noundef nonnull %10)
+  %call11 = call fastcc ptr @struct_designator(ptr noundef %tok.addr, ptr noundef %9, ptr noundef nonnull %10)
   %12 = load ptr, ptr %tok.addr, align 8
   %children12 = getelementptr inbounds i8, ptr %init.tr24, i64 40
   %13 = load ptr, ptr %children12, align 8
@@ -9964,7 +9964,7 @@ if.then9:                                         ; preds = %land.lhs.true
   %idxprom13 = sext i32 %14 to i64
   %arrayidx14 = getelementptr inbounds ptr, ptr %13, i64 %idxprom13
   %15 = load ptr, ptr %arrayidx14, align 8
-  call fastcc void @designation(ptr noundef nonnull %tok.addr, ptr noundef %12, ptr noundef %15)
+  call fastcc void @designation(ptr noundef %tok.addr, ptr noundef %12, ptr noundef %15)
   %expr = getelementptr inbounds i8, ptr %init.tr24, i64 32
   store ptr null, ptr %expr, align 8
   %16 = load ptr, ptr %tok.addr, align 8
@@ -9984,7 +9984,7 @@ land.lhs.true17:                                  ; preds = %if.end15
   br i1 %cmp20, label %if.then21, label %if.end30
 
 if.then21:                                        ; preds = %land.lhs.true17
-  %call24 = call fastcc ptr @struct_designator(ptr noundef nonnull %tok.addr, ptr noundef %9, ptr noundef nonnull %18)
+  %call24 = call fastcc ptr @struct_designator(ptr noundef %tok.addr, ptr noundef %9, ptr noundef nonnull %18)
   %mem25 = getelementptr inbounds i8, ptr %init.tr24, i64 48
   store ptr %call24, ptr %mem25, align 8
   %20 = load ptr, ptr %tok.addr, align 8
@@ -10044,13 +10044,13 @@ if.then:                                          ; preds = %entry
   br label %common.ret1
 
 if.end:                                           ; preds = %entry
-  %call3 = call fastcc ptr @assign(ptr noundef nonnull %tok.addr, ptr noundef %tok)
+  %call3 = call fastcc ptr @assign(ptr noundef %tok.addr, ptr noundef %tok)
   %1 = load ptr, ptr %tok.addr, align 8
   br label %common.ret1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @struct_designator(ptr nocapture noundef writeonly %rest, ptr noundef %tok, ptr nocapture noundef readonly %ty) unnamed_addr #0 {
+define internal fastcc nonnull ptr @struct_designator(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok, ptr nocapture noundef readonly %ty) unnamed_addr #0 {
 entry:
   %call = tail call ptr @skip(ptr noundef %tok, ptr noundef nonnull @.str.67) #13
   %0 = load i32, ptr %call, align 16
@@ -10223,7 +10223,7 @@ if.end17:                                         ; preds = %if.then3, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @create_lvar_init(ptr nocapture noundef readonly %init, ptr nocapture noundef readonly %ty, ptr noundef %desg, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc ptr @create_lvar_init(ptr nocapture noundef readonly %init, ptr nocapture noundef readonly %ty, ptr noundef nonnull %desg, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %desg2 = alloca %struct.InitDesg, align 8
   %desg212 = alloca %struct.InitDesg, align 8
@@ -10262,7 +10262,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
   %5 = load ptr, ptr %base, align 8
-  %call2 = call fastcc ptr @create_lvar_init(ptr noundef %4, ptr noundef %5, ptr noundef nonnull %desg2, ptr noundef %tok)
+  %call2 = call fastcc ptr @create_lvar_init(ptr noundef %4, ptr noundef %5, ptr noundef %desg2, ptr noundef %tok)
   %call.i.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 18, ptr %call.i.i, align 16
   %tok2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
@@ -10314,7 +10314,7 @@ for.body11:                                       ; preds = %for.body11.lr.ph, %
   %11 = load ptr, ptr %arrayidx21, align 8
   %ty22 = getelementptr inbounds i8, ptr %mem.055, i64 8
   %12 = load ptr, ptr %ty22, align 8
-  %call23 = call fastcc ptr @create_lvar_init(ptr noundef %11, ptr noundef %12, ptr noundef nonnull %desg212, ptr noundef %tok)
+  %call23 = call fastcc ptr @create_lvar_init(ptr noundef %11, ptr noundef %12, ptr noundef %desg212, ptr noundef %tok)
   %call.i.i40 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 18, ptr %call.i.i40, align 16
   %tok2.i.i41 = getelementptr inbounds i8, ptr %call.i.i40, i64 24
@@ -10356,7 +10356,7 @@ cond.end:                                         ; preds = %if.then31, %cond.fa
   %17 = load ptr, ptr %arrayidx45, align 8
   %ty46 = getelementptr inbounds i8, ptr %cond, i64 8
   %18 = load ptr, ptr %ty46, align 8
-  %call47 = call fastcc ptr @create_lvar_init(ptr noundef %17, ptr noundef %18, ptr noundef nonnull %desg237, ptr noundef %tok)
+  %call47 = call fastcc ptr @create_lvar_init(ptr noundef %17, ptr noundef %18, ptr noundef %desg237, ptr noundef %tok)
   br label %return
 
 if.end48:                                         ; preds = %entry
@@ -10373,7 +10373,7 @@ if.then51:                                        ; preds = %if.end48
 
 if.end53:                                         ; preds = %land.lhs.true, %if.end48
   %expr49 = getelementptr inbounds i8, ptr %init, i64 32
-  %call54 = tail call fastcc ptr @init_desg_expr(ptr noundef %desg, ptr noundef %tok)
+  %call54 = tail call fastcc ptr @init_desg_expr(ptr noundef nonnull %desg, ptr noundef %tok)
   %20 = load ptr, ptr %expr49, align 8
   %call.i.i46 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 16, ptr %call.i.i46, align 16
@@ -10452,7 +10452,7 @@ if.end8:                                          ; preds = %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @compound_stmt(ptr nocapture noundef writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc noundef ptr @compound_stmt(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %tok.addr.i = alloca ptr, align 8
   %dummy.i = alloca %struct.Type, align 8
@@ -10539,7 +10539,7 @@ land.lhs.true:                                    ; preds = %if.end.i, %is_typen
 if.then:                                          ; preds = %land.lhs.true
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %attr, i8 0, i64 12, i1 false)
   %12 = load ptr, ptr %tok.addr, align 8
-  %call4 = call fastcc ptr @declspec(ptr noundef nonnull %tok.addr, ptr noundef %12, ptr noundef nonnull %attr)
+  %call4 = call fastcc ptr @declspec(ptr noundef %tok.addr, ptr noundef %12, ptr noundef nonnull %attr)
   %13 = load i8, ptr %attr, align 4
   %tobool = trunc i8 %13 to i1
   %14 = load ptr, ptr %tok.addr, align 8
@@ -10570,7 +10570,7 @@ is_function.exit.thread:                          ; preds = %if.end
 is_function.exit:                                 ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %dummy.i, i8 0, i64 120, i1 false)
   %15 = load ptr, ptr %tok.addr.i, align 8
-  %call1.i = call fastcc ptr @declarator(ptr noundef nonnull %tok.addr.i, ptr noundef %15, ptr noundef nonnull %dummy.i)
+  %call1.i = call fastcc ptr @declarator(ptr noundef %tok.addr.i, ptr noundef %15, ptr noundef nonnull %dummy.i)
   %16 = load i32, ptr %call1.i, align 8
   %cmp.i11 = icmp eq i32 %16, 11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i)
@@ -10579,7 +10579,7 @@ is_function.exit:                                 ; preds = %if.end
 
 if.then8:                                         ; preds = %is_function.exit
   %17 = load ptr, ptr %tok.addr, align 8
-  %call9 = call fastcc ptr @function(ptr noundef %17, ptr noundef %call4, ptr noundef nonnull %attr)
+  %call9 = call fastcc ptr @function(ptr noundef %17, ptr noundef %call4, ptr noundef %attr)
   br label %while.cond.backedge
 
 if.end10:                                         ; preds = %is_function.exit.thread, %is_function.exit
@@ -10589,16 +10589,16 @@ if.end10:                                         ; preds = %is_function.exit.th
   br i1 %tobool11, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %if.end10
-  %call13 = call fastcc ptr @global_variable(ptr noundef %19, ptr noundef %call4, ptr noundef nonnull %attr)
+  %call13 = call fastcc ptr @global_variable(ptr noundef %19, ptr noundef %call4, ptr noundef %attr)
   br label %while.cond.backedge
 
 if.end14:                                         ; preds = %if.end10
-  %call15 = call fastcc ptr @declaration(ptr noundef nonnull %tok.addr, ptr noundef %19, ptr noundef %call4, ptr noundef nonnull %attr)
+  %call15 = call fastcc ptr @declaration(ptr noundef %tok.addr, ptr noundef %19, ptr noundef %call4, ptr noundef nonnull %attr)
   br label %if.end19
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true, %is_typename.exit, %for.cond.i.i.i
   %20 = load ptr, ptr %tok.addr, align 8
-  %call17 = call fastcc ptr @stmt(ptr noundef nonnull %tok.addr, ptr noundef %20)
+  %call17 = call fastcc ptr @stmt(ptr noundef %tok.addr, ptr noundef %20)
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.end14
@@ -10784,7 +10784,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @declaration(ptr nocapture noundef writeonly %rest, ptr noundef %tok, ptr noundef %basety, ptr noundef readonly %attr) unnamed_addr #0 {
+define internal fastcc noundef ptr @declaration(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok, ptr noundef %basety, ptr noundef readonly %attr) unnamed_addr #0 {
 entry:
   %desg.i = alloca %struct.InitDesg, align 8
   %head.i = alloca %struct.Relocation, align 8
@@ -10820,7 +10820,7 @@ if.then.us:                                       ; preds = %while.body.lr.ph.sp
 
 if.end.us:                                        ; preds = %if.then.us, %while.body.lr.ph.split.us
   %0 = phi ptr [ %call1.us, %if.then.us ], [ %.pre133, %while.body.lr.ph.split.us ]
-  %call2.us = call fastcc ptr @declarator(ptr noundef nonnull %tok.addr, ptr noundef %0, ptr noundef %basety)
+  %call2.us = call fastcc ptr @declarator(ptr noundef %tok.addr, ptr noundef %0, ptr noundef %basety)
   %1 = load i32, ptr %call2.us, align 8
   %cmp3.us = icmp eq i32 %1, 0
   br i1 %cmp3.us, label %if.then4, label %if.end5.us
@@ -10845,7 +10845,7 @@ if.then:                                          ; preds = %while.body
 
 if.end:                                           ; preds = %if.then, %while.body
   %3 = phi ptr [ %call1, %if.then ], [ %.pre, %while.body ]
-  %call2 = call fastcc ptr @declarator(ptr noundef nonnull %tok.addr, ptr noundef %3, ptr noundef %basety)
+  %call2 = call fastcc ptr @declarator(ptr noundef %tok.addr, ptr noundef %3, ptr noundef %basety)
   %4 = load i32, ptr %call2, align 8
   %cmp3 = icmp eq i32 %4, 0
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -10930,7 +10930,7 @@ if.then17:                                        ; preds = %get_ident.exit
   %20 = load ptr, ptr %next, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %head.i)
   %21 = load ptr, ptr %ty2.i.i.i, align 8
-  %call.i30 = call fastcc ptr @initializer(ptr noundef nonnull %tok.addr, ptr noundef %20, ptr noundef %21, ptr noundef nonnull %ty2.i.i.i)
+  %call.i30 = call fastcc ptr @initializer(ptr noundef %tok.addr, ptr noundef %20, ptr noundef %21, ptr noundef nonnull %ty2.i.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %head.i, i8 0, i64 32, i1 false)
   %22 = load ptr, ptr %ty2.i.i.i, align 8
   %size.i = getelementptr inbounds i8, ptr %22, i64 4
@@ -11136,7 +11136,7 @@ if.then54:                                        ; preds = %if.end52
   %53 = load ptr, ptr %next56, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %desg.i)
   %54 = load ptr, ptr %ty2.i.i63, align 8
-  %call.i70 = call fastcc ptr @initializer(ptr noundef nonnull %tok.addr, ptr noundef %53, ptr noundef %54, ptr noundef nonnull %ty2.i.i63)
+  %call.i70 = call fastcc ptr @initializer(ptr noundef %tok.addr, ptr noundef %53, ptr noundef %54, ptr noundef nonnull %ty2.i.i63)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %desg.i, i8 0, i64 24, i1 false)
   store ptr %call.i.i61, ptr %var2.i, align 8
   %call.i80 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
@@ -11146,7 +11146,7 @@ if.then54:                                        ; preds = %if.end52
   %var4.i = getelementptr inbounds i8, ptr %call.i80, i64 256
   store ptr %call.i.i61, ptr %var4.i, align 16
   %55 = load ptr, ptr %ty2.i.i63, align 8
-  %call6.i = call fastcc ptr @create_lvar_init(ptr noundef %call.i70, ptr noundef %55, ptr noundef nonnull %desg.i, ptr noundef %53)
+  %call6.i = call fastcc ptr @create_lvar_init(ptr noundef %call.i70, ptr noundef %55, ptr noundef %desg.i, ptr noundef %53)
   %call.i.i76 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 18, ptr %call.i.i76, align 16
   %tok2.i.i77 = getelementptr inbounds i8, ptr %call.i.i76, i64 24
@@ -11207,7 +11207,7 @@ while.end:                                        ; preds = %while.cond.outer.ba
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @stmt(ptr noundef %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc noundef ptr @stmt(ptr noundef nonnull %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   store ptr %tok, ptr %tok.addr, align 8
@@ -11221,12 +11221,12 @@ if.then:                                          ; preds = %entry
   store ptr %tok, ptr %tok2.i, align 8
   %next = getelementptr inbounds i8, ptr %tok, i64 8
   %0 = load ptr, ptr %next, align 8
-  %call2 = tail call zeroext i1 @consume(ptr noundef %rest, ptr noundef %0, ptr noundef nonnull @.str.99) #13
+  %call2 = tail call zeroext i1 @consume(ptr noundef nonnull %rest, ptr noundef %0, ptr noundef nonnull @.str.99) #13
   br i1 %call2, label %common.ret117, label %if.end
 
 if.end:                                           ; preds = %if.then
   %1 = load ptr, ptr %next, align 8
-  %call5 = call fastcc ptr @expr(ptr noundef nonnull %tok.addr, ptr noundef %1)
+  %call5 = call fastcc ptr @expr(ptr noundef %tok.addr, ptr noundef %1)
   %2 = load ptr, ptr %tok.addr, align 8
   %call6 = tail call ptr @skip(ptr noundef %2, ptr noundef nonnull @.str.99) #13
   store ptr %call6, ptr %rest, align 8
@@ -11275,13 +11275,13 @@ if.then17:                                        ; preds = %if.end15
   %9 = load ptr, ptr %next20, align 8
   %call21 = tail call ptr @skip(ptr noundef %9, ptr noundef nonnull @.str.23) #13
   store ptr %call21, ptr %tok.addr, align 8
-  %call22 = call fastcc ptr @expr(ptr noundef nonnull %tok.addr, ptr noundef %call21)
+  %call22 = call fastcc ptr @expr(ptr noundef %tok.addr, ptr noundef %call21)
   %cond = getelementptr inbounds i8, ptr %call.i69, i64 48
   store ptr %call22, ptr %cond, align 16
   %10 = load ptr, ptr %tok.addr, align 8
   %call23 = tail call ptr @skip(ptr noundef %10, ptr noundef nonnull @.str.24) #13
   store ptr %call23, ptr %tok.addr, align 8
-  %call24 = call fastcc ptr @stmt(ptr noundef nonnull %tok.addr, ptr noundef %call23)
+  %call24 = call fastcc ptr @stmt(ptr noundef %tok.addr, ptr noundef %call23)
   %then = getelementptr inbounds i8, ptr %call.i69, i64 56
   store ptr %call24, ptr %then, align 8
   %11 = load ptr, ptr %tok.addr, align 8
@@ -11292,7 +11292,7 @@ if.then26:                                        ; preds = %if.then17
   %12 = load ptr, ptr %tok.addr, align 8
   %next27 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %next27, align 8
-  %call28 = call fastcc ptr @stmt(ptr noundef nonnull %tok.addr, ptr noundef %13)
+  %call28 = call fastcc ptr @stmt(ptr noundef %tok.addr, ptr noundef %13)
   %els = getelementptr inbounds i8, ptr %call.i69, i64 64
   store ptr %call28, ptr %els, align 16
   br label %if.end29
@@ -11319,7 +11319,7 @@ if.then32:                                        ; preds = %if.end30
   %15 = load ptr, ptr %next35, align 8
   %call36 = tail call ptr @skip(ptr noundef %15, ptr noundef nonnull @.str.23) #13
   store ptr %call36, ptr %tok.addr, align 8
-  %call37 = call fastcc ptr @expr(ptr noundef nonnull %tok.addr, ptr noundef %call36)
+  %call37 = call fastcc ptr @expr(ptr noundef %tok.addr, ptr noundef %call36)
   %cond38 = getelementptr inbounds i8, ptr %call.i71, i64 48
   store ptr %call37, ptr %cond38, align 16
   %16 = load ptr, ptr %tok.addr, align 8
@@ -11486,13 +11486,13 @@ if.then88:                                        ; preds = %if.end86
   br i1 %call97, label %if.then98, label %if.else101
 
 if.then98:                                        ; preds = %if.then88
-  %call99 = call fastcc ptr @declspec(ptr noundef nonnull %tok.addr, ptr noundef %call92, ptr noundef null)
+  %call99 = call fastcc ptr @declspec(ptr noundef %tok.addr, ptr noundef %call92, ptr noundef null)
   %41 = load ptr, ptr %tok.addr, align 8
-  %call100 = call fastcc ptr @declaration(ptr noundef nonnull %tok.addr, ptr noundef %41, ptr noundef %call99, ptr noundef null)
+  %call100 = call fastcc ptr @declaration(ptr noundef %tok.addr, ptr noundef %41, ptr noundef %call99, ptr noundef null)
   br label %if.end104
 
 if.else101:                                       ; preds = %if.then88
-  %call102 = call fastcc ptr @expr_stmt(ptr noundef nonnull %tok.addr, ptr noundef %call92)
+  %call102 = call fastcc ptr @expr_stmt(ptr noundef %tok.addr, ptr noundef %call92)
   br label %if.end104
 
 if.end104:                                        ; preds = %if.else101, %if.then98
@@ -11504,7 +11504,7 @@ if.end104:                                        ; preds = %if.else101, %if.the
   br i1 %call105, label %if.end109, label %if.then106
 
 if.then106:                                       ; preds = %if.end104
-  %call107 = call fastcc ptr @expr(ptr noundef nonnull %tok.addr, ptr noundef %43)
+  %call107 = call fastcc ptr @expr(ptr noundef %tok.addr, ptr noundef %43)
   %cond108 = getelementptr inbounds i8, ptr %call.i85, i64 48
   store ptr %call107, ptr %cond108, align 16
   %.pre = load ptr, ptr %tok.addr, align 8
@@ -11518,7 +11518,7 @@ if.end109:                                        ; preds = %if.then106, %if.end
   br i1 %call111, label %if.end114, label %if.then112
 
 if.then112:                                       ; preds = %if.end109
-  %call113 = call fastcc ptr @expr(ptr noundef nonnull %tok.addr, ptr noundef %call110)
+  %call113 = call fastcc ptr @expr(ptr noundef %tok.addr, ptr noundef %call110)
   %inc = getelementptr inbounds i8, ptr %call.i85, i64 80
   store ptr %call113, ptr %inc, align 16
   %.pre116 = load ptr, ptr %tok.addr, align 8
@@ -11551,7 +11551,7 @@ if.then120:                                       ; preds = %if.end118
   %48 = load ptr, ptr %next123, align 8
   %call124 = tail call ptr @skip(ptr noundef %48, ptr noundef nonnull @.str.23) #13
   store ptr %call124, ptr %tok.addr, align 8
-  %call125 = call fastcc ptr @expr(ptr noundef nonnull %tok.addr, ptr noundef %call124)
+  %call125 = call fastcc ptr @expr(ptr noundef %tok.addr, ptr noundef %call124)
   %cond126 = getelementptr inbounds i8, ptr %call.i92, i64 48
   store ptr %call125, ptr %cond126, align 16
   %49 = load ptr, ptr %tok.addr, align 8
@@ -11606,7 +11606,7 @@ if.then138:                                       ; preds = %if.end136
   store ptr %call.i103, ptr @cont_label, align 8
   %next147 = getelementptr inbounds i8, ptr %tok, i64 8
   %58 = load ptr, ptr %next147, align 8
-  %call148 = call fastcc ptr @stmt(ptr noundef nonnull %tok.addr, ptr noundef %58)
+  %call148 = call fastcc ptr @stmt(ptr noundef %tok.addr, ptr noundef %58)
   %then149 = getelementptr inbounds i8, ptr %call.i98, i64 56
   store ptr %call148, ptr %then149, align 8
   store ptr %54, ptr @brk_label, align 8
@@ -11616,7 +11616,7 @@ if.then138:                                       ; preds = %if.end136
   store ptr %call150, ptr %tok.addr, align 8
   %call151 = call ptr @skip(ptr noundef %call150, ptr noundef nonnull @.str.23) #13
   store ptr %call151, ptr %tok.addr, align 8
-  %call152 = call fastcc ptr @expr(ptr noundef nonnull %tok.addr, ptr noundef %call151)
+  %call152 = call fastcc ptr @expr(ptr noundef %tok.addr, ptr noundef %call151)
   %cond153 = getelementptr inbounds i8, ptr %call.i98, i64 48
   store ptr %call152, ptr %cond153, align 16
   %60 = load ptr, ptr %tok.addr, align 8
@@ -11652,7 +11652,7 @@ if.then165:                                       ; preds = %if.then162
   %62 = load ptr, ptr %next163, align 8
   %next169 = getelementptr inbounds i8, ptr %62, i64 8
   %63 = load ptr, ptr %next169, align 8
-  %call170 = call fastcc ptr @expr(ptr noundef nonnull %tok.addr, ptr noundef %63)
+  %call170 = call fastcc ptr @expr(ptr noundef %tok.addr, ptr noundef %63)
   %lhs171 = getelementptr inbounds i8, ptr %call.i104, i64 32
   store ptr %call170, ptr %lhs171, align 16
   %64 = load ptr, ptr %tok.addr, align 8
@@ -11788,7 +11788,7 @@ if.end229:                                        ; preds = %if.end224
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @expr_stmt(ptr nocapture noundef writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc noundef ptr @expr_stmt(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   store ptr %tok, ptr %tok.addr, align 8
@@ -11809,7 +11809,7 @@ if.end:                                           ; preds = %entry
   store i32 38, ptr %call.i3, align 16
   %tok2.i4 = getelementptr inbounds i8, ptr %call.i3, i64 24
   store ptr %tok, ptr %tok2.i4, align 8
-  %call3 = call fastcc ptr @expr(ptr noundef nonnull %tok.addr, ptr noundef %tok)
+  %call3 = call fastcc ptr @expr(ptr noundef %tok.addr, ptr noundef %tok)
   %lhs = getelementptr inbounds i8, ptr %call.i3, i64 32
   store ptr %call3, ptr %lhs, align 16
   %1 = load ptr, ptr %tok.addr, align 8
@@ -11824,7 +11824,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @asm_stmt(ptr nocapture noundef writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @asm_stmt(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %call.i = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 45, ptr %call.i, align 16
@@ -11880,7 +11880,7 @@ if.end:                                           ; preds = %lor.lhs.false
 declare zeroext i1 @is_numeric(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @struct_decl(ptr nocapture noundef writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc noundef ptr @struct_decl(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @struct_union_decl(ptr noundef %rest, ptr noundef %tok)
   store i32 14, ptr %call, align 8
@@ -12012,7 +12012,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @union_decl(ptr nocapture noundef writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc noundef ptr @union_decl(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @struct_union_decl(ptr noundef %rest, ptr noundef %tok)
   store i32 15, ptr %call, align 8
@@ -12073,7 +12073,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @enum_specifier(ptr nocapture noundef writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc ptr @enum_specifier(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   %call = tail call ptr @enum_type() #13
@@ -12230,7 +12230,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @typeof_specifier(ptr nocapture noundef writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc ptr @typeof_specifier(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %tok.addr.i = alloca ptr, align 8
   %tok.addr = alloca ptr, align 8
@@ -12286,14 +12286,14 @@ is_typename.exit:                                 ; preds = %for.body.i.i.i
 if.then:                                          ; preds = %if.end.i, %is_typename.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i)
   store ptr %call, ptr %tok.addr.i, align 8
-  %call.i2 = call fastcc ptr @declspec(ptr noundef nonnull %tok.addr.i, ptr noundef nonnull %call, ptr noundef null)
+  %call.i2 = call fastcc ptr @declspec(ptr noundef %tok.addr.i, ptr noundef nonnull %call, ptr noundef null)
   %8 = load ptr, ptr %tok.addr.i, align 8
-  %call1.i = call fastcc ptr @abstract_declarator(ptr noundef nonnull %tok.addr, ptr noundef %8, ptr noundef %call.i2)
+  %call1.i = call fastcc ptr @abstract_declarator(ptr noundef %tok.addr, ptr noundef %8, ptr noundef %call.i2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i)
   br label %if.end
 
 if.else:                                          ; preds = %for.cond.i.i.i, %lor.rhs.i, %is_typename.exit
-  %call3 = call fastcc ptr @expr(ptr noundef nonnull %tok.addr, ptr noundef nonnull %call)
+  %call3 = call fastcc ptr @expr(ptr noundef %tok.addr, ptr noundef nonnull %call)
   tail call void @add_type(ptr noundef %call3) #13
   %ty4 = getelementptr inbounds i8, ptr %call3, i64 16
   %9 = load ptr, ptr %ty4, align 16
@@ -12308,7 +12308,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @struct_union_decl(ptr nocapture noundef writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc ptr @struct_union_decl(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   %call = tail call ptr @struct_type() #13
@@ -12356,7 +12356,7 @@ if.end7:                                          ; preds = %for.cond.i
 if.then12:                                        ; preds = %land.lhs.true
   %call9 = tail call ptr @skip(ptr noundef %1, ptr noundef nonnull @.str.25) #13
   store ptr %call9, ptr %tok.addr, align 8
-  call fastcc void @struct_members(ptr noundef nonnull %tok.addr, ptr noundef %call9, ptr noundef %call)
+  call fastcc void @struct_members(ptr noundef %tok.addr, ptr noundef %call9, ptr noundef %call)
   %5 = load ptr, ptr %tok.addr, align 8
   %call10 = tail call fastcc ptr @attribute_list(ptr noundef %5, ptr noundef %call)
   store ptr %call10, ptr %rest, align 8
@@ -12385,7 +12385,7 @@ if.end17:                                         ; preds = %if.then12
 if.end18.critedge:                                ; preds = %entry
   %call9.c = tail call ptr @skip(ptr noundef nonnull %call1, ptr noundef nonnull @.str.25) #13
   store ptr %call9.c, ptr %tok.addr, align 8
-  call fastcc void @struct_members(ptr noundef nonnull %tok.addr, ptr noundef %call9.c, ptr noundef %call)
+  call fastcc void @struct_members(ptr noundef %tok.addr, ptr noundef %call9.c, ptr noundef %call)
   %10 = load ptr, ptr %tok.addr, align 8
   %call10.c = tail call fastcc ptr @attribute_list(ptr noundef %10, ptr noundef %call)
   store ptr %call10.c, ptr %rest, align 8
@@ -12482,7 +12482,7 @@ while.end17:                                      ; preds = %while.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @struct_members(ptr nocapture noundef writeonly %rest, ptr noundef %tok, ptr nocapture noundef writeonly %ty) unnamed_addr #0 {
+define internal fastcc void @struct_members(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok, ptr nocapture noundef writeonly %ty) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   %head = alloca %struct.Member, align 8
@@ -12501,7 +12501,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %idx.032 = phi i32 [ 0, %while.body.lr.ph ], [ %idx.0.be, %while.cond.backedge ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %attr, i8 0, i64 12, i1 false)
   %0 = load ptr, ptr %tok.addr, align 8
-  %call1 = call fastcc ptr @declspec(ptr noundef nonnull %tok.addr, ptr noundef %0, ptr noundef nonnull %attr)
+  %call1 = call fastcc ptr @declspec(ptr noundef %tok.addr, ptr noundef %0, ptr noundef nonnull %attr)
   %1 = load i32, ptr %call1, align 8
   %2 = and i32 %1, -2
   %switch = icmp eq i32 %2, 14
@@ -12562,7 +12562,7 @@ if.then17:                                        ; preds = %while.body15
 if.end19:                                         ; preds = %if.then17, %while.body15
   %8 = phi ptr [ %call18, %if.then17 ], [ %.pre, %while.body15 ]
   %call21 = call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #14
-  %call22 = call fastcc ptr @declarator(ptr noundef nonnull %tok.addr, ptr noundef %8, ptr noundef nonnull %call1)
+  %call22 = call fastcc ptr @declarator(ptr noundef %tok.addr, ptr noundef %8, ptr noundef nonnull %call1)
   %ty23 = getelementptr inbounds i8, ptr %call21, i64 8
   store ptr %call22, ptr %ty23, align 8
   %name = getelementptr inbounds i8, ptr %call22, i64 32

@@ -2539,7 +2539,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPN5clang13CXXRecordDeclEEZNS0_
   %4 = getelementptr i8, ptr %.val, i64 16
   %.val.val = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  call fastcc void @_ZL15setupBufferTypePN5clang13CXXRecordDeclERNS_4SemaEN4llvm4dxil13ResourceClassENS5_12ResourceKindEb(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %.val2, ptr noundef nonnull align 8 dereferenceable(17560) %.val.val, i1 noundef zeroext false)
+  call fastcc void @_ZL15setupBufferTypePN5clang13CXXRecordDeclERNS_4SemaEN4llvm4dxil13ResourceClassENS5_12ResourceKindEb(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %.val2, ptr noundef nonnull align 8 dereferenceable(17560) %.val.val, i1 noundef zeroext false)
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 74
   %7 = load i8, ptr %6, align 2
@@ -2675,7 +2675,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN5clang13CXXRec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15setupBufferTypePN5clang13CXXRecordDeclERNS_4SemaEN4llvm4dxil13ResourceClassENS5_12ResourceKindEb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @_ZL15setupBufferTypePN5clang13CXXRecordDeclERNS_4SemaEN4llvm4dxil13ResourceClassENS5_12ResourceKindEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %"struct.clang::DeclarationNameInfo", align 8
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"struct.clang::DeclarationNameInfo", align 8
@@ -3933,7 +3933,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPN5clang13CXXRecordDeclEEZNS0_
   %4 = getelementptr i8, ptr %.val, i64 16
   %.val.val = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  call fastcc void @_ZL15setupBufferTypePN5clang13CXXRecordDeclERNS_4SemaEN4llvm4dxil13ResourceClassENS5_12ResourceKindEb(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %.val2, ptr noundef nonnull align 8 dereferenceable(17560) %.val.val, i1 noundef zeroext true)
+  call fastcc void @_ZL15setupBufferTypePN5clang13CXXRecordDeclERNS_4SemaEN4llvm4dxil13ResourceClassENS5_12ResourceKindEb(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %.val2, ptr noundef nonnull align 8 dereferenceable(17560) %.val.val, i1 noundef zeroext true)
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 74
   %7 = load i8, ptr %6, align 2

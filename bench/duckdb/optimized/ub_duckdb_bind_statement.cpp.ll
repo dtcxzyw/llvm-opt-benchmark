@@ -59227,7 +59227,7 @@ unreachable:                                      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL30CheckInsertColumnCountMismatchEllbPKc(i64 noundef %expected_columns, i64 noundef %result_columns, i1 noundef zeroext %columns_provided, ptr noundef %tname) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL30CheckInsertColumnCountMismatchEllbPKc(i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %expected_columns, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %result_columns, i1 noundef zeroext %columns_provided, ptr noundef %tname) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %msg = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -73607,7 +73607,7 @@ declare void @_ZN6duckdb5ValueC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 declare void @_ZNK6duckdb11LogicalType8ToStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL24SummarizeCreateAggregateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %aggregate, ptr noundef %column_name) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL24SummarizeCreateAggregateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %aggregate, ptr noundef nonnull %column_name) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i25 = alloca %"struct.duckdb::LogicalType", align 8
   %agg.tmp3.i = alloca %"class.duckdb::unique_ptr.193", align 8
@@ -74010,7 +74010,7 @@ ehcleanup12:                                      ; preds = %ehcleanup11, %_ZNSt
 declare noundef zeroext i1 @_ZNK6duckdb11LogicalType9IsNumericEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL24SummarizeCreateAggregateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_RKNS_5ValueE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %aggregate, ptr noundef %column_name, ptr noundef nonnull align 8 dereferenceable(64) %modifier) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL24SummarizeCreateAggregateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_RKNS_5ValueE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %aggregate, ptr noundef nonnull %column_name, ptr noundef nonnull align 8 dereferenceable(64) %modifier) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i59 = alloca %"struct.duckdb::LogicalType", align 8
   %agg.tmp3.i = alloca %"class.duckdb::unique_ptr.193", align 8
@@ -74797,7 +74797,7 @@ _ZN6duckdb10unique_ptrINS_11SubqueryRefESt14default_deleteIS1_ELb1EE13AssertNotN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL19SummarizeWrapUnnestERNS_6vectorINS_10unique_ptrINS_16ParsedExpressionESt14default_deleteIS2_ELb1EEELb1EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %children, ptr noundef nonnull align 8 dereferenceable(32) %alias) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL19SummarizeWrapUnnestERNS_6vectorINS_10unique_ptrINS_16ParsedExpressionESt14default_deleteIS2_ELb1EEELb1EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %children, ptr noundef nonnull align 8 dereferenceable(32) %alias) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 cond.true.i.i:
   %list_function = alloca %"class.duckdb::unique_ptr.2155", align 8
   %unnest_children = alloca %"class.duckdb::vector.579", align 8
@@ -91983,7 +91983,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_construc
 declare void @_ZN6duckdb19ColumnRefExpressionC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL16AlterLogicalTypeERKNS_11LogicalTypeEPFNS_15CopyTypeSupportES2_E(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %original, ptr noundef %type_check) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL16AlterLogicalTypeERKNS_11LogicalTypeEPFNS_15CopyTypeSupportES2_E(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %original, ptr noundef nonnull %type_check) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i270 = alloca i64, align 8
   %__dnew.i.i.i.i = alloca i64, align 8
@@ -92016,7 +92016,7 @@ sw.bb:                                            ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %child) #25
   %call1 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb8ListType12GetChildTypeERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %original)
   call fastcc void @_ZN6duckdbL16AlterLogicalTypeERKNS_11LogicalTypeEPFNS_15CopyTypeSupportES2_E(ptr dead_on_unwind noalias nonnull writable align 8 %child, ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef %type_check)
-  invoke void @_ZN6duckdb11LogicalType4LISTERKS0_(ptr dead_on_unwind writable sret(%"struct.duckdb::LogicalType") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %child)
+  invoke void @_ZN6duckdb11LogicalType4LISTERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb::LogicalType") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %child)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %sw.bb
@@ -92067,7 +92067,7 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup.lo
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i, align 16, !tbaa !795
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %new_children, i8 0, i64 24, i1 false)
-  invoke void @_ZN6duckdb11LogicalType6STRUCTENS_6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES0_ELb1EEE(ptr dead_on_unwind writable sret(%"struct.duckdb::LogicalType") align 8 %agg.result, ptr noundef nonnull %agg.tmp)
+  invoke void @_ZN6duckdb11LogicalType6STRUCTENS_6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES0_ELb1EEE(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb::LogicalType") align 8 %agg.result, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont35 unwind label %lpad34
 
 for.body:                                         ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEED2Ev.exit, %for.body.lr.ph
@@ -92507,7 +92507,7 @@ for.cond.cleanup44:                               ; preds = %for.cond.cleanup44.
   %_M_end_of_storage.i.i.i.i.i223 = getelementptr inbounds i8, ptr %agg.tmp84, i64 16
   store ptr %67, ptr %_M_end_of_storage.i.i.i.i.i223, align 16, !tbaa !795
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %new_children42, i8 0, i64 24, i1 false)
-  invoke void @_ZN6duckdb11LogicalType5UNIONENS_6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES0_ELb1EEE(ptr dead_on_unwind writable sret(%"struct.duckdb::LogicalType") align 8 %agg.result, ptr noundef nonnull %agg.tmp84)
+  invoke void @_ZN6duckdb11LogicalType5UNIONENS_6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES0_ELb1EEE(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb::LogicalType") align 8 %agg.result, ptr noundef nonnull %agg.tmp84)
           to label %invoke.cont86 unwind label %lpad85
 
 for.body45:                                       ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEED2Ev.exit316, %for.body45.lr.ph
@@ -93215,7 +93215,7 @@ invoke.cont122:                                   ; preds = %if.end120
           to label %invoke.cont125 unwind label %lpad124
 
 invoke.cont125:                                   ; preds = %invoke.cont122
-  invoke void @_ZN6duckdb11LogicalType3MAPES0_S0_(ptr dead_on_unwind writable sret(%"struct.duckdb::LogicalType") align 8 %agg.result, ptr noundef nonnull %agg.tmp121, ptr noundef nonnull %agg.tmp123)
+  invoke void @_ZN6duckdb11LogicalType3MAPES0_S0_(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb::LogicalType") align 8 %agg.result, ptr noundef nonnull %agg.tmp121, ptr noundef nonnull %agg.tmp123)
           to label %invoke.cont127 unwind label %lpad126
 
 invoke.cont127:                                   ; preds = %invoke.cont125
@@ -95113,7 +95113,7 @@ ehcleanup:                                        ; preds = %if.then.i.i30, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL29SummarizeCreateBinaryFunctionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10unique_ptrINS_16ParsedExpressionESt14default_deleteIS9_ELb1EEESC_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %op, ptr nocapture noundef %left, ptr nocapture noundef %right) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL29SummarizeCreateBinaryFunctionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10unique_ptrINS_16ParsedExpressionESt14default_deleteIS9_ELb1EEESC_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %op, ptr nocapture noundef nonnull %left, ptr nocapture noundef nonnull %right) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 cond.true.i.i:
   %children = alloca %"class.duckdb::vector.579", align 8
   %binary_function = alloca %"class.duckdb::unique_ptr.2155", align 8

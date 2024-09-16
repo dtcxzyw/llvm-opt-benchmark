@@ -141,15 +141,15 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
   %48 = getelementptr inbounds i8, ptr %2, i64 24
   store double 0.000000e+00, ptr %48, align 8
   call void @_ZN2cv3MatC1EiiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef 610, i32 noundef 550, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 42949672970, i64 214748364850)
+  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias writable align 8 %3, i64 42949672970, i64 214748364850)
           to label %49 unwind label %175
 
 49:                                               ; preds = %0
-  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias nonnull writable align 8 %4, i64 85899345940, i64 257698037820)
+  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias writable align 8 %4, i64 85899345940, i64 257698037820)
           to label %50 unwind label %177
 
 50:                                               ; preds = %49
-  %51 = invoke fastcc noundef float @_ZL16drawIntersectionRN2cv3MatESt6vectorINS_6Point_IiEESaIS4_EES6_b(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext true)
+  %51 = invoke fastcc noundef float @_ZL16drawIntersectionRN2cv3MatESt6vectorINS_6Point_IiEESaIS4_EES6_b(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %3, ptr noundef %4, i1 noundef zeroext true)
           to label %52 unwind label %179
 
 52:                                               ; preds = %50
@@ -177,21 +177,21 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit81.i: ; preds = %56, %_ZNSt6vectorI
 
 57:                                               ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit81.i
   %58 = fptosi float %51 to i32
-  invoke fastcc void @_ZL15drawDescriptionRN2cv3MatEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %58, ptr noundef nonnull %5, i64 171798691910)
+  invoke fastcc void @_ZL15drawDescriptionRN2cv3MatEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %58, ptr noundef %5, i64 171798691910)
           to label %59 unwind label %187
 
 59:                                               ; preds = %57
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias nonnull writable align 8 %7, i64 300647710730, i64 408021893155)
+  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias writable align 8 %7, i64 300647710730, i64 408021893155)
           to label %60 unwind label %175
 
 60:                                               ; preds = %59
-  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias nonnull writable align 8 %8, i64 408021893155, i64 515396075580)
+  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias writable align 8 %8, i64 408021893155, i64 515396075580)
           to label %61 unwind label %190
 
 61:                                               ; preds = %60
-  %62 = invoke fastcc noundef float @_ZL16drawIntersectionRN2cv3MatESt6vectorINS_6Point_IiEESaIS4_EES6_b(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull %7, ptr noundef nonnull %8, i1 noundef zeroext true)
+  %62 = invoke fastcc noundef float @_ZL16drawIntersectionRN2cv3MatESt6vectorINS_6Point_IiEESaIS4_EES6_b(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %7, ptr noundef %8, i1 noundef zeroext true)
           to label %63 unwind label %192
 
 63:                                               ; preds = %61
@@ -219,21 +219,21 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit85.i: ; preds = %67, %_ZNSt6vectorI
 
 68:                                               ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit85.i
   %69 = fptosi float %62 to i32
-  invoke fastcc void @_ZL15drawDescriptionRN2cv3MatEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %69, ptr noundef nonnull %9, i64 429496729670)
+  invoke fastcc void @_ZL15drawDescriptionRN2cv3MatEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %69, ptr noundef %9, i64 429496729670)
           to label %70 unwind label %200
 
 70:                                               ; preds = %68
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #17
-  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 558345748490, i64 773094113340)
+  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias writable align 8 %11, i64 558345748490, i64 773094113340)
           to label %71 unwind label %175
 
 71:                                               ; preds = %70
-  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 601295421460, i64 730144440370)
+  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias writable align 8 %12, i64 601295421460, i64 730144440370)
           to label %72 unwind label %203
 
 72:                                               ; preds = %71
-  %73 = invoke fastcc noundef float @_ZL16drawIntersectionRN2cv3MatESt6vectorINS_6Point_IiEESaIS4_EES6_b(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull %11, ptr noundef nonnull %12, i1 noundef zeroext true)
+  %73 = invoke fastcc noundef float @_ZL16drawIntersectionRN2cv3MatESt6vectorINS_6Point_IiEESaIS4_EES6_b(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %11, ptr noundef %12, i1 noundef zeroext true)
           to label %74 unwind label %205
 
 74:                                               ; preds = %72
@@ -261,21 +261,21 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit89.i: ; preds = %78, %_ZNSt6vectorI
 
 79:                                               ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit89.i
   %80 = fptosi float %73 to i32
-  invoke fastcc void @_ZL15drawDescriptionRN2cv3MatEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %80, ptr noundef nonnull %13, i64 687194767430)
+  invoke fastcc void @_ZL15drawDescriptionRN2cv3MatEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %80, ptr noundef %13, i64 687194767430)
           to label %81 unwind label %213
 
 81:                                               ; preds = %79
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #17
-  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias nonnull writable align 8 %15, i64 816043786250, i64 1030792151100)
+  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias writable align 8 %15, i64 816043786250, i64 1030792151100)
           to label %82 unwind label %175
 
 82:                                               ; preds = %81
-  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias nonnull writable align 8 %16, i64 858993459220, i64 987842478130)
+  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias writable align 8 %16, i64 858993459220, i64 987842478130)
           to label %83 unwind label %216
 
 83:                                               ; preds = %82
-  %84 = invoke fastcc noundef float @_ZL16drawIntersectionRN2cv3MatESt6vectorINS_6Point_IiEESaIS4_EES6_b(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull %15, ptr noundef nonnull %16, i1 noundef zeroext false)
+  %84 = invoke fastcc noundef float @_ZL16drawIntersectionRN2cv3MatESt6vectorINS_6Point_IiEESaIS4_EES6_b(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %15, ptr noundef %16, i1 noundef zeroext false)
           to label %85 unwind label %218
 
 85:                                               ; preds = %83
@@ -303,21 +303,21 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit93.i: ; preds = %89, %_ZNSt6vectorI
 
 90:                                               ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit93.i
   %91 = fptosi float %84 to i32
-  invoke fastcc void @_ZL15drawDescriptionRN2cv3MatEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %91, ptr noundef nonnull %17, i64 944892805190)
+  invoke fastcc void @_ZL15drawDescriptionRN2cv3MatEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %91, ptr noundef %17, i64 944892805190)
           to label %92 unwind label %226
 
 92:                                               ; preds = %90
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #17
-  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias nonnull writable align 8 %19, i64 1073741824010, i64 1288490188860)
+  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias writable align 8 %19, i64 1073741824010, i64 1288490188860)
           to label %93 unwind label %175
 
 93:                                               ; preds = %92
-  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias nonnull writable align 8 %20, i64 1073741824020, i64 1245540515890)
+  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias writable align 8 %20, i64 1073741824020, i64 1245540515890)
           to label %94 unwind label %229
 
 94:                                               ; preds = %93
-  %95 = invoke fastcc noundef float @_ZL16drawIntersectionRN2cv3MatESt6vectorINS_6Point_IiEESaIS4_EES6_b(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull %19, ptr noundef nonnull %20, i1 noundef zeroext true)
+  %95 = invoke fastcc noundef float @_ZL16drawIntersectionRN2cv3MatESt6vectorINS_6Point_IiEESaIS4_EES6_b(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %19, ptr noundef %20, i1 noundef zeroext true)
           to label %96 unwind label %231
 
 96:                                               ; preds = %94
@@ -345,21 +345,21 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit97.i: ; preds = %100, %_ZNSt6vector
 
 101:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit97.i
   %102 = fptosi float %95 to i32
-  invoke fastcc void @_ZL15drawDescriptionRN2cv3MatEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %102, ptr noundef nonnull %21, i64 1202590842950)
+  invoke fastcc void @_ZL15drawDescriptionRN2cv3MatEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %102, ptr noundef %21, i64 1202590842950)
           to label %103 unwind label %239
 
 103:                                              ; preds = %101
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #17
-  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias nonnull writable align 8 %23, i64 1331439861770, i64 1546188226620)
+  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias writable align 8 %23, i64 1331439861770, i64 1546188226620)
           to label %104 unwind label %175
 
 104:                                              ; preds = %103
-  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias nonnull writable align 8 %24, i64 1331439861780, i64 1503238553650)
+  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias writable align 8 %24, i64 1331439861780, i64 1503238553650)
           to label %105 unwind label %242
 
 105:                                              ; preds = %104
-  %106 = invoke fastcc noundef float @_ZL16drawIntersectionRN2cv3MatESt6vectorINS_6Point_IiEESaIS4_EES6_b(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull %23, ptr noundef nonnull %24, i1 noundef zeroext false)
+  %106 = invoke fastcc noundef float @_ZL16drawIntersectionRN2cv3MatESt6vectorINS_6Point_IiEESaIS4_EES6_b(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %23, ptr noundef %24, i1 noundef zeroext false)
           to label %107 unwind label %244
 
 107:                                              ; preds = %105
@@ -387,21 +387,21 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit101.i: ; preds = %111, %_ZNSt6vecto
 
 112:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit101.i
   %113 = fptosi float %106 to i32
-  invoke fastcc void @_ZL15drawDescriptionRN2cv3MatEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %113, ptr noundef nonnull %25, i64 1460288880710)
+  invoke fastcc void @_ZL15drawDescriptionRN2cv3MatEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %113, ptr noundef %25, i64 1460288880710)
           to label %114 unwind label %252
 
 114:                                              ; preds = %112
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #17
-  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias nonnull writable align 8 %27, i64 1589137899530, i64 1803886264380)
+  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias writable align 8 %27, i64 1589137899530, i64 1803886264380)
           to label %115 unwind label %175
 
 115:                                              ; preds = %114
-  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias nonnull writable align 8 %28, i64 1593432866836, i64 1760936591410)
+  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias writable align 8 %28, i64 1593432866836, i64 1760936591410)
           to label %116 unwind label %255
 
 116:                                              ; preds = %115
-  %117 = invoke fastcc noundef float @_ZL16drawIntersectionRN2cv3MatESt6vectorINS_6Point_IiEESaIS4_EES6_b(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull %27, ptr noundef nonnull %28, i1 noundef zeroext false)
+  %117 = invoke fastcc noundef float @_ZL16drawIntersectionRN2cv3MatESt6vectorINS_6Point_IiEESaIS4_EES6_b(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %27, ptr noundef %28, i1 noundef zeroext false)
           to label %118 unwind label %257
 
 118:                                              ; preds = %116
@@ -429,21 +429,21 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit105.i: ; preds = %122, %_ZNSt6vecto
 
 123:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit105.i
   %124 = fptosi float %117 to i32
-  invoke fastcc void @_ZL15drawDescriptionRN2cv3MatEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %124, ptr noundef nonnull %29, i64 1717986918470)
+  invoke fastcc void @_ZL15drawDescriptionRN2cv3MatEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %124, ptr noundef %29, i64 1717986918470)
           to label %125 unwind label %265
 
 125:                                              ; preds = %123
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #17
-  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias nonnull writable align 8 %31, i64 1846835937290, i64 2061584302140)
+  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias writable align 8 %31, i64 1846835937290, i64 2061584302140)
           to label %126 unwind label %175
 
 126:                                              ; preds = %125
-  invoke fastcc void @_ZL12makeTriangleN2cv6Point_IiEES1_S1_(ptr dead_on_unwind noalias nonnull writable align 8 %32, i64 1846835937315, i64 2018634629140, i64 2018634629170)
+  invoke fastcc void @_ZL12makeTriangleN2cv6Point_IiEES1_S1_(ptr dead_on_unwind noalias writable align 8 %32, i64 1846835937315, i64 2018634629140, i64 2018634629170)
           to label %127 unwind label %268
 
 127:                                              ; preds = %126
-  %128 = invoke fastcc noundef float @_ZL16drawIntersectionRN2cv3MatESt6vectorINS_6Point_IiEESaIS4_EES6_b(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull %31, ptr noundef nonnull %32, i1 noundef zeroext false)
+  %128 = invoke fastcc noundef float @_ZL16drawIntersectionRN2cv3MatESt6vectorINS_6Point_IiEESaIS4_EES6_b(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %31, ptr noundef %32, i1 noundef zeroext false)
           to label %129 unwind label %270
 
 129:                                              ; preds = %127
@@ -471,21 +471,21 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit109.i: ; preds = %133, %_ZNSt6vecto
 
 134:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit109.i
   %135 = fptosi float %128 to i32
-  invoke fastcc void @_ZL15drawDescriptionRN2cv3MatEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %135, ptr noundef nonnull %33, i64 1975684956230)
+  invoke fastcc void @_ZL15drawDescriptionRN2cv3MatEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %135, ptr noundef %33, i64 1975684956230)
           to label %136 unwind label %278
 
 136:                                              ; preds = %134
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #17
-  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias nonnull writable align 8 %35, i64 2104533975050, i64 2319282339880)
+  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias writable align 8 %35, i64 2104533975050, i64 2319282339880)
           to label %137 unwind label %175
 
 137:                                              ; preds = %136
-  invoke fastcc void @_ZL12makeTriangleN2cv6Point_IiEES1_S1_(ptr dead_on_unwind noalias nonnull writable align 8 %36, i64 2147483648025, i64 2276332666905, i64 2211908157500)
+  invoke fastcc void @_ZL12makeTriangleN2cv6Point_IiEES1_S1_(ptr dead_on_unwind noalias writable align 8 %36, i64 2147483648025, i64 2276332666905, i64 2211908157500)
           to label %138 unwind label %281
 
 138:                                              ; preds = %137
-  %139 = invoke fastcc noundef float @_ZL16drawIntersectionRN2cv3MatESt6vectorINS_6Point_IiEESaIS4_EES6_b(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull %35, ptr noundef nonnull %36, i1 noundef zeroext false)
+  %139 = invoke fastcc noundef float @_ZL16drawIntersectionRN2cv3MatESt6vectorINS_6Point_IiEESaIS4_EES6_b(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %35, ptr noundef %36, i1 noundef zeroext false)
           to label %140 unwind label %283
 
 140:                                              ; preds = %138
@@ -513,7 +513,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit113.i: ; preds = %144, %_ZNSt6vecto
 
 145:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit113.i
   %146 = fptosi float %139 to i32
-  invoke fastcc void @_ZL15drawDescriptionRN2cv3MatEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %146, ptr noundef nonnull %37, i64 2233382993990)
+  invoke fastcc void @_ZL15drawDescriptionRN2cv3MatEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %146, ptr noundef %37, i64 2233382993990)
           to label %147 unwind label %291
 
 147:                                              ; preds = %145
@@ -552,7 +552,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit199.i: ; preds = %_ZNSt6
   call void @_ZdlPv(ptr noundef nonnull %152) #16
   %.sroa.17.4.i.ptr = getelementptr inbounds i8, ptr %154, i64 40
   store i64 2448131358765, ptr %.sroa.17.4.i.ptr, align 4
-  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias nonnull writable align 8 %39, i64 2362232012810, i64 2576980377650)
+  invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias writable align 8 %39, i64 2362232012810, i64 2576980377650)
           to label %_ZNSt16allocator_traitsISaIN2cv6Point_IiEEEE8allocateERS3_m.exit.i.i.i.i.i unwind label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit248.thread465.i
 
 _ZNSt16allocator_traitsISaIN2cv6Point_IiEEEE8allocateERS3_m.exit.i.i.i.i.i: ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit199.i
@@ -569,7 +569,7 @@ _ZNSt16allocator_traitsISaIN2cv6Point_IiEEEE8allocateERS3_m.exit.i.i.i.i.i: ; pr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %156, ptr noundef nonnull align 4 dereferenceable(48) %154, i64 48, i1 false)
   %scevgep3 = getelementptr inbounds i8, ptr %156, i64 48
   store ptr %scevgep3, ptr %157, align 8
-  %160 = invoke fastcc noundef float @_ZL16drawIntersectionRN2cv3MatESt6vectorINS_6Point_IiEESaIS4_EES6_b(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull %39, ptr noundef nonnull %40, i1 noundef zeroext false)
+  %160 = invoke fastcc noundef float @_ZL16drawIntersectionRN2cv3MatESt6vectorINS_6Point_IiEESaIS4_EES6_b(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %39, ptr noundef %40, i1 noundef zeroext false)
           to label %161 unwind label %296
 
 161:                                              ; preds = %.loopexit.i
@@ -597,7 +597,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit206.i: ; preds = %165, %_ZNSt6vecto
 
 166:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit206.i
   %167 = fptosi float %160 to i32
-  invoke fastcc void @_ZL15drawDescriptionRN2cv3MatEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %167, ptr noundef nonnull %41, i64 2491081031750)
+  invoke fastcc void @_ZL15drawDescriptionRN2cv3MatEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %167, ptr noundef %41, i64 2491081031750)
           to label %168 unwind label %304
 
 168:                                              ; preds = %166
@@ -1141,7 +1141,7 @@ _ZL22intersectConvexExamplev.exit:                ; preds = %173
 declare void @_ZN2cv3MatC1EiiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef float @_ZL16drawIntersectionRN2cv3MatESt6vectorINS_6Point_IiEESaIS4_EES6_b(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef float @_ZL16drawIntersectionRN2cv3MatESt6vectorINS_6Point_IiEESaIS4_EES6_b(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector", align 8
   %6 = alloca %"class.std::vector.3", align 8
   %7 = alloca %"class.cv::_InputArray", align 8
@@ -1423,7 +1423,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit44:  ; preds = %104, %106
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias nocapture writable align 8 %0, i64 %1, i64 %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, i64 %1, i64 %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %.sroa.4.0.extract.shift = and i64 %2, -4294967296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1645,7 +1645,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL12makeTriangleN2cv6Point_IiEES1_S1_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i64 %1, i64 %2, i64 %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12makeTriangleN2cv6Point_IiEES1_S1_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 %1, i64 %2, i64 %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16

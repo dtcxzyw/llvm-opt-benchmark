@@ -3071,7 +3071,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br i1 %186, label %185, label %184
 
 918:                                              ; preds = %194
-  %919 = call fastcc noundef i8 @"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h47640b1d6a59ba3dE"(ptr noundef nonnull align 8 %183, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !range !56
+  %919 = call fastcc noundef i8 @"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h47640b1d6a59ba3dE"(ptr noundef nonnull align 8 %183, ptr noalias noundef align 8 dereferenceable(8) %2), !range !56
   %920 = icmp eq i8 %919, 3
   br i1 %920, label %917, label %921
 
@@ -3219,7 +3219,7 @@ default.unreachable:                              ; preds = %83, %67
   unreachable
 
 73:                                               ; preds = %67, %69
-  %74 = invoke fastcc noundef i8 @"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h47640b1d6a59ba3dE"(ptr noundef nonnull align 8 %26, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  %74 = invoke fastcc noundef i8 @"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h47640b1d6a59ba3dE"(ptr noundef nonnull align 8 %26, ptr noalias noundef align 8 dereferenceable(8) %2)
           to label %77 unwind label %75, !range !56
 
 common.resume:                                    ; preds = %94, %102, %107, %.body85.i, %218, %229, %231, %240, %75
@@ -8633,7 +8633,7 @@ define hidden noundef range(i64 0, 14564) i64 @_ZN5serde2de9size_hint8cautious17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef range(i8 0, 4) i8 @"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h47640b1d6a59ba3dE"(ptr nocapture noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 0, 4) i8 @"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h47640b1d6a59ba3dE"(ptr nocapture noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, ptr, ptr }, align 8
   %4 = alloca { i8, i8 }, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 16

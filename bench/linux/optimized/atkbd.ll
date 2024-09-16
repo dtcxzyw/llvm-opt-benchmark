@@ -962,7 +962,7 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local i32 @serio_open(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -1, 1) i32 @atkbd_probe(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @atkbd_probe(ptr noundef nonnull %0) unnamed_addr #2 align 16 {
   %2 = alloca [2 x i8], align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #17
   %3 = load i8, ptr @atkbd_reset, align 1, !range !5, !noundef !6
@@ -970,7 +970,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @atkbd_probe(ptr noundef %0)
   br i1 %4, label %12, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @ps2_command(ptr noundef %0, ptr noundef null, i32 noundef 767) #17
+  %6 = tail call i32 @ps2_command(ptr noundef nonnull %0, ptr noundef null, i32 noundef 767) #17
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %12, label %8
 
@@ -1017,13 +1017,13 @@ define internal fastcc noundef range(i32 -1, 1) i32 @atkbd_probe(ptr noundef %0)
   %29 = getelementptr inbounds i8, ptr %2, i64 1
   store i8 -91, ptr %29, align 1
   store i8 -91, ptr %2, align 2
-  %30 = call i32 @ps2_command(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 754) #17
+  %30 = call i32 @ps2_command(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 754) #17
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %37, label %32
 
 32:                                               ; preds = %.thread
   store i8 0, ptr %2, align 2
-  %33 = call i32 @ps2_command(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 4333) #17
+  %33 = call i32 @ps2_command(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 4333) #17
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %64
 
@@ -1065,7 +1065,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @atkbd_probe(ptr noundef %0)
   br i1 %56, label %64, label %57
 
 57:                                               ; preds = %55
-  %58 = call i32 @ps2_command(ptr noundef %0, ptr noundef null, i32 noundef 245) #17
+  %58 = call i32 @ps2_command(ptr noundef nonnull %0, ptr noundef null, i32 noundef 245) #17
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %64, label %60
 

@@ -176,7 +176,7 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   br i1 %.not94, label %138, label %62
 
 62:                                               ; preds = %60
-  call fastcc void @reverse_string(ptr noundef nonnull %61)
+  call fastcc void @reverse_string(ptr noundef %61)
   %63 = getelementptr inbounds i8, ptr %0, i64 1360
   %64 = call i64 @filter_search(ptr noundef nonnull %63, ptr noundef nonnull %61, i64 noundef %42) #13
   %65 = and i64 %64, 4294967295
@@ -253,7 +253,7 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 
 97:                                               ; preds = %95
   %98 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %96) #14
-  %99 = call fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef %3, ptr noundef nonnull %46, i64 noundef %45)
+  %99 = call fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef %3, ptr noundef %46, i64 noundef %45)
   switch i8 %99, label %117 [
     i8 63, label %100
     i8 47, label %100
@@ -271,7 +271,7 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 
 104:                                              ; preds = %102
   %105 = sub nuw i64 %42, %98
-  %106 = call fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef %3, ptr noundef nonnull %46, i64 noundef %105)
+  %106 = call fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef %3, ptr noundef %46, i64 noundef %105)
   switch i8 %106, label %117 [
     i8 46, label %107
     i8 32, label %107
@@ -392,7 +392,7 @@ declare i32 @cli_ac_initdata(ptr noundef, i32 noundef, i32 noundef, i32 noundef,
 declare ptr @cli_safer_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @reverse_string(ptr nocapture noundef %0) unnamed_addr #4 {
+define internal fastcc void @reverse_string(ptr nocapture noundef nonnull %0) unnamed_addr #4 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %3 = lshr i64 %2, 1
   %.not = icmp ult i64 %2, 2
@@ -1614,7 +1614,7 @@ add_newsuffix.exit:                               ; preds = %109
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonly %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %6
 
@@ -1630,7 +1630,7 @@ define internal fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonl
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   %12 = load i64, ptr %11, align 8
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29, i64 noundef %2, i64 noundef %10, i64 noundef %12, ptr noundef %8, ptr noundef %1) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29, i64 noundef %2, i64 noundef %10, i64 noundef %12, ptr noundef %8, ptr noundef nonnull %1) #13
   %13 = load i64, ptr %9, align 8
   %14 = add i64 %13, %2
   %15 = load i8, ptr %8, align 1

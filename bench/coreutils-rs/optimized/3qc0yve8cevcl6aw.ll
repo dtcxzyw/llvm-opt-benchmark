@@ -1363,7 +1363,7 @@ define hidden void @_ZN6uu_cat11write_lines17h5b9964ff17b3cf0dE.llvm.95369439758
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   %59 = load i8, ptr %37, align 4, !range !16, !noundef !15
   %60 = trunc nuw i8 %59 to i1
-  invoke fastcc void @_ZN6uu_cat14write_new_line17h1281e85737643308E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull readonly align 1 dereferenceable(5) %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext %60)
+  invoke fastcc void @_ZN6uu_cat14write_new_line17h1281e85737643308E(ptr noalias nocapture noundef align 8 dereferenceable(24) %11, ptr noalias noundef align 8 dereferenceable(8) %13, ptr noalias noundef readonly align 1 dereferenceable(5) %2, ptr noalias noundef align 8 dereferenceable(16) %3, i1 noundef zeroext %60)
           to label %64 unwind label %.loopexit120
 
 61:                                               ; preds = %.preheader
@@ -1419,7 +1419,7 @@ define hidden void @_ZN6uu_cat11write_lines17h5b9964ff17b3cf0dE.llvm.95369439758
 
 78:                                               ; preds = %.thread, %93, %71
   %79 = sub nuw i64 %44, %.061174
-  %80 = invoke fastcc noundef i64 @_ZN6uu_cat9write_end17h7731cfc7ddfa53e8E(ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull readonly align 1 %54, i64 noundef %79, i8 %.val80, i8 %.val81)
+  %80 = invoke fastcc noundef i64 @_ZN6uu_cat9write_end17h7731cfc7ddfa53e8E(ptr noalias noundef align 8 dereferenceable(8) %13, ptr noalias noundef nonnull readonly align 1 %54, i64 noundef %79, i8 %.val80, i8 %.val81)
           to label %96 unwind label %.loopexit120
 
 81:                                               ; preds = %71
@@ -1800,7 +1800,7 @@ define hidden void @_ZN6uu_cat11write_lines17h705f6e52d79625b4E.llvm.95369439758
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   %59 = load i8, ptr %37, align 8, !range !16, !noundef !15
   %60 = trunc nuw i8 %59 to i1
-  invoke fastcc void @_ZN6uu_cat14write_new_line17h1281e85737643308E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull readonly align 1 dereferenceable(5) %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext %60)
+  invoke fastcc void @_ZN6uu_cat14write_new_line17h1281e85737643308E(ptr noalias nocapture noundef align 8 dereferenceable(24) %11, ptr noalias noundef align 8 dereferenceable(8) %13, ptr noalias noundef readonly align 1 dereferenceable(5) %2, ptr noalias noundef align 8 dereferenceable(16) %3, i1 noundef zeroext %60)
           to label %64 unwind label %.loopexit120
 
 61:                                               ; preds = %.preheader
@@ -1856,7 +1856,7 @@ define hidden void @_ZN6uu_cat11write_lines17h705f6e52d79625b4E.llvm.95369439758
 
 78:                                               ; preds = %.thread, %93, %71
   %79 = sub nuw i64 %44, %.061174
-  %80 = invoke fastcc noundef i64 @_ZN6uu_cat9write_end17h7731cfc7ddfa53e8E(ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull readonly align 1 %54, i64 noundef %79, i8 %.val80, i8 %.val81)
+  %80 = invoke fastcc noundef i64 @_ZN6uu_cat9write_end17h7731cfc7ddfa53e8E(ptr noalias noundef align 8 dereferenceable(8) %13, ptr noalias noundef nonnull readonly align 1 %54, i64 noundef %79, i8 %.val80, i8 %.val81)
           to label %96 unwind label %.loopexit120
 
 81:                                               ; preds = %71
@@ -2237,7 +2237,7 @@ define hidden void @_ZN6uu_cat11write_lines17hc03b489b4a652aedE.llvm.95369439758
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   %59 = load i8, ptr %37, align 4, !range !16, !noundef !15
   %60 = trunc nuw i8 %59 to i1
-  invoke fastcc void @_ZN6uu_cat14write_new_line17h1281e85737643308E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull readonly align 1 dereferenceable(5) %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext %60)
+  invoke fastcc void @_ZN6uu_cat14write_new_line17h1281e85737643308E(ptr noalias nocapture noundef align 8 dereferenceable(24) %11, ptr noalias noundef align 8 dereferenceable(8) %13, ptr noalias noundef readonly align 1 dereferenceable(5) %2, ptr noalias noundef align 8 dereferenceable(16) %3, i1 noundef zeroext %60)
           to label %64 unwind label %.loopexit120
 
 61:                                               ; preds = %.preheader
@@ -2293,7 +2293,7 @@ define hidden void @_ZN6uu_cat11write_lines17hc03b489b4a652aedE.llvm.95369439758
 
 78:                                               ; preds = %.thread, %93, %71
   %79 = sub nuw i64 %44, %.061174
-  %80 = invoke fastcc noundef i64 @_ZN6uu_cat9write_end17h7731cfc7ddfa53e8E(ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull readonly align 1 %54, i64 noundef %79, i8 %.val80, i8 %.val81)
+  %80 = invoke fastcc noundef i64 @_ZN6uu_cat9write_end17h7731cfc7ddfa53e8E(ptr noalias noundef align 8 dereferenceable(8) %13, ptr noalias noundef nonnull readonly align 1 %54, i64 noundef %79, i8 %.val80, i8 %.val81)
           to label %96 unwind label %.loopexit120
 
 81:                                               ; preds = %71
@@ -2527,7 +2527,7 @@ _ZN6uu_cat17write_end_of_line17h32a269c48c4fd1ccE.exit: ; preds = %117, %.noexc9
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6uu_cat14write_new_line17h1281e85737643308E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 1 dereferenceable(5) %2, ptr noalias noundef align 8 dereferenceable(16) %3, i1 noundef zeroext %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6uu_cat14write_new_line17h1281e85737643308E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 dereferenceable(5) %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   %7 = alloca { ptr, ptr }, align 8
   %8 = alloca [1 x { { i64, [1 x i64] }, { i64, [1 x i64] }, i64, i32, i32, i8, [7 x i8] }], align 8
@@ -2726,7 +2726,7 @@ select.unfold:                                    ; preds = %58
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i64 @_ZN6uu_cat9write_end17h7731cfc7ddfa53e8E(ptr noalias noundef align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i8 %.1.val, i8 %.3.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef i64 @_ZN6uu_cat9write_end17h7731cfc7ddfa53e8E(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i8 %.1.val, i8 %.3.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

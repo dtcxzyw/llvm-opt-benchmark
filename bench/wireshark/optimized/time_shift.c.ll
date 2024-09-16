@@ -355,7 +355,7 @@ define hidden noundef ptr @time_shift_settime(ptr noundef %0, i32 noundef %1, pt
   %21 = getelementptr inbounds i8, ptr %18, i64 56
   %22 = getelementptr inbounds i8, ptr %18, i64 72
   call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %21, ptr noundef nonnull %22) #9
-  %23 = call fastcc ptr @time_string_to_nstime(ptr noundef nonnull %2, ptr noundef nonnull %6, ptr noundef nonnull %4)
+  %23 = call fastcc ptr @time_string_to_nstime(ptr noundef %2, ptr noundef %6, ptr noundef %4)
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %24, label %38
 
@@ -407,7 +407,7 @@ define hidden noundef ptr @time_shift_settime(ptr noundef %0, i32 noundef %1, pt
 declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @time_string_to_nstime(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 {
+define internal fastcc noundef ptr @time_string_to_nstime(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -415,12 +415,12 @@ define internal fastcc noundef ptr @time_string_to_nstime(ptr noundef %0, ptr no
   %8 = alloca i32, align 4
   %9 = alloca x86_fp80, align 16
   %10 = alloca %struct.tm, align 8
-  %11 = call ptr @time_string_parse(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %9)
+  %11 = call ptr @time_string_parse(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %9)
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %46
 
 12:                                               ; preds = %3
-  %13 = call ptr @localtime(ptr noundef %1) #9
+  %13 = call ptr @localtime(ptr noundef nonnull %1) #9
   %.not13 = icmp eq ptr %13, null
   br i1 %.not13, label %15, label %14
 
@@ -527,7 +527,7 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef %0, i32 noundef %1, pt
   call void @nstime_copy(ptr noundef nonnull %8, ptr noundef nonnull %31) #9
   %32 = getelementptr inbounds i8, ptr %28, i64 72
   call void @nstime_delta(ptr noundef nonnull %8, ptr noundef nonnull %8, ptr noundef nonnull %32) #9
-  %33 = call fastcc ptr @time_string_to_nstime(ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull %6)
+  %33 = call fastcc ptr @time_string_to_nstime(ptr noundef %2, ptr noundef %8, ptr noundef %6)
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %34, label %88
 
@@ -542,7 +542,7 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef %0, i32 noundef %1, pt
   call void @nstime_copy(ptr noundef nonnull %9, ptr noundef nonnull %39) #9
   %40 = getelementptr inbounds i8, ptr %36, i64 72
   call void @nstime_delta(ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %40) #9
-  %41 = call fastcc ptr @time_string_to_nstime(ptr noundef nonnull %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
+  %41 = call fastcc ptr @time_string_to_nstime(ptr noundef %4, ptr noundef %9, ptr noundef %7)
   %.not52 = icmp eq ptr %41, null
   br i1 %.not52, label %42, label %88
 

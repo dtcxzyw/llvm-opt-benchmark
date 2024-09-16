@@ -310,7 +310,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @des_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef %enc) unnamed_addr #0 {
+define internal fastcc i32 @des_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef range(i32 0, 2) %enc) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -324,8 +324,7 @@ if.end:                                           ; preds = %entry
   %enc1 = getelementptr inbounds i8, ptr %vctx, i64 108
   %0 = trunc nuw nsw i32 %enc to i8
   %bf.load = load i8, ptr %enc1, align 4
-  %bf.value = shl i8 %0, 1
-  %bf.shl = and i8 %bf.value, 2
+  %bf.shl = shl nuw nsw i8 %0, 1
   %bf.clear = and i8 %bf.load, -3
   %bf.set = or disjoint i8 %bf.clear, %bf.shl
   store i8 %bf.set, ptr %enc1, align 4

@@ -1473,7 +1473,7 @@ define internal i32 @glusterfs_gfs3_op_readdirp_entry(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
@@ -1493,48 +1493,48 @@ define internal fastcc i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 
   %22 = load ptr, ptr %8, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef nonnull @.str.558, ptr noundef %22) #3
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %27, label %23
+  br i1 %.not, label %24, label %23
 
 23:                                               ; preds = %6
   %.not37 = icmp eq i32 %4, 0
-  br i1 %.not37, label %.thread, label %24
+  %.not3849 = icmp eq i32 %5, 0
+  br i1 %.not37, label %.thread47, label %.thread
 
-24:                                               ; preds = %23
-  %25 = load i32, ptr @hf_glusterfs_iattx, align 4
-  %26 = call fastcc i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %10, ptr noundef %0, i32 noundef %25, i32 noundef %20)
-  br label %27
-
-27:                                               ; preds = %24, %6
-  %.0 = phi i32 [ %26, %24 ], [ %20, %6 ]
+24:                                               ; preds = %6
   %.not38 = icmp eq i32 %5, 0
-  br i1 %.not38, label %36, label %30
+  br i1 %.not38, label %34, label %29
+
+.thread47:                                        ; preds = %23
+  %25 = load i32, ptr @hf_glusterfs_iatt, align 4
+  %26 = call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %10, ptr noundef %0, i32 noundef %25, i32 noundef %20)
+  br i1 %.not3849, label %34, label %.thread50
 
 .thread:                                          ; preds = %23
-  %28 = load i32, ptr @hf_glusterfs_iatt, align 4
-  %29 = call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %10, ptr noundef %0, i32 noundef %28, i32 noundef %20)
-  %.not3841 = icmp eq i32 %5, 0
-  br i1 %.not3841, label %36, label %.thread43
+  %27 = load i32, ptr @hf_glusterfs_iattx, align 4
+  %28 = call fastcc i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %10, ptr noundef %0, i32 noundef %27, i32 noundef %20)
+  br i1 %.not3849, label %34, label %.thread43
 
-30:                                               ; preds = %27
+29:                                               ; preds = %24
   %.not39 = icmp eq i32 %4, 0
-  br i1 %.not39, label %.thread43, label %31
+  br i1 %.not39, label %.thread50, label %.thread43
 
-31:                                               ; preds = %30
+.thread43:                                        ; preds = %.thread, %29
+  %.04246 = phi i32 [ %20, %29 ], [ %28, %.thread ]
+  %30 = load i32, ptr @hf_glusterfs_dict, align 4
+  %31 = call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %10, ptr noundef %0, i32 noundef %30, i32 noundef %.04246)
+  br label %34
+
+.thread50:                                        ; preds = %.thread47, %29
+  %.04253 = phi i32 [ %20, %29 ], [ %26, %.thread47 ]
   %32 = load i32, ptr @hf_glusterfs_dict, align 4
-  %33 = call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %10, ptr noundef %0, i32 noundef %32, i32 noundef %.0)
-  br label %36
+  %33 = call i32 @gluster_rpc_dissect_dict(ptr noundef %10, ptr noundef %0, i32 noundef %32, i32 noundef %.04253)
+  br label %34
 
-.thread43:                                        ; preds = %.thread, %30
-  %.04246 = phi i32 [ %.0, %30 ], [ %29, %.thread ]
-  %34 = load i32, ptr @hf_glusterfs_dict, align 4
-  %35 = call i32 @gluster_rpc_dissect_dict(ptr noundef %10, ptr noundef %0, i32 noundef %34, i32 noundef %.04246)
-  br label %36
-
-36:                                               ; preds = %.thread, %31, %.thread43, %27
-  %.1 = phi i32 [ %33, %31 ], [ %35, %.thread43 ], [ %.0, %27 ], [ %29, %.thread ]
-  %37 = load ptr, ptr %7, align 8
-  %38 = sub i32 %.1, %1
-  call void @proto_item_set_len(ptr noundef %37, i32 noundef %38) #3
+34:                                               ; preds = %.thread47, %.thread, %.thread43, %.thread50, %24
+  %.1 = phi i32 [ %31, %.thread43 ], [ %33, %.thread50 ], [ %20, %24 ], [ %28, %.thread ], [ %26, %.thread47 ]
+  %35 = load ptr, ptr %7, align 8
+  %36 = sub i32 %.1, %1
+  call void @proto_item_set_len(ptr noundef %35, i32 noundef %36) #3
   ret i32 %.1
 }
 

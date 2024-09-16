@@ -844,7 +844,7 @@ define internal fastcc void @swiotlb_adjust_nareas(i32 noundef %0) unnamed_addr 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc ptr @swiotlb_memblock_alloc(i64 noundef %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #4 section ".init.text" align 16 {
+define internal fastcc ptr @swiotlb_memblock_alloc(i64 noundef range(i64 0, -127) %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #4 section ".init.text" align 16 {
   %4 = shl i64 %0, 11
   %5 = add i64 %4, 4095
   %6 = and i64 %5, -4096
@@ -1735,7 +1735,7 @@ declare dso_local i32 @___ratelimit(ptr noundef, ptr noundef) local_unnamed_addr
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @swiotlb_bounce(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc void @swiotlb_bounce(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 616
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 8

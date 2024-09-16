@@ -903,7 +903,7 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_dtpt_sockaddr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_dtpt_sockaddr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef range(i32 1, 3) %5) unnamed_addr #0 {
   %switch = icmp eq i32 %5, 1
   %.79 = select i1 %switch, i32 4, i32 0
   br i1 %switch, label %7, label %9

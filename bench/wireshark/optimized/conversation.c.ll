@@ -2034,7 +2034,7 @@ conversation_lookup_exact.exit:                   ; preds = %25, %37, %43, %.cri
   br label %.thread413
 
 227:                                              ; preds = %224
-  %228 = call fastcc ptr @conversation_create_from_template(ptr noundef nonnull %.3430, ptr noundef nonnull %spec.store.select4, i32 noundef 0)
+  %228 = call fastcc ptr @conversation_create_from_template(ptr noundef %.3430, ptr noundef nonnull %spec.store.select4, i32 noundef 0)
   br label %.thread413
 
 .thread424:                                       ; preds = %180, %.thread432
@@ -2149,7 +2149,7 @@ conversation_lookup_no_addr2.exit285.thread:      ; preds = %.critedge.i.i282, %
   br label %.thread413
 
 270:                                              ; preds = %265
-  %271 = call fastcc ptr @conversation_create_from_template(ptr noundef nonnull %.027.i.i272, ptr noundef nonnull %spec.store.select, i32 noundef 0)
+  %271 = call fastcc ptr @conversation_create_from_template(ptr noundef %.027.i.i272, ptr noundef nonnull %spec.store.select, i32 noundef 0)
   br label %.thread413
 
 272:                                              ; preds = %conversation_lookup_no_addr2.exit285.thread, %.thread424, %.thread416
@@ -2365,7 +2365,7 @@ conversation_lookup_no_addr2.exit285.thread:      ; preds = %.critedge.i.i282, %
   br label %.thread413
 
 355:                                              ; preds = %352
-  %356 = call fastcc ptr @conversation_create_from_template(ptr noundef nonnull %.4444, ptr noundef null, i32 noundef %5)
+  %356 = call fastcc ptr @conversation_create_from_template(ptr noundef %.4444, ptr noundef null, i32 noundef %5)
   br label %.thread413
 
 .thread438:                                       ; preds = %308, %.thread446
@@ -2479,7 +2479,7 @@ conversation_lookup_no_port2.exit338.thread:      ; preds = %.critedge.i.i335, %
   br label %.thread413
 
 398:                                              ; preds = %393
-  %399 = call fastcc ptr @conversation_create_from_template(ptr noundef nonnull %.027.i.i325, ptr noundef null, i32 noundef %4)
+  %399 = call fastcc ptr @conversation_create_from_template(ptr noundef %.027.i.i325, ptr noundef null, i32 noundef %4)
   br label %.thread413
 
 400:                                              ; preds = %conversation_lookup_no_port2.exit338.thread, %.thread438, %272
@@ -2596,7 +2596,7 @@ conversation_lookup_no_port2.exit338.thread:      ; preds = %.critedge.i.i335, %
   br label %.thread413
 
 444:                                              ; preds = %433
-  %445 = call fastcc ptr @conversation_create_from_template(ptr noundef nonnull %.027.i.i343, ptr noundef nonnull %spec.store.select4, i32 noundef %5)
+  %445 = call fastcc ptr @conversation_create_from_template(ptr noundef %.027.i.i343, ptr noundef nonnull %spec.store.select4, i32 noundef %5)
   br label %.thread413
 
 446:                                              ; preds = %.critedge.i.i353, %408, %400
@@ -2801,7 +2801,7 @@ conversation_lookup_no_addr2_or_port2.exit391:    ; preds = %482, %490, %496, %.
   br label %.thread413
 
 521:                                              ; preds = %516
-  %522 = call fastcc ptr @conversation_create_from_template(ptr noundef nonnull %.5, ptr noundef nonnull %spec.store.select, i32 noundef %4)
+  %522 = call fastcc ptr @conversation_create_from_template(ptr noundef %.5, ptr noundef nonnull %spec.store.select, i32 noundef %4)
   br label %.thread413
 
 523:                                              ; preds = %514, %446
@@ -2908,7 +2908,7 @@ conversation_lookup_no_ports.exit:                ; preds = %539, %556
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @conversation_create_from_template(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc nonnull ptr @conversation_create_from_template(ptr noundef nonnull readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   br label %6

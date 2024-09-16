@@ -5077,7 +5077,7 @@ define hidden void @"_ZN4core3ptr61drop_in_place$LT$$RF$webpki..crl..types..Owne
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr61drop_in_place$LT$rustls..suites..ConnectionTrafficSecrets$GT$17h592d2e2252553411E"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr61drop_in_place$LT$rustls..suites..ConnectionTrafficSecrets$GT$17h592d2e2252553411E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #1 {
   %2 = alloca { ptr, ptr }, align 8
   %3 = alloca { ptr, ptr }, align 8
   %4 = alloca { ptr, ptr }, align 8
@@ -10432,7 +10432,7 @@ define hidden void @_ZN6rustls5tls1217ConnectionSecrets16make_cipher_pair17h0f55
   %8 = alloca { i64, i64, i64 }, align 8
   %9 = alloca { { i64, ptr }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  call fastcc void @_ZN6rustls5tls1217ConnectionSecrets14make_key_block17h9eda2bcc84707dc6E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1)
+  call fastcc void @_ZN6rustls5tls1217ConnectionSecrets14make_key_block17h9eda2bcc84707dc6E(ptr noalias nocapture noundef align 8 dereferenceable(24) %9, ptr noalias noundef readonly align 8 dereferenceable(120) %1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   %10 = load ptr, ptr %1, align 8, !nonnull !7, !align !81, !noundef !7
   %11 = getelementptr inbounds i8, ptr %10, i64 32
@@ -10605,7 +10605,7 @@ define hidden void @_ZN6rustls5tls1217ConnectionSecrets16make_cipher_pair17h0f55
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6rustls5tls1217ConnectionSecrets14make_key_block17h9eda2bcc84707dc6E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6rustls5tls1217ConnectionSecrets14make_key_block17h9eda2bcc84707dc6E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [64 x i8], align 1
   %4 = alloca [64 x i8], align 1
   %5 = alloca { { i64, ptr }, i64 }, align 8
@@ -11042,7 +11042,7 @@ define hidden void @_ZN6rustls5tls1217ConnectionSecrets15extract_secrets17hc3def
   %15 = alloca { i64, i64, i64 }, align 8
   %16 = alloca { { i64, ptr }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
-  call fastcc void @_ZN6rustls5tls1217ConnectionSecrets14make_key_block17h9eda2bcc84707dc6E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1)
+  call fastcc void @_ZN6rustls5tls1217ConnectionSecrets14make_key_block17h9eda2bcc84707dc6E(ptr noalias nocapture noundef align 8 dereferenceable(24) %16, ptr noalias noundef readonly align 8 dereferenceable(120) %1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   %17 = load ptr, ptr %1, align 8, !nonnull !7, !align !81, !noundef !7
   %18 = getelementptr inbounds i8, ptr %17, i64 32
@@ -11162,7 +11162,7 @@ define hidden void @_ZN6rustls5tls1217ConnectionSecrets15extract_secrets17hc3def
 .body73:                                          ; preds = %64, %73
   %63 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr61drop_in_place$LT$rustls..suites..ConnectionTrafficSecrets$GT$17h592d2e2252553411E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %14) #31
+  invoke fastcc void @"_ZN4core3ptr61drop_in_place$LT$rustls..suites..ConnectionTrafficSecrets$GT$17h592d2e2252553411E"(ptr noalias noundef align 8 dereferenceable(56) %14) #31
           to label %.body unwind label %92
 
 64:                                               ; preds = %59
@@ -11253,7 +11253,7 @@ define hidden void @_ZN6rustls5tls1217ConnectionSecrets15extract_secrets17hc3def
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.481.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.481, i64 31, i1 false)
   store i8 3, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.481)
-  invoke fastcc void @"_ZN4core3ptr61drop_in_place$LT$rustls..suites..ConnectionTrafficSecrets$GT$17h592d2e2252553411E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %14)
+  invoke fastcc void @"_ZN4core3ptr61drop_in_place$LT$rustls..suites..ConnectionTrafficSecrets$GT$17h592d2e2252553411E"(ptr noalias noundef align 8 dereferenceable(56) %14)
           to label %85 unwind label %24
 
 85:                                               ; preds = %94, %83

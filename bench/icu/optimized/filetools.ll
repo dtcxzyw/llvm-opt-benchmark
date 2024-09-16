@@ -618,7 +618,7 @@ if.else:                                          ; preds = %if.end27
   %15 = load ptr, ptr %newpath, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %stbuf1.i)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %stbuf2.i)
-  %call.i = call i32 @stat(ptr noundef %filePath, ptr noundef nonnull %stbuf1.i) #13
+  %call.i = call i32 @stat(ptr noundef nonnull %filePath, ptr noundef nonnull %stbuf1.i) #13
   %cmp.i18 = icmp eq i32 %call.i, 0
   br i1 %cmp.i18, label %land.lhs.true.i, label %if.else11.i
 
@@ -641,7 +641,7 @@ if.else.i:                                        ; preds = %if.then.i
 
 if.else11.i:                                      ; preds = %land.lhs.true.i, %if.else
   %18 = load ptr, ptr @stderr, align 8
-  %call12.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.6, ptr noundef %filePath, ptr noundef %15) #17
+  %call12.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.6, ptr noundef nonnull %filePath, ptr noundef %15) #17
   br label %invoke.cont45.thread
 
 invoke.cont45.thread:                             ; preds = %if.then.i, %if.else11.i

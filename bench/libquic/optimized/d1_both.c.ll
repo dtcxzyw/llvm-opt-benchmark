@@ -622,7 +622,7 @@ if.then66.i:                                      ; preds = %if.end60.i
   br label %if.then17
 
 if.end68.i:                                       ; preds = %if.end60.i
-  call fastcc void @dtls1_hm_fragment_mark(ptr noundef nonnull %retval.0.i70, i64 noundef %conv.i, i64 noundef %add.i)
+  call fastcc void @dtls1_hm_fragment_mark(ptr noundef %retval.0.i70, i64 noundef %conv.i, i64 noundef %add.i)
   br label %dtls1_process_fragment.exit
 
 dtls1_process_fragment.exit:                      ; preds = %if.then55.i, %dtls1_discard_fragment_body.exit.thread, %if.end68.i
@@ -1066,7 +1066,7 @@ return:                                           ; preds = %entry, %if.end31, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @dtls1_hm_fragment_new(i64 noundef %frag_len, i32 noundef %reassembly) unnamed_addr #2 {
+define internal fastcc noalias noundef ptr @dtls1_hm_fragment_new(i64 noundef range(i64 -2147483648, 4294967296) %frag_len, i32 noundef range(i32 0, 2) %reassembly) unnamed_addr #2 {
 entry:
   %calloc15 = tail call dereferenceable_or_null(48) ptr @calloc(i64 1, i64 48)
   %cmp = icmp eq ptr %calloc15, null
@@ -1104,7 +1104,7 @@ if.then10:                                        ; preds = %if.then8
   br label %dtls1_hm_fragment_free.exit
 
 if.end11:                                         ; preds = %if.then8
-  %add = add nuw nsw i64 %frag_len, 7
+  %add = add nsw i64 %frag_len, 7
   %div14 = lshr i64 %add, 3
   %calloc = tail call ptr @calloc(i64 1, i64 %div14)
   %reassembly14 = getelementptr inbounds i8, ptr %calloc15, i64 40
@@ -1213,7 +1213,7 @@ if.end:                                           ; preds = %dtls1_buffer_change
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @dtls1_write_change_cipher_spec(ptr noundef %ssl, i32 noundef %use_epoch) unnamed_addr #2 {
+define internal fastcc range(i32 -2147483648, 2) i32 @dtls1_write_change_cipher_spec(ptr noundef %ssl, i32 noundef range(i32 0, 2) %use_epoch) unnamed_addr #2 {
 entry:
   tail call fastcc void @dtls1_update_mtu(ptr noundef %ssl)
   %d1.i = getelementptr inbounds i8, ptr %ssl, i64 88
@@ -1411,7 +1411,7 @@ declare ptr @pqueue_peek(ptr noundef) local_unnamed_addr #3
 declare i32 @dtls1_read_bytes(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dtls1_discard_fragment_body(ptr noundef %ssl, i64 noundef %frag_len) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @dtls1_discard_fragment_body(ptr noundef %ssl, i64 noundef range(i64 0, 65536) %frag_len) unnamed_addr #2 {
 entry:
   %discard = alloca [256 x i8], align 16
   %cmp.not6 = icmp eq i64 %frag_len, 0
@@ -1436,7 +1436,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dtls1_hm_fragment_mark(ptr nocapture noundef %frag, i64 noundef %start, i64 noundef %end) unnamed_addr #2 {
+define internal fastcc void @dtls1_hm_fragment_mark(ptr nocapture noundef nonnull %frag, i64 noundef range(i64 0, 4294967296) %start, i64 noundef range(i64 0, 4294967296) %end) unnamed_addr #2 {
 entry:
   %msg_len1 = getelementptr inbounds i8, ptr %frag, i64 4
   %0 = load i32, ptr %msg_len1, align 4

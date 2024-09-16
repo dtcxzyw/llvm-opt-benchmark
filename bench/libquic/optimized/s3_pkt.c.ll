@@ -183,7 +183,7 @@ return:                                           ; preds = %if.then23, %if.then
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_ssl3_write(ptr noundef %ssl, i32 noundef %type, ptr noundef %buf, i32 noundef %len) unnamed_addr #0 {
+define internal fastcc i32 @do_ssl3_write(ptr noundef %ssl, i32 noundef %type, ptr noundef %buf, i32 noundef range(i32 0, 65536) %len) unnamed_addr #0 {
 entry:
   %out = alloca ptr, align 8
   %ciphertext_len = alloca i64, align 8
@@ -1085,7 +1085,7 @@ return:                                           ; preds = %if.end30, %if.then3
 declare i32 @BIO_flush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl3_write_pending(ptr noundef %ssl, i32 noundef %type, ptr noundef readnone %buf, i32 noundef %len) unnamed_addr #0 {
+define internal fastcc i32 @ssl3_write_pending(ptr noundef %ssl, i32 noundef %type, ptr noundef readnone %buf, i32 noundef range(i32 0, 65536) %len) unnamed_addr #0 {
 entry:
   %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8

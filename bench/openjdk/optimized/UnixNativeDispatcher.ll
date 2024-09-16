@@ -849,7 +849,7 @@ define i32 @Java_sun_nio_fs_UnixNativeDispatcher_stat0(ptr noundef %0, ptr nocap
   br i1 %14, label %.preheader15, label %.critedge, !llvm.loop !16
 
 15:                                               ; preds = %.preheader15
-  call fastcc void @copy_statx_attributes(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %3)
+  call fastcc void @copy_statx_attributes(ptr noundef %0, ptr noundef %6, ptr noundef %3)
   br label %24
 
 .critedge:                                        ; preds = %11, %.preheader15..critedge_crit_edge
@@ -875,7 +875,7 @@ define i32 @Java_sun_nio_fs_UnixNativeDispatcher_stat0(ptr noundef %0, ptr nocap
   br i1 %21, label %.preheader, label %.critedge2, !llvm.loop !17
 
 22:                                               ; preds = %.preheader
-  call fastcc void @copy_stat_attributes(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %3)
+  call fastcc void @copy_stat_attributes(ptr noundef %0, ptr noundef %5, ptr noundef %3)
   br label %24
 
 .critedge2:                                       ; preds = %18, %.preheader..critedge2_crit_edge
@@ -889,7 +889,7 @@ define i32 @Java_sun_nio_fs_UnixNativeDispatcher_stat0(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @copy_statx_attributes(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @copy_statx_attributes(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 872
   %6 = load ptr, ptr %5, align 8
@@ -1020,7 +1020,7 @@ define internal fastcc void @copy_statx_attributes(ptr noundef %0, ptr nocapture
 declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @copy_stat_attributes(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @copy_stat_attributes(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 872
   %6 = load ptr, ptr %5, align 8
@@ -1150,7 +1150,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_lstat0(ptr noundef %0, ptr noc
   br i1 %14, label %.preheader19, label %.critedge, !llvm.loop !22
 
 15:                                               ; preds = %.preheader19
-  call fastcc void @copy_statx_attributes(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %3)
+  call fastcc void @copy_statx_attributes(ptr noundef %0, ptr noundef %6, ptr noundef %3)
   br label %throwUnixException.exit
 
 .critedge:                                        ; preds = %11, %.preheader19..critedge_crit_edge
@@ -1191,7 +1191,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_lstat0(ptr noundef %0, ptr noc
   br label %throwUnixException.exit
 
 .critedge16:                                      ; preds = %.preheader
-  call fastcc void @copy_stat_attributes(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %3)
+  call fastcc void @copy_stat_attributes(ptr noundef %0, ptr noundef %5, ptr noundef %3)
   br label %throwUnixException.exit
 
 throwUnixException.exit:                          ; preds = %30, %.critedge2, %18, %.critedge, %15, %.critedge16
@@ -1228,7 +1228,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fstat0(ptr noundef %0, ptr noc
   br i1 %13, label %.preheader18, label %.critedge, !llvm.loop !28
 
 14:                                               ; preds = %.preheader18
-  call fastcc void @copy_statx_attributes(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %3)
+  call fastcc void @copy_statx_attributes(ptr noundef %0, ptr noundef %6, ptr noundef %3)
   br label %throwUnixException.exit
 
 .critedge:                                        ; preds = %10, %.preheader18..critedge_crit_edge
@@ -1269,7 +1269,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fstat0(ptr noundef %0, ptr noc
   br label %throwUnixException.exit
 
 .critedge15:                                      ; preds = %.preheader
-  call fastcc void @copy_stat_attributes(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %3)
+  call fastcc void @copy_stat_attributes(ptr noundef %0, ptr noundef %5, ptr noundef %3)
   br label %throwUnixException.exit
 
 throwUnixException.exit:                          ; preds = %29, %.critedge2, %17, %.critedge, %14, %.critedge15
@@ -1311,7 +1311,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fstatat0(ptr noundef %0, ptr n
   br i1 %19, label %13, label %.critedge, !llvm.loop !34
 
 20:                                               ; preds = %13
-  call fastcc void @copy_statx_attributes(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %5)
+  call fastcc void @copy_statx_attributes(ptr noundef %0, ptr noundef %8, ptr noundef %5)
   br label %throwUnixException.exit
 
 .critedge:                                        ; preds = %16, %..critedge_crit_edge
@@ -1362,7 +1362,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fstatat0(ptr noundef %0, ptr n
   br label %throwUnixException.exit
 
 .critedge23:                                      ; preds = %.preheader
-  call fastcc void @copy_stat_attributes(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %5)
+  call fastcc void @copy_stat_attributes(ptr noundef %0, ptr noundef %7, ptr noundef %5)
   br label %throwUnixException.exit
 
 throwUnixException.exit:                          ; preds = %40, %.critedge2, %23, %.critedge, %20, %.critedge23, %31

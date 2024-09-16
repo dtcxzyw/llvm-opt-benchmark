@@ -2292,7 +2292,7 @@ define dso_local void @ieee80211_sta_rx_queued_ext(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_rx_mgmt_beacon(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_rx_mgmt_beacon(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, 4294967296) %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca [26 x i8], align 16
   %7 = alloca %struct.ieee80211_elems_parse_params, align 8
@@ -2727,7 +2727,7 @@ define internal fastcc void @ieee80211_rx_mgmt_beacon(ptr noundef %0, ptr nounde
 298:                                              ; preds = %294, %290
   call void @llvm.lifetime.start.p0(i64 54, ptr nonnull %8) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(54) %8, i8 0, i64 54, i1 false)
-  %299 = trunc i64 %32 to i32
+  %299 = trunc nuw i64 %32 to i32
   %300 = call i32 @cfg80211_get_p2p_attr(ptr noundef %29, i32 noundef %299, i32 noundef 12, ptr noundef nonnull %8, i32 noundef 54) #18
   %301 = icmp sgt i32 %300, 1
   %302 = getelementptr inbounds i8, ptr %0, i64 476
@@ -2835,7 +2835,7 @@ define internal fastcc void @ieee80211_rx_mgmt_beacon(ptr noundef %0, ptr nounde
   %360 = load i64, ptr %3, align 8
   %361 = getelementptr inbounds i8, ptr %3, i64 16
   %362 = load i32, ptr %361, align 8
-  call fastcc void @ieee80211_sta_process_chanswitch(ptr noundef %0, i64 noundef %360, i32 noundef %362, ptr noundef nonnull %252, i1 noundef zeroext true)
+  call fastcc void @ieee80211_sta_process_chanswitch(ptr noundef %0, i64 noundef %360, i32 noundef %362, ptr noundef %252, i1 noundef zeroext true)
   %363 = getelementptr inbounds i8, ptr %0, i64 481
   %364 = load i8, ptr %363, align 1, !range !25, !noundef !26
   %365 = icmp eq i8 %364, 0
@@ -2954,7 +2954,7 @@ define internal fastcc void @ieee80211_rx_mgmt_beacon(ptr noundef %0, ptr nounde
   %432 = load ptr, ptr %431, align 8
   %.val = load i32, ptr %11, align 8
   %.val16 = load i8, ptr %291, align 4, !range !25, !noundef !26
-  %433 = call fastcc i64 @ieee80211_recalc_twt_req(i32 %.val, i8 %.val16, ptr noundef %432, ptr noundef %0, ptr noundef nonnull %417, ptr noundef nonnull %252)
+  %433 = call fastcc i64 @ieee80211_recalc_twt_req(i32 %.val, i8 %.val16, ptr noundef %432, ptr noundef %0, ptr noundef nonnull %417, ptr noundef %252)
   %434 = or i64 %406, %433
   store i64 %434, ptr %5, align 8
   %435 = getelementptr inbounds i8, ptr %252, i64 144
@@ -3028,9 +3028,9 @@ define internal fastcc void @ieee80211_rx_mgmt_beacon(ptr noundef %0, ptr nounde
   br label %486
 
 483:                                              ; preds = %480, %475, %461
-  call fastcc void @ieee80211_ml_reconfiguration(ptr noundef %9, ptr noundef nonnull %252)
+  call fastcc void @ieee80211_ml_reconfiguration(ptr noundef %9, ptr noundef %252)
   %484 = load i64, ptr %15, align 2
-  call fastcc void @ieee80211_process_adv_ttlm(ptr noundef %9, ptr noundef nonnull %252, i64 noundef %484)
+  call fastcc void @ieee80211_process_adv_ttlm(ptr noundef %9, ptr noundef %252, i64 noundef %484)
   %485 = load i64, ptr %5, align 8
   call void @ieee80211_link_info_change_notify(ptr noundef %9, ptr noundef %0, i64 noundef %485) #18
   br label %486
@@ -4121,7 +4121,7 @@ define dso_local void @ieee80211_sta_rx_queued_mgmt(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_sta_process_chanswitch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_sta_process_chanswitch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.ieee80211_csa_ie, align 8
   %7 = alloca %struct.ieee80211_channel_switch, align 8
   %8 = load ptr, ptr %0, align 8
@@ -4145,7 +4145,7 @@ define internal fastcc void @ieee80211_sta_process_chanswitch(ptr noundef %0, i6
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 472
   %22 = load i32, ptr %21, align 8
-  %23 = call i32 @ieee80211_parse_ch_switch_ie(ptr noundef %8, ptr noundef %3, i32 noundef %18, i32 noundef %20, i32 noundef %22, ptr noundef %11, ptr noundef nonnull %6) #18
+  %23 = call i32 @ieee80211_parse_ch_switch_ie(ptr noundef %8, ptr noundef nonnull %3, i32 noundef %18, i32 noundef %20, i32 noundef %22, ptr noundef %11, ptr noundef nonnull %6) #18
   %24 = icmp ne i32 %23, 0
   br i1 %24, label %38, label %.thread
 
@@ -4820,7 +4820,7 @@ define dso_local void @ieee80211_sta_connection_lost(ptr noundef %0, i8 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_set_disassoc(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_set_disassoc(ptr noundef %0, i16 noundef zeroext range(i16 0, 193) %1, i16 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.ieee80211_prep_tx_info, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 1904
   %8 = getelementptr inbounds i8, ptr %0, i64 1256
@@ -5096,7 +5096,7 @@ define internal fastcc void @ieee80211_set_disassoc(ptr noundef %0, i16 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_report_disconnect(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_report_disconnect(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, 4294967296) %2, i1 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.ieee80211_event, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !annotation !62
@@ -6430,7 +6430,7 @@ define internal fastcc void @drv_event_callback(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_destroy_assoc_data(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_destroy_assoc_data(ptr noundef %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.cfg80211_assoc_failure, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2128
   %5 = load ptr, ptr %4, align 8
@@ -9480,7 +9480,7 @@ declare dso_local void @netdev_info(ptr noundef, ptr noundef, ...) local_unnamed
 declare dso_local i32 @ieee80211_vif_set_links(ptr noundef, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ieee80211_setup_assoc_link(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ieee80211_setup_assoc_link(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef range(i32 0, 128) %4) unnamed_addr #0 align 16 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca %struct.ieee80211_sta_ht_cap, align 2
@@ -12099,7 +12099,7 @@ declare dso_local ptr @ieee80211_get_bssid(ptr noundef, i64 noundef, i32 noundef
 declare dso_local ptr @ieee802_11_parse_elems_full(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_rx_bss_info(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_rx_bss_info(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef range(i64 15, 4294967296) %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1256
   %7 = load ptr, ptr %6, align 8
@@ -12769,7 +12769,7 @@ define internal fastcc void @ieee80211_chswitch_post_beacon(ptr noundef %0) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @ieee80211_sta_wmm_params(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef readonly %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @ieee80211_sta_wmm_params(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef range(i64 0, 256) %3, ptr noundef readonly %4) unnamed_addr #0 align 16 {
   %6 = alloca [4 x %struct.ieee80211_tx_queue_params], align 16
   %7 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #18
@@ -13252,7 +13252,7 @@ define internal fastcc range(i64 0, 16) i64 @ieee80211_handle_bss_capability(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i64 0, 134217729) i64 @ieee80211_recalc_twt_req(i32 %.4056.val, i8 %.5068.val, ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i64 0, 134217729) i64 @ieee80211_recalc_twt_req(i32 %.4056.val, i8 %.5068.val, ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 align 16 {
   %5 = icmp eq i8 %.5068.val, 0
   br i1 %5, label %8, label %6
 
@@ -13939,7 +13939,7 @@ define internal fastcc range(i64 0, 262145) i64 @ieee80211_handle_pwr_constr(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @ieee80211_config_puncturing(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @ieee80211_config_puncturing(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.cfg80211_chan_def, align 8
   %5 = alloca i16, align 2
   %6 = load ptr, ptr %0, align 8
@@ -14059,7 +14059,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_config_puncturing(ptr nound
   br i1 %91, label %.split, label %92
 
 .split:                                           ; preds = %89
-  call fastcc void @ieee80211_handle_puncturing_bitmap(ptr noundef %0, ptr noundef %1, i16 noundef zeroext 0, ptr noundef %2)
+  call fastcc void @ieee80211_handle_puncturing_bitmap(ptr noundef %0, ptr noundef nonnull %1, i16 noundef zeroext 0, ptr noundef %2)
   br label %97
 
 92:                                               ; preds = %89
@@ -14070,7 +14070,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_config_puncturing(ptr nound
   br i1 %96, label %.split1, label %97
 
 .split1:                                          ; preds = %92
-  call fastcc void @ieee80211_handle_puncturing_bitmap(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %90, ptr noundef %2)
+  call fastcc void @ieee80211_handle_puncturing_bitmap(ptr noundef %0, ptr noundef nonnull %1, i16 noundef zeroext %90, ptr noundef %2)
   br label %97
 
 97:                                               ; preds = %.split, %.split1, %92, %81, %71, %58
@@ -14080,7 +14080,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_config_puncturing(ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_ml_reconfiguration(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_ml_reconfiguration(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = alloca [15 x i16], align 16
   call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %3) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(30) %3, i8 0, i64 30, i1 false)
@@ -14514,7 +14514,7 @@ define internal fastcc void @ieee80211_ml_reconfiguration(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_process_adv_ttlm(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_process_adv_ttlm(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 5056
   %5 = load i16, ptr %4, align 8
   %6 = icmp eq i16 %5, 0
@@ -15474,7 +15474,7 @@ declare dso_local void @cfg80211_unlink_bss(ptr noundef, ptr noundef) local_unna
 declare dso_local void @cfg80211_rx_mlme_mgmt(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_auth_challenge(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_auth_challenge(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.ieee80211_prep_tx_info, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1256
   %6 = load ptr, ptr %5, align 8
@@ -15541,7 +15541,7 @@ declare dso_local i32 @fils_decrypt_assoc_resp(ptr noundef, ptr noundef, ptr nou
 declare dso_local void @cfg80211_assoc_comeback(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.ieee80211_elems_parse_params, align 8
   %7 = alloca [15 x i64], align 16
   %8 = getelementptr inbounds i8, ptr %0, i64 2128
@@ -16503,7 +16503,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   %.val = load i32, ptr %625, align 8
   %626 = getelementptr i8, ptr %207, i64 5068
   %.val56 = load i8, ptr %626, align 4, !range !25, !noundef !26
-  %627 = call fastcc i64 @ieee80211_recalc_twt_req(i32 %.val, i8 %.val56, ptr noundef %532, ptr noundef nonnull %75, ptr noundef nonnull %111, ptr noundef nonnull %223)
+  %627 = call fastcc i64 @ieee80211_recalc_twt_req(i32 %.val, i8 %.val56, ptr noundef %532, ptr noundef nonnull %75, ptr noundef nonnull %111, ptr noundef %223)
   %628 = load i64, ptr %206, align 8
   %629 = or i64 %628, %627
   store i64 %629, ptr %206, align 8
@@ -16786,7 +16786,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   br i1 %805, label %807, label %806
 
 806:                                              ; preds = %800
-  call void @ieee80211_set_wmm_default(ptr noundef %75, i1 noundef zeroext false, i1 noundef zeroext false) #18
+  call void @ieee80211_set_wmm_default(ptr noundef nonnull %75, i1 noundef zeroext false, i1 noundef zeroext false) #18
   br label %817
 
 807:                                              ; preds = %800
@@ -16797,11 +16797,11 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   %812 = zext i8 %811 to i64
   %813 = getelementptr inbounds i8, ptr %223, i64 192
   %814 = load ptr, ptr %813, align 8
-  %815 = call fastcc zeroext i1 @ieee80211_sta_wmm_params(ptr noundef %212, ptr noundef %75, ptr noundef %809, i64 noundef %812, ptr noundef %814)
+  %815 = call fastcc zeroext i1 @ieee80211_sta_wmm_params(ptr noundef %212, ptr noundef nonnull %75, ptr noundef %809, i64 noundef %812, ptr noundef %814)
   br i1 %815, label %817, label %816
 
 816:                                              ; preds = %807
-  call void @ieee80211_set_wmm_default(ptr noundef %75, i1 noundef zeroext false, i1 noundef zeroext true) #18
+  call void @ieee80211_set_wmm_default(ptr noundef nonnull %75, i1 noundef zeroext false, i1 noundef zeroext true) #18
   store i8 1, ptr %803, align 1
   br label %817
 
@@ -17458,7 +17458,7 @@ declare dso_local void @cfg80211_rx_assoc_resp(ptr noundef, ptr noundef) local_u
 declare dso_local i32 @ieee80211_sta_allocate_link(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_get_dtim(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_get_dtim(ptr noundef nonnull %0, ptr noundef writeonly %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 29
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -17516,12 +17516,12 @@ define internal fastcc void @ieee80211_get_dtim(ptr noundef %0, ptr noundef writ
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @ieee80211_mgd_setup_link_sta(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @ieee80211_mgd_setup_link_sta(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1256
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %2, ptr noundef align 8 dereferenceable(6) %8, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %2, ptr noundef align 8 dereferenceable(6) %8, i64 6, i1 false)
   %9 = getelementptr inbounds i8, ptr %2, i64 912
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 8
@@ -17532,7 +17532,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ieee80211_mgd_setup_link_s
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %4
-  tail call void @ieee80211_s1g_sta_rate_init(ptr noundef %1) #18
+  tail call void @ieee80211_s1g_sta_rate_init(ptr noundef nonnull %1) #18
   br label %144
 
 16:                                               ; preds = %4
@@ -17952,7 +17952,7 @@ declare dso_local i32 @__SCT__tp_func_drv_event_callback(ptr noundef, ptr nounde
 declare dso_local zeroext i16 @ieee80211_encode_usf(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, ptr noundef %7, ptr nocapture noundef %8) unnamed_addr #0 align 16 {
+define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, ptr noundef %7, ptr nocapture noundef %8) unnamed_addr #0 align 16 {
   %10 = alloca i16, align 2
   %11 = alloca [8 x i16], align 16
   %12 = alloca %struct.ieee80211_sta_vht_cap, align 4
@@ -18151,7 +18151,7 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   %135 = phi i32 [ %118, %114 ], [ %121, %.loopexit70 ]
   %136 = call i32 @llvm.umin.i32(i32 %135, i32 8)
   %137 = add nuw nsw i32 %136, 2
-  %138 = call ptr @skb_put(ptr noundef %1, i32 noundef %137) #18
+  %138 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef %137) #18
   %139 = getelementptr i8, ptr %138, i64 1
   store i8 1, ptr %138, align 1
   %140 = trunc nuw nsw i32 %136 to i8
@@ -18221,7 +18221,7 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
 184:                                              ; preds = %180
   %185 = sub nuw i32 %135, %182
   %186 = add i32 %185, 2
-  %187 = call ptr @skb_put(ptr noundef %1, i32 noundef %186) #18
+  %187 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef %186) #18
   %188 = getelementptr i8, ptr %187, i64 1
   store i8 50, ptr %187, align 1
   %189 = trunc i32 %185 to i8
@@ -18278,7 +18278,7 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   br i1 %222, label %248, label %223
 
 223:                                              ; preds = %219
-  %224 = call ptr @skb_put(ptr noundef %1, i32 noundef 4) #18
+  %224 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 4) #18
   %225 = getelementptr i8, ptr %224, i64 1
   store i8 33, ptr %224, align 1
   %226 = getelementptr i8, ptr %224, i64 2
@@ -18353,7 +18353,7 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   %269 = load i32, ptr %268, align 4
   %270 = shl i32 %269, 1
   %271 = add i32 %270, 2
-  %272 = call ptr @skb_put(ptr noundef %1, i32 noundef %271) #18
+  %272 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef %271) #18
   %273 = getelementptr i8, ptr %272, i64 1
   store i8 36, ptr %272, align 1
   %274 = load i32, ptr %268, align 4
@@ -18398,7 +18398,7 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
 299:                                              ; preds = %296
   %300 = call i64 @ieee80211_ie_split_ric(ptr noundef %4, i64 noundef %5, ptr noundef nonnull @ieee80211_add_before_ht_elems.before_ht, i32 noundef 12, ptr noundef nonnull @ieee80211_add_before_ht_elems.after_ric, i32 noundef 9, i64 noundef 0) #18
   %301 = trunc i64 %300 to i32
-  %302 = call ptr @skb_put(ptr noundef %1, i32 noundef %301) #18
+  %302 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef %301) #18
   %303 = and i64 %300, 4294967295
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %302, ptr align 1 %4, i64 %303, i1 false)
   br label %304
@@ -18476,7 +18476,7 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
 
 343:                                              ; preds = %341, %339, %331
   %344 = phi i16 [ %342, %341 ], [ %340, %339 ], [ %337, %331 ]
-  %345 = call ptr @skb_put(ptr noundef %1, i32 noundef 28) #18
+  %345 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 28) #18
   %346 = call ptr @ieee80211_ie_build_ht_cap(ptr noundef %345, ptr noundef nonnull %13, i16 noundef zeroext %344) #18
   call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %13) #18
   %347 = add nuw nsw i32 %297, 1
@@ -18494,7 +18494,7 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   %354 = getelementptr i8, ptr %4, i64 %305
   %355 = sub i64 %353, %305
   %356 = trunc i64 %355 to i32
-  %357 = call ptr @skb_put(ptr noundef %1, i32 noundef %356) #18
+  %357 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef %356) #18
   %358 = and i64 %355, 4294967295
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %357, ptr align 1 %354, i64 %358, i1 false)
   br label %359
@@ -18594,7 +18594,7 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   %418 = and i32 %414, -57345
   %419 = or disjoint i32 %418, %415
   %420 = select i1 %417, i32 %419, i32 %414
-  %421 = call ptr @skb_put(ptr noundef %1, i32 noundef 14) #18
+  %421 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 14) #18
   %422 = call ptr @ieee80211_ie_build_vht_cap(ptr noundef %421, ptr noundef nonnull %12, i32 noundef %420) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #18
   br i1 %35, label %427, label %423
@@ -18643,7 +18643,7 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   %449 = getelementptr i8, ptr %4, i64 %360
   %450 = sub i64 %448, %360
   %451 = trunc i64 %450 to i32
-  %452 = call ptr @skb_put(ptr noundef %1, i32 noundef %451) #18
+  %452 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef %451) #18
   %453 = and i64 %450, 4294967295
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %452, ptr align 1 %449, i64 %453, i1 false)
   %.pre86 = load i32, ptr %433, align 8
@@ -18767,7 +18767,7 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   %527 = add nuw nsw i8 %526, %503
   %528 = add nuw nsw i8 %527, %525
   %529 = zext nneg i8 %528 to i32
-  %530 = call ptr @skb_put(ptr noundef %1, i32 noundef %529) #18
+  %530 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef %529) #18
   %531 = zext nneg i8 %528 to i64
   %532 = getelementptr i8, ptr %530, i64 %531
   %533 = call ptr @ieee80211_ie_build_he_cap(i32 noundef %455, ptr noundef %530, ptr noundef nonnull %494, ptr noundef %532) #18
@@ -18778,8 +18778,8 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   %538 = sub i64 %537, %536
   %539 = trunc i64 %538 to i32
   %540 = add i32 %535, %539
-  call void @skb_trim(ptr noundef %1, i32 noundef %540) #18
-  call void @ieee80211_ie_build_he_6ghz_cap(ptr noundef %0, i32 noundef %54, ptr noundef %1) #18
+  call void @skb_trim(ptr noundef nonnull %1, i32 noundef %540) #18
+  call void @ieee80211_ie_build_he_6ghz_cap(ptr noundef %0, i32 noundef %54, ptr noundef nonnull %1) #18
   br label %541
 
 541:                                              ; preds = %524, %.thread54
@@ -18875,14 +18875,14 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
 588:                                              ; preds = %582, %578
   %589 = phi i16 [ 0, %578 ], [ %587, %582 ]
   %590 = phi i16 [ 0, %578 ], [ %584, %582 ]
-  %591 = call ptr @skb_put(ptr noundef %1, i32 noundef 1) #18
+  %591 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 1) #18
   store i8 -1, ptr %591, align 1
-  %592 = call ptr @skb_put(ptr noundef %1, i32 noundef 1) #18
-  %593 = call ptr @skb_put(ptr noundef %1, i32 noundef 1) #18
+  %592 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 1) #18
+  %593 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 1) #18
   store i8 107, ptr %593, align 1
-  %594 = call ptr @skb_put(ptr noundef %1, i32 noundef 2) #18
+  %594 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 2) #18
   store i16 256, ptr %594, align 1
-  %595 = call ptr @skb_put(ptr noundef %1, i32 noundef 7) #18
+  %595 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 7) #18
   store i8 9, ptr %595, align 1
   %596 = getelementptr inbounds i8, ptr %595, i64 1
   %597 = getelementptr inbounds i8, ptr %0, i64 5062
@@ -18896,12 +18896,12 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   %601 = load i16, ptr %594, align 1
   %602 = or i16 %601, 128
   store i16 %602, ptr %594, align 1
-  %603 = call ptr @skb_put(ptr noundef %1, i32 noundef 2) #18
+  %603 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 2) #18
   store i16 %590, ptr %603, align 1
   br label %604
 
 604:                                              ; preds = %600, %588
-  %605 = call ptr @skb_put(ptr noundef %1, i32 noundef 2) #18
+  %605 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 2) #18
   store i16 %589, ptr %605, align 1
   %606 = getelementptr inbounds i8, ptr %564, i64 924
   %607 = getelementptr inbounds i8, ptr %1, i64 112
@@ -18927,19 +18927,19 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   %619 = load ptr, ptr %618, align 8
   %620 = getelementptr inbounds i8, ptr %610, i64 32
   %621 = load i64, ptr %620, align 8
-  %622 = call ptr @skb_put(ptr noundef %1, i32 noundef 1) #18
+  %622 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 1) #18
   store i8 0, ptr %622, align 1
-  %623 = call ptr @skb_put(ptr noundef %1, i32 noundef 1) #18
+  %623 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 1) #18
   %624 = trunc i64 %609 to i16
   %625 = or disjoint i16 %624, 48
-  %626 = call ptr @skb_put(ptr noundef %1, i32 noundef 2) #18
+  %626 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 2) #18
   store i16 %625, ptr %626, align 1
-  %627 = call ptr @skb_put(ptr noundef %1, i32 noundef 1) #18
+  %627 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 1) #18
   store i8 7, ptr %627, align 1
   %628 = getelementptr inbounds i8, ptr %610, i64 8
-  %629 = call ptr @skb_put(ptr noundef %1, i32 noundef 6) #18
+  %629 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 6) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(6) %629, ptr noundef align 1 dereferenceable(6) %628, i64 6, i1 false)
-  %630 = call ptr @skb_put(ptr noundef %1, i32 noundef 2) #18
+  %630 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 2) #18
   %631 = trunc i64 %609 to i32
   %632 = call fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %10, ptr noundef %3, ptr noundef %619, i64 noundef %621, i32 noundef %631, ptr noundef null, ptr noundef nonnull %11)
   %633 = icmp eq ptr %619, null
@@ -18949,7 +18949,7 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   %635 = getelementptr i8, ptr %619, i64 %632
   %636 = sub i64 %621, %632
   %637 = trunc i64 %636 to i32
-  %638 = call ptr @skb_put(ptr noundef %1, i32 noundef %637) #18
+  %638 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef %637) #18
   %639 = and i64 %636, 4294967295
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %638, ptr align 1 %635, i64 %639, i1 false)
   br label %640
@@ -18958,10 +18958,10 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   %641 = load i16, ptr %10, align 2
   store i16 %641, ptr %630, align 1
   %642 = load i32, ptr %607, align 8
-  %643 = call ptr @skb_put(ptr noundef %1, i32 noundef 1) #18
+  %643 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 1) #18
   store i8 -1, ptr %643, align 1
-  %644 = call ptr @skb_put(ptr noundef %1, i32 noundef 1) #18
-  %645 = call ptr @skb_put(ptr noundef %1, i32 noundef 1) #18
+  %644 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 1) #18
+  %645 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 1) #18
   store i8 56, ptr %645, align 1
   br label %646
 
@@ -18997,7 +18997,7 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   br i1 %662, label %663, label %665
 
 663:                                              ; preds = %661
-  %664 = call ptr @skb_put(ptr noundef %1, i32 noundef 1) #18
+  %664 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 1) #18
   store i8 0, ptr %664, align 1
   br label %665
 
@@ -19032,7 +19032,7 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   br label %683
 
 681:                                              ; preds = %678
-  %682 = call ptr @skb_put(ptr noundef %1, i32 noundef 1) #18
+  %682 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 1) #18
   store i8 0, ptr %682, align 1
   br label %683
 
@@ -19041,7 +19041,7 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   %685 = phi ptr [ %666, %._crit_edge87 ], [ %682, %681 ]
   store i8 %684, ptr %685, align 1
   %686 = trunc i16 %652 to i8
-  %687 = call ptr @skb_put(ptr noundef %1, i32 noundef 1) #18
+  %687 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 1) #18
   store i8 %686, ptr %687, align 1
   br label %.loopexit
 
@@ -19068,12 +19068,12 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   br i1 %702, label %706, label %703
 
 703:                                              ; preds = %698
-  %704 = call ptr @skb_put(ptr noundef %1, i32 noundef 1) #18
+  %704 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef 1) #18
   store i8 0, ptr %704, align 1
   br label %706
 
 705:                                              ; preds = %692
-  call void @skb_trim(ptr noundef %1, i32 noundef %642) #18
+  call void @skb_trim(ptr noundef nonnull %1, i32 noundef %642) #18
   br label %711
 
 706:                                              ; preds = %703, %698
@@ -19085,7 +19085,7 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   br label %711
 
 711:                                              ; preds = %706, %705
-  call void @ieee80211_fragment_element(ptr noundef %1, ptr noundef %623, i8 noundef zeroext -2) #18
+  call void @ieee80211_fragment_element(ptr noundef nonnull %1, ptr noundef %623, i8 noundef zeroext -2) #18
   br label %712
 
 712:                                              ; preds = %711, %613, %608
@@ -19095,7 +19095,7 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   br i1 %714, label %715, label %608, !llvm.loop !370
 
 715:                                              ; preds = %712
-  call void @ieee80211_fragment_element(ptr noundef %1, ptr noundef %592, i8 noundef zeroext -14) #18
+  call void @ieee80211_fragment_element(ptr noundef nonnull %1, ptr noundef %592, i8 noundef zeroext -14) #18
   br label %716
 
 716:                                              ; preds = %715, %563
@@ -19314,7 +19314,7 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   %846 = phi i8 [ %844, %830 ], [ 0, %824 ]
   %847 = add i8 %846, %825
   %848 = zext i8 %847 to i32
-  %849 = call ptr @skb_put(ptr noundef %1, i32 noundef %848) #18
+  %849 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef %848) #18
   %850 = zext i8 %847 to i64
   %851 = getelementptr i8, ptr %849, i64 %850
   %852 = call ptr @ieee80211_ie_build_eht_cap(ptr noundef %849, ptr noundef nonnull %761, ptr noundef nonnull %794, ptr noundef %851, i1 noundef zeroext false) #18
@@ -19326,9 +19326,9 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   br i1 %855, label %856, label %858
 
 856:                                              ; preds = %853
-  call void @ieee80211_add_aid_request_ie(ptr noundef %0, ptr noundef %1) #18
+  call void @ieee80211_add_aid_request_ie(ptr noundef %0, ptr noundef nonnull %1) #18
   %857 = getelementptr inbounds i8, ptr %62, i64 68
-  call void @ieee80211_add_s1g_capab_ie(ptr noundef %0, ptr noundef %857, ptr noundef %1) #18
+  call void @ieee80211_add_s1g_capab_ie(ptr noundef %0, ptr noundef %857, ptr noundef nonnull %1) #18
   br label %858
 
 858:                                              ; preds = %856, %853
@@ -19348,7 +19348,7 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   br i1 %867, label %871, label %868
 
 868:                                              ; preds = %864
-  %869 = call ptr @skb_put(ptr noundef %1, i32 noundef %866) #18
+  %869 = call ptr @skb_put(ptr noundef nonnull %1, i32 noundef %866) #18
   %870 = zext i32 %866 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %869, ptr nonnull align 1 %862, i64 %870, i1 false)
   br label %871
@@ -19637,7 +19637,7 @@ declare dso_local ptr @sta_info_alloc(ptr noundef, ptr noundef, i32 noundef) loc
 declare dso_local void @sta_info_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @sta_info_pre_move_state(ptr noundef %0) unnamed_addr #5 align 16 {
+define internal fastcc void @sta_info_pre_move_state(ptr noundef nonnull %0) unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = load volatile i64, ptr %2, align 8
   %4 = and i64 %3, 1048576
@@ -19651,7 +19651,7 @@ define internal fastcc void @sta_info_pre_move_state(ptr noundef %0) unnamed_add
   br label %7
 
 7:                                                ; preds = %6, %1
-  %8 = tail call i32 @sta_info_move_state(ptr noundef %0, i32 noundef 2) #18
+  %8 = tail call i32 @sta_info_move_state(ptr noundef nonnull %0, i32 noundef 2) #18
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %11, label %10, !prof !7
 

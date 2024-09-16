@@ -1403,7 +1403,7 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h29211754e102f437E"(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h62271d28906d4a96E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h62271d28906d4a96E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = icmp slt i64 %1, 0
   br i1 %3, label %4, label %5
 
@@ -1725,7 +1725,7 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$7reserve17hd08e0ee02b38d7c1E"(
   br i1 %.not.i22, label %.noexc, label %25
 
 25:                                               ; preds = %23
-  invoke fastcc void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h62271d28906d4a96E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %.015)
+  invoke fastcc void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h62271d28906d4a96E"(ptr noalias noundef align 8 dereferenceable(16) %4, i64 noundef %.015)
           to label %._crit_edge.i unwind label %26
 
 ._crit_edge.i:                                    ; preds = %25
@@ -1900,7 +1900,7 @@ common.resume:                                    ; preds = %67, %.thread, %26
   unreachable
 
 76:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$9is_unique17h154893a37750327bE.exit.thread"
-  tail call fastcc void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h62271d28906d4a96E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.015)
+  tail call fastcc void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h62271d28906d4a96E"(ptr noalias noundef align 8 dereferenceable(16) %0, i64 noundef %.015)
   br label %73
 }
 

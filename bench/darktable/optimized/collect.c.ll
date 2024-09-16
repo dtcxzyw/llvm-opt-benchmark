@@ -5382,14 +5382,14 @@ define internal noundef range(i32 0, 2) i32 @_datetime_range_select(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_expand_select_tree_path(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
+define internal fastcc void @_expand_select_tree_path(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca %struct._GtkTreeIter, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 1144
   %7 = load ptr, ptr %6, align 8, !tbaa !58
   %8 = tail call i64 @gtk_tree_model_filter_get_type() #19
   %9 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %8) #17
-  %10 = tail call ptr @gtk_tree_model_filter_convert_child_path_to_path(ptr noundef %9, ptr noundef %0) #17
+  %10 = tail call ptr @gtk_tree_model_filter_convert_child_path_to_path(ptr noundef %9, ptr noundef nonnull %0) #17
   %11 = icmp eq ptr %1, null
   br i1 %11, label %16, label %12
 

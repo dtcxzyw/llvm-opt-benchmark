@@ -104,7 +104,6 @@ $_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryE
 @_ZL42InitializeMachineLateInstrsCleanupPassFlag = internal global %"struct.std::once_flag" zeroinitializer, align 4
 @.str.3 = private unnamed_addr constant [39 x i8] c"Machine Late Instructions Cleanup Pass\00", align 1
 @_ZTVN12_GLOBAL__N_124MachineLateInstrsCleanupE = internal unnamed_addr constant { [24 x ptr] } { [24 x ptr] [ptr null, ptr null, ptr @_ZN12_GLOBAL__N_124MachineLateInstrsCleanupD2Ev, ptr @_ZN12_GLOBAL__N_124MachineLateInstrsCleanupD0Ev, ptr @_ZNK4llvm4Pass11getPassNameEv, ptr @_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE, ptr @_ZN4llvm4Pass14doFinalizationERNS_6ModuleE, ptr @_ZNK4llvm4Pass5printERNS_11raw_ostreamEPKNS_6ModuleE, ptr @_ZNK4llvm19MachineFunctionPass17createPrinterPassERNS_11raw_ostreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZN4llvm12FunctionPass17assignPassManagerERNS_7PMStackENS_15PassManagerTypeE, ptr @_ZN4llvm4Pass18preparePassManagerERNS_7PMStackE, ptr @_ZNK4llvm12FunctionPass27getPotentialPassManagerTypeEv, ptr @_ZNK12_GLOBAL__N_124MachineLateInstrsCleanup16getAnalysisUsageERN4llvm13AnalysisUsageE, ptr @_ZN4llvm4Pass13releaseMemoryEv, ptr @_ZN4llvm4Pass26getAdjustedAnalysisPointerEPKv, ptr @_ZN4llvm4Pass18getAsImmutablePassEv, ptr @_ZN4llvm4Pass18getAsPMDataManagerEv, ptr @_ZNK4llvm4Pass14verifyAnalysisEv, ptr @_ZN4llvm4Pass17dumpPassStructureEj, ptr @_ZN4llvm19MachineFunctionPass13runOnFunctionERNS_8FunctionE, ptr @_ZN12_GLOBAL__N_124MachineLateInstrsCleanup20runOnMachineFunctionERN4llvm15MachineFunctionE, ptr @_ZNK12_GLOBAL__N_124MachineLateInstrsCleanup21getRequiredPropertiesEv, ptr @_ZNK4llvm19MachineFunctionPass16getSetPropertiesEv, ptr @_ZNK4llvm19MachineFunctionPass20getClearedPropertiesEv] }, align 8
-@.str.4 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 @.str.5 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
 @_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
@@ -2626,7 +2625,7 @@ declare void @_ZNK4llvm19MachineFunctionPass16getAnalysisUsageERNS_13AnalysisUsa
 declare noundef zeroext i1 @_ZNK4llvm12FunctionPass12skipFunctionERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %.val4 = load ptr, ptr %3, align 8
@@ -2635,7 +2634,7 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_124MachineLateInstrsClea
   %6 = sub i64 %4, %5
   %7 = sdiv exact i64 %6, 72
   %8 = icmp ugt i64 %1, %7
-  br i1 %8, label %9, label %54
+  br i1 %8, label %9, label %49
 
 9:                                                ; preds = %2
   %10 = sub nuw nsw i64 %1, %7
@@ -2644,22 +2643,20 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_124MachineLateInstrsClea
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %4
   %15 = sdiv exact i64 %14, 72
-  %16 = icmp ult i64 %7, 128102389400760776
-  tail call void @llvm.assume(i1 %16)
-  %17 = sub nuw nsw i64 128102389400760775, %7
-  %18 = icmp ule i64 %15, %17
-  tail call void @llvm.assume(i1 %18)
+  %16 = sub nuw nsw i64 128102389400760775, %7
+  %17 = icmp ule i64 %15, %16
+  tail call void @llvm.assume(i1 %17)
   %.not27.i = icmp ult i64 %15, %10
-  br i1 %.not27.i, label %23, label %.lr.ph.i.i.i.i
+  br i1 %.not27.i, label %_ZNKSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE12_M_check_lenEmPKc.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %9, %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJEEvPT_DpOT0_.exit.i.i.i.i
-  %.08.i.i.i.i = phi ptr [ %22, %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJEEvPT_DpOT0_.exit.i.i.i.i ], [ %.val4, %9 ]
-  %.057.i.i.i.i = phi i64 [ %21, %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJEEvPT_DpOT0_.exit.i.i.i.i ], [ %10, %9 ]
-  %19 = getelementptr inbounds i8, ptr %.08.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %19, i8 0, i64 64, i1 false)
+  %.08.i.i.i.i = phi ptr [ %21, %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJEEvPT_DpOT0_.exit.i.i.i.i ], [ %.val4, %9 ]
+  %.057.i.i.i.i = phi i64 [ %20, %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJEEvPT_DpOT0_.exit.i.i.i.i ], [ %10, %9 ]
+  %18 = getelementptr inbounds i8, ptr %.08.i.i.i.i, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %18, i8 0, i64 64, i1 false)
   store i32 1, ptr %.08.i.i.i.i, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i, i64 4
-  store i32 0, ptr %20, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i, i64 4
+  store i32 0, ptr %19, align 4
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i
@@ -2671,40 +2668,31 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_124MachineLateInstrsClea
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJEEvPT_DpOT0_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !21
 
 _ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJEEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %21 = add i64 %.057.i.i.i.i, -1
-  %22 = getelementptr inbounds i8, ptr %.08.i.i.i.i, i64 72
-  %.not.i.i.i.i = icmp eq i64 %21, 0
+  %20 = add i64 %.057.i.i.i.i, -1
+  %21 = getelementptr inbounds i8, ptr %.08.i.i.i.i, i64 72
+  %.not.i.i.i.i = icmp eq i64 %20, 0
   br i1 %.not.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEmS2_ET_S4_T0_RSaIT1_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !29
 
 _ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEmS2_ET_S4_T0_RSaIT1_E.exit.i: ; preds = %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJEEvPT_DpOT0_.exit.i.i.i.i
-  store ptr %22, ptr %3, align 8
+  store ptr %21, ptr %3, align 8
   br label %_ZNSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE17_M_default_appendEm.exit
 
-23:                                               ; preds = %9
-  %24 = icmp ugt i64 %1, 128102389400760775
-  br i1 %24, label %25, label %_ZNKSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE12_M_check_lenEmPKc.exit.i
-
-25:                                               ; preds = %23
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #15
-  unreachable
-
-_ZNKSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %23
+_ZNKSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %9
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %7, i64 %10)
-  %26 = add nuw nsw i64 %.sroa.speculated.i.i, %7
-  %27 = tail call i64 @llvm.umin.i64(i64 %26, i64 128102389400760775)
-  %28 = mul nuw nsw i64 %27, 72
-  %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #16
-  %30 = getelementptr inbounds i8, ptr %29, i64 %6
+  %22 = add nuw nsw i64 %.sroa.speculated.i.i, %7
+  %23 = mul nuw nsw i64 %22, 72
+  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #16
+  %25 = getelementptr inbounds i8, ptr %24, i64 %6
   br label %.lr.ph.i.i.i32.i
 
 .lr.ph.i.i.i32.i:                                 ; preds = %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJEEvPT_DpOT0_.exit.i.i.i40.i, %_ZNKSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %.08.i.i.i33.i = phi ptr [ %34, %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJEEvPT_DpOT0_.exit.i.i.i40.i ], [ %30, %_ZNKSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %.057.i.i.i34.i = phi i64 [ %33, %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJEEvPT_DpOT0_.exit.i.i.i40.i ], [ %10, %_ZNKSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  %31 = getelementptr inbounds i8, ptr %.08.i.i.i33.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %31, i8 0, i64 64, i1 false)
+  %.08.i.i.i33.i = phi ptr [ %29, %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJEEvPT_DpOT0_.exit.i.i.i40.i ], [ %25, %_ZNKSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE12_M_check_lenEmPKc.exit.i ]
+  %.057.i.i.i34.i = phi i64 [ %28, %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJEEvPT_DpOT0_.exit.i.i.i40.i ], [ %10, %_ZNKSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE12_M_check_lenEmPKc.exit.i ]
+  %26 = getelementptr inbounds i8, ptr %.08.i.i.i33.i, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %26, i8 0, i64 64, i1 false)
   store i32 1, ptr %.08.i.i.i33.i, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i33.i, i64 4
-  store i32 0, ptr %32, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %.08.i.i.i33.i, i64 4
+  store i32 0, ptr %27, align 4
   br label %.lr.ph.i.i.i.i.i.i.i.i35.i
 
 .lr.ph.i.i.i.i.i.i.i.i35.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i35.i, %.lr.ph.i.i.i32.i
@@ -2716,9 +2704,9 @@ _ZNKSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE12_M_c
   br i1 %.not.i.i.i.i.i.i.i.i39.i, label %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJEEvPT_DpOT0_.exit.i.i.i40.i, label %.lr.ph.i.i.i.i.i.i.i.i35.i, !llvm.loop !21
 
 _ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJEEvPT_DpOT0_.exit.i.i.i40.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i35.i
-  %33 = add i64 %.057.i.i.i34.i, -1
-  %34 = getelementptr inbounds i8, ptr %.08.i.i.i33.i, i64 72
-  %.not.i.i.i41.i = icmp eq i64 %33, 0
+  %28 = add i64 %.057.i.i.i34.i, -1
+  %29 = getelementptr inbounds i8, ptr %.08.i.i.i33.i, i64 72
+  %.not.i.i.i41.i = icmp eq i64 %28, 0
   br i1 %.not.i.i.i41.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEmS2_ET_S4_T0_RSaIT1_E.exit43.i, label %.lr.ph.i.i.i32.i, !llvm.loop !29
 
 _ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEmS2_ET_S4_T0_RSaIT1_E.exit43.i: ; preds = %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJEEvPT_DpOT0_.exit.i.i.i40.i
@@ -2726,11 +2714,11 @@ _ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg
   br i1 %.not9.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEmS2_ET_S4_T0_RSaIT1_E.exit43.i, %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i
-  %.011.i.i.i.i.i.i = phi ptr [ %37, %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %29, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEmS2_ET_S4_T0_RSaIT1_E.exit43.i ]
-  %.0810.i.i.i.i.i.i = phi ptr [ %36, %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %.val, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEmS2_ET_S4_T0_RSaIT1_E.exit43.i ]
+  %.011.i.i.i.i.i.i = phi ptr [ %32, %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %24, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEmS2_ET_S4_T0_RSaIT1_E.exit43.i ]
+  %.0810.i.i.i.i.i.i = phi ptr [ %31, %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %.val, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEmS2_ET_S4_T0_RSaIT1_E.exit43.i ]
   store i32 1, ptr %.011.i.i.i.i.i.i, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 4
-  store i32 0, ptr %35, align 4
+  %30 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 4
+  store i32 0, ptr %30, align 4
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
@@ -2743,88 +2731,88 @@ _ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg
 
 _ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
   tail call void @_ZN4llvm13SmallDenseMapINS_8RegisterEPNS_12MachineInstrELj4ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S3_EEE8copyFromERKS9_(ptr noundef nonnull align 8 dereferenceable(72) %.011.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %.0810.i.i.i.i.i.i)
-  %36 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i.i, i64 72
-  %37 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i.i, i64 72
-  %.not.i.i.i.i.i.i = icmp eq ptr %36, %.val4
+  %31 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i.i, i64 72
+  %32 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i.i, i64 72
+  %.not.i.i.i.i.i.i = icmp eq ptr %31, %.val4
   br i1 %.not.i.i.i.i.i.i, label %.lr.ph.i.i.i44.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !30
 
 .lr.ph.i.i.i44.i:                                 ; preds = %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %_ZSt8_DestroyIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %47, %_ZSt8_DestroyIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEEvPT_.exit.i.i.i.i ], [ %.val, %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
-  %38 = load i32, ptr %.05.i.i.i.i, align 8
-  %39 = and i32 %38, 1
-  %.not.i.i.i.i.i.i.i.i = icmp eq i32 %39, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %40, label %_ZSt8_DestroyIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEEvPT_.exit.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %42, %_ZSt8_DestroyIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEEvPT_.exit.i.i.i.i ], [ %.val, %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
+  %33 = load i32, ptr %.05.i.i.i.i, align 8
+  %34 = and i32 %33, 1
+  %.not.i.i.i.i.i.i.i.i = icmp eq i32 %34, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %35, label %_ZSt8_DestroyIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEEvPT_.exit.i.i.i.i
 
-40:                                               ; preds = %.lr.ph.i.i.i44.i
-  %41 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %44 = load i32, ptr %43, align 8
-  %45 = zext i32 %44 to i64
-  %46 = shl nuw nsw i64 %45, 4
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %42, i64 noundef %46, i64 noundef 8) #14
+35:                                               ; preds = %.lr.ph.i.i.i44.i
+  %36 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
+  %39 = load i32, ptr %38, align 8
+  %40 = zext i32 %39 to i64
+  %41 = shl nuw nsw i64 %40, 4
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %37, i64 noundef %41, i64 noundef 8) #14
   br label %_ZSt8_DestroyIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEEvPT_.exit.i.i.i.i
 
-_ZSt8_DestroyIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEEvPT_.exit.i.i.i.i: ; preds = %40, %.lr.ph.i.i.i44.i
-  %47 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 72
-  %.not.i.i.i45.i = icmp eq ptr %47, %.val4
+_ZSt8_DestroyIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEEvPT_.exit.i.i.i.i: ; preds = %35, %.lr.ph.i.i.i44.i
+  %42 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 72
+  %.not.i.i.i45.i = icmp eq ptr %42, %.val4
   br i1 %.not.i.i.i45.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i44.i, !llvm.loop !4
 
 _ZSt8_DestroyIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEEvPT_.exit.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEmS2_ET_S4_T0_RSaIT1_E.exit43.i
   %.not.i46.i = icmp eq ptr %.val, null
-  br i1 %.not.i46.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE13_M_deallocateEPS2_m.exit.i, label %48
+  br i1 %.not.i46.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE13_M_deallocateEPS2_m.exit.i, label %43
 
-48:                                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapES2_EvT_S4_RSaIT0_E.exit.i
-  %49 = load ptr, ptr %11, align 8
-  %50 = ptrtoint ptr %49 to i64
-  %51 = sub i64 %50, %5
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val, i64 noundef %51) #17
+43:                                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapES2_EvT_S4_RSaIT0_E.exit.i
+  %44 = load ptr, ptr %11, align 8
+  %45 = ptrtoint ptr %44 to i64
+  %46 = sub i64 %45, %5
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val, i64 noundef %46) #17
   br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE13_M_deallocateEPS2_m.exit.i
 
-_ZNSt12_Vector_baseIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %48, %_ZSt8_DestroyIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapES2_EvT_S4_RSaIT0_E.exit.i
-  store ptr %29, ptr %0, align 8
-  %52 = getelementptr inbounds %"struct.(anonymous namespace)::MachineLateInstrsCleanup::Reg2MIMap", ptr %30, i64 %10
-  store ptr %52, ptr %3, align 8
-  %53 = getelementptr inbounds %"struct.(anonymous namespace)::MachineLateInstrsCleanup::Reg2MIMap", ptr %29, i64 %27
-  store ptr %53, ptr %11, align 8
+_ZNSt12_Vector_baseIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %43, %_ZSt8_DestroyIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapES2_EvT_S4_RSaIT0_E.exit.i
+  store ptr %24, ptr %0, align 8
+  %47 = getelementptr inbounds %"struct.(anonymous namespace)::MachineLateInstrsCleanup::Reg2MIMap", ptr %25, i64 %10
+  store ptr %47, ptr %3, align 8
+  %48 = getelementptr inbounds %"struct.(anonymous namespace)::MachineLateInstrsCleanup::Reg2MIMap", ptr %24, i64 %22
+  store ptr %48, ptr %11, align 8
   br label %_ZNSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE17_M_default_appendEm.exit
 
-54:                                               ; preds = %2
-  %55 = icmp ult i64 %1, %7
-  br i1 %55, label %56, label %_ZNSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE17_M_default_appendEm.exit
+49:                                               ; preds = %2
+  %50 = icmp ult i64 %1, %7
+  br i1 %50, label %51, label %_ZNSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE17_M_default_appendEm.exit
 
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds %"struct.(anonymous namespace)::MachineLateInstrsCleanup::Reg2MIMap", ptr %.val, i64 %1
-  %.not.i9 = icmp eq ptr %.val4, %57
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds %"struct.(anonymous namespace)::MachineLateInstrsCleanup::Reg2MIMap", ptr %.val, i64 %1
+  %.not.i9 = icmp eq ptr %.val4, %52
   br i1 %.not.i9, label %_ZNSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE17_M_default_appendEm.exit, label %.lr.ph.i.i.i.i10
 
-.lr.ph.i.i.i.i10:                                 ; preds = %56, %_ZSt8_DestroyIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEEvPT_.exit.i.i.i.i13
-  %.05.i.i.i.i11 = phi ptr [ %67, %_ZSt8_DestroyIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEEvPT_.exit.i.i.i.i13 ], [ %57, %56 ]
-  %58 = load i32, ptr %.05.i.i.i.i11, align 8
-  %59 = and i32 %58, 1
-  %.not.i.i.i.i.i.i.i.i12 = icmp eq i32 %59, 0
-  br i1 %.not.i.i.i.i.i.i.i.i12, label %60, label %_ZSt8_DestroyIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEEvPT_.exit.i.i.i.i13
+.lr.ph.i.i.i.i10:                                 ; preds = %51, %_ZSt8_DestroyIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEEvPT_.exit.i.i.i.i13
+  %.05.i.i.i.i11 = phi ptr [ %62, %_ZSt8_DestroyIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEEvPT_.exit.i.i.i.i13 ], [ %52, %51 ]
+  %53 = load i32, ptr %.05.i.i.i.i11, align 8
+  %54 = and i32 %53, 1
+  %.not.i.i.i.i.i.i.i.i12 = icmp eq i32 %54, 0
+  br i1 %.not.i.i.i.i.i.i.i.i12, label %55, label %_ZSt8_DestroyIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEEvPT_.exit.i.i.i.i13
 
-60:                                               ; preds = %.lr.ph.i.i.i.i10
-  %61 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i11, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i11, i64 16
-  %64 = load i32, ptr %63, align 8
-  %65 = zext i32 %64 to i64
-  %66 = shl nuw nsw i64 %65, 4
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %62, i64 noundef %66, i64 noundef 8) #14
+55:                                               ; preds = %.lr.ph.i.i.i.i10
+  %56 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i11, i64 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i11, i64 16
+  %59 = load i32, ptr %58, align 8
+  %60 = zext i32 %59 to i64
+  %61 = shl nuw nsw i64 %60, 4
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %57, i64 noundef %61, i64 noundef 8) #14
   br label %_ZSt8_DestroyIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEEvPT_.exit.i.i.i.i13
 
-_ZSt8_DestroyIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEEvPT_.exit.i.i.i.i13: ; preds = %60, %.lr.ph.i.i.i.i10
-  %67 = getelementptr inbounds i8, ptr %.05.i.i.i.i11, i64 72
-  %.not.i.i.i.i14 = icmp eq ptr %67, %.val4
+_ZSt8_DestroyIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEEvPT_.exit.i.i.i.i13: ; preds = %55, %.lr.ph.i.i.i.i10
+  %62 = getelementptr inbounds i8, ptr %.05.i.i.i.i11, i64 72
+  %.not.i.i.i.i14 = icmp eq ptr %62, %.val4
   br i1 %.not.i.i.i.i14, label %_ZSt8_DestroyIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapES2_EvT_S4_RSaIT0_E.exit.i15, label %.lr.ph.i.i.i.i10, !llvm.loop !4
 
 _ZSt8_DestroyIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapES2_EvT_S4_RSaIT0_E.exit.i15: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEEvPT_.exit.i.i.i.i13
-  store ptr %57, ptr %3, align 8
+  store ptr %52, ptr %3, align 8
   br label %_ZNSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE17_M_default_appendEm.exit
 
-_ZNSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE17_M_default_appendEm.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapES2_EvT_S4_RSaIT0_E.exit.i15, %56, %_ZNSt12_Vector_baseIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE13_M_deallocateEPS2_m.exit.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEmS2_ET_S4_T0_RSaIT1_E.exit.i, %54
+_ZNSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE17_M_default_appendEm.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapES2_EvT_S4_RSaIT0_E.exit.i15, %51, %_ZNSt12_Vector_baseIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE13_M_deallocateEPS2_m.exit.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEmS2_ET_S4_T0_RSaIT1_E.exit.i, %49
   ret void
 }
 

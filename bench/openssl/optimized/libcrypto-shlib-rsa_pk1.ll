@@ -501,12 +501,12 @@ if.then6:                                         ; preds = %if.end
 if.end7:                                          ; preds = %if.end
   %flen.tr = trunc i32 %num to i16
   %conv8 = shl i16 %flen.tr, 3
-  %call9 = tail call fastcc i32 @ossl_rsa_prf(ptr noundef %ctx, ptr noundef nonnull %call, i32 noundef %num, ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef %kdk, i16 noundef zeroext %conv8)
+  %call9 = tail call fastcc i32 @ossl_rsa_prf(ptr noundef %ctx, ptr noundef %call, i32 noundef %num, ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef %kdk, i16 noundef zeroext %conv8)
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %if.then106, label %if.end13
 
 if.end13:                                         ; preds = %if.end7
-  %call14 = call fastcc i32 @ossl_rsa_prf(ptr noundef %ctx, ptr noundef nonnull %candidate_lengths, i32 noundef 256, ptr noundef nonnull @.str.2, i32 noundef 6, ptr noundef %kdk, i16 noundef zeroext 2048)
+  %call14 = call fastcc i32 @ossl_rsa_prf(ptr noundef %ctx, ptr noundef %candidate_lengths, i32 noundef 256, ptr noundef nonnull @.str.2, i32 noundef 6, ptr noundef %kdk, i16 noundef zeroext 2048)
   %cmp15 = icmp slt i32 %call14, 0
   br i1 %cmp15, label %if.then106, label %if.end18
 
@@ -659,7 +659,7 @@ return:                                           ; preds = %if.end107, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ossl_rsa_prf(ptr noundef %ctx, ptr noundef %to, i32 noundef %tlen, ptr noundef %label, i32 noundef %llen, ptr noundef %kdk, i16 noundef zeroext %bitlen) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ossl_rsa_prf(ptr noundef %ctx, ptr noundef nonnull %to, i32 noundef range(i32 1, -2147483648) %tlen, ptr noundef %label, i32 noundef range(i32 6, 8) %llen, ptr noundef %kdk, i16 noundef zeroext %bitlen) unnamed_addr #0 {
 entry:
   %be_iter = alloca [2 x i8], align 1
   %be_bitlen = alloca [2 x i8], align 1
@@ -710,13 +710,10 @@ if.end16:                                         ; preds = %if.end11
   br i1 %cmp18, label %if.then20, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end16
-  %cmp2225 = icmp sgt i32 %tlen, 0
-  br i1 %cmp2225, label %for.body.lr.ph, label %err
-
-for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %arrayidx37 = getelementptr inbounds i8, ptr %be_iter, i64 1
   %conv43 = zext nneg i32 %llen to i64
   %0 = zext nneg i32 %tlen to i64
+  %zext = zext nneg i32 %tlen to i64
   br label %for.body
 
 if.then20:                                        ; preds = %if.end16
@@ -725,9 +722,9 @@ if.then20:                                        ; preds = %if.end16
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 786691, ptr noundef null) #4
   br label %err
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %iter.027 = phi i16 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+for.body:                                         ; preds = %for.cond.preheader, %for.inc
+  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
+  %iter.026 = phi i16 [ 0, %for.cond.preheader ], [ %inc, %for.inc ]
   %call24 = call i32 @HMAC_Init_ex(ptr noundef nonnull %call, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null) #4
   %cmp25 = icmp slt i32 %call24, 1
   br i1 %cmp25, label %if.then27, label %if.end28
@@ -739,10 +736,10 @@ if.then27:                                        ; preds = %for.body
   br label %err
 
 if.end28:                                         ; preds = %for.body
-  %shr30 = lshr i16 %iter.027, 8
+  %shr30 = lshr i16 %iter.026, 8
   %conv32 = trunc nuw i16 %shr30 to i8
   store i8 %conv32, ptr %be_iter, align 1
-  %conv36 = trunc i16 %iter.027 to i8
+  %conv36 = trunc i16 %iter.026 to i8
   store i8 %conv36, ptr %arrayidx37, align 1
   %call38 = call i32 @HMAC_Update(ptr noundef nonnull %call, ptr noundef nonnull %be_iter, i64 noundef 2) #4
   %cmp39 = icmp slt i32 %call38, 1
@@ -779,8 +776,8 @@ if.then53:                                        ; preds = %if.end48
 if.end54:                                         ; preds = %if.end48
   store i32 32, ptr %md_len, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
-  %cmp55 = icmp ugt i64 %indvars.iv.next, %0
-  br i1 %cmp55, label %if.then57, label %if.else
+  %1 = icmp ugt i64 %indvars.iv.next, %zext
+  br i1 %1, label %if.then57, label %if.else
 
 if.then57:                                        ; preds = %if.end54
   %call59 = call i32 @HMAC_Final(ptr noundef nonnull %call, ptr noundef nonnull %hmac_out, ptr noundef nonnull %md_len) #4
@@ -795,13 +792,13 @@ if.then62:                                        ; preds = %if.then57
 
 if.end63:                                         ; preds = %if.then57
   %add.ptr = getelementptr inbounds i8, ptr %to, i64 %indvars.iv
-  %1 = sub nsw i64 %0, %indvars.iv
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 16 %hmac_out, i64 %1, i1 false)
+  %2 = sub nsw i64 %0, %indvars.iv
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 16 %hmac_out, i64 %2, i1 false)
   br label %for.inc
 
 if.else:                                          ; preds = %if.end54
   %add.ptr67 = getelementptr inbounds i8, ptr %to, i64 %indvars.iv
-  %call68 = call i32 @HMAC_Final(ptr noundef nonnull %call, ptr noundef %add.ptr67, ptr noundef nonnull %md_len) #4
+  %call68 = call i32 @HMAC_Final(ptr noundef nonnull %call, ptr noundef nonnull %add.ptr67, ptr noundef nonnull %md_len) #4
   %cmp69 = icmp slt i32 %call68, 1
   br i1 %cmp69, label %if.then71, label %for.inc
 
@@ -812,13 +809,13 @@ if.then71:                                        ; preds = %if.else
   br label %err
 
 for.inc:                                          ; preds = %if.end63, %if.else
-  %inc = add i16 %iter.027, 1
-  %cmp22 = icmp ult i64 %indvars.iv.next, %0
-  br i1 %cmp22, label %for.body, label %err, !llvm.loop !17
+  %inc = add i16 %iter.026, 1
+  %3 = icmp ult i64 %indvars.iv.next, %zext
+  br i1 %3, label %for.body, label %err, !llvm.loop !17
 
-err:                                              ; preds = %for.inc, %for.cond.preheader, %if.then71, %if.then62, %if.then53, %if.then47, %if.then41, %if.then27, %if.then20, %if.then15, %if.then10
-  %ret.0 = phi i32 [ -1, %if.then10 ], [ -1, %if.then15 ], [ -1, %if.then20 ], [ -1, %if.then27 ], [ -1, %if.then41 ], [ -1, %if.then47 ], [ -1, %if.then53 ], [ -1, %if.then62 ], [ -1, %if.then71 ], [ 0, %for.cond.preheader ], [ 0, %for.inc ]
-  %md.0 = phi ptr [ null, %if.then10 ], [ null, %if.then15 ], [ %call12, %if.then20 ], [ %call12, %if.then27 ], [ %call12, %if.then41 ], [ %call12, %if.then47 ], [ %call12, %if.then53 ], [ %call12, %if.then62 ], [ %call12, %if.then71 ], [ %call12, %for.cond.preheader ], [ %call12, %for.inc ]
+err:                                              ; preds = %for.inc, %if.then71, %if.then62, %if.then53, %if.then47, %if.then41, %if.then27, %if.then20, %if.then15, %if.then10
+  %ret.0 = phi i32 [ -1, %if.then10 ], [ -1, %if.then15 ], [ -1, %if.then20 ], [ -1, %if.then27 ], [ -1, %if.then41 ], [ -1, %if.then47 ], [ -1, %if.then53 ], [ -1, %if.then62 ], [ -1, %if.then71 ], [ 0, %for.inc ]
+  %md.0 = phi ptr [ null, %if.then10 ], [ null, %if.then15 ], [ %call12, %if.then20 ], [ %call12, %if.then27 ], [ %call12, %if.then41 ], [ %call12, %if.then47 ], [ %call12, %if.then53 ], [ %call12, %if.then62 ], [ %call12, %if.then71 ], [ %call12, %for.inc ]
   call void @HMAC_CTX_free(ptr noundef %call) #4
   call void @EVP_MD_free(ptr noundef %md.0) #4
   br label %return

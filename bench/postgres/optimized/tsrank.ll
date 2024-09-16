@@ -113,7 +113,7 @@ define internal fastcc float @calc_rank(ptr nocapture noundef readonly %0, ptr n
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 %13, ptr %7, align 4
-  %21 = call fastcc ptr @SortAndUniqItems(ptr noundef nonnull %2, ptr noundef nonnull %7)
+  %21 = call fastcc ptr @SortAndUniqItems(ptr noundef nonnull %2, ptr noundef %7)
   %22 = load i32, ptr %7, align 4
   %23 = icmp slt i32 %22, 2
   br i1 %23, label %24, label %26
@@ -140,7 +140,7 @@ define internal fastcc float @calc_rank(ptr nocapture noundef readonly %0, ptr n
   %.074107.i = phi float [ -1.000000e+00, %26 ], [ %.1.i, %.loopexit86.i ]
   %34 = getelementptr ptr, ptr %21, i64 %indvars.iv127.i
   %35 = load ptr, ptr %34, align 8
-  %36 = call fastcc ptr @find_wordentry(ptr noundef %1, ptr noundef %2, ptr noundef %35, ptr noundef nonnull %6)
+  %36 = call fastcc ptr @find_wordentry(ptr noundef %1, ptr noundef %2, ptr noundef %35, ptr noundef %6)
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %.loopexit86.i, label %.preheader85.i
 
@@ -893,7 +893,7 @@ define internal fastcc float @calc_rank_cd(ptr nocapture noundef readonly %0, pt
   br i1 %.not.i, label %47, label %.loopexit.i
 
 47:                                               ; preds = %43
-  %48 = call fastcc ptr @find_wordentry(ptr noundef %1, ptr noundef nonnull %44, ptr noundef nonnull %45, ptr noundef nonnull %5)
+  %48 = call fastcc ptr @find_wordentry(ptr noundef %1, ptr noundef nonnull %44, ptr noundef nonnull %45, ptr noundef %5)
   %.not109.i = icmp eq ptr %48, null
   br i1 %.not109.i, label %.loopexit.i, label %.preheader114.i
 
@@ -1817,7 +1817,7 @@ define internal fastcc float @calc_rank_or(ptr nocapture noundef readonly %0, pt
   store i16 1, ptr %4, align 2
   %9 = getelementptr inbounds i8, ptr %4, i64 2
   store i16 0, ptr %9, align 2
-  %10 = call fastcc ptr @SortAndUniqItems(ptr noundef %2, ptr noundef nonnull %6)
+  %10 = call fastcc ptr @SortAndUniqItems(ptr noundef %2, ptr noundef %6)
   %11 = load i32, ptr %6, align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph75, label %._crit_edge76
@@ -1833,7 +1833,7 @@ define internal fastcc float @calc_rank_or(ptr nocapture noundef readonly %0, pt
   %.05173 = phi float [ 0.000000e+00, %.lr.ph75 ], [ %.152, %.loopexit ]
   %16 = getelementptr ptr, ptr %10, i64 %indvars.iv82
   %17 = load ptr, ptr %16, align 8
-  %18 = call fastcc ptr @find_wordentry(ptr noundef %1, ptr noundef %2, ptr noundef %17, ptr noundef nonnull %5)
+  %18 = call fastcc ptr @find_wordentry(ptr noundef %1, ptr noundef %2, ptr noundef %17, ptr noundef %5)
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -1945,7 +1945,7 @@ define internal fastcc float @calc_rank_or(ptr nocapture noundef readonly %0, pt
 declare double @log(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @SortAndUniqItems(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @SortAndUniqItems(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -2062,7 +2062,7 @@ define internal fastcc ptr @SortAndUniqItems(ptr noundef %0, ptr nocapture nound
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_wordentry(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @find_wordentry(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4

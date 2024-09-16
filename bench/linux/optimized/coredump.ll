@@ -1811,7 +1811,7 @@ declare dso_local i32 @filp_close(ptr noundef, ptr noundef) local_unnamed_addr #
 declare dso_local void @revert_creds(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @__dump_skip(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @__dump_skip(ptr nocapture noundef %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8

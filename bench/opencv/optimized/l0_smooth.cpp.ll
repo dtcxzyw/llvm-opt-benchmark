@@ -500,7 +500,7 @@ _ZNK2cv11_InputArray6getMatEi.exit170:            ; preds = %164, %167
   store i32 16842752, ptr %42, align 8
   %218 = getelementptr inbounds i8, ptr %42, i64 8
   store ptr %28, ptr %218, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_114pow2absComplexERKN2cv11_InputArrayE(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(24) %42)
+  invoke fastcc void @_ZN12_GLOBAL__N_114pow2absComplexERKN2cv11_InputArrayE(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(24) %42)
           to label %219 unwind label %252
 
 219:                                              ; preds = %215
@@ -511,7 +511,7 @@ _ZNK2cv11_InputArray6getMatEi.exit170:            ; preds = %164, %167
   store i32 16842752, ptr %44, align 8
   %222 = getelementptr inbounds i8, ptr %44, i64 8
   store ptr %29, ptr %222, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_114pow2absComplexERKN2cv11_InputArrayE(ptr dead_on_unwind noalias nonnull writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(24) %44)
+  invoke fastcc void @_ZN12_GLOBAL__N_114pow2absComplexERKN2cv11_InputArrayE(ptr dead_on_unwind noalias writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(24) %44)
           to label %223 unwind label %254
 
 223:                                              ; preds = %219
@@ -2895,7 +2895,7 @@ declare void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96
 declare void @_ZN2cvplERKNS_3MatES2_(ptr dead_on_unwind writable sret(%"class.cv::MatExpr") align 8, ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114pow2absComplexERKN2cv11_InputArrayE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114pow2absComplexERKN2cv11_InputArrayE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::Mat", align 8
   %4 = alloca [2 x %"class.cv::Mat"], align 16
   %5 = alloca %"class.cv::_InputArray", align 8

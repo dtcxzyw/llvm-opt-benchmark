@@ -1369,7 +1369,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit14: ; preds = %_ZN3gmx14Log
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL26multisim_int_all_are_equalPK14gmx_multisim_tl(ptr noundef readonly %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL26multisim_int_all_are_equalPK14gmx_multisim_tl(ptr noundef readonly %0, i64 noundef range(i64 -2147483648, 2147483648) %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4
 

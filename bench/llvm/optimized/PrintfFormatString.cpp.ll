@@ -79,7 +79,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string17ParsePrin
   br label %12
 
 12:                                               ; preds = %.lr.ph, %.backedge
-  call fastcc void @_ZL20ParsePrintfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoEbb(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(841) %3, ptr noundef nonnull align 8 dereferenceable(489) %4, i1 noundef zeroext true, i1 noundef zeroext %5)
+  call fastcc void @_ZL20ParsePrintfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoEbb(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(841) %3, ptr noundef nonnull align 8 dereferenceable(489) %4, i1 noundef zeroext true, i1 noundef zeroext %5)
   %13 = load i8, ptr %10, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %._crit_edge, label %15
@@ -111,7 +111,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string17ParsePrin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20ParsePrintfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoEbb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(841) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(489) %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @_ZL20ParsePrintfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoEbb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(841) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(489) %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
   %12 = alloca %"class.clang::analyze_printf::PrintfSpecifier", align 8
@@ -1219,7 +1219,7 @@ _ZN4llvm11SmallVectorINS_9StringRefELj2EED2Ev.exit: ; preds = %_ZN4llvmeqENS_9St
   %540 = load i8, ptr %184, align 8
   %541 = trunc i8 %540 to i1
   %542 = select i1 %541, ptr null, ptr %4
-  %543 = call fastcc noundef zeroext i1 @_ZL14ParsePrecisionRN5clang21analyze_format_string19FormatStringHandlerERNS_14analyze_printf15PrintfSpecifierEPKcRS7_S7_Pj(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(384) %12, ptr noundef nonnull %storemerge279288, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %3, ptr noundef %542)
+  %543 = call fastcc noundef zeroext i1 @_ZL14ParsePrecisionRN5clang21analyze_format_string19FormatStringHandlerERNS_14analyze_printf15PrintfSpecifierEPKcRS7_S7_Pj(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(384) %12, ptr noundef %storemerge279288, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %3, ptr noundef %542)
   br i1 %543, label %544, label %545
 
 544:                                              ; preds = %539
@@ -1725,7 +1725,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string24ParseForm
   br i1 %.not, label %22, label %14
 
 14:                                               ; preds = %12
-  call fastcc void @_ZL20ParsePrintfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoEbb(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(841) %2, ptr noundef nonnull align 8 dereferenceable(489) %3, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @_ZL20ParsePrintfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoEbb(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(841) %2, ptr noundef nonnull align 8 dereferenceable(489) %3, i1 noundef zeroext false, i1 noundef zeroext false)
   %15 = load i8, ptr %9, align 8
   %16 = trunc i8 %15 to i1
   br i1 %16, label %22, label %17
@@ -1766,7 +1766,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string40parseForm
   br i1 %.not, label %18, label %13
 
 13:                                               ; preds = %11
-  call fastcc void @_ZL20ParsePrintfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoEbb(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(841) %2, ptr noundef nonnull align 8 dereferenceable(489) %3, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @_ZL20ParsePrintfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoEbb(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(841) %2, ptr noundef nonnull align 8 dereferenceable(489) %3, i1 noundef zeroext false, i1 noundef zeroext false)
   %14 = load i8, ptr %10, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %18, label %16
@@ -4516,7 +4516,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare noundef zeroext i1 @_ZN5clang21analyze_format_string15ParseFieldWidthERNS0_19FormatStringHandlerERNS0_15FormatSpecifierEPKcRS6_S6_Pj(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(104), ptr noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL14ParsePrecisionRN5clang21analyze_format_string19FormatStringHandlerERNS_14analyze_printf15PrintfSpecifierEPKcRS7_S7_Pj(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL14ParsePrecisionRN5clang21analyze_format_string19FormatStringHandlerERNS_14analyze_printf15PrintfSpecifierEPKcRS7_S7_Pj(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %"class.clang::analyze_format_string::OptionalAmount", align 8
   %8 = alloca %"class.clang::analyze_format_string::OptionalAmount", align 8
   %.not = icmp eq ptr %5, null
@@ -4527,7 +4527,7 @@ define internal fastcc noundef zeroext i1 @_ZL14ParsePrecisionRN5clang21analyze_
   br label %.sink.split
 
 10:                                               ; preds = %6
-  call void @_ZN5clang21analyze_format_string19ParsePositionAmountERNS0_19FormatStringHandlerEPKcRS4_S4_NS0_15PositionContextE(ptr dead_on_unwind nonnull writable sret(%"class.clang::analyze_format_string::OptionalAmount") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4, i32 noundef 1) #12
+  call void @_ZN5clang21analyze_format_string19ParsePositionAmountERNS0_19FormatStringHandlerEPKcRS4_S4_NS0_15PositionContextE(ptr dead_on_unwind nonnull writable sret(%"class.clang::analyze_format_string::OptionalAmount") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4, i32 noundef 1) #12
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 3

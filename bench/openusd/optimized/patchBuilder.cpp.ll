@@ -1393,7 +1393,7 @@ define noundef range(i32 0, 32) i32 @_ZNK10OpenSubdiv6v3_6_03Far12PatchBuilder27
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit: ; preds = %59, %60, %62, %64, %65
   %.014.i = phi i32 [ 16, %65 ], [ 0, %64 ], [ 0, %62 ], [ 0, %59 ], [ 8, %60 ]
   %.0.i = phi i32 [ %36, %65 ], [ %36, %64 ], [ %36, %62 ], [ %36, %59 ], [ %56, %60 ]
-  %66 = or i32 %.0.i, %.014.i
+  %66 = or disjoint i32 %.0.i, %.014.i
   br label %67
 
 67:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit, %44, %.preheader.preheader, %4, %39

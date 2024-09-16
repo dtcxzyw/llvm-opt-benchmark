@@ -271,7 +271,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h23cf475dff92edcfE(ptr noal
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h8d7afe27368d1616E.exit.i": ; preds = %91
-  %.sroa.0.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.sroa.0.0.i63, i64 1)
+  %.sroa.0.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 %.sroa.0.0.i63, i64 1)
   %97 = sub i64 %.sroa.0.0.sroa.speculated.i.i, %.sroa.0.0103
   invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h00c3a2e849394801E(ptr noalias noundef nonnull align 8 %51, i64 noundef %97, i64 noundef %.sroa.0.0.sroa.speculated.i13.i)
           to label %_ZN4core5slice4sort20provide_sorted_batch17hb7bc1396a0e4f03cE.exit unwind label %.loopexit74
@@ -875,7 +875,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h4006b20b23a238b7E(ptr noal
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb5f6f17abdfc0b33E.exit.i": ; preds = %91
-  %.sroa.0.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.sroa.0.0.i63, i64 1)
+  %.sroa.0.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 %.sroa.0.0.i63, i64 1)
   %97 = sub i64 %.sroa.0.0.sroa.speculated.i.i, %.sroa.0.0103
   invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h1a165a2b76a5a281E(ptr noalias noundef nonnull align 8 %51, i64 noundef %97, i64 noundef %.sroa.0.0.sroa.speculated.i13.i)
           to label %_ZN4core5slice4sort20provide_sorted_batch17h52ea1c83a9e47677E.exit unwind label %.loopexit74
@@ -1479,7 +1479,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h4ae80ea17e229fc0E(ptr noal
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he92d0d0e1455378dE.exit.i": ; preds = %91
-  %.sroa.0.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.sroa.0.0.i63, i64 1)
+  %.sroa.0.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 %.sroa.0.0.i63, i64 1)
   %97 = sub i64 %.sroa.0.0.sroa.speculated.i.i, %.sroa.0.0103
   invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h11e5990721ac3757E(ptr noalias noundef nonnull align 8 %51, i64 noundef %97, i64 noundef %.sroa.0.0.sroa.speculated.i13.i)
           to label %_ZN4core5slice4sort20provide_sorted_batch17hb669c1cf9bb7a1f7E.exit unwind label %.loopexit74
@@ -2083,7 +2083,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hb4d4aa62292b5236E(ptr noal
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf8d1a30a0d2c004bE.exit.i": ; preds = %91
-  %.sroa.0.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.sroa.0.0.i63, i64 1)
+  %.sroa.0.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 %.sroa.0.0.i63, i64 1)
   %97 = sub i64 %.sroa.0.0.sroa.speculated.i.i, %.sroa.0.0103
   invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17hb4ad597cac650777E(ptr noalias noundef nonnull align 8 %51, i64 noundef %97, i64 noundef %.sroa.0.0.sroa.speculated.i13.i)
           to label %_ZN4core5slice4sort20provide_sorted_batch17hc884302c25a0e630E.exit unwind label %.loopexit74

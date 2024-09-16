@@ -147,7 +147,7 @@ define dso_local void @_ZN4llvm12MemoryBuffer12getMemBufferENS_9StringRefES1_b(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noalias noundef nonnull ptr @_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE(i64 noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #4 {
+define internal fastcc noalias noundef nonnull ptr @_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE(i64 noundef range(i64 24, 49) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #4 {
   %3 = alloca %"class.llvm::SmallString", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %4, i64 noundef 256) #24
@@ -155,7 +155,7 @@ define internal fastcc noalias noundef nonnull ptr @_ZnwmRKN12_GLOBAL__N_116Name
   %6 = call { ptr, i64 } @_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(34) %5, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1
-  %9 = add i64 %0, 9
+  %9 = add nuw nsw i64 %0, 9
   %10 = add i64 %9, %8
   %11 = call noalias ptr @malloc(i64 noundef %10) #25
   %.not = icmp eq ptr %11, null

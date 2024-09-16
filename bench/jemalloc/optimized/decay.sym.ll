@@ -428,7 +428,7 @@ for.body4.i59:                                    ; preds = %for.body4.i59.prehe
   %sub9.i66 = sub i64 %12, %13
   %mul10.i67 = mul i64 %sub9.i66, %11
   %add11.i68 = add i64 %mul10.i67, %sum.119.i60
-  %inc13.i69 = add i64 %i.118.i61, 1
+  %inc13.i69 = add nuw i64 %i.118.i61, 1
   %exitcond21.not.i70 = icmp eq i64 %inc13.i69, 200
   br i1 %exitcond21.not.i70, label %decay_npurge_after_interval.exit71, label %for.body4.i59, !llvm.loop !9
 

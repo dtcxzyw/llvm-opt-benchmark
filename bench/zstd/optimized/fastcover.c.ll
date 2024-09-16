@@ -157,7 +157,7 @@ if.end32:                                         ; preds = %if.end24
   %idxprom = zext nneg i32 %cond8 to i64
   %arrayidx = getelementptr inbounds [11 x %struct.FASTCOVER_accel_t], ptr @FASTCOVER_defaultAccelParameters, i64 0, i64 %idxprom
   %accelParams.sroa.0.0.copyload = load i64, ptr %arrayidx, align 8
-  %call36 = call fastcc i64 @FASTCOVER_ctx_init(ptr noundef nonnull %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, i32 noundef %parameters17.sroa.4.0.copyload, double noundef 1.000000e+00, i32 noundef %cond, i64 %accelParams.sroa.0.0.copyload)
+  %call36 = call fastcc i64 @FASTCOVER_ctx_init(ptr noundef %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, i32 noundef %parameters17.sroa.4.0.copyload, double noundef 1.000000e+00, i32 noundef %cond, i64 %accelParams.sroa.0.0.copyload)
   %cmp.i20 = icmp ult i64 %call36, -119
   br i1 %cmp.i20, label %if.end45, label %if.then39
 
@@ -247,7 +247,7 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -72, 1) i64 @FASTCOVER_ctx_init(ptr nocapture noundef %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, i32 noundef %d, double noundef %splitPoint, i32 noundef %f, i64 %accelParams.coerce) unnamed_addr #0 {
+define internal fastcc range(i64 -72, 1) i64 @FASTCOVER_ctx_init(ptr nocapture noundef nonnull %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef range(i32 1, 0) %nbSamples, i32 noundef %d, double noundef %splitPoint, i32 noundef %f, i64 %accelParams.coerce) unnamed_addr #0 {
 entry:
   %call = tail call i64 @COVER_sum(ptr noundef %samplesSizes, i32 noundef %nbSamples) #12
   %cmp = fcmp olt double %splitPoint, 1.000000e+00
@@ -400,16 +400,12 @@ if.end107:                                        ; preds = %if.then104, %if.the
   br label %return
 
 if.end108:                                        ; preds = %if.end74
-  %cmp110.not67 = icmp eq i32 %nbSamples, 0
-  br i1 %cmp110.not67, label %for.end, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %if.end108
   %umax = tail call i32 @llvm.umax.i32(i32 %add95, i32 2)
   %wide.trip.count = zext i32 %umax to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+for.body:                                         ; preds = %if.end108, %for.body
+  %indvars.iv = phi i64 [ 1, %if.end108 ], [ %indvars.iv.next, %for.body ]
   %21 = load ptr, ptr %offsets, align 8
   %22 = add nsw i64 %indvars.iv, -1
   %arrayidx114 = getelementptr inbounds i64, ptr %21, i64 %22
@@ -423,7 +419,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond, label %for.end, label %for.body, !llvm.loop !4
 
-for.end:                                          ; preds = %for.body, %if.end108
+for.end:                                          ; preds = %for.body
   %sh_prom = zext nneg i32 %f to i64
   %shl = shl nuw i64 1, %sh_prom
   %call122 = tail call noalias ptr @calloc(i64 noundef %shl, i64 noundef 4) #13
@@ -442,11 +438,11 @@ if.then129:                                       ; preds = %if.then126
   %27 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 36, i64 1, ptr %26) #11
   %28 = load ptr, ptr @stderr, align 8
   %call131 = tail call i32 @fflush(ptr noundef %28)
-  %.pre71 = load ptr, ptr %freqs, align 8
+  %.pre70 = load ptr, ptr %freqs, align 8
   br label %if.end132
 
 if.end132:                                        ; preds = %if.then129, %if.then126
-  %29 = phi ptr [ %.pre71, %if.then129 ], [ null, %if.then126 ]
+  %29 = phi ptr [ %.pre70, %if.then129 ], [ null, %if.then126 ]
   tail call void @free(ptr noundef %29) #12
   store ptr null, ptr %freqs, align 8
   %30 = load ptr, ptr %offsets, align 8
@@ -976,7 +972,7 @@ if.then129:                                       ; preds = %for.body
   br label %if.end132
 
 if.end132:                                        ; preds = %if.then129, %for.body
-  %call133 = call fastcc i64 @FASTCOVER_ctx_init(ptr noundef nonnull %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, i32 noundef %d62.0142, double noundef %cond, i32 noundef %cond54, i64 %accelParams.sroa.0.0.copyload)
+  %call133 = call fastcc i64 @FASTCOVER_ctx_init(ptr noundef %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, i32 noundef %d62.0142, double noundef %cond, i32 noundef %cond54, i64 %accelParams.sroa.0.0.copyload)
   %cmp.i = icmp ult i64 %call133, -119
   br i1 %cmp.i, label %if.end143, label %if.then136
 

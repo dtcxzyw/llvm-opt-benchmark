@@ -844,9 +844,9 @@ define dso_local i32 @nghttp2_stream_dep_remove(ptr noundef %0) local_unnamed_ad
   %3 = load i32, ptr %2, align 8
   %4 = sub nsw i32 0, %3
   %5 = getelementptr inbounds i8, ptr %0, i64 104
-  %.03058 = load ptr, ptr %5, align 8
-  %.not59 = icmp eq ptr %.03058, null
-  br i1 %.not59, label %._crit_edge, label %.lr.ph
+  %.03056 = load ptr, ptr %5, align 8
+  %.not57 = icmp eq ptr %.03056, null
+  br i1 %.not57, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 200
@@ -855,9 +855,9 @@ define dso_local i32 @nghttp2_stream_dep_remove(ptr noundef %0) local_unnamed_ad
   br label %9
 
 9:                                                ; preds = %.lr.ph, %stream_obq_move.exit.thread
-  %.03061 = phi ptr [ %.03058, %.lr.ph ], [ %.030, %stream_obq_move.exit.thread ]
-  %.02960 = phi i32 [ %4, %.lr.ph ], [ %17, %stream_obq_move.exit.thread ]
-  %10 = getelementptr inbounds i8, ptr %.03061, i64 192
+  %.03059 = phi ptr [ %.03056, %.lr.ph ], [ %.030, %stream_obq_move.exit.thread ]
+  %.02958 = phi i32 [ %4, %.lr.ph ], [ %17, %stream_obq_move.exit.thread ]
+  %10 = getelementptr inbounds i8, ptr %.03059, i64 192
   %11 = load i32, ptr %10, align 8
   %12 = load i32, ptr %2, align 8
   %13 = mul nsw i32 %12, %11
@@ -865,21 +865,21 @@ define dso_local i32 @nghttp2_stream_dep_remove(ptr noundef %0) local_unnamed_ad
   %15 = sdiv i32 %13, %14
   %16 = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %15, i32 1)
   store i32 %16, ptr %10, align 8
-  %17 = add nsw i32 %16, %.02960
-  %18 = getelementptr inbounds i8, ptr %.03061, i64 218
+  %17 = add nsw i32 %16, %.02958
+  %18 = getelementptr inbounds i8, ptr %.03059, i64 218
   %19 = load i8, ptr %18, align 2
   %.not34 = icmp eq i8 %19, 0
   br i1 %.not34, label %stream_obq_move.exit.thread, label %20
 
 20:                                               ; preds = %9
   %21 = load ptr, ptr %7, align 8
-  tail call void @nghttp2_pq_remove(ptr noundef nonnull %8, ptr noundef nonnull %.03061) #8
+  tail call void @nghttp2_pq_remove(ptr noundef nonnull %8, ptr noundef nonnull %.03059) #8
   store i8 0, ptr %18, align 2
   %.not18.i.i = icmp eq ptr %21, null
   br i1 %.not18.i.i, label %stream_obq_move.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %20, %48
-  %.01320.i.i = phi ptr [ %.01419.i.i, %48 ], [ %.03061, %20 ]
+  %.01320.i.i = phi ptr [ %.01419.i.i, %48 ], [ %.03059, %20 ]
   %.01419.i.i = phi ptr [ %50, %48 ], [ %21, %20 ]
   %22 = getelementptr inbounds i8, ptr %.01320.i.i, i64 218
   %23 = load i8, ptr %22, align 2
@@ -925,7 +925,7 @@ define dso_local i32 @nghttp2_stream_dep_remove(ptr noundef %0) local_unnamed_ad
   br i1 %.not.i.i, label %stream_obq_move.exit.thread, label %.lr.ph.i.i, !llvm.loop !7
 
 stream_obq_move.exit.thread:                      ; preds = %.lr.ph.i.i, %48, %20, %9
-  %51 = getelementptr inbounds i8, ptr %.03061, i64 120
+  %51 = getelementptr inbounds i8, ptr %.03059, i64 120
   %.030 = load ptr, ptr %51, align 8
   %.not = icmp eq ptr %.030, null
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !10
@@ -945,8 +945,8 @@ stream_obq_move.exit.thread:                      ; preds = %.lr.ph.i.i, %48, %2
 
 59:                                               ; preds = %._crit_edge
   %60 = load ptr, ptr %52, align 8
-  %.not54 = icmp eq ptr %60, null
-  br i1 %.not54, label %stream_obq_remove.exit, label %.preheader.i
+  %.not52 = icmp eq ptr %60, null
+  br i1 %.not52, label %stream_obq_remove.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %59, %72
   %.014.i = phi ptr [ %.0.i36, %72 ], [ %0, %59 ]
@@ -988,12 +988,12 @@ stream_obq_remove.exit:                           ; preds = %72, %stream_subtree
   %75 = getelementptr inbounds i8, ptr %0, i64 112
   %76 = load ptr, ptr %75, align 8
   %.not33 = icmp eq ptr %76, null
-  br i1 %.not33, label %95, label %77
+  br i1 %.not33, label %96, label %77
 
 77:                                               ; preds = %stream_obq_remove.exit
   %78 = load ptr, ptr %5, align 8
   %.not.i38 = icmp eq ptr %78, null
-  br i1 %.not.i38, label %90, label %link_sib.exit.i
+  br i1 %.not.i38, label %91, label %link_sib.exit.i
 
 link_sib.exit.i:                                  ; preds = %77
   %79 = getelementptr inbounds i8, ptr %76, i64 120
@@ -1001,116 +1001,116 @@ link_sib.exit.i:                                  ; preds = %77
   %80 = getelementptr inbounds i8, ptr %78, i64 112
   store ptr %76, ptr %80, align 8
   %81 = load ptr, ptr %52, align 8
-  br label %.lr.ph.i.i39
+  br label %82
 
-.lr.ph.i.i39:                                     ; preds = %.lr.ph.i.i39, %link_sib.exit.i
-  %.05.i.i = phi ptr [ %84, %.lr.ph.i.i39 ], [ %78, %link_sib.exit.i ]
-  %82 = getelementptr inbounds i8, ptr %.05.i.i, i64 96
-  store ptr %81, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %.05.i.i, i64 120
-  %84 = load ptr, ptr %83, align 8
-  %.not.i19.i = icmp eq ptr %84, null
-  br i1 %.not.i19.i, label %set_dep_prev.exit.i, label %.lr.ph.i.i39, !llvm.loop !11
+82:                                               ; preds = %82, %link_sib.exit.i
+  %.04.i.i = phi ptr [ %78, %link_sib.exit.i ], [ %85, %82 ]
+  %83 = getelementptr inbounds i8, ptr %.04.i.i, i64 96
+  store ptr %81, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %.04.i.i, i64 120
+  %85 = load ptr, ptr %84, align 8
+  %.not.i19.i = icmp eq ptr %85, null
+  br i1 %.not.i19.i, label %set_dep_prev.exit.i, label %82, !llvm.loop !11
 
-set_dep_prev.exit.i:                              ; preds = %.lr.ph.i.i39
-  %85 = getelementptr inbounds i8, ptr %0, i64 120
-  %86 = load ptr, ptr %85, align 8
-  %.not18.i = icmp eq ptr %86, null
-  br i1 %.not18.i, label %unlink_sib.exit, label %.preheader.i40
+set_dep_prev.exit.i:                              ; preds = %82
+  %86 = getelementptr inbounds i8, ptr %0, i64 120
+  %87 = load ptr, ptr %86, align 8
+  %.not18.i = icmp eq ptr %87, null
+  br i1 %.not18.i, label %unlink_sib.exit, label %.preheader.i39
 
-.preheader.i40:                                   ; preds = %set_dep_prev.exit.i, %.preheader.i40
-  %.0.i.i = phi ptr [ %88, %.preheader.i40 ], [ %78, %set_dep_prev.exit.i ]
-  %87 = getelementptr inbounds i8, ptr %.0.i.i, i64 120
-  %88 = load ptr, ptr %87, align 8
-  %.not.i20.i = icmp eq ptr %88, null
-  br i1 %.not.i20.i, label %link_sib.exit22.i, label %.preheader.i40, !llvm.loop !12
+.preheader.i39:                                   ; preds = %set_dep_prev.exit.i, %.preheader.i39
+  %.0.i.i = phi ptr [ %89, %.preheader.i39 ], [ %78, %set_dep_prev.exit.i ]
+  %88 = getelementptr inbounds i8, ptr %.0.i.i, i64 120
+  %89 = load ptr, ptr %88, align 8
+  %.not.i20.i = icmp eq ptr %89, null
+  br i1 %.not.i20.i, label %link_sib.exit22.i, label %.preheader.i39, !llvm.loop !12
 
-link_sib.exit22.i:                                ; preds = %.preheader.i40
-  %89 = getelementptr inbounds i8, ptr %.0.i.i, i64 120
-  store ptr %86, ptr %89, align 8
+link_sib.exit22.i:                                ; preds = %.preheader.i39
+  %90 = getelementptr inbounds i8, ptr %.0.i.i, i64 120
+  store ptr %87, ptr %90, align 8
   br label %.sink.split.i
 
-90:                                               ; preds = %77
-  %91 = getelementptr inbounds i8, ptr %0, i64 120
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %76, i64 120
-  store ptr %92, ptr %93, align 8
-  %.not17.i = icmp eq ptr %92, null
+91:                                               ; preds = %77
+  %92 = getelementptr inbounds i8, ptr %0, i64 120
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds i8, ptr %76, i64 120
+  store ptr %93, ptr %94, align 8
+  %.not17.i = icmp eq ptr %93, null
   br i1 %.not17.i, label %unlink_sib.exit, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %90, %link_sib.exit22.i
-  %.sink26.i = phi ptr [ %86, %link_sib.exit22.i ], [ %92, %90 ]
-  %.sink.i = phi ptr [ %.0.i.i, %link_sib.exit22.i ], [ %76, %90 ]
-  %94 = getelementptr inbounds i8, ptr %.sink26.i, i64 112
-  store ptr %.sink.i, ptr %94, align 8
+.sink.split.i:                                    ; preds = %91, %link_sib.exit22.i
+  %.sink26.i = phi ptr [ %87, %link_sib.exit22.i ], [ %93, %91 ]
+  %.sink.i = phi ptr [ %.0.i.i, %link_sib.exit22.i ], [ %76, %91 ]
+  %95 = getelementptr inbounds i8, ptr %.sink26.i, i64 112
+  store ptr %.sink.i, ptr %95, align 8
   br label %unlink_sib.exit
 
-95:                                               ; preds = %stream_obq_remove.exit
-  %96 = load ptr, ptr %52, align 8
-  %97 = load ptr, ptr %5, align 8
-  %.not.i41 = icmp eq ptr %97, null
-  br i1 %.not.i41, label %110, label %link_dep.exit.i
+96:                                               ; preds = %stream_obq_remove.exit
+  %97 = load ptr, ptr %52, align 8
+  %98 = load ptr, ptr %5, align 8
+  %.not.i40 = icmp eq ptr %98, null
+  br i1 %.not.i40, label %112, label %link_dep.exit.i
 
-link_dep.exit.i:                                  ; preds = %95
-  %98 = getelementptr inbounds i8, ptr %96, i64 104
-  store ptr %97, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %97, i64 96
-  store ptr %96, ptr %99, align 8
-  %100 = load ptr, ptr %52, align 8
-  br label %.lr.ph.i.i42
+link_dep.exit.i:                                  ; preds = %96
+  %99 = getelementptr inbounds i8, ptr %97, i64 104
+  store ptr %98, ptr %99, align 8
+  %100 = getelementptr inbounds i8, ptr %98, i64 96
+  store ptr %97, ptr %100, align 8
+  %101 = load ptr, ptr %52, align 8
+  br label %102
 
-.lr.ph.i.i42:                                     ; preds = %.lr.ph.i.i42, %link_dep.exit.i
-  %.05.i.i43 = phi ptr [ %103, %.lr.ph.i.i42 ], [ %97, %link_dep.exit.i ]
-  %101 = getelementptr inbounds i8, ptr %.05.i.i43, i64 96
-  store ptr %100, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %.05.i.i43, i64 120
-  %103 = load ptr, ptr %102, align 8
-  %.not.i19.i44 = icmp eq ptr %103, null
-  br i1 %.not.i19.i44, label %set_dep_prev.exit.i45, label %.lr.ph.i.i42, !llvm.loop !11
-
-set_dep_prev.exit.i45:                            ; preds = %.lr.ph.i.i42
-  %104 = getelementptr inbounds i8, ptr %0, i64 120
+102:                                              ; preds = %102, %link_dep.exit.i
+  %.04.i.i41 = phi ptr [ %98, %link_dep.exit.i ], [ %105, %102 ]
+  %103 = getelementptr inbounds i8, ptr %.04.i.i41, i64 96
+  store ptr %101, ptr %103, align 8
+  %104 = getelementptr inbounds i8, ptr %.04.i.i41, i64 120
   %105 = load ptr, ptr %104, align 8
-  %.not18.i46 = icmp eq ptr %105, null
-  br i1 %.not18.i46, label %unlink_sib.exit, label %.preheader.i47
+  %.not.i19.i42 = icmp eq ptr %105, null
+  br i1 %.not.i19.i42, label %set_dep_prev.exit.i43, label %102, !llvm.loop !11
 
-.preheader.i47:                                   ; preds = %set_dep_prev.exit.i45, %.preheader.i47
-  %.0.i.i48 = phi ptr [ %107, %.preheader.i47 ], [ %97, %set_dep_prev.exit.i45 ]
-  %106 = getelementptr inbounds i8, ptr %.0.i.i48, i64 120
+set_dep_prev.exit.i43:                            ; preds = %102
+  %106 = getelementptr inbounds i8, ptr %0, i64 120
   %107 = load ptr, ptr %106, align 8
-  %.not.i20.i49 = icmp eq ptr %107, null
-  br i1 %.not.i20.i49, label %link_sib.exit.i50, label %.preheader.i47, !llvm.loop !12
+  %.not18.i44 = icmp eq ptr %107, null
+  br i1 %.not18.i44, label %unlink_sib.exit, label %.preheader.i45
 
-link_sib.exit.i50:                                ; preds = %.preheader.i47
-  %108 = getelementptr inbounds i8, ptr %.0.i.i48, i64 120
-  store ptr %105, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %105, i64 112
-  store ptr %.0.i.i48, ptr %109, align 8
+.preheader.i45:                                   ; preds = %set_dep_prev.exit.i43, %.preheader.i45
+  %.0.i.i46 = phi ptr [ %109, %.preheader.i45 ], [ %98, %set_dep_prev.exit.i43 ]
+  %108 = getelementptr inbounds i8, ptr %.0.i.i46, i64 120
+  %109 = load ptr, ptr %108, align 8
+  %.not.i20.i47 = icmp eq ptr %109, null
+  br i1 %.not.i20.i47, label %link_sib.exit.i48, label %.preheader.i45, !llvm.loop !12
+
+link_sib.exit.i48:                                ; preds = %.preheader.i45
+  %110 = getelementptr inbounds i8, ptr %.0.i.i46, i64 120
+  store ptr %107, ptr %110, align 8
+  %111 = getelementptr inbounds i8, ptr %107, i64 112
+  store ptr %.0.i.i46, ptr %111, align 8
   br label %unlink_sib.exit
 
-110:                                              ; preds = %95
-  %111 = getelementptr inbounds i8, ptr %0, i64 120
-  %112 = load ptr, ptr %111, align 8
-  %.not17.i51 = icmp eq ptr %112, null
-  br i1 %.not17.i51, label %116, label %link_dep.exit23.i
+112:                                              ; preds = %96
+  %113 = getelementptr inbounds i8, ptr %0, i64 120
+  %114 = load ptr, ptr %113, align 8
+  %.not17.i49 = icmp eq ptr %114, null
+  br i1 %.not17.i49, label %118, label %link_dep.exit23.i
 
-link_dep.exit23.i:                                ; preds = %110
-  %113 = getelementptr inbounds i8, ptr %112, i64 112
-  store ptr null, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %96, i64 104
-  store ptr %112, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %112, i64 96
-  store ptr %96, ptr %115, align 8
+link_dep.exit23.i:                                ; preds = %112
+  %115 = getelementptr inbounds i8, ptr %114, i64 112
+  store ptr null, ptr %115, align 8
+  %116 = getelementptr inbounds i8, ptr %97, i64 104
+  store ptr %114, ptr %116, align 8
+  %117 = getelementptr inbounds i8, ptr %114, i64 96
+  store ptr %97, ptr %117, align 8
   br label %unlink_sib.exit
 
-116:                                              ; preds = %110
-  %117 = getelementptr inbounds i8, ptr %96, i64 104
-  store ptr null, ptr %117, align 8
+118:                                              ; preds = %112
+  %119 = getelementptr inbounds i8, ptr %97, i64 104
+  store ptr null, ptr %119, align 8
   br label %unlink_sib.exit
 
-unlink_sib.exit:                                  ; preds = %116, %link_dep.exit23.i, %link_sib.exit.i50, %set_dep_prev.exit.i45, %.sink.split.i, %90, %set_dep_prev.exit.i
-  %118 = getelementptr inbounds i8, ptr %0, i64 200
-  store i32 0, ptr %118, align 8
+unlink_sib.exit:                                  ; preds = %118, %link_dep.exit23.i, %link_sib.exit.i48, %set_dep_prev.exit.i43, %.sink.split.i, %91, %set_dep_prev.exit.i
+  %120 = getelementptr inbounds i8, ptr %0, i64 200
+  store i32 0, ptr %120, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, i8 0, i64 32, i1 false)
   br label %stream_obq_move.exit
 

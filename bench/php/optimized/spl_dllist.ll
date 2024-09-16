@@ -3269,7 +3269,7 @@ declare void @zend_class_implements(ptr noundef, i32 noundef, ...) local_unnamed
 declare ptr @zend_declare_typed_class_constant(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef byval(%struct.zend_type) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef nonnull ptr @spl_dllist_object_new_ex(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @spl_dllist_object_new_ex(ptr noundef %0, ptr noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 28

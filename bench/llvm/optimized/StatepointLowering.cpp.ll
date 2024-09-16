@@ -10455,9 +10455,9 @@ _ZNKSt3setIN4llvm7SDValueESt4lessIS1_ESaIS1_EE5countERKS1_.exit: ; preds = %29, 
 declare noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i64 0, 8589934592) i64 @_ZL21findPreviousSpillSlotPKN4llvm5ValueERNS_19SelectionDAGBuilderEi(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(984) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i64 0, 8589934592) i64 @_ZL21findPreviousSpillSlotPKN4llvm5ValueERNS_19SelectionDAGBuilderEi(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(984) %1, i32 noundef range(i32 0, 7) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  %5 = icmp slt i32 %2, 1
+  %5 = icmp eq i32 %2, 0
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %3

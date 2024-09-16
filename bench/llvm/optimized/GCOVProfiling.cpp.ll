@@ -1448,7 +1448,7 @@ _ZN12_GLOBAL__N_112GCOVProfiler25AddFlushBeforeForkAndExecEv.exit.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   %396 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #25
   %397 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #25
-  call fastcc void @_ZN12_GLOBAL__N_112GCOVProfiler23createRegexesFromStringEN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(408) %23, ptr %396, i64 %397)
+  call fastcc void @_ZN12_GLOBAL__N_112GCOVProfiler23createRegexesFromStringEN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(408) %23, ptr %396, i64 %397)
   %398 = load ptr, ptr %37, align 8
   %399 = getelementptr inbounds nuw i8, ptr %23, i64 320
   %400 = load ptr, ptr %399, align 8
@@ -1517,7 +1517,7 @@ _ZSt8_DestroyIPN4llvm5RegexES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_Destro
 _ZNSt6vectorIN4llvm5RegexESaIS1_EED2Ev.exit.i:    ; preds = %417, %_ZSt8_DestroyIPN4llvm5RegexES1_EvT_S3_RSaIT0_E.exit.i.i
   %422 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #25
   %423 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #25
-  call fastcc void @_ZN12_GLOBAL__N_112GCOVProfiler23createRegexesFromStringEN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(408) %23, ptr %422, i64 %423)
+  call fastcc void @_ZN12_GLOBAL__N_112GCOVProfiler23createRegexesFromStringEN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(408) %23, ptr %422, i64 %423)
   %424 = getelementptr inbounds nuw i8, ptr %23, i64 336
   %425 = load ptr, ptr %424, align 8
   %426 = getelementptr inbounds nuw i8, ptr %23, i64 344
@@ -1585,7 +1585,7 @@ _ZSt8_DestroyIPN4llvm5RegexES1_EvT_S3_RSaIT0_E.exit.i33.i: ; preds = %_ZSt8_Dest
   br label %_ZNSt6vectorIN4llvm5RegexESaIS1_EED2Ev.exit35.i
 
 _ZNSt6vectorIN4llvm5RegexESaIS1_EED2Ev.exit35.i:  ; preds = %444, %_ZSt8_DestroyIPN4llvm5RegexES1_EvT_S3_RSaIT0_E.exit.i33.i
-  call fastcc void @_ZN12_GLOBAL__N_112GCOVProfiler16emitProfileNotesEPN4llvm11NamedMDNodeEbNS1_12function_refIFPNS1_18BlockFrequencyInfoERNS1_8FunctionEEEENS4_IFPNS1_21BranchProbabilityInfoES8_EEENS4_IFRKNS1_17TargetLibraryInfoES8_EEE(ptr noundef nonnull align 8 dereferenceable(408) %23, ptr noundef nonnull %59, i1 noundef zeroext %387, ptr nonnull readonly @"_ZN4llvm12function_refIFPNS_18BlockFrequencyInfoERNS_8FunctionEEE11callback_fnIZNS_16GCOVProfilerPass3runERNS_6ModuleERNS_15AnalysisManagerIS9_JEEEE3$_1EES2_lS4_", i64 %43, ptr nonnull readonly @"_ZN4llvm12function_refIFPNS_21BranchProbabilityInfoERNS_8FunctionEEE11callback_fnIZNS_16GCOVProfilerPass3runERNS_6ModuleERNS_15AnalysisManagerIS9_JEEEE3$_2EES2_lS4_", i64 %44)
+  call fastcc void @_ZN12_GLOBAL__N_112GCOVProfiler16emitProfileNotesEPN4llvm11NamedMDNodeEbNS1_12function_refIFPNS1_18BlockFrequencyInfoERNS1_8FunctionEEEENS4_IFPNS1_21BranchProbabilityInfoES8_EEENS4_IFRKNS1_17TargetLibraryInfoES8_EEE(ptr noundef nonnull align 8 dereferenceable(408) %23, ptr noundef %59, i1 noundef zeroext %387, ptr nonnull readonly @"_ZN4llvm12function_refIFPNS_18BlockFrequencyInfoERNS_8FunctionEEE11callback_fnIZNS_16GCOVProfilerPass3runERNS_6ModuleERNS_15AnalysisManagerIS9_JEEEE3$_1EES2_lS4_", i64 %43, ptr nonnull readonly @"_ZN4llvm12function_refIFPNS_21BranchProbabilityInfoERNS_8FunctionEEE11callback_fnIZNS_16GCOVProfilerPass3runERNS_6ModuleERNS_15AnalysisManagerIS9_JEEEE3$_2EES2_lS4_", i64 %44)
   br label %_ZN12_GLOBAL__N_112GCOVProfiler11runOnModuleERN4llvm6ModuleENS1_12function_refIFPNS1_18BlockFrequencyInfoERNS1_8FunctionEEEENS4_IFPNS1_21BranchProbabilityInfoES8_EEESt8functionIFRKNS1_17TargetLibraryInfoES8_EE.exit
 
 _ZN12_GLOBAL__N_112GCOVProfiler11runOnModuleERN4llvm6ModuleENS1_12function_refIFPNS1_18BlockFrequencyInfoERNS1_8FunctionEEEENS4_IFPNS1_21BranchProbabilityInfoES8_EEESt8functionIFRKNS1_17TargetLibraryInfoES8_EE.exit: ; preds = %_ZNSt8functionIFRKN4llvm17TargetLibraryInfoERNS0_8FunctionEEEaSEOS7_.exit.i, %63, %_ZNSt6vectorIN4llvm5RegexESaIS1_EED2Ev.exit35.i
@@ -1876,7 +1876,7 @@ declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i
 declare noundef ptr @_ZNK4llvm6Module16getNamedMetadataENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857), ptr, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112GCOVProfiler23createRegexesFromStringEN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %1, ptr %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112GCOVProfiler23createRegexesFromStringEN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %1, ptr %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca i8, align 1
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"class.llvm::Regex", align 8
@@ -1995,7 +1995,7 @@ _ZNSt6vectorIN4llvm5RegexESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112GCOVProfiler16emitProfileNotesEPN4llvm11NamedMDNodeEbNS1_12function_refIFPNS1_18BlockFrequencyInfoERNS1_8FunctionEEEENS4_IFPNS1_21BranchProbabilityInfoES8_EEENS4_IFRKNS1_17TargetLibraryInfoES8_EEE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture readonly %3, i64 %4, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112GCOVProfiler16emitProfileNotesEPN4llvm11NamedMDNodeEbNS1_12function_refIFPNS1_18BlockFrequencyInfoERNS1_8FunctionEEEENS4_IFPNS1_21BranchProbabilityInfoES8_EEENS4_IFRKNS1_17TargetLibraryInfoES8_EEE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr nocapture readonly %3, i64 %4, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
@@ -2357,7 +2357,7 @@ _ZN12_GLOBAL__N_112GCOVProfiler22isFunctionInstrumentedERKN4llvm8FunctionE.exit.
 
 268:                                              ; preds = %264, %259
   %269 = call noundef ptr @_ZNK4llvm8Function13getSubprogramEv(ptr noundef nonnull align 8 dereferenceable(136) %220) #25
-  call fastcc void @_ZL11getFilenamePKN4llvm12DISubprogramE(ptr dead_on_unwind noalias nonnull writable align 8 %64, ptr noundef %269)
+  call fastcc void @_ZL11getFilenamePKN4llvm12DISubprogramE(ptr dead_on_unwind noalias writable align 8 %64, ptr noundef %269)
   %270 = load ptr, ptr %64, align 8
   %271 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %64) #25
   %272 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %270, i64 %271) #25
@@ -2524,7 +2524,7 @@ _ZN12_GLOBAL__N_112GCOVProfiler22isFunctionInstrumentedERKN4llvm8FunctionE.exit:
 332:                                              ; preds = %330
   %333 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %334 = load i32, ptr %333, align 8
-  call fastcc void @_ZL11getFilenamePKN4llvm12DISubprogramE(ptr dead_on_unwind noalias nonnull writable align 8 %68, ptr noundef nonnull %221)
+  call fastcc void @_ZL11getFilenamePKN4llvm12DISubprogramE(ptr dead_on_unwind noalias writable align 8 %68, ptr noundef nonnull %221)
   %335 = call noundef ptr %.0.val(i64 noundef %.8.val, ptr noundef nonnull align 8 dereferenceable(136) %220) #25
   %336 = call noundef ptr %3(i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(136) %220) #25
   %337 = call noundef zeroext i1 @_ZN4llvm28SplitIndirectBrCriticalEdgesERNS_8FunctionEbPNS_21BranchProbabilityInfoEPNS_18BlockFrequencyInfoE(ptr noundef nonnull align 8 dereferenceable(136) %220, i1 noundef zeroext false, ptr noundef %335, ptr noundef %336) #25
@@ -2788,7 +2788,7 @@ _ZN4llvm6CFGMSTIN12_GLOBAL__N_14EdgeENS1_6BBInfoEE10buildEdgesEv.exit.i: ; preds
   %storemerge26.i.i.in.in.i.i.i.i.i = phi i64 [ %storemerge26.i.i.i.i.i.i.i, %select.unfold.i.i.i.i.i.i.i ], [ %439, %435 ]
   %storemerge26.i.i.in.i.i.i.i.i = add nuw nsw i64 %storemerge26.i.i.in.in.i.i.i.i.i, 1
   %storemerge26.i.i.i.i.i.i.i = lshr i64 %storemerge26.i.i.in.i.i.i.i.i, 1
-  %441 = shl nuw nsw i64 %storemerge26.i.i.i.i.i.i.i, 3
+  %441 = shl i64 %storemerge26.i.i.i.i.i.i.i, 3
   %442 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %441, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #29
   %.not.i.i.i.i.i.i.i = icmp eq ptr %442, null
   br i1 %.not.i.i.i.i.i.i.i, label %select.unfold.i.i.i.i.i.i.i, label %443
@@ -4370,22 +4370,22 @@ _ZSt8_DestroyIPSt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS2_EES5_Ev
   %1077 = sub i64 %1041, %1076
   %1078 = ashr exact i64 %1077, 3
   %1079 = icmp sgt i64 %1078, 0
-  br i1 %1079, label %.lr.ph.i.i18.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i
+  br i1 %1079, label %.lr.ph.i.i17.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i
 
-.lr.ph.i.i18.i.i:                                 ; preds = %1075, %select.unfold.i.i.i.i
+.lr.ph.i.i17.i.i:                                 ; preds = %1075, %select.unfold.i.i.i.i
   %storemerge26.i.i.i.i = phi i64 [ %1083, %select.unfold.i.i.i.i ], [ %1078, %1075 ]
   %1080 = shl i64 %storemerge26.i.i.i.i, 3
   %1081 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %1080, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #29
   %.not.i.i.i.i265 = icmp eq ptr %1081, null
   br i1 %.not.i.i.i.i265, label %select.unfold.i.i.i.i, label %1084
 
-select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i18.i.i
+select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i17.i.i
   %1082 = add nuw nsw i64 %storemerge26.i.i.i.i, 1
   %1083 = lshr i64 %1082, 1
   %.not10.i.i.i.i267 = icmp ult i64 %storemerge26.i.i.i.i, 2
-  br i1 %.not10.i.i.i.i267, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i, label %.lr.ph.i.i18.i.i, !llvm.loop !55
+  br i1 %.not10.i.i.i.i267, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i, label %.lr.ph.i.i17.i.i, !llvm.loop !55
 
-1084:                                             ; preds = %.lr.ph.i.i18.i.i
+1084:                                             ; preds = %.lr.ph.i.i17.i.i
   %1085 = getelementptr inbounds i8, ptr %1081, i64 %1080
   %1086 = icmp eq i64 %storemerge26.i.i.i.i, 0
   br i1 %1086, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i, label %1087
@@ -4409,8 +4409,8 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i18.i.i
   store ptr null, ptr %.020.i.i.i.i.i, align 8
   %1089 = getelementptr inbounds i8, ptr %.020.i.i.i.i.i, i64 8
   %.013.i.i.i.i.i = getelementptr inbounds i8, ptr %.01321.i.i.i.i.i, i64 8
-  %.not.i.i.i19.i.i = icmp eq ptr %.013.i.i.i.i.i, %1085
-  br i1 %.not.i.i.i19.i.i, label %._crit_edge.i.i.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !56
+  %.not.i.i.i18.i.i = icmp eq ptr %.013.i.i.i.i.i, %1085
+  br i1 %.not.i.i.i18.i.i, label %._crit_edge.i.i.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !56
 
 ._crit_edge.i.i.loopexit.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i
   %.pre.i.i.i = load ptr, ptr %1089, align 8
@@ -4428,29 +4428,29 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOB
   store ptr %1091, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, align 8
   %1092 = call fastcc ptr @"_ZSt27__stable_partition_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops10_Iter_predIZNS3_12GCOVProfiler16emitProfileNotesEPN4llvm11NamedMDNodeEbNSG_12function_refIFPNSG_18BlockFrequencyInfoERNSG_8FunctionEEEENSJ_IFPNSG_21BranchProbabilityInfoESN_EEENSJ_IFRKNSG_17TargetLibraryInfoESN_EEEE3$_1EElET_S11_S11_T1_T2_T0_S13_"(ptr nonnull %.sroa.08.0.in.sroa.speculated.i.i.i.i, ptr %.val, i64 noundef %1078, ptr noundef nonnull %1081, i64 noundef %storemerge26.i.i.i.i)
   %1093 = getelementptr inbounds %"class.std::unique_ptr.234", ptr %1081, i64 %storemerge26.i.i.i.i
-  br label %.lr.ph.i.i.i20.i.i
+  br label %.lr.ph.i.i.i19.i.i
 
-.lr.ph.i.i.i20.i.i:                               ; preds = %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.i.i
+.lr.ph.i.i.i19.i.i:                               ; preds = %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.i.i
   %.05.i.i.i.i.i = phi ptr [ %1095, %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i ], [ %1081, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.i.i ]
   %1094 = load ptr, ptr %.05.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i266 = icmp eq ptr %1094, null
   br i1 %.not.i.i.i.i.i.i.i266, label %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIN12_GLOBAL__N_14EdgeEEclEPS1_.exit.i.i.i.i.i.i.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_14EdgeEEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i20.i.i
+_ZNKSt14default_deleteIN12_GLOBAL__N_14EdgeEEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i19.i.i
   call void @_ZdlPvm(ptr noundef nonnull %1094, i64 noundef 48) #27
   br label %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_14EdgeEEclEPS1_.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i20.i.i
+_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_14EdgeEEclEPS1_.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i19.i.i
   store ptr null, ptr %.05.i.i.i.i.i, align 8
   %1095 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
-  %.not.i.i.i21.i.i = icmp eq ptr %1095, %1093
-  br i1 %.not.i.i.i21.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES7_ED2Ev.exit.i.i, label %.lr.ph.i.i.i20.i.i, !llvm.loop !57
+  %.not.i.i.i20.i.i = icmp eq ptr %1095, %1093
+  br i1 %.not.i.i.i20.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES7_ED2Ev.exit.i.i, label %.lr.ph.i.i.i19.i.i, !llvm.loop !57
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES7_ED2Ev.exit.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i
   %1096 = phi ptr [ %1090, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i ], [ %1092, %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i ]
-  %.sroa.7.034.i.i = phi ptr [ %.sroa.7.0.ph.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i ], [ %1081, %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i ]
+  %.sroa.7.033.i.i = phi ptr [ %.sroa.7.0.ph.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i ], [ %1081, %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i ]
   %1097 = phi i64 [ 0, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i ], [ %1080, %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i ]
-  call void @_ZdlPvm(ptr noundef %.sroa.7.034.i.i, i64 noundef %1097) #25
+  call void @_ZdlPvm(ptr noundef %.sroa.7.033.i.i, i64 noundef %1097) #25
   %.val188.pre = load ptr, ptr %125, align 8
   %.pre291 = ptrtoint ptr %1096 to i64
   %.pre292 = ptrtoint ptr %.val188.pre to i64
@@ -4641,7 +4641,7 @@ _ZN12_GLOBAL__N_112GCOVFunction8getBlockEPKN4llvm10BasicBlockE.exit286: ; preds 
   %storemerge26.i.i.in.in.i.i = phi i64 [ %storemerge26.i.i.i.i289, %select.unfold.i.i.i.i306 ], [ %1098, %._crit_edge169 ]
   %storemerge26.i.i.in.i.i = add nuw nsw i64 %storemerge26.i.i.in.in.i.i, 1
   %storemerge26.i.i.i.i289 = lshr i64 %storemerge26.i.i.in.i.i, 1
-  %1194 = shl nuw nsw i64 %storemerge26.i.i.i.i289, 3
+  %1194 = shl i64 %storemerge26.i.i.i.i289, 3
   %1195 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %1194, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #29
   %.not.i.i.i.i290 = icmp eq ptr %1195, null
   br i1 %.not.i.i.i.i290, label %select.unfold.i.i.i.i306, label %1196
@@ -5613,7 +5613,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %._crit_edg
   %1583 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #31
   store ptr %1583, ptr %192, align 8
   %.val221 = load ptr, ptr %112, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112GCOVProfiler10mangleNameB5cxx11EPKN4llvm13DICompileUnitENS0_12GCovFileTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %81, ptr %.val221, ptr noundef nonnull %204, i32 noundef 0)
+  call fastcc void @_ZN12_GLOBAL__N_112GCOVProfiler10mangleNameB5cxx11EPKN4llvm13DICompileUnitENS0_12GCovFileTypeE(ptr dead_on_unwind noalias writable align 8 %81, ptr %.val221, ptr noundef nonnull %204, i32 noundef 0)
   %1584 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %81) #25
   %1585 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %81) #25
   call void @_ZN4llvm14raw_fd_ostreamC1ENS_9StringRefERSt10error_codeNS_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(96) %80, ptr %1584, i64 %1585, ptr noundef nonnull align 8 dereferenceable(16) %79, i32 noundef 0) #25
@@ -5765,7 +5765,7 @@ _ZSt12reverse_copyIPcS0_ET0_T_S2_S1_.exit:        ; preds = %.lr.ph.i381, %1600
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49)
   %1624 = getelementptr inbounds nuw i8, ptr %.0158.val, i64 8
   %1625 = load ptr, ptr %1624, align 8
-  call fastcc void @_ZL11getFilenamePKN4llvm12DISubprogramE(ptr dead_on_unwind noalias nonnull writable align 8 %50, ptr noundef %1625)
+  call fastcc void @_ZL11getFilenamePKN4llvm12DISubprogramE(ptr dead_on_unwind noalias writable align 8 %50, ptr noundef %1625)
   %1626 = getelementptr inbounds nuw i8, ptr %.0158.val, i64 28
   %1627 = load i32, ptr %1626, align 4
   %1628 = icmp sgt i32 %1627, 46
@@ -8677,7 +8677,7 @@ declare void @_ZN4llvm11Instruction21setNoSanitizeMetadataEv(ptr noundef nonnull
 declare void @_ZN4llvm6JamCRC6updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(4), ptr, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112GCOVProfiler10mangleNameB5cxx11EPKN4llvm13DICompileUnitENS0_12GCovFileTypeE(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %.120.val, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112GCOVProfiler10mangleNameB5cxx11EPKN4llvm13DICompileUnitENS0_12GCovFileTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nonnull %.120.val, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -9758,7 +9758,7 @@ _ZN12_GLOBAL__N_112GCOVProfiler15getEmitArcsFuncEPKN4llvm17TargetLibraryInfoE.ex
 
 320:                                              ; preds = %315
   %.val.i = load ptr, ptr %103, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112GCOVProfiler10mangleNameB5cxx11EPKN4llvm13DICompileUnitENS0_12GCovFileTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr %.val.i, ptr noundef nonnull %317, i32 noundef 1)
+  call fastcc void @_ZN12_GLOBAL__N_112GCOVProfiler10mangleNameB5cxx11EPKN4llvm13DICompileUnitENS0_12GCovFileTypeE(ptr dead_on_unwind noalias writable align 8 %44, ptr %.val.i, ptr noundef nonnull %317, i32 noundef 1)
   %321 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %281) #25
   br i1 %321, label %328, label %322
 
@@ -11550,7 +11550,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(43) ptr @_ZN4llvm
   store ptr %1, ptr %6, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %11, align 8
-  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrIN12_GLOBAL__N_16BBInfoESt14default_deleteIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrIN12_GLOBAL__N_16BBInfoESt14default_deleteIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i8, ptr %12, align 8
@@ -11593,7 +11593,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_16BBInfoESt14default_deleteIS1_EED2Ev.exit: ; pr
   store ptr %2, ptr %8, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %24, align 8
-  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrIN12_GLOBAL__N_16BBInfoESt14default_deleteIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrIN12_GLOBAL__N_16BBInfoESt14default_deleteIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(16) %8)
   %.sroa.0.0.copyload38 = load ptr, ptr %7, align 8
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %26 = load i8, ptr %25, align 8
@@ -11739,7 +11739,7 @@ declare i32 @_ZNK4llvm21BranchProbabilityInfo18getEdgeProbabilityEPKNS_10BasicBl
 declare noundef i64 @_ZNK4llvm17BranchProbability5scaleEm(ptr noundef nonnull align 4 dereferenceable(4), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrIN12_GLOBAL__N_16BBInfoESt14default_deleteIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrIN12_GLOBAL__N_16BBInfoESt14default_deleteIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E6insertEOSt4pairIS4_SA_E(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !135)
   %.val9.i = load ptr, ptr %1, align 8, !noalias !135
@@ -17433,7 +17433,7 @@ _ZSt14__partial_sortIPPN4llvm14StringMapEntryIN12_GLOBAL__N_19GCOVLinesEEEN9__gn
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZSt13__adjust_heapIPPN4llvm14StringMapEntryIN12_GLOBAL__N_19GCOVLinesEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_9GCOVBlock8writeOutEvEUlS5_S5_E_EEEvT_T0_SE_T1_T2_(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #18 {
+define internal fastcc void @_ZSt13__adjust_heapIPPN4llvm14StringMapEntryIN12_GLOBAL__N_19GCOVLinesEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_9GCOVBlock8writeOutEvEUlS5_S5_E_EEEvT_T0_SE_T1_T2_(ptr nocapture noundef %0, i64 noundef range(i64 0, 576460752303423487) %1, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %2, ptr noundef %3) unnamed_addr #18 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6

@@ -1548,7 +1548,7 @@ check_exists_finfos.exit.thread.us.i204:          ; preds = %56, %.lr.ph.split.u
   br i1 %68, label %check_exists_finfos.exit.thread.i, label %check_exists_finfos.exit.i
 
 check_exists_finfos.exit.i:                       ; preds = %65
-  %69 = call fastcc i64 @filter_finfo_fvalues(ptr noundef null, ptr noundef nonnull %63, ptr noundef nonnull readonly %51, i1 noundef zeroext false)
+  %69 = call fastcc i64 @filter_finfo_fvalues(ptr noundef null, ptr noundef %63, ptr noundef readonly %51, i1 noundef zeroext false)
   %.not4.i = icmp eq i64 %69, 0
   br i1 %.not4.i, label %check_exists_finfos.exit.thread.i, label %stack_pop.exit
 
@@ -2008,12 +2008,12 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 .preheader.lr.ph.i.i332:                          ; preds = %290
   %293 = getelementptr inbounds i8, ptr %.0.i331, i64 8
-  %.pre54.i.i = load i32, ptr %293, align 8
+  %.pre50.i.i = load i32, ptr %293, align 8
   br label %.preheader.i.i333
 
 .preheader.i.i333:                                ; preds = %._crit_edge.split.split.us.i.i, %.preheader.lr.ph.i.i332
   %294 = phi i32 [ %308, %._crit_edge.split.split.us.i.i ], [ %292, %.preheader.lr.ph.i.i332 ]
-  %295 = phi i32 [ %309, %._crit_edge.split.split.us.i.i ], [ %.pre54.i.i, %.preheader.lr.ph.i.i332 ]
+  %295 = phi i32 [ %309, %._crit_edge.split.split.us.i.i ], [ %.pre50.i.i, %.preheader.lr.ph.i.i332 ]
   %.01830.i.i = phi i64 [ %310, %._crit_edge.split.split.us.i.i ], [ 0, %.preheader.lr.ph.i.i332 ]
   %.not.i.i334 = icmp eq i32 %295, 0
   br i1 %.not.i.i334, label %._crit_edge.split.split.us.i.i, label %.lr.ph.i.i335
@@ -2037,11 +2037,11 @@ mk_value_string.exit:                             ; preds = %261, %194
   br i1 %307, label %.lr.ph.i.i335, label %._crit_edge.split.split.us.loopexit.i.i, !llvm.loop !15
 
 ._crit_edge.split.split.us.loopexit.i.i:          ; preds = %303
-  %.pre55.i.i = load i32, ptr %291, align 8
+  %.pre51.i.i = load i32, ptr %291, align 8
   br label %._crit_edge.split.split.us.i.i
 
 ._crit_edge.split.split.us.i.i:                   ; preds = %._crit_edge.split.split.us.loopexit.i.i, %.preheader.i.i333
-  %308 = phi i32 [ %.pre55.i.i, %._crit_edge.split.split.us.loopexit.i.i ], [ %294, %.preheader.i.i333 ]
+  %308 = phi i32 [ %.pre51.i.i, %._crit_edge.split.split.us.loopexit.i.i ], [ %294, %.preheader.i.i333 ]
   %309 = phi i32 [ %305, %._crit_edge.split.split.us.loopexit.i.i ], [ 0, %.preheader.i.i333 ]
   %310 = add nuw nsw i64 %.01830.i.i, 1
   %311 = zext i32 %308 to i64
@@ -2108,22 +2108,22 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 .preheader.lr.ph.i.i342:                          ; preds = %337
   %340 = getelementptr inbounds i8, ptr %.0.i340, i64 8
-  %.pre54.i.i343 = load i32, ptr %340, align 8
+  %.pre50.i.i343 = load i32, ptr %340, align 8
   br label %.preheader.us.us.i.i
 
 .preheader.us.us.i.i:                             ; preds = %._crit_edge.split.us.split.us34.us.i.i, %.preheader.lr.ph.i.i342
   %341 = phi i32 [ %343, %._crit_edge.split.us.split.us34.us.i.i ], [ %339, %.preheader.lr.ph.i.i342 ]
-  %342 = phi i32 [ %344, %._crit_edge.split.us.split.us34.us.i.i ], [ %.pre54.i.i343, %.preheader.lr.ph.i.i342 ]
+  %342 = phi i32 [ %344, %._crit_edge.split.us.split.us34.us.i.i ], [ %.pre50.i.i343, %.preheader.lr.ph.i.i342 ]
   %.01830.us.us.i.i = phi i64 [ %345, %._crit_edge.split.us.split.us34.us.i.i ], [ 0, %.preheader.lr.ph.i.i342 ]
-  %.not46.i.i = icmp eq i32 %342, 0
-  br i1 %.not46.i.i, label %._crit_edge.split.us.split.us34.us.i.i, label %.lr.ph.us.us.i.i
+  %.not45.i.i = icmp eq i32 %342, 0
+  br i1 %.not45.i.i, label %._crit_edge.split.us.split.us34.us.i.i, label %.lr.ph.us.us.i.i
 
 ._crit_edge.split.us.split.us34.us.loopexit.i.i:  ; preds = %355
-  %.pre53.i.i = load i32, ptr %338, align 8
+  %.pre49.i.i = load i32, ptr %338, align 8
   br label %._crit_edge.split.us.split.us34.us.i.i
 
 ._crit_edge.split.us.split.us34.us.i.i:           ; preds = %._crit_edge.split.us.split.us34.us.loopexit.i.i, %.preheader.us.us.i.i
-  %343 = phi i32 [ %.pre53.i.i, %._crit_edge.split.us.split.us34.us.loopexit.i.i ], [ %341, %.preheader.us.us.i.i ]
+  %343 = phi i32 [ %.pre49.i.i, %._crit_edge.split.us.split.us34.us.loopexit.i.i ], [ %341, %.preheader.us.us.i.i ]
   %344 = phi i32 [ %357, %._crit_edge.split.us.split.us34.us.loopexit.i.i ], [ 0, %.preheader.us.us.i.i ]
   %345 = add nuw nsw i64 %.01830.us.us.i.i, 1
   %346 = zext i32 %343 to i64
@@ -2208,12 +2208,12 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 .preheader.lr.ph.i.i351:                          ; preds = %384
   %387 = getelementptr inbounds i8, ptr %.0.i349, i64 8
-  %.pre54.i.i352 = load i32, ptr %387, align 8
+  %.pre50.i.i352 = load i32, ptr %387, align 8
   br label %.preheader.i.i353
 
 .preheader.i.i353:                                ; preds = %._crit_edge.split.split.us.i.i361, %.preheader.lr.ph.i.i351
   %388 = phi i32 [ %402, %._crit_edge.split.split.us.i.i361 ], [ %386, %.preheader.lr.ph.i.i351 ]
-  %389 = phi i32 [ %403, %._crit_edge.split.split.us.i.i361 ], [ %.pre54.i.i352, %.preheader.lr.ph.i.i351 ]
+  %389 = phi i32 [ %403, %._crit_edge.split.split.us.i.i361 ], [ %.pre50.i.i352, %.preheader.lr.ph.i.i351 ]
   %.01830.i.i354 = phi i64 [ %404, %._crit_edge.split.split.us.i.i361 ], [ 0, %.preheader.lr.ph.i.i351 ]
   %.not.i.i355 = icmp eq i32 %389, 0
   br i1 %.not.i.i355, label %._crit_edge.split.split.us.i.i361, label %.lr.ph.i.i356
@@ -2237,11 +2237,11 @@ mk_value_string.exit:                             ; preds = %261, %194
   br i1 %401, label %.lr.ph.i.i356, label %._crit_edge.split.split.us.loopexit.i.i359, !llvm.loop !15
 
 ._crit_edge.split.split.us.loopexit.i.i359:       ; preds = %397
-  %.pre55.i.i360 = load i32, ptr %385, align 8
+  %.pre51.i.i360 = load i32, ptr %385, align 8
   br label %._crit_edge.split.split.us.i.i361
 
 ._crit_edge.split.split.us.i.i361:                ; preds = %._crit_edge.split.split.us.loopexit.i.i359, %.preheader.i.i353
-  %402 = phi i32 [ %.pre55.i.i360, %._crit_edge.split.split.us.loopexit.i.i359 ], [ %388, %.preheader.i.i353 ]
+  %402 = phi i32 [ %.pre51.i.i360, %._crit_edge.split.split.us.loopexit.i.i359 ], [ %388, %.preheader.i.i353 ]
   %403 = phi i32 [ %399, %._crit_edge.split.split.us.loopexit.i.i359 ], [ 0, %.preheader.i.i353 ]
   %404 = add nuw nsw i64 %.01830.i.i354, 1
   %405 = zext i32 %402 to i64
@@ -2308,22 +2308,22 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 .preheader.lr.ph.i.i368:                          ; preds = %431
   %434 = getelementptr inbounds i8, ptr %.0.i366, i64 8
-  %.pre54.i.i369 = load i32, ptr %434, align 8
+  %.pre50.i.i369 = load i32, ptr %434, align 8
   br label %.preheader.us.us.i.i370
 
 .preheader.us.us.i.i370:                          ; preds = %._crit_edge.split.us.split.us34.us.i.i377, %.preheader.lr.ph.i.i368
   %435 = phi i32 [ %437, %._crit_edge.split.us.split.us34.us.i.i377 ], [ %433, %.preheader.lr.ph.i.i368 ]
-  %436 = phi i32 [ %438, %._crit_edge.split.us.split.us34.us.i.i377 ], [ %.pre54.i.i369, %.preheader.lr.ph.i.i368 ]
+  %436 = phi i32 [ %438, %._crit_edge.split.us.split.us34.us.i.i377 ], [ %.pre50.i.i369, %.preheader.lr.ph.i.i368 ]
   %.01830.us.us.i.i371 = phi i64 [ %439, %._crit_edge.split.us.split.us34.us.i.i377 ], [ 0, %.preheader.lr.ph.i.i368 ]
-  %.not46.i.i372 = icmp eq i32 %436, 0
-  br i1 %.not46.i.i372, label %._crit_edge.split.us.split.us34.us.i.i377, label %.lr.ph.us.us.i.i373
+  %.not45.i.i372 = icmp eq i32 %436, 0
+  br i1 %.not45.i.i372, label %._crit_edge.split.us.split.us34.us.i.i377, label %.lr.ph.us.us.i.i373
 
 ._crit_edge.split.us.split.us34.us.loopexit.i.i375: ; preds = %449
-  %.pre53.i.i376 = load i32, ptr %432, align 8
+  %.pre49.i.i376 = load i32, ptr %432, align 8
   br label %._crit_edge.split.us.split.us34.us.i.i377
 
 ._crit_edge.split.us.split.us34.us.i.i377:        ; preds = %._crit_edge.split.us.split.us34.us.loopexit.i.i375, %.preheader.us.us.i.i370
-  %437 = phi i32 [ %.pre53.i.i376, %._crit_edge.split.us.split.us34.us.loopexit.i.i375 ], [ %435, %.preheader.us.us.i.i370 ]
+  %437 = phi i32 [ %.pre49.i.i376, %._crit_edge.split.us.split.us34.us.loopexit.i.i375 ], [ %435, %.preheader.us.us.i.i370 ]
   %438 = phi i32 [ %451, %._crit_edge.split.us.split.us34.us.loopexit.i.i375 ], [ 0, %.preheader.us.us.i.i370 ]
   %439 = add nuw nsw i64 %.01830.us.us.i.i371, 1
   %440 = zext i32 %437 to i64
@@ -2408,12 +2408,12 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 .preheader.lr.ph.i.i385:                          ; preds = %478
   %481 = getelementptr inbounds i8, ptr %.0.i383, i64 8
-  %.pre54.i.i386 = load i32, ptr %481, align 8
+  %.pre50.i.i386 = load i32, ptr %481, align 8
   br label %.preheader.i.i387
 
 .preheader.i.i387:                                ; preds = %._crit_edge.split.split.us.i.i395, %.preheader.lr.ph.i.i385
   %482 = phi i32 [ %496, %._crit_edge.split.split.us.i.i395 ], [ %480, %.preheader.lr.ph.i.i385 ]
-  %483 = phi i32 [ %497, %._crit_edge.split.split.us.i.i395 ], [ %.pre54.i.i386, %.preheader.lr.ph.i.i385 ]
+  %483 = phi i32 [ %497, %._crit_edge.split.split.us.i.i395 ], [ %.pre50.i.i386, %.preheader.lr.ph.i.i385 ]
   %.01830.i.i388 = phi i64 [ %498, %._crit_edge.split.split.us.i.i395 ], [ 0, %.preheader.lr.ph.i.i385 ]
   %.not.i.i389 = icmp eq i32 %483, 0
   br i1 %.not.i.i389, label %._crit_edge.split.split.us.i.i395, label %.lr.ph.i.i390
@@ -2437,11 +2437,11 @@ mk_value_string.exit:                             ; preds = %261, %194
   br i1 %495, label %.lr.ph.i.i390, label %._crit_edge.split.split.us.loopexit.i.i393, !llvm.loop !15
 
 ._crit_edge.split.split.us.loopexit.i.i393:       ; preds = %491
-  %.pre55.i.i394 = load i32, ptr %479, align 8
+  %.pre51.i.i394 = load i32, ptr %479, align 8
   br label %._crit_edge.split.split.us.i.i395
 
 ._crit_edge.split.split.us.i.i395:                ; preds = %._crit_edge.split.split.us.loopexit.i.i393, %.preheader.i.i387
-  %496 = phi i32 [ %.pre55.i.i394, %._crit_edge.split.split.us.loopexit.i.i393 ], [ %482, %.preheader.i.i387 ]
+  %496 = phi i32 [ %.pre51.i.i394, %._crit_edge.split.split.us.loopexit.i.i393 ], [ %482, %.preheader.i.i387 ]
   %497 = phi i32 [ %493, %._crit_edge.split.split.us.loopexit.i.i393 ], [ 0, %.preheader.i.i387 ]
   %498 = add nuw nsw i64 %.01830.i.i388, 1
   %499 = zext i32 %496 to i64
@@ -2508,22 +2508,22 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 .preheader.lr.ph.i.i402:                          ; preds = %525
   %528 = getelementptr inbounds i8, ptr %.0.i400, i64 8
-  %.pre54.i.i403 = load i32, ptr %528, align 8
+  %.pre50.i.i403 = load i32, ptr %528, align 8
   br label %.preheader.us.us.i.i404
 
 .preheader.us.us.i.i404:                          ; preds = %._crit_edge.split.us.split.us34.us.i.i411, %.preheader.lr.ph.i.i402
   %529 = phi i32 [ %531, %._crit_edge.split.us.split.us34.us.i.i411 ], [ %527, %.preheader.lr.ph.i.i402 ]
-  %530 = phi i32 [ %532, %._crit_edge.split.us.split.us34.us.i.i411 ], [ %.pre54.i.i403, %.preheader.lr.ph.i.i402 ]
+  %530 = phi i32 [ %532, %._crit_edge.split.us.split.us34.us.i.i411 ], [ %.pre50.i.i403, %.preheader.lr.ph.i.i402 ]
   %.01830.us.us.i.i405 = phi i64 [ %533, %._crit_edge.split.us.split.us34.us.i.i411 ], [ 0, %.preheader.lr.ph.i.i402 ]
-  %.not46.i.i406 = icmp eq i32 %530, 0
-  br i1 %.not46.i.i406, label %._crit_edge.split.us.split.us34.us.i.i411, label %.lr.ph.us.us.i.i407
+  %.not45.i.i406 = icmp eq i32 %530, 0
+  br i1 %.not45.i.i406, label %._crit_edge.split.us.split.us34.us.i.i411, label %.lr.ph.us.us.i.i407
 
 ._crit_edge.split.us.split.us34.us.loopexit.i.i409: ; preds = %543
-  %.pre53.i.i410 = load i32, ptr %526, align 8
+  %.pre49.i.i410 = load i32, ptr %526, align 8
   br label %._crit_edge.split.us.split.us34.us.i.i411
 
 ._crit_edge.split.us.split.us34.us.i.i411:        ; preds = %._crit_edge.split.us.split.us34.us.loopexit.i.i409, %.preheader.us.us.i.i404
-  %531 = phi i32 [ %.pre53.i.i410, %._crit_edge.split.us.split.us34.us.loopexit.i.i409 ], [ %529, %.preheader.us.us.i.i404 ]
+  %531 = phi i32 [ %.pre49.i.i410, %._crit_edge.split.us.split.us34.us.loopexit.i.i409 ], [ %529, %.preheader.us.us.i.i404 ]
   %532 = phi i32 [ %545, %._crit_edge.split.us.split.us34.us.loopexit.i.i409 ], [ 0, %.preheader.us.us.i.i404 ]
   %533 = add nuw nsw i64 %.01830.us.us.i.i405, 1
   %534 = zext i32 %531 to i64
@@ -2608,12 +2608,12 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 .preheader.lr.ph.i.i419:                          ; preds = %572
   %575 = getelementptr inbounds i8, ptr %.0.i417, i64 8
-  %.pre54.i.i420 = load i32, ptr %575, align 8
+  %.pre50.i.i420 = load i32, ptr %575, align 8
   br label %.preheader.i.i421
 
 .preheader.i.i421:                                ; preds = %._crit_edge.split.split.us.i.i429, %.preheader.lr.ph.i.i419
   %576 = phi i32 [ %590, %._crit_edge.split.split.us.i.i429 ], [ %574, %.preheader.lr.ph.i.i419 ]
-  %577 = phi i32 [ %591, %._crit_edge.split.split.us.i.i429 ], [ %.pre54.i.i420, %.preheader.lr.ph.i.i419 ]
+  %577 = phi i32 [ %591, %._crit_edge.split.split.us.i.i429 ], [ %.pre50.i.i420, %.preheader.lr.ph.i.i419 ]
   %.01830.i.i422 = phi i64 [ %592, %._crit_edge.split.split.us.i.i429 ], [ 0, %.preheader.lr.ph.i.i419 ]
   %.not.i.i423 = icmp eq i32 %577, 0
   br i1 %.not.i.i423, label %._crit_edge.split.split.us.i.i429, label %.lr.ph.i.i424
@@ -2637,11 +2637,11 @@ mk_value_string.exit:                             ; preds = %261, %194
   br i1 %589, label %.lr.ph.i.i424, label %._crit_edge.split.split.us.loopexit.i.i427, !llvm.loop !15
 
 ._crit_edge.split.split.us.loopexit.i.i427:       ; preds = %585
-  %.pre55.i.i428 = load i32, ptr %573, align 8
+  %.pre51.i.i428 = load i32, ptr %573, align 8
   br label %._crit_edge.split.split.us.i.i429
 
 ._crit_edge.split.split.us.i.i429:                ; preds = %._crit_edge.split.split.us.loopexit.i.i427, %.preheader.i.i421
-  %590 = phi i32 [ %.pre55.i.i428, %._crit_edge.split.split.us.loopexit.i.i427 ], [ %576, %.preheader.i.i421 ]
+  %590 = phi i32 [ %.pre51.i.i428, %._crit_edge.split.split.us.loopexit.i.i427 ], [ %576, %.preheader.i.i421 ]
   %591 = phi i32 [ %587, %._crit_edge.split.split.us.loopexit.i.i427 ], [ 0, %.preheader.i.i421 ]
   %592 = add nuw nsw i64 %.01830.i.i422, 1
   %593 = zext i32 %590 to i64
@@ -2708,22 +2708,22 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 .preheader.lr.ph.i.i436:                          ; preds = %619
   %622 = getelementptr inbounds i8, ptr %.0.i434, i64 8
-  %.pre54.i.i437 = load i32, ptr %622, align 8
+  %.pre50.i.i437 = load i32, ptr %622, align 8
   br label %.preheader.us.us.i.i438
 
 .preheader.us.us.i.i438:                          ; preds = %._crit_edge.split.us.split.us34.us.i.i445, %.preheader.lr.ph.i.i436
   %623 = phi i32 [ %625, %._crit_edge.split.us.split.us34.us.i.i445 ], [ %621, %.preheader.lr.ph.i.i436 ]
-  %624 = phi i32 [ %626, %._crit_edge.split.us.split.us34.us.i.i445 ], [ %.pre54.i.i437, %.preheader.lr.ph.i.i436 ]
+  %624 = phi i32 [ %626, %._crit_edge.split.us.split.us34.us.i.i445 ], [ %.pre50.i.i437, %.preheader.lr.ph.i.i436 ]
   %.01830.us.us.i.i439 = phi i64 [ %627, %._crit_edge.split.us.split.us34.us.i.i445 ], [ 0, %.preheader.lr.ph.i.i436 ]
-  %.not46.i.i440 = icmp eq i32 %624, 0
-  br i1 %.not46.i.i440, label %._crit_edge.split.us.split.us34.us.i.i445, label %.lr.ph.us.us.i.i441
+  %.not45.i.i440 = icmp eq i32 %624, 0
+  br i1 %.not45.i.i440, label %._crit_edge.split.us.split.us34.us.i.i445, label %.lr.ph.us.us.i.i441
 
 ._crit_edge.split.us.split.us34.us.loopexit.i.i443: ; preds = %637
-  %.pre53.i.i444 = load i32, ptr %620, align 8
+  %.pre49.i.i444 = load i32, ptr %620, align 8
   br label %._crit_edge.split.us.split.us34.us.i.i445
 
 ._crit_edge.split.us.split.us34.us.i.i445:        ; preds = %._crit_edge.split.us.split.us34.us.loopexit.i.i443, %.preheader.us.us.i.i438
-  %625 = phi i32 [ %.pre53.i.i444, %._crit_edge.split.us.split.us34.us.loopexit.i.i443 ], [ %623, %.preheader.us.us.i.i438 ]
+  %625 = phi i32 [ %.pre49.i.i444, %._crit_edge.split.us.split.us34.us.loopexit.i.i443 ], [ %623, %.preheader.us.us.i.i438 ]
   %626 = phi i32 [ %639, %._crit_edge.split.us.split.us34.us.loopexit.i.i443 ], [ 0, %.preheader.us.us.i.i438 ]
   %627 = add nuw nsw i64 %.01830.us.us.i.i439, 1
   %628 = zext i32 %625 to i64
@@ -2808,12 +2808,12 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 .preheader.lr.ph.i.i453:                          ; preds = %666
   %669 = getelementptr inbounds i8, ptr %.0.i451, i64 8
-  %.pre54.i.i454 = load i32, ptr %669, align 8
+  %.pre50.i.i454 = load i32, ptr %669, align 8
   br label %.preheader.i.i455
 
 .preheader.i.i455:                                ; preds = %._crit_edge.split.split.us.i.i463, %.preheader.lr.ph.i.i453
   %670 = phi i32 [ %684, %._crit_edge.split.split.us.i.i463 ], [ %668, %.preheader.lr.ph.i.i453 ]
-  %671 = phi i32 [ %685, %._crit_edge.split.split.us.i.i463 ], [ %.pre54.i.i454, %.preheader.lr.ph.i.i453 ]
+  %671 = phi i32 [ %685, %._crit_edge.split.split.us.i.i463 ], [ %.pre50.i.i454, %.preheader.lr.ph.i.i453 ]
   %.01830.i.i456 = phi i64 [ %686, %._crit_edge.split.split.us.i.i463 ], [ 0, %.preheader.lr.ph.i.i453 ]
   %.not.i.i457 = icmp eq i32 %671, 0
   br i1 %.not.i.i457, label %._crit_edge.split.split.us.i.i463, label %.lr.ph.i.i458
@@ -2837,11 +2837,11 @@ mk_value_string.exit:                             ; preds = %261, %194
   br i1 %683, label %.lr.ph.i.i458, label %._crit_edge.split.split.us.loopexit.i.i461, !llvm.loop !15
 
 ._crit_edge.split.split.us.loopexit.i.i461:       ; preds = %679
-  %.pre55.i.i462 = load i32, ptr %667, align 8
+  %.pre51.i.i462 = load i32, ptr %667, align 8
   br label %._crit_edge.split.split.us.i.i463
 
 ._crit_edge.split.split.us.i.i463:                ; preds = %._crit_edge.split.split.us.loopexit.i.i461, %.preheader.i.i455
-  %684 = phi i32 [ %.pre55.i.i462, %._crit_edge.split.split.us.loopexit.i.i461 ], [ %670, %.preheader.i.i455 ]
+  %684 = phi i32 [ %.pre51.i.i462, %._crit_edge.split.split.us.loopexit.i.i461 ], [ %670, %.preheader.i.i455 ]
   %685 = phi i32 [ %681, %._crit_edge.split.split.us.loopexit.i.i461 ], [ 0, %.preheader.i.i455 ]
   %686 = add nuw nsw i64 %.01830.i.i456, 1
   %687 = zext i32 %684 to i64
@@ -2908,22 +2908,22 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 .preheader.lr.ph.i.i470:                          ; preds = %713
   %716 = getelementptr inbounds i8, ptr %.0.i468, i64 8
-  %.pre54.i.i471 = load i32, ptr %716, align 8
+  %.pre50.i.i471 = load i32, ptr %716, align 8
   br label %.preheader.us.us.i.i472
 
 .preheader.us.us.i.i472:                          ; preds = %._crit_edge.split.us.split.us34.us.i.i479, %.preheader.lr.ph.i.i470
   %717 = phi i32 [ %719, %._crit_edge.split.us.split.us34.us.i.i479 ], [ %715, %.preheader.lr.ph.i.i470 ]
-  %718 = phi i32 [ %720, %._crit_edge.split.us.split.us34.us.i.i479 ], [ %.pre54.i.i471, %.preheader.lr.ph.i.i470 ]
+  %718 = phi i32 [ %720, %._crit_edge.split.us.split.us34.us.i.i479 ], [ %.pre50.i.i471, %.preheader.lr.ph.i.i470 ]
   %.01830.us.us.i.i473 = phi i64 [ %721, %._crit_edge.split.us.split.us34.us.i.i479 ], [ 0, %.preheader.lr.ph.i.i470 ]
-  %.not46.i.i474 = icmp eq i32 %718, 0
-  br i1 %.not46.i.i474, label %._crit_edge.split.us.split.us34.us.i.i479, label %.lr.ph.us.us.i.i475
+  %.not45.i.i474 = icmp eq i32 %718, 0
+  br i1 %.not45.i.i474, label %._crit_edge.split.us.split.us34.us.i.i479, label %.lr.ph.us.us.i.i475
 
 ._crit_edge.split.us.split.us34.us.loopexit.i.i477: ; preds = %731
-  %.pre53.i.i478 = load i32, ptr %714, align 8
+  %.pre49.i.i478 = load i32, ptr %714, align 8
   br label %._crit_edge.split.us.split.us34.us.i.i479
 
 ._crit_edge.split.us.split.us34.us.i.i479:        ; preds = %._crit_edge.split.us.split.us34.us.loopexit.i.i477, %.preheader.us.us.i.i472
-  %719 = phi i32 [ %.pre53.i.i478, %._crit_edge.split.us.split.us34.us.loopexit.i.i477 ], [ %717, %.preheader.us.us.i.i472 ]
+  %719 = phi i32 [ %.pre49.i.i478, %._crit_edge.split.us.split.us34.us.loopexit.i.i477 ], [ %717, %.preheader.us.us.i.i472 ]
   %720 = phi i32 [ %733, %._crit_edge.split.us.split.us34.us.loopexit.i.i477 ], [ 0, %.preheader.us.us.i.i472 ]
   %721 = add nuw nsw i64 %.01830.us.us.i.i473, 1
   %722 = zext i32 %719 to i64
@@ -3008,12 +3008,12 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 .preheader.lr.ph.i.i487:                          ; preds = %760
   %763 = getelementptr inbounds i8, ptr %.0.i485, i64 8
-  %.pre54.i.i488 = load i32, ptr %763, align 8
+  %.pre50.i.i488 = load i32, ptr %763, align 8
   br label %.preheader.i.i489
 
 .preheader.i.i489:                                ; preds = %._crit_edge.split.split.us.i.i497, %.preheader.lr.ph.i.i487
   %764 = phi i32 [ %778, %._crit_edge.split.split.us.i.i497 ], [ %762, %.preheader.lr.ph.i.i487 ]
-  %765 = phi i32 [ %779, %._crit_edge.split.split.us.i.i497 ], [ %.pre54.i.i488, %.preheader.lr.ph.i.i487 ]
+  %765 = phi i32 [ %779, %._crit_edge.split.split.us.i.i497 ], [ %.pre50.i.i488, %.preheader.lr.ph.i.i487 ]
   %.01830.i.i490 = phi i64 [ %780, %._crit_edge.split.split.us.i.i497 ], [ 0, %.preheader.lr.ph.i.i487 ]
   %.not.i.i491 = icmp eq i32 %765, 0
   br i1 %.not.i.i491, label %._crit_edge.split.split.us.i.i497, label %.lr.ph.i.i492
@@ -3037,11 +3037,11 @@ mk_value_string.exit:                             ; preds = %261, %194
   br i1 %777, label %.lr.ph.i.i492, label %._crit_edge.split.split.us.loopexit.i.i495, !llvm.loop !15
 
 ._crit_edge.split.split.us.loopexit.i.i495:       ; preds = %773
-  %.pre55.i.i496 = load i32, ptr %761, align 8
+  %.pre51.i.i496 = load i32, ptr %761, align 8
   br label %._crit_edge.split.split.us.i.i497
 
 ._crit_edge.split.split.us.i.i497:                ; preds = %._crit_edge.split.split.us.loopexit.i.i495, %.preheader.i.i489
-  %778 = phi i32 [ %.pre55.i.i496, %._crit_edge.split.split.us.loopexit.i.i495 ], [ %764, %.preheader.i.i489 ]
+  %778 = phi i32 [ %.pre51.i.i496, %._crit_edge.split.split.us.loopexit.i.i495 ], [ %764, %.preheader.i.i489 ]
   %779 = phi i32 [ %775, %._crit_edge.split.split.us.loopexit.i.i495 ], [ 0, %.preheader.i.i489 ]
   %780 = add nuw nsw i64 %.01830.i.i490, 1
   %781 = zext i32 %778 to i64
@@ -3108,22 +3108,22 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 .preheader.lr.ph.i.i504:                          ; preds = %807
   %810 = getelementptr inbounds i8, ptr %.0.i502, i64 8
-  %.pre54.i.i505 = load i32, ptr %810, align 8
+  %.pre50.i.i505 = load i32, ptr %810, align 8
   br label %.preheader.us.us.i.i506
 
 .preheader.us.us.i.i506:                          ; preds = %._crit_edge.split.us.split.us34.us.i.i513, %.preheader.lr.ph.i.i504
   %811 = phi i32 [ %813, %._crit_edge.split.us.split.us34.us.i.i513 ], [ %809, %.preheader.lr.ph.i.i504 ]
-  %812 = phi i32 [ %814, %._crit_edge.split.us.split.us34.us.i.i513 ], [ %.pre54.i.i505, %.preheader.lr.ph.i.i504 ]
+  %812 = phi i32 [ %814, %._crit_edge.split.us.split.us34.us.i.i513 ], [ %.pre50.i.i505, %.preheader.lr.ph.i.i504 ]
   %.01830.us.us.i.i507 = phi i64 [ %815, %._crit_edge.split.us.split.us34.us.i.i513 ], [ 0, %.preheader.lr.ph.i.i504 ]
-  %.not46.i.i508 = icmp eq i32 %812, 0
-  br i1 %.not46.i.i508, label %._crit_edge.split.us.split.us34.us.i.i513, label %.lr.ph.us.us.i.i509
+  %.not45.i.i508 = icmp eq i32 %812, 0
+  br i1 %.not45.i.i508, label %._crit_edge.split.us.split.us34.us.i.i513, label %.lr.ph.us.us.i.i509
 
 ._crit_edge.split.us.split.us34.us.loopexit.i.i511: ; preds = %825
-  %.pre53.i.i512 = load i32, ptr %808, align 8
+  %.pre49.i.i512 = load i32, ptr %808, align 8
   br label %._crit_edge.split.us.split.us34.us.i.i513
 
 ._crit_edge.split.us.split.us34.us.i.i513:        ; preds = %._crit_edge.split.us.split.us34.us.loopexit.i.i511, %.preheader.us.us.i.i506
-  %813 = phi i32 [ %.pre53.i.i512, %._crit_edge.split.us.split.us34.us.loopexit.i.i511 ], [ %811, %.preheader.us.us.i.i506 ]
+  %813 = phi i32 [ %.pre49.i.i512, %._crit_edge.split.us.split.us34.us.loopexit.i.i511 ], [ %811, %.preheader.us.us.i.i506 ]
   %814 = phi i32 [ %827, %._crit_edge.split.us.split.us34.us.loopexit.i.i511 ], [ 0, %.preheader.us.us.i.i506 ]
   %815 = add nuw nsw i64 %.01830.us.us.i.i507, 1
   %816 = zext i32 %813 to i64
@@ -4047,12 +4047,12 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
 
 .preheader.lr.ph.i.i521:                          ; preds = %1262
   %1265 = getelementptr inbounds i8, ptr %.0.i519, i64 8
-  %.pre54.i.i522 = load i32, ptr %1265, align 8
+  %.pre50.i.i522 = load i32, ptr %1265, align 8
   br label %.preheader.i.i523
 
 .preheader.i.i523:                                ; preds = %._crit_edge.split.split.us.i.i531, %.preheader.lr.ph.i.i521
   %1266 = phi i32 [ %1280, %._crit_edge.split.split.us.i.i531 ], [ %1264, %.preheader.lr.ph.i.i521 ]
-  %1267 = phi i32 [ %1281, %._crit_edge.split.split.us.i.i531 ], [ %.pre54.i.i522, %.preheader.lr.ph.i.i521 ]
+  %1267 = phi i32 [ %1281, %._crit_edge.split.split.us.i.i531 ], [ %.pre50.i.i522, %.preheader.lr.ph.i.i521 ]
   %.01830.i.i524 = phi i64 [ %1282, %._crit_edge.split.split.us.i.i531 ], [ 0, %.preheader.lr.ph.i.i521 ]
   %.not.i.i525 = icmp eq i32 %1267, 0
   br i1 %.not.i.i525, label %._crit_edge.split.split.us.i.i531, label %.lr.ph.i.i526
@@ -4076,11 +4076,11 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   br i1 %1279, label %.lr.ph.i.i526, label %._crit_edge.split.split.us.loopexit.i.i529, !llvm.loop !15
 
 ._crit_edge.split.split.us.loopexit.i.i529:       ; preds = %1275
-  %.pre55.i.i530 = load i32, ptr %1263, align 8
+  %.pre51.i.i530 = load i32, ptr %1263, align 8
   br label %._crit_edge.split.split.us.i.i531
 
 ._crit_edge.split.split.us.i.i531:                ; preds = %._crit_edge.split.split.us.loopexit.i.i529, %.preheader.i.i523
-  %1280 = phi i32 [ %.pre55.i.i530, %._crit_edge.split.split.us.loopexit.i.i529 ], [ %1266, %.preheader.i.i523 ]
+  %1280 = phi i32 [ %.pre51.i.i530, %._crit_edge.split.split.us.loopexit.i.i529 ], [ %1266, %.preheader.i.i523 ]
   %1281 = phi i32 [ %1277, %._crit_edge.split.split.us.loopexit.i.i529 ], [ 0, %.preheader.i.i523 ]
   %1282 = add nuw nsw i64 %.01830.i.i524, 1
   %1283 = zext i32 %1280 to i64
@@ -4147,22 +4147,22 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
 
 .preheader.lr.ph.i.i538:                          ; preds = %1309
   %1312 = getelementptr inbounds i8, ptr %.0.i536, i64 8
-  %.pre54.i.i539 = load i32, ptr %1312, align 8
+  %.pre50.i.i539 = load i32, ptr %1312, align 8
   br label %.preheader.us.us.i.i540
 
 .preheader.us.us.i.i540:                          ; preds = %._crit_edge.split.us.split.us34.us.i.i547, %.preheader.lr.ph.i.i538
   %1313 = phi i32 [ %1315, %._crit_edge.split.us.split.us34.us.i.i547 ], [ %1311, %.preheader.lr.ph.i.i538 ]
-  %1314 = phi i32 [ %1316, %._crit_edge.split.us.split.us34.us.i.i547 ], [ %.pre54.i.i539, %.preheader.lr.ph.i.i538 ]
+  %1314 = phi i32 [ %1316, %._crit_edge.split.us.split.us34.us.i.i547 ], [ %.pre50.i.i539, %.preheader.lr.ph.i.i538 ]
   %.01830.us.us.i.i541 = phi i64 [ %1317, %._crit_edge.split.us.split.us34.us.i.i547 ], [ 0, %.preheader.lr.ph.i.i538 ]
-  %.not46.i.i542 = icmp eq i32 %1314, 0
-  br i1 %.not46.i.i542, label %._crit_edge.split.us.split.us34.us.i.i547, label %.lr.ph.us.us.i.i543
+  %.not45.i.i542 = icmp eq i32 %1314, 0
+  br i1 %.not45.i.i542, label %._crit_edge.split.us.split.us34.us.i.i547, label %.lr.ph.us.us.i.i543
 
 ._crit_edge.split.us.split.us34.us.loopexit.i.i545: ; preds = %1327
-  %.pre53.i.i546 = load i32, ptr %1310, align 8
+  %.pre49.i.i546 = load i32, ptr %1310, align 8
   br label %._crit_edge.split.us.split.us34.us.i.i547
 
 ._crit_edge.split.us.split.us34.us.i.i547:        ; preds = %._crit_edge.split.us.split.us34.us.loopexit.i.i545, %.preheader.us.us.i.i540
-  %1315 = phi i32 [ %.pre53.i.i546, %._crit_edge.split.us.split.us34.us.loopexit.i.i545 ], [ %1313, %.preheader.us.us.i.i540 ]
+  %1315 = phi i32 [ %.pre49.i.i546, %._crit_edge.split.us.split.us34.us.loopexit.i.i545 ], [ %1313, %.preheader.us.us.i.i540 ]
   %1316 = phi i32 [ %1329, %._crit_edge.split.us.split.us34.us.loopexit.i.i545 ], [ 0, %.preheader.us.us.i.i540 ]
   %1317 = add nuw nsw i64 %.01830.us.us.i.i541, 1
   %1318 = zext i32 %1315 to i64
@@ -4662,7 +4662,7 @@ read_tree_finfos.exit.us:                         ; preds = %dfvm_get_raw_fvalue
   br i1 %69, label %read_tree_finfos.exit, label %70
 
 70:                                               ; preds = %66
-  %71 = tail call fastcc i64 @filter_finfo_fvalues(ptr noundef %13, ptr noundef nonnull %64, ptr noundef nonnull readonly %.021, i1 noundef zeroext %4)
+  %71 = tail call fastcc i64 @filter_finfo_fvalues(ptr noundef %13, ptr noundef %64, ptr noundef readonly %.021, i1 noundef zeroext %4)
   br label %read_tree_finfos.exit
 
 read_tree_finfos.exit:                            ; preds = %.lr.ph.split, %66, %70
@@ -5310,8 +5310,8 @@ declare ptr @g_slist_delete_link(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @proto_get_finfo_ptr_array(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @filter_finfo_fvalues(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #2 {
-  tail call void @g_ptr_array_sort(ptr noundef %1, ptr noundef nonnull @compare_finfo_layer) #11
+define internal fastcc i64 @filter_finfo_fvalues(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly %2, i1 noundef zeroext %3) unnamed_addr #2 {
+  tail call void @g_ptr_array_sort(ptr noundef nonnull %1, ptr noundef nonnull @compare_finfo_layer) #11
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %.not53 = icmp eq i32 %6, 0

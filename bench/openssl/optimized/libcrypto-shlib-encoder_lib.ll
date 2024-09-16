@@ -61,7 +61,7 @@ if.then:                                          ; preds = %entry, %lor.lhs.fal
   br label %return
 
 if.end:                                           ; preds = %OSSL_ENCODER_CTX_get_num_encoders.exit
-  %call3 = call fastcc i32 @encoder_process(ptr noundef nonnull %data)
+  %call3 = call fastcc i32 @encoder_process(ptr noundef %data)
   %cmp4 = icmp sgt i32 %call3, 0
   %conv = zext i1 %cmp4 to i32
   br label %return
@@ -102,7 +102,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @encoder_process(ptr nocapture noundef %data) unnamed_addr #0 {
+define internal fastcc i32 @encoder_process(ptr nocapture noundef nonnull %data) unnamed_addr #0 {
 entry:
   %abstract = alloca [10 x %struct.ossl_param_st], align 16
   %new_data = alloca %struct.encoder_process_data_st, align 8
@@ -169,7 +169,7 @@ if.end56.us.loopexit:                             ; preds = %if.end39.us.us
   br label %if.end56.us
 
 if.end56.us:                                      ; preds = %if.end56.us.loopexit, %if.end54.split.us.us
-  %call57.us = call fastcc i32 @encoder_process(ptr noundef nonnull %new_data)
+  %call57.us = call fastcc i32 @encoder_process(ptr noundef %new_data)
   %7 = load ptr, ptr %prev_encoder_inst204, align 8
   store ptr %7, ptr %prev_encoder_inst58205, align 8
   %8 = load ptr, ptr %running_output206, align 8
@@ -338,7 +338,7 @@ if.end56.loopexit:                                ; preds = %if.end39
   br label %if.end56
 
 if.end56:                                         ; preds = %if.end56.loopexit, %if.end54.split
-  %call57 = call fastcc i32 @encoder_process(ptr noundef nonnull %new_data)
+  %call57 = call fastcc i32 @encoder_process(ptr noundef %new_data)
   %37 = load ptr, ptr %prev_encoder_inst, align 8
   store ptr %37, ptr %prev_encoder_inst58, align 8
   %38 = load ptr, ptr %running_output, align 8
@@ -571,7 +571,7 @@ if.then.i5:                                       ; preds = %OSSL_ENCODER_CTX_ge
   br label %OSSL_ENCODER_to_bio.exit
 
 if.end.i4:                                        ; preds = %OSSL_ENCODER_CTX_get_num_encoders.exit.i
-  %call3.i = call fastcc i32 @encoder_process(ptr noundef nonnull %data.i)
+  %call3.i = call fastcc i32 @encoder_process(ptr noundef %data.i)
   %cmp4.i = icmp sgt i32 %call3.i, 0
   %conv.i = zext i1 %cmp4.i to i32
   br label %OSSL_ENCODER_to_bio.exit
@@ -640,7 +640,7 @@ OSSL_ENCODER_to_bio.exit.thread:                  ; preds = %land.lhs.true, %lor
   br label %if.end33
 
 OSSL_ENCODER_to_bio.exit:                         ; preds = %OSSL_ENCODER_CTX_get_num_encoders.exit.i
-  %call3.i = call fastcc i32 @encoder_process(ptr noundef nonnull %data.i)
+  %call3.i = call fastcc i32 @encoder_process(ptr noundef %data.i)
   %cmp4.i = icmp slt i32 %call3.i, 1
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %data.i)
   br i1 %cmp4.i, label %if.end33, label %land.lhs.true4

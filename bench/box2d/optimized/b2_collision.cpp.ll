@@ -912,8 +912,8 @@ for.inc111:                                       ; preds = %for.inc111.sink.spl
   br i1 %exitcond243.not, label %for.end113, label %for.body89, !llvm.loop !16
 
 for.end113:                                       ; preds = %for.inc111
-  call fastcc void @_ZL13b2RecurseHull6b2Vec2S_PS_i(ptr noalias nonnull align 4 %hull1, <2 x float> %14, <2 x float> %25, ptr noundef nonnull %rightPoints, i32 noundef %rightCount.1)
-  call fastcc void @_ZL13b2RecurseHull6b2Vec2S_PS_i(ptr noalias nonnull align 4 %hull2, <2 x float> %25, <2 x float> %14, ptr noundef nonnull %leftPoints, i32 noundef %leftCount.1)
+  call fastcc void @_ZL13b2RecurseHull6b2Vec2S_PS_i(ptr noalias align 4 %hull1, <2 x float> %14, <2 x float> %25, ptr noundef %rightPoints, i32 noundef %rightCount.1)
+  call fastcc void @_ZL13b2RecurseHull6b2Vec2S_PS_i(ptr noalias align 4 %hull2, <2 x float> %25, <2 x float> %14, ptr noundef %leftPoints, i32 noundef %leftCount.1)
   %count118 = getelementptr inbounds i8, ptr %hull1, i64 64
   %35 = load i32, ptr %count118, align 4
   %cmp119 = icmp eq i32 %35, 0
@@ -1096,7 +1096,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL13b2RecurseHull6b2Vec2S_PS_i(ptr noalias nocapture align 4 %agg.result, <2 x float> %p1.coerce, <2 x float> %p2.coerce, ptr nocapture noundef readonly %ps, i32 noundef %count) unnamed_addr #6 {
+define internal fastcc void @_ZL13b2RecurseHull6b2Vec2S_PS_i(ptr noalias nocapture nonnull align 4 %agg.result, <2 x float> %p1.coerce, <2 x float> %p2.coerce, ptr nocapture noundef nonnull readonly %ps, i32 noundef %count) unnamed_addr #6 {
 entry:
   %rightPoints = alloca [8 x %struct.b2Vec2], align 16
   %hull1 = alloca %struct.b2Hull, align 4
@@ -1206,8 +1206,8 @@ for.end:                                          ; preds = %for.end.loopexit, %
 if.end32:                                         ; preds = %for.end
   %arrayidx34 = getelementptr inbounds %struct.b2Vec2, ptr %ps, i64 %bestIndex.0.lcssa
   %bestPoint.sroa.0.0.copyload = load <2 x float>, ptr %arrayidx34, align 4
-  call fastcc void @_ZL13b2RecurseHull6b2Vec2S_PS_i(ptr noalias nonnull align 4 %hull1, <2 x float> %p1.coerce, <2 x float> %bestPoint.sroa.0.0.copyload, ptr noundef nonnull %rightPoints, i32 noundef %rightCount.1.lcssa)
-  call fastcc void @_ZL13b2RecurseHull6b2Vec2S_PS_i(ptr noalias nonnull align 4 %hull2, <2 x float> %bestPoint.sroa.0.0.copyload, <2 x float> %p2.coerce, ptr noundef nonnull %rightPoints, i32 noundef %rightCount.1.lcssa)
+  call fastcc void @_ZL13b2RecurseHull6b2Vec2S_PS_i(ptr noalias align 4 %hull1, <2 x float> %p1.coerce, <2 x float> %bestPoint.sroa.0.0.copyload, ptr noundef %rightPoints, i32 noundef %rightCount.1.lcssa)
+  call fastcc void @_ZL13b2RecurseHull6b2Vec2S_PS_i(ptr noalias align 4 %hull2, <2 x float> %bestPoint.sroa.0.0.copyload, <2 x float> %p2.coerce, ptr noundef %rightPoints, i32 noundef %rightCount.1.lcssa)
   %count41 = getelementptr inbounds i8, ptr %hull1, i64 64
   %14 = load i32, ptr %count41, align 4
   %cmp4268 = icmp sgt i32 %14, 0

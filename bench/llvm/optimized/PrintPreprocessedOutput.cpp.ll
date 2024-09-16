@@ -5050,7 +5050,7 @@ declare void @_ZN5clang11PPCallbacksD2Ev(ptr noundef nonnull align 8 dereference
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124PrintPPOutputPPCallbacks13WriteLineInfoEjPKcj(ptr noundef nonnull align 8 dereferenceable(1144) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_124PrintPPOutputPPCallbacks13WriteLineInfoEjPKcj(ptr noundef nonnull align 8 dereferenceable(1144) %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 508
   %6 = load i8, ptr %5, align 4
   %7 = trunc i8 %6 to i1

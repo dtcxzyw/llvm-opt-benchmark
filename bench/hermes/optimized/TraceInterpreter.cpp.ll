@@ -7173,7 +7173,7 @@ for.body.i10:                                     ; preds = %_ZN8facebook6hermes
 
 for.body13.i:                                     ; preds = %for.body.i10, %.noexc
   %__begin4.sroa.0.06.i = phi ptr [ %incdec.ptr.i.i12, %.noexc ], [ %232, %for.body.i10 ]
-  invoke fastcc void @_ZN8facebook6hermes7tracing12_GLOBAL__N_118createCallMetadataEPNS1_16TraceInterpreter4CallE(ptr noundef nonnull %__begin4.sroa.0.06.i)
+  invoke fastcc void @_ZN8facebook6hermes7tracing12_GLOBAL__N_118createCallMetadataEPNS1_16TraceInterpreter4CallE(ptr noundef %__begin4.sroa.0.06.i)
           to label %.noexc unwind label %lpad.loopexit.split-lp124
 
 .noexc:                                           ; preds = %for.body13.i
@@ -7202,7 +7202,7 @@ for.body.i14:                                     ; preds = %invoke.cont, %for.i
 
 for.body13.i19:                                   ; preds = %for.body.i14, %.noexc25
   %__begin4.sroa.0.06.i20 = phi ptr [ %incdec.ptr.i.i21, %.noexc25 ], [ %235, %for.body.i14 ]
-  invoke fastcc void @_ZN8facebook6hermes7tracing12_GLOBAL__N_118createCallMetadataEPNS1_16TraceInterpreter4CallE(ptr noundef nonnull %__begin4.sroa.0.06.i20)
+  invoke fastcc void @_ZN8facebook6hermes7tracing12_GLOBAL__N_118createCallMetadataEPNS1_16TraceInterpreter4CallE(ptr noundef %__begin4.sroa.0.06.i20)
           to label %.noexc25 unwind label %lpad.loopexit123
 
 .noexc25:                                         ; preds = %for.body13.i19
@@ -11573,7 +11573,7 @@ sw.bb234:                                         ; preds = %invoke.cont19
   %propNameID_240 = getelementptr inbounds i8, ptr %15, i64 24
   %249 = load i32, ptr %propNameID_240, align 8
   %conv = zext i32 %249 to i64
-  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_2clEm"(ptr noalias nonnull align 8 %ref.tmp239, ptr noundef nonnull align 8 dereferenceable(32) %getPropNameIDForUse, i64 noundef %conv)
+  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_2clEm"(ptr noalias align 8 %ref.tmp239, ptr noundef nonnull align 8 dereferenceable(32) %getPropNameIDForUse, i64 noundef %conv)
           to label %invoke.cont241 unwind label %lpad18.loopexit.split-lp.loopexit
 
 invoke.cont241:                                   ; preds = %sw.bb234
@@ -11835,7 +11835,7 @@ terminate.lpad.i.i439:                            ; preds = %if.then.i.i437
   unreachable
 
 if.else286:                                       ; preds = %invoke.cont263
-  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_2clEm"(ptr noalias nonnull align 8 %propNameID287, ptr noundef nonnull align 8 dereferenceable(32) %getPropNameIDForUse, i64 noundef %279)
+  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_2clEm"(ptr noalias align 8 %propNameID287, ptr noundef nonnull align 8 dereferenceable(32) %getPropNameIDForUse, i64 noundef %279)
           to label %invoke.cont291 unwind label %lpad264
 
 invoke.cont291:                                   ; preds = %if.else286
@@ -12179,7 +12179,7 @@ terminate.lpad.i.i515:                            ; preds = %if.then.i.i513
   unreachable
 
 if.else339:                                       ; preds = %invoke.cont308
-  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_2clEm"(ptr noalias nonnull align 8 %propNameID340, ptr noundef nonnull align 8 dereferenceable(32) %getPropNameIDForUse, i64 noundef %324)
+  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_2clEm"(ptr noalias align 8 %propNameID340, ptr noundef nonnull align 8 dereferenceable(32) %getPropNameIDForUse, i64 noundef %324)
           to label %invoke.cont344 unwind label %lpad310
 
 invoke.cont344:                                   ; preds = %if.else339
@@ -12463,7 +12463,7 @@ terminate.lpad.i.i596:                            ; preds = %if.then.i.i594
   unreachable
 
 if.else387:                                       ; preds = %invoke.cont366
-  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_2clEm"(ptr noalias nonnull align 8 %propNameID388, ptr noundef nonnull align 8 dereferenceable(32) %getPropNameIDForUse, i64 noundef %377)
+  invoke fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_2clEm"(ptr noalias align 8 %propNameID388, ptr noundef nonnull align 8 dereferenceable(32) %getPropNameIDForUse, i64 noundef %377)
           to label %invoke.cont392 unwind label %lpad368
 
 invoke.cont392:                                   ; preds = %if.else387
@@ -15255,7 +15255,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_2clEm"(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %obj) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8facebook6hermes7tracing16TraceInterpreter12execFunctionERKNS2_4CallERKNS_3jsi5ValueEPS8_mPKNS6_10PropNameIDEENK3$_2clEm"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %obj) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
@@ -21342,7 +21342,7 @@ eh.resume:                                        ; preds = %if.then.i.i, %lpad1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook6hermes7tracing12_GLOBAL__N_118createCallMetadataEPNS1_16TraceInterpreter4CallE(ptr noundef %call) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook6hermes7tracing12_GLOBAL__N_118createCallMetadataEPNS1_16TraceInterpreter4CallE(ptr noundef nonnull %call) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.343", align 8
   %ref.tmp25 = alloca %"class.std::vector.343", align 8

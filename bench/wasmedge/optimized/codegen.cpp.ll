@@ -886,7 +886,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %156, %144
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %14) #16, !noalias !53
   %157 = getelementptr inbounds i8, ptr %17, i64 32
   call void @_ZNSt10filesystem7__cxx114path5_ListC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %157, ptr noundef nonnull align 8 dereferenceable(8) %146) #16, !noalias !53
-  call fastcc void @_ZN12_GLOBAL__N_110createTempENSt10filesystem7__cxx114pathE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull %17) #16, !noalias !53
+  call fastcc void @_ZN12_GLOBAL__N_110createTempENSt10filesystem7__cxx114pathE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef %17) #16, !noalias !53
   %158 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %16) #16, !noalias !53
   %159 = getelementptr inbounds i8, ptr %16, i64 32
   %160 = load ptr, ptr %159, align 8, !noalias !53
@@ -965,7 +965,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit98.i:      ; preds = %179, %177
   br i1 %167, label %615, label %180
 
 180:                                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit98.i
-  call fastcc void @_ZN12_GLOBAL__N_119outputNativeLibraryERKNSt10filesystem7__cxx114pathERKN8WasmEdge4LLVM12MemoryBufferE(ptr dead_on_unwind noalias nonnull writable align 4 %20, ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull readonly align 8 dereferenceable(8) %43) #16, !noalias !53
+  call fastcc void @_ZN12_GLOBAL__N_119outputNativeLibraryERKNSt10filesystem7__cxx114pathERKN8WasmEdge4LLVM12MemoryBufferE(ptr dead_on_unwind noalias writable align 4 %20, ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull readonly align 8 dereferenceable(8) %43) #16, !noalias !53
   %181 = load i8, ptr %20, align 4, !noalias !53
   %182 = trunc i8 %181 to i1
   br i1 %182, label %186, label %183
@@ -2078,7 +2078,7 @@ _ZN12_GLOBAL__N_117outputWasmLibraryEN8WasmEdge4LLVM7ContextERKNSt10filesystem7_
   br i1 %.sroa.034.1, label %.critedge26, label %624
 
 618:                                              ; preds = %141
-  call fastcc void @_ZN12_GLOBAL__N_119outputNativeLibraryERKNSt10filesystem7__cxx114pathERKN8WasmEdge4LLVM12MemoryBufferE(ptr dead_on_unwind noalias nonnull writable align 4 %44, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(8) %43) #16
+  call fastcc void @_ZN12_GLOBAL__N_119outputNativeLibraryERKNSt10filesystem7__cxx114pathERKN8WasmEdge4LLVM12MemoryBufferE(ptr dead_on_unwind noalias writable align 4 %44, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(8) %43) #16
   %619 = load i8, ptr %44, align 4
   %620 = trunc i8 %619 to i1
   br i1 %620, label %624, label %621
@@ -2128,7 +2128,7 @@ declare noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt10filesystem7__cxx
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119outputNativeLibraryERKNSt10filesystem7__cxx114pathERKN8WasmEdge4LLVM12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_119outputNativeLibraryERKNSt10filesystem7__cxx114pathERKN8WasmEdge4LLVM12MemoryBufferE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.std::allocator.11", align 1
@@ -2183,7 +2183,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %3, %30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %8) #16
   %31 = getelementptr inbounds i8, ptr %11, i64 32
   call void @_ZNSt10filesystem7__cxx114path5_ListC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %19) #16
-  call fastcc void @_ZN12_GLOBAL__N_110createTempENSt10filesystem7__cxx114pathE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull %11) #16
+  call fastcc void @_ZN12_GLOBAL__N_110createTempENSt10filesystem7__cxx114pathE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %11) #16
   %32 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %10) #16
   %33 = getelementptr inbounds i8, ptr %10, i64 32
   %34 = load ptr, ptr %33, align 8
@@ -2379,7 +2379,7 @@ declare void @LLVMDisposeMessage(ptr noundef) local_unnamed_addr #1
 declare i32 @LLVMTargetMachineEmitToMemoryBuffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110createTempENSt10filesystem7__cxx114pathE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110createTempENSt10filesystem7__cxx114pathE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.11", align 1
   %5 = alloca %"class.std::random_device", align 8

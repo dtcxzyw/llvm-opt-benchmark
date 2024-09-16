@@ -208,7 +208,7 @@ for.end.i:                                        ; preds = %for.cond.i, %if.end
   br i1 %27, label %_ZN6hermesL12canBeInlinedEPNS_8FunctionES1_.exit.thread, label %if.end16.i
 
 if.end16.i:                                       ; preds = %for.end.i
-  call fastcc void @_ZN6hermesL8orderDFSEPNS_8FunctionE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull readonly %17)
+  call fastcc void @_ZN6hermesL8orderDFSEPNS_8FunctionE(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull readonly %17)
   %28 = load ptr, ptr %ref.tmp.i, align 8
   %29 = load i32, ptr %Size.i17.i, align 8
   %conv.i18.i = zext i32 %29 to i64
@@ -783,7 +783,7 @@ for.end.i39:                                      ; preds = %_ZN4llvh12DenseMapB
   %parent_.i.i = getelementptr inbounds i8, ptr %88, i64 40
   %89 = load ptr, ptr %parent_.i.i, align 8
   call fastcc void @_ZN6hermesL15cloneScopesIntoEPNS_8FunctionEPNS_9ScopeDescES3_RN4llvh8DenseMapIPNS_5ValueES7_NS4_12DenseMapInfoIS7_EENS4_6detail12DenseMapPairIS7_S7_EEEE(ptr noundef nonnull %17, ptr noundef %88, ptr noundef %89, ptr noundef nonnull align 8 dereferenceable(20) %operandMap.i)
-  call fastcc void @_ZN6hermesL8orderDFSEPNS_8FunctionE(ptr noalias nonnull align 8 %order.i, ptr noundef nonnull %17)
+  call fastcc void @_ZN6hermesL8orderDFSEPNS_8FunctionE(ptr noalias align 8 %order.i, ptr noundef nonnull %17)
   %90 = load ptr, ptr %order.i, align 8
   %91 = load i32, ptr %Size.i133.i, align 8
   %conv.i134.i = zext i32 %91 to i64
@@ -3172,7 +3172,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermesL8orderDFSEPNS_8FunctionE(ptr noalias align 8 %agg.result, ptr nocapture noundef readonly %F) unnamed_addr #0 {
+define internal fastcc void @_ZN6hermesL8orderDFSEPNS_8FunctionE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %F) unnamed_addr #0 {
 entry:
   %stack = alloca %"class.llvh::SmallVector.149", align 8
   %visited = alloca %"class.llvh::SmallDenseSet.155", align 8

@@ -62,7 +62,7 @@ define dso_local range(i32 -2, 18) i32 @pg_regprefix(ptr noundef readonly %0, pt
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds i8, ptr %17, i64 104
-  %36 = tail call fastcc i32 @findprefix(ptr noundef nonnull %24, ptr noundef nonnull %35, ptr noundef nonnull %32, ptr noundef nonnull %2)
+  %36 = tail call fastcc i32 @findprefix(ptr noundef nonnull %24, ptr noundef nonnull %35, ptr noundef %32, ptr noundef %2)
   %or.cond3 = icmp ult i32 %36, -2
   br i1 %or.cond3, label %37, label %39
 
@@ -83,7 +83,7 @@ declare void @pg_set_regex_collation(i32 noundef) local_unnamed_addr #1
 declare ptr @palloc_extended(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 40

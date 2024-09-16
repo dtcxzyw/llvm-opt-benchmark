@@ -1273,7 +1273,7 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %281, %283
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ompi_coll_base_sendrecv(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10) unnamed_addr #0 {
+define internal fastcc i32 @ompi_coll_base_sendrecv(ptr noundef %0, i64 noundef range(i64 -2147483648, 4294967296) %1, ptr noundef %2, i32 noundef range(i32 -2147483647, -2147483648) %3, ptr noundef %4, i64 noundef range(i64 -2147483645, 4294967296) %5, ptr noundef %6, i32 noundef range(i32 -2147483647, -2147483648) %7, ptr noundef %8, ptr noundef %9, i32 noundef %10) unnamed_addr #0 {
   %12 = icmp eq i32 %3, %7
   %13 = icmp eq i32 %7, %10
   %or.cond = and i1 %12, %13

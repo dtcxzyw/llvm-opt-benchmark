@@ -699,7 +699,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @acpi_battery_update(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc i32 @acpi_battery_update(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @acpi_bus_get_status(ptr noundef %3) #11
@@ -721,7 +721,7 @@ define internal fastcc i32 @acpi_battery_update(ptr noundef %0) unnamed_addr #0 
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %10
-  tail call fastcc void @sysfs_remove_battery(ptr noundef %0)
+  tail call fastcc void @sysfs_remove_battery(ptr noundef nonnull %0)
   %16 = getelementptr inbounds i8, ptr %0, i64 216
   store i64 0, ptr %16, align 8
   br label %135
@@ -733,16 +733,16 @@ define internal fastcc i32 @acpi_battery_update(ptr noundef %0) unnamed_addr #0 
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %17
-  %22 = tail call fastcc i32 @acpi_battery_get_info(ptr noundef %0), !range !14
+  %22 = tail call fastcc i32 @acpi_battery_get_info(ptr noundef nonnull %0), !range !14
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %135
 
 24:                                               ; preds = %21
-  tail call fastcc void @acpi_battery_init_alarm(ptr noundef %0)
+  tail call fastcc void @acpi_battery_init_alarm(ptr noundef nonnull %0)
   br label %25
 
 25:                                               ; preds = %24, %17
-  %26 = tail call fastcc i32 @acpi_battery_get_state(ptr noundef %0), !range !14
+  %26 = tail call fastcc i32 @acpi_battery_get_state(ptr noundef nonnull %0), !range !14
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %135
 
@@ -810,7 +810,7 @@ define internal fastcc i32 @acpi_battery_update(ptr noundef %0) unnamed_addr #0 
   br i1 %67, label %68, label %93
 
 68:                                               ; preds = %65
-  %69 = tail call i32 @dmi_walk(ptr noundef nonnull @find_battery, ptr noundef %0) #11
+  %69 = tail call i32 @dmi_walk(ptr noundef nonnull @find_battery, ptr noundef nonnull %0) #11
   %70 = load volatile i64, ptr %29, align 8
   %71 = and i64 %70, 8
   %72 = icmp eq i64 %71, 0
@@ -888,7 +888,7 @@ define internal fastcc i32 @acpi_battery_update(ptr noundef %0) unnamed_addr #0 
   br i1 %113, label %114, label %117
 
 114:                                              ; preds = %110
-  %115 = tail call fastcc i32 @sysfs_add_battery(ptr noundef %0)
+  %115 = tail call fastcc i32 @sysfs_add_battery(ptr noundef nonnull %0)
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %117, label %135
 

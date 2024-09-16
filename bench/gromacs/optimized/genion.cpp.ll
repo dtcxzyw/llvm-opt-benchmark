@@ -1467,7 +1467,7 @@ _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit: 
   %549 = load i32, ptr %8, align 4
   %550 = load ptr, ptr %10, align 8
   %551 = load float, ptr %12, align 4
-  invoke fastcc void @_ZL10insert_ioniPSt6vectorIiSaIiEEPiN3gmx8ArrayRefIKiEEPA3_fP5t_pbciiPKcP7t_atomsfS2_(i32 noundef %.052.lcssa, ptr noundef nonnull %40, ptr noundef %364, ptr %.sroa.0163.2, ptr noundef %548, ptr noundef nonnull %21, i32 noundef 1, i32 noundef %549, ptr noundef %550, ptr noundef nonnull %20, float noundef %551, ptr noundef nonnull %39)
+  invoke fastcc void @_ZL10insert_ioniPSt6vectorIiSaIiEEPiN3gmx8ArrayRefIKiEEPA3_fP5t_pbciiPKcP7t_atomsfS2_(i32 noundef %.052.lcssa, ptr noundef %40, ptr noundef %364, ptr %.sroa.0163.2, ptr noundef %548, ptr noundef %21, i32 noundef 1, i32 noundef %549, ptr noundef %550, ptr noundef %20, float noundef %551, ptr noundef %39)
           to label %.preheader208 unwind label %.loopexit.split-lp.loopexit
 
 552:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i, %403, %389, %384
@@ -1528,7 +1528,7 @@ _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit: 
   %564 = load i32, ptr %9, align 4
   %565 = load ptr, ptr %11, align 8
   %566 = load float, ptr %12, align 4
-  invoke fastcc void @_ZL10insert_ioniPSt6vectorIiSaIiEEPiN3gmx8ArrayRefIKiEEPA3_fP5t_pbciiPKcP7t_atomsfS2_(i32 noundef %.052.lcssa, ptr noundef nonnull %40, ptr noundef %364, ptr %.sroa.0163.2, ptr noundef %563, ptr noundef nonnull %21, i32 noundef -1, i32 noundef %564, ptr noundef %565, ptr noundef nonnull %20, float noundef %566, ptr noundef nonnull %39)
+  invoke fastcc void @_ZL10insert_ioniPSt6vectorIiSaIiEEPiN3gmx8ArrayRefIKiEEPA3_fP5t_pbciiPKcP7t_atomsfS2_(i32 noundef %.052.lcssa, ptr noundef %40, ptr noundef %364, ptr %.sroa.0163.2, ptr noundef %563, ptr noundef %21, i32 noundef -1, i32 noundef %564, ptr noundef %565, ptr noundef %20, float noundef %566, ptr noundef %39)
           to label %.preheader unwind label %.loopexit
 
 567:                                              ; preds = %.preheader
@@ -1539,7 +1539,7 @@ _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit: 
 
 569:                                              ; preds = %567
   %570 = load ptr, ptr %18, align 8
-  invoke fastcc void @_ZL9sort_ionsiiPKiN3gmx8ArrayRefIS_EEP7t_atomsPA3_fPPcS9_S9_S9_(i32 noundef %.052.lcssa, i32 noundef %339, ptr noundef %364, ptr %.sroa.0163.2, ptr noundef nonnull %20, ptr noundef %570, ptr noundef nonnull %29, ptr noundef nonnull %31, ptr noundef nonnull %30, ptr noundef nonnull %32)
+  invoke fastcc void @_ZL9sort_ionsiiPKiN3gmx8ArrayRefIS_EEP7t_atomsPA3_fPPcS9_S9_S9_(i32 noundef %.052.lcssa, i32 noundef %339, ptr noundef %364, ptr %.sroa.0163.2, ptr noundef %20, ptr noundef %570, ptr noundef %29, ptr noundef %31, ptr noundef %30, ptr noundef %32)
           to label %571 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 571:                                              ; preds = %569, %567
@@ -2457,7 +2457,7 @@ _ZNSt24uniform_int_distributionImEclIN3gmx16ThreeFry2x64FastILj64EEEEEmRT_RKNS0_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10insert_ioniPSt6vectorIiSaIiEEPiN3gmx8ArrayRefIKiEEPA3_fP5t_pbciiPKcP7t_atomsfS2_(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture readonly %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr nocapture noundef readonly %9, float noundef %10, ptr nocapture noundef %11) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10insert_ioniPSt6vectorIiSaIiEEPiN3gmx8ArrayRefIKiEEPA3_fP5t_pbciiPKcP7t_atomsfS2_(i32 noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef writeonly %2, ptr nocapture readonly %3, ptr noundef %4, ptr noundef nonnull %5, i32 noundef range(i32 -1, 2) %6, i32 noundef %7, ptr noundef %8, ptr nocapture noundef nonnull readonly %9, float noundef %10, ptr nocapture noundef nonnull %11) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %13 = alloca [3 x float], align 4
   %14 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %15 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2553,7 +2553,7 @@ _ZL22solventMoleculeIndicesiiN3gmx8ArrayRefIKiEE.exit: ; preds = %.lr.ph.i, %_ZN
   %52 = load i32, ptr %.sroa.0.029.i.us, align 4
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds [3 x float], ptr %4, i64 %53
-  invoke void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef %5, ptr noundef %50, ptr noundef %54, ptr noundef nonnull %13)
+  invoke void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %50, ptr noundef %54, ptr noundef nonnull %13)
           to label %.noexc.us unwind label %.loopexit.split.us
 
 .noexc.us:                                        ; preds = %51
@@ -2631,7 +2631,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.us:                 ; preds = %70, %_ZNSt6vectorIi
   %82 = load i32, ptr %.sroa.0.029.i, align 4
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds [3 x float], ptr %4, i64 %83
-  invoke void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef %5, ptr noundef %78, ptr noundef %84, ptr noundef nonnull %13)
+  invoke void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef %78, ptr noundef %84, ptr noundef nonnull %13)
           to label %.noexc unwind label %.loopexit.split
 
 .noexc:                                           ; preds = %81
@@ -2876,7 +2876,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit51:                  ; preds = %.loopexit, %175
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL9sort_ionsiiPKiN3gmx8ArrayRefIS_EEP7t_atomsPA3_fPPcS9_S9_S9_(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) unnamed_addr #0 {
+define internal fastcc void @_ZL9sort_ionsiiPKiN3gmx8ArrayRefIS_EEP7t_atomsPA3_fPPcS9_S9_S9_(i32 noundef %0, i32 noundef range(i32 1, 0) %1, ptr nocapture noundef readonly %2, ptr nocapture readonly %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) unnamed_addr #0 {
   %11 = load i32, ptr %4, align 8
   %12 = sext i32 %11 to i64
   %13 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.39, i32 noundef 207, i64 noundef %12, i64 noundef 12)

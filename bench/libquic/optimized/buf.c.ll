@@ -69,7 +69,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @buf_mem_grow(ptr nocapture noundef %buf, i64 noundef %len, i8 noundef signext %clean) unnamed_addr #0 {
+define internal fastcc noundef i64 @buf_mem_grow(ptr nocapture noundef %buf, i64 noundef %len, i8 noundef signext range(i8 0, 2) %clean) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %buf, align 8
   %cmp.not = icmp ult i64 %0, %len

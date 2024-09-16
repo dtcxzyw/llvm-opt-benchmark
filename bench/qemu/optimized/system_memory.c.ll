@@ -1036,8 +1036,8 @@ flatview_ref.exit30:                              ; preds = %while.end6.i23, %wh
 if.then11:                                        ; preds = %flatview_ref.exit30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tmpview, i8 0, i64 56, i1 false)
   %spec.store.select = select i1 %tobool5.not, ptr %tmpview, ptr %1
-  call fastcc void @address_space_update_topology_pass(ptr noundef nonnull %as, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %call2, i1 noundef zeroext false)
-  call fastcc void @address_space_update_topology_pass(ptr noundef nonnull %as, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %call2, i1 noundef zeroext true)
+  call fastcc void @address_space_update_topology_pass(ptr noundef nonnull %as, ptr noundef nonnull %spec.store.select, ptr noundef %call2, i1 noundef zeroext false)
+  call fastcc void @address_space_update_topology_pass(ptr noundef nonnull %as, ptr noundef nonnull %spec.store.select, ptr noundef %call2, i1 noundef zeroext true)
   br label %while.end
 
 while.end:                                        ; preds = %flatview_ref.exit30, %if.then11
@@ -2024,15 +2024,15 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx17.i = getelementptr %struct.MemoryRegionIoeventfd, ptr %11, i64 %indvars.iv.i
   %13 = load i128, ptr %arrayidx17.i, align 16
   %cmp.i.i.i = icmp eq i128 %13, %start.sroa.0.0.insert.ext.i.i
-  br i1 %cmp.i.i.i, label %land.lhs.true.i.i, label %for.inc.i
+  br i1 %cmp.i.i.i, label %lor.lhs.false.i.i, label %for.inc.i
 
-land.lhs.true.i.i:                                ; preds = %for.body.i
+lor.lhs.false.i.i:                                ; preds = %for.body.i
   %size8.i.i = getelementptr inbounds i8, ptr %arrayidx17.i, i64 16
   %14 = load i128, ptr %size8.i.i, align 16
   %cmp.i22.not.i.i = icmp eq i128 %14, 0
   br i1 %cmp.i22.not.i.i, label %memory_region_dispatch_write_eventfds.exit, label %lor.lhs.false11.i.i
 
-lor.lhs.false11.i.i:                              ; preds = %land.lhs.true.i.i
+lor.lhs.false11.i.i:                              ; preds = %lor.lhs.false.i.i
   %cmp.i31.i.i = icmp eq i128 %14, %size.sroa.0.0.insert.ext.i.i
   br i1 %cmp.i31.i.i, label %land.lhs.true24.i.i, label %for.inc.i
 
@@ -2051,7 +2051,7 @@ for.inc.i:                                        ; preds = %land.lhs.true28.i.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %if.end11, label %for.body.i, !llvm.loop !27
 
-memory_region_dispatch_write_eventfds.exit:       ; preds = %land.lhs.true.i.i, %land.lhs.true24.i.i, %land.lhs.true28.i.i
+memory_region_dispatch_write_eventfds.exit:       ; preds = %lor.lhs.false.i.i, %land.lhs.true24.i.i, %land.lhs.true28.i.i
   %e13.le.i = getelementptr %struct.MemoryRegionIoeventfd, ptr %11, i64 %indvars.iv.i, i32 3
   %16 = load ptr, ptr %e13.le.i, align 16
   %call20.i = tail call i32 @event_notifier_set(ptr noundef %16) #19
@@ -2082,7 +2082,7 @@ return:                                           ; preds = %memory_region_dispa
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @access_with_adjusted_size(i64 noundef %addr, ptr noundef %value, i32 noundef %size, i32 noundef %access_size_min, i32 noundef %access_size_max, ptr nocapture noundef readonly %access_fn, ptr noundef %mr, i32 %attrs.coerce) unnamed_addr #0 {
+define internal fastcc i32 @access_with_adjusted_size(i64 noundef %addr, ptr noundef %value, i32 noundef range(i32 1, 129) %size, i32 noundef %access_size_min, i32 noundef %access_size_max, ptr nocapture noundef readonly %access_fn, ptr noundef %mr, i32 %attrs.coerce) unnamed_addr #0 {
 entry:
   %tobool1.not = icmp eq i32 %access_size_max, 0
   %spec.store.select1 = select i1 %tobool1.not, i32 4, i32 %access_size_max
@@ -2140,8 +2140,7 @@ if.end24:                                         ; preds = %if.end20, %land.lhs
   %reentrancy_guard_applied.0.not = phi i1 [ true, %land.lhs.true ], [ true, %land.lhs.true6 ], [ true, %land.lhs.true8 ], [ true, %land.lhs.true10 ], [ true, %land.lhs.true12 ], [ false, %if.end20 ], [ true, %entry ]
   %cond = tail call i32 @llvm.umin.i32(i32 %size, i32 %spec.store.select1)
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %access_size_min, i32 %cond)
-  %cond31 = tail call i32 @llvm.umax.i32(i32 %spec.store.select, i32 1)
-  %mul = shl i32 %cond31, 3
+  %mul = shl i32 %spec.store.select, 3
   %sub = sub i32 64, %mul
   %sh_prom = zext nneg i32 %sub to i64
   %shr = lshr i64 -1, %sh_prom
@@ -2150,42 +2149,35 @@ if.end24:                                         ; preds = %if.end20, %land.lhs
   %8 = getelementptr i8, ptr %mr.val, i64 32
   %mr.val.val = load i32, ptr %8, align 8
   %cmp.i = icmp eq i32 %mr.val.val, 1
-  %cmp3449.not = icmp eq i32 %size, 0
-  br i1 %cmp.i, label %for.cond.preheader, label %for.cond41.preheader
+  br i1 %cmp.i, label %for.body, label %for.body44
 
-for.cond41.preheader:                             ; preds = %if.end24
-  br i1 %cmp3449.not, label %if.end54, label %for.body44
-
-for.cond.preheader:                               ; preds = %if.end24
-  br i1 %cmp3449.not, label %if.end54, label %for.body
-
-for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %i.051 = phi i32 [ %9, %for.body ], [ 0, %for.cond.preheader ]
-  %r.050 = phi i32 [ %or, %for.body ], [ 0, %for.cond.preheader ]
-  %conv = zext nneg i32 %i.051 to i64
+for.body:                                         ; preds = %if.end24, %for.body
+  %i.049 = phi i32 [ %9, %for.body ], [ 0, %if.end24 ]
+  %r.048 = phi i32 [ %or, %for.body ], [ 0, %if.end24 ]
+  %conv = zext nneg i32 %i.049 to i64
   %add = add i64 %addr, %conv
-  %9 = add i32 %i.051, %cond31
+  %9 = add i32 %i.049, %spec.store.select
   %sub36 = sub i32 %size, %9
   %mul37 = shl i32 %sub36, 3
-  %call39 = tail call i32 %access_fn(ptr noundef %mr, i64 noundef %add, ptr noundef %value, i32 noundef %cond31, i32 noundef %mul37, i64 noundef %shr, i32 %attrs.coerce) #19, !callees !28
-  %or = or i32 %call39, %r.050
+  %call39 = tail call i32 %access_fn(ptr noundef %mr, i64 noundef %add, ptr noundef %value, i32 noundef %spec.store.select, i32 noundef %mul37, i64 noundef %shr, i32 %attrs.coerce) #19, !callees !28
+  %or = or i32 %call39, %r.048
   %cmp34 = icmp ult i32 %9, %size
   br i1 %cmp34, label %for.body, label %if.end54, !llvm.loop !29
 
-for.body44:                                       ; preds = %for.cond41.preheader, %for.body44
-  %i.148 = phi i32 [ %add52, %for.body44 ], [ 0, %for.cond41.preheader ]
-  %r.247 = phi i32 [ %or50, %for.body44 ], [ 0, %for.cond41.preheader ]
-  %conv45 = zext nneg i32 %i.148 to i64
+for.body44:                                       ; preds = %if.end24, %for.body44
+  %i.147 = phi i32 [ %add52, %for.body44 ], [ 0, %if.end24 ]
+  %r.246 = phi i32 [ %or50, %for.body44 ], [ 0, %if.end24 ]
+  %conv45 = zext nneg i32 %i.147 to i64
   %add46 = add i64 %addr, %conv45
-  %mul47 = shl nuw nsw i32 %i.148, 3
-  %call49 = tail call i32 %access_fn(ptr noundef %mr, i64 noundef %add46, ptr noundef %value, i32 noundef %cond31, i32 noundef %mul47, i64 noundef %shr, i32 %attrs.coerce) #19, !callees !28
-  %or50 = or i32 %call49, %r.247
-  %add52 = add i32 %i.148, %cond31
+  %mul47 = shl nuw nsw i32 %i.147, 3
+  %call49 = tail call i32 %access_fn(ptr noundef %mr, i64 noundef %add46, ptr noundef %value, i32 noundef %spec.store.select, i32 noundef %mul47, i64 noundef %shr, i32 %attrs.coerce) #19, !callees !28
+  %or50 = or i32 %call49, %r.246
+  %add52 = add i32 %i.147, %spec.store.select
   %cmp42 = icmp ult i32 %add52, %size
   br i1 %cmp42, label %for.body44, label %if.end54, !llvm.loop !30
 
-if.end54:                                         ; preds = %for.body44, %for.body, %for.cond41.preheader, %for.cond.preheader
-  %r.1 = phi i32 [ 0, %for.cond.preheader ], [ 0, %for.cond41.preheader ], [ %or, %for.body ], [ %or50, %for.body44 ]
+if.end54:                                         ; preds = %for.body44, %for.body
+  %r.1 = phi i32 [ %or, %for.body ], [ %or50, %for.body44 ]
   %10 = load ptr, ptr %dev, align 8
   %tobool56.not = icmp eq ptr %10, null
   %brmerge = or i1 %reentrancy_guard_applied.0.not, %tobool56.not
@@ -6538,7 +6530,7 @@ while.end.i.i:                                    ; preds = %entry
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
-  call fastcc void @memory_region_find_rcu(ptr noalias nonnull align 16 %tmp, ptr noundef %mr, i64 noundef %addr, i64 noundef %size)
+  call fastcc void @memory_region_find_rcu(ptr noalias align 16 %tmp, ptr noundef %mr, i64 noundef %addr, i64 noundef %size)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %agg.result, ptr noundef nonnull align 16 dereferenceable(64) %tmp, i64 64, i1 false)
   %mr1 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %2 = load ptr, ptr %mr1, align 16
@@ -6591,7 +6583,7 @@ glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %wh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @memory_region_find_rcu(ptr noalias nocapture writeonly align 16 %agg.result, ptr noundef readonly %mr, i64 noundef %addr, i64 noundef %size) unnamed_addr #0 {
+define internal fastcc void @memory_region_find_rcu(ptr noalias nocapture nonnull writeonly align 16 %agg.result, ptr noundef readonly %mr, i64 noundef %addr, i64 noundef %size) unnamed_addr #0 {
 entry:
   %range27 = alloca %struct.AddrRange, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %agg.result, i8 0, i64 64, i1 false)
@@ -6902,7 +6894,7 @@ while.end.i.i:                                    ; preds = %entry
   br label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i, %entry
-  call fastcc void @memory_region_find_rcu(ptr noalias nonnull align 16 %tmp, ptr noundef %container, i64 noundef %addr, i64 noundef 1)
+  call fastcc void @memory_region_find_rcu(ptr noalias align 16 %tmp, ptr noundef %container, i64 noundef %addr, i64 noundef 1)
   %mr1 = getelementptr inbounds i8, ptr %tmp, i64 16
   %2 = load ptr, ptr %mr1, align 16
   %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #19
@@ -9233,7 +9225,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @address_space_update_topology_pass(ptr nocapture noundef readonly %as, ptr nocapture noundef readonly %old_view, ptr nocapture noundef readonly %new_view, i1 noundef zeroext %adding) unnamed_addr #0 {
+define internal fastcc void @address_space_update_topology_pass(ptr nocapture noundef readonly %as, ptr nocapture noundef readonly %old_view, ptr nocapture noundef nonnull readonly %new_view, i1 noundef zeroext %adding) unnamed_addr #0 {
 entry:
   %mrs = alloca %struct.MemoryRegionSection, align 16
   %mrs53 = alloca %struct.MemoryRegionSection, align 16
@@ -11127,7 +11119,7 @@ if.end.i142:                                      ; preds = %if.then100
   br i1 %tobool.i, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.end.i142
-  tail call fastcc void @mtree_expand_owner(ptr noundef nonnull @.str.102, ptr noundef nonnull %.val53)
+  tail call fastcc void @mtree_expand_owner(ptr noundef nonnull @.str.102, ptr noundef %.val53)
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then5.i, %if.end.i142
@@ -11136,7 +11128,7 @@ if.end6.i:                                        ; preds = %if.then5.i, %if.end
   br i1 %or.cond8.not.i, label %if.then9.i, label %if.end101
 
 if.then9.i:                                       ; preds = %if.end6.i
-  tail call fastcc void @mtree_expand_owner(ptr noundef nonnull @.str.103, ptr noundef nonnull %.val)
+  tail call fastcc void @mtree_expand_owner(ptr noundef nonnull @.str.103, ptr noundef %.val)
   br label %if.end101
 
 if.end101:                                        ; preds = %if.then9.i, %if.end6.i, %if.then.i141, %if.end98
@@ -11252,9 +11244,9 @@ declare i32 @qemu_printf(ptr noundef, ...) local_unnamed_addr #2
 declare void @mtree_print_dispatch(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @mtree_expand_owner(ptr noundef %label, ptr noundef %obj) unnamed_addr #0 {
+define internal fastcc void @mtree_expand_owner(ptr noundef %label, ptr noundef nonnull %obj) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @object_dynamic_cast(ptr noundef %obj, ptr noundef nonnull @.str.51) #19
+  %call = tail call ptr @object_dynamic_cast(ptr noundef nonnull %obj, ptr noundef nonnull @.str.51) #19
   %tobool.not = icmp eq ptr %call, null
   %cond = select i1 %tobool.not, ptr @.str.106, ptr @.str.105
   %call1 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.104, ptr noundef %label, ptr noundef nonnull %cond) #19
@@ -11271,7 +11263,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end13
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  %call6 = tail call ptr @object_get_canonical_path(ptr noundef %obj) #19
+  %call6 = tail call ptr @object_get_canonical_path(ptr noundef nonnull %obj) #19
   %tobool7.not = icmp eq ptr %call6, null
   br i1 %tobool7.not, label %if.else10, label %if.then8
 
@@ -11281,7 +11273,7 @@ if.then8:                                         ; preds = %if.else
   br label %if.end13
 
 if.else10:                                        ; preds = %if.else
-  %call11 = tail call ptr @object_get_typename(ptr noundef %obj) #19
+  %call11 = tail call ptr @object_get_typename(ptr noundef nonnull %obj) #19
   %call12 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.109, ptr noundef %call11) #19
   br label %if.end13
 
@@ -11546,7 +11538,7 @@ if.end.i123:                                      ; preds = %if.then75
   br i1 %tobool.i, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.end.i123
-  tail call fastcc void @mtree_expand_owner(ptr noundef nonnull @.str.102, ptr noundef nonnull %mr.val88)
+  tail call fastcc void @mtree_expand_owner(ptr noundef nonnull @.str.102, ptr noundef %mr.val88)
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then5.i, %if.end.i123
@@ -11555,7 +11547,7 @@ if.end6.i:                                        ; preds = %if.then5.i, %if.end
   br i1 %or.cond8.not.i, label %if.then9.i, label %do.body107.sink.split
 
 if.then9.i:                                       ; preds = %if.end6.i
-  tail call fastcc void @mtree_expand_owner(ptr noundef nonnull @.str.103, ptr noundef nonnull %mr.val87)
+  tail call fastcc void @mtree_expand_owner(ptr noundef nonnull @.str.103, ptr noundef %mr.val87)
   br label %do.body107.sink.split
 
 if.else:                                          ; preds = %if.end15
@@ -11662,7 +11654,7 @@ if.end.i158:                                      ; preds = %if.then102
   br i1 %tobool.i153, label %if.then5.i163, label %if.end6.i159
 
 if.then5.i163:                                    ; preds = %if.end.i158
-  tail call fastcc void @mtree_expand_owner(ptr noundef nonnull @.str.102, ptr noundef nonnull %mr.val86)
+  tail call fastcc void @mtree_expand_owner(ptr noundef nonnull @.str.102, ptr noundef %mr.val86)
   br label %if.end6.i159
 
 if.end6.i159:                                     ; preds = %if.then5.i163, %if.end.i158
@@ -11671,7 +11663,7 @@ if.end6.i159:                                     ; preds = %if.then5.i163, %if.
   br i1 %or.cond8.not.i161, label %if.then9.i162, label %do.body107.sink.split
 
 if.then9.i162:                                    ; preds = %if.end6.i159
-  tail call fastcc void @mtree_expand_owner(ptr noundef nonnull @.str.103, ptr noundef nonnull %mr.val)
+  tail call fastcc void @mtree_expand_owner(ptr noundef nonnull @.str.103, ptr noundef %mr.val)
   br label %do.body107.sink.split
 
 do.body107.sink.split:                            ; preds = %memory_region_name.exit152, %if.then.i156, %if.end6.i159, %if.then9.i162, %cond.end67, %if.then.i122, %if.end6.i, %if.then9.i

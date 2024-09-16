@@ -857,7 +857,7 @@ define hidden { i64, i64 } @_Z19cvGetWindowRect_GTKPKc(ptr noundef %0) local_unn
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %15
-  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull %0)
+  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull %0)
           to label %19 unwind label %24
 
 19:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -1001,7 +1001,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %33, %52, %65, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1538,7 +1538,7 @@ define hidden noundef double @_Z19cvGetModeWindow_GTKPKc(ptr noundef %0) local_u
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %15
-  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull %0)
+  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull %0)
           to label %19 unwind label %24
 
 19:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -1720,7 +1720,7 @@ define hidden void @_Z19cvSetModeWindow_GTKPKcd(ptr noundef %0, double noundef %
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %16
-  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull %0)
+  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %0)
           to label %20 unwind label %25
 
 20:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -1935,7 +1935,7 @@ define hidden void @_Z18setWindowTitle_GTKRKNSt7__cxx1112basic_stringIcSt11char_
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %2
   %10 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
-  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %10)
+  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %10)
           to label %11 unwind label %92
 
 11:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -1949,7 +1949,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %2
 
 14:                                               ; preds = %13
   %15 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
-  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef %15)
+  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef %15)
           to label %16 unwind label %94
 
 16:                                               ; preds = %14
@@ -2307,7 +2307,7 @@ define hidden noundef double @_Z27cvGetPropWindowAutoSize_GTKPKc(ptr noundef %0)
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %13
-  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull %0)
+  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull %0)
           to label %17 unwind label %19
 
 17:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -2459,7 +2459,7 @@ define hidden noundef double @_Z20cvGetRatioWindow_GTKPKc(ptr noundef %0) local_
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %13
-  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull %0)
+  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull %0)
           to label %17 unwind label %19
 
 17:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -2646,7 +2646,7 @@ define range(i32 0, 2) i32 @cvNamedWindow(ptr noundef %0, i32 noundef %1) local_
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %21
   %25 = load ptr, ptr %3, align 8
-  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %25)
+  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %25)
           to label %26 unwind label %64
 
 26:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -2740,7 +2740,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %26, %46, %59, %_ZNS
           to label %68 unwind label %108
 
 68:                                               ; preds = %66
-  invoke fastcc void @_ZL12namedWindow_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef %1)
+  invoke fastcc void @_ZL12namedWindow_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef %1)
           to label %69 unwind label %110
 
 69:                                               ; preds = %68
@@ -2854,7 +2854,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit20:          ; preds = %_ZNSt16_Sp_counted_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12namedWindow_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12namedWindow_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %struct._GdkGeometry, align 8
@@ -3898,7 +3898,7 @@ define void @cvShowImage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 p
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %17
-  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull %0)
+  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %0)
           to label %21 unwind label %101
 
 21:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -3911,7 +3911,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %17
           to label %25 unwind label %103
 
 25:                                               ; preds = %23
-  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull %0)
+  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull %0)
           to label %26 unwind label %103
 
 26:                                               ; preds = %25
@@ -4137,7 +4137,7 @@ _Z22cvImageWidget_get_typev.exit:                 ; preds = %.noexc, %114
           to label %123 unwind label %103
 
 123:                                              ; preds = %_Z22cvImageWidget_get_typev.exit
-  invoke fastcc void @_ZL21cvImageWidgetSetImageP14_CvImageWidgetPKv(ptr noundef %122, ptr noundef nonnull %1)
+  invoke fastcc void @_ZL21cvImageWidgetSetImageP14_CvImageWidgetPKv(ptr noundef %122, ptr noundef %1)
           to label %124 unwind label %103
 
 124:                                              ; preds = %123, %_ZNSt10shared_ptrI8CvWindowED2Ev.exit.thread
@@ -4234,7 +4234,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit30:          ; preds = %124, %143, %156, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL21cvImageWidgetSetImageP14_CvImageWidgetPKv(ptr noundef %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL21cvImageWidgetSetImageP14_CvImageWidgetPKv(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.CvMat, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -4404,7 +4404,7 @@ define void @cvResizeWindow(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %15
-  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull %0)
+  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull %0)
           to label %19 unwind label %21
 
 19:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -4632,7 +4632,7 @@ define void @cvMoveWindow(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %15
-  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull %0)
+  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull %0)
           to label %19 unwind label %21
 
 19:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -4878,7 +4878,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL17icvCreateTrackbarPKcS0_
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %46
-  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull %1)
+  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull %1)
           to label %50 unwind label %52
 
 50:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -4898,7 +4898,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %46
           to label %56 unwind label %154
 
 56:                                               ; preds = %54
-  invoke fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr nonnull %51, ptr noundef nonnull align 8 dereferenceable(32) %17)
+  invoke fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %16, ptr nonnull %51, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %57 unwind label %156
 
 57:                                               ; preds = %56
@@ -5429,7 +5429,7 @@ define void @cvSetMouseCallback(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %15
-  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull %0)
+  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull %0)
           to label %19 unwind label %21
 
 19:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -5617,7 +5617,7 @@ define i32 @cvGetTrackbarPos(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %28
-  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull %1)
+  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull %1)
           to label %32 unwind label %34
 
 32:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -5636,7 +5636,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %28
           to label %37 unwind label %40
 
 37:                                               ; preds = %36
-  invoke fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr nonnull %33, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  invoke fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %8, ptr nonnull %33, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %38 unwind label %42
 
 38:                                               ; preds = %37
@@ -5833,7 +5833,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %_ZNSt10shared_ptrI1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr readonly %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr readonly %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %.not = icmp eq ptr %.0.val, null
@@ -6190,7 +6190,7 @@ define void @cvSetTrackbarPos(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %31
-  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull %1)
+  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull %1)
           to label %35 unwind label %37
 
 35:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -6209,7 +6209,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %31
           to label %40 unwind label %46
 
 40:                                               ; preds = %39
-  invoke fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr nonnull %36, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr nonnull %36, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %41 unwind label %48
 
 41:                                               ; preds = %40
@@ -6587,7 +6587,7 @@ define void @cvSetTrackbarMax(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %29
-  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull %1)
+  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull %1)
           to label %33 unwind label %35
 
 33:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -6606,7 +6606,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %29
           to label %38 unwind label %41
 
 38:                                               ; preds = %37
-  invoke fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr nonnull %34, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr nonnull %34, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %39 unwind label %43
 
 39:                                               ; preds = %38
@@ -6917,7 +6917,7 @@ define void @cvSetTrackbarMin(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %29
-  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull %1)
+  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull %1)
           to label %33 unwind label %35
 
 33:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -6936,7 +6936,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %29
           to label %38 unwind label %41
 
 38:                                               ; preds = %37
-  invoke fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr nonnull %34, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr nonnull %34, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %39 unwind label %43
 
 39:                                               ; preds = %38
@@ -7205,7 +7205,7 @@ define ptr @cvGetWindowHandle(ptr noundef %0) local_unnamed_addr #3 personality 
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %13
-  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull %0)
+  invoke fastcc void @_ZL19icvFindWindowByNamePKc(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull %0)
           to label %17 unwind label %19
 
 17:                                               ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -8192,7 +8192,7 @@ _Z22cvImageWidget_get_typev.exit63:               ; preds = %19, %21
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr inbounds i8, ptr %32, i64 32
   %39 = load i32, ptr %38, align 8
-  tail call fastcc void @_ZL22cvImageWidget_set_sizeP10_GtkWidgetii(ptr noundef nonnull %0, i32 noundef %37, i32 noundef %39)
+  tail call fastcc void @_ZL22cvImageWidget_set_sizeP10_GtkWidgetii(ptr noundef %0, i32 noundef %37, i32 noundef %39)
   br label %45
 
 40:                                               ; preds = %33
@@ -8200,7 +8200,7 @@ _Z22cvImageWidget_get_typev.exit63:               ; preds = %19, %21
   %42 = load i32, ptr %41, align 4
   %43 = getelementptr inbounds i8, ptr %1, i64 12
   %44 = load i32, ptr %43, align 4
-  tail call fastcc void @_ZL22cvImageWidget_set_sizeP10_GtkWidgetii(ptr noundef nonnull %0, i32 noundef %42, i32 noundef %44)
+  tail call fastcc void @_ZL22cvImageWidget_set_sizeP10_GtkWidgetii(ptr noundef %0, i32 noundef %42, i32 noundef %44)
   br label %45
 
 45:                                               ; preds = %40, %35
@@ -8331,7 +8331,7 @@ declare void @gtk_style_set_background(ptr noundef, ptr noundef, i32 noundef) lo
 declare void @gtk_widget_set_allocation(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL22cvImageWidget_set_sizeP10_GtkWidgetii(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #13 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL22cvImageWidget_set_sizeP10_GtkWidgetii(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = load i64, ptr @_ZZ22cvImageWidget_get_typevE10image_type, align 8
@@ -8346,7 +8346,7 @@ define internal fastcc void @_ZL22cvImageWidget_set_sizeP10_GtkWidgetii(ptr noun
 
 _Z22cvImageWidget_get_typev.exit:                 ; preds = %3, %7
   %10 = phi i64 [ %9, %7 ], [ %6, %3 ]
-  %11 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %10)
+  %11 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %10)
   %12 = getelementptr inbounds i8, ptr %11, i64 48
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
@@ -11383,7 +11383,7 @@ define linkonce_odr hidden void @_ZN2cv4impl12GTKBackendUI12createWindowERKNSt7_
   br label %130
 
 37:                                               ; preds = %9, %31
-  call fastcc void @_ZL12namedWindow_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3)
+  call fastcc void @_ZL12namedWindow_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3)
   %38 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #29
           to label %.noexc25 unwind label %128
 
@@ -12355,7 +12355,7 @@ _Z22cvImageWidget_get_typev.exit:                 ; preds = %.noexc, %34
   %77 = and i32 %70, 20479
   %78 = or disjoint i32 %77, 1111621632
   store i32 %78, ptr %9, align 8, !alias.scope !62
-  invoke fastcc void @_ZL21cvImageWidgetSetImageP14_CvImageWidgetPKv(ptr noundef nonnull %42, ptr noundef nonnull %9)
+  invoke fastcc void @_ZL21cvImageWidgetSetImageP14_CvImageWidgetPKv(ptr noundef nonnull %42, ptr noundef %9)
           to label %79 unwind label %112
 
 79:                                               ; preds = %61

@@ -1907,7 +1907,7 @@ Vec_WecStart.exit:                                ; preds = %2, %6
 
 33:                                               ; preds = %22
   %34 = shl nsw i32 %31, 1
-  %35 = tail call noundef i32 @llvm.smax.i32(i32 %34, i32 %21)
+  %35 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %34, i32 %21)
   %36 = load i32, ptr %4, align 8
   %.not.i.i23 = icmp slt i32 %36, %35
   br i1 %.not.i.i23, label %37, label %Vec_WecGrow.exit.i
@@ -2255,7 +2255,7 @@ define void @Vec_IntInsertOrder(ptr nocapture noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntInsert(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc void @Vec_IntInsert(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1, i32 noundef %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8

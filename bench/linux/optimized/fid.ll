@@ -572,7 +572,7 @@ declare dso_local void @do_trace_9p_fid_get(ptr noundef) local_unnamed_addr #3
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @v9fs_fid_find(ptr noundef %0, i32 %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @v9fs_fid_find(ptr noundef %0, i32 %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

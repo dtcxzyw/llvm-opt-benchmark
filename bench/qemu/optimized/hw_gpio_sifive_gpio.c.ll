@@ -233,20 +233,20 @@ deposit32.exit:                                   ; preds = %trace_sifive_gpio_s
   %and6.i = shl nuw i32 %conv6, %line
   %or.i = or i32 %and.i, %and6.i
   store i32 %or.i, ptr %in_mask, align 8
-  br i1 %cmp5, label %deposit32.exit20, label %if.end16
+  br i1 %cmp5, label %deposit32.exit19, label %if.end16
 
-deposit32.exit20:                                 ; preds = %deposit32.exit
+deposit32.exit19:                                 ; preds = %deposit32.exit
   %in = getelementptr inbounds i8, ptr %call.i, i64 1668
   %7 = load i32, ptr %in, align 4
   %cmp12 = icmp ne i32 %value, 0
   %conv13 = zext i1 %cmp12 to i32
   %and.i16 = and i32 %7, %not.i
-  %and6.i18 = shl nuw i32 %conv13, %line
-  %or.i19 = or i32 %and.i16, %and6.i18
-  store i32 %or.i19, ptr %in, align 4
+  %and6.i17 = shl nuw i32 %conv13, %line
+  %or.i18 = or i32 %and.i16, %and6.i17
+  store i32 %or.i18, ptr %in, align 4
   br label %if.end16
 
-if.end16:                                         ; preds = %deposit32.exit20, %deposit32.exit
+if.end16:                                         ; preds = %deposit32.exit19, %deposit32.exit
   tail call fastcc void @update_state(ptr noundef nonnull %call.i)
   ret void
 }
@@ -612,18 +612,18 @@ entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %ngpio = getelementptr inbounds i8, ptr %s, i64 1676
   %0 = load i32, ptr %ngpio, align 4
-  %cmp166.not = icmp eq i32 %0, 0
-  br i1 %cmp166.not, label %entry.for.end_crit_edge, label %for.body.lr.ph
+  %cmp162.not = icmp eq i32 %0, 0
+  br i1 %cmp162.not, label %entry.for.end_crit_edge, label %for.body.lr.ph
 
 entry.for.end_crit_edge:                          ; preds = %entry
   %high_ip.i.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 1644
-  %.pre176 = load i32, ptr %high_ip.i.phi.trans.insert, align 4
+  %.pre172 = load i32, ptr %high_ip.i.phi.trans.insert, align 4
   %low_ip.i.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 1652
-  %.pre177 = load i32, ptr %low_ip.i.phi.trans.insert, align 4
+  %.pre173 = load i32, ptr %low_ip.i.phi.trans.insert, align 4
   %rise_ip.i.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 1628
-  %.pre178 = load i32, ptr %rise_ip.i.phi.trans.insert, align 4
+  %.pre174 = load i32, ptr %rise_ip.i.phi.trans.insert, align 4
   %fall_ip.i.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 1636
-  %.pre179 = load i32, ptr %fall_ip.i.phi.trans.insert, align 4
+  %.pre175 = load i32, ptr %fall_ip.i.phi.trans.insert, align 4
   br label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -642,11 +642,11 @@ for.body.lr.ph:                                   ; preds = %entry
   %output = getelementptr inbounds i8, ptr %s, i64 1344
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %deposit32.exit153
-  %1 = phi i32 [ %0, %for.body.lr.ph ], [ %26, %deposit32.exit153 ]
-  %i.0167 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %deposit32.exit153 ]
-  %conv2 = trunc nuw i64 %i.0167 to i32
-  %exitcond.not = icmp eq i64 %i.0167, 32
+for.body:                                         ; preds = %for.body.lr.ph, %deposit32.exit149
+  %1 = phi i32 [ %0, %for.body.lr.ph ], [ %26, %deposit32.exit149 ]
+  %i.0163 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %deposit32.exit149 ]
+  %conv2 = trunc nuw i64 %i.0163 to i32
+  %exitcond.not = icmp eq i64 %i.0163, 32
   br i1 %exitcond.not, label %if.else.i, label %extract32.exit113
 
 if.else.i:                                        ; preds = %for.body
@@ -693,44 +693,44 @@ do.body:                                          ; preds = %extract32.exit113
   br i1 %cmp.i.not, label %if.then89, label %if.then73
 
 if.then73:                                        ; preds = %do.body
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i64 noundef %i.0167) #7
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i64 noundef %i.0163) #7
   br label %if.then89
 
 if.end74:                                         ; preds = %extract32.exit113
   %22 = load i32, ptr %out_xor18, align 16
   %23 = load i32, ptr %port13, align 4
-  %shr.i71161 = xor i32 %22, %23
+  %shr.i71157 = xor i32 %22, %23
   %24 = load i32, ptr %pue, align 16
-  %frombool26.frombool64.v.v.v = select i1 %tobool30.not, i32 %24, i32 %shr.i71161
+  %frombool26.frombool64.v.v.v = select i1 %tobool30.not, i32 %24, i32 %shr.i71157
   %frombool26.frombool64.v.v = lshr i32 %frombool26.frombool64.v.v.v, %conv2
   %frombool26.frombool64.v = trunc i32 %frombool26.frombool64.v.v to i8
   %frombool26.frombool64 = and i8 %frombool26.frombool64.v, 1
   %actual_value.0 = select i1 %tobool11.not, i8 %frombool26.frombool64, i8 %frombool7
-  br i1 %tobool30.not, label %deposit32.exit153, label %if.then89
+  br i1 %tobool30.not, label %deposit32.exit149, label %if.then89
 
 if.then89:                                        ; preds = %do.body, %if.then73, %if.end74
-  %actual_value.0159 = phi i8 [ %actual_value.0, %if.end74 ], [ %frombool7, %if.then73 ], [ %frombool7, %do.body ]
-  %arrayidx = getelementptr [32 x ptr], ptr %output, i64 0, i64 %i.0167
+  %actual_value.0155 = phi i8 [ %actual_value.0, %if.end74 ], [ %frombool7, %if.then73 ], [ %frombool7, %do.body ]
+  %arrayidx = getelementptr [32 x ptr], ptr %output, i64 0, i64 %i.0163
   %25 = load ptr, ptr %arrayidx, align 8
-  %conv91 = zext nneg i8 %actual_value.0159 to i32
+  %conv91 = zext nneg i8 %actual_value.0155 to i32
   tail call void @qemu_set_irq(ptr noundef %25, i32 noundef %conv91) #7
   %.pre = load i32, ptr %high_ip52, align 4
-  %.pre171 = load i32, ptr %low_ip47, align 4
-  %.pre172 = load i32, ptr %rise_ip37, align 4
-  %.pre173 = load i32, ptr %fall_ip42, align 4
-  %.pre174 = load i32, ptr %value, align 16
-  %.pre175 = load i32, ptr %ngpio, align 4
-  br label %deposit32.exit153
+  %.pre167 = load i32, ptr %low_ip47, align 4
+  %.pre168 = load i32, ptr %rise_ip37, align 4
+  %.pre169 = load i32, ptr %fall_ip42, align 4
+  %.pre170 = load i32, ptr %value, align 16
+  %.pre171 = load i32, ptr %ngpio, align 4
+  br label %deposit32.exit149
 
-deposit32.exit153:                                ; preds = %if.end74, %if.then89
-  %26 = phi i32 [ %.pre175, %if.then89 ], [ %1, %if.end74 ]
-  %27 = phi i32 [ %.pre174, %if.then89 ], [ %2, %if.end74 ]
-  %28 = phi i32 [ %.pre173, %if.then89 ], [ %15, %if.end74 ]
-  %29 = phi i32 [ %.pre172, %if.then89 ], [ %13, %if.end74 ]
-  %30 = phi i32 [ %.pre171, %if.then89 ], [ %17, %if.end74 ]
+deposit32.exit149:                                ; preds = %if.end74, %if.then89
+  %26 = phi i32 [ %.pre171, %if.then89 ], [ %1, %if.end74 ]
+  %27 = phi i32 [ %.pre170, %if.then89 ], [ %2, %if.end74 ]
+  %28 = phi i32 [ %.pre169, %if.then89 ], [ %15, %if.end74 ]
+  %29 = phi i32 [ %.pre168, %if.then89 ], [ %13, %if.end74 ]
+  %30 = phi i32 [ %.pre167, %if.then89 ], [ %17, %if.end74 ]
   %31 = phi i32 [ %.pre, %if.then89 ], [ %19, %if.end74 ]
-  %actual_value.0160 = phi i8 [ %actual_value.0159, %if.then89 ], [ %actual_value.0, %if.end74 ]
-  %tobool96 = trunc nuw i8 %actual_value.0160 to i1
+  %actual_value.0156 = phi i8 [ %actual_value.0155, %if.then89 ], [ %actual_value.0, %if.end74 ]
+  %tobool96 = trunc nuw i8 %actual_value.0156 to i1
   %32 = select i1 %tobool35, i1 %tobool96, i1 false
   %33 = select i1 %tobool55, i1 true, i1 %32
   %conv108 = zext i1 %33 to i32
@@ -743,55 +743,55 @@ deposit32.exit153:                                ; preds = %if.end74, %if.then8
   %34 = select i1 %tobool50, i1 true, i1 %lnot115
   %conv122 = zext i1 %34 to i32
   %and.i122 = and i32 %30, %not.i
-  %and6.i124 = shl nuw i32 %conv122, %conv2
-  %or.i125 = or i32 %and6.i124, %and.i122
-  store i32 %or.i125, ptr %low_ip47, align 4
+  %and6.i123 = shl nuw i32 %conv122, %conv2
+  %or.i124 = or i32 %and6.i123, %and.i122
+  store i32 %or.i124, ptr %low_ip47, align 4
   %lnot132 = xor i1 %tobool, true
   %35 = select i1 %32, i1 %lnot132, i1 false
   %narrow = select i1 %tobool40.not, i1 true, i1 %35
   %conv140 = zext i1 %narrow to i32
-  %and.i131 = and i32 %29, %not.i
-  %and6.i133 = shl nuw i32 %conv140, %conv2
-  %or.i134 = or i32 %and6.i133, %and.i131
-  store i32 %or.i134, ptr %rise_ip37, align 4
+  %and.i130 = and i32 %29, %not.i
+  %and6.i131 = shl nuw i32 %conv140, %conv2
+  %or.i132 = or i32 %and6.i131, %and.i130
+  store i32 %or.i132, ptr %rise_ip37, align 4
   %36 = select i1 %lnot115, i1 %tobool, i1 false
-  %narrow162 = select i1 %tobool45.not, i1 true, i1 %36
-  %conv156 = zext i1 %narrow162 to i32
-  %and.i140 = and i32 %28, %not.i
-  %and6.i142 = shl nuw i32 %conv156, %conv2
-  %or.i143 = or i32 %and.i140, %and6.i142
-  store i32 %or.i143, ptr %fall_ip42, align 4
+  %narrow158 = select i1 %tobool45.not, i1 true, i1 %36
+  %conv156 = zext i1 %narrow158 to i32
+  %and.i138 = and i32 %28, %not.i
+  %and6.i139 = shl nuw i32 %conv156, %conv2
+  %or.i140 = or i32 %and.i138, %and6.i139
+  store i32 %or.i140, ptr %fall_ip42, align 4
   %conv162 = zext i1 %32 to i32
-  %and.i149 = and i32 %27, %not.i
-  %and6.i151 = shl nuw i32 %conv162, %conv2
-  %or.i152 = or i32 %and.i149, %and6.i151
-  store i32 %or.i152, ptr %value, align 16
-  %inc = add nuw nsw i64 %i.0167, 1
+  %and.i146 = and i32 %27, %not.i
+  %and6.i147 = shl nuw i32 %conv162, %conv2
+  %or.i148 = or i32 %and.i146, %and6.i147
+  store i32 %or.i148, ptr %value, align 16
+  %inc = add nuw nsw i64 %i.0163, 1
   %conv = zext i32 %26 to i64
   %cmp = icmp ult i64 %inc, %conv
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !7
 
-for.end.loopexit:                                 ; preds = %deposit32.exit153
+for.end.loopexit:                                 ; preds = %deposit32.exit149
   %37 = icmp eq i32 %26, 0
   br label %for.end
 
 for.end:                                          ; preds = %entry.for.end_crit_edge, %for.end.loopexit
-  %38 = phi i32 [ %.pre179, %entry.for.end_crit_edge ], [ %or.i143, %for.end.loopexit ]
-  %39 = phi i32 [ %.pre178, %entry.for.end_crit_edge ], [ %or.i134, %for.end.loopexit ]
-  %40 = phi i32 [ %.pre177, %entry.for.end_crit_edge ], [ %or.i125, %for.end.loopexit ]
-  %41 = phi i32 [ %.pre176, %entry.for.end_crit_edge ], [ %or.i, %for.end.loopexit ]
+  %38 = phi i32 [ %.pre175, %entry.for.end_crit_edge ], [ %or.i140, %for.end.loopexit ]
+  %39 = phi i32 [ %.pre174, %entry.for.end_crit_edge ], [ %or.i132, %for.end.loopexit ]
+  %40 = phi i32 [ %.pre173, %entry.for.end_crit_edge ], [ %or.i124, %for.end.loopexit ]
+  %41 = phi i32 [ %.pre172, %entry.for.end_crit_edge ], [ %or.i, %for.end.loopexit ]
   %.lcssa = phi i1 [ true, %entry.for.end_crit_edge ], [ %37, %for.end.loopexit ]
   %high_ie.i = getelementptr inbounds i8, ptr %s, i64 1640
   %42 = load i32, ptr %high_ie.i, align 8
-  %and.i154 = and i32 %42, %41
+  %and.i150 = and i32 %42, %41
   %low_ie.i = getelementptr inbounds i8, ptr %s, i64 1648
   %43 = load i32, ptr %low_ie.i, align 16
   %and1.i = and i32 %43, %40
-  %or.i155 = or i32 %and1.i, %and.i154
+  %or.i151 = or i32 %and1.i, %and.i150
   %rise_ie.i = getelementptr inbounds i8, ptr %s, i64 1624
   %44 = load i32, ptr %rise_ie.i, align 8
   %and2.i = and i32 %44, %39
-  %or3.i = or i32 %or.i155, %and2.i
+  %or3.i = or i32 %or.i151, %and2.i
   %fall_ie.i = getelementptr inbounds i8, ptr %s, i64 1632
   %45 = load i32, ptr %fall_ie.i, align 16
   %and4.i = and i32 %45, %38
@@ -847,8 +847,8 @@ trace_sifive_gpio_update_output_irq.exit.i:       ; preds = %if.else.i.i.i, %if.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %inc.i = add nuw i32 %i.020.i, 1
   %54 = load i32, ptr %ngpio, align 4
-  %cmp.i156 = icmp ult i32 %inc.i, %54
-  br i1 %cmp.i156, label %for.body.i, label %update_output_irq.exit, !llvm.loop !8
+  %cmp.i152 = icmp ult i32 %inc.i, %54
+  br i1 %cmp.i152, label %for.body.i, label %update_output_irq.exit, !llvm.loop !8
 
 update_output_irq.exit:                           ; preds = %trace_sifive_gpio_update_output_irq.exit.i, %for.end
   ret void

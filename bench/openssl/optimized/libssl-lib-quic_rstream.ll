@@ -295,7 +295,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @read_internal(ptr noundef %qrs, ptr nocapture noundef writeonly %buf, i64 noundef %size, ptr nocapture noundef writeonly %readbytes, ptr nocapture noundef writeonly %fin, i32 noundef %drop) unnamed_addr #0 {
+define internal fastcc i32 @read_internal(ptr noundef %qrs, ptr nocapture noundef writeonly %buf, i64 noundef %size, ptr nocapture noundef writeonly %readbytes, ptr nocapture noundef writeonly %fin, i32 noundef range(i32 0, 2) %drop) unnamed_addr #0 {
 entry:
   %iter = alloca ptr, align 8
   %range = alloca %struct.uint_range_st, align 8

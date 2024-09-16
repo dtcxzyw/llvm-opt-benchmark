@@ -42,7 +42,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr106drop_in_place$LT$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..pg..backend..Pg$GT$$GT$17h5ba7fbafb10b375aE"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr106drop_in_place$LT$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..pg..backend..Pg$GT$$GT$17h5ba7fbafb10b375aE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !range !4, !noundef !5
@@ -113,7 +113,7 @@ define hidden void @"_ZN4core3ptr3804drop_in_place$LT$diesel..pg..connection..Pg
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h318c98bf762b5982E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h318c98bf762b5982E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -144,7 +144,7 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hdf6008bd8fa409a2E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hdf6008bd8fa409a2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -175,7 +175,7 @@ define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17hb69bc8b7e9499740E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17hb69bc8b7e9499740E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !34, !noundef !5
   %switch = icmp slt i64 %3, -9223372036854775806
@@ -433,7 +433,7 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
 96:                                               ; preds = %91
   %97 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17hb69bc8b7e9499740E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #11
+  invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17hb69bc8b7e9499740E"(ptr noalias noundef align 8 dereferenceable(24) %22) #11
           to label %102 unwind label %98, !noalias !95
 
 98:                                               ; preds = %96
@@ -660,7 +660,7 @@ common.resume:                                    ; preds = %.thread247, %179, %
 143:                                              ; preds = %"_ZN6diesel10connection15statement_cache27StatementCacheKey$LT$DB$GT$3sql17h873d913874de3e67E.exit.thread275"
   %144 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h318c98bf762b5982E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #11
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h318c98bf762b5982E"(ptr noalias noundef align 8 dereferenceable(24) %35) #11
           to label %.thread247 unwind label %164
 
 "_ZN6diesel10connection15statement_cache27StatementCacheKey$LT$DB$GT$3sql17h873d913874de3e67E.exit.thread275": ; preds = %.noexc, %"_ZN6diesel10connection15statement_cache27StatementCacheKey$LT$DB$GT$3sql17h873d913874de3e67E.exit.thread"
@@ -843,7 +843,7 @@ common.resume:                                    ; preds = %.thread247, %179, %
 201:                                              ; preds = %207, %"_ZN6diesel10connection15statement_cache27StatementCacheKey$LT$DB$GT$3sql17h873d913874de3e67E.exit95.thread312"
   %202 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h318c98bf762b5982E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30) #11
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h318c98bf762b5982E"(ptr noalias noundef align 8 dereferenceable(24) %30) #11
           to label %.thread290 unwind label %164
 
 "_ZN6diesel10connection15statement_cache27StatementCacheKey$LT$DB$GT$3sql17h873d913874de3e67E.exit95.thread312": ; preds = %.noexc94, %"_ZN6diesel10connection15statement_cache27StatementCacheKey$LT$DB$GT$3sql17h873d913874de3e67E.exit95.thread"
@@ -1046,7 +1046,7 @@ common.resume:                                    ; preds = %.thread247, %179, %
 
 .thread247:                                       ; preds = %143, %.thread258
   %.pn80250 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread258 ], [ %144, %143 ]
-  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..pg..backend..Pg$GT$$GT$17h5ba7fbafb10b375aE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %37) #11
+  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..pg..backend..Pg$GT$$GT$17h5ba7fbafb10b375aE"(ptr noalias noundef align 8 dereferenceable(48) %37) #11
           to label %common.resume unwind label %164
 }
 
@@ -1108,7 +1108,7 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
 23:                                               ; preds = %31
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hdf6008bd8fa409a2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #11
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hdf6008bd8fa409a2E"(ptr noalias noundef align 8 dereferenceable(24) %12) #11
           to label %53 unwind label %51
 
 25:                                               ; preds = %17
@@ -1252,7 +1252,7 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
 23:                                               ; preds = %31
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hdf6008bd8fa409a2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #11
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hdf6008bd8fa409a2E"(ptr noalias noundef align 8 dereferenceable(24) %12) #11
           to label %53 unwind label %51
 
 25:                                               ; preds = %17
@@ -1396,7 +1396,7 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
 23:                                               ; preds = %31
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hdf6008bd8fa409a2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #11
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hdf6008bd8fa409a2E"(ptr noalias noundef align 8 dereferenceable(24) %12) #11
           to label %53 unwind label %51
 
 25:                                               ; preds = %17

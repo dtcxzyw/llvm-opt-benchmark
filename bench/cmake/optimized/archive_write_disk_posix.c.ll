@@ -790,7 +790,7 @@ define internal range(i32 -30, 1) i32 @_archive_write_disk_header(ptr noundef %0
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %0, i64 512
   %59 = load i32, ptr %58, align 8
-  %60 = call fastcc i32 @cleanup_pathname_fsobj(ptr noundef %57, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %59)
+  %60 = call fastcc i32 @cleanup_pathname_fsobj(ptr noundef %57, ptr noundef %6, ptr noundef %5, i32 noundef %59)
   %.not.i = icmp eq i32 %60, 0
   br i1 %.not.i, label %63, label %cleanup_pathname.exit
 
@@ -949,7 +949,7 @@ cleanup_pathname.exit:                            ; preds = %52
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %133 = load ptr, ptr %56, align 8
-  %134 = call fastcc i32 @check_symlinks_fsobj(ptr noundef %133, ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef %120, i32 noundef 0)
+  %134 = call fastcc i32 @check_symlinks_fsobj(ptr noundef %133, ptr noundef %4, ptr noundef %3, i32 noundef %120, i32 noundef 0)
   %.not.i209 = icmp eq i32 %134, 0
   br i1 %.not.i209, label %check_symlinks.exit.thread, label %check_symlinks.exit
 
@@ -2965,7 +2965,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @archive_entry_set_size(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -25, 1) i32 @cleanup_pathname_fsobj(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -25, 1) i32 @cleanup_pathname_fsobj(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load i8, ptr %0, align 1
   switch i8 %5, label %12 [
     i8 0, label %6
@@ -2974,7 +2974,7 @@ define internal fastcc range(i32 -25, 1) i32 @cleanup_pathname_fsobj(ptr noundef
 
 6:                                                ; preds = %4
   store i32 -1, ptr %1, align 4
-  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #19
+  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #19
   br label %51
 
 7:                                                ; preds = %4
@@ -2984,7 +2984,7 @@ define internal fastcc range(i32 -25, 1) i32 @cleanup_pathname_fsobj(ptr noundef
 
 9:                                                ; preds = %7
   store i32 -1, ptr %1, align 4
-  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #19
+  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #19
   br label %51
 
 10:                                               ; preds = %7
@@ -3097,7 +3097,7 @@ define internal fastcc range(i32 -25, 1) i32 @cleanup_pathname_fsobj(ptr noundef
 
 38:                                               ; preds = %35, %35
   store i32 -1, ptr %1, align 4
-  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #19
+  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #19
   br label %51
 
 .loopexit53:                                      ; preds = %32, %29, %35
@@ -3158,7 +3158,7 @@ define internal fastcc range(i32 -25, 1) i32 @cleanup_pathname_fsobj(ptr noundef
 declare void @archive_string_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #1 {
   %6 = alloca %struct.stat, align 8
   %7 = load i8, ptr %0, align 1
   %8 = icmp eq i8 %7, 0
@@ -3174,7 +3174,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
   %13 = tail call ptr @__errno_location() #21
   %14 = load i32, ptr %13, align 4
   store i32 %14, ptr %1, align 4
-  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.21, ptr noundef nonnull %0) #19
+  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.21, ptr noundef nonnull %0) #19
   br label %129
 
 15:                                               ; preds = %9
@@ -3429,7 +3429,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
 
 99:                                               ; preds = %.split189.us
   store i32 %97, ptr %1, align 4
-  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.22, ptr noundef nonnull %0) #19
+  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.22, ptr noundef nonnull %0) #19
   br label %.loopexit148
 
 100:                                              ; preds = %.loopexit
@@ -3464,7 +3464,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
   %107 = tail call ptr @__errno_location() #21
   %108 = load i32, ptr %107, align 4
   store i32 %108, ptr %1, align 4
-  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.23, ptr noundef nonnull %0) #19
+  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.23, ptr noundef nonnull %0) #19
   br label %.loopexit148
 
 109:                                              ; preds = %104
@@ -3493,7 +3493,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
   %116 = tail call ptr @__errno_location() #21
   %117 = load i32, ptr %116, align 4
   store i32 %117, ptr %1, align 4
-  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.24, ptr noundef nonnull %0) #19
+  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.24, ptr noundef nonnull %0) #19
   br label %.loopexit148
 
 118:                                              ; preds = %113
@@ -3504,7 +3504,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
 120:                                              ; preds = %118
   store i8 %87, ptr %.4120, align 1
   store i32 0, ptr %1, align 4
-  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.25, ptr noundef nonnull %0) #19
+  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.25, ptr noundef nonnull %0) #19
   br label %.loopexit148
 
 .split207.us:                                     ; preds = %39
@@ -3516,7 +3516,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
 
 124:                                              ; preds = %.split207.us
   store i32 %122, ptr %1, align 4
-  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.22, ptr noundef nonnull %0) #19
+  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.22, ptr noundef nonnull %0) #19
   br label %.loopexit148
 
 .split217.us:                                     ; preds = %45
@@ -3524,19 +3524,19 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
   %125 = tail call ptr @__errno_location() #21
   %126 = load i32, ptr %125, align 4
   store i32 %126, ptr %1, align 4
-  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.23, ptr noundef nonnull %0) #19
+  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.23, ptr noundef nonnull %0) #19
   br label %.loopexit148
 
 .split212.us:                                     ; preds = %41
   store i8 %27, ptr %.4120.us.us, align 1
   store i32 0, ptr %1, align 4
-  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.26, ptr noundef nonnull %0) #19
+  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.26, ptr noundef nonnull %0) #19
   br label %.loopexit148
 
 .split202.us:                                     ; preds = %72
   store i8 %61, ptr %.4120.us, align 1
   store i32 0, ptr %1, align 4
-  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.26, ptr noundef nonnull %0) #19
+  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.26, ptr noundef nonnull %0) #19
   br label %.loopexit148
 
 127:                                              ; preds = %118, %100, %109
@@ -3764,7 +3764,7 @@ define internal fastcc i32 @create_filesystem_object(ptr noundef %0) unnamed_add
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %0, i64 512
   %13 = load i32, ptr %12, align 8
-  %14 = call fastcc i32 @cleanup_pathname_fsobj(ptr noundef nonnull %9, ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef %13)
+  %14 = call fastcc i32 @cleanup_pathname_fsobj(ptr noundef nonnull %9, ptr noundef %4, ptr noundef %3, i32 noundef %13)
   %.not95 = icmp eq i32 %14, 0
   br i1 %.not95, label %18, label %15
 
@@ -3778,7 +3778,7 @@ define internal fastcc i32 @create_filesystem_object(ptr noundef %0) unnamed_add
 
 18:                                               ; preds = %11
   %19 = load i32, ptr %12, align 8
-  %20 = call fastcc i32 @check_symlinks_fsobj(ptr noundef nonnull %9, ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef %19, i32 noundef 1)
+  %20 = call fastcc i32 @check_symlinks_fsobj(ptr noundef nonnull %9, ptr noundef %4, ptr noundef %3, i32 noundef %19, i32 noundef 1)
   %.not96 = icmp eq i32 %20, 0
   br i1 %.not96, label %24, label %21
 

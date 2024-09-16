@@ -238,7 +238,7 @@ if.then22.i:                                      ; preds = %if.then13.i
   %arrayidx.i = getelementptr inbounds i8, ptr %rcl.i, i64 4
   store i32 0, ptr %arrayidx.i, align 4
   store i32 0, ptr %rcl.i, align 4
-  %call25.i = call fastcc i32 @ccall_classify_struct(ptr noundef nonnull %3, ptr noundef nonnull %arrayidx.i.i299.i, ptr noundef nonnull %rcl.i, i32 noundef 0)
+  %call25.i = call fastcc i32 @ccall_classify_struct(ptr noundef nonnull %3, ptr noundef nonnull %arrayidx.i.i299.i, ptr noundef %rcl.i, i32 noundef 0)
   %tobool.not.i = icmp eq i32 %call25.i, 0
   %retref30.i = getelementptr inbounds i8, ptr %cc, i64 13
   br i1 %tobool.not.i, label %if.else29.i, label %if.then26.i
@@ -381,7 +381,7 @@ if.else98.i:                                      ; preds = %if.else84.i
 if.then103.i:                                     ; preds = %if.else98.i
   store i32 0, ptr %indvars.iv.i.i.sroa.gep145.i, align 4
   store i32 0, ptr %rcl104.i, align 4
-  %call108.i = call fastcc i32 @ccall_classify_struct(ptr noundef nonnull %3, ptr noundef nonnull %ct.i.0.i, ptr noundef nonnull %rcl104.i, i32 noundef 0)
+  %call108.i = call fastcc i32 @ccall_classify_struct(ptr noundef nonnull %3, ptr noundef nonnull %ct.i.0.i, ptr noundef %rcl104.i, i32 noundef 0)
   %tobool109.not.i = icmp eq i32 %call108.i, 0
   br i1 %tobool109.not.i, label %if.then110.i, label %if.else155.i
 
@@ -746,7 +746,7 @@ if.then5.i:                                       ; preds = %if.then4.i
   %and.i55 = and i64 %73, 140737488355327
   store i32 0, ptr %indvars.iv.i.sroa.gep27.i, align 4
   store i32 0, ptr %rcl.i42, align 4
-  %call9.i = call fastcc i32 @ccall_classify_struct(ptr noundef nonnull %3, ptr noundef nonnull %arrayidx.i.i.i, ptr noundef nonnull %rcl.i42, i32 noundef 0)
+  %call9.i = call fastcc i32 @ccall_classify_struct(ptr noundef nonnull %3, ptr noundef nonnull %arrayidx.i.i.i, ptr noundef %rcl.i42, i32 noundef 0)
   %size.i56 = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
   %74 = load i32, ptr %size.i56, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %sp.i.i)
@@ -889,7 +889,7 @@ declare hidden i32 @lj_gc_step(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 5) i32 @ccall_classify_struct(ptr nocapture noundef readonly %cts, ptr nocapture noundef readonly %ct, ptr nocapture noundef %rcl, i32 noundef %ofs) unnamed_addr #3 {
+define internal fastcc range(i32 0, 5) i32 @ccall_classify_struct(ptr nocapture noundef readonly %cts, ptr nocapture noundef readonly %ct, ptr nocapture noundef nonnull %rcl, i32 noundef %ofs) unnamed_addr #3 {
 entry:
   %size = getelementptr inbounds i8, ptr %ct, i64 4
   %0 = load i32, ptr %size, align 4
@@ -986,7 +986,7 @@ declare hidden void @lj_cconv_ct_tv(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ccall_classify_ct(ptr nocapture noundef readonly %cts, ptr nocapture noundef readonly %ct, ptr nocapture noundef %rcl, i32 noundef %ofs) unnamed_addr #3 {
+define internal fastcc void @ccall_classify_ct(ptr nocapture noundef readonly %cts, ptr nocapture noundef readonly %ct, ptr nocapture noundef nonnull %rcl, i32 noundef %ofs) unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %ct, align 8
   %shr = lshr i32 %0, 28

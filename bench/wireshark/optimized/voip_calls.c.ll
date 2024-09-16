@@ -1895,7 +1895,7 @@ declare ptr @val_to_str_ext_wmem(ptr noundef, i32 noundef, ptr noundef, ptr noun
 declare double @nstime_to_sec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_to_graph(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, i16 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @add_to_graph(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, i16 noundef zeroext range(i16 1, 3) %8) unnamed_addr #0 {
   %10 = alloca [2048 x i8], align 16
   %11 = getelementptr inbounds i8, ptr %0, i64 88
   %12 = load ptr, ptr %11, align 8
@@ -6264,7 +6264,7 @@ define internal void @h248_calls_draw(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @h248_calls_packet_common(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @h248_calls_packet_common(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 8, 129) %4) unnamed_addr #0 {
   %6 = alloca [128 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %3, i64 64
   %8 = load ptr, ptr %7, align 8
@@ -6592,7 +6592,7 @@ define internal void @sua_calls_draw(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sccp_calls(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @sccp_calls(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 8192, 131073) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = getelementptr inbounds i8, ptr %3, i64 40
   %8 = load ptr, ptr %7, align 8

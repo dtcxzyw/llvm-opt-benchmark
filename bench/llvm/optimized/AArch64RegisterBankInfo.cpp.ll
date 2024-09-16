@@ -4334,7 +4334,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit665: ; preds = %927, %9
   %944 = load i24, ptr %417, align 8
   %945 = zext i24 %944 to i64
   %946 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %943, i64 %945
-  %947 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZNKS_23AArch64RegisterBankInfo15getInstrMappingERKNS_12MachineInstrEE3$_3EEbOT_T0_"(ptr %943, ptr %946, ptr nonnull %81)
+  %947 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZNKS_23AArch64RegisterBankInfo15getInstrMappingERKNS_12MachineInstrEE3$_3EEbOT_T0_"(ptr %943, ptr %946, ptr %81)
   br i1 %947, label %.critedge15, label %948
 
 948:                                              ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit665
@@ -4893,7 +4893,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZNKS_23AArch64RegisterBankInfo15getInstrMappingERKNS_12MachineInstrEE3$_3EEbOT_T0_"(ptr %.0.val, ptr %.8.val, ptr %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZNKS_23AArch64RegisterBankInfo15getInstrMappingERKNS_12MachineInstrEE3$_3EEbOT_T0_"(ptr %.0.val, ptr %.8.val, ptr nonnull %0) unnamed_addr #0 {
   %2 = ptrtoint ptr %.8.val to i64
   %3 = ptrtoint ptr %.0.val to i64
   %4 = sub i64 %2, %3

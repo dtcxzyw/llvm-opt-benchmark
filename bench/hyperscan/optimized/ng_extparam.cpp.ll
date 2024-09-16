@@ -525,13 +525,13 @@ if.end111:                                        ; preds = %_ZNK3ue25depthcvjEv
   call void @_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEC2ERKSB_RKSC_(ptr noundef nonnull align 8 dereferenceable(40) %seen.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i.i)
   %accept.i.i = getelementptr inbounds i8, ptr %g, i64 104
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %accept.i.i, align 8
-  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L18updateReportBoundsERNS_13ReportManagerERNS_8NGHolderERKNS_14ExpressionInfoEE3$_0EEvS4_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISF_St4lessISF_ESaISF_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i.i, ptr nonnull %rm, ptr nonnull readonly %expr)
+  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L18updateReportBoundsERNS_13ReportManagerERNS_8NGHolderERKNS_14ExpressionInfoEE3$_0EEvS4_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISF_St4lessISF_ESaISF_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i.i, ptr %rm, ptr readonly %expr)
           to label %invoke.cont4.i.i unwind label %lpad3.i.i
 
 invoke.cont4.i.i:                                 ; preds = %if.end111
   %acceptEod.i.i = getelementptr inbounds i8, ptr %g, i64 120
   %agg.tmp5.sroa.0.0.copyload.i.i = load ptr, ptr %acceptEod.i.i, align 8
-  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L18updateReportBoundsERNS_13ReportManagerERNS_8NGHolderERKNS_14ExpressionInfoEE3$_0EEvS4_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISF_St4lessISF_ESaISF_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp5.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i.i, ptr nonnull %rm, ptr nonnull readonly %expr)
+  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L18updateReportBoundsERNS_13ReportManagerERNS_8NGHolderERKNS_14ExpressionInfoEE3$_0EEvS4_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISF_St4lessISF_ESaISF_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp5.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i.i, ptr %rm, ptr readonly %expr)
           to label %invoke.cont7.i.i unwind label %lpad3.i.i
 
 invoke.cont7.i.i:                                 ; preds = %invoke.cont4.i.i
@@ -2325,13 +2325,13 @@ if.end.i135:                                      ; preds = %_ZN3ue220has_proper
   call void @_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEC2ERKSB_RKSC_(ptr noundef nonnull align 8 dereferenceable(40) %seen.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i.i)
   %accept.i.i = getelementptr inbounds i8, ptr %g, i64 104
   %agg.tmp.sroa.0.0.copyload.i3.i = load ptr, ptr %accept.i.i, align 8
-  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L26replaceMinLengthWithOffsetERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i3.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i.i, ptr nonnull %rm)
+  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L26replaceMinLengthWithOffsetERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i3.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i.i, ptr %rm)
           to label %invoke.cont5.i.i unwind label %lpad4.i.i
 
 invoke.cont5.i.i:                                 ; preds = %if.end.i135
   %acceptEod.i.i = getelementptr inbounds i8, ptr %g, i64 120
   %agg.tmp6.sroa.0.0.copyload.i.i = load ptr, ptr %acceptEod.i.i, align 8
-  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L26replaceMinLengthWithOffsetERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp6.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i.i, ptr nonnull %rm)
+  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L26replaceMinLengthWithOffsetERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp6.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i.i, ptr %rm)
           to label %invoke.cont9.i.i unwind label %lpad4.i.i
 
 invoke.cont9.i.i:                                 ; preds = %invoke.cont5.i.i
@@ -2983,7 +2983,7 @@ _ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolder
 while.end148.i:                                   ; preds = %_ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit167.i, %while.cond120.preheader.i
   %width.1.lcssa.i = phi i32 [ %width.0.lcssa.i, %while.cond120.preheader.i ], [ %inc128.i, %_ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit167.i ]
   store i32 0, ptr %offsetAdjust.i, align 4
-  %call150.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L15hasOffsetAdjustERKNS_13ReportManagerERNS_8NGHolderEPi(ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull %offsetAdjust.i)
+  %call150.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L15hasOffsetAdjustERKNS_13ReportManagerERNS_8NGHolderEPi(ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef %offsetAdjust.i)
           to label %invoke.cont149.i unwind label %lpad.loopexit.split-lp299.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont149.i:                                 ; preds = %while.end148.i
@@ -4110,7 +4110,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #9
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L18updateReportBoundsERNS_13ReportManagerERNS_8NGHolderERKNS_14ExpressionInfoEE3$_0EEvS4_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISF_St4lessISF_ESaISF_EEET_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g, ptr readonly %accept.coerce0, ptr noundef nonnull align 8 dereferenceable(40) %seen, ptr %func.coerce0, ptr nocapture readonly %func.coerce1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L18updateReportBoundsERNS_13ReportManagerERNS_8NGHolderERKNS_14ExpressionInfoEE3$_0EEvS4_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISF_St4lessISF_ESaISF_EEET_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g, ptr readonly %accept.coerce0, ptr noundef nonnull align 8 dereferenceable(40) %seen, ptr nonnull %func.coerce0, ptr nocapture nonnull readonly %func.coerce1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp12.i = alloca %"class.boost::container::vec_iterator.161", align 8
   %agg.tmp14.i = alloca %"class.boost::container::vec_iterator", align 8
@@ -5736,7 +5736,7 @@ declare void @_ZN3ue214calcBidiDepthsERKNS_8NGHolderE(ptr sret(%"class.std::vect
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L26replaceMinLengthWithOffsetERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g, ptr readonly %accept.coerce0, ptr noundef nonnull align 8 dereferenceable(40) %seen, ptr %func.coerce) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L26replaceMinLengthWithOffsetERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g, ptr readonly %accept.coerce0, ptr noundef nonnull align 8 dereferenceable(40) %seen, ptr nonnull %func.coerce) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp12.i = alloca %"class.boost::container::vec_iterator.161", align 8
   %agg.tmp14.i = alloca %"class.boost::container::vec_iterator", align 8
@@ -6018,7 +6018,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i.i.i.i
 declare { ptr, i64 } @_ZN3ue217getSoleDestVertexERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(136), ptr, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L15hasOffsetAdjustERKNS_13ReportManagerERNS_8NGHolderEPi(ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr nocapture noundef writeonly %adjust) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L15hasOffsetAdjustERKNS_13ReportManagerERNS_8NGHolderEPi(ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr nocapture noundef nonnull writeonly %adjust) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::set", align 8
   call void @_ZN3ue211all_reportsERKNS_8NGHolderE(ptr nonnull sret(%"class.std::set") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(136) %g)
@@ -6110,13 +6110,13 @@ entry:
   call void @_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEC2ERKSB_RKSC_(ptr noundef nonnull align 8 dereferenceable(40) %seen.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i)
   %accept.i = getelementptr inbounds i8, ptr %g, i64 104
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %accept.i, align 8
-  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L19clearMinLengthParamERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i, ptr nonnull %rm)
+  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L19clearMinLengthParamERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i, ptr %rm)
           to label %invoke.cont5.i unwind label %lpad4.i
 
 invoke.cont5.i:                                   ; preds = %entry
   %acceptEod.i = getelementptr inbounds i8, ptr %g, i64 120
   %agg.tmp6.sroa.0.0.copyload.i = load ptr, ptr %acceptEod.i, align 8
-  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L19clearMinLengthParamERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp6.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i, ptr nonnull %rm)
+  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L19clearMinLengthParamERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp6.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i, ptr %rm)
           to label %invoke.cont9.i unwind label %lpad4.i
 
 invoke.cont9.i:                                   ; preds = %invoke.cont5.i
@@ -6514,7 +6514,7 @@ _ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graph
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L19clearMinLengthParamERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g, ptr readonly %accept.coerce0, ptr noundef nonnull align 8 dereferenceable(40) %seen, ptr %func.coerce) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L19clearMinLengthParamERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g, ptr readonly %accept.coerce0, ptr noundef nonnull align 8 dereferenceable(40) %seen, ptr nonnull %func.coerce) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp12.i = alloca %"class.boost::container::vec_iterator.161", align 8
   %agg.tmp14.i = alloca %"class.boost::container::vec_iterator", align 8
@@ -6995,13 +6995,13 @@ entry:
   call void @_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEC2ERKSB_RKSC_(ptr noundef nonnull align 8 dereferenceable(40) %seen.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i)
   %accept.i = getelementptr inbounds i8, ptr %g, i64 104
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %accept.i, align 8
-  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L17clearOffsetParamsERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i, ptr nonnull %rm)
+  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L17clearOffsetParamsERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i, ptr %rm)
           to label %invoke.cont5.i unwind label %lpad4.i
 
 invoke.cont5.i:                                   ; preds = %entry
   %acceptEod.i = getelementptr inbounds i8, ptr %g, i64 120
   %agg.tmp6.sroa.0.0.copyload.i = load ptr, ptr %acceptEod.i, align 8
-  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L17clearOffsetParamsERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp6.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i, ptr nonnull %rm)
+  invoke fastcc void @"_ZN3ue214replaceReportsIZNS_L17clearOffsetParamsERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %agg.tmp6.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(40) %seen.i, ptr %rm)
           to label %invoke.cont9.i unwind label %lpad4.i
 
 invoke.cont9.i:                                   ; preds = %invoke.cont5.i
@@ -7209,7 +7209,7 @@ if.end:                                           ; preds = %if.end.i11, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L17clearOffsetParamsERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g, ptr readonly %accept.coerce0, ptr noundef nonnull align 8 dereferenceable(40) %seen, ptr %func.coerce) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L17clearOffsetParamsERNS_8NGHolderERNS_13ReportManagerEE3$_0EEvS2_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_8flat_setISC_St4lessISC_ESaISC_EEET_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g, ptr readonly %accept.coerce0, ptr noundef nonnull align 8 dereferenceable(40) %seen, ptr nonnull %func.coerce) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp12.i = alloca %"class.boost::container::vec_iterator.161", align 8
   %agg.tmp14.i = alloca %"class.boost::container::vec_iterator", align 8

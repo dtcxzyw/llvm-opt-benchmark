@@ -2668,7 +2668,7 @@ _ZNSt16allocator_traitsISaIN4absl7debian211string_viewEEE8allocateERS3_m.exit.i.
   %206 = phi ptr [ null, %.noexc81.thread ], [ %198, %.lr.ph.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.noexc81.thread ], [ %203, %.lr.ph.i.i.i.i.i ]
   store ptr %.0.lcssa.i.i.i.i.i, ptr %205, align 8
-  invoke fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_117StringListToPairsESt6vectorIN4absl7debian211string_viewESaIS5_EE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull %22)
+  invoke fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_117StringListToPairsESt6vectorIN4absl7debian211string_viewESaIS5_EE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef %22)
           to label %207 unwind label %277
 
 207:                                              ; preds = %.loopexit410
@@ -2734,7 +2734,7 @@ _ZNSt16allocator_traitsISaIN4absl7debian211string_viewEEE8allocateERS3_m.exit.i.
   %225 = phi ptr [ null, %.noexc93.thread ], [ %217, %.lr.ph.i.i.i.i.i86 ]
   %.0.lcssa.i.i.i.i.i90 = phi ptr [ null, %.noexc93.thread ], [ %222, %.lr.ph.i.i.i.i.i86 ]
   store ptr %.0.lcssa.i.i.i.i.i90, ptr %224, align 8
-  invoke fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_118StringListToFloatsESt6vectorIN4absl7debian211string_viewESaIS5_EE(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull %24)
+  invoke fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_118StringListToFloatsESt6vectorIN4absl7debian211string_viewESaIS5_EE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef %24)
           to label %226 unwind label %285
 
 226:                                              ; preds = %.loopexit409
@@ -3282,7 +3282,7 @@ _ZNSt16allocator_traitsISaIN4absl7debian211string_viewEEE8allocateERS3_m.exit.i.
   %440 = phi ptr [ null, %.noexc133.thread ], [ %432, %.lr.ph.i.i.i.i.i126 ]
   %.0.lcssa.i.i.i.i.i130 = phi ptr [ null, %.noexc133.thread ], [ %437, %.lr.ph.i.i.i.i.i126 ]
   store ptr %.0.lcssa.i.i.i.i.i130, ptr %439, align 8
-  invoke fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_117StringListToPairsESt6vectorIN4absl7debian211string_viewESaIS5_EE(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull %27)
+  invoke fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_117StringListToPairsESt6vectorIN4absl7debian211string_viewESaIS5_EE(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef %27)
           to label %441 unwind label %472
 
 441:                                              ; preds = %.loopexit395
@@ -3514,7 +3514,7 @@ _ZNSt16allocator_traitsISaIN4absl7debian211string_viewEEE8allocateERS3_m.exit.i.
   %523 = phi ptr [ null, %.noexc151.thread ], [ %515, %.lr.ph.i.i.i.i.i144 ]
   %.0.lcssa.i.i.i.i.i148 = phi ptr [ null, %.noexc151.thread ], [ %520, %.lr.ph.i.i.i.i.i144 ]
   store ptr %.0.lcssa.i.i.i.i.i148, ptr %522, align 8
-  invoke fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_117StringListToPairsESt6vectorIN4absl7debian211string_viewESaIS5_EE(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef nonnull %47)
+  invoke fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_117StringListToPairsESt6vectorIN4absl7debian211string_viewESaIS5_EE(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef %47)
           to label %524 unwind label %602
 
 524:                                              ; preds = %.loopexit394
@@ -3603,7 +3603,7 @@ _ZNSt16allocator_traitsISaIN4absl7debian211string_viewEEE8allocateERS3_m.exit.i.
   %561 = phi ptr [ null, %.noexc169.thread ], [ %553, %.lr.ph.i.i.i.i.i162 ]
   %.0.lcssa.i.i.i.i.i166 = phi ptr [ null, %.noexc169.thread ], [ %558, %.lr.ph.i.i.i.i.i162 ]
   store ptr %.0.lcssa.i.i.i.i.i166, ptr %560, align 8
-  invoke fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_118StringListToFloatsESt6vectorIN4absl7debian211string_viewESaIS5_EE(ptr dead_on_unwind noalias nonnull writable align 8 %48, ptr noundef nonnull %49)
+  invoke fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_118StringListToFloatsESt6vectorIN4absl7debian211string_viewESaIS5_EE(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef %49)
           to label %562 unwind label %608
 
 562:                                              ; preds = %.loopexit393
@@ -4004,7 +4004,7 @@ _ZNSt16allocator_traitsISaIN4absl7debian211string_viewEEE8allocateERS3_m.exit.i.
   %.0.lcssa.i.i.i.i.i193 = phi ptr [ null, %.noexc196.thread ], [ %703, %.lr.ph.i.i.i.i.i189 ]
   store ptr %.0.lcssa.i.i.i.i.i193, ptr %705, align 8
   %707 = load i32, ptr %133, align 8
-  invoke fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_116StringListToIntsESt6vectorIN4absl7debian211string_viewESaIS5_EEi(ptr dead_on_unwind noalias nonnull writable align 8 %70, ptr noundef nonnull %71, i32 noundef %707)
+  invoke fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_116StringListToIntsESt6vectorIN4absl7debian211string_viewESaIS5_EEi(ptr dead_on_unwind noalias writable align 8 %70, ptr noundef %71, i32 noundef %707)
           to label %708 unwind label %792
 
 708:                                              ; preds = %.loopexit392
@@ -4076,7 +4076,7 @@ _ZNSt16allocator_traitsISaIN4absl7debian211string_viewEEE8allocateERS3_m.exit.i.
   %.0.lcssa.i.i.i.i.i207 = phi ptr [ null, %.noexc210.thread ], [ %728, %.lr.ph.i.i.i.i.i203 ]
   store ptr %.0.lcssa.i.i.i.i.i207, ptr %730, align 8
   %732 = load i32, ptr %133, align 8
-  invoke fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_116StringListToIntsESt6vectorIN4absl7debian211string_viewESaIS5_EEi(ptr dead_on_unwind noalias nonnull writable align 8 %72, ptr noundef nonnull %73, i32 noundef %732)
+  invoke fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_116StringListToIntsESt6vectorIN4absl7debian211string_viewESaIS5_EEi(ptr dead_on_unwind noalias writable align 8 %72, ptr noundef %73, i32 noundef %732)
           to label %733 unwind label %800
 
 733:                                              ; preds = %.loopexit391
@@ -4806,7 +4806,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_117StringListToPairsESt6vectorIN4absl7debian211string_viewESaIS5_EE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_117StringListToPairsESt6vectorIN4absl7debian211string_viewESaIS5_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %"struct.absl::debian2::strings_internal::Splitter<absl::debian2::ByChar, absl::debian2::AllowEmpty, absl::debian2::string_view>::ConvertToContainer", align 1
@@ -5073,7 +5073,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit:        ; preds = %_ZNSt6vectorIN4absl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_118StringListToFloatsESt6vectorIN4absl7debian211string_viewESaIS5_EE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_118StringListToFloatsESt6vectorIN4absl7debian211string_viewESaIS5_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca float, align 4
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca i32, align 4
@@ -5931,7 +5931,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_116StringListToIntsESt6vectorIN4absl7debian211string_viewESaIS5_EEi(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_116StringListToIntsESt6vectorIN4absl7debian211string_viewESaIS5_EEi(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %"struct.absl::debian2::strings_internal::Splitter<absl::debian2::ByChar, absl::debian2::AllowEmpty, absl::debian2::string_view>::ConvertToContainer", align 1

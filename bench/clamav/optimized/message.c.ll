@@ -1036,7 +1036,7 @@ define void @messageAddArgument(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 18:                                               ; preds = %16
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %.0) #21
-  %19 = tail call fastcc i32 @usefulArg(ptr noundef nonnull %.0)
+  %19 = tail call fastcc i32 @usefulArg(ptr noundef %.0)
   %.not48 = icmp eq i32 %19, 0
   br i1 %.not48, label %.loopexit, label %.preheader
 
@@ -1497,48 +1497,48 @@ messageGetMimeType.exit:                          ; preds = %186, %183
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @usefulArg(ptr noundef %0) unnamed_addr #2 {
-  %2 = tail call i32 @strncasecmp(ptr noundef %0, ptr noundef nonnull @.str.35, i64 noundef 4) #23
+define internal fastcc range(i32 0, 2) i32 @usefulArg(ptr noundef nonnull %0) unnamed_addr #2 {
+  %2 = tail call i32 @strncasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.35, i64 noundef 4) #23
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %18, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @strncasecmp(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef 8) #23
+  %4 = tail call i32 @strncasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, i64 noundef 8) #23
   %.not9 = icmp eq i32 %4, 0
   br i1 %.not9, label %18, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @strncasecmp(ptr noundef %0, ptr noundef nonnull @.str.114, i64 noundef 8) #23
+  %6 = tail call i32 @strncasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.114, i64 noundef 8) #23
   %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %18, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @strncasecmp(ptr noundef %0, ptr noundef nonnull @.str.115, i64 noundef 8) #23
+  %8 = tail call i32 @strncasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.115, i64 noundef 8) #23
   %.not11 = icmp eq i32 %8, 0
   br i1 %.not11, label %18, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @strncasecmp(ptr noundef %0, ptr noundef nonnull @.str.116, i64 noundef 2) #23
+  %10 = tail call i32 @strncasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.116, i64 noundef 2) #23
   %.not12 = icmp eq i32 %10, 0
   br i1 %.not12, label %18, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @strncasecmp(ptr noundef %0, ptr noundef nonnull @.str.117, i64 noundef 6) #23
+  %12 = tail call i32 @strncasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.117, i64 noundef 6) #23
   %.not13 = icmp eq i32 %12, 0
   br i1 %.not13, label %18, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @strncasecmp(ptr noundef %0, ptr noundef nonnull @.str.118, i64 noundef 5) #23
+  %14 = tail call i32 @strncasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.118, i64 noundef 5) #23
   %.not14 = icmp eq i32 %14, 0
   br i1 %.not14, label %18, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call i32 @strncasecmp(ptr noundef %0, ptr noundef nonnull @.str.119, i64 noundef 4) #23
+  %16 = tail call i32 @strncasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.119, i64 noundef 4) #23
   %.not15 = icmp eq i32 %16, 0
   br i1 %.not15, label %18, label %17
 
 17:                                               ; preds = %15
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.120, ptr noundef %0) #21
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.120, ptr noundef nonnull %0) #21
   br label %18
 
 18:                                               ; preds = %1, %3, %5, %7, %9, %11, %13, %15, %17
@@ -1680,7 +1680,7 @@ define void @messageAddArguments(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 48:                                               ; preds = %46, %45
   %.3 = phi ptr [ @.str.13, %45 ], [ %47, %46 ]
-  %49 = tail call fastcc i32 @usefulArg(ptr noundef nonnull %33)
+  %49 = tail call fastcc i32 @usefulArg(ptr noundef %33)
   %.not99 = icmp eq i32 %49, 0
   br i1 %.not99, label %50, label %51
 
@@ -2459,7 +2459,7 @@ messageGetMimeType.exit:                          ; preds = %34
   br i1 %45, label %46, label %55
 
 46:                                               ; preds = %39
-  tail call fastcc void @messageDedup(ptr noundef nonnull %0)
+  tail call fastcc void @messageDedup(ptr noundef %0)
   %47 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #24
   %48 = load ptr, ptr %28, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 8
@@ -2544,7 +2544,7 @@ messageGetMimeType.exit:                          ; preds = %34
   br i1 %87, label %88, label %95
 
 88:                                               ; preds = %82
-  tail call fastcc void @messageDedup(ptr noundef nonnull %0)
+  tail call fastcc void @messageDedup(ptr noundef %0)
   %89 = tail call ptr @lineCreate(ptr noundef nonnull %.046) #21
   %90 = load ptr, ptr %71, align 8
   store ptr %89, ptr %90, align 8
@@ -2572,7 +2572,7 @@ messageGetMimeType.exit:                          ; preds = %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @messageDedup(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc void @messageDedup(ptr nocapture noundef nonnull %0) unnamed_addr #2 {
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.121) #21
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = getelementptr inbounds i8, ptr %0, i64 40

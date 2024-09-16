@@ -77082,7 +77082,7 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN25Benchmark_SortSingle_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SJ_SM_SR_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef %__last, i64 noundef %__depth_limit, ptr nocapture readonly %__comp.coerce) unnamed_addr #17 {
+define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN25Benchmark_SortSingle_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SJ_SM_SR_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull %__last, i64 noundef range(i64 0, 128) %__depth_limit, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #17 {
 entry:
   %agg.tmp.i.i9.i = alloca %"class.std::reverse_iterator.1163", align 8
   %agg.tmp.i.i.i = alloca %"class.std::reverse_iterator.1163", align 8
@@ -77410,7 +77410,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN25Benchmark_SortSingle_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SM_SM_SR_T2_"(ptr nocapture noundef readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, i32 noundef %__value, ptr nocapture readonly %__comp.coerce) unnamed_addr #18 {
+define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN25Benchmark_SortSingle_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SM_SM_SR_T2_"(ptr nocapture noundef nonnull readonly %__first, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %__holeIndex, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %__len, i32 noundef %__value, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #18 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -77809,7 +77809,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZN24Benchmark_SortMulti_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SK_E_EEEvSP_SP_SK_SL_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef %__last, i64 noundef %__depth_limit, ptr nocapture readonly %__comp.coerce) unnamed_addr #17 {
+define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZN24Benchmark_SortMulti_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SK_E_EEEvSP_SP_SK_SL_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull %__last, i64 noundef range(i64 0, 128) %__depth_limit, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #17 {
 entry:
   %agg.tmp.i.i9.i = alloca %"class.std::reverse_iterator.1163", align 8
   %agg.tmp.i.i.i = alloca %"class.std::reverse_iterator.1163", align 8
@@ -78137,7 +78137,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZN24Benchmark_SortMulti_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SK_E_EEEvSP_SK_SK_SL_T2_"(ptr nocapture noundef readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, i32 noundef %__value, ptr nocapture readonly %__comp.coerce) unnamed_addr #18 {
+define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZN24Benchmark_SortMulti_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SK_E_EEEvSP_SK_SK_SL_T2_"(ptr nocapture noundef nonnull readonly %__first, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %__holeIndex, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %__len, i32 noundef %__value, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #18 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -78533,7 +78533,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN34Benchmark_AlmostSortedStdSort_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SJ_SM_SR_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef %__last, i64 noundef %__depth_limit, ptr nocapture readonly %__comp.coerce) unnamed_addr #17 {
+define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN34Benchmark_AlmostSortedStdSort_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SJ_SM_SR_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull %__last, i64 noundef range(i64 0, 128) %__depth_limit, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #17 {
 entry:
   %agg.tmp.i.i9.i = alloca %"class.std::reverse_iterator.1163", align 8
   %agg.tmp.i.i.i = alloca %"class.std::reverse_iterator.1163", align 8
@@ -78861,7 +78861,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN34Benchmark_AlmostSortedStdSort_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SM_SM_SR_T2_"(ptr nocapture noundef readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, i32 noundef %__value, ptr nocapture readonly %__comp.coerce) unnamed_addr #18 {
+define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN34Benchmark_AlmostSortedStdSort_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SM_SM_SR_T2_"(ptr nocapture noundef nonnull readonly %__first, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %__holeIndex, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %__len, i32 noundef %__value, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #18 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2

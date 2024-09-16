@@ -1909,7 +1909,7 @@ define internal zeroext i1 @checkWellFormedRecursionWalker(ptr noundef %0, ptr n
   br i1 %105, label %.lr.ph211, label %._crit_edge208
 
 ._crit_edge208:                                   ; preds = %.lr.ph211, %.lr.ph207, %84
-  tail call fastcc void @checkWellFormedSelectStmt(ptr noundef nonnull %.tr194, ptr noundef %1)
+  tail call fastcc void @checkWellFormedSelectStmt(ptr noundef %.tr194, ptr noundef %1)
   %106 = load ptr, ptr %87, align 8
   %107 = tail call ptr @list_delete_first(ptr noundef %106) #9
   store ptr %107, ptr %87, align 8
@@ -1962,14 +1962,14 @@ list_head.exit:                                   ; preds = %.lr.ph204, %126
   br i1 %134, label %.lr.ph204, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %list_head.exit, %.lr.ph201, %108
-  tail call fastcc void @checkWellFormedSelectStmt(ptr noundef nonnull %.tr194, ptr noundef nonnull %1)
+  tail call fastcc void @checkWellFormedSelectStmt(ptr noundef %.tr194, ptr noundef nonnull %1)
   %135 = load ptr, ptr %109, align 8
   %136 = tail call ptr @list_delete_first(ptr noundef %135) #9
   store ptr %136, ptr %109, align 8
   br label %.loopexit
 
 137:                                              ; preds = %77
-  tail call fastcc void @checkWellFormedSelectStmt(ptr noundef nonnull %.tr194, ptr noundef nonnull %1)
+  tail call fastcc void @checkWellFormedSelectStmt(ptr noundef %.tr194, ptr noundef nonnull %1)
   br label %.loopexit
 
 138:                                              ; preds = %.lr.ph
@@ -2082,14 +2082,14 @@ tailrecurse.backedge:                             ; preds = %141, %156, %163, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @checkWellFormedSelectStmt(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @checkWellFormedSelectStmt(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @raw_expression_tree_walker_impl(ptr noundef %0, ptr noundef nonnull @checkWellFormedRecursionWalker, ptr noundef nonnull %1) #9
+  %6 = tail call zeroext i1 @raw_expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @checkWellFormedRecursionWalker, ptr noundef nonnull %1) #9
   br label %64
 
 7:                                                ; preds = %2

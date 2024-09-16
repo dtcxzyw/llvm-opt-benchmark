@@ -930,7 +930,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
           to label %8 unwind label %22
 
 8:                                                ; preds = %7
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_147_GetNamespacedAttributeMappingsForAppliedSchemaERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_147_GetNamespacedAttributeMappingsForAppliedSchemaERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %9 unwind label %24
 
 9:                                                ; preds = %8
@@ -2858,7 +2858,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14AppendPropertyERKN
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_147_GetNamespacedAttributeMappingsForAppliedSchemaERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_147_GetNamespacedAttributeMappingsForAppliedSchemaERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8

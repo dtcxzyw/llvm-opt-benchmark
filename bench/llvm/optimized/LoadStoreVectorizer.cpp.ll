@@ -1345,7 +1345,7 @@ _ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit39.i.i.i: ; preds = %.sink.
   %344 = call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %336, ptr noundef nonnull %340) #17, !noalias !22
   %spec.select.i.i20.i = select i1 %344, ptr %5, ptr %335
   %345 = load ptr, ptr %spec.select.i.i20.i, align 8, !noalias !22
-  call fastcc void @_ZN12_GLOBAL__N_110Vectorizer17getConstantOffsetEPN4llvm5ValueES3_PNS1_11InstructionEj(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(1240) %0, ptr noundef %.0.i.i.i.i.i, ptr noundef %.0.i.i37.i.i.i, ptr noundef %345, i32 noundef 0), !noalias !22
+  call fastcc void @_ZN12_GLOBAL__N_110Vectorizer17getConstantOffsetEPN4llvm5ValueES3_PNS1_11InstructionEj(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(1240) %0, ptr noundef %.0.i.i.i.i.i, ptr noundef %.0.i.i37.i.i.i, ptr noundef %345, i32 noundef 0), !noalias !22
   %346 = load i8, ptr %53, align 8, !noalias !22
   %347 = trunc i8 %346 to i1
   br i1 %347, label %_ZNRSt8optionalIN4llvm5APIntEE5valueEv.exit.i.i.i, label %355
@@ -5668,7 +5668,7 @@ _ZN4llvm5APIntD2Ev.exit85.i.i.i:                  ; preds = %331, %328, %.thread
   br label %_ZN12_GLOBAL__N_19ChainElemC2ERKS0_.exit.i.i
 
 _ZN12_GLOBAL__N_19ChainElemC2ERKS0_.exit.i.i:     ; preds = %356, %354
-  call fastcc void @_ZN4llvm11SmallVectorIN12_GLOBAL__N_19ChainElemELj1EEC2ESt16initializer_listIS2_E(ptr noundef nonnull align 8 dereferenceable(40) %88, ptr nonnull %89)
+  call fastcc void @_ZN4llvm11SmallVectorIN12_GLOBAL__N_19ChainElemELj1EEC2ESt16initializer_listIS2_E(ptr noundef nonnull align 8 dereferenceable(40) %88, ptr %89)
   %357 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_19ChainElemEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %88), !noalias !81
   %.val.i13.i.i = load ptr, ptr %88, align 8, !noalias !81
   %358 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %88) #17, !noalias !81
@@ -6242,7 +6242,7 @@ _ZN4llvm5APIntD2Ev.exit93.i.i.i:                  ; preds = %569, %566, %.thread
   br label %_ZN12_GLOBAL__N_19ChainElemC2ERKS0_.exit.i55.i
 
 _ZN12_GLOBAL__N_19ChainElemC2ERKS0_.exit.i55.i:   ; preds = %594, %592
-  call fastcc void @_ZN4llvm11SmallVectorIN12_GLOBAL__N_19ChainElemELj1EEC2ESt16initializer_listIS2_E(ptr noundef nonnull align 8 dereferenceable(40) %76, ptr nonnull %77)
+  call fastcc void @_ZN4llvm11SmallVectorIN12_GLOBAL__N_19ChainElemELj1EEC2ESt16initializer_listIS2_E(ptr noundef nonnull align 8 dereferenceable(40) %76, ptr %77)
   %595 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_19ChainElemEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %76), !noalias !106
   %.val.i14.i.i = load ptr, ptr %76, align 8, !noalias !106
   %596 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %76) #17, !noalias !106
@@ -6732,7 +6732,7 @@ _ZN12_GLOBAL__N_122sortChainInOffsetOrderERN4llvm11SmallVectorINS_9ChainElemELj1
   br label %_ZN12_GLOBAL__N_19ChainElemC2ERKS0_.exit.i
 
 _ZN12_GLOBAL__N_19ChainElemC2ERKS0_.exit.i:       ; preds = %813, %811
-  call fastcc void @_ZN4llvm11SmallVectorIN12_GLOBAL__N_19ChainElemELj1EEC2ESt16initializer_listIS2_E(ptr noundef nonnull align 8 dereferenceable(40) %59, ptr nonnull %60)
+  call fastcc void @_ZN4llvm11SmallVectorIN12_GLOBAL__N_19ChainElemELj1EEC2ESt16initializer_listIS2_E(ptr noundef nonnull align 8 dereferenceable(40) %59, ptr %60)
   call fastcc void @_ZNSt6vectorIN4llvm11SmallVectorIN12_GLOBAL__N_19ChainElemELj1EEESaIS4_EE12emplace_backIJS4_EEERS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %92, ptr noundef nonnull align 8 dereferenceable(40) %59)
   %.val.i.i = load ptr, ptr %59, align 8, !noalias !121
   %814 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %59) #17, !noalias !121
@@ -11486,7 +11486,7 @@ _ZN12_GLOBAL__N_110Vectorizer14vectorizeChainERN4llvm11SmallVectorINS_9ChainElem
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110Vectorizer17getConstantOffsetEPN4llvm5ValueES3_PNS1_11InstructionEj(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(1240) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_110Vectorizer17getConstantOffsetEPN4llvm5ValueES3_PNS1_11InstructionEj(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(1240) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.std::optional.336", align 8
   %8 = alloca %"class.std::optional.336", align 8
   %9 = alloca %"class.llvm::generic_gep_type_iterator", align 8
@@ -11956,7 +11956,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit55:               ; preds = %220, %217, %_ZN4llv
   %236 = load ptr, ptr %235, align 8, !noalias !186
   %237 = getelementptr inbounds i8, ptr %55, i64 -64
   %238 = load ptr, ptr %237, align 8, !noalias !186
-  call fastcc void @_ZN12_GLOBAL__N_110Vectorizer17getConstantOffsetEPN4llvm5ValueES3_PNS1_11InstructionEj(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(1240) %1, ptr noundef %236, ptr noundef %238, ptr noundef %4, i32 noundef %226), !noalias !186
+  call fastcc void @_ZN12_GLOBAL__N_110Vectorizer17getConstantOffsetEPN4llvm5ValueES3_PNS1_11InstructionEj(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(1240) %1, ptr noundef %236, ptr noundef %238, ptr noundef %4, i32 noundef %226), !noalias !186
   %239 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %240 = load i8, ptr %239, align 8, !noalias !186
   %241 = trunc i8 %240 to i1
@@ -11972,7 +11972,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit55:               ; preds = %220, %217, %_ZN4llv
   %246 = load ptr, ptr %245, align 8, !noalias !186
   %247 = getelementptr inbounds i8, ptr %55, i64 -32
   %248 = load ptr, ptr %247, align 8, !noalias !186
-  call fastcc void @_ZN12_GLOBAL__N_110Vectorizer17getConstantOffsetEPN4llvm5ValueES3_PNS1_11InstructionEj(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(1240) %1, ptr noundef %246, ptr noundef %248, ptr noundef %4, i32 noundef %226), !noalias !186
+  call fastcc void @_ZN12_GLOBAL__N_110Vectorizer17getConstantOffsetEPN4llvm5ValueES3_PNS1_11InstructionEj(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(1240) %1, ptr noundef %246, ptr noundef %248, ptr noundef %4, i32 noundef %226), !noalias !186
   %249 = load i8, ptr %239, align 8, !noalias !186
   %250 = trunc i8 %249 to i1
   %251 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -12536,7 +12536,7 @@ _ZL16checkNoWrapFlagsPN4llvm11InstructionEb.exit: ; preds = %_ZL16checkNoWrapFla
 535:                                              ; preds = %533
   %.076.i.ptr143 = getelementptr inbounds i8, ptr %14, i64 %.076.i.idx142
   %536 = load i32, ptr %.076.i.ptr143, align 4, !noalias !189
-  %537 = call fastcc noundef zeroext i1 @_ZL22checkIfSafeAddSequenceRKN4llvm5APIntEPNS_11InstructionEjS4_jb(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull %spec.select.i.i, i32 noundef %532, ptr noundef nonnull %438, i32 noundef %536, i1 noundef zeroext %410), !noalias !189
+  %537 = call fastcc noundef zeroext i1 @_ZL22checkIfSafeAddSequenceRKN4llvm5APIntEPNS_11InstructionEjS4_jb(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull %spec.select.i.i, i32 noundef %532, ptr noundef %438, i32 noundef %536, i1 noundef zeroext %410), !noalias !189
   %538 = zext i1 %537 to i8
   br label %539
 
@@ -13535,7 +13535,7 @@ _ZNK4llvm5APInt3sgtEl.exit:                       ; preds = %_ZNK4llvm5APInt18ge
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc noundef zeroext i1 @_ZL22checkIfSafeAddSequenceRKN4llvm5APIntEPNS_11InstructionEjS4_jb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #10 {
+define internal fastcc noundef zeroext i1 @_ZL22checkIfSafeAddSequenceRKN4llvm5APIntEPNS_11InstructionEjS4_jb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #10 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 1073741824
@@ -15039,7 +15039,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN12_GLOBAL__N_19ChainElemE
   store ptr %26, ptr %5, align 8
   store i32 %29, ptr %23, align 8
   store i64 %30, ptr %22, align 8
-  call fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_19ChainElemElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18sortChainInBBOrderERN4llvm11SmallVectorIS1_Lj1EEEE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %19, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_19ChainElemElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18sortChainInBBOrderERN4llvm11SmallVectorIS1_Lj1EEEE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %19, ptr noundef %5)
   %.val16.i.i.i = load ptr, ptr %22, align 8
   %.val17.i.i.i = load i32, ptr %23, align 8
   %31 = icmp ult i32 %.val17.i.i.i, 65
@@ -15085,7 +15085,7 @@ _ZN12_GLOBAL__N_19ChainElemD2Ev.exit19.i.i.i:     ; preds = %33, %24
   store ptr %39, ptr %4, align 8
   store i32 %42, ptr %36, align 8
   store i64 %43, ptr %35, align 8
-  call fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_19ChainElemElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18sortChainInBBOrderERN4llvm11SmallVectorIS1_Lj1EEEE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %49, ptr noundef nonnull %4)
+  call fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_19ChainElemElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18sortChainInBBOrderERN4llvm11SmallVectorIS1_Lj1EEEE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %49, ptr noundef %4)
   %.val8.i.i6.i = load ptr, ptr %35, align 8
   %.val9.i.i7.i = load i32, ptr %36, align 8
   %50 = icmp ult i32 %.val9.i.i7.i, 65
@@ -15290,7 +15290,7 @@ _ZN12_GLOBAL__N_19ChainElemD2Ev.exit19.i.i.i:     ; preds = %33, %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_19ChainElemElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18sortChainInBBOrderERN4llvm11SmallVectorIS1_Lj1EEEE3$_0EEEvT_T0_SD_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_19ChainElemElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18sortChainInBBOrderERN4llvm11SmallVectorIS1_Lj1EEEE3$_0EEEvT_T0_SD_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 192153584101141162) %1, i64 noundef range(i64 -384307168202282325, 384307168202282326) %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6
@@ -16140,7 +16140,7 @@ _ZN12_GLOBAL__N_19ChainElemC2ERKS0_.exit:         ; preds = %57, %59
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm11SmallVectorIN12_GLOBAL__N_19ChainElemELj1EEC2ESt16initializer_listIS2_E(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm11SmallVectorIN12_GLOBAL__N_19ChainElemELj1EEC2ESt16initializer_listIS2_E(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nonnull %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3, i64 noundef 1) #17
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
@@ -16352,7 +16352,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN12_GLOBAL__N_19ChainElemE
   store ptr %26, ptr %5, align 8
   store i32 %29, ptr %23, align 8
   store i64 %30, ptr %22, align 8
-  call fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_19ChainElemElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_22sortChainInOffsetOrderERN4llvm11SmallVectorIS1_Lj1EEEE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %19, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_19ChainElemElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_22sortChainInOffsetOrderERN4llvm11SmallVectorIS1_Lj1EEEE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %19, ptr noundef %5)
   %.val16.i.i.i = load ptr, ptr %22, align 8
   %.val17.i.i.i = load i32, ptr %23, align 8
   %31 = icmp ult i32 %.val17.i.i.i, 65
@@ -16398,7 +16398,7 @@ _ZN12_GLOBAL__N_19ChainElemD2Ev.exit19.i.i.i:     ; preds = %33, %24
   store ptr %39, ptr %4, align 8
   store i32 %42, ptr %36, align 8
   store i64 %43, ptr %35, align 8
-  call fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_19ChainElemElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_22sortChainInOffsetOrderERN4llvm11SmallVectorIS1_Lj1EEEE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %49, ptr noundef nonnull %4)
+  call fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_19ChainElemElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_22sortChainInOffsetOrderERN4llvm11SmallVectorIS1_Lj1EEEE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %49, ptr noundef %4)
   %.val8.i.i6.i = load ptr, ptr %35, align 8
   %.val9.i.i7.i = load i32, ptr %36, align 8
   %50 = icmp ult i32 %.val9.i.i7.i, 65
@@ -16773,7 +16773,7 @@ _ZNK4llvm5APIntneERKS0_.exit.i.i15.i.i:           ; preds = %.backedge.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_19ChainElemElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_22sortChainInOffsetOrderERN4llvm11SmallVectorIS1_Lj1EEEE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_19ChainElemElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_22sortChainInOffsetOrderERN4llvm11SmallVectorIS1_Lj1EEEE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef %0, i64 noundef range(i64 0, 192153584101141162) %1, i64 noundef range(i64 -384307168202282325, 384307168202282326) %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"struct.(anonymous namespace)::ChainElem", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

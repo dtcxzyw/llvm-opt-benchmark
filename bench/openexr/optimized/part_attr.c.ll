@@ -1654,7 +1654,7 @@ sw.bb.i:                                          ; preds = %if.then32
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %sw.bb.i
-  %call3.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.3, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %channels.i) #6
+  %call3.i = call i32 @exr_attr_list_add_static_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.3, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %channels.i) #6
   br label %sw.epilog.i.sink.split
 
 if.else.i:                                        ; preds = %sw.bb.i
@@ -1663,7 +1663,7 @@ if.else.i:                                        ; preds = %sw.bb.i
   br i1 %cmp6.i, label %if.then8.i, label %if.else16.i
 
 if.then8.i:                                       ; preds = %if.else.i
-  %call10.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.6, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %compression.i) #6
+  %call10.i = call i32 @exr_attr_list_add_static_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.6, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %compression.i) #6
   %16 = load ptr, ptr %compression.i, align 8
   store ptr %16, ptr %attr.i, align 8
   %cmp12.i = icmp eq i32 %call10.i, 0
@@ -1682,7 +1682,7 @@ if.else16.i:                                      ; preds = %if.else.i
   br i1 %cmp18.i, label %if.then20.i, label %sw.epilog.i
 
 if.then20.i:                                      ; preds = %if.else16.i
-  %call22.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.25, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %chunkCount.i) #6
+  %call22.i = call i32 @exr_attr_list_add_static_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.25, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %chunkCount.i) #6
   br label %sw.epilog.i.sink.split
 
 sw.bb27.i:                                        ; preds = %if.then32
@@ -1691,7 +1691,7 @@ sw.bb27.i:                                        ; preds = %if.then32
   br i1 %cmp29.i, label %if.then31.i, label %if.else39.i
 
 if.then31.i:                                      ; preds = %sw.bb27.i
-  %call33.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.7, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %dataWindow.i) #6
+  %call33.i = call i32 @exr_attr_list_add_static_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.7, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %dataWindow.i) #6
   %19 = load ptr, ptr %dataWindow.i, align 8
   store ptr %19, ptr %attr.i, align 8
   %cmp35.i = icmp eq i32 %call33.i, 0
@@ -1709,7 +1709,7 @@ if.else39.i:                                      ; preds = %sw.bb27.i
   br i1 %cmp41.i, label %if.then43.i, label %sw.epilog.i
 
 if.then43.i:                                      ; preds = %if.else39.i
-  %call45.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.9, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %displayWindow.i) #6
+  %call45.i = call i32 @exr_attr_list_add_static_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.9, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %displayWindow.i) #6
   %22 = load ptr, ptr %displayWindow.i, align 8
   store ptr %22, ptr %attr.i, align 8
   %cmp47.i = icmp eq i32 %call45.i, 0
@@ -1727,7 +1727,7 @@ sw.bb53.i:                                        ; preds = %if.then32
   br i1 %cmp55.i, label %if.then57.i, label %sw.epilog.i
 
 if.then57.i:                                      ; preds = %sw.bb53.i
-  %call59.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.10, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %lineOrder.i) #6
+  %call59.i = call i32 @exr_attr_list_add_static_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.10, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %lineOrder.i) #6
   %25 = load ptr, ptr %lineOrder.i, align 8
   store ptr %25, ptr %attr.i, align 8
   %cmp61.i = icmp eq i32 %call59.i, 0
@@ -1746,7 +1746,7 @@ sw.bb67.i:                                        ; preds = %if.then32
   br i1 %cmp69.i, label %if.then71.i, label %sw.epilog.i
 
 if.then71.i:                                      ; preds = %sw.bb67.i
-  %call74.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.20, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %name73.i) #6
+  %call74.i = call i32 @exr_attr_list_add_static_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.20, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %name73.i) #6
   br label %sw.epilog.i.sink.split
 
 sw.bb77.i:                                        ; preds = %if.then32
@@ -1755,7 +1755,7 @@ sw.bb77.i:                                        ; preds = %if.then32
   br i1 %cmp79.i, label %if.then81.i, label %sw.epilog.i
 
 if.then81.i:                                      ; preds = %sw.bb77.i
-  %call83.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.12, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %pixelAspectRatio.i) #6
+  %call83.i = call i32 @exr_attr_list_add_static_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.12, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %pixelAspectRatio.i) #6
   br label %sw.epilog.i.sink.split
 
 sw.bb86.i:                                        ; preds = %if.then32
@@ -1764,7 +1764,7 @@ sw.bb86.i:                                        ; preds = %if.then32
   br i1 %cmp88.i, label %if.then90.i, label %if.else94.i
 
 if.then90.i:                                      ; preds = %sw.bb86.i
-  %call92.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.13, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %screenWindowCenter.i) #6
+  %call92.i = call i32 @exr_attr_list_add_static_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.13, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %screenWindowCenter.i) #6
   br label %sw.epilog.i.sink.split
 
 if.else94.i:                                      ; preds = %sw.bb86.i
@@ -1773,7 +1773,7 @@ if.else94.i:                                      ; preds = %sw.bb86.i
   br i1 %cmp96.i, label %if.then98.i, label %sw.epilog.i
 
 if.then98.i:                                      ; preds = %if.else94.i
-  %call100.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.14, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %screenWindowWidth.i) #6
+  %call100.i = call i32 @exr_attr_list_add_static_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.14, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %screenWindowWidth.i) #6
   br label %sw.epilog.i.sink.split
 
 sw.bb104.i:                                       ; preds = %if.then32
@@ -1782,7 +1782,7 @@ sw.bb104.i:                                       ; preds = %if.then32
   br i1 %cmp106.i, label %if.then108.i, label %if.else112.i
 
 if.then108.i:                                     ; preds = %sw.bb104.i
-  %call110.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.17, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %tiles.i) #6
+  %call110.i = call i32 @exr_attr_list_add_static_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.17, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %tiles.i) #6
   br label %sw.epilog.i.sink.split
 
 if.else112.i:                                     ; preds = %sw.bb104.i
@@ -1791,7 +1791,7 @@ if.else112.i:                                     ; preds = %sw.bb104.i
   br i1 %cmp114.i, label %if.then116.i, label %sw.epilog.i
 
 if.then116.i:                                     ; preds = %if.else112.i
-  %call119.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.81, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %type118.i) #6
+  %call119.i = call i32 @exr_attr_list_add_static_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.81, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %type118.i) #6
   br label %sw.epilog.i.sink.split
 
 sw.bb123.i:                                       ; preds = %if.then32
@@ -1800,7 +1800,7 @@ sw.bb123.i:                                       ; preds = %if.then32
   br i1 %cmp125.i, label %if.then127.i, label %sw.epilog.i
 
 if.then127.i:                                     ; preds = %sw.bb123.i
-  %call129.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.24, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %version.i) #6
+  %call129.i = call i32 @exr_attr_list_add_static_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.24, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %version.i) #6
   br label %sw.epilog.i.sink.split
 
 sw.epilog.i.sink.split:                           ; preds = %if.then.i, %if.then20.i, %if.then71.i, %if.then81.i, %if.then90.i, %if.then98.i, %if.then108.i, %if.then116.i, %if.then127.i
@@ -1821,7 +1821,7 @@ sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.sp
   br i1 %or.cond.i, label %if.end137.i, label %if.then134.i
 
 if.then134.i:                                     ; preds = %sw.epilog.i
-  %call136.i = call i32 @exr_attr_list_add(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull %13, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %attr.i) #6
+  %call136.i = call i32 @exr_attr_list_add(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull %13, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %attr.i) #6
   br label %if.end137.i
 
 if.end137.i:                                      ; preds = %if.then134.i, %sw.epilog.i
@@ -1887,7 +1887,7 @@ sw.bb144.i:                                       ; preds = %if.end141.i
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %11, i64 24
   %44 = load ptr, ptr %43, align 8
-  %call145.i = call i32 @exr_attr_chlist_duplicate(ptr noundef %ctxt, ptr noundef %42, ptr noundef %44) #6
+  %call145.i = call i32 @exr_attr_chlist_duplicate(ptr noundef nonnull %ctxt, ptr noundef %42, ptr noundef %44) #6
   br label %sw.epilog181.i
 
 sw.bb146.i:                                       ; preds = %if.end141.i
@@ -1940,7 +1940,7 @@ sw.bb151.i:                                       ; preds = %if.end141.i
   %arr.i = getelementptr inbounds i8, ptr %70, i64 8
   %71 = load ptr, ptr %arr.i, align 8
   %72 = load i32, ptr %70, align 8
-  %call152.i = call i32 @exr_attr_float_vector_create(ptr noundef %ctxt, ptr noundef %68, ptr noundef %71, i32 noundef %72) #6
+  %call152.i = call i32 @exr_attr_float_vector_create(ptr noundef nonnull %ctxt, ptr noundef %68, ptr noundef %71, i32 noundef %72) #6
   br label %sw.epilog181.i
 
 sw.bb153.i:                                       ; preds = %if.end141.i
@@ -2015,7 +2015,7 @@ sw.bb160.i:                                       ; preds = %if.end141.i
   %112 = load i32, ptr %height.i, align 4
   %rgba.i = getelementptr inbounds i8, ptr %110, i64 16
   %113 = load ptr, ptr %rgba.i, align 8
-  %call161.i = call i32 @exr_attr_preview_create(ptr noundef %ctxt, ptr noundef %108, i32 noundef %111, i32 noundef %112, ptr noundef %113) #6
+  %call161.i = call i32 @exr_attr_preview_create(ptr noundef nonnull %ctxt, ptr noundef %108, i32 noundef %111, i32 noundef %112, ptr noundef %113) #6
   br label %sw.epilog181.i
 
 sw.bb162.i:                                       ; preds = %if.end141.i
@@ -2037,7 +2037,7 @@ sw.bb163.i:                                       ; preds = %if.end141.i
   %str.i = getelementptr inbounds i8, ptr %124, i64 8
   %125 = load ptr, ptr %str.i, align 8
   %126 = load i32, ptr %124, align 8
-  %call165.i = call i32 @exr_attr_string_create_with_length(ptr noundef %ctxt, ptr noundef %122, ptr noundef %125, i32 noundef %126) #6
+  %call165.i = call i32 @exr_attr_string_create_with_length(ptr noundef nonnull %ctxt, ptr noundef %122, ptr noundef %125, i32 noundef %126) #6
   br label %sw.epilog181.i
 
 sw.bb166.i:                                       ; preds = %if.end141.i
@@ -2046,7 +2046,7 @@ sw.bb166.i:                                       ; preds = %if.end141.i
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds i8, ptr %11, i64 24
   %131 = load ptr, ptr %130, align 8
-  %call167.i = call i32 @exr_attr_string_vector_copy(ptr noundef %ctxt, ptr noundef %129, ptr noundef %131) #6
+  %call167.i = call i32 @exr_attr_string_vector_copy(ptr noundef nonnull %ctxt, ptr noundef %129, ptr noundef %131) #6
   br label %sw.epilog181.i
 
 sw.bb168.i:                                       ; preds = %if.end141.i
@@ -2130,12 +2130,12 @@ sw.bb176.i:                                       ; preds = %if.end141.i
   %177 = load ptr, ptr %176, align 8
   %178 = getelementptr inbounds i8, ptr %11, i64 24
   %179 = load ptr, ptr %178, align 8
-  %call177.i = call i32 @exr_attr_opaquedata_copy(ptr noundef %ctxt, ptr noundef %177, ptr noundef %179) #6
+  %call177.i = call i32 @exr_attr_opaquedata_copy(ptr noundef nonnull %ctxt, ptr noundef %177, ptr noundef %179) #6
   br label %sw.epilog181.i
 
 sw.default179.i:                                  ; preds = %if.end141.i
   %180 = load ptr, ptr %standard_error.i, align 8
-  %call180.i = call i32 %180(ptr noundef %ctxt, i32 noundef 14) #6
+  %call180.i = call i32 %180(ptr noundef nonnull %ctxt, i32 noundef 14) #6
   br label %sw.epilog181.i
 
 sw.epilog181.i:                                   ; preds = %sw.default179.i, %sw.bb176.i, %sw.bb166.i, %sw.bb163.i, %sw.bb160.i, %sw.bb151.i, %sw.bb144.i
@@ -2145,7 +2145,7 @@ sw.epilog181.i:                                   ; preds = %sw.default179.i, %s
 
 if.then184.i:                                     ; preds = %sw.epilog181.i
   %181 = load ptr, ptr %attr.i, align 8
-  %call186.i = call i32 @exr_attr_list_remove(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef %181) #6
+  %call186.i = call i32 @exr_attr_list_remove(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes29, ptr noundef %181) #6
   br label %copy_attr.exit
 
 copy_attr.exit:                                   ; preds = %if.end137.i, %sw.bb142.i, %sw.bb143.i, %sw.bb146.i, %sw.bb147.i, %sw.bb148.i, %sw.bb149.i, %sw.bb150.i, %sw.bb153.i, %sw.bb154.i, %sw.bb155.i, %sw.bb156.i, %sw.bb157.i, %sw.bb158.i, %sw.bb159.i, %sw.bb162.i, %sw.bb168.i, %sw.bb169.i, %sw.bb170.i, %sw.bb171.i, %sw.bb172.i, %sw.bb173.i, %sw.bb174.i, %sw.bb175.i, %sw.epilog181.i, %if.then184.i

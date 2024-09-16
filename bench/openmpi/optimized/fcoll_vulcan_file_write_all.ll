@@ -812,7 +812,7 @@ mca_fcoll_vulcan_minmax.exit:                     ; preds = %96, %101
   %442 = mul nsw i32 %440, %441
   %443 = sext i32 %442 to i64
   %444 = getelementptr inbounds ptr, ptr %411, i64 %443
-  call fastcc void @shuffle_init(i32 noundef 0, i32 noundef %435, i32 noundef %436, ptr noundef %438, ptr noundef nonnull %444)
+  call fastcc void @shuffle_init(i32 noundef 0, i32 noundef %435, i32 noundef %436, ptr noundef %438, ptr noundef %444)
   %indvars.iv.next698 = add nuw nsw i64 %indvars.iv697, 1
   %445 = load i32, ptr %67, align 8
   %446 = sext i32 %445 to i64
@@ -898,7 +898,7 @@ mca_fcoll_vulcan_minmax.exit:                     ; preds = %96, %101
 
 491:                                              ; preds = %._crit_edge627
   %492 = load ptr, ptr %461, align 8
-  %493 = call fastcc i32 @write_init(ptr noundef nonnull %0, ptr noundef %492, i32 noundef %38, i32 noundef %.0472, ptr noundef nonnull %14)
+  %493 = call fastcc i32 @write_init(ptr noundef nonnull %0, ptr noundef %492, i32 noundef %38, i32 noundef %.0472, ptr noundef %14)
   %.not518 = icmp eq i32 %493, 0
   br i1 %.not518, label %._crit_edge725, label %.preheader542
 
@@ -925,7 +925,7 @@ mca_fcoll_vulcan_minmax.exit:                     ; preds = %96, %101
   %506 = mul nsw i32 %504, %505
   %507 = sext i32 %506 to i64
   %508 = getelementptr inbounds ptr, ptr %411, i64 %507
-  call fastcc void @shuffle_init(i32 noundef %.0633, i32 noundef %499, i32 noundef %500, ptr noundef %502, ptr noundef nonnull %508)
+  call fastcc void @shuffle_init(i32 noundef %.0633, i32 noundef %499, i32 noundef %500, ptr noundef %502, ptr noundef %508)
   %indvars.iv.next704 = add nuw nsw i64 %indvars.iv703, 1
   %509 = load i32, ptr %67, align 8
   %510 = sext i32 %509 to i64
@@ -1011,7 +1011,7 @@ mca_fcoll_vulcan_minmax.exit:                     ; preds = %96, %101
   %552 = sext i32 %.0473.lcssa to i64
   %553 = getelementptr inbounds ptr, ptr %71, i64 %552
   %554 = load ptr, ptr %553, align 8
-  %555 = call fastcc i32 @write_init(ptr noundef nonnull %0, ptr noundef %554, i32 noundef %38, i32 noundef %.0472, ptr noundef nonnull %14)
+  %555 = call fastcc i32 @write_init(ptr noundef nonnull %0, ptr noundef %554, i32 noundef %38, i32 noundef %.0472, ptr noundef %14)
   %556 = icmp eq i32 %555, 0
   br i1 %556, label %557, label %.preheader542
 
@@ -1735,7 +1735,7 @@ declare i32 @ompi_fcoll_base_coll_allgatherv_array(ptr noundef, i32 noundef, ptr
 declare i32 @ompi_fcoll_base_sort_iovec(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 216
   store i32 0, ptr %7, align 8
@@ -1893,8 +1893,8 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
   br label %.loopexit569.sink.split
 
 97:                                               ; preds = %.loopexit570, %91
-  %.sink764 = phi i64 [ %94, %91 ], [ %82, %.loopexit570 ]
-  %98 = trunc i64 %.sink764 to i32
+  %.sink765 = phi i64 [ %94, %91 ], [ %82, %.loopexit570 ]
+  %98 = trunc i64 %.sink765 to i32
   %99 = getelementptr inbounds i8, ptr %3, i64 144
   store i32 %98, ptr %99, align 8
   %100 = getelementptr inbounds i8, ptr %3, i64 144
@@ -2168,7 +2168,7 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
   %295 = load i32, ptr %294, align 4
   %296 = icmp eq i32 %295, %2
   %297 = select i1 %296, i32 %.pre697, i32 0
-  %spec.select766 = add nsw i32 %.0483592, %297
+  %spec.select767 = add nsw i32 %.0483592, %297
   %298 = load i32, ptr %107, align 4
   %299 = sub nsw i32 %298, %.pre697
   store i32 %299, ptr %107, align 4
@@ -2244,7 +2244,7 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
   %354 = load i32, ptr %353, align 4
   %355 = icmp eq i32 %354, %2
   %356 = select i1 %355, i32 %.pre718, i32 0
-  %spec.select767 = add nsw i32 %.0483592, %356
+  %spec.select768 = add nsw i32 %.0483592, %356
   %357 = load ptr, ptr %109, align 8
   %358 = load ptr, ptr %104, align 8
   %359 = load i32, ptr %105, align 8
@@ -2356,10 +2356,10 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
   br label %447
 
 447:                                              ; preds = %415, %369
-  %.pre-phi725 = phi i64 [ %.phi.trans.insert700, %415 ], [ %408, %369 ]
+  %.pre-phi726 = phi i64 [ %.phi.trans.insert700, %415 ], [ %408, %369 ]
   %448 = phi i32 [ %.pre702, %415 ], [ %410, %369 ]
   %449 = load ptr, ptr %108, align 8
-  %450 = getelementptr inbounds ptr, ptr %449, i64 %.pre-phi725
+  %450 = getelementptr inbounds ptr, ptr %449, i64 %.pre-phi726
   %451 = load ptr, ptr %450, align 8
   %452 = sext i32 %448 to i64
   %453 = getelementptr inbounds i32, ptr %451, i64 %452
@@ -2415,7 +2415,7 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
 
 .loopexit569.sink.split:                          ; preds = %290, %349, %.thread
   %.sink = phi ptr [ %96, %.thread ], [ %100, %349 ], [ %100, %290 ]
-  %.1484.ph = phi i32 [ 0, %.thread ], [ %spec.select767, %349 ], [ %spec.select766, %290 ]
+  %.1484.ph = phi i32 [ 0, %.thread ], [ %spec.select768, %349 ], [ %spec.select767, %290 ]
   store i32 0, ptr %.sink, align 8
   br label %.loopexit569
 
@@ -2575,22 +2575,22 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
   store i32 %543, ptr %542, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %500
-  br i1 %exitcond.not.i, label %.preheader130.preheader.i, label %.lr.ph.i, !llvm.loop !45
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !45
 
-.preheader130.preheader.i:                        ; preds = %.lr.ph.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i
   %544 = lshr i32 %.2507.lcssa, 1
   br label %.preheader130.i
 
 .loopexit.i:                                      ; preds = %581
   %545 = icmp sgt i32 %.1113134.in.i, 1
-  br i1 %545, label %.preheader130.i, label %.lr.ph138.preheader.i, !llvm.loop !46
+  br i1 %545, label %.preheader130.i, label %.preheader.i, !llvm.loop !46
 
-.preheader130.i:                                  ; preds = %.loopexit.i, %.preheader130.preheader.i
-  %.1113134.in.i = phi i32 [ %.1113134.i, %.loopexit.i ], [ %544, %.preheader130.preheader.i ]
+.preheader130.i:                                  ; preds = %.loopexit.i, %._crit_edge.i
+  %.1113134.in.i = phi i32 [ %.1113134.i, %.loopexit.i ], [ %544, %._crit_edge.i ]
   %.1113134.i = add nsw i32 %.1113134.in.i, -1
   br label %547
 
-.lr.ph138.preheader.i:                            ; preds = %.loopexit.i
+.preheader.i:                                     ; preds = %.loopexit.i
   %546 = zext nneg i32 %537 to i64
   br label %.lr.ph138.i
 
@@ -2623,7 +2623,7 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
 
 566:                                              ; preds = %565, %550
   %.0104.i = phi i32 [ %.0108132.i, %565 ], [ %551, %550 ]
-  %.not127.not.i = icmp slt i32 %549, %.2507.lcssa
+  %.not127.not.i = icmp ult i32 %549, %.2507.lcssa
   br i1 %.not127.not.i, label %567, label %581
 
 567:                                              ; preds = %566
@@ -2659,8 +2659,8 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
   store i32 %585, ptr %587, align 4
   br label %547
 
-.lr.ph138.i:                                      ; preds = %634, %.lr.ph138.preheader.i
-  %indvars.iv142.i = phi i64 [ %546, %.lr.ph138.preheader.i ], [ %indvars.iv.next143.i, %634 ]
+.lr.ph138.i:                                      ; preds = %634, %.preheader.i
+  %indvars.iv142.i = phi i64 [ %546, %.preheader.i ], [ %indvars.iv.next143.i, %634 ]
   %indvars144.i = trunc i64 %indvars.iv142.i to i32
   %589 = load i32, ptr %538, align 4
   %590 = getelementptr inbounds i32, ptr %538, i64 %indvars.iv142.i
@@ -2741,10 +2741,14 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
   %636 = getelementptr inbounds i32, ptr %507, i64 %indvars.iv142.i
   store i32 %635, ptr %636, align 4
   %637 = icmp sgt i64 %indvars.iv142.i, 1
-  br i1 %637, label %.lr.ph138.i, label %._crit_edge139.i, !llvm.loop !47
+  br i1 %637, label %.lr.ph138.i, label %._crit_edge139.i.loopexit, !llvm.loop !47
 
-._crit_edge139.i:                                 ; preds = %634, %541
-  %638 = load i32, ptr %538, align 4
+._crit_edge139.i.loopexit:                        ; preds = %634
+  %.pre719 = load i32, ptr %538, align 4
+  br label %._crit_edge139.i
+
+._crit_edge139.i:                                 ; preds = %._crit_edge139.i.loopexit, %541
+  %638 = phi i32 [ %.pre719, %._crit_edge139.i.loopexit ], [ 0, %541 ]
   store i32 %638, ptr %507, align 4
   tail call void @free(ptr noundef nonnull %538) #11
   %639 = sext i32 %638 to i64
@@ -2840,9 +2844,9 @@ local_heap_sort.exit:                             ; preds = %540, %._crit_edge13
   br i1 %exitcond674.not, label %._crit_edge616, label %663, !llvm.loop !49
 
 ._crit_edge616:                                   ; preds = %687
-  %.pre719 = load i32, ptr %482, align 8
+  %.pre720 = load i32, ptr %482, align 8
   tail call void @free(ptr noundef nonnull %659) #11
-  %688 = icmp sgt i32 %.pre719, 0
+  %688 = icmp sgt i32 %.pre720, 0
   br i1 %688, label %.lr.ph619, label %.loopexit561
 
 .lr.ph619:                                        ; preds = %._crit_edge616
@@ -2987,35 +2991,35 @@ local_heap_sort.exit:                             ; preds = %540, %._crit_edge13
   %773 = add i64 %772, %771
   %774 = getelementptr inbounds i64, ptr %.4490, i64 %indvars.iv.next679
   store i64 %773, ptr %774, align 8
-  %.pre720 = load ptr, ptr %737, align 8
-  %.pre721 = load i32, ptr %738, align 8
-  %.pre722 = load i32, ptr %739, align 4
-  %.pre730 = sext i32 %.pre721 to i64
-  %.pre732 = sext i32 %.pre722 to i64
+  %.pre721 = load ptr, ptr %737, align 8
+  %.pre722 = load i32, ptr %738, align 8
+  %.pre723 = load i32, ptr %739, align 4
+  %.pre731 = sext i32 %.pre722 to i64
+  %.pre733 = sext i32 %.pre723 to i64
   br label %775
 
 775:                                              ; preds = %763, %743
-  %.pre-phi733 = phi i64 [ %.pre732, %763 ], [ %751, %743 ]
-  %.pre-phi731 = phi i64 [ %.pre730, %763 ], [ %746, %743 ]
-  %776 = phi ptr [ %.pre720, %763 ], [ %744, %743 ]
+  %.pre-phi734 = phi i64 [ %.pre733, %763 ], [ %751, %743 ]
+  %.pre-phi732 = phi i64 [ %.pre731, %763 ], [ %746, %743 ]
+  %776 = phi ptr [ %.pre721, %763 ], [ %744, %743 ]
   %.3494 = phi ptr [ %.4495, %763 ], [ %.2493620, %743 ]
   %.3489 = phi ptr [ %.4490, %763 ], [ %.2488621, %743 ]
   %.1479 = phi i32 [ %.2, %763 ], [ %.0478624, %743 ]
   %.1 = phi i64 [ %.0625, %763 ], [ %752, %743 ]
-  %777 = getelementptr inbounds %struct.iovec, ptr %776, i64 %.pre-phi731, i32 1
+  %777 = getelementptr inbounds %struct.iovec, ptr %776, i64 %.pre-phi732, i32 1
   %778 = load i64, ptr %777, align 8
-  %779 = sub i64 %778, %.pre-phi733
+  %779 = sub i64 %778, %.pre-phi734
   %.not551 = icmp ult i64 %.0481622, %779
   %780 = getelementptr inbounds i32, ptr %.3494, i64 %indvars.iv.next679
-  br i1 %.not551, label %.thread741, label %784
+  br i1 %.not551, label %.thread742, label %784
 
-.thread741:                                       ; preds = %775
+.thread742:                                       ; preds = %775
   %781 = trunc i64 %.0481622 to i32
   store i32 %781, ptr %780, align 4
   %782 = load i32, ptr %739, align 4
   %783 = add i32 %782, %781
   store i32 %783, ptr %739, align 4
-  br label %.loopexit745
+  br label %.loopexit746
 
 784:                                              ; preds = %775
   %785 = trunc i64 %779 to i32
@@ -3033,9 +3037,9 @@ local_heap_sort.exit:                             ; preds = %540, %._crit_edge13
   store i32 %794, ptr %738, align 8
   store i32 0, ptr %739, align 4
   %.not548 = icmp eq i64 %793, 0
-  br i1 %.not548, label %.loopexit745, label %741, !llvm.loop !51
+  br i1 %.not548, label %.loopexit746, label %741, !llvm.loop !51
 
-.loopexit745:                                     ; preds = %784, %.thread741
+.loopexit746:                                     ; preds = %784, %.thread742
   %795 = getelementptr inbounds i8, ptr %3, i64 72
   %796 = load i64, ptr %795, align 8
   %797 = add nsw i64 %796, %732
@@ -3044,7 +3048,7 @@ local_heap_sort.exit:                             ; preds = %540, %._crit_edge13
   %798 = icmp sgt i64 %indvars.iv678, -2
   br i1 %798, label %799, label %819
 
-799:                                              ; preds = %.loopexit745
+799:                                              ; preds = %.loopexit746
   %800 = trunc nsw i64 %indvars.iv678 to i32
   %801 = add nsw i32 %800, 2
   %802 = call i32 @ompi_datatype_create_hindexed(i32 noundef %801, ptr noundef nonnull %.3494, ptr noundef %.3489, ptr noundef nonnull @ompi_mpi_byte, ptr noundef nonnull %6) #11
@@ -3060,7 +3064,7 @@ local_heap_sort.exit:                             ; preds = %540, %._crit_edge13
   %811 = load i32, ptr %810, align 8
   %812 = sext i32 %811 to i64
   %813 = getelementptr inbounds ptr, ptr %4, i64 %812
-  %814 = call i32 %804(ptr noundef %805, i64 noundef 1, ptr noundef %806, i32 noundef %1, i32 noundef %807, i32 noundef 4, ptr noundef %809, ptr noundef %813) #11
+  %814 = call i32 %804(ptr noundef %805, i64 noundef 1, ptr noundef %806, i32 noundef %1, i32 noundef %807, i32 noundef 4, ptr noundef %809, ptr noundef nonnull %813) #11
   %815 = load ptr, ptr %6, align 8
   %.not549 = icmp eq ptr %815, @ompi_mpi_datatype_null
   br i1 %.not549, label %818, label %816
@@ -3073,9 +3077,9 @@ local_heap_sort.exit:                             ; preds = %540, %._crit_edge13
   %.not550 = icmp eq i32 %814, 0
   br i1 %.not550, label %819, label %.loopexit
 
-819:                                              ; preds = %.loopexit745, %818, %.loopexit561
-  %.1492 = phi ptr [ %.3494, %818 ], [ %.3494, %.loopexit745 ], [ null, %.loopexit561 ]
-  %.1487 = phi ptr [ %.3489, %818 ], [ %.3489, %.loopexit745 ], [ null, %.loopexit561 ]
+819:                                              ; preds = %.loopexit746, %818, %.loopexit561
+  %.1492 = phi ptr [ %.3494, %818 ], [ %.3494, %.loopexit746 ], [ null, %.loopexit561 ]
+  %.1487 = phi ptr [ %.3489, %818 ], [ %.3489, %.loopexit746 ], [ null, %.loopexit561 ]
   %820 = icmp sgt i32 %.0505, 0
   %or.cond3 = and i1 %10, %820
   br i1 %or.cond3, label %821, label %.loopexit
@@ -3193,7 +3197,7 @@ local_heap_sort.exit:                             ; preds = %540, %._crit_edge13
 declare void @mca_common_ompio_register_progress() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_init(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @write_init(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 -1073741824, 1073741824) %2, i32 noundef range(i32 1, 3) %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   call void @mca_common_ompio_request_alloc(ptr noundef nonnull %6, i32 noundef 0) #11

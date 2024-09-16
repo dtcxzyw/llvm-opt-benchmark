@@ -2279,7 +2279,7 @@ declare dso_local i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef,
 declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @dm_stats_create(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) unnamed_addr #0 align 16 {
+define internal fastcc i32 @dm_stats_create(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) unnamed_addr #0 align 16 {
   %11 = icmp uge i64 %2, %1
   %12 = icmp ne i64 %3, 0
   %13 = and i1 %11, %12
@@ -2751,7 +2751,7 @@ declare dso_local void @synchronize_rcu_expedited() local_unnamed_addr #2
 declare dso_local void @call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__dm_stat_clear(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc void @__dm_stat_clear(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = icmp ult i64 %1, %2
   br i1 %5, label %6, label %.loopexit4
 
@@ -2894,7 +2894,7 @@ define internal fastcc void @__dm_stat_clear(ptr noundef %0, i64 noundef %1, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__dm_stat_init_temporary_percpu_totals(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @__dm_stat_init_temporary_percpu_totals(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2) unnamed_addr #0 align 16 {
   tail call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !65
   %4 = getelementptr inbounds i8, ptr %1, i64 128
   %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #18, !srcloc !71

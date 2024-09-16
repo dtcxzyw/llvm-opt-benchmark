@@ -6800,7 +6800,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %56 = getelementptr inbounds %"struct.(anonymous namespace)::DXILOperationDesc", ptr %0, i64 %.08.i.i.i
   call fastcc void @_ZN12_GLOBAL__N_117DXILOperationDescC2EOS0_(ptr noundef nonnull align 8 dereferenceable(512) %8, ptr noundef nonnull align 8 dereferenceable(512) %56)
   call fastcc void @_ZN12_GLOBAL__N_117DXILOperationDescC2EOS0_(ptr noundef nonnull align 8 dereferenceable(512) %9, ptr noundef nonnull align 8 dereferenceable(512) %8)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117DXILOperationDescESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZL17EmitDXILOperationRN4llvm12RecordKeeperERNSB_11raw_ostreamEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %.lcssa50, ptr noundef nonnull %9)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117DXILOperationDescESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZL17EmitDXILOperationRN4llvm12RecordKeeperERNSB_11raw_ostreamEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %.lcssa50, ptr noundef %9)
   call fastcc void @_ZN12_GLOBAL__N_117DXILOperationDescD2Ev(ptr noundef nonnull align 8 dereferenceable(512) %9) #20
   %.not.i.i.i = icmp eq i64 %.08.i.i.i, 0
   %57 = add nsw i64 %.08.i.i.i, -1
@@ -6843,7 +6843,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %78 = sub i64 %77, %10
   %79 = ashr exact i64 %78, 9
   call fastcc void @_ZN12_GLOBAL__N_117DXILOperationDescC2EOS0_(ptr noundef nonnull align 8 dereferenceable(512) %7, ptr noundef nonnull align 8 dereferenceable(512) %6)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117DXILOperationDescESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZL17EmitDXILOperationRN4llvm12RecordKeeperERNSB_11raw_ostreamEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %79, ptr noundef nonnull %7)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117DXILOperationDescESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZL17EmitDXILOperationRN4llvm12RecordKeeperERNSB_11raw_ostreamEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %79, ptr noundef %7)
   call fastcc void @_ZN12_GLOBAL__N_117DXILOperationDescD2Ev(ptr noundef nonnull align 8 dereferenceable(512) %7) #20
   call fastcc void @_ZN12_GLOBAL__N_117DXILOperationDescD2Ev(ptr noundef nonnull align 8 dereferenceable(512) %6) #20
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6)
@@ -7073,7 +7073,7 @@ _ZN12_GLOBAL__N_117DXILOperationDescD2Ev.exit:    ; preds = %_ZN4llvm11SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117DXILOperationDescESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZL17EmitDXILOperationRN4llvm12RecordKeeperERNSB_11raw_ostreamEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117DXILOperationDescESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZL17EmitDXILOperationRN4llvm12RecordKeeperERNSB_11raw_ostreamEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef range(i64 -18014398509481984, 18014398509481984) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"struct.(anonymous namespace)::DXILOperationDesc", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

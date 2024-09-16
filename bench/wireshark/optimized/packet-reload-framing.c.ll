@@ -183,7 +183,7 @@ define internal range(i32 0, 2) i32 @dissect_reload_framing_heur_dtls(ptr nounde
 declare i32 @find_tap_id(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_reload_framing_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_reload_framing_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca [4 x %struct._wmem_tree_key_t], align 16
   %6 = alloca i32, align 4
   %7 = alloca %struct.nstime_t, align 8

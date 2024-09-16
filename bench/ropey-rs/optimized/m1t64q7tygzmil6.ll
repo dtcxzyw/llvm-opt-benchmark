@@ -688,7 +688,7 @@ define noundef zeroext i1 @"_ZN51_$LT$ropey..Error$u20$as$u20$core..fmt..Display
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN5ropey11write_range17h803d94c75b0df3caE(ptr %.32.val, ptr %.40.val, i64 noundef %0, i64 %1, i64 noundef %2, i64 %3) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZN5ropey11write_range17h803d94c75b0df3caE(ptr %.32.val, ptr %.40.val, i64 noundef range(i64 0, 2) %0, i64 %1, i64 noundef range(i64 0, 2) %2, i64 %3) unnamed_addr #1 {
   %5 = alloca [48 x i8], align 8
   %6 = alloca [48 x i8], align 8
   %7 = alloca [48 x i8], align 8
@@ -699,15 +699,15 @@ define internal fastcc noundef zeroext i1 @_ZN5ropey11write_range17h803d94c75b0d
   %12 = alloca [8 x i8], align 8
   %13 = alloca [16 x i8], align 8
   %14 = alloca [8 x i8], align 8
-  %switch = icmp eq i64 %0, 0
-  %switch21 = icmp eq i64 %2, 0
-  br i1 %switch, label %15, label %16
+  %trunc = trunc nuw i64 %0 to i1
+  %trunc21 = trunc nuw i64 %2 to i1
+  br i1 %trunc, label %16, label %15
 
 15:                                               ; preds = %4
-  br i1 %switch21, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit37
+  br i1 %trunc21, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit39, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i
 
 16:                                               ; preds = %4
-  br i1 %switch21, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit43, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit49
+  br i1 %trunc21, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit51, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit45
 
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i: ; preds = %15
   %17 = icmp ne ptr %.32.val, null
@@ -719,7 +719,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i: ; pr
   %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 1 %.32.val, ptr noalias noundef nonnull readonly align 1 @anon.e942f5b93070d75cb2a7dc08a9bb38ac.26, i64 noundef 2), !noalias !53
   br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit37: ; preds = %15
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit39: ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store i64 %3, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
@@ -746,11 +746,11 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit37: ; preds = %15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit: ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit49, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit43, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit37
-  %.sroa.05.0.in = phi i1 [ %31, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit49 ], [ %27, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit43 ], [ %24, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit37 ], [ %21, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i ]
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit: ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit51, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit45, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit39
+  %.sroa.05.0.in = phi i1 [ %31, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit51 ], [ %27, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit45 ], [ %24, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit39 ], [ %21, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i ]
   ret i1 %.sroa.05.0.in
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit43: ; preds = %16
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit45: ; preds = %16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   store i64 %1, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
@@ -777,7 +777,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit43: ; preds = %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit49: ; preds = %16
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit51: ; preds = %16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 %1, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)

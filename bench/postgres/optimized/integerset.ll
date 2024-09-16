@@ -483,8 +483,8 @@ intset_binsrch_uint64.exit:                       ; preds = %.lr.ph.split.i
   %30 = getelementptr inbounds i8, ptr %.03561, i64 8
   %31 = getelementptr inbounds i8, ptr %.03561, i64 2
   %32 = load i16, ptr %31, align 2
-  %.not56 = icmp eq i16 %32, 0
-  br i1 %.not56, label %simple8b_contains.exit, label %.lr.ph.split.us.i.preheader
+  %.not.i46 = icmp eq i16 %32, 0
+  br i1 %.not.i46, label %simple8b_contains.exit, label %.lr.ph.split.us.i.preheader
 
 .lr.ph.split.us.i.preheader:                      ; preds = %.lr.ph
   %33 = zext i16 %32 to i32
@@ -504,13 +504,13 @@ intset_binsrch_uint64.exit:                       ; preds = %.lr.ph.split.i
   %spec.select.us.i = select i1 %.not.us.i, i32 %36, i32 %.01722.us.i
   %spec.select19.us.i = select i1 %.not.us.i, i32 %.023.us.i, i32 %40
   %41 = icmp sgt i32 %spec.select.us.i, %spec.select19.us.i
-  br i1 %41, label %.lr.ph.split.us.i, label %intset_binsrch_uint64.exit48, !llvm.loop !8
+  br i1 %41, label %.lr.ph.split.us.i, label %intset_binsrch_uint64.exit49, !llvm.loop !8
 
-intset_binsrch_uint64.exit48:                     ; preds = %.lr.ph.split.us.i
+intset_binsrch_uint64.exit49:                     ; preds = %.lr.ph.split.us.i
   %42 = icmp eq i32 %spec.select19.us.i, 0
   br i1 %42, label %simple8b_contains.exit, label %43
 
-43:                                               ; preds = %intset_binsrch_uint64.exit48
+43:                                               ; preds = %intset_binsrch_uint64.exit49
   %44 = getelementptr inbounds i8, ptr %.03561, i64 520
   %45 = add i32 %spec.select19.us.i, -1
   %46 = sext i32 %45 to i64
@@ -525,8 +525,8 @@ intset_binsrch_uint64.exit48:                     ; preds = %.lr.ph.split.us.i
   %50 = getelementptr inbounds i8, ptr %.035.lcssa, i64 16
   %51 = getelementptr inbounds i8, ptr %.035.lcssa, i64 2
   %52 = load i16, ptr %51, align 2
-  %.not55 = icmp eq i16 %52, 0
-  br i1 %.not55, label %simple8b_contains.exit, label %.lr.ph.i50.preheader
+  %.not21.i = icmp eq i16 %52, 0
+  br i1 %.not21.i, label %simple8b_contains.exit, label %.lr.ph.i50.preheader
 
 .lr.ph.i50.preheader:                             ; preds = %._crit_edge
   %53 = zext i16 %52 to i32
@@ -541,10 +541,10 @@ intset_binsrch_uint64.exit48:                     ; preds = %.lr.ph.split.us.i
   %57 = sext i32 %56 to i64
   %58 = getelementptr %struct.leaf_item, ptr %50, i64 %57
   %59 = load i64, ptr %58, align 8
-  %.not.i = icmp ult i64 %1, %59
+  %.not.i51 = icmp ult i64 %1, %59
   %60 = add i32 %56, 1
-  %.118.i = select i1 %.not.i, i32 %56, i32 %.01719.i
-  %.1.i = select i1 %.not.i, i32 %.020.i, i32 %60
+  %.118.i = select i1 %.not.i51, i32 %56, i32 %.01719.i
+  %.1.i = select i1 %.not.i51, i32 %.020.i, i32 %60
   %61 = icmp sgt i32 %.118.i, %.1.i
   br i1 %61, label %.lr.ph.i50, label %intset_binsrch_leaf.exit, !llvm.loop !10
 
@@ -587,30 +587,30 @@ intset_binsrch_leaf.exit:                         ; preds = %.lr.ph.i50
   %notmask.i = shl nsw i64 -1, %86
   %87 = xor i64 %notmask.i, -1
   %.not33.i = icmp eq i8 %75, 0
-  br i1 %.not33.i, label %simple8b_contains.exit, label %.lr.ph.i51
+  br i1 %.not33.i, label %simple8b_contains.exit, label %.lr.ph.i53
 
-.lr.ph.i51:                                       ; preds = %85, %93
+.lr.ph.i53:                                       ; preds = %85, %93
   %.02332.i = phi i32 [ %95, %93 ], [ 0, %85 ]
   %.02431.i = phi i64 [ %90, %93 ], [ %67, %85 ]
   %.02530.i = phi i64 [ %94, %93 ], [ %71, %85 ]
   %88 = and i64 %.02530.i, %87
   %89 = add i64 %.02431.i, 1
   %90 = add i64 %89, %88
-  %.not.i52 = icmp ult i64 %90, %1
-  br i1 %.not.i52, label %93, label %91
+  %.not.i54 = icmp ult i64 %90, %1
+  br i1 %.not.i54, label %93, label %91
 
-91:                                               ; preds = %.lr.ph.i51
+91:                                               ; preds = %.lr.ph.i53
   %92 = icmp eq i64 %90, %1
   br label %simple8b_contains.exit
 
-93:                                               ; preds = %.lr.ph.i51
+93:                                               ; preds = %.lr.ph.i53
   %94 = lshr i64 %.02530.i, %86
   %95 = add nuw nsw i32 %.02332.i, 1
   %exitcond.not.i = icmp eq i32 %95, %76
-  br i1 %exitcond.not.i, label %simple8b_contains.exit, label %.lr.ph.i51, !llvm.loop !11
+  br i1 %exitcond.not.i, label %simple8b_contains.exit, label %.lr.ph.i53, !llvm.loop !11
 
-simple8b_contains.exit:                           ; preds = %.lr.ph, %intset_binsrch_uint64.exit48, %93, %._crit_edge, %91, %85, %81, %69, %63, %intset_binsrch_leaf.exit, %23, %intset_binsrch_uint64.exit, %18
-  %.0 = phi i1 [ %22, %18 ], [ false, %intset_binsrch_uint64.exit ], [ false, %23 ], [ false, %intset_binsrch_leaf.exit ], [ true, %63 ], [ %84, %81 ], [ false, %69 ], [ %92, %91 ], [ false, %85 ], [ false, %._crit_edge ], [ false, %93 ], [ false, %intset_binsrch_uint64.exit48 ], [ false, %.lr.ph ]
+simple8b_contains.exit:                           ; preds = %.lr.ph, %intset_binsrch_uint64.exit49, %93, %._crit_edge, %91, %85, %81, %69, %63, %intset_binsrch_leaf.exit, %23, %intset_binsrch_uint64.exit, %18
+  %.0 = phi i1 [ %22, %18 ], [ false, %intset_binsrch_uint64.exit ], [ false, %23 ], [ false, %intset_binsrch_leaf.exit ], [ true, %63 ], [ %84, %81 ], [ false, %69 ], [ %92, %91 ], [ false, %85 ], [ false, %._crit_edge ], [ false, %93 ], [ false, %intset_binsrch_uint64.exit49 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 

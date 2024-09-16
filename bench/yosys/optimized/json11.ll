@@ -1475,7 +1475,7 @@ define void @_ZN6json114Json5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   store i8 0, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 28
   store i32 %3, ptr %12, align 4
-  call fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser10parse_jsonEi(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 0)
+  call fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser10parse_jsonEi(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 0)
   invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser15consume_garbageEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %13 unwind label %17
 
@@ -1503,7 +1503,7 @@ define void @_ZN6json114Json5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %23 = load i64, ptr %9, align 8
   %24 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %23) #21
   %25 = load i8, ptr %24, align 1
-  invoke fastcc void @_ZN6json11L3escB5cxx11Ec(ptr dead_on_unwind noalias nonnull writable align 8 %8, i8 noundef signext %25)
+  invoke fastcc void @_ZN6json11L3escB5cxx11Ec(ptr dead_on_unwind noalias writable align 8 %8, i8 noundef signext %25)
           to label %26 unwind label %17
 
 26:                                               ; preds = %22
@@ -1631,7 +1631,7 @@ _ZN6json114JsonD2Ev.exit:                         ; preds = %40, %59, %72, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser10parse_jsonEi(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser10parse_jsonEi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1677,7 +1677,7 @@ define internal fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser10parse_jsonEi(
           to label %42 unwind label %44
 
 42:                                               ; preds = %41
-  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %43 unwind label %46
 
 43:                                               ; preds = %42
@@ -1770,7 +1770,7 @@ define internal fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser10parse_jsonEi(
           to label %83 unwind label %85, !noalias !38
 
 83:                                               ; preds = %82
-  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %84 unwind label %87
 
 84:                                               ; preds = %83
@@ -1819,7 +1819,7 @@ define internal fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser10parse_jsonEi(
   %104 = load i64, ptr %59, align 8, !noalias !38
   %105 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %103, i64 noundef %104) #21, !noalias !38
   %106 = load i8, ptr %105, align 1, !noalias !38
-  call fastcc void @_ZN6json11L3escB5cxx11Ec(ptr dead_on_unwind noalias nonnull writable align 8 %8, i8 noundef signext %106), !noalias !38
+  call fastcc void @_ZN6json11L3escB5cxx11Ec(ptr dead_on_unwind noalias writable align 8 %8, i8 noundef signext %106), !noalias !38
   %107 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 0, ptr noundef nonnull @.str.15)
           to label %108 unwind label %112, !noalias !38
 
@@ -1830,7 +1830,7 @@ define internal fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser10parse_jsonEi(
 
 110:                                              ; preds = %108
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %109) #21, !noalias !38
-  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %111 unwind label %116
 
 111:                                              ; preds = %110
@@ -1935,7 +1935,7 @@ define internal fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser10parse_jsonEi(
           to label %160 unwind label %162, !noalias !38
 
 160:                                              ; preds = %159
-  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %161 unwind label %164
 
 161:                                              ; preds = %160
@@ -2038,7 +2038,7 @@ define internal fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser10parse_jsonEi(
           to label %215 unwind label %217, !noalias !38
 
 215:                                              ; preds = %214
-  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %216 unwind label %219
 
 216:                                              ; preds = %215
@@ -2117,7 +2117,7 @@ _ZN6json1112_GLOBAL__N_110JsonParser12parse_numberEv.exit: ; preds = %84, %111, 
           to label %236 unwind label %240
 
 236:                                              ; preds = %235
-  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser6expectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4JsonE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull %17)
+  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser6expectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4JsonE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %17)
           to label %237 unwind label %242
 
 237:                                              ; preds = %236
@@ -2162,7 +2162,7 @@ _ZN6json1112_GLOBAL__N_110JsonParser12parse_numberEv.exit: ; preds = %84, %111, 
           to label %248 unwind label %252
 
 248:                                              ; preds = %247
-  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser6expectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4JsonE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull %20)
+  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser6expectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4JsonE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef %20)
           to label %249 unwind label %254
 
 249:                                              ; preds = %248
@@ -2204,7 +2204,7 @@ _ZN6json1112_GLOBAL__N_110JsonParser12parse_numberEv.exit: ; preds = %84, %111, 
 
 259:                                              ; preds = %258
   call void @_ZN6json114JsonC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #21
-  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser6expectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4JsonE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull %23)
+  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser6expectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4JsonE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef %23)
           to label %260 unwind label %263
 
 260:                                              ; preds = %259
@@ -2231,7 +2231,7 @@ _ZN6json1112_GLOBAL__N_110JsonParser12parse_numberEv.exit: ; preds = %84, %111, 
   br label %common.resume
 
 266:                                              ; preds = %233
-  call fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser12parse_stringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser12parse_stringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(32) %1)
   invoke void @_ZN6json114JsonC1EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %24)
           to label %267 unwind label %268
 
@@ -2286,7 +2286,7 @@ _ZN6json1112_GLOBAL__N_110JsonParser12parse_numberEv.exit: ; preds = %84, %111, 
 
 ._crit_edge:                                      ; preds = %404, %277
   %.030.lcssa = phi i8 [ %276, %277 ], [ %403, %404 ]
-  invoke fastcc void @_ZN6json11L3escB5cxx11Ec(ptr dead_on_unwind noalias nonnull writable align 8 %27, i8 noundef signext %.030.lcssa)
+  invoke fastcc void @_ZN6json11L3escB5cxx11Ec(ptr dead_on_unwind noalias writable align 8 %27, i8 noundef signext %.030.lcssa)
           to label %280 unwind label %.loopexit.split-lp
 
 280:                                              ; preds = %._crit_edge
@@ -2295,7 +2295,7 @@ _ZN6json1112_GLOBAL__N_110JsonParser12parse_numberEv.exit: ; preds = %84, %111, 
 
 282:                                              ; preds = %280
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %281) #21
-  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %26)
+  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %26)
           to label %283 unwind label %286
 
 283:                                              ; preds = %282
@@ -2319,7 +2319,7 @@ _ZN6json1112_GLOBAL__N_110JsonParser12parse_numberEv.exit: ; preds = %84, %111, 
   br label %408
 
 289:                                              ; preds = %.lr.ph, %404
-  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser12parse_stringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser12parse_stringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %290 unwind label %.loopexit
 
 290:                                              ; preds = %289
@@ -2340,7 +2340,7 @@ _ZN6json1112_GLOBAL__N_110JsonParser12parse_numberEv.exit: ; preds = %84, %111, 
   br i1 %.not58, label %307, label %297
 
 297:                                              ; preds = %296
-  invoke fastcc void @_ZN6json11L3escB5cxx11Ec(ptr dead_on_unwind noalias nonnull writable align 8 %30, i8 noundef signext %295)
+  invoke fastcc void @_ZN6json11L3escB5cxx11Ec(ptr dead_on_unwind noalias writable align 8 %30, i8 noundef signext %295)
           to label %298 unwind label %.loopexit.split-lp101
 
 298:                                              ; preds = %297
@@ -2349,7 +2349,7 @@ _ZN6json1112_GLOBAL__N_110JsonParser12parse_numberEv.exit: ; preds = %84, %111, 
 
 300:                                              ; preds = %298
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %299) #21
-  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %29)
+  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %29)
           to label %301 unwind label %304
 
 301:                                              ; preds = %300
@@ -2384,7 +2384,7 @@ _ZN6json1112_GLOBAL__N_110JsonParser12parse_numberEv.exit: ; preds = %84, %111, 
   br label %405
 
 307:                                              ; preds = %296
-  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser10parse_jsonEi(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %278)
+  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser10parse_jsonEi(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %278)
           to label %308 unwind label %.loopexit100
 
 308:                                              ; preds = %307
@@ -2569,7 +2569,7 @@ _ZN6json114JsonD2Ev.exit:                         ; preds = %_ZN6json114JsonaSEO
   ]
 
 392:                                              ; preds = %391
-  invoke fastcc void @_ZN6json11L3escB5cxx11Ec(ptr dead_on_unwind noalias nonnull writable align 8 %33, i8 noundef signext %390)
+  invoke fastcc void @_ZN6json11L3escB5cxx11Ec(ptr dead_on_unwind noalias writable align 8 %33, i8 noundef signext %390)
           to label %393 unwind label %.loopexit.split-lp101
 
 393:                                              ; preds = %392
@@ -2578,7 +2578,7 @@ _ZN6json114JsonD2Ev.exit:                         ; preds = %_ZN6json114JsonaSEO
 
 395:                                              ; preds = %393
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %394) #21
-  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %32)
+  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %32)
           to label %396 unwind label %399
 
 396:                                              ; preds = %395
@@ -2669,7 +2669,7 @@ _ZN6json114JsonD2Ev.exit:                         ; preds = %_ZN6json114JsonaSEO
   %419 = load i64, ptr %413, align 8
   %420 = add i64 %419, -1
   store i64 %420, ptr %413, align 8
-  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser10parse_jsonEi(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %414)
+  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser10parse_jsonEi(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %414)
           to label %421 unwind label %.loopexit106
 
 421:                                              ; preds = %418
@@ -2795,7 +2795,7 @@ _ZN6json114JsonD2Ev.exit90:                       ; preds = %_ZNSt6vectorIN6json
   ]
 
 474:                                              ; preds = %473
-  invoke fastcc void @_ZN6json11L3escB5cxx11Ec(ptr dead_on_unwind noalias nonnull writable align 8 %37, i8 noundef signext %472)
+  invoke fastcc void @_ZN6json11L3escB5cxx11Ec(ptr dead_on_unwind noalias writable align 8 %37, i8 noundef signext %472)
           to label %475 unwind label %.loopexit.split-lp107
 
 475:                                              ; preds = %474
@@ -2804,7 +2804,7 @@ _ZN6json114JsonD2Ev.exit90:                       ; preds = %_ZNSt6vectorIN6json
 
 477:                                              ; preds = %475
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %476) #21
-  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %36)
+  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %36)
           to label %478 unwind label %481
 
 478:                                              ; preds = %477
@@ -2842,13 +2842,13 @@ _ZN6json114JsonD2Ev.exit90:                       ; preds = %_ZNSt6vectorIN6json
   br label %common.resume
 
 488:                                              ; preds = %233
-  call fastcc void @_ZN6json11L3escB5cxx11Ec(ptr dead_on_unwind noalias nonnull writable align 8 %39, i8 noundef signext %50)
+  call fastcc void @_ZN6json11L3escB5cxx11Ec(ptr dead_on_unwind noalias writable align 8 %39, i8 noundef signext %50)
   %489 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %39, i64 noundef 0, ptr noundef nonnull @.str.12)
           to label %490 unwind label %492
 
 490:                                              ; preds = %488
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %489) #21
-  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %38)
+  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %38)
           to label %491 unwind label %494
 
 491:                                              ; preds = %490
@@ -3337,7 +3337,7 @@ _ZN6json114JsonD2Ev.exit:                         ; preds = %12, %_ZN6json1112_G
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6json11L3escB5cxx11Ec(ptr dead_on_unwind noalias writable align 8 %0, i8 noundef signext %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6json11L3escB5cxx11Ec(ptr dead_on_unwind noalias nonnull writable align 8 %0, i8 noundef signext %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca [12 x i8], align 1
   %4 = alloca %"class.std::allocator", align 1
   %or.cond = icmp sgt i8 %1, 31
@@ -3480,7 +3480,7 @@ define void @_ZN6json114Json11parse_multiERKNSt7__cxx1112basic_stringIcSt11char_
   br label %17
 
 17:                                               ; preds = %.lr.ph, %73
-  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser10parse_jsonEi(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 0)
+  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser10parse_jsonEi(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 0)
           to label %18 unwind label %65
 
 18:                                               ; preds = %17
@@ -5361,7 +5361,7 @@ _ZN6json1112_GLOBAL__N_110JsonParser4failIcEET_ONSt7__cxx1112basic_stringIcSt11c
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser6expectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4JsonE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser6expectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4JsonE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5428,7 +5428,7 @@ define internal fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser6expectERKNSt7_
 42:                                               ; preds = %38, %40
   %.sink.i = phi ptr [ %39, %38 ], [ %41, %40 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sink.i) #21
-  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %43 unwind label %50
 
 43:                                               ; preds = %42
@@ -5479,7 +5479,7 @@ define internal fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser6expectERKNSt7_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser12parse_stringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser12parse_stringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -5587,7 +5587,7 @@ _ZN6json1112_GLOBAL__N_110JsonParser4failIPKcEET_ONSt7__cxx1112basic_stringIcSt1
   br i1 %50, label %51, label %73
 
 51:                                               ; preds = %49
-  invoke fastcc void @_ZN6json11L3escB5cxx11Ec(ptr dead_on_unwind noalias nonnull writable align 8 %9, i8 noundef signext %45)
+  invoke fastcc void @_ZN6json11L3escB5cxx11Ec(ptr dead_on_unwind noalias writable align 8 %9, i8 noundef signext %45)
           to label %52 unwind label %.loopexit.split-lp73
 
 52:                                               ; preds = %51
@@ -5920,7 +5920,7 @@ _ZN6json1112_GLOBAL__N_110JsonParser4failIPKcEET_ONSt7__cxx1112basic_stringIcSt1
   ]
 
 173:                                              ; preds = %172
-  invoke fastcc void @_ZN6json11L3escB5cxx11Ec(ptr dead_on_unwind noalias nonnull writable align 8 %20, i8 noundef signext %103)
+  invoke fastcc void @_ZN6json11L3escB5cxx11Ec(ptr dead_on_unwind noalias writable align 8 %20, i8 noundef signext %103)
           to label %174 unwind label %.loopexit.split-lp73
 
 174:                                              ; preds = %173

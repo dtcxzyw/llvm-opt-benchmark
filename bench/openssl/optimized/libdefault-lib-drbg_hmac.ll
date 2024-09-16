@@ -479,7 +479,7 @@ declare i64 @ossl_drbg_get_seed(ptr noundef, ptr noundef, i32 noundef, i64 nound
 declare void @ossl_drbg_clear_seed(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_hmac(ptr noundef %hmac, i8 noundef zeroext %inbyte, ptr noundef %in1, i64 noundef %in1len, ptr noundef %in2, i64 noundef %in2len, ptr noundef %in3, i64 noundef %in3len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_hmac(ptr noundef %hmac, i8 noundef zeroext range(i8 0, 2) %inbyte, ptr noundef %in1, i64 noundef %in1len, ptr noundef %in2, i64 noundef %in2len, ptr noundef %in3, i64 noundef %in3len) unnamed_addr #0 {
 entry:
   %inbyte.addr = alloca i8, align 1
   store i8 %inbyte, ptr %inbyte.addr, align 1

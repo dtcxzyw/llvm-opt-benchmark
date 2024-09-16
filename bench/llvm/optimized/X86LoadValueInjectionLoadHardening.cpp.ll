@@ -1239,7 +1239,7 @@ _ZNK4llvm3rdf8CodeNode10members_ifIPFbNS0_8NodeAddrIPNS0_8NodeBaseEEEEEENS_11Sma
   store ptr %23, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !4
   store ptr %20, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !4
   store ptr %22, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !4
-  call fastcc void @"_ZN4llvm8for_eachIRNS_11SmallVectorINS_3rdf8NodeAddrIPNS2_8NodeBaseEEELj4EEEZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass14getGadgetGraphERNS_15MachineFunctionERKNS_15MachineLoopInfoERKNS_20MachineDominatorTreeERKNS_24MachineDominanceFrontierEE3$_0EET0_OT_SN_"(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(80) %26, ptr noundef nonnull byval(%class.anon.404) align 8 %27), !noalias !4
+  call fastcc void @"_ZN4llvm8for_eachIRNS_11SmallVectorINS_3rdf8NodeAddrIPNS2_8NodeBaseEEELj4EEEZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass14getGadgetGraphERNS_15MachineFunctionERKNS_15MachineLoopInfoERKNS_20MachineDominatorTreeERKNS_24MachineDominanceFrontierEE3$_0EET0_OT_SN_"(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(80) %26, ptr noundef nonnull byval(%class.anon.404) align 8 %27), !noalias !4
   %249 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #20, !noalias !4
   %250 = load ptr, ptr %26, align 8, !noalias !4
   %251 = icmp eq ptr %250, %218
@@ -1838,7 +1838,7 @@ _ZNK4llvm3rdf8CodeNode10members_ifIPFbNS0_8NodeAddrIPNS0_8NodeBaseEEEEEENS_11Sma
   store ptr %23, ptr %.sroa.6.0..sroa_idx47.i, align 8, !noalias !4
   store ptr %20, ptr %.sroa.7.0..sroa_idx49.i, align 8, !noalias !4
   store ptr %22, ptr %.sroa.8.0..sroa_idx51.i, align 8, !noalias !4
-  call fastcc void @"_ZN4llvm8for_eachIRNS_11SmallVectorINS_3rdf8NodeAddrIPNS2_8NodeBaseEEELj4EEEZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass14getGadgetGraphERNS_15MachineFunctionERKNS_15MachineLoopInfoERKNS_20MachineDominatorTreeERKNS_24MachineDominanceFrontierEE3$_0EET0_OT_SN_"(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(80) %31, ptr noundef nonnull byval(%class.anon.404) align 8 %32), !noalias !4
+  call fastcc void @"_ZN4llvm8for_eachIRNS_11SmallVectorINS_3rdf8NodeAddrIPNS2_8NodeBaseEEELj4EEEZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass14getGadgetGraphERNS_15MachineFunctionERKNS_15MachineLoopInfoERKNS_20MachineDominatorTreeERKNS_24MachineDominanceFrontierEE3$_0EET0_OT_SN_"(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(80) %31, ptr noundef nonnull byval(%class.anon.404) align 8 %32), !noalias !4
   %545 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %31) #20, !noalias !4
   %546 = load ptr, ptr %31, align 8, !noalias !4
   %547 = icmp eq ptr %546, %227
@@ -2313,7 +2313,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_118MachineGadgetGraphESt14default_deleteIS1_EED2
   %.025.i = phi i32 [ 0, %738 ], [ %859, %_ZNSt10unique_ptrIN12_GLOBAL__N_118MachineGadgetGraphESt14default_deleteIS1_EED2Ev.exit.i.backedge ]
   %745 = ptrtoint ptr %.sroa.087.0 to i64
   store i64 %745, ptr %11, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass18trimMitigatedEdgesESt10unique_ptrINS_18MachineGadgetGraphESt14default_deleteIS2_EE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef nonnull %11)
+  call fastcc void @_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass18trimMitigatedEdgesESt10unique_ptrINS_18MachineGadgetGraphESt14default_deleteIS2_EE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %11)
   %746 = load ptr, ptr %10, align 8
   store ptr null, ptr %10, align 8
   %747 = load ptr, ptr %11, align 8
@@ -2862,7 +2862,7 @@ _ZNSt10unique_ptrIA_N4llvm14ImmutableGraphIPNS0_12MachineInstrEiE4EdgeESt14defau
 _ZNSt10unique_ptrIN12_GLOBAL__N_118MachineGadgetGraphESt14default_deleteIS1_EED2Ev.exit.i69: ; preds = %1018
   %1022 = ptrtoint ptr %.sroa.091.2 to i64
   store i64 %1022, ptr %4, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass18trimMitigatedEdgesESt10unique_ptrINS_18MachineGadgetGraphESt14default_deleteIS2_EE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef nonnull %4)
+  call fastcc void @_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass18trimMitigatedEdgesESt10unique_ptrINS_18MachineGadgetGraphESt14default_deleteIS2_EE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %4)
   %1023 = load ptr, ptr %3, align 8
   store ptr null, ptr %3, align 8
   %1024 = load ptr, ptr %4, align 8
@@ -4160,7 +4160,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit70.i.i.i.i:       ; preds = %361, %359, %349, %3
   br i1 %365, label %367, label %384
 
 367:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit70.i.i.i.i
-  call fastcc void @_ZN4llvm14DOTGraphTraitsIPN12_GLOBAL__N_118MachineGadgetGraphEE12getNodeLabelB5cxx11EPKNS_14ImmutableGraphIPNS_12MachineInstrEiE4NodeES3_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %.sroa.011.020.i.i.i)
+  call fastcc void @_ZN4llvm14DOTGraphTraitsIPN12_GLOBAL__N_118MachineGadgetGraphEE12getNodeLabelB5cxx11EPKNS_14ImmutableGraphIPNS_12MachineInstrEiE4NodeES3_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %.sroa.011.020.i.i.i)
   %368 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #20
   %369 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #20
   %370 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %366, ptr noundef %368, i64 noundef %369) #20
@@ -4186,7 +4186,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit70.i.i.i.i:       ; preds = %361, %359, %349, %3
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit76.i.i.i.i
 
 384:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit70.i.i.i.i
-  call fastcc void @_ZN4llvm14DOTGraphTraitsIPN12_GLOBAL__N_118MachineGadgetGraphEE12getNodeLabelB5cxx11EPKNS_14ImmutableGraphIPNS_12MachineInstrEiE4NodeES3_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %.sroa.011.020.i.i.i)
+  call fastcc void @_ZN4llvm14DOTGraphTraitsIPN12_GLOBAL__N_118MachineGadgetGraphEE12getNodeLabelB5cxx11EPKNS_14ImmutableGraphIPNS_12MachineInstrEiE4NodeES3_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %.sroa.011.020.i.i.i)
   call void @_ZN4llvm3DOT12EscapeStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %14) #20
   %385 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #20
   %386 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #20
@@ -4921,7 +4921,7 @@ declare void @_ZN4llvm3rdf8Liveness14computePhiInfoEv(ptr noundef nonnull align 
 declare { ptr, i32 } @_ZN4llvm3rdf8FuncNode13getEntryBlockERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(736)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm8for_eachIRNS_11SmallVectorINS_3rdf8NodeAddrIPNS2_8NodeBaseEEELj4EEEZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass14getGadgetGraphERNS_15MachineFunctionERKNS_15MachineLoopInfoERKNS_20MachineDominatorTreeERKNS_24MachineDominanceFrontierEE3$_0EET0_OT_SN_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr nocapture noundef readonly byval(%class.anon.404) align 8 %2) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm8for_eachIRNS_11SmallVectorINS_3rdf8NodeAddrIPNS2_8NodeBaseEEELj4EEEZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass14getGadgetGraphERNS_15MachineFunctionERKNS_15MachineLoopInfoERKNS_20MachineDominatorTreeERKNS_24MachineDominanceFrontierEE3$_0EET0_OT_SN_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr nocapture noundef readonly byval(%class.anon.404) align 8 %2) unnamed_addr #0 {
   %4 = alloca %"struct.std::vector<std::pair<llvm::MachineInstr *, std::vector<std::pair<int, int>>>>::_Temporary_value", align 8
   %5 = alloca %"class.std::vector.559", align 8
   %6 = alloca ptr, align 8
@@ -10229,7 +10229,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5w
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm14DOTGraphTraitsIPN12_GLOBAL__N_118MachineGadgetGraphEE12getNodeLabelB5cxx11EPKNS_14ImmutableGraphIPNS_12MachineInstrEiE4NodeES3_(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm14DOTGraphTraitsIPN12_GLOBAL__N_118MachineGadgetGraphEE12getNodeLabelB5cxx11EPKNS_14ImmutableGraphIPNS_12MachineInstrEiE4NodeES3_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
@@ -10691,7 +10691,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass18trimMitigatedEdgesESt10unique_ptrINS_18MachineGadgetGraphESt14default_deleteIS2_EE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, ptr nocapture noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass18trimMitigatedEdgesESt10unique_ptrINS_18MachineGadgetGraphESt14default_deleteIS2_EE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
   %6 = alloca %"class.llvm::ImmutableGraph<llvm::MachineInstr *, int>::NodeSet", align 8

@@ -6984,7 +6984,7 @@ declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #3
 declare double @llvm.fmuladd.f64(double, double, double) #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_print_horizontal_line(i32 noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #2 {
+define internal fastcc void @_print_horizontal_line(i32 noundef range(i32 0, -2147483648) %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i32 noundef range(i32 0, 3) %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = zext nneg i32 %3 to i64
   %9 = getelementptr [4 x %struct.printTextLineFormat], ptr %7, i64 0, i64 %8
@@ -7015,8 +7015,8 @@ define internal fastcc void @_print_horizontal_line(i32 noundef %0, ptr nocaptur
   %22 = add nsw i32 %0, -1
   %23 = icmp eq i16 %2, 0
   %24 = getelementptr inbounds i8, ptr %9, i64 16
-  %25 = zext i32 %22 to i64
-  %wide.trip.count46 = zext i32 %0 to i64
+  %25 = zext nneg i32 %22 to i64
+  %wide.trip.count46 = zext nneg i32 %0 to i64
   br i1 %23, label %.preheader.us, label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %31
@@ -7121,7 +7121,7 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 declare double @log10(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_aligned_vertical_line(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #2 {
+define internal fastcc void @print_aligned_vertical_line(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483648) %4, i32 noundef range(i32 0, 3) %5, ptr noundef %6) unnamed_addr #2 {
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null

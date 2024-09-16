@@ -3495,7 +3495,7 @@ invoke.cont70:                                    ; preds = %_ZTWN9grpc_core9Tim
   br i1 %cmp.i61.not, label %if.end82, label %if.then76
 
 if.then76:                                        ; preds = %invoke.cont70
-  invoke fastcc void @_ZL11del_pluckerP21grpc_completion_queuePvPP19grpc_pollset_worker(ptr noundef nonnull %cq, ptr noundef %tag, ptr noundef nonnull %worker)
+  invoke fastcc void @_ZL11del_pluckerP21grpc_completion_queuePvPP19grpc_pollset_worker(ptr noundef nonnull %cq, ptr noundef %tag, ptr noundef %worker)
           to label %invoke.cont62.invoke unwind label %lpad.loopexit.split-lp
 
 if.end82:                                         ; preds = %if.end67, %invoke.cont70
@@ -4322,7 +4322,7 @@ declare noundef ptr @_ZN9grpc_core32MultiProducerSingleConsumerQueue14PopAndChec
 declare noundef zeroext i1 @_ZN4absl12lts_202308026Status10EqualsSlowERKS1_S3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11del_pluckerP21grpc_completion_queuePvPP19grpc_pollset_worker(ptr nocapture noundef %cq, ptr noundef readnone %tag, ptr noundef readnone %worker) unnamed_addr #7 {
+define internal fastcc void @_ZL11del_pluckerP21grpc_completion_queuePvPP19grpc_pollset_worker(ptr nocapture noundef %cq, ptr noundef readnone %tag, ptr noundef nonnull readnone %worker) unnamed_addr #7 {
 entry:
   %__tmp.i = alloca %"struct.(anonymous namespace)::plucker", align 8
   %num_pluckers = getelementptr inbounds i8, ptr %cq, i64 332

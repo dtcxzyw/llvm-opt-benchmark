@@ -2440,7 +2440,7 @@ _ZN3gmxL14findTaskTargetEPKc.exit335:             ; preds = %_ZN3gmxL14findTaskT
 
 250:                                              ; preds = %244
   %251 = load ptr, ptr %31, align 8
-  invoke fastcc void @_ZN3gmxL11buildLoggerEP8_IO_FILEb(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef %251, i1 noundef zeroext %249)
+  invoke fastcc void @_ZN3gmxL11buildLoggerEP8_IO_FILEb(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef %251, i1 noundef zeroext %249)
           to label %252 unwind label %240
 
 252:                                              ; preds = %250
@@ -4262,7 +4262,7 @@ _ZL13gmx_snew_implI12t_disresdataEvPKcS2_iRPT_m.exit: ; preds = %943
 
 1012:                                             ; preds = %1008, %1002
   %1013 = phi i1 [ true, %1002 ], [ %1011, %1008 ]
-  invoke fastcc void @_ZN3gmxL11buildLoggerEP8_IO_FILEb(ptr dead_on_unwind noalias nonnull writable align 8 %59, ptr noundef %1003, i1 noundef zeroext %1013)
+  invoke fastcc void @_ZN3gmxL11buildLoggerEP8_IO_FILEb(ptr dead_on_unwind noalias writable align 8 %59, ptr noundef %1003, i1 noundef zeroext %1013)
           to label %1014 unwind label %1017
 
 1014:                                             ; preds = %1012
@@ -9782,7 +9782,7 @@ declare noundef ptr @_Z13gmx_fio_getfpP8t_fileio(ptr noundef) local_unnamed_addr
 declare noundef zeroext i1 @_Z24findIsSimulationMainRankPK14gmx_multisim_tP10tmpi_comm_(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmxL11buildLoggerEP8_IO_FILEb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmxL11buildLoggerEP8_IO_FILEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.gmx::LoggerBuilder", align 8
   call void @_ZN3gmx13LoggerBuilderC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.not = icmp eq ptr %1, null
@@ -9810,7 +9810,7 @@ define internal fastcc void @_ZN3gmxL11buildLoggerEP8_IO_FILEb(ptr dead_on_unwin
           to label %12 unwind label %6
 
 12:                                               ; preds = %11, %8
-  invoke void @_ZN3gmx13LoggerBuilder5buildEv(ptr dead_on_unwind writable sret(%"class.gmx::LoggerOwner") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void @_ZN3gmx13LoggerBuilder5buildEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::LoggerOwner") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %13 unwind label %6
 
 13:                                               ; preds = %12

@@ -14123,7 +14123,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNSt5tupleIJN3nix11BuildResultES1_S1_EED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %82) #27
   call void @_ZNSt11_Tuple_implILm1EJN3nix11BuildResultES1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(288) %4) #27
-  invoke fastcc void @_ZN3nix18VersionedProtoTestINS_11WorkerProtoEXadsoKcL_ZNS_L14workerProtoDirEEEEE13readProtoTestISt5tupleIJNS_11BuildResultES6_S6_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjT_(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 17, ptr nonnull @.str.62, i32 noundef 283, ptr noundef nonnull %3)
+  invoke fastcc void @_ZN3nix18VersionedProtoTestINS_11WorkerProtoEXadsoKcL_ZNS_L14workerProtoDirEEEEE13readProtoTestISt5tupleIJNS_11BuildResultES6_S6_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjT_(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 17, ptr nonnull @.str.62, i32 noundef 283, ptr noundef %3)
           to label %89 unwind label %110
 
 89:                                               ; preds = %_ZNSt5tupleIJN3nix11BuildResultES1_S1_EED2Ev.exit
@@ -14198,7 +14198,7 @@ _ZNSt5tupleIJN3nix11BuildResultES1_S1_EED2Ev.exit18: ; preds = %_ZNKSt7__cxx1112
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nix18VersionedProtoTestINS_11WorkerProtoEXadsoKcL_ZNS_L14workerProtoDirEEEEE13readProtoTestISt5tupleIJNS_11BuildResultES6_S6_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjT_(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 %1, ptr %2, i32 noundef %3, ptr noundef %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nix18VersionedProtoTestINS_11WorkerProtoEXadsoKcL_ZNS_L14workerProtoDirEEEEE13readProtoTestISt5tupleIJNS_11BuildResultES6_S6_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjT_(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 %1, ptr %2, i32 noundef range(i32 283, 294) %3, ptr noundef nonnull %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::tuple.123", align 8
   %7 = alloca %"struct.nix::StringSource", align 8
   %8 = alloca %"class.testing::AssertionResult", align 8
@@ -15071,7 +15071,7 @@ _ZNSt5tupleIJN3nix11BuildResultES1_S1_EED2Ev.exit18: ; preds = %_ZNKSt7__cxx1112
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nix18VersionedProtoTestINS_11WorkerProtoEXadsoKcL_ZNS_L14workerProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11BuildResultES6_S6_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 %1, ptr %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(432) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nix18VersionedProtoTestINS_11WorkerProtoEXadsoKcL_ZNS_L14workerProtoDirEEEEE14writeProtoTestISt5tupleIJNS_11BuildResultES6_S6_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjRKT_(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 %1, ptr %2, i32 noundef range(i32 283, 294) %3, ptr noundef nonnull align 8 dereferenceable(432) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"struct.nix::StringSink", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15993,7 +15993,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNSt5tupleIJN3nix11BuildResultES1_S1_EED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %158) #27
   call void @_ZNSt11_Tuple_implILm1EJN3nix11BuildResultES1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(288) %5) #27
-  invoke fastcc void @_ZN3nix18VersionedProtoTestINS_11WorkerProtoEXadsoKcL_ZNS_L14workerProtoDirEEEEE13readProtoTestISt5tupleIJNS_11BuildResultES6_S6_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjT_(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 17, ptr nonnull @.str.68, i32 noundef 284, ptr noundef nonnull %4)
+  invoke fastcc void @_ZN3nix18VersionedProtoTestINS_11WorkerProtoEXadsoKcL_ZNS_L14workerProtoDirEEEEE13readProtoTestISt5tupleIJNS_11BuildResultES6_S6_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjT_(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 17, ptr nonnull @.str.68, i32 noundef 284, ptr noundef %4)
           to label %165 unwind label %220
 
 165:                                              ; preds = %_ZNSt5tupleIJN3nix11BuildResultES1_S1_EED2Ev.exit
@@ -17304,7 +17304,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNSt5tupleIJN3nix11BuildResultES1_S1_EED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %161) #27
   call void @_ZNSt11_Tuple_implILm1EJN3nix11BuildResultES1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(288) %5) #27
-  invoke fastcc void @_ZN3nix18VersionedProtoTestINS_11WorkerProtoEXadsoKcL_ZNS_L14workerProtoDirEEEEE13readProtoTestISt5tupleIJNS_11BuildResultES6_S6_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjT_(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 17, ptr nonnull @.str.76, i32 noundef 285, ptr noundef nonnull %4)
+  invoke fastcc void @_ZN3nix18VersionedProtoTestINS_11WorkerProtoEXadsoKcL_ZNS_L14workerProtoDirEEEEE13readProtoTestISt5tupleIJNS_11BuildResultES6_S6_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjT_(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 17, ptr nonnull @.str.76, i32 noundef 285, ptr noundef %4)
           to label %168 unwind label %223
 
 168:                                              ; preds = %_ZNSt5tupleIJN3nix11BuildResultES1_S1_EED2Ev.exit
@@ -18600,7 +18600,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNSt5tupleIJN3nix11BuildResultES1_S1_EED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %163) #27
   call void @_ZNSt11_Tuple_implILm1EJN3nix11BuildResultES1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(288) %5) #27
-  invoke fastcc void @_ZN3nix18VersionedProtoTestINS_11WorkerProtoEXadsoKcL_ZNS_L14workerProtoDirEEEEE13readProtoTestISt5tupleIJNS_11BuildResultES6_S6_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjT_(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 17, ptr nonnull @.str.81, i32 noundef 293, ptr noundef nonnull %4)
+  invoke fastcc void @_ZN3nix18VersionedProtoTestINS_11WorkerProtoEXadsoKcL_ZNS_L14workerProtoDirEEEEE13readProtoTestISt5tupleIJNS_11BuildResultES6_S6_EEEEvSt17basic_string_viewIcSt11char_traitsIcEEjT_(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 17, ptr nonnull @.str.81, i32 noundef 293, ptr noundef %4)
           to label %170 unwind label %225
 
 170:                                              ; preds = %_ZNSt5tupleIJN3nix11BuildResultES1_S1_EED2Ev.exit

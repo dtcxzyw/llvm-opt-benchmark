@@ -5160,7 +5160,7 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
 
 153:                                              ; preds = %141
   %154 = zext i16 %150 to i32
-  call fastcc void @get_service_uuid_from_handle(ptr dead_on_unwind noalias nonnull writable align 2 %19, ptr noundef nonnull %1, i32 noundef %154, ptr noundef %3)
+  call fastcc void @get_service_uuid_from_handle(ptr dead_on_unwind noalias writable align 2 %19, ptr noundef nonnull %1, i32 noundef %154, ptr noundef %3)
   %.sroa.0.0.copyload = load i16, ptr %19, align 2
   switch i16 %.sroa.0.0.copyload, label %187 [
     i16 6165, label %155
@@ -5313,7 +5313,7 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
   %.val = load i32, ptr %223, align 4
   %224 = getelementptr i8, ptr %1, i64 376
   %.val927 = load i8, ptr %224, align 8
-  call fastcc void @save_request(i32 %.val, i8 %.val927, i8 noundef zeroext 2, ptr noundef nonnull byval(%union.request_parameters_union) align 8 %20, ptr noundef nonnull %3)
+  call fastcc void @save_request(i32 %.val, i8 %.val927, i8 noundef zeroext 2, ptr noundef nonnull byval(%union.request_parameters_union) align 8 %20, ptr noundef %3)
   br label %proto_item_set_generated.exit
 
 225:                                              ; preds = %get_request.exit
@@ -5343,7 +5343,7 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
   %.0859 = zext i16 %spec.select to i32
   %243 = getelementptr i8, ptr %1, i64 20
   %.val948 = load i32, ptr %243, align 4
-  call fastcc void @save_mtu(i32 %.val948, ptr noundef nonnull %3, i32 noundef %.0859)
+  call fastcc void @save_mtu(i32 %.val948, ptr noundef %3, i32 noundef %.0859)
   br label %proto_item_set_generated.exit.thread
 
 244:                                              ; preds = %get_request.exit
@@ -5377,7 +5377,7 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
   %.val928 = load i32, ptr %265, align 4
   %266 = getelementptr i8, ptr %1, i64 376
   %.val929 = load i8, ptr %266, align 8
-  call fastcc void @save_request(i32 %.val928, i8 %.val929, i8 noundef zeroext 4, ptr noundef nonnull byval(%union.request_parameters_union) align 8 %21, ptr noundef nonnull %3)
+  call fastcc void @save_request(i32 %.val928, i8 %.val929, i8 noundef zeroext 4, ptr noundef nonnull byval(%union.request_parameters_union) align 8 %21, ptr noundef %3)
   br label %proto_item_set_generated.exit
 
 267:                                              ; preds = %get_request.exit
@@ -5503,7 +5503,7 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
   %.val930 = load i32, ptr %342, align 4
   %343 = getelementptr i8, ptr %1, i64 376
   %.val931 = load i8, ptr %343, align 8
-  call fastcc void @save_request(i32 %.val930, i8 %.val931, i8 noundef zeroext 6, ptr noundef nonnull byval(%union.request_parameters_union) align 8 %25, ptr noundef nonnull %3)
+  call fastcc void @save_request(i32 %.val930, i8 %.val931, i8 noundef zeroext 6, ptr noundef nonnull byval(%union.request_parameters_union) align 8 %25, ptr noundef %3)
   br label %344
 
 344:                                              ; preds = %337, %313
@@ -5585,7 +5585,7 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
   %.val932 = load i32, ptr %398, align 4
   %399 = getelementptr i8, ptr %1, i64 376
   %.val933 = load i8, ptr %399, align 8
-  call fastcc void @save_request(i32 %.val932, i8 %.val933, i8 noundef zeroext %75, ptr noundef nonnull byval(%union.request_parameters_union) align 8 %27, ptr noundef nonnull %3)
+  call fastcc void @save_request(i32 %.val932, i8 %.val933, i8 noundef zeroext %75, ptr noundef nonnull byval(%union.request_parameters_union) align 8 %27, ptr noundef %3)
   br label %proto_item_set_generated.exit
 
 400:                                              ; preds = %368
@@ -5623,7 +5623,7 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
   %.val934 = load i32, ptr %421, align 4
   %422 = getelementptr i8, ptr %1, i64 376
   %.val935 = load i8, ptr %422, align 8
-  call fastcc void @save_request(i32 %.val934, i8 %.val935, i8 noundef zeroext %75, ptr noundef nonnull byval(%union.request_parameters_union) align 8 %29, ptr noundef nonnull %3)
+  call fastcc void @save_request(i32 %.val934, i8 %.val935, i8 noundef zeroext %75, ptr noundef nonnull byval(%union.request_parameters_union) align 8 %29, ptr noundef %3)
   br label %proto_item_set_generated.exit
 
 423:                                              ; preds = %400
@@ -5744,7 +5744,7 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
   %.val936 = load i32, ptr %490, align 4
   %491 = getelementptr i8, ptr %1, i64 376
   %.val937 = load i8, ptr %491, align 8
-  call fastcc void @save_request(i32 %.val936, i8 %.val937, i8 noundef zeroext 10, ptr noundef nonnull byval(%union.request_parameters_union) align 8 %33, ptr noundef nonnull %3)
+  call fastcc void @save_request(i32 %.val936, i8 %.val937, i8 noundef zeroext 10, ptr noundef nonnull byval(%union.request_parameters_union) align 8 %33, ptr noundef %3)
   br label %492
 
 492:                                              ; preds = %488, %476
@@ -5813,7 +5813,7 @@ is_long_attribute_value.exit:                     ; preds = %504, %504, %504, %5
   %520 = zext i16 %519 to i32
   %521 = getelementptr i8, ptr %1, i64 20
   %.val951 = load i32, ptr %521, align 4
-  call fastcc void @save_value_fragment(i32 %.val951, ptr noundef %0, i32 noundef 1, i32 noundef %520, i32 noundef 0, ptr noundef nonnull %3)
+  call fastcc void @save_value_fragment(i32 %.val951, ptr noundef %0, i32 noundef 1, i32 noundef %520, i32 noundef 0, ptr noundef %3)
   br label %522
 
 522:                                              ; preds = %517, %506
@@ -5868,7 +5868,7 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
   %.val938 = load i32, ptr %553, align 4
   %554 = getelementptr i8, ptr %1, i64 376
   %.val939 = load i8, ptr %554, align 8
-  call fastcc void @save_request(i32 %.val938, i8 %.val939, i8 noundef zeroext 12, ptr noundef nonnull byval(%union.request_parameters_union) align 8 %34, ptr noundef nonnull %3)
+  call fastcc void @save_request(i32 %.val938, i8 %.val939, i8 noundef zeroext 12, ptr noundef nonnull byval(%union.request_parameters_union) align 8 %34, ptr noundef %3)
   br label %proto_item_set_generated.exit
 
 555:                                              ; preds = %get_request.exit
@@ -5922,7 +5922,7 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
   %586 = zext i16 %567 to i32
   %587 = getelementptr i8, ptr %1, i64 20
   %.val952 = load i32, ptr %587, align 4
-  call fastcc void @save_value_fragment(i32 %.val952, ptr noundef %0, i32 noundef 1, i32 noundef %585, i32 noundef %586, ptr noundef nonnull %3)
+  call fastcc void @save_value_fragment(i32 %.val952, ptr noundef %0, i32 noundef 1, i32 noundef %585, i32 noundef %586, ptr noundef %3)
   br label %588
 
 588:                                              ; preds = %583, %575
@@ -5936,7 +5936,7 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
 594:                                              ; preds = %588
   %595 = load i16, ptr %561, align 8
   %596 = zext i16 %595 to i32
-  %597 = call fastcc ptr @get_value(ptr noundef nonnull %1, i32 noundef %596, ptr noundef %3, ptr noundef nonnull %35)
+  %597 = call fastcc ptr @get_value(ptr noundef nonnull %1, i32 noundef %596, ptr noundef %3, ptr noundef %35)
   %.not912 = icmp eq ptr %597, null
   br i1 %.not912, label %proto_item_set_generated.exit.thread, label %598
 
@@ -6018,7 +6018,7 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
   %.val940 = load i32, ptr %646, align 4
   %647 = getelementptr i8, ptr %1, i64 376
   %.val941 = load i8, ptr %647, align 8
-  call fastcc void @save_request(i32 %.val940, i8 %.val941, i8 noundef zeroext 14, ptr noundef nonnull byval(%union.request_parameters_union) align 8 %36, ptr noundef nonnull %3)
+  call fastcc void @save_request(i32 %.val940, i8 %.val941, i8 noundef zeroext 14, ptr noundef nonnull byval(%union.request_parameters_union) align 8 %36, ptr noundef %3)
   br label %proto_item_set_generated.exit
 
 648:                                              ; preds = %get_request.exit
@@ -6414,7 +6414,7 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
   %860 = getelementptr inbounds i8, ptr %.037.i, i64 16
   %861 = load i16, ptr %860, align 8
   %862 = zext i16 %861 to i32
-  %863 = call fastcc ptr @get_value(ptr noundef nonnull %1, i32 noundef %862, ptr noundef %3, ptr noundef nonnull %38)
+  %863 = call fastcc ptr @get_value(ptr noundef nonnull %1, i32 noundef %862, ptr noundef %3, ptr noundef %38)
   %.not903 = icmp eq ptr %863, null
   br i1 %.not903, label %875, label %864
 
@@ -6462,7 +6462,7 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
   %.val946 = load i32, ptr %892, align 4
   %893 = getelementptr i8, ptr %1, i64 376
   %.val947 = load i8, ptr %893, align 8
-  call fastcc void @save_request(i32 %.val946, i8 %.val947, i8 noundef zeroext 24, ptr noundef nonnull byval(%union.request_parameters_union) align 8 %39, ptr noundef nonnull %3)
+  call fastcc void @save_request(i32 %.val946, i8 %.val947, i8 noundef zeroext 24, ptr noundef nonnull byval(%union.request_parameters_union) align 8 %39, ptr noundef %3)
   br label %proto_item_set_generated.exit
 
 894:                                              ; preds = %get_request.exit
@@ -7627,7 +7627,7 @@ declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_handle(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly %6, i32 noundef %7) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_handle(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly %6, i32 noundef range(i32 -1, 65536) %7) unnamed_addr #1 {
   %9 = alloca i32, align 4
   %10 = alloca [4 x %struct._wmem_tree_key_t], align 16
   %11 = alloca i32, align 4
@@ -8048,7 +8048,7 @@ proto_item_set_generated.exit85:                  ; preds = %171, %168, %167, %p
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_service_uuid_from_handle(ptr dead_on_unwind noalias nocapture writable writeonly align 2 %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @get_service_uuid_from_handle(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 2 %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 65536) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca [4 x %struct._wmem_tree_key_t], align 16
   store i32 %2, ptr %5, align 4
@@ -8330,7 +8330,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @save_request(i32 %.20.val, i8 %.376.val, i8 noundef zeroext %0, ptr nocapture noundef readonly byval(%union.request_parameters_union) align 8 %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @save_request(i32 %.20.val, i8 %.376.val, i8 noundef zeroext %0, ptr nocapture noundef readonly byval(%union.request_parameters_union) align 8 %1, ptr noundef nonnull %2) unnamed_addr #1 {
   %4 = alloca [5 x %struct._wmem_tree_key_t], align 16
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -8373,7 +8373,7 @@ define internal fastcc void @save_request(i32 %.20.val, i8 %.376.val, i8 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @save_mtu(i32 %.20.val, ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @save_mtu(i32 %.20.val, ptr noundef nonnull %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #1 {
   %3 = alloca [4 x %struct._wmem_tree_key_t], align 16
   %4 = alloca i32, align 4
   store i32 %.20.val, ptr %4, align 4
@@ -8408,7 +8408,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare ptr @print_bluetooth_uuid(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @save_handle(ptr noundef %0, ptr nocapture noundef readonly byval(%struct._uuid_t) align 8 %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc void @save_handle(ptr noundef %0, ptr nocapture noundef readonly byval(%struct._uuid_t) align 8 %1, i32 noundef range(i32 0, 65536) %2, i32 noundef range(i32 0, 3) %3, ptr noundef %4) unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca [5 x %struct._wmem_tree_key_t], align 16
   %8 = alloca i32, align 4
@@ -9412,7 +9412,7 @@ switch.early.test7929:                            ; preds = %is_readable_respons
   %309 = call zeroext i16 @tvb_get_guint16(ptr noundef %25, i32 noundef %.0.i, i32 noundef -2147483648) #13
   %310 = zext i16 %309 to i32
   %311 = add i32 %.0.i, 2
-  call fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unwind noalias nonnull writable align 2 %18, ptr noundef %2, i32 noundef %42, ptr noundef %28)
+  call fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unwind noalias writable align 2 %18, ptr noundef %2, i32 noundef %42, ptr noundef %28)
   %.sroa.0.0.copyload = load i16, ptr %18, align 2
   %312 = and i32 %310, 1
   %.not5511 = icmp eq i32 %312, 0
@@ -9706,7 +9706,7 @@ switch.early.test7933:                            ; preds = %386
   ]
 
 389:                                              ; preds = %switch.early.test7933
-  call fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unwind noalias nonnull writable align 2 %19, ptr noundef %2, i32 noundef %42, ptr noundef %28)
+  call fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unwind noalias writable align 2 %19, ptr noundef %2, i32 noundef %42, ptr noundef %28)
   %390 = load ptr, ptr %29, align 8
   %391 = call ptr @print_numeric_bluetooth_uuid(ptr noundef %390, ptr noundef nonnull %19) #13
   %392 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %390, ptr noundef nonnull @.str.3105, ptr noundef %391) #13
@@ -9973,7 +9973,7 @@ switch.early.test7937:                            ; preds = %is_readable_respons
 
 500:                                              ; preds = %498
   %501 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %492, i32 noundef 1) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3106, ptr noundef %501, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3106, ptr noundef %501, ptr noundef %2, ptr noundef %0, ptr noundef %8)
   %502 = add i32 %.0.i, 2
   br label %is_readable_request.exit.thread
 
@@ -10934,13 +10934,13 @@ switch.early.test7960:                            ; preds = %842
 
 845:                                              ; preds = %switch.early.test7960
   %846 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %.0.i, i32 noundef 9) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3107, ptr noundef %846, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3107, ptr noundef %846, ptr noundef %2, ptr noundef %0, ptr noundef %8)
   %847 = add i32 %.0.i, 9
   %848 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %847, i32 noundef 2) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3108, ptr noundef %848, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3108, ptr noundef %848, ptr noundef %2, ptr noundef %0, ptr noundef %8)
   %849 = add i32 %.0.i, 11
   %850 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %849, i32 noundef 4) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3109, ptr noundef %850, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3109, ptr noundef %850, ptr noundef %2, ptr noundef %0, ptr noundef %8)
   %851 = add i32 %.0.i, 15
   br label %is_readable_request.exit.thread
 
@@ -12019,10 +12019,10 @@ switch.early.test7982:                            ; preds = %1248
 
 1251:                                             ; preds = %switch.early.test7982
   %1252 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %.0.i, i32 noundef 4) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3110, ptr noundef %1252, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3110, ptr noundef %1252, ptr noundef %2, ptr noundef %0, ptr noundef %8)
   %1253 = add i32 %.0.i, 4
   %1254 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %1253, i32 noundef 4) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3111, ptr noundef %1254, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3111, ptr noundef %1254, ptr noundef %2, ptr noundef %0, ptr noundef %8)
   %1255 = add i32 %.0.i, 8
   br label %is_readable_request.exit.thread
 
@@ -12041,10 +12041,10 @@ switch.early.test7983:                            ; preds = %1256
 
 1259:                                             ; preds = %switch.early.test7983
   %1260 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %.0.i, i32 noundef 8) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3112, ptr noundef %1260, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3112, ptr noundef %1260, ptr noundef %2, ptr noundef %0, ptr noundef %8)
   %1261 = add i32 %.0.i, 8
   %1262 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %1261, i32 noundef 3) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3113, ptr noundef %1262, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3113, ptr noundef %1262, ptr noundef %2, ptr noundef %0, ptr noundef %8)
   %1263 = add i32 %.0.i, 11
   br label %is_readable_request.exit.thread
 
@@ -13965,10 +13965,10 @@ switch.early.test8022:                            ; preds = %is_readable_respons
 
 1986:                                             ; preds = %switch.early.test8022
   %1987 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %.0.i, i32 noundef 1) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3106, ptr noundef %1987, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3106, ptr noundef %1987, ptr noundef %2, ptr noundef %0, ptr noundef %8)
   %1988 = add nuw i32 %.0.i, 1
   %1989 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %1988, i32 noundef 2) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3115, ptr noundef %1989, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3115, ptr noundef %1989, ptr noundef %2, ptr noundef %0, ptr noundef %8)
   %1990 = add i32 %.0.i, 3
   br label %is_readable_request.exit.thread
 
@@ -14179,7 +14179,7 @@ switch.early.test8026.thread:                     ; preds = %2047, %switch.early
   %2073 = load i32, ptr @ett_btatt_value, align 4
   %2074 = call ptr @proto_item_add_subtree(ptr noundef %2072, i32 noundef %2073) #13
   %2075 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %2068, i32 noundef 7) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3116, ptr noundef %2075, ptr noundef %2, ptr noundef %2074, ptr noundef nonnull %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3116, ptr noundef %2075, ptr noundef %2, ptr noundef %2074, ptr noundef %8)
   %2076 = add i32 %.0.i, 12
   br label %2077
 
@@ -20285,7 +20285,7 @@ switch.early.test8120:                            ; preds = %is_readable_respons
   %4257 = load i32, ptr @ett_btatt_value, align 4
   %4258 = call ptr @proto_item_add_subtree(ptr noundef %4256, i32 noundef %4257) #13
   %4259 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %.0.i, i32 noundef 7) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3116, ptr noundef %4259, ptr noundef %2, ptr noundef %4258, ptr noundef nonnull %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3116, ptr noundef %4259, ptr noundef %2, ptr noundef %4258, ptr noundef %8)
   %4260 = add i32 %.0.i, 7
   br label %is_readable_request.exit.thread
 
@@ -20352,7 +20352,7 @@ switch.early.test8121:                            ; preds = %is_readable_respons
   %4277 = load i32, ptr @ett_btatt_value, align 4
   %4278 = call ptr @proto_item_add_subtree(ptr noundef %4276, i32 noundef %4277) #13
   %4279 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %.0.i, i32 noundef 7) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3116, ptr noundef %4279, ptr noundef %2, ptr noundef %4278, ptr noundef nonnull %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3116, ptr noundef %4279, ptr noundef %2, ptr noundef %4278, ptr noundef %8)
   %4280 = add i32 %.0.i, 7
   br label %is_readable_request.exit.thread
 
@@ -20730,10 +20730,10 @@ switch.early.test8126:                            ; preds = %is_readable_respons
 
 4424:                                             ; preds = %4411, %4411
   %4425 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %4414, i32 noundef 7) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3116, ptr noundef %4425, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3116, ptr noundef %4425, ptr noundef %2, ptr noundef %0, ptr noundef %8)
   %4426 = add i32 %.0.i, 8
   %4427 = call ptr @tvb_new_subset_length(ptr noundef %25, i32 noundef %4426, i32 noundef 7) #13
-  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3116, ptr noundef %4427, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %8)
+  call fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef nonnull @.str.3116, ptr noundef %4427, ptr noundef %2, ptr noundef %0, ptr noundef %8)
   %4428 = add i32 %.0.i, 15
   br label %is_readable_request.exit.thread
 
@@ -21735,7 +21735,7 @@ define internal fastcc range(i32 0, 2) i32 @is_long_attribute_value(i16 %.0.val)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @save_value_fragment(i32 %.20.val, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc void @save_value_fragment(i32 %.20.val, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 65536) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef nonnull %4) unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca [5 x %struct._wmem_tree_key_t], align 16
   %8 = alloca i32, align 4
@@ -21781,7 +21781,7 @@ define internal fastcc void @save_value_fragment(i32 %.20.val, ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @get_value(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #1 {
+define internal fastcc noalias ptr @get_value(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 65536) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca [4 x %struct._wmem_tree_key_t], align 16
   store i32 %1, ptr %5, align 4
@@ -21891,7 +21891,7 @@ declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unwind noalias nocapture writable writeonly align 2 %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 2 %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 65536) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca [4 x %struct._wmem_tree_key_t], align 16
   store i32 %2, ptr %5, align 4
@@ -21986,13 +21986,13 @@ declare ptr @find_dissector(ptr noundef) local_unnamed_addr #2
 declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc void @btatt_call_dissector_by_dissector_name_with_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #1 {
   %6 = tail call ptr @find_dissector(ptr noundef %0) #13
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @call_dissector_with_data(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #13
+  %8 = tail call i32 @call_dissector_with_data(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4) #13
   ret void
 
 9:                                                ; preds = %5

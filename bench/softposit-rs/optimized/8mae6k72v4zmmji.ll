@@ -2280,7 +2280,7 @@ _ZN9softposit5p32e27convert22convert_p32bits_to_u3217h036161cc6e46248cE.exit.i: 
   store i32 -939524096, ptr %89, align 4
   %90 = getelementptr inbounds i8, ptr %6, i64 24
   store i32 1073741824, ptr %90, align 4
-  %91 = call fastcc noundef i32 @_ZN9softposit7polynom7Polynom5poly617h58732c22dad9f121E(i32 noundef %79, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %6)
+  %91 = call fastcc noundef i32 @_ZN9softposit7polynom7Polynom5poly617h58732c22dad9f121E(i32 noundef %79, ptr noalias noundef readonly align 4 dereferenceable(28) %6)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %6)
   %92 = and i32 %.0.i, 1
   %93 = icmp eq i32 %92, 0
@@ -2640,7 +2640,7 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef4asin17h1605e0b86373387dE(i32 
   store i32 715827790, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 1073741824, ptr %17, align 4
-  %18 = call fastcc noundef i32 @_ZN9softposit7polynom7Polynom5poly617h58732c22dad9f121E(i32 noundef %.01929, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %2)
+  %18 = call fastcc noundef i32 @_ZN9softposit7polynom7Polynom5poly617h58732c22dad9f121E(i32 noundef %.01929, ptr noalias noundef readonly align 4 dereferenceable(28) %2)
   %19 = tail call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %18, i32 noundef %.020)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2)
   br i1 %3, label %"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3sub17h83be9cae0aaad5d5E.exit26", label %20
@@ -3216,7 +3216,7 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef5exp1017h0aa6f3c223873f50E(i32
   store i32 1228265696, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 1073741824, ptr %17, align 4
-  %18 = call fastcc noundef i32 @_ZN9softposit7polynom7Polynom5poly617h58732c22dad9f121E(i32 noundef %11, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %2)
+  %18 = call fastcc noundef i32 @_ZN9softposit7polynom7Polynom5poly617h58732c22dad9f121E(i32 noundef %11, ptr noalias noundef readonly align 4 dereferenceable(28) %2)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2)
   %19 = icmp eq i32 %6, -2147483648
   br i1 %19, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", label %20
@@ -4073,7 +4073,7 @@ define hidden noundef i32 @_ZN9softposit7polynom7Polynom5poly517hcddbb310de9b4d9
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN9softposit7polynom7Polynom5poly617h58732c22dad9f121E(i32 noundef %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef i32 @_ZN9softposit7polynom7Polynom5poly617h58732c22dad9f121E(i32 noundef %0, ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(28) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
 _ZN9softposit7polynom4poly4Poly6poly6k17h02654a10a8ced8fcE.exit:
   %2 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   %3 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8

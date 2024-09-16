@@ -3209,7 +3209,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %145, %134
   %185 = sub nsw i64 0, %184
   %186 = getelementptr inbounds %"class.llvm::Use", ptr %180, i64 %185
   %187 = call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %180)
-  %188 = call fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_13MemCpyOptPass20performCallSlotOptznEPNS_11InstructionES7_PNS_5ValueES9_NS_8TypeSizeENS_5AlignERNS_14BatchAAResultsESt8functionIFPNS_8CallInstEvEEE3$_0EEbOT_T0_"(ptr nonnull %186, ptr %187, ptr nonnull %13, ptr nonnull %15)
+  %188 = call fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_13MemCpyOptPass20performCallSlotOptznEPNS_11InstructionES7_PNS_5ValueES9_NS_8TypeSizeENS_5AlignERNS_14BatchAAResultsESt8functionIFPNS_8CallInstEvEEE3$_0EEbOT_T0_"(ptr nonnull %186, ptr %187, ptr %13, ptr %15)
   br i1 %188, label %189, label %.loopexit
 
 189:                                              ; preds = %._crit_edge
@@ -4512,7 +4512,7 @@ _ZN4llvm8CastInfoINS_13IntrinsicInstEPNS_4UserEvE16doCastIfPossibleERKS3_.exit: 
 declare noundef zeroext i1 @_ZNK4llvm11Instruction20isLifetimeStartOrEndEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_13MemCpyOptPass20performCallSlotOptznEPNS_11InstructionES7_PNS_5ValueES9_NS_8TypeSizeENS_5AlignERNS_14BatchAAResultsESt8functionIFPNS_8CallInstEvEEE3$_0EEbOT_T0_"(ptr %.0.val, ptr %.8.val, ptr %0, ptr %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZNS_13MemCpyOptPass20performCallSlotOptznEPNS_11InstructionES7_PNS_5ValueES9_NS_8TypeSizeENS_5AlignERNS_14BatchAAResultsESt8functionIFPNS_8CallInstEvEEE3$_0EEbOT_T0_"(ptr %.0.val, ptr %.8.val, ptr nonnull %0, ptr nonnull %1) unnamed_addr #0 {
   %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred.418", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr %0, ptr %3, align 8
@@ -6238,7 +6238,7 @@ _ZNK4llvm9MemorySSA15getMemoryAccessEPKNS_11InstructionE.exit: ; preds = %.lr.ph
   %114 = call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %113) #18
   %115 = getelementptr i8, ptr %106, i64 104
   %.val = load ptr, ptr %115, align 8
-  %116 = call fastcc noundef zeroext i1 @_ZL16hasUndefContentsPN4llvm9MemorySSAERNS_14BatchAAResultsEPNS_5ValueEPNS_9MemoryDefES5_(ptr %.val, ptr noundef nonnull align 8 dereferenceable(656) %3, ptr noundef %114, ptr noundef nonnull %103, ptr noundef nonnull %47)
+  %116 = call fastcc noundef zeroext i1 @_ZL16hasUndefContentsPN4llvm9MemorySSAERNS_14BatchAAResultsEPNS_5ValueEPNS_9MemoryDefES5_(ptr %.val, ptr noundef nonnull align 8 dereferenceable(656) %3, ptr noundef %114, ptr noundef %103, ptr noundef nonnull %47)
   br i1 %116, label %117, label %.critedge
 
 117:                                              ; preds = %105, %52, %33
@@ -6358,7 +6358,7 @@ _ZNK4llvm9MemorySSA15getMemoryAccessEPKNS_11InstructionE.exit57: ; preds = %.lr.
 declare noundef ptr @_ZN4llvm9MemorySSA9getWalkerEv(ptr noundef nonnull align 8 dereferenceable(325)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL16hasUndefContentsPN4llvm9MemorySSAERNS_14BatchAAResultsEPNS_5ValueEPNS_9MemoryDefES5_(ptr readnone %.104.val, ptr noundef nonnull align 8 dereferenceable(656) %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL16hasUndefContentsPN4llvm9MemorySSAERNS_14BatchAAResultsEPNS_5ValueEPNS_9MemoryDefES5_(ptr readnone %.104.val, ptr noundef nonnull align 8 dereferenceable(656) %0, ptr noundef %1, ptr noundef nonnull readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::MemoryLocation", align 8
   %6 = alloca %"class.llvm::MemoryLocation", align 8
   %7 = alloca %"class.std::optional.269", align 8
@@ -7519,7 +7519,7 @@ _ZN4llvm8dyn_castINS_10MemCpyInstENS_11InstructionEEEDcPT0_.exit.thread: ; preds
   %355 = load ptr, ptr %354, align 8
   %356 = getelementptr i8, ptr %340, i64 104
   %.val = load ptr, ptr %356, align 8
-  %357 = call fastcc noundef zeroext i1 @_ZL16hasUndefContentsPN4llvm9MemorySSAERNS_14BatchAAResultsEPNS_5ValueEPNS_9MemoryDefES5_(ptr %.val, ptr noundef nonnull align 8 dereferenceable(656) %6, ptr noundef %348, ptr noundef nonnull %274, ptr noundef %355)
+  %357 = call fastcc noundef zeroext i1 @_ZL16hasUndefContentsPN4llvm9MemorySSAERNS_14BatchAAResultsEPNS_5ValueEPNS_9MemoryDefES5_(ptr %.val, ptr noundef nonnull align 8 dereferenceable(656) %6, ptr noundef %348, ptr noundef %274, ptr noundef %355)
   br i1 %357, label %.sink.split, label %358
 
 358:                                              ; preds = %339, %_ZN4llvm16dyn_cast_or_nullINS_10MemSetInstENS_11InstructionEEEDaPT0_.exit.thread

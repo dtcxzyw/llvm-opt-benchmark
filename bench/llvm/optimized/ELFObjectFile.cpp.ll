@@ -3196,7 +3196,7 @@ _ZN4llvm5ErrorD2Ev.exit14:                        ; preds = %2
   %.sroa.06.1.i.i.i = phi ptr [ %63, %62 ], [ %.sroa.06.0.i.i.i, %52 ], [ %69, %67 ]
   %75 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i, i64 12
   %76 = load i32, ptr %75, align 4
-  call fastcc void @_ZL26hexagonAttrToFeatureStringB5cxx11j(ptr dead_on_unwind noalias nonnull writable align 8 %10, i32 noundef %76)
+  call fastcc void @_ZL26hexagonAttrToFeatureStringB5cxx11j(ptr dead_on_unwind noalias writable align 8 %10, i32 noundef %76)
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %78 = load i8, ptr %77, align 8
   %79 = trunc i8 %78 to i1
@@ -3274,7 +3274,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
   %.sroa.06.1.i.i.i26 = phi ptr [ %99, %98 ], [ %.sroa.06.0.i.i.i28, %88 ], [ %105, %103 ]
   %111 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i26, i64 12
   %112 = load i32, ptr %111, align 4
-  call fastcc void @_ZL26hexagonAttrToFeatureStringB5cxx11j(ptr dead_on_unwind noalias nonnull writable align 8 %11, i32 noundef %112)
+  call fastcc void @_ZL26hexagonAttrToFeatureStringB5cxx11j(ptr dead_on_unwind noalias writable align 8 %11, i32 noundef %112)
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %114 = load i8, ptr %113, align 8
   %115 = trunc i8 %114 to i1
@@ -3640,7 +3640,7 @@ _ZN4llvm5ErrorD2Ev.exit13:                        ; preds = %.lr.ph.i.i.i.i.i94,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL26hexagonAttrToFeatureStringB5cxx11j(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL26hexagonAttrToFeatureStringB5cxx11j(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.std::allocator.42", align 1
   %4 = alloca %"class.std::allocator.42", align 1
   %5 = alloca %"class.std::allocator.42", align 1
@@ -5258,7 +5258,7 @@ declare noundef ptr @_ZN4llvm14TargetRegistry12lookupTargetENS_9StringRefERNSt7_
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK4llvm6object17ELFObjectFileBase13getPltEntriesEvENK3$_0clENS_14iterator_rangeINS0_16content_iteratorINS0_13RelocationRefEEEEEjNS_9StringRefE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly byval(%"class.llvm::iterator_range.116") align 8 %1, i32 noundef %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK4llvm6object17ELFObjectFileBase13getPltEntriesEvENK3$_0clENS_14iterator_rangeINS0_16content_iteratorINS0_13RelocationRefEEEEEjNS_9StringRefE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly byval(%"class.llvm::iterator_range.116") align 8 %1, i32 noundef range(i32 0, 1027) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::object::content_iterator.117", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -16614,7 +16614,7 @@ _ZN4llvm8ExpectedINS_8ArrayRefIhEEED2Ev.exit:     ; preds = %38
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %6, ptr %52, align 8
   %53 = ptrtoint ptr %9 to i64
-  call fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object13ELFObjectFileINS4_7ELFTypeILNS_10endiannessE1ELb0EEEE17section_rel_beginENS4_11DataRefImplEEUlmbE_EEvlmb, i64 %50, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb0EEEEE11callback_fnIZNKS1_13ELFObjectFileINS1_7ELFTypeILNS_10endiannessE1ELb0EEEE17section_rel_beginENS1_11DataRefImplEEUlS3_E_EEvlS3_, i64 %53)
+  call fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object13ELFObjectFileINS4_7ELFTypeILNS_10endiannessE1ELb0EEEE17section_rel_beginENS4_11DataRefImplEEUlmbE_EEvlmb, i64 %50, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb0EEEEE11callback_fnIZNKS1_13ELFObjectFileINS1_7ELFTypeILNS_10endiannessE1ELb0EEEE17section_rel_beginENS1_11DataRefImplEEUlS3_E_EEvlS3_, i64 %53)
   %54 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %54, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit16, label %55
@@ -19449,7 +19449,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %57, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !1639
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %40) #18
   %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.222) #18, !noalias !1642
@@ -19506,7 +19506,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %.not23, label %83, label %_ZN4llvm5ErrorD2Ev.exit118
 
 _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %57
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %62 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !1670
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %62) #18
   %63 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.224) #18, !noalias !1673
@@ -19563,7 +19563,7 @@ _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %57
   br i1 %85, label %_ZN4llvm5ErrorD2Ev.exit179, label %106
 
 _ZN4llvm5ErrorD2Ev.exit179:                       ; preds = %83
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %86 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !1706
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %86) #18
   %87 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.226) #18, !noalias !1709
@@ -19621,7 +19621,7 @@ _ZN4llvm5ErrorD2Ev.exit179:                       ; preds = %83
   br i1 %111, label %_ZN4llvm5ErrorD2Ev.exit270, label %139
 
 _ZN4llvm5ErrorD2Ev.exit270:                       ; preds = %106
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %112 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !1742
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %112) #18
   %113 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @.str.226) #18, !noalias !1745
@@ -19705,7 +19705,7 @@ _ZN4llvm5ErrorD2Ev.exit270:                       ; preds = %106
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %class.anon.218, align 1
@@ -19936,7 +19936,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit.thread, label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %5
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 0, ptr noundef nonnull @.str.234) #18, !noalias !1799
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %21) #18
   %22 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.235) #18, !noalias !1802
@@ -20002,7 +20002,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   br i1 %45, label %_ZN4llvm5ErrorD2Ev.exit11, label %55
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %44
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %46 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef 0, ptr noundef nonnull @.str.236) #18, !noalias !1819
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %46) #18
   %47 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.237) #18, !noalias !1822
@@ -20033,7 +20033,7 @@ _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %44
   br i1 %.not7, label %68, label %_ZN4llvm5ErrorD2Ev.exit12
 
 _ZN4llvm5ErrorD2Ev.exit12:                        ; preds = %55
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %59 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 0, ptr noundef nonnull @.str.236) #18, !noalias !1835
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %59) #18
   %60 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.238) #18, !noalias !1838
@@ -20220,7 +20220,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %30, label %_ZN4llvm5ErrorD2Ev.exit, label %51
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %31 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !1876
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %31) #18
   %32 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.226) #18, !noalias !1879
@@ -20278,7 +20278,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %56, label %_ZN4llvm5ErrorD2Ev.exit158, label %84
 
 _ZN4llvm5ErrorD2Ev.exit158:                       ; preds = %51
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %57 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !1912
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %57) #18
   %58 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.226) #18, !noalias !1915
@@ -20786,7 +20786,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %57, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !2049
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %40) #18
   %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.222) #18, !noalias !2052
@@ -20843,7 +20843,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %.not23, label %83, label %_ZN4llvm5ErrorD2Ev.exit118
 
 _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %57
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %62 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !2080
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %62) #18
   %63 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.224) #18, !noalias !2083
@@ -20900,7 +20900,7 @@ _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %57
   br i1 %85, label %_ZN4llvm5ErrorD2Ev.exit179, label %106
 
 _ZN4llvm5ErrorD2Ev.exit179:                       ; preds = %83
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %86 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !2116
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %86) #18
   %87 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.226) #18, !noalias !2119
@@ -20958,7 +20958,7 @@ _ZN4llvm5ErrorD2Ev.exit179:                       ; preds = %83
   br i1 %111, label %_ZN4llvm5ErrorD2Ev.exit270, label %139
 
 _ZN4llvm5ErrorD2Ev.exit270:                       ; preds = %106
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %112 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !2152
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %112) #18
   %113 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @.str.226) #18, !noalias !2155
@@ -21636,7 +21636,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %_ZN4llvm9StringRefC2EPKc.exit, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %17
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %19 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 0, ptr noundef nonnull @.str.253) #18, !noalias !2339
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %19) #18
   %20 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.254) #18, !noalias !2342
@@ -21791,7 +21791,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull al
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %1, i64 %2, ptr nocapture readonly %3, i64 %4, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i64 %2, ptr nocapture readonly %3, i64 %4, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 {
   %6 = alloca %"class.llvm::DataExtractor", align 8
   %7 = alloca %"class.llvm::DataExtractor::Cursor", align 8
   store ptr %1, ptr %6, align 8
@@ -22829,7 +22829,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %57, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !2476
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %40) #18
   %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.222) #18, !noalias !2479
@@ -22886,7 +22886,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %.not23, label %83, label %_ZN4llvm5ErrorD2Ev.exit118
 
 _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %57
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %62 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !2507
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %62) #18
   %63 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.224) #18, !noalias !2510
@@ -22943,7 +22943,7 @@ _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %57
   br i1 %85, label %_ZN4llvm5ErrorD2Ev.exit179, label %106
 
 _ZN4llvm5ErrorD2Ev.exit179:                       ; preds = %83
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %86 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !2543
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %86) #18
   %87 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.226) #18, !noalias !2546
@@ -23001,7 +23001,7 @@ _ZN4llvm5ErrorD2Ev.exit179:                       ; preds = %83
   br i1 %111, label %_ZN4llvm5ErrorD2Ev.exit270, label %139
 
 _ZN4llvm5ErrorD2Ev.exit270:                       ; preds = %106
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %112 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !2579
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %112) #18
   %113 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @.str.226) #18, !noalias !2582
@@ -23329,7 +23329,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %57, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !2685
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %40) #18
   %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.222) #18, !noalias !2688
@@ -23387,7 +23387,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %.not23, label %84, label %_ZN4llvm5ErrorD2Ev.exit118
 
 _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %57
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %63 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !2716
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %63) #18
   %64 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.224) #18, !noalias !2719
@@ -23444,7 +23444,7 @@ _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %57
   br i1 %86, label %_ZN4llvm5ErrorD2Ev.exit179, label %107
 
 _ZN4llvm5ErrorD2Ev.exit179:                       ; preds = %84
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %87 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !2752
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %87) #18
   %88 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.226) #18, !noalias !2755
@@ -23502,7 +23502,7 @@ _ZN4llvm5ErrorD2Ev.exit179:                       ; preds = %84
   br i1 %112, label %_ZN4llvm5ErrorD2Ev.exit270, label %140
 
 _ZN4llvm5ErrorD2Ev.exit270:                       ; preds = %107
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %113 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !2788
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %113) #18
   %114 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @.str.226) #18, !noalias !2791
@@ -23772,7 +23772,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %30, label %_ZN4llvm5ErrorD2Ev.exit, label %51
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %31 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !2834
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %31) #18
   %32 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.226) #18, !noalias !2837
@@ -23830,7 +23830,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %56, label %_ZN4llvm5ErrorD2Ev.exit158, label %84
 
 _ZN4llvm5ErrorD2Ev.exit158:                       ; preds = %51
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %57 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !2870
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %57) #18
   %58 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.226) #18, !noalias !2873
@@ -26888,7 +26888,7 @@ _ZN4llvm8ExpectedINS_8ArrayRefIhEEED2Ev.exit:     ; preds = %38
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %6, ptr %52, align 8
   %53 = ptrtoint ptr %9 to i64
-  call fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object13ELFObjectFileINS4_7ELFTypeILNS_10endiannessE0ELb0EEEE17section_rel_beginENS4_11DataRefImplEEUlmbE_EEvlmb, i64 %50, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb0EEEEE11callback_fnIZNKS1_13ELFObjectFileINS1_7ELFTypeILNS_10endiannessE0ELb0EEEE17section_rel_beginENS1_11DataRefImplEEUlS3_E_EEvlS3_, i64 %53)
+  call fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object13ELFObjectFileINS4_7ELFTypeILNS_10endiannessE0ELb0EEEE17section_rel_beginENS4_11DataRefImplEEUlmbE_EEvlmb, i64 %50, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb0EEEEE11callback_fnIZNKS1_13ELFObjectFileINS1_7ELFTypeILNS_10endiannessE0ELb0EEEE17section_rel_beginENS1_11DataRefImplEEUlS3_E_EEvlS3_, i64 %53)
   %54 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %54, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit16, label %55
@@ -29673,7 +29673,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %58, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !3416
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %40) #18
   %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.222) #18, !noalias !3419
@@ -29733,7 +29733,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %.not23, label %87, label %_ZN4llvm5ErrorD2Ev.exit118
 
 _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %58
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %65 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !3447
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %65) #18
   %66 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.224) #18, !noalias !3450
@@ -29791,7 +29791,7 @@ _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %58
   br i1 %89, label %_ZN4llvm5ErrorD2Ev.exit179, label %110
 
 _ZN4llvm5ErrorD2Ev.exit179:                       ; preds = %87
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %90 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !3483
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %90) #18
   %91 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.226) #18, !noalias !3486
@@ -29849,7 +29849,7 @@ _ZN4llvm5ErrorD2Ev.exit179:                       ; preds = %87
   br i1 %115, label %_ZN4llvm5ErrorD2Ev.exit270, label %143
 
 _ZN4llvm5ErrorD2Ev.exit270:                       ; preds = %110
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %116 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !3519
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %116) #18
   %117 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @.str.226) #18, !noalias !3522
@@ -29933,7 +29933,7 @@ _ZN4llvm5ErrorD2Ev.exit270:                       ; preds = %110
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %class.anon.218, align 1
@@ -30040,7 +30040,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit.thread, label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %5
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 0, ptr noundef nonnull @.str.234) #18, !noalias !3574
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %21) #18
   %22 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.235) #18, !noalias !3577
@@ -30108,7 +30108,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   br i1 %46, label %_ZN4llvm5ErrorD2Ev.exit11, label %56
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %45
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %47 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef 0, ptr noundef nonnull @.str.236) #18, !noalias !3594
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %47) #18
   %48 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.237) #18, !noalias !3597
@@ -30139,7 +30139,7 @@ _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %45
   br i1 %.not7, label %69, label %_ZN4llvm5ErrorD2Ev.exit12
 
 _ZN4llvm5ErrorD2Ev.exit12:                        ; preds = %56
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %60 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 0, ptr noundef nonnull @.str.236) #18, !noalias !3610
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %60) #18
   %61 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.238) #18, !noalias !3613
@@ -30316,7 +30316,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %32, label %_ZN4llvm5ErrorD2Ev.exit, label %53
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %33 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !3641
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %33) #18
   %34 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.226) #18, !noalias !3644
@@ -30374,7 +30374,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %58, label %_ZN4llvm5ErrorD2Ev.exit158, label %86
 
 _ZN4llvm5ErrorD2Ev.exit158:                       ; preds = %53
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %59 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !3677
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %59) #18
   %60 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.226) #18, !noalias !3680
@@ -30857,7 +30857,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %58, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !3814
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %40) #18
   %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.222) #18, !noalias !3817
@@ -30917,7 +30917,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %.not23, label %87, label %_ZN4llvm5ErrorD2Ev.exit118
 
 _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %58
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %65 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !3845
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %65) #18
   %66 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.224) #18, !noalias !3848
@@ -30975,7 +30975,7 @@ _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %58
   br i1 %89, label %_ZN4llvm5ErrorD2Ev.exit179, label %110
 
 _ZN4llvm5ErrorD2Ev.exit179:                       ; preds = %87
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %90 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !3881
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %90) #18
   %91 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.226) #18, !noalias !3884
@@ -31033,7 +31033,7 @@ _ZN4llvm5ErrorD2Ev.exit179:                       ; preds = %87
   br i1 %115, label %_ZN4llvm5ErrorD2Ev.exit270, label %143
 
 _ZN4llvm5ErrorD2Ev.exit270:                       ; preds = %110
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %116 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !3917
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %116) #18
   %117 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @.str.226) #18, !noalias !3920
@@ -31710,7 +31710,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %_ZN4llvm9StringRefC2EPKc.exit, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %17
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %20 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 0, ptr noundef nonnull @.str.253) #18, !noalias !4104
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %20) #18
   %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.254) #18, !noalias !4107
@@ -32235,7 +32235,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %58, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !4232
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %40) #18
   %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.222) #18, !noalias !4235
@@ -32295,7 +32295,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %.not23, label %87, label %_ZN4llvm5ErrorD2Ev.exit118
 
 _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %58
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %65 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !4263
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %65) #18
   %66 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.224) #18, !noalias !4266
@@ -32353,7 +32353,7 @@ _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %58
   br i1 %89, label %_ZN4llvm5ErrorD2Ev.exit179, label %110
 
 _ZN4llvm5ErrorD2Ev.exit179:                       ; preds = %87
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %90 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !4299
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %90) #18
   %91 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.226) #18, !noalias !4302
@@ -32411,7 +32411,7 @@ _ZN4llvm5ErrorD2Ev.exit179:                       ; preds = %87
   br i1 %115, label %_ZN4llvm5ErrorD2Ev.exit270, label %143
 
 _ZN4llvm5ErrorD2Ev.exit270:                       ; preds = %110
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %116 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !4335
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %116) #18
   %117 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @.str.226) #18, !noalias !4338
@@ -32740,7 +32740,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %58, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !4441
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %40) #18
   %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.222) #18, !noalias !4444
@@ -32801,7 +32801,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %.not23, label %88, label %_ZN4llvm5ErrorD2Ev.exit118
 
 _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %58
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %66 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !4472
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %66) #18
   %67 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.224) #18, !noalias !4475
@@ -32859,7 +32859,7 @@ _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %58
   br i1 %90, label %_ZN4llvm5ErrorD2Ev.exit179, label %111
 
 _ZN4llvm5ErrorD2Ev.exit179:                       ; preds = %88
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %91 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !4508
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %91) #18
   %92 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.226) #18, !noalias !4511
@@ -32917,7 +32917,7 @@ _ZN4llvm5ErrorD2Ev.exit179:                       ; preds = %88
   br i1 %116, label %_ZN4llvm5ErrorD2Ev.exit270, label %144
 
 _ZN4llvm5ErrorD2Ev.exit270:                       ; preds = %111
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %117 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !4544
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %117) #18
   %118 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @.str.226) #18, !noalias !4547
@@ -33143,7 +33143,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %32, label %_ZN4llvm5ErrorD2Ev.exit, label %53
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %33 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !4590
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %33) #18
   %34 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.226) #18, !noalias !4593
@@ -33201,7 +33201,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %58, label %_ZN4llvm5ErrorD2Ev.exit158, label %86
 
 _ZN4llvm5ErrorD2Ev.exit158:                       ; preds = %53
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %59 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !4626
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %59) #18
   %60 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.226) #18, !noalias !4629
@@ -36228,7 +36228,7 @@ _ZN4llvm8ExpectedINS_8ArrayRefIhEEED2Ev.exit:     ; preds = %39
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %6, ptr %53, align 8
   %54 = ptrtoint ptr %9 to i64
-  call fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object13ELFObjectFileINS4_7ELFTypeILNS_10endiannessE1ELb1EEEE17section_rel_beginENS4_11DataRefImplEEUlmbE_EEvlmb, i64 %51, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb1EEEEE11callback_fnIZNKS1_13ELFObjectFileINS1_7ELFTypeILNS_10endiannessE1ELb1EEEE17section_rel_beginENS1_11DataRefImplEEUlS3_E_EEvlS3_, i64 %54)
+  call fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object13ELFObjectFileINS4_7ELFTypeILNS_10endiannessE1ELb1EEEE17section_rel_beginENS4_11DataRefImplEEUlmbE_EEvlmb, i64 %51, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb1EEEEE11callback_fnIZNKS1_13ELFObjectFileINS1_7ELFTypeILNS_10endiannessE1ELb1EEEE17section_rel_beginENS1_11DataRefImplEEUlS3_E_EEvlS3_, i64 %54)
   %55 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %55, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit14, label %56
@@ -39159,7 +39159,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %56, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !5228
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %40) #18
   %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.222) #18, !noalias !5231
@@ -39217,7 +39217,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %.not11, label %80, label %_ZN4llvm5ErrorD2Ev.exit106
 
 _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %56
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %61 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !5259
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %61) #18
   %62 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.224) #18, !noalias !5262
@@ -39272,7 +39272,7 @@ _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %56
   br i1 %82, label %_ZN4llvm5ErrorD2Ev.exit167, label %102
 
 _ZN4llvm5ErrorD2Ev.exit167:                       ; preds = %80
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %83 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !5295
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %83) #18
   %84 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.226) #18, !noalias !5298
@@ -39326,7 +39326,7 @@ _ZN4llvm5ErrorD2Ev.exit167:                       ; preds = %80
   br i1 %106, label %_ZN4llvm5ErrorD2Ev.exit258, label %133
 
 _ZN4llvm5ErrorD2Ev.exit258:                       ; preds = %102
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %107 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !5331
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %107) #18
   %108 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.226) #18, !noalias !5334
@@ -39405,7 +39405,7 @@ _ZN4llvm5ErrorD2Ev.exit258:                       ; preds = %102
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %class.anon.218, align 1
@@ -39515,7 +39515,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit.thread, label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %5
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 0, ptr noundef nonnull @.str.234) #18, !noalias !5386
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %21) #18
   %22 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.235) #18, !noalias !5389
@@ -39581,7 +39581,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   br i1 %45, label %_ZN4llvm5ErrorD2Ev.exit11, label %55
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %44
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %46 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef 0, ptr noundef nonnull @.str.236) #18, !noalias !5406
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %46) #18
   %47 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.237) #18, !noalias !5409
@@ -39612,7 +39612,7 @@ _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %44
   br i1 %.not7, label %68, label %_ZN4llvm5ErrorD2Ev.exit12
 
 _ZN4llvm5ErrorD2Ev.exit12:                        ; preds = %55
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %59 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 0, ptr noundef nonnull @.str.236) #18, !noalias !5422
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %59) #18
   %60 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.238) #18, !noalias !5425
@@ -39785,7 +39785,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %27, label %_ZN4llvm5ErrorD2Ev.exit, label %47
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %28 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !5453
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %28) #18
   %29 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.226) #18, !noalias !5456
@@ -39839,7 +39839,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %51, label %_ZN4llvm5ErrorD2Ev.exit146, label %78
 
 _ZN4llvm5ErrorD2Ev.exit146:                       ; preds = %47
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %52 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !5489
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %52) #18
   %53 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.226) #18, !noalias !5492
@@ -40312,7 +40312,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %56, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !5626
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %40) #18
   %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.222) #18, !noalias !5629
@@ -40369,7 +40369,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %.not11, label %79, label %_ZN4llvm5ErrorD2Ev.exit106
 
 _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %56
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %60 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !5657
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %60) #18
   %61 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.224) #18, !noalias !5660
@@ -40424,7 +40424,7 @@ _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %56
   br i1 %81, label %_ZN4llvm5ErrorD2Ev.exit167, label %101
 
 _ZN4llvm5ErrorD2Ev.exit167:                       ; preds = %79
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %82 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !5693
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %82) #18
   %83 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.226) #18, !noalias !5696
@@ -40478,7 +40478,7 @@ _ZN4llvm5ErrorD2Ev.exit167:                       ; preds = %79
   br i1 %105, label %_ZN4llvm5ErrorD2Ev.exit258, label %132
 
 _ZN4llvm5ErrorD2Ev.exit258:                       ; preds = %101
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %106 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !5729
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %106) #18
   %107 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.226) #18, !noalias !5732
@@ -41061,7 +41061,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %_ZN4llvm9StringRefC2EPKc.exit, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %17
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %19 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 0, ptr noundef nonnull @.str.253) #18, !noalias !5886
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %19) #18
   %20 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.254) #18, !noalias !5889
@@ -41210,7 +41210,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit14: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %1, i64 %2, ptr nocapture readonly %3, i64 %4, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i64 %2, ptr nocapture readonly %3, i64 %4, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 {
   %6 = alloca %"struct.llvm::object::Elf_Crel_Impl.523", align 8
   %7 = alloca %"class.llvm::DataExtractor", align 8
   %8 = alloca %"class.llvm::DataExtractor::Cursor", align 8
@@ -42115,7 +42115,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %56, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !6021
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %40) #18
   %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.222) #18, !noalias !6024
@@ -42172,7 +42172,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %.not11, label %79, label %_ZN4llvm5ErrorD2Ev.exit106
 
 _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %56
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %60 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !6052
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %60) #18
   %61 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.224) #18, !noalias !6055
@@ -42227,7 +42227,7 @@ _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %56
   br i1 %81, label %_ZN4llvm5ErrorD2Ev.exit167, label %101
 
 _ZN4llvm5ErrorD2Ev.exit167:                       ; preds = %79
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %82 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !6088
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %82) #18
   %83 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.226) #18, !noalias !6091
@@ -42281,7 +42281,7 @@ _ZN4llvm5ErrorD2Ev.exit167:                       ; preds = %79
   br i1 %105, label %_ZN4llvm5ErrorD2Ev.exit258, label %132
 
 _ZN4llvm5ErrorD2Ev.exit258:                       ; preds = %101
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %106 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !6124
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %106) #18
   %107 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.226) #18, !noalias !6127
@@ -42604,7 +42604,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %56, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !6230
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %40) #18
   %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.222) #18, !noalias !6233
@@ -42662,7 +42662,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %.not11, label %80, label %_ZN4llvm5ErrorD2Ev.exit106
 
 _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %56
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %61 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !6261
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %61) #18
   %62 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.224) #18, !noalias !6264
@@ -42717,7 +42717,7 @@ _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %56
   br i1 %82, label %_ZN4llvm5ErrorD2Ev.exit167, label %102
 
 _ZN4llvm5ErrorD2Ev.exit167:                       ; preds = %80
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %83 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !6297
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %83) #18
   %84 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.226) #18, !noalias !6300
@@ -42771,7 +42771,7 @@ _ZN4llvm5ErrorD2Ev.exit167:                       ; preds = %80
   br i1 %106, label %_ZN4llvm5ErrorD2Ev.exit258, label %133
 
 _ZN4llvm5ErrorD2Ev.exit258:                       ; preds = %102
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %107 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !6333
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %107) #18
   %108 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.226) #18, !noalias !6336
@@ -42986,7 +42986,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %27, label %_ZN4llvm5ErrorD2Ev.exit, label %47
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %28 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !6379
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %28) #18
   %29 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.226) #18, !noalias !6382
@@ -43040,7 +43040,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %51, label %_ZN4llvm5ErrorD2Ev.exit146, label %78
 
 _ZN4llvm5ErrorD2Ev.exit146:                       ; preds = %47
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %52 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !6415
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %52) #18
   %53 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.226) #18, !noalias !6418
@@ -46082,7 +46082,7 @@ _ZN4llvm8ExpectedINS_8ArrayRefIhEEED2Ev.exit:     ; preds = %39
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %6, ptr %53, align 8
   %54 = ptrtoint ptr %9 to i64
-  call fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object13ELFObjectFileINS4_7ELFTypeILNS_10endiannessE0ELb1EEEE17section_rel_beginENS4_11DataRefImplEEUlmbE_EEvlmb, i64 %51, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb1EEEEE11callback_fnIZNKS1_13ELFObjectFileINS1_7ELFTypeILNS_10endiannessE0ELb1EEEE17section_rel_beginENS1_11DataRefImplEEUlS3_E_EEvlS3_, i64 %54)
+  call fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object13ELFObjectFileINS4_7ELFTypeILNS_10endiannessE0ELb1EEEE17section_rel_beginENS4_11DataRefImplEEUlmbE_EEvlmb, i64 %51, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb1EEEEE11callback_fnIZNKS1_13ELFObjectFileINS1_7ELFTypeILNS_10endiannessE0ELb1EEEE17section_rel_beginENS1_11DataRefImplEEUlS3_E_EEvlS3_, i64 %54)
   %55 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %55, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit14, label %56
@@ -49044,7 +49044,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %57, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !7016
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %40) #18
   %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.222) #18, !noalias !7019
@@ -49105,7 +49105,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %.not11, label %84, label %_ZN4llvm5ErrorD2Ev.exit106
 
 _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %57
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %64 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !7047
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %64) #18
   %65 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.224) #18, !noalias !7050
@@ -49161,7 +49161,7 @@ _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %57
   br i1 %86, label %_ZN4llvm5ErrorD2Ev.exit167, label %106
 
 _ZN4llvm5ErrorD2Ev.exit167:                       ; preds = %84
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %87 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !7083
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %87) #18
   %88 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.226) #18, !noalias !7086
@@ -49215,7 +49215,7 @@ _ZN4llvm5ErrorD2Ev.exit167:                       ; preds = %84
   br i1 %110, label %_ZN4llvm5ErrorD2Ev.exit258, label %137
 
 _ZN4llvm5ErrorD2Ev.exit258:                       ; preds = %106
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %111 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !7119
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %111) #18
   %112 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.226) #18, !noalias !7122
@@ -49294,7 +49294,7 @@ _ZN4llvm5ErrorD2Ev.exit258:                       ; preds = %106
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %class.anon.218, align 1
@@ -49401,7 +49401,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit.thread, label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %5
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 0, ptr noundef nonnull @.str.234) #18, !noalias !7174
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %21) #18
   %22 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.235) #18, !noalias !7177
@@ -49469,7 +49469,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   br i1 %46, label %_ZN4llvm5ErrorD2Ev.exit11, label %56
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %45
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %47 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef 0, ptr noundef nonnull @.str.236) #18, !noalias !7194
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %47) #18
   %48 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.237) #18, !noalias !7197
@@ -49500,7 +49500,7 @@ _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %45
   br i1 %.not7, label %69, label %_ZN4llvm5ErrorD2Ev.exit12
 
 _ZN4llvm5ErrorD2Ev.exit12:                        ; preds = %56
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %60 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 0, ptr noundef nonnull @.str.236) #18, !noalias !7210
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %60) #18
   %61 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.238) #18, !noalias !7213
@@ -49676,7 +49676,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %29, label %_ZN4llvm5ErrorD2Ev.exit, label %49
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %30 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !7241
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %30) #18
   %31 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.226) #18, !noalias !7244
@@ -49730,7 +49730,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %53, label %_ZN4llvm5ErrorD2Ev.exit146, label %80
 
 _ZN4llvm5ErrorD2Ev.exit146:                       ; preds = %49
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %54 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !7277
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %54) #18
   %55 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.226) #18, !noalias !7280
@@ -50208,7 +50208,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %57, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !7414
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %40) #18
   %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.222) #18, !noalias !7417
@@ -50268,7 +50268,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %.not11, label %83, label %_ZN4llvm5ErrorD2Ev.exit106
 
 _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %57
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %63 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !7445
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %63) #18
   %64 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.224) #18, !noalias !7448
@@ -50324,7 +50324,7 @@ _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %57
   br i1 %85, label %_ZN4llvm5ErrorD2Ev.exit167, label %105
 
 _ZN4llvm5ErrorD2Ev.exit167:                       ; preds = %83
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %86 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !7481
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %86) #18
   %87 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.226) #18, !noalias !7484
@@ -50378,7 +50378,7 @@ _ZN4llvm5ErrorD2Ev.exit167:                       ; preds = %83
   br i1 %109, label %_ZN4llvm5ErrorD2Ev.exit258, label %136
 
 _ZN4llvm5ErrorD2Ev.exit258:                       ; preds = %105
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %110 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !7517
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %110) #18
   %111 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.226) #18, !noalias !7520
@@ -50965,7 +50965,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %_ZN4llvm9StringRefC2EPKc.exit, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %17
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %20 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 0, ptr noundef nonnull @.str.253) #18, !noalias !7674
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %20) #18
   %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.254) #18, !noalias !7677
@@ -51487,7 +51487,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %57, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !7802
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %40) #18
   %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.222) #18, !noalias !7805
@@ -51547,7 +51547,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %.not11, label %83, label %_ZN4llvm5ErrorD2Ev.exit106
 
 _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %57
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %63 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !7833
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %63) #18
   %64 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.224) #18, !noalias !7836
@@ -51603,7 +51603,7 @@ _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %57
   br i1 %85, label %_ZN4llvm5ErrorD2Ev.exit167, label %105
 
 _ZN4llvm5ErrorD2Ev.exit167:                       ; preds = %83
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %86 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !7869
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %86) #18
   %87 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.226) #18, !noalias !7872
@@ -51657,7 +51657,7 @@ _ZN4llvm5ErrorD2Ev.exit167:                       ; preds = %83
   br i1 %109, label %_ZN4llvm5ErrorD2Ev.exit258, label %136
 
 _ZN4llvm5ErrorD2Ev.exit258:                       ; preds = %105
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %110 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !7905
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %110) #18
   %111 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.226) #18, !noalias !7908
@@ -51981,7 +51981,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %57, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !8011
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %40) #18
   %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.222) #18, !noalias !8014
@@ -52042,7 +52042,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %.not11, label %84, label %_ZN4llvm5ErrorD2Ev.exit106
 
 _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %57
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %64 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !8042
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %64) #18
   %65 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.224) #18, !noalias !8045
@@ -52098,7 +52098,7 @@ _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %57
   br i1 %86, label %_ZN4llvm5ErrorD2Ev.exit167, label %106
 
 _ZN4llvm5ErrorD2Ev.exit167:                       ; preds = %84
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %87 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !8078
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %87) #18
   %88 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.226) #18, !noalias !8081
@@ -52152,7 +52152,7 @@ _ZN4llvm5ErrorD2Ev.exit167:                       ; preds = %84
   br i1 %110, label %_ZN4llvm5ErrorD2Ev.exit258, label %137
 
 _ZN4llvm5ErrorD2Ev.exit258:                       ; preds = %106
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %111 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !8114
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %111) #18
   %112 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.226) #18, !noalias !8117
@@ -52372,7 +52372,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %29, label %_ZN4llvm5ErrorD2Ev.exit, label %49
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %30 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !8160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %30) #18
   %31 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.226) #18, !noalias !8163
@@ -52426,7 +52426,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %53, label %_ZN4llvm5ErrorD2Ev.exit146, label %80
 
 _ZN4llvm5ErrorD2Ev.exit146:                       ; preds = %49
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %54 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !8196
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %54) #18
   %55 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.226) #18, !noalias !8199
@@ -53781,7 +53781,7 @@ _ZN4llvm8ExpectedINS_8ArrayRefINS_6object15Elf_Versym_ImplINS2_7ELFTypeILNS_10en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2) unnamed_addr #0 {
 _ZN4llvmplERKNS_5TwineES2_.exit:
   %3 = alloca %"class.llvm::Expected.297", align 8
   %4 = alloca %"class.llvm::Twine", align 8
@@ -53826,7 +53826,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:
   store i8 2, ptr %27, align 8, !alias.scope !8305
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 9, ptr %28, align 1, !alias.scope !8305
-  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %4) #18
+  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %4) #18
   ret void
 }
 
@@ -54244,7 +54244,7 @@ _ZN4llvm5ErrorD2Ev.exit53:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   br i1 %139, label %_ZN4llvm5ErrorD2Ev.exit55, label %150
 
 _ZN4llvm5ErrorD2Ev.exit55:                        ; preds = %136
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %140 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %29, i64 noundef 0, ptr noundef nonnull @.str.303) #18, !noalias !8372
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %140) #18
   %141 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.304) #18, !noalias !8375
@@ -54285,7 +54285,7 @@ _ZN4llvm5ErrorD2Ev.exit55:                        ; preds = %136
   br i1 %.not47, label %165, label %_ZN4llvm5ErrorD2Ev.exit56
 
 _ZN4llvm5ErrorD2Ev.exit56:                        ; preds = %150
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %153 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef 0, ptr noundef nonnull @.str.303) #18, !noalias !8381
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %153) #18
   %154 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.306) #18, !noalias !8384
@@ -54327,7 +54327,7 @@ _ZN4llvm5ErrorD2Ev.exit56:                        ; preds = %150
 
 _ZN4llvm5ErrorD2Ev.exit59:                        ; preds = %165
   %166 = zext i16 %.0.copyload.i.i.i57 to i32
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %167 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %46, i64 noundef 0, ptr noundef nonnull @.str.307) #18, !noalias !8393
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %167) #18
   %168 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull @.str.308) #18, !noalias !8396
@@ -55075,7 +55075,7 @@ _ZN4llvm5ErrorD2Ev.exit82:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   br i1 %166, label %_ZN4llvm5ErrorD2Ev.exit84, label %179
 
 _ZN4llvm5ErrorD2Ev.exit84:                        ; preds = %164
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %167 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %36, i64 noundef 0, ptr noundef nonnull @.str.303) #18, !noalias !8478
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %167) #18
   %168 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @.str.316) #18, !noalias !8481
@@ -55118,7 +55118,7 @@ _ZN4llvm5ErrorD2Ev.exit84:                        ; preds = %164
   br i1 %.not73, label %194, label %_ZN4llvm5ErrorD2Ev.exit85
 
 _ZN4llvm5ErrorD2Ev.exit85:                        ; preds = %179
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %182 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %44, i64 noundef 0, ptr noundef nonnull @.str.303) #18, !noalias !8487
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %182) #18
   %183 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.317) #18, !noalias !8490
@@ -55160,7 +55160,7 @@ _ZN4llvm5ErrorD2Ev.exit85:                        ; preds = %179
 
 _ZN4llvm5ErrorD2Ev.exit88:                        ; preds = %194
   %195 = zext i16 %.0.copyload.i.i.i86 to i32
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %196 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %53, i64 noundef 0, ptr noundef nonnull @.str.307) #18, !noalias !8499
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %196) #18
   %197 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull @.str.308) #18, !noalias !8502
@@ -57787,7 +57787,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %57, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !8774
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %40) #18
   %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.222) #18, !noalias !8777
@@ -57844,7 +57844,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %.not23, label %83, label %_ZN4llvm5ErrorD2Ev.exit118
 
 _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %57
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %62 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !8805
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %62) #18
   %63 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.224) #18, !noalias !8808
@@ -57901,7 +57901,7 @@ _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %57
   br i1 %85, label %_ZN4llvm5ErrorD2Ev.exit179, label %106
 
 _ZN4llvm5ErrorD2Ev.exit179:                       ; preds = %83
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %86 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !8841
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %86) #18
   %87 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.226) #18, !noalias !8844
@@ -57959,7 +57959,7 @@ _ZN4llvm5ErrorD2Ev.exit179:                       ; preds = %83
   br i1 %111, label %_ZN4llvm5ErrorD2Ev.exit270, label %139
 
 _ZN4llvm5ErrorD2Ev.exit270:                       ; preds = %106
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %112 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !8877
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %112) #18
   %113 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @.str.226) #18, !noalias !8880
@@ -58796,7 +58796,7 @@ _ZN4llvm8ExpectedINS_8ArrayRefINS_6object15Elf_Versym_ImplINS2_7ELFTypeILNS_10en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2) unnamed_addr #0 {
 _ZN4llvmplERKNS_5TwineES2_.exit:
   %3 = alloca %"class.llvm::Expected.424", align 8
   %4 = alloca %"class.llvm::Twine", align 8
@@ -58843,7 +58843,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:
   store i8 2, ptr %28, align 8, !alias.scope !8985
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 9, ptr %29, align 1, !alias.scope !8985
-  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %4) #18
+  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %4) #18
   ret void
 }
 
@@ -59202,7 +59202,7 @@ _ZN4llvm5ErrorD2Ev.exit53:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   br i1 %140, label %_ZN4llvm5ErrorD2Ev.exit55, label %151
 
 _ZN4llvm5ErrorD2Ev.exit55:                        ; preds = %137
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %141 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %29, i64 noundef 0, ptr noundef nonnull @.str.303) #18, !noalias !9052
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %141) #18
   %142 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.304) #18, !noalias !9055
@@ -59243,7 +59243,7 @@ _ZN4llvm5ErrorD2Ev.exit55:                        ; preds = %137
   br i1 %.not47, label %166, label %_ZN4llvm5ErrorD2Ev.exit56
 
 _ZN4llvm5ErrorD2Ev.exit56:                        ; preds = %151
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %154 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef 0, ptr noundef nonnull @.str.303) #18, !noalias !9061
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %154) #18
   %155 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.306) #18, !noalias !9064
@@ -59286,7 +59286,7 @@ _ZN4llvm5ErrorD2Ev.exit56:                        ; preds = %151
 _ZN4llvm5ErrorD2Ev.exit59:                        ; preds = %166
   %rev.i.i.i.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i57)
   %167 = zext i16 %rev.i.i.i.i.i.i.i to i32
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %168 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %46, i64 noundef 0, ptr noundef nonnull @.str.307) #18, !noalias !9073
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %168) #18
   %169 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull @.str.308) #18, !noalias !9076
@@ -60047,7 +60047,7 @@ _ZN4llvm5ErrorD2Ev.exit82:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   br i1 %167, label %_ZN4llvm5ErrorD2Ev.exit84, label %180
 
 _ZN4llvm5ErrorD2Ev.exit84:                        ; preds = %165
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %168 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %36, i64 noundef 0, ptr noundef nonnull @.str.303) #18, !noalias !9158
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %168) #18
   %169 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @.str.316) #18, !noalias !9161
@@ -60090,7 +60090,7 @@ _ZN4llvm5ErrorD2Ev.exit84:                        ; preds = %165
   br i1 %.not73, label %195, label %_ZN4llvm5ErrorD2Ev.exit85
 
 _ZN4llvm5ErrorD2Ev.exit85:                        ; preds = %180
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %183 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %44, i64 noundef 0, ptr noundef nonnull @.str.303) #18, !noalias !9167
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %183) #18
   %184 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.317) #18, !noalias !9170
@@ -60133,7 +60133,7 @@ _ZN4llvm5ErrorD2Ev.exit85:                        ; preds = %180
 _ZN4llvm5ErrorD2Ev.exit88:                        ; preds = %195
   %rev.i.i.i.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i86)
   %196 = zext i16 %rev.i.i.i.i.i.i.i to i32
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %197 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %53, i64 noundef 0, ptr noundef nonnull @.str.307) #18, !noalias !9179
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %197) #18
   %198 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull @.str.308) #18, !noalias !9182
@@ -61262,7 +61262,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %58, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !9403
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %40) #18
   %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.222) #18, !noalias !9406
@@ -61322,7 +61322,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %.not23, label %87, label %_ZN4llvm5ErrorD2Ev.exit118
 
 _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %58
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %65 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !9434
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %65) #18
   %66 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.224) #18, !noalias !9437
@@ -61380,7 +61380,7 @@ _ZN4llvm5ErrorD2Ev.exit118:                       ; preds = %58
   br i1 %89, label %_ZN4llvm5ErrorD2Ev.exit179, label %110
 
 _ZN4llvm5ErrorD2Ev.exit179:                       ; preds = %87
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %90 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !9470
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %90) #18
   %91 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.226) #18, !noalias !9473
@@ -61438,7 +61438,7 @@ _ZN4llvm5ErrorD2Ev.exit179:                       ; preds = %87
   br i1 %115, label %_ZN4llvm5ErrorD2Ev.exit270, label %143
 
 _ZN4llvm5ErrorD2Ev.exit270:                       ; preds = %110
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb0EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(40) %2)
   %116 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !9506
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %116) #18
   %117 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @.str.226) #18, !noalias !9509
@@ -62162,7 +62162,7 @@ _ZN4llvm8ExpectedINS_8ArrayRefINS_6object15Elf_Versym_ImplINS2_7ELFTypeILNS_10en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2) unnamed_addr #0 {
 _ZN4llvmplERKNS_5TwineES2_.exit:
   %3 = alloca %"class.llvm::Expected.508", align 8
   %4 = alloca %"class.llvm::Twine", align 8
@@ -62207,7 +62207,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:
   store i8 2, ptr %27, align 8, !alias.scope !9603
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 9, ptr %28, align 1, !alias.scope !9603
-  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %4) #18
+  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %4) #18
   ret void
 }
 
@@ -62564,7 +62564,7 @@ _ZN4llvm5ErrorD2Ev.exit53:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   br i1 %139, label %_ZN4llvm5ErrorD2Ev.exit55, label %150
 
 _ZN4llvm5ErrorD2Ev.exit55:                        ; preds = %136
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %140 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %29, i64 noundef 0, ptr noundef nonnull @.str.303) #18, !noalias !9670
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %140) #18
   %141 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.304) #18, !noalias !9673
@@ -62605,7 +62605,7 @@ _ZN4llvm5ErrorD2Ev.exit55:                        ; preds = %136
   br i1 %.not47, label %165, label %_ZN4llvm5ErrorD2Ev.exit56
 
 _ZN4llvm5ErrorD2Ev.exit56:                        ; preds = %150
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %153 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef 0, ptr noundef nonnull @.str.303) #18, !noalias !9679
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %153) #18
   %154 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.306) #18, !noalias !9682
@@ -62647,7 +62647,7 @@ _ZN4llvm5ErrorD2Ev.exit56:                        ; preds = %150
 
 _ZN4llvm5ErrorD2Ev.exit59:                        ; preds = %165
   %166 = zext i16 %.0.copyload.i.i.i57 to i32
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %167 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %46, i64 noundef 0, ptr noundef nonnull @.str.307) #18, !noalias !9691
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %167) #18
   %168 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull @.str.308) #18, !noalias !9694
@@ -63395,7 +63395,7 @@ _ZN4llvm5ErrorD2Ev.exit82:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   br i1 %166, label %_ZN4llvm5ErrorD2Ev.exit84, label %179
 
 _ZN4llvm5ErrorD2Ev.exit84:                        ; preds = %164
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %167 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %36, i64 noundef 0, ptr noundef nonnull @.str.303) #18, !noalias !9776
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %167) #18
   %168 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @.str.316) #18, !noalias !9779
@@ -63438,7 +63438,7 @@ _ZN4llvm5ErrorD2Ev.exit84:                        ; preds = %164
   br i1 %.not73, label %194, label %_ZN4llvm5ErrorD2Ev.exit85
 
 _ZN4llvm5ErrorD2Ev.exit85:                        ; preds = %179
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %182 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %44, i64 noundef 0, ptr noundef nonnull @.str.303) #18, !noalias !9785
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %182) #18
   %183 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.317) #18, !noalias !9788
@@ -63480,7 +63480,7 @@ _ZN4llvm5ErrorD2Ev.exit85:                        ; preds = %179
 
 _ZN4llvm5ErrorD2Ev.exit88:                        ; preds = %194
   %195 = zext i16 %.0.copyload.i.i.i86 to i32
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %196 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %53, i64 noundef 0, ptr noundef nonnull @.str.307) #18, !noalias !9797
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %196) #18
   %197 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull @.str.308) #18, !noalias !9800
@@ -64584,7 +64584,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %56, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !10021
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %40) #18
   %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.222) #18, !noalias !10024
@@ -64641,7 +64641,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %.not11, label %79, label %_ZN4llvm5ErrorD2Ev.exit106
 
 _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %56
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %60 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !10052
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %60) #18
   %61 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.224) #18, !noalias !10055
@@ -64696,7 +64696,7 @@ _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %56
   br i1 %81, label %_ZN4llvm5ErrorD2Ev.exit167, label %101
 
 _ZN4llvm5ErrorD2Ev.exit167:                       ; preds = %79
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %82 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !10088
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %82) #18
   %83 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.226) #18, !noalias !10091
@@ -64750,7 +64750,7 @@ _ZN4llvm5ErrorD2Ev.exit167:                       ; preds = %79
   br i1 %105, label %_ZN4llvm5ErrorD2Ev.exit258, label %132
 
 _ZN4llvm5ErrorD2Ev.exit258:                       ; preds = %101
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %106 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !10124
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %106) #18
   %107 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.226) #18, !noalias !10127
@@ -65471,7 +65471,7 @@ _ZN4llvm8ExpectedINS_8ArrayRefINS_6object15Elf_Versym_ImplINS2_7ELFTypeILNS_10en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2) unnamed_addr #0 {
 _ZN4llvmplERKNS_5TwineES2_.exit:
   %3 = alloca %"class.llvm::Expected.590", align 8
   %4 = alloca %"class.llvm::Twine", align 8
@@ -65518,7 +65518,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:
   store i8 2, ptr %28, align 8, !alias.scope !10221
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 9, ptr %29, align 1, !alias.scope !10221
-  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %4) #18
+  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %4) #18
   ret void
 }
 
@@ -65877,7 +65877,7 @@ _ZN4llvm5ErrorD2Ev.exit53:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   br i1 %140, label %_ZN4llvm5ErrorD2Ev.exit55, label %151
 
 _ZN4llvm5ErrorD2Ev.exit55:                        ; preds = %137
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %141 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %29, i64 noundef 0, ptr noundef nonnull @.str.303) #18, !noalias !10288
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %141) #18
   %142 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.304) #18, !noalias !10291
@@ -65918,7 +65918,7 @@ _ZN4llvm5ErrorD2Ev.exit55:                        ; preds = %137
   br i1 %.not47, label %166, label %_ZN4llvm5ErrorD2Ev.exit56
 
 _ZN4llvm5ErrorD2Ev.exit56:                        ; preds = %151
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %154 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef 0, ptr noundef nonnull @.str.303) #18, !noalias !10297
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %154) #18
   %155 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.306) #18, !noalias !10300
@@ -65961,7 +65961,7 @@ _ZN4llvm5ErrorD2Ev.exit56:                        ; preds = %151
 _ZN4llvm5ErrorD2Ev.exit59:                        ; preds = %166
   %rev.i.i.i.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i57)
   %167 = zext i16 %rev.i.i.i.i.i.i.i to i32
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %168 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %46, i64 noundef 0, ptr noundef nonnull @.str.307) #18, !noalias !10309
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %168) #18
   %169 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull @.str.308) #18, !noalias !10312
@@ -66722,7 +66722,7 @@ _ZN4llvm5ErrorD2Ev.exit82:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   br i1 %167, label %_ZN4llvm5ErrorD2Ev.exit84, label %180
 
 _ZN4llvm5ErrorD2Ev.exit84:                        ; preds = %165
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %168 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %36, i64 noundef 0, ptr noundef nonnull @.str.303) #18, !noalias !10394
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %168) #18
   %169 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @.str.316) #18, !noalias !10397
@@ -66765,7 +66765,7 @@ _ZN4llvm5ErrorD2Ev.exit84:                        ; preds = %165
   br i1 %.not73, label %195, label %_ZN4llvm5ErrorD2Ev.exit85
 
 _ZN4llvm5ErrorD2Ev.exit85:                        ; preds = %180
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %183 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %44, i64 noundef 0, ptr noundef nonnull @.str.303) #18, !noalias !10403
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %183) #18
   %184 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.317) #18, !noalias !10406
@@ -66808,7 +66808,7 @@ _ZN4llvm5ErrorD2Ev.exit85:                        ; preds = %180
 _ZN4llvm5ErrorD2Ev.exit88:                        ; preds = %195
   %rev.i.i.i.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i86)
   %196 = zext i16 %rev.i.i.i.i.i.i.i to i32
-  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL8describeINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %197 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %53, i64 noundef 0, ptr noundef nonnull @.str.307) #18, !noalias !10415
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %197) #18
   %198 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull @.str.308) #18, !noalias !10418
@@ -67937,7 +67937,7 @@ define linkonce_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endianness
   br i1 %.not, label %57, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !10639
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %40) #18
   %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.222) #18, !noalias !10642
@@ -67997,7 +67997,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %.not11, label %83, label %_ZN4llvm5ErrorD2Ev.exit106
 
 _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %57
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %63 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !10670
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %63) #18
   %64 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.224) #18, !noalias !10673
@@ -68053,7 +68053,7 @@ _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %57
   br i1 %85, label %_ZN4llvm5ErrorD2Ev.exit167, label %105
 
 _ZN4llvm5ErrorD2Ev.exit167:                       ; preds = %83
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %86 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !10706
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %86) #18
   %87 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.226) #18, !noalias !10709
@@ -68107,7 +68107,7 @@ _ZN4llvm5ErrorD2Ev.exit167:                       ; preds = %83
   br i1 %109, label %_ZN4llvm5ErrorD2Ev.exit258, label %136
 
 _ZN4llvm5ErrorD2Ev.exit258:                       ; preds = %105
-  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
+  call fastcc void @_ZN4llvm6objectL19getSecIndexForErrorINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7ELFFileIT_EERKNSC_4ShdrE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(64) %2)
   %110 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef 0, ptr noundef nonnull @.str.221) #18, !noalias !10742
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %110) #18
   %111 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.226) #18, !noalias !10745

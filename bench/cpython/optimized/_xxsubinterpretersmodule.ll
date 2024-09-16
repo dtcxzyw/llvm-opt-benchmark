@@ -562,7 +562,7 @@ if.end9:                                          ; preds = %if.end7.thread6, %i
   store ptr null, ptr %excinfo, align 8
   %9 = load ptr, ptr %id, align 8
   %10 = load ptr, ptr %shared, align 8
-  %call10 = call fastcc i32 @_interp_exec(ptr noundef %9, ptr noundef nonnull %storemerge9, ptr noundef %10, ptr noundef nonnull %excinfo)
+  %call10 = call fastcc i32 @_interp_exec(ptr noundef %9, ptr noundef nonnull %storemerge9, ptr noundef %10, ptr noundef %excinfo)
   %11 = load ptr, ptr %code, align 8
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 2147483648
@@ -669,7 +669,7 @@ if.end3:                                          ; preds = %if.end8.i
   store ptr null, ptr %excinfo, align 8
   %10 = load ptr, ptr %id, align 8
   %11 = load ptr, ptr %shared, align 8
-  %call4 = call fastcc i32 @_interp_exec(ptr noundef %10, ptr noundef nonnull %0, ptr noundef %11, ptr noundef nonnull %excinfo)
+  %call4 = call fastcc i32 @_interp_exec(ptr noundef %10, ptr noundef nonnull %0, ptr noundef %11, ptr noundef %excinfo)
   %12 = load ptr, ptr %script, align 8
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, 2147483648
@@ -719,7 +719,7 @@ if.end3:                                          ; preds = %if.end
   store ptr null, ptr %excinfo, align 8
   %1 = load ptr, ptr %id, align 8
   %2 = load ptr, ptr %shared, align 8
-  %call4 = call fastcc i32 @_interp_exec(ptr noundef %1, ptr noundef nonnull %call1, ptr noundef %2, ptr noundef nonnull %excinfo)
+  %call4 = call fastcc i32 @_interp_exec(ptr noundef %1, ptr noundef nonnull %call1, ptr noundef %2, ptr noundef %excinfo)
   %3 = load i64, ptr %call1, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i9.not = icmp eq i64 %4, 0
@@ -1180,7 +1180,7 @@ return:                                           ; preds = %if.end15.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_interp_exec(ptr noundef %id_arg, ptr noundef %code_arg, ptr noundef %shared_arg, ptr nocapture noundef writeonly %p_excinfo) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_interp_exec(ptr noundef %id_arg, ptr noundef %code_arg, ptr noundef %shared_arg, ptr nocapture noundef nonnull writeonly %p_excinfo) unnamed_addr #0 {
 entry:
   %session.i = alloca %struct.xi_session, align 8
   %len.i = alloca i64, align 8

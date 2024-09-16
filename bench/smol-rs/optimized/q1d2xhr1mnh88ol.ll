@@ -702,7 +702,7 @@ define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h30e
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h3bf2fe567b129f90E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h3bf2fe567b129f90E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, [1 x i64] }, align 8
   %.val = load i64, ptr %1, align 8, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -929,7 +929,7 @@ define hidden void @"_ZN14event_listener3sys14Inner$LT$T$GT$6remove17he1c2357fed
   store i8 %42, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %5, i64 9
   store i8 1, ptr %44, align 1
-  invoke fastcc void @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h3bf2fe567b129f90E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5)
+  invoke fastcc void @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h3bf2fe567b129f90E"(ptr noalias noundef align 8 dereferenceable(40) %1, ptr noalias nocapture noundef align 8 dereferenceable(16) %5)
           to label %52 unwind label %48
 
 45:                                               ; preds = %52, %37
@@ -951,11 +951,11 @@ define hidden void @"_ZN14event_listener3sys14Inner$LT$T$GT$6remove17he1c2357fed
 
 53:                                               ; preds = %72, %54, %48
   %.pn = phi { ptr, i32 } [ %73, %72 ], [ %49, %48 ], [ %49, %54 ]
-  invoke fastcc void @"_ZN4core3ptr58drop_in_place$LT$event_listener..State$LT$$LP$$RP$$GT$$GT$17hb7087cd532a83203E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #12
+  invoke fastcc void @"_ZN4core3ptr58drop_in_place$LT$event_listener..State$LT$$LP$$RP$$GT$$GT$17hb7087cd532a83203E"(ptr noalias noundef align 8 dereferenceable(24) %7) #12
           to label %75 unwind label %55
 
 54:                                               ; preds = %48
-  invoke fastcc void @"_ZN4core3ptr58drop_in_place$LT$event_listener..State$LT$$LP$$RP$$GT$$GT$17hb7087cd532a83203E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #12
+  invoke fastcc void @"_ZN4core3ptr58drop_in_place$LT$event_listener..State$LT$$LP$$RP$$GT$$GT$17hb7087cd532a83203E"(ptr noalias noundef align 8 dereferenceable(24) %6) #12
           to label %53 unwind label %55
 
 55:                                               ; preds = %54, %53
@@ -1144,7 +1144,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr58drop_in_place$LT$event_listener..State$LT$$LP$$RP$$GT$$GT$17hb7087cd532a83203E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr58drop_in_place$LT$event_listener..State$LT$$LP$$RP$$GT$$GT$17hb7087cd532a83203E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = load i8, ptr %0, align 8, !range !87, !noundef !4
   %cond = icmp eq i8 %2, 2
   br i1 %cond, label %3, label %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit"

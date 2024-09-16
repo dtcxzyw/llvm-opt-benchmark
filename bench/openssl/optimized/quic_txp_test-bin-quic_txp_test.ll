@@ -1329,14 +1329,14 @@ if.end466.thread86:                               ; preds = %land.lhs.true, %lan
   br label %if.then468
 
 if.end466:                                        ; preds = %for.body.i, %entry, %if.end.i, %if.end9.i, %if.end15.i, %if.end21.i, %if.end28.i, %if.end35.i, %if.end43.i, %if.then56.i, %if.end64.i, %if.end70.i, %if.end79.i, %for.end.i, %if.end126.i, %if.end132.i, %if.end142.i
-  call fastcc void @helper_cleanup(ptr noundef nonnull %h)
+  call fastcc void @helper_cleanup(ptr noundef %h)
   %add = add nsw i32 %script_idx, 1
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.2, i32 noundef 1594, ptr noundef nonnull @.str.50, i32 noundef %add, i64 noundef 1) #8
   br label %if.end469
 
 if.then468:                                       ; preds = %for.cond, %if.end466.thread86
   %testresult.08084 = phi i32 [ 0, %if.end466.thread86 ], [ 1, %for.cond ]
-  call fastcc void @helper_cleanup(ptr noundef nonnull %h)
+  call fastcc void @helper_cleanup(ptr noundef %h)
   br label %if.end469
 
 if.end469:                                        ; preds = %if.end466, %if.then468
@@ -1444,7 +1444,7 @@ declare i32 @ossl_quic_txfc_bump_cwm(ptr noundef, i64 noundef) local_unnamed_add
 declare void @ossl_quic_tx_packetiser_notify_handshake_complete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @helper_cleanup(ptr noundef %h) unnamed_addr #0 {
+define internal fastcc void @helper_cleanup(ptr noundef nonnull %h) unnamed_addr #0 {
 entry:
   %qrx_pkt = getelementptr inbounds i8, ptr %h, i64 1048
   %0 = load ptr, ptr %qrx_pkt, align 8

@@ -351,7 +351,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL11decToStringPK9decNumberPch(ptr nocapture noundef readonly %dn, ptr nocapture noundef writeonly %string, i8 noundef zeroext %eng) unnamed_addr #4 {
+define internal fastcc void @_ZL11decToStringPK9decNumberPch(ptr nocapture noundef readonly %dn, ptr nocapture noundef writeonly %string, i8 noundef zeroext range(i8 0, 2) %eng) unnamed_addr #4 {
 entry:
   %exponent = getelementptr inbounds i8, ptr %dn, i64 4
   %0 = load i32, ptr %exponent, align 4
@@ -1445,7 +1445,7 @@ for.end251:                                       ; preds = %for.inc249, %if.end
 
 if.then257:                                       ; preds = %for.end251
   store i32 0, ptr %residue, align 4
-  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef nonnull %dn, ptr noundef nonnull %set, ptr noundef nonnull %res.0, i32 noundef %d.4, ptr noundef nonnull %residue, ptr noundef nonnull %status)
+  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef nonnull %dn, ptr noundef nonnull %set, ptr noundef nonnull %res.0, i32 noundef %d.4, ptr noundef %residue, ptr noundef %status)
   br label %do.end.sink.split
 
 if.else258:                                       ; preds = %for.end251
@@ -1468,7 +1468,7 @@ if.then270:                                       ; preds = %lor.lhs.false264, %
   br label %do.end.sink.split
 
 do.end.sink.split:                                ; preds = %if.then270, %if.then257
-  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %dn, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef nonnull %status)
+  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %dn, ptr noundef nonnull %set, ptr noundef %residue, ptr noundef %status)
   br label %do.end
 
 do.end:                                           ; preds = %do.end.sink.split, %lor.lhs.false264
@@ -1522,7 +1522,7 @@ if.end278:                                        ; preds = %for.cond83, %if.the
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %dn, ptr nocapture noundef readonly %set, ptr noundef readonly %lsu, i32 noundef %len, ptr nocapture noundef %residue, ptr nocapture noundef %status) unnamed_addr #0 {
+define internal fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %dn, ptr nocapture noundef readonly %set, ptr noundef readonly %lsu, i32 noundef %len, ptr nocapture noundef nonnull %residue, ptr nocapture noundef nonnull %status) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %set, align 4
   %sub = sub nsw i32 %len, %0
@@ -1805,7 +1805,7 @@ return:                                           ; preds = %if.end169, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %dn, ptr nocapture noundef readonly %set, ptr nocapture noundef %residue, ptr nocapture noundef %status) unnamed_addr #2 {
+define internal fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %dn, ptr nocapture noundef readonly %set, ptr nocapture noundef nonnull %residue, ptr nocapture noundef nonnull %status) unnamed_addr #2 {
 entry:
   %nmin = alloca %struct.decNumber, align 4
   %emin = getelementptr inbounds i8, ptr %set, i64 8
@@ -1853,7 +1853,7 @@ if.end9:                                          ; preds = %if.end
 
 if.then12:                                        ; preds = %if.end9
   call fastcc void @_ZL13decApplyRoundP9decNumberP10decContextiPj(ptr noundef nonnull %dn, ptr noundef nonnull %set, i32 noundef %4, ptr noundef %status)
-  call fastcc void @_ZL15decSetSubnormalP9decNumberP10decContextPiPj(ptr noundef nonnull %dn, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef %status)
+  call fastcc void @_ZL15decSetSubnormalP9decNumberP10decContextPiPj(ptr noundef nonnull %dn, ptr noundef nonnull %set, ptr noundef %residue, ptr noundef %status)
   br label %return
 
 if.end14thread-pre-split:                         ; preds = %entry
@@ -2103,7 +2103,7 @@ entry:
   %bits = getelementptr inbounds i8, ptr %rhs, i64 8
   %1 = load i8, ptr %bits, align 4
   %2 = and i8 %1, -128
-  %call3 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %dzero, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext %2, ptr noundef nonnull %status)
+  %call3 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %dzero, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext %2, ptr noundef %status)
   %3 = load i32, ptr %status, align 4
   %cmp.not = icmp eq i32 %3, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2142,7 +2142,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, i8 noundef zeroext %negate, ptr nocapture noundef %status) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, i8 noundef zeroext range(i8 0, -127) %negate, ptr nocapture noundef nonnull %status) unnamed_addr #2 {
 entry:
   %residue = alloca i32, align 4
   %accbuff = alloca [92 x i8], align 16
@@ -2227,7 +2227,7 @@ if.then61:                                        ; preds = %land.lhs.true53
   store i32 %8, ptr %exponent2.i, align 4
   %lsu.i246 = getelementptr inbounds i8, ptr %rhs, i64 9
   %9 = load i32, ptr %rhs, align 4
-  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull readonly %set, ptr noundef nonnull %lsu.i246, i32 noundef %9, ptr noundef nonnull %residue, ptr noundef %status)
+  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull readonly %set, ptr noundef nonnull %lsu.i246, i32 noundef %9, ptr noundef %residue, ptr noundef %status)
   %10 = load i8, ptr %bits1.i, align 4
   %xor66238 = xor i8 %10, %negate
   store i8 %xor66238, ptr %bits1.i, align 4
@@ -2453,7 +2453,7 @@ _ZL14decShiftToMostPhii.exit:                     ; preds = %for.body90.i, %if.e
   br label %if.end116
 
 if.end116:                                        ; preds = %if.else95, %_ZL14decShiftToMostPhii.exit, %if.end85, %if.else91, %if.then89
-  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %res, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef %status)
+  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %res, ptr noundef nonnull %set, ptr noundef %residue, ptr noundef %status)
   br label %if.end473
 
 if.end117:                                        ; preds = %land.lhs.true53, %if.end50
@@ -2481,7 +2481,7 @@ if.then130:                                       ; preds = %land.lhs.true122
   %exponent2.i250 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %38, ptr %exponent2.i250, align 4
   %39 = load i32, ptr %lhs, align 4
-  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull readonly %set, ptr noundef nonnull %lsu, i32 noundef %39, ptr noundef nonnull %residue, ptr noundef %status)
+  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull readonly %set, ptr noundef nonnull %lsu, i32 noundef %39, ptr noundef %residue, ptr noundef %status)
   %40 = load i32, ptr %exponent2.i250, align 4
   %sub135 = sub nsw i32 %37, %40
   %cmp136 = icmp slt i32 %sub135, 0
@@ -2515,7 +2515,7 @@ if.end147:                                        ; preds = %if.then142, %if.the
   br label %if.end156
 
 if.end156:                                        ; preds = %if.end147, %if.then130
-  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %res, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef %status)
+  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %res, ptr noundef nonnull %set, ptr noundef %residue, ptr noundef %status)
   br label %if.end473
 
 if.end157:                                        ; preds = %land.lhs.true122, %if.end117
@@ -2681,7 +2681,7 @@ if.then253:                                       ; preds = %if.end246
   store i32 %61, ptr %exponent2.i257, align 4
   %lsu.i258 = getelementptr inbounds i8, ptr %rhs.addr.1, i64 9
   %62 = load i32, ptr %rhs.addr.1, align 4
-  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull readonly %set, ptr noundef nonnull %lsu.i258, i32 noundef %62, ptr noundef nonnull %residue, ptr noundef %status)
+  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull readonly %set, ptr noundef nonnull %lsu.i258, i32 noundef %62, ptr noundef %residue, ptr noundef %status)
   %cmp260 = icmp sgt i32 %sub255, 0
   br i1 %cmp260, label %if.end.i260, label %if.end269
 
@@ -2849,7 +2849,7 @@ if.then271:                                       ; preds = %if.end269
   br label %if.end277
 
 if.end277:                                        ; preds = %if.then271, %if.end269
-  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %res, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef %status)
+  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %res, ptr noundef nonnull %set, ptr noundef %residue, ptr noundef %status)
   br label %if.end473
 
 if.end278:                                        ; preds = %if.end246
@@ -3028,7 +3028,7 @@ _ZL12decGetDigitsPhi.exit364:                     ; preds = %for.body.i353, %if.
 
 if.end418:                                        ; preds = %_ZL12decGetDigitsPhi.exit364, %if.then398
   %98 = phi i32 [ %digits.0.lcssa.i363, %_ZL12decGetDigitsPhi.exit364 ], [ %93, %if.then398 ]
-  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef nonnull %res, ptr noundef nonnull %set, ptr noundef nonnull %acc.0, i32 noundef %98, ptr noundef nonnull %residue, ptr noundef %status)
+  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef nonnull %res, ptr noundef nonnull %set, ptr noundef nonnull %acc.0, i32 noundef %98, ptr noundef %residue, ptr noundef %status)
   %.pre = load i32, ptr %res, align 4
   br label %if.end420
 
@@ -3070,7 +3070,7 @@ if.end.i373:                                      ; preds = %for.body.i367
 _ZL12decGetDigitsPhi.exit378:                     ; preds = %for.body.i367, %if.end.i373, %cond.end435
   %digits.0.lcssa.i377 = phi i32 [ %cond436, %cond.end435 ], [ %sub5.i374, %if.end.i373 ], [ %digits.09.i369, %for.body.i367 ]
   store i32 %digits.0.lcssa.i377, ptr %res, align 4
-  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %res, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef %status)
+  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %res, ptr noundef nonnull %set, ptr noundef %residue, ptr noundef %status)
   %104 = load i8, ptr %lsu309, align 1
   %cmp442 = icmp eq i8 %104, 0
   br i1 %cmp442, label %land.lhs.true443, label %do.end
@@ -3120,7 +3120,7 @@ define noundef ptr @uprv_decNumberAdd_75(ptr noundef returned %res, ptr noundef 
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %call = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 0, ptr noundef nonnull %status)
+  %call = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 0, ptr noundef %status)
   %0 = load i32, ptr %status, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3418,7 +3418,7 @@ if.then184.i:                                     ; preds = %if.then180.i
   br label %if.end
 
 _ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit: ; preds = %entry
-  %call130.i = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %lhs, ptr noundef nonnull %rhs, ptr noundef readonly %set, ptr noundef nonnull %status)
+  %call130.i = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %lhs, ptr noundef nonnull %rhs, ptr noundef readonly %set, ptr noundef %status)
   %.pr.pre = load i32, ptr %status, align 4
   %cmp.not = icmp eq i32 %.pr.pre, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3458,7 +3458,7 @@ if.end:                                           ; preds = %if.then184.i, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, i8 noundef zeroext %op, ptr nocapture noundef %status) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, i8 noundef zeroext range(i8 1, 9) %op, ptr nocapture noundef nonnull %status) unnamed_addr #2 {
 entry:
   %residue = alloca i32, align 4
   %cmp = icmp eq i8 %op, 4
@@ -3628,7 +3628,7 @@ if.else145.thread127:                             ; preds = %if.else103, %if.the
   br label %if.end247
 
 if.end131:                                        ; preds = %if.end19
-  %14 = add i8 %op, -7
+  %14 = add nsw i8 %op, -7
   %or.cond = icmp ult i8 %14, 2
   %.151 = zext i1 %or.cond to i8
   %call138 = tail call fastcc noundef i32 @_ZL10decComparePK9decNumberS1_h(ptr noundef nonnull %lhs, ptr noundef nonnull %rhs, i8 noundef zeroext %.151)
@@ -3776,8 +3776,8 @@ if.end239:                                        ; preds = %if.end231.thread, %
   store i32 %27, ptr %exponent2.i, align 4
   %lsu.i96 = getelementptr inbounds i8, ptr %cond244, i64 9
   %28 = load i32, ptr %cond244, align 4
-  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef readonly %set, ptr noundef nonnull %lsu.i96, i32 noundef %28, ptr noundef nonnull %residue, ptr noundef %status)
-  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef %set, ptr noundef nonnull %residue, ptr noundef %status)
+  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef readonly %set, ptr noundef nonnull %lsu.i96, i32 noundef %28, ptr noundef %residue, ptr noundef %status)
+  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef %set, ptr noundef %residue, ptr noundef %status)
   br label %if.end247
 
 if.end247:                                        ; preds = %if.else145.thread127, %if.end177.thread, %if.else145, %if.then180, %if.then184, %if.end177, %if.end239, %if.then143
@@ -3824,7 +3824,7 @@ if.then184.i:                                     ; preds = %if.then180.i
 
 _ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit: ; preds = %entry
   store i32 1073741952, ptr %status, align 4
-  %call130.i = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %lhs, ptr noundef nonnull %rhs, ptr noundef readonly %set, ptr noundef nonnull %status)
+  %call130.i = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %lhs, ptr noundef nonnull %rhs, ptr noundef readonly %set, ptr noundef %status)
   %.pr.pre = load i32, ptr %status, align 4
   %cmp.not = icmp eq i32 %.pr.pre, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3868,7 +3868,7 @@ define noundef ptr @uprv_decNumberCompareTotal_75(ptr noundef returned %res, ptr
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %call = call fastcc noundef ptr @_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 4, ptr noundef nonnull %status)
+  %call = call fastcc noundef ptr @_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 4, ptr noundef %status)
   %0 = load i32, ptr %status, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4093,7 +4093,7 @@ uprv_decNumberCopy_75.exit59:                     ; preds = %if.end56.uprv_decNu
 if.end62:                                         ; preds = %uprv_decNumberCopy_75.exit59, %if.end21
   %rhs.addr.0 = phi ptr [ %b.0, %uprv_decNumberCopy_75.exit59 ], [ %rhs, %if.end21 ]
   %allocbufb.1 = phi ptr [ %allocbufb.2, %uprv_decNumberCopy_75.exit59 ], [ null, %if.end21 ]
-  %call63 = call fastcc noundef ptr @_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %lhs.addr.0, ptr noundef nonnull %rhs.addr.0, ptr noundef %set, i8 noundef zeroext 4, ptr noundef nonnull %status)
+  %call63 = call fastcc noundef ptr @_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %lhs.addr.0, ptr noundef nonnull %rhs.addr.0, ptr noundef %set, i8 noundef zeroext 4, ptr noundef %status)
   br label %do.end
 
 do.end:                                           ; preds = %if.end62, %if.then53
@@ -4215,7 +4215,7 @@ define noundef ptr @uprv_decNumberDivide_75(ptr noundef returned %res, ptr nound
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %call = call fastcc noundef ptr @_ZL11decDivideOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext -128, ptr noundef nonnull %status)
+  %call = call fastcc noundef ptr @_ZL11decDivideOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext -128, ptr noundef %status)
   %0 = load i32, ptr %status, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4254,7 +4254,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL11decDivideOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, i8 noundef zeroext %op, ptr nocapture noundef %status) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL11decDivideOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, i8 noundef zeroext range(i8 16, -127) %op, ptr nocapture noundef nonnull %status) unnamed_addr #2 {
 entry:
   %accbuff = alloca [47 x i8], align 16
   %varbuff = alloca [73 x i8], align 16
@@ -4327,7 +4327,7 @@ if.then42:                                        ; preds = %if.else
   store i32 %7, ptr %exponent2.i, align 4
   %lsu.i370 = getelementptr inbounds i8, ptr %lhs, i64 9
   %8 = load i32, ptr %lhs, align 4
-  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull readonly %set, ptr noundef nonnull %lsu.i370, i32 noundef %8, ptr noundef nonnull %residue, ptr noundef %status)
+  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull readonly %set, ptr noundef nonnull %lsu.i370, i32 noundef %8, ptr noundef %residue, ptr noundef %status)
   br label %if.end54
 
 if.else43:                                        ; preds = %if.else
@@ -4353,7 +4353,7 @@ if.then49:                                        ; preds = %if.else43
   br label %if.end54
 
 if.end54:                                         ; preds = %if.else43, %if.then49, %if.then42
-  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %res, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef %status)
+  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %res, ptr noundef nonnull %set, ptr noundef %residue, ptr noundef %status)
   br label %if.end698
 
 if.end55:                                         ; preds = %entry
@@ -4452,7 +4452,7 @@ if.then114:                                       ; preds = %if.then110
   store i8 %and, ptr %bits119, align 4
   %exponent120 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %sub117, ptr %exponent120, align 4
-  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef %status)
+  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef %residue, ptr noundef %status)
   br label %if.end698
 
 if.else121:                                       ; preds = %if.then110
@@ -4532,8 +4532,8 @@ if.then167:                                       ; preds = %if.then161
   %exponent2.i389 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %31, ptr %exponent2.i389, align 4
   %32 = load i32, ptr %lhs, align 4
-  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull readonly %set, ptr noundef nonnull %lsu98.ptr, i32 noundef %32, ptr noundef nonnull %residue, ptr noundef %status)
-  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef %status)
+  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull readonly %set, ptr noundef nonnull %lsu98.ptr, i32 noundef %32, ptr noundef %residue, ptr noundef %status)
+  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef %residue, ptr noundef %status)
   br label %if.end698
 
 if.end170:                                        ; preds = %if.end157, %if.then161, %if.end138
@@ -5138,7 +5138,7 @@ if.then516:                                       ; preds = %if.then510
   store i32 %spec.select363, ptr %exponent.i392, align 4
   %99 = and i8 %95, -128
   store i8 %99, ptr %bits.i391, align 4
-  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %res, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef %status)
+  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %res, ptr noundef nonnull %set, ptr noundef %residue, ptr noundef %status)
   br label %do.end
 
 if.end529:                                        ; preds = %if.then510
@@ -5351,8 +5351,8 @@ if.end687:                                        ; preds = %for.end609, %if.end
   %127 = and i8 %bits.0, -128
   %bits692 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %127, ptr %bits692, align 4
-  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef %accnext.4, i32 noundef %accdigits.6, ptr noundef nonnull %residue, ptr noundef %status)
-  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef %status)
+  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef %accnext.4, i32 noundef %accdigits.6, ptr noundef %residue, ptr noundef %status)
+  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef %residue, ptr noundef %status)
   br label %do.end
 
 do.end:                                           ; preds = %if.end687, %if.then641, %if.then587, %if.then516, %if.then504
@@ -5380,7 +5380,7 @@ define noundef ptr @uprv_decNumberDivideInteger_75(ptr noundef returned %res, pt
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %call = call fastcc noundef ptr @_ZL11decDivideOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 32, ptr noundef nonnull %status)
+  %call = call fastcc noundef ptr @_ZL11decDivideOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 32, ptr noundef %status)
   %0 = load i32, ptr %status, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -5468,7 +5468,7 @@ land.lhs.true18.i:                                ; preds = %land.lhs.true.i
   br i1 %cmp20.i, label %if.end, label %if.then2
 
 if.end:                                           ; preds = %land.lhs.true18.i, %lor.lhs.false6.i
-  %call1 = call fastcc noundef ptr @_ZL8decExpOpP9decNumberPKS_P10decContextPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef nonnull %set, ptr noundef nonnull %status)
+  %call1 = call fastcc noundef ptr @_ZL8decExpOpP9decNumberPKS_P10decContextPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef nonnull %set, ptr noundef %status)
   %.pr = load i32, ptr %status, align 4
   %cmp.not = icmp eq i32 %.pr, 0
   br i1 %cmp.not, label %if.end3, label %if.then2
@@ -5508,7 +5508,7 @@ if.end3:                                          ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL8decExpOpP9decNumberPKS_P10decContextPj(ptr noundef returned %res, ptr noundef %rhs, ptr nocapture noundef readonly %set, ptr nocapture noundef %status) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL8decExpOpP9decNumberPKS_P10decContextPj(ptr noundef returned %res, ptr noundef %rhs, ptr nocapture noundef readonly %set, ptr nocapture noundef nonnull %status) unnamed_addr #2 {
 entry:
   %ignore = alloca i32, align 4
   %residue = alloca i32, align 4
@@ -5957,8 +5957,8 @@ if.end193:                                        ; preds = %if.then186, %cond.e
 
 for.cond:                                         ; preds = %if.end225, %if.end193
   %call209 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %a.1, ptr noundef nonnull %a.1, ptr noundef nonnull %t.1, ptr noundef nonnull %aset, i8 noundef zeroext 0, ptr noundef %status)
-  %call210 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %t.1, ptr noundef nonnull %t.1, ptr noundef nonnull %x.0, ptr noundef nonnull %tset, ptr noundef nonnull %ignore)
-  %call211 = call fastcc noundef ptr @_ZL11decDivideOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %t.1, ptr noundef nonnull %t.1, ptr noundef nonnull %bufd, ptr noundef nonnull %tset, i8 noundef zeroext -128, ptr noundef nonnull %ignore)
+  %call210 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %t.1, ptr noundef nonnull %t.1, ptr noundef nonnull %x.0, ptr noundef nonnull %tset, ptr noundef %ignore)
+  %call211 = call fastcc noundef ptr @_ZL11decDivideOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %t.1, ptr noundef nonnull %t.1, ptr noundef nonnull %bufd, ptr noundef nonnull %tset, i8 noundef zeroext -128, ptr noundef %ignore)
   %36 = load i32, ptr %a.1, align 4
   %37 = load i32, ptr %exponent.i166, align 4
   %add214 = add nsw i32 %37, %36
@@ -5972,7 +5972,7 @@ for.cond:                                         ; preds = %if.end225, %if.end1
   br i1 %or.cond, label %if.end225, label %if.end227
 
 if.end225:                                        ; preds = %for.cond
-  %call226 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %bufd, ptr noundef nonnull %bufd, ptr noundef nonnull %numone, ptr noundef nonnull %dset, i8 noundef zeroext 0, ptr noundef nonnull %ignore)
+  %call226 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %bufd, ptr noundef nonnull %bufd, ptr noundef nonnull %numone, ptr noundef nonnull %dset, i8 noundef zeroext 0, ptr noundef %ignore)
   br label %for.cond, !llvm.loop !46
 
 if.end227:                                        ; preds = %for.cond
@@ -6041,7 +6041,7 @@ if.end261:                                        ; preds = %if.end257
   br i1 %cmp262, label %if.end270, label %if.end264
 
 if.end261.thread:                                 ; preds = %if.end257
-  %call260 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %t.0194, ptr noundef nonnull %t.0194, ptr noundef nonnull %a.0197, ptr noundef nonnull %aset, ptr noundef nonnull %status)
+  %call260 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %t.0194, ptr noundef nonnull %t.0194, ptr noundef nonnull %a.0197, ptr noundef nonnull %aset, ptr noundef %status)
   %cmp262201 = icmp eq i32 %i.0, 31
   br i1 %cmp262201, label %if.end270, label %if.end267
 
@@ -6051,7 +6051,7 @@ if.end264:                                        ; preds = %if.end261
 
 if.end267:                                        ; preds = %if.end261.thread, %if.end264
   %seenbit.1202205 = phi i32 [ %seenbit.0, %if.end264 ], [ 1, %if.end261.thread ]
-  %call268 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %t.0194, ptr noundef nonnull %t.0194, ptr noundef nonnull %t.0194, ptr noundef nonnull %aset, ptr noundef nonnull %status)
+  %call268 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %t.0194, ptr noundef nonnull %t.0194, ptr noundef nonnull %t.0194, ptr noundef nonnull %aset, ptr noundef %status)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end264, %if.end267
@@ -6098,8 +6098,8 @@ if.end284:                                        ; preds = %if.then283, %land.l
   %exponent2.i180 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %52, ptr %exponent2.i180, align 4
   %53 = load i32, ptr %a.2, align 4
-  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull readonly %aset, ptr noundef nonnull %lsu271, i32 noundef %53, ptr noundef nonnull %residue, ptr noundef %status)
-  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef %status)
+  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull readonly %aset, ptr noundef nonnull %lsu271, i32 noundef %53, ptr noundef %residue, ptr noundef %status)
+  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef %residue, ptr noundef %status)
   br label %do.end
 
 do.end:                                           ; preds = %if.end284, %if.then190, %if.then161
@@ -6310,7 +6310,7 @@ if.then30:                                        ; preds = %cond.end
 if.end36:                                         ; preds = %if.then30, %cond.end
   %allocbufa.1 = phi ptr [ null, %cond.end ], [ %call32, %if.then30 ]
   %acc.0 = phi ptr [ %bufa, %cond.end ], [ %call32, %if.then30 ]
-  %call37 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %acc.0, ptr noundef nonnull %lhs, ptr noundef nonnull %rhs, ptr noundef nonnull %dcmul, ptr noundef nonnull %status)
+  %call37 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %acc.0, ptr noundef nonnull %lhs, ptr noundef nonnull %rhs, ptr noundef nonnull %dcmul, ptr noundef %status)
   %30 = load i32, ptr %status, align 4
   %and38 = and i32 %30, 128
   %cmp39.not = icmp eq i32 %and38, 0
@@ -6343,7 +6343,7 @@ if.end46:                                         ; preds = %if.then40
 
 if.end48:                                         ; preds = %if.end46, %if.end36
   %fhs.addr.0 = phi ptr [ %dzero, %if.end46 ], [ %fhs, %if.end36 ]
-  %call49 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %acc.0, ptr noundef nonnull %fhs.addr.0, ptr noundef nonnull %set, i8 noundef zeroext 0, ptr noundef nonnull %status)
+  %call49 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %acc.0, ptr noundef nonnull %fhs.addr.0, ptr noundef nonnull %set, i8 noundef zeroext 0, ptr noundef %status)
   br label %do.end
 
 do.end:                                           ; preds = %if.end48, %if.then43
@@ -6398,7 +6398,7 @@ if.end55:                                         ; preds = %_ZL9decStatusP9decN
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, ptr nocapture noundef %status) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, ptr nocapture noundef nonnull %status) unnamed_addr #2 {
 entry:
   %residue = alloca i32, align 4
   %accbuff = alloca [145 x i8], align 16
@@ -6956,8 +6956,8 @@ _ZL12decGetDigitsPhi.exit:                        ; preds = %for.body.i, %if.end
   %exponent.0 = select i1 %59, i32 -1999999998, i32 %add346
   %exponent356 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %exponent.0, ptr %exponent356, align 4
-  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef nonnull %res, ptr noundef %set, ptr noundef %acc.0, i32 noundef %digits.0.lcssa.i, ptr noundef nonnull %residue, ptr noundef %status)
-  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %res, ptr noundef %set, ptr noundef nonnull %residue, ptr noundef %status)
+  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef nonnull %res, ptr noundef %set, ptr noundef %acc.0, i32 noundef %digits.0.lcssa.i, ptr noundef %residue, ptr noundef %status)
+  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %res, ptr noundef %set, ptr noundef %residue, ptr noundef %status)
   br label %do.end
 
 do.end:                                           ; preds = %_ZL12decGetDigitsPhi.exit, %if.then106
@@ -7211,7 +7211,7 @@ land.lhs.true18.i:                                ; preds = %land.lhs.true.i
   br i1 %cmp20.i, label %if.end, label %if.then2
 
 if.end:                                           ; preds = %land.lhs.true18.i, %lor.lhs.false6.i
-  %call1 = call fastcc noundef ptr @_ZL7decLnOpP9decNumberPKS_P10decContextPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef nonnull %set, ptr noundef nonnull %status)
+  %call1 = call fastcc noundef ptr @_ZL7decLnOpP9decNumberPKS_P10decContextPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef nonnull %set, ptr noundef %status)
   %.pr = load i32, ptr %status, align 4
   %cmp.not = icmp eq i32 %.pr, 0
   br i1 %cmp.not, label %if.end3, label %if.then2
@@ -7251,7 +7251,7 @@ if.end3:                                          ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL7decLnOpP9decNumberPKS_P10decContextPj(ptr noundef returned %res, ptr noundef %rhs, ptr nocapture noundef readonly %set, ptr nocapture noundef %status) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL7decLnOpP9decNumberPKS_P10decContextPj(ptr noundef returned %res, ptr noundef %rhs, ptr nocapture noundef readonly %set, ptr nocapture noundef nonnull %status) unnamed_addr #2 {
 entry:
   %ignore = alloca i32, align 4
   %residue = alloca i32, align 4
@@ -7614,7 +7614,7 @@ uprv_decNumberFromInt32_75.exit176:               ; preds = %for.body.i.i.i164, 
   %digits.0.lcssa.i.i.i175 = phi i32 [ %conv6.i.i160, %for.end.i.i156 ], [ 0, %if.end.i.i.i170 ], [ %digits.09.i.i.i166, %for.body.i.i.i164 ]
   store i32 %digits.0.lcssa.i.i.i175, ptr %b.0, align 4
   store i32 -6, ptr %exponent.i.i.i145, align 4
-  %call173 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %a.0, ptr noundef nonnull %a.0, ptr noundef nonnull %b.0, ptr noundef nonnull %aset, ptr noundef nonnull %ignore)
+  %call173 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %a.0, ptr noundef nonnull %a.0, ptr noundef nonnull %b.0, ptr noundef nonnull %aset, ptr noundef %ignore)
   store i32 0, ptr %residue, align 4
   store i32 2, ptr %aset, align 4
   %round175 = getelementptr inbounds i8, ptr %aset, i64 12
@@ -7624,7 +7624,7 @@ uprv_decNumberFromInt32_75.exit176:               ; preds = %for.body.i.i.i164, 
   %33 = load i32, ptr %exponent, align 4
   store i32 %33, ptr %exponent.i.i.i145, align 4
   %34 = load i32, ptr %rhs, align 4
-  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef nonnull %b.0, ptr noundef nonnull readonly %aset, ptr noundef nonnull %lsu, i32 noundef %34, ptr noundef nonnull %residue, ptr noundef nonnull %ignore)
+  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef nonnull %b.0, ptr noundef nonnull readonly %aset, ptr noundef nonnull %lsu, i32 noundef %34, ptr noundef %residue, ptr noundef %ignore)
   store i32 0, ptr %exponent.i.i.i145, align 4
   %35 = load i32, ptr %b.0, align 4
   %36 = load i8, ptr %bits.i.i.i144, align 4
@@ -7766,7 +7766,7 @@ uprv_decNumberFromUInt32_75.exit.i224:            ; preds = %if.end.i.i.i220, %f
   store i8 -128, ptr %bits.i.i.i144, align 4
   store i32 16, ptr %aset, align 4
   store i32 3, ptr %round175, align 4
-  %call195 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %a.0, ptr noundef nonnull %a.0, ptr noundef nonnull %b.0, ptr noundef nonnull %aset, i8 noundef zeroext 0, ptr noundef nonnull %ignore)
+  %call195 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %a.0, ptr noundef nonnull %a.0, ptr noundef nonnull %b.0, ptr noundef nonnull %aset, i8 noundef zeroext 0, ptr noundef %ignore)
   %bits.i229 = getelementptr inbounds i8, ptr %numone, i64 8
   store i8 0, ptr %bits.i229, align 4
   %exponent.i230 = getelementptr inbounds i8, ptr %numone, i64 4
@@ -7804,12 +7804,12 @@ for.cond:                                         ; preds = %for.cond.outer, %if
   %53 = load i8, ptr %bits.i.i.i, align 4
   %54 = xor i8 %53, -128
   store i8 %54, ptr %bits.i.i.i, align 4
-  %call210 = call fastcc noundef ptr @_ZL8decExpOpP9decNumberPKS_P10decContextPj(ptr noundef nonnull %b.0, ptr noundef nonnull %a.0, ptr noundef nonnull %bset, ptr noundef nonnull %ignore)
+  %call210 = call fastcc noundef ptr @_ZL8decExpOpP9decNumberPKS_P10decContextPj(ptr noundef nonnull %b.0, ptr noundef nonnull %a.0, ptr noundef nonnull %bset, ptr noundef %ignore)
   %55 = load i8, ptr %bits.i.i.i, align 4
   %56 = xor i8 %55, -128
   store i8 %56, ptr %bits.i.i.i, align 4
-  %call215 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %b.0, ptr noundef nonnull %b.0, ptr noundef nonnull %rhs, ptr noundef nonnull %bset, ptr noundef nonnull %ignore)
-  %call216 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %b.0, ptr noundef nonnull %b.0, ptr noundef nonnull %numone, ptr noundef nonnull %bset, i8 noundef zeroext -128, ptr noundef nonnull %ignore)
+  %call215 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %b.0, ptr noundef nonnull %b.0, ptr noundef nonnull %rhs, ptr noundef nonnull %bset, ptr noundef %ignore)
+  %call216 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %b.0, ptr noundef nonnull %b.0, ptr noundef nonnull %numone, ptr noundef nonnull %bset, i8 noundef zeroext -128, ptr noundef %ignore)
   %57 = load i8, ptr %lsu.i.i.i146, align 1
   %cmp220 = icmp eq i8 %57, 0
   %.pre259 = load i32, ptr %b.0, align 4
@@ -7896,7 +7896,7 @@ if.then184.i:                                     ; preds = %if.then180.i
   br label %if.else264
 
 _ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit: ; preds = %if.then256
-  %call130.i = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %cmp, ptr noundef nonnull %rhs, ptr noundef nonnull %numone, ptr noundef nonnull readonly %aset, ptr noundef nonnull %ignore)
+  %call130.i = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %cmp, ptr noundef nonnull %rhs, ptr noundef nonnull %numone, ptr noundef nonnull readonly %aset, ptr noundef %ignore)
   %lsu258.phi.trans.insert = getelementptr inbounds i8, ptr %cmp, i64 9
   %.pre261 = load i8, ptr %lsu258.phi.trans.insert, align 1
   %70 = icmp eq i8 %.pre261, 0
@@ -7930,7 +7930,7 @@ if.then280:                                       ; preds = %land.lhs.true275
   br label %if.end285
 
 if.end285:                                        ; preds = %if.end267, %land.lhs.true275, %if.then280, %lor.lhs.false
-  %call286 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %a.0, ptr noundef nonnull %a.0, ptr noundef nonnull %b.0, ptr noundef nonnull %aset, i8 noundef zeroext 0, ptr noundef nonnull %ignore)
+  %call286 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %a.0, ptr noundef nonnull %a.0, ptr noundef nonnull %b.0, ptr noundef nonnull %aset, i8 noundef zeroext 0, ptr noundef %ignore)
   br i1 %cmp287, label %for.cond, label %if.end289, !llvm.loop !61
 
 if.end289:                                        ; preds = %if.end285
@@ -7974,8 +7974,8 @@ if.end311:                                        ; preds = %for.end.if.end311_c
   %81 = load i32, ptr %exponent.i.i.i, align 4
   %exponent2.i237 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %81, ptr %exponent2.i237, align 4
-  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull readonly %aset, ptr noundef nonnull %lsu.i.i.i, i32 noundef %78, ptr noundef nonnull %residue, ptr noundef %status)
-  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef %status)
+  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull readonly %aset, ptr noundef nonnull %lsu.i.i.i, i32 noundef %78, ptr noundef %residue, ptr noundef %status)
+  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef %residue, ptr noundef %status)
   br label %do.end
 
 do.end:                                           ; preds = %if.end311, %if.then162
@@ -8160,7 +8160,7 @@ if.then6.i:                                       ; preds = %uprv_decNumberFromU
   br label %if.end26
 
 if.end23:                                         ; preds = %entry
-  %call = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef null, ptr noundef %set, ptr noundef nonnull %status)
+  %call = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef null, ptr noundef %set, ptr noundef %status)
   %.pr.pre = load i32, ptr %status, align 4
   %cmp24.not = icmp eq i32 %.pr.pre, 0
   br i1 %cmp24.not, label %if.end26, label %if.then25
@@ -8199,7 +8199,7 @@ if.end26:                                         ; preds = %uprv_decNumberCopyA
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef returned %res, ptr noundef readonly %lhs, ptr noundef readonly %rhs, ptr nocapture noundef readonly %set, ptr nocapture noundef %status) unnamed_addr #7 {
+define internal fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef returned %res, ptr noundef readonly %lhs, ptr noundef readonly %rhs, ptr nocapture noundef readonly %set, ptr nocapture noundef nonnull %status) unnamed_addr #7 {
 entry:
   %bits = getelementptr inbounds i8, ptr %lhs, i64 8
   %0 = load i8, ptr %bits, align 4
@@ -8583,7 +8583,7 @@ if.then14:                                        ; preds = %land.lhs.true
   %11 = load i32, ptr %exponent.i, align 4
   %exponent2.i = getelementptr inbounds i8, ptr %bufw, i64 4
   store i32 %11, ptr %exponent2.i, align 4
-  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef nonnull %bufw, ptr noundef nonnull readonly %aset, ptr noundef nonnull %lsu, i32 noundef %.pre86, ptr noundef nonnull %residue, ptr noundef nonnull %copystat)
+  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef nonnull %bufw, ptr noundef nonnull readonly %aset, ptr noundef nonnull %lsu, i32 noundef %.pre86, ptr noundef %residue, ptr noundef %copystat)
   %12 = load i32, ptr %copystat, align 4
   %and16 = and i32 %12, 32
   %tobool17.not = icmp eq i32 %and16, 0
@@ -8667,8 +8667,8 @@ uprv_decNumberFromInt32_75.exit:                  ; preds = %uprv_decNumberFromU
   %20 = load i32, ptr %exponent2.i, align 4
   %exponent2.i63 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %20, ptr %exponent2.i63, align 4
-  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull readonly %set, ptr noundef nonnull %lsu19, i32 noundef %18, ptr noundef nonnull %residue, ptr noundef nonnull %status)
-  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef nonnull %status)
+  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull readonly %set, ptr noundef nonnull %lsu19, i32 noundef %18, ptr noundef %residue, ptr noundef %status)
+  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef %residue, ptr noundef %status)
   br label %if.end126
 
 if.end24:                                         ; preds = %land.lhs.true, %if.then14, %do.body
@@ -8697,7 +8697,7 @@ if.end52:                                         ; preds = %if.end24, %if.then4
   store i32 -999999, ptr %emin, align 4
   %clamp = getelementptr inbounds i8, ptr %aset, i64 24
   store i8 0, ptr %clamp, align 4
-  %call54 = call fastcc noundef ptr @_ZL7decLnOpP9decNumberPKS_P10decContextPj(ptr noundef nonnull %a.0, ptr noundef nonnull %rhs, ptr noundef nonnull %aset, ptr noundef nonnull %status)
+  %call54 = call fastcc noundef ptr @_ZL7decLnOpP9decNumberPKS_P10decContextPj(ptr noundef nonnull %a.0, ptr noundef nonnull %rhs, ptr noundef nonnull %aset, ptr noundef %status)
   %22 = load i32, ptr %status, align 4
   %and55 = and i32 %22, 221
   %tobool56.not = icmp ne i32 %and55, 0
@@ -8799,10 +8799,10 @@ if.end108:                                        ; preds = %if.end80, %if.then1
   store i8 0, ptr %lsu.i72, align 1
   store i32 2, ptr %bufw, align 16
   store i32 %add82, ptr %aset, align 4
-  %call116 = call fastcc noundef ptr @_ZL7decLnOpP9decNumberPKS_P10decContextPj(ptr noundef nonnull %b.0, ptr noundef nonnull %bufw, ptr noundef nonnull %aset, ptr noundef nonnull %ignore)
+  %call116 = call fastcc noundef ptr @_ZL7decLnOpP9decNumberPKS_P10decContextPj(ptr noundef nonnull %b.0, ptr noundef nonnull %bufw, ptr noundef nonnull %aset, ptr noundef %ignore)
   %37 = load i32, ptr %set, align 4
   store i32 %37, ptr %aset, align 4
-  %call119 = call fastcc noundef ptr @_ZL11decDivideOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %a.0, ptr noundef nonnull %b.0, ptr noundef nonnull %aset, i8 noundef zeroext -128, ptr noundef nonnull %status)
+  %call119 = call fastcc noundef ptr @_ZL11decDivideOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %a.0, ptr noundef nonnull %b.0, ptr noundef nonnull %aset, i8 noundef zeroext -128, ptr noundef %status)
   br label %if.end120
 
 if.end120:                                        ; preds = %for.body.preheader.i, %if.end.i, %if.then78, %if.end52, %if.then105, %if.end108
@@ -8869,7 +8869,7 @@ define noundef ptr @uprv_decNumberMax_75(ptr noundef returned %res, ptr noundef 
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %call = call fastcc noundef ptr @_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 2, ptr noundef nonnull %status)
+  %call = call fastcc noundef ptr @_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 2, ptr noundef %status)
   %0 = load i32, ptr %status, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -8912,7 +8912,7 @@ define noundef ptr @uprv_decNumberMaxMag_75(ptr noundef returned %res, ptr nound
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %call = call fastcc noundef ptr @_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 7, ptr noundef nonnull %status)
+  %call = call fastcc noundef ptr @_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 7, ptr noundef %status)
   %0 = load i32, ptr %status, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -8955,7 +8955,7 @@ define noundef ptr @uprv_decNumberMin_75(ptr noundef returned %res, ptr noundef 
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %call = call fastcc noundef ptr @_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 3, ptr noundef nonnull %status)
+  %call = call fastcc noundef ptr @_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 3, ptr noundef %status)
   %0 = load i32, ptr %status, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -8998,7 +8998,7 @@ define noundef ptr @uprv_decNumberMinMag_75(ptr noundef returned %res, ptr nound
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %call = call fastcc noundef ptr @_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 8, ptr noundef nonnull %status)
+  %call = call fastcc noundef ptr @_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 8, ptr noundef %status)
   %0 = load i32, ptr %status, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -9051,7 +9051,7 @@ entry:
   %exponent = getelementptr inbounds i8, ptr %rhs, i64 4
   %0 = load i32, ptr %exponent, align 4
   store i32 %0, ptr %exponent.i, align 4
-  %call2 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %dzero, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext -128, ptr noundef nonnull %status)
+  %call2 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %dzero, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext -128, ptr noundef %status)
   %1 = load i32, ptr %status, align 4
   %cmp.not = icmp eq i32 %1, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -9149,7 +9149,7 @@ if.end:                                           ; preds = %entry
   store i32 -1000000000, ptr %exponent.i9, align 4
   %round = getelementptr inbounds i8, ptr %workset, i64 12
   store i32 6, ptr %round, align 4
-  %call1 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef nonnull %dtiny, ptr noundef nonnull %workset, i8 noundef zeroext -128, ptr noundef nonnull %status)
+  %call1 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef nonnull %dtiny, ptr noundef nonnull %workset, i8 noundef zeroext -128, ptr noundef %status)
   %11 = load i32, ptr %status, align 4
   %and2 = and i32 %11, 1073741952
   %cmp3.not = icmp eq i32 %and2, 0
@@ -9244,7 +9244,7 @@ if.end:                                           ; preds = %entry
   store i32 -1000000000, ptr %exponent.i10, align 4
   %round = getelementptr inbounds i8, ptr %workset, i64 12
   store i32 0, ptr %round, align 4
-  %call2 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef nonnull %dtiny, ptr noundef nonnull %workset, i8 noundef zeroext 0, ptr noundef nonnull %status)
+  %call2 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef nonnull %dtiny, ptr noundef nonnull %workset, i8 noundef zeroext 0, ptr noundef %status)
   %10 = load i32, ptr %status, align 4
   %and3 = and i32 %10, 1073741952
   %cmp4.not = icmp eq i32 %and3, 0
@@ -9301,7 +9301,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp4.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %call = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %lhs, ptr noundef %rhs, ptr noundef nonnull %set, ptr noundef nonnull %status)
+  %call = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %lhs, ptr noundef %rhs, ptr noundef nonnull %set, ptr noundef %status)
   br label %if.end37
 
 if.else:                                          ; preds = %lor.lhs.false
@@ -9471,7 +9471,7 @@ if.end29:                                         ; preds = %if.else21, %if.then
   %lsu.i45 = getelementptr inbounds i8, ptr %dtiny, i64 9
   store i8 1, ptr %lsu.i45, align 1
   store i32 -1000000000, ptr %exponent.i44, align 4
-  %call31 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %lhs, ptr noundef nonnull %dtiny, ptr noundef nonnull %workset, i8 noundef zeroext %sub.0, ptr noundef nonnull %status)
+  %call31 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %lhs, ptr noundef nonnull %dtiny, ptr noundef nonnull %workset, i8 noundef zeroext %sub.0, ptr noundef %status)
   %bits.i46 = getelementptr inbounds i8, ptr %res, i64 8
   %35 = load i8, ptr %bits.i46, align 4
   %36 = and i8 %35, 112
@@ -9536,7 +9536,7 @@ return:                                           ; preds = %uprv_decNumberIsNor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL10decComparePK9decNumberS1_h(ptr noundef %lhs, ptr noundef %rhs, i8 noundef zeroext %abs_c) unnamed_addr #2 {
+define internal fastcc noundef i32 @_ZL10decComparePK9decNumberS1_h(ptr noundef %lhs, ptr noundef %rhs, i8 noundef zeroext range(i8 0, 2) %abs_c) unnamed_addr #2 {
 entry:
   %lsu = getelementptr inbounds i8, ptr %lhs, i64 9
   %0 = load i8, ptr %lsu, align 1
@@ -10050,7 +10050,7 @@ entry:
   %exponent = getelementptr inbounds i8, ptr %rhs, i64 4
   %0 = load i32, ptr %exponent, align 4
   store i32 %0, ptr %exponent.i, align 4
-  %call2 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %dzero, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 0, ptr noundef nonnull %status)
+  %call2 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %dzero, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 0, ptr noundef %status)
   %1 = load i32, ptr %status, align 4
   %cmp.not = icmp eq i32 %1, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -10093,7 +10093,7 @@ define noundef ptr @uprv_decNumberMultiply_75(ptr noundef returned %res, ptr nou
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %call = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, ptr noundef nonnull %status)
+  %call = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, ptr noundef %status)
   %0 = load i32, ptr %status, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -10160,7 +10160,7 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond133, label %if.end, label %if.then11
 
 if.then11:                                        ; preds = %if.then
-  %call = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %lhs, ptr noundef nonnull %rhs, ptr noundef nonnull %set, ptr noundef nonnull %status)
+  %call = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %lhs, ptr noundef nonnull %rhs, ptr noundef nonnull %set, ptr noundef %status)
   br label %if.end349
 
 if.end:                                           ; preds = %if.then
@@ -10662,7 +10662,7 @@ if.end238:                                        ; preds = %cond.end223, %cond.
   ]
 
 if.then240:                                       ; preds = %if.end238, %if.end238, %if.end238
-  %call241 = call fastcc noundef ptr @_ZL7decLnOpP9decNumberPKS_P10decContextPj(ptr noundef nonnull %dac.0, ptr noundef nonnull %lhs, ptr noundef nonnull %aset, ptr noundef nonnull %status)
+  %call241 = call fastcc noundef ptr @_ZL7decLnOpP9decNumberPKS_P10decContextPj(ptr noundef nonnull %dac.0, ptr noundef nonnull %lhs, ptr noundef nonnull %aset, ptr noundef %status)
   %lsu242 = getelementptr inbounds i8, ptr %dac.0, i64 9
   %48 = load i8, ptr %lsu242, align 1
   %cmp245 = icmp eq i8 %48, 0
@@ -10698,8 +10698,8 @@ if.then258:                                       ; preds = %if.then254
   br label %if.end343
 
 if.else270:                                       ; preds = %land.lhs.true249, %land.lhs.true246, %if.then240
-  %call271 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %dac.0, ptr noundef nonnull %dac.0, ptr noundef nonnull %rhs, ptr noundef nonnull %aset, ptr noundef nonnull %status)
-  %call272 = call fastcc noundef ptr @_ZL8decExpOpP9decNumberPKS_P10decContextPj(ptr noundef nonnull %dac.0, ptr noundef nonnull %dac.0, ptr noundef nonnull %aset, ptr noundef nonnull %status)
+  %call271 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %dac.0, ptr noundef nonnull %dac.0, ptr noundef nonnull %rhs, ptr noundef nonnull %aset, ptr noundef %status)
+  %call272 = call fastcc noundef ptr @_ZL8decExpOpP9decNumberPKS_P10decContextPj(ptr noundef nonnull %dac.0, ptr noundef nonnull %dac.0, ptr noundef nonnull %aset, ptr noundef %status)
   br label %if.end343
 
 if.else274:                                       ; preds = %if.end238
@@ -10716,7 +10716,7 @@ if.else274:                                       ; preds = %if.end238
 
 if.then282:                                       ; preds = %if.else274
   %call284 = call ptr @uprv_decNumberCopy_75(ptr noundef nonnull %dnOne, ptr noundef nonnull %dac.0)
-  %call285 = call fastcc noundef ptr @_ZL11decDivideOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %dac.0, ptr noundef nonnull %dnOne, ptr noundef nonnull %lhs, ptr noundef nonnull %aset, i8 noundef zeroext -128, ptr noundef nonnull %status)
+  %call285 = call fastcc noundef ptr @_ZL11decDivideOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %dac.0, ptr noundef nonnull %dnOne, ptr noundef nonnull %lhs, ptr noundef nonnull %aset, i8 noundef zeroext -128, ptr noundef %status)
   br i1 %cmp214, label %if.then288, label %if.end295
 
 if.then288:                                       ; preds = %if.then282
@@ -10782,7 +10782,7 @@ if.end323:                                        ; preds = %if.end319
   br i1 %cmp324, label %for.end, label %if.end326
 
 if.end323.thread:                                 ; preds = %if.end319
-  %call322 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %dac.0, ptr noundef nonnull %dac.0, ptr noundef %lhs.addr.0, ptr noundef nonnull %aset, ptr noundef nonnull %status)
+  %call322 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %dac.0, ptr noundef nonnull %dac.0, ptr noundef %lhs.addr.0, ptr noundef nonnull %aset, ptr noundef %status)
   %cmp324222 = icmp eq i32 %i.0, 31
   br i1 %cmp324222, label %if.end323.thread.for.end_crit_edge, label %if.end329
 
@@ -10797,7 +10797,7 @@ if.end326:                                        ; preds = %if.end323
 
 if.end329:                                        ; preds = %if.end323.thread, %if.end326
   %seenbit.1223226 = phi i8 [ %seenbit.0, %if.end326 ], [ 1, %if.end323.thread ]
-  %call330 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %dac.0, ptr noundef nonnull %dac.0, ptr noundef nonnull %dac.0, ptr noundef nonnull %aset, ptr noundef nonnull %status)
+  %call330 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %dac.0, ptr noundef nonnull %dac.0, ptr noundef nonnull %dac.0, ptr noundef nonnull %aset, ptr noundef %status)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end326, %if.end329
@@ -10815,7 +10815,7 @@ if.then333:                                       ; preds = %if.then301, %land.l
   %62 = and i8 %61, 127
   %or338132 = or disjoint i8 %62, %spec.select135
   store i8 %or338132, ptr %bits.i199, align 4
-  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %dac.0, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef nonnull %status)
+  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %dac.0, ptr noundef nonnull %set, ptr noundef %residue, ptr noundef %status)
   %call341 = call ptr @uprv_decNumberCopy_75(ptr noundef %res, ptr noundef nonnull %dac.0)
   br label %do.end
 
@@ -10831,8 +10831,8 @@ if.end343:                                        ; preds = %for.end, %if.else27
   store i32 %64, ptr %exponent2.i, align 4
   %lsu.i204 = getelementptr inbounds i8, ptr %dac.0, i64 9
   %65 = load i32, ptr %dac.0, align 4
-  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull readonly %set, ptr noundef nonnull %lsu.i204, i32 noundef %65, ptr noundef nonnull %residue, ptr noundef nonnull %status)
-  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef nonnull %status)
+  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull readonly %set, ptr noundef nonnull %lsu.i204, i32 noundef %65, ptr noundef %residue, ptr noundef %status)
+  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef nonnull %set, ptr noundef %residue, ptr noundef %status)
   br label %do.end
 
 do.end:                                           ; preds = %if.end343, %if.then333, %if.then292
@@ -11053,7 +11053,7 @@ define noundef ptr @uprv_decNumberQuantize_75(ptr noundef returned %res, ptr nou
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %call = call fastcc noundef ptr @_ZL13decQuantizeOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 1, ptr noundef nonnull %status)
+  %call = call fastcc noundef ptr @_ZL13decQuantizeOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 1, ptr noundef %status)
   %0 = load i32, ptr %status, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -11092,7 +11092,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL13decQuantizeOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, i8 noundef zeroext %quant, ptr nocapture noundef %status) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL13decQuantizeOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, i8 noundef zeroext range(i8 0, 2) %quant, ptr nocapture noundef nonnull %status) unnamed_addr #2 {
 entry:
   %residue = alloca i32, align 4
   %workset = alloca %struct.decContext, align 4
@@ -11386,7 +11386,7 @@ if.then62:                                        ; preds = %if.end60
   %exponent2.i82 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %32, ptr %exponent2.i82, align 4
   %33 = load i32, ptr %lhs, align 4
-  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull readonly %workset, ptr noundef nonnull %lsu, i32 noundef %33, ptr noundef nonnull %residue, ptr noundef %status)
+  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef nonnull readonly %workset, ptr noundef nonnull %lsu, i32 noundef %33, ptr noundef %residue, ptr noundef %status)
   %34 = load i32, ptr %residue, align 4
   call fastcc void @_ZL13decApplyRoundP9decNumberP10decContextiPj(ptr noundef %res, ptr noundef nonnull %workset, i32 noundef %34, ptr noundef %status)
   store i32 0, ptr %residue, align 4
@@ -11453,7 +11453,7 @@ if.then102:                                       ; preds = %if.end95
   br label %do.end
 
 if.else104:                                       ; preds = %if.end95
-  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %res, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef %status)
+  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %res, ptr noundef nonnull %set, ptr noundef %residue, ptr noundef %status)
   %45 = load i32, ptr %status, align 4
   %and105 = and i32 %45, -8193
   store i32 %and105, ptr %status, align 4
@@ -11485,7 +11485,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef null, ptr noundef %set, ptr noundef nonnull %status)
+  %call = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef null, ptr noundef %set, ptr noundef %status)
   br label %do.end
 
 if.end:                                           ; preds = %entry
@@ -11497,9 +11497,9 @@ if.end:                                           ; preds = %entry
   store i32 %2, ptr %exponent2.i, align 4
   %lsu.i = getelementptr inbounds i8, ptr %rhs, i64 9
   %3 = load i32, ptr %rhs, align 4
-  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef readonly %set, ptr noundef nonnull %lsu.i, i32 noundef %3, ptr noundef nonnull %residue, ptr noundef nonnull %status)
-  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef %set, ptr noundef nonnull %residue, ptr noundef nonnull %status)
-  %call1 = call fastcc noundef ptr @_ZL7decTrimP9decNumberP10decContexthhPi(ptr noundef %res, ptr noundef %set, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef nonnull %dropped)
+  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %res, ptr noundef readonly %set, ptr noundef nonnull %lsu.i, i32 noundef %3, ptr noundef %residue, ptr noundef %status)
+  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef %set, ptr noundef %residue, ptr noundef %status)
+  %call1 = call fastcc noundef ptr @_ZL7decTrimP9decNumberP10decContexthhPi(ptr noundef %res, ptr noundef %set, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef %dropped)
   br label %do.end
 
 do.end:                                           ; preds = %if.end, %if.then
@@ -11541,7 +11541,7 @@ if.end4:                                          ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZL7decTrimP9decNumberP10decContexthhPi(ptr noundef returned %dn, ptr nocapture noundef readonly %set, i8 noundef zeroext %all, i8 noundef zeroext %noclamp, ptr nocapture noundef writeonly %dropped) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL7decTrimP9decNumberP10decContexthhPi(ptr noundef returned %dn, ptr nocapture noundef readonly %set, i8 noundef zeroext range(i8 0, 2) %all, i8 noundef zeroext range(i8 0, 2) %noclamp, ptr nocapture noundef nonnull writeonly %dropped) unnamed_addr #0 {
 entry:
   store i32 0, ptr %dropped, align 4
   %bits = getelementptr inbounds i8, ptr %dn, i64 8
@@ -11795,7 +11795,7 @@ define noundef ptr @uprv_decNumberRescale_75(ptr noundef returned %res, ptr noun
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %call = call fastcc noundef ptr @_ZL13decQuantizeOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 0, ptr noundef nonnull %status)
+  %call = call fastcc noundef ptr @_ZL13decQuantizeOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 0, ptr noundef %status)
   %0 = load i32, ptr %status, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -11838,7 +11838,7 @@ define noundef ptr @uprv_decNumberRemainder_75(ptr noundef returned %res, ptr no
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %call = call fastcc noundef ptr @_ZL11decDivideOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 64, ptr noundef nonnull %status)
+  %call = call fastcc noundef ptr @_ZL11decDivideOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 64, ptr noundef %status)
   %0 = load i32, ptr %status, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -11881,7 +11881,7 @@ define noundef ptr @uprv_decNumberRemainderNear_75(ptr noundef returned %res, pt
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %call = call fastcc noundef ptr @_ZL11decDivideOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 16, ptr noundef nonnull %status)
+  %call = call fastcc noundef ptr @_ZL11decDivideOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext 16, ptr noundef %status)
   %0 = load i32, ptr %status, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -12249,7 +12249,7 @@ _ZL12decGetDigitsPhi.exit:                        ; preds = %for.body.i115, %if.
   br label %if.end199
 
 if.end196:                                        ; preds = %entry, %lor.lhs.false
-  %call = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %lhs, ptr noundef %rhs, ptr noundef %set, ptr noundef nonnull %status)
+  %call = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %lhs, ptr noundef %rhs, ptr noundef %set, ptr noundef %status)
   %.pr.pre = load i32, ptr %status, align 4
   %cmp197.not = icmp eq i32 %.pr.pre, 0
   br i1 %cmp197.not, label %if.end199, label %if.then198
@@ -12496,7 +12496,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp4.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %call = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %lhs, ptr noundef %rhs, ptr noundef %set, ptr noundef nonnull %status)
+  %call = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %lhs, ptr noundef %rhs, ptr noundef %set, ptr noundef %status)
   br label %if.end33
 
 if.else:                                          ; preds = %lor.lhs.false
@@ -12619,7 +12619,7 @@ if.then28:                                        ; preds = %if.else22
   %add30 = add nsw i32 %19, %retval.0.i28
   store i32 %add30, ptr %exponent29, align 4
   store i32 0, ptr %residue, align 4
-  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %res, ptr noundef nonnull %set, ptr noundef nonnull %residue, ptr noundef nonnull %status)
+  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %res, ptr noundef nonnull %set, ptr noundef %residue, ptr noundef %status)
   br label %if.end33
 
 if.end33:                                         ; preds = %if.else22, %if.then28, %if.then
@@ -12870,7 +12870,7 @@ cond.end:                                         ; preds = %if.else66, %cond.tr
   br label %if.end89
 
 if.end86:                                         ; preds = %entry, %lor.lhs.false
-  %call = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %lhs, ptr noundef %rhs, ptr noundef %set, ptr noundef nonnull %status)
+  %call = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %lhs, ptr noundef %rhs, ptr noundef %set, ptr noundef %status)
   %.pr56.pre = load i32, ptr %status, align 4
   %cmp87.not = icmp eq i32 %.pr56.pre, 0
   br i1 %cmp87.not, label %if.end89, label %if.then88
@@ -13079,7 +13079,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp21.i, label %for.body.i, label %if.end350, !llvm.loop !34
 
 if.else13:                                        ; preds = %if.then
-  %call14 = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef null, ptr noundef %set, ptr noundef nonnull %status)
+  %call14 = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef null, ptr noundef %set, ptr noundef %status)
   br label %if.end350
 
 if.end16:                                         ; preds = %entry
@@ -13147,7 +13147,7 @@ for.body.i206:                                    ; preds = %for.body.i206, %for
 uprv_decNumberCopy_75.exit215:                    ; preds = %for.body.i206, %if.then27, %if.end.i188
   %exponent29 = getelementptr inbounds i8, ptr %res, i64 4
   store i32 %div, ptr %exponent29, align 4
-  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef %set, ptr noundef nonnull %residue, ptr noundef nonnull %status)
+  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %res, ptr noundef %set, ptr noundef %residue, ptr noundef %status)
   br label %if.end350
 
 if.end30:                                         ; preds = %land.lhs.true, %if.end16
@@ -13321,8 +13321,8 @@ for.body.preheader:                               ; preds = %if.else132, %uprv_d
   store i8 %.sink406, ptr %39, align 1
   %40 = getelementptr inbounds i8, ptr %a.0, i64 11
   store i8 %.sink, ptr %40, align 1
-  %call149 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %a.0, ptr noundef nonnull %a.0, ptr noundef nonnull %f.0, ptr noundef nonnull %workset, ptr noundef nonnull %ignore)
-  %call150 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %a.0, ptr noundef nonnull %a.0, ptr noundef nonnull %buft, ptr noundef nonnull %workset, i8 noundef zeroext 0, ptr noundef nonnull %ignore)
+  %call149 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %a.0, ptr noundef nonnull %a.0, ptr noundef nonnull %f.0, ptr noundef nonnull %workset, ptr noundef %ignore)
+  %call150 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %a.0, ptr noundef nonnull %a.0, ptr noundef nonnull %buft, ptr noundef nonnull %workset, i8 noundef zeroext 0, ptr noundef %ignore)
   %bits.i245 = getelementptr inbounds i8, ptr %dzero, i64 8
   store i8 0, ptr %bits.i245, align 4
   %exponent.i246 = getelementptr inbounds i8, ptr %dzero, i64 4
@@ -13342,9 +13342,9 @@ for.body:                                         ; preds = %for.body.preheader,
   %sub161 = add nsw i32 %mul160, -2
   %cond169 = call i32 @llvm.smin.i32(i32 %sub161, i32 %add49)
   store i32 %cond169, ptr %workset, align 4
-  %call171 = call fastcc noundef ptr @_ZL11decDivideOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %b.0, ptr noundef nonnull %f.0, ptr noundef nonnull %a.0, ptr noundef nonnull %workset, i8 noundef zeroext -128, ptr noundef nonnull %ignore)
-  %call172 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %b.0, ptr noundef %b.0, ptr noundef nonnull %a.0, ptr noundef nonnull %workset, i8 noundef zeroext 0, ptr noundef nonnull %ignore)
-  %call173 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %a.0, ptr noundef %b.0, ptr noundef nonnull %buft, ptr noundef nonnull %workset, ptr noundef nonnull %ignore)
+  %call171 = call fastcc noundef ptr @_ZL11decDivideOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %b.0, ptr noundef nonnull %f.0, ptr noundef nonnull %a.0, ptr noundef nonnull %workset, i8 noundef zeroext -128, ptr noundef %ignore)
+  %call172 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %b.0, ptr noundef %b.0, ptr noundef nonnull %a.0, ptr noundef nonnull %workset, i8 noundef zeroext 0, ptr noundef %ignore)
+  %call173 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %a.0, ptr noundef %b.0, ptr noundef nonnull %buft, ptr noundef nonnull %workset, ptr noundef %ignore)
   %42 = load i32, ptr %workset, align 4
   %cmp158 = icmp slt i32 %42, %add49
   br i1 %cmp158, label %for.body, label %for.end, !llvm.loop !69
@@ -13360,8 +13360,8 @@ for.end:                                          ; preds = %for.body
   store i32 0, ptr %residue, align 4
   store i32 %add176, ptr %34, align 4
   %44 = load i32, ptr %a.0, align 4
-  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef nonnull %a.0, ptr noundef nonnull readonly %approxset, ptr noundef nonnull %38, i32 noundef %44, ptr noundef nonnull %residue, ptr noundef nonnull %rstatus)
-  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %a.0, ptr noundef nonnull %approxset, ptr noundef nonnull %residue, ptr noundef nonnull %rstatus)
+  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef nonnull %a.0, ptr noundef nonnull readonly %approxset, ptr noundef nonnull %38, i32 noundef %44, ptr noundef %residue, ptr noundef %rstatus)
+  call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %a.0, ptr noundef nonnull %approxset, ptr noundef %residue, ptr noundef %rstatus)
   %45 = load i32, ptr %rstatus, align 4
   %and177 = and i32 %45, 512
   %tobool178.not = icmp eq i32 %and177, 0
@@ -13422,10 +13422,10 @@ if.end181:                                        ; preds = %for.end
   %58 = load i32, ptr %a.0, align 4
   %sub191 = xor i32 %58, -1
   store i32 %sub191, ptr %33, align 4
-  %call193 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %b.0, ptr noundef nonnull %a.0, ptr noundef nonnull %buft, ptr noundef nonnull %workset, i8 noundef zeroext -128, ptr noundef nonnull %ignore)
+  %call193 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %b.0, ptr noundef nonnull %a.0, ptr noundef nonnull %buft, ptr noundef nonnull %workset, i8 noundef zeroext -128, ptr noundef %ignore)
   %round194 = getelementptr inbounds i8, ptr %workset, i64 12
   store i32 1, ptr %round194, align 4
-  %call195 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef %b.0, ptr noundef %b.0, ptr noundef %b.0, ptr noundef nonnull %workset, ptr noundef nonnull %ignore)
+  %call195 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef %b.0, ptr noundef %b.0, ptr noundef %b.0, ptr noundef nonnull %workset, ptr noundef %ignore)
   %bits.i284 = getelementptr inbounds i8, ptr %f.0, i64 8
   %59 = load i8, ptr %bits.i284, align 4
   %bits22.phi.trans.insert.i = getelementptr inbounds i8, ptr %b.0, i64 8
@@ -13436,7 +13436,7 @@ if.end181:                                        ; preds = %for.end
   br i1 %tobool.not.i, label %if.end131.i, label %if.then26.i
 
 if.then26.i:                                      ; preds = %if.end181
-  %call130.i = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %b.0, ptr noundef nonnull %f.0, ptr noundef nonnull %b.0, ptr noundef nonnull readonly %workset, ptr noundef nonnull %ignore)
+  %call130.i = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %b.0, ptr noundef nonnull %f.0, ptr noundef nonnull %b.0, ptr noundef nonnull readonly %workset, ptr noundef %ignore)
   br label %_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit
 
 if.end131.i:                                      ; preds = %if.end181
@@ -13471,9 +13471,9 @@ _ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit: ; preds = %if.then26.i
   br i1 %cmp200.not, label %if.else214, label %if.end237.sink.split
 
 if.else214:                                       ; preds = %_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit
-  %call215 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %b.0, ptr noundef nonnull %a.0, ptr noundef nonnull %buft, ptr noundef nonnull %workset, i8 noundef zeroext 0, ptr noundef nonnull %ignore)
+  %call215 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %b.0, ptr noundef nonnull %a.0, ptr noundef nonnull %buft, ptr noundef nonnull %workset, i8 noundef zeroext 0, ptr noundef %ignore)
   store i32 5, ptr %round194, align 4
-  %call217 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %b.0, ptr noundef nonnull %b.0, ptr noundef nonnull %b.0, ptr noundef nonnull %workset, ptr noundef nonnull %ignore)
+  %call217 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %b.0, ptr noundef nonnull %b.0, ptr noundef nonnull %b.0, ptr noundef nonnull %workset, ptr noundef %ignore)
   %61 = load i8, ptr %bits22.phi.trans.insert.i, align 4
   %.pre150.i288 = load i8, ptr %bits.i284, align 4
   %or.i293 = or i8 %.pre150.i288, %61
@@ -13482,7 +13482,7 @@ if.else214:                                       ; preds = %_ZL12decCompareOpP9
   br i1 %tobool.not.i295, label %if.end131.i298, label %if.then26.i296
 
 if.then26.i296:                                   ; preds = %if.else214
-  %call130.i297 = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %b.0, ptr noundef nonnull %b.0, ptr noundef nonnull %f.0, ptr noundef nonnull readonly %workset, ptr noundef nonnull %ignore)
+  %call130.i297 = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %b.0, ptr noundef nonnull %b.0, ptr noundef nonnull %f.0, ptr noundef nonnull readonly %workset, ptr noundef %ignore)
   br label %_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit312
 
 if.end131.i298:                                   ; preds = %if.else214
@@ -13527,7 +13527,7 @@ if.end237.sink.split:                             ; preds = %if.end237.sink.spli
   %inc225 = add nsw i32 %63, 1
   store i32 %inc225, ptr %33, align 4
   store i8 1, ptr %35, align 1
-  %call228 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %a.0, ptr noundef nonnull %a.0, ptr noundef nonnull %buft, ptr noundef nonnull %workset, i8 noundef zeroext %.sink417, ptr noundef nonnull %ignore)
+  %call228 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %a.0, ptr noundef nonnull %a.0, ptr noundef nonnull %buft, ptr noundef nonnull %workset, i8 noundef zeroext %.sink417, ptr noundef %ignore)
   %emin230 = getelementptr inbounds i8, ptr %approxset, i64 8
   %64 = load i32, ptr %emin230, align 4
   %sub231 = sub nsw i32 %64, %div174
@@ -13536,7 +13536,7 @@ if.end237.sink.split:                             ; preds = %if.end237.sink.spli
   %65 = load i32, ptr %emax233, align 4
   %sub234 = sub nsw i32 %65, %div174
   store i32 %sub234, ptr %emax233, align 4
-  %call235 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %a.0, ptr noundef nonnull %dzero, ptr noundef nonnull %a.0, ptr noundef nonnull %approxset, i8 noundef zeroext 0, ptr noundef nonnull %ignore)
+  %call235 = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %a.0, ptr noundef nonnull %dzero, ptr noundef nonnull %a.0, ptr noundef nonnull %approxset, i8 noundef zeroext 0, ptr noundef %ignore)
   br label %if.end237
 
 if.end237:                                        ; preds = %if.end237.sink.split, %_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj.exit312
@@ -13583,7 +13583,7 @@ for.body.preheader.i327:                          ; preds = %if.then8.i322, %con
   br label %uprv_decNumberCopy_75.exit341
 
 uprv_decNumberCopy_75.exit341:                    ; preds = %for.body.preheader.i327, %if.end237, %if.end.i314
-  %call242 = call fastcc noundef ptr @_ZL7decTrimP9decNumberP10decContexthhPi(ptr noundef nonnull %b.0, ptr noundef nonnull %set, i8 noundef zeroext 1, i8 noundef zeroext 1, ptr noundef nonnull %dropped)
+  %call242 = call fastcc noundef ptr @_ZL7decTrimP9decNumberP10decContexthhPi(ptr noundef nonnull %b.0, ptr noundef nonnull %set, i8 noundef zeroext 1, i8 noundef zeroext 1, ptr noundef %dropped)
   %76 = load i32, ptr %b.0, align 4
   %mul244 = shl nsw i32 %76, 1
   %sub245 = add nsw i32 %mul244, -1
@@ -13597,7 +13597,7 @@ if.then247:                                       ; preds = %uprv_decNumberCopy_
 
 if.else249:                                       ; preds = %uprv_decNumberCopy_75.exit341
   store i32 0, ptr %mstatus, align 4
-  %call250 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %b.0, ptr noundef nonnull %b.0, ptr noundef nonnull %b.0, ptr noundef nonnull %workset, ptr noundef nonnull %mstatus)
+  %call250 = call fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef nonnull %b.0, ptr noundef nonnull %b.0, ptr noundef nonnull %b.0, ptr noundef nonnull %workset, ptr noundef %mstatus)
   %77 = load i32, ptr %mstatus, align 4
   %and251 = and i32 %77, 512
   %tobool252.not = icmp eq i32 %and251, 0
@@ -13609,7 +13609,7 @@ if.then253:                                       ; preds = %if.else249
   br label %if.end321
 
 if.else255:                                       ; preds = %if.else249
-  %call256 = call fastcc noundef ptr @_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %buft, ptr noundef nonnull %b.0, ptr noundef nonnull %rhs, ptr noundef nonnull %workset, i8 noundef zeroext 1, ptr noundef nonnull %mstatus)
+  %call256 = call fastcc noundef ptr @_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef nonnull %buft, ptr noundef nonnull %b.0, ptr noundef nonnull %rhs, ptr noundef nonnull %workset, i8 noundef zeroext 1, ptr noundef %mstatus)
   %78 = load i8, ptr %35, align 1
   %cmp260 = icmp eq i8 %78, 0
   %79 = load i32, ptr %buft, align 16
@@ -13841,7 +13841,7 @@ define noundef ptr @uprv_decNumberSubtract_75(ptr noundef returned %res, ptr nou
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %call = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext -128, ptr noundef nonnull %status)
+  %call = call fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef %set, i8 noundef zeroext -128, ptr noundef %status)
   %0 = load i32, ptr %status, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -13950,7 +13950,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp21.i, label %for.body.i, label %return, !llvm.loop !34
 
 if.else:                                          ; preds = %if.then
-  %call5 = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef null, ptr noundef %set, ptr noundef nonnull %status)
+  %call5 = call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef null, ptr noundef %set, ptr noundef %status)
   br label %if.end15
 
 if.else6:                                         ; preds = %entry
@@ -14023,7 +14023,7 @@ if.end10:                                         ; preds = %if.else6
   store i8 0, ptr %lsu.i, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
   store i32 0, ptr %status.i, align 4
-  %call.i = call fastcc noundef ptr @_ZL13decQuantizeOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef nonnull %dn, ptr noundef nonnull %workset, i8 noundef zeroext 1, ptr noundef nonnull %status.i)
+  %call.i = call fastcc noundef ptr @_ZL13decQuantizeOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef %res, ptr noundef nonnull %rhs, ptr noundef nonnull %dn, ptr noundef nonnull %workset, i8 noundef zeroext 1, ptr noundef %status.i)
   %15 = load i32, ptr %status.i, align 4
   %cmp.not.i = icmp eq i32 %15, 0
   br i1 %cmp.not.i, label %uprv_decNumberQuantize_75.exit, label %if.then.i
@@ -14605,7 +14605,7 @@ entry:
   %dropped = alloca i32, align 4
   %set = alloca %struct.decContext, align 4
   %call = call ptr @uprv_decContextDefault_75(ptr noundef nonnull %set, i32 noundef 0)
-  %call1 = call fastcc noundef ptr @_ZL7decTrimP9decNumberP10decContexthhPi(ptr noundef %dn, ptr noundef nonnull %set, i8 noundef zeroext 0, i8 noundef zeroext 1, ptr noundef nonnull %dropped)
+  %call1 = call fastcc noundef ptr @_ZL7decTrimP9decNumberP10decContexthhPi(ptr noundef %dn, ptr noundef nonnull %set, i8 noundef zeroext 0, i8 noundef zeroext 1, ptr noundef %dropped)
   ret ptr %dn
 }
 
@@ -14616,7 +14616,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZL13decUnitAddSubPKhiS0_iiPhi(ptr noundef readonly %a, i32 noundef %alength, ptr nocapture noundef readonly %b, i32 noundef %blength, i32 noundef %bshift, ptr noundef %c, i32 noundef %m) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL13decUnitAddSubPKhiS0_iiPhi(ptr noundef readonly %a, i32 noundef %alength, ptr nocapture noundef readonly %b, i32 noundef range(i32 0, -2147483648) %blength, i32 noundef %bshift, ptr noundef %c, i32 noundef %m) unnamed_addr #0 {
 entry:
   %idx.ext = sext i32 %alength to i64
   %add.ptr = getelementptr inbounds i8, ptr %c, i64 %idx.ext
@@ -14867,7 +14867,7 @@ return:                                           ; preds = %for.end125, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -2147483648, 2) i32 @_ZL14decUnitComparePKhiS0_ii(ptr noundef %a, i32 noundef %alength, ptr nocapture noundef readonly %b, i32 noundef %blength, i32 noundef %exp) unnamed_addr #2 {
+define internal fastcc noundef range(i32 -2147483648, 2) i32 @_ZL14decUnitComparePKhiS0_ii(ptr noundef %a, i32 noundef %alength, ptr nocapture noundef readonly %b, i32 noundef range(i32 0, -2147483648) %blength, i32 noundef %exp) unnamed_addr #2 {
 entry:
   %accbuff = alloca [73 x i8], align 16
   %cmp = icmp eq i32 %exp, 0
@@ -14992,7 +14992,7 @@ return:                                           ; preds = %for.cond, %if.end14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL13decApplyRoundP9decNumberP10decContextiPj(ptr noundef %dn, ptr nocapture noundef readonly %set, i32 noundef %residue, ptr nocapture noundef %status) unnamed_addr #0 {
+define internal fastcc void @_ZL13decApplyRoundP9decNumberP10decContextiPj(ptr noundef %dn, ptr nocapture noundef readonly %set, i32 noundef %residue, ptr nocapture noundef nonnull %status) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %residue, 0
   br i1 %cmp, label %return, label %if.end
@@ -15284,7 +15284,7 @@ return:                                           ; preds = %if.else, %sw.bb14, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL14decSetOverflowP9decNumberP10decContextPj(ptr nocapture noundef %dn, ptr nocapture noundef readonly %set, ptr nocapture noundef %status) unnamed_addr #10 {
+define internal fastcc void @_ZL14decSetOverflowP9decNumberP10decContextPj(ptr nocapture noundef %dn, ptr nocapture noundef readonly %set, ptr nocapture noundef nonnull %status) unnamed_addr #10 {
 entry:
   %bits = getelementptr inbounds i8, ptr %dn, i64 8
   %0 = load i8, ptr %bits, align 4
@@ -15404,7 +15404,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL15decSetSubnormalP9decNumberP10decContextPiPj(ptr noundef %dn, ptr nocapture noundef readonly %set, ptr nocapture noundef %residue, ptr nocapture noundef %status) unnamed_addr #0 {
+define internal fastcc void @_ZL15decSetSubnormalP9decNumberP10decContextPiPj(ptr noundef %dn, ptr nocapture noundef readonly %set, ptr nocapture noundef nonnull %residue, ptr nocapture noundef nonnull %status) unnamed_addr #0 {
 entry:
   %workset = alloca %struct.decContext, align 4
   %emin = getelementptr inbounds i8, ptr %set, i64 8
@@ -15469,9 +15469,9 @@ if.end20:                                         ; preds = %if.end10
   %11 = load i32, ptr %emin24, align 4
   %sub25 = sub nsw i32 %11, %sub13
   store i32 %sub25, ptr %emin24, align 4
-  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef nonnull %dn, ptr noundef nonnull %workset, ptr noundef nonnull %lsu.ptr, i32 noundef %10, ptr noundef %residue, ptr noundef nonnull %status)
+  call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef nonnull %dn, ptr noundef nonnull %workset, ptr noundef nonnull %lsu.ptr, i32 noundef %10, ptr noundef %residue, ptr noundef %status)
   %12 = load i32, ptr %residue, align 4
-  call fastcc void @_ZL13decApplyRoundP9decNumberP10decContextiPj(ptr noundef nonnull %dn, ptr noundef nonnull %workset, i32 noundef %12, ptr noundef nonnull %status)
+  call fastcc void @_ZL13decApplyRoundP9decNumberP10decContextiPj(ptr noundef nonnull %dn, ptr noundef nonnull %workset, i32 noundef %12, ptr noundef %status)
   %13 = load i32, ptr %status, align 4
   %and29 = and i32 %13, 32
   %tobool30.not = icmp eq i32 %and29, 0

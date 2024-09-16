@@ -665,7 +665,7 @@ if.end64.i:                                       ; preds = %if.then18.i, %switc
 if.then71.i:                                      ; preds = %if.end64.i
   %111 = load ptr, ptr %fout.i, align 8
   %112 = load i64, ptr %total_samples.i, align 8
-  %call72.i = call fastcc i32 @write_iff_headers(ptr noundef %111, ptr noundef nonnull %decoder_session, i64 noundef %112)
+  %call72.i = call fastcc i32 @write_iff_headers(ptr noundef %111, ptr noundef %decoder_session, i64 noundef %112)
   %tobool73.not.i = icmp eq i32 %call72.i, 0
   br i1 %tobool73.not.i, label %if.then74.i, label %if.end77.i
 
@@ -687,7 +687,7 @@ if.then79.i:                                      ; preds = %if.end77.i
   br i1 %tobool84.not.i, label %if.then85.i34, label %if.end87.i
 
 if.then85.i34:                                    ; preds = %if.then79.i
-  call fastcc void @print_error_with_state(ptr noundef nonnull %decoder_session, ptr noundef nonnull @.str.60)
+  call fastcc void @print_error_with_state(ptr noundef %decoder_session, ptr noundef nonnull @.str.60)
   br label %if.then22
 
 if.end87.i:                                       ; preds = %if.then79.i, %if.end77.i
@@ -703,7 +703,7 @@ if.end87.i:                                       ; preds = %if.then79.i, %if.en
 if.then93.i:                                      ; preds = %if.end87.i
   %118 = load ptr, ptr @stderr, align 8
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %118, i32 noundef 2, ptr noundef nonnull @.str.57) #13
-  call fastcc void @print_error_with_state(ptr noundef nonnull %decoder_session, ptr noundef nonnull @.str.61)
+  call fastcc void @print_error_with_state(ptr noundef %decoder_session, ptr noundef nonnull @.str.61)
   %119 = load i32, ptr %continue_through_decode_errors7.i, align 4
   %tobool95.not.i = icmp eq i32 %119, 0
   br i1 %tobool95.not.i, label %if.then22, label %lor.lhs.false106.i
@@ -730,7 +730,7 @@ lor.lhs.false106.i:                               ; preds = %if.then93.i, %if.en
 if.then113.i:                                     ; preds = %lor.lhs.false106.i, %if.end98.i
   %124 = load ptr, ptr @stderr, align 8
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %124, i32 noundef 2, ptr noundef nonnull @.str.57) #13
-  call fastcc void @print_error_with_state(ptr noundef nonnull %decoder_session, ptr noundef nonnull @.str.62)
+  call fastcc void @print_error_with_state(ptr noundef %decoder_session, ptr noundef nonnull @.str.62)
   br label %if.then22
 
 if.end114.i:                                      ; preds = %lor.lhs.false106.i
@@ -794,7 +794,7 @@ cond.end157.fold.split.i:                         ; preds = %if.then144.i
 
 cond.end157.i:                                    ; preds = %cond.end157.fold.split.i, %cond.false152.i, %if.then144.i
   %cond158.i = phi ptr [ @.str.64, %if.then144.i ], [ %cond.i, %cond.false152.i ], [ @.str.65, %cond.end157.fold.split.i ]
-  call fastcc void @print_error_with_state(ptr noundef nonnull %decoder_session, ptr noundef nonnull %cond158.i)
+  call fastcc void @print_error_with_state(ptr noundef %decoder_session, ptr noundef nonnull %cond158.i)
   br label %if.then22
 
 if.then22:                                        ; preds = %cond.end157.i, %if.then113.i, %if.then85.i34, %if.then74.i, %print_error_with_state.exit, %if.end12.i, %if.then93.i, %if.then.i41, %if.then.i116
@@ -1016,7 +1016,7 @@ fixup_iff_headers.exit.thread.i:                  ; preds = %cond.end8.i.i
 
 fixup_iff_headers.exit.i:                         ; preds = %cond.end8.i.i
   %184 = load i64, ptr %samples_processed.i, align 8
-  %call14.i.i = call fastcc i32 @write_iff_headers(ptr noundef nonnull %call.i54.i, ptr noundef nonnull %decoder_session, i64 noundef %184)
+  %call14.i.i = call fastcc i32 @write_iff_headers(ptr noundef nonnull %call.i54.i, ptr noundef %decoder_session, i64 noundef %184)
   %call16.i.i = call i32 @fclose(ptr noundef nonnull %call.i54.i)
   %tobool70.not.i = icmp eq i32 %call14.i.i, 0
   br i1 %tobool70.not.i, label %DecoderSession_finish_ok.exit, label %if.end73.i
@@ -2796,7 +2796,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 declare i32 @FLAC__stream_decoder_process_until_end_of_metadata(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @print_error_with_state(ptr nocapture noundef readonly %d, ptr noundef %message) unnamed_addr #0 {
+define internal fastcc void @print_error_with_state(ptr nocapture noundef nonnull readonly %d, ptr noundef %message) unnamed_addr #0 {
 entry:
   %inbasefilename = getelementptr inbounds i8, ptr %d, i64 1216
   %0 = load ptr, ptr %inbasefilename, align 8
@@ -2827,7 +2827,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @write_iff_headers(ptr noundef %f, ptr nocapture noundef %decoder_session, i64 noundef %samples) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @write_iff_headers(ptr noundef %f, ptr nocapture noundef nonnull %decoder_session, i64 noundef %samples) unnamed_addr #0 {
 entry:
   %val.addr.i37.i.i = alloca i32, align 4
   %val.addr.i30.i.i = alloca i32, align 4
@@ -3721,7 +3721,7 @@ declare noundef i64 @ftello64(ptr nocapture noundef) local_unnamed_addr #3
 declare noundef i32 @fseeko64(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @write_riff_wave_fmt_chunk_body(ptr nocapture noundef %f, i32 noundef %is_waveformatextensible, i32 noundef %bps, i32 noundef %channels, i32 noundef %sample_rate, i32 noundef %channel_mask) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @write_riff_wave_fmt_chunk_body(ptr nocapture noundef %f, i32 noundef range(i32 0, 2) %is_waveformatextensible, i32 noundef %bps, i32 noundef %channels, i32 noundef %sample_rate, i32 noundef %channel_mask) unnamed_addr #8 {
 entry:
   %val.addr.i46 = alloca i32, align 4
   %val.addr.i42 = alloca i16, align 2

@@ -294,117 +294,117 @@ define hidden noundef i64 @"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as
   %4 = getelementptr inbounds i8, ptr %0, i64 256
   %5 = load i64, ptr %4, align 16, !noundef !4
   %6 = icmp ult i64 %5, 63
-  br i1 %6, label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6428_$u7b$$u7b$closure$u7d$$u7d$17ha5361849edcddc05E.exit", label %7
+  br i1 %6, label %8, label %7
 
 7:                                                ; preds = %1
   %.not = icmp eq i64 %5, 63
-  br i1 %.not, label %11, label %36
+  br i1 %.not, label %12, label %37
 
-"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6428_$u7b$$u7b$closure$u7d$$u7d$17ha5361849edcddc05E.exit": ; preds = %1
-  %8 = add nuw nsw i64 %5, 2
-  store i64 %8, ptr %4, align 16
-  %9 = getelementptr inbounds i32, ptr %0, i64 %5
-  %10 = load i64, ptr %9, align 4, !alias.scope !44
-  br label %55
+8:                                                ; preds = %1
+  %9 = add nuw nsw i64 %5, 2
+  store i64 %9, ptr %4, align 16
+  %10 = getelementptr inbounds i32, ptr %0, i64 %5
+  %11 = load i64, ptr %10, align 4, !alias.scope !44
+  br label %56
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 252
-  %13 = load i32, ptr %12, align 4, !noundef !4
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds i8, ptr %0, i64 252
+  %14 = load i32, ptr %13, align 4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  %14 = getelementptr inbounds i8, ptr %0, i64 272
+  %15 = getelementptr inbounds i8, ptr %0, i64 272
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  %15 = tail call noundef i64 @_ZN4rand4rngs7adapter9reseeding4fork16get_fork_counter17hb08b1d3a8082207bE(), !noalias !53
-  %16 = getelementptr inbounds i8, ptr %0, i64 328
-  %17 = load i64, ptr %16, align 8, !alias.scope !55, !noalias !56, !noundef !4
-  %18 = icmp slt i64 %17, 1
-  br i1 %18, label %30, label %19
+  %16 = tail call noundef i64 @_ZN4rand4rngs7adapter9reseeding4fork16get_fork_counter17hb08b1d3a8082207bE(), !noalias !53
+  %17 = getelementptr inbounds i8, ptr %0, i64 328
+  %18 = load i64, ptr %17, align 8, !alias.scope !55, !noalias !56, !noundef !4
+  %19 = icmp slt i64 %18, 1
+  br i1 %19, label %31, label %20
 
-19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %0, i64 336
-  %21 = load i64, ptr %20, align 16, !alias.scope !55, !noalias !56, !noundef !4
-  %22 = sub i64 %21, %15
-  %23 = icmp slt i64 %22, 0
-  br i1 %23, label %30, label %24
+20:                                               ; preds = %12
+  %21 = getelementptr inbounds i8, ptr %0, i64 336
+  %22 = load i64, ptr %21, align 16, !alias.scope !55, !noalias !56, !noundef !4
+  %23 = sub i64 %22, %16
+  %24 = icmp slt i64 %23, 0
+  br i1 %24, label %31, label %25
 
-24:                                               ; preds = %19
-  %25 = add nsw i64 %17, -256
-  store i64 %25, ptr %16, align 8, !alias.scope !55, !noalias !56
-  tail call void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef nonnull align 16 dereferenceable(48) %14, i32 noundef 6, ptr noalias noundef nonnull align 1 dereferenceable(256) %0)
+25:                                               ; preds = %20
+  %26 = add nsw i64 %18, -256
+  store i64 %26, ptr %17, align 8, !alias.scope !55, !noalias !56
+  tail call void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef nonnull align 16 dereferenceable(48) %15, i32 noundef 6, ptr noalias noundef nonnull align 1 dereferenceable(256) %0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !57
   store ptr %0, ptr %3, align 8, !noalias !57
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %4, ptr %26, align 8, !noalias !57
-  br label %27
+  %27 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %4, ptr %27, align 8, !noalias !57
+  br label %28
 
-27:                                               ; preds = %27, %24
-  %28 = call noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94ee488109647557E.llvm.7846452103397059031"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031.exit.i.i", label %27
+28:                                               ; preds = %28, %25
+  %29 = call noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94ee488109647557E.llvm.7846452103397059031"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031.exit.i.i", label %28
 
-"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031.exit.i.i": ; preds = %27
+"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031.exit.i.i": ; preds = %28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !57
   br label %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17hc2fb4fb328ee2f0dE.llvm.18092347618068738334.exit"
 
-30:                                               ; preds = %19, %11
-  tail call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h922f4c9a2b340867E.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(80) %14, ptr noalias noundef nonnull align 4 dereferenceable(256) %0, i64 noundef %15)
+31:                                               ; preds = %20, %12
+  tail call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h922f4c9a2b340867E.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(80) %15, ptr noalias noundef nonnull align 4 dereferenceable(256) %0, i64 noundef %16)
   br label %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17hc2fb4fb328ee2f0dE.llvm.18092347618068738334.exit"
 
-"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17hc2fb4fb328ee2f0dE.llvm.18092347618068738334.exit": ; preds = %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031.exit.i.i", %30
+"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17hc2fb4fb328ee2f0dE.llvm.18092347618068738334.exit": ; preds = %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031.exit.i.i", %31
   store i64 1, ptr %4, align 16, !alias.scope !47
-  %31 = zext i32 %13 to i64
-  %32 = load i32, ptr %0, align 16, !noundef !4
-  %33 = zext i32 %32 to i64
-  %34 = shl nuw i64 %33, 32
-  %35 = or disjoint i64 %34, %31
-  br label %55
+  %32 = zext i32 %14 to i64
+  %33 = load i32, ptr %0, align 16, !noundef !4
+  %34 = zext i32 %33 to i64
+  %35 = shl nuw i64 %34, 32
+  %36 = or disjoint i64 %35, %32
+  br label %56
 
-36:                                               ; preds = %7
+37:                                               ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
-  %37 = getelementptr inbounds i8, ptr %0, i64 272
+  %38 = getelementptr inbounds i8, ptr %0, i64 272
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  %38 = tail call noundef i64 @_ZN4rand4rngs7adapter9reseeding4fork16get_fork_counter17hb08b1d3a8082207bE(), !noalias !67
-  %39 = getelementptr inbounds i8, ptr %0, i64 328
-  %40 = load i64, ptr %39, align 8, !alias.scope !69, !noalias !70, !noundef !4
-  %41 = icmp slt i64 %40, 1
-  br i1 %41, label %53, label %42
+  %39 = tail call noundef i64 @_ZN4rand4rngs7adapter9reseeding4fork16get_fork_counter17hb08b1d3a8082207bE(), !noalias !67
+  %40 = getelementptr inbounds i8, ptr %0, i64 328
+  %41 = load i64, ptr %40, align 8, !alias.scope !69, !noalias !70, !noundef !4
+  %42 = icmp slt i64 %41, 1
+  br i1 %42, label %54, label %43
 
-42:                                               ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %0, i64 336
-  %44 = load i64, ptr %43, align 16, !alias.scope !69, !noalias !70, !noundef !4
-  %45 = sub i64 %44, %38
-  %46 = icmp slt i64 %45, 0
-  br i1 %46, label %53, label %47
+43:                                               ; preds = %37
+  %44 = getelementptr inbounds i8, ptr %0, i64 336
+  %45 = load i64, ptr %44, align 16, !alias.scope !69, !noalias !70, !noundef !4
+  %46 = sub i64 %45, %39
+  %47 = icmp slt i64 %46, 0
+  br i1 %47, label %54, label %48
 
-47:                                               ; preds = %42
-  %48 = add nsw i64 %40, -256
-  store i64 %48, ptr %39, align 8, !alias.scope !69, !noalias !70
-  tail call void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef nonnull align 16 dereferenceable(48) %37, i32 noundef 6, ptr noalias noundef nonnull align 1 dereferenceable(256) %0)
+48:                                               ; preds = %43
+  %49 = add nsw i64 %41, -256
+  store i64 %49, ptr %40, align 8, !alias.scope !69, !noalias !70
+  tail call void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef nonnull align 16 dereferenceable(48) %38, i32 noundef 6, ptr noalias noundef nonnull align 1 dereferenceable(256) %0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !71
   store ptr %0, ptr %2, align 8, !noalias !71
-  %49 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %4, ptr %49, align 8, !noalias !71
-  br label %50
+  %50 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %4, ptr %50, align 8, !noalias !71
+  br label %51
 
-50:                                               ; preds = %50, %47
-  %51 = call noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94ee488109647557E.llvm.7846452103397059031"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031.exit.i.i8", label %50
+51:                                               ; preds = %51, %48
+  %52 = call noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94ee488109647557E.llvm.7846452103397059031"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031.exit.i.i8", label %51
 
-"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031.exit.i.i8": ; preds = %50
+"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031.exit.i.i8": ; preds = %51
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !71
   br label %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17hc2fb4fb328ee2f0dE.llvm.18092347618068738334.exit9"
 
-53:                                               ; preds = %42, %36
-  tail call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h922f4c9a2b340867E.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(80) %37, ptr noalias noundef nonnull align 4 dereferenceable(256) %0, i64 noundef %38)
+54:                                               ; preds = %43, %37
+  tail call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h922f4c9a2b340867E.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(80) %38, ptr noalias noundef nonnull align 4 dereferenceable(256) %0, i64 noundef %39)
   br label %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17hc2fb4fb328ee2f0dE.llvm.18092347618068738334.exit9"
 
-"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17hc2fb4fb328ee2f0dE.llvm.18092347618068738334.exit9": ; preds = %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031.exit.i.i8", %53
+"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17hc2fb4fb328ee2f0dE.llvm.18092347618068738334.exit9": ; preds = %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031.exit.i.i8", %54
   store i64 2, ptr %4, align 16, !alias.scope !61
-  %54 = load i64, ptr %0, align 16, !alias.scope !75
-  br label %55
+  %55 = load i64, ptr %0, align 16, !alias.scope !75
+  br label %56
 
-55:                                               ; preds = %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17hc2fb4fb328ee2f0dE.llvm.18092347618068738334.exit9", %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17hc2fb4fb328ee2f0dE.llvm.18092347618068738334.exit", %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6428_$u7b$$u7b$closure$u7d$$u7d$17ha5361849edcddc05E.exit"
-  %.0 = phi i64 [ %10, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6428_$u7b$$u7b$closure$u7d$$u7d$17ha5361849edcddc05E.exit" ], [ %54, %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17hc2fb4fb328ee2f0dE.llvm.18092347618068738334.exit9" ], [ %35, %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17hc2fb4fb328ee2f0dE.llvm.18092347618068738334.exit" ]
+56:                                               ; preds = %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17hc2fb4fb328ee2f0dE.llvm.18092347618068738334.exit9", %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17hc2fb4fb328ee2f0dE.llvm.18092347618068738334.exit", %8
+  %.0 = phi i64 [ %11, %8 ], [ %55, %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17hc2fb4fb328ee2f0dE.llvm.18092347618068738334.exit9" ], [ %36, %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17hc2fb4fb328ee2f0dE.llvm.18092347618068738334.exit" ]
   ret i64 %.0
 }
 
@@ -3039,7 +3039,7 @@ define void @_ZN7uu_shuf11parse_range17h5d91bdffba6a71a9E(ptr noalias nocapture 
   br i1 %29, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %30
 
 30:                                               ; preds = %.lr.ph.i.i.i
-  %31 = add nuw i64 %.05.i.i.i, 1
+  %31 = add nuw nsw i64 %.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %31, %.sroa.3.0.i47.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 

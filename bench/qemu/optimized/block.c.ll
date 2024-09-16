@@ -3463,7 +3463,7 @@ if.else.i76:                                      ; preds = %if.then86
   unreachable
 
 bdrv_unref_child.exit:                            ; preds = %if.then86
-  call fastcc void @bdrv_unset_inherits_from(ptr noundef nonnull %bs, ptr noundef nonnull %25, ptr noundef null)
+  call fastcc void @bdrv_unset_inherits_from(ptr noundef nonnull %bs, ptr noundef %25, ptr noundef null)
   call void @bdrv_root_unref_child(ptr noundef nonnull %25)
   %26 = load ptr, ptr %file, align 8
   %tobool89.not = icmp eq ptr %26, null
@@ -3671,7 +3671,7 @@ if.else.i.i.i:                                    ; preds = %land.rhs.i.i
   unreachable
 
 bdrv_unref_child.exit.i.i:                        ; preds = %land.rhs.i.i
-  tail call fastcc void @bdrv_unset_inherits_from(ptr noundef %bs, ptr noundef nonnull %child.070.i.i, ptr noundef null)
+  tail call fastcc void @bdrv_unset_inherits_from(ptr noundef nonnull %bs, ptr noundef %child.070.i.i, ptr noundef null)
   tail call void @bdrv_root_unref_child(ptr noundef nonnull %child.070.i.i)
   %tobool15.not.i.i = icmp eq ptr %14, null
   br i1 %tobool15.not.i.i, label %for.end.i.i, label %land.rhs.i.i, !llvm.loop !18
@@ -3824,7 +3824,7 @@ land.rhs64.i.i:                                   ; preds = %if.end60.i.i, %land
 
 do.body70.i.i:                                    ; preds = %land.rhs64.i.i, %if.end60.i.i
   store ptr null, ptr %aio_notifiers.i.i, align 8
-  tail call void @bdrv_drained_end(ptr noundef %bs) #31
+  tail call void @bdrv_drained_end(ptr noundef nonnull %bs) #31
   %quiesce_counter.i.i = getelementptr inbounds i8, ptr %bs, i64 16984
   %28 = load i32, ptr %quiesce_counter.i.i, align 8
   %tobool74.not.i.i = icmp eq i32 %28, 0
@@ -5194,7 +5194,7 @@ do.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end2
 
 if.end2:                                          ; preds = %do.end
-  tail call fastcc void @bdrv_unset_inherits_from(ptr noundef %parent, ptr noundef nonnull %child, ptr noundef null)
+  tail call fastcc void @bdrv_unset_inherits_from(ptr noundef %parent, ptr noundef %child, ptr noundef null)
   tail call void @bdrv_root_unref_child(ptr noundef nonnull %child)
   br label %return
 
@@ -5203,7 +5203,7 @@ return:                                           ; preds = %do.end, %if.end2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @bdrv_unset_inherits_from(ptr noundef %root, ptr noundef readonly %child, ptr noundef %tran) unnamed_addr #4 {
+define internal fastcc void @bdrv_unset_inherits_from(ptr noundef %root, ptr noundef nonnull readonly %child, ptr noundef %tran) unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %child, align 8
   %inherits_from = getelementptr inbounds i8, ptr %0, i64 16816
@@ -5260,7 +5260,7 @@ if.end10:                                         ; preds = %land.lhs.true, %bdr
 
 for.body16:                                       ; preds = %if.end10, %for.body16
   %c.120 = phi ptr [ %c.1, %for.body16 ], [ %c.118, %if.end10 ]
-  tail call fastcc void @bdrv_unset_inherits_from(ptr noundef %root, ptr noundef nonnull %c.120, ptr noundef %tran)
+  tail call fastcc void @bdrv_unset_inherits_from(ptr noundef %root, ptr noundef %c.120, ptr noundef %tran)
   %next18 = getelementptr inbounds i8, ptr %c.120, i64 64
   %c.1 = load ptr, ptr %next18, align 8
   %tobool15.not = icmp eq ptr %c.1, null
@@ -5443,7 +5443,7 @@ if.else43:                                        ; preds = %if.then39
   unreachable
 
 if.end44:                                         ; preds = %if.then39
-  tail call fastcc void @bdrv_unset_inherits_from(ptr noundef nonnull %parent_bs, ptr noundef nonnull %cond, ptr noundef %tran)
+  tail call fastcc void @bdrv_unset_inherits_from(ptr noundef nonnull %parent_bs, ptr noundef %cond, ptr noundef %tran)
   tail call fastcc void @bdrv_remove_child(ptr noundef nonnull %cond, ptr noundef %tran)
   br label %if.end45
 
@@ -6873,7 +6873,7 @@ if.then92.i:                                      ; preds = %lor.lhs.false5.i.i
 
 if.end94.i:                                       ; preds = %if.then8.i.i, %lor.lhs.false.i.i182, %if.then88.i, %if.end85.if.end94_crit_edge.i
   %73 = phi i32 [ %.pre.i, %if.end85.if.end94_crit_edge.i ], [ %or.i.i, %if.then8.i.i ], [ %and.i72.i, %lor.lhs.false.i.i182 ], [ %and.i72.i, %if.then88.i ]
-  %call96.i = call fastcc i32 @bdrv_parse_detect_zeroes(ptr noundef %call11.i, i32 noundef %73, ptr noundef nonnull %local_err.i155)
+  %call96.i = call fastcc i32 @bdrv_parse_detect_zeroes(ptr noundef %call11.i, i32 noundef %73, ptr noundef %local_err.i155)
   %detect_zeroes.i = getelementptr inbounds i8, ptr %call39, i64 16872
   store i32 %call96.i, ptr %detect_zeroes.i, align 8
   %74 = load ptr, ptr %local_err.i155, align 8
@@ -7010,7 +7010,7 @@ if.end216:                                        ; preds = %for.end
   br i1 %tobool227.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.then228
 
 if.then228:                                       ; preds = %if.end216
-  %call229 = call fastcc ptr @bdrv_append_temp_snapshot(ptr noundef nonnull %call39, i32 noundef %snapshot_flags.0, ptr noundef %snapshot_options.1, ptr noundef nonnull %local_err)
+  %call229 = call fastcc ptr @bdrv_append_temp_snapshot(ptr noundef nonnull %call39, i32 noundef %snapshot_flags.0, ptr noundef %snapshot_options.1, ptr noundef %local_err)
   %89 = load ptr, ptr %local_err, align 8
   %tobool230.not = icmp eq ptr %89, null
   br i1 %tobool230.not, label %if.end232, label %close_and_fail
@@ -8639,7 +8639,7 @@ if.then29.i:                                      ; preds = %lor.lhs.false5.i.i
 
 if.end31.i:                                       ; preds = %if.then8.i.i, %lor.lhs.false.i.i, %if.then25.i, %if.end22.if.end31_crit_edge.i
   %21 = phi i32 [ %.pre.i, %if.end22.if.end31_crit_edge.i ], [ %or.i.i, %if.then8.i.i ], [ %and.i.i, %lor.lhs.false.i.i ], [ %and.i.i, %if.then25.i ]
-  %call33.i = call fastcc i32 @bdrv_parse_detect_zeroes(ptr noundef %call12.i, i32 noundef %21, ptr noundef nonnull %local_err.i)
+  %call33.i = call fastcc i32 @bdrv_parse_detect_zeroes(ptr noundef %call12.i, i32 noundef %21, ptr noundef %local_err.i)
   %detect_zeroes.i = getelementptr inbounds i8, ptr %bs_entry.1158, i64 20
   store i32 %call33.i, ptr %detect_zeroes.i, align 4
   %22 = load ptr, ptr %local_err.i, align 8
@@ -8897,14 +8897,14 @@ if.then76.i:                                      ; preds = %lor.lhs.false.i, %l
 
 if.end79.i:                                       ; preds = %lor.lhs.false.i, %land.lhs.true.i, %if.end68.i
   call void @bdrv_graph_rdunlock_main_loop() #31
-  %call80.i = call fastcc i32 @bdrv_reopen_parse_file_or_backing(ptr noundef nonnull %state22, i1 noundef zeroext true, ptr noundef %call, ptr noundef %errp)
+  %call80.i = call fastcc i32 @bdrv_reopen_parse_file_or_backing(ptr noundef %state22, i1 noundef zeroext true, ptr noundef %call, ptr noundef %errp)
   %cmp81.i = icmp slt i32 %call80.i, 0
   br i1 %cmp81.i, label %if.then157.i, label %if.end84.i
 
 if.end84.i:                                       ; preds = %if.end79.i
   %59 = load ptr, ptr %options.i, align 8
   call void @qdict_del(ptr noundef %59, ptr noundef nonnull @.str.89) #31
-  %call86.i = call fastcc i32 @bdrv_reopen_parse_file_or_backing(ptr noundef nonnull %state22, i1 noundef zeroext false, ptr noundef %call, ptr noundef %errp)
+  %call86.i = call fastcc i32 @bdrv_reopen_parse_file_or_backing(ptr noundef %state22, i1 noundef zeroext false, ptr noundef %call, ptr noundef %errp)
   %cmp87.i = icmp slt i32 %call86.i, 0
   br i1 %cmp87.i, label %if.then157.i, label %if.end90.i
 
@@ -12140,7 +12140,7 @@ if.then5:                                         ; preds = %for.body
 if.end7:                                          ; preds = %if.then5, %for.body
   %allocated_name.0 = phi ptr [ null, %for.body ], [ %call6, %if.then5 ]
   %name.0 = phi ptr [ %call3, %for.body ], [ %call6, %if.then5 ]
-  tail call fastcc void @xdbg_graph_add_node(ptr noundef nonnull %call.i, ptr noundef nonnull %blk.034, i32 noundef 0, ptr noundef %name.0)
+  tail call fastcc void @xdbg_graph_add_node(ptr noundef nonnull %call.i, ptr noundef %blk.034, i32 noundef 0, ptr noundef %name.0)
   tail call void @g_free(ptr noundef %allocated_name.0) #31
   %call8 = tail call ptr @blk_root(ptr noundef nonnull %blk.034) #31
   %tobool9.not = icmp eq ptr %call8, null
@@ -12148,7 +12148,7 @@ if.end7:                                          ; preds = %if.then5, %for.body
 
 if.then10:                                        ; preds = %if.end7
   %call11 = tail call ptr @blk_root(ptr noundef nonnull %blk.034) #31
-  tail call fastcc void @xdbg_graph_add_edge(ptr noundef nonnull %call.i, ptr noundef nonnull %blk.034, ptr noundef %call11)
+  tail call fastcc void @xdbg_graph_add_edge(ptr noundef nonnull %call.i, ptr noundef %blk.034, ptr noundef %call11)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end7, %if.then10
@@ -12210,7 +12210,7 @@ xdbg_graph_add_node.exit:                         ; preds = %if.then.i.i, %if.en
 for.body25:                                       ; preds = %xdbg_graph_add_node.exit, %for.body25
   %el.037 = phi ptr [ %el.0, %for.body25 ], [ %el.035, %xdbg_graph_add_node.exit ]
   %11 = load ptr, ptr %el.037, align 8
-  tail call fastcc void @xdbg_graph_add_edge(ptr noundef nonnull %call.i, ptr noundef nonnull %job.039, ptr noundef %11)
+  tail call fastcc void @xdbg_graph_add_edge(ptr noundef nonnull %call.i, ptr noundef %job.039, ptr noundef %11)
   %next = getelementptr inbounds i8, ptr %el.037, i64 8
   %el.0 = load ptr, ptr %next, align 8
   %tobool24.not = icmp eq ptr %el.0, null
@@ -12232,7 +12232,7 @@ qemu_lockable_auto_unlock.exit:                   ; preds = %for.inc28, %for.end
 for.body35:                                       ; preds = %qemu_lockable_auto_unlock.exit, %for.inc42
   %bs.046 = phi ptr [ %bs.0, %for.inc42 ], [ %bs.044, %qemu_lockable_auto_unlock.exit ]
   %node_name = getelementptr inbounds i8, ptr %bs.046, i64 16600
-  tail call fastcc void @xdbg_graph_add_node(ptr noundef nonnull %call.i, ptr noundef nonnull %bs.046, i32 noundef 2, ptr noundef nonnull %node_name)
+  tail call fastcc void @xdbg_graph_add_node(ptr noundef nonnull %call.i, ptr noundef %bs.046, i32 noundef 2, ptr noundef nonnull %node_name)
   %children = getelementptr inbounds i8, ptr %bs.046, i64 16824
   %child.041 = load ptr, ptr %children, align 8
   %tobool37.not42 = icmp eq ptr %child.041, null
@@ -12240,7 +12240,7 @@ for.body35:                                       ; preds = %qemu_lockable_auto_
 
 for.body38:                                       ; preds = %for.body35, %for.body38
   %child.043 = phi ptr [ %child.0, %for.body38 ], [ %child.041, %for.body35 ]
-  tail call fastcc void @xdbg_graph_add_edge(ptr noundef nonnull %call.i, ptr noundef nonnull %bs.046, ptr noundef nonnull %child.043)
+  tail call fastcc void @xdbg_graph_add_edge(ptr noundef nonnull %call.i, ptr noundef %bs.046, ptr noundef nonnull %child.043)
   %next40 = getelementptr inbounds i8, ptr %child.043, i64 64
   %child.0 = load ptr, ptr %next40, align 8
   %tobool37.not = icmp eq ptr %child.0, null
@@ -12272,12 +12272,12 @@ declare ptr @blk_name(ptr noundef) local_unnamed_addr #5
 declare ptr @blk_get_attached_dev_id(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @xdbg_graph_add_node(ptr nocapture noundef readonly %gr, ptr noundef %node, i32 noundef %type, ptr noundef %name) unnamed_addr #4 {
+define internal fastcc void @xdbg_graph_add_node(ptr nocapture noundef readonly %gr, ptr noundef nonnull %node, i32 noundef range(i32 0, 3) %type, ptr noundef %name) unnamed_addr #4 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #34
   %graph_nodes.i = getelementptr inbounds i8, ptr %gr, i64 8
   %0 = load ptr, ptr %graph_nodes.i, align 8
-  %call.i = tail call ptr @g_hash_table_lookup(ptr noundef %0, ptr noundef %node) #31
+  %call.i = tail call ptr @g_hash_table_lookup(ptr noundef %0, ptr noundef nonnull %node) #31
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
@@ -12292,7 +12292,7 @@ if.end.i:                                         ; preds = %entry
   %conv.i = zext i32 %add.i to i64
   %3 = load ptr, ptr %graph_nodes.i, align 8
   %4 = inttoptr i64 %conv.i to ptr
-  %call4.i = tail call i32 @g_hash_table_insert(ptr noundef %3, ptr noundef %node, ptr noundef %4) #31
+  %call4.i = tail call i32 @g_hash_table_insert(ptr noundef %3, ptr noundef nonnull %node, ptr noundef %4) #31
   br label %xdbg_graph_node_num.exit
 
 xdbg_graph_node_num.exit:                         ; preds = %if.then.i, %if.end.i
@@ -12316,7 +12316,7 @@ xdbg_graph_node_num.exit:                         ; preds = %if.then.i, %if.end.
 declare ptr @blk_root(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @xdbg_graph_add_edge(ptr nocapture noundef readonly %gr, ptr noundef %parent, ptr nocapture noundef readonly %child) unnamed_addr #4 {
+define internal fastcc void @xdbg_graph_add_edge(ptr nocapture noundef readonly %gr, ptr noundef nonnull %parent, ptr nocapture noundef readonly %child) unnamed_addr #4 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #31
   br i1 %call, label %do.end, label %if.else
@@ -12329,7 +12329,7 @@ do.end:                                           ; preds = %entry
   %call1 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #34
   %graph_nodes.i = getelementptr inbounds i8, ptr %gr, i64 8
   %0 = load ptr, ptr %graph_nodes.i, align 8
-  %call.i = tail call ptr @g_hash_table_lookup(ptr noundef %0, ptr noundef %parent) #31
+  %call.i = tail call ptr @g_hash_table_lookup(ptr noundef %0, ptr noundef nonnull %parent) #31
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
@@ -12344,7 +12344,7 @@ if.end.i:                                         ; preds = %do.end
   %conv.i = zext i32 %add.i to i64
   %3 = load ptr, ptr %graph_nodes.i, align 8
   %4 = inttoptr i64 %conv.i to ptr
-  %call4.i = tail call i32 @g_hash_table_insert(ptr noundef %3, ptr noundef %parent, ptr noundef %4) #31
+  %call4.i = tail call i32 @g_hash_table_insert(ptr noundef %3, ptr noundef nonnull %parent, ptr noundef %4) #31
   br label %xdbg_graph_node_num.exit
 
 xdbg_graph_node_num.exit:                         ; preds = %if.then.i, %if.end.i
@@ -17199,7 +17199,7 @@ for.end:                                          ; preds = %for.inc, %do.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @bdrv_append_temp_snapshot(ptr noundef %bs, i32 noundef %flags, ptr noundef %snapshot_options, ptr noundef %errp) unnamed_addr #4 {
+define internal fastcc ptr @bdrv_append_temp_snapshot(ptr noundef %bs, i32 noundef range(i32 1, 0) %flags, ptr noundef %snapshot_options, ptr noundef nonnull %errp) unnamed_addr #4 {
 entry:
   %tobool.not.i = icmp eq ptr %bs, null
   br i1 %tobool.not.i, label %cond.false.i, label %cond.true.i
@@ -17232,11 +17232,11 @@ do.end:                                           ; preds = %bdrv_get_aio_contex
 if.then3:                                         ; preds = %do.end
   %1 = trunc i64 %call2 to i32
   %conv = sub i32 0, %1
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 3898, ptr noundef nonnull @__func__.bdrv_append_temp_snapshot, i32 noundef %conv, ptr noundef nonnull @.str.252) #31
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.2, i32 noundef 3898, ptr noundef nonnull @__func__.bdrv_append_temp_snapshot, i32 noundef %conv, ptr noundef nonnull @.str.252) #31
   br label %out
 
 if.end4:                                          ; preds = %do.end
-  %call5 = tail call ptr @create_tmp_file(ptr noundef %errp)
+  %call5 = tail call ptr @create_tmp_file(ptr noundef nonnull %errp)
   %tobool.not = icmp eq ptr %call5, null
   br i1 %tobool.not, label %out, label %if.end7
 
@@ -17244,13 +17244,13 @@ if.end7:                                          ; preds = %if.end4
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @bdrv_qcow2, i64 32), align 8
   %call8 = tail call ptr @qemu_opts_create(ptr noundef %2, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #31
   %call9 = tail call zeroext i1 @qemu_opt_set_number(ptr noundef %call8, ptr noundef nonnull @.str.17, i64 noundef %call2, ptr noundef nonnull @error_abort) #31
-  %call10 = tail call i32 @bdrv_create(ptr noundef nonnull @bdrv_qcow2, ptr noundef nonnull %call5, ptr noundef %call8, ptr noundef %errp) #31
+  %call10 = tail call i32 @bdrv_create(ptr noundef nonnull @bdrv_qcow2, ptr noundef nonnull %call5, ptr noundef %call8, ptr noundef nonnull %errp) #31
   tail call void @qemu_opts_del(ptr noundef %call8) #31
   %cmp11 = icmp slt i32 %call10, 0
   br i1 %cmp11, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.end7
-  tail call void (ptr, ptr, ...) @error_prepend(ptr noundef %errp, ptr noundef nonnull @.str.253, ptr noundef nonnull %call5) #31
+  tail call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %errp, ptr noundef nonnull @.str.253, ptr noundef nonnull %call5) #31
   br label %out
 
 if.end14:                                         ; preds = %if.end7
@@ -17265,13 +17265,13 @@ if.else.i:                                        ; preds = %if.end14
   unreachable
 
 bdrv_open.exit:                                   ; preds = %if.end14
-  %call1.i = tail call ptr @bdrv_open_inherit(ptr noundef null, ptr noundef null, ptr noundef %snapshot_options, i32 noundef %flags, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef %errp)
+  %call1.i = tail call ptr @bdrv_open_inherit(ptr noundef null, ptr noundef null, ptr noundef %snapshot_options, i32 noundef %flags, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %errp)
   %tobool16.not = icmp eq ptr %call1.i, null
   br i1 %tobool16.not, label %qobject_unref_impl.exit, label %if.end18
 
 if.end18:                                         ; preds = %bdrv_open.exit
   tail call void @aio_context_acquire(ptr noundef %cond.i) #31
-  %call19 = tail call i32 @bdrv_append(ptr noundef nonnull %call1.i, ptr noundef %bs, ptr noundef %errp)
+  %call19 = tail call i32 @bdrv_append(ptr noundef nonnull %call1.i, ptr noundef %bs, ptr noundef nonnull %errp)
   tail call void @aio_context_release(ptr noundef %cond.i) #31
   %cmp20 = icmp slt i32 %call19, 0
   %spec.select = select i1 %cmp20, ptr null, ptr %call1.i
@@ -17387,7 +17387,7 @@ declare zeroext i1 @qemu_opt_get_bool(ptr noundef, ptr noundef, i1 noundef zeroe
 declare void @bdrv_enable_copy_on_read(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @bdrv_parse_detect_zeroes(ptr noundef %opts, i32 noundef %open_flags, ptr noundef %errp) unnamed_addr #4 {
+define internal fastcc i32 @bdrv_parse_detect_zeroes(ptr noundef %opts, i32 noundef %open_flags, ptr noundef nonnull %errp) unnamed_addr #4 {
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
@@ -17407,7 +17407,7 @@ do.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %do.end
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %0) #31
+  call void @error_propagate(ptr noundef nonnull %errp, ptr noundef nonnull %0) #31
   br label %return
 
 if.end4:                                          ; preds = %do.end
@@ -17418,7 +17418,7 @@ if.end4:                                          ; preds = %do.end
   br i1 %or.cond, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.end4
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 1119, ptr noundef nonnull @__func__.bdrv_parse_detect_zeroes, ptr noundef nonnull @.str.251) #31
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.2, i32 noundef 1119, ptr noundef nonnull @__func__.bdrv_parse_detect_zeroes, ptr noundef nonnull @.str.251) #31
   br label %return
 
 return:                                           ; preds = %if.end4, %if.then6, %if.then3
@@ -17435,7 +17435,7 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #5
 declare i32 @qemu_get_thread_id() local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -22, 1) i32 @bdrv_reopen_parse_file_or_backing(ptr nocapture noundef %reopen_state, i1 noundef zeroext %is_backing, ptr noundef %tran, ptr noundef %errp) unnamed_addr #4 {
+define internal fastcc range(i32 -22, 1) i32 @bdrv_reopen_parse_file_or_backing(ptr nocapture noundef nonnull %reopen_state, i1 noundef zeroext %is_backing, ptr noundef %tran, ptr noundef %errp) unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %reopen_state, align 8
   %cond = select i1 %is_backing, ptr @.str.89, ptr @.str.214

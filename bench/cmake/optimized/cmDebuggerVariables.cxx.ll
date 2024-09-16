@@ -2406,7 +2406,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
           to label %48 unwind label %51
 
 48:                                               ; preds = %46
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3dap8VariableESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN10cmDebugger19cmDebuggerVariables22HandleVariablesRequestEvE3$_0EEEvT_T0_SG_T1_T2_"(ptr %0, i64 noundef %.010.i.i.i, i64 noundef %43, ptr noundef nonnull %8)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3dap8VariableESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN10cmDebugger19cmDebuggerVariables22HandleVariablesRequestEvE3$_0EEEvT_T0_SG_T1_T2_"(ptr %0, i64 noundef %.010.i.i.i, i64 noundef %43, ptr noundef %8)
           to label %49 unwind label %53
 
 49:                                               ; preds = %48
@@ -2508,7 +2508,7 @@ common.resume:                                    ; preds = %108, %110, %51, %53
   %105 = ptrtoint ptr %68 to i64
   %106 = sub i64 %105, %9
   %107 = sdiv exact i64 %106, 352
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3dap8VariableESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN10cmDebugger19cmDebuggerVariables22HandleVariablesRequestEvE3$_0EEEvT_T0_SG_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %107, ptr noundef nonnull %6)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3dap8VariableESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN10cmDebugger19cmDebuggerVariables22HandleVariablesRequestEvE3$_0EEEvT_T0_SG_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %107, ptr noundef %6)
           to label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3dap8VariableESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN10cmDebugger19cmDebuggerVariables22HandleVariablesRequestEvE3$_0EEEvT_SF_SF_RT0_.exit" unwind label %110
 
 108:                                              ; preds = %.lr.ph.i9.i
@@ -3062,7 +3062,7 @@ define linkonce_odr dso_local void @_ZN3dap8VariableC2EOS0_(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3dap8VariableESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN10cmDebugger19cmDebuggerVariables22HandleVariablesRequestEvE3$_0EEEvT_T0_SG_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3dap8VariableESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN10cmDebugger19cmDebuggerVariables22HandleVariablesRequestEvE3$_0EEEvT_T0_SG_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.dap::Variable", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

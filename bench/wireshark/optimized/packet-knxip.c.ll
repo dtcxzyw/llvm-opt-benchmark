@@ -1103,20 +1103,20 @@ define internal i32 @dissect_knxip(ptr noundef %0, ptr noundef %1, ptr noundef %
   ]
 
 134:                                              ; preds = %132
-  %135 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull @.str.243, i8 noundef zeroext 1)
+  %135 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %7, ptr noundef nonnull @.str.243, i8 noundef zeroext 1)
   br label %thread-pre-split
 
 136:                                              ; preds = %132
-  %137 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull @.str.243, i8 noundef zeroext 0)
+  %137 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %7, ptr noundef nonnull @.str.243, i8 noundef zeroext 0)
   %.not363.i = icmp eq i8 %137, 0
   br i1 %.not363.i, label %thread-pre-split, label %138
 
 138:                                              ; preds = %136
-  call fastcc void @dissect_srps(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7)
+  call fastcc void @dissect_srps(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %7)
   br label %thread-pre-split
 
 139:                                              ; preds = %132, %132
-  %140 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull @.str.82, i8 noundef zeroext 0)
+  %140 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %7, ptr noundef nonnull @.str.82, i8 noundef zeroext 0)
   %.not359.i = icmp eq i8 %140, 0
   br i1 %.not359.i, label %thread-pre-split, label %141
 
@@ -1125,7 +1125,7 @@ define internal i32 @dissect_knxip(ptr noundef %0, ptr noundef %1, ptr noundef %
   %142 = getelementptr inbounds i8, ptr %1, i64 408
   %143 = load ptr, ptr %142, align 8
   %144 = call noalias ptr @wmem_strbuf_new(ptr noundef %143, ptr noundef nonnull @.str.122) #9
-  call fastcc void @dissect_dibs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef %144, i8 noundef signext 0, ptr noundef nonnull %9, ptr noundef nonnull %7)
+  call fastcc void @dissect_dibs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %144, i8 noundef signext 0, ptr noundef nonnull %9, ptr noundef %7)
   %145 = call ptr @wmem_strbuf_finalize(ptr noundef %144) #9
   %146 = load i8, ptr %145, align 1
   %.not360.i = icmp eq i8 %146, 0
@@ -1163,12 +1163,12 @@ define internal i32 @dissect_knxip(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %thread-pre-split
 
 160:                                              ; preds = %132
-  %161 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull @.str.82, i8 noundef zeroext 1)
+  %161 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %7, ptr noundef nonnull @.str.82, i8 noundef zeroext 1)
   br label %thread-pre-split
 
 162:                                              ; preds = %132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %10, i8 0, i64 256, i1 false)
-  call fastcc void @dissect_dibs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef null, i8 noundef signext 58, ptr noundef nonnull %10, ptr noundef nonnull %7)
+  call fastcc void @dissect_dibs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef null, i8 noundef signext 58, ptr noundef nonnull %10, ptr noundef %7)
   %163 = getelementptr inbounds i8, ptr %10, i64 1
   %164 = load i8, ptr %163, align 1
   %.not357.i = icmp eq i8 %164, 0
@@ -1191,17 +1191,17 @@ define internal i32 @dissect_knxip(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %thread-pre-split
 
 172:                                              ; preds = %132
-  %173 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull @.str.82, i8 noundef zeroext 1)
+  %173 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %7, ptr noundef nonnull @.str.82, i8 noundef zeroext 1)
   %.not355.i = icmp eq i8 %173, 0
   br i1 %.not355.i, label %thread-pre-split, label %174
 
 174:                                              ; preds = %172
-  %175 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull @.str, i8 noundef zeroext 1)
+  %175 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %7, ptr noundef nonnull @.str, i8 noundef zeroext 1)
   %.not356.i = icmp eq i8 %175, 0
   br i1 %.not356.i, label %thread-pre-split, label %176
 
 176:                                              ; preds = %174
-  call fastcc void @dissect_cri(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7)
+  call fastcc void @dissect_cri(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %7)
   br label %thread-pre-split
 
 177:                                              ; preds = %132
@@ -1244,12 +1244,12 @@ define internal i32 @dissect_knxip(ptr noundef %0, ptr noundef %1, ptr noundef %
   %196 = zext i8 %182 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %126, i32 noundef 25, ptr noundef nonnull @.str.251, i32 noundef %196) #9
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef nonnull @.str.252, i32 noundef %196) #9
-  %197 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull @.str, i8 noundef zeroext 1)
+  %197 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %7, ptr noundef nonnull @.str, i8 noundef zeroext 1)
   %.not354.i = icmp eq i8 %197, 0
   br i1 %.not354.i, label %thread-pre-split, label %198
 
 198:                                              ; preds = %195
-  call fastcc void @dissect_crd(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7)
+  call fastcc void @dissect_crd(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %7)
   br label %thread-pre-split
 
 199:                                              ; preds = %189
@@ -1289,10 +1289,10 @@ define internal i32 @dissect_knxip(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.thread151
 
 215:                                              ; preds = %206
-  call fastcc void @knxip_tree_add_reserved(ptr noundef %29, ptr noundef %0, i32 noundef %211, ptr noundef nonnull %1, ptr noundef nonnull %7)
+  call fastcc void @knxip_tree_add_reserved(ptr noundef %29, ptr noundef %0, i32 noundef %211, ptr noundef nonnull %1, ptr noundef %7)
   %216 = add nuw nsw i32 %107, 2
   store i32 %216, ptr %8, align 4
-  %217 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull @.str.82, i8 noundef zeroext 1)
+  %217 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %7, ptr noundef nonnull @.str.82, i8 noundef zeroext 1)
   br label %thread-pre-split
 
 218:                                              ; preds = %132
@@ -1368,10 +1368,10 @@ define internal i32 @dissect_knxip(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.thread151
 
 251:                                              ; preds = %242
-  call fastcc void @knxip_tree_add_reserved(ptr noundef %29, ptr noundef %0, i32 noundef %247, ptr noundef nonnull %1, ptr noundef nonnull %7)
+  call fastcc void @knxip_tree_add_reserved(ptr noundef %29, ptr noundef %0, i32 noundef %247, ptr noundef nonnull %1, ptr noundef %7)
   %252 = add nuw nsw i32 %107, 2
   store i32 %252, ptr %8, align 4
-  %253 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull @.str.82, i8 noundef zeroext 1)
+  %253 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %7, ptr noundef nonnull @.str.82, i8 noundef zeroext 1)
   br label %thread-pre-split
 
 254:                                              ; preds = %132
@@ -1418,29 +1418,29 @@ define internal i32 @dissect_knxip(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.thread151
 
 274:                                              ; preds = %132
-  %275 = call fastcc zeroext i8 @dissect_cnhdr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7, i8 noundef zeroext 0)
+  %275 = call fastcc zeroext i8 @dissect_cnhdr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %7, i8 noundef zeroext 0)
   %.not353.i = icmp eq i8 %275, 0
   br i1 %.not353.i, label %thread-pre-split, label %276
 
 276:                                              ; preds = %274
-  call fastcc void @dissect_cemi(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %8)
+  call fastcc void @dissect_cemi(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %8)
   br label %thread-pre-split
 
 277:                                              ; preds = %132
-  %278 = call fastcc zeroext i8 @dissect_cnhdr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7, i8 noundef zeroext 1)
+  %278 = call fastcc zeroext i8 @dissect_cnhdr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %7, i8 noundef zeroext 1)
   br label %thread-pre-split
 
 279:                                              ; preds = %132
-  %280 = call fastcc zeroext i8 @dissect_cnhdr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7, i8 noundef zeroext 0)
+  %280 = call fastcc zeroext i8 @dissect_cnhdr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %7, i8 noundef zeroext 0)
   %.not352.i = icmp eq i8 %280, 0
   br i1 %.not352.i, label %thread-pre-split, label %281
 
 281:                                              ; preds = %279
-  call fastcc void @dissect_cemi(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %8)
+  call fastcc void @dissect_cemi(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %8)
   br label %thread-pre-split
 
 282:                                              ; preds = %132
-  %283 = call fastcc zeroext i8 @dissect_cnhdr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7, i8 noundef zeroext 1)
+  %283 = call fastcc zeroext i8 @dissect_cnhdr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %7, i8 noundef zeroext 1)
   br label %thread-pre-split
 
 284:                                              ; preds = %132, %132, %132, %132
@@ -1450,7 +1450,7 @@ define internal i32 @dissect_knxip(ptr noundef %0, ptr noundef %1, ptr noundef %
   store i32 %107, ptr %5, align 4
   store i8 1, ptr %6, align 1
   %286 = icmp eq i16 %.0129, 1059
-  %287 = call fastcc zeroext i8 @dissect_cnhdr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %5, ptr noundef nonnull %6, i8 noundef zeroext 0)
+  %287 = call fastcc zeroext i8 @dissect_cnhdr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %5, ptr noundef %6, i8 noundef zeroext 0)
   %288 = load i32, ptr %5, align 4
   %289 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %288) #9
   %290 = icmp slt i32 %289, 1
@@ -1561,40 +1561,40 @@ dissect_tunneling_feature.exit:                   ; preds = %336, %338
   br label %thread-pre-split
 
 339:                                              ; preds = %132
-  call fastcc void @dissect_cemi(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %8)
+  call fastcc void @dissect_cemi(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %8)
   br label %thread-pre-split
 
 340:                                              ; preds = %132
-  %341 = call fastcc zeroext i8 @dissect_routing_loss(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8)
+  %341 = call fastcc zeroext i8 @dissect_routing_loss(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8)
   store i8 %341, ptr %7, align 1
   br label %thread-pre-split
 
 342:                                              ; preds = %132
-  %343 = call fastcc zeroext i8 @dissect_routing_busy(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8)
+  %343 = call fastcc zeroext i8 @dissect_routing_busy(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8)
   store i8 %343, ptr %7, align 1
   br label %thread-pre-split
 
 344:                                              ; preds = %132
-  call fastcc void @dissect_cemi(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %8)
+  call fastcc void @dissect_cemi(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %8)
   br label %thread-pre-split
 
 345:                                              ; preds = %132
-  %346 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull @.str.243, i8 noundef zeroext 0)
+  %346 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %7, ptr noundef nonnull @.str.243, i8 noundef zeroext 0)
   %.not351.i = icmp eq i8 %346, 0
   br i1 %.not351.i, label %thread-pre-split, label %347
 
 347:                                              ; preds = %345
-  %348 = call fastcc zeroext i8 @dissect_selector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7)
+  %348 = call fastcc zeroext i8 @dissect_selector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %7)
   br label %thread-pre-split
 
 349:                                              ; preds = %132
-  %350 = call fastcc zeroext i8 @dissect_selector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7)
+  %350 = call fastcc zeroext i8 @dissect_selector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %7)
   %.not347.i = icmp eq i8 %350, 0
   br i1 %.not347.i, label %thread-pre-split, label %351
 
 351:                                              ; preds = %349
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %11, i8 0, i64 256, i1 false)
-  call fastcc void @dissect_dibs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef null, i8 noundef signext 44, ptr noundef nonnull %11, ptr noundef nonnull %7)
+  call fastcc void @dissect_dibs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef null, i8 noundef signext 44, ptr noundef nonnull %11, ptr noundef %7)
   %352 = getelementptr inbounds i8, ptr %11, i64 3
   %353 = load i8, ptr %352, align 1
   %.not348.i = icmp eq i8 %353, 0
@@ -1628,18 +1628,18 @@ dissect_tunneling_feature.exit:                   ; preds = %336, %338
   br label %thread-pre-split
 
 366:                                              ; preds = %132
-  %367 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull @.str.243, i8 noundef zeroext 0)
+  %367 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %7, ptr noundef nonnull @.str.243, i8 noundef zeroext 0)
   %.not344.i = icmp eq i8 %367, 0
   br i1 %.not344.i, label %thread-pre-split, label %368
 
 368:                                              ; preds = %366
-  %369 = call fastcc zeroext i8 @dissect_selector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7)
+  %369 = call fastcc zeroext i8 @dissect_selector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %7)
   %.not345.i = icmp eq i8 %369, 0
   br i1 %.not345.i, label %thread-pre-split, label %370
 
 370:                                              ; preds = %368
   %371 = load i32, ptr %8, align 4
-  call fastcc void @dissect_dibs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef null, i8 noundef signext 44, ptr noundef null, ptr noundef nonnull %7)
+  call fastcc void @dissect_dibs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef null, i8 noundef signext 44, ptr noundef null, ptr noundef %7)
   %372 = load i32, ptr %8, align 4
   %.not346.i = icmp sgt i32 %372, %371
   br i1 %.not346.i, label %394, label %373
@@ -1649,45 +1649,45 @@ dissect_tunneling_feature.exit:                   ; preds = %336, %338
   br label %394
 
 375:                                              ; preds = %132
-  %376 = call fastcc zeroext i8 @dissect_selector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7)
+  %376 = call fastcc zeroext i8 @dissect_selector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8, ptr noundef %7)
   %.not343.i = icmp eq i8 %376, 0
   br i1 %.not343.i, label %thread-pre-split, label %377
 
 377:                                              ; preds = %375
-  %378 = call fastcc zeroext i8 @dissect_resetter(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8)
+  %378 = call fastcc zeroext i8 @dissect_resetter(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8)
   %379 = load i8, ptr %7, align 1
   %380 = and i8 %379, %378
   store i8 %380, ptr %7, align 1
   br label %thread-pre-split
 
 381:                                              ; preds = %132
-  %382 = call fastcc zeroext i8 @dissect_secure_wrapper(i8 noundef zeroext %.0121148, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8)
+  %382 = call fastcc zeroext i8 @dissect_secure_wrapper(i8 noundef zeroext %.0121148, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %27, ptr noundef %29, ptr noundef %8)
   store i8 %382, ptr %7, align 1
   br label %thread-pre-split
 
 383:                                              ; preds = %132
-  %384 = call fastcc zeroext i8 @dissect_timer_notify(i8 noundef zeroext %.0121148, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8)
+  %384 = call fastcc zeroext i8 @dissect_timer_notify(i8 noundef zeroext %.0121148, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8)
   store i8 %384, ptr %7, align 1
   br label %thread-pre-split
 
 385:                                              ; preds = %132
-  %386 = call fastcc zeroext i8 @dissect_session_request(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8)
+  %386 = call fastcc zeroext i8 @dissect_session_request(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8)
   %387 = and i8 %386, 1
   store i8 %387, ptr %7, align 1
   br label %thread-pre-split
 
 388:                                              ; preds = %132
-  %389 = call fastcc zeroext i8 @dissect_session_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8)
+  %389 = call fastcc zeroext i8 @dissect_session_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8)
   store i8 %389, ptr %7, align 1
   br label %thread-pre-split
 
 390:                                              ; preds = %132
-  %391 = call fastcc zeroext i8 @dissect_session_auth(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8)
+  %391 = call fastcc zeroext i8 @dissect_session_auth(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8)
   store i8 %391, ptr %7, align 1
   br label %thread-pre-split
 
 392:                                              ; preds = %132
-  %393 = call fastcc zeroext i8 @dissect_session_status(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8)
+  %393 = call fastcc zeroext i8 @dissect_session_status(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef %8)
   store i8 %393, ptr %7, align 1
   br label %thread-pre-split
 
@@ -1793,7 +1793,7 @@ declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5, ptr noundef %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5, ptr noundef %6, i8 noundef zeroext range(i8 0, 2) %7) unnamed_addr #0 {
   %9 = alloca [80 x i8], align 16
   %10 = load i32, ptr %4, align 4
   %11 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %10) #9
@@ -2032,7 +2032,7 @@ define internal fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_srps(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_srps(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = load i32, ptr %4, align 4
   %8 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %7) #9
   %9 = icmp slt i32 %8, 1
@@ -2182,7 +2182,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare noalias ptr @wmem_strbuf_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dibs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr noundef %5, i8 noundef signext %6, ptr noundef %7, ptr nocapture noundef writeonly %8) unnamed_addr #0 {
+define internal fastcc void @dissect_dibs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4, ptr noundef %5, i8 noundef signext range(i8 0, 59) %6, ptr noundef %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #0 {
   %10 = alloca [32 x i8], align 16
   %11 = alloca [32 x i8], align 16
   %12 = alloca [32 x i8], align 16
@@ -2807,7 +2807,7 @@ dissect_dib_ipconfig.exit.i:                      ; preds = %301, %297, %293, %2
   br i1 %347, label %348, label %dissect_dib_curconfig.exit.i
 
 348:                                              ; preds = %344
-  call fastcc void @knxip_tree_add_reserved(ptr noundef %59, ptr noundef %0, i32 noundef %346, ptr noundef %1, ptr noundef nonnull %20)
+  call fastcc void @knxip_tree_add_reserved(ptr noundef %59, ptr noundef %0, i32 noundef %346, ptr noundef %1, ptr noundef %20)
   %349 = add i32 %47, 20
   %.pre.i177.i = load i8, ptr %20, align 1
   br label %dissect_dib_curconfig.exit.i
@@ -3267,7 +3267,7 @@ dissect_dib.exit.thread:                          ; preds = %46, %50, %dissect_d
 declare ptr @wmem_strbuf_finalize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_cri(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_cri(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = alloca i8, align 1
   %8 = alloca [32 x i8], align 16
   %9 = load i32, ptr %4, align 4
@@ -3408,14 +3408,14 @@ define internal fastcc void @dissect_cri(ptr noundef %0, ptr noundef %1, ptr nou
 
 74:                                               ; preds = %71
   %75 = add i32 %9, 3
-  call fastcc void @knxip_tree_add_reserved(ptr noundef %25, ptr noundef %0, i32 noundef %75, ptr noundef %1, ptr noundef nonnull %7)
+  call fastcc void @knxip_tree_add_reserved(ptr noundef %25, ptr noundef %0, i32 noundef %75, ptr noundef %1, ptr noundef %7)
   %76 = icmp ugt i8 %.1, 5
   br i1 %76, label %77, label %.thread135
 
 77:                                               ; preds = %74
   %78 = load i32, ptr @hf_knxip_knx_address, align 4
   %79 = add i32 %9, 4
-  call fastcc void @knxip_tree_add_knx_address(ptr noundef %25, i32 noundef %78, ptr noundef %0, i32 noundef %79, ptr noundef nonnull %8, i32 noundef 32)
+  call fastcc void @knxip_tree_add_knx_address(ptr noundef %25, i32 noundef %78, ptr noundef %0, i32 noundef %79, ptr noundef %8, i32 noundef 32)
   %.not144 = icmp eq i8 %.1, 6
   br i1 %.not144, label %.thread135, label %80
 
@@ -3491,7 +3491,7 @@ define internal fastcc void @dissect_cri(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_crd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_crd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = alloca [40 x i8], align 16
   %8 = load i32, ptr %4, align 4
   %9 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %8) #9
@@ -3611,7 +3611,7 @@ define internal fastcc void @dissect_crd(ptr noundef %0, ptr noundef %1, ptr nou
   %.2104125 = phi i8 [ 0, %58 ], [ 1, %57 ]
   %67 = load i32, ptr @hf_knxip_knx_address, align 4
   %68 = add i32 %8, 2
-  call fastcc void @knxip_tree_add_knx_address(ptr noundef %24, i32 noundef %67, ptr noundef %0, i32 noundef %68, ptr noundef nonnull %7, i32 noundef 40)
+  call fastcc void @knxip_tree_add_knx_address(ptr noundef %24, i32 noundef %67, ptr noundef %0, i32 noundef %68, ptr noundef %7, i32 noundef 40)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %18, ptr noundef nonnull @.str.394, ptr noundef nonnull %7) #9
   %.not116 = icmp eq ptr %1, null
   br i1 %.not116, label %72, label %69
@@ -3692,7 +3692,7 @@ define internal fastcc void @dissect_crd(ptr noundef %0, ptr noundef %1, ptr nou
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @knxip_tree_add_reserved(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc void @knxip_tree_add_reserved(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_knxip_reserved, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 0) #9
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #9
@@ -3710,7 +3710,7 @@ define internal fastcc void @knxip_tree_add_reserved(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i8 @dissect_cnhdr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5, i8 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc zeroext i8 @dissect_cnhdr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5, i8 noundef zeroext range(i8 0, 2) %6) unnamed_addr #0 {
   %8 = alloca [100 x i8], align 16
   %9 = load i32, ptr %4, align 4
   %10 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %9) #9
@@ -3937,7 +3937,7 @@ knxip_tree_add_reserved.exit:                     ; preds = %97, %93, %85
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_cemi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_cemi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4
   %6 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %5) #9
   %7 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %5) #9
@@ -3956,7 +3956,7 @@ define internal fastcc void @dissect_cemi(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @dissect_routing_loss(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @dissect_routing_loss(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca [16 x i8], align 16
   %7 = load i32, ptr %4, align 4
   %8 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %7) #9
@@ -4075,7 +4075,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @dissect_routing_loss(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @dissect_routing_busy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @dissect_routing_busy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca [16 x i8], align 16
   %7 = load i32, ptr %4, align 4
   %8 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %7) #9
@@ -4202,7 +4202,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @dissect_routing_busy(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i8 @dissect_selector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc zeroext i8 @dissect_selector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = alloca [40 x i8], align 16
   %8 = alloca [6 x i8], align 1
   %9 = load i32, ptr %4, align 4
@@ -4397,7 +4397,7 @@ define internal fastcc zeroext i8 @dissect_selector(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @dissect_resetter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @dissect_resetter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = load i32, ptr %4, align 4
   %7 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %6) #9
   %8 = icmp eq i32 %7, 0
@@ -4470,7 +4470,7 @@ knxip_tree_add_reserved.exit:                     ; preds = %27, %22, %20, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @dissect_secure_wrapper(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @dissect_secure_wrapper(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca [128 x i8], align 16
   %9 = load i32, ptr %6, align 4
   %10 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %9) #9
@@ -4597,7 +4597,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @dissect_secure_wrapper(i8 noun
   br i1 %.not166, label %85, label %.thread
 
 .thread:                                          ; preds = %82
-  call fastcc void @make_key_info(ptr noundef nonnull %8, ptr noundef nonnull %83, ptr noundef nonnull @.str.443)
+  call fastcc void @make_key_info(ptr noundef %8, ptr noundef nonnull %83, ptr noundef nonnull @.str.443)
   br label %101
 
 85:                                               ; preds = %.lr.ph, %82
@@ -4632,7 +4632,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @dissect_secure_wrapper(i8 noun
   br i1 %.not168, label %89, label %95
 
 95:                                               ; preds = %.lr.ph186
-  call fastcc void @make_key_info(ptr noundef nonnull %8, ptr noundef %93, ptr noundef null)
+  call fastcc void @make_key_info(ptr noundef %8, ptr noundef %93, ptr noundef null)
   br label %101
 
 ._crit_edge:                                      ; preds = %89
@@ -4683,7 +4683,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @dissect_secure_wrapper(i8 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @dissect_timer_notify(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @dissect_timer_notify(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca [16 x i8], align 16
   %8 = alloca [16 x i8], align 16
   %9 = alloca [128 x i8], align 16
@@ -4810,7 +4810,7 @@ knxip_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.spl
   br i1 %.not125, label %.critedge, label %78
 
 .critedge:                                        ; preds = %75
-  call fastcc void @make_key_info(ptr noundef nonnull %9, ptr noundef nonnull %76, ptr noundef nonnull @.str.443)
+  call fastcc void @make_key_info(ptr noundef %9, ptr noundef nonnull %76, ptr noundef nonnull @.str.443)
   br label %.critedge123
 
 78:                                               ; preds = %72, %75
@@ -4916,13 +4916,13 @@ knxip_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.spl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i8 @dissect_session_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc zeroext i8 @dissect_session_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
   store i8 1, ptr %6, align 1
   %8 = load i32, ptr %4, align 4
   store i32 %8, ptr %7, align 4
-  %9 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.82, i8 noundef zeroext 1)
+  %9 = call fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %7, ptr noundef %6, ptr noundef nonnull @.str.82, i8 noundef zeroext 1)
   %.not = icmp eq i8 %9, 0
   %.pre = load i32, ptr %7, align 4
   br i1 %.not, label %26, label %10
@@ -4975,7 +4975,7 @@ knxip_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.spl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @dissect_session_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @dissect_session_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = load i32, ptr %4, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -5068,7 +5068,7 @@ knxip_tree_add_data.exit61:                       ; preds = %.lr.ph.split.us.spl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @dissect_session_auth(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @dissect_session_auth(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = load i32, ptr %4, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -5149,7 +5149,7 @@ knxip_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.spl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @dissect_session_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @dissect_session_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = load i32, ptr %4, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -5289,7 +5289,7 @@ define internal fastcc ptr @knxip_tree_add_data(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @knxip_tree_add_bit(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @knxip_tree_add_bit(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 6) %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 129) %6) unnamed_addr #0 {
   %8 = alloca [32 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) @__const.knxip_tree_add_bit.format, i64 32, i1 false)
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #9
@@ -5298,63 +5298,63 @@ define internal fastcc void @knxip_tree_add_bit(ptr noundef %0, ptr noundef %1, 
   %12 = and i32 %11, 1
   %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, 48
-  %15 = icmp slt i32 %3, 4
-  %16 = zext i1 %15 to i32
-  %reass.sub36 = sub i32 %16, %3
-  %17 = add i32 %reass.sub36, 7
-  %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr [32 x i8], ptr %8, i64 0, i64 %18
-  store i8 %14, ptr %19, align 1
-  %20 = icmp ne i32 %12, 0
-  %21 = icmp ne ptr %5, null
-  %or.cond = and i1 %21, %20
-  br i1 %or.cond, label %22, label %36
+  %15 = xor i32 %3, 7
+  %16 = icmp ult i32 %3, 4
+  %17 = zext i1 %16 to i32
+  %18 = add nuw nsw i32 %15, %17
+  %19 = zext nneg i32 %18 to i64
+  %20 = getelementptr [32 x i8], ptr %8, i64 0, i64 %19
+  store i8 %14, ptr %20, align 1
+  %21 = icmp ne i32 %12, 0
+  %22 = icmp ne ptr %5, null
+  %or.cond = and i1 %22, %21
+  br i1 %or.cond, label %23, label %37
 
-22:                                               ; preds = %7
-  %23 = load i8, ptr %5, align 1
-  %.not = icmp eq i8 %23, 0
+23:                                               ; preds = %7
+  %24 = load i8, ptr %5, align 1
+  %.not = icmp eq i8 %24, 0
   br i1 %.not, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %22, %.preheader
-  %.126 = phi i32 [ %25, %.preheader ], [ %6, %22 ]
-  %.1 = phi ptr [ %24, %.preheader ], [ %5, %22 ]
-  %24 = getelementptr i8, ptr %.1, i64 1
-  %25 = add i32 %.126, -1
-  %26 = load i8, ptr %24, align 1
-  %.not29 = icmp eq i8 %26, 0
-  br i1 %.not29, label %27, label %.preheader, !llvm.loop !26
+.preheader:                                       ; preds = %23, %.preheader
+  %.126 = phi i32 [ %26, %.preheader ], [ %6, %23 ]
+  %.1 = phi ptr [ %25, %.preheader ], [ %5, %23 ]
+  %25 = getelementptr i8, ptr %.1, i64 1
+  %26 = add i32 %.126, -1
+  %27 = load i8, ptr %25, align 1
+  %.not29 = icmp eq i8 %27, 0
+  br i1 %.not29, label %28, label %.preheader, !llvm.loop !26
 
-27:                                               ; preds = %.preheader
-  %28 = sext i32 %25 to i64
-  %29 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %24, i64 noundef %28, ptr noundef nonnull @.str.354) #9
-  %30 = load i8, ptr %24, align 1
-  %.not3032 = icmp eq i8 %30, 0
+28:                                               ; preds = %.preheader
+  %29 = sext i32 %26 to i64
+  %30 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %25, i64 noundef %29, ptr noundef nonnull @.str.354) #9
+  %31 = load i8, ptr %25, align 1
+  %.not3032 = icmp eq i8 %31, 0
   br i1 %.not3032, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %27, %.lr.ph
-  %.234 = phi ptr [ %31, %.lr.ph ], [ %24, %27 ]
-  %.22733 = phi i32 [ %32, %.lr.ph ], [ %25, %27 ]
-  %31 = getelementptr i8, ptr %.234, i64 1
-  %32 = add i32 %.22733, -1
-  %33 = load i8, ptr %31, align 1
-  %.not30 = icmp eq i8 %33, 0
+.lr.ph:                                           ; preds = %28, %.lr.ph
+  %.234 = phi ptr [ %32, %.lr.ph ], [ %25, %28 ]
+  %.22733 = phi i32 [ %33, %.lr.ph ], [ %26, %28 ]
+  %32 = getelementptr i8, ptr %.234, i64 1
+  %33 = add i32 %.22733, -1
+  %34 = load i8, ptr %32, align 1
+  %.not30 = icmp eq i8 %34, 0
   br i1 %.not30, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
-.loopexit:                                        ; preds = %.lr.ph, %27, %22
-  %.025 = phi i32 [ %6, %22 ], [ %25, %27 ], [ %32, %.lr.ph ]
-  %.0 = phi ptr [ %5, %22 ], [ %24, %27 ], [ %31, %.lr.ph ]
-  %34 = sext i32 %.025 to i64
-  %35 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.0, i64 noundef %34, ptr noundef nonnull @.str.233, ptr noundef %4) #9
-  br label %36
+.loopexit:                                        ; preds = %.lr.ph, %28, %23
+  %.025 = phi i32 [ %6, %23 ], [ %26, %28 ], [ %33, %.lr.ph ]
+  %.0 = phi ptr [ %5, %23 ], [ %25, %28 ], [ %32, %.lr.ph ]
+  %35 = sext i32 %.025 to i64
+  %36 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.0, i64 noundef %35, ptr noundef nonnull @.str.233, ptr noundef %4) #9
+  br label %37
 
-36:                                               ; preds = %.loopexit, %7
-  %37 = load i32, ptr @hf_bytes, align 4
-  %38 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %0, i32 noundef %37, ptr noundef %1, i32 noundef %2, i32 noundef 1, ptr noundef null, ptr noundef nonnull %8, ptr noundef %4, i32 noundef %12) #9
+37:                                               ; preds = %.loopexit, %7
+  %38 = load i32, ptr @hf_bytes, align 4
+  %39 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %0, i32 noundef %38, ptr noundef %1, i32 noundef %2, i32 noundef 1, ptr noundef null, ptr noundef nonnull %8, ptr noundef %4, i32 noundef %12) #9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @knxip_tree_add_knx_address(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @knxip_tree_add_knx_address(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly %4, i32 noundef range(i32 32, 41) %5) unnamed_addr #0 {
   %7 = alloca [32 x i8], align 16
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %3) #9
   %9 = zext i16 %8 to i32
@@ -5364,7 +5364,7 @@ define internal fastcc void @knxip_tree_add_knx_address(ptr noundef %0, i32 noun
   %13 = and i32 %9, 255
   %14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.355, i32 noundef %10, i32 noundef %12, i32 noundef %13) #9
   %15 = zext nneg i32 %5 to i64
-  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %4, i64 noundef %15, ptr noundef nonnull @.str.233, ptr noundef nonnull %7) #9
+  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef %15, ptr noundef nonnull @.str.233, ptr noundef nonnull %7) #9
   %17 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #9
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.322, ptr noundef nonnull %7) #9
   ret void
@@ -5384,14 +5384,14 @@ declare ptr @wmem_strbuf_get_str(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @knxip_tree_add_ip_assignment(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @knxip_tree_add_ip_assignment(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext range(i8 0, 2) %4) unnamed_addr #0 {
   %6 = alloca [128 x i8], align 16
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #9
   %8 = load i32, ptr @ett_ip_assignment, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #9
   store i8 0, ptr %6, align 16
   %10 = zext nneg i8 %4 to i32
-  %11 = add nuw nsw i32 %10, 2
+  %11 = or disjoint i32 %10, 2
   call fastcc void @knxip_tree_add_bit(ptr noundef %9, ptr noundef %2, i32 noundef %3, i32 noundef %11, ptr noundef nonnull @.str.362, ptr noundef nonnull %6, i32 noundef 128)
   %12 = add nuw nsw i32 %10, 1
   call fastcc void @knxip_tree_add_bit(ptr noundef %9, ptr noundef %2, i32 noundef %3, i32 noundef %12, ptr noundef nonnull @.str.363, ptr noundef nonnull %6, i32 noundef 128)
@@ -5425,14 +5425,14 @@ declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @decrypt_secure_wrapper(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @decrypt_secure_wrapper(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 16, 272) %2, i32 noundef range(i32 16, 2147483632) %3) unnamed_addr #0 {
   %5 = alloca [16 x i8], align 16
   %6 = load i8, ptr %1, align 1
   %7 = zext i8 %6 to i32
   %8 = add nuw nsw i32 %7, 2
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %8, i32 %2)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %8, i32 %2)
   %9 = add nuw nsw i32 %7, 16
-  %.not = icmp slt i32 %2, %9
+  %.not = icmp ult i32 %2, %9
   br i1 %.not, label %22, label %10
 
 10:                                               ; preds = %4
@@ -5464,7 +5464,7 @@ define internal fastcc ptr @decrypt_secure_wrapper(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @make_key_info(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc void @make_key_info(ptr nocapture noundef nonnull %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #5 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %5
 

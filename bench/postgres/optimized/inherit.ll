@@ -165,14 +165,14 @@ list_length.exit.thread:                          ; preds = %69
   br label %97
 
 92:                                               ; preds = %80, %87
-  call fastcc void @expand_single_inheritance_child(ptr noundef %0, ptr noundef %2, i32 noundef %3, ptr noundef %43, ptr noundef %48, ptr noundef nonnull %81, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @expand_single_inheritance_child(ptr noundef %0, ptr noundef %2, i32 noundef %3, ptr noundef %43, ptr noundef %48, ptr noundef nonnull %81, ptr noundef %5, ptr noundef %6)
   %93 = load i32, ptr %6, align 4
   %94 = tail call ptr @build_simple_rel(ptr noundef %0, i32 noundef %93, ptr noundef %1) #6
   tail call void @table_close(ptr noundef nonnull %81, i32 noundef 0) #6
   br label %97
 
 .critedge:                                        ; preds = %.lr.ph143
-  call fastcc void @expand_single_inheritance_child(ptr noundef %0, ptr noundef %2, i32 noundef %3, ptr noundef %43, ptr noundef %48, ptr noundef %43, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @expand_single_inheritance_child(ptr noundef %0, ptr noundef %2, i32 noundef %3, ptr noundef %43, ptr noundef %48, ptr noundef %43, ptr noundef %5, ptr noundef %6)
   %95 = load i32, ptr %6, align 4
   %96 = tail call ptr @build_simple_rel(ptr noundef %0, i32 noundef %95, ptr noundef %1) #6
   br label %97
@@ -429,7 +429,7 @@ define internal fastcc void @expand_partitioned_rtentry(ptr noundef %0, ptr noun
   unreachable
 
 62:                                               ; preds = %55, %43
-  call fastcc void @expand_single_inheritance_child(ptr noundef %0, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef nonnull %49, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  call fastcc void @expand_single_inheritance_child(ptr noundef %0, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef nonnull %49, ptr noundef %9, ptr noundef %10)
   %63 = load i32, ptr %10, align 4
   %64 = tail call ptr @build_simple_rel(ptr noundef %0, i32 noundef %63, ptr noundef nonnull %1) #6
   %65 = load ptr, ptr %37, align 8
@@ -475,7 +475,7 @@ declare void @expand_planner_arrays(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @expand_single_inheritance_child(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc void @expand_single_inheritance_child(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 72

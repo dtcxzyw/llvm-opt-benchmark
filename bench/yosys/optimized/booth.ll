@@ -1836,7 +1836,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit108.i:            ; preds = %506, %_ZSt8_Destroy
           to label %528 unwind label %561
 
 528:                                              ; preds = %527
-  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker15CreateBoothMultEPN5Yosys5RTLIL6ModuleENS2_7SigSpecES5_S5_b(ptr noundef nonnull align 8 dereferenceable(94) %23, ptr noundef %524, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, i1 noundef zeroext %411)
+  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker15CreateBoothMultEPN5Yosys5RTLIL6ModuleENS2_7SigSpecES5_S5_b(ptr noundef nonnull align 8 dereferenceable(94) %23, ptr noundef %524, ptr noundef %15, ptr noundef %16, ptr noundef %17, i1 noundef zeroext %411)
           to label %529 unwind label %563
 
 529:                                              ; preds = %528
@@ -2006,7 +2006,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i145.i: ; preds 
           to label %570 unwind label %603
 
 570:                                              ; preds = %569
-  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker23CreateBoothLowpowerMultEPN5Yosys5RTLIL6ModuleENS2_7SigSpecES5_S5_b(ptr noundef nonnull align 8 dereferenceable(94) %23, ptr noundef %524, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, i1 noundef zeroext %411)
+  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker23CreateBoothLowpowerMultEPN5Yosys5RTLIL6ModuleENS2_7SigSpecES5_S5_b(ptr noundef nonnull align 8 dereferenceable(94) %23, ptr noundef %524, ptr noundef %18, ptr noundef %19, ptr noundef %20, i1 noundef zeroext %411)
           to label %571 unwind label %605
 
 571:                                              ; preds = %570
@@ -4277,7 +4277,7 @@ _ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker15CreateBoothMultEPN5Yosys5RTLIL6ModuleENS2_7SigSpecES5_S5_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker15CreateBoothMultEPN5Yosys5RTLIL6ModuleENS2_7SigSpecES5_S5_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5142,7 +5142,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i220.i: ; preds = %529, %524
 
 536:                                              ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i220.i
   %537 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %531, i64 %493
-  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker10BuildBur4eENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_RS9_SA_SA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %239, ptr null, i32 0, ptr %.sroa.07.0.copyload.i, i32 %.sroa.28.0.copyload.i, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %240, ptr noundef nonnull align 8 dereferenceable(12) %501, ptr noundef nonnull align 8 dereferenceable(12) %513, ptr noundef nonnull align 8 dereferenceable(12) %525, ptr noundef nonnull align 8 dereferenceable(12) %537)
+  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker10BuildBur4eENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_RS9_SA_SA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %239, ptr null, i32 0, ptr %.sroa.07.0.copyload.i, i32 %.sroa.28.0.copyload.i, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %240, ptr noundef nonnull align 8 dereferenceable(12) %501, ptr noundef nonnull align 8 dereferenceable(12) %513, ptr noundef nonnull align 8 dereferenceable(12) %525, ptr noundef nonnull align 8 dereferenceable(12) %537)
           to label %538 unwind label %.loopexit559.i
 
 538:                                              ; preds = %536
@@ -5707,7 +5707,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i277.i: ; preds = %731, %726
 
 738:                                              ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i277.i
   %739 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %733, i64 %694
-  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker10BuildBur4eENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_RS9_SA_SA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %241, ptr %.sroa.0424.0437485.i, i32 %.sroa.4425.2440482.i, ptr %.sroa.0420.0489.i, i32 %.sroa.4.2493.i, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %242, ptr noundef nonnull align 8 dereferenceable(12) %703, ptr noundef nonnull align 8 dereferenceable(12) %715, ptr noundef nonnull align 8 dereferenceable(12) %727, ptr noundef nonnull align 8 dereferenceable(12) %739)
+  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker10BuildBur4eENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_RS9_SA_SA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %241, ptr %.sroa.0424.0437485.i, i32 %.sroa.4425.2440482.i, ptr %.sroa.0420.0489.i, i32 %.sroa.4.2493.i, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %242, ptr noundef nonnull align 8 dereferenceable(12) %703, ptr noundef nonnull align 8 dereferenceable(12) %715, ptr noundef nonnull align 8 dereferenceable(12) %727, ptr noundef nonnull align 8 dereferenceable(12) %739)
           to label %741 unwind label %.loopexit544.i
 
 .loopexit544.i:                                   ; preds = %738, %731, %719, %707, %693
@@ -6021,7 +6021,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i290.i: ; preds = %837, %833
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr null, ptr %273, align 8
   store i8 0, ptr %352, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker10BuildBur4eENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_RS9_SA_SA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %272, ptr %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, ptr null, i32 0, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %273, ptr noundef nonnull align 8 dereferenceable(12) %268, ptr noundef nonnull align 8 dereferenceable(12) %269, ptr noundef nonnull align 8 dereferenceable(12) %270, ptr noundef nonnull align 8 dereferenceable(12) %271)
+  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker10BuildBur4eENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_RS9_SA_SA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %272, ptr %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, ptr null, i32 0, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %273, ptr noundef nonnull align 8 dereferenceable(12) %268, ptr noundef nonnull align 8 dereferenceable(12) %269, ptr noundef nonnull align 8 dereferenceable(12) %270, ptr noundef nonnull align 8 dereferenceable(12) %271)
           to label %848 unwind label %.loopexit554.i
 
 848:                                              ; preds = %846
@@ -7107,7 +7107,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i156.i: ; preds = %1119, %_ZN5Yos
   unreachable
 
 _ZN5Yosys5RTLIL7SigSpecixEi.exit160.i:            ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i156.i
-  %1124 = invoke fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker9Bur4d_lsbENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %155, ptr %.sroa.031.0.copyload.i, i32 %.sroa.232.0.copyload.i, ptr %.sroa.028.0.copyload.i, i32 %.sroa.229.0.copyload.i, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %1123)
+  %1124 = invoke fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker9Bur4d_lsbENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %155, ptr %.sroa.031.0.copyload.i, i32 %.sroa.232.0.copyload.i, ptr %.sroa.028.0.copyload.i, i32 %.sroa.229.0.copyload.i, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %1123)
           to label %1125 unwind label %1185
 
 1125:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecixEi.exit160.i
@@ -7254,7 +7254,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i181.i: ; preds = %1175, %_ZN5Yos
   br i1 %.not.i.i.i182.not.i, label %.invoke96.i, label %_ZN5Yosys5RTLIL7SigSpecixEi.exit185.i
 
 _ZN5Yosys5RTLIL7SigSpecixEi.exit185.i:            ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i181.i
-  %1178 = invoke fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker7Bur4d_nENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_S9_S9_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %158, ptr %.sroa.021.0.copyload.i, i32 %.sroa.222.0.copyload.i, ptr %.sroa.018.0.copyload.i, i32 %.sroa.219.0.copyload.i, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %159, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %160, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %1177)
+  %1178 = invoke fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker7Bur4d_nENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_S9_S9_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %158, ptr %.sroa.021.0.copyload.i, i32 %.sroa.222.0.copyload.i, ptr %.sroa.018.0.copyload.i, i32 %.sroa.219.0.copyload.i, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %159, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %160, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %1177)
           to label %1179 unwind label %.loopexit15.i
 
 1179:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecixEi.exit185.i
@@ -7386,7 +7386,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i193.i: ; preds = %1219, %_ZN5Yos
   unreachable
 
 _ZN5Yosys5RTLIL7SigSpecixEi.exit197.i:            ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i193.i
-  %1224 = invoke fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker9Bur4d_msbENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %162, ptr %.sroa.0.0.copyload.i.i90, i32 %.sroa.2.0.copyload.i.i92, ptr %.sroa.014.0.copyload.i, i32 %.sroa.215.0.copyload.i, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %1221)
+  %1224 = invoke fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker9Bur4d_msbENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %162, ptr %.sroa.0.0.copyload.i.i90, i32 %.sroa.2.0.copyload.i.i92, ptr %.sroa.014.0.copyload.i, i32 %.sroa.215.0.copyload.i, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %1221)
           to label %1225 unwind label %1231
 
 1225:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecixEi.exit197.i
@@ -7542,7 +7542,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i228.i: ; preds = %1280, %_ZN5Yos
   unreachable
 
 _ZN5Yosys5RTLIL7SigSpecixEi.exit232.i:            ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i228.i
-  %1285 = invoke fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker7Bur4d_nENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_S9_S9_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %165, ptr %.sroa.0.0.copyload.i200.i, i32 %.sroa.2.0.copyload.i202.i, ptr %.sroa.0.0.copyload.i210.i, i32 %.sroa.2.0.copyload.i212.i, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %167, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %168, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %1282)
+  %1285 = invoke fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker7Bur4d_nENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_S9_S9_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %165, ptr %.sroa.0.0.copyload.i200.i, i32 %.sroa.2.0.copyload.i202.i, ptr %.sroa.0.0.copyload.i210.i, i32 %.sroa.2.0.copyload.i212.i, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %167, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %168, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %1282)
           to label %1286 unwind label %1292
 
 1286:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecixEi.exit232.i
@@ -9427,7 +9427,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit.i:  ; preds = %1894, %1891
   %.sroa.2.0.i383.i = phi i32 [ %.sroa.2.8.insert.ext.i385.i, %1903 ], [ %1902, %1900 ]
   store ptr %1899, ptr %111, align 8
   store i32 %.sroa.2.0.i383.i, ptr %.sroa.2.0..sroa_idx.i384.i, align 8
-  %1908 = invoke fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker9Bur4d_lsbENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %110, ptr %.sroa.060.0.copyload.i, i32 %.sroa.261.0.copyload.i, ptr %1890, i32 %.sroa.2.0.i.i, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %111)
+  %1908 = invoke fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker9Bur4d_lsbENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %110, ptr %.sroa.060.0.copyload.i, i32 %.sroa.261.0.copyload.i, ptr %1890, i32 %.sroa.2.0.i.i, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %111)
           to label %1909 unwind label %.loopexit736
 
 1909:                                             ; preds = %1907
@@ -9592,7 +9592,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i393.i: ; preds = %._ZNK5Yosys5RT
   %.sroa.2.0.i411.i = phi i32 [ %.sroa.2.8.insert.ext.i413.i, %1963 ], [ %1962, %1960 ]
   store ptr %1959, ptr %116, align 8
   store i32 %.sroa.2.0.i411.i, ptr %.sroa.2.0..sroa_idx.i412.i, align 8
-  %1968 = invoke fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker7Bur4d_nENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_S9_S9_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %113, ptr %.sroa.051.0.copyload.i, i32 %.sroa.252.0.copyload.i, ptr %.sroa.048.0.copyload.i, i32 %.sroa.249.0.copyload.i, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %114, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %115, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %116)
+  %1968 = invoke fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker7Bur4d_nENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_S9_S9_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %113, ptr %.sroa.051.0.copyload.i, i32 %.sroa.252.0.copyload.i, ptr %.sroa.048.0.copyload.i, i32 %.sroa.249.0.copyload.i, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %114, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %115, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %116)
           to label %1969 unwind label %.loopexit.i224
 
 1969:                                             ; preds = %1967
@@ -9729,7 +9729,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit426.i: ; preds = %1997, %1994
   %.sroa.2.0.i428.i = phi i32 [ %.sroa.2.8.insert.ext.i430.i, %2006 ], [ %2005, %2003 ]
   store ptr %2002, ptr %120, align 8
   store i32 %.sroa.2.0.i428.i, ptr %.sroa.2.0..sroa_idx.i429.i, align 8
-  %2011 = invoke fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker9Bur4d_msbENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %118, ptr %.sroa.045.0.copyload.i, i32 %.sroa.246.0.copyload.i, ptr %1993, i32 %.sroa.2.0.i422.i, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %120)
+  %2011 = invoke fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker9Bur4d_msbENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %118, ptr %.sroa.045.0.copyload.i, i32 %.sroa.246.0.copyload.i, ptr %1993, i32 %.sroa.2.0.i422.i, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %120)
           to label %2012 unwind label %.loopexit741
 
 2012:                                             ; preds = %2010
@@ -9908,7 +9908,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i438.i: ; preds = %._ZNK5Yosys5RT
   %.sroa.2.0.i456.i = phi i32 [ %.sroa.2.8.insert.ext.i458.i, %2067 ], [ %2066, %2064 ]
   store ptr %2063, ptr %125, align 8
   store i32 %.sroa.2.0.i456.i, ptr %.sroa.2.0..sroa_idx.i457.i, align 8
-  %2072 = invoke fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker7Bur4d_nENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_S9_S9_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %122, ptr %.sroa.042.0.copyload.i, i32 %.sroa.243.0.copyload.i, ptr %.sroa.0.0.copyload.i214, i32 %.sroa.2.0.copyload.i216, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %123, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %124, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %125)
+  %2072 = invoke fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker7Bur4d_nENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_S9_S9_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %122, ptr %.sroa.042.0.copyload.i, i32 %.sroa.243.0.copyload.i, ptr %.sroa.0.0.copyload.i214, i32 %.sroa.2.0.copyload.i216, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %123, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %124, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %125)
           to label %2073 unwind label %.loopexit746
 
 2073:                                             ; preds = %2071
@@ -11672,7 +11672,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i.i:            ; preds = %2618
   %2635 = getelementptr inbounds %"struct.Yosys::RTLIL::SigSpec", ptr %2633, i64 %indvars.iv.i373
   %2636 = getelementptr inbounds i8, ptr %2635, i64 128
   %2637 = getelementptr inbounds i8, ptr %2635, i64 64
-  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker14BuildBitwiseFaEPN5Yosys5RTLIL6ModuleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_7SigSpecESD_SD_SD_SD_RKSA_(ptr noundef %2615, ptr noundef nonnull %92, ptr noundef nonnull align 8 dereferenceable(64) %2635, ptr noundef nonnull align 8 dereferenceable(64) %2637, ptr noundef nonnull align 8 dereferenceable(64) %2636, ptr noundef nonnull align 8 dereferenceable(64) %80, ptr noundef nonnull align 8 dereferenceable(64) %86, ptr noundef nonnull align 8 dereferenceable(32) %98)
+  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker14BuildBitwiseFaEPN5Yosys5RTLIL6ModuleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_7SigSpecESD_SD_SD_SD_RKSA_(ptr noundef %2615, ptr noundef %92, ptr noundef nonnull align 8 dereferenceable(64) %2635, ptr noundef nonnull align 8 dereferenceable(64) %2637, ptr noundef nonnull align 8 dereferenceable(64) %2636, ptr noundef nonnull align 8 dereferenceable(64) %80, ptr noundef nonnull align 8 dereferenceable(64) %86, ptr noundef nonnull align 8 dereferenceable(32) %98)
           to label %2638 unwind label %2897, !noalias !47
 
 2638:                                             ; preds = %2634
@@ -13412,7 +13412,7 @@ _ZN5Yosys5RTLIL7SigSpecixEi.exit162.i:            ; preds = %_ZNK5Yosys5RTLIL7Si
   %.sroa.04.0.copyload.i = load ptr, ptr %3219, align 8
   %.sroa.25.0..sroa_idx.i = getelementptr inbounds i8, ptr %3219, i64 8
   %.sroa.25.0.copyload.i = load i32, ptr %.sroa.25.0..sroa_idx.i, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker7BuildHaENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_RS9_SA_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %24, ptr %.sroa.07.0.copyload.i423, i32 %.sroa.28.0.copyload.i425, ptr %.sroa.04.0.copyload.i, i32 %.sroa.25.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(12) %23, ptr noundef nonnull align 8 dereferenceable(12) %8)
+  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker7BuildHaENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_RS9_SA_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %24, ptr %.sroa.07.0.copyload.i423, i32 %.sroa.28.0.copyload.i425, ptr %.sroa.04.0.copyload.i, i32 %.sroa.25.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(12) %23, ptr noundef nonnull align 8 dereferenceable(12) %8)
           to label %3220 unwind label %.loopexit425.i
 
 3220:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecixEi.exit162.i
@@ -14160,7 +14160,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i274.i: ; preds = %3442, %3438
   %.sroa.22.0.copyload.i = load i32, ptr %.sroa.22.0..sroa_idx.i, align 8
   %.sroa.0.0.copyload.i457 = load ptr, ptr %8, align 8
   %.sroa.2.0.copyload.i458 = load i32, ptr %3052, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker7BuildHaENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_RS9_SA_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %53, ptr %.sroa.01.0.copyload.i, i32 %.sroa.22.0.copyload.i, ptr %.sroa.0.0.copyload.i457, i32 %.sroa.2.0.copyload.i458, ptr noundef nonnull align 8 dereferenceable(12) %51, ptr noundef nonnull align 8 dereferenceable(12) %52)
+  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker7BuildHaENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_RS9_SA_(ptr noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %53, ptr %.sroa.01.0.copyload.i, i32 %.sroa.22.0.copyload.i, ptr %.sroa.0.0.copyload.i457, i32 %.sroa.2.0.copyload.i458, ptr noundef nonnull align 8 dereferenceable(12) %51, ptr noundef nonnull align 8 dereferenceable(12) %52)
           to label %3452 unwind label %.loopexit470.i
 
 3452:                                             ; preds = %3450
@@ -16311,7 +16311,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit634:              ; preds = %_ZSt8_DestroyIPN5Yo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker23CreateBoothLowpowerMultEPN5Yosys5RTLIL6ModuleENS2_7SigSpecES5_S5_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker23CreateBoothLowpowerMultEPN5Yosys5RTLIL6ModuleENS2_7SigSpecES5_S5_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
@@ -17134,7 +17134,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i561: ; preds = %493, %488
 
 500:                                              ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i561
   %501 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %495, i64 %304
-  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker9BuildBr4eENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_RS9_SA_SA_SA_(ptr noundef nonnull align 8 dereferenceable(94) %0, ptr noundef nonnull %103, ptr null, i32 0, ptr %.sroa.0124.0.copyload, i32 %.sroa.2125.0.copyload, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %104, ptr noundef nonnull align 8 dereferenceable(12) %465, ptr noundef nonnull align 8 dereferenceable(12) %477, ptr noundef nonnull align 8 dereferenceable(12) %489, ptr noundef nonnull align 8 dereferenceable(12) %501)
+  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker9BuildBr4eENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_RS9_SA_SA_SA_(ptr noundef nonnull align 8 dereferenceable(94) %0, ptr noundef %103, ptr null, i32 0, ptr %.sroa.0124.0.copyload, i32 %.sroa.2125.0.copyload, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %104, ptr noundef nonnull align 8 dereferenceable(12) %465, ptr noundef nonnull align 8 dereferenceable(12) %477, ptr noundef nonnull align 8 dereferenceable(12) %489, ptr noundef nonnull align 8 dereferenceable(12) %501)
           to label %653 unwind label %.loopexit1439
 
 .loopexit1404:                                    ; preds = %291
@@ -17616,7 +17616,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i596: ; preds = %643, %638
 
 650:                                              ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i596
   %651 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %645, i64 %304
-  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker9BuildBr4eENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_RS9_SA_SA_SA_(ptr noundef nonnull align 8 dereferenceable(94) %0, ptr noundef nonnull %105, ptr %.sroa.01313.0.copyload, i32 %.sroa.31314.0.copyload, ptr %.sroa.01308.0, i32 %.sroa.41309.2, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %106, ptr noundef nonnull align 8 dereferenceable(12) %615, ptr noundef nonnull align 8 dereferenceable(12) %627, ptr noundef nonnull align 8 dereferenceable(12) %639, ptr noundef nonnull align 8 dereferenceable(12) %651)
+  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker9BuildBr4eENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_RS9_SA_SA_SA_(ptr noundef nonnull align 8 dereferenceable(94) %0, ptr noundef %105, ptr %.sroa.01313.0.copyload, i32 %.sroa.31314.0.copyload, ptr %.sroa.01308.0, i32 %.sroa.41309.2, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %106, ptr noundef nonnull align 8 dereferenceable(12) %615, ptr noundef nonnull align 8 dereferenceable(12) %627, ptr noundef nonnull align 8 dereferenceable(12) %639, ptr noundef nonnull align 8 dereferenceable(12) %651)
           to label %653 unwind label %.loopexit1434
 
 .loopexit1434:                                    ; preds = %650, %606, %619, %631, %643
@@ -18447,7 +18447,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i659: ; preds = %971, %966
 
 978:                                              ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i659
   %979 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %973, i64 %891
-  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker9BuildBr4dENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_S9_S9_RS9_SA_(ptr noundef nonnull align 8 dereferenceable(94) %0, ptr noundef nonnull %133, ptr %.sroa.072.0.copyload, i32 %.sroa.273.0.copyload, ptr %.sroa.069.0.copyload, i32 %.sroa.270.0.copyload, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %134, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %135, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %136, ptr noundef nonnull align 8 dereferenceable(12) %967, ptr noundef nonnull align 8 dereferenceable(12) %979)
+  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker9BuildBr4dENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_S9_S9_RS9_SA_(ptr noundef nonnull align 8 dereferenceable(94) %0, ptr noundef %133, ptr %.sroa.072.0.copyload, i32 %.sroa.273.0.copyload, ptr %.sroa.069.0.copyload, i32 %.sroa.270.0.copyload, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %134, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %135, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %136, ptr noundef nonnull align 8 dereferenceable(12) %967, ptr noundef nonnull align 8 dereferenceable(12) %979)
           to label %980 unwind label %.loopexit1375
 
 980:                                              ; preds = %978
@@ -18654,7 +18654,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i689: ; preds = %1057, %1052
 
 1064:                                             ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i689
   %1065 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %1059, i64 %995
-  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker9BuildBr4dENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_S9_S9_RS9_SA_(ptr noundef nonnull align 8 dereferenceable(94) %0, ptr noundef nonnull %139, ptr %.sroa.066.0.copyload, i32 %.sroa.267.0.copyload, ptr %.sroa.063.0.copyload, i32 %.sroa.264.0.copyload, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %140, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %141, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %142, ptr noundef nonnull align 8 dereferenceable(12) %1065, ptr noundef nonnull align 8 dereferenceable(12) %138)
+  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker9BuildBr4dENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_S9_S9_RS9_SA_(ptr noundef nonnull align 8 dereferenceable(94) %0, ptr noundef %139, ptr %.sroa.066.0.copyload, i32 %.sroa.267.0.copyload, ptr %.sroa.063.0.copyload, i32 %.sroa.264.0.copyload, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %140, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %141, ptr noundef nonnull byval(%"struct.Yosys::RTLIL::SigBit") align 8 %142, ptr noundef nonnull align 8 dereferenceable(12) %1065, ptr noundef nonnull align 8 dereferenceable(12) %138)
           to label %1066 unwind label %.loopexit1386
 
 1066:                                             ; preds = %1064
@@ -21113,7 +21113,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i856: ; preds = %1845, %1840
           to label %1874 unwind label %2352
 
 1874:                                             ; preds = %1873
-  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker14BuildBitwiseFaEPN5Yosys5RTLIL6ModuleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_7SigSpecESD_SD_SD_SD_RKSA_(ptr noundef nonnull %1, ptr noundef nonnull %194, ptr noundef nonnull align 8 dereferenceable(64) %202, ptr noundef nonnull align 8 dereferenceable(64) %204, ptr noundef nonnull align 8 dereferenceable(64) %206, ptr noundef nonnull align 8 dereferenceable(64) %207, ptr noundef nonnull align 8 dereferenceable(64) %208, ptr noundef nonnull align 8 dereferenceable(32) %209)
+  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker14BuildBitwiseFaEPN5Yosys5RTLIL6ModuleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_7SigSpecESD_SD_SD_SD_RKSA_(ptr noundef nonnull %1, ptr noundef %194, ptr noundef nonnull align 8 dereferenceable(64) %202, ptr noundef nonnull align 8 dereferenceable(64) %204, ptr noundef nonnull align 8 dereferenceable(64) %206, ptr noundef nonnull align 8 dereferenceable(64) %207, ptr noundef nonnull align 8 dereferenceable(64) %208, ptr noundef nonnull align 8 dereferenceable(32) %209)
           to label %1875 unwind label %2354
 
 1875:                                             ; preds = %1874
@@ -21971,7 +21971,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i1003: ; preds = %2166, %2162
 2180:                                             ; preds = %2177
   %2181 = getelementptr inbounds %"struct.Yosys::RTLIL::SigSpec", ptr %2179, i64 %indvars.iv2446
   %2182 = getelementptr inbounds %"struct.Yosys::RTLIL::SigSpec", ptr %2178, i64 %indvars.iv2446
-  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker14BuildBitwiseFaEPN5Yosys5RTLIL6ModuleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_7SigSpecESD_SD_SD_SD_RKSA_(ptr noundef nonnull %1, ptr noundef nonnull %222, ptr noundef nonnull align 8 dereferenceable(64) %229, ptr noundef nonnull align 8 dereferenceable(64) %231, ptr noundef nonnull align 8 dereferenceable(64) %233, ptr noundef nonnull align 8 dereferenceable(64) %2182, ptr noundef nonnull align 8 dereferenceable(64) %2181, ptr noundef nonnull align 8 dereferenceable(32) %235)
+  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker14BuildBitwiseFaEPN5Yosys5RTLIL6ModuleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_7SigSpecESD_SD_SD_SD_RKSA_(ptr noundef nonnull %1, ptr noundef %222, ptr noundef nonnull align 8 dereferenceable(64) %229, ptr noundef nonnull align 8 dereferenceable(64) %231, ptr noundef nonnull align 8 dereferenceable(64) %233, ptr noundef nonnull align 8 dereferenceable(64) %2182, ptr noundef nonnull align 8 dereferenceable(64) %2181, ptr noundef nonnull align 8 dereferenceable(32) %235)
           to label %2183 unwind label %2430
 
 2183:                                             ; preds = %2180
@@ -23435,7 +23435,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i1144: ; preds = %2644, %2639
 
 2651:                                             ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i1144
   %2652 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %2646, i64 %2585
-  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker7BuildHaENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_RS9_SA_(ptr noundef nonnull align 8 dereferenceable(94) %0, ptr noundef nonnull %250, ptr %.sroa.04.0.copyload, i32 %.sroa.25.0.copyload, ptr %.sroa.07.0.copyload, i32 %.sroa.28.0.copyload, ptr noundef nonnull align 8 dereferenceable(12) %249, ptr noundef nonnull align 8 dereferenceable(12) %2652)
+  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker7BuildHaENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_RS9_SA_(ptr noundef nonnull align 8 dereferenceable(94) %0, ptr noundef %250, ptr %.sroa.04.0.copyload, i32 %.sroa.25.0.copyload, ptr %.sroa.07.0.copyload, i32 %.sroa.28.0.copyload, ptr noundef nonnull align 8 dereferenceable(12) %249, ptr noundef nonnull align 8 dereferenceable(12) %2652)
           to label %2653 unwind label %.loopexit1346
 
 2653:                                             ; preds = %2651
@@ -27109,7 +27109,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %_ZSt8_DestroyIPN5Yo
 declare void @_ZN5Yosys13new_id_suffixENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS5_S5_(ptr dead_on_unwind writable sret(%"struct.Yosys::RTLIL::IdString") align 4, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker10BuildBur4eENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_RS9_SA_SA_SA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6, ptr noundef nonnull align 8 dereferenceable(12) %7, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %8, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %9, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %10) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker10BuildBur4eENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_RS9_SA_SA_SA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6, ptr noundef nonnull align 8 dereferenceable(12) %7, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %8, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %9, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %10) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %13 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %14 = alloca %"struct.Yosys::RTLIL::IdString", align 4
@@ -27739,7 +27739,7 @@ declare { ptr, i32 } @_ZN5Yosys5RTLIL6Module7NorGateENS0_8IdStringERKNS0_6SigBit
 declare void @_ZN5Yosys5RTLIL7SigSpec6appendERKNS0_6SigBitE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker9Bur4d_lsbENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker9Bur4d_lsbENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %9 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %10 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
@@ -28014,7 +28014,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit26:              ; preds = %62, %67, %74
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker7Bur4d_nENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_S9_S9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %7, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %8) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker7Bur4d_nENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_S9_S9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %7, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %8) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %11 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %12 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
@@ -28551,7 +28551,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit59:              ; preds = %134, %139, %146
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker9Bur4d_msbENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i32 } @_ZN12_GLOBAL__N_115BoothPassWorker9Bur4d_msbENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %9 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %10 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
@@ -29323,7 +29323,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL7SigSpecEEvT_S4_.exit: ; preds = %_ZSt8_DestroyIN5Yo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker14BuildBitwiseFaEPN5Yosys5RTLIL6ModuleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_7SigSpecESD_SD_SD_SD_RKSA_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(32) %7) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker14BuildBitwiseFaEPN5Yosys5RTLIL6ModuleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_7SigSpecESD_SD_SD_SD_RKSA_(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(32) %7) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
@@ -30937,7 +30937,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %47, %57
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker7BuildHaENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_RS9_SA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %7) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker7BuildHaENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_RS9_SA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %7) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %10 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %11 = alloca %"struct.Yosys::RTLIL::IdString", align 4
@@ -31237,7 +31237,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EmcRKS3_(pt
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker9BuildBr4eENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_RS9_SA_SA_SA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %7, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %8, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %9, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %10) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker9BuildBr4eENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_RS9_SA_SA_SA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %7, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %8, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %9, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %10) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %13 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %14 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
@@ -32742,7 +32742,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit156:             ; preds = %_ZN5Yosys5RTLIL8IdS
 declare noundef ptr @_ZN5Yosys5RTLIL6Module10addNotGateENS0_8IdStringERKNS0_6SigBitES5_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(560), ptr noundef, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker9BuildBr4dENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_S9_S9_RS9_SA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %7, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %8, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(12) %10) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker9BuildBr4dENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL6SigBitES9_S9_S9_S9_RS9_SA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(94) %0, ptr noundef nonnull %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %6, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %7, ptr noundef byval(%"struct.Yosys::RTLIL::SigBit") align 8 %8, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(12) %10) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %13 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %14 = alloca %"struct.Yosys::RTLIL::IdString", align 4

@@ -581,7 +581,7 @@ define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef
   br i1 %or.cond.not.i, label %110, label %111
 
 110:                                              ; preds = %105
-  call fastcc void @resolve_anyelement_from_others(ptr noundef nonnull %6)
+  call fastcc void @resolve_anyelement_from_others(ptr noundef %6)
   %.pre.i = load i32, ptr %45, align 4
   br label %111
 
@@ -592,7 +592,7 @@ define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef
   br i1 %or.cond6.not.i, label %114, label %115
 
 114:                                              ; preds = %111
-  call fastcc void @resolve_anyarray_from_others(ptr noundef nonnull %6)
+  call fastcc void @resolve_anyarray_from_others(ptr noundef %6)
   br label %115
 
 115:                                              ; preds = %114, %111
@@ -603,7 +603,7 @@ define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef
   br i1 %or.cond10.not.i, label %119, label %120
 
 119:                                              ; preds = %115
-  call fastcc void @resolve_anyrange_from_others(ptr noundef nonnull %6)
+  call fastcc void @resolve_anyrange_from_others(ptr noundef %6)
   br label %120
 
 120:                                              ; preds = %119, %115
@@ -614,7 +614,7 @@ define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef
   br i1 %or.cond14.not.i, label %124, label %125
 
 124:                                              ; preds = %120
-  call fastcc void @resolve_anymultirange_from_others(ptr noundef nonnull %6)
+  call fastcc void @resolve_anymultirange_from_others(ptr noundef %6)
   br label %125
 
 125:                                              ; preds = %124, %120
@@ -623,7 +623,7 @@ define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef
   br i1 %or.cond18.not.i, label %127, label %128
 
 127:                                              ; preds = %125
-  call fastcc void @resolve_anyelement_from_others(ptr noundef nonnull %7)
+  call fastcc void @resolve_anyelement_from_others(ptr noundef %7)
   %.pre235.i = load i32, ptr %46, align 4
   br label %128
 
@@ -634,7 +634,7 @@ define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef
   br i1 %or.cond22.not.i, label %131, label %132
 
 131:                                              ; preds = %128
-  call fastcc void @resolve_anyarray_from_others(ptr noundef nonnull %7)
+  call fastcc void @resolve_anyarray_from_others(ptr noundef %7)
   br label %132
 
 132:                                              ; preds = %131, %128
@@ -645,7 +645,7 @@ define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef
   br i1 %or.cond26.not.i, label %136, label %137
 
 136:                                              ; preds = %132
-  call fastcc void @resolve_anyrange_from_others(ptr noundef nonnull %7)
+  call fastcc void @resolve_anyrange_from_others(ptr noundef %7)
   br label %137
 
 137:                                              ; preds = %136, %132
@@ -656,7 +656,7 @@ define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef
   br i1 %or.cond30.not.i, label %141, label %142
 
 141:                                              ; preds = %137
-  call fastcc void @resolve_anymultirange_from_others(ptr noundef nonnull %7)
+  call fastcc void @resolve_anymultirange_from_others(ptr noundef %7)
   br label %142
 
 142:                                              ; preds = %141, %137
@@ -1504,7 +1504,7 @@ define dso_local zeroext i1 @resolve_polymorphic_argtypes(i32 noundef %0, ptr no
   br i1 %or.cond29.not, label %78, label %79
 
 78:                                               ; preds = %76
-  call fastcc void @resolve_anyelement_from_others(ptr noundef nonnull %5)
+  call fastcc void @resolve_anyelement_from_others(ptr noundef %5)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %79
@@ -1517,7 +1517,7 @@ define dso_local zeroext i1 @resolve_polymorphic_argtypes(i32 noundef %0, ptr no
   br i1 %or.cond33.not, label %83, label %84
 
 83:                                               ; preds = %79
-  call fastcc void @resolve_anyarray_from_others(ptr noundef nonnull %5)
+  call fastcc void @resolve_anyarray_from_others(ptr noundef %5)
   br label %84
 
 84:                                               ; preds = %83, %79
@@ -1528,7 +1528,7 @@ define dso_local zeroext i1 @resolve_polymorphic_argtypes(i32 noundef %0, ptr no
   br i1 %or.cond37.not, label %88, label %89
 
 88:                                               ; preds = %84
-  call fastcc void @resolve_anyrange_from_others(ptr noundef nonnull %5)
+  call fastcc void @resolve_anyrange_from_others(ptr noundef %5)
   br label %89
 
 89:                                               ; preds = %88, %84
@@ -1539,7 +1539,7 @@ define dso_local zeroext i1 @resolve_polymorphic_argtypes(i32 noundef %0, ptr no
   br i1 %or.cond41.not, label %93, label %94
 
 93:                                               ; preds = %89
-  call fastcc void @resolve_anymultirange_from_others(ptr noundef nonnull %5)
+  call fastcc void @resolve_anymultirange_from_others(ptr noundef %5)
   br label %94
 
 94:                                               ; preds = %93, %89
@@ -1548,7 +1548,7 @@ define dso_local zeroext i1 @resolve_polymorphic_argtypes(i32 noundef %0, ptr no
   br i1 %or.cond45.not, label %96, label %97
 
 96:                                               ; preds = %94
-  call fastcc void @resolve_anyelement_from_others(ptr noundef nonnull %6)
+  call fastcc void @resolve_anyelement_from_others(ptr noundef %6)
   %.phi.trans.insert250 = getelementptr inbounds i8, ptr %6, i64 4
   %.pre251 = load i32, ptr %.phi.trans.insert250, align 4
   br label %97
@@ -1561,7 +1561,7 @@ define dso_local zeroext i1 @resolve_polymorphic_argtypes(i32 noundef %0, ptr no
   br i1 %or.cond49.not, label %101, label %102
 
 101:                                              ; preds = %97
-  call fastcc void @resolve_anyarray_from_others(ptr noundef nonnull %6)
+  call fastcc void @resolve_anyarray_from_others(ptr noundef %6)
   br label %102
 
 102:                                              ; preds = %101, %97
@@ -1572,7 +1572,7 @@ define dso_local zeroext i1 @resolve_polymorphic_argtypes(i32 noundef %0, ptr no
   br i1 %or.cond53.not, label %106, label %107
 
 106:                                              ; preds = %102
-  call fastcc void @resolve_anyrange_from_others(ptr noundef nonnull %6)
+  call fastcc void @resolve_anyrange_from_others(ptr noundef %6)
   br label %107
 
 107:                                              ; preds = %106, %102
@@ -1583,7 +1583,7 @@ define dso_local zeroext i1 @resolve_polymorphic_argtypes(i32 noundef %0, ptr no
   br i1 %or.cond57.not, label %111, label %.lr.ph236
 
 111:                                              ; preds = %107
-  call fastcc void @resolve_anymultirange_from_others(ptr noundef nonnull %6)
+  call fastcc void @resolve_anymultirange_from_others(ptr noundef %6)
   br label %.lr.ph236
 
 .lr.ph236:                                        ; preds = %107, %111
@@ -1658,7 +1658,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare i32 @get_call_expr_argtype(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @resolve_anyelement_from_others(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @resolve_anyelement_from_others(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
@@ -1750,13 +1750,13 @@ define internal fastcc void @resolve_anyelement_from_others(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @resolve_anyarray_from_others(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @resolve_anyarray_from_others(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %.thread
 
 3:                                                ; preds = %1
-  tail call fastcc void @resolve_anyelement_from_others(ptr noundef nonnull %0)
+  tail call fastcc void @resolve_anyelement_from_others(ptr noundef %0)
   %.pr = load i32, ptr %0, align 4
   %.not8 = icmp eq i32 %.pr, 0
   br i1 %.not8, label %14, label %.thread
@@ -1791,7 +1791,7 @@ define internal fastcc void @resolve_anyarray_from_others(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @resolve_anyrange_from_others(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @resolve_anyrange_from_others(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
@@ -1826,7 +1826,7 @@ define internal fastcc void @resolve_anyrange_from_others(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @resolve_anymultirange_from_others(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @resolve_anymultirange_from_others(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0

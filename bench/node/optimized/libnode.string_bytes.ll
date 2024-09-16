@@ -46,8 +46,6 @@ $_ZNK2v86String26ExternalStringResourceBase6UnlockEv = comdat any
 
 $_ZZN4node11SPrintFImplB5cxx11EPKcE4args = comdat any
 
-$_ZZN4node25MultiplyWithOverflowCheckImEET_S1_S1_E4args = comdat any
-
 $_ZZN4node13base64_encodeEPKcmPcmNS_10Base64ModeEE4args = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
@@ -102,10 +100,6 @@ $_ZZN4node13base64_encodeEPKcmPcmNS_10Base64ModeEE4args = comdat any
 @.str.39 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @.str.40 = private unnamed_addr constant [26 x i8] c"Failed to allocate memory\00", align 1
 @.str.41 = private unnamed_addr constant [29 x i8] c"ERR_MEMORY_ALLOCATION_FAILED\00", align 1
-@_ZZN4node25MultiplyWithOverflowCheckImEET_S1_S1_E4args = linkonce_odr dso_local constant %"struct.node::AssertionInfo" { ptr @.str.42, ptr @.str.43, ptr @.str.44 }, comdat, align 8
-@.str.42 = private unnamed_addr constant [25 x i8] c"../../src/util-inl.h:329\00", align 1
-@.str.43 = private unnamed_addr constant [17 x i8] c"(b) == (ret / a)\00", align 1
-@.str.44 = private unnamed_addr constant [60 x i8] c"T node::MultiplyWithOverflowCheck(T, T) [T = unsigned long]\00", align 1
 @.str.45 = private unnamed_addr constant [51 x i8] c"Cannot create a string longer than 0x%x characters\00", align 1
 @.str.46 = private unnamed_addr constant [20 x i8] c"ERR_STRING_TOO_LONG\00", align 1
 @_ZZN4node13base64_encodeEPKcmPcmNS_10Base64ModeEE4args = linkonce_odr dso_local constant %"struct.node::AssertionInfo" { ptr @.str.48, ptr @.str.49, ptr @.str.50 }, comdat, align 8
@@ -891,8 +885,8 @@ if.then39:                                        ; preds = %if.then36
   br label %return
 
 if.end45:                                         ; preds = %if.then36
-  tail call fastcc void @_ZN4nodeL11force_asciiEPKcPcm(ptr noundef %buf, ptr noundef nonnull %call37, i64 noundef %buflen)
-  %call46 = tail call fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE3NewEPNS2_7IsolateEPcmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef nonnull %call37, i64 noundef %buflen, ptr noundef %error)
+  tail call fastcc void @_ZN4nodeL11force_asciiEPKcPcm(ptr noundef %buf, ptr noundef %call37, i64 noundef %buflen)
+  %call46 = tail call fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE3NewEPNS2_7IsolateEPcmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef %call37, i64 noundef %buflen, ptr noundef %error)
   br label %return
 
 if.else:                                          ; preds = %sw.bb31
@@ -948,7 +942,7 @@ do.body99:                                        ; preds = %if.end91
   unreachable
 
 do.end102:                                        ; preds = %if.end91
-  %call103 = tail call fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE3NewEPNS2_7IsolateEPcmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef nonnull %retval.0.i.i.i137, i64 noundef %mul.i, ptr noundef %error)
+  %call103 = tail call fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE3NewEPNS2_7IsolateEPcmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef %retval.0.i.i.i137, i64 noundef %mul.i, ptr noundef %error)
   br label %return
 
 sw.bb108:                                         ; preds = %if.end12
@@ -988,7 +982,7 @@ do.body130:                                       ; preds = %if.end120
   unreachable
 
 do.end133:                                        ; preds = %if.end120
-  %call134 = tail call fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE3NewEPNS2_7IsolateEPcmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef nonnull %retval.0.i.i.i116143, i64 noundef %conv3.i, ptr noundef %error)
+  %call134 = tail call fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE3NewEPNS2_7IsolateEPcmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef %retval.0.i.i.i116143, i64 noundef %conv3.i, ptr noundef %error)
   br label %return
 
 sw.bb139:                                         ; preds = %if.end12
@@ -1023,7 +1017,7 @@ do.body160:                                       ; preds = %if.end150
   unreachable
 
 do.end163:                                        ; preds = %if.end150
-  %call164 = tail call fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE3NewEPNS2_7IsolateEPcmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef nonnull %retval.0.i.i.i125149, i64 noundef %mul, ptr noundef %error)
+  %call164 = tail call fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE3NewEPNS2_7IsolateEPcmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef %retval.0.i.i.i125149, i64 noundef %mul, ptr noundef %error)
   br label %return
 
 if.end199:                                        ; preds = %if.end12
@@ -1089,7 +1083,7 @@ _ZN4node15UncheckedMallocIcEEPT_m.exit:           ; preds = %entry, %if.end.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN4nodeL11force_asciiEPKcPcm(ptr noundef %src, ptr noundef %dst, i64 noundef %len) unnamed_addr #6 {
+define internal fastcc void @_ZN4nodeL11force_asciiEPKcPcm(ptr noundef %src, ptr noundef nonnull %dst, i64 noundef range(i64 0, 4294967297) %len) unnamed_addr #6 {
 entry:
   %cmp = icmp ult i64 %len, 16
   br i1 %cmp, label %if.then, label %if.end
@@ -1185,7 +1179,7 @@ for.end:                                          ; preds = %for.body, %if.end13
   br i1 %cmp19.not, label %if.end26, label %if.then20
 
 if.then20:                                        ; preds = %for.end
-  %sub22 = and i64 %len.addr.068, -8
+  %sub22 = and i64 %len.addr.068, 8589934584
   %add.ptr23 = getelementptr inbounds i8, ptr %src.addr.072, i64 %sub22
   %add.ptr24 = getelementptr inbounds i8, ptr %dst.addr.070, i64 %sub22
   br label %for.body.i49
@@ -1206,7 +1200,7 @@ if.end26:                                         ; preds = %for.body.i41, %for.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE3NewEPNS2_7IsolateEPcmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef %data, i64 noundef %length, ptr nocapture noundef writeonly %error) unnamed_addr #3 align 2 {
+define internal fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE3NewEPNS2_7IsolateEPcmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef nonnull %data, i64 noundef %length, ptr nocapture noundef writeonly %error) unnamed_addr #3 align 2 {
 entry:
   %message.i = alloca [128 x i8], align 16
   %message.i.i = alloca [128 x i8], align 16
@@ -1225,7 +1219,7 @@ if.end:                                           ; preds = %entry
 
 if.then7:                                         ; preds = %if.end
   %conv.i = trunc nuw nsw i64 %length to i32
-  %call.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %isolate, ptr noundef %data, i32 noundef 0, i32 noundef %conv.i) #19
+  %call.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %isolate, ptr noundef nonnull %data, i32 noundef 0, i32 noundef %conv.i) #19
   %cmp.i.i16 = icmp eq ptr %call.i, null
   br i1 %cmp.i.i16, label %if.then.i, label %_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE17NewSimpleFromCopyEPNS2_7IsolateEPKcmPNS2_5LocalINS2_5ValueEEE.exit
 
@@ -1238,7 +1232,7 @@ if.then.i:                                        ; preds = %if.then7
   br label %_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE17NewSimpleFromCopyEPNS2_7IsolateEPKcmPNS2_5LocalINS2_5ValueEEE.exit
 
 _ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE17NewSimpleFromCopyEPNS2_7IsolateEPKcmPNS2_5LocalINS2_5ValueEEE.exit: ; preds = %if.then7, %if.then.i
-  call void @free(ptr noundef %data) #19
+  call void @free(ptr noundef nonnull %data) #19
   br label %return
 
 if.end13:                                         ; preds = %if.end
@@ -1279,7 +1273,7 @@ return:                                           ; preds = %if.end13, %delete.n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE11NewFromCopyEPNS2_7IsolateEPKcmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef %data, i64 noundef %length, ptr nocapture noundef writeonly %error) unnamed_addr #3 align 2 {
+define internal fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE11NewFromCopyEPNS2_7IsolateEPKcmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef %data, i64 noundef range(i64 0, 4294967297) %length, ptr nocapture noundef writeonly %error) unnamed_addr #3 align 2 {
 entry:
   %message.i.i = alloca [128 x i8], align 16
   %cmp = icmp eq i64 %length, 0
@@ -1328,7 +1322,7 @@ if.then16:                                        ; preds = %_ZN4node15Unchecked
 if.end21:                                         ; preds = %if.end.i.i, %_ZN4node15UncheckedMallocIcEEPT_m.exit
   %retval.0.i.i19 = phi ptr [ %malloc1.i, %_ZN4node15UncheckedMallocIcEEPT_m.exit ], [ %malloc.i, %if.end.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i19, ptr align 1 %data, i64 %length, i1 false)
-  %call22 = tail call fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE3NewEPNS2_7IsolateEPcmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef nonnull %retval.0.i.i19, i64 noundef %length, ptr noundef %error)
+  %call22 = tail call fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE3NewEPNS2_7IsolateEPcmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef %retval.0.i.i19, i64 noundef %length, ptr noundef %error)
   br label %return
 
 return:                                           ; preds = %if.then.i, %if.then7, %if.end21, %if.then16, %if.then
@@ -1525,7 +1519,7 @@ return:                                           ; preds = %while.end, %sw.bb, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtE3NewEPNS2_7IsolateEPtmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef %data, i64 noundef %length, ptr nocapture noundef writeonly %error) unnamed_addr #3 align 2 {
+define internal fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtE3NewEPNS2_7IsolateEPtmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef %data, i64 noundef range(i64 0, 4294967297) %length, ptr nocapture noundef writeonly %error) unnamed_addr #3 align 2 {
 entry:
   %message.i = alloca [128 x i8], align 16
   %message.i.i = alloca [128 x i8], align 16
@@ -1599,7 +1593,7 @@ return:                                           ; preds = %if.end13, %delete.n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtE11NewFromCopyEPNS2_7IsolateEPKtmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef %data, i64 noundef %length, ptr nocapture noundef writeonly %error) unnamed_addr #3 align 2 {
+define internal fastcc ptr @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtE11NewFromCopyEPNS2_7IsolateEPKtmPNS2_5LocalINS2_5ValueEEE(ptr noundef %isolate, ptr noundef %data, i64 noundef range(i64 0, 4294967297) %length, ptr nocapture noundef writeonly %error) unnamed_addr #3 align 2 {
 entry:
   %message.i.i = alloca [128 x i8], align 16
   %cmp = icmp eq i64 %length, 0
@@ -1613,7 +1607,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %cmp6 = icmp ult i64 %length, 1031913
-  br i1 %cmp6, label %if.then7, label %if.end13
+  br i1 %cmp6, label %if.then7, label %if.end.i.i
 
 if.then7:                                         ; preds = %if.end
   %conv.i = trunc nuw nsw i64 %length to i32
@@ -1629,17 +1623,8 @@ if.then.i:                                        ; preds = %if.then7
   store ptr %call2.i.i, ptr %error, align 8
   br label %return
 
-if.end13:                                         ; preds = %if.end
-  %mul.ov.i.i.i = icmp slt i64 %length, 0
-  br i1 %mul.ov.i.i.i, label %do.body5.i.i.i, label %if.end.i.i
-
-do.body5.i.i.i:                                   ; preds = %if.end13
-  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node25MultiplyWithOverflowCheckImEET_S1_S1_E4args) #19
-  tail call void @abort() #20
-  unreachable
-
-if.end.i.i:                                       ; preds = %if.end13
-  %mul.val.i.i.i = shl nuw i64 %length, 1
+if.end.i.i:                                       ; preds = %if.end
+  %mul.val.i.i.i = shl nuw nsw i64 %length, 1
   %malloc.i = tail call ptr @malloc(i64 %mul.val.i.i.i)
   %cmp2.i.i = icmp eq ptr %malloc.i, null
   br i1 %cmp2.i.i, label %_ZN4node15UncheckedMallocItEEPT_m.exit, label %if.end21

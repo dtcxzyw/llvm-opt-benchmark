@@ -11017,7 +11017,7 @@ declare void @cairo_stroke(ptr noundef) local_unnamed_addr #3
 declare void @cairo_fill(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_select_base_display_color(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #24 {
+define internal fastcc void @_select_base_display_color(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #24 {
   %5 = getelementptr inbounds i8, ptr %0, i64 496
   %6 = load i32, ptr %5, align 16, !tbaa !203
   %7 = icmp eq i32 %6, 1
@@ -11238,7 +11238,7 @@ declare void @cairo_set_source_rgba(ptr noundef, double noundef, double noundef,
 declare void @cairo_restore(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_draw_color_picker(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8) unnamed_addr #1 {
+define internal fastcc void @_draw_color_picker(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull readonly %6, ptr nocapture noundef nonnull readonly %7, ptr nocapture noundef nonnull readonly %8) unnamed_addr #1 {
   %10 = alloca [4 x float], align 16
   %11 = alloca [4 x float], align 16
   %12 = alloca [4 x float], align 16

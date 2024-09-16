@@ -214,7 +214,7 @@ if.else92:                                        ; preds = %if.else
   br label %if.end155
 
 if.else96:                                        ; preds = %if.end72
-  tail call fastcc void @_ZL18setTrailingWSStartP5UBiDi(ptr noundef nonnull %pLineBiDi)
+  tail call fastcc void @_ZL18setTrailingWSStartP5UBiDi(ptr noundef %pLineBiDi)
   %trailingWSStart100 = getelementptr inbounds i8, ptr %pLineBiDi, i64 196
   %22 = load i32, ptr %trailingWSStart100, align 4
   %cmp101 = icmp eq i32 %22, 0
@@ -303,7 +303,7 @@ declare i32 @ubidi_getParagraph_75(ptr noundef, i32 noundef, ptr noundef, ptr no
 declare zeroext i8 @ubidi_getParaLevelAtIndex_75(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL18setTrailingWSStartP5UBiDi(ptr nocapture noundef %pBiDi) unnamed_addr #2 {
+define internal fastcc void @_ZL18setTrailingWSStartP5UBiDi(ptr nocapture noundef nonnull %pBiDi) unnamed_addr #2 {
 entry:
   %dirProps1 = getelementptr inbounds i8, ptr %pBiDi, i64 112
   %0 = load ptr, ptr %dirProps1, align 8

@@ -452,7 +452,7 @@ pmix_mca_base_alias_setup.exit:                   ; preds = %52, %55
   br label %117
 
 pmix_mca_base_alias_setup.exit.thread:            ; preds = %pmix_obj_new_tma.exit.thread20.i, %8
-  %57 = tail call fastcc ptr @pmix_mca_base_alias_generate_name(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2)
+  %57 = tail call fastcc ptr @pmix_mca_base_alias_generate_name(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %58 = load ptr, ptr @alias_hash_table, align 8
@@ -605,7 +605,7 @@ pmix_obj_new_tma.exit46.thread55:                 ; preds = %.lr.ph.i.i43, %92
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc noundef ptr @pmix_mca_base_alias_generate_name(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #5 {
+define internal fastcc noundef ptr @pmix_mca_base_alias_generate_name(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %4
 
@@ -662,7 +662,7 @@ define internal fastcc noundef ptr @pmix_mca_base_alias_generate_name(ptr nounde
 
 27:                                               ; preds = %24, %23
   %.1 = phi i64 [ %26, %24 ], [ %.029, %23 ]
-  %28 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %17, ptr noundef %2, i64 noundef %.1) #17
+  %28 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull %2, i64 noundef %.1) #17
   br label %29
 
 29:                                               ; preds = %10, %27
@@ -684,7 +684,7 @@ define ptr @pmix_mca_base_alias_lookup(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call fastcc ptr @pmix_mca_base_alias_generate_name(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2)
+  %7 = tail call fastcc ptr @pmix_mca_base_alias_generate_name(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %8 = load ptr, ptr @alias_hash_table, align 8

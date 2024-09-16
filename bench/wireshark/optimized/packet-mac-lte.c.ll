@@ -3804,7 +3804,7 @@ proto_item_set_generated.exit476:                 ; preds = %proto_item_set_gene
 
 275:                                              ; preds = %273
   %276 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call fastcc void @TrackSRInfo(i32 noundef 1, ptr noundef %1, ptr noundef %15, ptr noundef %0, ptr noundef nonnull %18, i32 noundef %276, ptr noundef %213)
+  tail call fastcc void @TrackSRInfo(i32 noundef 1, ptr noundef %1, ptr noundef %15, ptr noundef %0, ptr noundef %18, i32 noundef %276, ptr noundef %213)
   br label %277
 
 277:                                              ; preds = %273, %275
@@ -3872,7 +3872,7 @@ proto_item_set_generated.exit482:                 ; preds = %proto_item_set_gene
   br i1 %.not433, label %.loopexit, label %315
 
 315:                                              ; preds = %proto_item_set_generated.exit482
-  tail call fastcc void @TrackSRInfo(i32 noundef 2, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %0, ptr noundef nonnull %18, i32 noundef 0, ptr noundef %286)
+  tail call fastcc void @TrackSRInfo(i32 noundef 2, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %0, ptr noundef %18, i32 noundef 0, ptr noundef %286)
   br label %.loopexit
 
 316:                                              ; preds = %proto_item_set_generated.exit455
@@ -4844,7 +4844,7 @@ proto_item_set_hidden.exit514:                    ; preds = %proto_item_set_hidd
   br i1 %or.cond, label %850, label %860
 
 850:                                              ; preds = %845
-  tail call fastcc void @TrackSRInfo(i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %18, i32 noundef 0, ptr noundef null)
+  tail call fastcc void @TrackSRInfo(i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef %18, i32 noundef 0, ptr noundef null)
   %851 = load i32, ptr @global_mac_lte_show_drx, align 4
   %.not429 = icmp eq i32 %851, 0
   br i1 %.not429, label %860, label %852
@@ -4859,13 +4859,13 @@ proto_item_set_hidden.exit514:                    ; preds = %proto_item_set_hidd
   br i1 %.not430, label %858, label %859
 
 858:                                              ; preds = %852
-  tail call fastcc void @update_drx_info(ptr noundef nonnull %1, ptr noundef nonnull %18)
+  tail call fastcc void @update_drx_info(ptr noundef nonnull %1, ptr noundef %18)
   %.val = load i16, ptr %58, align 2
   tail call fastcc void @set_drx_info(ptr noundef nonnull %1, i16 %.val, i32 noundef 1, i32 noundef %6)
   br label %859
 
 859:                                              ; preds = %858, %852
-  tail call fastcc void @show_drx_info(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %18, i32 noundef 1, i32 noundef %6)
+  tail call fastcc void @show_drx_info(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef %18, i32 noundef 1, i32 noundef %6)
   br label %860
 
 860:                                              ; preds = %850, %859, %845, %839
@@ -4898,23 +4898,23 @@ proto_item_set_hidden.exit514:                    ; preds = %proto_item_set_hidd
   ]
 
 868:                                              ; preds = %866
-  tail call fastcc void @dissect_pch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef nonnull %18, ptr noundef nonnull %8)
+  tail call fastcc void @dissect_pch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef %18, ptr noundef nonnull %8)
   br label %876
 
 869:                                              ; preds = %866
-  tail call fastcc void @dissect_rar(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef nonnull %18, ptr noundef nonnull %8)
+  tail call fastcc void @dissect_rar(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef %18, ptr noundef nonnull %8)
   br label %876
 
 870:                                              ; preds = %866, %866, %866, %866
-  tail call fastcc void @dissect_ulsch_or_dlsch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef nonnull %18, ptr noundef nonnull %8, ptr noundef %.0398, ptr noundef %27, i32 noundef %6)
+  tail call fastcc void @dissect_ulsch_or_dlsch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef %18, ptr noundef nonnull %8, ptr noundef %.0398, ptr noundef %27, i32 noundef %6)
   br label %876
 
 871:                                              ; preds = %866
-  tail call fastcc void @dissect_bch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef nonnull %18)
+  tail call fastcc void @dissect_bch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef %18)
   br label %876
 
 872:                                              ; preds = %866
-  tail call fastcc void @dissect_mch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef nonnull %18)
+  tail call fastcc void @dissect_mch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef %18)
   br label %876
 
 873:                                              ; preds = %866
@@ -4922,11 +4922,11 @@ proto_item_set_hidden.exit514:                    ; preds = %proto_item_set_hidd
   br label %876
 
 874:                                              ; preds = %866
-  tail call fastcc void @dissect_slsch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef nonnull %18)
+  tail call fastcc void @dissect_slsch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef %18)
   br label %876
 
 875:                                              ; preds = %866
-  tail call fastcc void @dissect_bch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef nonnull %18)
+  tail call fastcc void @dissect_bch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef %18)
   br label %876
 
 876:                                              ; preds = %866, %875, %874, %873, %872, %871, %870, %869, %868
@@ -5215,7 +5215,7 @@ define internal void @write_pdu_label_and_info(ptr noundef %0, ptr noundef %1, p
 declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @TrackSRInfo(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @TrackSRInfo(i32 noundef range(i32 0, 3) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, i32 noundef range(i32 -2147483648, 65535) %5, ptr noundef %6) unnamed_addr #0 {
   %8 = icmp eq i32 %0, 1
   %9 = getelementptr inbounds i8, ptr %4, i64 136
   %10 = sext i32 %5 to i64
@@ -5271,7 +5271,7 @@ define internal fastcc void @TrackSRInfo(i32 noundef %0, ptr noundef %1, ptr nou
   ]
 
 38:                                               ; preds = %36
-  switch i32 %0, label %default.unreachable [
+  switch i32 %0, label %default.unreachable156 [
     i32 0, label %39
     i32 1, label %43
     i32 2, label %47
@@ -5333,7 +5333,7 @@ GetSRResult.exit:                                 ; preds = %47, %55
   %74 = trunc i64 %67 to i32
   %75 = mul i32 %74, 1000
   %76 = add i32 %73, %75
-  switch i32 %0, label %default.unreachable [
+  switch i32 %0, label %default.unreachable156 [
     i32 0, label %77
     i32 1, label %108
     i32 2, label %123
@@ -5470,7 +5470,7 @@ GetSRResult.exit129:                              ; preds = %GetSRResult.exit127
   br label %186
 
 154:                                              ; preds = %36
-  switch i32 %0, label %default.unreachable [
+  switch i32 %0, label %default.unreachable156 [
     i32 0, label %155
     i32 1, label %156
     i32 2, label %171
@@ -5532,7 +5532,7 @@ GetSRResult.exit133:                              ; preds = %171, %179
   store i32 2, ptr %185, align 4
   br label %186
 
-default.unreachable:                              ; preds = %154, %62, %38
+default.unreachable156:                           ; preds = %154, %62, %38
   unreachable
 
 186:                                              ; preds = %36, %GetSRResult.exit, %43, %39, %GetSRResult.exit129, %GetSRResult.exit125, %GetSRResult.exit123, %GetSRResult.exit133, %GetSRResult.exit131, %155, %26
@@ -5751,7 +5751,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @update_drx_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @update_drx_info(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr @mac_lte_ue_parameters, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 6
   %5 = load i16, ptr %4, align 2
@@ -5970,7 +5970,7 @@ define internal fastcc void @update_drx_info(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_drx_info(ptr nocapture noundef readonly %0, i16 %.6.val, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_drx_info(ptr nocapture noundef readonly %0, i16 %.6.val, i32 noundef range(i32 0, 2) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr @mac_lte_ue_parameters, align 8
   %5 = zext i16 %.6.val to i64
   %6 = inttoptr i64 %5 to ptr
@@ -6025,7 +6025,7 @@ define internal fastcc void @set_drx_info(ptr nocapture noundef readonly %0, i16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_drx_info(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @show_drx_info(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = load ptr, ptr @mac_lte_drx_frame_result, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
@@ -6542,7 +6542,7 @@ proto_item_set_generated.exit210:                 ; preds = %258, %263, %266
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_pch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_pch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #16
   tail call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %3, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.1484, i32 noundef %7)
   %8 = load i32, ptr @hf_mac_lte_pch_pdu, align 4
@@ -6611,7 +6611,7 @@ proto_item_set_hidden.exit:                       ; preds = %22, %24, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rar(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_rar(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
@@ -7093,7 +7093,7 @@ proto_item_set_generated.exit122:                 ; preds = %270, %277, %280
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ulsch_or_dlsch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc void @dissect_ulsch_or_dlsch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr nocapture noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -7265,7 +7265,7 @@ show_ues_tti.exit:                                ; preds = %count_ues_tti.exit,
   br i1 %.not1809, label %128, label %set_drx_info.exit
 
 128:                                              ; preds = %122
-  tail call fastcc void @update_drx_info(ptr noundef nonnull %1, ptr noundef nonnull %4)
+  tail call fastcc void @update_drx_info(ptr noundef nonnull %1, ptr noundef %4)
   %.val1911 = load i16, ptr %115, align 2
   %129 = load ptr, ptr @mac_lte_ue_parameters, align 8
   %130 = zext i16 %.val1911 to i64
@@ -7296,7 +7296,7 @@ show_ues_tti.exit:                                ; preds = %count_ues_tti.exit,
   br label %set_drx_info.exit
 
 set_drx_info.exit:                                ; preds = %136, %133, %128, %122
-  tail call fastcc void @show_drx_info(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4, i32 noundef 1, i32 noundef %8)
+  tail call fastcc void @show_drx_info(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef %4, i32 noundef 1, i32 noundef %8)
   %146 = load ptr, ptr %123, align 8
   %147 = getelementptr inbounds i8, ptr %146, i64 50
   %148 = load i16, ptr %147, align 2
@@ -7725,7 +7725,7 @@ TrackReportedULHARQResend.exit.thread.thread:     ; preds = %mac_lte_drx_new_uls
   br label %400
 
 TrackReportedULHARQResend.exit.thread:            ; preds = %389
-  tail call fastcc void @TrackSRInfo(i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null)
+  tail call fastcc void @TrackSRInfo(i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef %4, i32 noundef 0, ptr noundef null)
   %.pre = load i8, ptr %105, align 1
   %.pre.fr = freeze i8 %.pre
   %397 = icmp eq i8 %.pre.fr, 0
@@ -11024,7 +11024,7 @@ get_mac_lte_channel_priority.exit2007:            ; preds = %get_mac_lte_channel
 2330:                                             ; preds = %2326
   %2331 = getelementptr inbounds i8, ptr %2327, i64 8
   %2332 = load i32, ptr %2331, align 4
-  call fastcc void @set_rlc_seqnum_length_ext_li_field(i32 noundef %2332, i8 noundef zeroext %2318, ptr noundef nonnull %37, ptr noundef nonnull %38)
+  call fastcc void @set_rlc_seqnum_length_ext_li_field(i32 noundef %2332, i8 noundef zeroext %2318, ptr noundef %37, ptr noundef %38)
   %2333 = getelementptr %struct.lcid_drb_mapping_t, ptr %2323, i64 %indvars.iv.i, i32 1
   br label %lookup_rlc_channel_from_lcid.exit
 
@@ -11573,7 +11573,7 @@ proto_item_set_generated.exit2021:                ; preds = %2505, %2511, %2514
   br label %set_drx_info.exit2024
 
 set_drx_info.exit2024:                            ; preds = %2571, %2567, %2564, %2559, %2554
-  call fastcc void @show_drx_info(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef %8)
+  call fastcc void @show_drx_info(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef %4, i32 noundef 0, i32 noundef %8)
   br label %2574
 
 2574:                                             ; preds = %._crit_edge2169, %2138, %set_drx_info.exit2024, %2552, %629, %525, %501, %488
@@ -11581,7 +11581,7 @@ set_drx_info.exit2024:                            ; preds = %2571, %2567, %2564,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @dissect_bch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #16
   %7 = getelementptr inbounds i8, ptr %4, i64 2
   %8 = load i8, ptr %7, align 2
@@ -11676,7 +11676,7 @@ proto_item_set_hidden.exit:                       ; preds = %38, %39, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @dissect_mch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
   %6 = alloca [1024 x i8], align 16
   %7 = alloca [1024 x i32], align 16
   %8 = alloca i64, align 8
@@ -12315,7 +12315,7 @@ proto_item_set_hidden.exit:                       ; preds = %9, %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_slsch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @dissect_slsch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
   %6 = alloca [1024 x i8], align 16
   %7 = alloca [1024 x i16], align 16
   %8 = alloca i32, align 4
@@ -12967,7 +12967,7 @@ declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @call_rlc_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8, i16 noundef zeroext %9, i16 noundef zeroext %10, i8 noundef zeroext %11, i8 noundef zeroext %12, i32 noundef %13, i32 noundef %14) unnamed_addr #0 {
+define internal fastcc void @call_rlc_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, i8 noundef zeroext range(i8 1, 5) %6, i8 noundef zeroext %7, i16 noundef zeroext %8, i16 noundef zeroext range(i16 4, 9) %9, i16 noundef zeroext %10, i8 noundef zeroext %11, i8 noundef zeroext %12, i32 noundef %13, i32 noundef %14) unnamed_addr #0 {
   %16 = zext i16 %5 to i32
   %17 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %4, i32 noundef %16) #16
   %18 = tail call ptr @wmem_file_scope() #16
@@ -13075,7 +13075,7 @@ declare i32 @g_hash_table_lookup_extended(ptr noundef, ptr noundef, ptr noundef,
 declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @set_rlc_seqnum_length_ext_li_field(i32 noundef %0, i8 noundef zeroext %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #10 {
+define internal fastcc void @set_rlc_seqnum_length_ext_li_field(i32 noundef %0, i8 noundef zeroext %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #10 {
   switch i32 %0, label %50 [
     i32 2, label %5
     i32 3, label %6

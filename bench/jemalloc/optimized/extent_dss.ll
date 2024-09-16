@@ -122,9 +122,9 @@ release.i.i:                                      ; preds = %while.body
   %7 = ptrtoint ptr %call.i.i57 to i64
   store atomic i64 %7, ptr @dss_max.0 release, align 8
   %cmp2.not.i = icmp ne ptr %call.i.i57, %new_addr
-  %or.cond.i.not72 = and i1 %cmp1.not.i, %cmp2.not.i
+  %or.cond.i.not71 = and i1 %cmp1.not.i, %cmp2.not.i
   %cmp11 = icmp eq ptr %call.i.i57, null
-  %or.cond = or i1 %cmp11, %or.cond.i.not72
+  %or.cond = or i1 %cmp11, %or.cond.i.not71
   br i1 %or.cond, label %label_oom, label %if.end13
 
 if.end13:                                         ; preds = %release.i.i
@@ -156,11 +156,11 @@ if.then23:                                        ; preds = %if.end13
   %12 = and i32 %arena.val, -268431361
   %conv.i.masked.i = zext i32 %12 to i64
   store i64 %call26, ptr %e_sn.i.i, align 8
-  %cmp.i58.not = icmp eq i8 %tobool.mask, 0
-  %and.i14.i = select i1 %cmp.i58.not, i64 243277824, i64 17592429322240
-  %and.i22.i = or disjoint i64 %and.i14.i, %conv.i.masked.i
-  %or.i27.i = or i64 %and.i22.i, %and.i.i
-  store i64 %or.i27.i, ptr %call, align 8
+  %cmp.not.i = icmp eq i8 %tobool.mask, 0
+  %and.i14.i = select i1 %cmp.not.i, i64 243277824, i64 17592429322240
+  %or.i18.i = or disjoint i64 %and.i14.i, %conv.i.masked.i
+  %or.i26.i = or i64 %or.i18.i, %and.i.i
+  store i64 %or.i26.i, ptr %call, align 8
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then23, %if.end13
@@ -222,20 +222,20 @@ if.then62:                                        ; preds = %land.lhs.true
   %arena.val56 = load i32, ptr %5, align 32
   %tobool66.not = icmp eq i64 %size, 0
   %18 = and i8 %8, 1
-  %e_addr.i.i60 = getelementptr inbounds i8, ptr %edata, i64 8
-  store ptr %add.ptr20, ptr %e_addr.i.i60, align 8
+  %e_addr.i.i59 = getelementptr inbounds i8, ptr %edata, i64 8
+  store ptr %add.ptr20, ptr %e_addr.i.i59, align 8
   %19 = getelementptr inbounds i8, ptr %edata, i64 16
   store i64 %size, ptr %19, align 8
   %20 = and i32 %arena.val56, -268431361
-  %conv.i.masked.i63 = zext i32 %20 to i64
+  %conv.i.masked.i62 = zext i32 %20 to i64
   %shl.i.i = select i1 %tobool66.not, i64 0, i64 4096
   %e_sn.i.i65 = getelementptr inbounds i8, ptr %edata, i64 32
   store i64 232, ptr %e_sn.i.i65, align 8
-  %cmp.i67.not = icmp eq i8 %18, 0
-  %or.i23.i68 = select i1 %cmp.i67.not, i64 8192, i64 17592186052608
-  %and.i14.i64 = or disjoint i64 %or.i23.i68, %shl.i.i
-  %and.i22.i66 = or disjoint i64 %and.i14.i64, %conv.i.masked.i63
-  store i64 %and.i22.i66, ptr %edata, align 8
+  %cmp.not.i66 = icmp eq i8 %18, 0
+  %or.i22.i67 = select i1 %cmp.not.i66, i64 8192, i64 17592186052608
+  %and.i14.i63 = or disjoint i64 %or.i22.i67, %shl.i.i
+  %or.i18.i64 = or disjoint i64 %and.i14.i63, %conv.i.masked.i62
+  store i64 %or.i18.i64, ptr %edata, align 8
   %call69 = call zeroext i1 @extent_purge_forced_wrapper(ptr noundef %tsdn, ptr noundef %call64, ptr noundef nonnull %edata, i64 noundef 0, i64 noundef %size) #6
   br i1 %call69, label %if.then70, label %return
 

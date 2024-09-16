@@ -4160,7 +4160,7 @@ define dso_local void @folio_wait_bit(ptr noundef %0, i32 noundef %1) #1 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc range(i32 -4, 1) i32 @folio_wait_bit_common(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #6 align 16 {
+define internal fastcc range(i32 -4, 1) i32 @folio_wait_bit_common(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 2, 259) %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #6 align 16 {
   %5 = alloca %struct.wait_page_queue, align 8
   %6 = alloca i8, align 1
   %7 = ptrtoint ptr %0 to i64
@@ -11642,7 +11642,7 @@ declare dso_local ptr @xas_find_marked(ptr noundef, i64 noundef, i32 noundef) lo
 declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @filemap_get_read_batch(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc void @filemap_get_read_batch(ptr noundef %0, i64 noundef range(i64 -2251799813685248, 2251799813685248) %1, i64 noundef range(i64 -1, 4503599627370495) %2, ptr nocapture noundef %3) unnamed_addr #1 align 16 {
   %5 = alloca %struct.xa_state, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #14
   %6 = getelementptr inbounds i8, ptr %5, i64 16

@@ -532,7 +532,7 @@ define dso_local ptr @curl_easy_duphandle(ptr noundef %0) local_unnamed_addr #5 
 
 44:                                               ; preds = %42, %27
   %45 = getelementptr inbounds i8, ptr %0, i64 800
-  %46 = tail call i32 @Curl_mime_duppart(ptr noundef %3, ptr noundef nonnull %10, ptr noundef nonnull %45) #12
+  %46 = tail call i32 @Curl_mime_duppart(ptr noundef nonnull %3, ptr noundef nonnull %10, ptr noundef nonnull %45) #12
   %47 = getelementptr inbounds i8, ptr %0, i64 1240
   %48 = load ptr, ptr %47, align 8
   %.not53.i = icmp eq ptr %48, null

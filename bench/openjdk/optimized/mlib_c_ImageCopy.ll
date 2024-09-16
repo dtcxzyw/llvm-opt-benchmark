@@ -158,19 +158,19 @@ define hidden range(i32 0, 3) i32 @mlib_ImageCopy(ptr noundef readonly %0, ptr n
   br i1 %exitcond.not, label %mlib_c_ImageCopy_a1.exit, label %56, !llvm.loop !9
 
 60:                                               ; preds = %15
-  tail call fastcc void @mlib_c_ImageCopy_u8(ptr noundef nonnull %1, ptr noundef nonnull %0)
+  tail call fastcc void @mlib_c_ImageCopy_u8(ptr noundef %1, ptr noundef %0)
   br label %mlib_c_ImageCopy_a1.exit
 
 61:                                               ; preds = %15, %15
-  tail call fastcc void @mlib_c_ImageCopy_s16(ptr noundef nonnull %1, ptr noundef nonnull %0)
+  tail call fastcc void @mlib_c_ImageCopy_s16(ptr noundef %1, ptr noundef %0)
   br label %mlib_c_ImageCopy_a1.exit
 
 62:                                               ; preds = %15, %15
-  tail call fastcc void @mlib_c_ImageCopy_s32(ptr noundef nonnull %1, ptr noundef nonnull %0)
+  tail call fastcc void @mlib_c_ImageCopy_s32(ptr noundef %1, ptr noundef %0)
   br label %mlib_c_ImageCopy_a1.exit
 
 63:                                               ; preds = %15
-  tail call fastcc void @mlib_c_ImageCopy_d64(ptr noundef nonnull %1, ptr noundef nonnull %0)
+  tail call fastcc void @mlib_c_ImageCopy_d64(ptr noundef %1, ptr noundef %0)
   br label %mlib_c_ImageCopy_a1.exit
 
 mlib_c_ImageCopy_a1.exit:                         ; preds = %56, %52, %.lr.ph.i, %.preheader107, %.preheader, %33, %60, %61, %62, %63, %40, %15, %9, %12, %6, %5, %2
@@ -504,7 +504,7 @@ define hidden void @mlib_ImageCopy_bit_al(ptr noundef %0, ptr noundef %1, i32 no
 declare void @mlib_ImageCopy_bit_na(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mlib_c_ImageCopy_u8(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @mlib_c_ImageCopy_u8(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val120 = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %1, i64 24
@@ -791,7 +791,7 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mlib_c_ImageCopy_s16(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @mlib_c_ImageCopy_s16(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val120 = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %1, i64 24
@@ -1082,7 +1082,7 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mlib_c_ImageCopy_s32(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @mlib_c_ImageCopy_s32(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val109 = load ptr, ptr %3, align 8
   %.val109149 = ptrtoint ptr %.val109 to i64
@@ -1345,7 +1345,7 @@ define internal fastcc void @mlib_c_ImageCopy_s32(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mlib_c_ImageCopy_d64(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @mlib_c_ImageCopy_d64(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val37 = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %1, i64 24

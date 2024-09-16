@@ -640,7 +640,7 @@ define ptr @Cudd_addTriangle(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 
 35:                                               ; preds = %35, %27
   store i32 0, ptr %34, align 8
-  %36 = tail call fastcc ptr @addTriangleRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %24)
+  %36 = tail call fastcc ptr @addTriangleRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef %24)
   %37 = load i32, ptr %34, align 8
   %38 = icmp eq i32 %37, 1
   br i1 %38, label %35, label %39, !llvm.loop !12
@@ -679,7 +679,7 @@ define ptr @Cudd_addTriangle(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 declare ptr @Cudd_addComputeCube(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @addTriangleRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @addTriangleRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %1, %7
@@ -722,7 +722,7 @@ define internal fastcc ptr @addTriangleRecur(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not121, label %32, label %30
 
 30:                                               ; preds = %27, %23
-  %31 = tail call ptr @cuddCacheLookup(ptr noundef nonnull %0, i64 noundef 134, ptr noundef nonnull %spec.select127, ptr noundef %spec.select, ptr noundef %4) #7
+  %31 = tail call ptr @cuddCacheLookup(ptr noundef nonnull %0, i64 noundef 134, ptr noundef nonnull %spec.select127, ptr noundef %spec.select, ptr noundef nonnull %4) #7
   %.not122 = icmp eq ptr %31, null
   br i1 %.not122, label %32, label %122
 
@@ -881,7 +881,7 @@ define internal fastcc ptr @addTriangleRecur(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not126, label %122, label %121
 
 121:                                              ; preds = %118, %114
-  tail call void @cuddCacheInsert(ptr noundef nonnull %0, i64 noundef 134, ptr noundef nonnull %spec.select127, ptr noundef nonnull %spec.select, ptr noundef %4, ptr noundef nonnull %.0108) #7
+  tail call void @cuddCacheInsert(ptr noundef nonnull %0, i64 noundef 134, ptr noundef nonnull %spec.select127, ptr noundef nonnull %spec.select, ptr noundef nonnull %4, ptr noundef nonnull %.0108) #7
   br label %122
 
 122:                                              ; preds = %5, %118, %121, %65, %30, %106, %99, %77, %16

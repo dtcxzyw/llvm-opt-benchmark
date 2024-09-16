@@ -520,7 +520,7 @@ define hidden void @"_ZN4core3ptr101drop_in_place$LT$aws_sdk_kms..types..error..
   br label %"_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i", %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0)
   ret void
 }
 
@@ -656,7 +656,7 @@ define hidden void @"_ZN4core3ptr102drop_in_place$LT$aws_sdk_kms..types..error..
   br label %"_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i", %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0)
   ret void
 }
 
@@ -726,7 +726,7 @@ define hidden void @"_ZN4core3ptr102drop_in_place$LT$aws_sdk_kms..types..error..
   br label %"_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i", %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0)
   ret void
 }
 
@@ -796,7 +796,7 @@ define hidden void @"_ZN4core3ptr102drop_in_place$LT$aws_sdk_kms..types..error..
   br label %"_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i", %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0)
   ret void
 }
 
@@ -1067,7 +1067,7 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$aws_sdk_kms..operation..get
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$$GT$17h526206fa14a12dd5E"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$$GT$17h526206fa14a12dd5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr75drop_in_place$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$17h65449735650e1088E.exit", label %4
@@ -1169,7 +1169,7 @@ define hidden void @"_ZN4core3ptr105drop_in_place$LT$aws_sdk_kms..types..error..
   br label %"_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i", %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0)
   ret void
 }
 
@@ -1239,7 +1239,7 @@ define hidden void @"_ZN4core3ptr106drop_in_place$LT$aws_sdk_kms..types..error..
   br label %"_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i", %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0)
   ret void
 }
 
@@ -1277,7 +1277,7 @@ define hidden void @"_ZN4core3ptr107drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$aws_credential_types..provider..token..SharedTokenProvider$GT$$GT$17hfb39fe51f2daf594E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$aws_credential_types..provider..token..SharedTokenProvider$GT$$GT$17hfb39fe51f2daf594E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr79drop_in_place$LT$aws_credential_types..provider..token..SharedTokenProvider$GT$17ha6e310be2e891d74E.exit", label %4
@@ -1840,7 +1840,7 @@ define hidden void @"_ZN4core3ptr110drop_in_place$LT$aws_sdk_kms..types..error..
   br label %"_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i", %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0)
   ret void
 }
 
@@ -1983,7 +1983,7 @@ define hidden void @"_ZN4core3ptr111drop_in_place$LT$aws_sdk_kms..types..error..
   br label %"_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i", %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0)
   ret void
 }
 
@@ -2055,7 +2055,7 @@ define hidden void @"_ZN4core3ptr114drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17h65d18ab79dc7a1adE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17h65d18ab79dc7a1adE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !range !1168, !noundef !4
   %4 = icmp eq i32 %3, 1000000000
@@ -2226,7 +2226,7 @@ define hidden void @"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$all
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { { { { i64, [3 x i64] }, ptr } } }], ptr %2, i64 0, i64 %.1.i.i.i
   %17 = add i64 %.1.i.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h1645107817a762caE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %16) #23
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h1645107817a762caE"(ptr noalias noundef align 8 dereferenceable(40) %16) #23
           to label %11 unwind label %18, !noalias !1222
 
 18:                                               ; preds = %15
@@ -2387,7 +2387,7 @@ define hidden void @"_ZN4core3ptr118drop_in_place$LT$aws_sdk_kms..types..error..
   br label %"_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i", %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0)
   ret void
 }
 
@@ -2457,12 +2457,12 @@ define hidden void @"_ZN4core3ptr118drop_in_place$LT$aws_sdk_kms..types..error..
   br label %"_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i", %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$http..header..map..Bucket$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h90e68bf9a35efdaeE"(ptr noalias noundef align 8 dereferenceable(112) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$http..header..map..Bucket$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h90e68bf9a35efdaeE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1385)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1388)
@@ -2488,7 +2488,7 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$http..header..map.
 13:                                               ; preds = %5
   %14 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr85drop_in_place$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$17h9edf58584cf075aaE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) #23
+  invoke fastcc void @"_ZN4core3ptr85drop_in_place$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$17h9edf58584cf075aaE"(ptr noalias noundef align 8 dereferenceable(48) %0) #23
           to label %26 unwind label %24
 
 "_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hb68e40fa55dd03f3E.exit": ; preds = %1, %5
@@ -2517,7 +2517,7 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$http..header..map.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$aws_credential_types..provider..credentials..SharedCredentialsProvider$GT$$GT$17h730e67ae448b71b6E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$aws_credential_types..provider..credentials..SharedCredentialsProvider$GT$$GT$17h730e67ae448b71b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr91drop_in_place$LT$aws_credential_types..provider..credentials..SharedCredentialsProvider$GT$17h29984204e3261e9cE.exit", label %4
@@ -2834,7 +2834,7 @@ define hidden void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMa
 39:                                               ; preds = %35
   %40 = getelementptr inbounds [0 x { { { i64, [5 x i64] } }, { i64, i64 }, { i64, i64 } }], ptr %19, i64 0, i64 %.1.i.i.i
   %41 = add i64 %.1.i.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr122drop_in_place$LT$http..header..map..ExtraValue$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h5a91fa6fbafa66a3E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %40) #23
+  invoke fastcc void @"_ZN4core3ptr122drop_in_place$LT$http..header..map..ExtraValue$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h5a91fa6fbafa66a3E"(ptr noalias noundef align 8 dereferenceable(80) %40) #23
           to label %35 unwind label %42, !noalias !1551
 
 42:                                               ; preds = %39
@@ -2901,7 +2901,7 @@ define hidden void @"_ZN4core3ptr122drop_in_place$LT$aws_sdk_kms..operation..sch
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._multi_region_configuration..MultiRegionConfiguration$GT$$GT$17h4169d8af1e566911E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(112) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._multi_region_configuration..MultiRegionConfiguration$GT$$GT$17h4169d8af1e566911E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1598, !noundef !4
   %3 = icmp eq i64 %2, 2
   br i1 %3, label %"_ZN4core3ptr94drop_in_place$LT$aws_sdk_kms..types.._multi_region_configuration..MultiRegionConfiguration$GT$17h1581be3d6167f6cbE.exit", label %4
@@ -3064,7 +3064,7 @@ define internal fastcc void @"_ZN4core3ptr122drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr122drop_in_place$LT$http..header..map..ExtraValue$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h5a91fa6fbafa66a3E"(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr122drop_in_place$LT$http..header..map..ExtraValue$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h5a91fa6fbafa66a3E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1744)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1747)
   %2 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3157,7 +3157,7 @@ define hidden void @"_ZN4core3ptr124drop_in_place$LT$aws_sdk_kms..operation..sch
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { i64, [2 x i64] }, align 8
   %3 = alloca <2 x i64>, align 16
   %4 = alloca { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, align 8
@@ -3370,12 +3370,12 @@ define hidden void @"_ZN4core3ptr125drop_in_place$LT$aws_sdk_kms..types..error..
   br label %"_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i", %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$aws_types..service_config..LoadServiceConfig$GT$$GT$$GT$17h6252622e3e459a61E"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$aws_types..service_config..LoadServiceConfig$GT$$GT$$GT$17h6252622e3e459a61E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr97drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$aws_types..service_config..LoadServiceConfig$GT$$GT$17h5e78480fe9b22bffE.exit", label %4
@@ -3466,7 +3466,7 @@ define hidden void @"_ZN4core3ptr126drop_in_place$LT$aws_sdk_kms..types..error..
   br label %"_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i", %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0)
   ret void
 }
 
@@ -4161,7 +4161,7 @@ define hidden void @"_ZN4core3ptr142drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr142drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$17h775aad12ab0f7223E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr142drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$17h775aad12ab0f7223E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2143)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2146)
@@ -4363,7 +4363,7 @@ define hidden void @"_ZN4core3ptr144drop_in_place$LT$aws_sdk_kms..types..error..
   br label %"_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i", %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0)
   ret void
 }
 
@@ -4587,7 +4587,7 @@ define hidden void @"_ZN4core3ptr145drop_in_place$LT$alloc..vec..Vec$LT$http..he
 22:                                               ; preds = %18
   %23 = getelementptr inbounds [0 x { { { i64, [5 x i64] } }, { i64, i64 }, { i64, i64 } }], ptr %2, i64 0, i64 %.1.i.i
   %24 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr122drop_in_place$LT$http..header..map..ExtraValue$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h5a91fa6fbafa66a3E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %23) #23
+  invoke fastcc void @"_ZN4core3ptr122drop_in_place$LT$http..header..map..ExtraValue$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h5a91fa6fbafa66a3E"(ptr noalias noundef align 8 dereferenceable(80) %23) #23
           to label %18 unwind label %25, !noalias !2285
 
 25:                                               ; preds = %22
@@ -4752,7 +4752,7 @@ define hidden void @"_ZN4core3ptr148drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr148drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..SharedRetryStrategy$GT$$GT$17hbd3a25962ca6efd1E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr148drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..SharedRetryStrategy$GT$$GT$17hbd3a25962ca6efd1E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2344)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2347)
@@ -4797,7 +4797,7 @@ define hidden void @"_ZN4core3ptr148drop_in_place$LT$tracing..instrument..Instru
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr149drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$17h4ad1e81a14a82c02E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr149drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$17h4ad1e81a14a82c02E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2354)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2357)
@@ -4858,7 +4858,7 @@ define hidden void @"_ZN4core3ptr149drop_in_place$LT$std..collections..hash..map
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr151drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..interceptors..SharedInterceptor$GT$$GT$17h3f42e58b3ae942adE"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr151drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..interceptors..SharedInterceptor$GT$$GT$17h3f42e58b3ae942adE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2385)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2388)
@@ -4932,7 +4932,7 @@ define hidden void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..cli
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..endpoint..SharedEndpointResolver$GT$$GT$17h9006bd3378d86126E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..endpoint..SharedEndpointResolver$GT$$GT$17h9006bd3378d86126E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2411)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2414)
@@ -5717,7 +5717,7 @@ common.resume:                                    ; preds = %.body.i2, %195, %19
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_async..time..SharedTimeSource$GT$$GT$$GT$17hb2f77e37f8eec057E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_async..time..SharedTimeSource$GT$$GT$$GT$17hb2f77e37f8eec057E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr128drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_async..time..SharedTimeSource$GT$$GT$17h8a56da2073f7823fE.exit", label %4
@@ -5743,7 +5743,7 @@ define internal fastcc void @"_ZN4core3ptr156drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr161drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$17h5276f3f520eeabafE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr161drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$17h5276f3f520eeabafE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2586)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2589)
@@ -5766,7 +5766,7 @@ define internal fastcc void @"_ZN4core3ptr161drop_in_place$LT$aws_smithy_runtime
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr161drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$$GT$$GT$17hf6415e0638bffd06E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr161drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$$GT$$GT$17hf6415e0638bffd06E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr133drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$$GT$17he13ad3df0b610146E.exit", label %4
@@ -5881,7 +5881,7 @@ define hidden void @"_ZN4core3ptr163drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr163drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$17h2feec4d10b7d14dcE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr163drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$17h2feec4d10b7d14dcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2620)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2623)
@@ -5941,7 +5941,7 @@ define hidden void @"_ZN4core3ptr163drop_in_place$LT$hashbrown..map..HashMap$LT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr165drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$$GT$17h91c13966bb33f63aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr165drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$$GT$17h91c13966bb33f63aE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %.val1 = load i64, ptr %2, align 8, !noundef !4
@@ -5983,7 +5983,7 @@ define internal fastcc void @"_ZN4core3ptr165drop_in_place$LT$alloc..vec..Vec$LT
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { { ptr, i64 }, { ptr, ptr } }], ptr %.val, i64 0, i64 %.1.i.i
   %17 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr142drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$17h775aad12ab0f7223E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #23
+  invoke fastcc void @"_ZN4core3ptr142drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$17h775aad12ab0f7223E"(ptr noalias noundef align 8 dereferenceable(32) %16) #23
           to label %11 unwind label %18
 
 18:                                               ; preds = %15
@@ -6039,7 +6039,7 @@ define hidden void @"_ZN4core3ptr168drop_in_place$LT$tracing..instrument..Instru
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr170drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$$GT$$GT$17h76aad7cfa4d55cf7E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr170drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$$GT$$GT$17h76aad7cfa4d55cf7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr142drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$$GT$17h370a1a1c6d0f96e3E.exit", label %4
@@ -6541,7 +6541,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 138:                                              ; preds = %.body12.i.i, %.body9.i.i
   %.pn.i.i = phi { ptr, i32 } [ %68, %.body9.i.i ], [ %eh.lpad-body13.i.i, %.body12.i.i ]
-  invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17h65d18ab79dc7a1adE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15) #23
+  invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17h65d18ab79dc7a1adE"(ptr noalias noundef align 8 dereferenceable(32) %15) #23
           to label %.body17.i.i unwind label %115
 
 139:                                              ; preds = %103
@@ -6780,7 +6780,7 @@ define hidden void @"_ZN4core3ptr173drop_in_place$LT$tracing_core..dispatcher..K
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr174drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..interceptors..SharedInterceptor$GT$$GT$$GT$17h7676b6077efd3189E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr174drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..interceptors..SharedInterceptor$GT$$GT$$GT$17h7676b6077efd3189E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %.val1 = load i64, ptr %2, align 8, !noundef !4
@@ -6854,7 +6854,7 @@ define internal fastcc void @"_ZN4core3ptr174drop_in_place$LT$alloc..vec..Vec$LT
 26:                                               ; preds = %22
   %27 = getelementptr inbounds [0 x { { ptr, i64 }, { { ptr, ptr }, { ptr, ptr } } }], ptr %.val, i64 0, i64 %.1.i.i
   %28 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr151drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..interceptors..SharedInterceptor$GT$$GT$17h3f42e58b3ae942adE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %27) #23
+  invoke fastcc void @"_ZN4core3ptr151drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..interceptors..SharedInterceptor$GT$$GT$17h3f42e58b3ae942adE"(ptr noalias noundef align 8 dereferenceable(48) %27) #23
           to label %22 unwind label %29
 
 29:                                               ; preds = %26
@@ -6885,7 +6885,7 @@ define internal fastcc void @"_ZN4core3ptr174drop_in_place$LT$alloc..vec..Vec$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr176drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..SharedRetryStrategy$GT$$GT$$GT$17ha25c4fd1d92268a9E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr176drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..SharedRetryStrategy$GT$$GT$$GT$17ha25c4fd1d92268a9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr148drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..SharedRetryStrategy$GT$$GT$17hbd3a25962ca6efd1E.exit", label %4
@@ -6911,7 +6911,7 @@ define internal fastcc void @"_ZN4core3ptr176drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr177drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$$GT$17h894048f18251fb7cE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr177drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$$GT$17h894048f18251fb7cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr149drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$17h4ad1e81a14a82c02E.exit", label %4
@@ -7028,7 +7028,7 @@ define hidden void @"_ZN4core3ptr180drop_in_place$LT$aws_smithy_runtime_api..cli
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..endpoint..SharedEndpointResolver$GT$$GT$$GT$17h204a8813cee397baE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..endpoint..SharedEndpointResolver$GT$$GT$$GT$17h204a8813cee397baE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..endpoint..SharedEndpointResolver$GT$$GT$17h9006bd3378d86126E.exit", label %4
@@ -7117,7 +7117,7 @@ define hidden void @"_ZN4core3ptr182drop_in_place$LT$core..option..Option$LT$cor
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr184drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$$GT$17h37030fc4f198bfb4E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr184drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$$GT$17h37030fc4f198bfb4E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %.val1 = load i64, ptr %2, align 8, !noundef !4
@@ -7162,7 +7162,7 @@ define internal fastcc void @"_ZN4core3ptr184drop_in_place$LT$alloc..vec..Vec$LT
 17:                                               ; preds = %13
   %18 = getelementptr inbounds [0 x { { ptr, i64 }, { { ptr, [1 x i64] } } }], ptr %.val, i64 0, i64 %.1.i.i
   %19 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr161drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$17h5276f3f520eeabafE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18) #23
+  invoke fastcc void @"_ZN4core3ptr161drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$17h5276f3f520eeabafE"(ptr noalias noundef align 8 dereferenceable(32) %18) #23
           to label %13 unwind label %20
 
 20:                                               ; preds = %17
@@ -7296,7 +7296,7 @@ define hidden void @"_ZN4core3ptr185drop_in_place$LT$core..result..Result$LT$aws
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr186drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$$GT$17he451146ccd471d31E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr186drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$$GT$17he451146ccd471d31E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %.val1 = load i64, ptr %2, align 8, !noundef !4
@@ -7338,7 +7338,7 @@ define internal fastcc void @"_ZN4core3ptr186drop_in_place$LT$alloc..vec..Vec$LT
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { { ptr, i64 }, { ptr, ptr } }], ptr %.val, i64 0, i64 %.1.i.i
   %17 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr163drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$17h2feec4d10b7d14dcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #23
+  invoke fastcc void @"_ZN4core3ptr163drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$17h2feec4d10b7d14dcE"(ptr noalias noundef align 8 dereferenceable(32) %16) #23
           to label %11 unwind label %18
 
 18:                                               ; preds = %15
@@ -8225,7 +8225,7 @@ define hidden void @"_ZN4core3ptr249drop_in_place$LT$core..pin..Pin$LT$alloc..bo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr249drop_in_place$LT$std..collections..hash..map..HashMap$LT$aws_smithy_runtime_api..client..auth..AuthSchemeId$C$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityResolver$GT$$GT$$GT$17h24561a56f6dc6eaaE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr249drop_in_place$LT$std..collections..hash..map..HashMap$LT$aws_smithy_runtime_api..client..auth..AuthSchemeId$C$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityResolver$GT$$GT$$GT$17h24561a56f6dc6eaaE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #2 {
   %2 = alloca { i64, [2 x i64] }, align 8
   %3 = alloca <2 x i64>, align 16
   %4 = alloca { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, align 8
@@ -8568,7 +8568,7 @@ define hidden void @"_ZN4core3ptr272drop_in_place$LT$core..option..Option$LT$cor
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr277drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$aws_smithy_runtime_api..client..auth..AuthSchemeId$C$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityResolver$GT$$GT$$GT$$GT$17h87a75215e0f58e35E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr277drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$aws_smithy_runtime_api..client..auth..AuthSchemeId$C$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityResolver$GT$$GT$$GT$$GT$17h87a75215e0f58e35E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
@@ -8577,7 +8577,7 @@ define internal fastcc void @"_ZN4core3ptr277drop_in_place$LT$core..option..Opti
   ret void
 
 5:                                                ; preds = %1
-  tail call fastcc void @"_ZN4core3ptr249drop_in_place$LT$std..collections..hash..map..HashMap$LT$aws_smithy_runtime_api..client..auth..AuthSchemeId$C$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityResolver$GT$$GT$$GT$17h24561a56f6dc6eaaE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr249drop_in_place$LT$std..collections..hash..map..HashMap$LT$aws_smithy_runtime_api..client..auth..AuthSchemeId$C$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityResolver$GT$$GT$$GT$17h24561a56f6dc6eaaE"(ptr noalias noundef align 8 dereferenceable(48) %0)
   br label %4
 }
 
@@ -9082,7 +9082,7 @@ define hidden void @"_ZN4core3ptr35drop_in_place$LT$http..uri..Uri$GT$17hc486355
           cleanup
   tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ff8fa01e2ac6079E"(ptr nonnull %.val2) #23
   %13 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$http..uri..authority..Authority$GT$17h0fdafaa6696673d9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #23
+  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$http..uri..authority..Authority$GT$17h0fdafaa6696673d9E"(ptr noalias noundef align 8 dereferenceable(32) %13) #23
           to label %23 unwind label %36
 
 "_ZN4core3ptr69drop_in_place$LT$alloc..boxed..Box$LT$http..byte_str..ByteStr$GT$$GT$17h95db6143c690469fE.exit.i.i": ; preds = %3
@@ -9109,7 +9109,7 @@ define hidden void @"_ZN4core3ptr35drop_in_place$LT$http..uri..Uri$GT$17hc486355
 23:                                               ; preds = %25, %.body
   %.pn = phi { ptr, i32 } [ %26, %25 ], [ %12, %.body ]
   %24 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$http..uri..path..PathAndQuery$GT$17h44bc3d0ea7f3a3acE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %24) #23
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$http..uri..path..PathAndQuery$GT$17h44bc3d0ea7f3a3acE"(ptr noalias noundef align 8 dereferenceable(40) %24) #23
           to label %38 unwind label %36
 
 25:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$http..uri..scheme..Scheme$GT$17hc30ed0d70622a6f8E.exit"
@@ -9172,7 +9172,7 @@ define hidden void @"_ZN4core3ptr35drop_in_place$LT$http..uri..Uri$GT$17hf671b4e
           cleanup
   tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2990750f31a7e996E"(ptr nonnull %.val2) #23
   %13 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$http..uri..authority..Authority$GT$17hff2249e8789174f1E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #23
+  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$http..uri..authority..Authority$GT$17hff2249e8789174f1E"(ptr noalias noundef align 8 dereferenceable(32) %13) #23
           to label %23 unwind label %36
 
 "_ZN4core3ptr69drop_in_place$LT$alloc..boxed..Box$LT$http..byte_str..ByteStr$GT$$GT$17heed05e3364f0a3cfE.exit.i.i": ; preds = %3
@@ -9199,7 +9199,7 @@ define hidden void @"_ZN4core3ptr35drop_in_place$LT$http..uri..Uri$GT$17hf671b4e
 23:                                               ; preds = %25, %.body
   %.pn = phi { ptr, i32 } [ %26, %25 ], [ %12, %.body ]
   %24 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$http..uri..path..PathAndQuery$GT$17habd292d28409e3ccE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %24) #23
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$http..uri..path..PathAndQuery$GT$17habd292d28409e3ccE"(ptr noalias noundef align 8 dereferenceable(40) %24) #23
           to label %38 unwind label %36
 
 25:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$http..uri..scheme..Scheme$GT$17h0d62c697d21e6622E.exit"
@@ -10171,7 +10171,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$aws_smithy_types..body..Inne
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$http..uri..path..PathAndQuery$GT$17h44bc3d0ea7f3a3acE"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$http..uri..path..PathAndQuery$GT$17h44bc3d0ea7f3a3acE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3609)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3612)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3615)
@@ -10188,7 +10188,7 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$http..uri..path..Pa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$http..uri..path..PathAndQuery$GT$17habd292d28409e3ccE"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$http..uri..path..PathAndQuery$GT$17habd292d28409e3ccE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3619)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3622)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3625)
@@ -10406,7 +10406,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$aws_smithy_types..body..SdkB
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$http..uri..authority..Authority$GT$17h0fdafaa6696673d9E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$http..uri..authority..Authority$GT$17h0fdafaa6696673d9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3702)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3705)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3708)
@@ -10423,7 +10423,7 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$http..uri..authorit
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$http..uri..authority..Authority$GT$17hff2249e8789174f1E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$http..uri..authority..Authority$GT$17hff2249e8789174f1E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3712)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3715)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3718)
@@ -10590,7 +10590,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$aws_types..sdk_config..SdkCo
   %18 = landingpad { ptr, i32 }
           cleanup
   %19 = getelementptr inbounds i8, ptr %0, i64 256
-  invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$aws_credential_types..provider..credentials..SharedCredentialsProvider$GT$$GT$17h730e67ae448b71b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #23
+  invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$aws_credential_types..provider..credentials..SharedCredentialsProvider$GT$$GT$17h730e67ae448b71b6E"(ptr noalias noundef align 8 dereferenceable(24) %19) #23
           to label %27 unwind label %120
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$17hb2aa9bca90639290E.exit": ; preds = %13, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$aws_types..app_name..AppName$GT$$GT$17hfb45c8412ce5f31eE.exit", %16
@@ -10613,7 +10613,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$aws_types..sdk_config..SdkCo
 27:                                               ; preds = %29, %17
   %.pn2 = phi { ptr, i32 } [ %30, %29 ], [ %18, %17 ]
   %28 = getelementptr inbounds i8, ptr %0, i64 280
-  invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$aws_credential_types..provider..token..SharedTokenProvider$GT$$GT$17hfb39fe51f2daf594E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #23
+  invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$aws_credential_types..provider..token..SharedTokenProvider$GT$$GT$17hfb39fe51f2daf594E"(ptr noalias noundef align 8 dereferenceable(24) %28) #23
           to label %38 unwind label %120
 
 29:                                               ; preds = %26
@@ -10641,7 +10641,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$aws_types..sdk_config..SdkCo
 38:                                               ; preds = %42, %27
   %.pn4 = phi { ptr, i32 } [ %43, %42 ], [ %.pn2, %27 ]
   %39 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$aws_types..region..Region$GT$$GT$17h92b82eade7b3099aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %39) #23
+  tail call fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$aws_types..region..Region$GT$$GT$17h92b82eade7b3099aE"(ptr noalias noundef align 8 dereferenceable(32) %39) #23
   %40 = getelementptr inbounds i8, ptr %0, i64 304
   tail call void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393"(ptr noalias noundef nonnull align 8 dereferenceable(24) %40) #23
   %41 = getelementptr inbounds i8, ptr %0, i64 328
@@ -10715,7 +10715,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$aws_types..sdk_config..SdkCo
 66:                                               ; preds = %68, %38
   %.pn10 = phi { ptr, i32 } [ %69, %68 ], [ %.pn4, %38 ]
   %67 = getelementptr inbounds i8, ptr %0, i64 344
-  invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$aws_smithy_async..time..SharedTimeSource$GT$$GT$17h03eb33dd09ed8c8aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %67) #23
+  invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$aws_smithy_async..time..SharedTimeSource$GT$$GT$17h03eb33dd09ed8c8aE"(ptr noalias noundef align 8 dereferenceable(16) %67) #23
           to label %77 unwind label %120
 
 68:                                               ; preds = %65
@@ -10743,7 +10743,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$aws_types..sdk_config..SdkCo
 77:                                               ; preds = %79, %66
   %.pn12 = phi { ptr, i32 } [ %80, %79 ], [ %.pn10, %66 ]
   %78 = getelementptr inbounds i8, ptr %0, i64 360
-  invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$$GT$17h526206fa14a12dd5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %78) #23
+  invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$$GT$17h526206fa14a12dd5E"(ptr noalias noundef align 8 dereferenceable(16) %78) #23
           to label %88 unwind label %120
 
 79:                                               ; preds = %76
@@ -10771,7 +10771,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$aws_types..sdk_config..SdkCo
 88:                                               ; preds = %90, %77
   %.pn14 = phi { ptr, i32 } [ %91, %90 ], [ %.pn12, %77 ]
   %89 = getelementptr inbounds i8, ptr %0, i64 376
-  invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$aws_types..service_config..LoadServiceConfig$GT$$GT$$GT$17h6252622e3e459a61E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %89) #23
+  invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$aws_types..service_config..LoadServiceConfig$GT$$GT$$GT$17h6252622e3e459a61E"(ptr noalias noundef align 8 dereferenceable(16) %89) #23
           to label %99 unwind label %120
 
 90:                                               ; preds = %87
@@ -11029,7 +11029,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$ockam_core..error..inner..Er
   %.07.i.i.i = phi i64 [ %8, %.lr.ph.i.i.i ], [ 0, %1 ]
   %7 = getelementptr inbounds [0 x { [6 x i64], ptr, [2 x i64] }], ptr %3, i64 0, i64 %.07.i.i.i
   %8 = add nuw i64 %.07.i.i.i, 1
-  tail call fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h2944aec4786e96d5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %7), !noalias !3953
+  tail call fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h2944aec4786e96d5E"(ptr noalias noundef readonly align 8 dereferenceable(72) %7), !noalias !3953
   %9 = icmp eq i64 %8, %5
   br i1 %9, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h287582450e66dff1E.llvm.9405825265181994393.exit.i", label %.lr.ph.i.i.i
 
@@ -11137,7 +11137,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$ockam_core..error..inner..Er
 49:                                               ; preds = %45
   %50 = getelementptr inbounds [0 x { { { { i64, [3 x i64] }, ptr } } }], ptr %36, i64 0, i64 %.1.i.i.i.i
   %51 = add i64 %.1.i.i.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h1645107817a762caE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %50) #23
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h1645107817a762caE"(ptr noalias noundef align 8 dereferenceable(40) %50) #23
           to label %45 unwind label %52, !noalias !4006
 
 52:                                               ; preds = %49
@@ -11515,7 +11515,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h2944aec4786e96d5E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h2944aec4786e96d5E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %.not = icmp eq ptr %3, null
@@ -11722,7 +11722,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$aws_sdk_kms..operation..sign
   br label %"_ZN4core3ptr105drop_in_place$LT$aws_sdk_kms..types..error.._dependency_timeout_exception..DependencyTimeoutException$GT$17hb5c163366f596171E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr105drop_in_place$LT$aws_sdk_kms..types..error.._dependency_timeout_exception..DependencyTimeoutException$GT$17hb5c163366f596171E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i", %23, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %203
 
 27:                                               ; preds = %1
@@ -11791,7 +11791,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$aws_sdk_kms..operation..sign
   br label %"_ZN4core3ptr86drop_in_place$LT$aws_sdk_kms..types..error.._disabled_exception..DisabledException$GT$17hddf1145170c90638E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr86drop_in_place$LT$aws_sdk_kms..types..error.._disabled_exception..DisabledException$GT$17hddf1145170c90638E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i4", %45, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i5"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %203
 
 49:                                               ; preds = %1
@@ -11860,7 +11860,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$aws_sdk_kms..operation..sign
   br label %"_ZN4core3ptr102drop_in_place$LT$aws_sdk_kms..types..error.._dry_run_operation_exception..DryRunOperationException$GT$17hee396812b5ed1b10E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr102drop_in_place$LT$aws_sdk_kms..types..error.._dry_run_operation_exception..DryRunOperationException$GT$17hee396812b5ed1b10E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i9", %67, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i10"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %203
 
 71:                                               ; preds = %1
@@ -11929,7 +11929,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$aws_sdk_kms..operation..sign
   br label %"_ZN4core3ptr106drop_in_place$LT$aws_sdk_kms..types..error.._invalid_grant_token_exception..InvalidGrantTokenException$GT$17h208720c13b0c0487E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr106drop_in_place$LT$aws_sdk_kms..types..error.._invalid_grant_token_exception..InvalidGrantTokenException$GT$17h208720c13b0c0487E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i14", %89, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i15"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %203
 
 93:                                               ; preds = %1
@@ -11998,7 +11998,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$aws_sdk_kms..operation..sign
   br label %"_ZN4core3ptr102drop_in_place$LT$aws_sdk_kms..types..error.._invalid_key_usage_exception..InvalidKeyUsageException$GT$17h297081d3f992fae4E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr102drop_in_place$LT$aws_sdk_kms..types..error.._invalid_key_usage_exception..InvalidKeyUsageException$GT$17h297081d3f992fae4E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i19", %111, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i20"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %203
 
 115:                                              ; preds = %1
@@ -12067,7 +12067,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$aws_sdk_kms..operation..sign
   br label %"_ZN4core3ptr99drop_in_place$LT$aws_sdk_kms..types..error.._key_unavailable_exception..KeyUnavailableException$GT$17h9ba8670e85c80c58E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr99drop_in_place$LT$aws_sdk_kms..types..error.._key_unavailable_exception..KeyUnavailableException$GT$17h9ba8670e85c80c58E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i24", %133, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i25"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %203
 
 137:                                              ; preds = %1
@@ -12136,7 +12136,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$aws_sdk_kms..operation..sign
   br label %"_ZN4core3ptr93drop_in_place$LT$aws_sdk_kms..types..error.._kms_internal_exception..KmsInternalException$GT$17he5943f3471bb5d6dE.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr93drop_in_place$LT$aws_sdk_kms..types..error.._kms_internal_exception..KmsInternalException$GT$17he5943f3471bb5d6dE.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i29", %155, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i30"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %203
 
 159:                                              ; preds = %1
@@ -12205,7 +12205,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$aws_sdk_kms..operation..sign
   br label %"_ZN4core3ptr102drop_in_place$LT$aws_sdk_kms..types..error.._kms_invalid_state_exception..KmsInvalidStateException$GT$17hb57a084eb0a9c3e6E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr102drop_in_place$LT$aws_sdk_kms..types..error.._kms_invalid_state_exception..KmsInvalidStateException$GT$17hb57a084eb0a9c3e6E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i34", %177, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i35"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %203
 
 181:                                              ; preds = %1
@@ -12274,7 +12274,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$aws_sdk_kms..operation..sign
   br label %"_ZN4core3ptr87drop_in_place$LT$aws_sdk_kms..types..error.._not_found_exception..NotFoundException$GT$17ha877193e666c88feE.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr87drop_in_place$LT$aws_sdk_kms..types..error.._not_found_exception..NotFoundException$GT$17ha877193e666c88feE.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i39", %199, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i40"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %203
 
 203:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$aws_sdk_kms..types..error.._not_found_exception..NotFoundException$GT$17ha877193e666c88feE.llvm.9405825265181994393.exit", %"_ZN4core3ptr102drop_in_place$LT$aws_sdk_kms..types..error.._kms_invalid_state_exception..KmsInvalidStateException$GT$17hb57a084eb0a9c3e6E.llvm.9405825265181994393.exit", %"_ZN4core3ptr93drop_in_place$LT$aws_sdk_kms..types..error.._kms_internal_exception..KmsInternalException$GT$17he5943f3471bb5d6dE.llvm.9405825265181994393.exit", %"_ZN4core3ptr99drop_in_place$LT$aws_sdk_kms..types..error.._key_unavailable_exception..KeyUnavailableException$GT$17h9ba8670e85c80c58E.llvm.9405825265181994393.exit", %"_ZN4core3ptr102drop_in_place$LT$aws_sdk_kms..types..error.._invalid_key_usage_exception..InvalidKeyUsageException$GT$17h297081d3f992fae4E.llvm.9405825265181994393.exit", %"_ZN4core3ptr106drop_in_place$LT$aws_sdk_kms..types..error.._invalid_grant_token_exception..InvalidGrantTokenException$GT$17h208720c13b0c0487E.llvm.9405825265181994393.exit", %"_ZN4core3ptr102drop_in_place$LT$aws_sdk_kms..types..error.._dry_run_operation_exception..DryRunOperationException$GT$17hee396812b5ed1b10E.llvm.9405825265181994393.exit", %"_ZN4core3ptr86drop_in_place$LT$aws_sdk_kms..types..error.._disabled_exception..DisabledException$GT$17hddf1145170c90638E.llvm.9405825265181994393.exit", %"_ZN4core3ptr105drop_in_place$LT$aws_sdk_kms..types..error.._dependency_timeout_exception..DependencyTimeoutException$GT$17hb5c163366f596171E.llvm.9405825265181994393.exit", %4
@@ -12459,7 +12459,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$http..method..extension..All
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h1645107817a762caE"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h1645107817a762caE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 {
   tail call void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h88646246bef7413aE.llvm.9405825265181994393"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
   ret void
 }
@@ -13272,7 +13272,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$aws_sdk_kms..types.._key_met
 
 "_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$aws_sdk_kms..types.._signing_algorithm_spec..SigningAlgorithmSpec$GT$$GT$$GT$17h3518b8fb57f74395E.exit": ; preds = %150, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6bb1a4928b1dacf1E.exit.i.i", %"_ZN4core3ptr143drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$aws_sdk_kms..types.._encryption_algorithm_spec..EncryptionAlgorithmSpec$GT$$GT$$GT$17ha91bb201cff2ec55E.exit"
   %152 = getelementptr inbounds i8, ptr %0, i64 104
-  tail call fastcc void @"_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._multi_region_configuration..MultiRegionConfiguration$GT$$GT$17h4169d8af1e566911E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %152)
+  tail call fastcc void @"_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._multi_region_configuration..MultiRegionConfiguration$GT$$GT$17h4169d8af1e566911E"(ptr noalias noundef align 8 dereferenceable(112) %152)
   %153 = getelementptr inbounds i8, ptr %0, i64 640
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5588)
   %154 = load ptr, ptr %153, align 8, !alias.scope !5588, !noundef !4
@@ -13664,7 +13664,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$aws_sdk_kms..error..sealed_u
 
 "_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i", %25, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i"
   %29 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %29)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %29)
   ret void
 
 30:                                               ; preds = %.body
@@ -13901,7 +13901,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$$u5b$ockam_core..error..inne
   %.07 = phi i64 [ %5, %.lr.ph ], [ 0, %2 ]
   %4 = getelementptr inbounds [0 x { [6 x i64], ptr, [2 x i64] }], ptr %0, i64 0, i64 %.07
   %5 = add nuw i64 %.07, 1
-  tail call fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h2944aec4786e96d5E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4)
+  tail call fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h2944aec4786e96d5E"(ptr noalias noundef align 8 dereferenceable(72) %4)
   %6 = icmp eq i64 %5, %1
   br i1 %6, label %._crit_edge, label %.lr.ph
 
@@ -13993,7 +13993,7 @@ default.unreachable11:                            ; preds = %1
   br label %"_ZN4core3ptr105drop_in_place$LT$aws_sdk_kms..types..error.._dependency_timeout_exception..DependencyTimeoutException$GT$17hb5c163366f596171E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr105drop_in_place$LT$aws_sdk_kms..types..error.._dependency_timeout_exception..DependencyTimeoutException$GT$17hb5c163366f596171E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i", %23, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %71
 
 27:                                               ; preds = %1
@@ -14062,7 +14062,7 @@ default.unreachable11:                            ; preds = %1
   br label %"_ZN4core3ptr97drop_in_place$LT$aws_sdk_kms..types..error.._invalid_marker_exception..InvalidMarkerException$GT$17hd165f43711fc76caE.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr97drop_in_place$LT$aws_sdk_kms..types..error.._invalid_marker_exception..InvalidMarkerException$GT$17hd165f43711fc76caE.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i4", %45, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i5"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %71
 
 49:                                               ; preds = %1
@@ -14131,7 +14131,7 @@ default.unreachable11:                            ; preds = %1
   br label %"_ZN4core3ptr93drop_in_place$LT$aws_sdk_kms..types..error.._kms_internal_exception..KmsInternalException$GT$17he5943f3471bb5d6dE.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr93drop_in_place$LT$aws_sdk_kms..types..error.._kms_internal_exception..KmsInternalException$GT$17he5943f3471bb5d6dE.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i9", %67, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i10"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %71
 
 71:                                               ; preds = %"_ZN4core3ptr93drop_in_place$LT$aws_sdk_kms..types..error.._kms_internal_exception..KmsInternalException$GT$17he5943f3471bb5d6dE.llvm.9405825265181994393.exit", %"_ZN4core3ptr97drop_in_place$LT$aws_sdk_kms..types..error.._invalid_marker_exception..InvalidMarkerException$GT$17hd165f43711fc76caE.llvm.9405825265181994393.exit", %"_ZN4core3ptr105drop_in_place$LT$aws_sdk_kms..types..error.._dependency_timeout_exception..DependencyTimeoutException$GT$17hb5c163366f596171E.llvm.9405825265181994393.exit", %4
@@ -14277,7 +14277,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..met
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit3"
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit3": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2", %12, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef align 8 dereferenceable(48) %0)
   ret void
 }
 
@@ -14444,7 +14444,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$aws_sdk_kms..operation..crea
   br label %"_ZN4core3ptr144drop_in_place$LT$aws_sdk_kms..types..error.._cloud_hsm_cluster_invalid_configuration_exception..CloudHsmClusterInvalidConfigurationException$GT$17h59c8bc1729309ea8E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr144drop_in_place$LT$aws_sdk_kms..types..error.._cloud_hsm_cluster_invalid_configuration_exception..CloudHsmClusterInvalidConfigurationException$GT$17h59c8bc1729309ea8E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i", %23, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %291
 
 27:                                               ; preds = %1
@@ -14513,7 +14513,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$aws_sdk_kms..operation..crea
   br label %"_ZN4core3ptr126drop_in_place$LT$aws_sdk_kms..types..error.._custom_key_store_invalid_state_exception..CustomKeyStoreInvalidStateException$GT$17hdf5d200e5a09972dE.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr126drop_in_place$LT$aws_sdk_kms..types..error.._custom_key_store_invalid_state_exception..CustomKeyStoreInvalidStateException$GT$17hdf5d200e5a09972dE.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i4", %45, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i5"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %291
 
 49:                                               ; preds = %1
@@ -14582,7 +14582,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$aws_sdk_kms..operation..crea
   br label %"_ZN4core3ptr118drop_in_place$LT$aws_sdk_kms..types..error.._custom_key_store_not_found_exception..CustomKeyStoreNotFoundException$GT$17h7e651cb7fcbb2121E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr118drop_in_place$LT$aws_sdk_kms..types..error.._custom_key_store_not_found_exception..CustomKeyStoreNotFoundException$GT$17h7e651cb7fcbb2121E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i9", %67, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i10"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %291
 
 71:                                               ; preds = %1
@@ -14651,7 +14651,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$aws_sdk_kms..operation..crea
   br label %"_ZN4core3ptr105drop_in_place$LT$aws_sdk_kms..types..error.._dependency_timeout_exception..DependencyTimeoutException$GT$17hb5c163366f596171E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr105drop_in_place$LT$aws_sdk_kms..types..error.._dependency_timeout_exception..DependencyTimeoutException$GT$17hb5c163366f596171E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i14", %89, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i15"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %291
 
 93:                                               ; preds = %1
@@ -14720,7 +14720,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$aws_sdk_kms..operation..crea
   br label %"_ZN4core3ptr91drop_in_place$LT$aws_sdk_kms..types..error.._invalid_arn_exception..InvalidArnException$GT$17hd0eba89179750caeE.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr91drop_in_place$LT$aws_sdk_kms..types..error.._invalid_arn_exception..InvalidArnException$GT$17hd0eba89179750caeE.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i19", %111, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i20"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %291
 
 115:                                              ; preds = %1
@@ -14789,7 +14789,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$aws_sdk_kms..operation..crea
   br label %"_ZN4core3ptr93drop_in_place$LT$aws_sdk_kms..types..error.._kms_internal_exception..KmsInternalException$GT$17he5943f3471bb5d6dE.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr93drop_in_place$LT$aws_sdk_kms..types..error.._kms_internal_exception..KmsInternalException$GT$17he5943f3471bb5d6dE.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i24", %133, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i25"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %291
 
 137:                                              ; preds = %1
@@ -14858,7 +14858,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$aws_sdk_kms..operation..crea
   br label %"_ZN4core3ptr97drop_in_place$LT$aws_sdk_kms..types..error.._limit_exceeded_exception..LimitExceededException$GT$17hcded15928d2853e7E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr97drop_in_place$LT$aws_sdk_kms..types..error.._limit_exceeded_exception..LimitExceededException$GT$17hcded15928d2853e7E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i29", %155, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i30"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %291
 
 159:                                              ; preds = %1
@@ -14927,7 +14927,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$aws_sdk_kms..operation..crea
   br label %"_ZN4core3ptr118drop_in_place$LT$aws_sdk_kms..types..error.._malformed_policy_document_exception..MalformedPolicyDocumentException$GT$17h1add78beebd78927E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr118drop_in_place$LT$aws_sdk_kms..types..error.._malformed_policy_document_exception..MalformedPolicyDocumentException$GT$17h1add78beebd78927E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i34", %177, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i35"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %291
 
 181:                                              ; preds = %1
@@ -14996,7 +14996,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$aws_sdk_kms..operation..crea
   br label %"_ZN4core3ptr76drop_in_place$LT$aws_sdk_kms..types..error.._tag_exception..TagException$GT$17h761cef825efc823bE.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr76drop_in_place$LT$aws_sdk_kms..types..error.._tag_exception..TagException$GT$17h761cef825efc823bE.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i39", %199, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i40"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %291
 
 203:                                              ; preds = %1
@@ -15065,7 +15065,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$aws_sdk_kms..operation..crea
   br label %"_ZN4core3ptr111drop_in_place$LT$aws_sdk_kms..types..error.._unsupported_operation_exception..UnsupportedOperationException$GT$17h69d1800c302afc1bE.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr111drop_in_place$LT$aws_sdk_kms..types..error.._unsupported_operation_exception..UnsupportedOperationException$GT$17h69d1800c302afc1bE.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i44", %221, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i45"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %291
 
 225:                                              ; preds = %1
@@ -15134,7 +15134,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$aws_sdk_kms..operation..crea
   br label %"_ZN4core3ptr110drop_in_place$LT$aws_sdk_kms..types..error.._xks_key_already_in_use_exception..XksKeyAlreadyInUseException$GT$17h918fdce9da4b87e2E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr110drop_in_place$LT$aws_sdk_kms..types..error.._xks_key_already_in_use_exception..XksKeyAlreadyInUseException$GT$17h918fdce9da4b87e2E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i49", %243, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i50"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %291
 
 247:                                              ; preds = %1
@@ -15203,7 +15203,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$aws_sdk_kms..operation..crea
   br label %"_ZN4core3ptr125drop_in_place$LT$aws_sdk_kms..types..error.._xks_key_invalid_configuration_exception..XksKeyInvalidConfigurationException$GT$17hcca2350fa09f47b9E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr125drop_in_place$LT$aws_sdk_kms..types..error.._xks_key_invalid_configuration_exception..XksKeyInvalidConfigurationException$GT$17hcca2350fa09f47b9E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i54", %265, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i55"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %291
 
 269:                                              ; preds = %1
@@ -15272,7 +15272,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$aws_sdk_kms..operation..crea
   br label %"_ZN4core3ptr101drop_in_place$LT$aws_sdk_kms..types..error.._xks_key_not_found_exception..XksKeyNotFoundException$GT$17h41b1fee55c236912E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr101drop_in_place$LT$aws_sdk_kms..types..error.._xks_key_not_found_exception..XksKeyNotFoundException$GT$17h41b1fee55c236912E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i59", %287, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i60"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %291
 
 291:                                              ; preds = %"_ZN4core3ptr101drop_in_place$LT$aws_sdk_kms..types..error.._xks_key_not_found_exception..XksKeyNotFoundException$GT$17h41b1fee55c236912E.llvm.9405825265181994393.exit", %"_ZN4core3ptr125drop_in_place$LT$aws_sdk_kms..types..error.._xks_key_invalid_configuration_exception..XksKeyInvalidConfigurationException$GT$17hcca2350fa09f47b9E.llvm.9405825265181994393.exit", %"_ZN4core3ptr110drop_in_place$LT$aws_sdk_kms..types..error.._xks_key_already_in_use_exception..XksKeyAlreadyInUseException$GT$17h918fdce9da4b87e2E.llvm.9405825265181994393.exit", %"_ZN4core3ptr111drop_in_place$LT$aws_sdk_kms..types..error.._unsupported_operation_exception..UnsupportedOperationException$GT$17h69d1800c302afc1bE.llvm.9405825265181994393.exit", %"_ZN4core3ptr76drop_in_place$LT$aws_sdk_kms..types..error.._tag_exception..TagException$GT$17h761cef825efc823bE.llvm.9405825265181994393.exit", %"_ZN4core3ptr118drop_in_place$LT$aws_sdk_kms..types..error.._malformed_policy_document_exception..MalformedPolicyDocumentException$GT$17h1add78beebd78927E.llvm.9405825265181994393.exit", %"_ZN4core3ptr97drop_in_place$LT$aws_sdk_kms..types..error.._limit_exceeded_exception..LimitExceededException$GT$17hcded15928d2853e7E.llvm.9405825265181994393.exit", %"_ZN4core3ptr93drop_in_place$LT$aws_sdk_kms..types..error.._kms_internal_exception..KmsInternalException$GT$17he5943f3471bb5d6dE.llvm.9405825265181994393.exit", %"_ZN4core3ptr91drop_in_place$LT$aws_sdk_kms..types..error.._invalid_arn_exception..InvalidArnException$GT$17hd0eba89179750caeE.llvm.9405825265181994393.exit", %"_ZN4core3ptr105drop_in_place$LT$aws_sdk_kms..types..error.._dependency_timeout_exception..DependencyTimeoutException$GT$17hb5c163366f596171E.llvm.9405825265181994393.exit", %"_ZN4core3ptr118drop_in_place$LT$aws_sdk_kms..types..error.._custom_key_store_not_found_exception..CustomKeyStoreNotFoundException$GT$17h7e651cb7fcbb2121E.llvm.9405825265181994393.exit", %"_ZN4core3ptr126drop_in_place$LT$aws_sdk_kms..types..error.._custom_key_store_invalid_state_exception..CustomKeyStoreInvalidStateException$GT$17hdf5d200e5a09972dE.llvm.9405825265181994393.exit", %"_ZN4core3ptr144drop_in_place$LT$aws_sdk_kms..types..error.._cloud_hsm_cluster_invalid_configuration_exception..CloudHsmClusterInvalidConfigurationException$GT$17h59c8bc1729309ea8E.llvm.9405825265181994393.exit", %4
@@ -15842,7 +15842,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$$u5b$ockam_core..error..inne
 12:                                               ; preds = %8
   %13 = getelementptr inbounds [0 x { { { { i64, [3 x i64] }, ptr } } }], ptr %0, i64 0, i64 %.1
   %14 = add i64 %.1, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h1645107817a762caE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13) #23
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h1645107817a762caE"(ptr noalias noundef align 8 dereferenceable(40) %13) #23
           to label %8 unwind label %16
 
 15:                                               ; preds = %8
@@ -15856,7 +15856,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$$u5b$ockam_core..error..inne
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$aws_types..region..Region$GT$$GT$17h92b82eade7b3099aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$aws_types..region..Region$GT$$GT$17h92b82eade7b3099aE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !2783, !noundef !4
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %"_ZN4core3ptr46drop_in_place$LT$aws_types..region..Region$GT$17h3f63b29eb4070c7eE.exit", label %4
@@ -16230,7 +16230,7 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$aws_sdk_kms..types..error.._
   br label %"_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i", %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0)
   ret void
 }
 
@@ -16513,7 +16513,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$aws_sdk_kms..operation..get_
   br label %"_ZN4core3ptr105drop_in_place$LT$aws_sdk_kms..types..error.._dependency_timeout_exception..DependencyTimeoutException$GT$17hb5c163366f596171E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr105drop_in_place$LT$aws_sdk_kms..types..error.._dependency_timeout_exception..DependencyTimeoutException$GT$17hb5c163366f596171E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i", %23, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %225
 
 27:                                               ; preds = %1
@@ -16582,7 +16582,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$aws_sdk_kms..operation..get_
   br label %"_ZN4core3ptr86drop_in_place$LT$aws_sdk_kms..types..error.._disabled_exception..DisabledException$GT$17hddf1145170c90638E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr86drop_in_place$LT$aws_sdk_kms..types..error.._disabled_exception..DisabledException$GT$17hddf1145170c90638E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i4", %45, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i5"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %225
 
 49:                                               ; preds = %1
@@ -16651,7 +16651,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$aws_sdk_kms..operation..get_
   br label %"_ZN4core3ptr91drop_in_place$LT$aws_sdk_kms..types..error.._invalid_arn_exception..InvalidArnException$GT$17hd0eba89179750caeE.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr91drop_in_place$LT$aws_sdk_kms..types..error.._invalid_arn_exception..InvalidArnException$GT$17hd0eba89179750caeE.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i9", %67, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i10"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %225
 
 71:                                               ; preds = %1
@@ -16720,7 +16720,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$aws_sdk_kms..operation..get_
   br label %"_ZN4core3ptr106drop_in_place$LT$aws_sdk_kms..types..error.._invalid_grant_token_exception..InvalidGrantTokenException$GT$17h208720c13b0c0487E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr106drop_in_place$LT$aws_sdk_kms..types..error.._invalid_grant_token_exception..InvalidGrantTokenException$GT$17h208720c13b0c0487E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i14", %89, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i15"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %225
 
 93:                                               ; preds = %1
@@ -16789,7 +16789,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$aws_sdk_kms..operation..get_
   br label %"_ZN4core3ptr102drop_in_place$LT$aws_sdk_kms..types..error.._invalid_key_usage_exception..InvalidKeyUsageException$GT$17h297081d3f992fae4E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr102drop_in_place$LT$aws_sdk_kms..types..error.._invalid_key_usage_exception..InvalidKeyUsageException$GT$17h297081d3f992fae4E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i19", %111, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i20"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %225
 
 115:                                              ; preds = %1
@@ -16858,7 +16858,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$aws_sdk_kms..operation..get_
   br label %"_ZN4core3ptr99drop_in_place$LT$aws_sdk_kms..types..error.._key_unavailable_exception..KeyUnavailableException$GT$17h9ba8670e85c80c58E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr99drop_in_place$LT$aws_sdk_kms..types..error.._key_unavailable_exception..KeyUnavailableException$GT$17h9ba8670e85c80c58E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i24", %133, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i25"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %225
 
 137:                                              ; preds = %1
@@ -16927,7 +16927,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$aws_sdk_kms..operation..get_
   br label %"_ZN4core3ptr93drop_in_place$LT$aws_sdk_kms..types..error.._kms_internal_exception..KmsInternalException$GT$17he5943f3471bb5d6dE.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr93drop_in_place$LT$aws_sdk_kms..types..error.._kms_internal_exception..KmsInternalException$GT$17he5943f3471bb5d6dE.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i29", %155, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i30"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %225
 
 159:                                              ; preds = %1
@@ -16996,7 +16996,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$aws_sdk_kms..operation..get_
   br label %"_ZN4core3ptr102drop_in_place$LT$aws_sdk_kms..types..error.._kms_invalid_state_exception..KmsInvalidStateException$GT$17hb57a084eb0a9c3e6E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr102drop_in_place$LT$aws_sdk_kms..types..error.._kms_invalid_state_exception..KmsInvalidStateException$GT$17hb57a084eb0a9c3e6E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i34", %177, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i35"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %225
 
 181:                                              ; preds = %1
@@ -17065,7 +17065,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$aws_sdk_kms..operation..get_
   br label %"_ZN4core3ptr87drop_in_place$LT$aws_sdk_kms..types..error.._not_found_exception..NotFoundException$GT$17ha877193e666c88feE.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr87drop_in_place$LT$aws_sdk_kms..types..error.._not_found_exception..NotFoundException$GT$17ha877193e666c88feE.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i39", %199, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i40"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %225
 
 203:                                              ; preds = %1
@@ -17134,7 +17134,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$aws_sdk_kms..operation..get_
   br label %"_ZN4core3ptr111drop_in_place$LT$aws_sdk_kms..types..error.._unsupported_operation_exception..UnsupportedOperationException$GT$17h69d1800c302afc1bE.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr111drop_in_place$LT$aws_sdk_kms..types..error.._unsupported_operation_exception..UnsupportedOperationException$GT$17h69d1800c302afc1bE.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i44", %221, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i45"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %225
 
 225:                                              ; preds = %"_ZN4core3ptr111drop_in_place$LT$aws_sdk_kms..types..error.._unsupported_operation_exception..UnsupportedOperationException$GT$17h69d1800c302afc1bE.llvm.9405825265181994393.exit", %"_ZN4core3ptr87drop_in_place$LT$aws_sdk_kms..types..error.._not_found_exception..NotFoundException$GT$17ha877193e666c88feE.llvm.9405825265181994393.exit", %"_ZN4core3ptr102drop_in_place$LT$aws_sdk_kms..types..error.._kms_invalid_state_exception..KmsInvalidStateException$GT$17hb57a084eb0a9c3e6E.llvm.9405825265181994393.exit", %"_ZN4core3ptr93drop_in_place$LT$aws_sdk_kms..types..error.._kms_internal_exception..KmsInternalException$GT$17he5943f3471bb5d6dE.llvm.9405825265181994393.exit", %"_ZN4core3ptr99drop_in_place$LT$aws_sdk_kms..types..error.._key_unavailable_exception..KeyUnavailableException$GT$17h9ba8670e85c80c58E.llvm.9405825265181994393.exit", %"_ZN4core3ptr102drop_in_place$LT$aws_sdk_kms..types..error.._invalid_key_usage_exception..InvalidKeyUsageException$GT$17h297081d3f992fae4E.llvm.9405825265181994393.exit", %"_ZN4core3ptr106drop_in_place$LT$aws_sdk_kms..types..error.._invalid_grant_token_exception..InvalidGrantTokenException$GT$17h208720c13b0c0487E.llvm.9405825265181994393.exit", %"_ZN4core3ptr91drop_in_place$LT$aws_sdk_kms..types..error.._invalid_arn_exception..InvalidArnException$GT$17hd0eba89179750caeE.llvm.9405825265181994393.exit", %"_ZN4core3ptr86drop_in_place$LT$aws_sdk_kms..types..error.._disabled_exception..DisabledException$GT$17hddf1145170c90638E.llvm.9405825265181994393.exit", %"_ZN4core3ptr105drop_in_place$LT$aws_sdk_kms..types..error.._dependency_timeout_exception..DependencyTimeoutException$GT$17hb5c163366f596171E.llvm.9405825265181994393.exit", %4
@@ -17722,7 +17722,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$ockam_cor
   %.07.i.i = phi i64 [ %7, %.lr.ph.i.i ], [ 0, %1 ]
   %6 = getelementptr inbounds [0 x { [6 x i64], ptr, [2 x i64] }], ptr %2, i64 0, i64 %.07.i.i
   %7 = add nuw i64 %.07.i.i, 1
-  tail call fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h2944aec4786e96d5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %6), !noalias !8758
+  tail call fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h2944aec4786e96d5E"(ptr noalias noundef readonly align 8 dereferenceable(72) %6), !noalias !8758
   %8 = icmp eq i64 %7, %4
   br i1 %8, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h287582450e66dff1E.llvm.9405825265181994393.exit", label %.lr.ph.i.i
 
@@ -18058,7 +18058,7 @@ define hidden void @"_ZN4core3ptr85drop_in_place$LT$aws_smithy_runtime_api..clie
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr85drop_in_place$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$17h9edf58584cf075aaE"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr85drop_in_place$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$17h9edf58584cf075aaE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 {
 "_ZN4core3ptr79drop_in_place$LT$aws_smithy_runtime_api..http..headers..header_value..Inner$GT$17h95f3196a26756d21E.exit":
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8877)
   %1 = getelementptr inbounds i8, ptr %0, i64 24
@@ -18187,7 +18187,7 @@ define hidden void @"_ZN4core3ptr86drop_in_place$LT$aws_sdk_kms..types..error.._
   br label %"_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i", %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0)
   ret void
 }
 
@@ -18287,7 +18287,7 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$ockam_cor
 13:                                               ; preds = %9
   %14 = getelementptr inbounds [0 x { { { { i64, [3 x i64] }, ptr } } }], ptr %2, i64 0, i64 %.1.i.i
   %15 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h1645107817a762caE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %14) #23
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h1645107817a762caE"(ptr noalias noundef align 8 dereferenceable(40) %14) #23
           to label %9 unwind label %16, !noalias !9010
 
 16:                                               ; preds = %13
@@ -18478,7 +18478,7 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$aws_sdk_kms..types..error.._
   br label %"_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i", %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0)
   ret void
 }
 
@@ -18741,7 +18741,7 @@ define hidden void @"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$aws_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$aws_smithy_async..time..SharedTimeSource$GT$$GT$17h03eb33dd09ed8c8aE"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$aws_smithy_async..time..SharedTimeSource$GT$$GT$17h03eb33dd09ed8c8aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr61drop_in_place$LT$aws_smithy_async..time..SharedTimeSource$GT$17h03232f8415a029a2E.llvm.9405825265181994393.exit", label %4
@@ -19110,7 +19110,7 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..clie
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = getelementptr inbounds i8, ptr %0, i64 272
-  invoke fastcc void @"_ZN4core3ptr170drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$$GT$$GT$17h76aad7cfa4d55cf7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #23
+  invoke fastcc void @"_ZN4core3ptr170drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$$GT$$GT$17h76aad7cfa4d55cf7E"(ptr noalias noundef align 8 dereferenceable(32) %9) #23
           to label %19 unwind label %101
 
 "_ZN4core3ptr156drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthSchemeOptionResolver$GT$$GT$17h13459bf471883f86E.exit": ; preds = %1, %6
@@ -19139,7 +19139,7 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..clie
 19:                                               ; preds = %21, %7
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %8, %7 ]
   %20 = getelementptr inbounds i8, ptr %0, i64 32
-  invoke fastcc void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..endpoint..SharedEndpointResolver$GT$$GT$17h9006bd3378d86126E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %20) #23
+  invoke fastcc void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..endpoint..SharedEndpointResolver$GT$$GT$17h9006bd3378d86126E"(ptr noalias noundef align 8 dereferenceable(32) %20) #23
           to label %28 unwind label %101
 
 21:                                               ; preds = %18
@@ -19166,7 +19166,7 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..clie
 28:                                               ; preds = %30, %19
   %.pn2 = phi { ptr, i32 } [ %31, %30 ], [ %.pn, %19 ]
   %29 = getelementptr inbounds i8, ptr %0, i64 64
-  invoke fastcc void @"_ZN4core3ptr165drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$$GT$17h91c13966bb33f63aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29) #23
+  invoke fastcc void @"_ZN4core3ptr165drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$$GT$17h91c13966bb33f63aE"(ptr noalias noundef align 8 dereferenceable(24) %29) #23
           to label %33 unwind label %101
 
 30:                                               ; preds = %27
@@ -19176,13 +19176,13 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..clie
 
 "_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..endpoint..SharedEndpointResolver$GT$$GT$17h9006bd3378d86126E.exit": ; preds = %"_ZN4core3ptr170drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$$GT$$GT$17h76aad7cfa4d55cf7E.exit", %27
   %32 = getelementptr inbounds i8, ptr %0, i64 64
-  invoke fastcc void @"_ZN4core3ptr165drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$$GT$17h91c13966bb33f63aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
+  invoke fastcc void @"_ZN4core3ptr165drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$$GT$17h91c13966bb33f63aE"(ptr noalias noundef align 8 dereferenceable(24) %32)
           to label %37 unwind label %35
 
 33:                                               ; preds = %35, %28
   %.pn4 = phi { ptr, i32 } [ %36, %35 ], [ %.pn2, %28 ]
   %34 = getelementptr inbounds i8, ptr %0, i64 88
-  invoke fastcc void @"_ZN4core3ptr149drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$17h4ad1e81a14a82c02E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %34) #23
+  invoke fastcc void @"_ZN4core3ptr149drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$17h4ad1e81a14a82c02E"(ptr noalias noundef align 8 dereferenceable(32) %34) #23
           to label %43 unwind label %101
 
 35:                                               ; preds = %"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..endpoint..SharedEndpointResolver$GT$$GT$17h9006bd3378d86126E.exit"
@@ -19209,7 +19209,7 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..clie
 43:                                               ; preds = %45, %33
   %.pn6 = phi { ptr, i32 } [ %46, %45 ], [ %.pn4, %33 ]
   %44 = getelementptr inbounds i8, ptr %0, i64 120
-  invoke fastcc void @"_ZN4core3ptr249drop_in_place$LT$std..collections..hash..map..HashMap$LT$aws_smithy_runtime_api..client..auth..AuthSchemeId$C$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityResolver$GT$$GT$$GT$17h24561a56f6dc6eaaE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %44) #23
+  invoke fastcc void @"_ZN4core3ptr249drop_in_place$LT$std..collections..hash..map..HashMap$LT$aws_smithy_runtime_api..client..auth..AuthSchemeId$C$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityResolver$GT$$GT$$GT$17h24561a56f6dc6eaaE"(ptr noalias noundef align 8 dereferenceable(48) %44) #23
           to label %48 unwind label %101
 
 45:                                               ; preds = %42
@@ -19219,13 +19219,13 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..clie
 
 "_ZN4core3ptr149drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$17h4ad1e81a14a82c02E.exit": ; preds = %37, %42
   %47 = getelementptr inbounds i8, ptr %0, i64 120
-  invoke fastcc void @"_ZN4core3ptr249drop_in_place$LT$std..collections..hash..map..HashMap$LT$aws_smithy_runtime_api..client..auth..AuthSchemeId$C$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityResolver$GT$$GT$$GT$17h24561a56f6dc6eaaE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %47)
+  invoke fastcc void @"_ZN4core3ptr249drop_in_place$LT$std..collections..hash..map..HashMap$LT$aws_smithy_runtime_api..client..auth..AuthSchemeId$C$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityResolver$GT$$GT$$GT$17h24561a56f6dc6eaaE"(ptr noalias noundef align 8 dereferenceable(48) %47)
           to label %52 unwind label %50
 
 48:                                               ; preds = %50, %43
   %.pn8 = phi { ptr, i32 } [ %51, %50 ], [ %.pn6, %43 ]
   %49 = getelementptr inbounds i8, ptr %0, i64 168
-  invoke fastcc void @"_ZN4core3ptr174drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..interceptors..SharedInterceptor$GT$$GT$$GT$17h7676b6077efd3189E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %49) #23
+  invoke fastcc void @"_ZN4core3ptr174drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..interceptors..SharedInterceptor$GT$$GT$$GT$17h7676b6077efd3189E"(ptr noalias noundef align 8 dereferenceable(24) %49) #23
           to label %54 unwind label %101
 
 50:                                               ; preds = %"_ZN4core3ptr149drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$17h4ad1e81a14a82c02E.exit"
@@ -19235,13 +19235,13 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..clie
 
 52:                                               ; preds = %"_ZN4core3ptr149drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$17h4ad1e81a14a82c02E.exit"
   %53 = getelementptr inbounds i8, ptr %0, i64 168
-  invoke fastcc void @"_ZN4core3ptr174drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..interceptors..SharedInterceptor$GT$$GT$$GT$17h7676b6077efd3189E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %53)
+  invoke fastcc void @"_ZN4core3ptr174drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..interceptors..SharedInterceptor$GT$$GT$$GT$17h7676b6077efd3189E"(ptr noalias noundef align 8 dereferenceable(24) %53)
           to label %58 unwind label %56
 
 54:                                               ; preds = %56, %48
   %.pn10 = phi { ptr, i32 } [ %57, %56 ], [ %.pn8, %48 ]
   %55 = getelementptr inbounds i8, ptr %0, i64 192
-  invoke fastcc void @"_ZN4core3ptr186drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$$GT$17he451146ccd471d31E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %55) #23
+  invoke fastcc void @"_ZN4core3ptr186drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$$GT$17he451146ccd471d31E"(ptr noalias noundef align 8 dereferenceable(24) %55) #23
           to label %60 unwind label %101
 
 56:                                               ; preds = %52
@@ -19251,13 +19251,13 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..clie
 
 58:                                               ; preds = %52
   %59 = getelementptr inbounds i8, ptr %0, i64 192
-  invoke fastcc void @"_ZN4core3ptr186drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$$GT$17he451146ccd471d31E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %59)
+  invoke fastcc void @"_ZN4core3ptr186drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$$GT$17he451146ccd471d31E"(ptr noalias noundef align 8 dereferenceable(24) %59)
           to label %64 unwind label %62
 
 60:                                               ; preds = %62, %54
   %.pn12 = phi { ptr, i32 } [ %63, %62 ], [ %.pn10, %54 ]
   %61 = getelementptr inbounds i8, ptr %0, i64 216
-  invoke fastcc void @"_ZN4core3ptr148drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..SharedRetryStrategy$GT$$GT$17hbd3a25962ca6efd1E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %61) #23
+  invoke fastcc void @"_ZN4core3ptr148drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..SharedRetryStrategy$GT$$GT$17hbd3a25962ca6efd1E"(ptr noalias noundef align 8 dereferenceable(32) %61) #23
           to label %70 unwind label %101
 
 62:                                               ; preds = %58
@@ -19284,7 +19284,7 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..clie
 70:                                               ; preds = %72, %60
   %.pn14 = phi { ptr, i32 } [ %73, %72 ], [ %.pn12, %60 ]
   %71 = getelementptr inbounds i8, ptr %0, i64 304
-  invoke fastcc void @"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_async..time..SharedTimeSource$GT$$GT$$GT$17hb2f77e37f8eec057E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %71) #23
+  invoke fastcc void @"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_async..time..SharedTimeSource$GT$$GT$$GT$17hb2f77e37f8eec057E"(ptr noalias noundef align 8 dereferenceable(32) %71) #23
           to label %83 unwind label %101
 
 72:                                               ; preds = %69
@@ -19318,7 +19318,7 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..clie
 83:                                               ; preds = %85, %70
   %.pn16 = phi { ptr, i32 } [ %86, %85 ], [ %.pn14, %70 ]
   %84 = getelementptr inbounds i8, ptr %0, i64 336
-  invoke fastcc void @"_ZN4core3ptr161drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$$GT$$GT$17hf6415e0638bffd06E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %84) #23
+  invoke fastcc void @"_ZN4core3ptr161drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$$GT$$GT$17hf6415e0638bffd06E"(ptr noalias noundef align 8 dereferenceable(32) %84) #23
           to label %96 unwind label %101
 
 85:                                               ; preds = %82
@@ -19352,7 +19352,7 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..clie
 96:                                               ; preds = %98, %83
   %.pn18 = phi { ptr, i32 } [ %99, %98 ], [ %.pn16, %83 ]
   %97 = getelementptr inbounds i8, ptr %0, i64 248
-  invoke fastcc void @"_ZN4core3ptr184drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$$GT$17h37030fc4f198bfb4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %97) #23
+  invoke fastcc void @"_ZN4core3ptr184drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$$GT$17h37030fc4f198bfb4E"(ptr noalias noundef align 8 dereferenceable(24) %97) #23
           to label %103 unwind label %101
 
 98:                                               ; preds = %95
@@ -19362,7 +19362,7 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..clie
 
 "_ZN4core3ptr161drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$$GT$$GT$17hf6415e0638bffd06E.exit": ; preds = %90, %"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_async..time..SharedTimeSource$GT$$GT$$GT$17hb2f77e37f8eec057E.exit", %95
   %100 = getelementptr inbounds i8, ptr %0, i64 248
-  tail call fastcc void @"_ZN4core3ptr184drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$$GT$17h37030fc4f198bfb4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %100)
+  tail call fastcc void @"_ZN4core3ptr184drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$$GT$17h37030fc4f198bfb4E"(ptr noalias noundef align 8 dereferenceable(24) %100)
   ret void
 
 101:                                              ; preds = %96, %83, %70, %60, %54, %48, %43, %33, %28, %19, %7
@@ -19441,7 +19441,7 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$aws_sdk_kms..types..error.._
   br label %"_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i", %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0)
   ret void
 }
 
@@ -19597,7 +19597,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$aws_sdk_kms..operation..sche
   br label %"_ZN4core3ptr105drop_in_place$LT$aws_sdk_kms..types..error.._dependency_timeout_exception..DependencyTimeoutException$GT$17hb5c163366f596171E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr105drop_in_place$LT$aws_sdk_kms..types..error.._dependency_timeout_exception..DependencyTimeoutException$GT$17hb5c163366f596171E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i", %23, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %115
 
 27:                                               ; preds = %1
@@ -19666,7 +19666,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$aws_sdk_kms..operation..sche
   br label %"_ZN4core3ptr91drop_in_place$LT$aws_sdk_kms..types..error.._invalid_arn_exception..InvalidArnException$GT$17hd0eba89179750caeE.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr91drop_in_place$LT$aws_sdk_kms..types..error.._invalid_arn_exception..InvalidArnException$GT$17hd0eba89179750caeE.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i4", %45, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i5"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %115
 
 49:                                               ; preds = %1
@@ -19735,7 +19735,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$aws_sdk_kms..operation..sche
   br label %"_ZN4core3ptr93drop_in_place$LT$aws_sdk_kms..types..error.._kms_internal_exception..KmsInternalException$GT$17he5943f3471bb5d6dE.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr93drop_in_place$LT$aws_sdk_kms..types..error.._kms_internal_exception..KmsInternalException$GT$17he5943f3471bb5d6dE.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i9", %67, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i10"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %115
 
 71:                                               ; preds = %1
@@ -19804,7 +19804,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$aws_sdk_kms..operation..sche
   br label %"_ZN4core3ptr102drop_in_place$LT$aws_sdk_kms..types..error.._kms_invalid_state_exception..KmsInvalidStateException$GT$17hb57a084eb0a9c3e6E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr102drop_in_place$LT$aws_sdk_kms..types..error.._kms_invalid_state_exception..KmsInvalidStateException$GT$17hb57a084eb0a9c3e6E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i14", %89, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i15"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %115
 
 93:                                               ; preds = %1
@@ -19873,7 +19873,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$aws_sdk_kms..operation..sche
   br label %"_ZN4core3ptr87drop_in_place$LT$aws_sdk_kms..types..error.._not_found_exception..NotFoundException$GT$17ha877193e666c88feE.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr87drop_in_place$LT$aws_sdk_kms..types..error.._not_found_exception..NotFoundException$GT$17ha877193e666c88feE.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i.i19", %111, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i.i20"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %3)
   br label %115
 
 115:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$aws_sdk_kms..types..error.._not_found_exception..NotFoundException$GT$17ha877193e666c88feE.llvm.9405825265181994393.exit", %"_ZN4core3ptr102drop_in_place$LT$aws_sdk_kms..types..error.._kms_invalid_state_exception..KmsInvalidStateException$GT$17hb57a084eb0a9c3e6E.llvm.9405825265181994393.exit", %"_ZN4core3ptr93drop_in_place$LT$aws_sdk_kms..types..error.._kms_internal_exception..KmsInternalException$GT$17he5943f3471bb5d6dE.llvm.9405825265181994393.exit", %"_ZN4core3ptr91drop_in_place$LT$aws_sdk_kms..types..error.._invalid_arn_exception..InvalidArnException$GT$17hd0eba89179750caeE.llvm.9405825265181994393.exit", %"_ZN4core3ptr105drop_in_place$LT$aws_sdk_kms..types..error.._dependency_timeout_exception..DependencyTimeoutException$GT$17hb5c163366f596171E.llvm.9405825265181994393.exit", %4
@@ -20022,7 +20022,7 @@ define hidden void @"_ZN4core3ptr93drop_in_place$LT$aws_sdk_kms..types..error.._
   br label %"_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i", %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0)
   ret void
 }
 
@@ -20882,7 +20882,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$aws_sdk_kms..types..error.._
   br label %"_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i", %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0)
   ret void
 }
 
@@ -20952,7 +20952,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$aws_sdk_kms..types..error.._
   br label %"_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i", %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0)
   ret void
 }
 
@@ -21002,7 +21002,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$aws_smithy_runtime_api..clie
   %12 = landingpad { ptr, i32 }
           cleanup
   %13 = getelementptr inbounds i8, ptr %0, i64 144
-  invoke fastcc void @"_ZN4core3ptr170drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$$GT$$GT$17h76aad7cfa4d55cf7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #23
+  invoke fastcc void @"_ZN4core3ptr170drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$$GT$$GT$17h76aad7cfa4d55cf7E"(ptr noalias noundef align 8 dereferenceable(32) %13) #23
           to label %23 unwind label %119
 
 "_ZN4core3ptr184drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthSchemeOptionResolver$GT$$GT$$GT$17h335836708991c35fE.exit": ; preds = %5, %1, %10
@@ -21031,7 +21031,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$aws_smithy_runtime_api..clie
 23:                                               ; preds = %25, %11
   %.pn = phi { ptr, i32 } [ %26, %25 ], [ %12, %11 ]
   %24 = getelementptr inbounds i8, ptr %0, i64 176
-  invoke fastcc void @"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..endpoint..SharedEndpointResolver$GT$$GT$$GT$17h204a8813cee397baE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %24) #23
+  invoke fastcc void @"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..endpoint..SharedEndpointResolver$GT$$GT$$GT$17h204a8813cee397baE"(ptr noalias noundef align 8 dereferenceable(32) %24) #23
           to label %36 unwind label %119
 
 25:                                               ; preds = %22
@@ -21065,7 +21065,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$aws_smithy_runtime_api..clie
 36:                                               ; preds = %38, %23
   %.pn2 = phi { ptr, i32 } [ %39, %38 ], [ %.pn, %23 ]
   %37 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke fastcc void @"_ZN4core3ptr165drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$$GT$17h91c13966bb33f63aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %37) #23
+  invoke fastcc void @"_ZN4core3ptr165drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$$GT$17h91c13966bb33f63aE"(ptr noalias noundef align 8 dereferenceable(24) %37) #23
           to label %41 unwind label %119
 
 38:                                               ; preds = %35
@@ -21075,13 +21075,13 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$aws_smithy_runtime_api..clie
 
 "_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..endpoint..SharedEndpointResolver$GT$$GT$$GT$17h204a8813cee397baE.exit": ; preds = %30, %"_ZN4core3ptr170drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..http..SharedHttpClient$GT$$GT$$GT$17h76aad7cfa4d55cf7E.exit", %35
   %40 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke fastcc void @"_ZN4core3ptr165drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$$GT$17h91c13966bb33f63aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %40)
+  invoke fastcc void @"_ZN4core3ptr165drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$$GT$17h91c13966bb33f63aE"(ptr noalias noundef align 8 dereferenceable(24) %40)
           to label %45 unwind label %43
 
 41:                                               ; preds = %43, %36
   %.pn4 = phi { ptr, i32 } [ %44, %43 ], [ %.pn2, %36 ]
   %42 = getelementptr inbounds i8, ptr %0, i64 208
-  invoke fastcc void @"_ZN4core3ptr177drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$$GT$17h894048f18251fb7cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %42) #23
+  invoke fastcc void @"_ZN4core3ptr177drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$$GT$17h894048f18251fb7cE"(ptr noalias noundef align 8 dereferenceable(32) %42) #23
           to label %55 unwind label %119
 
 43:                                               ; preds = %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..endpoint..SharedEndpointResolver$GT$$GT$$GT$17h204a8813cee397baE.exit"
@@ -21115,7 +21115,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$aws_smithy_runtime_api..clie
 55:                                               ; preds = %57, %41
   %.pn6 = phi { ptr, i32 } [ %58, %57 ], [ %.pn4, %41 ]
   %56 = getelementptr inbounds i8, ptr %0, i64 240
-  invoke fastcc void @"_ZN4core3ptr277drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$aws_smithy_runtime_api..client..auth..AuthSchemeId$C$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityResolver$GT$$GT$$GT$$GT$17h87a75215e0f58e35E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %56) #23
+  invoke fastcc void @"_ZN4core3ptr277drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$aws_smithy_runtime_api..client..auth..AuthSchemeId$C$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityResolver$GT$$GT$$GT$$GT$17h87a75215e0f58e35E"(ptr noalias noundef align 8 dereferenceable(48) %56) #23
           to label %63 unwind label %119
 
 57:                                               ; preds = %54
@@ -21130,13 +21130,13 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$aws_smithy_runtime_api..clie
   br i1 %61, label %"_ZN4core3ptr277drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$aws_smithy_runtime_api..client..auth..AuthSchemeId$C$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityResolver$GT$$GT$$GT$$GT$17h87a75215e0f58e35E.exit", label %62
 
 62:                                               ; preds = %"_ZN4core3ptr177drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$$GT$17h894048f18251fb7cE.exit"
-  invoke fastcc void @"_ZN4core3ptr249drop_in_place$LT$std..collections..hash..map..HashMap$LT$aws_smithy_runtime_api..client..auth..AuthSchemeId$C$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityResolver$GT$$GT$$GT$17h24561a56f6dc6eaaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %59)
+  invoke fastcc void @"_ZN4core3ptr249drop_in_place$LT$std..collections..hash..map..HashMap$LT$aws_smithy_runtime_api..client..auth..AuthSchemeId$C$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityResolver$GT$$GT$$GT$17h24561a56f6dc6eaaE"(ptr noalias noundef readonly align 8 dereferenceable(48) %59)
           to label %"_ZN4core3ptr277drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$aws_smithy_runtime_api..client..auth..AuthSchemeId$C$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityResolver$GT$$GT$$GT$$GT$17h87a75215e0f58e35E.exit" unwind label %65
 
 63:                                               ; preds = %65, %55
   %.pn8 = phi { ptr, i32 } [ %66, %65 ], [ %.pn6, %55 ]
   %64 = getelementptr inbounds i8, ptr %0, i64 40
-  invoke fastcc void @"_ZN4core3ptr174drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..interceptors..SharedInterceptor$GT$$GT$$GT$17h7676b6077efd3189E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %64) #23
+  invoke fastcc void @"_ZN4core3ptr174drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..interceptors..SharedInterceptor$GT$$GT$$GT$17h7676b6077efd3189E"(ptr noalias noundef align 8 dereferenceable(24) %64) #23
           to label %68 unwind label %119
 
 65:                                               ; preds = %62
@@ -21146,13 +21146,13 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$aws_smithy_runtime_api..clie
 
 "_ZN4core3ptr277drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$aws_smithy_runtime_api..client..auth..AuthSchemeId$C$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityResolver$GT$$GT$$GT$$GT$17h87a75215e0f58e35E.exit": ; preds = %"_ZN4core3ptr177drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$$GT$$GT$17h894048f18251fb7cE.exit", %62
   %67 = getelementptr inbounds i8, ptr %0, i64 40
-  invoke fastcc void @"_ZN4core3ptr174drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..interceptors..SharedInterceptor$GT$$GT$$GT$17h7676b6077efd3189E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %67)
+  invoke fastcc void @"_ZN4core3ptr174drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..interceptors..SharedInterceptor$GT$$GT$$GT$17h7676b6077efd3189E"(ptr noalias noundef align 8 dereferenceable(24) %67)
           to label %72 unwind label %70
 
 68:                                               ; preds = %70, %63
   %.pn10 = phi { ptr, i32 } [ %71, %70 ], [ %.pn8, %63 ]
   %69 = getelementptr inbounds i8, ptr %0, i64 64
-  invoke fastcc void @"_ZN4core3ptr186drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$$GT$17he451146ccd471d31E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %69) #23
+  invoke fastcc void @"_ZN4core3ptr186drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$$GT$17he451146ccd471d31E"(ptr noalias noundef align 8 dereferenceable(24) %69) #23
           to label %74 unwind label %119
 
 70:                                               ; preds = %"_ZN4core3ptr277drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$aws_smithy_runtime_api..client..auth..AuthSchemeId$C$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityResolver$GT$$GT$$GT$$GT$17h87a75215e0f58e35E.exit"
@@ -21162,13 +21162,13 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$aws_smithy_runtime_api..clie
 
 72:                                               ; preds = %"_ZN4core3ptr277drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$aws_smithy_runtime_api..client..auth..AuthSchemeId$C$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..identity..SharedIdentityResolver$GT$$GT$$GT$$GT$17h87a75215e0f58e35E.exit"
   %73 = getelementptr inbounds i8, ptr %0, i64 64
-  invoke fastcc void @"_ZN4core3ptr186drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$$GT$17he451146ccd471d31E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %73)
+  invoke fastcc void @"_ZN4core3ptr186drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$$GT$17he451146ccd471d31E"(ptr noalias noundef align 8 dereferenceable(24) %73)
           to label %78 unwind label %76
 
 74:                                               ; preds = %76, %68
   %.pn12 = phi { ptr, i32 } [ %77, %76 ], [ %.pn10, %68 ]
   %75 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr176drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..SharedRetryStrategy$GT$$GT$$GT$17ha25c4fd1d92268a9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %75) #23
+  invoke fastcc void @"_ZN4core3ptr176drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..SharedRetryStrategy$GT$$GT$$GT$17ha25c4fd1d92268a9E"(ptr noalias noundef align 8 dereferenceable(32) %75) #23
           to label %88 unwind label %119
 
 76:                                               ; preds = %72
@@ -21202,7 +21202,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$aws_smithy_runtime_api..clie
 88:                                               ; preds = %90, %74
   %.pn14 = phi { ptr, i32 } [ %91, %90 ], [ %.pn12, %74 ]
   %89 = getelementptr inbounds i8, ptr %0, i64 320
-  invoke fastcc void @"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_async..time..SharedTimeSource$GT$$GT$$GT$17hb2f77e37f8eec057E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %89) #23
+  invoke fastcc void @"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_async..time..SharedTimeSource$GT$$GT$$GT$17hb2f77e37f8eec057E"(ptr noalias noundef align 8 dereferenceable(32) %89) #23
           to label %101 unwind label %119
 
 90:                                               ; preds = %87
@@ -21236,7 +21236,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$aws_smithy_runtime_api..clie
 101:                                              ; preds = %103, %88
   %.pn16 = phi { ptr, i32 } [ %104, %103 ], [ %.pn14, %88 ]
   %102 = getelementptr inbounds i8, ptr %0, i64 352
-  invoke fastcc void @"_ZN4core3ptr161drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$$GT$$GT$17hf6415e0638bffd06E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %102) #23
+  invoke fastcc void @"_ZN4core3ptr161drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$$GT$$GT$17hf6415e0638bffd06E"(ptr noalias noundef align 8 dereferenceable(32) %102) #23
           to label %114 unwind label %119
 
 103:                                              ; preds = %100
@@ -21270,7 +21270,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$aws_smithy_runtime_api..clie
 114:                                              ; preds = %116, %101
   %.pn18 = phi { ptr, i32 } [ %117, %116 ], [ %.pn16, %101 ]
   %115 = getelementptr inbounds i8, ptr %0, i64 88
-  invoke fastcc void @"_ZN4core3ptr184drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$$GT$17h37030fc4f198bfb4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %115) #23
+  invoke fastcc void @"_ZN4core3ptr184drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$$GT$17h37030fc4f198bfb4E"(ptr noalias noundef align 8 dereferenceable(24) %115) #23
           to label %121 unwind label %119
 
 116:                                              ; preds = %113
@@ -21280,7 +21280,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$aws_smithy_runtime_api..clie
 
 "_ZN4core3ptr161drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$$GT$$GT$17hf6415e0638bffd06E.exit": ; preds = %108, %"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_async..time..SharedTimeSource$GT$$GT$$GT$17hb2f77e37f8eec057E.exit", %113
   %118 = getelementptr inbounds i8, ptr %0, i64 88
-  tail call fastcc void @"_ZN4core3ptr184drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$$GT$17h37030fc4f198bfb4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %118)
+  tail call fastcc void @"_ZN4core3ptr184drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$$GT$17h37030fc4f198bfb4E"(ptr noalias noundef align 8 dereferenceable(24) %118)
   ret void
 
 119:                                              ; preds = %114, %101, %88, %74, %68, %63, %55, %41, %36, %23, %11
@@ -21433,7 +21433,7 @@ define hidden void @"_ZN4core3ptr99drop_in_place$LT$aws_sdk_kms..types..error.._
   br label %"_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$aws_smithy_types..error..metadata..ErrorMetadata$GT$17hbc4679a8c16ee669E.llvm.9405825265181994393.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9166d52dd72b20eeE.llvm.9405825265181994393.exit.i", %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9405825265181994393.exit.i.i.i.i.i2.i"
-  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..string..String$GT$$GT$$GT$17h0dcec19cb6b1be4dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0)
   ret void
 }
 
@@ -21903,7 +21903,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 22:                                               ; preds = %18
   %23 = getelementptr inbounds [0 x { { { i64, [5 x i64] } }, { i64, i64 }, { i64, i64 } }], ptr %2, i64 0, i64 %.1.i
   %24 = add i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr122drop_in_place$LT$http..header..map..ExtraValue$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h5a91fa6fbafa66a3E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %23) #23
+  invoke fastcc void @"_ZN4core3ptr122drop_in_place$LT$http..header..map..ExtraValue$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h5a91fa6fbafa66a3E"(ptr noalias noundef align 8 dereferenceable(80) %23) #23
           to label %18 unwind label %26
 
 25:                                               ; preds = %18
@@ -21931,7 +21931,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   %.07.i = phi i64 [ %7, %.lr.ph.i ], [ 0, %1 ]
   %6 = getelementptr inbounds [0 x { [6 x i64], ptr, [2 x i64] }], ptr %2, i64 0, i64 %.07.i
   %7 = add nuw i64 %.07.i, 1
-  tail call fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h2944aec4786e96d5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %6)
+  tail call fastcc void @"_ZN4core3ptr59drop_in_place$LT$ockam_core..error..inner..PayloadEntry$GT$17h2944aec4786e96d5E"(ptr noalias noundef readonly align 8 dereferenceable(72) %6)
   %8 = icmp eq i64 %7, %4
   br i1 %8, label %"_ZN4core3ptr69drop_in_place$LT$$u5b$ockam_core..error..inner..PayloadEntry$u5d$$GT$17h1a709cc17d4646fbE.llvm.9405825265181994393.exit", label %.lr.ph.i
 
@@ -21980,7 +21980,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 20:                                               ; preds = %12
   %21 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr85drop_in_place$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$17h9edf58584cf075aaE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %7) #23
+  invoke fastcc void @"_ZN4core3ptr85drop_in_place$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$17h9edf58584cf075aaE"(ptr noalias noundef align 8 dereferenceable(48) %7) #23
           to label %.body.i unwind label %31
 
 "_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hb68e40fa55dd03f3E.exit.i.i": ; preds = %12, %6
@@ -22021,7 +22021,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 37:                                               ; preds = %33
   %38 = getelementptr inbounds [0 x { { { i64, [5 x i64] } }, { i64, [2 x i64] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }], ptr %2, i64 0, i64 %.1.i
   %39 = add i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$http..header..map..Bucket$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h90e68bf9a35efdaeE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %38) #23
+  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$http..header..map..Bucket$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17h90e68bf9a35efdaeE"(ptr noalias noundef align 8 dereferenceable(112) %38) #23
           to label %33 unwind label %41
 
 40:                                               ; preds = %33
@@ -22285,7 +22285,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 13:                                               ; preds = %9
   %14 = getelementptr inbounds [0 x { { { { i64, [3 x i64] }, ptr } } }], ptr %2, i64 0, i64 %.1.i
   %15 = add i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h1645107817a762caE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %14) #23
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..inner..LocalPayloadEntry$GT$17h1645107817a762caE"(ptr noalias noundef align 8 dereferenceable(40) %14) #23
           to label %9 unwind label %17
 
 16:                                               ; preds = %9

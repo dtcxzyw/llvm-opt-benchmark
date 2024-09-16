@@ -1057,9 +1057,9 @@ IsFlatSource16.exit.i:                            ; preds = %76, %74, %72, %70, 
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %120, %109
-  %.in.i.i = phi i32 [ %111, %120 ], [ 16, %109 ]
-  %.0919.i.i = phi i32 [ %118, %120 ], [ 0, %109 ]
-  %.01218.i.i = phi ptr [ %121, %120 ], [ %110, %109 ]
+  %.in.i.i = phi i32 [ 16, %109 ], [ %111, %120 ]
+  %.0919.i.i = phi i32 [ 0, %109 ], [ %118, %120 ]
+  %.01218.i.i = phi ptr [ %110, %109 ], [ %121, %120 ]
   %111 = add nsw i32 %.in.i.i, -1
   br label %113
 
@@ -1347,7 +1347,7 @@ GetCostModeI4.exit.i:                             ; preds = %247, %242
   %281 = add nsw i32 %280, %277
   %282 = getelementptr inbounds i8, ptr %268, i64 724
   %283 = load i32, ptr %282, align 4, !noalias !47
-  %284 = call fastcc i32 @TrellisQuantizeBlock(ptr noundef %256, ptr noundef nonnull %8, ptr noundef nonnull %10, i32 noundef %281, i32 noundef 3, ptr noundef nonnull %268, i32 noundef %283), !noalias !47
+  %284 = call fastcc i32 @TrellisQuantizeBlock(ptr noundef %256, ptr noundef %8, ptr noundef nonnull %10, i32 noundef %281, i32 noundef 3, ptr noundef nonnull %268, i32 noundef %283), !noalias !47
   br label %ReconstructIntra4.exit.i
 
 285:                                              ; preds = %255
@@ -1859,7 +1859,7 @@ PickBestUV.exit._crit_edge:                       ; preds = %PickBestUV.exit
   %567 = add nsw i32 %566, %563
   %568 = getelementptr inbounds i8, ptr %555, i64 724
   %569 = load i32, ptr %568, align 4, !noalias !105
-  %570 = call fastcc i32 @TrellisQuantizeBlock(ptr noundef %542, ptr noundef nonnull %6, ptr noundef nonnull %541, i32 noundef %567, i32 noundef 3, ptr noundef nonnull %555, i32 noundef %569), !noalias !105
+  %570 = call fastcc i32 @TrellisQuantizeBlock(ptr noundef %542, ptr noundef %6, ptr noundef nonnull %541, i32 noundef %567, i32 noundef 3, ptr noundef nonnull %555, i32 noundef %569), !noalias !105
   br label %ReconstructIntra4.exit.i58
 
 571:                                              ; preds = %519
@@ -2188,7 +2188,7 @@ GetCostModeI4.exit.i72:                           ; preds = %697, %692
   %762 = add nsw i32 %761, %758
   %763 = getelementptr inbounds i8, ptr %750, i64 724
   %764 = load i32, ptr %763, align 4, !noalias !128
-  %765 = call fastcc i32 @TrellisQuantizeBlock(ptr noundef %738, ptr noundef nonnull %4, ptr noundef nonnull %737, i32 noundef %762, i32 noundef 3, ptr noundef nonnull %750, i32 noundef %764), !noalias !128
+  %765 = call fastcc i32 @TrellisQuantizeBlock(ptr noundef %738, ptr noundef %4, ptr noundef nonnull %737, i32 noundef %762, i32 noundef 3, ptr noundef nonnull %750, i32 noundef %764), !noalias !128
   br label %ReconstructIntra4.exit.i76
 
 766:                                              ; preds = %731
@@ -2301,7 +2301,7 @@ declare i32 @VP8FilterStrengthFromDelta(i32 noundef, i32 noundef) local_unnamed_
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ReconstructIntra16(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @ReconstructIntra16(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i32 noundef range(i32 -2147483648, 256) %3) unnamed_addr #0 {
   %5 = alloca [16 x [16 x i16]], align 16
   %6 = alloca [16 x i16], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2384,7 +2384,7 @@ define internal fastcc i32 @ReconstructIntra16(ptr noalias noundef %0, ptr noali
   %56 = add nsw i32 %55, %54
   %57 = getelementptr inbounds [16 x [16 x i16]], ptr %5, i64 0, i64 %indvars.iv83
   %58 = getelementptr inbounds [16 x [16 x i16]], ptr %48, i64 0, i64 %indvars.iv83
-  %59 = call fastcc i32 @TrellisQuantizeBlock(ptr noundef %8, ptr noundef nonnull %57, ptr noundef nonnull %58, i32 noundef %56, i32 noundef 0, ptr noundef nonnull %35, i32 noundef %.pre.pre)
+  %59 = call fastcc i32 @TrellisQuantizeBlock(ptr noundef %8, ptr noundef %57, ptr noundef nonnull %58, i32 noundef %56, i32 noundef 0, ptr noundef nonnull %35, i32 noundef %.pre.pre)
   store i32 %59, ptr %50, align 4
   store i32 %59, ptr %53, align 4
   store i16 0, ptr %58, align 8
@@ -2450,7 +2450,7 @@ declare void @VP8SetIntra16Mode(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @VP8IteratorNzToBytes(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, ptr noalias nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef range(i32 0, 4) %4, ptr noalias nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #5 {
   %8 = alloca [16 x [2 x %struct.Node]], align 16
   %9 = alloca [2 x [2 x %struct.ScoreState]], align 16
   %10 = getelementptr inbounds i8, ptr %0, i64 3620
@@ -2629,7 +2629,7 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias noc
   %120 = getelementptr inbounds [2048 x i16], ptr @VP8LevelFixedCosts, i64 0, i64 %98
   %121 = load i16, ptr %120, align 2
   %122 = zext i16 %121 to i32
-  %123 = tail call i32 @llvm.smin.i32(i32 %99, i32 67)
+  %123 = tail call i32 @llvm.umin.i32(i32 %99, i32 67)
   %124 = zext nneg i32 %123 to i64
   %125 = getelementptr inbounds i16, ptr %119, i64 %124
   %126 = load i16, ptr %125, align 2
@@ -2790,7 +2790,7 @@ declare i32 @VP8IteratorRotateI4(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @VP8SetIntra4Mode(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, -65535) i32 @ReconstructUV(ptr noalias nocapture noundef readonly %0, ptr noalias noundef %1, ptr noalias noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, -65535) i32 @ReconstructUV(ptr noalias nocapture noundef readonly %0, ptr noalias noundef %1, ptr noalias noundef %2, i32 noundef range(i32 -2147483648, 4) %3) unnamed_addr #0 {
   %5 = alloca [8 x [16 x i16]], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8

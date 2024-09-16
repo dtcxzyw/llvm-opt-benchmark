@@ -5305,11 +5305,11 @@ declare noundef i32 @_ZN9OopMapSet10add_gc_mapEiP6OopMap(ptr noundef nonnull ali
 declare void @_ZN14MacroAssembler19set_last_Java_frameE8RegisterS0_PhS0_(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, ptr noundef, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL9save_argsP14MacroAssembleriiP9VMRegPair(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @_ZL9save_argsP14MacroAssembleriiP9VMRegPair(ptr noundef %0, i32 noundef range(i32 1, 65538) %1, i32 noundef range(i32 0, 3) %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.Address, align 8
   %7 = alloca %class.Address, align 8
-  %8 = icmp slt i32 %2, %1
+  %8 = icmp ult i32 %2, %1
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
@@ -5324,7 +5324,8 @@ define internal fastcc void @_ZL9save_argsP14MacroAssembleriiP9VMRegPair(ptr nou
   %17 = getelementptr inbounds i8, ptr %6, i64 24
   %18 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   %19 = getelementptr inbounds i8, ptr %5, i64 24
-  %20 = sext i32 %2 to i64
+  %20 = zext nneg i32 %2 to i64
+  %wide.trip.count = zext nneg i32 %1 to i64
   br label %21
 
 21:                                               ; preds = %.lr.ph, %48
@@ -5387,9 +5388,8 @@ define internal fastcc void @_ZL9save_argsP14MacroAssembleriiP9VMRegPair(ptr nou
   br label %48
 
 48:                                               ; preds = %30, %39, %32
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %1, %lftr.wideiv
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %48, %4
@@ -5401,13 +5401,13 @@ declare void @_ZN14MacroAssembler12call_VM_leafEPh8RegisterS1_(ptr noundef nonnu
 declare noundef i32 @_ZN13SharedRuntime19dtrace_method_entryEP10JavaThreadP6Method(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL12restore_argsP14MacroAssembleriiP9VMRegPair(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @_ZL12restore_argsP14MacroAssembleriiP9VMRegPair(ptr noundef %0, i32 noundef range(i32 1, 65538) %1, i32 noundef range(i32 0, 3) %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.Address, align 8
   %7 = alloca %class.Address, align 8
   %8 = alloca %class.Address, align 8
   %9 = alloca %class.Address, align 8
-  %.not.not20 = icmp sgt i32 %1, %2
+  %.not.not20 = icmp ugt i32 %1, %2
   br i1 %.not.not20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
@@ -5424,42 +5424,43 @@ define internal fastcc void @_ZL12restore_argsP14MacroAssembleriiP9VMRegPair(ptr
   %20 = getelementptr inbounds i8, ptr %5, i64 24
   %21 = getelementptr inbounds i8, ptr %7, i64 24
   %22 = getelementptr inbounds i8, ptr %6, i64 24
-  br label %23
+  %23 = zext nneg i32 %1 to i64
+  %24 = zext nneg i32 %2 to i64
+  br label %25
 
-23:                                               ; preds = %.lr.ph, %55
-  %.021.in = phi i32 [ %1, %.lr.ph ], [ %.021, %55 ]
-  %.021 = add nsw i32 %.021.in, -1
-  %24 = zext nneg i32 %.021 to i64
-  %25 = getelementptr inbounds %class.VMRegPair, ptr %3, i64 %24, i32 1
-  %26 = load ptr, ptr %25, align 8
-  %27 = load i8, ptr @UseAPX, align 1
-  %28 = trunc i8 %27 to i1
-  %..i.i = select i1 %28, i32 64, i32 32
-  %29 = ptrtoint ptr %26 to i64
-  %30 = trunc i64 %29 to i32
-  %31 = sub i32 %30, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
-  %32 = icmp ult i32 %31, %..i.i
-  br i1 %32, label %33, label %35
+25:                                               ; preds = %.lr.ph, %56
+  %indvars.iv = phi i64 [ %23, %.lr.ph ], [ %indvars.iv.next, %56 ]
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %26 = getelementptr inbounds %class.VMRegPair, ptr %3, i64 %indvars.iv.next, i32 1
+  %27 = load ptr, ptr %26, align 8
+  %28 = load i8, ptr @UseAPX, align 1
+  %29 = trunc i8 %28 to i1
+  %..i.i = select i1 %29, i32 64, i32 32
+  %30 = ptrtoint ptr %27 to i64
+  %31 = trunc i64 %30 to i32
+  %32 = sub i32 %31, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %33 = icmp ult i32 %32, %..i.i
+  br i1 %33, label %34, label %36
 
-33:                                               ; preds = %23
-  %34 = lshr i32 %31, 1
-  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %34) #14
-  br label %55
+34:                                               ; preds = %25
+  %35 = lshr i32 %32, 1
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %35) #14
+  br label %56
 
-35:                                               ; preds = %23
-  %36 = load i32, ptr @UseAVX, align 4
-  %37 = icmp slt i32 %36, 3
-  %38 = icmp sgt i32 %31, 79
-  %39 = select i1 %37, i32 336, i32 592
-  %40 = icmp ult i32 %31, %39
-  %41 = select i1 %38, i1 %40, i1 false
-  br i1 %41, label %42, label %55
+36:                                               ; preds = %25
+  %37 = load i32, ptr @UseAVX, align 4
+  %38 = icmp slt i32 %37, 3
+  %39 = icmp sgt i32 %32, 79
+  %40 = select i1 %38, i32 336, i32 592
+  %41 = icmp ult i32 %32, %40
+  %42 = select i1 %39, i1 %41, i1 false
+  br i1 %42, label %43, label %56
 
-42:                                               ; preds = %35
-  %43 = add i32 %30, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)), i32 -80)
-  %44 = ashr i32 %43, 4
-  %or.cond.i.i17 = icmp ult i32 %44, 32
-  %spec.select.i.i18 = select i1 %or.cond.i.i17, i32 %44, i32 -1
+43:                                               ; preds = %36
+  %44 = add i32 %31, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)), i32 -80)
+  %45 = ashr i32 %44, 4
+  %or.cond.i.i17 = icmp ult i32 %45, 32
+  %spec.select.i.i18 = select i1 %or.cond.i.i17, i32 %45, i32 -1
   store i32 4, ptr %9, align 8
   store i32 -1, ptr %10, align 4
   store i32 -1, ptr %11, align 8
@@ -5471,47 +5472,47 @@ define internal fastcc void @_ZL12restore_argsP14MacroAssembleriiP9VMRegPair(ptr
   store i32 0, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  %45 = load i8, ptr @UseXmmLoadAndClearUpper, align 1
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %47, label %51
+  %46 = load i8, ptr @UseXmmLoadAndClearUpper, align 1
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %52
 
-47:                                               ; preds = %42
+48:                                               ; preds = %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %7, ptr noundef nonnull align 8 dereferenceable(21) %9, i64 21, i1 false)
   call void %19(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(40) %21) #14
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef nonnull align 8 dereferenceable(21) %7, i64 21, i1 false)
-  %48 = load ptr, ptr %21, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
-  %50 = load ptr, ptr %49, align 8
-  call void %50(ptr noundef nonnull align 8 dereferenceable(20) %21, ptr noundef nonnull align 8 dereferenceable(40) %22) #14
+  %49 = load ptr, ptr %21, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %51 = load ptr, ptr %50, align 8
+  call void %51(ptr noundef nonnull align 8 dereferenceable(20) %21, ptr noundef nonnull align 8 dereferenceable(40) %22) #14
   call void @_ZN9Assembler5movsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %spec.select.i.i18, ptr noundef nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit
 
-51:                                               ; preds = %42
+52:                                               ; preds = %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %8, ptr noundef nonnull align 8 dereferenceable(21) %9, i64 21, i1 false)
   call void %19(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(40) %18) #14
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %5, ptr noundef nonnull align 8 dereferenceable(21) %8, i64 21, i1 false)
-  %52 = load ptr, ptr %18, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
-  %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(20) %18, ptr noundef nonnull align 8 dereferenceable(40) %20) #14
+  %53 = load ptr, ptr %18, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %55 = load ptr, ptr %54, align 8
+  call void %55(ptr noundef nonnull align 8 dereferenceable(20) %18, ptr noundef nonnull align 8 dereferenceable(40) %20) #14
   call void @_ZN9Assembler6movlpdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %spec.select.i.i18, ptr noundef nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   br label %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit
 
-_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit: ; preds = %47, %51
+_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit: ; preds = %48, %52
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   call void @_ZN14MacroAssembler6addptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 4, i32 noundef 16) #14
-  br label %55
+  br label %56
 
-55:                                               ; preds = %33, %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit, %35
-  %.not.not = icmp sgt i32 %.021, %2
-  br i1 %.not.not, label %23, label %._crit_edge, !llvm.loop !37
+56:                                               ; preds = %34, %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit, %36
+  %.not.not = icmp sgt i64 %indvars.iv.next, %24
+  br i1 %.not.not, label %25, label %._crit_edge, !llvm.loop !37
 
-._crit_edge:                                      ; preds = %55, %4
+._crit_edge:                                      ; preds = %56, %4
   ret void
 }
 
@@ -7728,11 +7729,11 @@ define hidden void @_ZN13SharedRuntime19montgomery_multiplyEPiS0_S0_ilS0_(ptr no
   br i1 %45, label %.lr.ph.i37, label %_ZL13reverse_wordsPmS_i.exit41, !llvm.loop !38
 
 _ZL13reverse_wordsPmS_i.exit41.thread:            ; preds = %10
-  call fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %19, ptr noundef nonnull %22, i64 noundef %4, i32 noundef %11)
+  call fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr noundef %15, ptr noundef %16, ptr noundef %19, ptr noundef %22, i64 noundef %4, i32 noundef %11)
   br label %_ZL13reverse_wordsPmS_i.exit47
 
 _ZL13reverse_wordsPmS_i.exit41:                   ; preds = %.lr.ph.i37
-  call fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %19, ptr noundef nonnull %22, i64 noundef %4, i32 noundef %11)
+  call fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr noundef %15, ptr noundef %16, ptr noundef %19, ptr noundef %22, i64 noundef %4, i32 noundef %11)
   %46 = getelementptr inbounds i64, ptr %5, i64 %24
   br label %.lr.ph.i43
 
@@ -7754,7 +7755,7 @@ _ZL13reverse_wordsPmS_i.exit47:                   ; preds = %.lr.ph.i43, %_ZL13r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %4, i32 noundef range(i32 -1073741824, 342) %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   store i64 0, ptr %7, align 8
   %8 = icmp sgt i32 %5, 0
@@ -7780,7 +7781,9 @@ define internal fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr nocapture no
 
 .lr.ph99.preheader:                               ; preds = %.preheader76
   %11 = sext i32 %5 to i64
+  %wide.trip.count127 = sext i32 %9 to i64
   %invariant.op = add nsw i64 %11, -1
+  %wide.trip.count = zext i32 %5 to i64
   br label %.lr.ph99
 
 .lr.ph:                                           ; preds = %.preheader77, %.lr.ph
@@ -7842,45 +7845,40 @@ define internal fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr nocapture no
 
 .lr.ph103:                                        ; preds = %.preheader
   %43 = sext i32 %5 to i64
-  br label %66
+  br label %65
 
 .lr.ph99:                                         ; preds = %.lr.ph99.preheader, %._crit_edge93
   %indvars.iv123 = phi i64 [ %11, %.lr.ph99.preheader ], [ %indvars.iv.next124, %._crit_edge93 ]
-  %indvars.iv117 = phi i32 [ 1, %.lr.ph99.preheader ], [ %indvars.iv.next118, %._crit_edge93 ]
+  %indvars.iv117 = phi i64 [ 1, %.lr.ph99.preheader ], [ %indvars.iv.next118, %._crit_edge93 ]
   %.298 = phi i64 [ %.0.lcssa, %.lr.ph99.preheader ], [ %.370.lcssa, %._crit_edge93 ]
-  %.26997 = phi i64 [ %.067.lcssa, %.lr.ph99.preheader ], [ %64, %._crit_edge93 ]
+  %.26997 = phi i64 [ %.067.lcssa, %.lr.ph99.preheader ], [ %63, %._crit_edge93 ]
   %44 = sub nsw i64 %indvars.iv123, %11
   %45 = icmp slt i64 %44, %invariant.op
-  br i1 %45, label %.lr.ph92.preheader, label %._crit_edge93
+  br i1 %45, label %.lr.ph92, label %._crit_edge93
 
-.lr.ph92.preheader:                               ; preds = %.lr.ph99
-  %46 = sext i32 %indvars.iv117 to i64
-  br label %.lr.ph92
-
-.lr.ph92:                                         ; preds = %.lr.ph92.preheader, %.lr.ph92
-  %indvars.iv119 = phi i64 [ %46, %.lr.ph92.preheader ], [ %indvars.iv.next120, %.lr.ph92 ]
-  %.389 = phi i64 [ %.298, %.lr.ph92.preheader ], [ %62, %.lr.ph92 ]
-  %.37088 = phi i64 [ %.26997, %.lr.ph92.preheader ], [ %63, %.lr.ph92 ]
-  %47 = load i64, ptr %7, align 8
-  %48 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv119
-  %49 = load i64, ptr %48, align 8
-  %50 = sub nsw i64 %indvars.iv123, %indvars.iv119
-  %51 = getelementptr inbounds i64, ptr %1, i64 %50
-  %52 = load i64, ptr %51, align 8
-  %53 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %49, i64 %52, i64 %.389, i64 %.37088, i64 %47) #14, !srcloc !45
-  %54 = extractvalue { i64, i64, i64, i64 } %53, 2
-  %55 = extractvalue { i64, i64, i64, i64 } %53, 3
-  %56 = load i64, ptr %7, align 8
-  %57 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv119
-  %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i64, ptr %2, i64 %50
-  %60 = load i64, ptr %59, align 8
-  %61 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %58, i64 %60, i64 %54, i64 %55, i64 %56) #14, !srcloc !46
-  %62 = extractvalue { i64, i64, i64, i64 } %61, 2
-  %63 = extractvalue { i64, i64, i64, i64 } %61, 3
-  %indvars.iv.next120 = add nsw i64 %indvars.iv119, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next120 to i32
-  %exitcond122.not = icmp eq i32 %5, %lftr.wideiv
+.lr.ph92:                                         ; preds = %.lr.ph99, %.lr.ph92
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %.lr.ph92 ], [ %indvars.iv117, %.lr.ph99 ]
+  %.389 = phi i64 [ %61, %.lr.ph92 ], [ %.298, %.lr.ph99 ]
+  %.37088 = phi i64 [ %62, %.lr.ph92 ], [ %.26997, %.lr.ph99 ]
+  %46 = load i64, ptr %7, align 8
+  %47 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv119
+  %48 = load i64, ptr %47, align 8
+  %49 = sub nsw i64 %indvars.iv123, %indvars.iv119
+  %50 = getelementptr inbounds i64, ptr %1, i64 %49
+  %51 = load i64, ptr %50, align 8
+  %52 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %48, i64 %51, i64 %.389, i64 %.37088, i64 %46) #14, !srcloc !45
+  %53 = extractvalue { i64, i64, i64, i64 } %52, 2
+  %54 = extractvalue { i64, i64, i64, i64 } %52, 3
+  %55 = load i64, ptr %7, align 8
+  %56 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv119
+  %57 = load i64, ptr %56, align 8
+  %58 = getelementptr inbounds i64, ptr %2, i64 %49
+  %59 = load i64, ptr %58, align 8
+  %60 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %57, i64 %59, i64 %53, i64 %54, i64 %55) #14, !srcloc !46
+  %61 = extractvalue { i64, i64, i64, i64 } %60, 2
+  %62 = extractvalue { i64, i64, i64, i64 } %60, 3
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond122.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count
   br i1 %exitcond122.not, label %._crit_edge93.loopexit, label %.lr.ph92, !llvm.loop !47
 
 ._crit_edge93.loopexit:                           ; preds = %.lr.ph92
@@ -7888,26 +7886,25 @@ define internal fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr nocapture no
   br label %._crit_edge93
 
 ._crit_edge93:                                    ; preds = %._crit_edge93.loopexit, %.lr.ph99
-  %64 = phi i64 [ 0, %.lr.ph99 ], [ %.pre129, %._crit_edge93.loopexit ]
-  %.370.lcssa = phi i64 [ %.26997, %.lr.ph99 ], [ %63, %._crit_edge93.loopexit ]
-  %.3.lcssa = phi i64 [ %.298, %.lr.ph99 ], [ %62, %._crit_edge93.loopexit ]
-  %65 = getelementptr inbounds i64, ptr %3, i64 %44
-  store i64 %.3.lcssa, ptr %65, align 8
+  %63 = phi i64 [ 0, %.lr.ph99 ], [ %.pre129, %._crit_edge93.loopexit ]
+  %.370.lcssa = phi i64 [ %.26997, %.lr.ph99 ], [ %62, %._crit_edge93.loopexit ]
+  %.3.lcssa = phi i64 [ %.298, %.lr.ph99 ], [ %61, %._crit_edge93.loopexit ]
+  %64 = getelementptr inbounds i64, ptr %3, i64 %44
+  store i64 %.3.lcssa, ptr %64, align 8
   store i64 0, ptr %7, align 8
   %indvars.iv.next124 = add nsw i64 %indvars.iv123, 1
-  %indvars.iv.next118 = add i32 %indvars.iv117, 1
-  %lftr.wideiv127 = trunc i64 %indvars.iv.next124 to i32
-  %exitcond128.not = icmp eq i32 %9, %lftr.wideiv127
+  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
+  %exitcond128.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count127
   br i1 %exitcond128.not, label %.preheader, label %.lr.ph99, !llvm.loop !48
 
-66:                                               ; preds = %.lr.ph103, %66
-  %.4102 = phi i64 [ %.2.lcssa, %.lr.ph103 ], [ %68, %66 ]
-  %67 = call { i64, i64, i64 } asm sideeffect "clc; 0: ; mov ($4, $0, 8), $2; sbb $2, ($3, $0, 8); inc $0; dec $1; jne 0b; mov $5, $2; sbb $$0, $2; ", "=r,=r,=&r,r,r,r,0,1,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %3, ptr %2, i64 %.4102, i64 0, i64 %43) #14, !srcloc !49
-  %68 = extractvalue { i64, i64, i64 } %67, 2
-  %.not = icmp eq i64 %68, 0
-  br i1 %.not, label %._crit_edge104, label %66, !llvm.loop !50
+65:                                               ; preds = %.lr.ph103, %65
+  %.4102 = phi i64 [ %.2.lcssa, %.lr.ph103 ], [ %67, %65 ]
+  %66 = call { i64, i64, i64 } asm sideeffect "clc; 0: ; mov ($4, $0, 8), $2; sbb $2, ($3, $0, 8); inc $0; dec $1; jne 0b; mov $5, $2; sbb $$0, $2; ", "=r,=r,=&r,r,r,r,0,1,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, ptr nonnull %2, i64 %.4102, i64 0, i64 %43) #14, !srcloc !49
+  %67 = extractvalue { i64, i64, i64 } %66, 2
+  %.not = icmp eq i64 %67, 0
+  br i1 %.not, label %._crit_edge104, label %65, !llvm.loop !50
 
-._crit_edge104:                                   ; preds = %66, %.preheader
+._crit_edge104:                                   ; preds = %65, %.preheader
   ret void
 }
 
@@ -8033,25 +8030,25 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i.._crit_edge.thread.i_crit_edge, %.lr.ph134.i
   %59 = phi i64 [ %.pre, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ 0, %.lr.ph134.i ]
-  %.1.lcssa205.i = phi i64 [ %55, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ %.0132.i, %.lr.ph134.i ]
-  %.1102.lcssa204.i = phi i64 [ %56, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ %.0101131.i, %.lr.ph134.i ]
-  %.0111.lcssa202.i = phi i64 [ %umax, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ 0, %.lr.ph134.i ]
-  %60 = getelementptr inbounds i64, ptr %15, i64 %.0111.lcssa202.i
+  %.1.lcssa204.i = phi i64 [ %55, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ %.0132.i, %.lr.ph134.i ]
+  %.1102.lcssa203.i = phi i64 [ %56, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ %.0101131.i, %.lr.ph134.i ]
+  %.0111.lcssa201.i = phi i64 [ %umax, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ 0, %.lr.ph134.i ]
+  %60 = getelementptr inbounds i64, ptr %15, i64 %.0111.lcssa201.i
   %61 = load i64, ptr %60, align 8
-  %62 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %61, i64 %61, i64 %.1.lcssa205.i, i64 %.1102.lcssa204.i, i64 %59) #14, !srcloc !54
+  %62 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %61, i64 %61, i64 %.1.lcssa204.i, i64 %.1102.lcssa203.i, i64 %59) #14, !srcloc !54
   %63 = extractvalue { i64, i64, i64, i64 } %62, 2
   %64 = extractvalue { i64, i64, i64, i64 } %62, 3
   br label %._crit_edge._crit_edge.i
 
 ._crit_edge._crit_edge.i:                         ; preds = %._crit_edge.thread.i, %._crit_edge.i
-  %.0111.lcssa203.i = phi i64 [ %.0111.lcssa202.i, %._crit_edge.thread.i ], [ %umax, %._crit_edge.i ]
+  %.0111.lcssa202.i = phi i64 [ %.0111.lcssa201.i, %._crit_edge.thread.i ], [ %umax, %._crit_edge.i ]
   %.2103.i = phi i64 [ %64, %._crit_edge.thread.i ], [ %56, %._crit_edge.i ]
   %.2.i = phi i64 [ %63, %._crit_edge.thread.i ], [ %55, %._crit_edge.i ]
-  %65 = icmp ult i64 %.0111.lcssa203.i, %indvars.iv179.i
+  %65 = icmp ult i64 %.0111.lcssa202.i, %indvars.iv179.i
   br i1 %65, label %.lr.ph126.i, label %._crit_edge127.i
 
 .lr.ph126.i:                                      ; preds = %._crit_edge._crit_edge.i, %.lr.ph126.i
-  %indvars.iv176.i = phi i64 [ %indvars.iv.next177.i, %.lr.ph126.i ], [ %.0111.lcssa203.i, %._crit_edge._crit_edge.i ]
+  %indvars.iv176.i = phi i64 [ %indvars.iv.next177.i, %.lr.ph126.i ], [ %.0111.lcssa202.i, %._crit_edge._crit_edge.i ]
   %.3124.i = phi i64 [ %73, %.lr.ph126.i ], [ %.2.i, %._crit_edge._crit_edge.i ]
   %.3104123.i = phi i64 [ %74, %.lr.ph126.i ], [ %.2103.i, %._crit_edge._crit_edge.i ]
   %66 = load i64, ptr %6, align 8
@@ -8090,9 +8087,9 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
 
 .lr.ph157.i:                                      ; preds = %.preheader116.i, %._crit_edge151.i
   %indvars.iv193.i = phi i64 [ %indvars.iv.next194.i, %._crit_edge151.i ], [ %12, %.preheader116.i ]
-  %indvars.iv184.i = phi i32 [ %indvars.iv.next185.i, %._crit_edge151.i ], [ 1, %.preheader116.i ]
+  %indvars.iv184.i = phi i64 [ %indvars.iv.next185.i, %._crit_edge151.i ], [ 1, %.preheader116.i ]
   %.4156.i = phi i64 [ %.7108.lcssa.i, %._crit_edge151.i ], [ %80, %.preheader116.i ]
-  %.4105155.i = phi i64 [ %132, %._crit_edge151.i ], [ %81, %.preheader116.i ]
+  %.4105155.i = phi i64 [ %131, %._crit_edge151.i ], [ %81, %.preheader116.i ]
   %82 = sub nuw nsw i64 %indvars.iv193.i, %12
   %83 = add nuw nsw i64 %82, 1
   %84 = sub nsw i64 %12, %83
@@ -8101,135 +8098,131 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %87 = sext i32 %86 to i64
   %88 = add nsw i64 %83, %87
   %89 = icmp sgt i64 %84, 1
-  br i1 %89, label %.lr.ph141.preheader.i, label %._crit_edge142.i
+  br i1 %89, label %.lr.ph141.i, label %._crit_edge142.i
 
-.lr.ph141.preheader.i:                            ; preds = %.lr.ph157.i
-  %90 = sext i32 %indvars.iv184.i to i64
-  br label %.lr.ph141.i
-
-.lr.ph141.i:                                      ; preds = %.lr.ph141.i, %.lr.ph141.preheader.i
-  %indvars.iv186.i = phi i64 [ %90, %.lr.ph141.preheader.i ], [ %indvars.iv.next187.i, %.lr.ph141.i ]
-  %.5139.i = phi i64 [ %.4156.i, %.lr.ph141.preheader.i ], [ %106, %.lr.ph141.i ]
-  %.5106138.i = phi i64 [ %.4105155.i, %.lr.ph141.preheader.i ], [ %107, %.lr.ph141.i ]
-  %91 = load i64, ptr %6, align 8
-  %92 = getelementptr inbounds i64, ptr %15, i64 %indvars.iv186.i
-  %93 = load i64, ptr %92, align 8
-  %94 = sub nsw i64 %indvars.iv193.i, %indvars.iv186.i
-  %95 = getelementptr inbounds i64, ptr %15, i64 %94
-  %96 = load i64, ptr %95, align 8
-  %97 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %93, i64 %96, i64 %.5139.i, i64 %.5106138.i, i64 %91) #14, !srcloc !59
-  %98 = extractvalue { i64, i64, i64, i64 } %97, 2
-  %99 = extractvalue { i64, i64, i64, i64 } %97, 3
-  %100 = load i64, ptr %6, align 8
-  %101 = getelementptr inbounds i64, ptr %19, i64 %indvars.iv186.i
-  %102 = load i64, ptr %101, align 8
-  %103 = getelementptr inbounds i64, ptr %16, i64 %94
-  %104 = load i64, ptr %103, align 8
-  %105 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %102, i64 %104, i64 %98, i64 %99, i64 %100) #14, !srcloc !60
-  %106 = extractvalue { i64, i64, i64, i64 } %105, 2
-  %107 = extractvalue { i64, i64, i64, i64 } %105, 3
-  %indvars.iv.next187.i = add nsw i64 %indvars.iv186.i, 1
-  %108 = icmp slt i64 %indvars.iv.next187.i, %88
-  br i1 %108, label %.lr.ph141.i, label %._crit_edge142.i, !llvm.loop !61
+.lr.ph141.i:                                      ; preds = %.lr.ph157.i, %.lr.ph141.i
+  %indvars.iv186.i = phi i64 [ %indvars.iv.next187.i, %.lr.ph141.i ], [ %indvars.iv184.i, %.lr.ph157.i ]
+  %.5139.i = phi i64 [ %105, %.lr.ph141.i ], [ %.4156.i, %.lr.ph157.i ]
+  %.5106138.i = phi i64 [ %106, %.lr.ph141.i ], [ %.4105155.i, %.lr.ph157.i ]
+  %90 = load i64, ptr %6, align 8
+  %91 = getelementptr inbounds i64, ptr %15, i64 %indvars.iv186.i
+  %92 = load i64, ptr %91, align 8
+  %93 = sub nsw i64 %indvars.iv193.i, %indvars.iv186.i
+  %94 = getelementptr inbounds i64, ptr %15, i64 %93
+  %95 = load i64, ptr %94, align 8
+  %96 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %92, i64 %95, i64 %.5139.i, i64 %.5106138.i, i64 %90) #14, !srcloc !59
+  %97 = extractvalue { i64, i64, i64, i64 } %96, 2
+  %98 = extractvalue { i64, i64, i64, i64 } %96, 3
+  %99 = load i64, ptr %6, align 8
+  %100 = getelementptr inbounds i64, ptr %19, i64 %indvars.iv186.i
+  %101 = load i64, ptr %100, align 8
+  %102 = getelementptr inbounds i64, ptr %16, i64 %93
+  %103 = load i64, ptr %102, align 8
+  %104 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %101, i64 %103, i64 %97, i64 %98, i64 %99) #14, !srcloc !60
+  %105 = extractvalue { i64, i64, i64, i64 } %104, 2
+  %106 = extractvalue { i64, i64, i64, i64 } %104, 3
+  %indvars.iv.next187.i = add nuw nsw i64 %indvars.iv186.i, 1
+  %107 = icmp slt i64 %indvars.iv.next187.i, %88
+  br i1 %107, label %.lr.ph141.i, label %._crit_edge142.i, !llvm.loop !61
 
 ._crit_edge142.i:                                 ; preds = %.lr.ph141.i, %.lr.ph157.i
   %.0113.lcssa.in.i = phi i64 [ %83, %.lr.ph157.i ], [ %indvars.iv.next187.i, %.lr.ph141.i ]
-  %.5106.lcssa.i = phi i64 [ %.4105155.i, %.lr.ph157.i ], [ %107, %.lr.ph141.i ]
-  %.5.lcssa.i = phi i64 [ %.4156.i, %.lr.ph157.i ], [ %106, %.lr.ph141.i ]
+  %.5106.lcssa.i = phi i64 [ %.4105155.i, %.lr.ph157.i ], [ %106, %.lr.ph141.i ]
+  %.5.lcssa.i = phi i64 [ %.4156.i, %.lr.ph157.i ], [ %105, %.lr.ph141.i ]
   %.0113.lcssa.i = trunc i64 %.0113.lcssa.in.i to i32
-  %109 = and i64 %indvars.iv193.i, 1
-  %110 = icmp eq i64 %109, 0
-  br i1 %110, label %111, label %119
+  %108 = and i64 %indvars.iv193.i, 1
+  %109 = icmp eq i64 %108, 0
+  br i1 %109, label %110, label %118
 
-111:                                              ; preds = %._crit_edge142.i
-  %112 = load i64, ptr %6, align 8
+110:                                              ; preds = %._crit_edge142.i
+  %111 = load i64, ptr %6, align 8
   %sext.i = shl i64 %.0113.lcssa.in.i, 32
-  %113 = ashr exact i64 %sext.i, 29
-  %114 = getelementptr inbounds i8, ptr %15, i64 %113
-  %115 = load i64, ptr %114, align 8
-  %116 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %115, i64 %115, i64 %.5.lcssa.i, i64 %.5106.lcssa.i, i64 %112) #14, !srcloc !62
-  %117 = extractvalue { i64, i64, i64, i64 } %116, 2
-  %118 = extractvalue { i64, i64, i64, i64 } %116, 3
-  br label %119
+  %112 = ashr exact i64 %sext.i, 29
+  %113 = getelementptr inbounds i8, ptr %15, i64 %112
+  %114 = load i64, ptr %113, align 8
+  %115 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %114, i64 %114, i64 %.5.lcssa.i, i64 %.5106.lcssa.i, i64 %111) #14, !srcloc !62
+  %116 = extractvalue { i64, i64, i64, i64 } %115, 2
+  %117 = extractvalue { i64, i64, i64, i64 } %115, 3
+  br label %118
 
-119:                                              ; preds = %111, %._crit_edge142.i
-  %.6107.i = phi i64 [ %118, %111 ], [ %.5106.lcssa.i, %._crit_edge142.i ]
-  %.6.i = phi i64 [ %117, %111 ], [ %.5.lcssa.i, %._crit_edge142.i ]
-  %120 = icmp sgt i32 %7, %.0113.lcssa.i
-  br i1 %120, label %.lr.ph150.preheader.i, label %._crit_edge151.i
+118:                                              ; preds = %110, %._crit_edge142.i
+  %.6107.i = phi i64 [ %117, %110 ], [ %.5106.lcssa.i, %._crit_edge142.i ]
+  %.6.i = phi i64 [ %116, %110 ], [ %.5.lcssa.i, %._crit_edge142.i ]
+  %119 = icmp sgt i32 %7, %.0113.lcssa.i
+  br i1 %119, label %.lr.ph150.preheader.i, label %._crit_edge151.i
 
-.lr.ph150.preheader.i:                            ; preds = %119
-  %sext198.i = shl i64 %.0113.lcssa.in.i, 32
-  %121 = ashr exact i64 %sext198.i, 32
+.lr.ph150.preheader.i:                            ; preds = %118
+  %sext197.i = shl i64 %.0113.lcssa.in.i, 32
+  %120 = ashr exact i64 %sext197.i, 32
   br label %.lr.ph150.i
 
 .lr.ph150.i:                                      ; preds = %.lr.ph150.i, %.lr.ph150.preheader.i
-  %indvars.iv189.i = phi i64 [ %121, %.lr.ph150.preheader.i ], [ %indvars.iv.next190.i, %.lr.ph150.i ]
-  %.7148.i = phi i64 [ %.6.i, %.lr.ph150.preheader.i ], [ %129, %.lr.ph150.i ]
-  %.7108147.i = phi i64 [ %.6107.i, %.lr.ph150.preheader.i ], [ %130, %.lr.ph150.i ]
-  %122 = load i64, ptr %6, align 8
-  %123 = getelementptr inbounds i64, ptr %19, i64 %indvars.iv189.i
-  %124 = load i64, ptr %123, align 8
-  %125 = sub nsw i64 %indvars.iv193.i, %indvars.iv189.i
-  %126 = getelementptr inbounds i64, ptr %16, i64 %125
-  %127 = load i64, ptr %126, align 8
-  %128 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %124, i64 %127, i64 %.7148.i, i64 %.7108147.i, i64 %122) #14, !srcloc !63
-  %129 = extractvalue { i64, i64, i64, i64 } %128, 2
-  %130 = extractvalue { i64, i64, i64, i64 } %128, 3
+  %indvars.iv189.i = phi i64 [ %120, %.lr.ph150.preheader.i ], [ %indvars.iv.next190.i, %.lr.ph150.i ]
+  %.7148.i = phi i64 [ %.6.i, %.lr.ph150.preheader.i ], [ %128, %.lr.ph150.i ]
+  %.7108147.i = phi i64 [ %.6107.i, %.lr.ph150.preheader.i ], [ %129, %.lr.ph150.i ]
+  %121 = load i64, ptr %6, align 8
+  %122 = getelementptr inbounds i64, ptr %19, i64 %indvars.iv189.i
+  %123 = load i64, ptr %122, align 8
+  %124 = sub nsw i64 %indvars.iv193.i, %indvars.iv189.i
+  %125 = getelementptr inbounds i64, ptr %16, i64 %124
+  %126 = load i64, ptr %125, align 8
+  %127 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %123, i64 %126, i64 %.7148.i, i64 %.7108147.i, i64 %121) #14, !srcloc !63
+  %128 = extractvalue { i64, i64, i64, i64 } %127, 2
+  %129 = extractvalue { i64, i64, i64, i64 } %127, 3
   %indvars.iv.next190.i = add nsw i64 %indvars.iv189.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next190.i to i32
   %exitcond192.not.i = icmp eq i32 %7, %lftr.wideiv.i
   br i1 %exitcond192.not.i, label %._crit_edge151.i, label %.lr.ph150.i, !llvm.loop !64
 
-._crit_edge151.i:                                 ; preds = %.lr.ph150.i, %119
-  %.7108.lcssa.i = phi i64 [ %.6107.i, %119 ], [ %130, %.lr.ph150.i ]
-  %.7.lcssa.i = phi i64 [ %.6.i, %119 ], [ %129, %.lr.ph150.i ]
-  %131 = getelementptr inbounds i64, ptr %19, i64 %82
-  store i64 %.7.lcssa.i, ptr %131, align 8
-  %132 = load i64, ptr %6, align 8
+._crit_edge151.i:                                 ; preds = %.lr.ph150.i, %118
+  %.7108.lcssa.i = phi i64 [ %.6107.i, %118 ], [ %129, %.lr.ph150.i ]
+  %.7.lcssa.i = phi i64 [ %.6.i, %118 ], [ %128, %.lr.ph150.i ]
+  %130 = getelementptr inbounds i64, ptr %19, i64 %82
+  store i64 %.7.lcssa.i, ptr %130, align 8
+  %131 = load i64, ptr %6, align 8
   store i64 0, ptr %6, align 8
   %indvars.iv.next194.i = add nuw nsw i64 %indvars.iv193.i, 1
-  %indvars.iv.next185.i = add i32 %indvars.iv184.i, 1
-  %exitcond64 = icmp eq i32 %indvars.iv184.i, %7
-  br i1 %exitcond64, label %.preheader.i, label %.lr.ph157.i, !llvm.loop !65
+  %indvars.iv.next185.i = add nuw nsw i64 %indvars.iv184.i, 1
+  %exitcond196.not.i = icmp eq i64 %indvars.iv.next194.i, %18
+  br i1 %exitcond196.not.i, label %.preheader.i, label %.lr.ph157.i, !llvm.loop !65
 
 .lr.ph161.i:                                      ; preds = %.preheader.i, %.lr.ph161.i
-  %.8160.i = phi i64 [ %134, %.lr.ph161.i ], [ %.4.lcssa.i, %.preheader.i ]
-  %133 = call { i64, i64, i64 } asm sideeffect "clc; 0: ; mov ($4, $0, 8), $2; sbb $2, ($3, $0, 8); inc $0; dec $1; jne 0b; mov $5, $2; sbb $$0, $2; ", "=r,=r,=&r,r,r,r,0,1,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %19, ptr nonnull %16, i64 %.8160.i, i64 0, i64 %12) #14, !srcloc !49
-  %134 = extractvalue { i64, i64, i64 } %133, 2
-  %.not.i = icmp eq i64 %134, 0
+  %.8160.i = phi i64 [ %133, %.lr.ph161.i ], [ %.4.lcssa.i, %.preheader.i ]
+  %132 = call { i64, i64, i64 } asm sideeffect "clc; 0: ; mov ($4, $0, 8), $2; sbb $2, ($3, $0, 8); inc $0; dec $1; jne 0b; mov $5, $2; sbb $$0, $2; ", "=r,=r,=&r,r,r,r,0,1,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %19, ptr nonnull %16, i64 %.8160.i, i64 0, i64 %12) #14, !srcloc !49
+  %133 = extractvalue { i64, i64, i64 } %132, 2
+  %.not.i = icmp eq i64 %133, 0
   br i1 %.not.i, label %_ZL17montgomery_squarePmS_S_mi.exit, label %.lr.ph161.i, !llvm.loop !66
 
 _ZL17montgomery_squarePmS_S_mi.exit:              ; preds = %.lr.ph161.i, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %135
+  br label %134
 
 _ZL13reverse_wordsPmS_i.exit36.thread:            ; preds = %11, %_ZL13reverse_wordsPmS_i.exit36
-  call fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr noundef nonnull %15, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %19, i64 noundef %3, i32 noundef %7)
-  br label %135
+  call fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr noundef %15, ptr noundef %15, ptr noundef %16, ptr noundef %19, i64 noundef %3, i32 noundef %7)
+  br label %134
 
-135:                                              ; preds = %_ZL13reverse_wordsPmS_i.exit36.thread, %_ZL17montgomery_squarePmS_S_mi.exit
+134:                                              ; preds = %_ZL13reverse_wordsPmS_i.exit36.thread, %_ZL17montgomery_squarePmS_S_mi.exit
   br i1 %20, label %.lr.ph.preheader.i40, label %_ZL13reverse_wordsPmS_i.exit45
 
-.lr.ph.preheader.i40:                             ; preds = %135
-  %136 = zext nneg i32 %7 to i64
-  %137 = getelementptr inbounds i64, ptr %4, i64 %136
+.lr.ph.preheader.i40:                             ; preds = %134
+  %135 = zext nneg i32 %7 to i64
+  %136 = getelementptr inbounds i64, ptr %4, i64 %135
   br label %.lr.ph.i41
 
 .lr.ph.i41:                                       ; preds = %.lr.ph.i41, %.lr.ph.preheader.i40
-  %.010.i42 = phi i32 [ %138, %.lr.ph.i41 ], [ %7, %.lr.ph.preheader.i40 ]
-  %.069.i43 = phi ptr [ %139, %.lr.ph.i41 ], [ %137, %.lr.ph.preheader.i40 ]
-  %.078.i44 = phi ptr [ %142, %.lr.ph.i41 ], [ %19, %.lr.ph.preheader.i40 ]
-  %138 = add nsw i32 %.010.i42, -1
-  %139 = getelementptr inbounds i8, ptr %.069.i43, i64 -8
-  %140 = load i64, ptr %.078.i44, align 8
-  %141 = call noundef i64 @llvm.fshl.i64(i64 %140, i64 %140, i64 32)
-  store i64 %141, ptr %139, align 8
-  %142 = getelementptr inbounds i8, ptr %.078.i44, i64 8
-  %143 = icmp ugt i32 %.010.i42, 1
-  br i1 %143, label %.lr.ph.i41, label %_ZL13reverse_wordsPmS_i.exit45, !llvm.loop !38
+  %.010.i42 = phi i32 [ %137, %.lr.ph.i41 ], [ %7, %.lr.ph.preheader.i40 ]
+  %.069.i43 = phi ptr [ %138, %.lr.ph.i41 ], [ %136, %.lr.ph.preheader.i40 ]
+  %.078.i44 = phi ptr [ %141, %.lr.ph.i41 ], [ %19, %.lr.ph.preheader.i40 ]
+  %137 = add nsw i32 %.010.i42, -1
+  %138 = getelementptr inbounds i8, ptr %.069.i43, i64 -8
+  %139 = load i64, ptr %.078.i44, align 8
+  %140 = call noundef i64 @llvm.fshl.i64(i64 %139, i64 %139, i64 32)
+  store i64 %140, ptr %138, align 8
+  %141 = getelementptr inbounds i8, ptr %.078.i44, i64 8
+  %142 = icmp ugt i32 %.010.i42, 1
+  br i1 %142, label %.lr.ph.i41, label %_ZL13reverse_wordsPmS_i.exit45, !llvm.loop !38
 
-_ZL13reverse_wordsPmS_i.exit45:                   ; preds = %.lr.ph.i41, %135
+_ZL13reverse_wordsPmS_i.exit45:                   ; preds = %.lr.ph.i41, %134
   ret void
 }
 

@@ -2439,7 +2439,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   br label %2027
 
 1435:                                             ; preds = %135
-  %1436 = call fastcc { ptr, ptr } @gen_loc_object(ptr noundef nonnull %10, ptr noundef %2)
+  %1436 = call fastcc { ptr, ptr } @gen_loc_object(ptr noundef %10, ptr noundef %2)
   %1437 = extractvalue { ptr, ptr } %1436, 0
   %1438 = extractvalue { ptr, ptr } %1436, 1
   store ptr %1437, ptr %.sroa.0616, align 8
@@ -3192,7 +3192,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1970 = call { ptr, ptr } @gen_const(i64 %1968, ptr %1969) #9
   %1971 = extractvalue { ptr, ptr } %1970, 0
   %1972 = extractvalue { ptr, ptr } %1970, 1
-  %1973 = call fastcc { ptr, ptr } @gen_loc_object(ptr noundef nonnull %10, ptr noundef %2)
+  %1973 = call fastcc { ptr, ptr } @gen_loc_object(ptr noundef %10, ptr noundef %2)
   %1974 = extractvalue { ptr, ptr } %1973, 0
   %1975 = extractvalue { ptr, ptr } %1973, 1
   %1976 = call { ptr, ptr } @gen_dictpair(ptr %1971, ptr %1972, ptr %1974, ptr %1975) #9
@@ -3339,7 +3339,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   br i1 %.not1229, label %2067, label %2084
 
 2067:                                             ; preds = %2065
-  %2068 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %12, ptr %.01247, ptr nonnull %.21165, i32 %2066)
+  %2068 = call fastcc i32 @yysyntax_error(ptr noundef %12, ptr %.01247, ptr nonnull %.21165, i32 %2066)
   switch i32 %2068, label %2079 [
     i32 0, label %2069
     i32 -1, label %2070
@@ -3363,7 +3363,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   br i1 %.not1231, label %2078, label %2075
 
 2075:                                             ; preds = %2072
-  %2076 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %12, ptr nonnull %2074, ptr nonnull %.21165, i32 %2066)
+  %2076 = call fastcc i32 @yysyntax_error(ptr noundef %12, ptr nonnull %2074, ptr nonnull %.21165, i32 %2066)
   %2077 = icmp eq i32 %2076, -2
   br label %2079
 
@@ -3403,7 +3403,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   br i1 %2089, label %.thread1282, label %2091
 
 2090:                                             ; preds = %2086
-  call fastcc void @yydestruct(i32 noundef %2066, ptr noundef nonnull %5)
+  call fastcc void @yydestruct(i32 noundef %2066, ptr noundef %5)
   br label %2091
 
 2091:                                             ; preds = %.thread1256, %2084, %2088, %2090, %84
@@ -3446,7 +3446,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %2109 = getelementptr inbounds [315 x i8], ptr @yystos, i64 0, i64 %2094
   %2110 = load i8, ptr %2109, align 1
   %2111 = sext i8 %2110 to i32
-  call fastcc void @yydestruct(i32 noundef %2111, ptr noundef nonnull %.51178)
+  call fastcc void @yydestruct(i32 noundef %2111, ptr noundef %.51178)
   %2112 = getelementptr inbounds i8, ptr %.51178, i64 -16
   %2113 = getelementptr inbounds i8, ptr %.51168, i64 -2
   %2114 = getelementptr inbounds i8, ptr %.51188, i64 -8
@@ -3515,7 +3515,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %.6116912771294 = phi ptr [ %.6116912771295, %.thread1282 ], [ %.61169, %2126 ]
   %.4116212791292 = phi ptr [ %.4116212791293, %.thread1282 ], [ %.41162, %2126 ]
   %2132 = phi i32 [ %2130, %.thread1282 ], [ 2, %2126 ]
-  call fastcc void @yydestruct(i32 noundef %2132, ptr noundef nonnull %5)
+  call fastcc void @yydestruct(i32 noundef %2132, ptr noundef %5)
   br label %2133
 
 2133:                                             ; preds = %2131, %.loopexit
@@ -3535,7 +3535,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %2136 = getelementptr inbounds [315 x i8], ptr @yystos, i64 0, i64 %2135
   %2137 = load i8, ptr %2136, align 1
   %2138 = sext i8 %2137 to i32
-  call fastcc void @yydestruct(i32 noundef %2138, ptr noundef nonnull %.711801321)
+  call fastcc void @yydestruct(i32 noundef %2138, ptr noundef %.711801321)
   %2139 = getelementptr inbounds i8, ptr %.711801321, i64 -16
   %2140 = getelementptr inbounds i8, ptr %.711701322, i64 -2
   %.not1233 = icmp eq ptr %2140, %.411621280
@@ -3649,7 +3649,7 @@ define internal fastcc { ptr, ptr } @gen_definedor_assign(ptr %0, ptr %1, ptr %2
 declare { ptr, ptr } @gen_both(ptr, ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { ptr, ptr } @gen_binop(ptr %0, ptr %1, ptr %2, ptr %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc { ptr, ptr } @gen_binop(ptr %0, ptr %1, ptr %2, ptr %3, i32 noundef range(i32 37, 296) %4) unnamed_addr #0 {
   %6 = tail call i32 @block_is_single(ptr %0, ptr %1) #9
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %13, label %7
@@ -3836,7 +3836,7 @@ constant_fold.exit:                               ; preds = %13, %47, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { ptr, ptr } @gen_update(ptr %0, ptr %1, ptr %2, ptr %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc { ptr, ptr } @gen_update(ptr %0, ptr %1, ptr %2, ptr %3, i32 noundef range(i32 37, 48) %4) unnamed_addr #0 {
   %6 = tail call { ptr, ptr } @gen_op_var_fresh(i32 noundef 8, ptr noundef nonnull @.str.49) #9
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
@@ -3938,7 +3938,7 @@ define internal fastcc { ptr, ptr } @gen_index(ptr %0, ptr %1, ptr %2, ptr %3) u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { ptr, ptr } @gen_slice_index(ptr %0, ptr %1, ptr %2, ptr %3, ptr %4, ptr %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc { ptr, ptr } @gen_slice_index(ptr %0, ptr %1, ptr %2, ptr %3, ptr %4, ptr %5, i32 noundef range(i32 10, 12) %6) unnamed_addr #0 {
   %8 = tail call { i64, ptr } @jv_object() #9
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -4017,7 +4017,7 @@ declare { ptr, ptr } @gen_subexp(ptr, ptr) local_unnamed_addr #2
 declare { i64, ptr } @jv_object() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { ptr, ptr } @gen_loc_object(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc { ptr, ptr } @gen_loc_object(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call { i64, ptr } @jv_object() #9
   %4 = extractvalue { i64, ptr } %3, 0
   %5 = extractvalue { i64, ptr } %3, 1
@@ -4097,7 +4097,7 @@ define internal fastcc { i64, ptr } @check_object_key(ptr %0, ptr %1) unnamed_ad
 declare { ptr, ptr } @gen_dictpair(ptr, ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture noundef %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #4 {
+define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #4 {
   %2 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %yy_syntax_error_arguments.exit.thread6, label %3
@@ -4353,7 +4353,7 @@ yy_syntax_error_arguments.exit.thread8:           ; preds = %yytnamerr.exit, %.p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @yydestruct(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   switch i32 %0, label %135 [
     i32 4, label %3
     i32 5, label %7

@@ -3595,7 +3595,7 @@ declare dso_local i32 @acpi_get_handle(ptr noundef, ptr noundef, ptr noundef) lo
 declare dso_local ptr @acpi_fetch_acpi_dev(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @dmar_acpi_insert_dev_scope(i8 noundef zeroext %0, ptr noundef %1) unnamed_addr #4 section ".init.text" align 16 {
+define internal fastcc void @dmar_acpi_insert_dev_scope(i8 noundef zeroext %0, ptr noundef nonnull %1) unnamed_addr #4 section ".init.text" align 16 {
   %3 = load volatile ptr, ptr @dmar_drhd_units, align 8
   %4 = icmp eq ptr %3, @dmar_drhd_units
   br i1 %4, label %.loopexit8, label %.preheader7
@@ -4510,7 +4510,7 @@ declare dso_local i32 @ida_alloc_range(ptr noundef, i32 noundef, i32 noundef, i3
 declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @map_iommu(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @map_iommu(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4686,7 +4686,7 @@ declare dso_local void @iommu_device_sysfs_remove(ptr noundef) local_unnamed_add
 declare dso_local void @free_iommu_pmu(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @unmap_iommu(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @unmap_iommu(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   tail call void @iounmap(ptr noundef %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4734,7 +4734,7 @@ declare dso_local ptr @early_ioremap(i64 noundef, i64 noundef) local_unnamed_add
 declare dso_local void @early_iounmap(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @dmar_walk_remapping_entries(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @dmar_walk_remapping_entries(ptr noundef %0, i64 noundef range(i64 -48, 4294967296) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 %1
   %5 = icmp ugt ptr %4, %0
   br i1 %5, label %6, label %.loopexit
@@ -5065,7 +5065,7 @@ define internal noundef range(i32 0, 16388) i32 @dmar_get_dsm_handle(ptr noundef
 declare dso_local zeroext i1 @acpi_check_dsm(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @dmar_walk_dsm_resource(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @dmar_walk_dsm_resource(ptr noundef %0, i32 noundef range(i32 1, 4) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.dmar_res_callback, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #19
   %6 = shl nuw nsw i32 1, %1

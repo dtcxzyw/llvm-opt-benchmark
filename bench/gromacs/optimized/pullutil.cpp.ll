@@ -506,7 +506,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %112, %110, %108, %1
   store ptr %214, ptr %80, align 8
   %215 = load ptr, ptr %16, align 8
   %216 = ptrtoint ptr %215 to i64
-  call fastcc void @_ZL12sum_com_partPK17pull_group_work_tiiN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEES7_NS3_IKfEERK5t_pbcPS8_P7ComSums(ptr noundef %203, i32 noundef 0, i32 noundef %207, ptr %208, ptr noundef nonnull byval(%"class.gmx::ArrayRef.0") align 8 %22, i64 %216, ptr noundef nonnull align 4 dereferenceable(384) %4, ptr noundef nonnull %21, ptr noundef nonnull %159)
+  call fastcc void @_ZL12sum_com_partPK17pull_group_work_tiiN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEES7_NS3_IKfEERK5t_pbcPS8_P7ComSums(ptr noundef %203, i32 noundef 0, i32 noundef %207, ptr %208, ptr noundef nonnull byval(%"class.gmx::ArrayRef.0") align 8 %22, i64 %216, ptr noundef nonnull align 4 dereferenceable(384) %4, ptr noundef %21, ptr noundef %159)
   br label %.loopexit229
 
 217:                                              ; preds = %.critedge
@@ -1721,14 +1721,14 @@ _ZL16setPbcAtomCoordsRK17pull_group_work_tN3gmx8ArrayRefIKNS2_11BasicVectorIfEEE
 
 79:                                               ; preds = %73
   %80 = sext i32 %76 to i64
-  tail call void @_Z8gmx_sumfmPfPK9t_commrec(i64 noundef %80, ptr noundef %3, ptr noundef nonnull %0)
+  tail call void @_Z8gmx_sumfmPfPK9t_commrec(i64 noundef %80, ptr noundef nonnull %3, ptr noundef nonnull %0)
   br label %_ZL13pullAllReduceIfEvPK9t_commrecP11pull_comm_tiPT_.exit
 
 81:                                               ; preds = %73
   %82 = load ptr, ptr @TMPI_FLOAT, align 8
   %83 = getelementptr inbounds i8, ptr %1, i64 192
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i32 @_Z14tMPI_AllreducePvS_iP14tmpi_datatype_7tMPI_OpP10tmpi_comm_(ptr noundef null, ptr noundef %3, i32 noundef %76, ptr noundef %82, i32 noundef 2, ptr noundef %84)
+  %85 = tail call noundef i32 @_Z14tMPI_AllreducePvS_iP14tmpi_datatype_7tMPI_OpP10tmpi_comm_(ptr noundef null, ptr noundef nonnull %3, i32 noundef %76, ptr noundef %82, i32 noundef 2, ptr noundef %84)
   br label %_ZL13pullAllReduceIfEvPK9t_commrecP11pull_comm_tiPT_.exit
 
 _ZL13pullAllReduceIfEvPK9t_commrecP11pull_comm_tiPT_.exit: ; preds = %81, %79, %69, %._crit_edge
@@ -1830,7 +1830,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 declare noundef i64 @_ZNK3gmx12LocalAtomSet13numAtomsLocalEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12sum_com_partPK17pull_group_work_tiiN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEES7_NS3_IKfEERK5t_pbcPS8_P7ComSums(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr %3, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %4, i64 %.0.val, ptr noundef nonnull align 4 dereferenceable(384) %5, ptr noundef %6, ptr nocapture noundef writeonly %7) unnamed_addr #7 {
+define internal fastcc void @_ZL12sum_com_partPK17pull_group_work_tiiN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEES7_NS3_IKfEERK5t_pbcPS8_P7ComSums(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr %3, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %4, i64 %.0.val, ptr noundef nonnull align 4 dereferenceable(384) %5, ptr noundef nonnull %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #7 {
   %9 = alloca [3 x double], align 16
   %10 = alloca [3 x double], align 16
   %11 = alloca [3 x float], align 4
@@ -1935,7 +1935,7 @@ define internal fastcc void @_ZL12sum_com_partPK17pull_group_work_tiiN3gmx8Array
   br i1 %exitcond28.not, label %.loopexit, label %57, !llvm.loop !22
 
 65:                                               ; preds = %43
-  call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %47, ptr noundef %6, ptr noundef nonnull %11)
+  call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %5, ptr noundef nonnull %47, ptr noundef nonnull %6, ptr noundef nonnull %11)
   br label %66
 
 66:                                               ; preds = %65, %66
@@ -2105,7 +2105,7 @@ define internal void @_Z14pull_calc_comsPK9t_commrecP6pull_tN3gmx8ArrayRefIKfEER
   %60 = getelementptr inbounds i8, ptr %59, i64 160
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds %struct.ComSums, ptr %61, i64 %indvars.iv
-  invoke fastcc void @_ZL12sum_com_partPK17pull_group_work_tiiN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEES7_NS3_IKfEERK5t_pbcPS8_P7ComSums(ptr noundef %49, i32 noundef %43, i32 noundef %48, ptr %50, ptr noundef nonnull byval(%"class.gmx::ArrayRef.0") align 8 %15, i64 %58, ptr noundef nonnull align 4 dereferenceable(384) %7, ptr noundef nonnull %8, ptr noundef nonnull %62)
+  invoke fastcc void @_ZL12sum_com_partPK17pull_group_work_tiiN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEES7_NS3_IKfEERK5t_pbcPS8_P7ComSums(ptr noundef %49, i32 noundef %43, i32 noundef %48, ptr %50, ptr noundef nonnull byval(%"class.gmx::ArrayRef.0") align 8 %15, i64 %58, ptr noundef nonnull align 4 dereferenceable(384) %7, ptr noundef %8, ptr noundef %62)
           to label %27 unwind label %65
 
 63:                                               ; preds = %27
@@ -3893,7 +3893,7 @@ define void @_Z23initPullComFromPrevStepPK9t_commrecP6pull_tN3gmx8ArrayRefIKfEER
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %64 = load ptr, ptr %7, align 8
   %65 = ptrtoint ptr %64 to i64
-  call fastcc void @_ZL12sum_com_partPK17pull_group_work_tiiN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEES7_NS3_IKfEERK5t_pbcPS8_P7ComSums(ptr noundef %58, i32 noundef 0, i32 noundef %62, ptr %63, ptr noundef nonnull byval(%"class.gmx::ArrayRef.0") align 8 %11, i64 %65, ptr noundef nonnull align 4 dereferenceable(384) %4, ptr noundef nonnull %10, ptr noundef nonnull %54)
+  call fastcc void @_ZL12sum_com_partPK17pull_group_work_tiiN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEES7_NS3_IKfEERK5t_pbcPS8_P7ComSums(ptr noundef %58, i32 noundef 0, i32 noundef %62, ptr %63, ptr noundef nonnull byval(%"class.gmx::ArrayRef.0") align 8 %11, i64 %65, ptr noundef nonnull align 4 dereferenceable(384) %4, ptr noundef %10, ptr noundef %54)
   br label %.loopexit98
 
 66:                                               ; preds = %45
@@ -4233,7 +4233,7 @@ define internal void @_Z23initPullComFromPrevStepPK9t_commrecP6pull_tN3gmx8Array
   %51 = getelementptr inbounds i8, ptr %50, i64 160
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds %struct.ComSums, ptr %52, i64 %indvars.iv
-  invoke fastcc void @_ZL12sum_com_partPK17pull_group_work_tiiN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEES7_NS3_IKfEERK5t_pbcPS8_P7ComSums(ptr noundef %46, i32 noundef %40, i32 noundef %45, ptr %47, ptr noundef nonnull byval(%"class.gmx::ArrayRef.0") align 8 %14, i64 %49, ptr noundef nonnull align 4 dereferenceable(384) %6, ptr noundef nonnull %7, ptr noundef nonnull %53)
+  invoke fastcc void @_ZL12sum_com_partPK17pull_group_work_tiiN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEES7_NS3_IKfEERK5t_pbcPS8_P7ComSums(ptr noundef %46, i32 noundef %40, i32 noundef %45, ptr %47, ptr noundef nonnull byval(%"class.gmx::ArrayRef.0") align 8 %14, i64 %49, ptr noundef nonnull align 4 dereferenceable(384) %6, ptr noundef %7, ptr noundef %53)
           to label %24 unwind label %56
 
 54:                                               ; preds = %24

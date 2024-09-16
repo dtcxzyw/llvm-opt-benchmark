@@ -632,7 +632,7 @@ define noundef i32 @_Z9gmx_checkiPPc(i32 noundef %0, ptr noundef %1) local_unnam
   %147 = trunc i8 %146 to i1
   %148 = load float, ptr %34, align 4
   %149 = load float, ptr %35, align 4
-  invoke fastcc void @_ZL8comp_trxPK16gmx_output_env_tPKcS3_bff(ptr noundef %145, ptr noundef nonnull %140, ptr noundef nonnull %142, i1 noundef zeroext %147, float noundef %148, float noundef %149)
+  invoke fastcc void @_ZL8comp_trxPK16gmx_output_env_tPKcS3_bff(ptr noundef %145, ptr noundef %140, ptr noundef %142, i1 noundef zeroext %147, float noundef %148, float noundef %149)
           to label %608 unwind label %127
 
 150:                                              ; preds = %139
@@ -2318,7 +2318,7 @@ declare noundef ptr @_Z11opt2fn_nullPKciPK8t_filenm(ptr noundef, i32 noundef, pt
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @_ZL8comp_trxPK16gmx_output_env_tPKcS3_bff(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, float noundef %4, float noundef %5) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL8comp_trxPK16gmx_output_env_tPKcS3_bff(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext %3, float noundef %4, float noundef %5) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %7 = alloca [2 x ptr], align 16
   %8 = alloca [2 x %struct.t_trxframe], align 16
   %9 = alloca [2 x ptr], align 16
@@ -2328,7 +2328,7 @@ define internal fastcc void @_ZL8comp_trxPK16gmx_output_env_tPKcS3_bff(ptr nound
   %12 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %2, ptr %12, align 8
   %13 = load ptr, ptr @stderr, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.64, ptr noundef %1, ptr noundef %2) #23
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.64, ptr noundef nonnull %1, ptr noundef nonnull %2) #23
   %15 = getelementptr inbounds i8, ptr %11, i64 32
   %indvars.iv.sroa.gep39 = getelementptr inbounds i8, ptr %10, i64 1
   %indvars.iv36.sroa.gep = getelementptr inbounds i8, ptr %10, i64 1

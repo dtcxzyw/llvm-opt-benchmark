@@ -851,7 +851,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_x25_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_x25_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 3) %3, i32 noundef range(i32 0, 129) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -1138,27 +1138,27 @@ get_x25_pkt_len.exit.thread:                      ; preds = %124, %121, %118, %1
   %167 = tail call i8 @llvm.fshl.i8(i8 %166, i8 %166, i8 7)
   switch i8 %167, label %460 [
     i8 13, label %switch.lookup
-    i8 15, label %switch.lookup540
-    i8 17, label %switch.lookup545
+    i8 15, label %switch.lookup541
+    i8 17, label %switch.lookup546
     i8 19, label %308
     i8 0, label %326
     i8 25, label %336
     i8 27, label %344
-    i8 21, label %switch.lookup550
+    i8 21, label %switch.lookup551
     i8 23, label %375
-    i8 5, label %switch.lookup555
+    i8 5, label %switch.lookup556
     i8 7, label %399
     i8 1, label %405
     i8 3, label %430
   ]
 
 switch.lookup:                                    ; preds = %165
-  %168 = sext i32 %3 to i64
+  %168 = zext nneg i32 %3 to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common, i64 0, i64 %168
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %169 = sext i32 %3 to i64
-  %switch.gep538 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.1, i64 0, i64 %169
-  %switch.load539 = load ptr, ptr %switch.gep538, align 8
+  %169 = zext nneg i32 %3 to i64
+  %switch.gep539 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.1, i64 0, i64 %169
+  %switch.load540 = load ptr, ptr %switch.gep539, align 8
   %170 = load ptr, ptr %11, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %170, i32 noundef 25, ptr noundef nonnull @.str.456, ptr noundef nonnull %switch.load, i32 noundef %18) #4
   %.not480 = icmp eq ptr %.0, null
@@ -1168,7 +1168,7 @@ switch.lookup:                                    ; preds = %165
   %172 = load i32, ptr @hf_x25_lcn, align 4
   %173 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0, i32 noundef %172, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef %15) #4
   %174 = load i32, ptr @hf_x25_type, align 4
-  %175 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %.0, i32 noundef %174, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 11, ptr noundef nonnull @.str.457, ptr noundef nonnull %switch.load539) #4
+  %175 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %.0, i32 noundef %174, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 11, ptr noundef nonnull @.str.457, ptr noundef nonnull %switch.load540) #4
   br label %176
 
 176:                                              ; preds = %171, %switch.lookup
@@ -1180,11 +1180,11 @@ switch.lookup:                                    ; preds = %165
   br i1 %.not461, label %178, label %179
 
 178:                                              ; preds = %177
-  call fastcc void @x25_toa(ptr noundef %.0, ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %1)
+  call fastcc void @x25_toa(ptr noundef %.0, ptr noundef %7, ptr noundef %0, ptr noundef nonnull %1)
   br label %180
 
 179:                                              ; preds = %177
-  call fastcc void @x25_ntoa(ptr noundef %.0, ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0)
+  call fastcc void @x25_ntoa(ptr noundef %.0, ptr noundef %7, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0)
   br label %180
 
 180:                                              ; preds = %178, %179, %176
@@ -1193,7 +1193,7 @@ switch.lookup:                                    ; preds = %165
   br i1 %182, label %183, label %184
 
 183:                                              ; preds = %180
-  call fastcc void @dump_facilities(ptr noundef %.0, ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %1)
+  call fastcc void @dump_facilities(ptr noundef %.0, ptr noundef %7, ptr noundef %0, ptr noundef nonnull %1)
   %.pre = load i32, ptr %7, align 4
   br label %184
 
@@ -1359,26 +1359,26 @@ switch.lookup:                                    ; preds = %165
   tail call fastcc void @x25_hash_add_proto_start(i16 noundef zeroext %17, i32 noundef %266, ptr noundef %267)
   br label %.thread532
 
-switch.lookup540:                                 ; preds = %165
-  %268 = sext i32 %3 to i64
-  %switch.gep541 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.2, i64 0, i64 %268
-  %switch.load542 = load ptr, ptr %switch.gep541, align 8
-  %269 = sext i32 %3 to i64
-  %switch.gep543 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.3, i64 0, i64 %269
-  %switch.load544 = load ptr, ptr %switch.gep543, align 8
+switch.lookup541:                                 ; preds = %165
+  %268 = zext nneg i32 %3 to i64
+  %switch.gep542 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.2, i64 0, i64 %268
+  %switch.load543 = load ptr, ptr %switch.gep542, align 8
+  %269 = zext nneg i32 %3 to i64
+  %switch.gep544 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.3, i64 0, i64 %269
+  %switch.load545 = load ptr, ptr %switch.gep544, align 8
   %270 = load ptr, ptr %11, align 8
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %270, i32 noundef 25, ptr noundef nonnull @.str.456, ptr noundef nonnull %switch.load542, i32 noundef %18) #4
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %270, i32 noundef 25, ptr noundef nonnull @.str.456, ptr noundef nonnull %switch.load543, i32 noundef %18) #4
   %.not477 = icmp eq ptr %.0, null
   br i1 %.not477, label %276, label %271
 
-271:                                              ; preds = %switch.lookup540
+271:                                              ; preds = %switch.lookup541
   %272 = load i32, ptr @hf_x25_lcn, align 4
   %273 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0, i32 noundef %272, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef %15) #4
   %274 = load i32, ptr @hf_x25_type, align 4
-  %275 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %.0, i32 noundef %274, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 15, ptr noundef nonnull @.str.457, ptr noundef nonnull %switch.load544) #4
+  %275 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %.0, i32 noundef %274, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 15, ptr noundef nonnull @.str.457, ptr noundef nonnull %switch.load545) #4
   br label %276
 
-276:                                              ; preds = %271, %switch.lookup540
+276:                                              ; preds = %271, %switch.lookup541
   store i32 3, ptr %7, align 4
   %.not478 = icmp eq i32 %.0.i515, 3
   br i1 %.not478, label %280, label %277
@@ -1387,11 +1387,11 @@ switch.lookup540:                                 ; preds = %165
   br i1 %.not461, label %278, label %279
 
 278:                                              ; preds = %277
-  call fastcc void @x25_toa(ptr noundef %.0, ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %1)
+  call fastcc void @x25_toa(ptr noundef %.0, ptr noundef %7, ptr noundef %0, ptr noundef nonnull %1)
   br label %280
 
 279:                                              ; preds = %277
-  call fastcc void @x25_ntoa(ptr noundef %.0, ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0)
+  call fastcc void @x25_ntoa(ptr noundef %.0, ptr noundef %7, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0)
   br label %280
 
 280:                                              ; preds = %278, %279, %276
@@ -1400,16 +1400,16 @@ switch.lookup540:                                 ; preds = %165
   br i1 %282, label %283, label %.thread532
 
 283:                                              ; preds = %280
-  call fastcc void @dump_facilities(ptr noundef %.0, ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %1)
+  call fastcc void @dump_facilities(ptr noundef %.0, ptr noundef %7, ptr noundef %0, ptr noundef nonnull %1)
   br label %.thread532
 
-switch.lookup545:                                 ; preds = %165
-  %284 = sext i32 %3 to i64
-  %switch.gep546 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.4, i64 0, i64 %284
-  %switch.load547 = load ptr, ptr %switch.gep546, align 8
-  %285 = sext i32 %3 to i64
-  %switch.gep548 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.5, i64 0, i64 %285
-  %switch.load549 = load ptr, ptr %switch.gep548, align 8
+switch.lookup546:                                 ; preds = %165
+  %284 = zext nneg i32 %3 to i64
+  %switch.gep547 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.4, i64 0, i64 %284
+  %switch.load548 = load ptr, ptr %switch.gep547, align 8
+  %285 = zext nneg i32 %3 to i64
+  %switch.gep549 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.5, i64 0, i64 %285
+  %switch.load550 = load ptr, ptr %switch.gep549, align 8
   %286 = load ptr, ptr %11, align 8
   %287 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #4
   %288 = zext i8 %287 to i32
@@ -1417,19 +1417,19 @@ switch.lookup545:                                 ; preds = %165
   %290 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #4
   %291 = zext i8 %290 to i32
   %292 = tail call ptr @val_to_str_ext(i32 noundef %291, ptr noundef nonnull @x25_clear_diag_vals_ext, ptr noundef nonnull @.str.471) #4
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %286, i32 noundef 25, ptr noundef nonnull @.str.470, ptr noundef nonnull %switch.load547, i32 noundef %18, ptr noundef %289, ptr noundef %292) #4
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %286, i32 noundef 25, ptr noundef nonnull @.str.470, ptr noundef nonnull %switch.load548, i32 noundef %18, ptr noundef %289, ptr noundef %292) #4
   %293 = getelementptr inbounds i8, ptr %1, i64 20
   %294 = load i32, ptr %293, align 4
   %295 = tail call ptr @find_conversation_by_id(i32 noundef %294, i32 noundef 21, i32 noundef %18) #4
   %.not.i511 = icmp eq ptr %295, null
   br i1 %.not.i511, label %x25_hash_add_proto_end.exit, label %296
 
-296:                                              ; preds = %switch.lookup545
+296:                                              ; preds = %switch.lookup546
   %297 = getelementptr inbounds i8, ptr %295, i64 32
   store i32 %294, ptr %297, align 8
   br label %x25_hash_add_proto_end.exit
 
-x25_hash_add_proto_end.exit:                      ; preds = %switch.lookup545, %296
+x25_hash_add_proto_end.exit:                      ; preds = %switch.lookup546, %296
   %.not476 = icmp eq ptr %.0, null
   br i1 %.not476, label %307, label %298
 
@@ -1437,7 +1437,7 @@ x25_hash_add_proto_end.exit:                      ; preds = %switch.lookup545, %
   %299 = load i32, ptr @hf_x25_lcn, align 4
   %300 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0, i32 noundef %299, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef %15) #4
   %301 = load i32, ptr @hf_x25_type, align 4
-  %302 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %.0, i32 noundef %301, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 19, ptr noundef nonnull @.str.457, ptr noundef nonnull %switch.load549) #4
+  %302 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %.0, i32 noundef %301, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 19, ptr noundef nonnull @.str.457, ptr noundef nonnull %switch.load550) #4
   %303 = load i32, ptr @hf_x25_clear_cause, align 4
   %304 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.0, i32 noundef %303, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #4
   %305 = load i32, ptr @hf_x25_diagnostic, align 4
@@ -1471,11 +1471,11 @@ x25_hash_add_proto_end.exit:                      ; preds = %switch.lookup545, %
   br i1 %.not461, label %319, label %320
 
 319:                                              ; preds = %318
-  call fastcc void @x25_toa(ptr noundef %.0, ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %1)
+  call fastcc void @x25_toa(ptr noundef %.0, ptr noundef %7, ptr noundef %0, ptr noundef nonnull %1)
   br label %321
 
 320:                                              ; preds = %318
-  call fastcc void @x25_ntoa(ptr noundef %.0, ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0)
+  call fastcc void @x25_ntoa(ptr noundef %.0, ptr noundef %7, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0)
   br label %321
 
 321:                                              ; preds = %319, %320, %315
@@ -1485,7 +1485,7 @@ x25_hash_add_proto_end.exit:                      ; preds = %switch.lookup545, %
   br i1 %324, label %325, label %.thread532
 
 325:                                              ; preds = %321
-  call fastcc void @dump_facilities(ptr noundef %.0, ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %1)
+  call fastcc void @dump_facilities(ptr noundef %.0, ptr noundef %7, ptr noundef %0, ptr noundef nonnull %1)
   br label %.thread532
 
 326:                                              ; preds = %165
@@ -1541,32 +1541,32 @@ x25_hash_add_proto_end.exit:                      ; preds = %switch.lookup545, %
   store i32 %.0.i515, ptr %7, align 4
   br label %.thread532
 
-switch.lookup550:                                 ; preds = %165
-  %352 = sext i32 %3 to i64
-  %switch.gep551 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.6, i64 0, i64 %352
-  %switch.load552 = load ptr, ptr %switch.gep551, align 8
-  %353 = sext i32 %3 to i64
-  %switch.gep553 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.7, i64 0, i64 %353
-  %switch.load554 = load ptr, ptr %switch.gep553, align 8
+switch.lookup551:                                 ; preds = %165
+  %352 = zext nneg i32 %3 to i64
+  %switch.gep552 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.6, i64 0, i64 %352
+  %switch.load553 = load ptr, ptr %switch.gep552, align 8
+  %353 = zext nneg i32 %3 to i64
+  %switch.gep554 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.7, i64 0, i64 %353
+  %switch.load555 = load ptr, ptr %switch.gep554, align 8
   %354 = load ptr, ptr %11, align 8
   %355 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #4
   %356 = zext i8 %355 to i32
   %357 = tail call ptr @rval_to_str(i32 noundef %356, ptr noundef nonnull @reset_code_rvals, ptr noundef nonnull @.str.471) #4
   %358 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #4
   %359 = zext i8 %358 to i32
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %354, i32 noundef 25, ptr noundef nonnull @.str.482, ptr noundef nonnull %switch.load552, i32 noundef %18, ptr noundef %357, i32 noundef %359) #4
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %354, i32 noundef 25, ptr noundef nonnull @.str.482, ptr noundef nonnull %switch.load553, i32 noundef %18, ptr noundef %357, i32 noundef %359) #4
   %360 = getelementptr inbounds i8, ptr %1, i64 20
   %361 = load i32, ptr %360, align 4
   %362 = tail call ptr @find_conversation_by_id(i32 noundef %361, i32 noundef 21, i32 noundef %18) #4
   %.not.i512 = icmp eq ptr %362, null
   br i1 %.not.i512, label %x25_hash_add_proto_end.exit513, label %363
 
-363:                                              ; preds = %switch.lookup550
+363:                                              ; preds = %switch.lookup551
   %364 = getelementptr inbounds i8, ptr %362, i64 32
   store i32 %361, ptr %364, align 8
   br label %x25_hash_add_proto_end.exit513
 
-x25_hash_add_proto_end.exit513:                   ; preds = %switch.lookup550, %363
+x25_hash_add_proto_end.exit513:                   ; preds = %switch.lookup551, %363
   %.not470 = icmp eq ptr %.0, null
   br i1 %.not470, label %374, label %365
 
@@ -1574,7 +1574,7 @@ x25_hash_add_proto_end.exit513:                   ; preds = %switch.lookup550, %
   %366 = load i32, ptr @hf_x25_lcn, align 4
   %367 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0, i32 noundef %366, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef %15) #4
   %368 = load i32, ptr @hf_x25_type, align 4
-  %369 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %.0, i32 noundef %368, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 27, ptr noundef nonnull @.str.457, ptr noundef nonnull %switch.load554) #4
+  %369 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %.0, i32 noundef %368, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 27, ptr noundef nonnull @.str.457, ptr noundef nonnull %switch.load555) #4
   %370 = load i32, ptr @hf_x25_reset_cause, align 4
   %371 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.0, i32 noundef %370, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #4
   %372 = load i32, ptr @hf_x25_diagnostic, align 4
@@ -1602,33 +1602,33 @@ x25_hash_add_proto_end.exit513:                   ; preds = %switch.lookup550, %
   store i32 %.0.i515, ptr %7, align 4
   br label %.thread532
 
-switch.lookup555:                                 ; preds = %165
-  %383 = sext i32 %3 to i64
-  %switch.gep556 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.8, i64 0, i64 %383
-  %switch.load557 = load ptr, ptr %switch.gep556, align 8
-  %384 = sext i32 %3 to i64
-  %switch.gep558 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.9, i64 0, i64 %384
-  %switch.load559 = load ptr, ptr %switch.gep558, align 8
+switch.lookup556:                                 ; preds = %165
+  %383 = zext nneg i32 %3 to i64
+  %switch.gep557 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.8, i64 0, i64 %383
+  %switch.load558 = load ptr, ptr %switch.gep557, align 8
+  %384 = zext nneg i32 %3 to i64
+  %switch.gep559 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.9, i64 0, i64 %384
+  %switch.load560 = load ptr, ptr %switch.gep559, align 8
   %385 = load ptr, ptr %11, align 8
   %386 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #4
   %387 = zext i8 %386 to i32
   %388 = tail call ptr @rval_to_str(i32 noundef %387, ptr noundef nonnull @restart_code_rvals, ptr noundef nonnull @.str.471) #4
   %389 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #4
   %390 = zext i8 %389 to i32
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %385, i32 noundef 25, ptr noundef nonnull @.str.490, ptr noundef nonnull %switch.load557, ptr noundef %388, i32 noundef %390) #4
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %385, i32 noundef 25, ptr noundef nonnull @.str.490, ptr noundef nonnull %switch.load558, ptr noundef %388, i32 noundef %390) #4
   %.not468 = icmp eq ptr %.0, null
   br i1 %.not468, label %398, label %391
 
-391:                                              ; preds = %switch.lookup555
+391:                                              ; preds = %switch.lookup556
   %392 = load i32, ptr @hf_x25_type, align 4
-  %393 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %.0, i32 noundef %392, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 251, ptr noundef nonnull @.str.457, ptr noundef nonnull %switch.load559) #4
+  %393 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %.0, i32 noundef %392, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 251, ptr noundef nonnull @.str.457, ptr noundef nonnull %switch.load560) #4
   %394 = load i32, ptr @hf_x25_restart_cause, align 4
   %395 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.0, i32 noundef %394, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #4
   %396 = load i32, ptr @hf_x25_diagnostic, align 4
   %397 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.0, i32 noundef %396, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #4
   br label %398
 
-398:                                              ; preds = %391, %switch.lookup555
+398:                                              ; preds = %391, %switch.lookup556
   store i32 %.0.i515, ptr %7, align 4
   br label %.thread532
 
@@ -1664,7 +1664,7 @@ switch.lookup555:                                 ; preds = %165
   br i1 %.not466, label %412, label %411
 
 411:                                              ; preds = %410
-  call fastcc void @x25_ntoa(ptr noundef %.0, ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1)
+  call fastcc void @x25_ntoa(ptr noundef %.0, ptr noundef %7, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1)
   br label %412
 
 412:                                              ; preds = %411, %410
@@ -1719,7 +1719,7 @@ switch.lookup555:                                 ; preds = %165
   br i1 %440, label %441, label %442
 
 441:                                              ; preds = %439
-  call fastcc void @x25_ntoa(ptr noundef %.0, ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1)
+  call fastcc void @x25_ntoa(ptr noundef %.0, ptr noundef %7, ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1)
   br label %442
 
 442:                                              ; preds = %441, %439
@@ -2091,7 +2091,7 @@ declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @x25_toa(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @x25_toa(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @wmem_alloc(ptr noundef %6, i64 noundef 256) #4
@@ -2224,7 +2224,7 @@ define internal fastcc void @x25_toa(ptr noundef %0, ptr nocapture noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @x25_ntoa(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @x25_ntoa(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %3, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias ptr @wmem_alloc(ptr noundef %7, i64 noundef 16) #4
@@ -2372,7 +2372,7 @@ define internal fastcc void @x25_ntoa(ptr noundef %0, ptr nocapture noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dump_facilities(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dump_facilities(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %1, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %5) #4
   %7 = zext i8 %6 to i32
@@ -3204,7 +3204,7 @@ add_priority.exit416:                             ; preds = %483, %485
   %490 = load i32, ptr @hf_x25_facility_min_acceptable_priority_estab_conn, align 4
   %491 = load i32, ptr %1, align 4
   %492 = add i32 %491, 6
-  tail call fastcc void @add_priority(ptr noundef nonnull %169, i32 noundef %490, ptr noundef %2, i32 noundef %492)
+  tail call fastcc void @add_priority(ptr noundef %169, i32 noundef %490, ptr noundef %2, i32 noundef %492)
   %493 = icmp eq i8 %175, 5
   br i1 %493, label %.loopexit, label %494
 
@@ -3212,7 +3212,7 @@ add_priority.exit416:                             ; preds = %483, %485
   %495 = load i32, ptr @hf_x25_facility_min_acceptable_priority_keep_conn, align 4
   %496 = load i32, ptr %1, align 4
   %497 = add i32 %496, 7
-  tail call fastcc void @add_priority(ptr noundef nonnull %169, i32 noundef %495, ptr noundef %2, i32 noundef %497)
+  tail call fastcc void @add_priority(ptr noundef %169, i32 noundef %495, ptr noundef %2, i32 noundef %497)
   br label %.loopexit
 
 498:                                              ; preds = %185
@@ -3258,7 +3258,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @x25_hash_add_proto_start(i16 noundef zeroext %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @x25_hash_add_proto_start(i16 noundef zeroext range(i16 0, 4096) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = zext nneg i16 %0 to i32
   %5 = tail call ptr @find_conversation_by_id(i32 noundef %1, i32 noundef 21, i32 noundef %4) #4
   %.not = icmp eq ptr %5, null
@@ -3321,18 +3321,18 @@ declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_priority(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @add_priority(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #4
   %6 = icmp eq i8 %5, -1
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 255, ptr noundef nonnull @.str.506) #4
+  %8 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 255, ptr noundef nonnull @.str.506) #4
   br label %12
 
 9:                                                ; preds = %4
   %10 = zext i8 %5 to i32
-  %11 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef %10) #4
+  %11 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef %10) #4
   br label %12
 
 12:                                               ; preds = %9, %7

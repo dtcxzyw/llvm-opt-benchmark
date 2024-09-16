@@ -63,10 +63,10 @@ define void @make_simple_label(ptr noundef %0, ptr nocapture noundef %1) local_u
   br i1 %or.cond5, label %24, label %27
 
 24:                                               ; preds = %17
-  call fastcc void @agxbputc(ptr noundef nonnull %3, i8 noundef signext %18)
+  call fastcc void @agxbputc(ptr noundef %3, i8 noundef signext %18)
   %25 = getelementptr inbounds i8, ptr %.073, i64 2
   %26 = load i8, ptr %19, align 1
-  call fastcc void @agxbputc(ptr noundef nonnull %3, i8 noundef signext %26)
+  call fastcc void @agxbputc(ptr noundef %3, i8 noundef signext %26)
   %.not36 = icmp eq i8 %26, 0
   br i1 %.not36, label %121, label %120
 
@@ -103,7 +103,7 @@ agxblen.exit.i:                                   ; preds = %30
   unreachable
 
 38:                                               ; preds = %30
-  call fastcc void @agxbputc(ptr noundef nonnull %3, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef %3, i8 noundef signext 0)
   %39 = load ptr, ptr %3, align 8
   br label %agxbdisown.exit
 
@@ -171,7 +171,7 @@ storeline.exit:                                   ; preds = %51, %61
   br label %74
 
 73:                                               ; preds = %28
-  call fastcc void @agxbputc(ptr noundef nonnull %3, i8 noundef signext %29)
+  call fastcc void @agxbputc(ptr noundef %3, i8 noundef signext %29)
   br label %74
 
 74:                                               ; preds = %73, %storeline.exit
@@ -200,7 +200,7 @@ agxblen.exit.i42:                                 ; preds = %77
   unreachable
 
 85:                                               ; preds = %77
-  call fastcc void @agxbputc(ptr noundef nonnull %3, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef %3, i8 noundef signext 0)
   %86 = load ptr, ptr %3, align 8
   br label %agxbdisown.exit44
 
@@ -267,7 +267,7 @@ storeline.exit51:                                 ; preds = %97, %107
   br label %120
 
 119:                                              ; preds = %27
-  call fastcc void @agxbputc(ptr noundef nonnull %3, i8 noundef signext %18)
+  call fastcc void @agxbputc(ptr noundef %3, i8 noundef signext %18)
   br label %120
 
 120:                                              ; preds = %74, %119, %storeline.exit51, %24
@@ -303,7 +303,7 @@ agxblen.exit.i57:                                 ; preds = %121
   unreachable
 
 131:                                              ; preds = %agxblen.exit
-  call fastcc void @agxbputc(ptr noundef nonnull %3, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef %3, i8 noundef signext 0)
   %132 = load ptr, ptr %3, align 8
   br label %agxbdisown.exit59
 
@@ -386,7 +386,7 @@ agxbfree.exit:                                    ; preds = %159, %121, %166
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbputc(ptr nocapture noundef %0, i8 noundef signext %1) unnamed_addr #0 {
+define internal fastcc void @agxbputc(ptr nocapture noundef nonnull %0, i8 noundef signext %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -673,7 +673,7 @@ declare ptr @agnameof(ptr noundef) local_unnamed_addr #3
 declare i32 @agisdirected(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @strdup_and_subst_obj0(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @strdup_and_subst_obj0(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca %struct.agxbuf, align 8
   %5 = tail call i32 @agobjkind(ptr noundef %1) #15
   switch i32 %5, label %.split.us [
@@ -827,31 +827,31 @@ define internal fastcc ptr @strdup_and_subst_obj0(ptr nocapture noundef readonly
   br label %.split.us.split.us
 
 77:                                               ; preds = %75
-  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %.055.ph)
+  call fastcc void @agxbput(ptr noundef %4, ptr noundef %.055.ph)
   br label %.split.us.split.us.backedge
 
 78:                                               ; preds = %75
-  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef nonnull @.str.11)
+  call fastcc void @agxbput(ptr noundef %4, ptr noundef nonnull @.str.11)
   br label %.split.us.split.us.backedge
 
 79:                                               ; preds = %75
-  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef nonnull @.str.12)
+  call fastcc void @agxbput(ptr noundef %4, ptr noundef nonnull @.str.12)
   br label %.split.us.split.us.backedge
 
 80:                                               ; preds = %75
-  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %.060.ph)
+  call fastcc void @agxbput(ptr noundef %4, ptr noundef %.060.ph)
   br label %.split.us.split.us.backedge
 
 81:                                               ; preds = %75
-  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %.061.ph)
+  call fastcc void @agxbput(ptr noundef %4, ptr noundef %.061.ph)
   br label %.split.us.split.us.backedge
 
 82:                                               ; preds = %75
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.16, i32 noundef %74)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.16, i32 noundef %74)
   br label %.split.us.split.us.backedge
 
 83:                                               ; preds = %72, %.split.us.split.us
-  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext %71)
+  call fastcc void @agxbputc(ptr noundef %4, i8 noundef signext %71)
   br label %.split.us.split.us.backedge
 
 .split.us.split:                                  ; preds = %.split.us, %.split.us.split.backedge
@@ -886,35 +886,35 @@ define internal fastcc ptr @strdup_and_subst_obj0(ptr nocapture noundef readonly
   br label %.split.us.split
 
 91:                                               ; preds = %89
-  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext 92)
+  call fastcc void @agxbputc(ptr noundef %4, i8 noundef signext 92)
   br label %.split.us.split.backedge
 
 92:                                               ; preds = %89
-  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %.055.ph)
+  call fastcc void @agxbput(ptr noundef %4, ptr noundef %.055.ph)
   br label %.split.us.split.backedge
 
 93:                                               ; preds = %89
-  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef nonnull @.str.11)
+  call fastcc void @agxbput(ptr noundef %4, ptr noundef nonnull @.str.11)
   br label %.split.us.split.backedge
 
 94:                                               ; preds = %89
-  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef nonnull @.str.12)
+  call fastcc void @agxbput(ptr noundef %4, ptr noundef nonnull @.str.12)
   br label %.split.us.split.backedge
 
 95:                                               ; preds = %89
-  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %.060.ph)
+  call fastcc void @agxbput(ptr noundef %4, ptr noundef %.060.ph)
   br label %.split.us.split.backedge
 
 96:                                               ; preds = %89
-  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %.061.ph)
+  call fastcc void @agxbput(ptr noundef %4, ptr noundef %.061.ph)
   br label %.split.us.split.backedge
 
 97:                                               ; preds = %89
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.16, i32 noundef %88)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.16, i32 noundef %88)
   br label %.split.us.split.backedge
 
 98:                                               ; preds = %86, %.split.us.split
-  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext %85)
+  call fastcc void @agxbputc(ptr noundef %4, i8 noundef signext %85)
   br label %.split.us.split.backedge
 
 .split:                                           ; preds = %.split.backedge, %.split.preheader
@@ -945,7 +945,7 @@ define internal fastcc ptr @strdup_and_subst_obj0(ptr nocapture noundef readonly
   ]
 
 106:                                              ; preds = %104
-  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %30)
+  call fastcc void @agxbput(ptr noundef %4, ptr noundef %30)
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %106, %107, %112, %113, %114, %116, %117, %110, %111, %118
@@ -953,50 +953,50 @@ define internal fastcc ptr @strdup_and_subst_obj0(ptr nocapture noundef readonly
   br label %.split
 
 107:                                              ; preds = %104
-  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef nonnull @.str.9)
+  call fastcc void @agxbput(ptr noundef %4, ptr noundef nonnull @.str.9)
   br label %.split.backedge
 
 108:                                              ; preds = %104
-  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %37)
+  call fastcc void @agxbput(ptr noundef %4, ptr noundef %37)
   br i1 %.1, label %109, label %110
 
 109:                                              ; preds = %108
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, ptr noundef %.sroa.2.0.copyload)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.14, ptr noundef %.sroa.2.0.copyload)
   br label %110
 
 110:                                              ; preds = %109, %108
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.15, ptr noundef nonnull %.str.4..str.3, ptr noundef %50)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.15, ptr noundef nonnull %.str.4..str.3, ptr noundef %50)
   br i1 %.154, label %111, label %.split.backedge
 
 111:                                              ; preds = %110
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, ptr noundef %.sroa.2.0.copyload2)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.14, ptr noundef %.sroa.2.0.copyload2)
   br label %.split.backedge
 
 112:                                              ; preds = %104
-  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %37)
+  call fastcc void @agxbput(ptr noundef %4, ptr noundef %37)
   br label %.split.backedge
 
 113:                                              ; preds = %104
-  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %50)
+  call fastcc void @agxbput(ptr noundef %4, ptr noundef %50)
   br label %.split.backedge
 
 114:                                              ; preds = %104
-  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %.156)
+  call fastcc void @agxbput(ptr noundef %4, ptr noundef %.156)
   br label %.split.backedge
 
 115:                                              ; preds = %104
   br i1 %.not78, label %117, label %116
 
 116:                                              ; preds = %115
-  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext 92)
+  call fastcc void @agxbputc(ptr noundef %4, i8 noundef signext 92)
   br label %.split.backedge
 
 117:                                              ; preds = %115, %104
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.16, i32 noundef %103)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.16, i32 noundef %103)
   br label %.split.backedge
 
 118:                                              ; preds = %.split, %101
-  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext %100)
+  call fastcc void @agxbputc(ptr noundef %4, i8 noundef signext %100)
   br label %.split.backedge
 
 .split81.us:                                      ; preds = %.split, %.split.us.split, %.split.us.split.us
@@ -1019,7 +1019,7 @@ agxblen.exit.i:                                   ; preds = %.split81.us
   unreachable
 
 127:                                              ; preds = %.split81.us
-  call fastcc void @agxbputc(ptr noundef nonnull %4, i8 noundef signext 0)
+  call fastcc void @agxbputc(ptr noundef %4, i8 noundef signext 0)
   %128 = load ptr, ptr %4, align 8
   br label %agxbdisown.exit
 
@@ -1300,7 +1300,7 @@ define ptr @strdup_and_subst_obj(ptr nocapture noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef range(i64 1, 73) %3) unnamed_addr #0 {
   %mul = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 %2)
   %mul.ov = extractvalue { i64, i1 } %mul, 1
   br i1 %mul.ov, label %5, label %8
@@ -1377,7 +1377,7 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbput(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @agxbput(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %agxbput_n.exit, label %5
@@ -1449,7 +1449,7 @@ gv_calloc.exit.i.i:                               ; preds = %.thread.i
 
 29:                                               ; preds = %agxblen.exit.thread.i
   %30 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr readonly align 1 %1, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr readonly align 1 %1, i64 %3, i1 false)
   %31 = trunc i64 %3 to i8
   %32 = load i8, ptr %6, align 1
   %33 = add i8 %32, %31
@@ -1472,7 +1472,7 @@ agxbput_n.exit:                                   ; preds = %2, %29, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)

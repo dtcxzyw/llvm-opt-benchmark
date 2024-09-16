@@ -2502,7 +2502,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gn
 }
 
 ; Function Attrs: mustprogress optsize uwtable
-define internal fastcc noundef range(i32 0, 6) i32 @_ZN5ZXing10DataMatrixL13LookAheadTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmi(ptr nocapture readonly %.0.val, i64 %.8.val, i64 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 6) i32 @_ZN5ZXing10DataMatrixL13LookAheadTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmi(ptr nocapture readonly %.0.val, i64 %.8.val, i64 noundef range(i64 -2147483648, 2147483648) %0, i32 noundef range(i32 0, 6) %1) unnamed_addr #0 {
   %3 = alloca %"struct.std::array", align 4
   %4 = alloca %"struct.std::array.9", align 4
   %5 = alloca %"struct.std::array.9", align 4
@@ -2956,7 +2956,7 @@ define internal fastcc noundef range(i32 0, 6) i32 @_ZN5ZXing10DataMatrixL13Look
 declare float @llvm.ceil.f32(float) #11
 
 ; Function Attrs: mustprogress optsize uwtable
-define internal fastcc void @_ZN5ZXing10DataMatrix10C40EncoderL9EncodeC40ERNS0_14EncoderContextESt8functionIFiiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEi(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5ZXing10DataMatrix10C40EncoderL9EncodeC40ERNS0_14EncoderContextESt8functionIFiiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEi(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string.3", align 8
   %6 = alloca %"class.std::__cxx11::basic_string.3", align 8
@@ -3592,7 +3592,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZN5ZXing10Data
 }
 
 ; Function Attrs: mustprogress optsize uwtable
-define internal fastcc noundef i32 @_ZN5ZXing10DataMatrix10C40EncoderL21BacktrackOneCharacterERNS0_14EncoderContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_iSt8functionIFiiSA_EE(ptr nocapture noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN5ZXing10DataMatrix10C40EncoderL21BacktrackOneCharacterERNS0_14EncoderContextERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_iSt8functionIFiiSA_EE(ptr nocapture noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !10
@@ -3950,7 +3950,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress optsize uwtable
-define internal fastcc void @_ZN5ZXing10DataMatrixL11ToHexStringB5cxx11Ei(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5ZXing10DataMatrixL11ToHexStringB5cxx11Ei(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %3, ptr %0, align 8, !tbaa !38
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 4, i8 noundef signext 48) #19
@@ -3958,20 +3958,19 @@ define internal fastcc void @_ZN5ZXing10DataMatrixL11ToHexStringB5cxx11Ei(ptr de
   %5 = getelementptr inbounds i8, ptr %4, i64 1
   store i8 120, ptr %5, align 1, !tbaa !30
   %6 = lshr i32 %1, 4
-  %7 = and i32 %6, 15
-  %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds i8, ptr @.str.16, i64 %8
-  %10 = load i8, ptr %9, align 1, !tbaa !30
-  %11 = load ptr, ptr %0, align 8, !tbaa !3
-  %12 = getelementptr inbounds i8, ptr %11, i64 2
-  store i8 %10, ptr %12, align 1, !tbaa !30
-  %13 = and i32 %1, 15
-  %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds i8, ptr @.str.16, i64 %14
-  %16 = load i8, ptr %15, align 1, !tbaa !30
-  %17 = load ptr, ptr %0, align 8, !tbaa !3
-  %18 = getelementptr inbounds i8, ptr %17, i64 3
-  store i8 %16, ptr %18, align 1, !tbaa !30
+  %7 = zext nneg i32 %6 to i64
+  %8 = getelementptr inbounds i8, ptr @.str.16, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !30
+  %10 = load ptr, ptr %0, align 8, !tbaa !3
+  %11 = getelementptr inbounds i8, ptr %10, i64 2
+  store i8 %9, ptr %11, align 1, !tbaa !30
+  %12 = and i32 %1, 15
+  %13 = zext nneg i32 %12 to i64
+  %14 = getelementptr inbounds i8, ptr @.str.16, i64 %13
+  %15 = load i8, ptr %14, align 1, !tbaa !30
+  %16 = load ptr, ptr %0, align 8, !tbaa !3
+  %17 = getelementptr inbounds i8, ptr %16, i64 3
+  store i8 %15, ptr %17, align 1, !tbaa !30
   ret void
 }
 
@@ -3988,7 +3987,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress optsize uwtable
-define internal fastcc void @_ZN5ZXing10DataMatrix14EdifactEncoderL17EncodeToCodewordsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5ZXing10DataMatrix14EdifactEncoderL17EncodeToCodewordsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1

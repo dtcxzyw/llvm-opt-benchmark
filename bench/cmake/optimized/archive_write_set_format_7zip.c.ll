@@ -2132,7 +2132,7 @@ declare i32 @archive_entry_filetype(ptr noundef) local_unnamed_addr #3
 declare ptr @archive_entry_symlink(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @compress_out(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i64 @compress_out(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 248
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq i32 %3, 0
@@ -2531,7 +2531,7 @@ declare i32 @BZ2_bzCompress(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @BZ2_bzCompressEnd(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @compression_init_encoder_lzma(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @compression_init_encoder_lzma(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef range(i64 33, 4611686018427387906) %3) unnamed_addr #0 {
   %5 = alloca %struct.lzma_options_lzma, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 64
   %7 = load i32, ptr %6, align 8
@@ -3103,7 +3103,7 @@ define internal fastcc noundef i32 @enc_uint64(ptr noundef %0, i64 noundef %1) u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @make_streamsInfo(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @make_streamsInfo(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca [9 x i8], align 1
   %9 = alloca [9 x i8], align 1
   %10 = alloca [9 x i8], align 1
@@ -3721,7 +3721,7 @@ enc_uint64.exit271:                               ; preds = %234, %231
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @make_time(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @make_time(ptr noundef %0, i8 noundef zeroext range(i8 18, 21) %1, i32 noundef range(i32 1, 5) %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 {
   %5 = alloca [9 x i8], align 1
   %6 = alloca [9 x i8], align 1
   %7 = alloca [9 x i8], align 1
@@ -3740,338 +3740,276 @@ define internal fastcc range(i32 -2147483648, 1) i32 @make_time(ptr noundef %0, 
   %20 = getelementptr inbounds i8, ptr %15, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %19, %21
-  br i1 %22, label %23, label %65
+  br i1 %22, label %enc_uint64.exit, label %50
 
-23:                                               ; preds = %4
-  %24 = zext nneg i8 %1 to i64
+enc_uint64.exit:                                  ; preds = %4
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %11)
-  br label %25
-
-25:                                               ; preds = %33, %23
-  %indvars.iv.i = phi i64 [ 1, %23 ], [ %indvars.iv.next.i, %33 ]
-  %.01118.i = phi i32 [ 128, %23 ], [ %37, %33 ]
-  %.01217.i = phi i64 [ %24, %23 ], [ 0, %33 ]
-  %26 = phi i8 [ 0, %23 ], [ %36, %33 ]
-  %27 = zext nneg i32 %.01118.i to i64
-  %28 = icmp ult i64 %.01217.i, %27
-  %29 = trunc nuw nsw i64 %.01217.i to i8
-  br i1 %28, label %30, label %33
-
-30:                                               ; preds = %25
-  %31 = or i8 %26, %29
-  %32 = and i64 %indvars.iv.i, 4294967295
-  br label %enc_uint64.exit
-
-33:                                               ; preds = %25
-  %34 = getelementptr inbounds [9 x i8], ptr %11, i64 0, i64 %indvars.iv.i
-  store i8 %29, ptr %34, align 1
-  %35 = trunc nuw i32 %.01118.i to i8
-  %36 = or i8 %26, %35
-  %37 = lshr i32 %.01118.i, 1
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i, label %enc_uint64.exit, label %25, !llvm.loop !8
-
-enc_uint64.exit:                                  ; preds = %33, %30
-  %storemerge.i = phi i8 [ %31, %30 ], [ %36, %33 ]
-  %.014.i = phi i64 [ %32, %30 ], [ 9, %33 ]
-  store i8 %storemerge.i, ptr %11, align 1
-  %38 = call fastcc i64 @compress_out(ptr noundef %0, ptr noundef nonnull %11, i64 noundef %.014.i, i32 noundef 1)
-  %39 = trunc i64 %38 to i32
+  store i8 %1, ptr %11, align 1
+  %23 = call fastcc i64 @compress_out(ptr noundef nonnull %0, ptr noundef nonnull %11, i64 noundef 1, i32 noundef 1)
+  %24 = trunc i64 %23 to i32
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %11)
-  %40 = icmp slt i32 %39, 0
-  br i1 %40, label %.loopexit, label %41
+  %25 = icmp slt i32 %24, 0
+  br i1 %25, label %.loopexit, label %26
 
-41:                                               ; preds = %enc_uint64.exit
-  %42 = load i64, ptr %20, align 8
-  %43 = shl i64 %42, 3
-  %44 = or disjoint i64 %43, 2
+26:                                               ; preds = %enc_uint64.exit
+  %27 = load i64, ptr %20, align 8
+  %28 = shl i64 %27, 3
+  %29 = or disjoint i64 %28, 2
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %10)
-  br label %45
+  br label %30
 
-45:                                               ; preds = %53, %41
-  %indvars.iv.i77 = phi i64 [ 1, %41 ], [ %indvars.iv.next.i80, %53 ]
-  %.01118.i78 = phi i32 [ 128, %41 ], [ %58, %53 ]
-  %.01217.i79 = phi i64 [ %44, %41 ], [ %55, %53 ]
-  %46 = phi i8 [ 0, %41 ], [ %57, %53 ]
-  %47 = zext nneg i32 %.01118.i78 to i64
-  %48 = icmp ult i64 %.01217.i79, %47
-  %49 = trunc i64 %.01217.i79 to i8
-  br i1 %48, label %50, label %53
+30:                                               ; preds = %38, %26
+  %indvars.iv.i77 = phi i64 [ 1, %26 ], [ %indvars.iv.next.i80, %38 ]
+  %.01118.i78 = phi i32 [ 128, %26 ], [ %43, %38 ]
+  %.01217.i79 = phi i64 [ %29, %26 ], [ %40, %38 ]
+  %31 = phi i8 [ 0, %26 ], [ %42, %38 ]
+  %32 = zext nneg i32 %.01118.i78 to i64
+  %33 = icmp ult i64 %.01217.i79, %32
+  %34 = trunc i64 %.01217.i79 to i8
+  br i1 %33, label %35, label %38
 
-50:                                               ; preds = %45
-  %51 = or i8 %46, %49
-  %52 = and i64 %indvars.iv.i77, 4294967295
+35:                                               ; preds = %30
+  %36 = or i8 %31, %34
+  %37 = and i64 %indvars.iv.i77, 4294967295
   br label %enc_uint64.exit84
 
-53:                                               ; preds = %45
-  %54 = getelementptr inbounds [9 x i8], ptr %10, i64 0, i64 %indvars.iv.i77
-  store i8 %49, ptr %54, align 1
-  %55 = lshr i64 %.01217.i79, 8
-  %56 = trunc nuw i32 %.01118.i78 to i8
-  %57 = or i8 %46, %56
-  %58 = lshr i32 %.01118.i78, 1
+38:                                               ; preds = %30
+  %39 = getelementptr inbounds [9 x i8], ptr %10, i64 0, i64 %indvars.iv.i77
+  store i8 %34, ptr %39, align 1
+  %40 = lshr i64 %.01217.i79, 8
+  %41 = trunc nuw i32 %.01118.i78 to i8
+  %42 = or i8 %31, %41
+  %43 = lshr i32 %.01118.i78, 1
   %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i77, 1
   %exitcond.not.i81 = icmp eq i64 %indvars.iv.next.i80, 9
-  br i1 %exitcond.not.i81, label %enc_uint64.exit84, label %45, !llvm.loop !8
+  br i1 %exitcond.not.i81, label %enc_uint64.exit84, label %30, !llvm.loop !8
 
-enc_uint64.exit84:                                ; preds = %53, %50
-  %storemerge.i82 = phi i8 [ %51, %50 ], [ %57, %53 ]
-  %.014.i83 = phi i64 [ %52, %50 ], [ 9, %53 ]
+enc_uint64.exit84:                                ; preds = %38, %35
+  %storemerge.i82 = phi i8 [ %36, %35 ], [ %42, %38 ]
+  %.014.i83 = phi i64 [ %37, %35 ], [ 9, %38 ]
   store i8 %storemerge.i82, ptr %10, align 1
-  %59 = call fastcc i64 @compress_out(ptr noundef %0, ptr noundef nonnull %10, i64 noundef %.014.i83, i32 noundef 1)
-  %60 = trunc i64 %59 to i32
+  %44 = call fastcc i64 @compress_out(ptr noundef %0, ptr noundef nonnull %10, i64 noundef %.014.i83, i32 noundef 1)
+  %45 = trunc i64 %44 to i32
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %10)
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %.loopexit, label %enc_uint64.exit92
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %.loopexit, label %enc_uint64.exit92
 
 enc_uint64.exit92:                                ; preds = %enc_uint64.exit84
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %9)
   store i8 1, ptr %9, align 1
-  %62 = call fastcc i64 @compress_out(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 1, i32 noundef 1)
-  %63 = trunc i64 %62 to i32
+  %47 = call fastcc i64 @compress_out(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 1, i32 noundef 1)
+  %48 = trunc i64 %47 to i32
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %9)
-  %64 = icmp slt i32 %63, 0
-  br i1 %64, label %.loopexit, label %enc_uint64.exit124
+  %49 = icmp slt i32 %48, 0
+  br i1 %49, label %.loopexit, label %enc_uint64.exit124
 
-65:                                               ; preds = %4
-  %66 = icmp eq i64 %19, 0
-  br i1 %66, label %.loopexit, label %67
+50:                                               ; preds = %4
+  %51 = icmp eq i64 %19, 0
+  br i1 %51, label %.loopexit, label %enc_uint64.exit100
 
-67:                                               ; preds = %65
-  %68 = zext nneg i8 %1 to i64
+enc_uint64.exit100:                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %8)
-  br label %69
-
-69:                                               ; preds = %77, %67
-  %indvars.iv.i93 = phi i64 [ 1, %67 ], [ %indvars.iv.next.i96, %77 ]
-  %.01118.i94 = phi i32 [ 128, %67 ], [ %81, %77 ]
-  %.01217.i95 = phi i64 [ %68, %67 ], [ 0, %77 ]
-  %70 = phi i8 [ 0, %67 ], [ %80, %77 ]
-  %71 = zext nneg i32 %.01118.i94 to i64
-  %72 = icmp ult i64 %.01217.i95, %71
-  %73 = trunc nuw nsw i64 %.01217.i95 to i8
-  br i1 %72, label %74, label %77
-
-74:                                               ; preds = %69
-  %75 = or i8 %70, %73
-  %76 = and i64 %indvars.iv.i93, 4294967295
-  br label %enc_uint64.exit100
-
-77:                                               ; preds = %69
-  %78 = getelementptr inbounds [9 x i8], ptr %8, i64 0, i64 %indvars.iv.i93
-  store i8 %73, ptr %78, align 1
-  %79 = trunc nuw i32 %.01118.i94 to i8
-  %80 = or i8 %70, %79
-  %81 = lshr i32 %.01118.i94, 1
-  %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i93, 1
-  %exitcond.not.i97 = icmp eq i64 %indvars.iv.next.i96, 9
-  br i1 %exitcond.not.i97, label %enc_uint64.exit100, label %69, !llvm.loop !8
-
-enc_uint64.exit100:                               ; preds = %77, %74
-  %storemerge.i98 = phi i8 [ %75, %74 ], [ %80, %77 ]
-  %.014.i99 = phi i64 [ %76, %74 ], [ 9, %77 ]
-  store i8 %storemerge.i98, ptr %8, align 1
-  %82 = call fastcc i64 @compress_out(ptr noundef %0, ptr noundef nonnull %8, i64 noundef %.014.i99, i32 noundef 1)
-  %83 = trunc i64 %82 to i32
+  store i8 %1, ptr %8, align 1
+  %52 = call fastcc i64 @compress_out(ptr noundef nonnull %0, ptr noundef nonnull %8, i64 noundef 1, i32 noundef 1)
+  %53 = trunc i64 %52 to i32
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %8)
-  %84 = icmp slt i32 %83, 0
-  br i1 %84, label %.loopexit, label %85
+  %54 = icmp slt i32 %53, 0
+  br i1 %54, label %.loopexit, label %55
 
-85:                                               ; preds = %enc_uint64.exit100
-  %86 = load i64, ptr %20, align 8
-  %87 = add i64 %86, 7
-  %88 = lshr i64 %87, 3
-  %89 = add nuw nsw i64 %88, 2
-  %90 = load i64, ptr %18, align 8
-  %91 = shl i64 %90, 3
-  %92 = add i64 %89, %91
+55:                                               ; preds = %enc_uint64.exit100
+  %56 = load i64, ptr %20, align 8
+  %57 = add i64 %56, 7
+  %58 = lshr i64 %57, 3
+  %59 = add nuw nsw i64 %58, 2
+  %60 = load i64, ptr %18, align 8
+  %61 = shl i64 %60, 3
+  %62 = add i64 %59, %61
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %7)
-  br label %93
+  br label %63
 
-93:                                               ; preds = %101, %85
-  %indvars.iv.i101 = phi i64 [ 1, %85 ], [ %indvars.iv.next.i104, %101 ]
-  %.01118.i102 = phi i32 [ 128, %85 ], [ %106, %101 ]
-  %.01217.i103 = phi i64 [ %92, %85 ], [ %103, %101 ]
-  %94 = phi i8 [ 0, %85 ], [ %105, %101 ]
-  %95 = zext nneg i32 %.01118.i102 to i64
-  %96 = icmp ult i64 %.01217.i103, %95
-  %97 = trunc i64 %.01217.i103 to i8
-  br i1 %96, label %98, label %101
+63:                                               ; preds = %71, %55
+  %indvars.iv.i101 = phi i64 [ 1, %55 ], [ %indvars.iv.next.i104, %71 ]
+  %.01118.i102 = phi i32 [ 128, %55 ], [ %76, %71 ]
+  %.01217.i103 = phi i64 [ %62, %55 ], [ %73, %71 ]
+  %64 = phi i8 [ 0, %55 ], [ %75, %71 ]
+  %65 = zext nneg i32 %.01118.i102 to i64
+  %66 = icmp ult i64 %.01217.i103, %65
+  %67 = trunc i64 %.01217.i103 to i8
+  br i1 %66, label %68, label %71
 
-98:                                               ; preds = %93
-  %99 = or i8 %94, %97
-  %100 = and i64 %indvars.iv.i101, 4294967295
+68:                                               ; preds = %63
+  %69 = or i8 %64, %67
+  %70 = and i64 %indvars.iv.i101, 4294967295
   br label %enc_uint64.exit108
 
-101:                                              ; preds = %93
-  %102 = getelementptr inbounds [9 x i8], ptr %7, i64 0, i64 %indvars.iv.i101
-  store i8 %97, ptr %102, align 1
-  %103 = lshr i64 %.01217.i103, 8
-  %104 = trunc nuw i32 %.01118.i102 to i8
-  %105 = or i8 %94, %104
-  %106 = lshr i32 %.01118.i102, 1
+71:                                               ; preds = %63
+  %72 = getelementptr inbounds [9 x i8], ptr %7, i64 0, i64 %indvars.iv.i101
+  store i8 %67, ptr %72, align 1
+  %73 = lshr i64 %.01217.i103, 8
+  %74 = trunc nuw i32 %.01118.i102 to i8
+  %75 = or i8 %64, %74
+  %76 = lshr i32 %.01118.i102, 1
   %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i101, 1
   %exitcond.not.i105 = icmp eq i64 %indvars.iv.next.i104, 9
-  br i1 %exitcond.not.i105, label %enc_uint64.exit108, label %93, !llvm.loop !8
+  br i1 %exitcond.not.i105, label %enc_uint64.exit108, label %63, !llvm.loop !8
 
-enc_uint64.exit108:                               ; preds = %101, %98
-  %storemerge.i106 = phi i8 [ %99, %98 ], [ %105, %101 ]
-  %.014.i107 = phi i64 [ %100, %98 ], [ 9, %101 ]
+enc_uint64.exit108:                               ; preds = %71, %68
+  %storemerge.i106 = phi i8 [ %69, %68 ], [ %75, %71 ]
+  %.014.i107 = phi i64 [ %70, %68 ], [ 9, %71 ]
   store i8 %storemerge.i106, ptr %7, align 1
-  %107 = call fastcc i64 @compress_out(ptr noundef %0, ptr noundef nonnull %7, i64 noundef %.014.i107, i32 noundef 1)
-  %108 = trunc i64 %107 to i32
+  %77 = call fastcc i64 @compress_out(ptr noundef %0, ptr noundef nonnull %7, i64 noundef %.014.i107, i32 noundef 1)
+  %78 = trunc i64 %77 to i32
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %7)
-  %109 = icmp slt i32 %108, 0
-  br i1 %109, label %.loopexit, label %enc_uint64.exit116
+  %79 = icmp slt i32 %78, 0
+  br i1 %79, label %.loopexit, label %enc_uint64.exit116
 
 enc_uint64.exit116:                               ; preds = %enc_uint64.exit108
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %6)
   store i8 0, ptr %6, align 1
-  %110 = call fastcc i64 @compress_out(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 1, i32 noundef 1)
-  %111 = trunc i64 %110 to i32
+  %80 = call fastcc i64 @compress_out(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 1, i32 noundef 1)
+  %81 = trunc i64 %80 to i32
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6)
-  %112 = icmp slt i32 %111, 0
-  br i1 %112, label %.loopexit, label %113
+  %82 = icmp slt i32 %81, 0
+  br i1 %82, label %.loopexit, label %83
 
-113:                                              ; preds = %enc_uint64.exit116
+83:                                               ; preds = %enc_uint64.exit116
   store i8 0, ptr %13, align 1
-  %114 = getelementptr inbounds i8, ptr %15, i64 61712
-  %.060156 = load ptr, ptr %114, align 8
+  %84 = getelementptr inbounds i8, ptr %15, i64 61712
+  %.060156 = load ptr, ptr %84, align 8
   %.not157 = icmp eq ptr %.060156, null
   br i1 %.not157, label %enc_uint64.exit124, label %.lr.ph
 
-.lr.ph:                                           ; preds = %113, %.lr.ph.backedge
-  %115 = phi i8 [ %.be, %.lr.ph.backedge ], [ 0, %113 ]
-  %.060159 = phi ptr [ %.060159.be, %.lr.ph.backedge ], [ %.060156, %113 ]
-  %.0158 = phi i8 [ %.0158.be, %.lr.ph.backedge ], [ -128, %113 ]
-  %116 = getelementptr inbounds i8, ptr %.060159, i64 56
-  %117 = load i32, ptr %116, align 8
-  %118 = and i32 %117, %2
-  %.not75 = icmp eq i32 %118, 0
-  br i1 %.not75, label %121, label %119
+.lr.ph:                                           ; preds = %83, %.lr.ph.backedge
+  %85 = phi i8 [ %.be, %.lr.ph.backedge ], [ 0, %83 ]
+  %.060159 = phi ptr [ %.060159.be, %.lr.ph.backedge ], [ %.060156, %83 ]
+  %.0158 = phi i8 [ %.0158.be, %.lr.ph.backedge ], [ -128, %83 ]
+  %86 = getelementptr inbounds i8, ptr %.060159, i64 56
+  %87 = load i32, ptr %86, align 8
+  %88 = and i32 %87, %2
+  %.not75 = icmp eq i32 %88, 0
+  br i1 %.not75, label %91, label %89
 
-119:                                              ; preds = %.lr.ph
-  %120 = or i8 %115, %.0158
-  store i8 %120, ptr %13, align 1
-  br label %121
+89:                                               ; preds = %.lr.ph
+  %90 = or i8 %85, %.0158
+  store i8 %90, ptr %13, align 1
+  br label %91
 
-121:                                              ; preds = %119, %.lr.ph
-  %122 = phi i8 [ %120, %119 ], [ %115, %.lr.ph ]
-  %123 = icmp ult i8 %.0158, 2
-  br i1 %123, label %124, label %128
+91:                                               ; preds = %89, %.lr.ph
+  %92 = phi i8 [ %90, %89 ], [ %85, %.lr.ph ]
+  %93 = icmp ult i8 %.0158, 2
+  br i1 %93, label %94, label %98
 
-124:                                              ; preds = %121
-  %125 = call fastcc i64 @compress_out(ptr noundef %0, ptr noundef nonnull %13, i64 noundef 1, i32 noundef 1)
-  %126 = trunc i64 %125 to i32
-  %127 = icmp slt i32 %126, 0
-  br i1 %127, label %.loopexit, label %.thread
+94:                                               ; preds = %91
+  %95 = call fastcc i64 @compress_out(ptr noundef %0, ptr noundef nonnull %13, i64 noundef 1, i32 noundef 1)
+  %96 = trunc i64 %95 to i32
+  %97 = icmp slt i32 %96, 0
+  br i1 %97, label %.loopexit, label %.thread
 
-128:                                              ; preds = %121
-  %129 = lshr i8 %.0158, 1
-  %130 = getelementptr inbounds i8, ptr %.060159, i64 24
-  %.060 = load ptr, ptr %130, align 8
+98:                                               ; preds = %91
+  %99 = lshr i8 %.0158, 1
+  %100 = getelementptr inbounds i8, ptr %.060159, i64 24
+  %.060 = load ptr, ptr %100, align 8
   %.not = icmp eq ptr %.060, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.backedge
 
-.lr.ph.backedge:                                  ; preds = %128, %.thread
-  %.be = phi i8 [ %122, %128 ], [ 0, %.thread ]
-  %.060159.be = phi ptr [ %.060, %128 ], [ %.060198, %.thread ]
-  %.0158.be = phi i8 [ %129, %128 ], [ -128, %.thread ]
+.lr.ph.backedge:                                  ; preds = %98, %.thread
+  %.be = phi i8 [ %92, %98 ], [ 0, %.thread ]
+  %.060159.be = phi ptr [ %.060, %98 ], [ %.060198, %.thread ]
+  %.0158.be = phi i8 [ %99, %98 ], [ -128, %.thread ]
   br label %.lr.ph, !llvm.loop !22
 
-.thread:                                          ; preds = %124
+.thread:                                          ; preds = %94
   store i8 0, ptr %13, align 1
-  %131 = getelementptr inbounds i8, ptr %.060159, i64 24
-  %.060198 = load ptr, ptr %131, align 8
+  %101 = getelementptr inbounds i8, ptr %.060159, i64 24
+  %.060198 = load ptr, ptr %101, align 8
   %.not199 = icmp eq ptr %.060198, null
   br i1 %.not199, label %enc_uint64.exit124, label %.lr.ph.backedge
 
-._crit_edge:                                      ; preds = %128
-  %132 = call fastcc i64 @compress_out(ptr noundef %0, ptr noundef nonnull %13, i64 noundef 1, i32 noundef 1)
-  %133 = trunc i64 %132 to i32
-  %134 = icmp slt i32 %133, 0
-  br i1 %134, label %.loopexit, label %enc_uint64.exit124
+._crit_edge:                                      ; preds = %98
+  %102 = call fastcc i64 @compress_out(ptr noundef %0, ptr noundef nonnull %13, i64 noundef 1, i32 noundef 1)
+  %103 = trunc i64 %102 to i32
+  %104 = icmp slt i32 %103, 0
+  br i1 %104, label %.loopexit, label %enc_uint64.exit124
 
-enc_uint64.exit124:                               ; preds = %.thread, %113, %._crit_edge, %enc_uint64.exit92
+enc_uint64.exit124:                               ; preds = %.thread, %83, %._crit_edge, %enc_uint64.exit92
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %5)
   store i8 0, ptr %5, align 1
-  %135 = call fastcc i64 @compress_out(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1)
-  %136 = trunc i64 %135 to i32
+  %105 = call fastcc i64 @compress_out(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1)
+  %106 = trunc i64 %105 to i32
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %5)
-  %137 = icmp slt i32 %136, 0
-  br i1 %137, label %.loopexit, label %138
+  %107 = icmp slt i32 %106, 0
+  br i1 %107, label %.loopexit, label %108
 
-138:                                              ; preds = %enc_uint64.exit124
-  %139 = getelementptr inbounds i8, ptr %15, i64 61712
-  %.161160 = load ptr, ptr %139, align 8
+108:                                              ; preds = %enc_uint64.exit124
+  %109 = getelementptr inbounds i8, ptr %15, i64 61712
+  %.161160 = load ptr, ptr %109, align 8
   %.not76161 = icmp eq ptr %.161160, null
   br i1 %.not76161, label %.loopexit, label %.lr.ph164
 
-.lr.ph164:                                        ; preds = %138
-  %140 = getelementptr inbounds i8, ptr %12, i64 1
-  %141 = getelementptr inbounds i8, ptr %12, i64 2
-  %142 = getelementptr inbounds i8, ptr %12, i64 3
-  %143 = getelementptr inbounds i8, ptr %12, i64 4
-  %144 = getelementptr inbounds i8, ptr %12, i64 5
-  %145 = getelementptr inbounds i8, ptr %12, i64 6
-  %146 = getelementptr inbounds i8, ptr %12, i64 7
-  br label %147
+.lr.ph164:                                        ; preds = %108
+  %110 = getelementptr inbounds i8, ptr %12, i64 1
+  %111 = getelementptr inbounds i8, ptr %12, i64 2
+  %112 = getelementptr inbounds i8, ptr %12, i64 3
+  %113 = getelementptr inbounds i8, ptr %12, i64 4
+  %114 = getelementptr inbounds i8, ptr %12, i64 5
+  %115 = getelementptr inbounds i8, ptr %12, i64 6
+  %116 = getelementptr inbounds i8, ptr %12, i64 7
+  br label %117
 
-147:                                              ; preds = %.lr.ph164, %179
-  %.161162 = phi ptr [ %.161160, %.lr.ph164 ], [ %.161, %179 ]
-  %148 = getelementptr inbounds i8, ptr %.161162, i64 56
-  %149 = load i32, ptr %148, align 8
-  %150 = and i32 %149, %2
-  %151 = icmp eq i32 %150, 0
-  br i1 %151, label %179, label %152
+117:                                              ; preds = %.lr.ph164, %149
+  %.161162 = phi ptr [ %.161160, %.lr.ph164 ], [ %.161, %149 ]
+  %118 = getelementptr inbounds i8, ptr %.161162, i64 56
+  %119 = load i32, ptr %118, align 8
+  %120 = and i32 %119, %2
+  %121 = icmp eq i32 %120, 0
+  br i1 %121, label %149, label %122
 
-152:                                              ; preds = %147
-  %153 = getelementptr inbounds i8, ptr %.161162, i64 64
-  %154 = getelementptr inbounds [3 x %struct.anon.0], ptr %153, i64 0, i64 %17
-  %155 = load i64, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %154, i64 8
-  %157 = load i64, ptr %156, align 8
-  %158 = mul i64 %155, 10000000
-  %159 = sdiv i64 %157, 100
-  %160 = add i64 %158, 116444736000000000
-  %161 = add i64 %160, %159
-  %162 = trunc i64 %161 to i8
-  store i8 %162, ptr %12, align 1
-  %163 = lshr i64 %161, 8
-  %164 = trunc i64 %163 to i8
-  store i8 %164, ptr %140, align 1
-  %165 = lshr i64 %161, 16
-  %166 = trunc i64 %165 to i8
-  store i8 %166, ptr %141, align 1
-  %167 = lshr i64 %161, 24
-  %168 = trunc i64 %167 to i8
-  store i8 %168, ptr %142, align 1
-  %169 = lshr i64 %161, 32
-  %170 = trunc i64 %169 to i8
-  store i8 %170, ptr %143, align 1
-  %171 = lshr i64 %161, 40
-  %172 = trunc i64 %171 to i8
-  store i8 %172, ptr %144, align 1
-  %173 = lshr i64 %161, 48
-  %174 = trunc i64 %173 to i8
-  store i8 %174, ptr %145, align 1
-  %sum.shift.i = lshr i64 %161, 56
-  %175 = trunc nuw i64 %sum.shift.i to i8
-  store i8 %175, ptr %146, align 1
-  %176 = call fastcc i64 @compress_out(ptr noundef %0, ptr noundef nonnull %12, i64 noundef 8, i32 noundef 1)
-  %177 = trunc i64 %176 to i32
-  %178 = icmp slt i32 %177, 0
-  br i1 %178, label %.loopexit, label %179
+122:                                              ; preds = %117
+  %123 = getelementptr inbounds i8, ptr %.161162, i64 64
+  %124 = getelementptr inbounds [3 x %struct.anon.0], ptr %123, i64 0, i64 %17
+  %125 = load i64, ptr %124, align 8
+  %126 = getelementptr inbounds i8, ptr %124, i64 8
+  %127 = load i64, ptr %126, align 8
+  %128 = mul i64 %125, 10000000
+  %129 = sdiv i64 %127, 100
+  %130 = add i64 %128, 116444736000000000
+  %131 = add i64 %130, %129
+  %132 = trunc i64 %131 to i8
+  store i8 %132, ptr %12, align 1
+  %133 = lshr i64 %131, 8
+  %134 = trunc i64 %133 to i8
+  store i8 %134, ptr %110, align 1
+  %135 = lshr i64 %131, 16
+  %136 = trunc i64 %135 to i8
+  store i8 %136, ptr %111, align 1
+  %137 = lshr i64 %131, 24
+  %138 = trunc i64 %137 to i8
+  store i8 %138, ptr %112, align 1
+  %139 = lshr i64 %131, 32
+  %140 = trunc i64 %139 to i8
+  store i8 %140, ptr %113, align 1
+  %141 = lshr i64 %131, 40
+  %142 = trunc i64 %141 to i8
+  store i8 %142, ptr %114, align 1
+  %143 = lshr i64 %131, 48
+  %144 = trunc i64 %143 to i8
+  store i8 %144, ptr %115, align 1
+  %sum.shift.i = lshr i64 %131, 56
+  %145 = trunc nuw i64 %sum.shift.i to i8
+  store i8 %145, ptr %116, align 1
+  %146 = call fastcc i64 @compress_out(ptr noundef %0, ptr noundef nonnull %12, i64 noundef 8, i32 noundef 1)
+  %147 = trunc i64 %146 to i32
+  %148 = icmp slt i32 %147, 0
+  br i1 %148, label %.loopexit, label %149
 
-179:                                              ; preds = %152, %147
-  %180 = getelementptr inbounds i8, ptr %.161162, i64 24
-  %.161 = load ptr, ptr %180, align 8
+149:                                              ; preds = %122, %117
+  %150 = getelementptr inbounds i8, ptr %.161162, i64 24
+  %.161 = load ptr, ptr %150, align 8
   %.not76 = icmp eq ptr %.161, null
-  br i1 %.not76, label %.loopexit, label %147, !llvm.loop !23
+  br i1 %.not76, label %.loopexit, label %117, !llvm.loop !23
 
-.loopexit:                                        ; preds = %124, %152, %179, %138, %enc_uint64.exit124, %._crit_edge, %enc_uint64.exit116, %enc_uint64.exit108, %enc_uint64.exit100, %65, %enc_uint64.exit92, %enc_uint64.exit84, %enc_uint64.exit
-  %.062 = phi i32 [ %39, %enc_uint64.exit ], [ %60, %enc_uint64.exit84 ], [ %63, %enc_uint64.exit92 ], [ 0, %65 ], [ %83, %enc_uint64.exit100 ], [ %108, %enc_uint64.exit108 ], [ %111, %enc_uint64.exit116 ], [ %133, %._crit_edge ], [ %136, %enc_uint64.exit124 ], [ 0, %138 ], [ %177, %152 ], [ 0, %179 ], [ %126, %124 ]
+.loopexit:                                        ; preds = %94, %122, %149, %108, %enc_uint64.exit124, %._crit_edge, %enc_uint64.exit116, %enc_uint64.exit108, %enc_uint64.exit100, %50, %enc_uint64.exit92, %enc_uint64.exit84, %enc_uint64.exit
+  %.062 = phi i32 [ %24, %enc_uint64.exit ], [ %45, %enc_uint64.exit84 ], [ %48, %enc_uint64.exit92 ], [ 0, %50 ], [ %53, %enc_uint64.exit100 ], [ %78, %enc_uint64.exit108 ], [ %81, %enc_uint64.exit116 ], [ %103, %._crit_edge ], [ %106, %enc_uint64.exit124 ], [ 0, %108 ], [ %147, %122 ], [ 0, %149 ], [ %96, %94 ]
   ret i32 %.062
 }
 

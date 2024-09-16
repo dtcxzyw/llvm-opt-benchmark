@@ -121,7 +121,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @send_control_event(ptr noundef %vser, i32 noundef %port_id, i16 noundef zeroext %event, i16 noundef zeroext %value) unnamed_addr #0 {
+define internal fastcc void @send_control_event(ptr noundef %vser, i32 noundef %port_id, i16 noundef zeroext range(i16 1, 7) %event, i16 noundef zeroext range(i16 0, 2) %value) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %cpkt = alloca %struct.virtio_console_control, align 4
@@ -934,7 +934,7 @@ if.end3.i:                                        ; preds = %if.end.i
   %vser.i = getelementptr inbounds i8, ptr %opaque, i64 176
   %2 = load ptr, ptr %vser.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %2, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #12
-  tail call fastcc void @do_flush_queued_data(ptr noundef nonnull %opaque, ptr noundef %1, ptr noundef %call.i.i)
+  tail call fastcc void @do_flush_queued_data(ptr noundef %opaque, ptr noundef %1, ptr noundef %call.i.i)
   br label %flush_queued_data.exit
 
 flush_queued_data.exit:                           ; preds = %if.end.i, %if.end3.i
@@ -950,7 +950,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @do_flush_queued_data(ptr noundef %port, ptr noundef %vq, ptr noundef %vdev) unnamed_addr #0 {
+define internal fastcc void @do_flush_queued_data(ptr noundef nonnull %port, ptr noundef %vq, ptr noundef %vdev) unnamed_addr #0 {
 entry:
   %call = tail call i32 @virtio_queue_ready(ptr noundef %vq) #12
   %tobool1.not = icmp eq i32 %call, 0
@@ -961,7 +961,7 @@ if.else3:                                         ; preds = %entry
   unreachable
 
 if.end4:                                          ; preds = %entry
-  %call.i = tail call ptr @object_get_class(ptr noundef %port) #12
+  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %port) #12
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT_GET_CLASS) #12
   %throttled = getelementptr inbounds i8, ptr %port, i64 250
   %0 = load i8, ptr %throttled, align 2
@@ -1750,9 +1750,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.end:                                          ; preds = %for.cond, %entry
   %call.i17 = tail call i32 @qemu_get_be32(ptr noundef %f) #12
   %tobool.not = icmp eq i32 %call.i17, 0
-  br i1 %tobool.not, label %return, label %for.body.lr.ph.i
+  br i1 %tobool.not, label %return, label %if.then3
 
-for.body.lr.ph.i:                                 ; preds = %for.end
+if.then3:                                         ; preds = %for.end
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #12
   %call1.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #16
   %post_load.i = getelementptr inbounds i8, ptr %call.i, i64 728
@@ -1772,8 +1772,8 @@ for.body.lr.ph.i:                                 ; preds = %for.end
   %ports.i.i = getelementptr inbounds i8, ptr %call.i, i64 688
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
+for.body.i:                                       ; preds = %for.inc.i, %if.then3
+  %indvars.iv.i = phi i64 [ 0, %if.then3 ], [ %indvars.iv.next.i, %for.inc.i ]
   %call9.i = tail call i32 @qemu_get_be32(ptr noundef %f) #12
   %cmp.i.i = icmp eq i32 %call9.i, -1
   br i1 %cmp.i.i, label %return, label %if.end.i.i
@@ -2027,7 +2027,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool3, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  tail call fastcc void @do_flush_queued_data(ptr noundef nonnull %port.08.i, ptr noundef %vq, ptr noundef %vdev)
+  tail call fastcc void @do_flush_queued_data(ptr noundef %port.08.i, ptr noundef %vq, ptr noundef %vdev)
   br label %if.end5
 
 if.end5:                                          ; preds = %for.end.i, %if.then, %if.then4, %if.end

@@ -1392,7 +1392,7 @@ if.end454.i:                                      ; preds = %if.then.i212.i, %tr
 
 if.then456.i:                                     ; preds = %if.end454.i
   %121 = load ptr, ptr %rx_pkt16, align 8
-  call fastcc void @igb_rss_parse_packet(ptr noundef %core, ptr noundef %121, i1 noundef zeroext %tobool.i79, ptr noundef nonnull %rss_info)
+  call fastcc void @igb_rss_parse_packet(ptr noundef %core, ptr noundef %121, i1 noundef zeroext %tobool.i79, ptr noundef %rss_info)
   %queue.i = getelementptr inbounds i8, ptr %rss_info, i64 8
   %122 = load i32, ptr %queue.i, align 4
   %and459.i = and i32 %122, 1
@@ -1534,7 +1534,7 @@ for.inc556.i:                                     ; preds = %if.end519.i, %for.b
 
 if.then561.i:                                     ; preds = %trace_e1000x_rx_flt_ucast_match.exit.i, %if.else497.i
   %143 = load ptr, ptr %rx_pkt16, align 8
-  call fastcc void @igb_rss_parse_packet(ptr noundef %core, ptr noundef %143, i1 noundef zeroext false, ptr noundef nonnull %rss_info)
+  call fastcc void @igb_rss_parse_packet(ptr noundef %core, ptr noundef %143, i1 noundef zeroext false, ptr noundef %rss_info)
   %queue563.i = getelementptr inbounds i8, ptr %rss_info, i64 8
   %144 = load i32, ptr %queue563.i, align 4
   %sh_prom564.i = zext nneg i32 %144 to i64
@@ -2569,7 +2569,7 @@ if.then2.i.i:                                     ; preds = %igb_write_to_rx_buf
   %317 = load i16, ptr %bastate.i, align 2
   %add.i.i106.i = select i1 %tobool.i.i104.i, i16 0, i16 %317
   %pkt_len.0.i.i.i = add i16 %add.i.i106.i, %316
-  call fastcc void @igb_write_adv_rx_descr(ptr noundef nonnull readonly %core, ptr noundef nonnull %desc.i, ptr noundef %spec.select.i, ptr noundef nonnull readonly %rss_info, i16 noundef zeroext %etqf.1, i1 noundef zeroext %ts.0, i16 noundef zeroext %pkt_len.0.i.i.i)
+  call fastcc void @igb_write_adv_rx_descr(ptr noundef nonnull readonly %core, ptr noundef %desc.i, ptr noundef %spec.select.i, ptr noundef readonly %rss_info, i16 noundef zeroext %etqf.1, i1 noundef zeroext %ts.0, i16 noundef zeroext %pkt_len.0.i.i.i)
   %318 = load i64, ptr %.sink.i.sroa.gep.i, align 8
   %319 = shl i64 %318, 5
   %conv12.i.i107.i = and i64 %319, 32736
@@ -2588,7 +2588,7 @@ if.then2.i.i:                                     ; preds = %igb_write_to_rx_buf
 
 if.else3.i.i:                                     ; preds = %igb_write_to_rx_buffers.exit.i
   %323 = load i16, ptr %arrayidx.i.i110.i, align 4
-  call fastcc void @igb_write_adv_rx_descr(ptr noundef nonnull readonly %core, ptr noundef nonnull %desc.i, ptr noundef %spec.select.i, ptr noundef nonnull readonly %rss_info, i16 noundef zeroext %etqf.1, i1 noundef zeroext %ts.0, i16 noundef zeroext %323)
+  call fastcc void @igb_write_adv_rx_descr(ptr noundef nonnull readonly %core, ptr noundef %desc.i, ptr noundef %spec.select.i, ptr noundef readonly %rss_info, i16 noundef zeroext %etqf.1, i1 noundef zeroext %ts.0, i16 noundef zeroext %323)
   %.pre164.i = load i32, ptr %hdr_addr.i.i.i, align 8
   br label %igb_write_rx_descr.exit.i
 
@@ -2896,7 +2896,7 @@ declare ptr @qemu_get_queue(ptr noundef) local_unnamed_addr #1
 declare void @e1000x_restart_autoneg(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @igb_raise_interrupts(ptr nocapture noundef %core, i64 noundef %index, i32 noundef %causes) unnamed_addr #0 {
+define internal fastcc void @igb_raise_interrupts(ptr nocapture noundef %core, i64 noundef range(i64 48, 1377) %index, i32 noundef %causes) unnamed_addr #0 {
 entry:
   %_now.i.i.i82 = alloca %struct.timeval, align 8
   %_now.i.i68 = alloca %struct.timeval, align 8
@@ -2915,8 +2915,8 @@ entry:
   %arrayidx6 = getelementptr i8, ptr %core, i64 5412
   %3 = load i32, ptr %arrayidx6, align 4
   %and7 = and i32 %3, %2
-  %index.tr = trunc i64 %index to i32
-  %conv = shl i32 %index.tr, 2
+  %index.tr = trunc nuw nsw i64 %index to i32
+  %conv = shl nuw nsw i32 %index.tr, 2
   %arrayidx9 = getelementptr [32768 x i32], ptr %core, i64 0, i64 %index
   %4 = load i32, ptr %arrayidx9, align 4
   %or = or i32 %4, %causes
@@ -4598,7 +4598,7 @@ declare void @e1000x_timestamp(ptr noundef, i64 noundef, i64 noundef, i64 nounde
 declare zeroext i1 @e1000x_rx_vlan_filter(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @igb_rss_parse_packet(ptr noundef %core, ptr noundef %pkt, i1 noundef zeroext %tx, ptr nocapture noundef %info) unnamed_addr #0 {
+define internal fastcc void @igb_rss_parse_packet(ptr noundef %core, ptr noundef %pkt, i1 noundef zeroext %tx, ptr nocapture noundef nonnull %info) unnamed_addr #0 {
 entry:
   %_now.i.i34 = alloca %struct.timeval, align 8
   %_now.i.i35.i = alloca %struct.timeval, align 8
@@ -5108,7 +5108,7 @@ declare i64 @net_rx_pkt_get_l4_hdr_offset(ptr noundef) local_unnamed_addr #1
 declare i32 @address_space_rw(ptr noundef, i64 noundef, i32, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @igb_write_adv_rx_descr(ptr nocapture noundef readonly %core, ptr nocapture noundef %desc, ptr noundef %pkt, ptr nocapture noundef readonly %rss_info, i16 noundef zeroext %etqf, i1 noundef zeroext %ts, i16 noundef zeroext %length) unnamed_addr #0 {
+define internal fastcc void @igb_write_adv_rx_descr(ptr nocapture noundef readonly %core, ptr nocapture noundef nonnull %desc, ptr noundef %pkt, ptr nocapture noundef nonnull readonly %rss_info, i16 noundef zeroext %etqf, i1 noundef zeroext %ts, i16 noundef zeroext %length) unnamed_addr #0 {
 entry:
   %_now.i.i54 = alloca %struct.timeval, align 8
   %hasip4.i44 = alloca i8, align 1
@@ -8187,7 +8187,7 @@ igb_ring_empty.exit.lr.ph.i:                      ; preds = %if.end4.i
   %arrayidx.i16.i.i.i = getelementptr i8, ptr %core, i64 16628
   %arrayidx.i26.i.i.i = getelementptr i8, ptr %core, i64 16512
   %arrayidx.i31.i.i.i = getelementptr i8, ptr %core, i64 16528
-  %arrayidx2.i33.i.i.i = getelementptr i8, ptr %core, i64 16532
+  %arrayidx2.i32.i.i.i = getelementptr i8, ptr %core, i64 16532
   %18 = load i32, ptr %dlen.i.i, align 8
   %idxprom9.i.i = sext i32 %18 to i64
   %arrayidx10.i.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 %idxprom9.i.i
@@ -8606,12 +8606,12 @@ if.then.i28.i.i.i:                                ; preds = %sw.epilog.i.i.i
 
 e1000x_inc_reg_if_not_full.exit30.i.i.i:          ; preds = %if.then.i28.i.i.i, %sw.epilog.i.i.i
   %86 = load i64, ptr %arrayidx.i31.i.i.i, align 4
-  %.add5.i38.i.i.i = call i64 @llvm.uadd.sat.i64(i64 %86, i64 %conv4.i.i.i.i)
-  %conv9.i39.i.i.i = trunc i64 %.add5.i38.i.i.i to i32
-  store i32 %conv9.i39.i.i.i, ptr %arrayidx.i31.i.i.i, align 4
-  %shr.i40.i.i.i = lshr i64 %.add5.i38.i.i.i, 32
-  %conv12.i41.i.i.i = trunc nuw i64 %shr.i40.i.i.i to i32
-  store i32 %conv12.i41.i.i.i, ptr %arrayidx2.i33.i.i.i, align 4
+  %.add5.i34.i.i.i = call i64 @llvm.uadd.sat.i64(i64 %86, i64 %conv4.i.i.i.i)
+  %conv9.i35.i.i.i = trunc i64 %.add5.i34.i.i.i to i32
+  store i32 %conv9.i35.i.i.i, ptr %arrayidx.i31.i.i.i, align 4
+  %shr.i36.i.i.i = lshr i64 %.add5.i34.i.i.i, 32
+  %conv12.i37.i.i.i = trunc nuw i64 %shr.i36.i.i.i to i32
+  store i32 %conv12.i37.i.i.i, ptr %arrayidx2.i32.i.i.i, align 4
   %87 = load i32, ptr %arrayidx.i.i, align 8
   %and.i58.i.i = and i32 %87, 1
   %tobool.not.i59.i.i = icmp eq i32 %and.i58.i.i, 0
@@ -8976,13 +8976,13 @@ if.end42:                                         ; preds = %if.then19, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @igb_lower_interrupts(ptr nocapture noundef %core, i64 noundef %index, i32 noundef %causes) unnamed_addr #0 {
+define internal fastcc void @igb_lower_interrupts(ptr nocapture noundef %core, i64 noundef range(i64 48, 1377) %index, i32 noundef %causes) unnamed_addr #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i18 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %index.tr = trunc i64 %index to i32
-  %conv = shl i32 %index.tr, 2
+  %index.tr = trunc nuw nsw i64 %index to i32
+  %conv = shl nuw nsw i32 %index.tr, 2
   %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 %index
   %0 = load i32, ptr %arrayidx, align 4
   %not = xor i32 %causes, -1

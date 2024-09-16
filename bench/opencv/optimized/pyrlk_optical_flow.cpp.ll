@@ -1072,7 +1072,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIN2cv
 375:                                              ; preds = %367, %372
   store double 2.550000e+02, ptr %71, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %308, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZL10drawArrowsRN2cv4UMatERKSt6vectorINS_6Point_IfEESaIS4_EES8_RKS2_IhSaIhEENS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(80) %43, ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull %71)
+  invoke fastcc void @_ZL10drawArrowsRN2cv4UMatERKSt6vectorINS_6Point_IfEESaIS4_EES8_RKS2_IhSaIhEENS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(80) %43, ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef %71)
           to label %376 unwind label %.loopexit
 
 376:                                              ; preds = %375
@@ -1375,7 +1375,7 @@ _ZL9workBeginv.exit:                              ; preds = %459
 493:                                              ; preds = %491
   store double 2.550000e+02, ptr %86, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %445, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZL10drawArrowsRN2cv4UMatERKSt6vectorINS_6Point_IfEESaIS4_EES8_RKS2_IhSaIhEENS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(80) %31, ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull %86)
+  invoke fastcc void @_ZL10drawArrowsRN2cv4UMatERKSt6vectorINS_6Point_IfEESaIS4_EES8_RKS2_IhSaIhEENS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(80) %31, ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef %86)
           to label %494 unwind label %.loopexit208.loopexit.split-lp
 
 494:                                              ; preds = %493
@@ -1649,7 +1649,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv() loca
 declare void @_ZN2cv20calcOpticalFlowPyrLKERKNS_11_InputArrayES2_S2_RKNS_17_InputOutputArrayERKNS_12_OutputArrayES8_NS_5Size_IiEEiNS_12TermCriteriaEid(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i64, i32 noundef, ptr noundef byval(%"class.cv::TermCriteria") align 8, i32 noundef, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL10drawArrowsRN2cv4UMatERKSt6vectorINS_6Point_IfEESaIS4_EES8_RKS2_IhSaIhEENS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10drawArrowsRN2cv4UMatERKSt6vectorINS_6Point_IfEESaIS4_EES8_RKS2_IhSaIhEENS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::Mat", align 8
   %7 = alloca %"class.cv::_InputOutputArray", align 8
   %8 = alloca %"class.cv::_InputOutputArray", align 8

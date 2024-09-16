@@ -1398,7 +1398,7 @@ define hidden void @zif_posix_ttyname(ptr noundef %0, ptr nocapture noundef writ
   ]
 
 11:                                               ; preds = %7
-  %12 = call fastcc i32 @php_posix_stream_get_fd(ptr noundef nonnull %8, ptr noundef nonnull %3)
+  %12 = call fastcc i32 @php_posix_stream_get_fd(ptr noundef nonnull %8, ptr noundef %3)
   %.not141 = icmp eq i32 %12, 0
   br i1 %.not141, label %13, label %._crit_edge
 
@@ -1496,7 +1496,7 @@ thread-pre-split:                                 ; preds = %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @php_posix_stream_get_fd(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @php_posix_stream_get_fd(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = tail call i32 @php_file_le_stream() #11
   %4 = tail call i32 @php_file_le_pstream() #11
   %5 = tail call ptr @zend_fetch_resource2_ex(ptr noundef %0, ptr noundef nonnull @.str.137, i32 noundef %3, i32 noundef %4) #11
@@ -1509,7 +1509,7 @@ define internal fastcc range(i32 0, 2) i32 @php_posix_stream_get_fd(ptr noundef 
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
-  %11 = tail call i32 @_php_stream_cast(ptr noundef nonnull %5, i32 noundef 536870915, ptr noundef %1, i32 noundef 0) #11
+  %11 = tail call i32 @_php_stream_cast(ptr noundef nonnull %5, i32 noundef 536870915, ptr noundef nonnull %1, i32 noundef 0) #11
   br label %21
 
 12:                                               ; preds = %7
@@ -1518,7 +1518,7 @@ define internal fastcc range(i32 0, 2) i32 @php_posix_stream_get_fd(ptr noundef 
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %12
-  %16 = tail call i32 @_php_stream_cast(ptr noundef nonnull %5, i32 noundef 536870913, ptr noundef %1, i32 noundef 0) #11
+  %16 = tail call i32 @_php_stream_cast(ptr noundef nonnull %5, i32 noundef 536870913, ptr noundef nonnull %1, i32 noundef 0) #11
   br label %21
 
 17:                                               ; preds = %12
@@ -1564,7 +1564,7 @@ define hidden void @zif_posix_isatty(ptr noundef %0, ptr nocapture noundef write
   ]
 
 11:                                               ; preds = %7
-  %12 = call fastcc i32 @php_posix_stream_get_fd(ptr noundef nonnull %8, ptr noundef nonnull %3)
+  %12 = call fastcc i32 @php_posix_stream_get_fd(ptr noundef nonnull %8, ptr noundef %3)
   %.not76 = icmp eq i32 %12, 0
   br i1 %.not76, label %13, label %thread-pre-split
 
@@ -3366,7 +3366,7 @@ define hidden void @zif_posix_fpathconf(ptr noundef %0, ptr nocapture noundef wr
   ]
 
 19:                                               ; preds = %.thread146
-  %20 = call fastcc i32 @php_posix_stream_get_fd(ptr noundef nonnull %8, ptr noundef nonnull %4)
+  %20 = call fastcc i32 @php_posix_stream_get_fd(ptr noundef nonnull %8, ptr noundef %4)
   %.not118 = icmp eq i32 %20, 0
   br i1 %.not118, label %21, label %30
 

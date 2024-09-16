@@ -501,19 +501,19 @@ define dso_local ptr @d_path(ptr nocapture noundef readonly %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @prepend(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @prepend(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 10, 14) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %30, label %7
 
 7:                                                ; preds = %3
-  %8 = icmp slt i32 %5, %2
+  %8 = icmp ult i32 %5, %2
   br i1 %8, label %9, label %21
 
 9:                                                ; preds = %7
-  %10 = sub nsw i32 %2, %5
-  %11 = sext i32 %10 to i64
+  %10 = sub nuw nsw i32 %2, %5
+  %11 = zext nneg i32 %10 to i64
   %12 = getelementptr i8, ptr %1, i64 %11
   %13 = load ptr, ptr %0, align 8
   %14 = zext nneg i32 %5 to i64
@@ -533,7 +533,7 @@ define internal fastcc void @prepend(ptr nocapture noundef %0, ptr noundef %1, i
   br label %30
 
 21:                                               ; preds = %7
-  %22 = sub nsw i32 %5, %2
+  %22 = sub nuw nsw i32 %5, %2
   store i32 %22, ptr %4, align 8
   %23 = load ptr, ptr %0, align 8
   %24 = zext nneg i32 %2 to i64
@@ -545,7 +545,7 @@ define internal fastcc void @prepend(ptr nocapture noundef %0, ptr noundef %1, i
   br i1 %28, label %30, label %29, !prof !5
 
 29:                                               ; preds = %21
-  tail call void @llvm.memset.p0.i64(ptr align 1 %26, i8 120, i64 %24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 %26, i8 120, i64 %24, i1 false)
   br label %30
 
 30:                                               ; preds = %29, %21, %20, %3

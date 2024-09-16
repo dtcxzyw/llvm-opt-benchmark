@@ -329,7 +329,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @rsakem_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params, i32 noundef %operation) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rsakem_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params, i32 noundef range(i32 4096, 8193) %operation) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %vprsactx, null
   %cmp1 = icmp eq ptr %vrsa, null

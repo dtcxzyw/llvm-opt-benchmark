@@ -754,7 +754,7 @@ define internal i32 @dissect_arp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not362, label %87, label %85
 
 85:                                               ; preds = %83
-  %86 = call fastcc i32 @check_for_duplicate_addresses(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %73, i32 noundef %70, ptr noundef nonnull %11)
+  %86 = call fastcc i32 @check_for_duplicate_addresses(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %73, i32 noundef %70, ptr noundef %11)
   br label %87
 
 87:                                               ; preds = %83, %85, %77, %69
@@ -795,7 +795,7 @@ define internal i32 @dissect_arp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %or.cond383, label %107, label %105
 
 105:                                              ; preds = %102
-  %106 = call fastcc i32 @check_for_duplicate_addresses(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %90, i32 noundef %88, ptr noundef nonnull %11)
+  %106 = call fastcc i32 @check_for_duplicate_addresses(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %90, i32 noundef %88, ptr noundef %11)
   br label %107
 
 107:                                              ; preds = %87, %94, %105, %102, %64, %60, %51
@@ -2698,7 +2698,7 @@ declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) loca
 declare void @add_ether_byip(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_for_duplicate_addresses(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_for_duplicate_addresses(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 0) %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = alloca %struct._address, align 8
   %8 = alloca %struct._address, align 8
   %9 = alloca i32, align 4
@@ -2724,7 +2724,7 @@ define internal fastcc range(i32 0, 2) i32 @check_for_duplicate_addresses(ptr no
   %23 = load ptr, ptr @address_hash_table, align 8
   %24 = zext i32 %4 to i64
   %25 = inttoptr i64 %24 to ptr
-  %26 = tail call ptr @wmem_map_lookup(ptr noundef %23, ptr noundef %25) #9
+  %26 = tail call ptr @wmem_map_lookup(ptr noundef %23, ptr noundef nonnull %25) #9
   %.not45 = icmp eq ptr %26, null
   br i1 %.not45, label %47, label %27
 
@@ -2774,7 +2774,7 @@ define internal fastcc range(i32 0, 2) i32 @check_for_duplicate_addresses(ptr no
   %54 = getelementptr inbounds i8, ptr %49, i64 16
   store i64 %53, ptr %54, align 8
   %55 = load ptr, ptr @address_hash_table, align 8
-  %56 = tail call ptr @wmem_map_insert(ptr noundef %55, ptr noundef %25, ptr noundef %49) #9
+  %56 = tail call ptr @wmem_map_insert(ptr noundef %55, ptr noundef nonnull %25, ptr noundef %49) #9
   br label %.thread
 
 57:                                               ; preds = %6

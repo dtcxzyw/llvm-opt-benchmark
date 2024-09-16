@@ -1845,7 +1845,7 @@ declare dso_local noalias ptr @kmalloc_node_trace(ptr noundef, i32 noundef, i32 
 declare dso_local noalias ptr @__kmalloc_node(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @calculate_percentile(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc i32 @calculate_percentile(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 90, 100) %3) unnamed_addr #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 328
   %6 = zext nneg i32 %1 to i64
   %7 = zext nneg i32 %2 to i64

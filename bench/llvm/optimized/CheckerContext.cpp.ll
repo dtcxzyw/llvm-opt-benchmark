@@ -547,7 +547,7 @@ _ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit: ; preds = %3, %3, %
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds = %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit, %45
-  %46 = call fastcc noundef zeroext i1 @_ZL14evalComparisonN5clang4ento4SValENS_18BinaryOperatorKindES1_N4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr %.fca.0.extract, i8 %.fca.1.extract, i32 noundef 13, ptr nonnull %29, i8 %.sroa.3.0.i, ptr noundef nonnull %5)
+  %46 = call fastcc noundef zeroext i1 @_ZL14evalComparisonN5clang4ento4SValENS_18BinaryOperatorKindES1_N4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr %.fca.0.extract, i8 %.fca.1.extract, i32 noundef 13, ptr nonnull %29, i8 %.sroa.3.0.i, ptr noundef %5)
   %47 = load ptr, ptr %5, align 8
   %.not.i.i13 = icmp eq ptr %47, null
   br i1 %.not.i.i13, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %48
@@ -561,7 +561,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL14evalComparisonN5clang4ento4SValENS_18BinaryOperatorKindES1_N4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr %0, i8 %1, i32 noundef %2, ptr %3, i8 %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL14evalComparisonN5clang4ento4SValENS_18BinaryOperatorKindES1_N4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr %0, i8 %1, i32 noundef range(i32 10, 14) %2, ptr %3, i8 %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %9 = alloca %"class.clang::ento::SVal", align 8
@@ -736,7 +736,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento14CheckerContext10isNegativeE
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds = %2, %27
-  %28 = call fastcc noundef zeroext i1 @_ZL14evalComparisonN5clang4ento4SValENS_18BinaryOperatorKindES1_N4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr %.fca.0.extract, i8 %.fca.1.extract, i32 noundef 10, ptr nonnull %11, i8 6, ptr noundef nonnull %4)
+  %28 = call fastcc noundef zeroext i1 @_ZL14evalComparisonN5clang4ento4SValENS_18BinaryOperatorKindES1_N4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr %.fca.0.extract, i8 %.fca.1.extract, i32 noundef 10, ptr nonnull %11, i8 6, ptr noundef %4)
   %29 = load ptr, ptr %4, align 8
   %.not.i.i15 = icmp eq ptr %29, null
   br i1 %.not.i.i15, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %30

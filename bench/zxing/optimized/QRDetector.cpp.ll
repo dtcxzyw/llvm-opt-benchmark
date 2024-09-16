@@ -1853,12 +1853,12 @@ _ZN5ZXing6QRCodeL17EstimateDimensionERKNS_9BitMatrixENS_17ConcentricPatternES4_.
   %.sroa.0196.0.copyload = load double, ptr %35, align 8
   %.sroa.2197.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
   %.sroa.2197.0.copyload = load double, ptr %.sroa.2197.0..sroa_idx, align 8
-  call fastcc void @_ZN5ZXing6QRCodeL9TraceLineERKNS_9BitMatrixENS_6PointTIdEES5_i(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %1, double %.sroa.0198.0.copyload, double %.sroa.2199.0.copyload, double %.sroa.0196.0.copyload, double %.sroa.2197.0.copyload, i32 noundef 2)
+  call fastcc void @_ZN5ZXing6QRCodeL9TraceLineERKNS_9BitMatrixENS_6PointTIdEES5_i(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %1, double %.sroa.0198.0.copyload, double %.sroa.2199.0.copyload, double %.sroa.0196.0.copyload, double %.sroa.2197.0.copyload, i32 noundef 2)
   %.sroa.0194.0.copyload = load double, ptr %2, align 8
   %.sroa.2195.0.copyload = load double, ptr %.sroa.2199.0..sroa_idx, align 8
   %.sroa.0192.0.copyload = load double, ptr %35, align 8
   %.sroa.2193.0.copyload = load double, ptr %.sroa.2197.0..sroa_idx, align 8
-  invoke fastcc void @_ZN5ZXing6QRCodeL9TraceLineERKNS_9BitMatrixENS_6PointTIdEES5_i(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %1, double %.sroa.0194.0.copyload, double %.sroa.2195.0.copyload, double %.sroa.0192.0.copyload, double %.sroa.2193.0.copyload, i32 noundef 3)
+  invoke fastcc void @_ZN5ZXing6QRCodeL9TraceLineERKNS_9BitMatrixENS_6PointTIdEES5_i(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %1, double %.sroa.0194.0.copyload, double %.sroa.2195.0.copyload, double %.sroa.0192.0.copyload, double %.sroa.2193.0.copyload, i32 noundef 3)
           to label %84 unwind label %149
 
 84:                                               ; preds = %78
@@ -1867,7 +1867,7 @@ _ZN5ZXing6QRCodeL17EstimateDimensionERKNS_9BitMatrixENS_17ConcentricPatternES4_.
   %.sroa.2189.0.copyload = load double, ptr %.sroa.2189.0..sroa_idx, align 8
   %.sroa.0186.0.copyload = load double, ptr %35, align 8
   %.sroa.2187.0.copyload = load double, ptr %.sroa.2197.0..sroa_idx, align 8
-  invoke fastcc void @_ZN5ZXing6QRCodeL9TraceLineERKNS_9BitMatrixENS_6PointTIdEES5_i(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %1, double %.sroa.0188.0.copyload, double %.sroa.2189.0.copyload, double %.sroa.0186.0.copyload, double %.sroa.2187.0.copyload, i32 noundef 2)
+  invoke fastcc void @_ZN5ZXing6QRCodeL9TraceLineERKNS_9BitMatrixENS_6PointTIdEES5_i(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %1, double %.sroa.0188.0.copyload, double %.sroa.2189.0.copyload, double %.sroa.0186.0.copyload, double %.sroa.2187.0.copyload, i32 noundef 2)
           to label %85 unwind label %151
 
 85:                                               ; preds = %84
@@ -1875,7 +1875,7 @@ _ZN5ZXing6QRCodeL17EstimateDimensionERKNS_9BitMatrixENS_17ConcentricPatternES4_.
   %.sroa.2185.0.copyload = load double, ptr %.sroa.2189.0..sroa_idx, align 8
   %.sroa.0182.0.copyload = load double, ptr %35, align 8
   %.sroa.2183.0.copyload = load double, ptr %.sroa.2197.0..sroa_idx, align 8
-  invoke fastcc void @_ZN5ZXing6QRCodeL9TraceLineERKNS_9BitMatrixENS_6PointTIdEES5_i(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %1, double %.sroa.0184.0.copyload, double %.sroa.2185.0.copyload, double %.sroa.0182.0.copyload, double %.sroa.2183.0.copyload, i32 noundef 3)
+  invoke fastcc void @_ZN5ZXing6QRCodeL9TraceLineERKNS_9BitMatrixENS_6PointTIdEES5_i(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %1, double %.sroa.0184.0.copyload, double %.sroa.2185.0.copyload, double %.sroa.0182.0.copyload, double %.sroa.2183.0.copyload, i32 noundef 3)
           to label %86 unwind label %153
 
 86:                                               ; preds = %85
@@ -1947,7 +1947,7 @@ _ZN5ZXing6QRCodeL17EstimateDimensionERKNS_9BitMatrixENS_17ConcentricPatternES4_.
   br i1 %143, label %144, label %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.thread
 
 144:                                              ; preds = %102
-  invoke fastcc void @_ZN5ZXing6QRCodeL22LocateAlignmentPatternERKNS_9BitMatrixEiNS_6PointTIdEE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %83, double %141, double %142)
+  invoke fastcc void @_ZN5ZXing6QRCodeL22LocateAlignmentPatternERKNS_9BitMatrixEiNS_6PointTIdEE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %83, double %141, double %142)
           to label %145 unwind label %.loopexit.split-lp661.loopexit.split-lp
 
 145:                                              ; preds = %144
@@ -2226,7 +2226,7 @@ _ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit.us.us.i: ; preds = %238
 _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.thread.us.us.i: ; preds = %_ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit.us.us.i, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.us.us.i, %230, %.noexc
   %.2.us.us.i = phi i32 [ %254, %_ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit.us.us.i ], [ -1, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.us.us.i ], [ -1, %230 ], [ -1, %.noexc ]
   %255 = add nsw i32 %.02941.us.us.i, -1
-  %.not30.us.us.not.i = icmp sgt i32 %.02941.us.us.i, %214
+  %.not30.us.us.not.i = icmp ugt i32 %.02941.us.us.i, %214
   br i1 %.not30.us.us.not.i, label %223, label %.split46.us.us.i, !llvm.loop !60
 
 .split46.us.us.i:                                 ; preds = %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.thread.us.us.i
@@ -2304,7 +2304,7 @@ _ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit.i:   ; preds = %274
 _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.thread.i: ; preds = %_ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit.i, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i, %266, %.noexc351
   %.2.i = phi i32 [ %290, %_ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit.i ], [ -1, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i ], [ -1, %266 ], [ -1, %.noexc351 ]
   %291 = add nsw i32 %.02941.i, -1
-  %.not30.not.i = icmp sgt i32 %.02941.i, %214
+  %.not30.not.i = icmp ugt i32 %.02941.i, %214
   br i1 %.not30.not.i, label %259, label %.split46.i, !llvm.loop !60
 
 .split46.i:                                       ; preds = %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.thread.i
@@ -2687,7 +2687,7 @@ _ZNK5ZXing6QRCode7Version9dimensionEv.exit357:    ; preds = %340, %338, %335, %3
   %.pn303.us = phi { double, double } [ %.fca.1.insert.i417.us, %442 ], [ %454, %445 ]
   %.sroa.3.0.us = extractvalue { double, double } %.pn303.us, 1
   %.sroa.099.0.us = extractvalue { double, double } %.pn303.us, 0
-  invoke fastcc void @_ZN5ZXing6QRCodeL22LocateAlignmentPatternERKNS_9BitMatrixEiNS_6PointTIdEE(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %83, double %.sroa.099.0.us, double %.sroa.3.0.us)
+  invoke fastcc void @_ZN5ZXing6QRCodeL22LocateAlignmentPatternERKNS_9BitMatrixEiNS_6PointTIdEE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %83, double %.sroa.099.0.us, double %.sroa.3.0.us)
           to label %455 unwind label %.loopexit.split-lp637.loopexit.split.us
 
 455:                                              ; preds = %"_ZZN5ZXing6QRCode8SampleQRERKNS_9BitMatrixERKNS0_16FinderPatternSetEENK3$_1clEii.exit.us"
@@ -2907,7 +2907,7 @@ _ZN5ZXing14RegressionLineD2Ev.exit.us:            ; preds = %538, %520
   br label %_ZN5ZXing14RegressionLineD2Ev.exit454.us
 
 _ZN5ZXing14RegressionLineD2Ev.exit454.us:         ; preds = %540, %_ZN5ZXing14RegressionLineD2Ev.exit.us
-  invoke fastcc void @_ZN5ZXing6QRCodeL22LocateAlignmentPatternERKNS_9BitMatrixEiNS_6PointTIdEE(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %83, double %533, double %536)
+  invoke fastcc void @_ZN5ZXing6QRCodeL22LocateAlignmentPatternERKNS_9BitMatrixEiNS_6PointTIdEE(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %83, double %533, double %536)
           to label %.thread621.us unwind label %.loopexit.split-lp642.loopexit.split-lp.loopexit.split.us
 
 .thread621.us:                                    ; preds = %_ZN5ZXing14RegressionLineD2Ev.exit454.us
@@ -3726,7 +3726,7 @@ _ZN5ZXing14RegressionLineD2Ev.exit497:            ; preds = %795, %_ZN5ZXing14Re
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5ZXing6QRCodeL9TraceLineERKNS_9BitMatrixENS_6PointTIdEES5_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, double %2, double %3, double %4, double %5, i32 noundef %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5ZXing6QRCodeL9TraceLineERKNS_9BitMatrixENS_6PointTIdEES5_i(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, double %2, double %3, double %4, double %5, i32 noundef range(i32 2, 4) %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.ZXing::BitMatrixCursor.75", align 8
   %9 = alloca %"class.ZXing::BitMatrixCursor", align 8
   %10 = alloca [2 x i32], align 4
@@ -4094,7 +4094,7 @@ _ZN5ZXing14RegressionLine3addENS_6PointTIdEE.exit: ; preds = %147, %_ZNSt6vector
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5ZXing6QRCodeL22LocateAlignmentPatternERKNS_9BitMatrixEiNS_6PointTIdEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, double %3, double %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5ZXing6QRCodeL22LocateAlignmentPatternERKNS_9BitMatrixEiNS_6PointTIdEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, double %3, double %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::optional.29", align 8
   %7 = alloca %"class.std::optional.29", align 8
   %8 = alloca %"class.std::optional.29", align 8
@@ -4440,7 +4440,7 @@ _ZNSt6vectorISt8optionalIN5ZXing6PointTIdEEESaIS4_EED2Ev.exit: ; preds = %38, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5ZXing6QRCode8SampleQRERKNS_9BitMatrixERKNS0_16FinderPatternSetEENK3$_0clEiiRKNS_17ConcentricPatternE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5ZXing6QRCode8SampleQRERKNS_9BitMatrixERKNS0_16FinderPatternSetEENK3$_0clEiiRKNS_17ConcentricPatternE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef range(i32 -2147483648, 2147483647) %1, i32 noundef range(i32 -2147483648, 2147483647) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::optional.67", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -6736,7 +6736,7 @@ _ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE.exit: ; preds = %195, %199
   %210 = call { double, double } @_ZNK5ZXing20PerspectiveTransformclENS_6PointTIdEE(ptr noundef nonnull align 8 dereferenceable(72) %8, double %207, double %209)
   %211 = extractvalue { double, double } %210, 0
   %212 = extractvalue { double, double } %210, 1
-  call fastcc void @_ZN5ZXing6QRCodeL22LocateAlignmentPatternERKNS_9BitMatrixEiNS_6PointTIdEE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %205, double %211, double %212)
+  call fastcc void @_ZN5ZXing6QRCodeL22LocateAlignmentPatternERKNS_9BitMatrixEiNS_6PointTIdEE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %205, double %211, double %212)
   %213 = getelementptr inbounds i8, ptr %11, i64 16
   %214 = load i8, ptr %213, align 8
   %215 = trunc i8 %214 to i1

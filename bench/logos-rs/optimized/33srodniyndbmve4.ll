@@ -1537,7 +1537,7 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
   store i64 %390, ptr %47, align 8
   store ptr %391, ptr %.sroa.3.0..sroa_idx8, align 8
   store i64 %392, ptr %.sroa.5.0..sroa_idx10, align 8
-  invoke fastcc void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFrom$LT$regex_syntax..hir..Hir$GT$$GT$8try_from6extend17h0c0e7bfcbbd4fe02E"(ptr nonnull align 8 %47, ptr nonnull align 8 %54)
+  invoke fastcc void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFrom$LT$regex_syntax..hir..Hir$GT$$GT$8try_from6extend17h0c0e7bfcbbd4fe02E"(ptr align 8 %47, ptr align 8 %54)
           to label %380 unwind label %381
 
 394:                                              ; preds = %389
@@ -1579,7 +1579,7 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFrom$LT$regex_syntax..hir..Hir$GT$$GT$8try_from6extend17h0c0e7bfcbbd4fe02E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFrom$LT$regex_syntax..hir..Hir$GT$$GT$8try_from6extend17h0c0e7bfcbbd4fe02E"(ptr nonnull align 8 %0, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [40 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = alloca [40 x i8], align 8
@@ -1603,7 +1603,7 @@ define internal fastcc void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core.
 
 14:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
-  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb13c6326d10cd878E"(ptr align 8 %1, ptr nonnull align 8 %3)
+  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb13c6326d10cd878E"(ptr nonnull align 8 %1, ptr nonnull align 8 %3)
   br label %26
 
 15:                                               ; preds = %24
@@ -1636,7 +1636,7 @@ define internal fastcc void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core.
 
 25:                                               ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
-  invoke fastcc void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFrom$LT$regex_syntax..hir..Hir$GT$$GT$8try_from6extend17h0c0e7bfcbbd4fe02E"(ptr nonnull align 8 %4, ptr align 8 %1)
+  invoke fastcc void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFrom$LT$regex_syntax..hir..Hir$GT$$GT$8try_from6extend17h0c0e7bfcbbd4fe02E"(ptr align 8 %4, ptr align 8 %1)
           to label %18 unwind label %19
 
 26:                                               ; preds = %14, %30, %27

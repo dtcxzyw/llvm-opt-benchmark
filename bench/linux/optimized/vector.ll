@@ -2457,7 +2457,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @assign_vector_locked(ptr n
 declare dso_local i32 @irq_matrix_alloc_managed(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @apic_update_vector(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @apic_update_vector(ptr noundef readonly %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %12, label %.preheader
 
@@ -3112,7 +3112,7 @@ define internal fastcc void @print_PIC() unnamed_addr #9 section ".init.text" al
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @print_local_APICs(i32 noundef %0) unnamed_addr #9 section ".init.text" align 16 {
+define internal fastcc void @print_local_APICs(i32 noundef range(i32 0, -2147483648) %0) unnamed_addr #9 section ".init.text" align 16 {
   %2 = icmp eq i32 %0, 0
   br i1 %2, label %27, label %3
 
@@ -3267,14 +3267,14 @@ define internal void @print_local_APIC(ptr nocapture readnone %0) #9 section ".i
 declare dso_local i32 @lapic_get_maxlvt() local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @print_APIC_field(i32 noundef %0) unnamed_addr #9 section ".init.text" align 16 {
+define internal fastcc void @print_APIC_field(i32 noundef range(i32 256, 513) %0) unnamed_addr #9 section ".init.text" align 16 {
   %2 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20) #17
   br label %3
 
 3:                                                ; preds = %3, %1
   %4 = phi i32 [ 0, %1 ], [ %9, %3 ]
   %5 = shl nuw nsw i32 %4, 4
-  %6 = add i32 %5, %0
+  %6 = add nuw nsw i32 %5, %0
   %7 = tail call i32 @__SCT__apic_call_read(i32 noundef %6) #15
   %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21, i32 noundef %7) #17
   %9 = add nuw nsw i32 %4, 1

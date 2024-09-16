@@ -5019,7 +5019,7 @@ declare void @_ZN2cv3MatC1ENS_5Size_IiEEiPvm(ptr noundef nonnull align 8 derefer
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN2cvL20computeResizeAreaTabEiiidPNS_13DecimateAlphaE(i32 noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN2cvL20computeResizeAreaTabEiiidPNS_13DecimateAlphaE(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 1, 5) %2, double noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5083,7 +5083,7 @@ define internal fastcc noundef i32 @_ZN2cvL20computeResizeAreaTabEiiidPNS_13Deci
   br label %97
 
 38:                                               ; preds = %29
-  %39 = mul nsw i32 %.061110, %2
+  %39 = mul nuw nsw i32 %.061110, %2
   %40 = sext i32 %.057111 to i64
   %41 = getelementptr inbounds %"struct.cv::DecimateAlpha", ptr %4, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 4
@@ -5104,7 +5104,7 @@ define internal fastcc noundef i32 @_ZN2cvL20computeResizeAreaTabEiiidPNS_13Deci
   br i1 %50, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %49
-  %51 = mul nsw i32 %.061110, %2
+  %51 = mul nuw nsw i32 %.061110, %2
   %52 = fdiv double 1.000000e+00, %.sroa.speculated93
   %53 = fptrunc double %52 to float
   %54 = sext i32 %.158 to i64
@@ -5193,7 +5193,7 @@ define internal fastcc noundef i32 @_ZN2cvL20computeResizeAreaTabEiiidPNS_13Deci
   br label %97
 
 82:                                               ; preds = %73
-  %83 = mul nsw i32 %.061110, %2
+  %83 = mul nuw nsw i32 %.061110, %2
   %84 = sext i32 %.259.lcssa to i64
   %85 = getelementptr inbounds %"struct.cv::DecimateAlpha", ptr %4, i64 %84
   %86 = getelementptr inbounds i8, ptr %85, i64 4

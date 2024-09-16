@@ -4181,7 +4181,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i, %1585, %.noexc.i.i467, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %1591
-  %1598 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L18_AddLayerStackSiteEPNS_17PcpNamespaceEditsERKNS_10PcpNodeRefEmPNS_7SdfPathES6_(ptr noundef %.sroa.3.0.i, ptr noundef nonnull align 8 dereferenceable(16) %120, i64 noundef %1157, ptr noundef nonnull %121, ptr noundef nonnull %122)
+  %1598 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L18_AddLayerStackSiteEPNS_17PcpNamespaceEditsERKNS_10PcpNodeRefEmPNS_7SdfPathES6_(ptr noundef %.sroa.3.0.i, ptr noundef nonnull align 8 dereferenceable(16) %120, i64 noundef %1157, ptr noundef %121, ptr noundef %122)
           to label %1599 unwind label %.loopexit1314
 
 1599:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev.exit
@@ -7046,7 +7046,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit716: ; preds = %2703, 
           to label %2718 unwind label %2758
 
 2718:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit716
-  %2719 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L18_AddLayerStackSiteEPNS_17PcpNamespaceEditsERKNS_10PcpNodeRefEmPNS_7SdfPathES6_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %2701, i64 noundef %2700, ptr noundef nonnull %146, ptr noundef nonnull %147)
+  %2719 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L18_AddLayerStackSiteEPNS_17PcpNamespaceEditsERKNS_10PcpNodeRefEmPNS_7SdfPathES6_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %2701, i64 noundef %2700, ptr noundef %146, ptr noundef %147)
           to label %2720 unwind label %2760
 
 2720:                                             ; preds = %2718
@@ -10350,7 +10350,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_7SdfPathESaIS2_E
 declare { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetParentNodeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L18_AddLayerStackSiteEPNS_17PcpNamespaceEditsERKNS_10PcpNodeRefEmPNS_7SdfPathES6_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L18_AddLayerStackSiteEPNS_17PcpNamespaceEditsERKNS_10PcpNodeRefEmPNS_7SdfPathES6_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfGet", align 1
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 8
@@ -10422,11 +10422,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit49: ; preds = %_ZN32px
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L28_TranslatePathAndTargetPathsERKNS_10PcpNodeRefERKNS_7SdfPathE(ptr dead_on_unwind noalias nonnull writable align 4 %8, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(8) %3)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L28_TranslatePathAndTargetPathsERKNS_10PcpNodeRefERKNS_7SdfPathE(ptr dead_on_unwind noalias writable align 4 %8, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(8) %3)
           to label %.noexc unwind label %570
 
 .noexc:                                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit49
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L28_TranslatePathAndTargetPathsERKNS_10PcpNodeRefERKNS_7SdfPathE(ptr dead_on_unwind noalias nonnull writable align 4 %9, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L28_TranslatePathAndTargetPathsERKNS_10PcpNodeRefERKNS_7SdfPathE(ptr dead_on_unwind noalias writable align 4 %9, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(8) %4)
           to label %52 unwind label %127
 
 52:                                               ; preds = %.noexc
@@ -12917,7 +12917,7 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr nounde
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L28_TranslatePathAndTargetPathsERKNS_10PcpNodeRefERKNS_7SdfPathE(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L28_TranslatePathAndTargetPathsERKNS_10PcpNodeRefERKNS_7SdfPathE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 8

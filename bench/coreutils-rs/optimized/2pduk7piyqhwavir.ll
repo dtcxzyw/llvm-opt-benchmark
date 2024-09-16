@@ -130,7 +130,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i: ; preds = %44
   %51 = load ptr, ptr %41, align 8, !alias.scope !8, !noalias !5, !nonnull !4, !align !11, !noundef !4
   %52 = getelementptr inbounds i8, ptr %41, i64 8
   %53 = load i64, ptr %52, align 8, !alias.scope !8, !noalias !5, !noundef !4
-  invoke fastcc void @_ZN5uu_od12parse_inputs20parse_offset_operand17he75e2415387d6f1dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %23, ptr noalias noundef nonnull readonly align 1 %51, i64 noundef %53)
+  invoke fastcc void @_ZN5uu_od12parse_inputs20parse_offset_operand17he75e2415387d6f1dE(ptr noalias nocapture noundef align 8 dereferenceable(16) %23, ptr noalias noundef nonnull readonly align 1 %51, i64 noundef %53)
           to label %.noexc60 unwind label %32
 
 .noexc60:                                         ; preds = %50
@@ -215,7 +215,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i: ; preds = %44
   %73 = load ptr, ptr %41, align 8, !alias.scope !8, !noalias !5, !nonnull !4, !align !11, !noundef !4
   %74 = getelementptr inbounds i8, ptr %41, i64 8
   %75 = load i64, ptr %74, align 8, !alias.scope !8, !noalias !5, !noundef !4
-  invoke fastcc void @_ZN5uu_od12parse_inputs20parse_offset_operand17he75e2415387d6f1dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %21, ptr noalias noundef nonnull readonly align 1 %73, i64 noundef %75)
+  invoke fastcc void @_ZN5uu_od12parse_inputs20parse_offset_operand17he75e2415387d6f1dE(ptr noalias nocapture noundef align 8 dereferenceable(16) %21, ptr noalias noundef nonnull readonly align 1 %73, i64 noundef %75)
           to label %.noexc63 unwind label %32
 
 .noexc63:                                         ; preds = %72
@@ -223,7 +223,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i: ; preds = %44
   %77 = load ptr, ptr %76, align 8, !alias.scope !8, !noalias !5, !nonnull !4, !align !11, !noundef !4
   %78 = getelementptr inbounds i8, ptr %41, i64 24
   %79 = load i64, ptr %78, align 8, !alias.scope !8, !noalias !5, !noundef !4
-  invoke fastcc void @_ZN5uu_od12parse_inputs20parse_offset_operand17he75e2415387d6f1dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %20, ptr noalias noundef nonnull readonly align 1 %77, i64 noundef %79)
+  invoke fastcc void @_ZN5uu_od12parse_inputs20parse_offset_operand17he75e2415387d6f1dE(ptr noalias nocapture noundef align 8 dereferenceable(16) %20, ptr noalias noundef nonnull readonly align 1 %77, i64 noundef %79)
           to label %.noexc64 unwind label %32
 
 .noexc64:                                         ; preds = %.noexc63
@@ -318,7 +318,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %84
   %105 = load ptr, ptr %104, align 8, !alias.scope !8, !noalias !5, !nonnull !4, !align !11, !noundef !4
   %106 = getelementptr inbounds i8, ptr %41, i64 24
   %107 = load i64, ptr %106, align 8, !alias.scope !8, !noalias !5, !noundef !4
-  invoke fastcc void @_ZN5uu_od12parse_inputs20parse_offset_operand17he75e2415387d6f1dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %105, i64 noundef %107)
+  invoke fastcc void @_ZN5uu_od12parse_inputs20parse_offset_operand17he75e2415387d6f1dE(ptr noalias nocapture noundef align 8 dereferenceable(16) %17, ptr noalias noundef nonnull readonly align 1 %105, i64 noundef %107)
           to label %.noexc68 unwind label %32
 
 .noexc68:                                         ; preds = %103
@@ -326,7 +326,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %84
   %109 = load ptr, ptr %108, align 8, !alias.scope !8, !noalias !5, !nonnull !4, !align !11, !noundef !4
   %110 = getelementptr inbounds i8, ptr %41, i64 40
   %111 = load i64, ptr %110, align 8, !alias.scope !8, !noalias !5, !noundef !4
-  invoke fastcc void @_ZN5uu_od12parse_inputs20parse_offset_operand17he75e2415387d6f1dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %16, ptr noalias noundef nonnull readonly align 1 %109, i64 noundef %111)
+  invoke fastcc void @_ZN5uu_od12parse_inputs20parse_offset_operand17he75e2415387d6f1dE(ptr noalias nocapture noundef align 8 dereferenceable(16) %16, ptr noalias noundef nonnull readonly align 1 %109, i64 noundef %111)
           to label %.noexc69 unwind label %32
 
 .noexc69:                                         ; preds = %.noexc68
@@ -480,7 +480,7 @@ _ZN5uu_od12parse_inputs24parse_inputs_traditional17hf9a58d7aeb7b7d78E.exit: ; pr
   %145 = load ptr, ptr %144, align 8, !nonnull !4, !align !11, !noundef !4
   %146 = getelementptr inbounds i8, ptr %144, i64 8
   %147 = load i64, ptr %146, align 8, !noundef !4
-  invoke fastcc void @_ZN5uu_od12parse_inputs20parse_offset_operand17he75e2415387d6f1dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %25, ptr noalias noundef nonnull readonly align 1 %145, i64 noundef %147)
+  invoke fastcc void @_ZN5uu_od12parse_inputs20parse_offset_operand17he75e2415387d6f1dE(ptr noalias nocapture noundef align 8 dereferenceable(16) %25, ptr noalias noundef nonnull readonly align 1 %145, i64 noundef %147)
           to label %150 unwind label %32
 
 148:                                              ; preds = %139
@@ -672,7 +672,7 @@ thread-pre-split:                                 ; preds = %.thread, %138, %35
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5uu_od12parse_inputs20parse_offset_operand17he75e2415387d6f1dE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZN5uu_od12parse_inputs20parse_offset_operand17he75e2415387d6f1dE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca { i8, [15 x i8] }, align 8
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i68.thread", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit"

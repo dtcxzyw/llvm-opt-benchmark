@@ -63,7 +63,7 @@ define hidden ptr @cmsCreateRGBProfileTHR(ptr noundef %0, ptr noundef %1, ptr no
   tail call void @cmsSetColorSpace(ptr noundef nonnull %10, i32 noundef 1380401696) #7
   tail call void @cmsSetPCS(ptr noundef nonnull %10, i32 noundef 1482250784) #7
   tail call void @cmsSetHeaderRenderingIntent(ptr noundef nonnull %10, i32 noundef 0) #7
-  %12 = tail call fastcc i32 @SetTextTags(ptr noundef nonnull %10, ptr noundef nonnull @.str)
+  %12 = tail call fastcc i32 @SetTextTags(ptr noundef %10, ptr noundef nonnull @.str)
   %.not48 = icmp eq i32 %12, 0
   br i1 %.not48, label %87, label %13
 
@@ -230,8 +230,8 @@ declare void @cmsSetPCS(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @cmsSetHeaderRenderingIntent(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @SetTextTags(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = tail call ptr @cmsGetProfileContextID(ptr noundef %0) #7
+define internal fastcc range(i32 0, 2) i32 @SetTextTags(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+  %3 = tail call ptr @cmsGetProfileContextID(ptr noundef nonnull %0) #7
   %4 = tail call ptr @cmsMLUalloc(ptr noundef %3, i32 noundef 1) #7
   %5 = tail call ptr @cmsMLUalloc(ptr noundef %3, i32 noundef 1) #7
   %6 = icmp eq ptr %4, null
@@ -250,12 +250,12 @@ define internal fastcc range(i32 0, 2) i32 @SetTextTags(ptr noundef %0, ptr noun
   br i1 %.not20, label %.thread, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @cmsWriteTag(ptr noundef %0, i32 noundef 1684370275, ptr noundef nonnull %4) #7
+  %13 = tail call i32 @cmsWriteTag(ptr noundef nonnull %0, i32 noundef 1684370275, ptr noundef nonnull %4) #7
   %.not21 = icmp eq i32 %13, 0
   br i1 %.not21, label %.thread, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @cmsWriteTag(ptr noundef %0, i32 noundef 1668313716, ptr noundef nonnull %5) #7
+  %15 = tail call i32 @cmsWriteTag(ptr noundef nonnull %0, i32 noundef 1668313716, ptr noundef nonnull %5) #7
   %.not22 = icmp ne i32 %15, 0
   %spec.select = zext i1 %.not22 to i32
   br label %.thread
@@ -313,7 +313,7 @@ define hidden ptr @cmsCreateGrayProfileTHR(ptr noundef %0, ptr noundef %1, ptr n
   tail call void @cmsSetColorSpace(ptr noundef nonnull %5, i32 noundef 1196573017) #7
   tail call void @cmsSetPCS(ptr noundef nonnull %5, i32 noundef 1482250784) #7
   tail call void @cmsSetHeaderRenderingIntent(ptr noundef nonnull %5, i32 noundef 0) #7
-  %7 = tail call fastcc i32 @SetTextTags(ptr noundef nonnull %5, ptr noundef nonnull @.str.1)
+  %7 = tail call fastcc i32 @SetTextTags(ptr noundef %5, ptr noundef nonnull @.str.1)
   %.not21 = icmp eq i32 %7, 0
   br i1 %.not21, label %14, label %8
 
@@ -375,7 +375,7 @@ define hidden ptr @cmsCreateLinearizationDeviceLinkTHR(ptr noundef %0, i32 nound
   br i1 %.not29, label %19, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call fastcc i32 @SetTextTags(ptr noundef nonnull %4, ptr noundef nonnull @.str.2)
+  %13 = tail call fastcc i32 @SetTextTags(ptr noundef %4, ptr noundef nonnull @.str.2)
   %.not30 = icmp eq i32 %13, 0
   br i1 %.not30, label %19, label %14
 
@@ -385,7 +385,7 @@ define hidden ptr @cmsCreateLinearizationDeviceLinkTHR(ptr noundef %0, i32 nound
   br i1 %.not31, label %19, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call fastcc i32 @SetSeqDescTag(ptr noundef nonnull %4, ptr noundef nonnull @.str.3)
+  %17 = tail call fastcc i32 @SetSeqDescTag(ptr noundef %4, ptr noundef nonnull @.str.3)
   %.not32 = icmp eq i32 %17, 0
   br i1 %.not32, label %19, label %18
 
@@ -412,8 +412,8 @@ declare i32 @cmsPipelineInsertStage(ptr noundef, i32 noundef, ptr noundef) local
 declare ptr @cmsStageAllocToneCurves(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @SetSeqDescTag(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = tail call ptr @cmsGetProfileContextID(ptr noundef %0) #7
+define internal fastcc range(i32 0, 2) i32 @SetSeqDescTag(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+  %3 = tail call ptr @cmsGetProfileContextID(ptr noundef nonnull %0) #7
   %4 = tail call ptr @cmsAllocProfileSequenceDescription(ptr noundef %3, i32 noundef 1) #7
   %5 = icmp eq ptr %4, null
   br i1 %5, label %24, label %6
@@ -439,7 +439,7 @@ define internal fastcc range(i32 0, 2) i32 @SetSeqDescTag(ptr noundef %0, ptr no
   %20 = getelementptr inbounds i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @cmsMLUsetASCII(ptr noundef %21, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.17, ptr noundef %1) #7
-  %23 = tail call i32 @_cmsWriteProfileSequence(ptr noundef %0, ptr noundef nonnull %4) #7
+  %23 = tail call i32 @_cmsWriteProfileSequence(ptr noundef nonnull %0, ptr noundef nonnull %4) #7
   %.not = icmp ne i32 %23, 0
   %spec.select = zext i1 %.not to i32
   tail call void @cmsFreeProfileSequenceDescription(ptr noundef nonnull %4) #7
@@ -530,7 +530,7 @@ define hidden ptr @cmsCreateInkLimitingDeviceLinkTHR(ptr noundef %0, i32 noundef
   br i1 %.not47, label %36, label %29
 
 29:                                               ; preds = %26
-  %30 = call fastcc i32 @SetTextTags(ptr noundef nonnull %12, ptr noundef nonnull @.str.6)
+  %30 = call fastcc i32 @SetTextTags(ptr noundef %12, ptr noundef nonnull @.str.6)
   %.not48 = icmp eq i32 %30, 0
   br i1 %.not48, label %36, label %31
 
@@ -540,7 +540,7 @@ define hidden ptr @cmsCreateInkLimitingDeviceLinkTHR(ptr noundef %0, i32 noundef
   br i1 %.not49, label %36, label %33
 
 33:                                               ; preds = %31
-  %34 = call fastcc i32 @SetSeqDescTag(ptr noundef nonnull %12, ptr noundef nonnull @.str.7)
+  %34 = call fastcc i32 @SetSeqDescTag(ptr noundef %12, ptr noundef nonnull @.str.7)
   %.not50 = icmp eq i32 %34, 0
   br i1 %.not50, label %36, label %35
 
@@ -702,7 +702,7 @@ define hidden ptr @cmsCreateLab2ProfileTHR(ptr noundef %0, ptr noundef %1) local
   tail call void @cmsSetDeviceClass(ptr noundef nonnull %8, i32 noundef 1633842036) #7
   tail call void @cmsSetColorSpace(ptr noundef nonnull %8, i32 noundef 1281450528) #7
   tail call void @cmsSetPCS(ptr noundef nonnull %8, i32 noundef 1281450528) #7
-  %11 = tail call fastcc i32 @SetTextTags(ptr noundef nonnull %8, ptr noundef nonnull @.str.8)
+  %11 = tail call fastcc i32 @SetTextTags(ptr noundef %8, ptr noundef nonnull @.str.8)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %23, label %12
 
@@ -769,7 +769,7 @@ define hidden ptr @cmsCreateLab4ProfileTHR(ptr noundef %0, ptr noundef %1) local
   tail call void @cmsSetDeviceClass(ptr noundef nonnull %8, i32 noundef 1633842036) #7
   tail call void @cmsSetColorSpace(ptr noundef nonnull %8, i32 noundef 1281450528) #7
   tail call void @cmsSetPCS(ptr noundef nonnull %8, i32 noundef 1281450528) #7
-  %11 = tail call fastcc i32 @SetTextTags(ptr noundef nonnull %8, ptr noundef nonnull @.str.8)
+  %11 = tail call fastcc i32 @SetTextTags(ptr noundef %8, ptr noundef nonnull @.str.8)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %.thread, label %12
 
@@ -824,7 +824,7 @@ define hidden ptr @cmsCreateXYZProfileTHR(ptr noundef %0) local_unnamed_addr #0 
   tail call void @cmsSetDeviceClass(ptr noundef nonnull %3, i32 noundef 1633842036) #7
   tail call void @cmsSetColorSpace(ptr noundef nonnull %3, i32 noundef 1482250784) #7
   tail call void @cmsSetPCS(ptr noundef nonnull %3, i32 noundef 1482250784) #7
-  %6 = tail call fastcc i32 @SetTextTags(ptr noundef nonnull %3, ptr noundef nonnull @.str.9)
+  %6 = tail call fastcc i32 @SetTextTags(ptr noundef %3, ptr noundef nonnull @.str.9)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.thread, label %7
 
@@ -902,7 +902,7 @@ define hidden ptr @cmsCreate_sRGBProfileTHR(ptr noundef %0) local_unnamed_addr #
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %14
-  %18 = call fastcc i32 @SetTextTags(ptr noundef nonnull %15, ptr noundef nonnull @.str.10)
+  %18 = call fastcc i32 @SetTextTags(ptr noundef %15, ptr noundef nonnull @.str.10)
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %21
 
@@ -1133,7 +1133,7 @@ define hidden ptr @cmsCreateBCHSWabstractProfileTHR(ptr noundef %0, i32 noundef 
   br i1 %.not41, label %46, label %40
 
 40:                                               ; preds = %38
-  %41 = call fastcc i32 @SetTextTags(ptr noundef nonnull %26, ptr noundef nonnull @.str.11)
+  %41 = call fastcc i32 @SetTextTags(ptr noundef %26, ptr noundef nonnull @.str.11)
   %.not42 = icmp eq i32 %41, 0
   br i1 %.not42, label %48, label %42
 
@@ -1224,7 +1224,7 @@ define hidden ptr @cmsCreateNULLProfileTHR(ptr noundef %0) local_unnamed_addr #0
 
 6:                                                ; preds = %1
   tail call void @cmsSetProfileVersion(ptr noundef nonnull %5, double noundef 4.400000e+00) #7
-  %7 = tail call fastcc i32 @SetTextTags(ptr noundef nonnull %5, ptr noundef nonnull @.str.12)
+  %7 = tail call fastcc i32 @SetTextTags(ptr noundef %5, ptr noundef nonnull @.str.12)
   %.not31 = icmp eq i32 %7, 0
   br i1 %.not31, label %31, label %8
 
@@ -1336,7 +1336,7 @@ define hidden ptr @cmsTransform2DeviceLink(ptr noundef %0, double noundef %1, i3
   %25 = load i32, ptr %24, align 4
   tail call void @cmsSetColorSpace(ptr noundef nonnull %21, i32 noundef %25) #7
   tail call void @cmsSetPCS(ptr noundef nonnull %21, i32 noundef 1281450528) #7
-  %26 = tail call fastcc i32 @SetTextTags(ptr noundef nonnull %21, ptr noundef nonnull @.str.19)
+  %26 = tail call fastcc i32 @SetTextTags(ptr noundef %21, ptr noundef nonnull @.str.19)
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %57, label %27
 
@@ -1801,7 +1801,7 @@ CheckOne.exit.thread.i149:                        ; preds = %193, %192, %CheckOn
 
 208:                                              ; preds = %206
   %209 = load ptr, ptr %8, align 8
-  %210 = call i32 @cmsWriteTag(ptr noundef %81, i32 noundef %., ptr noundef %209) #7
+  %210 = call i32 @cmsWriteTag(ptr noundef nonnull %81, i32 noundef %., ptr noundef %209) #7
   %.not103 = icmp eq i32 %210, 0
   br i1 %.not103, label %FindCombination.exit174.thread, label %211
 
@@ -1812,7 +1812,7 @@ CheckOne.exit.thread.i149:                        ; preds = %193, %192, %CheckOn
   br i1 %.not104, label %216, label %214
 
 214:                                              ; preds = %211
-  %215 = call i32 @cmsWriteTag(ptr noundef %81, i32 noundef 1668051572, ptr noundef nonnull %213) #7
+  %215 = call i32 @cmsWriteTag(ptr noundef nonnull %81, i32 noundef 1668051572, ptr noundef nonnull %213) #7
   %.not105 = icmp eq i32 %215, 0
   br i1 %.not105, label %FindCombination.exit174.thread, label %216
 
@@ -1823,7 +1823,7 @@ CheckOne.exit.thread.i149:                        ; preds = %193, %192, %CheckOn
   br i1 %.not106, label %221, label %219
 
 219:                                              ; preds = %216
-  %220 = call i32 @cmsWriteTag(ptr noundef %81, i32 noundef 1668050804, ptr noundef nonnull %218) #7
+  %220 = call i32 @cmsWriteTag(ptr noundef nonnull %81, i32 noundef 1668050804, ptr noundef nonnull %218) #7
   %.not107 = icmp eq i32 %220, 0
   br i1 %.not107, label %FindCombination.exit174.thread, label %221
 
@@ -1840,26 +1840,26 @@ CheckOne.exit.thread.i149:                        ; preds = %193, %192, %CheckOn
   br i1 %.not108, label %230, label %225
 
 225:                                              ; preds = %222
-  %226 = call i32 @_cmsWriteProfileSequence(ptr noundef %81, ptr noundef nonnull %224) #7
+  %226 = call i32 @_cmsWriteProfileSequence(ptr noundef nonnull %81, ptr noundef nonnull %224) #7
   %.not109 = icmp eq i32 %226, 0
   br i1 %.not109, label %FindCombination.exit174.thread, label %230
 
 227:                                              ; preds = %221
   %228 = getelementptr inbounds i8, ptr %0, i64 152
-  %229 = call i32 @cmsWriteTag(ptr noundef %81, i32 noundef 2004119668, ptr noundef nonnull %228) #7
+  %229 = call i32 @cmsWriteTag(ptr noundef nonnull %81, i32 noundef 2004119668, ptr noundef nonnull %228) #7
   %.not111 = icmp eq i32 %229, 0
   br i1 %.not111, label %FindCombination.exit174.thread, label %233
 
 230:                                              ; preds = %222, %225, %221
   %231 = getelementptr inbounds i8, ptr %0, i64 176
-  %232 = call i32 @cmsWriteTag(ptr noundef %81, i32 noundef 2004119668, ptr noundef nonnull %231) #7
+  %232 = call i32 @cmsWriteTag(ptr noundef nonnull %81, i32 noundef 2004119668, ptr noundef nonnull %231) #7
   %.not110 = icmp eq i32 %232, 0
   br i1 %.not110, label %FindCombination.exit174.thread, label %233
 
 233:                                              ; preds = %230, %227
   %234 = getelementptr inbounds i8, ptr %0, i64 224
   %235 = load i32, ptr %234, align 8
-  call void @cmsSetHeaderRenderingIntent(ptr noundef %81, i32 noundef %235) #7
+  call void @cmsSetHeaderRenderingIntent(ptr noundef nonnull %81, i32 noundef %235) #7
   %236 = load ptr, ptr %8, align 8
   call void @cmsPipelineFree(ptr noundef %236) #7
   br label %241

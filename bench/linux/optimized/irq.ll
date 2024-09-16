@@ -460,7 +460,7 @@ declare dso_local ptr @pci_get_device(i32 noundef, i32 noundef, ptr noundef) loc
 declare dso_local i32 @pci_read_config_byte(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #12
@@ -1554,7 +1554,7 @@ declare dso_local void @pcibios_scan_root(i32 noundef) local_unnamed_addr #4
 declare dso_local ptr @pci_get_domain_bus_and_slot(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef zeroext i1 @pirq_try_router(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc noundef zeroext i1 @pirq_try_router(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #3 section ".init.text" align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = getelementptr inbounds i8, ptr %0, i64 14
   %5 = getelementptr inbounds i8, ptr %1, i64 60
@@ -1572,7 +1572,7 @@ define internal fastcc noundef zeroext i1 @pirq_try_router(ptr nocapture noundef
   %13 = getelementptr inbounds i8, ptr %9, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load i16, ptr %4, align 1
-  %16 = tail call i32 %14(ptr noundef nonnull @pirq_router, ptr noundef %1, i16 noundef zeroext %15) #12
+  %16 = tail call i32 %14(ptr noundef nonnull @pirq_router, ptr noundef nonnull %1, i16 noundef zeroext %15) #12
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %30
 
@@ -1585,7 +1585,7 @@ define internal fastcc noundef zeroext i1 @pirq_try_router(ptr nocapture noundef
   %22 = getelementptr inbounds i8, ptr %9, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load i16, ptr %6, align 2
-  %25 = tail call i32 %23(ptr noundef nonnull @pirq_router, ptr noundef %1, i16 noundef zeroext %24) #12
+  %25 = tail call i32 %23(ptr noundef nonnull @pirq_router, ptr noundef nonnull %1, i16 noundef zeroext %24) #12
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %30
 

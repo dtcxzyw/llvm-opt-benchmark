@@ -6233,7 +6233,7 @@ _ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss12_GLOBAL__N_122search_from_candidatesERKNS_4HNSWERNS_16DistanceComputerERNS_13ResultHandlerINS_4CMaxIflEEEERNS1_11MinimaxHeapERNS_12VisitedTableERNS_9HNSWStatsEiiPKNS_20SearchParametersHNSWE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5149) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull align 8 dereferenceable(64) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %4, ptr nocapture noundef nonnull align 8 dereferenceable(40) %5, i32 noundef %6, ptr noundef readonly %7) unnamed_addr #1 {
+define internal fastcc void @_ZN5faiss12_GLOBAL__N_122search_from_candidatesERKNS_4HNSWERNS_16DistanceComputerERNS_13ResultHandlerINS_4CMaxIflEEEERNS1_11MinimaxHeapERNS_12VisitedTableERNS_9HNSWStatsEiiPKNS_20SearchParametersHNSWE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5149) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull align 8 dereferenceable(64) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %4, ptr nocapture noundef nonnull align 8 dereferenceable(40) %5, i32 noundef range(i32 0, -2147483648) %6, ptr noundef readonly %7) unnamed_addr #1 {
   %9 = alloca [4 x i64], align 16
   %10 = alloca [4 x float], align 16
   %.not = icmp eq ptr %7, null
@@ -6342,7 +6342,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_122search_from_candidatesERKN
   %70 = getelementptr inbounds i8, ptr %3, i64 40
   %71 = getelementptr inbounds i8, ptr %0, i64 72
   %72 = getelementptr inbounds i8, ptr %0, i64 24
-  %73 = sext i32 %6 to i64
+  %73 = zext nneg i32 %6 to i64
   %74 = getelementptr inbounds i8, ptr %0, i64 96
   %75 = getelementptr inbounds i8, ptr %4, i64 24
   %76 = getelementptr inbounds i8, ptr %9, i64 8

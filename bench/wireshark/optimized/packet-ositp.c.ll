@@ -606,7 +606,7 @@ test_cltp_var_part.exit.thread:                   ; preds = %.lr.ph.i, %22, %24,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ositp_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ositp_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2204,13 +2204,14 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ositp_decode_var_part(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @ositp_decode_var_part(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 256) %2, i32 noundef range(i32 0, 256) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %.not417 = icmp eq i32 %2, 0
   br i1 %.not417, label %.loopexit407, label %.lr.ph421
 
 .lr.ph421:                                        ; preds = %7
+  %trunc = trunc nuw i32 %3 to i8
   %10 = getelementptr inbounds i8, ptr %5, i64 236
   %11 = getelementptr inbounds i8, ptr %5, i64 240
   %12 = getelementptr inbounds i8, ptr %5, i64 212
@@ -2665,9 +2666,9 @@ proto_item_set_hidden.exit402:                    ; preds = %233, %230, %._crit_
   br label %323
 
 279:                                              ; preds = %19
-  switch i32 %3, label %285 [
-    i32 1, label %280
-    i32 4, label %.sink.split
+  switch i8 %trunc, label %285 [
+    i8 1, label %280
+    i8 4, label %.sink.split
   ]
 
 280:                                              ; preds = %279
@@ -2773,12 +2774,12 @@ declare i32 @tvb_ascii_isprint(ptr noundef, i32 noundef, i32 noundef) local_unna
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @print_tsap(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @print_tsap(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #0 {
   %4 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %1, i32 noundef %2) #8
   %5 = tail call ptr @wmem_packet_scope() #8
   %6 = tail call noalias ptr @wmem_alloc(ptr noundef %5, i64 noundef 67) #8
   store i8 0, ptr %6, align 1
-  %7 = add i32 %2, -33
+  %7 = add nsw i32 %2, -33
   %or.cond = icmp ult i32 %7, -32
   br i1 %or.cond, label %8, label %9
 

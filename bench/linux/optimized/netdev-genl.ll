@@ -1043,7 +1043,7 @@ define internal i32 @netdev_genl_init() #3 section ".init.text" align 16 {
 declare dso_local ptr @__alloc_skb(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @genlmsg_cancel(ptr noundef %0, ptr noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc void @genlmsg_cancel(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #4 align 16 {
   %3 = getelementptr i8, ptr %1, i64 -20
   %4 = icmp eq ptr %3, null
   br i1 %4, label %16, label %5
@@ -1093,7 +1093,7 @@ declare dso_local i32 @netlink_unicast(ptr noundef, ptr noundef, i32 noundef, i3
 declare dso_local void @kfree_skb_reason(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -90, 1) i32 @netdev_nl_queue_fill_one(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @netdev_nl_queue_fill_one(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4

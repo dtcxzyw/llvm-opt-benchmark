@@ -565,7 +565,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @field_tests(ptr noundef %meth, ptr noundef %params, i32 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @field_tests(ptr noundef %meth, ptr noundef %params, i32 noundef range(i32 32, 37) %len) unnamed_addr #0 {
 entry:
   %call = tail call ptr @BN_CTX_new() #3
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 83, ptr noundef nonnull @.str.11, ptr noundef %call) #3
@@ -598,7 +598,7 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false
 lor.lhs.false14:                                  ; preds = %lor.lhs.false10
   %idx.ext = zext nneg i32 %len to i64
   %add.ptr = getelementptr inbounds i8, ptr %params, i64 %idx.ext
-  %call15 = tail call ptr @BN_bin2bn(ptr noundef %add.ptr, i32 noundef %len, ptr noundef %call3) #3
+  %call15 = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr, i32 noundef %len, ptr noundef %call3) #3
   %cmp16 = icmp ne ptr %call15, null
   %conv17 = zext i1 %cmp16 to i32
   %call18 = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 92, ptr noundef nonnull @.str.15, i32 noundef %conv17) #3
@@ -609,7 +609,7 @@ lor.lhs.false20:                                  ; preds = %lor.lhs.false14
   %mul = shl nuw nsw i32 %len, 1
   %idx.ext21 = zext nneg i32 %mul to i64
   %add.ptr22 = getelementptr inbounds i8, ptr %params, i64 %idx.ext21
-  %call23 = tail call ptr @BN_bin2bn(ptr noundef %add.ptr22, i32 noundef %len, ptr noundef %call4) #3
+  %call23 = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr22, i32 noundef %len, ptr noundef %call4) #3
   %cmp24 = icmp ne ptr %call23, null
   %conv25 = zext i1 %cmp24 to i32
   %call26 = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 93, ptr noundef nonnull @.str.16, i32 noundef %conv25) #3

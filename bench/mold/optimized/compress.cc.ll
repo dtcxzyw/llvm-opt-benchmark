@@ -233,7 +233,7 @@ entry:
   %shards = getelementptr inbounds i8, ptr %this, i64 16
   %checksum = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %shards, i8 0, i64 32, i1 false)
-  call fastcc void @_ZN4moldL5splitESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %inputs, i64 %size, ptr %buf)
+  call fastcc void @_ZN4moldL5splitESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %inputs, i64 %size, ptr %buf)
   %_M_finish.i = getelementptr inbounds i8, ptr %inputs, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %inputs, align 8
@@ -486,7 +486,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4moldL5splitESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture align 8 %agg.result, i64 %input.coerce0, ptr %input.coerce1) unnamed_addr #4 {
+define internal fastcc void @_ZN4moldL5splitESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture nonnull align 8 %agg.result, i64 %input.coerce0, ptr %input.coerce1) unnamed_addr #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %cmp17 = icmp ugt i64 %input.coerce0, 1048575
@@ -890,7 +890,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold14ZstdCompressorE, i64 16), ptr %this, align 8
   %shards = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %shards, i8 0, i64 24, i1 false)
-  call fastcc void @_ZN4moldL5splitESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %inputs, i64 %size, ptr %buf)
+  call fastcc void @_ZN4moldL5splitESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %inputs, i64 %size, ptr %buf)
   %_M_finish.i = getelementptr inbounds i8, ptr %inputs, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %inputs, align 8

@@ -327,7 +327,7 @@ define hidden void @zim_RecursiveIteratorIterator___construct(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_recursive_it_it_construct(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @spl_recursive_it_it_construct(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -336,8 +336,8 @@ define internal fastcc void @spl_recursive_it_it_construct(ptr nocapture noundef
   %9 = alloca %struct._zval_struct, align 8
   %10 = alloca i64, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %cond = icmp eq i32 %2, 1
-  br i1 %cond, label %12, label %72
+  %cond.not = icmp eq i32 %2, 0
+  br i1 %cond.not, label %72, label %12
 
 12:                                               ; preds = %3
   store i64 16, ptr %10, align 8
@@ -366,18 +366,18 @@ define internal fastcc void @spl_recursive_it_it_construct(ptr nocapture noundef
 
 27:                                               ; preds = %20
   %28 = call zeroext i1 @instanceof_function_slow(ptr noundef %24, ptr noundef %25) #10
-  %.pre6 = load ptr, ptr %4, align 8
+  %.pre = load ptr, ptr %4, align 8
   br i1 %28, label %..critedge_crit_edge, label %55
 
 ..critedge_crit_edge:                             ; preds = %27
-  %.pre7 = load ptr, ptr %.pre6, align 8
-  %.phi.trans.insert8 = getelementptr inbounds i8, ptr %.pre7, i64 16
-  %.pre9 = load ptr, ptr %.phi.trans.insert8, align 8
+  %.pre3 = load ptr, ptr %.pre, align 8
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre3, i64 16
+  %.pre4 = load ptr, ptr %.phi.trans.insert, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %20
-  %29 = phi ptr [ %24, %20 ], [ %.pre9, %..critedge_crit_edge ]
-  %30 = phi ptr [ %22, %20 ], [ %.pre7, %..critedge_crit_edge ]
+  %29 = phi ptr [ %24, %20 ], [ %.pre4, %..critedge_crit_edge ]
+  %30 = phi ptr [ %22, %20 ], [ %.pre3, %..critedge_crit_edge ]
   %31 = getelementptr inbounds i8, ptr %29, i64 368
   %32 = load ptr, ptr %31, align 8
   %33 = call ptr @zend_call_method(ptr noundef nonnull %30, ptr noundef %29, ptr noundef %32, ptr noundef nonnull @.str.35, i64 noundef 11, ptr noundef nonnull %8, i32 noundef 0, ptr noundef null, ptr noundef null) #10
@@ -410,8 +410,8 @@ define internal fastcc void @spl_recursive_it_it_construct(ptr nocapture noundef
   %50 = getelementptr inbounds i8, ptr %49, i64 24
   %51 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %47, i64 noundef 0, ptr noundef nonnull @.str.36, ptr noundef nonnull %50) #10
   call void @zval_ptr_dtor(ptr noundef nonnull %8) #10
-  %.pre10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %52 = icmp ne ptr %.pre10, null
+  %.pre5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %52 = icmp ne ptr %.pre5, null
   br label %53
 
 53:                                               ; preds = %46, %.critedge
@@ -424,19 +424,19 @@ spl_get_iterator_from_aggregate.exit:             ; preds = %44, %38
   br label %62
 
 55:                                               ; preds = %27
-  %56 = getelementptr inbounds i8, ptr %.pre6, i64 9
+  %56 = getelementptr inbounds i8, ptr %.pre, i64 9
   %57 = load i8, ptr %56, align 1
   %58 = icmp ne i8 %57, 0
   call void @llvm.assume(i1 %58)
-  %59 = load ptr, ptr %.pre6, align 8
+  %59 = load ptr, ptr %.pre, align 8
   %60 = load i32, ptr %59, align 4
   %61 = add i32 %60, 1
   store i32 %61, ptr %59, align 4
-  %.pre11 = load ptr, ptr %4, align 8
+  %.pre6 = load ptr, ptr %4, align 8
   br label %62
 
 62:                                               ; preds = %spl_get_iterator_from_aggregate.exit, %55
-  %63 = phi ptr [ %8, %spl_get_iterator_from_aggregate.exit ], [ %.pre11, %55 ]
+  %63 = phi ptr [ %8, %spl_get_iterator_from_aggregate.exit ], [ %.pre6, %55 ]
   %64 = load i64, ptr %10, align 8
   store i64 %64, ptr %9, align 8
   %65 = getelementptr inbounds i8, ptr %9, i64 8
@@ -479,18 +479,18 @@ spl_get_iterator_from_aggregate.exit:             ; preds = %44, %38
 
 87:                                               ; preds = %80
   %88 = call zeroext i1 @instanceof_function_slow(ptr noundef %84, ptr noundef %85) #10
-  %.pre = load ptr, ptr %4, align 8
+  %.pre7 = load ptr, ptr %4, align 8
   br i1 %88, label %..critedge2_crit_edge, label %115
 
 ..critedge2_crit_edge:                            ; preds = %87
-  %.pre3 = load ptr, ptr %.pre, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre3, i64 16
-  %.pre4 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre8 = load ptr, ptr %.pre7, align 8
+  %.phi.trans.insert9 = getelementptr inbounds i8, ptr %.pre8, i64 16
+  %.pre10 = load ptr, ptr %.phi.trans.insert9, align 8
   br label %.critedge2
 
 .critedge2:                                       ; preds = %..critedge2_crit_edge, %80
-  %89 = phi ptr [ %84, %80 ], [ %.pre4, %..critedge2_crit_edge ]
-  %90 = phi ptr [ %82, %80 ], [ %.pre3, %..critedge2_crit_edge ]
+  %89 = phi ptr [ %84, %80 ], [ %.pre10, %..critedge2_crit_edge ]
+  %90 = phi ptr [ %82, %80 ], [ %.pre8, %..critedge2_crit_edge ]
   %91 = getelementptr inbounds i8, ptr %89, i64 368
   %92 = load ptr, ptr %91, align 8
   %93 = call ptr @zend_call_method(ptr noundef nonnull %90, ptr noundef %89, ptr noundef %92, ptr noundef nonnull @.str.35, i64 noundef 11, ptr noundef nonnull %8, i32 noundef 0, ptr noundef null, ptr noundef null) #10
@@ -523,8 +523,8 @@ spl_get_iterator_from_aggregate.exit:             ; preds = %44, %38
   %110 = getelementptr inbounds i8, ptr %109, i64 24
   %111 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %107, i64 noundef 0, ptr noundef nonnull @.str.36, ptr noundef nonnull %110) #10
   call void @zval_ptr_dtor(ptr noundef nonnull %8) #10
-  %.pre5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %112 = icmp ne ptr %.pre5, null
+  %.pre11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %112 = icmp ne ptr %.pre11, null
   br label %113
 
 113:                                              ; preds = %106, %.critedge2
@@ -537,11 +537,11 @@ spl_get_iterator_from_aggregate.exit177:          ; preds = %104, %98
   br label %122
 
 115:                                              ; preds = %87
-  %116 = getelementptr inbounds i8, ptr %.pre, i64 9
+  %116 = getelementptr inbounds i8, ptr %.pre7, i64 9
   %117 = load i8, ptr %116, align 1
   %118 = icmp ne i8 %117, 0
   call void @llvm.assume(i1 %118)
-  %119 = load ptr, ptr %.pre, align 8
+  %119 = load ptr, ptr %.pre7, align 8
   %120 = load i32, ptr %119, align 4
   %121 = add i32 %120, 1
   store i32 %121, ptr %119, align 4
@@ -3396,7 +3396,7 @@ spl_dual_it_construct.exit:                       ; preds = %11, %17, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 12) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct.zend_error_handling, align 8
@@ -3566,7 +3566,7 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
 .critedge4:                                       ; preds = %94, %97
   %99 = load ptr, ptr %5, align 8
   %100 = load ptr, ptr %99, align 8
-  %101 = call fastcc i32 @spl_get_iterator_from_aggregate(ptr noundef nonnull %6, ptr noundef %.1, ptr noundef %100)
+  %101 = call fastcc i32 @spl_get_iterator_from_aggregate(ptr noundef %6, ptr noundef %.1, ptr noundef %100)
   %102 = icmp eq i32 %101, -1
   br i1 %102, label %210, label %.thread
 
@@ -3989,7 +3989,7 @@ spl_dual_it_fetch.exit:                           ; preds = %57, %.sink.split.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_dual_it_fetch(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @spl_dual_it_fetch(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   tail call fastcc void @spl_dual_it_free(ptr noundef %0)
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %11, label %3
@@ -4768,12 +4768,12 @@ define hidden void @zim_RecursiveCallbackFilterIterator_getChildren(ptr nocaptur
 declare void @zend_get_callable_zval_from_fcc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_instantiate_arg_ex2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @spl_instantiate_arg_ex2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = tail call i32 @object_init_ex(ptr noundef %1, ptr noundef %0) #10
   %6 = getelementptr inbounds i8, ptr %0, i64 256
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %1, align 8
-  tail call void @zend_call_known_instance_method_with_2_params(ptr noundef %7, ptr noundef %8, ptr noundef null, ptr noundef %2, ptr noundef %3) #10
+  tail call void @zend_call_known_instance_method_with_2_params(ptr noundef %7, ptr noundef %8, ptr noundef null, ptr noundef %2, ptr noundef nonnull %3) #10
   ret void
 }
 
@@ -6775,7 +6775,7 @@ spl_dual_it_fetch.exit.thread72:                  ; preds = %36, %spl_dual_it_fe
   store i32 4, ptr %88, align 8
   %89 = load ptr, ptr @spl_ce_RecursiveCachingIterator, align 8
   %90 = getelementptr inbounds i8, ptr %0, i64 104
-  call fastcc void @spl_instantiate_arg_ex2(ptr noundef %89, ptr noundef nonnull %90, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call fastcc void @spl_instantiate_arg_ex2(ptr noundef %89, ptr noundef nonnull %90, ptr noundef nonnull %3, ptr noundef %4)
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #10
   br label %91
 
@@ -12535,10 +12535,10 @@ define internal noundef nonnull ptr @spl_RecursiveTreeIterator_new(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @spl_get_iterator_from_aggregate(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @spl_get_iterator_from_aggregate(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr @zend_call_method(ptr noundef %2, ptr noundef %1, ptr noundef %5, ptr noundef nonnull @.str.35, i64 noundef 11, ptr noundef %0, i32 noundef 0, ptr noundef null, ptr noundef null) #10
+  %6 = tail call ptr @zend_call_method(ptr noundef %2, ptr noundef %1, ptr noundef %5, ptr noundef nonnull @.str.35, i64 noundef 11, ptr noundef nonnull %0, i32 noundef 0, ptr noundef null, ptr noundef null) #10
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not24 = icmp eq ptr %7, null
   br i1 %.not24, label %8, label %.critedge
@@ -12785,7 +12785,7 @@ declare ptr @zend_register_internal_class_ex(ptr noundef, ptr noundef) local_unn
 declare ptr @zend_declare_typed_class_constant(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef byval(%struct.zend_type) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef nonnull ptr @spl_RecursiveIteratorIterator_new_ex(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @spl_RecursiveIteratorIterator_new_ex(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 28

@@ -2167,7 +2167,7 @@ Vec_WrdStart.exit:                                ; preds = %Vec_BitStart.exit, 
 
 44:                                               ; preds = %40
   %45 = load ptr, ptr %31, align 8
-  %46 = call fastcc i32 @Abc_Tt6MinBase(ptr noundef nonnull %2, ptr noundef %45, i32 noundef %.val35)
+  %46 = call fastcc i32 @Abc_Tt6MinBase(ptr noundef %2, ptr noundef %45, i32 noundef %.val35)
   store i32 %46, ptr %29, align 4
   %47 = icmp sgt i32 %46, 5
   br i1 %47, label %.critedge, label %.preheader
@@ -2242,7 +2242,7 @@ Vec_WrdFree.exit:                                 ; preds = %Vec_IntFree.exit, %
 declare void @Gia_ManCleanMark0(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @Abc_Tt6MinBase(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #4 {
+define internal fastcc i32 @Abc_Tt6MinBase(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #4 {
   %4 = load i64, ptr %0, align 8
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -2551,7 +2551,7 @@ Vec_WrdStart.exit:                                ; preds = %1, %14
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %10, align 8
-  %37 = call fastcc i32 @Abc_Tt6MinBase(ptr noundef nonnull %2, ptr noundef %36, i32 noundef %.val37)
+  %37 = call fastcc i32 @Abc_Tt6MinBase(ptr noundef %2, ptr noundef %36, i32 noundef %.val37)
   store i32 %37, ptr %8, align 4
   %38 = icmp sgt i32 %37, 5
   br i1 %38, label %.critedge, label %.preheader

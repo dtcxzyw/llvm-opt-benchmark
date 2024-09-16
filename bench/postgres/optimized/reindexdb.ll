@@ -360,7 +360,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %89 = trunc nuw i8 %.070 to i1
   %90 = trunc nuw i8 %.0 to i1
   %91 = load i32, ptr %8, align 4
-  call fastcc void @reindex_all_databases(ptr noundef nonnull %4, ptr noundef %11, i1 noundef zeroext %88, i1 noundef zeroext %.072, i1 noundef zeroext %89, i1 noundef zeroext %90, i32 noundef %91, ptr noundef %.082)
+  call fastcc void @reindex_all_databases(ptr noundef %4, ptr noundef %11, i1 noundef zeroext %88, i1 noundef zeroext %.072, i1 noundef zeroext %89, i1 noundef zeroext %90, i32 noundef %91, ptr noundef %.082)
   br label %165
 
 92:                                               ; preds = %67
@@ -431,7 +431,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %116 = trunc nuw i8 %.074 to i1
   %117 = trunc nuw i8 %.070 to i1
   %118 = trunc nuw i8 %.0 to i1
-  call fastcc void @reindex_one_database(ptr noundef nonnull %4, i32 noundef 3, ptr noundef null, ptr noundef %11, i1 noundef zeroext %116, i1 noundef zeroext %117, i1 noundef zeroext %118, i32 noundef 1, ptr noundef %.082)
+  call fastcc void @reindex_one_database(ptr noundef %4, i32 noundef 3, ptr noundef null, ptr noundef %11, i1 noundef zeroext %116, i1 noundef zeroext %117, i1 noundef zeroext %118, i32 noundef 1, ptr noundef %.082)
   br label %165
 
 119:                                              ; preds = %92
@@ -477,7 +477,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %137 = trunc nuw i8 %.070 to i1
   %138 = trunc nuw i8 %.0 to i1
   %139 = load i32, ptr %8, align 4
-  call fastcc void @reindex_one_database(ptr noundef nonnull %4, i32 noundef 2, ptr noundef nonnull %7, ptr noundef %11, i1 noundef zeroext %136, i1 noundef zeroext %137, i1 noundef zeroext %138, i32 noundef %139, ptr noundef %.082)
+  call fastcc void @reindex_one_database(ptr noundef %4, i32 noundef 2, ptr noundef nonnull %7, ptr noundef %11, i1 noundef zeroext %136, i1 noundef zeroext %137, i1 noundef zeroext %138, i32 noundef %139, ptr noundef %.082)
   br label %140
 
 140:                                              ; preds = %135, %133
@@ -489,7 +489,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %143 = trunc nuw i8 %.074 to i1
   %144 = trunc nuw i8 %.070 to i1
   %145 = trunc nuw i8 %.0 to i1
-  call fastcc void @reindex_one_database(ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %5, ptr noundef %11, i1 noundef zeroext %143, i1 noundef zeroext %144, i1 noundef zeroext %145, i32 noundef 1, ptr noundef %.082)
+  call fastcc void @reindex_one_database(ptr noundef %4, i32 noundef 1, ptr noundef nonnull %5, ptr noundef %11, i1 noundef zeroext %143, i1 noundef zeroext %144, i1 noundef zeroext %145, i32 noundef 1, ptr noundef %.082)
   br label %146
 
 146:                                              ; preds = %142, %140
@@ -502,7 +502,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %150 = trunc nuw i8 %.070 to i1
   %151 = trunc nuw i8 %.0 to i1
   %152 = load i32, ptr %8, align 4
-  call fastcc void @reindex_one_database(ptr noundef nonnull %4, i32 noundef 4, ptr noundef nonnull %6, ptr noundef %11, i1 noundef zeroext %149, i1 noundef zeroext %150, i1 noundef zeroext %151, i32 noundef %152, ptr noundef %.082)
+  call fastcc void @reindex_one_database(ptr noundef %4, i32 noundef 4, ptr noundef nonnull %6, ptr noundef %11, i1 noundef zeroext %149, i1 noundef zeroext %150, i1 noundef zeroext %151, i32 noundef %152, ptr noundef %.082)
   %.pre = load ptr, ptr %6, align 8
   %153 = icmp eq ptr %.pre, null
   br label %154
@@ -522,7 +522,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %162 = trunc nuw i8 %.070 to i1
   %163 = trunc nuw i8 %.0 to i1
   %164 = load i32, ptr %8, align 4
-  call fastcc void @reindex_one_database(ptr noundef nonnull %4, i32 noundef 0, ptr noundef null, ptr noundef %11, i1 noundef zeroext %161, i1 noundef zeroext %162, i1 noundef zeroext %163, i32 noundef %164, ptr noundef %.082)
+  call fastcc void @reindex_one_database(ptr noundef %4, i32 noundef 0, ptr noundef null, ptr noundef %11, i1 noundef zeroext %161, i1 noundef zeroext %162, i1 noundef zeroext %163, i32 noundef %164, ptr noundef %.082)
   br label %165
 
 165:                                              ; preds = %115, %160, %154, %87
@@ -591,8 +591,8 @@ declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_u
 declare void @setup_cancel_handler(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reindex_all_databases(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7) unnamed_addr #3 {
-  %9 = tail call ptr @connectMaintenanceDatabase(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #10
+define internal fastcc void @reindex_all_databases(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7) unnamed_addr #3 {
+  %9 = tail call ptr @connectMaintenanceDatabase(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext %2) #10
   %10 = tail call ptr @executeQuery(ptr noundef %9, ptr noundef nonnull @.str.60, i1 noundef zeroext %2) #10
   tail call void @PQfinish(ptr noundef %9) #10
   %11 = tail call i32 @PQntuples(ptr noundef %10) #10
@@ -637,10 +637,10 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #6
 declare ptr @get_user_name_or_exit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reindex_one_database(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7, ptr noundef %8) unnamed_addr #3 {
+define internal fastcc void @reindex_one_database(ptr noundef nonnull %0, i32 noundef range(i32 0, 5) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7, ptr noundef %8) unnamed_addr #3 {
   %10 = alloca %struct.PQExpBufferData, align 8
   %11 = icmp sgt i32 %7, 1
-  %12 = tail call ptr @connectDatabase(ptr noundef %0, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext false, i1 noundef zeroext true) #10
+  %12 = tail call ptr @connectDatabase(ptr noundef nonnull %0, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext false, i1 noundef zeroext true) #10
   br i1 %6, label %13, label %17
 
 13:                                               ; preds = %9
@@ -721,10 +721,10 @@ define internal fastcc void @reindex_one_database(ptr noundef %0, i32 noundef %1
 38:                                               ; preds = %36, %35
   %.1 = phi i32 [ %smax, %36 ], [ %.0, %35 ]
   %39 = tail call i32 @llvm.smin.i32(i32 %7, i32 %.1)
-  %40 = tail call ptr @ParallelSlotsSetup(i32 noundef %39, ptr noundef %0, ptr noundef %3, i1 noundef zeroext %4, ptr noundef null) #10
+  %40 = tail call ptr @ParallelSlotsSetup(i32 noundef %39, ptr noundef nonnull %0, ptr noundef %3, i1 noundef zeroext %4, ptr noundef null) #10
   tail call void @ParallelSlotsAdoptConn(ptr noundef %40, ptr noundef %12) #10
   %41 = load ptr, ptr %.068, align 8
-  %42 = sext i32 %.067 to i64
+  %42 = zext nneg i32 %.067 to i64
   %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.reindex_one_database, i64 0, i64 %42
   br label %43
 
@@ -773,7 +773,7 @@ define internal fastcc void @reindex_one_database(ptr noundef %0, i32 noundef %1
   call void @appendPQExpBufferStr(ptr noundef nonnull %10, ptr noundef nonnull @.str.47) #10
   br label %switch.lookup
 
-default.unreachable.i:                            ; preds = %72, %59
+default.unreachable:                              ; preds = %72, %59
   unreachable
 
 switch.lookup:                                    ; preds = %56, %57
@@ -786,7 +786,7 @@ switch.lookup:                                    ; preds = %56, %57
   br label %59
 
 59:                                               ; preds = %58, %switch.lookup
-  switch i32 %.067, label %default.unreachable.i [
+  switch i32 %.067, label %default.unreachable [
     i32 0, label %60
     i32 3, label %60
     i32 1, label %62
@@ -823,7 +823,7 @@ switch.lookup:                                    ; preds = %56, %57
   br i1 %71, label %run_reindex_command.exit, label %72
 
 72:                                               ; preds = %68
-  switch i32 %.067, label %default.unreachable.i [
+  switch i32 %.067, label %default.unreachable [
     i32 0, label %73
     i32 1, label %76
     i32 2, label %79
@@ -907,7 +907,7 @@ declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #2
 declare ptr @PQdb(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_parallel_object_list(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #3 {
+define internal fastcc ptr @get_parallel_object_list(ptr noundef %0, i32 noundef range(i32 0, 3) %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #3 {
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca %struct.PQExpBufferData, align 8
   call void @initPQExpBuffer(ptr noundef nonnull %5) #10

@@ -145,7 +145,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define range(i32 0, 2) i32 @fips_provider_version_eq(ptr noundef %libctx, i32 noundef %major, i32 noundef %minor, i32 noundef %patch) local_unnamed_addr #0 {
 entry:
   %prov = alloca %struct.FIPS_VERSION, align 4
-  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov)
+  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef %prov)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -173,7 +173,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @fips_provider_version(ptr noundef %libctx, ptr noundef %vers) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %vers) unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %vs = alloca ptr, align 8
@@ -200,7 +200,7 @@ lor.lhs.false:                                    ; preds = %if.end3
   %1 = load ptr, ptr %vs, align 8
   %minor = getelementptr inbounds i8, ptr %vers, i64 4
   %patch = getelementptr inbounds i8, ptr %vers, i64 8
-  %call7 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %1, ptr noundef nonnull @.str.10, ptr noundef %vers, ptr noundef nonnull %minor, ptr noundef nonnull %patch) #8
+  %call7 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %1, ptr noundef nonnull @.str.10, ptr noundef nonnull %vers, ptr noundef nonnull %minor, ptr noundef nonnull %patch) #8
   %cmp8.not = icmp eq i32 %call7, 3
   br i1 %cmp8.not, label %if.end10, label %err
 
@@ -223,7 +223,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 define range(i32 0, 2) i32 @fips_provider_version_ne(ptr noundef %libctx, i32 noundef %major, i32 noundef %minor, i32 noundef %patch) local_unnamed_addr #0 {
 entry:
   %prov = alloca %struct.FIPS_VERSION, align 4
-  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov)
+  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef %prov)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -254,7 +254,7 @@ return:                                           ; preds = %if.end, %if.then
 define range(i32 0, 2) i32 @fips_provider_version_le(ptr noundef %libctx, i32 noundef %major, i32 noundef %minor, i32 noundef %patch) local_unnamed_addr #0 {
 entry:
   %prov = alloca %struct.FIPS_VERSION, align 4
-  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov)
+  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef %prov)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -295,7 +295,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 define range(i32 0, 2) i32 @fips_provider_version_lt(ptr noundef %libctx, i32 noundef %major, i32 noundef %minor, i32 noundef %patch) local_unnamed_addr #0 {
 entry:
   %prov = alloca %struct.FIPS_VERSION, align 4
-  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov)
+  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef %prov)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -336,7 +336,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 define range(i32 0, 2) i32 @fips_provider_version_gt(ptr noundef %libctx, i32 noundef %major, i32 noundef %minor, i32 noundef %patch) local_unnamed_addr #0 {
 entry:
   %prov = alloca %struct.FIPS_VERSION, align 4
-  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov)
+  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef %prov)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -377,7 +377,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 define range(i32 0, 2) i32 @fips_provider_version_ge(ptr noundef %libctx, i32 noundef %major, i32 noundef %minor, i32 noundef %patch) local_unnamed_addr #0 {
 entry:
   %prov = alloca %struct.FIPS_VERSION, align 4
-  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov)
+  %call = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef %prov)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -564,7 +564,7 @@ if.end85:                                         ; preds = %if.end80
 
 sw.bb:                                            ; preds = %if.end85
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %prov.i)
-  %call.i = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i)
+  %call.i = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef %prov.i)
   %cmp.i = icmp slt i32 %call.i, 1
   br i1 %cmp.i, label %if.then.i, label %if.end100
 
@@ -575,7 +575,7 @@ if.then.i:                                        ; preds = %sw.bb
 
 sw.bb87:                                          ; preds = %if.end85
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %prov.i31)
-  %call.i32 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i31)
+  %call.i32 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef %prov.i31)
   %cmp.i33 = icmp slt i32 %call.i32, 1
   br i1 %cmp.i33, label %if.then.i41, label %fips_provider_version_ne.exit
 
@@ -598,7 +598,7 @@ fips_provider_version_ne.exit:                    ; preds = %sw.bb87
 
 sw.bb89:                                          ; preds = %if.end85
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %prov.i43)
-  %call.i44 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i43)
+  %call.i44 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef %prov.i43)
   %cmp.i45 = icmp slt i32 %call.i44, 1
   br i1 %cmp.i45, label %if.then.i51, label %if.end.i46
 
@@ -639,7 +639,7 @@ fips_provider_version_le.exit:                    ; preds = %if.end.i46, %land.r
 
 sw.bb91:                                          ; preds = %if.end85
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %prov.i53)
-  %call.i54 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i53)
+  %call.i54 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef %prov.i53)
   %cmp.i55 = icmp slt i32 %call.i54, 1
   br i1 %cmp.i55, label %if.then.i69, label %if.end.i56
 
@@ -680,7 +680,7 @@ fips_provider_version_lt.exit:                    ; preds = %if.end.i56, %land.r
 
 sw.bb93:                                          ; preds = %if.end85
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %prov.i71)
-  %call.i72 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i71)
+  %call.i72 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef %prov.i71)
   %cmp.i73 = icmp slt i32 %call.i72, 1
   br i1 %cmp.i73, label %if.then.i87, label %if.end.i74
 
@@ -721,7 +721,7 @@ fips_provider_version_gt.exit:                    ; preds = %if.end.i74, %land.r
 
 sw.bb95:                                          ; preds = %if.end85
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %prov.i89)
-  %call.i90 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef nonnull %prov.i89)
+  %call.i90 = call fastcc i32 @fips_provider_version(ptr noundef %libctx, ptr noundef %prov.i89)
   %cmp.i91 = icmp slt i32 %call.i90, 1
   br i1 %cmp.i91, label %if.then.i105, label %if.end.i92
 

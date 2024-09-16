@@ -3697,7 +3697,7 @@ _ZN4llvm11SmallVectorISt4pairIPNS_5ValueEmELj8EED2Ev.exit: ; preds = %231, %_ZN4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc noundef ptr @_ZL16isReassociableOpPN4llvm5ValueEjj(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 {
+define internal fastcc noundef ptr @_ZL16isReassociableOpPN4llvm5ValueEjj(ptr noundef %0, i32 noundef range(i32 13, 18) %1, i32 noundef range(i32 14, 19) %2) unnamed_addr #5 {
   %4 = load i8, ptr %0, align 8
   %5 = icmp ugt i8 %4, 28
   %6 = zext i8 %4 to i32

@@ -115,7 +115,7 @@ declare ptr @get_plugins_pers_dir() local_unnamed_addr #2
 declare zeroext i1 @started_with_special_privs() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @scan_plugins_dir(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @scan_plugins_dir(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

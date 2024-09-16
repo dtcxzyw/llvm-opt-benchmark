@@ -955,7 +955,7 @@ sw.bb243:                                         ; preds = %if.else
 sw.bb254:                                         ; preds = %if.else
   %minRepresentDigits261 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0200, i64 16
   %28 = load i64, ptr %minRepresentDigits261, align 8
-  call fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_122formatFractionOfSecondB5cxx11Etm(ptr noalias nonnull align 8 %ref.tmp256, i16 noundef zeroext %conv, i64 noundef %28)
+  call fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_122formatFractionOfSecondB5cxx11Etm(ptr noalias align 8 %ref.tmp256, i16 noundef zeroext %conv, i64 noundef %28)
   %call262 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp256) #2
   %call263 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp256) #2
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %result.addr.0201, ptr align 1 %call262, i64 %call263, i1 false)
@@ -2381,7 +2381,7 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_122formatFractionOfSecondB5cxx11Etm(ptr noalias align 8 %agg.result, i16 noundef zeroext %subseconds, i64 noundef %minRepresentDigits) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_122formatFractionOfSecondB5cxx11Etm(ptr noalias nonnull align 8 %agg.result, i16 noundef zeroext %subseconds, i64 noundef %minRepresentDigits) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %cmp = icmp ugt i64 %minRepresentDigits, 3

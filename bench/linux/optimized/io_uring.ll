@@ -11679,7 +11679,7 @@ define internal fastcc void @__io_arm_ltimeout(ptr noundef %0) unnamed_addr #1 a
 declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @io_queue_async(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc void @io_queue_async(ptr noundef %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #1 align 16 {
   %3 = icmp eq i32 %1, -11
   %4 = getelementptr inbounds i8, ptr %0, i64 68
   %5 = load i32, ptr %4, align 4
@@ -11874,7 +11874,7 @@ define internal fastcc void @io_queue_async(ptr noundef %0, i32 noundef %1) unna
 declare dso_local zeroext i1 @io_kbuf_recycle_legacy(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @io_submit_fail_init(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #5 align 16 {
+define internal fastcc noundef i32 @io_submit_fail_init(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #5 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 200
@@ -14530,7 +14530,7 @@ define internal fastcc i32 @io_uring_create(i32 noundef %0, ptr noundef %1, ptr 
   %115 = load ptr, ptr %113, align 8
   %116 = getelementptr inbounds i8, ptr %51, i64 1224
   store ptr %115, ptr %116, align 8
-  %117 = tail call fastcc i32 @io_allocate_scq_urings(ptr noundef nonnull %51, ptr noundef %1) #28
+  %117 = tail call fastcc i32 @io_allocate_scq_urings(ptr noundef %51, ptr noundef %1) #28
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %119, label %205
 
@@ -14677,7 +14677,7 @@ define internal fastcc i32 @io_uring_create(i32 noundef %0, ptr noundef %1, ptr 
   %202 = getelementptr inbounds i8, ptr %1, i64 4
   %203 = load i32, ptr %202, align 4
   %204 = load i32, ptr %16, align 8
-  tail call fastcc void @trace_io_uring_create(i32 noundef %198, ptr noundef nonnull %51, i32 noundef %201, i32 noundef %203, i32 noundef %204)
+  tail call fastcc void @trace_io_uring_create(i32 noundef %198, ptr noundef %51, i32 noundef %201, i32 noundef %203, i32 noundef %204)
   br label %209
 
 205:                                              ; preds = %181, %167, %122, %119, %112, %107, %104, %98
@@ -14890,7 +14890,7 @@ define internal fastcc noundef ptr @get_uid(ptr noundef returned %0) unnamed_add
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @io_allocate_scq_urings(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #5 align 16 {
+define internal fastcc i32 @io_allocate_scq_urings(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #5 align 16 {
   %3 = load i32, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 116
   store i32 %3, ptr %4, align 4
@@ -15020,7 +15020,7 @@ define internal fastcc i32 @io_allocate_scq_urings(ptr nocapture noundef %0, ptr
 
 .thread8:                                         ; preds = %78, %92
   %95 = phi ptr [ %93, %92 ], [ inttoptr (i64 -12 to ptr), %78 ]
-  tail call fastcc void @io_rings_free(ptr noundef %0)
+  tail call fastcc void @io_rings_free(ptr noundef nonnull %0)
   %96 = ptrtoint ptr %95 to i64
   %97 = trunc i64 %96 to i32
   br label %100
@@ -15081,7 +15081,7 @@ define internal fastcc i32 @io_uring_install_fd(ptr noundef %0) unnamed_addr #1 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_io_uring_create(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #9 align 16 {
+define internal fastcc void @trace_io_uring_create(i32 noundef range(i32 0, -2147483648) %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #9 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_io_uring_create, i64 8), i32 2) #24
           to label %26 [label %6], !srcloc !56
 
@@ -15104,7 +15104,7 @@ define internal fastcc void @trace_io_uring_create(i32 noundef %0, ptr noundef %
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %13, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @__SCT__tp_func_io_uring_create(ptr noundef %17, i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #24
+  %18 = tail call i32 @__SCT__tp_func_io_uring_create(ptr noundef %17, i32 noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #24
   br label %19
 
 19:                                               ; preds = %15, %12
@@ -15126,23 +15126,23 @@ define internal fastcc void @trace_io_uring_create(i32 noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @io_alloc_hash_table(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
-  %3 = shl nuw nsw i32 1, %1
+define internal fastcc noundef range(i32 -12, 1) i32 @io_alloc_hash_table(ptr noundef %0, i32 noundef range(i32 1, 9) %1) unnamed_addr #1 align 16 {
+  %3 = shl nuw nsw i32 64, %1
   %4 = zext nneg i32 %3 to i64
-  %5 = shl nuw nsw i64 %4, 6
-  %6 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %5, i32 noundef 3264) #29
-  store ptr %6, ptr %0, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %10, label %8
+  %5 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %4, i32 noundef 3264) #29
+  store ptr %5, ptr %0, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %10, label %7
 
-8:                                                ; preds = %2
+7:                                                ; preds = %2
+  %8 = shl nuw nsw i32 1, %1
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %9, align 8
-  tail call void @init_hash_table(ptr noundef %0, i32 noundef %3) #24
+  tail call void @init_hash_table(ptr noundef %0, i32 noundef %8) #24
   br label %10
 
-10:                                               ; preds = %8, %2
-  %11 = phi i32 [ 0, %8 ], [ -12, %2 ]
+10:                                               ; preds = %7, %2
+  %11 = phi i32 [ 0, %7 ], [ -12, %2 ]
   ret i32 %11
 }
 
@@ -15285,7 +15285,7 @@ declare dso_local void @delayed_work_timer_fn(ptr noundef) #0
 declare dso_local void @init_hash_table(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__io_uaddr_map(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc ptr @__io_uaddr_map(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef range(i64 0, 549755813761) %3) unnamed_addr #1 align 16 {
   store i16 0, ptr %1, align 2
   %5 = and i64 %2, 4095
   %6 = icmp eq i64 %5, 0

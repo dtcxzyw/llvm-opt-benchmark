@@ -1195,7 +1195,7 @@ declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_zvt_apdu(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_zvt_apdu(ptr noundef %0, i32 noundef range(i32 0, 3) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1) #5
   %7 = icmp slt i32 %6, 3
@@ -1471,8 +1471,8 @@ zvt_set_addresses.exit:                           ; preds = %112, %114, %126, %1
 
 153:                                              ; preds = %149, %150, %zvt_set_addresses.exit
   %154 = load ptr, ptr %5, align 8
-  %155 = sub i32 %19, %1
-  %156 = add i32 %155, %113
+  %155 = sub nsw i32 %19, %1
+  %156 = add nsw i32 %155, %113
   call void @proto_item_set_len(ptr noundef %154, i32 noundef %156) #5
   br label %157
 

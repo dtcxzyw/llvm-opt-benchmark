@@ -2040,7 +2040,7 @@ emit_byte.exit29:                                 ; preds = %emit_byte.exit, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @arith_encode(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @arith_encode(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 496
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %1, align 1

@@ -431,7 +431,7 @@ if.end:                                           ; preds = %if.then3, %if.then
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i, align 16
   %invoker_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr null, ptr %invoker_.i.i.i, align 8
-  invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper15TriggerShutdownEN4absl12lts_2023080212AnyInvocableIFvNS4_8StatusOrIiEEEEE(ptr noundef nonnull align 16 dereferenceable(164) %0, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper15TriggerShutdownEN4absl12lts_2023080212AnyInvocableIFvNS4_8StatusOrIiEEEEE(ptr noundef nonnull align 16 dereferenceable(164) %0, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -457,7 +457,7 @@ if.else:                                          ; preds = %entry
   store ptr @"_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN17grpc_event_engine12experimental49grpc_event_engine_endpoint_destroy_and_release_fdEP13grpc_endpointPiP12grpc_closureE3$_0JNS0_8StatusOrIiEEEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %invoker_.i.i.i.i.i, align 8
   %manager_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp5, i64 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i, align 16
-  invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper15TriggerShutdownEN4absl12lts_2023080212AnyInvocableIFvNS4_8StatusOrIiEEEEE(ptr noundef nonnull align 16 dereferenceable(164) %4, ptr noundef nonnull %agg.tmp5)
+  invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper15TriggerShutdownEN4absl12lts_2023080212AnyInvocableIFvNS4_8StatusOrIiEEEEE(ptr noundef nonnull align 16 dereferenceable(164) %4, ptr noundef %agg.tmp5)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %if.else
@@ -526,7 +526,7 @@ eh.resume:                                        ; preds = %lpad6, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper15TriggerShutdownEN4absl12lts_2023080212AnyInvocableIFvNS4_8StatusOrIiEEEEE(ptr noundef nonnull align 16 dereferenceable(164) %this, ptr noundef %on_release_fd) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper15TriggerShutdownEN4absl12lts_2023080212AnyInvocableIFvNS4_8StatusOrIiEEEEE(ptr noundef nonnull align 16 dereferenceable(164) %this, ptr noundef nonnull %on_release_fd) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::AnyInvocable", align 16
   %call = tail call noundef zeroext i1 @_ZN17grpc_event_engine12experimental21EventEngineSupportsFdEv()
@@ -1022,7 +1022,7 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper4R
 if.then3:                                         ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper4ReadEP12grpc_closureP17grpc_slice_bufferPKNS0_11EventEngine8Endpoint8ReadArgsE.exit
   %22 = load ptr, ptr %wrapper, align 8
   store i64 0, ptr %agg.tmp5, align 8, !alias.scope !13
-  invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper17FinishPendingReadEN4absl12lts_202308026StatusE(ptr noundef nonnull align 16 dereferenceable(164) %22, ptr noundef nonnull %agg.tmp5)
+  invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper17FinishPendingReadEN4absl12lts_202308026StatusE(ptr noundef nonnull align 16 dereferenceable(164) %22, ptr noundef %agg.tmp5)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %if.then3
@@ -1331,7 +1331,7 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper5W
 if.then4:                                         ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper5WriteEP12grpc_closureP17grpc_slice_bufferPKNS0_11EventEngine8Endpoint9WriteArgsE.exit
   %34 = load ptr, ptr %wrapper, align 8
   store i64 0, ptr %agg.tmp6, align 8, !alias.scope !20
-  invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper18FinishPendingWriteEN4absl12lts_202308026StatusE(ptr noundef nonnull align 16 dereferenceable(164) %34, ptr noundef nonnull %agg.tmp6)
+  invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper18FinishPendingWriteEN4absl12lts_202308026StatusE(ptr noundef nonnull align 16 dereferenceable(164) %34, ptr noundef %agg.tmp6)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %if.then4
@@ -1499,7 +1499,7 @@ if.end9:                                          ; preds = %invoke.cont8, %if.e
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i, align 16
   %invoker_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr null, ptr %invoker_.i.i.i, align 8
-  invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper15TriggerShutdownEN4absl12lts_2023080212AnyInvocableIFvNS4_8StatusOrIiEEEEE(ptr noundef nonnull align 16 dereferenceable(164) %6, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper15TriggerShutdownEN4absl12lts_2023080212AnyInvocableIFvNS4_8StatusOrIiEEEEE(ptr noundef nonnull align 16 dereferenceable(164) %6, ptr noundef %agg.tmp)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %if.end9
@@ -1648,7 +1648,7 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper14
 declare void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper17FinishPendingReadEN4absl12lts_202308026StatusE(ptr noundef nonnull align 16 dereferenceable(164) %this, ptr noundef %status) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper17FinishPendingReadEN4absl12lts_202308026StatusE(ptr noundef nonnull align 16 dereferenceable(164) %this, ptr noundef nonnull %status) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2201,7 +2201,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %entry
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i.i.i.i
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %entry
-  invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper17FinishPendingReadEN4absl12lts_202308026StatusE(ptr noundef nonnull align 16 dereferenceable(164) %__f.val.i.i.i.i, ptr noundef nonnull %agg.tmp.i.i.i.i.i)
+  invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper17FinishPendingReadEN4absl12lts_202308026StatusE(ptr noundef nonnull align 16 dereferenceable(164) %__f.val.i.i.i.i, ptr noundef %agg.tmp.i.i.i.i.i)
           to label %invoke.cont.i.i.i.i.i unwind label %lpad.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i:                            ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i.i.i.i
@@ -2641,7 +2641,7 @@ declare void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 de
 declare void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper18FinishPendingWriteEN4absl12lts_202308026StatusE(ptr noundef nonnull align 16 dereferenceable(164) %this, ptr noundef %status) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper18FinishPendingWriteEN4absl12lts_202308026StatusE(ptr noundef nonnull align 16 dereferenceable(164) %this, ptr noundef nonnull %status) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i44 = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -3212,7 +3212,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %entry
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i.i.i.i
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %entry
-  invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper18FinishPendingWriteEN4absl12lts_202308026StatusE(ptr noundef nonnull align 16 dereferenceable(164) %__f.val.i.i.i.i, ptr noundef nonnull %agg.tmp.i.i.i.i.i)
+  invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper18FinishPendingWriteEN4absl12lts_202308026StatusE(ptr noundef nonnull align 16 dereferenceable(164) %__f.val.i.i.i.i, ptr noundef %agg.tmp.i.i.i.i.i)
           to label %invoke.cont.i.i.i.i.i unwind label %lpad.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i:                            ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i.i.i.i

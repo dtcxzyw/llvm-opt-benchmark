@@ -67,7 +67,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17UsdShadeUdimUtils16IsUdimIdentifierERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"struct.std::pair", align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_SplitUdimPatternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_SplitUdimPatternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %3 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   br i1 %3, label %4, label %8
 
@@ -86,7 +86,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17UsdShadeUdimUt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_SplitUdimPatternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_SplitUdimPatternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator.7", align 1
@@ -224,7 +224,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   %.sroa.7.0 = phi i64 [ %22, %16 ], [ 0, %4 ]
   %.sroa.11.0 = phi i64 [ %21, %16 ], [ 0, %4 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_SplitUdimPatternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_SplitUdimPatternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %23 unwind label %28
 
 23:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
@@ -475,7 +475,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdShadeUdimUtils15ResolveUd
   br label %82
 
 20:                                               ; preds = %3
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_SplitUdimPatternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_SplitUdimPatternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %21 unwind label %31
 
 21:                                               ; preds = %20
@@ -519,7 +519,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdShadeUdimUtils15ResolveUd
   br label %79
 
 37:                                               ; preds = %27, %25
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_SplitUdimPatternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_SplitUdimPatternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %38 unwind label %35
 
 38:                                               ; preds = %37
@@ -759,7 +759,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdShadeUdimUtils18ReplaceUdimPatternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::pair", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_SplitUdimPatternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_SplitUdimPatternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %6 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
   br i1 %6, label %7, label %13
 

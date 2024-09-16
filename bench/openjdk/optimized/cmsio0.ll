@@ -2216,7 +2216,7 @@ cmsGetProfileContextID.exit:                      ; preds = %2
   br i1 %.not32, label %57, label %26
 
 26:                                               ; preds = %17
-  %27 = call fastcc i32 @SaveTags(ptr noundef nonnull %0, ptr noundef nonnull %3)
+  %27 = call fastcc i32 @SaveTags(ptr noundef nonnull %0, ptr noundef %3)
   %.not33 = icmp eq i32 %27, 0
   br i1 %.not33, label %57, label %28
 
@@ -2284,7 +2284,7 @@ SetLinks.exit:                                    ; preds = %_cmsSearchTag.exit.
   br i1 %.not35, label %57, label %52
 
 52:                                               ; preds = %SetLinks.exit
-  %53 = call fastcc i32 @SaveTags(ptr noundef nonnull %0, ptr noundef nonnull %3)
+  %53 = call fastcc i32 @SaveTags(ptr noundef nonnull %0, ptr noundef %3)
   %.not36 = icmp eq i32 %53, 0
   br i1 %.not36, label %57, label %54
 
@@ -2319,7 +2319,7 @@ declare i32 @_cmsLockMutex(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @_cmsUnlockMutex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @SaveTags(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @SaveTags(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca [100 x i8], align 16
   %4 = alloca %struct._cms_typehandler_struct, align 8
   %5 = alloca [5 x i8], align 1

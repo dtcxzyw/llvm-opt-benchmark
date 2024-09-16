@@ -1634,7 +1634,7 @@ declare ptr @XML_ErrorString(i32 noundef) local_unnamed_addr #1
 declare i32 @XML_GetErrorCode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbmore(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @agxbmore(ptr nocapture noundef %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1

@@ -177,7 +177,7 @@ define dso_local range(i64 -1, 9223372036854775805) i64 @lzma_block_total_size(p
   %25 = add nuw i64 %22, %24
   %26 = icmp ugt i64 %25, 9223372036854775804
   %27 = add nuw nsw i64 %25, 3
-  %28 = and i64 %27, -4
+  %28 = and i64 %27, 9223372036854775804
   %29 = select i1 %26, i64 0, i64 %28
   br label %lzma_block_unpadded_size.exit.thread
 

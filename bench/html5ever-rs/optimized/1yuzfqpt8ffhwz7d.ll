@@ -147,7 +147,7 @@ define hidden void @"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$all
   ret void
 
 5:                                                ; preds = %1
-  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$string_cache..dynamic_set..Entry$GT$17h5399e9db9eaa46ecE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %2)
+  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$string_cache..dynamic_set..Entry$GT$17h5399e9db9eaa46ecE"(ptr noalias noundef align 8 dereferenceable(40) %2)
           to label %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$17he8bc7384aabdcea2E.llvm.6570740198009921828.exit" unwind label %6, !noalias !30
 
 6:                                                ; preds = %5
@@ -237,7 +237,7 @@ define hidden void @"_ZN4core3ptr136drop_in_place$LT$core..cell..UnsafeCell$LT$c
   br i1 %3, label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$17h7bdef83fb06af477E.llvm.6570740198009921828.exit", label %4
 
 4:                                                ; preds = %1
-  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$string_cache..dynamic_set..Entry$GT$17h5399e9db9eaa46ecE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %2)
+  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$string_cache..dynamic_set..Entry$GT$17h5399e9db9eaa46ecE"(ptr noalias noundef align 8 dereferenceable(40) %2)
           to label %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$17he8bc7384aabdcea2E.llvm.6570740198009921828.exit.i" unwind label %5, !noalias !60
 
 5:                                                ; preds = %4
@@ -264,7 +264,7 @@ define hidden void @"_ZN4core3ptr171drop_in_place$LT$lock_api..mutex..Mutex$LT$p
   br i1 %4, label %"_ZN4core3ptr136drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$GT$17h8092a9d0b5395075E.llvm.6570740198009921828.exit", label %5
 
 5:                                                ; preds = %1
-  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$string_cache..dynamic_set..Entry$GT$17h5399e9db9eaa46ecE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3)
+  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$string_cache..dynamic_set..Entry$GT$17h5399e9db9eaa46ecE"(ptr noalias noundef align 8 dereferenceable(40) %3)
           to label %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$17he8bc7384aabdcea2E.llvm.6570740198009921828.exit.i.i" unwind label %6, !noalias !70
 
 6:                                                ; preds = %5
@@ -298,7 +298,7 @@ define hidden void @"_ZN4core3ptr181drop_in_place$LT$$u5b$lock_api..mutex..Mutex
   br i1 %7, label %"_ZN4core3ptr171drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$GT$17h70ca5988c07ae4c9E.llvm.6570740198009921828.exit", label %8
 
 8:                                                ; preds = %.lr.ph
-  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$string_cache..dynamic_set..Entry$GT$17h5399e9db9eaa46ecE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %6)
+  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$string_cache..dynamic_set..Entry$GT$17h5399e9db9eaa46ecE"(ptr noalias noundef align 8 dereferenceable(40) %6)
           to label %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$17he8bc7384aabdcea2E.llvm.6570740198009921828.exit.i.i.i" unwind label %.body, !noalias !83
 
 .body:                                            ; preds = %8
@@ -360,7 +360,7 @@ define hidden void @"_ZN4core3ptr206drop_in_place$LT$alloc..boxed..Box$LT$$u5b$l
   br i1 %9, label %"_ZN4core3ptr171drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$GT$17h70ca5988c07ae4c9E.llvm.6570740198009921828.exit.i", label %10
 
 10:                                               ; preds = %.lr.ph.i
-  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$string_cache..dynamic_set..Entry$GT$17h5399e9db9eaa46ecE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$string_cache..dynamic_set..Entry$GT$17h5399e9db9eaa46ecE"(ptr noalias noundef align 8 dereferenceable(40) %8)
           to label %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$17he8bc7384aabdcea2E.llvm.6570740198009921828.exit.i.i.i.i" unwind label %.body.i, !noalias !99
 
 .body.i:                                          ; preds = %10
@@ -797,7 +797,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$markup5ever..interface..Qual
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr53drop_in_place$LT$string_cache..dynamic_set..Entry$GT$17h5399e9db9eaa46ecE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr53drop_in_place$LT$string_cache..dynamic_set..Entry$GT$17h5399e9db9eaa46ecE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val1 = load i64, ptr %2, align 8, !noundef !4
   %3 = icmp eq i64 %.val1, 0
@@ -816,7 +816,7 @@ define internal fastcc void @"_ZN4core3ptr53drop_in_place$LT$string_cache..dynam
   br i1 %6, label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$17h7bdef83fb06af477E.llvm.6570740198009921828.exit", label %7
 
 7:                                                ; preds = %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h004b4df8287c8c35E.exit"
-  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$string_cache..dynamic_set..Entry$GT$17h5399e9db9eaa46ecE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
+  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$string_cache..dynamic_set..Entry$GT$17h5399e9db9eaa46ecE"(ptr noalias noundef align 8 dereferenceable(40) %5)
           to label %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$17he8bc7384aabdcea2E.llvm.6570740198009921828.exit.i" unwind label %8, !noalias !229
 
 8:                                                ; preds = %7

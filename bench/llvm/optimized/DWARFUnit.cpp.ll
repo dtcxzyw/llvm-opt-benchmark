@@ -3754,7 +3754,7 @@ define dso_local void @_ZN4llvm9DWARFUnit42determineStringOffsetsTableContributi
   %32 = icmp eq i8 %31, 0
   %33 = select i1 %32, i64 8, i64 16
   %34 = add i64 %33, %.044
-  call fastcc void @_ZL34parseDWARFStringOffsetsTableHeaderRN4llvm18DWARFDataExtractorENS_5dwarf11DwarfFormatEm(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i8 noundef zeroext %31, i64 noundef %34)
+  call fastcc void @_ZL34parseDWARFStringOffsetsTableHeaderRN4llvm18DWARFDataExtractorENS_5dwarf11DwarfFormatEm(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i8 noundef zeroext %31, i64 noundef %34)
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %36 = load i8, ptr %35, align 8
   %37 = trunc i8 %36 to i1
@@ -3945,7 +3945,7 @@ _ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEE.exit.thread:
   %48 = extractvalue { i64, i8 } %40, 0
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 35
   %50 = load i8, ptr %49, align 1
-  call fastcc void @_ZL34parseDWARFStringOffsetsTableHeaderRN4llvm18DWARFDataExtractorENS_5dwarf11DwarfFormatEm(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(40) %2, i8 noundef zeroext %50, i64 noundef %48)
+  call fastcc void @_ZL34parseDWARFStringOffsetsTableHeaderRN4llvm18DWARFDataExtractorENS_5dwarf11DwarfFormatEm(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(40) %2, i8 noundef zeroext %50, i64 noundef %48)
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %52 = load i8, ptr %51, align 8
   %53 = trunc i8 %52 to i1
@@ -8151,7 +8151,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3, %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL34parseDWARFStringOffsetsTableHeaderRN4llvm18DWARFDataExtractorENS_5dwarf11DwarfFormatEm(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i8 noundef zeroext %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL34parseDWARFStringOffsetsTableHeaderRN4llvm18DWARFDataExtractorENS_5dwarf11DwarfFormatEm(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i8 noundef zeroext %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -8276,8 +8276,8 @@ _ZN4llvm5ErrorD2Ev.exit7.i:                       ; preds = %49
   br label %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit.thread
 
 _ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit.thread: ; preds = %_ZN4llvm5ErrorD2Ev.exit7.i, %_ZN4llvm5ErrorD2Ev.exit.i
-  %.sroa.058.1.ph.in.in = phi ptr [ %22, %_ZN4llvm5ErrorD2Ev.exit.i ], [ %23, %_ZN4llvm5ErrorD2Ev.exit7.i ]
-  %.sroa.058.1.ph.in116 = load ptr, ptr %.sroa.058.1.ph.in.in, align 8, !noalias !337
+  %.sroa.056.1.ph.in.in = phi ptr [ %22, %_ZN4llvm5ErrorD2Ev.exit.i ], [ %23, %_ZN4llvm5ErrorD2Ev.exit7.i ]
+  %.sroa.056.1.ph.in114 = load ptr, ptr %.sroa.056.1.ph.in.in, align 8, !noalias !337
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
@@ -8285,7 +8285,7 @@ _ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit.thread: ; pre
   %58 = load i8, ptr %57, align 8
   %59 = or i8 %58, 1
   store i8 %59, ptr %57, align 8
-  store ptr %.sroa.058.1.ph.in116, ptr %0, align 8, !alias.scope !346
+  store ptr %.sroa.056.1.ph.in114, ptr %0, align 8, !alias.scope !346
   br label %101
 
 _ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit: ; preds = %49
@@ -8301,9 +8301,9 @@ _ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit: ; preds = %4
 
 65:                                               ; preds = %4
   %66 = icmp ult i64 %3, 8
-  br i1 %66, label %_ZN4llvm5ErrorD2Ev.exit17, label %73
+  br i1 %66, label %_ZN4llvm5ErrorD2Ev.exit16, label %73
 
-_ZN4llvm5ErrorD2Ev.exit17:                        ; preds = %65
+_ZN4llvm5ErrorD2Ev.exit16:                        ; preds = %65
   %67 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
@@ -8335,9 +8335,9 @@ _ZN4llvm5ErrorD2Ev.exit17:                        ; preds = %65
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %77 = load i64, ptr %76, align 8, !noalias !355
   %78 = icmp ugt i64 %77, %75
-  br i1 %78, label %85, label %_ZN4llvm5ErrorD2Ev.exit.i19
+  br i1 %78, label %85, label %_ZN4llvm5ErrorD2Ev.exit.i17
 
-_ZN4llvm5ErrorD2Ev.exit.i19:                      ; preds = %73
+_ZN4llvm5ErrorD2Ev.exit.i17:                      ; preds = %73
   %79 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !355
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11), !noalias !355
@@ -8360,14 +8360,14 @@ _ZN4llvm5ErrorD2Ev.exit.i19:                      ; preds = %73
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #22, !noalias !355
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !355
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11), !noalias !355
-  br label %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit33.thread
+  br label %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit31.thread
 
 85:                                               ; preds = %73
   %86 = call noundef i32 @_ZNK4llvm13DataExtractor6getU32EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull %12, ptr noundef null) #22, !noalias !355
   %87 = icmp ugt i32 %86, -17
-  br i1 %87, label %_ZN4llvm5ErrorD2Ev.exit7.i25, label %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit33
+  br i1 %87, label %_ZN4llvm5ErrorD2Ev.exit7.i23, label %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit31
 
-_ZN4llvm5ErrorD2Ev.exit7.i25:                     ; preds = %85
+_ZN4llvm5ErrorD2Ev.exit7.i23:                     ; preds = %85
   %88 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !355
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9), !noalias !355
@@ -8383,11 +8383,11 @@ _ZN4llvm5ErrorD2Ev.exit7.i25:                     ; preds = %85
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #22, !noalias !355
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !355
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !355
-  br label %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit33.thread
+  br label %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit31.thread
 
-_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit33.thread: ; preds = %_ZN4llvm5ErrorD2Ev.exit7.i25, %_ZN4llvm5ErrorD2Ev.exit.i19
-  %.sroa.035.1.ph.in.in = phi ptr [ %13, %_ZN4llvm5ErrorD2Ev.exit.i19 ], [ %14, %_ZN4llvm5ErrorD2Ev.exit7.i25 ]
-  %.sroa.035.1.ph.in115 = load ptr, ptr %.sroa.035.1.ph.in.in, align 8, !noalias !355
+_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit31.thread: ; preds = %_ZN4llvm5ErrorD2Ev.exit7.i23, %_ZN4llvm5ErrorD2Ev.exit.i17
+  %.sroa.033.1.ph.in.in = phi ptr [ %13, %_ZN4llvm5ErrorD2Ev.exit.i17 ], [ %14, %_ZN4llvm5ErrorD2Ev.exit7.i23 ]
+  %.sroa.033.1.ph.in113 = load ptr, ptr %.sroa.033.1.ph.in.in, align 8, !noalias !355
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
@@ -8395,10 +8395,10 @@ _ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit33.thread: ; p
   %93 = load i8, ptr %92, align 8
   %94 = or i8 %93, 1
   store i8 %94, ptr %92, align 8
-  store ptr %.sroa.035.1.ph.in115, ptr %0, align 8, !alias.scope !364
+  store ptr %.sroa.033.1.ph.in113, ptr %0, align 8, !alias.scope !364
   br label %101
 
-_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit33: ; preds = %85
+_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit31: ; preds = %85
   %95 = call noundef zeroext i16 @_ZNK4llvm13DataExtractor6getU16EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull %12, ptr noundef null) #22, !noalias !355
   %96 = call noundef zeroext i16 @_ZNK4llvm13DataExtractor6getU16EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull %12, ptr noundef null) #22, !noalias !355
   %97 = load i64, ptr %12, align 8, !noalias !355
@@ -8409,16 +8409,16 @@ _ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit33: ; preds = 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit, %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit33
-  %.sink119 = phi i64 [ %97, %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit33 ], [ %63, %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit ]
-  %.sink118 = phi i64 [ %99, %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit33 ], [ %64, %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit ]
-  %.sink117.in = phi i16 [ %95, %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit33 ], [ %61, %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit ]
-  %.sink117 = and i16 %.sink117.in, 255
-  store i64 %.sink119, ptr %26, align 8
+.sink.split:                                      ; preds = %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit, %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit31
+  %.sink117 = phi i64 [ %97, %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit31 ], [ %63, %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit ]
+  %.sink116 = phi i64 [ %99, %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit31 ], [ %64, %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit ]
+  %.sink115.in = phi i16 [ %95, %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit31 ], [ %61, %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit ]
+  %.sink115 = and i16 %.sink115.in, 255
+  store i64 %.sink117, ptr %26, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 8
-  store i64 %.sink118, ptr %.sroa.8.0..sroa_idx, align 8
+  store i64 %.sink116, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 16
-  store i16 %.sink117, ptr %.sroa.9.0..sroa_idx, align 8
+  store i16 %.sink115, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 18
   store i8 0, ptr %.sroa.10.0..sroa_idx, align 2
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 19
@@ -8428,10 +8428,10 @@ _ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit33: ; preds = 
   br label %100
 
 100:                                              ; preds = %.sink.split, %4
-  call void @_ZN4llvm32StrOffsetsContributionDescriptor24validateContributionSizeERNS_18DWARFDataExtractorE(ptr dead_on_unwind writable sret(%"class.llvm::Expected.277") align 8 %0, ptr noundef nonnull align 8 dereferenceable(22) %26, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  call void @_ZN4llvm32StrOffsetsContributionDescriptor24validateContributionSizeERNS_18DWARFDataExtractorE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.277") align 8 %0, ptr noundef nonnull align 8 dereferenceable(22) %26, ptr noundef nonnull align 8 dereferenceable(40) %1)
   br label %101
 
-101:                                              ; preds = %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit33.thread, %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit.thread, %100, %_ZN4llvm5ErrorD2Ev.exit17, %_ZN4llvm5ErrorD2Ev.exit
+101:                                              ; preds = %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit31.thread, %_ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit.thread, %100, %_ZN4llvm5ErrorD2Ev.exit16, %_ZN4llvm5ErrorD2Ev.exit
   ret void
 }
 

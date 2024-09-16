@@ -39,7 +39,7 @@ define hidden range(i32 -1, 2) i32 @busmaster_open(ptr nocapture noundef %0, ptr
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = call fastcc i32 @busmaster_parse(ptr noundef %9, ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2)
+  %10 = call fastcc i32 @busmaster_parse(ptr noundef %9, ptr noundef %4, ptr noundef %1, ptr noundef %2)
   %11 = load ptr, ptr %2, align 8
   call void @g_free(ptr noundef %11) #8
   store ptr null, ptr %2, align 8
@@ -82,7 +82,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @busmaster_parse(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @busmaster_parse(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   store ptr %0, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = getelementptr inbounds i8, ptr %1, i64 72
@@ -202,7 +202,7 @@ busmaster_find_priv_entry.exit.thread:            ; preds = %27, %.lr.ph
 
 31:                                               ; preds = %busmaster_find_priv_entry.exit.thread, %30
   %32 = load ptr, ptr %0, align 8
-  %33 = call fastcc i32 @busmaster_parse(ptr noundef %32, ptr noundef nonnull %7, ptr noundef %3, ptr noundef %4)
+  %33 = call fastcc i32 @busmaster_parse(ptr noundef %32, ptr noundef %7, ptr noundef %3, ptr noundef %4)
   switch i32 %33, label %.loopexit [
     i32 1, label %84
     i32 4, label %34
@@ -314,7 +314,7 @@ busmaster_find_priv_entry.exit.thread:            ; preds = %27, %.lr.ph
 
 busmaster_find_priv_entry.exit68:                 ; preds = %74, %78, %80, %67
   %.0.i66 = phi ptr [ null, %67 ], [ %70, %74 ], [ null, %80 ], [ %70, %78 ]
-  %83 = call fastcc i32 @busmaster_gen_packet(ptr noundef %1, ptr noundef %2, ptr noundef %.0.i66, ptr noundef nonnull %10, ptr noundef %3, ptr noundef %4)
+  %83 = call fastcc i32 @busmaster_gen_packet(ptr noundef %1, ptr noundef %2, ptr noundef %.0.i66, ptr noundef %10, ptr noundef %3, ptr noundef %4)
   br label %.loopexit
 
 84:                                               ; preds = %40, %31, %60
@@ -381,7 +381,7 @@ busmaster_find_priv_entry.exit:                   ; preds = %18, %14
   %29 = getelementptr inbounds i8, ptr %7, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
   %30 = load ptr, ptr %24, align 8
-  %31 = call fastcc i32 @busmaster_parse(ptr noundef %30, ptr noundef nonnull %7, ptr noundef %4, ptr noundef %5)
+  %31 = call fastcc i32 @busmaster_parse(ptr noundef %30, ptr noundef %7, ptr noundef %4, ptr noundef %5)
   %32 = add i32 %31, 1
   %or.cond = icmp ult i32 %32, 2
   br i1 %or.cond, label %39, label %33
@@ -398,7 +398,7 @@ busmaster_find_priv_entry.exit:                   ; preds = %18, %14
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %7, i64 136
-  %38 = call fastcc i32 @busmaster_gen_packet(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %10, ptr noundef nonnull %37, ptr noundef %4, ptr noundef %5)
+  %38 = call fastcc i32 @busmaster_gen_packet(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %10, ptr noundef %37, ptr noundef %4, ptr noundef %5)
   br label %39
 
 39:                                               ; preds = %28, %busmaster_find_priv_entry.exit, %36, %34, %.loopexit
@@ -442,7 +442,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #5
 declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @busmaster_gen_packet(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @busmaster_gen_packet(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
 switch.edge:
   %6 = alloca %struct.canfd_frame, align 4
   %7 = alloca %struct.can_frame, align 4

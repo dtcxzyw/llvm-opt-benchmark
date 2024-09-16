@@ -241,8 +241,8 @@ do.end:                                           ; preds = %if.end
   %add.ptr.val61 = load i64, ptr %addr1, align 8
   %add.i = add i64 %add.ptr.val61, 16
   %shl.i = shl i8 %addr, 1
-  %or.i = or disjoint i8 %shl.i, 1
-  tail call void @qtest_writeb(ptr noundef %add.ptr.val, i64 noundef %add.i, i8 noundef zeroext %or.i) #5
+  %conv3.i = or disjoint i8 %shl.i, 1
+  tail call void @qtest_writeb(ptr noundef %add.ptr.val, i64 noundef %add.i, i8 noundef zeroext %conv3.i) #5
   %5 = load ptr, ptr %qts, align 8
   %6 = load i64, ptr %addr1, align 8
   %add10 = add i64 %6, 12

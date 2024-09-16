@@ -1258,7 +1258,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 declare dso_local ptr @tcp_ca_get_name_by_key(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @nla_put_string(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #7 align 16 {
+define internal fastcc i32 @nla_put_string(ptr noundef %0, i32 noundef range(i32 6, 58) %1, ptr noundef %2) unnamed_addr #7 align 16 {
   %4 = tail call i64 @strlen(ptr noundef %2) #18
   %5 = trunc i64 %4 to i32
   %6 = add i32 %5, 1
@@ -1267,7 +1267,7 @@ define internal fastcc i32 @nla_put_string(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @nla_nest_cancel(ptr noundef %0, ptr noundef %1) unnamed_addr #7 align 16 {
+define internal fastcc void @nla_nest_cancel(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #7 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = icmp ugt ptr %4, %1
@@ -2551,7 +2551,7 @@ define internal fastcc i64 @if_nlmsg_size(ptr noundef %0, i32 noundef %1) unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef readonly %10, i32 noundef %11, i32 noundef %12, i32 noundef %13) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 0, 35) %7, i32 noundef %8, i32 noundef %9, ptr noundef readonly %10, i32 noundef %11, i32 noundef %12, i32 noundef %13) unnamed_addr #0 align 16 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -4148,7 +4148,7 @@ define internal fastcc i64 @if_nlmsg_stats_size(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 align 16 {
+define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 3) %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 align 16 {
   %10 = alloca i8, align 1
   %11 = alloca i8, align 1
   %12 = alloca i8, align 1
@@ -4810,53 +4810,52 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
 
 .thread:                                          ; preds = %343, %360, %312, %.thread56, %296, %132, %46, %104, %114, %65, %75
   %390 = phi i32 [ -90, %65 ], [ %78, %75 ], [ -90, %104 ], [ %117, %114 ], [ -90, %46 ], [ %297, %296 ], [ -90, %132 ], [ -90, %.thread56 ], [ -90, %312 ], [ -90, %343 ], [ %346, %360 ]
-  %391 = and i32 %4, 2
-  %392 = icmp eq i32 %391, 0
-  br i1 %392, label %396, label %393
+  %391 = icmp ult i32 %4, 2
+  br i1 %391, label %395, label %392
 
-393:                                              ; preds = %.thread
-  %394 = load i32, ptr %7, align 4
-  %395 = icmp eq i32 %15, %394
-  br i1 %395, label %396, label %407
+392:                                              ; preds = %.thread
+  %393 = load i32, ptr %7, align 4
+  %394 = icmp eq i32 %15, %393
+  br i1 %394, label %395, label %406
 
-396:                                              ; preds = %393, %.thread
-  %397 = getelementptr inbounds i8, ptr %0, i64 200
-  %398 = load ptr, ptr %397, align 8
-  %399 = icmp ugt ptr %398, %31
-  br i1 %399, label %400, label %401, !prof !13
+395:                                              ; preds = %392, %.thread
+  %396 = getelementptr inbounds i8, ptr %0, i64 200
+  %397 = load ptr, ptr %396, align 8
+  %398 = icmp ugt ptr %397, %31
+  br i1 %398, label %399, label %400, !prof !13
 
-400:                                              ; preds = %396
+399:                                              ; preds = %395
   call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #18, !srcloc !49
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #18, !srcloc !50
   call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #18, !srcloc !51
-  %.pre61 = load ptr, ptr %397, align 8
-  br label %401
+  %.pre61 = load ptr, ptr %396, align 8
+  br label %400
 
-401:                                              ; preds = %400, %396
-  %402 = phi ptr [ %.pre61, %400 ], [ %398, %396 ]
-  %403 = ptrtoint ptr %31 to i64
-  %404 = ptrtoint ptr %402 to i64
-  %405 = sub i64 %403, %404
-  %406 = trunc i64 %405 to i32
-  call void @skb_trim(ptr noundef %0, i32 noundef %406) #18
+400:                                              ; preds = %399, %395
+  %401 = phi ptr [ %.pre61, %399 ], [ %397, %395 ]
+  %402 = ptrtoint ptr %31 to i64
+  %403 = ptrtoint ptr %401 to i64
+  %404 = sub i64 %402, %403
+  %405 = trunc i64 %404 to i32
+  call void @skb_trim(ptr noundef %0, i32 noundef %405) #18
   br label %.critedge.thread
 
-407:                                              ; preds = %393
-  %408 = getelementptr inbounds i8, ptr %0, i64 192
-  %409 = load ptr, ptr %408, align 8
-  %410 = load i32, ptr %27, align 8
-  %411 = zext i32 %410 to i64
-  %412 = getelementptr i8, ptr %409, i64 %411
-  %413 = ptrtoint ptr %412 to i64
-  %414 = ptrtoint ptr %31 to i64
-  %415 = sub i64 %413, %414
-  %416 = trunc i64 %415 to i32
-  store i32 %416, ptr %31, align 4
+406:                                              ; preds = %392
+  %407 = getelementptr inbounds i8, ptr %0, i64 192
+  %408 = load ptr, ptr %407, align 8
+  %409 = load i32, ptr %27, align 8
+  %410 = zext i32 %409 to i64
+  %411 = getelementptr i8, ptr %408, i64 %410
+  %412 = ptrtoint ptr %411 to i64
+  %413 = ptrtoint ptr %31 to i64
+  %414 = sub i64 %412, %413
+  %415 = trunc i64 %414 to i32
+  store i32 %415, ptr %31, align 4
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %20, %24, %407, %401, %380, %.critedge
-  %417 = phi i32 [ 0, %380 ], [ -90, %.critedge ], [ %390, %407 ], [ %390, %401 ], [ -90, %24 ], [ -90, %20 ]
-  ret i32 %417
+.critedge.thread:                                 ; preds = %20, %24, %406, %400, %380, %.critedge
+  %416 = phi i32 [ 0, %380 ], [ -90, %.critedge ], [ %390, %406 ], [ %390, %400 ], [ -90, %24 ], [ -90, %20 ]
+  ret i32 %416
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -11845,7 +11844,7 @@ declare dso_local i32 @peernet2id_alloc(ptr noundef, ptr noundef, i32 noundef) l
 declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -90, 1) i32 @nlmsg_populate_fdb_fill(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i16 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i16 noundef zeroext %8) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @nlmsg_populate_fdb_fill(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i16 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 28, 30) %6, i32 noundef range(i32 0, 3) %7, i16 noundef zeroext %8) unnamed_addr #0 align 16 {
   %10 = alloca i16, align 2
   store i16 %3, ptr %10, align 2
   %11 = getelementptr inbounds i8, ptr %0, i64 116
@@ -12472,7 +12471,7 @@ declare dso_local void @linkwatch_sync_dev(ptr noundef) local_unnamed_addr #1
 declare dso_local zeroext i1 @netlink_strict_get_check(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @nlmsg_parse_deprecated_strict(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #7 align 16 {
+define internal fastcc i32 @nlmsg_parse_deprecated_strict(ptr noundef %0, i32 noundef range(i32 12, 17) %1, ptr noundef %2, i32 noundef range(i32 17, 66) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #7 align 16 {
   %7 = load i32, ptr %0, align 4
   %8 = add nuw nsw i32 %1, 16
   %9 = icmp ult i32 %7, %8
@@ -12490,10 +12489,10 @@ define internal fastcc i32 @nlmsg_parse_deprecated_strict(ptr noundef %0, i32 no
 13:                                               ; preds = %6
   %14 = getelementptr i8, ptr %0, i64 16
   %15 = add nuw nsw i32 %1, 3
-  %16 = and i32 %15, -4
+  %16 = and i32 %15, 60
   %17 = zext nneg i32 %16 to i64
   %18 = getelementptr i8, ptr %14, i64 %17
-  %reass.sub = sub i32 %7, %16
+  %reass.sub = sub nuw i32 %7, %16
   %19 = add i32 %reass.sub, -16
   %20 = tail call i32 @__nla_parse(ptr noundef %2, i32 noundef %3, ptr noundef %18, i32 noundef %19, ptr noundef %4, i32 noundef 3, ptr noundef %5) #18
   br label %21
@@ -12513,7 +12512,7 @@ declare dso_local ptr @__dev_get_by_name(ptr noundef, ptr noundef) local_unnamed
 declare dso_local ptr @netlink_alloc_large_skb(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 0, 4) %5) unnamed_addr #0 align 16 {
   %7 = alloca %struct.ifla_vf_info, align 4
   %8 = alloca [16 x i8], align 16
   %9 = alloca %struct.ifmap, align 8
@@ -14212,7 +14211,7 @@ declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly,
 declare dso_local i32 @register_netdevice(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @rtnl_linkprop(i32 noundef %0, ptr %.24.val.48.val, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @rtnl_linkprop(i32 noundef range(i32 108, 110) %0, ptr %.24.val.48.val, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca [128 x i8], align 16
   %5 = alloca [66 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 528, ptr nonnull %5) #18
@@ -14531,7 +14530,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @fdb_vid_parse(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rtnl_fdb_notify(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3, i16 noundef zeroext %4) unnamed_addr #0 align 16 {
+define internal fastcc void @rtnl_fdb_notify(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef range(i32 28, 30) %3, i16 noundef zeroext %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 272
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 813
@@ -14546,7 +14545,7 @@ define internal fastcc void @rtnl_fdb_notify(ptr nocapture noundef readonly %0, 
   br i1 %16, label %25, label %17
 
 17:                                               ; preds = %5
-  %18 = tail call fastcc i32 @nlmsg_populate_fdb_fill(ptr noundef nonnull %15, ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef 0, i32 noundef 0, i32 noundef %3, i32 noundef 0, i16 noundef zeroext %4)
+  %18 = tail call fastcc i32 @nlmsg_populate_fdb_fill(ptr noundef nonnull %15, ptr noundef nonnull %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef 0, i32 noundef 0, i32 noundef %3, i32 noundef 0, i16 noundef zeroext %4)
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %20, label %21
 
@@ -14575,7 +14574,7 @@ define internal fastcc void @rtnl_fdb_notify(ptr nocapture noundef readonly %0, 
 declare dso_local zeroext i1 @netlink_capable(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @rtnl_bridge_notify(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef i32 @rtnl_bridge_notify(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -14598,7 +14597,7 @@ define internal fastcc noundef i32 @rtnl_bridge_notify(ptr noundef %0) unnamed_a
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 504
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef nonnull %10, i32 noundef 0, i32 noundef 0, ptr noundef %0, i32 noundef 0, i32 noundef 0) #18
+  %16 = tail call i32 %15(ptr noundef nonnull %10, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0) #18
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %26, label %18
 
@@ -14649,7 +14648,7 @@ define internal fastcc noundef i32 @rtnl_bridge_notify(ptr noundef %0) unnamed_a
 declare dso_local ptr @nla_find(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_stats_get_parse(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_stats_get_parse(ptr noundef %0, i32 noundef range(i32 1, 0) %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca [6 x ptr], align 16
   %6 = alloca [3 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #18

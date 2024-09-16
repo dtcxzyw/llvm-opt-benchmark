@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.98d681cf054b0f7cc3d2881c611d21c0.1.llvm.6736004300802317726 = external hidden unnamed_addr constant <{}>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$tempfile..file..NamedTempFile$C$std..io..error..Error$GT$$GT$17h27d4440f1ff35958E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$tempfile..file..NamedTempFile$C$std..io..error..Error$GT$$GT$17h27d4440f1ff35958E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = load ptr, ptr %0, align 8, !noundef !4
   %.not = icmp eq ptr %3, null
@@ -94,7 +94,7 @@ define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..fs..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17hc6fba61a38a42657E"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..fs..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17hc6fba61a38a42657E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = load i64, ptr %0, align 8, !range !49, !noundef !4
   %4 = icmp eq i64 %3, 0
@@ -257,7 +257,7 @@ define void @_ZN7anki_io12new_tempfile17hb3327cc24aabda32E(ptr noalias nocapture
 20:                                               ; preds = %1
   %21 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$tempfile..file..NamedTempFile$C$std..io..error..Error$GT$$GT$17h27d4440f1ff35958E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #8
+  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$tempfile..file..NamedTempFile$C$std..io..error..Error$GT$$GT$17h27d4440f1ff35958E"(ptr noalias noundef align 8 dereferenceable(24) %4) #8
           to label %.body.thread unwind label %22
 
 22:                                               ; preds = %20
@@ -667,7 +667,7 @@ define void @"_ZN80_$LT$anki_io..ReadDirFiles$u20$as$u20$core..iter..traits..ite
 9:                                                ; preds = %21, %8
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..fs..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17hc6fba61a38a42657E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4) #8
+  invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..fs..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17hc6fba61a38a42657E"(ptr noalias noundef align 8 dereferenceable(48) %4) #8
           to label %25 unwind label %23
 
 11:                                               ; preds = %8
@@ -716,7 +716,7 @@ define void @"_ZN80_$LT$anki_io..ReadDirFiles$u20$as$u20$core..iter..traits..ite
   ret void
 
 .critedge11:                                      ; preds = %21, %17
-  call fastcc void @"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..fs..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17hc6fba61a38a42657E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4)
+  call fastcc void @"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..fs..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17hc6fba61a38a42657E"(ptr noalias noundef align 8 dereferenceable(48) %4)
   br label %26
 }
 

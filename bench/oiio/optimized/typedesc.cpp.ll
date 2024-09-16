@@ -1690,7 +1690,7 @@ cond.true:                                        ; preds = %sw.bb
   %4 = load i32, ptr %arraylen5.i, align 4
   store i32 %4, ptr %arraylen.i, align 4
   %5 = load ptr, ptr %ptr_fmt, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIPvS1_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIPvS1_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 cond.false:                                       ; preds = %sw.bb
@@ -1707,7 +1707,7 @@ cond.false:                                       ; preds = %sw.bb
   %8 = load i32, ptr %arraylen5.i, align 4
   store i32 %8, ptr %arraylen.i160, align 4
   %9 = load ptr, ptr %ptr_fmt, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIPvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp2, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIPvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp2, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 sw.bb4:                                           ; preds = %if.end
@@ -1732,7 +1732,7 @@ cond.true7:                                       ; preds = %sw.bb4
   %arraylen.i167 = getelementptr inbounds i8, ptr %agg.tmp8, i64 4
   %13 = load i32, ptr %arraylen5.i168, align 4
   store i32 %13, ptr %arraylen.i167, align 4
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIPvS1_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp8, ptr noundef nonnull @.str.29, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIPvS1_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp8, ptr noundef nonnull @.str.29, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 cond.false9:                                      ; preds = %sw.bb4
@@ -1748,7 +1748,7 @@ cond.false9:                                      ; preds = %sw.bb4
   %arraylen.i174 = getelementptr inbounds i8, ptr %agg.tmp10, i64 4
   %16 = load i32, ptr %arraylen5.i168, align 4
   store i32 %16, ptr %arraylen.i174, align 4
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIPvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp10, ptr noundef nonnull @.str.29, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIPvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp10, ptr noundef nonnull @.str.29, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 sw.bb12:                                          ; preds = %if.end
@@ -1777,7 +1777,7 @@ cond.true15:                                      ; preds = %sw.bb12
   %21 = load ptr, ptr %uint_fmt, align 8
   %tobool17.not = icmp eq ptr %21, null
   %spec.select = select i1 %tobool17.not, ptr @.str.30, ptr %21
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIhhEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp16, ptr noundef nonnull %spec.select, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIhhEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp16, ptr noundef nonnull %spec.select, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 cond.false22:                                     ; preds = %sw.bb12
@@ -1796,7 +1796,7 @@ cond.false22:                                     ; preds = %sw.bb12
   %25 = load ptr, ptr %uint_fmt, align 8
   %tobool25.not = icmp eq ptr %25, null
   %spec.select147 = select i1 %tobool25.not, ptr @.str.30, ptr %25
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIhEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp23, ptr noundef nonnull %spec.select147, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIhEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp23, ptr noundef nonnull %spec.select147, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 sw.bb32:                                          ; preds = %if.end
@@ -1822,7 +1822,7 @@ cond.true35:                                      ; preds = %sw.bb32
   %29 = load i32, ptr %arraylen5.i196, align 4
   store i32 %29, ptr %arraylen.i195, align 4
   %30 = load ptr, ptr %fmt, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIccEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp36, ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIccEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp36, ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 cond.false37:                                     ; preds = %sw.bb32
@@ -1838,7 +1838,7 @@ cond.false37:                                     ; preds = %sw.bb32
   %arraylen.i202 = getelementptr inbounds i8, ptr %agg.tmp38, i64 4
   %33 = load i32, ptr %arraylen5.i196, align 4
   store i32 %33, ptr %arraylen.i202, align 4
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp38, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp38, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 sw.bb40:                                          ; preds = %if.end
@@ -1867,7 +1867,7 @@ cond.true43:                                      ; preds = %sw.bb40
   %38 = load ptr, ptr %uint_fmt45, align 8
   %tobool46.not = icmp eq ptr %38, null
   %spec.select148 = select i1 %tobool46.not, ptr @.str.30, ptr %38
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIttEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp44, ptr noundef nonnull %spec.select148, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIttEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp44, ptr noundef nonnull %spec.select148, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 cond.false52:                                     ; preds = %sw.bb40
@@ -1886,7 +1886,7 @@ cond.false52:                                     ; preds = %sw.bb40
   %42 = load ptr, ptr %uint_fmt45, align 8
   %tobool55.not = icmp eq ptr %42, null
   %spec.select149 = select i1 %tobool55.not, ptr @.str.30, ptr %42
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeItEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp53, ptr noundef nonnull %spec.select149, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeItEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp53, ptr noundef nonnull %spec.select149, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 sw.bb62:                                          ; preds = %if.end
@@ -1912,7 +1912,7 @@ cond.true65:                                      ; preds = %sw.bb62
   %46 = load i32, ptr %arraylen5.i224, align 4
   store i32 %46, ptr %arraylen.i223, align 4
   %47 = load ptr, ptr %fmt, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIssEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp66, ptr noundef %47, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIssEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp66, ptr noundef %47, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 cond.false68:                                     ; preds = %sw.bb62
@@ -1929,7 +1929,7 @@ cond.false68:                                     ; preds = %sw.bb62
   %50 = load i32, ptr %arraylen5.i224, align 4
   store i32 %50, ptr %arraylen.i230, align 4
   %51 = load ptr, ptr %fmt, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp69, ptr noundef %51, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp69, ptr noundef %51, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 sw.bb72:                                          ; preds = %if.end
@@ -2076,7 +2076,7 @@ cond.true101:                                     ; preds = %if.end98
   %65 = load ptr, ptr %uint_fmt103, align 8
   %tobool104.not = icmp eq ptr %65, null
   %spec.select150 = select i1 %tobool104.not, ptr @.str.30, ptr %65
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIjjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp102, ptr noundef nonnull %spec.select150, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIjjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp102, ptr noundef nonnull %spec.select150, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 cond.false110:                                    ; preds = %if.end98
@@ -2093,7 +2093,7 @@ cond.false110:                                    ; preds = %if.end98
   %67 = load ptr, ptr %uint_fmt103, align 8
   %tobool113.not = icmp eq ptr %67, null
   %spec.select151 = select i1 %tobool113.not, ptr @.str.30, ptr %67
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp111, ptr noundef nonnull %spec.select151, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp111, ptr noundef nonnull %spec.select151, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 land.lhs.true.i274:                               ; preds = %if.end
@@ -2190,7 +2190,7 @@ cond.true157:                                     ; preds = %if.end154
   %77 = load i32, ptr %arraylen5.i296, align 4
   store i32 %77, ptr %arraylen.i295, align 4
   %78 = load ptr, ptr %fmt, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIiiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp158, ptr noundef %78, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIiiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp158, ptr noundef %78, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 cond.false160:                                    ; preds = %if.end154
@@ -2205,7 +2205,7 @@ cond.false160:                                    ; preds = %if.end154
   %79 = load i32, ptr %arraylen5.i296, align 4
   store i32 %79, ptr %arraylen.i302, align 4
   %80 = load ptr, ptr %fmt, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp161, ptr noundef %80, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp161, ptr noundef %80, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 sw.bb164:                                         ; preds = %if.end
@@ -2234,7 +2234,7 @@ cond.true167:                                     ; preds = %sw.bb164
   %85 = load ptr, ptr %uint_fmt169, align 8
   %tobool170.not = icmp eq ptr %85, null
   %spec.select152 = select i1 %tobool170.not, ptr @.str.30, ptr %85
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeImmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp168, ptr noundef nonnull %spec.select152, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeImmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp168, ptr noundef nonnull %spec.select152, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 cond.false176:                                    ; preds = %sw.bb164
@@ -2253,7 +2253,7 @@ cond.false176:                                    ; preds = %sw.bb164
   %89 = load ptr, ptr %uint_fmt169, align 8
   %tobool179.not = icmp eq ptr %89, null
   %spec.select153 = select i1 %tobool179.not, ptr @.str.30, ptr %89
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp177, ptr noundef nonnull %spec.select153, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp177, ptr noundef nonnull %spec.select153, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 sw.bb186:                                         ; preds = %if.end
@@ -2279,7 +2279,7 @@ cond.true189:                                     ; preds = %sw.bb186
   %93 = load i32, ptr %arraylen5.i324, align 4
   store i32 %93, ptr %arraylen.i323, align 4
   %94 = load ptr, ptr %fmt, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIllEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp190, ptr noundef %94, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIllEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp190, ptr noundef %94, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 cond.false192:                                    ; preds = %sw.bb186
@@ -2296,7 +2296,7 @@ cond.false192:                                    ; preds = %sw.bb186
   %97 = load i32, ptr %arraylen5.i324, align 4
   store i32 %97, ptr %arraylen.i330, align 4
   %98 = load ptr, ptr %fmt, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp193, ptr noundef %98, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp193, ptr noundef %98, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 sw.bb196:                                         ; preds = %if.end
@@ -2323,7 +2323,7 @@ cond.true199:                                     ; preds = %sw.bb196
   %102 = load i32, ptr %arraylen5.i338, align 4
   store i32 %102, ptr %arraylen.i337, align 4
   %103 = load ptr, ptr %float_fmt, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeI4halffEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp200, ptr noundef %103, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeI4halffEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp200, ptr noundef %103, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 cond.false201:                                    ; preds = %sw.bb196
@@ -2340,7 +2340,7 @@ cond.false201:                                    ; preds = %sw.bb196
   %106 = load i32, ptr %arraylen5.i338, align 4
   store i32 %106, ptr %arraylen.i344, align 4
   %107 = load ptr, ptr %float_fmt, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeI4halfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp202, ptr noundef %107, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeI4halfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp202, ptr noundef %107, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 sw.bb205:                                         ; preds = %if.end
@@ -2367,7 +2367,7 @@ cond.true208:                                     ; preds = %sw.bb205
   %111 = load i32, ptr %arraylen5.i352, align 4
   store i32 %111, ptr %arraylen.i351, align 4
   %112 = load ptr, ptr %float_fmt210, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIffEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp209, ptr noundef %112, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIffEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp209, ptr noundef %112, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 cond.false211:                                    ; preds = %sw.bb205
@@ -2384,7 +2384,7 @@ cond.false211:                                    ; preds = %sw.bb205
   %115 = load i32, ptr %arraylen5.i352, align 4
   store i32 %115, ptr %arraylen.i358, align 4
   %116 = load ptr, ptr %float_fmt210, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp212, ptr noundef %116, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp212, ptr noundef %116, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 sw.bb215:                                         ; preds = %if.end
@@ -2411,7 +2411,7 @@ cond.true218:                                     ; preds = %sw.bb215
   %120 = load i32, ptr %arraylen5.i366, align 4
   store i32 %120, ptr %arraylen.i365, align 4
   %121 = load ptr, ptr %float_fmt220, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIddEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp219, ptr noundef %121, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIddEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp219, ptr noundef %121, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 cond.false221:                                    ; preds = %sw.bb215
@@ -2428,7 +2428,7 @@ cond.false221:                                    ; preds = %sw.bb215
   %124 = load i32, ptr %arraylen5.i366, align 4
   store i32 %124, ptr %arraylen.i372, align 4
   %125 = load ptr, ptr %float_fmt220, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp222, ptr noundef %125, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp222, ptr noundef %125, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 sw.bb225:                                         ; preds = %if.end
@@ -2484,7 +2484,7 @@ cond.true242:                                     ; preds = %if.end239
   %arraylen.i381 = getelementptr inbounds i8, ptr %agg.tmp243, i64 4
   store i32 %126, ptr %arraylen.i381, align 4
   %133 = load ptr, ptr %string_fmt, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeB5cxx11ENS_8TypeDescEPKcRKNS_19tostring_formattingEPS2_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp243, ptr noundef %133, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeB5cxx11ENS_8TypeDescEPKcRKNS_19tostring_formattingEPS2_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp243, ptr noundef %133, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 cond.false244:                                    ; preds = %if.end239
@@ -2500,7 +2500,7 @@ cond.false244:                                    ; preds = %if.end239
   %arraylen.i388 = getelementptr inbounds i8, ptr %agg.tmp245, i64 4
   store i32 %126, ptr %arraylen.i388, align 4
   %136 = load ptr, ptr %string_fmt, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeB5cxx11ENS_8TypeDescEPKcRKNS_19tostring_formattingEPS2_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp245, ptr noundef %136, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeB5cxx11ENS_8TypeDescEPKcRKNS_19tostring_formattingEPS2_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp245, ptr noundef %136, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 sw.bb248:                                         ; preds = %if.end
@@ -2527,7 +2527,7 @@ cond.true251:                                     ; preds = %sw.bb248
   %140 = load i32, ptr %arraylen5.i396, align 4
   store i32 %140, ptr %arraylen.i395, align 4
   %141 = load ptr, ptr %ptr_fmt253, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIPvS1_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp252, ptr noundef %141, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIPvS1_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp252, ptr noundef %141, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 cond.false254:                                    ; preds = %sw.bb248
@@ -2544,7 +2544,7 @@ cond.false254:                                    ; preds = %sw.bb248
   %144 = load i32, ptr %arraylen5.i396, align 4
   store i32 %144, ptr %arraylen.i402, align 4
   %145 = load ptr, ptr %ptr_fmt253, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIPvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp255, ptr noundef %145, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %data)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIPvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp255, ptr noundef %145, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %data)
   br label %return
 
 sw.bb258:                                         ; preds = %if.end
@@ -2616,7 +2616,7 @@ cond.true278:                                     ; preds = %if.end275
   %arraylen.i412 = getelementptr inbounds i8, ptr %agg.tmp279, i64 4
   store i32 %150, ptr %arraylen.i412, align 4
   %157 = load ptr, ptr %string_fmt280, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeB5cxx11ENS_8TypeDescEPKcRKNS_19tostring_formattingEPS2_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp279, ptr noundef %157, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %v)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeB5cxx11ENS_8TypeDescEPKcRKNS_19tostring_formattingEPS2_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp279, ptr noundef %157, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %v)
   br label %return
 
 cond.false281:                                    ; preds = %if.end275
@@ -2632,7 +2632,7 @@ cond.false281:                                    ; preds = %if.end275
   %arraylen.i419 = getelementptr inbounds i8, ptr %agg.tmp282, i64 4
   store i32 %150, ptr %arraylen.i419, align 4
   %160 = load ptr, ptr %string_fmt280, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeB5cxx11ENS_8TypeDescEPKcRKNS_19tostring_formattingEPS2_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp282, ptr noundef %160, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef nonnull %v)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeB5cxx11ENS_8TypeDescEPKcRKNS_19tostring_formattingEPS2_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp282, ptr noundef %160, ptr noundef nonnull align 8 dereferenceable(113) %fmt, ptr noundef %v)
   br label %return
 
 sw.epilog:                                        ; preds = %if.end
@@ -2677,7 +2677,7 @@ eh.resume:                                        ; preds = %lpad286.body, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIPvS1_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIPvS1_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::basic_string_view", align 8
   %ref.tmp1.i = alloca %"class.fmt::v8::format_arg_store.127", align 16
@@ -2846,7 +2846,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIPvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIPvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.128", align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3009,7 +3009,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIhhEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIhhEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::basic_string_view", align 8
   %ref.tmp1.i = alloca %"class.fmt::v8::format_arg_store.129", align 16
@@ -3178,7 +3178,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIhEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIhEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.130", align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3341,7 +3341,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIccEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIccEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::basic_string_view", align 8
   %ref.tmp1.i = alloca %"class.fmt::v8::format_arg_store.131", align 16
@@ -3510,7 +3510,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.132", align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3672,7 +3672,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIttEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIttEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::basic_string_view", align 8
   %ref.tmp1.i = alloca %"class.fmt::v8::format_arg_store.133", align 16
@@ -3841,7 +3841,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeItEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeItEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.134", align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4004,7 +4004,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIssEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIssEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::basic_string_view", align 8
   %ref.tmp1.i = alloca %"class.fmt::v8::format_arg_store.135", align 16
@@ -4174,7 +4174,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.136", align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4367,7 +4367,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIjjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIjjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::basic_string_view", align 8
   %ref.tmp1.i = alloca %"class.fmt::v8::format_arg_store.141", align 16
@@ -4536,7 +4536,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.142", align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4699,7 +4699,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIiiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIiiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::basic_string_view", align 8
   %ref.tmp1.i = alloca %"class.fmt::v8::format_arg_store.126", align 16
@@ -4868,7 +4868,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.144", align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5031,7 +5031,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeImmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeImmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::basic_string_view", align 8
   %ref.tmp1.i = alloca %"class.fmt::v8::format_arg_store.145", align 16
@@ -5199,7 +5199,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.146", align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5361,7 +5361,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIllEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIllEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::basic_string_view", align 8
   %ref.tmp1.i = alloca %"class.fmt::v8::format_arg_store.147", align 16
@@ -5529,7 +5529,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.148", align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5691,7 +5691,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeI4halffEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeI4halffEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::basic_string_view", align 8
   %ref.tmp1.i = alloca %"class.fmt::v8::format_arg_store.149", align 16
@@ -5863,7 +5863,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeI4halfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeI4halfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.150", align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6029,7 +6029,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIffEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIffEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::basic_string_view", align 8
   %ref.tmp1.i = alloca %"class.fmt::v8::format_arg_store.149", align 16
@@ -6198,7 +6198,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.151", align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6361,7 +6361,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIddEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeIddEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::basic_string_view", align 8
   %ref.tmp1.i = alloca %"class.fmt::v8::format_arg_store.152", align 16
@@ -6529,7 +6529,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TypeDescEPKcRKNS_19tostring_formattingEPKT_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.153", align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6691,7 +6691,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeB5cxx11ENS_8TypeDescEPKcRKNS_19tostring_formattingEPS2_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11sprint_typeB5cxx11ENS_8TypeDescEPKcRKNS_19tostring_formattingEPS2_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i22 = alloca %"class.fmt::v8::basic_string_view", align 8
   %ref.tmp1.i23 = alloca %"class.fmt::v8::format_arg_store.101", align 16
@@ -6932,7 +6932,7 @@ ehcleanup73:                                      ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeB5cxx11ENS_8TypeDescEPKcRKNS_19tostring_formattingEPS2_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11format_typeB5cxx11ENS_8TypeDescEPKcRKNS_19tostring_formattingEPS2_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %type, ptr noundef %format, ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %fmt, ptr nocapture noundef nonnull readonly %v) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i22 = alloca %"class.fmt::v8::format_arg_store.123", align 16
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.104", align 16

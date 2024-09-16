@@ -11620,7 +11620,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit210:                 ; preds = %546, %_ZNSt6vectorI
 declare void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN6cvtestL17borderInterpolateEiii(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN6cvtestL17borderInterpolateEiii(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = icmp ult i32 %0, %1
@@ -23865,7 +23865,7 @@ define hidden void @_ZN6cvtest3minERKN2cv3MatES3_RS1_(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6cvtestL6minmaxERKN2cv3MatES3_RS1_c(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i8 noundef signext %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6cvtestL6minmaxERKN2cv3MatES3_RS1_c(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i8 noundef signext range(i8 77, 110) %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca [4 x ptr], align 16
@@ -24319,7 +24319,7 @@ define hidden void @_ZN6cvtest3minERKN2cv3MatEdRS1_(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6cvtestL6minmaxERKN2cv3MatEdRS1_c(ptr noundef nonnull align 8 dereferenceable(96) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i8 noundef signext %3) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6cvtestL6minmaxERKN2cv3MatEdRS1_c(ptr noundef nonnull align 8 dereferenceable(96) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i8 noundef signext range(i8 77, 110) %3) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %5 = alloca [3 x ptr], align 16
   %6 = alloca [2 x %"class.cv::Mat"], align 16
   %7 = alloca %"class.cv::NAryMatIterator", align 8
@@ -24711,7 +24711,7 @@ define hidden void @_ZN6cvtest8multiplyERKN2cv3MatES3_RS1_di(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %3, double noundef %4, i8 noundef signext %5) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6cvtestL6muldivERKN2cv3MatES3_RS1_idc(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %3, double noundef %4, i8 noundef signext range(i8 42, 48) %5) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca [4 x ptr], align 16
@@ -28839,7 +28839,7 @@ _ZN2cv3Mat3ptrEPKi.exit42:                        ; preds = %155, %144
   br label %285
 
 172:                                              ; preds = %76
-  invoke fastcc void @_ZN6cvtestL11getSubArrayERKN2cv3MatEiRSt6vectorIiSaIiEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(96) %12, i32 noundef %82, ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  invoke fastcc void @_ZN6cvtestL11getSubArrayERKN2cv3MatEiRSt6vectorIiSaIiEES7_(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(96) %12, i32 noundef %82, ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %173 unwind label %166
 
 173:                                              ; preds = %172
@@ -28848,7 +28848,7 @@ _ZN2cv3Mat3ptrEPKi.exit42:                        ; preds = %155, %144
 
 175:                                              ; preds = %173
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #29
-  invoke fastcc void @_ZN6cvtestL11getSubArrayERKN2cv3MatEiRSt6vectorIiSaIiEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(96) %75, i32 noundef %82, ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  invoke fastcc void @_ZN6cvtestL11getSubArrayERKN2cv3MatEiRSt6vectorIiSaIiEES7_(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(96) %75, i32 noundef %82, ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %176 unwind label %166
 
 176:                                              ; preds = %175
@@ -29465,7 +29465,7 @@ _ZN7testing8internal10scoped_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 declare void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6cvtestL11getSubArrayERKN2cv3MatEiRSt6vectorIiSaIiEES7_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6cvtestL11getSubArrayERKN2cv3MatEiRSt6vectorIiSaIiEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef range(i32 1, 0) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = getelementptr inbounds i8, ptr %3, i64 8

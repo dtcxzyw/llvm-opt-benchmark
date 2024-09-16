@@ -318,7 +318,7 @@ if.end108:                                        ; preds = %if.else
   br i1 %or.cond2, label %if.then111, label %if.else118
 
 if.then111:                                       ; preds = %if.end108
-  %call112 = call fastcc i32 @do_generate(ptr noundef %genstr.0, ptr noundef %genconf.0, ptr noundef nonnull %call84)
+  %call112 = call fastcc i32 @do_generate(ptr noundef %genstr.0, ptr noundef %genconf.0, ptr noundef %call84)
   %conv113 = sext i32 %call112 to i64
   store i64 %conv113, ptr %num, align 8
   %cmp114 = icmp slt i32 %call112, 0
@@ -632,7 +632,7 @@ declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #1
 declare i64 @BUF_MEM_grow(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @do_generate(ptr noundef %genstr, ptr noundef %genconf, ptr noundef %buf) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @do_generate(ptr noundef %genstr, ptr noundef %genconf, ptr noundef nonnull %buf) unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %cmp.not = icmp eq ptr %genconf, null
@@ -672,7 +672,7 @@ if.end15:                                         ; preds = %if.end11
 
 if.end19:                                         ; preds = %if.end15
   %conv = zext nneg i32 %call16 to i64
-  %call20 = tail call i64 @BUF_MEM_grow(ptr noundef %buf, i64 noundef %conv) #3
+  %call20 = tail call i64 @BUF_MEM_grow(ptr noundef nonnull %buf, i64 noundef %conv) #3
   %tobool.not = icmp eq i64 %call20, 0
   br i1 %tobool.not, label %err, label %if.end22
 

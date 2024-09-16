@@ -348,7 +348,7 @@ declare i32 @BN_dec2bn(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @__ctype_b_loc() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cli_decodesig(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @cli_decodesig(ptr nocapture noundef readonly %0, i32 noundef range(i32 16, 257) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   %6 = trunc i64 %5 to i32
   %7 = tail call ptr @BN_new() #14

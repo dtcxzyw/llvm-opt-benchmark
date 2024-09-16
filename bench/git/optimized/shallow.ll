@@ -979,7 +979,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_shallow_commits_1(ptr noundef %out, i32 noundef %use_pack_protocol, ptr noundef readonly %extra, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc i32 @write_shallow_commits_1(ptr noundef %out, i32 noundef %use_pack_protocol, ptr noundef readonly %extra, i32 noundef range(i32 0, 8) %flags) unnamed_addr #0 {
 entry:
   %data = alloca %struct.write_shallow_data, align 8
   store ptr %out, ptr %data, align 8

@@ -456,8 +456,7 @@ bufferevent_incref_and_lock_.exit:                ; preds = %entry, %if.then.i
   br i1 %tobool.not.i3, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %bufferevent_incref_and_lock_.exit
-  %and1.i = and i32 %options, 65536
-  %tobool2.not.i = icmp eq i32 %and1.i, 0
+  %tobool2.not.i = icmp ult i32 %and, 65536
   br i1 %tobool2.not.i, label %lor.lhs.false.i, label %if.then.i4
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
@@ -479,8 +478,7 @@ if.end.i:                                         ; preds = %if.then.i4, %lor.lh
   br i1 %tobool6.not.i, label %bufferevent_trigger_nolock_.exit, label %land.lhs.true7.i
 
 land.lhs.true7.i:                                 ; preds = %if.end.i
-  %and8.i = and i32 %options, 65536
-  %tobool9.not.i = icmp eq i32 %and8.i, 0
+  %tobool9.not.i = icmp ult i32 %and, 65536
   br i1 %tobool9.not.i, label %lor.lhs.false10.i, label %if.then15.i
 
 lor.lhs.false10.i:                                ; preds = %land.lhs.true7.i

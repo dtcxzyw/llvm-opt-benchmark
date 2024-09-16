@@ -4042,7 +4042,7 @@ declare void @_ZN7doctest6detail13ResultBuilder9setResultERKNS0_6ResultE(ptr nou
 declare void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118AstVisitorTrackingixEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118AstVisitorTrackingixEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef range(i64 0, 7) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"struct.doctest::detail::ResultBuilder", align 8
   %5 = alloca %"class.doctest::String", align 8

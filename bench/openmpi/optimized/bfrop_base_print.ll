@@ -222,7 +222,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_info(ptr noundef %0, ptr no
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 520
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %9 = call fastcc i32 @print_val(ptr noundef nonnull %5, ptr noundef nonnull %8)
+  %9 = call fastcc i32 @print_val(ptr noundef %5, ptr noundef %8)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %pmix_bfrops_base_print_value.exit
 
@@ -275,7 +275,7 @@ define ptr @PMIx_Value_string(ptr noundef %0) local_unnamed_addr #0 {
   br label %pmix_bfrops_base_print_value.exit
 
 10:                                               ; preds = %6
-  %11 = call fastcc i32 @print_val(ptr noundef nonnull %2, ptr noundef nonnull %0)
+  %11 = call fastcc i32 @print_val(ptr noundef %2, ptr noundef %0)
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %pmix_bfrops_base_print_value.exit
 
@@ -322,7 +322,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_value(ptr noundef %0, ptr n
   br label %21
 
 11:                                               ; preds = %4
-  %12 = call fastcc i32 @print_val(ptr noundef nonnull %5, ptr noundef nonnull %2)
+  %12 = call fastcc i32 @print_val(ptr noundef %5, ptr noundef %2)
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %19
 
@@ -878,7 +878,7 @@ declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #3
 declare i32 @pmix_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @print_val(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @print_val(ptr nocapture noundef nonnull writeonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load i16, ptr %1, align 8
   switch i16 %4, label %222 [
@@ -1313,7 +1313,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_pdata(ptr noundef %0, ptr n
   %8 = call i32 @pmix_bfrops_base_print_proc(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i16 zeroext poison)
   %9 = getelementptr inbounds i8, ptr %2, i64 776
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %10 = call fastcc i32 @print_val(ptr noundef nonnull %5, ptr noundef nonnull %9)
+  %10 = call fastcc i32 @print_val(ptr noundef %5, ptr noundef %9)
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %pmix_bfrops_base_print_value.exit
 

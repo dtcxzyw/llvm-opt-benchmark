@@ -301,7 +301,7 @@ if.then93:                                        ; preds = %if.end88
   br label %if.end94
 
 if.end94:                                         ; preds = %if.then93, %if.end88
-  %call95 = call fastcc zeroext i1 @parallels_test_data_off(ptr noundef nonnull %0, i64 noundef %call7, ptr noundef nonnull %data_start)
+  %call95 = call fastcc zeroext i1 @parallels_test_data_off(ptr noundef nonnull %0, i64 noundef %call7, ptr noundef %data_start)
   %.not = and i1 %cmp91, %call95
   %23 = load i32, ptr %data_start, align 4
   %conv100 = zext i32 %23 to i64
@@ -1478,7 +1478,7 @@ declare i64 @bdrv_opt_mem_align(ptr noundef) local_unnamed_addr #1
 declare ptr @qemu_try_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @parallels_test_data_off(ptr nocapture noundef readonly %s, i64 noundef %file_nb_sectors, ptr nocapture noundef writeonly %correct_offset) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @parallels_test_data_off(ptr nocapture noundef readonly %s, i64 noundef range(i64 0, -9223372036854775808) %file_nb_sectors, ptr nocapture noundef nonnull writeonly %correct_offset) unnamed_addr #4 {
 entry:
   %header = getelementptr inbounds i8, ptr %s, i64 48
   %0 = load ptr, ptr %header, align 8
@@ -1518,7 +1518,7 @@ if.end:                                           ; preds = %if.then, %entry
 if.end24:                                         ; preds = %if.end
   %cmp25 = icmp ult i32 %5, %min_off.0
   %conv27 = zext i32 %5 to i64
-  %cmp28 = icmp slt i64 %file_nb_sectors, %conv27
+  %cmp28 = icmp ult i64 %file_nb_sectors, %conv27
   %or.cond = or i1 %cmp25, %cmp28
   br i1 %or.cond, label %return, label %if.then33
 
@@ -1558,11 +1558,11 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @bitmap_new(i64 noundef %nbits) unnamed_addr #0 {
+define internal fastcc noalias nonnull ptr @bitmap_new(i64 noundef range(i64 0, 4294967296) %nbits) unnamed_addr #0 {
 entry:
-  %sub.i = add i64 %nbits, 63
+  %sub.i = add nuw nsw i64 %nbits, 63
   %0 = lshr i64 %sub.i, 3
-  %mul.i = and i64 %0, 2305843009213693944
+  %mul.i = and i64 %0, 1073741816
   %call.i = tail call noalias ptr @g_try_malloc0(i64 noundef %mul.i) #20
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %if.then, label %if.end

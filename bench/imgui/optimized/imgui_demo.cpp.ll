@@ -25966,7 +25966,7 @@ declare void @_ZN15ImGuiTextBuffer8appendfvEPKcP13__va_list_tag(ptr noundef nonn
 declare void @_ZN16ImGuiListClipper3EndEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL21ShowPlaceholderObjectPKci(ptr noundef %prefix, i32 noundef %uid) unnamed_addr #2 {
+define internal fastcc void @_ZL21ShowPlaceholderObjectPKci(ptr noundef %prefix, i32 noundef range(i32 -2147483648, 424243) %uid) unnamed_addr #2 {
 entry:
   tail call void @_ZN5ImGui6PushIDEi(i32 noundef %uid)
   tail call void @_ZN5ImGui12TableNextRowEif(i32 noundef 0, float noundef 0.000000e+00)

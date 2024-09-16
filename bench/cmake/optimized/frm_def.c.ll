@@ -22,7 +22,7 @@ define dso_local noundef ptr @new_form(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = load ptr, ptr @_nc_Default_Form, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull align 8 dereferenceable(128) %4, i64 128, i1 false)
-  %5 = tail call fastcc i32 @Connect_Fields(ptr noundef nonnull %2, ptr noundef %0)
+  %5 = tail call fastcc i32 @Connect_Fields(ptr noundef %2, ptr noundef %0)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %Associate_Fields.exit
 
@@ -279,7 +279,7 @@ define dso_local range(i32 -4, 1) i32 @set_form_fields(ptr noundef %0, ptr nound
   br label %Disconnect_Fields.exit
 
 Disconnect_Fields.exit:                           ; preds = %6, %25
-  %26 = tail call fastcc i32 @Connect_Fields(ptr noundef nonnull %0, ptr noundef %1)
+  %26 = tail call fastcc i32 @Connect_Fields(ptr noundef %0, ptr noundef %1)
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %Associate_Fields.exit
 
@@ -302,7 +302,7 @@ Disconnect_Fields.exit:                           ; preds = %6, %25
   br label %Associate_Fields.exit.thread
 
 Associate_Fields.exit:                            ; preds = %Disconnect_Fields.exit
-  %37 = tail call fastcc i32 @Connect_Fields(ptr noundef nonnull %0, ptr noundef %8)
+  %37 = tail call fastcc i32 @Connect_Fields(ptr noundef %0, ptr noundef %8)
   br label %Associate_Fields.exit.thread
 
 Associate_Fields.exit.thread:                     ; preds = %Associate_Fields.exit, %33, %35, %3, %2
@@ -313,7 +313,7 @@ Associate_Fields.exit.thread:                     ; preds = %Associate_Fields.ex
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24

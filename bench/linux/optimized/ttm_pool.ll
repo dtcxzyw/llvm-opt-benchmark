@@ -654,7 +654,7 @@ define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ttm_pool_free_range(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc void @ttm_pool_free_range(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %3, i64 noundef %4) unnamed_addr #0 align 16 {
   %6 = icmp ult i64 %3, %4
   br i1 %6, label %7, label %.loopexit
 

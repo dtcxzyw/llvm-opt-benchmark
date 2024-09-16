@@ -4761,18 +4761,18 @@ if.end.i:                                         ; preds = %entry
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end.i
-  %i.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end.i ]
-  %src.addr.05.i.i = phi ptr [ %src.addr.1.i.i, %for.body.i.i ], [ %drive_serial_str.i, %if.end.i ]
-  %2 = load i8, ptr %src.addr.05.i.i, align 1
+  %i.05.i.i = phi i32 [ 0, %if.end.i ], [ %inc.i.i, %for.body.i.i ]
+  %src.addr.04.i.i = phi ptr [ %drive_serial_str.i, %if.end.i ], [ %src.addr.1.i.i, %for.body.i.i ]
+  %2 = load i8, ptr %src.addr.04.i.i, align 1
   %tobool.not.i.i = icmp ne i8 %2, 0
   %src.addr.1.idx.i.i = zext i1 %tobool.not.i.i to i64
-  %src.addr.1.i.i = getelementptr i8, ptr %src.addr.05.i.i, i64 %src.addr.1.idx.i.i
+  %src.addr.1.i.i = getelementptr i8, ptr %src.addr.04.i.i, i64 %src.addr.1.idx.i.i
   %v.0.i.i = select i1 %tobool.not.i.i, i8 %2, i8 32
-  %xor.i.i = xor i32 %i.06.i.i, 1
+  %xor.i.i = xor i32 %i.05.i.i, 1
   %idxprom.i.i = zext nneg i32 %xor.i.i to i64
   %arrayidx.i.i = getelementptr i8, ptr %add.ptr1.i, i64 %idxprom.i.i
   store i8 %v.0.i.i, ptr %arrayidx.i.i, align 1
-  %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
+  %inc.i.i = add nuw nsw i32 %i.05.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, 20
   br i1 %exitcond.not.i.i, label %padstr.exit.i, label %for.body.i.i, !llvm.loop !13
 
@@ -4788,18 +4788,18 @@ padstr.exit.i:                                    ; preds = %for.body.i.i
   br label %for.body.i46.i
 
 for.body.i46.i:                                   ; preds = %for.body.i46.i, %padstr.exit.i
-  %i.06.i47.i = phi i32 [ %inc.i56.i, %for.body.i46.i ], [ 0, %padstr.exit.i ]
-  %src.addr.05.i48.i = phi ptr [ %src.addr.1.i51.i, %for.body.i46.i ], [ %version.i, %padstr.exit.i ]
-  %3 = load i8, ptr %src.addr.05.i48.i, align 1
+  %i.05.i47.i = phi i32 [ 0, %padstr.exit.i ], [ %inc.i56.i, %for.body.i46.i ]
+  %src.addr.04.i48.i = phi ptr [ %version.i, %padstr.exit.i ], [ %src.addr.1.i51.i, %for.body.i46.i ]
+  %3 = load i8, ptr %src.addr.04.i48.i, align 1
   %tobool.not.i49.i = icmp ne i8 %3, 0
   %src.addr.1.idx.i50.i = zext i1 %tobool.not.i49.i to i64
-  %src.addr.1.i51.i = getelementptr i8, ptr %src.addr.05.i48.i, i64 %src.addr.1.idx.i50.i
+  %src.addr.1.i51.i = getelementptr i8, ptr %src.addr.04.i48.i, i64 %src.addr.1.idx.i50.i
   %v.0.i52.i = select i1 %tobool.not.i49.i, i8 %3, i8 32
-  %xor.i53.i = xor i32 %i.06.i47.i, 1
+  %xor.i53.i = xor i32 %i.05.i47.i, 1
   %idxprom.i54.i = zext nneg i32 %xor.i53.i to i64
   %arrayidx.i55.i = getelementptr i8, ptr %add.ptr6.i, i64 %idxprom.i54.i
   store i8 %v.0.i52.i, ptr %arrayidx.i55.i, align 1
-  %inc.i56.i = add nuw nsw i32 %i.06.i47.i, 1
+  %inc.i56.i = add nuw nsw i32 %i.05.i47.i, 1
   %exitcond.not.i57.i = icmp eq i32 %inc.i56.i, 8
   br i1 %exitcond.not.i57.i, label %padstr.exit58.i, label %for.body.i46.i, !llvm.loop !13
 
@@ -4809,18 +4809,18 @@ padstr.exit58.i:                                  ; preds = %for.body.i46.i
   br label %for.body.i59.i
 
 for.body.i59.i:                                   ; preds = %for.body.i59.i, %padstr.exit58.i
-  %i.06.i60.i = phi i32 [ %inc.i69.i, %for.body.i59.i ], [ 0, %padstr.exit58.i ]
-  %src.addr.05.i61.i = phi ptr [ %src.addr.1.i64.i, %for.body.i59.i ], [ %drive_model_str.i, %padstr.exit58.i ]
-  %4 = load i8, ptr %src.addr.05.i61.i, align 1
+  %i.05.i60.i = phi i32 [ 0, %padstr.exit58.i ], [ %inc.i69.i, %for.body.i59.i ]
+  %src.addr.04.i61.i = phi ptr [ %drive_model_str.i, %padstr.exit58.i ], [ %src.addr.1.i64.i, %for.body.i59.i ]
+  %4 = load i8, ptr %src.addr.04.i61.i, align 1
   %tobool.not.i62.i = icmp ne i8 %4, 0
   %src.addr.1.idx.i63.i = zext i1 %tobool.not.i62.i to i64
-  %src.addr.1.i64.i = getelementptr i8, ptr %src.addr.05.i61.i, i64 %src.addr.1.idx.i63.i
+  %src.addr.1.i64.i = getelementptr i8, ptr %src.addr.04.i61.i, i64 %src.addr.1.idx.i63.i
   %v.0.i65.i = select i1 %tobool.not.i62.i, i8 %4, i8 32
-  %xor.i66.i = xor i32 %i.06.i60.i, 1
+  %xor.i66.i = xor i32 %i.05.i60.i, 1
   %idxprom.i67.i = zext nneg i32 %xor.i66.i to i64
   %arrayidx.i68.i = getelementptr i8, ptr %add.ptr8.i, i64 %idxprom.i67.i
   store i8 %v.0.i65.i, ptr %arrayidx.i68.i, align 1
-  %inc.i69.i = add nuw nsw i32 %i.06.i60.i, 1
+  %inc.i69.i = add nuw nsw i32 %i.05.i60.i, 1
   %exitcond.not.i70.i = icmp eq i32 %inc.i69.i, 40
   br i1 %exitcond.not.i70.i, label %padstr.exit71.i, label %for.body.i59.i, !llvm.loop !13
 
@@ -5859,18 +5859,18 @@ if.end.i:                                         ; preds = %if.then3
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end.i
-  %i.06.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end.i ]
-  %src.addr.05.i.i = phi ptr [ %src.addr.1.i.i, %for.body.i.i ], [ %drive_serial_str.i, %if.end.i ]
-  %8 = load i8, ptr %src.addr.05.i.i, align 1
+  %i.05.i.i = phi i32 [ 0, %if.end.i ], [ %inc.i.i, %for.body.i.i ]
+  %src.addr.04.i.i = phi ptr [ %drive_serial_str.i, %if.end.i ], [ %src.addr.1.i.i, %for.body.i.i ]
+  %8 = load i8, ptr %src.addr.04.i.i, align 1
   %tobool.not.i.i = icmp ne i8 %8, 0
   %src.addr.1.idx.i.i = zext i1 %tobool.not.i.i to i64
-  %src.addr.1.i.i = getelementptr i8, ptr %src.addr.05.i.i, i64 %src.addr.1.idx.i.i
+  %src.addr.1.i.i = getelementptr i8, ptr %src.addr.04.i.i, i64 %src.addr.1.idx.i.i
   %v.0.i.i = select i1 %tobool.not.i.i, i8 %8, i8 32
-  %xor.i.i = xor i32 %i.06.i.i, 1
+  %xor.i.i = xor i32 %i.05.i.i, 1
   %idxprom.i.i = zext nneg i32 %xor.i.i to i64
   %arrayidx.i.i = getelementptr i8, ptr %add.ptr9.i, i64 %idxprom.i.i
   store i8 %v.0.i.i, ptr %arrayidx.i.i, align 1
-  %inc.i.i = add nuw nsw i32 %i.06.i.i, 1
+  %inc.i.i = add nuw nsw i32 %i.05.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, 20
   br i1 %exitcond.not.i.i, label %padstr.exit.i, label %for.body.i.i, !llvm.loop !13
 
@@ -5886,18 +5886,18 @@ padstr.exit.i:                                    ; preds = %for.body.i.i
   br label %for.body.i102.i
 
 for.body.i102.i:                                  ; preds = %for.body.i102.i, %padstr.exit.i
-  %i.06.i103.i = phi i32 [ %inc.i112.i, %for.body.i102.i ], [ 0, %padstr.exit.i ]
-  %src.addr.05.i104.i = phi ptr [ %src.addr.1.i107.i, %for.body.i102.i ], [ %version.i, %padstr.exit.i ]
-  %9 = load i8, ptr %src.addr.05.i104.i, align 1
+  %i.05.i103.i = phi i32 [ 0, %padstr.exit.i ], [ %inc.i112.i, %for.body.i102.i ]
+  %src.addr.04.i104.i = phi ptr [ %version.i, %padstr.exit.i ], [ %src.addr.1.i107.i, %for.body.i102.i ]
+  %9 = load i8, ptr %src.addr.04.i104.i, align 1
   %tobool.not.i105.i = icmp ne i8 %9, 0
   %src.addr.1.idx.i106.i = zext i1 %tobool.not.i105.i to i64
-  %src.addr.1.i107.i = getelementptr i8, ptr %src.addr.05.i104.i, i64 %src.addr.1.idx.i106.i
+  %src.addr.1.i107.i = getelementptr i8, ptr %src.addr.04.i104.i, i64 %src.addr.1.idx.i106.i
   %v.0.i108.i = select i1 %tobool.not.i105.i, i8 %9, i8 32
-  %xor.i109.i = xor i32 %i.06.i103.i, 1
+  %xor.i109.i = xor i32 %i.05.i103.i, 1
   %idxprom.i110.i = zext nneg i32 %xor.i109.i to i64
   %arrayidx.i111.i = getelementptr i8, ptr %add.ptr14.i, i64 %idxprom.i110.i
   store i8 %v.0.i108.i, ptr %arrayidx.i111.i, align 1
-  %inc.i112.i = add nuw nsw i32 %i.06.i103.i, 1
+  %inc.i112.i = add nuw nsw i32 %i.05.i103.i, 1
   %exitcond.not.i113.i = icmp eq i32 %inc.i112.i, 8
   br i1 %exitcond.not.i113.i, label %padstr.exit114.i, label %for.body.i102.i, !llvm.loop !13
 
@@ -5907,18 +5907,18 @@ padstr.exit114.i:                                 ; preds = %for.body.i102.i
   br label %for.body.i115.i
 
 for.body.i115.i:                                  ; preds = %for.body.i115.i, %padstr.exit114.i
-  %i.06.i116.i = phi i32 [ %inc.i125.i, %for.body.i115.i ], [ 0, %padstr.exit114.i ]
-  %src.addr.05.i117.i = phi ptr [ %src.addr.1.i120.i, %for.body.i115.i ], [ %drive_model_str.i, %padstr.exit114.i ]
-  %10 = load i8, ptr %src.addr.05.i117.i, align 1
+  %i.05.i116.i = phi i32 [ 0, %padstr.exit114.i ], [ %inc.i125.i, %for.body.i115.i ]
+  %src.addr.04.i117.i = phi ptr [ %drive_model_str.i, %padstr.exit114.i ], [ %src.addr.1.i120.i, %for.body.i115.i ]
+  %10 = load i8, ptr %src.addr.04.i117.i, align 1
   %tobool.not.i118.i = icmp ne i8 %10, 0
   %src.addr.1.idx.i119.i = zext i1 %tobool.not.i118.i to i64
-  %src.addr.1.i120.i = getelementptr i8, ptr %src.addr.05.i117.i, i64 %src.addr.1.idx.i119.i
+  %src.addr.1.i120.i = getelementptr i8, ptr %src.addr.04.i117.i, i64 %src.addr.1.idx.i119.i
   %v.0.i121.i = select i1 %tobool.not.i118.i, i8 %10, i8 32
-  %xor.i122.i = xor i32 %i.06.i116.i, 1
+  %xor.i122.i = xor i32 %i.05.i116.i, 1
   %idxprom.i123.i = zext nneg i32 %xor.i122.i to i64
   %arrayidx.i124.i = getelementptr i8, ptr %add.ptr16.i, i64 %idxprom.i123.i
   store i8 %v.0.i121.i, ptr %arrayidx.i124.i, align 1
-  %inc.i125.i = add nuw nsw i32 %i.06.i116.i, 1
+  %inc.i125.i = add nuw nsw i32 %i.05.i116.i, 1
   %exitcond.not.i126.i = icmp eq i32 %inc.i125.i, 40
   br i1 %exitcond.not.i126.i, label %padstr.exit127.i, label %for.body.i115.i, !llvm.loop !13
 
@@ -6170,18 +6170,18 @@ if.end.i16:                                       ; preds = %if.else
   br label %for.body.i.i24
 
 for.body.i.i24:                                   ; preds = %for.body.i.i24, %if.end.i16
-  %i.06.i.i25 = phi i32 [ %inc.i.i34, %for.body.i.i24 ], [ 0, %if.end.i16 ]
-  %src.addr.05.i.i26 = phi ptr [ %src.addr.1.i.i29, %for.body.i.i24 ], [ %drive_serial_str.i23, %if.end.i16 ]
-  %33 = load i8, ptr %src.addr.05.i.i26, align 1
+  %i.05.i.i25 = phi i32 [ 0, %if.end.i16 ], [ %inc.i.i34, %for.body.i.i24 ]
+  %src.addr.04.i.i26 = phi ptr [ %drive_serial_str.i23, %if.end.i16 ], [ %src.addr.1.i.i29, %for.body.i.i24 ]
+  %33 = load i8, ptr %src.addr.04.i.i26, align 1
   %tobool.not.i.i27 = icmp ne i8 %33, 0
   %src.addr.1.idx.i.i28 = zext i1 %tobool.not.i.i27 to i64
-  %src.addr.1.i.i29 = getelementptr i8, ptr %src.addr.05.i.i26, i64 %src.addr.1.idx.i.i28
+  %src.addr.1.i.i29 = getelementptr i8, ptr %src.addr.04.i.i26, i64 %src.addr.1.idx.i.i28
   %v.0.i.i30 = select i1 %tobool.not.i.i27, i8 %33, i8 32
-  %xor.i.i31 = xor i32 %i.06.i.i25, 1
+  %xor.i.i31 = xor i32 %i.05.i.i25, 1
   %idxprom.i.i32 = zext nneg i32 %xor.i.i31 to i64
   %arrayidx.i.i33 = getelementptr i8, ptr %add.ptr8.i, i64 %idxprom.i.i32
   store i8 %v.0.i.i30, ptr %arrayidx.i.i33, align 1
-  %inc.i.i34 = add nuw nsw i32 %i.06.i.i25, 1
+  %inc.i.i34 = add nuw nsw i32 %i.05.i.i25, 1
   %exitcond.not.i.i35 = icmp eq i32 %inc.i.i34, 20
   br i1 %exitcond.not.i.i35, label %padstr.exit.i36, label %for.body.i.i24, !llvm.loop !13
 
@@ -6193,18 +6193,18 @@ padstr.exit.i36:                                  ; preds = %for.body.i.i24
   br label %for.body.i60.i
 
 for.body.i60.i:                                   ; preds = %for.body.i60.i, %padstr.exit.i36
-  %i.06.i61.i = phi i32 [ %inc.i70.i, %for.body.i60.i ], [ 0, %padstr.exit.i36 ]
-  %src.addr.05.i62.i = phi ptr [ %src.addr.1.i65.i, %for.body.i60.i ], [ %version.i38, %padstr.exit.i36 ]
-  %34 = load i8, ptr %src.addr.05.i62.i, align 1
+  %i.05.i61.i = phi i32 [ 0, %padstr.exit.i36 ], [ %inc.i70.i, %for.body.i60.i ]
+  %src.addr.04.i62.i = phi ptr [ %version.i38, %padstr.exit.i36 ], [ %src.addr.1.i65.i, %for.body.i60.i ]
+  %34 = load i8, ptr %src.addr.04.i62.i, align 1
   %tobool.not.i63.i = icmp ne i8 %34, 0
   %src.addr.1.idx.i64.i = zext i1 %tobool.not.i63.i to i64
-  %src.addr.1.i65.i = getelementptr i8, ptr %src.addr.05.i62.i, i64 %src.addr.1.idx.i64.i
+  %src.addr.1.i65.i = getelementptr i8, ptr %src.addr.04.i62.i, i64 %src.addr.1.idx.i64.i
   %v.0.i66.i = select i1 %tobool.not.i63.i, i8 %34, i8 32
-  %xor.i67.i = xor i32 %i.06.i61.i, 1
+  %xor.i67.i = xor i32 %i.05.i61.i, 1
   %idxprom.i68.i = zext nneg i32 %xor.i67.i to i64
   %arrayidx.i69.i = getelementptr i8, ptr %add.ptr11.i37, i64 %idxprom.i68.i
   store i8 %v.0.i66.i, ptr %arrayidx.i69.i, align 1
-  %inc.i70.i = add nuw nsw i32 %i.06.i61.i, 1
+  %inc.i70.i = add nuw nsw i32 %i.05.i61.i, 1
   %exitcond.not.i71.i = icmp eq i32 %inc.i70.i, 8
   br i1 %exitcond.not.i71.i, label %padstr.exit72.i, label %for.body.i60.i, !llvm.loop !13
 
@@ -6214,18 +6214,18 @@ padstr.exit72.i:                                  ; preds = %for.body.i60.i
   br label %for.body.i73.i
 
 for.body.i73.i:                                   ; preds = %for.body.i73.i, %padstr.exit72.i
-  %i.06.i74.i = phi i32 [ %inc.i83.i, %for.body.i73.i ], [ 0, %padstr.exit72.i ]
-  %src.addr.05.i75.i = phi ptr [ %src.addr.1.i78.i, %for.body.i73.i ], [ %drive_model_str.i40, %padstr.exit72.i ]
-  %35 = load i8, ptr %src.addr.05.i75.i, align 1
+  %i.05.i74.i = phi i32 [ 0, %padstr.exit72.i ], [ %inc.i83.i, %for.body.i73.i ]
+  %src.addr.04.i75.i = phi ptr [ %drive_model_str.i40, %padstr.exit72.i ], [ %src.addr.1.i78.i, %for.body.i73.i ]
+  %35 = load i8, ptr %src.addr.04.i75.i, align 1
   %tobool.not.i76.i = icmp ne i8 %35, 0
   %src.addr.1.idx.i77.i = zext i1 %tobool.not.i76.i to i64
-  %src.addr.1.i78.i = getelementptr i8, ptr %src.addr.05.i75.i, i64 %src.addr.1.idx.i77.i
+  %src.addr.1.i78.i = getelementptr i8, ptr %src.addr.04.i75.i, i64 %src.addr.1.idx.i77.i
   %v.0.i79.i = select i1 %tobool.not.i76.i, i8 %35, i8 32
-  %xor.i80.i = xor i32 %i.06.i74.i, 1
+  %xor.i80.i = xor i32 %i.05.i74.i, 1
   %idxprom.i81.i = zext nneg i32 %xor.i80.i to i64
   %arrayidx.i82.i = getelementptr i8, ptr %add.ptr13.i39, i64 %idxprom.i81.i
   store i8 %v.0.i79.i, ptr %arrayidx.i82.i, align 1
-  %inc.i83.i = add nuw nsw i32 %i.06.i74.i, 1
+  %inc.i83.i = add nuw nsw i32 %i.05.i74.i, 1
   %exitcond.not.i84.i = icmp eq i32 %inc.i83.i, 40
   br i1 %exitcond.not.i84.i, label %padstr.exit85.i, label %for.body.i73.i, !llvm.loop !13
 
@@ -8653,7 +8653,7 @@ if.end53:                                         ; preds = %if.else25, %if.then
 declare void @qemu_bh_schedule(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ide_restart_dma(ptr noundef %s, i32 noundef %dma_cmd) unnamed_addr #0 {
+define internal fastcc void @ide_restart_dma(ptr noundef %s, i32 noundef range(i32 0, 3) %dma_cmd) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %s, align 8
   %retry_unit = getelementptr inbounds i8, ptr %0, i64 2148

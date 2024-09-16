@@ -303,7 +303,7 @@ define noundef range(i8 0, 3) i8 @_ZN3cfg8cfg_expr7CfgExpr4fold17h16e409600b5065
   %7 = icmp ult i8 %6, 5
   %narrow = select i1 %7, i8 %6, i8 1
   switch i8 %narrow, label %8 [
-    i8 0, label %common.ret63
+    i8 0, label %common.ret59
     i8 1, label %9
     i8 2, label %14
     i8 3, label %28
@@ -318,7 +318,7 @@ define noundef range(i8 0, 3) i8 @_ZN3cfg8cfg_expr7CfgExpr4fold17h16e409600b5065
   %11 = load ptr, ptr %10, align 8, !invariant.load !4, !nonnull !4
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
   %13 = zext i1 %12 to i8
-  br label %common.ret63
+  br label %common.ret59
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds i8, ptr %0, i64 8
@@ -327,24 +327,24 @@ define noundef range(i8 0, 3) i8 @_ZN3cfg8cfg_expr7CfgExpr4fold17h16e409600b5065
   %18 = load i64, ptr %17, align 8, !noundef !4
   %19 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %16, i64 %18
   %20 = icmp eq i64 %18, 0
-  br i1 %20, label %common.ret63, label %.lr.ph54
+  br i1 %20, label %common.ret59, label %.lr.ph50
 
-.lr.ph54:                                         ; preds = %14, %25
-  %.09.i52 = phi i1 [ %26, %25 ], [ true, %14 ]
-  %.sroa.0.051 = phi ptr [ %21, %25 ], [ %16, %14 ]
-  %21 = getelementptr inbounds i8, ptr %.sroa.0.051, i64 48
-  br i1 %.09.i52, label %22, label %25
+.lr.ph50:                                         ; preds = %14, %25
+  %.09.i48 = phi i1 [ %26, %25 ], [ true, %14 ]
+  %.sroa.0.047 = phi ptr [ %21, %25 ], [ %16, %14 ]
+  %21 = getelementptr inbounds i8, ptr %.sroa.0.047, i64 48
+  br i1 %.09.i48, label %22, label %25
 
-22:                                               ; preds = %.lr.ph54
-  %23 = tail call noundef i8 @_ZN3cfg8cfg_expr7CfgExpr4fold17h16e409600b5065c0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.051, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2), !range !83, !noalias !84
+22:                                               ; preds = %.lr.ph50
+  %23 = tail call noundef i8 @_ZN3cfg8cfg_expr7CfgExpr4fold17h16e409600b5065c0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.047, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2), !range !83, !noalias !84
   %24 = icmp eq i8 %23, 2
-  br i1 %24, label %common.ret63, label %25
+  br i1 %24, label %common.ret59, label %25
 
-25:                                               ; preds = %.lr.ph54, %22
-  %.0.i20.ph = phi i8 [ %23, %22 ], [ 0, %.lr.ph54 ]
-  %26 = trunc i8 %.0.i20.ph to i1
+25:                                               ; preds = %.lr.ph50, %22
+  %.0.i19.ph = phi i8 [ %23, %22 ], [ 0, %.lr.ph50 ]
+  %26 = trunc i8 %.0.i19.ph to i1
   %27 = icmp eq ptr %21, %19
-  br i1 %27, label %common.ret63, label %.lr.ph54
+  br i1 %27, label %common.ret59, label %.lr.ph50
 
 28:                                               ; preds = %3
   %29 = getelementptr inbounds i8, ptr %0, i64 8
@@ -353,28 +353,28 @@ define noundef range(i8 0, 3) i8 @_ZN3cfg8cfg_expr7CfgExpr4fold17h16e409600b5065
   %32 = load i64, ptr %31, align 8, !noundef !4
   %33 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %30, i64 %32
   %34 = icmp eq i64 %32, 0
-  br i1 %34, label %common.ret63, label %.lr.ph
+  br i1 %34, label %common.ret59, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28, %39
-  %.09.i1650 = phi i1 [ %40, %39 ], [ false, %28 ]
-  %.sroa.028.049 = phi ptr [ %35, %39 ], [ %30, %28 ]
-  %35 = getelementptr inbounds i8, ptr %.sroa.028.049, i64 48
-  br i1 %.09.i1650, label %39, label %36
+  %.09.i1646 = phi i1 [ %40, %39 ], [ false, %28 ]
+  %.sroa.026.045 = phi ptr [ %35, %39 ], [ %30, %28 ]
+  %35 = getelementptr inbounds i8, ptr %.sroa.026.045, i64 48
+  br i1 %.09.i1646, label %39, label %36
 
 36:                                               ; preds = %.lr.ph
-  %37 = tail call noundef i8 @_ZN3cfg8cfg_expr7CfgExpr4fold17h16e409600b5065c0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.028.049, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2), !range !83, !noalias !89
+  %37 = tail call noundef i8 @_ZN3cfg8cfg_expr7CfgExpr4fold17h16e409600b5065c0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.026.045, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2), !range !83, !noalias !89
   %38 = icmp eq i8 %37, 2
-  br i1 %38, label %common.ret63, label %39
+  br i1 %38, label %common.ret59, label %39
 
 39:                                               ; preds = %.lr.ph, %36
-  %.0.i25.ph = phi i8 [ %37, %36 ], [ 1, %.lr.ph ]
-  %40 = trunc i8 %.0.i25.ph to i1
+  %.0.i23.ph = phi i8 [ %37, %36 ], [ 1, %.lr.ph ]
+  %40 = trunc i8 %.0.i23.ph to i1
   %41 = icmp eq ptr %35, %33
-  br i1 %41, label %common.ret63, label %.lr.ph
+  br i1 %41, label %common.ret59, label %.lr.ph
 
-common.ret63:                                     ; preds = %3, %9, %14, %28, %25, %22, %39, %36, %42
-  %common.ret63.op = phi i8 [ %.1, %42 ], [ %13, %9 ], [ 2, %3 ], [ 1, %14 ], [ 0, %28 ], [ %.0.i20.ph, %25 ], [ 2, %22 ], [ %.0.i25.ph, %39 ], [ 2, %36 ]
-  ret i8 %common.ret63.op
+common.ret59:                                     ; preds = %3, %9, %14, %28, %25, %22, %39, %36, %42
+  %common.ret59.op = phi i8 [ %.1, %42 ], [ %13, %9 ], [ 2, %3 ], [ 1, %14 ], [ 0, %28 ], [ %.0.i19.ph, %25 ], [ 2, %22 ], [ %.0.i23.ph, %39 ], [ 2, %36 ]
+  ret i8 %common.ret59.op
 
 42:                                               ; preds = %3
   %43 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
@@ -382,7 +382,7 @@ common.ret63:                                     ; preds = %3, %9, %14, %28, %2
   %45 = icmp eq i8 %44, 2
   %46 = xor i8 %44, 1
   %.1 = select i1 %45, i8 2, i8 %46
-  br label %common.ret63
+  br label %common.ret59
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

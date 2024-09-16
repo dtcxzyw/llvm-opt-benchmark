@@ -1616,7 +1616,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_117SynopsisFormatter12formatOptionERKN
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_124formatOptionNameAndValueERKNS_10OptionInfoEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_124formatOptionNameAndValueERKNS_10OptionInfoEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %3, ptr noundef %4)
           to label %7 unwind label %30
 
 7:                                                ; preds = %2
@@ -1735,7 +1735,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_117SynopsisFormatter12formatOptionERKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx12_GLOBAL__N_124formatOptionNameAndValueERKNS_10OptionInfoEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmx12_GLOBAL__N_124formatOptionNameAndValueERKNS_10OptionInfoEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2351,7 +2351,7 @@ _ZN3gmx12_GLOBAL__N_120OptionsListFormatter28writeSectionStartIfNecessaryEv.exit
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #17
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_124formatOptionNameAndValueERKNS_10OptionInfoEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_124formatOptionNameAndValueERKNS_10OptionInfoEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %9, ptr noundef %10)
           to label %61 unwind label %98
 
 61:                                               ; preds = %_ZN3gmx12_GLOBAL__N_120OptionsListFormatter28writeSectionStartIfNecessaryEv.exit

@@ -797,7 +797,7 @@ for.body.i.i.i:                                   ; preds = %if.end24.i, %.noexc
   %call7.i.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #29
   %15 = extractvalue { i64, ptr } %call7.i.i.i, 0
   %16 = extractvalue { i64, ptr } %call7.i.i.i, 1
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_118RecordMessageNamesERKNS0_15DescriptorProtoESt17basic_string_viewIcSt11char_traitsIcEEPN4absl12lts_202308029btree_setINSt7__cxx1112basic_stringIcS7_SaIcEEESt4lessISF_ESaISF_EEE(ptr noundef nonnull align 8 dereferenceable(232) %11, i64 %15, ptr %16, ptr noundef nonnull %set.i)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_118RecordMessageNamesERKNS0_15DescriptorProtoESt17basic_string_viewIcSt11char_traitsIcEEPN4absl12lts_202308029btree_setINSt7__cxx1112basic_stringIcS7_SaIcEEESt4lessISF_ESaISF_EEE(ptr noundef nonnull align 8 dereferenceable(232) %11, i64 %15, ptr %16, ptr noundef %set.i)
           to label %.noexc.i unwind label %lpad9.loopexit.i
 
 .noexc.i:                                         ; preds = %for.body.i.i.i
@@ -9973,7 +9973,7 @@ unreachable:                                      ; preds = %invoke.cont7
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_118RecordMessageNamesERKNS0_15DescriptorProtoESt17basic_string_viewIcSt11char_traitsIcEEPN4absl12lts_202308029btree_setINSt7__cxx1112basic_stringIcS7_SaIcEEESt4lessISF_ESaISF_EEE(ptr noundef nonnull readonly align 8 dereferenceable(232) %desc_proto, i64 %prefix.coerce0, ptr %prefix.coerce1, ptr noundef %output) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_118RecordMessageNamesERKNS0_15DescriptorProtoESt17basic_string_viewIcSt11char_traitsIcEEPN4absl12lts_202308029btree_setINSt7__cxx1112basic_stringIcS7_SaIcEEESt4lessISF_ESaISF_EEE(ptr noundef nonnull readonly align 8 dereferenceable(232) %desc_proto, i64 %prefix.coerce0, ptr %prefix.coerce1, ptr noundef nonnull %output) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp1 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %full_name = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10053,7 +10053,7 @@ for.body:                                         ; preds = %invoke.cont17, %for
   %call23 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %full_name) #29
   %17 = extractvalue { i64, ptr } %call23, 0
   %18 = extractvalue { i64, ptr } %call23, 1
-  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_118RecordMessageNamesERKNS0_15DescriptorProtoESt17basic_string_viewIcSt11char_traitsIcEEPN4absl12lts_202308029btree_setINSt7__cxx1112basic_stringIcS7_SaIcEEESt4lessISF_ESaISF_EEE(ptr noundef nonnull align 8 dereferenceable(232) %16, i64 %17, ptr %18, ptr noundef nonnull %output)
+  invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_118RecordMessageNamesERKNS0_15DescriptorProtoESt17basic_string_viewIcSt11char_traitsIcEEPN4absl12lts_202308029btree_setINSt7__cxx1112basic_stringIcS7_SaIcEEESt4lessISF_ESaISF_EEE(ptr noundef nonnull align 8 dereferenceable(232) %16, i64 %17, ptr %18, ptr noundef %output)
           to label %for.inc unwind label %lpad.loopexit
 
 for.inc:                                          ; preds = %for.body

@@ -564,7 +564,7 @@ _Z11luaV_strcmpPK7TStringS1_.exit:                ; preds = %15, %24, %28, %36
 declare hidden void @_Z15luaG_ordererrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -1, 2) i32 @_ZL12call_orderTMP9lua_StatePK10lua_TValueS3_3TMSb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -1, 2) i32 @_ZL12call_orderTMP9lua_StatePK10lua_TValueS3_3TMSb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 16, 18) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = tail call noundef ptr @_Z15luaT_gettmbyobjP9lua_StatePK10lua_TValue3TMS(ptr noundef %0, ptr noundef %1, i32 noundef %3)
   %7 = getelementptr inbounds i8, ptr %6, i64 12
   %8 = load i32, ptr %7, align 4

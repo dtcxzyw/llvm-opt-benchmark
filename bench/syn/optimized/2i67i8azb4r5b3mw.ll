@@ -1122,7 +1122,7 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$syn..pa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr73drop_in_place$LT$$LP$syn..path..PathSegment$C$syn..token..PathSep$RP$$GT$17h84d96edbed22f898E"(ptr noalias noundef align 8 dereferenceable(104) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr73drop_in_place$LT$$LP$syn..path..PathSegment$C$syn..token..PathSep$RP$$GT$17h84d96edbed22f898E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !172, !alias.scope !281, !noundef !64
   %3 = icmp eq i64 %2, -9223372036854775808
   br i1 %3, label %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h4ca7abc058954aecE.exit.i", label %4
@@ -1241,7 +1241,7 @@ define hidden void @"_ZN4core3ptr75drop_in_place$LT$alloc..boxed..Box$LT$syn..ge
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$$LP$syn..generics..GenericParam$C$syn..token..Comma$RP$$GT$17hdf614fe6cb42d5d9E"(ptr noalias noundef align 8 dereferenceable(488) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$$LP$syn..generics..GenericParam$C$syn..token..Comma$RP$$GT$17hdf614fe6cb42d5d9E"(ptr noalias noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !74, !alias.scope !312, !noundef !64
   %3 = add nsw i64 %2, -17
   %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 2)
@@ -6610,7 +6610,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h
 19:                                               ; preds = %18
   %20 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$$LP$syn..path..PathSegment$C$syn..token..PathSep$RP$$GT$17h84d96edbed22f898E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %3) #30
+  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$$LP$syn..path..PathSegment$C$syn..token..PathSep$RP$$GT$17h84d96edbed22f898E"(ptr noalias noundef align 8 dereferenceable(104) %3) #30
           to label %30 unwind label %21
 
 21:                                               ; preds = %19
@@ -6683,7 +6683,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h
 19:                                               ; preds = %18
   %20 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$$LP$syn..generics..GenericParam$C$syn..token..Comma$RP$$GT$17hdf614fe6cb42d5d9E"(ptr noalias noundef nonnull align 8 dereferenceable(488) %3) #30
+  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$$LP$syn..generics..GenericParam$C$syn..token..Comma$RP$$GT$17hdf614fe6cb42d5d9E"(ptr noalias noundef align 8 dereferenceable(488) %3) #30
           to label %30 unwind label %21
 
 21:                                               ; preds = %19
@@ -9635,7 +9635,7 @@ define hidden void @_ZN3syn10punctuated9do_extend17hf2c66732dabb437fE.llvm.14145
 35:                                               ; preds = %34
   %36 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$$LP$syn..path..PathSegment$C$syn..token..PathSep$RP$$GT$17h84d96edbed22f898E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %4) #30
+  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$$LP$syn..path..PathSegment$C$syn..token..PathSep$RP$$GT$17h84d96edbed22f898E"(ptr noalias noundef align 8 dereferenceable(104) %4) #30
           to label %.body.thread unwind label %37
 
 37:                                               ; preds = %35

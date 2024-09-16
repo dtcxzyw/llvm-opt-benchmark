@@ -156,7 +156,7 @@ define internal fastcc i32 @dissect_lsd(ptr noundef %0, ptr noundef %1, ptr noun
   %18 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 0) #3
   %19 = load i32, ptr %4, align 4
   %20 = load i32, ptr @hf_lsd_host, align 4
-  %21 = call fastcc i32 @parse_string_field(ptr noundef %16, i32 noundef %20, ptr noundef %1, ptr noundef %0, i32 noundef %19, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %21 = call fastcc i32 @parse_string_field(ptr noundef %16, i32 noundef %20, ptr noundef %1, ptr noundef %0, i32 noundef %19, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %22, label %25
 
@@ -211,7 +211,7 @@ define internal fastcc i32 @dissect_lsd(ptr noundef %0, ptr noundef %1, ptr noun
   call void @proto_item_set_len(ptr noundef %.053, i32 noundef %27) #3
   %54 = load i32, ptr %4, align 4
   %55 = load i32, ptr @hf_lsd_infohash, align 4
-  %56 = call fastcc i32 @parse_string_field(ptr noundef %16, i32 noundef %55, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %54, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %56 = call fastcc i32 @parse_string_field(ptr noundef %16, i32 noundef %55, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %54, ptr noundef %4, ptr noundef %5)
   %.not56 = icmp eq i32 %56, 0
   br i1 %.not56, label %57, label %60
 
@@ -238,7 +238,7 @@ define internal fastcc i32 @dissect_lsd(ptr noundef %0, ptr noundef %1, ptr noun
 
 69:                                               ; preds = %66
   %70 = load i32, ptr @hf_lsd_cookie, align 4
-  %71 = call fastcc i32 @parse_string_field(ptr noundef %16, i32 noundef %70, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %61, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %71 = call fastcc i32 @parse_string_field(ptr noundef %16, i32 noundef %70, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %61, ptr noundef %4, ptr noundef %5)
   %.not57 = icmp eq i32 %71, 0
   br i1 %.not57, label %72, label %75
 
@@ -267,9 +267,9 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_string_field(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_string_field(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = tail call ptr @proto_registrar_get_nth(i32 noundef %1) #3
-  %9 = tail call i32 @tvb_find_line_end(ptr noundef %3, i32 noundef %4, i32 noundef -1, ptr noundef %5, i32 noundef 0) #3
+  %9 = tail call i32 @tvb_find_line_end(ptr noundef %3, i32 noundef %4, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #3
   store i32 %9, ptr %6, align 4
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %40, label %11

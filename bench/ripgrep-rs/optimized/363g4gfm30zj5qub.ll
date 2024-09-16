@@ -109,7 +109,7 @@ define void @_ZN8grep_cli10decompress27DecompressionMatcherBuilder5build17h6e3fc
   store ptr inttoptr (i64 8 to ptr), ptr %25, align 8, !noalias !9
   %26 = getelementptr inbounds i8, ptr %10, i64 16
   store i64 0, ptr %26, align 8, !noalias !9
-  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.18, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.22, i64 noundef 3, ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.18, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.22, i64 noundef 3, ptr noalias noundef align 8 dereferenceable(24) %10)
           to label %29 unwind label %27, !noalias !9
 
 27:                                               ; preds = %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %24
@@ -119,47 +119,47 @@ define void @_ZN8grep_cli10decompress27DecompressionMatcherBuilder5build17h6e3fc
           to label %common.resume unwind label %40, !noalias !9
 
 29:                                               ; preds = %24
-  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.23, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.22, i64 noundef 3, ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.23, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.22, i64 noundef 3, ptr noalias noundef align 8 dereferenceable(24) %10)
           to label %30 unwind label %27, !noalias !9
 
 30:                                               ; preds = %29
-  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.24, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.26, i64 noundef 3, ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.24, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.26, i64 noundef 3, ptr noalias noundef align 8 dereferenceable(24) %10)
           to label %31 unwind label %27, !noalias !9
 
 31:                                               ; preds = %30
-  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.27, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.26, i64 noundef 3, ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.27, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.26, i64 noundef 3, ptr noalias noundef align 8 dereferenceable(24) %10)
           to label %32 unwind label %27, !noalias !9
 
 32:                                               ; preds = %31
-  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.28, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.30, i64 noundef 3, ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.28, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.30, i64 noundef 3, ptr noalias noundef align 8 dereferenceable(24) %10)
           to label %33 unwind label %27, !noalias !9
 
 33:                                               ; preds = %32
-  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.31, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.30, i64 noundef 3, ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.31, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.30, i64 noundef 3, ptr noalias noundef align 8 dereferenceable(24) %10)
           to label %34 unwind label %27, !noalias !9
 
 34:                                               ; preds = %33
-  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.32, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.34, i64 noundef 3, ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.32, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.34, i64 noundef 3, ptr noalias noundef align 8 dereferenceable(24) %10)
           to label %35 unwind label %27, !noalias !9
 
 35:                                               ; preds = %34
-  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.35, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.37, i64 noundef 4, ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.35, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.37, i64 noundef 4, ptr noalias noundef align 8 dereferenceable(24) %10)
           to label %36 unwind label %27, !noalias !9
 
 36:                                               ; preds = %35
-  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.38, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.40, i64 noundef 3, ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.38, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.40, i64 noundef 3, ptr noalias noundef align 8 dereferenceable(24) %10)
           to label %37 unwind label %27, !noalias !9
 
 37:                                               ; preds = %36
-  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.41, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.44, i64 noundef 4, ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.41, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.44, i64 noundef 4, ptr noalias noundef align 8 dereferenceable(24) %10)
           to label %38 unwind label %27, !noalias !9
 
 38:                                               ; preds = %37
-  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.45, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.44, i64 noundef 4, ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.45, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.44, i64 noundef 4, ptr noalias noundef align 8 dereferenceable(24) %10)
           to label %39 unwind label %27, !noalias !9
 
 39:                                               ; preds = %38
-  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.46, i64 noundef 3, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.48, i64 noundef 2, ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias noundef nonnull readonly align 1 @anon.e3c5cc9fce359c7972b92ff857e630f2.46, i64 noundef 3, ptr noalias noundef nonnull readonly align 8 @anon.e3c5cc9fce359c7972b92ff857e630f2.48, i64 noundef 2, ptr noalias noundef align 8 dereferenceable(24) %10)
           to label %_ZN8grep_cli10decompress30default_decompression_commands17hf198ba34859272b7E.exit unwind label %27, !noalias !9
 
 40:                                               ; preds = %27
@@ -873,7 +873,7 @@ define noundef zeroext i1 @_ZN8grep_cli10decompress18try_resolve_binary6is_exe17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef align 8 dereferenceable(24) %4) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN8grep_cli10decompress30default_decompression_commands3add17h3cd6827dcf28b6a4E(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef range(i64 3, 7) %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef range(i64 2, 5) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #2 personality ptr @rust_eh_personality {
   %6 = alloca { { { ptr, ptr, {} }, i64 }, {} }, align 8
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
   %8 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
@@ -895,7 +895,7 @@ define internal fastcc void @_ZN8grep_cli10decompress30default_decompression_com
   %18 = extractvalue { i64, ptr } %15, 1
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %0, i64 %1, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %1, i1 false)
   store i64 %17, ptr %9, align 8
   %.sroa.413.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %18, ptr %.sroa.413.0..sroa_idx, align 8

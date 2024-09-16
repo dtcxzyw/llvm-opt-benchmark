@@ -582,7 +582,7 @@ if.end16.thread.i:                                ; preds = %if.then6.i
   %19 = load i32, ptr %ai_family.i, align 4
   %.fr.i = freeze i32 %19
   %cmp8.i = icmp eq i32 %.fr.i, 10
-  %spec.select123.i = select i1 %cmp8.i, i32 2, i32 10
+  %spec.select120.i = select i1 %cmp8.i, i32 2, i32 10
   br label %while.body.i.preheader.i
 
 if.end16.i:                                       ; preds = %if.end.i
@@ -593,16 +593,16 @@ if.end16.i:                                       ; preds = %if.end.i
   br i1 %tobool.not4.i.i, label %addr_first_match.exit58.i, label %while.body.i.preheader.i
 
 while.body.i.preheader.i:                         ; preds = %if.end16.i, %if.end16.thread.i
-  %ai_family0.0.ph131.i = phi i32 [ %.fr.i, %if.end16.thread.i ], [ %cond15.i, %if.end16.i ]
-  %ai_family1.0.ph130.i = phi i32 [ %spec.select123.i, %if.end16.thread.i ], [ 0, %if.end16.i ]
-  %.pr129.i = phi ptr [ %18, %if.end16.thread.i ], [ %.pr.pre.i, %if.end16.i ]
+  %ai_family0.0.ph128.i = phi i32 [ %.fr.i, %if.end16.thread.i ], [ %cond15.i, %if.end16.i ]
+  %ai_family1.0.ph127.i = phi i32 [ %spec.select120.i, %if.end16.thread.i ], [ 0, %if.end16.i ]
+  %.pr126.i = phi ptr [ %18, %if.end16.thread.i ], [ %.pr.pre.i, %if.end16.i ]
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.i.preheader.i
-  %addr.addr.05.i.i = phi ptr [ %21, %if.end.i.i ], [ %.pr129.i, %while.body.i.preheader.i ]
+  %addr.addr.05.i.i = phi ptr [ %21, %if.end.i.i ], [ %.pr126.i, %while.body.i.preheader.i ]
   %ai_family.i.i = getelementptr inbounds i8, ptr %addr.addr.05.i.i, i64 4
   %20 = load i32, ptr %ai_family.i.i, align 4
-  %cmp.i48.i = icmp eq i32 %20, %ai_family0.0.ph131.i
+  %cmp.i48.i = icmp eq i32 %20, %ai_family0.0.ph128.i
   br i1 %cmp.i48.i, label %addr_first_match.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i.i
@@ -616,10 +616,10 @@ addr_first_match.exit.i:                          ; preds = %if.end.i.i, %while.
   br label %while.body.i50.i
 
 while.body.i50.i:                                 ; preds = %if.end.i54.i, %addr_first_match.exit.i
-  %addr.addr.05.i51.i = phi ptr [ %23, %if.end.i54.i ], [ %.pr129.i, %addr_first_match.exit.i ]
+  %addr.addr.05.i51.i = phi ptr [ %23, %if.end.i54.i ], [ %.pr126.i, %addr_first_match.exit.i ]
   %ai_family.i52.i = getelementptr inbounds i8, ptr %addr.addr.05.i51.i, i64 4
   %22 = load i32, ptr %ai_family.i52.i, align 4
-  %cmp.i53.i = icmp eq i32 %22, %ai_family1.0.ph130.i
+  %cmp.i53.i = icmp eq i32 %22, %ai_family1.0.ph127.i
   br i1 %cmp.i53.i, label %addr_first_match.exit58.i, label %if.end.i54.i
 
 if.end.i54.i:                                     ; preds = %while.body.i50.i
@@ -629,16 +629,16 @@ if.end.i54.i:                                     ; preds = %while.body.i50.i
   br i1 %tobool.not.i56.i, label %addr_first_match.exit58.i, label %while.body.i50.i, !llvm.loop !6
 
 addr_first_match.exit58.i:                        ; preds = %if.end.i54.i, %while.body.i50.i, %if.end16.i, %if.then6.i
-  %addr.addr.0.lcssa.i115.i = phi ptr [ null, %if.then6.i ], [ null, %if.end16.i ], [ %addr.addr.0.lcssa.i.i, %while.body.i50.i ], [ %addr.addr.0.lcssa.i.i, %if.end.i54.i ]
-  %ai_family1.0106114.i = phi i32 [ 10, %if.then6.i ], [ 0, %if.end16.i ], [ %ai_family1.0.ph130.i, %while.body.i50.i ], [ %ai_family1.0.ph130.i, %if.end.i54.i ]
-  %ai_family0.0107113.i = phi i32 [ 0, %if.then6.i ], [ %cond15.i, %if.end16.i ], [ %ai_family0.0.ph131.i, %while.body.i50.i ], [ %ai_family0.0.ph131.i, %if.end.i54.i ]
+  %addr.addr.0.lcssa.i112.i = phi ptr [ null, %if.then6.i ], [ null, %if.end16.i ], [ %addr.addr.0.lcssa.i.i, %while.body.i50.i ], [ %addr.addr.0.lcssa.i.i, %if.end.i54.i ]
+  %ai_family1.0103111.i = phi i32 [ 10, %if.then6.i ], [ 0, %if.end16.i ], [ %ai_family1.0.ph127.i, %while.body.i50.i ], [ %ai_family1.0.ph127.i, %if.end.i54.i ]
+  %ai_family0.0104110.i = phi i32 [ 0, %if.then6.i ], [ %cond15.i, %if.end16.i ], [ %ai_family0.0.ph128.i, %while.body.i50.i ], [ %ai_family0.0.ph128.i, %if.end.i54.i ]
   %addr.addr.0.lcssa.i57.i = phi ptr [ null, %if.then6.i ], [ null, %if.end16.i ], [ null, %if.end.i54.i ], [ %addr.addr.05.i51.i, %while.body.i50.i ]
-  %tobool21.i = icmp eq ptr %addr.addr.0.lcssa.i115.i, null
+  %tobool21.i = icmp eq ptr %addr.addr.0.lcssa.i112.i, null
   %tobool22.i = icmp ne ptr %addr.addr.0.lcssa.i57.i, null
   %or.cond.i = and i1 %tobool21.i, %tobool22.i
-  %addr0.0.i = select i1 %or.cond.i, ptr %addr.addr.0.lcssa.i57.i, ptr %addr.addr.0.lcssa.i115.i
+  %addr0.0.i = select i1 %or.cond.i, ptr %addr.addr.0.lcssa.i57.i, ptr %addr.addr.0.lcssa.i112.i
   %addr1.0.i = select i1 %tobool21.i, ptr null, ptr %addr.addr.0.lcssa.i57.i
-  %ai_family0.1.i = select i1 %or.cond.i, i32 %ai_family1.0106114.i, i32 %ai_family0.0107113.i
+  %ai_family0.1.i = select i1 %or.cond.i, i32 %ai_family1.0103111.i, i32 %ai_family0.0104110.i
   %tobool25.not.i = icmp eq ptr %addr0.0.i, null
   br i1 %tobool25.not.i, label %return, label %if.end27.i
 
@@ -676,8 +676,8 @@ land.rhs.i.i.i:                                   ; preds = %while.body.i.i.i, %
   %addr.addr.0.i.i.i = phi ptr [ %addr0.0.i, %if.end.i61.i ], [ %27, %while.body.i.i.i ]
   %ai_next.i.i.i = getelementptr inbounds i8, ptr %addr.addr.0.i.i.i, i64 40
   %27 = load ptr, ptr %ai_next.i.i.i, align 8
-  %tobool1.not.i.i.not.not.not.i.not.not.not.not.not = icmp ne ptr %27, null
-  br i1 %tobool1.not.i.i.not.not.not.i.not.not.not.not.not, label %while.body.i.i.i, label %do.body.i
+  %tobool1.not.i.not.i.not.not.not.i.not.not.not.not.not = icmp ne ptr %27, null
+  br i1 %tobool1.not.i.not.i.not.not.not.i.not.not.not.not.not, label %while.body.i.i.i, label %do.body.i
 
 while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %ai_family.i.i.i = getelementptr inbounds i8, ptr %27, i64 4
@@ -686,8 +686,8 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   br i1 %cmp.i.i.i, label %do.body.i, label %land.rhs.i.i.i, !llvm.loop !7
 
 do.body.i:                                        ; preds = %while.body.i.i.i, %land.rhs.i.i.i
-  %cmp13.i.i = icmp sgt i64 %spec.select, 600
-  %or.cond.i.i = and i1 %cmp13.i.i, %tobool1.not.i.i.not.not.not.i.not.not.not.not.not
+  %cmp13.i.i = icmp ugt i64 %spec.select, 600
+  %or.cond.i.i = and i1 %cmp13.i.i, %tobool1.not.i.not.i.not.not.not.i.not.not.not.not.not
   %div20.i.i = zext i1 %or.cond.i.i to i64
   %cond20.i.i = lshr i64 %spec.select, %div20.i.i
   %timeoutms.i.i = getelementptr inbounds i8, ptr %call.i59.i, i64 80
@@ -739,8 +739,8 @@ if.then48.i:                                      ; preds = %do.end.i
 
 if.end.i66.i:                                     ; preds = %if.then48.i
   %conv55.i = zext i32 %36 to i64
-  %cmp.i67.i = icmp eq i32 %ai_family1.0106114.i, 2
-  %cmp1.i68.i = icmp eq i32 %ai_family1.0106114.i, 10
+  %cmp.i67.i = icmp eq i32 %ai_family1.0103111.i, 2
+  %cmp1.i68.i = icmp eq i32 %ai_family1.0103111.i, 10
   %cond.i69.i = select i1 %cmp1.i68.i, ptr @.str.7, ptr @.str.8
   %cond2.i70.i = select i1 %cmp.i67.i, ptr @.str.6, ptr %cond.i69.i
   store ptr %cond2.i70.i, ptr %call.i64.i, align 8
@@ -751,36 +751,36 @@ if.end.i66.i:                                     ; preds = %if.then48.i
   %first.i73.i = getelementptr inbounds i8, ptr %call.i64.i, i64 8
   store ptr %addr1.0.i, ptr %first.i73.i, align 8
   %ai_family5.i74.i = getelementptr inbounds i8, ptr %call.i64.i, i64 24
-  store i32 %ai_family1.0106114.i, ptr %ai_family5.i74.i, align 8
+  store i32 %ai_family1.0103111.i, ptr %ai_family5.i74.i, align 8
   %primary6.i75.i = getelementptr inbounds i8, ptr %call.i64.i, i64 48
   store ptr %35, ptr %primary6.i75.i, align 8
   %delay_ms7.i76.i = getelementptr inbounds i8, ptr %call.i64.i, i64 56
   store i64 %conv55.i, ptr %delay_ms7.i76.i, align 8
-  br label %land.rhs.i.i80.i
+  br label %land.rhs.i.i77.i
 
-land.rhs.i.i80.i:                                 ; preds = %while.body.i.i83.i, %if.end.i66.i
-  %addr.addr.0.i.i78.i = phi ptr [ %addr.addr.0.lcssa.i57.i, %if.end.i66.i ], [ %38, %while.body.i.i83.i ]
-  %ai_next.i.i81.i = getelementptr inbounds i8, ptr %addr.addr.0.i.i78.i, i64 40
-  %38 = load ptr, ptr %ai_next.i.i81.i, align 8
-  %tobool1.not.i.i82.not.not.not.i.not.not.not.not.not = icmp ne ptr %38, null
-  br i1 %tobool1.not.i.i82.not.not.not.i.not.not.not.not.not, label %while.body.i.i83.i, label %do.body60.i
+land.rhs.i.i77.i:                                 ; preds = %while.body.i.i90.i, %if.end.i66.i
+  %addr.addr.0.i.i78.i = phi ptr [ %addr.addr.0.lcssa.i57.i, %if.end.i66.i ], [ %38, %while.body.i.i90.i ]
+  %ai_next.i.i79.i = getelementptr inbounds i8, ptr %addr.addr.0.i.i78.i, i64 40
+  %38 = load ptr, ptr %ai_next.i.i79.i, align 8
+  %tobool1.not.i.not.i80.not.not.not.i.not.not.not.not.not = icmp ne ptr %38, null
+  br i1 %tobool1.not.i.not.i80.not.not.not.i.not.not.not.not.not, label %while.body.i.i90.i, label %do.body60.i
 
-while.body.i.i83.i:                               ; preds = %land.rhs.i.i80.i
-  %ai_family.i.i84.i = getelementptr inbounds i8, ptr %38, i64 4
-  %39 = load i32, ptr %ai_family.i.i84.i, align 4
-  %cmp.i.i85.i = icmp eq i32 %39, %ai_family1.0106114.i
-  br i1 %cmp.i.i85.i, label %do.body60.i, label %land.rhs.i.i80.i, !llvm.loop !7
+while.body.i.i90.i:                               ; preds = %land.rhs.i.i77.i
+  %ai_family.i.i91.i = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = load i32, ptr %ai_family.i.i91.i, align 4
+  %cmp.i.i92.i = icmp eq i32 %39, %ai_family1.0103111.i
+  br i1 %cmp.i.i92.i, label %do.body60.i, label %land.rhs.i.i77.i, !llvm.loop !7
 
-do.body60.i:                                      ; preds = %while.body.i.i83.i, %land.rhs.i.i80.i
-  %or.cond.i89.i = and i1 %cmp13.i.i, %tobool1.not.i.i82.not.not.not.i.not.not.not.not.not
-  %div20.i90.i = zext i1 %or.cond.i89.i to i64
-  %cond20.i91.i = lshr i64 %spec.select, %div20.i90.i
-  %timeoutms.i92.i = getelementptr inbounds i8, ptr %call.i64.i, i64 80
-  store i64 %cond20.i91.i, ptr %timeoutms.i92.i, align 8
-  %timeout_id21.i93.i = getelementptr inbounds i8, ptr %call.i64.i, i64 88
-  store i32 4, ptr %timeout_id21.i93.i, align 8
-  %result.i94.i = getelementptr inbounds i8, ptr %call.i64.i, i64 92
-  store i32 7, ptr %result.i94.i, align 4
+do.body60.i:                                      ; preds = %while.body.i.i90.i, %land.rhs.i.i77.i
+  %or.cond.i83.i = and i1 %cmp13.i.i, %tobool1.not.i.not.i80.not.not.not.i.not.not.not.not.not
+  %div20.i84.i = zext i1 %or.cond.i83.i to i64
+  %cond20.i85.i = lshr i64 %spec.select, %div20.i84.i
+  %timeoutms.i86.i = getelementptr inbounds i8, ptr %call.i64.i, i64 80
+  store i64 %cond20.i85.i, ptr %timeoutms.i86.i, align 8
+  %timeout_id21.i87.i = getelementptr inbounds i8, ptr %call.i64.i, i64 88
+  store i32 4, ptr %timeout_id21.i87.i, align 8
+  %result.i88.i = getelementptr inbounds i8, ptr %call.i64.i, i64 92
+  store i32 7, ptr %result.i88.i, align 4
   store ptr %call.i64.i, ptr %24, align 8
   br i1 %tobool33.not.i, label %do.end85.i, label %land.lhs.true62.i
 
@@ -802,7 +802,7 @@ land.lhs.true72.i:                                ; preds = %land.lhs.true62.i
 
 if.then77.i:                                      ; preds = %land.lhs.true72.i
   %43 = load ptr, ptr %call.i64.i, align 8
-  %44 = load i64, ptr %timeoutms.i92.i, align 8
+  %44 = load i64, ptr %timeoutms.i86.i, align 8
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %data, ptr noundef nonnull %cf, ptr noundef nonnull @.str.5, ptr noundef %43, i64 noundef %44) #10
   br label %do.end85.i
 
@@ -1098,7 +1098,7 @@ do.body60.thread.i:                               ; preds = %if.then19.i.i53
   br label %land.lhs.true62.i64
 
 baller_start_next.exit.i:                         ; preds = %if.then7.i148.i, %land.lhs.true.i.i, %baller_next_addr.exit.i.i
-  tail call fastcc void @baller_start(ptr noundef %cf, ptr noundef %data, ptr noundef nonnull %53, i64 noundef %spec.select166)
+  tail call fastcc void @baller_start(ptr noundef %cf, ptr noundef %data, ptr noundef %53, i64 noundef %spec.select166)
   %bf.load54.pre.i = load i8, ptr %is_done.i, align 4
   %92 = and i8 %bf.load54.pre.i, 4
   %93 = icmp eq i8 %92, 0
@@ -1284,7 +1284,7 @@ if.then19.i193.i:                                 ; preds = %if.then7.i186.i, %i
   %tobool32.not.i204.i = icmp eq i64 %timeleft_ms.031.i194.i, 0
   %cond41.i206.i = tail call i64 @llvm.smin.i64(i64 %spec.store.select1.i203.i, i64 %timeleft_ms.031.i194.i)
   %spec.select168 = select i1 %tobool32.not.i204.i, i64 %spec.store.select1.i203.i, i64 %cond41.i206.i
-  tail call fastcc void @baller_start(ptr noundef %cf, ptr noundef nonnull %data, ptr noundef nonnull %111, i64 noundef %spec.select168)
+  tail call fastcc void @baller_start(ptr noundef %cf, ptr noundef nonnull %data, ptr noundef %111, i64 noundef %spec.select168)
   %bf.load159.i = load i8, ptr %has_started134.i, align 4
   %125 = and i8 %bf.load159.i, 4
   %tobool163.not.i = icmp eq i8 %125, 0
@@ -2665,7 +2665,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 declare void @Curl_expire(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @baller_start(ptr noundef %cf, ptr noundef %data, ptr noundef %baller, i64 noundef %timeoutms) unnamed_addr #0 {
+define internal fastcc void @baller_start(ptr noundef %cf, ptr noundef %data, ptr noundef nonnull %baller, i64 noundef range(i64 -9223372036854775806, -9223372036854775808) %timeoutms) unnamed_addr #0 {
 entry:
   %cf_prev.i = alloca ptr, align 8
   %error = getelementptr inbounds i8, ptr %baller, i64 96

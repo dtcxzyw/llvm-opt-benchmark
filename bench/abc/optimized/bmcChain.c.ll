@@ -174,8 +174,8 @@ Abc_UtilStrsav.exit44:                            ; preds = %Abc_UtilStrsav.exit
   %28 = getelementptr inbounds i8, ptr %3, i64 984
   br label %29
 
-29:                                               ; preds = %.lr.ph, %201
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %201 ]
+29:                                               ; preds = %.lr.ph, %202
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %202 ]
   %.val38 = load ptr, ptr %20, align 8
   %30 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val38, i64 %indvars.iv
   %.val39 = load i64, ptr %30, align 4
@@ -386,7 +386,7 @@ Gia_ManAppendAnd.exit:                            ; preds = %170, %172
   %177 = shl i32 %176, 1
   %178 = getelementptr inbounds i8, ptr %30, i64 8
   store i32 %177, ptr %178, align 4
-  br label %201
+  br label %202
 
 179:                                              ; preds = %29
   %180 = and i64 %.val39, 2684354559
@@ -402,12 +402,12 @@ Gia_ManAppendAnd.exit:                            ; preds = %170, %172
   %187 = and i32 %186, 1
   %188 = xor i32 %187, %182
   store i32 %188, ptr %183, align 4
-  br label %201
+  br label %202
 
 189:                                              ; preds = %179
   %.not.i48 = icmp ne i64 %31, 0
   %narrow.i49 = and i1 %.not.i48, %33
-  br i1 %narrow.i49, label %190, label %201
+  br i1 %narrow.i49, label %190, label %202
 
 190:                                              ; preds = %189
   %191 = sub nsw i64 0, %32
@@ -417,24 +417,24 @@ Gia_ManAppendAnd.exit:                            ; preds = %170, %172
   %195 = lshr i32 %194, 29
   %196 = getelementptr inbounds i8, ptr %30, i64 8
   %197 = lshr i32 %194, 30
-  %.lobit51 = xor i32 %197, %195
-  %198 = and i32 %.lobit51, 1
-  %199 = xor i32 %198, %193
-  store i32 %199, ptr %196, align 4
-  %200 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %3, i32 noundef %199)
+  %198 = xor i32 %197, %195
+  %199 = and i32 %198, 1
+  %200 = xor i32 %199, %193
   store i32 %200, ptr %196, align 4
-  br label %201
+  %201 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %3, i32 noundef %200)
+  store i32 %201, ptr %196, align 4
+  br label %202
 
-201:                                              ; preds = %Gia_ManAppendAnd.exit, %189, %190, %181
+202:                                              ; preds = %Gia_ManAppendAnd.exit, %189, %190, %181
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %202 = load i32, ptr %2, align 8
-  %203 = sext i32 %202 to i64
-  %204 = icmp slt i64 %indvars.iv.next, %203
-  br i1 %204, label %29, label %.critedge, !llvm.loop !4
+  %203 = load i32, ptr %2, align 8
+  %204 = sext i32 %203 to i64
+  %205 = icmp slt i64 %indvars.iv.next, %204
+  br i1 %205, label %29, label %.critedge, !llvm.loop !4
 
-.critedge:                                        ; preds = %201, %Abc_UtilStrsav.exit44
-  %205 = getelementptr i8, ptr %0, i64 16
-  %.val42 = load i32, ptr %205, align 8
+.critedge:                                        ; preds = %202, %Abc_UtilStrsav.exit44
+  %206 = getelementptr i8, ptr %0, i64 16
+  %.val42 = load i32, ptr %206, align 8
   tail call void @Gia_ManSetRegNum(ptr noundef nonnull %3, i32 noundef %.val42) #16
   ret ptr %3
 }

@@ -366,7 +366,7 @@ define hidden noundef zeroext i1 @_ZNK2cv11xfeatures2d10DAISY_Impl13GetDescripto
   %21 = trunc i8 %20 to i1
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   %23 = load i32, ptr %22, align 8
-  %24 = tail call fastcc noundef zeroext i1 @_ZN2cv11xfeatures2dL29get_unnormalized_descriptor_hEddiPfPdPKSt6vectorINS_3MatESaIS4_EERKS4_PS9_PKdib(double noundef %1, double noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef nonnull readonly %7, ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull readonly %9, ptr noundef nonnull readonly %10, i32 noundef %12, i1 noundef zeroext %21)
+  %24 = tail call fastcc noundef zeroext i1 @_ZN2cv11xfeatures2dL29get_unnormalized_descriptor_hEddiPfPdPKSt6vectorINS_3MatESaIS4_EERKS4_PS9_PKdib(double noundef %1, double noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef readonly %7, ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef readonly %9, ptr noundef readonly %10, i32 noundef %12, i1 noundef zeroext %21)
   br i1 %24, label %25, label %_ZN2cv11xfeatures2dL16get_descriptor_hEddiPfPdPKSt6vectorINS_3MatESaIS4_EERKS4_PS9_PKdiiiibNS0_5DAISY17NormalizationTypeE.exit
 
 25:                                               ; preds = %6
@@ -653,7 +653,7 @@ _ZNKSt6vectorIN2cv3MatESaIS1_EE2atEm.exit79.i:    ; preds = %99
 
 _ZNKSt6vectorIN2cv3MatESaIS1_EE2atEm.exit81.i:    ; preds = %_ZNKSt6vectorIN2cv3MatESaIS1_EE2atEm.exit79.i
   %118 = getelementptr inbounds %"class.cv::Mat", ptr %101, i64 %116
-  tail call fastcc void @_ZN2cv11xfeatures2dL15i_get_histogramEPfdddPKNS_3MatE(ptr noundef nonnull %3, double noundef %0, double noundef %1, double noundef %114, ptr noundef nonnull %118)
+  tail call fastcc void @_ZN2cv11xfeatures2dL15i_get_histogramEPfdddPKNS_3MatE(ptr noundef %3, double noundef %0, double noundef %1, double noundef %114, ptr noundef %118)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   %119 = add nuw nsw i32 %2, 1
@@ -1891,12 +1891,12 @@ define hidden noundef zeroext i1 @_ZNK2cv11xfeatures2d10DAISY_Impl25GetUnnormali
   %13 = getelementptr inbounds i8, ptr %0, i64 42
   %14 = load i8, ptr %13, align 2
   %15 = trunc i8 %14 to i1
-  %16 = tail call fastcc noundef zeroext i1 @_ZN2cv11xfeatures2dL29get_unnormalized_descriptor_hEddiPfPdPKSt6vectorINS_3MatESaIS4_EERKS4_PS9_PKdib(double noundef %1, double noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %12, i1 noundef zeroext %15)
+  %16 = tail call fastcc noundef zeroext i1 @_ZN2cv11xfeatures2dL29get_unnormalized_descriptor_hEddiPfPdPKSt6vectorINS_3MatESaIS4_EERKS4_PS9_PKdib(double noundef %1, double noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef %9, ptr noundef %10, i32 noundef %12, i1 noundef zeroext %15)
   ret i1 %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN2cv11xfeatures2dL29get_unnormalized_descriptor_hEddiPfPdPKSt6vectorINS_3MatESaIS4_EERKS4_PS9_PKdib(double noundef %0, double noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef nonnull align 8 dereferenceable(96) %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, i32 noundef %9, i1 noundef zeroext %10) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN2cv11xfeatures2dL29get_unnormalized_descriptor_hEddiPfPdPKSt6vectorINS_3MatESaIS4_EERKS4_PS9_PKdib(double noundef %0, double noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull readonly %5, ptr noundef nonnull align 8 dereferenceable(96) %6, ptr nocapture noundef nonnull readonly %7, ptr nocapture noundef nonnull readonly %8, i32 noundef %9, i1 noundef zeroext %10) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator.10", align 1
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2164,7 +2164,7 @@ _ZNK2cv3Mat2atIdEERKT_i.exit.i:                   ; preds = %130, %121, %112
 
 _ZNKSt6vectorIN2cv3MatESaIS1_EE2atEm.exit89.i:    ; preds = %.noexc
   %173 = getelementptr inbounds %"class.cv::Mat", ptr %166, i64 %164
-  call fastcc void @_ZN2cv11xfeatures2dL15i_get_histogramEPfdddPKNS_3MatE(ptr noundef nonnull %3, double noundef %83, double noundef %82, double noundef %163, ptr noundef nonnull %173)
+  call fastcc void @_ZN2cv11xfeatures2dL15i_get_histogramEPfdddPKNS_3MatE(ptr noundef %3, double noundef %83, double noundef %82, double noundef %163, ptr noundef %173)
   %174 = icmp sgt i32 %103, 0
   br i1 %174, label %.lr.ph215.i, label %.loopexit43
 
@@ -3763,7 +3763,7 @@ _ZN2cv3Mat2atIdEERT_i.exit:                       ; preds = %145, %155
   %170 = load i8, ptr %98, align 2
   %171 = trunc i8 %170 to i1
   %172 = load i32, ptr %99, align 8
-  %173 = invoke fastcc noundef zeroext i1 @_ZN2cv11xfeatures2dL29get_unnormalized_descriptor_hEddiPfPdPKSt6vectorINS_3MatESaIS4_EERKS4_PS9_PKdib(double noundef %150, double noundef %152, i32 noundef %159, ptr noundef %164, ptr noundef readonly %165, ptr noundef nonnull readonly %95, ptr noundef nonnull align 8 dereferenceable(96) %96, ptr noundef nonnull readonly %97, ptr noundef nonnull readonly %50, i32 noundef %166, i1 noundef zeroext %171)
+  %173 = invoke fastcc noundef zeroext i1 @_ZN2cv11xfeatures2dL29get_unnormalized_descriptor_hEddiPfPdPKSt6vectorINS_3MatESaIS4_EERKS4_PS9_PKdib(double noundef %150, double noundef %152, i32 noundef %159, ptr noundef %164, ptr noundef readonly %165, ptr noundef readonly %95, ptr noundef nonnull align 8 dereferenceable(96) %96, ptr noundef readonly %97, ptr noundef readonly %50, i32 noundef %166, i1 noundef zeroext %171)
           to label %.noexc44 unwind label %.loopexit.split-lp.loopexit
 
 .noexc44:                                         ; preds = %_ZN2cv3Mat2atIdEERT_i.exit
@@ -6177,7 +6177,7 @@ _ZN2cv11xfeatures2dL17normalize_partialEPfii.exit: ; preds = %..loopexit_crit_ed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN2cv11xfeatures2dL15i_get_histogramEPfdddPKNS_3MatE(ptr nocapture noundef %0, double noundef %1, double noundef %2, double noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #12 {
+define internal fastcc void @_ZN2cv11xfeatures2dL15i_get_histogramEPfdddPKNS_3MatE(ptr nocapture noundef nonnull %0, double noundef %1, double noundef %2, double noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #12 {
   %6 = alloca [64 x float], align 16
   %7 = fptosi double %3 to i32
   %8 = sitofp i32 %7 to double
@@ -6200,7 +6200,7 @@ define internal fastcc void @_ZN2cv11xfeatures2dL15i_get_histogramEPfdddPKNS_3Ma
 
 16:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6)
-  call fastcc void @_ZN2cv11xfeatures2dL16bi_get_histogramEPfddiPKNS_3MatE(ptr noundef nonnull %6, double noundef %1, double noundef %2, i32 noundef %7, ptr noundef readonly %4)
+  call fastcc void @_ZN2cv11xfeatures2dL16bi_get_histogramEPfddiPKNS_3MatE(ptr noundef %6, double noundef %1, double noundef %2, i32 noundef %7, ptr noundef readonly %4)
   %17 = getelementptr inbounds i8, ptr %4, i64 64
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
@@ -6260,7 +6260,7 @@ _ZN2cv11xfeatures2dL16ti_get_histogramEPfdddPKNS_3MatE.exit: ; preds = %24, %.._
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN2cv11xfeatures2dL16bi_get_histogramEPfddiPKNS_3MatE(ptr nocapture noundef %0, double noundef %1, double noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #12 {
+define internal fastcc void @_ZN2cv11xfeatures2dL16bi_get_histogramEPfddiPKNS_3MatE(ptr nocapture noundef nonnull %0, double noundef %1, double noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #12 {
   %6 = fptosi double %2 to i32
   %7 = fptosi double %1 to i32
   %8 = getelementptr inbounds i8, ptr %4, i64 64
@@ -6282,7 +6282,7 @@ define internal fastcc void @_ZN2cv11xfeatures2dL16bi_get_histogramEPfddiPKNS_3M
 18:                                               ; preds = %15, %5
   %19 = sext i32 %11 to i64
   %20 = shl nsw i64 %19, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %0, i8 0, i64 %20, i1 false)
   br label %.loopexit
 
 21:                                               ; preds = %15
@@ -7215,7 +7215,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %45, %47, %49, %_ZSt
 ._crit_edge:                                      ; preds = %62, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
   %67 = getelementptr inbounds i8, ptr %0, i64 144
   %68 = load ptr, ptr %32, align 8
-  call fastcc void @_ZN2cv11xfeatures2dL16layered_gradientERNS_3MatEPS1_(ptr noundef nonnull align 8 dereferenceable(96) %67, ptr noundef nonnull %68)
+  call fastcc void @_ZN2cv11xfeatures2dL16layered_gradientERNS_3MatEPS1_(ptr noundef nonnull align 8 dereferenceable(96) %67, ptr noundef %68)
   %69 = load ptr, ptr %32, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -7562,7 +7562,7 @@ _ZN2cv3Mat2atIdEERT_i.exit40:                     ; preds = %109, %121, %126
 declare void @_ZN2cv3MatC1EiPKii(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, ptr noundef, i32 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv11xfeatures2dL16layered_gradientERNS_3MatEPS1_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv11xfeatures2dL16layered_gradientERNS_3MatEPS1_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::Mat", align 8
   %4 = alloca %"class.cv::Mat", align 8
   %5 = alloca %"class.cv::Mat", align 8
@@ -8703,7 +8703,7 @@ define linkonce_odr hidden void @_ZN2cv11xfeatures2d10DAISY_Impl20compute_orient
   %33 = load i32, ptr %32, align 4
   store i32 %33, ptr %31, align 4
   call void @_ZN2cv3MatC1EiPKii(ptr noundef nonnull align 8 dereferenceable(96) %9, i32 noundef 4, ptr noundef nonnull %8, i32 noundef 5)
-  invoke fastcc void @_ZN2cv11xfeatures2dL16layered_gradientERNS_3MatEPS1_(ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef nonnull %9)
+  invoke fastcc void @_ZN2cv11xfeatures2dL16layered_gradientERNS_3MatEPS1_(ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef %9)
           to label %34 unwind label %95
 
 34:                                               ; preds = %24

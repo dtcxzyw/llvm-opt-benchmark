@@ -80,7 +80,7 @@ switch.lookup:                                    ; preds = %28
   br label %39
 
 37:                                               ; preds = %18
-  %38 = tail call fastcc zeroext i1 @rtree_internal_consistent(ptr noundef nonnull %15, ptr noundef nonnull %7, i16 noundef zeroext %10)
+  %38 = tail call fastcc zeroext i1 @rtree_internal_consistent(ptr noundef nonnull %15, ptr noundef %7, i16 noundef zeroext %10)
   br label %39
 
 39:                                               ; preds = %1, %37, %switch.lookup
@@ -90,7 +90,7 @@ switch.lookup:                                    ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @rtree_internal_consistent(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @rtree_internal_consistent(ptr noundef %0, ptr noundef nonnull %1, i16 noundef zeroext %2) unnamed_addr #0 {
   switch i16 %2, label %51 [
     i16 1, label %4
     i16 2, label %8
@@ -687,7 +687,7 @@ float8_lt.exit.thread:                            ; preds = %102, %109, %float8_
 
 .critedge2:                                       ; preds = %122, %.critedge2.loopexit.split.loop.exit383, %.lr.ph321, %111
   %.1.lcssa = phi i32 [ %.0223327, %111 ], [ %11, %.lr.ph321 ], [ %123, %.critedge2.loopexit.split.loop.exit383 ], [ %11, %122 ]
-  call fastcc void @g_box_consider_split(ptr noundef nonnull %2, i32 noundef %.0240343, double noundef %115, i32 noundef %112, double noundef %.1233314.fr, i32 noundef %.1.lcssa)
+  call fastcc void @g_box_consider_split(ptr noundef %2, i32 noundef %.0240343, double noundef %115, i32 noundef %112, double noundef %.1233314.fr, i32 noundef %.1.lcssa)
   %124 = icmp sgt i32 %11, %112
   br i1 %124, label %.lr.ph317, label %.lr.ph331.preheader
 
@@ -771,7 +771,7 @@ float8_gt.exit.thread:                            ; preds = %135, %141, %float8_
   %.3227.lcssa = phi i32 [ %.2226341, %.critedge4 ], [ %157, %.critedge6.loopexit.split.loop.exit385 ], [ -1, %155 ]
   %158 = add nsw i32 %.3227.lcssa, 1
   %159 = add nuw nsw i32 %144, 1
-  call fastcc void @g_box_consider_split(ptr noundef nonnull %2, i32 noundef %.0240343, double noundef %.2230328, i32 noundef %158, double noundef %147, i32 noundef %159)
+  call fastcc void @g_box_consider_split(ptr noundef %2, i32 noundef %.0240343, double noundef %.2230328, i32 noundef %158, double noundef %147, i32 noundef %159)
   %160 = icmp sgt i32 %144, -1
   br i1 %160, label %.lr.ph331, label %._crit_edge332
 
@@ -1697,7 +1697,7 @@ define internal i32 @interval_cmp_upper(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @g_box_consider_split(ptr nocapture noundef %0, i32 noundef %1, double noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @g_box_consider_split(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 2) %1, double noundef %2, i32 noundef range(i32 -2147483648, 65536) %3, double noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr %0, align 8
   %8 = add i32 %7, 1
   %9 = sdiv i32 %8, 2
@@ -2066,7 +2066,7 @@ define dso_local range(i64 0, 2) i64 @gist_poly_consistent(ptr nocapture noundef
   %18 = inttoptr i64 %14 to ptr
   %19 = trunc i64 %10 to i16
   %20 = getelementptr inbounds i8, ptr %8, i64 8
-  %21 = tail call fastcc zeroext i1 @rtree_internal_consistent(ptr noundef nonnull %18, ptr noundef nonnull %20, i16 noundef zeroext %19)
+  %21 = tail call fastcc zeroext i1 @rtree_internal_consistent(ptr noundef nonnull %18, ptr noundef %20, i16 noundef zeroext %19)
   %22 = load i64, ptr %5, align 8
   %23 = inttoptr i64 %22 to ptr
   %.not = icmp eq ptr %8, %23
@@ -2297,7 +2297,7 @@ float8_mi.exit27:                                 ; preds = %float8_pl.exit24
   %48 = getelementptr inbounds i8, ptr %2, i64 24
   store double %44, ptr %48, align 8
   %49 = inttoptr i64 %15 to ptr
-  %50 = call fastcc zeroext i1 @rtree_internal_consistent(ptr noundef %49, ptr noundef nonnull %2, i16 noundef zeroext %11)
+  %50 = call fastcc zeroext i1 @rtree_internal_consistent(ptr noundef %49, ptr noundef %2, i16 noundef zeroext %11)
   %51 = zext i1 %50 to i64
   br label %52
 

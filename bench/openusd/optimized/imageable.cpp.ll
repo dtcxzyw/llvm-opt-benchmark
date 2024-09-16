@@ -3817,7 +3817,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdGeomImageable11MakeVisib
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN32pxrInternal_v0_24__pxrReserved__9UsdObjectC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L12_MakeVisibleERKNS_7UsdPrimERKNS_11UsdTimeCodeEPb(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L12_MakeVisibleERKNS_7UsdPrimERKNS_11UsdTimeCodeEPb(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %3)
           to label %8 unwind label %42
 
 8:                                                ; preds = %2
@@ -4105,7 +4105,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit17: ; preds = %.body, %94
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L12_MakeVisibleERKNS_7UsdPrimERKNS_11UsdTimeCodeEPb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L12_MakeVisibleERKNS_7UsdPrimERKNS_11UsdTimeCodeEPb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Usd_PrimDataHandle", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Usd_PrimFlagsPredicate", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
@@ -5196,7 +5196,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdGeomImageable18ComputePu
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_ComputeAuthoredPurposeERKNS_16UsdGeomImageableE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_ComputeAuthoredPurposeERKNS_16UsdGeomImageableE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %7 = load ptr, ptr %3, align 8
   %8 = icmp eq ptr %7, null
   %9 = ptrtoint ptr %7 to i64
@@ -5209,7 +5209,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdGeomImageable18ComputePu
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit unwind label %68
 
 _ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit: ; preds = %10
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34_ComputeInheritableAncestorPurposeERKNS_7UsdPrimE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34_ComputeInheritableAncestorPurposeERKNS_7UsdPrimE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %13 unwind label %70
 
 13:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit
@@ -5282,7 +5282,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInter
   br i1 %48, label %50, label %81
 
 50:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_ComputeFallbackPurposeERKNS_16UsdGeomImageableE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_ComputeFallbackPurposeERKNS_16UsdGeomImageableE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %51 unwind label %72
 
 51:                                               ; preds = %50
@@ -5439,7 +5439,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit17: ; preds = %_ZN32pxrInt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_ComputeAuthoredPurposeERKNS_16UsdGeomImageableE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_ComputeAuthoredPurposeERKNS_16UsdGeomImageableE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -5573,7 +5573,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBasecvbEv.exit.thread: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34_ComputeInheritableAncestorPurposeERKNS_7UsdPrimE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34_ComputeInheritableAncestorPurposeERKNS_7UsdPrimE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdGeomImageable", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
@@ -5823,7 +5823,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit11: ; preds = %79, %74, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_ComputeFallbackPurposeERKNS_16UsdGeomImageableE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_ComputeFallbackPurposeERKNS_16UsdGeomImageableE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", align 8
   %4 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomTokensE seq_cst, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -6009,7 +6009,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit: ; preds = %_ZN32px
 define void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdGeomImageable18ComputePurposeInfoERKNS0_11PurposeInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.pxrInternal_v0_24__pxrReserved__::UsdGeomImageable::PurposeInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_ComputeAuthoredPurposeERKNS_16UsdGeomImageableE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_ComputeAuthoredPurposeERKNS_16UsdGeomImageableE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %6 = load ptr, ptr %4, align 8
   %7 = icmp eq ptr %6, null
   %8 = ptrtoint ptr %6 to i64
@@ -6066,7 +6066,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %25, %30
   resume { ptr, i32 } %26
 
 34:                                               ; preds = %9
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_ComputeFallbackPurposeERKNS_16UsdGeomImageableE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_ComputeFallbackPurposeERKNS_16UsdGeomImageableE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %35 unwind label %25
 
 35:                                               ; preds = %34
@@ -6599,7 +6599,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__16UsdGeomImageable14ComputePurposeEv.exit.
   br label %.body58
 
 _ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBasecvbEv.exit.thread.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBasecvbEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i55, %.noexc57
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34_ComputeInheritableAncestorPurposeERKNS_7UsdPrimE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(32) %17)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34_ComputeInheritableAncestorPurposeERKNS_7UsdPrimE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %189 unwind label %187
 
 189:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBasecvbEv.exit.thread.i, %_ZNK32pxrInternal_v0_24__pxrReserved__16UsdGeomImageable14ComputePurposeEv.exit.i
@@ -8869,7 +8869,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdGeomImageable17ComputeWo
   %12 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdGeomBBoxCache", align 8
   %13 = alloca %"class.std::vector.75", align 8
   %14 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_MakePurposeVectorERKNS_7TfTokenES2_S2_S2_(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_MakePurposeVectorERKNS_7TfTokenES2_S2_S2_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %15 = load ptr, ptr %8, align 8
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -9378,7 +9378,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit45: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_MakePurposeVectorERKNS_7TfTokenES2_S2_S2_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_MakePurposeVectorERKNS_7TfTokenES2_S2_S2_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = load ptr, ptr %1, align 8
   %7 = icmp eq ptr %6, null
@@ -9670,7 +9670,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdGeomImageable17ComputeLo
   %12 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdGeomBBoxCache", align 8
   %13 = alloca %"class.std::vector.75", align 8
   %14 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_MakePurposeVectorERKNS_7TfTokenES2_S2_S2_(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_MakePurposeVectorERKNS_7TfTokenES2_S2_S2_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %15 = load ptr, ptr %8, align 8
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -10189,7 +10189,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdGeomImageable25ComputeUn
   %12 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdGeomBBoxCache", align 8
   %13 = alloca %"class.std::vector.75", align 8
   %14 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_MakePurposeVectorERKNS_7TfTokenES2_S2_S2_(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_MakePurposeVectorERKNS_7TfTokenES2_S2_S2_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %15 = load ptr, ptr %8, align 8
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = load ptr, ptr %16, align 8

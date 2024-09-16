@@ -5233,7 +5233,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117GuardWideningImpl13freeze
 
 32:                                               ; preds = %4
   %33 = load ptr, ptr %0, align 8
-  call fastcc void @_ZL17getFreezeInsertPtPN4llvm5ValueERKNS_13DominatorTreeE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(124) %33)
+  call fastcc void @_ZL17getFreezeInsertPtPN4llvm5ValueERKNS_13DominatorTreeE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(124) %33)
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %35 = load i8, ptr %34, align 8
   %36 = trunc i8 %35 to i1
@@ -5478,7 +5478,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %138, %141
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GuardWideningImpl13freezeAndPushEPN4llvm5ValueENS4_21ilist_iterator_w_bitsINS4_12ilist_detail12node_optionsINS4_11InstructionELb0ELb0EvLb1ENS4_10BasicBlockEEELb0ELb0EEEE3$_0EclIPNS4_3UseEEEbT_.exit.i.i.i.i.i.i": ; preds = %150
   %153 = load ptr, ptr %0, align 8
-  call fastcc void @_ZL17getFreezeInsertPtPN4llvm5ValueERKNS_13DominatorTreeE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull %.029.val.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %153)
+  call fastcc void @_ZL17getFreezeInsertPtPN4llvm5ValueERKNS_13DominatorTreeE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull %.029.val.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %153)
   %154 = load i8, ptr %79, align 8
   %155 = trunc i8 %154 to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
@@ -5498,7 +5498,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %138, %141
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GuardWideningImpl13freezeAndPushEPN4llvm5ValueENS4_21ilist_iterator_w_bitsINS4_12ilist_detail12node_optionsINS4_11InstructionELb0ELb0EvLb1ENS4_10BasicBlockEEELb0ELb0EEEE3$_0EclIPNS4_3UseEEEbT_.exit40.i.i.i.i.i.i": ; preds = %156
   %160 = load ptr, ptr %0, align 8
-  call fastcc void @_ZL17getFreezeInsertPtPN4llvm5ValueERKNS_13DominatorTreeE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull %.val31.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %160)
+  call fastcc void @_ZL17getFreezeInsertPtPN4llvm5ValueERKNS_13DominatorTreeE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull %.val31.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %160)
   %161 = load i8, ptr %80, align 8
   %162 = trunc i8 %161 to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
@@ -5518,7 +5518,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %138, %141
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GuardWideningImpl13freezeAndPushEPN4llvm5ValueENS4_21ilist_iterator_w_bitsINS4_12ilist_detail12node_optionsINS4_11InstructionELb0ELb0EvLb1ENS4_10BasicBlockEEELb0ELb0EEEE3$_0EclIPNS4_3UseEEEbT_.exit41.i.i.i.i.i.i": ; preds = %163
   %167 = load ptr, ptr %0, align 8
-  call fastcc void @_ZL17getFreezeInsertPtPN4llvm5ValueERKNS_13DominatorTreeE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull %.val33.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %167)
+  call fastcc void @_ZL17getFreezeInsertPtPN4llvm5ValueERKNS_13DominatorTreeE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull %.val33.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %167)
   %168 = load i8, ptr %81, align 8
   %169 = trunc i8 %168 to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
@@ -5538,7 +5538,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %138, %141
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GuardWideningImpl13freezeAndPushEPN4llvm5ValueENS4_21ilist_iterator_w_bitsINS4_12ilist_detail12node_optionsINS4_11InstructionELb0ELb0EvLb1ENS4_10BasicBlockEEELb0ELb0EEEE3$_0EclIPNS4_3UseEEEbT_.exit42.i.i.i.i.i.i": ; preds = %170
   %174 = load ptr, ptr %0, align 8
-  call fastcc void @_ZL17getFreezeInsertPtPN4llvm5ValueERKNS_13DominatorTreeE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull %.val35.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %174)
+  call fastcc void @_ZL17getFreezeInsertPtPN4llvm5ValueERKNS_13DominatorTreeE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull %.val35.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %174)
   %175 = load i8, ptr %82, align 8
   %176 = trunc i8 %175 to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
@@ -5578,7 +5578,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %138, %141
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GuardWideningImpl13freezeAndPushEPN4llvm5ValueENS4_21ilist_iterator_w_bitsINS4_12ilist_detail12node_optionsINS4_11InstructionELb0ELb0EvLb1ENS4_10BasicBlockEEELb0ELb0EEEE3$_0EclIPNS4_3UseEEEbT_.exit43.i.i.i.i.i.i": ; preds = %182
   %185 = load ptr, ptr %0, align 8
-  call fastcc void @_ZL17getFreezeInsertPtPN4llvm5ValueERKNS_13DominatorTreeE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull %.029.val37.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %185)
+  call fastcc void @_ZL17getFreezeInsertPtPN4llvm5ValueERKNS_13DominatorTreeE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull %.029.val37.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %185)
   %186 = load i8, ptr %83, align 8
   %187 = trunc i8 %186 to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
@@ -5602,7 +5602,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %138, %141
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GuardWideningImpl13freezeAndPushEPN4llvm5ValueENS4_21ilist_iterator_w_bitsINS4_12ilist_detail12node_optionsINS4_11InstructionELb0ELb0EvLb1ENS4_10BasicBlockEEELb0ELb0EEEE3$_0EclIPNS4_3UseEEEbT_.exit44.i.i.i.i.i.i": ; preds = %190
   %193 = load ptr, ptr %0, align 8
-  call fastcc void @_ZL17getFreezeInsertPtPN4llvm5ValueERKNS_13DominatorTreeE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull %.1.val.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %193)
+  call fastcc void @_ZL17getFreezeInsertPtPN4llvm5ValueERKNS_13DominatorTreeE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull %.1.val.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %193)
   %194 = load i8, ptr %84, align 8
   %195 = trunc i8 %194 to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
@@ -5626,7 +5626,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %138, %141
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GuardWideningImpl13freezeAndPushEPN4llvm5ValueENS4_21ilist_iterator_w_bitsINS4_12ilist_detail12node_optionsINS4_11InstructionELb0ELb0EvLb1ENS4_10BasicBlockEEELb0ELb0EEEE3$_0EclIPNS4_3UseEEEbT_.exit45.i.i.i.i.i.i": ; preds = %198
   %201 = load ptr, ptr %0, align 8
-  call fastcc void @_ZL17getFreezeInsertPtPN4llvm5ValueERKNS_13DominatorTreeE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull %.2.val.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %201)
+  call fastcc void @_ZL17getFreezeInsertPtPN4llvm5ValueERKNS_13DominatorTreeE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull %.2.val.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %201)
   %202 = load i8, ptr %85, align 8
   %203 = trunc i8 %202 to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
@@ -5795,7 +5795,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit.i: ; preds = %247, %._cri
 
 267:                                              ; preds = %264
   %268 = load ptr, ptr %0, align 8
-  call fastcc void @_ZL17getFreezeInsertPtPN4llvm5ValueERKNS_13DominatorTreeE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %.pre.i89137, ptr noundef nonnull align 8 dereferenceable(124) %268)
+  call fastcc void @_ZL17getFreezeInsertPtPN4llvm5ValueERKNS_13DominatorTreeE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %.pre.i89137, ptr noundef nonnull align 8 dereferenceable(124) %268)
   %.sroa.026.0.copyload.i = load ptr, ptr %6, align 8
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8
   %269 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 72, i32 noundef 1) #22
@@ -6098,7 +6098,7 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit: ; preds = %.lr.ph.i4
   %.050173 = phi ptr [ %391, %.lr.ph176 ], [ %413, %399 ]
   %400 = load ptr, ptr %.050173, align 8
   %401 = load ptr, ptr %0, align 8
-  call fastcc void @_ZL17getFreezeInsertPtPN4llvm5ValueERKNS_13DominatorTreeE(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef %400, ptr noundef nonnull align 8 dereferenceable(124) %401)
+  call fastcc void @_ZL17getFreezeInsertPtPN4llvm5ValueERKNS_13DominatorTreeE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef %400, ptr noundef nonnull align 8 dereferenceable(124) %401)
   %.sroa.0100.0.copyload = load ptr, ptr %23, align 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %402 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 72, i32 noundef 1) #22
@@ -6731,7 +6731,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %_ZN4llvm5APIntC2ERK
 declare noundef ptr @_ZN4llvm14BinaryOperator6CreateENS_11Instruction9BinaryOpsEPNS_5ValueES4_RKNS_5TwineENS_14InsertPositionE(i32 noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(34), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17getFreezeInsertPtPN4llvm5ValueERKNS_13DominatorTreeE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(124) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL17getFreezeInsertPtPN4llvm5ValueERKNS_13DominatorTreeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(124) %2) unnamed_addr #0 {
   %4 = alloca %"class.std::optional.299", align 8
   %5 = load i8, ptr %1, align 8
   %6 = icmp ult i8 %5, 29

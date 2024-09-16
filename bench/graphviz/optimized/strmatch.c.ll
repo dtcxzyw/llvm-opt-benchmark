@@ -39,7 +39,7 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2
   store ptr null, ptr %10, align 8
   store i32 0, ptr %11, align 8
   store ptr null, ptr %6, align 8
-  %15 = call fastcc i32 @grpmatch(ptr noundef nonnull %6, i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %8)
+  %15 = call fastcc i32 @grpmatch(ptr noundef %6, i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %8)
   %16 = icmp ne i32 %15, 0
   %17 = load ptr, ptr %10, align 8
   %18 = icmp ne ptr %17, null
@@ -59,7 +59,7 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2
   store ptr null, ptr %10, align 8
   store i32 0, ptr %11, align 8
   store ptr null, ptr %6, align 8
-  %22 = call fastcc i32 @grpmatch(ptr noundef nonnull %6, i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %8)
+  %22 = call fastcc i32 @grpmatch(ptr noundef %6, i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %8)
   %23 = icmp ne i32 %22, 0
   %24 = load ptr, ptr %10, align 8
   %25 = icmp ne ptr %24, null
@@ -76,7 +76,7 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2
   store ptr null, ptr %10, align 8
   store i32 0, ptr %11, align 8
   store ptr null, ptr %6, align 8
-  %28 = call fastcc i32 @grpmatch(ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull %27, ptr noundef %1, ptr noundef nonnull %8)
+  %28 = call fastcc i32 @grpmatch(ptr noundef %6, i32 noundef 0, ptr noundef nonnull %27, ptr noundef %1, ptr noundef nonnull %8)
   %29 = icmp ne i32 %28, 0
   %30 = load ptr, ptr %10, align 8
   %31 = icmp ne ptr %30, null
@@ -88,7 +88,7 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2
   store ptr null, ptr %10, align 8
   store i32 0, ptr %11, align 8
   store ptr null, ptr %6, align 8
-  %32 = call fastcc i32 @grpmatch(ptr noundef nonnull %6, i32 noundef 0, ptr noundef %.037, ptr noundef %1, ptr noundef %8)
+  %32 = call fastcc i32 @grpmatch(ptr noundef %6, i32 noundef 0, ptr noundef %.037, ptr noundef %1, ptr noundef %8)
   %33 = icmp ne i32 %32, 0
   %34 = load ptr, ptr %10, align 8
   %35 = icmp ne ptr %34, null
@@ -183,7 +183,7 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @grpmatch(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @grpmatch(ptr nocapture noundef nonnull %0, i32 noundef range(i32 -2147483647, -2147483648) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 360
   %7 = getelementptr inbounds i8, ptr %0, i64 80
   br label %gobble.exit
@@ -200,7 +200,7 @@ gobble.exit:                                      ; preds = %47, %5
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %12, i64 1
-  %11 = tail call fastcc i32 @onematch(ptr noundef nonnull %0, i32 noundef %.016, ptr noundef %2, ptr noundef nonnull %10, ptr noundef %4, ptr noundef null)
+  %11 = tail call fastcc i32 @onematch(ptr noundef %0, i32 noundef %.016, ptr noundef %2, ptr noundef nonnull %10, ptr noundef %4, ptr noundef null)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %.split.split.split.i.preheader, label %.lr.ph
 
@@ -335,7 +335,7 @@ define range(i32 0, 2) i32 @strmatch(ptr noundef %0, ptr noundef %1) local_unnam
   store ptr null, ptr %7, align 8
   store i32 0, ptr %8, align 8
   store ptr null, ptr %3, align 8
-  %10 = call fastcc i32 @grpmatch(ptr noundef nonnull %3, i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %5)
+  %10 = call fastcc i32 @grpmatch(ptr noundef %3, i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %5)
   %11 = icmp ne i32 %10, 0
   %12 = load ptr, ptr %7, align 8
   %13 = icmp ne ptr %12, null
@@ -367,7 +367,7 @@ strgrpmatch.exit:                                 ; preds = %18, %2
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @onematch(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @onematch(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 80
   br label %8
 
@@ -937,10 +937,10 @@ gobble.exit:                                      ; preds = %38, %66
   %216 = icmp ult i32 %215, -26
   %217 = add nsw i32 %.fr420, -58
   %218 = icmp ult i32 %217, -10
-  %.not4.i = and i1 %218, %216
+  %.not4.i = select i1 %216, i1 %218, i1 false
   %219 = add nsw i32 %.fr420, -33
   %220 = icmp ult i32 %219, 94
-  %.0.i = and i1 %220, %.not4.i
+  %.0.i = select i1 %.not4.i, i1 %220, i1 false
   %spec.select385 = zext i1 %.0.i to i32
   %221 = add nsw i32 %.fr420, -32
   %222 = icmp ult i32 %221, 95
@@ -961,7 +961,7 @@ gobble.exit:                                      ; preds = %38, %66
   %229 = add nsw i32 %214, -65
   %230 = icmp ult i32 %229, 26
   %spec.select378 = zext i1 %230 to i32
-  %231 = or i1 %211, %230
+  %231 = select i1 %230, i1 true, i1 %211
   %spec.select377 = zext i1 %231 to i32
   br label %gv_isspace.exit
 

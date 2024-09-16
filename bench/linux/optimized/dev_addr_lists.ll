@@ -1511,7 +1511,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dev_uc_sync_multiple(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @__hw_addr_sync_multiple(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @__hw_addr_sync_multiple(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, %1
   br i1 %5, label %.loopexit, label %6

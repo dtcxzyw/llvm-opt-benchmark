@@ -1687,7 +1687,7 @@ imageio_dispose.exit:                             ; preds = %19
   store ptr @jResyncRestart, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %20, i64 48
   store ptr @imageio_term_source, ptr %30, align 8
-  %31 = call fastcc ptr @initImageioData(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %1)
+  %31 = call fastcc ptr @initImageioData(ptr noundef %0, ptr noundef %4, ptr noundef %1)
   %32 = icmp eq ptr %31, null
   br i1 %32, label %imageio_dispose.exit40, label %38
 
@@ -2026,7 +2026,7 @@ declare void @jSaveMarkers(ptr noundef, i32 noundef, i32 noundef) local_unnamed_
 declare i32 @jResyncRestart(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @initImageioData(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc noundef ptr @initImageioData(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #1 {
   %4 = tail call noalias dereferenceable_or_null(104) ptr @malloc(i64 noundef 104) #14
   %5 = icmp eq ptr %4, null
   br i1 %5, label %50, label %6
@@ -2123,7 +2123,7 @@ define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_setSource(ptr nou
 6:                                                ; preds = %3
   %7 = inttoptr i64 %2 to ptr
   %8 = load ptr, ptr %7, align 8
-  tail call fastcc void @imageio_set_stream(ptr noundef %0, ptr noundef %8, ptr noundef nonnull %7, ptr noundef %1)
+  tail call fastcc void @imageio_set_stream(ptr noundef %0, ptr noundef %8, ptr noundef %7, ptr noundef %1)
   %9 = getelementptr inbounds i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
@@ -2134,7 +2134,7 @@ define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_setSource(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @imageio_set_stream(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @imageio_set_stream(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca [200 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -3174,7 +3174,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_readImage(p
   br i1 %116, label %117, label %118
 
 117:                                              ; preds = %113
-  call fastcc void @setQTables(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef nonnull %14, i32 noundef 1)
+  call fastcc void @setQTables(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef %14, i32 noundef 1)
   br label %118
 
 118:                                              ; preds = %117, %113, %112
@@ -3673,11 +3673,11 @@ GET_ARRAYS.exit:                                  ; preds = %289, %287, %GET_ARR
 declare void @JNU_ThrowNullPointerException(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @setPixelBuffer(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @setPixelBuffer(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef nonnull %2) unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 168
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %2) #13
+  %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef nonnull %2) #13
   store ptr %7, ptr %1, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -3701,11 +3701,11 @@ define internal fastcc range(i32 0, 2) i32 @setPixelBuffer(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setQTables(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @setQTables(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #1 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1368
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(ptr noundef nonnull %0, ptr noundef %2) #13
+  %8 = tail call i32 %7(ptr noundef nonnull %0, ptr noundef nonnull %2) #13
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
 
@@ -3725,7 +3725,7 @@ define internal fastcc void @setQTables(ptr noundef %0, ptr noundef %1, ptr noun
   %16 = getelementptr inbounds i8, ptr %15, i64 1384
   %17 = load ptr, ptr %16, align 8
   %18 = trunc nuw nsw i64 %indvars.iv62 to i32
-  %19 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %18) #13
+  %19 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %18) #13
   %20 = icmp eq ptr %19, null
   br i1 %20, label %._crit_edge, label %21
 
@@ -3796,7 +3796,7 @@ define internal fastcc void @setQTables(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setHTables(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @setHTables(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #1 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 1368
   %8 = load ptr, ptr %7, align 8
@@ -3849,7 +3849,7 @@ define internal fastcc void @setHTables(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %33, label %.loopexit, label %34
 
 34:                                               ; preds = %27
-  %35 = tail call fastcc i32 @setHuffTable(ptr noundef nonnull %0, ptr noundef %.0, ptr noundef nonnull %32)
+  %35 = tail call fastcc i32 @setHuffTable(ptr noundef nonnull %0, ptr noundef %.0, ptr noundef %32)
   %.not78 = icmp eq i32 %35, 0
   br i1 %.not78, label %.loopexit, label %36
 
@@ -3913,7 +3913,7 @@ define internal fastcc void @setHTables(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %64, label %.loopexit, label %65
 
 65:                                               ; preds = %58
-  %66 = tail call fastcc i32 @setHuffTable(ptr noundef nonnull %0, ptr noundef %.1, ptr noundef nonnull %63)
+  %66 = tail call fastcc i32 @setHuffTable(ptr noundef nonnull %0, ptr noundef %.1, ptr noundef %63)
   %.not75 = icmp eq i32 %66, 0
   br i1 %.not75, label %.loopexit, label %67
 
@@ -4014,7 +4014,7 @@ define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_resetReader(ptr n
   %7 = inttoptr i64 %2 to ptr
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
-  call fastcc void @imageio_reset(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %7)
+  call fastcc void @imageio_reset(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %7)
   %10 = getelementptr inbounds i8, ptr %9, i64 168
   %11 = call i32 @_setjmp(ptr noundef nonnull %10) #15
   %.not = icmp eq i32 %11, 0
@@ -4056,7 +4056,7 @@ define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_resetReader(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @imageio_reset(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #1 {
+define internal fastcc void @imageio_reset(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #1 {
   %4 = alloca [200 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -4420,7 +4420,7 @@ imageio_dispose.exit:                             ; preds = %19
   %29 = getelementptr inbounds i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   store ptr %20, ptr %29, align 8
-  %30 = call fastcc ptr @initImageioData(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %1)
+  %30 = call fastcc ptr @initImageioData(ptr noundef %0, ptr noundef %4, ptr noundef %1)
   %31 = icmp eq ptr %30, null
   br i1 %31, label %imageio_dispose.exit38, label %37
 
@@ -4853,7 +4853,7 @@ define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_setDest(ptr nound
 6:                                                ; preds = %3
   %7 = inttoptr i64 %2 to ptr
   %8 = load ptr, ptr %7, align 8
-  tail call fastcc void @imageio_set_stream(ptr noundef %0, ptr noundef %8, ptr noundef nonnull %7, ptr noundef %1)
+  tail call fastcc void @imageio_set_stream(ptr noundef %0, ptr noundef %8, ptr noundef %7, ptr noundef %1)
   %9 = getelementptr inbounds i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
   store ptr null, ptr %10, align 8
@@ -5036,7 +5036,7 @@ GET_ARRAYS.exit:                                  ; preds = %67, %64
   br i1 %.not36, label %98, label %97
 
 97:                                               ; preds = %GET_ARRAYS.exit
-  call fastcc void @setQTables(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %3, i32 noundef 1)
+  call fastcc void @setQTables(ptr noundef %0, ptr noundef nonnull %12, ptr noundef %3, i32 noundef 1)
   br label %98
 
 98:                                               ; preds = %97, %GET_ARRAYS.exit
@@ -5909,7 +5909,7 @@ define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_resetWriter(ptr n
 6:                                                ; preds = %3
   %7 = inttoptr i64 %2 to ptr
   %8 = load ptr, ptr %7, align 8
-  tail call fastcc void @imageio_reset(ptr noundef %0, ptr noundef %8, ptr noundef nonnull %7)
+  tail call fastcc void @imageio_reset(ptr noundef %0, ptr noundef %8, ptr noundef %7)
   %9 = getelementptr inbounds i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
   store ptr null, ptr %10, align 8
@@ -5954,12 +5954,12 @@ declare ptr @jAlcQTable(ptr noundef) local_unnamed_addr #2
 declare ptr @jAlcHTable(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @setHuffTable(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @setHuffTable(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef nonnull %2) unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 760
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @JPEGHuffmanTable_lengthsID, align 8
-  %8 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %7) #13
+  %8 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %7) #13
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 1368
   %11 = load ptr, ptr %10, align 8
@@ -6002,7 +6002,7 @@ define internal fastcc range(i32 0, 2) i32 @setHuffTable(ptr noundef %0, ptr noc
   %28 = getelementptr inbounds i8, ptr %27, i64 760
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr @JPEGHuffmanTable_valuesID, align 8
-  %31 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %30) #13
+  %31 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %30) #13
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 1368
   %34 = load ptr, ptr %33, align 8

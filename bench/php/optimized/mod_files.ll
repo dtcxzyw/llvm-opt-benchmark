@@ -382,7 +382,7 @@ define hidden range(i32 -1, 1) i32 @ps_delete_files(ptr nocapture noundef readon
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %32, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
   %33 = getelementptr i8, ptr %3, i64 %.0.in.lcssa.i
   %34 = getelementptr i8, ptr %33, i64 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr nonnull readonly align 8 %21, i64 %7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull readonly align 8 %21, i64 %7, i1 false)
   %35 = getelementptr i8, ptr %34, i64 %7
   store i8 0, ptr %35, align 1
   %36 = getelementptr inbounds i8, ptr %4, i64 36
@@ -620,7 +620,7 @@ ps_files_key_exists.exit:                         ; preds = %.lr.ph.i.i, %28
   %40 = getelementptr inbounds i8, ptr %2, i64 %.0.lcssa.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %40, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.0.in.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %gep, ptr nonnull readonly align 8 %29, i64 %15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %gep, ptr nonnull readonly align 8 %29, i64 %15, i1 false)
   %41 = getelementptr i8, ptr %gep, i64 %15
   store i8 0, ptr %41, align 1
   %42 = call i32 @stat(ptr noundef nonnull %2, ptr noundef nonnull %3) #15
@@ -733,7 +733,7 @@ define hidden range(i32 -1, 1) i32 @ps_validate_sid_files(ptr nocapture noundef 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %33, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
   %34 = getelementptr i8, ptr %3, i64 %.0.in.lcssa.i.i
   %35 = getelementptr i8, ptr %34, i64 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr nonnull readonly align 8 %22, i64 %8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull readonly align 8 %22, i64 %8, i1 false)
   %36 = getelementptr i8, ptr %35, i64 %8
   store i8 0, ptr %36, align 1
   %37 = call i32 @stat(ptr noundef nonnull %3, ptr noundef nonnull %4) #15
@@ -810,7 +810,7 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_files(ptr nocapture noun
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %34, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
   %35 = getelementptr i8, ptr %5, i64 %.0.in.lcssa.i
   %36 = getelementptr i8, ptr %35, i64 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr nonnull readonly align 8 %23, i64 %9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull readonly align 8 %23, i64 %9, i1 false)
   %37 = getelementptr i8, ptr %36, i64 %9
   store i8 0, ptr %37, align 1
   %38 = call i32 @utime(ptr noundef nonnull %5, ptr noundef null) #15
@@ -996,7 +996,7 @@ ps_files_close.exit:                              ; preds = %.critedge2.thread, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %62, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
   %63 = getelementptr i8, ptr %3, i64 %.0.in.lcssa.i
   %64 = getelementptr i8, ptr %63, i64 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr nonnull readonly align 8 %31, i64 %37, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %64, ptr nonnull readonly align 8 %31, i64 %37, i1 false)
   %65 = getelementptr i8, ptr %64, i64 %37
   store i8 0, ptr %65, align 1
   %66 = getelementptr inbounds i8, ptr %1, i64 4

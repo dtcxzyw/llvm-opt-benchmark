@@ -676,7 +676,7 @@ if.end74:                                         ; preds = %if.end60
   br i1 %tobool79.not, label %if.end81, label %if.then80
 
 if.then80:                                        ; preds = %if.end74
-  call fastcc void @mark_colliding_entries(ptr noundef nonnull %state, ptr noundef %ce, ptr noundef nonnull %st)
+  call fastcc void @mark_colliding_entries(ptr noundef nonnull %state, ptr noundef %ce, ptr noundef %st)
   br label %if.end81
 
 if.end81:                                         ; preds = %if.then80, %if.end74
@@ -884,7 +884,7 @@ return:                                           ; preds = %remove_or_warn.exit
 declare void @convert_attrs(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_entry(ptr noundef %ce, ptr noundef %path, ptr noundef %ca, ptr noundef %state, i32 noundef %to_tempfile, ptr noundef %nr_checkouts) unnamed_addr #0 {
+define internal fastcc i32 @write_entry(ptr noundef %ce, ptr noundef %path, ptr noundef %ca, ptr noundef %state, i32 noundef range(i32 0, 2) %to_tempfile, ptr noundef %nr_checkouts) unnamed_addr #0 {
 entry:
   %type.i73 = alloca i32, align 4
   %ul.i74 = alloca i64, align 8
@@ -1275,7 +1275,7 @@ declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mark_colliding_entries(ptr nocapture noundef readonly %state, ptr noundef %ce, ptr noundef %st) unnamed_addr #0 {
+define internal fastcc void @mark_colliding_entries(ptr nocapture noundef readonly %state, ptr noundef %ce, ptr noundef nonnull %st) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @check_stat, align 4
   %ce_flags = getelementptr inbounds i8, ptr %ce, i64 56
@@ -1355,7 +1355,7 @@ if.end:                                           ; preds = %for.body
 
 if.end8:                                          ; preds = %if.end
   %ce_stat_data = getelementptr inbounds i8, ptr %14, i64 16
-  %call10 = tail call i32 @match_stat_data(ptr noundef nonnull %ce_stat_data, ptr noundef %st) #14
+  %call10 = tail call i32 @match_stat_data(ptr noundef nonnull %ce_stat_data, ptr noundef nonnull %st) #14
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.then18, label %for.inc
 

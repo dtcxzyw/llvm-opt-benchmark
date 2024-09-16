@@ -372,7 +372,7 @@ define i32 @dissect_thrift_t_bool(ptr noundef %0, ptr noundef %1, ptr noundef %2
   unreachable
 
 14:                                               ; preds = %10
-  %15 = tail call fastcc i32 @dissect_thrift_raw_bool(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef null)
+  %15 = tail call fastcc i32 @dissect_thrift_raw_bool(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef null)
   ret i32 %15
 }
 
@@ -380,7 +380,7 @@ define i32 @dissect_thrift_t_bool(ptr noundef %0, ptr noundef %1, ptr noundef %2
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_raw_bool(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_raw_bool(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly %8) unnamed_addr #0 {
   %10 = load i32, ptr %4, align 8
   %11 = icmp eq i32 %10, -2147362182
   br i1 %11, label %13, label %12
@@ -420,7 +420,7 @@ define internal fastcc i32 @dissect_thrift_raw_bool(ptr noundef %0, ptr noundef 
 
 27:                                               ; preds = %24, %17
   %.060 = phi i64 [ 0, %17 ], [ %spec.select, %24 ]
-  %28 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef 2, i32 noundef %6, ptr noundef null)
+  %28 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef 2, i32 noundef %6, ptr noundef null)
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %proto_item_set_generated.exit, label %30
 
@@ -526,7 +526,7 @@ define i32 @dissect_thrift_t_i8(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %.not.i, label %17, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef 3, i32 noundef %6, ptr noundef null)
+  %16 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef 3, i32 noundef %6, ptr noundef null)
   br label %17
 
 17:                                               ; preds = %15, %14
@@ -558,7 +558,7 @@ dissect_thrift_raw_i8.exit:                       ; preds = %17, %19, %22, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_raw_i8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_raw_i8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly %8) unnamed_addr #0 {
   %10 = load i32, ptr %4, align 8
   %11 = icmp eq i32 %10, -2147362182
   br i1 %11, label %13, label %12
@@ -572,7 +572,7 @@ define internal fastcc i32 @dissect_thrift_raw_i8(ptr noundef %0, ptr noundef %1
   br i1 %.not, label %16, label %14
 
 14:                                               ; preds = %13
-  %15 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef 3, i32 noundef %6, ptr noundef null)
+  %15 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef 3, i32 noundef %6, ptr noundef null)
   br label %16
 
 16:                                               ; preds = %13, %14
@@ -637,12 +637,12 @@ define i32 @dissect_thrift_t_i16(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   unreachable
 
 14:                                               ; preds = %10
-  %15 = tail call fastcc i32 @dissect_thrift_raw_i16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef null)
+  %15 = tail call fastcc i32 @dissect_thrift_raw_i16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef null)
   ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_raw_i16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_raw_i16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   store i32 %3, ptr %10, align 4
   %11 = load i32, ptr %4, align 8
@@ -658,7 +658,7 @@ define internal fastcc i32 @dissect_thrift_raw_i16(ptr noundef %0, ptr noundef %
   br i1 %.not, label %17, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef 6, i32 noundef %6, ptr noundef null)
+  %16 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef 6, i32 noundef %6, ptr noundef null)
   store i32 %16, ptr %10, align 4
   br label %17
 
@@ -677,7 +677,7 @@ define internal fastcc i32 @dissect_thrift_raw_i16(ptr noundef %0, ptr noundef %
   br i1 %.not36, label %31, label %25
 
 25:                                               ; preds = %20
-  %26 = call fastcc i32 @dissect_thrift_varint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %4, i32 noundef 3, i32 noundef %7, ptr noundef %8)
+  %26 = call fastcc i32 @dissect_thrift_varint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef %4, i32 noundef 3, i32 noundef %7, ptr noundef %8)
   %27 = icmp eq i32 %26, -1
   br i1 %27, label %28, label %44
 
@@ -753,12 +753,12 @@ define i32 @dissect_thrift_t_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   unreachable
 
 14:                                               ; preds = %10
-  %15 = tail call fastcc i32 @dissect_thrift_raw_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef null)
+  %15 = tail call fastcc i32 @dissect_thrift_raw_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef null)
   ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_raw_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_raw_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   store i32 %3, ptr %10, align 4
   %11 = load i32, ptr %4, align 8
@@ -774,7 +774,7 @@ define internal fastcc i32 @dissect_thrift_raw_i32(ptr noundef %0, ptr noundef %
   br i1 %.not, label %17, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef 8, i32 noundef %6, ptr noundef null)
+  %16 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef 8, i32 noundef %6, ptr noundef null)
   store i32 %16, ptr %10, align 4
   br label %17
 
@@ -793,7 +793,7 @@ define internal fastcc i32 @dissect_thrift_raw_i32(ptr noundef %0, ptr noundef %
   br i1 %.not36, label %31, label %25
 
 25:                                               ; preds = %20
-  %26 = call fastcc i32 @dissect_thrift_varint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %4, i32 noundef 5, i32 noundef %7, ptr noundef %8)
+  %26 = call fastcc i32 @dissect_thrift_varint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef %4, i32 noundef 5, i32 noundef %7, ptr noundef %8)
   %27 = icmp eq i32 %26, -1
   br i1 %27, label %28, label %44
 
@@ -869,12 +869,12 @@ define i32 @dissect_thrift_t_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   unreachable
 
 14:                                               ; preds = %10
-  %15 = tail call fastcc i32 @dissect_thrift_raw_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef null)
+  %15 = tail call fastcc i32 @dissect_thrift_raw_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef null)
   ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_raw_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_raw_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   store i32 %3, ptr %10, align 4
   %11 = load i32, ptr %4, align 8
@@ -890,7 +890,7 @@ define internal fastcc i32 @dissect_thrift_raw_i64(ptr noundef %0, ptr noundef %
   br i1 %.not, label %17, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef 10, i32 noundef %6, ptr noundef null)
+  %16 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef 10, i32 noundef %6, ptr noundef null)
   store i32 %16, ptr %10, align 4
   br label %17
 
@@ -909,7 +909,7 @@ define internal fastcc i32 @dissect_thrift_raw_i64(ptr noundef %0, ptr noundef %
   br i1 %.not36, label %31, label %25
 
 25:                                               ; preds = %20
-  %26 = call fastcc i32 @dissect_thrift_varint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %4, i32 noundef 10, i32 noundef %7, ptr noundef %8)
+  %26 = call fastcc i32 @dissect_thrift_varint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef %4, i32 noundef 10, i32 noundef %7, ptr noundef %8)
   %27 = icmp eq i32 %26, -1
   br i1 %27, label %28, label %44
 
@@ -989,7 +989,7 @@ define i32 @dissect_thrift_t_double(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not.i, label %17, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef 4, i32 noundef %6, ptr noundef null)
+  %16 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef 4, i32 noundef %6, ptr noundef null)
   br label %17
 
 17:                                               ; preds = %15, %14
@@ -1025,7 +1025,7 @@ dissect_thrift_raw_double.exit:                   ; preds = %17, %19, %22, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_raw_double(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_raw_double(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly %8) unnamed_addr #0 {
   %10 = load i32, ptr %4, align 8
   %11 = icmp eq i32 %10, -2147362182
   br i1 %11, label %13, label %12
@@ -1039,7 +1039,7 @@ define internal fastcc i32 @dissect_thrift_raw_double(ptr noundef %0, ptr nounde
   br i1 %.not, label %16, label %14
 
 14:                                               ; preds = %13
-  %15 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef 4, i32 noundef %6, ptr noundef null)
+  %15 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef 4, i32 noundef %6, ptr noundef null)
   br label %16
 
 16:                                               ; preds = %13, %14
@@ -1159,7 +1159,7 @@ define i32 @dissect_thrift_t_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i, label %17, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef 16, i32 noundef %6, ptr noundef null)
+  %16 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef 16, i32 noundef %6, ptr noundef null)
   br label %17
 
 17:                                               ; preds = %15, %14
@@ -1191,7 +1191,7 @@ dissect_thrift_raw_uuid.exit:                     ; preds = %17, %19, %22, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_raw_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_raw_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly %8) unnamed_addr #0 {
   %10 = load i32, ptr %4, align 8
   %11 = icmp eq i32 %10, -2147362182
   br i1 %11, label %13, label %12
@@ -1205,7 +1205,7 @@ define internal fastcc i32 @dissect_thrift_raw_uuid(ptr noundef %0, ptr noundef 
   br i1 %.not, label %16, label %14
 
 14:                                               ; preds = %13
-  %15 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef 16, i32 noundef %6, ptr noundef null)
+  %15 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef 16, i32 noundef %6, ptr noundef null)
   br label %16
 
 16:                                               ; preds = %13, %14
@@ -1270,12 +1270,12 @@ define i32 @dissect_thrift_t_binary(ptr noundef %0, ptr noundef %1, ptr noundef 
   unreachable
 
 14:                                               ; preds = %10
-  %15 = tail call fastcc i32 @dissect_thrift_raw_binary(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 0, ptr noundef null)
+  %15 = tail call fastcc i32 @dissect_thrift_raw_binary(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 0, ptr noundef null)
   ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_raw_binary(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly %9) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_raw_binary(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly %9) unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
   %13 = alloca i64, align 8
@@ -1293,7 +1293,7 @@ define internal fastcc i32 @dissect_thrift_raw_binary(ptr noundef %0, ptr nounde
   br i1 %.not, label %20, label %18
 
 18:                                               ; preds = %17
-  %19 = call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef 11, i32 noundef %6, ptr noundef nonnull %11)
+  %19 = call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef 11, i32 noundef %6, ptr noundef nonnull %11)
   br label %21
 
 20:                                               ; preds = %17
@@ -1468,7 +1468,7 @@ define i32 @dissect_thrift_t_string(ptr noundef %0, ptr noundef %1, ptr noundef 
   unreachable
 
 14:                                               ; preds = %10
-  %15 = tail call fastcc i32 @dissect_thrift_raw_binary(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 2, ptr noundef null)
+  %15 = tail call fastcc i32 @dissect_thrift_raw_binary(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 2, ptr noundef null)
   ret i32 %15
 }
 
@@ -1491,7 +1491,7 @@ define i32 @dissect_thrift_t_string_enc(ptr noundef %0, ptr noundef %1, ptr noun
   unreachable
 
 15:                                               ; preds = %11
-  %16 = tail call fastcc i32 @dissect_thrift_raw_binary(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef null)
+  %16 = tail call fastcc i32 @dissect_thrift_raw_binary(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef null)
   ret i32 %16
 }
 
@@ -1526,35 +1526,35 @@ define i32 @dissect_thrift_t_raw_data(ptr noundef %0, ptr noundef %1, ptr nounde
   ]
 
 17:                                               ; preds = %16
-  %18 = tail call fastcc i32 @dissect_thrift_raw_bool(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %9)
+  %18 = tail call fastcc i32 @dissect_thrift_raw_bool(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %9)
   br label %34
 
 19:                                               ; preds = %16
-  %20 = tail call fastcc i32 @dissect_thrift_raw_i8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %9)
+  %20 = tail call fastcc i32 @dissect_thrift_raw_i8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %9)
   br label %34
 
 21:                                               ; preds = %16
-  %22 = tail call fastcc i32 @dissect_thrift_raw_i16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %9)
+  %22 = tail call fastcc i32 @dissect_thrift_raw_i16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %9)
   br label %34
 
 23:                                               ; preds = %16
-  %24 = tail call fastcc i32 @dissect_thrift_raw_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %9)
+  %24 = tail call fastcc i32 @dissect_thrift_raw_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %9)
   br label %34
 
 25:                                               ; preds = %16
-  %26 = tail call fastcc i32 @dissect_thrift_raw_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %9)
+  %26 = tail call fastcc i32 @dissect_thrift_raw_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %9)
   br label %34
 
 27:                                               ; preds = %16
-  %28 = tail call fastcc i32 @dissect_thrift_raw_double(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %9)
+  %28 = tail call fastcc i32 @dissect_thrift_raw_double(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %9)
   br label %34
 
 29:                                               ; preds = %16
-  %30 = tail call fastcc i32 @dissect_thrift_raw_binary(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 0, ptr noundef %9)
+  %30 = tail call fastcc i32 @dissect_thrift_raw_binary(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 0, ptr noundef %9)
   br label %34
 
 31:                                               ; preds = %16
-  %32 = tail call fastcc i32 @dissect_thrift_raw_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %9)
+  %32 = tail call fastcc i32 @dissect_thrift_raw_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %9)
   br label %34
 
 33:                                               ; preds = %16
@@ -1598,7 +1598,7 @@ define i32 @dissect_thrift_t_list(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_c_list_set(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_c_list_set(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9, i32 noundef range(i32 0, 2) %10) unnamed_addr #0 {
   %12 = alloca i64, align 8
   %13 = load i32, ptr @hf_thrift_num_set_item, align 4
   %14 = load i32, ptr @hf_thrift_num_set_pos, align 4
@@ -1642,7 +1642,7 @@ define internal fastcc i32 @dissect_thrift_c_list_set(ptr noundef %0, ptr nounde
   br i1 %.not110, label %32, label %30
 
 30:                                               ; preds = %29
-  %31 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %.093, i32 noundef %6, ptr noundef null)
+  %31 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %.093, i32 noundef %6, ptr noundef null)
   br label %32
 
 32:                                               ; preds = %29, %30
@@ -1802,7 +1802,7 @@ thrift_get_varint_enc.exit.thread120:             ; preds = %84
 .lr.ph:                                           ; preds = %105, %106
   %.2124 = phi i32 [ %108, %106 ], [ %.1, %105 ]
   %.097123 = phi i32 [ %107, %106 ], [ 0, %105 ]
-  %108 = call fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %47, i32 noundef %.2124, ptr noundef nonnull %4, i32 noundef 0, ptr noundef %9)
+  %108 = call fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %47, i32 noundef %.2124, ptr noundef %4, i32 noundef 0, ptr noundef %9)
   %109 = icmp slt i32 %108, 0
   br i1 %109, label %thrift_get_varint_enc.exit.thread, label %106
 
@@ -1828,7 +1828,7 @@ thrift_get_varint_enc.exit.thread:                ; preds = %.lr.ph, %81, %84, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_b_linear(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9, ptr nocapture noundef readonly %10, i32 noundef %11) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_b_linear(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9, ptr nocapture noundef readonly %10, i32 noundef range(i32 13, 16) %11) unnamed_addr #0 {
   %13 = alloca i32, align 4
   %14 = load i32, ptr @proto_thrift, align 4
   %15 = tail call i32 @p_get_proto_depth(ptr noundef %1, i32 noundef %14) #7
@@ -1864,7 +1864,7 @@ define internal fastcc i32 @dissect_thrift_b_linear(ptr noundef %0, ptr noundef 
   br i1 %.not102, label %30, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %11, i32 noundef %6, ptr noundef null)
+  %29 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %11, i32 noundef %6, ptr noundef null)
   br label %30
 
 30:                                               ; preds = %28, %27
@@ -1986,8 +1986,8 @@ switch.lookup:                                    ; preds = %80
 
 90:                                               ; preds = %85
   %91 = add nuw i32 %.1, 5
-  %.not118 = icmp eq i32 %86, 0
-  br i1 %.not118, label %._crit_edge, label %.lr.ph
+  %.not119 = icmp eq i32 %86, 0
+  br i1 %.not119, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %90
   br i1 %43, label %.lr.ph.split.us, label %.lr.ph.split
@@ -1995,8 +1995,8 @@ switch.lookup:                                    ; preds = %80
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %95
   %.0111.us = phi i32 [ %96, %95 ], [ 0, %.lr.ph ]
   %.2110.us = phi i32 [ %93, %95 ], [ %91, %.lr.ph ]
-  %92 = call fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %40, i32 noundef %.2110.us, ptr noundef nonnull %4, i32 noundef 0, ptr noundef %9)
-  %93 = call fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %40, i32 noundef %92, ptr noundef nonnull %4, i32 noundef 0, ptr noundef %10)
+  %92 = call fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %40, i32 noundef %.2110.us, ptr noundef %4, i32 noundef 0, ptr noundef %9)
+  %93 = call fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %40, i32 noundef %92, ptr noundef %4, i32 noundef 0, ptr noundef %10)
   %94 = icmp slt i32 %93, 0
   br i1 %94, label %.loopexit, label %95
 
@@ -2015,7 +2015,7 @@ switch.lookup:                                    ; preds = %80
 .lr.ph.split:                                     ; preds = %.lr.ph, %99
   %.0111 = phi i32 [ %100, %99 ], [ 0, %.lr.ph ]
   %.2110 = phi i32 [ %103, %99 ], [ %91, %.lr.ph ]
-  %103 = call fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %40, i32 noundef %.2110, ptr noundef nonnull %4, i32 noundef 0, ptr noundef %10)
+  %103 = call fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %40, i32 noundef %.2110, ptr noundef %4, i32 noundef 0, ptr noundef %10)
   %104 = icmp slt i32 %103, 0
   br i1 %104, label %.loopexit, label %99
 
@@ -2111,7 +2111,7 @@ define i32 @dissect_thrift_t_map(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %29 = load i32, ptr @show_internal_thrift_fields, align 4
   %.not138 = icmp eq i32 %29, 0
   %spec.select = select i1 %.not138, ptr null, ptr %2
-  %30 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %spec.select, i32 noundef %3, ptr noundef nonnull %4, i32 noundef 13, i32 noundef %6, ptr noundef null)
+  %30 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %spec.select, i32 noundef %3, ptr noundef %4, i32 noundef 13, i32 noundef %6, ptr noundef null)
   br label %31
 
 31:                                               ; preds = %28, %25
@@ -2261,8 +2261,8 @@ thrift_get_varint_enc.exit.thread147:             ; preds = %40
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %105
   %.1151 = phi i32 [ %108, %105 ], [ %52, %.lr.ph.preheader ]
   %.0128150 = phi i32 [ %106, %105 ], [ 0, %.lr.ph.preheader ]
-  %107 = call fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %62, i32 noundef %.1151, ptr noundef nonnull %4, i32 noundef 0, ptr noundef %9)
-  %108 = call fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %62, i32 noundef %107, ptr noundef nonnull %4, i32 noundef 0, ptr noundef %10)
+  %107 = call fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %62, i32 noundef %.1151, ptr noundef %4, i32 noundef 0, ptr noundef %9)
+  %108 = call fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %62, i32 noundef %107, ptr noundef %4, i32 noundef 0, ptr noundef %10)
   %109 = icmp slt i32 %108, 0
   br i1 %109, label %thrift_get_varint_enc.exit.thread, label %105
 
@@ -2300,7 +2300,7 @@ thrift_get_varint_enc.exit.thread:                ; preds = %.lr.ph, %37, %40, %
 declare i32 @p_get_proto_depth(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4, i32 noundef range(i32 2, 17) %5, i32 noundef %6, ptr noundef writeonly %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca %struct._thrift_field_header_t, align 8
   store i32 %3, ptr %9, align 4
@@ -2316,7 +2316,7 @@ define internal fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr no
   %15 = load i32, ptr @show_internal_thrift_fields, align 4
   %.not = icmp eq i32 %15, 0
   %spec.select = select i1 %.not, ptr null, ptr %2
-  %16 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %spec.select, ptr noundef nonnull %9, ptr noundef nonnull %4, ptr noundef nonnull %10, i32 noundef 0)
+  %16 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %spec.select, ptr noundef %9, ptr noundef %4, ptr noundef %10, i32 noundef 0)
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %18, label %21
 
@@ -2324,7 +2324,7 @@ define internal fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr no
   %19 = load i32, ptr %9, align 4
   %20 = icmp eq i32 %19, -1
   %. = select i1 %20, i32 -1, i32 -2
-  br label %48
+  br label %57
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2335,56 +2335,101 @@ define internal fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr no
   br i1 %.not26, label %compact_struct_type_to_generic_type.exit, label %26
 
 26:                                               ; preds = %21
-  %27 = icmp ult i32 %25, 14
-  br i1 %27, label %switch.lookup, label %compact_struct_type_to_generic_type.exit
+  switch i32 %25, label %38 [
+    i32 0, label %compact_struct_type_to_generic_type.exit.thread
+    i32 1, label %compact_struct_type_to_generic_type.exit
+    i32 2, label %compact_struct_type_to_generic_type.exit
+    i32 3, label %27
+    i32 4, label %28
+    i32 5, label %29
+    i32 6, label %30
+    i32 7, label %31
+    i32 8, label %32
+    i32 9, label %33
+    i32 10, label %34
+    i32 11, label %35
+    i32 12, label %36
+    i32 13, label %37
+  ]
 
-switch.lookup:                                    ; preds = %26
-  %28 = zext nneg i32 %25 to i64
-  %switch.gep = getelementptr inbounds [14 x i32], ptr @switch.table.compact_struct_type_to_generic_type, i64 0, i64 %28
-  %switch.load = load i32, ptr %switch.gep, align 4
+27:                                               ; preds = %26
   br label %compact_struct_type_to_generic_type.exit
 
-compact_struct_type_to_generic_type.exit:         ; preds = %26, %switch.lookup, %21
-  %.0 = phi i32 [ %25, %21 ], [ %switch.load, %switch.lookup ], [ 1, %26 ]
+28:                                               ; preds = %26
+  br label %compact_struct_type_to_generic_type.exit
+
+29:                                               ; preds = %26
+  br label %compact_struct_type_to_generic_type.exit
+
+30:                                               ; preds = %26
+  br label %compact_struct_type_to_generic_type.exit
+
+31:                                               ; preds = %26
+  br label %compact_struct_type_to_generic_type.exit
+
+32:                                               ; preds = %26
+  br label %compact_struct_type_to_generic_type.exit
+
+33:                                               ; preds = %26
+  br label %compact_struct_type_to_generic_type.exit
+
+34:                                               ; preds = %26
+  br label %compact_struct_type_to_generic_type.exit
+
+35:                                               ; preds = %26
+  br label %compact_struct_type_to_generic_type.exit
+
+36:                                               ; preds = %26
+  br label %compact_struct_type_to_generic_type.exit
+
+37:                                               ; preds = %26
+  br label %compact_struct_type_to_generic_type.exit
+
+38:                                               ; preds = %26
+  br label %compact_struct_type_to_generic_type.exit.thread
+
+compact_struct_type_to_generic_type.exit:         ; preds = %21, %26, %26, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27
+  %.0 = phi i32 [ 16, %37 ], [ %25, %36 ], [ 13, %35 ], [ 14, %34 ], [ 15, %33 ], [ 11, %32 ], [ 4, %31 ], [ 10, %30 ], [ 8, %29 ], [ 6, %28 ], [ %25, %27 ], [ 2, %26 ], [ 2, %26 ], [ %25, %21 ]
   %.not27 = icmp eq i32 %.0, %5
-  br i1 %.not27, label %34, label %29
+  br i1 %.not27, label %43, label %compact_struct_type_to_generic_type.exit.thread
 
-29:                                               ; preds = %compact_struct_type_to_generic_type.exit
-  %30 = load i32, ptr %9, align 4
-  %31 = tail call ptr @val_to_str(i32 noundef %5, ptr noundef nonnull @thrift_type_vals, ptr noundef nonnull @.str.141) #7
-  %32 = tail call ptr @val_to_str(i32 noundef %.0, ptr noundef nonnull @thrift_type_vals, ptr noundef nonnull @.str.141) #7
-  %33 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_thrift_wrong_type, ptr noundef %0, i32 noundef %30, i32 noundef 1, ptr noundef nonnull @.str.140, ptr noundef %31, ptr noundef %32) #7
-  br label %48
+compact_struct_type_to_generic_type.exit.thread:  ; preds = %26, %38, %compact_struct_type_to_generic_type.exit
+  %.032 = phi i32 [ %.0, %compact_struct_type_to_generic_type.exit ], [ %25, %26 ], [ 1, %38 ]
+  %39 = load i32, ptr %9, align 4
+  %40 = tail call ptr @val_to_str(i32 noundef %5, ptr noundef nonnull @thrift_type_vals, ptr noundef nonnull @.str.141) #7
+  %41 = tail call ptr @val_to_str(i32 noundef %.032, ptr noundef nonnull @thrift_type_vals, ptr noundef nonnull @.str.141) #7
+  %42 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_thrift_wrong_type, ptr noundef %0, i32 noundef %39, i32 noundef 1, ptr noundef nonnull @.str.140, ptr noundef %40, ptr noundef %41) #7
+  br label %57
 
-34:                                               ; preds = %compact_struct_type_to_generic_type.exit
-  %35 = getelementptr inbounds i8, ptr %10, i64 8
-  %36 = load i64, ptr %35, align 8
-  %37 = sext i32 %6 to i64
-  %.not28 = icmp eq i64 %36, %37
-  br i1 %.not28, label %42, label %38
+43:                                               ; preds = %compact_struct_type_to_generic_type.exit
+  %44 = getelementptr inbounds i8, ptr %10, i64 8
+  %45 = load i64, ptr %44, align 8
+  %46 = sext i32 %6 to i64
+  %.not28 = icmp eq i64 %45, %46
+  br i1 %.not28, label %51, label %47
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %10, i64 32
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_thrift_wrong_field_id, ptr noundef nonnull @.str.142, i32 noundef %6, i64 noundef %36) #7
-  br label %42
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds i8, ptr %10, i64 32
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %49, ptr noundef nonnull @ei_thrift_wrong_field_id, ptr noundef nonnull @.str.142, i32 noundef %6, i64 noundef %45) #7
+  br label %51
 
-42:                                               ; preds = %38, %34
+51:                                               ; preds = %47, %43
   %.not29 = icmp eq ptr %7, null
-  br i1 %.not29, label %46, label %43
+  br i1 %.not29, label %55, label %52
 
-43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %10, i64 40
-  %45 = load ptr, ptr %44, align 8
-  store ptr %45, ptr %7, align 8
-  br label %46
+52:                                               ; preds = %51
+  %53 = getelementptr inbounds i8, ptr %10, i64 40
+  %54 = load ptr, ptr %53, align 8
+  store ptr %54, ptr %7, align 8
+  br label %55
 
-46:                                               ; preds = %43, %42
-  %47 = load i32, ptr %9, align 4
-  br label %48
+55:                                               ; preds = %52, %51
+  %56 = load i32, ptr %9, align 4
+  br label %57
 
-48:                                               ; preds = %18, %46, %29
-  %.021 = phi i32 [ -2, %29 ], [ %47, %46 ], [ %., %18 ]
+57:                                               ; preds = %18, %55, %compact_struct_type_to_generic_type.exit.thread
+  %.021 = phi i32 [ -2, %compact_struct_type_to_generic_type.exit.thread ], [ %56, %55 ], [ %., %18 ]
   ret i32 %.021
 }
 
@@ -2423,7 +2468,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef range(i32 0, 2) %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %6, i64 16
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %172 [
@@ -2638,7 +2683,7 @@ define internal fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef 
   %145 = load ptr, ptr %144, align 8
   %146 = getelementptr inbounds i8, ptr %6, i64 40
   %147 = load ptr, ptr %146, align 8
-  %148 = tail call i32 @dissect_thrift_t_map(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %138, i32 noundef %140, i32 noundef %143, ptr noundef %145, ptr noundef %147)
+  %148 = tail call i32 @dissect_thrift_t_map(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %138, i32 noundef %140, i32 noundef %143, ptr noundef %145, ptr noundef %147)
   br label %dissect_thrift_t_stop.exit
 
 149:                                              ; preds = %7
@@ -2654,7 +2699,7 @@ define internal fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef 
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr inbounds i8, ptr %6, i64 40
   %161 = load ptr, ptr %160, align 8
-  %162 = tail call fastcc i32 @dissect_thrift_t_struct_expert(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %152, i32 noundef %154, i32 noundef %157, ptr noundef %159, ptr noundef %161)
+  %162 = tail call fastcc i32 @dissect_thrift_t_struct_expert(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %152, i32 noundef %154, i32 noundef %157, ptr noundef %159, ptr noundef %161)
   br label %dissect_thrift_t_stop.exit
 
 163:                                              ; preds = %7
@@ -2717,7 +2762,7 @@ define internal fastcc i32 @dissect_thrift_t_struct_expert(ptr noundef %0, ptr n
   %26 = load i32, ptr @show_internal_thrift_fields, align 4
   %.not94 = icmp eq i32 %26, 0
   %spec.select = select i1 %.not94, ptr null, ptr %2
-  %27 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %spec.select, i32 noundef %3, ptr noundef nonnull %4, i32 noundef 12, i32 noundef %6, ptr noundef null)
+  %27 = tail call fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %spec.select, i32 noundef %3, ptr noundef %4, i32 noundef 12, i32 noundef %6, ptr noundef null)
   store i32 %27, ptr %12, align 4
   br label %thread-pre-split
 
@@ -2777,7 +2822,7 @@ thread-pre-split:                                 ; preds = %24, %25
   %56 = phi ptr [ %47, %.lr.ph ], [ %69, %.backedge ]
   %.084110 = phi ptr [ %9, %.lr.ph ], [ %.084.be, %.backedge ]
   store i32 %55, ptr %14, align 4
-  %57 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %14, ptr noundef nonnull %4, ptr noundef nonnull %13, i32 noundef 0)
+  %57 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %14, ptr noundef %4, ptr noundef %13, i32 noundef 0)
   %58 = icmp eq i32 %57, -1
   br i1 %58, label %59, label %62
 
@@ -2834,12 +2879,12 @@ thread-pre-split:                                 ; preds = %24, %25
   br i1 %.not99, label %87, label %85
 
 85:                                               ; preds = %83
-  %86 = tail call fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %.1, i32 noundef %55, ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %.084110)
+  %86 = tail call fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %.1, i32 noundef %55, ptr noundef %4, i32 noundef 1, ptr noundef nonnull %.084110)
   store i32 %86, ptr %12, align 4
   br label %108
 
 87:                                               ; preds = %83
-  %88 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %.1, ptr noundef nonnull %12, ptr noundef nonnull %4, ptr noundef nonnull %13, i32 noundef 0)
+  %88 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %.1, ptr noundef %12, ptr noundef %4, ptr noundef %13, i32 noundef 0)
   %89 = load ptr, ptr %50, align 8
   %90 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %89, ptr noundef nonnull @ei_thrift_undefined_field_id) #7
   %91 = load i32, ptr %51, align 8
@@ -2856,7 +2901,7 @@ thread-pre-split:                                 ; preds = %24, %25
 97:                                               ; preds = %93
   %98 = load ptr, ptr %52, align 8
   %99 = load ptr, ptr %53, align 8
-  %100 = call fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noundef %1, ptr noundef %.1, ptr noundef nonnull %12, ptr noundef nonnull %4, ptr noundef %98, i32 noundef %94, ptr noundef %99)
+  %100 = call fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noundef %1, ptr noundef %.1, ptr noundef %12, ptr noundef %4, ptr noundef %98, i32 noundef %94, ptr noundef %99)
   %101 = icmp eq i32 %100, -1
   br i1 %101, label %.loopexit, label %thread-pre-split104
 
@@ -2864,7 +2909,7 @@ thread-pre-split:                                 ; preds = %24, %25
   %103 = load ptr, ptr %52, align 8
   %104 = load i32, ptr %13, align 8
   %105 = load ptr, ptr %53, align 8
-  %106 = call fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr noundef %1, ptr noundef %.1, ptr noundef nonnull %12, ptr noundef nonnull %4, ptr noundef %103, i32 noundef %104, ptr noundef %105)
+  %106 = call fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr noundef %1, ptr noundef %.1, ptr noundef %12, ptr noundef %4, ptr noundef %103, i32 noundef %104, ptr noundef %105)
   %107 = icmp eq i32 %106, -1
   br i1 %107, label %.loopexit, label %thread-pre-split104
 
@@ -3109,7 +3154,7 @@ define internal i32 @dissect_thrift_transport(ptr noundef %0, ptr noundef %1, pt
   tail call void @col_set_str(ptr noundef %59, i32 noundef 34, ptr noundef nonnull @.str.181) #7
   %60 = load ptr, ptr %58, align 8
   tail call void @col_clear(ptr noundef %60, i32 noundef 25) #7
-  %61 = call fastcc i32 @dissect_thrift_loop(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5)
+  %61 = call fastcc i32 @dissect_thrift_loop(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %5)
   br label %is_thrift_strict_version.exit.thread
 
 .thread:                                          ; preds = %10, %31, %19, %14
@@ -3308,7 +3353,7 @@ test_thrift_compact.exit:                         ; preds = %86
   br label %99
 
 97:                                               ; preds = %89
-  %98 = call fastcc i32 @dissect_thrift_loop(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %6)
+  %98 = call fastcc i32 @dissect_thrift_loop(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %6)
   br label %99
 
 99:                                               ; preds = %test_thrift_compact.exit.thread, %95, %97
@@ -3379,7 +3424,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_varint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_varint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef nonnull %4, i32 noundef range(i32 3, 11) %5, i32 noundef %6, ptr noundef readonly %7) unnamed_addr #0 {
   %9 = alloca i64, align 8
   %10 = load i32, ptr %3, align 4
   %11 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %10) #7
@@ -3395,7 +3440,7 @@ define internal fastcc i32 @dissect_thrift_varint(ptr noundef %0, ptr noundef %1
   ]
 
 16:                                               ; preds = %13
-  %17 = icmp slt i32 %14, %5
+  %17 = icmp ult i32 %11, %5
   br i1 %17, label %thrift_get_varint_enc.exit.thread, label %thrift_get_varint_enc.exit.thread102
 
 thrift_get_varint_enc.exit.thread102:             ; preds = %16
@@ -3463,7 +3508,7 @@ thrift_get_varint_enc.exit.thread:                ; preds = %13, %16, %8
   %50 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %44, i32 noundef 2, i32 noundef 2) #7
   %51 = getelementptr inbounds i8, ptr %4, i64 52
   store i32 0, ptr %51, align 4
-  %52 = call i32 %7(ptr noundef %50, ptr noundef %1, ptr noundef %2, ptr noundef %4) #7
+  %52 = call i32 %7(ptr noundef %50, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4) #7
   br label %53
 
 53:                                               ; preds = %42, %41
@@ -3519,7 +3564,7 @@ thrift_get_varint_enc.exit.thread:                ; preds = %13, %16, %8
   %85 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %73, i32 noundef 4, i32 noundef 4) #7
   %86 = getelementptr inbounds i8, ptr %4, i64 52
   store i32 0, ptr %86, align 4
-  %87 = call i32 %7(ptr noundef %85, ptr noundef %1, ptr noundef %2, ptr noundef %4) #7
+  %87 = call i32 %7(ptr noundef %85, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4) #7
   br label %88
 
 88:                                               ; preds = %71, %70
@@ -3576,7 +3621,7 @@ thrift_get_varint_enc.exit.thread:                ; preds = %13, %16, %8
   %123 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %99, i32 noundef 8, i32 noundef 8) #7
   %124 = getelementptr inbounds i8, ptr %4, i64 52
   store i32 0, ptr %124, align 4
-  %125 = call i32 %7(ptr noundef %123, ptr noundef %1, ptr noundef %2, ptr noundef %4) #7
+  %125 = call i32 %7(ptr noundef %123, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4) #7
   br label %126
 
 126:                                              ; preds = %97, %96
@@ -3613,7 +3658,7 @@ declare ptr @proto_tree_add_item_ret_int(ptr noundef, i32 noundef, ptr noundef, 
 declare i32 @tvb_get_ntohil(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = load i32, ptr %3, align 4
   %10 = icmp slt i32 %9, 0
@@ -4114,7 +4159,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 declare i32 @tvb_get_varint(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %struct._thrift_field_header_t, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
@@ -4368,7 +4413,7 @@ dissect_thrift_compact_binary.exit.thread:        ; preds = %129, %140, %116, %t
   br label %dissect_thrift_compact_struct.exit.thread
 
 dissect_thrift_compact_binary.exit:               ; preds = %134
-  %142 = call fastcc i32 @dissect_thrift_string_as_preferred(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %135)
+  %142 = call fastcc i32 @dissect_thrift_string_as_preferred(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %135)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %143 = icmp eq i32 %142, -1
   br i1 %143, label %dissect_thrift_compact_struct.exit.thread, label %302
@@ -4526,12 +4571,12 @@ thrift_get_varint_enc.exit.thread:                ; preds = %183, %186, %172
 
 .lr.ph109:                                        ; preds = %.lr.ph109.preheader, %232
   %.083.i108 = phi i32 [ %233, %232 ], [ 0, %.lr.ph109.preheader ]
-  %234 = call fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noundef %1, ptr noundef %179, ptr noundef nonnull %3, ptr noundef %4, ptr noundef null, i32 noundef %219, ptr noundef %223)
+  %234 = call fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noundef %1, ptr noundef %179, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef %219, ptr noundef %223)
   %235 = icmp eq i32 %234, -1
   br i1 %235, label %dissect_thrift_compact_map.exit.thread, label %236
 
 236:                                              ; preds = %.lr.ph109
-  %237 = call fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noundef %1, ptr noundef %179, ptr noundef nonnull %3, ptr noundef %4, ptr noundef null, i32 noundef %224, ptr noundef %229)
+  %237 = call fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noundef %1, ptr noundef %179, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef %224, ptr noundef %229)
   %238 = icmp eq i32 %237, -1
   br i1 %238, label %dissect_thrift_compact_map.exit.thread, label %232
 
@@ -4604,7 +4649,7 @@ dissect_thrift_compact_map.exit:                  ; preds = %dissect_thrift_comp
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 48, i1 false)
   %273 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %273, align 8
-  %274 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %272, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %9, i32 noundef 1)
+  %274 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %272, ptr noundef %3, ptr noundef %4, ptr noundef %9, i32 noundef 1)
   %275 = icmp eq i32 %274, -1
   br i1 %275, label %dissect_thrift_compact_fields.exit.thread, label %.lr.ph
 
@@ -4626,14 +4671,14 @@ dissect_thrift_compact_map.exit:                  ; preds = %dissect_thrift_comp
 284:                                              ; preds = %282
   %285 = load ptr, ptr %276, align 8
   %286 = load ptr, ptr %277, align 8
-  %287 = tail call fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noundef %1, ptr noundef %272, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %285, i32 noundef %280, ptr noundef %286)
+  %287 = tail call fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noundef %1, ptr noundef %272, ptr noundef %3, ptr noundef %4, ptr noundef %285, i32 noundef %280, ptr noundef %286)
   %288 = icmp eq i32 %287, -1
   br i1 %288, label %dissect_thrift_compact_fields.exit.thread, label %289
 
 289:                                              ; preds = %284, %282
   %290 = load i64, ptr %278, align 8
   store i64 %290, ptr %273, align 8
-  %291 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %272, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %9, i32 noundef 1)
+  %291 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %272, ptr noundef %3, ptr noundef %4, ptr noundef %9, i32 noundef 1)
   %292 = icmp eq i32 %291, -1
   br i1 %292, label %dissect_thrift_compact_fields.exit.thread, label %279
 
@@ -4676,7 +4721,7 @@ dissect_thrift_compact_struct.exit.thread:        ; preds = %dissect_thrift_comp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %struct._thrift_field_header_t, align 8
   %10 = alloca i32, align 4
   switch i32 %6, label %198 [
@@ -4927,7 +4972,7 @@ dissect_thrift_binary_binary.exit.thread:         ; preds = %119, %136
   br label %dissect_thrift_binary_struct.exit.thread
 
 dissect_thrift_binary_binary.exit:                ; preds = %133
-  %138 = call fastcc i32 @dissect_thrift_string_as_preferred(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %134)
+  %138 = call fastcc i32 @dissect_thrift_string_as_preferred(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %134)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %139 = icmp eq i32 %138, -1
   br i1 %139, label %dissect_thrift_binary_struct.exit.thread, label %205
@@ -5003,7 +5048,7 @@ dissect_thrift_binary_binary.exit:                ; preds = %133
   br label %182
 
 182:                                              ; preds = %188, %171
-  %183 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %178, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %9, i32 noundef 1)
+  %183 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %178, ptr noundef %3, ptr noundef %4, ptr noundef %9, i32 noundef 1)
   %184 = icmp eq i32 %183, -1
   br i1 %184, label %dissect_thrift_binary_fields.exit.thread, label %185
 
@@ -5015,7 +5060,7 @@ dissect_thrift_binary_binary.exit:                ; preds = %133
 188:                                              ; preds = %185
   %189 = load ptr, ptr %180, align 8
   %190 = load ptr, ptr %181, align 8
-  %191 = tail call fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr noundef %1, ptr noundef %178, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %189, i32 noundef %186, ptr noundef %190)
+  %191 = tail call fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr noundef %1, ptr noundef %178, ptr noundef %3, ptr noundef %4, ptr noundef %189, i32 noundef %186, ptr noundef %190)
   %192 = icmp eq i32 %191, -1
   br i1 %192, label %dissect_thrift_binary_fields.exit.thread, label %182
 
@@ -5062,7 +5107,7 @@ dissect_thrift_binary_struct.exit.thread:         ; preds = %dissect_thrift_bina
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_string_as_preferred(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_string_as_preferred(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, i32 noundef range(i32 0, -2147483648) %5) unnamed_addr #0 {
   %7 = load i32, ptr %3, align 4
   %8 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %7) #7
   %9 = icmp slt i32 %8, %5
@@ -5158,7 +5203,7 @@ define internal fastcc i32 @dissect_thrift_string_as_preferred(ptr noundef %0, p
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @thrift_binary_utf8_isprint(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @thrift_binary_utf8_isprint(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1) #7
   %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %5)
   %6 = add i32 %spec.select, %1
@@ -5288,7 +5333,7 @@ define internal fastcc i32 @thrift_binary_utf8_isprint(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_compact_list_set(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_compact_list_set(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef nonnull %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = load i32, ptr %3, align 4
   %9 = load i32, ptr @ett_thrift_set, align 4
@@ -5453,7 +5498,7 @@ thrift_get_varint_enc.exit.thread:                ; preds = %63, %66, %57
 
 .lr.ph:                                           ; preds = %97, %98
   %.09099 = phi i32 [ %99, %98 ], [ 0, %97 ]
-  %100 = call fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noundef %1, ptr noundef %45, ptr noundef nonnull %3, ptr noundef %4, ptr noundef null, i32 noundef %50, ptr noundef %54)
+  %100 = call fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noundef %1, ptr noundef %45, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef %50, ptr noundef %54)
   %101 = icmp eq i32 %100, -1
   br i1 %101, label %.loopexit, label %98
 
@@ -5471,12 +5516,12 @@ thrift_get_varint_enc.exit.thread:                ; preds = %63, %66, %57
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_compact_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_compact_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %struct._thrift_field_header_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   %7 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %7, align 8
-  %8 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %6, i32 noundef 1)
+  %8 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %6, i32 noundef 1)
   %9 = icmp eq i32 %8, -1
   br i1 %9, label %.loopexit, label %.lr.ph
 
@@ -5498,14 +5543,14 @@ define internal fastcc i32 @dissect_thrift_compact_fields(ptr noundef %0, ptr no
 18:                                               ; preds = %16
   %19 = load ptr, ptr %10, align 8
   %20 = load ptr, ptr %11, align 8
-  %21 = tail call fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %19, i32 noundef %14, ptr noundef %20)
+  %21 = tail call fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %19, i32 noundef %14, ptr noundef %20)
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %.loopexit, label %23
 
 23:                                               ; preds = %18, %16
   %24 = load i64, ptr %12, align 8
   store i64 %24, ptr %7, align 8
-  %25 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef 1)
+  %25 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %6, i32 noundef 1)
   %26 = icmp eq i32 %25, -1
   br i1 %26, label %.loopexit, label %13
 
@@ -5519,14 +5564,14 @@ define internal fastcc i32 @dissect_thrift_compact_fields(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_binary_linear(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_binary_linear(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, i32 noundef range(i32 13, 16) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = load i32, ptr @hf_thrift_type, align 4
   %11 = load i32, ptr @proto_thrift, align 4
   %12 = tail call i32 @p_get_proto_depth(ptr noundef %1, i32 noundef %11) #7
-  switch i32 %5, label %default.unreachable [
+  switch i32 %5, label %default.unreachable74 [
     i32 14, label %16
     i32 15, label %13
     i32 13, label %14
@@ -5539,7 +5584,7 @@ define internal fastcc i32 @dissect_thrift_binary_linear(ptr noundef %0, ptr nou
   %15 = load i32, ptr @hf_thrift_value_type, align 4
   br label %16
 
-default.unreachable:                              ; preds = %6
+default.unreachable74:                            ; preds = %6
   unreachable
 
 16:                                               ; preds = %6, %13, %14
@@ -5621,8 +5666,8 @@ default.unreachable:                              ; preds = %6
   br i1 %57, label %69, label %.preheader
 
 .preheader:                                       ; preds = %48
-  %.not74 = icmp eq i32 %56, 0
-  br i1 %.not74, label %._crit_edge, label %.lr.ph
+  %.not75 = icmp eq i32 %56, 0
+  br i1 %.not75, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   br i1 %42, label %.lr.ph.split.us, label %.lr.ph.split
@@ -5630,7 +5675,7 @@ default.unreachable:                              ; preds = %6
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %61
   %.06871.us = phi i32 [ %62, %61 ], [ 0, %.lr.ph ]
   %58 = load i32, ptr %7, align 4
-  %59 = call fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr noundef %1, ptr noundef %41, ptr noundef nonnull %3, ptr noundef %4, ptr noundef null, i32 noundef %58, ptr noundef %.069)
+  %59 = call fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr noundef %1, ptr noundef %41, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef %58, ptr noundef %.069)
   %60 = icmp eq i32 %59, -1
   br i1 %60, label %.loopexit, label %65
 
@@ -5642,7 +5687,7 @@ default.unreachable:                              ; preds = %6
 
 65:                                               ; preds = %.lr.ph.split.us
   %66 = load i32, ptr %8, align 4
-  %67 = call fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr noundef %1, ptr noundef %41, ptr noundef nonnull %3, ptr noundef %4, ptr noundef null, i32 noundef %66, ptr noundef %50)
+  %67 = call fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr noundef %1, ptr noundef %41, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef %66, ptr noundef %50)
   %68 = icmp eq i32 %67, -1
   br i1 %68, label %.loopexit, label %61
 
@@ -5659,7 +5704,7 @@ default.unreachable:                              ; preds = %6
 .lr.ph.split:                                     ; preds = %.lr.ph, %71
   %.06871 = phi i32 [ %72, %71 ], [ 0, %.lr.ph ]
   %75 = load i32, ptr %8, align 4
-  %76 = call fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr noundef %1, ptr noundef %41, ptr noundef nonnull %3, ptr noundef %4, ptr noundef null, i32 noundef %75, ptr noundef %50)
+  %76 = call fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr noundef %1, ptr noundef %41, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef %75, ptr noundef %50)
   %77 = icmp eq i32 %76, -1
   br i1 %77, label %.loopexit, label %71
 
@@ -5679,7 +5724,7 @@ default.unreachable:                              ; preds = %6
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_binary_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_binary_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %struct._thrift_field_header_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   %7 = getelementptr inbounds i8, ptr %4, i64 24
@@ -5689,7 +5734,7 @@ define internal fastcc i32 @dissect_thrift_binary_fields(ptr noundef %0, ptr nou
   br label %10
 
 10:                                               ; preds = %16, %5
-  %11 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %6, i32 noundef 1)
+  %11 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %6, i32 noundef 1)
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %.loopexit, label %13
 
@@ -5774,7 +5819,7 @@ define internal i32 @dissect_thrift_framed(ptr noundef %0, ptr noundef %1, ptr n
   unreachable
 
 20:                                               ; preds = %16
-  %21 = tail call fastcc i32 @dissect_thrift_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %3)
+  %21 = tail call fastcc i32 @dissect_thrift_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %3)
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %23, label %33
 
@@ -5813,7 +5858,7 @@ define internal i32 @dissect_thrift_framed(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_loop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_loop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #7
   %6 = load i32, ptr %3, align 8
   %7 = icmp eq i32 %6, -2147362182
@@ -5875,7 +5920,7 @@ is_thrift_strict_version.exit:                    ; preds = %19
   br label %32
 
 32:                                               ; preds = %13, %31
-  %33 = tail call fastcc i32 @dissect_thrift_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.04149, ptr noundef nonnull %3)
+  %33 = tail call fastcc i32 @dissect_thrift_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.04149, ptr noundef %3)
   switch i32 %33, label %36 [
     i32 -1, label %39
     i32 0, label %34
@@ -5904,7 +5949,7 @@ is_thrift_strict_version.exit:                    ; preds = %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
@@ -6279,7 +6324,7 @@ thrift_get_varint_enc.exit250:                    ; preds = %71
 240:                                              ; preds = %235
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 48, i1 false)
   store i32 %.sink, ptr %10, align 4
-  %241 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull %4, ptr noundef nonnull %9, i32 noundef 0)
+  %241 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %10, ptr noundef %4, ptr noundef %9, i32 noundef 0)
   store i32 %241, ptr %10, align 4
   switch i32 %241, label %242 [
     i32 -1, label %304
@@ -6379,11 +6424,11 @@ thrift_get_varint_enc.exit250:                    ; preds = %71
   br i1 %.not240, label %290, label %288
 
 288:                                              ; preds = %287
-  %289 = call fastcc i32 @dissect_thrift_compact_fields(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %280, ptr noundef nonnull %6, ptr noundef nonnull %4)
+  %289 = call fastcc i32 @dissect_thrift_compact_fields(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %280, ptr noundef %6, ptr noundef %4)
   br label %292
 
 290:                                              ; preds = %287
-  %291 = call fastcc i32 @dissect_thrift_binary_fields(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %280, ptr noundef nonnull %6, ptr noundef nonnull %4)
+  %291 = call fastcc i32 @dissect_thrift_binary_fields(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %280, ptr noundef %6, ptr noundef %4)
   br label %292
 
 292:                                              ; preds = %290, %288

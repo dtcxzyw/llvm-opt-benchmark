@@ -5433,7 +5433,7 @@ declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr
 declare i32 @tvb_get_guint24(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @call_isobus_subdissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i32 noundef %5, i8 noundef zeroext %6, i32 %.0.val, i16 %.12.val) unnamed_addr #0 {
+define internal fastcc i32 @call_isobus_subdissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 8) %3, i8 noundef zeroext %4, i32 noundef range(i32 0, 262144) %5, i8 noundef zeroext %6, i32 %.0.val, i16 %.12.val) unnamed_addr #0 {
   %8 = alloca %struct.isobus_info, align 4
   store i32 %.0.val, ptr %8, align 4
   %9 = getelementptr inbounds i8, ptr %8, i64 4

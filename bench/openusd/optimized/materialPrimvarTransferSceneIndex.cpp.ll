@@ -1829,7 +1829,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
   br i1 %59, label %60, label %594
 
 60:                                               ; preds = %50
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSource23_GetMaterialBindingPathEv(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSource23_GetMaterialBindingPathEv(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %61 unwind label %45
 
 61:                                               ; preds = %60
@@ -3041,7 +3041,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %605, label %606, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7SdfPathEEEED2Ev.exit211
 
 606:                                              ; preds = %596
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSource23_GetMaterialBindingPathEv(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSource23_GetMaterialBindingPathEv(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %607 unwind label %45
 
 607:                                              ; preds = %606
@@ -4393,7 +4393,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseELN9__g
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSource23_GetMaterialBindingPathEv(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSource23_GetMaterialBindingPathEv(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdMaterialBindingsSchema", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdMaterialBindingSchema", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -4402,7 +4402,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
           to label %6 unwind label %80
 
 6:                                                ; preds = %2
-  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__23HdMaterialBindingSchema7GetPathEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.29") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__23HdMaterialBindingSchema7GetPathEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.29") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %7 unwind label %82
 
 7:                                                ; preds = %6

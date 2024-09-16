@@ -106,7 +106,7 @@ define dso_local noundef zeroext i1 @gistgettuple(ptr noundef %0, i32 noundef %1
   store i32 0, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %3, i64 32
   store i64 0, ptr %41, align 8
-  call fastcc void @gistScanPage(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef null)
+  call fastcc void @gistScanPage(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null, ptr noundef null, ptr noundef null)
   br label %42
 
 42:                                               ; preds = %39, %13
@@ -207,7 +207,7 @@ getNextGISTSearchItem.exit.i:                     ; preds = %63, %95
 
 95:                                               ; preds = %94, %92
   %96 = getelementptr inbounds i8, ptr %68, i64 56
-  tail call fastcc void @gistScanPage(ptr noundef %0, ptr noundef nonnull %68, ptr noundef nonnull %96, ptr noundef null, ptr noundef null)
+  tail call fastcc void @gistScanPage(ptr noundef %0, ptr noundef %68, ptr noundef nonnull %96, ptr noundef null, ptr noundef null)
   tail call void @pfree(ptr noundef nonnull %68) #8
   %.val.i = load ptr, ptr %64, align 8
   %97 = getelementptr inbounds i8, ptr %.val.i, i64 16
@@ -480,7 +480,7 @@ getNextGISTSearchItem.exit:                       ; preds = %gistkillitems.exit
   %243 = load i32, ptr %242, align 8
   store i32 %243, ptr %55, align 4
   %244 = getelementptr inbounds i8, ptr %237, i64 56
-  tail call fastcc void @gistScanPage(ptr noundef %0, ptr noundef nonnull %237, ptr noundef nonnull %244, ptr noundef null, ptr noundef null)
+  tail call fastcc void @gistScanPage(ptr noundef %0, ptr noundef %237, ptr noundef nonnull %244, ptr noundef null, ptr noundef null)
   tail call void @pfree(ptr noundef nonnull %237) #8
   %245 = load i16, ptr %47, align 8
   %246 = icmp eq i16 %245, 0
@@ -503,7 +503,7 @@ declare void @pgstat_assoc_relation(ptr noundef) local_unnamed_addr #2
 declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gistScanPage(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc void @gistScanPage(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca %struct.GISTENTRY, align 8
   %8 = alloca i8, align 1
@@ -1283,7 +1283,7 @@ define dso_local i64 @gistgetbitmap(ptr nocapture noundef %0, ptr noundef %1) lo
   store i32 0, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %4, i64 32
   store i64 0, ptr %34, align 8
-  call fastcc void @gistScanPage(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef null, ptr noundef %1, ptr noundef nonnull %3)
+  call fastcc void @gistScanPage(ptr noundef nonnull %0, ptr noundef %4, ptr noundef null, ptr noundef %1, ptr noundef nonnull %3)
   %35 = getelementptr i8, ptr %6, i64 16
   %.val27 = load ptr, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %.val27, i64 16
@@ -1308,7 +1308,7 @@ getNextGISTSearchItem.exit:                       ; preds = %32, %43
 
 43:                                               ; preds = %40, %42
   %44 = getelementptr inbounds i8, ptr %39, i64 56
-  call fastcc void @gistScanPage(ptr noundef %0, ptr noundef nonnull %39, ptr noundef nonnull %44, ptr noundef %1, ptr noundef nonnull %3)
+  call fastcc void @gistScanPage(ptr noundef %0, ptr noundef %39, ptr noundef nonnull %44, ptr noundef %1, ptr noundef nonnull %3)
   tail call void @pfree(ptr noundef nonnull %39) #8
   %.val = load ptr, ptr %35, align 8
   %45 = getelementptr inbounds i8, ptr %.val, i64 16

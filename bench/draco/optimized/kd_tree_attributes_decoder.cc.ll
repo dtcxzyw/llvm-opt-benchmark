@@ -1602,7 +1602,7 @@ _ZN5draco30AttributeQuantizationTransformD2Ev.exit113: ; preds = %174, %_ZNSt6ve
 .lr.ph236:                                        ; preds = %.preheader, %178
   %indvars.iv252 = phi i64 [ %indvars.iv.next253, %178 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %176 = call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %3, ptr noundef %1)
+  %176 = call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef %3, ptr noundef %1)
   br i1 %176, label %178, label %177
 
 177:                                              ; preds = %.lr.ph236
@@ -14624,7 +14624,7 @@ _ZNSt12_Vector_baseIN5draco30AttributeQuantizationTransformESaIS1_EE13_M_dealloc
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #14 {
+define internal fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef range(i32 1, 7) %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef %2) unnamed_addr #14 {
   %4 = icmp ugt i32 %0, 5
   br i1 %4, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %5
 

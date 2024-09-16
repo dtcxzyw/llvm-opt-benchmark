@@ -21,7 +21,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @oneshot_hash(ptr noundef %ctx, ptr noundef %out, i64 noundef %outlen, ptr noundef %in, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @oneshot_hash(ptr noundef %ctx, ptr noundef %out, i64 noundef range(i64 56, 115) %outlen, ptr noundef %in, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %call = tail call ptr @EVP_MD_CTX_new() #4
   %cmp = icmp eq ptr %call, null
@@ -150,7 +150,7 @@ if.end3:                                          ; preds = %if.end
   %3 = or i8 %2, -128
   store i8 %3, ptr %arrayidx3.i, align 1
   call void @ossl_curve448_scalar_decode_long(ptr noundef nonnull %secret_scalar, ptr noundef nonnull %expanded, i64 noundef 57) #4
-  %call7 = call fastcc i32 @hash_init_with_dom(ptr noundef %ctx, ptr noundef nonnull %call, i8 noundef zeroext %prehashed, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq)
+  %call7 = call fastcc i32 @hash_init_with_dom(ptr noundef %ctx, ptr noundef %call, i8 noundef zeroext %prehashed, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.then15, label %lor.lhs.false
 
@@ -185,7 +185,7 @@ if.end23:                                         ; preds = %if.end17
   call void @ossl_curve448_point_mul_by_ratio_and_encode_like_eddsa(ptr noundef nonnull %nonce_point, ptr noundef nonnull %p) #4
   call void @ossl_curve448_point_destroy(ptr noundef nonnull %p) #4
   call void @ossl_curve448_scalar_destroy(ptr noundef nonnull %nonce_scalar_2) #4
-  %call38 = call fastcc i32 @hash_init_with_dom(ptr noundef %ctx, ptr noundef nonnull %call, i8 noundef zeroext %prehashed, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq)
+  %call38 = call fastcc i32 @hash_init_with_dom(ptr noundef %ctx, ptr noundef %call, i8 noundef zeroext %prehashed, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq)
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %err, label %lor.lhs.false40
 
@@ -239,7 +239,7 @@ declare ptr @EVP_MD_CTX_new() local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @hash_init_with_dom(ptr noundef %ctx, ptr noundef %hashctx, i8 noundef zeroext %prehashed, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @hash_init_with_dom(ptr noundef %ctx, ptr noundef nonnull %hashctx, i8 noundef zeroext %prehashed, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %dom_s = alloca [9 x i8], align 1
   %dom = alloca [2 x i8], align 1
@@ -259,22 +259,22 @@ if.end:                                           ; preds = %entry
   br i1 %cmp11, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %call15 = tail call i32 @EVP_DigestInit_ex(ptr noundef %hashctx, ptr noundef nonnull %call, ptr noundef null) #4
+  %call15 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %hashctx, ptr noundef nonnull %call, ptr noundef null) #4
   %tobool.not = icmp eq i32 %call15, 0
   br i1 %tobool.not, label %return.sink.split, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end14
-  %call16 = call i32 @EVP_DigestUpdate(ptr noundef %hashctx, ptr noundef nonnull %dom_s, i64 noundef 8) #4
+  %call16 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %hashctx, ptr noundef nonnull %dom_s, i64 noundef 8) #4
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %return.sink.split, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %lor.lhs.false
-  %call20 = call i32 @EVP_DigestUpdate(ptr noundef %hashctx, ptr noundef nonnull %dom, i64 noundef 2) #4
+  %call20 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %hashctx, ptr noundef nonnull %dom, i64 noundef 2) #4
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %return.sink.split, label %lor.lhs.false22
 
 lor.lhs.false22:                                  ; preds = %lor.lhs.false18
-  %call23 = call i32 @EVP_DigestUpdate(ptr noundef %hashctx, ptr noundef %context, i64 noundef %context_len) #4
+  %call23 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %hashctx, ptr noundef %context, i64 noundef %context_len) #4
   %tobool24.not = icmp ne i32 %call23, 0
   %spec.select = sext i1 %tobool24.not to i32
   br label %return.sink.split
@@ -358,7 +358,7 @@ if.end30:                                         ; preds = %if.end24
 
 lor.lhs.false:                                    ; preds = %if.end30
   %conv34 = zext i8 %context_len to i64
-  %call35 = call fastcc i32 @hash_init_with_dom(ptr noundef %ctx, ptr noundef nonnull %call31, i8 noundef zeroext %prehashed, ptr noundef %context, i64 noundef %conv34, ptr noundef %propq)
+  %call35 = call fastcc i32 @hash_init_with_dom(ptr noundef %ctx, ptr noundef %call31, i8 noundef zeroext %prehashed, ptr noundef %context, i64 noundef %conv34, ptr noundef %propq)
   %tobool.not = icmp eq i32 %call35, 0
   br i1 %tobool.not, label %if.then49, label %lor.lhs.false36
 

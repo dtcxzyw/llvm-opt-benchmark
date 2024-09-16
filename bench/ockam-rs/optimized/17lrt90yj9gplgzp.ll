@@ -313,7 +313,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"_ZN14ockam_identity14secure_channel9decryptor9Decryptor8shutdown28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h5900d106758bdf86E" = external global { ptr, { ptr }, { i8 }, { i8 }, [6 x i8] }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$17h48944ef6c08056dbE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$17h48944ef6c08056dbE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.4 = alloca [14 x i8], align 2
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -742,7 +742,7 @@ default.unreachable113:                           ; preds = %3
   store i64 1, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 16
   store ptr %139, ptr %.sroa.11.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h662cf8d485823ebdE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %19)
+  invoke fastcc void @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h662cf8d485823ebdE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %19)
           to label %169 unwind label %167
 
 166:                                              ; preds = %156, %167
@@ -874,7 +874,7 @@ common.ret:                                       ; preds = %193, %"_ZN4core3ptr
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h662cf8d485823ebdE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h662cf8d485823ebdE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -928,7 +928,7 @@ define internal fastcc void @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outg
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { i64, ptr } @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$17send_from_address28_$u7b$$u7b$closure$u7d$$u7d$17h3886d7a67dd00ed7E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc { i64, ptr } @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$17send_from_address28_$u7b$$u7b$closure$u7d$$u7d$17h3886d7a67dd00ed7E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [39 x i8] }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -1570,7 +1570,7 @@ default.unreachable59:                            ; preds = %334, %98, %2
   store i64 1, ptr %.sroa.9.0..sroa_idx439.i, align 8, !noalias !78
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %73, i64 16
   store ptr %247, ptr %.sroa.10.0..sroa_idx.i, align 8, !noalias !78
-  invoke fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h462722f2999da45aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %73)
+  invoke fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h462722f2999da45aE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %73)
           to label %266 unwind label %264
 
 264:                                              ; preds = %258
@@ -1703,7 +1703,7 @@ default.unreachable59:                            ; preds = %334, %98, %2
   %308 = phi ptr [ %103, %163 ], [ %99, %122 ]
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %61), !noalias !78
   %309 = getelementptr inbounds i8, ptr %0, i64 568
-  invoke fastcc void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17he774a83a14a1169eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %61, ptr noundef nonnull align 8 %309, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17he774a83a14a1169eE"(ptr noalias nocapture noundef align 8 dereferenceable(88) %61, ptr noundef nonnull align 8 %309, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %312 unwind label %310
 
 310:                                              ; preds = %306
@@ -2128,7 +2128,7 @@ default.unreachable59:                            ; preds = %334, %98, %2
   store i64 %433, ptr %.sroa.4.0..sroa_idx.i370.i, align 8, !alias.scope !207, !noalias !218
   %.sroa.5.0..sroa_idx.i371.i = getelementptr inbounds i8, ptr %41, i64 16
   store i64 %427, ptr %.sroa.5.0..sroa_idx.i371.i, align 8, !alias.scope !207, !noalias !218
-  invoke fastcc void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h7d7ab43297d2062fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %42, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %41)
+  invoke fastcc void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h7d7ab43297d2062fE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %42, ptr noalias nocapture noundef align 8 dereferenceable(32) %41)
           to label %438 unwind label %436
 
 436:                                              ; preds = %431
@@ -2434,7 +2434,7 @@ default.unreachable59:                            ; preds = %334, %98, %2
   %531 = phi ptr [ %348, %477 ], [ %99, %123 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32), !noalias !78
   %532 = getelementptr inbounds i8, ptr %0, i64 568
-  invoke fastcc void @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$17h48944ef6c08056dbE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 %532, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$17h48944ef6c08056dbE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 %532, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %535 unwind label %533
 
 533:                                              ; preds = %529
@@ -2835,7 +2835,7 @@ default.unreachable59:                            ; preds = %334, %98, %2
   store i64 1, ptr %.sroa.10560.0..sroa_idx.i, align 8, !noalias !78
   %.sroa.11561.0..sroa_idx.i = getelementptr inbounds i8, ptr %31, i64 16
   store ptr %641, ptr %.sroa.11561.0..sroa_idx.i, align 8, !noalias !78
-  invoke fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h00c9719096d59e1fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %31)
+  invoke fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h00c9719096d59e1fE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %31)
           to label %672 unwind label %670
 
 669:                                              ; preds = %670, %659
@@ -2915,7 +2915,7 @@ default.unreachable59:                            ; preds = %334, %98, %2
   %690 = phi ptr [ %531, %681 ], [ %99, %124 ]
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %15), !noalias !78
   %691 = getelementptr inbounds i8, ptr %0, i64 568
-  invoke fastcc void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h90fb9057af6baa1bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(240) %15, ptr noundef nonnull align 8 %691, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h90fb9057af6baa1bE"(ptr noalias nocapture noundef align 8 dereferenceable(240) %15, ptr noundef nonnull align 8 %691, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %694 unwind label %692
 
 692:                                              ; preds = %688
@@ -3506,7 +3506,7 @@ common.ret:                                       ; preds = %897, %894
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h64ff31043ffa43eeE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h64ff31043ffa43eeE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -3560,7 +3560,7 @@ define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hed226b684f1c9101E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hed226b684f1c9101E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -3614,7 +3614,7 @@ define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h00b200515af784f0E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h00b200515af784f0E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -3668,7 +3668,7 @@ define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h00c9719096d59e1fE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h00c9719096d59e1fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -3722,7 +3722,7 @@ define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h462722f2999da45aE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h462722f2999da45aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -3776,7 +3776,7 @@ define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfc0a96c3085dddb3E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfc0a96c3085dddb3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -3830,7 +3830,7 @@ define internal fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { i64, ptr } @"_ZN10ockam_node7context16worker_lifecycle55_$LT$impl$u20$ockam_node..context..context..Context$GT$11stop_worker28_$u7b$$u7b$closure$u7d$$u7d$17hdcce82bb3f6bffd0E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc { i64, ptr } @"_ZN10ockam_node7context16worker_lifecycle55_$LT$impl$u20$ockam_node..context..context..Context$GT$11stop_worker28_$u7b$$u7b$closure$u7d$$u7d$17hdcce82bb3f6bffd0E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [39 x i8] }, align 8
   %4 = alloca { [56 x i8], i8, [7 x i8] }, align 8
   %5 = alloca { { { i8, [87 x i8] } } }, align 8
@@ -4426,7 +4426,7 @@ default.unreachable22:                            ; preds = %247, %44, %2
 208:                                              ; preds = %198, %48
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %9), !noalias !369
   %209 = getelementptr inbounds i8, ptr %0, i64 128
-  invoke fastcc void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17he774a83a14a1169eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %9, ptr noundef nonnull align 8 %209, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17he774a83a14a1169eE"(ptr noalias nocapture noundef align 8 dereferenceable(88) %9, ptr noundef nonnull align 8 %209, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %212 unwind label %210
 
 210:                                              ; preds = %208
@@ -4670,7 +4670,7 @@ default.unreachable22:                            ; preds = %247, %44, %2
   store ptr %.sroa.0244.0.copyload.i, ptr %8, align 8, !noalias !369
   %.sroa.5242.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 56
   store i8 %261, ptr %.sroa.5242.0..sroa_idx.i, align 8, !noalias !369
-  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..RouterReply$GT$17h3f8305da3decf72cE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %8)
+  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..RouterReply$GT$17h3f8305da3decf72cE"(ptr noalias noundef align 8 dereferenceable(64) %8)
           to label %278 unwind label %273
 
 276:                                              ; preds = %266
@@ -4768,7 +4768,7 @@ default.unreachable22:                            ; preds = %247, %44, %2
   br label %136
 
 306:                                              ; preds = %.body.i
-  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMessage$GT$17h874b33bf7ac5de15E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %13) #23
+  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMessage$GT$17h874b33bf7ac5de15E"(ptr noalias noundef align 8 dereferenceable(88) %13) #23
           to label %305 unwind label %243
 
 307:                                              ; preds = %308, %136
@@ -4836,7 +4836,7 @@ define internal noundef i128 @_ZN12tracing_core8callsite8Callsite15private_type_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h177ac71cfddb11fdE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h177ac71cfddb11fdE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
   %5 = alloca { { { ptr, i64 }, i64 } }, align 8
@@ -4887,7 +4887,7 @@ define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..purpose_keys..purpose_keys..PurposeKeys$GT$$GT$17h57dad99dadde91bbE"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..purpose_keys..purpose_keys..PurposeKeys$GT$$GT$17h57dad99dadde91bbE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !486)
   %2 = load ptr, ptr %0, align 8, !alias.scope !486, !nonnull !5, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !486
@@ -4904,7 +4904,7 @@ define internal fastcc void @"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$ockam_core..error..Error$GT$$GT$17hdf336671d6064903E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$ockam_core..error..Error$GT$$GT$17hdf336671d6064903E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load ptr, ptr %0, align 8, !noundef !5
   %.not = icmp eq ptr %3, null
@@ -4965,7 +4965,7 @@ define internal fastcc void @"_ZN4core3ptr101drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_core..access_control..IncomingAccessControl$GT$$GT$17h446d6779506f86b3E"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_core..access_control..IncomingAccessControl$GT$$GT$17h446d6779506f86b3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !506)
   %2 = load ptr, ptr %0, align 8, !alias.scope !506, !nonnull !5, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !506
@@ -4982,7 +4982,7 @@ define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_core..access_control..OutgoingAccessControl$GT$$GT$17ha656cdbb94a27aaaE"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_core..access_control..OutgoingAccessControl$GT$$GT$17ha656cdbb94a27aaaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !509)
   %2 = load ptr, ptr %0, align 8, !alias.scope !509, !nonnull !5, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !509
@@ -4999,7 +4999,7 @@ define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$$GT$17h2c43d3233dc1c71cE"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$$GT$17h2c43d3233dc1c71cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !512)
   %2 = load ptr, ptr %0, align 8, !alias.scope !512, !nonnull !5, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !512
@@ -5085,7 +5085,7 @@ common.ret:                                       ; preds = %1, %24
   br label %common.ret
 
 25:                                               ; preds = %"_ZN4core3ptr179drop_in_place$LT$tracing..instrument..Instrumented$LT$ockam_identity..secure_channel..encryptor..Encryptor..rekey..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfcc5f690849e845dE.exit"
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %0)
           to label %24 unwind label %28
 
 26:                                               ; preds = %30, %28, %.body
@@ -5100,7 +5100,7 @@ common.ret:                                       ; preds = %1, %24
   br label %26
 
 30:                                               ; preds = %.body
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) #23
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %0) #23
           to label %26 unwind label %31
 
 31:                                               ; preds = %30
@@ -5181,7 +5181,7 @@ common.ret:                                       ; preds = %1, %24
 
 25:                                               ; preds = %"_ZN4core3ptr181drop_in_place$LT$tracing..instrument..Instrumented$LT$ockam_identity..secure_channel..decryptor..Decryptor..decrypt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0d62e4c43591758cE.exit"
   %26 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %26)
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %26)
           to label %24 unwind label %29
 
 27:                                               ; preds = %31, %29, %.body
@@ -5197,7 +5197,7 @@ common.ret:                                       ; preds = %1, %24
 
 31:                                               ; preds = %.body
   %32 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %32) #23
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %32) #23
           to label %27 unwind label %33
 
 33:                                               ; preds = %31
@@ -5277,7 +5277,7 @@ common.ret:                                       ; preds = %1, %24
   br label %common.ret
 
 25:                                               ; preds = %"_ZN4core3ptr182drop_in_place$LT$tracing..instrument..Instrumented$LT$ockam_identity..secure_channel..decryptor..Decryptor..shutdown..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcbe807acc6596e2aE.exit"
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %0)
           to label %24 unwind label %28
 
 26:                                               ; preds = %30, %28, %.body
@@ -5292,7 +5292,7 @@ common.ret:                                       ; preds = %1, %24
   br label %26
 
 30:                                               ; preds = %.body
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) #23
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %0) #23
           to label %26 unwind label %31
 
 31:                                               ; preds = %30
@@ -5360,7 +5360,7 @@ common.ret:                                       ; preds = %4, %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr120drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities_verification..IdentitiesVerification$GT$$GT$17h55cfb734c0e9da8dE"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr120drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities_verification..IdentitiesVerification$GT$$GT$17h55cfb734c0e9da8dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !522)
   %2 = load ptr, ptr %0, align 8, !alias.scope !522, !nonnull !5, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !522
@@ -5495,7 +5495,7 @@ common.ret.sink.split.i:                          ; preds = %48, %38
   %46 = landingpad { ptr, i32 }
           cleanup
   %47 = getelementptr inbounds i8, ptr %0, i64 208
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %47) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %47) #23
           to label %.body10 unwind label %53
 
 48:                                               ; preds = %43
@@ -5521,7 +5521,7 @@ common.ret.sink.split.i:                          ; preds = %48, %38
 .body:                                            ; preds = %12, %55
   %eh.lpad-body = phi { ptr, i32 } [ %56, %55 ], [ %13, %12 ]
   %57 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %57) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %57) #23
           to label %64 unwind label %65
 
 58:                                               ; preds = %20, %16, %.noexc
@@ -5703,12 +5703,12 @@ common.ret.sink.split.i:                          ; preds = %48, %38
   br label %common.ret
 
 123:                                              ; preds = %73
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %0) #23
           to label %113 unwind label %65
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..credentials..credentials_verification..CredentialsVerification$GT$$GT$17h919e849072489b54E"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..credentials..credentials_verification..CredentialsVerification$GT$$GT$17h919e849072489b54E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !597)
   %2 = load ptr, ptr %0, align 8, !alias.scope !597, !nonnull !5, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !597
@@ -5725,7 +5725,7 @@ define internal fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..sync..Arc$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..purpose_keys..purpose_key_verification..PurposeKeyVerification$GT$$GT$17h6d67559377900703E"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..purpose_keys..purpose_key_verification..PurposeKeyVerification$GT$$GT$17h6d67559377900703E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !600)
   %2 = load ptr, ptr %0, align 8, !alias.scope !600, !nonnull !5, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !600
@@ -5791,7 +5791,7 @@ common.ret:                                       ; preds = %18, %"_ZN4core3ptr5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$GT$$GT$17h8f2d9a7bb7c482c2E"(ptr noalias noundef align 8 dereferenceable(192) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$GT$$GT$17h8f2d9a7bb7c482c2E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !range !64, !noundef !5
   %4 = icmp eq i8 %3, 2
@@ -5883,7 +5883,7 @@ common.ret:                                       ; preds = %4, %1, %26
   br label %common.ret
 
 28:                                               ; preds = %"_ZN4core3ptr195drop_in_place$LT$tracing..instrument..Instrumented$LT$ockam_identity..secure_channel..decryptor..DecryptorHandler..handle_decrypt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2a8fa2b4a274b63bE.exit"
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %0)
           to label %26 unwind label %32
 
 29:                                               ; preds = %34, %32, %.body
@@ -5900,7 +5900,7 @@ common.ret:                                       ; preds = %4, %1, %26
   br label %29
 
 34:                                               ; preds = %.body
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) #23
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %0) #23
           to label %29 unwind label %35
 
 35:                                               ; preds = %34
@@ -5949,7 +5949,7 @@ common.ret:                                       ; preds = %4, %1, %11
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..secure_channel..trust_policy..trust_policy_type..TrustPolicy$GT$$GT$17hde85c8749590069bE"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..secure_channel..trust_policy..trust_policy_type..TrustPolicy$GT$$GT$17hde85c8749590069bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !612)
   %2 = load ptr, ptr %0, align 8, !alias.scope !612, !nonnull !5, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !612
@@ -6043,7 +6043,7 @@ common.ret:                                       ; preds = %4, %1, %26
   br label %common.ret
 
 28:                                               ; preds = %"_ZN4core3ptr199drop_in_place$LT$tracing..instrument..Instrumented$LT$ockam_identity..secure_channel..decryptor..DecryptorHandler..handle_decrypt_api..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h84c7a894c4e5d709E.exit"
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %0)
           to label %26 unwind label %32
 
 29:                                               ; preds = %34, %32, %.body
@@ -6060,7 +6060,7 @@ common.ret:                                       ; preds = %4, %1, %26
   br label %29
 
 34:                                               ; preds = %.body
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) #23
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %0) #23
           to label %29 unwind label %35
 
 35:                                               ; preds = %34
@@ -6084,7 +6084,7 @@ common.ret:                                       ; preds = %4, %1, %36
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 224
-  tail call fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMessage$GT$17h874b33bf7ac5de15E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %5)
+  tail call fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMessage$GT$17h874b33bf7ac5de15E"(ptr noalias noundef align 8 dereferenceable(88) %5)
   br label %common.ret
 
 6:                                                ; preds = %1
@@ -6144,12 +6144,12 @@ common.ret:                                       ; preds = %4, %1, %36
 .body:                                            ; preds = %14, %28
   %eh.lpad-body = phi { ptr, i32 } [ %29, %28 ], [ %15, %14 ]
   %30 = getelementptr inbounds i8, ptr %0, i64 128
-  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMessage$GT$17h874b33bf7ac5de15E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %30) #23
+  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMessage$GT$17h874b33bf7ac5de15E"(ptr noalias noundef align 8 dereferenceable(88) %30) #23
           to label %32 unwind label %38
 
 "_ZN4core3ptr134drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$ockam_node..messages..NodeMessage$GT$..reserve..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha8b51b33b3f2a0e1E.exit": ; preds = %17, %9, %6, %21
   %31 = getelementptr inbounds i8, ptr %0, i64 128
-  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMessage$GT$17h874b33bf7ac5de15E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %31)
+  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMessage$GT$17h874b33bf7ac5de15E"(ptr noalias noundef align 8 dereferenceable(88) %31)
           to label %36 unwind label %34
 
 32:                                               ; preds = %34, %.body
@@ -6176,7 +6176,7 @@ common.ret:                                       ; preds = %4, %1, %36
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !632)
   %2 = load ptr, ptr %0, align 8, !alias.scope !632, !nonnull !5, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !632
@@ -6586,7 +6586,7 @@ common.ret:                                       ; preds = %4, %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr140drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..identities..storage..change_history_repository..ChangeHistoryRepository$GT$$GT$17hf37dfa85da58350aE"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr140drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..identities..storage..change_history_repository..ChangeHistoryRepository$GT$$GT$17hf37dfa85da58350aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !693)
   %2 = load ptr, ptr %0, align 8, !alias.scope !693, !nonnull !5, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !693
@@ -6680,7 +6680,7 @@ common.ret:                                       ; preds = %1, %47
   %29 = landingpad { ptr, i32 }
           cleanup
   %30 = getelementptr inbounds i8, ptr %0, i64 112
-  invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30) #23
+  invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE"(ptr noalias noundef align 8 dereferenceable(24) %30) #23
           to label %51 unwind label %49
 
 31:                                               ; preds = %6
@@ -6779,7 +6779,7 @@ common.ret:                                       ; preds = %1, %47
   %66 = getelementptr inbounds i8, ptr %0, i64 101
   store i8 0, ptr %66, align 1
   %67 = getelementptr inbounds i8, ptr %0, i64 56
-  invoke fastcc void @"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$ockam_core..error..Error$GT$$GT$17hdf336671d6064903E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %67) #23
+  invoke fastcc void @"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$ockam_core..error..Error$GT$$GT$17hdf336671d6064903E"(ptr noalias noundef align 8 dereferenceable(24) %67) #23
           to label %.body unwind label %49
 
 "_ZN4core3ptr212drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hca07b391945e9dcdE.exit": ; preds = %"_ZN4core3ptr190drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h195b6fdf80a2633fE.llvm.13826239688354340414.exit.i"
@@ -6788,7 +6788,7 @@ common.ret:                                       ; preds = %1, %47
   %69 = getelementptr inbounds i8, ptr %0, i64 101
   store i8 0, ptr %69, align 1
   %70 = getelementptr inbounds i8, ptr %0, i64 56
-  invoke fastcc void @"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$ockam_core..error..Error$GT$$GT$17hdf336671d6064903E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %70)
+  invoke fastcc void @"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$ockam_core..error..Error$GT$$GT$17hdf336671d6064903E"(ptr noalias noundef align 8 dereferenceable(24) %70)
           to label %"_ZN4core3ptr233drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h3fa62b336e2d07c1E.exit" unwind label %71
 
 71:                                               ; preds = %"_ZN4core3ptr212drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hca07b391945e9dcdE.exit"
@@ -7095,7 +7095,7 @@ common.ret:                                       ; preds = %4, %1, %26
   br label %common.ret
 
 28:                                               ; preds = %"_ZN4core3ptr212drop_in_place$LT$tracing..instrument..Instrumented$LT$ockam_identity..secure_channel..handshake..handshake_worker..HandshakeWorker..handle_decrypt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h51c907b20531125fE.exit"
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %0)
           to label %26 unwind label %32
 
 29:                                               ; preds = %34, %32, %.body
@@ -7112,7 +7112,7 @@ common.ret:                                       ; preds = %4, %1, %26
   br label %29
 
 34:                                               ; preds = %.body
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) #23
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %0) #23
           to label %29 unwind label %35
 
 35:                                               ; preds = %34
@@ -7200,7 +7200,7 @@ common.ret:                                       ; preds = %4, %1, %26
   br label %common.ret
 
 28:                                               ; preds = %"_ZN4core3ptr214drop_in_place$LT$tracing..instrument..Instrumented$LT$ockam_identity..secure_channel..handshake..handshake_worker..HandshakeWorker..handle_handshake..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h38c58a496abad25dE.exit"
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %0)
           to label %26 unwind label %32
 
 29:                                               ; preds = %34, %32, %.body
@@ -7217,7 +7217,7 @@ common.ret:                                       ; preds = %4, %1, %26
   br label %29
 
 34:                                               ; preds = %.body
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) #23
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %0) #23
           to label %29 unwind label %35
 
 35:                                               ; preds = %34
@@ -7290,7 +7290,7 @@ common.ret:                                       ; preds = %47, %"_ZN4core3ptr1
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = getelementptr inbounds i8, ptr %0, i64 64
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %24) #23
           to label %30 unwind label %31
 
 "_ZN4core3ptr140drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..identities..storage..change_history_repository..ChangeHistoryRepository$GT$$GT$17hf37dfa85da58350aE.exit": ; preds = %4, %9
@@ -7374,7 +7374,7 @@ common.ret:                                       ; preds = %47, %"_ZN4core3ptr1
   %55 = getelementptr inbounds i8, ptr %0, i64 120
   store i8 0, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %0, i64 32
-  invoke fastcc void @"_ZN4core3ptr140drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..identities..storage..change_history_repository..ChangeHistoryRepository$GT$$GT$17hf37dfa85da58350aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %56) #23
+  invoke fastcc void @"_ZN4core3ptr140drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..identities..storage..change_history_repository..ChangeHistoryRepository$GT$$GT$17hf37dfa85da58350aE"(ptr noalias noundef align 8 dereferenceable(16) %56) #23
           to label %30 unwind label %31
 
 57:                                               ; preds = %53
@@ -7384,7 +7384,7 @@ common.ret:                                       ; preds = %47, %"_ZN4core3ptr1
 
 59:                                               ; preds = %.body
   %60 = getelementptr inbounds i8, ptr %0, i64 128
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %60) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %60) #23
           to label %54 unwind label %31
 }
 
@@ -7618,7 +7618,7 @@ common.ret:                                       ; preds = %62, %"_ZN4core3ptr1
   %32 = landingpad { ptr, i32 }
           cleanup
   %33 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %33) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %33) #23
           to label %39 unwind label %40
 
 "_ZN4core3ptr123drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..purpose_keys..purpose_key_verification..PurposeKeyVerification$GT$$GT$17h6d67559377900703E.exit": ; preds = %4, %8
@@ -7667,7 +7667,7 @@ common.ret:                                       ; preds = %62, %"_ZN4core3ptr1
 .body:                                            ; preds = %52, %27, %50, %17, %42
   %.pn = phi { ptr, i32 } [ %43, %42 ], [ %51, %50 ], [ %18, %17 ], [ %53, %52 ], [ %28, %27 ]
   %49 = getelementptr inbounds i8, ptr %0, i64 64
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %49) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %49) #23
           to label %54 unwind label %40
 
 50:                                               ; preds = %"_ZN4core3ptr226drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$ockam_vault..types..hashes..Sha256Output$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17hd384e8a1b9cdf07dE.llvm.13826239688354340414.exit.i"
@@ -7683,7 +7683,7 @@ common.ret:                                       ; preds = %62, %"_ZN4core3ptr1
 54:                                               ; preds = %56, %.body
   %.pn2 = phi { ptr, i32 } [ %57, %56 ], [ %.pn, %.body ]
   %55 = getelementptr inbounds i8, ptr %0, i64 56
-  invoke fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..purpose_keys..purpose_key_verification..PurposeKeyVerification$GT$$GT$17h6d67559377900703E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %55) #23
+  invoke fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..purpose_keys..purpose_key_verification..PurposeKeyVerification$GT$$GT$17h6d67559377900703E"(ptr noalias noundef align 8 dereferenceable(8) %55) #23
           to label %39 unwind label %40
 
 56:                                               ; preds = %48
@@ -8121,7 +8121,7 @@ common.ret:                                       ; preds = %11, %8, %4, %1, %"_
 .body:                                            ; preds = %18, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %19, %18 ]
   %24 = getelementptr inbounds i8, ptr %0, i64 64
-  invoke fastcc void @"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..secure_channel..trust_policy..trust_policy_type..TrustPolicy$GT$$GT$17hde85c8749590069bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #23
+  invoke fastcc void @"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..secure_channel..trust_policy..trust_policy_type..TrustPolicy$GT$$GT$17hde85c8749590069bE"(ptr noalias noundef align 8 dereferenceable(16) %24) #23
           to label %35 unwind label %33
 
 "_ZN4core3ptr212drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hca07b391945e9dcdE.exit": ; preds = %"_ZN4core3ptr190drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h195b6fdf80a2633fE.llvm.13826239688354340414.exit.i"
@@ -8248,7 +8248,7 @@ common.ret:                                       ; preds = %72, %67, %"_ZN4core
   %31 = getelementptr inbounds i8, ptr %0, i64 105
   store i8 0, ptr %31, align 1
   %32 = getelementptr inbounds i8, ptr %0, i64 1840
-  invoke fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..credentials..credentials_verification..CredentialsVerification$GT$$GT$17h919e849072489b54E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %32) #23
+  invoke fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..credentials..credentials_verification..CredentialsVerification$GT$$GT$17h919e849072489b54E"(ptr noalias noundef align 8 dereferenceable(8) %32) #23
           to label %49 unwind label %42
 
 33:                                               ; preds = %"_ZN4core3ptr194drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h564991a6779e5d64E.llvm.13826239688354340414.exit.i.i"
@@ -8306,7 +8306,7 @@ common.ret:                                       ; preds = %72, %67, %"_ZN4core
 49:                                               ; preds = %51, %.body
   %.pn = phi { ptr, i32 } [ %52, %51 ], [ %.pn.i, %.body ]
   %50 = getelementptr inbounds i8, ptr %0, i64 1848
-  invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..credentials..credentials..Credentials$GT$$GT$17h064df35258d83090E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %50) #23
+  invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..credentials..credentials..Credentials$GT$$GT$17h064df35258d83090E"(ptr noalias noundef align 8 dereferenceable(8) %50) #23
           to label %58 unwind label %42
 
 51:                                               ; preds = %48
@@ -8347,7 +8347,7 @@ common.ret:                                       ; preds = %72, %67, %"_ZN4core
 63:                                               ; preds = %65, %58
   %.pn4 = phi { ptr, i32 } [ %66, %65 ], [ %.pn2, %58 ]
   %64 = getelementptr inbounds i8, ptr %0, i64 1792
-  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17ha029e25ff610ea75E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64) #23
+  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17ha029e25ff610ea75E"(ptr noalias noundef align 8 dereferenceable(8) %64) #23
           to label %41 unwind label %42
 
 65:                                               ; preds = %"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..credentials..credentials..Credentials$GT$$GT$17h064df35258d83090E.exit"
@@ -8635,7 +8635,7 @@ common.ret:                                       ; preds = %15, %1, %88
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr157drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..secure_channel..trust_policy..trust_policy_type..TrustPolicy$GT$$GT$$GT$17h8c600381e2316588E"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr157drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..secure_channel..trust_policy..trust_policy_type..TrustPolicy$GT$$GT$$GT$17h8c600381e2316588E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !5
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..secure_channel..trust_policy..trust_policy_type..TrustPolicy$GT$$GT$17hde85c8749590069bE.exit", label %4
@@ -9174,7 +9174,7 @@ common.resume:                                    ; preds = %51, %11
   %31 = landingpad { ptr, i32 }
           cleanup
   %32 = getelementptr inbounds i8, ptr %0, i64 352
-  invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities_verification..IdentitiesVerification$GT$$GT$17h55cfb734c0e9da8dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %32) #23
+  invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities_verification..IdentitiesVerification$GT$$GT$17h55cfb734c0e9da8dE"(ptr noalias noundef align 8 dereferenceable(8) %32) #23
           to label %51 unwind label %49
 
 "_ZN4core3ptr139drop_in_place$LT$ockam_identity..identities..identities_verification..IdentitiesVerification..get_identity..$u7b$$u7b$closure$u7d$$u7d$$GT$17h133302f275e5fab4E.exit": ; preds = %15, %18
@@ -9706,7 +9706,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr150dro
   %24 = landingpad { ptr, i32 }
           cleanup
   %25 = getelementptr inbounds i8, ptr %0, i64 288
-  invoke fastcc void @"_ZN4core3ptr157drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..secure_channel..trust_policy..trust_policy_type..TrustPolicy$GT$$GT$$GT$17h8c600381e2316588E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #23
+  invoke fastcc void @"_ZN4core3ptr157drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..secure_channel..trust_policy..trust_policy_type..TrustPolicy$GT$$GT$$GT$17h8c600381e2316588E"(ptr noalias noundef align 8 dereferenceable(16) %25) #23
           to label %33 unwind label %77
 
 "_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17ha029e25ff610ea75E.exit": ; preds = %9, %14
@@ -9801,7 +9801,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr150dro
 58:                                               ; preds = %60, %.body
   %.pn21 = phi { ptr, i32 } [ %61, %60 ], [ %.pn19, %.body ]
   %59 = getelementptr inbounds i8, ptr %0, i64 128
-  invoke fastcc void @"_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$$LP$ockam_identity..models..purpose_key_attestation..PurposeKeyAttestation$C$ockam_vault..types..public_keys..X25519PublicKey$RP$$GT$$GT$17h61bf6ad5afd701faE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %59) #23
+  invoke fastcc void @"_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$$LP$ockam_identity..models..purpose_key_attestation..PurposeKeyAttestation$C$ockam_vault..types..public_keys..X25519PublicKey$RP$$GT$$GT$17h61bf6ad5afd701faE"(ptr noalias noundef align 8 dereferenceable(128) %59) #23
           to label %76 unwind label %77
 
 60:                                               ; preds = %56
@@ -9854,7 +9854,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr150dro
   %80 = landingpad { ptr, i32 }
           cleanup
   %81 = getelementptr inbounds i8, ptr %0, i64 576
-  invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities_verification..IdentitiesVerification$GT$$GT$17h55cfb734c0e9da8dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %81) #23
+  invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities_verification..IdentitiesVerification$GT$$GT$17h55cfb734c0e9da8dE"(ptr noalias noundef align 8 dereferenceable(8) %81) #23
           to label %92 unwind label %77
 
 82:                                               ; preds = %15
@@ -9893,7 +9893,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr150dro
   %96 = landingpad { ptr, i32 }
           cleanup
   %97 = getelementptr inbounds i8, ptr %0, i64 608
-  invoke fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..purpose_keys..purpose_key_verification..PurposeKeyVerification$GT$$GT$17h6d67559377900703E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %97) #23
+  invoke fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..purpose_keys..purpose_key_verification..PurposeKeyVerification$GT$$GT$17h6d67559377900703E"(ptr noalias noundef align 8 dereferenceable(8) %97) #23
           to label %104 unwind label %77
 
 98:                                               ; preds = %17
@@ -9913,7 +9913,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr150dro
 104:                                              ; preds = %106, %95
   %.pn = phi { ptr, i32 } [ %107, %106 ], [ %96, %95 ]
   %105 = getelementptr inbounds i8, ptr %0, i64 616
-  invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..purpose_keys..purpose_keys..PurposeKeys$GT$$GT$17h57dad99dadde91bbE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %105) #23
+  invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..purpose_keys..purpose_keys..PurposeKeys$GT$$GT$17h57dad99dadde91bbE"(ptr noalias noundef align 8 dereferenceable(8) %105) #23
           to label %113 unwind label %77
 
 106:                                              ; preds = %103
@@ -10208,12 +10208,12 @@ common.ret:                                       ; preds = %"_ZN4core3ptr150dro
 
 225:                                              ; preds = %.body37
   %226 = getelementptr inbounds i8, ptr %0, i64 304
-  invoke fastcc void @"_ZN4core3ptr157drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..secure_channel..trust_policy..trust_policy_type..TrustPolicy$GT$$GT$$GT$17h8c600381e2316588E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %226) #23
+  invoke fastcc void @"_ZN4core3ptr157drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..secure_channel..trust_policy..trust_policy_type..TrustPolicy$GT$$GT$$GT$17h8c600381e2316588E"(ptr noalias noundef align 8 dereferenceable(16) %226) #23
           to label %201 unwind label %77
 
 227:                                              ; preds = %201
   %228 = getelementptr inbounds i8, ptr %0, i64 320
-  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17ha029e25ff610ea75E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %228) #23
+  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17ha029e25ff610ea75E"(ptr noalias noundef align 8 dereferenceable(8) %228) #23
           to label %214 unwind label %77
 }
 
@@ -10407,7 +10407,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$$LP$ockam_identity..models..purpose_key_attestation..PurposeKeyAttestation$C$ockam_vault..types..public_keys..X25519PublicKey$RP$$GT$$GT$17h61bf6ad5afd701faE"(ptr noalias noundef align 8 dereferenceable(128) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$$LP$ockam_identity..models..purpose_key_attestation..PurposeKeyAttestation$C$ockam_vault..types..public_keys..X25519PublicKey$RP$$GT$$GT$17h61bf6ad5afd701faE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8, !range !64, !noundef !5
@@ -10525,7 +10525,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 31:                                               ; preds = %33, %27
   %.pn2 = phi { ptr, i32 } [ %34, %33 ], [ %.pn, %27 ]
   %32 = getelementptr inbounds i8, ptr %0, i64 56
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %32) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %32) #23
           to label %14 unwind label %40
 
 33:                                               ; preds = %17
@@ -10615,7 +10615,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .body:                                            ; preds = %15, %20
   %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %16, %15 ]
   %22 = getelementptr inbounds i8, ptr %0, i64 32
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %22) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %22) #23
           to label %19 unwind label %27
 
 "_ZN4core3ptr248drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$ockam_vault..types..hashes..Sha256Output$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hce9d1f9238ddfbf5E.exit": ; preds = %"_ZN4core3ptr226drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$ockam_vault..types..hashes..Sha256Output$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17hd384e8a1b9cdf07dE.llvm.13826239688354340414.exit.i"
@@ -10850,7 +10850,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .body:                                            ; preds = %15, %20
   %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %16, %15 ]
   %22 = getelementptr inbounds i8, ptr %0, i64 64
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %22) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %22) #23
           to label %19 unwind label %27
 
 "_ZN4core3ptr212drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hca07b391945e9dcdE.exit": ; preds = %"_ZN4core3ptr190drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h195b6fdf80a2633fE.llvm.13826239688354340414.exit.i"
@@ -11003,7 +11003,7 @@ common.ret:                                       ; preds = %9, %4, %1, %"_ZN4co
 
 40:                                               ; preds = %22
   %41 = getelementptr inbounds i8, ptr %0, i64 192
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %41) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %41) #23
           to label %36 unwind label %42
 
 42:                                               ; preds = %40
@@ -11159,7 +11159,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %13 = landingpad { ptr, i32 }
           cleanup
   %14 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %14) #23
           to label %11 unwind label %20
 
 15:                                               ; preds = %9
@@ -11879,13 +11879,13 @@ common.ret:                                       ; preds = %63, %1, %170
 .body:                                            ; preds = %10, %40
   %eh.lpad-body = phi { ptr, i32 } [ %41, %40 ], [ %11, %10 ]
   %42 = getelementptr inbounds i8, ptr %0, i64 128
-  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$17hd940c3dc80cae9b3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #23
+  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$17hd940c3dc80cae9b3E"(ptr noalias noundef align 8 dereferenceable(24) %42) #23
           to label %45 unwind label %66
 
 43:                                               ; preds = %19, %15, %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1538
   %44 = getelementptr inbounds i8, ptr %0, i64 128
-  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$17hd940c3dc80cae9b3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44)
+  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$17hd940c3dc80cae9b3E"(ptr noalias noundef align 8 dereferenceable(24) %44)
           to label %49 unwind label %47
 
 45:                                               ; preds = %47, %.body
@@ -12182,7 +12182,7 @@ common.ret:                                       ; preds = %63, %1, %170
 
 161:                                              ; preds = %153
   %162 = getelementptr inbounds i8, ptr %0, i64 160
-  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$17hd940c3dc80cae9b3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %162)
+  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$17hd940c3dc80cae9b3E"(ptr noalias noundef align 8 dereferenceable(24) %162)
           to label %157 unwind label %168
 
 163:                                              ; preds = %192, %168, %147
@@ -12268,7 +12268,7 @@ common.ret:                                       ; preds = %63, %1, %170
 
 192:                                              ; preds = %147
   %193 = getelementptr inbounds i8, ptr %0, i64 160
-  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$17hd940c3dc80cae9b3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %193) #23
+  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$17hd940c3dc80cae9b3E"(ptr noalias noundef align 8 dereferenceable(24) %193) #23
           to label %163 unwind label %66
 
 194:                                              ; preds = %163
@@ -12497,13 +12497,13 @@ common.ret:                                       ; preds = %"_ZN4core3ptr58drop
 .body:                                            ; preds = %7, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %8, %7 ]
   %24 = getelementptr inbounds i8, ptr %0, i64 64
-  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$17hd940c3dc80cae9b3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24) #23
+  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$17hd940c3dc80cae9b3E"(ptr noalias noundef align 8 dereferenceable(24) %24) #23
           to label %27 unwind label %42
 
 25:                                               ; preds = %16, %12, %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1628
   %26 = getelementptr inbounds i8, ptr %0, i64 64
-  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$17hd940c3dc80cae9b3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26)
+  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$17hd940c3dc80cae9b3E"(ptr noalias noundef align 8 dereferenceable(24) %26)
           to label %31 unwind label %29
 
 27:                                               ; preds = %29, %.body
@@ -12574,7 +12574,7 @@ define internal void @"_ZN4core3ptr37drop_in_place$LT$core..fmt..Error$GT$17h6c2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, { ptr, ptr } }, align 8
   %3 = alloca i64, align 8
   %4 = alloca [2 x { ptr, ptr }], align 8
@@ -12873,7 +12873,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
 85:                                               ; preds = %.noexc21, %.noexc20, %.noexc19, %"_ZN50_$LT$log..Record$u20$as$u20$core..clone..Clone$GT$5clone17h0d4581fd7895b53bE.exit126.i", %.noexc17, %.noexc16, %.noexc15, %.noexc14, %"_ZN50_$LT$log..Record$u20$as$u20$core..clone..Clone$GT$5clone17h0d4581fd7895b53bE.exit.i", %.noexc12, %.critedge.i8, %28, %20, %11
   %86 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17ha3a61898a2d7eea9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #23
+  invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17ha3a61898a2d7eea9E"(ptr noalias noundef align 8 dereferenceable(32) %0) #23
           to label %99 unwind label %97
 
 "_ZN61_$LT$tracing..span..Span$u20$as$u20$core..ops..drop..Drop$GT$4drop17h04d42e0f064cae5bE.exit": ; preds = %.noexc5, %17, %.noexc2
@@ -12922,7 +12922,7 @@ define internal void @"_ZN4core3ptr41drop_in_place$LT$core..fmt..Arguments$GT$17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMessage$GT$17h874b33bf7ac5de15E"(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMessage$GT$17h874b33bf7ac5de15E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -13221,7 +13221,7 @@ define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..message
 .body:                                            ; preds = %126, %119, %114
   %.pn6 = phi { ptr, i32 } [ %115, %114 ], [ %127, %126 ], [ %120, %119 ]
   %125 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17h0ea309d35ae301afE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %125) #23
+  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17h0ea309d35ae301afE"(ptr noalias noundef align 8 dereferenceable(8) %125) #23
           to label %133 unwind label %143
 
 126:                                              ; preds = %"_ZN4core3ptr120drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$ockam_core..routing..message..relay_message..RelayMessage$GT$$GT$17h7aa47fa87b8cebe0E.exit.i"
@@ -13487,7 +13487,7 @@ define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..message
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..RouterReply$GT$17h3f8305da3decf72cE"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..RouterReply$GT$17h3f8305da3decf72cE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -13631,7 +13631,7 @@ define internal void @"_ZN4core3ptr68drop_in_place$LT$ockam_core..access_control
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17ha3a61898a2d7eea9E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17ha3a61898a2d7eea9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !1649, !noundef !5
   %3 = icmp eq i64 %2, 2
   br i1 %3, label %"_ZN4core3ptr41drop_in_place$LT$tracing..span..Inner$GT$17hf08cbdde258a1a9aE.exit", label %4
@@ -13662,7 +13662,7 @@ define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17h0ea309d35ae301afE"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17h0ea309d35ae301afE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1838)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1838, !nonnull !5, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !1838
@@ -13679,7 +13679,7 @@ define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$17hd940c3dc80cae9b3E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$17hd940c3dc80cae9b3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load ptr, ptr %0, align 8, !noundef !5
   %.not = icmp eq ptr %3, null
@@ -13740,7 +13740,7 @@ define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..sec
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load ptr, ptr %0, align 8, !noundef !5
   %4 = icmp eq ptr %3, null
@@ -13793,7 +13793,7 @@ define internal fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$GT$17hb4830c7c2faa73b6E"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$GT$17hb4830c7c2faa73b6E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !5
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
@@ -13826,7 +13826,7 @@ define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..result..Resul
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17ha029e25ff610ea75E"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17ha029e25ff610ea75E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1875)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1875, !nonnull !5, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !1875
@@ -13843,7 +13843,7 @@ define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load ptr, ptr %0, align 8, !noundef !5
   %4 = icmp eq ptr %3, null
@@ -13877,7 +13877,7 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..credentials..credentials..Credentials$GT$$GT$17h064df35258d83090E"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..credentials..credentials..Credentials$GT$$GT$17h064df35258d83090E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1891)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1891, !nonnull !5, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !1891
@@ -13899,7 +13899,7 @@ define internal void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$$L
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h7d7ab43297d2062fE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h7d7ab43297d2062fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1894
   %4 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.llvm.14321741527719528608(ptr noalias noundef nonnull readonly align 1 @anon.a0f7f52aeb4d63447c9daa9db32ce96a.2.llvm.14321741527719528608, i64 noundef 8, i64 noundef 32, i1 noundef zeroext false)
@@ -14267,7 +14267,7 @@ _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.llvm.7920016733076092704.ex
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h90fb9057af6baa1bE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h90fb9057af6baa1bE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, { { ptr, ptr }, { ptr, ptr }, { { { i64 } } }, {} }, i64, i8, [7 x i8] }, align 8
   %5 = alloca { ptr, { { ptr, ptr }, { ptr, ptr }, { { { i64 } } }, {} }, i64, i8, [7 x i8] }, align 8
   %.sroa.3 = alloca [28 x i64], align 8
@@ -14638,7 +14638,7 @@ common.ret:                                       ; preds = %"_ZN5tokio4sync4mps
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17he774a83a14a1169eE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17he774a83a14a1169eE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, { { ptr, ptr }, { ptr, ptr }, { { { i64 } } }, {} }, i64, i8, [7 x i8] }, align 8
   %5 = alloca { ptr, { { ptr, ptr }, { ptr, ptr }, { { { i64 } } }, {} }, i64, i8, [7 x i8] }, align 8
   %.sroa.3 = alloca [87 x i8], align 1
@@ -15002,7 +15002,7 @@ common.ret:                                       ; preds = %124, %"_ZN5tokio4sy
 
 129:                                              ; preds = %.body33
   %130 = getelementptr inbounds i8, ptr %1, i64 128
-  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMessage$GT$17h874b33bf7ac5de15E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %130) #23
+  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMessage$GT$17h874b33bf7ac5de15E"(ptr noalias noundef align 8 dereferenceable(88) %130) #23
           to label %128 unwind label %126
 }
 
@@ -15016,7 +15016,7 @@ define internal noundef zeroext i1 @"_ZN60_$LT$alloc..string..String$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfb41ea0403c98d06E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfb41ea0403c98d06E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, ptr }, { ptr, ptr } }, align 8
   %4 = alloca { { { ptr, ptr }, { ptr, ptr } } }, align 8
   %5 = alloca { { ptr, i64 }, i64, i64 }, align 8
@@ -15097,7 +15097,7 @@ define internal noundef nonnull align 8 dereferenceable(120) ptr @"_ZN92_$LT$tra
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN14ockam_identity8identity8identity8Identity26import_from_change_history28_$u7b$$u7b$closure$u7d$$u7d$17h1d5f4e0fa21128c9E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN14ockam_identity8identity8identity8Identity26import_from_change_history28_$u7b$$u7b$closure$u7d$$u7d$17h1d5f4e0fa21128c9E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { i8, [31 x i8] }, align 8
@@ -15361,7 +15361,7 @@ default.unreachable304:                           ; preds = %411, %359, %69, %50
   %108 = phi ptr [ %159, %305 ], [ %175, %171 ], [ %80, %86 ]
   %.pn81.i.i = phi { ptr, i32 } [ %306, %305 ], [ %.pn76.pn.pn.pn.i.i, %171 ], [ %87, %86 ]
   %109 = getelementptr inbounds i8, ptr %1, i64 192
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %109) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %109) #23
           to label %284 unwind label %169, !noalias !2014
 
 110:                                              ; preds = %69
@@ -15383,7 +15383,7 @@ default.unreachable304:                           ; preds = %411, %359, %69, %50
   %117 = phi ptr [ %70, %69 ], [ %80, %101 ]
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %23), !noalias !2010
   %118 = getelementptr inbounds i8, ptr %1, i64 240
-  invoke fastcc void @"_ZN14ockam_identity8identity21identity_verification62_$LT$impl$u20$ockam_identity..identity..identity..Identity$GT$18get_change_details28_$u7b$$u7b$closure$u7d$$u7d$17h9885d6148e8c6632E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %23, ptr noundef nonnull align 8 %118, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @"_ZN14ockam_identity8identity21identity_verification62_$LT$impl$u20$ockam_identity..identity..identity..Identity$GT$18get_change_details28_$u7b$$u7b$closure$u7d$$u7d$17h9885d6148e8c6632E"(ptr noalias nocapture noundef align 8 dereferenceable(192) %23, ptr noundef nonnull align 8 %118, ptr noalias noundef align 8 dereferenceable(8) %2)
           to label %121 unwind label %119, !noalias !2014
 
 119:                                              ; preds = %113
@@ -15515,7 +15515,7 @@ default.unreachable304:                           ; preds = %411, %359, %69, %50
   %181 = phi ptr [ %70, %69 ], [ %149, %295 ]
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %21), !noalias !2010
   %182 = getelementptr inbounds i8, ptr %1, i64 256
-  invoke fastcc void @"_ZN14ockam_identity8identity21identity_verification62_$LT$impl$u20$ockam_identity..identity..identity..Identity$GT$18get_change_details28_$u7b$$u7b$closure$u7d$$u7d$17h9885d6148e8c6632E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %21, ptr noundef nonnull align 8 %182, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @"_ZN14ockam_identity8identity21identity_verification62_$LT$impl$u20$ockam_identity..identity..identity..Identity$GT$18get_change_details28_$u7b$$u7b$closure$u7d$$u7d$17h9885d6148e8c6632E"(ptr noalias nocapture noundef align 8 dereferenceable(192) %21, ptr noundef nonnull align 8 %182, ptr noalias noundef align 8 dereferenceable(8) %2)
           to label %185 unwind label %183, !noalias !2014
 
 183:                                              ; preds = %177
@@ -16117,7 +16117,7 @@ common.ret:                                       ; preds = %"_ZN14ockam_identit
   %406 = phi ptr [ %364, %394 ], [ %387, %651 ], [ %387, %639 ], [ %597, %601 ], [ %657, %.body.i118 ]
   %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %395, %394 ], [ %652, %651 ], [ %640, %639 ], [ %602, %601 ], [ %.pn48.i, %.body.i118 ]
   %407 = getelementptr inbounds i8, ptr %1, i64 208
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %407) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %407) #23
           to label %616 unwind label %659
 
 408:                                              ; preds = %359
@@ -16215,7 +16215,7 @@ common.ret:                                       ; preds = %"_ZN14ockam_identit
   %439 = phi ptr [ %412, %411 ], [ %421, %430 ]
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %13), !noalias !2097
   %440 = getelementptr inbounds i8, ptr %1, i64 504
-  invoke fastcc void @"_ZN14ockam_identity8identity21identity_verification62_$LT$impl$u20$ockam_identity..identity..identity..Identity$GT$18get_change_details28_$u7b$$u7b$closure$u7d$$u7d$17h9885d6148e8c6632E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %13, ptr noundef nonnull align 8 %440, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @"_ZN14ockam_identity8identity21identity_verification62_$LT$impl$u20$ockam_identity..identity..identity..Identity$GT$18get_change_details28_$u7b$$u7b$closure$u7d$$u7d$17h9885d6148e8c6632E"(ptr noalias nocapture noundef align 8 dereferenceable(192) %13, ptr noundef nonnull align 8 %440, ptr noalias noundef align 8 dereferenceable(8) %2)
           to label %443 unwind label %441
 
 441:                                              ; preds = %435
@@ -16376,7 +16376,7 @@ common.ret:                                       ; preds = %"_ZN14ockam_identit
   %509 = phi ptr [ %412, %411 ], [ %439, %477 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !2097
   %510 = getelementptr inbounds i8, ptr %1, i64 504
-  invoke fastcc void @"_ZN14ockam_identity8identity21identity_verification62_$LT$impl$u20$ockam_identity..identity..identity..Identity$GT$23verify_change_signature28_$u7b$$u7b$closure$u7d$$u7d$17hc66f6a1bfb3f6b34E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 %510, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @"_ZN14ockam_identity8identity21identity_verification62_$LT$impl$u20$ockam_identity..identity..identity..Identity$GT$23verify_change_signature28_$u7b$$u7b$closure$u7d$$u7d$17hc66f6a1bfb3f6b34E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 %510, ptr noalias noundef align 8 dereferenceable(8) %2)
           to label %513 unwind label %511
 
 511:                                              ; preds = %505
@@ -16482,7 +16482,7 @@ common.ret:                                       ; preds = %"_ZN14ockam_identit
   %549 = phi ptr [ %412, %411 ], [ %465, %529 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !2097
   %550 = getelementptr inbounds i8, ptr %1, i64 576
-  invoke fastcc void @"_ZN14ockam_identity8identity21identity_verification62_$LT$impl$u20$ockam_identity..identity..identity..Identity$GT$23verify_change_signature28_$u7b$$u7b$closure$u7d$$u7d$17hc66f6a1bfb3f6b34E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 %550, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @"_ZN14ockam_identity8identity21identity_verification62_$LT$impl$u20$ockam_identity..identity..identity..Identity$GT$23verify_change_signature28_$u7b$$u7b$closure$u7d$$u7d$17hc66f6a1bfb3f6b34E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 %550, ptr noalias noundef align 8 dereferenceable(8) %2)
           to label %553 unwind label %551
 
 551:                                              ; preds = %545
@@ -16592,7 +16592,7 @@ common.ret:                                       ; preds = %"_ZN14ockam_identit
 
 591:                                              ; preds = %493
   %592 = getelementptr inbounds i8, ptr %1, i64 432
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %592) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %592) #23
           to label %583 unwind label %503
 
 593:                                              ; preds = %.invoke.i130
@@ -16797,7 +16797,7 @@ common.ret.sink.split.i:                          ; preds = %669
   %667 = landingpad { ptr, i32 }
           cleanup
   %668 = getelementptr inbounds i8, ptr %1, i64 208
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %668) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %668) #23
           to label %.body137 unwind label %674
 
 669:                                              ; preds = %664
@@ -17061,7 +17061,7 @@ common.ret.sink.split.i:                          ; preds = %669
           to label %354 unwind label %352
 
 755:                                              ; preds = %354
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %1) #23
           to label %741 unwind label %352
 
 756:                                              ; preds = %741
@@ -17071,7 +17071,7 @@ common.ret.sink.split.i:                          ; preds = %669
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN14ockam_identity8identity21identity_verification62_$LT$impl$u20$ockam_identity..identity..identity..Identity$GT$18get_change_details28_$u7b$$u7b$closure$u7d$$u7d$17h9885d6148e8c6632E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN14ockam_identity8identity21identity_verification62_$LT$impl$u20$ockam_identity..identity..identity..Identity$GT$18get_change_details28_$u7b$$u7b$closure$u7d$$u7d$17h9885d6148e8c6632E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -17461,7 +17461,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr133dro
 .body:                                            ; preds = %64, %58, %50, %34, %98
   %.pn24.pn = phi { ptr, i32 } [ %.pn39, %98 ], [ %51, %50 ], [ %35, %34 ], [ %65, %64 ], [ %59, %58 ]
   %132 = getelementptr inbounds i8, ptr %1, i64 32
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %132) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %132) #23
           to label %107 unwind label %120
 
 133:                                              ; preds = %"_ZN4core3ptr248drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$ockam_vault..types..hashes..Sha256Output$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hce9d1f9238ddfbf5E.exit"
@@ -17477,7 +17477,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr133dro
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN14ockam_identity8identity21identity_verification62_$LT$impl$u20$ockam_identity..identity..identity..Identity$GT$23verify_change_signature28_$u7b$$u7b$closure$u7d$$u7d$17hc66f6a1bfb3f6b34E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN14ockam_identity8identity21identity_verification62_$LT$impl$u20$ockam_identity..identity..identity..Identity$GT$23verify_change_signature28_$u7b$$u7b$closure$u7d$$u7d$17hc66f6a1bfb3f6b34E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i8, [15 x i8] }, align 8
   %.sroa.5 = alloca [64 x i8], align 1
@@ -17556,7 +17556,7 @@ default.unreachable28:                            ; preds = %3
 .body:                                            ; preds = %64, %59, %34, %51
   %.pn21 = phi { ptr, i32 } [ %52, %51 ], [ %35, %34 ], [ %65, %64 ], [ %60, %59 ]
   %41 = getelementptr inbounds i8, ptr %1, i64 64
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %41) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %41) #23
           to label %71 unwind label %74
 
 42:                                               ; preds = %3
@@ -17669,7 +17669,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr133dro
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN14ockam_identity12purpose_keys24purpose_key_verification22PurposeKeyVerification30verify_purpose_key_attestation28_$u7b$$u7b$closure$u7d$$u7d$17hbef6f029bc7df733E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN14ockam_identity12purpose_keys24purpose_key_verification22PurposeKeyVerification30verify_purpose_key_attestation28_$u7b$$u7b$closure$u7d$$u7d$17hbef6f029bc7df733E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { i8, [31 x i8] }, align 8
@@ -18048,7 +18048,7 @@ common.ret:                                       ; preds = %520, %380, %151, %8
 
 140:                                              ; preds = %.body182
   %141 = getelementptr inbounds i8, ptr %1, i64 352
-  invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities_verification..IdentitiesVerification$GT$$GT$17h55cfb734c0e9da8dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %141) #23
+  invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities_verification..IdentitiesVerification$GT$$GT$17h55cfb734c0e9da8dE"(ptr noalias noundef align 8 dereferenceable(8) %141) #23
           to label %133 unwind label %154
 
 142:                                              ; preds = %105
@@ -18493,7 +18493,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit.i.i: ; preds = %264
   %302 = phi ptr [ %187, %186 ], [ %234, %280 ]
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %18), !noalias !2396
   %303 = getelementptr inbounds i8, ptr %1, i64 504
-  invoke fastcc void @"_ZN14ockam_identity8identity8identity8Identity26import_from_change_history28_$u7b$$u7b$closure$u7d$$u7d$17h1d5f4e0fa21128c9E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %18, ptr noundef nonnull align 8 %303, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @"_ZN14ockam_identity8identity8identity8Identity26import_from_change_history28_$u7b$$u7b$closure$u7d$$u7d$17h1d5f4e0fa21128c9E"(ptr noalias nocapture noundef align 8 dereferenceable(88) %18, ptr noundef nonnull align 8 %303, ptr noalias noundef align 8 dereferenceable(8) %2)
           to label %306 unwind label %304, !noalias !2408
 
 304:                                              ; preds = %298
@@ -18574,7 +18574,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit.i.i: ; preds = %264
   %332 = getelementptr inbounds i8, ptr %1, i64 496
   store i8 0, ptr %332, align 8, !noalias !2396
   %333 = getelementptr inbounds i8, ptr %1, i64 408
-  invoke fastcc void @"_ZN4core3ptr140drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..identities..storage..change_history_repository..ChangeHistoryRepository$GT$$GT$17hf37dfa85da58350aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %333) #23
+  invoke fastcc void @"_ZN4core3ptr140drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..identities..storage..change_history_repository..ChangeHistoryRepository$GT$$GT$17hf37dfa85da58350aE"(ptr noalias noundef align 8 dereferenceable(16) %333) #23
           to label %340 unwind label %296, !noalias !2408
 
 334:                                              ; preds = %363, %326
@@ -18640,7 +18640,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit.i.i: ; preds = %264
 
 364:                                              ; preds = %.body.i.i
   %365 = getelementptr inbounds i8, ptr %1, i64 504
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %365) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %365) #23
           to label %327 unwind label %296, !noalias !2408
 
 366:                                              ; preds = %.invoke.i
@@ -19167,7 +19167,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit.i.i: ; preds = %264
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { i64, ptr } @"_ZN14ockam_identity14secure_channel9handshake23handshake_state_machine18CommonStateMachine18verify_credentials28_$u7b$$u7b$closure$u7d$$u7d$17h87de0d08f077c753E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc { i64, ptr } @"_ZN14ockam_identity14secure_channel9handshake23handshake_state_machine18CommonStateMachine18verify_credentials28_$u7b$$u7b$closure$u7d$$u7d$17h87de0d08f077c753E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { i64, { ptr, i64 } }, align 8
   %5 = alloca { i64, { ptr, i64 } }, align 8
@@ -19652,7 +19652,7 @@ default.unreachable524:                           ; preds = %444, %412, %389, %2
   store i64 1, ptr %.sroa.9.0..sroa_idx336, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %158, i64 16
   store ptr %251, ptr %.sroa.10.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN14ockam_identity14secure_channel9handshake23handshake_state_machine18CommonStateMachine18verify_credentials28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17haed1f87250e38a6bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %158)
+  invoke fastcc void @"_ZN14ockam_identity14secure_channel9handshake23handshake_state_machine18CommonStateMachine18verify_credentials28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17haed1f87250e38a6bE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %158)
           to label %271 unwind label %269
 
 269:                                              ; preds = %262
@@ -19953,7 +19953,7 @@ default.unreachable524:                           ; preds = %444, %412, %389, %2
   store i64 1, ptr %.sroa.9430.0..sroa_idx, align 8
   %.sroa.10431.0..sroa_idx = getelementptr inbounds i8, ptr %128, i64 16
   store ptr %359, ptr %.sroa.10431.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN14ockam_identity14secure_channel9handshake23handshake_state_machine18CommonStateMachine18verify_credentials28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5a6b67ae66ed6dc5E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %128)
+  invoke fastcc void @"_ZN14ockam_identity14secure_channel9handshake23handshake_state_machine18CommonStateMachine18verify_credentials28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5a6b67ae66ed6dc5E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %128)
           to label %377 unwind label %375
 
 375:                                              ; preds = %370
@@ -20481,7 +20481,7 @@ default.unreachable524:                           ; preds = %444, %412, %389, %2
   %541 = phi ptr [ %1194, %1464 ], [ %1194, %1221 ], [ %599, %987 ], [ %599, %1124 ], [ %599, %1125 ], [ %599, %854 ], [ %599, %868 ], [ %599, %1126 ], [ %460, %589 ], [ %460, %480 ], [ %460, %474 ], [ %460, %499 ], [ %599, %627 ], [ %599, %621 ], [ %599, %646 ], [ %599, %748 ], [ %599, %742 ], [ %599, %767 ], [ %599, %882 ], [ %599, %876 ], [ %599, %901 ], [ %599, %1002 ], [ %599, %996 ], [ %599, %1021 ], [ %1194, %1201 ], [ %1137, %1179 ], [ %1194, %1214 ], [ %1194, %1209 ], [ %599, %609 ], [ %599, %601 ], [ %1137, %1144 ], [ %599, %1118 ], [ %1137, %1157 ], [ %1137, %1152 ]
   %.pn285.pn.i.i.i = phi { ptr, i32 } [ %.pn361.i.i.i, %1464 ], [ %1222, %1221 ], [ %988, %987 ], [ %.pn273.pn.i.i.i, %1124 ], [ %.pn256.pn.i.i.i, %1125 ], [ %855, %854 ], [ %.pn236.pn.pn.i.i.i, %868 ], [ %.pn214.pn.i.i.i, %1126 ], [ %.pn193.pn.i.i.i, %589 ], [ %481, %480 ], [ %475, %474 ], [ %.pn185.pn.pn.pn.i.i.i, %499 ], [ %628, %627 ], [ %622, %621 ], [ %.pn206.pn.pn.pn.i.i.i, %646 ], [ %749, %748 ], [ %743, %742 ], [ %.pn225.pn.pn.pn.pn.i.i.i, %767 ], [ %883, %882 ], [ %877, %876 ], [ %.pn248.pn.pn.pn.i.i.i, %901 ], [ %1003, %1002 ], [ %997, %996 ], [ %.pn265.pn.pn.pn.i.i.i, %1021 ], [ %1202, %1201 ], [ %1180, %1179 ], [ %1215, %1214 ], [ %1210, %1209 ], [ %610, %609 ], [ %602, %601 ], [ %1145, %1144 ], [ %1119, %1118 ], [ %1158, %1157 ], [ %1153, %1152 ]
   %542 = getelementptr inbounds i8, ptr %0, i64 216
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %542) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %542) #23
           to label %1473 unwind label %1129, !noalias !2700
 
 543:                                              ; preds = %482
@@ -20658,7 +20658,7 @@ default.unreachable524:                           ; preds = %444, %412, %389, %2
   %599 = phi ptr [ %445, %444 ], [ %460, %584 ]
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %101), !noalias !2680
   %600 = getelementptr inbounds i8, ptr %0, i64 488
-  invoke fastcc void @"_ZN14ockam_identity12purpose_keys24purpose_key_verification22PurposeKeyVerification30verify_purpose_key_attestation28_$u7b$$u7b$closure$u7d$$u7d$17hbef6f029bc7df733E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(152) %101, ptr noundef nonnull align 8 %600, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @"_ZN14ockam_identity12purpose_keys24purpose_key_verification22PurposeKeyVerification30verify_purpose_key_attestation28_$u7b$$u7b$closure$u7d$$u7d$17hbef6f029bc7df733E"(ptr noalias nocapture noundef align 8 dereferenceable(152) %101, ptr noundef nonnull align 8 %600, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %603 unwind label %601, !noalias !2700
 
 601:                                              ; preds = %593
@@ -22765,7 +22765,7 @@ default.unreachable524:                           ; preds = %444, %412, %389, %2
   store i64 1, ptr %.sroa.101018.0..sroa_idx.i.i.i, align 8, !noalias !2680
   %.sroa.111019.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %52, i64 16
   store ptr %1320, ptr %.sroa.111019.0..sroa_idx.i.i.i, align 8, !noalias !2680
-  invoke fastcc void @"_ZN14ockam_identity11credentials24credentials_verification23CredentialsVerification24verify_credential_static28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9c6de64f39106754E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %52)
+  invoke fastcc void @"_ZN14ockam_identity11credentials24credentials_verification23CredentialsVerification24verify_credential_static28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9c6de64f39106754E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %52)
           to label %1343 unwind label %1341, !noalias !2700
 
 1341:                                             ; preds = %1331
@@ -23053,7 +23053,7 @@ default.unreachable524:                           ; preds = %444, %412, %389, %2
   store i64 1, ptr %.sroa.91107.0..sroa_idx.i.i.i, align 8, !noalias !2680
   %.sroa.101108.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %40, i64 16
   store ptr %1422, ptr %.sroa.101108.0..sroa_idx.i.i.i, align 8, !noalias !2680
-  invoke fastcc void @"_ZN14ockam_identity11credentials24credentials_verification23CredentialsVerification24verify_credential_static28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17haa84e9ab1840cc26E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %40)
+  invoke fastcc void @"_ZN14ockam_identity11credentials24credentials_verification23CredentialsVerification24verify_credential_static28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17haa84e9ab1840cc26E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %40)
           to label %1440 unwind label %1438, !noalias !2700
 
 1438:                                             ; preds = %1433
@@ -23165,7 +23165,7 @@ default.unreachable524:                           ; preds = %444, %412, %389, %2
   %1479 = phi ptr [ %1487, %1481 ], [ %541, %.body622.i.i.i ]
   %.pn369.i.i.i = phi { ptr, i32 } [ %1488, %1481 ], [ %.pn285.pn.i.i.i, %.body622.i.i.i ]
   %1480 = getelementptr inbounds i8, ptr %0, i64 208
-  invoke fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..purpose_keys..purpose_key_verification..PurposeKeyVerification$GT$$GT$17h6d67559377900703E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1480) #23
+  invoke fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..purpose_keys..purpose_key_verification..PurposeKeyVerification$GT$$GT$17h6d67559377900703E"(ptr noalias noundef align 8 dereferenceable(8) %1480) #23
           to label %1494 unwind label %1129, !noalias !2700
 
 1481:                                             ; preds = %1472, %867
@@ -23920,7 +23920,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr95drop
 .body273:                                         ; preds = %1730, %.body
   %.pn138.pn = phi { ptr, i32 } [ %.pn140, %.body ], [ %.pn.i, %1730 ]
   %1737 = getelementptr inbounds i8, ptr %0, i64 1840
-  invoke fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..credentials..credentials_verification..CredentialsVerification$GT$$GT$17h919e849072489b54E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1737) #23
+  invoke fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..credentials..credentials_verification..CredentialsVerification$GT$$GT$17h919e849072489b54E"(ptr noalias noundef align 8 dereferenceable(8) %1737) #23
           to label %1921 unwind label %1832
 
 "_ZN4core3ptr158drop_in_place$LT$ockam_identity..credentials..credentials_verification..CredentialsVerification..receive_presented_credential..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6fce899b3b900f20E.exit": ; preds = %"_ZN4core3ptr147drop_in_place$LT$ockam_identity..credentials..credentials_verification..CredentialsVerification..verify_credential..$u7b$$u7b$closure$u7d$$u7d$$GT$17heb7994ed30dc7cd5E.exit.i", %1711
@@ -23941,7 +23941,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr95drop
   %1744 = landingpad { ptr, i32 }
           cleanup
   %1745 = getelementptr inbounds i8, ptr %0, i64 1848
-  invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..credentials..credentials..Credentials$GT$$GT$17h064df35258d83090E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1745) #23
+  invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..credentials..credentials..Credentials$GT$$GT$17h064df35258d83090E"(ptr noalias noundef align 8 dereferenceable(8) %1745) #23
           to label %1751 unwind label %1832
 
 "_ZN4core3ptr123drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..credentials..credentials_verification..CredentialsVerification$GT$$GT$17h919e849072489b54E.exit": ; preds = %"_ZN4core3ptr158drop_in_place$LT$ockam_identity..credentials..credentials_verification..CredentialsVerification..receive_presented_credential..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6fce899b3b900f20E.exit", %1742
@@ -23960,7 +23960,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr95drop
 
 1751:                                             ; preds = %1752, %1743
   %.pn145 = phi { ptr, i32 } [ %1753, %1752 ], [ %1744, %1743 ]
-  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$GT$17hb4830c7c2faa73b6E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %144) #23
+  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$GT$17hb4830c7c2faa73b6E"(ptr noalias noundef align 8 dereferenceable(8) %144) #23
           to label %1923 unwind label %1832
 
 1752:                                             ; preds = %1750
@@ -24125,7 +24125,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr95drop
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %131)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %130)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %129)
-  invoke fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h177ac71cfddb11fdE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %129, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %143)
+  invoke fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h177ac71cfddb11fdE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %129, ptr noalias noundef readonly align 8 dereferenceable(8) %143)
           to label %1817 unwind label %1815
 
 1815:                                             ; preds = %1814
@@ -24253,7 +24253,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr95drop
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %139)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %138)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %137)
-  invoke fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h177ac71cfddb11fdE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %137, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %143)
+  invoke fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h177ac71cfddb11fdE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %137, ptr noalias noundef readonly align 8 dereferenceable(8) %143)
           to label %1852 unwind label %1850
 
 1850:                                             ; preds = %1849
@@ -24285,7 +24285,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr95drop
   store i64 1, ptr %.sroa.10382.0..sroa_idx, align 8
   %.sroa.11383.0..sroa_idx = getelementptr inbounds i8, ptr %142, i64 16
   store ptr %1838, ptr %.sroa.11383.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN14ockam_identity14secure_channel9handshake23handshake_state_machine18CommonStateMachine18verify_credentials28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h966f2ee5077908f8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %142)
+  invoke fastcc void @"_ZN14ockam_identity14secure_channel9handshake23handshake_state_machine18CommonStateMachine18verify_credentials28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h966f2ee5077908f8E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %142)
           to label %1860 unwind label %1858
 
 1858:                                             ; preds = %1852
@@ -24366,7 +24366,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr95drop
 1876:                                             ; preds = %1878, %247
   %.pn181 = phi { ptr, i32 } [ %1879, %1878 ], [ %.pn176.pn.pn.pn, %247 ]
   %1877 = getelementptr inbounds i8, ptr %0, i64 1792
-  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17ha029e25ff610ea75E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1877) #23
+  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17ha029e25ff610ea75E"(ptr noalias noundef align 8 dereferenceable(8) %1877) #23
           to label %1886 unwind label %1832
 
 1878:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8f27c6f7e68e086E.exit.thread", %383
@@ -24492,7 +24492,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr95drop
 1921:                                             ; preds = %1910, %.body273
   %.pn138.pn.pn = phi { ptr, i32 } [ %.pn138.pn, %.body273 ], [ %1911, %1910 ]
   %1922 = getelementptr inbounds i8, ptr %0, i64 1848
-  invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..credentials..credentials..Credentials$GT$$GT$17h064df35258d83090E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1922) #23
+  invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..credentials..credentials..Credentials$GT$$GT$17h064df35258d83090E"(ptr noalias noundef align 8 dereferenceable(8) %1922) #23
           to label %1923 unwind label %1832
 
 1923:                                             ; preds = %1904, %1921, %1751
@@ -24913,7 +24913,7 @@ define void @_ZN14ockam_identity14secure_channel9handshake16handshake_worker15Ha
 115:                                              ; preds = %97
   %116 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_core..access_control..IncomingAccessControl$GT$$GT$17h446d6779506f86b3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7) #23
+  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_core..access_control..IncomingAccessControl$GT$$GT$17h446d6779506f86b3E"(ptr noalias noundef align 8 dereferenceable(16) %7) #23
           to label %117 unwind label %113
 
 117:                                              ; preds = %90, %115
@@ -24942,7 +24942,7 @@ define void @_ZN14ockam_identity14secure_channel9handshake16handshake_worker15Ha
 120:                                              ; preds = %43
   %121 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_core..access_control..IncomingAccessControl$GT$$GT$17h446d6779506f86b3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #23
+  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_core..access_control..IncomingAccessControl$GT$$GT$17h446d6779506f86b3E"(ptr noalias noundef align 8 dereferenceable(16) %12) #23
           to label %122 unwind label %113
 
 122:                                              ; preds = %36, %120
@@ -24956,7 +24956,7 @@ define void @_ZN14ockam_identity14secure_channel9handshake16handshake_worker15Ha
 
 .thread:                                          ; preds = %25, %122, %24
   %.pn26.pn.pn59 = phi { ptr, i32 } [ %.pn26.pn65, %24 ], [ %26, %25 ], [ %.pn, %122 ]
-  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_core..access_control..OutgoingAccessControl$GT$$GT$17ha656cdbb94a27aaaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15) #23
+  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_core..access_control..OutgoingAccessControl$GT$$GT$17ha656cdbb94a27aaaE"(ptr noalias noundef align 8 dereferenceable(16) %15) #23
           to label %.thread93 unwind label %113
 }
 
@@ -24973,7 +24973,7 @@ define void @_ZN14ockam_identity14secure_channel9handshake16handshake_worker15Ha
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN14ockam_identity11credentials24credentials_verification23CredentialsVerification24verify_credential_static28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9c6de64f39106754E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN14ockam_identity11credentials24credentials_verification23CredentialsVerification24verify_credential_static28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9c6de64f39106754E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -25027,7 +25027,7 @@ define internal fastcc void @"_ZN14ockam_identity11credentials24credentials_veri
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN14ockam_identity11credentials24credentials_verification23CredentialsVerification24verify_credential_static28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17haa84e9ab1840cc26E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN14ockam_identity11credentials24credentials_verification23CredentialsVerification24verify_credential_static28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17haa84e9ab1840cc26E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -25081,7 +25081,7 @@ define internal fastcc void @"_ZN14ockam_identity11credentials24credentials_veri
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN91_$LT$ockam_identity..secure_channel..addresses..Addresses$u20$as$u20$core..clone..Clone$GT$5clone17h5a02812b8531cdc8E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(192) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(192) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN91_$LT$ockam_identity..secure_channel..addresses..Addresses$u20$as$u20$core..clone..Clone$GT$5clone17h5a02812b8531cdc8E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(192) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(192) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { ptr, i64 }, i64 }, i8, [7 x i8] }, align 8
   %4 = alloca { { { ptr, i64 }, i64 }, i8, [7 x i8] }, align 8
   %5 = alloca { { { ptr, i64 }, i64 }, i8, [7 x i8] }, align 8
@@ -25295,7 +25295,7 @@ define internal fastcc void @"_ZN91_$LT$ockam_identity..secure_channel..addresse
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN14ockam_identity14secure_channel9decryptor16DecryptorHandler14handle_payload28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h91d26d62ffcdd0baE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN14ockam_identity14secure_channel9decryptor16DecryptorHandler14handle_payload28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h91d26d62ffcdd0baE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -25349,7 +25349,7 @@ define internal fastcc void @"_ZN14ockam_identity14secure_channel9decryptor16Dec
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN14ockam_identity14secure_channel9decryptor16DecryptorHandler26handle_refresh_credentials28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hafcc1b53ccd90f17E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN14ockam_identity14secure_channel9decryptor16DecryptorHandler26handle_refresh_credentials28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hafcc1b53ccd90f17E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -25403,7 +25403,7 @@ define internal fastcc void @"_ZN14ockam_identity14secure_channel9decryptor16Dec
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { i64, ptr } @"_ZN14ockam_identity14secure_channel9decryptor16DecryptorHandler14handle_decrypt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0b0dc712f4afcc5dE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc { i64, ptr } @"_ZN14ockam_identity14secure_channel9decryptor16DecryptorHandler14handle_decrypt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0b0dc712f4afcc5dE"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -26001,7 +26001,7 @@ default.unreachable:                              ; preds = %371
   store i64 1, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 16
   store ptr %289, ptr %.sroa.11.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN14ockam_identity14secure_channel9decryptor16DecryptorHandler14handle_decrypt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h31f9f655a400738dE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %170)
+  invoke fastcc void @"_ZN14ockam_identity14secure_channel9decryptor16DecryptorHandler14handle_decrypt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h31f9f655a400738dE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %170)
           to label %314 unwind label %312
 
 312:                                              ; preds = %300
@@ -26136,7 +26136,7 @@ default.unreachable:                              ; preds = %371
 350:                                              ; preds = %2, %329
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %154)
   %351 = getelementptr inbounds i8, ptr %0, i64 392
-  invoke fastcc void @"_ZN14ockam_identity14secure_channel9decryptor9Decryptor7decrypt28_$u7b$$u7b$closure$u7d$$u7d$17h6f6b1ab6f33c7747E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 %351, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @"_ZN14ockam_identity14secure_channel9decryptor9Decryptor7decrypt28_$u7b$$u7b$closure$u7d$$u7d$17h6f6b1ab6f33c7747E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 %351, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %354 unwind label %352
 
 352:                                              ; preds = %350
@@ -27325,7 +27325,7 @@ common.ret:                                       ; preds = %2520, %"_ZN14ockam_
   store i64 1, ptr %.sroa.10.0..sroa_idx.i.i, align 8, !noalias !3603
   %.sroa.11.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %107, i64 16
   store ptr %718, ptr %.sroa.11.0..sroa_idx.i.i, align 8, !noalias !3603
-  invoke fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h64ff31043ffa43eeE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %107)
+  invoke fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h64ff31043ffa43eeE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %107)
           to label %740 unwind label %738
 
 738:                                              ; preds = %732
@@ -27460,7 +27460,7 @@ common.ret:                                       ; preds = %2520, %"_ZN14ockam_
 776:                                              ; preds = %625, %584
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %93), !noalias !3603
   %777 = getelementptr inbounds i8, ptr %0, i64 1064
-  invoke fastcc void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17he774a83a14a1169eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %93, ptr noundef nonnull align 8 %777, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17he774a83a14a1169eE"(ptr noalias nocapture noundef align 8 dereferenceable(88) %93, ptr noundef nonnull align 8 %777, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %780 unwind label %778
 
 778:                                              ; preds = %776
@@ -27809,7 +27809,7 @@ common.ret:                                       ; preds = %2520, %"_ZN14ockam_
 877:                                              ; preds = %860, %585
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %83), !noalias !3603
   %878 = getelementptr inbounds i8, ptr %0, i64 1064
-  invoke fastcc void @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$17h48944ef6c08056dbE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull align 8 %878, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$17h48944ef6c08056dbE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %83, ptr noundef nonnull align 8 %878, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %881 unwind label %879
 
 879:                                              ; preds = %877
@@ -28210,7 +28210,7 @@ common.ret:                                       ; preds = %2520, %"_ZN14ockam_
   store i64 1, ptr %.sroa.10461.0..sroa_idx.i.i, align 8, !noalias !3603
   %.sroa.11462.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %82, i64 16
   store ptr %987, ptr %.sroa.11462.0..sroa_idx.i.i, align 8, !noalias !3603
-  invoke fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hed226b684f1c9101E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %82)
+  invoke fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$20forward_from_address28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hed226b684f1c9101E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %82)
           to label %1018 unwind label %1016
 
 1015:                                             ; preds = %1016, %1005
@@ -28286,7 +28286,7 @@ common.ret:                                       ; preds = %2520, %"_ZN14ockam_
 1032:                                             ; preds = %1025, %586
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %66), !noalias !3603
   %1033 = getelementptr inbounds i8, ptr %0, i64 1064
-  invoke fastcc void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h90fb9057af6baa1bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(240) %66, ptr noundef nonnull align 8 %1033, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h90fb9057af6baa1bE"(ptr noalias nocapture noundef align 8 dereferenceable(240) %66, ptr noundef nonnull align 8 %1033, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %1036 unwind label %1034
 
 1034:                                             ; preds = %1032
@@ -28943,7 +28943,7 @@ common.ret:                                       ; preds = %2520, %"_ZN14ockam_
   store i64 1, ptr %.sroa.10177.0..sroa_idx.i, align 8, !noalias !3529
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds i8, ptr %125, i64 16
   store ptr %1232, ptr %.sroa.11.0..sroa_idx.i, align 8, !noalias !3529
-  invoke fastcc void @"_ZN14ockam_identity14secure_channel9decryptor16DecryptorHandler14handle_payload28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h91d26d62ffcdd0baE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %125)
+  invoke fastcc void @"_ZN14ockam_identity14secure_channel9decryptor16DecryptorHandler14handle_payload28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h91d26d62ffcdd0baE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %125)
           to label %1256 unwind label %1254
 
 1254:                                             ; preds = %1243
@@ -29744,7 +29744,7 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
   %1518 = phi ptr [ %1685, %1692 ], [ %1777, %.body204.i.i ], [ %1462, %1509 ]
   %.pn145.i.i = phi { ptr, i32 } [ %1693, %1692 ], [ %.pn143.i.i, %.body204.i.i ], [ %1510, %1509 ]
   %1519 = getelementptr inbounds i8, ptr %0, i64 1016
-  invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities_verification..IdentitiesVerification$GT$$GT$17h55cfb734c0e9da8dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1519) #23
+  invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities_verification..IdentitiesVerification$GT$$GT$17h55cfb734c0e9da8dE"(ptr noalias noundef align 8 dereferenceable(8) %1519) #23
           to label %1520 unwind label %1779, !noalias !3940
 
 1520:                                             ; preds = %1703, %1514, %.body.i.i243
@@ -29874,7 +29874,7 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
   %1561 = phi ptr [ %1538, %1547 ], [ %1529, %1546 ]
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %28), !noalias !3967
   %1562 = getelementptr inbounds i8, ptr %0, i64 1080
-  invoke fastcc void @"_ZN14ockam_identity8identity8identity8Identity26import_from_change_history28_$u7b$$u7b$closure$u7d$$u7d$17h1d5f4e0fa21128c9E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %28, ptr noundef nonnull align 8 %1562, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @"_ZN14ockam_identity8identity8identity8Identity26import_from_change_history28_$u7b$$u7b$closure$u7d$$u7d$17h1d5f4e0fa21128c9E"(ptr noalias nocapture noundef align 8 dereferenceable(88) %28, ptr noundef nonnull align 8 %1562, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %1565 unwind label %1563, !noalias !3971
 
 1563:                                             ; preds = %1555
@@ -30360,7 +30360,7 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
 1746:                                             ; preds = %1802, %1794
   %.pn175.i.i = phi { ptr, i32 } [ %1803, %1802 ], [ %1795, %1794 ]
   %1747 = getelementptr inbounds i8, ptr %0, i64 1048
-  invoke fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..purpose_keys..purpose_key_verification..PurposeKeyVerification$GT$$GT$17h6d67559377900703E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1747) #23
+  invoke fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..purpose_keys..purpose_key_verification..PurposeKeyVerification$GT$$GT$17h6d67559377900703E"(ptr noalias noundef align 8 dereferenceable(8) %1747) #23
           to label %1748 unwind label %1779, !noalias !3940
 
 1748:                                             ; preds = %1812, %1746, %.body214.i.i
@@ -30370,7 +30370,7 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
   %1752 = phi ptr [ %1792, %1812 ], [ %1792, %1746 ], [ %1685, %.body214.i.i ]
   %.pn177.i.i = phi { ptr, i32 } [ %1813, %1812 ], [ %.pn175.i.i, %1746 ], [ %1739, %.body214.i.i ]
   %1753 = getelementptr inbounds i8, ptr %0, i64 1056
-  invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..purpose_keys..purpose_keys..PurposeKeys$GT$$GT$17h57dad99dadde91bbE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1753) #23
+  invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..purpose_keys..purpose_keys..PurposeKeys$GT$$GT$17h57dad99dadde91bbE"(ptr noalias noundef align 8 dereferenceable(8) %1753) #23
           to label %1754 unwind label %1779, !noalias !3940
 
 1754:                                             ; preds = %1819, %1748, %1714
@@ -30453,7 +30453,7 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
   %1792 = phi ptr [ %1685, %1742 ], [ %1453, %1454 ]
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %31), !noalias !3926
   %1793 = getelementptr inbounds i8, ptr %0, i64 1064
-  invoke fastcc void @"_ZN14ockam_identity12purpose_keys24purpose_key_verification22PurposeKeyVerification30verify_purpose_key_attestation28_$u7b$$u7b$closure$u7d$$u7d$17hbef6f029bc7df733E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(152) %31, ptr noundef nonnull align 8 %1793, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @"_ZN14ockam_identity12purpose_keys24purpose_key_verification22PurposeKeyVerification30verify_purpose_key_attestation28_$u7b$$u7b$closure$u7d$$u7d$17hbef6f029bc7df733E"(ptr noalias nocapture noundef align 8 dereferenceable(152) %31, ptr noundef nonnull align 8 %1793, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %1796 unwind label %1794, !noalias !3940
 
 1794:                                             ; preds = %1788
@@ -30808,7 +30808,7 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
   %1922 = phi ptr [ %1933, %2100 ], [ %1933, %1960 ], [ %1933, %1940 ], [ %1889, %1910 ], [ %1933, %1953 ], [ %1933, %1948 ], [ %1933, %1981 ], [ %1933, %1975 ], [ %1933, %2000 ]
   %.pn51.pn.i.i.i = phi { ptr, i32 } [ %.pn73.pn.i.i.i, %2100 ], [ %1961, %1960 ], [ %1941, %1940 ], [ %1911, %1910 ], [ %1954, %1953 ], [ %1949, %1948 ], [ %1982, %1981 ], [ %1976, %1975 ], [ %.pn63.pn.pn.pn.i.i.i, %2000 ]
   %1923 = getelementptr inbounds i8, ptr %0, i64 1080
-  invoke fastcc void @"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..secure_channel..trust_policy..trust_policy_type..TrustPolicy$GT$$GT$17hde85c8749590069bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1923) #23
+  invoke fastcc void @"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..secure_channel..trust_policy..trust_policy_type..TrustPolicy$GT$$GT$17hde85c8749590069bE"(ptr noalias noundef align 8 dereferenceable(16) %1923) #23
           to label %2068 unwind label %2103, !noalias !3940
 
 1924:                                             ; preds = %1878
@@ -31208,7 +31208,7 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
   store i64 1, ptr %.sroa.9130.0..sroa_idx.i.i.i, align 8, !noalias !4098
   %.sroa.10131.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %22, i64 16
   store ptr %2047, ptr %.sroa.10131.0..sroa_idx.i.i.i, align 8, !noalias !4098
-  invoke fastcc void @"_ZN14ockam_identity14secure_channel9handshake23handshake_state_machine18CommonStateMachine18check_trust_policy28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha846bd0f5b31924eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %22)
+  invoke fastcc void @"_ZN14ockam_identity14secure_channel9handshake23handshake_state_machine18CommonStateMachine18check_trust_policy28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha846bd0f5b31924eE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %22)
           to label %2067 unwind label %2065, !noalias !3940
 
 2065:                                             ; preds = %2058
@@ -31379,7 +31379,7 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
   %2134 = phi ptr [ %2109, %2117 ], [ %.phi.trans.insert.i, %1455 ]
   %2135 = phi ptr [ %2110, %2117 ], [ %1453, %1455 ]
   %2136 = getelementptr inbounds i8, ptr %0, i64 1016
-  %2137 = invoke fastcc { i64, ptr } @"_ZN14ockam_identity14secure_channel9handshake23handshake_state_machine18CommonStateMachine18verify_credentials28_$u7b$$u7b$closure$u7d$$u7d$17h87de0d08f077c753E"(ptr noundef nonnull align 8 %2136, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  %2137 = invoke fastcc { i64, ptr } @"_ZN14ockam_identity14secure_channel9handshake23handshake_state_machine18CommonStateMachine18verify_credentials28_$u7b$$u7b$closure$u7d$$u7d$17h87de0d08f077c753E"(ptr noundef nonnull align 8 %2136, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %2140 unwind label %2138, !noalias !3940
 
 2138:                                             ; preds = %2131
@@ -31727,12 +31727,12 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
 
 2297:                                             ; preds = %.body241.i.i
   %2298 = getelementptr inbounds i8, ptr %0, i64 744
-  invoke fastcc void @"_ZN4core3ptr157drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..secure_channel..trust_policy..trust_policy_type..TrustPolicy$GT$$GT$$GT$17h8c600381e2316588E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2298) #23
+  invoke fastcc void @"_ZN4core3ptr157drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..secure_channel..trust_policy..trust_policy_type..TrustPolicy$GT$$GT$$GT$17h8c600381e2316588E"(ptr noalias noundef align 8 dereferenceable(16) %2298) #23
           to label %2265 unwind label %1779, !noalias !3940
 
 2299:                                             ; preds = %2265
   %2300 = getelementptr inbounds i8, ptr %0, i64 760
-  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17ha029e25ff610ea75E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2300) #23
+  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17ha029e25ff610ea75E"(ptr noalias noundef align 8 dereferenceable(8) %2300) #23
           to label %2282 unwind label %1779, !noalias !3940
 
 2301:                                             ; preds = %.invoke.i238
@@ -32041,7 +32041,7 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
   store i64 1, ptr %.sroa.9269.0..sroa_idx.i, align 8, !noalias !3871
   %.sroa.10270.0..sroa_idx.i = getelementptr inbounds i8, ptr %46, i64 16
   store ptr %2389, ptr %.sroa.10270.0..sroa_idx.i, align 8, !noalias !3871
-  invoke fastcc void @"_ZN14ockam_identity14secure_channel9decryptor16DecryptorHandler26handle_refresh_credentials28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hafcc1b53ccd90f17E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %46)
+  invoke fastcc void @"_ZN14ockam_identity14secure_channel9decryptor16DecryptorHandler26handle_refresh_credentials28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hafcc1b53ccd90f17E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %46)
           to label %2411 unwind label %2409
 
 2409:                                             ; preds = %2400
@@ -32242,7 +32242,7 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
   %2478 = phi ptr [ %2448, %2446 ], [ %2450, %2466 ]
   %2479 = phi ptr [ %2447, %2446 ], [ %2451, %2466 ]
   %2480 = getelementptr inbounds i8, ptr %0, i64 408
-  %2481 = invoke fastcc { i64, ptr } @"_ZN10ockam_node7context16worker_lifecycle55_$LT$impl$u20$ockam_node..context..context..Context$GT$11stop_worker28_$u7b$$u7b$closure$u7d$$u7d$17hdcce82bb3f6bffd0E"(ptr noundef nonnull align 8 %2480, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  %2481 = invoke fastcc { i64, ptr } @"_ZN10ockam_node7context16worker_lifecycle55_$LT$impl$u20$ockam_node..context..context..Context$GT$11stop_worker28_$u7b$$u7b$closure$u7d$$u7d$17hdcce82bb3f6bffd0E"(ptr noundef nonnull align 8 %2480, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %2484 unwind label %2482
 
 2482:                                             ; preds = %2477
@@ -32405,7 +32405,7 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN14ockam_identity14secure_channel9decryptor16DecryptorHandler14handle_decrypt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h31f9f655a400738dE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN14ockam_identity14secure_channel9decryptor16DecryptorHandler14handle_decrypt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h31f9f655a400738dE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -32459,7 +32459,7 @@ define internal fastcc void @"_ZN14ockam_identity14secure_channel9decryptor16Dec
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN14ockam_identity14secure_channel9decryptor9Decryptor7decrypt28_$u7b$$u7b$closure$u7d$$u7d$17h6f6b1ab6f33c7747E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN14ockam_identity14secure_channel9decryptor9Decryptor7decrypt28_$u7b$$u7b$closure$u7d$$u7d$17h6f6b1ab6f33c7747E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -32586,7 +32586,7 @@ default.unreachable96:                            ; preds = %287, %195, %124, %3
   %69 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32)
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %33) #23
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %33) #23
           to label %62 unwind label %76
 
 70:                                               ; preds = %.thread77
@@ -32911,7 +32911,7 @@ common.ret:                                       ; preds = %721, %718, %117
 177:                                              ; preds = %.body.i, %493
   %.pn116.i = phi { ptr, i32 } [ %494, %493 ], [ %.pn113.i, %.body.i ]
   %178 = getelementptr inbounds i8, ptr %1, i64 184
-  invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %178) #23
+  invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE"(ptr noalias noundef align 8 dereferenceable(24) %178) #23
           to label %179 unwind label %566, !noalias !4376
 
 179:                                              ; preds = %181, %177, %155
@@ -33068,7 +33068,7 @@ common.ret:                                       ; preds = %721, %718, %117
   %227 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17), !noalias !4393
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %18) #23
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %18) #23
           to label %221 unwind label %234, !noalias !4397
 
 228:                                              ; preds = %.thread76.i.i
@@ -33754,7 +33754,7 @@ common.ret:                                       ; preds = %721, %718, %117
   br label %.body.i.i
 
 479:                                              ; preds = %"_ZN4core3ptr179drop_in_place$LT$tracing..instrument..Instrumented$LT$ockam_identity..secure_channel..encryptor..Encryptor..rekey..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfcc5f690849e845dE.exit.i.i"
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %282)
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %282)
           to label %490 unwind label %480, !noalias !4397
 
 480:                                              ; preds = %479
@@ -33780,7 +33780,7 @@ common.ret:                                       ; preds = %721, %718, %117
           to label %482 unwind label %234, !noalias !4397
 
 487:                                              ; preds = %482
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %253) #23
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %253) #23
           to label %257 unwind label %234, !noalias !4397
 
 488:                                              ; preds = %.invoke.i
@@ -34171,7 +34171,7 @@ common.ret:                                       ; preds = %721, %718, %117
   %650 = getelementptr inbounds i8, ptr %1, i64 173
   store i8 0, ptr %650, align 1, !noalias !4346
   %651 = getelementptr inbounds i8, ptr %1, i64 128
-  invoke fastcc void @"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$ockam_core..error..Error$GT$$GT$17hdf336671d6064903E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %651) #23
+  invoke fastcc void @"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$ockam_core..error..Error$GT$$GT$17hdf336671d6064903E"(ptr noalias noundef align 8 dereferenceable(24) %651) #23
           to label %.body175.i unwind label %566, !noalias !4376
 
 652:                                              ; preds = %684
@@ -34184,7 +34184,7 @@ common.ret:                                       ; preds = %721, %718, %117
   %655 = getelementptr inbounds i8, ptr %1, i64 173
   store i8 0, ptr %655, align 1, !noalias !4346
   %656 = getelementptr inbounds i8, ptr %1, i64 128
-  invoke fastcc void @"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$ockam_core..error..Error$GT$$GT$17hdf336671d6064903E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %656)
+  invoke fastcc void @"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$ockam_core..error..Error$GT$$GT$17hdf336671d6064903E"(ptr noalias noundef align 8 dereferenceable(24) %656)
           to label %563 unwind label %709, !noalias !4376
 
 657:                                              ; preds = %641, %134
@@ -34389,7 +34389,7 @@ common.ret:                                       ; preds = %721, %718, %117
 
 723:                                              ; preds = %"_ZN4core3ptr181drop_in_place$LT$tracing..instrument..Instrumented$LT$ockam_identity..secure_channel..decryptor..Decryptor..decrypt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0d62e4c43591758cE.exit"
   %724 = getelementptr inbounds i8, ptr %1, i64 16
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %724)
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %724)
           to label %721 unwind label %725
 
 725:                                              ; preds = %723
@@ -34416,12 +34416,12 @@ common.ret:                                       ; preds = %721, %718, %117
 
 732:                                              ; preds = %727
   %733 = getelementptr inbounds i8, ptr %1, i64 16
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %733) #23
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %733) #23
           to label %101 unwind label %76
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN14ockam_identity14secure_channel9handshake23handshake_state_machine18CommonStateMachine18check_trust_policy28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha846bd0f5b31924eE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN14ockam_identity14secure_channel9handshake23handshake_state_machine18CommonStateMachine18check_trust_policy28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha846bd0f5b31924eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -34475,7 +34475,7 @@ define internal fastcc void @"_ZN14ockam_identity14secure_channel9handshake23han
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN14ockam_identity14secure_channel9handshake23handshake_state_machine18CommonStateMachine18verify_credentials28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17haed1f87250e38a6bE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN14ockam_identity14secure_channel9handshake23handshake_state_machine18CommonStateMachine18verify_credentials28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17haed1f87250e38a6bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -34529,7 +34529,7 @@ define internal fastcc void @"_ZN14ockam_identity14secure_channel9handshake23han
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN14ockam_identity14secure_channel9handshake23handshake_state_machine18CommonStateMachine18verify_credentials28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h966f2ee5077908f8E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN14ockam_identity14secure_channel9handshake23handshake_state_machine18CommonStateMachine18verify_credentials28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h966f2ee5077908f8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -34583,7 +34583,7 @@ define internal fastcc void @"_ZN14ockam_identity14secure_channel9handshake23han
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN14ockam_identity14secure_channel9handshake23handshake_state_machine18CommonStateMachine18verify_credentials28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5a6b67ae66ed6dc5E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN14ockam_identity14secure_channel9handshake23handshake_state_machine18CommonStateMachine18verify_credentials28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5a6b67ae66ed6dc5E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -35149,7 +35149,7 @@ common.ret:                                       ; preds = %341, %117, %84, %29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   %188 = load ptr, ptr %0, align 8, !nonnull !5, !align !14, !noundef !5
   %189 = getelementptr inbounds i8, ptr %188, i64 688
-  invoke fastcc void @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfb41ea0403c98d06E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %189)
+  invoke fastcc void @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfb41ea0403c98d06E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %8, ptr noalias noundef readonly align 8 dereferenceable(32) %189)
           to label %192 unwind label %190
 
 190:                                              ; preds = %187
@@ -35235,7 +35235,7 @@ common.ret:                                       ; preds = %341, %117, %84, %29
 220:                                              ; preds = %221, %217, %201
   %.pn93 = phi { ptr, i32 } [ %222, %221 ], [ %218, %217 ], [ %202, %201 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #23
+  invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E"(ptr noalias noundef align 8 dereferenceable(32) %8) #23
           to label %224 unwind label %96
 
 221:                                              ; preds = %219
@@ -35245,7 +35245,7 @@ common.ret:                                       ; preds = %341, %117, %84, %29
 
 223:                                              ; preds = %219
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
+  invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E"(ptr noalias noundef align 8 dereferenceable(32) %8)
           to label %227 unwind label %225
 
 224:                                              ; preds = %220, %225, %190
@@ -35337,7 +35337,7 @@ common.ret:                                       ; preds = %341, %117, %84, %29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
   %251 = load ptr, ptr %0, align 8, !nonnull !5, !align !14, !noundef !5
   %252 = getelementptr inbounds i8, ptr %251, i64 688
-  invoke fastcc void @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfb41ea0403c98d06E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %252)
+  invoke fastcc void @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfb41ea0403c98d06E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %17, ptr noalias noundef readonly align 8 dereferenceable(32) %252)
           to label %255 unwind label %253
 
 253:                                              ; preds = %250
@@ -35405,7 +35405,7 @@ common.ret:                                       ; preds = %341, %117, %84, %29
   store i64 1, ptr %.sroa.12.0..sroa_idx, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 16
   store ptr %239, ptr %.sroa.13.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN123_$LT$ockam_identity..secure_channel..handshake..handshake_worker..HandshakeWorker$u20$as$u20$ockam_core..worker..Worker$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h52cc2d1d60979772E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %22)
+  invoke fastcc void @"_ZN123_$LT$ockam_identity..secure_channel..handshake..handshake_worker..HandshakeWorker$u20$as$u20$ockam_core..worker..Worker$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h52cc2d1d60979772E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %22)
           to label %280 unwind label %278
 
 278:                                              ; preds = %266
@@ -35423,7 +35423,7 @@ common.ret:                                       ; preds = %341, %117, %84, %29
 281:                                              ; preds = %282, %278, %264
   %.pn108 = phi { ptr, i32 } [ %283, %282 ], [ %279, %278 ], [ %265, %264 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
-  invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17) #23
+  invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E"(ptr noalias noundef align 8 dereferenceable(32) %17) #23
           to label %285 unwind label %96
 
 282:                                              ; preds = %280
@@ -35433,7 +35433,7 @@ common.ret:                                       ; preds = %341, %117, %84, %29
 
 284:                                              ; preds = %280
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
-  invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17)
+  invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E"(ptr noalias noundef align 8 dereferenceable(32) %17)
           to label %288 unwind label %286
 
 285:                                              ; preds = %281, %286, %253
@@ -35607,7 +35607,7 @@ common.ret:                                       ; preds = %341, %117, %84, %29
 
 334:                                              ; preds = %28, %308
   %335 = getelementptr inbounds i8, ptr %0, i64 88
-  %336 = invoke fastcc { i64, ptr } @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$17send_from_address28_$u7b$$u7b$closure$u7d$$u7d$17h3886d7a67dd00ed7E"(ptr noundef nonnull align 8 %335, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  %336 = invoke fastcc { i64, ptr } @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$17send_from_address28_$u7b$$u7b$closure$u7d$$u7d$17h3886d7a67dd00ed7E"(ptr noundef nonnull align 8 %335, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %339 unwind label %337
 
 337:                                              ; preds = %334
@@ -35813,7 +35813,7 @@ common.ret:                                       ; preds = %187, %47, %50
 
 40:                                               ; preds = %12, %26
   %41 = getelementptr inbounds i8, ptr %0, i64 256
-  %42 = invoke fastcc { i64, ptr } @"_ZN14ockam_identity14secure_channel9handshake16handshake_worker15HandshakeWorker14handle_decrypt28_$u7b$$u7b$closure$u7d$$u7d$17h6cbbb84dc58ac883E"(ptr noundef nonnull align 8 %41, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  %42 = invoke fastcc { i64, ptr } @"_ZN14ockam_identity14secure_channel9handshake16handshake_worker15HandshakeWorker14handle_decrypt28_$u7b$$u7b$closure$u7d$$u7d$17h6cbbb84dc58ac883E"(ptr noundef nonnull align 8 %41, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %45 unwind label %43
 
 43:                                               ; preds = %40
@@ -35961,7 +35961,7 @@ common.ret:                                       ; preds = %187, %47, %50
   %92 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !4722
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %6) #23
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %6) #23
           to label %86 unwind label %99, !noalias !4722
 
 93:                                               ; preds = %.thread85.i
@@ -36135,7 +36135,7 @@ common.ret:                                       ; preds = %187, %47, %50
   %157 = phi ptr [ %61, %117 ], [ %57, %59 ]
   %158 = phi ptr [ %62, %117 ], [ %56, %59 ]
   %159 = getelementptr inbounds i8, ptr %0, i64 552
-  %160 = invoke fastcc { i64, ptr } @"_ZN14ockam_identity14secure_channel9handshake16handshake_worker15HandshakeWorker16handle_handshake28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h74f18dfaa8f3b917E"(ptr noundef nonnull align 8 %159, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  %160 = invoke fastcc { i64, ptr } @"_ZN14ockam_identity14secure_channel9handshake16handshake_worker15HandshakeWorker16handle_handshake28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h74f18dfaa8f3b917E"(ptr noundef nonnull align 8 %159, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %163 unwind label %161
 
 161:                                              ; preds = %156
@@ -36172,7 +36172,7 @@ common.ret:                                       ; preds = %187, %47, %50
   br label %184
 
 171:                                              ; preds = %"_ZN4core3ptr214drop_in_place$LT$tracing..instrument..Instrumented$LT$ockam_identity..secure_channel..handshake..handshake_worker..HandshakeWorker..handle_handshake..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h38c58a496abad25dE.exit.i"
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %151)
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %151)
           to label %168 unwind label %172
 
 172:                                              ; preds = %171
@@ -36193,7 +36193,7 @@ common.ret:                                       ; preds = %187, %47, %50
           to label %174 unwind label %99
 
 179:                                              ; preds = %174
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %120) #23
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %120) #23
           to label %124 unwind label %99
 
 180:                                              ; preds = %181, %124
@@ -36399,7 +36399,7 @@ common.ret:                                       ; preds = %"_ZN14ockam_identit
 
 44:                                               ; preds = %19, %36
   %45 = getelementptr inbounds i8, ptr %0, i64 32
-  %46 = invoke fastcc { i64, ptr } @"_ZN10ockam_node7context16worker_lifecycle55_$LT$impl$u20$ockam_node..context..context..Context$GT$11stop_worker28_$u7b$$u7b$closure$u7d$$u7d$17hdcce82bb3f6bffd0E"(ptr noundef nonnull align 8 %45, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  %46 = invoke fastcc { i64, ptr } @"_ZN10ockam_node7context16worker_lifecycle55_$LT$impl$u20$ockam_node..context..context..Context$GT$11stop_worker28_$u7b$$u7b$closure$u7d$$u7d$17hdcce82bb3f6bffd0E"(ptr noundef nonnull align 8 %45, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %49 unwind label %47
 
 47:                                               ; preds = %44
@@ -36691,7 +36691,7 @@ common.ret:                                       ; preds = %"_ZN14ockam_identit
   %145 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !4780
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12) #23
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %12) #23
           to label %139 unwind label %152
 
 146:                                              ; preds = %.thread82.i.i
@@ -37311,7 +37311,7 @@ common.ret:                                       ; preds = %"_ZN14ockam_identit
   br label %390
 
 379:                                              ; preds = %"_ZN4core3ptr182drop_in_place$LT$tracing..instrument..Instrumented$LT$ockam_identity..secure_channel..decryptor..Decryptor..shutdown..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcbe807acc6596e2aE.exit.i.i"
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %206)
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %206)
           to label %377 unwind label %380
 
 380:                                              ; preds = %379
@@ -37337,7 +37337,7 @@ common.ret:                                       ; preds = %"_ZN14ockam_identit
           to label %382 unwind label %152
 
 387:                                              ; preds = %382
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %172) #23
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %172) #23
           to label %176 unwind label %152
 
 388:                                              ; preds = %.invoke.i
@@ -37401,7 +37401,7 @@ common.ret:                                       ; preds = %"_ZN14ockam_identit
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN123_$LT$ockam_identity..secure_channel..handshake..handshake_worker..HandshakeWorker$u20$as$u20$ockam_core..worker..Worker$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h52cc2d1d60979772E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN123_$LT$ockam_identity..secure_channel..handshake..handshake_worker..HandshakeWorker$u20$as$u20$ockam_core..worker..Worker$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h52cc2d1d60979772E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -37455,7 +37455,7 @@ define internal fastcc void @"_ZN123_$LT$ockam_identity..secure_channel..handsha
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { i64, ptr } @"_ZN14ockam_identity14secure_channel9handshake16handshake_worker15HandshakeWorker16handle_handshake28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h74f18dfaa8f3b917E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc { i64, ptr } @"_ZN14ockam_identity14secure_channel9handshake16handshake_worker15HandshakeWorker16handle_handshake28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h74f18dfaa8f3b917E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -38132,7 +38132,7 @@ common.ret:                                       ; preds = %1859, %1806, %291, 
 
 284:                                              ; preds = %131, %261
   %285 = getelementptr inbounds i8, ptr %0, i64 336
-  %286 = invoke fastcc { i64, ptr } @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$17send_from_address28_$u7b$$u7b$closure$u7d$$u7d$17h3886d7a67dd00ed7E"(ptr noundef nonnull align 8 %285, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  %286 = invoke fastcc { i64, ptr } @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$17send_from_address28_$u7b$$u7b$closure$u7d$$u7d$17h3886d7a67dd00ed7E"(ptr noundef nonnull align 8 %285, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %289 unwind label %287
 
 287:                                              ; preds = %284
@@ -38377,14 +38377,14 @@ common.ret:                                       ; preds = %1859, %1806, %291, 
   %anon.140a8161bb5d866851c099c4889def9b.256.llvm.550936700588813936.anon.140a8161bb5d866851c099c4889def9b.257.llvm.550936700588813936.i.i = select i1 %trunc.i399.i, ptr @anon.140a8161bb5d866851c099c4889def9b.257.llvm.550936700588813936, ptr @anon.140a8161bb5d866851c099c4889def9b.256.llvm.550936700588813936
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %108), !noalias !4952
   %384 = getelementptr inbounds i8, ptr %379, i64 440
-  invoke fastcc void @"_ZN91_$LT$ockam_identity..secure_channel..addresses..Addresses$u20$as$u20$core..clone..Clone$GT$5clone17h5a02812b8531cdc8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %108, ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %384)
+  invoke fastcc void @"_ZN91_$LT$ockam_identity..secure_channel..addresses..Addresses$u20$as$u20$core..clone..Clone$GT$5clone17h5a02812b8531cdc8E"(ptr noalias nocapture noundef align 8 dereferenceable(192) %108, ptr noalias noundef readonly align 8 dereferenceable(192) %384)
           to label %387 unwind label %385, !noalias !4956
 
 385:                                              ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2e2c4aabaf5692a5E.exit.i"
   %386 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %108), !noalias !4952
-  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17ha029e25ff610ea75E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %109) #23
+  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17ha029e25ff610ea75E"(ptr noalias noundef align 8 dereferenceable(8) %109) #23
           to label %843 unwind label %734, !noalias !4956
 
 387:                                              ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2e2c4aabaf5692a5E.exit.i"
@@ -38484,7 +38484,7 @@ common.ret:                                       ; preds = %1859, %1806, %291, 
   %422 = landingpad { ptr, i32 }
           cleanup
   %423 = getelementptr inbounds i8, ptr %106, i64 32
-  invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$$GT$17h2c43d3233dc1c71cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %423) #23
+  invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$$GT$17h2c43d3233dc1c71cE"(ptr noalias noundef align 8 dereferenceable(16) %423) #23
           to label %429 unwind label %734, !noalias !4956
 
 "_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$$GT$17h2c43d3233dc1c71cE.exit.i": ; preds = %420, %407
@@ -38504,7 +38504,7 @@ common.ret:                                       ; preds = %1859, %1806, %291, 
 429:                                              ; preds = %431, %421
   %.pn245.i = phi { ptr, i32 } [ %432, %431 ], [ %422, %421 ]
   %430 = getelementptr inbounds i8, ptr %106, i64 48
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %430) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %430) #23
           to label %438 unwind label %734, !noalias !4956
 
 431:                                              ; preds = %428
@@ -38546,7 +38546,7 @@ common.ret:                                       ; preds = %1859, %1806, %291, 
   %anon.140a8161bb5d866851c099c4889def9b.256.llvm.550936700588813936.anon.140a8161bb5d866851c099c4889def9b.257.llvm.550936700588813936.i404.i = select i1 %trunc.i403.i, ptr @anon.140a8161bb5d866851c099c4889def9b.257.llvm.550936700588813936, ptr @anon.140a8161bb5d866851c099c4889def9b.256.llvm.550936700588813936
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %104), !noalias !4952
   %445 = getelementptr inbounds i8, ptr %442, i64 440
-  invoke fastcc void @"_ZN91_$LT$ockam_identity..secure_channel..addresses..Addresses$u20$as$u20$core..clone..Clone$GT$5clone17h5a02812b8531cdc8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %104, ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %445)
+  invoke fastcc void @"_ZN91_$LT$ockam_identity..secure_channel..addresses..Addresses$u20$as$u20$core..clone..Clone$GT$5clone17h5a02812b8531cdc8E"(ptr noalias nocapture noundef align 8 dereferenceable(192) %104, ptr noalias noundef readonly align 8 dereferenceable(192) %445)
           to label %448 unwind label %446, !noalias !4956
 
 446:                                              ; preds = %441
@@ -38724,7 +38724,7 @@ common.ret:                                       ; preds = %1859, %1806, %291, 
   %510 = landingpad { ptr, i32 }
           cleanup
   %511 = getelementptr inbounds i8, ptr %100, i64 32
-  invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$$GT$17h2c43d3233dc1c71cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %511) #23
+  invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$$GT$17h2c43d3233dc1c71cE"(ptr noalias noundef align 8 dereferenceable(16) %511) #23
           to label %517 unwind label %734, !noalias !4956
 
 "_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$$GT$17h2c43d3233dc1c71cE.exit409.i": ; preds = %508, %493
@@ -38744,7 +38744,7 @@ common.ret:                                       ; preds = %1859, %1806, %291, 
 517:                                              ; preds = %519, %509
   %.pn258.i = phi { ptr, i32 } [ %520, %519 ], [ %510, %509 ]
   %518 = getelementptr inbounds i8, ptr %100, i64 48
-  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %518) #23
+  invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_vault..traits..vault_for_verifying_signatures..VaultForVerifyingSignatures$GT$$GT$17h886cb27d5a2129edE"(ptr noalias noundef align 8 dereferenceable(16) %518) #23
           to label %526 unwind label %734, !noalias !4956
 
 519:                                              ; preds = %516
@@ -39485,7 +39485,7 @@ _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.llvm.7920016733076092704.ex
 751:                                              ; preds = %672
   %752 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_core..access_control..IncomingAccessControl$GT$$GT$17h446d6779506f86b3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %87) #23
+  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_core..access_control..IncomingAccessControl$GT$$GT$17h446d6779506f86b3E"(ptr noalias noundef align 8 dereferenceable(16) %87) #23
           to label %754 unwind label %734, !noalias !4956
 
 753:                                              ; preds = %754, %654
@@ -39514,7 +39514,7 @@ _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.llvm.7920016733076092704.ex
 762:                                              ; preds = %640
   %763 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_core..access_control..IncomingAccessControl$GT$$GT$17h446d6779506f86b3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %90) #23
+  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_core..access_control..IncomingAccessControl$GT$$GT$17h446d6779506f86b3E"(ptr noalias noundef align 8 dereferenceable(16) %90) #23
           to label %765 unwind label %734, !noalias !4956
 
 764:                                              ; preds = %765, %622
@@ -39541,7 +39541,7 @@ _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.llvm.7920016733076092704.ex
   br i1 %772, label %1781, label %776
 
 773:                                              ; preds = %605
-  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_core..access_control..IncomingAccessControl$GT$$GT$17h446d6779506f86b3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %93) #23
+  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_core..access_control..IncomingAccessControl$GT$$GT$17h446d6779506f86b3E"(ptr noalias noundef align 8 dereferenceable(16) %93) #23
           to label %775 unwind label %734, !noalias !4956
 
 774:                                              ; preds = %775, %584
@@ -39729,7 +39729,7 @@ _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.llvm.7920016733076092704.ex
 
 841:                                              ; preds = %840
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %108), !noalias !4952
-  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17ha029e25ff610ea75E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %109) #23
+  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17ha029e25ff610ea75E"(ptr noalias noundef align 8 dereferenceable(8) %109) #23
           to label %842 unwind label %734, !noalias !4956
 
 842:                                              ; preds = %841
@@ -40662,7 +40662,7 @@ _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.llvm.7920016733076092704.ex
   %1172 = phi ptr [ %881, %1127 ], [ %872, %873 ]
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %16), !noalias !5255
   %1173 = getelementptr inbounds i8, ptr %0, i64 3816
-  invoke fastcc void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17he774a83a14a1169eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %16, ptr noundef nonnull align 8 %1173, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17he774a83a14a1169eE"(ptr noalias nocapture noundef align 8 dereferenceable(88) %16, ptr noundef nonnull align 8 %1173, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %1176 unwind label %1174, !noalias !4956
 
 1174:                                             ; preds = %1166
@@ -40948,7 +40948,7 @@ _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.llvm.7920016733076092704.ex
   store ptr %.sroa.0326.0.copyload.i.i.i, ptr %15, align 8, !noalias !5255
   %.sroa.5324.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %15, i64 56
   store i8 %1256, ptr %.sroa.5324.0..sroa_idx.i.i.i, align 8, !noalias !5255
-  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..RouterReply$GT$17h3f8305da3decf72cE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %15)
+  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..RouterReply$GT$17h3f8305da3decf72cE"(ptr noalias noundef align 8 dereferenceable(64) %15)
           to label %1273 unwind label %1268, !noalias !4956
 
 1271:                                             ; preds = %1261
@@ -41272,7 +41272,7 @@ _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.llvm.7920016733076092704.ex
   br label %1133
 
 1408:                                             ; preds = %.body.i.i.i
-  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMessage$GT$17h874b33bf7ac5de15E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %21) #23
+  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMessage$GT$17h874b33bf7ac5de15E"(ptr noalias noundef align 8 dereferenceable(88) %21) #23
           to label %1407 unwind label %1001, !noalias !4956
 
 1409:                                             ; preds = %1133
@@ -41756,7 +41756,7 @@ _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.llvm.7920016733076092704.ex
   store i64 1, ptr %.sroa.11554.0..sroa_idx.i, align 8, !noalias !4952
   %.sroa.12.0..sroa_idx.i = getelementptr inbounds i8, ptr %76, i64 16
   store ptr %1547, ptr %.sroa.12.0..sroa_idx.i, align 8, !noalias !4952
-  invoke fastcc void @"_ZN14ockam_identity14secure_channel9handshake16handshake_worker15HandshakeWorker8finalize28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h97964e37d02af877E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %76)
+  invoke fastcc void @"_ZN14ockam_identity14secure_channel9handshake16handshake_worker15HandshakeWorker8finalize28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h97964e37d02af877E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %76)
           to label %1576 unwind label %1574, !noalias !4956
 
 1574:                                             ; preds = %1558
@@ -42362,7 +42362,7 @@ _ZN14ockam_identity15secure_channels15secure_channels14SecureChannels23secure_ch
   br label %1767
 
 1775:                                             ; preds = %1756
-  invoke fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$GT$$GT$17h8f2d9a7bb7c482c2E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %1746) #23
+  invoke fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$GT$$GT$17h8f2d9a7bb7c482c2E"(ptr noalias noundef align 8 dereferenceable(192) %1746) #23
           to label %1767 unwind label %734, !noalias !4956
 
 .body467.i:                                       ; preds = %1450, %863
@@ -42417,7 +42417,7 @@ _ZN14ockam_identity15secure_channels15secure_channels14SecureChannels23secure_ch
 
 1796:                                             ; preds = %1790
   %1797 = getelementptr inbounds i8, ptr %0, i64 848
-  invoke fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$GT$$GT$17h8f2d9a7bb7c482c2E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %1797) #23
+  invoke fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$GT$$GT$17h8f2d9a7bb7c482c2E"(ptr noalias noundef align 8 dereferenceable(192) %1797) #23
           to label %1767 unwind label %734, !noalias !4956
 
 1798:                                             ; preds = %.invoke
@@ -42611,7 +42611,7 @@ _ZN14ockam_identity15secure_channels15secure_channels14SecureChannels23secure_ch
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { i64, ptr } @"_ZN14ockam_identity14secure_channel9handshake16handshake_worker15HandshakeWorker14handle_decrypt28_$u7b$$u7b$closure$u7d$$u7d$17h6cbbb84dc58ac883E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc { i64, ptr } @"_ZN14ockam_identity14secure_channel9handshake16handshake_worker15HandshakeWorker14handle_decrypt28_$u7b$$u7b$closure$u7d$$u7d$17h6cbbb84dc58ac883E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -42855,7 +42855,7 @@ default.unreachable99:                            ; preds = %1020, %770, %749, %
   %157 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %119)
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %120) #23
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %120) #23
           to label %151 unwind label %164
 
 158:                                              ; preds = %.thread90
@@ -43366,7 +43366,7 @@ common.ret:                                       ; preds = %1741, %1738, %205
   %326 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %111), !noalias !5702
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %112) #23
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %112) #23
           to label %320 unwind label %333, !noalias !5705
 
 327:                                              ; preds = %.thread85.i.i
@@ -43539,7 +43539,7 @@ common.ret:                                       ; preds = %1741, %1738, %205
   %391 = phi ptr [ %299, %351 ], [ %.phi.trans.insert141.i, %295 ]
   %392 = phi ptr [ %300, %351 ], [ %293, %295 ]
   %393 = getelementptr inbounds i8, ptr %0, i64 880
-  %394 = invoke fastcc { i64, ptr } @"_ZN14ockam_identity14secure_channel9decryptor16DecryptorHandler14handle_decrypt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0b0dc712f4afcc5dE"(ptr noundef nonnull align 8 %393, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  %394 = invoke fastcc { i64, ptr } @"_ZN14ockam_identity14secure_channel9decryptor16DecryptorHandler14handle_decrypt28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0b0dc712f4afcc5dE"(ptr noundef nonnull align 8 %393, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %397 unwind label %395
 
 395:                                              ; preds = %390
@@ -43576,7 +43576,7 @@ common.ret:                                       ; preds = %1741, %1738, %205
   br label %418
 
 405:                                              ; preds = %"_ZN4core3ptr195drop_in_place$LT$tracing..instrument..Instrumented$LT$ockam_identity..secure_channel..decryptor..DecryptorHandler..handle_decrypt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2a8fa2b4a274b63bE.exit.i.i"
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %385)
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %385)
           to label %402 unwind label %406
 
 406:                                              ; preds = %405
@@ -43597,7 +43597,7 @@ common.ret:                                       ; preds = %1741, %1738, %205
           to label %408 unwind label %333
 
 413:                                              ; preds = %408
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %354) #23
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %354) #23
           to label %358 unwind label %333
 
 414:                                              ; preds = %415, %358
@@ -43784,7 +43784,7 @@ common.ret:                                       ; preds = %1741, %1738, %205
   %471 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %104), !noalias !5732
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %105) #23
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %105) #23
           to label %465 unwind label %478
 
 472:                                              ; preds = %.thread90.i.i
@@ -44453,7 +44453,7 @@ common.ret:                                       ; preds = %1741, %1738, %205
 708:                                              ; preds = %690, %535
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %87), !noalias !5752
   %709 = getelementptr inbounds i8, ptr %0, i64 1216
-  invoke fastcc void @"_ZN14ockam_identity14secure_channel9decryptor9Decryptor7decrypt28_$u7b$$u7b$closure$u7d$$u7d$17h6f6b1ab6f33c7747E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 %709, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @"_ZN14ockam_identity14secure_channel9decryptor9Decryptor7decrypt28_$u7b$$u7b$closure$u7d$$u7d$17h6f6b1ab6f33c7747E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 %709, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %712 unwind label %710
 
 710:                                              ; preds = %708
@@ -44574,7 +44574,7 @@ common.ret:                                       ; preds = %1741, %1738, %205
   %742 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.8242.i.i.i)
-  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$17hd940c3dc80cae9b3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %85) #23
+  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$17hd940c3dc80cae9b3E"(ptr noalias noundef align 8 dereferenceable(24) %85) #23
           to label %746 unwind label %743
 
 743:                                              ; preds = %1695, %.body.i.i.i, %748, %746, %741, %710, %621
@@ -45183,7 +45183,7 @@ common.ret:                                       ; preds = %1741, %1738, %205
   store i64 1, ptr %.sroa.9.0..sroa_idx438.i.i.i.i.i, align 8, !noalias !5832
   %.sroa.10.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %75, i64 16
   store ptr %921, ptr %.sroa.10.0..sroa_idx.i.i.i.i.i, align 8, !noalias !5832
-  invoke fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfc0a96c3085dddb3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %75)
+  invoke fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfc0a96c3085dddb3E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %75)
           to label %940 unwind label %938
 
 938:                                              ; preds = %932
@@ -45324,7 +45324,7 @@ common.ret:                                       ; preds = %1741, %1738, %205
   %990 = phi ptr [ %777, %837 ], [ %771, %794 ]
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %63), !noalias !5832
   %991 = getelementptr inbounds i8, ptr %0, i64 1776
-  invoke fastcc void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17he774a83a14a1169eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %63, ptr noundef nonnull align 8 %991, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17he774a83a14a1169eE"(ptr noalias nocapture noundef align 8 dereferenceable(88) %63, ptr noundef nonnull align 8 %991, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %994 unwind label %992
 
 992:                                              ; preds = %986
@@ -45757,7 +45757,7 @@ common.ret:                                       ; preds = %1741, %1738, %205
   store i64 %1123, ptr %.sroa.4.0..sroa_idx.i370.i.i.i.i.i, align 8, !alias.scope !5960, !noalias !5971
   %.sroa.5.0..sroa_idx.i371.i.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 16
   store i64 %1117, ptr %.sroa.5.0..sroa_idx.i371.i.i.i.i.i, align 8, !alias.scope !5960, !noalias !5971
-  invoke fastcc void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h7d7ab43297d2062fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %44, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %43)
+  invoke fastcc void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h7d7ab43297d2062fE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %44, ptr noalias nocapture noundef align 8 dereferenceable(32) %43)
           to label %1128 unwind label %1126
 
 1126:                                             ; preds = %1121
@@ -46079,7 +46079,7 @@ common.ret:                                       ; preds = %1741, %1738, %205
   %1237 = phi ptr [ %1038, %1167 ], [ %771, %795 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34), !noalias !5832
   %1238 = getelementptr inbounds i8, ptr %0, i64 1776
-  invoke fastcc void @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$17h48944ef6c08056dbE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 %1238, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @"_ZN10ockam_core7routing7mailbox9Mailboxes22is_outgoing_authorized28_$u7b$$u7b$closure$u7d$$u7d$17h48944ef6c08056dbE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 %1238, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %1241 unwind label %1239
 
 1239:                                             ; preds = %1233
@@ -46480,7 +46480,7 @@ common.ret:                                       ; preds = %1741, %1738, %205
   store i64 1, ptr %.sroa.10559.0..sroa_idx.i.i.i.i.i, align 8, !noalias !5832
   %.sroa.11560.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 16
   store ptr %1347, ptr %.sroa.11560.0..sroa_idx.i.i.i.i.i, align 8, !noalias !5832
-  invoke fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h00b200515af784f0E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %33)
+  invoke fastcc void @"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$22send_from_address_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h00b200515af784f0E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %33)
           to label %1378 unwind label %1376
 
 1375:                                             ; preds = %1376, %1365
@@ -46564,7 +46564,7 @@ common.ret:                                       ; preds = %1741, %1738, %205
   %1400 = phi ptr [ %1237, %1389 ], [ %771, %796 ]
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %17), !noalias !5832
   %1401 = getelementptr inbounds i8, ptr %0, i64 1776
-  invoke fastcc void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h90fb9057af6baa1bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(240) %17, ptr noundef nonnull align 8 %1401, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h90fb9057af6baa1bE"(ptr noalias nocapture noundef align 8 dereferenceable(240) %17, ptr noundef nonnull align 8 %1401, ptr noalias noundef align 8 dereferenceable(8) %1)
           to label %1404 unwind label %1402
 
 1402:                                             ; preds = %1396
@@ -46960,7 +46960,7 @@ common.ret:                                       ; preds = %1741, %1738, %205
 
 1569:                                             ; preds = %1561
   %1570 = getelementptr inbounds i8, ptr %0, i64 1432
-  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$17hd940c3dc80cae9b3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1570)
+  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$17hd940c3dc80cae9b3E"(ptr noalias noundef align 8 dereferenceable(24) %1570)
           to label %1565 unwind label %1580
 
 1571:                                             ; preds = %1612, %1580, %1477
@@ -47071,7 +47071,7 @@ common.ret:                                       ; preds = %1741, %1738, %205
 
 1612:                                             ; preds = %1477
   %1613 = getelementptr inbounds i8, ptr %0, i64 1432
-  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$17hd940c3dc80cae9b3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1613) #23
+  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$17hd940c3dc80cae9b3E"(ptr noalias noundef align 8 dereferenceable(24) %1613) #23
           to label %1571 unwind label %965
 
 1614:                                             ; preds = %1571
@@ -47152,7 +47152,7 @@ common.ret:                                       ; preds = %1741, %1738, %205
   br label %.body.i.i.i
 
 1638:                                             ; preds = %1632
-  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$17hd940c3dc80cae9b3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %80) #23
+  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$17hd940c3dc80cae9b3E"(ptr noalias noundef align 8 dereferenceable(24) %80) #23
           to label %1637 unwind label %759
 
 1639:                                             ; preds = %.invoke.i.i.i
@@ -47365,7 +47365,7 @@ common.ret:                                       ; preds = %1741, %1738, %205
   br label %1719
 
 1706:                                             ; preds = %"_ZN4core3ptr199drop_in_place$LT$tracing..instrument..Instrumented$LT$ockam_identity..secure_channel..decryptor..DecryptorHandler..handle_decrypt_api..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h84c7a894c4e5d709E.exit.i.i"
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %530)
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %530)
           to label %1703 unwind label %1707
 
 1707:                                             ; preds = %1706
@@ -47391,7 +47391,7 @@ common.ret:                                       ; preds = %1741, %1738, %205
           to label %1709 unwind label %478
 
 1714:                                             ; preds = %1709
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %499) #23
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %499) #23
           to label %503 unwind label %478
 
 1715:                                             ; preds = %1716, %503
@@ -47491,7 +47491,7 @@ common.ret:                                       ; preds = %1741, %1738, %205
   br label %common.ret
 
 1744:                                             ; preds = %"_ZN4core3ptr212drop_in_place$LT$tracing..instrument..Instrumented$LT$ockam_identity..secure_channel..handshake..handshake_worker..HandshakeWorker..handle_decrypt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h51c907b20531125fE.exit"
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %0)
           to label %1741 unwind label %1745
 
 1745:                                             ; preds = %1744
@@ -47517,7 +47517,7 @@ common.ret:                                       ; preds = %1741, %1738, %205
           to label %1747 unwind label %164
 
 1752:                                             ; preds = %1747
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) #23
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h9a1d1fd1542b384bE"(ptr noalias noundef align 8 dereferenceable(40) %0) #23
           to label %187 unwind label %164
 
 1753:                                             ; preds = %1754, %187
@@ -47532,7 +47532,7 @@ common.ret:                                       ; preds = %1741, %1738, %205
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN14ockam_identity14secure_channel9handshake16handshake_worker15HandshakeWorker8finalize28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h97964e37d02af877E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN14ockam_identity14secure_channel9handshake16handshake_worker15HandshakeWorker8finalize28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h97964e37d02af877E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8

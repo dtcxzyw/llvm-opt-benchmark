@@ -142,7 +142,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__18TsTest_TsEvaluator4EvalERKN
   %6 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::TsTest_SampleTimes::SampleTime", align 8
   %7 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::TsTest_Sample", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_ConvertToTsSplineERKNS_17TsTest_SplineDataE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(160) %2)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_ConvertToTsSplineERKNS_17TsTest_SplineDataE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(160) %2)
   %9 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__8TsSpline12GetKeyFramesEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %10 unwind label %15
 
@@ -365,7 +365,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsTest_SampleESaIS1_EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_ConvertToTsSplineERKNS_17TsTest_SplineDataE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_ConvertToTsSplineERKNS_17TsTest_SplineDataE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -1445,7 +1445,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__18TsTest_TsEvaluator6SampleER
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TsSpline", align 8
   %6 = alloca %"class.std::vector.9", align 8
   %7 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::TsTest_Sample", align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_ConvertToTsSplineERKNS_17TsTest_SplineDataE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(160) %2)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_ConvertToTsSplineERKNS_17TsTest_SplineDataE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(160) %2)
   %8 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__8TsSpline12GetKeyFramesEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %9 unwind label %15
 
@@ -1900,7 +1900,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__18TsTest_TsEvaluator14BakeInn
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit
 
 17:                                               ; preds = %3
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_ConvertToTsSplineERKNS_17TsTest_SplineDataE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(160) %2)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_ConvertToTsSplineERKNS_17TsTest_SplineDataE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(160) %2)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8TsSpline15BakeSplineLoopsEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
           to label %18 unwind label %176
 

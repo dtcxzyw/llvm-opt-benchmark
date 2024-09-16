@@ -815,7 +815,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %60, %63
   br i1 %.not, label %72, label %69
 
 69:                                               ; preds = %68
-  %70 = tail call fastcc i32 @mca_pml_ob1_send_inline(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %4, i16 noundef signext %.0143, ptr noundef nonnull %28, ptr noundef nonnull %26, ptr noundef nonnull %50, ptr noundef nonnull %6)
+  %70 = tail call fastcc i32 @mca_pml_ob1_send_inline(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %4, i16 noundef signext %.0143, ptr noundef nonnull %28, ptr noundef nonnull %26, ptr noundef %50, ptr noundef nonnull %6)
   %71 = icmp sgt i32 %70, -1
   br i1 %71, label %.thread.sink.split, label %72
 
@@ -1003,7 +1003,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %167, %opal_thread_a
   %171 = getelementptr inbounds i8, ptr %100, i64 544
   store ptr %26, ptr %171, align 8
   %172 = sext i16 %.0143 to i32
-  %173 = tail call fastcc i32 @mca_pml_ob1_send_request_start_seq(ptr noundef nonnull %100, ptr noundef nonnull %50, i32 noundef %172)
+  %173 = tail call fastcc i32 @mca_pml_ob1_send_request_start_seq(ptr noundef %100, ptr noundef %50, i32 noundef %172)
   br label %.thread.sink.split
 
 174:                                              ; preds = %46
@@ -1232,7 +1232,7 @@ opal_convertor_get_packed_size.exit175:           ; preds = %270, %opal_thread_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mca_pml_ob1_send_inline(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef %7, ptr nocapture noundef readonly %8) unnamed_addr #0 {
+define internal fastcc i32 @mca_pml_ob1_send_inline(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef nonnull %7, ptr nocapture noundef readonly %8) unnamed_addr #0 {
   %10 = alloca %struct.mca_pml_ob1_match_hdr_t, align 4
   %11 = alloca %struct.opal_convertor_t, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 88
@@ -1404,7 +1404,7 @@ opal_convertor_cleanup.exit:                      ; preds = %94, %opal_convertor
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mca_pml_ob1_send_request_start_seq(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @mca_pml_ob1_send_request_start_seq(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 -32768, 32768) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 536
   store ptr %1, ptr %5, align 8
@@ -1913,7 +1913,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %69, %72
   br i1 %.not, label %81, label %78
 
 78:                                               ; preds = %77
-  %79 = tail call fastcc i32 @mca_pml_ob1_send_inline(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %4, i16 noundef signext %.099, ptr noundef nonnull %28, ptr noundef nonnull %26, ptr noundef nonnull %50, ptr noundef nonnull %6)
+  %79 = tail call fastcc i32 @mca_pml_ob1_send_inline(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %4, i16 noundef signext %.099, ptr noundef nonnull %28, ptr noundef nonnull %26, ptr noundef %50, ptr noundef nonnull %6)
   %80 = icmp sgt i32 %79, -1
   br i1 %80, label %opal_free_list_return.exit, label %81
 
@@ -2120,7 +2120,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %184, %opal_thread_a
   %188 = getelementptr inbounds i8, ptr %.1, i64 544
   store ptr %26, ptr %188, align 8
   %189 = sext i16 %.099 to i32
-  %190 = tail call fastcc i32 @mca_pml_ob1_send_request_start_seq(ptr noundef nonnull %.1, ptr noundef nonnull %50, i32 noundef %189)
+  %190 = tail call fastcc i32 @mca_pml_ob1_send_request_start_seq(ptr noundef %.1, ptr noundef %50, i32 noundef %189)
   %191 = icmp eq i32 %190, 0
   br i1 %191, label %192, label %195
 
@@ -2137,7 +2137,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %184, %opal_thread_a
   %198 = load ptr, ptr @mca_pml_ob1_sendreq, align 8
   %199 = icmp ne ptr %198, null
   %200 = select i1 %197, i1 true, i1 %199
-  tail call fastcc void @mca_pml_ob1_send_request_fini(ptr noundef nonnull %.1)
+  tail call fastcc void @mca_pml_ob1_send_request_fini(ptr noundef %.1)
   br i1 %200, label %201, label %230
 
 201:                                              ; preds = %195
@@ -2465,7 +2465,7 @@ opal_thread_compare_exchange_strong_ptr.exit13:   ; preds = %53, %46, %.opal_thr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mca_pml_ob1_send_request_fini(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @mca_pml_ob1_send_request_fini(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   store volatile i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 104

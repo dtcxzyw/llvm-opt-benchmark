@@ -248,7 +248,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %call4 = tail call fastcc i32 @sk_reserve(ptr noundef nonnull %call, i32 noundef %n, i32 noundef 1)
+  %call4 = tail call fastcc i32 @sk_reserve(ptr noundef %call, i32 noundef %n, i32 noundef 1)
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %OPENSSL_sk_free.exit, label %return
 
@@ -281,11 +281,11 @@ OPENSSL_sk_new_reserve.exit:                      ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @sk_reserve(ptr nocapture noundef %st, i32 noundef %n, i32 noundef %exact) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @sk_reserve(ptr nocapture noundef nonnull %st, i32 noundef range(i32 0, -2147483648) %n, i32 noundef range(i32 0, 2) %exact) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %st, align 8
   %sub = sub nsw i32 2147483647, %0
-  %cmp = icmp sgt i32 %n, %sub
+  %cmp = icmp ugt i32 %n, %sub
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -410,7 +410,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %call = tail call fastcc i32 @sk_reserve(ptr noundef nonnull %st, i32 noundef %n, i32 noundef 1)
+  %call = tail call fastcc i32 @sk_reserve(ptr noundef %st, i32 noundef %n, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %if.end, %if.end3, %if.then
@@ -448,7 +448,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %call = tail call fastcc i32 @sk_reserve(ptr noundef nonnull %st, i32 noundef 1, i32 noundef 0)
+  %call = tail call fastcc i32 @sk_reserve(ptr noundef %st, i32 noundef 1, i32 noundef 0)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end5
 
@@ -1023,7 +1023,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end3.i:                                        ; preds = %if.end.i
-  %call.i = tail call fastcc i32 @sk_reserve(ptr noundef nonnull %st, i32 noundef 1, i32 noundef 0)
+  %call.i = tail call fastcc i32 @sk_reserve(ptr noundef %st, i32 noundef 1, i32 noundef 0)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end5.i
 

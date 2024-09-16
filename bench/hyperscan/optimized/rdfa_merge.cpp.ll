@@ -7991,7 +7991,7 @@ unreachable:                                      ; preds = %invoke.cont2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK3ue212_GLOBAL__N_115Automaton_Merge9reports_iERKSt6vectorItSaItEEMNS_6dstateENS_8flat_setIjSt4lessIjESaIjEEERSC_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1148) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %in, i64 %r_set, ptr noundef nonnull align 8 dereferenceable(32) %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK3ue212_GLOBAL__N_115Automaton_Merge9reports_iERKSt6vectorItSaItEEMNS_6dstateENS_8flat_setIjSt4lessIjESaIjEEERSC_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1148) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %in, i64 range(i64 32, 65) %r_set, ptr noundef nonnull align 8 dereferenceable(32) %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nfas = getelementptr inbounds i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24

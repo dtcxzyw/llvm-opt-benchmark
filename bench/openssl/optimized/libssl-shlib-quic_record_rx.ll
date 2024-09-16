@@ -665,7 +665,7 @@ if.end.i.lr.ph.i:                                 ; preds = %if.then
   %omega.i.i.i.i.i.i = getelementptr inbounds i8, ptr %qrx, i64 104
   %num_elems.i.i.i.i.i.i = getelementptr inbounds i8, ptr %qrx, i64 112
   %short_conn_id_len.i.i.i.i = getelementptr inbounds i8, ptr %qrx, i64 24
-  %first_dcid.sroa.gep.i.i.i = getelementptr inbounds i8, ptr %first_dcid.i.i.i, i64 1
+  %id.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first_dcid.i.i.i, i64 1
   %el_set.i.i.i.i = getelementptr inbounds i8, ptr %qrx, i64 168
   %allow_1rtt.i.i.i.i = getelementptr inbounds i8, ptr %qrx, i64 1057
   %msg_callback.i.i.i.i = getelementptr inbounds i8, ptr %qrx, i64 1064
@@ -844,7 +844,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.then16.i.i.i.i.i
 ossl_quic_conn_id_eq.exit.i.i.i.i.i:              ; preds = %lor.lhs.false.i.i.i.i.i
   %id8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 113
   %conv11.i.i.i.i.i.i = zext nneg i8 %13 to i64
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %first_dcid.sroa.gep.i.i.i, ptr nonnull readonly %id8.i.i.i.i.i.i, i64 %conv11.i.i.i.i.i.i)
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %id.i.i.i.i.i.i, ptr nonnull readonly %id8.i.i.i.i.i.i, i64 %conv11.i.i.i.i.i.i)
   %cmp12.i.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %cmp12.i.not.i.i.i.i.i, label %if.end26.i.i.i.i, label %malformed.i.i.i.i
 

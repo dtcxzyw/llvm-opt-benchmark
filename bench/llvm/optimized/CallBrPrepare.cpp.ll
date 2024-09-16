@@ -118,7 +118,7 @@ define dso_local void @_ZN4llvm17CallBrPreparePass3runERNS_8FunctionERNS_15Analy
   %5 = alloca %"struct.llvm::CriticalEdgeSplittingOptions", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::SmallVector", align 8
-  call fastcc void @_ZL11FindCallBrsRN4llvm8FunctionE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(136) %2)
+  call fastcc void @_ZL11FindCallBrsRN4llvm8FunctionE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(136) %2)
   %8 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #11
   br i1 %8, label %9, label %21
 
@@ -1234,7 +1234,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_113CallBrPrepare13runOnFunct
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::SmallVector", align 8
   %6 = alloca %"class.std::optional", align 8
-  call fastcc void @_ZL11FindCallBrsRN4llvm8FunctionE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(136) %1)
+  call fastcc void @_ZL11FindCallBrsRN4llvm8FunctionE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %7 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #11
   br i1 %7, label %_ZNSt8optionalIN4llvm13DominatorTreeEED2Ev.exit, label %8
 

@@ -9360,7 +9360,7 @@ terminate.lpad.i.i.i1550:                         ; preds = %if.then.i.i.i.i.i15
 
 _ZN5boost10shared_ptrIN8QuantLib18FdmMesherCompositeEEaSERKS3_.exit: ; preds = %_ZN5boost10shared_ptrIN8QuantLib18FdmMesherCompositeEEC2ERKS3_.exit.i, %if.then.i.i5.i1543, %.noexc.i.i.i1551, %if.then.i.i.i.i.i1554
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp611) #29
-  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_110rescalePDFERKNS_5ArrayERKN5boost10shared_ptrINS_18FdmMesherCompositeEEENS_18FdmSquareRootFwdOp18TransformationTypeEd(ptr dead_on_unwind noalias nonnull writable align 8 %ref.tmp611, ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(16) %mesher, i32 noundef %160, double noundef %div)
+  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_110rescalePDFERKNS_5ArrayERKN5boost10shared_ptrINS_18FdmMesherCompositeEEENS_18FdmSquareRootFwdOp18TransformationTypeEd(ptr dead_on_unwind noalias writable align 8 %ref.tmp611, ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(16) %mesher, i32 noundef %160, double noundef %div)
           to label %invoke.cont613 unwind label %lpad612
 
 invoke.cont613:                                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib18FdmMesherCompositeEEaSERKS3_.exit
@@ -12654,7 +12654,7 @@ ehcleanup1155:                                    ; preds = %ehcleanup1154, %lpa
 
 invoke.cont1161:                                  ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i1772, %_ZN8QuantLib5ArrayC2ERKS0_.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp1163) #29
-  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_110rescalePDFERKNS_5ArrayERKN5boost10shared_ptrINS_18FdmMesherCompositeEEENS_18FdmSquareRootFwdOp18TransformationTypeEd(ptr dead_on_unwind noalias nonnull writable align 8 %ref.tmp1163, ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(16) %mesher, i32 noundef %160, double noundef %div)
+  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_110rescalePDFERKNS_5ArrayERKN5boost10shared_ptrINS_18FdmMesherCompositeEEENS_18FdmSquareRootFwdOp18TransformationTypeEd(ptr dead_on_unwind noalias writable align 8 %ref.tmp1163, ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(16) %mesher, i32 noundef %160, double noundef %div)
           to label %invoke.cont1165 unwind label %lpad1164
 
 invoke.cont1165:                                  ; preds = %invoke.cont1161
@@ -16368,7 +16368,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib18FdmMeshe
 declare void @_ZN8QuantLib18FdmMesherCompositeC1ERKN5boost10shared_ptrINS_11Fdm1dMesherEEES6_(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_110rescalePDFERKNS_5ArrayERKN5boost10shared_ptrINS_18FdmMesherCompositeEEENS_18FdmSquareRootFwdOp18TransformationTypeEd(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(16) %mesher, i32 noundef %trafoType, double noundef %alpha) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_110rescalePDFERKNS_5ArrayERKN5boost10shared_ptrINS_18FdmMesherCompositeEEENS_18FdmSquareRootFwdOp18TransformationTypeEd(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(16) %mesher, i32 noundef %trafoType, double noundef %alpha) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::FdmMesherIntegral", align 8
   %ref.tmp1.i = alloca %"class.std::function", align 8

@@ -1172,7 +1172,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare void @dissect_scsi_cdb(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_scsi_payload_databuffer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_scsi_payload_databuffer(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 32, 308) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %2) #5
   %spec.select = tail call i32 @llvm.smin.i32(i32 %6, i32 %3)
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2) #5

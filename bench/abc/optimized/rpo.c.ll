@@ -650,7 +650,7 @@ Lit_Free.exit:                                    ; preds = %.lr.ph79, %Vec_StrF
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @Lit_Alloc(ptr noundef %0, i32 noundef %1, i32 noundef %2, i8 noundef signext %3) unnamed_addr #5 {
+define internal fastcc noalias noundef ptr @Lit_Alloc(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2147483647) %2, i8 noundef signext range(i8 43, 46) %3) unnamed_addr #5 {
   %5 = icmp slt i32 %1, 6
   %6 = add nsw i32 %1, -5
   %7 = shl nuw i32 1, %6
@@ -793,7 +793,7 @@ select.unfold.i:                                  ; preds = %54, %Lit_TruthPosit
 
 58:                                               ; preds = %54
   %59 = tail call noalias ptr @malloc(i64 noundef %10) #14
-  %60 = icmp slt i32 %2, 5
+  %60 = icmp ult i32 %2, 5
   %61 = icmp sgt i32 %8, 0
   br i1 %60, label %.preheader.i, label %.preheader19.i
 

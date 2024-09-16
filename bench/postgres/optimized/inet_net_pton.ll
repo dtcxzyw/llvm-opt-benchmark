@@ -524,7 +524,7 @@ inet_net_pton_ipv4.exit:                          ; preds = %218, %.loopexit.sin
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @inet_cidr_pton_ipv6(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc noundef i32 @inet_cidr_pton_ipv6(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef range(i64 0, -1) %2) unnamed_addr #1 {
   %4 = alloca [16 x i8], align 16
   %5 = icmp ult i64 %2, 16
   br i1 %5, label %135, label %6

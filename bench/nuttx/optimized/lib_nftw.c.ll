@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @nftw(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [257 x i8], align 16
   %6 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 257) #6
-  %7 = call fastcc i32 @do_nftw(ptr noundef nonnull %5, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 0)
+  %7 = call fastcc i32 @do_nftw(ptr noundef %5, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 0)
   ret i32 %7
 }
 
@@ -21,7 +21,7 @@ define i32 @nftw(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef 
 declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_nftw(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @do_nftw(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.FTW, align 4
   %7 = alloca %struct.FTW, align 4
   %8 = alloca %struct.stat, align 8
@@ -71,12 +71,12 @@ define internal fastcc i32 @do_nftw(ptr noundef %0, ptr nocapture noundef readon
   br i1 %.not90, label %23, label %.thread
 
 23:                                               ; preds = %.critedge2
-  %24 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %8)
+  %24 = call i32 @stat(ptr noundef nonnull %0, ptr noundef nonnull %8)
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %28, label %37
 
 .thread:                                          ; preds = %.critedge2
-  %26 = call i32 @lstat(ptr noundef %0, ptr noundef nonnull %8)
+  %26 = call i32 @lstat(ptr noundef nonnull %0, ptr noundef nonnull %8)
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %.thread109, label %37
 
@@ -87,7 +87,7 @@ define internal fastcc i32 @do_nftw(ptr noundef %0, ptr nocapture noundef readon
   br i1 %31, label %32, label %.thread109
 
 32:                                               ; preds = %28
-  %33 = call i32 @lstat(ptr noundef %0, ptr noundef nonnull %8)
+  %33 = call i32 @lstat(ptr noundef nonnull %0, ptr noundef nonnull %8)
   %.not92 = icmp eq i32 %33, 0
   br i1 %.not92, label %.thread110, label %.thread109
 
@@ -115,7 +115,7 @@ define internal fastcc i32 @do_nftw(ptr noundef %0, ptr nocapture noundef readon
   %43 = and i32 %3, 4
   %.not91 = icmp eq i32 %43, 0
   %. = select i1 %.not91, i32 1, i32 3
-  %44 = tail call ptr @opendir(ptr noundef %0)
+  %44 = tail call ptr @opendir(ptr noundef nonnull %0)
   %.not93 = icmp eq ptr %44, null
   br i1 %.not93, label %49, label %45
 
@@ -151,7 +151,7 @@ define internal fastcc i32 @do_nftw(ptr noundef %0, ptr nocapture noundef readon
   br i1 %.not.i, label %.thread.i, label %59
 
 .thread.i:                                        ; preds = %54
-  %58 = call i32 %1(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %.1, ptr noundef nonnull %7) #6
+  %58 = call i32 %1(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef %.1, ptr noundef nonnull %7) #6
   br label %call_nftw.exit
 
 59:                                               ; preds = %54
@@ -163,7 +163,7 @@ define internal fastcc i32 @do_nftw(ptr noundef %0, ptr nocapture noundef readon
   %63 = getelementptr i8, ptr %0, i64 %62
   %64 = getelementptr i8, ptr %63, i64 -1
   store i8 0, ptr %64, align 1
-  %65 = tail call i32 @chdir(ptr noundef %0) #6
+  %65 = tail call i32 @chdir(ptr noundef nonnull %0) #6
   store i8 47, ptr %64, align 1
   br label %68
 
@@ -181,7 +181,7 @@ call_nftw.exit.thread:                            ; preds = %68
   br label %132
 
 70:                                               ; preds = %68
-  %71 = call i32 %1(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %.1, ptr noundef nonnull %7) #6
+  %71 = call i32 %1(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef %.1, ptr noundef nonnull %7) #6
   %72 = call i32 @lib_restoredir() #6
   br label %call_nftw.exit
 
@@ -258,7 +258,7 @@ call_nftw.exit:                                   ; preds = %.thread.i, %70
   br label %132
 
 104:                                              ; preds = %98
-  %105 = call i64 @strlcpy(ptr noundef %83, ptr noundef nonnull dereferenceable(1) %88, i64 noundef %82) #6
+  %105 = call i64 @strlcpy(ptr noundef nonnull %83, ptr noundef nonnull dereferenceable(1) %88, i64 noundef %82) #6
   %106 = call fastcc i32 @do_nftw(ptr noundef %0, ptr noundef %1, i32 noundef %84, i32 noundef %3, i32 noundef %85)
   %.not102 = icmp eq i32 %106, 0
   br i1 %.not102, label %.backedge, label %107
@@ -287,7 +287,7 @@ call_nftw.exit:                                   ; preds = %.thread.i, %70
   br i1 %.not.i104, label %.thread.i107, label %117
 
 .thread.i107:                                     ; preds = %112
-  %116 = call i32 %1(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %.1, ptr noundef nonnull %6) #6
+  %116 = call i32 %1(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef %.1, ptr noundef nonnull %6) #6
   br label %call_nftw.exit108
 
 117:                                              ; preds = %112
@@ -299,7 +299,7 @@ call_nftw.exit:                                   ; preds = %.thread.i, %70
   %121 = getelementptr i8, ptr %0, i64 %120
   %122 = getelementptr i8, ptr %121, i64 -1
   store i8 0, ptr %122, align 1
-  %123 = call i32 @chdir(ptr noundef %0) #6
+  %123 = call i32 @chdir(ptr noundef nonnull %0) #6
   store i8 47, ptr %122, align 1
   br label %126
 
@@ -317,7 +317,7 @@ call_nftw.exit108.thread:                         ; preds = %126
   br label %132
 
 128:                                              ; preds = %126
-  %129 = call i32 %1(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %.1, ptr noundef nonnull %6) #6
+  %129 = call i32 %1(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef %.1, ptr noundef nonnull %6) #6
   %130 = call i32 @lib_restoredir() #6
   br label %call_nftw.exit108
 

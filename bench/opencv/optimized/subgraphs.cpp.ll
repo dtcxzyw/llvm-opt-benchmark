@@ -5598,7 +5598,7 @@ _ZNSt10_HashtableIN3ade6HandleINS0_4NodeEEES3_SaIS3_ENSt8__detail9_IdentityESt8e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN3ade16assembleSubgraphERKNS_6HandleINS_4NodeEEENS_4util8func_refIFbRKNS0_INS_4EdgeEEENS_22SubgraphMergeDirectionEEEENS6_IFbRKSt13unordered_setIS2_NS_12HandleHasherIS1_EESt8equal_toIS2_ESaIS2_EESM_EEEENK3$_0clESA_SB_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZN3ade16assembleSubgraphERKNS_6HandleINS_4NodeEEENS_4util8func_refIFbRKNS0_INS_4EdgeEEENS_22SubgraphMergeDirectionEEEENS6_IFbRKSt13unordered_setIS2_NS_12HandleHasherIS1_EESt8equal_toIS2_ESaIS2_EESM_EEEENK3$_0clESA_SB_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__detail::_AllocNode", align 8
   %5 = alloca %"class.ade::Handle", align 8
   %6 = alloca %"struct.std::__detail::_AllocNode", align 8

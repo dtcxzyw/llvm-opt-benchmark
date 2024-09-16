@@ -751,7 +751,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %51, %61
 71:                                               ; preds = %61
   %72 = load ptr, ptr %17, align 8
   %73 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #9
-  call fastcc void @_ZL33getHighestNumericTupleInDirectoryB5cxx11RN4llvm3vfs10FileSystemENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %72, i64 %73)
+  call fastcc void @_ZL33getHighestNumericTupleInDirectoryB5cxx11RN4llvm3vfs10FileSystemENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %72, i64 %73)
   %74 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store i8 4, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %26, i64 33
@@ -858,7 +858,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit15.thread:    ; preds = %_ZN4llvm11SmallStri
   call void @_ZN4llvm3sys4path6appendERNS_15SmallVectorImplIcEERKNS_5TwineES7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef nonnull align 8 dereferenceable(34) %11, ptr noundef nonnull align 8 dereferenceable(34) %12) #9
   %112 = load ptr, ptr %8, align 8
   %113 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #9
-  call fastcc void @_ZL33getHighestNumericTupleInDirectoryB5cxx11RN4llvm3vfs10FileSystemENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %112, i64 %113)
+  call fastcc void @_ZL33getHighestNumericTupleInDirectoryB5cxx11RN4llvm3vfs10FileSystemENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %112, i64 %113)
   %114 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %13) #9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #9
   %115 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #9
@@ -998,7 +998,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %45, %46
 49:                                               ; preds = %30
   %50 = load ptr, ptr %10, align 8
   %51 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #9
-  call fastcc void @_ZL33getHighestNumericTupleInDirectoryB5cxx11RN4llvm3vfs10FileSystemENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %50, i64 %51)
+  call fastcc void @_ZL33getHighestNumericTupleInDirectoryB5cxx11RN4llvm3vfs10FileSystemENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(12) %0, ptr %50, i64 %51)
   br label %52
 
 52:                                               ; preds = %49, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit

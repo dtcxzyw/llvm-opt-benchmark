@@ -729,7 +729,7 @@ if.then25:                                        ; preds = %lor.lhs.false22, %i
   br label %if.end37
 
 if.else29:                                        ; preds = %lor.lhs.false22
-  %call30 = tail call fastcc noundef signext i8 @_ZL15ucbuf_isCPKnownPKc(ptr noundef nonnull %5)
+  %call30 = tail call fastcc noundef signext i8 @_ZL15ucbuf_isCPKnownPKc(ptr noundef %5)
   %tobool31.not = icmp eq i8 %call30, 0
   br i1 %tobool31.not, label %if.end37, label %if.then32
 
@@ -843,54 +843,54 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #5
 declare i32 @T_FileStream_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL15ucbuf_isCPKnownPKc(ptr noundef %cp) unnamed_addr #0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL15ucbuf_isCPKnownPKc(ptr noundef nonnull %cp) unnamed_addr #0 {
 entry:
-  %call = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull @.str.9, ptr noundef %cp)
+  %call = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull @.str.9, ptr noundef nonnull %cp)
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull @.str.10, ptr noundef %cp)
+  %call1 = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull @.str.10, ptr noundef nonnull %cp)
   %cmp2 = icmp eq i32 %call1, 0
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull @.str.11, ptr noundef %cp)
+  %call5 = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull @.str.11, ptr noundef nonnull %cp)
   %cmp6 = icmp eq i32 %call5, 0
   br i1 %cmp6, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  %call9 = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull @.str.12, ptr noundef %cp)
+  %call9 = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull @.str.12, ptr noundef nonnull %cp)
   %cmp10 = icmp eq i32 %call9, 0
   br i1 %cmp10, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %call13 = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull @.str.13, ptr noundef %cp)
+  %call13 = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull @.str.13, ptr noundef nonnull %cp)
   %cmp14 = icmp eq i32 %call13, 0
   br i1 %cmp14, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end12
-  %call17 = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull @.str.14, ptr noundef %cp)
+  %call17 = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull @.str.14, ptr noundef nonnull %cp)
   %cmp18 = icmp eq i32 %call17, 0
   br i1 %cmp18, label %return, label %if.end20
 
 if.end20:                                         ; preds = %if.end16
-  %call21 = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull @.str.15, ptr noundef %cp)
+  %call21 = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull @.str.15, ptr noundef nonnull %cp)
   %cmp22 = icmp eq i32 %call21, 0
   br i1 %cmp22, label %return, label %if.end24
 
 if.end24:                                         ; preds = %if.end20
-  %call25 = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull @.str.16, ptr noundef %cp)
+  %call25 = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull @.str.16, ptr noundef nonnull %cp)
   %cmp26 = icmp eq i32 %call25, 0
   br i1 %cmp26, label %return, label %if.end28
 
 if.end28:                                         ; preds = %if.end24
-  %call29 = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull @.str.17, ptr noundef %cp)
+  %call29 = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull @.str.17, ptr noundef nonnull %cp)
   %cmp30 = icmp eq i32 %call29, 0
   br i1 %cmp30, label %return, label %if.end32
 
 if.end32:                                         ; preds = %if.end28
-  %call33 = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull @.str.18, ptr noundef %cp)
+  %call33 = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull @.str.18, ptr noundef nonnull %cp)
   %cmp34 = icmp eq i32 %call33, 0
   %. = zext i1 %cmp34 to i8
   br label %return

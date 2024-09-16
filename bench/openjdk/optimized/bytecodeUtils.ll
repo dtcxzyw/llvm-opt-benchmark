@@ -2911,7 +2911,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit113:  ; preds = %44, %48
 declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15print_local_varP12outputStreamjP6Methodib(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #2 {
+define internal fastcc void @_ZL15print_local_varP12outputStreamjP6Methodib(ptr noundef %0, i32 noundef range(i32 0, 131072) %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, i1 noundef zeroext %4) unnamed_addr #2 {
   %6 = alloca %class.SignatureStream, align 8
   %7 = alloca %class.SignatureStream, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 8
@@ -3074,7 +3074,7 @@ define internal fastcc void @_ZL15print_local_varP12outputStreamjP6Methodib(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21print_field_and_classP12outputStreamP6MethodiN9Bytecodes4CodeE(ptr noundef %0, ptr nonnull %.8.val.8.val, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @_ZL21print_field_and_classP12outputStreamP6MethodiN9Bytecodes4CodeE(ptr noundef %0, ptr nonnull %.8.val.8.val, i32 noundef range(i32 0, 65536) %1) unnamed_addr #2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 800
@@ -3130,7 +3130,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %31, %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL14get_field_nameP6MethodiN9Bytecodes4CodeE(ptr nonnull %.8.val.8.val, i32 noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL14get_field_nameP6MethodiN9Bytecodes4CodeE(ptr nonnull %.8.val.8.val, i32 noundef range(i32 0, 65536) %0, i32 noundef range(i32 180, 182) %1) unnamed_addr #2 {
   %3 = tail call noundef zeroext i16 @_ZN12ConstantPool26name_and_type_ref_index_atEiN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(68) %.8.val.8.val, i32 noundef %0, i32 noundef %1) #12
   %4 = zext i16 %3 to i32
   %5 = tail call noundef zeroext i16 @_ZN12ConstantPool17name_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %.8.val.8.val, i32 noundef %4) #12
@@ -3143,7 +3143,7 @@ define internal fastcc noundef ptr @_ZL14get_field_nameP6MethodiN9Bytecodes4Code
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17print_method_nameP12outputStreamP6MethodiN9Bytecodes4CodeE(ptr noundef %0, ptr nonnull %.8.val.8.val, i32 noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc void @_ZL17print_method_nameP12outputStreamP6MethodiN9Bytecodes4CodeE(ptr noundef %0, ptr nonnull %.8.val.8.val, i32 noundef range(i32 0, 65536) %1, i32 noundef %2) unnamed_addr #2 {
   %4 = alloca %class.stringStream, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8

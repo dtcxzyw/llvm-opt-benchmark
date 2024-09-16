@@ -22854,7 +22854,7 @@ _ZN6duckdb10unique_ptrINS_25DecimalArithmeticBindDataESt14default_deleteIS1_ELb1
 declare void @_ZN6duckdb11LogicalType7DECIMALEii(ptr dead_on_unwind writable sret(%"struct.duckdb::LogicalType") align 8, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL23GetScalarBinaryFunctionINS_28DecimalMultiplyOverflowCheckEEESt8functionIFvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, i8 noundef zeroext %type) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL23GetScalarBinaryFunctionINS_28DecimalMultiplyOverflowCheckEEESt8functionIFvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, i8 noundef zeroext %type) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp25.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp26.i = alloca %"class.std::allocator", align 1
@@ -28130,7 +28130,7 @@ ehcleanup281:                                     ; preds = %ehcleanup280, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL27GetBinaryFunctionIgnoreZeroINS_14DivideOperatorEEESt8functionIFvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEERKNS_11LogicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, i8 %type.0.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL27GetBinaryFunctionIgnoreZeroINS_14DivideOperatorEEESt8functionIFvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEERKNS_11LogicalTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, i8 %type.0.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::allocator", align 1
@@ -34425,7 +34425,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 declare noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL23GetScalarBinaryFunctionINS_23DecimalAddOverflowCheckEEESt8functionIFvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, i8 noundef zeroext %type) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL23GetScalarBinaryFunctionINS_23DecimalAddOverflowCheckEEESt8functionIFvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, i8 noundef zeroext %type) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp25.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp26.i = alloca %"class.std::allocator", align 1
@@ -58408,7 +58408,7 @@ cleanup:                                          ; preds = %if.end7, %if.else.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL24GetScalarIntegerFunctionINS_11AddOperatorEEESt8functionIFvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, i8 noundef zeroext %type) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL24GetScalarIntegerFunctionINS_11AddOperatorEEESt8functionIFvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, i8 noundef zeroext %type) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp25 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp26 = alloca %"class.std::allocator", align 1
@@ -117554,7 +117554,7 @@ if.end24:                                         ; preds = %if.end, %if.end.us,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL23GetScalarBinaryFunctionINS_28DecimalSubtractOverflowCheckEEESt8functionIFvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, i8 noundef zeroext %type) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL23GetScalarBinaryFunctionINS_28DecimalSubtractOverflowCheckEEESt8functionIFvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, i8 noundef zeroext %type) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp25.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp26.i = alloca %"class.std::allocator", align 1
@@ -139617,7 +139617,7 @@ cleanup:                                          ; preds = %if.end7, %if.else.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL24GetScalarIntegerFunctionINS_16SubtractOperatorEEESt8functionIFvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, i8 noundef zeroext %type) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL24GetScalarIntegerFunctionINS_16SubtractOperatorEEESt8functionIFvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, i8 noundef zeroext %type) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp25 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp26 = alloca %"class.std::allocator", align 1
@@ -202339,7 +202339,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL24GetScalarIntegerFunctionINS_16MultiplyOperatorEEESt8functionIFvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, i8 noundef zeroext %type) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL24GetScalarIntegerFunctionINS_16MultiplyOperatorEEESt8functionIFvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, i8 noundef zeroext %type) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp25 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp26 = alloca %"class.std::allocator", align 1

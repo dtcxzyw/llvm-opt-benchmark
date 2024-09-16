@@ -3392,7 +3392,7 @@ declare dso_local ptr @idr_get_next(ptr noundef, ptr noundef) local_unnamed_addr
 declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @create_dynamic_oa_sysfs_entry(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @create_dynamic_oa_sysfs_entry(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 160
   store ptr @.str.36, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 168
@@ -6410,7 +6410,7 @@ define internal fastcc void @intel_engine_pm_get(ptr noundef %0) unnamed_addr #5
 declare dso_local void @intel_uncore_forcewake_get(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @alloc_oa_buffer(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc i32 @alloc_oa_buffer(ptr nocapture noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_gem_ww_ctx, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
@@ -6651,7 +6651,7 @@ define internal fastcc i32 @alloc_oa_buffer(ptr nocapture noundef %0) unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @i915_perf_stream_enable_sync(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc i32 @i915_perf_stream_enable_sync(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = tail call ptr @i915_active_create() #20
   %3 = icmp eq ptr %2, null
   br i1 %3, label %13, label %4
@@ -6660,7 +6660,7 @@ define internal fastcc i32 @i915_perf_stream_enable_sync(ptr noundef %0) unnamed
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 192
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(ptr noundef %0, ptr noundef nonnull %2) #20
+  %8 = tail call i32 %7(ptr noundef nonnull %0, ptr noundef nonnull %2) #20
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %12
 
@@ -6853,7 +6853,7 @@ define internal fastcc void @free_oa_configs(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @oa_put_render_ctx_id(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @oa_put_render_ctx_id(ptr nocapture noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   store ptr null, ptr %2, align 8
@@ -8780,7 +8780,7 @@ declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, 
 declare dso_local i32 @__intel_wait_for_register(ptr noundef, i32, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -28, 1) i32 @append_oa_status(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -28, 1) i32 @append_oa_status(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef range(i32 2, 4) %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.drm_i915_perf_record_header, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
   store i64 2251799813685248, ptr %5, align 8, !annotation !16
@@ -9068,7 +9068,7 @@ define internal fastcc i32 @lrc_configure_all_contexts(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @oa_configure_all_contexts(ptr %.0.val.0.val, ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @oa_configure_all_contexts(ptr %.0.val.0.val, ptr nocapture noundef %0, i64 noundef range(i64 1, 10) %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.i915_gem_engines_iter, align 8
   %5 = getelementptr inbounds i8, ptr %.0.val.0.val, i64 9336
   tail call void @_raw_spin_lock(ptr noundef %5) #20
@@ -9327,7 +9327,7 @@ declare dso_local ptr @rb_first(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @intel_sseu_make_rpcs(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @gen8_modify_self(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @gen8_modify_self(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 1, 10) %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 352
@@ -9434,7 +9434,7 @@ define internal fastcc i32 @gen8_modify_self(ptr noundef %0, ptr nocapture nound
   %67 = getelementptr i8, ptr %62, i64 8
   store i32 %66, ptr %64, align 4
   %68 = getelementptr i8, ptr %60, i64 12
-  %69 = add i32 %61, -1
+  %69 = add nsw i32 %61, -1
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %59, !llvm.loop !160
 
@@ -9462,7 +9462,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 sectio
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @gen8_modify_context(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @gen8_modify_context(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 1, 10) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 352
@@ -9574,7 +9574,7 @@ define internal fastcc i32 @gen8_modify_context(ptr noundef %0, ptr nocapture no
   %72 = getelementptr i8, ptr %62, i64 16
   store i32 %71, ptr %69, align 4
   %73 = getelementptr i8, ptr %60, i64 12
-  %74 = add i32 %61, -1
+  %74 = add nsw i32 %61, -1
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %.loopexit, label %59, !llvm.loop !161
 

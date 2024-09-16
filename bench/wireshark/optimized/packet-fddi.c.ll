@@ -242,7 +242,7 @@ declare void @capture_dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) 
 declare ptr @find_capture_dissector(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fddi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_fddi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca [6 x i8], align 1
   %6 = alloca [6 x i8], align 1
   %7 = getelementptr inbounds i8, ptr %1, i64 408

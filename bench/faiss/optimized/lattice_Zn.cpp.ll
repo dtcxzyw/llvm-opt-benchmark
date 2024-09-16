@@ -2305,7 +2305,7 @@ define void @_ZN5faiss14ZnSphereSearchC2Eii(ptr nocapture noundef nonnull align 
   %10 = tail call double @llvm.ceil.f64(double %9)
   %11 = fadd double %10, 1.000000e+00
   %12 = fptosi double %11 to i32
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_unwind noalias nonnull writable align 8 %4, float noundef %7, i32 noundef %12, i32 noundef %1)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_unwind noalias writable align 8 %4, float noundef %7, i32 noundef %12, i32 noundef %1)
           to label %13 unwind label %33
 
 13:                                               ; preds = %3
@@ -2359,7 +2359,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit9:                   ; preds = %33, %36
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_unwind noalias nocapture writable align 8 %0, float noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, float noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.11", align 8
   %6 = fcmp olt float %1, 0.000000e+00
   br i1 %6, label %7, label %8
@@ -2423,7 +2423,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_
   %29 = uitofp nneg i32 %.13679.us to float
   %30 = fmul float %29, %29
   %31 = fsub float %1, %30
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_unwind noalias nonnull writable align 8 %5, float noundef %31, i32 noundef %.13679.us, i32 noundef %23)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_unwind noalias writable align 8 %5, float noundef %31, i32 noundef %.13679.us, i32 noundef %23)
           to label %.preheader54.us unwind label %.split81.us
 
 ._crit_edge69.split.us.us:                        ; preds = %._crit_edge.us.us, %.preheader54.us
@@ -2625,7 +2625,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit.us.us:    ; preds = %_ZNSt6vectorIfSaIfE
   %106 = uitofp nneg i32 %.13679 to float
   %107 = fmul float %106, %106
   %108 = fsub float %1, %107
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_unwind noalias nonnull writable align 8 %5, float noundef %108, i32 noundef %.13679, i32 noundef %23)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_unwind noalias writable align 8 %5, float noundef %108, i32 noundef %.13679, i32 noundef %23)
           to label %.preheader54 unwind label %.split81
 
 .preheader54:                                     ; preds = %.lr.ph.split
@@ -3760,7 +3760,7 @@ define void @_ZN5faiss13ZnSphereCodecC2Eii(ptr noundef nonnull align 8 dereferen
   %13 = tail call double @llvm.ceil.f64(double %12)
   %14 = fadd double %13, 1.000000e+00
   %15 = fptosi double %14 to i32
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_unwind noalias nonnull writable align 8 %4, float noundef %10, i32 noundef %15, i32 noundef %1)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_unwind noalias writable align 8 %4, float noundef %10, i32 noundef %15, i32 noundef %1)
           to label %16 unwind label %26
 
 16:                                               ; preds = %3

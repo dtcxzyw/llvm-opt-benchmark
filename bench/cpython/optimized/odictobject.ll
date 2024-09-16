@@ -3164,7 +3164,7 @@ return:                                           ; preds = %if.end13, %if.else,
 declare i32 @PyObject_RichCompareBool(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @odictiter_new(ptr noundef %od, i32 noundef %kind) unnamed_addr #0 {
+define internal fastcc ptr @odictiter_new(ptr noundef %od, i32 noundef range(i32 2, 8) %kind) unnamed_addr #0 {
 entry:
   %and = and i32 %kind, 1
   %call = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @PyODictIter_Type) #7

@@ -414,7 +414,7 @@ cond.false.i.i.i18:                               ; preds = %invoke.cont33
   unreachable
 
 _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit21: ; preds = %invoke.cont33
-  invoke fastcc void @_ZN3re2L5truncB5cxx11EN4absl7debian211string_viewE(ptr noalias nonnull align 8 %ref.tmp35, ptr %call.i15, i64 %call2.i16)
+  invoke fastcc void @_ZN3re2L5truncB5cxx11EN4absl7debian211string_viewE(ptr noalias align 8 %ref.tmp35, ptr %call.i15, i64 %call2.i16)
           to label %invoke.cont38 unwind label %lpad30
 
 invoke.cont38:                                    ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit21
@@ -617,7 +617,7 @@ cond.false.i.i.i51:                               ; preds = %invoke.cont109
   unreachable
 
 _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit54: ; preds = %invoke.cont109
-  invoke fastcc void @_ZN3re2L5truncB5cxx11EN4absl7debian211string_viewE(ptr noalias nonnull align 8 %ref.tmp111, ptr %call.i48, i64 %call2.i49)
+  invoke fastcc void @_ZN3re2L5truncB5cxx11EN4absl7debian211string_viewE(ptr noalias align 8 %ref.tmp111, ptr %call.i48, i64 %call2.i49)
           to label %invoke.cont114 unwind label %lpad106
 
 invoke.cont114:                                   ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit54
@@ -1102,7 +1102,7 @@ declare noundef ptr @_ZN3re26Regexp5ParseEN4absl7debian211string_viewENS0_10Pars
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3re2L5truncB5cxx11EN4absl7debian211string_viewE(ptr noalias align 8 %agg.result, ptr %pattern.coerce0, i64 %pattern.coerce1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3re2L5truncB5cxx11EN4absl7debian211string_viewE(ptr noalias nonnull align 8 %agg.result, ptr %pattern.coerce0, i64 %pattern.coerce1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i2 = alloca %"class.std::allocator", align 1
   %ref.tmp.i = alloca %"class.std::allocator", align 1
@@ -1301,7 +1301,7 @@ cond.false.i.i.i.i.i.i.i.i:                       ; preds = %invoke.cont.i.i.i.i
   unreachable
 
 _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit.i.i.i.i.i: ; preds = %invoke.cont.i.i.i.i.i
-  invoke fastcc void @_ZN3re2L5truncB5cxx11EN4absl7debian211string_viewE(ptr noalias nonnull align 8 %ref.tmp9.i.i.i.i.i, ptr %call.i.i.i.i.i.i, i64 %call2.i.i.i.i.i.i)
+  invoke fastcc void @_ZN3re2L5truncB5cxx11EN4absl7debian211string_viewE(ptr noalias align 8 %ref.tmp9.i.i.i.i.i, ptr %call.i.i.i.i.i.i, i64 %call2.i.i.i.i.i.i)
           to label %invoke.cont10.i.i.i.i.i unwind label %lpad.i.i.i.i.i
 
 invoke.cont10.i.i.i.i.i:                          ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit.i.i.i.i.i
@@ -1564,7 +1564,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc noundef i32 @_ZN3re2L6FanoutEPNS_4ProgEPSt6vectorIiSaIiEE(ptr noundef nonnull %0, ptr noundef %histogram)
+  %call = tail call fastcc noundef i32 @_ZN3re2L6FanoutEPNS_4ProgEPSt6vectorIiSaIiEE(ptr noundef %0, ptr noundef %histogram)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1573,7 +1573,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -1, 33) i32 @_ZN3re2L6FanoutEPNS_4ProgEPSt6vectorIiSaIiEE(ptr noundef %prog, ptr noundef %histogram) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -1, 33) i32 @_ZN3re2L6FanoutEPNS_4ProgEPSt6vectorIiSaIiEE(ptr noundef nonnull %prog, ptr noundef %histogram) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %fanout = alloca %"class.re2::SparseArray", align 8
   %data = alloca [32 x i32], align 16
@@ -1712,7 +1712,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call fastcc noundef i32 @_ZN3re2L6FanoutEPNS_4ProgEPSt6vectorIiSaIiEE(ptr noundef nonnull %call, ptr noundef %histogram)
+  %call5 = tail call fastcc noundef i32 @_ZN3re2L6FanoutEPNS_4ProgEPSt6vectorIiSaIiEE(ptr noundef %call, ptr noundef %histogram)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end4

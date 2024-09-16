@@ -772,7 +772,7 @@ return:                                           ; preds = %if.end31, %if.end14
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN3ue2L15streamStateSizeE10RepeatTypeRKNS_5depthES3_j(i32 noundef %type, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %repeatMin, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %repeatMax, i32 noundef %minPeriod) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN3ue2L15streamStateSizeE10RepeatTypeRKNS_5depthES3_j(i32 noundef range(i32 3, 6) %type, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %repeatMin, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %repeatMax, i32 noundef %minPeriod) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %rsi = alloca %"struct.ue2::RepeatStateInfo", align 8
   call void @_ZN3ue215RepeatStateInfoC2E10RepeatTypeRKNS_5depthES4_j(ptr noundef nonnull align 8 dereferenceable(80) %rsi, i32 noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %repeatMin, ptr noundef nonnull align 4 dereferenceable(4) %repeatMax, i32 noundef %minPeriod)

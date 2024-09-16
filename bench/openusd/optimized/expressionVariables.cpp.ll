@@ -128,7 +128,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22PcpExpressionVariables7Compu
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34Pcp_ComposeExpressionVariablesOverERKNS_23PcpLayerStackIdentifierEPKNS_12VtDictionaryE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull %15)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34Pcp_ComposeExpressionVariablesOverERKNS_23PcpLayerStackIdentifierEPKNS_12VtDictionaryE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %15)
   %16 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_12VtDictionaryES2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %17 unwind label %34
 
@@ -338,7 +338,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierESaIS1_
   %88 = add i64 %.in.i, -1
   %89 = load ptr, ptr %6, align 8
   %90 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::PcpLayerStackIdentifier", ptr %89, i64 %88
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34Pcp_ComposeExpressionVariablesOverERKNS_23PcpLayerStackIdentifierEPKNS_12VtDictionaryE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(80) %90, ptr noundef nonnull %.144.sroa.phi.i)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34Pcp_ComposeExpressionVariablesOverERKNS_23PcpLayerStackIdentifierEPKNS_12VtDictionaryE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(80) %90, ptr noundef %.144.sroa.phi.i)
           to label %91 unwind label %.loopexit.i
 
 91:                                               ; preds = %87
@@ -607,7 +607,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit: ; preds = %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34Pcp_ComposeExpressionVariablesOverERKNS_23PcpLayerStackIdentifierEPKNS_12VtDictionaryE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34Pcp_ComposeExpressionVariablesOverERKNS_23PcpLayerStackIdentifierEPKNS_12VtDictionaryE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noundef nonnull %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -1426,7 +1426,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierESaIS1_
   %82 = load ptr, ptr %6, align 8
   %83 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::PcpLayerStackIdentifier", ptr %82, i64 %81
   %84 = getelementptr inbounds nuw i8, ptr %.182.i, i64 16
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34Pcp_ComposeExpressionVariablesOverERKNS_23PcpLayerStackIdentifierEPKNS_12VtDictionaryE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(80) %83, ptr noundef nonnull %84)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34Pcp_ComposeExpressionVariablesOverERKNS_23PcpLayerStackIdentifierEPKNS_12VtDictionaryE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(80) %83, ptr noundef %84)
           to label %85 unwind label %.loopexit.i
 
 85:                                               ; preds = %80

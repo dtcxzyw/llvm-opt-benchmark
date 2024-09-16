@@ -884,7 +884,7 @@ define range(i32 0, 2) i32 @agraphattr_delete(ptr noundef %0) local_unnamed_addr
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  tail call fastcc void @freeattr(ptr noundef %0, ptr noundef nonnull %3)
+  tail call fastcc void @freeattr(ptr noundef %0, ptr noundef %3)
   %5 = load ptr, ptr %3, align 8
   %6 = tail call i32 @agdelrec(ptr noundef %0, ptr noundef %5) #7
   br label %7
@@ -926,7 +926,7 @@ define range(i32 0, 2) i32 @agraphattr_delete(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @freeattr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @freeattr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = tail call ptr @agraphof(ptr noundef %0) #7
   %4 = tail call ptr @agraphof(ptr noundef %0) #7
   %5 = tail call ptr @agroot(ptr noundef %4) #7
@@ -1005,7 +1005,7 @@ define void @agnodeattr_delete(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  tail call fastcc void @freeattr(ptr noundef %0, ptr noundef nonnull %3)
+  tail call fastcc void @freeattr(ptr noundef %0, ptr noundef %3)
   %5 = load ptr, ptr @AgDataRecName, align 8
   %6 = tail call i32 @agdelrec(ptr noundef %0, ptr noundef %5) #7
   br label %7
@@ -1043,7 +1043,7 @@ define void @agedgeattr_delete(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  tail call fastcc void @freeattr(ptr noundef %0, ptr noundef nonnull %3)
+  tail call fastcc void @freeattr(ptr noundef %0, ptr noundef %3)
   %5 = load ptr, ptr @AgDataRecName, align 8
   %6 = tail call i32 @agdelrec(ptr noundef %0, ptr noundef %5) #7
   br label %7

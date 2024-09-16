@@ -24,7 +24,7 @@ define internal void @"_ZN4core3ptr52drop_in_place$LT$std..thread..local..Access
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$regex..regex..string..Regex$GT$$GT$17hd65aca9c4fbb62a3E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$regex..regex..string..Regex$GT$$GT$17hd65aca9c4fbb62a3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17he514b7953ca4a7b1E.exit", label %4
@@ -740,7 +740,7 @@ define noundef range(i32 0, 8) i32 @ts_highlighter_add_language(ptr noundef %0, 
 .thread212.i:                                     ; preds = %178, %96
   %.pn218.i = phi { ptr, i32 } [ %97, %96 ], [ %lpad.thr_comm.split-lp.i, %178 ]
   %.7216.i = phi i8 [ %.4.i, %96 ], [ 0, %178 ]
-  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$regex..regex..string..Regex$GT$$GT$17hd65aca9c4fbb62a3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %28) #18
+  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$regex..regex..string..Regex$GT$$GT$17hd65aca9c4fbb62a3E"(ptr noalias noundef align 8 dereferenceable(32) %28) #18
           to label %.thread.i unwind label %179, !noalias !42
 
 206:                                              ; preds = %202, %.noexc180.i

@@ -5530,7 +5530,7 @@ declare dso_local i32 @bitmap_bitremap(i32 noundef, ptr noundef, ptr noundef, i3
 declare dso_local ptr @find_vma(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @queue_pages_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc i64 @queue_pages_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef range(i64 96, 4294967296) %4, ptr noundef %5) unnamed_addr #0 align 16 {
   %7 = alloca %struct.queue_pages, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #19
   store ptr %5, ptr %7, align 8
@@ -6405,7 +6405,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 sectio
 declare dso_local void @up_read(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @mbind_range(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @mbind_range(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call i64 @llvm.umin.i64(i64 %8, i64 %4)
@@ -6496,7 +6496,7 @@ define internal fastcc i32 @mbind_range(ptr noundef %0, ptr noundef %1, ptr noca
   %58 = load ptr, ptr %2, align 8
   %59 = getelementptr inbounds i8, ptr %1, i64 32
   %60 = load i64, ptr %59, align 8
-  %61 = tail call ptr @vma_modify(ptr noundef %0, ptr noundef %58, ptr noundef %1, i64 noundef %14, i64 noundef %9, i64 noundef %60, ptr noundef %5, ptr noundef null) #19
+  %61 = tail call ptr @vma_modify(ptr noundef %0, ptr noundef %58, ptr noundef nonnull %1, i64 noundef %14, i64 noundef %9, i64 noundef %60, ptr noundef %5, ptr noundef null) #19
   %62 = icmp ugt ptr %61, inttoptr (i64 -4096 to ptr)
   br i1 %62, label %63, label %66
 
@@ -6811,7 +6811,7 @@ declare dso_local i32 @security_task_movememory(ptr noundef) local_unnamed_addr 
 declare dso_local ptr @get_task_mm(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @put_task_struct(ptr noundef %0) unnamed_addr #5 align 16 {
+define internal fastcc void @put_task_struct(ptr noundef nonnull %0) unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 -1, ptr elementtype(i32) %2) #19, !srcloc !31
   %4 = icmp eq i32 %3, 1
@@ -6827,7 +6827,7 @@ define internal fastcc void @put_task_struct(ptr noundef %0) unnamed_addr #5 ali
 
 8:                                                ; preds = %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !32
-  tail call void @__put_task_struct(ptr noundef %0) #19
+  tail call void @__put_task_struct(ptr noundef nonnull %0) #19
   br label %.thread
 
 .thread:                                          ; preds = %5, %7, %8
@@ -6847,7 +6847,7 @@ declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_u
 declare dso_local void @__put_task_struct(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nofree nounwind null_pointer_is_valid memory(read)
-define internal fastcc range(i32 0, 65) i32 @__next_node_in(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #17 align 16 {
+define internal fastcc range(i32 0, 65) i32 @__next_node_in(i32 noundef range(i32 -32768, 32768) %0, ptr nocapture noundef readonly %1) unnamed_addr #17 align 16 {
   %3 = add nsw i32 %0, 1
   %4 = icmp ugt i32 %3, 63
   %.pr.pre = load i64, ptr %1, align 8

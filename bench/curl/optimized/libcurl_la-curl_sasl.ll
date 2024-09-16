@@ -566,7 +566,7 @@ if.then169:                                       ; preds = %if.then166
   %sasl.val = load ptr, ptr %sasl, align 8
   %28 = getelementptr i8, ptr %sasl.val, i64 58
   %sasl.val.val = load i16, ptr %28, align 2
-  %call170 = call fastcc i32 @build_message(i16 %sasl.val.val, ptr noundef nonnull %resp)
+  %call170 = call fastcc i32 @build_message(i16 %sasl.val.val, ptr noundef %resp)
   br label %if.end171
 
 if.end171:                                        ; preds = %if.then169, %if.then166
@@ -641,7 +641,7 @@ declare i32 @Curl_auth_create_login_message(ptr noundef, ptr noundef) local_unna
 declare ptr @Curl_bufref_ptr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @build_message(i16 %sasl.0.val.58.val, ptr noundef %msg) unnamed_addr #0 {
+define internal fastcc i32 @build_message(i16 %sasl.0.val.58.val, ptr noundef nonnull %msg) unnamed_addr #0 {
 entry:
   %base64 = alloca ptr, align 8
   %base64len = alloca i64, align 8
@@ -650,26 +650,26 @@ entry:
   br i1 %tobool.not, label %if.end14, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @Curl_bufref_ptr(ptr noundef %msg) #7
+  %call = tail call ptr @Curl_bufref_ptr(ptr noundef nonnull %msg) #7
   %tobool1.not = icmp eq ptr %call, null
   br i1 %tobool1.not, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
-  tail call void @Curl_bufref_set(ptr noundef %msg, ptr noundef nonnull @.str.14, i64 noundef 0, ptr noundef null) #7
+  tail call void @Curl_bufref_set(ptr noundef nonnull %msg, ptr noundef nonnull @.str.14, i64 noundef 0, ptr noundef null) #7
   br label %if.end14
 
 if.else:                                          ; preds = %if.then
-  %call3 = tail call i64 @Curl_bufref_len(ptr noundef %msg) #7
+  %call3 = tail call i64 @Curl_bufref_len(ptr noundef nonnull %msg) #7
   %tobool4.not = icmp eq i64 %call3, 0
   br i1 %tobool4.not, label %if.then5, label %if.else6
 
 if.then5:                                         ; preds = %if.else
-  tail call void @Curl_bufref_set(ptr noundef %msg, ptr noundef nonnull @.str.15, i64 noundef 1, ptr noundef null) #7
+  tail call void @Curl_bufref_set(ptr noundef nonnull %msg, ptr noundef nonnull @.str.15, i64 noundef 1, ptr noundef null) #7
   br label %if.end14
 
 if.else6:                                         ; preds = %if.else
-  %call7 = tail call ptr @Curl_bufref_ptr(ptr noundef %msg) #7
-  %call8 = tail call i64 @Curl_bufref_len(ptr noundef %msg) #7
+  %call7 = tail call ptr @Curl_bufref_ptr(ptr noundef nonnull %msg) #7
+  %call8 = tail call i64 @Curl_bufref_len(ptr noundef nonnull %msg) #7
   %call9 = call i32 @Curl_base64_encode(ptr noundef %call7, i64 noundef %call8, ptr noundef nonnull %base64, ptr noundef nonnull %base64len) #7
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.then11, label %if.end14
@@ -677,7 +677,7 @@ if.else6:                                         ; preds = %if.else
 if.then11:                                        ; preds = %if.else6
   %1 = load ptr, ptr %base64, align 8
   %2 = load i64, ptr %base64len, align 8
-  call void @Curl_bufref_set(ptr noundef %msg, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @curl_free) #7
+  call void @Curl_bufref_set(ptr noundef nonnull %msg, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @curl_free) #7
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then2, %if.else6, %if.then11, %if.then5, %entry
@@ -803,7 +803,7 @@ sw.bb30:                                          ; preds = %if.end21
   br label %sw.epilog
 
 sw.bb33:                                          ; preds = %if.end21
-  %call34 = call fastcc i32 @get_server_message(ptr noundef nonnull %sasl, ptr noundef nonnull %data, ptr noundef nonnull %serverdata)
+  %call34 = call fastcc i32 @get_server_message(ptr noundef nonnull %sasl, ptr noundef nonnull %data, ptr noundef %serverdata)
   %tobool35.not = icmp eq i32 %call34, 0
   br i1 %tobool35.not, label %if.then36, label %sw.epilog
 
@@ -816,7 +816,7 @@ if.then36:                                        ; preds = %sw.bb33
   br label %sw.epilog
 
 sw.bb41:                                          ; preds = %if.end21
-  %call42 = call fastcc i32 @get_server_message(ptr noundef nonnull %sasl, ptr noundef nonnull %data, ptr noundef nonnull %serverdata)
+  %call42 = call fastcc i32 @get_server_message(ptr noundef nonnull %sasl, ptr noundef nonnull %data, ptr noundef %serverdata)
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %if.end48, label %sw.epilog
 
@@ -849,7 +849,7 @@ sw.bb56:                                          ; preds = %if.end21
   br label %sw.epilog
 
 sw.bb60:                                          ; preds = %if.end21
-  %call61 = call fastcc i32 @get_server_message(ptr noundef nonnull %sasl, ptr noundef nonnull %data, ptr noundef nonnull %serverdata)
+  %call61 = call fastcc i32 @get_server_message(ptr noundef nonnull %sasl, ptr noundef nonnull %data, ptr noundef %serverdata)
   %tobool62.not = icmp eq i32 %call61, 0
   br i1 %tobool62.not, label %if.end66, label %sw.epilog
 
@@ -960,7 +960,7 @@ sw.bb108:                                         ; preds = %sw.epilog.thread, %
   %sasl.val = load ptr, ptr %sasl, align 8
   %41 = getelementptr i8, ptr %sasl.val, i64 58
   %sasl.val.val = load i16, ptr %41, align 2
-  %call109 = call fastcc i32 @build_message(i16 %sasl.val.val, ptr noundef nonnull %resp)
+  %call109 = call fastcc i32 @build_message(i16 %sasl.val.val, ptr noundef %resp)
   %tobool110.not = icmp eq i32 %call109, 0
   br i1 %tobool110.not, label %if.then111, label %sw.epilog117
 
@@ -991,14 +991,14 @@ return:                                           ; preds = %sw.epilog117, %sw.b
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_server_message(ptr nocapture noundef readonly %sasl, ptr noundef %data, ptr noundef %out) unnamed_addr #0 {
+define internal fastcc i32 @get_server_message(ptr nocapture noundef readonly %sasl, ptr noundef %data, ptr noundef nonnull %out) unnamed_addr #0 {
 entry:
   %msg = alloca ptr, align 8
   %msglen = alloca i64, align 8
   %0 = load ptr, ptr %sasl, align 8
   %getmessage = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %getmessage, align 8
-  %call = tail call i32 %1(ptr noundef %data, ptr noundef %out) #7
+  %call = tail call i32 %1(ptr noundef %data, ptr noundef nonnull %out) #7
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end12
 
@@ -1011,7 +1011,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool2.not, label %if.end12, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %call3 = tail call ptr @Curl_bufref_ptr(ptr noundef %out) #7
+  %call3 = tail call ptr @Curl_bufref_ptr(ptr noundef nonnull %out) #7
   %5 = load i8, ptr %call3, align 1
   switch i8 %5, label %if.else [
     i8 0, label %if.then7
@@ -1019,7 +1019,7 @@ if.then:                                          ; preds = %land.lhs.true
   ]
 
 if.then7:                                         ; preds = %if.then, %if.then
-  tail call void @Curl_bufref_set(ptr noundef %out, ptr noundef null, i64 noundef 0, ptr noundef null) #7
+  tail call void @Curl_bufref_set(ptr noundef nonnull %out, ptr noundef null, i64 noundef 0, ptr noundef null) #7
   br label %if.end12
 
 if.else:                                          ; preds = %if.then
@@ -1030,7 +1030,7 @@ if.else:                                          ; preds = %if.then
 if.then10:                                        ; preds = %if.else
   %6 = load ptr, ptr %msg, align 8
   %7 = load i64, ptr %msglen, align 8
-  call void @Curl_bufref_set(ptr noundef %out, ptr noundef %6, i64 noundef %7, ptr noundef nonnull @curl_free) #7
+  call void @Curl_bufref_set(ptr noundef nonnull %out, ptr noundef %6, i64 noundef %7, ptr noundef nonnull @curl_free) #7
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then7, %if.then10, %if.else, %land.lhs.true, %entry

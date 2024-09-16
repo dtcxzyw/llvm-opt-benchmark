@@ -2135,29 +2135,29 @@ define dso_local noundef zeroext i1 @_ZN5clang8DeclSpec18SetTypeSpecComplexENS0_
   %8 = lshr i32 %7, 8
   %9 = and i32 %8, 3
   %.not = icmp ne i32 %9, 0
-  br i1 %.not, label %_ZL12BadSpecifierIN5clang8DeclSpec3TSCEEbT_S3_RPKcRjb.exit, label %10
+  br i1 %.not, label %10, label %11
 
-_ZL12BadSpecifierIN5clang8DeclSpec3TSCEEbT_S3_RPKcRjb.exit: ; preds = %5
-  %switch = icmp eq i32 %9, 2
-  %.str.19..str.18 = select i1 %switch, ptr @.str.19, ptr @.str.18
-  store ptr %.str.19..str.18, ptr %3, align 8
+10:                                               ; preds = %5
+  %switch.i = icmp eq i32 %9, 2
+  %.str.19..str.18.i = select i1 %switch.i, ptr @.str.19, ptr @.str.18
+  store ptr %.str.19..str.18.i, ptr %3, align 8
   %.not.i = icmp eq i32 %1, %9
   %..i = select i1 %.not.i, i32 99, i32 3693
   store i32 %..i, ptr %4, align 4
-  br label %17
+  br label %18
 
-10:                                               ; preds = %5
-  %11 = shl i32 %1, 8
-  %12 = and i32 %11, 768
-  %13 = zext nneg i32 %12 to i64
-  %14 = and i64 %6, -769
-  %15 = or disjoint i64 %14, %13
-  store i64 %15, ptr %0, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i32 %2, ptr %16, align 8
-  br label %17
+11:                                               ; preds = %5
+  %12 = shl i32 %1, 8
+  %13 = and i32 %12, 768
+  %14 = zext nneg i32 %13 to i64
+  %15 = and i64 %6, -769
+  %16 = or disjoint i64 %15, %14
+  store i64 %16, ptr %0, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  store i32 %2, ptr %17, align 8
+  br label %18
 
-17:                                               ; preds = %10, %_ZL12BadSpecifierIN5clang8DeclSpec3TSCEEbT_S3_RPKcRjb.exit
+18:                                               ; preds = %11, %10
   ret i1 %.not
 }
 

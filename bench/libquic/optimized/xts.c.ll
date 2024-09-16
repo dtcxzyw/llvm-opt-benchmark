@@ -114,8 +114,8 @@ lor.lhs.false8:                                   ; preds = %lor.lhs.false
   %tobool3.not.i = icmp eq i64 %rem.i, 0
   %or.cond.i = or i1 %tobool3.not.i, %tobool.not.i
   %sub.i = add i64 %len, -16
-  %len.addr.0.i = select i1 %or.cond.i, i64 %len, i64 %sub.i
-  %cmp648.i = icmp ugt i64 %len.addr.0.i, 15
+  %spec.select.i = select i1 %or.cond.i, i64 %len, i64 %sub.i
+  %cmp648.i = icmp ugt i64 %spec.select.i, 15
   br i1 %cmp648.i, label %while.body.lr.ph.i, label %while.end.i
 
 while.body.lr.ph.i:                               ; preds = %lor.lhs.false8
@@ -131,7 +131,7 @@ while.body.i:                                     ; preds = %if.end27.i, %while.
   %6 = phi i64 [ %.pre.i, %while.body.lr.ph.i ], [ %xor33.i, %if.end27.i ]
   %inp.addr.051.i = phi ptr [ %in, %while.body.lr.ph.i ], [ %add.ptr.i, %if.end27.i ]
   %out.addr.050.i = phi ptr [ %out, %while.body.lr.ph.i ], [ %add.ptr23.i, %if.end27.i ]
-  %len.addr.149.i = phi i64 [ %len.addr.0.i, %while.body.lr.ph.i ], [ %sub24.i, %if.end27.i ]
+  %len.addr.149.i = phi i64 [ %spec.select.i, %while.body.lr.ph.i ], [ %sub24.i, %if.end27.i ]
   %7 = load i64, ptr %inp.addr.051.i, align 8
   %xor.i = xor i64 %7, %6
   store i64 %xor.i, ptr %scratch.i, align 8
@@ -173,7 +173,7 @@ if.end27.i:                                       ; preds = %while.body.i
 while.end.i:                                      ; preds = %if.end27.i, %lor.lhs.false8
   %15 = phi i64 [ undef, %lor.lhs.false8 ], [ %xor21.i, %if.end27.i ]
   %16 = phi i64 [ undef, %lor.lhs.false8 ], [ %xor17.i, %if.end27.i ]
-  %len.addr.1.lcssa.i = phi i64 [ %len.addr.0.i, %lor.lhs.false8 ], [ %sub24.i, %if.end27.i ]
+  %len.addr.1.lcssa.i = phi i64 [ %spec.select.i, %lor.lhs.false8 ], [ %sub24.i, %if.end27.i ]
   %out.addr.0.lcssa.i = phi ptr [ %out, %lor.lhs.false8 ], [ %add.ptr23.i, %if.end27.i ]
   %inp.addr.0.lcssa.i = phi ptr [ %in, %lor.lhs.false8 ], [ %add.ptr.i, %if.end27.i ]
   br i1 %tobool.not.i, label %for.cond.preheader.i, label %if.else.i

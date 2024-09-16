@@ -25,15 +25,15 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @report_status(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  call fastcc void @pg_log_v(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  call fastcc void @pg_log_v(i32 noundef %0, ptr noundef %1, ptr noundef %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pg_log_v(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @pg_log_v(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca [8192 x i8], align 16
-  %5 = call i32 @pg_vsnprintf(ptr noundef nonnull %4, i64 noundef 8192, ptr noundef %1, ptr noundef %2) #10
+  %5 = call i32 @pg_vsnprintf(ptr noundef nonnull %4, i64 noundef 8192, ptr noundef %1, ptr noundef nonnull %2) #10
   %or.cond = icmp ugt i32 %0, 1
   br i1 %or.cond, label %11, label %6
 
@@ -153,7 +153,7 @@ declare i32 @pg_printf(ptr noundef, ...) local_unnamed_addr #1
 define dso_local void @pg_log(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  call fastcc void @pg_log_v(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  call fastcc void @pg_log_v(i32 noundef %0, ptr noundef %1, ptr noundef %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
@@ -247,7 +247,7 @@ define dso_local void @prep_status_progress(ptr noundef %0, ...) local_unnamed_a
 define dso_local void @pg_fatal(ptr noundef %0, ...) local_unnamed_addr #3 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call fastcc void @pg_log_v(i32 noundef 5, ptr noundef %0, ptr noundef nonnull %2)
+  call fastcc void @pg_log_v(i32 noundef 5, ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   %3 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.4) #10
   call void @exit(i32 noundef 1) #12

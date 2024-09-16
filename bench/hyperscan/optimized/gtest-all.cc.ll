@@ -18045,7 +18045,7 @@ return:                                           ; preds = %_ZN7testing7Message
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testingL31GetReservedAttributesForElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %xml_element) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testingL31GetReservedAttributesForElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %xml_element) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %xml_element, ptr noundef nonnull @.str.209) #52
@@ -19810,7 +19810,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internalL27PrintTestPartResultToStringB5cxx11ERKNS_14TestPartResultE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %test_part_result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internalL27PrintTestPartResultToStringB5cxx11ERKNS_14TestPartResultE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %test_part_result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(392) ptr @_Znwm(i64 noundef 392) #54
@@ -19892,7 +19892,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i44.invoke: ; preds
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i44.invoke
-  invoke void @_ZN7testing8internal20StringStreamToStringEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull %call.i)
+  invoke void @_ZN7testing8internal20StringStreamToStringEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull %call.i)
           to label %invoke.cont22 unwind label %lpad19
 
 invoke.cont22:                                    ; preds = %invoke.cont20
@@ -24656,7 +24656,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr noalias align 8 %agg.result, i32 noundef %count, ptr noundef %singular_form, ptr noundef %plural_form) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr noalias nonnull align 8 %agg.result, i32 noundef %count, ptr noundef %singular_form, ptr noundef %plural_form) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -47438,7 +47438,7 @@ _ZN7testing8internal17GetCapturedStreamB5cxx11EPPNS0_14CapturedStreamE.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internalL21FormatDeathTestOutputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %output) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internalL21FormatDeathTestOutputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %output) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i51 = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8
@@ -63649,7 +63649,7 @@ entry:
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #39
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr noalias align 8 %agg.result, ptr noundef %flag) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr noalias nonnull align 8 %agg.result, ptr noundef %flag) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__c.addr.i.i = alloca i8, align 1
   %full_flag = alloca %"class.std::__cxx11::basic_string", align 8
@@ -63730,7 +63730,7 @@ _ZN7testing7MessageC2Ev.exit39:                   ; preds = %call.i30.noexc
   br i1 %cmp.not80, label %for.cond.cleanup, label %for.body
 
 for.cond.cleanup:                                 ; preds = %invoke.cont12, %_ZN7testing7MessageC2Ev.exit39
-  invoke void @_ZN7testing8internal20StringStreamToStringEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull %call.i3038)
+  invoke void @_ZN7testing8internal20StringStreamToStringEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull %call.i3038)
           to label %_ZN7testing7MessageD2Ev.exit59 unwind label %lpad14
 
 _ZN7testing7MessageD2Ev.exit45:                   ; preds = %invoke.cont1, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i.invoke, %_ZN7testing7MessageC2Ev.exit
@@ -72692,7 +72692,7 @@ declare i32 @dup2(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @toupper(i32 noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing12_GLOBAL__N_126PrintByteSegmentInObjectToEPKhmmPSo(ptr nocapture noundef readonly %obj_bytes, i64 noundef %start, i64 noundef %count, ptr noundef %os) unnamed_addr #3 {
+define internal fastcc void @_ZN7testing12_GLOBAL__N_126PrintByteSegmentInObjectToEPKhmmPSo(ptr nocapture noundef readonly %obj_bytes, i64 noundef range(i64 0, -63) %start, i64 noundef %count, ptr noundef nonnull %os) unnamed_addr #3 {
 entry:
   %__c.addr.i15 = alloca i8, align 1
   %__c.addr.i = alloca i8, align 1
@@ -74952,7 +74952,7 @@ cleanup:                                          ; preds = %land.rhs.i.i, %for.
 declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internalL25FormatCxxExceptionMessageB5cxx11EPKcS2_(ptr noalias align 8 %agg.result, ptr noundef %description, ptr noundef %location) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internalL25FormatCxxExceptionMessageB5cxx11EPKcS2_(ptr noalias nonnull align 8 %agg.result, ptr noundef %description, ptr noundef %location) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(392) ptr @_Znwm(i64 noundef 392) #54
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %call.i)
@@ -75026,7 +75026,7 @@ invoke.cont9:                                     ; preds = %_ZStlsISt11char_tra
           to label %invoke.cont11 unwind label %_ZN7testing7MessageD2Ev.exit
 
 invoke.cont11:                                    ; preds = %invoke.cont9
-  invoke void @_ZN7testing8internal20StringStreamToStringEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull %call.i)
+  invoke void @_ZN7testing8internal20StringStreamToStringEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull %call.i)
           to label %_ZN7testing7MessageD2Ev.exit51 unwind label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit51:                   ; preds = %invoke.cont11

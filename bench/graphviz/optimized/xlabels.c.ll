@@ -388,7 +388,7 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %181 = fadd double %179, %180
   %182 = getelementptr inbounds i8, ptr %161, i64 24
   store double %181, ptr %182, align 8, !noalias !4
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef nonnull %6), !noalias !4
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef %6), !noalias !4
   %.sroa.0249.0.copyload.i = load i32, ptr %7, align 8, !noalias !4
   %.sroa.26.0.copyload.i = load double, ptr %.sroa.26.0..sroa_idx.i, align 8, !noalias !4
   %.sroa.48.i.sroa.0.0.copyload = load double, ptr %.sroa.48.0..sroa_idx.i, align 8
@@ -399,7 +399,7 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
 184:                                              ; preds = %163
   %185 = load double, ptr %178, align 8, !noalias !4
   store double %185, ptr %182, align 8, !noalias !4
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef nonnull %6), !noalias !4
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef %6), !noalias !4
   %.sroa.0.0.copyload.i = load i32, ptr %8, align 8, !noalias !4
   %.sroa.44142.0.copyload.i = load double, ptr %.sroa.44142.0..sroa_idx.i, align 8, !noalias !4
   %186 = icmp eq i32 %.sroa.0.0.copyload.i, 0
@@ -423,7 +423,7 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %192 = load double, ptr %169, align 8, !noalias !4
   %193 = fsub double %191, %192
   store double %193, ptr %182, align 8, !noalias !4
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef nonnull %6), !noalias !4
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef %6), !noalias !4
   %.sroa.0.0.copyload48.i = load i32, ptr %9, align 8, !noalias !4
   %.sroa.44142.0.copyload148.i = load double, ptr %.sroa.44142.0..sroa_idx147.i, align 8, !noalias !4
   %194 = icmp eq i32 %.sroa.0.0.copyload48.i, 0
@@ -449,7 +449,7 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %201 = load double, ptr %171, align 8, !noalias !4
   %202 = fadd double %200, %201
   store double %202, ptr %182, align 8, !noalias !4
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef nonnull %6), !noalias !4
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef %6), !noalias !4
   %.sroa.0.0.copyload51.i = load i32, ptr %10, align 8, !noalias !4
   %.sroa.44142.0.copyload154.i = load double, ptr %.sroa.44142.0..sroa_idx153.i, align 8, !noalias !4
   %203 = icmp eq i32 %.sroa.0.0.copyload51.i, 0
@@ -473,7 +473,7 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %209 = load double, ptr %169, align 8, !noalias !4
   %210 = fsub double %208, %209
   store double %210, ptr %182, align 8, !noalias !4
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef nonnull %6), !noalias !4
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef %6), !noalias !4
   %.sroa.0.0.copyload54.i = load i32, ptr %11, align 8, !noalias !4
   %.sroa.44142.0.copyload160.i = load double, ptr %.sroa.44142.0..sroa_idx159.i, align 8, !noalias !4
   %211 = icmp eq i32 %.sroa.0.0.copyload54.i, 0
@@ -501,7 +501,7 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %220 = load double, ptr %171, align 8, !noalias !4
   %221 = fadd double %219, %220
   store double %221, ptr %182, align 8, !noalias !4
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef nonnull %6), !noalias !4
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef %6), !noalias !4
   %.sroa.0.0.copyload57.i = load i32, ptr %12, align 8, !noalias !4
   %.sroa.44142.0.copyload166.i = load double, ptr %.sroa.44142.0..sroa_idx165.i, align 8, !noalias !4
   %222 = icmp eq i32 %.sroa.0.0.copyload57.i, 0
@@ -523,7 +523,7 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.0249.4.i = phi i32 [ %.sroa.0.0.copyload57.i, %225 ], [ %.sroa.0249.3.i, %223 ]
   %227 = load double, ptr %178, align 8, !noalias !4
   store double %227, ptr %182, align 8, !noalias !4
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef nonnull %6), !noalias !4
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef %6), !noalias !4
   %.sroa.0.0.copyload60.i = load i32, ptr %13, align 8, !noalias !4
   %.sroa.44142.0.copyload172.i = load double, ptr %.sroa.44142.0..sroa_idx171.i, align 8, !noalias !4
   %228 = icmp eq i32 %.sroa.0.0.copyload60.i, 0
@@ -547,7 +547,7 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %234 = load double, ptr %169, align 8, !noalias !4
   %235 = fsub double %233, %234
   store double %235, ptr %182, align 8, !noalias !4
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef nonnull %6), !noalias !4
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef %6), !noalias !4
   %.sroa.0.0.copyload63.i = load i32, ptr %14, align 8, !noalias !4
   %.sroa.44142.0.copyload178.i = load double, ptr %.sroa.44142.0..sroa_idx177.i, align 8, !noalias !4
   %236 = icmp eq i32 %.sroa.0.0.copyload63.i, 0
@@ -611,7 +611,7 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.48.i.sroa.0.14 = phi double [ %.sroa.48.i.sroa.0.15, %267 ], [ %.sroa.48.i.sroa.0.6, %252 ]
   %.sroa.0249.9398.i = phi i32 [ %.sroa.0249.10.i, %267 ], [ %.sroa.0249.6.i, %252 ]
   %.sroa.26.9396.i = phi double [ %.sroa.26.10.i, %267 ], [ %.sroa.26.6.i, %252 ]
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef nonnull %6), !noalias !4
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef %6), !noalias !4
   %.sroa.0.0.copyload66.i = load i32, ptr %15, align 8, !noalias !4
   %.sroa.44142.0.copyload184.i = load double, ptr %.sroa.44142.0..sroa_idx183.i, align 8, !noalias !4
   %263 = icmp eq i32 %.sroa.0.0.copyload66.i, 0
@@ -677,7 +677,7 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.48.i.sroa.0.17 = phi double [ %.sroa.48.i.sroa.0.18, %292 ], [ %.sroa.48.i.sroa.0.16, %278 ]
   %.sroa.0249.11403.i = phi i32 [ %.sroa.0249.12.i, %292 ], [ %.sroa.0249.8.i, %278 ]
   %.sroa.26.11401.i = phi double [ %.sroa.26.12.i, %292 ], [ %.sroa.26.8.i, %278 ]
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef nonnull %6), !noalias !4
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef %6), !noalias !4
   %.sroa.0.0.copyload69.i = load i32, ptr %16, align 8, !noalias !4
   %.sroa.44142.0.copyload190.i = load double, ptr %.sroa.44142.0..sroa_idx189.i, align 8, !noalias !4
   %288 = icmp eq i32 %.sroa.0.0.copyload69.i, 0
@@ -762,7 +762,7 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.48.i.sroa.0.9 = phi double [ %.sroa.48.i.sroa.0.10, %330 ], [ %.sroa.48.i.sroa.0.7, %316 ]
   %.sroa.0249.15410.i = phi i32 [ %.sroa.0249.16.i, %330 ], [ %.sroa.0249.7.i, %316 ]
   %.sroa.26.15408.i = phi double [ %.sroa.26.16.i, %330 ], [ %.sroa.26.7.i, %316 ]
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef nonnull %6), !noalias !4
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef %6), !noalias !4
   %.sroa.0.0.copyload72.i = load i32, ptr %17, align 8, !noalias !4
   %.sroa.44142.0.copyload196.i = load double, ptr %.sroa.44142.0..sroa_idx195.i, align 8, !noalias !4
   %326 = icmp eq i32 %.sroa.0.0.copyload72.i, 0
@@ -828,7 +828,7 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.48.i.sroa.0.12 = phi double [ %.sroa.48.i.sroa.0.13, %356 ], [ %.sroa.48.i.sroa.0.11, %341 ]
   %.sroa.0249.17417.i = phi i32 [ %.sroa.0249.18.i, %356 ], [ %.sroa.0249.14.i, %341 ]
   %.sroa.26.17415.i = phi double [ %.sroa.26.18.i, %356 ], [ %.sroa.26.14.i, %341 ]
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef nonnull %6), !noalias !4
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef %6), !noalias !4
   %.sroa.0.0.copyload75.i = load i32, ptr %18, align 8, !noalias !4
   %.sroa.44142.0.copyload202.i = load double, ptr %.sroa.44142.0..sroa_idx201.i, align 8, !noalias !4
   %352 = icmp eq i32 %.sroa.0.0.copyload75.i, 0
@@ -998,7 +998,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #9
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xlintersections(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #1 {
+define internal fastcc void @xlintersections(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #1 {
   %5 = alloca %struct.Rect, align 8
   %6 = alloca %struct.Rect, align 8
   %7 = alloca %struct.Rect, align 8

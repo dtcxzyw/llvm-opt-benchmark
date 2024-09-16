@@ -2160,7 +2160,7 @@ return:                                           ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly4bserL12decodeStringB5cxx11ERNS_2io6CursorE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %curs) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly4bserL12decodeStringB5cxx11ERNS_2io6CursorE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %curs) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN5folly4bserL9decodeIntERNS_2io6CursorE(ptr noundef nonnull align 8 dereferenceable(56) %curs)
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 16

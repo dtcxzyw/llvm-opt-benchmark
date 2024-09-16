@@ -48,29 +48,29 @@ define hidden i32 @plpgsql_yylex() local_unnamed_addr #0 {
   %3 = alloca %struct.TokenAuxData, align 8
   %4 = alloca %struct.TokenAuxData, align 8
   %5 = alloca %struct.TokenAuxData, align 8
-  %6 = call fastcc i32 @internal_yylex(ptr noundef nonnull %1)
+  %6 = call fastcc i32 @internal_yylex(ptr noundef %1)
   switch i32 %6, label %138 [
     i32 267, label %7
     i32 258, label %7
   ]
 
 7:                                                ; preds = %0, %0
-  %8 = call fastcc i32 @internal_yylex(ptr noundef nonnull %2)
+  %8 = call fastcc i32 @internal_yylex(ptr noundef %2)
   %9 = icmp eq i32 %8, 46
   br i1 %9, label %10, label %100
 
 10:                                               ; preds = %7
-  %11 = call fastcc i32 @internal_yylex(ptr noundef nonnull %3)
+  %11 = call fastcc i32 @internal_yylex(ptr noundef %3)
   %12 = icmp eq i32 %11, 258
   br i1 %12, label %13, label %58
 
 13:                                               ; preds = %10
-  %14 = call fastcc i32 @internal_yylex(ptr noundef nonnull %4)
+  %14 = call fastcc i32 @internal_yylex(ptr noundef %4)
   %15 = icmp eq i32 %14, 46
   br i1 %15, label %16, label %45
 
 16:                                               ; preds = %13
-  %17 = call fastcc i32 @internal_yylex(ptr noundef nonnull %5)
+  %17 = call fastcc i32 @internal_yylex(ptr noundef %5)
   %18 = icmp eq i32 %17, 258
   br i1 %18, label %19, label %24
 
@@ -311,7 +311,7 @@ switch.edge:                                      ; preds = %117, %117, %117, %p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @internal_yylex(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @internal_yylex(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = load i32, ptr @num_pushbacks, align 4
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %4, label %10
@@ -329,7 +329,7 @@ define internal fastcc i32 @internal_yylex(ptr noundef %0) unnamed_addr #0 {
 10:                                               ; preds = %1
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   %12 = load ptr, ptr @yyscanner, align 8
-  %13 = tail call i32 @core_yylex(ptr noundef %0, ptr noundef nonnull %11, ptr noundef %12) #11
+  %13 = tail call i32 @core_yylex(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef %12) #11
   %14 = load ptr, ptr @core_yy, align 8
   %15 = load i32, ptr %11, align 8
   %16 = sext i32 %15 to i64
@@ -472,7 +472,7 @@ declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) loca
 ; Function Attrs: nounwind uwtable
 define hidden i32 @plpgsql_peek() local_unnamed_addr #0 {
   %1 = alloca %struct.TokenAuxData, align 8
-  %2 = call fastcc i32 @internal_yylex(ptr noundef nonnull %1)
+  %2 = call fastcc i32 @internal_yylex(ptr noundef %1)
   %3 = load i32, ptr @num_pushbacks, align 4
   %4 = icmp sgt i32 %3, 3
   br i1 %4, label %5, label %push_back_token.exit
@@ -499,8 +499,8 @@ push_back_token.exit:                             ; preds = %0
 define hidden void @plpgsql_peek2(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.TokenAuxData, align 8
   %6 = alloca %struct.TokenAuxData, align 8
-  %7 = call fastcc i32 @internal_yylex(ptr noundef nonnull %5)
-  %8 = call fastcc i32 @internal_yylex(ptr noundef nonnull %6)
+  %7 = call fastcc i32 @internal_yylex(ptr noundef %5)
+  %8 = call fastcc i32 @internal_yylex(ptr noundef %6)
   store i32 %7, ptr %0, align 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %9

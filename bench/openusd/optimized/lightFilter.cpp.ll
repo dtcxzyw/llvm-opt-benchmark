@@ -2414,7 +2414,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdLuxLightFilter31GetShade
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @_ZN32pxrInternal_v0_24__pxrReserved__9UsdObjectC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_GetShaderIdAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_GetShaderIdAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %8 unwind label %50
 
 8:                                                ; preds = %3
@@ -2527,7 +2527,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6: ; preds = %57, %52, %50
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_GetShaderIdAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_GetShaderIdAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, null
@@ -2639,7 +2639,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %28, %23, 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdLuxLightFilter34CreateShaderIdAttrForRenderContextERKNS_7TfTokenERKNS_7VtValueEb(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_GetShaderIdAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_GetShaderIdAttrNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %7 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__17SdfValueTypeNamesE seq_cst, align 8
   %8 = inttoptr i64 %7 to ptr
   %.not.i.i = icmp eq i64 %7, 0

@@ -75,7 +75,7 @@ define hidden void @_ZN3std4sync6poison10map_result17hd2704442e4846ee7E(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr39drop_in_place$LT$uu_dd..BlockWriter$GT$17h82d211ba3ce28b5fE"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr39drop_in_place$LT$uu_dd..BlockWriter$GT$17h82d211ba3ce28b5fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %.not = icmp eq i64 %3, -9223372036854775808
@@ -1568,7 +1568,7 @@ _ZN5uu_dd11BlockWriter4sync17h81da5c6b44c60156E.exit: ; preds = %21
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hcc92632fc7f87675E.exit": ; preds = %52
-  call fastcc void @"_ZN4core3ptr39drop_in_place$LT$uu_dd..BlockWriter$GT$17h82d211ba3ce28b5fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
+  call fastcc void @"_ZN4core3ptr39drop_in_place$LT$uu_dd..BlockWriter$GT$17h82d211ba3ce28b5fE"(ptr noalias noundef align 8 dereferenceable(48) %0)
   br label %64
 
 64:                                               ; preds = %"_ZN4core3ptr60drop_in_place$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$17hf022b4fa9af23ac3E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hcc92632fc7f87675E.exit"
@@ -1582,7 +1582,7 @@ _ZN5uu_dd11BlockWriter4sync17h81da5c6b44c60156E.exit: ; preds = %21
 
 .body.thread:                                     ; preds = %68, %59, %.body, %66
   %.pn = phi { ptr, i32 } [ %67, %66 ], [ %lpad.thr_comm.split-lp, %.body ], [ %60, %59 ], [ %lpad.thr_comm, %68 ]
-  invoke fastcc void @"_ZN4core3ptr39drop_in_place$LT$uu_dd..BlockWriter$GT$17h82d211ba3ce28b5fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) #26
+  invoke fastcc void @"_ZN4core3ptr39drop_in_place$LT$uu_dd..BlockWriter$GT$17h82d211ba3ce28b5fE"(ptr noalias noundef align 8 dereferenceable(48) %0) #26
           to label %71 unwind label %69
 
 66:                                               ; preds = %65
@@ -1591,7 +1591,7 @@ _ZN5uu_dd11BlockWriter4sync17h81da5c6b44c60156E.exit: ; preds = %21
   br label %.body.thread
 
 "_ZN4core3ptr60drop_in_place$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$17hf022b4fa9af23ac3E.exit": ; preds = %65
-  tail call fastcc void @"_ZN4core3ptr39drop_in_place$LT$uu_dd..BlockWriter$GT$17h82d211ba3ce28b5fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr39drop_in_place$LT$uu_dd..BlockWriter$GT$17h82d211ba3ce28b5fE"(ptr noalias noundef align 8 dereferenceable(48) %0)
   br label %64
 
 68:                                               ; preds = %40, %33, %32, %18, %21

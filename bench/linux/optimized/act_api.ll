@@ -3419,7 +3419,7 @@ declare void @llvm.assume(i1 noundef) #10
 declare dso_local zeroext i1 @refcount_dec_and_mutex_lock(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tcf_action_cleanup(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @tcf_action_cleanup(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.flow_offload_action, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #14
   %3 = getelementptr inbounds i8, ptr %2, i64 8
@@ -3451,7 +3451,7 @@ define internal fastcc void @tcf_action_cleanup(ptr noundef %0) unnamed_addr #0 
   %19 = load ptr, ptr %0, align 16
   %20 = getelementptr inbounds i8, ptr %19, i64 136
   %21 = load ptr, ptr %20, align 8
-  %22 = call i32 %21(ptr noundef %0, ptr noundef nonnull %2, ptr noundef null, i1 noundef zeroext false, ptr noundef null) #14
+  %22 = call i32 %21(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef null, i1 noundef zeroext false, ptr noundef null) #14
   call void @_raw_spin_unlock_bh(ptr noundef %18) #14
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %tcf_action_offload_del_ex.exit
@@ -3469,7 +3469,7 @@ tcf_action_offload_del_ex.exit:                   ; preds = %24, %1, %7, %17
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %tcf_action_offload_del_ex.exit
-  tail call void %28(ptr noundef %0) #14
+  tail call void %28(ptr noundef nonnull %0) #14
   br label %31
 
 31:                                               ; preds = %30, %tcf_action_offload_del_ex.exit
@@ -3505,7 +3505,7 @@ tcf_action_offload_del_ex.exit:                   ; preds = %24, %1, %7, %17
   br label %49
 
 49:                                               ; preds = %48, %46
-  tail call void @kfree(ptr noundef %0) #14
+  tail call void @kfree(ptr noundef nonnull %0) #14
   ret void
 }
 
@@ -3582,7 +3582,7 @@ declare dso_local void @tc_cleanup_offload_action(ptr noundef) local_unnamed_add
 declare dso_local i32 @netlink_has_listeners(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tca_get_fill(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tca_get_fill(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef range(i32 48, 51) %5, i32 noundef range(i32 0, 3) %6, ptr noundef readonly %7) unnamed_addr #0 align 16 {
   %9 = getelementptr inbounds i8, ptr %0, i64 192
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 184
@@ -3603,7 +3603,7 @@ define internal fastcc i32 @tca_get_fill(ptr noundef %0, ptr nocapture noundef r
   br i1 %23, label %.thread, label %24, !prof !20
 
 24:                                               ; preds = %19
-  %25 = tail call ptr @__nlmsg_put(ptr noundef %0, i32 noundef %2, i32 noundef %3, i32 noundef %5, i32 noundef 4, i32 noundef %15) #14
+  %25 = tail call ptr @__nlmsg_put(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %3, i32 noundef %5, i32 noundef 4, i32 noundef %15) #14
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
 
@@ -3626,7 +3626,7 @@ define internal fastcc i32 @tca_get_fill(ptr noundef %0, ptr nocapture noundef r
   %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #14
   %37 = trunc i64 %36 to i32
   %38 = add i32 %37, 1
-  %39 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef %38, ptr noundef nonnull %33) #14
+  %39 = tail call i32 @nla_put(ptr noundef nonnull %0, i32 noundef 5, i32 noundef %38, ptr noundef nonnull %33) #14
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %.thread
 
@@ -3635,7 +3635,7 @@ define internal fastcc i32 @tca_get_fill(ptr noundef %0, ptr nocapture noundef r
   %43 = load i32, ptr %11, align 8
   %44 = zext i32 %43 to i64
   %45 = getelementptr i8, ptr %42, i64 %44
-  %46 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 0, ptr noundef null) #14
+  %46 = tail call i32 @nla_put(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 0, ptr noundef null) #14
   %47 = icmp slt i32 %46, 0
   %48 = icmp eq ptr %45, null
   %49 = select i1 %47, i1 true, i1 %48
@@ -3655,14 +3655,14 @@ define internal fastcc i32 @tca_get_fill(ptr noundef %0, ptr nocapture noundef r
   %58 = zext i32 %57 to i64
   %59 = getelementptr i8, ptr %56, i64 %58
   %60 = trunc i64 %55 to i32
-  %61 = tail call i32 @nla_put(ptr noundef %0, i32 noundef %60, i32 noundef 0, ptr noundef null) #14
+  %61 = tail call i32 @nla_put(ptr noundef nonnull %0, i32 noundef %60, i32 noundef 0, ptr noundef null) #14
   %62 = icmp slt i32 %61, 0
   %63 = icmp eq ptr %59, null
   %64 = select i1 %62, i1 true, i1 %63
   br i1 %64, label %.thread, label %65
 
 65:                                               ; preds = %54
-  %66 = tail call i32 @tcf_action_dump_1(ptr noundef %0, ptr noundef nonnull %52, i32 noundef 0, i32 noundef %6), !range !24
+  %66 = tail call i32 @tcf_action_dump_1(ptr noundef nonnull %0, ptr noundef nonnull %52, i32 noundef 0, i32 noundef %6), !range !24
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %.split5.us.i, label %68
 
@@ -3698,7 +3698,7 @@ define internal fastcc i32 @tca_get_fill(ptr noundef %0, ptr nocapture noundef r
   %85 = ptrtoint ptr %83 to i64
   %86 = sub i64 %84, %85
   %87 = trunc i64 %86 to i32
-  tail call void @skb_trim(ptr noundef %0, i32 noundef %87) #14
+  tail call void @skb_trim(ptr noundef nonnull %0, i32 noundef %87) #14
   br label %.thread
 
 tcf_action_dump.exit:                             ; preds = %68, %.split.i
@@ -3747,7 +3747,7 @@ tcf_action_dump.exit:                             ; preds = %68, %.split.i
   %115 = ptrtoint ptr %113 to i64
   %116 = sub i64 %114, %115
   %117 = trunc i64 %116 to i32
-  tail call void @skb_trim(ptr noundef %0, i32 noundef %117) #14
+  tail call void @skb_trim(ptr noundef nonnull %0, i32 noundef %117) #14
   br label %118
 
 118:                                              ; preds = %112, %.thread, %tcf_action_dump.exit
@@ -4367,7 +4367,7 @@ define internal i32 @tc_dump_action(ptr noundef %0, ptr noundef %1) #0 align 16 
 declare dso_local zeroext i1 @netlink_capable(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tca_action_gd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tca_action_gd(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef range(i32 49, 51) %4, ptr noundef %5) unnamed_addr #0 align 16 {
   %7 = alloca [12 x ptr], align 16
   %8 = alloca ptr, align 8
   %9 = alloca %struct.netlink_callback, align 8

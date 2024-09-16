@@ -6568,7 +6568,7 @@ invoke.cont37:                                    ; preds = %invoke.cont33
   %sortingOrders.val = load ptr, ptr %sortingOrders, align 8
   %8 = getelementptr inbounds i8, ptr %this, i64 88
   %sortingOrders.val3 = load ptr, ptr %8, align 8
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias nonnull align 8 %ref.tmp40, ptr %sortingOrders.val, ptr %sortingOrders.val3)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias align 8 %ref.tmp40, ptr %sortingOrders.val, ptr %sortingOrders.val3)
           to label %invoke.cont41 unwind label %lpad4
 
 invoke.cont41:                                    ; preds = %invoke.cont37
@@ -6710,7 +6710,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias align 8 %agg.result, ptr readonly %sortingOrders.0.val, ptr readnone %sortingOrders.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias nonnull align 8 %agg.result, ptr readonly %sortingOrders.0.val, ptr readnone %sortingOrders.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.folly::dynamic", align 8
   store i32 1, ptr %agg.result, align 8, !alias.scope !68
@@ -6879,7 +6879,7 @@ invoke.cont21:                                    ; preds = %invoke.cont19
           to label %invoke.cont25 unwind label %lpad23
 
 invoke.cont25:                                    ; preds = %invoke.cont21
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_124deserializeSortingOrdersERKN5folly7dynamicE(ptr noalias nonnull align 8 %sortingOrders, ptr noundef nonnull align 8 dereferenceable(40) %call.i4142)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_124deserializeSortingOrdersERKN5folly7dynamicE(ptr noalias align 8 %sortingOrders, ptr noundef nonnull align 8 dereferenceable(40) %call.i4142)
           to label %invoke.cont27 unwind label %lpad23
 
 invoke.cont27:                                    ; preds = %invoke.cont25
@@ -7631,7 +7631,7 @@ _ZNSt12__shared_ptrIKN8facebook5velox4core20FieldAccessTypedExprELN9__gnu_cxx12_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_124deserializeSortingOrdersERKN5folly7dynamicE(ptr noalias nocapture align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %array) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_124deserializeSortingOrdersERKN5folly7dynamicE(ptr noalias nocapture nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %array) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call = invoke noundef i64 @_ZNK5folly7dynamic4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %array)
@@ -8014,7 +8014,7 @@ entry:
   %ref.tmp72 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp82 = alloca i8, align 1
   %ref.tmp89 = alloca %"class.std::shared_ptr", align 8
-  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias nonnull align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
+  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
   %call.i29 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.19, ptr nonnull getelementptr inbounds (i8, ptr @.str.19, i64 12))
           to label %invoke.cont1 unwind label %lpad
 
@@ -8632,7 +8632,7 @@ invoke.cont87:                                    ; preds = %sw.bb7.i.i125, %sw.
   %retval.0.i.i124 = phi i1 [ %tobool.i.i.i, %sw.bb7.i.i125 ], [ %cmp.i4.i.i, %sw.bb4.i.i126 ], [ %cmp.i.i.i, %sw.bb.i.i128 ], [ %call2.i.i.i132, %sw.bb10.i.i120 ]
   %frombool = zext i1 %retval.0.i.i124 to i8
   store i8 %frombool, ptr %ref.tmp82, align 1
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias nonnull align 8 %ref.tmp89, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias align 8 %ref.tmp89, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
           to label %invoke.cont90 unwind label %lpad79
 
 invoke.cont90:                                    ; preds = %invoke.cont87
@@ -9222,7 +9222,7 @@ ehcleanup100:                                     ; preds = %ehcleanup99, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"struct.folly::dynamic::const_item_iterator", align 8
   %sources = alloca %"class.std::vector.3", align 8
@@ -11650,7 +11650,7 @@ entry:
   %names = alloca %"class.std::vector.13", align 8
   %projections = alloca %"class.std::vector.103", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias nonnull align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
+  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
   %call.i8 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.34, ptr nonnull getelementptr inbounds (i8, ptr @.str.34, i64 5))
           to label %invoke.cont1 unwind label %lpad
 
@@ -13370,7 +13370,7 @@ entry:
   %ref.tmp29 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp32 = alloca %"class.std::vector.8", align 8
   %ref.tmp39 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias nonnull align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
+  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %groupingKeyInfos, i8 0, i64 24, i1 false)
   %call.i14 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.40, ptr nonnull getelementptr inbounds (i8, ptr @.str.40, i64 16))
           to label %invoke.cont1 unwind label %lpad.loopexit.split-lp
@@ -15687,7 +15687,7 @@ entry:
   %names = alloca %"class.std::vector.13", align 8
   %projections = alloca %"class.std::vector.44", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias nonnull align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
+  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
   %call.i8 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.34, ptr nonnull getelementptr inbounds (i8, ptr @.str.34, i64 5))
           to label %invoke.cont1 unwind label %lpad
 
@@ -19407,7 +19407,7 @@ entry:
   %ordinalityName = alloca %"class.std::optional.207", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp28 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias nonnull align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
+  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
   %call.i13 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.58, ptr nonnull getelementptr inbounds (i8, ptr @.str.58, i64 18))
           to label %invoke.cont1 unwind label %lpad
 
@@ -26619,7 +26619,7 @@ entry:
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca i64, align 8
-  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias nonnull align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
+  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
   %call.i.i6 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.57, ptr nonnull getelementptr inbounds (i8, ptr @.str.57, i64 2))
           to label %call.i.i.noexc unwind label %lpad
 
@@ -30115,7 +30115,7 @@ invoke.cont11:                                    ; preds = %invoke.cont7
   %sortingOrders_.val = load ptr, ptr %sortingOrders_, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 96
   %sortingOrders_.val7 = load ptr, ptr %0, align 8
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias nonnull align 8 %ref.tmp14, ptr %sortingOrders_.val, ptr %sortingOrders_.val7)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias align 8 %ref.tmp14, ptr %sortingOrders_.val, ptr %sortingOrders_.val7)
           to label %invoke.cont15 unwind label %lpad.loopexit.split-lp40
 
 invoke.cont15:                                    ; preds = %invoke.cont11
@@ -30435,7 +30435,7 @@ entry:
   %windowNames = alloca %"class.std::vector.13", align 8
   %inputsSorted = alloca i8, align 1
   %ref.tmp44 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias nonnull align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
+  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
   %call.i17 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.85, ptr nonnull getelementptr inbounds (i8, ptr @.str.85, i64 13))
           to label %invoke.cont1 unwind label %lpad
 
@@ -30456,7 +30456,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
           to label %invoke.cont12 unwind label %lpad10
 
 invoke.cont12:                                    ; preds = %invoke.cont8
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_124deserializeSortingOrdersERKN5folly7dynamicE(ptr noalias nonnull align 8 %sortingOrders, ptr noundef nonnull align 8 dereferenceable(40) %call.i27)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_124deserializeSortingOrdersERKN5folly7dynamicE(ptr noalias align 8 %sortingOrders, ptr noundef nonnull align 8 dereferenceable(40) %call.i27)
           to label %invoke.cont14 unwind label %lpad10
 
 invoke.cont14:                                    ; preds = %invoke.cont12
@@ -31838,7 +31838,7 @@ entry:
   %distinctKeys = alloca %"class.std::vector.8", align 8
   %markerName = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias nonnull align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
+  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
   %call.i8 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.88, ptr nonnull getelementptr inbounds (i8, ptr @.str.88, i64 12))
           to label %invoke.cont1 unwind label %lpad
 
@@ -32258,7 +32258,7 @@ _ZNSt10shared_ptrIKN8facebook5velox4core8PlanNodeEED2Ev.exit: ; preds = %_ZSt10_
 
 invoke.cont14:                                    ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4core8PlanNodeEED2Ev.exit
   %outputType_ = getelementptr inbounds i8, ptr %this, i64 96
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_130getOptionalRowNumberOutputTypeERKSt10shared_ptrIKNS0_7RowTypeEERKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noalias nonnull align 8 %outputType_, ptr noundef nonnull align 8 dereferenceable(16) %call15, ptr noundef nonnull align 8 dereferenceable(40) %rowNumberColumnName)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_130getOptionalRowNumberOutputTypeERKSt10shared_ptrIKNS0_7RowTypeEERKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noalias align 8 %outputType_, ptr noundef nonnull align 8 dereferenceable(16) %call15, ptr noundef nonnull align 8 dereferenceable(40) %rowNumberColumnName)
           to label %invoke.cont16 unwind label %lpad13
 
 invoke.cont16:                                    ; preds = %invoke.cont14
@@ -32288,7 +32288,7 @@ ehcleanup:                                        ; preds = %lpad.body, %lpad13
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_130getOptionalRowNumberOutputTypeERKSt10shared_ptrIKNS0_7RowTypeEERKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %inputType, ptr noundef nonnull align 8 dereferenceable(40) %rowNumberColumnName) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_130getOptionalRowNumberOutputTypeERKSt10shared_ptrIKNS0_7RowTypeEERKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %inputType, ptr noundef nonnull align 8 dereferenceable(40) %rowNumberColumnName) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %names.i = alloca %"class.std::vector.13", align 8
   %types.i = alloca %"class.std::vector.53", align 8
@@ -32593,7 +32593,7 @@ if.end8.sink.split.i.i.i.i33.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE4EEEED2Ev.exit.i
 
 _ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE4EEEED2Ev.exit.i: ; preds = %if.end8.sink.split.i.i.i.i33.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i30.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i20.i, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit.i
-  invoke void @_ZN8facebook5velox3ROWEOSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEOS1_ISt10shared_ptrIKNS0_4TypeEESaISE_EE(ptr sret(%"class.std::shared_ptr.33") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %names.i, ptr noundef nonnull align 8 dereferenceable(24) %types.i)
+  invoke void @_ZN8facebook5velox3ROWEOSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEOS1_ISt10shared_ptrIKNS0_4TypeEESaISE_EE(ptr nonnull sret(%"class.std::shared_ptr.33") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %names.i, ptr noundef nonnull align 8 dereferenceable(24) %types.i)
           to label %invoke.cont10.i unwind label %lpad4.i
 
 invoke.cont10.i:                                  ; preds = %_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE4EEEED2Ev.exit.i
@@ -33008,7 +33008,7 @@ entry:
   %rowNumberColumnName = alloca %"class.std::optional.207", align 8
   %ref.tmp22 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp31 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias nonnull align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
+  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
   %call.i11 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.85, ptr nonnull getelementptr inbounds (i8, ptr @.str.85, i64 13))
           to label %invoke.cont1 unwind label %lpad
 
@@ -33600,7 +33600,7 @@ _ZNSt10shared_ptrIKN8facebook5velox4core8PlanNodeEED2Ev.exit: ; preds = %_ZSt10_
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4core8PlanNodeEED2Ev.exit
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_130getOptionalRowNumberOutputTypeERKSt10shared_ptrIKNS0_7RowTypeEERKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noalias nonnull align 8 %outputType_, ptr noundef nonnull align 8 dereferenceable(16) %call14, ptr noundef nonnull align 8 dereferenceable(40) %rowNumberColumnName)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_130getOptionalRowNumberOutputTypeERKSt10shared_ptrIKNS0_7RowTypeEERKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noalias align 8 %outputType_, ptr noundef nonnull align 8 dereferenceable(16) %call14, ptr noundef nonnull align 8 dereferenceable(40) %rowNumberColumnName)
           to label %invoke.cont15 unwind label %lpad12
 
 invoke.cont15:                                    ; preds = %invoke.cont13
@@ -33894,7 +33894,7 @@ invoke.cont11:                                    ; preds = %invoke.cont7
   %sortingOrders_.val = load ptr, ptr %sortingOrders_, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 96
   %sortingOrders_.val4 = load ptr, ptr %0, align 8
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias nonnull align 8 %ref.tmp14, ptr %sortingOrders_.val, ptr %sortingOrders_.val4)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias align 8 %ref.tmp14, ptr %sortingOrders_.val, ptr %sortingOrders_.val4)
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont11
@@ -34025,7 +34025,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp27 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp29 = alloca i64, align 8
-  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias nonnull align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
+  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
   %call.i14 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.85, ptr nonnull getelementptr inbounds (i8, ptr @.str.85, i64 13))
           to label %invoke.cont1 unwind label %lpad
 
@@ -34046,7 +34046,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
           to label %invoke.cont12 unwind label %lpad10
 
 invoke.cont12:                                    ; preds = %invoke.cont8
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_124deserializeSortingOrdersERKN5folly7dynamicE(ptr noalias nonnull align 8 %sortingOrders, ptr noundef nonnull align 8 dereferenceable(40) %call.i24)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_124deserializeSortingOrdersERKN5folly7dynamicE(ptr noalias align 8 %sortingOrders, ptr noundef nonnull align 8 dereferenceable(40) %call.i24)
           to label %invoke.cont14 unwind label %lpad10
 
 invoke.cont14:                                    ; preds = %invoke.cont12
@@ -34572,7 +34572,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %sortingOrders_.val = load ptr, ptr %sortingOrders_, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 96
   %sortingOrders_.val2 = load ptr, ptr %0, align 8
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias nonnull align 8 %ref.tmp6, ptr %sortingOrders_.val, ptr %sortingOrders_.val2)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias align 8 %ref.tmp6, ptr %sortingOrders_.val, ptr %sortingOrders_.val2)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont4
@@ -34655,7 +34655,7 @@ invoke.cont2:                                     ; preds = %invoke.cont1
           to label %invoke.cont6 unwind label %lpad4
 
 invoke.cont6:                                     ; preds = %invoke.cont2
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_124deserializeSortingOrdersERKN5folly7dynamicE(ptr noalias nonnull align 8 %sortingOrders, ptr noundef nonnull align 8 dereferenceable(40) %call.i12)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_124deserializeSortingOrdersERKN5folly7dynamicE(ptr noalias align 8 %sortingOrders, ptr noundef nonnull align 8 dereferenceable(40) %call.i12)
           to label %invoke.cont8 unwind label %lpad4
 
 invoke.cont8:                                     ; preds = %invoke.cont6
@@ -37078,7 +37078,7 @@ invoke.cont14:                                    ; preds = %invoke.cont10
   %sortingOrders_.val = load ptr, ptr %sortingOrders_, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 88
   %sortingOrders_.val2 = load ptr, ptr %2, align 8
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias nonnull align 8 %ref.tmp17, ptr %sortingOrders_.val, ptr %sortingOrders_.val2)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias align 8 %ref.tmp17, ptr %sortingOrders_.val, ptr %sortingOrders_.val2)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %invoke.cont14
@@ -37140,7 +37140,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
           to label %invoke.cont8 unwind label %lpad6
 
 invoke.cont8:                                     ; preds = %invoke.cont4
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_124deserializeSortingOrdersERKN5folly7dynamicE(ptr noalias nonnull align 8 %sortingOrders, ptr noundef nonnull align 8 dereferenceable(40) %call.i1516)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_124deserializeSortingOrdersERKN5folly7dynamicE(ptr noalias align 8 %sortingOrders, ptr noundef nonnull align 8 dereferenceable(40) %call.i1516)
           to label %invoke.cont10 unwind label %lpad6
 
 invoke.cont10:                                    ; preds = %invoke.cont8
@@ -37874,7 +37874,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123localPartitionTypeNamesB5cxx11Ev(ptr noalias nonnull align 8 %ref.tmp)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123localPartitionTypeNamesB5cxx11Ev(ptr noalias align 8 %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
@@ -38032,7 +38032,7 @@ nrvo.skipdtor:                                    ; preds = %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123localPartitionTypeNamesB5cxx11Ev(ptr noalias align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123localPartitionTypeNamesB5cxx11Ev(ptr noalias nonnull align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [2 x %"struct.std::pair.761"], align 8
   %ref.tmp1 = alloca i32, align 4
@@ -38182,7 +38182,7 @@ entry:
   %ref.tmp2 = alloca %"class.std::shared_ptr", align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.57, ptr nonnull getelementptr inbounds (i8, ptr @.str.57, i64 2)), !noalias !313
   call void @_ZNK5folly7dynamic6asImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_v(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(40) %call.i.i)
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -38848,7 +38848,7 @@ invoke.cont40:                                    ; preds = %invoke.cont35
           to label %invoke.cont42 unwind label %lpad38
 
 invoke.cont42:                                    ; preds = %invoke.cont40
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias nonnull align 8 %ref.tmp43, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias align 8 %ref.tmp43, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %invoke.cont42
@@ -40240,7 +40240,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %sortingOrders_.val = load ptr, ptr %sortingOrders_, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 72
   %sortingOrders_.val2 = load ptr, ptr %0, align 8
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias nonnull align 8 %ref.tmp6, ptr %sortingOrders_.val, ptr %sortingOrders_.val2)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias align 8 %ref.tmp6, ptr %sortingOrders_.val, ptr %sortingOrders_.val2)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont4
@@ -40319,7 +40319,7 @@ entry:
   %sortingKeys = alloca %"class.std::vector.8", align 8
   %sortingOrders = alloca %"class.std::vector.58", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias nonnull align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
+  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
   %call.i10 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.29, ptr nonnull getelementptr inbounds (i8, ptr @.str.29, i64 11))
           to label %invoke.cont1 unwind label %lpad
 
@@ -40332,7 +40332,7 @@ invoke.cont2:                                     ; preds = %invoke.cont1
           to label %invoke.cont6 unwind label %lpad4
 
 invoke.cont6:                                     ; preds = %invoke.cont2
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_124deserializeSortingOrdersERKN5folly7dynamicE(ptr noalias nonnull align 8 %sortingOrders, ptr noundef nonnull align 8 dereferenceable(40) %call.i14)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_124deserializeSortingOrdersERKN5folly7dynamicE(ptr noalias align 8 %sortingOrders, ptr noundef nonnull align 8 dereferenceable(40) %call.i14)
           to label %invoke.cont8 unwind label %lpad4
 
 invoke.cont8:                                     ; preds = %invoke.cont6
@@ -40794,7 +40794,7 @@ define void @_ZN8facebook5velox4core9LimitNode6createERKN5folly7dynamicEPv(ptr n
 entry:
   %source = alloca %"class.std::shared_ptr", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias nonnull align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
+  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
   %call.i.i6 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.57, ptr nonnull getelementptr inbounds (i8, ptr @.str.57, i64 2))
           to label %call.i.i.noexc unwind label %lpad
 
@@ -41092,7 +41092,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %sortingOrders_.val = load ptr, ptr %sortingOrders_, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 72
   %sortingOrders_.val2 = load ptr, ptr %0, align 8
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias nonnull align 8 %ref.tmp6, ptr %sortingOrders_.val, ptr %sortingOrders_.val2)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias align 8 %ref.tmp6, ptr %sortingOrders_.val, ptr %sortingOrders_.val2)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont4
@@ -41153,7 +41153,7 @@ entry:
   %sortingKeys = alloca %"class.std::vector.8", align 8
   %sortingOrders = alloca %"class.std::vector.58", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias nonnull align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
+  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
   %call.i9 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.29, ptr nonnull getelementptr inbounds (i8, ptr @.str.29, i64 11))
           to label %invoke.cont1 unwind label %lpad
 
@@ -41166,7 +41166,7 @@ invoke.cont2:                                     ; preds = %invoke.cont1
           to label %invoke.cont6 unwind label %lpad4
 
 invoke.cont6:                                     ; preds = %invoke.cont2
-  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_124deserializeSortingOrdersERKN5folly7dynamicE(ptr noalias nonnull align 8 %sortingOrders, ptr noundef nonnull align 8 dereferenceable(40) %call.i13)
+  invoke fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_124deserializeSortingOrdersERKN5folly7dynamicE(ptr noalias align 8 %sortingOrders, ptr noundef nonnull align 8 dereferenceable(40) %call.i13)
           to label %invoke.cont8 unwind label %lpad4
 
 invoke.cont8:                                     ; preds = %invoke.cont6
@@ -44288,7 +44288,7 @@ entry:
   %source = alloca %"class.std::shared_ptr", align 8
   %filter = alloca %"class.std::shared_ptr.120", align 8
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias nonnull align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
+  call fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_123deserializeSingleSourceERKN5folly7dynamicEPv(ptr noalias align 8 %source, ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr noundef %context)
   %call.i5 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.68, ptr nonnull getelementptr inbounds (i8, ptr @.str.68, i64 6))
           to label %invoke.cont1 unwind label %lpad
 

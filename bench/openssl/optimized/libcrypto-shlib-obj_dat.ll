@@ -3020,7 +3020,7 @@ return:                                           ; preds = %if.then14, %err, %i
 declare ptr @ASN1_OBJECT_new() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ossl_obj_obj2nid(ptr noundef %a, i32 noundef %lock) unnamed_addr #0 {
+define internal fastcc i32 @ossl_obj_obj2nid(ptr noundef %a, i32 noundef range(i32 0, 2) %lock) unnamed_addr #0 {
 entry:
   %a.addr = alloca ptr, align 8
   %ad = alloca %struct.added_obj_st, align 8
@@ -3113,7 +3113,7 @@ return:                                           ; preds = %if.then.i, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ossl_obj_add_object(ptr noundef %obj, i32 noundef %lock) unnamed_addr #0 {
+define internal fastcc i32 @ossl_obj_add_object(ptr noundef %obj, i32 noundef range(i32 0, 2) %lock) unnamed_addr #0 {
 entry:
   %ao = alloca [4 x ptr], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ao, i8 0, i64 32, i1 false)

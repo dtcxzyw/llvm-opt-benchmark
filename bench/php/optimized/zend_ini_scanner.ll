@@ -7614,8 +7614,8 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_ini_copy_typed_value(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
-  %switch.tableidx = add i32 %1, -270
+define internal fastcc void @zend_ini_copy_typed_value(ptr nocapture noundef writeonly %0, i32 noundef range(i32 259, 273) %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+  %switch.tableidx = add nsw i32 %1, -270
   %5 = icmp ult i32 %switch.tableidx, 3
   br i1 %5, label %switch.lookup, label %6
 
@@ -7653,7 +7653,7 @@ define internal fastcc void @zend_ini_copy_typed_value(ptr nocapture noundef wri
   br label %24
 
 switch.lookup:                                    ; preds = %4
-  %switch.offset = sub nsw i32 273, %1
+  %switch.offset = sub nuw nsw i32 273, %1
   br label %24
 
 24:                                               ; preds = %switch.lookup, %16

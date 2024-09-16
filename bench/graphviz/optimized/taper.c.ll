@@ -365,7 +365,7 @@ mymod.exit202:                                    ; preds = %135, %mymod.exit199
   %146 = call double @llvm.fmuladd.f64(double %145, double %.sroa.12.0.copyload130, double %.sroa.0104.0.copyload107)
   %147 = call double @sin(double noundef %.sroa.10123.0.copyload125) #14
   %148 = call double @llvm.fmuladd.f64(double %147, double %.sroa.12.0.copyload130, double %.sroa.6.0.copyload110)
-  call fastcc void @addto(ptr noundef nonnull %5, double noundef %146, double noundef %148)
+  call fastcc void @addto(ptr noundef %5, double noundef %146, double noundef %148)
   br i1 %144, label %149, label %154
 
 149:                                              ; preds = %.lr.ph224
@@ -373,7 +373,7 @@ mymod.exit202:                                    ; preds = %135, %mymod.exit199
   %151 = call double @llvm.fmuladd.f64(double %.sroa.12.0.copyload130, double %150, double %.sroa.0104.0.copyload107)
   %152 = call double @sin(double noundef %.sroa.16141.0.copyload143) #14
   %153 = call double @llvm.fmuladd.f64(double %.sroa.12.0.copyload130, double %152, double %.sroa.0104.0.copyload107)
-  call fastcc void @addto(ptr noundef nonnull %5, double noundef %151, double noundef %153)
+  call fastcc void @addto(ptr noundef %5, double noundef %151, double noundef %153)
   br label %154
 
 154:                                              ; preds = %.lr.ph224, %149
@@ -397,7 +397,7 @@ mymod.exit202:                                    ; preds = %135, %mymod.exit199
   %159 = call double @llvm.fmuladd.f64(double %158, double %.3178.lcssa, double %.1180.lcssa)
   %160 = call double @sin(double noundef %.3.lcssa) #14
   %161 = call double @llvm.fmuladd.f64(double %160, double %.3178.lcssa, double %.1182.lcssa)
-  call fastcc void @addto(ptr noundef nonnull %5, double noundef %159, double noundef %161)
+  call fastcc void @addto(ptr noundef %5, double noundef %159, double noundef %161)
   %.not230 = icmp eq i64 %.sroa.9.2246256, -1
   br i1 %.not230, label %._crit_edge234, label %.lr.ph233
 
@@ -421,7 +421,7 @@ mymod.exit202:                                    ; preds = %135, %mymod.exit199
   %166 = call double @llvm.fmuladd.f64(double %165, double %.sroa.12.0.copyload132, double %.sroa.0104.0.copyload108)
   %167 = call double @sin(double noundef %164) #14
   %168 = call double @llvm.fmuladd.f64(double %167, double %.sroa.12.0.copyload132, double %.sroa.6.0.copyload112)
-  call fastcc void @addto(ptr noundef nonnull %5, double noundef %166, double noundef %168)
+  call fastcc void @addto(ptr noundef %5, double noundef %166, double noundef %168)
   br i1 %163, label %169, label %175
 
 169:                                              ; preds = %.lr.ph233
@@ -430,7 +430,7 @@ mymod.exit202:                                    ; preds = %135, %mymod.exit199
   %172 = call double @llvm.fmuladd.f64(double %.sroa.12.0.copyload132, double %171, double %.sroa.0104.0.copyload108)
   %173 = call double @sin(double noundef %170) #14
   %174 = call double @llvm.fmuladd.f64(double %.sroa.12.0.copyload132, double %173, double %.sroa.0104.0.copyload108)
-  call fastcc void @addto(ptr noundef nonnull %5, double noundef %172, double noundef %174)
+  call fastcc void @addto(ptr noundef %5, double noundef %172, double noundef %174)
   br label %175
 
 175:                                              ; preds = %.lr.ph233, %169
@@ -458,7 +458,7 @@ declare double @cos(double noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addto(ptr nocapture noundef %0, double noundef %1, double noundef %2) unnamed_addr #0 {
+define internal fastcc void @addto(ptr nocapture noundef nonnull %0, double noundef %1, double noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8

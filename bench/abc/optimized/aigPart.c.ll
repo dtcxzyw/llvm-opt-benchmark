@@ -249,7 +249,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_PtrFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc void @Vec_PtrFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -1822,30 +1822,30 @@ Aig_ManSuppCharCommon.exit.us.us:                 ; preds = %19
   %36 = mul nuw nsw i32 %29, 1000
   %37 = udiv i32 %36, %.val.i
   %38 = icmp slt i32 %.val41.us.us, 100
-  br i1 %38, label %46, label %39
+  br i1 %38, label %45, label %Abc_Base2Log.exit.us.us
 
-39:                                               ; preds = %35
-  %40 = add nsw i32 %.val41.us.us, -100
-  %41 = icmp ult i32 %40, 2
-  %42 = add nsw i32 %.val41.us.us, -101
-  %43 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %42, i1 true)
-  %44 = sub nuw nsw i32 32, %43
-  %.09.i.us.us = select i1 %41, i32 %40, i32 %44
-  %45 = add nuw nsw i32 %.09.i.us.us, 1
-  br label %46
+Abc_Base2Log.exit.us.us:                          ; preds = %35
+  %39 = add nsw i32 %.val41.us.us, -100
+  %40 = icmp ult i32 %39, 2
+  %41 = add nsw i32 %.val41.us.us, -101
+  %42 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %41, i1 true)
+  %43 = sub nuw nsw i32 32, %42
+  %.09.i.us.us = select i1 %40, i32 %39, i32 %43
+  %44 = add nuw nsw i32 %.09.i.us.us, 1
+  br label %45
 
-46:                                               ; preds = %39, %35
-  %.031.us.us = phi i32 [ %45, %39 ], [ 1, %35 ]
-  %47 = udiv i32 %37, %.031.us.us
-  %48 = icmp slt i32 %.02947.us.us, %47
-  %spec.select.us.us = tail call i32 @llvm.smax.i32(i32 %.02947.us.us, i32 %47)
-  %49 = trunc nuw nsw i64 %indvars.iv62 to i32
-  %spec.select35.us.us = select i1 %48, i32 %49, i32 %.049.us.us
+45:                                               ; preds = %Abc_Base2Log.exit.us.us, %35
+  %.031.us.us = phi i32 [ %44, %Abc_Base2Log.exit.us.us ], [ 1, %35 ]
+  %46 = udiv i32 %37, %.031.us.us
+  %47 = icmp slt i32 %.02947.us.us, %46
+  %spec.select.us.us = tail call i32 @llvm.smax.i32(i32 %.02947.us.us, i32 %46)
+  %48 = trunc nuw nsw i64 %indvars.iv62 to i32
+  %spec.select35.us.us = select i1 %47, i32 %48, i32 %.049.us.us
   br label %Aig_ManSuppCharCommon.exit.thread.us.us
 
-Aig_ManSuppCharCommon.exit.thread.us.us:          ; preds = %46, %33, %Aig_ManSuppCharCommon.exit.us.us
-  %.130.us.us = phi i32 [ %.02947.us.us, %Aig_ManSuppCharCommon.exit.us.us ], [ %.02947.us.us, %33 ], [ %spec.select.us.us, %46 ]
-  %.1.us.us = phi i32 [ %.049.us.us, %Aig_ManSuppCharCommon.exit.us.us ], [ %.049.us.us, %33 ], [ %spec.select35.us.us, %46 ]
+Aig_ManSuppCharCommon.exit.thread.us.us:          ; preds = %45, %33, %Aig_ManSuppCharCommon.exit.us.us
+  %.130.us.us = phi i32 [ %.02947.us.us, %Aig_ManSuppCharCommon.exit.us.us ], [ %.02947.us.us, %33 ], [ %spec.select.us.us, %45 ]
+  %.1.us.us = phi i32 [ %.049.us.us, %Aig_ManSuppCharCommon.exit.us.us ], [ %.049.us.us, %33 ], [ %spec.select35.us.us, %45 ]
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
   br i1 %exitcond66.not, label %.critedge, label %.lr.ph.i.us.us, !llvm.loop !25
@@ -1854,67 +1854,67 @@ Aig_ManSuppCharCommon.exit.thread.us.us:          ; preds = %46, %33, %Aig_ManSu
   %indvars.iv = phi i64 [ %indvars.iv.next, %Aig_ManSuppCharCommon.exit.thread.us ], [ 0, %.lr.ph.split.us ]
   %.049.us = phi i32 [ %.1.us, %Aig_ManSuppCharCommon.exit.thread.us ], [ -1, %.lr.ph.split.us ]
   %.02947.us = phi i32 [ %.130.us, %Aig_ManSuppCharCommon.exit.thread.us ], [ 0, %.lr.ph.split.us ]
-  %50 = getelementptr inbounds ptr, ptr %.val37, i64 %indvars.iv
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds ptr, ptr %.val36, i64 %indvars.iv
-  %53 = load ptr, ptr %52, align 8
-  br label %54
+  %49 = getelementptr inbounds ptr, ptr %.val37, i64 %indvars.iv
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds ptr, ptr %.val36, i64 %indvars.iv
+  %52 = load ptr, ptr %51, align 8
+  br label %53
 
-54:                                               ; preds = %54, %.lr.ph.i.us
-  %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %54 ]
-  %.011.i.us = phi i32 [ 0, %.lr.ph.i.us ], [ %64, %54 ]
-  %55 = getelementptr inbounds i32, ptr %.val9.i.us, i64 %indvars.iv.i.us
-  %56 = load i32, ptr %55, align 4
-  %57 = ashr i32 %56, 5
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i32, ptr %53, i64 %58
-  %60 = load i32, ptr %59, align 4
-  %61 = and i32 %56, 31
-  %62 = lshr i32 %60, %61
-  %63 = and i32 %62, 1
-  %64 = add nuw nsw i32 %63, %.011.i.us
+53:                                               ; preds = %53, %.lr.ph.i.us
+  %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %53 ]
+  %.011.i.us = phi i32 [ 0, %.lr.ph.i.us ], [ %63, %53 ]
+  %54 = getelementptr inbounds i32, ptr %.val9.i.us, i64 %indvars.iv.i.us
+  %55 = load i32, ptr %54, align 4
+  %56 = ashr i32 %55, 5
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds i32, ptr %52, i64 %57
+  %59 = load i32, ptr %58, align 4
+  %60 = and i32 %55, 31
+  %61 = lshr i32 %59, %60
+  %62 = and i32 %61, 1
+  %63 = add nuw nsw i32 %62, %.011.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %Aig_ManSuppCharCommon.exit.us, label %54, !llvm.loop !24
+  br i1 %exitcond.not.i.us, label %Aig_ManSuppCharCommon.exit.us, label %53, !llvm.loop !24
 
-Aig_ManSuppCharCommon.exit.us:                    ; preds = %54
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %Aig_ManSuppCharCommon.exit.thread.us, label %66
+Aig_ManSuppCharCommon.exit.us:                    ; preds = %53
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %Aig_ManSuppCharCommon.exit.thread.us, label %65
 
-66:                                               ; preds = %Aig_ManSuppCharCommon.exit.us
-  %67 = icmp eq i32 %64, %.val.i
-  br i1 %67, label %.loopexit.loopexit55, label %68
+65:                                               ; preds = %Aig_ManSuppCharCommon.exit.us
+  %66 = icmp eq i32 %63, %.val.i
+  br i1 %66, label %.loopexit.loopexit55, label %67
 
-68:                                               ; preds = %66
-  %69 = mul nuw nsw i32 %64, 1000
-  %70 = udiv i32 %69, %.val.i
-  %71 = getelementptr i8, ptr %51, i64 4
-  %.val39.us = load i32, ptr %71, align 4
-  %72 = icmp slt i32 %.val39.us, 100
-  br i1 %72, label %80, label %73
+67:                                               ; preds = %65
+  %68 = mul nuw nsw i32 %63, 1000
+  %69 = udiv i32 %68, %.val.i
+  %70 = getelementptr i8, ptr %50, i64 4
+  %.val39.us = load i32, ptr %70, align 4
+  %71 = icmp slt i32 %.val39.us, 100
+  br i1 %71, label %78, label %Abc_Base2Log.exit.us
 
-73:                                               ; preds = %68
-  %74 = add nsw i32 %.val39.us, -100
-  %75 = icmp ult i32 %74, 2
-  %76 = add nsw i32 %.val39.us, -101
-  %77 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %76, i1 true)
-  %78 = sub nuw nsw i32 32, %77
-  %.09.i.us = select i1 %75, i32 %74, i32 %78
-  %79 = add nuw nsw i32 %.09.i.us, 1
-  br label %80
+Abc_Base2Log.exit.us:                             ; preds = %67
+  %72 = add nsw i32 %.val39.us, -100
+  %73 = icmp ult i32 %72, 2
+  %74 = add nsw i32 %.val39.us, -101
+  %75 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %74, i1 true)
+  %76 = sub nuw nsw i32 32, %75
+  %.09.i.us = select i1 %73, i32 %72, i32 %76
+  %77 = add nuw nsw i32 %.09.i.us, 1
+  br label %78
 
-80:                                               ; preds = %73, %68
-  %.031.us = phi i32 [ %79, %73 ], [ 1, %68 ]
-  %81 = udiv i32 %70, %.031.us
-  %82 = icmp slt i32 %.02947.us, %81
-  %spec.select.us = tail call i32 @llvm.smax.i32(i32 %.02947.us, i32 %81)
-  %83 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select35.us = select i1 %82, i32 %83, i32 %.049.us
+78:                                               ; preds = %Abc_Base2Log.exit.us, %67
+  %.031.us = phi i32 [ %77, %Abc_Base2Log.exit.us ], [ 1, %67 ]
+  %79 = udiv i32 %69, %.031.us
+  %80 = icmp slt i32 %.02947.us, %79
+  %spec.select.us = tail call i32 @llvm.smax.i32(i32 %.02947.us, i32 %79)
+  %81 = trunc nuw nsw i64 %indvars.iv to i32
+  %spec.select35.us = select i1 %80, i32 %81, i32 %.049.us
   br label %Aig_ManSuppCharCommon.exit.thread.us
 
-Aig_ManSuppCharCommon.exit.thread.us:             ; preds = %80, %Aig_ManSuppCharCommon.exit.us
-  %.130.us = phi i32 [ %.02947.us, %Aig_ManSuppCharCommon.exit.us ], [ %spec.select.us, %80 ]
-  %.1.us = phi i32 [ %.049.us, %Aig_ManSuppCharCommon.exit.us ], [ %spec.select35.us, %80 ]
+Aig_ManSuppCharCommon.exit.thread.us:             ; preds = %78, %Aig_ManSuppCharCommon.exit.us
+  %.130.us = phi i32 [ %.02947.us, %Aig_ManSuppCharCommon.exit.us ], [ %spec.select.us, %78 ]
+  %.1.us = phi i32 [ %.049.us, %Aig_ManSuppCharCommon.exit.us ], [ %spec.select35.us, %78 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count65
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.i.us, !llvm.loop !25
@@ -1923,22 +1923,22 @@ Aig_ManSuppCharCommon.exit.thread.us:             ; preds = %80, %Aig_ManSuppCha
   %.029.lcssa = phi i32 [ %.130.us.us, %Aig_ManSuppCharCommon.exit.thread.us.us ], [ %.130.us, %Aig_ManSuppCharCommon.exit.thread.us ]
   %.0.lcssa = phi i32 [ %.1.us.us, %Aig_ManSuppCharCommon.exit.thread.us.us ], [ %.1.us, %Aig_ManSuppCharCommon.exit.thread.us ]
   %.029.lcssa.fr = freeze i32 %.029.lcssa
-  %84 = icmp slt i32 %.029.lcssa.fr, 75
-  br i1 %84, label %.critedge.thread, label %.loopexit
+  %82 = icmp slt i32 %.029.lcssa.fr, 75
+  br i1 %82, label %.critedge.thread, label %.loopexit
 
 .critedge.thread:                                 ; preds = %.lr.ph, %5, %.critedge
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %31
-  %85 = trunc nuw nsw i64 %indvars.iv62 to i32
+  %83 = trunc nuw nsw i64 %indvars.iv62 to i32
   br label %.loopexit
 
-.loopexit.loopexit55:                             ; preds = %66
-  %86 = trunc nuw nsw i64 %indvars.iv to i32
+.loopexit.loopexit55:                             ; preds = %65
+  %84 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge.thread, %.critedge, %.loopexit.loopexit55, %.loopexit.loopexit
-  %.027 = phi i32 [ %85, %.loopexit.loopexit ], [ %86, %.loopexit.loopexit55 ], [ -1, %.critedge.thread ], [ %.0.lcssa, %.critedge ]
+  %.027 = phi i32 [ %83, %.loopexit.loopexit ], [ %84, %.loopexit.loopexit55 ], [ -1, %.critedge.thread ], [ %.0.lcssa, %.critedge ]
   ret i32 %.027
 }
 

@@ -851,7 +851,7 @@ sub_16.i.i:                                       ; preds = %.tail.thread.i.i
 
 316:                                              ; preds = %.tail4.thread.i.i, %.tail4.i.i
   call fastcc void @PrintHelp()
-  call fastcc void @DeleteConfig(ptr noundef nonnull %50)
+  call fastcc void @DeleteConfig(ptr noundef %50)
   call void @exit(i32 noundef 0) #17
   unreachable
 
@@ -868,7 +868,7 @@ sub_16.i.i:                                       ; preds = %.tail.thread.i.i
   %324 = and i32 %323, 255
   %325 = and i32 %320, 255
   %326 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %322, i32 noundef %324, i32 noundef %325)
-  call fastcc void @DeleteConfig(ptr noundef nonnull %50)
+  call fastcc void @DeleteConfig(ptr noundef %50)
   call void @exit(i32 noundef 0) #17
   unreachable
 
@@ -1284,7 +1284,7 @@ CreateMux.exit.thread.i:                          ; preds = %477, %472
   br label %WriteWebP.exit.i.i
 
 531:                                              ; preds = %521
-  %532 = call fastcc i32 @WriteData(ptr noundef %522, ptr noundef nonnull %36)
+  %532 = call fastcc i32 @WriteData(ptr noundef %522, ptr noundef %36)
   %533 = load ptr, ptr %36, align 8
   call void @WebPFree(ptr noundef %533) #12
   %534 = icmp ne i32 %532, 0
@@ -1333,7 +1333,7 @@ GetFrame.exit.i:                                  ; preds = %WriteWebP.exit.i.i,
 
 555:                                              ; preds = %539
   %556 = load ptr, ptr %464, align 8
-  %557 = call fastcc i32 @WriteData(ptr noundef %556, ptr noundef nonnull %40)
+  %557 = call fastcc i32 @WriteData(ptr noundef %556, ptr noundef %40)
   br label %Process.exit
 
 558:                                              ; preds = %480
@@ -1833,7 +1833,7 @@ CreateMux.exit216.thread.i:                       ; preds = %766, %754
   br label %WriteWebP.exit.i
 
 798:                                              ; preds = %788
-  %799 = call fastcc i32 @WriteData(ptr noundef %789, ptr noundef nonnull %20)
+  %799 = call fastcc i32 @WriteData(ptr noundef %789, ptr noundef %20)
   %800 = load ptr, ptr %20, align 8
   call void @WebPFree(ptr noundef %800) #12
   br label %WriteWebP.exit.i
@@ -2207,7 +2207,7 @@ CreateMux.exit229.thread.i:                       ; preds = %933, %928
   br label %WriteWebP.exit232.i
 
 967:                                              ; preds = %957
-  %968 = call fastcc i32 @WriteData(ptr noundef %958, ptr noundef nonnull %15)
+  %968 = call fastcc i32 @WriteData(ptr noundef %958, ptr noundef %15)
   %969 = load ptr, ptr %15, align 8
   call void @WebPFree(ptr noundef %969) #12
   br label %WriteWebP.exit232.i
@@ -2614,11 +2614,11 @@ define internal fastcc void @PrintHelp() unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @DeleteConfig(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @DeleteConfig(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #12
-  tail call void @ExUtilDeleteCommandLineArguments(ptr noundef %0) #12
+  tail call void @ExUtilDeleteCommandLineArguments(ptr noundef nonnull %0) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 88, i1 false)
   ret void
 }
@@ -2648,7 +2648,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare i32 @WebPMuxGetChunk(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @WriteData(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @WriteData(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
 sub_0:
   %2 = load i8, ptr %0, align 1
   %.not17 = icmp eq i8 %2, 45
@@ -2742,7 +2742,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteWebP(ptr noundef %0, ptr nounde
   br label %15
 
 12:                                               ; preds = %2
-  %13 = call fastcc i32 @WriteData(ptr noundef %1, ptr noundef nonnull %3)
+  %13 = call fastcc i32 @WriteData(ptr noundef %1, ptr noundef %3)
   %14 = load ptr, ptr %3, align 8
   call void @WebPFree(ptr noundef %14) #12
   br label %15

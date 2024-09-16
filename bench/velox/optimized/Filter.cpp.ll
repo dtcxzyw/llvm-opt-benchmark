@@ -4154,7 +4154,7 @@ sw.default.i.i24:                                 ; preds = %_ZNK5folly7dynamic5
 
 _ZNK5folly7dynamic5asIntEv.exit25:                ; preds = %sw.bb.i.i22, %sw.bb4.i.i19, %sw.bb7.i.i16, %sw.bb10.i.i9
   %retval.0.i.i15 = phi i64 [ %call2.i.i.i14, %sw.bb10.i.i9 ], [ %conv.i.i.i.i.i18, %sw.bb7.i.i16 ], [ %call6.i.i21, %sw.bb4.i.i19 ], [ %9, %sw.bb.i.i22 ]
-  call fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_117deserializeValuesERKN5folly7dynamicE(ptr noalias nonnull align 8 %values, ptr noundef nonnull align 8 dereferenceable(40) %obj)
+  call fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_117deserializeValuesERKN5folly7dynamicE(ptr noalias align 8 %values, ptr noundef nonnull align 8 dereferenceable(40) %obj)
   %call.i2627 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #39
           to label %call.i26.noexc unwind label %lpad
 
@@ -4325,7 +4325,7 @@ sw.default.i.i.i:                                 ; preds = %_ZNK5folly7dynamic5
 
 _ZN8facebook5velox6common12_GLOBAL__N_122deserializeNullAllowedERKN5folly7dynamicE.exit: ; preds = %sw.bb.i.i.i, %sw.bb4.i.i.i, %sw.bb7.i.i.i, %sw.bb10.i.i.i
   %retval.0.i.i.i = phi i1 [ %call2.i.i.i.i, %sw.bb10.i.i.i ], [ %tobool.i.i.i.i, %sw.bb7.i.i.i ], [ %cmp.i4.i.i.i, %sw.bb4.i.i.i ], [ %cmp.i.i.i.i, %sw.bb.i.i.i ]
-  call fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_117deserializeValuesERKN5folly7dynamicE(ptr noalias nonnull align 8 %values, ptr noundef nonnull align 8 dereferenceable(40) %obj)
+  call fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_117deserializeValuesERKN5folly7dynamicE(ptr noalias align 8 %values, ptr noundef nonnull align 8 dereferenceable(40) %obj)
   %call.i2627 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #39
           to label %call.i26.noexc unwind label %lpad
 
@@ -8554,7 +8554,7 @@ ehcleanup33:                                      ; preds = %lpad22, %lpad24, %l
 declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN5folly7dynamicaSERKS0_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_117deserializeValuesERKN5folly7dynamicE(ptr noalias nocapture align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %obj) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_117deserializeValuesERKN5folly7dynamicE(ptr noalias nocapture nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %obj) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %valuesArray = alloca %"struct.folly::dynamic", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -18900,7 +18900,7 @@ land.end56:                                       ; preds = %land.rhs51, %for.en
   %39 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 8
   store ptr %39, ptr %_M_end_of_storage.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %newRanges, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_119combineBigintRangesESt6vectorISt10unique_ptrINS1_11BigintRangeESt14default_deleteIS5_EESaIS8_EEb(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp58, i1 noundef zeroext %37)
+  invoke fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_119combineBigintRangesESt6vectorISt10unique_ptrINS1_11BigintRangeESt14default_deleteIS5_EESaIS8_EEb(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp58, i1 noundef zeroext %37)
           to label %invoke.cont61 unwind label %lpad60
 
 invoke.cont61:                                    ; preds = %land.end56
@@ -19176,7 +19176,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i167, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_119combineBigintRangesESt6vectorISt10unique_ptrINS1_11BigintRangeESt14default_deleteIS5_EESaIS8_EEb(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %ranges, i1 noundef zeroext %nullAllowed) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_119combineBigintRangesESt6vectorISt10unique_ptrINS1_11BigintRangeESt14default_deleteIS5_EESaIS8_EEb(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull %ranges, i1 noundef zeroext %nullAllowed) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %nullAllowed.addr = alloca i8, align 1
   %ref.tmp12 = alloca %"class.std::unique_ptr.213", align 8
@@ -19667,7 +19667,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp68, i64 16
   store ptr %40, ptr %_M_end_of_storage.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %outRanges, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_119combineBigintRangesESt6vectorISt10unique_ptrINS1_11BigintRangeESt14default_deleteIS5_EESaIS8_EEb(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp68, i1 noundef zeroext %nullAllowed)
+  invoke fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_119combineBigintRangesESt6vectorISt10unique_ptrINS1_11BigintRangeESt14default_deleteIS5_EESaIS8_EEb(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp68, i1 noundef zeroext %nullAllowed)
           to label %invoke.cont70 unwind label %lpad69
 
 invoke.cont70:                                    ; preds = %for.end
@@ -20378,7 +20378,7 @@ if.end98:                                         ; preds = %_ZNSt10unique_ptrIN
   store ptr %42, ptr %_M_end_of_storage.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %outRanges, i8 0, i64 24, i1 false)
   %tobool100 = trunc nuw i8 %frombool35 to i1
-  invoke fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_119combineBigintRangesESt6vectorISt10unique_ptrINS1_11BigintRangeESt14default_deleteIS5_EESaIS8_EEb(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp99, i1 noundef zeroext %tobool100)
+  invoke fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_119combineBigintRangesESt6vectorISt10unique_ptrINS1_11BigintRangeESt14default_deleteIS5_EESaIS8_EEb(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp99, i1 noundef zeroext %tobool100)
           to label %invoke.cont102 unwind label %lpad101
 
 invoke.cont102:                                   ; preds = %if.end98
@@ -21902,7 +21902,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr %36, ptr %_M_end_of_storage.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %outRanges, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_119combineBigintRangesESt6vectorISt10unique_ptrINS1_11BigintRangeESt14default_deleteIS5_EESaIS8_EEb(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp, i1 noundef zeroext %nullAllowed)
+  invoke fastcc void @_ZN8facebook5velox6common12_GLOBAL__N_119combineBigintRangesESt6vectorISt10unique_ptrINS1_11BigintRangeESt14default_deleteIS5_EESaIS8_EEb(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, i1 noundef zeroext %nullAllowed)
           to label %invoke.cont67 unwind label %lpad66
 
 invoke.cont67:                                    ; preds = %for.end

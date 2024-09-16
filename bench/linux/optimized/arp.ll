@@ -552,7 +552,7 @@ define dso_local void @arp_send(i32 noundef %0, i32 noundef %1, i32 noundef %2, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @arp_send_dst(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #1 align 16 {
+define internal fastcc void @arp_send_dst(i32 noundef range(i32 1, 3) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #1 align 16 {
   %9 = getelementptr inbounds i8, ptr %2, i64 168
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 128
@@ -863,7 +863,7 @@ define dso_local i32 @arp_invalidate(ptr noundef %0, i32 noundef %1, i1 noundef 
 declare dso_local ptr @neigh_lookup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @neigh_release(ptr noundef %0) unnamed_addr #8 align 16 {
+define internal fastcc void @neigh_release(ptr noundef nonnull %0) unnamed_addr #8 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 -1, ptr elementtype(i32) %2) #14, !srcloc !5
   %4 = icmp eq i32 %3, 1
@@ -879,7 +879,7 @@ define internal fastcc void @neigh_release(ptr noundef %0) unnamed_addr #8 align
 
 8:                                                ; preds = %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !14
-  tail call void @neigh_destroy(ptr noundef %0) #14
+  tail call void @neigh_destroy(ptr noundef nonnull %0) #14
   br label %.thread
 
 .thread:                                          ; preds = %5, %7, %8
@@ -2154,7 +2154,7 @@ thread-pre-split.thread:                          ; preds = %89
 declare dso_local ptr @iptunnel_metadata_reply(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 2) i32 @arp_ignore(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 0, 2) i32 @arp_ignore(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 272
   %6 = load ptr, ptr %5, align 8
@@ -2240,7 +2240,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @arp_filter(i32 noundef %0, i
 declare dso_local ptr @neigh_event_ns(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite)
-define internal fastcc range(i32 0, 2) i32 @arp_fwd_proxy(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr %.0.val) unnamed_addr #11 align 16 {
+define internal fastcc range(i32 0, 2) i32 @arp_fwd_proxy(ptr nocapture noundef nonnull readonly %0, ptr noundef readnone %1, ptr %.0.val) unnamed_addr #11 align 16 {
   %3 = icmp eq ptr %.0.val, %1
   br i1 %3, label %34, label %4
 
@@ -2320,7 +2320,7 @@ define internal fastcc ptr @__neigh_lookup(ptr noundef %0, ptr noundef %1) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 2) i32 @arp_accept(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 0, 2) i32 @arp_accept(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 272
   %5 = load ptr, ptr %4, align 8
@@ -2340,7 +2340,7 @@ define internal fastcc range(i32 0, 2) i32 @arp_accept(ptr noundef %0, i32 nound
   br label %18
 
 14:                                               ; preds = %2
-  %15 = tail call i32 @inet_confirm_addr(ptr noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 253) #14
+  %15 = tail call i32 @inet_confirm_addr(ptr noundef %5, ptr noundef nonnull %0, i32 noundef %1, i32 noundef 0, i32 noundef 253) #14
   %16 = icmp ne i32 %15, 0
   %17 = zext i1 %16 to i32
   br label %18

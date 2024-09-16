@@ -1144,7 +1144,7 @@ if.then3.i.i.i:                                   ; preds = %if.end4.i.i.i.i.i, 
   store i64 %.sroa.speculated.i.i.i, ptr %my_index.i9.i.i.i, align 8
   %my_item.i11.i.i.i = getelementptr inbounds i8, ptr %agg.tmp5.i.i.i, i64 16
   store ptr null, ptr %my_item.i11.i.i.i, align 8
-  call fastcc void @"_ZSt21__inplace_stable_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_T0_"(ptr noundef nonnull %agg.tmp4.i.i.i, ptr noundef nonnull %agg.tmp5.i.i.i)
+  call fastcc void @"_ZSt21__inplace_stable_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_T0_"(ptr noundef %agg.tmp4.i.i.i, ptr noundef %agg.tmp5.i.i.i)
   br label %if.end12.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i.i.i
@@ -1156,7 +1156,7 @@ if.else.i.i.i:                                    ; preds = %while.body.i.i.i.i.
   store i64 %.sroa.speculated.i.i.i, ptr %my_index.i17.i.i.i, align 8
   %my_item.i19.i.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i.i, i64 16
   store ptr null, ptr %my_item.i19.i.i.i, align 8
-  call fastcc void @"_ZSt22__stable_sort_adaptiveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_T0_T1_T2_"(ptr noundef nonnull %agg.tmp7.i.i.i, ptr noundef nonnull %agg.tmp8.i.i.i, ptr noundef nonnull %call.i.i.i.i.i, i64 noundef %storemerge27.i.i.i.i.i)
+  call fastcc void @"_ZSt22__stable_sort_adaptiveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_T0_T1_T2_"(ptr noundef %agg.tmp7.i.i.i, ptr noundef %agg.tmp8.i.i.i, ptr noundef nonnull %call.i.i.i.i.i, i64 noundef %storemerge27.i.i.i.i.i)
   br label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %if.then3.i.i.i
@@ -1270,7 +1270,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @"_ZSt21__inplace_stable_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_T0_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef readonly %__last) unnamed_addr #4 {
+define internal fastcc void @"_ZSt21__inplace_stable_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_T0_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__last) unnamed_addr #4 {
 entry:
   %agg.tmp = alloca %"class.tbb::detail::d1::vector_iterator", align 8
   %agg.tmp1 = alloca %"class.tbb::detail::d1::vector_iterator", align 8
@@ -1306,7 +1306,7 @@ if.then:                                          ; preds = %entry
   %my_item4.i8 = getelementptr inbounds i8, ptr %__last, i64 16
   %5 = load ptr, ptr %my_item4.i8, align 8
   store ptr %5, ptr %my_item.i7, align 8
-  call fastcc void @"_ZSt16__insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_T0_"(ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1)
+  call fastcc void @"_ZSt16__insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_T0_"(ptr noundef %agg.tmp, ptr noundef %agg.tmp1)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1325,7 +1325,7 @@ if.end:                                           ; preds = %entry
   store i64 %add.i, ptr %my_index.i17, align 8
   %my_item.i19 = getelementptr inbounds i8, ptr %agg.tmp5, i64 16
   store ptr null, ptr %my_item.i19, align 8
-  call fastcc void @"_ZSt21__inplace_stable_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_T0_"(ptr noundef nonnull %agg.tmp4, ptr noundef nonnull %agg.tmp5)
+  call fastcc void @"_ZSt21__inplace_stable_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_T0_"(ptr noundef %agg.tmp4, ptr noundef %agg.tmp5)
   store ptr %6, ptr %agg.tmp7, align 8
   %my_index.i21 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store i64 %add.i, ptr %my_index.i21, align 8
@@ -1340,7 +1340,7 @@ if.end:                                           ; preds = %entry
   %my_item4.i28 = getelementptr inbounds i8, ptr %__last, i64 16
   %10 = load ptr, ptr %my_item4.i28, align 8
   store ptr %10, ptr %my_item.i27, align 8
-  call fastcc void @"_ZSt21__inplace_stable_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_T0_"(ptr noundef nonnull %agg.tmp7, ptr noundef nonnull %agg.tmp8)
+  call fastcc void @"_ZSt21__inplace_stable_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_T0_"(ptr noundef %agg.tmp7, ptr noundef %agg.tmp8)
   %11 = load ptr, ptr %__first, align 8
   store ptr %11, ptr %agg.tmp10, align 8
   %my_index.i29 = getelementptr inbounds i8, ptr %agg.tmp10, i64 8
@@ -1364,7 +1364,7 @@ if.end:                                           ; preds = %entry
   store ptr %16, ptr %my_item.i39, align 8
   %sub.i43 = sub nsw i64 %add.i, %12
   %sub.i46 = sub nsw i64 %15, %add.i
-  call fastcc void @"_ZSt22__merge_without_bufferIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_SI_T0_SJ_T1_"(ptr noundef nonnull %agg.tmp10, ptr noundef nonnull %agg.tmp11, ptr noundef nonnull %agg.tmp12, i64 noundef %sub.i43, i64 noundef %sub.i46)
+  call fastcc void @"_ZSt22__merge_without_bufferIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_SI_T0_SJ_T1_"(ptr noundef %agg.tmp10, ptr noundef %agg.tmp11, ptr noundef %agg.tmp12, i64 noundef %sub.i43, i64 noundef %sub.i46)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -1372,7 +1372,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @"_ZSt22__stable_sort_adaptiveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_T0_T1_T2_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef readonly %__last, ptr noundef %__buffer, i64 noundef %__buffer_size) unnamed_addr #4 {
+define internal fastcc void @"_ZSt22__stable_sort_adaptiveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_T0_T1_T2_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__last, ptr noundef %__buffer, i64 noundef %__buffer_size) unnamed_addr #4 {
 entry:
   %agg.tmp = alloca %"class.tbb::detail::d1::vector_iterator", align 8
   %agg.tmp1 = alloca %"class.tbb::detail::d1::vector_iterator", align 8
@@ -1410,7 +1410,7 @@ if.then:                                          ; preds = %entry
   store i64 %add.i, ptr %my_index.i15, align 8
   %my_item.i17 = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
   store ptr null, ptr %my_item.i17, align 8
-  call fastcc void @"_ZSt22__stable_sort_adaptiveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_T0_T1_T2_"(ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1, ptr noundef %__buffer, i64 noundef %__buffer_size)
+  call fastcc void @"_ZSt22__stable_sort_adaptiveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_T0_T1_T2_"(ptr noundef %agg.tmp, ptr noundef %agg.tmp1, ptr noundef %__buffer, i64 noundef %__buffer_size)
   store ptr %2, ptr %agg.tmp3, align 8
   %my_index.i19 = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
   store i64 %add.i, ptr %my_index.i19, align 8
@@ -1425,7 +1425,7 @@ if.then:                                          ; preds = %entry
   %my_item4.i26 = getelementptr inbounds i8, ptr %__last, i64 16
   %6 = load ptr, ptr %my_item4.i26, align 8
   store ptr %6, ptr %my_item.i25, align 8
-  call fastcc void @"_ZSt22__stable_sort_adaptiveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_T0_T1_T2_"(ptr noundef nonnull %agg.tmp3, ptr noundef nonnull %agg.tmp4, ptr noundef %__buffer, i64 noundef %__buffer_size)
+  call fastcc void @"_ZSt22__stable_sort_adaptiveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_T0_T1_T2_"(ptr noundef %agg.tmp3, ptr noundef %agg.tmp4, ptr noundef %__buffer, i64 noundef %__buffer_size)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -1440,7 +1440,7 @@ if.else:                                          ; preds = %entry
   store i64 %add.i, ptr %my_index.i31, align 8
   %my_item.i33 = getelementptr inbounds i8, ptr %agg.tmp7, i64 16
   store ptr null, ptr %my_item.i33, align 8
-  call fastcc void @"_ZSt24__merge_sort_with_bufferIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_T0_T1_"(ptr noundef nonnull %agg.tmp6, ptr noundef nonnull %agg.tmp7, ptr noundef %__buffer)
+  call fastcc void @"_ZSt24__merge_sort_with_bufferIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_T0_T1_"(ptr noundef %agg.tmp6, ptr noundef %agg.tmp7, ptr noundef %__buffer)
   store ptr %2, ptr %agg.tmp9, align 8
   %my_index.i35 = getelementptr inbounds i8, ptr %agg.tmp9, i64 8
   store i64 %add.i, ptr %my_index.i35, align 8
@@ -1455,7 +1455,7 @@ if.else:                                          ; preds = %entry
   %my_item4.i42 = getelementptr inbounds i8, ptr %__last, i64 16
   %10 = load ptr, ptr %my_item4.i42, align 8
   store ptr %10, ptr %my_item.i41, align 8
-  call fastcc void @"_ZSt24__merge_sort_with_bufferIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_T0_T1_"(ptr noundef nonnull %agg.tmp9, ptr noundef nonnull %agg.tmp10, ptr noundef %__buffer)
+  call fastcc void @"_ZSt24__merge_sort_with_bufferIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_T0_T1_"(ptr noundef %agg.tmp9, ptr noundef %agg.tmp10, ptr noundef %__buffer)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -1484,7 +1484,7 @@ if.end:                                           ; preds = %if.else, %if.then
   store ptr %16, ptr %my_item.i53, align 8
   %sub.i57 = sub nsw i64 %add.i, %12
   %sub.i60 = sub nsw i64 %15, %add.i
-  call fastcc void @"_ZSt16__merge_adaptiveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EElPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_SJ_T0_SK_T1_SK_T2_"(ptr noundef nonnull %agg.tmp12, ptr noundef nonnull %agg.tmp13, ptr noundef nonnull %agg.tmp14, i64 noundef %sub.i57, i64 noundef %sub.i60, ptr noundef %__buffer, i64 noundef %__buffer_size)
+  call fastcc void @"_ZSt16__merge_adaptiveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EElPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_SJ_T0_SK_T1_SK_T2_"(ptr noundef %agg.tmp12, ptr noundef %agg.tmp13, ptr noundef %agg.tmp14, i64 noundef %sub.i57, i64 noundef %sub.i60, ptr noundef %__buffer, i64 noundef %__buffer_size)
   ret void
 }
 
@@ -1492,7 +1492,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @"_ZSt16__insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_T0_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef readonly %__last) unnamed_addr #12 {
+define internal fastcc void @"_ZSt16__insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_T0_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__last) unnamed_addr #12 {
 entry:
   %0 = load ptr, ptr %__first, align 8
   %1 = load ptr, ptr %__last, align 8
@@ -1713,7 +1713,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @"_ZSt22__merge_without_bufferIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_SI_T0_SJ_T1_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef readonly %__middle, ptr nocapture noundef readonly %__last, i64 noundef %__len1, i64 noundef %__len2) unnamed_addr #4 {
+define internal fastcc void @"_ZSt22__merge_without_bufferIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_SI_T0_SJ_T1_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__middle, ptr nocapture noundef nonnull readonly %__last, i64 noundef %__len1, i64 noundef %__len2) unnamed_addr #4 {
 entry:
   %agg.tmp.i = alloca %"class.tbb::detail::d1::vector_iterator", align 8
   %agg.tmp1.i = alloca %"class.tbb::detail::d1::vector_iterator", align 8
@@ -2030,7 +2030,7 @@ if.end33:                                         ; preds = %"_ZSt13__upper_boun
   %my_item4.i219 = getelementptr inbounds i8, ptr %__new_middle, i64 16
   %70 = load ptr, ptr %my_item4.i219, align 8
   store ptr %70, ptr %my_item.i218, align 8
-  call fastcc void @"_ZSt22__merge_without_bufferIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_SI_T0_SJ_T1_"(ptr noundef nonnull %agg.tmp37, ptr noundef nonnull %agg.tmp38, ptr noundef nonnull %agg.tmp39, i64 noundef %__len11.0, i64 noundef %__len22.0)
+  call fastcc void @"_ZSt22__merge_without_bufferIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_SI_T0_SJ_T1_"(ptr noundef %agg.tmp37, ptr noundef %agg.tmp38, ptr noundef %agg.tmp39, i64 noundef %__len11.0, i64 noundef %__len22.0)
   %71 = load ptr, ptr %__new_middle, align 8
   store ptr %71, ptr %agg.tmp41, align 8
   %my_index.i220 = getelementptr inbounds i8, ptr %agg.tmp41, i64 8
@@ -2056,7 +2056,7 @@ if.end33:                                         ; preds = %"_ZSt13__upper_boun
   store ptr %76, ptr %my_item.i230, align 8
   %sub = sub nsw i64 %__len1, %__len11.0
   %sub44 = sub nsw i64 %__len2, %__len22.0
-  call fastcc void @"_ZSt22__merge_without_bufferIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_SI_T0_SJ_T1_"(ptr noundef nonnull %agg.tmp41, ptr noundef nonnull %agg.tmp42, ptr noundef nonnull %agg.tmp43, i64 noundef %sub, i64 noundef %sub44)
+  call fastcc void @"_ZSt22__merge_without_bufferIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_SI_T0_SJ_T1_"(ptr noundef %agg.tmp41, ptr noundef %agg.tmp42, ptr noundef %agg.tmp43, i64 noundef %sub, i64 noundef %sub44)
   br label %return
 
 return:                                           ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4moldL9print_recERNS2_11TimerRecordElE3$_0EclIN3tbb6detail2d115vector_iteratorINSA_17concurrent_vectorIPS3_NSA_23cache_aligned_allocatorISD_EEEESD_EESH_EEbT_T0_.exit", %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit, %entry, %if.end33
@@ -2568,7 +2568,7 @@ return:                                           ; preds = %for.end64, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind
-define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_T0_T1_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef readonly %__last, ptr noundef %__buffer) unnamed_addr #13 {
+define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_T0_T1_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__last, ptr noundef %__buffer) unnamed_addr #13 {
 entry:
   %agg.tmp13.i = alloca %"class.tbb::detail::d1::vector_iterator", align 8
   %tmp.i = alloca %"class.tbb::detail::d1::vector_iterator", align 8
@@ -2618,7 +2618,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   store ptr %2, ptr %agg.tmp1.i, align 8, !alias.scope !103
   store i64 %add.i.i, ptr %my_index.i.i.i, align 8, !alias.scope !103
   store ptr null, ptr %my_item.i.i.i, align 8, !alias.scope !103
-  call fastcc void @"_ZSt16__insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_T0_"(ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp1.i)
+  call fastcc void @"_ZSt16__insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_T0_"(ptr noundef %agg.tmp.i, ptr noundef %agg.tmp1.i)
   %sub.i.i = sub nsw i64 %0, %add.i.i
   %cmp.i = icmp sgt i64 %sub.i.i, 6
   br i1 %cmp.i, label %while.body.i, label %"_ZSt22__chunk_insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_T0_T1_.exit", !llvm.loop !106
@@ -2636,7 +2636,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   store i64 %0, ptr %my_index.i13.i, align 8
   %my_item.i15.i = getelementptr inbounds i8, ptr %agg.tmp5.i, i64 16
   store ptr %5, ptr %my_item.i15.i, align 8
-  call fastcc void @"_ZSt16__insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_T0_"(ptr noundef nonnull %agg.tmp4.i, ptr noundef nonnull %agg.tmp5.i)
+  call fastcc void @"_ZSt16__insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_T0_"(ptr noundef %agg.tmp4.i, ptr noundef %agg.tmp5.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp4.i)
@@ -2933,7 +2933,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   store ptr %11, ptr %agg.tmp12.i, align 8
   store i64 %12, ptr %my_index.i33.i, align 8
   store ptr %13, ptr %my_item.i35.i, align 8
-  call fastcc void @"_ZSt12__move_mergeIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_"(ptr noundef nonnull %agg.tmp9.i, ptr noundef nonnull %agg.tmp10.i, ptr noundef nonnull %agg.tmp11.i, ptr noundef nonnull %agg.tmp12.i, ptr noundef %__result.addr.0.lcssa.i)
+  call fastcc void @"_ZSt12__move_mergeIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_"(ptr noundef %agg.tmp9.i, ptr noundef %agg.tmp10.i, ptr noundef %agg.tmp11.i, ptr noundef %agg.tmp12.i, ptr noundef %__result.addr.0.lcssa.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i24.sroa.12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i.sroa.12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp9.i)
@@ -3146,7 +3146,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   store ptr %44, ptr %agg.tmp13.i, align 8
   store i64 %76, ptr %my_index.i19.i, align 8
   store ptr %75, ptr %my_item.i21.i, align 8
-  call fastcc void @"_ZSt12__move_mergeIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_L9print_recERS1_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_"(ptr noalias nonnull align 8 %tmp.i, ptr noundef %__first.addr.0.lcssa.i, ptr noundef %add.ptr11.i, ptr noundef %add.ptr11.i, ptr noundef nonnull %add.ptr, ptr noundef nonnull %agg.tmp13.i)
+  call fastcc void @"_ZSt12__move_mergeIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_L9print_recERS1_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_"(ptr noalias align 8 %tmp.i, ptr noundef %__first.addr.0.lcssa.i, ptr noundef %add.ptr11.i, ptr noundef %add.ptr11.i, ptr noundef nonnull %add.ptr, ptr noundef %agg.tmp13.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp13.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i)
   %cmp = icmp slt i64 %mul.i44, %sub.i
@@ -3157,7 +3157,7 @@ while.end:                                        ; preds = %"_ZSt17__merge_sort
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @"_ZSt16__merge_adaptiveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EElPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_SJ_T0_SK_T1_SK_T2_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef readonly %__middle, ptr nocapture noundef readonly %__last, i64 noundef %__len1, i64 noundef %__len2, ptr noundef %__buffer, i64 noundef %__buffer_size) unnamed_addr #4 {
+define internal fastcc void @"_ZSt16__merge_adaptiveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EElPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_SJ_T0_SK_T1_SK_T2_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__middle, ptr nocapture noundef nonnull readonly %__last, i64 noundef %__len1, i64 noundef %__len2, ptr noundef %__buffer, i64 noundef %__buffer_size) unnamed_addr #4 {
 entry:
   %__new_middle = alloca %"class.tbb::detail::d1::vector_iterator", align 8
   %agg.tmp42 = alloca %"class.tbb::detail::d1::vector_iterator", align 8
@@ -3920,7 +3920,7 @@ if.end:                                           ; preds = %"_ZSt13__upper_boun
   %my_item4.i372 = getelementptr inbounds i8, ptr %__new_middle, i64 16
   %132 = load ptr, ptr %my_item4.i372, align 8
   store ptr %132, ptr %my_item.i371, align 8
-  call fastcc void @"_ZSt16__merge_adaptiveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EElPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_SJ_T0_SK_T1_SK_T2_"(ptr noundef nonnull %agg.tmp45, ptr noundef nonnull %agg.tmp46, ptr noundef nonnull %agg.tmp47, i64 noundef %__len11.0, i64 noundef %__len22.0, ptr noundef %__buffer, i64 noundef %__buffer_size)
+  call fastcc void @"_ZSt16__merge_adaptiveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EElPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_SJ_T0_SK_T1_SK_T2_"(ptr noundef %agg.tmp45, ptr noundef %agg.tmp46, ptr noundef %agg.tmp47, i64 noundef %__len11.0, i64 noundef %__len22.0, ptr noundef %__buffer, i64 noundef %__buffer_size)
   %133 = load ptr, ptr %__new_middle, align 8
   store ptr %133, ptr %agg.tmp49, align 8
   %my_index.i373 = getelementptr inbounds i8, ptr %agg.tmp49, i64 8
@@ -3945,7 +3945,7 @@ if.end:                                           ; preds = %"_ZSt13__upper_boun
   %138 = load ptr, ptr %my_item4.i384, align 8
   store ptr %138, ptr %my_item.i383, align 8
   %sub53 = sub nsw i64 %__len2, %__len22.0
-  call fastcc void @"_ZSt16__merge_adaptiveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EElPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_SJ_T0_SK_T1_SK_T2_"(ptr noundef nonnull %agg.tmp49, ptr noundef nonnull %agg.tmp50, ptr noundef nonnull %agg.tmp51, i64 noundef %sub, i64 noundef %sub53, ptr noundef %__buffer, i64 noundef %__buffer_size)
+  call fastcc void @"_ZSt16__merge_adaptiveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EElPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_SJ_T0_SK_T1_SK_T2_"(ptr noundef %agg.tmp49, ptr noundef %agg.tmp50, ptr noundef %agg.tmp51, i64 noundef %sub, i64 noundef %sub53, ptr noundef %__buffer, i64 noundef %__buffer_size)
   br label %if.end56
 
 if.end56:                                         ; preds = %if.end.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit127.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i80.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i.i154, %if.then, %if.then11.i, %if.else.i104, %if.then.i136, %if.then8.i, %if.end
@@ -3953,7 +3953,7 @@ if.end56:                                         ; preds = %if.end.i, %_ZNK3tbb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @"_ZSt12__move_mergeIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_"(ptr nocapture noundef %__first1, ptr nocapture noundef readonly %__last1, ptr nocapture noundef %__first2, ptr nocapture noundef readonly %__last2, ptr noundef writeonly %__result) unnamed_addr #12 {
+define internal fastcc void @"_ZSt12__move_mergeIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_"(ptr nocapture noundef nonnull %__first1, ptr nocapture noundef nonnull readonly %__last1, ptr nocapture noundef nonnull %__first2, ptr nocapture noundef nonnull readonly %__last2, ptr noundef writeonly %__result) unnamed_addr #12 {
 entry:
   %my_index.i.i = getelementptr inbounds i8, ptr %__first1, i64 8
   %my_index2.i.i = getelementptr inbounds i8, ptr %__last1, i64 8
@@ -4238,7 +4238,7 @@ _ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11Time
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind
-define internal fastcc void @"_ZSt12__move_mergeIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_L9print_recERS1_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_"(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %__first1, ptr noundef %__last1, ptr noundef %__first2, ptr noundef %__last2, ptr nocapture noundef %__result) unnamed_addr #13 {
+define internal fastcc void @"_ZSt12__move_mergeIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_L9print_recERS1_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %__first1, ptr noundef %__last1, ptr noundef %__first2, ptr noundef %__last2, ptr nocapture noundef nonnull %__result) unnamed_addr #13 {
 entry:
   %cmp65 = icmp ne ptr %__first1, %__last1
   %cmp166 = icmp ne ptr %__first2, %__last2

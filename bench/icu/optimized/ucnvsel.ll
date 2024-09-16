@@ -941,7 +941,7 @@ return:                                           ; preds = %for.body, %if.end11
 declare ptr @udata_openSwapperForInputData_75(ptr noundef, i32 noundef, i8 noundef signext, i8 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL12ucnvsel_swapPK12UDataSwapperPKviPvP10UErrorCode(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef %status) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL12ucnvsel_swapPK12UDataSwapperPKviPvP10UErrorCode(ptr noundef %ds, ptr noundef %inData, i32 noundef range(i32 -1, -2147483648) %length, ptr noundef %outData, ptr noundef %status) unnamed_addr #0 {
 entry:
   %indexes = alloca [16 x i32], align 16
   %call = tail call i32 @udata_swapDataHeader_75(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef %status)
@@ -1286,7 +1286,7 @@ _ZL14intersectMasksPjPKji.exit:                   ; preds = %for.body.i
   br i1 %.not, label %if.end95, label %while.cond, !llvm.loop !15
 
 if.end95:                                         ; preds = %do.end, %cond.true, %cond.end, %_ZL14intersectMasksPjPKji.exit, %if.end8
-  %call96 = tail call fastcc noundef ptr @_ZL13selectForMaskPK18UConverterSelectorPjP10UErrorCode(ptr noundef nonnull %sel, ptr noundef nonnull %call5, ptr noundef nonnull %status)
+  %call96 = tail call fastcc noundef ptr @_ZL13selectForMaskPK18UConverterSelectorPjP10UErrorCode(ptr noundef %sel, ptr noundef %call5, ptr noundef nonnull %status)
   br label %return
 
 return:                                           ; preds = %entry, %if.end95, %if.then7, %if.then3
@@ -1295,7 +1295,7 @@ return:                                           ; preds = %entry, %if.end95, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL13selectForMaskPK18UConverterSelectorPjP10UErrorCode(ptr noundef %sel, ptr noundef %theMask, ptr nocapture noundef writeonly %status) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL13selectForMaskPK18UConverterSelectorPjP10UErrorCode(ptr noundef nonnull %sel, ptr noundef nonnull %theMask, ptr nocapture noundef writeonly %status) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = invoke noalias dereferenceable_or_null(24) ptr @uprv_malloc_75(i64 noundef 24) #14
           to label %invoke.cont1 unwind label %lpad
@@ -1487,7 +1487,7 @@ terminate.lpad.i20:                               ; preds = %cleanup73
   unreachable
 
 _ZN6icu_7511LocalMemoryI10EnumeratorED2Ev.exit:   ; preds = %cleanup73
-  invoke void @uprv_free_75(ptr noundef %theMask)
+  invoke void @uprv_free_75(ptr noundef nonnull %theMask)
           to label %_ZN6icu_7511LocalMemoryIjED2Ev.exit unwind label %terminate.lpad.i21
 
 terminate.lpad.i21:                               ; preds = %_ZN6icu_7511LocalMemoryI10EnumeratorED2Ev.exit
@@ -1514,7 +1514,7 @@ terminate.lpad.i22:                               ; preds = %ehcleanup
 
 ehcleanup75:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %0, %lpad ], [ %.pn, %ehcleanup ]
-  invoke void @uprv_free_75(ptr noundef %theMask)
+  invoke void @uprv_free_75(ptr noundef nonnull %theMask)
           to label %_ZN6icu_7511LocalMemoryIjED2Ev.exit25 unwind label %terminate.lpad.i24
 
 terminate.lpad.i24:                               ; preds = %ehcleanup75
@@ -1727,7 +1727,7 @@ _ZL14intersectMasksPjPKji.exit:                   ; preds = %for.body.i
   br i1 %.not, label %if.end120, label %while.cond, !llvm.loop !20
 
 if.end120:                                        ; preds = %do.end, %while.cond, %_ZL14intersectMasksPjPKji.exit, %if.end15
-  %call121 = tail call fastcc noundef ptr @_ZL13selectForMaskPK18UConverterSelectorPjP10UErrorCode(ptr noundef nonnull %sel, ptr noundef nonnull %call5, ptr noundef nonnull %status)
+  %call121 = tail call fastcc noundef ptr @_ZL13selectForMaskPK18UConverterSelectorPjP10UErrorCode(ptr noundef %sel, ptr noundef %call5, ptr noundef nonnull %status)
   br label %return
 
 return:                                           ; preds = %entry, %if.end120, %if.then7, %if.then3

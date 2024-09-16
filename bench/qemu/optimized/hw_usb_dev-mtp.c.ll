@@ -1154,7 +1154,7 @@ for.end268:                                       ; preds = %for.body259.lr.ph, 
   %cmp311 = icmp ugt i32 %82, 4
   %cond318 = select i1 %cmp311, i32 %88, i32 0
   call fastcc void @trace_usb_mtp_command(i32 noundef %conv271, i16 noundef zeroext %79, i32 noundef %81, i32 noundef %cond282, i32 noundef %cond291, i32 noundef %cond300, i32 noundef %cond309, i32 noundef %cond318)
-  call fastcc void @usb_mtp_command(ptr noundef nonnull %call.i, ptr noundef nonnull %cmd)
+  call fastcc void @usb_mtp_command(ptr noundef nonnull %call.i, ptr noundef %cmd)
   br label %sw.epilog384
 
 sw.bb319:                                         ; preds = %land.lhs.true, %if.end203
@@ -1603,7 +1603,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 declare i32 @usb_desc_handle_control(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_usb_mtp_stall(i32 noundef %dev, ptr noundef %reason) unnamed_addr #0 {
+define internal fastcc void @trace_usb_mtp_stall(i32 noundef range(i32 0, 256) %dev, ptr noundef %reason) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -1644,7 +1644,7 @@ _nocheck__trace_usb_mtp_stall.exit:               ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_usb_mtp_data_in(i32 noundef %dev, i32 noundef %trans, i32 noundef %len) unnamed_addr #0 {
+define internal fastcc void @trace_usb_mtp_data_in(i32 noundef range(i32 0, 256) %dev, i32 noundef %trans, i32 noundef %len) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -1695,7 +1695,7 @@ declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_usb_mtp_success(i32 noundef %dev, i32 noundef %trans, i32 noundef %arg0, i32 noundef %arg1) unnamed_addr #0 {
+define internal fastcc void @trace_usb_mtp_success(i32 noundef range(i32 0, 256) %dev, i32 noundef %trans, i32 noundef %arg0, i32 noundef %arg1) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -1736,7 +1736,7 @@ _nocheck__trace_usb_mtp_success.exit:             ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_usb_mtp_error(i32 noundef %dev, i16 noundef zeroext %code, i32 noundef %trans, i32 noundef %arg0, i32 noundef %arg1) unnamed_addr #0 {
+define internal fastcc void @trace_usb_mtp_error(i32 noundef range(i32 0, 256) %dev, i16 noundef zeroext %code, i32 noundef %trans, i32 noundef %arg0, i32 noundef %arg1) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -1779,7 +1779,7 @@ _nocheck__trace_usb_mtp_error.exit:               ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_usb_mtp_command(i32 noundef %dev, i16 noundef zeroext %code, i32 noundef %trans, i32 noundef %arg0, i32 noundef %arg1, i32 noundef %arg2, i32 noundef %arg3, i32 noundef %arg4) unnamed_addr #0 {
+define internal fastcc void @trace_usb_mtp_command(i32 noundef range(i32 0, 256) %dev, i16 noundef zeroext %code, i32 noundef %trans, i32 noundef %arg0, i32 noundef %arg1, i32 noundef %arg2, i32 noundef %arg3, i32 noundef %arg4) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -1822,7 +1822,7 @@ _nocheck__trace_usb_mtp_command.exit:             ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @usb_mtp_command(ptr noundef %s, ptr noundef readonly %c) unnamed_addr #0 {
+define internal fastcc void @usb_mtp_command(ptr noundef %s, ptr noundef nonnull readonly %c) unnamed_addr #0 {
 entry:
   %_now.i.i568 = alloca %struct.timeval, align 8
   %_now.i.i.i289 = alloca %struct.timeval, align 8
@@ -2970,7 +2970,7 @@ if.then99:                                        ; preds = %if.end95
   br label %return
 
 if.end101:                                        ; preds = %if.end95
-  tail call fastcc void @usb_mtp_object_readdir(ptr noundef %s, ptr noundef nonnull %o.0607)
+  tail call fastcc void @usb_mtp_object_readdir(ptr noundef %s, ptr noundef %o.0607)
   %199 = load i16, ptr %c, align 4
   %cmp104 = icmp eq i16 %199, 4102
   br i1 %cmp104, label %if.then106, label %sw.epilog
@@ -3997,7 +3997,7 @@ if.then136:                                       ; preds = %if.end131
   br label %return
 
 if.end138:                                        ; preds = %if.end131
-  %call139 = tail call fastcc ptr @usb_mtp_get_object(ptr noundef %s, ptr noundef %c, ptr noundef nonnull %o.06.i357)
+  %call139 = tail call fastcc ptr @usb_mtp_get_object(ptr noundef %s, ptr noundef %c, ptr noundef %o.06.i357)
   %cmp140 = icmp eq ptr %call139, null
   br i1 %cmp140, label %if.then142, label %if.then302
 
@@ -4111,7 +4111,7 @@ usb_mtp_queue_result.exit31.i:                    ; preds = %if.then7.i
 
 if.end8.i373:                                     ; preds = %for.body.i.i, %if.end5.i
   %o.058.i = phi ptr [ %425, %if.end5.i ], [ %o.06.i.i, %for.body.i.i ]
-  %call9.i = tail call fastcc i32 @usb_mtp_deletefn(ptr noundef %s, ptr noundef nonnull %o.058.i)
+  %call9.i = tail call fastcc i32 @usb_mtp_deletefn(ptr noundef %s, ptr noundef %o.058.i)
   switch i32 %call9.i, label %default.unreachable [
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb10.i
@@ -4225,7 +4225,7 @@ if.then164:                                       ; preds = %if.end159
   br label %return
 
 if.end166:                                        ; preds = %if.end159
-  %call167 = tail call fastcc ptr @usb_mtp_get_partial_object(ptr noundef %s, ptr noundef nonnull %c, ptr noundef nonnull %o.06.i382)
+  %call167 = tail call fastcc ptr @usb_mtp_get_partial_object(ptr noundef %s, ptr noundef %c, ptr noundef %o.06.i382)
   %cmp168 = icmp eq ptr %call167, null
   br i1 %cmp168, label %if.then170, label %if.end172
 
@@ -6110,7 +6110,7 @@ usb_mtp_queue_result.exit589:                     ; preds = %trace_usb_mtp_op_un
   br label %return
 
 sw.epilog:                                        ; preds = %if.end101
-  %call111 = tail call fastcc ptr @usb_mtp_get_object_handles(ptr noundef %s, ptr noundef nonnull %c, ptr noundef nonnull %o.0607)
+  %call111 = tail call fastcc ptr @usb_mtp_get_object_handles(ptr noundef %s, ptr noundef %c, ptr noundef %o.0607)
   %tobool301.not = icmp eq ptr %call111, null
   br i1 %tobool301.not, label %if.end310, label %if.then302
 
@@ -6142,26 +6142,26 @@ if.end310:                                        ; preds = %do.body, %if.then24
   store i32 %798, ptr %trans2.i591, align 4
   %argc3.i592 = getelementptr inbounds i8, ptr %call.i590, i64 8
   store i32 %nres.0634, ptr %argc3.i592, align 4
-  %cmp.i593.not = icmp eq i32 %nres.0634, 0
-  br i1 %cmp.i593.not, label %if.end13.i, label %if.end.i598
+  %cmp.not.i593 = icmp eq i32 %nres.0634, 0
+  br i1 %cmp.not.i593, label %if.end13.i, label %if.end.i594
 
-if.end.i598:                                      ; preds = %if.end310
-  %argv.i599 = getelementptr inbounds i8, ptr %call.i590, i64 12
-  store i32 %res0.0636, ptr %argv.i599, align 4
+if.end.i594:                                      ; preds = %if.end310
+  %argv.i595 = getelementptr inbounds i8, ptr %call.i590, i64 12
+  store i32 %res0.0636, ptr %argv.i595, align 4
   br label %if.end13.i
 
-if.end13.i:                                       ; preds = %if.end.i598, %if.end310
-  %result.i594 = getelementptr inbounds i8, ptr %s, i64 5904
-  %799 = load ptr, ptr %result.i594, align 8
-  %cmp14.i595 = icmp eq ptr %799, null
-  br i1 %cmp14.i595, label %usb_mtp_queue_result.exit601, label %if.else.i596
+if.end13.i:                                       ; preds = %if.end.i594, %if.end310
+  %result.i597 = getelementptr inbounds i8, ptr %s, i64 5904
+  %799 = load ptr, ptr %result.i597, align 8
+  %cmp14.i598 = icmp eq ptr %799, null
+  br i1 %cmp14.i598, label %usb_mtp_queue_result.exit601, label %if.else.i599
 
-if.else.i596:                                     ; preds = %if.end13.i
+if.else.i599:                                     ; preds = %if.end13.i
   call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.8, i32 noundef 800, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_mtp_queue_result) #18
   unreachable
 
 usb_mtp_queue_result.exit601:                     ; preds = %if.end13.i
-  store ptr %call.i590, ptr %result.i594, align 8
+  store ptr %call.i590, ptr %result.i597, align 8
   br label %return
 
 return:                                           ; preds = %usb_mtp_queue_result.exit52.i, %usb_mtp_queue_result.exit45.i, %usb_mtp_queue_result.exit38.i, %usb_mtp_queue_result.exit31.i, %usb_mtp_queue_result.exit24.i, %usb_mtp_queue_result.exit.i, %usb_mtp_queue_result.exit601, %usb_mtp_queue_result.exit589, %if.then292, %if.then286, %if.then277, %usb_mtp_queue_result.exit445, %usb_mtp_queue_result.exit432, %if.end244, %if.then242, %usb_mtp_queue_result.exit419, %if.end232, %if.then170, %if.then164, %if.then157, %if.then142, %if.then136, %if.then129, %if.then119, %if.then99, %if.then93, %usb_mtp_queue_result.exit273, %usb_mtp_queue_result.exit266, %if.then52, %if.then14, %usb_mtp_queue_result.exit192, %usb_mtp_queue_result.exit
@@ -6648,7 +6648,7 @@ sw.epilog:                                        ; preds = %if.end105, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @usb_mtp_queue_result(ptr nocapture noundef %s, i16 noundef zeroext %code, i32 noundef %trans, i32 noundef %argc, i32 noundef %arg0, i32 noundef %arg1, i32 noundef %arg2) unnamed_addr #0 {
+define internal fastcc void @usb_mtp_queue_result(ptr nocapture noundef %s, i16 noundef zeroext range(i16 -22527, 8225) %code, i32 noundef %trans, i32 noundef range(i32 0, 4) %argc, i32 noundef %arg0, i32 noundef %arg1, i32 noundef %arg2) unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
   store i16 %code, ptr %call, align 4
@@ -6656,8 +6656,8 @@ entry:
   store i32 %trans, ptr %trans2, align 4
   %argc3 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %argc, ptr %argc3, align 4
-  %cmp = icmp sgt i32 %argc, 0
-  br i1 %cmp, label %if.end, label %if.end13
+  %cmp.not = icmp eq i32 %argc, 0
+  br i1 %cmp.not, label %if.end13, label %if.end
 
 if.end:                                           ; preds = %entry
   %argv = getelementptr inbounds i8, ptr %call, i64 12
@@ -6668,7 +6668,7 @@ if.end:                                           ; preds = %entry
 if.end8:                                          ; preds = %if.end
   %arrayidx7 = getelementptr i8, ptr %call, i64 16
   store i32 %arg1, ptr %arrayidx7, align 4
-  %cmp9 = icmp ugt i32 %argc, 2
+  %cmp9 = icmp eq i32 %argc, 3
   br i1 %cmp9, label %if.then10, label %if.end13
 
 if.then10:                                        ; preds = %if.end8
@@ -6692,7 +6692,7 @@ if.end16:                                         ; preds = %if.end13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_usb_mtp_op_open_session(i32 noundef %dev) unnamed_addr #0 {
+define internal fastcc void @trace_usb_mtp_op_open_session(i32 noundef range(i32 0, 256) %dev) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -6867,7 +6867,7 @@ declare void @error_reportf_err(ptr noundef, ptr noundef, ...) local_unnamed_add
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @usb_mtp_object_readdir(ptr noundef %s, ptr noundef %o) unnamed_addr #0 {
+define internal fastcc void @usb_mtp_object_readdir(ptr noundef %s, ptr noundef nonnull %o) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %err = alloca ptr, align 8
@@ -6977,7 +6977,7 @@ return:                                           ; preds = %if.end, %entry, %wh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_usb_mtp_op_get_num_objects(i32 noundef %dev, i32 noundef %handle, ptr noundef %path) unnamed_addr #0 {
+define internal fastcc void @trace_usb_mtp_op_get_num_objects(i32 noundef range(i32 0, 256) %dev, i32 noundef %handle, ptr noundef %path) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -7018,7 +7018,7 @@ _nocheck__trace_usb_mtp_op_get_num_objects.exit:  ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias noundef ptr @usb_mtp_get_object_handles(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %o) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @usb_mtp_get_object_handles(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %c, ptr nocapture noundef nonnull readonly %o) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
@@ -7111,7 +7111,7 @@ if.end:                                           ; preds = %for.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @usb_mtp_get_object(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %o) unnamed_addr #0 {
+define internal fastcc noundef ptr @usb_mtp_get_object(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %c, ptr nocapture noundef nonnull readonly %o) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
@@ -7195,7 +7195,7 @@ return:                                           ; preds = %if.end, %usb_mtp_da
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @usb_mtp_get_partial_object(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %o) unnamed_addr #0 {
+define internal fastcc noundef ptr @usb_mtp_get_partial_object(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %c, ptr nocapture noundef nonnull readonly %o) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %argc = getelementptr inbounds i8, ptr %c, i64 8
@@ -7413,7 +7413,7 @@ for.end:                                          ; preds = %usb_mtp_add_u16.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @usb_mtp_add_u16_array(ptr nocapture noundef %data, i32 noundef %len, ptr nocapture noundef readonly %vals) unnamed_addr #0 {
+define internal fastcc void @usb_mtp_add_u16_array(ptr nocapture noundef %data, i32 noundef range(i32 0, 17) %len, ptr nocapture noundef readonly %vals) unnamed_addr #0 {
 entry:
   %length.i.i = getelementptr inbounds i8, ptr %data, i64 16
   %0 = load i64, ptr %length.i.i, align 8
@@ -7442,41 +7442,35 @@ if.end.i.i:                                       ; preds = %entry
 usb_mtp_add_u32.exit:                             ; preds = %entry.usb_mtp_realloc.exit_crit_edge.i, %if.end.i.i
   %3 = phi i64 [ %0, %entry.usb_mtp_realloc.exit_crit_edge.i ], [ %.pre12.i, %if.end.i.i ]
   %4 = phi ptr [ %.pre.i, %entry.usb_mtp_realloc.exit_crit_edge.i ], [ %call.i.i, %if.end.i.i ]
-  %conv.i = trunc i32 %len to i8
+  %conv.i = trunc nuw nsw i32 %len to i8
   %data1.i = getelementptr inbounds i8, ptr %data, i64 32
   %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %length.i.i, align 8
   %arrayidx.i = getelementptr i8, ptr %4, i64 %3
   store i8 %conv.i, ptr %arrayidx.i, align 1
-  %shr2.i = lshr i32 %len, 8
-  %conv4.i = trunc i32 %shr2.i to i8
   %5 = load ptr, ptr %data1.i, align 8
   %6 = load i64, ptr %length.i.i, align 8
   %inc7.i = add i64 %6, 1
   store i64 %inc7.i, ptr %length.i.i, align 8
   %arrayidx8.i = getelementptr i8, ptr %5, i64 %6
-  store i8 %conv4.i, ptr %arrayidx8.i, align 1
-  %shr9.i = lshr i32 %len, 16
-  %conv11.i = trunc i32 %shr9.i to i8
+  store i8 0, ptr %arrayidx8.i, align 1
   %7 = load ptr, ptr %data1.i, align 8
   %8 = load i64, ptr %length.i.i, align 8
   %inc14.i = add i64 %8, 1
   store i64 %inc14.i, ptr %length.i.i, align 8
   %arrayidx15.i = getelementptr i8, ptr %7, i64 %8
-  store i8 %conv11.i, ptr %arrayidx15.i, align 1
-  %shr16.i = lshr i32 %len, 24
-  %conv18.i = trunc nuw i32 %shr16.i to i8
+  store i8 0, ptr %arrayidx15.i, align 1
   %9 = load ptr, ptr %data1.i, align 8
   %10 = load i64, ptr %length.i.i, align 8
   %inc21.i = add i64 %10, 1
   store i64 %inc21.i, ptr %length.i.i, align 8
   %arrayidx22.i = getelementptr i8, ptr %9, i64 %10
-  store i8 %conv18.i, ptr %arrayidx22.i, align 1
+  store i8 0, ptr %arrayidx22.i, align 1
   %cmp18.not = icmp eq i32 %len, 0
   br i1 %cmp18.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %usb_mtp_add_u32.exit
-  %wide.trip.count = zext i32 %len to i64
+  %wide.trip.count = zext nneg i32 %len to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %usb_mtp_add_u16.exit
@@ -7846,7 +7840,7 @@ if.end5:                                          ; preds = %for.inc.i43, %sw.bb
   %handle = getelementptr inbounds i8, ptr %call6, i64 4
   store i32 %2, ptr %handle, align 4
   store i32 16386, ptr %call6, align 8
-  %call7 = tail call fastcc ptr @usb_mtp_add_child(ptr noundef %opaque, ptr noundef nonnull %iter.06.i, ptr noundef %name)
+  %call7 = tail call fastcc ptr @usb_mtp_add_child(ptr noundef %opaque, ptr noundef %iter.06.i, ptr noundef %name)
   %tobool8.not = icmp eq ptr %call7, null
   br i1 %tobool8.not, label %if.then9, label %if.end10
 
@@ -8110,14 +8104,14 @@ if.end59:                                         ; preds = %for.inc.i, %for.inc
 declare ptr @readdir64(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @usb_mtp_add_child(ptr nocapture noundef %s, ptr noundef %o, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc noundef ptr @usb_mtp_add_child(ptr nocapture noundef %s, ptr noundef nonnull %o, ptr noundef %name) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %next_handle = getelementptr inbounds i8, ptr %s, i64 5916
   %0 = load i32, ptr %next_handle, align 4
   %inc = add i32 %0, 1
   store i32 %inc, ptr %next_handle, align 4
-  %call = tail call fastcc ptr @usb_mtp_object_alloc(ptr noundef %s, i32 noundef %0, ptr noundef %o, ptr noundef %name)
+  %call = tail call fastcc ptr @usb_mtp_object_alloc(ptr noundef %s, i32 noundef %0, ptr noundef nonnull %o, ptr noundef %name)
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end24, label %if.then
 
@@ -8250,7 +8244,7 @@ declare void @g_date_time_unref(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 4) i32 @usb_mtp_deletefn(ptr nocapture noundef %s, ptr noundef %o) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @usb_mtp_deletefn(ptr nocapture noundef %s, ptr noundef nonnull %o) unnamed_addr #0 {
 entry:
   %children = getelementptr inbounds i8, ptr %o, i64 192
   %iter.023 = load ptr, ptr %children, align 8
@@ -8274,7 +8268,7 @@ if.then:                                          ; preds = %for.body
 for.body6:                                        ; preds = %if.then, %for.body6
   %iter2.022 = phi ptr [ %iter2.0, %for.body6 ], [ %iter2.019, %if.then ]
   %ret.121 = phi i32 [ %or, %for.body6 ], [ %ret.025, %if.then ]
-  %call = tail call fastcc i32 @usb_mtp_deletefn(ptr noundef %s, ptr noundef nonnull %iter2.022)
+  %call = tail call fastcc i32 @usb_mtp_deletefn(ptr noundef %s, ptr noundef %iter2.022)
   %or = or i32 %call, %ret.121
   %list = getelementptr inbounds i8, ptr %iter2.022, i64 200
   %iter2.0 = load ptr, ptr %list, align 8

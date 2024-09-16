@@ -1045,14 +1045,14 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit1294: ; preds = %413, %418
 419:                                              ; preds = %399
   %420 = load ptr, ptr %374, align 8
   %421 = load ptr, ptr %420, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %421)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %421)
           to label %422 unwind label %440
 
 422:                                              ; preds = %419
   %423 = load ptr, ptr %374, align 8
   %424 = getelementptr inbounds i8, ptr %423, i64 -8
   %425 = load ptr, ptr %424, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %425)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %425)
           to label %426 unwind label %442
 
 426:                                              ; preds = %422
@@ -1484,7 +1484,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1304: ; pre
 579:                                              ; preds = %399
   %580 = load ptr, ptr %374, align 8
   %581 = load ptr, ptr %580, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef %581)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef %581)
           to label %582 unwind label %590
 
 582:                                              ; preds = %579
@@ -1563,7 +1563,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1304: ; pre
   %611 = load ptr, ptr %610, align 8
   store ptr %611, ptr %25, align 8
   %612 = load ptr, ptr %609, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef %612)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef %612)
           to label %613 unwind label %621
 
 613:                                              ; preds = %608
@@ -1645,7 +1645,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1304: ; pre
   %642 = load ptr, ptr %641, align 8
   store ptr %642, ptr %28, align 8
   %643 = load ptr, ptr %640, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef %643)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef %643)
           to label %644 unwind label %652
 
 644:                                              ; preds = %639
@@ -1727,7 +1727,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1304: ; pre
   %673 = load ptr, ptr %672, align 8
   store ptr %673, ptr %31, align 8
   %674 = load ptr, ptr %671, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef %674)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef %674)
           to label %675 unwind label %683
 
 675:                                              ; preds = %670
@@ -1809,7 +1809,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1304: ; pre
   %704 = load ptr, ptr %703, align 8
   store ptr %704, ptr %34, align 8
   %705 = load ptr, ptr %702, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef %705)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef %705)
           to label %706 unwind label %714
 
 706:                                              ; preds = %701
@@ -1894,7 +1894,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1304: ; pre
 735:                                              ; preds = %399
   %736 = load ptr, ptr %374, align 8
   %737 = load ptr, ptr %736, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef %737)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef %737)
           to label %738 unwind label %749
 
 738:                                              ; preds = %735
@@ -1987,14 +1987,14 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1304: ; pre
   %773 = getelementptr inbounds i8, ptr %772, i64 -8
   %774 = load ptr, ptr %773, align 8
   %775 = load ptr, ptr %772, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %40, ptr noundef %775)
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef %775)
           to label %776 unwind label %791
 
 776:                                              ; preds = %771
   %777 = load ptr, ptr %374, align 8
   %778 = getelementptr inbounds i8, ptr %777, i64 -16
   %779 = load ptr, ptr %778, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef %779)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef %779)
           to label %780 unwind label %793
 
 780:                                              ; preds = %776
@@ -2141,7 +2141,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1304: ; pre
 839:                                              ; preds = %399
   %840 = load ptr, ptr %374, align 8
   %841 = load ptr, ptr %840, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %42, ptr noundef %841)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef %841)
           to label %842 unwind label %867
 
 842:                                              ; preds = %839
@@ -2266,13 +2266,13 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %_ZNSt10
   %888 = load ptr, ptr %374, align 8
   %889 = getelementptr inbounds i8, ptr %888, i64 -16
   %890 = load ptr, ptr %889, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef %890)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef %890)
           to label %891 unwind label %924
 
 891:                                              ; preds = %887
   %892 = load ptr, ptr %374, align 8
   %893 = load ptr, ptr %892, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef %893)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef %893)
           to label %894 unwind label %926
 
 894:                                              ; preds = %891
@@ -2414,13 +2414,13 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1318: ; preds = %_ZN
   %948 = load ptr, ptr %374, align 8
   %949 = getelementptr inbounds i8, ptr %948, i64 -16
   %950 = load ptr, ptr %949, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %49, ptr noundef %950)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %49, ptr noundef %950)
           to label %951 unwind label %984
 
 951:                                              ; preds = %947
   %952 = load ptr, ptr %374, align 8
   %953 = load ptr, ptr %952, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %50, ptr noundef %953)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %50, ptr noundef %953)
           to label %954 unwind label %986
 
 954:                                              ; preds = %951
@@ -2572,13 +2572,13 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1323: ; preds = %_ZN
   store ptr %1014, ptr %53, align 8
   %1015 = getelementptr inbounds i8, ptr %1012, i64 -16
   %1016 = load ptr, ptr %1015, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %55, ptr noundef %1016)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %55, ptr noundef %1016)
           to label %1017 unwind label %1033
 
 1017:                                             ; preds = %1011
   %1018 = load ptr, ptr %374, align 8
   %1019 = load ptr, ptr %1018, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %56, ptr noundef %1019)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %56, ptr noundef %1019)
           to label %1020 unwind label %1035
 
 1020:                                             ; preds = %1017
@@ -2917,7 +2917,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1323: ; preds = %_ZN
   %1147 = getelementptr inbounds i8, ptr %1144, i64 -8
   %1148 = load ptr, ptr %1147, align 8
   %1149 = load ptr, ptr %1144, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %65, ptr noundef %1149)
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias writable align 8 %65, ptr noundef %1149)
           to label %1150 unwind label %1163
 
 1150:                                             ; preds = %1143
@@ -3018,7 +3018,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1323: ; preds = %_ZN
   %1188 = getelementptr inbounds i8, ptr %1183, i64 -8
   %1189 = load i32, ptr %1188, align 8
   %1190 = load ptr, ptr %1183, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %68, ptr noundef %1190)
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias writable align 8 %68, ptr noundef %1190)
           to label %1191 unwind label %1204
 
 1191:                                             ; preds = %1182
@@ -3117,7 +3117,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1323: ; preds = %_ZN
   %1227 = getelementptr inbounds i8, ptr %1224, i64 -8
   %1228 = load ptr, ptr %1227, align 8
   %1229 = load ptr, ptr %1224, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %71, ptr noundef %1229)
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias writable align 8 %71, ptr noundef %1229)
           to label %1230 unwind label %1243
 
 1230:                                             ; preds = %1223
@@ -3216,7 +3216,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1323: ; preds = %_ZN
   %1266 = getelementptr inbounds i8, ptr %1263, i64 -8
   %1267 = load ptr, ptr %1266, align 8
   %1268 = load ptr, ptr %1263, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %74, ptr noundef %1268)
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias writable align 8 %74, ptr noundef %1268)
           to label %1269 unwind label %1282
 
 1269:                                             ; preds = %1262
@@ -3651,7 +3651,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1341: ; preds = %135
   %1436 = getelementptr inbounds i8, ptr %1433, i64 -16
   %1437 = load ptr, ptr %1436, align 8
   %1438 = load ptr, ptr %1433, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %84, ptr noundef %1438)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %84, ptr noundef %1438)
           to label %1439 unwind label %1452
 
 1439:                                             ; preds = %1432
@@ -3750,7 +3750,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1341: ; preds = %135
   %1475 = getelementptr inbounds i8, ptr %1472, i64 -8
   %1476 = load ptr, ptr %1475, align 8
   %1477 = load ptr, ptr %1472, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %87, ptr noundef %1477)
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias writable align 8 %87, ptr noundef %1477)
           to label %1478 unwind label %1491
 
 1478:                                             ; preds = %1471
@@ -3845,13 +3845,13 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1341: ; preds = %135
   %1511 = load ptr, ptr %374, align 8
   %1512 = getelementptr inbounds i8, ptr %1511, i64 -16
   %1513 = load ptr, ptr %1512, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %89, ptr noundef %1513)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %89, ptr noundef %1513)
           to label %1514 unwind label %1525
 
 1514:                                             ; preds = %1510
   %1515 = load ptr, ptr %374, align 8
   %1516 = load ptr, ptr %1515, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %90, ptr noundef %1516)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %90, ptr noundef %1516)
           to label %1517 unwind label %1527
 
 1517:                                             ; preds = %1514
@@ -3940,13 +3940,13 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1341: ; preds = %135
   %1547 = load ptr, ptr %374, align 8
   %1548 = getelementptr inbounds i8, ptr %1547, i64 -16
   %1549 = load ptr, ptr %1548, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %92, ptr noundef %1549)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %92, ptr noundef %1549)
           to label %1550 unwind label %1561
 
 1550:                                             ; preds = %1546
   %1551 = load ptr, ptr %374, align 8
   %1552 = load ptr, ptr %1551, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %93, ptr noundef %1552)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %93, ptr noundef %1552)
           to label %1553 unwind label %1563
 
 1553:                                             ; preds = %1550
@@ -4035,13 +4035,13 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1341: ; preds = %135
   %1583 = load ptr, ptr %374, align 8
   %1584 = getelementptr inbounds i8, ptr %1583, i64 -16
   %1585 = load ptr, ptr %1584, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %95, ptr noundef %1585)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %95, ptr noundef %1585)
           to label %1586 unwind label %1597
 
 1586:                                             ; preds = %1582
   %1587 = load ptr, ptr %374, align 8
   %1588 = load ptr, ptr %1587, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %96, ptr noundef %1588)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %96, ptr noundef %1588)
           to label %1589 unwind label %1599
 
 1589:                                             ; preds = %1586
@@ -4130,13 +4130,13 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1341: ; preds = %135
   %1619 = load ptr, ptr %374, align 8
   %1620 = getelementptr inbounds i8, ptr %1619, i64 -16
   %1621 = load ptr, ptr %1620, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %98, ptr noundef %1621)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %98, ptr noundef %1621)
           to label %1622 unwind label %1633
 
 1622:                                             ; preds = %1618
   %1623 = load ptr, ptr %374, align 8
   %1624 = load ptr, ptr %1623, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %99, ptr noundef %1624)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %99, ptr noundef %1624)
           to label %1625 unwind label %1635
 
 1625:                                             ; preds = %1622
@@ -4224,7 +4224,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1341: ; preds = %135
 1654:                                             ; preds = %399
   %1655 = load ptr, ptr %374, align 8
   %1656 = load ptr, ptr %1655, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %101, ptr noundef %1656)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %101, ptr noundef %1656)
           to label %1657 unwind label %1665
 
 1657:                                             ; preds = %1654
@@ -4304,13 +4304,13 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1341: ; preds = %135
   %1684 = load ptr, ptr %374, align 8
   %1685 = getelementptr inbounds i8, ptr %1684, i64 -16
   %1686 = load ptr, ptr %1685, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %104, ptr noundef %1686)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %104, ptr noundef %1686)
           to label %1687 unwind label %1698
 
 1687:                                             ; preds = %1683
   %1688 = load ptr, ptr %374, align 8
   %1689 = load ptr, ptr %1688, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %105, ptr noundef %1689)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %105, ptr noundef %1689)
           to label %1690 unwind label %1700
 
 1690:                                             ; preds = %1687
@@ -4688,7 +4688,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1355: ; preds = %173
   %1840 = getelementptr inbounds i8, ptr %1839, i64 -8
   %1841 = load ptr, ptr %1840, align 8
   %1842 = load ptr, ptr %1839, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %113, ptr noundef %1842)
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias writable align 8 %113, ptr noundef %1842)
           to label %1843 unwind label %1854
 
 1843:                                             ; preds = %1838
@@ -4775,7 +4775,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1355: ; preds = %173
   %1875 = load ptr, ptr %1874, align 8
   store ptr %1875, ptr %114, align 8
   %1876 = load ptr, ptr %1873, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %116, ptr noundef %1876)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %116, ptr noundef %1876)
           to label %1877 unwind label %1890
 
 1877:                                             ; preds = %1872
@@ -4869,7 +4869,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1355: ; preds = %173
 1909:                                             ; preds = %399
   %1910 = load ptr, ptr %374, align 8
   %1911 = load ptr, ptr %1910, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %118, ptr noundef %1911)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %118, ptr noundef %1911)
           to label %1912 unwind label %1920
 
 1912:                                             ; preds = %1909
@@ -4945,7 +4945,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1355: ; preds = %173
 1938:                                             ; preds = %399
   %1939 = load ptr, ptr %374, align 8
   %1940 = load ptr, ptr %1939, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %120, ptr noundef %1940)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %120, ptr noundef %1940)
           to label %1941 unwind label %1949
 
 1941:                                             ; preds = %1938
@@ -5021,7 +5021,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1355: ; preds = %173
 1967:                                             ; preds = %399
   %1968 = load ptr, ptr %374, align 8
   %1969 = load ptr, ptr %1968, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %122, ptr noundef %1969)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %122, ptr noundef %1969)
           to label %1970 unwind label %1978
 
 1970:                                             ; preds = %1967
@@ -5172,14 +5172,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1355: ; preds = %173
   %2027 = load ptr, ptr %374, align 8
   %2028 = getelementptr inbounds i8, ptr %2027, i64 -8
   %2029 = load ptr, ptr %2028, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %124, ptr noundef %2029)
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias writable align 8 %124, ptr noundef %2029)
           to label %2030 unwind label %2039
 
 2030:                                             ; preds = %2026
   %2031 = load ptr, ptr %124, align 8
   %2032 = load ptr, ptr %374, align 8
   %2033 = load ptr, ptr %2032, align 8
-  invoke fastcc void @_ZL3getIN3gmx24SelectionParserParameterEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %125, ptr noundef %2033)
+  invoke fastcc void @_ZL3getIN3gmx24SelectionParserParameterEET_PS2_(ptr dead_on_unwind noalias writable align 8 %125, ptr noundef %2033)
           to label %2034 unwind label %2041
 
 2034:                                             ; preds = %2030
@@ -5263,7 +5263,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1355: ; preds = %173
   %2062 = load ptr, ptr %2061, align 8
   store ptr %2062, ptr %127, align 8
   %2063 = load ptr, ptr %2060, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %129, ptr noundef %2063)
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias writable align 8 %129, ptr noundef %2063)
           to label %2064 unwind label %2067
 
 2064:                                             ; preds = %2059
@@ -5271,7 +5271,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1355: ; preds = %173
           to label %2065 unwind label %2069
 
 2065:                                             ; preds = %2064
-  invoke fastcc void @_ZL3setIN3gmx24SelectionParserParameterEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %128)
+  invoke fastcc void @_ZL3setIN3gmx24SelectionParserParameterEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %128)
           to label %2066 unwind label %2071
 
 2066:                                             ; preds = %2065
@@ -5408,14 +5408,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1355: ; preds = %173
   %2116 = load ptr, ptr %374, align 8
   %2117 = getelementptr inbounds i8, ptr %2116, i64 -8
   %2118 = load ptr, ptr %2117, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %131, ptr noundef %2118)
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias writable align 8 %131, ptr noundef %2118)
           to label %2119 unwind label %2128
 
 2119:                                             ; preds = %2115
   %2120 = load ptr, ptr %131, align 8
   %2121 = load ptr, ptr %374, align 8
   %2122 = load ptr, ptr %2121, align 8
-  invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %132, ptr noundef %2122)
+  invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias writable align 8 %132, ptr noundef %2122)
           to label %2123 unwind label %2130
 
 2123:                                             ; preds = %2119
@@ -5497,14 +5497,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1355: ; preds = %173
   %2149 = load ptr, ptr %374, align 8
   %2150 = getelementptr inbounds i8, ptr %2149, i64 -16
   %2151 = load ptr, ptr %2150, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %134, ptr noundef %2151)
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias writable align 8 %134, ptr noundef %2151)
           to label %2152 unwind label %2161
 
 2152:                                             ; preds = %2148
   %2153 = load ptr, ptr %134, align 8
   %2154 = load ptr, ptr %374, align 8
   %2155 = load ptr, ptr %2154, align 8
-  invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %135, ptr noundef %2155)
+  invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias writable align 8 %135, ptr noundef %2155)
           to label %2156 unwind label %2163
 
 2156:                                             ; preds = %2152
@@ -5598,7 +5598,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1355: ; preds = %173
 2188:                                             ; preds = %399
   %2189 = load ptr, ptr %374, align 8
   %2190 = load ptr, ptr %2189, align 8
-  invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %138, ptr noundef %2190)
+  invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias writable align 8 %138, ptr noundef %2190)
           to label %2191 unwind label %2196
 
 2191:                                             ; preds = %2188
@@ -5670,14 +5670,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1355: ; preds = %173
   %2215 = load ptr, ptr %374, align 8
   %2216 = getelementptr inbounds i8, ptr %2215, i64 -8
   %2217 = load ptr, ptr %2216, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %139, ptr noundef %2217)
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias writable align 8 %139, ptr noundef %2217)
           to label %2218 unwind label %2227
 
 2218:                                             ; preds = %2214
   %2219 = load ptr, ptr %139, align 8
   %2220 = load ptr, ptr %374, align 8
   %2221 = load ptr, ptr %2220, align 8
-  invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %140, ptr noundef %2221)
+  invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias writable align 8 %140, ptr noundef %2221)
           to label %2222 unwind label %2229
 
 2222:                                             ; preds = %2218
@@ -5759,14 +5759,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1355: ; preds = %173
   %2248 = load ptr, ptr %374, align 8
   %2249 = getelementptr inbounds i8, ptr %2248, i64 -16
   %2250 = load ptr, ptr %2249, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %142, ptr noundef %2250)
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias writable align 8 %142, ptr noundef %2250)
           to label %2251 unwind label %2260
 
 2251:                                             ; preds = %2247
   %2252 = load ptr, ptr %142, align 8
   %2253 = load ptr, ptr %374, align 8
   %2254 = load ptr, ptr %2253, align 8
-  invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %143, ptr noundef %2254)
+  invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias writable align 8 %143, ptr noundef %2254)
           to label %2255 unwind label %2262
 
 2255:                                             ; preds = %2251
@@ -5847,7 +5847,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1355: ; preds = %173
 2280:                                             ; preds = %399
   %2281 = load ptr, ptr %374, align 8
   %2282 = load ptr, ptr %2281, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %146, ptr noundef %2282)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %146, ptr noundef %2282)
           to label %2283 unwind label %2285
 
 2283:                                             ; preds = %2280
@@ -5855,7 +5855,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1355: ; preds = %173
           to label %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit unwind label %2287
 
 _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit: ; preds = %2283
-  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %145)
+  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %145)
           to label %2284 unwind label %2289
 
 2284:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit
@@ -5914,7 +5914,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
 2303:                                             ; preds = %399
   %2304 = load ptr, ptr %374, align 8
   %2305 = load ptr, ptr %2304, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %148, ptr noundef %2305)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %148, ptr noundef %2305)
           to label %2306 unwind label %2308
 
 2306:                                             ; preds = %2303
@@ -5922,7 +5922,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
           to label %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1370 unwind label %2310
 
 _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1370: ; preds = %2306
-  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %147)
+  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %147)
           to label %2307 unwind label %2312
 
 2307:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1370
@@ -5981,7 +5981,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
 2326:                                             ; preds = %399
   %2327 = load ptr, ptr %374, align 8
   %2328 = load ptr, ptr %2327, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %150, ptr noundef %2328)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %150, ptr noundef %2328)
           to label %2329 unwind label %2331
 
 2329:                                             ; preds = %2326
@@ -5989,7 +5989,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
           to label %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1371 unwind label %2333
 
 _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1371: ; preds = %2329
-  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %149)
+  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %149)
           to label %2330 unwind label %2335
 
 2330:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1371
@@ -6048,7 +6048,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
 2349:                                             ; preds = %399
   %2350 = load ptr, ptr %374, align 8
   %2351 = load ptr, ptr %2350, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %152, ptr noundef %2351)
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %152, ptr noundef %2351)
           to label %2352 unwind label %2354
 
 2352:                                             ; preds = %2349
@@ -6056,7 +6056,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
           to label %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1372 unwind label %2356
 
 _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1372: ; preds = %2352
-  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %151)
+  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %151)
           to label %2353 unwind label %2358
 
 2353:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1372
@@ -6129,7 +6129,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   %2380 = getelementptr inbounds i8, ptr %153, i64 60
   store i32 %2377, ptr %2380, align 4, !alias.scope !18
   store i32 %2377, ptr %2379, align 8, !alias.scope !18
-  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %153)
+  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %153)
           to label %2381 unwind label %2384
 
 2381:                                             ; preds = %2378
@@ -6184,7 +6184,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   %2402 = getelementptr inbounds i8, ptr %154, i64 60
   store float %2399, ptr %2402, align 4, !alias.scope !21
   store float %2399, ptr %2401, align 8, !alias.scope !21
-  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %154)
+  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %154)
           to label %2403 unwind label %2406
 
 2403:                                             ; preds = %2400
@@ -6236,7 +6236,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
           to label %2422 unwind label %2424
 
 2422:                                             ; preds = %2419
-  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %156)
+  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %156)
           to label %2423 unwind label %2426
 
 2423:                                             ; preds = %2422
@@ -6302,7 +6302,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   store i32 %2445, ptr %2448, align 8, !alias.scope !24
   %2449 = getelementptr inbounds i8, ptr %157, i64 60
   store i32 %2446, ptr %2449, align 4, !alias.scope !24
-  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %157)
+  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %157)
           to label %2450 unwind label %2453
 
 2450:                                             ; preds = %2447
@@ -6360,7 +6360,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   store float %2472, ptr %2473, align 8, !alias.scope !27
   %2474 = getelementptr inbounds i8, ptr %158, i64 60
   store float %2470, ptr %2474, align 4, !alias.scope !27
-  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %158)
+  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %158)
           to label %2475 unwind label %2478
 
 2475:                                             ; preds = %2471
@@ -6417,7 +6417,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   store float %2494, ptr %2497, align 8, !alias.scope !30
   %2498 = getelementptr inbounds i8, ptr %159, i64 60
   store float %2495, ptr %2498, align 4, !alias.scope !30
-  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %159)
+  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %159)
           to label %2499 unwind label %2502
 
 2499:                                             ; preds = %2496
@@ -6585,7 +6585,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   %2592 = load i32, ptr %0, align 8
   %2593 = add nsw i32 %2592, 1
   store i32 %2593, ptr %0, align 8
-  call fastcc void @_ZL16_gmx_sel_yyerrorPN3gmx17SelectionLocationEPvPKc(ptr noundef nonnull %7, ptr noundef %4, ptr noundef nonnull @.str.11)
+  call fastcc void @_ZL16_gmx_sel_yyerrorPN3gmx17SelectionLocationEPvPKc(ptr noundef %7, ptr noundef %4, ptr noundef nonnull @.str.11)
   %.pr = load i32, ptr %2589, align 8
   br label %2594
 
@@ -6774,7 +6774,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   br label %189
 
 2698:                                             ; preds = %213, %206
-  call fastcc void @_ZL16_gmx_sel_yyerrorPN3gmx17SelectionLocationEPvPKc(ptr noundef nonnull %7, ptr noundef %4, ptr noundef nonnull @.str.14)
+  call fastcc void @_ZL16_gmx_sel_yyerrorPN3gmx17SelectionLocationEPvPKc(ptr noundef %7, ptr noundef %4, ptr noundef nonnull @.str.14)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2651, %2510, %2486, %2461, %2434, %2414, %2392, %2367, %2344, %2321, %2298, %2275, %2242, %2209, %2176, %2143, %2110, %2080, %2054, %2021, %1991, %1962, %1933, %1904, %1867, %1829, %1798, %1768, %1714, %1678, %1649, %1613, %1577, %1541, %1505, %1466, %1426, %1396, %1346, %1296, %1257, %1218, %1177, %1137, %1100, %1075, %1050, %1002, %942, %882, %807, %762, %727, %696, %665, %634, %603, %574, %539, %504, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1300, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1296, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %249, %471, %261, %439, %436, %2698
@@ -6906,7 +6906,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILEiPK7YYSTYPEPKN3gmx17SelectionLocationEPv(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #7 {
+define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILEiPK7YYSTYPEPKN3gmx17SelectionLocationEPv(ptr nocapture noundef %0, i32 noundef range(i32 -2, 256) %1) unnamed_addr #7 {
   %3 = icmp slt i32 %1, 49
   %.str.18..str.19 = select i1 %3, ptr @.str.18, ptr @.str.19
   %4 = sext i32 %1 to i64
@@ -6921,7 +6921,7 @@ define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILEiPK7YYSTYPEPKN3gmx17S
 declare void @_Z35_gmx_sel_lexer_set_current_locationPvRKN3gmx17SelectionLocationE(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #8
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #9 {
+define internal fastcc void @_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 32769) %1) unnamed_addr #9 {
   %3 = zext nneg i32 %1 to i64
   %4 = getelementptr inbounds [91 x i16], ptr @_ZL7yyrline, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
@@ -6993,7 +6993,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #12
 declare void @_Z25_gmx_sel_append_selectionRKSt10shared_ptrIN3gmx20SelectionTreeElementEES2_Pv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.split, label %_ZNSt10unique_ptrISt10shared_ptrIN3gmx20SelectionTreeElementEESt14default_deleteIS3_EED2Ev.exit
 
@@ -7139,7 +7139,7 @@ declare void @_Z24_gmx_sel_assign_variablePKcRKSt10shared_ptrIN3gmx20SelectionTr
 declare void @_Z22_gmx_sel_init_modifierP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS5_EEESt14default_deleteIS7_EERKSt10shared_ptrINS4_20SelectionTreeElementEEPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr.54", align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.split, label %.split3
@@ -7342,7 +7342,7 @@ _ZNKSt14default_deleteINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEEEcl
 declare void @_Z30_gmx_sel_init_keyword_strmatchP19gmx_ana_selmethod_tN3gmx24SelectionStringMatchTypeESt10unique_ptrINSt7__cxx114listINS1_20SelectionParserValueESaIS6_EEESt14default_deleteIS8_EEPKcPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.split, label %_ZNSt10unique_ptrIS_INSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EES6_IS8_EED2Ev.exit
 
@@ -7394,7 +7394,7 @@ define linkonce_odr void @_ZNSt7__cxx114listIN3gmx24SelectionParserParameterESaI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL3getIN3gmx24SelectionParserParameterEET_PS2_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL3getIN3gmx24SelectionParserParameterEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.split, label %_ZNSt10unique_ptrIN3gmx24SelectionParserParameterESt14default_deleteIS1_EED2Ev.exit
 
@@ -7437,7 +7437,7 @@ _ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL3setIN3gmx24SelectionParserParameterEEvRPT_S2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc void @_ZL3setIN3gmx24SelectionParserParameterEEvRPT_S2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #4 {
   %3 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #26
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1) #23
   %4 = getelementptr inbounds i8, ptr %3, i64 32
@@ -7513,7 +7513,7 @@ define linkonce_odr void @_ZNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.split, label %3
 
@@ -7722,7 +7722,7 @@ define linkonce_odr void @_ZN3gmx20SelectionParserValue10createListB5cxx11ERKS0_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #4 {
   %3 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #26
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %3, align 8
@@ -8195,7 +8195,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit31: ; preds = %153, %156
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv(ptr noundef %0, i32 noundef range(i32 -2, 256) %1, ptr nocapture noundef readonly %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr @_gmx_sel_yydebug, align 4
   %.not52 = icmp eq i32 %4, 0
   br i1 %.not52, label %16, label %5

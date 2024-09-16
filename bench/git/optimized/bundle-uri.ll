@@ -409,7 +409,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %if.end6, label %cleanup
 
 if.end6:                                          ; preds = %if.end
-  call fastcc void @unbundle_all_bundles(ptr noundef %r, ptr noundef nonnull %list)
+  call fastcc void @unbundle_all_bundles(ptr noundef %r, ptr noundef %list)
   br label %cleanup
 
 cleanup:                                          ; preds = %entry, %if.end, %if.end6
@@ -463,7 +463,7 @@ for_all_bundles_in_list.exit:                     ; preds = %for.inc.i, %if.end1
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @fetch_bundle_uri_internal(ptr noundef %r, ptr nocapture noundef %bundle, i32 noundef %depth, ptr noundef %list) unnamed_addr #0 {
+define internal fastcc i32 @fetch_bundle_uri_internal(ptr noundef %r, ptr nocapture noundef %bundle, i32 noundef range(i32 -2147483647, -2147483648) %depth, ptr noundef %list) unnamed_addr #0 {
 entry:
   %list_from_bundle.i = alloca %struct.bundle_list, align 8
   %cp.i.i = alloca %struct.child_process, align 8
@@ -797,7 +797,7 @@ return:                                           ; preds = %find_temp_filename.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @unbundle_all_bundles(ptr noundef %r, ptr noundef %list) unnamed_addr #0 {
+define internal fastcc void @unbundle_all_bundles(ptr noundef %r, ptr noundef nonnull %list) unnamed_addr #0 {
 entry:
   %i.i = alloca %struct.hashmap_iter, align 8
   %bundles.i = getelementptr inbounds i8, ptr %list, i64 8
@@ -822,7 +822,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   br i1 %tobool1.not.i, label %if.end.i, label %for.inc.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call.i = call fastcc i32 @unbundle_from_file(ptr noundef %r, ptr noundef nonnull %0)
+  %call.i = call fastcc i32 @unbundle_from_file(ptr noundef %r, ptr noundef %0)
   %tobool3.not.i3 = icmp eq i32 %call.i, 0
   br i1 %tobool3.not.i3, label %for_all_bundles_in_list.exit, label %for.inc.i
 
@@ -888,7 +888,7 @@ if.then6:                                         ; preds = %if.end3
   br label %cleanup
 
 if.else:                                          ; preds = %if.end3
-  call fastcc void @unbundle_all_bundles(ptr noundef %r, ptr noundef nonnull %global_list)
+  call fastcc void @unbundle_all_bundles(ptr noundef %r, ptr noundef %global_list)
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then6, %if.else, %if.end
@@ -1080,7 +1080,7 @@ land.lhs.true56:                                  ; preds = %if.end37, %if.end53
   br i1 %tobool60.not, label %if.then61, label %move
 
 if.then61:                                        ; preds = %land.lhs.true56
-  %call64 = call fastcc i32 @unbundle_from_file(ptr noundef %r, ptr noundef nonnull %12)
+  %call64 = call fastcc i32 @unbundle_from_file(ptr noundef %r, ptr noundef %12)
   %tobool65.not = icmp eq i32 %call64, 0
   br i1 %tobool65.not, label %if.else, label %move
 
@@ -1145,7 +1145,7 @@ return:                                           ; preds = %if.end89, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @download_bundle_list(ptr noundef %r, ptr noundef %local_list, ptr noundef %global_list, i32 noundef %depth) unnamed_addr #0 {
+define internal fastcc noundef i32 @download_bundle_list(ptr noundef %r, ptr noundef %local_list, ptr noundef %global_list, i32 noundef range(i32 -2147483647, 4) %depth) unnamed_addr #0 {
 entry:
   %i.i = alloca %struct.hashmap_iter, align 8
   %mode2 = getelementptr inbounds i8, ptr %local_list, i64 4
@@ -1587,14 +1587,14 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
 declare i32 @finish_command(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @unbundle_from_file(ptr noundef %r, ptr noundef %file) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @unbundle_from_file(ptr noundef %r, ptr noundef nonnull %file) unnamed_addr #0 {
 entry:
   %header = alloca %struct.bundle_header, align 8
   %bundle_ref = alloca %struct.strbuf, align 8
   %old_oid = alloca %struct.object_id, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %header, ptr noundef nonnull align 8 dereferenceable(184) @__const.unbundle_from_file.header, i64 184, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %bundle_ref, ptr noundef nonnull align 8 dereferenceable(24) @__const.bundle_list_update.id, i64 24, i1 false)
-  %call = call i32 @read_bundle_header(ptr noundef %file, ptr noundef nonnull %header) #15
+  %call = call i32 @read_bundle_header(ptr noundef nonnull %file, ptr noundef nonnull %header) #15
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 

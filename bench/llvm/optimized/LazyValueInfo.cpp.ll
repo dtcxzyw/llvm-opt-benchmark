@@ -2130,7 +2130,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit:        ; preds = %.critedge, %36
   br label %58
 
 57:                                               ; preds = %54, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit
-  call fastcc void @_ZL20getFromRangeMetadataPN4llvm11InstructionE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull %2)
+  call fastcc void @_ZL20getFromRangeMetadataPN4llvm11InstructionE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull %2)
   call void @_ZNSt8optionalIN4llvm19ValueLatticeElementEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(40) %7)
   call void @_ZN4llvm19ValueLatticeElementD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #19
   br label %58
@@ -4603,7 +4603,7 @@ define dso_local void @_ZN4llvm17LazyValueInfoImpl24solveBlockValueIntrinsicEPNS
   %8 = alloca %"class.llvm::ValueLatticeElement", align 8
   %9 = alloca %"class.llvm::ValueLatticeElement", align 8
   %10 = alloca %"class.llvm::ConstantRange", align 8
-  call fastcc void @_ZL20getFromRangeMetadataPN4llvm11InstructionE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef %2)
+  call fastcc void @_ZL20getFromRangeMetadataPN4llvm11InstructionE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %2)
   %11 = getelementptr inbounds i8, ptr %2, i64 -32
   %12 = load ptr, ptr %11, align 8, !nonnull !51, !noundef !51
   %13 = load i8, ptr %12, align 8
@@ -4984,7 +4984,7 @@ _ZN4llvm19ValueLatticeElementD2Ev.exit23:         ; preds = %_ZN4llvm11SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20getFromRangeMetadataPN4llvm11InstructionE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL20getFromRangeMetadataPN4llvm11InstructionE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.std::optional.64", align 8
   %4 = alloca %"class.llvm::ConstantRange", align 8
   %5 = alloca %"class.llvm::ConstantRange", align 8
@@ -5039,7 +5039,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %18, %16
   br label %_ZN4llvm13ConstantRangeC2ERKS0_.exit
 
 _ZN4llvm13ConstantRangeC2ERKS0_.exit:             ; preds = %25, %27
-  call void @_ZN4llvm19ValueLatticeElement8getRangeENS_13ConstantRangeEb(ptr dead_on_unwind writable sret(%"class.llvm::ValueLatticeElement") align 8 %0, ptr noundef nonnull %4, i1 noundef zeroext false)
+  call void @_ZN4llvm19ValueLatticeElement8getRangeENS_13ConstantRangeEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ValueLatticeElement") align 8 %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   %28 = load i32, ptr %21, align 8
   %29 = icmp ugt i32 %28, 64
   br i1 %29, label %30, label %_ZN4llvm5APIntD2Ev.exit.i
@@ -5130,7 +5130,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %58
 
 70:                                               ; preds = %63
   call void @_ZN4llvm28getConstantRangeFromMetadataERKNS_6MDNodeE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ConstantRange") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %62) #19
-  call void @_ZN4llvm19ValueLatticeElement8getRangeENS_13ConstantRangeEb(ptr dead_on_unwind writable sret(%"class.llvm::ValueLatticeElement") align 8 %0, ptr noundef nonnull %5, i1 noundef zeroext false)
+  call void @_ZN4llvm19ValueLatticeElement8getRangeENS_13ConstantRangeEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ValueLatticeElement") align 8 %0, ptr noundef nonnull %5, i1 noundef zeroext false)
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %72 = load i32, ptr %71, align 8
   %73 = icmp ugt i32 %72, 64
@@ -5318,8 +5318,8 @@ _ZNK4llvm12MemIntrinsic10isVolatileEv.exit.i.i.i: ; preds = %_ZN4llvm8dyn_castIN
   %76 = getelementptr inbounds i8, ptr %63, i64 64
   %77 = load ptr, ptr %76, align 8
   %78 = load i8, ptr %77, align 8
-  %.not40.i.i.i = icmp eq i8 %78, 17
-  br i1 %.not40.i.i.i, label %79, label %_ZL31AddNonNullPointersByInstructionPN4llvm11InstructionERNS_13SmallDenseSetINS_11AssertingVHINS_5ValueEEELj2ENS_12DenseMapInfoIS5_vEEEE.exit.i.i
+  %.not38.i.i.i = icmp eq i8 %78, 17
+  br i1 %.not38.i.i.i, label %79, label %_ZL31AddNonNullPointersByInstructionPN4llvm11InstructionERNS_13SmallDenseSetINS_11AssertingVHINS_5ValueEEELj2ENS_12DenseMapInfoIS5_vEEEE.exit.i.i
 
 79:                                               ; preds = %75
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 24
@@ -5368,8 +5368,8 @@ _ZN4llvm8dyn_castINS_15MemTransferInstENS_12MemIntrinsicEEEDcPT0_.exit.i.i.i: ; 
   br label %_ZN4llvm8dyn_castINS_12MemIntrinsicENS_11InstructionEEEDcPT0_.exit.thread.sink.split.i.i.i
 
 _ZN4llvm8dyn_castINS_12MemIntrinsicENS_11InstructionEEEDcPT0_.exit.thread.sink.split.i.i.i: ; preds = %_ZN4llvm8dyn_castINS_15MemTransferInstENS_12MemIntrinsicEEEDcPT0_.exit.i.i.i, %39, %37
-  %.sink41.i.i.i = phi ptr [ %40, %39 ], [ %105, %_ZN4llvm8dyn_castINS_15MemTransferInstENS_12MemIntrinsicEEEDcPT0_.exit.i.i.i ], [ %38, %37 ]
-  %106 = load ptr, ptr %.sink41.i.i.i, align 8
+  %.sink39.i.i.i = phi ptr [ %40, %39 ], [ %105, %_ZN4llvm8dyn_castINS_15MemTransferInstENS_12MemIntrinsicEEEDcPT0_.exit.i.i.i ], [ %38, %37 ]
+  %106 = load ptr, ptr %.sink39.i.i.i, align 8
   call fastcc void @_ZL17AddNonNullPointerPN4llvm5ValueERNS_13SmallDenseSetINS_11AssertingVHIS0_EELj2ENS_12DenseMapInfoIS4_vEEEE(ptr noundef %106, ptr noundef nonnull align 8 dereferenceable(24) %4)
   br label %_ZL31AddNonNullPointersByInstructionPN4llvm11InstructionERNS_13SmallDenseSetINS_11AssertingVHINS_5ValueEEELj2ENS_12DenseMapInfoIS5_vEEEE.exit.i.i
 
@@ -8490,7 +8490,7 @@ _ZN4llvm5APIntD2Ev.exit98:                        ; preds = %_ZN4llvm5APIntD2Ev.
 _ZN4llvm5APIntC2ERKS0_.exit110:                   ; preds = %300, %302
   store ptr %27, ptr %31, align 8
   %303 = ptrtoint ptr %31 to i64
-  call fastcc void @_ZL14getRangeViaSLTN4llvm7CmpInst9PredicateENS_5APIntENS_12function_refIFSt8optionalINS_13ConstantRangeEERKS2_EEE(ptr dead_on_unwind noalias nonnull writable align 8 %29, i32 noundef %45, ptr noundef nonnull %30, ptr nonnull @"_ZN4llvm12function_refIFSt8optionalINS_13ConstantRangeEERKNS_5APIntEEE11callback_fnIZNS_17LazyValueInfoImpl25getValueFromICmpConditionEPNS_5ValueEPNS_8ICmpInstEbbE3$_0EES3_lS6_", i64 %303)
+  call fastcc void @_ZL14getRangeViaSLTN4llvm7CmpInst9PredicateENS_5APIntENS_12function_refIFSt8optionalINS_13ConstantRangeEERKS2_EEE(ptr dead_on_unwind noalias writable align 8 %29, i32 noundef %45, ptr noundef %30, ptr nonnull @"_ZN4llvm12function_refIFSt8optionalINS_13ConstantRangeEERKNS_5APIntEEE11callback_fnIZNS_17LazyValueInfoImpl25getValueFromICmpConditionEPNS_5ValueEPNS_8ICmpInstEbbE3$_0EES3_lS6_", i64 %303)
   %304 = load i32, ptr %296, align 8
   %305 = icmp ugt i32 %304, 64
   br i1 %305, label %306, label %_ZN4llvm5APIntD2Ev.exit111
@@ -9009,7 +9009,7 @@ declare void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind writable sret(%"class.ll
 declare noundef zeroext i1 @_ZN4llvm7CmpInst8isSignedENS0_9PredicateE(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14getRangeViaSLTN4llvm7CmpInst9PredicateENS_5APIntENS_12function_refIFSt8optionalINS_13ConstantRangeEERKS2_EEE(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1, ptr noundef %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 {
+define internal fastcc void @_ZL14getRangeViaSLTN4llvm7CmpInst9PredicateENS_5APIntENS_12function_refIFSt8optionalINS_13ConstantRangeEERKS2_EEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1, ptr noundef nonnull %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 {
   %6 = alloca %"class.std::optional.64", align 8
   %7 = alloca %"class.llvm::ConstantRange", align 8
   %8 = and i32 %1, -2
@@ -9389,7 +9389,7 @@ _ZL19isOperationFoldablePN4llvm4UserE.exit:       ; preds = %113
 
 _ZL19isOperationFoldablePN4llvm4UserE.exit.thread: ; preds = %113, %_ZL19isOperationFoldablePN4llvm4UserE.exit
   %123 = call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm10BasicBlock13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #19
-  %124 = call fastcc noundef zeroext i1 @_ZL11usesOperandPN4llvm4UserEPNS_5ValueE(ptr noundef nonnull %2, ptr noundef %45)
+  %124 = call fastcc noundef zeroext i1 @_ZL11usesOperandPN4llvm4UserEPNS_5ValueE(ptr noundef %2, ptr noundef %45)
   br i1 %124, label %140, label %.preheader
 
 .preheader:                                       ; preds = %_ZL19isOperationFoldablePN4llvm4UserE.exit.thread
@@ -9419,7 +9419,7 @@ _ZL19isOperationFoldablePN4llvm4UserE.exit.thread: ; preds = %113, %_ZL19isOpera
   %142 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 1, ptr %142, align 8
   store i64 %141, ptr %8, align 8
-  call fastcc void @_ZL16constantFoldUserPN4llvm4UserEPNS_5ValueERKNS_5APIntERKNS_10DataLayoutE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull %2, ptr noundef %45, ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(512) %123)
+  call fastcc void @_ZL16constantFoldUserPN4llvm4UserEPNS_5ValueERKNS_5APIntERKNS_10DataLayoutE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull %2, ptr noundef %45, ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(512) %123)
   %143 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8optionalIN4llvm19ValueLatticeElementEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(40) %9)
   call void @_ZN4llvm19ValueLatticeElementD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #19
   %144 = load i32, ptr %142, align 8
@@ -9570,7 +9570,7 @@ _ZNSt8optionalIN4llvm19ValueLatticeElementEED2Ev.exit: ; preds = %181, %_ZN4llvm
 
 207:                                              ; preds = %206, %204, %195, %193
   store i8 1, ptr %139, align 8, !alias.scope !106
-  call fastcc void @_ZL16constantFoldUserPN4llvm4UserEPNS_5ValueERKNS_5APIntERKNS_10DataLayoutE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull %2, ptr noundef %167, ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(512) %123)
+  call fastcc void @_ZL16constantFoldUserPN4llvm4UserEPNS_5ValueERKNS_5APIntERKNS_10DataLayoutE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull %2, ptr noundef %167, ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(512) %123)
   %208 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8optionalIN4llvm19ValueLatticeElementEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(40) %13)
   call void @_ZN4llvm19ValueLatticeElementD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #19
   %.pre = load i8, ptr %139, align 8
@@ -9981,7 +9981,7 @@ _ZN4llvm5APIntD2Ev.exit133:                       ; preds = %_ZN4llvm5APIntC2ERK
 
 391:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit133
   %392 = call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm10BasicBlock13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #19
-  call fastcc void @_ZL16constantFoldUserPN4llvm4UserEPNS_5ValueERKNS_5APIntERKNS_10DataLayoutE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef %2, ptr noundef %267, ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull align 8 dereferenceable(512) %392)
+  call fastcc void @_ZL16constantFoldUserPN4llvm4UserEPNS_5ValueERKNS_5APIntERKNS_10DataLayoutE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef %2, ptr noundef %267, ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull align 8 dereferenceable(512) %392)
   %393 = load i16, ptr %18, align 8
   %394 = and i16 %393, 255
   %395 = icmp eq i16 %394, 6
@@ -10493,7 +10493,7 @@ _ZNSt14_Optional_baseIN4llvm19ValueLatticeElementELb0ELb0EEC2EOS2_.exit: ; preds
 declare noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm10BasicBlock13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL11usesOperandPN4llvm4UserEPNS_5ValueE(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @_ZL11usesOperandPN4llvm4UserEPNS_5ValueE(ptr noundef nonnull readonly %0, ptr noundef readnone %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1073741824
@@ -10623,7 +10623,7 @@ _ZN4llvm12is_containedINS_14iterator_rangeIPNS_3UseEEEPNS_5ValueEEEbOT_RKT0_.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16constantFoldUserPN4llvm4UserEPNS_5ValueERKNS_5APIntERKNS_10DataLayoutE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(512) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL16constantFoldUserPN4llvm4UserEPNS_5ValueERKNS_5APIntERKNS_10DataLayoutE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(512) %4) unnamed_addr #0 {
   %6 = alloca %"struct.llvm::SimplifyQuery", align 8
   %7 = alloca %"class.llvm::ConstantRange", align 8
   %8 = alloca %"class.llvm::APInt", align 8
@@ -10683,7 +10683,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_5ValueEEEDaPT0_.exit: ; preds = %
 
 _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %38, %40
   call void @_ZN4llvm13ConstantRangeC1ENS_5APIntE(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %8) #19
-  call void @_ZN4llvm19ValueLatticeElement8getRangeENS_13ConstantRangeEb(ptr dead_on_unwind writable sret(%"class.llvm::ValueLatticeElement") align 8 %0, ptr noundef nonnull %7, i1 noundef zeroext false)
+  call void @_ZN4llvm19ValueLatticeElement8getRangeENS_13ConstantRangeEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ValueLatticeElement") align 8 %0, ptr noundef nonnull %7, i1 noundef zeroext false)
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %42 = load i32, ptr %41, align 8
   %43 = icmp ugt i32 %42, 64
@@ -10780,7 +10780,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_5ValueEEEDaPT0_.exit36: ; preds =
 
 _ZN4llvm5APIntC2ERKS0_.exit37:                    ; preds = %86, %88
   call void @_ZN4llvm13ConstantRangeC1ENS_5APIntE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull %11) #19
-  call void @_ZN4llvm19ValueLatticeElement8getRangeENS_13ConstantRangeEb(ptr dead_on_unwind writable sret(%"class.llvm::ValueLatticeElement") align 8 %0, ptr noundef nonnull %10, i1 noundef zeroext false)
+  call void @_ZN4llvm19ValueLatticeElement8getRangeENS_13ConstantRangeEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ValueLatticeElement") align 8 %0, ptr noundef nonnull %10, i1 noundef zeroext false)
   %89 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %90 = load i32, ptr %89, align 8
   %91 = icmp ugt i32 %90, 64
@@ -10848,7 +10848,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit39:               ; preds = %_ZN4llvm5APIntD2Ev.
 
 _ZN4llvm5APIntC2ERKS0_.exit41:                    ; preds = %117, %119
   call void @_ZN4llvm13ConstantRangeC1ENS_5APIntE(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull %13) #19
-  call void @_ZN4llvm19ValueLatticeElement8getRangeENS_13ConstantRangeEb(ptr dead_on_unwind writable sret(%"class.llvm::ValueLatticeElement") align 8 %0, ptr noundef nonnull %12, i1 noundef zeroext false)
+  call void @_ZN4llvm19ValueLatticeElement8getRangeENS_13ConstantRangeEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ValueLatticeElement") align 8 %0, ptr noundef nonnull %12, i1 noundef zeroext false)
   %120 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %121 = load i32, ptr %120, align 8
   %122 = icmp ugt i32 %121, 64
@@ -11164,7 +11164,7 @@ define dso_local void @_ZN4llvm17LazyValueInfoImpl10getValueAtEPNS_5ValueEPNS_11
   br i1 %11, label %52, label %12
 
 12:                                               ; preds = %10
-  call fastcc void @_ZL20getFromRangeMetadataPN4llvm11InstructionE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull %2)
+  call fastcc void @_ZL20getFromRangeMetadataPN4llvm11InstructionE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %2)
   %13 = load i16, ptr %0, align 8
   %14 = and i16 %13, 254
   %switch.i.i = icmp eq i16 %14, 4

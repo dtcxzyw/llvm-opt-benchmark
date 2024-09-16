@@ -60,13 +60,13 @@ createPackageDesc.exit.thread.i:                  ; preds = %11
   %17 = getelementptr inbounds i8, ptr %12, i64 8
   store i32 0, ptr %17, align 8
   store ptr null, ptr %12, align 8
-  %18 = tail call fastcc i32 @popenCommand(ptr noundef nonnull @.str.5, ptr noundef nonnull %7, ptr noundef nonnull @initRpmPackage, ptr noundef nonnull %12)
+  %18 = tail call fastcc i32 @popenCommand(ptr noundef nonnull @.str.5, ptr noundef nonnull %7, ptr noundef nonnull @initRpmPackage, ptr noundef %12)
   %.not20.i = icmp eq i32 %18, 0
   br i1 %.not20.i, label %.critedge.i, label %19
 
 19:                                               ; preds = %16
   store i32 0, ptr %17, align 8
-  %20 = tail call fastcc i32 @popenCommand(ptr noundef nonnull @.str.6, ptr noundef nonnull %7, ptr noundef nonnull @initDebPackage, ptr noundef nonnull %12)
+  %20 = tail call fastcc i32 @popenCommand(ptr noundef nonnull @.str.6, ptr noundef nonnull %7, ptr noundef nonnull @initDebPackage, ptr noundef %12)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.critedge.i, label %.critedge.thread.i
 
@@ -132,7 +132,7 @@ createPackageDesc.exit.thread.i:                  ; preds = %11
 40:                                               ; preds = %36, %38
   %.011 = phi ptr [ @.str.2, %38 ], [ @.str.1, %36 ]
   %41 = load ptr, ptr %12, align 8
-  %42 = call fastcc i32 @popenCommand(ptr noundef nonnull %.011, ptr noundef %41, ptr noundef nonnull @findLauncherLib, ptr noundef nonnull %2)
+  %42 = call fastcc i32 @popenCommand(ptr noundef nonnull %.011, ptr noundef %41, ptr noundef nonnull @findLauncherLib, ptr noundef %2)
   %.not16 = icmp eq i32 %42, 0
   br i1 %.not16, label %46, label %43
 
@@ -167,7 +167,7 @@ declare ptr @dirname(ptr noundef) local_unnamed_addr #1
 declare void @jvmLauncherLog(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @popenCommand(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @popenCommand(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %7 = add i64 %6, %5
@@ -229,7 +229,7 @@ define internal fastcc noundef i32 @popenCommand(ptr nocapture noundef readonly 
 33:                                               ; preds = %32
   store i8 0, ptr %.050, align 1
   tail call void (ptr, ...) @jvmLauncherLog(ptr noundef nonnull @.str.10, ptr noundef %.155.ph) #14
-  %34 = tail call i32 %2(ptr noundef %3, ptr noundef %.155.ph) #14, !callees !7
+  %34 = tail call i32 %2(ptr noundef nonnull %3, ptr noundef %.155.ph) #14, !callees !7
   br label %35
 
 35:                                               ; preds = %33, %32, %30

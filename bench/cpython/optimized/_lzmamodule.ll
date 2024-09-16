@@ -472,7 +472,7 @@ if.end.i:                                         ; preds = %if.end10
 
 do.body.i.i:                                      ; preds = %if.end.i
   %4 = load i64, ptr %filter.i, align 8
-  %call1.i.i = call fastcc i32 @spec_add_field(ptr noundef nonnull %call.i2.i, ptr noundef nonnull @.str.5, i64 noundef %4)
+  %call1.i.i = call fastcc i32 @spec_add_field(ptr noundef %call.i2.i, ptr noundef nonnull @.str.5, i64 noundef %4)
   %cmp2.i.i = icmp eq i32 %call1.i.i, -1
   br i1 %cmp2.i.i, label %error.i.i, label %do.end.i.i
 
@@ -496,7 +496,7 @@ sw.bb.i.i:                                        ; preds = %do.end.i.i
   %lc.i.i = getelementptr inbounds i8, ptr %6, i64 20
   %7 = load i32, ptr %lc.i.i, align 4
   %conv.i.i = zext i32 %7 to i64
-  %call8.i.i = call fastcc i32 @spec_add_field(ptr noundef nonnull %call.i2.i, ptr noundef nonnull @.str.10, i64 noundef %conv.i.i)
+  %call8.i.i = call fastcc i32 @spec_add_field(ptr noundef %call.i2.i, ptr noundef nonnull @.str.10, i64 noundef %conv.i.i)
   %cmp9.i.i = icmp eq i32 %call8.i.i, -1
   br i1 %cmp9.i.i, label %error.i.i, label %do.body14.i.i
 
@@ -504,7 +504,7 @@ do.body14.i.i:                                    ; preds = %sw.bb.i.i
   %lp.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load i32, ptr %lp.i.i, align 8
   %conv15.i.i = zext i32 %8 to i64
-  %call16.i.i = call fastcc i32 @spec_add_field(ptr noundef nonnull %call.i2.i, ptr noundef nonnull @.str.11, i64 noundef %conv15.i.i)
+  %call16.i.i = call fastcc i32 @spec_add_field(ptr noundef %call.i2.i, ptr noundef nonnull @.str.11, i64 noundef %conv15.i.i)
   %cmp17.i.i = icmp eq i32 %call16.i.i, -1
   br i1 %cmp17.i.i, label %error.i.i, label %do.body22.i.i
 
@@ -512,14 +512,14 @@ do.body22.i.i:                                    ; preds = %do.body14.i.i
   %pb.i.i = getelementptr inbounds i8, ptr %6, i64 28
   %9 = load i32, ptr %pb.i.i, align 4
   %conv23.i.i = zext i32 %9 to i64
-  %call24.i.i = call fastcc i32 @spec_add_field(ptr noundef nonnull %call.i2.i, ptr noundef nonnull @.str.12, i64 noundef %conv23.i.i)
+  %call24.i.i = call fastcc i32 @spec_add_field(ptr noundef %call.i2.i, ptr noundef nonnull @.str.12, i64 noundef %conv23.i.i)
   %cmp25.i.i = icmp eq i32 %call24.i.i, -1
   br i1 %cmp25.i.i, label %error.i.i, label %do.body30.i.i
 
 do.body30.i.i:                                    ; preds = %do.body22.i.i
   %10 = load i32, ptr %6, align 8
   %conv31.i.i = zext i32 %10 to i64
-  %call32.i.i = call fastcc i32 @spec_add_field(ptr noundef nonnull %call.i2.i, ptr noundef nonnull @.str.9, i64 noundef %conv31.i.i)
+  %call32.i.i = call fastcc i32 @spec_add_field(ptr noundef %call.i2.i, ptr noundef nonnull @.str.9, i64 noundef %conv31.i.i)
   %cmp33.i.i = icmp eq i32 %call32.i.i, -1
   br i1 %cmp33.i.i, label %error.i.i, label %build_filter_spec.exit.i
 
@@ -528,7 +528,7 @@ sw.bb38.i.i:                                      ; preds = %do.end.i.i
   %11 = load ptr, ptr %options40.i.i, align 8
   %12 = load i32, ptr %11, align 8
   %conv43.i.i = zext i32 %12 to i64
-  %call44.i.i = call fastcc i32 @spec_add_field(ptr noundef nonnull %call.i2.i, ptr noundef nonnull @.str.9, i64 noundef %conv43.i.i)
+  %call44.i.i = call fastcc i32 @spec_add_field(ptr noundef %call.i2.i, ptr noundef nonnull @.str.9, i64 noundef %conv43.i.i)
   %cmp45.i.i = icmp eq i32 %call44.i.i, -1
   br i1 %cmp45.i.i, label %error.i.i, label %build_filter_spec.exit.i
 
@@ -538,7 +538,7 @@ sw.bb50.i.i:                                      ; preds = %do.end.i.i
   %dist.i.i = getelementptr inbounds i8, ptr %13, i64 4
   %14 = load i32, ptr %dist.i.i, align 4
   %conv54.i.i = zext i32 %14 to i64
-  %call55.i.i = call fastcc i32 @spec_add_field(ptr noundef nonnull %call.i2.i, ptr noundef nonnull @.str.23, i64 noundef %conv54.i.i)
+  %call55.i.i = call fastcc i32 @spec_add_field(ptr noundef %call.i2.i, ptr noundef nonnull @.str.23, i64 noundef %conv54.i.i)
   %cmp56.i.i = icmp eq i32 %call55.i.i, -1
   br i1 %cmp56.i.i, label %error.i.i, label %build_filter_spec.exit.i
 
@@ -547,7 +547,7 @@ sw.bb61.i.i:                                      ; preds = %do.end.i.i, %do.end
   %15 = load ptr, ptr %options63.i.i, align 8
   %16 = load i32, ptr %15, align 4
   %conv65.i.i = zext i32 %16 to i64
-  %call66.i.i = call fastcc i32 @spec_add_field(ptr noundef nonnull %call.i2.i, ptr noundef nonnull @.str.26, i64 noundef %conv65.i.i)
+  %call66.i.i = call fastcc i32 @spec_add_field(ptr noundef %call.i2.i, ptr noundef nonnull @.str.26, i64 noundef %conv65.i.i)
   %cmp67.i.i = icmp eq i32 %call66.i.i, -1
   br i1 %cmp67.i.i, label %error.i.i, label %build_filter_spec.exit.i
 
@@ -1089,7 +1089,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 declare ptr @PyDict_New() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @spec_add_field(ptr noundef %spec, ptr noundef %key, i64 noundef %value) unnamed_addr #0 {
+define internal fastcc i32 @spec_add_field(ptr noundef nonnull %spec, ptr noundef %key, i64 noundef %value) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyLong_FromUnsignedLongLong(i64 noundef %value) #9
   %cmp = icmp eq ptr %call, null
@@ -1113,7 +1113,7 @@ if.end.i18:                                       ; preds = %if.then3
   br i1 %cmp.i20, label %return.sink.split, label %return
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call i32 @PyDict_SetItem(ptr noundef %spec, ptr noundef nonnull %call1, ptr noundef nonnull %call) #9
+  %call5 = tail call i32 @PyDict_SetItem(ptr noundef nonnull %spec, ptr noundef nonnull %call1, ptr noundef nonnull %call) #9
   %2 = load i64, ptr %call1, align 8
   %3 = and i64 %2, 2147483648
   %cmp.i28.not = icmp eq i64 %3, 0
@@ -1556,19 +1556,19 @@ if.then32:                                        ; preds = %sw.bb
 if.end33:                                         ; preds = %if.then32, %sw.bb
   %15 = phi i32 [ 4, %if.then32 ], [ %14, %sw.bb ]
   %16 = load ptr, ptr %filterspecs, align 8
-  %call35 = call fastcc i32 @Compressor_init_xz(ptr noundef %call, ptr noundef nonnull %lzs, i32 noundef %15, i32 noundef %preset.0, ptr noundef %16)
+  %call35 = call fastcc i32 @Compressor_init_xz(ptr noundef %call, ptr noundef %lzs, i32 noundef %15, i32 noundef %preset.0, ptr noundef %16)
   %cmp36.not = icmp eq i32 %call35, 0
   br i1 %cmp36.not, label %return, label %error
 
 sw.bb39:                                          ; preds = %if.end30
   %17 = load ptr, ptr %filterspecs, align 8
-  %call41 = call fastcc i32 @Compressor_init_alone(ptr noundef %call, ptr noundef nonnull %lzs, i32 noundef %preset.0, ptr noundef %17)
+  %call41 = call fastcc i32 @Compressor_init_alone(ptr noundef %call, ptr noundef %lzs, i32 noundef %preset.0, ptr noundef %17)
   %cmp42.not = icmp eq i32 %call41, 0
   br i1 %cmp42.not, label %return, label %error
 
 sw.bb45:                                          ; preds = %if.end30
   %18 = load ptr, ptr %filterspecs, align 8
-  %call47 = call fastcc i32 @Compressor_init_raw(ptr noundef %call, ptr noundef nonnull %lzs, ptr noundef %18)
+  %call47 = call fastcc i32 @Compressor_init_raw(ptr noundef %call, ptr noundef %lzs, ptr noundef %18)
   %cmp48.not = icmp eq i32 %call47, 0
   br i1 %cmp48.not, label %return, label %error
 
@@ -1732,7 +1732,7 @@ declare ptr @PyEval_SaveThread() local_unnamed_addr #1
 declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @compress(ptr noundef %c, ptr noundef %data, i64 noundef %len, i32 noundef %action) unnamed_addr #0 {
+define internal fastcc ptr @compress(ptr noundef %c, ptr noundef %data, i64 noundef %len, i32 noundef range(i32 0, 4) %action) unnamed_addr #0 {
 entry:
   %buffer = alloca %struct._BlocksOutputBuffer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
@@ -1822,7 +1822,7 @@ if.else.us:                                       ; preds = %if.end19.us
   br i1 %cmp31.us, label %if.then32.us, label %for.cond.us.backedge
 
 if.then32.us:                                     ; preds = %if.else.us
-  %call37.us = call fastcc i64 @OutputBuffer_Grow(ptr noundef nonnull %buffer, ptr noundef nonnull %next_out, ptr noundef nonnull %avail_out)
+  %call37.us = call fastcc i64 @OutputBuffer_Grow(ptr noundef %buffer, ptr noundef nonnull %next_out, ptr noundef nonnull %avail_out)
   %cmp38.us = icmp slt i64 %call37.us, 0
   br i1 %cmp38.us, label %error, label %for.cond.us.backedge
 
@@ -1849,7 +1849,7 @@ if.end19.us39.us:                                 ; preds = %if.end19.us39.lr.ph
   br i1 %cmp31.us41.us, label %if.then32.us42.us, label %if.end42.us45.us
 
 if.then32.us42.us:                                ; preds = %if.end19.us39.us
-  %call37.us43.us = call fastcc i64 @OutputBuffer_Grow(ptr noundef nonnull %buffer, ptr noundef nonnull %next_out, ptr noundef nonnull %avail_out)
+  %call37.us43.us = call fastcc i64 @OutputBuffer_Grow(ptr noundef %buffer, ptr noundef nonnull %next_out, ptr noundef nonnull %avail_out)
   %cmp38.us44.us = icmp slt i64 %call37.us43.us, 0
   br i1 %cmp38.us44.us, label %error, label %if.end42.us45.us
 
@@ -1872,7 +1872,7 @@ if.else.us40:                                     ; preds = %if.end19.us39
   br i1 %cmp31.us41, label %if.then32.us42, label %if.end42.us45
 
 if.then32.us42:                                   ; preds = %if.else.us40
-  %call37.us43 = call fastcc i64 @OutputBuffer_Grow(ptr noundef nonnull %buffer, ptr noundef nonnull %next_out, ptr noundef nonnull %avail_out)
+  %call37.us43 = call fastcc i64 @OutputBuffer_Grow(ptr noundef %buffer, ptr noundef nonnull %next_out, ptr noundef nonnull %avail_out)
   %cmp38.us44 = icmp slt i64 %call37.us43, 0
   br i1 %cmp38.us44, label %error, label %if.end42.us45
 
@@ -1912,7 +1912,7 @@ if.end19.us57:                                    ; preds = %if.end16.us53
   br i1 %cmp31.us61, label %if.then32.us62, label %for.cond.us46.backedge
 
 if.then32.us62:                                   ; preds = %if.end19.us57
-  %call37.us63 = call fastcc i64 @OutputBuffer_Grow(ptr noundef nonnull %buffer, ptr noundef nonnull %next_out, ptr noundef nonnull %avail_out)
+  %call37.us63 = call fastcc i64 @OutputBuffer_Grow(ptr noundef %buffer, ptr noundef nonnull %next_out, ptr noundef nonnull %avail_out)
   %cmp38.us64 = icmp slt i64 %call37.us63, 0
   br i1 %cmp38.us64, label %error, label %for.cond.us46.backedge
 
@@ -1951,13 +1951,13 @@ for.cond.backedge:                                ; preds = %if.else, %if.then32
   br label %for.cond
 
 if.then32:                                        ; preds = %if.else
-  %call37 = call fastcc i64 @OutputBuffer_Grow(ptr noundef nonnull %buffer, ptr noundef nonnull %next_out, ptr noundef nonnull %avail_out)
+  %call37 = call fastcc i64 @OutputBuffer_Grow(ptr noundef %buffer, ptr noundef nonnull %next_out, ptr noundef nonnull %avail_out)
   %cmp38 = icmp slt i64 %call37, 0
   br i1 %cmp38, label %error, label %for.cond.backedge
 
 for.end:                                          ; preds = %if.end19.us39, %if.end19, %if.end19.us
   %13 = load i64, ptr %avail_out, align 8
-  %call45 = call fastcc ptr @OutputBuffer_Finish(ptr noundef nonnull %buffer, i64 noundef %13)
+  %call45 = call fastcc ptr @OutputBuffer_Finish(ptr noundef %buffer, i64 noundef %13)
   %cmp46.not = icmp eq ptr %call45, null
   br i1 %cmp46.not, label %error, label %return
 
@@ -1995,7 +1995,7 @@ declare ptr @PyType_GetModuleState(ptr noundef) local_unnamed_addr #1
 declare i32 @lzma_code(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @OutputBuffer_Grow(ptr nocapture noundef %buffer, ptr nocapture noundef writeonly %next_out, ptr nocapture noundef %avail_out) unnamed_addr #0 {
+define internal fastcc i64 @OutputBuffer_Grow(ptr nocapture noundef nonnull %buffer, ptr nocapture noundef writeonly %next_out, ptr nocapture noundef %avail_out) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %avail_out, align 8
   %1 = load ptr, ptr %buffer, align 8
@@ -2097,7 +2097,7 @@ _BlocksOutputBuffer_Grow.exit:                    ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @OutputBuffer_Finish(ptr nocapture noundef %buffer, i64 noundef %avail_out) unnamed_addr #0 {
+define internal fastcc ptr @OutputBuffer_Finish(ptr nocapture noundef nonnull %buffer, i64 noundef %avail_out) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %buffer, align 8
   %1 = getelementptr i8, ptr %0, i64 16
@@ -2275,23 +2275,23 @@ entry:
 declare ptr @PyThread_allocate_lock() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @Compressor_init_xz(ptr nocapture noundef readonly %state, ptr noundef %lzs, i32 noundef %check, i32 noundef %preset, ptr noundef %filterspecs) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @Compressor_init_xz(ptr nocapture noundef readonly %state, ptr noundef nonnull %lzs, i32 noundef %check, i32 noundef %preset, ptr noundef %filterspecs) unnamed_addr #0 {
 entry:
   %filters = alloca [5 x %struct.lzma_filter], align 16
   %cmp = icmp eq ptr %filterspecs, @_Py_NoneStruct
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @lzma_easy_encoder(ptr noundef %lzs, i32 noundef %preset, i32 noundef %check) #9
+  %call = tail call i32 @lzma_easy_encoder(ptr noundef nonnull %lzs, i32 noundef %preset, i32 noundef %check) #9
   br label %if.end7
 
 if.else:                                          ; preds = %entry
-  %call1 = call fastcc i32 @parse_filter_chain_spec(ptr noundef %state, ptr noundef nonnull %filters, ptr noundef %filterspecs)
+  %call1 = call fastcc i32 @parse_filter_chain_spec(ptr noundef %state, ptr noundef %filters, ptr noundef %filterspecs)
   %cmp2 = icmp eq i32 %call1, -1
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %if.else
-  %call5 = call i32 @lzma_stream_encoder(ptr noundef %lzs, ptr noundef nonnull %filters, i32 noundef %check) #9
+  %call5 = call i32 @lzma_stream_encoder(ptr noundef nonnull %lzs, ptr noundef nonnull %filters, i32 noundef %check) #9
   %0 = load i64, ptr %filters, align 16
   %cmp.not4.i = icmp eq i64 %0, -1
   br i1 %cmp.not4.i, label %if.end7, label %for.body.i
@@ -2321,7 +2321,7 @@ return:                                           ; preds = %if.end7, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @Compressor_init_alone(ptr nocapture noundef readonly %state, ptr noundef %lzs, i32 noundef %preset, ptr noundef %filterspecs) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @Compressor_init_alone(ptr nocapture noundef readonly %state, ptr noundef nonnull %lzs, i32 noundef %preset, ptr noundef %filterspecs) unnamed_addr #0 {
 entry:
   %options = alloca %struct.lzma_options_lzma, align 8
   %filters = alloca [5 x %struct.lzma_filter], align 16
@@ -2340,11 +2340,11 @@ if.then1:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %call3 = call i32 @lzma_alone_encoder(ptr noundef %lzs, ptr noundef nonnull %options) #9
+  %call3 = call i32 @lzma_alone_encoder(ptr noundef nonnull %lzs, ptr noundef nonnull %options) #9
   br label %if.end19
 
 if.else:                                          ; preds = %entry
-  %call4 = call fastcc i32 @parse_filter_chain_spec(ptr noundef %state, ptr noundef nonnull %filters, ptr noundef %filterspecs)
+  %call4 = call fastcc i32 @parse_filter_chain_spec(ptr noundef %state, ptr noundef %filters, ptr noundef %filterspecs)
   %cmp5 = icmp eq i32 %call4, -1
   br i1 %cmp5, label %return, label %if.end7
 
@@ -2360,7 +2360,7 @@ if.end7:                                          ; preds = %if.else
 if.end17.thread:                                  ; preds = %if.end7
   %options14 = getelementptr inbounds i8, ptr %filters, i64 8
   %3 = load ptr, ptr %options14, align 8
-  %call15 = tail call i32 @lzma_alone_encoder(ptr noundef %lzs, ptr noundef %3) #9
+  %call15 = tail call i32 @lzma_alone_encoder(ptr noundef nonnull %lzs, ptr noundef %3) #9
   br label %for.body.i.preheader
 
 if.end17:                                         ; preds = %if.end7
@@ -2403,7 +2403,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @Compressor_init_raw(ptr nocapture noundef readonly %state, ptr noundef %lzs, ptr noundef %filterspecs) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @Compressor_init_raw(ptr nocapture noundef readonly %state, ptr noundef nonnull %lzs, ptr noundef %filterspecs) unnamed_addr #0 {
 entry:
   %filters = alloca [5 x %struct.lzma_filter], align 16
   %cmp = icmp eq ptr %filterspecs, @_Py_NoneStruct
@@ -2415,12 +2415,12 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = call fastcc i32 @parse_filter_chain_spec(ptr noundef %state, ptr noundef nonnull %filters, ptr noundef %filterspecs)
+  %call = call fastcc i32 @parse_filter_chain_spec(ptr noundef %state, ptr noundef %filters, ptr noundef %filterspecs)
   %cmp1 = icmp eq i32 %call, -1
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %call5 = call i32 @lzma_raw_encoder(ptr noundef %lzs, ptr noundef nonnull %filters) #9
+  %call5 = call i32 @lzma_raw_encoder(ptr noundef nonnull %lzs, ptr noundef nonnull %filters) #9
   %1 = load i64, ptr %filters, align 16
   %cmp.not4.i = icmp eq i64 %1, -1
   br i1 %cmp.not4.i, label %free_filter_chain.exit, label %for.body.i
@@ -2456,7 +2456,7 @@ declare void @PyMem_RawFree(ptr noundef) local_unnamed_addr #1
 declare i32 @lzma_easy_encoder(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @parse_filter_chain_spec(ptr nocapture noundef readonly %state, ptr nocapture noundef %filters, ptr noundef %filterspecs) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parse_filter_chain_spec(ptr nocapture noundef readonly %state, ptr nocapture noundef nonnull %filters, ptr noundef %filterspecs) unnamed_addr #0 {
 entry:
   %call = tail call i64 @PySequence_Size(ptr noundef %filterspecs) #9
   %cmp = icmp eq i64 %call, -1
@@ -2878,7 +2878,7 @@ sw.bb49.i:                                        ; preds = %if.end35.i
 
 sw.bb57.i:                                        ; preds = %if.end35.i
   store i32 0, ptr %check.i, align 8
-  %call60.i = call fastcc i32 @Decompressor_init_raw(ptr noundef %call.i43, ptr noundef nonnull %lzs.i, ptr noundef %filters.041)
+  %call60.i = call fastcc i32 @Decompressor_init_raw(ptr noundef %call.i43, ptr noundef %lzs.i, ptr noundef %filters.041)
   %cmp61.i = icmp eq i32 %call60.i, -1
   br i1 %cmp61.i, label %error.i, label %exit
 
@@ -3212,7 +3212,7 @@ if.then26.i.i.i:                                  ; preds = %if.else.i.i.i
   br i1 %cmp29.i.i.i, label %for.end.i.i.i, label %if.end31.i.i.i
 
 if.end31.i.i.i:                                   ; preds = %if.then26.i.i.i
-  %call34.i.i.i = call fastcc i64 @OutputBuffer_Grow(ptr noundef nonnull %buffer.i.i.i, ptr noundef nonnull %next_out.i.i.i, ptr noundef nonnull %avail_out.i.i.i)
+  %call34.i.i.i = call fastcc i64 @OutputBuffer_Grow(ptr noundef %buffer.i.i.i, ptr noundef nonnull %next_out.i.i.i, ptr noundef nonnull %avail_out.i.i.i)
   %cmp35.i.i.i = icmp slt i64 %call34.i.i.i, 0
   br i1 %cmp35.i.i.i, label %error.i.i.i, label %for.cond.i.i.i.backedge
 
@@ -3226,7 +3226,7 @@ for.cond.i.i.i.backedge:                          ; preds = %if.else38.i.i.i, %i
 
 for.end.i.i.i:                                    ; preds = %if.else38.i.i.i, %if.then26.i.i.i, %if.then23.i.i.i
   %31 = phi i64 [ %.pre.i.i.i, %if.then23.i.i.i ], [ 0, %if.then26.i.i.i ], [ %29, %if.else38.i.i.i ]
-  %call46.i.i.i = call fastcc ptr @OutputBuffer_Finish(ptr noundef nonnull %buffer.i.i.i, i64 noundef %31)
+  %call46.i.i.i = call fastcc ptr @OutputBuffer_Finish(ptr noundef %buffer.i.i.i, i64 noundef %31)
   %cmp47.not.i.i.i = icmp eq ptr %call46.i.i.i, null
   br i1 %cmp47.not.i.i.i, label %error.i.i.i, label %if.end45.i.i
 
@@ -3438,15 +3438,15 @@ declare i32 @lzma_stream_decoder(ptr noundef, i64 noundef, i32 noundef) local_un
 declare i32 @lzma_alone_decoder(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @Decompressor_init_raw(ptr nocapture noundef readonly %state, ptr noundef %lzs, ptr noundef %filterspecs) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @Decompressor_init_raw(ptr nocapture noundef readonly %state, ptr noundef nonnull %lzs, ptr noundef %filterspecs) unnamed_addr #0 {
 entry:
   %filters = alloca [5 x %struct.lzma_filter], align 16
-  %call = call fastcc i32 @parse_filter_chain_spec(ptr noundef %state, ptr noundef nonnull %filters, ptr noundef %filterspecs)
+  %call = call fastcc i32 @parse_filter_chain_spec(ptr noundef %state, ptr noundef %filters, ptr noundef %filterspecs)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2 = call i32 @lzma_raw_decoder(ptr noundef %lzs, ptr noundef nonnull %filters) #9
+  %call2 = call i32 @lzma_raw_decoder(ptr noundef nonnull %lzs, ptr noundef nonnull %filters) #9
   %0 = load i64, ptr %filters, align 16
   %cmp.not4.i = icmp eq i64 %0, -1
   br i1 %cmp.not4.i, label %free_filter_chain.exit, label %for.body.i

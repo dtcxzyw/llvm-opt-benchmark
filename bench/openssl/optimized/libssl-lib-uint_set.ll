@@ -363,7 +363,7 @@ if.then112.thread:                                ; preds = %lor.lhs.false
 if.then118:                                       ; preds = %if.then112.thread, %if.then112
   %range64220 = getelementptr inbounds i8, ptr %z.0184, i64 16
   store i64 %0, ptr %range64220, align 8
-  tail call fastcc void @uint_set_merge_adjacent(ptr noundef nonnull %s, ptr noundef nonnull %z.0184)
+  tail call fastcc void @uint_set_merge_adjacent(ptr noundef nonnull %s, ptr noundef %z.0184)
   br label %return
 
 land.lhs.true124:                                 ; preds = %if.then112.thread
@@ -373,7 +373,7 @@ land.lhs.true124:                                 ; preds = %if.then112.thread
 
 if.then130:                                       ; preds = %land.lhs.true124
   store i64 %1, ptr %end109.le, align 8
-  tail call fastcc void @uint_set_merge_adjacent(ptr noundef nonnull %s, ptr noundef nonnull %z.0184)
+  tail call fastcc void @uint_set_merge_adjacent(ptr noundef nonnull %s, ptr noundef %z.0184)
   br label %return
 
 if.else133:                                       ; preds = %if.then112, %land.lhs.true124
@@ -424,7 +424,7 @@ return:                                           ; preds = %ossl_list_uint_set_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @uint_set_merge_adjacent(ptr nocapture noundef %s, ptr nocapture noundef %x) unnamed_addr #1 {
+define internal fastcc void @uint_set_merge_adjacent(ptr nocapture noundef %s, ptr nocapture noundef nonnull %x) unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %x, i64 8
   %x.val = load ptr, ptr %0, align 8

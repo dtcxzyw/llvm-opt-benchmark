@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.ts_tagger_add_language = private unnamed_addr constant [5 x i32] [i32 6, i32 5, i32 2, i32 3, i32 7], align 4
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..TagsConfiguration$C$tree_sitter_tags..Error$GT$$GT$17heea20b4bb29c4dceE"(ptr noalias noundef align 8 dereferenceable(280) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..TagsConfiguration$C$tree_sitter_tags..Error$GT$$GT$17heea20b4bb29c4dceE"(ptr noalias noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %.not = icmp eq i64 %2, -9223372036854775808
   br i1 %.not, label %4, label %3
@@ -29,7 +29,7 @@ define internal fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Resu
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call fastcc void @"_ZN4core3ptr44drop_in_place$LT$tree_sitter_tags..Error$GT$17h0dc2e6c208c38f2dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5)
+  tail call fastcc void @"_ZN4core3ptr44drop_in_place$LT$tree_sitter_tags..Error$GT$17h0dc2e6c208c38f2dE"(ptr noalias noundef align 8 dereferenceable(56) %5)
   br label %6
 
 6:                                                ; preds = %4, %3
@@ -37,7 +37,7 @@ define internal fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$tree_sitter_tags..Error$GT$17h0dc2e6c208c38f2dE"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$tree_sitter_tags..Error$GT$17h0dc2e6c208c38f2dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -130,7 +130,7 @@ define internal void @"_ZN4core3ptr52drop_in_place$LT$std..thread..local..Access
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..Tag$C$tree_sitter_tags..Error$GT$$GT$17h27a982683186a28dE"(ptr noalias noundef align 8 dereferenceable(128) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..Tag$C$tree_sitter_tags..Error$GT$$GT$17h27a982683186a28dE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !39, !noundef !5
   switch i64 %3, label %4 [
@@ -160,7 +160,7 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..result..Resul
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call fastcc void @"_ZN4core3ptr44drop_in_place$LT$tree_sitter_tags..Error$GT$17h0dc2e6c208c38f2dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %13)
+  tail call fastcc void @"_ZN4core3ptr44drop_in_place$LT$tree_sitter_tags..Error$GT$17h0dc2e6c208c38f2dE"(ptr noalias noundef align 8 dereferenceable(56) %13)
   br label %"_ZN4core3ptr42drop_in_place$LT$tree_sitter_tags..Tag$GT$17ha3646faeca33ea2aE.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$tree_sitter_tags..Tag$GT$17ha3646faeca33ea2aE.exit": ; preds = %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he9db8dfb7e7f48bdE.exit.i.i", %12
@@ -168,7 +168,7 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..result..Resul
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 8 dereferenceable_or_null(280) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h4708ad68a9be0398E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef align 8 dereferenceable_or_null(280) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h4708ad68a9be0398E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { i64, i64, i64, i64 }, align 8
   %5 = alloca [1 x i8], align 1
   %6 = alloca { { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } } }, align 8
@@ -622,7 +622,7 @@ switch.lookup:                                    ; preds = %59
   unreachable
 
 90:                                               ; preds = %85
-  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..TagsConfiguration$C$tree_sitter_tags..Error$GT$$GT$17heea20b4bb29c4dceE"(ptr noalias noundef nonnull align 8 dereferenceable(280) %17) #19
+  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..TagsConfiguration$C$tree_sitter_tags..Error$GT$$GT$17heea20b4bb29c4dceE"(ptr noalias noundef align 8 dereferenceable(280) %17) #19
           to label %"_ZN4core3ptr42drop_in_place$LT$tree_sitter..Language$GT$17hea716aff86ee1144E.exit" unwind label %88
 
 "_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..TagsConfiguration$C$tree_sitter_tags..Error$GT$$GT$17heea20b4bb29c4dceE.exit": ; preds = %.thread, %83
@@ -633,7 +633,7 @@ switch.lookup:                                    ; preds = %59
 .thread:                                          ; preds = %switch.lookup, %83
   %.147 = phi i32 [ 0, %83 ], [ %switch.load, %switch.lookup ]
   %91 = getelementptr inbounds i8, ptr %17, i64 8
-  call fastcc void @"_ZN4core3ptr44drop_in_place$LT$tree_sitter_tags..Error$GT$17h0dc2e6c208c38f2dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %91)
+  call fastcc void @"_ZN4core3ptr44drop_in_place$LT$tree_sitter_tags..Error$GT$17h0dc2e6c208c38f2dE"(ptr noalias noundef align 8 dereferenceable(56) %91)
   br label %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..TagsConfiguration$C$tree_sitter_tags..Error$GT$$GT$17heea20b4bb29c4dceE.exit"
 
 92:                                               ; preds = %93, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..TagsConfiguration$C$tree_sitter_tags..Error$GT$$GT$17heea20b4bb29c4dceE.exit"
@@ -755,7 +755,7 @@ _ZN16tree_sitter_tags5c_lib6unwrap17h79dd25a08baf6d3bE.exit: ; preds = %_ZN16tre
   %46 = getelementptr inbounds i8, ptr %22, i64 16
   %47 = load i64, ptr %46, align 8, !alias.scope !188, !noundef !5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
-  %48 = tail call fastcc noundef align 8 dereferenceable_or_null(280) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h4708ad68a9be0398E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %45, i64 noundef %47)
+  %48 = tail call fastcc noundef align 8 dereferenceable_or_null(280) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h4708ad68a9be0398E"(ptr noalias noundef readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %45, i64 noundef %47)
   %.not = icmp eq ptr %48, null
   br i1 %.not, label %.sink.split, label %49
 
@@ -876,7 +876,7 @@ _ZN16tree_sitter_tags5c_lib16shrink_and_clear17h20d42158ef479d01E.exit: ; preds 
   %109 = load i64, ptr %20, align 8, !range !6, !noundef !5
   %110 = icmp eq i64 %109, -9223372036854775806
   %.42 = select i1 %110, i32 3, i32 2
-  call fastcc void @"_ZN4core3ptr44drop_in_place$LT$tree_sitter_tags..Error$GT$17h0dc2e6c208c38f2dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %20)
+  call fastcc void @"_ZN4core3ptr44drop_in_place$LT$tree_sitter_tags..Error$GT$17h0dc2e6c208c38f2dE"(ptr noalias noundef align 8 dereferenceable(56) %20)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %21)
   br label %.sink.split
@@ -931,7 +931,7 @@ _ZN16tree_sitter_tags5c_lib16shrink_and_clear17h20d42158ef479d01E.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %16)
   store i64 0, ptr %50, align 8
   store i64 0, ptr %63, align 8
-  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$tree_sitter_tags..Error$GT$17h0dc2e6c208c38f2dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %106)
+  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$tree_sitter_tags..Error$GT$17h0dc2e6c208c38f2dE"(ptr noalias noundef align 8 dereferenceable(56) %106)
           to label %"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..Tag$C$tree_sitter_tags..Error$GT$$GT$17h27a982683186a28dE.exit" unwind label %.loopexit.split-lp
 
 123:                                              ; preds = %119
@@ -1135,7 +1135,7 @@ _ZN16tree_sitter_tags5c_lib16shrink_and_clear17h20d42158ef479d01E.exit: ; preds 
   br label %111
 
 198:                                              ; preds = %188
-  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$tree_sitter_tags..Error$GT$17h0dc2e6c208c38f2dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %106)
+  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$tree_sitter_tags..Error$GT$17h0dc2e6c208c38f2dE"(ptr noalias noundef align 8 dereferenceable(56) %106)
           to label %"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..Tag$C$tree_sitter_tags..Error$GT$$GT$17h27a982683186a28dE.exit60" unwind label %.loopexit
 
 199:                                              ; preds = %176
@@ -1143,7 +1143,7 @@ _ZN16tree_sitter_tags5c_lib16shrink_and_clear17h20d42158ef479d01E.exit: ; preds 
           to label %.thread unwind label %179
 
 200:                                              ; preds = %.thread
-  invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..Tag$C$tree_sitter_tags..Error$GT$$GT$17h27a982683186a28dE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %17) #19
+  invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..Tag$C$tree_sitter_tags..Error$GT$$GT$17h27a982683186a28dE"(ptr noalias noundef align 8 dereferenceable(128) %17) #19
           to label %112 unwind label %179
 
 "_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..Tag$C$tree_sitter_tags..Error$GT$$GT$17h27a982683186a28dE.exit": ; preds = %122
@@ -1547,7 +1547,7 @@ _ZN16tree_sitter_tags5c_lib6unwrap17h79dd25a08baf6d3bE.exit: ; preds = %_ZN16tre
 _ZN16tree_sitter_tags5c_lib14unwrap_mut_ptr17hb0137400920bdb48E.exit: ; preds = %_ZN16tree_sitter_tags5c_lib6unwrap17h79dd25a08baf6d3bE.exit
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
   store i32 0, ptr %2, align 4
-  %36 = tail call fastcc noundef align 8 dereferenceable_or_null(280) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h4708ad68a9be0398E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %27, i64 noundef %29)
+  %36 = tail call fastcc noundef align 8 dereferenceable_or_null(280) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h4708ad68a9be0398E"(ptr noalias noundef readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %27, i64 noundef %29)
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %43, label %37
 

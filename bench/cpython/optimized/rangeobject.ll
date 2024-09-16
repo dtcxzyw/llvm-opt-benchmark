@@ -1663,7 +1663,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc ptr @compute_range_item(ptr noundef %r, ptr noundef nonnull %call)
+  %call1 = tail call fastcc ptr @compute_range_item(ptr noundef %r, ptr noundef %call)
   %0 = load i64, ptr %call, align 8
   %1 = and i64 %0, 2147483648
   %cmp.i3.not = icmp eq i64 %1, 0
@@ -1713,9 +1713,9 @@ declare i64 @PyLong_AsSsize_t(ptr noundef) local_unnamed_addr #1
 declare ptr @PyLong_FromSsize_t(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @compute_range_item(ptr nocapture noundef readonly %r, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc ptr @compute_range_item(ptr nocapture noundef readonly %r, ptr noundef nonnull %arg) unnamed_addr #0 {
 entry:
-  %call1 = tail call i32 @PyObject_RichCompareBool(ptr noundef %arg, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), i32 noundef 0) #6
+  %call1 = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %arg, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), i32 noundef 0) #6
   switch i32 %call1, label %if.else [
     i32 -1, label %return
     i32 1, label %if.then3
@@ -1724,7 +1724,7 @@ entry:
 if.then3:                                         ; preds = %entry
   %length = getelementptr inbounds i8, ptr %r, i64 40
   %0 = load ptr, ptr %length, align 8
-  %call4 = tail call ptr @PyNumber_Add(ptr noundef %0, ptr noundef %arg) #6
+  %call4 = tail call ptr @PyNumber_Add(ptr noundef %0, ptr noundef nonnull %arg) #6
   %tobool.not = icmp eq ptr %call4, null
   br i1 %tobool.not, label %return, label %if.end8
 
@@ -1992,7 +1992,7 @@ if.then:                                          ; preds = %_PyIndex_Check.exit
   br i1 %tobool2.not, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %call4 = tail call fastcc ptr @compute_range_item(ptr noundef %self, ptr noundef nonnull %call1)
+  %call4 = tail call fastcc ptr @compute_range_item(ptr noundef %self, ptr noundef %call1)
   %3 = load i64, ptr %call1, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i14.not = icmp eq i64 %4, 0
@@ -2184,7 +2184,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 do.end30.i:                                       ; preds = %if.then1.i.i, %if.end.i.i, %if.then28.i, %do.body24.i
   %29 = getelementptr i8, ptr %self, i64 8
   %r.val.i = load ptr, ptr %29, align 8
-  %call32.i = call fastcc ptr @make_range_object(ptr noundef %r.val.i, ptr noundef nonnull %retval.0.i.i, ptr noundef nonnull %retval.0.i37.i, ptr noundef nonnull %call2.i)
+  %call32.i = call fastcc ptr @make_range_object(ptr noundef %r.val.i, ptr noundef nonnull %retval.0.i.i, ptr noundef %retval.0.i37.i, ptr noundef nonnull %call2.i)
   %cmp33.not.i = icmp eq ptr %call32.i, null
   br i1 %cmp33.not.i, label %fail.i, label %compute_slice.exit
 
@@ -2338,7 +2338,7 @@ declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @_PySlice_GetLongIndices(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @make_range_object(ptr noundef %type, ptr noundef %start, ptr noundef %stop, ptr noundef %step) unnamed_addr #0 {
+define internal fastcc ptr @make_range_object(ptr noundef %type, ptr noundef %start, ptr noundef nonnull %stop, ptr noundef %step) unnamed_addr #0 {
 entry:
   %overflow.i.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %overflow.i.i)
@@ -2358,7 +2358,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i43.i
   br i1 %tobool2.not.i.i, label %if.end4.i.i, label %if.else.i
 
 if.end4.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end.i43.i
-  %call5.i.i = call i64 @PyLong_AsLongAndOverflow(ptr noundef %stop, ptr noundef nonnull %overflow.i.i) #6
+  %call5.i.i = call i64 @PyLong_AsLongAndOverflow(ptr noundef nonnull %stop, ptr noundef nonnull %overflow.i.i) #6
   %1 = load i32, ptr %overflow.i.i, align 4
   %tobool6.not.i.i = icmp eq i32 %1, 0
   br i1 %tobool6.not.i.i, label %if.end8.i.i, label %if.end6.i
@@ -3175,7 +3175,7 @@ sw.epilog:                                        ; preds = %land.lhs.true.i, %s
   %start.0 = phi ptr [ %call, %validate_step.exit ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), %sw.bb12 ], [ %call, %land.lhs.true.i ]
   %stop.0 = phi ptr [ %call4, %validate_step.exit ], [ %call14, %sw.bb12 ], [ %call4, %land.lhs.true.i ]
   %step.1 = phi ptr [ %call.i, %validate_step.exit ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848), %sw.bb12 ], [ %call1.i, %land.lhs.true.i ]
-  %call22 = tail call fastcc ptr @make_range_object(ptr noundef %type, ptr noundef nonnull %start.0, ptr noundef nonnull %stop.0, ptr noundef nonnull %step.1)
+  %call22 = tail call fastcc ptr @make_range_object(ptr noundef %type, ptr noundef nonnull %start.0, ptr noundef %stop.0, ptr noundef nonnull %step.1)
   %cmp.not = icmp eq ptr %call22, null
   br i1 %cmp.not, label %if.end24, label %return
 
@@ -3271,7 +3271,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp10, label %if.then.i, label %if.end12
 
 if.end12:                                         ; preds = %if.end7
-  %call13 = tail call fastcc ptr @make_range_object(ptr noundef nonnull @PyRange_Type, ptr noundef nonnull %call, ptr noundef nonnull %call4, ptr noundef nonnull %call9)
+  %call13 = tail call fastcc ptr @make_range_object(ptr noundef nonnull @PyRange_Type, ptr noundef nonnull %call, ptr noundef %call4, ptr noundef nonnull %call9)
   %cmp14 = icmp eq ptr %call13, null
   br i1 %cmp14, label %if.then.i, label %if.end16
 
@@ -3462,7 +3462,7 @@ if.end.i.i22:                                     ; preds = %_Py_NewRef.exit
   br label %_Py_NewRef.exit23
 
 _Py_NewRef.exit23:                                ; preds = %_Py_NewRef.exit, %if.end.i.i22
-  %call9 = tail call fastcc ptr @make_range_object(ptr noundef nonnull @PyRange_Type, ptr noundef nonnull %5, ptr noundef nonnull %call1, ptr noundef nonnull %7)
+  %call9 = tail call fastcc ptr @make_range_object(ptr noundef nonnull @PyRange_Type, ptr noundef nonnull %5, ptr noundef %call1, ptr noundef nonnull %7)
   %cmp10 = icmp eq ptr %call9, null
   br i1 %cmp10, label %if.then11, label %if.end14
 

@@ -38,7 +38,7 @@ define internal void @"_ZN4core3ptr46drop_in_place$LT$$RF$alloc..string..String$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17hd9b7eccbbe61bc8eE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17hd9b7eccbbe61bc8eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -128,7 +128,7 @@ define internal fastcc void @"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..err
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..ValidPayload$GT$17h9d4053eac28332e1E"(ptr noalias noundef align 8 dereferenceable(1912) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..ValidPayload$GT$17h9d4053eac28332e1E"(ptr noalias noundef nonnull align 8 dereferenceable(1912) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %3 = xor i64 %2, -9223372036854775808
   %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 3)
@@ -1811,13 +1811,13 @@ common.resume:                                    ; preds = %91, %479, %488, %17
   br i1 %.not, label %415, label %407
 
 404:                                              ; preds = %407, %412
-  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17hd9b7eccbbe61bc8eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %36)
+  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17hd9b7eccbbe61bc8eE"(ptr noalias noundef align 8 dereferenceable(32) %36)
           to label %.thread772 unwind label %.thread798.loopexit
 
 405:                                              ; preds = %411
   %406 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17hd9b7eccbbe61bc8eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %36) #15
+  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17hd9b7eccbbe61bc8eE"(ptr noalias noundef align 8 dereferenceable(32) %36) #15
           to label %.body unwind label %413
 
 407:                                              ; preds = %402
@@ -1967,7 +1967,7 @@ common.resume:                                    ; preds = %91, %479, %488, %17
   store i64 %446, ptr %31, align 8
   %.sroa.4220.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 8
   store ptr %449, ptr %.sroa.4220.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..ValidPayload$GT$17h9d4053eac28332e1E"(ptr noalias noundef nonnull align 8 dereferenceable(1912) %31)
+  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..ValidPayload$GT$17h9d4053eac28332e1E"(ptr noalias noundef align 8 dereferenceable(1912) %31)
           to label %452 unwind label %437
 
 451:                                              ; preds = %445

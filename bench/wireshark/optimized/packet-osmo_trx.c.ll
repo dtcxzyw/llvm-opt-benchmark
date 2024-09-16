@@ -422,7 +422,7 @@ proto_item_set_generated.exit:                    ; preds = %otrxcd_guess_dir.ex
   %85 = load i32, ptr @hf_otrxd_trx_num, align 4
   %86 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %51, i32 noundef %85, ptr noundef %0, i32 noundef %82, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %42) #7
   %87 = add i32 %.053.i, 2
-  call fastcc void @dissect_otrxd_mts(ptr noundef %0, ptr noundef %51, ptr noundef nonnull %7, i32 noundef %87)
+  call fastcc void @dissect_otrxd_mts(ptr noundef %0, ptr noundef %51, ptr noundef %7, i32 noundef %87)
   %88 = add i32 %.053.i, 3
   %89 = load i32, ptr @hf_otrxd_tx_att, align 4
   %90 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %89, ptr noundef %0, i32 noundef %88, i32 noundef 1, i32 noundef 0) #7
@@ -583,7 +583,7 @@ dissect_otrxd_tx.exit:                            ; preds = %dissect_otrxd_tx_bu
   %191 = load i32, ptr @hf_otrxd_toa256, align 4
   %192 = call ptr @proto_tree_add_item(ptr noundef %144, i32 noundef %191, ptr noundef %0, i32 noundef %189, i32 noundef 2, i32 noundef 0) #7
   %193 = add i32 %.064.i, 8
-  call fastcc void @dissect_otrxd_mts(ptr noundef %0, ptr noundef %144, ptr noundef nonnull %7, i32 noundef %193)
+  call fastcc void @dissect_otrxd_mts(ptr noundef %0, ptr noundef %144, ptr noundef %7, i32 noundef %193)
   %194 = load i32, ptr %138, align 4
   %.not.i.i67 = icmp eq i32 %194, 0
   br i1 %.not.i.i67, label %195, label %198
@@ -633,7 +633,7 @@ dissect_otrxd_rx_hdr_v1.exit.i:                   ; preds = %198, %195
   %225 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %144, i32 noundef %224, ptr noundef %0, i32 noundef %219, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %135) #7
   %226 = add i32 %.064.i, 2
   %227 = add i32 %.064.i, 3
-  call fastcc void @dissect_otrxd_mts(ptr noundef %0, ptr noundef %144, ptr noundef nonnull %7, i32 noundef %226)
+  call fastcc void @dissect_otrxd_mts(ptr noundef %0, ptr noundef %144, ptr noundef %7, i32 noundef %226)
   %228 = load i32, ptr @hf_otrxd_rssi, align 4
   %229 = add i32 %.064.i, 4
   %230 = call ptr @proto_tree_add_item(ptr noundef %144, i32 noundef %228, ptr noundef %0, i32 noundef %227, i32 noundef 1, i32 noundef 0) #7
@@ -1075,7 +1075,7 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare ptr @proto_tree_add_item_ret_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_otrxd_mts(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_otrxd_mts(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_otrxd_nope_ind, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 28
   %7 = tail call ptr @proto_tree_add_item_ret_boolean(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #7

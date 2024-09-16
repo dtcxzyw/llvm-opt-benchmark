@@ -478,7 +478,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  tail call fastcc void @Stop(ptr noundef nonnull %self, ptr noundef nonnull %0, ptr noundef nonnull %call.i.i)
+  tail call fastcc void @Stop(ptr noundef nonnull %self, ptr noundef %0, ptr noundef %call.i.i)
   br label %if.end3.i
 
 if.else.i:                                        ; preds = %if.end.i
@@ -722,7 +722,7 @@ if.end.i11:                                       ; preds = %if.then3
   br i1 %tobool.not.i, label %if.else.i, label %if.then1.i12
 
 if.then1.i12:                                     ; preds = %if.end.i11
-  tail call fastcc void @Stop(ptr noundef nonnull %self, ptr noundef nonnull %9, ptr noundef nonnull %call.i.i)
+  tail call fastcc void @Stop(ptr noundef nonnull %self, ptr noundef %9, ptr noundef %call.i.i)
   br label %if.end3.i
 
 if.else.i:                                        ; preds = %if.end.i11
@@ -914,7 +914,7 @@ declare ptr @_PyObject_MakeTpCall(ptr noundef, ptr noundef, ptr noundef, i64 nou
 declare ptr @_Py_CheckFunctionResult(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Stop(ptr nocapture noundef %pObj, ptr nocapture noundef readonly %self, ptr noundef %entry1) unnamed_addr #0 {
+define internal fastcc void @Stop(ptr nocapture noundef %pObj, ptr nocapture noundef nonnull readonly %self, ptr noundef nonnull %entry1) unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @call_timer(ptr noundef %pObj)
   %0 = load i64, ptr %self, align 8
@@ -1217,7 +1217,7 @@ while.body.i:                                     ; preds = %if.end3, %if.then5.
   br i1 %tobool2.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body.i
-  tail call fastcc void @Stop(ptr noundef nonnull %op, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  tail call fastcc void @Stop(ptr noundef nonnull %op, ptr noundef %2, ptr noundef %3)
   br label %if.then5.i
 
 if.else.i:                                        ; preds = %while.body.i
@@ -1955,7 +1955,7 @@ while.body.i:                                     ; preds = %Py_DECREF.exit, %if
   br i1 %tobool2.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body.i
-  tail call fastcc void @Stop(ptr noundef nonnull %self, ptr noundef nonnull %21, ptr noundef nonnull %22)
+  tail call fastcc void @Stop(ptr noundef nonnull %self, ptr noundef %21, ptr noundef %22)
   br label %if.then5.i
 
 if.else.i:                                        ; preds = %while.body.i

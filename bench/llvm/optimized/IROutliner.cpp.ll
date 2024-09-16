@@ -13792,7 +13792,7 @@ _ZL20findOrCreatePHIBlockR15OutlinableGroupPN4llvm5ValueE.exit: ; preds = %544, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %687 = load ptr, ptr %19, align 8
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %50, i64 noundef 3) #24
-  call fastcc void @_ZL19findCanonNumsForPHIPN4llvm7PHINodeERNS_16OutlinableRegionERKNS_8DenseMapIPNS_5ValueES6_NS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S6_EEEERNS_11SmallVectorISt4pairIjPNS_10BasicBlockEELj3EEEb(ptr noundef nonnull %418, ptr noundef nonnull readonly align 8 dereferenceable(264) %0, ptr noundef nonnull readonly align 8 dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(64) %5, i1 noundef zeroext false)
+  call fastcc void @_ZL19findCanonNumsForPHIPN4llvm7PHINodeERNS_16OutlinableRegionERKNS_8DenseMapIPNS_5ValueES6_NS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S6_EEEERNS_11SmallVectorISt4pairIjPNS_10BasicBlockEELj3EEEb(ptr noundef %418, ptr noundef nonnull readonly align 8 dereferenceable(264) %0, ptr noundef nonnull readonly align 8 dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(64) %5, i1 noundef zeroext false)
   %688 = load ptr, ptr %687, align 8
   %689 = load ptr, ptr %688, align 8
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %51, i64 noundef 3) #24
@@ -13849,7 +13849,7 @@ _ZNK4llvm6detail12DenseSetImplIPNS_7PHINodeENS_8DenseMapIS3_NS0_13DenseSetEmptyE
 _ZNK4llvm6detail12DenseSetImplIPNS_7PHINodeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread.i: ; preds = %.lr.ph.i.i.i.i.i137, %_ZNK4llvm6detail12DenseSetImplIPNS_7PHINodeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.i, %.lr.ph148.i
   %717 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #24
   store i32 0, ptr %53, align 8
-  call fastcc void @_ZL19findCanonNumsForPHIPN4llvm7PHINodeERNS_16OutlinableRegionERKNS_8DenseMapIPNS_5ValueES6_NS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S6_EEEERNS_11SmallVectorISt4pairIjPNS_10BasicBlockEELj3EEEb(ptr noundef nonnull %.sroa.0112.0146.i, ptr noundef nonnull align 8 dereferenceable(264) %689, ptr noundef nonnull readonly align 8 dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(64) %6, i1 noundef zeroext true)
+  call fastcc void @_ZL19findCanonNumsForPHIPN4llvm7PHINodeERNS_16OutlinableRegionERKNS_8DenseMapIPNS_5ValueES6_NS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S6_EEEERNS_11SmallVectorISt4pairIjPNS_10BasicBlockEELj3EEEb(ptr noundef %.sroa.0112.0146.i, ptr noundef nonnull align 8 dereferenceable(264) %689, ptr noundef nonnull readonly align 8 dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(64) %6, i1 noundef zeroext true)
   %718 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
   %719 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #24
   %.not72.i = icmp eq i64 %718, %719
@@ -14893,7 +14893,7 @@ _ZL22findOrCreatePHIInBlockRN4llvm7PHINodeERNS_16OutlinableRegionEPNS_10BasicBlo
   %1268 = getelementptr inbounds i8, ptr %212, i64 -64
   %1269 = load ptr, ptr %1268, align 8
   %.not.i.i.i165 = icmp eq ptr %1269, null
-  br i1 %.not.i.i.i165, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i167, label %1270
+  br i1 %.not.i.i.i165, label %1278, label %1270
 
 1270:                                             ; preds = %_ZL22findOrCreatePHIInBlockRN4llvm7PHINodeERNS_16OutlinableRegionEPNS_10BasicBlockERKNS_8DenseMapIPNS_5ValueES8_NS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_S8_EEEERNS_8DenseSetIPS0_NS9_ISI_vEEEE.exit
   %1271 = getelementptr inbounds i8, ptr %212, i64 -56
@@ -14902,39 +14902,35 @@ _ZL22findOrCreatePHIInBlockRN4llvm7PHINodeERNS_16OutlinableRegionEPNS_10BasicBlo
   %1274 = load ptr, ptr %1273, align 8
   store ptr %1272, ptr %1274, align 8
   %.not.i.i.i.i166 = icmp eq ptr %1272, null
-  br i1 %.not.i.i.i.i166, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i167, label %1275
+  br i1 %.not.i.i.i.i166, label %1278, label %1275
 
 1275:                                             ; preds = %1270
   %1276 = load ptr, ptr %1273, align 8
   %1277 = getelementptr inbounds nuw i8, ptr %1272, i64 16
   store ptr %1276, ptr %1277, align 8
-  br label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i167
+  br label %1278
 
-_ZN4llvm3Use14removeFromListEv.exit.i.i.i167:     ; preds = %1275, %1270, %_ZL22findOrCreatePHIInBlockRN4llvm7PHINodeERNS_16OutlinableRegionEPNS_10BasicBlockERKNS_8DenseMapIPNS_5ValueES8_NS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_S8_EEEERNS_8DenseSetIPS0_NS9_ISI_vEEEE.exit
+1278:                                             ; preds = %_ZL22findOrCreatePHIInBlockRN4llvm7PHINodeERNS_16OutlinableRegionEPNS_10BasicBlockERKNS_8DenseMapIPNS_5ValueES8_NS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_S8_EEEERNS_8DenseSetIPS0_NS9_ISI_vEEEE.exit, %1270, %1275
   store ptr %.067.i, ptr %1268, align 8
-  %.not4.i.i.i168 = icmp eq ptr %.067.i, null
-  br i1 %.not4.i.i.i168, label %_ZN4llvm9StoreInst10setOperandEjPNS_5ValueE.exit, label %1278
-
-1278:                                             ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i167
   %1279 = getelementptr inbounds nuw i8, ptr %.067.i, i64 16
   %1280 = load ptr, ptr %1279, align 8
   %1281 = getelementptr inbounds i8, ptr %212, i64 -56
   store ptr %1280, ptr %1281, align 8
   %.not.i.i.i.i.i169 = icmp eq ptr %1280, null
-  br i1 %.not.i.i.i.i.i169, label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i170, label %1282
+  br i1 %.not.i.i.i.i.i169, label %_ZN4llvm9StoreInst10setOperandEjPNS_5ValueE.exit171, label %1282
 
 1282:                                             ; preds = %1278
   %1283 = getelementptr inbounds nuw i8, ptr %1280, i64 16
   store ptr %1281, ptr %1283, align 8
-  br label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i170
+  br label %_ZN4llvm9StoreInst10setOperandEjPNS_5ValueE.exit171
 
-_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i170:    ; preds = %1282, %1278
+_ZN4llvm9StoreInst10setOperandEjPNS_5ValueE.exit171: ; preds = %1278, %1282
   %1284 = getelementptr inbounds i8, ptr %212, i64 -48
   store ptr %1279, ptr %1284, align 8
   store ptr %1268, ptr %1279, align 8
   br label %_ZN4llvm9StoreInst10setOperandEjPNS_5ValueE.exit
 
-_ZN4llvm9StoreInst10setOperandEjPNS_5ValueE.exit: ; preds = %475, %484, %459, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i170, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i167, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4findEPKS2_.exit.i92, %.critedge, %_ZN4llvm10BasicBlock13getTerminatorEv.exit
+_ZN4llvm9StoreInst10setOperandEjPNS_5ValueE.exit: ; preds = %475, %484, %459, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4findEPKS2_.exit.i92, %.critedge, %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %_ZN4llvm9StoreInst10setOperandEjPNS_5ValueE.exit171
   %1285 = getelementptr inbounds i8, ptr %.069384, i64 8
   %.not = icmp eq ptr %1285, %164
   br i1 %.not, label %._crit_edge, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit
@@ -28769,7 +28765,7 @@ declare void @_ZN4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE11recalculateERNS
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm10BasicBlock10getContextEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19findCanonNumsForPHIPN4llvm7PHINodeERNS_16OutlinableRegionERKNS_8DenseMapIPNS_5ValueES6_NS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S6_EEEERNS_11SmallVectorISt4pairIjPNS_10BasicBlockEELj3EEEb(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_ZL19findCanonNumsForPHIPN4llvm7PHINodeERNS_16OutlinableRegionERKNS_8DenseMapIPNS_5ValueES6_NS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S6_EEEERNS_11SmallVectorISt4pairIjPNS_10BasicBlockEELj3EEEb(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 134217727

@@ -5229,7 +5229,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit45: ; 
 
 137:                                              ; preds = %.lr.ph, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
   %.sroa.082.099 = phi ptr [ %130, %.lr.ph ], [ %159, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
-  invoke fastcc void @"_ZZN22cmQtAutoGenInitializer7InitMocEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.082.099)
+  invoke fastcc void @"_ZZN22cmQtAutoGenInitializer7InitMocEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.082.099)
           to label %138 unwind label %.loopexit
 
 138:                                              ; preds = %137
@@ -5322,7 +5322,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 160:                                              ; preds = %120
   %161 = getelementptr inbounds i8, ptr %0, i64 320
-  invoke fastcc void @"_ZZN22cmQtAutoGenInitializer7InitMocEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(32) %161)
+  invoke fastcc void @"_ZZN22cmQtAutoGenInitializer7InitMocEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(32) %161)
           to label %162 unwind label %.loopexit.split-lp
 
 162:                                              ; preds = %160
@@ -5411,7 +5411,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 195:                                              ; preds = %.lr.ph102, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev.exit
   %.sroa.077.0101 = phi ptr [ %184, %.lr.ph102 ], [ %227, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev.exit ]
-  call fastcc void @"_ZZN22cmQtAutoGenInitializer7InitMocEvENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.077.0101)
+  call fastcc void @"_ZZN22cmQtAutoGenInitializer7InitMocEvENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %18, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.077.0101)
   %196 = load i64, ptr %187, align 8
   %197 = load i64, ptr %188, align 8
   %198 = icmp eq i64 %196, %197
@@ -5506,7 +5506,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 
 228:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit64
   %229 = getelementptr inbounds i8, ptr %0, i64 320
-  call fastcc void @"_ZZN22cmQtAutoGenInitializer7InitMocEvENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %229)
+  call fastcc void @"_ZZN22cmQtAutoGenInitializer7InitMocEvENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %19, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %229)
   %230 = getelementptr inbounds i8, ptr %0, i64 1816
   %231 = getelementptr inbounds i8, ptr %0, i64 1832
   %232 = load ptr, ptr %231, align 8
@@ -5752,7 +5752,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %.body28
 
 _ZN6cmListC2ESt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit: ; preds = %24
-  invoke fastcc void @_ZNK12_GLOBAL__N_119SearchPathSanitizerclERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZNK12_GLOBAL__N_119SearchPathSanitizerclERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %27 unwind label %57
 
 27:                                               ; preds = %_ZN6cmListC2ESt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit
@@ -6913,7 +6913,7 @@ define dso_local noundef zeroext i1 @_ZN22cmQtAutoGenInitializer13InitScanFilesE
 161:                                              ; preds = %160
   %162 = load ptr, ptr %.sroa.0615.0719, align 8
   %163 = getelementptr inbounds i8, ptr %.sroa.0615.0719, i64 16
-  invoke fastcc void @"_ZZN22cmQtAutoGenInitializer13InitScanFilesEvENK3$_1clEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEb"(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef %162, ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef nonnull align 8 dereferenceable(24) %163, i1 noundef zeroext true)
+  invoke fastcc void @"_ZZN22cmQtAutoGenInitializer13InitScanFilesEvENK3$_1clEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEb"(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef %162, ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef nonnull align 8 dereferenceable(24) %163, i1 noundef zeroext true)
           to label %164 unwind label %173
 
 164:                                              ; preds = %161
@@ -6963,7 +6963,7 @@ define dso_local noundef zeroext i1 @_ZN22cmQtAutoGenInitializer13InitScanFilesE
 183:                                              ; preds = %182
   %184 = load ptr, ptr %.sroa.0615.0719, align 8
   %185 = getelementptr inbounds i8, ptr %.sroa.0615.0719, i64 16
-  invoke fastcc void @"_ZZN22cmQtAutoGenInitializer13InitScanFilesEvENK3$_1clEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEb"(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef %184, ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef nonnull align 8 dereferenceable(24) %185, i1 noundef zeroext true)
+  invoke fastcc void @"_ZZN22cmQtAutoGenInitializer13InitScanFilesEvENK3$_1clEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEb"(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef %184, ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef nonnull align 8 dereferenceable(24) %185, i1 noundef zeroext true)
           to label %186 unwind label %173
 
 186:                                              ; preds = %183
@@ -7916,7 +7916,7 @@ _ZNSt10unique_ptrIN22cmQtAutoGenInitializer6MUFileESt14default_deleteIS1_EED2Ev.
 
 .loopexit692:                                     ; preds = %.lr.ph.i.i.i.i.i315, %598, %.preheader785, %583
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
-  invoke fastcc void @"_ZZN22cmQtAutoGenInitializer13InitScanFilesEvENK3$_1clEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEb"(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef %577, ptr noundef nonnull align 8 dereferenceable(32) %559, ptr noundef nonnull align 8 dereferenceable(24) %47, i1 noundef zeroext false)
+  invoke fastcc void @"_ZZN22cmQtAutoGenInitializer13InitScanFilesEvENK3$_1clEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEb"(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef %577, ptr noundef nonnull align 8 dereferenceable(32) %559, ptr noundef nonnull align 8 dereferenceable(24) %47, i1 noundef zeroext false)
           to label %603 unwind label %620
 
 603:                                              ; preds = %.loopexit692
@@ -8065,7 +8065,7 @@ _ZNSt10unique_ptrIN22cmQtAutoGenInitializer6MUFileESt14default_deleteIS1_EED2Ev.
 
 .loopexit689:                                     ; preds = %.lr.ph.i.i.i.i.i335, %659, %.preheader782, %644
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
-  invoke fastcc void @"_ZZN22cmQtAutoGenInitializer13InitScanFilesEvENK3$_1clEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEb"(ptr dead_on_unwind noalias nonnull writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef %638, ptr noundef nonnull align 8 dereferenceable(32) %559, ptr noundef nonnull align 8 dereferenceable(24) %49, i1 noundef zeroext false)
+  invoke fastcc void @"_ZZN22cmQtAutoGenInitializer13InitScanFilesEvENK3$_1clEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEb"(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef %638, ptr noundef nonnull align 8 dereferenceable(32) %559, ptr noundef nonnull align 8 dereferenceable(24) %49, i1 noundef zeroext false)
           to label %664 unwind label %676
 
 664:                                              ; preds = %.loopexit689
@@ -15659,7 +15659,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 declare ptr @_ZNK10cmMakefile13GetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(3520), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN22cmQtAutoGenInitializer7InitMocEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN22cmQtAutoGenInitializer7InitMocEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -15812,7 +15812,7 @@ _ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN22cmQtAutoGenInitializer7InitMocEvENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture readonly %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN22cmQtAutoGenInitializer7InitMocEvENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture readonly %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17940,7 +17940,7 @@ _ZNSt6vectorIP12cmSourceFileSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vect
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN22cmQtAutoGenInitializer13InitScanFilesEvENK3$_1clEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEb"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN22cmQtAutoGenInitializer13InitScanFilesEvENK3$_1clEP12cmSourceFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEb"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !733)
   %8 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #27, !noalias !733
@@ -22074,7 +22074,7 @@ _ZN12_GLOBAL__N_110InfoWriter9MakeArrayISt6vectorIPKN22cmQtAutoGenInitializer6MU
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %30) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #22
   %650 = getelementptr inbounds i8, ptr %630, i64 40
-  invoke fastcc void @"_ZZN22cmQtAutoGenInitializer21SetupWriteAutogenInfoEvENK3$_7clERKSt6vectorImSaImEE"(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %650)
+  invoke fastcc void @"_ZZN22cmQtAutoGenInitializer21SetupWriteAutogenInfoEvENK3$_7clERKSt6vectorImSaImEE"(ptr dead_on_unwind noalias writable align 8 %32, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %650)
           to label %.noexc468 unwind label %.loopexit781
 
 .noexc468:                                        ; preds = %648
@@ -22280,7 +22280,7 @@ _ZN12_GLOBAL__N_110InfoWriter9MakeArrayISt6vectorIPKN22cmQtAutoGenInitializer6MU
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #22
   %708 = getelementptr inbounds i8, ptr %692, i64 40
-  invoke fastcc void @"_ZZN22cmQtAutoGenInitializer21SetupWriteAutogenInfoEvENK3$_7clERKSt6vectorImSaImEE"(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %708)
+  invoke fastcc void @"_ZZN22cmQtAutoGenInitializer21SetupWriteAutogenInfoEvENK3$_7clERKSt6vectorImSaImEE"(ptr dead_on_unwind noalias writable align 8 %21, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %708)
           to label %.noexc495 unwind label %.loopexit775
 
 .noexc495:                                        ; preds = %706

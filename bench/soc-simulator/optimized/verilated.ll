@@ -20960,7 +20960,7 @@ _ZL12formatBinaryij.exit109:                      ; preds = %.preheader
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZL10memhFormati(i32 noundef %0) unnamed_addr #17 {
+define internal fastcc noundef nonnull ptr @_ZL10memhFormati(i32 noundef range(i32 -2147483648, 2147483616) %0) unnamed_addr #17 {
   %2 = add nsw i32 %0, -1
   %3 = sdiv i32 %2, 4
   %.pre = tail call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @_ZZL10memhFormatiE5t_buf)

@@ -6703,7 +6703,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit2666:      ; preds = %_ZNSt6vectorIfSaIfE
   %769 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %.val = load ptr, ptr %769, align 8
   %.val2647 = load ptr, ptr %768, align 8
-  call fastcc void @_ZN4ncnnL28convdw3x3s1_int8_requant_sseERKNS_3MatERS0_S2_S2_St6vectorIfSaIfEERKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr %.val, ptr %.val2647, ptr noundef nonnull %12)
+  call fastcc void @_ZN4ncnnL28convdw3x3s1_int8_requant_sseERKNS_3MatERS0_S2_S2_St6vectorIfSaIfEERKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr %.val, ptr %.val2647, ptr noundef %12)
   %770 = load ptr, ptr %12, align 8
   %.not.i.i.i2667 = icmp eq ptr %770, null
   br i1 %.not.i.i.i2667, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %771
@@ -6858,7 +6858,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit2690:                ; preds = %_ZNSt6vectorIfSaIfE
   %835 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %.val2648 = load ptr, ptr %835, align 8
   %.val2649 = load ptr, ptr %834, align 8
-  call fastcc void @_ZN4ncnnL28convdw3x3s1_int8_dequant_sseERKNS_3MatERS0_S2_S2_St6vectorIfSaIfEERKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr %.val2648, ptr %.val2649, ptr noundef nonnull %14)
+  call fastcc void @_ZN4ncnnL28convdw3x3s1_int8_dequant_sseERKNS_3MatERS0_S2_S2_St6vectorIfSaIfEERKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr %.val2648, ptr %.val2649, ptr noundef %14)
   %836 = load ptr, ptr %14, align 8
   %.not.i.i.i2685 = icmp eq ptr %836, null
   br i1 %.not.i.i.i2685, label %_ZNSt6vectorIfSaIfEED2Ev.exit2686, label %837
@@ -7120,7 +7120,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit2714:      ; preds = %_ZNSt6vectorIfSaIfE
   %945 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %.val2650 = load ptr, ptr %945, align 8
   %.val2651 = load ptr, ptr %944, align 8
-  call fastcc void @_ZN4ncnnL28convdw3x3s2_int8_requant_sseERKNS_3MatERS0_S2_S2_St6vectorIfSaIfEERKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr %.val2650, ptr %.val2651, ptr noundef nonnull %16)
+  call fastcc void @_ZN4ncnnL28convdw3x3s2_int8_requant_sseERKNS_3MatERS0_S2_S2_St6vectorIfSaIfEERKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr %.val2650, ptr %.val2651, ptr noundef %16)
   %946 = load ptr, ptr %16, align 8
   %.not.i.i.i2715 = icmp eq ptr %946, null
   br i1 %.not.i.i.i2715, label %_ZNSt6vectorIfSaIfEED2Ev.exit2716, label %947
@@ -7275,7 +7275,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit2739:                ; preds = %_ZNSt6vectorIfSaIfE
   %1011 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %.val2652 = load ptr, ptr %1011, align 8
   %.val2653 = load ptr, ptr %1010, align 8
-  call fastcc void @_ZN4ncnnL28convdw3x3s2_int8_dequant_sseERKNS_3MatERS0_S2_S2_St6vectorIfSaIfEERKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr %.val2652, ptr %.val2653, ptr noundef nonnull %18)
+  call fastcc void @_ZN4ncnnL28convdw3x3s2_int8_dequant_sseERKNS_3MatERS0_S2_S2_St6vectorIfSaIfEERKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr %.val2652, ptr %.val2653, ptr noundef %18)
   %1012 = load ptr, ptr %18, align 8
   %.not.i.i.i2734 = icmp eq ptr %1012, null
   br i1 %.not.i.i.i2734, label %_ZNSt6vectorIfSaIfEED2Ev.exit2735, label %1013
@@ -14387,7 +14387,7 @@ declare void @_ZN4ncnn9ParamDict3setEif(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN4ncnn16quantize_to_int8ERKNS_3MatERS0_S2_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL28convdw3x3s1_int8_requant_sseERKNS_3MatERS0_S2_S2_St6vectorIfSaIfEERKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture readonly %.0.val, ptr readonly %.0.val1, ptr nocapture noundef readonly %2) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ncnnL28convdw3x3s1_int8_requant_sseERKNS_3MatERS0_S2_S2_St6vectorIfSaIfEERKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture readonly %.0.val, ptr readonly %.0.val1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -14618,7 +14618,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i: ; preds = %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL28convdw3x3s1_int8_dequant_sseERKNS_3MatERS0_S2_S2_St6vectorIfSaIfEERKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture readonly %.0.val, ptr readonly %.0.val1, ptr nocapture noundef readonly %2) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ncnnL28convdw3x3s1_int8_dequant_sseERKNS_3MatERS0_S2_S2_St6vectorIfSaIfEERKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture readonly %.0.val, ptr readonly %.0.val1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -14953,7 +14953,7 @@ define internal fastcc void @_ZN4ncnnL28convdw3x3s1_int8_dequant_sseERKNS_3MatER
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL28convdw3x3s2_int8_requant_sseERKNS_3MatERS0_S2_S2_St6vectorIfSaIfEERKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture readonly %.0.val, ptr readonly %.0.val1, ptr nocapture noundef readonly %2) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ncnnL28convdw3x3s2_int8_requant_sseERKNS_3MatERS0_S2_S2_St6vectorIfSaIfEERKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture readonly %.0.val, ptr readonly %.0.val1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -15136,7 +15136,7 @@ define internal fastcc void @_ZN4ncnnL28convdw3x3s2_int8_requant_sseERKNS_3MatER
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL28convdw3x3s2_int8_dequant_sseERKNS_3MatERS0_S2_S2_St6vectorIfSaIfEERKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture readonly %.0.val, ptr readonly %.0.val1, ptr nocapture noundef readonly %2) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ncnnL28convdw3x3s2_int8_dequant_sseERKNS_3MatERS0_S2_S2_St6vectorIfSaIfEERKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture readonly %.0.val, ptr readonly %.0.val1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48

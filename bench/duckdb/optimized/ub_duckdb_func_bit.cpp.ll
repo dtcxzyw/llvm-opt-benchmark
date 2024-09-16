@@ -3268,7 +3268,7 @@ declare void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonn
 declare void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc { i64, ptr } @"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L17BitStringFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tEiS9_EET3_T_T1_T2_RNS_12ValidityMaskEm"(ptr %fun.coerce, i64 %left.coerce0, ptr %left.coerce1, i32 noundef %right) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, ptr } @"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L17BitStringFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tEiS9_EET3_T_T1_T2_RNS_12ValidityMaskEm"(ptr nonnull %fun.coerce, i64 %left.coerce0, ptr %left.coerce1, i32 noundef %right) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %"struct.duckdb::string_t", align 8
   %input.i = alloca %"struct.duckdb::string_t", align 8
@@ -4371,7 +4371,7 @@ declare void @_ZN6duckdb20ExceptionFormatValueC1El(ptr noundef nonnull align 8 d
 declare void @_ZN6duckdb9Exception25ConstructMessageRecursiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorINS_20ExceptionFormatValueESaISA_EE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc { i64, ptr } @"_ZN6duckdb20TernaryLambdaWrapper9OperationIZNS_L15SetBitOperationERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0NS_8string_tEiiS9_EET3_T_T0_T1_T2_RNS_12ValidityMaskEm"(ptr %fun.coerce, i64 %a.coerce0, ptr %a.coerce1, i32 noundef %b, i32 noundef %c) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, ptr } @"_ZN6duckdb20TernaryLambdaWrapper9OperationIZNS_L15SetBitOperationERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0NS_8string_tEiiS9_EET3_T_T0_T1_T2_RNS_12ValidityMaskEm"(ptr nonnull %fun.coerce, i64 %a.coerce0, ptr %a.coerce1, i32 noundef %b, i32 noundef %c) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %"struct.duckdb::string_t", align 8
   %input.i = alloca %"struct.duckdb::string_t", align 8

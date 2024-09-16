@@ -1045,7 +1045,7 @@ declare dso_local zeroext i1 @slab_is_available() local_unnamed_addr #4
 declare dso_local noalias ptr @kmalloc_node_trace(ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @sparse_buffer_init(i64 noundef %0, i32 noundef %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @sparse_buffer_init(i64 noundef range(i64 0, -2097151) %0, i32 noundef %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = load i64, ptr @page_offset_base, align 8
   %4 = load i64, ptr @phys_base, align 8
   %5 = load ptr, ptr @sparsemap_buf, align 8

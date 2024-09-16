@@ -9593,7 +9593,7 @@ declare dso_local void @blk_start_plug(ptr noundef) local_unnamed_addr #0
 declare dso_local void @blk_finish_plug(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @shrink_active_list(i64 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc void @shrink_active_list(i64 noundef range(i64 1, 33) %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #1 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca %struct.list_head, align 8
@@ -9858,7 +9858,7 @@ folio_putback_lru.exit:                           ; preds = %50, %45, %86, %81
 declare dso_local void @lru_add_drain() local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @isolate_lru_folios(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #1 align 16 {
+define internal fastcc i64 @isolate_lru_folios(i64 noundef range(i64 1, 33) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #1 align 16 {
   %7 = alloca [4 x i64], align 16
   %8 = alloca [4 x i64], align 16
   %9 = alloca %struct.list_head, align 8

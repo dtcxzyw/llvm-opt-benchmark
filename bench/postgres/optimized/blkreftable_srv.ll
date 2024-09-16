@@ -56,7 +56,7 @@ define dso_local void @BlockRefTableSetLimitBlock(ptr nocapture noundef readonly
   %.sroa.3.12.insert.shift = shl nuw i64 %.sroa.3.12.insert.ext, 32
   %.sroa.3.12.insert.insert = or disjoint i64 %.sroa.3.12.insert.shift, %.sroa.3.0.insert.ext
   %6 = load ptr, ptr %0, align 8
-  %7 = call fastcc ptr @blockreftable_insert(ptr noundef %6, i64 %.sroa.0.0.copyload, i64 %.sroa.3.12.insert.insert, ptr noundef nonnull %5)
+  %7 = call fastcc ptr @blockreftable_insert(ptr noundef %6, i64 %.sroa.0.0.copyload, i64 %.sroa.3.12.insert.insert, ptr noundef %5)
   %8 = load i8, ptr %5, align 1
   %9 = trunc i8 %8 to i1
   %10 = getelementptr inbounds i8, ptr %7, i64 16
@@ -186,7 +186,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @blockreftable_insert(ptr nocapture noundef %0, i64 %1, i64 %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @blockreftable_insert(ptr nocapture noundef %0, i64 %1, i64 %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca %struct.BlockRefTableKey, align 8
   %6 = alloca %struct.BlockRefTableKey, align 8
   store i64 %1, ptr %6, align 8
@@ -623,7 +623,7 @@ define dso_local void @BlockRefTableMarkBlockModified(ptr nocapture noundef read
   %.sroa.3.12.insert.shift = shl nuw i64 %.sroa.3.12.insert.ext, 32
   %.sroa.3.12.insert.insert = or disjoint i64 %.sroa.3.12.insert.shift, %.sroa.3.0.insert.ext
   %9 = load ptr, ptr %0, align 8
-  %10 = call fastcc ptr @blockreftable_insert(ptr noundef %9, i64 %.sroa.0.0.copyload, i64 %.sroa.3.12.insert.insert, ptr noundef nonnull %5)
+  %10 = call fastcc ptr @blockreftable_insert(ptr noundef %9, i64 %.sroa.0.0.copyload, i64 %.sroa.3.12.insert.insert, ptr noundef %5)
   %11 = load i8, ptr %5, align 1
   %12 = trunc i8 %11 to i1
   br i1 %12, label %17, label %13

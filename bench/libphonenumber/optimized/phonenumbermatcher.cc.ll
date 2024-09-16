@@ -3564,7 +3564,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit204: ;
   call void @_ZN4i18n12phonenumbers12StringHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #20
   call void @_ZN4i18n12phonenumbers12StringHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #20
   %97 = getelementptr inbounds i8, ptr %0, i64 104
-  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_15LimitB5cxx11Eii(ptr dead_on_unwind noalias nonnull writable align 8 %97, i32 noundef 0, i32 noundef 3)
+  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_15LimitB5cxx11Eii(ptr dead_on_unwind noalias writable align 8 %97, i32 noundef 0, i32 noundef 3)
           to label %98 unwind label %525
 
 98:                                               ; preds = %96
@@ -3664,19 +3664,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit204: ;
   call void @_ZN4i18n12phonenumbers12StringHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #20
   call void @_ZN4i18n12phonenumbers12StringHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #20
   %120 = getelementptr inbounds i8, ptr %0, i64 200
-  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_15LimitB5cxx11Eii(ptr dead_on_unwind noalias nonnull writable align 8 %120, i32 noundef 0, i32 noundef 2)
+  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_15LimitB5cxx11Eii(ptr dead_on_unwind noalias writable align 8 %120, i32 noundef 0, i32 noundef 2)
           to label %121 unwind label %580
 
 121:                                              ; preds = %119
   %122 = getelementptr inbounds i8, ptr %0, i64 232
-  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_15LimitB5cxx11Eii(ptr dead_on_unwind noalias nonnull writable align 8 %122, i32 noundef 0, i32 noundef 4)
+  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_15LimitB5cxx11Eii(ptr dead_on_unwind noalias writable align 8 %122, i32 noundef 0, i32 noundef 4)
           to label %123 unwind label %582
 
 123:                                              ; preds = %121
   %124 = getelementptr inbounds i8, ptr %0, i64 264
   store i32 20, ptr %124, align 8
   %125 = getelementptr inbounds i8, ptr %0, i64 272
-  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_15LimitB5cxx11Eii(ptr dead_on_unwind noalias nonnull writable align 8 %125, i32 noundef 0, i32 noundef 20)
+  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_15LimitB5cxx11Eii(ptr dead_on_unwind noalias writable align 8 %125, i32 noundef 0, i32 noundef 20)
           to label %126 unwind label %584
 
 126:                                              ; preds = %123
@@ -3711,7 +3711,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit204: ;
 
 134:                                              ; preds = %132
   %135 = load i32, ptr %124, align 8
-  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_15LimitB5cxx11Eii(ptr dead_on_unwind noalias nonnull writable align 8 %31, i32 noundef 1, i32 noundef %135)
+  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_15LimitB5cxx11Eii(ptr dead_on_unwind noalias writable align 8 %31, i32 noundef 1, i32 noundef %135)
           to label %136 unwind label %601
 
 136:                                              ; preds = %134
@@ -5769,7 +5769,7 @@ declare void @_ZN4i18n12phonenumbers12StringHolderC1ERKNSt7__cxx1112basic_string
 declare void @_ZN4i18n12phonenumbers12StringHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_15LimitB5cxx11Eii(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_15LimitB5cxx11Eii(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.i18n::phonenumbers::StringHolder", align 8
   %5 = alloca %"class.i18n::phonenumbers::StringHolder", align 8
   %6 = alloca %"class.i18n::phonenumbers::StringHolder", align 8
@@ -5794,7 +5794,7 @@ define internal fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_15LimitB5cxx11Ei
           to label %14 unwind label %22
 
 14:                                               ; preds = %13
-  invoke void @_ZN4i18n12phonenumbers6StrCatB5cxx11ERKNS0_12StringHolderES3_S3_S3_S3_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %8)
+  invoke void @_ZN4i18n12phonenumbers6StrCatB5cxx11ERKNS0_12StringHolderES3_S3_S3_S3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %8)
           to label %15 unwind label %24
 
 15:                                               ; preds = %14

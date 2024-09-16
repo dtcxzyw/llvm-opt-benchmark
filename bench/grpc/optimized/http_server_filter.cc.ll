@@ -970,7 +970,7 @@ lpad:                                             ; preds = %_ZN9grpc_core8Activ
   resume { ptr, i32 } %5
 
 if.end:                                           ; preds = %invoke.cont, %entry
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_122FilterOutgoingMetadataEP19grpc_metadata_batch(ptr noundef nonnull %md)
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_122FilterOutgoingMetadataEP19grpc_metadata_batch(ptr noundef %md)
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %md, i64 2
   %6 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %md, i64 28
@@ -991,7 +991,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_122FilterOutgoingMetadataEP19grpc_metadata_batch(ptr nocapture noundef %md) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_122FilterOutgoingMetadataEP19grpc_metadata_batch(ptr nocapture noundef nonnull %md) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i.i = alloca %struct.grpc_slice, align 8
   %ref.tmp = alloca %"class.grpc_core::Slice", align 8
@@ -1072,7 +1072,7 @@ if.end:                                           ; preds = %if.then.i.i.i6, %if
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core16HttpServerFilter4Call24OnServerTrailingMetadataER19grpc_metadata_batch(ptr nocapture nonnull readnone align 1 %this, ptr nocapture noundef nonnull align 8 dereferenceable(568) %md) local_unnamed_addr #3 align 2 {
 entry:
-  tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_122FilterOutgoingMetadataEP19grpc_metadata_batch(ptr noundef nonnull %md)
+  tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_122FilterOutgoingMetadataEP19grpc_metadata_batch(ptr noundef %md)
   ret void
 }
 
@@ -3093,7 +3093,7 @@ if.then.i:                                        ; preds = %entry
   store i64 %7, ptr %8, align 8, !noalias !110
   store ptr null, ptr %.sroa.gep.i, align 8, !noalias !110
   %.cast.i = inttoptr i64 %7 to ptr
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122FilterOutgoingMetadataEP19grpc_metadata_batch(ptr noundef nonnull %.cast.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122FilterOutgoingMetadataEP19grpc_metadata_batch(ptr noundef %.cast.i)
           to label %if.then.i2 unwind label %lpad2.i, !noalias !110
 
 lpad2.i:                                          ; preds = %if.then.i
@@ -4348,7 +4348,7 @@ entry:
   store i64 %2, ptr %1, align 8, !noalias !187
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i, align 8, !noalias !187
   %.cast.i.i = inttoptr i64 %2 to ptr
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122FilterOutgoingMetadataEP19grpc_metadata_batch(ptr noundef nonnull %.cast.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122FilterOutgoingMetadataEP19grpc_metadata_batch(ptr noundef %.cast.i.i)
           to label %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit unwind label %lpad.i.i, !noalias !187
 
 lpad.i.i:                                         ; preds = %entry

@@ -96,7 +96,7 @@ define internal range(i32 -1, 31) i32 @archive_read_format_lha_bid(ptr noundef %
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call fastcc i64 @lha_check_header_format(ptr noundef nonnull %6)
+  %9 = tail call fastcc i64 @lha_check_header_format(ptr noundef %6)
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %.loopexit, label %11
 
@@ -396,7 +396,7 @@ thread-pre-split:                                 ; preds = %57, %64, %90
   br i1 %100, label %lha_read_file_header_0.exit.thread, label %101
 
 101:                                              ; preds = %98
-  %102 = call fastcc i64 @lha_check_header_format(ptr noundef nonnull %.0162)
+  %102 = call fastcc i64 @lha_check_header_format(ptr noundef %.0162)
   %.not = icmp eq i64 %102, 0
   br i1 %.not, label %104, label %103
 
@@ -811,7 +811,7 @@ lha_calcsum.exit.i213:                            ; preds = %.lr.ph.i.i208, %._c
   %322 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %316) #18
   %323 = load i64, ptr %124, align 8
   %324 = add nsw i64 %323, 2
-  %325 = call fastcc i32 @lha_read_file_extended_header(ptr noundef %0, ptr noundef %43, ptr noundef null, i32 noundef 2, i64 noundef %324, ptr noundef nonnull %8)
+  %325 = call fastcc i32 @lha_read_file_extended_header(ptr noundef %0, ptr noundef %43, ptr noundef null, i32 noundef 2, i64 noundef %324, ptr noundef %8)
   %326 = icmp slt i32 %325, -20
   br i1 %326, label %lha_read_file_header_1.exit, label %327
 
@@ -985,7 +985,7 @@ lha_crc16.exit.i:                                 ; preds = %.lr.ph73.i.i, %.pre
   %427 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 24) #18
   %428 = load i64, ptr %105, align 8
   %429 = add i64 %428, -24
-  %430 = call fastcc i32 @lha_read_file_extended_header(ptr noundef %0, ptr noundef %43, ptr noundef nonnull %6, i32 noundef 2, i64 noundef %429, ptr noundef nonnull %5)
+  %430 = call fastcc i32 @lha_read_file_extended_header(ptr noundef %0, ptr noundef %43, ptr noundef nonnull %6, i32 noundef 2, i64 noundef %429, ptr noundef %5)
   %431 = icmp slt i32 %430, -20
   br i1 %431, label %lha_read_file_header_2.exit, label %432
 
@@ -1176,7 +1176,7 @@ lha_crc16.exit.i244:                              ; preds = %.lr.ph73.i.i237, %.
   %544 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 28) #18
   %545 = load i64, ptr %105, align 8
   %546 = add i64 %545, -28
-  %547 = call fastcc i32 @lha_read_file_extended_header(ptr noundef %0, ptr noundef %43, ptr noundef nonnull %4, i32 noundef 4, i64 noundef %546, ptr noundef nonnull %3)
+  %547 = call fastcc i32 @lha_read_file_extended_header(ptr noundef %0, ptr noundef %43, ptr noundef nonnull %4, i32 noundef 4, i64 noundef %546, ptr noundef %3)
   %548 = icmp slt i32 %547, -20
   br i1 %548, label %lha_read_file_header_3.exit, label %549
 
@@ -1298,7 +1298,7 @@ lha_read_file_header_0.exit.thread248:            ; preds = %245, %lha_read_file
   br i1 %593, label %594, label %597
 
 594:                                              ; preds = %590
-  %595 = call fastcc i32 @lha_parse_linkname(ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %595 = call fastcc i32 @lha_parse_linkname(ptr noundef %11, ptr noundef %12)
   %.not180 = icmp eq i32 %595, 0
   br i1 %.not180, label %596, label %602
 
@@ -3423,7 +3423,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 declare ptr @__archive_read_ahead(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i64 0, 5) i64 @lha_check_header_format(ptr nocapture noundef readonly %0) unnamed_addr #4 {
+define internal fastcc range(i64 0, 5) i64 @lha_check_header_format(ptr nocapture noundef nonnull readonly %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 5
   %3 = load i8, ptr %2, align 1
   switch i8 %3, label %37 [
@@ -3545,7 +3545,7 @@ declare void @archive_wstring_free(ptr noundef) local_unnamed_addr #1
 declare void @archive_wstring_concat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @lha_parse_linkname(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @lha_parse_linkname(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call ptr @wcschr(ptr noundef %3, i32 noundef 124) #20
   %.not = icmp eq ptr %4, null
@@ -3556,7 +3556,7 @@ define internal fastcc range(i32 0, 2) i32 @lha_parse_linkname(ptr noundef %0, p
   %7 = tail call i64 @wcslen(ptr noundef nonnull %6) #20
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %8, align 8
-  %9 = tail call ptr @archive_wstrncat(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %7) #18
+  %9 = tail call ptr @archive_wstrncat(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %7) #18
   store i32 0, ptr %4, align 4
   %10 = load ptr, ptr %1, align 8
   %11 = tail call i64 @wcslen(ptr noundef %10) #20
@@ -3704,7 +3704,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @lha_read_file_extended_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @lha_read_file_extended_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 2, 5) %3, i64 noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca %struct.archive_string, align 8
   %8 = zext nneg i32 %3 to i64
   store i64 %8, ptr %5, align 8

@@ -279,7 +279,7 @@ define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr no
 
 19:                                               ; preds = %16
   %20 = lshr exact i64 %3, 3
-  %21 = call fastcc i32 @unwrap(ptr noundef %0, ptr noundef %2, i64 noundef %20, ptr noundef nonnull %9, ptr noundef %4, ptr noundef nonnull %5)
+  %21 = call fastcc i32 @unwrap(ptr noundef %0, ptr noundef %2, i64 noundef %20, ptr noundef %9, ptr noundef %4, ptr noundef nonnull %5)
   %.not79 = icmp eq i32 %21, 0
   br i1 %.not79, label %22, label %79
 
@@ -320,7 +320,7 @@ define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr no
 
 37:                                               ; preds = %29
   %38 = lshr exact i64 %3, 3
-  %39 = call fastcc i32 @unwrap(ptr noundef %0, ptr noundef %2, i64 noundef %38, ptr noundef nonnull %9, ptr noundef %4, ptr noundef nonnull %5)
+  %39 = call fastcc i32 @unwrap(ptr noundef %0, ptr noundef %2, i64 noundef %38, ptr noundef %9, ptr noundef %4, ptr noundef nonnull %5)
   %.not72 = icmp eq i32 %39, 0
   br i1 %.not72, label %40, label %79
 
@@ -410,7 +410,7 @@ select.unfold:                                    ; preds = %select.unfold.sink.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @unwrap(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #2 {
+define internal fastcc i32 @unwrap(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 2, 18014398509481985) %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #2 {
   %7 = alloca i64, align 8
   %8 = alloca [16 x i8], align 16
   %9 = alloca [16 x i8], align 16
@@ -425,7 +425,7 @@ define internal fastcc i32 @unwrap(ptr noundef %0, ptr nocapture noundef readonl
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = shl nuw nsw i64 %11, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %4, ptr nonnull align 1 %13, i64 %14, i1 false)
-  %15 = shl i64 %2, 3
+  %15 = shl nuw nsw i64 %2, 3
   %16 = getelementptr i8, ptr %4, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -16
   %18 = mul nuw nsw i64 %11, 6
@@ -469,7 +469,7 @@ calc_a_xor_t.exit:                                ; preds = %21
   %36 = icmp eq ptr %.046, %4
   %37 = getelementptr inbounds i8, ptr %.046, i64 -8
   %.1 = select i1 %36, ptr %17, ptr %37
-  %38 = add i64 %.03245, -1
+  %38 = add nsw i64 %.03245, -1
   %.not = icmp eq i64 %38, 0
   br i1 %.not, label %.thread, label %.preheader, !llvm.loop !8
 

@@ -852,7 +852,7 @@ define void @png_chunk_error(ptr noalias noundef %0, ptr noundef %1) local_unnam
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %0, i64 536
   %.val = load i32, ptr %7, align 8
-  call fastcc void @png_format_buffer(i32 %.val, ptr noundef nonnull %3, ptr noundef %1)
+  call fastcc void @png_format_buffer(i32 %.val, ptr noundef %3, ptr noundef %1)
   call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull %3) #21
   unreachable
 }
@@ -968,7 +968,7 @@ png_warning.exit:                                 ; preds = %.split14.i, %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @png_format_buffer(i32 %.536.val, ptr nocapture noundef writeonly %0, ptr noundef readonly %1) unnamed_addr #2 {
+define internal fastcc void @png_format_buffer(i32 %.536.val, ptr nocapture noundef nonnull writeonly %0, ptr noundef readonly %1) unnamed_addr #2 {
   br label %3
 
 3:                                                ; preds = %2, %32

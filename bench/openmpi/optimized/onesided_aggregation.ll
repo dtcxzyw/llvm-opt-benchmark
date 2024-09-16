@@ -1559,7 +1559,7 @@ nonContigSourceDataBufferAdvance.exit:            ; preds = %440, %419, %432, %4
   %769 = getelementptr i8, ptr %4, i64 %.0100.i1222
   %770 = getelementptr i8, ptr %769, i64 %763
   %771 = getelementptr i8, ptr %770, i64 %766
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %768, ptr align 1 %771, i64 %760, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %768, ptr nonnull align 1 %771, i64 %760, i1 false)
   %.pre1575 = load ptr, ptr %628, align 8
   %.phi.trans.insert1576 = getelementptr inbounds i64, ptr %.pre1575, i64 %756
   %.pre1577 = load i64, ptr %.phi.trans.insert1576, align 8
@@ -1597,7 +1597,7 @@ nonContigSourceDataBufferAdvance.exit:            ; preds = %440, %419, %432, %4
   %791 = getelementptr i8, ptr %4, i64 %.0100.i1222
   %792 = getelementptr i8, ptr %791, i64 %784
   %793 = getelementptr i8, ptr %792, i64 %787
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %790, ptr align 1 %793, i64 %788, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %790, ptr nonnull align 1 %793, i64 %788, i1 false)
   br label %794
 
 794:                                              ; preds = %783, %781
@@ -1696,7 +1696,7 @@ nonContigSourceDataBufferAdvance.exit1234:        ; preds = %794, %772, %775
   %842 = getelementptr i8, ptr %4, i64 %.0100.i1240
   %843 = getelementptr i8, ptr %842, i64 %836
   %844 = getelementptr i8, ptr %843, i64 %839
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %841, ptr align 1 %844, i64 %833, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %841, ptr nonnull align 1 %844, i64 %833, i1 false)
   %.pre1572 = load ptr, ptr %628, align 8
   %.phi.trans.insert1573 = getelementptr inbounds i64, ptr %.pre1572, i64 %829
   %.pre1574 = load i64, ptr %.phi.trans.insert1573, align 8
@@ -1734,7 +1734,7 @@ nonContigSourceDataBufferAdvance.exit1234:        ; preds = %794, %772, %775
   %864 = getelementptr i8, ptr %4, i64 %.0100.i1240
   %865 = getelementptr i8, ptr %864, i64 %857
   %866 = getelementptr i8, ptr %865, i64 %860
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %863, ptr align 1 %866, i64 %861, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %863, ptr nonnull align 1 %866, i64 %861, i1 false)
   br label %867
 
 867:                                              ; preds = %856, %854
@@ -3392,7 +3392,7 @@ nonContigSourceDataBufferAdvance.exit:            ; preds = %411, %389, %403, %4
   %597 = getelementptr i8, ptr %596, i64 %594
   %598 = sext i32 %.us-phi1173.us to i64
   %599 = getelementptr inbounds i8, ptr %.0.us, i64 %598
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %597, ptr nonnull align 1 %599, i64 %.us-phi1175.us, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %597, ptr nonnull align 1 %599, i64 %.us-phi1175.us, i1 false)
   %.pre1414 = load ptr, ptr %467, align 8
   br label %600
 
@@ -3427,7 +3427,7 @@ nonContigSourceDataBufferAdvance.exit:            ; preds = %411, %389, %403, %4
   %620 = getelementptr i8, ptr %619, i64 %616
   %621 = sext i32 %.08096.i1007.us1226 to i64
   %622 = getelementptr inbounds i8, ptr %.0.us, i64 %621
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %620, ptr nonnull align 1 %622, i64 %617, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %620, ptr nonnull align 1 %622, i64 %617, i1 false)
   %623 = add nsw i32 %.07498.i1005.us1224, 1
   %624 = sext i32 %623 to i64
   %625 = load i64, ptr %469, align 8
@@ -3558,7 +3558,7 @@ nonContigSourceDataBufferAdvance.exit1015.us:     ; preds = %611, %734, %605, %6
   %679 = getelementptr i8, ptr %678, i64 %676
   %680 = sext i32 %.us-phi1206.us to i64
   %681 = getelementptr inbounds i8, ptr %.0784.lcssa.us, i64 %680
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %679, ptr nonnull align 1 %681, i64 %.us-phi1208.us, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %679, ptr nonnull align 1 %681, i64 %.us-phi1208.us, i1 false)
   %.pre1415 = load ptr, ptr %467, align 8
   br label %682
 
@@ -3593,7 +3593,7 @@ nonContigSourceDataBufferAdvance.exit1015.us:     ; preds = %611, %734, %605, %6
   %702 = getelementptr i8, ptr %701, i64 %698
   %703 = sext i32 %.08096.i1025.us1242 to i64
   %704 = getelementptr inbounds i8, ptr %.0784.lcssa.us, i64 %703
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %702, ptr nonnull align 1 %704, i64 %699, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %702, ptr nonnull align 1 %704, i64 %699, i1 false)
   %705 = add nsw i32 %.07498.i1023.us1240, 1
   %706 = sext i32 %705 to i64
   %707 = load i64, ptr %469, align 8

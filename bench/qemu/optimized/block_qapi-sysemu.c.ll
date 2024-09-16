@@ -48,7 +48,7 @@ entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
   %spec.select = and i1 %has_force, %force
-  %call = call fastcc i32 @do_open_tray(ptr noundef %device, ptr noundef %id, i1 noundef zeroext %spec.select, ptr noundef nonnull %local_err)
+  %call = call fastcc i32 @do_open_tray(ptr noundef %device, ptr noundef %id, i1 noundef zeroext %spec.select, ptr noundef %local_err)
   switch i32 %call, label %if.then6 [
     i32 -38, label %if.end7
     i32 -115, label %if.end7
@@ -70,7 +70,7 @@ return:                                           ; preds = %if.end7, %if.then6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -115, 1) i32 @do_open_tray(ptr noundef %blk_name, ptr noundef %qdev_id, i1 noundef zeroext %force, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -115, 1) i32 @do_open_tray(ptr noundef %blk_name, ptr noundef %qdev_id, i1 noundef zeroext %force, ptr noundef nonnull %errp) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %qdev_id, null
   %cond = select i1 %tobool.not, ptr %blk_name, ptr %qdev_id
@@ -79,7 +79,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 48, ptr noundef nonnull @__func__.qmp_get_blk, ptr noundef nonnull @.str.13) #4
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str, i32 noundef 48, ptr noundef nonnull @__func__.qmp_get_blk, ptr noundef nonnull @.str.13) #4
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -91,11 +91,11 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %cmp7.i, label %if.then8.i, label %if.end
 
 if.then8.i:                                       ; preds = %if.else.i
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 58, ptr noundef nonnull @__func__.qmp_get_blk, i32 noundef 3, ptr noundef nonnull @.str.14, ptr noundef %blk_name) #4
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str, i32 noundef 58, ptr noundef nonnull @__func__.qmp_get_blk, i32 noundef 3, ptr noundef nonnull @.str.14, ptr noundef %blk_name) #4
   br label %return
 
 qmp_get_blk.exit:                                 ; preds = %if.end.i
-  %call.i = tail call ptr @blk_by_qdev_id(ptr noundef nonnull %qdev_id, ptr noundef %errp) #4
+  %call.i = tail call ptr @blk_by_qdev_id(ptr noundef nonnull %qdev_id, ptr noundef nonnull %errp) #4
   %tobool1.not = icmp eq ptr %call.i, null
   br i1 %tobool1.not, label %return, label %if.end
 
@@ -105,7 +105,7 @@ if.end:                                           ; preds = %if.else.i, %qmp_get
   br i1 %call2, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 89, ptr noundef nonnull @__func__.do_open_tray, ptr noundef nonnull @.str.1, ptr noundef %cond) #4
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str, i32 noundef 89, ptr noundef nonnull @__func__.do_open_tray, ptr noundef nonnull @.str.1, ptr noundef %cond) #4
   br label %return
 
 if.end4:                                          ; preds = %if.end
@@ -113,7 +113,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %call5, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 94, ptr noundef nonnull @__func__.do_open_tray, ptr noundef nonnull @.str.11, ptr noundef %cond) #4
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str, i32 noundef 94, ptr noundef nonnull @__func__.do_open_tray, ptr noundef nonnull @.str.11, ptr noundef %cond) #4
   br label %return
 
 if.end7:                                          ; preds = %if.end4
@@ -138,7 +138,7 @@ if.end20:                                         ; preds = %if.then14, %if.then
   br i1 %brmerge19, label %return, label %if.then23
 
 if.then23:                                        ; preds = %if.end20
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 113, ptr noundef nonnull @__func__.do_open_tray, ptr noundef nonnull @.str.12, ptr noundef %cond) #4
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str, i32 noundef 113, ptr noundef nonnull @__func__.do_open_tray, ptr noundef nonnull @.str.12, ptr noundef %cond) #4
   br label %return
 
 return:                                           ; preds = %if.then8.i, %if.then.i, %if.end20, %if.end7, %qmp_get_blk.exit, %if.then23, %if.then6, %if.then3
@@ -362,7 +362,7 @@ if.then7.i:                                       ; preds = %if.end5.i
   br label %blockdev_insert_medium.exit
 
 if.end8.i:                                        ; preds = %if.end5.i
-  tail call fastcc void @qmp_blockdev_insert_anon_medium(ptr noundef nonnull %call.i.i, ptr noundef nonnull %call2.i, ptr noundef %errp)
+  tail call fastcc void @qmp_blockdev_insert_anon_medium(ptr noundef %call.i.i, ptr noundef %call2.i, ptr noundef %errp)
   br label %blockdev_insert_medium.exit
 
 blockdev_insert_medium.exit:                      ; preds = %qmp_get_blk.exit.thread.i, %qmp_get_blk.exit.i, %if.then4.i, %if.then7.i, %if.end8.i
@@ -456,7 +456,7 @@ if.end20:                                         ; preds = %if.then19, %sw.epil
   br i1 %tobool24.not, label %fail, label %if.end26
 
 if.end26:                                         ; preds = %if.end20
-  %call28 = call fastcc i32 @do_open_tray(ptr noundef %device, ptr noundef %id, i1 noundef zeroext %force, ptr noundef nonnull %err)
+  %call28 = call fastcc i32 @do_open_tray(ptr noundef %device, ptr noundef %id, i1 noundef zeroext %force, ptr noundef %err)
   switch i32 %call28, label %if.then30 [
     i32 -38, label %if.end31
     i32 0, label %if.end31
@@ -481,7 +481,7 @@ if.then33:                                        ; preds = %if.end31
   br label %fail
 
 if.end34:                                         ; preds = %if.end31
-  call fastcc void @qmp_blockdev_insert_anon_medium(ptr noundef nonnull %retval.0.i32, ptr noundef nonnull %call22, ptr noundef nonnull %err)
+  call fastcc void @qmp_blockdev_insert_anon_medium(ptr noundef %retval.0.i32, ptr noundef %call22, ptr noundef nonnull %err)
   %4 = load ptr, ptr %err, align 8
   %tobool35.not = icmp eq ptr %4, null
   br i1 %tobool35.not, label %if.end37, label %if.then36
@@ -524,16 +524,16 @@ declare ptr @bdrv_open(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr n
 declare void @aio_context_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qmp_blockdev_insert_anon_medium(ptr noundef %blk, ptr noundef %bs, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc void @qmp_blockdev_insert_anon_medium(ptr noundef nonnull %blk, ptr noundef nonnull %bs, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
-  %call = tail call ptr @blk_get_attached_dev(ptr noundef %blk) #4
+  %call = tail call ptr @blk_get_attached_dev(ptr noundef nonnull %blk) #4
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call2 = tail call zeroext i1 @blk_dev_has_removable_media(ptr noundef %blk) #4
+  %call2 = tail call zeroext i1 @blk_dev_has_removable_media(ptr noundef nonnull %blk) #4
   br i1 %call2, label %land.lhs.true4, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
@@ -541,11 +541,11 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end23
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %call5 = tail call zeroext i1 @blk_dev_has_tray(ptr noundef %blk) #4
+  %call5 = tail call zeroext i1 @blk_dev_has_tray(ptr noundef nonnull %blk) #4
   br i1 %call5, label %land.lhs.true6, label %if.end9
 
 land.lhs.true6:                                   ; preds = %land.lhs.true4
-  %call7 = tail call zeroext i1 @blk_dev_is_tray_open(ptr noundef %blk) #4
+  %call7 = tail call zeroext i1 @blk_dev_is_tray_open(ptr noundef nonnull %blk) #4
   br i1 %call7, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %land.lhs.true6
@@ -553,7 +553,7 @@ if.then8:                                         ; preds = %land.lhs.true6
   br label %if.end23
 
 if.end9:                                          ; preds = %entry, %land.lhs.true6, %land.lhs.true4
-  %call10 = tail call ptr @blk_bs(ptr noundef %blk) #4
+  %call10 = tail call ptr @blk_bs(ptr noundef nonnull %blk) #4
   %tobool11.not = icmp eq ptr %call10, null
   br i1 %tobool11.not, label %if.end13, label %if.then12
 
@@ -562,26 +562,26 @@ if.then12:                                        ; preds = %if.end9
   br label %if.end23
 
 if.end13:                                         ; preds = %if.end9
-  %call14 = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #4
+  %call14 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs) #4
   tail call void @aio_context_acquire(ptr noundef %call14) #4
-  %call15 = tail call i32 @blk_insert_bs(ptr noundef %blk, ptr noundef %bs, ptr noundef %errp) #4
+  %call15 = tail call i32 @blk_insert_bs(ptr noundef nonnull %blk, ptr noundef nonnull %bs, ptr noundef %errp) #4
   tail call void @aio_context_release(ptr noundef %call14) #4
   %cmp = icmp slt i32 %call15, 0
   br i1 %cmp, label %if.end23, label %if.end17
 
 if.end17:                                         ; preds = %if.end13
-  %call18 = tail call zeroext i1 @blk_dev_has_tray(ptr noundef %blk) #4
+  %call18 = tail call zeroext i1 @blk_dev_has_tray(ptr noundef nonnull %blk) #4
   br i1 %call18, label %if.end23, label %if.then19
 
 if.then19:                                        ; preds = %if.end17
-  call void @blk_dev_change_media_cb(ptr noundef %blk, i1 noundef zeroext true, ptr noundef nonnull %local_err) #4
+  call void @blk_dev_change_media_cb(ptr noundef nonnull %blk, i1 noundef zeroext true, ptr noundef nonnull %local_err) #4
   %0 = load ptr, ptr %local_err, align 8
   %tobool20.not = icmp eq ptr %0, null
   br i1 %tobool20.not, label %if.end23, label %if.then21
 
 if.then21:                                        ; preds = %if.then19
   call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %0) #4
-  call void @blk_remove_bs(ptr noundef %blk) #4
+  call void @blk_remove_bs(ptr noundef nonnull %blk) #4
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then19, %if.end13, %if.then21, %if.end17, %if.then12, %if.then8, %if.then
@@ -596,7 +596,7 @@ entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
   %spec.select = and i1 %has_force, %force
-  %call = call fastcc i32 @do_open_tray(ptr noundef %device, ptr noundef %id, i1 noundef zeroext %spec.select, ptr noundef nonnull %local_err)
+  %call = call fastcc i32 @do_open_tray(ptr noundef %device, ptr noundef %id, i1 noundef zeroext %spec.select, ptr noundef %local_err)
   switch i32 %call, label %if.then4 [
     i32 -38, label %if.end5
     i32 0, label %if.end5

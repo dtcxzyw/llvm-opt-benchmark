@@ -1397,7 +1397,7 @@ _ZL18shouldPragmaUnrollPN4llvm4LoopERKN12_GLOBAL__N_110PragmaInfoEjjjNS_19Unroll
   br i1 %.not167.old, label %.thread286, label %211
 
 211:                                              ; preds = %210, %209
-  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_18computeUnrollCountEPNS_4LoopERKNS_19TargetTransformInfoERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15AssumptionCacheERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEPS0_jjbjRKNS_19UnrollCostEstimatorERNS4_20UnrollingPreferencesERNS4_18PeelingPreferencesERbE3$_0EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr nonnull %18)
+  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_18computeUnrollCountEPNS_4LoopERKNS_19TargetTransformInfoERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15AssumptionCacheERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEPS0_jjbjRKNS_19UnrollCostEstimatorERNS4_20UnrollingPreferencesERNS4_18PeelingPreferencesERbE3$_0EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %18)
   %.pre = load i32, ptr %150, align 4
   br label %212
 
@@ -1412,14 +1412,14 @@ _ZL18shouldPragmaUnrollPN4llvm4LoopERKN12_GLOBAL__N_110PragmaInfoEjjjNS_19Unroll
   br i1 %brmerge175.not, label %217, label %.thread286
 
 217:                                              ; preds = %212
-  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_18computeUnrollCountEPNS_4LoopERKNS_19TargetTransformInfoERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15AssumptionCacheERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEPS0_jjbjRKNS_19UnrollCostEstimatorERNS4_20UnrollingPreferencesERNS4_18PeelingPreferencesERbE3$_1EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr nonnull %18)
+  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_18computeUnrollCountEPNS_4LoopERKNS_19TargetTransformInfoERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15AssumptionCacheERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEPS0_jjbjRKNS_19UnrollCostEstimatorERNS4_20UnrollingPreferencesERNS4_18PeelingPreferencesERbE3$_1EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %18)
   br label %.thread286
 
 .thread248:                                       ; preds = %155
   br i1 %.0.i.i, label %218, label %219
 
 218:                                              ; preds = %.thread248
-  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_18computeUnrollCountEPNS_4LoopERKNS_19TargetTransformInfoERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15AssumptionCacheERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEPS0_jjbjRKNS_19UnrollCostEstimatorERNS4_20UnrollingPreferencesERNS4_18PeelingPreferencesERbE3$_2EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr nonnull %18)
+  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_18computeUnrollCountEPNS_4LoopERKNS_19TargetTransformInfoERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15AssumptionCacheERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEPS0_jjbjRKNS_19UnrollCostEstimatorERNS4_20UnrollingPreferencesERNS4_18PeelingPreferencesERbE3$_2EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %18)
   br label %219
 
 219:                                              ; preds = %218, %.thread248
@@ -1671,7 +1671,7 @@ _ZL24getUnrollMetadataForLoopPKN4llvm4LoopENS_9StringRefE.exit.thread: ; preds =
 declare void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i64 0, 8589934592) i64 @_ZL16shouldFullUnrollPN4llvm4LoopERKNS_19TargetTransformInfoERNS_13DominatorTreeERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEjNS_19UnrollCostEstimatorERKNS2_20UnrollingPreferencesE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(1392) %2, ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef %4, i64 %.0.val, i32 %.8.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(61) %5) unnamed_addr #0 {
+define internal fastcc range(i64 1, 8589934592) i64 @_ZL16shouldFullUnrollPN4llvm4LoopERKNS_19TargetTransformInfoERNS_13DominatorTreeERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEjNS_19UnrollCostEstimatorERKNS2_20UnrollingPreferencesE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(1392) %2, ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef range(i32 1, 0) %4, i64 %.0.val, i32 %.8.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(61) %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::APInt", align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"class.llvm::SmallSetVector", align 8
@@ -3396,7 +3396,7 @@ _ZL27getFullUnrollBoostingFactorRKN12_GLOBAL__N_119EstimatedUnrollCostEj.exit: ;
 declare void @_ZN4llvm16computePeelCountEPNS_4LoopEjRNS_19TargetTransformInfo18PeelingPreferencesEjRNS_13DominatorTreeERNS_15ScalarEvolutionEPNS_15AssumptionCacheEj(ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(8), i32 noundef, ptr noundef nonnull align 8 dereferenceable(124), ptr noundef nonnull align 8 dereferenceable(1392), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_18computeUnrollCountEPNS_4LoopERKNS_19TargetTransformInfoERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15AssumptionCacheERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEPS0_jjbjRKNS_19UnrollCostEstimatorERNS4_20UnrollingPreferencesERNS4_18PeelingPreferencesERbE3$_0EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_18computeUnrollCountEPNS_4LoopERKNS_19TargetTransformInfoERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15AssumptionCacheERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEPS0_jjbjRKNS_19UnrollCostEstimatorERNS4_20UnrollingPreferencesERNS4_18PeelingPreferencesERbE3$_0EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::OptimizationRemarkMissed", align 8
   %4 = alloca %"class.llvm::DiagnosticLocation", align 8
   %5 = alloca %"class.llvm::DebugLoc", align 8
@@ -3536,7 +3536,7 @@ _ZN4llvm24OptimizationRemarkMissedD2Ev.exit:      ; preds = %56, %_ZN4llvm23Smal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_18computeUnrollCountEPNS_4LoopERKNS_19TargetTransformInfoERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15AssumptionCacheERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEPS0_jjbjRKNS_19UnrollCostEstimatorERNS4_20UnrollingPreferencesERNS4_18PeelingPreferencesERbE3$_1EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_18computeUnrollCountEPNS_4LoopERKNS_19TargetTransformInfoERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15AssumptionCacheERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEPS0_jjbjRKNS_19UnrollCostEstimatorERNS4_20UnrollingPreferencesERNS4_18PeelingPreferencesERbE3$_1EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::OptimizationRemarkMissed", align 8
   %4 = alloca %"class.llvm::DiagnosticLocation", align 8
   %5 = alloca %"class.llvm::DebugLoc", align 8
@@ -3676,7 +3676,7 @@ _ZN4llvm24OptimizationRemarkMissedD2Ev.exit:      ; preds = %56, %_ZN4llvm23Smal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_18computeUnrollCountEPNS_4LoopERKNS_19TargetTransformInfoERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15AssumptionCacheERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEPS0_jjbjRKNS_19UnrollCostEstimatorERNS4_20UnrollingPreferencesERNS4_18PeelingPreferencesERbE3$_2EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_18computeUnrollCountEPNS_4LoopERKNS_19TargetTransformInfoERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15AssumptionCacheERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEPS0_jjbjRKNS_19UnrollCostEstimatorERNS4_20UnrollingPreferencesERNS4_18PeelingPreferencesERbE3$_2EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::OptimizationRemarkMissed", align 8
   %4 = alloca %"class.llvm::DiagnosticLocation", align 8
   %5 = alloca %"class.llvm::DebugLoc", align 8
@@ -5452,7 +5452,7 @@ _ZNK4llvm8Function10hasOptSizeEv.exit:            ; preds = %55, %60
   br i1 %.not128, label %150, label %141
 
 141:                                              ; preds = %134
-  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZL15tryToUnrollLoopPNS_4LoopERNS_13DominatorTreeEPNS_8LoopInfoERNS_15ScalarEvolutionERKNS_19TargetTransformInfoERNS_15AssumptionCacheERS0_PNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoEbibbbSt8optionalIjESL_SK_IbESM_SM_SM_SM_SL_PNS_9AAResultsEE3$_0EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr nonnull %24, ptr nonnull %26)
+  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZL15tryToUnrollLoopPNS_4LoopERNS_13DominatorTreeEPNS_8LoopInfoERNS_15ScalarEvolutionERKNS_19TargetTransformInfoERNS_15AssumptionCacheERS0_PNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoEbibbbSt8optionalIjESL_SK_IbESM_SM_SM_SM_SL_PNS_9AAResultsEE3$_0EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %24, ptr %26)
   call void @_ZN4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2Ej(ptr noundef nonnull align 8 dereferenceable(57) %31, i32 noundef 64)
   %142 = load i32, ptr %26, align 8
   %143 = call noundef zeroext i1 @_ZN4llvm8peelLoopEPNS_4LoopEjPNS_8LoopInfoEPNS_15ScalarEvolutionERNS_13DominatorTreeEPNS_15AssumptionCacheEbRNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigISD_NS_3sys10SmartMutexILb0EEEEEEE(ptr noundef nonnull %0, i32 noundef %142, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef nonnull %5, i1 noundef zeroext %9, ptr noundef nonnull align 8 dereferenceable(57) %31) #19
@@ -7019,7 +7019,7 @@ declare noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo15isLoweredToCallEPKNS
 declare noundef zeroext i1 @_ZNK4llvm11Instruction18mayHaveSideEffectsEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZL21analyzeLoopUnrollCostPKN4llvm4LoopEjRNS_13DominatorTreeERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEERKNS_19TargetTransformInfoEjjENK3$_0clERNS_11InstructionEi"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZL21analyzeLoopUnrollCostPKN4llvm4LoopEjRNS_13DominatorTreeERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEERKNS_19TargetTransformInfoEjjENK3$_0clERNS_11InstructionEi"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef range(i32 0, -1) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.476", align 8
   %5 = load ptr, ptr %0, align 8
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
@@ -9985,7 +9985,7 @@ declare noundef i32 @_ZN4llvm15ScalarEvolution28getSmallConstantMaxTripCountEPKN
 declare noundef zeroext i1 @_ZN4llvm15ScalarEvolution29isBackedgeTakenCountMaxOrZeroEPKNS_4LoopE(ptr noundef nonnull align 8 dereferenceable(1392), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZL15tryToUnrollLoopPNS_4LoopERNS_13DominatorTreeEPNS_8LoopInfoERNS_15ScalarEvolutionERKNS_19TargetTransformInfoERNS_15AssumptionCacheERS0_PNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoEbibbbSt8optionalIjESL_SK_IbESM_SM_SM_SM_SL_PNS_9AAResultsEE3$_0EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture readonly %1, ptr nocapture readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZL15tryToUnrollLoopPNS_4LoopERNS_13DominatorTreeEPNS_8LoopInfoERNS_15ScalarEvolutionERKNS_19TargetTransformInfoERNS_15AssumptionCacheERS0_PNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoEbibbbSt8optionalIjESL_SK_IbESM_SM_SM_SM_SL_PNS_9AAResultsEE3$_0EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture nonnull readonly %1, ptr nocapture nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %5 = alloca %"class.llvm::OptimizationRemark", align 8
   %6 = alloca %"class.llvm::DiagnosticLocation", align 8

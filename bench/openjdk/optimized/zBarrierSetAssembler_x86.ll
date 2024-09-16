@@ -410,7 +410,7 @@ _ZL17is_c2_compilationv.exit:                     ; preds = %24
   %62 = getelementptr inbounds i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
   call void %63(ptr noundef nonnull align 8 dereferenceable(20) %40, ptr noundef nonnull align 8 dereferenceable(40) %60) #13
-  call fastcc void @_ZL26emit_store_fast_path_checkP14MacroAssembler7AddressbR5Label(ptr noundef nonnull %1, ptr noundef nonnull %11, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(33) %10)
+  call fastcc void @_ZL26emit_store_fast_path_checkP14MacroAssembler7AddressbR5Label(ptr noundef nonnull %1, ptr noundef %11, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(33) %10)
   %64 = load ptr, ptr %47, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8
@@ -444,7 +444,7 @@ _ZL29emit_store_fast_path_check_c2P14MacroAssembler7AddressbR5Label.exit: ; pred
   %79 = getelementptr inbounds i8, ptr %78, i64 16
   %80 = load ptr, ptr %79, align 8
   call void %80(ptr noundef nonnull align 8 dereferenceable(20) %35, ptr noundef nonnull align 8 dereferenceable(40) %77) #13
-  call fastcc void @_ZL26emit_store_fast_path_checkP14MacroAssembler7AddressbR5Label(ptr noundef %1, ptr noundef nonnull %14, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(33) %7)
+  call fastcc void @_ZL26emit_store_fast_path_checkP14MacroAssembler7AddressbR5Label(ptr noundef %1, ptr noundef %14, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(33) %7)
   call void @_ZN24IntelJccErratumAlignmentD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
@@ -459,7 +459,7 @@ _ZL17is_c2_compilationv.exit.thread:              ; preds = %24, %_ZL17is_c2_com
   %84 = getelementptr inbounds i8, ptr %83, i64 16
   %85 = load ptr, ptr %84, align 8
   call void %85(ptr noundef nonnull align 8 dereferenceable(20) %82, ptr noundef nonnull align 8 dereferenceable(40) %81) #13
-  call fastcc void @_ZL26emit_store_fast_path_checkP14MacroAssembler7AddressbR5Label(ptr noundef %1, ptr noundef nonnull %16, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(33) %7)
+  call fastcc void @_ZL26emit_store_fast_path_checkP14MacroAssembler7AddressbR5Label(ptr noundef %1, ptr noundef %16, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(33) %7)
   br label %86
 
 86:                                               ; preds = %_ZL17is_c2_compilationv.exit.thread, %_ZL29emit_store_fast_path_check_c2P14MacroAssembler7AddressbR5Label.exit
@@ -570,7 +570,7 @@ _ZL17is_c2_compilationv.exit.thread:              ; preds = %24, %_ZL17is_c2_com
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL26emit_store_fast_path_checkP14MacroAssembler7AddressbR5Label(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(33) %3) unnamed_addr #1 {
+define internal fastcc void @_ZL26emit_store_fast_path_checkP14MacroAssembler7AddressbR5Label(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(33) %3) unnamed_addr #1 {
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.RelocationHolder, align 8
   %7 = alloca %class.Address, align 8
@@ -743,7 +743,7 @@ define hidden void @_ZNK20ZBarrierSetAssembler20store_barrier_mediumEP14MacroAss
   %56 = getelementptr inbounds i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
   call void %57(ptr noundef nonnull align 8 dereferenceable(20) %19, ptr noundef nonnull align 8 dereferenceable(40) %54) #13
-  call fastcc void @_ZL24store_barrier_buffer_addP14MacroAssembler7Address8RegisterR5Label(ptr noundef %1, ptr noundef nonnull %16, i32 %3, ptr noundef nonnull align 8 dereferenceable(33) %7)
+  call fastcc void @_ZL24store_barrier_buffer_addP14MacroAssembler7Address8RegisterR5Label(ptr noundef %1, ptr noundef %16, i32 %3, ptr noundef nonnull align 8 dereferenceable(33) %7)
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(33) %8) #13
   call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(33) %6, i1 noundef zeroext true) #13
   br label %58
@@ -759,7 +759,7 @@ declare void @_ZN9Assembler4lockEv(ptr noundef nonnull align 8 dereferenceable(4
 declare void @_ZN9Assembler8cmpxchgqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24store_barrier_buffer_addP14MacroAssembler7Address8RegisterR5Label(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(33) %3) unnamed_addr #1 {
+define internal fastcc void @_ZL24store_barrier_buffer_addP14MacroAssembler7Address8RegisterR5Label(ptr noundef %0, ptr noundef nonnull %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(33) %3) unnamed_addr #1 {
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.Address, align 8
   %7 = alloca %class.Address, align 8
@@ -1090,7 +1090,7 @@ define hidden void @_ZN20ZBarrierSetAssembler8store_atEP14MacroAssemblerm9BasicT
   %72 = getelementptr inbounds i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8
   call void %73(ptr noundef nonnull align 8 dereferenceable(20) %66, ptr noundef nonnull align 8 dereferenceable(40) %70) #13
-  call fastcc void @_ZL24store_barrier_buffer_addP14MacroAssembler7Address8RegisterR5Label(ptr noundef nonnull %1, ptr noundef nonnull %10, i32 %6, ptr noundef nonnull align 8 dereferenceable(33) %17)
+  call fastcc void @_ZL24store_barrier_buffer_addP14MacroAssembler7Address8RegisterR5Label(ptr noundef nonnull %1, ptr noundef %10, i32 %6, ptr noundef nonnull align 8 dereferenceable(33) %17)
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(33) %18) #13
   call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(33) %16, i1 noundef zeroext true) #13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
@@ -1446,7 +1446,7 @@ _ZN17ZRuntimeCallSpillC2EP14MacroAssembler8Register13ZXMMSpillMode.exit: ; preds
   %50 = getelementptr inbounds i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(20) %36, ptr noundef nonnull align 8 dereferenceable(40) %48) #13
-  call fastcc void @_ZL24store_barrier_buffer_addP14MacroAssembler7Address8RegisterR5Label(ptr noundef nonnull %1, ptr noundef nonnull %14, i32 %7, ptr noundef nonnull align 8 dereferenceable(33) %11)
+  call fastcc void @_ZL24store_barrier_buffer_addP14MacroAssembler7Address8RegisterR5Label(ptr noundef nonnull %1, ptr noundef %14, i32 %7, ptr noundef nonnull align 8 dereferenceable(33) %11)
   call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(33) %10, i1 noundef zeroext true) #13
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(33) %11) #13
   %52 = load i32, ptr @UseAVX, align 4

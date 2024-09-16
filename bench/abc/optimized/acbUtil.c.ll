@@ -9231,8 +9231,8 @@ Vec_IntPush.exit141:                              ; preds = %.Vec_IntGrow.exit10
   %236 = getelementptr inbounds i32, ptr %233, i64 %235
   store i32 %181, ptr %236, align 4
   %237 = and i32 %178, 1
-  %.not145 = icmp eq i32 %237, 0
-  br i1 %.not145, label %243, label %238
+  %.not.i142 = icmp eq i32 %237, 0
+  br i1 %.not.i142, label %243, label %238
 
 238:                                              ; preds = %Vec_IntPush.exit141
   %239 = load ptr, ptr %50, align 8
@@ -9260,8 +9260,8 @@ Vec_BitWriteEntry.exit:                           ; preds = %243, %238, %173, %1
 
 .critedge4:                                       ; preds = %Vec_BitWriteEntry.exit, %.critedge2
   %251 = load ptr, ptr %42, align 8
-  %.not.i142 = icmp eq ptr %251, null
-  br i1 %.not.i142, label %Vec_BitFree.exit, label %252
+  %.not.i143 = icmp eq ptr %251, null
+  br i1 %.not.i143, label %Vec_BitFree.exit, label %252
 
 252:                                              ; preds = %.critedge4
   tail call void @free(ptr noundef nonnull %251) #25
@@ -9271,8 +9271,8 @@ Vec_BitFree.exit:                                 ; preds = %.critedge4, %252
   tail call void @free(ptr noundef nonnull %34) #25
   %253 = getelementptr inbounds i8, ptr %6, i64 8
   %254 = load ptr, ptr %253, align 8
-  %.not.i143 = icmp eq ptr %254, null
-  br i1 %.not.i143, label %Vec_IntFree.exit, label %255
+  %.not.i144 = icmp eq ptr %254, null
+  br i1 %.not.i144, label %Vec_IntFree.exit, label %255
 
 255:                                              ; preds = %Vec_BitFree.exit
   tail call void @free(ptr noundef nonnull %254) #25
@@ -10038,8 +10038,8 @@ Vec_IntPush.exit110:                              ; preds = %.Vec_IntGrow.exit10
   %207 = getelementptr inbounds i32, ptr %204, i64 %206
   store i32 %155, ptr %207, align 4
   %208 = and i32 %152, 1
-  %.not114 = icmp eq i32 %208, 0
-  br i1 %.not114, label %214, label %209
+  %.not.i111 = icmp eq i32 %208, 0
+  br i1 %.not.i111, label %214, label %209
 
 209:                                              ; preds = %Vec_IntPush.exit110
   %210 = load ptr, ptr %49, align 8
@@ -10067,8 +10067,8 @@ Vec_BitWriteEntry.exit:                           ; preds = %214, %209, %148, %1
 
 .critedge4:                                       ; preds = %Vec_BitWriteEntry.exit, %.critedge2
   %222 = load ptr, ptr %41, align 8
-  %.not.i111 = icmp eq ptr %222, null
-  br i1 %.not.i111, label %Vec_BitFree.exit, label %223
+  %.not.i112 = icmp eq ptr %222, null
+  br i1 %.not.i112, label %Vec_BitFree.exit, label %223
 
 223:                                              ; preds = %.critedge4
   tail call void @free(ptr noundef nonnull %222) #25
@@ -10078,8 +10078,8 @@ Vec_BitFree.exit:                                 ; preds = %.critedge4, %223
   tail call void @free(ptr noundef nonnull %33) #25
   %224 = getelementptr inbounds i8, ptr %5, i64 8
   %225 = load ptr, ptr %224, align 8
-  %.not.i112 = icmp eq ptr %225, null
-  br i1 %.not.i112, label %Vec_PtrFree.exit, label %226
+  %.not.i113 = icmp eq ptr %225, null
+  br i1 %.not.i113, label %Vec_PtrFree.exit, label %226
 
 226:                                              ; preds = %Vec_BitFree.exit
   tail call void @free(ptr noundef nonnull %225) #25

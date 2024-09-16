@@ -799,15 +799,15 @@ if.end:                                           ; preds = %new.cont.thread
   br i1 %new.isnull.not.i, label %invoke.cont13, label %new.notnull.i
 
 new.notnull.i:                                    ; preds = %if.end
-  invoke fastcc void @_ZN6icu_75L31loadNumericDateFormatterPatternEPK15UResourceBundlePKcR10UErrorCode(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef %call2, ptr noundef nonnull @.str.1, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN6icu_75L31loadNumericDateFormatterPatternEPK15UResourceBundlePKcR10UErrorCode(ptr noalias align 8 %ref.tmp.i, ptr noundef %call2, ptr noundef nonnull @.str.1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %new.notnull.i
-  invoke fastcc void @_ZN6icu_75L31loadNumericDateFormatterPatternEPK15UResourceBundlePKcR10UErrorCode(ptr noalias nonnull align 8 %ref.tmp3.i, ptr noundef %call2, ptr noundef nonnull @.str.2, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN6icu_75L31loadNumericDateFormatterPatternEPK15UResourceBundlePKcR10UErrorCode(ptr noalias align 8 %ref.tmp3.i, ptr noundef %call2, ptr noundef nonnull @.str.2, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont5.i unwind label %lpad4.i
 
 invoke.cont5.i:                                   ; preds = %invoke.cont.i
-  invoke fastcc void @_ZN6icu_75L31loadNumericDateFormatterPatternEPK15UResourceBundlePKcR10UErrorCode(ptr noalias nonnull align 8 %ref.tmp7.i, ptr noundef %call2, ptr noundef nonnull @.str.3, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN6icu_75L31loadNumericDateFormatterPatternEPK15UResourceBundlePKcR10UErrorCode(ptr noalias align 8 %ref.tmp7.i, ptr noundef %call2, ptr noundef nonnull @.str.3, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont9.i unwind label %lpad8.i
 
 invoke.cont9.i:                                   ; preds = %invoke.cont5.i
@@ -3707,7 +3707,7 @@ declare noundef ptr @_ZNK6icu_757UObject17getDynamicClassIDEv(ptr noundef nonnul
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_756Format6formatERKNS_11FormattableERNS_13UnicodeStringEPNS_21FieldPositionIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(322), ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6icu_75L31loadNumericDateFormatterPatternEPK15UResourceBundlePKcR10UErrorCode(ptr noalias align 8 %agg.result, ptr noundef %resource, ptr noundef %pattern, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6icu_75L31loadNumericDateFormatterPatternEPK15UResourceBundlePKcR10UErrorCode(ptr noalias nonnull align 8 %agg.result, ptr noundef %resource, ptr noundef %pattern, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %len.i22 = alloca i32, align 4
   %agg.tmp.i = alloca %"class.icu_75::ConstChar16Ptr", align 8

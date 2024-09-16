@@ -1414,7 +1414,7 @@ unreachable:                                      ; preds = %invoke.cont21
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN8QuantLib12_GLOBAL__N_126isExtraHolidayExchangeImplEiNS_5MonthEi(i32 noundef %d, i32 noundef %month, i32 noundef %year) unnamed_addr #8 {
+define internal fastcc noundef zeroext i1 @_ZN8QuantLib12_GLOBAL__N_126isExtraHolidayExchangeImplEiNS_5MonthEi(i32 noundef %d, i32 noundef %month, i32 noundef range(i32 2012, -2147483648) %year) unnamed_addr #8 {
 entry:
   switch i32 %year, label %return [
     i32 2012, label %sw.bb

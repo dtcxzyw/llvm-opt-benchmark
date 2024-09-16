@@ -5203,7 +5203,7 @@ _ZNK3nix12_GLOBAL__N_116StringViewStream4peekEv.exit: ; preds = %49
           to label %54 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 54:                                               ; preds = %53
-  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %55 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 55:                                               ; preds = %54
@@ -5450,7 +5450,7 @@ _ZN3nixL9endOfListERNS_12_GLOBAL__N_116StringViewStreamE.exit.thread: ; preds = 
           to label %130 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 130:                                              ; preds = %_ZN3nixL9endOfListERNS_12_GLOBAL__N_116StringViewStreamE.exit.thread
-  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %131 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 131:                                              ; preds = %130
@@ -5490,7 +5490,7 @@ _ZN3nix16BackedStringViewD2Ev.exit58:             ; preds = %132, %_ZNSt8__detai
           to label %.noexc59 unwind label %226
 
 .noexc59:                                         ; preds = %_ZN3nix16BackedStringViewD2Ev.exit58
-  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %.noexc60 unwind label %226
 
 .noexc60:                                         ; preds = %.noexc59
@@ -5498,7 +5498,7 @@ _ZN3nix16BackedStringViewD2Ev.exit58:             ; preds = %132, %_ZNSt8__detai
           to label %139 unwind label %204, !noalias !67
 
 139:                                              ; preds = %.noexc60
-  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %140 unwind label %204, !noalias !67
 
 140:                                              ; preds = %139
@@ -5506,7 +5506,7 @@ _ZN3nix16BackedStringViewD2Ev.exit58:             ; preds = %132, %_ZNSt8__detai
           to label %141 unwind label %206, !noalias !67
 
 141:                                              ; preds = %140
-  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %142 unwind label %206, !noalias !67
 
 142:                                              ; preds = %141
@@ -5642,7 +5642,7 @@ _ZSt3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_St17basic_strin
   %.sroa.3.0.in.i46.i = phi ptr [ %9, %181 ], [ %.sroa.3.0..sroa_idx.i44.i, %182 ]
   %.sroa.3.0.i47.i = load ptr, ptr %.sroa.3.0.in.i46.i, align 8, !noalias !67
   %.sroa.0.0.i48.i = load i64, ptr %.sroa.0.0.in.i45.i, align 8, !noalias !67
-  invoke fastcc void @_ZN3nixL21parseDerivationOutputERKNS_14StoreDirConfigESt17basic_string_viewIcSt11char_traitsIcEES6_S6_RKNS_27ExperimentalFeatureSettingsE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(344) %1, i64 %.sroa.0.0.i.i, ptr %.sroa.3.0.i.i, i64 %.sroa.0.0.i29.i, ptr %.sroa.3.0.i28.i, i64 %.sroa.0.0.i48.i, ptr %.sroa.3.0.i47.i, ptr noundef nonnull align 8 dereferenceable(344) %5)
+  invoke fastcc void @_ZN3nixL21parseDerivationOutputERKNS_14StoreDirConfigESt17basic_string_viewIcSt11char_traitsIcEES6_S6_RKNS_27ExperimentalFeatureSettingsE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(344) %1, i64 %.sroa.0.0.i.i, ptr %.sroa.3.0.i.i, i64 %.sroa.0.0.i29.i, ptr %.sroa.3.0.i28.i, i64 %.sroa.0.0.i48.i, ptr %.sroa.3.0.i47.i, ptr noundef nonnull align 8 dereferenceable(344) %5)
           to label %185 unwind label %.loopexit259
 
 185:                                              ; preds = %_ZSt3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_St17basic_string_viewIcS3_EEERKT_RKSt7variantIJDpT0_EE.exit.i52.i
@@ -5878,7 +5878,7 @@ _ZN3nixL9endOfListERNS_12_GLOBAL__N_116StringViewStreamE.exit68.thread: ; preds 
 
 246:                                              ; preds = %_ZN3nixL9endOfListERNS_12_GLOBAL__N_116StringViewStreamE.exit68.thread
   call void @llvm.experimental.noalias.scope.decl(metadata !71)
-  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %.noexc85 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc85:                                         ; preds = %246
@@ -6009,7 +6009,7 @@ _ZSt3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_St17basic_strin
           to label %279 unwind label %.loopexit250
 
 279:                                              ; preds = %_ZSt3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_St17basic_string_viewIcS3_EEERKT_RKSt7variantIJDpT0_EE.exit.i103
-  invoke fastcc void @_ZN3nixL23parseDerivedPathMapNodeB5cxx11ERKNS_14StoreDirConfigERNS_12_GLOBAL__N_116StringViewStreamENS_22DerivationATermVersionE(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %.028)
+  invoke fastcc void @_ZN3nixL23parseDerivedPathMapNodeB5cxx11ERKNS_14StoreDirConfigERNS_12_GLOBAL__N_116StringViewStreamENS_22DerivationATermVersionE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %.028)
           to label %280 unwind label %302
 
 280:                                              ; preds = %279
@@ -6128,7 +6128,7 @@ _ZN3nix16BackedStringViewD2Ev.exit111:            ; preds = %295, %_ZNSt8__detai
           to label %311 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 311:                                              ; preds = %308
-  invoke fastcc void @_ZN3nixL12parseStringsB5cxx11ERNS_12_GLOBAL__N_116StringViewStreamEb(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(16) %10, i1 noundef zeroext true)
+  invoke fastcc void @_ZN3nixL12parseStringsB5cxx11ERNS_12_GLOBAL__N_116StringViewStreamEb(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(16) %10, i1 noundef zeroext true)
           to label %312 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 312:                                              ; preds = %311
@@ -6214,7 +6214,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
           to label %344 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 344:                                              ; preds = %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev.exit
-  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %345 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 345:                                              ; preds = %344
@@ -6363,7 +6363,7 @@ _ZN3nix16BackedStringViewD2Ev.exit120:            ; preds = %_ZNSt7__cxx1112basi
           to label %400 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 400:                                              ; preds = %_ZN3nix16BackedStringViewD2Ev.exit120
-  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %401 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 401:                                              ; preds = %400
@@ -6542,7 +6542,7 @@ _ZN3nixL9endOfListERNS_12_GLOBAL__N_116StringViewStreamE.exit145: ; preds = %_ZN
   br label %_ZN3nixL9endOfListERNS_12_GLOBAL__N_116StringViewStreamE.exit145.thread
 
 _ZN3nixL9endOfListERNS_12_GLOBAL__N_116StringViewStreamE.exit145.thread: ; preds = %_ZNK3nix12_GLOBAL__N_116StringViewStream4peekEv.exit.i140, %462, %_ZN3nixL9endOfListERNS_12_GLOBAL__N_116StringViewStreamE.exit145
-  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %467 unwind label %.loopexit.split-lp.loopexit
 
 467:                                              ; preds = %_ZN3nixL9endOfListERNS_12_GLOBAL__N_116StringViewStreamE.exit145.thread
@@ -6712,7 +6712,7 @@ _ZN3nixL9endOfListERNS_12_GLOBAL__N_116StringViewStreamE.exit162.thread: ; preds
           to label %524 unwind label %.loopexit
 
 524:                                              ; preds = %_ZN3nixL9endOfListERNS_12_GLOBAL__N_116StringViewStreamE.exit162.thread
-  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %525 unwind label %.loopexit
 
 525:                                              ; preds = %524
@@ -6749,7 +6749,7 @@ _ZN3nix16BackedStringViewD2Ev.exit167:            ; preds = %526, %_ZNSt8__detai
           to label %533 unwind label %555
 
 533:                                              ; preds = %_ZN3nix16BackedStringViewD2Ev.exit167
-  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %534 unwind label %555
 
 534:                                              ; preds = %533
@@ -6946,7 +6946,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withES2_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -7943,7 +7943,7 @@ _ZNKSt4lessIN3nix9StorePathEEclERKS1_S4_.exit:    ; preds = %_ZNSt11char_traitsI
 declare void @_ZNK3nix14StoreDirConfig14parseStorePathESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.nix::StorePath") align 8, ptr noundef nonnull align 8 dereferenceable(344), i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nixL23parseDerivedPathMapNodeB5cxx11ERKNS_14StoreDirConfigERNS_12_GLOBAL__N_116StringViewStreamENS_22DerivationATermVersionE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nixL23parseDerivedPathMapNodeB5cxx11ERKNS_14StoreDirConfigERNS_12_GLOBAL__N_116StringViewStreamENS_22DerivationATermVersionE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.anon.490, align 8
   %5 = alloca %"class.std::set", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7974,8 +7974,8 @@ define internal fastcc void @_ZN3nixL23parseDerivedPathMapNodeB5cxx11ERKNS_14Sto
   store ptr %0, ptr %4, align 8
   %21 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %21, align 8
-  %switch = icmp eq i32 %2, 0
-  br i1 %switch, label %.invoke, label %22
+  %trunc = trunc nuw i32 %2 to i1
+  br i1 %trunc, label %22, label %.invoke
 
 .invoke:                                          ; preds = %3, %_ZNK3nix12_GLOBAL__N_116StringViewStream4peekEv.exit
   invoke fastcc void @"_ZZN3nixL23parseDerivedPathMapNodeB5cxx11ERKNS_14StoreDirConfigERNS_12_GLOBAL__N_116StringViewStreamENS_22DerivationATermVersionEENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -8010,7 +8010,7 @@ _ZNK3nix12_GLOBAL__N_116StringViewStream4peekEv.exit: ; preds = %22
           to label %27 unwind label %.loopexit.split-lp
 
 27:                                               ; preds = %26
-  invoke fastcc void @_ZN3nixL12parseStringsB5cxx11ERNS_12_GLOBAL__N_116StringViewStreamEb(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext false)
+  invoke fastcc void @_ZN3nixL12parseStringsB5cxx11ERNS_12_GLOBAL__N_116StringViewStreamEb(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext false)
           to label %28 unwind label %.loopexit.split-lp
 
 28:                                               ; preds = %27
@@ -8109,7 +8109,7 @@ _ZN3nixL9endOfListERNS_12_GLOBAL__N_116StringViewStreamE.exit.thread: ; preds = 
           to label %62 unwind label %.loopexit
 
 62:                                               ; preds = %_ZN3nixL9endOfListERNS_12_GLOBAL__N_116StringViewStreamE.exit.thread
-  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %63 unwind label %.loopexit
 
 63:                                               ; preds = %62
@@ -8146,7 +8146,7 @@ _ZN3nix16BackedStringViewD2Ev.exit:               ; preds = %64, %_ZNSt8__detail
           to label %71 unwind label %90
 
 71:                                               ; preds = %_ZN3nix16BackedStringViewD2Ev.exit
-  invoke fastcc void @_ZN3nixL23parseDerivedPathMapNodeB5cxx11ERKNS_14StoreDirConfigERNS_12_GLOBAL__N_116StringViewStreamENS_22DerivationATermVersionE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 1)
+  invoke fastcc void @_ZN3nixL23parseDerivedPathMapNodeB5cxx11ERKNS_14StoreDirConfigERNS_12_GLOBAL__N_116StringViewStreamENS_22DerivationATermVersionE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 1)
           to label %72 unwind label %90
 
 72:                                               ; preds = %71
@@ -8333,7 +8333,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 declare void @_ZNK3nix14StoreDirConfig17parseStorePathSetERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EE(ptr dead_on_unwind writable sret(%"class.std::set.132") align 8, ptr noundef nonnull align 8 dereferenceable(344), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nixL12parseStringsB5cxx11ERNS_12_GLOBAL__N_116StringViewStreamEb(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nixL12parseStringsB5cxx11ERNS_12_GLOBAL__N_116StringViewStreamEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.nix::BackedStringView", align 8
@@ -8384,7 +8384,7 @@ _ZN3nixL9endOfListERNS_12_GLOBAL__N_116StringViewStreamE.exit.thread: ; preds = 
 
 22:                                               ; preds = %_ZN3nixL9endOfListERNS_12_GLOBAL__N_116StringViewStreamE.exit.thread
   call void @llvm.experimental.noalias.scope.decl(metadata !88)
-  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %22
@@ -8457,7 +8457,7 @@ _ZSt3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_St17basic_strin
   br label %.body
 
 39:                                               ; preds = %_ZN3nixL9endOfListERNS_12_GLOBAL__N_116StringViewStreamE.exit.thread
-  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  invoke fastcc void @_ZN3nixL11parseStringERNS_12_GLOBAL__N_116StringViewStreamE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %_ZN3nixL9parsePathERNS_12_GLOBAL__N_116StringViewStreamE.exit unwind label %.loopexit
 
 _ZN3nixL9parsePathERNS_12_GLOBAL__N_116StringViewStreamE.exit: ; preds = %_ZSt3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_St17basic_string_viewIcS3_EEERKT_RKSt7variantIJDpT0_EE.exit.i.i, %39
@@ -13228,7 +13228,7 @@ _ZN3nix7readNumImEET_RNS_6SourceE.exit:           ; preds = %31
   %56 = load i64, ptr %40, align 8, !noalias !137
   %57 = load ptr, ptr %9, align 8, !noalias !137
   %58 = load i64, ptr %41, align 8, !noalias !137
-  invoke fastcc void @_ZN3nixL21parseDerivationOutputERKNS_14StoreDirConfigESt17basic_string_viewIcSt11char_traitsIcEES6_S6_RKNS_27ExperimentalFeatureSettingsE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(344) %1, i64 %54, ptr %53, i64 %56, ptr %55, i64 %58, ptr %57, ptr noundef nonnull align 8 dereferenceable(344) @_ZN3nix27experimentalFeatureSettingsE)
+  invoke fastcc void @_ZN3nixL21parseDerivationOutputERKNS_14StoreDirConfigESt17basic_string_viewIcSt11char_traitsIcEES6_S6_RKNS_27ExperimentalFeatureSettingsE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(344) %1, i64 %54, ptr %53, i64 %56, ptr %55, i64 %58, ptr %57, ptr noundef nonnull align 8 dereferenceable(344) @_ZN3nix27experimentalFeatureSettingsE)
           to label %59 unwind label %76
 
 59:                                               ; preds = %52
@@ -33389,7 +33389,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nixL21parseDerivationOutputERKNS_14StoreDirConfigESt17basic_string_viewIcSt11char_traitsIcEES6_S6_RKNS_27ExperimentalFeatureSettingsE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1, i64 %2, ptr %3, i64 %4, ptr %5, i64 %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(344) %6) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nixL21parseDerivationOutputERKNS_14StoreDirConfigESt17basic_string_viewIcSt11char_traitsIcEES6_S6_RKNS_27ExperimentalFeatureSettingsE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1, i64 %2, ptr %3, i64 %4, ptr %5, i64 %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(344) %6) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::basic_string_view", align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -33707,7 +33707,7 @@ define internal fastcc void @"_ZZN3nixL23parseDerivedPathMapNodeB5cxx11ERKNS_14S
   %2 = alloca %"class.std::set", align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  call fastcc void @_ZN3nixL12parseStringsB5cxx11ERNS_12_GLOBAL__N_116StringViewStreamEb(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %4, i1 noundef zeroext false)
+  call fastcc void @_ZN3nixL12parseStringsB5cxx11ERNS_12_GLOBAL__N_116StringViewStreamEb(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %4, i1 noundef zeroext false)
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8

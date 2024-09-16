@@ -771,12 +771,12 @@ define hidden void @_ZN3aes2ni6aes25617inv_expanded_keys17hff4899702010b06cE.llv
 
 ; Function Attrs: noreturn nonlazybind uwtable
 define hidden void @_ZN3std10sys_common9backtrace26__rust_end_short_backtrace17h099903ceb8051302E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #11 {
-  tail call fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure$u7d$$u7d$17h10f4a6c4b9f28e65E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) #36
+  tail call fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure$u7d$$u7d$17h10f4a6c4b9f28e65E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) #36
   unreachable
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define internal fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure$u7d$$u7d$17h10f4a6c4b9f28e65E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #12 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure$u7d$$u7d$17h10f4a6c4b9f28e65E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #12 personality ptr @rust_eh_personality {
   %2 = alloca { ptr, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !nonnull !9, !align !40, !noundef !9
@@ -1240,7 +1240,7 @@ define hidden void @"_ZN66_$LT$aes..autodetect..Aes256$u20$as$u20$crypto_common.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN6cipher11stream_core16StreamCipherCore27try_apply_keystream_partial17h1acbd2643d48b935E(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #9 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN6cipher11stream_core16StreamCipherCore27try_apply_keystream_partial17h1acbd2643d48b935E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #9 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { ptr, ptr }, i64 }, align 8
   %5 = alloca ptr, align 8
@@ -1280,7 +1280,7 @@ define internal fastcc noundef zeroext i1 @_ZN6cipher11stream_core16StreamCipher
   store ptr %29, ptr %1, align 8
   store ptr %30, ptr %23, align 8
   store i64 %15, ptr %13, align 8
-  call fastcc void @_ZN6cipher11stream_core16StreamCipherCore28apply_keystream_blocks_inout17he9f2c44fc9287ac0E(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %7)
+  call fastcc void @_ZN6cipher11stream_core16StreamCipherCore28apply_keystream_blocks_inout17he9f2c44fc9287ac0E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %7)
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %19, %21
@@ -1333,7 +1333,7 @@ thread-pre-split:                                 ; preds = %19, %21
   store ptr %9, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %8, i64 16
   store i64 1, ptr %44, align 8
-  call fastcc void @_ZN6cipher11stream_core16StreamCipherCore28apply_keystream_blocks_inout17he9f2c44fc9287ac0E(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %8)
+  call fastcc void @_ZN6cipher11stream_core16StreamCipherCore28apply_keystream_blocks_inout17he9f2c44fc9287ac0E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %8)
   %45 = getelementptr inbounds i8, ptr %1, i64 8
   %46 = load ptr, ptr %45, align 8, !noundef !9
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull readonly align 1 %9, i64 %31, i1 false), !alias.scope !279, !noalias !283
@@ -1345,7 +1345,7 @@ thread-pre-split:                                 ; preds = %19, %21
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN6cipher11stream_core16StreamCipherCore28apply_keystream_blocks_inout17he9f2c44fc9287ac0E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #9 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6cipher11stream_core16StreamCipherCore28apply_keystream_blocks_inout17he9f2c44fc9287ac0E(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #9 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { ptr, ptr }, i64 }, align 8
   %5 = alloca ptr, align 8
@@ -1402,7 +1402,7 @@ define internal fastcc void @_ZN6cipher11stream_core16StreamCipherCore28apply_ke
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %2
-  call fastcc void @"_ZN71_$LT$aes..autodetect..Aes256$u20$as$u20$cipher..block..BlockEncrypt$GT$20encrypt_with_backend5inner17hc73b278d0052d421E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(480) %42, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %39), !noalias !308
+  call fastcc void @"_ZN71_$LT$aes..autodetect..Aes256$u20$as$u20$cipher..block..BlockEncrypt$GT$20encrypt_with_backend5inner17hc73b278d0052d421E"(ptr noalias noundef readonly align 16 dereferenceable(480) %42, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %39), !noalias !308
   br label %"_ZN93_$LT$ctr..ctr_core..CtrCore$LT$C$C$F$GT$$u20$as$u20$cipher..stream_core..StreamCipherCore$GT$20process_with_backend17h91eb35d0bb5bfc4cE.exit"
 
 46:                                               ; preds = %2
@@ -1863,7 +1863,7 @@ define hidden void @"_ZN71_$LT$aes..autodetect..Aes256$u20$as$u20$cipher..block.
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %3
-  tail call fastcc void @"_ZN71_$LT$aes..autodetect..Aes256$u20$as$u20$cipher..block..BlockEncrypt$GT$20encrypt_with_backend5inner17h1301766bedac93bbE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(480) %0, ptr noundef %1, ptr noundef %2)
+  tail call fastcc void @"_ZN71_$LT$aes..autodetect..Aes256$u20$as$u20$cipher..block..BlockEncrypt$GT$20encrypt_with_backend5inner17h1301766bedac93bbE"(ptr noalias noundef readonly align 16 dereferenceable(480) %0, ptr noundef %1, ptr noundef %2)
   br label %23
 
 13:                                               ; preds = %3
@@ -1918,7 +1918,7 @@ define hidden void @"_ZN71_$LT$aes..autodetect..Aes256$u20$as$u20$cipher..block.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @"_ZN71_$LT$aes..autodetect..Aes256$u20$as$u20$cipher..block..BlockEncrypt$GT$20encrypt_with_backend5inner17h1301766bedac93bbE"(ptr noalias nocapture noundef readonly align 16 dereferenceable(480) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #21 {
+define internal fastcc void @"_ZN71_$LT$aes..autodetect..Aes256$u20$as$u20$cipher..block..BlockEncrypt$GT$20encrypt_with_backend5inner17h1301766bedac93bbE"(ptr noalias nocapture noundef nonnull readonly align 16 dereferenceable(480) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #21 {
   %.val = load <2 x i64>, ptr %1, align 1, !noalias !492
   tail call void @llvm.experimental.noalias.scope.decl(metadata !495)
   %4 = load <2 x i64>, ptr %0, align 16, !alias.scope !495
@@ -1970,7 +1970,7 @@ define internal fastcc void @"_ZN71_$LT$aes..autodetect..Aes256$u20$as$u20$ciphe
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN71_$LT$aes..autodetect..Aes256$u20$as$u20$cipher..block..BlockEncrypt$GT$20encrypt_with_backend5inner17haf93602d24bbbc26E"(ptr noalias nocapture noundef readonly align 16 dereferenceable(480) %0, ptr noalias nocapture noundef align 4 dereferenceable(20) %1, ptr noalias nocapture noundef writeonly align 1 dereferenceable(16) %2) unnamed_addr #22 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN71_$LT$aes..autodetect..Aes256$u20$as$u20$cipher..block..BlockEncrypt$GT$20encrypt_with_backend5inner17haf93602d24bbbc26E"(ptr noalias nocapture noundef nonnull readonly align 16 dereferenceable(480) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %1, ptr noalias nocapture noundef nonnull writeonly align 1 dereferenceable(16) %2) unnamed_addr #22 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca { { ptr, ptr }, i64 }, align 8
   %6 = alloca ptr, align 8
@@ -2072,7 +2072,7 @@ define internal fastcc void @"_ZN71_$LT$aes..autodetect..Aes256$u20$as$u20$ciphe
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN71_$LT$aes..autodetect..Aes256$u20$as$u20$cipher..block..BlockEncrypt$GT$20encrypt_with_backend5inner17hc73b278d0052d421E"(ptr noalias nocapture noundef readonly align 16 dereferenceable(480) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #22 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN71_$LT$aes..autodetect..Aes256$u20$as$u20$cipher..block..BlockEncrypt$GT$20encrypt_with_backend5inner17hc73b278d0052d421E"(ptr noalias nocapture noundef nonnull readonly align 16 dereferenceable(480) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #22 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { ptr, ptr }, i64 }, align 8
   %5 = alloca ptr, align 8
@@ -2844,7 +2844,7 @@ define hidden void @"_ZN75_$LT$ghash..GHashBackend$LT$B$GT$$u20$as$u20$universal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN7aes_gcm39AesGcm$LT$Aes$C$NonceSize$C$TagSize$GT$11compute_tag17h41c56263eaeb9f0fE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(16) %0, ptr noalias noundef readonly align 16 dereferenceable(992) %1, ptr noalias nocapture noundef readonly align 1 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN7aes_gcm39AesGcm$LT$Aes$C$NonceSize$C$TagSize$GT$11compute_tag17h41c56263eaeb9f0fE"(ptr noalias nocapture noundef nonnull writeonly align 1 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 16 dereferenceable(992) %1, ptr noalias nocapture noundef nonnull readonly align 1 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef range(i64 0, 68719476737) %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef range(i64 0, 68719476753) %6) unnamed_addr #3 personality ptr @rust_eh_personality {
   %8 = alloca {}, align 1
   %9 = alloca { { ptr, ptr }, i64 }, align 8
   %10 = alloca ptr, align 8
@@ -2864,7 +2864,7 @@ define internal fastcc void @"_ZN7aes_gcm39AesGcm$LT$Aes$C$NonceSize$C$TagSize$G
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
   %24 = getelementptr inbounds i8, ptr %1, i64 960
   call void @"_ZN76_$LT$polyval..backend..autodetect..Polyval$u20$as$u20$core..clone..Clone$GT$5clone17h91f07a9727ca2db3E"(ptr noalias nocapture noundef nonnull sret({ { [4 x i64] }, { {} } }) align 16 dereferenceable(32) %23, ptr noalias noundef nonnull readonly align 16 dereferenceable(32) %24)
-  %25 = and i64 %4, -16
+  %25 = and i64 %4, 137438953456
   %26 = lshr i64 %4, 4
   %27 = getelementptr inbounds i8, ptr %3, i64 %25
   %28 = and i64 %4, 15
@@ -2917,7 +2917,7 @@ common.resume:                                    ; preds = %54, %47, %34
   br label %_ZN14universal_hash13UniversalHash13update_padded17h5b9b0b70e78d4822E.exit
 
 _ZN14universal_hash13UniversalHash13update_padded17h5b9b0b70e78d4822E.exit: ; preds = %7, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i"
-  %38 = and i64 %6, -16
+  %38 = and i64 %6, 137438953456
   %39 = lshr i64 %6, 4
   %40 = getelementptr inbounds i8, ptr %5, i64 %38
   %41 = and i64 %6, 15
@@ -3045,7 +3045,7 @@ _ZN14universal_hash13UniversalHash13update_padded17h5b9b0b70e78d4822E.exit30: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN7aes_gcm39AesGcm$LT$Aes$C$NonceSize$C$TagSize$GT$8init_ctr17h5cc46ec9a46fbcdbE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 16 dereferenceable(992) %1, ptr noalias nocapture noundef readonly align 1 dereferenceable(12) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN7aes_gcm39AesGcm$LT$Aes$C$NonceSize$C$TagSize$GT$8init_ctr17h5cc46ec9a46fbcdbE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 16 dereferenceable(992) %1, ptr noalias nocapture noundef nonnull readonly align 1 dereferenceable(12) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca { { ptr, ptr }, i64 }, align 8
   %6 = alloca ptr, align 8
@@ -3215,7 +3215,7 @@ common.resume:                                    ; preds = %62, %72, %51, %37, 
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17ha6b6f358ce7b7248E.exit31"
-  call fastcc void @"_ZN71_$LT$aes..autodetect..Aes256$u20$as$u20$cipher..block..BlockEncrypt$GT$20encrypt_with_backend5inner17haf93602d24bbbc26E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(480) %1, ptr noalias noundef nonnull align 4 dereferenceable(20) %47, ptr noalias noundef nonnull align 1 dereferenceable(16) %24)
+  call fastcc void @"_ZN71_$LT$aes..autodetect..Aes256$u20$as$u20$cipher..block..BlockEncrypt$GT$20encrypt_with_backend5inner17haf93602d24bbbc26E"(ptr noalias noundef readonly align 16 dereferenceable(480) %1, ptr noalias noundef align 4 dereferenceable(20) %47, ptr noalias noundef align 1 dereferenceable(16) %24)
   br label %"_ZN71_$LT$aes..autodetect..Aes256$u20$as$u20$cipher..block..BlockEncrypt$GT$20encrypt_with_backend17heee341bc7d0c9b34E.exit"
 
 58:                                               ; preds = %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17ha6b6f358ce7b7248E.exit31"
@@ -3405,13 +3405,13 @@ define hidden noundef zeroext i1 @"_ZN86_$LT$aes_gcm..AesGcm$LT$Aes$C$NonceSize$
 
 .preheader.i:                                     ; preds = %7
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
-  call fastcc void @"_ZN7aes_gcm39AesGcm$LT$Aes$C$NonceSize$C$TagSize$GT$8init_ctr17h5cc46ec9a46fbcdbE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11, ptr noalias noundef nonnull readonly align 16 dereferenceable(992) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(12) %1)
+  call fastcc void @"_ZN7aes_gcm39AesGcm$LT$Aes$C$NonceSize$C$TagSize$GT$8init_ctr17h5cc46ec9a46fbcdbE"(ptr noalias nocapture noundef align 8 dereferenceable(48) %11, ptr noalias noundef readonly align 16 dereferenceable(992) %0, ptr noalias noundef readonly align 1 dereferenceable(12) %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   %16 = getelementptr inbounds i8, ptr %11, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call fastcc void @"_ZN7aes_gcm39AesGcm$LT$Aes$C$NonceSize$C$TagSize$GT$11compute_tag17h41c56263eaeb9f0fE"(ptr noalias nocapture noundef nonnull align 1 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 16 dereferenceable(992) %0, ptr noalias nocapture noundef nonnull align 1 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
+  call fastcc void @"_ZN7aes_gcm39AesGcm$LT$Aes$C$NonceSize$C$TagSize$GT$11compute_tag17h41c56263eaeb9f0fE"(ptr noalias nocapture noundef align 1 dereferenceable(16) %10, ptr noalias noundef readonly align 16 dereferenceable(992) %0, ptr noalias nocapture noundef align 1 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1014)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1017)
   br label %.lr.ph.i
@@ -3443,7 +3443,7 @@ define hidden noundef zeroext i1 @"_ZN86_$LT$aes_gcm..AesGcm$LT$Aes$C$NonceSize$
   store ptr %4, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %9, i64 16
   store i64 %5, ptr %28, align 8
-  %29 = call fastcc noundef zeroext i1 @_ZN6cipher11stream_core16StreamCipherCore27try_apply_keystream_partial17h1acbd2643d48b935E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %9)
+  %29 = call fastcc noundef zeroext i1 @_ZN6cipher11stream_core16StreamCipherCore27try_apply_keystream_partial17h1acbd2643d48b935E(ptr noalias nocapture noundef align 8 dereferenceable(32) %13, ptr noalias nocapture noundef align 8 dereferenceable(24) %9)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %8)
   br i1 %29, label %30, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5c1acd4bf2550d62E.exit"
 
@@ -4067,7 +4067,7 @@ define void @"_ZN99_$LT$ockam_vault..software..vault_for_secure_channels..aes..A
 
 17:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12), !noalias !1154
-  call fastcc void @"_ZN7aes_gcm39AesGcm$LT$Aes$C$NonceSize$C$TagSize$GT$8init_ctr17h5cc46ec9a46fbcdbE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %12, ptr noalias noundef nonnull readonly align 16 dereferenceable(992) %1, ptr noalias noundef nonnull readonly align 1 dereferenceable(12) %2), !noalias !1159
+  call fastcc void @"_ZN7aes_gcm39AesGcm$LT$Aes$C$NonceSize$C$TagSize$GT$8init_ctr17h5cc46ec9a46fbcdbE"(ptr noalias nocapture noundef align 8 dereferenceable(48) %12, ptr noalias noundef readonly align 16 dereferenceable(992) %1, ptr noalias noundef readonly align 1 dereferenceable(12) %2), !noalias !1159
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !1154
   %18 = getelementptr inbounds i8, ptr %12, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !1154
@@ -4078,7 +4078,7 @@ define void @"_ZN99_$LT$ockam_vault..software..vault_for_secure_channels..aes..A
   store ptr %5, ptr %19, align 8, !noalias !1154
   %20 = getelementptr inbounds i8, ptr %11, i64 16
   store i64 %6, ptr %20, align 8, !noalias !1154
-  %21 = call fastcc noundef zeroext i1 @_ZN6cipher11stream_core16StreamCipherCore27try_apply_keystream_partial17h1acbd2643d48b935E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %14, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11), !noalias !1160
+  %21 = call fastcc noundef zeroext i1 @_ZN6cipher11stream_core16StreamCipherCore27try_apply_keystream_partial17h1acbd2643d48b935E(ptr noalias nocapture noundef align 8 dereferenceable(32) %14, ptr noalias nocapture noundef align 8 dereferenceable(24) %11), !noalias !1160
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %8), !noalias !1154
   br i1 %21, label %22, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5c1acd4bf2550d62E.exit.i"
 
@@ -4090,7 +4090,7 @@ define void @"_ZN99_$LT$ockam_vault..software..vault_for_secure_channels..aes..A
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %8), !noalias !1154
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !1154
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !1154
-  call fastcc void @"_ZN7aes_gcm39AesGcm$LT$Aes$C$NonceSize$C$TagSize$GT$11compute_tag17h41c56263eaeb9f0fE"(ptr noalias nocapture noundef nonnull align 1 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 16 dereferenceable(992) %1, ptr noalias nocapture noundef nonnull align 1 dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6), !noalias !1161
+  call fastcc void @"_ZN7aes_gcm39AesGcm$LT$Aes$C$NonceSize$C$TagSize$GT$11compute_tag17h41c56263eaeb9f0fE"(ptr noalias nocapture noundef align 1 dereferenceable(16) %10, ptr noalias noundef readonly align 16 dereferenceable(992) %1, ptr noalias nocapture noundef align 1 dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6), !noalias !1161
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %9), !noalias !1162
   %23 = getelementptr inbounds i8, ptr %10, i64 16

@@ -1224,7 +1224,7 @@ _ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EED2Ev.exit: ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0, i16 noundef zeroext %1) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0, i16 noundef zeroext range(i16 0, 97) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i16, ptr %3, align 4
   %5 = and i16 %4, 8

@@ -1908,7 +1908,7 @@ return:                                           ; preds = %return.loopexit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @allocString(ptr nocapture noundef %block, ptr nocapture noundef readonly %s, i32 noundef %length) unnamed_addr #0 {
+define internal fastcc ptr @allocString(ptr nocapture noundef %block, ptr nocapture noundef readonly %s, i32 noundef range(i32 -1, 65536) %length) unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %length, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1995,7 +1995,7 @@ declare signext i8 @uprv_isInvariantString_75(ptr noundef, i32 noundef) local_un
 declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addAlias(ptr noundef %alias, i16 noundef zeroext %standard, i16 noundef zeroext %converter, i8 noundef signext %defaultName) unnamed_addr #0 {
+define internal fastcc void @addAlias(ptr noundef %alias, i16 noundef zeroext %standard, i16 noundef zeroext %converter, i8 noundef signext range(i8 0, 2) %defaultName) unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i16 %standard, 62
   br i1 %cmp, label %if.then, label %if.end

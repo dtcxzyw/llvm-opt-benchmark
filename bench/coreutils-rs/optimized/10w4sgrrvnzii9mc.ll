@@ -456,7 +456,7 @@ define hidden void @_ZN3std4sync6poison10map_result17hd92727b4f2f28844E(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$uu_pr..FileLine$GT$$GT$17h69647556b133fe67E"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$uu_pr..FileLine$GT$$GT$17h69647556b133fe67E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !69, !noundef !13
@@ -979,7 +979,7 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$13lo
 
 .body:                                            ; preds = %54, %41
   %eh.lpad-body = phi { ptr, i32 } [ %42, %41 ], [ %lpad.thr_comm.i.i, %54 ]
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$uu_pr..FileLine$GT$$GT$17h69647556b133fe67E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %10) #19
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$uu_pr..FileLine$GT$$GT$17h69647556b133fe67E"(ptr noalias noundef align 8 dereferenceable(64) %10) #19
           to label %62 unwind label %60
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h9c59a20a4c1bc14eE.exit": ; preds = %39
@@ -1254,7 +1254,7 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
 .body86:                                          ; preds = %155, %.body.thread.i, %103, %123, %71
   %.2 = phi i1 [ true, %71 ], [ true, %123 ], [ true, %103 ], [ false, %.body.thread.i ], [ false, %155 ]
   %.pn28 = phi { ptr, i32 } [ %72, %71 ], [ %124, %123 ], [ %104, %103 ], [ %174, %.body.thread.i ], [ %156, %155 ]
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$uu_pr..FileLine$GT$$GT$17h69647556b133fe67E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %18) #19
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$uu_pr..FileLine$GT$$GT$17h69647556b133fe67E"(ptr noalias noundef align 8 dereferenceable(64) %18) #19
           to label %35 unwind label %125
 
 71:                                               ; preds = %122, %119, %112, %67

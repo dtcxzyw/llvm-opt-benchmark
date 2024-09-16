@@ -793,7 +793,7 @@ terminate.lpad.i.i20:                             ; preds = %ehcleanup26
 if.end27:                                         ; preds = %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit, %_ZN4cvc58internal7IntegerD2Ev.exit
   %20 = load ptr, ptr %n, align 8
   store ptr %20, ptr %agg.tmp28, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_112addToProductERSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EERNS0_19RealAlgebraicNumberENS6_ILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %monomial, ptr noundef nonnull align 8 dereferenceable(32) %multiplicity, ptr noundef nonnull %agg.tmp28)
+  invoke fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_112addToProductERSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EERNS0_19RealAlgebraicNumberENS6_ILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %monomial, ptr noundef nonnull align 8 dereferenceable(32) %multiplicity, ptr noundef %agg.tmp28)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %if.end27
@@ -803,7 +803,7 @@ invoke.cont31:                                    ; preds = %if.end27
 invoke.cont35:                                    ; preds = %invoke.cont31
   %21 = load ptr, ptr %ref.tmp34, align 8
   store ptr %21, ptr %agg.tmp33, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18addToSumERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEENS6_ILb0EEERKS8_(ptr noundef nonnull align 8 dereferenceable(48) %sum, ptr noundef nonnull %agg.tmp33, ptr noundef nonnull align 8 dereferenceable(32) %multiplicity)
+  invoke fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18addToSumERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEENS6_ILb0EEERKS8_(ptr noundef nonnull align 8 dereferenceable(48) %sum, ptr noundef %agg.tmp33, ptr noundef nonnull align 8 dereferenceable(32) %multiplicity)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont35
@@ -932,7 +932,7 @@ ehcleanup43:                                      ; preds = %ehcleanup42, %lpad1
 declare void @_ZN4cvc58internal19RealAlgebraicNumberC1ERKNS0_7IntegerE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_112addToProductERSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EERNS0_19RealAlgebraicNumberENS6_ILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %product, ptr noundef nonnull align 8 dereferenceable(32) %multiplicity, ptr noundef %n) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_112addToProductERSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EERNS0_19RealAlgebraicNumberENS6_ILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %product, ptr noundef nonnull align 8 dereferenceable(32) %multiplicity, ptr noundef nonnull %n) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -968,7 +968,7 @@ for.body:                                         ; preds = %sw.bb, %for.body
   %__begin5.sroa.0.013 = phi ptr [ %incdec.ptr.i, %for.body ], [ %spec.select.i.i, %sw.bb ]
   %2 = load ptr, ptr %__begin5.sroa.0.013, align 8, !noalias !13
   store ptr %2, ptr %agg.tmp, align 8
-  call fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_112addToProductERSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EERNS0_19RealAlgebraicNumberENS6_ILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %product, ptr noundef nonnull align 8 dereferenceable(32) %multiplicity, ptr noundef nonnull %agg.tmp)
+  call fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_112addToProductERSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EERNS0_19RealAlgebraicNumberENS6_ILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %product, ptr noundef nonnull align 8 dereferenceable(32) %multiplicity, ptr noundef %agg.tmp)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin5.sroa.0.013, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %sw.epilog, label %for.body
@@ -1109,7 +1109,7 @@ eh.resume:                                        ; preds = %lpad19, %lpad.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18addToSumERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEENS6_ILb0EEERKS8_(ptr noundef nonnull align 8 dereferenceable(48) %sum, ptr noundef %product, ptr noundef nonnull align 8 dereferenceable(32) %multiplicity) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18addToSumERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEENS6_ILb0EEERKS8_(ptr noundef nonnull align 8 dereferenceable(48) %sum, ptr noundef nonnull %product, ptr noundef nonnull align 8 dereferenceable(32) %multiplicity) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
   %agg.tmp2.i.i.i = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -2032,7 +2032,7 @@ for.body74:                                       ; preds = %for.body74.lr.ph, %
 
 if.then78:                                        ; preds = %for.body74
   store ptr %23, ptr %agg.tmp, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_112addToProductERSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EERNS0_19RealAlgebraicNumberENS6_ILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %base, ptr noundef nonnull align 8 dereferenceable(32) %basemultiplicity, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_112addToProductERSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EERNS0_19RealAlgebraicNumberENS6_ILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %base, ptr noundef nonnull align 8 dereferenceable(32) %basemultiplicity, ptr noundef %agg.tmp)
           to label %for.inc319 unwind label %lpad80
 
 lpad42:                                           ; preds = %if.end
@@ -2246,7 +2246,7 @@ terminate.lpad.i.i.i161:                          ; preds = %invoke.cont119
 _ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit162: ; preds = %invoke.cont119
   %51 = load ptr, ptr %_M_storage.i.i, align 8
   store ptr %51, ptr %agg.tmp122, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18addToSumERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEENS6_ILb0EEERKS8_(ptr noundef nonnull align 8 dereferenceable(48) %newsum, ptr noundef nonnull %agg.tmp122, ptr noundef nonnull align 8 dereferenceable(32) %multiplicity)
+  invoke fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18addToSumERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEENS6_ILb0EEERKS8_(ptr noundef nonnull align 8 dereferenceable(48) %newsum, ptr noundef %agg.tmp122, ptr noundef nonnull align 8 dereferenceable(32) %multiplicity)
           to label %cleanup unwind label %lpad124
 
 lpad95:                                           ; preds = %for.body93
@@ -2408,7 +2408,7 @@ invoke.cont138:                                   ; preds = %if.then13.i.i.i, %i
 invoke.cont140:                                   ; preds = %invoke.cont138
   %68 = load ptr, ptr %_M_storage.i.i, align 8
   store ptr %68, ptr %agg.tmp143, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18addToSumERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEENS6_ILb0EEERKS8_(ptr noundef nonnull align 8 dereferenceable(48) %newsum, ptr noundef nonnull %agg.tmp143, ptr noundef nonnull align 8 dereferenceable(32) %multiplicity)
+  invoke fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18addToSumERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEENS6_ILb0EEERKS8_(ptr noundef nonnull align 8 dereferenceable(48) %newsum, ptr noundef %agg.tmp143, ptr noundef nonnull align 8 dereferenceable(32) %multiplicity)
           to label %cleanup unwind label %lpad146
 
 lpad137:                                          ; preds = %if.then13.i.i9.i, %if.then13.i.i.i719, %call2.i.noexc, %if.then.i712, %if.then134, %invoke.cont138
@@ -2425,13 +2425,13 @@ if.end149:                                        ; preds = %invoke.cont131
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %newProduct, i8 0, i64 24, i1 false)
   %71 = load ptr, ptr %_M_storage.i.i, align 8
   store ptr %71, ptr %agg.tmp150, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_112addToProductERSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EERNS0_19RealAlgebraicNumberENS6_ILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %newProduct, ptr noundef nonnull align 8 dereferenceable(32) %multiplicity, ptr noundef nonnull %agg.tmp150)
+  invoke fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_112addToProductERSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EERNS0_19RealAlgebraicNumberENS6_ILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %newProduct, ptr noundef nonnull align 8 dereferenceable(32) %multiplicity, ptr noundef %agg.tmp150)
           to label %invoke.cont155 unwind label %lpad154
 
 invoke.cont155:                                   ; preds = %if.end149
   %72 = load ptr, ptr %ref.tmp106, align 8
   store ptr %72, ptr %agg.tmp157, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_112addToProductERSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EERNS0_19RealAlgebraicNumberENS6_ILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %newProduct, ptr noundef nonnull align 8 dereferenceable(32) %multiplicity, ptr noundef nonnull %agg.tmp157)
+  invoke fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_112addToProductERSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EERNS0_19RealAlgebraicNumberENS6_ILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %newProduct, ptr noundef nonnull align 8 dereferenceable(32) %multiplicity, ptr noundef %agg.tmp157)
           to label %invoke.cont160 unwind label %lpad159
 
 invoke.cont160:                                   ; preds = %invoke.cont155
@@ -2485,7 +2485,7 @@ invoke.cont171:                                   ; preds = %.noexc178, %.noexc1
 invoke.cont174:                                   ; preds = %invoke.cont171
   %76 = load ptr, ptr %ref.tmp173, align 8
   store ptr %76, ptr %agg.tmp172, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18addToSumERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEENS6_ILb0EEERKS8_(ptr noundef nonnull align 8 dereferenceable(48) %newsum, ptr noundef nonnull %agg.tmp172, ptr noundef nonnull align 8 dereferenceable(32) %multiplicity)
+  invoke fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_18addToSumERSt3mapINS0_12NodeTemplateILb1EEENS0_19RealAlgebraicNumberENS3_14TermComparatorESaISt4pairIKS7_S8_EEENS6_ILb0EEERKS8_(ptr noundef nonnull align 8 dereferenceable(48) %newsum, ptr noundef %agg.tmp172, ptr noundef nonnull align 8 dereferenceable(32) %multiplicity)
           to label %invoke.cont178 unwind label %lpad177
 
 invoke.cont178:                                   ; preds = %invoke.cont174
@@ -2852,7 +2852,7 @@ invoke.cont12.i:                                  ; preds = %invoke.cont.i.i
   store ptr %call.i.i.i8.i.i, ptr %_M_finish.i.i.i.i, align 8, !noalias !28
   %124 = load ptr, ptr %_M_storage.i.i.i624, align 8, !noalias !28
   store ptr %124, ptr %agg.tmp.i620, align 8, !noalias !28
-  invoke fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_112addToProductERSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EERNS0_19RealAlgebraicNumberENS6_ILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %product.i, ptr noundef nonnull align 8 dereferenceable(32) %mult.i, ptr noundef nonnull %agg.tmp.i620)
+  invoke fastcc void @_ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_112addToProductERSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EERNS0_19RealAlgebraicNumberENS6_ILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %product.i, ptr noundef nonnull align 8 dereferenceable(32) %mult.i, ptr noundef %agg.tmp.i620)
           to label %invoke.cont16.i unwind label %lpad15.i, !noalias !28
 
 invoke.cont16.i:                                  ; preds = %invoke.cont12.i

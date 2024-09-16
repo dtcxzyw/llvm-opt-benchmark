@@ -2669,7 +2669,7 @@ define range(i32 -1, 1) i32 @H5O_get_hdr_info(ptr nocapture noundef readonly %0,
   br label %15
 
 8:                                                ; preds = %2
-  tail call fastcc void @H5O__get_hdr_info_real(ptr noundef nonnull %3, ptr noundef nonnull %1)
+  tail call fastcc void @H5O__get_hdr_info_real(ptr noundef %3, ptr noundef nonnull %1)
   %9 = tail call i32 @H5O_unprotect(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0)
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %15
@@ -2686,7 +2686,7 @@ define range(i32 -1, 1) i32 @H5O_get_hdr_info(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5O__get_hdr_info_real(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #7 {
+define internal fastcc void @H5O__get_hdr_info_real(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 288
   %4 = load i8, ptr %3, align 8
   %5 = zext i8 %4 to i32
@@ -3167,7 +3167,7 @@ H5O__obj_class_real.exit:                         ; preds = %20
   br i1 %.not, label %30, label %29
 
 29:                                               ; preds = %H5O__obj_class_real.exit
-  call fastcc void @H5O__get_hdr_info_real(ptr noundef nonnull %7, ptr noundef nonnull %1)
+  call fastcc void @H5O__get_hdr_info_real(ptr noundef %7, ptr noundef nonnull %1)
   br label %30
 
 30:                                               ; preds = %29, %H5O__obj_class_real.exit

@@ -10587,7 +10587,7 @@ _Py_EnterRecursiveCall.exit.i:                    ; preds = %_Py_NewRef.exit.i
   br i1 %tobool2.i.i.not.i, label %if.end35.i, label %failed.i
 
 if.end35.i:                                       ; preds = %_Py_EnterRecursiveCall.exit.i, %_Py_NewRef.exit.i
-  %call36.i = call fastcc i32 @obj2ast_stmt(ptr noundef nonnull %ast.i, ptr noundef nonnull %22, ptr noundef nonnull %val.i, ptr noundef %arena)
+  %call36.i = call fastcc i32 @obj2ast_stmt(ptr noundef %ast.i, ptr noundef nonnull %22, ptr noundef %val.i, ptr noundef %arena)
   %26 = load ptr, ptr %0, align 8
   %c_recursion_remaining.i.i.i = getelementptr inbounds i8, ptr %26, i64 44
   %27 = load i32, ptr %c_recursion_remaining.i.i.i, align 4
@@ -10725,7 +10725,7 @@ _Py_NewRef.exit150.i:                             ; preds = %if.end.i.i149.i, %f
   br i1 %tobool85.not.i, label %if.end87.i, label %failed.i
 
 if.end87.i:                                       ; preds = %_Py_NewRef.exit150.i
-  %call88.i = call fastcc i32 @obj2ast_type_ignore(ptr noundef nonnull %ast.i, ptr noundef nonnull %47, ptr noundef nonnull %val79.i, ptr noundef %arena)
+  %call88.i = call fastcc i32 @obj2ast_type_ignore(ptr noundef %ast.i, ptr noundef nonnull %47, ptr noundef %val79.i, ptr noundef %arena)
   %49 = load ptr, ptr %0, align 8
   %c_recursion_remaining.i.i151.i = getelementptr inbounds i8, ptr %49, i64 44
   %50 = load i32, ptr %c_recursion_remaining.i.i151.i, align 4
@@ -10918,7 +10918,7 @@ _Py_EnterRecursiveCall.exit191.i:                 ; preds = %_Py_NewRef.exit183.
   br i1 %tobool2.i.i189.not.i, label %if.end159.i, label %failed.i
 
 if.end159.i:                                      ; preds = %_Py_EnterRecursiveCall.exit191.i, %_Py_NewRef.exit183.i
-  %call160.i = call fastcc i32 @obj2ast_stmt(ptr noundef nonnull %ast.i, ptr noundef nonnull %71, ptr noundef nonnull %val151.i, ptr noundef %arena)
+  %call160.i = call fastcc i32 @obj2ast_stmt(ptr noundef %ast.i, ptr noundef nonnull %71, ptr noundef %val151.i, ptr noundef %arena)
   %75 = load ptr, ptr %0, align 8
   %c_recursion_remaining.i.i192.i = getelementptr inbounds i8, ptr %75, i64 44
   %76 = load i32, ptr %c_recursion_remaining.i.i192.i, align 4
@@ -11028,7 +11028,7 @@ if.else.i:                                        ; preds = %if.end196.i
 
 if.end203.i:                                      ; preds = %if.else.i
   %90 = load ptr, ptr %tmp.i, align 8
-  %call204.i = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %ast.i, ptr noundef %90, ptr noundef nonnull %body191.i, ptr noundef %arena)
+  %call204.i = call fastcc i32 @obj2ast_expr(ptr noundef %ast.i, ptr noundef %90, ptr noundef %body191.i, ptr noundef %arena)
   %91 = load ptr, ptr %0, align 8
   %c_recursion_remaining.i.i198.i = getelementptr inbounds i8, ptr %91, i64 44
   %92 = load i32, ptr %c_recursion_remaining.i.i198.i, align 4
@@ -11145,7 +11145,7 @@ _Py_NewRef.exit206.i:                             ; preds = %if.end.i.i205.i, %f
   br i1 %tobool264.not.i, label %if.end266.i, label %failed.i
 
 if.end266.i:                                      ; preds = %_Py_NewRef.exit206.i
-  %call267.i = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %ast.i, ptr noundef nonnull %108, ptr noundef nonnull %val258.i, ptr noundef %arena)
+  %call267.i = call fastcc i32 @obj2ast_expr(ptr noundef %ast.i, ptr noundef nonnull %108, ptr noundef %val258.i, ptr noundef %arena)
   %110 = load ptr, ptr %0, align 8
   %c_recursion_remaining.i.i207.i = getelementptr inbounds i8, ptr %110, i64 44
   %111 = load i32, ptr %c_recursion_remaining.i.i207.i, align 4
@@ -11236,7 +11236,7 @@ if.else294.i:                                     ; preds = %if.end291.i
 
 if.end299.i:                                      ; preds = %if.else294.i
   %124 = load ptr, ptr %tmp.i, align 8
-  %call300.i = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %ast.i, ptr noundef %124, ptr noundef nonnull %returns.i, ptr noundef %arena)
+  %call300.i = call fastcc i32 @obj2ast_expr(ptr noundef %ast.i, ptr noundef %124, ptr noundef %returns.i, ptr noundef %arena)
   %125 = load ptr, ptr %0, align 8
   %c_recursion_remaining.i.i209.i = getelementptr inbounds i8, ptr %125, i64 44
   %126 = load i32, ptr %c_recursion_remaining.i.i209.i, align 4
@@ -13050,7 +13050,7 @@ if.end43:                                         ; preds = %if.end37
   br i1 %tobool47.not, label %return, label %if.end49
 
 if.end49:                                         ; preds = %if.end43
-  %call51 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef nonnull %call45, ptr noundef nonnull @stmt_attributes, i32 noundef 4)
+  %call51 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef %call45, ptr noundef nonnull @stmt_attributes, i32 noundef 4)
   %cmp52 = icmp slt i32 %call51, 0
   br i1 %cmp52, label %return, label %if.end54
 
@@ -13401,7 +13401,7 @@ if.end320:                                        ; preds = %if.end314
   br i1 %tobool324.not, label %return, label %if.end326
 
 if.end326:                                        ; preds = %if.end320
-  %call328 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef nonnull %call322, ptr noundef nonnull @expr_attributes, i32 noundef 4)
+  %call328 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef %call322, ptr noundef nonnull @expr_attributes, i32 noundef 4)
   %cmp329 = icmp slt i32 %call328, 0
   br i1 %cmp329, label %return, label %if.end331
 
@@ -13682,7 +13682,7 @@ if.end536:                                        ; preds = %if.end531
   br i1 %tobool540.not, label %return, label %if.end542
 
 if.end542:                                        ; preds = %if.end536
-  %call544 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef nonnull %call538, ptr noundef null, i32 noundef 0)
+  %call544 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef %call538, ptr noundef null, i32 noundef 0)
   %cmp545 = icmp slt i32 %call544, 0
   br i1 %cmp545, label %return, label %if.end547
 
@@ -13740,7 +13740,7 @@ if.end583:                                        ; preds = %if.end577
   br i1 %tobool587.not, label %return, label %if.end589
 
 if.end589:                                        ; preds = %if.end583
-  %call591 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef nonnull %call585, ptr noundef null, i32 noundef 0)
+  %call591 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef %call585, ptr noundef null, i32 noundef 0)
   %cmp592 = icmp slt i32 %call591, 0
   br i1 %cmp592, label %return, label %if.end594
 
@@ -13783,7 +13783,7 @@ if.end618:                                        ; preds = %if.end612
   br i1 %tobool622.not, label %return, label %if.end624
 
 if.end624:                                        ; preds = %if.end618
-  %call626 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef nonnull %call620, ptr noundef null, i32 noundef 0)
+  %call626 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef %call620, ptr noundef null, i32 noundef 0)
   %cmp627 = icmp slt i32 %call626, 0
   br i1 %cmp627, label %return, label %if.end629
 
@@ -13991,7 +13991,7 @@ if.end785:                                        ; preds = %if.end779
   br i1 %tobool789.not, label %return, label %if.end791
 
 if.end791:                                        ; preds = %if.end785
-  %call793 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef nonnull %call787, ptr noundef null, i32 noundef 0)
+  %call793 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef %call787, ptr noundef null, i32 noundef 0)
   %cmp794 = icmp slt i32 %call793, 0
   br i1 %cmp794, label %return, label %if.end796
 
@@ -14064,7 +14064,7 @@ if.end844:                                        ; preds = %if.end838
   br i1 %tobool848.not, label %return, label %if.end850
 
 if.end850:                                        ; preds = %if.end844
-  %call852 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef nonnull %call846, ptr noundef null, i32 noundef 0)
+  %call852 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef %call846, ptr noundef null, i32 noundef 0)
   %cmp853 = icmp slt i32 %call852, 0
   br i1 %cmp853, label %return, label %if.end855
 
@@ -14227,7 +14227,7 @@ if.end975:                                        ; preds = %if.end969
   br i1 %tobool979.not, label %return, label %if.end981
 
 if.end981:                                        ; preds = %if.end975
-  %call983 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef nonnull %call977, ptr noundef null, i32 noundef 0)
+  %call983 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef %call977, ptr noundef null, i32 noundef 0)
   %cmp984 = icmp slt i32 %call983, 0
   br i1 %cmp984, label %return, label %if.end986
 
@@ -14240,7 +14240,7 @@ if.end986:                                        ; preds = %if.end981
   br i1 %tobool990.not, label %return, label %if.end992
 
 if.end992:                                        ; preds = %if.end986
-  %call994 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef nonnull %call988, ptr noundef nonnull @excepthandler_attributes, i32 noundef 4)
+  %call994 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef %call988, ptr noundef nonnull @excepthandler_attributes, i32 noundef 4)
   %cmp995 = icmp slt i32 %call994, 0
   br i1 %cmp995, label %return, label %if.end997
 
@@ -14288,7 +14288,7 @@ if.end1025:                                       ; preds = %if.end1020
   br i1 %tobool1029.not, label %return, label %if.end1031
 
 if.end1031:                                       ; preds = %if.end1025
-  %call1033 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef nonnull %call1027, ptr noundef null, i32 noundef 0)
+  %call1033 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef %call1027, ptr noundef null, i32 noundef 0)
   %cmp1034 = icmp slt i32 %call1033, 0
   br i1 %cmp1034, label %return, label %if.end1036
 
@@ -14315,7 +14315,7 @@ if.end1046:                                       ; preds = %if.end1041
   br i1 %tobool1050.not, label %return, label %if.end1052
 
 if.end1052:                                       ; preds = %if.end1046
-  %call1054 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef nonnull %call1048, ptr noundef nonnull @arg_attributes, i32 noundef 4)
+  %call1054 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef %call1048, ptr noundef nonnull @arg_attributes, i32 noundef 4)
   %cmp1055 = icmp slt i32 %call1054, 0
   br i1 %cmp1055, label %return, label %if.end1057
 
@@ -14356,7 +14356,7 @@ if.end1080:                                       ; preds = %if.end1074
   br i1 %tobool1084.not, label %return, label %if.end1086
 
 if.end1086:                                       ; preds = %if.end1080
-  %call1088 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef nonnull %call1082, ptr noundef nonnull @keyword_attributes, i32 noundef 4)
+  %call1088 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef %call1082, ptr noundef nonnull @keyword_attributes, i32 noundef 4)
   %cmp1089 = icmp slt i32 %call1088, 0
   br i1 %cmp1089, label %return, label %if.end1091
 
@@ -14390,7 +14390,7 @@ if.end1108:                                       ; preds = %if.end1102
   br i1 %tobool1112.not, label %return, label %if.end1114
 
 if.end1114:                                       ; preds = %if.end1108
-  %call1116 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef nonnull %call1110, ptr noundef nonnull @alias_attributes, i32 noundef 4)
+  %call1116 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef %call1110, ptr noundef nonnull @alias_attributes, i32 noundef 4)
   %cmp1117 = icmp slt i32 %call1116, 0
   br i1 %cmp1117, label %return, label %if.end1119
 
@@ -14424,7 +14424,7 @@ if.end1136:                                       ; preds = %if.end1130
   br i1 %tobool1140.not, label %return, label %if.end1142
 
 if.end1142:                                       ; preds = %if.end1136
-  %call1144 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef nonnull %call1138, ptr noundef null, i32 noundef 0)
+  %call1144 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef %call1138, ptr noundef null, i32 noundef 0)
   %cmp1145 = icmp slt i32 %call1144, 0
   br i1 %cmp1145, label %return, label %if.end1147
 
@@ -14444,7 +14444,7 @@ if.end1152:                                       ; preds = %if.end1147
   br i1 %tobool1156.not, label %return, label %if.end1158
 
 if.end1158:                                       ; preds = %if.end1152
-  %call1160 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef nonnull %call1154, ptr noundef null, i32 noundef 0)
+  %call1160 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef %call1154, ptr noundef null, i32 noundef 0)
   %cmp1161 = icmp slt i32 %call1160, 0
   br i1 %cmp1161, label %return, label %if.end1163
 
@@ -14464,7 +14464,7 @@ if.end1168:                                       ; preds = %if.end1163
   br i1 %tobool1172.not, label %return, label %if.end1174
 
 if.end1174:                                       ; preds = %if.end1168
-  %call1176 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef nonnull %call1170, ptr noundef nonnull @pattern_attributes, i32 noundef 4)
+  %call1176 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef %call1170, ptr noundef nonnull @pattern_attributes, i32 noundef 4)
   %cmp1177 = icmp slt i32 %call1176, 0
   br i1 %cmp1177, label %return, label %if.end1179
 
@@ -14566,7 +14566,7 @@ if.end1249:                                       ; preds = %if.end1243
   br i1 %tobool1253.not, label %return, label %if.end1255
 
 if.end1255:                                       ; preds = %if.end1249
-  %call1257 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef nonnull %call1251, ptr noundef null, i32 noundef 0)
+  %call1257 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef %call1251, ptr noundef null, i32 noundef 0)
   %cmp1258 = icmp slt i32 %call1257, 0
   br i1 %cmp1258, label %return, label %if.end1260
 
@@ -14587,7 +14587,7 @@ if.end1266:                                       ; preds = %if.end1260
   br i1 %tobool1270.not, label %return, label %if.end1272
 
 if.end1272:                                       ; preds = %if.end1266
-  %call1274 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef nonnull %call1268, ptr noundef nonnull @type_param_attributes, i32 noundef 4)
+  %call1274 = tail call fastcc i32 @add_attributes(ptr noundef nonnull %state, ptr noundef %call1268, ptr noundef nonnull @type_param_attributes, i32 noundef 4)
   %cmp1275 = icmp slt i32 %call1274, 0
   br i1 %cmp1275, label %return, label %if.end1277
 
@@ -14638,16 +14638,16 @@ declare i32 @_PyOnceFlag_CallOnceSlow(ptr noundef, ptr noundef, ptr noundef) loc
 declare ptr @PyType_FromSpec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @make_type(ptr nocapture noundef readonly %state, ptr noundef %type, ptr noundef %base, ptr nocapture noundef readonly %fields, i32 noundef %num_fields, ptr noundef %doc) unnamed_addr #0 {
+define internal fastcc ptr @make_type(ptr nocapture noundef readonly %state, ptr noundef %type, ptr noundef %base, ptr nocapture noundef readonly %fields, i32 noundef range(i32 0, 8) %num_fields, ptr noundef %doc) unnamed_addr #0 {
 entry:
-  %conv = zext i32 %num_fields to i64
+  %conv = zext nneg i32 %num_fields to i64
   %call = tail call ptr @PyTuple_New(i64 noundef %conv) #6
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %cmp19 = icmp sgt i32 %num_fields, 0
-  br i1 %cmp19, label %for.body.lr.ph, label %for.end
+  %cmp19.not = icmp eq i32 %num_fields, 0
+  br i1 %cmp19.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %ob_item.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -14714,16 +14714,16 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_attributes(ptr nocapture noundef readonly %state, ptr noundef %type, ptr nocapture noundef readonly %attrs, i32 noundef %num_fields) unnamed_addr #0 {
+define internal fastcc i32 @add_attributes(ptr nocapture noundef readonly %state, ptr noundef nonnull %type, ptr nocapture noundef readonly %attrs, i32 noundef range(i32 0, 5) %num_fields) unnamed_addr #0 {
 entry:
-  %conv = zext i32 %num_fields to i64
+  %conv = zext nneg i32 %num_fields to i64
   %call = tail call ptr @PyTuple_New(i64 noundef %conv) #6
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %cmp14 = icmp sgt i32 %num_fields, 0
-  br i1 %cmp14, label %for.body.lr.ph, label %for.end
+  %cmp14.not = icmp eq i32 %num_fields, 0
+  br i1 %cmp14.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %ob_item.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -14759,7 +14759,7 @@ if.end5:                                          ; preds = %for.body
 for.end:                                          ; preds = %if.end5, %for.cond.preheader
   %_attributes = getelementptr inbounds i8, ptr %state, i64 1144
   %3 = load ptr, ptr %_attributes, align 8
-  %call7 = tail call i32 @PyObject_SetAttr(ptr noundef %type, ptr noundef %3, ptr noundef nonnull %call) #6
+  %call7 = tail call i32 @PyObject_SetAttr(ptr noundef nonnull %type, ptr noundef %3, ptr noundef nonnull %call) #6
   %4 = load i64, ptr %call, align 8
   %5 = and i64 %4, 2147483648
   %cmp.i21.not = icmp eq i64 %5, 0
@@ -24188,7 +24188,7 @@ _Py_EnterRecursiveCallTstate.exit:                ; preds = %entry, %land.rhs.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_stmt(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc noundef i32 @obj2ast_stmt(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %col_offset = alloca i32, align 4
@@ -24400,7 +24400,7 @@ if.else25:                                        ; preds = %if.end22
 
 if.end30:                                         ; preds = %if.else25
   %21 = load ptr, ptr %tmp, align 8
-  %call31 = call fastcc i32 @obj2ast_int(ptr noundef %21, ptr noundef nonnull %col_offset)
+  %call31 = call fastcc i32 @obj2ast_int(ptr noundef %21, ptr noundef %col_offset)
   %22 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1652 = getelementptr inbounds i8, ptr %22, i64 44
   %23 = load i32, ptr %c_recursion_remaining.i.i1652, align 4
@@ -24476,7 +24476,7 @@ if.else58:                                        ; preds = %if.end47
 
 if.end63:                                         ; preds = %if.else58
   %31 = load ptr, ptr %tmp, align 8
-  %call64 = call fastcc i32 @obj2ast_int(ptr noundef %31, ptr noundef nonnull %end_lineno)
+  %call64 = call fastcc i32 @obj2ast_int(ptr noundef %31, ptr noundef %end_lineno)
   %32 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1654 = getelementptr inbounds i8, ptr %32, i64 44
   %33 = load i32, ptr %c_recursion_remaining.i.i1654, align 4
@@ -24553,7 +24553,7 @@ if.else92:                                        ; preds = %if.end80
 
 if.end97:                                         ; preds = %if.else92
   %42 = load ptr, ptr %tmp, align 8
-  %call98 = call fastcc i32 @obj2ast_int(ptr noundef %42, ptr noundef nonnull %end_col_offset)
+  %call98 = call fastcc i32 @obj2ast_int(ptr noundef %42, ptr noundef %end_col_offset)
   %43 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1656 = getelementptr inbounds i8, ptr %43, i64 44
   %44 = load i32, ptr %c_recursion_remaining.i.i1656, align 4
@@ -24617,7 +24617,7 @@ if.else123:                                       ; preds = %if.end120
 
 if.end128:                                        ; preds = %if.else123
   %52 = load ptr, ptr %tmp, align 8
-  %call129 = call fastcc i32 @obj2ast_identifier(ptr noundef %52, ptr noundef nonnull %name, ptr noundef %arena)
+  %call129 = call fastcc i32 @obj2ast_identifier(ptr noundef %52, ptr noundef %name, ptr noundef %arena)
   %53 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1658 = getelementptr inbounds i8, ptr %53, i64 44
   %54 = load i32, ptr %c_recursion_remaining.i.i1658, align 4
@@ -24672,7 +24672,7 @@ if.else148:                                       ; preds = %if.end145
 
 if.end153:                                        ; preds = %if.else148
   %61 = load ptr, ptr %tmp, align 8
-  %call154 = call fastcc i32 @obj2ast_arguments(ptr noundef nonnull %state, ptr noundef %61, ptr noundef nonnull %args, ptr noundef %arena)
+  %call154 = call fastcc i32 @obj2ast_arguments(ptr noundef %state, ptr noundef %61, ptr noundef %args, ptr noundef %arena)
   %62 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1660 = getelementptr inbounds i8, ptr %62, i64 44
   %63 = load i32, ptr %c_recursion_remaining.i.i1660, align 4
@@ -24774,7 +24774,7 @@ _Py_NewRef.exit:                                  ; preds = %for.body, %if.end.i
   br i1 %tobool195.not, label %if.end197, label %failed
 
 if.end197:                                        ; preds = %_Py_NewRef.exit
-  %call198 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %77, ptr noundef nonnull %val, ptr noundef %arena)
+  %call198 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %77, ptr noundef %val, ptr noundef %arena)
   %79 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1663 = getelementptr inbounds i8, ptr %79, i64 44
   %80 = load i32, ptr %c_recursion_remaining.i.i1663, align 4
@@ -24912,7 +24912,7 @@ _Py_NewRef.exit1671:                              ; preds = %for.body244, %if.en
   br i1 %tobool251.not, label %if.end253, label %failed
 
 if.end253:                                        ; preds = %_Py_NewRef.exit1671
-  %call254 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %100, ptr noundef nonnull %val245, ptr noundef %arena)
+  %call254 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %100, ptr noundef %val245, ptr noundef %arena)
   %102 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1672 = getelementptr inbounds i8, ptr %102, i64 44
   %103 = load i32, ptr %c_recursion_remaining.i.i1672, align 4
@@ -25024,7 +25024,7 @@ if.else290:                                       ; preds = %if.end278
 
 if.end295:                                        ; preds = %if.else290
   %117 = load ptr, ptr %tmp, align 8
-  %call296 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %117, ptr noundef nonnull %returns, ptr noundef %arena)
+  %call296 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %117, ptr noundef %returns, ptr noundef %arena)
   %118 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1674 = getelementptr inbounds i8, ptr %118, i64 44
   %119 = load i32, ptr %c_recursion_remaining.i.i1674, align 4
@@ -25100,7 +25100,7 @@ if.else324:                                       ; preds = %if.end312
 
 if.end329:                                        ; preds = %if.else324
   %127 = load ptr, ptr %tmp, align 8
-  %call330 = call fastcc i32 @obj2ast_string(ptr noundef %127, ptr noundef nonnull %type_comment, ptr noundef %arena)
+  %call330 = call fastcc i32 @obj2ast_string(ptr noundef %127, ptr noundef %type_comment, ptr noundef %arena)
   %128 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1676 = getelementptr inbounds i8, ptr %128, i64 44
   %129 = load i32, ptr %c_recursion_remaining.i.i1676, align 4
@@ -25202,7 +25202,7 @@ _Py_NewRef.exit1684:                              ; preds = %for.body372, %if.en
   br i1 %tobool379.not, label %if.end381, label %failed
 
 if.end381:                                        ; preds = %_Py_NewRef.exit1684
-  %call382 = call fastcc i32 @obj2ast_type_param(ptr noundef %state, ptr noundef nonnull %143, ptr noundef nonnull %val373, ptr noundef %arena)
+  %call382 = call fastcc i32 @obj2ast_type_param(ptr noundef %state, ptr noundef nonnull %143, ptr noundef %val373, ptr noundef %arena)
   %145 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1685 = getelementptr inbounds i8, ptr %145, i64 44
   %146 = load i32, ptr %c_recursion_remaining.i.i1685, align 4
@@ -25315,7 +25315,7 @@ if.else427:                                       ; preds = %if.end424
 
 if.end432:                                        ; preds = %if.else427
   %167 = load ptr, ptr %tmp, align 8
-  %call433 = call fastcc i32 @obj2ast_identifier(ptr noundef %167, ptr noundef nonnull %name413, ptr noundef %arena)
+  %call433 = call fastcc i32 @obj2ast_identifier(ptr noundef %167, ptr noundef %name413, ptr noundef %arena)
   %168 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1687 = getelementptr inbounds i8, ptr %168, i64 44
   %169 = load i32, ptr %c_recursion_remaining.i.i1687, align 4
@@ -25370,7 +25370,7 @@ if.else452:                                       ; preds = %if.end449
 
 if.end457:                                        ; preds = %if.else452
   %176 = load ptr, ptr %tmp, align 8
-  %call458 = call fastcc i32 @obj2ast_arguments(ptr noundef nonnull %state, ptr noundef %176, ptr noundef nonnull %args414, ptr noundef %arena)
+  %call458 = call fastcc i32 @obj2ast_arguments(ptr noundef %state, ptr noundef %176, ptr noundef %args414, ptr noundef %arena)
   %177 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1689 = getelementptr inbounds i8, ptr %177, i64 44
   %178 = load i32, ptr %c_recursion_remaining.i.i1689, align 4
@@ -25472,7 +25472,7 @@ _Py_NewRef.exit1697:                              ; preds = %for.body500, %if.en
   br i1 %tobool507.not, label %if.end509, label %failed
 
 if.end509:                                        ; preds = %_Py_NewRef.exit1697
-  %call510 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %192, ptr noundef nonnull %val501, ptr noundef %arena)
+  %call510 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %192, ptr noundef %val501, ptr noundef %arena)
   %194 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1698 = getelementptr inbounds i8, ptr %194, i64 44
   %195 = load i32, ptr %c_recursion_remaining.i.i1698, align 4
@@ -25610,7 +25610,7 @@ _Py_NewRef.exit1706:                              ; preds = %for.body560, %if.en
   br i1 %tobool567.not, label %if.end569, label %failed
 
 if.end569:                                        ; preds = %_Py_NewRef.exit1706
-  %call570 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %215, ptr noundef nonnull %val561, ptr noundef %arena)
+  %call570 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %215, ptr noundef %val561, ptr noundef %arena)
   %217 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1707 = getelementptr inbounds i8, ptr %217, i64 44
   %218 = load i32, ptr %c_recursion_remaining.i.i1707, align 4
@@ -25722,7 +25722,7 @@ if.else606:                                       ; preds = %if.end594
 
 if.end611:                                        ; preds = %if.else606
   %232 = load ptr, ptr %tmp, align 8
-  %call612 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %232, ptr noundef nonnull %returns417, ptr noundef %arena)
+  %call612 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %232, ptr noundef %returns417, ptr noundef %arena)
   %233 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1709 = getelementptr inbounds i8, ptr %233, i64 44
   %234 = load i32, ptr %c_recursion_remaining.i.i1709, align 4
@@ -25798,7 +25798,7 @@ if.else640:                                       ; preds = %if.end628
 
 if.end645:                                        ; preds = %if.else640
   %242 = load ptr, ptr %tmp, align 8
-  %call646 = call fastcc i32 @obj2ast_string(ptr noundef %242, ptr noundef nonnull %type_comment418, ptr noundef %arena)
+  %call646 = call fastcc i32 @obj2ast_string(ptr noundef %242, ptr noundef %type_comment418, ptr noundef %arena)
   %243 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1711 = getelementptr inbounds i8, ptr %243, i64 44
   %244 = load i32, ptr %c_recursion_remaining.i.i1711, align 4
@@ -25900,7 +25900,7 @@ _Py_NewRef.exit1719:                              ; preds = %for.body688, %if.en
   br i1 %tobool695.not, label %if.end697, label %failed
 
 if.end697:                                        ; preds = %_Py_NewRef.exit1719
-  %call698 = call fastcc i32 @obj2ast_type_param(ptr noundef %state, ptr noundef nonnull %258, ptr noundef nonnull %val689, ptr noundef %arena)
+  %call698 = call fastcc i32 @obj2ast_type_param(ptr noundef %state, ptr noundef nonnull %258, ptr noundef %val689, ptr noundef %arena)
   %260 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1720 = getelementptr inbounds i8, ptr %260, i64 44
   %261 = load i32, ptr %c_recursion_remaining.i.i1720, align 4
@@ -26013,7 +26013,7 @@ if.else740:                                       ; preds = %if.end737
 
 if.end745:                                        ; preds = %if.else740
   %282 = load ptr, ptr %tmp, align 8
-  %call746 = call fastcc i32 @obj2ast_identifier(ptr noundef %282, ptr noundef nonnull %name729, ptr noundef %arena)
+  %call746 = call fastcc i32 @obj2ast_identifier(ptr noundef %282, ptr noundef %name729, ptr noundef %arena)
   %283 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1722 = getelementptr inbounds i8, ptr %283, i64 44
   %284 = load i32, ptr %c_recursion_remaining.i.i1722, align 4
@@ -26115,7 +26115,7 @@ _Py_NewRef.exit1730:                              ; preds = %for.body788, %if.en
   br i1 %tobool795.not, label %if.end797, label %failed
 
 if.end797:                                        ; preds = %_Py_NewRef.exit1730
-  %call798 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %298, ptr noundef nonnull %val789, ptr noundef %arena)
+  %call798 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %298, ptr noundef %val789, ptr noundef %arena)
   %300 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1731 = getelementptr inbounds i8, ptr %300, i64 44
   %301 = load i32, ptr %c_recursion_remaining.i.i1731, align 4
@@ -26253,7 +26253,7 @@ _Py_NewRef.exit1739:                              ; preds = %for.body848, %if.en
   br i1 %tobool855.not, label %if.end857, label %failed
 
 if.end857:                                        ; preds = %_Py_NewRef.exit1739
-  %call858 = call fastcc i32 @obj2ast_keyword(ptr noundef %state, ptr noundef nonnull %321, ptr noundef nonnull %val849, ptr noundef %arena)
+  %call858 = call fastcc i32 @obj2ast_keyword(ptr noundef %state, ptr noundef nonnull %321, ptr noundef %val849, ptr noundef %arena)
   %323 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1740 = getelementptr inbounds i8, ptr %323, i64 44
   %324 = load i32, ptr %c_recursion_remaining.i.i1740, align 4
@@ -26391,7 +26391,7 @@ _Py_NewRef.exit1748:                              ; preds = %for.body908, %if.en
   br i1 %tobool915.not, label %if.end917, label %failed
 
 if.end917:                                        ; preds = %_Py_NewRef.exit1748
-  %call918 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %344, ptr noundef nonnull %val909, ptr noundef %arena)
+  %call918 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %344, ptr noundef %val909, ptr noundef %arena)
   %346 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1749 = getelementptr inbounds i8, ptr %346, i64 44
   %347 = load i32, ptr %c_recursion_remaining.i.i1749, align 4
@@ -26529,7 +26529,7 @@ _Py_NewRef.exit1757:                              ; preds = %for.body968, %if.en
   br i1 %tobool975.not, label %if.end977, label %failed
 
 if.end977:                                        ; preds = %_Py_NewRef.exit1757
-  %call978 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %367, ptr noundef nonnull %val969, ptr noundef %arena)
+  %call978 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %367, ptr noundef %val969, ptr noundef %arena)
   %369 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1758 = getelementptr inbounds i8, ptr %369, i64 44
   %370 = load i32, ptr %c_recursion_remaining.i.i1758, align 4
@@ -26667,7 +26667,7 @@ _Py_NewRef.exit1766:                              ; preds = %for.body1028, %if.e
   br i1 %tobool1035.not, label %if.end1037, label %failed
 
 if.end1037:                                       ; preds = %_Py_NewRef.exit1766
-  %call1038 = call fastcc i32 @obj2ast_type_param(ptr noundef %state, ptr noundef nonnull %390, ptr noundef nonnull %val1029, ptr noundef %arena)
+  %call1038 = call fastcc i32 @obj2ast_type_param(ptr noundef %state, ptr noundef nonnull %390, ptr noundef %val1029, ptr noundef %arena)
   %392 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1767 = getelementptr inbounds i8, ptr %392, i64 44
   %393 = load i32, ptr %c_recursion_remaining.i.i1767, align 4
@@ -26798,7 +26798,7 @@ if.else1085:                                      ; preds = %if.end1073
 
 if.end1090:                                       ; preds = %if.else1085
   %412 = load ptr, ptr %tmp, align 8
-  %call1091 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %412, ptr noundef nonnull %value, ptr noundef %arena)
+  %call1091 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %412, ptr noundef %value, ptr noundef %arena)
   %413 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1769 = getelementptr inbounds i8, ptr %413, i64 44
   %414 = load i32, ptr %c_recursion_remaining.i.i1769, align 4
@@ -26937,7 +26937,7 @@ _Py_NewRef.exit1779:                              ; preds = %for.body1144, %if.e
   br i1 %tobool1151.not, label %if.end1153, label %failed
 
 if.end1153:                                       ; preds = %_Py_NewRef.exit1779
-  %call1154 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %433, ptr noundef nonnull %val1145, ptr noundef %arena)
+  %call1154 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %433, ptr noundef %val1145, ptr noundef %arena)
   %435 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1780 = getelementptr inbounds i8, ptr %435, i64 44
   %436 = load i32, ptr %c_recursion_remaining.i.i1780, align 4
@@ -27111,7 +27111,7 @@ _Py_NewRef.exit1796:                              ; preds = %for.body1218, %if.e
   br i1 %tobool1225.not, label %if.end1227, label %failed
 
 if.end1227:                                       ; preds = %_Py_NewRef.exit1796
-  %call1228 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %460, ptr noundef nonnull %val1219, ptr noundef %arena)
+  %call1228 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %460, ptr noundef %val1219, ptr noundef %arena)
   %462 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1797 = getelementptr inbounds i8, ptr %462, i64 44
   %463 = load i32, ptr %c_recursion_remaining.i.i1797, align 4
@@ -27202,7 +27202,7 @@ if.else1255:                                      ; preds = %if.end1252
 
 if.end1260:                                       ; preds = %if.else1255
   %476 = load ptr, ptr %tmp, align 8
-  %call1261 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %476, ptr noundef nonnull %value1186, ptr noundef %arena)
+  %call1261 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %476, ptr noundef %value1186, ptr noundef %arena)
   %477 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1799 = getelementptr inbounds i8, ptr %477, i64 44
   %478 = load i32, ptr %c_recursion_remaining.i.i1799, align 4
@@ -27278,7 +27278,7 @@ if.else1289:                                      ; preds = %if.end1277
 
 if.end1294:                                       ; preds = %if.else1289
   %486 = load ptr, ptr %tmp, align 8
-  %call1295 = call fastcc i32 @obj2ast_string(ptr noundef %486, ptr noundef nonnull %type_comment1187, ptr noundef %arena)
+  %call1295 = call fastcc i32 @obj2ast_string(ptr noundef %486, ptr noundef %type_comment1187, ptr noundef %arena)
   %487 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1801 = getelementptr inbounds i8, ptr %487, i64 44
   %488 = load i32, ptr %c_recursion_remaining.i.i1801, align 4
@@ -27353,7 +27353,7 @@ if.else1328:                                      ; preds = %if.end1325
 
 if.end1333:                                       ; preds = %if.else1328
   %501 = load ptr, ptr %tmp, align 8
-  %call1334 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %501, ptr noundef nonnull %name1318, ptr noundef %arena)
+  %call1334 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %501, ptr noundef %name1318, ptr noundef %arena)
   %502 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1803 = getelementptr inbounds i8, ptr %502, i64 44
   %503 = load i32, ptr %c_recursion_remaining.i.i1803, align 4
@@ -27455,7 +27455,7 @@ _Py_NewRef.exit1811:                              ; preds = %for.body1376, %if.e
   br i1 %tobool1383.not, label %if.end1385, label %failed
 
 if.end1385:                                       ; preds = %_Py_NewRef.exit1811
-  %call1386 = call fastcc i32 @obj2ast_type_param(ptr noundef %state, ptr noundef nonnull %517, ptr noundef nonnull %val1377, ptr noundef %arena)
+  %call1386 = call fastcc i32 @obj2ast_type_param(ptr noundef %state, ptr noundef nonnull %517, ptr noundef %val1377, ptr noundef %arena)
   %519 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1812 = getelementptr inbounds i8, ptr %519, i64 44
   %520 = load i32, ptr %c_recursion_remaining.i.i1812, align 4
@@ -27546,7 +27546,7 @@ if.else1413:                                      ; preds = %if.end1410
 
 if.end1418:                                       ; preds = %if.else1413
   %533 = load ptr, ptr %tmp, align 8
-  %call1419 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %533, ptr noundef nonnull %value1320, ptr noundef %arena)
+  %call1419 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %533, ptr noundef %value1320, ptr noundef %arena)
   %534 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1814 = getelementptr inbounds i8, ptr %534, i64 44
   %535 = load i32, ptr %c_recursion_remaining.i.i1814, align 4
@@ -27621,7 +27621,7 @@ if.else1450:                                      ; preds = %if.end1447
 
 if.end1455:                                       ; preds = %if.else1450
   %548 = load ptr, ptr %tmp, align 8
-  %call1456 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %548, ptr noundef nonnull %target, ptr noundef %arena)
+  %call1456 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %548, ptr noundef %target, ptr noundef %arena)
   %549 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1816 = getelementptr inbounds i8, ptr %549, i64 44
   %550 = load i32, ptr %c_recursion_remaining.i.i1816, align 4
@@ -27676,7 +27676,7 @@ if.else1475:                                      ; preds = %if.end1472
 
 if.end1480:                                       ; preds = %if.else1475
   %557 = load ptr, ptr %tmp, align 8
-  %call1481 = call fastcc i32 @obj2ast_operator(ptr noundef nonnull %state, ptr noundef %557, ptr noundef nonnull %op)
+  %call1481 = call fastcc i32 @obj2ast_operator(ptr noundef %state, ptr noundef %557, ptr noundef %op)
   %558 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1818 = getelementptr inbounds i8, ptr %558, i64 44
   %559 = load i32, ptr %c_recursion_remaining.i.i1818, align 4
@@ -27731,7 +27731,7 @@ if.else1500:                                      ; preds = %if.end1497
 
 if.end1505:                                       ; preds = %if.else1500
   %566 = load ptr, ptr %tmp, align 8
-  %call1506 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %566, ptr noundef nonnull %value1442, ptr noundef %arena)
+  %call1506 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %566, ptr noundef %value1442, ptr noundef %arena)
   %567 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1820 = getelementptr inbounds i8, ptr %567, i64 44
   %568 = load i32, ptr %c_recursion_remaining.i.i1820, align 4
@@ -27807,7 +27807,7 @@ if.else1538:                                      ; preds = %if.end1535
 
 if.end1543:                                       ; preds = %if.else1538
   %582 = load ptr, ptr %tmp, align 8
-  %call1544 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %582, ptr noundef nonnull %target1529, ptr noundef %arena)
+  %call1544 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %582, ptr noundef %target1529, ptr noundef %arena)
   %583 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1822 = getelementptr inbounds i8, ptr %583, i64 44
   %584 = load i32, ptr %c_recursion_remaining.i.i1822, align 4
@@ -27862,7 +27862,7 @@ if.else1563:                                      ; preds = %if.end1560
 
 if.end1568:                                       ; preds = %if.else1563
   %591 = load ptr, ptr %tmp, align 8
-  %call1569 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %591, ptr noundef nonnull %annotation, ptr noundef %arena)
+  %call1569 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %591, ptr noundef %annotation, ptr noundef %arena)
   %592 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1824 = getelementptr inbounds i8, ptr %592, i64 44
   %593 = load i32, ptr %c_recursion_remaining.i.i1824, align 4
@@ -27938,7 +27938,7 @@ if.else1597:                                      ; preds = %if.end1585
 
 if.end1602:                                       ; preds = %if.else1597
   %601 = load ptr, ptr %tmp, align 8
-  %call1603 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %601, ptr noundef nonnull %value1530, ptr noundef %arena)
+  %call1603 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %601, ptr noundef %value1530, ptr noundef %arena)
   %602 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1826 = getelementptr inbounds i8, ptr %602, i64 44
   %603 = load i32, ptr %c_recursion_remaining.i.i1826, align 4
@@ -27993,7 +27993,7 @@ if.else1622:                                      ; preds = %if.end1619
 
 if.end1627:                                       ; preds = %if.else1622
   %610 = load ptr, ptr %tmp, align 8
-  %call1628 = call fastcc i32 @obj2ast_int(ptr noundef %610, ptr noundef nonnull %simple)
+  %call1628 = call fastcc i32 @obj2ast_int(ptr noundef %610, ptr noundef %simple)
   %611 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1828 = getelementptr inbounds i8, ptr %611, i64 44
   %612 = load i32, ptr %c_recursion_remaining.i.i1828, align 4
@@ -28070,7 +28070,7 @@ if.else1661:                                      ; preds = %if.end1658
 
 if.end1666:                                       ; preds = %if.else1661
   %627 = load ptr, ptr %tmp, align 8
-  %call1667 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %627, ptr noundef nonnull %target1651, ptr noundef %arena)
+  %call1667 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %627, ptr noundef %target1651, ptr noundef %arena)
   %628 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1830 = getelementptr inbounds i8, ptr %628, i64 44
   %629 = load i32, ptr %c_recursion_remaining.i.i1830, align 4
@@ -28125,7 +28125,7 @@ if.else1686:                                      ; preds = %if.end1683
 
 if.end1691:                                       ; preds = %if.else1686
   %636 = load ptr, ptr %tmp, align 8
-  %call1692 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %636, ptr noundef nonnull %iter, ptr noundef %arena)
+  %call1692 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %636, ptr noundef %iter, ptr noundef %arena)
   %637 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1832 = getelementptr inbounds i8, ptr %637, i64 44
   %638 = load i32, ptr %c_recursion_remaining.i.i1832, align 4
@@ -28227,7 +28227,7 @@ _Py_NewRef.exit1840:                              ; preds = %for.body1734, %if.e
   br i1 %tobool1741.not, label %if.end1743, label %failed
 
 if.end1743:                                       ; preds = %_Py_NewRef.exit1840
-  %call1744 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %652, ptr noundef nonnull %val1735, ptr noundef %arena)
+  %call1744 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %652, ptr noundef %val1735, ptr noundef %arena)
   %654 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1841 = getelementptr inbounds i8, ptr %654, i64 44
   %655 = load i32, ptr %c_recursion_remaining.i.i1841, align 4
@@ -28365,7 +28365,7 @@ _Py_NewRef.exit1849:                              ; preds = %for.body1794, %if.e
   br i1 %tobool1801.not, label %if.end1803, label %failed
 
 if.end1803:                                       ; preds = %_Py_NewRef.exit1849
-  %call1804 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %675, ptr noundef nonnull %val1795, ptr noundef %arena)
+  %call1804 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %675, ptr noundef %val1795, ptr noundef %arena)
   %677 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1850 = getelementptr inbounds i8, ptr %677, i64 44
   %678 = load i32, ptr %c_recursion_remaining.i.i1850, align 4
@@ -28477,7 +28477,7 @@ if.else1840:                                      ; preds = %if.end1828
 
 if.end1845:                                       ; preds = %if.else1840
   %692 = load ptr, ptr %tmp, align 8
-  %call1846 = call fastcc i32 @obj2ast_string(ptr noundef %692, ptr noundef nonnull %type_comment1653, ptr noundef %arena)
+  %call1846 = call fastcc i32 @obj2ast_string(ptr noundef %692, ptr noundef %type_comment1653, ptr noundef %arena)
   %693 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1852 = getelementptr inbounds i8, ptr %693, i64 44
   %694 = load i32, ptr %c_recursion_remaining.i.i1852, align 4
@@ -28553,7 +28553,7 @@ if.else1881:                                      ; preds = %if.end1878
 
 if.end1886:                                       ; preds = %if.else1881
   %708 = load ptr, ptr %tmp, align 8
-  %call1887 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %708, ptr noundef nonnull %target1869, ptr noundef %arena)
+  %call1887 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %708, ptr noundef %target1869, ptr noundef %arena)
   %709 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1854 = getelementptr inbounds i8, ptr %709, i64 44
   %710 = load i32, ptr %c_recursion_remaining.i.i1854, align 4
@@ -28608,7 +28608,7 @@ if.else1906:                                      ; preds = %if.end1903
 
 if.end1911:                                       ; preds = %if.else1906
   %717 = load ptr, ptr %tmp, align 8
-  %call1912 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %717, ptr noundef nonnull %iter1870, ptr noundef %arena)
+  %call1912 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %717, ptr noundef %iter1870, ptr noundef %arena)
   %718 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1856 = getelementptr inbounds i8, ptr %718, i64 44
   %719 = load i32, ptr %c_recursion_remaining.i.i1856, align 4
@@ -28710,7 +28710,7 @@ _Py_NewRef.exit1864:                              ; preds = %for.body1954, %if.e
   br i1 %tobool1961.not, label %if.end1963, label %failed
 
 if.end1963:                                       ; preds = %_Py_NewRef.exit1864
-  %call1964 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %733, ptr noundef nonnull %val1955, ptr noundef %arena)
+  %call1964 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %733, ptr noundef %val1955, ptr noundef %arena)
   %735 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1865 = getelementptr inbounds i8, ptr %735, i64 44
   %736 = load i32, ptr %c_recursion_remaining.i.i1865, align 4
@@ -28848,7 +28848,7 @@ _Py_NewRef.exit1873:                              ; preds = %for.body2014, %if.e
   br i1 %tobool2021.not, label %if.end2023, label %failed
 
 if.end2023:                                       ; preds = %_Py_NewRef.exit1873
-  %call2024 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %756, ptr noundef nonnull %val2015, ptr noundef %arena)
+  %call2024 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %756, ptr noundef %val2015, ptr noundef %arena)
   %758 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1874 = getelementptr inbounds i8, ptr %758, i64 44
   %759 = load i32, ptr %c_recursion_remaining.i.i1874, align 4
@@ -28960,7 +28960,7 @@ if.else2060:                                      ; preds = %if.end2048
 
 if.end2065:                                       ; preds = %if.else2060
   %773 = load ptr, ptr %tmp, align 8
-  %call2066 = call fastcc i32 @obj2ast_string(ptr noundef %773, ptr noundef nonnull %type_comment1873, ptr noundef %arena)
+  %call2066 = call fastcc i32 @obj2ast_string(ptr noundef %773, ptr noundef %type_comment1873, ptr noundef %arena)
   %774 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1876 = getelementptr inbounds i8, ptr %774, i64 44
   %775 = load i32, ptr %c_recursion_remaining.i.i1876, align 4
@@ -29036,7 +29036,7 @@ if.else2098:                                      ; preds = %if.end2095
 
 if.end2103:                                       ; preds = %if.else2098
   %789 = load ptr, ptr %tmp, align 8
-  %call2104 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %789, ptr noundef nonnull %test, ptr noundef %arena)
+  %call2104 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %789, ptr noundef %test, ptr noundef %arena)
   %790 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1878 = getelementptr inbounds i8, ptr %790, i64 44
   %791 = load i32, ptr %c_recursion_remaining.i.i1878, align 4
@@ -29138,7 +29138,7 @@ _Py_NewRef.exit1886:                              ; preds = %for.body2146, %if.e
   br i1 %tobool2153.not, label %if.end2155, label %failed
 
 if.end2155:                                       ; preds = %_Py_NewRef.exit1886
-  %call2156 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %805, ptr noundef nonnull %val2147, ptr noundef %arena)
+  %call2156 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %805, ptr noundef %val2147, ptr noundef %arena)
   %807 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1887 = getelementptr inbounds i8, ptr %807, i64 44
   %808 = load i32, ptr %c_recursion_remaining.i.i1887, align 4
@@ -29276,7 +29276,7 @@ _Py_NewRef.exit1895:                              ; preds = %for.body2206, %if.e
   br i1 %tobool2213.not, label %if.end2215, label %failed
 
 if.end2215:                                       ; preds = %_Py_NewRef.exit1895
-  %call2216 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %828, ptr noundef nonnull %val2207, ptr noundef %arena)
+  %call2216 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %828, ptr noundef %val2207, ptr noundef %arena)
   %830 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1896 = getelementptr inbounds i8, ptr %830, i64 44
   %831 = load i32, ptr %c_recursion_remaining.i.i1896, align 4
@@ -29386,7 +29386,7 @@ if.else2257:                                      ; preds = %if.end2254
 
 if.end2262:                                       ; preds = %if.else2257
   %849 = load ptr, ptr %tmp, align 8
-  %call2263 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %849, ptr noundef nonnull %test2247, ptr noundef %arena)
+  %call2263 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %849, ptr noundef %test2247, ptr noundef %arena)
   %850 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1898 = getelementptr inbounds i8, ptr %850, i64 44
   %851 = load i32, ptr %c_recursion_remaining.i.i1898, align 4
@@ -29488,7 +29488,7 @@ _Py_NewRef.exit1906:                              ; preds = %for.body2305, %if.e
   br i1 %tobool2312.not, label %if.end2314, label %failed
 
 if.end2314:                                       ; preds = %_Py_NewRef.exit1906
-  %call2315 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %865, ptr noundef nonnull %val2306, ptr noundef %arena)
+  %call2315 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %865, ptr noundef %val2306, ptr noundef %arena)
   %867 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1907 = getelementptr inbounds i8, ptr %867, i64 44
   %868 = load i32, ptr %c_recursion_remaining.i.i1907, align 4
@@ -29626,7 +29626,7 @@ _Py_NewRef.exit1915:                              ; preds = %for.body2365, %if.e
   br i1 %tobool2372.not, label %if.end2374, label %failed
 
 if.end2374:                                       ; preds = %_Py_NewRef.exit1915
-  %call2375 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %888, ptr noundef nonnull %val2366, ptr noundef %arena)
+  %call2375 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %888, ptr noundef %val2366, ptr noundef %arena)
   %890 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1916 = getelementptr inbounds i8, ptr %890, i64 44
   %891 = load i32, ptr %c_recursion_remaining.i.i1916, align 4
@@ -29783,7 +29783,7 @@ _Py_NewRef.exit1924:                              ; preds = %for.body2438, %if.e
   br i1 %tobool2445.not, label %if.end2447, label %failed
 
 if.end2447:                                       ; preds = %_Py_NewRef.exit1924
-  %call2448 = call fastcc i32 @obj2ast_withitem(ptr noundef %state, ptr noundef nonnull %916, ptr noundef nonnull %val2439, ptr noundef %arena)
+  %call2448 = call fastcc i32 @obj2ast_withitem(ptr noundef %state, ptr noundef nonnull %916, ptr noundef %val2439, ptr noundef %arena)
   %918 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1925 = getelementptr inbounds i8, ptr %918, i64 44
   %919 = load i32, ptr %c_recursion_remaining.i.i1925, align 4
@@ -29921,7 +29921,7 @@ _Py_NewRef.exit1933:                              ; preds = %for.body2498, %if.e
   br i1 %tobool2505.not, label %if.end2507, label %failed
 
 if.end2507:                                       ; preds = %_Py_NewRef.exit1933
-  %call2508 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %939, ptr noundef nonnull %val2499, ptr noundef %arena)
+  %call2508 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %939, ptr noundef %val2499, ptr noundef %arena)
   %941 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1934 = getelementptr inbounds i8, ptr %941, i64 44
   %942 = load i32, ptr %c_recursion_remaining.i.i1934, align 4
@@ -30033,7 +30033,7 @@ if.else2544:                                      ; preds = %if.end2532
 
 if.end2549:                                       ; preds = %if.else2544
   %956 = load ptr, ptr %tmp, align 8
-  %call2550 = call fastcc i32 @obj2ast_string(ptr noundef %956, ptr noundef nonnull %type_comment2407, ptr noundef %arena)
+  %call2550 = call fastcc i32 @obj2ast_string(ptr noundef %956, ptr noundef %type_comment2407, ptr noundef %arena)
   %957 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1936 = getelementptr inbounds i8, ptr %957, i64 44
   %958 = load i32, ptr %c_recursion_remaining.i.i1936, align 4
@@ -30176,7 +30176,7 @@ _Py_NewRef.exit1948:                              ; preds = %for.body2606, %if.e
   br i1 %tobool2613.not, label %if.end2615, label %failed
 
 if.end2615:                                       ; preds = %_Py_NewRef.exit1948
-  %call2616 = call fastcc i32 @obj2ast_withitem(ptr noundef %state, ptr noundef nonnull %977, ptr noundef nonnull %val2607, ptr noundef %arena)
+  %call2616 = call fastcc i32 @obj2ast_withitem(ptr noundef %state, ptr noundef nonnull %977, ptr noundef %val2607, ptr noundef %arena)
   %979 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1949 = getelementptr inbounds i8, ptr %979, i64 44
   %980 = load i32, ptr %c_recursion_remaining.i.i1949, align 4
@@ -30314,7 +30314,7 @@ _Py_NewRef.exit1957:                              ; preds = %for.body2666, %if.e
   br i1 %tobool2673.not, label %if.end2675, label %failed
 
 if.end2675:                                       ; preds = %_Py_NewRef.exit1957
-  %call2676 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %1000, ptr noundef nonnull %val2667, ptr noundef %arena)
+  %call2676 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %1000, ptr noundef %val2667, ptr noundef %arena)
   %1002 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1958 = getelementptr inbounds i8, ptr %1002, i64 44
   %1003 = load i32, ptr %c_recursion_remaining.i.i1958, align 4
@@ -30426,7 +30426,7 @@ if.else2712:                                      ; preds = %if.end2700
 
 if.end2717:                                       ; preds = %if.else2712
   %1017 = load ptr, ptr %tmp, align 8
-  %call2718 = call fastcc i32 @obj2ast_string(ptr noundef %1017, ptr noundef nonnull %type_comment2575, ptr noundef %arena)
+  %call2718 = call fastcc i32 @obj2ast_string(ptr noundef %1017, ptr noundef %type_comment2575, ptr noundef %arena)
   %1018 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1960 = getelementptr inbounds i8, ptr %1018, i64 44
   %1019 = load i32, ptr %c_recursion_remaining.i.i1960, align 4
@@ -30522,7 +30522,7 @@ if.else2748:                                      ; preds = %if.end2745
 
 if.end2753:                                       ; preds = %if.else2748
   %1031 = load ptr, ptr %tmp, align 8
-  %call2754 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %1031, ptr noundef nonnull %subject, ptr noundef %arena)
+  %call2754 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %1031, ptr noundef %subject, ptr noundef %arena)
   %1032 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1972 = getelementptr inbounds i8, ptr %1032, i64 44
   %1033 = load i32, ptr %c_recursion_remaining.i.i1972, align 4
@@ -30624,7 +30624,7 @@ _Py_NewRef.exit1980:                              ; preds = %for.body2796, %if.e
   br i1 %tobool2803.not, label %if.end2805, label %failed
 
 if.end2805:                                       ; preds = %_Py_NewRef.exit1980
-  %call2806 = call fastcc i32 @obj2ast_match_case(ptr noundef %state, ptr noundef nonnull %1047, ptr noundef nonnull %val2797, ptr noundef %arena)
+  %call2806 = call fastcc i32 @obj2ast_match_case(ptr noundef %state, ptr noundef nonnull %1047, ptr noundef %val2797, ptr noundef %arena)
   %1049 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1981 = getelementptr inbounds i8, ptr %1049, i64 44
   %1050 = load i32, ptr %c_recursion_remaining.i.i1981, align 4
@@ -30755,7 +30755,7 @@ if.else2853:                                      ; preds = %if.end2841
 
 if.end2858:                                       ; preds = %if.else2853
   %1069 = load ptr, ptr %tmp, align 8
-  %call2859 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %1069, ptr noundef nonnull %exc, ptr noundef %arena)
+  %call2859 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %1069, ptr noundef %exc, ptr noundef %arena)
   %1070 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1983 = getelementptr inbounds i8, ptr %1070, i64 44
   %1071 = load i32, ptr %c_recursion_remaining.i.i1983, align 4
@@ -30831,7 +30831,7 @@ if.else2887:                                      ; preds = %if.end2875
 
 if.end2892:                                       ; preds = %if.else2887
   %1079 = load ptr, ptr %tmp, align 8
-  %call2893 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %1079, ptr noundef nonnull %cause, ptr noundef %arena)
+  %call2893 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %1079, ptr noundef %cause, ptr noundef %arena)
   %1080 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1985 = getelementptr inbounds i8, ptr %1080, i64 44
   %1081 = load i32, ptr %c_recursion_remaining.i.i1985, align 4
@@ -30973,7 +30973,7 @@ _Py_NewRef.exit1997:                              ; preds = %for.body2948, %if.e
   br i1 %tobool2955.not, label %if.end2957, label %failed
 
 if.end2957:                                       ; preds = %_Py_NewRef.exit1997
-  %call2958 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %1101, ptr noundef nonnull %val2949, ptr noundef %arena)
+  %call2958 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %1101, ptr noundef %val2949, ptr noundef %arena)
   %1103 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1998 = getelementptr inbounds i8, ptr %1103, i64 44
   %1104 = load i32, ptr %c_recursion_remaining.i.i1998, align 4
@@ -31111,7 +31111,7 @@ _Py_NewRef.exit2006:                              ; preds = %for.body3008, %if.e
   br i1 %tobool3015.not, label %if.end3017, label %failed
 
 if.end3017:                                       ; preds = %_Py_NewRef.exit2006
-  %call3018 = call fastcc i32 @obj2ast_excepthandler(ptr noundef %state, ptr noundef nonnull %1124, ptr noundef nonnull %val3009, ptr noundef %arena)
+  %call3018 = call fastcc i32 @obj2ast_excepthandler(ptr noundef %state, ptr noundef nonnull %1124, ptr noundef %val3009, ptr noundef %arena)
   %1126 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i2007 = getelementptr inbounds i8, ptr %1126, i64 44
   %1127 = load i32, ptr %c_recursion_remaining.i.i2007, align 4
@@ -31249,7 +31249,7 @@ _Py_NewRef.exit2015:                              ; preds = %for.body3068, %if.e
   br i1 %tobool3075.not, label %if.end3077, label %failed
 
 if.end3077:                                       ; preds = %_Py_NewRef.exit2015
-  %call3078 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %1147, ptr noundef nonnull %val3069, ptr noundef %arena)
+  %call3078 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %1147, ptr noundef %val3069, ptr noundef %arena)
   %1149 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i2016 = getelementptr inbounds i8, ptr %1149, i64 44
   %1150 = load i32, ptr %c_recursion_remaining.i.i2016, align 4
@@ -31387,7 +31387,7 @@ _Py_NewRef.exit2024:                              ; preds = %for.body3128, %if.e
   br i1 %tobool3135.not, label %if.end3137, label %failed
 
 if.end3137:                                       ; preds = %_Py_NewRef.exit2024
-  %call3138 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %1170, ptr noundef nonnull %val3129, ptr noundef %arena)
+  %call3138 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %1170, ptr noundef %val3129, ptr noundef %arena)
   %1172 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i2025 = getelementptr inbounds i8, ptr %1172, i64 44
   %1173 = load i32, ptr %c_recursion_remaining.i.i2025, align 4
@@ -31567,7 +31567,7 @@ _Py_NewRef.exit2037:                              ; preds = %for.body3203, %if.e
   br i1 %tobool3210.not, label %if.end3212, label %failed
 
 if.end3212:                                       ; preds = %_Py_NewRef.exit2037
-  %call3213 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %1197, ptr noundef nonnull %val3204, ptr noundef %arena)
+  %call3213 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %1197, ptr noundef %val3204, ptr noundef %arena)
   %1199 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i2038 = getelementptr inbounds i8, ptr %1199, i64 44
   %1200 = load i32, ptr %c_recursion_remaining.i.i2038, align 4
@@ -31705,7 +31705,7 @@ _Py_NewRef.exit2046:                              ; preds = %for.body3263, %if.e
   br i1 %tobool3270.not, label %if.end3272, label %failed
 
 if.end3272:                                       ; preds = %_Py_NewRef.exit2046
-  %call3273 = call fastcc i32 @obj2ast_excepthandler(ptr noundef %state, ptr noundef nonnull %1220, ptr noundef nonnull %val3264, ptr noundef %arena)
+  %call3273 = call fastcc i32 @obj2ast_excepthandler(ptr noundef %state, ptr noundef nonnull %1220, ptr noundef %val3264, ptr noundef %arena)
   %1222 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i2047 = getelementptr inbounds i8, ptr %1222, i64 44
   %1223 = load i32, ptr %c_recursion_remaining.i.i2047, align 4
@@ -31843,7 +31843,7 @@ _Py_NewRef.exit2055:                              ; preds = %for.body3323, %if.e
   br i1 %tobool3330.not, label %if.end3332, label %failed
 
 if.end3332:                                       ; preds = %_Py_NewRef.exit2055
-  %call3333 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %1243, ptr noundef nonnull %val3324, ptr noundef %arena)
+  %call3333 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %1243, ptr noundef %val3324, ptr noundef %arena)
   %1245 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i2056 = getelementptr inbounds i8, ptr %1245, i64 44
   %1246 = load i32, ptr %c_recursion_remaining.i.i2056, align 4
@@ -31981,7 +31981,7 @@ _Py_NewRef.exit2064:                              ; preds = %for.body3383, %if.e
   br i1 %tobool3390.not, label %if.end3392, label %failed
 
 if.end3392:                                       ; preds = %_Py_NewRef.exit2064
-  %call3393 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %1266, ptr noundef nonnull %val3384, ptr noundef %arena)
+  %call3393 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %1266, ptr noundef %val3384, ptr noundef %arena)
   %1268 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i2065 = getelementptr inbounds i8, ptr %1268, i64 44
   %1269 = load i32, ptr %c_recursion_remaining.i.i2065, align 4
@@ -32114,7 +32114,7 @@ if.else3432:                                      ; preds = %if.end3429
 
 if.end3437:                                       ; preds = %if.else3432
   %1286 = load ptr, ptr %tmp, align 8
-  %call3438 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %1286, ptr noundef nonnull %test3424, ptr noundef %arena)
+  %call3438 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %1286, ptr noundef %test3424, ptr noundef %arena)
   %1287 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i2078 = getelementptr inbounds i8, ptr %1287, i64 44
   %1288 = load i32, ptr %c_recursion_remaining.i.i2078, align 4
@@ -32190,7 +32190,7 @@ if.else3466:                                      ; preds = %if.end3454
 
 if.end3471:                                       ; preds = %if.else3466
   %1296 = load ptr, ptr %tmp, align 8
-  %call3472 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %1296, ptr noundef nonnull %msg, ptr noundef %arena)
+  %call3472 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %1296, ptr noundef %msg, ptr noundef %arena)
   %1297 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i2080 = getelementptr inbounds i8, ptr %1297, i64 44
   %1298 = load i32, ptr %c_recursion_remaining.i.i2080, align 4
@@ -32312,7 +32312,7 @@ _Py_NewRef.exit2088:                              ; preds = %for.body3525, %if.e
   br i1 %tobool3532.not, label %if.end3534, label %failed
 
 if.end3534:                                       ; preds = %_Py_NewRef.exit2088
-  %call3535 = call fastcc i32 @obj2ast_alias(ptr noundef %state, ptr noundef nonnull %1318, ptr noundef nonnull %val3526, ptr noundef %arena)
+  %call3535 = call fastcc i32 @obj2ast_alias(ptr noundef %state, ptr noundef nonnull %1318, ptr noundef %val3526, ptr noundef %arena)
   %1320 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i2089 = getelementptr inbounds i8, ptr %1320, i64 44
   %1321 = load i32, ptr %c_recursion_remaining.i.i2089, align 4
@@ -32460,7 +32460,7 @@ if.else3583:                                      ; preds = %if.end3571
 
 if.end3588:                                       ; preds = %if.else3583
   %1339 = load ptr, ptr %tmp, align 8
-  %call3589 = call fastcc i32 @obj2ast_identifier(ptr noundef %1339, ptr noundef nonnull %module, ptr noundef %arena)
+  %call3589 = call fastcc i32 @obj2ast_identifier(ptr noundef %1339, ptr noundef %module, ptr noundef %arena)
   %1340 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i2099 = getelementptr inbounds i8, ptr %1340, i64 44
   %1341 = load i32, ptr %c_recursion_remaining.i.i2099, align 4
@@ -32562,7 +32562,7 @@ _Py_NewRef.exit2107:                              ; preds = %for.body3631, %if.e
   br i1 %tobool3638.not, label %if.end3640, label %failed
 
 if.end3640:                                       ; preds = %_Py_NewRef.exit2107
-  %call3641 = call fastcc i32 @obj2ast_alias(ptr noundef %state, ptr noundef nonnull %1355, ptr noundef nonnull %val3632, ptr noundef %arena)
+  %call3641 = call fastcc i32 @obj2ast_alias(ptr noundef %state, ptr noundef nonnull %1355, ptr noundef %val3632, ptr noundef %arena)
   %1357 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i2108 = getelementptr inbounds i8, ptr %1357, i64 44
   %1358 = load i32, ptr %c_recursion_remaining.i.i2108, align 4
@@ -32674,7 +32674,7 @@ if.else3677:                                      ; preds = %if.end3665
 
 if.end3682:                                       ; preds = %if.else3677
   %1372 = load ptr, ptr %tmp, align 8
-  %call3683 = call fastcc i32 @obj2ast_int(ptr noundef %1372, ptr noundef nonnull %level)
+  %call3683 = call fastcc i32 @obj2ast_int(ptr noundef %1372, ptr noundef %level)
   %1373 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i2110 = getelementptr inbounds i8, ptr %1373, i64 44
   %1374 = load i32, ptr %c_recursion_remaining.i.i2110, align 4
@@ -32818,7 +32818,7 @@ _Py_NewRef.exit2126:                              ; preds = %for.body3737, %if.e
   br i1 %tobool3744.not, label %if.end3746, label %failed
 
 if.end3746:                                       ; preds = %_Py_NewRef.exit2126
-  %call3747 = call fastcc i32 @obj2ast_identifier(ptr noundef nonnull %1394, ptr noundef nonnull %val3738, ptr noundef %arena)
+  %call3747 = call fastcc i32 @obj2ast_identifier(ptr noundef nonnull %1394, ptr noundef %val3738, ptr noundef %arena)
   %1396 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i2127 = getelementptr inbounds i8, ptr %1396, i64 44
   %1397 = load i32, ptr %c_recursion_remaining.i.i2127, align 4
@@ -32992,7 +32992,7 @@ _Py_NewRef.exit2143:                              ; preds = %for.body3809, %if.e
   br i1 %tobool3816.not, label %if.end3818, label %failed
 
 if.end3818:                                       ; preds = %_Py_NewRef.exit2143
-  %call3819 = call fastcc i32 @obj2ast_identifier(ptr noundef nonnull %1421, ptr noundef nonnull %val3810, ptr noundef %arena)
+  %call3819 = call fastcc i32 @obj2ast_identifier(ptr noundef nonnull %1421, ptr noundef %val3810, ptr noundef %arena)
   %1423 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i2144 = getelementptr inbounds i8, ptr %1423, i64 44
   %1424 = load i32, ptr %c_recursion_remaining.i.i2144, align 4
@@ -33119,7 +33119,7 @@ if.else3858:                                      ; preds = %if.end3855
 
 if.end3863:                                       ; preds = %if.else3858
   %1441 = load ptr, ptr %tmp, align 8
-  %call3864 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %1441, ptr noundef nonnull %value3850, ptr noundef %arena)
+  %call3864 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %1441, ptr noundef %value3850, ptr noundef %arena)
   %1442 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i2154 = getelementptr inbounds i8, ptr %1442, i64 44
   %1443 = load i32, ptr %c_recursion_remaining.i.i2154, align 4
@@ -33294,7 +33294,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_type_ignore(ptr nocapture noundef readonly %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_type_ignore(ptr nocapture noundef nonnull readonly %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %tag = alloca ptr, align 8
@@ -33435,7 +33435,7 @@ if.else31:                                        ; preds = %if.end28
 
 if.end36:                                         ; preds = %if.else31
   %22 = load ptr, ptr %tmp, align 8
-  %call37 = call fastcc i32 @obj2ast_string(ptr noundef %22, ptr noundef nonnull %tag, ptr noundef %arena)
+  %call37 = call fastcc i32 @obj2ast_string(ptr noundef %22, ptr noundef %tag, ptr noundef %arena)
   %23 = load ptr, ptr %4, align 8
   %c_recursion_remaining.i.i25 = getelementptr inbounds i8, ptr %23, i64 44
   %24 = load i32, ptr %c_recursion_remaining.i.i25, align 4
@@ -33505,7 +33505,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_expr(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc noundef i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %col_offset = alloca i32, align 4
@@ -33696,7 +33696,7 @@ if.else25:                                        ; preds = %if.end22
 
 if.end30:                                         ; preds = %if.else25
   %21 = load ptr, ptr %tmp, align 8
-  %call31 = call fastcc i32 @obj2ast_int(ptr noundef %21, ptr noundef nonnull %col_offset)
+  %call31 = call fastcc i32 @obj2ast_int(ptr noundef %21, ptr noundef %col_offset)
   %22 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1044 = getelementptr inbounds i8, ptr %22, i64 44
   %23 = load i32, ptr %c_recursion_remaining.i.i1044, align 4
@@ -33772,7 +33772,7 @@ if.else58:                                        ; preds = %if.end47
 
 if.end63:                                         ; preds = %if.else58
   %31 = load ptr, ptr %tmp, align 8
-  %call64 = call fastcc i32 @obj2ast_int(ptr noundef %31, ptr noundef nonnull %end_lineno)
+  %call64 = call fastcc i32 @obj2ast_int(ptr noundef %31, ptr noundef %end_lineno)
   %32 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1046 = getelementptr inbounds i8, ptr %32, i64 44
   %33 = load i32, ptr %c_recursion_remaining.i.i1046, align 4
@@ -33849,7 +33849,7 @@ if.else92:                                        ; preds = %if.end80
 
 if.end97:                                         ; preds = %if.else92
   %42 = load ptr, ptr %tmp, align 8
-  %call98 = call fastcc i32 @obj2ast_int(ptr noundef %42, ptr noundef nonnull %end_col_offset)
+  %call98 = call fastcc i32 @obj2ast_int(ptr noundef %42, ptr noundef %end_col_offset)
   %43 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1048 = getelementptr inbounds i8, ptr %43, i64 44
   %44 = load i32, ptr %c_recursion_remaining.i.i1048, align 4
@@ -33913,7 +33913,7 @@ if.else123:                                       ; preds = %if.end120
 
 if.end128:                                        ; preds = %if.else123
   %52 = load ptr, ptr %tmp, align 8
-  %call129 = call fastcc i32 @obj2ast_boolop(ptr noundef nonnull %state, ptr noundef %52, ptr noundef nonnull %op)
+  %call129 = call fastcc i32 @obj2ast_boolop(ptr noundef %state, ptr noundef %52, ptr noundef %op)
   %53 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1050 = getelementptr inbounds i8, ptr %53, i64 44
   %54 = load i32, ptr %c_recursion_remaining.i.i1050, align 4
@@ -34015,7 +34015,7 @@ _Py_NewRef.exit:                                  ; preds = %for.body, %if.end.i
   br i1 %tobool170.not, label %if.end172, label %failed
 
 if.end172:                                        ; preds = %_Py_NewRef.exit
-  %call173 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %68, ptr noundef nonnull %val, ptr noundef %arena)
+  %call173 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %68, ptr noundef %val, ptr noundef %arena)
   %70 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1053 = getelementptr inbounds i8, ptr %70, i64 44
   %71 = load i32, ptr %c_recursion_remaining.i.i1053, align 4
@@ -34125,7 +34125,7 @@ if.else207:                                       ; preds = %if.end204
 
 if.end212:                                        ; preds = %if.else207
   %89 = load ptr, ptr %tmp, align 8
-  %call213 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %89, ptr noundef nonnull %target, ptr noundef %arena)
+  %call213 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %89, ptr noundef %target, ptr noundef %arena)
   %90 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1055 = getelementptr inbounds i8, ptr %90, i64 44
   %91 = load i32, ptr %c_recursion_remaining.i.i1055, align 4
@@ -34180,7 +34180,7 @@ if.else232:                                       ; preds = %if.end229
 
 if.end237:                                        ; preds = %if.else232
   %98 = load ptr, ptr %tmp, align 8
-  %call238 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %98, ptr noundef nonnull %value, ptr noundef %arena)
+  %call238 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %98, ptr noundef %value, ptr noundef %arena)
   %99 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1057 = getelementptr inbounds i8, ptr %99, i64 44
   %100 = load i32, ptr %c_recursion_remaining.i.i1057, align 4
@@ -34255,7 +34255,7 @@ if.else269:                                       ; preds = %if.end266
 
 if.end274:                                        ; preds = %if.else269
   %113 = load ptr, ptr %tmp, align 8
-  %call275 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %113, ptr noundef nonnull %left, ptr noundef %arena)
+  %call275 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %113, ptr noundef %left, ptr noundef %arena)
   %114 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1059 = getelementptr inbounds i8, ptr %114, i64 44
   %115 = load i32, ptr %c_recursion_remaining.i.i1059, align 4
@@ -34310,7 +34310,7 @@ if.else294:                                       ; preds = %if.end291
 
 if.end299:                                        ; preds = %if.else294
   %122 = load ptr, ptr %tmp, align 8
-  %call300 = call fastcc i32 @obj2ast_operator(ptr noundef nonnull %state, ptr noundef %122, ptr noundef nonnull %op261)
+  %call300 = call fastcc i32 @obj2ast_operator(ptr noundef %state, ptr noundef %122, ptr noundef %op261)
   %123 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1061 = getelementptr inbounds i8, ptr %123, i64 44
   %124 = load i32, ptr %c_recursion_remaining.i.i1061, align 4
@@ -34365,7 +34365,7 @@ if.else319:                                       ; preds = %if.end316
 
 if.end324:                                        ; preds = %if.else319
   %131 = load ptr, ptr %tmp, align 8
-  %call325 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %131, ptr noundef nonnull %right, ptr noundef %arena)
+  %call325 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %131, ptr noundef %right, ptr noundef %arena)
   %132 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1063 = getelementptr inbounds i8, ptr %132, i64 44
   %133 = load i32, ptr %c_recursion_remaining.i.i1063, align 4
@@ -34441,7 +34441,7 @@ if.else356:                                       ; preds = %if.end353
 
 if.end361:                                        ; preds = %if.else356
   %147 = load ptr, ptr %tmp, align 8
-  %call362 = call fastcc i32 @obj2ast_unaryop(ptr noundef nonnull %state, ptr noundef %147, ptr noundef nonnull %op348)
+  %call362 = call fastcc i32 @obj2ast_unaryop(ptr noundef %state, ptr noundef %147, ptr noundef %op348)
   %148 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1065 = getelementptr inbounds i8, ptr %148, i64 44
   %149 = load i32, ptr %c_recursion_remaining.i.i1065, align 4
@@ -34496,7 +34496,7 @@ if.else381:                                       ; preds = %if.end378
 
 if.end386:                                        ; preds = %if.else381
   %156 = load ptr, ptr %tmp, align 8
-  %call387 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %156, ptr noundef nonnull %operand, ptr noundef %arena)
+  %call387 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %156, ptr noundef %operand, ptr noundef %arena)
   %157 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1067 = getelementptr inbounds i8, ptr %157, i64 44
   %158 = load i32, ptr %c_recursion_remaining.i.i1067, align 4
@@ -34571,7 +34571,7 @@ if.else417:                                       ; preds = %if.end414
 
 if.end422:                                        ; preds = %if.else417
   %171 = load ptr, ptr %tmp, align 8
-  %call423 = call fastcc i32 @obj2ast_arguments(ptr noundef nonnull %state, ptr noundef %171, ptr noundef nonnull %args, ptr noundef %arena)
+  %call423 = call fastcc i32 @obj2ast_arguments(ptr noundef %state, ptr noundef %171, ptr noundef %args, ptr noundef %arena)
   %172 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1069 = getelementptr inbounds i8, ptr %172, i64 44
   %173 = load i32, ptr %c_recursion_remaining.i.i1069, align 4
@@ -34626,7 +34626,7 @@ if.else442:                                       ; preds = %if.end439
 
 if.end447:                                        ; preds = %if.else442
   %180 = load ptr, ptr %tmp, align 8
-  %call448 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %180, ptr noundef nonnull %body, ptr noundef %arena)
+  %call448 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %180, ptr noundef %body, ptr noundef %arena)
   %181 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1071 = getelementptr inbounds i8, ptr %181, i64 44
   %182 = load i32, ptr %c_recursion_remaining.i.i1071, align 4
@@ -34701,7 +34701,7 @@ if.else479:                                       ; preds = %if.end476
 
 if.end484:                                        ; preds = %if.else479
   %195 = load ptr, ptr %tmp, align 8
-  %call485 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %195, ptr noundef nonnull %test, ptr noundef %arena)
+  %call485 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %195, ptr noundef %test, ptr noundef %arena)
   %196 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1073 = getelementptr inbounds i8, ptr %196, i64 44
   %197 = load i32, ptr %c_recursion_remaining.i.i1073, align 4
@@ -34756,7 +34756,7 @@ if.else504:                                       ; preds = %if.end501
 
 if.end509:                                        ; preds = %if.else504
   %204 = load ptr, ptr %tmp, align 8
-  %call510 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %204, ptr noundef nonnull %body471, ptr noundef %arena)
+  %call510 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %204, ptr noundef %body471, ptr noundef %arena)
   %205 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1075 = getelementptr inbounds i8, ptr %205, i64 44
   %206 = load i32, ptr %c_recursion_remaining.i.i1075, align 4
@@ -34811,7 +34811,7 @@ if.else529:                                       ; preds = %if.end526
 
 if.end534:                                        ; preds = %if.else529
   %213 = load ptr, ptr %tmp, align 8
-  %call535 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %213, ptr noundef nonnull %orelse, ptr noundef %arena)
+  %call535 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %213, ptr noundef %orelse, ptr noundef %arena)
   %214 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1077 = getelementptr inbounds i8, ptr %214, i64 44
   %215 = load i32, ptr %c_recursion_remaining.i.i1077, align 4
@@ -34934,7 +34934,7 @@ _Py_NewRef.exit1085:                              ; preds = %for.body589, %if.en
   br i1 %tobool596.not, label %if.end598, label %failed
 
 if.end598:                                        ; preds = %_Py_NewRef.exit1085
-  %call599 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %236, ptr noundef nonnull %val590, ptr noundef %arena)
+  %call599 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %236, ptr noundef %val590, ptr noundef %arena)
   %238 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1086 = getelementptr inbounds i8, ptr %238, i64 44
   %239 = load i32, ptr %c_recursion_remaining.i.i1086, align 4
@@ -35072,7 +35072,7 @@ _Py_NewRef.exit1094:                              ; preds = %for.body649, %if.en
   br i1 %tobool656.not, label %if.end658, label %failed
 
 if.end658:                                        ; preds = %_Py_NewRef.exit1094
-  %call659 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %259, ptr noundef nonnull %val650, ptr noundef %arena)
+  %call659 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %259, ptr noundef %val650, ptr noundef %arena)
   %261 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1095 = getelementptr inbounds i8, ptr %261, i64 44
   %262 = load i32, ptr %c_recursion_remaining.i.i1095, align 4
@@ -35248,7 +35248,7 @@ _Py_NewRef.exit1105:                              ; preds = %for.body720, %if.en
   br i1 %tobool727.not, label %if.end729, label %failed
 
 if.end729:                                        ; preds = %_Py_NewRef.exit1105
-  %call730 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %286, ptr noundef nonnull %val721, ptr noundef %arena)
+  %call730 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %286, ptr noundef %val721, ptr noundef %arena)
   %288 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1106 = getelementptr inbounds i8, ptr %288, i64 44
   %289 = load i32, ptr %c_recursion_remaining.i.i1106, align 4
@@ -35375,7 +35375,7 @@ if.else768:                                       ; preds = %if.end765
 
 if.end773:                                        ; preds = %if.else768
   %306 = load ptr, ptr %tmp, align 8
-  %call774 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %306, ptr noundef nonnull %elt, ptr noundef %arena)
+  %call774 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %306, ptr noundef %elt, ptr noundef %arena)
   %307 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1112 = getelementptr inbounds i8, ptr %307, i64 44
   %308 = load i32, ptr %c_recursion_remaining.i.i1112, align 4
@@ -35477,7 +35477,7 @@ _Py_NewRef.exit1120:                              ; preds = %for.body816, %if.en
   br i1 %tobool823.not, label %if.end825, label %failed
 
 if.end825:                                        ; preds = %_Py_NewRef.exit1120
-  %call826 = call fastcc i32 @obj2ast_comprehension(ptr noundef %state, ptr noundef nonnull %322, ptr noundef nonnull %val817, ptr noundef %arena)
+  %call826 = call fastcc i32 @obj2ast_comprehension(ptr noundef %state, ptr noundef nonnull %322, ptr noundef %val817, ptr noundef %arena)
   %324 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1121 = getelementptr inbounds i8, ptr %324, i64 44
   %325 = load i32, ptr %c_recursion_remaining.i.i1121, align 4
@@ -35587,7 +35587,7 @@ if.else866:                                       ; preds = %if.end863
 
 if.end871:                                        ; preds = %if.else866
   %343 = load ptr, ptr %tmp, align 8
-  %call872 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %343, ptr noundef nonnull %elt857, ptr noundef %arena)
+  %call872 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %343, ptr noundef %elt857, ptr noundef %arena)
   %344 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1123 = getelementptr inbounds i8, ptr %344, i64 44
   %345 = load i32, ptr %c_recursion_remaining.i.i1123, align 4
@@ -35689,7 +35689,7 @@ _Py_NewRef.exit1131:                              ; preds = %for.body914, %if.en
   br i1 %tobool921.not, label %if.end923, label %failed
 
 if.end923:                                        ; preds = %_Py_NewRef.exit1131
-  %call924 = call fastcc i32 @obj2ast_comprehension(ptr noundef %state, ptr noundef nonnull %359, ptr noundef nonnull %val915, ptr noundef %arena)
+  %call924 = call fastcc i32 @obj2ast_comprehension(ptr noundef %state, ptr noundef nonnull %359, ptr noundef %val915, ptr noundef %arena)
   %361 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1132 = getelementptr inbounds i8, ptr %361, i64 44
   %362 = load i32, ptr %c_recursion_remaining.i.i1132, align 4
@@ -35799,7 +35799,7 @@ if.else964:                                       ; preds = %if.end961
 
 if.end969:                                        ; preds = %if.else964
   %380 = load ptr, ptr %tmp, align 8
-  %call970 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %380, ptr noundef nonnull %key, ptr noundef %arena)
+  %call970 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %380, ptr noundef %key, ptr noundef %arena)
   %381 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1134 = getelementptr inbounds i8, ptr %381, i64 44
   %382 = load i32, ptr %c_recursion_remaining.i.i1134, align 4
@@ -35854,7 +35854,7 @@ if.else989:                                       ; preds = %if.end986
 
 if.end994:                                        ; preds = %if.else989
   %389 = load ptr, ptr %tmp, align 8
-  %call995 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %389, ptr noundef nonnull %value955, ptr noundef %arena)
+  %call995 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %389, ptr noundef %value955, ptr noundef %arena)
   %390 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1136 = getelementptr inbounds i8, ptr %390, i64 44
   %391 = load i32, ptr %c_recursion_remaining.i.i1136, align 4
@@ -35956,7 +35956,7 @@ _Py_NewRef.exit1144:                              ; preds = %for.body1037, %if.e
   br i1 %tobool1044.not, label %if.end1046, label %failed
 
 if.end1046:                                       ; preds = %_Py_NewRef.exit1144
-  %call1047 = call fastcc i32 @obj2ast_comprehension(ptr noundef %state, ptr noundef nonnull %405, ptr noundef nonnull %val1038, ptr noundef %arena)
+  %call1047 = call fastcc i32 @obj2ast_comprehension(ptr noundef %state, ptr noundef nonnull %405, ptr noundef %val1038, ptr noundef %arena)
   %407 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1145 = getelementptr inbounds i8, ptr %407, i64 44
   %408 = load i32, ptr %c_recursion_remaining.i.i1145, align 4
@@ -36067,7 +36067,7 @@ if.else1087:                                      ; preds = %if.end1084
 
 if.end1092:                                       ; preds = %if.else1087
   %427 = load ptr, ptr %tmp, align 8
-  %call1093 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %427, ptr noundef nonnull %elt1078, ptr noundef %arena)
+  %call1093 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %427, ptr noundef %elt1078, ptr noundef %arena)
   %428 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1147 = getelementptr inbounds i8, ptr %428, i64 44
   %429 = load i32, ptr %c_recursion_remaining.i.i1147, align 4
@@ -36169,7 +36169,7 @@ _Py_NewRef.exit1155:                              ; preds = %for.body1135, %if.e
   br i1 %tobool1142.not, label %if.end1144, label %failed
 
 if.end1144:                                       ; preds = %_Py_NewRef.exit1155
-  %call1145 = call fastcc i32 @obj2ast_comprehension(ptr noundef %state, ptr noundef nonnull %443, ptr noundef nonnull %val1136, ptr noundef %arena)
+  %call1145 = call fastcc i32 @obj2ast_comprehension(ptr noundef %state, ptr noundef nonnull %443, ptr noundef %val1136, ptr noundef %arena)
   %445 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1156 = getelementptr inbounds i8, ptr %445, i64 44
   %446 = load i32, ptr %c_recursion_remaining.i.i1156, align 4
@@ -36279,7 +36279,7 @@ if.else1184:                                      ; preds = %if.end1181
 
 if.end1189:                                       ; preds = %if.else1184
   %464 = load ptr, ptr %tmp, align 8
-  %call1190 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %464, ptr noundef nonnull %value1176, ptr noundef %arena)
+  %call1190 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %464, ptr noundef %value1176, ptr noundef %arena)
   %465 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1158 = getelementptr inbounds i8, ptr %465, i64 44
   %466 = load i32, ptr %c_recursion_remaining.i.i1158, align 4
@@ -36374,7 +36374,7 @@ if.else1230:                                      ; preds = %if.end1218
 
 if.end1235:                                       ; preds = %if.else1230
   %479 = load ptr, ptr %tmp, align 8
-  %call1236 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %479, ptr noundef nonnull %value1213, ptr noundef %arena)
+  %call1236 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %479, ptr noundef %value1213, ptr noundef %arena)
   %480 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1160 = getelementptr inbounds i8, ptr %480, i64 44
   %481 = load i32, ptr %c_recursion_remaining.i.i1160, align 4
@@ -36466,7 +36466,7 @@ if.else1267:                                      ; preds = %if.end1264
 
 if.end1272:                                       ; preds = %if.else1267
   %493 = load ptr, ptr %tmp, align 8
-  %call1273 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %493, ptr noundef nonnull %value1259, ptr noundef %arena)
+  %call1273 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %493, ptr noundef %value1259, ptr noundef %arena)
   %494 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1170 = getelementptr inbounds i8, ptr %494, i64 44
   %495 = load i32, ptr %c_recursion_remaining.i.i1170, align 4
@@ -36540,7 +36540,7 @@ if.else1304:                                      ; preds = %if.end1301
 
 if.end1309:                                       ; preds = %if.else1304
   %507 = load ptr, ptr %tmp, align 8
-  %call1310 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %507, ptr noundef nonnull %left1296, ptr noundef %arena)
+  %call1310 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %507, ptr noundef %left1296, ptr noundef %arena)
   %508 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1172 = getelementptr inbounds i8, ptr %508, i64 44
   %509 = load i32, ptr %c_recursion_remaining.i.i1172, align 4
@@ -36642,7 +36642,7 @@ _Py_NewRef.exit1180:                              ; preds = %for.body1352, %if.e
   br i1 %tobool1359.not, label %if.end1361, label %failed
 
 if.end1361:                                       ; preds = %_Py_NewRef.exit1180
-  %call1362 = call fastcc i32 @obj2ast_cmpop(ptr noundef %state, ptr noundef nonnull %523, ptr noundef nonnull %val1353)
+  %call1362 = call fastcc i32 @obj2ast_cmpop(ptr noundef %state, ptr noundef nonnull %523, ptr noundef %val1353)
   %525 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1181 = getelementptr inbounds i8, ptr %525, i64 44
   %526 = load i32, ptr %c_recursion_remaining.i.i1181, align 4
@@ -36780,7 +36780,7 @@ _Py_NewRef.exit1189:                              ; preds = %for.body1412, %if.e
   br i1 %tobool1419.not, label %if.end1421, label %failed
 
 if.end1421:                                       ; preds = %_Py_NewRef.exit1189
-  %call1422 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %546, ptr noundef nonnull %val1413, ptr noundef %arena)
+  %call1422 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %546, ptr noundef %val1413, ptr noundef %arena)
   %548 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1190 = getelementptr inbounds i8, ptr %548, i64 44
   %549 = load i32, ptr %c_recursion_remaining.i.i1190, align 4
@@ -36890,7 +36890,7 @@ if.else1461:                                      ; preds = %if.end1458
 
 if.end1466:                                       ; preds = %if.else1461
   %567 = load ptr, ptr %tmp, align 8
-  %call1467 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %567, ptr noundef nonnull %func, ptr noundef %arena)
+  %call1467 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %567, ptr noundef %func, ptr noundef %arena)
   %568 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1192 = getelementptr inbounds i8, ptr %568, i64 44
   %569 = load i32, ptr %c_recursion_remaining.i.i1192, align 4
@@ -36992,7 +36992,7 @@ _Py_NewRef.exit1200:                              ; preds = %for.body1509, %if.e
   br i1 %tobool1516.not, label %if.end1518, label %failed
 
 if.end1518:                                       ; preds = %_Py_NewRef.exit1200
-  %call1519 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %583, ptr noundef nonnull %val1510, ptr noundef %arena)
+  %call1519 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %583, ptr noundef %val1510, ptr noundef %arena)
   %585 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1201 = getelementptr inbounds i8, ptr %585, i64 44
   %586 = load i32, ptr %c_recursion_remaining.i.i1201, align 4
@@ -37130,7 +37130,7 @@ _Py_NewRef.exit1209:                              ; preds = %for.body1569, %if.e
   br i1 %tobool1576.not, label %if.end1578, label %failed
 
 if.end1578:                                       ; preds = %_Py_NewRef.exit1209
-  %call1579 = call fastcc i32 @obj2ast_keyword(ptr noundef %state, ptr noundef nonnull %606, ptr noundef nonnull %val1570, ptr noundef %arena)
+  %call1579 = call fastcc i32 @obj2ast_keyword(ptr noundef %state, ptr noundef nonnull %606, ptr noundef %val1570, ptr noundef %arena)
   %608 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1210 = getelementptr inbounds i8, ptr %608, i64 44
   %609 = load i32, ptr %c_recursion_remaining.i.i1210, align 4
@@ -37240,7 +37240,7 @@ if.else1618:                                      ; preds = %if.end1615
 
 if.end1623:                                       ; preds = %if.else1618
   %627 = load ptr, ptr %tmp, align 8
-  %call1624 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %627, ptr noundef nonnull %value1610, ptr noundef %arena)
+  %call1624 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %627, ptr noundef %value1610, ptr noundef %arena)
   %628 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1212 = getelementptr inbounds i8, ptr %628, i64 44
   %629 = load i32, ptr %c_recursion_remaining.i.i1212, align 4
@@ -37295,7 +37295,7 @@ if.else1643:                                      ; preds = %if.end1640
 
 if.end1648:                                       ; preds = %if.else1643
   %636 = load ptr, ptr %tmp, align 8
-  %call1649 = call fastcc i32 @obj2ast_int(ptr noundef %636, ptr noundef nonnull %conversion)
+  %call1649 = call fastcc i32 @obj2ast_int(ptr noundef %636, ptr noundef %conversion)
   %637 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1214 = getelementptr inbounds i8, ptr %637, i64 44
   %638 = load i32, ptr %c_recursion_remaining.i.i1214, align 4
@@ -37371,7 +37371,7 @@ if.else1677:                                      ; preds = %if.end1665
 
 if.end1682:                                       ; preds = %if.else1677
   %646 = load ptr, ptr %tmp, align 8
-  %call1683 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %646, ptr noundef nonnull %format_spec, ptr noundef %arena)
+  %call1683 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %646, ptr noundef %format_spec, ptr noundef %arena)
   %647 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1216 = getelementptr inbounds i8, ptr %647, i64 44
   %648 = load i32, ptr %c_recursion_remaining.i.i1216, align 4
@@ -37494,7 +37494,7 @@ _Py_NewRef.exit1224:                              ; preds = %for.body1737, %if.e
   br i1 %tobool1744.not, label %if.end1746, label %failed
 
 if.end1746:                                       ; preds = %_Py_NewRef.exit1224
-  %call1747 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %669, ptr noundef nonnull %val1738, ptr noundef %arena)
+  %call1747 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %669, ptr noundef %val1738, ptr noundef %arena)
   %671 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1225 = getelementptr inbounds i8, ptr %671, i64 44
   %672 = load i32, ptr %c_recursion_remaining.i.i1225, align 4
@@ -37715,7 +37715,7 @@ if.else1820:                                      ; preds = %if.end1808
 
 if.end1825:                                       ; preds = %if.else1820
   %702 = load ptr, ptr %tmp, align 8
-  %call1826 = call fastcc i32 @obj2ast_string(ptr noundef %702, ptr noundef nonnull %kind, ptr noundef %arena)
+  %call1826 = call fastcc i32 @obj2ast_string(ptr noundef %702, ptr noundef %kind, ptr noundef %arena)
   %703 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1242 = getelementptr inbounds i8, ptr %703, i64 44
   %704 = load i32, ptr %c_recursion_remaining.i.i1242, align 4
@@ -37789,7 +37789,7 @@ if.else1857:                                      ; preds = %if.end1854
 
 if.end1862:                                       ; preds = %if.else1857
   %716 = load ptr, ptr %tmp, align 8
-  %call1863 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %716, ptr noundef nonnull %value1849, ptr noundef %arena)
+  %call1863 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %716, ptr noundef %value1849, ptr noundef %arena)
   %717 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1244 = getelementptr inbounds i8, ptr %717, i64 44
   %718 = load i32, ptr %c_recursion_remaining.i.i1244, align 4
@@ -37844,7 +37844,7 @@ if.else1882:                                      ; preds = %if.end1879
 
 if.end1887:                                       ; preds = %if.else1882
   %725 = load ptr, ptr %tmp, align 8
-  %call1888 = call fastcc i32 @obj2ast_identifier(ptr noundef %725, ptr noundef nonnull %attr, ptr noundef %arena)
+  %call1888 = call fastcc i32 @obj2ast_identifier(ptr noundef %725, ptr noundef %attr, ptr noundef %arena)
   %726 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1246 = getelementptr inbounds i8, ptr %726, i64 44
   %727 = load i32, ptr %c_recursion_remaining.i.i1246, align 4
@@ -37899,7 +37899,7 @@ if.else1907:                                      ; preds = %if.end1904
 
 if.end1912:                                       ; preds = %if.else1907
   %734 = load ptr, ptr %tmp, align 8
-  %call1913 = call fastcc i32 @obj2ast_expr_context(ptr noundef nonnull %state, ptr noundef %734, ptr noundef nonnull %ctx)
+  %call1913 = call fastcc i32 @obj2ast_expr_context(ptr noundef %state, ptr noundef %734, ptr noundef %ctx)
   %735 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1248 = getelementptr inbounds i8, ptr %735, i64 44
   %736 = load i32, ptr %c_recursion_remaining.i.i1248, align 4
@@ -37975,7 +37975,7 @@ if.else1945:                                      ; preds = %if.end1942
 
 if.end1950:                                       ; preds = %if.else1945
   %750 = load ptr, ptr %tmp, align 8
-  %call1951 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %750, ptr noundef nonnull %value1936, ptr noundef %arena)
+  %call1951 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %750, ptr noundef %value1936, ptr noundef %arena)
   %751 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1250 = getelementptr inbounds i8, ptr %751, i64 44
   %752 = load i32, ptr %c_recursion_remaining.i.i1250, align 4
@@ -38030,7 +38030,7 @@ if.else1970:                                      ; preds = %if.end1967
 
 if.end1975:                                       ; preds = %if.else1970
   %759 = load ptr, ptr %tmp, align 8
-  %call1976 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %759, ptr noundef nonnull %slice, ptr noundef %arena)
+  %call1976 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %759, ptr noundef %slice, ptr noundef %arena)
   %760 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1252 = getelementptr inbounds i8, ptr %760, i64 44
   %761 = load i32, ptr %c_recursion_remaining.i.i1252, align 4
@@ -38085,7 +38085,7 @@ if.else1995:                                      ; preds = %if.end1992
 
 if.end2000:                                       ; preds = %if.else1995
   %768 = load ptr, ptr %tmp, align 8
-  %call2001 = call fastcc i32 @obj2ast_expr_context(ptr noundef nonnull %state, ptr noundef %768, ptr noundef nonnull %ctx1937)
+  %call2001 = call fastcc i32 @obj2ast_expr_context(ptr noundef %state, ptr noundef %768, ptr noundef %ctx1937)
   %769 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1254 = getelementptr inbounds i8, ptr %769, i64 44
   %770 = load i32, ptr %c_recursion_remaining.i.i1254, align 4
@@ -38161,7 +38161,7 @@ if.else2033:                                      ; preds = %if.end2030
 
 if.end2038:                                       ; preds = %if.else2033
   %784 = load ptr, ptr %tmp, align 8
-  %call2039 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %784, ptr noundef nonnull %value2024, ptr noundef %arena)
+  %call2039 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %784, ptr noundef %value2024, ptr noundef %arena)
   %785 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1256 = getelementptr inbounds i8, ptr %785, i64 44
   %786 = load i32, ptr %c_recursion_remaining.i.i1256, align 4
@@ -38216,7 +38216,7 @@ if.else2058:                                      ; preds = %if.end2055
 
 if.end2063:                                       ; preds = %if.else2058
   %793 = load ptr, ptr %tmp, align 8
-  %call2064 = call fastcc i32 @obj2ast_expr_context(ptr noundef nonnull %state, ptr noundef %793, ptr noundef nonnull %ctx2025)
+  %call2064 = call fastcc i32 @obj2ast_expr_context(ptr noundef %state, ptr noundef %793, ptr noundef %ctx2025)
   %794 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1258 = getelementptr inbounds i8, ptr %794, i64 44
   %795 = load i32, ptr %c_recursion_remaining.i.i1258, align 4
@@ -38291,7 +38291,7 @@ if.else2095:                                      ; preds = %if.end2092
 
 if.end2100:                                       ; preds = %if.else2095
   %808 = load ptr, ptr %tmp, align 8
-  %call2101 = call fastcc i32 @obj2ast_identifier(ptr noundef %808, ptr noundef nonnull %id, ptr noundef %arena)
+  %call2101 = call fastcc i32 @obj2ast_identifier(ptr noundef %808, ptr noundef %id, ptr noundef %arena)
   %809 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1260 = getelementptr inbounds i8, ptr %809, i64 44
   %810 = load i32, ptr %c_recursion_remaining.i.i1260, align 4
@@ -38346,7 +38346,7 @@ if.else2120:                                      ; preds = %if.end2117
 
 if.end2125:                                       ; preds = %if.else2120
   %817 = load ptr, ptr %tmp, align 8
-  %call2126 = call fastcc i32 @obj2ast_expr_context(ptr noundef nonnull %state, ptr noundef %817, ptr noundef nonnull %ctx2087)
+  %call2126 = call fastcc i32 @obj2ast_expr_context(ptr noundef %state, ptr noundef %817, ptr noundef %ctx2087)
   %818 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1262 = getelementptr inbounds i8, ptr %818, i64 44
   %819 = load i32, ptr %c_recursion_remaining.i.i1262, align 4
@@ -38468,7 +38468,7 @@ _Py_NewRef.exit1270:                              ; preds = %for.body2181, %if.e
   br i1 %tobool2188.not, label %if.end2190, label %failed
 
 if.end2190:                                       ; preds = %_Py_NewRef.exit1270
-  %call2191 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %839, ptr noundef nonnull %val2182, ptr noundef %arena)
+  %call2191 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %839, ptr noundef %val2182, ptr noundef %arena)
   %841 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1271 = getelementptr inbounds i8, ptr %841, i64 44
   %842 = load i32, ptr %c_recursion_remaining.i.i1271, align 4
@@ -38559,7 +38559,7 @@ if.else2218:                                      ; preds = %if.end2215
 
 if.end2223:                                       ; preds = %if.else2218
   %855 = load ptr, ptr %tmp, align 8
-  %call2224 = call fastcc i32 @obj2ast_expr_context(ptr noundef nonnull %state, ptr noundef %855, ptr noundef nonnull %ctx2150)
+  %call2224 = call fastcc i32 @obj2ast_expr_context(ptr noundef %state, ptr noundef %855, ptr noundef %ctx2150)
   %856 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1273 = getelementptr inbounds i8, ptr %856, i64 44
   %857 = load i32, ptr %c_recursion_remaining.i.i1273, align 4
@@ -38680,7 +38680,7 @@ _Py_NewRef.exit1281:                              ; preds = %for.body2279, %if.e
   br i1 %tobool2286.not, label %if.end2288, label %failed
 
 if.end2288:                                       ; preds = %_Py_NewRef.exit1281
-  %call2289 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %876, ptr noundef nonnull %val2280, ptr noundef %arena)
+  %call2289 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %876, ptr noundef %val2280, ptr noundef %arena)
   %878 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1282 = getelementptr inbounds i8, ptr %878, i64 44
   %879 = load i32, ptr %c_recursion_remaining.i.i1282, align 4
@@ -38771,7 +38771,7 @@ if.else2316:                                      ; preds = %if.end2313
 
 if.end2321:                                       ; preds = %if.else2316
   %892 = load ptr, ptr %tmp, align 8
-  %call2322 = call fastcc i32 @obj2ast_expr_context(ptr noundef nonnull %state, ptr noundef %892, ptr noundef nonnull %ctx2248)
+  %call2322 = call fastcc i32 @obj2ast_expr_context(ptr noundef %state, ptr noundef %892, ptr noundef %ctx2248)
   %893 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1284 = getelementptr inbounds i8, ptr %893, i64 44
   %894 = load i32, ptr %c_recursion_remaining.i.i1284, align 4
@@ -38866,7 +38866,7 @@ if.else2361:                                      ; preds = %if.end2349
 
 if.end2366:                                       ; preds = %if.else2361
   %907 = load ptr, ptr %tmp, align 8
-  %call2367 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %907, ptr noundef nonnull %lower, ptr noundef %arena)
+  %call2367 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %907, ptr noundef %lower, ptr noundef %arena)
   %908 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1286 = getelementptr inbounds i8, ptr %908, i64 44
   %909 = load i32, ptr %c_recursion_remaining.i.i1286, align 4
@@ -38942,7 +38942,7 @@ if.else2395:                                      ; preds = %if.end2383
 
 if.end2400:                                       ; preds = %if.else2395
   %917 = load ptr, ptr %tmp, align 8
-  %call2401 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %917, ptr noundef nonnull %upper, ptr noundef %arena)
+  %call2401 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %917, ptr noundef %upper, ptr noundef %arena)
   %918 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1288 = getelementptr inbounds i8, ptr %918, i64 44
   %919 = load i32, ptr %c_recursion_remaining.i.i1288, align 4
@@ -39018,7 +39018,7 @@ if.else2429:                                      ; preds = %if.end2417
 
 if.end2434:                                       ; preds = %if.else2429
   %927 = load ptr, ptr %tmp, align 8
-  %call2435 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %927, ptr noundef nonnull %step, ptr noundef %arena)
+  %call2435 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %927, ptr noundef %step, ptr noundef %arena)
   %928 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1290 = getelementptr inbounds i8, ptr %928, i64 44
   %929 = load i32, ptr %c_recursion_remaining.i.i1290, align 4
@@ -39117,7 +39117,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 declare i32 @_Py_CheckRecursiveCall(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_int(ptr noundef %obj, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_int(ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -39152,7 +39152,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_identifier(ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_identifier(ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -39197,7 +39197,7 @@ return:                                           ; preds = %obj2ast_object.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_arguments(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_arguments(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %vararg = alloca ptr, align 8
@@ -39316,7 +39316,7 @@ _Py_EnterRecursiveCall.exit:                      ; preds = %_Py_NewRef.exit
   br i1 %tobool2.i.i.not, label %if.end26, label %failed
 
 if.end26:                                         ; preds = %_Py_NewRef.exit, %_Py_EnterRecursiveCall.exit
-  %call27 = call fastcc i32 @obj2ast_arg(ptr noundef %state, ptr noundef nonnull %11, ptr noundef nonnull %val, ptr noundef %arena)
+  %call27 = call fastcc i32 @obj2ast_arg(ptr noundef %state, ptr noundef nonnull %11, ptr noundef %val, ptr noundef %arena)
   %15 = load ptr, ptr %8, align 8
   %c_recursion_remaining.i.i = getelementptr inbounds i8, ptr %15, i64 44
   %16 = load i32, ptr %c_recursion_remaining.i.i, align 4
@@ -39464,7 +39464,7 @@ _Py_EnterRecursiveCall.exit163:                   ; preds = %_Py_NewRef.exit155
   br i1 %tobool2.i.i161.not, label %if.end78, label %failed
 
 if.end78:                                         ; preds = %_Py_NewRef.exit155, %_Py_EnterRecursiveCall.exit163
-  %call79 = call fastcc i32 @obj2ast_arg(ptr noundef %state, ptr noundef nonnull %37, ptr noundef nonnull %val70, ptr noundef %arena)
+  %call79 = call fastcc i32 @obj2ast_arg(ptr noundef %state, ptr noundef nonnull %37, ptr noundef %val70, ptr noundef %arena)
   %41 = load ptr, ptr %34, align 8
   %c_recursion_remaining.i.i164 = getelementptr inbounds i8, ptr %41, i64 44
   %42 = load i32, ptr %c_recursion_remaining.i.i164, align 4
@@ -39576,7 +39576,7 @@ if.else:                                          ; preds = %if.end103
 
 if.end118:                                        ; preds = %if.else
   %56 = load ptr, ptr %tmp, align 8
-  %call119 = call fastcc i32 @obj2ast_arg(ptr noundef nonnull %state, ptr noundef %56, ptr noundef nonnull %vararg, ptr noundef %arena)
+  %call119 = call fastcc i32 @obj2ast_arg(ptr noundef %state, ptr noundef %56, ptr noundef %vararg, ptr noundef %arena)
   %57 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %58 = load ptr, ptr %57, align 8
   %c_recursion_remaining.i.i166 = getelementptr inbounds i8, ptr %58, i64 44
@@ -39680,7 +39680,7 @@ _Py_NewRef.exit174:                               ; preds = %for.body161, %if.en
   br i1 %tobool168.not, label %if.end170, label %failed
 
 if.end170:                                        ; preds = %_Py_NewRef.exit174
-  %call171 = call fastcc i32 @obj2ast_arg(ptr noundef %state, ptr noundef nonnull %74, ptr noundef nonnull %val162, ptr noundef %arena)
+  %call171 = call fastcc i32 @obj2ast_arg(ptr noundef %state, ptr noundef nonnull %74, ptr noundef %val162, ptr noundef %arena)
   %76 = load ptr, ptr %71, align 8
   %c_recursion_remaining.i.i175 = getelementptr inbounds i8, ptr %76, i64 44
   %77 = load i32, ptr %c_recursion_remaining.i.i175, align 4
@@ -39819,7 +39819,7 @@ _Py_NewRef.exit183:                               ; preds = %for.body221, %if.en
   br i1 %tobool228.not, label %if.end230, label %failed
 
 if.end230:                                        ; preds = %_Py_NewRef.exit183
-  %call231 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %98, ptr noundef nonnull %val222, ptr noundef %arena)
+  %call231 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %98, ptr noundef %val222, ptr noundef %arena)
   %100 = load ptr, ptr %95, align 8
   %c_recursion_remaining.i.i184 = getelementptr inbounds i8, ptr %100, i64 44
   %101 = load i32, ptr %c_recursion_remaining.i.i184, align 4
@@ -39931,7 +39931,7 @@ if.else267:                                       ; preds = %if.end255
 
 if.end272:                                        ; preds = %if.else267
   %115 = load ptr, ptr %tmp, align 8
-  %call273 = call fastcc i32 @obj2ast_arg(ptr noundef nonnull %state, ptr noundef %115, ptr noundef nonnull %kwarg, ptr noundef %arena)
+  %call273 = call fastcc i32 @obj2ast_arg(ptr noundef %state, ptr noundef %115, ptr noundef %kwarg, ptr noundef %arena)
   %116 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %117 = load ptr, ptr %116, align 8
   %c_recursion_remaining.i.i186 = getelementptr inbounds i8, ptr %117, i64 44
@@ -40035,7 +40035,7 @@ _Py_NewRef.exit194:                               ; preds = %for.body315, %if.en
   br i1 %tobool322.not, label %if.end324, label %failed
 
 if.end324:                                        ; preds = %_Py_NewRef.exit194
-  %call325 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %133, ptr noundef nonnull %val316, ptr noundef %arena)
+  %call325 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %133, ptr noundef %val316, ptr noundef %arena)
   %135 = load ptr, ptr %130, align 8
   %c_recursion_remaining.i.i195 = getelementptr inbounds i8, ptr %135, i64 44
   %136 = load i32, ptr %c_recursion_remaining.i.i195, align 4
@@ -40157,7 +40157,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_string(ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_string(ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -40202,7 +40202,7 @@ return:                                           ; preds = %obj2ast_object.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_type_param(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_type_param(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %col_offset = alloca i32, align 4
@@ -40340,7 +40340,7 @@ if.else25:                                        ; preds = %if.end22
 
 if.end30:                                         ; preds = %if.else25
   %21 = load ptr, ptr %tmp, align 8
-  %call31 = call fastcc i32 @obj2ast_int(ptr noundef %21, ptr noundef nonnull %col_offset)
+  %call31 = call fastcc i32 @obj2ast_int(ptr noundef %21, ptr noundef %col_offset)
   %22 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i100 = getelementptr inbounds i8, ptr %22, i64 44
   %23 = load i32, ptr %c_recursion_remaining.i.i100, align 4
@@ -40395,7 +40395,7 @@ if.else50:                                        ; preds = %if.end47
 
 if.end55:                                         ; preds = %if.else50
   %30 = load ptr, ptr %tmp, align 8
-  %call56 = call fastcc i32 @obj2ast_int(ptr noundef %30, ptr noundef nonnull %end_lineno)
+  %call56 = call fastcc i32 @obj2ast_int(ptr noundef %30, ptr noundef %end_lineno)
   %31 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i102 = getelementptr inbounds i8, ptr %31, i64 44
   %32 = load i32, ptr %c_recursion_remaining.i.i102, align 4
@@ -40450,7 +40450,7 @@ if.else75:                                        ; preds = %if.end72
 
 if.end80:                                         ; preds = %if.else75
   %39 = load ptr, ptr %tmp, align 8
-  %call81 = call fastcc i32 @obj2ast_int(ptr noundef %39, ptr noundef nonnull %end_col_offset)
+  %call81 = call fastcc i32 @obj2ast_int(ptr noundef %39, ptr noundef %end_col_offset)
   %40 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i104 = getelementptr inbounds i8, ptr %40, i64 44
   %41 = load i32, ptr %c_recursion_remaining.i.i104, align 4
@@ -40514,7 +40514,7 @@ if.else106:                                       ; preds = %if.end103
 
 if.end111:                                        ; preds = %if.else106
   %49 = load ptr, ptr %tmp, align 8
-  %call112 = call fastcc i32 @obj2ast_identifier(ptr noundef %49, ptr noundef nonnull %name, ptr noundef %arena)
+  %call112 = call fastcc i32 @obj2ast_identifier(ptr noundef %49, ptr noundef %name, ptr noundef %arena)
   %50 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i106 = getelementptr inbounds i8, ptr %50, i64 44
   %51 = load i32, ptr %c_recursion_remaining.i.i106, align 4
@@ -40590,7 +40590,7 @@ if.else139:                                       ; preds = %if.end128
 
 if.end144:                                        ; preds = %if.else139
   %59 = load ptr, ptr %tmp, align 8
-  %call145 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %59, ptr noundef nonnull %bound, ptr noundef %arena)
+  %call145 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %59, ptr noundef %bound, ptr noundef %arena)
   %60 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i108 = getelementptr inbounds i8, ptr %60, i64 44
   %61 = load i32, ptr %c_recursion_remaining.i.i108, align 4
@@ -40665,7 +40665,7 @@ if.else176:                                       ; preds = %if.end173
 
 if.end181:                                        ; preds = %if.else176
   %74 = load ptr, ptr %tmp, align 8
-  %call182 = call fastcc i32 @obj2ast_identifier(ptr noundef %74, ptr noundef nonnull %name168, ptr noundef %arena)
+  %call182 = call fastcc i32 @obj2ast_identifier(ptr noundef %74, ptr noundef %name168, ptr noundef %arena)
   %75 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i110 = getelementptr inbounds i8, ptr %75, i64 44
   %76 = load i32, ptr %c_recursion_remaining.i.i110, align 4
@@ -40739,7 +40739,7 @@ if.else213:                                       ; preds = %if.end210
 
 if.end218:                                        ; preds = %if.else213
   %88 = load ptr, ptr %tmp, align 8
-  %call219 = call fastcc i32 @obj2ast_identifier(ptr noundef %88, ptr noundef nonnull %name205, ptr noundef %arena)
+  %call219 = call fastcc i32 @obj2ast_identifier(ptr noundef %88, ptr noundef %name205, ptr noundef %arena)
   %89 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i112 = getelementptr inbounds i8, ptr %89, i64 44
   %90 = load i32, ptr %c_recursion_remaining.i.i112, align 4
@@ -40812,7 +40812,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_keyword(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_keyword(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %value = alloca ptr, align 8
@@ -40979,7 +40979,7 @@ _Py_EnterRecursiveCall.exit79.if.end35_crit_edge: ; preds = %_Py_EnterRecursiveC
 
 if.end35:                                         ; preds = %_Py_EnterRecursiveCall.exit79.if.end35_crit_edge, %if.else30
   %24 = phi ptr [ %.pre104, %_Py_EnterRecursiveCall.exit79.if.end35_crit_edge ], [ %19, %if.else30 ]
-  %call36 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %24, ptr noundef nonnull %value, ptr noundef %arena)
+  %call36 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %24, ptr noundef %value, ptr noundef %arena)
   %25 = load ptr, ptr %21, align 8
   %c_recursion_remaining.i.i80 = getelementptr inbounds i8, ptr %25, i64 44
   %26 = load i32, ptr %c_recursion_remaining.i.i80, align 4
@@ -41034,7 +41034,7 @@ if.else55:                                        ; preds = %if.end52
 
 if.end60:                                         ; preds = %if.else55
   %33 = load ptr, ptr %tmp, align 8
-  %call61 = call fastcc i32 @obj2ast_int(ptr noundef %33, ptr noundef nonnull %lineno)
+  %call61 = call fastcc i32 @obj2ast_int(ptr noundef %33, ptr noundef %lineno)
   %34 = load ptr, ptr %21, align 8
   %c_recursion_remaining.i.i82 = getelementptr inbounds i8, ptr %34, i64 44
   %35 = load i32, ptr %c_recursion_remaining.i.i82, align 4
@@ -41089,7 +41089,7 @@ if.else80:                                        ; preds = %if.end77
 
 if.end85:                                         ; preds = %if.else80
   %42 = load ptr, ptr %tmp, align 8
-  %call86 = call fastcc i32 @obj2ast_int(ptr noundef %42, ptr noundef nonnull %col_offset)
+  %call86 = call fastcc i32 @obj2ast_int(ptr noundef %42, ptr noundef %col_offset)
   %43 = load ptr, ptr %21, align 8
   %c_recursion_remaining.i.i84 = getelementptr inbounds i8, ptr %43, i64 44
   %44 = load i32, ptr %c_recursion_remaining.i.i84, align 4
@@ -41166,7 +41166,7 @@ if.else114:                                       ; preds = %if.end102
 
 if.end119:                                        ; preds = %if.else114
   %53 = load ptr, ptr %tmp, align 8
-  %call120 = call fastcc i32 @obj2ast_int(ptr noundef %53, ptr noundef nonnull %end_lineno)
+  %call120 = call fastcc i32 @obj2ast_int(ptr noundef %53, ptr noundef %end_lineno)
   %54 = load ptr, ptr %21, align 8
   %c_recursion_remaining.i.i86 = getelementptr inbounds i8, ptr %54, i64 44
   %55 = load i32, ptr %c_recursion_remaining.i.i86, align 4
@@ -41243,7 +41243,7 @@ if.else148:                                       ; preds = %if.end136
 
 if.end153:                                        ; preds = %if.else148
   %64 = load ptr, ptr %tmp, align 8
-  %call154 = call fastcc i32 @obj2ast_int(ptr noundef %64, ptr noundef nonnull %end_col_offset)
+  %call154 = call fastcc i32 @obj2ast_int(ptr noundef %64, ptr noundef %end_col_offset)
   %65 = load ptr, ptr %21, align 8
   %c_recursion_remaining.i.i88 = getelementptr inbounds i8, ptr %65, i64 44
   %66 = load i32, ptr %c_recursion_remaining.i.i88, align 4
@@ -41312,7 +41312,7 @@ return:                                           ; preds = %if.then1.i.i93, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_operator(ptr nocapture noundef readonly %state, ptr noundef %obj, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_operator(ptr nocapture noundef nonnull readonly %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #0 {
 entry:
   %Add_type = getelementptr inbounds i8, ptr %state, i64 32
   %0 = load ptr, ptr %Add_type, align 8
@@ -41493,7 +41493,7 @@ return:                                           ; preds = %if.end79, %if.end72
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_withitem(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_withitem(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %context_expr = alloca ptr, align 8
@@ -41536,7 +41536,7 @@ _Py_EnterRecursiveCall.exit.if.end6_crit_edge:    ; preds = %_Py_EnterRecursiveC
 
 if.end6:                                          ; preds = %_Py_EnterRecursiveCall.exit.if.end6_crit_edge, %if.else
   %6 = phi ptr [ %.pre, %_Py_EnterRecursiveCall.exit.if.end6_crit_edge ], [ %1, %if.else ]
-  %call7 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %6, ptr noundef nonnull %context_expr, ptr noundef %arena)
+  %call7 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %6, ptr noundef %context_expr, ptr noundef %arena)
   %7 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i = getelementptr inbounds i8, ptr %7, i64 44
   %8 = load i32, ptr %c_recursion_remaining.i.i, align 4
@@ -41612,7 +41612,7 @@ if.else30:                                        ; preds = %if.end19
 
 if.end35:                                         ; preds = %if.else30
   %16 = load ptr, ptr %tmp, align 8
-  %call36 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %16, ptr noundef nonnull %optional_vars, ptr noundef %arena)
+  %call36 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %16, ptr noundef %optional_vars, ptr noundef %arena)
   %17 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i22 = getelementptr inbounds i8, ptr %17, i64 44
   %18 = load i32, ptr %c_recursion_remaining.i.i22, align 4
@@ -41678,7 +41678,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_match_case(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_match_case(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %pattern = alloca ptr, align 8
@@ -41722,7 +41722,7 @@ _Py_EnterRecursiveCall.exit.if.end6_crit_edge:    ; preds = %_Py_EnterRecursiveC
 
 if.end6:                                          ; preds = %_Py_EnterRecursiveCall.exit.if.end6_crit_edge, %if.else
   %6 = phi ptr [ %.pre, %_Py_EnterRecursiveCall.exit.if.end6_crit_edge ], [ %1, %if.else ]
-  %call7 = call fastcc i32 @obj2ast_pattern(ptr noundef nonnull %state, ptr noundef %6, ptr noundef nonnull %pattern, ptr noundef %arena)
+  %call7 = call fastcc i32 @obj2ast_pattern(ptr noundef %state, ptr noundef %6, ptr noundef %pattern, ptr noundef %arena)
   %7 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i = getelementptr inbounds i8, ptr %7, i64 44
   %8 = load i32, ptr %c_recursion_remaining.i.i, align 4
@@ -41798,7 +41798,7 @@ if.else30:                                        ; preds = %if.end19
 
 if.end35:                                         ; preds = %if.else30
   %16 = load ptr, ptr %tmp, align 8
-  %call36 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %16, ptr noundef nonnull %guard, ptr noundef %arena)
+  %call36 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %16, ptr noundef %guard, ptr noundef %arena)
   %17 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i45 = getelementptr inbounds i8, ptr %17, i64 44
   %18 = load i32, ptr %c_recursion_remaining.i.i45, align 4
@@ -41909,7 +41909,7 @@ _Py_EnterRecursiveCall.exit55:                    ; preds = %_Py_NewRef.exit
   br i1 %tobool2.i.i53.not, label %if.end79, label %failed
 
 if.end79:                                         ; preds = %_Py_NewRef.exit, %_Py_EnterRecursiveCall.exit55
-  %call80 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %32, ptr noundef nonnull %val, ptr noundef %arena)
+  %call80 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %32, ptr noundef %val, ptr noundef %arena)
   %36 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i56 = getelementptr inbounds i8, ptr %36, i64 44
   %37 = load i32, ptr %c_recursion_remaining.i.i56, align 4
@@ -42011,7 +42011,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_excepthandler(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_excepthandler(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %col_offset = alloca i32, align 4
@@ -42148,7 +42148,7 @@ if.else25:                                        ; preds = %if.end22
 
 if.end30:                                         ; preds = %if.else25
   %21 = load ptr, ptr %tmp, align 8
-  %call31 = call fastcc i32 @obj2ast_int(ptr noundef %21, ptr noundef nonnull %col_offset)
+  %call31 = call fastcc i32 @obj2ast_int(ptr noundef %21, ptr noundef %col_offset)
   %22 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i107 = getelementptr inbounds i8, ptr %22, i64 44
   %23 = load i32, ptr %c_recursion_remaining.i.i107, align 4
@@ -42224,7 +42224,7 @@ if.else58:                                        ; preds = %if.end47
 
 if.end63:                                         ; preds = %if.else58
   %31 = load ptr, ptr %tmp, align 8
-  %call64 = call fastcc i32 @obj2ast_int(ptr noundef %31, ptr noundef nonnull %end_lineno)
+  %call64 = call fastcc i32 @obj2ast_int(ptr noundef %31, ptr noundef %end_lineno)
   %32 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i109 = getelementptr inbounds i8, ptr %32, i64 44
   %33 = load i32, ptr %c_recursion_remaining.i.i109, align 4
@@ -42301,7 +42301,7 @@ if.else92:                                        ; preds = %if.end80
 
 if.end97:                                         ; preds = %if.else92
   %42 = load ptr, ptr %tmp, align 8
-  %call98 = call fastcc i32 @obj2ast_int(ptr noundef %42, ptr noundef nonnull %end_col_offset)
+  %call98 = call fastcc i32 @obj2ast_int(ptr noundef %42, ptr noundef %end_col_offset)
   %43 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i111 = getelementptr inbounds i8, ptr %43, i64 44
   %44 = load i32, ptr %c_recursion_remaining.i.i111, align 4
@@ -42386,7 +42386,7 @@ if.else132:                                       ; preds = %if.end120
 
 if.end137:                                        ; preds = %if.else132
   %53 = load ptr, ptr %tmp, align 8
-  %call138 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %53, ptr noundef nonnull %type, ptr noundef %arena)
+  %call138 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %53, ptr noundef %type, ptr noundef %arena)
   %54 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i113 = getelementptr inbounds i8, ptr %54, i64 44
   %55 = load i32, ptr %c_recursion_remaining.i.i113, align 4
@@ -42462,7 +42462,7 @@ if.else166:                                       ; preds = %if.end154
 
 if.end171:                                        ; preds = %if.else166
   %63 = load ptr, ptr %tmp, align 8
-  %call172 = call fastcc i32 @obj2ast_identifier(ptr noundef %63, ptr noundef nonnull %name, ptr noundef %arena)
+  %call172 = call fastcc i32 @obj2ast_identifier(ptr noundef %63, ptr noundef %name, ptr noundef %arena)
   %64 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i115 = getelementptr inbounds i8, ptr %64, i64 44
   %65 = load i32, ptr %c_recursion_remaining.i.i115, align 4
@@ -42564,7 +42564,7 @@ _Py_NewRef.exit:                                  ; preds = %for.body, %if.end.i
   br i1 %tobool213.not, label %if.end215, label %failed
 
 if.end215:                                        ; preds = %_Py_NewRef.exit
-  %call216 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %79, ptr noundef nonnull %val, ptr noundef %arena)
+  %call216 = call fastcc i32 @obj2ast_stmt(ptr noundef %state, ptr noundef nonnull %79, ptr noundef %val, ptr noundef %arena)
   %81 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i118 = getelementptr inbounds i8, ptr %81, i64 44
   %82 = load i32, ptr %c_recursion_remaining.i.i118, align 4
@@ -42696,7 +42696,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_alias(ptr nocapture noundef readonly %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_alias(ptr nocapture noundef nonnull readonly %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %asname = alloca ptr, align 8
@@ -42854,7 +42854,7 @@ if.else30:                                        ; preds = %if.end19
 
 if.end35:                                         ; preds = %if.else30
   %21 = load ptr, ptr %tmp, align 8
-  %call36 = call fastcc i32 @obj2ast_identifier(ptr noundef %21, ptr noundef nonnull %asname, ptr noundef %arena)
+  %call36 = call fastcc i32 @obj2ast_identifier(ptr noundef %21, ptr noundef %asname, ptr noundef %arena)
   %22 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i72 = getelementptr inbounds i8, ptr %22, i64 44
   %23 = load i32, ptr %c_recursion_remaining.i.i72, align 4
@@ -42909,7 +42909,7 @@ if.else55:                                        ; preds = %if.end52
 
 if.end60:                                         ; preds = %if.else55
   %30 = load ptr, ptr %tmp, align 8
-  %call61 = call fastcc i32 @obj2ast_int(ptr noundef %30, ptr noundef nonnull %lineno)
+  %call61 = call fastcc i32 @obj2ast_int(ptr noundef %30, ptr noundef %lineno)
   %31 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i74 = getelementptr inbounds i8, ptr %31, i64 44
   %32 = load i32, ptr %c_recursion_remaining.i.i74, align 4
@@ -42964,7 +42964,7 @@ if.else80:                                        ; preds = %if.end77
 
 if.end85:                                         ; preds = %if.else80
   %39 = load ptr, ptr %tmp, align 8
-  %call86 = call fastcc i32 @obj2ast_int(ptr noundef %39, ptr noundef nonnull %col_offset)
+  %call86 = call fastcc i32 @obj2ast_int(ptr noundef %39, ptr noundef %col_offset)
   %40 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i76 = getelementptr inbounds i8, ptr %40, i64 44
   %41 = load i32, ptr %c_recursion_remaining.i.i76, align 4
@@ -43041,7 +43041,7 @@ if.else114:                                       ; preds = %if.end102
 
 if.end119:                                        ; preds = %if.else114
   %50 = load ptr, ptr %tmp, align 8
-  %call120 = call fastcc i32 @obj2ast_int(ptr noundef %50, ptr noundef nonnull %end_lineno)
+  %call120 = call fastcc i32 @obj2ast_int(ptr noundef %50, ptr noundef %end_lineno)
   %51 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i78 = getelementptr inbounds i8, ptr %51, i64 44
   %52 = load i32, ptr %c_recursion_remaining.i.i78, align 4
@@ -43118,7 +43118,7 @@ if.else148:                                       ; preds = %if.end136
 
 if.end153:                                        ; preds = %if.else148
   %61 = load ptr, ptr %tmp, align 8
-  %call154 = call fastcc i32 @obj2ast_int(ptr noundef %61, ptr noundef nonnull %end_col_offset)
+  %call154 = call fastcc i32 @obj2ast_int(ptr noundef %61, ptr noundef %end_col_offset)
   %62 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i80 = getelementptr inbounds i8, ptr %62, i64 44
   %63 = load i32, ptr %c_recursion_remaining.i.i80, align 4
@@ -43195,7 +43195,7 @@ declare ptr @PyErr_Occurred() local_unnamed_addr #1
 declare i32 @_PyArena_AddPyObject(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_arg(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_arg(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %annotation = alloca ptr, align 8
@@ -43354,7 +43354,7 @@ if.else30:                                        ; preds = %if.end19
 
 if.end35:                                         ; preds = %if.else30
   %21 = load ptr, ptr %tmp, align 8
-  %call36 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %21, ptr noundef nonnull %annotation, ptr noundef %arena)
+  %call36 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %21, ptr noundef %annotation, ptr noundef %arena)
   %22 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i87 = getelementptr inbounds i8, ptr %22, i64 44
   %23 = load i32, ptr %c_recursion_remaining.i.i87, align 4
@@ -43430,7 +43430,7 @@ if.else64:                                        ; preds = %if.end52
 
 if.end69:                                         ; preds = %if.else64
   %31 = load ptr, ptr %tmp, align 8
-  %call70 = call fastcc i32 @obj2ast_string(ptr noundef %31, ptr noundef nonnull %type_comment, ptr noundef %arena)
+  %call70 = call fastcc i32 @obj2ast_string(ptr noundef %31, ptr noundef %type_comment, ptr noundef %arena)
   %32 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i89 = getelementptr inbounds i8, ptr %32, i64 44
   %33 = load i32, ptr %c_recursion_remaining.i.i89, align 4
@@ -43485,7 +43485,7 @@ if.else89:                                        ; preds = %if.end86
 
 if.end94:                                         ; preds = %if.else89
   %40 = load ptr, ptr %tmp, align 8
-  %call95 = call fastcc i32 @obj2ast_int(ptr noundef %40, ptr noundef nonnull %lineno)
+  %call95 = call fastcc i32 @obj2ast_int(ptr noundef %40, ptr noundef %lineno)
   %41 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i91 = getelementptr inbounds i8, ptr %41, i64 44
   %42 = load i32, ptr %c_recursion_remaining.i.i91, align 4
@@ -43540,7 +43540,7 @@ if.else114:                                       ; preds = %if.end111
 
 if.end119:                                        ; preds = %if.else114
   %49 = load ptr, ptr %tmp, align 8
-  %call120 = call fastcc i32 @obj2ast_int(ptr noundef %49, ptr noundef nonnull %col_offset)
+  %call120 = call fastcc i32 @obj2ast_int(ptr noundef %49, ptr noundef %col_offset)
   %50 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i93 = getelementptr inbounds i8, ptr %50, i64 44
   %51 = load i32, ptr %c_recursion_remaining.i.i93, align 4
@@ -43617,7 +43617,7 @@ if.else148:                                       ; preds = %if.end136
 
 if.end153:                                        ; preds = %if.else148
   %60 = load ptr, ptr %tmp, align 8
-  %call154 = call fastcc i32 @obj2ast_int(ptr noundef %60, ptr noundef nonnull %end_lineno)
+  %call154 = call fastcc i32 @obj2ast_int(ptr noundef %60, ptr noundef %end_lineno)
   %61 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i95 = getelementptr inbounds i8, ptr %61, i64 44
   %62 = load i32, ptr %c_recursion_remaining.i.i95, align 4
@@ -43694,7 +43694,7 @@ if.else182:                                       ; preds = %if.end170
 
 if.end187:                                        ; preds = %if.else182
   %71 = load ptr, ptr %tmp, align 8
-  %call188 = call fastcc i32 @obj2ast_int(ptr noundef %71, ptr noundef nonnull %end_col_offset)
+  %call188 = call fastcc i32 @obj2ast_int(ptr noundef %71, ptr noundef %end_col_offset)
   %72 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i97 = getelementptr inbounds i8, ptr %72, i64 44
   %73 = load i32, ptr %c_recursion_remaining.i.i97, align 4
@@ -43764,7 +43764,7 @@ return:                                           ; preds = %if.then1.i.i102, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_pattern(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_pattern(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %col_offset = alloca i32, align 4
@@ -43911,7 +43911,7 @@ if.else25:                                        ; preds = %if.end22
 
 if.end30:                                         ; preds = %if.else25
   %21 = load ptr, ptr %tmp, align 8
-  %call31 = call fastcc i32 @obj2ast_int(ptr noundef %21, ptr noundef nonnull %col_offset)
+  %call31 = call fastcc i32 @obj2ast_int(ptr noundef %21, ptr noundef %col_offset)
   %22 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i352 = getelementptr inbounds i8, ptr %22, i64 44
   %23 = load i32, ptr %c_recursion_remaining.i.i352, align 4
@@ -43966,7 +43966,7 @@ if.else50:                                        ; preds = %if.end47
 
 if.end55:                                         ; preds = %if.else50
   %30 = load ptr, ptr %tmp, align 8
-  %call56 = call fastcc i32 @obj2ast_int(ptr noundef %30, ptr noundef nonnull %end_lineno)
+  %call56 = call fastcc i32 @obj2ast_int(ptr noundef %30, ptr noundef %end_lineno)
   %31 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i354 = getelementptr inbounds i8, ptr %31, i64 44
   %32 = load i32, ptr %c_recursion_remaining.i.i354, align 4
@@ -44021,7 +44021,7 @@ if.else75:                                        ; preds = %if.end72
 
 if.end80:                                         ; preds = %if.else75
   %39 = load ptr, ptr %tmp, align 8
-  %call81 = call fastcc i32 @obj2ast_int(ptr noundef %39, ptr noundef nonnull %end_col_offset)
+  %call81 = call fastcc i32 @obj2ast_int(ptr noundef %39, ptr noundef %end_col_offset)
   %40 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i356 = getelementptr inbounds i8, ptr %40, i64 44
   %41 = load i32, ptr %c_recursion_remaining.i.i356, align 4
@@ -44085,7 +44085,7 @@ if.else106:                                       ; preds = %if.end103
 
 if.end111:                                        ; preds = %if.else106
   %49 = load ptr, ptr %tmp, align 8
-  %call112 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %49, ptr noundef nonnull %value, ptr noundef %arena)
+  %call112 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %49, ptr noundef %value, ptr noundef %arena)
   %50 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i358 = getelementptr inbounds i8, ptr %50, i64 44
   %51 = load i32, ptr %c_recursion_remaining.i.i358, align 4
@@ -44297,7 +44297,7 @@ _Py_NewRef.exit:                                  ; preds = %for.body, %if.end.i
   br i1 %tobool201.not, label %if.end203, label %failed
 
 if.end203:                                        ; preds = %_Py_NewRef.exit
-  %call204 = call fastcc i32 @obj2ast_pattern(ptr noundef %state, ptr noundef nonnull %86, ptr noundef nonnull %val, ptr noundef %arena)
+  %call204 = call fastcc i32 @obj2ast_pattern(ptr noundef %state, ptr noundef nonnull %86, ptr noundef %val, ptr noundef %arena)
   %88 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i367 = getelementptr inbounds i8, ptr %88, i64 44
   %89 = load i32, ptr %c_recursion_remaining.i.i367, align 4
@@ -44471,7 +44471,7 @@ _Py_NewRef.exit378:                               ; preds = %for.body262, %if.en
   br i1 %tobool269.not, label %if.end271, label %failed
 
 if.end271:                                        ; preds = %_Py_NewRef.exit378
-  %call272 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %113, ptr noundef nonnull %val263, ptr noundef %arena)
+  %call272 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %113, ptr noundef %val263, ptr noundef %arena)
   %115 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i379 = getelementptr inbounds i8, ptr %115, i64 44
   %116 = load i32, ptr %c_recursion_remaining.i.i379, align 4
@@ -44609,7 +44609,7 @@ _Py_NewRef.exit387:                               ; preds = %for.body322, %if.en
   br i1 %tobool329.not, label %if.end331, label %failed
 
 if.end331:                                        ; preds = %_Py_NewRef.exit387
-  %call332 = call fastcc i32 @obj2ast_pattern(ptr noundef %state, ptr noundef nonnull %136, ptr noundef nonnull %val323, ptr noundef %arena)
+  %call332 = call fastcc i32 @obj2ast_pattern(ptr noundef %state, ptr noundef nonnull %136, ptr noundef %val323, ptr noundef %arena)
   %138 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i388 = getelementptr inbounds i8, ptr %138, i64 44
   %139 = load i32, ptr %c_recursion_remaining.i.i388, align 4
@@ -44721,7 +44721,7 @@ if.else367:                                       ; preds = %if.end356
 
 if.end372:                                        ; preds = %if.else367
   %153 = load ptr, ptr %tmp, align 8
-  %call373 = call fastcc i32 @obj2ast_identifier(ptr noundef %153, ptr noundef nonnull %rest, ptr noundef %arena)
+  %call373 = call fastcc i32 @obj2ast_identifier(ptr noundef %153, ptr noundef %rest, ptr noundef %arena)
   %154 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i390 = getelementptr inbounds i8, ptr %154, i64 44
   %155 = load i32, ptr %c_recursion_remaining.i.i390, align 4
@@ -44817,7 +44817,7 @@ if.else404:                                       ; preds = %if.end401
 
 if.end409:                                        ; preds = %if.else404
   %167 = load ptr, ptr %tmp, align 8
-  %call410 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %167, ptr noundef nonnull %cls, ptr noundef %arena)
+  %call410 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %167, ptr noundef %cls, ptr noundef %arena)
   %168 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i396 = getelementptr inbounds i8, ptr %168, i64 44
   %169 = load i32, ptr %c_recursion_remaining.i.i396, align 4
@@ -44919,7 +44919,7 @@ _Py_NewRef.exit404:                               ; preds = %for.body452, %if.en
   br i1 %tobool459.not, label %if.end461, label %failed
 
 if.end461:                                        ; preds = %_Py_NewRef.exit404
-  %call462 = call fastcc i32 @obj2ast_pattern(ptr noundef %state, ptr noundef nonnull %183, ptr noundef nonnull %val453, ptr noundef %arena)
+  %call462 = call fastcc i32 @obj2ast_pattern(ptr noundef %state, ptr noundef nonnull %183, ptr noundef %val453, ptr noundef %arena)
   %185 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i405 = getelementptr inbounds i8, ptr %185, i64 44
   %186 = load i32, ptr %c_recursion_remaining.i.i405, align 4
@@ -45057,7 +45057,7 @@ _Py_NewRef.exit413:                               ; preds = %for.body512, %if.en
   br i1 %tobool519.not, label %if.end521, label %failed
 
 if.end521:                                        ; preds = %_Py_NewRef.exit413
-  %call522 = call fastcc i32 @obj2ast_identifier(ptr noundef nonnull %206, ptr noundef nonnull %val513, ptr noundef %arena)
+  %call522 = call fastcc i32 @obj2ast_identifier(ptr noundef nonnull %206, ptr noundef %val513, ptr noundef %arena)
   %208 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i414 = getelementptr inbounds i8, ptr %208, i64 44
   %209 = load i32, ptr %c_recursion_remaining.i.i414, align 4
@@ -45195,7 +45195,7 @@ _Py_NewRef.exit422:                               ; preds = %for.body572, %if.en
   br i1 %tobool579.not, label %if.end581, label %failed
 
 if.end581:                                        ; preds = %_Py_NewRef.exit422
-  %call582 = call fastcc i32 @obj2ast_pattern(ptr noundef %state, ptr noundef nonnull %229, ptr noundef nonnull %val573, ptr noundef %arena)
+  %call582 = call fastcc i32 @obj2ast_pattern(ptr noundef %state, ptr noundef nonnull %229, ptr noundef %val573, ptr noundef %arena)
   %231 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i423 = getelementptr inbounds i8, ptr %231, i64 44
   %232 = load i32, ptr %c_recursion_remaining.i.i423, align 4
@@ -45326,7 +45326,7 @@ if.else629:                                       ; preds = %if.end617
 
 if.end634:                                        ; preds = %if.else629
   %251 = load ptr, ptr %tmp, align 8
-  %call635 = call fastcc i32 @obj2ast_identifier(ptr noundef %251, ptr noundef nonnull %name, ptr noundef %arena)
+  %call635 = call fastcc i32 @obj2ast_identifier(ptr noundef %251, ptr noundef %name, ptr noundef %arena)
   %252 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i425 = getelementptr inbounds i8, ptr %252, i64 44
   %253 = load i32, ptr %c_recursion_remaining.i.i425, align 4
@@ -45439,7 +45439,7 @@ if.else675:                                       ; preds = %if.end663
 
 if.end680:                                        ; preds = %if.else675
   %266 = load ptr, ptr %tmp, align 8
-  %call681 = call fastcc i32 @obj2ast_pattern(ptr noundef nonnull %state, ptr noundef %266, ptr noundef nonnull %pattern, ptr noundef %arena)
+  %call681 = call fastcc i32 @obj2ast_pattern(ptr noundef %state, ptr noundef %266, ptr noundef %pattern, ptr noundef %arena)
   %267 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i435 = getelementptr inbounds i8, ptr %267, i64 44
   %268 = load i32, ptr %c_recursion_remaining.i.i435, align 4
@@ -45515,7 +45515,7 @@ if.else709:                                       ; preds = %if.end697
 
 if.end714:                                        ; preds = %if.else709
   %276 = load ptr, ptr %tmp, align 8
-  %call715 = call fastcc i32 @obj2ast_identifier(ptr noundef %276, ptr noundef nonnull %name658, ptr noundef %arena)
+  %call715 = call fastcc i32 @obj2ast_identifier(ptr noundef %276, ptr noundef %name658, ptr noundef %arena)
   %277 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i437 = getelementptr inbounds i8, ptr %277, i64 44
   %278 = load i32, ptr %c_recursion_remaining.i.i437, align 4
@@ -45657,7 +45657,7 @@ _Py_NewRef.exit449:                               ; preds = %for.body769, %if.en
   br i1 %tobool776.not, label %if.end778, label %failed
 
 if.end778:                                        ; preds = %_Py_NewRef.exit449
-  %call779 = call fastcc i32 @obj2ast_pattern(ptr noundef %state, ptr noundef nonnull %298, ptr noundef nonnull %val770, ptr noundef %arena)
+  %call779 = call fastcc i32 @obj2ast_pattern(ptr noundef %state, ptr noundef nonnull %298, ptr noundef %val770, ptr noundef %arena)
   %300 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i450 = getelementptr inbounds i8, ptr %300, i64 44
   %301 = load i32, ptr %c_recursion_remaining.i.i450, align 4
@@ -45783,7 +45783,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_boolop(ptr nocapture noundef readonly %state, ptr noundef %obj, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_boolop(ptr nocapture noundef nonnull readonly %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #0 {
 entry:
   %And_type = getelementptr inbounds i8, ptr %state, i64 48
   %0 = load ptr, ptr %And_type, align 8
@@ -45821,7 +45821,7 @@ return:                                           ; preds = %if.end2, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_unaryop(ptr nocapture noundef readonly %state, ptr noundef %obj, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_unaryop(ptr nocapture noundef nonnull readonly %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #0 {
 entry:
   %Invert_type = getelementptr inbounds i8, ptr %state, i64 496
   %0 = load ptr, ptr %Invert_type, align 8
@@ -45885,7 +45885,7 @@ return:                                           ; preds = %if.end16, %if.end9,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_comprehension(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_comprehension(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %target = alloca ptr, align 8
@@ -45930,7 +45930,7 @@ _Py_EnterRecursiveCall.exit.if.end6_crit_edge:    ; preds = %_Py_EnterRecursiveC
 
 if.end6:                                          ; preds = %_Py_EnterRecursiveCall.exit.if.end6_crit_edge, %if.else
   %6 = phi ptr [ %.pre, %_Py_EnterRecursiveCall.exit.if.end6_crit_edge ], [ %1, %if.else ]
-  %call7 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %6, ptr noundef nonnull %target, ptr noundef %arena)
+  %call7 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %6, ptr noundef %target, ptr noundef %arena)
   %7 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i = getelementptr inbounds i8, ptr %7, i64 44
   %8 = load i32, ptr %c_recursion_remaining.i.i, align 4
@@ -45998,7 +45998,7 @@ _Py_EnterRecursiveCall.exit56.if.end27_crit_edge: ; preds = %_Py_EnterRecursiveC
 
 if.end27:                                         ; preds = %_Py_EnterRecursiveCall.exit56.if.end27_crit_edge, %if.else22
   %17 = phi ptr [ %.pre73, %_Py_EnterRecursiveCall.exit56.if.end27_crit_edge ], [ %13, %if.else22 ]
-  %call28 = call fastcc i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %17, ptr noundef nonnull %iter, ptr noundef %arena)
+  %call28 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef %17, ptr noundef %iter, ptr noundef %arena)
   %18 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i57 = getelementptr inbounds i8, ptr %18, i64 44
   %19 = load i32, ptr %c_recursion_remaining.i.i57, align 4
@@ -46100,7 +46100,7 @@ _Py_NewRef.exit:                                  ; preds = %for.body, %if.end.i
   br i1 %tobool69.not, label %if.end71, label %failed
 
 if.end71:                                         ; preds = %_Py_NewRef.exit
-  %call72 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %33, ptr noundef nonnull %val, ptr noundef %arena)
+  %call72 = call fastcc i32 @obj2ast_expr(ptr noundef %state, ptr noundef nonnull %33, ptr noundef %val, ptr noundef %arena)
   %35 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i60 = getelementptr inbounds i8, ptr %35, i64 44
   %36 = load i32, ptr %c_recursion_remaining.i.i60, align 4
@@ -46191,7 +46191,7 @@ if.else95:                                        ; preds = %if.end92
 
 if.end100:                                        ; preds = %if.else95
   %49 = load ptr, ptr %tmp, align 8
-  %call101 = call fastcc i32 @obj2ast_int(ptr noundef %49, ptr noundef nonnull %is_async)
+  %call101 = call fastcc i32 @obj2ast_int(ptr noundef %49, ptr noundef %is_async)
   %50 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i62 = getelementptr inbounds i8, ptr %50, i64 44
   %51 = load i32, ptr %c_recursion_remaining.i.i62, align 4
@@ -46260,7 +46260,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 declare ptr @_Py_asdl_int_seq_new(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_cmpop(ptr nocapture noundef readonly %state, ptr noundef %obj, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_cmpop(ptr nocapture noundef nonnull readonly %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #0 {
 entry:
   %Eq_type = getelementptr inbounds i8, ptr %state, i64 304
   %0 = load ptr, ptr %Eq_type, align 8
@@ -46402,7 +46402,7 @@ return:                                           ; preds = %if.end58, %if.end51
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_expr_context(ptr nocapture noundef readonly %state, ptr noundef %obj, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_expr_context(ptr nocapture noundef nonnull readonly %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #0 {
 entry:
   %Load_type = getelementptr inbounds i8, ptr %state, i64 592
   %0 = load ptr, ptr %Load_type, align 8

@@ -128,7 +128,7 @@ define hidden void @"_ZN10wasmparser7readers4core5types103_$LT$impl$u20$wasmpars
 33:                                               ; preds = %28
   %34 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$wasmparser..readers..core..types..SubType$GT$$GT$17he5819e6388b85968E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %10) #21
+  call fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$wasmparser..readers..core..types..SubType$GT$$GT$17he5819e6388b85968E"(ptr noalias noundef align 8 dereferenceable(48) %10) #21
   br label %"_ZN4core3ptr63drop_in_place$LT$wasmparser..readers..core..types..FuncType$GT$17hbd52b23f1607c5c4E.exit22"
 
 35:                                               ; preds = %32, %.noexc13
@@ -298,7 +298,7 @@ define hidden void @"_ZN10wasmparser7readers4core5types103_$LT$impl$u20$wasmpars
   br label %"_ZN4core3ptr63drop_in_place$LT$wasmparser..readers..core..types..FuncType$GT$17hbd52b23f1607c5c4E.exit22"
 
 99:                                               ; preds = %44
-  call fastcc void @"_ZN4core3ptr68drop_in_place$LT$wasmparser..readers..core..types..CompositeType$GT$17h62f0ca6f555a05fcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %46) #21
+  call fastcc void @"_ZN4core3ptr68drop_in_place$LT$wasmparser..readers..core..types..CompositeType$GT$17h62f0ca6f555a05fcE"(ptr noalias noundef align 8 dereferenceable(32) %46) #21
   br label %"_ZN4core3ptr63drop_in_place$LT$wasmparser..readers..core..types..FuncType$GT$17hbd52b23f1607c5c4E.exit22"
 
 100:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$wasmparser..readers..core..types..FuncType$GT$17hbd52b23f1607c5c4E.exit22"
@@ -310,7 +310,7 @@ define hidden void @"_ZN10wasmparser7readers4core5types103_$LT$impl$u20$wasmpars
 102:                                              ; preds = %38
   %103 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr170drop_in_place$LT$$LP$core..option..Option$LT$wasmparser..readers..core..types..SubType$GT$$C$core..option..Option$LT$wasmparser..readers..core..types..SubType$GT$$RP$$GT$17h399f963f879c3a58E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %11) #21
+  call fastcc void @"_ZN4core3ptr170drop_in_place$LT$$LP$core..option..Option$LT$wasmparser..readers..core..types..SubType$GT$$C$core..option..Option$LT$wasmparser..readers..core..types..SubType$GT$$RP$$GT$17h399f963f879c3a58E"(ptr noalias noundef align 8 dereferenceable(96) %11) #21
   br label %"_ZN4core3ptr63drop_in_place$LT$wasmparser..readers..core..types..FuncType$GT$17hbd52b23f1607c5c4E.exit22"
 
 104:                                              ; preds = %38
@@ -819,7 +819,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr170drop_in_place$LT$$LP$core..option..Option$LT$wasmparser..readers..core..types..SubType$GT$$C$core..option..Option$LT$wasmparser..readers..core..types..SubType$GT$$RP$$GT$17h399f963f879c3a58E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr170drop_in_place$LT$$LP$core..option..Option$LT$wasmparser..readers..core..types..SubType$GT$$C$core..option..Option$LT$wasmparser..readers..core..types..SubType$GT$$RP$$GT$17h399f963f879c3a58E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
   %2 = load i32, ptr %0, align 8, !range !9, !alias.scope !149, !noundef !5
   %3 = icmp eq i32 %2, 2
@@ -926,7 +926,7 @@ define internal void @"_ZN4core3ptr66drop_in_place$LT$$RF$wasmparser..readers..c
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$wasmparser..readers..core..types..CompositeType$GT$17h62f0ca6f555a05fcE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$wasmparser..readers..core..types..CompositeType$GT$17h62f0ca6f555a05fcE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !17, !noundef !5
   switch i8 %2, label %3 [
     i8 0, label %8
@@ -970,7 +970,7 @@ define internal void @"_ZN4core3ptr72drop_in_place$LT$$RF$wasmparser..readers..c
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$wasmparser..readers..core..types..SubType$GT$$GT$17he5819e6388b85968E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$wasmparser..readers..core..types..SubType$GT$$GT$17he5819e6388b85968E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 8, !range !9, !noundef !5
   %3 = icmp eq i32 %2, 2
   br i1 %3, label %"_ZN4core3ptr62drop_in_place$LT$wasmparser..readers..core..types..SubType$GT$17hafa587211ab47482E.exit", label %4

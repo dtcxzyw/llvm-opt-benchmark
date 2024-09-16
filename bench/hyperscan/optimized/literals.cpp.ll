@@ -2215,7 +2215,7 @@ _ZN7testing8internal10scoped_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL7do_scanjRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPK11hs_database(i32 noundef %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %corpora, ptr noundef %db) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL7do_scanjRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEPK11hs_database(i32 noundef %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %corpora, ptr noundef nonnull %db) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %count.i150 = alloca i64, align 8
   %before.i151 = alloca i64, align 8
@@ -2271,7 +2271,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %scratch) #26
   store ptr null, ptr %scratch, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %err) #26
-  %call = call i32 @hs_alloc_scratch(ptr noundef %db, ptr noundef nonnull %scratch)
+  %call = call i32 @hs_alloc_scratch(ptr noundef nonnull %db, ptr noundef nonnull %scratch)
   store i32 %call, ptr %err, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp) #26
@@ -2496,7 +2496,7 @@ for.body.i:                                       ; preds = %cleanup47.i, %for.b
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0154.i, i64 8
   %30 = load i64, ptr %_M_string_length.i.i, align 8
   %conv.i = trunc i64 %30 to i32
-  %call7.i = call i32 @hs_scan(ptr noundef %db, ptr noundef %29, i32 noundef %conv.i, i32 noundef 0, ptr noundef %25, ptr noundef nonnull @_ZL8count_cbjyyjPv, ptr noundef nonnull %count.i)
+  %call7.i = call i32 @hs_scan(ptr noundef nonnull %db, ptr noundef %29, i32 noundef %conv.i, i32 noundef 0, ptr noundef %25, ptr noundef nonnull @_ZL8count_cbjyyjPv, ptr noundef nonnull %count.i)
   store i32 %call7.i, ptr %err.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar.i) #26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i) #26
@@ -2887,7 +2887,7 @@ for.body.i110:                                    ; preds = %cleanup101.i, %for.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %stream.i) #26
   store ptr null, ptr %stream.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %err.i105) #26
-  %call5.i = call i32 @hs_open_stream(ptr noundef %db, i32 noundef 0, ptr noundef nonnull %stream.i)
+  %call5.i = call i32 @hs_open_stream(ptr noundef nonnull %db, i32 noundef 0, ptr noundef nonnull %stream.i)
   store i32 %call5.i, ptr %err.i105, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar.i106) #26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i107) #26
@@ -3678,7 +3678,7 @@ for.body.i159:                                    ; preds = %cleanup49.i, %for.b
   %conv.i161 = trunc i64 %180 to i32
   store i32 %conv.i161, ptr %data_len.i, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %err.i152) #26
-  %call9.i = call i32 @hs_scan_vector(ptr noundef %db, ptr noundef nonnull %data.i, ptr noundef nonnull %data_len.i, i32 noundef 1, i32 noundef 0, ptr noundef %175, ptr noundef nonnull @_ZL8count_cbjyyjPv, ptr noundef nonnull %count.i150)
+  %call9.i = call i32 @hs_scan_vector(ptr noundef nonnull %db, ptr noundef nonnull %data.i, ptr noundef nonnull %data_len.i, i32 noundef 1, i32 noundef 0, ptr noundef %175, ptr noundef nonnull @_ZL8count_cbjyyjPv, ptr noundef nonnull %count.i150)
   store i32 %call9.i, ptr %err.i152, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar.i153) #26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i154) #26

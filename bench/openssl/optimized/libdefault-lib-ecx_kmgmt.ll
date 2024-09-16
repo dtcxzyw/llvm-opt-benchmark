@@ -885,7 +885,7 @@ declare ptr @ossl_ecx_key_new(ptr noundef, i32 noundef, i32 noundef, ptr noundef
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef %bits, i32 noundef %secbits, i32 noundef %size) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef range(i32 253, 457) %bits, i32 noundef range(i32 128, 225) %secbits, i32 noundef range(i32 32, 115) %size) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str) #4
   %cmp.not = icmp eq ptr %call, null
@@ -1060,7 +1060,7 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ecx_validate(ptr noundef %keydata, i32 noundef %selection, i32 noundef %type, i64 noundef %keylen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ecx_validate(ptr noundef %keydata, i32 noundef %selection, i32 noundef range(i32 0, 4) %type, i64 noundef range(i64 32, 58) %keylen) unnamed_addr #0 {
 entry:
   %pub.i = alloca [64 x i8], align 16
   %keylen1 = getelementptr inbounds i8, ptr %keydata, i64 88
@@ -1129,7 +1129,7 @@ if.then30:                                        ; preds = %if.end26
 
 land.rhs32:                                       ; preds = %if.end26.thread, %if.then30
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %pub.i)
-  switch i32 %type, label %default.unreachable.i [
+  switch i32 %type, label %default.unreachable [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb1.i
     i32 2, label %sw.bb4.i
@@ -1168,7 +1168,7 @@ sw.bb7.i:                                         ; preds = %land.rhs32
   %tobool13.not.i = icmp eq i32 %call12.i, 0
   br i1 %tobool13.not.i, label %ecx_key_pairwise_check.exit, label %sw.epilog.i
 
-default.unreachable.i:                            ; preds = %land.rhs32
+default.unreachable:                              ; preds = %land.rhs32
   unreachable
 
 sw.epilog.i:                                      ; preds = %sw.bb7.i, %sw.bb4.i, %sw.bb1.i, %sw.bb.i

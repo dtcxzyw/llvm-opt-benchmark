@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.54225e673a00e8dbc55e954d1531c0a4.22 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.54225e673a00e8dbc55e954d1531c0a4.21, [16 x i8] c"#\00\00\00\00\00\00\00\0C\03\00\00\1A\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h65d73292556f9b3fE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h65d73292556f9b3fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -266,7 +266,7 @@ default.unreachable:                              ; preds = %2
 41:                                               ; preds = %43
   %42 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h65d73292556f9b3fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #17
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h65d73292556f9b3fE"(ptr noalias noundef align 8 dereferenceable(24) %4) #17
           to label %67 unwind label %65
 
 43:                                               ; preds = %2

@@ -241,11 +241,11 @@ zapallsubs.exit:                                  ; preds = %.lr.ph.preheader.i,
   br i1 %.not168, label %117, label %115
 
 115:                                              ; preds = %.loopexit
-  %116 = call fastcc i32 @cfind(ptr noundef nonnull %9, ptr noundef nonnull %113, ptr noundef nonnull %114)
+  %116 = call fastcc i32 @cfind(ptr noundef %9, ptr noundef nonnull %113, ptr noundef nonnull %114)
   br label %119
 
 117:                                              ; preds = %.loopexit
-  %118 = call fastcc i32 @find(ptr noundef nonnull %9, ptr noundef nonnull %113, ptr noundef nonnull %114)
+  %118 = call fastcc i32 @find(ptr noundef %9, ptr noundef nonnull %113, ptr noundef nonnull %114)
   br label %119
 
 119:                                              ; preds = %117, %115
@@ -510,7 +510,7 @@ declare void @pg_set_regex_collation(i32 noundef) local_unnamed_addr #1
 declare ptr @palloc_extended(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cfind(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @cfind(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -528,7 +528,7 @@ define internal fastcc i32 @cfind(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %0, i64 17040
-  %17 = tail call fastcc ptr @newdfa(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %16)
+  %17 = tail call fastcc ptr @newdfa(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %16)
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %46
 
@@ -615,7 +615,7 @@ freedfa.exit:                                     ; preds = %39, %43
 .split43.us.i:                                    ; preds = %46, %._crit_edge.split.us.us.i
   %57 = phi ptr [ %65, %._crit_edge.split.us.us.i ], [ %.pre83.i, %46 ]
   %.068.us.i = phi ptr [ %64, %._crit_edge.split.us.us.i ], [ %54, %46 ]
-  %58 = call fastcc ptr @shortest(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %.068.us.i, ptr noundef %.068.us.i, ptr noundef %57, ptr noundef nonnull %4, ptr noundef null)
+  %58 = call fastcc ptr @shortest(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %.068.us.i, ptr noundef %.068.us.i, ptr noundef %57, ptr noundef nonnull %4, ptr noundef null)
   %59 = load i32, ptr %56, align 8
   %.not.us.i = icmp eq i32 %59, 0
   br i1 %.not.us.i, label %60, label %cfindloop.exit
@@ -639,7 +639,7 @@ freedfa.exit:                                     ; preds = %39, %43
 .split.us.us.us.i:                                ; preds = %62, %.split16.us.us.us.i
   %.06434.us.us.i = phi ptr [ %89, %.split16.us.us.us.i ], [ %63, %62 ]
   %67 = load ptr, ptr %55, align 8
-  %68 = call fastcc ptr @longest(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef %.06434.us.us.i, ptr noundef %67, ptr noundef nonnull %5)
+  %68 = call fastcc ptr @longest(ptr noundef %0, ptr noundef nonnull %17, ptr noundef %.06434.us.us.i, ptr noundef %67, ptr noundef nonnull %5)
   %69 = load i32, ptr %56, align 8
   %.not76.us28.us.us.i = icmp eq i32 %69, 0
   br i1 %.not76.us28.us.us.i, label %.lr.ph30.us.us.i, label %cfindloop.exit
@@ -665,7 +665,7 @@ freedfa.exit:                                     ; preds = %39, %43
   %79 = load ptr, ptr %6, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 24
   %81 = load ptr, ptr %80, align 8
-  %82 = call fastcc i32 @cdissect(ptr noundef nonnull %0, ptr noundef %81, ptr noundef %.06434.us.us.i, ptr noundef nonnull %70)
+  %82 = call fastcc i32 @cdissect(ptr noundef %0, ptr noundef %81, ptr noundef %.06434.us.us.i, ptr noundef nonnull %70)
   switch i32 %82, label %.split18.us.i [
     i32 0, label %.split22.us.i
     i32 1, label %83
@@ -677,7 +677,7 @@ freedfa.exit:                                     ; preds = %39, %43
 
 85:                                               ; preds = %83
   %86 = getelementptr i8, ptr %70, i64 -4
-  %87 = call fastcc ptr @longest(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef %.06434.us.us.i, ptr noundef %86, ptr noundef nonnull %5)
+  %87 = call fastcc ptr @longest(ptr noundef %0, ptr noundef nonnull %17, ptr noundef %.06434.us.us.i, ptr noundef %86, ptr noundef nonnull %5)
   %88 = load i32, ptr %56, align 8
   %.not76.us.us.us.i = icmp eq i32 %88, 0
   br i1 %.not76.us.us.us.i, label %.lr.ph30.us.us.i, label %cfindloop.exit
@@ -690,7 +690,7 @@ freedfa.exit:                                     ; preds = %39, %43
 .split43.i:                                       ; preds = %46, %._crit_edge.split.i
   %90 = phi ptr [ %140, %._crit_edge.split.i ], [ %.pre83.i, %46 ]
   %.068.i = phi ptr [ %139, %._crit_edge.split.i ], [ %54, %46 ]
-  %91 = call fastcc ptr @shortest(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %.068.i, ptr noundef %.068.i, ptr noundef %90, ptr noundef nonnull %4, ptr noundef null)
+  %91 = call fastcc ptr @shortest(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %.068.i, ptr noundef %.068.i, ptr noundef %90, ptr noundef nonnull %4, ptr noundef null)
   %92 = load i32, ptr %56, align 8
   %.not.i38 = icmp eq i32 %92, 0
   br i1 %.not.i38, label %93, label %cfindloop.exit
@@ -708,7 +708,7 @@ freedfa.exit:                                     ; preds = %39, %43
 .split.i:                                         ; preds = %95, %.split16.i
   %.06434.i = phi ptr [ %138, %.split16.i ], [ %96, %95 ]
   %97 = load ptr, ptr %55, align 8
-  %98 = call fastcc ptr @shortest(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef %.06434.i, ptr noundef %.06434.i, ptr noundef %97, ptr noundef null, ptr noundef nonnull %5)
+  %98 = call fastcc ptr @shortest(ptr noundef %0, ptr noundef nonnull %17, ptr noundef %.06434.i, ptr noundef %.06434.i, ptr noundef %97, ptr noundef null, ptr noundef nonnull %5)
   %99 = load i32, ptr %56, align 8
   %.not7625.i = icmp eq i32 %99, 0
   br i1 %.not7625.i, label %.lr.ph.i, label %cfindloop.exit
@@ -734,7 +734,7 @@ freedfa.exit:                                     ; preds = %39, %43
   %109 = load ptr, ptr %6, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 24
   %111 = load ptr, ptr %110, align 8
-  %112 = call fastcc i32 @cdissect(ptr noundef nonnull %0, ptr noundef %111, ptr noundef %.06434.i, ptr noundef nonnull %100)
+  %112 = call fastcc i32 @cdissect(ptr noundef %0, ptr noundef %111, ptr noundef %.06434.i, ptr noundef nonnull %100)
   switch i32 %112, label %.split18.us.i [
     i32 0, label %.split22.us.i
     i32 1, label %132
@@ -782,7 +782,7 @@ freedfa.exit:                                     ; preds = %39, %43
 
 134:                                              ; preds = %132
   %135 = getelementptr i8, ptr %100, i64 4
-  %136 = call fastcc ptr @shortest(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef %.06434.i, ptr noundef %135, ptr noundef %97, ptr noundef null, ptr noundef nonnull %5)
+  %136 = call fastcc ptr @shortest(ptr noundef %0, ptr noundef nonnull %17, ptr noundef %.06434.i, ptr noundef %135, ptr noundef %97, ptr noundef null, ptr noundef nonnull %5)
   %137 = load i32, ptr %56, align 8
   %.not76.i = icmp eq i32 %137, 0
   br i1 %.not76.i, label %.lr.ph.i, label %cfindloop.exit
@@ -965,7 +965,7 @@ freedfa.exit48:                                   ; preds = %185, %189
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @find(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @find(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -993,7 +993,7 @@ define internal fastcc i32 @find(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 64
   %24 = load ptr, ptr %23, align 8
-  %25 = call fastcc ptr @shortest(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %22, ptr noundef %22, ptr noundef %24, ptr noundef nonnull %4, ptr noundef null)
+  %25 = call fastcc ptr @shortest(ptr noundef %0, ptr noundef nonnull %15, ptr noundef %22, ptr noundef %22, ptr noundef %24, ptr noundef nonnull %4, ptr noundef null)
   %26 = getelementptr inbounds i8, ptr %15, i64 113
   %27 = load i8, ptr %26, align 1
   %28 = trunc i8 %27 to i1
@@ -1109,7 +1109,7 @@ freedfa.exit:                                     ; preds = %45, %49
 86:                                               ; preds = %82
   %87 = load ptr, ptr %4, align 8
   store ptr null, ptr %4, align 8
-  %88 = call fastcc ptr @newdfa(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %14)
+  %88 = call fastcc ptr @newdfa(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %14)
   %89 = icmp eq ptr %88, null
   br i1 %89, label %102, label %.preheader
 
@@ -1123,7 +1123,7 @@ freedfa.exit:                                     ; preds = %45, %49
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %100
   %.07396.us = phi ptr [ %101, %100 ], [ %87, %.lr.ph ]
   %90 = load ptr, ptr %23, align 8
-  %91 = call fastcc ptr @longest(ptr noundef nonnull %0, ptr noundef nonnull %88, ptr noundef %.07396.us, ptr noundef %90, ptr noundef nonnull %5)
+  %91 = call fastcc ptr @longest(ptr noundef %0, ptr noundef nonnull %88, ptr noundef %.07396.us, ptr noundef %90, ptr noundef nonnull %5)
   %92 = load i32, ptr %50, align 8
   %.not85.us = icmp eq i32 %92, 0
   br i1 %.not85.us, label %93, label %.split.us
@@ -1156,13 +1156,13 @@ freedfa.exit:                                     ; preds = %45, %49
 .lr.ph.split:                                     ; preds = %.lr.ph, %115
   %.07396 = phi ptr [ %116, %115 ], [ %87, %.lr.ph ]
   %104 = load ptr, ptr %23, align 8
-  %105 = call fastcc ptr @shortest(ptr noundef nonnull %0, ptr noundef nonnull %88, ptr noundef %.07396, ptr noundef %.07396, ptr noundef %104, ptr noundef null, ptr noundef nonnull %5)
+  %105 = call fastcc ptr @shortest(ptr noundef %0, ptr noundef nonnull %88, ptr noundef %.07396, ptr noundef %.07396, ptr noundef %104, ptr noundef null, ptr noundef nonnull %5)
   %106 = load i32, ptr %50, align 8
   %.not85 = icmp eq i32 %106, 0
   br i1 %.not85, label %108, label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
-  call fastcc void @freedfa(ptr noundef nonnull %88)
+  call fastcc void @freedfa(ptr noundef %88)
   %107 = load i32, ptr %50, align 8
   br label %189
 
@@ -1310,7 +1310,7 @@ freedfa.exit93:                                   ; preds = %136, %140
   %185 = load ptr, ptr %6, align 8
   %186 = getelementptr inbounds i8, ptr %185, i64 24
   %187 = load ptr, ptr %186, align 8
-  %188 = call fastcc i32 @cdissect(ptr noundef nonnull %0, ptr noundef %187, ptr noundef %.073.lcssa, ptr noundef %.1)
+  %188 = call fastcc i32 @cdissect(ptr noundef %0, ptr noundef %187, ptr noundef %.073.lcssa, ptr noundef %.1)
   br label %189
 
 189:                                              ; preds = %181, %82, %80, %freedfa.exit, %184, %.split.us, %102, %17
@@ -1324,7 +1324,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @freedfa(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @freedfa(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 113
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -1385,7 +1385,7 @@ define internal fastcc void @freedfa(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @newdfa(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @newdfa(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %1, align 8
   %6 = shl i32 %5, 1
   %7 = sext i32 %6 to i64
@@ -1598,7 +1598,7 @@ freedfa.exit:                                     ; preds = %92, %95
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @shortest(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc ptr @shortest(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %3, %9
@@ -1782,7 +1782,7 @@ dfa_backref.exit:                                 ; preds = %44, %63, %.split.us
   br label %dfa_backref.exit.thread
 
 103:                                              ; preds = %76
-  %104 = tail call fastcc ptr @initialize(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2)
+  %104 = tail call fastcc ptr @initialize(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   %105 = icmp eq ptr %104, null
   br i1 %105, label %dfa_backref.exit.thread, label %106
 
@@ -1824,7 +1824,7 @@ dfa_backref.exit:                                 ; preds = %44, %63, %.split.us
 
 132:                                              ; preds = %124, %130, %110
   %.0126 = phi i16 [ %119, %110 ], [ %129, %124 ], [ %131, %130 ]
-  %133 = tail call fastcc ptr @miss(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %104, i16 noundef signext %.0126, ptr noundef %2, ptr noundef %2)
+  %133 = tail call fastcc ptr @miss(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %104, i16 noundef signext %.0126, ptr noundef %2, ptr noundef %2)
   %134 = icmp eq ptr %133, null
   br i1 %134, label %dfa_backref.exit.thread, label %135
 
@@ -1868,7 +1868,7 @@ dfa_backref.exit:                                 ; preds = %44, %63, %.split.us
 
 157:                                              ; preds = %150
   %158 = getelementptr i8, ptr %.0127, i64 4
-  %159 = tail call fastcc ptr @miss(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0123, i16 noundef signext %.in154, ptr noundef %158, ptr noundef %2)
+  %159 = tail call fastcc ptr @miss(ptr noundef %0, ptr noundef %1, ptr noundef %.0123, i16 noundef signext %.in154, ptr noundef %158, ptr noundef %2)
   %160 = icmp eq ptr %159, null
   br i1 %160, label %dfa_backref.exit.thread, label %161
 
@@ -1972,7 +1972,7 @@ lastcold.exit:                                    ; preds = %187, %174
   %208 = zext nneg i32 %207 to i64
   %209 = getelementptr [2 x i16], ptr %203, i64 0, i64 %208
   %210 = load i16, ptr %209, align 2
-  %211 = tail call fastcc ptr @miss(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %.1125.ph, i16 noundef signext %210, ptr noundef %.1128.ph, ptr noundef %2)
+  %211 = tail call fastcc ptr @miss(ptr noundef %0, ptr noundef %1, ptr noundef %.1125.ph, i16 noundef signext %210, ptr noundef %.1128.ph, ptr noundef %2)
   %212 = icmp eq ptr %211, null
   br i1 %212, label %218, label %213
 
@@ -2010,7 +2010,7 @@ dfa_backref.exit.thread:                          ; preds = %157, %.thread179, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @longest(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc ptr @longest(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %3, %7
@@ -2171,7 +2171,7 @@ dfa_backref.exit:                                 ; preds = %37, %38, %.split.us
   br label %201
 
 92:                                               ; preds = %60
-  %93 = tail call fastcc ptr @initialize(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2)
+  %93 = tail call fastcc ptr @initialize(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   %94 = icmp eq ptr %93, null
   br i1 %94, label %201, label %95
 
@@ -2213,7 +2213,7 @@ dfa_backref.exit:                                 ; preds = %37, %38, %.split.us
 
 121:                                              ; preds = %113, %119, %99
   %.0131 = phi i16 [ %108, %99 ], [ %118, %113 ], [ %120, %119 ]
-  %122 = tail call fastcc ptr @miss(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %93, i16 noundef signext %.0131, ptr noundef %2, ptr noundef %2)
+  %122 = tail call fastcc ptr @miss(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %93, i16 noundef signext %.0131, ptr noundef %2, ptr noundef %2)
   %123 = icmp eq ptr %122, null
   br i1 %123, label %201, label %124
 
@@ -2257,7 +2257,7 @@ dfa_backref.exit:                                 ; preds = %37, %38, %.split.us
 
 145:                                              ; preds = %138
   %146 = getelementptr i8, ptr %.0130172, i64 4
-  %147 = tail call fastcc ptr @miss(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0136171, i16 noundef signext %.in157, ptr noundef %146, ptr noundef %2)
+  %147 = tail call fastcc ptr @miss(ptr noundef %0, ptr noundef %1, ptr noundef %.0136171, i16 noundef signext %.in157, ptr noundef %146, ptr noundef %2)
   %148 = icmp eq ptr %147, null
   br i1 %148, label %._crit_edge, label %149
 
@@ -2302,7 +2302,7 @@ dfa_backref.exit:                                 ; preds = %37, %38, %.split.us
   %168 = zext nneg i32 %167 to i64
   %169 = getelementptr [2 x i16], ptr %163, i64 0, i64 %168
   %170 = load i16, ptr %169, align 2
-  %171 = tail call fastcc ptr @miss(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %.0136.lcssa, i16 noundef signext %170, ptr noundef %.0130.lcssa, ptr noundef %2)
+  %171 = tail call fastcc ptr @miss(ptr noundef %0, ptr noundef %1, ptr noundef %.0136.lcssa, i16 noundef signext %170, ptr noundef %.0130.lcssa, ptr noundef %2)
   %172 = load i32, ptr %153, align 8
   %.not160 = icmp eq i32 %172, 0
   br i1 %.not160, label %173, label %201
@@ -2379,7 +2379,7 @@ dfa_backref.exit:                                 ; preds = %37, %38, %.split.us
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cdissect(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @cdissect(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %7, label %6
@@ -2519,7 +2519,7 @@ cbrdissect.exit:                                  ; preds = %.lr.ph.i, %16, %37,
   %82 = getelementptr inbounds i8, ptr %0, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 104
-  %85 = tail call fastcc ptr @newdfa(ptr noundef nonnull %0, ptr noundef nonnull %81, ptr noundef nonnull %84, ptr noundef null)
+  %85 = tail call fastcc ptr @newdfa(ptr noundef %0, ptr noundef nonnull %81, ptr noundef nonnull %84, ptr noundef null)
   %86 = icmp eq ptr %85, null
   br i1 %86, label %getsubdfa.exit, label %87
 
@@ -2559,13 +2559,13 @@ getsubdfa.exit:                                   ; preds = %79, %80, %100
   br i1 %.not.i44, label %107, label %subset.exit
 
 107:                                              ; preds = %getsubdfa.exit
-  %108 = tail call fastcc ptr @getsubdfa(ptr noundef nonnull %0, ptr noundef %70)
+  %108 = tail call fastcc ptr @getsubdfa(ptr noundef %0, ptr noundef %70)
   %109 = load i32, ptr %105, align 8
   %.not61.i = icmp eq i32 %109, 0
   br i1 %.not61.i, label %110, label %subset.exit
 
 110:                                              ; preds = %107
-  %111 = tail call fastcc ptr @shortest(ptr noundef nonnull %0, ptr noundef %.019.i, ptr noundef %2, ptr noundef %2, ptr noundef %3, ptr noundef null, ptr noundef null)
+  %111 = tail call fastcc ptr @shortest(ptr noundef %0, ptr noundef %.019.i, ptr noundef %2, ptr noundef %2, ptr noundef %3, ptr noundef null, ptr noundef null)
   %112 = load i32, ptr %105, align 8
   %.not62.i = icmp eq i32 %112, 0
   br i1 %.not62.i, label %113, label %subset.exit
@@ -2576,12 +2576,12 @@ getsubdfa.exit:                                   ; preds = %79, %80, %100
 
 .preheader77:                                     ; preds = %113, %133
   %.049.i = phi ptr [ %131, %133 ], [ %111, %113 ]
-  %115 = tail call fastcc ptr @longest(ptr noundef nonnull %0, ptr noundef %108, ptr noundef nonnull %.049.i, ptr noundef %3, ptr noundef null)
+  %115 = tail call fastcc ptr @longest(ptr noundef %0, ptr noundef %108, ptr noundef nonnull %.049.i, ptr noundef %3, ptr noundef null)
   %116 = icmp eq ptr %115, %3
   br i1 %116, label %117, label %125
 
 117:                                              ; preds = %.preheader77
-  %118 = tail call fastcc i32 @cdissect(ptr noundef nonnull %0, ptr noundef %65, ptr noundef %2, ptr noundef nonnull %.049.i)
+  %118 = tail call fastcc i32 @cdissect(ptr noundef %0, ptr noundef %65, ptr noundef %2, ptr noundef nonnull %.049.i)
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %120, label %124
 
@@ -2610,7 +2610,7 @@ getsubdfa.exit:                                   ; preds = %79, %80, %100
 
 129:                                              ; preds = %127
   %130 = getelementptr i8, ptr %.049.i, i64 4
-  %131 = tail call fastcc ptr @shortest(ptr noundef nonnull %0, ptr noundef %.019.i, ptr noundef %2, ptr noundef %130, ptr noundef %3, ptr noundef null, ptr noundef null)
+  %131 = tail call fastcc ptr @shortest(ptr noundef %0, ptr noundef %.019.i, ptr noundef %2, ptr noundef %130, ptr noundef %3, ptr noundef null, ptr noundef null)
   %132 = load i32, ptr %105, align 8
   %.not65.i = icmp eq i32 %132, 0
   br i1 %.not65.i, label %133, label %subset.exit
@@ -2627,7 +2627,7 @@ getsubdfa.exit:                                   ; preds = %79, %80, %100
   %138 = getelementptr inbounds i8, ptr %0, i64 8
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 104
-  %141 = tail call fastcc ptr @newdfa(ptr noundef nonnull %0, ptr noundef nonnull %137, ptr noundef nonnull %140, ptr noundef null)
+  %141 = tail call fastcc ptr @newdfa(ptr noundef %0, ptr noundef nonnull %137, ptr noundef nonnull %140, ptr noundef null)
   %142 = icmp eq ptr %141, null
   br i1 %142, label %getsubdfa.exit69, label %143
 
@@ -2667,13 +2667,13 @@ getsubdfa.exit69:                                 ; preds = %135, %136, %156
   br i1 %.not.i46, label %163, label %subset.exit
 
 163:                                              ; preds = %getsubdfa.exit69
-  %164 = tail call fastcc ptr @getsubdfa(ptr noundef nonnull %0, ptr noundef %70)
+  %164 = tail call fastcc ptr @getsubdfa(ptr noundef %0, ptr noundef %70)
   %165 = load i32, ptr %161, align 8
   %.not60.i = icmp eq i32 %165, 0
   br i1 %.not60.i, label %166, label %subset.exit
 
 166:                                              ; preds = %163
-  %167 = tail call fastcc ptr @longest(ptr noundef nonnull %0, ptr noundef %.019.i68, ptr noundef %2, ptr noundef %3, ptr noundef null)
+  %167 = tail call fastcc ptr @longest(ptr noundef %0, ptr noundef %.019.i68, ptr noundef %2, ptr noundef %3, ptr noundef null)
   %168 = load i32, ptr %161, align 8
   %.not61.i47 = icmp eq i32 %168, 0
   br i1 %.not61.i47, label %169, label %subset.exit
@@ -2684,12 +2684,12 @@ getsubdfa.exit69:                                 ; preds = %135, %136, %156
 
 .preheader:                                       ; preds = %169, %189
   %.047.i = phi ptr [ %187, %189 ], [ %167, %169 ]
-  %171 = tail call fastcc ptr @longest(ptr noundef nonnull %0, ptr noundef %164, ptr noundef nonnull %.047.i, ptr noundef %3, ptr noundef null)
+  %171 = tail call fastcc ptr @longest(ptr noundef %0, ptr noundef %164, ptr noundef nonnull %.047.i, ptr noundef %3, ptr noundef null)
   %172 = icmp eq ptr %171, %3
   br i1 %172, label %173, label %181
 
 173:                                              ; preds = %.preheader
-  %174 = tail call fastcc i32 @cdissect(ptr noundef nonnull %0, ptr noundef %65, ptr noundef %2, ptr noundef nonnull %.047.i)
+  %174 = tail call fastcc i32 @cdissect(ptr noundef %0, ptr noundef %65, ptr noundef %2, ptr noundef nonnull %.047.i)
   %175 = icmp eq i32 %174, 0
   br i1 %175, label %176, label %180
 
@@ -2718,7 +2718,7 @@ getsubdfa.exit69:                                 ; preds = %135, %136, %156
 
 185:                                              ; preds = %183
   %186 = getelementptr i8, ptr %.047.i, i64 -4
-  %187 = tail call fastcc ptr @longest(ptr noundef nonnull %0, ptr noundef %.019.i68, ptr noundef %2, ptr noundef %186, ptr noundef null)
+  %187 = tail call fastcc ptr @longest(ptr noundef %0, ptr noundef %.019.i68, ptr noundef %2, ptr noundef %186, ptr noundef null)
   %188 = load i32, ptr %161, align 8
   %.not64.i49 = icmp eq i32 %188, 0
   br i1 %.not64.i49, label %189, label %subset.exit
@@ -2760,7 +2760,7 @@ getsubdfa.exit69:                                 ; preds = %135, %136, %156
   %207 = getelementptr inbounds i8, ptr %.020.i126, i64 56
   %208 = load ptr, ptr %194, align 8
   %209 = getelementptr inbounds i8, ptr %208, i64 104
-  %210 = tail call fastcc ptr @newdfa(ptr noundef nonnull %0, ptr noundef nonnull %207, ptr noundef nonnull %209, ptr noundef null)
+  %210 = tail call fastcc ptr @newdfa(ptr noundef %0, ptr noundef nonnull %207, ptr noundef nonnull %209, ptr noundef null)
   %211 = icmp eq ptr %210, null
   br i1 %211, label %getsubdfa.exit71, label %212
 
@@ -2799,12 +2799,12 @@ getsubdfa.exit71:                                 ; preds = %198, %206, %225
   br i1 %.not25.i, label %231, label %subset.exit
 
 231:                                              ; preds = %getsubdfa.exit71
-  %232 = tail call fastcc ptr @longest(ptr noundef nonnull %0, ptr noundef %.019.i70, ptr noundef %2, ptr noundef %3, ptr noundef null)
+  %232 = tail call fastcc ptr @longest(ptr noundef %0, ptr noundef %.019.i70, ptr noundef %2, ptr noundef %3, ptr noundef null)
   %233 = icmp eq ptr %232, %3
   br i1 %233, label %234, label %236
 
 234:                                              ; preds = %231
-  %235 = tail call fastcc i32 @cdissect(ptr noundef nonnull %0, ptr noundef nonnull %.020.i126, ptr noundef %2, ptr noundef %3)
+  %235 = tail call fastcc i32 @cdissect(ptr noundef %0, ptr noundef nonnull %.020.i126, ptr noundef %2, ptr noundef %3)
   %.not26.i = icmp eq i32 %235, 1
   br i1 %.not26.i, label %236, label %crevcondissect.exit
 
@@ -2856,7 +2856,7 @@ getsubdfa.exit71:                                 ; preds = %198, %206, %225
 265:                                              ; preds = %251
   store ptr %2, ptr %263, align 8
   %266 = load ptr, ptr %239, align 8
-  %267 = tail call fastcc ptr @getsubdfa(ptr noundef nonnull %0, ptr noundef %266)
+  %267 = tail call fastcc ptr @getsubdfa(ptr noundef %0, ptr noundef %266)
   %268 = getelementptr inbounds i8, ptr %0, i64 72
   %269 = load i32, ptr %268, align 8
   %.not117.i = icmp eq i32 %269, 0
@@ -3028,7 +3028,7 @@ getsubdfa.exit71:                                 ; preds = %198, %206, %225
 340:                                              ; preds = %325
   store ptr %2, ptr %338, align 8
   %341 = load ptr, ptr %239, align 8
-  %342 = tail call fastcc ptr @getsubdfa(ptr noundef nonnull %0, ptr noundef %341)
+  %342 = tail call fastcc ptr @getsubdfa(ptr noundef %0, ptr noundef %341)
   %343 = getelementptr inbounds i8, ptr %0, i64 72
   %344 = load i32, ptr %343, align 8
   %.not124.i59 = icmp eq i32 %344, 0
@@ -3200,7 +3200,7 @@ getsubdfa.exit71:                                 ; preds = %198, %206, %225
 413:                                              ; preds = %14
   %414 = getelementptr inbounds i8, ptr %1, i64 24
   %415 = load ptr, ptr %414, align 8
-  %416 = tail call fastcc i32 @cdissect(ptr noundef nonnull %0, ptr noundef %415, ptr noundef %2, ptr noundef %3)
+  %416 = tail call fastcc i32 @cdissect(ptr noundef %0, ptr noundef %415, ptr noundef %2, ptr noundef %3)
   br label %crevcondissect.exit
 
 crevcondissect.exit:                              ; preds = %234, %120, %176, %.backedge.thread, %390, %356, %346, %314, %292, %270, %249, %14, %413, %cbrdissect.exit
@@ -3246,7 +3246,7 @@ subset.exit:                                      ; preds = %getsubdfa.exit71, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @initialize(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #3 {
+define internal fastcc ptr @initialize(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
@@ -3366,7 +3366,7 @@ define internal fastcc ptr @initialize(ptr nocapture noundef %0, ptr nocapture n
 declare signext i16 @pg_reg_getcolor(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @miss(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, i16 noundef signext %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @miss(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1, ptr noundef nonnull %2, i16 noundef signext %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 64
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 40
@@ -3680,7 +3680,7 @@ lacon.exit.thread.thread:                         ; preds = %160
 getladfa.exit:                                    ; preds = %168
   %179 = getelementptr %struct.subre, ptr %173, i64 %174, i32 12
   %180 = getelementptr inbounds i8, ptr %171, i64 104
-  %181 = tail call fastcc ptr @newdfa(ptr noundef nonnull %0, ptr noundef %179, ptr noundef nonnull %180, ptr noundef null)
+  %181 = tail call fastcc ptr @newdfa(ptr noundef %0, ptr noundef %179, ptr noundef nonnull %180, ptr noundef null)
   %182 = load ptr, ptr %118, align 8
   %183 = getelementptr ptr, ptr %182, i64 %174
   store ptr %181, ptr %183, align 8
@@ -3704,7 +3704,7 @@ getladfa.exit.thread:                             ; preds = %168, %getladfa.exit
 
 189:                                              ; preds = %getladfa.exit.thread
   %190 = load ptr, ptr %119, align 8
-  %191 = tail call fastcc ptr @shortest(ptr noundef nonnull %0, ptr noundef nonnull %185, ptr noundef %4, ptr noundef %4, ptr noundef %190, ptr noundef null, ptr noundef null)
+  %191 = tail call fastcc ptr @shortest(ptr noundef %0, ptr noundef nonnull %185, ptr noundef %4, ptr noundef %4, ptr noundef %190, ptr noundef null, ptr noundef null)
   %192 = load i8, ptr %186, align 2
   %193 = and i8 %192, 1
   %.not36.i = icmp eq i8 %193, 0
@@ -3750,7 +3750,7 @@ getladfa.exit.thread:                             ; preds = %168, %getladfa.exit
 
 222:                                              ; preds = %219
   %223 = load ptr, ptr %122, align 8
-  %224 = tail call fastcc ptr @initialize(ptr noundef nonnull %0, ptr noundef nonnull %185, ptr noundef %223)
+  %224 = tail call fastcc ptr @initialize(ptr noundef %0, ptr noundef nonnull %185, ptr noundef %223)
   %225 = icmp eq ptr %224, null
   br i1 %225, label %matchuntil.exit, label %226
 
@@ -3764,7 +3764,7 @@ getladfa.exit.thread:                             ; preds = %168, %getladfa.exit
   %233 = getelementptr [2 x i16], ptr %228, i64 0, i64 %232
   %234 = load i16, ptr %233, align 2
   %235 = load ptr, ptr %122, align 8
-  %236 = tail call fastcc ptr @miss(ptr noundef nonnull %0, ptr noundef nonnull %185, ptr noundef nonnull %224, i16 noundef signext %234, ptr noundef %223, ptr noundef %235)
+  %236 = tail call fastcc ptr @miss(ptr noundef %0, ptr noundef nonnull %185, ptr noundef %224, i16 noundef signext %234, ptr noundef %223, ptr noundef %235)
   %237 = icmp eq ptr %236, null
   br i1 %237, label %matchuntil.exit, label %238
 
@@ -3818,7 +3818,7 @@ getladfa.exit.thread:                             ; preds = %168, %getladfa.exit
 262:                                              ; preds = %255
   %263 = getelementptr i8, ptr %.1.i223, i64 4
   %264 = load ptr, ptr %122, align 8
-  %265 = tail call fastcc ptr @miss(ptr noundef nonnull %0, ptr noundef nonnull %185, ptr noundef nonnull %.082.i222, i16 noundef signext %.in.i171, ptr noundef %263, ptr noundef %264)
+  %265 = tail call fastcc ptr @miss(ptr noundef %0, ptr noundef nonnull %185, ptr noundef %.082.i222, i16 noundef signext %.in.i171, ptr noundef %263, ptr noundef %264)
   %266 = icmp eq ptr %265, null
   br i1 %266, label %.thread, label %267
 
@@ -3874,7 +3874,7 @@ getladfa.exit.thread:                             ; preds = %168, %getladfa.exit
 291:                                              ; preds = %284
   %292 = getelementptr i8, ptr %.1.i.lcssa, i64 4
   %293 = load ptr, ptr %122, align 8
-  %294 = tail call fastcc ptr @miss(ptr noundef nonnull %0, ptr noundef nonnull %185, ptr noundef nonnull %.082.i.lcssa, i16 noundef signext %.in100.i, ptr noundef %292, ptr noundef %293)
+  %294 = tail call fastcc ptr @miss(ptr noundef %0, ptr noundef nonnull %185, ptr noundef %.082.i.lcssa, i16 noundef signext %.in100.i, ptr noundef %292, ptr noundef %293)
   br label %306
 
 295:                                              ; preds = %._crit_edge226
@@ -3888,7 +3888,7 @@ getladfa.exit.thread:                             ; preds = %168, %getladfa.exit
   %302 = getelementptr [2 x i16], ptr %297, i64 0, i64 %301
   %303 = load i16, ptr %302, align 2
   %304 = load ptr, ptr %122, align 8
-  %305 = tail call fastcc ptr @miss(ptr noundef nonnull %0, ptr noundef nonnull %185, ptr noundef nonnull %.082.i.lcssa, i16 noundef signext %303, ptr noundef %.1.i.lcssa, ptr noundef %304)
+  %305 = tail call fastcc ptr @miss(ptr noundef %0, ptr noundef nonnull %185, ptr noundef %.082.i.lcssa, i16 noundef signext %303, ptr noundef %.1.i.lcssa, ptr noundef %304)
   br label %306
 
 306:                                              ; preds = %295, %291
@@ -4162,7 +4162,7 @@ hash.exit.thread:                                 ; preds = %346
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @getvacant(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 {
+define internal fastcc ptr @getvacant(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr %1, align 8
@@ -4497,7 +4497,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare void @ProcessInterrupts() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @getsubdfa(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @getsubdfa(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 4
@@ -4513,7 +4513,7 @@ define internal fastcc ptr @getsubdfa(ptr nocapture noundef %0, ptr noundef %1) 
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 104
-  %16 = tail call fastcc ptr @newdfa(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %15, ptr noundef null)
+  %16 = tail call fastcc ptr @newdfa(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %15, ptr noundef null)
   %17 = icmp eq ptr %16, null
   br i1 %17, label %36, label %18
 
@@ -4551,7 +4551,7 @@ define internal fastcc ptr @getsubdfa(ptr nocapture noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @zaptreesubs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
+define internal fastcc void @zaptreesubs(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0

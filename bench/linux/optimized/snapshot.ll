@@ -610,7 +610,7 @@ define dso_local noundef range(i32 -12, 1) i32 @create_basic_memory_bitmaps() lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -12, 1) i32 @memory_bm_create(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -12, 1) i32 @memory_bm_create(ptr noundef %0, i32 noundef range(i32 2080, 11457) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -5584,7 +5584,7 @@ define dso_local i32 @snapshot_read_next(ptr nocapture noundef %0) local_unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @get_image_page(i32 noundef %0, i32 noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc ptr @get_image_page(i32 noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #3 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -7868,7 +7868,7 @@ declare void @llvm.write_register.i64(metadata, i64) #18
 declare dso_local i32 @set_memory_rw(i64 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @mark_free_pages(ptr noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc void @mark_free_pages(ptr noundef nonnull %0) unnamed_addr #3 align 16 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -8301,7 +8301,7 @@ define internal fastcc void @mark_free_pages(ptr noundef %0) unnamed_addr #3 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @saveable_page(ptr noundef readnone %0, i64 noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc ptr @saveable_page(ptr noundef nonnull readnone %0, i64 noundef %1) unnamed_addr #3 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -8652,7 +8652,7 @@ declare dso_local zeroext i1 @kernel_page_present(ptr noundef) local_unnamed_add
 declare dso_local i32 @pfn_is_nosave(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @alloc_image_page(i32 noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc ptr @alloc_image_page(i32 noundef range(i32 2080, 11457) %0) unnamed_addr #3 align 16 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8

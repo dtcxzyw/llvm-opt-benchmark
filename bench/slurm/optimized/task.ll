@@ -509,7 +509,7 @@ _setup_mpi.exit:                                  ; preds = %208, %227
   br i1 %.not182, label %284, label %280
 
 280:                                              ; preds = %278
-  %281 = call fastcc i32 @_run_script_and_set_env(ptr noundef nonnull @.str.14, ptr noundef nonnull %279, ptr noundef nonnull %0)
+  %281 = call fastcc i32 @_run_script_and_set_env(ptr noundef nonnull @.str.14, ptr noundef %279, ptr noundef nonnull %0)
   %.not183 = icmp eq i32 %281, 0
   br i1 %.not183, label %284, label %282
 
@@ -525,7 +525,7 @@ _setup_mpi.exit:                                  ; preds = %208, %227
   br i1 %.not184, label %291, label %287
 
 287:                                              ; preds = %284
-  %288 = call fastcc i32 @_run_script_and_set_env(ptr noundef nonnull @.str.16, ptr noundef nonnull %286, ptr noundef nonnull %0)
+  %288 = call fastcc i32 @_run_script_and_set_env(ptr noundef nonnull @.str.16, ptr noundef %286, ptr noundef nonnull %0)
   %.not185 = icmp eq i32 %288, 0
   br i1 %.not185, label %291, label %289
 
@@ -642,7 +642,7 @@ _make_tmpdir.exit:                                ; preds = %296, %313, %.sink.s
 
 342:                                              ; preds = %340
   %343 = load ptr, ptr %136, align 8
-  %344 = call fastcc ptr @_build_path(ptr noundef nonnull %336, ptr noundef %343)
+  %344 = call fastcc ptr @_build_path(ptr noundef %336, ptr noundef %343)
   %345 = load ptr, ptr %334, align 8
   store ptr %344, ptr %345, align 8
   br label %346
@@ -771,7 +771,7 @@ declare i32 @spank_user_task(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @auth_setuid_lock() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #4 {
   %4 = alloca i32, align 4
   %5 = alloca [2 x ptr], align 16
   %6 = alloca ptr, align 8
@@ -1141,7 +1141,7 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_build_path(ptr noundef %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc ptr @_build_path(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #4 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

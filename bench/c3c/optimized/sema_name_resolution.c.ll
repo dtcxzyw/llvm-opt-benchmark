@@ -1982,7 +1982,7 @@ define dso_local ptr @sema_find_symbol(ptr nocapture noundef readonly %0, ptr no
   %6 = getelementptr inbounds i8, ptr %3, i64 49
   store i8 1, ptr %6, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %7 = call fastcc ptr @sema_resolve_no_path_symbol(ptr noundef %0, ptr noundef nonnull %3)
+  %7 = call fastcc ptr @sema_resolve_no_path_symbol(ptr noundef %0, ptr noundef %3)
   %.pre = load ptr, ptr %3, align 8
   %.not72 = icmp ne ptr %7, null
   %.not73 = icmp eq ptr %.pre, null
@@ -2098,7 +2098,7 @@ define dso_local zeroext i1 @sema_symbol_is_defined_in_scope(ptr nocapture nound
   %6 = getelementptr inbounds i8, ptr %3, i64 49
   store i8 1, ptr %6, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %7 = call fastcc ptr @sema_resolve_no_path_symbol(ptr noundef %0, ptr noundef nonnull %3)
+  %7 = call fastcc ptr @sema_resolve_no_path_symbol(ptr noundef %0, ptr noundef %3)
   %.pre = load ptr, ptr %3, align 8
   %.not84 = icmp ne ptr %7, null
   %.not85 = icmp eq ptr %.pre, null
@@ -2176,7 +2176,7 @@ define dso_local ptr @sema_find_path_symbol(ptr nocapture noundef readonly %0, p
   br i1 %.not, label %92, label %12
 
 12:                                               ; preds = %3
-  %13 = call fastcc ptr @sema_resolve_path_symbol(ptr noundef %0, ptr noundef nonnull %4)
+  %13 = call fastcc ptr @sema_resolve_path_symbol(ptr noundef %0, ptr noundef %4)
   %.not67 = icmp eq ptr %13, null
   br i1 %.not67, label %14, label %94
 
@@ -2351,7 +2351,7 @@ matches_subpath.exit79.thread:                    ; preds = %76, %80, %68, %matc
   br label %103
 
 92:                                               ; preds = %3
-  %93 = call fastcc ptr @sema_resolve_no_path_symbol(ptr noundef %0, ptr noundef nonnull %4)
+  %93 = call fastcc ptr @sema_resolve_no_path_symbol(ptr noundef %0, ptr noundef %4)
   br label %94
 
 94:                                               ; preds = %12, %92
@@ -2404,7 +2404,7 @@ define dso_local ptr @sema_resolve_symbol(ptr nocapture noundef readonly %0, ptr
   br i1 %.not, label %93, label %13
 
 13:                                               ; preds = %4
-  %14 = call fastcc ptr @sema_resolve_path_symbol(ptr noundef %0, ptr noundef nonnull %5)
+  %14 = call fastcc ptr @sema_resolve_path_symbol(ptr noundef %0, ptr noundef %5)
   %.not67 = icmp eq ptr %14, null
   br i1 %.not67, label %15, label %95
 
@@ -2579,7 +2579,7 @@ matches_subpath.exit79.thread:                    ; preds = %77, %81, %69, %matc
   br label %104
 
 93:                                               ; preds = %4
-  %94 = call fastcc ptr @sema_resolve_no_path_symbol(ptr noundef %0, ptr noundef nonnull %5)
+  %94 = call fastcc ptr @sema_resolve_no_path_symbol(ptr noundef %0, ptr noundef %5)
   br label %95
 
 95:                                               ; preds = %13, %93
@@ -3622,7 +3622,7 @@ declare ptr @decl_to_name(ptr noundef) local_unnamed_addr #5
 declare zeroext i1 @decl_needs_prefix(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sema_resolve_path_symbol(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #2 {
+define internal fastcc ptr @sema_resolve_path_symbol(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   store ptr null, ptr %1, align 8
@@ -3707,7 +3707,7 @@ matches_subpath.exit.thread:                      ; preds = %31, %35, %22, %40, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sema_resolve_no_path_symbol(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #2 {
+define internal fastcc ptr @sema_resolve_no_path_symbol(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 1
@@ -3812,13 +3812,13 @@ sema_find_local.exit.thread:                      ; preds = %26, %12, %7, %9, %3
 51:                                               ; preds = %48
   %52 = getelementptr inbounds i8, ptr %45, i64 16
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call fastcc ptr @sema_find_decl_in_private_imports(ptr noundef %53, ptr noundef %1, i1 noundef zeroext false)
+  %54 = tail call fastcc ptr @sema_find_decl_in_private_imports(ptr noundef %53, ptr noundef nonnull %1, i1 noundef zeroext false)
   %.not27 = icmp eq ptr %54, null
   br i1 %.not27, label %55, label %sema_find_local.exit.thread31
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %44, align 8
-  %57 = tail call fastcc ptr @sema_find_decl_in_global(ptr noundef %56, ptr noundef nonnull getelementptr inbounds (i8, ptr @global_context, i64 272), ptr noundef null, ptr noundef %1, i1 noundef zeroext false)
+  %57 = tail call fastcc ptr @sema_find_decl_in_global(ptr noundef %56, ptr noundef nonnull getelementptr inbounds (i8, ptr @global_context, i64 272), ptr noundef null, ptr noundef nonnull %1, i1 noundef zeroext false)
   br label %sema_find_local.exit.thread31
 
 sema_find_local.exit.thread31:                    ; preds = %.lr.ph.i.i, %34, %39, %55, %51, %48, %sema_find_local.exit.thread, %sema_find_local.exit

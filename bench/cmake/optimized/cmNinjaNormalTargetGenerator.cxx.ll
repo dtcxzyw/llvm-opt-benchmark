@@ -3501,7 +3501,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit704: ;
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %588) #18
-  invoke fastcc void @_ZL18GetSwiftModuleNameB5cxx11PK17cmGeneratorTarget(ptr dead_on_unwind noalias nonnull writable align 8 %66, ptr noundef nonnull %283)
+  invoke fastcc void @_ZL18GetSwiftModuleNameB5cxx11PK17cmGeneratorTarget(ptr dead_on_unwind noalias writable align 8 %66, ptr noundef nonnull %283)
           to label %609 unwind label %523
 
 609:                                              ; preds = %607
@@ -3533,7 +3533,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit709: ;
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %68) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #18
   %616 = load ptr, ptr %578, align 8
-  invoke fastcc void @_ZL18GetSwiftModulePathB5cxx11PK17cmGeneratorTarget(ptr dead_on_unwind noalias nonnull writable align 8 %70, ptr noundef nonnull %283)
+  invoke fastcc void @_ZL18GetSwiftModulePathB5cxx11PK17cmGeneratorTarget(ptr dead_on_unwind noalias writable align 8 %70, ptr noundef nonnull %283)
           to label %617 unwind label %523
 
 617:                                              ; preds = %614
@@ -7893,7 +7893,7 @@ _ZNK28cmNinjaNormalTargetGenerator18TargetLinkLanguageERKNSt7__cxx1112basic_stri
 
 1883:                                             ; preds = %1880
   %1884 = load ptr, ptr %1877, align 8
-  invoke fastcc void @_ZL18GetSwiftModulePathB5cxx11PK17cmGeneratorTarget(ptr dead_on_unwind noalias nonnull writable align 8 %239, ptr noundef %1884)
+  invoke fastcc void @_ZL18GetSwiftModulePathB5cxx11PK17cmGeneratorTarget(ptr dead_on_unwind noalias writable align 8 %239, ptr noundef %1884)
           to label %1885 unwind label %.loopexit.split-lp.loopexit
 
 1885:                                             ; preds = %1883
@@ -19452,7 +19452,7 @@ declare void @_ZN20cmOSXBundleGenerator14CreateCFBundleERKNSt7__cxx1112basic_str
 declare noundef nonnull align 8 dereferenceable(348) ptr @_ZNK22cmNinjaTargetGenerator17GetImplFileStreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(240), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18GetSwiftModuleNameB5cxx11PK17cmGeneratorTarget(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL18GetSwiftModuleNameB5cxx11PK17cmGeneratorTarget(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19532,7 +19532,7 @@ _ZL26GetTargetPropertyOrDefaultPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18GetSwiftModulePathB5cxx11PK17cmGeneratorTarget(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL18GetSwiftModulePathB5cxx11PK17cmGeneratorTarget(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19543,7 +19543,7 @@ define internal fastcc void @_ZL18GetSwiftModulePathB5cxx11PK17cmGeneratorTarget
   %10 = alloca %"class.std::allocator", align 1
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZL18GetSwiftModuleNameB5cxx11PK17cmGeneratorTarget(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %1)
+  call fastcc void @_ZL18GetSwiftModuleNameB5cxx11PK17cmGeneratorTarget(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %1)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
   %13 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %.noexc unwind label %38

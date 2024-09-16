@@ -3267,18 +3267,18 @@ define hidden noalias noundef ptr @_PyErr_FormatFromCauseTstate(ptr nocapture no
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %vargs)
-  call fastcc void @_PyErr_FormatVFromCause(ptr noundef %tstate, ptr noundef %exception, ptr noundef %format, ptr noundef nonnull %vargs)
+  call fastcc void @_PyErr_FormatVFromCause(ptr noundef %tstate, ptr noundef %exception, ptr noundef %format, ptr noundef %vargs)
   call void @llvm.va_end.p0(ptr nonnull %vargs)
   ret ptr null
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_PyErr_FormatVFromCause(ptr nocapture noundef %tstate, ptr noundef %exception, ptr noundef %format, ptr noundef %vargs) unnamed_addr #0 {
+define internal fastcc void @_PyErr_FormatVFromCause(ptr nocapture noundef %tstate, ptr noundef %exception, ptr noundef %format, ptr noundef nonnull %vargs) unnamed_addr #0 {
 _PyErr_Restore.exit.i:
   %current_exception.i = getelementptr inbounds i8, ptr %tstate, i64 104
   %0 = load ptr, ptr %current_exception.i, align 8
   store ptr null, ptr %current_exception.i, align 8
-  %call.i = tail call ptr @PyUnicode_FromFormatV(ptr noundef %format, ptr noundef %vargs) #16
+  %call.i = tail call ptr @PyUnicode_FromFormatV(ptr noundef %format, ptr noundef nonnull %vargs) #16
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %_PyErr_FormatV.exit, label %if.then.i
 
@@ -3372,7 +3372,7 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
   call void @llvm.va_start.p0(ptr nonnull %vargs)
-  call fastcc void @_PyErr_FormatVFromCause(ptr noundef %1, ptr noundef %exception, ptr noundef %format, ptr noundef nonnull %vargs)
+  call fastcc void @_PyErr_FormatVFromCause(ptr noundef %1, ptr noundef %exception, ptr noundef %format, ptr noundef %vargs)
   call void @llvm.va_end.p0(ptr nonnull %vargs)
   ret ptr null
 }
@@ -4784,13 +4784,13 @@ define dso_local void @PyErr_FormatUnraisable(ptr noundef %format, ...) local_un
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
-  call fastcc void @format_unraisable_v(ptr noundef %format, ptr noundef nonnull %va, ptr noundef null)
+  call fastcc void @format_unraisable_v(ptr noundef %format, ptr noundef %va, ptr noundef null)
   call void @llvm.va_end.p0(ptr nonnull %va)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @format_unraisable_v(ptr noundef %format, ptr noundef %va, ptr noundef %obj) unnamed_addr #0 {
+define internal fastcc void @format_unraisable_v(ptr noundef %format, ptr noundef nonnull %va, ptr noundef %obj) unnamed_addr #0 {
 entry:
   %exc_type = alloca ptr, align 8
   %exc_value = alloca ptr, align 8
@@ -4947,7 +4947,7 @@ if.end21:                                         ; preds = %if.then1.i.i.i.i.i5
   br i1 %cmp22.not, label %if.end28, label %if.then23
 
 if.then23:                                        ; preds = %if.end21
-  %call24 = tail call ptr @PyUnicode_FromFormatV(ptr noundef nonnull %format, ptr noundef %va) #16
+  %call24 = tail call ptr @PyUnicode_FromFormatV(ptr noundef nonnull %format, ptr noundef nonnull %va) #16
   %cmp25 = icmp eq ptr %call24, null
   br i1 %cmp25, label %if.then26, label %if.end28
 
@@ -5432,7 +5432,7 @@ define internal void @format_unraisable(ptr noundef %obj, ptr nocapture readnone
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
-  call fastcc void @format_unraisable_v(ptr noundef null, ptr noundef nonnull %va, ptr noundef %obj)
+  call fastcc void @format_unraisable_v(ptr noundef null, ptr noundef %va, ptr noundef %obj)
   call void @llvm.va_end.p0(ptr nonnull %va)
   ret void
 }
@@ -6198,7 +6198,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %0, align 8
   %call2 = tail call ptr @_Py_fopen_obj(ptr noundef nonnull %filename, ptr noundef nonnull @.str.20) #16
   %cmp3 = icmp eq ptr %call2, null
-  br i1 %cmp3, label %if.then4, label %for.body.lr.ph.i
+  br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
   %current_exception.i.i.i = getelementptr inbounds i8, ptr %1, i64 104
@@ -6223,13 +6223,13 @@ if.then1.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %2) #16
   br label %return
 
-for.body.lr.ph.i:                                 ; preds = %if.end
+if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %linebuf.i)
   %arrayidx.i = getelementptr inbounds i8, ptr %linebuf.i, i64 998
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %i.014.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
+for.body.i:                                       ; preds = %for.inc.i, %if.end5
+  %i.013.i = phi i32 [ 0, %if.end5 ], [ %inc.i, %for.inc.i ]
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.cond.i, %for.body.i
@@ -6246,17 +6246,17 @@ do.cond.i:                                        ; preds = %do.body.i
   ]
 
 for.inc.i:                                        ; preds = %do.cond.i, %do.cond.i
-  %inc.i = add nuw nsw i32 %i.014.i, 1
+  %inc.i = add nuw nsw i32 %i.013.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %lineno
   br i1 %exitcond.not.i, label %after_loop.thread.i, label %for.body.i, !llvm.loop !9
 
 after_loop.thread.i:                              ; preds = %for.inc.i
-  %call1018.i = call i32 @fclose(ptr noundef nonnull %call2)
+  %call1017.i = call i32 @fclose(ptr noundef nonnull %call2)
   br label %if.then13.i
 
 after_loop.i:                                     ; preds = %do.body.i
   %call10.i = call i32 @fclose(ptr noundef nonnull %call2)
-  %cmp11.i = icmp eq i32 %i.014.i, %lineno
+  %cmp11.i = icmp eq i32 %i.013.i, %lineno
   br i1 %cmp11.i, label %if.then13.i, label %err_programtext.exit
 
 if.then13.i:                                      ; preds = %after_loop.i, %after_loop.thread.i

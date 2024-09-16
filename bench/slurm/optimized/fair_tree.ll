@@ -76,9 +76,9 @@ define void @fair_tree_decay(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
   %23 = load ptr, ptr %20, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = call fastcc ptr @_append_list_to_array(ptr noundef %25, ptr noundef null, ptr noundef nonnull %6)
+  %26 = call fastcc ptr @_append_list_to_array(ptr noundef %25, ptr noundef null, ptr noundef %6)
   store ptr %26, ptr %3, align 8
-  call fastcc void @_calc_tree_fs(ptr noundef %26, i16 noundef zeroext 0, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false)
+  call fastcc void @_calc_tree_fs(ptr noundef %26, i16 noundef zeroext 0, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false)
   call void @slurm_xfree(ptr noundef nonnull %3) #6
   br label %_apply_priority_fs.exit
 
@@ -122,7 +122,7 @@ declare i32 @get_log_level() local_unnamed_addr #2
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_append_list_to_array(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @_append_list_to_array(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8
   %.not = icmp eq ptr %0, null
@@ -174,7 +174,7 @@ define internal fastcc ptr @_append_list_to_array(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_calc_tree_fs(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_calc_tree_fs(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
@@ -494,7 +494,7 @@ _ft_debug.exit.i:                                 ; preds = %164, %163, %160, %1
   br i1 %.not20.i, label %172, label %174
 
 172:                                              ; preds = %170
-  %173 = call fastcc ptr @_append_list_to_array(ptr noundef nonnull %142, ptr noundef %.01622.i, ptr noundef nonnull %6)
+  %173 = call fastcc ptr @_append_list_to_array(ptr noundef nonnull %142, ptr noundef %.01622.i, ptr noundef %6)
   br label %174
 
 174:                                              ; preds = %172, %170, %_ft_debug.exit.i

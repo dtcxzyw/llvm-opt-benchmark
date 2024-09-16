@@ -7509,7 +7509,7 @@ _ZNSt6vectorIPN4llvm8MetadataESaIS2_EED2Ev.exit:  ; preds = %_ZNSt6vectorIPN12_G
   %storemerge26.i.i.in.in.i.i.i.i = phi i64 [ %storemerge26.i.i.i.i.i.i, %select.unfold.i.i.i.i.i.i ], [ %2042, %.lr.ph.i.i.preheader.i.i.i.i ]
   %storemerge26.i.i.in.i.i.i.i = add nuw nsw i64 %storemerge26.i.i.in.in.i.i.i.i, 1
   %storemerge26.i.i.i.i.i.i = lshr i64 %storemerge26.i.i.in.i.i.i.i, 1
-  %2043 = mul nuw nsw i64 %storemerge26.i.i.i.i.i.i, 80
+  %2043 = mul nuw i64 %storemerge26.i.i.i.i.i.i, 80
   %2044 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %2043, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #29
   %.not.i.i.i.i.i.i756 = icmp eq ptr %2044, null
   br i1 %.not.i.i.i.i.i.i756, label %select.unfold.i.i.i.i.i.i, label %2045

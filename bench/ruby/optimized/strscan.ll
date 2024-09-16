@@ -2459,7 +2459,7 @@ declare i64 @rb_enc_strlen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare ptr @rb_enc_get(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @strscan_do_scan(i64 noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i64 @strscan_do_scan(i64 noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   store i64 %1, ptr %6, align 8
   %.not = icmp eq i32 %4, 0

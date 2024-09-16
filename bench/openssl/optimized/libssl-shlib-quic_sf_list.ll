@@ -62,7 +62,7 @@ for.end:                                          ; preds = %stream_frame_free.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stream_frame_free(i32 %fl.44.val, ptr noundef %sf) unnamed_addr #2 {
+define internal fastcc void @stream_frame_free(i32 %fl.44.val, ptr noundef nonnull %sf) unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq i32 %fl.44.val, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -86,7 +86,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   %pkt = getelementptr inbounds i8, ptr %sf, i64 32
   %3 = load ptr, ptr %pkt, align 8
   tail call void @ossl_qrx_pkt_release(ptr noundef %3) #8
-  tail call void @CRYPTO_free(ptr noundef %sf, ptr noundef nonnull @.str, i32 noundef 27) #8
+  tail call void @CRYPTO_free(ptr noundef nonnull %sf, ptr noundef nonnull @.str, i32 noundef 27) #8
   ret void
 }
 
@@ -395,7 +395,7 @@ land.lhs.true95:                                  ; preds = %land.rhs56
 
 if.then102:                                       ; preds = %land.lhs.true95
   %fl.val = load i32, ptr %12, align 4
-  tail call fastcc void @stream_frame_free(i32 %fl.val, ptr noundef nonnull %call.i73)
+  tail call fastcc void @stream_frame_free(i32 %fl.val, ptr noundef %call.i73)
   br label %end118
 
 if.end106:                                        ; preds = %stream_frame_free.exit, %stream_frame_free.exit.us, %land.rhs56.us, %land.lhs.true95

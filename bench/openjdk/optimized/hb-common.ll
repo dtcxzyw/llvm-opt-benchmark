@@ -407,11 +407,11 @@ _ZL9hb_memcpyPvPKvm.exit:                         ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull readonly align 1 %0, i64 %10, i1 false), !alias.scope !10
   %11 = getelementptr inbounds [64 x i8], ptr %3, i64 0, i64 %10
   store i8 0, ptr %11, align 1
-  %12 = call fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr noundef nonnull %3)
+  %12 = call fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr noundef %3)
   br label %15
 
 13:                                               ; preds = %8
-  %14 = tail call fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr noundef nonnull %0)
+  %14 = tail call fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr noundef %0)
   br label %15
 
 15:                                               ; preds = %13, %_ZL9hb_memcpyPvPKvm.exit
@@ -430,7 +430,7 @@ _ZL9hb_memcpyPvPKvm.exit:                         ; preds = %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr nocapture noundef readonly %0) unnamed_addr #6 {
+define internal fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr nocapture noundef nonnull readonly %0) unnamed_addr #6 {
   br label %2
 
 2:                                                ; preds = %44, %1
@@ -503,7 +503,7 @@ _ZNK18hb_language_item_teqEPKc.exit:              ; preds = %.lr.ph.i.i, %16, %.
   br i1 %.not.i.i24, label %.lr.ph.i.preheader, label %_ZL9hb_memcpyPvPKvm.exit.i
 
 _ZL9hb_memcpyPvPKvm.exit.i:                       ; preds = %34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr readonly align 1 %0, i64 %31, i1 false), !alias.scope !16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull readonly align 1 %0, i64 %31, i1 false), !alias.scope !16
   %.pre.i = load i8, ptr %32, align 1
   %.not1011.i = icmp eq i8 %.pre.i, 0
   br i1 %.not1011.i, label %_ZN18hb_language_item_taSEPKc.exit.thread25, label %.lr.ph.i.preheader
@@ -558,7 +558,7 @@ define hidden ptr @hb_language_get_default() local_unnamed_addr #6 {
   br i1 %3, label %4, label %11
 
 4:                                                ; preds = %0
-  %5 = tail call fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr noundef nonnull readonly @.str.3)
+  %5 = tail call fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr noundef readonly @.str.3)
   %.not11.i = icmp eq ptr %5, null
   br i1 %.not11.i, label %hb_language_from_string.exit, label %6
 
@@ -1009,7 +1009,7 @@ _ZL26parse_feature_value_prefixPPKcS0_P12hb_feature_t.exit.i: ; preds = %19, %28
   %.sink.i.i = phi i32 [ 1, %_ZL11parse_spacePPKcS0_.exit.i7.i.i ], [ 1, %32 ], [ %.sink.ph.i.i, %_ZL10parse_charPPKcS0_c.exit12.sink.split.i.i ], [ 1, %28 ], [ 1, %19 ]
   %35 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %.sink.i.i, ptr %35, align 4
-  %36 = call fastcc noundef zeroext i1 @_ZL9parse_tagPPKcS0_Pj(ptr noundef nonnull %7, ptr noundef %15, ptr noundef nonnull %8)
+  %36 = call fastcc noundef zeroext i1 @_ZL9parse_tagPPKcS0_Pj(ptr noundef %7, ptr noundef %15, ptr noundef %8)
   br i1 %36, label %37, label %_ZL17parse_one_featurePPKcS0_P12hb_feature_t.exit.thread
 
 37:                                               ; preds = %_ZL26parse_feature_value_prefixPPKcS0_P12hb_feature_t.exit.i
@@ -1625,7 +1625,7 @@ define hidden range(i32 0, 2) i32 @hb_variation_from_string(ptr noundef %0, i32 
   %.06 = phi i32 [ %10, %8 ], [ %1, %3 ]
   %12 = sext i32 %.06 to i64
   %13 = getelementptr inbounds i8, ptr %0, i64 %12
-  %14 = call fastcc noundef zeroext i1 @_ZL9parse_tagPPKcS0_Pj(ptr noundef nonnull %5, ptr noundef %13, ptr noundef nonnull %6)
+  %14 = call fastcc noundef zeroext i1 @_ZL9parse_tagPPKcS0_Pj(ptr noundef %5, ptr noundef %13, ptr noundef %6)
   br i1 %14, label %15, label %_ZL19parse_one_variationPPKcS0_P14hb_variation_t.exit.thread
 
 15:                                               ; preds = %11
@@ -1876,7 +1876,7 @@ _ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i: ; preds
   br i1 %.not.i.i, label %_ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit, label %19
 
 19:                                               ; preds = %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i
-  %20 = tail call fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr noundef nonnull readonly %17)
+  %20 = tail call fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr noundef readonly %17)
   %.not11.i.i = icmp eq ptr %20, null
   br i1 %.not11.i.i, label %_ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit, label %21
 
@@ -1933,7 +1933,7 @@ _ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i: ; preds
   br i1 %.not.i.i, label %_ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit, label %19
 
 19:                                               ; preds = %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i
-  %20 = tail call fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr noundef nonnull readonly %17)
+  %20 = tail call fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr noundef readonly %17)
   %.not11.i.i = icmp eq ptr %20, null
   br i1 %.not11.i.i, label %_ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit, label %21
 
@@ -2445,7 +2445,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL9parse_tagPPKcS0_Pj(ptr nocapture noundef %0, ptr noundef readnone %1, ptr nocapture noundef writeonly %2) unnamed_addr #15 {
+define internal fastcc noundef zeroext i1 @_ZL9parse_tagPPKcS0_Pj(ptr nocapture noundef nonnull %0, ptr noundef readnone %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #15 {
   %4 = ptrtoint ptr %1 to i64
   %5 = alloca [4 x i8], align 1
   %.promoted.i = load ptr, ptr %0, align 8

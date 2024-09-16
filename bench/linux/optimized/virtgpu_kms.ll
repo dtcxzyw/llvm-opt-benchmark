@@ -389,7 +389,7 @@ define dso_local i32 @virtio_gpu_init(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %205, label %207, label %206
 
 206:                                              ; preds = %203
-  call fastcc void @virtio_gpu_get_capsets(ptr noundef nonnull %12, i32 noundef %198)
+  call fastcc void @virtio_gpu_get_capsets(ptr noundef %12, i32 noundef %198)
   br label %207
 
 207:                                              ; preds = %206, %203
@@ -596,7 +596,7 @@ define internal fastcc void @virtio_device_ready(ptr noundef %0) unnamed_addr #5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @virtio_gpu_get_capsets(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @virtio_gpu_get_capsets(ptr noundef nonnull %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = sext i32 %1 to i64
@@ -635,8 +635,8 @@ define internal fastcc void @virtio_gpu_get_capsets(ptr noundef %0, i32 noundef 
   %22 = phi i64 [ 0, %16 ], [ %80, %66 ]
   %23 = phi i8 [ 0, %16 ], [ %60, %66 ]
   %24 = trunc i64 %22 to i32
-  %25 = call i32 @virtio_gpu_cmd_get_capset_info(ptr noundef %0, i32 noundef %24) #8
-  call void @virtio_gpu_notify(ptr noundef %0) #8
+  %25 = call i32 @virtio_gpu_cmd_get_capset_info(ptr noundef nonnull %0, i32 noundef %24) #8
+  call void @virtio_gpu_notify(ptr noundef nonnull %0) #8
   %26 = call i32 @__SCT__might_resched() #8
   %27 = load ptr, ptr %12, align 8
   %28 = getelementptr %struct.virtio_gpu_drv_capset, ptr %27, i64 %22

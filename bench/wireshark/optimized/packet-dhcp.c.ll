@@ -3558,7 +3558,7 @@ define internal i32 @dissect_dhcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 .lr.ph:                                           ; preds = %56, %63
   %.0197229 = phi i32 [ %64, %63 ], [ %.0195, %56 ]
-  %68 = call fastcc i32 @dhcp_option(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %.0197229, i32 noundef %57, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %68 = call fastcc i32 @dhcp_option(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %.0197229, i32 noundef %57, i32 noundef 1, ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %8)
   %69 = icmp slt i32 %68, 1
   br i1 %69, label %70, label %63
 
@@ -3785,7 +3785,7 @@ proto_item_set_hidden.exit:                       ; preds = %171, %168, %165, %1
 
 .lr.ph233:                                        ; preds = %186, %187
   %.2231 = phi i32 [ %188, %187 ], [ %.1, %186 ]
-  %192 = call fastcc i32 @dhcp_option(ptr noundef %0, ptr noundef %1, ptr noundef %61, i32 noundef %.2231, i32 noundef %57, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %192 = call fastcc i32 @dhcp_option(ptr noundef %0, ptr noundef %1, ptr noundef %61, i32 noundef %.2231, i32 noundef %57, i32 noundef 0, ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %8)
   %193 = icmp slt i32 %192, 1
   br i1 %193, label %194, label %187
 
@@ -4217,7 +4217,7 @@ define internal i32 @dissect_dhcpopt_option_overload(ptr noundef %0, ptr noundef
 32:                                               ; preds = %25, %32
   %.03744 = phi i32 [ 44, %25 ], [ %35, %32 ]
   %33 = load ptr, ptr %26, align 8
-  %34 = call fastcc i32 @dhcp_option(ptr noundef %33, ptr noundef %1, ptr noundef %29, i32 noundef %.03744, i32 noundef 108, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %8)
+  %34 = call fastcc i32 @dhcp_option(ptr noundef %33, ptr noundef %1, ptr noundef %29, i32 noundef %.03744, i32 noundef 108, i32 noundef 0, ptr noundef %5, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef %8)
   %35 = add i32 %34, %.03744
   %.pr = load i32, ptr %5, align 4
   %36 = icmp slt i32 %35, 108
@@ -4255,7 +4255,7 @@ define internal i32 @dissect_dhcpopt_option_overload(ptr noundef %0, ptr noundef
 52:                                               ; preds = %45, %52
   %.145 = phi i32 [ 108, %45 ], [ %55, %52 ]
   %53 = load ptr, ptr %46, align 8
-  %54 = call fastcc i32 @dhcp_option(ptr noundef %53, ptr noundef %1, ptr noundef %49, i32 noundef %.145, i32 noundef 236, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %50, ptr noundef nonnull %51, ptr noundef nonnull %10)
+  %54 = call fastcc i32 @dhcp_option(ptr noundef %53, ptr noundef %1, ptr noundef %49, i32 noundef %.145, i32 noundef 236, i32 noundef 0, ptr noundef %5, ptr noundef nonnull %50, ptr noundef nonnull %51, ptr noundef %10)
   %55 = add i32 %54, %.145
   %.pr43 = load i32, ptr %5, align 4
   %56 = icmp slt i32 %55, 236
@@ -9396,7 +9396,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dhcp_option(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr noundef %9) unnamed_addr #0 {
+define internal fastcc i32 @dhcp_option(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr noundef nonnull %9) unnamed_addr #0 {
   %11 = alloca %struct.dhcp_option_data, align 8
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #9
   %13 = zext i8 %12 to i32
@@ -10376,7 +10376,7 @@ declare void @proto_tree_add_bitmask_list_value(ptr noundef, ptr noundef, i32 no
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_docsis_cm_cap(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_docsis_cm_cap(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias ptr @wmem_alloc0(ptr noundef %7, i64 noundef 4) #9

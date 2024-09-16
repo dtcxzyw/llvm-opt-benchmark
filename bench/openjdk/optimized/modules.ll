@@ -955,7 +955,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %280, %281
   br i1 %.not, label %288, label %286
 
 286:                                              ; preds = %285
-  call fastcc void @_ZL23throw_dup_pkg_exceptionPKcP12PackageEntryP10JavaThread(ptr noundef nonnull %.0.i, ptr noundef nonnull %.0121192, ptr noundef nonnull %5)
+  call fastcc void @_ZL23throw_dup_pkg_exceptionPKcP12PackageEntryP10JavaThread(ptr noundef %.0.i, ptr noundef %.0121192, ptr noundef nonnull %5)
   %287 = load ptr, ptr %24, align 8
   %.not196 = icmp eq ptr %287, null
   br i1 %.not196, label %288, label %375
@@ -1759,8 +1759,8 @@ define linkonce_odr hidden void @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL19as_internal_packageP7oopDescPciRi(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #0 {
-  %4 = tail call noundef ptr @_ZN16java_lang_String19as_utf8_string_fullEP7oopDescPciRi(ptr noundef %0, ptr noundef %1, i32 noundef 128, ptr noundef nonnull align 4 dereferenceable(4) %2) #14
+define internal fastcc noundef ptr @_ZL19as_internal_packageP7oopDescPciRi(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #0 {
+  %4 = tail call noundef ptr @_ZN16java_lang_String19as_utf8_string_fullEP7oopDescPciRi(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 128, ptr noundef nonnull align 4 dereferenceable(4) %2) #14
   %5 = load i32, ptr %2, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -1863,7 +1863,7 @@ declare void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 deref
 declare void @_ZN16java_lang_Module16set_module_entryEP7oopDescP11ModuleEntry(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23throw_dup_pkg_exceptionPKcP12PackageEntryP10JavaThread(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL23throw_dup_pkg_exceptionPKcP12PackageEntryP10JavaThread(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.FormatBuffer, align 8
   %6 = load ptr, ptr %1, align 8
@@ -1878,11 +1878,11 @@ define internal fastcc void @_ZL23throw_dup_pkg_exceptionPKcP12PackageEntryP10Ja
 
 13:                                               ; preds = %3
   %14 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %11) #14
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %4, ptr noundef nonnull @.str.92, ptr noundef %7, ptr noundef %0, ptr noundef %14)
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %4, ptr noundef nonnull @.str.92, ptr noundef %7, ptr noundef nonnull %0, ptr noundef %14)
   br label %16
 
 15:                                               ; preds = %3
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %5, ptr noundef nonnull @.str.93, ptr noundef %7, ptr noundef %0)
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %5, ptr noundef nonnull @.str.93, ptr noundef %7, ptr noundef nonnull %0)
   br label %16
 
 16:                                               ; preds = %15, %13
@@ -2678,7 +2678,7 @@ _ZL16get_module_entry6HandleP10JavaThread.exit.thread: ; preds = %_ZNK6HandleclE
 
 _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %85, %89, %93
   %.0.i.i = phi ptr [ %88, %85 ], [ %92, %89 ], [ %94, %93 ]
-  %95 = call fastcc noundef ptr @_ZL19as_internal_packageP7oopDescPciRi(ptr noundef %.0.i.i, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %95 = call fastcc noundef ptr @_ZL19as_internal_packageP7oopDescPciRi(ptr noundef %.0.i.i, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %96 = load ptr, ptr @Module_lock, align 8
   %.not.i.i41 = icmp eq ptr %96, null
   br i1 %.not.i.i41, label %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit, label %97
@@ -2689,7 +2689,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %85, %89, %93
 
 _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit, %97
   %98 = load i32, ptr %6, align 4
-  %99 = call fastcc noundef ptr @_ZL24get_locked_package_entryP11ModuleEntryPKci(ptr noundef nonnull %45, ptr noundef %95, i32 noundef %98)
+  %99 = call fastcc noundef ptr @_ZL24get_locked_package_entryP11ModuleEntryPKci(ptr noundef %45, ptr noundef %95, i32 noundef %98)
   %100 = icmp ne ptr %45, %.0
   %101 = icmp ne ptr %99, null
   %or.cond = and i1 %100, %101
@@ -2815,7 +2815,7 @@ _ZNK6HandleclEv.exit2:                            ; preds = %_ZN16java_lang_Modu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL24get_locked_package_entryP11ModuleEntryPKci(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL24get_locked_package_entryP11ModuleEntryPKci(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef %1, i32 noundef %2) #14
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %5
@@ -3521,7 +3521,7 @@ _ZL16get_module_entry6HandleP10JavaThread.exit.thread: ; preds = %_ZNK6HandleclE
 
 _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %75, %79, %83
   %.0.i.i = phi ptr [ %78, %75 ], [ %82, %79 ], [ %84, %83 ]
-  %85 = call fastcc noundef ptr @_ZL19as_internal_packageP7oopDescPciRi(ptr noundef %.0.i.i, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %85 = call fastcc noundef ptr @_ZL19as_internal_packageP7oopDescPciRi(ptr noundef %.0.i.i, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %86 = load ptr, ptr @Module_lock, align 8
   %.not.i.i28 = icmp eq ptr %86, null
   br i1 %.not.i.i28, label %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit, label %87
@@ -3532,7 +3532,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %75, %79, %83
 
 _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit, %87
   %88 = load i32, ptr %6, align 4
-  %89 = call fastcc noundef ptr @_ZL24get_locked_package_entryP11ModuleEntryPKci(ptr noundef nonnull %44, ptr noundef %85, i32 noundef %88)
+  %89 = call fastcc noundef ptr @_ZL24get_locked_package_entryP11ModuleEntryPKci(ptr noundef %44, ptr noundef %85, i32 noundef %88)
   %.not = icmp eq ptr %89, null
   br i1 %.not, label %91, label %90
 

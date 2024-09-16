@@ -1030,7 +1030,7 @@ objectNamesToOids.exit:                           ; preds = %205, %.lr.ph297.i, 
   unreachable
 
 381:                                              ; preds = %374
-  %382 = call fastcc i64 @string_to_privilege(ptr noundef nonnull %376)
+  %382 = call fastcc i64 @string_to_privilege(ptr noundef %376)
   %383 = and i64 %382, %347
   %.not56 = icmp eq i64 %383, 0
   br i1 %.not56, label %389, label %384
@@ -1059,7 +1059,7 @@ objectNamesToOids.exit:                           ; preds = %205, %.lr.ph297.i, 
   br i1 %396, label %359, label %.thread64, !llvm.loop !7
 
 .thread64:                                        ; preds = %392, %354, %353
-  call fastcc void @ExecGrantStmt_oids(ptr noundef nonnull %3)
+  call fastcc void @ExecGrantStmt_oids(ptr noundef %3)
   ret void
 }
 
@@ -1085,7 +1085,7 @@ declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 8193) i64 @string_to_privilege(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i64 0, 8193) i64 @string_to_privilege(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.140) #10
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %53, label %4
@@ -1169,7 +1169,7 @@ define internal fastcc range(i64 0, 8193) i64 @string_to_privilege(ptr noundef %
   %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %50)
   %51 = tail call i32 @errcode(i32 noundef 16801924) #8
-  %52 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.156, ptr noundef %0) #8
+  %52 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.156, ptr noundef nonnull %0) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2651, ptr noundef nonnull @__func__.string_to_privilege) #8
   unreachable
 
@@ -1179,7 +1179,7 @@ define internal fastcc range(i64 0, 8193) i64 @string_to_privilege(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef nonnull ptr @privilege_to_string(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @privilege_to_string(i64 noundef range(i64 0, 8193) %0) unnamed_addr #0 {
   switch i64 %0, label %15 [
     i64 1, label %19
     i64 2, label %2
@@ -1250,7 +1250,7 @@ define internal fastcc noundef nonnull ptr @privilege_to_string(i64 noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecGrantStmt_oids(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @ExecGrantStmt_oids(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
@@ -1639,7 +1639,7 @@ recordExtensionInitPriv.exit.i:                   ; preds = %204, %201
   br i1 %219, label %.thread164.i, label %220
 
 220:                                              ; preds = %.lr.ph66
-  %221 = call fastcc i64 @string_to_privilege(ptr noundef nonnull %218)
+  %221 = call fastcc i64 @string_to_privilege(ptr noundef %218)
   %222 = and i64 %221, 16344
   %.not145.i = icmp eq i64 %222, 0
   br i1 %.not145.i, label %.thread164.i, label %223
@@ -1999,27 +1999,27 @@ ExecGrant_Relation.exit:                          ; preds = %.loopexit.i, %.lr.p
   br label %570
 
 381:                                              ; preds = %1
-  tail call fastcc void @ExecGrant_common(ptr noundef nonnull %0, i32 noundef 1262, i64 noundef 3584, ptr noundef null)
+  tail call fastcc void @ExecGrant_common(ptr noundef %0, i32 noundef 1262, i64 noundef 3584, ptr noundef null)
   br label %570
 
 382:                                              ; preds = %1, %1
-  tail call fastcc void @ExecGrant_common(ptr noundef nonnull %0, i32 noundef 1247, i64 noundef 256, ptr noundef nonnull @ExecGrant_Type_check)
+  tail call fastcc void @ExecGrant_common(ptr noundef %0, i32 noundef 1247, i64 noundef 256, ptr noundef nonnull @ExecGrant_Type_check)
   br label %570
 
 383:                                              ; preds = %1
-  tail call fastcc void @ExecGrant_common(ptr noundef nonnull %0, i32 noundef 2328, i64 noundef 256, ptr noundef null)
+  tail call fastcc void @ExecGrant_common(ptr noundef %0, i32 noundef 2328, i64 noundef 256, ptr noundef null)
   br label %570
 
 384:                                              ; preds = %1
-  tail call fastcc void @ExecGrant_common(ptr noundef nonnull %0, i32 noundef 1417, i64 noundef 256, ptr noundef null)
+  tail call fastcc void @ExecGrant_common(ptr noundef %0, i32 noundef 1417, i64 noundef 256, ptr noundef null)
   br label %570
 
 385:                                              ; preds = %1, %1, %1
-  tail call fastcc void @ExecGrant_common(ptr noundef nonnull %0, i32 noundef 1255, i64 noundef 128, ptr noundef null)
+  tail call fastcc void @ExecGrant_common(ptr noundef %0, i32 noundef 1255, i64 noundef 128, ptr noundef null)
   br label %570
 
 386:                                              ; preds = %1
-  tail call fastcc void @ExecGrant_common(ptr noundef nonnull %0, i32 noundef 2612, i64 noundef 256, ptr noundef nonnull @ExecGrant_Language_check)
+  tail call fastcc void @ExecGrant_common(ptr noundef %0, i32 noundef 2612, i64 noundef 256, ptr noundef nonnull @ExecGrant_Language_check)
   br label %570
 
 387:                                              ; preds = %1
@@ -2101,7 +2101,7 @@ ExecGrant_Relation.exit:                          ; preds = %.loopexit.i, %.lr.p
   %427 = getelementptr inbounds i8, ptr %426, i64 4
   %428 = load i32, ptr %427, align 4
   %429 = load ptr, ptr %402, align 8
-  %430 = call fastcc i64 @heap_getattr(ptr noundef nonnull %416, i32 noundef 3, ptr noundef %429, ptr noundef nonnull %11)
+  %430 = call fastcc i64 @heap_getattr(ptr noundef %416, i32 noundef 3, ptr noundef %429, ptr noundef %11)
   %431 = load i8, ptr %11, align 1
   %432 = trunc i8 %431 to i1
   br i1 %432, label %433, label %435
@@ -2190,11 +2190,11 @@ ExecGrant_Largeobject.exit:                       ; preds = %recordExtensionInit
   br label %570
 
 476:                                              ; preds = %1
-  tail call fastcc void @ExecGrant_common(ptr noundef nonnull %0, i32 noundef 2615, i64 noundef 768, ptr noundef null)
+  tail call fastcc void @ExecGrant_common(ptr noundef %0, i32 noundef 2615, i64 noundef 768, ptr noundef null)
   br label %570
 
 477:                                              ; preds = %1
-  tail call fastcc void @ExecGrant_common(ptr noundef nonnull %0, i32 noundef 1213, i64 noundef 512, ptr noundef null)
+  tail call fastcc void @ExecGrant_common(ptr noundef %0, i32 noundef 1213, i64 noundef 512, ptr noundef null)
   br label %570
 
 478:                                              ; preds = %1
@@ -2637,7 +2637,7 @@ define dso_local void @ExecAlterDefaultPrivilegesStmt(ptr noundef %0, ptr nocapt
   unreachable
 
 114:                                              ; preds = %107
-  %115 = tail call fastcc i64 @string_to_privilege(ptr noundef nonnull %109)
+  %115 = tail call fastcc i64 @string_to_privilege(ptr noundef %109)
   %116 = and i64 %115, %84
   %.not89 = icmp eq i64 %116, 0
   br i1 %.not89, label %122, label %117
@@ -2692,7 +2692,7 @@ define dso_local void @ExecAlterDefaultPrivilegesStmt(ptr noundef %0, ptr nocapt
 
 SetDefaultACLsInSchemas.exit100.us:               ; preds = %.lr.ph174.split.us
   store i32 0, ptr %134, align 4
-  call fastcc void @SetDefaultACL(ptr noundef nonnull %3)
+  call fastcc void @SetDefaultACL(ptr noundef %3)
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %141 = load i32, ptr %128, align 4
   %142 = sext i32 %141 to i64
@@ -2719,7 +2719,7 @@ SetDefaultACLsInSchemas.exit100.us:               ; preds = %.lr.ph174.split.us
 150:                                              ; preds = %143
   %151 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %151, align 4
-  call fastcc void @SetDefaultACL(ptr noundef nonnull %3)
+  call fastcc void @SetDefaultACL(ptr noundef %3)
   br label %SetDefaultACLsInSchemas.exit
 
 152:                                              ; preds = %152, %.lr.ph.i
@@ -2731,7 +2731,7 @@ SetDefaultACLsInSchemas.exit100.us:               ; preds = %.lr.ph174.split.us
   %157 = load ptr, ptr %156, align 8
   %158 = tail call i32 @get_namespace_oid(ptr noundef %157, i1 noundef zeroext false) #8
   store i32 %158, ptr %149, align 4
-  call fastcc void @SetDefaultACL(ptr noundef nonnull %3)
+  call fastcc void @SetDefaultACL(ptr noundef %3)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %159 = load i32, ptr %146, align 4
   %160 = sext i32 %159 to i64
@@ -2771,7 +2771,7 @@ SetDefaultACLsInSchemas.exit100.us:               ; preds = %.lr.ph174.split.us
   %175 = load ptr, ptr %174, align 8
   %176 = tail call i32 @get_namespace_oid(ptr noundef %175, i1 noundef zeroext false) #8
   store i32 %176, ptr %134, align 4
-  call fastcc void @SetDefaultACL(ptr noundef nonnull %3)
+  call fastcc void @SetDefaultACL(ptr noundef %3)
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i97, 1
   %177 = load i32, ptr %132, align 4
   %178 = sext i32 %177 to i64
@@ -2899,7 +2899,7 @@ define dso_local void @RemoveRoleFromObjectACL(i32 noundef %0, i32 noundef %1, i
   store i8 0, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %4, i64 44
   store i32 1, ptr %47, align 4
-  call fastcc void @SetDefaultACL(ptr noundef nonnull %4)
+  call fastcc void @SetDefaultACL(ptr noundef %4)
   br label %73
 
 48:                                               ; preds = %3
@@ -2962,7 +2962,7 @@ define dso_local void @RemoveRoleFromObjectACL(i32 noundef %0, i32 noundef %1, i
   store i8 0, ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %6, i64 52
   store i32 1, ptr %72, align 4
-  call fastcc void @ExecGrantStmt_oids(ptr noundef nonnull %6)
+  call fastcc void @ExecGrantStmt_oids(ptr noundef %6)
   br label %73
 
 73:                                               ; preds = %61, %38
@@ -2984,7 +2984,7 @@ declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SetDefaultACL(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @SetDefaultACL(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
@@ -4634,7 +4634,7 @@ define internal fastcc i64 @pg_largeobject_aclmask_snapshot(i32 noundef %0, i32 
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds i8, ptr %9, i64 64
   %27 = load ptr, ptr %26, align 8
-  %28 = call fastcc i64 @heap_getattr(ptr noundef nonnull %12, i32 noundef 3, ptr noundef %27, ptr noundef nonnull %6)
+  %28 = call fastcc i64 @heap_getattr(ptr noundef %12, i32 noundef 3, ptr noundef %27, ptr noundef %6)
   %29 = load i8, ptr %6, align 1
   %30 = trunc i8 %29 to i1
   br i1 %30, label %31, label %33
@@ -4731,7 +4731,7 @@ define dso_local zeroext i1 @object_ownercheck(i32 noundef %0, i32 noundef %1, i
   %35 = sext i16 %34 to i32
   %36 = getelementptr inbounds i8, ptr %22, i64 64
   %37 = load ptr, ptr %36, align 8
-  %38 = call fastcc i64 @heap_getattr(ptr noundef nonnull %27, i32 noundef %35, ptr noundef %37, ptr noundef nonnull %5)
+  %38 = call fastcc i64 @heap_getattr(ptr noundef %27, i32 noundef %35, ptr noundef %37, ptr noundef %5)
   call void @systable_endscan(ptr noundef %26) #8
   call void @table_close(ptr noundef %22, i32 noundef 1) #8
   br label %39
@@ -4762,7 +4762,7 @@ declare signext i16 @get_object_attnum_oid(i32 noundef) local_unnamed_addr #1
 declare i32 @get_object_oid_index(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef range(i32 -32768, 32768) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %6, label %75
 
@@ -4777,7 +4777,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %6
-  %15 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef %3) #8
+  %15 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef nonnull %3) #8
   br label %fastgetattr.exit
 
 16:                                               ; preds = %6
@@ -4879,7 +4879,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   br label %fastgetattr.exit
 
 75:                                               ; preds = %4
-  %76 = tail call i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #8
+  %76 = tail call i64 @heap_getsysattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3) #8
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %73, %72, %59, %57, %51, %48, %45, %42, %75, %14
@@ -5201,7 +5201,7 @@ define dso_local void @recordExtObjInitPriv(i32 noundef %0, i32 noundef %1) loca
 64:                                               ; preds = %56
   %65 = getelementptr inbounds i8, ptr %57, i64 64
   %66 = load ptr, ptr %65, align 8
-  %67 = call fastcc i64 @heap_getattr(ptr noundef nonnull %60, i32 noundef 3, ptr noundef %66, ptr noundef nonnull %4)
+  %67 = call fastcc i64 @heap_getattr(ptr noundef %60, i32 noundef 3, ptr noundef %66, ptr noundef %4)
   %68 = load i8, ptr %4, align 1
   %69 = trunc i8 %68 to i1
   br i1 %69, label %73, label %70
@@ -5259,7 +5259,7 @@ define dso_local void @recordExtObjInitPriv(i32 noundef %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @recordExtensionInitPrivWorker(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @recordExtensionInitPrivWorker(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 -32768, 32768) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [3 x %struct.ScanKeyData], align 16
   %6 = alloca [5 x i64], align 16
   %7 = alloca [5 x i8], align 1
@@ -5414,7 +5414,7 @@ define dso_local void @removeExtObjInitPriv(i32 noundef %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecGrant_common(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @ExecGrant_common(ptr noundef nonnull %0, i32 noundef range(i32 1213, 2616) %1, i64 noundef range(i64 128, 3585) %2, ptr noundef readonly %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
@@ -6200,12 +6200,12 @@ declare i32 @ParameterAclCreate(ptr noundef) local_unnamed_addr #1
 declare i32 @LookupExplicitNamespace(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @getRelationsInNamespace(i32 noundef %0, i8 noundef signext %1) unnamed_addr #0 {
+define internal fastcc ptr @getRelationsInNamespace(i32 noundef %0, i8 noundef signext range(i8 83, 119) %1) unnamed_addr #0 {
   %3 = alloca [2 x %struct.ScanKeyData], align 16
   %4 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %4) #8
   %5 = getelementptr inbounds i8, ptr %3, i64 72
-  %6 = sext i8 %1 to i64
+  %6 = zext nneg i8 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 17, i16 noundef zeroext 3, i32 noundef 61, i64 noundef %6) #8
   %7 = call ptr @table_open(i32 noundef 1259, i32 noundef 1) #8
   %8 = call ptr @table_beginscan_catalog(ptr noundef %7, i32 noundef 2, ptr noundef nonnull %3) #8

@@ -351,7 +351,7 @@ mbr_check_mbr.exit:                               ; preds = %27, %30, %40, %41
   br i1 %.not76, label %60, label %58
 
 58:                                               ; preds = %52
-  %59 = tail call fastcc i32 @mbr_primary_partition_intersection(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.mbr_boot_record) align 8 %4, i64 noundef %spec.store.select)
+  %59 = tail call fastcc i32 @mbr_primary_partition_intersection(ptr noundef %0, ptr noundef nonnull byval(%struct.mbr_boot_record) align 8 %4, i64 noundef %spec.store.select)
   %.not77 = icmp eq i32 %59, 0
   br i1 %.not77, label %60, label %.loopexit
 
@@ -680,7 +680,7 @@ mbr_scanextprtn.exit:                             ; preds = %157, %158
 declare i32 @cli_magic_scan_nested_fmap_type(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mbr_primary_partition_intersection(ptr noundef %0, ptr nocapture noundef readonly byval(%struct.mbr_boot_record) align 8 %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @mbr_primary_partition_intersection(ptr noundef nonnull %0, ptr nocapture noundef readonly byval(%struct.mbr_boot_record) align 8 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.mbr_boot_record, align 1
   %5 = alloca %struct.partition_intersection_list, align 8
   %6 = alloca i32, align 4

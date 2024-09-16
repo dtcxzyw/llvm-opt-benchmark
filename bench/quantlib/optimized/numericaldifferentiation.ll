@@ -68,7 +68,7 @@ entry:
   store i64 %1, ptr %n_.i, align 8, !tbaa !7
   store i64 0, ptr %n_3.i.i, align 8, !tbaa !7
   %w_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_111calcWeightsERKNS_5ArrayEm(ptr dead_on_unwind noalias nonnull writable align 8 %w_, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %orderOfDerivative)
+  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_111calcWeightsERKNS_5ArrayEm(ptr dead_on_unwind noalias writable align 8 %w_, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %orderOfDerivative)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -111,7 +111,7 @@ _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %lpad, %_ZNKSt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_111calcWeightsERKNS_5ArrayEm(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x, i64 noundef %M) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_111calcWeightsERKNS_5ArrayEm(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x, i64 noundef %M) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1145,7 +1145,7 @@ unreachable.i:                                    ; preds = %invoke.cont115.i, %
 
 _ZN8QuantLib12_GLOBAL__N_111calcOffsetsEdmNS_24NumericalDifferentiation6SchemeE.exit: ; preds = %for.body88.i, %for.body76.i, %for.body.i, %for.cond.preheader.i
   %w_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_111calcWeightsERKNS_5ArrayEm(ptr dead_on_unwind noalias nonnull writable align 8 %w_, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %orderOfDerivative)
+  invoke fastcc void @_ZN8QuantLib12_GLOBAL__N_111calcWeightsERKNS_5ArrayEm(ptr dead_on_unwind noalias writable align 8 %w_, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %orderOfDerivative)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN8QuantLib12_GLOBAL__N_111calcOffsetsEdmNS_24NumericalDifferentiation6SchemeE.exit

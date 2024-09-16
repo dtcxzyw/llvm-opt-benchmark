@@ -30083,7 +30083,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit334:             ; preds = %_ZN5Yosys5RTLIL8IdS
   br i1 %2342, label %.thread458, label %2344
 
 2344:                                             ; preds = %2343
-  invoke fastcc void @_ZZN12_GLOBAL__N_113WreduceWorker8run_cellEPN5Yosys5RTLIL4CellEENKUlvE27_clEv(ptr dead_on_unwind noalias nonnull writable align 4 %57)
+  invoke fastcc void @_ZZN12_GLOBAL__N_113WreduceWorker8run_cellEPN5Yosys5RTLIL4CellEENKUlvE27_clEv(ptr dead_on_unwind noalias writable align 4 %57)
           to label %2345 unwind label %.loopexit.split-lp
 
 2345:                                             ; preds = %2344
@@ -34217,7 +34217,7 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit415: ; preds = %.loopexit.spl
 declare noundef zeroext i1 @_ZNK5Yosys5RTLIL4Cell7hasPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113WreduceWorker17run_reduce_inportEPN5Yosys5RTLIL4CellEciRbS5_(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef %1, i8 noundef signext %2, i32 noundef %3, ptr nocapture noundef nonnull align 1 dereferenceable(1) %4, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113WreduceWorker17run_reduce_inportEPN5Yosys5RTLIL4CellEciRbS5_(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef %1, i8 noundef signext range(i8 65, 67) %2, i32 noundef %3, ptr nocapture noundef nonnull align 1 dereferenceable(1) %4, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
@@ -35768,7 +35768,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE9do_lookupERKS3_Ri.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_113WreduceWorker8run_cellEPN5Yosys5RTLIL4CellEENKUlvE27_clEv(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN12_GLOBAL__N_113WreduceWorker8run_cellEPN5Yosys5RTLIL4CellEENKUlvE27_clEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_113WreduceWorker8run_cellEPN5Yosys5RTLIL4CellEENKUlvE27_clEvE2id acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9

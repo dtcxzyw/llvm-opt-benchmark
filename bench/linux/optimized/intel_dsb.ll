@@ -186,7 +186,7 @@ define dso_local void @intel_dsb_reg_write(ptr noundef %0, i32 %1, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_dsb_emit(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_dsb_emit(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 16777216, 1) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 44

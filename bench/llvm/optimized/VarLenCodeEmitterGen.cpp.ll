@@ -573,7 +573,7 @@ _ZNK4llvm8BitsInit10isCompleteEv.exit:            ; preds = %71
   %141 = zext i32 %140 to i64
   %142 = add nsw i64 %141, -2
   %143 = getelementptr inbounds i8, ptr %1, i64 72
-  call fastcc void @_ZL15getCustomCodersN4llvm8ArrayRefIPNS_4InitEEE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr nonnull %143, i64 %142)
+  call fastcc void @_ZL15getCustomCodersN4llvm8ArrayRefIPNS_4InitEEE(ptr dead_on_unwind noalias writable align 8 %17, ptr nonnull %143, i64 %142)
   %144 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %146 = trunc i64 %132 to i32
@@ -676,7 +676,7 @@ _ZNK4llvm8BitsInit10isCompleteEv.exit:            ; preds = %71
   %201 = zext i32 %200 to i64
   %202 = add nsw i64 %201, -3
   %203 = getelementptr inbounds i8, ptr %1, i64 80
-  call fastcc void @_ZL15getCustomCodersN4llvm8ArrayRefIPNS_4InitEEE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr nonnull %203, i64 %202)
+  call fastcc void @_ZL15getCustomCodersN4llvm8ArrayRefIPNS_4InitEEE(ptr dead_on_unwind noalias writable align 8 %22, ptr nonnull %203, i64 %202)
   %204 = getelementptr inbounds nuw i8, ptr %22, i64 16
   br i1 %198, label %205, label %214
 
@@ -822,7 +822,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15getCustomCodersN4llvm8ArrayRefIPNS_4InitEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr readonly %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZL15getCustomCodersN4llvm8ArrayRefIPNS_4InitEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr readonly %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -3533,7 +3533,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIiNS_10VarLenInstENS_12DenseMapInfoIivEENS_6
   %1316 = phi i32 [ %1309, %.thread.i ], [ %1313, %.lr.ph.i6.i12.i3.i23.i ], [ %1313, %.critedge2.i9.i15.i10.i30.i ]
   %.pn15.i27.i = phi ptr [ %1294, %.thread.i ], [ %1298, %.critedge2.i9.i15.i10.i30.i ], [ %.sroa.0.3.i4.i24.i, %.lr.ph.i6.i12.i3.i23.i ]
   %1317 = getelementptr inbounds nuw i8, ptr %.pn15.i27.i, i64 8
-  call fastcc void @_ZN12_GLOBAL__N_120VarLenCodeEmitterGen29getInstructionCaseForEncodingB5cxx11EPN4llvm6RecordEiRKNS1_10VarLenInstERNS1_13CodeGenTargetEi(ptr dead_on_unwind noalias nonnull writable align 8 %49, ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %1246, i32 noundef %1316, ptr noundef nonnull align 8 dereferenceable(232) %1317, ptr noundef nonnull align 8 dereferenceable(724) %32, i32 noundef 6)
+  call fastcc void @_ZN12_GLOBAL__N_120VarLenCodeEmitterGen29getInstructionCaseForEncodingB5cxx11EPN4llvm6RecordEiRKNS1_10VarLenInstERNS1_13CodeGenTargetEi(ptr dead_on_unwind noalias writable align 8 %49, ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %1246, i32 noundef %1316, ptr noundef nonnull align 8 dereferenceable(232) %1317, ptr noundef nonnull align 8 dereferenceable(724) %32, i32 noundef 6)
   br label %_ZN12_GLOBAL__N_120VarLenCodeEmitterGen19getInstructionCasesB5cxx11EPN4llvm6RecordERNS1_13CodeGenTargetE.exit
 
 .critedge.i:                                      ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiNS_10VarLenInstENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS2_EEEEiS2_S4_S7_E5beginEv.exit.thread.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiNS_10VarLenInstENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS2_EEEEiS2_S4_S7_E5beginEv.exit.i, %1288
@@ -3708,7 +3708,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIiNS_10VarLenInstENS_12DenseMapInfoIivEENS_6
 1384:                                             ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiNS_10VarLenInstENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS2_EEEEiS2_S4_S7_E4findERKi.exit.i
   %1385 = load i32, ptr %.0.i.i.pn.i.i, align 8
   %1386 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i.i, i64 8
-  call fastcc void @_ZN12_GLOBAL__N_120VarLenCodeEmitterGen29getInstructionCaseForEncodingB5cxx11EPN4llvm6RecordEiRKNS1_10VarLenInstERNS1_13CodeGenTargetEi(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %1246, i32 noundef %1385, ptr noundef nonnull align 8 dereferenceable(232) %1386, ptr noundef nonnull align 8 dereferenceable(724) %32, i32 noundef 8)
+  call fastcc void @_ZN12_GLOBAL__N_120VarLenCodeEmitterGen29getInstructionCaseForEncodingB5cxx11EPN4llvm6RecordEiRKNS1_10VarLenInstERNS1_13CodeGenTargetEi(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %1246, i32 noundef %1385, ptr noundef nonnull align 8 dereferenceable(232) %1386, ptr noundef nonnull align 8 dereferenceable(724) %32, i32 noundef 8)
   %1387 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %15) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #16
   br label %1388
@@ -5785,7 +5785,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120VarLenCodeEmitterGen29getInstructionCaseForEncodingB5cxx11EPN4llvm6RecordEiRKNS1_10VarLenInstERNS1_13CodeGenTargetEi(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(232) %4, ptr noundef nonnull align 8 dereferenceable(724) %5, i32 noundef %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120VarLenCodeEmitterGen29getInstructionCaseForEncodingB5cxx11EPN4llvm6RecordEiRKNS1_10VarLenInstERNS1_13CodeGenTargetEi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(232) %4, ptr noundef nonnull align 8 dereferenceable(724) %5, i32 noundef range(i32 6, 9) %6) unnamed_addr #0 align 2 {
   %8 = alloca [21 x i8], align 16
   %9 = alloca %"class.std::allocator", align 1
   %10 = alloca [21 x i8], align 16

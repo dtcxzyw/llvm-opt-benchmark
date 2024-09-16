@@ -559,7 +559,7 @@ load_sbit_image.exit.i:                           ; preds = %61
   %86 = getelementptr inbounds i8, ptr %85, i64 336
   %87 = load ptr, ptr %86, align 8
   call void %87(ptr noundef nonnull %48, i8 noundef zeroext 0, i32 noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %11) #22
-  call fastcc void @TT_Get_VMetrics(ptr noundef nonnull %48, i32 noundef %2, i64 noundef 0, ptr noundef nonnull %10, ptr noundef nonnull %12)
+  call fastcc void @TT_Get_VMetrics(ptr noundef nonnull %48, i32 noundef %2, i64 noundef 0, ptr noundef %10, ptr noundef %12)
   %88 = getelementptr inbounds i8, ptr %0, i64 200
   %89 = getelementptr inbounds i8, ptr %0, i64 202
   store i16 0, ptr %89, align 2
@@ -711,7 +711,7 @@ load_sbit_image.exit.i:                           ; preds = %61
   store ptr %186, ptr %191, align 8
   %192 = getelementptr inbounds i8, ptr %8, i64 360
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %192, i8 0, i64 16, i1 false)
-  %193 = call fastcc i32 @load_truetype_glyph(ptr noundef nonnull %8, i32 noundef %2, i32 noundef 0, i8 noundef zeroext 1)
+  %193 = call fastcc i32 @load_truetype_glyph(ptr noundef %8, i32 noundef %2, i32 noundef 0, i8 noundef zeroext 1)
   %194 = load ptr, ptr %8, align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 184
   %196 = load ptr, ptr %195, align 8
@@ -1125,7 +1125,7 @@ TT_New_Context.exit.i.i.i.i:                      ; preds = %394, %388, %383, %t
   %434 = getelementptr inbounds i8, ptr %333, i64 476
   %435 = load i16, ptr %434, align 4
   %436 = add i16 %435, 4
-  %437 = call fastcc i32 @tt_glyphzone_new(ptr noundef %335, i16 noundef zeroext %436, ptr noundef nonnull %367)
+  %437 = call fastcc i32 @tt_glyphzone_new(ptr noundef %335, i16 noundef zeroext %436, ptr noundef %367)
   store i32 %437, ptr %6, align 4
   %.not75.i.i.i.i = icmp eq i32 %437, 0
   br i1 %.not75.i.i.i.i, label %438, label %448
@@ -1144,7 +1144,7 @@ TT_New_Context.exit.i.i.i.i:                      ; preds = %394, %388, %383, %t
   %.not76.i.i.i.i = icmp eq ptr %445, null
   %spec.select.i.i.i.i = select i1 %.not76.i.i.i.i, ptr @TT_RunIns, ptr %445
   store ptr %spec.select.i.i.i.i, ptr %446, align 8
-  %447 = call fastcc i32 @tt_size_run_fpgm(ptr noundef nonnull %1, i8 noundef zeroext %320)
+  %447 = call fastcc i32 @tt_size_run_fpgm(ptr noundef %1, i8 noundef zeroext %320)
   br label %tt_size_init_bytecode.exit.i.i.i
 
 448:                                              ; preds = %433, %428, %424, %419, %TT_New_Context.exit.i.i.i.i
@@ -1223,7 +1223,7 @@ tt_size_init_bytecode.exit.i.i.i:                 ; preds = %448, %438
 ._crit_edge.i.i.i:                                ; preds = %474, %.preheader.i.i.i
   %480 = getelementptr inbounds i8, ptr %1, i64 344
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %480, ptr noundef nonnull align 8 dereferenceable(96) @tt_default_graphics_state, i64 96, i1 false)
-  %481 = call fastcc i32 @tt_size_run_prep(ptr noundef nonnull %1, i8 noundef zeroext %320)
+  %481 = call fastcc i32 @tt_size_run_prep(ptr noundef %1, i8 noundef zeroext %320)
   br label %tt_size_ready_bytecode.exit.i.i
 
 tt_size_ready_bytecode.exit.i.i:                  ; preds = %._crit_edge.i.i.i, %451
@@ -1271,7 +1271,7 @@ tt_size_ready_bytecode.exit.i.i:                  ; preds = %._crit_edge.i.i.i, 
   %.0105.i.i = phi i8 [ %496, %494 ], [ 0, %487 ]
   %501 = getelementptr inbounds i8, ptr %486, i64 1098
   store i8 %.sink.i.i, ptr %501, align 2
-  %502 = call fastcc i32 @TT_Load_Context(ptr noundef nonnull %486, ptr noundef %314, ptr noundef nonnull %1)
+  %502 = call fastcc i32 @TT_Load_Context(ptr noundef nonnull %486, ptr noundef %314, ptr noundef %1)
   %.not121.i.i = icmp eq i32 %502, 0
   br i1 %.not121.i.i, label %503, label %TT_Load_Glyph.exit
 
@@ -1324,12 +1324,12 @@ tt_size_ready_bytecode.exit.i.i:                  ; preds = %._crit_edge.i.i.i, 
   br i1 %.not122.i.i, label %.thread179.i, label %.thread144.i.i
 
 .thread144.i.i:                                   ; preds = %521, %.thread138.i.i, %.thread.i.i
-  %522 = call fastcc i32 @tt_size_run_prep(ptr noundef nonnull %1, i8 noundef zeroext %320)
+  %522 = call fastcc i32 @tt_size_run_prep(ptr noundef %1, i8 noundef zeroext %320)
   %.not126.i.i = icmp eq i32 %522, 0
   br i1 %.not126.i.i, label %523, label %TT_Load_Glyph.exit
 
 523:                                              ; preds = %.thread144.i.i
-  %524 = call fastcc i32 @TT_Load_Context(ptr noundef nonnull %486, ptr noundef %314, ptr noundef nonnull %1)
+  %524 = call fastcc i32 @TT_Load_Context(ptr noundef nonnull %486, ptr noundef %314, ptr noundef %1)
   %.not127.i.i = icmp eq i32 %524, 0
   br i1 %.not127.i.i, label %.thread179.i, label %TT_Load_Glyph.exit
 
@@ -1467,7 +1467,7 @@ tt_size_ready_bytecode.exit.i.i:                  ; preds = %._crit_edge.i.i.i, 
   %596 = getelementptr inbounds i8, ptr %0, i64 200
   %597 = getelementptr inbounds i8, ptr %0, i64 232
   store i32 0, ptr %597, align 8
-  %598 = call fastcc i32 @load_truetype_glyph(ptr noundef nonnull %8, i32 noundef %2, i32 noundef 0, i8 noundef zeroext 0)
+  %598 = call fastcc i32 @load_truetype_glyph(ptr noundef %8, i32 noundef %2, i32 noundef 0, i8 noundef zeroext 0)
   %.not166.i = icmp eq i32 %598, 0
   br i1 %.not166.i, label %599, label %642
 
@@ -1552,7 +1552,7 @@ tt_size_ready_bytecode.exit.i.i:                  ; preds = %._crit_edge.i.i.i, 
   br label %640
 
 640:                                              ; preds = %.sink.split.i, %632, %617
-  %641 = call fastcc i32 @compute_glyph_metrics(ptr noundef nonnull %8, i32 noundef %2)
+  %641 = call fastcc i32 @compute_glyph_metrics(ptr noundef %8, i32 noundef %2)
   br label %642
 
 642:                                              ; preds = %640, %593
@@ -3641,13 +3641,13 @@ iup_worker_interpolate_.exit.i:                   ; preds = %761, %.lr.ph123.i.i
 779:                                              ; preds = %.critedge._crit_edge.i
   %780 = add i32 %.163.i, 1
   %781 = and i32 %780, 65535
-  call fastcc void @iup_worker_interpolate_(ptr noundef nonnull %16, i32 noundef %781, i32 noundef %spec.select.i431, i32 noundef %.163.i, i32 noundef %.185.i)
+  call fastcc void @iup_worker_interpolate_(ptr noundef %16, i32 noundef %781, i32 noundef %spec.select.i431, i32 noundef %.163.i, i32 noundef %.185.i)
   %.not75.i = icmp eq i32 %.185.i, 0
   br i1 %.not75.i, label %.critedge77.i, label %782
 
 782:                                              ; preds = %779
   %783 = add i32 %.185.i, -1
-  call fastcc void @iup_worker_interpolate_(ptr noundef nonnull %16, i32 noundef %.061.i, i32 noundef %783, i32 noundef %.163.i, i32 noundef %.185.i)
+  call fastcc void @iup_worker_interpolate_(ptr noundef %16, i32 noundef %.061.i, i32 noundef %783, i32 noundef %.163.i, i32 noundef %.185.i)
   br label %.critedge77.i
 
 .critedge77.i:                                    ; preds = %695, %.lr.ph30.i.i, %782, %779, %.preheader.i.i, %.critedge._crit_edge.thread.i, %674
@@ -3683,7 +3683,7 @@ Ins_IUP.exit:                                     ; preds = %.critedge77.i, %650
   br label %.loopexit.i
 
 796:                                              ; preds = %789
-  %797 = call fastcc zeroext i8 @Compute_Point_Displacement(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  %797 = call fastcc zeroext i8 @Compute_Point_Displacement(ptr noundef nonnull %0, ptr noundef %14, ptr noundef %15, ptr noundef %12, ptr noundef %13)
   %.not.i437 = icmp eq i8 %797, 0
   br i1 %.not.i437, label %thread-pre-split.i, label %Ins_SHP.exit
 
@@ -3864,7 +3864,7 @@ Ins_SHP.exit:                                     ; preds = %796, %813, %.loopex
   br label %Ins_SHC.exit
 
 879:                                              ; preds = %872
-  %880 = call fastcc zeroext i8 @Compute_Point_Displacement(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %880 = call fastcc zeroext i8 @Compute_Point_Displacement(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %11, ptr noundef %8, ptr noundef %9)
   %.not28.i = icmp eq i8 %880, 0
   br i1 %.not28.i, label %881, label %Ins_SHC.exit
 
@@ -4037,7 +4037,7 @@ Ins_SHC.exit:                                     ; preds = %Move_Zp2_Point.exit
   br label %Ins_SHZ.exit
 
 965:                                              ; preds = %960
-  %966 = call fastcc zeroext i8 @Compute_Point_Displacement(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %966 = call fastcc zeroext i8 @Compute_Point_Displacement(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %7, ptr noundef %4, ptr noundef %5)
   %.not20.i455 = icmp eq i8 %966, 0
   br i1 %.not20.i455, label %967, label %Ins_SHZ.exit
 
@@ -13441,7 +13441,7 @@ define internal void @tt_done_blend(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tt_set_mm_blend(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i8 noundef zeroext %3) unnamed_addr #2 {
+define internal fastcc i32 @tt_set_mm_blend(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i8 noundef zeroext range(i8 0, 2) %3) unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   %7 = alloca %struct.GX_GVar_Head_, align 8
@@ -14375,7 +14375,7 @@ define internal fastcc i32 @tt_face_vary_cvt(ptr noundef %0, ptr noundef %1) unn
   %55 = getelementptr inbounds i8, ptr %46, i64 %43
   %56 = select i1 %54, ptr %55, ptr %51
   store ptr %56, ptr %22, align 8
-  %57 = call fastcc ptr @ft_var_readpackedpoints(ptr noundef nonnull %1, i64 noundef %39, ptr noundef nonnull %6)
+  %57 = call fastcc ptr @ft_var_readpackedpoints(ptr noundef nonnull %1, i64 noundef %39, ptr noundef %6)
   %58 = load ptr, ptr %22, align 8
   %59 = load ptr, ptr %1, align 8
   %60 = ptrtoint ptr %58 to i64
@@ -14515,7 +14515,7 @@ define internal fastcc i32 @tt_face_vary_cvt(ptr noundef %0, ptr noundef %1) unn
 
 .loopexit203:                                     ; preds = %.lr.ph211, %.preheader205, %.preheader202, %.loopexit206
   %.0169243 = phi ptr [ %.0169, %.preheader202 ], [ %.0169, %.loopexit206 ], [ %73, %.preheader205 ], [ %.0169, %.lr.ph211 ]
-  %130 = call fastcc i64 @ft_var_apply_tuple(ptr noundef nonnull %10, i16 noundef zeroext %92, ptr noundef %.0169243, ptr noundef %83, ptr noundef %84)
+  %130 = call fastcc i64 @ft_var_apply_tuple(ptr noundef %10, i16 noundef zeroext %92, ptr noundef %.0169243, ptr noundef %83, ptr noundef %84)
   %131 = icmp eq i64 %130, 0
   br i1 %131, label %211, label %132
 
@@ -14538,7 +14538,7 @@ define internal fastcc i32 @tt_face_vary_cvt(ptr noundef %0, ptr noundef %1) unn
 
 145:                                              ; preds = %132
   %146 = load i64, ptr %4, align 8
-  %147 = call fastcc ptr @ft_var_readpackedpoints(ptr noundef nonnull %1, i64 noundef %146, ptr noundef nonnull %5)
+  %147 = call fastcc ptr @ft_var_readpackedpoints(ptr noundef nonnull %1, i64 noundef %146, ptr noundef %5)
   %.pr = load i32, ptr %5, align 4
   br label %149
 
@@ -14737,7 +14737,7 @@ declare hidden i32 @FT_Stream_Seek(ptr noundef, i64 noundef) local_unnamed_addr 
 declare i64 @FT_MulDiv(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ft_var_readpackedpoints(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 {
+define internal fastcc ptr @ft_var_readpackedpoints(ptr noundef %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -14850,7 +14850,7 @@ define internal fastcc ptr @ft_var_readpackedpoints(ptr noundef %0, i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ft_var_apply_tuple(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #2 {
+define internal fastcc i64 @ft_var_apply_tuple(ptr nocapture noundef nonnull readonly %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #2 {
   %6 = load i32, ptr %0, align 8
   %.not68 = icmp eq i32 %6, 0
   br i1 %.not68, label %._crit_edge, label %.lr.ph
@@ -16416,7 +16416,7 @@ define internal range(i32 0, 152) i32 @tt_size_reset_height(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_var_load_hvvar(ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #2 {
+define internal fastcc i32 @ft_var_load_hvvar(ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %1) unnamed_addr #2 {
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 192
@@ -16730,7 +16730,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @TT_Get_VMetrics(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #2 {
+define internal fastcc void @TT_Get_VMetrics(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 496
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 0
@@ -16741,7 +16741,7 @@ define internal fastcc void @TT_Get_VMetrics(ptr noundef %0, i32 noundef %1, i64
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 336
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull %0, i8 noundef zeroext 1, i32 noundef %1, ptr noundef %3, ptr noundef %4) #22
+  tail call void %12(ptr noundef nonnull %0, i8 noundef zeroext 1, i32 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #22
   br label %41
 
 13:                                               ; preds = %5
@@ -16788,7 +16788,7 @@ define internal fastcc void @TT_Get_VMetrics(ptr noundef %0, i32 noundef %1, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @load_truetype_glyph(ptr noundef %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #2 {
+define internal fastcc i32 @load_truetype_glyph(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext range(i8 0, 2) %3) unnamed_addr #2 {
   %5 = alloca %struct.FT_Incremental_MetricsRec_, align 8
   %6 = alloca %struct.FT_Incremental_MetricsRec_, align 8
   %7 = alloca i16, align 2
@@ -17372,7 +17372,7 @@ tt_loader_set_pp.exit:                            ; preds = %tt_get_metrics_incr
   store ptr %14, ptr %340, align 8
   %341 = getelementptr inbounds i8, ptr %15, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %341, i8 0, i64 16, i1 false)
-  %342 = call fastcc i32 @TT_Vary_Apply_Glyph_Deltas(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %16)
+  %342 = call fastcc i32 @TT_Vary_Apply_Glyph_Deltas(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %16)
   store i32 %342, ptr %11, align 4
   %.not307 = icmp eq i32 %342, 0
   br i1 %.not307, label %343, label %.thread328
@@ -17611,7 +17611,7 @@ tt_loader_set_pp.exit324:                         ; preds = %tt_get_metrics_incr
   %486 = getelementptr inbounds i8, ptr %18, i64 848
   %487 = load ptr, ptr %486, align 8
   call void %487(ptr noundef nonnull %0) #22
-  %488 = call fastcc i32 @TT_Process_Simple_Glyph(ptr noundef nonnull %0)
+  %488 = call fastcc i32 @TT_Process_Simple_Glyph(ptr noundef %0)
   store i32 %488, ptr %11, align 4
   %.not304 = icmp eq i32 %488, 0
   br i1 %.not304, label %489, label %.thread328
@@ -17822,7 +17822,7 @@ ft_list_get_node_at.exit:                         ; preds = %.lr.ph.i, %492
   %584 = zext i16 %581 to i64
   %585 = getelementptr inbounds %struct.FT_Vector_, ptr %543, i64 %584
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %585, ptr noundef nonnull align 8 dereferenceable(16) %447, i64 16, i1 false)
-  %586 = call fastcc i32 @TT_Vary_Apply_Glyph_Deltas(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef %556)
+  %586 = call fastcc i32 @TT_Vary_Apply_Glyph_Deltas(ptr noundef %0, ptr noundef nonnull %17, ptr noundef %556)
   store i32 %586, ptr %11, align 4
   %.not291 = icmp ne i32 %586, 0
   %brmerge = or i1 %.not291, %.not380
@@ -17991,7 +17991,7 @@ ft_list_get_node_at.exit:                         ; preds = %.lr.ph.i, %492
   %683 = load i16, ptr %516, align 2
   %684 = zext i16 %683 to i32
   %685 = load i32, ptr %680, align 8
-  %686 = call fastcc i32 @load_truetype_glyph(ptr noundef nonnull %0, i32 noundef %685, i32 noundef %676, i8 noundef zeroext 0)
+  %686 = call fastcc i32 @load_truetype_glyph(ptr noundef %0, i32 noundef %685, i32 noundef %676, i8 noundef zeroext 0)
   store i32 %686, ptr %11, align 4
   %.not300 = icmp eq i32 %686, 0
   br i1 %.not300, label %687, label %.thread328
@@ -18021,7 +18021,7 @@ ft_list_get_node_at.exit:                         ; preds = %.lr.ph.i, %492
   br i1 %697, label %700, label %698
 
 698:                                              ; preds = %695
-  %699 = call fastcc i32 @TT_Process_Composite_Component(ptr noundef nonnull %0, ptr noundef nonnull %690, i32 noundef %518, i32 noundef %684)
+  %699 = call fastcc i32 @TT_Process_Composite_Component(ptr noundef %0, ptr noundef nonnull %690, i32 noundef %518, i32 noundef %684)
   store i32 %699, ptr %11, align 4
   %.not302 = icmp eq i32 %699, 0
   br i1 %.not302, label %700, label %.thread328
@@ -18058,7 +18058,7 @@ ft_list_get_node_at.exit:                         ; preds = %.lr.ph.i, %492
   br i1 %or.cond310, label %712, label %714
 
 712:                                              ; preds = %707
-  %713 = call fastcc i32 @TT_Process_Composite_Glyph(ptr noundef nonnull %0, i32 noundef %518, i32 noundef %520)
+  %713 = call fastcc i32 @TT_Process_Composite_Glyph(ptr noundef %0, i32 noundef %518, i32 noundef %520)
   store i32 %713, ptr %11, align 4
   %.not297 = icmp eq i32 %713, 0
   br i1 %.not297, label %714, label %.thread328
@@ -18113,7 +18113,7 @@ ft_list_get_node_at.exit:                         ; preds = %.lr.ph.i, %492
 declare void @FT_Outline_Translate(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @compute_glyph_metrics(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc i32 @compute_glyph_metrics(ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #2 {
   %3 = alloca %struct.FT_BBox_, align 8
   %4 = alloca %struct.FT_Incremental_MetricsRec_, align 8
   %5 = load ptr, ptr %0, align 8
@@ -18337,7 +18337,7 @@ define internal fastcc i32 @compute_glyph_metrics(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @TT_Load_Context(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc i32 @TT_Load_Context(ptr nocapture noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -18469,7 +18469,7 @@ define internal fastcc i32 @TT_Load_Context(ptr nocapture noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tt_size_run_prep(ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #2 {
+define internal fastcc i32 @tt_size_run_prep(ptr noundef nonnull %0, i8 noundef zeroext range(i8 0, 2) %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 440
   %5 = load i64, ptr %4, align 8
@@ -18510,7 +18510,7 @@ define internal fastcc i32 @tt_size_run_prep(ptr noundef %0, i8 noundef zeroext 
 ._crit_edge:                                      ; preds = %12, %2
   %30 = getelementptr inbounds i8, ptr %0, i64 536
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call fastcc i32 @TT_Load_Context(ptr noundef %31, ptr noundef %3, ptr noundef nonnull %0)
+  %32 = tail call fastcc i32 @TT_Load_Context(ptr noundef %31, ptr noundef %3, ptr noundef %0)
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %33, label %TT_Save_Context.exit
 
@@ -18620,7 +18620,7 @@ TT_Save_Context.exit:                             ; preds = %84, %._crit_edge
 declare hidden void @FT_GlyphLoader_Rewind(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tt_glyphzone_new(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef %2) unnamed_addr #2 {
+define internal fastcc i32 @tt_glyphzone_new(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef nonnull %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 56, i1 false)
@@ -18708,11 +18708,11 @@ tt_glyphzone_done.exit:                           ; preds = %29, %26, %39
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tt_size_run_fpgm(ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #2 {
+define internal fastcc i32 @tt_size_run_fpgm(ptr noundef nonnull %0, i8 noundef zeroext range(i8 0, 2) %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 536
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call fastcc i32 @TT_Load_Context(ptr noundef %5, ptr noundef %3, ptr noundef nonnull %0)
+  %6 = tail call fastcc i32 @TT_Load_Context(ptr noundef %5, ptr noundef %3, ptr noundef %0)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %TT_Save_Context.exit
 
@@ -18925,7 +18925,7 @@ tt_glyphzone_done.exit:                           ; preds = %27, %36
 declare hidden void @FT_Stream_OpenMemory(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @TT_Vary_Apply_Glyph_Deltas(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #2 {
+define internal fastcc i32 @TT_Vary_Apply_Glyph_Deltas(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -19050,7 +19050,7 @@ define internal fastcc i32 @TT_Vary_Apply_Glyph_Deltas(ptr nocapture noundef %0,
   store ptr %87, ptr %56, align 8
   %88 = getelementptr inbounds i8, ptr %19, i64 136
   %89 = load i64, ptr %88, align 8
-  %90 = call fastcc ptr @ft_var_readpackedpoints(ptr noundef nonnull %9, i64 noundef %89, ptr noundef nonnull %6)
+  %90 = call fastcc ptr @ft_var_readpackedpoints(ptr noundef nonnull %9, i64 noundef %89, ptr noundef %6)
   %91 = load ptr, ptr %56, align 8
   %92 = load ptr, ptr %9, align 8
   %93 = ptrtoint ptr %91 to i64
@@ -19226,7 +19226,7 @@ define internal fastcc i32 @TT_Vary_Apply_Glyph_Deltas(ptr nocapture noundef %0,
 
 .loopexit392:                                     ; preds = %.lr.ph404, %.preheader394, %.preheader391, %.loopexit395
   %.0336468 = phi ptr [ %.0336, %.preheader391 ], [ %.0336, %.loopexit395 ], [ %106, %.preheader394 ], [ %.0336, %.lr.ph404 ]
-  %183 = call fastcc i64 @ft_var_apply_tuple(ptr noundef nonnull %19, i16 noundef zeroext %145, ptr noundef %.0336468, ptr noundef %125, ptr noundef %126)
+  %183 = call fastcc i64 @ft_var_apply_tuple(ptr noundef %19, i16 noundef zeroext %145, ptr noundef %.0336468, ptr noundef %125, ptr noundef %126)
   %184 = icmp eq i64 %183, 0
   br i1 %184, label %305, label %185
 
@@ -19249,7 +19249,7 @@ define internal fastcc i32 @TT_Vary_Apply_Glyph_Deltas(ptr nocapture noundef %0,
 
 198:                                              ; preds = %185
   %199 = load i64, ptr %131, align 8
-  %200 = call fastcc ptr @ft_var_readpackedpoints(ptr noundef nonnull %9, i64 noundef %199, ptr noundef nonnull %5)
+  %200 = call fastcc ptr @ft_var_readpackedpoints(ptr noundef nonnull %9, i64 noundef %199, ptr noundef %5)
   %.pre = load i32, ptr %5, align 4
   br label %203
 
@@ -19623,7 +19623,7 @@ define internal fastcc i32 @TT_Vary_Apply_Glyph_Deltas(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @TT_Process_Simple_Glyph(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc i32 @TT_Process_Simple_Glyph(ptr nocapture noundef nonnull %0) unnamed_addr #2 {
   %2 = alloca i32, align 4
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -19679,7 +19679,7 @@ define internal fastcc i32 @TT_Process_Simple_Glyph(ptr nocapture noundef %0) un
   br i1 %.not103, label %42, label %224
 
 42:                                               ; preds = %38
-  %43 = call fastcc i32 @TT_Vary_Apply_Glyph_Deltas(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %40)
+  %43 = call fastcc i32 @TT_Vary_Apply_Glyph_Deltas(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %40)
   store i32 %43, ptr %2, align 4
   %.not104 = icmp eq i32 %43, 0
   br i1 %.not104, label %44, label %224
@@ -19954,7 +19954,7 @@ define internal fastcc i32 @TT_Process_Simple_Glyph(ptr nocapture noundef %0) un
   br i1 %.mux, label %222, label %224
 
 222:                                              ; preds = %.thread, %._crit_edge
-  %223 = call fastcc i32 @TT_Hint_Glyph(ptr noundef nonnull %0, i8 noundef zeroext 0)
+  %223 = call fastcc i32 @TT_Hint_Glyph(ptr noundef %0, i8 noundef zeroext 0)
   store i32 %223, ptr %2, align 4
   br label %224
 
@@ -19974,7 +19974,7 @@ declare hidden ptr @ft_mem_qalloc(ptr noundef, i64 noundef, ptr noundef) local_u
 declare void @FT_List_Add(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 22) i32 @TT_Process_Composite_Component(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc range(i32 0, 22) i32 @TT_Process_Composite_Component(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #2 {
   %5 = alloca %struct.FT_Outline_, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -19986,7 +19986,7 @@ define internal fastcc range(i32 0, 22) i32 @TT_Process_Composite_Component(ptr 
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %7, i64 26
   %14 = load i16, ptr %13, align 2
-  %15 = trunc i32 %3 to i16
+  %15 = trunc nuw i32 %3 to i16
   %16 = sub i16 %14, %15
   %17 = getelementptr inbounds i8, ptr %5, i64 2
   store i16 %16, ptr %17, align 2
@@ -20160,7 +20160,7 @@ define internal fastcc range(i32 0, 22) i32 @TT_Process_Composite_Component(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @TT_Process_Composite_Glyph(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc i32 @TT_Process_Composite_Glyph(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 65535) %1, i32 noundef range(i32 0, 65536) %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -20280,7 +20280,7 @@ define internal fastcc i32 @TT_Process_Composite_Glyph(ptr nocapture noundef %0,
   %76 = getelementptr inbounds i8, ptr %0, i64 208
   %77 = load ptr, ptr %5, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 24
-  call fastcc void @tt_prepare_zone(ptr noundef nonnull %76, ptr noundef nonnull %78, i32 noundef %1, i32 noundef %2)
+  call fastcc void @tt_prepare_zone(ptr noundef %76, ptr noundef nonnull %78, i32 noundef %1, i32 noundef %2)
   %79 = getelementptr inbounds i8, ptr %0, i64 220
   %80 = load i16, ptr %79, align 4
   %.not65 = icmp eq i16 %80, 4
@@ -20306,7 +20306,7 @@ define internal fastcc i32 @TT_Process_Composite_Glyph(ptr nocapture noundef %0,
   br i1 %91, label %82, label %._crit_edge, !llvm.loop !135
 
 ._crit_edge:                                      ; preds = %82, %75
-  %92 = call fastcc i32 @TT_Hint_Glyph(ptr noundef nonnull %0, i8 noundef zeroext 1)
+  %92 = call fastcc i32 @TT_Hint_Glyph(ptr noundef %0, i8 noundef zeroext 1)
   br label %93
 
 93:                                               ; preds = %68, %73, %55, %59, %63, %62, %20, %._crit_edge
@@ -20352,12 +20352,9 @@ define internal fastcc void @tt_interpolate_deltas(ptr nocapture noundef readonl
 
 .critedge.preheader:                              ; preds = %.lr.ph
   %18 = trunc nsw i64 %indvars.iv to i32
+  %.368 = add nsw i32 %18, 1
   %.not54.not69 = icmp slt i32 %18, %12
   br i1 %.not54.not69, label %.lr.ph73.preheader, label %.critedge._crit_edge.thread
-
-.critedge._crit_edge.thread:                      ; preds = %.critedge.preheader
-  %.3.lcssa88 = add i32 %18, 1
-  br label %78
 
 .lr.ph73.preheader:                               ; preds = %.critedge.preheader
   %19 = sext i32 %indvars.iv80 to i64
@@ -20493,12 +20490,12 @@ tt_delta_interpolate.exit:                        ; preds = %..loopexit_crit_edg
   br i1 %.not54.not, label %.lr.ph73, label %.critedge._crit_edge, !llvm.loop !139
 
 .critedge._crit_edge:                             ; preds = %tt_delta_interpolate.exit
-  %.3.lcssa = add nuw nsw i32 %12, 1
-  %77 = icmp eq i32 %.150, %18
-  br i1 %77, label %78, label %105
+  %77 = trunc nsw i64 %indvars.iv.next84 to i32
+  %78 = icmp eq i32 %.150, %18
+  br i1 %78, label %.critedge._crit_edge.thread, label %105
 
-78:                                               ; preds = %.critedge._crit_edge.thread, %.critedge._crit_edge
-  %.3.lcssa89 = phi i32 [ %.3.lcssa88, %.critedge._crit_edge.thread ], [ %.3.lcssa, %.critedge._crit_edge ]
+.critedge._crit_edge.thread:                      ; preds = %.critedge.preheader, %.critedge._crit_edge
+  %.3.lcssa88 = phi i32 [ %77, %.critedge._crit_edge ], [ %.368, %.critedge.preheader ]
   %sext = shl i64 %indvars.iv, 32
   %79 = ashr exact i64 %sext, 32
   %80 = getelementptr inbounds %struct.FT_Vector_, ptr %1, i64 %79
@@ -20516,7 +20513,7 @@ tt_delta_interpolate.exit:                        ; preds = %..loopexit_crit_edg
   %or.cond.i57 = select i1 %90, i1 %91, i1 false
   br i1 %or.cond.i57, label %.critedge56, label %.preheader30.i
 
-.preheader30.i:                                   ; preds = %78
+.preheader30.i:                                   ; preds = %.critedge._crit_edge.thread
   %92 = icmp slt i32 %.048, %18
   br i1 %92, label %.lr.ph.i58, label %.preheader.i
 
@@ -20566,8 +20563,8 @@ tt_delta_interpolate.exit:                        ; preds = %..loopexit_crit_edg
   tail call fastcc void @tt_delta_interpolate(i32 noundef %.048, i32 noundef %109, i32 noundef %.150, i32 noundef %18, ptr noundef %2, ptr noundef %1)
   br label %.critedge56
 
-.critedge56:                                      ; preds = %20, %.lr.ph34.i, %7, %.preheader.i, %78, %108, %105
-  %.2 = phi i32 [ %.3.lcssa, %108 ], [ %.3.lcssa, %105 ], [ %.3.lcssa89, %78 ], [ %.3.lcssa89, %.preheader.i ], [ %.048, %7 ], [ %.3.lcssa89, %.lr.ph34.i ], [ %15, %20 ]
+.critedge56:                                      ; preds = %20, %.lr.ph34.i, %7, %.preheader.i, %.critedge._crit_edge.thread, %108, %105
+  %.2 = phi i32 [ %77, %108 ], [ %77, %105 ], [ %.3.lcssa88, %.critedge._crit_edge.thread ], [ %.3.lcssa88, %.preheader.i ], [ %.048, %7 ], [ %.3.lcssa88, %.lr.ph34.i ], [ %15, %20 ]
   %110 = add i16 %.0, 1
   %111 = sext i16 %110 to i32
   %112 = load i16, ptr %0, align 8
@@ -20580,13 +20577,13 @@ tt_delta_interpolate.exit:                        ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tt_delta_interpolate(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) unnamed_addr #2 {
+define internal fastcc void @tt_delta_interpolate(i32 noundef %0, i32 noundef range(i32 -2147483648, 65536) %1, i32 noundef %2, i32 noundef range(i32 -2147483648, 65536) %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) unnamed_addr #2 {
   %7 = icmp sgt i32 %0, %1
   br i1 %7, label %.loopexit78, label %.preheader.split.preheader
 
 .preheader.split.preheader:                       ; preds = %6
   %8 = sext i32 %0 to i64
-  %9 = add i32 %1, 1
+  %9 = add nsw i32 %1, 1
   br label %.preheader.split
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %..loopexit_crit_edge
@@ -20688,16 +20685,16 @@ define internal fastcc void @tt_delta_interpolate(i32 noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @tt_prepare_zone(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #6 {
+define internal fastcc void @tt_prepare_zone(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 65535) %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #6 {
   %5 = getelementptr inbounds i8, ptr %1, i64 2
   %6 = load i16, ptr %5, align 2
-  %7 = trunc i32 %2 to i16
+  %7 = trunc nuw i32 %2 to i16
   %8 = sub i16 %6, %7
   %9 = add i16 %8, 4
   %10 = getelementptr inbounds i8, ptr %0, i64 12
   store i16 %9, ptr %10, align 4
   %11 = load i16, ptr %1, align 8
-  %12 = trunc i32 %3 to i16
+  %12 = trunc nuw i32 %3 to i16
   %13 = sub i16 %11, %12
   %14 = getelementptr inbounds i8, ptr %0, i64 14
   store i16 %13, ptr %14, align 2
@@ -20734,7 +20731,7 @@ define internal fastcc void @tt_prepare_zone(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @TT_Hint_Glyph(ptr nocapture noundef %0, i8 noundef zeroext %1) unnamed_addr #2 {
+define internal fastcc i32 @TT_Hint_Glyph(ptr nocapture noundef nonnull %0, i8 noundef zeroext range(i8 0, 2) %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -21782,7 +21779,7 @@ declare hidden i32 @FT_Vector_NormLen(ptr noundef) local_unnamed_addr #3
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @iup_worker_interpolate_(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
+define internal fastcc void @iup_worker_interpolate_(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
   %6 = icmp ugt i32 %1, %2
   br i1 %6, label %.loopexit, label %7
 
@@ -21922,7 +21919,7 @@ define internal fastcc void @iup_worker_interpolate_(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @Compute_Point_Displacement(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #2 {
+define internal fastcc zeroext range(i8 0, 2) i8 @Compute_Point_Displacement(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #2 {
   %.sroa.0 = alloca [12 x i8], align 8
   %.sroa.8 = alloca { ptr, ptr, ptr, i16 }, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 664

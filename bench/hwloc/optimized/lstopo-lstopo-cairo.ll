@@ -451,7 +451,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr nocapture nou
   %267 = load i32, ptr %158, align 4
   %268 = add i32 %.neg329, %267
   store i32 %268, ptr %158, align 4
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 269:                                              ; preds = %242
@@ -482,7 +482,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr nocapture nou
   %287 = fcmp olt float %286, 1.000000e+00
   %storemerge = select i1 %287, float 1.000000e+00, float %286
   store float %storemerge, ptr %160, align 8
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %288
 
 288:                                              ; preds = %269, %274
@@ -632,7 +632,7 @@ x11_is_maximized.exit:                            ; preds = %297, %._crit_edge.i
   %337 = load i32, ptr %157, align 8
   %338 = add i32 %.neg322, %337
   store i32 %338, ptr %157, align 8
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 339:                                              ; preds = %331
@@ -641,7 +641,7 @@ x11_is_maximized.exit:                            ; preds = %297, %._crit_edge.i
   %342 = load i32, ptr %157, align 8
   %343 = add nsw i32 %342, %341
   store i32 %343, ptr %157, align 8
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 344:                                              ; preds = %331
@@ -650,7 +650,7 @@ x11_is_maximized.exit:                            ; preds = %297, %._crit_edge.i
   %346 = load i32, ptr %158, align 4
   %347 = add i32 %.neg, %346
   store i32 %347, ptr %158, align 4
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 348:                                              ; preds = %331
@@ -659,7 +659,7 @@ x11_is_maximized.exit:                            ; preds = %297, %._crit_edge.i
   %351 = load i32, ptr %158, align 4
   %352 = add nsw i32 %351, %350
   store i32 %352, ptr %158, align 4
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 353:                                              ; preds = %331
@@ -673,7 +673,7 @@ x11_is_maximized.exit:                            ; preds = %297, %._crit_edge.i
   %358 = load i32, ptr %157, align 8
   %359 = sub nsw i32 %358, %357
   store i32 %359, ptr %157, align 8
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 360:                                              ; preds = %353
@@ -681,7 +681,7 @@ x11_is_maximized.exit:                            ; preds = %297, %._crit_edge.i
   %362 = load i32, ptr %158, align 4
   %363 = sub nsw i32 %362, %361
   store i32 %363, ptr %158, align 4
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 364:                                              ; preds = %331
@@ -695,7 +695,7 @@ x11_is_maximized.exit:                            ; preds = %297, %._crit_edge.i
   %369 = load i32, ptr %157, align 8
   %370 = add nsw i32 %369, %368
   store i32 %370, ptr %157, align 8
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 371:                                              ; preds = %364
@@ -703,19 +703,19 @@ x11_is_maximized.exit:                            ; preds = %297, %._crit_edge.i
   %373 = load i32, ptr %158, align 4
   %374 = add nsw i32 %373, %372
   store i32 %374, ptr %158, align 4
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 375:                                              ; preds = %331
   store i32 0, ptr %157, align 8
   store i32 0, ptr %158, align 4
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 376:                                              ; preds = %331
   store i32 2147483647, ptr %157, align 8
   store i32 2147483647, ptr %158, align 4
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 377:                                              ; preds = %331
@@ -734,7 +734,7 @@ x11_is_maximized.exit:                            ; preds = %297, %._crit_edge.i
   %390 = load float, ptr %160, align 8
   %391 = fmul float %390, %389
   store float %391, ptr %160, align 8
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 392:                                              ; preds = %331, %331
@@ -742,7 +742,7 @@ x11_is_maximized.exit:                            ; preds = %297, %._crit_edge.i
   %394 = fmul float %393, 0x3FF3333340000000
   store float %394, ptr %160, align 8
   store i32 1, ptr %162, align 4
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 395:                                              ; preds = %331, %331
@@ -750,18 +750,18 @@ x11_is_maximized.exit:                            ; preds = %297, %._crit_edge.i
   %397 = fdiv float %396, 0x3FF3333340000000
   store float %397, ptr %160, align 8
   store i32 1, ptr %162, align 4
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 398:                                              ; preds = %331, %331
   store float 1.000000e+00, ptr %160, align 8
   store i32 1, ptr %162, align 4
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 399:                                              ; preds = %331
   store i32 2, ptr %162, align 4
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 400:                                              ; preds = %331
@@ -772,7 +772,7 @@ x11_is_maximized.exit:                            ; preds = %297, %._crit_edge.i
   %403 = select i1 %.not319, ptr @.str.6, ptr @.str.5
   %404 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %403)
   store i32 1, ptr %162, align 4
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 405:                                              ; preds = %331, %331, %331
@@ -788,7 +788,7 @@ x11_is_maximized.exit:                            ; preds = %297, %._crit_edge.i
   %410 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %409)
   store i32 1, ptr %161, align 8
   store i32 1, ptr %162, align 4
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 411:                                              ; preds = %331
@@ -800,7 +800,7 @@ x11_is_maximized.exit:                            ; preds = %297, %._crit_edge.i
   %415 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull %414)
   store i32 1, ptr %161, align 8
   store i32 1, ptr %162, align 4
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 416:                                              ; preds = %331
@@ -823,7 +823,7 @@ switch.lookup:                                    ; preds = %416
   %puts315 = call i32 @puts(ptr nonnull dereferenceable(1) %switch.load361)
   store i32 1, ptr %161, align 8
   store i32 1, ptr %162, align 4
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 422:                                              ; preds = %331
@@ -834,7 +834,7 @@ switch.lookup:                                    ; preds = %416
   %425 = select i1 %.not312, ptr @.str.6, ptr @.str.5
   %426 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef nonnull %425)
   store i32 1, ptr %161, align 8
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 427:                                              ; preds = %331
@@ -845,7 +845,7 @@ switch.lookup:                                    ; preds = %416
   %430 = select i1 %.not311, ptr @.str.6, ptr @.str.5
   %431 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef nonnull %430)
   store i32 1, ptr %161, align 8
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 432:                                              ; preds = %331
@@ -856,7 +856,7 @@ switch.lookup:                                    ; preds = %416
   %435 = select i1 %.not310, ptr @.str.6, ptr @.str.5
   %436 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %435)
   store i32 1, ptr %161, align 8
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 437:                                              ; preds = %331
@@ -890,7 +890,7 @@ switch.lookup:                                    ; preds = %416
   %puts307 = call i32 @puts(ptr nonnull dereferenceable(1) %str.3.sink)
   store i32 1, ptr %161, align 8
   store i32 1, ptr %162, align 4
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 446:                                              ; preds = %331
@@ -913,7 +913,7 @@ switch.lookup362:                                 ; preds = %446
   %puts301 = call i32 @puts(ptr nonnull dereferenceable(1) %switch.load366)
   store i32 1, ptr %161, align 8
   store i32 1, ptr %162, align 4
-  call fastcc void @move_x11(ptr noundef nonnull %8)
+  call fastcc void @move_x11(ptr noundef %8)
   br label %453
 
 452:                                              ; preds = %331
@@ -997,7 +997,7 @@ declare i32 @XMoveWindow(ptr noundef, i64 noundef, i32 noundef, i32 noundef) loc
 declare i32 @XNextEvent(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @move_x11(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @move_x11(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load float, ptr %3, align 8

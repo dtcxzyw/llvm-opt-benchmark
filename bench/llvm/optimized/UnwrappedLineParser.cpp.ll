@@ -7926,7 +7926,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %782
   %804 = getelementptr inbounds i8, ptr %803, i64 32
   %805 = load ptr, ptr %804, align 8
   %806 = call noundef ptr %805(ptr noundef nonnull align 8 dereferenceable(8) %802, i1 noundef zeroext true) #19
-  %807 = call fastcc noundef zeroext i1 @_ZN5clang6formatL18isC78ParameterDeclEPKNS0_11FormatTokenES3_S3_(ptr noundef nonnull %797, ptr noundef %806, ptr noundef nonnull %579)
+  %807 = call fastcc noundef zeroext i1 @_ZN5clang6formatL18isC78ParameterDeclEPKNS0_11FormatTokenES3_S3_(ptr noundef nonnull %797, ptr noundef %806, ptr noundef %579)
   br i1 %807, label %808, label %_ZN5clang6format19UnwrappedLineParser15parseStructLikeEv.exit
 
 808:                                              ; preds = %801
@@ -23503,7 +23503,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6format19UnwrappedLineParser15pars
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN5clang6formatL18isC78ParameterDeclEPKNS0_11FormatTokenES3_S3_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @_ZN5clang6formatL18isC78ParameterDeclEPKNS0_11FormatTokenES3_S3_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i16, ptr %4, align 8
   %.not31 = icmp eq i16 %5, 5

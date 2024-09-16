@@ -3758,7 +3758,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm2AA22isPotentiallyReachableERNS_10A
   br label %_ZNSt8functionIFbRKN4llvm8FunctionEEEC2ERKS5_.exit
 
 _ZNSt8functionIFbRKN4llvm8FunctionEEEC2ERKS5_.exit: ; preds = %6, %11
-  %18 = call fastcc noundef zeroext i1 @_ZL22isPotentiallyReachableRN4llvm10AttributorERKNS_11InstructionEPS3_RKNS_8FunctionERKNS_17AbstractAttributeEPKNS_11SmallPtrSetIPS2_Lj4EEESt8functionIFbS8_EE(ptr noundef nonnull align 8 dereferenceable(4296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(136) %8, ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %4, ptr noundef nonnull %7)
+  %18 = call fastcc noundef zeroext i1 @_ZL22isPotentiallyReachableRN4llvm10AttributorERKNS_11InstructionEPS3_RKNS_8FunctionERKNS_17AbstractAttributeEPKNS_11SmallPtrSetIPS2_Lj4EEESt8functionIFbS8_EE(ptr noundef nonnull align 8 dereferenceable(4296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(136) %8, ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %4, ptr noundef %7)
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %20, null
@@ -3773,7 +3773,7 @@ _ZNSt8functionIFbRKN4llvm8FunctionEEED2Ev.exit:   ; preds = %_ZNSt8functionIFbRK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL22isPotentiallyReachableRN4llvm10AttributorERKNS_11InstructionEPS3_RKNS_8FunctionERKNS_17AbstractAttributeEPKNS_11SmallPtrSetIPS2_Lj4EEESt8functionIFbS8_EE(ptr noundef nonnull align 8 dereferenceable(4296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL22isPotentiallyReachableRN4llvm10AttributorERKNS_11InstructionEPS3_RKNS_8FunctionERKNS_17AbstractAttributeEPKNS_11SmallPtrSetIPS2_Lj4EEESt8functionIFbS8_EE(ptr noundef nonnull align 8 dereferenceable(4296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca %"class.llvm::SmallPtrSet.882", align 8
   %10 = alloca %"class.llvm::SmallVector.885", align 8
@@ -4081,7 +4081,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm2AA22isPotentiallyReachableERNS_10A
   br label %_ZNSt8functionIFbRKN4llvm8FunctionEEEC2ERKS5_.exit
 
 _ZNSt8functionIFbRKN4llvm8FunctionEEEC2ERKS5_.exit: ; preds = %6, %10
-  %17 = call fastcc noundef zeroext i1 @_ZL22isPotentiallyReachableRN4llvm10AttributorERKNS_11InstructionEPS3_RKNS_8FunctionERKNS_17AbstractAttributeEPKNS_11SmallPtrSetIPS2_Lj4EEESt8functionIFbS8_EE(ptr noundef nonnull align 8 dereferenceable(4296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %4, ptr noundef nonnull %7)
+  %17 = call fastcc noundef zeroext i1 @_ZL22isPotentiallyReachableRN4llvm10AttributorERKNS_11InstructionEPS3_RKNS_8FunctionERKNS_17AbstractAttributeEPKNS_11SmallPtrSetIPS2_Lj4EEESt8functionIFbS8_EE(ptr noundef nonnull align 8 dereferenceable(4296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %4, ptr noundef %7)
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %19 = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %19, null

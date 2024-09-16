@@ -680,7 +680,7 @@ wg_kdf.exit.i.i:                                  ; preds = %125
 
 wg_kdf.exit54.i.i:                                ; preds = %142
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
-  %146 = call fastcc i32 @aead_decrypt(ptr noundef nonnull %120, ptr noundef %118, i32 noundef 48, ptr noundef nonnull %30, ptr noundef nonnull %28, i32 noundef 32)
+  %146 = call fastcc i32 @aead_decrypt(ptr noundef nonnull %120, ptr noundef %118, i32 noundef 48, ptr noundef %30, ptr noundef nonnull %28, i32 noundef 32)
   %.not47.i.i = icmp eq i32 %146, 0
   br i1 %.not47.i.i, label %wg_process_initiation.exit.i, label %147
 
@@ -738,7 +738,7 @@ wg_kdf.exit54.i.i:                                ; preds = %142
 wg_kdf.exit56.i.i:                                ; preds = %165
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25)
   %169 = getelementptr inbounds i8, ptr %95, i64 16
-  %170 = call fastcc i32 @aead_decrypt(ptr noundef nonnull %120, ptr noundef %119, i32 noundef 28, ptr noundef nonnull %30, ptr noundef nonnull %169, i32 noundef 12)
+  %170 = call fastcc i32 @aead_decrypt(ptr noundef nonnull %120, ptr noundef %119, i32 noundef 28, ptr noundef %30, ptr noundef nonnull %169, i32 noundef 12)
   %.not50.i.i = icmp eq i32 %170, 0
   br i1 %.not50.i.i, label %wg_process_initiation.exit.i, label %171
 
@@ -1301,7 +1301,7 @@ wg_kdf.exit72.i.i:                                ; preds = %401
 wg_kdf.exit73.i.i:                                ; preds = %420
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   call fastcc void @wg_mix_hash(ptr noundef nonnull %17, ptr noundef nonnull %360, i64 noundef 32)
-  %424 = call fastcc i32 @aead_decrypt(ptr noundef nonnull %361, ptr noundef %359, i32 noundef 16, ptr noundef nonnull %17, ptr noundef null, i32 noundef 0)
+  %424 = call fastcc i32 @aead_decrypt(ptr noundef nonnull %361, ptr noundef %359, i32 noundef 16, ptr noundef %17, ptr noundef null, i32 noundef 0)
   %.not65.i.i = icmp eq i32 %424, 0
   br i1 %.not65.i.i, label %425, label %wg_psk_iter_next.exit.thread.i.i
 
@@ -2192,7 +2192,7 @@ wg_keylog_reset.exit:                             ; preds = %9, %11
   %24 = load i32, ptr %15, align 8
   %25 = icmp eq i32 %24, 1
   %26 = zext i1 %25 to i32
-  call fastcc void @wg_add_static_key(ptr noundef nonnull %3, i32 noundef %26)
+  call fastcc void @wg_add_static_key(ptr noundef %3, i32 noundef %26)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr @num_wg_key_records, align 4
   %28 = zext i32 %27 to i64
@@ -2388,7 +2388,7 @@ decode_base64_key.exit.thread:                    ; preds = %59, %61
   br i1 %.not79, label %68, label %69
 
 68:                                               ; preds = %67
-  call fastcc void @wg_add_static_key(ptr noundef nonnull %8, i32 noundef 1)
+  call fastcc void @wg_add_static_key(ptr noundef %8, i32 noundef 1)
   br label %.backedge
 
 69:                                               ; preds = %67
@@ -2397,7 +2397,7 @@ decode_base64_key.exit.thread:                    ; preds = %59, %61
   br i1 %.not81, label %70, label %71
 
 70:                                               ; preds = %69
-  call fastcc void @wg_add_static_key(ptr noundef nonnull %8, i32 noundef 0)
+  call fastcc void @wg_add_static_key(ptr noundef %8, i32 noundef 0)
   br label %.backedge
 
 71:                                               ; preds = %69
@@ -2707,7 +2707,7 @@ wg_keylog_reset.exit10:                           ; preds = %27, %24, %25, %wg_k
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @wg_mac1_key_probe(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @wg_mac1_key_probe(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._GHashTableIter, align 8
   %5 = alloca ptr, align 8
@@ -2786,7 +2786,7 @@ declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef,
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @wg_dissect_pubkey(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @wg_dissect_pubkey(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 13) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = tail call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef %2, i32 noundef 32) #15
   %6 = tail call noalias ptr @g_base64_encode(ptr noundef %5, i64 noundef 32) #15
   %7 = tail call ptr @wmem_packet_scope() #15
@@ -3029,7 +3029,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @wg_mix_hash(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @wg_mix_hash(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 16, 49) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = call i32 @gcry_md_open(ptr noundef nonnull %4, i32 noundef 322, i32 noundef 0) #15
   %.not = icmp eq i32 %5, 0
@@ -3053,7 +3053,7 @@ define internal fastcc void @wg_mix_hash(ptr noundef %0, ptr noundef %1, i64 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @aead_decrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @aead_decrypt(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 16, 49) %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef range(i32 0, 33) %5) unnamed_addr #0 {
   %7 = alloca [12 x i8], align 4
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -3098,7 +3098,7 @@ wg_create_cipher.exit:                            ; preds = %10
   br i1 %21, label %22, label %wg_aead_decrypt.exit
 
 22:                                               ; preds = %15
-  %23 = call i32 @gcry_cipher_authenticate(ptr noundef nonnull %.pre.i, ptr noundef %3, i64 noundef 32) #15
+  %23 = call i32 @gcry_cipher_authenticate(ptr noundef nonnull %.pre.i, ptr noundef nonnull %3, i64 noundef 32) #15
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %wg_aead_decrypt.exit
 
@@ -3289,7 +3289,7 @@ declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare void @g_hash_table_remove_all(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @wg_add_static_key(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @wg_add_static_key(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [9 x i8], align 1
   %.b18 = load i1, ptr @wg_decryption_supported, align 1
@@ -3307,7 +3307,7 @@ define internal fastcc void @wg_add_static_key(ptr noundef %0, i32 noundef %1) u
   %11 = load i8, ptr %10, align 1
   %12 = or i8 %11, 64
   store i8 %12, ptr %10, align 1
-  %13 = tail call i32 @crypto_scalarmult_curve25519_base(ptr noundef %6, ptr noundef %0) #15
+  %13 = tail call i32 @crypto_scalarmult_curve25519_base(ptr noundef %6, ptr noundef nonnull %0) #15
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %priv_to_pub.exit, label %15
 

@@ -2522,7 +2522,7 @@ entry:
   %status.i = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #20
-  call fastcc void @configure_init_main(ptr noundef nonnull %config)
+  call fastcc void @configure_init_main(ptr noundef %config)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
   call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #20
   call void @PyConfig_Clear(ptr noundef nonnull %config) #20
@@ -2547,7 +2547,7 @@ entry:
   %config = alloca %struct.PyConfig, align 8
   %status = alloca %struct.PyStatus, align 8
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #20
-  call fastcc void @configure_init_main(ptr noundef nonnull %config)
+  call fastcc void @configure_init_main(ptr noundef %config)
   %_init_main = getelementptr inbounds i8, ptr %config, i64 436
   store i32 0, ptr %_init_main, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
@@ -4353,7 +4353,7 @@ declare void @PyThread_release_lock(ptr noundef) local_unnamed_addr #5
 declare i32 @Py_Main(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_init_compat_config(i32 noundef %preinit) unnamed_addr #0 {
+define internal fastcc void @check_init_compat_config(i32 noundef range(i32 0, 2) %preinit) unnamed_addr #0 {
 entry:
   %status.i = alloca %struct.PyStatus, align 8
   %status.i.i = alloca %struct.PyStatus, align 8
@@ -4417,7 +4417,7 @@ declare void @Py_PreInitialize(ptr sret(%struct.PyStatus) align 8, ptr noundef) 
 declare void @PyConfig_SetWideStringList(ptr sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_init_parse_argv(i32 noundef %parse_argv) unnamed_addr #0 {
+define internal fastcc void @check_init_parse_argv(i32 noundef range(i32 0, 2) %parse_argv) unnamed_addr #0 {
 entry:
   %status.i1 = alloca %struct.PyStatus, align 8
   %status.i = alloca %struct.PyStatus, align 8
@@ -4488,7 +4488,7 @@ entry:
 declare void @PyPreConfig_InitPythonConfig(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_preinit_isolated_config(i32 noundef %preinit) unnamed_addr #0 {
+define internal fastcc void @check_preinit_isolated_config(i32 noundef range(i32 0, 2) %preinit) unnamed_addr #0 {
 entry:
   %status.i = alloca %struct.PyStatus, align 8
   %status.i.i = alloca %struct.PyStatus, align 8
@@ -4604,7 +4604,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @PyConfig_InitIsolatedConfig(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_init_python_config(i32 noundef %preinit) unnamed_addr #0 {
+define internal fastcc void @check_init_python_config(i32 noundef range(i32 0, 2) %preinit) unnamed_addr #0 {
 entry:
   %status.i = alloca %struct.PyStatus, align 8
   %status.i.i = alloca %struct.PyStatus, align 8
@@ -4682,7 +4682,7 @@ declare void @PyWideStringList_Insert(ptr sret(%struct.PyStatus) align 8, ptr no
 declare void @PyWideStringList_Append(ptr sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @configure_init_main(ptr noundef %config) unnamed_addr #0 {
+define internal fastcc void @configure_init_main(ptr noundef nonnull %config) unnamed_addr #0 {
 entry:
   %status.i4 = alloca %struct.PyStatus, align 8
   %status.i = alloca %struct.PyStatus, align 8
@@ -4691,7 +4691,7 @@ entry:
   %parse_argv = getelementptr inbounds i8, ptr %config, i64 104
   store i32 1, ptr %parse_argv, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef %config, i64 noundef 4, ptr noundef nonnull %argv) #20
+  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, i64 noundef 4, ptr noundef nonnull %argv) #20
   %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %config_set_argv.exit, label %if.then.i

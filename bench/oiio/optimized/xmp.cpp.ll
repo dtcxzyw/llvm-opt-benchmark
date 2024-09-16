@@ -1372,7 +1372,7 @@ _ZNK18OpenImageIO_v2_6_04pugi13xml_attribute5valueEv.exit76: ; preds = %_ZNK18Op
   store ptr %spec.select.i56, ptr %agg.tmp31, align 8
   %call.i.i.i79 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i56) #25
   store i64 %call.i.i.i79, ptr %m_len.i81, align 8
-  %call36 = invoke fastcc noundef i64 @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110add_attribERNS_9ImageSpecENS_17basic_string_viewIcSt11char_traitsIcEEES6_b(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull %agg.tmp28, ptr noundef nonnull %agg.tmp31, i1 noundef zeroext %isList)
+  %call36 = invoke fastcc noundef i64 @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110add_attribERNS_9ImageSpecENS_17basic_string_viewIcSt11char_traitsIcEEES6_b(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef %agg.tmp28, ptr noundef %agg.tmp31, i1 noundef zeroext %isList)
           to label %invoke.cont35 unwind label %lpad.loopexit
 
 invoke.cont35:                                    ; preds = %_ZNK18OpenImageIO_v2_6_04pugi13xml_attribute5valueEv.exit76
@@ -1572,7 +1572,7 @@ _ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit: ; pr
   %m_len.i223 = getelementptr inbounds i8, ptr %agg.tmp152, i64 8
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %mylist) #25
   store i64 %call2.i, ptr %m_len.i223, align 8
-  %call154 = invoke fastcc noundef i64 @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110add_attribERNS_9ImageSpecENS_17basic_string_viewIcSt11char_traitsIcEEES6_b(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull %agg.tmp151, ptr noundef nonnull %agg.tmp152, i1 noundef zeroext true)
+  %call154 = invoke fastcc noundef i64 @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110add_attribERNS_9ImageSpecENS_17basic_string_viewIcSt11char_traitsIcEEES6_b(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef %agg.tmp151, ptr noundef %agg.tmp152, i1 noundef zeroext true)
           to label %invoke.cont153 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont153:                                   ; preds = %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit
@@ -2215,7 +2215,7 @@ invoke.cont:                                      ; preds = %for.inc.i, %if.end.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp12.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %s.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #25
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.198, ptr noundef nonnull @.str.199, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.200, i1 noundef zeroext %minimal, i32 noundef 2)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.198, ptr noundef nonnull @.str.199, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.200, i1 noundef zeroext %minimal, i32 noundef 2)
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -2224,7 +2224,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 invoke.cont4:                                     ; preds = %invoke.cont2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #25
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias nonnull align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.201, ptr noundef nonnull @.str.71, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.202, i1 noundef zeroext %minimal, i32 noundef 2)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.201, ptr noundef nonnull @.str.71, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.202, i1 noundef zeroext %minimal, i32 noundef 2)
           to label %invoke.cont7 unwind label %lpad1
 
 invoke.cont7:                                     ; preds = %invoke.cont4
@@ -2233,7 +2233,7 @@ invoke.cont7:                                     ; preds = %invoke.cont4
 
 invoke.cont9:                                     ; preds = %invoke.cont7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #25
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias nonnull align 8 %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.201, ptr noundef nonnull @.str.63, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.202, i1 noundef zeroext false, i32 noundef 2)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias align 8 %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.201, ptr noundef nonnull @.str.63, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.202, i1 noundef zeroext false, i32 noundef 2)
           to label %invoke.cont12 unwind label %lpad1
 
 invoke.cont12:                                    ; preds = %invoke.cont9
@@ -2242,7 +2242,7 @@ invoke.cont12:                                    ; preds = %invoke.cont9
 
 invoke.cont14:                                    ; preds = %invoke.cont12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #25
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias nonnull align 8 %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.201, ptr noundef nonnull @.str.69, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.202, i1 noundef zeroext false, i32 noundef 2)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias align 8 %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.201, ptr noundef nonnull @.str.69, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.202, i1 noundef zeroext false, i32 noundef 2)
           to label %invoke.cont17 unwind label %lpad1
 
 invoke.cont17:                                    ; preds = %invoke.cont14
@@ -2251,7 +2251,7 @@ invoke.cont17:                                    ; preds = %invoke.cont14
 
 invoke.cont19:                                    ; preds = %invoke.cont17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16) #25
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias nonnull align 8 %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.201, ptr noundef nonnull @.str.67, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.202, i1 noundef zeroext false, i32 noundef 2)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias align 8 %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.201, ptr noundef nonnull @.str.67, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.202, i1 noundef zeroext false, i32 noundef 2)
           to label %invoke.cont22 unwind label %lpad1
 
 invoke.cont22:                                    ; preds = %invoke.cont19
@@ -2260,7 +2260,7 @@ invoke.cont22:                                    ; preds = %invoke.cont19
 
 invoke.cont24:                                    ; preds = %invoke.cont22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21) #25
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias nonnull align 8 %ref.tmp26, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.203, ptr noundef nonnull @.str.84, ptr noundef null, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.204, i1 noundef zeroext %minimal, i32 noundef 5)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias align 8 %ref.tmp26, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.203, ptr noundef nonnull @.str.84, ptr noundef null, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.204, i1 noundef zeroext %minimal, i32 noundef 5)
           to label %invoke.cont28 unwind label %lpad1
 
 invoke.cont28:                                    ; preds = %invoke.cont24
@@ -2269,7 +2269,7 @@ invoke.cont28:                                    ; preds = %invoke.cont24
 
 invoke.cont30:                                    ; preds = %invoke.cont28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #25
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias nonnull align 8 %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.203, ptr noundef nonnull @.str.205, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.204, i1 noundef zeroext %minimal, i32 noundef 2)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias align 8 %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.203, ptr noundef nonnull @.str.205, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.204, i1 noundef zeroext %minimal, i32 noundef 2)
           to label %invoke.cont34 unwind label %lpad1
 
 invoke.cont34:                                    ; preds = %invoke.cont30
@@ -2278,7 +2278,7 @@ invoke.cont34:                                    ; preds = %invoke.cont30
 
 invoke.cont36:                                    ; preds = %invoke.cont34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32) #25
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias nonnull align 8 %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.206, ptr noundef nonnull @.str.92, ptr noundef null, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.207, i1 noundef zeroext %minimal, i32 noundef 4)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias align 8 %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.206, ptr noundef nonnull @.str.92, ptr noundef null, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.207, i1 noundef zeroext %minimal, i32 noundef 4)
           to label %invoke.cont40 unwind label %lpad1
 
 invoke.cont40:                                    ; preds = %invoke.cont36
@@ -2287,7 +2287,7 @@ invoke.cont40:                                    ; preds = %invoke.cont36
 
 invoke.cont42:                                    ; preds = %invoke.cont40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38) #25
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias nonnull align 8 %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.208, ptr noundef nonnull @.str.121, ptr noundef null, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.209, i1 noundef zeroext false, i32 noundef 4)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias align 8 %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.208, ptr noundef nonnull @.str.121, ptr noundef null, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.209, i1 noundef zeroext false, i32 noundef 4)
           to label %invoke.cont45 unwind label %lpad1
 
 invoke.cont45:                                    ; preds = %invoke.cont42
@@ -2296,7 +2296,7 @@ invoke.cont45:                                    ; preds = %invoke.cont42
 
 invoke.cont47:                                    ; preds = %invoke.cont45
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44) #25
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias nonnull align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.208, ptr noundef nonnull @.str.210, ptr noundef nonnull @.str.211, ptr noundef null, ptr noundef nonnull @.str.209, i1 noundef zeroext %minimal, i32 noundef 2)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias align 8 %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.208, ptr noundef nonnull @.str.210, ptr noundef nonnull @.str.211, ptr noundef null, ptr noundef nonnull @.str.209, i1 noundef zeroext %minimal, i32 noundef 2)
           to label %invoke.cont51 unwind label %lpad1
 
 invoke.cont51:                                    ; preds = %invoke.cont47
@@ -2305,7 +2305,7 @@ invoke.cont51:                                    ; preds = %invoke.cont47
 
 invoke.cont53:                                    ; preds = %invoke.cont51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp49) #25
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias nonnull align 8 %ref.tmp55, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.208, ptr noundef nonnull @.str.211, ptr noundef null, ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.209, i1 noundef zeroext %minimal, i32 noundef 2)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias align 8 %ref.tmp55, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.208, ptr noundef nonnull @.str.211, ptr noundef null, ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.209, i1 noundef zeroext %minimal, i32 noundef 2)
           to label %invoke.cont57 unwind label %lpad1
 
 invoke.cont57:                                    ; preds = %invoke.cont53
@@ -2314,7 +2314,7 @@ invoke.cont57:                                    ; preds = %invoke.cont53
 
 invoke.cont59:                                    ; preds = %invoke.cont57
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55) #25
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias nonnull align 8 %ref.tmp61, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.208, ptr noundef nonnull @.str.123, ptr noundef null, ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.209, i1 noundef zeroext %minimal, i32 noundef 4)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias align 8 %ref.tmp61, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.208, ptr noundef nonnull @.str.123, ptr noundef null, ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.209, i1 noundef zeroext %minimal, i32 noundef 4)
           to label %invoke.cont63 unwind label %lpad1
 
 invoke.cont63:                                    ; preds = %invoke.cont59
@@ -2323,7 +2323,7 @@ invoke.cont63:                                    ; preds = %invoke.cont59
 
 invoke.cont65:                                    ; preds = %invoke.cont63
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp61) #25
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias nonnull align 8 %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.212, ptr noundef nonnull @.str.213, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.214, i1 noundef zeroext %minimal, i32 noundef 2)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias align 8 %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.212, ptr noundef nonnull @.str.213, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.214, i1 noundef zeroext %minimal, i32 noundef 2)
           to label %invoke.cont69 unwind label %lpad1
 
 invoke.cont69:                                    ; preds = %invoke.cont65
@@ -2332,7 +2332,7 @@ invoke.cont69:                                    ; preds = %invoke.cont65
 
 invoke.cont71:                                    ; preds = %invoke.cont69
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67) #25
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias nonnull align 8 %ref.tmp73, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.215, ptr noundef nonnull @.str.216, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.217, i1 noundef zeroext %minimal, i32 noundef 2)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias align 8 %ref.tmp73, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.215, ptr noundef nonnull @.str.216, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.217, i1 noundef zeroext %minimal, i32 noundef 2)
           to label %invoke.cont75 unwind label %lpad1
 
 invoke.cont75:                                    ; preds = %invoke.cont71
@@ -2341,7 +2341,7 @@ invoke.cont75:                                    ; preds = %invoke.cont71
 
 invoke.cont77:                                    ; preds = %invoke.cont75
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp73) #25
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias nonnull align 8 %ref.tmp79, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.218, ptr noundef nonnull @.str.219, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.220, i1 noundef zeroext %minimal, i32 noundef 2)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias align 8 %ref.tmp79, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.218, ptr noundef nonnull @.str.219, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.220, i1 noundef zeroext %minimal, i32 noundef 2)
           to label %invoke.cont81 unwind label %lpad1
 
 invoke.cont81:                                    ; preds = %invoke.cont77
@@ -2350,7 +2350,7 @@ invoke.cont81:                                    ; preds = %invoke.cont77
 
 invoke.cont83:                                    ; preds = %invoke.cont81
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp79) #25
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias nonnull align 8 %ref.tmp85, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.201, ptr noundef nonnull @.str.221, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.202, i1 noundef zeroext %minimal, i32 noundef 1)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias align 8 %ref.tmp85, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.201, ptr noundef nonnull @.str.221, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.202, i1 noundef zeroext %minimal, i32 noundef 1)
           to label %invoke.cont87 unwind label %lpad1
 
 invoke.cont87:                                    ; preds = %invoke.cont83
@@ -2359,7 +2359,7 @@ invoke.cont87:                                    ; preds = %invoke.cont83
 
 invoke.cont89:                                    ; preds = %invoke.cont87
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp85) #25
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias nonnull align 8 %ref.tmp91, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.223, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.224, i1 noundef zeroext %minimal, i32 noundef 2)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias align 8 %ref.tmp91, ptr noundef nonnull align 8 dereferenceable(24) %list, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.223, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.224, i1 noundef zeroext %minimal, i32 noundef 2)
           to label %invoke.cont93 unwind label %lpad1
 
 invoke.cont93:                                    ; preds = %invoke.cont89
@@ -2637,7 +2637,7 @@ ehcleanup113:                                     ; preds = %lpad, %lpad.body.i,
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %list, ptr noundef %xmlnamespace, ptr noundef %pattern, ptr noundef %exclude_pattern, ptr noundef %nodename, ptr noundef %url, i1 noundef zeroext %minimal, i32 noundef %control) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L19encode_xmp_categoryERSt6vectorISt4pairIPKNS_12_GLOBAL__N_16XMPtagENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEPKcSH_SH_SH_SH_bNS_10XmpControlE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %list, ptr noundef %xmlnamespace, ptr noundef %pattern, ptr noundef %exclude_pattern, ptr noundef %nodename, ptr noundef %url, i1 noundef zeroext %minimal, i32 noundef range(i32 1, 6) %control) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i117 = alloca %"class.fmt::v8::basic_string_view", align 8
   %ref.tmp5.i118 = alloca %"class.fmt::v8::format_arg_store.160", align 16
@@ -2732,7 +2732,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont3
   %m_len.i59 = getelementptr inbounds i8, ptr %agg.tmp18, i64 8
   %tobool.not.i61 = icmp eq ptr %pattern, null
   %m_len.i65 = getelementptr inbounds i8, ptr %agg.tmp19, i64 8
-  %2 = and i32 %control, -2
+  %2 = and i32 %control, 6
   %or.cond = icmp eq i32 %2, 4
   %3 = getelementptr inbounds i8, ptr %ref.tmp.i83, i64 8
   %arrayinit.element.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5.i, i64 16
@@ -10586,7 +10586,7 @@ return:                                           ; preds = %if.then36, %return.
 declare noundef zeroext i1 @_ZN18OpenImageIO_v2_6_07Strutil12istarts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110add_attribERNS_9ImageSpecENS_17basic_string_viewIcSt11char_traitsIcEEES6_b(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr nocapture noundef readonly %xmlname, ptr noundef %xmlvalue, i1 noundef zeroext %attribIsSeq) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_110add_attribERNS_9ImageSpecENS_17basic_string_viewIcSt11char_traitsIcEEES6_b(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr nocapture noundef nonnull readonly %xmlname, ptr noundef nonnull %xmlvalue, i1 noundef zeroext %attribIsSeq) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i258 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %n.i = alloca i32, align 4

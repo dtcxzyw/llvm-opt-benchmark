@@ -2353,7 +2353,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit.i50:        ; preds = %158, %156, %154, %.
   %245 = mul i64 %244, %236
   %246 = uitofp i64 %245 to double
   %247 = fmul double %246, 0x3F50000000000000
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef nonnull %21, double noundef %247)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef %21, double noundef %247)
           to label %248 unwind label %358
 
 248:                                              ; preds = %241
@@ -2421,7 +2421,7 @@ _ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit:        ; preds = %248, %250
   %274 = mul i64 %273, %265
   %275 = uitofp i64 %274 to double
   %276 = fmul double %275, 0x3F50000000000000
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %26, ptr noundef nonnull %27, double noundef %276)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %26, ptr noundef %27, double noundef %276)
           to label %277 unwind label %366
 
 277:                                              ; preds = %271
@@ -2552,7 +2552,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %299, %300
   %324 = mul i64 %323, %315
   %325 = uitofp i64 %324 to double
   %326 = fmul double %325, 0x3F50000000000000
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %34, ptr noundef nonnull %35, double noundef %326)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %34, ptr noundef %35, double noundef %326)
           to label %327 unwind label %377
 
 327:                                              ; preds = %321
@@ -4345,7 +4345,7 @@ declare noundef i32 @_ZNK2cv11_InputArray5depthEi(ptr noundef nonnull align 8 de
 declare void @_ZN2cv3dnn14dnn4_v202405215Layer16forward_fallbackERKNS_11_InputArrayERKNS_12_OutputArrayES8_(ptr noundef nonnull align 8 dereferenceable(100), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef %1, double noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull %1, double noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::ParallelLoopBodyLambdaWrapper", align 8
   %5 = alloca %"class.std::function", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16

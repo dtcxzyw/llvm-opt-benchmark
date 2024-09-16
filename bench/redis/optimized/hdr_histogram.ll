@@ -313,16 +313,16 @@ if.end:                                           ; preds = %entry
   store i64 %highest_trackable_value, ptr %highest_trackable_value8, align 8
   br label %while.body.i
 
-while.body.i:                                     ; preds = %if.end, %while.body.i
-  %result.05.i = phi i64 [ %mul.i, %while.body.i ], [ 1, %if.end ]
-  %exp.addr.04.i = phi i64 [ %dec.i, %while.body.i ], [ %conv, %if.end ]
-  %mul.i = mul nuw nsw i64 %result.05.i, 10
-  %dec.i = add nsw i64 %exp.addr.04.i, -1
+while.body.i:                                     ; preds = %while.body.i, %if.end
+  %result.04.i = phi i64 [ 1, %if.end ], [ %mul.i, %while.body.i ]
+  %exp.addr.03.i = phi i64 [ %conv, %if.end ], [ %dec.i, %while.body.i ]
+  %mul.i = mul nuw nsw i64 %result.04.i, 10
+  %dec.i = add nsw i64 %exp.addr.03.i, -1
   %tobool.not.i = icmp eq i64 %dec.i, 0
   br i1 %tobool.not.i, label %power.exit, label %while.body.i
 
 power.exit:                                       ; preds = %while.body.i
-  %mul10 = mul i64 %result.05.i, 20
+  %mul10 = mul i64 %result.04.i, 20
   %conv11 = uitofp nneg i64 %mul10 to double
   %call12 = tail call double @log(double noundef %conv11) #21
   %div = fdiv double %call12, 0x3FE62E42FEFA39EF

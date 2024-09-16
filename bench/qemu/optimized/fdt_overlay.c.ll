@@ -560,7 +560,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, -1) i32 @overlay_adjust_node_phandles(ptr noundef %fdto, i32 noundef %node, i32 noundef %delta) unnamed_addr #0 {
+define internal fastcc range(i32 0, -1) i32 @overlay_adjust_node_phandles(ptr noundef %fdto, i32 noundef range(i32 0, -2147483648) %node, i32 noundef %delta) unnamed_addr #0 {
 entry:
   %tmp.i.i19 = alloca i32, align 4
   %len.i20 = alloca i32, align 4
@@ -677,7 +677,7 @@ declare i32 @fdt_setprop_inplace(ptr noundef, i32 noundef, ptr noundef, ptr noun
 declare i32 @fdt_path_offset(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @overlay_update_local_node_references(ptr noundef %fdto, i32 noundef %tree_node, i32 noundef %fixup_node, i32 noundef %delta) unnamed_addr #0 {
+define internal fastcc i32 @overlay_update_local_node_references(ptr noundef %fdto, i32 noundef range(i32 0, -2147483648) %tree_node, i32 noundef range(i32 0, -2147483648) %fixup_node, i32 noundef %delta) unnamed_addr #0 {
 entry:
   %name = alloca ptr, align 8
   %fixup_len = alloca i32, align 4
@@ -814,7 +814,7 @@ declare i32 @fdt_get_phandle(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @fdt_path_offset_namelen(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @overlay_get_target(ptr noundef %fdt, ptr noundef %fdto, i32 noundef %fragment, ptr noundef writeonly %pathp) unnamed_addr #0 {
+define internal fastcc i32 @overlay_get_target(ptr noundef %fdt, ptr noundef %fdto, i32 noundef range(i32 0, -2147483648) %fragment, ptr noundef writeonly %pathp) unnamed_addr #0 {
 entry:
   %len.i = alloca i32, align 4
   %path_len = alloca i32, align 4
@@ -887,7 +887,7 @@ return:                                           ; preds = %overlay_get_target_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @overlay_apply_node(ptr noundef %fdt, i32 noundef %target, ptr noundef %fdto, i32 noundef %node) unnamed_addr #0 {
+define internal fastcc i32 @overlay_apply_node(ptr noundef %fdt, i32 noundef range(i32 0, -2147483648) %target, ptr noundef %fdto, i32 noundef range(i32 0, -2147483648) %node) unnamed_addr #0 {
 entry:
   %name = alloca ptr, align 8
   %prop_len = alloca i32, align 4

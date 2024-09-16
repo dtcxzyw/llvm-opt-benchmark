@@ -1003,7 +1003,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt3setIN12_GLOBAL__N_115FusionCandidateENS2_22
   br i1 %.not.i.i4.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt3setIN12_GLOBAL__N_115FusionCandidateENS2_22FusionCandidateCompareESaIS3_EELb0EE9push_backERKS6_.exit.i.i, label %248
 
 248:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt3setIN12_GLOBAL__N_115FusionCandidateENS2_22FusionCandidateCompareESaIS3_EELb0EE28reserveForParamAndGetAddressERKS6_m.exit.i.i.i
-  %249 = call fastcc noundef ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_115FusionCandidateES1_St9_IdentityIS1_ENS0_22FusionCandidateCompareESaIS1_EE7_M_copyILb0ENS6_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS1_ESB_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i3.i.i.i, ptr noundef nonnull %242)
+  %249 = call fastcc noundef ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_115FusionCandidateES1_St9_IdentityIS1_ENS0_22FusionCandidateCompareESaIS1_EE7_M_copyILb0ENS6_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS1_ESB_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i3.i.i.i, ptr noundef %242)
   br label %250
 
 250:                                              ; preds = %250, %248
@@ -7469,7 +7469,7 @@ _ZSt4copyIPKPN4llvm11InstructionEPS2_ET0_T_S7_S6_.exit31: ; preds = %20, %19, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_115FusionCandidateES1_St9_IdentityIS1_ENS0_22FusionCandidateCompareESaIS1_EE7_M_copyILb0ENS6_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS1_ESB_PSt18_Rb_tree_node_baseRT0_(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_115FusionCandidateES1_St9_IdentityIS1_ENS0_22FusionCandidateCompareESaIS1_EE7_M_copyILb0ENS6_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS1_ESB_PSt18_Rb_tree_node_baseRT0_(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = tail call fastcc noundef nonnull ptr @_ZNKSt8_Rb_treeIN12_GLOBAL__N_115FusionCandidateES1_St9_IdentityIS1_ENS0_22FusionCandidateCompareESaIS1_EE11_Alloc_nodeclIRKS1_EEPSt13_Rb_tree_nodeIS1_EOT_(ptr noundef nonnull align 8 dereferenceable(392) %3)
   %5 = load i32, ptr %0, align 8
@@ -7484,7 +7484,7 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_115Fusi
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %2
-  %11 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_115FusionCandidateES1_St9_IdentityIS1_ENS0_22FusionCandidateCompareESaIS1_EE7_M_copyILb0ENS6_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS1_ESB_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %9, ptr noundef nonnull %4)
+  %11 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_115FusionCandidateES1_St9_IdentityIS1_ENS0_22FusionCandidateCompareESaIS1_EE7_M_copyILb0ENS6_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS1_ESB_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %9, ptr noundef %4)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %11, ptr %12, align 8
   br label %13
@@ -7514,7 +7514,7 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_115Fusi
   br i1 %.not29, label %25, label %22
 
 22:                                               ; preds = %.lr.ph
-  %23 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_115FusionCandidateES1_St9_IdentityIS1_ENS0_22FusionCandidateCompareESaIS1_EE7_M_copyILb0ENS6_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS1_ESB_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %21, ptr noundef nonnull %15)
+  %23 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_115FusionCandidateES1_St9_IdentityIS1_ENS0_22FusionCandidateCompareESaIS1_EE7_M_copyILb0ENS6_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS1_ESB_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %21, ptr noundef %15)
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %23, ptr %24, align 8
   br label %25

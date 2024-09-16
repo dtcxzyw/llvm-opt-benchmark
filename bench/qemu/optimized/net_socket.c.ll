@@ -328,7 +328,7 @@ if.end81:                                         ; preds = %if.end72
   br i1 %tobool83.not, label %if.end91, label %if.then84
 
 if.then84:                                        ; preds = %if.end81
-  %call87 = tail call fastcc i32 @net_socket_mcast_init(ptr noundef %peer, ptr noundef %name, ptr noundef nonnull %4, ptr noundef %6, ptr noundef %errp)
+  %call87 = tail call fastcc i32 @net_socket_mcast_init(ptr noundef %peer, ptr noundef %name, ptr noundef %4, ptr noundef %6, ptr noundef %errp)
   br label %return
 
 if.end91:                                         ; preds = %if.end81
@@ -347,7 +347,7 @@ if.then99:                                        ; preds = %if.end96
   br label %return
 
 if.end100:                                        ; preds = %if.end96
-  %call103 = tail call fastcc i32 @net_socket_udp_init(ptr noundef %peer, ptr noundef %name, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %errp)
+  %call103 = tail call fastcc i32 @net_socket_udp_init(ptr noundef %peer, ptr noundef %name, ptr noundef %5, ptr noundef %6, ptr noundef %errp)
   br label %return
 
 return:                                           ; preds = %21, %net_socket_connect_init.exit, %16, %net_socket_listen_init.exit, %net_socket_fd_check.exit.thread, %if.end100, %if.then84, %sw.bb58, %sw.bb, %if.then38, %if.then99, %sw.epilog, %if.then51, %if.then34, %if.then26
@@ -369,7 +369,7 @@ declare i32 @qemu_socket_try_set_nonblock(i32 noundef) local_unnamed_addr #2
 declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @net_socket_fd_init_dgram(ptr noundef %peer, ptr noundef %name, i32 noundef %fd, i32 noundef %is_connected, ptr noundef %mcast, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc ptr @net_socket_fd_init_dgram(ptr noundef %peer, ptr noundef %name, i32 noundef range(i32 0, -1) %fd, i32 noundef range(i32 0, 2) %is_connected, ptr noundef %mcast, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %saddr = alloca %struct.sockaddr_in, align 4
   %call = tail call ptr @socket_local_address(i32 noundef %fd, ptr noundef %errp) #8
@@ -400,7 +400,7 @@ if.then8:                                         ; preds = %if.end6
   br label %err
 
 if.end9:                                          ; preds = %if.end6
-  %call10 = call fastcc i32 @net_socket_mcast_create(ptr noundef nonnull %saddr, ptr noundef null, ptr noundef %errp)
+  %call10 = call fastcc i32 @net_socket_mcast_create(ptr noundef %saddr, ptr noundef null, ptr noundef %errp)
   %cmp11 = icmp slt i32 %call10, 0
   br i1 %cmp11, label %err, label %if.end13
 
@@ -467,7 +467,7 @@ return:                                           ; preds = %if.then23, %if.end3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @net_socket_fd_init_stream(ptr noundef %peer, ptr noundef %name, i32 noundef %fd, i32 noundef %is_connected) unnamed_addr #0 {
+define internal fastcc noundef ptr @net_socket_fd_init_stream(ptr noundef %peer, ptr noundef %name, i32 noundef range(i32 0, -1) %fd, i32 noundef range(i32 0, 2) %is_connected) unnamed_addr #0 {
 entry:
   %call = tail call ptr @qemu_new_net_client(ptr noundef nonnull @net_socket_info, ptr noundef %peer, ptr noundef nonnull @.str.5, ptr noundef %name) #8
   tail call void (ptr, ptr, ...) @qemu_set_info_str(ptr noundef %call, ptr noundef nonnull @.str.20, i32 noundef %fd) #8
@@ -504,11 +504,11 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @net_socket_mcast_init(ptr noundef %peer, ptr noundef %name, ptr noundef %host_str, ptr noundef %localaddr_str, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @net_socket_mcast_init(ptr noundef %peer, ptr noundef %name, ptr noundef nonnull %host_str, ptr noundef %localaddr_str, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %saddr = alloca %struct.sockaddr_in, align 4
   %localaddr = alloca %struct.in_addr, align 4
-  %call = call i32 @parse_host_port(ptr noundef nonnull %saddr, ptr noundef %host_str, ptr noundef %errp) #8
+  %call = call i32 @parse_host_port(ptr noundef nonnull %saddr, ptr noundef nonnull %host_str, ptr noundef %errp) #8
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -527,7 +527,7 @@ if.then5:                                         ; preds = %if.then2
 
 if.end7:                                          ; preds = %if.end, %if.then2
   %param_localaddr.0 = phi ptr [ %localaddr, %if.then2 ], [ null, %if.end ]
-  %call8 = call fastcc i32 @net_socket_mcast_create(ptr noundef nonnull %saddr, ptr noundef %param_localaddr.0, ptr noundef %errp)
+  %call8 = call fastcc i32 @net_socket_mcast_create(ptr noundef %saddr, ptr noundef %param_localaddr.0, ptr noundef %errp)
   %cmp9 = icmp slt i32 %call8, 0
   br i1 %cmp9, label %return, label %if.end11
 
@@ -555,16 +555,16 @@ return:                                           ; preds = %if.end11, %if.end7,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @net_socket_udp_init(ptr noundef %peer, ptr noundef %name, ptr noundef %rhost, ptr noundef %lhost, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @net_socket_udp_init(ptr noundef %peer, ptr noundef %name, ptr noundef nonnull %rhost, ptr noundef nonnull %lhost, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %laddr = alloca %struct.sockaddr_in, align 4
   %raddr = alloca %struct.sockaddr_in, align 4
-  %call = call i32 @parse_host_port(ptr noundef nonnull %laddr, ptr noundef %lhost, ptr noundef %errp) #8
+  %call = call i32 @parse_host_port(ptr noundef nonnull %laddr, ptr noundef nonnull %lhost, ptr noundef %errp) #8
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = call i32 @parse_host_port(ptr noundef nonnull %raddr, ptr noundef %rhost, ptr noundef %errp) #8
+  %call1 = call i32 @parse_host_port(ptr noundef nonnull %raddr, ptr noundef nonnull %rhost, ptr noundef %errp) #8
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %return, label %if.end4
 
@@ -640,7 +640,7 @@ declare void @qapi_free_SocketAddress(ptr noundef) local_unnamed_addr #2
 declare i32 @parse_host_port(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @net_socket_mcast_create(ptr noundef %mcastaddr, ptr noundef %localaddr, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @net_socket_mcast_create(ptr noundef nonnull %mcastaddr, ptr noundef %localaddr, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %imr = alloca %struct.ip_mreq, align 4
   %val = alloca i32, align 4

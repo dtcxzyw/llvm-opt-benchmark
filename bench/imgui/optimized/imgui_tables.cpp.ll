@@ -2488,7 +2488,7 @@ if.end:                                           ; preds = %if.then, %for.body
   br i1 %cmp8.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  tail call fastcc void @_ZL21TableSetupColumnFlagsP10ImGuiTableP16ImGuiTableColumni(ptr noundef nonnull %table, ptr noundef nonnull %add.ptr.i452, i32 noundef 0)
+  tail call fastcc void @_ZL21TableSetupColumnFlagsP10ImGuiTableP16ImGuiTableColumni(ptr noundef nonnull %table, ptr noundef %add.ptr.i452, i32 noundef 0)
   %NameOffset = getelementptr inbounds i8, ptr %add.ptr.i452, i64 80
   store i16 -1, ptr %NameOffset, align 4
   %UserID = getelementptr inbounds i8, ptr %add.ptr.i452, i64 48
@@ -4122,7 +4122,7 @@ if.end947:                                        ; preds = %if.else941, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL21TableSetupColumnFlagsP10ImGuiTableP16ImGuiTableColumni(ptr nocapture noundef %table, ptr noundef %column, i32 noundef %flags_in) unnamed_addr #8 {
+define internal fastcc void @_ZL21TableSetupColumnFlagsP10ImGuiTableP16ImGuiTableColumni(ptr nocapture noundef %table, ptr noundef nonnull %column, i32 noundef %flags_in) unnamed_addr #8 {
 entry:
   %and = and i32 %flags_in, 24
   %cmp = icmp eq i32 %and, 0
@@ -8172,7 +8172,7 @@ if.then25:                                        ; preds = %if.end22
 
 if.end28:                                         ; preds = %if.then25, %if.end22
   %flags.addr.1 = phi i32 [ %or26, %if.then25 ], [ %flags.addr.0, %if.end22 ]
-  tail call fastcc void @_ZL21TableSetupColumnFlagsP10ImGuiTableP16ImGuiTableColumni(ptr noundef nonnull %1, ptr noundef nonnull %add.ptr.i, i32 noundef %flags.addr.1)
+  tail call fastcc void @_ZL21TableSetupColumnFlagsP10ImGuiTableP16ImGuiTableColumni(ptr noundef nonnull %1, ptr noundef %add.ptr.i, i32 noundef %flags.addr.1)
   %UserID = getelementptr inbounds i8, ptr %add.ptr.i, i64 48
   store i32 %user_id, ptr %UserID, align 4
   %8 = load i32, ptr %add.ptr.i, align 4

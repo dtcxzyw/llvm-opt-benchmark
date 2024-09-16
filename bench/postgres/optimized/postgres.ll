@@ -6279,8 +6279,8 @@ declare zeroext i1 @IsSubTransaction() local_unnamed_addr #2
 declare void @pgstat_report_recovery_conflict(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @errdetail_recovery_conflict(i32 noundef %0) unnamed_addr #0 {
-  %switch.tableidx = add i32 %0, -7
+define internal fastcc void @errdetail_recovery_conflict(i32 noundef range(i32 0, 14) %0) unnamed_addr #0 {
+  %switch.tableidx = add nsw i32 %0, -7
   %2 = icmp ult i32 %switch.tableidx, 7
   br i1 %2, label %switch.lookup, label %5
 

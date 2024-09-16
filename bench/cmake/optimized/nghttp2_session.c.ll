@@ -85,6 +85,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.64 = private unnamed_addr constant [96 x i8] c"Invalid HTTP header field was received: frame type: %u, stream: %d, name: [%.*s], value: [%.*s]\00", align 1
 @switch.table.nghttp2_session_get_remote_settings = private unnamed_addr constant [9 x i64] [i64 2764, i64 2768, i64 2772, i64 2776, i64 2780, i64 2784, i64 2764, i64 2788, i64 2792], align 8
 @switch.table.nghttp2_session_get_local_settings = private unnamed_addr constant [9 x i64] [i64 2796, i64 2800, i64 2804, i64 2808, i64 2812, i64 2816, i64 2796, i64 2820, i64 2824], align 8
+@switch.table.session_handle_invalid_stream2 = private unnamed_addr constant [10 x i32] [i32 7, i32 1, i32 1, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 3], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local range(i32 0, 2) i32 @nghttp2_is_fatal(i32 noundef %0) local_unnamed_addr #0 {
@@ -240,7 +241,7 @@ define dso_local ptr @nghttp2_session_get_stream_raw(ptr noundef %0, i32 noundef
 define dso_local i32 @nghttp2_session_client_new(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %5 = call fastcc i32 @session_new(ptr noundef nonnull %4, ptr noundef readonly %1, ptr noundef %2, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %5 = call fastcc i32 @session_new(ptr noundef %4, ptr noundef readonly %1, ptr noundef %2, i32 noundef 0, ptr noundef null, ptr noundef null)
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %6, label %nghttp2_session_client_new3.exit
 
@@ -259,7 +260,7 @@ nghttp2_session_client_new3.exit:                 ; preds = %3, %6
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @nghttp2_session_client_new3(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
-  %7 = call fastcc i32 @session_new(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %3, ptr noundef %4)
+  %7 = call fastcc i32 @session_new(ptr noundef %6, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %11
 
@@ -278,7 +279,7 @@ define dso_local i32 @nghttp2_session_client_new3(ptr nocapture noundef writeonl
 define dso_local i32 @nghttp2_session_client_new2(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %6 = call fastcc i32 @session_new(ptr noundef nonnull %5, ptr noundef readonly %1, ptr noundef %2, i32 noundef 0, ptr noundef %3, ptr noundef null)
+  %6 = call fastcc i32 @session_new(ptr noundef %5, ptr noundef readonly %1, ptr noundef %2, i32 noundef 0, ptr noundef %3, ptr noundef null)
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %nghttp2_session_client_new3.exit
 
@@ -295,7 +296,7 @@ nghttp2_session_client_new3.exit:                 ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @session_new(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) unnamed_addr #1 {
+define internal fastcc i32 @session_new(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef readonly %4, ptr noundef %5) unnamed_addr #1 {
   %7 = icmp eq ptr %5, null
   br i1 %7, label %8, label %10
 
@@ -803,7 +804,7 @@ define internal fastcc i32 @session_new(ptr nocapture noundef %0, ptr nocapture 
 define dso_local i32 @nghttp2_session_server_new(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %5 = call fastcc i32 @session_new(ptr noundef nonnull %4, ptr noundef readonly %1, ptr noundef %2, i32 noundef 1, ptr noundef null, ptr noundef null)
+  %5 = call fastcc i32 @session_new(ptr noundef %4, ptr noundef readonly %1, ptr noundef %2, i32 noundef 1, ptr noundef null, ptr noundef null)
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %6, label %nghttp2_session_server_new3.exit
 
@@ -822,7 +823,7 @@ nghttp2_session_server_new3.exit:                 ; preds = %3, %6
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @nghttp2_session_server_new3(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
-  %7 = call fastcc i32 @session_new(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %3, ptr noundef %4)
+  %7 = call fastcc i32 @session_new(ptr noundef %6, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %11
 
@@ -841,7 +842,7 @@ define dso_local i32 @nghttp2_session_server_new3(ptr nocapture noundef writeonl
 define dso_local i32 @nghttp2_session_server_new2(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %6 = call fastcc i32 @session_new(ptr noundef nonnull %5, ptr noundef readonly %1, ptr noundef %2, i32 noundef 1, ptr noundef %3, ptr noundef null)
+  %6 = call fastcc i32 @session_new(ptr noundef %5, ptr noundef readonly %1, ptr noundef %2, i32 noundef 1, ptr noundef %3, ptr noundef null)
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %nghttp2_session_server_new3.exit
 
@@ -2821,7 +2822,7 @@ define dso_local i64 @nghttp2_session_mem_send(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @nghttp2_session_mem_send_internal(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc i64 @nghttp2_session_mem_send_internal(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2528
   %5 = getelementptr inbounds i8, ptr %0, i64 648
   %6 = getelementptr inbounds i8, ptr %0, i64 656
@@ -3114,7 +3115,7 @@ session_predicate_request_headers_send.exit.i:    ; preds = %126
   ]
 
 140:                                              ; preds = %137
-  %141 = tail call fastcc i32 @session_predicate_push_response_headers_send(ptr noundef nonnull %0, ptr noundef nonnull %131)
+  %141 = tail call fastcc i32 @session_predicate_push_response_headers_send(ptr noundef nonnull %0, ptr noundef %131)
   %142 = icmp eq i32 %141, 0
   br i1 %142, label %143, label %session_prep_frame.exit
 
@@ -3194,7 +3195,7 @@ session_predicate_headers_send.exit.i:            ; preds = %nghttp2_session_is_
   br i1 %.not227.i, label %175, label %session_prep_frame.exit
 
 175:                                              ; preds = %173
-  %176 = tail call fastcc i32 @session_headers_add_pad(ptr noundef nonnull %0, ptr noundef nonnull %33)
+  %176 = tail call fastcc i32 @session_headers_add_pad(ptr noundef nonnull %0, ptr noundef %33)
   %.not228.i = icmp eq i32 %176, 0
   br i1 %.not228.i, label %177, label %session_prep_frame.exit
 
@@ -3321,7 +3322,7 @@ session_predicate_push_promise_send.exit.i:       ; preds = %228
   br i1 %.not215.i, label %240, label %session_prep_frame.exit
 
 240:                                              ; preds = %238
-  %241 = tail call fastcc i32 @session_headers_add_pad(ptr noundef nonnull %0, ptr noundef nonnull %33)
+  %241 = tail call fastcc i32 @session_headers_add_pad(ptr noundef nonnull %0, ptr noundef %33)
   %.not216.i = icmp eq i32 %241, 0
   br i1 %.not216.i, label %242, label %session_prep_frame.exit
 
@@ -3431,7 +3432,7 @@ session_predicate_window_update_send.exit.i:      ; preds = %state_reserved_loca
 
 292:                                              ; preds = %290
   %.val250.i = load ptr, ptr %6, align 8
-  %293 = tail call fastcc i32 @session_pack_extension(ptr noundef nonnull %0, ptr %.val250.i, ptr noundef nonnull %33)
+  %293 = tail call fastcc i32 @session_pack_extension(ptr noundef nonnull %0, ptr %.val250.i, ptr noundef %33)
   br label %session_prep_frame.exit
 
 294:                                              ; preds = %286
@@ -5552,7 +5553,7 @@ session_handle_invalid_connection.exit:           ; preds = %session_is_new_peer
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @session_handle_invalid_connection(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3) unnamed_addr #1 {
+define internal fastcc i32 @session_handle_invalid_connection(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2, ptr noundef readonly %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 2368
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -7338,7 +7339,7 @@ session_handle_invalid_connection.exit:           ; preds = %63, %53, %48, %44, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @session_close_stream_on_goaway(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @session_close_stream_on_goaway(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = alloca %struct.nghttp2_close_stream_on_goaway_arg, align 8
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -11319,7 +11320,7 @@ define dso_local range(i32 0, 2) i32 @nghttp2_session_want_read(ptr noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -902, 1) i32 @session_call_error_callback(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ...) unnamed_addr #1 {
+define internal range(i32 -902, 1) i32 @session_call_error_callback(ptr noundef %0, i32 noundef range(i32 -536, -530) %1, ptr nocapture noundef readonly %2, ...) unnamed_addr #1 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 2512
   %6 = load ptr, ptr %5, align 8
@@ -12735,7 +12736,7 @@ nghttp2_session_get_stream.exit.thread:           ; preds = %session_resume_defe
 declare i32 @nghttp2_stream_check_deferred_item(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @session_resume_deferred_stream_item(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc i32 @session_resume_deferred_stream_item(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 4, 9) %2) unnamed_addr #1 {
   %4 = tail call i32 @nghttp2_stream_resume_deferred_item(ptr noundef %1, i8 noundef zeroext %2) #20
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %session_ob_data_push.exit
@@ -13892,7 +13893,7 @@ nghttp2_session_predicate_data_send.exit.thread49: ; preds = %52, %nghttp2_sessi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @session_defer_stream_item(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc i32 @session_defer_stream_item(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 4, 9) %2) unnamed_addr #1 {
   %4 = tail call i32 @nghttp2_stream_defer_item(ptr noundef %1, i8 noundef zeroext %2) #20
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %19
@@ -13928,44 +13929,40 @@ define internal fastcc i32 @session_defer_stream_item(ptr noundef %0, ptr nounde
 declare void @nghttp2_http_record_request_method(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -530, 1) i32 @session_predicate_push_response_headers_send(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #1 {
-  %3 = icmp eq ptr %1, null
-  br i1 %3, label %session_predicate_for_stream_send.exit.thread, label %4
+define internal fastcc range(i32 -530, 1) i32 @session_predicate_push_response_headers_send(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 {
+  %3 = tail call fastcc i32 @session_is_closing(ptr noundef %0)
+  %.not.i = icmp eq i32 %3, 0
+  br i1 %.not.i, label %4, label %session_predicate_for_stream_send.exit.thread
 
 4:                                                ; preds = %2
-  %5 = tail call fastcc i32 @session_is_closing(ptr noundef %0)
-  %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %6, label %session_predicate_for_stream_send.exit.thread
-
-6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 217
-  %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 2
-  %.not4.i = icmp eq i8 %9, 0
+  %5 = getelementptr inbounds i8, ptr %1, i64 217
+  %6 = load i8, ptr %5, align 1
+  %7 = and i8 %6, 2
+  %.not4.i = icmp eq i8 %7, 0
   br i1 %.not4.i, label %session_predicate_for_stream_send.exit, label %session_predicate_for_stream_send.exit.thread
 
-session_predicate_for_stream_send.exit:           ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 2844
-  %11 = load i8, ptr %10, align 4
-  %.not8 = icmp eq i8 %11, 0
-  br i1 %.not8, label %session_predicate_for_stream_send.exit.thread, label %12
+session_predicate_for_stream_send.exit:           ; preds = %4
+  %8 = getelementptr inbounds i8, ptr %0, i64 2844
+  %9 = load i8, ptr %8, align 4
+  %.not8 = icmp eq i8 %9, 0
+  br i1 %.not8, label %session_predicate_for_stream_send.exit.thread, label %10
 
-12:                                               ; preds = %session_predicate_for_stream_send.exit
-  %13 = getelementptr inbounds i8, ptr %1, i64 204
-  %14 = load i32, ptr %13, align 4
-  %.not9 = icmp eq i32 %14, 4
-  br i1 %.not9, label %15, label %session_predicate_for_stream_send.exit.thread
+10:                                               ; preds = %session_predicate_for_stream_send.exit
+  %11 = getelementptr inbounds i8, ptr %1, i64 204
+  %12 = load i32, ptr %11, align 4
+  %.not9 = icmp eq i32 %12, 4
+  br i1 %.not9, label %13, label %session_predicate_for_stream_send.exit.thread
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 2845
-  %17 = load i8, ptr %16, align 1
-  %18 = and i8 %17, 8
-  %.not10 = icmp eq i8 %18, 0
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %0, i64 2845
+  %15 = load i8, ptr %14, align 1
+  %16 = and i8 %15, 8
+  %.not10 = icmp eq i8 %16, 0
   %. = select i1 %.not10, i32 0, i32 -516
   br label %session_predicate_for_stream_send.exit.thread
 
-session_predicate_for_stream_send.exit.thread:    ; preds = %6, %4, %2, %15, %12, %session_predicate_for_stream_send.exit
-  %.0 = phi i32 [ -505, %session_predicate_for_stream_send.exit ], [ -505, %12 ], [ %., %15 ], [ -512, %6 ], [ -530, %4 ], [ -510, %2 ]
+session_predicate_for_stream_send.exit.thread:    ; preds = %4, %2, %13, %10, %session_predicate_for_stream_send.exit
+  %.0 = phi i32 [ -505, %session_predicate_for_stream_send.exit ], [ -505, %10 ], [ %., %13 ], [ -512, %4 ], [ -530, %2 ]
   ret i32 %.0
 }
 
@@ -14018,7 +14015,7 @@ session_predicate_for_stream_send.exit.thread:    ; preds = %12, %6, %4, %2, %ng
 declare i32 @nghttp2_frame_pack_headers(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @session_headers_add_pad(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc i32 @session_headers_add_pad(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 656
   %4 = load i64, ptr %1, align 8
   %5 = add i64 %4, 256
@@ -14081,7 +14078,7 @@ declare i32 @nghttp2_frame_pack_goaway(ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @nghttp2_frame_pack_window_update(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -902, 1) i32 @session_pack_extension(ptr noundef %0, ptr nocapture %.0.val, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 -902, 1) i32 @session_pack_extension(ptr noundef %0, ptr nocapture %.0.val, ptr noundef nonnull %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %.0.val, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %.0.val, i64 32
@@ -14094,7 +14091,7 @@ define internal fastcc range(i32 -902, 1) i32 @session_pack_extension(ptr nounde
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 2568
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i64 %11(ptr noundef %0, ptr noundef %6, i64 noundef %spec.select, ptr noundef %1, ptr noundef %13) #20
+  %14 = tail call i64 %11(ptr noundef %0, ptr noundef %6, i64 noundef %spec.select, ptr noundef nonnull %1, ptr noundef %13) #20
   %15 = icmp eq i64 %14, -535
   br i1 %15, label %24, label %16
 
@@ -14134,60 +14131,41 @@ declare i32 @nghttp2_bufs_next_present(ptr noundef) local_unnamed_addr #3
 declare i32 @nghttp2_submit_data(ptr noundef, i8 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @session_handle_invalid_stream2(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
-  switch i32 %3, label %10 [
-    i32 -510, label %get_error_code_from_lib_error_code.exit
-    i32 -523, label %5
-    i32 -522, label %6
-    i32 -524, label %7
-    i32 -533, label %8
-    i32 -505, label %9
-    i32 -531, label %9
-    i32 -532, label %9
-  ]
+define internal fastcc i32 @session_handle_invalid_stream2(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 -533, -523) %3) unnamed_addr #1 {
+  %switch.tableidx = add nsw i32 %3, 533
+  %5 = icmp ult i32 %switch.tableidx, 10
+  br i1 %5, label %switch.lookup, label %get_error_code_from_lib_error_code.exit
 
-5:                                                ; preds = %4
+switch.lookup:                                    ; preds = %4
+  %6 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.session_handle_invalid_stream2, i64 0, i64 %6
+  %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_error_code_from_lib_error_code.exit
 
-6:                                                ; preds = %4
-  br label %get_error_code_from_lib_error_code.exit
+get_error_code_from_lib_error_code.exit:          ; preds = %4, %switch.lookup
+  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 2, %4 ]
+  %7 = tail call i32 @nghttp2_session_add_rst_stream(ptr noundef %0, i32 noundef %1, i32 noundef %.0.i)
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %8, label %16
 
-7:                                                ; preds = %4
-  br label %get_error_code_from_lib_error_code.exit
+8:                                                ; preds = %get_error_code_from_lib_error_code.exit
+  %9 = getelementptr inbounds i8, ptr %0, i64 2368
+  %10 = load ptr, ptr %9, align 8
+  %.not13 = icmp eq ptr %10, null
+  br i1 %.not13, label %15, label %11
 
-8:                                                ; preds = %4
-  br label %get_error_code_from_lib_error_code.exit
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds i8, ptr %0, i64 2568
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3, ptr noundef %13) #20
+  %.not14 = icmp eq i32 %14, 0
+  br i1 %.not14, label %15, label %16
 
-9:                                                ; preds = %4, %4, %4
-  br label %get_error_code_from_lib_error_code.exit
+15:                                               ; preds = %11, %8
+  br label %16
 
-10:                                               ; preds = %4
-  br label %get_error_code_from_lib_error_code.exit
-
-get_error_code_from_lib_error_code.exit:          ; preds = %4, %5, %6, %7, %8, %9, %10
-  %.0.i = phi i32 [ 2, %10 ], [ 1, %9 ], [ 7, %8 ], [ 3, %7 ], [ 6, %6 ], [ 9, %5 ], [ 5, %4 ]
-  %11 = tail call i32 @nghttp2_session_add_rst_stream(ptr noundef %0, i32 noundef %1, i32 noundef %.0.i)
-  %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %12, label %20
-
-12:                                               ; preds = %get_error_code_from_lib_error_code.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 2368
-  %14 = load ptr, ptr %13, align 8
-  %.not13 = icmp eq ptr %14, null
-  br i1 %.not13, label %19, label %15
-
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 2568
-  %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 %14(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3, ptr noundef %17) #20
-  %.not14 = icmp eq i32 %18, 0
-  br i1 %.not14, label %19, label %20
-
-19:                                               ; preds = %15, %12
-  br label %20
-
-20:                                               ; preds = %15, %get_error_code_from_lib_error_code.exit, %19
-  %.0 = phi i32 [ 0, %19 ], [ %11, %get_error_code_from_lib_error_code.exit ], [ -902, %15 ]
+16:                                               ; preds = %11, %get_error_code_from_lib_error_code.exit, %15
+  %.0 = phi i32 [ 0, %15 ], [ %7, %get_error_code_from_lib_error_code.exit ], [ -902, %11 ]
   ret i32 %.0
 }
 

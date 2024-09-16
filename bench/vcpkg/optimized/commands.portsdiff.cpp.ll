@@ -275,8 +275,8 @@ define dso_local void @_ZN5vcpkg14find_portsdiffERKNS_10VcpkgPathsENS_10StringVi
   %9 = alloca %"struct.vcpkg::UpdatedPort", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_119check_commit_existsERKN5vcpkg10VcpkgPathsENS0_10StringViewE(ptr noundef nonnull align 8 dereferenceable(400) %1, ptr %2, i64 %3)
   tail call fastcc void @_ZN12_GLOBAL__N_119check_commit_existsERKN5vcpkg10VcpkgPathsENS0_10StringViewE(ptr noundef nonnull align 8 dereferenceable(400) %1, ptr %4, i64 %5)
-  call fastcc void @_ZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS0_10StringViewE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr %2, i64 %3)
-  invoke fastcc void @_ZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS0_10StringViewE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr %4, i64 %5)
+  call fastcc void @_ZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS0_10StringViewE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr %2, i64 %3)
+  invoke fastcc void @_ZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS0_10StringViewE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr %4, i64 %5)
           to label %10 unwind label %42
 
 10:                                               ; preds = %6
@@ -751,7 +751,7 @@ _ZNO5vcpkg9ExpectedTINS_17ExitCodeAndOutputENS_15LocalizedStringEE13value_or_exi
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS0_10StringViewE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr %2, i64 %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg10VcpkgPathsENS0_10StringViewE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr %2, i64 %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.vcpkg::VersionSpec", align 8
   %6 = alloca %"struct.vcpkg::Path", align 8
   %7 = alloca %"class.fmt::v10::format_arg_store.95", align 16
@@ -5730,7 +5730,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %45) #20
   %54 = load i32, ptr %46, align 8
   store i32 %54, ptr %48, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %42, ptr noundef nonnull %14)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %42, ptr noundef %14)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #20
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
@@ -5770,7 +5770,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(32) %56) #20
   %70 = load i32, ptr %57, align 8
   store i32 %70, ptr %59, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %69, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %69, ptr noundef %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #20
@@ -6066,7 +6066,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122read_ports_from_commitERKNS2_10VcpkgPathsENS2_10StringViewEE3$_2EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.vcpkg::VersionSpec", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

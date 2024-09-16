@@ -90,7 +90,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_java2d_opengl_OGLSurfaceData_initText
 
 21:                                               ; preds = %13, %12
   %22 = phi i8 [ 0, %12 ], [ %20, %13 ]
-  %23 = tail call fastcc zeroext i8 @OGLSD_InitTextureObject(ptr noundef nonnull %9, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %22, i32 noundef %6, i32 noundef %7)
+  %23 = tail call fastcc zeroext i8 @OGLSD_InitTextureObject(ptr noundef %9, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %22, i32 noundef %6, i32 noundef %7)
   %.not18 = icmp eq i8 %23, 0
   br i1 %.not18, label %24, label %25
 
@@ -145,7 +145,7 @@ OGLSD_SetNativeDimensions.exit:                   ; preds = %25, %43
 declare void @J2dTraceImpl(i32 noundef, i8 noundef zeroext, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @OGLSD_InitTextureObject(ptr nocapture noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc zeroext range(i8 0, 2) i8 @OGLSD_InitTextureObject(ptr nocapture noundef nonnull %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -400,7 +400,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_java2d_opengl_OGLSurfaceData_initFBOb
   br label %55
 
 14:                                               ; preds = %8
-  %15 = tail call fastcc zeroext i8 @OGLSD_InitTextureObject(ptr noundef nonnull %11, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i32 noundef %6, i32 noundef %7)
+  %15 = tail call fastcc zeroext i8 @OGLSD_InitTextureObject(ptr noundef %11, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i32 noundef %6, i32 noundef %7)
   %.not = icmp eq i8 %15, 0
   br i1 %.not, label %16, label %17
 

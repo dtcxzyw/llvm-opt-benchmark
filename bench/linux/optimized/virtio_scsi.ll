@@ -1069,7 +1069,7 @@ define internal noundef i32 @virtscsi_eh_timed_out(ptr nocapture readnone %0) #6
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @virtscsi_add_cmd(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #2 align 16 {
+define internal fastcc i32 @virtscsi_add_cmd(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 24, 52) %2, i64 noundef range(i64 1, 109) %3, i1 noundef zeroext %4) unnamed_addr #2 align 16 {
   %6 = alloca [6 x ptr], align 16
   %7 = alloca %struct.scatterlist, align 8
   %8 = alloca %struct.scatterlist, align 8

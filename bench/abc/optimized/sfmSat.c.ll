@@ -1274,9 +1274,9 @@ Vec_IntPush.exit117:                              ; preds = %.Vec_IntGrow.exit10
   %146 = getelementptr inbounds i32, ptr %.val109, i64 %145
   %147 = load i32, ptr %146, align 4
   %148 = icmp ne i32 %147, 1
-  %149 = shl nsw i32 %141, 1
-  %150 = zext i1 %148 to i32
-  %151 = or disjoint i32 %149, %150
+  %149 = zext i1 %148 to i32
+  %150 = shl nsw i32 %141, 1
+  %151 = or disjoint i32 %150, %149
   %152 = getelementptr inbounds i8, ptr %142, i64 4
   %153 = load i32, ptr %152, align 4
   %154 = load i32, ptr %142, align 8
@@ -2000,9 +2000,9 @@ Vec_IntPush.exit116:                              ; preds = %.Vec_IntGrow.exit10
   %148 = getelementptr inbounds i32, ptr %.val105, i64 %147
   %149 = load i32, ptr %148, align 4
   %150 = icmp ne i32 %149, 1
-  %151 = shl nsw i32 %145, 1
-  %152 = zext i1 %150 to i32
-  %153 = or disjoint i32 %151, %152
+  %151 = zext i1 %150 to i32
+  %152 = shl nsw i32 %145, 1
+  %153 = or disjoint i32 %152, %151
   %154 = xor i32 %153, 1
   %155 = getelementptr inbounds i8, ptr %146, i64 4
   %156 = load i32, ptr %155, align 4
@@ -2310,9 +2310,9 @@ define i64 @Sfm_ComputeInterpolant2(ptr nocapture noundef %0) local_unnamed_addr
   %44 = mul nuw i64 %43, 4294967297
   %.5.i22 = select i1 %28, i64 %44, i64 %.429.i21
   %45 = xor i64 %.5.i, -1
-  %46 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %.5.i22, i64 noundef %45, i32 noundef %.val13, ptr noundef nonnull %3)
+  %46 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %.5.i22, i64 noundef %45, i32 noundef %.val13, ptr noundef %3)
   %47 = xor i64 %.5.i22, -1
-  %48 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %.5.i, i64 noundef %47, i32 noundef %.val13, ptr noundef nonnull %4)
+  %48 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %.5.i, i64 noundef %47, i32 noundef %.val13, ptr noundef %4)
   %49 = load i32, ptr %3, align 4
   %50 = load i32, ptr %4, align 4
   %.not = icmp sgt i32 %49, %50
@@ -2326,7 +2326,7 @@ define i64 @Sfm_ComputeInterpolant2(ptr nocapture noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @Abc_Tt6Isop(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc i64 @Abc_Tt6Isop(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef nonnull %3) unnamed_addr #2 {
   %5 = icmp eq i64 %0, 0
   br i1 %5, label %.loopexit, label %.lr.ph
 

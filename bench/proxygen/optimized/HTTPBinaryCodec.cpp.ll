@@ -4303,7 +4303,7 @@ for.inc.i:                                        ; preds = %"_ZZN8proxygen15HTT
 
 "_ZNK8proxygen11HTTPHeaders7forEachIZNS_15HTTPBinaryCodec20generateHeaderHelperERN5folly2io13QueueAppenderERKS0_E3$_0EEvT_.exit": ; preds = %for.inc.i, %entry
   %headersLength.2 = phi i64 [ 0, %entry ], [ %headersLength.1, %for.inc.i ]
-  call fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias nonnull align 8 %lengthOfAllHeaders, i64 noundef %headersLength.2, ptr noundef nonnull align 8 dereferenceable(40) %appender)
+  call fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias align 8 %lengthOfAllHeaders, i64 noundef %headersLength.2, ptr noundef nonnull align 8 dereferenceable(40) %appender)
   %13 = load i8, ptr %lengthOfAllHeaders, align 8
   switch i8 %13, label %if.end.i.i [
     i8 1, label %_ZNR5folly8ExpectedImN4quic18TransportErrorCodeEE5valueEv.exit
@@ -4356,7 +4356,7 @@ if.then.i13:                                      ; preds = %for.body.i10
   %call.i8.i18 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx7.i17) #29
   %call3.i10.i19 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx7.i17) #29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i.i.i)
-  call fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias nonnull align 8 %tmp.i.i.i, i64 noundef %call3.i.i16, ptr noundef nonnull align 8 dereferenceable(40) %appender)
+  call fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias align 8 %tmp.i.i.i, i64 noundef %call3.i.i16, ptr noundef nonnull align 8 dereferenceable(40) %appender)
   %22 = load ptr, ptr %second.i.i.i.i.i.i, align 8
   %23 = load ptr, ptr %appender, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %22 to i64
@@ -4430,7 +4430,7 @@ _ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i
 _ZN8proxygen12_GLOBAL__N_112encodeStringEN5folly5RangeIPKcEERNS1_2io13QueueAppenderE.exit.i.i: ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i.i, %if.end.i.i.i.i20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i1.i.i)
-  call fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias nonnull align 8 %tmp.i1.i.i, i64 noundef %call3.i10.i19, ptr noundef nonnull align 8 dereferenceable(40) %appender)
+  call fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias align 8 %tmp.i1.i.i, i64 noundef %call3.i10.i19, ptr noundef nonnull align 8 dereferenceable(40) %appender)
   %35 = load ptr, ptr %second.i.i.i.i.i.i, align 8
   %36 = load ptr, ptr %appender, align 8
   %sub.ptr.lhs.cast.i.i.i.i6.i.i = ptrtoint ptr %35 to i64
@@ -4518,7 +4518,7 @@ for.inc.i22:                                      ; preds = %"_ZZN8proxygen15HTT
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias nocapture writeonly align 8 %agg.result, i64 noundef %i, ptr noundef nonnull align 8 dereferenceable(40) %appender) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, i64 noundef %i, ptr noundef nonnull align 8 dereferenceable(40) %appender) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %cmp.i = icmp ult i64 %i, 64
@@ -4666,7 +4666,7 @@ _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_
 
 "_ZN4quic12_GLOBAL__N_114encodeTwoBytesIZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderEE3$_0EEtT_m.exit.i": ; preds = %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i, %if.then.i.i.i.i34.i
   %.sink.i.i.i.i25.i = phi ptr [ %25, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %14, %if.then.i.i.i.i34.i ]
-  %conv.i26.i = trunc nuw i64 %i to i16
+  %conv.i26.i = trunc nuw nsw i64 %i to i16
   %or.i.i = or disjoint i16 %conv.i26.i, 16384
   %26 = tail call noundef i16 @llvm.bswap.i16(i16 %or.i.i)
   store i16 %26, ptr %.sink.i.i.i.i25.i, align 1, !noalias !52
@@ -4897,7 +4897,7 @@ _ZN5folly2io13QueueAppenderC2EPNS_10IOBufQueueEm.exit: ; preds = %entry, %if.the
   br i1 %cmp, label %invoke.cont, label %invoke.cont38
 
 invoke.cont:                                      ; preds = %_ZN5folly2io13QueueAppenderC2EPNS_10IOBufQueueEm.exit
-  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias nonnull align 8 %tmp, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %appender)
+  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias align 8 %tmp, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %appender)
           to label %invoke.cont2 unwind label %lpad.loopexit.split-lp182.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -4908,7 +4908,7 @@ invoke.cont3:                                     ; preds = %invoke.cont2
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call4) #29
   %call3.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %call4) #29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
-  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias nonnull align 8 %tmp.i, i64 noundef %call3.i, ptr noundef nonnull align 8 dereferenceable(40) %appender)
+  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias align 8 %tmp.i, i64 noundef %call3.i, ptr noundef nonnull align 8 dereferenceable(40) %appender)
           to label %.noexc unwind label %lpad.loopexit.split-lp182.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %invoke.cont3
@@ -4992,7 +4992,7 @@ invoke.cont6:                                     ; preds = %_ZN5folly10IOBufQue
   %cond = select i1 %spec.select.i, ptr @.str.34, ptr @.str.35
   %call.i.i.i = select i1 %spec.select.i, i64 5, i64 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i13)
-  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias nonnull align 8 %tmp.i13, i64 noundef %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %appender)
+  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias align 8 %tmp.i13, i64 noundef %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %appender)
           to label %.noexc57 unwind label %lpad.loopexit.split-lp182.loopexit.split-lp.loopexit.split-lp
 
 .noexc57:                                         ; preds = %invoke.cont6
@@ -5112,7 +5112,7 @@ invoke.cont16:                                    ; preds = %if.end.i.i62, %_ZNK
   %call.i65 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i) #29
   %call3.i67 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %_ZN8proxygen12empty_stringB5cxx11E..i) #29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i69)
-  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias nonnull align 8 %tmp.i69, i64 noundef %call3.i67, ptr noundef nonnull align 8 dereferenceable(40) %appender)
+  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias align 8 %tmp.i69, i64 noundef %call3.i67, ptr noundef nonnull align 8 dereferenceable(40) %appender)
           to label %.noexc113 unwind label %lpad.loopexit.split-lp182.loopexit.split-lp.loopexit.split-lp
 
 .noexc113:                                        ; preds = %invoke.cont16
@@ -5254,7 +5254,7 @@ if.end:                                           ; preds = %invoke.cont30, %inv
   %call.i117 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %pathWithQueryString) #29
   %call3.i119 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %pathWithQueryString) #29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i121)
-  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias nonnull align 8 %tmp.i121, i64 noundef %call3.i119, ptr noundef nonnull align 8 dereferenceable(40) %appender)
+  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias align 8 %tmp.i121, i64 noundef %call3.i119, ptr noundef nonnull align 8 dereferenceable(40) %appender)
           to label %.noexc165 unwind label %lpad23.loopexit.split-lp
 
 .noexc165:                                        ; preds = %if.end
@@ -5334,7 +5334,7 @@ invoke.cont36:                                    ; preds = %_ZN5folly10IOBufQue
   br label %if.end46
 
 invoke.cont38:                                    ; preds = %_ZN5folly2io13QueueAppenderC2EPNS_10IOBufQueueEm.exit
-  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias nonnull align 8 %tmp40, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(40) %appender)
+  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias align 8 %tmp40, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(40) %appender)
           to label %invoke.cont41 unwind label %lpad.loopexit.split-lp182.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont41:                                    ; preds = %invoke.cont38
@@ -5343,7 +5343,7 @@ invoke.cont41:                                    ; preds = %invoke.cont38
 
 invoke.cont42:                                    ; preds = %invoke.cont41
   %conv = zext i16 %call43 to i64
-  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias nonnull align 8 %tmp44, i64 noundef %conv, ptr noundef nonnull align 8 dereferenceable(40) %appender)
+  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias align 8 %tmp44, i64 noundef %conv, ptr noundef nonnull align 8 dereferenceable(40) %appender)
           to label %if.end46 unwind label %lpad.loopexit.split-lp182.loopexit.split-lp.loopexit.split-lp
 
 if.end46:                                         ; preds = %invoke.cont42, %invoke.cont36
@@ -5639,7 +5639,7 @@ if.then:                                          ; preds = %_ZN5folly2io13Queue
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias nonnull align 8 %tmp, i64 noundef %call3, ptr noundef nonnull align 8 dereferenceable(40) %appender)
+  invoke fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias align 8 %tmp, i64 noundef %call3, ptr noundef nonnull align 8 dereferenceable(40) %appender)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont

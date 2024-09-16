@@ -239,7 +239,7 @@ declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) loca
 declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -65, 1) i32 @software_key_determine_akcipher(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -65, 1) i32 @software_key_determine_akcipher(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, i32 noundef range(i32 0, 256) %5) unnamed_addr #0 align 16 {
   store i8 1, ptr %4, align 1
   %7 = icmp eq ptr %1, null
   br i1 %7, label %95, label %8
@@ -257,7 +257,7 @@ define internal fastcc range(i32 -65, 1) i32 @software_key_determine_akcipher(pt
   br i1 %15, label %16, label %30
 
 16:                                               ; preds = %13
-  %17 = and i32 %5, -2
+  %17 = and i32 %5, 254
   %18 = icmp eq i32 %17, 2
   %19 = zext i1 %18 to i8
   store i8 %19, ptr %4, align 1

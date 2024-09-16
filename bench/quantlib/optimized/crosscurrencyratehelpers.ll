@@ -1901,7 +1901,7 @@ entry:
   %2 = load i8, ptr %endOfMonth_, align 4, !tbaa !69, !range !26, !noundef !27
   %loadedv = trunc nuw i8 %2 to i1
   %baseCcyIdx_ = getelementptr inbounds nuw i8, ptr %this, i64 224
-  call fastcc void @_ZN8QuantLib12_GLOBAL__N_112buildIborLegERKNS_4DateERKNS_6PeriodEjRKNS_8CalendarENS_21BusinessDayConventionEbRKN5boost10shared_ptrINS_9IborIndexEEE(ptr dead_on_unwind noalias nonnull writable align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %evaluationDate_, ptr noundef nonnull align 4 dereferenceable(8) %tenor_, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %calendar_, i32 noundef %1, i1 noundef zeroext %loadedv, ptr noundef nonnull align 8 dereferenceable(16) %baseCcyIdx_)
+  call fastcc void @_ZN8QuantLib12_GLOBAL__N_112buildIborLegERKNS_4DateERKNS_6PeriodEjRKNS_8CalendarENS_21BusinessDayConventionEbRKN5boost10shared_ptrINS_9IborIndexEEE(ptr dead_on_unwind noalias writable align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %evaluationDate_, ptr noundef nonnull align 4 dereferenceable(8) %tenor_, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %calendar_, i32 noundef %1, i1 noundef zeroext %loadedv, ptr noundef nonnull align 8 dereferenceable(16) %baseCcyIdx_)
   %baseCcyIborLeg_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   %3 = load ptr, ptr %baseCcyIborLeg_, align 8, !tbaa !87
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 288
@@ -2052,7 +2052,7 @@ _ZNSt6vectorIN5boost10shared_ptrIN8QuantLib8CashFlowEEESaIS4_EED2Ev.exit: ; pred
   %29 = load i8, ptr %endOfMonth_, align 4, !tbaa !69, !range !26, !noundef !27
   %loadedv9 = trunc nuw i8 %29 to i1
   %quoteCcyIdx_ = getelementptr inbounds nuw i8, ptr %this, i64 240
-  call fastcc void @_ZN8QuantLib12_GLOBAL__N_112buildIborLegERKNS_4DateERKNS_6PeriodEjRKNS_8CalendarENS_21BusinessDayConventionEbRKN5boost10shared_ptrINS_9IborIndexEEE(ptr dead_on_unwind noalias nonnull writable align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(8) %evaluationDate_, ptr noundef nonnull align 4 dereferenceable(8) %tenor_, i32 noundef %27, ptr noundef nonnull align 8 dereferenceable(16) %calendar_, i32 noundef %28, i1 noundef zeroext %loadedv9, ptr noundef nonnull align 8 dereferenceable(16) %quoteCcyIdx_)
+  call fastcc void @_ZN8QuantLib12_GLOBAL__N_112buildIborLegERKNS_4DateERKNS_6PeriodEjRKNS_8CalendarENS_21BusinessDayConventionEbRKN5boost10shared_ptrINS_9IborIndexEEE(ptr dead_on_unwind noalias writable align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(8) %evaluationDate_, ptr noundef nonnull align 4 dereferenceable(8) %tenor_, i32 noundef %27, ptr noundef nonnull align 8 dereferenceable(16) %calendar_, i32 noundef %28, i1 noundef zeroext %loadedv9, ptr noundef nonnull align 8 dereferenceable(16) %quoteCcyIdx_)
   %quoteCcyIborLeg_ = getelementptr inbounds nuw i8, ptr %this, i64 304
   %30 = load ptr, ptr %quoteCcyIborLeg_, align 8, !tbaa !87
   %_M_finish.i.i.i.i2 = getelementptr inbounds nuw i8, ptr %this, i64 312
@@ -2422,7 +2422,7 @@ _ZN5boost10shared_ptrIN8QuantLib8Calendar4ImplEED2Ev.exit: ; preds = %entry, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_112buildIborLegERKNS_4DateERKNS_6PeriodEjRKNS_8CalendarENS_21BusinessDayConventionEbRKN5boost10shared_ptrINS_9IborIndexEEE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %evaluationDate, ptr noundef nonnull align 4 dereferenceable(8) %tenor, i32 noundef %fixingDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %convention, i1 noundef zeroext %endOfMonth, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %idx) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_112buildIborLegERKNS_4DateERKNS_6PeriodEjRKNS_8CalendarENS_21BusinessDayConventionEbRKN5boost10shared_ptrINS_9IborIndexEEE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %evaluationDate, ptr noundef nonnull align 4 dereferenceable(8) %tenor, i32 noundef %fixingDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %convention, i1 noundef zeroext %endOfMonth, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %idx) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream.i = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2815,7 +2815,7 @@ invoke.cont5:                                     ; preds = %_ZN5boost10shared_p
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  invoke void @_ZNK8QuantLib7IborLegcvSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS5_EEEv(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(375) %call8)
+  invoke void @_ZNK8QuantLib7IborLegcvSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS5_EEEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(375) %call8)
           to label %invoke.cont9 unwind label %lpad6
 
 invoke.cont9:                                     ; preds = %invoke.cont7

@@ -530,7 +530,7 @@ invoke.cont:                                      ; preds = %.noexc
 
 invoke.cont39:                                    ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(32) %call.i77) #20
-  invoke fastcc void @_ZN3net12_GLOBAL__N_116RangeDebugStringB5cxx11Emm(ptr noalias nonnull align 8 %ref.tmp40, i64 noundef %starting_offset, i64 noundef %add)
+  invoke fastcc void @_ZN3net12_GLOBAL__N_116RangeDebugStringB5cxx11Emm(ptr noalias align 8 %ref.tmp40, i64 noundef %starting_offset, i64 noundef %add)
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %invoke.cont39
@@ -656,7 +656,7 @@ for.body.i:                                       ; preds = %invoke.cont70, %inv
   %4 = load i64, ptr %_M_storage.i.i.i, align 8
   %end_offset.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.08.i, i64 24
   %5 = load i64, ptr %end_offset.i, align 8
-  invoke fastcc void @_ZN3net12_GLOBAL__N_116RangeDebugStringB5cxx11Emm(ptr noalias nonnull align 8 %ref.tmp.i, i64 noundef %4, i64 noundef %5)
+  invoke fastcc void @_ZN3net12_GLOBAL__N_116RangeDebugStringB5cxx11Emm(ptr noalias align 8 %ref.tmp.i, i64 noundef %4, i64 noundef %5)
           to label %invoke.cont.i unwind label %lpad.i122
 
 invoke.cont.i:                                    ; preds = %for.body.i
@@ -880,7 +880,7 @@ invoke.cont106:                                   ; preds = %.noexc146
 
 invoke.cont108:                                   ; preds = %invoke.cont106
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp102, ptr noundef nonnull align 8 dereferenceable(32) %call.i149150) #20
-  invoke fastcc void @_ZN3net12_GLOBAL__N_116RangeDebugStringB5cxx11Emm(ptr noalias nonnull align 8 %ref.tmp109, i64 noundef %starting_offset, i64 noundef %add)
+  invoke fastcc void @_ZN3net12_GLOBAL__N_116RangeDebugStringB5cxx11Emm(ptr noalias align 8 %ref.tmp109, i64 noundef %starting_offset, i64 noundef %add)
           to label %invoke.cont112 unwind label %lpad111
 
 invoke.cont112:                                   ; preds = %invoke.cont108
@@ -1006,7 +1006,7 @@ for.body.i213:                                    ; preds = %invoke.cont143, %in
   %23 = load i64, ptr %_M_storage.i.i.i215, align 8
   %end_offset.i216 = getelementptr inbounds i8, ptr %__begin1.sroa.0.08.i214, i64 24
   %24 = load i64, ptr %end_offset.i216, align 8
-  invoke fastcc void @_ZN3net12_GLOBAL__N_116RangeDebugStringB5cxx11Emm(ptr noalias nonnull align 8 %ref.tmp.i209, i64 noundef %23, i64 noundef %24)
+  invoke fastcc void @_ZN3net12_GLOBAL__N_116RangeDebugStringB5cxx11Emm(ptr noalias align 8 %ref.tmp.i209, i64 noundef %23, i64 noundef %24)
           to label %invoke.cont.i220 unwind label %lpad.i217
 
 invoke.cont.i220:                                 ; preds = %for.body.i213
@@ -1353,7 +1353,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3net12_GLOBAL__N_116RangeDebugStringB5cxx11Emm(ptr noalias align 8 %agg.result, i64 noundef %start, i64 noundef %end) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3net12_GLOBAL__N_116RangeDebugStringB5cxx11Emm(ptr noalias nonnull align 8 %agg.result, i64 noundef %start, i64 noundef %end) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1545,7 +1545,7 @@ for.body:                                         ; preds = %entry, %invoke.cont
   %it.sroa.2.0.call5.sroa_idx = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 40
   %it.sroa.2.0.copyload = load i64, ptr %it.sroa.2.0.call5.sroa_idx, align 8
   %add = add i64 %it.sroa.2.0.copyload, %it.sroa.0.0.copyload
-  invoke fastcc void @_ZN3net12_GLOBAL__N_116RangeDebugStringB5cxx11Emm(ptr noalias nonnull align 8 %ref.tmp, i64 noundef %it.sroa.0.0.copyload, i64 noundef %add)
+  invoke fastcc void @_ZN3net12_GLOBAL__N_116RangeDebugStringB5cxx11Emm(ptr noalias align 8 %ref.tmp, i64 noundef %it.sroa.0.0.copyload, i64 noundef %add)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
@@ -1594,7 +1594,7 @@ for.body:                                         ; preds = %entry, %invoke.cont
   %0 = load i64, ptr %_M_storage.i.i, align 8
   %end_offset = getelementptr inbounds i8, ptr %__begin1.sroa.0.08, i64 24
   %1 = load i64, ptr %end_offset, align 8
-  invoke fastcc void @_ZN3net12_GLOBAL__N_116RangeDebugStringB5cxx11Emm(ptr noalias nonnull align 8 %ref.tmp, i64 noundef %0, i64 noundef %1)
+  invoke fastcc void @_ZN3net12_GLOBAL__N_116RangeDebugStringB5cxx11Emm(ptr noalias align 8 %ref.tmp, i64 noundef %0, i64 noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body

@@ -3483,7 +3483,7 @@ if.else:                                          ; preds = %invoke.cont10
   %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 304
   %19 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !24
   store ptr %19, ptr %_M_node.i.i.i.i, align 8, !alias.scope !24
-  invoke fastcc void @_ZNSt5dequeIN5arrow8internal12_GLOBAL__N_14TaskESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_(ptr noundef nonnull %agg.tmp.i.i, ptr noundef nonnull %agg.tmp2.i.i)
+  invoke fastcc void @_ZNSt5dequeIN5arrow8internal12_GLOBAL__N_14TaskESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_(ptr noundef %agg.tmp.i.i, ptr noundef %agg.tmp2.i.i)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %if.else
@@ -6115,7 +6115,7 @@ entry:
   %_M_node5.i.i6 = getelementptr inbounds i8, ptr %this, i64 72
   %7 = load ptr, ptr %_M_node5.i.i6, align 8, !noalias !72
   store ptr %7, ptr %_M_node.i.i5, align 8, !alias.scope !72
-  invoke fastcc void @_ZNSt5dequeIN5arrow8internal12_GLOBAL__N_14TaskESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_(ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2)
+  invoke fastcc void @_ZNSt5dequeIN5arrow8internal12_GLOBAL__N_14TaskESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_(ptr noundef %agg.tmp, ptr noundef %agg.tmp2)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -6159,7 +6159,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt5dequeIN5arrow8internal12_GLOBAL__N_14TaskESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_(ptr nocapture noundef readonly %__first, ptr nocapture noundef readonly %__last) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt5dequeIN5arrow8internal12_GLOBAL__N_14TaskESaIS3_EE15_M_destroy_dataESt15_Deque_iteratorIS3_RS3_PS3_ES9_RKS4_(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__last) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %__first, align 8
   %_M_last4.i = getelementptr inbounds i8, ptr %__first, i64 16

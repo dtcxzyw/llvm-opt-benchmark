@@ -1414,8 +1414,8 @@ _ZNK19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE10get_bucketEm.exit.
   %.not.i12.i.i = icmp eq ptr %67, null
   br i1 %.not.i12.i.i, label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE3getI16DictionaryLookupZNS0_9get_entryEP6ThreadP6SymbolE3$_0EEbS7_RT_RT0_Pb.exit", label %.lr.ph.i.i.i, !llvm.loop !22
 
-"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE3getI16DictionaryLookupZNS0_9get_entryEP6ThreadP6SymbolE3$_0EEbS7_RT_RT0_Pb.exit": ; preds = %66, %.lr.ph.i.i.i, %_ZNK19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE10get_bucketEm.exit.i.i
-  %.0 = phi ptr [ null, %_ZNK19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE10get_bucketEm.exit.i.i ], [ null, %66 ], [ %61, %.lr.ph.i.i.i ]
+"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE3getI16DictionaryLookupZNS0_9get_entryEP6ThreadP6SymbolE3$_0EEbS7_RT_RT0_Pb.exit": ; preds = %.lr.ph.i.i.i, %66, %_ZNK19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE10get_bucketEm.exit.i.i
+  %.0 = phi ptr [ null, %_ZNK19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE10get_bucketEm.exit.i.i ], [ %61, %.lr.ph.i.i.i ], [ null, %66 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   store volatile i64 %7, ptr %6, align 8
   ret ptr %.0

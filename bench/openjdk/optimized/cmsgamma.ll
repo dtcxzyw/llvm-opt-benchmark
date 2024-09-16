@@ -1663,7 +1663,7 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %99 = getelementptr inbounds i8, ptr %33, i64 8
   store float %98, ptr %99, align 4
   %100 = add nsw i32 %27, -1
-  %101 = icmp sgt i32 %27, 4
+  %101 = icmp ugt i32 %27, 4
   br i1 %101, label %.lr.ph.i118.lver.check, label %._crit_edge.i
 
 .lr.ph.i118.lver.check:                           ; preds = %55
@@ -1907,7 +1907,7 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %264 = fneg float %263
   %265 = tail call float @llvm.fmuladd.f32(float %264, float %259, float %262)
   store float %265, ptr %231, align 4
-  %266 = icmp sgt i32 %27, 2
+  %266 = icmp ugt i32 %27, 2
   br i1 %266, label %.lr.ph222.preheader.i, label %.thread.i
 
 .lr.ph222.preheader.i:                            ; preds = %._crit_edge.i

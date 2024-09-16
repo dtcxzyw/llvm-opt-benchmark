@@ -202,7 +202,7 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br i1 %76, label %77, label %.critedge
 
 77:                                               ; preds = %64
-  call fastcc void @replace_by_const_or_qm_assign(ptr noundef nonnull %0, ptr noundef nonnull %.0415505, ptr noundef nonnull %3)
+  call fastcc void @replace_by_const_or_qm_assign(ptr noundef nonnull %0, ptr noundef nonnull %.0415505, ptr noundef %3)
   br label %.critedge
 
 78:                                               ; preds = %27
@@ -251,7 +251,7 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br i1 %108, label %109, label %.critedge
 
 109:                                              ; preds = %99
-  call fastcc void @replace_by_const_or_qm_assign(ptr noundef nonnull %0, ptr noundef nonnull %.0415505, ptr noundef nonnull %3)
+  call fastcc void @replace_by_const_or_qm_assign(ptr noundef nonnull %0, ptr noundef nonnull %.0415505, ptr noundef %3)
   br label %.critedge
 
 110:                                              ; preds = %27, %27
@@ -271,7 +271,7 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br i1 %121, label %122, label %.critedge
 
 122:                                              ; preds = %114
-  call fastcc void @replace_by_const_or_qm_assign(ptr noundef nonnull %0, ptr noundef nonnull %.0415505, ptr noundef nonnull %3)
+  call fastcc void @replace_by_const_or_qm_assign(ptr noundef nonnull %0, ptr noundef nonnull %.0415505, ptr noundef %3)
   br label %.critedge
 
 123:                                              ; preds = %27
@@ -344,7 +344,7 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   %163 = zext i32 %162 to i64
   %164 = getelementptr inbounds %struct._zval_struct, ptr %161, i64 %163, i32 1
   store i32 1, ptr %164, align 8
-  call fastcc void @replace_by_const_or_qm_assign(ptr noundef nonnull %0, ptr noundef nonnull %.0415505, ptr noundef nonnull %145)
+  call fastcc void @replace_by_const_or_qm_assign(ptr noundef nonnull %0, ptr noundef nonnull %.0415505, ptr noundef %145)
   br label %165
 
 165:                                              ; preds = %160, %143
@@ -378,7 +378,7 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.old477, label %.critedge, label %180
 
 180:                                              ; preds = %171, %179
-  call fastcc void @replace_by_const_or_qm_assign(ptr noundef nonnull %0, ptr noundef nonnull %.0415505, ptr noundef nonnull %3)
+  call fastcc void @replace_by_const_or_qm_assign(ptr noundef nonnull %0, ptr noundef nonnull %.0415505, ptr noundef %3)
   br label %.critedge
 
 181:                                              ; preds = %27
@@ -480,7 +480,7 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br label %241
 
 241:                                              ; preds = %221, %237, %240, %227
-  call fastcc void @replace_by_const_or_qm_assign(ptr noundef nonnull %0, ptr noundef nonnull %.0415505, ptr noundef nonnull %3)
+  call fastcc void @replace_by_const_or_qm_assign(ptr noundef nonnull %0, ptr noundef nonnull %.0415505, ptr noundef %3)
   br label %.critedge
 
 .preheader495:                                    ; preds = %27, %.preheader495
@@ -835,7 +835,7 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   store i8 0, ptr %432, align 1
   %433 = getelementptr inbounds i8, ptr %.1, i64 16
   store i32 -1, ptr %433, align 8
-  call fastcc void @replace_by_const_or_qm_assign(ptr noundef nonnull %0, ptr noundef %.0415505, ptr noundef nonnull %3)
+  call fastcc void @replace_by_const_or_qm_assign(ptr noundef nonnull %0, ptr noundef %.0415505, ptr noundef %3)
   br label %.critedge
 
 434:                                              ; preds = %27
@@ -855,7 +855,7 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br i1 %445, label %446, label %.critedge
 
 446:                                              ; preds = %438
-  call fastcc void @replace_by_const_or_qm_assign(ptr noundef nonnull %0, ptr noundef nonnull %.0415505, ptr noundef nonnull %3)
+  call fastcc void @replace_by_const_or_qm_assign(ptr noundef nonnull %0, ptr noundef nonnull %.0415505, ptr noundef %3)
   br label %.critedge
 
 447:                                              ; preds = %27
@@ -900,7 +900,7 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   %472 = zext i32 %471 to i64
   %473 = getelementptr inbounds %struct._zval_struct, ptr %470, i64 %472, i32 1
   store i32 1, ptr %473, align 8
-  call fastcc void @replace_by_const_or_qm_assign(ptr noundef nonnull %0, ptr noundef nonnull %.0415505, ptr noundef nonnull %3)
+  call fastcc void @replace_by_const_or_qm_assign(ptr noundef nonnull %0, ptr noundef nonnull %.0415505, ptr noundef %3)
   br label %.critedge
 
 474:                                              ; preds = %27
@@ -1122,7 +1122,7 @@ declare void @_convert_to_string(ptr noundef) local_unnamed_addr #1
 declare i32 @zend_optimizer_eval_binary_op(ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @replace_by_const_or_qm_assign(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @replace_by_const_or_qm_assign(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 29
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 1
@@ -1210,7 +1210,7 @@ define internal fastcc void @replace_by_const_or_qm_assign(ptr noundef %0, ptr n
   %56 = load i8, ptr %55, align 1
   %57 = getelementptr inbounds i8, ptr %1, i64 16
   %58 = load i32, ptr %57, align 8
-  %59 = tail call zeroext i1 @zend_optimizer_replace_by_const(ptr noundef %0, ptr noundef nonnull %54, i8 noundef zeroext %56, i32 noundef %58, ptr noundef %2) #6
+  %59 = tail call zeroext i1 @zend_optimizer_replace_by_const(ptr noundef %0, ptr noundef nonnull %54, i8 noundef zeroext %56, i32 noundef %58, ptr noundef nonnull %2) #6
   %60 = getelementptr inbounds i8, ptr %1, i64 28
   br i1 %59, label %61, label %64
 
@@ -1233,7 +1233,7 @@ define internal fastcc void @replace_by_const_or_qm_assign(ptr noundef %0, ptr n
   store i8 0, ptr %29, align 2
   %66 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 -1, ptr %66, align 4
-  %67 = tail call zeroext i1 @zend_optimizer_update_op1_const(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #6
+  %67 = tail call zeroext i1 @zend_optimizer_update_op1_const(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) #6
   br label %68
 
 68:                                               ; preds = %64, %61

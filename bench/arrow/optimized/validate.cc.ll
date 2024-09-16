@@ -3605,7 +3605,7 @@ if.end23.i.i:                                     ; preds = %cond.end16.i.i
   br i1 %or.cond1.i.i, label %if.then26.i.i, label %nrvo.skipdtor.thread.i
 
 if.then26.i.i:                                    ; preds = %if.end23.i.i
-  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl20FullyValidateOffsetsIiEENS_6StatusEl(ptr noalias nonnull align 8 %ref.tmp.i, ptr nonnull %this.val.i, i64 noundef %3), !noalias !284
+  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl20FullyValidateOffsetsIiEENS_6StatusEl(ptr noalias align 8 %ref.tmp.i, ptr nonnull %this.val.i, i64 noundef %3), !noalias !284
   br label %_ZN5arrow6StatusD2Ev.exit.i
 
 nrvo.skipdtor.thread.i:                           ; preds = %if.end23.i.i, %if.then.i.i
@@ -3890,7 +3890,7 @@ if.end23.i.i:                                     ; preds = %cond.end16.i.i
   br i1 %or.cond1.i.i, label %if.then26.i.i, label %nrvo.skipdtor.thread.i
 
 if.then26.i.i:                                    ; preds = %if.end23.i.i
-  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl20FullyValidateOffsetsIiEENS_6StatusEl(ptr noalias nonnull align 8 %ref.tmp.i, ptr nonnull %this.val.i, i64 noundef %3), !noalias !320
+  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl20FullyValidateOffsetsIiEENS_6StatusEl(ptr noalias align 8 %ref.tmp.i, ptr nonnull %this.val.i, i64 noundef %3), !noalias !320
   br label %_ZN5arrow6StatusD2Ev.exit.i
 
 nrvo.skipdtor.thread.i:                           ; preds = %if.end23.i.i, %if.then.i.i
@@ -4102,7 +4102,7 @@ if.end23.i.i:                                     ; preds = %cond.end16.i.i
   br i1 %or.cond1.i.i, label %if.then26.i.i, label %nrvo.skipdtor.thread.i
 
 if.then26.i.i:                                    ; preds = %if.end23.i.i
-  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl20FullyValidateOffsetsIlEENS_6StatusEl(ptr noalias nonnull align 8 %ref.tmp.i, ptr nonnull %this.val.i, i64 noundef %3), !noalias !342
+  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl20FullyValidateOffsetsIlEENS_6StatusEl(ptr noalias align 8 %ref.tmp.i, ptr nonnull %this.val.i, i64 noundef %3), !noalias !342
   br label %_ZN5arrow6StatusD2Ev.exit.i
 
 nrvo.skipdtor.thread.i:                           ; preds = %if.end23.i.i, %if.then.i.i
@@ -4348,7 +4348,7 @@ if.end23.i.i:                                     ; preds = %cond.end16.i.i
   br i1 %or.cond1.i.i, label %if.then26.i.i, label %nrvo.skipdtor.thread.i
 
 if.then26.i.i:                                    ; preds = %if.end23.i.i
-  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl20FullyValidateOffsetsIlEENS_6StatusEl(ptr noalias nonnull align 8 %ref.tmp.i, ptr nonnull %this.val.i, i64 noundef %3), !noalias !369
+  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl20FullyValidateOffsetsIlEENS_6StatusEl(ptr noalias align 8 %ref.tmp.i, ptr nonnull %this.val.i, i64 noundef %3), !noalias !369
   br label %_ZN5arrow6StatusD2Ev.exit.i
 
 nrvo.skipdtor.thread.i:                           ; preds = %if.end23.i.i, %if.then.i.i
@@ -4889,7 +4889,7 @@ for.cond.preheader.i.i.i:                         ; preds = %call.i.i.i.noexc
 _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %for.cond.preheader.i.i.i, %for.inc.i.i.i
   %i.021.i.i.i = phi i64 [ %inc.i.i.i, %for.inc.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
   %position.120.i.i.i = phi i64 [ %inc12.i.i.i, %for.inc.i.i.i ], [ %position.024.i.i.i, %for.cond.preheader.i.i.i ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time32TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl5VisitERKS2_EUliE_ZNS6_5VisitES8_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i, ptr nonnull %type, ptr %add.ptr.i.i.i.i40, i64 noundef %position.120.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time32TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl5VisitERKS2_EUliE_ZNS6_5VisitES8_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i, ptr nonnull %type, ptr %add.ptr.i.i.i.i40, i64 noundef %position.120.i.i.i)
           to label %.noexc42 unwind label %lpad.loopexit
 
 .noexc42:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i
@@ -4943,7 +4943,7 @@ for.body52.i.i.i:                                 ; preds = %for.inc99.i.i.i, %f
   br i1 %tobool.i.not.i.i.i, label %_ZN5arrow6StatusD2Ev.exit244.i.i.i, label %_ZN5arrow6StatusD2Ev.exit171.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit171.i.i.i:               ; preds = %for.body52.i.i.i
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time32TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl5VisitERKS2_EUliE_ZNS6_5VisitES8_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i, ptr nonnull %type, ptr %add.ptr.i.i.i.i40, i64 noundef %position.413.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time32TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl5VisitERKS2_EUliE_ZNS6_5VisitES8_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i, ptr nonnull %type, ptr %add.ptr.i.i.i.i40, i64 noundef %position.413.i.i.i)
           to label %.noexc43 unwind label %lpad.loopexit.split-lp.loopexit
 
 .noexc43:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit171.i.i.i
@@ -5148,7 +5148,7 @@ for.cond.preheader.i.i.i:                         ; preds = %call.i.i.i.noexc
 _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %for.cond.preheader.i.i.i, %for.inc.i.i.i
   %i.021.i.i.i = phi i64 [ %inc.i.i.i, %for.inc.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
   %position.120.i.i.i = phi i64 [ %inc12.i.i.i, %for.inc.i.i.i ], [ %position.024.i.i.i, %for.cond.preheader.i.i.i ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time64TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl5VisitERKS2_EUllE_ZNS6_5VisitES8_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i, ptr nonnull %type, ptr %add.ptr.i.i.i.i40, i64 noundef %position.120.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time64TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl5VisitERKS2_EUllE_ZNS6_5VisitES8_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i, ptr nonnull %type, ptr %add.ptr.i.i.i.i40, i64 noundef %position.120.i.i.i)
           to label %.noexc42 unwind label %lpad.loopexit
 
 .noexc42:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i
@@ -5202,7 +5202,7 @@ for.body52.i.i.i:                                 ; preds = %for.inc99.i.i.i, %f
   br i1 %tobool.i.not.i.i.i, label %_ZN5arrow6StatusD2Ev.exit244.i.i.i, label %_ZN5arrow6StatusD2Ev.exit171.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit171.i.i.i:               ; preds = %for.body52.i.i.i
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time64TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl5VisitERKS2_EUllE_ZNS6_5VisitES8_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i, ptr nonnull %type, ptr %add.ptr.i.i.i.i40, i64 noundef %position.413.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time64TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl5VisitERKS2_EUllE_ZNS6_5VisitES8_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i, ptr nonnull %type, ptr %add.ptr.i.i.i.i40, i64 noundef %position.413.i.i.i)
           to label %.noexc43 unwind label %lpad.loopexit.split-lp.loopexit
 
 .noexc43:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit171.i.i.i
@@ -5446,7 +5446,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %call.i.i.i.noexc.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0304.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1303.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0307.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal128TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl16ValidateDecimalsIS2_EENS_6StatusERKT_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS7_IS2_EES8_SB_EUlvE_EES8_RKNS_9ArraySpanEOS9_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal128TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl16ValidateDecimalsIS2_EENS_6StatusERKT_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS7_IS2_EES8_SB_EUlvE_EES8_RKNS_9ArraySpanEOS9_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
           to label %.noexc4.i unwind label %lpad.loopexit.i
 
 .noexc4.i:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i
@@ -5506,7 +5506,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit246.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit171.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit171.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal128TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl16ValidateDecimalsIS2_EENS_6StatusERKT_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS7_IS2_EES8_SB_EUlvE_EES8_RKNS_9ArraySpanEOS9_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal128TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl16ValidateDecimalsIS2_EENS_6StatusERKT_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS7_IS2_EES8_SB_EUlvE_EES8_RKNS_9ArraySpanEOS9_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
           to label %.noexc5.i unwind label %lpad.loopexit.split-lp.loopexit.i
 
 .noexc5.i:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit171.i.i.i.i
@@ -5764,7 +5764,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %call.i.i.i.noexc.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0304.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1303.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0307.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl16ValidateDecimalsIS2_EENS_6StatusERKT_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS7_IS2_EES8_SB_EUlvE_EES8_RKNS_9ArraySpanEOS9_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl16ValidateDecimalsIS2_EENS_6StatusERKT_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS7_IS2_EES8_SB_EUlvE_EES8_RKNS_9ArraySpanEOS9_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
           to label %.noexc4.i unwind label %lpad.loopexit.i
 
 .noexc4.i:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i
@@ -5824,7 +5824,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit246.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit171.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit171.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl16ValidateDecimalsIS2_EENS_6StatusERKT_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS7_IS2_EES8_SB_EUlvE_EES8_RKNS_9ArraySpanEOS9_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl16ValidateDecimalsIS2_EENS_6StatusERKT_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS7_IS2_EES8_SB_EUlvE_EES8_RKNS_9ArraySpanEOS9_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i.i.i)
           to label %.noexc5.i unwind label %lpad.loopexit.split-lp.loopexit.i
 
 .noexc5.i:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit171.i.i.i.i
@@ -6069,7 +6069,7 @@ if.end23.i:                                       ; preds = %cond.end16.i
   br i1 %or.cond1.i, label %if.then26.i, label %_ZN5arrow6StatusD2Ev.exit74.thread
 
 if.then26.i:                                      ; preds = %if.end23.i
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl20FullyValidateOffsetsIiEENS_6StatusEl(ptr noalias nonnull align 8 %ref.tmp6.i, ptr nonnull %this.val.i, i64 noundef %add.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl20FullyValidateOffsetsIiEENS_6StatusEl(ptr noalias align 8 %ref.tmp6.i, ptr nonnull %this.val.i, i64 noundef %add.i)
           to label %_ZN5arrow6StatusD2Ev.exit74 unwind label %lpad.i
 
 _ZN5arrow6StatusD2Ev.exit74.thread:               ; preds = %if.end23.i, %if.then.i79
@@ -6401,7 +6401,7 @@ if.end23.i:                                       ; preds = %cond.end16.i
   br i1 %or.cond1.i, label %if.then26.i, label %_ZN5arrow6StatusD2Ev.exit74.thread
 
 if.then26.i:                                      ; preds = %if.end23.i
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl20FullyValidateOffsetsIlEENS_6StatusEl(ptr noalias nonnull align 8 %ref.tmp6.i, ptr nonnull %this.val.i, i64 noundef %add.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl20FullyValidateOffsetsIlEENS_6StatusEl(ptr noalias align 8 %ref.tmp6.i, ptr nonnull %this.val.i, i64 noundef %add.i)
           to label %_ZN5arrow6StatusD2Ev.exit74 unwind label %lpad.i
 
 _ZN5arrow6StatusD2Ev.exit74.thread:               ; preds = %if.end23.i, %if.then.i79
@@ -7457,7 +7457,7 @@ if.end23.i:                                       ; preds = %cond.end16.i
   br i1 %or.cond1.i, label %if.then26.i, label %_ZN5arrow6StatusD2Ev.exit147.thread
 
 if.then26.i:                                      ; preds = %if.end23.i
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl20FullyValidateOffsetsIiEENS_6StatusEl(ptr noalias nonnull align 8 %ref.tmp6.i, ptr nonnull %this.val.i, i64 noundef %add.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl20FullyValidateOffsetsIiEENS_6StatusEl(ptr noalias align 8 %ref.tmp6.i, ptr nonnull %this.val.i, i64 noundef %add.i)
           to label %_ZN5arrow6StatusD2Ev.exit147 unwind label %lpad.i
 
 _ZN5arrow6StatusD2Ev.exit147.thread:              ; preds = %if.end23.i, %if.then.i152
@@ -12790,7 +12790,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl20FullyValidateOffsetsIiEENS_6StatusEl(ptr noalias align 8 %agg.result, ptr nocapture readonly %this.0.val, i64 noundef %offset_limit) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl20FullyValidateOffsetsIiEENS_6StatusEl(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %this.0.val, i64 noundef %offset_limit) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i3 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12833,7 +12833,7 @@ for.cond.preheader:                               ; preds = %_ZNK5arrow9ArrayDat
   br i1 %cmp3.not1, label %for.end, label %for.body
 
 if.then:                                          ; preds = %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit
-  call void @_ZN5arrow6Status8FromArgsIJRA59_KcRiEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(59) @.str.36, ptr noundef nonnull align 4 dereferenceable(4) %prev_offset)
+  call void @_ZN5arrow6Status8FromArgsIJRA59_KcRiEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(59) @.str.36, ptr noundef nonnull align 4 dereferenceable(4) %prev_offset)
   br label %return
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end10
@@ -14132,7 +14132,7 @@ _ZN5arrow6Status8FromArgsIJRA35_KcRKlRA34_S2_S6_RA2_S2_EEES0_NS_10StatusCodeEDpO
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl20FullyValidateOffsetsIlEENS_6StatusEl(ptr noalias align 8 %agg.result, ptr nocapture readonly %this.0.val, i64 noundef %offset_limit) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl20FullyValidateOffsetsIlEENS_6StatusEl(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %this.0.val, i64 noundef %offset_limit) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i3 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14175,7 +14175,7 @@ for.cond.preheader:                               ; preds = %_ZNK5arrow9ArrayDat
   br i1 %cmp3.not1, label %for.end, label %for.body
 
 if.then:                                          ; preds = %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit
-  call void @_ZN5arrow6Status8FromArgsIJRA59_KcRlEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(59) @.str.36, ptr noundef nonnull align 8 dereferenceable(8) %prev_offset)
+  call void @_ZN5arrow6Status8FromArgsIJRA59_KcRlEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(59) @.str.36, ptr noundef nonnull align 8 dereferenceable(8) %prev_offset)
   br label %return
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end10
@@ -14704,7 +14704,7 @@ _ZNSt6vectorIN5arrow9ArraySpanESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ar
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time32TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl5VisitERKS2_EUliE_ZNS6_5VisitES8_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %agg.result, ptr %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time32TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl5VisitERKS2_EUliE_ZNS6_5VisitES8_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %agg.result, ptr %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i5.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14885,7 +14885,7 @@ lpad:                                             ; preds = %call.i.i.i.i.i.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time64TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl5VisitERKS2_EUllE_ZNS6_5VisitES8_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %agg.result, ptr %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time64TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl5VisitERKS2_EUllE_ZNS6_5VisitES8_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %agg.result, ptr %this.0.val.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i5.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15015,7 +15015,7 @@ lpad:                                             ; preds = %call.i.i.i.i.i.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal128TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl16ValidateDecimalsIS2_EENS_6StatusERKT_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS7_IS2_EES8_SB_EUlvE_EES8_RKNS_9ArraySpanEOS9_OT0_ENKUllE_clEl(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal128TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl16ValidateDecimalsIS2_EENS_6StatusERKT_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS7_IS2_EES8_SB_EUlvE_EES8_RKNS_9ArraySpanEOS9_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %value.i = alloca %"class.arrow::Decimal128", align 8
@@ -15125,7 +15125,7 @@ lpad:                                             ; preds = %call.i.i.i.i.noexc,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl16ValidateDecimalsIS2_EENS_6StatusERKT_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS7_IS2_EES8_SB_EUlvE_EES8_RKNS_9ArraySpanEOS9_OT0_ENKUllE_clEl(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117ValidateArrayImpl16ValidateDecimalsIS2_EENS_6StatusERKT_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS7_IS2_EES8_SB_EUlvE_EES8_RKNS_9ArraySpanEOS9_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %value.i = alloca %"class.arrow::Decimal256", align 8

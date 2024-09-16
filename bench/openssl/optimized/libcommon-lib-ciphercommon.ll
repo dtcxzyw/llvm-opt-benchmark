@@ -429,7 +429,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cipher_generic_init_internal(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef readonly %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef %enc) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @cipher_generic_init_internal(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef readonly %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef range(i32 0, 2) %enc) unnamed_addr #1 {
 entry:
   %num = getelementptr inbounds i8, ptr %ctx, i64 160
   store i32 0, ptr %num, align 8
@@ -437,8 +437,8 @@ entry:
   store i64 0, ptr %bufsz, align 8
   %updated = getelementptr inbounds i8, ptr %ctx, i64 108
   %bf.load = load i8, ptr %updated, align 4
-  %tobool.not.not = icmp eq i32 %enc, 0
-  %bf.shl = select i1 %tobool.not.not, i8 0, i8 2
+  %0 = trunc nuw nsw i32 %enc to i8
+  %bf.shl = shl nuw nsw i8 %0, 1
   %bf.clear3 = and i8 %bf.load, -19
   %bf.set4 = or disjoint i8 %bf.clear3, %bf.shl
   store i8 %bf.set4, ptr %updated, align 4
@@ -452,14 +452,14 @@ if.end:                                           ; preds = %entry
 
 land.lhs.true:                                    ; preds = %if.end
   %mode = getelementptr inbounds i8, ptr %ctx, i64 64
-  %0 = load i32, ptr %mode, align 8
-  %cmp6.not = icmp eq i32 %0, 1
+  %1 = load i32, ptr %mode, align 8
+  %cmp6.not = icmp eq i32 %1, 1
   br i1 %cmp6.not, label %if.end30, label %if.then7
 
 if.then7:                                         ; preds = %land.lhs.true
   %ivlen1.i = getelementptr inbounds i8, ptr %ctx, i64 80
-  %1 = load i64, ptr %ivlen1.i, align 8
-  %cmp.i = icmp ne i64 %ivlen, %1
+  %2 = load i64, ptr %ivlen1.i, align 8
+  %cmp.i = icmp ne i64 %ivlen, %2
   %cmp2.i = icmp ugt i64 %ivlen, 16
   %or.cond.i = or i1 %cmp2.i, %cmp.i
   br i1 %or.cond.i, label %ossl_cipher_generic_initiv.exit.thread, label %ossl_cipher_generic_initiv.exit
@@ -481,22 +481,22 @@ ossl_cipher_generic_initiv.exit:                  ; preds = %if.then7
 
 land.lhs.true14:                                  ; preds = %if.end
   %bf.load15 = load i8, ptr %updated, align 4
-  %2 = and i8 %bf.load15, 4
-  %tobool17.not = icmp eq i8 %2, 0
+  %3 = and i8 %bf.load15, 4
+  %tobool17.not = icmp eq i8 %3, 0
   br i1 %tobool17.not, label %if.end30, label %land.lhs.true18
 
 land.lhs.true18:                                  ; preds = %land.lhs.true14
   %mode19 = getelementptr inbounds i8, ptr %ctx, i64 64
-  %3 = load i32, ptr %mode19, align 8
-  %.off = add i32 %3, -2
+  %4 = load i32, ptr %mode19, align 8
+  %.off = add i32 %4, -2
   %switch = icmp ult i32 %.off, 3
   br i1 %switch, label %if.then26, label %if.end30
 
 if.then26:                                        ; preds = %land.lhs.true18
   %iv27 = getelementptr inbounds i8, ptr %ctx, i64 32
   %ivlen29 = getelementptr inbounds i8, ptr %ctx, i64 80
-  %4 = load i64, ptr %ivlen29, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %iv27, ptr nonnull align 8 %ctx, i64 %4, i1 false)
+  %5 = load i64, ptr %ivlen29, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %iv27, ptr nonnull align 8 %ctx, i64 %5, i1 false)
   br label %if.end30
 
 if.end30:                                         ; preds = %land.lhs.true, %ossl_cipher_generic_initiv.exit, %land.lhs.true18, %if.then26, %land.lhs.true14
@@ -505,14 +505,14 @@ if.end30:                                         ; preds = %land.lhs.true, %oss
 
 if.then32:                                        ; preds = %if.end30
   %bf.load33 = load i8, ptr %updated, align 4
-  %5 = and i8 %bf.load33, 32
-  %cmp37 = icmp eq i8 %5, 0
+  %6 = and i8 %bf.load33, 32
+  %cmp37 = icmp eq i8 %6, 0
   %keylen39 = getelementptr inbounds i8, ptr %ctx, i64 72
   br i1 %cmp37, label %if.then38, label %if.else
 
 if.then38:                                        ; preds = %if.then32
-  %6 = load i64, ptr %keylen39, align 8
-  %cmp40.not = icmp eq i64 %keylen, %6
+  %7 = load i64, ptr %keylen39, align 8
+  %cmp40.not = icmp eq i64 %keylen, %7
   br i1 %cmp40.not, label %if.end44, label %if.then41
 
 if.then41:                                        ; preds = %if.then38
@@ -527,9 +527,9 @@ if.else:                                          ; preds = %if.then32
 
 if.end44:                                         ; preds = %if.then38, %if.else
   %hw = getelementptr inbounds i8, ptr %ctx, i64 168
-  %7 = load ptr, ptr %hw, align 8
-  %8 = load ptr, ptr %7, align 8
-  %call46 = tail call i32 %8(ptr noundef nonnull %ctx, ptr noundef nonnull %key, i64 noundef %keylen) #5
+  %8 = load ptr, ptr %hw, align 8
+  %9 = load ptr, ptr %8, align 8
+  %call46 = tail call i32 %9(ptr noundef nonnull %ctx, ptr noundef nonnull %key, i64 noundef %keylen) #5
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %return, label %if.end49
 

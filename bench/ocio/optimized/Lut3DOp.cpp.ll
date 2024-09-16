@@ -599,7 +599,7 @@ lpad:                                             ; preds = %if.end, %if.then
 if.end:                                           ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev11Lut3DOpDataEEaSEOS2_.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev11Lut3DOpDataEEC2ERKS2_.exit
   %lutData.val = load ptr, ptr %lutData, align 8
   %lutData.val4 = load ptr, ptr %_M_refcount.i.i, align 8
-  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOpEJRSt10shared_ptrINS0_11Lut3DOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nonnull align 8 %ref.tmp3, ptr %lutData.val, ptr %lutData.val4)
+  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOpEJRSt10shared_ptrINS0_11Lut3DOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias align 8 %ref.tmp3, ptr %lutData.val, ptr %lutData.val4)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %if.end
@@ -934,7 +934,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev11Lut3DOpDataELN9__gnu_cxx12_Lock_poli
 declare void @_ZN19OpenColorIO_v2_4dev10OpRcPtrVec9push_backERKSt10shared_ptrINS_2OpEE(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOpEJRSt10shared_ptrINS0_11Lut3DOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nocapture writeonly align 8 %agg.result, ptr %__args.0.val, ptr %__args.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOpEJRSt10shared_ptrINS0_11Lut3DOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %__args.0.val, ptr %__args.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %call5.i.i.i5.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
@@ -2570,7 +2570,7 @@ entry:
   %this.val = load ptr, ptr %0, align 8, !noalias !25
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val2 = load ptr, ptr %1, align 8, !noalias !25
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOp9lut3DDataEv(ptr noalias nonnull align 8 %ref.tmp, ptr %this.val, ptr %this.val2)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOp9lut3DDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val2)
   %2 = load ptr, ptr %ref.tmp, align 8
   invoke void @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData5cloneEv(ptr nonnull sret(%"class.std::shared_ptr") align 8 %lut, ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %invoke.cont unwind label %lpad
@@ -2653,7 +2653,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut3DOpDataEED2Ev.exit: ; preds = %in
   %lut.val = load ptr, ptr %lut, align 8
   %14 = getelementptr inbounds i8, ptr %lut, i64 8
   %lut.val3 = load ptr, ptr %14, align 8
-  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOpEJRSt10shared_ptrINS0_11Lut3DOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nonnull align 8 %ref.tmp2, ptr %lut.val, ptr %lut.val3)
+  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOpEJRSt10shared_ptrINS0_11Lut3DOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias align 8 %ref.tmp2, ptr %lut.val, ptr %lut.val3)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOpEED2Ev.exit unwind label %lpad3
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOpEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut3DOpDataEED2Ev.exit
@@ -2980,12 +2980,12 @@ if.then:                                          ; preds = %if.then.i.i, %if.el
   %call2.val = load ptr, ptr %6, align 8, !noalias !25
   %7 = getelementptr i8, ptr %2, i64 16
   %call2.val1 = load ptr, ptr %7, align 8, !noalias !25
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOp9lut3DDataEv(ptr noalias nonnull align 8 %lutData, ptr %call2.val, ptr %call2.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOp9lut3DDataEv(ptr noalias align 8 %lutData, ptr %call2.val, ptr %call2.val1)
   %8 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val = load ptr, ptr %8, align 8, !noalias !25
   %9 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val2 = load ptr, ptr %9, align 8, !noalias !25
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOp9lut3DDataEv(ptr noalias nonnull align 8 %ref.tmp, ptr %this.val, ptr %this.val2)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOp9lut3DDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val2)
   %10 = load ptr, ptr %ref.tmp, align 8
   %call4 = invoke noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData9isInverseERSt10shared_ptrIKS0_E(ptr noundef nonnull align 8 dereferenceable(232) %10, ptr noundef nonnull align 8 dereferenceable(16) %lutData)
           to label %invoke.cont unwind label %lpad
@@ -3292,12 +3292,12 @@ _ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_12_GLOBAL__N_17Lut3DOpEKNS_2OpEEESt
   %call2.val = load ptr, ptr %7, align 8, !noalias !25
   %8 = getelementptr i8, ptr %3, i64 16
   %call2.val5 = load ptr, ptr %8, align 8, !noalias !25
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOp9lut3DDataEv(ptr noalias nonnull align 8 %secondLut, ptr %call2.val, ptr %call2.val5)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOp9lut3DDataEv(ptr noalias align 8 %secondLut, ptr %call2.val, ptr %call2.val5)
   %9 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val = load ptr, ptr %9, align 8, !noalias !25
   %10 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val6 = load ptr, ptr %10, align 8, !noalias !25
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOp9lut3DDataEv(ptr noalias nonnull align 8 %thisLut, ptr %this.val, ptr %this.val6)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOp9lut3DDataEv(ptr noalias align 8 %thisLut, ptr %this.val, ptr %this.val6)
   invoke void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData7ComposeERSt10shared_ptrIKS0_ES4_(ptr nonnull sret(%"class.std::shared_ptr") align 8 %composed, ptr noundef nonnull align 8 dereferenceable(16) %thisLut, ptr noundef nonnull align 8 dereferenceable(16) %secondLut)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -3305,7 +3305,7 @@ invoke.cont4:                                     ; preds = %_ZN19OpenColorIO_v2
   %composed.val = load ptr, ptr %composed, align 8
   %11 = getelementptr inbounds i8, ptr %composed, i64 8
   %composed.val11 = load ptr, ptr %11, align 8
-  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOpEJRSt10shared_ptrINS0_11Lut3DOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nonnull align 8 %composedOp, ptr %composed.val, ptr %composed.val11)
+  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOpEJRSt10shared_ptrINS0_11Lut3DOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias align 8 %composedOp, ptr %composed.val, ptr %composed.val11)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
@@ -3823,7 +3823,7 @@ entry:
   %this.val = load ptr, ptr %0, align 8, !noalias !25
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val1 = load ptr, ptr %1, align 8, !noalias !25
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOp9lut3DDataEv(ptr noalias nonnull align 8 %ref.tmp, ptr %this.val, ptr %this.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOp9lut3DDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val1)
   %2 = load ptr, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
@@ -3942,7 +3942,7 @@ invoke.cont:                                      ; preds = %entry
   %this.val = load ptr, ptr %0, align 8, !noalias !25
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val4 = load ptr, ptr %1, align 8, !noalias !25
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOp9lut3DDataEv(ptr noalias nonnull align 8 %ref.tmp2, ptr %this.val, ptr %this.val4)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOp9lut3DDataEv(ptr noalias align 8 %ref.tmp2, ptr %this.val, ptr %this.val4)
   %2 = load ptr, ptr %ref.tmp2, align 8
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
@@ -4281,7 +4281,7 @@ entry:
   %this.val = load ptr, ptr %0, align 8, !noalias !25
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val4 = load ptr, ptr %1, align 8, !noalias !25
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOp9lut3DDataEv(ptr noalias nonnull align 8 %lutData, ptr %this.val, ptr %this.val4)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOp9lut3DDataEv(ptr noalias align 8 %lutData, ptr %this.val, ptr %this.val4)
   %2 = load ptr, ptr %lutData, align 8
   %m_direction.i = getelementptr inbounds i8, ptr %2, i64 224
   %3 = load i32, ptr %m_direction.i, align 8
@@ -4693,7 +4693,7 @@ entry:
   %this.val = load ptr, ptr %1, align 8, !noalias !25
   %2 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val1 = load ptr, ptr %2, align 8, !noalias !25
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOp9lut3DDataEv(ptr noalias nonnull align 8 %data, ptr %this.val, ptr %this.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOp9lut3DDataEv(ptr noalias align 8 %data, ptr %this.val, ptr %this.val1)
   invoke void @_ZN19OpenColorIO_v2_4dev16GetLut3DRendererERSt10shared_ptrIKNS_11Lut3DOpDataEE(ptr sret(%"class.std::shared_ptr.54") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %data)
           to label %invoke.cont unwind label %lpad
 
@@ -4782,7 +4782,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOp9lut3DDataEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr %this.8.val, ptr %this.16.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_17Lut3DOp9lut3DDataEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.8.val, ptr %this.16.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i.i.i = icmp eq ptr %this.16.val, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK19OpenColorIO_v2_4dev2Op4dataEv.exit, label %if.then.i.i.i.i.i

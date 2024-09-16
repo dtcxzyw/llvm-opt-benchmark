@@ -994,7 +994,7 @@ define weak_odr void @_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfEC2EiRKSt6ve
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, i8 0, i64 96, i1 false)
-  invoke fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115copyStencilDataIfEEvibmPKSt6vectorIiSaIiEEPS6_S8_S9_S8_S9_PKS4_IT_SaISA_EEPSC_SE_SF_SE_SF_SE_SF_SE_SF_SE_SF_(i32 noundef %1, i1 noundef zeroext %6, i64 noundef %7, ptr noundef nonnull %2, ptr noundef nonnull %11, ptr noundef nonnull %3, ptr noundef nonnull %10, ptr noundef nonnull %4, ptr noundef nonnull %12, ptr noundef nonnull %5, ptr noundef nonnull %13, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115copyStencilDataIfEEvibmPKSt6vectorIiSaIiEEPS6_S8_S9_S8_S9_PKS4_IT_SaISA_EEPSC_SE_SF_SE_SF_SE_SF_SE_SF_SE_SF_(i32 noundef %1, i1 noundef zeroext %6, i64 noundef %7, ptr noundef %2, ptr noundef %11, ptr noundef %3, ptr noundef %10, ptr noundef %4, ptr noundef %12, ptr noundef %5, ptr noundef %13, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %14 unwind label %15
 
 14:                                               ; preds = %8
@@ -1063,7 +1063,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit14:                  ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115copyStencilDataIfEEvibmPKSt6vectorIiSaIiEEPS6_S8_S9_S8_S9_PKS4_IT_SaISA_EEPSC_SE_SF_SE_SF_SE_SF_SE_SF_SE_SF_(i32 noundef %0, i1 noundef zeroext %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr nocapture noundef readonly %7, ptr noundef %8, ptr nocapture noundef readonly %9, ptr noundef %10, ptr nocapture noundef readonly %11, ptr noundef %12, ptr nocapture noundef readonly %13, ptr noundef %14, ptr nocapture noundef readonly %15, ptr noundef %16, ptr nocapture noundef readonly %17, ptr noundef %18, ptr nocapture noundef readonly %19, ptr noundef %20) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115copyStencilDataIfEEvibmPKSt6vectorIiSaIiEEPS6_S8_S9_S8_S9_PKS4_IT_SaISA_EEPSC_SE_SF_SE_SF_SE_SF_SE_SF_SE_SF_(i32 noundef %0, i1 noundef zeroext %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull readonly %5, ptr noundef nonnull %6, ptr nocapture noundef nonnull readonly %7, ptr noundef nonnull %8, ptr nocapture noundef nonnull readonly %9, ptr noundef nonnull %10, ptr nocapture noundef readonly %11, ptr noundef %12, ptr nocapture noundef readonly %13, ptr noundef %14, ptr nocapture noundef readonly %15, ptr noundef %16, ptr nocapture noundef readonly %17, ptr noundef %18, ptr nocapture noundef readonly %19, ptr noundef %20) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %22 = select i1 %1, i64 0, i64 %2
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %24 = load ptr, ptr %23, align 8
@@ -2821,7 +2821,7 @@ define weak_odr void @_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdEC2EiRKSt6ve
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, i8 0, i64 96, i1 false)
-  invoke fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115copyStencilDataIdEEvibmPKSt6vectorIiSaIiEEPS6_S8_S9_S8_S9_PKS4_IT_SaISA_EEPSC_SE_SF_SE_SF_SE_SF_SE_SF_SE_SF_(i32 noundef %1, i1 noundef zeroext %6, i64 noundef %7, ptr noundef nonnull %2, ptr noundef nonnull %11, ptr noundef nonnull %3, ptr noundef nonnull %10, ptr noundef nonnull %4, ptr noundef nonnull %12, ptr noundef nonnull %5, ptr noundef nonnull %13, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  invoke fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115copyStencilDataIdEEvibmPKSt6vectorIiSaIiEEPS6_S8_S9_S8_S9_PKS4_IT_SaISA_EEPSC_SE_SF_SE_SF_SE_SF_SE_SF_SE_SF_(i32 noundef %1, i1 noundef zeroext %6, i64 noundef %7, ptr noundef %2, ptr noundef %11, ptr noundef %3, ptr noundef %10, ptr noundef %4, ptr noundef %12, ptr noundef %5, ptr noundef %13, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %14 unwind label %15
 
 14:                                               ; preds = %8
@@ -2890,7 +2890,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit14:                  ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115copyStencilDataIdEEvibmPKSt6vectorIiSaIiEEPS6_S8_S9_S8_S9_PKS4_IT_SaISA_EEPSC_SE_SF_SE_SF_SE_SF_SE_SF_SE_SF_(i32 noundef %0, i1 noundef zeroext %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr nocapture noundef readonly %7, ptr noundef %8, ptr nocapture noundef readonly %9, ptr noundef %10, ptr nocapture noundef readonly %11, ptr noundef %12, ptr nocapture noundef readonly %13, ptr noundef %14, ptr nocapture noundef readonly %15, ptr noundef %16, ptr nocapture noundef readonly %17, ptr noundef %18, ptr nocapture noundef readonly %19, ptr noundef %20) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115copyStencilDataIdEEvibmPKSt6vectorIiSaIiEEPS6_S8_S9_S8_S9_PKS4_IT_SaISA_EEPSC_SE_SF_SE_SF_SE_SF_SE_SF_SE_SF_(i32 noundef %0, i1 noundef zeroext %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull readonly %5, ptr noundef nonnull %6, ptr nocapture noundef nonnull readonly %7, ptr noundef nonnull %8, ptr nocapture noundef nonnull readonly %9, ptr noundef nonnull %10, ptr nocapture noundef readonly %11, ptr noundef %12, ptr nocapture noundef readonly %13, ptr noundef %14, ptr nocapture noundef readonly %15, ptr noundef %16, ptr nocapture noundef readonly %17, ptr noundef %18, ptr nocapture noundef readonly %19, ptr noundef %20) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %22 = select i1 %1, i64 0, i64 %2
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %24 = load ptr, ptr %23, align 8
@@ -4536,7 +4536,7 @@ define weak_odr void @_ZN10OpenSubdiv6v3_6_03Far21LimitStencilTableRealIfEC2EiRK
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %16, i8 0, i64 120, i1 false)
-  invoke fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115copyStencilDataIfEEvibmPKSt6vectorIiSaIiEEPS6_S8_S9_S8_S9_PKS4_IT_SaISA_EEPSC_SE_SF_SE_SF_SE_SF_SE_SF_SE_SF_(i32 noundef %1, i1 noundef zeroext %11, i64 noundef %12, ptr noundef nonnull %2, ptr noundef nonnull %21, ptr noundef nonnull %3, ptr noundef nonnull %15, ptr noundef nonnull %4, ptr noundef nonnull %22, ptr noundef nonnull %5, ptr noundef nonnull %23, ptr noundef nonnull %6, ptr noundef nonnull %16, ptr noundef nonnull %7, ptr noundef nonnull %17, ptr noundef nonnull %8, ptr noundef nonnull %18, ptr noundef nonnull %9, ptr noundef nonnull %19, ptr noundef nonnull %10, ptr noundef nonnull %20)
+  invoke fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115copyStencilDataIfEEvibmPKSt6vectorIiSaIiEEPS6_S8_S9_S8_S9_PKS4_IT_SaISA_EEPSC_SE_SF_SE_SF_SE_SF_SE_SF_SE_SF_(i32 noundef %1, i1 noundef zeroext %11, i64 noundef %12, ptr noundef %2, ptr noundef %21, ptr noundef %3, ptr noundef %15, ptr noundef %4, ptr noundef %22, ptr noundef %5, ptr noundef %23, ptr noundef nonnull %6, ptr noundef nonnull %16, ptr noundef nonnull %7, ptr noundef nonnull %17, ptr noundef nonnull %8, ptr noundef nonnull %18, ptr noundef nonnull %9, ptr noundef nonnull %19, ptr noundef nonnull %10, ptr noundef nonnull %20)
           to label %24 unwind label %25
 
 24:                                               ; preds = %13
@@ -4952,7 +4952,7 @@ define weak_odr void @_ZN10OpenSubdiv6v3_6_03Far21LimitStencilTableRealIdEC2EiRK
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %16, i8 0, i64 120, i1 false)
-  invoke fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115copyStencilDataIdEEvibmPKSt6vectorIiSaIiEEPS6_S8_S9_S8_S9_PKS4_IT_SaISA_EEPSC_SE_SF_SE_SF_SE_SF_SE_SF_SE_SF_(i32 noundef %1, i1 noundef zeroext %11, i64 noundef %12, ptr noundef nonnull %2, ptr noundef nonnull %21, ptr noundef nonnull %3, ptr noundef nonnull %15, ptr noundef nonnull %4, ptr noundef nonnull %22, ptr noundef nonnull %5, ptr noundef nonnull %23, ptr noundef nonnull %6, ptr noundef nonnull %16, ptr noundef nonnull %7, ptr noundef nonnull %17, ptr noundef nonnull %8, ptr noundef nonnull %18, ptr noundef nonnull %9, ptr noundef nonnull %19, ptr noundef nonnull %10, ptr noundef nonnull %20)
+  invoke fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115copyStencilDataIdEEvibmPKSt6vectorIiSaIiEEPS6_S8_S9_S8_S9_PKS4_IT_SaISA_EEPSC_SE_SF_SE_SF_SE_SF_SE_SF_SE_SF_(i32 noundef %1, i1 noundef zeroext %11, i64 noundef %12, ptr noundef %2, ptr noundef %21, ptr noundef %3, ptr noundef %15, ptr noundef %4, ptr noundef %22, ptr noundef %5, ptr noundef %23, ptr noundef nonnull %6, ptr noundef nonnull %16, ptr noundef nonnull %7, ptr noundef nonnull %17, ptr noundef nonnull %8, ptr noundef nonnull %18, ptr noundef nonnull %9, ptr noundef nonnull %19, ptr noundef nonnull %10, ptr noundef nonnull %20)
           to label %24 unwind label %25
 
 24:                                               ; preds = %13

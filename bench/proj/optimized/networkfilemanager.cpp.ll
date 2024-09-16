@@ -9025,7 +9025,7 @@ proj_context_is_network_enabled.exit:             ; preds = %3, %23, %26
   br label %243
 
 32:                                               ; preds = %proj_context_is_network_enabled.exit
-  call fastcc void @_ZL9build_urlB5cxx11P6pj_ctxPKc(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef %.04295, ptr noundef %1)
+  call fastcc void @_ZL9build_urlB5cxx11P6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef %.04295, ptr noundef %1)
   %33 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
   %34 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %33, i32 noundef 47) #30
   %35 = icmp eq ptr %34, null
@@ -9553,7 +9553,7 @@ _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit93: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL9build_urlB5cxx11P6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL9build_urlB5cxx11P6pj_ctxPKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.31", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9792,7 +9792,7 @@ proj_context_is_network_enabled.exit:             ; preds = %5, %22, %25
   br i1 %.not113, label %460, label %33
 
 33:                                               ; preds = %31
-  call fastcc void @_ZL9build_urlB5cxx11P6pj_ctxPKc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %.088227, ptr noundef %1)
+  call fastcc void @_ZL9build_urlB5cxx11P6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %.088227, ptr noundef %1)
   %34 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
   %35 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %34, i32 noundef 47) #30
   %36 = icmp eq ptr %35, null

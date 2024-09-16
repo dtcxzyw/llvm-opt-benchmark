@@ -901,7 +901,7 @@ define internal void @partition_id_attribute_dissector(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dissect_osd_partition_id(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef %7) unnamed_addr #2 {
+define internal fastcc ptr @dissect_osd_partition_id(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef range(i32 0, 2) %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #2 {
   %9 = alloca [2 x i32], align 4
   %10 = alloca [2 x %struct._wmem_tree_key_t], align 16
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 8, i32 noundef 0) #4

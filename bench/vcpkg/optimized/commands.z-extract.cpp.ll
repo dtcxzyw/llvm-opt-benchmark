@@ -1185,7 +1185,7 @@ _ZN5vcpkg4PathC2ERKS0_.exit:                      ; preds = %50
           to label %_ZN5vcpkg4PathC2ERKS0_.exit22 unwind label %52
 
 _ZN5vcpkg4PathC2ERKS0_.exit22:                    ; preds = %_ZN5vcpkg4PathC2ERKS0_.exit
-  invoke fastcc void @_ZN5vcpkgL17extract_and_stripERKNS_10FilesystemERKNS_10VcpkgPathsENS_12StripSettingENS_4PathES7_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(400) %1, i64 %.sroa.04.0.insert.insert, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  invoke fastcc void @_ZN5vcpkgL17extract_and_stripERKNS_10FilesystemERKNS_10VcpkgPathsENS_12StripSettingENS_4PathES7_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(400) %1, i64 %.sroa.04.0.insert.insert, ptr noundef %8, ptr noundef %9)
           to label %51 unwind label %54
 
 51:                                               ; preds = %_ZN5vcpkg4PathC2ERKS0_.exit22
@@ -1248,7 +1248,7 @@ declare void @_ZN5vcpkg15extract_archiveERKNS_10FilesystemERKNS_9ToolCacheERNS_1
 declare noundef nonnull align 1 ptr @_ZNK5vcpkg10VcpkgPaths14get_tool_cacheEv(ptr noundef nonnull align 8 dereferenceable(400)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkgL17extract_and_stripERKNS_10FilesystemERKNS_10VcpkgPathsENS_12StripSettingENS_4PathES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(400) %1, i64 %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkgL17extract_and_stripERKNS_10FilesystemERKNS_10VcpkgPathsENS_12StripSettingENS_4PathES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(400) %1, i64 %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::Path", align 8
   %7 = alloca %"struct.vcpkg::ExtractedArchive", align 8
   %8 = alloca %"class.std::vector.16", align 8

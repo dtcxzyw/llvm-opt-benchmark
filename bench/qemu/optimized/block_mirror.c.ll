@@ -660,7 +660,7 @@ declare void @bdrv_graph_wrunlock(ptr noundef) #1
 declare i32 @bdrv_freeze_backing_chain(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_mirror_start(ptr noundef %bs, ptr noundef %s, ptr noundef %opaque) unnamed_addr #0 {
+define internal fastcc void @trace_mirror_start(ptr noundef %bs, ptr noundef nonnull %s, ptr noundef %opaque) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -688,11 +688,11 @@ if.then8.i:                                       ; preds = %if.then.i
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %bs, ptr noundef %s, ptr noundef %opaque) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %bs, ptr noundef nonnull %s, ptr noundef %opaque) #12
   br label %_nocheck__trace_mirror_start.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, ptr noundef %bs, ptr noundef %s, ptr noundef %opaque) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, ptr noundef %bs, ptr noundef nonnull %s, ptr noundef %opaque) #12
   br label %_nocheck__trace_mirror_start.exit
 
 _nocheck__trace_mirror_start.exit:                ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -3588,7 +3588,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @mirror_perform(ptr noundef %s, i64 noundef %offset, i32 noundef %bytes, i32 noundef %mirror_method) unnamed_addr #0 {
+define internal fastcc i32 @mirror_perform(ptr noundef %s, i64 noundef %offset, i32 noundef %bytes, i32 noundef range(i32 0, 3) %mirror_method) unnamed_addr #0 {
 entry:
   %bytes_handled = alloca i64, align 8
   store i64 -1, ptr %bytes_handled, align 8
@@ -3607,7 +3607,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.compoundliteral.sroa.6.0..sroa_idx, i8 0, i64 56, i1 false)
   %waiting_requests = getelementptr inbounds i8, ptr %call, i64 80
   call void @qemu_co_queue_init(ptr noundef nonnull %waiting_requests) #12
-  %0 = sext i32 %mirror_method to i64
+  %0 = zext nneg i32 %mirror_method to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.mirror_perform, i64 0, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call10 = call ptr @qemu_coroutine_create(ptr noundef nonnull %switch.load, ptr noundef nonnull %call) #12

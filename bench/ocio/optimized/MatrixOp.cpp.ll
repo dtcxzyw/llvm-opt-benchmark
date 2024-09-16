@@ -585,7 +585,7 @@ lpad:                                             ; preds = %if.end, %_ZNSt10sha
 if.end:                                           ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12MatrixOpDataEEC2ERKS2_.exit.if.end_crit_edge, %invoke.cont4
   %mat.val = phi ptr [ %mat.val.pre, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12MatrixOpDataEEC2ERKS2_.exit.if.end_crit_edge ], [ %30, %invoke.cont4 ]
   %mat.val5 = load ptr, ptr %_M_refcount.i.i, align 8
-  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOpEJRSt10shared_ptrINS0_12MatrixOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nonnull align 8 %ref.tmp8, ptr %mat.val, ptr %mat.val5)
+  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOpEJRSt10shared_ptrINS0_12MatrixOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias align 8 %ref.tmp8, ptr %mat.val, ptr %mat.val5)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %if.end
@@ -1687,7 +1687,7 @@ declare void @_ZNK19OpenColorIO_v2_4dev12MatrixOpData5cloneEv(ptr sret(%"class.s
 declare noundef i32 @_ZN19OpenColorIO_v2_4dev26CombineTransformDirectionsENS_18TransformDirectionES0_(i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOpEJRSt10shared_ptrINS0_12MatrixOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nocapture writeonly align 8 %agg.result, ptr %__args.0.val, ptr %__args.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOpEJRSt10shared_ptrINS0_12MatrixOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %__args.0.val, ptr %__args.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %call5.i.i.i5.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
@@ -1812,7 +1812,7 @@ entry:
   %mat.val = load ptr, ptr %mat, align 8
   %0 = getelementptr inbounds i8, ptr %mat, i64 8
   %mat.val3 = load ptr, ptr %0, align 8
-  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOpEJRSt10shared_ptrINS0_12MatrixOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nonnull align 8 %ref.tmp1, ptr %mat.val, ptr %mat.val3)
+  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOpEJRSt10shared_ptrINS0_12MatrixOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias align 8 %ref.tmp1, ptr %mat.val, ptr %mat.val3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -3437,7 +3437,7 @@ entry:
   %this.val = load ptr, ptr %0, align 8, !noalias !37
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val2 = load ptr, ptr %1, align 8, !noalias !37
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOp10matrixDataEv(ptr noalias nonnull align 8 %ref.tmp, ptr %this.val, ptr %this.val2)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOp10matrixDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val2)
   %2 = load ptr, ptr %ref.tmp, align 8
   invoke void @_ZNK19OpenColorIO_v2_4dev12MatrixOpData5cloneEv(ptr nonnull sret(%"class.std::shared_ptr") align 8 %clonedData, ptr noundef nonnull align 8 dereferenceable(260) %2)
           to label %invoke.cont unwind label %lpad
@@ -3520,7 +3520,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12MatrixOpDataEED2Ev.exit: ; preds = %i
   %clonedData.val = load ptr, ptr %clonedData, align 8
   %14 = getelementptr inbounds i8, ptr %clonedData, i64 8
   %clonedData.val3 = load ptr, ptr %14, align 8
-  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOpEJRSt10shared_ptrINS0_12MatrixOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nonnull align 8 %ref.tmp2, ptr %clonedData.val, ptr %clonedData.val3)
+  invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOpEJRSt10shared_ptrINS0_12MatrixOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias align 8 %ref.tmp2, ptr %clonedData.val, ptr %clonedData.val3)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOpEED2Ev.exit unwind label %lpad3
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOpEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12MatrixOpDataEED2Ev.exit
@@ -3808,7 +3808,7 @@ if.then:                                          ; preds = %entry
   %this.val = load ptr, ptr %1, align 8, !noalias !37
   %2 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val5 = load ptr, ptr %2, align 8, !noalias !37
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOp10matrixDataEv(ptr noalias nonnull align 8 %ref.tmp, ptr %this.val, ptr %this.val5)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOp10matrixDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val5)
   %3 = load ptr, ptr %ref.tmp, align 8
   %m_direction.i = getelementptr inbounds i8, ptr %3, i64 256
   %4 = load i32, ptr %m_direction.i, align 8
@@ -3935,7 +3935,7 @@ _ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_12_GLOBAL__N_114MatrixOffsetOpEKNS_
   %call5.val = load ptr, ptr %22, align 8, !noalias !37
   %23 = getelementptr i8, ptr %18, i64 16
   %call5.val6 = load ptr, ptr %23, align 8, !noalias !37
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOp10matrixDataEv(ptr noalias nonnull align 8 %otherMat, ptr %call5.val, ptr %call5.val6)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOp10matrixDataEv(ptr noalias align 8 %otherMat, ptr %call5.val, ptr %call5.val6)
   %24 = load ptr, ptr %otherMat, align 8
   %cmp.i.not = icmp eq ptr %24, null
   br i1 %cmp.i.not, label %if.end17, label %if.then7
@@ -4187,12 +4187,12 @@ _ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_12_GLOBAL__N_114MatrixOffsetOpEKNS_
   %call2.val = load ptr, ptr %7, align 8, !noalias !37
   %8 = getelementptr i8, ptr %3, i64 16
   %call2.val4 = load ptr, ptr %8, align 8, !noalias !37
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOp10matrixDataEv(ptr noalias nonnull align 8 %thisData, ptr %call2.val, ptr %call2.val4)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOp10matrixDataEv(ptr noalias align 8 %thisData, ptr %call2.val, ptr %call2.val4)
   %9 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val = load ptr, ptr %9, align 8, !noalias !37
   %10 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val5 = load ptr, ptr %10, align 8, !noalias !37
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOp10matrixDataEv(ptr noalias nonnull align 8 %ref.tmp, ptr %this.val, ptr %this.val5)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOp10matrixDataEv(ptr noalias align 8 %ref.tmp, ptr %this.val, ptr %this.val5)
   %11 = load ptr, ptr %ref.tmp, align 8
   invoke void @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7composeERSt10shared_ptrIKS0_E(ptr nonnull sret(%"class.std::shared_ptr") align 8 %composedMat, ptr noundef nonnull align 8 dereferenceable(260) %11, ptr noundef nonnull align 8 dereferenceable(16) %thisData)
           to label %invoke.cont5 unwind label %lpad4
@@ -4848,7 +4848,7 @@ invoke.cont:                                      ; preds = %entry
   %this.val = load ptr, ptr %0, align 8, !noalias !37
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val4 = load ptr, ptr %1, align 8, !noalias !37
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOp10matrixDataEv(ptr noalias nonnull align 8 %ref.tmp2, ptr %this.val, ptr %this.val4)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOp10matrixDataEv(ptr noalias align 8 %ref.tmp2, ptr %this.val, ptr %this.val4)
   %2 = load ptr, ptr %ref.tmp2, align 8
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
@@ -5190,7 +5190,7 @@ entry:
   %this.val = load ptr, ptr %0, align 8, !noalias !37
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val2 = load ptr, ptr %1, align 8, !noalias !37
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOp10matrixDataEv(ptr noalias nonnull align 8 %data, ptr %this.val, ptr %this.val2)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOp10matrixDataEv(ptr noalias align 8 %data, ptr %this.val, ptr %this.val2)
   %2 = load ptr, ptr %data, align 8
   %m_direction.i = getelementptr inbounds i8, ptr %2, i64 256
   %3 = load i32, ptr %m_direction.i, align 8
@@ -5399,7 +5399,7 @@ entry:
   %this.val = load ptr, ptr %1, align 8, !noalias !37
   %2 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val1 = load ptr, ptr %2, align 8, !noalias !37
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOp10matrixDataEv(ptr noalias nonnull align 8 %data, ptr %this.val, ptr %this.val1)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOp10matrixDataEv(ptr noalias align 8 %data, ptr %this.val, ptr %this.val1)
   invoke void @_ZN19OpenColorIO_v2_4dev17GetMatrixRendererERSt10shared_ptrIKNS_12MatrixOpDataEE(ptr sret(%"class.std::shared_ptr.57") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %data)
           to label %invoke.cont unwind label %lpad
 
@@ -5488,7 +5488,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOp10matrixDataEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr %this.8.val, ptr %this.16.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_114MatrixOffsetOp10matrixDataEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.8.val, ptr %this.16.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i.i.i = icmp eq ptr %this.16.val, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK19OpenColorIO_v2_4dev2Op4dataEv.exit, label %if.then.i.i.i.i.i

@@ -561,7 +561,7 @@ dissect_nbns_query.exit.us.us.i:                  ; preds = %.lr.ph.split.us.i, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %59 = call ptr @wmem_packet_scope() #8
   %60 = call noalias ptr @wmem_alloc(ptr noundef %59, i64 noundef 379) #8
-  %61 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %.017.us.us.i, i32 noundef 0, ptr noundef %60, i32 noundef 379, ptr noundef nonnull %5)
+  %61 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %.017.us.us.i, i32 noundef 0, ptr noundef %60, i32 noundef 379, ptr noundef %5)
   %62 = add i32 %61, %.017.us.us.i
   %63 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %62) #8
   %64 = zext i16 %63 to i32
@@ -580,7 +580,7 @@ dissect_nbns_query.exit.us.i:                     ; preds = %.lr.ph.split.us.i, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %71 = call ptr @wmem_packet_scope() #8
   %72 = call noalias ptr @wmem_alloc(ptr noundef %71, i64 noundef 379) #8
-  %73 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %.017.us.i, i32 noundef 0, ptr noundef %72, i32 noundef 379, ptr noundef nonnull %5)
+  %73 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %.017.us.i, i32 noundef 0, ptr noundef %72, i32 noundef 379, ptr noundef %5)
   %74 = add i32 %73, %.017.us.i
   %75 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %74) #8
   %76 = zext i16 %75 to i32
@@ -600,7 +600,7 @@ dissect_nbns_query.exit.us.i:                     ; preds = %.lr.ph.split.us.i, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %83 = call ptr @wmem_packet_scope() #8
   %84 = call noalias ptr @wmem_alloc(ptr noundef %83, i64 noundef 379) #8
-  %85 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %.017.i, i32 noundef 0, ptr noundef %84, i32 noundef 379, ptr noundef nonnull %5)
+  %85 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %.017.i, i32 noundef 0, ptr noundef %84, i32 noundef 379, ptr noundef %5)
   %86 = add i32 %85, %.017.i
   %87 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %86) #8
   %88 = zext i16 %87 to i32
@@ -749,7 +749,7 @@ define internal i32 @dissect_nbdgm(ptr noundef %0, ptr noundef %1, ptr noundef %
   %34 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %33, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0) #8
   %35 = call ptr @wmem_packet_scope() #8
   %36 = call noalias ptr @wmem_alloc(ptr noundef %35, i64 noundef 379) #8
-  %37 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef 14, i32 noundef 14, ptr noundef %36, i32 noundef 379, ptr noundef nonnull %7)
+  %37 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef 14, i32 noundef 14, ptr noundef %36, i32 noundef 379, ptr noundef %7)
   %38 = load i32, ptr @hf_nbdgm_source_name, align 4
   %39 = load i32, ptr %7, align 4
   %.not.i = icmp eq i32 %39, -1
@@ -766,7 +766,7 @@ define internal i32 @dissect_nbdgm(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 add_name_and_type.exit:                           ; preds = %40, %43
   %45 = add i32 %37, 14
-  %46 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %45, i32 noundef %45, ptr noundef %36, i32 noundef 379, ptr noundef nonnull %7)
+  %46 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %45, i32 noundef %45, ptr noundef %36, i32 noundef 379, ptr noundef %7)
   %47 = load i32, ptr @hf_nbdgm_destination_name, align 4
   %48 = load i32, ptr %7, align 4
   %.not.i79 = icmp eq i32 %48, -1
@@ -808,7 +808,7 @@ dissect_netbios_payload.exit:                     ; preds = %add_name_and_type.e
 63:                                               ; preds = %4, %4, %4
   %64 = call ptr @wmem_packet_scope() #8
   %65 = call noalias ptr @wmem_alloc(ptr noundef %64, i64 noundef 379) #8
-  %66 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef 10, i32 noundef 10, ptr noundef %65, i32 noundef 379, ptr noundef nonnull %7)
+  %66 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef 10, i32 noundef 10, ptr noundef %65, i32 noundef 379, ptr noundef %7)
   %67 = load i32, ptr @hf_nbdgm_destination_name, align 4
   %68 = load i32, ptr %7, align 4
   %.not.i82 = icmp eq i32 %68, -1
@@ -1222,7 +1222,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_answer_records(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_answer_records(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 0) %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 16) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = load i32, ptr @ett_nbns_ans, align 4
@@ -1251,7 +1251,7 @@ define internal fastcc noundef i32 @dissect_answer_records(ptr noundef %0, ptr n
   %23 = call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef 379) #8
   %24 = call ptr @wmem_packet_scope() #8
   %25 = call noalias ptr @wmem_alloc(ptr noundef %24, i64 noundef 21) #8
-  %26 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %.050, i32 noundef 0, ptr noundef %21, i32 noundef 379, ptr noundef nonnull %9)
+  %26 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %.050, i32 noundef 0, ptr noundef %21, i32 noundef 379, ptr noundef %9)
   %27 = add i32 %26, %.050
   %28 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %27) #8
   %29 = zext i16 %28 to i32
@@ -1845,7 +1845,7 @@ declare ptr @wmem_packet_scope() local_unnamed_addr #1
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = tail call ptr @wmem_packet_scope() #8
@@ -2027,7 +2027,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_nbss_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_nbss_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -2075,7 +2075,7 @@ define internal fastcc void @dissect_nbss_packet(ptr noundef %0, ptr noundef %1,
   ]
 
 36:                                               ; preds = %35
-  %37 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef 4, i32 noundef 4, ptr noundef %12, i32 noundef 379, ptr noundef nonnull %6)
+  %37 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef 4, i32 noundef 4, ptr noundef %12, i32 noundef 379, ptr noundef %6)
   %.not105 = icmp eq ptr %2, null
   br i1 %.not105, label %add_name_and_type.exit, label %38
 
@@ -2099,7 +2099,7 @@ add_name_and_type.exit:                           ; preds = %44, %41, %36
   %47 = getelementptr inbounds i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %48, i32 noundef 25, ptr noundef nonnull @.str.271, ptr noundef %12) #8
-  %49 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %46, i32 noundef %46, ptr noundef %12, i32 noundef 379, ptr noundef nonnull %6)
+  %49 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %46, i32 noundef %46, ptr noundef %12, i32 noundef 379, ptr noundef %6)
   br i1 %.not105, label %add_name_and_type.exit107, label %50
 
 50:                                               ; preds = %add_name_and_type.exit

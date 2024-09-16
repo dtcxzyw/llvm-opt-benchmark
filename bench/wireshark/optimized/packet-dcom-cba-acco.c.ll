@@ -3727,7 +3727,7 @@ proto_item_set_generated.exit:                    ; preds = %cba_ldev_find.exit,
   tail call void @p_add_proto_data(ptr noundef %53, ptr noundef %2, i32 noundef %54, i32 noundef 0, ptr noundef nonnull inttoptr (i64 2 to ptr)) #7
   %55 = load i32, ptr @hf_cba_acco_conn_consumer, align 4
   %56 = call i32 @dissect_dcom_LPWSTR(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %55, ptr noundef nonnull %16, i32 noundef 1000) #7
-  %57 = call fastcc ptr @cba_acco_add(ptr noundef %2, ptr noundef nonnull %16)
+  %57 = call fastcc ptr @cba_acco_add(ptr noundef %2, ptr noundef %16)
   %58 = load i32, ptr @hf_cba_acco_conn_qos_type, align 4
   %59 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %56, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, ptr noundef nonnull %7) #7
   %60 = load i32, ptr @hf_cba_acco_conn_qos_value, align 4
@@ -3849,7 +3849,7 @@ cba_ldev_link_acco.exit:                          ; preds = %77, %73, %69
   %124 = load i32, ptr %14, align 4
   %125 = call ptr @wmem_file_scope() #7
   %126 = call noalias ptr @wmem_memdup(ptr noundef %125, ptr noundef nonnull %13, i64 noundef 2) #7
-  %127 = call fastcc ptr @cba_connection_connect(ptr noundef %2, ptr noundef nonnull %57, ptr noundef nonnull %.1.i, ptr noundef null, i16 noundef zeroext %122, i16 noundef zeroext %123, ptr noundef nonnull %15, i32 noundef %124, i16 noundef zeroext 0, ptr noundef %126, i16 noundef zeroext 1)
+  %127 = call fastcc ptr @cba_connection_connect(ptr noundef %2, ptr noundef nonnull %57, ptr noundef nonnull %.1.i, ptr noundef null, i16 noundef zeroext %122, i16 noundef zeroext %123, ptr noundef %15, i32 noundef %124, i16 noundef zeroext 0, ptr noundef %126, i16 noundef zeroext 1)
   call fastcc void @cba_connection_info(ptr noundef %0, ptr noundef %105, ptr noundef %127)
   br label %128
 
@@ -4427,7 +4427,7 @@ proto_item_set_generated.exit:                    ; preds = %cba_ldev_find.exit,
   tail call void @p_add_proto_data(ptr noundef %43, ptr noundef %2, i32 noundef %44, i32 noundef 0, ptr noundef nonnull inttoptr (i64 2 to ptr)) #7
   %45 = load i32, ptr @hf_cba_acco_conn_consumer, align 4
   %46 = call i32 @dissect_dcom_LPWSTR(ptr noundef %0, i32 noundef %8, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, ptr noundef nonnull %7, i32 noundef 1000) #7
-  %47 = call fastcc ptr @cba_acco_add(ptr noundef %2, ptr noundef nonnull %7)
+  %47 = call fastcc ptr @cba_acco_add(ptr noundef %2, ptr noundef %7)
   %48 = icmp ne ptr %.1.i, null
   %49 = icmp ne ptr %47, null
   %or.cond = select i1 %48, i1 %49, i1 false
@@ -4848,7 +4848,7 @@ proto_item_set_generated.exit:                    ; preds = %cba_ldev_find.exit,
   tail call void @p_add_proto_data(ptr noundef %55, ptr noundef %2, i32 noundef %56, i32 noundef 0, ptr noundef nonnull inttoptr (i64 2 to ptr)) #7
   %57 = load i32, ptr @hf_cba_acco_conn_consumer, align 4
   %58 = call i32 @dissect_dcom_LPWSTR(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %57, ptr noundef nonnull %16, i32 noundef 1000) #7
-  %59 = call fastcc ptr @cba_acco_add(ptr noundef %2, ptr noundef nonnull %16)
+  %59 = call fastcc ptr @cba_acco_add(ptr noundef %2, ptr noundef %16)
   %60 = load i32, ptr @hf_cba_acco_conn_qos_type, align 4
   %61 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %58, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, ptr noundef nonnull %7) #7
   %62 = load i32, ptr @hf_cba_acco_conn_qos_value, align 4
@@ -5070,7 +5070,7 @@ cba_ldev_link_acco.exit:                          ; preds = %.thread, %83, %79, 
   %164 = load i16, ptr %7, align 2
   %165 = load i16, ptr %8, align 2
   %166 = load i32, ptr %14, align 4
-  %167 = call fastcc ptr @cba_connection_connect(ptr noundef %2, ptr noundef nonnull %59, ptr noundef nonnull %.1.i, ptr noundef null, i16 noundef zeroext %164, i16 noundef zeroext %165, ptr noundef nonnull %15, i32 noundef %166, i16 noundef zeroext 0, ptr noundef %.1178, i16 noundef zeroext %.1181)
+  %167 = call fastcc ptr @cba_connection_connect(ptr noundef %2, ptr noundef nonnull %59, ptr noundef nonnull %.1.i, ptr noundef null, i16 noundef zeroext %164, i16 noundef zeroext %165, ptr noundef %15, i32 noundef %166, i16 noundef zeroext 0, ptr noundef %.1178, i16 noundef zeroext %.1181)
   call fastcc void @cba_connection_info(ptr noundef %0, ptr noundef %112, ptr noundef %167)
   br label %168
 
@@ -5141,7 +5141,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %11, %14
   tail call void @p_add_proto_data(ptr noundef %19, ptr noundef %2, i32 noundef %20, i32 noundef 0, ptr noundef nonnull inttoptr (i64 2 to ptr)) #7
   %21 = load i32, ptr @hf_cba_acco_conn_consumer, align 4
   %22 = call i32 @dissect_dcom_LPWSTR(ptr noundef %0, i32 noundef %8, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %7, i32 noundef 1000) #7
-  %23 = call fastcc ptr @cba_acco_add(ptr noundef %2, ptr noundef nonnull %7)
+  %23 = call fastcc ptr @cba_acco_add(ptr noundef %2, ptr noundef %7)
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %30, label %24
 
@@ -5249,9 +5249,9 @@ proto_item_set_generated.exit:                    ; preds = %23, %27, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cba_acco_add(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @cba_acco_add(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
-  %4 = tail call noalias ptr @g_strdup(ptr noundef %1) #7
+  %4 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #7
   %5 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 33) #8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
@@ -5322,7 +5322,7 @@ declare i32 @dissect_dcom_PMInterfacePointer(ptr noundef, i32 noundef, ptr nound
 declare i32 @dissect_dcom_VARTYPE(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cba_connection_connect(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, ptr noundef %6, i32 noundef %7, i16 noundef zeroext %8, ptr noundef %9, i16 noundef zeroext %10) unnamed_addr #0 {
+define internal fastcc ptr @cba_connection_connect(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, ptr noundef nonnull %6, i32 noundef %7, i16 noundef zeroext %8, ptr noundef %9, i16 noundef zeroext %10) unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %20, label %12
 
@@ -5418,7 +5418,7 @@ cba_packet_in_range.exit.thread:                  ; preds = %40, %37, %.critedge
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %51, i8 0, i64 16, i1 false)
   store i32 %7, ptr %52, align 8
   %53 = tail call ptr @wmem_file_scope() #7
-  %54 = tail call noalias ptr @wmem_strdup(ptr noundef %53, ptr noundef %6) #7
+  %54 = tail call noalias ptr @wmem_strdup(ptr noundef %53, ptr noundef nonnull %6) #7
   %55 = getelementptr inbounds i8, ptr %45, i64 56
   store ptr %54, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %45, i64 68
@@ -5563,7 +5563,7 @@ proto_item_set_generated.exit:                    ; preds = %cba_ldev_find.exit,
   tail call void @p_add_proto_data(ptr noundef %52, ptr noundef %2, i32 noundef %53, i32 noundef 0, ptr noundef nonnull inttoptr (i64 4 to ptr)) #7
   %54 = load i32, ptr @hf_cba_acco_conn_consumer, align 4
   %55 = call i32 @dissect_dcom_LPWSTR(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, ptr noundef nonnull %7, i32 noundef 1000) #7
-  %56 = call fastcc ptr @cba_acco_add(ptr noundef %2, ptr noundef nonnull %7)
+  %56 = call fastcc ptr @cba_acco_add(ptr noundef %2, ptr noundef %7)
   %57 = load i32, ptr @hf_cba_acco_conn_qos_type, align 4
   %58 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %57, ptr noundef nonnull %8) #7
   %59 = load i32, ptr @hf_cba_acco_conn_qos_value, align 4
@@ -6594,7 +6594,7 @@ cba_frame_find_by_provcrid.exit.thread:           ; preds = %proto_item_set_gene
   %155 = load i16, ptr %109, align 2
   %156 = load i32, ptr %17, align 4
   %157 = load i16, ptr %18, align 2
-  %158 = call fastcc ptr @cba_connection_connect(ptr noundef %2, ptr noundef %152, ptr noundef %153, ptr noundef nonnull %.0.i175, i16 noundef zeroext %154, i16 noundef zeroext %155, ptr noundef nonnull %13, i32 noundef %156, i16 noundef zeroext %157, ptr noundef %.1152, i16 noundef zeroext %.1154)
+  %158 = call fastcc ptr @cba_connection_connect(ptr noundef %2, ptr noundef %152, ptr noundef %153, ptr noundef nonnull %.0.i175, i16 noundef zeroext %154, i16 noundef zeroext %155, ptr noundef %13, i32 noundef %156, i16 noundef zeroext %157, ptr noundef %.1152, i16 noundef zeroext %.1154)
   call fastcc void @cba_connection_info(ptr noundef %0, ptr noundef %115, ptr noundef %158)
   br label %159
 
@@ -6985,7 +6985,7 @@ proto_item_set_generated.exit:                    ; preds = %cba_ldev_find.exit,
   tail call void @p_add_proto_data(ptr noundef %43, ptr noundef %2, i32 noundef %44, i32 noundef 0, ptr noundef nonnull inttoptr (i64 4 to ptr)) #7
   %45 = load i32, ptr @hf_cba_acco_conn_consumer, align 4
   %46 = call i32 @dissect_dcom_LPWSTR(ptr noundef %0, i32 noundef %8, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, ptr noundef nonnull %7, i32 noundef 1000) #7
-  %47 = call fastcc ptr @cba_acco_add(ptr noundef %2, ptr noundef nonnull %7)
+  %47 = call fastcc ptr @cba_acco_add(ptr noundef %2, ptr noundef %7)
   %48 = icmp ne ptr %.1.i, null
   %49 = icmp ne ptr %47, null
   %or.cond = select i1 %48, i1 %49, i1 false

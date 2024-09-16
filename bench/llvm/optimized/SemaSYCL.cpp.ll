@@ -265,7 +265,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE9push_backES4_.exit: 
   store i64 %83, ptr %82, align 8, !noalias !4
   store ptr %11, ptr %13, align 8
   store ptr %0, ptr %38, align 8
-  %84 = call fastcc noundef zeroext i1 @"_ZZN5clang8SemaSYCL22deepTypeCheckForDeviceENS_14SourceLocationEN4llvm8DenseSetINS_8QualTypeENS2_12DenseMapInfoIS4_vEEEEPNS_9ValueDeclEENK3$_0clES4_PKS8_"(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %83, ptr noundef nonnull %50)
+  %84 = call fastcc noundef zeroext i1 @"_ZZN5clang8SemaSYCL22deepTypeCheckForDeviceENS_14SourceLocationEN4llvm8DenseSetINS_8QualTypeENS2_12DenseMapInfoIS4_vEEEEPNS_9ValueDeclEENK3$_0clES4_PKS8_"(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %83, ptr noundef %50)
   br i1 %84, label %85, label %.preheader
 
 85:                                               ; preds = %81
@@ -325,7 +325,7 @@ switch.early.test:                                ; preds = %89
 106:                                              ; preds = %104, %100
   %storemerge = phi i64 [ %103, %100 ], [ %105, %104 ]
   store i64 %storemerge, ptr %12, align 8
-  %107 = call fastcc noundef zeroext i1 @"_ZZN5clang8SemaSYCL22deepTypeCheckForDeviceENS_14SourceLocationEN4llvm8DenseSetINS_8QualTypeENS2_12DenseMapInfoIS4_vEEEEPNS_9ValueDeclEENK3$_0clES4_PKS8_"(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %storemerge, ptr noundef nonnull %50)
+  %107 = call fastcc noundef zeroext i1 @"_ZZN5clang8SemaSYCL22deepTypeCheckForDeviceENS_14SourceLocationEN4llvm8DenseSetINS_8QualTypeENS2_12DenseMapInfoIS4_vEEEEPNS_9ValueDeclEENK3$_0clES4_PKS8_"(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %storemerge, ptr noundef %50)
   br i1 %107, label %108, label %89, !llvm.loop !11
 
 108:                                              ; preds = %106
@@ -740,7 +740,7 @@ _ZN4llvm11SmallVectorIPKN5clang9ValueDeclELj4EED2Ev.exit: ; preds = %_ZN4llvm11S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN5clang8SemaSYCL22deepTypeCheckForDeviceENS_14SourceLocationEN4llvm8DenseSetINS_8QualTypeENS2_12DenseMapInfoIS4_vEEEEPNS_9ValueDeclEENK3$_0clES4_PKS8_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 %1, ptr noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN5clang8SemaSYCL22deepTypeCheckForDeviceENS_14SourceLocationEN4llvm8DenseSetINS_8QualTypeENS2_12DenseMapInfoIS4_vEEEEPNS_9ValueDeclEENK3$_0clES4_PKS8_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %5 = alloca i32, align 4
   %6 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
@@ -836,8 +836,6 @@ _ZN5clang8SemaSYCL16DiagIfDeviceCodeENS_14SourceLocationEj.exit: ; preds = %33, 
   %61 = and i32 %60, 127
   %62 = add nsw i32 %61, -49
   %63 = icmp ult i32 %62, -3
-  %.not32 = icmp eq ptr %2, null
-  %.not = or i1 %.not32, %63
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.0.0.copyload.i22 = load i32, ptr %64, align 8
   %65 = load ptr, ptr %10, align 8, !noalias !22
@@ -853,7 +851,7 @@ _ZN5clang8SemaSYCL16DiagIfDeviceCodeENS_14SourceLocationEj.exit: ; preds = %33, 
   %74 = zext nneg i16 %73 to i32
   %75 = add nsw i32 %74, -37
   %76 = icmp ult i32 %75, -6
-  br i1 %.not, label %97, label %77
+  br i1 %63, label %97, label %77
 
 77:                                               ; preds = %58
   br i1 %76, label %_ZN5clang8SemaSYCL16DiagIfDeviceCodeENS_14SourceLocationEj.exit19, label %78

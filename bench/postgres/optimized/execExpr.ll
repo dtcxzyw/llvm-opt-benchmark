@@ -131,7 +131,7 @@ define dso_local noundef ptr @ExecInitExpr(ptr noundef %0, ptr noundef %1) local
   br label %ExecCreateExprSetupSteps.exit
 
 ExecCreateExprSetupSteps.exit:                    ; preds = %16, %17, %19, %28, %.thread.i.i
-  call fastcc void @ExecPushExprSetupSteps(ptr noundef nonnull %6, ptr noundef nonnull %3)
+  call fastcc void @ExecPushExprSetupSteps(ptr noundef nonnull %6, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %31 = getelementptr inbounds i8, ptr %6, i64 8
   %32 = getelementptr inbounds i8, ptr %6, i64 5
@@ -274,7 +274,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 25:                                               ; preds = %20
   %26 = getelementptr i8, ptr %1, i64 64
   %.val = load ptr, ptr %26, align 8
-  call fastcc void @ExecInitWholeRowVar(ptr noundef nonnull %6, ptr noundef nonnull %.tr, ptr %.val)
+  call fastcc void @ExecInitWholeRowVar(ptr noundef %6, ptr noundef nonnull %.tr, ptr %.val)
   br label %48
 
 27:                                               ; preds = %20
@@ -1195,7 +1195,7 @@ ExecInitSubscriptingRef.exit:                     ; preds = %.lr.ph1448, %.lr.ph
   %496 = load i32, ptr %495, align 4
   %497 = getelementptr inbounds i8, ptr %.tr, i64 24
   %498 = load i32, ptr %497, align 8
-  call fastcc void @ExecInitFunc(ptr noundef nonnull %6, ptr noundef nonnull %.tr, ptr noundef %494, i32 noundef %496, i32 noundef %498, ptr noundef %1)
+  call fastcc void @ExecInitFunc(ptr noundef %6, ptr noundef nonnull %.tr, ptr noundef %494, i32 noundef %496, i32 noundef %498, ptr noundef %1)
   %499 = getelementptr inbounds i8, ptr %1, i64 60
   %500 = load i32, ptr %499, align 4
   %501 = icmp eq i32 %500, 0
@@ -1248,7 +1248,7 @@ ExprEvalPushStep.exit961:                         ; preds = %502, %._crit_edge.i
   %526 = load i32, ptr %525, align 8
   %527 = getelementptr inbounds i8, ptr %.tr, i64 24
   %528 = load i32, ptr %527, align 8
-  call fastcc void @ExecInitFunc(ptr noundef nonnull %6, ptr noundef nonnull %.tr, ptr noundef %524, i32 noundef %526, i32 noundef %528, ptr noundef %1)
+  call fastcc void @ExecInitFunc(ptr noundef %6, ptr noundef nonnull %.tr, ptr noundef %524, i32 noundef %526, i32 noundef %528, ptr noundef %1)
   %529 = getelementptr inbounds i8, ptr %1, i64 60
   %530 = load i32, ptr %529, align 4
   %531 = icmp eq i32 %530, 0
@@ -1301,7 +1301,7 @@ ExprEvalPushStep.exit965:                         ; preds = %532, %._crit_edge.i
   %556 = load i32, ptr %555, align 8
   %557 = getelementptr inbounds i8, ptr %.tr, i64 24
   %558 = load i32, ptr %557, align 8
-  call fastcc void @ExecInitFunc(ptr noundef nonnull %6, ptr noundef nonnull %.tr, ptr noundef %554, i32 noundef %556, i32 noundef %558, ptr noundef %1)
+  call fastcc void @ExecInitFunc(ptr noundef %6, ptr noundef nonnull %.tr, ptr noundef %554, i32 noundef %556, i32 noundef %558, ptr noundef %1)
   store i64 48, ptr %6, align 8
   %559 = getelementptr inbounds i8, ptr %1, i64 60
   %560 = load i32, ptr %559, align 4
@@ -1355,7 +1355,7 @@ ExprEvalPushStep.exit969:                         ; preds = %562, %._crit_edge.i
   %586 = load i32, ptr %585, align 8
   %587 = getelementptr inbounds i8, ptr %.tr, i64 24
   %588 = load i32, ptr %587, align 8
-  call fastcc void @ExecInitFunc(ptr noundef nonnull %6, ptr noundef nonnull %.tr, ptr noundef %584, i32 noundef %586, i32 noundef %588, ptr noundef %1)
+  call fastcc void @ExecInitFunc(ptr noundef %6, ptr noundef nonnull %.tr, ptr noundef %584, i32 noundef %586, i32 noundef %588, ptr noundef %1)
   store i64 50, ptr %6, align 8
   %589 = getelementptr inbounds i8, ptr %1, i64 60
   %590 = load i32, ptr %589, align 4
@@ -4524,7 +4524,7 @@ define dso_local noundef ptr @ExecInitExprWithParams(ptr noundef %0, ptr noundef
   br label %ExecCreateExprSetupSteps.exit
 
 ExecCreateExprSetupSteps.exit:                    ; preds = %16, %17, %19, %28, %.thread.i.i
-  call fastcc void @ExecPushExprSetupSteps(ptr noundef nonnull %6, ptr noundef nonnull %3)
+  call fastcc void @ExecPushExprSetupSteps(ptr noundef nonnull %6, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %31 = getelementptr inbounds i8, ptr %6, i64 8
   %32 = getelementptr inbounds i8, ptr %6, i64 5
@@ -4660,7 +4660,7 @@ define dso_local noundef ptr @ExecInitQual(ptr noundef %0, ptr noundef %1) local
   br label %ExecCreateExprSetupSteps.exit
 
 ExecCreateExprSetupSteps.exit:                    ; preds = %17, %18, %20, %29, %.thread.i.i
-  call fastcc void @ExecPushExprSetupSteps(ptr noundef nonnull %6, ptr noundef nonnull %3)
+  call fastcc void @ExecPushExprSetupSteps(ptr noundef nonnull %6, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %32 = getelementptr inbounds i8, ptr %6, i64 8
   %33 = getelementptr inbounds i8, ptr %6, i64 5
@@ -4959,12 +4959,12 @@ define dso_local noundef ptr @ExecBuildProjectionInfo(ptr noundef %0, ptr nounde
   br label %.lr.ph
 
 ExecCreateExprSetupSteps.exit:                    ; preds = %5
-  call fastcc void @ExecPushExprSetupSteps(ptr noundef nonnull %9, ptr noundef nonnull %6)
+  call fastcc void @ExecPushExprSetupSteps(ptr noundef nonnull %9, ptr noundef %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %22, %23, %25, %34, %.thread.i.i
-  call fastcc void @ExecPushExprSetupSteps(ptr noundef nonnull %9, ptr noundef nonnull %6)
+  call fastcc void @ExecPushExprSetupSteps(ptr noundef nonnull %9, ptr noundef %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %37 = getelementptr inbounds i8, ptr %0, i64 4
   %38 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5422,7 +5422,7 @@ list_length.exit.thread:                          ; preds = %._crit_edge
   br label %expr_setup_walker.exit
 
 expr_setup_walker.exit:                           ; preds = %.thread.i, %89, %80, %78, %77, %69, %92
-  call fastcc void @ExecPushExprSetupSteps(ptr noundef nonnull %11, ptr noundef nonnull %8)
+  call fastcc void @ExecPushExprSetupSteps(ptr noundef nonnull %11, ptr noundef %8)
   %95 = getelementptr inbounds i8, ptr %0, i64 4
   %96 = getelementptr inbounds i8, ptr %0, i64 16
   %97 = getelementptr inbounds i8, ptr %2, i64 16
@@ -5959,7 +5959,7 @@ define internal zeroext i1 @expr_setup_walker(ptr noundef %0, ptr noundef %1) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecPushExprSetupSteps(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @ExecPushExprSetupSteps(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca %struct.ExprEvalStep, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
@@ -5977,7 +5977,7 @@ define internal fastcc void @ExecPushExprSetupSteps(ptr noundef %0, ptr nocaptur
   %12 = getelementptr i8, ptr %0, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %.val = load ptr, ptr %12, align 8
-  %13 = call fastcc zeroext i1 @ExecComputeSlotInfo(ptr %.val, ptr noundef nonnull %3)
+  %13 = call fastcc zeroext i1 @ExecComputeSlotInfo(ptr %.val, ptr noundef %3)
   br i1 %13, label %14, label %38
 
 14:                                               ; preds = %8
@@ -6043,7 +6043,7 @@ ExprEvalPushStep.exit:                            ; preds = %18, %._crit_edge.i,
   %47 = getelementptr i8, ptr %0, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
   %.val32 = load ptr, ptr %47, align 8
-  %48 = call fastcc zeroext i1 @ExecComputeSlotInfo(ptr %.val32, ptr noundef nonnull %3)
+  %48 = call fastcc zeroext i1 @ExecComputeSlotInfo(ptr %.val32, ptr noundef %3)
   br i1 %48, label %49, label %73
 
 49:                                               ; preds = %42
@@ -6109,7 +6109,7 @@ ExprEvalPushStep.exit37:                          ; preds = %53, %._crit_edge.i3
   %82 = getelementptr i8, ptr %0, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, i8 0, i64 16, i1 false)
   %.val33 = load ptr, ptr %82, align 8
-  %83 = call fastcc zeroext i1 @ExecComputeSlotInfo(ptr %.val33, ptr noundef nonnull %3)
+  %83 = call fastcc zeroext i1 @ExecComputeSlotInfo(ptr %.val33, ptr noundef %3)
   br i1 %83, label %84, label %108
 
 84:                                               ; preds = %77
@@ -6749,7 +6749,7 @@ expr_setup_walker.exit250:                        ; preds = %expr_setup_walker.e
   br i1 %162, label %22, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %expr_setup_walker.exit250, %5
-  call fastcc void @ExecPushExprSetupSteps(ptr noundef %7, ptr noundef nonnull %6)
+  call fastcc void @ExecPushExprSetupSteps(ptr noundef %7, ptr noundef %6)
   %163 = load i32, ptr %15, align 4
   %164 = icmp sgt i32 %163, 0
   br i1 %164, label %.lr.ph529, label %._crit_edge530
@@ -7820,7 +7820,7 @@ define dso_local noundef ptr @ExecBuildGroupingEqual(ptr noundef %0, ptr noundef
   store ptr %0, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %10, i64 40
   store ptr %2, ptr %29, align 8
-  %30 = call fastcc zeroext i1 @ExecComputeSlotInfo(ptr %8, ptr noundef nonnull %10)
+  %30 = call fastcc zeroext i1 @ExecComputeSlotInfo(ptr %8, ptr noundef %10)
   br i1 %30, label %31, label %55
 
 31:                                               ; preds = %._crit_edge
@@ -7876,7 +7876,7 @@ ExprEvalPushStep.exit:                            ; preds = %35, %._crit_edge.i,
   store ptr %1, ptr %28, align 8
   store ptr %3, ptr %29, align 8
   %.val98 = load ptr, ptr %17, align 8
-  %56 = call fastcc zeroext i1 @ExecComputeSlotInfo(ptr %.val98, ptr noundef nonnull %10)
+  %56 = call fastcc zeroext i1 @ExecComputeSlotInfo(ptr %.val98, ptr noundef %10)
   br i1 %56, label %57, label %81
 
 57:                                               ; preds = %55
@@ -8261,7 +8261,7 @@ ExecReadyExpr.exit:                               ; preds = %239, %ExprEvalPushS
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ExecComputeSlotInfo(ptr readonly %.64.val, ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ExecComputeSlotInfo(ptr readonly %.64.val, ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   store i8 0, ptr %2, align 1
   %3 = load i64, ptr %0, align 8
@@ -8460,7 +8460,7 @@ list_length.exit:                                 ; preds = %7, %11
   store ptr %0, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %1, ptr %25, align 8
-  %26 = call fastcc zeroext i1 @ExecComputeSlotInfo(ptr %6, ptr noundef nonnull %8)
+  %26 = call fastcc zeroext i1 @ExecComputeSlotInfo(ptr %6, ptr noundef %8)
   br i1 %26, label %27, label %51
 
 27:                                               ; preds = %list_length.exit
@@ -8516,7 +8516,7 @@ ExprEvalPushStep.exit:                            ; preds = %31, %._crit_edge.i,
   store ptr %0, ptr %24, align 8
   store ptr %2, ptr %25, align 8
   %.val = load ptr, ptr %17, align 8
-  %52 = call fastcc zeroext i1 @ExecComputeSlotInfo(ptr %.val, ptr noundef nonnull %8)
+  %52 = call fastcc zeroext i1 @ExecComputeSlotInfo(ptr %.val, ptr noundef %8)
   br i1 %52, label %53, label %77
 
 53:                                               ; preds = %51
@@ -8899,7 +8899,7 @@ declare void @ExecReadyInterpretedExpr(ptr noundef) local_unnamed_addr #2
 declare void @check_stack_depth() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecInitWholeRowVar(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr readonly %.64.val) unnamed_addr #0 {
+define internal fastcc void @ExecInitWholeRowVar(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1, ptr readonly %.64.val) unnamed_addr #0 {
   store i64 10, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
@@ -8977,7 +8977,7 @@ define internal fastcc void @ExecInitWholeRowVar(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecInitFunc(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @ExecInitFunc(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %list_length.exit, label %7
 

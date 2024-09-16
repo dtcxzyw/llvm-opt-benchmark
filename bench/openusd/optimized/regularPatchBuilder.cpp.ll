@@ -109,7 +109,7 @@ define noundef range(i32 0, 32) i32 @_ZN10OpenSubdiv6v3_6_03Bfr19RegularPatchBui
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit: ; preds = %22, %51, %53, %55, %56
   %.014.i = phi i32 [ 16, %56 ], [ 0, %55 ], [ 0, %53 ], [ 0, %22 ], [ 8, %51 ]
   %.0.i = phi i32 [ %32, %56 ], [ %32, %55 ], [ %32, %53 ], [ %32, %22 ], [ %50, %51 ]
-  %57 = or i32 %.0.i, %.014.i
+  %57 = or disjoint i32 %.0.i, %.014.i
   br label %58
 
 58:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit, %6
@@ -223,7 +223,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr19RegularPatchBuilderC2ERKNS1_11FaceSurfa
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit: ; preds = %63, %68, %71, %73, %74
   %.014.i = phi i32 [ 16, %74 ], [ 0, %73 ], [ 0, %71 ], [ 0, %63 ], [ 8, %68 ]
   %.0.i = phi i32 [ %51, %74 ], [ %51, %73 ], [ %51, %71 ], [ %51, %63 ], [ %69, %68 ]
-  %75 = or i32 %.0.i, %.014.i
+  %75 = or disjoint i32 %.0.i, %.014.i
   br label %76
 
 76:                                               ; preds = %2, %52, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit

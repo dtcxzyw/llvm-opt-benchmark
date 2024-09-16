@@ -4424,7 +4424,7 @@ _ZN3tbb6detail2d112parallel_forIlZN4mold3elf13OutputSectionINS4_7PPC64V1EE14cons
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  call fastcc void @_ZN4mold3elfL11encode_relrINS0_7PPC64V1EEESt6vectorImSaImEESt4spanImLm18446744073709551615EE(ptr noalias nonnull align 8 %ref.tmp21, ptr %11, i64 %sub.ptr.div.i.i.i)
+  call fastcc void @_ZN4mold3elfL11encode_relrINS0_7PPC64V1EEESt6vectorImSaImEESt4spanImLm18446744073709551615EE(ptr noalias align 8 %ref.tmp21, ptr %11, i64 %sub.ptr.div.i.i.i)
   %relr = getelementptr inbounds i8, ptr %this, i64 176
   %13 = load ptr, ptr %relr, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
@@ -4610,7 +4610,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt6vectorImSaImE
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4mold3elfL11encode_relrINS0_7PPC64V1EEESt6vectorImSaImEESt4spanImLm18446744073709551615EE(ptr noalias nocapture align 8 %agg.result, ptr nocapture readonly %pos.coerce0, i64 %pos.coerce1) unnamed_addr #4 {
+define internal fastcc void @_ZN4mold3elfL11encode_relrINS0_7PPC64V1EEESt6vectorImSaImEESt4spanImLm18446744073709551615EE(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture readonly %pos.coerce0, i64 %pos.coerce1) unnamed_addr #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %cmp31.not = icmp eq i64 %pos.coerce1, 0
@@ -5536,7 +5536,7 @@ entry:
 define weak_odr dso_local noundef i64 @_ZNK4mold3elf10GotSectionINS0_7PPC64V1EE15get_reldyn_sizeERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(300) %this, ptr noundef nonnull align 8 dereferenceable(4584) %ctx) unnamed_addr #4 comdat align 2 {
 entry:
   %ref.tmp = alloca %"class.std::vector.289", align 8
-  call fastcc void @_ZN4mold3elfL15get_got_entriesINS0_7PPC64V1EEESt6vectorINS0_12_GLOBAL__N_18GotEntryIT_EESaIS7_EERNS0_7ContextIS6_EE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(4584) %ctx)
+  call fastcc void @_ZN4mold3elfL15get_got_entriesINS0_7PPC64V1EEESt6vectorINS0_12_GLOBAL__N_18GotEntryIT_EESaIS7_EERNS0_7ContextIS6_EE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(4584) %ctx)
   %ref.tmp.val5 = load ptr, ptr %ref.tmp, align 8
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %ref.tmp.val = load ptr, ptr %0, align 8
@@ -5579,7 +5579,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4mold3elfL15get_got_entriesINS0_7PPC64V1EEESt6vectorINS0_12_GLOBAL__N_18GotEntryIT_EESaIS7_EERNS0_7ContextIS6_EE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(4584) %ctx) unnamed_addr #4 {
+define internal fastcc void @_ZN4mold3elfL15get_got_entriesINS0_7PPC64V1EEESt6vectorINS0_12_GLOBAL__N_18GotEntryIT_EESaIS7_EERNS0_7ContextIS6_EE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(4584) %ctx) unnamed_addr #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %got = getelementptr inbounds i8, ptr %ctx, i64 4024
@@ -7008,7 +7008,7 @@ entry:
   %x.0.copyload.i28 = load i64, ptr %sh_offset7, align 1
   %reldyn_offset = getelementptr inbounds i8, ptr %this, i64 160
   %5 = load i64, ptr %reldyn_offset, align 8
-  call fastcc void @_ZN4mold3elfL15get_got_entriesINS0_7PPC64V1EEESt6vectorINS0_12_GLOBAL__N_18GotEntryIT_EESaIS7_EERNS0_7ContextIS6_EE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(4584) %ctx)
+  call fastcc void @_ZN4mold3elfL15get_got_entriesINS0_7PPC64V1EEESt6vectorINS0_12_GLOBAL__N_18GotEntryIT_EESaIS7_EERNS0_7ContextIS6_EE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(4584) %ctx)
   %ref.tmp.val23 = load ptr, ptr %ref.tmp, align 8
   %6 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %ref.tmp.val = load ptr, ptr %6, align 8
@@ -7129,7 +7129,7 @@ define weak_odr dso_local void @_ZN4mold3elf10GotSectionINS0_7PPC64V1EE14constru
 entry:
   %ref.tmp = alloca %"class.std::vector.289", align 8
   %ref.tmp9 = alloca %"class.std::vector.9", align 8
-  call fastcc void @_ZN4mold3elfL15get_got_entriesINS0_7PPC64V1EEESt6vectorINS0_12_GLOBAL__N_18GotEntryIT_EESaIS7_EERNS0_7ContextIS6_EE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(4584) %ctx)
+  call fastcc void @_ZN4mold3elfL15get_got_entriesINS0_7PPC64V1EEESt6vectorINS0_12_GLOBAL__N_18GotEntryIT_EESaIS7_EERNS0_7ContextIS6_EE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(4584) %ctx)
   %ref.tmp.val4 = load ptr, ptr %ref.tmp, align 8
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %ref.tmp.val = load ptr, ptr %0, align 8
@@ -7160,7 +7160,7 @@ _ZNSt6vectorIN4mold3elf12_GLOBAL__N_18GotEntryINS1_7PPC64V1EEESaIS5_EED2Ev.exit:
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %pos.sroa.0.0.lcssa to i64
   %sub.ptr.sub.i.i.i = sub i64 %pos.sroa.5.0.lcssa, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  call fastcc void @_ZN4mold3elfL11encode_relrINS0_7PPC64V1EEESt6vectorImSaImEESt4spanImLm18446744073709551615EE(ptr noalias nonnull align 8 %ref.tmp9, ptr %pos.sroa.0.0.lcssa, i64 %sub.ptr.div.i.i.i)
+  call fastcc void @_ZN4mold3elfL11encode_relrINS0_7PPC64V1EEESt6vectorImSaImEESt4spanImLm18446744073709551615EE(ptr noalias align 8 %ref.tmp9, ptr %pos.sroa.0.0.lcssa, i64 %sub.ptr.div.i.i.i)
   %relr = getelementptr inbounds i8, ptr %this, i64 176
   %3 = load ptr, ptr %relr, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
@@ -9659,7 +9659,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool3, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  call fastcc void @_ZN4mold3elfL22create_dynamic_sectionINS0_7PPC64V1EEESt6vectorINSt11conditionalIXsrT_5is_64ENS4_IXsrS5_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS4_IXsrS5_5is_leENS6_IjLi4EEENS8_IjLi4EEEE4typeEE4typeESaISH_EERNS0_7ContextIS5_EE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(4584) %ctx)
+  call fastcc void @_ZN4mold3elfL22create_dynamic_sectionINS0_7PPC64V1EEESt6vectorINSt11conditionalIXsrT_5is_64ENS4_IXsrS5_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS4_IXsrS5_5is_leENS6_IjLi4EEENS8_IjLi4EEEE4typeEE4typeESaISH_EERNS0_7ContextIS5_EE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(4584) %ctx)
   %_M_finish.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %3 = load ptr, ptr %ref.tmp, align 8
@@ -9692,7 +9692,7 @@ return:                                           ; preds = %land.lhs.true, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4mold3elfL22create_dynamic_sectionINS0_7PPC64V1EEESt6vectorINSt11conditionalIXsrT_5is_64ENS4_IXsrS5_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS4_IXsrS5_5is_leENS6_IjLi4EEENS8_IjLi4EEEE4typeEE4typeESaISH_EERNS0_7ContextIS5_EE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(4584) %ctx) unnamed_addr #4 {
+define internal fastcc void @_ZN4mold3elfL22create_dynamic_sectionINS0_7PPC64V1EEESt6vectorINSt11conditionalIXsrT_5is_64ENS4_IXsrS5_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS4_IXsrS5_5is_leENS6_IjLi4EEENS8_IjLi4EEEE4typeEE4typeESaISH_EERNS0_7ContextIS5_EE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(4584) %ctx) unnamed_addr #4 {
 entry:
   %str.i140 = alloca %"class.std::basic_string_view", align 8
   %str.i129 = alloca %"class.std::basic_string_view", align 8
@@ -10368,7 +10368,7 @@ nrvo.skipdtor:                                    ; preds = %for.body308, %if.en
 define weak_odr dso_local void @_ZN4mold3elf14DynamicSectionINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(4584) %ctx) unnamed_addr #4 comdat align 2 {
 entry:
   %contents = alloca %"class.std::vector.386", align 8
-  call fastcc void @_ZN4mold3elfL22create_dynamic_sectionINS0_7PPC64V1EEESt6vectorINSt11conditionalIXsrT_5is_64ENS4_IXsrS5_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS4_IXsrS5_5is_leENS6_IjLi4EEENS8_IjLi4EEEE4typeEE4typeESaISH_EERNS0_7ContextIS5_EE(ptr noalias nonnull align 8 %contents, ptr noundef nonnull align 8 dereferenceable(4584) %ctx)
+  call fastcc void @_ZN4mold3elfL22create_dynamic_sectionINS0_7PPC64V1EEESt6vectorINSt11conditionalIXsrT_5is_64ENS4_IXsrS5_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS4_IXsrS5_5is_leENS6_IjLi4EEENS8_IjLi4EEEE4typeEE4typeESaISH_EERNS0_7ContextIS5_EE(ptr noalias align 8 %contents, ptr noundef nonnull align 8 dereferenceable(4584) %ctx)
   %buf = getelementptr inbounds i8, ptr %ctx, i64 3368
   %0 = load ptr, ptr %buf, align 8
   %sh_offset = getelementptr inbounds i8, ptr %this, i64 48
@@ -18116,7 +18116,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 23
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %ctx.val = load i8, ptr %3, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_7PPC64V1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %ref.tmp, i8 %ctx.val, ptr noundef nonnull %agg.tmp)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_7PPC64V1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp, i8 %ctx.val, ptr noundef %agg.tmp)
   %5 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_7PPC64V1EEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit, label %if.then.i
@@ -18175,7 +18175,7 @@ if.else:                                          ; preds = %entry
   %arrayidx.i.i.i18 = getelementptr inbounds i8, ptr %agg.tmp6, i64 21
   store i8 0, ptr %arrayidx.i.i.i18, align 1
   %ctx.val5 = load i8, ptr %3, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_7PPC64V1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %ref.tmp5, i8 %ctx.val5, ptr noundef nonnull %agg.tmp6)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_7PPC64V1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp5, i8 %ctx.val5, ptr noundef %agg.tmp6)
   %12 = load ptr, ptr %this, align 8
   %tobool.not.i31 = icmp eq ptr %12, null
   br i1 %tobool.not.i31, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_7PPC64V1EEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit35, label %if.then.i32
@@ -22452,7 +22452,7 @@ entry:
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %3 = getelementptr inbounds i8, ptr %ctx, i64 88
   %ctx.val = load i8, ptr %3, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_7PPC64V1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %ref.tmp, i8 %ctx.val, ptr noundef nonnull %agg.tmp)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_7PPC64V1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp, i8 %ctx.val, ptr noundef %agg.tmp)
   %4 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_7PPC64V1EEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit, label %if.then.i
@@ -22593,7 +22593,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_7PPC64V1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %agg.result, i8 %ctx.88.val, ptr noundef %msg) unnamed_addr #4 {
+define internal fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_7PPC64V1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %agg.result, i8 %ctx.88.val, ptr noundef nonnull %msg) unnamed_addr #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -22602,7 +22602,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull @.str.86, ptr noundef nonnull align 8 dereferenceable(32) %msg)
-  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.87)
+  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.87)
   %0 = load ptr, ptr %ref.tmp, align 8
   %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %0, %1
@@ -22621,7 +22621,7 @@ if.then.i.i:                                      ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp1, ptr noundef nonnull @.str.88, ptr noundef nonnull align 8 dereferenceable(32) %msg)
-  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, ptr noundef nonnull @.str.89)
+  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, ptr noundef nonnull @.str.89)
   %3 = load ptr, ptr %ref.tmp1, align 8
   %4 = getelementptr inbounds i8, ptr %ref.tmp1, i64 16
   %cmp.i.i.i1 = icmp eq ptr %3, %4
@@ -22952,7 +22952,7 @@ declare void @_ZN4mold7cleanupEv() local_unnamed_addr #0
 declare void @_exit(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZZN4mold3elfL11create_phdrINS0_7PPC64V1EEESt6vectorINS0_7ElfPhdrIT_EESaIS6_EERNS0_7ContextIS5_EEENKUlmmPNS0_5ChunkIS2_EEE_clEmmSE_(ptr nocapture %this.0.val, i64 noundef %type, i64 noundef %flags, ptr nocapture noundef readonly %chunk) unnamed_addr #4 align 2 {
+define internal fastcc void @_ZZN4mold3elfL11create_phdrINS0_7PPC64V1EEESt6vectorINS0_7ElfPhdrIT_EESaIS6_EERNS0_7ContextIS5_EEENKUlmmPNS0_5ChunkIS2_EEE_clEmmSE_(ptr nocapture %this.0.val, i64 noundef range(i64 1, 1705237479) %type, i64 noundef %flags, ptr nocapture noundef readonly %chunk) unnamed_addr #4 align 2 {
 entry:
   %conv = trunc nuw nsw i64 %type to i32
   %0 = tail call noundef i32 @llvm.bswap.i32(i32 %conv)
@@ -30753,7 +30753,7 @@ return:                                           ; preds = %land.rhs.i.i.i, %fo
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZZN4mold3elfL22create_dynamic_sectionINS0_7PPC64V1EEESt6vectorINSt11conditionalIXsrT_5is_64ENS4_IXsrS5_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS4_IXsrS5_5is_leENS6_IjLi4EEENS8_IjLi4EEEE4typeEE4typeESaISH_EERNS0_7ContextIS5_EEENKUlmmE_clEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %tag, i64 noundef %val) unnamed_addr #4 align 2 {
+define internal fastcc void @_ZZN4mold3elfL22create_dynamic_sectionINS0_7PPC64V1EEESt6vectorINSt11conditionalIXsrT_5is_64ENS4_IXsrS5_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS4_IXsrS5_5is_leENS6_IjLi4EEENS8_IjLi4EEEE4typeEE4typeESaISH_EERNS0_7ContextIS5_EEENKUlmmE_clEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef range(i64 0, 2147483648) %tag, i64 noundef %val) unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = tail call noundef i64 @llvm.bswap.i64(i64 %tag)

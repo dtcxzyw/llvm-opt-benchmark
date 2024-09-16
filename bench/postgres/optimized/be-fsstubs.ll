@@ -1112,7 +1112,7 @@ define dso_local i64 @be_lo_get(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lo_get_fragment_internal(i32 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @lo_get_fragment_internal(i32 noundef %0, i64 noundef %1, i32 noundef range(i32 -1, -2147483648) %2) unnamed_addr #0 {
   store i1 true, ptr @lo_cleanup_needed, align 1
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
   %5 = tail call ptr @inv_open(i32 noundef %0, i32 noundef 262144, ptr noundef %4) #9

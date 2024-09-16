@@ -509,7 +509,7 @@ sub_155:                                          ; preds = %.tail, %sub_1
   %151 = load ptr, ptr @basedir, align 8
   %152 = call fastcc ptr @get_destination_dir(ptr noundef %151)
   %153 = load ptr, ptr @basedir, align 8
-  call fastcc void @close_destination_dir(ptr noundef nonnull %152, ptr noundef %153)
+  call fastcc void @close_destination_dir(ptr noundef %152, ptr noundef %153)
   br label %154
 
 154:                                              ; preds = %150, %149, %148
@@ -1184,8 +1184,8 @@ define internal fastcc noalias nonnull ptr @get_destination_dir(ptr noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @close_destination_dir(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #3 {
-  %3 = tail call i32 @closedir(ptr noundef %0)
+define internal fastcc void @close_destination_dir(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #3 {
+  %3 = tail call i32 @closedir(ptr noundef nonnull %0)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
 

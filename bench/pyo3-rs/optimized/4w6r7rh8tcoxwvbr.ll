@@ -2197,7 +2197,7 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSign
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSignature27default_value_for_parameter17hd3e4905c3d4b8377E(ptr noalias nocapture writeonly align 8 %0, ptr nocapture readonly align 8 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSignature27default_value_for_parameter17hd3e4905c3d4b8377E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nocapture readonly align 8 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
@@ -2691,7 +2691,7 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSign
           to label %90 unwind label %.loopexit
 
 90:                                               ; preds = %89
-  invoke fastcc void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSignature27default_value_for_parameter17hd3e4905c3d4b8377E(ptr noalias nonnull align 8 %5, ptr align 8 %1, ptr align 1 %82, i64 %84)
+  invoke fastcc void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSignature27default_value_for_parameter17hd3e4905c3d4b8377E(ptr noalias align 8 %5, ptr align 8 %1, ptr align 1 %82, i64 %84)
           to label %91 unwind label %.loopexit
 
 91:                                               ; preds = %90
@@ -2750,7 +2750,7 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSign
           to label %113 unwind label %.loopexit.split-lp.loopexit
 
 113:                                              ; preds = %112
-  invoke fastcc void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSignature27default_value_for_parameter17hd3e4905c3d4b8377E(ptr noalias nonnull align 8 %7, ptr nonnull align 8 %1, ptr align 1 %102, i64 %104)
+  invoke fastcc void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSignature27default_value_for_parameter17hd3e4905c3d4b8377E(ptr noalias align 8 %7, ptr nonnull align 8 %1, ptr align 1 %102, i64 %104)
           to label %114 unwind label %.loopexit.split-lp.loopexit
 
 114:                                              ; preds = %113

@@ -2968,7 +2968,7 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit62: ; preds = %169
   br label %234
 
 179:                                              ; preds = %_ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit
-  call fastcc void @_ZL10readLimitsRN4llvm6object14WasmObjectFile11ReadContextE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call fastcc void @_ZL10readLimitsRN4llvm6object14WasmObjectFile11ReadContextE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.sroa.891.40.copyload95 = load i32, ptr %10, align 8
   %.sroa.891.sroa.0.0.extract.trunc106 = trunc i32 %.sroa.891.40.copyload95 to i8
   %.sroa.891.sroa.9.0.extract.shift119 = lshr i32 %.sroa.891.40.copyload95, 8
@@ -2985,7 +2985,7 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit62: ; preds = %169
   br label %234
 
 182:                                              ; preds = %_ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit
-  call fastcc void @_ZL13readTableTypeRN4llvm6object14WasmObjectFile11ReadContextE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call fastcc void @_ZL13readTableTypeRN4llvm6object14WasmObjectFile11ReadContextE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.sroa.891.40.copyload = load i32, ptr %11, align 8
   %.sroa.891.sroa.0.0.extract.trunc105 = trunc i32 %.sroa.891.40.copyload to i8
   %.sroa.891.sroa.9.0.extract.shift117 = lshr i32 %.sroa.891.40.copyload, 8
@@ -3751,7 +3751,7 @@ _ZNSt6vectorIN4llvm4wasm9WasmTableESaIS2_EE7reserveEm.exit: ; preds = %_ZL13read
 68:                                               ; preds = %.lr.ph, %.backedge
   %.026 = phi i32 [ %45, %.lr.ph ], [ %69, %.backedge ]
   %69 = add i32 %.026, -1
-  call fastcc void @_ZL13readTableTypeRN4llvm6object14WasmObjectFile11ReadContextE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call fastcc void @_ZL13readTableTypeRN4llvm6object14WasmObjectFile11ReadContextE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.3.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %70 = load i32, ptr %66, align 4
   %71 = load ptr, ptr %67, align 8
@@ -4001,7 +4001,7 @@ _ZNSt6vectorIN4llvm4wasm10WasmLimitsESaIS2_EE7reserveEm.exit: ; preds = %_ZL13re
 57:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN4llvm4wasm10WasmLimitsESaIS2_EE9push_backERKS2_.exit
   %.in = phi i32 [ %34, %.lr.ph ], [ %58, %_ZNSt6vectorIN4llvm4wasm10WasmLimitsESaIS2_EE9push_backERKS2_.exit ]
   %58 = add i32 %.in, -1
-  call fastcc void @_ZL10readLimitsRN4llvm6object14WasmObjectFile11ReadContextE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call fastcc void @_ZL10readLimitsRN4llvm6object14WasmObjectFile11ReadContextE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %59 = load i8, ptr %5, align 8
   %60 = and i8 %59, 4
   %.not7 = icmp eq i8 %60, 0
@@ -17396,7 +17396,7 @@ _ZL10readLEB128RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10readLimitsRN4llvm6object14WasmObjectFile11ReadContextE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL10readLimitsRN4llvm6object14WasmObjectFile11ReadContextE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -17556,7 +17556,7 @@ _ZL13readVaruint64RN4llvm6object14WasmObjectFile11ReadContextE.exit19: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13readTableTypeRN4llvm6object14WasmObjectFile11ReadContextE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL13readTableTypeRN4llvm6object14WasmObjectFile11ReadContextE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca %"struct.llvm::wasm::WasmLimits", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -17689,7 +17689,7 @@ _ZL12readVarint64RN4llvm6object14WasmObjectFile11ReadContextE.exit.i: ; preds = 
 _ZL12parseValTypeRN4llvm6object14WasmObjectFile11ReadContextEj.exit: ; preds = %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit, %33, %_ZL12readVarint64RN4llvm6object14WasmObjectFile11ReadContextE.exit.i
   %.0.i = phi i32 [ %32, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit ], [ %32, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit ], [ %32, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit ], [ %32, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit ], [ %32, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit ], [ %32, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit ], [ %32, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit ], [ %32, %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit ], [ 255, %33 ], [ 255, %_ZL12readVarint64RN4llvm6object14WasmObjectFile11ReadContextE.exit.i ]
   store i32 %.0.i, ptr %0, align 8
-  call fastcc void @_ZL10readLimitsRN4llvm6object14WasmObjectFile11ReadContextE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  call fastcc void @_ZL10readLimitsRN4llvm6object14WasmObjectFile11ReadContextE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   ret void

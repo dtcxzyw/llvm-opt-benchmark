@@ -215,8 +215,8 @@ for.body7.i:                                      ; preds = %for.body7.i, %for.b
   %1 = load i64, ptr %arrayidx8.i, align 8
   store i64 %1, ptr %arrayidx.i, align 8
   store i64 %0, ptr %arrayidx8.i, align 8
-  %add11.i = add i64 %isrc.022.i, 1
-  %add12.i = add i64 %idest.021.i, %b.0
+  %add11.i = add nuw nsw i64 %isrc.022.i, 1
+  %add12.i = add nuw nsw i64 %idest.021.i, %b.0
   %inc.i = add nuw nsw i64 %c.023.i, 1
   %cmp6.i = icmp ult i64 %inc.i, %b.0
   br i1 %cmp6.i, label %for.body7.i, label %for.cond.loopexit.i, !llvm.loop !10
@@ -279,8 +279,8 @@ for.body7.i91:                                    ; preds = %for.body7.i91, %for
   %3 = load i64, ptr %arrayidx8.i96, align 8
   store i64 %3, ptr %arrayidx.i95, align 8
   store i64 %2, ptr %arrayidx8.i96, align 8
-  %add11.i97 = add i64 %isrc.022.i93, 1
-  %add12.i98 = add i64 %idest.021.i94, %b.0
+  %add11.i97 = add nuw nsw i64 %isrc.022.i93, 1
+  %add12.i98 = add nuw nsw i64 %idest.021.i94, %b.0
   %inc.i99 = add nuw nsw i64 %c.023.i92, 1
   %cmp6.i100 = icmp ult i64 %inc.i99, %b.0
   br i1 %cmp6.i100, label %for.body7.i91, label %for.cond.loopexit.i84, !llvm.loop !10
@@ -322,7 +322,7 @@ for.end71:                                        ; preds = %for.inc69, %for.con
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @swap_halfrows_pow2(ptr nocapture noundef %matrix, i64 noundef %rows, i64 noundef %cols, i32 noundef %dir) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @swap_halfrows_pow2(ptr nocapture noundef %matrix, i64 noundef %rows, i64 noundef %cols, i32 noundef range(i32 0, 2) %dir) unnamed_addr #1 {
 entry:
   %buf1 = alloca [4096 x i64], align 16
   %buf2 = alloca [4096 x i64], align 16

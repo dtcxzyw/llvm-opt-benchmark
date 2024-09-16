@@ -633,7 +633,7 @@ declare dso_local zeroext i1 @sk_mc_loop(ptr noundef) local_unnamed_addr #3
 declare dso_local ptr @skb_clone(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @NF_HOOK(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc void @NF_HOOK(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #2 align 16 {
   %5 = alloca %struct.nf_hook_state, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @nf_hooks_needed, i64 224), i32 2) #12
           to label %20 [label %6], !srcloc !8
@@ -661,7 +661,7 @@ define internal fastcc void @NF_HOOK(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr %0, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr @ip_mc_finish_output, ptr %16, align 8
-  %17 = call i32 @nf_hook_slow(ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %8, i32 noundef 0) #12
+  %17 = call i32 @nf_hook_slow(ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %8, i32 noundef 0) #12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #12
   %18 = icmp eq i32 %17, 1
   call void @__rcu_read_unlock() #12
@@ -707,7 +707,7 @@ define internal fastcc void @NF_HOOK(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %42
 
 42:                                               ; preds = %37, %20
-  %43 = call i32 @dev_loopback_xmit(ptr noundef %0, ptr noundef %1, ptr noundef %2) #12
+  %43 = call i32 @dev_loopback_xmit(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) #12
   br label %44
 
 44:                                               ; preds = %42, %10

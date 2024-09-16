@@ -1865,7 +1865,7 @@ invoke.cont:                                      ; preds = %.noexc49, %_ZN6Assi
   %add9.i.i16.i48 = add i64 %25, 4
   store i64 %add9.i.i16.i48, ptr %cursor.i.i, align 8
   %26 = trunc nuw i64 %indvars.iv to i32
-  invoke fastcc void @_ZN6Assimp12_GLOBAL__N_115GetMaterialNameB5cxx11ERK10aiMaterialj(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef %26)
+  invoke fastcc void @_ZN6Assimp12_GLOBAL__N_115GetMaterialNameB5cxx11ERK10aiMaterialj(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef %26)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
@@ -3282,7 +3282,7 @@ _ZN6Assimp12_GLOBAL__N_111ChunkWriterC2ERNS_12StreamWriterILb0ELb0EEEt.exit: ; p
   %19 = load i64, ptr %cursor.i.i, align 8
   %add9.i.i16.i = add i64 %19, 4
   store i64 %add9.i.i16.i, ptr %cursor.i.i, align 8
-  invoke fastcc void @_ZN6Assimp12_GLOBAL__N_111GetMeshNameB5cxx11ERK6aiMeshjRK6aiNode(ptr noalias nonnull align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(1320) %5, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(1144) %1)
+  invoke fastcc void @_ZN6Assimp12_GLOBAL__N_111GetMeshNameB5cxx11ERK6aiMeshjRK6aiNode(ptr noalias align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(1320) %5, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(1144) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111ChunkWriterC2ERNS_12StreamWriterILb0ELb0EEEt.exit
@@ -5785,7 +5785,7 @@ invoke.cont29:                                    ; preds = %.noexc185, %_ZN6Ass
   %94 = load i64, ptr %cursor.i.i, align 8
   %add9.i.i16.i183 = add i64 %94, 4
   store i64 %add9.i.i16.i183, ptr %cursor.i.i, align 8
-  invoke fastcc void @_ZN6Assimp12_GLOBAL__N_111GetMeshNameB5cxx11ERK6aiMeshjRK6aiNode(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(1320) %74, i32 noundef %71, ptr noundef nonnull align 8 dereferenceable(1144) %node)
+  invoke fastcc void @_ZN6Assimp12_GLOBAL__N_111GetMeshNameB5cxx11ERK6aiMeshjRK6aiNode(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(1320) %74, i32 noundef %71, ptr noundef nonnull align 8 dereferenceable(1144) %node)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont29
@@ -6328,7 +6328,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutI1Ea.exit15: ; preds = %for.end, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6Assimp12_GLOBAL__N_111GetMeshNameB5cxx11ERK6aiMeshjRK6aiNode(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1320) %mesh, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(1144) %node) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6Assimp12_GLOBAL__N_111GetMeshNameB5cxx11ERK6aiMeshjRK6aiNode(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1320) %mesh, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(1144) %node) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %postfix = alloca [10 x i8], align 1
   %result = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6477,7 +6477,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6Assimp12_GLOBAL__N_115GetMaterialNameB5cxx11ERK10aiMaterialj(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %mat, i32 noundef %index) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6Assimp12_GLOBAL__N_115GetMaterialNameB5cxx11ERK10aiMaterialj(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %mat, i32 noundef %index) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.0", align 1
   %postfix = alloca [10 x i8], align 1
@@ -7470,7 +7470,7 @@ _ZN6Assimp12_GLOBAL__N_111ChunkWriterC2ERNS_12StreamWriterILb0ELb0EEEt.exit: ; p
   %idxprom = zext i32 %13 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %12, i64 %idxprom
   %14 = load ptr, ptr %arrayidx, align 8
-  invoke fastcc void @_ZN6Assimp12_GLOBAL__N_115GetMaterialNameB5cxx11ERK10aiMaterialj(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef %13)
+  invoke fastcc void @_ZN6Assimp12_GLOBAL__N_115GetMaterialNameB5cxx11ERK10aiMaterialj(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef %13)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111ChunkWriterC2ERNS_12StreamWriterILb0ELb0EEEt.exit

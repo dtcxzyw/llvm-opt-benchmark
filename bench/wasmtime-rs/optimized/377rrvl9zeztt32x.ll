@@ -1034,7 +1034,7 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$wasmtime_environ..component.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr85drop_in_place$LT$wasmtime_environ..component..translate..inline..ComponentItemDef$GT$17h87c4c3b5c87a7f82E"(ptr noalias noundef align 8 dereferenceable(144) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr85drop_in_place$LT$wasmtime_environ..component..translate..inline..ComponentItemDef$GT$17h87c4c3b5c87a7f82E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -8594,7 +8594,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hab
 111:                                              ; preds = %5, %.noexc, %.noexc4, %.noexc5, %43
   %112 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr85drop_in_place$LT$wasmtime_environ..component..translate..inline..ComponentItemDef$GT$17h87c4c3b5c87a7f82E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %4) #34
+  invoke fastcc void @"_ZN4core3ptr85drop_in_place$LT$wasmtime_environ..component..translate..inline..ComponentItemDef$GT$17h87c4c3b5c87a7f82E"(ptr noalias noundef align 8 dereferenceable(144) %4) #34
           to label %115 unwind label %113
 
 113:                                              ; preds = %111
@@ -12619,7 +12619,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %8, i64 -256
-  %16 = tail call fastcc noundef zeroext i1 @"_ZN102_$LT$wasmtime_environ..component..translate..adapt..AdapterOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fcf8308be61beedE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %.val)
+  %16 = tail call fastcc noundef zeroext i1 @"_ZN102_$LT$wasmtime_environ..component..translate..adapt..AdapterOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fcf8308be61beedE"(ptr noalias noundef readonly align 8 dereferenceable(104) %15, ptr noalias noundef readonly align 8 dereferenceable(104) %.val)
   br i1 %16, label %17, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.exit"
 
 17:                                               ; preds = %14
@@ -12633,7 +12633,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
 23:                                               ; preds = %17
   %24 = getelementptr inbounds i8, ptr %8, i64 -152
   %25 = getelementptr inbounds i8, ptr %.val, i64 104
-  %26 = tail call fastcc noundef zeroext i1 @"_ZN102_$LT$wasmtime_environ..component..translate..adapt..AdapterOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fcf8308be61beedE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %25)
+  %26 = tail call fastcc noundef zeroext i1 @"_ZN102_$LT$wasmtime_environ..component..translate..adapt..AdapterOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fcf8308be61beedE"(ptr noalias noundef readonly align 8 dereferenceable(104) %24, ptr noalias noundef readonly align 8 dereferenceable(104) %25)
   br i1 %26, label %27, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9c342609384a11d2E.exit"
 
 27:                                               ; preds = %23
@@ -13379,7 +13379,7 @@ define hidden noundef align 8 dereferenceable_or_null(40) ptr @"_ZN9hashbrown3ra
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN82_$LT$wasmtime_environ..component..dfg..CoreDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5abf60fdaae8aa65E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @"_ZN82_$LT$wasmtime_environ..component..dfg..CoreDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5abf60fdaae8aa65E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #5 {
   %3 = load i64, ptr %0, align 8, !range !90, !noundef !10
   %4 = add i64 %3, 9223372036854775807
   %5 = icmp ult i64 %4, 3
@@ -13487,7 +13487,7 @@ define internal fastcc noundef zeroext i1 @"_ZN82_$LT$wasmtime_environ..componen
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN102_$LT$wasmtime_environ..component..translate..adapt..AdapterOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fcf8308be61beedE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %1) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @"_ZN102_$LT$wasmtime_environ..component..translate..adapt..AdapterOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fcf8308be61beedE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(104) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load i32, ptr %3, align 8, !noundef !10
   %5 = getelementptr inbounds i8, ptr %1, i64 96
@@ -13587,7 +13587,7 @@ define internal fastcc noundef zeroext i1 @"_ZN102_$LT$wasmtime_environ..compone
   br i1 %54, label %.critedge9, label %57
 
 57:                                               ; preds = %56
-  %58 = tail call fastcc noundef zeroext i1 @"_ZN82_$LT$wasmtime_environ..component..dfg..CoreDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5abf60fdaae8aa65E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %52)
+  %58 = tail call fastcc noundef zeroext i1 @"_ZN82_$LT$wasmtime_environ..component..dfg..CoreDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5abf60fdaae8aa65E"(ptr noalias noundef readonly align 8 dereferenceable(32) %49, ptr noalias noundef readonly align 8 dereferenceable(32) %52)
   br i1 %58, label %59, label %.critedge9
 
 59:                                               ; preds = %55, %57
@@ -13606,7 +13606,7 @@ define internal fastcc noundef zeroext i1 @"_ZN102_$LT$wasmtime_environ..compone
   ret i1 %.0.shrunk
 
 66:                                               ; preds = %59
-  %67 = tail call fastcc noundef zeroext i1 @"_ZN82_$LT$wasmtime_environ..component..dfg..CoreDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5abf60fdaae8aa65E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %60, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %63)
+  %67 = tail call fastcc noundef zeroext i1 @"_ZN82_$LT$wasmtime_environ..component..dfg..CoreDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5abf60fdaae8aa65E"(ptr noalias noundef readonly align 8 dereferenceable(32) %60, ptr noalias noundef readonly align 8 dereferenceable(32) %63)
   br label %.critedge9
 }
 

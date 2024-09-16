@@ -320,7 +320,7 @@ call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZNSt8_Rb_treeIPKcS
   store ptr %typeName, ptr %_M_storage.i.i.i.i.i.i.i, align 8
   %ref.tmp17.sroa.3.0._M_storage.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i13, i64 40
   store ptr %newAttribute, ptr %ref.tmp17.sroa.3.0._M_storage.i.i.i.i.i.i.i.sroa_idx, align 8
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %12, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i13, ptr noundef %retval.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 8)) #18
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %12, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i13, ptr noundef nonnull %retval.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 8)) #18
   %13 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 40), align 8
   %inc.i.i.i = add i64 %13, 1
   store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN7Imf_3_212_GLOBAL__N_17typeMapEvE4tMap, i64 40), align 8

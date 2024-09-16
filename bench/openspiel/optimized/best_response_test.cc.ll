@@ -1211,7 +1211,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i6: ;
 
 509:                                              ; preds = %507
   %510 = load ptr, ptr %353, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130GetKuhnUniformBestResponsePid1B5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %357)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130GetKuhnUniformBestResponsePid1B5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %357)
           to label %511 unwind label %589
 
 511:                                              ; preds = %509
@@ -2202,11 +2202,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i98: 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %325) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %326) #21
   %859 = load ptr, ptr %324, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_120GetKuhnEdIter4PolicyEv(ptr dead_on_unwind noalias nonnull writable align 8 %327)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_120GetKuhnEdIter4PolicyEv(ptr dead_on_unwind noalias writable align 8 %327)
           to label %860 unwind label %937
 
 860:                                              ; preds = %858
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_137GetExploitabilityDescentBestResponsesB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %328)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_137GetExploitabilityDescentBestResponsesB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %328)
           to label %861 unwind label %939
 
 861:                                              ; preds = %860
@@ -4816,7 +4816,7 @@ _ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i: ; preds = %1569
 
 _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i, %1569
   store ptr null, ptr %281, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_120GetKuhnEdIter4PolicyEv(ptr dead_on_unwind noalias nonnull writable align 8 %282)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_120GetKuhnEdIter4PolicyEv(ptr dead_on_unwind noalias writable align 8 %282)
           to label %1574 unwind label %1611
 
 1574:                                             ; preds = %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i
@@ -4867,7 +4867,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit42.i: ; p
           to label %1590 unwind label %1619
 
 1590:                                             ; preds = %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit42.i
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_137GetExploitabilityDescentBestResponsesB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %285)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_137GetExploitabilityDescentBestResponsesB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %285)
           to label %1591 unwind label %1627
 
 1591:                                             ; preds = %1590
@@ -6226,7 +6226,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i262:
           to label %2015 unwind label %2093
 
 2015:                                             ; preds = %2013
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_136GetKuhnUniformBestResponseValuesPid1B5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %167)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_136GetKuhnUniformBestResponseValuesPid1B5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %167)
           to label %2016 unwind label %2095
 
 2016:                                             ; preds = %2015
@@ -6457,7 +6457,7 @@ _ZN10open_spiel10algorithms12_GLOBAL__N_129KuhnPokerUniformValueTestPid1Ev.exit:
           to label %2103 unwind label %2133
 
 2103:                                             ; preds = %2101
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_136GetKuhnUniformBestResponseValuesPid1B5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %158)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_136GetKuhnUniformBestResponseValuesPid1B5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %158)
           to label %2104 unwind label %2135
 
 2104:                                             ; preds = %2103
@@ -8383,7 +8383,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i393:
 2695:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i393
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #21
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_120GetKuhnEdIter4PolicyEv(ptr dead_on_unwind noalias nonnull writable align 8 %19)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_120GetKuhnEdIter4PolicyEv(ptr dead_on_unwind noalias writable align 8 %19)
           to label %2696 unwind label %2860
 
 2696:                                             ; preds = %2695
@@ -8392,7 +8392,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i393:
           to label %2698 unwind label %2862
 
 2698:                                             ; preds = %2696
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_137GetExploitabilityDescentBestResponsesB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %21)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_137GetExploitabilityDescentBestResponsesB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %21)
           to label %2699 unwind label %2864
 
 2699:                                             ; preds = %2698
@@ -8471,7 +8471,7 @@ _ZN10open_spiel13TabularPolicyD2Ev.exit.i401:     ; preds = %2726, %_ZNSt10_Hash
           to label %2729 unwind label %2868
 
 2729:                                             ; preds = %_ZN10open_spiel13TabularPolicyD2Ev.exit.i401
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130GetKuhnUniformBestResponsePid1B5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %24)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130GetKuhnUniformBestResponsePid1B5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %24)
           to label %2730 unwind label %2868
 
 2730:                                             ; preds = %2729
@@ -8912,7 +8912,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN10open_spiel16GetUniformPolicyERKNS_4GameE(ptr dead_on_unwind writable sret(%"class.open_spiel::TabularPolicy") align 8, ptr noundef nonnull align 8 dereferenceable(280)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_136CheckBestResponseAgainstGoldenPolicyERKNS_4GameEiRKNS_13TabularPolicyERKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaISG_EE(ptr noundef nonnull align 8 dereferenceable(280) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_136CheckBestResponseAgainstGoldenPolicyERKNS_4GameEiRKNS_13TabularPolicyERKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaISG_EE(ptr noundef nonnull align 8 dereferenceable(280) %0, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.open_spiel::algorithms::TabularBestResponse", align 8
   %7 = alloca %"class.std::unique_ptr.57", align 8
@@ -13789,7 +13789,7 @@ declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130GetKuhnUniformBestResponsePid1B5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130GetKuhnUniformBestResponsePid1B5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca [6 x %"struct.std::pair.89"], align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -13933,7 +13933,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 declare void @_ZN10open_spiel10kuhn_poker16GetOptimalPolicyEd(ptr dead_on_unwind writable sret(%"class.open_spiel::TabularPolicy") align 8, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_120GetKuhnEdIter4PolicyEv(ptr dead_on_unwind noalias writable align 8 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_120GetKuhnEdIter4PolicyEv(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::__detail::_AllocNode.224", align 8
   %3 = alloca %"class.std::unordered_map", align 8
   %4 = alloca [12 x %"struct.std::pair.112"], align 8
@@ -15216,7 +15216,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit535:     ; preds = %246, %45, %.body179
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_137GetExploitabilityDescentBestResponsesB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_137GetExploitabilityDescentBestResponsesB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca [6 x %"struct.std::pair.89"], align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -16502,7 +16502,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 declare void @_ZN10open_spiel10algorithms14GetAllInfoSetsB5cxx11ESt10unique_ptrINS_5StateESt14default_deleteIS2_EEiPKNS_6PolicyEPNS0_11HistoryTreeE(ptr dead_on_unwind writable sret(%"class.absl::debian2::flat_hash_map.20") align 8, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_142CheckBestResponseValuesAgainstGoldenValuesERKNS_4GameEiRKNS_13TabularPolicyERKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdESaISG_EE(ptr noundef nonnull align 8 dereferenceable(280) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_142CheckBestResponseValuesAgainstGoldenValuesERKNS_4GameEiRKNS_13TabularPolicyERKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdESaISG_EE(ptr noundef nonnull align 8 dereferenceable(280) %0, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.open_spiel::algorithms::TabularBestResponse", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.absl::debian2::AlphaNum", align 8
@@ -17058,7 +17058,7 @@ declare double @llvm.fabs.f64(double) #15
 declare noundef i64 @_ZN4absl7debian216numbers_internal17SixDigitsToBufferEdPc(double noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_136GetKuhnUniformBestResponseValuesPid1B5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_136GetKuhnUniformBestResponseValuesPid1B5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca [58 x %"struct.std::pair.233"], align 8
   %3 = alloca double, align 8
   %4 = alloca double, align 8

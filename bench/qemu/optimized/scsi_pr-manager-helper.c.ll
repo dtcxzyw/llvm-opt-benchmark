@@ -513,13 +513,13 @@ return:                                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -22, 1) i32 @pr_manager_helper_write(ptr noundef %pr_mgr, i32 noundef %fd, ptr noundef %buf, i32 noundef %sz, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @pr_manager_helper_write(ptr noundef %pr_mgr, i32 noundef %fd, ptr noundef %buf, i32 noundef range(i32 0, 8193) %sz, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %fd.addr = alloca i32, align 4
   %iov = alloca %struct.iovec, align 8
   store i32 %fd, ptr %fd.addr, align 4
-  %cmp213 = icmp sgt i32 %sz, 0
-  br i1 %cmp213, label %while.body.lr.ph, label %return
+  %cmp213.not = icmp eq i32 %sz, 0
+  br i1 %cmp213.not, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %cmp = icmp ne i32 %fd, -1

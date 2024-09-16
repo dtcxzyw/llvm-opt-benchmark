@@ -6842,7 +6842,7 @@ _ZN4llvm19InstructionWorklist19pushUsersToWorkListERNS_11InstructionE.exit.i: ; 
   br i1 %97, label %98, label %209
 
 98:                                               ; preds = %96
-  %99 = call fastcc noundef zeroext i1 @_ZL16canEvaluateZExtdPN4llvm5ValueEPNS_4TypeERjRNS_16InstCombinerImplEPNS_11InstructionE(ptr noundef nonnull %48, ptr noundef %52, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull %1)
+  %99 = call fastcc noundef zeroext i1 @_ZL16canEvaluateZExtdPN4llvm5ValueEPNS_4TypeERjRNS_16InstCombinerImplEPNS_11InstructionE(ptr noundef nonnull %48, ptr noundef %52, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef %1)
   br i1 %99, label %100, label %209
 
 100:                                              ; preds = %98
@@ -7602,7 +7602,7 @@ _ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit: 
 declare noundef zeroext i1 @_ZNK4llvm11Instruction9hasNonNegEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL16canEvaluateZExtdPN4llvm5ValueEPNS_4TypeERjRNS_16InstCombinerImplEPNS_11InstructionE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(1088) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL16canEvaluateZExtdPN4llvm5ValueEPNS_4TypeERjRNS_16InstCombinerImplEPNS_11InstructionE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(1088) %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %"struct.llvm::SimplifyQuery", align 8
   %7 = alloca i32, align 4
   %8 = alloca %"class.llvm::APInt", align 8
@@ -10318,7 +10318,7 @@ define internal fastcc noundef ptr @_ZL16getMinimumFPTypePN4llvm5ValueEb(ptr nou
   br label %.sink.split.sink.split
 
 6:                                                ; preds = %2
-  %7 = tail call fastcc noundef ptr @_ZL16shrinkFPConstantPN4llvm10ConstantFPEb(ptr noundef nonnull %0, i1 noundef zeroext %1)
+  %7 = tail call fastcc noundef ptr @_ZL16shrinkFPConstantPN4llvm10ConstantFPEb(ptr noundef %0, i1 noundef zeroext %1)
   %.not24 = icmp eq ptr %7, null
   br i1 %.not24, label %._crit_edge, label %54
 
@@ -10386,7 +10386,7 @@ define internal fastcc noundef ptr @_ZL16getMinimumFPTypePN4llvm5ValueEb(ptr nou
   br i1 %40, label %_ZN4llvm16dyn_cast_or_nullINS_10ConstantFPENS_8ConstantEEEDaPT0_.exit.i, label %.sink.split
 
 _ZN4llvm16dyn_cast_or_nullINS_10ConstantFPENS_8ConstantEEEDaPT0_.exit.i: ; preds = %38
-  %41 = tail call fastcc noundef ptr @_ZL16shrinkFPConstantPN4llvm10ConstantFPEb(ptr noundef nonnull %37, i1 noundef zeroext %1)
+  %41 = tail call fastcc noundef ptr @_ZL16shrinkFPConstantPN4llvm10ConstantFPEb(ptr noundef %37, i1 noundef zeroext %1)
   %.not33.i = icmp eq ptr %41, null
   br i1 %.not33.i, label %.sink.split, label %42
 

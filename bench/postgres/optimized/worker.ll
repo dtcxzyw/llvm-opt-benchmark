@@ -838,7 +838,7 @@ apply_handle_begin.exit:                          ; preds = %37, %46, %48
   unreachable
 
 apply_handle_commit.exit:                         ; preds = %54
-  call fastcc void @apply_handle_commit_internal(ptr noundef nonnull %33)
+  call fastcc void @apply_handle_commit_internal(ptr noundef %33)
   %69 = getelementptr inbounds i8, ptr %33, i64 8
   %70 = load i64, ptr %69, align 8
   call void @process_syncing_tables(i64 noundef %70) #17
@@ -926,7 +926,7 @@ begin_replication_step.exit.i:                    ; preds = %77, %75
   %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %111, ptr @CurrentMemoryContext, align 8
-  call fastcc void @slot_store_data(ptr noundef %103, ptr noundef nonnull %81, ptr noundef nonnull %31)
+  call fastcc void @slot_store_data(ptr noundef %103, ptr noundef nonnull %81, ptr noundef %31)
   %113 = load ptr, ptr %99, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 64
   %115 = load ptr, ptr %114, align 8
@@ -1249,7 +1249,7 @@ begin_replication_step.exit.i23:                  ; preds = %208, %206
   %281 = load i8, ptr %30, align 1
   %282 = trunc i8 %281 to i1
   %..i = select i1 %282, ptr %28, ptr %29
-  call fastcc void @slot_store_data(ptr noundef nonnull %234, ptr noundef nonnull %212, ptr noundef nonnull %..i)
+  call fastcc void @slot_store_data(ptr noundef nonnull %234, ptr noundef nonnull %212, ptr noundef %..i)
   store ptr %280, ptr @CurrentMemoryContext, align 8
   %283 = load ptr, ptr %230, align 8
   %284 = getelementptr inbounds i8, ptr %283, i64 56
@@ -1463,7 +1463,7 @@ begin_replication_step.exit.i30:                  ; preds = %348, %346
   %382 = load ptr, ptr %381, align 8
   %383 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %382, ptr @CurrentMemoryContext, align 8
-  call fastcc void @slot_store_data(ptr noundef %374, ptr noundef nonnull %352, ptr noundef nonnull %24)
+  call fastcc void @slot_store_data(ptr noundef %374, ptr noundef nonnull %352, ptr noundef %24)
   store ptr %383, ptr @CurrentMemoryContext, align 8
   %384 = load ptr, ptr %370, align 8
   %385 = getelementptr inbounds i8, ptr %384, i64 56
@@ -2383,7 +2383,7 @@ get_transaction_apply_action.exit.thread.i52:     ; preds = %726
   br label %get_transaction_apply_action.exit.thread30.i
 
 get_transaction_apply_action.exit.thread30.i:     ; preds = %801, %726
-  call fastcc void @stream_open_and_write_change(i32 noundef %713, i8 noundef signext 65, ptr noundef nonnull %15)
+  call fastcc void @stream_open_and_write_change(i32 noundef %713, i8 noundef signext 65, ptr noundef %15)
   br i1 %716, label %802, label %apply_handle_stream_abort.exit
 
 802:                                              ; preds = %get_transaction_apply_action.exit.thread30.i
@@ -2490,7 +2490,7 @@ get_transaction_apply_action.exit:                ; preds = %am_parallel_apply_w
   %839 = load ptr, ptr %838, align 8
   %840 = load i64, ptr %10, align 8
   call void @apply_spooled_messages(ptr noundef %839, i32 noundef %823, i64 noundef %840)
-  call fastcc void @apply_handle_commit_internal(ptr noundef nonnull %10)
+  call fastcc void @apply_handle_commit_internal(ptr noundef %10)
   %841 = load ptr, ptr @MyLogicalRepWorker, align 8
   %842 = getelementptr inbounds i8, ptr %841, i64 40
   %843 = load i32, ptr %842, align 8
@@ -2522,7 +2522,7 @@ get_transaction_apply_action.exit.thread:         ; preds = %832
   br label %get_transaction_apply_action.exit.thread112
 
 get_transaction_apply_action.exit.thread112:      ; preds = %832, %855
-  call fastcc void @stream_open_and_write_change(i32 noundef %823, i8 noundef signext 99, ptr noundef nonnull %11)
+  call fastcc void @stream_open_and_write_change(i32 noundef %823, i8 noundef signext 99, ptr noundef %11)
   %856 = getelementptr inbounds i8, ptr %831, i64 32
   %857 = load ptr, ptr %856, align 8
   call void @pa_set_fileset_state(ptr noundef %857, i32 noundef 2) #17
@@ -2542,7 +2542,7 @@ get_transaction_apply_action.exit.thread115:      ; preds = %am_parallel_apply_w
   br label %862
 
 862:                                              ; preds = %861, %get_transaction_apply_action.exit.thread115
-  call fastcc void @apply_handle_commit_internal(ptr noundef nonnull %10)
+  call fastcc void @apply_handle_commit_internal(ptr noundef %10)
   %863 = load i64, ptr @XactLastCommitEnd, align 8
   %864 = load ptr, ptr @MyParallelShared, align 8
   %865 = getelementptr inbounds i8, ptr %864, i64 24
@@ -2675,7 +2675,7 @@ begin_replication_step.exit.i62:                  ; preds = %918, %916
   call void @PushActiveSnapshot(ptr noundef %919) #17
   %920 = load ptr, ptr @ApplyMessageContext, align 8
   store ptr %920, ptr @CurrentMemoryContext, align 8
-  call fastcc void @apply_handle_prepare_internal(ptr noundef nonnull %8)
+  call fastcc void @apply_handle_prepare_internal(ptr noundef %8)
   call void @PopActiveSnapshot() #17
   call void @CommandCounterIncrement() #17
   call void @CommitTransactionCommand() #17
@@ -3071,7 +3071,7 @@ get_transaction_apply_action.exit97:              ; preds = %am_parallel_apply_w
   %1076 = load i32, ptr %1058, align 8
   %1077 = load i64, ptr %2, align 8
   call void @apply_spooled_messages(ptr noundef %1075, i32 noundef %1076, i64 noundef %1077)
-  call fastcc void @apply_handle_prepare_internal(ptr noundef nonnull %2)
+  call fastcc void @apply_handle_prepare_internal(ptr noundef %2)
   call void @CommitTransactionCommand() #17
   %1078 = getelementptr inbounds i8, ptr %2, i64 8
   %1079 = load i64, ptr %1078, align 8
@@ -3111,7 +3111,7 @@ get_transaction_apply_action.exit97.thread:       ; preds = %1068
 
 get_transaction_apply_action.exit97.thread123:    ; preds = %1068, %1096
   %1097 = load i32, ptr %1058, align 8
-  call fastcc void @stream_open_and_write_change(i32 noundef %1097, i8 noundef signext 112, ptr noundef nonnull %3)
+  call fastcc void @stream_open_and_write_change(i32 noundef %1097, i8 noundef signext 112, ptr noundef %3)
   %1098 = getelementptr inbounds i8, ptr %1067, i64 32
   %1099 = load ptr, ptr %1098, align 8
   call void @pa_set_fileset_state(ptr noundef %1099, i32 noundef 2) #17
@@ -3132,7 +3132,7 @@ get_transaction_apply_action.exit97.thread126:    ; preds = %am_parallel_apply_w
 
 1104:                                             ; preds = %1103, %get_transaction_apply_action.exit97.thread126
   call fastcc void @begin_replication_step()
-  call fastcc void @apply_handle_prepare_internal(ptr noundef nonnull %2)
+  call fastcc void @apply_handle_prepare_internal(ptr noundef %2)
   call void @PopActiveSnapshot() #17
   call void @CommandCounterIncrement() #17
   call void @CommitTransactionCommand() #17
@@ -4623,7 +4623,7 @@ declare void @logicalrep_read_begin(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @logicalrep_read_commit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @apply_handle_commit_internal(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @apply_handle_commit_internal(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = load i64, ptr @skip_xact_finish_lsn, align 8
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %13, label %3
@@ -4871,7 +4871,7 @@ declare void @heap_freetuple(ptr noundef) local_unnamed_addr #1
 declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @handle_streamed_transaction(i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @handle_streamed_transaction(i32 noundef range(i32 68, 90) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
@@ -5227,7 +5227,7 @@ declare ptr @ExecInitExtraTupleSlot(ptr noundef, ptr noundef, ptr noundef) local
 declare ptr @MakePerTupleExprContext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @slot_store_data(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @slot_store_data(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -5358,7 +5358,7 @@ define internal fastcc void @slot_store_data(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @apply_handle_tuple_routing(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @apply_handle_tuple_routing(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 2, 5) %3) unnamed_addr #0 {
   %5 = alloca %struct.EPQState, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5467,7 +5467,7 @@ slot_getallattrs.exit:                            ; preds = %66, %54, %50
 
 69:                                               ; preds = %slot_getallattrs.exit, %67
   %.0130 = phi ptr [ %68, %67 ], [ null, %slot_getallattrs.exit ]
-  switch i32 %3, label %default.unreachable [
+  switch i32 %3, label %default.unreachable150 [
     i32 3, label %70
     i32 4, label %72
     i32 2, label %75
@@ -5687,7 +5687,7 @@ slot_getallattrs.exit147:                         ; preds = %183, %171, %167
   tail call void @ExecCloseIndices(ptr noundef nonnull %138) #17
   br label %185
 
-default.unreachable:                              ; preds = %69
+default.unreachable150:                           ; preds = %69
   unreachable
 
 185:                                              ; preds = %104, %slot_getallattrs.exit147, %85, %83, %72, %70
@@ -6009,7 +6009,7 @@ declare void @EvalPlanQualInit(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare void @ExecOpenIndices(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @TargetPrivilegesCheck(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @TargetPrivilegesCheck(ptr nocapture noundef readonly %0, i64 noundef range(i64 1, 17) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 @GetUserId() #17
@@ -6142,7 +6142,7 @@ declare void @logicalrep_read_stream_abort(ptr noundef, ptr noundef, i1 noundef 
 declare void @pa_xact_finish(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stream_open_and_write_change(i32 noundef %0, i8 noundef signext %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @stream_open_and_write_change(i32 noundef %0, i8 noundef signext range(i8 65, 113) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = load ptr, ptr @stream_fd, align 8
@@ -6211,7 +6211,7 @@ declare void @logicalrep_read_begin_prepare(ptr noundef, ptr noundef) local_unna
 declare void @logicalrep_read_prepare(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @apply_handle_prepare_internal(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @apply_handle_prepare_internal(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = alloca [200 x i8], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8

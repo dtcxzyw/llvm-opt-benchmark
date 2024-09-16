@@ -735,15 +735,14 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit
-  %.097 = phi i32 [ %156, %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit ], [ %12, %.lr.ph.preheader ]
-  %.08196 = phi i32 [ %155, %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit ], [ %13, %.lr.ph.preheader ]
-  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.097) #4
-  %15 = add i32 %.097, 1
+  %.096 = phi i32 [ %156, %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit ], [ %12, %.lr.ph.preheader ]
+  %.08195 = phi i32 [ %155, %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit ], [ %13, %.lr.ph.preheader ]
+  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.096) #4
+  %15 = add i32 %.096, 1
   %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %15) #4
-  %.fr107 = freeze i8 %16
-  %17 = add nsw i32 %.08196, -2
-  %18 = add i32 %.097, 2
-  %19 = zext i8 %.fr107 to i32
+  %17 = add nsw i32 %.08195, -2
+  %18 = add i32 %.096, 2
+  %19 = zext i8 %16 to i32
   %20 = icmp ult i32 %17, %19
   br i1 %20, label %21, label %24
 
@@ -767,13 +766,13 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
 25:                                               ; preds = %24
   %26 = add nuw nsw i32 %19, 2
   %27 = load i32, ptr @ett_isis_hello_clv_mt_port_cap_vlan_flags, align 4
-  %28 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.097, i32 noundef %26, i32 noundef %27, ptr noundef null, ptr noundef nonnull @.str.198, i32 noundef 1, i32 noundef %19) #4
+  %28 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.096, i32 noundef %26, i32 noundef %27, ptr noundef null, ptr noundef nonnull @.str.198, i32 noundef 1, i32 noundef %19) #4
   %29 = load i32, ptr @hf_isis_hello_vlan_flags_port_id, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %29, ptr noundef %0, i32 noundef %18, i32 noundef 2, i32 noundef 0) #4
-  %31 = add i32 %.097, 4
+  %31 = add i32 %.096, 4
   %32 = load i32, ptr @hf_isis_hello_vlan_flags_nickname, align 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %32, ptr noundef %0, i32 noundef %31, i32 noundef 2, i32 noundef 0) #4
-  %34 = add i32 %.097, 6
+  %34 = add i32 %.096, 6
   %35 = load i32, ptr @hf_isis_hello_vlan_flags_af, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 2, i32 noundef 0) #4
   %37 = load i32, ptr @hf_isis_hello_vlan_flags_ac, align 4
@@ -784,7 +783,7 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %41, ptr noundef %0, i32 noundef %34, i32 noundef 2, i32 noundef 0) #4
   %43 = load i32, ptr @hf_isis_hello_vlan_flags_outer_vlan, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %43, ptr noundef %0, i32 noundef %34, i32 noundef 2, i32 noundef 0) #4
-  %45 = add i32 %.097, 8
+  %45 = add i32 %.096, 8
   %46 = load i32, ptr @hf_isis_hello_vlan_flags_tr, align 4
   %47 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %46, ptr noundef %0, i32 noundef %45, i32 noundef 2, i32 noundef 0) #4
   %48 = load i32, ptr @hf_isis_hello_vlan_flags_reserved, align 4
@@ -796,11 +795,11 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
 52:                                               ; preds = %24
   %53 = add nuw nsw i32 %19, 2
   %54 = load i32, ptr @ett_isis_hello_clv_mt_port_cap_enabled_vlans, align 4
-  %55 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.097, i32 noundef %53, i32 noundef %54, ptr noundef null, ptr noundef nonnull @.str.199, i32 noundef 2, i32 noundef %19) #4
+  %55 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.096, i32 noundef %53, i32 noundef %54, ptr noundef null, ptr noundef nonnull @.str.199, i32 noundef 2, i32 noundef %19) #4
   %56 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %18) #4
   %57 = and i16 %56, 4095
   %58 = zext nneg i16 %57 to i32
-  %59 = add i32 %.097, 4
+  %59 = add i32 %.096, 4
   %60 = add nsw i32 %19, -2
   %61 = load i32, ptr @hf_isis_hello_enabled_vlans, align 4
   %62 = tail call ptr @proto_tree_add_string(ptr noundef %55, i32 noundef %61, ptr noundef %0, i32 noundef %59, i32 noundef %60, ptr noundef nonnull @.str.195) #4
@@ -810,8 +809,8 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
 63:                                               ; preds = %24
   %64 = add nuw nsw i32 %19, 2
   %65 = load i32, ptr @ett_isis_hello_clv_mt_port_cap_appointedfwrdrs, align 4
-  %66 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.097, i32 noundef %64, i32 noundef %65, ptr noundef null, ptr noundef nonnull @.str.203, i32 noundef 3, i32 noundef %19) #4
-  %67 = icmp ugt i8 %.fr107, 5
+  %66 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.096, i32 noundef %64, i32 noundef %65, ptr noundef null, ptr noundef nonnull @.str.203, i32 noundef 3, i32 noundef %19) #4
+  %67 = icmp ugt i8 %16, 5
   br i1 %67, label %.lr.ph.i, label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit
 
 .lr.ph.i:                                         ; preds = %63, %.lr.ph.i
@@ -831,7 +830,7 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
   br i1 %78, label %.lr.ph.i, label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit, !llvm.loop !4
 
 79:                                               ; preds = %24
-  %.not.i = icmp eq i8 %.fr107, 102
+  %.not.i = icmp eq i8 %16, 102
   br i1 %.not.i, label %82, label %80
 
 80:                                               ; preds = %79
@@ -840,16 +839,16 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
 
 82:                                               ; preds = %79
   %83 = load i32, ptr @ett_isis_hello_clv_mt_port_cap_spb_mcid, align 4
-  %84 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.097, i32 noundef 104, i32 noundef %83, ptr noundef null, ptr noundef nonnull @.str.205, i32 noundef 4, i32 noundef 102) #4
+  %84 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.096, i32 noundef 104, i32 noundef %83, ptr noundef null, ptr noundef nonnull @.str.205, i32 noundef 4, i32 noundef 102) #4
   %85 = load i32, ptr @hf_isis_hello_mcid, align 4
   %86 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %85, ptr noundef %0, i32 noundef %18, i32 noundef 51, i32 noundef 0) #4
-  %87 = add i32 %.097, 53
+  %87 = add i32 %.096, 53
   %88 = load i32, ptr @hf_isis_hello_aux_mcid, align 4
   %89 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %88, ptr noundef %0, i32 noundef %87, i32 noundef 51, i32 noundef 0) #4
   br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit
 
 90:                                               ; preds = %24
-  %.not.i88 = icmp eq i8 %.fr107, 33
+  %.not.i88 = icmp eq i8 %16, 33
   br i1 %.not.i88, label %93, label %91
 
 91:                                               ; preds = %90
@@ -858,14 +857,14 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
 
 93:                                               ; preds = %90
   %94 = load i32, ptr @ett_isis_hello_clv_mt_port_cap_spb_digest, align 4
-  %95 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.097, i32 noundef 35, i32 noundef %94, ptr noundef null, ptr noundef nonnull @.str.207, i32 noundef 5, i32 noundef 33) #4
+  %95 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.096, i32 noundef 35, i32 noundef %94, ptr noundef null, ptr noundef nonnull @.str.207, i32 noundef 5, i32 noundef 33) #4
   %96 = load i32, ptr @hf_isis_hello_digest_v, align 4
   %97 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %96, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef 0) #4
   %98 = load i32, ptr @hf_isis_hello_digest_a, align 4
   %99 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %98, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef 0) #4
   %100 = load i32, ptr @hf_isis_hello_digest_d, align 4
   %101 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %100, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef 0) #4
-  %102 = add i32 %.097, 3
+  %102 = add i32 %.096, 3
   %103 = load i32, ptr @hf_isis_hello_digest, align 4
   %104 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %103, ptr noundef %0, i32 noundef %102, i32 noundef 32, i32 noundef 0) #4
   br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit
@@ -873,46 +872,47 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
 105:                                              ; preds = %24
   %106 = add nuw nsw i32 %19, 2
   %107 = load i32, ptr @ett_isis_hello_clv_mt_port_cap_spb_bvid_tuples, align 4
-  %108 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.097, i32 noundef %106, i32 noundef %107, ptr noundef null, ptr noundef nonnull @.str.208, i32 noundef 6, i32 noundef %19) #4
-  %.not = icmp eq i8 %.fr107, 0
-  br i1 %.not, label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit, label %.lr.ph.i89.preheader
+  %108 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.096, i32 noundef %106, i32 noundef %107, ptr noundef null, ptr noundef nonnull @.str.208, i32 noundef 6, i32 noundef %19) #4
+  %.not29.i = icmp eq i8 %16, 0
+  br i1 %.not29.i, label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit, label %.lr.ph.preheader.i
 
-.lr.ph.i89.preheader:                             ; preds = %105
-  %109 = urem i32 %19, 6
+.lr.ph.preheader.i:                               ; preds = %105
+  %109 = urem i8 %16, 6
+  %.zext.i = zext nneg i8 %109 to i32
   br label %.lr.ph.i89
 
-.lr.ph.i89:                                       ; preds = %.lr.ph.i89.preheader, %113
-  %.030.i = phi i32 [ %124, %113 ], [ %18, %.lr.ph.i89.preheader ]
-  %.02729.i = phi i32 [ %123, %113 ], [ %19, %.lr.ph.i89.preheader ]
-  %110 = icmp ult i32 %.02729.i, 6
+.lr.ph.i89:                                       ; preds = %113, %.lr.ph.preheader.i
+  %.031.i = phi i32 [ %124, %113 ], [ %18, %.lr.ph.preheader.i ]
+  %.02730.i = phi i32 [ %123, %113 ], [ %19, %.lr.ph.preheader.i ]
+  %110 = icmp ult i32 %.02730.i, 6
   br i1 %110, label %111, label %113
 
 111:                                              ; preds = %.lr.ph.i89
-  %112 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_hello_short_clv, ptr noundef %0, i32 noundef %18, i32 noundef -1, ptr noundef nonnull @.str.209, i32 noundef %109, i32 noundef 6) #4
+  %112 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_hello_short_clv, ptr noundef %0, i32 noundef %18, i32 noundef -1, ptr noundef nonnull @.str.209, i32 noundef %.zext.i, i32 noundef 6) #4
   br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit
 
 113:                                              ; preds = %.lr.ph.i89
   %114 = load i32, ptr @hf_isis_hello_ect, align 4
-  %115 = tail call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %114, ptr noundef %0, i32 noundef %.030.i, i32 noundef 4, i32 noundef 0) #4
+  %115 = tail call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %114, ptr noundef %0, i32 noundef %.031.i, i32 noundef 4, i32 noundef 0) #4
   %116 = load i32, ptr @hf_isis_hello_bvid, align 4
-  %117 = add i32 %.030.i, 4
+  %117 = add i32 %.031.i, 4
   %118 = tail call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %116, ptr noundef %0, i32 noundef %117, i32 noundef 2, i32 noundef 0) #4
   %119 = load i32, ptr @hf_isis_hello_bvid_u, align 4
   %120 = tail call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %119, ptr noundef %0, i32 noundef %117, i32 noundef 2, i32 noundef 0) #4
   %121 = load i32, ptr @hf_isis_hello_bvid_m, align 4
   %122 = tail call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %121, ptr noundef %0, i32 noundef %117, i32 noundef 2, i32 noundef 0) #4
-  %123 = add nsw i32 %.02729.i, -6
-  %124 = add i32 %.030.i, 6
-  %.not.i90 = icmp eq i32 %.02729.i, 6
+  %123 = add nsw i32 %.02730.i, -6
+  %124 = add i32 %.031.i, 6
+  %.not.i90 = icmp eq i32 %123, 0
   br i1 %.not.i90, label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit, label %.lr.ph.i89, !llvm.loop !6
 
 125:                                              ; preds = %24
   %126 = add nuw nsw i32 %19, 2
   %127 = load i32, ptr @ett_isis_hello_clv_mt_port_cap_port_trill_ver, align 4
-  %128 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.097, i32 noundef %126, i32 noundef %127, ptr noundef null, ptr noundef nonnull @.str.210, i32 noundef 7, i32 noundef %19) #4
+  %128 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.096, i32 noundef %126, i32 noundef %127, ptr noundef null, ptr noundef nonnull @.str.210, i32 noundef 7, i32 noundef %19) #4
   %129 = load i32, ptr @hf_isis_hello_trill_version, align 4
   %130 = tail call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %129, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef 0) #4
-  %131 = add i32 %.097, 3
+  %131 = add i32 %.096, 3
   %132 = load i32, ptr @hf_isis_hello_trill_hello_reduction, align 4
   %133 = tail call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %132, ptr noundef %0, i32 noundef %131, i32 noundef 4, i32 noundef 0) #4
   %134 = load i32, ptr @hf_isis_hello_trill_unassigned_1, align 4
@@ -926,11 +926,11 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
 140:                                              ; preds = %24
   %141 = add nuw nsw i32 %19, 2
   %142 = load i32, ptr @ett_isis_hello_clv_mt_port_cap_vlans_appointed, align 4
-  %143 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.097, i32 noundef %141, i32 noundef %142, ptr noundef null, ptr noundef nonnull @.str.211, i32 noundef 8, i32 noundef %19) #4
+  %143 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.096, i32 noundef %141, i32 noundef %142, ptr noundef null, ptr noundef nonnull @.str.211, i32 noundef 8, i32 noundef %19) #4
   %144 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %18) #4
   %145 = and i16 %144, 4095
   %146 = zext nneg i16 %145 to i32
-  %147 = add i32 %.097, 4
+  %147 = add i32 %.096, 4
   %148 = add nsw i32 %19, -2
   %149 = load i32, ptr @hf_isis_hello_appointed_vlans, align 4
   %150 = tail call ptr @proto_tree_add_string(ptr noundef %143, i32 noundef %149, ptr noundef %0, i32 noundef %147, i32 noundef %148, ptr noundef nonnull @.str.195) #4
@@ -940,7 +940,7 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
 151:                                              ; preds = %24
   %152 = zext i8 %14 to i32
   %153 = add nuw nsw i32 %19, 2
-  %154 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_hello_subtlv, ptr noundef %0, i32 noundef %.097, i32 noundef %153, ptr noundef nonnull @.str.197, i32 noundef %152, i32 noundef %19) #4
+  %154 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_hello_subtlv, ptr noundef %0, i32 noundef %.096, i32 noundef %153, ptr noundef nonnull @.str.197, i32 noundef %152, i32 noundef %19) #4
   br label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit
 
 dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit: ; preds = %113, %.lr.ph.i, %111, %105, %93, %91, %82, %80, %63, %151, %140, %125, %52, %25
@@ -1163,7 +1163,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_vlan_bitmap(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @parse_vlan_bitmap(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 4096) %2, i32 noundef %3, i32 noundef range(i32 -2, 254) %4) unnamed_addr #0 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph, label %._crit_edge.thread
 

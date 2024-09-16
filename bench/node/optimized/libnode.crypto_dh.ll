@@ -1633,7 +1633,7 @@ do.end86:                                         ; preds = %do.body74
   %call89 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4node6crypto15KeyObjectHandle4DataEv(ptr noundef nonnull align 8 dereferenceable(48) %retval.i13.0.i38) #18
   %57 = load ptr, ptr %call89, align 8
   call void @_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv(ptr nonnull sret(%"class.node::crypto::ManagedEVPPKey") align 8 %their_key, ptr noundef nonnull align 8 dereferenceable(72) %57) #18
-  call fastcc void @_ZN4node6crypto12_GLOBAL__N_132StatelessDiffieHellmanThreadsafeERKNS0_14ManagedEVPPKeyES4_(ptr noalias nonnull align 8 %ref.tmp92, ptr noundef nonnull align 8 dereferenceable(32) %our_key, ptr noundef nonnull align 8 dereferenceable(32) %their_key)
+  call fastcc void @_ZN4node6crypto12_GLOBAL__N_132StatelessDiffieHellmanThreadsafeERKNS0_14ManagedEVPPKeyES4_(ptr noalias align 8 %ref.tmp92, ptr noundef nonnull align 8 dereferenceable(32) %our_key, ptr noundef nonnull align 8 dereferenceable(32) %their_key)
   %call93 = call ptr @_ZN4node6crypto10ByteSource8ToBufferEPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp92, ptr noundef %retval.0.i.i) #18
   %cmp.i.i = icmp eq ptr %call93, null
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp92) #18
@@ -5165,7 +5165,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4node6crypto15KeyObj
 declare void @_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv(ptr sret(%"class.node::crypto::ManagedEVPPKey") align 8, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node6crypto12_GLOBAL__N_132StatelessDiffieHellmanThreadsafeERKNS0_14ManagedEVPPKeyES4_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %our_key, ptr noundef nonnull align 8 dereferenceable(32) %their_key) unnamed_addr #3 {
+define internal fastcc void @_ZN4node6crypto12_GLOBAL__N_132StatelessDiffieHellmanThreadsafeERKNS0_14ManagedEVPPKeyES4_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %our_key, ptr noundef nonnull align 8 dereferenceable(32) %their_key) unnamed_addr #3 {
 entry:
   %out_size = alloca i64, align 8
   %call = tail call noundef ptr @_ZNK4node6crypto14ManagedEVPPKey3getEv(ptr noundef nonnull align 8 dereferenceable(32) %our_key) #18
@@ -5233,7 +5233,7 @@ do.end6.i:                                        ; preds = %do.body.i
   br label %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit
 
 _ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit: ; preds = %do.end6.i, %if.end19
-  call void @_ZN4node6crypto10ByteSource9AllocatedEPvm(ptr sret(%"class.node::crypto::ByteSource") align 8 %agg.result, ptr noundef %call1.i.i, i64 noundef %0) #18
+  call void @_ZN4node6crypto10ByteSource9AllocatedEPvm(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %agg.result, ptr noundef %call1.i.i, i64 noundef %0) #18
   br label %cleanup23.thread
 
 cleanup23.thread:                                 ; preds = %if.then18, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit
@@ -5753,7 +5753,7 @@ entry:
   %public_key = getelementptr inbounds i8, ptr %params, i64 24
   %1 = load ptr, ptr %public_key, align 8
   call void @_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv(ptr nonnull sret(%"class.node::crypto::ManagedEVPPKey") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(72) %1) #18
-  call fastcc void @_ZN4node6crypto12_GLOBAL__N_132StatelessDiffieHellmanThreadsafeERKNS0_14ManagedEVPPKeyES4_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
+  call fastcc void @_ZN4node6crypto12_GLOBAL__N_132StatelessDiffieHellmanThreadsafeERKNS0_14ManagedEVPPKeyES4_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
   %call4 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #18
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #18
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %ref.tmp2, align 8

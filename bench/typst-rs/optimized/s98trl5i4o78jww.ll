@@ -997,7 +997,7 @@ define hidden void @"_ZN4core3ptr106drop_in_place$LT$typst_pdf..deflate_deferred
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$pdf_writer..object..Filter$RP$$GT$$GT$17h94b88c8ebcb8465fE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$pdf_writer..object..Filter$RP$$GT$$GT$17h94b88c8ebcb8465fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !63, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -1175,7 +1175,7 @@ define hidden void @"_ZN4core3ptr61drop_in_place$LT$image..codecs..png..BadPngRe
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h8fbbca9b2d397d11E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h8fbbca9b2d397d11E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !63, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -4830,7 +4830,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd42ba51ed593a782E.exit.i.i: ; preds = %
 57:                                               ; preds = %.critedge.i.i, %55
   %58 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h8fbbca9b2d397d11E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #30
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h8fbbca9b2d397d11E"(ptr noalias noundef align 8 dereferenceable(24) %8) #30
           to label %46 unwind label %70, !noalias !581
 
 59:                                               ; preds = %55
@@ -4982,7 +4982,7 @@ common.resume:                                    ; preds = %.body.i.i, %.body
   %91 = landingpad { ptr, i32 }
           cleanup
   %92 = getelementptr inbounds i8, ptr %75, i64 24
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h8fbbca9b2d397d11E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %92) #30
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h8fbbca9b2d397d11E"(ptr noalias noundef align 8 dereferenceable(24) %92) #30
           to label %106 unwind label %122
 
 93:                                               ; preds = %86, %82, %.noexc.i.i4
@@ -5022,7 +5022,7 @@ common.resume:                                    ; preds = %.body.i.i, %.body
 106:                                              ; preds = %108, %90
   %.pn.i.i3 = phi { ptr, i32 } [ %109, %108 ], [ %91, %90 ]
   %107 = getelementptr inbounds i8, ptr %75, i64 48
-  invoke fastcc void @"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$pdf_writer..object..Filter$RP$$GT$$GT$17h94b88c8ebcb8465fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %107) #30
+  invoke fastcc void @"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$pdf_writer..object..Filter$RP$$GT$$GT$17h94b88c8ebcb8465fE"(ptr noalias noundef align 8 dereferenceable(32) %107) #30
           to label %.body unwind label %122
 
 108:                                              ; preds = %97

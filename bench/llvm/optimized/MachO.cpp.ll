@@ -51,7 +51,7 @@ define dso_local void @_ZN4llvm5MachO10getCPUTypeERKNS_6TripleE(ptr dead_on_unwi
   br i1 %7, label %12, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %2
-  call fastcc void @_ZL11unsupportedPKcRKN4llvm6TripleE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(56) %1)
+  call fastcc void @_ZL11unsupportedPKcRKN4llvm6TripleE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(56) %1)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i8, ptr %8, align 8
   %10 = or i8 %9, 1
@@ -157,7 +157,7 @@ thread-pre-split:                                 ; preds = %24
   br label %55
 
 _ZN4llvm5ErrorD2Ev.exit16:                        ; preds = %42
-  call fastcc void @_ZL11unsupportedPKcRKN4llvm6TripleE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(56) %1)
+  call fastcc void @_ZL11unsupportedPKcRKN4llvm6TripleE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(56) %1)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load i8, ptr %51, align 8
   %53 = or i8 %52, 1
@@ -172,7 +172,7 @@ _ZN4llvm5ErrorD2Ev.exit16:                        ; preds = %42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11unsupportedPKcRKN4llvm6TripleE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL11unsupportedPKcRKN4llvm6TripleE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.llvm::raw_string_ostream", align 8
@@ -238,7 +238,7 @@ define dso_local void @_ZN4llvm5MachO13getCPUSubTypeERKNS_6TripleE(ptr dead_on_u
   br i1 %7, label %12, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %2
-  call fastcc void @_ZL11unsupportedPKcRKN4llvm6TripleE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(56) %1)
+  call fastcc void @_ZL11unsupportedPKcRKN4llvm6TripleE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(56) %1)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i8, ptr %8, align 8
   %10 = or i8 %9, 1
@@ -379,7 +379,7 @@ _ZL15getARM64SubTypeRKN4llvm6TripleE.exit:        ; preds = %43, %45
   br label %63
 
 _ZN4llvm5ErrorD2Ev.exit19:                        ; preds = %26
-  call fastcc void @_ZL11unsupportedPKcRKN4llvm6TripleE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(56) %1)
+  call fastcc void @_ZL11unsupportedPKcRKN4llvm6TripleE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(56) %1)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = load i8, ptr %59, align 8
   %61 = or i8 %60, 1

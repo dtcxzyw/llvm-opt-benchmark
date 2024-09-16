@@ -350,7 +350,7 @@ define range(i32 0, 2) i32 @ossl_cms_msgSigDigest_add1(ptr noundef %dest, ptr no
 entry:
   %dig = alloca [64 x i8], align 16
   %diglen = alloca i32, align 4
-  %call = call fastcc i32 @cms_msgSigDigest(ptr noundef %src, ptr noundef nonnull %dig, ptr noundef nonnull %diglen)
+  %call = call fastcc i32 @cms_msgSigDigest(ptr noundef %src, ptr noundef %dig, ptr noundef %diglen)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return.sink.split, label %if.end
 
@@ -374,7 +374,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cms_msgSigDigest(ptr nocapture noundef readonly %si, ptr noundef %dig, ptr noundef %diglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_msgSigDigest(ptr nocapture noundef readonly %si, ptr noundef nonnull %dig, ptr noundef nonnull %diglen) unnamed_addr #0 {
 entry:
   %digestAlgorithm = getelementptr inbounds i8, ptr %si, i64 16
   %0 = load ptr, ptr %digestAlgorithm, align 8
@@ -394,7 +394,7 @@ if.end:                                           ; preds = %entry
   %call4 = tail call ptr @ossl_cms_ctx_get0_libctx(ptr noundef %3) #4
   %4 = load ptr, ptr %cms_ctx, align 8
   %call6 = tail call ptr @ossl_cms_ctx_get0_propq(ptr noundef %4) #4
-  %call7 = tail call i32 @ossl_asn1_item_digest_ex(ptr noundef %call3, ptr noundef nonnull %call2, ptr noundef %2, ptr noundef %dig, ptr noundef %diglen, ptr noundef %call4, ptr noundef %call6) #4
+  %call7 = tail call i32 @ossl_asn1_item_digest_ex(ptr noundef %call3, ptr noundef nonnull %call2, ptr noundef %2, ptr noundef nonnull %dig, ptr noundef nonnull %diglen, ptr noundef %call4, ptr noundef %call6) #4
   %tobool.not = icmp ne i32 %call7, 0
   %. = zext i1 %tobool.not to i32
   br label %return
@@ -521,7 +521,7 @@ if.then42:                                        ; preds = %if.end36
   br label %err
 
 if.end43:                                         ; preds = %if.end36
-  %call44 = call fastcc i32 @cms_msgSigDigest(ptr noundef %osi.1, ptr noundef nonnull %dig, ptr noundef nonnull %diglen)
+  %call44 = call fastcc i32 @cms_msgSigDigest(ptr noundef %osi.1, ptr noundef %dig, ptr noundef %diglen)
   %tobool45.not = icmp eq i32 %call44, 0
   br i1 %tobool45.not, label %if.then46, label %if.end47
 

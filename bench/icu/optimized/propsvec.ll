@@ -330,7 +330,7 @@ for.end:                                          ; preds = %if.end155, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZL8_findRowP13UPropsVectorsi(ptr nocapture noundef %pv, i32 noundef %rangeStart) unnamed_addr #4 {
+define internal fastcc noundef ptr @_ZL8_findRowP13UPropsVectorsi(ptr nocapture noundef %pv, i32 noundef range(i32 0, -2147483648) %rangeStart) unnamed_addr #4 {
 entry:
   %columns1 = getelementptr inbounds i8, ptr %pv, i64 8
   %0 = load i32, ptr %columns1, align 8

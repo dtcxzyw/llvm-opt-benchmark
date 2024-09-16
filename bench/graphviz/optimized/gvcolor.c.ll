@@ -138,7 +138,7 @@ init.exit:                                        ; preds = %.init.exit_crit_edg
   br i1 %.not.i, label %42, label %41
 
 41:                                               ; preds = %39
-  call fastcc void @setcolor(ptr noundef nonnull %40, ptr noundef nonnull @Defcolor)
+  call fastcc void @setcolor(ptr noundef %40, ptr noundef nonnull @Defcolor)
   br label %42
 
 42:                                               ; preds = %41, %39
@@ -240,7 +240,7 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
   %83 = getelementptr inbounds i8, ptr %.0128155.i, i64 16
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 24
-  call fastcc void @setcolor(ptr noundef nonnull %81, ptr noundef nonnull %85)
+  call fastcc void @setcolor(ptr noundef %81, ptr noundef nonnull %85)
   br label %86
 
 86:                                               ; preds = %82, %.lr.ph.i
@@ -515,7 +515,7 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
 declare i32 @agclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit(i32 noundef %0) unnamed_addr #3 {
+define internal fastcc void @graphviz_exit(i32 noundef range(i32 0, 2) %0) unnamed_addr #3 {
   tail call void @exit(i32 noundef %0) #23
   unreachable
 }
@@ -533,12 +533,12 @@ declare void @aginit(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 nou
 declare ptr @agget(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setcolor(ptr noundef %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc void @setcolor(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #5 {
   %3 = alloca %struct.agxbuf, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
-  %6 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
+  %6 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
   %.not = icmp eq i32 %6, 3
   br i1 %.not, label %agxbfree.exit, label %7
 

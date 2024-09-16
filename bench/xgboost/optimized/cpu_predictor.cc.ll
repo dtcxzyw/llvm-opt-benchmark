@@ -3520,7 +3520,7 @@ _ZN7xgboostlsERSoNS_10StringViewE.exit:           ; preds = %.noexc34
   %96 = getelementptr inbounds i8, ptr %95, i64 24
   %97 = load i32, ptr %96, align 8
   store i32 %97, ptr %11, align 4
-  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_114InitThreadTempEiPSt6vectorINS_7RegTree4FVecESaIS4_EE(i32 noundef %18, ptr noundef nonnull %10)
+  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_114InitThreadTempEiPSt6vectorINS_7RegTree4FVecESaIS4_EE(i32 noundef %18, ptr noundef %10)
           to label %98 unwind label %246
 
 98:                                               ; preds = %93
@@ -4153,7 +4153,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit86: ; preds = %.noexc85, %_ZN4dmlc
   %117 = load ptr, ptr %116, align 8
   %118 = call noundef i32 @_ZNK7xgboost7Context7ThreadsEv(ptr noundef nonnull align 8 dereferenceable(84) %117)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_114InitThreadTempEiPSt6vectorINS_7RegTree4FVecESaIS4_EE(i32 noundef %118, ptr noundef nonnull %58)
+  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_114InitThreadTempEiPSt6vectorINS_7RegTree4FVecESaIS4_EE(i32 noundef %118, ptr noundef %58)
           to label %119 unwind label %139
 
 119:                                              ; preds = %115
@@ -8125,7 +8125,7 @@ _ZN7xgboostlsERSoNS_10StringViewE.exit:           ; preds = %.noexc96
   %129 = sext i32 %109 to i64
   %130 = select i1 %128, i32 6, i32 0
   %131 = shl i32 %109, %130
-  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_114InitThreadTempEiPSt6vectorINS_7RegTree4FVecESaIS4_EE(i32 noundef %131, ptr noundef nonnull %53)
+  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_114InitThreadTempEiPSt6vectorINS_7RegTree4FVecESaIS4_EE(i32 noundef %131, ptr noundef %53)
           to label %132 unwind label %173
 
 132:                                              ; preds = %106
@@ -8657,7 +8657,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %42)
-  %353 = shl i64 %.03378.i.i.i.us, 6
+  %353 = shl nuw nsw i64 %.03378.i.i.i.us, 6
   %354 = sub nsw i64 %352, %353
   %.sroa.speculated.i.i.i.us = call i64 @llvm.umin.i64(i64 %354, i64 64)
   invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_18FVecFillINS1_20GHistIndexMatrixViewEEEvmmiPT_mPSt6vectorINS_7RegTree4FVecESaIS8_EE(i64 noundef %.sroa.speculated.i.i.i.us, i64 noundef %353, i32 noundef %326, ptr noundef nonnull readonly %63, i64 noundef 0, ptr noundef nonnull readonly %53)
@@ -8670,7 +8670,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   store i64 %320, ptr %294, align 8
   store ptr %321, ptr %295, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %296, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.6434, i64 20, i1 false)
-  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_117PredictByAllTreesERKNS_3gbm11GBTreeModelEjjmRKSt6vectorINS_7RegTree4FVecESaIS8_EEmmNS_6linalg10TensorViewIfLi2EEE(ptr noundef nonnull readonly align 8 dereferenceable(280) %3, i32 noundef %4, i32 noundef %5, i64 noundef %356, ptr noundef nonnull readonly align 8 dereferenceable(24) %53, i64 noundef 0, i64 noundef %.sroa.speculated.i.i.i.us, ptr noundef nonnull %42)
+  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_117PredictByAllTreesERKNS_3gbm11GBTreeModelEjjmRKSt6vectorINS_7RegTree4FVecESaIS8_EEmmNS_6linalg10TensorViewIfLi2EEE(ptr noundef nonnull readonly align 8 dereferenceable(280) %3, i32 noundef %4, i32 noundef %5, i64 noundef %356, ptr noundef nonnull readonly align 8 dereferenceable(24) %53, i64 noundef 0, i64 noundef %.sroa.speculated.i.i.i.us, ptr noundef %42)
           to label %.noexc8.i.i.us unwind label %357
 
 357:                                              ; preds = %.noexc.i.i134.us, %.lr.ph79.i.i.i.us
@@ -9458,7 +9458,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   store i64 %574, ptr %278, align 8
   store ptr %575, ptr %279, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %280, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.6426, i64 20, i1 false)
-  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_117PredictByAllTreesERKNS_3gbm11GBTreeModelEjjmRKSt6vectorINS_7RegTree4FVecESaIS8_EEmmNS_6linalg10TensorViewIfLi2EEE(ptr noundef nonnull readonly align 8 dereferenceable(280) %3, i32 noundef %4, i32 noundef %5, i64 noundef %609, ptr noundef nonnull readonly align 8 dereferenceable(24) %53, i64 noundef 0, i64 noundef 1, ptr noundef nonnull %31)
+  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_117PredictByAllTreesERKNS_3gbm11GBTreeModelEjjmRKSt6vectorINS_7RegTree4FVecESaIS8_EEmmNS_6linalg10TensorViewIfLi2EEE(ptr noundef nonnull readonly align 8 dereferenceable(280) %3, i32 noundef %4, i32 noundef %5, i64 noundef %609, ptr noundef nonnull readonly align 8 dereferenceable(24) %53, i64 noundef 0, i64 noundef 1, ptr noundef %31)
           to label %.lr.ph.i.i.i.i188 unwind label %619
 
 .lr.ph.i.i.i.i188:                                ; preds = %.noexc.i.i187
@@ -9925,7 +9925,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %20)
-  %763 = shl i64 %.03378.i.i.i251.us, 6
+  %763 = shl nuw nsw i64 %.03378.i.i.i251.us, 6
   %764 = sub nsw i64 %760, %763
   %.sroa.speculated.i.i.i252.us = call i64 @llvm.umin.i64(i64 %764, i64 64)
   %.not.i361.us = icmp eq i64 %760, %763
@@ -10131,7 +10131,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551
   store i64 %729, ptr %705, align 8
   store ptr %730, ptr %706, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %707, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.6417, i64 20, i1 false)
-  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_117PredictByAllTreesERKNS_3gbm11GBTreeModelEjjmRKSt6vectorINS_7RegTree4FVecESaIS8_EEmmNS_6linalg10TensorViewIfLi2EEE(ptr noundef nonnull readonly align 8 dereferenceable(280) %3, i32 noundef %4, i32 noundef %5, i64 noundef %852, ptr noundef nonnull readonly align 8 dereferenceable(24) %53, i64 noundef 0, i64 noundef %.sroa.speculated.i.i.i252.us, ptr noundef nonnull %20)
+  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_117PredictByAllTreesERKNS_3gbm11GBTreeModelEjjmRKSt6vectorINS_7RegTree4FVecESaIS8_EEmmNS_6linalg10TensorViewIfLi2EEE(ptr noundef nonnull readonly align 8 dereferenceable(280) %3, i32 noundef %4, i32 noundef %5, i64 noundef %852, ptr noundef nonnull readonly align 8 dereferenceable(24) %53, i64 noundef 0, i64 noundef %.sroa.speculated.i.i.i252.us, ptr noundef %20)
           to label %.noexc8.i.i283.us unwind label %.loopexit.split-lp473.us
 
 853:                                              ; preds = %.loopexit.split-lp473.us, %.loopexit472.us
@@ -11006,7 +11006,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551
   store i64 %1045, ptr %701, align 8
   store ptr %1046, ptr %702, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %703, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.6, i64 20, i1 false)
-  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_117PredictByAllTreesERKNS_3gbm11GBTreeModelEjjmRKSt6vectorINS_7RegTree4FVecESaIS8_EEmmNS_6linalg10TensorViewIfLi2EEE(ptr noundef nonnull readonly align 8 dereferenceable(280) %3, i32 noundef %4, i32 noundef %5, i64 noundef %1164, ptr noundef nonnull readonly align 8 dereferenceable(24) %53, i64 noundef 0, i64 noundef 1, ptr noundef nonnull %9)
+  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_117PredictByAllTreesERKNS_3gbm11GBTreeModelEjjmRKSt6vectorINS_7RegTree4FVecESaIS8_EEmmNS_6linalg10TensorViewIfLi2EEE(ptr noundef nonnull readonly align 8 dereferenceable(280) %3, i32 noundef %4, i32 noundef %5, i64 noundef %1164, ptr noundef nonnull readonly align 8 dereferenceable(24) %53, i64 noundef 0, i64 noundef 1, ptr noundef %9)
           to label %.lr.ph.i.i.i.i348 unwind label %.loopexit.split-lp478
 
 .lr.ph.i.i.i.i348:                                ; preds = %.loopexit.i380
@@ -11578,7 +11578,7 @@ _ZNSt6vectorImSaImEED2Ev.exit29:                  ; preds = %_ZNSt6vectorImSaImE
   store i64 %100, ptr %11, align 8
   %101 = load i32, ptr %0, align 8
   %102 = shl i32 %101, 6
-  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_114InitThreadTempEiPSt6vectorINS_7RegTree4FVecESaIS4_EE(i32 noundef %102, ptr noundef nonnull %12)
+  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_114InitThreadTempEiPSt6vectorINS_7RegTree4FVecESaIS4_EE(i32 noundef %102, ptr noundef %12)
           to label %103 unwind label %53
 
 103:                                              ; preds = %._crit_edge34
@@ -13125,7 +13125,7 @@ _ZNSt6vectorImSaImEED2Ev.exit6:                   ; preds = %_ZNSt6vectorImSaImE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_114InitThreadTempEiPSt6vectorINS_7RegTree4FVecESaIS4_EE(i32 noundef %0, ptr noundef %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_114InitThreadTempEiPSt6vectorINS_7RegTree4FVecESaIS4_EE(i32 noundef %0, ptr noundef nonnull %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.xgboost::RegTree::FVec", align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -16882,7 +16882,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_18FVecFillINS1_20GHistIndexMatrixViewEEEvmmiPT_mPSt6vectorINS_7RegTree4FVecESaIS8_EE(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_18FVecFillINS1_20GHistIndexMatrixViewEEEvmmiPT_mPSt6vectorINS_7RegTree4FVecESaIS8_EE(i64 noundef %0, i64 noundef range(i64 0, 274877906817) %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef range(i64 -137438953472, 137438953409) %4, ptr nocapture noundef readonly %5) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 .split:
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -17117,7 +17117,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_117PredictByAllTreesERKNS_3gbm11GBTreeModelEjjmRKSt6vectorINS_7RegTree4FVecESaIS8_EEmmNS_6linalg10TensorViewIfLi2EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, i64 noundef %5, i64 noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_117PredictByAllTreesERKNS_3gbm11GBTreeModelEjjmRKSt6vectorINS_7RegTree4FVecESaIS8_EEmmNS_6linalg10TensorViewIfLi2EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, i64 noundef range(i64 -137438953472, 137438953409) %5, i64 noundef %6, ptr nocapture noundef nonnull readonly %7) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.xgboost::linalg::TensorView.228", align 8
   %10 = alloca %"class.dmlc::LogMessageFatal", align 1
   %11 = alloca %"class.xgboost::linalg::TensorView.228", align 8
@@ -19385,7 +19385,7 @@ _ZNSt6vectorIN7xgboost5EntryESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZNSt6vectorIN7x
 144:                                              ; preds = %_ZNSt6vectorIN7xgboost5EntryESaIS1_EEC2EmRKS2_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   %145 = shl i32 %30, 6
-  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_114InitThreadTempEiPSt6vectorINS_7RegTree4FVecESaIS4_EE(i32 noundef %145, ptr noundef nonnull %26)
+  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_114InitThreadTempEiPSt6vectorINS_7RegTree4FVecESaIS4_EE(i32 noundef %145, ptr noundef %26)
           to label %146 unwind label %425
 
 146:                                              ; preds = %144
@@ -19600,7 +19600,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11)
-  %223 = shl i64 %.03378.i.i.i, 6
+  %223 = shl nuw nsw i64 %.03378.i.i.i, 6
   %224 = sub nsw i64 %216, %223
   %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %224, i64 64)
   %.not.i.i.i4.i = icmp eq i64 %223, %216
@@ -19798,7 +19798,7 @@ _ZN7xgboost9predictor12_GLOBAL__N_18FVecFillINS1_11AdapterViewINS_4data12DenseAd
   store i64 %160, ptr %218, align 8
   store ptr %156, ptr %219, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %220, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.6, i64 20, i1 false)
-  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_117PredictByAllTreesERKNS_3gbm11GBTreeModelEjjmRKSt6vectorINS_7RegTree4FVecESaIS8_EEmmNS_6linalg10TensorViewIfLi2EEE(ptr noundef nonnull readonly align 8 dereferenceable(280) %3, i32 noundef %6, i32 noundef %7, i64 noundef %223, ptr noundef nonnull readonly align 8 dereferenceable(24) %26, i64 noundef 0, i64 noundef %.sroa.speculated.i.i.i, ptr noundef nonnull %11)
+  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_117PredictByAllTreesERKNS_3gbm11GBTreeModelEjjmRKSt6vectorINS_7RegTree4FVecESaIS8_EEmmNS_6linalg10TensorViewIfLi2EEE(ptr noundef nonnull readonly align 8 dereferenceable(280) %3, i32 noundef %6, i32 noundef %7, i64 noundef %223, ptr noundef nonnull readonly align 8 dereferenceable(24) %26, i64 noundef 0, i64 noundef %.sroa.speculated.i.i.i, ptr noundef %11)
           to label %.noexc9.i.i unwind label %.loopexit.split-lp.i.i
 
 .noexc9.i.i:                                      ; preds = %_ZN7xgboost9predictor12_GLOBAL__N_18FVecFillINS1_11AdapterViewINS_4data12DenseAdapterEEEEEvmmiPT_mPSt6vectorINS_7RegTree4FVecESaISB_EE.exit.i.i.i
@@ -20606,7 +20606,7 @@ _ZNSt6vectorIN7xgboost5EntryESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZNSt6vectorIN7x
 
 144:                                              ; preds = %_ZNSt6vectorIN7xgboost5EntryESaIS1_EEC2EmRKS2_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_114InitThreadTempEiPSt6vectorINS_7RegTree4FVecESaIS4_EE(i32 noundef %30, ptr noundef nonnull %26)
+  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_114InitThreadTempEiPSt6vectorINS_7RegTree4FVecESaIS4_EE(i32 noundef %30, ptr noundef %26)
           to label %145 unwind label %419
 
 145:                                              ; preds = %144
@@ -21006,7 +21006,7 @@ _ZN7xgboost9predictor12_GLOBAL__N_18FVecFillINS1_11AdapterViewINS_4data10CSRAdap
   store i64 %159, ptr %211, align 8
   store ptr %155, ptr %212, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %213, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.6, i64 20, i1 false)
-  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_117PredictByAllTreesERKNS_3gbm11GBTreeModelEjjmRKSt6vectorINS_7RegTree4FVecESaIS8_EEmmNS_6linalg10TensorViewIfLi2EEE(ptr noundef nonnull readonly align 8 dereferenceable(280) %3, i32 noundef %6, i32 noundef %7, i64 noundef %.03378.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %26, i64 noundef 0, i64 noundef 1, ptr noundef nonnull %11)
+  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_117PredictByAllTreesERKNS_3gbm11GBTreeModelEjjmRKSt6vectorINS_7RegTree4FVecESaIS8_EEmmNS_6linalg10TensorViewIfLi2EEE(ptr noundef nonnull readonly align 8 dereferenceable(280) %3, i32 noundef %6, i32 noundef %7, i64 noundef %.03378.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %26, i64 noundef 0, i64 noundef 1, ptr noundef %11)
           to label %.lr.ph.i13.i.i.i unwind label %.loopexit.split-lp.i.i
 
 .lr.ph.i13.i.i.i:                                 ; preds = %_ZN7xgboost9predictor12_GLOBAL__N_18FVecFillINS1_11AdapterViewINS_4data10CSRAdapterEEEEEvmmiPT_mPSt6vectorINS_7RegTree4FVecESaISB_EE.exit.i.i.i
@@ -21726,7 +21726,7 @@ _ZNSt6vectorIN7xgboost5EntryESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZNSt6vectorIN7x
 145:                                              ; preds = %_ZNSt6vectorIN7xgboost5EntryESaIS1_EEC2EmRKS2_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   %146 = shl i32 %30, 6
-  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_114InitThreadTempEiPSt6vectorINS_7RegTree4FVecESaIS4_EE(i32 noundef %146, ptr noundef nonnull %26)
+  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_114InitThreadTempEiPSt6vectorINS_7RegTree4FVecESaIS4_EE(i32 noundef %146, ptr noundef %26)
           to label %147 unwind label %480
 
 147:                                              ; preds = %145
@@ -21941,7 +21941,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11)
-  %224 = shl i64 %.03378.i.i.i, 6
+  %224 = shl nuw nsw i64 %.03378.i.i.i, 6
   %225 = sub nsw i64 %217, %224
   %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %225, i64 64)
   %.not.i.i.i4.i = icmp eq i64 %224, %217
@@ -22248,7 +22248,7 @@ _ZN7xgboost9predictor12_GLOBAL__N_18FVecFillINS1_11AdapterViewINS_4data12ArrayAd
   store i64 %161, ptr %219, align 8
   store ptr %157, ptr %220, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %221, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.6, i64 20, i1 false)
-  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_117PredictByAllTreesERKNS_3gbm11GBTreeModelEjjmRKSt6vectorINS_7RegTree4FVecESaIS8_EEmmNS_6linalg10TensorViewIfLi2EEE(ptr noundef nonnull readonly align 8 dereferenceable(280) %3, i32 noundef %6, i32 noundef %7, i64 noundef %224, ptr noundef nonnull readonly align 8 dereferenceable(24) %26, i64 noundef 0, i64 noundef %.sroa.speculated.i.i.i, ptr noundef nonnull %11)
+  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_117PredictByAllTreesERKNS_3gbm11GBTreeModelEjjmRKSt6vectorINS_7RegTree4FVecESaIS8_EEmmNS_6linalg10TensorViewIfLi2EEE(ptr noundef nonnull readonly align 8 dereferenceable(280) %3, i32 noundef %6, i32 noundef %7, i64 noundef %224, ptr noundef nonnull readonly align 8 dereferenceable(24) %26, i64 noundef 0, i64 noundef %.sroa.speculated.i.i.i, ptr noundef %11)
           to label %.noexc9.i.i unwind label %.loopexit.split-lp.i.i
 
 .noexc9.i.i:                                      ; preds = %_ZN7xgboost9predictor12_GLOBAL__N_18FVecFillINS1_11AdapterViewINS_4data12ArrayAdapterEEEEEvmmiPT_mPSt6vectorINS_7RegTree4FVecESaISB_EE.exit.i.i.i
@@ -22979,7 +22979,7 @@ _ZNSt6vectorIN7xgboost5EntryESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZNSt6vectorIN7x
 
 146:                                              ; preds = %_ZNSt6vectorIN7xgboost5EntryESaIS1_EEC2EmRKS2_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_114InitThreadTempEiPSt6vectorINS_7RegTree4FVecESaIS4_EE(i32 noundef %30, ptr noundef nonnull %26)
+  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_114InitThreadTempEiPSt6vectorINS_7RegTree4FVecESaIS4_EE(i32 noundef %30, ptr noundef %26)
           to label %147 unwind label %650
 
 147:                                              ; preds = %146
@@ -23763,7 +23763,7 @@ _ZN7xgboost9predictor12_GLOBAL__N_18FVecFillINS1_11AdapterViewINS_4data15CSRArra
   store i64 %162, ptr %215, align 8
   store ptr %158, ptr %216, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %217, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.6, i64 20, i1 false)
-  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_117PredictByAllTreesERKNS_3gbm11GBTreeModelEjjmRKSt6vectorINS_7RegTree4FVecESaIS8_EEmmNS_6linalg10TensorViewIfLi2EEE(ptr noundef nonnull readonly align 8 dereferenceable(280) %3, i32 noundef %6, i32 noundef %7, i64 noundef %.03378.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %26, i64 noundef 0, i64 noundef 1, ptr noundef nonnull %11)
+  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_117PredictByAllTreesERKNS_3gbm11GBTreeModelEjjmRKSt6vectorINS_7RegTree4FVecESaIS8_EEmmNS_6linalg10TensorViewIfLi2EEE(ptr noundef nonnull readonly align 8 dereferenceable(280) %3, i32 noundef %6, i32 noundef %7, i64 noundef %.03378.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %26, i64 noundef 0, i64 noundef 1, ptr noundef %11)
           to label %.lr.ph.i13.i.i.i unwind label %.loopexit.split-lp.i.i
 
 .lr.ph.i13.i.i.i:                                 ; preds = %_ZN7xgboost9predictor12_GLOBAL__N_18FVecFillINS1_11AdapterViewINS_4data15CSRArrayAdapterEEEEEvmmiPT_mPSt6vectorINS_7RegTree4FVecESaISB_EE.exit.i.i.i
@@ -24529,7 +24529,7 @@ _ZNSt6vectorIN7xgboost5EntryESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZNSt6vectorIN7x
 167:                                              ; preds = %_ZNSt6vectorIN7xgboost5EntryESaIS1_EEC2EmRKS2_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   %168 = shl i32 %30, 6
-  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_114InitThreadTempEiPSt6vectorINS_7RegTree4FVecESaIS4_EE(i32 noundef %168, ptr noundef nonnull %26)
+  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_114InitThreadTempEiPSt6vectorINS_7RegTree4FVecESaIS4_EE(i32 noundef %168, ptr noundef %26)
           to label %169 unwind label %564
 
 169:                                              ; preds = %167
@@ -24765,7 +24765,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11)
-  %254 = shl i64 %.03378.i.i.i, 6
+  %254 = shl nuw nsw i64 %.03378.i.i.i, 6
   %255 = sub nsw i64 %247, %254
   %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %255, i64 64)
   %.not.i.i.i5.i = icmp eq i64 %254, %247
@@ -25122,7 +25122,7 @@ _ZN7xgboost9predictor12_GLOBAL__N_18FVecFillINS1_11AdapterViewINS_4data15Columna
   store i64 %187, ptr %249, align 8
   store ptr %183, ptr %250, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %251, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.6, i64 20, i1 false)
-  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_117PredictByAllTreesERKNS_3gbm11GBTreeModelEjjmRKSt6vectorINS_7RegTree4FVecESaIS8_EEmmNS_6linalg10TensorViewIfLi2EEE(ptr noundef nonnull readonly align 8 dereferenceable(280) %3, i32 noundef %6, i32 noundef %7, i64 noundef %254, ptr noundef nonnull readonly align 8 dereferenceable(24) %26, i64 noundef 0, i64 noundef %.sroa.speculated.i.i.i, ptr noundef nonnull %11)
+  invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_117PredictByAllTreesERKNS_3gbm11GBTreeModelEjjmRKSt6vectorINS_7RegTree4FVecESaIS8_EEmmNS_6linalg10TensorViewIfLi2EEE(ptr noundef nonnull readonly align 8 dereferenceable(280) %3, i32 noundef %6, i32 noundef %7, i64 noundef %254, ptr noundef nonnull readonly align 8 dereferenceable(24) %26, i64 noundef 0, i64 noundef %.sroa.speculated.i.i.i, ptr noundef %11)
           to label %.noexc9.i.i unwind label %.loopexit.split-lp.i.i
 
 .noexc9.i.i:                                      ; preds = %_ZN7xgboost9predictor12_GLOBAL__N_18FVecFillINS1_11AdapterViewINS_4data15ColumnarAdapterEEEEEvmmiPT_mPSt6vectorINS_7RegTree4FVecESaISB_EE.exit.i.i.i
@@ -30739,7 +30739,7 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZNK7xgboost9predictor12CPUP
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i:           ; preds = %29, %35, %33, %31
-  %36 = tail call fastcc noundef float @_ZN7xgboost9predictor12_GLOBAL__N_118FillNodeMeanValuesEPKNS_7RegTreeEiPSt6vectorIfSaIfEE(ptr noundef nonnull %13, i32 noundef 0, ptr noundef nonnull %15)
+  %36 = tail call fastcc noundef float @_ZN7xgboost9predictor12_GLOBAL__N_118FillNodeMeanValuesEPKNS_7RegTreeEiPSt6vectorIfSaIfEE(ptr noundef nonnull %13, i32 noundef 0, ptr noundef %15)
   br label %_ZZNK7xgboost9predictor12CPUPredictor19PredictContributionEPNS_7DMatrixEPNS_16HostDeviceVectorIfEERKNS_3gbm11GBTreeModelEjPKSt6vectorIfSaIfEEbijENKUljE_clEj.exit
 
 37:                                               ; preds = %29
@@ -30885,7 +30885,7 @@ _ZZNK7xgboost9predictor12CPUPredictor19PredictContributionEPNS_7DMatrixEPNS_16Ho
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef float @_ZN7xgboost9predictor12_GLOBAL__N_118FillNodeMeanValuesEPKNS_7RegTreeEiPSt6vectorIfSaIfEE(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #26 {
+define internal fastcc noundef float @_ZN7xgboost9predictor12_GLOBAL__N_118FillNodeMeanValuesEPKNS_7RegTreeEiPSt6vectorIfSaIfEE(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #26 {
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8

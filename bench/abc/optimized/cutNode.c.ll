@@ -1041,7 +1041,7 @@ define internal fastcc range(i32 0, 2) i32 @Cut_CutProcessTwo(ptr noundef %0, pt
   br i1 %.not48, label %56, label %40
 
 40:                                               ; preds = %36
-  %41 = tail call fastcc i32 @Cut_CutFilterOne(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %.0)
+  %41 = tail call fastcc i32 @Cut_CutFilterOne(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %.0)
   %.not49 = icmp eq i32 %41, 0
   br i1 %.not49, label %42, label %105
 
@@ -1059,7 +1059,7 @@ define internal fastcc range(i32 0, 2) i32 @Cut_CutProcessTwo(ptr noundef %0, pt
   br i1 %.not51, label %51, label %49
 
 49:                                               ; preds = %46
-  %50 = tail call fastcc i32 @Cut_CutFilterOld(ptr noundef nonnull %0, ptr noundef nonnull %48, ptr noundef nonnull %.0)
+  %50 = tail call fastcc i32 @Cut_CutFilterOld(ptr noundef nonnull %0, ptr noundef %48, ptr noundef %.0)
   %.not52 = icmp eq i32 %50, 0
   br i1 %.not52, label %51, label %105
 
@@ -1070,7 +1070,7 @@ define internal fastcc range(i32 0, 2) i32 @Cut_CutProcessTwo(ptr noundef %0, pt
   br i1 %.not53, label %56, label %54
 
 54:                                               ; preds = %51
-  %55 = tail call fastcc i32 @Cut_CutFilterOld(ptr noundef nonnull %0, ptr noundef nonnull %53, ptr noundef nonnull %.0)
+  %55 = tail call fastcc i32 @Cut_CutFilterOld(ptr noundef nonnull %0, ptr noundef %53, ptr noundef %.0)
   %.not54 = icmp eq i32 %55, 0
   br i1 %.not54, label %56, label %105
 
@@ -1355,7 +1355,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not173, label %92, label %90
 
 90:                                               ; preds = %86
-  %91 = call fastcc i32 @Cut_CutFilterOne(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %.sink312)
+  %91 = call fastcc i32 @Cut_CutFilterOne(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %.sink312)
   %.not174 = icmp eq i32 %91, 0
   br i1 %.not174, label %._crit_edge, label %137
 
@@ -1498,7 +1498,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not162, label %151, label %149
 
 149:                                              ; preds = %.lr.ph224
-  %150 = call fastcc i32 @Cut_CutFilterOne(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %.sink315)
+  %150 = call fastcc i32 @Cut_CutFilterOne(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %.sink315)
   %.not163 = icmp eq i32 %150, 0
   br i1 %.not163, label %151, label %192
 
@@ -1667,7 +1667,7 @@ Abc_Clock.exit196:                                ; preds = %Cut_ListFinish.exit
 declare void @Cut_CutRecycle(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Cut_CutFilterOne(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Cut_CutFilterOne(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 8
   %5 = lshr i32 %4, 28
   %.not103 = icmp ult i32 %4, 536870912
@@ -2146,7 +2146,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not226, label %127, label %113
 
 113:                                              ; preds = %109
-  %114 = call fastcc i32 @Cut_CutFilterOne(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %.sink369)
+  %114 = call fastcc i32 @Cut_CutFilterOne(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %.sink369)
   %.not227 = icmp eq i32 %114, 0
   br i1 %.not227, label %115, label %173
 
@@ -2163,7 +2163,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not229, label %123, label %121
 
 121:                                              ; preds = %119
-  %122 = call fastcc i32 @Cut_CutFilterOld(ptr noundef nonnull %0, ptr noundef nonnull %120, ptr noundef nonnull %.sink369)
+  %122 = call fastcc i32 @Cut_CutFilterOld(ptr noundef nonnull %0, ptr noundef %120, ptr noundef %.sink369)
   %.not230 = icmp eq i32 %122, 0
   br i1 %.not230, label %123, label %173
 
@@ -2173,7 +2173,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not231, label %127, label %125
 
 125:                                              ; preds = %123
-  %126 = call fastcc i32 @Cut_CutFilterOld(ptr noundef nonnull %0, ptr noundef nonnull %124, ptr noundef nonnull %.sink369)
+  %126 = call fastcc i32 @Cut_CutFilterOld(ptr noundef nonnull %0, ptr noundef %124, ptr noundef %.sink369)
   %.not232 = icmp eq i32 %126, 0
   br i1 %.not232, label %127, label %173
 
@@ -2311,7 +2311,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not209, label %199, label %185
 
 185:                                              ; preds = %.lr.ph282
-  %186 = call fastcc i32 @Cut_CutFilterOne(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %.sink372)
+  %186 = call fastcc i32 @Cut_CutFilterOne(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %.sink372)
   %.not210 = icmp eq i32 %186, 0
   br i1 %.not210, label %187, label %240
 
@@ -2328,7 +2328,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not212, label %195, label %193
 
 193:                                              ; preds = %191
-  %194 = call fastcc i32 @Cut_CutFilterOld(ptr noundef nonnull %0, ptr noundef nonnull %192, ptr noundef nonnull %.sink372)
+  %194 = call fastcc i32 @Cut_CutFilterOld(ptr noundef nonnull %0, ptr noundef %192, ptr noundef %.sink372)
   %.not213 = icmp eq i32 %194, 0
   br i1 %.not213, label %195, label %240
 
@@ -2338,7 +2338,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not214, label %199, label %197
 
 197:                                              ; preds = %195
-  %198 = call fastcc i32 @Cut_CutFilterOld(ptr noundef nonnull %0, ptr noundef nonnull %196, ptr noundef nonnull %.sink372)
+  %198 = call fastcc i32 @Cut_CutFilterOld(ptr noundef nonnull %0, ptr noundef %196, ptr noundef %.sink372)
   %.not215 = icmp eq i32 %198, 0
   br i1 %.not215, label %199, label %240
 
@@ -2515,11 +2515,7 @@ declare ptr @Cut_NodeReadCutsTemp(ptr noundef, i32 noundef) local_unnamed_addr #
 declare void @Cut_NodeWriteCutsTemp(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Cut_CutFilterOld(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %.not80 = icmp eq ptr %1, null
-  br i1 %.not80, label %.loopexit67, label %.lr.ph
-
-.lr.ph:                                           ; preds = %3
+define internal fastcc range(i32 0, 2) i32 @Cut_CutFilterOld(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 8
   %.fr = freeze i32 %4
   %5 = lshr i32 %.fr, 28
@@ -2530,12 +2526,12 @@ define internal fastcc range(i32 0, 2) i32 @Cut_CutFilterOld(ptr noundef %0, ptr
   %8 = load i32, ptr %1, align 8
   %9 = lshr i32 %8, 28
   %10 = icmp ugt i32 %9, %5
-  br i1 %.not25.i, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not25.i, label %.split.us, label %.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %10, label %.lr.ph99, label %.lr.ph92
+.split.us:                                        ; preds = %3
+  br i1 %10, label %.lr.ph97, label %.lr.ph90
 
-.lr.ph92:                                         ; preds = %.lr.ph.split.us
+.lr.ph90:                                         ; preds = %.split.us
   %11 = load i32, ptr %6, align 4
   br label %16
 
@@ -2543,12 +2539,12 @@ define internal fastcc range(i32 0, 2) i32 @Cut_CutFilterOld(ptr noundef %0, ptr
   %13 = load i32, ptr %22, align 8
   %14 = lshr i32 %13, 28
   %15 = icmp ugt i32 %14, %5
-  br i1 %15, label %.lr.ph99, label %16, !llvm.loop !51
+  br i1 %15, label %.lr.ph97, label %16, !llvm.loop !51
 
-16:                                               ; preds = %.lr.ph92, %12
-  %17 = phi i32 [ %8, %.lr.ph92 ], [ %13, %12 ]
-  %.03682.us91 = phi ptr [ %1, %.lr.ph92 ], [ %22, %12 ]
-  %18 = getelementptr inbounds i8, ptr %.03682.us91, i64 4
+16:                                               ; preds = %.lr.ph90, %12
+  %17 = phi i32 [ %8, %.lr.ph90 ], [ %13, %12 ]
+  %.03681.us89 = phi ptr [ %1, %.lr.ph90 ], [ %22, %12 ]
+  %18 = getelementptr inbounds i8, ptr %.03681.us89, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %11, %19
   %.not40.us = icmp eq i32 %20, %19
@@ -2557,15 +2553,15 @@ define internal fastcc range(i32 0, 2) i32 @Cut_CutFilterOld(ptr noundef %0, ptr
   br i1 %or.cond, label %Cut_CutCheckDominance.exit, label %Cut_CutCheckDominance.exit.thread.us
 
 Cut_CutCheckDominance.exit.thread.us:             ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %.03682.us91, i64 16
+  %21 = getelementptr inbounds i8, ptr %.03681.us89, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not.us = icmp eq ptr %22, null
   br i1 %.not.us, label %.loopexit67, label %12, !llvm.loop !51
 
-.lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %10, label %.lr.ph99, label %.lr.ph88
+.split:                                           ; preds = %3
+  br i1 %10, label %.lr.ph97, label %.lr.ph
 
-.lr.ph88:                                         ; preds = %.lr.ph.split
+.lr.ph:                                           ; preds = %.split
   %23 = load i32, ptr %6, align 4
   br label %28
 
@@ -2573,13 +2569,13 @@ Cut_CutCheckDominance.exit.thread.us:             ; preds = %16
   %25 = load i32, ptr %50, align 8
   %26 = lshr i32 %25, 28
   %27 = icmp ugt i32 %26, %5
-  br i1 %27, label %.lr.ph99, label %28, !llvm.loop !51
+  br i1 %27, label %.lr.ph97, label %28, !llvm.loop !51
 
-28:                                               ; preds = %.lr.ph88, %24
-  %29 = phi i32 [ %9, %.lr.ph88 ], [ %26, %24 ]
-  %30 = phi i32 [ %8, %.lr.ph88 ], [ %25, %24 ]
-  %.0368287 = phi ptr [ %1, %.lr.ph88 ], [ %50, %24 ]
-  %31 = getelementptr inbounds i8, ptr %.0368287, i64 4
+28:                                               ; preds = %.lr.ph, %24
+  %29 = phi i32 [ %9, %.lr.ph ], [ %26, %24 ]
+  %30 = phi i32 [ %8, %.lr.ph ], [ %25, %24 ]
+  %.0368187 = phi ptr [ %1, %.lr.ph ], [ %50, %24 ]
+  %31 = getelementptr inbounds i8, ptr %.0368187, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %23, %32
   %.not40 = icmp eq i32 %33, %32
@@ -2590,7 +2586,7 @@ Cut_CutCheckDominance.exit.thread.us:             ; preds = %16
   br i1 %.not.i, label %Cut_CutCheckDominance.exit, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %34
-  %35 = getelementptr inbounds i8, ptr %.0368287, i64 24
+  %35 = getelementptr inbounds i8, ptr %.0368187, i64 24
   %wide.trip.count30.i = zext nneg i32 %29 to i64
   br label %.preheader.us.i
 
@@ -2631,107 +2627,105 @@ Cut_CutCheckDominance.exit:                       ; preds = %34, %45, %16
   br label %.loopexit67
 
 Cut_CutCheckDominance.exit.thread:                ; preds = %._crit_edge.us.i, %42, %28
-  %49 = getelementptr inbounds i8, ptr %.0368287, i64 16
+  %49 = getelementptr inbounds i8, ptr %.0368187, i64 16
   %50 = load ptr, ptr %49, align 8
   %.not = icmp eq ptr %50, null
   br i1 %.not, label %.loopexit67, label %24, !llvm.loop !51
 
-.lr.ph99:                                         ; preds = %24, %12, %.lr.ph.split, %.lr.ph.split.us
-  %.us-phi = phi ptr [ null, %.lr.ph.split.us ], [ null, %.lr.ph.split ], [ %.03682.us91, %12 ], [ %.0368287, %24 ]
-  %.us-phi84 = phi ptr [ %1, %.lr.ph.split.us ], [ %1, %.lr.ph.split ], [ %22, %12 ], [ %50, %24 ]
+.lr.ph97:                                         ; preds = %24, %12, %.split, %.split.us
+  %.us-phi = phi ptr [ null, %.split.us ], [ null, %.split ], [ %.03681.us89, %12 ], [ %.0368187, %24 ]
+  %.us-phi84 = phi ptr [ %1, %.split.us ], [ %1, %.split ], [ %22, %12 ], [ %50, %24 ]
   %51 = getelementptr inbounds i8, ptr %.us-phi, i64 16
-  %52 = getelementptr inbounds i8, ptr %2, i64 4
-  %53 = getelementptr inbounds i8, ptr %2, i64 24
-  %54 = getelementptr inbounds i8, ptr %0, i64 248
-  %55 = getelementptr inbounds i8, ptr %0, i64 92
-  br label %56
+  %52 = getelementptr inbounds i8, ptr %0, i64 248
+  %53 = getelementptr inbounds i8, ptr %0, i64 92
+  br label %54
 
-56:                                               ; preds = %86, %.lr.ph99
-  %.098 = phi ptr [ %51, %.lr.ph99 ], [ %.1, %86 ]
-  %.13796 = phi ptr [ %.us-phi84, %.lr.ph99 ], [ %.03597, %86 ]
-  %.03597.in = getelementptr inbounds i8, ptr %.13796, i64 16
-  %.03597 = load ptr, ptr %.03597.in, align 8
-  %57 = getelementptr inbounds i8, ptr %.13796, i64 4
-  %58 = load i32, ptr %57, align 4
-  %59 = load i32, ptr %52, align 4
-  %60 = and i32 %59, %58
-  %.not43 = icmp eq i32 %60, %59
-  br i1 %.not43, label %63, label %61
+54:                                               ; preds = %84, %.lr.ph97
+  %.096 = phi ptr [ %51, %.lr.ph97 ], [ %.1, %84 ]
+  %.13794 = phi ptr [ %.us-phi84, %.lr.ph97 ], [ %.03595, %84 ]
+  %.03595.in = getelementptr inbounds i8, ptr %.13794, i64 16
+  %.03595 = load ptr, ptr %.03595.in, align 8
+  %55 = getelementptr inbounds i8, ptr %.13794, i64 4
+  %56 = load i32, ptr %55, align 4
+  %57 = load i32, ptr %6, align 4
+  %58 = and i32 %57, %56
+  %.not43 = icmp eq i32 %58, %57
+  br i1 %.not43, label %61, label %59
 
-61:                                               ; preds = %56
-  %62 = getelementptr inbounds i8, ptr %.13796, i64 16
-  br label %86
+59:                                               ; preds = %54
+  %60 = getelementptr inbounds i8, ptr %.13794, i64 16
+  br label %84
 
-63:                                               ; preds = %56
-  %64 = load i32, ptr %2, align 8
-  %65 = lshr i32 %64, 28
-  %.not.i46 = icmp ult i32 %64, 268435456
+61:                                               ; preds = %54
+  %62 = load i32, ptr %2, align 8
+  %63 = lshr i32 %62, 28
+  %.not.i46 = icmp ult i32 %62, 268435456
   br i1 %.not.i46, label %Cut_CutCheckDominance.exit61, label %.preheader.lr.ph.i47
 
-.preheader.lr.ph.i47:                             ; preds = %63
-  %66 = load i32, ptr %.13796, align 8
-  %67 = lshr i32 %66, 28
-  %.not25.i48 = icmp ult i32 %66, 268435456
-  %68 = getelementptr inbounds i8, ptr %.13796, i64 24
+.preheader.lr.ph.i47:                             ; preds = %61
+  %64 = load i32, ptr %.13794, align 8
+  %65 = lshr i32 %64, 28
+  %.not25.i48 = icmp ult i32 %64, 268435456
+  %66 = getelementptr inbounds i8, ptr %.13794, i64 24
   br i1 %.not25.i48, label %.loopexit, label %.preheader.us.preheader.i49
 
 .preheader.us.preheader.i49:                      ; preds = %.preheader.lr.ph.i47
-  %wide.trip.count30.i50 = zext nneg i32 %65 to i64
-  %wide.trip.count.i51 = zext nneg i32 %67 to i64
+  %wide.trip.count30.i50 = zext nneg i32 %63 to i64
+  %wide.trip.count.i51 = zext nneg i32 %65 to i64
   br label %.preheader.us.i52
 
-.preheader.us.i52:                                ; preds = %78, %.preheader.us.preheader.i49
-  %indvars.iv27.i53 = phi i64 [ 0, %.preheader.us.preheader.i49 ], [ %indvars.iv.next28.i59, %78 ]
-  %69 = getelementptr inbounds [0 x i32], ptr %53, i64 0, i64 %indvars.iv27.i53
-  %70 = load i32, ptr %69, align 4
-  br label %71
+.preheader.us.i52:                                ; preds = %76, %.preheader.us.preheader.i49
+  %indvars.iv27.i53 = phi i64 [ 0, %.preheader.us.preheader.i49 ], [ %indvars.iv.next28.i59, %76 ]
+  %67 = getelementptr inbounds [0 x i32], ptr %7, i64 0, i64 %indvars.iv27.i53
+  %68 = load i32, ptr %67, align 4
+  br label %69
 
-71:                                               ; preds = %75, %.preheader.us.i52
-  %indvars.iv.i54 = phi i64 [ 0, %.preheader.us.i52 ], [ %indvars.iv.next.i55, %75 ]
-  %72 = getelementptr inbounds [0 x i32], ptr %68, i64 0, i64 %indvars.iv.i54
-  %73 = load i32, ptr %72, align 4
-  %74 = icmp eq i32 %70, %73
-  br i1 %74, label %._crit_edge.us.i58, label %75
+69:                                               ; preds = %73, %.preheader.us.i52
+  %indvars.iv.i54 = phi i64 [ 0, %.preheader.us.i52 ], [ %indvars.iv.next.i55, %73 ]
+  %70 = getelementptr inbounds [0 x i32], ptr %66, i64 0, i64 %indvars.iv.i54
+  %71 = load i32, ptr %70, align 4
+  %72 = icmp eq i32 %68, %71
+  br i1 %72, label %._crit_edge.us.i58, label %73
 
-75:                                               ; preds = %71
+73:                                               ; preds = %69
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i54, 1
   %exitcond.not.i56 = icmp eq i64 %indvars.iv.next.i55, %wide.trip.count.i51
-  br i1 %exitcond.not.i56, label %.loopexit, label %71, !llvm.loop !34
+  br i1 %exitcond.not.i56, label %.loopexit, label %69, !llvm.loop !34
 
-._crit_edge.us.i58:                               ; preds = %71
-  %76 = trunc nuw nsw i64 %indvars.iv.i54 to i32
-  %77 = icmp eq i32 %67, %76
-  br i1 %77, label %.loopexit, label %78
+._crit_edge.us.i58:                               ; preds = %69
+  %74 = trunc nuw nsw i64 %indvars.iv.i54 to i32
+  %75 = icmp eq i32 %65, %74
+  br i1 %75, label %.loopexit, label %76
 
-78:                                               ; preds = %._crit_edge.us.i58
+76:                                               ; preds = %._crit_edge.us.i58
   %indvars.iv.next28.i59 = add nuw nsw i64 %indvars.iv27.i53, 1
   %exitcond31.not.i60 = icmp eq i64 %indvars.iv.next28.i59, %wide.trip.count30.i50
   br i1 %exitcond31.not.i60, label %Cut_CutCheckDominance.exit61, label %.preheader.us.i52, !llvm.loop !35
 
-Cut_CutCheckDominance.exit61:                     ; preds = %78, %63
-  %79 = load i32, ptr %54, align 8
-  %80 = add nsw i32 %79, 1
-  store i32 %80, ptr %54, align 8
-  %81 = load i32, ptr %55, align 4
-  %82 = add nsw i32 %81, -1
-  store i32 %82, ptr %55, align 4
-  %83 = getelementptr inbounds i8, ptr %.13796, i64 16
-  %84 = load ptr, ptr %83, align 8
-  store ptr %84, ptr %.098, align 8
-  tail call void @Cut_CutRecycle(ptr noundef %0, ptr noundef nonnull %.13796) #10
-  br label %86
+Cut_CutCheckDominance.exit61:                     ; preds = %76, %61
+  %77 = load i32, ptr %52, align 8
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %52, align 8
+  %79 = load i32, ptr %53, align 4
+  %80 = add nsw i32 %79, -1
+  store i32 %80, ptr %53, align 4
+  %81 = getelementptr inbounds i8, ptr %.13794, i64 16
+  %82 = load ptr, ptr %81, align 8
+  store ptr %82, ptr %.096, align 8
+  tail call void @Cut_CutRecycle(ptr noundef %0, ptr noundef nonnull %.13794) #10
+  br label %84
 
-.loopexit:                                        ; preds = %._crit_edge.us.i58, %75, %.preheader.lr.ph.i47
-  %85 = getelementptr inbounds i8, ptr %.13796, i64 16
-  br label %86
+.loopexit:                                        ; preds = %._crit_edge.us.i58, %73, %.preheader.lr.ph.i47
+  %83 = getelementptr inbounds i8, ptr %.13794, i64 16
+  br label %84
 
-86:                                               ; preds = %Cut_CutCheckDominance.exit61, %.loopexit, %61
-  %.1 = phi ptr [ %62, %61 ], [ %.098, %Cut_CutCheckDominance.exit61 ], [ %85, %.loopexit ]
-  %.not45 = icmp eq ptr %.03597, null
-  br i1 %.not45, label %.loopexit67, label %56, !llvm.loop !52
+84:                                               ; preds = %Cut_CutCheckDominance.exit61, %.loopexit, %59
+  %.1 = phi ptr [ %60, %59 ], [ %.096, %Cut_CutCheckDominance.exit61 ], [ %83, %.loopexit ]
+  %.not45 = icmp eq ptr %.03595, null
+  br i1 %.not45, label %.loopexit67, label %54, !llvm.loop !52
 
-.loopexit67:                                      ; preds = %Cut_CutCheckDominance.exit.thread, %Cut_CutCheckDominance.exit.thread.us, %86, %3, %Cut_CutCheckDominance.exit
-  %.039 = phi i32 [ 1, %Cut_CutCheckDominance.exit ], [ 0, %3 ], [ 0, %86 ], [ 0, %Cut_CutCheckDominance.exit.thread.us ], [ 0, %Cut_CutCheckDominance.exit.thread ]
+.loopexit67:                                      ; preds = %Cut_CutCheckDominance.exit.thread, %Cut_CutCheckDominance.exit.thread.us, %84, %Cut_CutCheckDominance.exit
+  %.039 = phi i32 [ 1, %Cut_CutCheckDominance.exit ], [ 0, %84 ], [ 0, %Cut_CutCheckDominance.exit.thread.us ], [ 0, %Cut_CutCheckDominance.exit.thread ]
   ret i32 %.039
 }
 

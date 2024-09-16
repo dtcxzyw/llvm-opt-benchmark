@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @do_lo_export(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
-  %4 = call fastcc zeroext i1 @start_lo_xact(ptr noundef nonnull @.str, ptr noundef nonnull %3)
+  %4 = call fastcc zeroext i1 @start_lo_xact(ptr noundef nonnull @.str, ptr noundef %3)
   br i1 %4, label %5, label %fail_lo_xact.exit
 
 5:                                                ; preds = %2
@@ -97,7 +97,7 @@ fail_lo_xact.exit:                                ; preds = %finish_lo_xact.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @start_lo_xact(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @start_lo_xact(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   store i8 0, ptr %1, align 1
   %3 = load ptr, ptr @pset, align 8
   %.not = icmp eq ptr %3, null
@@ -208,7 +208,7 @@ define internal void @print_lo_result(ptr noundef %0, ...) unnamed_addr #0 {
 define dso_local noundef zeroext i1 @do_lo_import(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca i8, align 1
-  %5 = call fastcc zeroext i1 @start_lo_xact(ptr noundef nonnull @.str.3, ptr noundef nonnull %4)
+  %5 = call fastcc zeroext i1 @start_lo_xact(ptr noundef nonnull @.str.3, ptr noundef %4)
   br i1 %5, label %6, label %fail_lo_xact.exit
 
 6:                                                ; preds = %2
@@ -358,7 +358,7 @@ define dso_local noundef zeroext i1 @do_lo_unlink(ptr nocapture noundef readonly
   %2 = alloca i8, align 1
   %3 = tail call i64 @strtoul(ptr nocapture noundef %0, ptr noundef null, i32 noundef 10) #7
   %4 = trunc i64 %3 to i32
-  %5 = call fastcc zeroext i1 @start_lo_xact(ptr noundef nonnull @.str.9, ptr noundef nonnull %2)
+  %5 = call fastcc zeroext i1 @start_lo_xact(ptr noundef nonnull @.str.9, ptr noundef %2)
   br i1 %5, label %6, label %fail_lo_xact.exit
 
 6:                                                ; preds = %1

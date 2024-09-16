@@ -755,7 +755,7 @@ pmix_cmd_line_get_param.exit285:                  ; preds = %.lr.ph.i280
   br label %302
 
 .thread329:                                       ; preds = %288, %221
-  %294 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %4, ptr noundef nonnull @.str.45)
+  %294 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %4, ptr noundef nonnull @.str.45)
   br i1 %294, label %295, label %297
 
 295:                                              ; preds = %.thread329
@@ -763,7 +763,7 @@ pmix_cmd_line_get_param.exit285:                  ; preds = %.lr.ph.i280
   br label %302
 
 297:                                              ; preds = %.thread329
-  %298 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %4, ptr noundef nonnull @.str.47)
+  %298 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %4, ptr noundef nonnull @.str.47)
   br i1 %298, label %299, label %301
 
 299:                                              ; preds = %297
@@ -1174,7 +1174,7 @@ declare void @pmix_expose_param(ptr noundef) local_unnamed_addr #2
 declare i32 @pmix_register_params() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #6 {
+define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 240
   %4 = getelementptr inbounds i8, ptr %0, i64 360
   %.09.i = load ptr, ptr %4, align 8

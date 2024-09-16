@@ -10812,7 +10812,7 @@ switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %pType to i64
   %switch.gep = getelementptr inbounds [7 x i64], ptr @switch.table._ZN6Assimp15ColladaExporter15WriteFloatArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13FloatDataTypeEPKfm, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  call fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %pIdString)
+  call fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %pIdString)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayId, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %.noexc unwind label %lpad
 
@@ -10838,7 +10838,7 @@ invoke.cont9:                                     ; preds = %invoke.cont
           to label %invoke.cont10 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont10:                                    ; preds = %invoke.cont9
-  invoke fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(32) %pIdString)
+  invoke fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(32) %pIdString)
           to label %invoke.cont13 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont13:                                    ; preds = %invoke.cont10
@@ -12527,7 +12527,7 @@ ehcleanup582:                                     ; preds = %ehcleanup580, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %XML_ID_CHARS = alloca [66 x i8], align 16
   %idEncoded = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -12616,7 +12616,7 @@ for.inc:                                          ; preds = %if.then20.invoke
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !72
 
 for.end:                                          ; preds = %for.inc, %if.end11
-  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %idEncoded)
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %idEncoded)
           to label %invoke.cont32 unwind label %lpad.loopexit.split-lp
 
 invoke.cont32:                                    ; preds = %for.end
@@ -12967,7 +12967,7 @@ if.then37:                                        ; preds = %if.end35
           to label %if.end47 unwind label %lpad26
 
 if.else40:                                        ; preds = %if.end35
-  invoke fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
+  invoke fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %invoke.cont42 unwind label %lpad26
 
 invoke.cont42:                                    ; preds = %if.else40
@@ -15302,7 +15302,7 @@ invoke.cont175:                                   ; preds = %invoke.cont173
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %cur_node_idstr2, ptr noundef nonnull align 8 dereferenceable(32) %call.i209) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp171) #24
-  invoke fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp178, ptr noundef nonnull align 8 dereferenceable(32) %cur_node_idstr2)
+  invoke fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp178, ptr noundef nonnull align 8 dereferenceable(32) %cur_node_idstr2)
           to label %invoke.cont180 unwind label %lpad179
 
 invoke.cont180:                                   ; preds = %invoke.cont175
@@ -15329,7 +15329,7 @@ invoke.cont188:                                   ; preds = %invoke.cont182
           to label %invoke.cont190 unwind label %lpad187.loopexit.split-lp
 
 invoke.cont190:                                   ; preds = %invoke.cont188
-  invoke fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp192, ptr noundef nonnull align 8 dereferenceable(32) %cur_node_idstr2)
+  invoke fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp192, ptr noundef nonnull align 8 dereferenceable(32) %cur_node_idstr2)
           to label %invoke.cont193 unwind label %lpad187.loopexit.split-lp
 
 invoke.cont193:                                   ; preds = %invoke.cont190
@@ -15688,7 +15688,7 @@ invoke.cont349:                                   ; preds = %invoke.cont342
           to label %invoke.cont351 unwind label %lpad348
 
 invoke.cont351:                                   ; preds = %invoke.cont349
-  invoke fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp353, ptr noundef nonnull align 8 dereferenceable(32) %node_idstr)
+  invoke fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp353, ptr noundef nonnull align 8 dereferenceable(32) %node_idstr)
           to label %invoke.cont354 unwind label %lpad348
 
 invoke.cont354:                                   ; preds = %invoke.cont351
@@ -15741,7 +15741,7 @@ invoke.cont380:                                   ; preds = %.noexc280
 
 invoke.cont382:                                   ; preds = %invoke.cont380
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp373, ptr noundef nonnull align 8 dereferenceable(32) %call.i283284) #24
-  invoke fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp372, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp373)
+  invoke fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp372, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp373)
           to label %invoke.cont384 unwind label %lpad383
 
 invoke.cont384:                                   ; preds = %invoke.cont382
@@ -15793,7 +15793,7 @@ invoke.cont412:                                   ; preds = %.noexc292
 
 invoke.cont414:                                   ; preds = %invoke.cont412
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp405, ptr noundef nonnull align 8 dereferenceable(32) %call.i295296) #24
-  invoke fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp404, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp405)
+  invoke fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp404, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp405)
           to label %invoke.cont416 unwind label %lpad415
 
 invoke.cont416:                                   ; preds = %invoke.cont414
@@ -15845,7 +15845,7 @@ invoke.cont444:                                   ; preds = %.noexc304
 
 invoke.cont446:                                   ; preds = %invoke.cont444
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp437, ptr noundef nonnull align 8 dereferenceable(32) %call.i307308) #24
-  invoke fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp436, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp437)
+  invoke fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp436, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp437)
           to label %invoke.cont448 unwind label %lpad447
 
 invoke.cont448:                                   ; preds = %invoke.cont446
@@ -16068,7 +16068,7 @@ invoke.cont500:                                   ; preds = %.noexc321
 
 invoke.cont502:                                   ; preds = %invoke.cont500
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp493, ptr noundef nonnull align 8 dereferenceable(32) %call.i324325) #24
-  invoke fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp492, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp493)
+  invoke fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp492, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp493)
           to label %invoke.cont504 unwind label %lpad503
 
 invoke.cont504:                                   ; preds = %invoke.cont502
@@ -16101,7 +16101,7 @@ lpad.i332:                                        ; preds = %.noexc336
   br label %ehcleanup530
 
 invoke.cont517:                                   ; preds = %.noexc336
-  invoke fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp510, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp511)
+  invoke fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp510, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp511)
           to label %invoke.cont519 unwind label %lpad518
 
 invoke.cont519:                                   ; preds = %invoke.cont517
@@ -17076,7 +17076,7 @@ lpad81:                                           ; preds = %invoke.cont80
   br label %ehcleanup
 
 if.else:                                          ; preds = %sw.epilog
-  invoke fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp84, ptr noundef nonnull align 8 dereferenceable(32) %name)
+  invoke fastcc void @_ZN6AssimpL11XMLIDEncodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp84, ptr noundef nonnull align 8 dereferenceable(32) %name)
           to label %invoke.cont85 unwind label %lpad
 
 invoke.cont85:                                    ; preds = %if.else

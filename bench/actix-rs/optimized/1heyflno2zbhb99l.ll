@@ -4205,7 +4205,7 @@ define hidden void @_ZN6brotli3enc9metablock20BrotliBuildMetaBlock17hefd00365c03
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock17h188ffbd101919d2dE(ptr noalias nocapture noundef align 8 dereferenceable(88) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, ptr noalias nocapture noundef align 8 dereferenceable(8) %4, i32 noundef %5) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock17h188ffbd101919d2dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #1 personality ptr @rust_eh_personality {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -4672,7 +4672,7 @@ _ZN6brotli3enc9histogram21HistogramAddHistogram17h9ad80c31fd8a704cE.exit: ; pred
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock17h25c9a772f237e03bE(ptr noalias nocapture noundef align 8 dereferenceable(88) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, ptr noalias nocapture noundef align 8 dereferenceable(8) %4, i32 noundef %5) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock17h25c9a772f237e03bE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #1 personality ptr @rust_eh_personality {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -5139,7 +5139,7 @@ _ZN6brotli3enc9histogram21HistogramAddHistogram17he41084488f0e98eeE.exit: ; pred
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock17h9444ba9ef525acd8E(ptr noalias nocapture noundef align 8 dereferenceable(88) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, ptr noalias nocapture noundef align 8 dereferenceable(8) %4, i32 noundef %5) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock17h9444ba9ef525acd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #1 personality ptr @rust_eh_personality {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -5719,7 +5719,7 @@ define hidden void @_ZN6brotli3enc9metablock26BrotliBuildMetaBlockGreedy17h507be
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6brotli3enc9metablock31ContextBlockSplitterFinishBlock17h0400bede658c89edE(ptr noalias noundef align 8 dereferenceable(200) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, ptr noalias nocapture noundef align 8 dereferenceable(8) %4, i32 noundef %5) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6brotli3enc9metablock31ContextBlockSplitterFinishBlock17h0400bede658c89edE(ptr noalias noundef nonnull align 8 dereferenceable(200) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #1 personality ptr @rust_eh_personality {
   %7 = alloca { [256 x i32], i64, float, [1 x i32] }, align 8
   %8 = alloca { { i64, ptr, {} }, i64 }, align 8
   %9 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -7755,20 +7755,20 @@ _ZN6brotli3enc9metablock17InitBlockSplitter17he5294770bb896e69E.exit: ; preds = 
   br i1 %exitcond365.not, label %424, label %399, !prof !34
 
 359:                                              ; preds = %._crit_edge275
-  call fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock17h9444ba9ef525acd8E(ptr noalias noundef nonnull align 8 dereferenceable(88) %.sroa.5.0..sroa_idx, ptr noalias noundef nonnull align 8 dereferenceable(48) %14, ptr noalias noundef nonnull align 8 %354, i64 noundef %356, ptr noalias noundef nonnull align 8 dereferenceable(8) %357, i32 noundef 1)
+  call fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock17h9444ba9ef525acd8E(ptr noalias noundef align 8 dereferenceable(88) %.sroa.5.0..sroa_idx, ptr noalias noundef align 8 dereferenceable(48) %14, ptr noalias noundef nonnull align 8 %354, i64 noundef %356, ptr noalias noundef align 8 dereferenceable(8) %357, i32 noundef 1)
   br label %361
 
 360:                                              ; preds = %._crit_edge275
-  call fastcc void @_ZN6brotli3enc9metablock31ContextBlockSplitterFinishBlock17h0400bede658c89edE(ptr noalias noundef nonnull align 8 dereferenceable(200) %.sroa.5.0..sroa_idx, ptr noalias noundef nonnull align 8 dereferenceable(48) %14, ptr noalias noundef nonnull align 8 %354, i64 noundef %356, ptr noalias noundef nonnull align 8 dereferenceable(8) %357, i32 noundef 1)
+  call fastcc void @_ZN6brotli3enc9metablock31ContextBlockSplitterFinishBlock17h0400bede658c89edE(ptr noalias noundef align 8 dereferenceable(200) %.sroa.5.0..sroa_idx, ptr noalias noundef align 8 dereferenceable(48) %14, ptr noalias noundef nonnull align 8 %354, i64 noundef %356, ptr noalias noundef align 8 dereferenceable(8) %357, i32 noundef 1)
   br label %361
 
 361:                                              ; preds = %360, %359
   %362 = load ptr, ptr %209, align 8, !alias.scope !923, !nonnull !4, !align !5, !noundef !4
   %363 = load i64, ptr %250, align 8, !alias.scope !923, !noundef !4
-  call fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock17h188ffbd101919d2dE(ptr noalias noundef nonnull align 8 dereferenceable(88) %39, ptr noalias noundef nonnull align 8 dereferenceable(48) %208, ptr noalias noundef nonnull align 8 %362, i64 noundef %363, ptr noalias noundef nonnull align 8 dereferenceable(8) %210, i32 noundef 1)
+  call fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock17h188ffbd101919d2dE(ptr noalias noundef align 8 dereferenceable(88) %39, ptr noalias noundef align 8 dereferenceable(48) %208, ptr noalias noundef nonnull align 8 %362, i64 noundef %363, ptr noalias noundef align 8 dereferenceable(8) %210, i32 noundef 1)
   %364 = load ptr, ptr %278, align 8, !alias.scope !926, !nonnull !4, !align !5, !noundef !4
   %365 = load i64, ptr %319, align 8, !alias.scope !926, !noundef !4
-  call fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock17h25c9a772f237e03bE(ptr noalias noundef nonnull align 8 dereferenceable(88) %38, ptr noalias noundef nonnull align 8 dereferenceable(48) %277, ptr noalias noundef nonnull align 8 %364, i64 noundef %365, ptr noalias noundef nonnull align 8 dereferenceable(8) %279, i32 noundef 1)
+  call fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock17h25c9a772f237e03bE(ptr noalias noundef align 8 dereferenceable(88) %38, ptr noalias noundef align 8 dereferenceable(48) %277, ptr noalias noundef nonnull align 8 %364, i64 noundef %365, ptr noalias noundef align 8 dereferenceable(8) %279, i32 noundef 1)
   %366 = icmp ugt i64 %8, 1
   br i1 %366, label %367, label %_ZN6brotli3enc9metablock17MapStaticContexts17h682d152ddce3049bE.exit
 
@@ -7901,7 +7901,7 @@ _ZN6brotli3enc9histogram16HistogramAddItem17hca292cd7d5eaea54E.exit.i: ; preds =
   unreachable
 
 421:                                              ; preds = %_ZN6brotli3enc9histogram16HistogramAddItem17hca292cd7d5eaea54E.exit.i
-  call fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock17h188ffbd101919d2dE(ptr noalias noundef nonnull align 8 dereferenceable(88) %39, ptr noalias noundef nonnull align 8 dereferenceable(48) %208, ptr noalias noundef nonnull align 8 %401, i64 noundef %402, ptr noalias noundef nonnull align 8 dereferenceable(8) %210, i32 noundef 0)
+  call fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock17h188ffbd101919d2dE(ptr noalias noundef align 8 dereferenceable(88) %39, ptr noalias noundef align 8 dereferenceable(48) %208, ptr noalias noundef nonnull align 8 %401, i64 noundef %402, ptr noalias noundef align 8 dereferenceable(8) %210, i32 noundef 0)
   br label %_ZN6brotli3enc9metablock22BlockSplitterAddSymbol17hdaeccdf11c17ad83E.exit
 
 _ZN6brotli3enc9metablock22BlockSplitterAddSymbol17hdaeccdf11c17ad83E.exit: ; preds = %_ZN6brotli3enc9histogram16HistogramAddItem17hca292cd7d5eaea54E.exit.i, %421
@@ -8012,7 +8012,7 @@ _ZN6brotli3enc9histogram16HistogramAddItem17h79b1c7dce9230d37E.exit.i: ; preds =
   unreachable
 
 470:                                              ; preds = %_ZN6brotli3enc9histogram16HistogramAddItem17h79b1c7dce9230d37E.exit.i
-  call fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock17h25c9a772f237e03bE(ptr noalias noundef nonnull align 8 dereferenceable(88) %38, ptr noalias noundef nonnull align 8 dereferenceable(48) %277, ptr noalias noundef nonnull align 8 %449, i64 noundef %450, ptr noalias noundef nonnull align 8 dereferenceable(8) %279, i32 noundef 0)
+  call fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock17h25c9a772f237e03bE(ptr noalias noundef align 8 dereferenceable(88) %38, ptr noalias noundef align 8 dereferenceable(48) %277, ptr noalias noundef nonnull align 8 %449, i64 noundef %450, ptr noalias noundef align 8 dereferenceable(8) %279, i32 noundef 0)
   br label %_ZN6brotli3enc9metablock22BlockSplitterAddSymbol17hebd3955af67fa165E.exit
 
 471:                                              ; preds = %.lr.ph265
@@ -8058,7 +8058,7 @@ _ZN6brotli3enc9histogram16HistogramAddItem17h79b1c7dce9230d37E.exit.i: ; preds =
   unreachable
 
 495:                                              ; preds = %481
-  call fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock17h9444ba9ef525acd8E(ptr noalias noundef nonnull align 8 dereferenceable(88) %.sroa.5.0..sroa_idx, ptr noalias noundef nonnull align 8 dereferenceable(48) %14, ptr noalias noundef nonnull align 8 %477, i64 noundef %478, ptr noalias noundef nonnull align 8 dereferenceable(8) %349, i32 noundef 0)
+  call fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock17h9444ba9ef525acd8E(ptr noalias noundef align 8 dereferenceable(88) %.sroa.5.0..sroa_idx, ptr noalias noundef align 8 dereferenceable(48) %14, ptr noalias noundef nonnull align 8 %477, i64 noundef %478, ptr noalias noundef align 8 dereferenceable(8) %349, i32 noundef 0)
   br label %_ZN6brotli3enc9metablock22BlockSplitterAddSymbol17hb8480aba3be28daaE.exit
 
 496:                                              ; preds = %471
@@ -8150,7 +8150,7 @@ _ZN6brotli3enc9metablock22BlockSplitterAddSymbol17hb8480aba3be28daaE.exit: ; pre
   unreachable
 
 548:                                              ; preds = %534
-  call fastcc void @_ZN6brotli3enc9metablock31ContextBlockSplitterFinishBlock17h0400bede658c89edE(ptr noalias noundef nonnull align 8 dereferenceable(200) %.sroa.5.0..sroa_idx, ptr noalias noundef nonnull align 8 dereferenceable(48) %14, ptr noalias noundef nonnull align 8 %521, i64 noundef %522, ptr noalias noundef nonnull align 8 dereferenceable(8) %349, i32 noundef 0)
+  call fastcc void @_ZN6brotli3enc9metablock31ContextBlockSplitterFinishBlock17h0400bede658c89edE(ptr noalias noundef align 8 dereferenceable(200) %.sroa.5.0..sroa_idx, ptr noalias noundef align 8 dereferenceable(48) %14, ptr noalias noundef nonnull align 8 %521, i64 noundef %522, ptr noalias noundef align 8 dereferenceable(8) %349, i32 noundef 0)
   br label %_ZN6brotli3enc9metablock22BlockSplitterAddSymbol17hb8480aba3be28daaE.exit
 
 549:                                              ; preds = %_ZN6brotli3enc9histogram7Context17h3c4d6e2e7062a258E.exit

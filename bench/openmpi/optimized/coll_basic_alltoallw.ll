@@ -437,7 +437,7 @@ ompi_request_cancel.exit.i:                       ; preds = %210, %207
   br i1 %.not104, label %240, label %239
 
 239:                                              ; preds = %229
-  tail call fastcc void @ompi_coll_base_free_reqs(ptr noundef nonnull %176, i32 noundef %238)
+  tail call fastcc void @ompi_coll_base_free_reqs(ptr noundef %176, i32 noundef %238)
   br label %ompi_coll_base_free_reqs.exit
 
 240:                                              ; preds = %229, %.lr.ph142
@@ -511,7 +511,7 @@ declare i32 @ompi_datatype_sndrcv(ptr noundef, i32 noundef, ptr noundef, ptr nou
 declare ptr @ompi_coll_base_comm_get_reqs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ompi_coll_base_free_reqs(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @ompi_coll_base_free_reqs(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 

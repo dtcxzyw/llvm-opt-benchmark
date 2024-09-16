@@ -733,7 +733,7 @@ if.then.i:                                        ; preds = %if.then
 if.end:                                           ; preds = %if.then.i, %if.then, %entry
   %3 = phi ptr [ %1, %if.then.i ], [ %2, %if.then ], [ %0, %entry ]
   store ptr %3, ptr %agg.tmp, align 8
-  %call7 = call fastcc noundef zeroext i1 @_ZN4cvc58internal6theory2bv12_GLOBAL__N_18isBVAtomENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %agg.tmp)
+  %call7 = call fastcc noundef zeroext i1 @_ZN4cvc58internal6theory2bv12_GLOBAL__N_18isBVAtomENS0_12NodeTemplateILb0EEE(ptr noundef %agg.tmp)
   %4 = load ptr, ptr %fact, align 8
   br i1 %call7, label %if.then8, label %if.else
 
@@ -1325,7 +1325,7 @@ invoke.cont19.i:                                  ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i.i)
   %76 = load ptr, ptr %cur.i, align 8
   store ptr %76, ptr %agg.tmp.i92, align 8
-  %call24.i = invoke fastcc noundef zeroext i1 @_ZN4cvc58internal6theory2bv12_GLOBAL__N_18isBVAtomENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %agg.tmp.i92)
+  %call24.i = invoke fastcc noundef zeroext i1 @_ZN4cvc58internal6theory2bv12_GLOBAL__N_18isBVAtomENS0_12NodeTemplateILb0EEE(ptr noundef %agg.tmp.i92)
           to label %invoke.cont23.i unwind label %lpad22.i
 
 invoke.cont23.i:                                  ; preds = %invoke.cont19.i
@@ -1621,7 +1621,7 @@ eh.resume:                                        ; preds = %ehcleanup94, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4cvc58internal6theory2bv12_GLOBAL__N_18isBVAtomENS0_12NodeTemplateILb0EEE(ptr nocapture noundef readonly %n) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4cvc58internal6theory2bv12_GLOBAL__N_18isBVAtomENS0_12NodeTemplateILb0EEE(ptr nocapture noundef nonnull readonly %n) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::TypeNode", align 8
   %ref.tmp1 = alloca %"class.cvc5::internal::NodeTemplate", align 8

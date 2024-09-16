@@ -4794,7 +4794,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15ProfileUnOpInitRN4llvm16FoldingSetNodeIDEjPNS_4InitEPNS_5RecTyE(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL15ProfileUnOpInitRN4llvm16FoldingSetNodeIDEjPNS_4InitEPNS_5RecTyE(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef range(i32 0, 256) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   %6 = add i64 %5, 1
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
@@ -6838,7 +6838,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %54, %58
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16ProfileBinOpInitRN4llvm16FoldingSetNodeIDEjPNS_4InitES3_PNS_5RecTyE(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL16ProfileBinOpInitRN4llvm16FoldingSetNodeIDEjPNS_4InitES3_PNS_5RecTyE(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef range(i32 0, 256) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   %7 = add i64 %6, 1
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
@@ -6900,7 +6900,7 @@ define dso_local noundef ptr @_ZN4llvm9BinOpInit12getStrConcatEPNS_4InitES2_(ptr
   br i1 %.not12, label %tailrecurse._crit_edge.i, label %10
 
 10:                                               ; preds = %6
-  %11 = tail call fastcc noundef ptr @_ZL17ConcatStringInitsPKN4llvm10StringInitES2_(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %11 = tail call fastcc noundef ptr @_ZL17ConcatStringInitsPKN4llvm10StringInitES2_(ptr noundef %0, ptr noundef %1)
   br label %26
 
 12:                                               ; preds = %2
@@ -6945,7 +6945,7 @@ _ZNK4llvm4Init15getRecordKeeperEv.exit:           ; preds = %.lr.ph.i, %tailrecu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL17ConcatStringInitsPKN4llvm10StringInitES2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL17ConcatStringInitsPKN4llvm10StringInitES2_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::SmallString", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8
@@ -8330,7 +8330,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4InitELb1EE9push_backES2_.exit359: ; preds
   br i1 %or.cond19, label %543, label %.critedge
 
 543:                                              ; preds = %530
-  %544 = tail call fastcc noundef ptr @_ZL17ConcatStringInitsPKN4llvm10StringInitES2_(ptr noundef nonnull %spec.select.i.i360, ptr noundef nonnull %spec.select.i.i361)
+  %544 = tail call fastcc noundef ptr @_ZL17ConcatStringInitsPKN4llvm10StringInitES2_(ptr noundef %spec.select.i.i360, ptr noundef %spec.select.i.i361)
   br label %853
 
 545:                                              ; preds = %2
@@ -8362,11 +8362,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4InitELb1EE9push_backES2_.exit359: ; preds
   br i1 %565, label %566, label %568
 
 566:                                              ; preds = %558
-  %567 = tail call fastcc noundef ptr @_ZL20interleaveStringListPKN4llvm8ListInitEPKNS_10StringInitE(ptr noundef nonnull %spec.select.i.i362, ptr noundef nonnull %spec.select.i.i363)
+  %567 = tail call fastcc noundef ptr @_ZL20interleaveStringListPKN4llvm8ListInitEPKNS_10StringInitE(ptr noundef %spec.select.i.i362, ptr noundef %spec.select.i.i363)
   br label %570
 
 568:                                              ; preds = %558
-  %569 = tail call fastcc noundef ptr @_ZL17interleaveIntListPKN4llvm8ListInitEPKNS_10StringInitE(ptr noundef nonnull %spec.select.i.i362, ptr noundef nonnull %spec.select.i.i363)
+  %569 = tail call fastcc noundef ptr @_ZL17interleaveIntListPKN4llvm8ListInitEPKNS_10StringInitE(ptr noundef %spec.select.i.i362, ptr noundef %spec.select.i.i363)
   br label %570
 
 570:                                              ; preds = %568, %566
@@ -8419,7 +8419,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4InitELb1EE9push_backES2_.exit359: ; preds
 598:                                              ; preds = %593, %593
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #25
   %599 = load ptr, ptr %594, align 8
-  %600 = call fastcc i64 @_ZL16getDagArgNoByKeyPN4llvm7DagInitEPNS_4InitERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %589, ptr noundef %599, ptr noundef nonnull align 8 dereferenceable(32) %26)
+  %600 = call fastcc i64 @_ZL16getDagArgNoByKeyPN4llvm7DagInitEPNS_4InitERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %589, ptr noundef %599, ptr noundef nonnull align 8 dereferenceable(32) %26)
   %.not421 = icmp ult i64 %600, 4294967296
   br i1 %.not421, label %601, label %607
 
@@ -9247,7 +9247,7 @@ define linkonce_odr hidden void @_ZN4llvm11SmallVectorIPNS_4InitELj8EEC2EmRKS2_(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL20interleaveStringListPKN4llvm8ListInitEPKNS_10StringInitE(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL20interleaveStringListPKN4llvm8ListInitEPKNS_10StringInitE(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::SmallString", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
@@ -9354,7 +9354,7 @@ _ZN4llvm11SmallStringILj80EED2Ev.exit:            ; preds = %51, %.loopexit, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL17interleaveIntListPKN4llvm8ListInitEPKNS_10StringInitE(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL17interleaveIntListPKN4llvm8ListInitEPKNS_10StringInitE(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::SmallString", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9472,7 +9472,7 @@ _ZN4llvm11SmallStringILj80EED2Ev.exit:            ; preds = %15, %25, %65, %_ZN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i64 0, 8589934592) i64 @_ZL16getDagArgNoByKeyPN4llvm7DagInitEPNS_4InitERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 {
+define internal fastcc range(i64 0, 8589934592) i64 @_ZL16getDagArgNoByKeyPN4llvm7DagInitEPNS_4InitERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly %0, ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -10386,7 +10386,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %56, %60
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17ProfileTernOpInitRN4llvm16FoldingSetNodeIDEjPNS_4InitES3_S3_PNS_5RecTyE(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @_ZL17ProfileTernOpInitRN4llvm16FoldingSetNodeIDEjPNS_4InitES3_S3_PNS_5RecTyE(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef range(i32 0, 256) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   %8 = add i64 %7, 1
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
@@ -10894,7 +10894,7 @@ _ZN4llvm7VarInit3getENS_9StringRefEPNS_5RecTyE.exit: ; preds = %174, %_ZnwIN4llv
   br i1 %.not.i, label %258, label %256
 
 256:                                              ; preds = %246
-  %257 = tail call fastcc noundef ptr @_ZL15ForeachDagApplyPN4llvm4InitEPNS_7DagInitES1_PNS_6RecordE(ptr noundef %248, ptr noundef nonnull %250, ptr noundef %252, ptr noundef %1)
+  %257 = tail call fastcc noundef ptr @_ZL15ForeachDagApplyPN4llvm4InitEPNS_7DagInitES1_PNS_6RecordE(ptr noundef %248, ptr noundef %250, ptr noundef %252, ptr noundef %1)
   br label %_ZL13ForeachHelperPN4llvm4InitES1_S1_PNS_5RecTyEPNS_6RecordE.exit.thread
 
 258:                                              ; preds = %246
@@ -11899,7 +11899,7 @@ _ZN4llvm7IntInit3getERNS_12RecordKeeperEl.exit446: ; preds = %728, %_ZnwIN4llvm1
 775:                                              ; preds = %770, %770
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #25
   %776 = load ptr, ptr %771, align 8
-  %777 = call fastcc i64 @_ZL16getDagArgNoByKeyPN4llvm7DagInitEPNS_4InitERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %766, ptr noundef %776, ptr noundef nonnull align 8 dereferenceable(32) %49)
+  %777 = call fastcc i64 @_ZL16getDagArgNoByKeyPN4llvm7DagInitEPNS_4InitERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %766, ptr noundef %776, ptr noundef nonnull align 8 dereferenceable(32) %49)
   %.not513 = icmp ult i64 %777, 4294967296
   br i1 %.not513, label %778, label %784
 
@@ -11996,7 +11996,7 @@ _ZN4llvm11SmallVectorIPNS_4InitELj8EED2Ev.exit452: ; preds = %_ZN4llvm11SmallVec
 832:                                              ; preds = %827, %827
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #25
   %833 = load ptr, ptr %828, align 8
-  %834 = call fastcc i64 @_ZL16getDagArgNoByKeyPN4llvm7DagInitEPNS_4InitERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %823, ptr noundef %833, ptr noundef nonnull align 8 dereferenceable(32) %54)
+  %834 = call fastcc i64 @_ZL16getDagArgNoByKeyPN4llvm7DagInitEPNS_4InitERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %823, ptr noundef %833, ptr noundef nonnull align 8 dereferenceable(32) %54)
   %.not511 = icmp ult i64 %834, 4294967296
   br i1 %.not511, label %835, label %841
 
@@ -24225,7 +24225,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZL15ForeachDagApplyPN4llvm4InitEPNS_7DagInitES1_PNS_6RecordE(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @_ZL15ForeachDagApplyPN4llvm4InitEPNS_7DagInitES1_PNS_6RecordE(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::MapResolver", align 8
   %7 = alloca ptr, align 8
@@ -24297,7 +24297,7 @@ define internal fastcc noundef nonnull ptr @_ZL15ForeachDagApplyPN4llvm4InitEPNS
   br i1 %.not30, label %50, label %48
 
 48:                                               ; preds = %37
-  %49 = call fastcc noundef ptr @_ZL15ForeachDagApplyPN4llvm4InitEPNS_7DagInitES1_PNS_6RecordE(ptr noundef %0, ptr noundef nonnull %40, ptr noundef nonnull %2, ptr noundef %3)
+  %49 = call fastcc noundef ptr @_ZL15ForeachDagApplyPN4llvm4InitEPNS_7DagInitES1_PNS_6RecordE(ptr noundef %0, ptr noundef %40, ptr noundef nonnull %2, ptr noundef %3)
   br label %63
 
 50:                                               ; preds = %37
@@ -26544,7 +26544,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm6RecordElN9__gnu_cx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm6RecordElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11RecordRecTy3getERNS0_12RecordKeeperENS0_8ArrayRefIS2_EEE3$_0EEEvT_T0_SF_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm6RecordElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11RecordRecTy3getERNS0_12RecordKeeperENS0_8ArrayRefIS2_EEE3$_0EEEvT_T0_SF_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 576460752303423487) %1, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

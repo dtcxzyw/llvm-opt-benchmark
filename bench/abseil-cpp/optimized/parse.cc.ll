@@ -3200,7 +3200,7 @@ if.then.i.i.i481:                                 ; preds = %_ZNKSt17basic_strin
 
 lor.rhs.i:                                        ; preds = %if.then.i.i467, %.noexc207
   %.sroa.speculated.i30.sink.i490571 = phi i64 [ %.sroa.speculated.i.i476, %.noexc207 ], [ %arg.sroa.0.023.i469, %if.then.i.i467 ]
-  invoke fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_110LocateFlagESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp85.i, i64 %.sroa.speculated.i30.sink.i490571, ptr nonnull %arg.sroa.7.024.i468)
+  invoke fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_110LocateFlagESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp85.i, i64 %.sroa.speculated.i30.sink.i490571, ptr nonnull %arg.sroa.7.024.i468)
           to label %.noexc208 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp
 
 .noexc208:                                        ; preds = %lor.rhs.i
@@ -4487,7 +4487,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_110LocateFlagESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly align 8 %agg.result, i64 %flag_name.coerce0, ptr %flag_name.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_110LocateFlagESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, i64 %flag_name.coerce0, ptr %flag_name.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN4absl19FindCommandLineFlagESt17basic_string_viewIcSt11char_traitsIcEE(i64 %flag_name.coerce0, ptr %flag_name.coerce1)
   %tobool.not = icmp eq ptr %call, null

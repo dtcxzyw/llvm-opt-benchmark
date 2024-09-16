@@ -69,7 +69,7 @@ define void @job_res_add_cores(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_handle_job_res(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @_handle_job_res(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %5, null
@@ -156,8 +156,8 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
   %47 = getelementptr inbounds i8, ptr %34, i64 496
   %48 = load i16, ptr %47, align 8
   %49 = zext i16 %48 to i32
-  %.not93 = icmp eq i16 %48, 0
-  br i1 %.not93, label %._crit_edge, label %.lr.ph83
+  %.not94 = icmp eq i16 %48, 0
+  br i1 %.not94, label %._crit_edge, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %.preheader
   %.not70 = icmp eq ptr %.fr, null
@@ -207,7 +207,7 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
   br label %90
 
 65:                                               ; preds = %61
-  switch i32 %2, label %default.unreachable [
+  switch i32 %2, label %.unreachabledefault [
     i32 0, label %66
     i32 1, label %71
     i32 2, label %76
@@ -245,7 +245,7 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
   br i1 %.not69, label %88, label %81
 
 81:                                               ; preds = %.lr.ph83.split
-  switch i32 %2, label %default.unreachable [
+  switch i32 %2, label %.unreachabledefault116 [
     i32 0, label %82
     i32 1, label %83
     i32 2, label %84
@@ -265,9 +265,9 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
   br i1 %.not72, label %88, label %.loopexit
 
 .sink.split:                                      ; preds = %83, %82
-  %.sink117 = phi i32 [ 1, %82 ], [ -1, %83 ]
+  %.sink118 = phi i32 [ 1, %82 ], [ -1, %83 ]
   %86 = load i32, ptr %32, align 8
-  %87 = add i32 %86, %.sink117
+  %87 = add i32 %86, %.sink118
   store i32 %87, ptr %32, align 8
   br label %88
 
@@ -280,7 +280,10 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
   %89 = add nsw i32 %.05886, %49
   br label %90
 
-default.unreachable:                              ; preds = %65, %81
+.unreachabledefault116:                           ; preds = %81
+  unreachable
+
+.unreachabledefault:                              ; preds = %65
   unreachable
 
 90:                                               ; preds = %66, %71, %76, %62, %63, %._crit_edge

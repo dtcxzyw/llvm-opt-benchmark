@@ -403,7 +403,7 @@ if.then.i:                                        ; preds = %entry
   br label %_hashlib_HMAC_digest_impl.exit
 
 if.end.i:                                         ; preds = %entry
-  %call2.i = call fastcc i32 @_hmac_digest(ptr noundef nonnull %self, ptr noundef nonnull %digest.i, i32 noundef %call1.i.i)
+  %call2.i = call fastcc i32 @_hmac_digest(ptr noundef nonnull %self, ptr noundef %digest.i, i32 noundef %call1.i.i)
   %cmp3.i = icmp eq i32 %call2.i, 0
   br i1 %cmp3.i, label %_hashlib_HMAC_digest_impl.exit, label %if.end5.i
 
@@ -436,7 +436,7 @@ if.then.i:                                        ; preds = %entry
   br label %_hashlib_HMAC_hexdigest_impl.exit
 
 if.end.i:                                         ; preds = %entry
-  %call2.i = call fastcc i32 @_hmac_digest(ptr noundef nonnull %self, ptr noundef nonnull %digest.i, i32 noundef %call1.i.i)
+  %call2.i = call fastcc i32 @_hmac_digest(ptr noundef nonnull %self, ptr noundef %digest.i, i32 noundef %call1.i.i)
   %cmp3.i = icmp eq i32 %call2.i, 0
   br i1 %cmp3.i, label %_hashlib_HMAC_hexdigest_impl.exit, label %if.end5.i
 
@@ -740,7 +740,7 @@ declare ptr @ERR_reason_error_string(i64 noundef) local_unnamed_addr #1
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_hmac_digest(ptr noundef %self, ptr noundef %buf, i32 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_hmac_digest(ptr noundef %self, ptr noundef nonnull %buf, i32 noundef range(i32 1, 0) %len) unnamed_addr #0 {
 entry:
   %len.addr = alloca i32, align 4
   store i32 %len, ptr %len.addr, align 4
@@ -796,7 +796,7 @@ if.then3:                                         ; preds = %locked_HMAC_CTX_cop
   br label %return
 
 if.end5:                                          ; preds = %locked_HMAC_CTX_copy.exit
-  %call6 = call i32 @HMAC_Final(ptr noundef nonnull %call, ptr noundef %buf, ptr noundef nonnull %len.addr) #9
+  %call6 = call i32 @HMAC_Final(ptr noundef nonnull %call, ptr noundef nonnull %buf, ptr noundef nonnull %len.addr) #9
   call void @HMAC_CTX_free(ptr noundef nonnull %call) #9
   %cmp7 = icmp eq i32 %call6, 0
   br i1 %cmp7, label %if.then8, label %return
@@ -1325,7 +1325,7 @@ if.end47:                                         ; preds = %if.end44
 
 skip_optional_pos:                                ; preds = %if.end44, %if.end47
   %dklen_obj.0 = phi ptr [ %13, %if.end47 ], [ @_Py_NoneStruct, %if.end44 ]
-  %call49 = call fastcc ptr @pbkdf2_hmac_impl(ptr noundef %module, ptr noundef nonnull %call19, ptr noundef nonnull %password, ptr noundef nonnull %salt, i64 noundef %call38, ptr noundef %dklen_obj.0)
+  %call49 = call fastcc ptr @pbkdf2_hmac_impl(ptr noundef %module, ptr noundef %call19, ptr noundef %password, ptr noundef %salt, i64 noundef %call38, ptr noundef %dklen_obj.0)
   br label %exit
 
 exit:                                             ; preds = %land.lhs.true40, %if.end31, %if.end26, %if.end17, %cond.end9, %skip_optional_pos, %if.then25, %if.then15
@@ -2879,7 +2879,7 @@ declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
 declare i32 @PyArg_Parse(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef %digestname, ptr noundef %data_obj, i32 noundef %usedforsecurity) unnamed_addr #0 {
+define internal fastcc ptr @py_evp_fromname(ptr noundef %module, ptr noundef %digestname, ptr noundef %data_obj, i32 noundef range(i32 0, -2147483648) %usedforsecurity) unnamed_addr #0 {
 entry:
   %view = alloca %struct.Py_buffer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %view, i8 0, i64 80, i1 false)
@@ -3112,7 +3112,7 @@ return:                                           ; preds = %if.end68, %if.then7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @py_digest_by_name(ptr noundef %module, ptr noundef %name, i32 noundef %py_ht) unnamed_addr #0 {
+define internal fastcc ptr @py_digest_by_name(ptr noundef %module, ptr noundef %name, i32 noundef range(i32 0, 4) %py_ht) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #9
   %hashtable = getelementptr inbounds i8, ptr %call.i, i64 40
@@ -3218,9 +3218,9 @@ declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pbkdf2_hmac_impl(ptr noundef %module, ptr noundef %hash_name, ptr nocapture noundef readonly %password, ptr nocapture noundef readonly %salt, i64 noundef %iterations, ptr noundef %dklen_obj) unnamed_addr #0 {
+define internal fastcc ptr @pbkdf2_hmac_impl(ptr noundef %module, ptr noundef nonnull %hash_name, ptr nocapture noundef nonnull readonly %password, ptr nocapture noundef nonnull readonly %salt, i64 noundef %iterations, ptr noundef %dklen_obj) unnamed_addr #0 {
 entry:
-  %call = tail call fastcc ptr @py_digest_by_name(ptr noundef %module, ptr noundef %hash_name, i32 noundef 3)
+  %call = tail call fastcc ptr @py_digest_by_name(ptr noundef %module, ptr noundef nonnull %hash_name, i32 noundef 3)
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.end59, label %if.end
 

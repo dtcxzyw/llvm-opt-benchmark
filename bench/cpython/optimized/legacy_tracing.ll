@@ -235,7 +235,7 @@ return:                                           ; preds = %if.end8, %if.end28,
 declare i32 @_PySys_Audit(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @set_callbacks(i32 noundef %tool, ptr noundef %vectorcall, i32 noundef %legacy_event, i32 noundef %event1, i32 noundef %event2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @set_callbacks(i32 noundef range(i32 6, 8) %tool, ptr noundef %vectorcall, i32 noundef range(i32 0, 8) %legacy_event, i32 noundef range(i32 0, 17) %event1, i32 noundef range(i32 -1, 10) %event2) unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyObject_New(ptr noundef nonnull @_PyLegacyEventHandler_Type) #4
   %cmp = icmp eq ptr %call, null

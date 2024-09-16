@@ -3710,7 +3710,7 @@ declare i64 @mbedtls_mpi_core_mla(ptr noundef, i64 noundef, ptr noundef, i64 nou
 declare i32 @mbedtls_mpi_add_mpi(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecp_mod_koblitz(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @ecp_mod_koblitz(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 3, 5) %2, i64 noundef range(i64 0, 2) %3, i64 noundef range(i64 0, 33) %4, i64 noundef range(i64 0, 4294967296) %5) unnamed_addr #0 {
   %7 = alloca %struct.mbedtls_mpi, align 8
   %8 = alloca %struct.mbedtls_mpi, align 8
   %9 = alloca [6 x i64], align 16
@@ -3740,8 +3740,8 @@ define internal fastcc i32 @ecp_mod_koblitz(ptr noundef %0, ptr noundef %1, i64 
   %23 = getelementptr inbounds i64, ptr %22, i64 %2
   %24 = sub nsw i64 0, %3
   %25 = getelementptr inbounds i64, ptr %23, i64 %24
-  %26 = shl i64 %spec.select, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr align 8 %25, i64 %26, i1 false)
+  %26 = shl nuw nsw i64 %spec.select, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 8 %25, i64 %26, i1 false)
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %29, label %27
 
@@ -3804,8 +3804,8 @@ define internal fastcc i32 @ecp_mod_koblitz(ptr noundef %0, ptr noundef %1, i64 
   %52 = load ptr, ptr %21, align 8
   %53 = getelementptr inbounds i64, ptr %52, i64 %2
   %54 = getelementptr inbounds i64, ptr %53, i64 %24
-  %55 = shl i64 %spec.select73, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr align 8 %54, i64 %55, i1 false)
+  %55 = shl nuw nsw i64 %spec.select73, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 8 %54, i64 %55, i1 false)
   br i1 %.not, label %58, label %56
 
 56:                                               ; preds = %49

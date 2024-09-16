@@ -1623,7 +1623,7 @@ declare void @_ZN7doctest6detail7SubcaseC1ERKNS_6StringEPKci(ptr noundef nonnull
 declare noundef zeroext i1 @_ZNK7doctest6detail7SubcasecvbEv(ptr noundef nonnull align 8 dereferenceable(41)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext %success_expected, i32 noundef %byte2, i32 noundef %byte3, i32 noundef %byte4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext %success_expected, i32 noundef range(i32 -2147483648, 256) %byte2, i32 noundef range(i32 -2147483648, 256) %byte3, i32 noundef range(i32 -2147483648, 256) %byte4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %byte1.addr = alloca i32, align 4
   %byte2.addr = alloca i32, align 4
@@ -2293,7 +2293,7 @@ terminate.lpad:                                   ; preds = %lpad114, %lpad106, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext %success_expected, i32 noundef %byte2, i32 noundef %byte3, i32 noundef %byte4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114check_utf8dumpEbiiii(i1 noundef zeroext %success_expected, i32 noundef range(i32 -2147483648, 256) %byte2, i32 noundef range(i32 -2147483648, 256) %byte3, i32 noundef range(i32 -2147483648, 256) %byte4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %byte1.addr = alloca i32, align 4
   %byte2.addr = alloca i32, align 4

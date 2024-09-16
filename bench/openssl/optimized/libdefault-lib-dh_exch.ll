@@ -725,7 +725,7 @@ declare void @DH_free(ptr noundef) local_unnamed_addr #2
 declare i32 @ossl_dh_check_key(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dh_plain_derive(ptr nocapture noundef readonly %vpdhctx, ptr noundef %secret, ptr nocapture noundef writeonly %secretlen, i64 noundef %outlen, i32 noundef %pad) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dh_plain_derive(ptr nocapture noundef readonly %vpdhctx, ptr noundef %secret, ptr nocapture noundef writeonly %secretlen, i64 noundef %outlen, i32 noundef range(i32 0, 2) %pad) unnamed_addr #0 {
 entry:
   %pub_key = alloca ptr, align 8
   store ptr null, ptr %pub_key, align 8

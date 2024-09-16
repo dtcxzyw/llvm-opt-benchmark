@@ -4265,7 +4265,7 @@ _ZN4llvm9BitVectoroRERKS0_.exit:                  ; preds = %.lr.ph.i, %_ZN4llvm
   %storemerge26.i.i.in.in.i.i.i163 = phi i64 [ %storemerge26.i.i.i.i.i165, %select.unfold.i.i.i.i.i168 ], [ %1122, %.lr.ph.i.i.preheader.i.i.i ]
   %storemerge26.i.i.in.i.i.i164 = add nuw nsw i64 %storemerge26.i.i.in.in.i.i.i163, 1
   %storemerge26.i.i.i.i.i165 = lshr i64 %storemerge26.i.i.in.i.i.i164, 1
-  %1123 = mul nuw nsw i64 %storemerge26.i.i.i.i.i165, 80
+  %1123 = mul nuw i64 %storemerge26.i.i.i.i.i165, 80
   %1124 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %1123, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
   %.not.i.i.i.i.i166 = icmp eq ptr %1124, null
   br i1 %.not.i.i.i.i.i166, label %select.unfold.i.i.i.i.i168, label %1125

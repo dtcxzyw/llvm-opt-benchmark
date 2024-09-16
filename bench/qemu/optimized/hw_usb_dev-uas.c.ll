@@ -2085,7 +2085,7 @@ declare i64 @llvm.bswap.i64(i64) #4
 declare ptr @scsi_device_find(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @usb_uas_queue_response(ptr noundef %uas, i16 noundef zeroext %tag, i8 noundef zeroext %code) unnamed_addr #0 {
+define internal fastcc void @usb_uas_queue_response(ptr noundef %uas, i16 noundef zeroext %tag, i8 noundef zeroext range(i8 0, 11) %code) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #11

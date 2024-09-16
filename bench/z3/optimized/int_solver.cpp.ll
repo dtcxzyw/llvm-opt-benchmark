@@ -1849,14 +1849,14 @@ if.end5:                                          ; preds = %if.end
 
 if.end9:                                          ; preds = %if.end5
   %m_coeff.i = getelementptr inbounds i8, ptr %c, i64 8
-  call fastcc void @_ZN2lpL15fractional_partERK8rational(ptr noalias nonnull align 8 %a, ptr noundef nonnull align 8 dereferenceable(32) %m_coeff.i)
+  call fastcc void @_ZN2lpL15fractional_partERK8rational(ptr noalias align 8 %a, ptr noundef nonnull align 8 dereferenceable(32) %m_coeff.i)
   %4 = load ptr, ptr %lra, align 8
   store i32 %v, ptr %ref.tmp12, align 4
   invoke void @_ZNK2lp10lar_solver9get_valueERKNS_12column_indexE(ptr nonnull sret(%class.rational) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(1888) %4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp12)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %if.end9
-  invoke fastcc void @_ZN2lpL15fractional_partERK8rational(ptr noalias nonnull align 8 %r, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+  invoke fastcc void @_ZN2lpL15fractional_partERK8rational(ptr noalias align 8 %r, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont13
@@ -2039,7 +2039,7 @@ return:                                           ; preds = %.noexc.i42, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2lpL15fractional_partERK8rational(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %n) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2lpL15fractional_partERK8rational(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %n) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.rational, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
@@ -2074,7 +2074,7 @@ lpad.i:                                           ; preds = %.noexc.i, %entry
 
 _Z5floorRK8rational.exit:                         ; preds = %.noexc.i
   store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !24
-  invoke void @_ZmiRK8rationalS1_(ptr sret(%class.rational) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %n, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+  invoke void @_ZmiRK8rationalS1_(ptr nonnull sret(%class.rational) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %n, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_Z5floorRK8rational.exit
@@ -7834,7 +7834,7 @@ if.then54:                                        ; preds = %if.then52, %if.then
   %m_vector.i.i207 = getelementptr inbounds i8, ptr %122, i64 528
   %123 = load ptr, ptr %m_vector.i.i207, align 8
   %arrayidx.i.i209 = getelementptr inbounds %"struct.lp::numeric_pair", ptr %123, i64 %idxprom.i.i121
-  call fastcc void @"_ZZN2lp10int_solver31get_freedom_interval_for_columnEjRbRNS_12numeric_pairI8rationalEES1_S5_RS3_ENK3$_0clERKS3_RKS4_SB_"(ptr noalias nonnull align 8 %ref.tmp55, ptr noundef nonnull align 8 dereferenceable(32) %m_coeff.i.i, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i.i122, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i.i209)
+  call fastcc void @"_ZZN2lp10int_solver31get_freedom_interval_for_columnEjRbRNS_12numeric_pairI8rationalEES1_S5_RS3_ENK3$_0clERKS3_RKS4_SB_"(ptr noalias align 8 %ref.tmp55, ptr noundef nonnull align 8 dereferenceable(32) %m_coeff.i.i, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i.i122, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i.i209)
   %124 = load i8, ptr %inf_l, align 1
   %tobool.i210 = trunc i8 %124 to i1
   br i1 %tobool.i210, label %if.then.i212, label %lor.lhs.false.i211
@@ -7911,7 +7911,7 @@ if.then62:                                        ; preds = %if.end60
   %m_vector.i.i233 = getelementptr inbounds i8, ptr %133, i64 568
   %134 = load ptr, ptr %m_vector.i.i233, align 8
   %arrayidx.i.i235 = getelementptr inbounds %"struct.lp::numeric_pair", ptr %134, i64 %idxprom.i.i121
-  call fastcc void @"_ZZN2lp10int_solver31get_freedom_interval_for_columnEjRbRNS_12numeric_pairI8rationalEES1_S5_RS3_ENK3$_0clERKS3_RKS4_SB_"(ptr noalias nonnull align 8 %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(32) %m_coeff.i.i, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i.i122, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i.i235)
+  call fastcc void @"_ZZN2lp10int_solver31get_freedom_interval_for_columnEjRbRNS_12numeric_pairI8rationalEES1_S5_RS3_ENK3$_0clERKS3_RKS4_SB_"(ptr noalias align 8 %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(32) %m_coeff.i.i, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i.i122, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i.i235)
   %135 = load i8, ptr %inf_u, align 1
   %tobool.i236 = trunc i8 %135 to i1
   br i1 %tobool.i236, label %if.then.i238, label %lor.lhs.false.i237
@@ -7979,7 +7979,7 @@ if.then70:                                        ; preds = %if.else
   %m_vector.i.i259 = getelementptr inbounds i8, ptr %143, i64 568
   %144 = load ptr, ptr %m_vector.i.i259, align 8
   %arrayidx.i.i261 = getelementptr inbounds %"struct.lp::numeric_pair", ptr %144, i64 %idxprom.i.i121
-  call fastcc void @"_ZZN2lp10int_solver31get_freedom_interval_for_columnEjRbRNS_12numeric_pairI8rationalEES1_S5_RS3_ENK3$_0clERKS3_RKS4_SB_"(ptr noalias nonnull align 8 %ref.tmp71, ptr noundef nonnull align 8 dereferenceable(32) %m_coeff.i.i, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i.i122, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i.i261)
+  call fastcc void @"_ZZN2lp10int_solver31get_freedom_interval_for_columnEjRbRNS_12numeric_pairI8rationalEES1_S5_RS3_ENK3$_0clERKS3_RKS4_SB_"(ptr noalias align 8 %ref.tmp71, ptr noundef nonnull align 8 dereferenceable(32) %m_coeff.i.i, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i.i122, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i.i261)
   %145 = load i8, ptr %inf_l, align 1
   %tobool.i262 = trunc i8 %145 to i1
   br i1 %tobool.i262, label %if.then.i264, label %lor.lhs.false.i263
@@ -8058,7 +8058,7 @@ if.then78:                                        ; preds = %if.end76, %if.end76
   %m_vector.i.i286 = getelementptr inbounds i8, ptr %154, i64 528
   %155 = load ptr, ptr %m_vector.i.i286, align 8
   %arrayidx.i.i288 = getelementptr inbounds %"struct.lp::numeric_pair", ptr %155, i64 %idxprom.i.i121
-  call fastcc void @"_ZZN2lp10int_solver31get_freedom_interval_for_columnEjRbRNS_12numeric_pairI8rationalEES1_S5_RS3_ENK3$_0clERKS3_RKS4_SB_"(ptr noalias nonnull align 8 %ref.tmp79, ptr noundef nonnull align 8 dereferenceable(32) %m_coeff.i.i, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i.i122, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i.i288)
+  call fastcc void @"_ZZN2lp10int_solver31get_freedom_interval_for_columnEjRbRNS_12numeric_pairI8rationalEES1_S5_RS3_ENK3$_0clERKS3_RKS4_SB_"(ptr noalias align 8 %ref.tmp79, ptr noundef nonnull align 8 dereferenceable(32) %m_coeff.i.i, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i.i122, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i.i288)
   %156 = load i8, ptr %inf_u, align 1
   %tobool.i289 = trunc i8 %156 to i1
   br i1 %tobool.i289, label %if.then.i291, label %lor.lhs.false.i290
@@ -8508,7 +8508,7 @@ land.end:                                         ; preds = %if.then.i.i.i.i, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN2lp10int_solver31get_freedom_interval_for_columnEjRbRNS_12numeric_pairI8rationalEES1_S5_RS3_ENK3$_0clERKS3_RKS4_SB_"(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(64) %y, ptr noundef nonnull align 8 dereferenceable(64) %z) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN2lp10int_solver31get_freedom_interval_for_columnEjRbRNS_12numeric_pairI8rationalEES1_S5_RS3_ENK3$_0clERKS3_RKS4_SB_"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(64) %y, ptr noundef nonnull align 8 dereferenceable(64) %z) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.lp::numeric_pair", align 8
   %m_kind.i.i.i.i.i = getelementptr inbounds i8, ptr %x, i64 4
@@ -8532,7 +8532,7 @@ _ZNK8rational6is_oneEv.exit:                      ; preds = %entry
   br i1 %3, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %_ZNK8rational6is_oneEv.exit
-  tail call void @_ZNK2lp12numeric_pairI8rationalEmiERKS2_(ptr sret(%"struct.lp::numeric_pair") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %y, ptr noundef nonnull align 8 dereferenceable(64) %z)
+  tail call void @_ZNK2lp12numeric_pairI8rationalEmiERKS2_(ptr nonnull sret(%"struct.lp::numeric_pair") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %y, ptr noundef nonnull align 8 dereferenceable(64) %z)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -8552,12 +8552,12 @@ _ZNK8rational12is_minus_oneEv.exit:               ; preds = %if.end
   br i1 %6, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %_ZNK8rational12is_minus_oneEv.exit
-  tail call void @_ZNK2lp12numeric_pairI8rationalEmiERKS2_(ptr sret(%"struct.lp::numeric_pair") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %z, ptr noundef nonnull align 8 dereferenceable(64) %y)
+  tail call void @_ZNK2lp12numeric_pairI8rationalEmiERKS2_(ptr nonnull sret(%"struct.lp::numeric_pair") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %z, ptr noundef nonnull align 8 dereferenceable(64) %y)
   br label %return
 
 if.end4:                                          ; preds = %_ZNK8rational6is_oneEv.exit, %if.end, %_ZNK8rational12is_minus_oneEv.exit
   call void @_ZNK2lp12numeric_pairI8rationalEmiERKS2_(ptr nonnull sret(%"struct.lp::numeric_pair") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %y, ptr noundef nonnull align 8 dereferenceable(64) %z)
-  invoke void @_ZNK2lp12numeric_pairI8rationalEdvERKS1_(ptr sret(%"struct.lp::numeric_pair") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %x)
+  invoke void @_ZNK2lp12numeric_pairI8rationalEdvERKS1_(ptr nonnull sret(%"struct.lp::numeric_pair") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %x)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end4
@@ -12598,7 +12598,7 @@ land.rhs.i17:                                     ; preds = %do.body.i, %invoke.
   br i1 %cmp.i.i18, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %land.rhs.i17
-  invoke fastcc void @"_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIjEZN2lp10int_solver33gomory_select_int_infeasible_varsEjE3$_0EEEEvRNS_15_List_node_baseET_"(ptr noundef nonnull align 8 dereferenceable(16) %__counter.028.i, ptr noundef nonnull align 8 dereferenceable(16) %__carry.i, ptr nonnull %score, ptr nonnull readonly %this)
+  invoke fastcc void @"_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIjEZN2lp10int_solver33gomory_select_int_infeasible_varsEjE3$_0EEEEvRNS_15_List_node_baseET_"(ptr noundef nonnull align 8 dereferenceable(16) %__counter.028.i, ptr noundef nonnull align 8 dereferenceable(16) %__carry.i, ptr %score, ptr readonly %this)
           to label %invoke.cont16.i unwind label %lpad.loopexit.split-lp.i
 
 invoke.cont16.i:                                  ; preds = %for.body.i
@@ -12665,7 +12665,7 @@ for.cond25.i:                                     ; preds = %for.end.i, %for.bod
   br i1 %cmp26.not.i, label %for.end32.i, label %for.body27.i
 
 for.body27.i:                                     ; preds = %for.cond25.i
-  invoke fastcc void @"_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIjEZN2lp10int_solver33gomory_select_int_infeasible_varsEjE3$_0EEEEvRNS_15_List_node_baseET_"(ptr noundef nonnull align 8 dereferenceable(16) %__counter.1.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.pn.i, ptr nonnull %score, ptr nonnull readonly %this)
+  invoke fastcc void @"_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIjEZN2lp10int_solver33gomory_select_int_infeasible_varsEjE3$_0EEEEvRNS_15_List_node_baseET_"(ptr noundef nonnull align 8 dereferenceable(16) %__counter.1.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.pn.i, ptr %score, ptr readonly %this)
           to label %for.cond25.i unwind label %lpad.loopexit.i, !llvm.loop !72
 
 for.end32.i:                                      ; preds = %for.cond25.i
@@ -16993,7 +16993,7 @@ _ZNSt10_HashtableIjSt4pairIKj8rationalESaIS3_ENSt8__detail10_Select1stESt8equal_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIjEZN2lp10int_solver33gomory_select_int_infeasible_varsEjE3$_0EEEEvRNS_15_List_node_baseET_"(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__x, ptr %__comp.coerce0, ptr nocapture readonly %__comp.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIjEZN2lp10int_solver33gomory_select_int_infeasible_varsEjE3$_0EEEEvRNS_15_List_node_baseET_"(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__x, ptr nonnull %__comp.coerce0, ptr nocapture nonnull readonly %__comp.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node5.i16.i.i = alloca %"struct.std::_Hashtable<unsigned int, std::pair<const unsigned int, rational>, std::allocator<std::pair<const unsigned int, rational>>, std::__detail::_Select1st, std::equal_to<unsigned int>, std::hash<unsigned int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %__node5.i.i.i = alloca %"struct.std::_Hashtable<unsigned int, std::pair<const unsigned int, rational>, std::allocator<std::pair<const unsigned int, rational>>, std::__detail::_Select1st, std::equal_to<unsigned int>, std::hash<unsigned int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8

@@ -456,7 +456,7 @@ define hidden void @zif_chgrp(ptr noundef %0, ptr nocapture noundef writeonly %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_do_chgrp(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @php_do_chgrp(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -690,7 +690,7 @@ define hidden void @zif_chown(ptr noundef %0, ptr nocapture noundef writeonly %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_do_chown(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @php_do_chown(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8

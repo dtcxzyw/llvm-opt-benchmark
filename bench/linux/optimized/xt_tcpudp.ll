@@ -483,7 +483,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare i16 @llvm.bswap.i16(i16) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @tcp_find_option(i8 noundef zeroext %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr nocapture noundef writeonly %5) unnamed_addr #2 align 16 {
+define internal fastcc noundef zeroext i1 @tcp_find_option(i8 noundef zeroext range(i8 1, 0) %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 41) %3, i1 noundef zeroext %4, ptr nocapture noundef writeonly %5) unnamed_addr #2 align 16 {
   %7 = alloca [40 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #7
   %8 = icmp eq i32 %3, 0

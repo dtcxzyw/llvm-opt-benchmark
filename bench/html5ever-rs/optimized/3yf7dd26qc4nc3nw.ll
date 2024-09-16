@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hacb371aa3091d9f9E.8" = private unnamed_addr constant [3 x i64] [i64 7, i64 6, i64 6], align 8
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZN10phf_shared4hash17h98a7cd66616affbcE(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, i64 %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN10phf_shared4hash17h98a7cd66616affbcE(ptr noalias nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, i64 %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = xor i64 %.0.val, 7237128888997146499
   %5 = xor i64 %.0.val, 8387220255154660723
   %6 = and i64 %2, 7
@@ -760,7 +760,7 @@ define hidden void @"_ZN12string_cache4atom18Atom$LT$Static$GT$19try_static_inte
   %5 = tail call noundef align 8 dereferenceable(56) ptr @"_ZN92_$LT$markup5ever..NamespaceStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get17h1371100bff8aab73E"()
   %6 = getelementptr inbounds i8, ptr %5, i64 48
   %.val = load i64, ptr %6, align 8, !noundef !17
-  call fastcc void @_ZN10phf_shared4hash17h98a7cd66616affbcE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 %.val)
+  call fastcc void @_ZN10phf_shared4hash17h98a7cd66616affbcE(ptr noalias nocapture noundef align 4 dereferenceable(12) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 %.val)
   %7 = load ptr, ptr %5, align 8, !nonnull !17, !align !151, !noundef !17
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !17
@@ -856,7 +856,7 @@ define hidden void @"_ZN12string_cache4atom18Atom$LT$Static$GT$19try_static_inte
   %5 = tail call noundef align 8 dereferenceable(56) ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get17he0fa6df000ae2b5cE"()
   %6 = getelementptr inbounds i8, ptr %5, i64 48
   %.val = load i64, ptr %6, align 8, !noundef !17
-  call fastcc void @_ZN10phf_shared4hash17h98a7cd66616affbcE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 %.val)
+  call fastcc void @_ZN10phf_shared4hash17h98a7cd66616affbcE(ptr noalias nocapture noundef align 4 dereferenceable(12) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 %.val)
   %7 = load ptr, ptr %5, align 8, !nonnull !17, !align !151, !noundef !17
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !17
@@ -952,7 +952,7 @@ define hidden void @"_ZN12string_cache4atom18Atom$LT$Static$GT$19try_static_inte
   %5 = tail call noundef align 8 dereferenceable(56) ptr @"_ZN89_$LT$markup5ever..PrefixStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get17h444d422798f48d3dE"()
   %6 = getelementptr inbounds i8, ptr %5, i64 48
   %.val = load i64, ptr %6, align 8, !noundef !17
-  call fastcc void @_ZN10phf_shared4hash17h98a7cd66616affbcE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 %.val)
+  call fastcc void @_ZN10phf_shared4hash17h98a7cd66616affbcE(ptr noalias nocapture noundef align 4 dereferenceable(12) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 %.val)
   %7 = load ptr, ptr %5, align 8, !nonnull !17, !align !151, !noundef !17
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !17

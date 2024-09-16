@@ -857,7 +857,7 @@ declare noundef ptr @_ZN7testing8UnitTest11GetInstanceEv() local_unnamed_addr #0
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8UnitTest27parameterized_test_registryEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN7testing8internal29ParameterizedTestCaseRegistry24GetTestCasePatternHolderIN12_GLOBAL__N_127HyperscanScanGigabytesMatchEEEPNS0_25ParameterizedTestCaseInfoIT_EEPKcSA_i(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %line) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7testing8internal29ParameterizedTestCaseRegistry24GetTestCasePatternHolderIN12_GLOBAL__N_127HyperscanScanGigabytesMatchEEEPNS0_25ParameterizedTestCaseInfoIT_EEPKcSA_i(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef range(i32 137, 315) %line) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -1099,7 +1099,7 @@ _ZN7testing8ValuesInIN12_GLOBAL__N_120HugeScanMatchingDataELm13EEENS_8internal14
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN7testing8internal29ParameterizedTestCaseRegistry24GetTestCasePatternHolderIN12_GLOBAL__N_126HyperscanLiteralLengthTestEEEPNS0_25ParameterizedTestCaseInfoIT_EEPKcSA_i(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %line) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7testing8internal29ParameterizedTestCaseRegistry24GetTestCasePatternHolderIN12_GLOBAL__N_126HyperscanLiteralLengthTestEEEPNS0_25ParameterizedTestCaseInfoIT_EEPKcSA_i(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef range(i32 400, 480) %line) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -1366,7 +1366,7 @@ _ZNK7testing8internal12ValueArray16IiiiiiiiiiiiiiiiiEcvNS0_14ParamGeneratorIT_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN7testing8internal29ParameterizedTestCaseRegistry24GetTestCasePatternHolderIN12_GLOBAL__N_118CallbackReturnStopEEEPNS0_25ParameterizedTestCaseInfoIT_EEPKcSA_i(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %line) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7testing8internal29ParameterizedTestCaseRegistry24GetTestCasePatternHolderIN12_GLOBAL__N_118CallbackReturnStopEEEPNS0_25ParameterizedTestCaseInfoIT_EEPKcSA_i(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef range(i32 490, 606) %line) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -3814,7 +3814,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERK
 declare noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_127HyperscanScanGigabytesMatchEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseINS2_20HugeScanMatchingDataEEE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef readonly %test_base_name, ptr noundef %meta_factory) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_127HyperscanScanGigabytesMatchEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseINS2_20HugeScanMatchingDataEEE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef readonly %test_base_name, ptr noundef nonnull %meta_factory) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i10.i = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8
@@ -14928,7 +14928,7 @@ ehcleanup181:                                     ; preds = %if.then.i.i487, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_126HyperscanLiteralLengthTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseImEE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef readonly %test_base_name, ptr noundef %meta_factory) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_126HyperscanLiteralLengthTestEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseImEE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef readonly %test_base_name, ptr noundef nonnull %meta_factory) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i10.i = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8
@@ -19787,7 +19787,7 @@ dynamic_cast.notnull:                             ; preds = %invoke.cont, %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_118CallbackReturnStopEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseINS2_16CallbackStopDataEEE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef readonly %test_base_name, ptr noundef %meta_factory) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_118CallbackReturnStopEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseINS2_16CallbackStopDataEEE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef readonly %test_base_name, ptr noundef nonnull %meta_factory) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i10.i = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8

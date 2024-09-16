@@ -972,7 +972,7 @@ declare dso_local i32 @hid_hw_raw_request(ptr noundef, i8 noundef zeroext, ptr n
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @lg_g15_get_initial_led_brightness(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc i32 @lg_g15_get_initial_led_brightness(ptr noundef nonnull %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %73 [
@@ -986,7 +986,7 @@ define internal fastcc i32 @lg_g15_get_initial_led_brightness(ptr noundef %0) un
 4:                                                ; preds = %1, %1
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @hid_hw_raw_request(ptr noundef %6, i8 noundef zeroext 2, ptr noundef %0, i64 noundef 4, i32 noundef 2, i32 noundef 1) #10
+  %7 = tail call i32 @hid_hw_raw_request(ptr noundef %6, i8 noundef zeroext 2, ptr noundef nonnull %0, i64 noundef 4, i32 noundef 2, i32 noundef 1) #10
   %8 = icmp eq i32 %7, 4
   br i1 %8, label %14, label %9
 
@@ -1046,7 +1046,7 @@ define internal fastcc i32 @lg_g15_get_initial_led_brightness(ptr noundef %0) un
 47:                                               ; preds = %44
   %48 = getelementptr inbounds i8, ptr %0, i64 96
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call i32 @hid_hw_raw_request(ptr noundef %49, i8 noundef zeroext 4, ptr noundef %0, i64 noundef 2, i32 noundef 2, i32 noundef 1) #10
+  %50 = tail call i32 @hid_hw_raw_request(ptr noundef %49, i8 noundef zeroext 4, ptr noundef nonnull %0, i64 noundef 2, i32 noundef 2, i32 noundef 1) #10
   %51 = icmp eq i32 %50, 2
   br i1 %51, label %55, label %52
 
@@ -1141,7 +1141,7 @@ define internal fastcc void @lg_g15_init_input_dev(ptr noundef %0, ptr noundef %
 declare dso_local i32 @input_register_device(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @lg_g15_register_led(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc i32 @lg_g15_register_led(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = sext i32 %1 to i64
   %6 = getelementptr [6 x %struct.lg_g15_led], ptr %4, i64 0, i64 %5
@@ -1238,12 +1238,12 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 5, 4) i32 @lg_g510_get_initial_led_brightness(ptr noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 5, 4) i32 @lg_g510_get_initial_led_brightness(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = trunc nuw nsw i32 %1 to i8
   %6 = add nuw nsw i8 %5, 5
-  %7 = tail call i32 @hid_hw_raw_request(ptr noundef %4, i8 noundef zeroext %6, ptr noundef %0, i64 noundef 4, i32 noundef 2, i32 noundef 1) #10
+  %7 = tail call i32 @hid_hw_raw_request(ptr noundef %4, i8 noundef zeroext %6, ptr noundef nonnull %0, i64 noundef 4, i32 noundef 2, i32 noundef 1) #10
   %8 = icmp eq i32 %7, 4
   br i1 %8, label %14, label %9
 

@@ -1179,7 +1179,7 @@ if.then.i:                                        ; preds = %if.end
   store i8 %conv.i.i.i.i.i.i, ptr %tag.i.i.i.i, align 4
   store i64 %length, ptr %call4.i.i.i.i, align 8
   %storage.i.i.i = getelementptr inbounds i8, ptr %call4.i.i.i.i, i64 13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %storage.i.i.i, ptr readonly align 1 %data, i64 %length, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %storage.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %data, i64 %length, i1 false)
   br label %return
 
 _ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit.i: ; preds = %if.end

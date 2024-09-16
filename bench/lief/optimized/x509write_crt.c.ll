@@ -220,7 +220,7 @@ define hidden i32 @mbedtls_x509write_crt_set_subject_key_identifier(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mbedtls_x509write_crt_set_key_identifier(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc i32 @mbedtls_x509write_crt_set_key_identifier(ptr noundef %0, i32 noundef range(i32 0, 2) %1, i8 noundef zeroext range(i8 4, -127) %2) unnamed_addr #0 {
   %4 = alloca [2068 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 2068
@@ -474,13 +474,13 @@ define hidden i32 @mbedtls_x509write_crt_der(ptr noundef %0, ptr noundef %1, i64
   %73 = zext nneg i32 %69 to i64
   %74 = add nuw nsw i64 %72, %73
   %75 = getelementptr inbounds i8, ptr %0, i64 84
-  %76 = call fastcc i32 @x509_write_time(ptr noundef nonnull %8, ptr noundef %1, ptr noundef nonnull %75)
+  %76 = call fastcc i32 @x509_write_time(ptr noundef %8, ptr noundef %1, ptr noundef nonnull %75)
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %174, label %78
 
 78:                                               ; preds = %71
   %79 = getelementptr inbounds i8, ptr %0, i64 68
-  %80 = call fastcc i32 @x509_write_time(ptr noundef nonnull %8, ptr noundef %1, ptr noundef nonnull %79)
+  %80 = call fastcc i32 @x509_write_time(ptr noundef %8, ptr noundef %1, ptr noundef nonnull %79)
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %174, label %82
 
@@ -638,7 +638,7 @@ declare i32 @mbedtls_pk_write_pubkey_der(ptr noundef, ptr noundef, i64 noundef) 
 declare i32 @mbedtls_x509_write_names(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @x509_write_time(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @x509_write_time(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i8, ptr %2, align 1
   %5 = icmp slt i8 %4, 50
   br i1 %5, label %16, label %6
@@ -661,18 +661,18 @@ define internal fastcc i32 @x509_write_time(ptr noundef %0, ptr noundef %1, ptr 
 
 16:                                               ; preds = %3, %12
   %17 = getelementptr inbounds i8, ptr %2, i64 2
-  %18 = tail call i32 @mbedtls_asn1_write_raw_buffer(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %17, i64 noundef 13) #8
+  %18 = tail call i32 @mbedtls_asn1_write_raw_buffer(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %17, i64 noundef 13) #8
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %41, label %20
 
 20:                                               ; preds = %16
   %21 = zext nneg i32 %18 to i64
-  %22 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %21) #8
+  %22 = tail call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %21) #8
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %41, label %24
 
 24:                                               ; preds = %20
-  %25 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 23) #8
+  %25 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext 23) #8
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %41, label %27
 
@@ -682,18 +682,18 @@ define internal fastcc i32 @x509_write_time(ptr noundef %0, ptr noundef %1, ptr 
   br label %41
 
 29:                                               ; preds = %6, %8, %12
-  %30 = tail call i32 @mbedtls_asn1_write_raw_buffer(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i64 noundef 15) #8
+  %30 = tail call i32 @mbedtls_asn1_write_raw_buffer(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i64 noundef 15) #8
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %41, label %32
 
 32:                                               ; preds = %29
   %33 = zext nneg i32 %30 to i64
-  %34 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %33) #8
+  %34 = tail call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %33) #8
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %41, label %36
 
 36:                                               ; preds = %32
-  %37 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 24) #8
+  %37 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext 24) #8
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %41, label %39
 

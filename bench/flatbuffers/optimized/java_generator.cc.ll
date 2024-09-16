@@ -1864,7 +1864,7 @@ invoke.cont222.i:                                 ; preds = %invoke.cont220.i
           to label %.noexc61 unwind label %lpad16
 
 .noexc61:                                         ; preds = %invoke.cont222.i
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_112PrintServiceEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEPKNS1_7ServiceEb(ptr noundef nonnull %43, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef %service)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_112PrintServiceEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEPKNS1_7ServiceEb(ptr noundef %43, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef %service)
           to label %invoke.cont45 unwind label %lpad16
 
 lpad.i52:                                         ; preds = %call.i.noexc.i54, %invoke.cont43
@@ -2326,7 +2326,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_112PrintServiceEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEPKNS1_7ServiceEb(ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef %service) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_112PrintServiceEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEPKNS1_7ServiceEb(ptr noundef nonnull %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef %service) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i568 = alloca %struct._Guard, align 8
   %__guard.i557 = alloca %struct._Guard, align 8
@@ -2609,7 +2609,7 @@ invoke.cont32:                                    ; preds = %invoke.cont30
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %7 = load ptr, ptr %vfn.i.i, align 8, !noalias !10
   call void %7(ptr nonnull sret(%"class.std::vector") align 8 %lines.i, ptr noundef nonnull align 8 dereferenceable(8) %service)
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_123GrpcWriteDocCommentBodyEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEERKSt6vectorISA_SaISA_EEb(ptr noundef nonnull %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(24) %lines.i, i1 noundef zeroext true)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_123GrpcWriteDocCommentBodyEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEERKSt6vectorISA_SaISA_EEb(ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(24) %lines.i, i1 noundef zeroext true)
           to label %invoke.cont.i unwind label %lpad.i96
 
 invoke.cont.i:                                    ; preds = %invoke.cont32
@@ -3126,7 +3126,7 @@ invoke.cont88.i:                                  ; preds = %invoke.cont86.i
           to label %invoke.cont99.i unwind label %lpad18.i
 
 invoke.cont99.i:                                  ; preds = %invoke.cont88.i
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_113JavaClassNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_(ptr noalias nonnull align 8 %ref.tmp94.i, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp95.i)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_113JavaClassNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_(ptr noalias align 8 %ref.tmp94.i, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp95.i)
           to label %invoke.cont101.i unwind label %lpad100.i
 
 invoke.cont101.i:                                 ; preds = %invoke.cont99.i
@@ -3187,7 +3187,7 @@ invoke.cont107.i:                                 ; preds = %invoke.cont105.i
           to label %invoke.cont119.i unwind label %lpad18.i
 
 invoke.cont119.i:                                 ; preds = %invoke.cont107.i
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_113JavaClassNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_(ptr noalias nonnull align 8 %ref.tmp114.i, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115.i)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_113JavaClassNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_(ptr noalias align 8 %ref.tmp114.i, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115.i)
           to label %invoke.cont121.i unwind label %lpad120.i
 
 invoke.cont121.i:                                 ; preds = %invoke.cont119.i
@@ -3250,7 +3250,7 @@ invoke.cont127.i:                                 ; preds = %invoke.cont125.i
           to label %.noexc176.i unwind label %lpad18.i
 
 .noexc176.i:                                      ; preds = %invoke.cont127.i
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_114ToAllUpperCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_114ToAllUpperCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i)
           to label %invoke.cont.i175.i unwind label %lpad.i174.i, !noalias !20
 
 invoke.cont.i175.i:                               ; preds = %.noexc176.i
@@ -3307,7 +3307,7 @@ invoke.cont142.i:                                 ; preds = %invoke.cont140.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp138.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp134.i) #18
   %64 = load ptr, ptr %method.i, align 8
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_126MethodPropertiesGetterNameB5cxx11EPKN14grpc_generator6MethodE(ptr noalias nonnull align 8 %ref.tmp148.i, ptr noundef %64)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_126MethodPropertiesGetterNameB5cxx11EPKN14grpc_generator6MethodE(ptr noalias align 8 %ref.tmp148.i, ptr noundef %64)
           to label %invoke.cont150.i unwind label %lpad18.i
 
 invoke.cont150.i:                                 ; preds = %invoke.cont142.i
@@ -3339,7 +3339,7 @@ invoke.cont156.i:                                 ; preds = %invoke.cont154.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp152.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp148.i) #18
   %66 = load ptr, ptr %method.i, align 8
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_126MethodPropertiesGetterNameB5cxx11EPKN14grpc_generator6MethodE(ptr noalias nonnull align 8 %ref.tmp162.i, ptr noundef %66)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_126MethodPropertiesGetterNameB5cxx11EPKN14grpc_generator6MethodE(ptr noalias align 8 %ref.tmp162.i, ptr noundef %66)
           to label %invoke.cont164.i unwind label %lpad18.i
 
 invoke.cont164.i:                                 ; preds = %invoke.cont156.i
@@ -4717,7 +4717,7 @@ lpad.i111:                                        ; preds = %.noexc113
   br label %ehcleanup51
 
 invoke.cont47:                                    ; preds = %.noexc113
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_119GrpcWriteDocCommentEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEERSE_(ptr noundef nonnull %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_119GrpcWriteDocCommentEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEERSE_(ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44)
           to label %invoke.cont49 unwind label %lpad48
 
 invoke.cont49:                                    ; preds = %invoke.cont47
@@ -4762,7 +4762,7 @@ lpad.i119:                                        ; preds = %.noexc121
   br label %ehcleanup69
 
 invoke.cont65:                                    ; preds = %.noexc121
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_119GrpcWriteDocCommentEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEERSE_(ptr noundef nonnull %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_119GrpcWriteDocCommentEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEERSE_(ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62)
           to label %invoke.cont67 unwind label %lpad66
 
 invoke.cont67:                                    ; preds = %invoke.cont65
@@ -4807,7 +4807,7 @@ lpad.i127:                                        ; preds = %.noexc129
   br label %ehcleanup87
 
 invoke.cont83:                                    ; preds = %.noexc129
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_119GrpcWriteDocCommentEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEERSE_(ptr noundef nonnull %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_119GrpcWriteDocCommentEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEERSE_(ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80)
           to label %invoke.cont85 unwind label %lpad84
 
 invoke.cont85:                                    ; preds = %invoke.cont83
@@ -4833,10 +4833,10 @@ invoke.cont85:                                    ; preds = %invoke.cont83
   %vfn97 = getelementptr inbounds i8, ptr %vtable96, i64 24
   %203 = load ptr, ptr %vfn97, align 8
   call void %203(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.64)
-  call fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_19PrintStubEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEPKNS1_7ServiceENS0_8StubTypeE(ptr noundef nonnull %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull %service, i32 noundef 7)
-  call fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_19PrintStubEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEPKNS1_7ServiceENS0_8StubTypeE(ptr noundef nonnull %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull %service, i32 noundef 4)
-  call fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_19PrintStubEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEPKNS1_7ServiceENS0_8StubTypeE(ptr noundef nonnull %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull %service, i32 noundef 5)
-  call fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_19PrintStubEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEPKNS1_7ServiceENS0_8StubTypeE(ptr noundef nonnull %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull %service, i32 noundef 6)
+  call fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_19PrintStubEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEPKNS1_7ServiceENS0_8StubTypeE(ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull %service, i32 noundef 7)
+  call fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_19PrintStubEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEPKNS1_7ServiceENS0_8StubTypeE(ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull %service, i32 noundef 4)
+  call fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_19PrintStubEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEPKNS1_7ServiceENS0_8StubTypeE(ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull %service, i32 noundef 5)
+  call fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_19PrintStubEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEPKNS1_7ServiceENS0_8StubTypeE(ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull %service, i32 noundef 6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sorted_methods.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp6.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp26.i)
@@ -5080,7 +5080,7 @@ invoke.cont33.i:                                  ; preds = %invoke.cont31.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i) #18
   %220 = load ptr, ptr %add.ptr.i95.i, align 8
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_117MethodIdFieldNameB5cxx11EPKN14grpc_generator6MethodE(ptr noalias nonnull align 8 %ref.tmp37.i, ptr noundef nonnull %220)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_117MethodIdFieldNameB5cxx11EPKN14grpc_generator6MethodE(ptr noalias align 8 %ref.tmp37.i, ptr noundef %220)
           to label %invoke.cont39.i unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont39.i:                                  ; preds = %invoke.cont33.i
@@ -5355,7 +5355,7 @@ lpad109.i:                                        ; preds = %invoke.cont178.i, %
 
 if.end.i:                                         ; preds = %invoke.cont115.i
   %249 = load ptr, ptr %method102.i, align 8
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_117MethodIdFieldNameB5cxx11EPKN14grpc_generator6MethodE(ptr noalias nonnull align 8 %ref.tmp117.i, ptr noundef nonnull %249)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_117MethodIdFieldNameB5cxx11EPKN14grpc_generator6MethodE(ptr noalias align 8 %ref.tmp117.i, ptr noundef %249)
           to label %invoke.cont119.i198 unwind label %lpad109.i
 
 invoke.cont119.i198:                              ; preds = %if.end.i
@@ -5463,7 +5463,7 @@ invoke.cont139.i:                                 ; preds = %invoke.cont137.i
           to label %invoke.cont150.i207 unwind label %lpad109.i
 
 invoke.cont150.i207:                              ; preds = %invoke.cont139.i
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_113JavaClassNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_(ptr noalias nonnull align 8 %ref.tmp145.i, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp146.i)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_113JavaClassNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_(ptr noalias align 8 %ref.tmp145.i, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp146.i)
           to label %invoke.cont152.i unwind label %lpad151.i
 
 invoke.cont152.i:                                 ; preds = %invoke.cont150.i207
@@ -5524,7 +5524,7 @@ invoke.cont158.i:                                 ; preds = %invoke.cont156.i213
           to label %invoke.cont170.i214 unwind label %lpad109.i
 
 invoke.cont170.i214:                              ; preds = %invoke.cont158.i
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_113JavaClassNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_(ptr noalias nonnull align 8 %ref.tmp165.i137, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp166.i138)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_113JavaClassNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_(ptr noalias align 8 %ref.tmp165.i137, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp166.i138)
           to label %invoke.cont172.i unwind label %lpad171.i
 
 invoke.cont172.i:                                 ; preds = %invoke.cont170.i214
@@ -5802,7 +5802,7 @@ lpad228.i180:                                     ; preds = %invoke.cont300.i196
 
 if.end238.i:                                      ; preds = %invoke.cont235.i, %invoke.cont229.i181
   %296 = load ptr, ptr %method221.i, align 8
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_117MethodIdFieldNameB5cxx11EPKN14grpc_generator6MethodE(ptr noalias nonnull align 8 %ref.tmp239.i139, ptr noundef nonnull %296)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_117MethodIdFieldNameB5cxx11EPKN14grpc_generator6MethodE(ptr noalias align 8 %ref.tmp239.i139, ptr noundef %296)
           to label %invoke.cont241.i182 unwind label %lpad228.i180
 
 invoke.cont241.i182:                              ; preds = %if.end238.i
@@ -5910,7 +5910,7 @@ invoke.cont261.i:                                 ; preds = %invoke.cont259.i
           to label %invoke.cont272.i unwind label %lpad228.i180
 
 invoke.cont272.i:                                 ; preds = %invoke.cont261.i
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_113JavaClassNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_(ptr noalias nonnull align 8 %ref.tmp267.i, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp268.i141)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_113JavaClassNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_(ptr noalias align 8 %ref.tmp267.i, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp268.i141)
           to label %invoke.cont274.i unwind label %lpad273.i
 
 invoke.cont274.i:                                 ; preds = %invoke.cont272.i
@@ -5971,7 +5971,7 @@ invoke.cont280.i189:                              ; preds = %invoke.cont278.i186
           to label %invoke.cont292.i unwind label %lpad228.i180
 
 invoke.cont292.i:                                 ; preds = %invoke.cont280.i189
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_113JavaClassNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_(ptr noalias nonnull align 8 %ref.tmp287.i, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp288.i144)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_113JavaClassNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_(ptr noalias align 8 %ref.tmp287.i, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp288.i144)
           to label %invoke.cont294.i unwind label %lpad293.i
 
 invoke.cont294.i:                                 ; preds = %invoke.cont292.i
@@ -6405,7 +6405,7 @@ for.body.i251:                                    ; preds = %invoke.cont4.i242, 
   %357 = load ptr, ptr %vfn41.i, align 8
   call void %357(ptr nonnull sret(%"class.std::unique_ptr.12") align 8 %method.i229, ptr noundef nonnull align 8 dereferenceable(8) %service, i32 noundef %i.064.i)
   %358 = load ptr, ptr %method.i229, align 8
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_126MethodPropertiesGetterNameB5cxx11EPKN14grpc_generator6MethodE(ptr noalias nonnull align 8 %ref.tmp42.i, ptr noundef nonnull %358)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_126MethodPropertiesGetterNameB5cxx11EPKN14grpc_generator6MethodE(ptr noalias align 8 %ref.tmp42.i, ptr noundef nonnull %358)
           to label %invoke.cont45.i254 unwind label %lpad44.i252
 
 invoke.cont45.i254:                               ; preds = %for.body.i251
@@ -6692,7 +6692,7 @@ ehcleanup87:                                      ; preds = %lpad82, %lpad.i127,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_119GrpcWriteDocCommentEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEERSE_(ptr noundef %printer, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %comments) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_119GrpcWriteDocCommentEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEERSE_(ptr noundef nonnull %printer, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %comments) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i.i.i.i = alloca %"class.std::allocator", align 1
@@ -6917,7 +6917,7 @@ if.end.i:                                         ; preds = %entry
 
 _ZN19grpc_java_generator12_GLOBAL__N_115GrpcGetDocLinesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %nrvo.skipdtor.i, %if.end.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %escapedComments.i)
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_123GrpcWriteDocCommentBodyEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEERKSt6vectorISA_SaISA_EEb(ptr noundef nonnull %printer, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(24) %lines, i1 noundef zeroext false)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_123GrpcWriteDocCommentBodyEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEERKSt6vectorISA_SaISA_EEb(ptr noundef %printer, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(24) %lines, i1 noundef zeroext false)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN19grpc_java_generator12_GLOBAL__N_115GrpcGetDocLinesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -6965,7 +6965,7 @@ lpad:                                             ; preds = %invoke.cont, %_ZN19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_19PrintStubEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEPKNS1_7ServiceENS0_8StubTypeE(ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef %service, i32 noundef %type) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_19PrintStubEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEEPKNS1_7ServiceENS0_8StubTypeE(ptr noundef nonnull %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef %service, i32 noundef range(i32 4, 8) %type) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i511 = alloca %struct._Guard, align 8
   %__guard.i500 = alloca %struct._Guard, align 8
@@ -7151,7 +7151,7 @@ invoke.cont20:                                    ; preds = %invoke.cont14
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont20
-  switch i32 %type, label %default.unreachable [
+  switch i32 %type, label %default.unreachable715 [
     i32 7, label %sw.epilog
     i32 4, label %sw.bb23
     i32 6, label %sw.bb34
@@ -7236,10 +7236,7 @@ invoke.cont35:                                    ; preds = %sw.bb34
   %call38 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %client_name, ptr noundef nonnull @.str.122)
           to label %sw.epilog unwind label %lpad24.loopexit.split-lp.loopexit.split-lp
 
-default.unreachable715:                           ; preds = %if.then395, %invoke.cont267
-  unreachable
-
-default.unreachable:                              ; preds = %invoke.cont22
+default.unreachable715:                           ; preds = %if.then395, %invoke.cont267, %invoke.cont22
   unreachable
 
 sw.epilog:                                        ; preds = %invoke.cont22, %invoke.cont35, %invoke.cont29, %sw.bb23
@@ -7321,7 +7318,7 @@ invoke.cont81:                                    ; preds = %invoke.cont79
           to label %.noexc211 unwind label %lpad24.loopexit.split-lp.loopexit.split-lp
 
 .noexc211:                                        ; preds = %.noexc210
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_123GrpcWriteDocCommentBodyEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEERKSt6vectorISA_SaISA_EEb(ptr noundef nonnull %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(24) %lines.i, i1 noundef zeroext true)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_123GrpcWriteDocCommentBodyEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEERKSt6vectorISA_SaISA_EEb(ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(24) %lines.i, i1 noundef zeroext true)
           to label %invoke.cont.i unwind label %lpad.i209
 
 invoke.cont.i:                                    ; preds = %.noexc211
@@ -7552,7 +7549,7 @@ invoke.cont153:                                   ; preds = %for.body
           to label %invoke.cont160 unwind label %lpad159
 
 invoke.cont160:                                   ; preds = %invoke.cont153
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_113JavaClassNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_(ptr noalias nonnull align 8 %ref.tmp154, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp155)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_113JavaClassNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_(ptr noalias align 8 %ref.tmp154, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp155)
           to label %invoke.cont162 unwind label %lpad161
 
 invoke.cont162:                                   ; preds = %invoke.cont160
@@ -7592,7 +7589,7 @@ invoke.cont168:                                   ; preds = %invoke.cont166
           to label %invoke.cont180 unwind label %lpad159
 
 invoke.cont180:                                   ; preds = %invoke.cont168
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_113JavaClassNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_(ptr noalias nonnull align 8 %ref.tmp175, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp176)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_113JavaClassNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_(ptr noalias align 8 %ref.tmp175, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp176)
           to label %invoke.cont182 unwind label %lpad181
 
 invoke.cont182:                                   ; preds = %invoke.cont180
@@ -7673,7 +7670,7 @@ invoke.cont203:                                   ; preds = %invoke.cont201
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp199) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp195) #18
   %52 = load ptr, ptr %method, align 8
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_126MethodPropertiesGetterNameB5cxx11EPKN14grpc_generator6MethodE(ptr noalias nonnull align 8 %ref.tmp209, ptr noundef nonnull %52)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_126MethodPropertiesGetterNameB5cxx11EPKN14grpc_generator6MethodE(ptr noalias align 8 %ref.tmp209, ptr noundef nonnull %52)
           to label %invoke.cont211 unwind label %lpad159
 
 invoke.cont211:                                   ; preds = %invoke.cont203
@@ -7867,7 +7864,7 @@ if.then261:                                       ; preds = %if.end256
           to label %.noexc273 unwind label %lpad159
 
 .noexc273:                                        ; preds = %.noexc272
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_123GrpcWriteDocCommentBodyEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEERKSt6vectorISA_SaISA_EEb(ptr noundef nonnull %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(24) %lines.i251, i1 noundef zeroext true)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_123GrpcWriteDocCommentBodyEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEERKSt6vectorISA_SaISA_EEb(ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(24) %lines.i251, i1 noundef zeroext true)
           to label %invoke.cont.i257 unwind label %lpad.i256
 
 invoke.cont.i257:                                 ; preds = %.noexc273
@@ -9153,7 +9150,7 @@ invoke.cont29.i:                                  ; preds = %invoke.cont27.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20.i) #18
   %168 = load ptr, ptr %method.i, align 8
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_126MethodPropertiesGetterNameB5cxx11EPKN14grpc_generator6MethodE(ptr noalias nonnull align 8 %ref.tmp35.i, ptr noundef nonnull %168)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_126MethodPropertiesGetterNameB5cxx11EPKN14grpc_generator6MethodE(ptr noalias align 8 %ref.tmp35.i, ptr noundef nonnull %168)
           to label %invoke.cont37.i unwind label %lpad22.i
 
 invoke.cont37.i:                                  ; preds = %invoke.cont29.i
@@ -9192,7 +9189,7 @@ invoke.cont43.i:                                  ; preds = %invoke.cont41.i
           to label %invoke.cont54.i unwind label %lpad22.i
 
 invoke.cont54.i:                                  ; preds = %invoke.cont43.i
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_113JavaClassNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_(ptr noalias nonnull align 8 %ref.tmp49.i, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50.i)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_113JavaClassNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_(ptr noalias align 8 %ref.tmp49.i, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50.i)
           to label %invoke.cont56.i unwind label %lpad55.i
 
 invoke.cont56.i:                                  ; preds = %invoke.cont54.i
@@ -9253,7 +9250,7 @@ invoke.cont62.i:                                  ; preds = %invoke.cont60.i
           to label %invoke.cont74.i unwind label %lpad22.i
 
 invoke.cont74.i:                                  ; preds = %invoke.cont62.i
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_113JavaClassNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_(ptr noalias nonnull align 8 %ref.tmp69.i, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp70.i)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_113JavaClassNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_(ptr noalias align 8 %ref.tmp69.i, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp70.i)
           to label %invoke.cont76.i unwind label %lpad75.i
 
 invoke.cont76.i:                                  ; preds = %invoke.cont74.i
@@ -9307,7 +9304,7 @@ invoke.cont82.i:                                  ; preds = %invoke.cont80.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp70.i) #18
   %180 = load ptr, ptr %method.i, align 8
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_117MethodIdFieldNameB5cxx11EPKN14grpc_generator6MethodE(ptr noalias nonnull align 8 %ref.tmp89.i, ptr noundef nonnull %180)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_117MethodIdFieldNameB5cxx11EPKN14grpc_generator6MethodE(ptr noalias align 8 %ref.tmp89.i, ptr noundef %180)
           to label %invoke.cont91.i unwind label %lpad22.i
 
 invoke.cont91.i:                                  ; preds = %invoke.cont82.i
@@ -10000,7 +9997,7 @@ ehcleanup699:                                     ; preds = %lpad7, %lpad.i182, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_123GrpcWriteDocCommentBodyEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEERKSt6vectorISA_SaISA_EEb(ptr noundef %printer, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %lines, i1 noundef zeroext %surroundWithPreTag) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_123GrpcWriteDocCommentBodyEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEERKSt6vectorISA_SaISA_EEb(ptr noundef nonnull %printer, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %lines, i1 noundef zeroext %surroundWithPreTag) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::allocator", align 1
@@ -10163,7 +10160,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_st
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_113JavaClassNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_113JavaClassNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator", align 1
@@ -10230,7 +10227,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_126MethodPropertiesGetterNameB5cxx11EPKN14grpc_generator6MethodE(ptr noalias align 8 %agg.result, ptr noundef %method) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_126MethodPropertiesGetterNameB5cxx11EPKN14grpc_generator6MethodE(ptr noalias nonnull align 8 %agg.result, ptr noundef %method) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10786,7 +10783,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 declare void @abort() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_117MethodIdFieldNameB5cxx11EPKN14grpc_generator6MethodE(ptr noalias align 8 %agg.result, ptr noundef %method) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_117MethodIdFieldNameB5cxx11EPKN14grpc_generator6MethodE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %method) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10794,7 +10791,7 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(8) %method)
-  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_114ToAllUpperCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1)
+  invoke fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_114ToAllUpperCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry

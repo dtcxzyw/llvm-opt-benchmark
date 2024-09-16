@@ -1396,7 +1396,7 @@ declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) lo
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -14, 1) i32 @mon_bin_get_event(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -14, 1) i32 @mon_bin_get_event(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 48, 65) %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %1, i64 56
   tail call void @mutex_lock(ptr noundef %7) #12
   %8 = tail call fastcc i32 @mon_bin_wait_event(ptr noundef %0, ptr noundef %1), !range !6
@@ -1837,7 +1837,7 @@ define internal void @mon_bin_complete(ptr noundef %0, ptr noundef %1, i32 nound
 declare dso_local void @mon_reader_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 67, 84) %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.timespec64, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 72
   %7 = load ptr, ptr %6, align 8

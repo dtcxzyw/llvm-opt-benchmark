@@ -6362,7 +6362,7 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl23foldBinOpShiftWithShiftER
 declare noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm11Instruction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl23foldBinOpShiftWithShiftERNS_14BinaryOperatorEENK3$_0clEj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl23foldBinOpShiftWithShiftERNS_14BinaryOperatorEENK3$_0clEj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.llvm::PatternMatch::cstval_pred_ty", align 8
@@ -6381,7 +6381,7 @@ define internal fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl23foldBinOpShift
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 -64
-  %21 = zext i32 %1 to i64
+  %21 = zext nneg i32 %1 to i64
   %22 = getelementptr inbounds %"class.llvm::Use", ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -6448,7 +6448,7 @@ _ZNK4llvm4User10getOperandEj.exit9.i.i.i:         ; preds = %49, %.thread
   br i1 %.not.i10.not.i.i.i, label %.critedge, label %58
 
 58:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit9.i.i.i
-  %59 = sub nuw nsw i32 1, %1
+  %59 = xor i32 %1, 1
   %60 = zext nneg i32 %59 to i64
   %61 = getelementptr inbounds %"class.llvm::Use", ptr %20, i64 %60
   %62 = load ptr, ptr %61, align 8
@@ -7146,7 +7146,7 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl21tryFactorizationFoldsERNS
 
 26:                                               ; preds = %2
   %spec.select.i.i57 = select i1 %22, ptr %10, ptr null
-  %27 = call fastcc noundef i32 @_ZL25getBinOpsForFactorizationN4llvm11Instruction9BinaryOpsEPNS_14BinaryOperatorERPNS_5ValueES6_S3_(i32 noundef %25, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %spec.select.i.i57)
+  %27 = call fastcc noundef i32 @_ZL25getBinOpsForFactorizationN4llvm11Instruction9BinaryOpsEPNS_14BinaryOperatorERPNS_5ValueES6_S3_(i32 noundef %25, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %spec.select.i.i57)
   br label %28
 
 28:                                               ; preds = %26, %2
@@ -7154,7 +7154,7 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl21tryFactorizationFoldsERNS
   br i1 %22, label %29, label %.thread
 
 29:                                               ; preds = %28
-  %30 = call fastcc noundef i32 @_ZL25getBinOpsForFactorizationN4llvm11Instruction9BinaryOpsEPNS_14BinaryOperatorERPNS_5ValueES6_S3_(i32 noundef %25, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %spec.select.i.i)
+  %30 = call fastcc noundef i32 @_ZL25getBinOpsForFactorizationN4llvm11Instruction9BinaryOpsEPNS_14BinaryOperatorERPNS_5ValueES6_S3_(i32 noundef %25, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %spec.select.i.i)
   %31 = icmp eq i32 %.043, %30
   %or.cond56 = and i1 %16, %31
   br i1 %or.cond56, label %32, label %.thread
@@ -7231,7 +7231,7 @@ _ZL16getIdentityValueN4llvm11Instruction9BinaryOpsEPNS_5ValueE.exit59.thread: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 -29, 227) i32 @_ZL25getBinOpsForFactorizationN4llvm11Instruction9BinaryOpsEPNS_14BinaryOperatorERPNS_5ValueES6_S3_(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -29, 227) i32 @_ZL25getBinOpsForFactorizationN4llvm11Instruction9BinaryOpsEPNS_14BinaryOperatorERPNS_5ValueES6_S3_(i32 noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = alloca %"struct.llvm::PatternMatch::BinaryOp_match.885", align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 -64
   %8 = load ptr, ptr %7, align 8
@@ -9611,7 +9611,7 @@ declare noundef nonnull align 1 ptr @_ZNK4llvm4Type15getFltSemanticsEv(ptr nound
 declare noundef ptr @_ZN4llvm23ConstantFoldCastOperandEjPNS_8ConstantEPNS_4TypeERKNS_10DataLayoutE(i32 noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(512)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl28foldFBinOpOfIntCastsFromSignERNS_14BinaryOperatorEbSt5arrayIPNS_5ValueELm2EEPNS_8ConstantERNS_15SmallVectorImplINS_9WithCacheIPKS4_EEEEENK3$_0clEj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl28foldFBinOpOfIntCastsFromSignERNS_14BinaryOperatorEbSt5arrayIPNS_5ValueELm2EEPNS_8ConstantERNS_15SmallVectorImplINS_9WithCacheIPKS4_EEEEENK3$_0clEj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -9619,7 +9619,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl28foldFBi
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 -64
-  %10 = zext i32 %1 to i64
+  %10 = zext nneg i32 %1 to i64
   %11 = getelementptr inbounds %"class.llvm::Use", ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = load i8, ptr %12, align 8
@@ -16839,7 +16839,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_11InstructionEEEPT_S4_RKNS_5TwineE.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZZN4llvm12InstCombiner21getFreelyInvertedImplEPNS_5ValueEbPNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEERbjENK3$_0clENS_11Instruction9BinaryOpsEbS2_S2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @"_ZZN4llvm12InstCombiner21getFreelyInvertedImplEPNS_5ValueEbPNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEERbjENK3$_0clENS_11Instruction9BinaryOpsEbS2_S2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 28, 30) %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca i8, align 1
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -25451,7 +25451,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS0_14CastInst_mat
   br i1 %.not, label %612, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS0_14CastInst_matchINS0_7bind_tyIS2_EENS_8ZExtInstEEENS4_IS6_NS_8SExtInstEEEEEEEbPT_RKT0_.exit.thread.thread
 
 612:                                              ; preds = %2, %.critedge, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS0_14CastInst_matchINS0_7bind_tyIS2_EENS_8ZExtInstEEENS4_IS6_NS_8SExtInstEEEEEEEbPT_RKT0_.exit.thread
-  %613 = tail call fastcc noundef ptr @_ZL33simplifySwitchOnSelectUsingRangesRN4llvm10SwitchInstEPNS_10SelectInstEb(ptr noundef nonnull align 8 dereferenceable(76) %1, ptr noundef nonnull %25, i1 noundef zeroext true)
+  %613 = tail call fastcc noundef ptr @_ZL33simplifySwitchOnSelectUsingRangesRN4llvm10SwitchInstEPNS_10SelectInstEb(ptr noundef nonnull align 8 dereferenceable(76) %1, ptr noundef %25, i1 noundef zeroext true)
   %.not81 = icmp eq ptr %613, null
   br i1 %.not81, label %657, label %614
 
@@ -25545,7 +25545,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i236:          ; preds = %643
   br label %_ZN4llvm12InstCombiner14replaceOperandERNS_11InstructionEjPNS_5ValueE.exit
 
 657:                                              ; preds = %612
-  %658 = tail call fastcc noundef ptr @_ZL33simplifySwitchOnSelectUsingRangesRN4llvm10SwitchInstEPNS_10SelectInstEb(ptr noundef nonnull align 8 dereferenceable(76) %1, ptr noundef nonnull %25, i1 noundef zeroext false)
+  %658 = tail call fastcc noundef ptr @_ZL33simplifySwitchOnSelectUsingRangesRN4llvm10SwitchInstEPNS_10SelectInstEb(ptr noundef nonnull align 8 dereferenceable(76) %1, ptr noundef %25, i1 noundef zeroext false)
   %.not82 = icmp eq ptr %658, null
   br i1 %.not82, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS0_14CastInst_matchINS0_7bind_tyIS2_EENS_8ZExtInstEEENS4_IS6_NS_8SExtInstEEEEEEEbPT_RKT0_.exit.thread.thread, label %659
 
@@ -26063,7 +26063,7 @@ _ZN4llvm5APInt10setLowBitsEj.exit:                ; preds = %_ZN4llvm5APIntC2Ejm
 declare void @_ZNK4llvm5APInt5truncEj(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL33simplifySwitchOnSelectUsingRangesRN4llvm10SwitchInstEPNS_10SelectInstEb(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL33simplifySwitchOnSelectUsingRangesRN4llvm10SwitchInstEPNS_10SelectInstEb(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr nocapture noundef nonnull readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::ConstantRange", align 8
   %5 = select i1 %2, i32 1, i32 2
   %6 = getelementptr inbounds i8, ptr %1, i64 -96
@@ -36014,7 +36014,7 @@ _ZNK4llvm25OuterAnalysisManagerProxyINS_15AnalysisManagerINS_6ModuleEJEEENS_8Fun
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.0.i = select i1 %.not.i, ptr null, ptr %33
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 2256
-  %35 = tail call fastcc noundef zeroext i1 @_ZL31combineInstructionsOverFunctionRN4llvm8FunctionERNS_19InstructionWorklistEPNS_9AAResultsERNS_15AssumptionCacheERNS_17TargetLibraryInfoERNS_19TargetTransformInfoERNS_13DominatorTreeERNS_25OptimizationRemarkEmitterEPNS_18BlockFrequencyInfoEPNS_21BranchProbabilityInfoEPNS_18ProfileSummaryInfoERKNS_18InstCombineOptionsE(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(2256) %1, ptr noundef nonnull %16, ptr noundef nonnull align 8 dereferenceable(185) %6, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(124) %8, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %31, ptr noundef %.0.i, ptr noundef %.0.i.i36, ptr noundef nonnull align 4 dereferenceable(8) %34)
+  %35 = tail call fastcc noundef zeroext i1 @_ZL31combineInstructionsOverFunctionRN4llvm8FunctionERNS_19InstructionWorklistEPNS_9AAResultsERNS_15AssumptionCacheERNS_17TargetLibraryInfoERNS_19TargetTransformInfoERNS_13DominatorTreeERNS_25OptimizationRemarkEmitterEPNS_18BlockFrequencyInfoEPNS_21BranchProbabilityInfoEPNS_18ProfileSummaryInfoERKNS_18InstCombineOptionsE(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(2256) %1, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(185) %6, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(124) %8, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %31, ptr noundef %.0.i, ptr noundef %.0.i.i36, ptr noundef nonnull align 4 dereferenceable(8) %34)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %36, ptr %0, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -36065,7 +36065,7 @@ _ZNK4llvm25OuterAnalysisManagerProxyINS_15AnalysisManagerINS_6ModuleEJEEENS_8Fun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL31combineInstructionsOverFunctionRN4llvm8FunctionERNS_19InstructionWorklistEPNS_9AAResultsERNS_15AssumptionCacheERNS_17TargetLibraryInfoERNS_19TargetTransformInfoERNS_13DominatorTreeERNS_25OptimizationRemarkEmitterEPNS_18BlockFrequencyInfoEPNS_21BranchProbabilityInfoEPNS_18ProfileSummaryInfoERKNS_18InstCombineOptionsE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(2256) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(185) %3, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(124) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %11) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL31combineInstructionsOverFunctionRN4llvm8FunctionERNS_19InstructionWorklistEPNS_9AAResultsERNS_15AssumptionCacheERNS_17TargetLibraryInfoERNS_19TargetTransformInfoERNS_13DominatorTreeERNS_25OptimizationRemarkEmitterEPNS_18BlockFrequencyInfoEPNS_21BranchProbabilityInfoEPNS_18ProfileSummaryInfoERKNS_18InstCombineOptionsE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(2256) %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(185) %3, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(124) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %11) unnamed_addr #0 {
 _ZNSt8functionIFvPN4llvm11InstructionEEED2Ev.exit:
   %12 = alloca %"class.llvm::IRBuilder", align 8
   %13 = alloca %"class.llvm::TargetFolder", align 8
@@ -36688,7 +36688,7 @@ _ZNK4llvm4Pass22getAnalysisIfAvailableINS_32BranchProbabilityInfoWrapperPassEEEP
   %.020 = phi ptr [ null, %_ZN4llvm26LazyBlockFrequencyInfoPass6getBFIEv.exit ], [ %spec.select, %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_32BranchProbabilityInfoWrapperPassEEEPT_v.exit ]
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 4294967296, ptr %5, align 8
-  %179 = call fastcc noundef zeroext i1 @_ZL31combineInstructionsOverFunctionRN4llvm8FunctionERNS_19InstructionWorklistEPNS_9AAResultsERNS_15AssumptionCacheERNS_17TargetLibraryInfoERNS_19TargetTransformInfoERNS_13DominatorTreeERNS_25OptimizationRemarkEmitterEPNS_18BlockFrequencyInfoEPNS_21BranchProbabilityInfoEPNS_18ProfileSummaryInfoERKNS_18InstCombineOptionsE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(2256) %178, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(185) %41, ptr noundef nonnull align 8 dereferenceable(72) %58, ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef nonnull align 8 dereferenceable(124) %94, ptr noundef nonnull align 8 dereferenceable(24) %111, ptr noundef %170, ptr noundef %.020, ptr noundef nonnull %128, ptr noundef nonnull align 4 dereferenceable(8) %5)
+  %179 = call fastcc noundef zeroext i1 @_ZL31combineInstructionsOverFunctionRN4llvm8FunctionERNS_19InstructionWorklistEPNS_9AAResultsERNS_15AssumptionCacheERNS_17TargetLibraryInfoERNS_19TargetTransformInfoERNS_13DominatorTreeERNS_25OptimizationRemarkEmitterEPNS_18BlockFrequencyInfoEPNS_21BranchProbabilityInfoEPNS_18ProfileSummaryInfoERKNS_18InstCombineOptionsE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(2256) %178, ptr noundef %25, ptr noundef nonnull align 8 dereferenceable(185) %41, ptr noundef nonnull align 8 dereferenceable(72) %58, ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef nonnull align 8 dereferenceable(124) %94, ptr noundef nonnull align 8 dereferenceable(24) %111, ptr noundef %170, ptr noundef %.020, ptr noundef nonnull %128, ptr noundef nonnull align 4 dereferenceable(8) %5)
   br label %180
 
 180:                                              ; preds = %2, %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_32BranchProbabilityInfoWrapperPassEEEPT_v.exit.thread
@@ -39378,7 +39378,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl23foldBinOpShiftWithShiftERNS_14BinaryOperatorEENK3$_3clEjjjPNS_8ConstantES5_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl23foldBinOpShiftWithShiftERNS_14BinaryOperatorEENK3$_3clEjjjPNS_8ConstantES5_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 28, 27) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
   %7 = icmp eq i32 %1, 28
   br i1 %7, label %23, label %8
 
@@ -50739,7 +50739,7 @@ _ZSt17__rotate_adaptiveIPPN4llvm17DbgVariableRecordES3_lET_S4_S4_S4_T1_S5_T0_S5_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt17__merge_sort_loopIPPN4llvm17DbgVariableRecordES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_16InstCombinerImpl38tryToSinkInstructionDbgVariableRecordsEPNS0_11InstructionENS0_21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsIS8_Lb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEPSD_SG_RNS0_15SmallVectorImplIS2_EEE3$_0EEEvT_SM_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt17__merge_sort_loopIPPN4llvm17DbgVariableRecordES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_16InstCombinerImpl38tryToSinkInstructionDbgVariableRecordsEPNS0_11InstructionENS0_21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsIS8_Lb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEPSD_SG_RNS0_15SmallVectorImplIS2_EEE3$_0EEEvT_SM_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 -9223372036854775808, 2305843009213693949) %3) unnamed_addr #0 {
   %5 = shl nsw i64 %3, 1
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %0 to i64

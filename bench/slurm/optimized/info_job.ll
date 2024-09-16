@@ -1644,7 +1644,7 @@ _parse_jobid.exit:                                ; preds = %15
   %44 = getelementptr inbounds i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %43, i64 20
-  call fastcc void @_list_pids_one_step(ptr noundef %45, ptr noundef nonnull %46)
+  call fastcc void @_list_pids_one_step(ptr noundef %45, ptr noundef %46)
   %47 = call ptr @list_next(ptr noundef %41) #13
   %.not13.i = icmp eq ptr %47, null
   br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
@@ -1714,7 +1714,7 @@ _parse_stepid.exit:                               ; preds = %63
   br i1 %.not.i13, label %71, label %70
 
 70:                                               ; preds = %69
-  call fastcc void @_list_pids_one_step(ptr noundef %1, ptr noundef nonnull %8)
+  call fastcc void @_list_pids_one_step(ptr noundef %1, ptr noundef %8)
   br label %_list_pids_all_steps.exit
 
 71:                                               ; preds = %.thread, %69
@@ -1787,7 +1787,7 @@ _parse_stepid.exit:                               ; preds = %63
   %100 = getelementptr inbounds i8, ptr %90, i64 20
   %101 = getelementptr inbounds i8, ptr %90, i64 8
   %102 = load ptr, ptr %101, align 8
-  call fastcc void @_list_pids_one_step(ptr noundef %102, ptr noundef nonnull %100)
+  call fastcc void @_list_pids_one_step(ptr noundef %102, ptr noundef %100)
   %103 = add nuw nsw i32 %.0.ph42.i, 1
   %104 = call ptr @list_next(ptr noundef %85) #13
   %.not3239.i = icmp eq ptr %104, null
@@ -2690,7 +2690,7 @@ declare zeroext i1 @xstring_is_whitespace(ptr noundef) local_unnamed_addr #1
 declare i32 @list_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_list_pids_one_step(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_list_pids_one_step(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -2701,7 +2701,7 @@ define internal fastcc void @_list_pids_one_step(ptr noundef %0, ptr noundef %1)
   store ptr null, ptr %4, align 8
   store i32 0, ptr %5, align 4
   store i32 0, ptr %6, align 4
-  %9 = call i32 @stepd_connect(ptr noundef null, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %7) #13
+  %9 = call i32 @stepd_connect(ptr noundef null, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %7) #13
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %11, label %20
 
@@ -2714,7 +2714,7 @@ define internal fastcc void @_list_pids_one_step(ptr noundef %0, ptr noundef %1)
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr @stderr, align 8
-  %17 = call ptr @log_build_step_id_str(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 64, i16 noundef zeroext 0) #13
+  %17 = call ptr @log_build_step_id_str(ptr noundef nonnull %1, ptr noundef nonnull %8, i32 noundef 64, i16 noundef zeroext 0) #13
   %18 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.67, ptr noundef %17) #16
   store i32 1, ptr @exit_code, align 4
   br label %64
@@ -2724,7 +2724,7 @@ define internal fastcc void @_list_pids_one_step(ptr noundef %0, ptr noundef %1)
   br label %64
 
 20:                                               ; preds = %2
-  %21 = call ptr @log_build_step_id_str(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 64, i16 noundef zeroext 6) #13
+  %21 = call ptr @log_build_step_id_str(ptr noundef nonnull %1, ptr noundef nonnull %8, i32 noundef 64, i16 noundef zeroext 6) #13
   %22 = load i16, ptr %7, align 2
   %23 = call i32 @stepd_task_info(i32 noundef %9, i16 noundef zeroext %22, ptr noundef nonnull %3, ptr noundef nonnull %6) #13
   %24 = load i32, ptr %6, align 4

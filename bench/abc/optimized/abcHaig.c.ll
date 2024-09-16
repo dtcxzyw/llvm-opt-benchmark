@@ -1063,9 +1063,9 @@ define noundef ptr @Abc_NtkHaigRecreateAig(ptr noundef %0, ptr nocapture noundef
   %46 = inttoptr i64 %45 to ptr
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = ptrtoint ptr %48 to i64
-  %50 = and i64 %44, 1
-  %51 = xor i64 %50, %49
+  %49 = and i64 %44, 1
+  %50 = ptrtoint ptr %48 to i64
+  %51 = xor i64 %49, %50
   %52 = inttoptr i64 %51 to ptr
   %53 = getelementptr i8, ptr %38, i64 24
   %.val76 = load ptr, ptr %53, align 8
@@ -1074,9 +1074,9 @@ define noundef ptr @Abc_NtkHaigRecreateAig(ptr noundef %0, ptr nocapture noundef
   %56 = inttoptr i64 %55 to ptr
   %57 = getelementptr inbounds i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
-  %59 = ptrtoint ptr %58 to i64
-  %60 = and i64 %54, 1
-  %61 = xor i64 %60, %59
+  %59 = and i64 %54, 1
+  %60 = ptrtoint ptr %58 to i64
+  %61 = xor i64 %59, %60
   %62 = inttoptr i64 %61 to ptr
   %63 = tail call ptr @Abc_AigAnd(ptr noundef %42, ptr noundef %52, ptr noundef %62) #9
   %64 = getelementptr inbounds i8, ptr %38, i64 8
@@ -1133,9 +1133,9 @@ define noundef ptr @Abc_NtkHaigRecreateAig(ptr noundef %0, ptr nocapture noundef
   %88 = inttoptr i64 %87 to ptr
   %89 = getelementptr inbounds i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8
-  %91 = ptrtoint ptr %90 to i64
-  %92 = and i64 %86, 1
-  %93 = xor i64 %92, %91
+  %91 = and i64 %86, 1
+  %92 = ptrtoint ptr %90 to i64
+  %93 = xor i64 %91, %92
   %94 = inttoptr i64 %93 to ptr
   tail call void @Abc_ObjAddFanin(ptr noundef %81, ptr noundef %94) #9
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
@@ -1507,7 +1507,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

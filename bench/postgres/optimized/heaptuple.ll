@@ -423,7 +423,7 @@ define dso_local void @heap_fill_tuple(ptr nocapture noundef readonly %0, ptr no
   %18 = load ptr, ptr %9, align 8
   %.not20.us.us = icmp eq ptr %18, null
   %..us.us = select i1 %.not20.us.us, ptr null, ptr %9
-  call fastcc void @fill_val(ptr noundef %17, ptr noundef %..us.us, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %5, i64 noundef 0, i1 noundef zeroext true)
+  call fastcc void @fill_val(ptr noundef %17, ptr noundef %..us.us, ptr noundef %10, ptr noundef %8, ptr noundef nonnull %5, i64 noundef 0, i1 noundef zeroext true)
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
   br i1 %exitcond45.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !7
@@ -436,7 +436,7 @@ define dso_local void @heap_fill_tuple(ptr nocapture noundef readonly %0, ptr no
   %..us = select i1 %.not20.us, ptr null, ptr %9
   %21 = getelementptr i64, ptr %1, i64 %indvars.iv36
   %22 = load i64, ptr %21, align 8
-  call fastcc void @fill_val(ptr noundef %19, ptr noundef %..us, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %5, i64 noundef %22, i1 noundef zeroext true)
+  call fastcc void @fill_val(ptr noundef %19, ptr noundef %..us, ptr noundef %10, ptr noundef %8, ptr noundef nonnull %5, i64 noundef %22, i1 noundef zeroext true)
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count44
   br i1 %exitcond40.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !7
@@ -454,7 +454,7 @@ define dso_local void @heap_fill_tuple(ptr nocapture noundef readonly %0, ptr no
   %26 = load i8, ptr %25, align 1
   %27 = and i8 %26, 1
   %28 = icmp ne i8 %27, 0
-  call fastcc void @fill_val(ptr noundef %23, ptr noundef %..us26, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %5, i64 noundef 0, i1 noundef zeroext %28)
+  call fastcc void @fill_val(ptr noundef %23, ptr noundef %..us26, ptr noundef %10, ptr noundef %8, ptr noundef nonnull %5, i64 noundef 0, i1 noundef zeroext %28)
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count44
   br i1 %exitcond35.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !7
@@ -471,7 +471,7 @@ define dso_local void @heap_fill_tuple(ptr nocapture noundef readonly %0, ptr no
   %34 = load i8, ptr %33, align 1
   %35 = and i8 %34, 1
   %36 = icmp ne i8 %35, 0
-  call fastcc void @fill_val(ptr noundef %29, ptr noundef %., ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %5, i64 noundef %32, i1 noundef zeroext %36)
+  call fastcc void @fill_val(ptr noundef %29, ptr noundef %., ptr noundef %10, ptr noundef %8, ptr noundef nonnull %5, i64 noundef %32, i1 noundef zeroext %36)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count44
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !7
@@ -481,7 +481,7 @@ define dso_local void @heap_fill_tuple(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_val(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i64 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @fill_val(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef %4, i64 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %25, label %9
@@ -1993,7 +1993,7 @@ fill_val.exit.us:                                 ; preds = %215, %213
   %. = select i1 %.not171, ptr null, ptr %5
   %227 = getelementptr inbounds i8, ptr %221, i64 8
   %228 = load i64, ptr %227, align 8
-  call fastcc void @fill_val(ptr noundef %225, ptr noundef %., ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %.0147, i64 noundef %228, i1 noundef zeroext false)
+  call fastcc void @fill_val(ptr noundef %225, ptr noundef %., ptr noundef %6, ptr noundef %7, ptr noundef nonnull %.0147, i64 noundef %228, i1 noundef zeroext false)
   br label %238
 
 229:                                              ; preds = %.lr.ph200.split

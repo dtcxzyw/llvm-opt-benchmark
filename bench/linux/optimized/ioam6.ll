@@ -1913,7 +1913,7 @@ define internal noundef range(i32 -22, 1) i32 @ioam6_genl_ns_set_schema(ptr noca
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @rhashtable_lookup_insert_fast(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly byval(%struct.rhashtable_params) align 8 %2) unnamed_addr #2 align 16 {
+define internal fastcc i32 @rhashtable_lookup_insert_fast(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly byval(%struct.rhashtable_params) align 8 %2) unnamed_addr #2 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca %struct.rhashtable_compare_arg, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 22
@@ -2092,7 +2092,7 @@ define internal fastcc i32 @rhashtable_lookup_insert_fast(ptr noundef %0, ptr no
 
 106:                                              ; preds = %105, %102
   call void @__rcu_read_unlock() #16
-  %107 = call ptr @rhashtable_insert_slow(ptr noundef %0, ptr noundef %19, ptr noundef %1) #16
+  %107 = call ptr @rhashtable_insert_slow(ptr noundef %0, ptr noundef %19, ptr noundef nonnull %1) #16
   br label %231
 
 108:                                              ; preds = %.loopexit
@@ -2337,7 +2337,7 @@ declare void @llvm.assume(i1 noundef) #14
 declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2, 1) i32 @rhashtable_remove_fast(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly byval(%struct.rhashtable_params) align 8 %2) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -2, 1) i32 @rhashtable_remove_fast(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly byval(%struct.rhashtable_params) align 8 %2) unnamed_addr #2 align 16 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 2
   %6 = load i16, ptr %5, align 2

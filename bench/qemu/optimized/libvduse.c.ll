@@ -418,7 +418,7 @@ if.end:                                           ; preds = %if.then
   %conv18 = zext i32 %5 to i64
   %div29 = lshr exact i32 %5, 4
   store i64 %conv18, ptr %read_len, align 8
-  %call21 = call fastcc ptr @iova_to_va(ptr noundef %1, ptr noundef nonnull %read_len, i64 noundef %9)
+  %call21 = call fastcc ptr @iova_to_va(ptr noundef %1, ptr noundef %read_len, i64 noundef %9)
   %tobool22 = icmp ne ptr %call21, null
   %10 = load i64, ptr %read_len, align 8
   %cmp = icmp ne i64 %10, %conv18
@@ -436,7 +436,7 @@ while.body.i:                                     ; preds = %if.then28, %if.end6
   %addr.addr.010.i = phi i64 [ %add.i, %if.end6.i ], [ %9, %if.then28 ]
   %desc.addr.09.i = phi ptr [ %add.ptr.i, %if.end6.i ], [ %desc_buf, %if.then28 ]
   store i64 %len.addr.011.i, ptr %read_len.i, align 8
-  %call.i = call fastcc ptr @iova_to_va(ptr noundef %1, ptr noundef nonnull %read_len.i, i64 noundef %addr.addr.010.i)
+  %call.i = call fastcc ptr @iova_to_va(ptr noundef %1, ptr noundef %read_len.i, i64 noundef %addr.addr.010.i)
   %tobool4.not.i = icmp eq ptr %call.i, null
   br i1 %tobool4.not.i, label %if.end35.thread, label %if.end6.i
 
@@ -493,7 +493,7 @@ if.then48:                                        ; preds = %do.body
   %21 = load i32, ptr %len56, align 8
   %conv58 = zext i32 %21 to i64
   %vq.val = load ptr, ptr %dev2, align 8
-  %call59 = call fastcc zeroext i1 @vduse_queue_map_single_desc(ptr %vq.val, ptr noundef nonnull %in_num, ptr noundef %add.ptr, i32 noundef %sub, i64 noundef %20, i64 noundef %conv58)
+  %call59 = call fastcc zeroext i1 @vduse_queue_map_single_desc(ptr %vq.val, ptr noundef %in_num, ptr noundef %add.ptr, i32 noundef %sub, i64 noundef %20, i64 noundef %conv58)
   br i1 %call59, label %if.then48.if.end79_crit_edge, label %return
 
 if.then48.if.end79_crit_edge:                     ; preds = %if.then48
@@ -516,7 +516,7 @@ if.end65:                                         ; preds = %if.else
   %25 = load i32, ptr %len73, align 8
   %conv75 = zext i32 %25 to i64
   %vq.val31 = load ptr, ptr %dev2, align 8
-  %call76 = call fastcc zeroext i1 @vduse_queue_map_single_desc(ptr %vq.val31, ptr noundef nonnull %out_num, ptr noundef nonnull %iov, i32 noundef 1024, i64 noundef %24, i64 noundef %conv75)
+  %call76 = call fastcc zeroext i1 @vduse_queue_map_single_desc(ptr %vq.val31, ptr noundef %out_num, ptr noundef nonnull %iov, i32 noundef 1024, i64 noundef %24, i64 noundef %conv75)
   br i1 %call76, label %if.end65.if.end79_crit_edge, label %return
 
 if.end65.if.end79_crit_edge:                      ; preds = %if.end65
@@ -1058,7 +1058,7 @@ entry:
   %dev1 = getelementptr inbounds i8, ptr %vq, i64 88
   %0 = load ptr, ptr %dev1, align 8
   store i64 16, ptr %len, align 8
-  %call = call fastcc ptr @iova_to_va(ptr noundef %0, ptr noundef nonnull %len, i64 noundef %desc_addr)
+  %call = call fastcc ptr @iova_to_va(ptr noundef %0, ptr noundef %len, i64 noundef %desc_addr)
   %desc = getelementptr inbounds i8, ptr %vq, i64 32
   store ptr %call, ptr %desc, align 8
   %1 = load i64, ptr %len, align 8
@@ -1067,7 +1067,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i64 4, ptr %len, align 8
-  %call2 = call fastcc ptr @iova_to_va(ptr noundef %0, ptr noundef nonnull %len, i64 noundef %avail_addr)
+  %call2 = call fastcc ptr @iova_to_va(ptr noundef %0, ptr noundef %len, i64 noundef %avail_addr)
   %avail = getelementptr inbounds i8, ptr %vq, i64 40
   store ptr %call2, ptr %avail, align 8
   %2 = load i64, ptr %len, align 8
@@ -1075,7 +1075,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end
-  %call7 = call fastcc ptr @iova_to_va(ptr noundef %0, ptr noundef nonnull %len, i64 noundef %used_addr)
+  %call7 = call fastcc ptr @iova_to_va(ptr noundef %0, ptr noundef %len, i64 noundef %used_addr)
   %used = getelementptr inbounds i8, ptr %vq, i64 48
   store ptr %call7, ptr %used, align 8
   %3 = load i64, ptr %len, align 8
@@ -1685,7 +1685,7 @@ if.then10:                                        ; preds = %if.end
   br label %return
 
 if.end12:                                         ; preds = %if.end
-  %call13 = tail call fastcc i32 @vduse_dev_init(ptr noundef nonnull %call8, ptr noundef nonnull %name, i16 noundef zeroext %num_queues, ptr noundef nonnull %ops, ptr noundef %priv)
+  %call13 = tail call fastcc i32 @vduse_dev_init(ptr noundef %call8, ptr noundef %name, i16 noundef zeroext %num_queues, ptr noundef %ops, ptr noundef %priv)
   %cmp = icmp slt i32 %call13, 0
   br i1 %cmp, label %if.then14, label %return
 
@@ -1703,7 +1703,7 @@ return:                                           ; preds = %if.end12, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @vduse_dev_init(ptr noundef %dev, ptr noundef %name, i16 noundef zeroext %num_queues, ptr noundef %ops, ptr noundef %priv) unnamed_addr #2 {
+define internal fastcc i32 @vduse_dev_init(ptr noundef nonnull %dev, ptr noundef nonnull %name, i16 noundef zeroext %num_queues, ptr noundef nonnull %ops, ptr noundef %priv) unnamed_addr #2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #25
   %add1 = add i64 %call, 12
@@ -1712,7 +1712,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call3 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef %name) #19
+  %call3 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %name) #19
   %call4 = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull %call2, i32 noundef 2) #19
   tail call void @free(ptr noundef nonnull %call2) #19
   %cmp = icmp slt i32 %call4, 0
@@ -1723,7 +1723,7 @@ if.then5:                                         ; preds = %if.end
   %call6 = tail call ptr @__errno_location() #20
   %1 = load i32, ptr %call6, align 4
   %call7 = tail call ptr @strerror(i32 noundef %1) #19
-  %call8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %name, ptr noundef %call7) #21
+  %call8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef nonnull %name, ptr noundef %call7) #21
   %2 = load i32, ptr %call6, align 4
   %sub = sub i32 0, %2
   br label %return
@@ -1746,7 +1746,7 @@ if.then13:                                        ; preds = %if.end10
   br label %return
 
 if.end20:                                         ; preds = %if.end10
-  %call21 = tail call noalias ptr @strdup(ptr noundef %name) #19
+  %call21 = tail call noalias ptr @strdup(ptr noundef nonnull %name) #19
   %tobool22.not = icmp eq ptr %call21, null
   br i1 %tobool22.not, label %if.then23, label %if.end25
 
@@ -1947,7 +1947,7 @@ if.then55:                                        ; preds = %land.lhs.true
 if.end59:                                         ; preds = %land.lhs.true, %if.end39
   %ctrl_fd60 = getelementptr inbounds i8, ptr %call14, i64 8252
   store i32 %call19, ptr %ctrl_fd60, align 4
-  %call61 = call fastcc i32 @vduse_dev_init(ptr noundef nonnull %call14, ptr noundef nonnull %name, i16 noundef zeroext %num_queues, ptr noundef nonnull %ops, ptr noundef %priv)
+  %call61 = call fastcc i32 @vduse_dev_init(ptr noundef %call14, ptr noundef %name, i16 noundef zeroext %num_queues, ptr noundef %ops, ptr noundef %priv)
   %cmp62 = icmp slt i32 %call61, 0
   br i1 %cmp62, label %if.then64, label %return
 
@@ -2068,7 +2068,7 @@ if.end26:                                         ; preds = %if.end22, %if.end13
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @iova_to_va(ptr nocapture noundef %dev, ptr nocapture noundef %plen, i64 noundef %iova) unnamed_addr #2 {
+define internal fastcc ptr @iova_to_va(ptr nocapture noundef %dev, ptr nocapture noundef nonnull %plen, i64 noundef %iova) unnamed_addr #2 {
 entry:
   %entry1 = alloca %struct.vduse_iotlb_entry, align 8
   %regions = getelementptr inbounds i8, ptr %dev, i64 8
@@ -2198,7 +2198,7 @@ return:                                           ; preds = %vduse_iova_add_regi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @vduse_queue_map_single_desc(ptr nocapture %vq.88.val, ptr nocapture noundef %p_num_sg, ptr nocapture noundef writeonly %iov, i32 noundef %max_num_sg, i64 noundef %pa, i64 noundef %sz) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @vduse_queue_map_single_desc(ptr nocapture %vq.88.val, ptr nocapture noundef nonnull %p_num_sg, ptr nocapture noundef writeonly %iov, i32 noundef %max_num_sg, i64 noundef %pa, i64 noundef range(i64 0, 4294967296) %sz) unnamed_addr #2 {
 entry:
   %len = alloca i64, align 8
   %0 = load i32, ptr %p_num_sg, align 4
@@ -2232,7 +2232,7 @@ if.then6:                                         ; preds = %while.body
   br label %return
 
 if.end8:                                          ; preds = %while.body
-  %call9 = call fastcc ptr @iova_to_va(ptr noundef %vq.88.val, ptr noundef nonnull %len, i64 noundef %pa.addr.03)
+  %call9 = call fastcc ptr @iova_to_va(ptr noundef %vq.88.val, ptr noundef %len, i64 noundef %pa.addr.03)
   %idxprom = zext i32 %num_sg.05 to i64
   %arrayidx = getelementptr %struct.iovec, ptr %iov, i64 %idxprom
   store ptr %call9, ptr %arrayidx, align 8

@@ -494,7 +494,7 @@ define internal i32 @remote_spawn() #0 {
 
 33:                                               ; preds = %16
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
-  %35 = call fastcc i32 @setup_launch(ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %34, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %20)
+  %35 = call fastcc i32 @setup_launch(ptr noundef %5, ptr noundef %3, ptr noundef %34, ptr noundef %1, ptr noundef %2, ptr noundef %20)
   store i32 %35, ptr %6, align 4
   switch i32 %35, label %36 [
     i32 0, label %38
@@ -1620,7 +1620,7 @@ pmix_pointer_array_get_item.exit197:              ; preds = %188, %203
   %211 = getelementptr inbounds i8, ptr %.1216, i64 152
   %212 = load ptr, ptr %211, align 8
   %213 = load ptr, ptr %7, align 8
-  %214 = call fastcc i32 @setup_launch(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef %212, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %213)
+  %214 = call fastcc i32 @setup_launch(ptr noundef %9, ptr noundef %6, ptr noundef %212, ptr noundef %4, ptr noundef %5, ptr noundef %213)
   switch i32 %214, label %226 [
     i32 0, label %.preheader217
     i32 -43, label %422
@@ -2293,7 +2293,7 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 declare zeroext i1 @prte_check_host_is_local(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -43, 1) i32 @setup_launch(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -43, 1) i32 @setup_launch(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef nonnull %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca [2 x i32], align 4
@@ -3137,7 +3137,7 @@ setup_shell.exit.thread:                          ; preds = %.thread.i, %._crit_
   br label %430
 
 430:                                              ; preds = %428, %425, %419, %413, %410, %407, %404, %394
-  %431 = call i32 @prte_plm_base_prted_append_basic_args(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @.str.61, ptr noundef %4) #18
+  %431 = call i32 @prte_plm_base_prted_append_basic_args(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @.str.61, ptr noundef nonnull %4) #18
   %432 = call i32 @pmix_argv_append(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @.str.62) #18
   %433 = call i32 @pmix_argv_append(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @.str.63) #18
   %434 = call i32 @pmix_argv_append(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @.str.16) #18

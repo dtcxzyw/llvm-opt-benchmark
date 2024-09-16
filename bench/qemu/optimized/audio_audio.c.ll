@@ -819,7 +819,7 @@ lor.lhs.false.i.i:                                ; preds = %audio_get_pdo_out.e
   br i1 %tobool1.i.i, label %if.then.i.i61, label %if.end8.i.i
 
 if.then.i.i61:                                    ; preds = %lor.lhs.false.i.i, %audio_get_pdo_out.exit.i.i
-  %call2.i.i = call fastcc ptr @audio_pcm_hw_add_new_out(ptr noundef nonnull %0, ptr noundef nonnull %hw_as.i)
+  %call2.i.i = call fastcc ptr @audio_pcm_hw_add_new_out(ptr noundef nonnull %0, ptr noundef %hw_as.i)
   %34 = load i8, ptr %mixing_engine.i.i, align 1
   %tobool4.i.i = trunc i8 %34 to i1
   %tobool6.i.i = icmp eq ptr %call2.i.i, null
@@ -909,7 +909,7 @@ while.cond.backedge.i.i.i:                        ; preds = %land.rhs.i.i.i.i, %
   br i1 %tobool.not.i.i.i, label %if.end12.i.i, label %while.body.i.i.i, !llvm.loop !8
 
 if.end12.i.i:                                     ; preds = %while.cond.backedge.i.i.i, %if.end8.i.i
-  %call13.i.i = call fastcc ptr @audio_pcm_hw_add_new_out(ptr noundef nonnull %0, ptr noundef nonnull %hw_as.i)
+  %call13.i.i = call fastcc ptr @audio_pcm_hw_add_new_out(ptr noundef nonnull %0, ptr noundef %hw_as.i)
   %tobool14.not.i.i = icmp eq ptr %call13.i.i, null
   br i1 %tobool14.not.i.i, label %if.end16.i.i, label %if.end7.i
 
@@ -1778,7 +1778,7 @@ lor.lhs.false.i.i:                                ; preds = %audio_get_pdo_in.ex
   br i1 %tobool1.i.i, label %if.then.i.i61, label %if.end8.i.i
 
 if.then.i.i61:                                    ; preds = %lor.lhs.false.i.i, %audio_get_pdo_in.exit.i.i
-  %call2.i.i = call fastcc ptr @audio_pcm_hw_add_new_in(ptr noundef nonnull %0, ptr noundef nonnull %hw_as.i)
+  %call2.i.i = call fastcc ptr @audio_pcm_hw_add_new_in(ptr noundef nonnull %0, ptr noundef %hw_as.i)
   %34 = load i8, ptr %mixing_engine.i.i, align 1
   %tobool4.i.i = trunc i8 %34 to i1
   %tobool6.i.i = icmp eq ptr %call2.i.i, null
@@ -1868,7 +1868,7 @@ while.cond.backedge.i.i.i:                        ; preds = %land.rhs.i.i.i.i, %
   br i1 %tobool.not.i.i.i, label %if.end12.i.i, label %while.body.i.i.i, !llvm.loop !9
 
 if.end12.i.i:                                     ; preds = %while.cond.backedge.i.i.i, %if.end8.i.i
-  %call13.i.i = call fastcc ptr @audio_pcm_hw_add_new_in(ptr noundef nonnull %0, ptr noundef nonnull %hw_as.i)
+  %call13.i.i = call fastcc ptr @audio_pcm_hw_add_new_in(ptr noundef nonnull %0, ptr noundef %hw_as.i)
   %tobool14.not.i.i = icmp eq ptr %call13.i.i, null
   br i1 %tobool14.not.i.i, label %if.end16.i.i, label %if.end7.i
 
@@ -4180,7 +4180,7 @@ audio_run_in.exit:                                ; preds = %while.cond.i.i12, %
 
 for.body.i76:                                     ; preds = %audio_run_in.exit, %for.inc42.i
   %cap.052.i = phi ptr [ %cap.0.i, %for.inc42.i ], [ %cap.050.i, %audio_run_in.exit ]
-  %call.i = call fastcc i64 @audio_pcm_hw_get_live_out(ptr noundef nonnull %cap.052.i, ptr noundef null)
+  %call.i = call fastcc i64 @audio_pcm_hw_get_live_out(ptr noundef %cap.052.i, ptr noundef null)
   %mix_buf.i77 = getelementptr inbounds i8, ptr %cap.052.i, i64 64
   %154 = load i64, ptr %mix_buf.i77, align 8
   %tobool2.not43.i = icmp eq i64 %call.i, 0
@@ -6396,7 +6396,7 @@ sw.epilog.i:                                      ; preds = %entry
 audio_get_pdo_in.exit:                            ; preds = %entry
   %retval.0.in.i = getelementptr inbounds i8, ptr %dev, i64 24
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
-  call fastcc void @audio_validate_per_direction_opts(ptr noundef %retval.0.i, ptr noundef nonnull %err)
+  call fastcc void @audio_validate_per_direction_opts(ptr noundef %retval.0.i, ptr noundef %err)
   %1 = load ptr, ptr %err, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -6417,7 +6417,7 @@ sw.epilog.i10:                                    ; preds = %if.end
 audio_get_pdo_out.exit:                           ; preds = %if.end
   %retval.0.in.i11 = getelementptr inbounds i8, ptr %dev, i64 32
   %retval.0.i12 = load ptr, ptr %retval.0.in.i11, align 8
-  call fastcc void @audio_validate_per_direction_opts(ptr noundef %retval.0.i12, ptr noundef nonnull %err)
+  call fastcc void @audio_validate_per_direction_opts(ptr noundef %retval.0.i12, ptr noundef %err)
   %3 = load ptr, ptr %err, align 8
   %tobool2.not = icmp eq ptr %3, null
   br i1 %tobool2.not, label %if.end4, label %if.then3
@@ -6949,7 +6949,7 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #13
 declare ptr @st_rate_start(i32 noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @audio_pcm_hw_add_new_out(ptr noundef %s, ptr noundef %as) unnamed_addr #6 {
+define internal fastcc noundef ptr @audio_pcm_hw_add_new_out(ptr noundef %s, ptr noundef nonnull %as) unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %s, align 8
   %nb_hw_voices_out = getelementptr inbounds i8, ptr %s, i64 64
@@ -7012,7 +7012,7 @@ if.end12:                                         ; preds = %if.end5
   %5 = load ptr, ptr %4, align 8
   %drv_opaque = getelementptr inbounds i8, ptr %s, i64 16
   %6 = load ptr, ptr %drv_opaque, align 8
-  %call21 = tail call i32 %5(ptr noundef nonnull %call13, ptr noundef %as, ptr noundef %6) #25
+  %call21 = tail call i32 %5(ptr noundef nonnull %call13, ptr noundef nonnull %as, ptr noundef %6) #25
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %if.end24, label %err0
 
@@ -7142,7 +7142,7 @@ return:                                           ; preds = %entry, %err0, %if.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @audio_pcm_hw_add_new_in(ptr noundef %s, ptr noundef %as) unnamed_addr #6 {
+define internal fastcc noundef ptr @audio_pcm_hw_add_new_in(ptr noundef %s, ptr noundef nonnull %as) unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %s, align 8
   %nb_hw_voices_in = getelementptr inbounds i8, ptr %s, i64 68
@@ -7206,7 +7206,7 @@ if.end12:                                         ; preds = %if.end5
   %5 = load ptr, ptr %init_in, align 8
   %drv_opaque = getelementptr inbounds i8, ptr %s, i64 16
   %6 = load ptr, ptr %drv_opaque, align 8
-  %call18 = tail call i32 %5(ptr noundef nonnull %call13, ptr noundef %as, ptr noundef %6) #25
+  %call18 = tail call i32 %5(ptr noundef nonnull %call13, ptr noundef nonnull %as, ptr noundef %6) #25
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %if.end21, label %err0
 
@@ -7408,7 +7408,7 @@ declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc i64 @audio_pcm_hw_get_live_out(ptr nocapture noundef readonly %hw, ptr noundef writeonly %nb_live) unnamed_addr #1 {
+define internal fastcc i64 @audio_pcm_hw_get_live_out(ptr nocapture noundef nonnull readonly %hw, ptr noundef writeonly %nb_live) unnamed_addr #1 {
 entry:
   %sw_head.i = getelementptr inbounds i8, ptr %hw, i64 128
   %sw.09.i = load ptr, ptr %sw_head.i, align 8
@@ -7915,7 +7915,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @audio_validate_per_direction_opts(ptr nocapture noundef %pdo, ptr noundef %errp) unnamed_addr #6 {
+define internal fastcc void @audio_validate_per_direction_opts(ptr nocapture noundef %pdo, ptr noundef nonnull %errp) unnamed_addr #6 {
 entry:
   %0 = load i8, ptr %pdo, align 4
   %tobool = trunc i8 %0 to i1
@@ -7971,7 +7971,7 @@ lor.lhs.false12:                                  ; preds = %lor.lhs.false
   br i1 %tobool13, label %if.then14, label %if.end15.thread
 
 if.then14:                                        ; preds = %lor.lhs.false12, %lor.lhs.false, %land.lhs.true
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.18, i32 noundef 2060, ptr noundef nonnull @__func__.audio_validate_per_direction_opts, ptr noundef nonnull @.str.93) #25
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.18, i32 noundef 2060, ptr noundef nonnull @__func__.audio_validate_per_direction_opts, ptr noundef nonnull @.str.93) #25
   br label %if.end43
 
 if.end15:                                         ; preds = %if.end7
@@ -7993,7 +7993,7 @@ if.end15.thread:                                  ; preds = %lor.lhs.false12
   br label %if.end22
 
 if.then21:                                        ; preds = %if.end15
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.18, i32 noundef 2064, ptr noundef nonnull @__func__.audio_validate_per_direction_opts, ptr noundef nonnull @.str.94) #25
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.18, i32 noundef 2064, ptr noundef nonnull @__func__.audio_validate_per_direction_opts, ptr noundef nonnull @.str.94) #25
   br label %if.end43
 
 if.end22:                                         ; preds = %if.end15.if.end22_crit_edge, %if.end15.thread

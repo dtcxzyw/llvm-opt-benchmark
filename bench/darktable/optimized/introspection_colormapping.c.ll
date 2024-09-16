@@ -2902,7 +2902,7 @@ declare void @dt_iop_request_focus(ptr noundef) local_unnamed_addr #3
 declare void @dt_dev_add_history_item(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @kmeans(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6) unnamed_addr #1 {
+define internal fastcc void @kmeans(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6) unnamed_addr #1 {
   %8 = sext i32 %3 to i64
   %9 = shl nsw i64 %8, 3
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #26

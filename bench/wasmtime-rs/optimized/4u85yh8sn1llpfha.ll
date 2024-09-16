@@ -357,7 +357,7 @@ define internal noundef i8 @_ZN4core3ops8function6FnOnce9call_once17ha21c2e5c1be
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$wasmtime_runtime..sys..unix..mmap..Mmap$C$anyhow..Error$GT$$GT$17h45dc9a1ce3092204E"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$wasmtime_runtime..sys..unix..mmap..Mmap$C$anyhow..Error$GT$$GT$17h45dc9a1ce3092204E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca i16, align 2
   %3 = load ptr, ptr %0, align 8, !noundef !4
   %.not = icmp eq ptr %3, null
@@ -1817,7 +1817,7 @@ define hidden noundef ptr @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #16 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #16 personality ptr @rust_eh_personality {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %.sroa.7 = alloca { ptr, [1 x i64] }, align 8
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -3740,7 +3740,7 @@ define void @"_ZN156_$LT$wasmtime_runtime..instance..allocator..on_demand..OnDem
   store ptr @anon.ec0cd622983d658554797d545ae27a8b.5.llvm.16389591707760502172, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 0, ptr %13, align 8
-  %14 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
+  %14 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %14, ptr %15, align 8
@@ -4069,7 +4069,7 @@ define hidden void @_ZN16wasmtime_runtime6memory10MmapMemory3new17heaf0bbb1cba0c
   br i1 %42, label %48, label %47
 
 .thread:                                          ; preds = %35, %31, %22
-  %45 = call fastcc noundef nonnull ptr @"_ZN16wasmtime_runtime6memory10MmapMemory3new28_$u7b$$u7b$closure$u7d$$u7d$17h1948b74fea1cec8dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10)
+  %45 = call fastcc noundef nonnull ptr @"_ZN16wasmtime_runtime6memory10MmapMemory3new28_$u7b$$u7b$closure$u7d$$u7d$17h1948b74fea1cec8dE"(ptr noalias noundef readonly align 8 dereferenceable(8) %10)
   %46 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %45, ptr %46, align 8
   store i64 2, ptr %0, align 8
@@ -4211,7 +4211,7 @@ define hidden void @_ZN16wasmtime_runtime6memory10MmapMemory3new17heaf0bbb1cba0c
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull ptr @"_ZN16wasmtime_runtime6memory10MmapMemory3new28_$u7b$$u7b$closure$u7d$$u7d$17h1948b74fea1cec8dE"(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #16 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull ptr @"_ZN16wasmtime_runtime6memory10MmapMemory3new28_$u7b$$u7b$closure$u7d$$u7d$17h1948b74fea1cec8dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #16 personality ptr @rust_eh_personality {
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit:
   %1 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %2 = alloca [1 x { ptr, ptr }], align 8
@@ -4371,7 +4371,7 @@ _ZN16wasmtime_runtime3cow15MemoryImageSlot14set_heap_limit17h3b40bb73f32c953aE.e
   store ptr @anon.ec0cd622983d658554797d545ae27a8b.5.llvm.16389591707760502172, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 0, ptr %66, align 8
-  %67 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3)
+  %67 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   br label %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_heap_limit17h3b40bb73f32c953aE.exit
 
@@ -5085,7 +5085,7 @@ define hidden void @_ZN16wasmtime_runtime6memory6Memory9limit_new17hc4986e435f6c
   br label %53
 
 51:                                               ; preds = %31
-  %52 = tail call fastcc noundef nonnull ptr @"_ZN16wasmtime_runtime6memory6Memory9limit_new28_$u7b$$u7b$closure$u7d$$u7d$17hec63ff070398f3edE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
+  %52 = tail call fastcc noundef nonnull ptr @"_ZN16wasmtime_runtime6memory6Memory9limit_new28_$u7b$$u7b$closure$u7d$$u7d$17hec63ff070398f3edE"(ptr noalias noundef readonly align 8 dereferenceable(64) %1)
   store ptr %52, ptr %0, align 8
   br label %53
 
@@ -5098,7 +5098,7 @@ define hidden void @_ZN16wasmtime_runtime6memory6Memory9limit_new17hc4986e435f6c
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull ptr @"_ZN16wasmtime_runtime6memory6Memory9limit_new28_$u7b$$u7b$closure$u7d$$u7d$17hec63ff070398f3edE"(ptr noalias noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #16 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull ptr @"_ZN16wasmtime_runtime6memory6Memory9limit_new28_$u7b$$u7b$closure$u7d$$u7d$17hec63ff070398f3edE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #16 personality ptr @rust_eh_personality {
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit:
   %1 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %2 = alloca [1 x { ptr, ptr }], align 8
@@ -6044,7 +6044,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit87: ; pre
 108:                                              ; preds = %59
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$wasmtime_runtime..sys..unix..mmap..Mmap$C$anyhow..Error$GT$$GT$17h45dc9a1ce3092204E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #39
+  invoke fastcc void @"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$wasmtime_runtime..sys..unix..mmap..Mmap$C$anyhow..Error$GT$$GT$17h45dc9a1ce3092204E"(ptr noalias noundef align 8 dereferenceable(16) %24) #39
           to label %107 unwind label %105
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit77: ; preds = %61
@@ -6107,7 +6107,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit77: ; pre
 125:                                              ; preds = %61
   %lpad.thr_comm.split-lp136 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$wasmtime_runtime..sys..unix..mmap..Mmap$C$anyhow..Error$GT$$GT$17h45dc9a1ce3092204E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29) #39
+  invoke fastcc void @"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$wasmtime_runtime..sys..unix..mmap..Mmap$C$anyhow..Error$GT$$GT$17h45dc9a1ce3092204E"(ptr noalias noundef align 8 dereferenceable(16) %29) #39
           to label %107 unwind label %105
 }
 

@@ -319,7 +319,7 @@ define internal range(i32 -1, 1) i32 @H5Z__set_local_scaleoffset(i64 noundef %0,
 114:                                              ; preds = %101
   %.not = icmp ne i32 %102, %79
   %spec.select = zext i1 %.not to i32
-  %115 = call fastcc i32 @H5Z__scaleoffset_set_parms_fillval(ptr noundef nonnull %9, ptr noundef nonnull %16, i32 noundef %108, ptr noundef nonnull %6, i32 noundef %spec.select)
+  %115 = call fastcc i32 @H5Z__scaleoffset_set_parms_fillval(ptr noundef %9, ptr noundef %16, i32 noundef %108, ptr noundef %6, i32 noundef %spec.select)
   %116 = icmp slt i32 %115, 0
   br i1 %116, label %117, label %121
 
@@ -556,7 +556,7 @@ define internal i64 @H5Z__filter_scaleoffset(i32 noundef %0, i64 noundef %1, ptr
   %.sroa.13.0.insert.ext40 = zext i32 %81 to i64
   %.sroa.13.0.insert.shift41 = shl nuw i64 %.sroa.13.0.insert.ext40, 32
   %.sroa.027.0.insert.insert39 = or disjoint i64 %.sroa.13.0.insert.shift41, %99
-  tail call fastcc void @H5Z__scaleoffset_decompress(ptr noundef nonnull %101, i32 noundef %25, ptr noundef nonnull %109, i64 %.sroa.027.0.insert.insert39, i32 %14)
+  tail call fastcc void @H5Z__scaleoffset_decompress(ptr noundef %101, i32 noundef %25, ptr noundef nonnull %109, i64 %.sroa.027.0.insert.insert39, i32 %14)
   br label %.loopexit
 
 .lr.ph267:                                        ; preds = %.preheader261, %.lr.ph267
@@ -578,7 +578,7 @@ define internal i64 @H5Z__filter_scaleoffset(i32 noundef %0, i64 noundef %1, ptr
   br i1 %41, label %.thread243, label %118
 
 .thread243:                                       ; preds = %117
-  tail call fastcc void @H5Z__scaleoffset_postdecompress_i(ptr noundef nonnull %101, i32 noundef %25, i32 noundef %115, i32 noundef %31, ptr noundef nonnull %2, i32 noundef %81, i64 noundef %97)
+  tail call fastcc void @H5Z__scaleoffset_postdecompress_i(ptr noundef %101, i32 noundef %25, i32 noundef %115, i32 noundef %31, ptr noundef nonnull %2, i32 noundef %81, i64 noundef %97)
   br label %120
 
 118:                                              ; preds = %117
@@ -586,7 +586,7 @@ define internal i64 @H5Z__filter_scaleoffset(i32 noundef %0, i64 noundef %1, ptr
   br i1 %or.cond3, label %119, label %120
 
 119:                                              ; preds = %118
-  tail call fastcc void @H5Z__scaleoffset_postdecompress_fd(ptr noundef nonnull %101, i32 noundef %25, i32 noundef %115, i32 noundef %31, ptr noundef nonnull %2, i32 noundef %81, i64 noundef %97, double noundef %.0190)
+  tail call fastcc void @H5Z__scaleoffset_postdecompress_fd(ptr noundef %101, i32 noundef %25, i32 noundef %115, i32 noundef %31, ptr noundef nonnull %2, i32 noundef %81, i64 noundef %97, double noundef %.0190)
   br label %120
 
 120:                                              ; preds = %.thread243, %119, %118
@@ -685,7 +685,7 @@ H5Z__scaleoffset_convert.exit237:                 ; preds = %._crit_edge.us.i236
 
 .thread245:                                       ; preds = %161
   %162 = load ptr, ptr %5, align 8
-  call fastcc void @H5Z__scaleoffset_precompress_i(ptr noundef %162, i32 noundef %25, i32 noundef %155, i32 noundef %31, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  call fastcc void @H5Z__scaleoffset_precompress_i(ptr noundef %162, i32 noundef %25, i32 noundef %155, i32 noundef %31, ptr noundef nonnull %2, ptr noundef %7, ptr noundef %8)
   br label %166
 
 163:                                              ; preds = %161
@@ -694,7 +694,7 @@ H5Z__scaleoffset_convert.exit237:                 ; preds = %._crit_edge.us.i236
 
 164:                                              ; preds = %163
   %165 = load ptr, ptr %5, align 8
-  call fastcc void @H5Z__scaleoffset_precompress_fd(ptr noundef %165, i32 noundef %25, i32 noundef %155, i32 noundef %31, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %8, double noundef %.0190)
+  call fastcc void @H5Z__scaleoffset_precompress_fd(ptr noundef %165, i32 noundef %25, i32 noundef %155, i32 noundef %31, ptr noundef nonnull %2, ptr noundef %7, ptr noundef %8, double noundef %.0190)
   br label %166
 
 166:                                              ; preds = %.thread245, %164, %163
@@ -773,7 +773,7 @@ H5Z__scaleoffset_convert.exit237:                 ; preds = %._crit_edge.us.i236
   %.sroa.13.0.insert.shift = shl nuw i64 %168, 32
   %.sroa.027.0.insert.ext = zext i32 %69 to i64
   %.sroa.027.0.insert.insert = or disjoint i64 %.sroa.13.0.insert.shift, %.sroa.027.0.insert.ext
-  tail call fastcc void @H5Z__scaleoffset_compress(ptr noundef %202, i32 noundef %25, ptr noundef nonnull %203, i64 noundef %204, i64 %.sroa.027.0.insert.insert, i32 %14)
+  tail call fastcc void @H5Z__scaleoffset_compress(ptr noundef %202, i32 noundef %25, ptr noundef %203, i64 noundef %204, i64 %.sroa.027.0.insert.insert, i32 %14)
   br label %H5Z__scaleoffset_convert.exit228
 
 H5Z__scaleoffset_convert.exit228:                 ; preds = %._crit_edge.us.i227, %200, %201, %120
@@ -900,7 +900,7 @@ switch.lookup30:                                  ; preds = %switch.hole_check29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5Z__scaleoffset_set_parms_fillval(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5Z__scaleoffset_set_parms_fillval(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 1, 13) %2, ptr nocapture noundef nonnull writeonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
@@ -933,7 +933,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__scaleoffset_set_parms_fillval(
   ]
 
 23:                                               ; preds = %5
-  %24 = call i32 @H5P_get_fill_value(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6) #12
+  %24 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %6) #12
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %26, label %30
 
@@ -951,7 +951,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__scaleoffset_set_parms_fillval(
   br label %.loopexit
 
 34:                                               ; preds = %5
-  %35 = call i32 @H5P_get_fill_value(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %7) #12
+  %35 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %7) #12
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %37, label %41
 
@@ -992,7 +992,7 @@ H5Z__scaleoffset_convert.exit:                    ; preds = %H5Z__scaleoffset_co
   br label %.loopexit
 
 52:                                               ; preds = %5
-  %53 = call i32 @H5P_get_fill_value(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %8) #12
+  %53 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %8) #12
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %55, label %59
 
@@ -1030,7 +1030,7 @@ H5Z__scaleoffset_convert.exit508:                 ; preds = %62, %59
   br label %.loopexit
 
 71:                                               ; preds = %5
-  %72 = call i32 @H5P_get_fill_value(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9) #12
+  %72 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %9) #12
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %74, label %78
 
@@ -1110,7 +1110,7 @@ H5Z__scaleoffset_convert.exit511:                 ; preds = %81, %78
   br i1 %.not501, label %.loopexit, label %100
 
 104:                                              ; preds = %5
-  %105 = call i32 @H5P_get_fill_value(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %11) #12
+  %105 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %11) #12
   %106 = icmp slt i32 %105, 0
   br i1 %106, label %107, label %111
 
@@ -1190,7 +1190,7 @@ H5Z__scaleoffset_convert.exit514:                 ; preds = %114, %111
   br i1 %.not497, label %.loopexit, label %133
 
 137:                                              ; preds = %5
-  %138 = call i32 @H5P_get_fill_value(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %13) #12
+  %138 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %13) #12
   %139 = icmp slt i32 %138, 0
   br i1 %139, label %140, label %144
 
@@ -1208,7 +1208,7 @@ H5Z__scaleoffset_convert.exit514:                 ; preds = %114, %111
   br label %.loopexit
 
 148:                                              ; preds = %5
-  %149 = call i32 @H5P_get_fill_value(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %14) #12
+  %149 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %14) #12
   %150 = icmp slt i32 %149, 0
   br i1 %150, label %151, label %155
 
@@ -1249,7 +1249,7 @@ H5Z__scaleoffset_convert.exit517:                 ; preds = %H5Z__scaleoffset_co
   br label %.loopexit
 
 166:                                              ; preds = %5
-  %167 = call i32 @H5P_get_fill_value(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %15) #12
+  %167 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %15) #12
   %168 = icmp slt i32 %167, 0
   br i1 %168, label %169, label %173
 
@@ -1287,7 +1287,7 @@ H5Z__scaleoffset_convert.exit520:                 ; preds = %176, %173
   br label %.loopexit
 
 185:                                              ; preds = %5
-  %186 = call i32 @H5P_get_fill_value(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %16) #12
+  %186 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %16) #12
   %187 = icmp slt i32 %186, 0
   br i1 %187, label %188, label %192
 
@@ -1367,7 +1367,7 @@ H5Z__scaleoffset_convert.exit523:                 ; preds = %195, %192
   br i1 %.not490, label %.loopexit, label %214
 
 218:                                              ; preds = %5
-  %219 = call i32 @H5P_get_fill_value(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %18) #12
+  %219 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %18) #12
   %220 = icmp slt i32 %219, 0
   br i1 %220, label %221, label %225
 
@@ -1447,7 +1447,7 @@ H5Z__scaleoffset_convert.exit526:                 ; preds = %228, %225
   br i1 %.not486, label %.loopexit, label %247
 
 251:                                              ; preds = %5
-  %252 = call i32 @H5P_get_fill_value(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %20) #12
+  %252 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %20) #12
   %253 = icmp slt i32 %252, 0
   br i1 %253, label %254, label %258
 
@@ -1485,7 +1485,7 @@ H5Z__scaleoffset_convert.exit529:                 ; preds = %261, %258
   br label %.loopexit
 
 270:                                              ; preds = %5
-  %271 = call i32 @H5P_get_fill_value(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %21) #12
+  %271 = call i32 @H5P_get_fill_value(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %21) #12
   %272 = icmp slt i32 %271, 0
   br i1 %272, label %273, label %277
 
@@ -1582,7 +1582,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @H5Z__scaleoffset_decompress(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 %3, i32 %4) unnamed_addr #5 {
+define internal fastcc void @H5Z__scaleoffset_decompress(ptr nocapture noundef nonnull writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 %3, i32 %4) unnamed_addr #5 {
   %6 = zext i32 %1 to i64
   %7 = and i64 %3, 4294967295
   %8 = mul nuw i64 %7, %6
@@ -1590,7 +1590,7 @@ define internal fastcc void @H5Z__scaleoffset_decompress(ptr nocapture noundef w
   br i1 %.not, label %.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %5
-  tail call void @llvm.memset.p0.i64(ptr align 1 %0, i8 0, i64 %8, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %0, i8 0, i64 %8, i1 false)
   br label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph.preheader, %5
@@ -1773,7 +1773,7 @@ H5Z__scaleoffset_decompress_one_atomic.exit.loopexit32: ; preds = %H5Z__scaleoff
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6) unnamed_addr #6 {
+define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr nocapture noundef nonnull %0, i32 noundef %1, i32 noundef range(i32 1, 13) %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6) unnamed_addr #6 {
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
   %10 = alloca i64, align 8
@@ -2464,7 +2464,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr nocapture nou
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @H5Z__scaleoffset_postdecompress_fd(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, double noundef %7) unnamed_addr #7 {
+define internal fastcc void @H5Z__scaleoffset_postdecompress_fd(ptr nocapture noundef nonnull %0, i32 noundef %1, i32 noundef range(i32 1, 13) %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, double noundef %7) unnamed_addr #7 {
   %9 = alloca double, align 8
   %10 = alloca i32, align 4
   switch i32 %2, label %.loopexit [
@@ -2644,7 +2644,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_fd(ptr nocapture no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5Z__scaleoffset_precompress_i(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6) unnamed_addr #6 {
+define internal fastcc void @H5Z__scaleoffset_precompress_i(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #6 {
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
   %10 = alloca i64, align 8
@@ -5695,7 +5695,7 @@ thread-pre-split2262:                             ; preds = %.lr.ph, %H5Z__scale
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @H5Z__scaleoffset_precompress_fd(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6, double noundef %7) unnamed_addr #0 {
+define internal fastcc void @H5Z__scaleoffset_precompress_fd(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6, double noundef %7) unnamed_addr #0 {
   %9 = alloca double, align 8
   %10 = alloca i32, align 4
   switch i32 %2, label %262 [
@@ -6299,12 +6299,12 @@ H5Z__scaleoffset_log2.exit362:                    ; preds = %.lr.ph.i354, %236
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @H5Z__scaleoffset_compress(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, i64 noundef %3, i64 %4, i32 %5) unnamed_addr #5 {
+define internal fastcc void @H5Z__scaleoffset_compress(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull %2, i64 noundef %3, i64 %4, i32 %5) unnamed_addr #5 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %6
-  tail call void @llvm.memset.p0.i64(ptr align 1 %2, i8 0, i64 %3, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %2, i8 0, i64 %3, i1 false)
   br label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph.preheader, %6

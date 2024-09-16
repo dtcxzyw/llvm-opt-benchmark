@@ -2142,7 +2142,7 @@ define internal void @"_ZN4core3ptr84drop_in_place$LT$$RF$$u5b$cranelift_codegen
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$17ha5f1cf0757b44ff6E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$17ha5f1cf0757b44ff6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -2711,7 +2711,7 @@ define hidden void @_ZN4core9panicking13assert_failed17h8219fdca14a73a92E(i8 nou
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-define internal fastcc void @_ZN4core9panicking13assert_failed17h83f18f6b12dc7ab2E(ptr noalias noundef readonly align 2 dereferenceable(2) %0, ptr noalias noundef readonly align 2 dereferenceable(2) %1, ptr noalias nocapture noundef align 8 dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #7 {
+define internal fastcc void @_ZN4core9panicking13assert_failed17h83f18f6b12dc7ab2E(ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %0, ptr noalias noundef readonly align 2 dereferenceable(2) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #7 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8
@@ -2751,7 +2751,7 @@ define hidden void @_ZN4core9panicking13assert_failed17hbd9e4c5aafa24b35E(i8 nou
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-define internal fastcc void @_ZN4core9panicking13assert_failed17hdd2011e563438a18E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef align 8 dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #7 {
+define internal fastcc void @_ZN4core9panicking13assert_failed17hdd2011e563438a18E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #7 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8
@@ -6263,7 +6263,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i188.i: ; preds = %.noexc190.i
   br label %835
 
 834:                                              ; preds = %829
-  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %58, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.0.i247)
+  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %58, ptr noalias noundef readonly align 8 dereferenceable(40) %.0.i247)
   br label %835
 
 835:                                              ; preds = %834, %833
@@ -6431,7 +6431,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i188.i: ; preds = %.noexc190.i
   br label %891
 
 890:                                              ; preds = %885
-  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %65, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.0.i245)
+  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %65, ptr noalias noundef readonly align 8 dereferenceable(40) %.0.i245)
   br label %891
 
 891:                                              ; preds = %890, %889
@@ -6987,7 +6987,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$10gen_
 138:                                              ; preds = %137
   %139 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$17ha5f1cf0757b44ff6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #35
+  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$17ha5f1cf0757b44ff6E"(ptr noalias noundef align 8 dereferenceable(40) %3) #35
           to label %.body47 unwind label %140
 
 140:                                              ; preds = %138
@@ -7017,7 +7017,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$10gen_
 144:                                              ; preds = %142
   %145 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$17ha5f1cf0757b44ff6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11) #35
+  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$17ha5f1cf0757b44ff6E"(ptr noalias noundef align 8 dereferenceable(40) %11) #35
           to label %.body47 unwind label %146, !noalias !846
 
 146:                                              ; preds = %144
@@ -7072,7 +7072,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$10gen_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { ptr, i64 } @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$16get_value_labels17hcad2fa6e97bcfa0bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(1944) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #3 {
+define internal fastcc { ptr, i64 } @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$16get_value_labels17hcad2fa6e97bcfa0bE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(1944) %0, i32 noundef %1, i64 noundef range(i64 0, 11) %2) unnamed_addr #3 {
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = alloca { i16, [5 x i16] }, align 4
   %6 = alloca [1 x { ptr, ptr }], align 8
@@ -7424,7 +7424,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph15resolve_aliases17h83aa111f597debfe
   %146 = getelementptr inbounds i8, ptr %135, i64 12
   %147 = load i32, ptr %146, align 4, !noundef !4
   %148 = add nuw nsw i64 %2, 1
-  %149 = call fastcc { ptr, i64 } @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$16get_value_labels17hcad2fa6e97bcfa0bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(1944) %0, i32 noundef %147, i64 noundef %148)
+  %149 = call fastcc { ptr, i64 } @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$16get_value_labels17hcad2fa6e97bcfa0bE"(ptr noalias noundef readonly align 8 dereferenceable(1944) %0, i32 noundef %147, i64 noundef %148)
   %150 = extractvalue { ptr, i64 } %149, 0
   %151 = extractvalue { ptr, i64 } %149, 1
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hf48d5c9b27c9ec67E.exit.thread"
@@ -7438,7 +7438,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph15resolve_aliases17h83aa111f597debfe
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$32emit_value_label_marks_for_value17h92d04bccbaefb1cbE"(ptr noalias noundef align 8 dereferenceable(1944) %0, i32 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$32emit_value_label_marks_for_value17h92d04bccbaefb1cbE"(ptr noalias noundef nonnull align 8 dereferenceable(1944) %0, i32 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64, i64, i64 }, {}, {} }, align 8
   %4 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, align 8
   %5 = alloca [3 x { ptr, ptr }], align 8
@@ -7477,7 +7477,7 @@ define internal fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$
 25:                                               ; preds = %22
   %.sroa.04.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload to i32
   store i32 %.sroa.04.0.extract.trunc.i, ptr %9, align 4
-  %26 = tail call fastcc { ptr, i64 } @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$16get_value_labels17hcad2fa6e97bcfa0bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(1944) %0, i32 noundef %1, i64 noundef 0)
+  %26 = tail call fastcc { ptr, i64 } @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$16get_value_labels17hcad2fa6e97bcfa0bE"(ptr noalias noundef readonly align 8 dereferenceable(1944) %0, i32 noundef %1, i64 noundef 0)
   %27 = extractvalue { ptr, i64 } %26, 0
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %52, label %28
@@ -7658,7 +7658,7 @@ common.resume:                                    ; preds = %57, %31
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$14finish_ir_inst17h6fb6193f74e5ca33E"(ptr noalias noundef align 8 dereferenceable(1944) %0, i32 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$14finish_ir_inst17h6fb6193f74e5ca33E"(ptr noalias noundef nonnull align 8 dereferenceable(1944) %0, i32 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [39 x i8] }, align 8
   %.sroa.7 = alloca [39 x i8], align 1
   %4 = alloca { { { ptr, ptr, {} }, ptr, i64, i64 } }, align 8
@@ -7803,7 +7803,7 @@ define internal fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$
 }
 
 ; Function Attrs: cold inlinehint noreturn nonlazybind uwtable
-define internal fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$19lower_clif_branches28_$u7b$$u7b$closure$u7d$$u7d$17h94cfc0d013260de3E"(ptr noalias noundef readonly align 8 dereferenceable(872) %0, i32 %.0.val) unnamed_addr #12 {
+define internal fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$19lower_clif_branches28_$u7b$$u7b$closure$u7d$$u7d$17h94cfc0d013260de3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(872) %0, i32 %.0.val) unnamed_addr #12 {
   %2 = alloca { ptr, i32, [1 x i32] }, align 8
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -8828,7 +8828,7 @@ _ZN17cranelift_codegen8machinst10blockorder18BlockLoweringOrder12succ_indices17h
 506:                                              ; preds = %.noexc171
   %507 = load ptr, ptr %161, align 8, !alias.scope !1211, !noalias !1218, !nonnull !4, !align !18, !noundef !4
   %.val.i = load i32, ptr %83, align 4, !noalias !1214, !noundef !4
-  invoke fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$19lower_clif_branches28_$u7b$$u7b$closure$u7d$$u7d$17h94cfc0d013260de3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(872) %507, i32 %.val.i)
+  invoke fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$19lower_clif_branches28_$u7b$$u7b$closure$u7d$$u7d$17h94cfc0d013260de3E"(ptr noalias noundef readonly align 8 dereferenceable(872) %507, i32 %.val.i)
           to label %.noexc173 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc173:                                        ; preds = %506
@@ -8847,7 +8847,7 @@ _ZN17cranelift_codegen8machinst10blockorder18BlockLoweringOrder12succ_indices17h
   %516 = getelementptr inbounds i8, ptr %.val15.i, i64 760
   %.0.i.i.i = select i1 %.not.i.i, ptr %515, ptr %516
   %517 = load i32, ptr %.0.i.i.i, align 4, !noalias !1228, !noundef !4
-  invoke fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$14finish_ir_inst17h6fb6193f74e5ca33E"(ptr noalias noundef nonnull align 8 dereferenceable(1944) %1, i32 noundef %517)
+  invoke fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$14finish_ir_inst17h6fb6193f74e5ca33E"(ptr noalias noundef align 8 dereferenceable(1944) %1, i32 noundef %517)
           to label %.noexc174 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc174:                                        ; preds = %508
@@ -9439,7 +9439,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i.i.i: ; preds = %.noexc43.i.i
   unreachable
 
 "_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$28lower_branch_blockparam_args17h099b9b80365a6ea3E.exit.i": ; preds = %"_ZN4core3ptr106drop_in_place$LT$smallvec..SmallVec$LT$$u5b$cranelift_codegen..machinst..reg..Reg$u3b$$u20$16$u5d$$GT$$GT$17h15e0b7dadb015865E.exit33.i.i", %_ZN17cranelift_codegen8machinst10blockorder18BlockLoweringOrder12succ_indices17h7a537a99d081ded8E.exit.i.i
-  invoke fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$14finish_ir_inst17h6fb6193f74e5ca33E"(ptr noalias noundef nonnull align 8 dereferenceable(1944) %1, i32 noundef -1)
+  invoke fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$14finish_ir_inst17h6fb6193f74e5ca33E"(ptr noalias noundef align 8 dereferenceable(1944) %1, i32 noundef -1)
           to label %747 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 747:                                              ; preds = %"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$28lower_branch_blockparam_args17h099b9b80365a6ea3E.exit.i"
@@ -9457,7 +9457,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i.i.i: ; preds = %.noexc43.i.i
   %754 = getelementptr inbounds i8, ptr %.val, i64 760
   %.0.i.i = select i1 %.not.i195, ptr %753, ptr %754
   %755 = load i32, ptr %.0.i.i, align 4, !noundef !4
-  invoke fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$14finish_ir_inst17h6fb6193f74e5ca33E"(ptr noalias noundef nonnull align 8 dereferenceable(1944) %1, i32 noundef %755)
+  invoke fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$14finish_ir_inst17h6fb6193f74e5ca33E"(ptr noalias noundef align 8 dereferenceable(1944) %1, i32 noundef %755)
           to label %863 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 756:                                              ; preds = %488
@@ -9687,7 +9687,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i.i.i: ; preds = %.noexc43.i.i
 
 848:                                              ; preds = %839
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %99)
-  invoke fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$14finish_ir_inst17h6fb6193f74e5ca33E"(ptr noalias noundef nonnull align 8 dereferenceable(1944) %1, i32 noundef -1)
+  invoke fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$14finish_ir_inst17h6fb6193f74e5ca33E"(ptr noalias noundef align 8 dereferenceable(1944) %1, i32 noundef -1)
           to label %849 unwind label %.loopexit.split-lp432.loopexit.split-lp.loopexit
 
 849:                                              ; preds = %848
@@ -10331,7 +10331,7 @@ select.unfold.i.cont:                             ; preds = %select.unfold.i.inv
   %1115 = getelementptr inbounds i8, ptr %.val.i235, i64 760
   %.0.i.i102.i = select i1 %.not.i101.i, ptr %1114, ptr %1115
   %1116 = load i32, ptr %.0.i.i102.i, align 4, !noalias !1656, !noundef !4
-  invoke fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$14finish_ir_inst17h6fb6193f74e5ca33E"(ptr noalias noundef nonnull align 8 dereferenceable(1944) %1, i32 noundef %1116)
+  invoke fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$14finish_ir_inst17h6fb6193f74e5ca33E"(ptr noalias noundef align 8 dereferenceable(1944) %1, i32 noundef %1116)
           to label %.noexc269 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc269:                                        ; preds = %1107
@@ -10431,7 +10431,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12inst_results17h8abf8bfc17f44328E.e
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2ee47f3fde85f27E.exit.i108.i": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12inst_results17h8abf8bfc17f44328E.exit.i107.i, %.noexc274
   %.sroa.0.017.i.i = phi ptr [ %1161, %.noexc274 ], [ %1148, %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12inst_results17h8abf8bfc17f44328E.exit.i107.i ]
   %1160 = load i32, ptr %.sroa.0.017.i.i, align 4, !noalias !1656, !noundef !4
-  invoke fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$32emit_value_label_marks_for_value17h92d04bccbaefb1cbE"(ptr noalias noundef nonnull align 8 dereferenceable(1944) %1, i32 noundef %1160)
+  invoke fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$32emit_value_label_marks_for_value17h92d04bccbaefb1cbE"(ptr noalias noundef align 8 dereferenceable(1944) %1, i32 noundef %1160)
           to label %.noexc274 unwind label %.loopexit.split-lp.loopexit
 
 .noexc274:                                        ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2ee47f3fde85f27E.exit.i108.i"
@@ -11139,13 +11139,13 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12block_params17h0e74f0bebb8e8f4bE.e
   br label %1392
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2ee47f3fde85f27E.exit.thread.i": ; preds = %.noexc298, %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12block_params17h0e74f0bebb8e8f4bE.exit.i, %.noexc293
-  invoke fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$14finish_ir_inst17h6fb6193f74e5ca33E"(ptr noalias noundef nonnull align 8 dereferenceable(1944) %1, i32 noundef -1)
+  invoke fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$14finish_ir_inst17h6fb6193f74e5ca33E"(ptr noalias noundef align 8 dereferenceable(1944) %1, i32 noundef -1)
           to label %"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$39emit_value_label_markers_for_block_args17h632791ab2f85da00E.exit" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2ee47f3fde85f27E.exit.i": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12block_params17h0e74f0bebb8e8f4bE.exit.i, %.noexc298
   %.sroa.0.013.i = phi ptr [ %1419, %.noexc298 ], [ %1414, %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12block_params17h0e74f0bebb8e8f4bE.exit.i ]
   %1418 = load i32, ptr %.sroa.0.013.i, align 4, !noundef !4
-  invoke fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$32emit_value_label_marks_for_value17h92d04bccbaefb1cbE"(ptr noalias noundef nonnull align 8 dereferenceable(1944) %1, i32 noundef %1418)
+  invoke fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$32emit_value_label_marks_for_value17h92d04bccbaefb1cbE"(ptr noalias noundef align 8 dereferenceable(1944) %1, i32 noundef %1418)
           to label %.noexc298 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc298:                                        ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2ee47f3fde85f27E.exit.i"
@@ -11427,7 +11427,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12block_params17h0e74f0bebb8e8f4bE.e
 
 .noexc330:                                        ; preds = %.thread.i, %.noexc329
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16), !noalias !1884
-  invoke fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$14finish_ir_inst17h6fb6193f74e5ca33E"(ptr noalias noundef nonnull align 8 dereferenceable(1944) %1, i32 noundef -1)
+  invoke fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$14finish_ir_inst17h6fb6193f74e5ca33E"(ptr noalias noundef align 8 dereferenceable(1944) %1, i32 noundef -1)
           to label %.noexc331 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc331:                                        ; preds = %.noexc330
@@ -11541,7 +11541,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12block_params17h0e74f0bebb8e8f4bE.e
 1548:                                             ; preds = %1547
   %1549 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$17ha5f1cf0757b44ff6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10) #35
+  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$17ha5f1cf0757b44ff6E"(ptr noalias noundef align 8 dereferenceable(40) %10) #35
           to label %.body.i unwind label %1550
 
 1550:                                             ; preds = %1548
@@ -11571,7 +11571,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12block_params17h0e74f0bebb8e8f4bE.e
 1554:                                             ; preds = %1552
   %1555 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$17ha5f1cf0757b44ff6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %17) #35
+  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$17ha5f1cf0757b44ff6E"(ptr noalias noundef align 8 dereferenceable(40) %17) #35
           to label %.body.i unwind label %1556, !noalias !1982
 
 1556:                                             ; preds = %1554
@@ -11607,7 +11607,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12block_params17h0e74f0bebb8e8f4bE.e
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
-  invoke fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$14finish_ir_inst17h6fb6193f74e5ca33E"(ptr noalias noundef nonnull align 8 dereferenceable(1944) %1, i32 noundef -1)
+  invoke fastcc void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$14finish_ir_inst17h6fb6193f74e5ca33E"(ptr noalias noundef align 8 dereferenceable(1944) %1, i32 noundef -1)
           to label %1570 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1570:                                             ; preds = %1569, %1383
@@ -13096,7 +13096,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$4emit1
 16:                                               ; preds = %15
   %17 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$17ha5f1cf0757b44ff6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #35
+  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$17ha5f1cf0757b44ff6E"(ptr noalias noundef align 8 dereferenceable(40) %3) #35
           to label %.body unwind label %18
 
 18:                                               ; preds = %16
@@ -13147,7 +13147,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$4emit1
 34:                                               ; preds = %20
   %35 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$17ha5f1cf0757b44ff6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1) #35
+  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$17ha5f1cf0757b44ff6E"(ptr noalias noundef align 8 dereferenceable(40) %1) #35
           to label %.body unwind label %36
 
 36:                                               ; preds = %34
@@ -17422,7 +17422,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12inst_results17h8abf8bfc17f44328E.e
 
 101:                                              ; preds = %91
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.0.i)
+  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %3, ptr noalias noundef readonly align 8 dereferenceable(40) %.0.i)
   %.sroa.05.0.copyload = load i8, ptr %3, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.0..sroa_idx, i64 39, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
@@ -19443,7 +19443,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph15resolve_aliases17h83aa111f597debfe
 
 86:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21)
-  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.0.i)
+  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %21, ptr noalias noundef readonly align 8 dereferenceable(40) %.0.i)
   br i1 %.not, label %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17hb932ba9dec3f4196E.exit27", label %87
 
 87:                                               ; preds = %86
@@ -19458,7 +19458,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph15resolve_aliases17h83aa111f597debfe
 
 89:                                               ; preds = %84
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22)
-  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.0.i17)
+  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %22, ptr noalias noundef readonly align 8 dereferenceable(40) %.0.i17)
   br i1 %.not45, label %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17hb932ba9dec3f4196E.exit24", label %90
 
 90:                                               ; preds = %89
@@ -19472,7 +19472,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph15resolve_aliases17h83aa111f597debfe
   br label %85
 
 92:                                               ; preds = %84
-  %93 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c45278720a97004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.0.i17, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.0.i)
+  %93 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c45278720a97004E"(ptr noalias noundef readonly align 8 dereferenceable(40) %.0.i17, ptr noalias noundef readonly align 8 dereferenceable(40) %.0.i)
   br i1 %93, label %85, label %94
 
 94:                                               ; preds = %92
@@ -19518,7 +19518,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 112:                                              ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit35
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16)
   store ptr null, ptr %16, align 8
-  call fastcc void @_ZN4core9panicking13assert_failed17h83f18f6b12dc7ab2E(ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %18, ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %17, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff4fb00eed5659504e0ec1f2ac65c1d3.458) #32
+  call fastcc void @_ZN4core9panicking13assert_failed17h83f18f6b12dc7ab2E(ptr noalias noundef readonly align 2 dereferenceable(2) %18, ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %17, ptr noalias nocapture noundef align 8 dereferenceable(48) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff4fb00eed5659504e0ec1f2ac65c1d3.458) #32
   unreachable
 
 113:                                              ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit35
@@ -20188,7 +20188,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
   store ptr @anon.ff4fb00eed5659504e0ec1f2ac65c1d3.8.llvm.15230283897121687862, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i8 0, i64 16, i1 false)
-  call fastcc void @_ZN4core9panicking13assert_failed17h83f18f6b12dc7ab2E(ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %4, ptr noalias noundef nonnull readonly align 2 dereferenceable(2) @anon.ff4fb00eed5659504e0ec1f2ac65c1d3.479, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff4fb00eed5659504e0ec1f2ac65c1d3.480) #32
+  call fastcc void @_ZN4core9panicking13assert_failed17h83f18f6b12dc7ab2E(ptr noalias noundef readonly align 2 dereferenceable(2) %4, ptr noalias noundef nonnull readonly align 2 dereferenceable(2) @anon.ff4fb00eed5659504e0ec1f2ac65c1d3.479, ptr noalias nocapture noundef align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff4fb00eed5659504e0ec1f2ac65c1d3.480) #32
   unreachable
 }
 
@@ -20610,7 +20610,7 @@ define void @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph34make_value_alias_for_
 13:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   store ptr null, ptr %6, align 8
-  call fastcc void @_ZN4core9panicking13assert_failed17hdd2011e563438a18E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %9, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff4fb00eed5659504e0ec1f2ac65c1d3.492) #32
+  call fastcc void @_ZN4core9panicking13assert_failed17hdd2011e563438a18E(ptr noalias noundef readonly align 4 dereferenceable(4) %9, ptr noalias noundef readonly align 4 dereferenceable(4) %7, ptr noalias nocapture noundef align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff4fb00eed5659504e0ec1f2ac65c1d3.492) #32
   unreachable
 
 14:                                               ; preds = %11
@@ -20624,7 +20624,7 @@ define void @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph34make_value_alias_for_
 19:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  call fastcc void @_ZN4core9panicking13assert_failed17hdd2011e563438a18E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff4fb00eed5659504e0ec1f2ac65c1d3.491) #32
+  call fastcc void @_ZN4core9panicking13assert_failed17hdd2011e563438a18E(ptr noalias noundef readonly align 4 dereferenceable(4) %8, ptr noalias noundef readonly align 4 dereferenceable(4) %5, ptr noalias nocapture noundef align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff4fb00eed5659504e0ec1f2ac65c1d3.491) #32
   unreachable
 
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %14
@@ -20777,7 +20777,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 42:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  call fastcc void @_ZN4core9panicking13assert_failed17h83f18f6b12dc7ab2E(ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %6, ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff4fb00eed5659504e0ec1f2ac65c1d3.494) #32
+  call fastcc void @_ZN4core9panicking13assert_failed17h83f18f6b12dc7ab2E(ptr noalias noundef readonly align 2 dereferenceable(2) %6, ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %5, ptr noalias nocapture noundef align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff4fb00eed5659504e0ec1f2ac65c1d3.494) #32
   unreachable
 
 _ZN17cranelift_codegen2ir3dfg21maybe_resolve_aliases17hc7fafaa8b7643f83E.llvm.15230283897121687862.exit: ; preds = %21, %41
@@ -20904,7 +20904,7 @@ define void @_ZN17cranelift_codegen2ir3pcc4Expr12global_value17h5d0a490d920ca9d1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @_ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #4 {
   %.val = load i32, ptr %1, align 8, !range !3704, !noundef !4
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %.val1 = load i32, ptr %3, align 4
@@ -20950,7 +20950,7 @@ _ZN17cranelift_codegen2ir3pcc8BaseExpr2le17hefd78885416833e8E.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN17cranelift_codegen2ir3pcc4Expr3min17hd8bbabcc15cf62c5E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #15 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17cranelift_codegen2ir3pcc4Expr3min17hd8bbabcc15cf62c5E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #15 personality ptr @rust_eh_personality {
   %.val = load i32, ptr %1, align 8, !range !3704, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %.val6 = load i32, ptr %4, align 4
@@ -21030,7 +21030,7 @@ _ZN17cranelift_codegen2ir3pcc8BaseExpr3min17h71a00c94fb36407aE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN17cranelift_codegen2ir3pcc4Expr3max17hf99638a7b5aa7b3aE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #15 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17cranelift_codegen2ir3pcc4Expr3max17hf99638a7b5aa7b3aE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #15 personality ptr @rust_eh_personality {
   %.val = load i32, ptr %1, align 8, !range !3704, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %.val6 = load i32, ptr %4, align 4
@@ -21128,7 +21128,7 @@ _ZN17cranelift_codegen2ir3pcc8BaseExpr3max17h4a9c9153c2f8bc6dE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN17cranelift_codegen2ir3pcc4Expr3add17h5c885d70ec7abc68E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #15 {
+define internal fastcc void @_ZN17cranelift_codegen2ir3pcc4Expr3add17h5c885d70ec7abc68E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #15 {
   %.val = load i32, ptr %1, align 8, !range !3704, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %.val32 = load i32, ptr %4, align 4
@@ -22454,9 +22454,9 @@ _ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E.exit71: ; preds = %71,
 
 _ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E.exit71.thread94: ; preds = %_ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E.exit.thread91, %_ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E.exit71
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call fastcc void @_ZN17cranelift_codegen2ir3pcc4Expr3max17hf99638a7b5aa7b3aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %47)
+  call fastcc void @_ZN17cranelift_codegen2ir3pcc4Expr3max17hf99638a7b5aa7b3aE(ptr noalias nocapture noundef align 8 dereferenceable(16) %7, ptr noalias noundef readonly align 8 dereferenceable(16) %44, ptr noalias noundef readonly align 8 dereferenceable(16) %47)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call fastcc void @_ZN17cranelift_codegen2ir3pcc4Expr3min17hd8bbabcc15cf62c5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %48)
+  call fastcc void @_ZN17cranelift_codegen2ir3pcc4Expr3min17hd8bbabcc15cf62c5E(ptr noalias nocapture noundef align 8 dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(16) %45, ptr noalias noundef readonly align 8 dereferenceable(16) %48)
   %81 = getelementptr inbounds i8, ptr %0, i64 2
   store i16 %49, ptr %81, align 2
   %82 = getelementptr inbounds i8, ptr %0, i64 8
@@ -22612,9 +22612,9 @@ _ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E.exit89: ; preds = %141
 
 _ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E.exit89.thread100: ; preds = %_ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E.exit81.thread97, %_ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E.exit89
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call fastcc void @_ZN17cranelift_codegen2ir3pcc4Expr3max17hf99638a7b5aa7b3aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %112, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %116)
+  call fastcc void @_ZN17cranelift_codegen2ir3pcc4Expr3max17hf99638a7b5aa7b3aE(ptr noalias nocapture noundef align 8 dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(16) %112, ptr noalias noundef readonly align 8 dereferenceable(16) %116)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call fastcc void @_ZN17cranelift_codegen2ir3pcc4Expr3min17hd8bbabcc15cf62c5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %113, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %117)
+  call fastcc void @_ZN17cranelift_codegen2ir3pcc4Expr3min17hd8bbabcc15cf62c5E(ptr noalias nocapture noundef align 8 dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(16) %113, ptr noalias noundef readonly align 8 dereferenceable(16) %117)
   %151 = load i8, ptr %114, align 1, !range !271, !noundef !4
   %152 = trunc nuw i8 %151 to i1
   %153 = load i8, ptr %118, align 1, !range !271
@@ -22642,7 +22642,7 @@ define { ptr, i16 } @_ZN17cranelift_codegen2ir3pcc11FactContext3new17h6498714764
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
 define noundef zeroext i1 @_ZN17cranelift_codegen2ir3pcc11FactContext8subsumes17h709e32ef7bda9e00E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #9 {
-  %4 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c45278720a97004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
+  %4 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c45278720a97004E"(ptr noalias noundef readonly align 8 dereferenceable(40) %1, ptr noalias noundef readonly align 8 dereferenceable(40) %2)
   br i1 %4, label %_ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E.exit.thread, label %5
 
 5:                                                ; preds = %3
@@ -22788,7 +22788,7 @@ _ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E.exit: ; preds = %65, %
 _ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E.exit.thread69: ; preds = %58, %_ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E.exit
   %75 = getelementptr inbounds i8, ptr %2, i64 8
   %76 = getelementptr inbounds i8, ptr %1, i64 8
-  %77 = tail call fastcc noundef zeroext i1 @_ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %75, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %76)
+  %77 = tail call fastcc noundef zeroext i1 @_ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E(ptr noalias noundef readonly align 8 dereferenceable(16) %75, ptr noalias noundef readonly align 8 dereferenceable(16) %76)
   %78 = zext i1 %77 to i8
   br label %_ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E.exit.thread
 
@@ -22883,7 +22883,7 @@ _ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E.exit67: ; preds = %116
 _ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E.exit67.thread72: ; preds = %109, %_ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E.exit67
   %126 = getelementptr inbounds i8, ptr %2, i64 8
   %127 = getelementptr inbounds i8, ptr %1, i64 8
-  %128 = tail call fastcc noundef zeroext i1 @_ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %126, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %127)
+  %128 = tail call fastcc noundef zeroext i1 @_ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E(ptr noalias noundef readonly align 8 dereferenceable(16) %126, ptr noalias noundef readonly align 8 dereferenceable(16) %127)
   br i1 %128, label %129, label %_ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E.exit.thread
 
 129:                                              ; preds = %_ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E.exit67.thread72
@@ -23567,7 +23567,7 @@ _ZN17cranelift_codegen2ir3pcc4Expr6offset17h54626b14859e494aE.exit366: ; preds =
   %.sroa.14.0410.ph = phi i64 [ %183, %182 ], [ %167, %166 ], [ %175, %174 ], [ 0, %.thread.i ]
   %.sroa.077.0.ph = phi i32 [ %.val.i, %182 ], [ %.val.i, %166 ], [ %.val33.i, %174 ], [ 3, %.thread.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call fastcc void @_ZN17cranelift_codegen2ir3pcc4Expr3add17h5c885d70ec7abc68E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.0257, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.0255)
+  call fastcc void @_ZN17cranelift_codegen2ir3pcc4Expr3add17h5c885d70ec7abc68E(ptr noalias nocapture noundef align 8 dereferenceable(16) %8, ptr noalias noundef readonly align 8 dereferenceable(16) %.0257, ptr noalias noundef readonly align 8 dereferenceable(16) %.0255)
   %291 = load i32, ptr %8, align 8, !range !427, !noundef !4
   %292 = icmp eq i32 %291, 4
   br i1 %292, label %295, label %293
@@ -23673,7 +23673,7 @@ define void @_ZN17cranelift_codegen2ir3pcc11FactContext7uextend17h40f006a4ba1b8c
 
 17:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
-  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
+  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %10, ptr noalias noundef readonly align 8 dereferenceable(40) %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   br label %91
@@ -23953,7 +23953,7 @@ define void @_ZN17cranelift_codegen2ir3pcc11FactContext8truncate17h662682df17ead
 
 13:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
-  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
+  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %8, ptr noalias noundef readonly align 8 dereferenceable(40) %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   br label %50
@@ -24068,7 +24068,7 @@ define void @_ZN17cranelift_codegen2ir3pcc11FactContext5scale17h51de14e9d0052058
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %5
-  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
+  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %8, ptr noalias noundef readonly align 8 dereferenceable(40) %2)
   br label %43
 
 14:                                               ; preds = %5
@@ -24211,7 +24211,7 @@ define void @_ZN17cranelift_codegen2ir3pcc11FactContext6offset17hc4810d4bd95189d
 
 15:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
-  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
+  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %10, ptr noalias noundef readonly align 8 dereferenceable(40) %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   br label %18
@@ -25074,7 +25074,7 @@ default.unreachable149:                           ; preds = %134
   br i1 %or.cond146.not, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread125", label %101
 
 "_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread125": ; preds = %101, %68, %110, %76, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit123", %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit", %66, %64
-  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
+  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %9, ptr noalias noundef readonly align 8 dereferenceable(40) %2)
   br label %150
 
 68:                                               ; preds = %64
@@ -25144,7 +25144,7 @@ default.unreachable149:                           ; preds = %134
   br label %150
 
 .thread130:                                       ; preds = %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread", %83, %89
-  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
+  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %9, ptr noalias noundef readonly align 8 dereferenceable(40) %2)
   br label %150
 
 101:                                              ; preds = %66
@@ -25208,7 +25208,7 @@ default.unreachable149:                           ; preds = %134
   br i1 %switch, label %.sink.split, label %134
 
 .thread141:                                       ; preds = %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit123.thread", %119, %125
-  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
+  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %9, ptr noalias noundef readonly align 8 dereferenceable(40) %2)
   br label %150
 
 .sink.split:                                      ; preds = %130
@@ -25320,7 +25320,7 @@ define void @_ZN17cranelift_codegen2ir3pcc11FactContext5union17haa0f8f77da382198
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  %10 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c45278720a97004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %3)
+  %10 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c45278720a97004E"(ptr noalias noundef readonly align 8 dereferenceable(40) %2, ptr noalias noundef readonly align 8 dereferenceable(40) %3)
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %4
@@ -25332,7 +25332,7 @@ define void @_ZN17cranelift_codegen2ir3pcc11FactContext5union17haa0f8f77da382198
   ]
 
 13:                                               ; preds = %4
-  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
+  call fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %7, ptr noalias noundef readonly align 8 dereferenceable(40) %2)
   br label %148
 
 14:                                               ; preds = %83, %90, %70, %52, %42, %76, %35, %28, %26, %17, %15, %11
@@ -27935,7 +27935,7 @@ switch.lookup:                                    ; preds = %6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN17cranelift_codegen6egraph9elaborate10Elaborator15maybe_remat_arg17ha17ba01df574e2b1E(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(872) %1, ptr noalias noundef align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4, ptr noalias noundef align 4 dereferenceable(8) %5, ptr noalias nocapture noundef align 8 dereferenceable(152) %6) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN17cranelift_codegen6egraph9elaborate10Elaborator15maybe_remat_arg17ha17ba01df574e2b1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(872) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4, ptr noalias noundef nonnull align 4 dereferenceable(8) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(152) %6) unnamed_addr #3 personality ptr @rust_eh_personality {
   %8 = alloca { i64, [4 x i64] }, align 8
   %9 = alloca [2 x { ptr, ptr }], align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -35347,7 +35347,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h82b5d2f0610ca885E.exit.i.i.i.i.i
   %2215 = load i32, ptr %29, align 4, !noalias !6248, !noundef !4
   %2216 = load i32, ptr %30, align 4, !noalias !6248, !noundef !4
   %2217 = load ptr, ptr %1064, align 8, !alias.scope !6249, !noalias !6004, !nonnull !4, !align !18, !noundef !4
-  %2218 = invoke fastcc noundef zeroext i1 @_ZN17cranelift_codegen6egraph9elaborate10Elaborator15maybe_remat_arg17ha17ba01df574e2b1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2213, ptr noalias noundef nonnull align 8 dereferenceable(872) %2214, ptr noalias noundef nonnull align 8 dereferenceable(32) %1063, i32 noundef %2215, i32 noundef %2216, ptr noalias noundef nonnull align 4 dereferenceable(8) %.sroa.0384.0545.i.i.i.i.i.i, ptr noalias noundef nonnull align 8 dereferenceable(152) %2217)
+  %2218 = invoke fastcc noundef zeroext i1 @_ZN17cranelift_codegen6egraph9elaborate10Elaborator15maybe_remat_arg17ha17ba01df574e2b1E(ptr noalias noundef readonly align 8 dereferenceable(32) %2213, ptr noalias noundef align 8 dereferenceable(872) %2214, ptr noalias noundef align 8 dereferenceable(32) %1063, i32 noundef %2215, i32 noundef %2216, ptr noalias noundef align 4 dereferenceable(8) %.sroa.0384.0545.i.i.i.i.i.i, ptr noalias noundef align 8 dereferenceable(152) %2217)
           to label %.noexc103.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i, !noalias !5938
 
 .noexc103.i.i.i:                                  ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haee083d87c7c3121E.exit.i.i.i.i.i.i"
@@ -36187,7 +36187,7 @@ _ZN17cranelift_codegen6egraph9elaborate10Elaborator20elaborate_eclass_use17h6ffc
   %2519 = load i32, ptr %96, align 4, !noalias !5998, !noundef !4
   %2520 = load i32, ptr %93, align 4, !noalias !5998, !noundef !4
   %2521 = load ptr, ptr %1064, align 8, !alias.scope !6091, !noalias !6004, !nonnull !4, !align !18, !noundef !4
-  %2522 = invoke fastcc noundef zeroext i1 @_ZN17cranelift_codegen6egraph9elaborate10Elaborator15maybe_remat_arg17ha17ba01df574e2b1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2517, ptr noalias noundef nonnull align 8 dereferenceable(872) %2518, ptr noalias noundef nonnull align 8 dereferenceable(32) %1063, i32 noundef %2519, i32 noundef %2520, ptr noalias noundef nonnull align 4 dereferenceable(8) %83, ptr noalias noundef nonnull align 8 dereferenceable(152) %2521)
+  %2522 = invoke fastcc noundef zeroext i1 @_ZN17cranelift_codegen6egraph9elaborate10Elaborator15maybe_remat_arg17ha17ba01df574e2b1E(ptr noalias noundef readonly align 8 dereferenceable(32) %2517, ptr noalias noundef align 8 dereferenceable(872) %2518, ptr noalias noundef align 8 dereferenceable(32) %1063, i32 noundef %2519, i32 noundef %2520, ptr noalias noundef align 4 dereferenceable(8) %83, ptr noalias noundef align 8 dereferenceable(152) %2521)
           to label %.noexc149.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i, !noalias !5938
 
 .noexc149.i.i.i:                                  ; preds = %_ZN17cranelift_codegen6egraph9elaborate10Elaborator20elaborate_eclass_use17h6ffc6a73f991a964E.exit.i.i.i.i
@@ -37088,7 +37088,7 @@ define internal noundef zeroext i1 @"_ZN78_$LT$cranelift_codegen..ir..memflags..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
+define internal fastcc void @"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = load i8, ptr %1, align 8, !range !3698, !noundef !4
   switch i8 %3, label %default.unreachable31 [
     i8 0, label %4
@@ -37440,7 +37440,7 @@ default.unreachable1:                             ; preds = %2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN73_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c45278720a97004E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #13 {
+define internal fastcc noundef zeroext i1 @"_ZN73_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c45278720a97004E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #13 {
   %3 = load i8, ptr %0, align 8, !range !3698, !noundef !4
   %4 = load i8, ptr %1, align 8, !range !3698, !noundef !4
   %5 = icmp eq i8 %3, %4

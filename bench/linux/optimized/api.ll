@@ -1408,7 +1408,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local void @__init_swait_queue_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @crypto_alg_lookup(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @crypto_alg_lookup(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, -48) %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = or i32 %2, %1
   %5 = and i32 %4, 1024
   %6 = xor i32 %5, 1024
@@ -1523,7 +1523,7 @@ define internal fastcc ptr @crypto_alg_lookup(ptr nocapture noundef readonly %0,
 declare dso_local void @down_read(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__crypto_alg_lookup(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__crypto_alg_lookup(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   br label %.thread.outer.outer
 
 .thread.outer.outer:                              ; preds = %.thread.outer.outer.backedge, %3
@@ -1574,13 +1574,13 @@ define internal fastcc ptr @__crypto_alg_lookup(ptr nocapture noundef readonly %
 
 27:                                               ; preds = %23, %19, %16
   %28 = getelementptr inbounds i8, ptr %5, i64 184
-  %29 = tail call i32 @strcmp(ptr noundef %28, ptr noundef %0) #5
+  %29 = tail call i32 @strcmp(ptr noundef %28, ptr noundef nonnull dereferenceable(1) %0) #5
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %39, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %5, i64 56
-  %33 = tail call i32 @strcmp(ptr noundef %32, ptr noundef %0) #5
+  %33 = tail call i32 @strcmp(ptr noundef %32, ptr noundef nonnull dereferenceable(1) %0) #5
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %.thread.outer.backedge, !llvm.loop !22
 

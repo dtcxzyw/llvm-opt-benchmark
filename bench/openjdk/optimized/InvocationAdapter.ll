@@ -151,7 +151,7 @@ define range(i32 -1, 1) i32 @Agent_OnLoad(ptr noundef %0, ptr noundef %1, ptr no
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
   store ptr null, ptr %6, align 8
-  %7 = call fastcc i32 @parseArgumentTail(ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %7 = call fastcc i32 @parseArgumentTail(ptr noundef %1, ptr noundef %5, ptr noundef %6)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %11, label %8
 
@@ -279,7 +279,7 @@ define range(i32 -1, 1) i32 @Agent_OnLoad(ptr noundef %0, ptr noundef %1, ptr no
   %61 = load ptr, ptr %4, align 8
   %62 = getelementptr i8, ptr %61, i64 8
   %.val = load ptr, ptr %62, align 8
-  call fastcc void @appendBootClassPath(ptr %.val, ptr noundef %12, ptr noundef nonnull %59)
+  call fastcc void @appendBootClassPath(ptr %.val, ptr noundef %12, ptr noundef %59)
   br label %63
 
 63:                                               ; preds = %58, %60
@@ -349,7 +349,7 @@ define range(i32 -1, 1) i32 @Agent_OnLoad(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc range(i32 -1, 1) i32 @parseArgumentTail(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 1) i32 @parseArgumentTail(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #3 {
   %4 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 61) #16
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
@@ -435,7 +435,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 declare void @convertUtf8ToModifiedUtf8(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @appendBootClassPath(ptr %.8.val, ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @appendBootClassPath(ptr %.8.val, ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [4096 x i8], align 16
   %4 = alloca [4096 x i8], align 16
   %5 = load i8, ptr %1, align 1
@@ -840,7 +840,7 @@ define i32 @Agent_OnAttach(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %12 = icmp eq i32 %11, 0
   %13 = zext i1 %12 to i8
   call void @JPLISAssertCondition(i8 noundef zeroext %13, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 319) #15
-  %14 = call fastcc i32 @parseArgumentTail(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %14 = call fastcc i32 @parseArgumentTail(ptr noundef %1, ptr noundef %6, ptr noundef %7)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %109
 
@@ -998,7 +998,7 @@ appendClassPath.exit:                             ; preds = %37
   %82 = load ptr, ptr %4, align 8
   %83 = getelementptr i8, ptr %82, i64 8
   %.val = load ptr, ptr %83, align 8
-  call fastcc void @appendBootClassPath(ptr %.val, ptr noundef %17, ptr noundef nonnull %80)
+  call fastcc void @appendBootClassPath(ptr %.val, ptr noundef %17, ptr noundef %80)
   br label %84
 
 84:                                               ; preds = %81, %79
@@ -1167,7 +1167,7 @@ define hidden range(i32 -1, 1) i32 @loadAgent(ptr noundef %0, ptr noundef %1) lo
   %49 = load ptr, ptr %4, align 8
   %50 = getelementptr i8, ptr %49, i64 8
   %.val = load ptr, ptr %50, align 8
-  call fastcc void @appendBootClassPath(ptr %.val, ptr noundef nonnull %14, ptr noundef nonnull %47)
+  call fastcc void @appendBootClassPath(ptr %.val, ptr noundef nonnull %14, ptr noundef %47)
   br label %51
 
 51:                                               ; preds = %48, %46

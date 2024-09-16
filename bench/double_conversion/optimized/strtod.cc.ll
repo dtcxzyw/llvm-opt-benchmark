@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define noundef double @_ZN17double_conversion13StrtodTrimmedENS_6VectorIKcEEi(ptr %trimmed.coerce0, i32 %trimmed.coerce1, i32 noundef %exponent) local_unnamed_addr #0 {
 entry:
   %guess = alloca double, align 8
-  %call = call fastcc noundef zeroext i1 @_ZN17double_conversionL12ComputeGuessENS_6VectorIKcEEiPd(ptr %trimmed.coerce0, i32 %trimmed.coerce1, i32 noundef %exponent, ptr noundef nonnull %guess)
+  %call = call fastcc noundef zeroext i1 @_ZN17double_conversionL12ComputeGuessENS_6VectorIKcEEiPd(ptr %trimmed.coerce0, i32 %trimmed.coerce1, i32 noundef %exponent, ptr noundef %guess)
   %0 = load double, ptr %guess, align 8
   br i1 %call, label %return, label %if.end
 
@@ -95,7 +95,7 @@ return:                                           ; preds = %entry, %if.else.i13
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN17double_conversionL12ComputeGuessENS_6VectorIKcEEiPd(ptr nocapture readonly %trimmed.coerce0, i32 %trimmed.coerce1, i32 noundef %exponent, ptr nocapture noundef writeonly %guess) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN17double_conversionL12ComputeGuessENS_6VectorIKcEEiPd(ptr nocapture readonly %trimmed.coerce0, i32 %trimmed.coerce1, i32 noundef %exponent, ptr nocapture noundef nonnull writeonly %guess) unnamed_addr #0 {
 entry:
   %cached_power.i = alloca %"class.double_conversion::DiyFp", align 8
   %cached_decimal_exponent.i = alloca i32, align 4
@@ -686,7 +686,7 @@ _ZN17double_conversionL10TrimAndCutENS_6VectorIKcEEiPciPS2_Pi.exit: ; preds = %_
   %trimmed.sroa.0.0 = phi ptr [ %copy_buffer, %for.body.i15.i.preheader ], [ %retval.sroa.0.0.i.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i ], [ %retval.sroa.0.0.i.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i ]
   %updated_exponent.0 = phi i32 [ %add.i.i, %for.body.i15.i.preheader ], [ %add26.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i ], [ %add.i, %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %guess.i)
-  %call.i = call fastcc noundef zeroext i1 @_ZN17double_conversionL12ComputeGuessENS_6VectorIKcEEiPd(ptr %trimmed.sroa.0.0, i32 %trimmed.sroa.4.0, i32 noundef %updated_exponent.0, ptr noundef nonnull %guess.i)
+  %call.i = call fastcc noundef zeroext i1 @_ZN17double_conversionL12ComputeGuessENS_6VectorIKcEEiPd(ptr %trimmed.sroa.0.0, i32 %trimmed.sroa.4.0, i32 noundef %updated_exponent.0, ptr noundef %guess.i)
   %6 = load double, ptr %guess.i, align 8
   br i1 %call.i, label %_ZN17double_conversion13StrtodTrimmedENS_6VectorIKcEEi.exit, label %if.end.i
 
@@ -845,7 +845,7 @@ _ZN17double_conversionL10TrimAndCutENS_6VectorIKcEEiPciPS2_Pi.exit: ; preds = %_
 define noundef float @_ZN17double_conversion13StrtofTrimmedENS_6VectorIKcEEi(ptr %trimmed.coerce0, i32 %trimmed.coerce1, i32 noundef %exponent) local_unnamed_addr #0 {
 entry:
   %double_guess = alloca double, align 8
-  %call = call fastcc noundef zeroext i1 @_ZN17double_conversionL12ComputeGuessENS_6VectorIKcEEiPd(ptr %trimmed.coerce0, i32 %trimmed.coerce1, i32 noundef %exponent, ptr noundef nonnull %double_guess)
+  %call = call fastcc noundef zeroext i1 @_ZN17double_conversionL12ComputeGuessENS_6VectorIKcEEiPd(ptr %trimmed.coerce0, i32 %trimmed.coerce1, i32 noundef %exponent, ptr noundef %double_guess)
   %0 = load double, ptr %double_guess, align 8
   %cmp.i = fcmp ult double %0, 0x47EFFFFFE0000000
   br i1 %cmp.i, label %if.else3.i, label %if.then.i

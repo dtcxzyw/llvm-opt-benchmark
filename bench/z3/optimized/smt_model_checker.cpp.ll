@@ -14190,7 +14190,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE5visitILb1EEEbS3_j(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef %t, i32 noundef %max_depth) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE5visitILb1EEEbS3_j(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef %t, i32 noundef range(i32 7, 4) %max_depth) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i = alloca %class.obj_ref.117, align 8
   %m_cfg = getelementptr inbounds i8, ptr %this, i64 144
@@ -15408,7 +15408,7 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE5visitILb0EEEbS3_j(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef %t, i32 noundef %max_depth) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE5visitILb0EEEbS3_j(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef %t, i32 noundef range(i32 7, 4) %max_depth) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i = alloca %class.obj_ref.117, align 8
   %m_cfg = getelementptr inbounds i8, ptr %this, i64 144

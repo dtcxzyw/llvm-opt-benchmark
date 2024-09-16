@@ -364,7 +364,7 @@ _ZSt9call_onceIRFvvEJEEvRSt9once_flagOT_DpOT0_.exit.i.i: ; preds = %_ZL14__gthre
           to label %_ZL9_PopulatePN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsE.exit.i unwind label %.loopexit.split-lp.i
 
 _ZL9_PopulatePN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsE.exit.i: ; preds = %._crit_edge.i.i
-  invoke fastcc void @_ZL5_DumpPN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsEPKc(ptr noundef nonnull %68, ptr noundef nonnull @.str.6)
+  invoke fastcc void @_ZL5_DumpPN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsEPKc(ptr noundef %68, ptr noundef nonnull @.str.6)
           to label %89 unwind label %.loopexit.split-lp.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i
@@ -541,7 +541,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %133, %120, %118
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %66) #22
-  invoke fastcc void @_ZL5_DumpPN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsEPKc(ptr noundef nonnull %63, ptr noundef nonnull @.str.15)
+  invoke fastcc void @_ZL5_DumpPN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsEPKc(ptr noundef %63, ptr noundef nonnull @.str.15)
           to label %144 unwind label %.loopexit.split-lp.i18
 
 .loopexit.i13:                                    ; preds = %.lr.ph.i.i11
@@ -913,7 +913,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7Sd
   br i1 %exitcond45.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %241, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEESt16ostream_iteratorIS3_cSt11char_traitsIcEEET0_T_SE_SD_.exit.i
-  invoke fastcc void @_ZL5_DumpPN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsEPKc(ptr noundef nonnull %55, ptr noundef nonnull @.str.18)
+  invoke fastcc void @_ZL5_DumpPN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsEPKc(ptr noundef %55, ptr noundef nonnull @.str.18)
           to label %243 unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 243:                                              ; preds = %._crit_edge.i
@@ -1506,7 +1506,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.ex
           to label %443 unwind label %444
 
 443:                                              ; preds = %441
-  invoke fastcc void @_ZL5_DumpPN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsEPKc(ptr noundef nonnull %47, ptr noundef nonnull @.str.25)
+  invoke fastcc void @_ZL5_DumpPN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsEPKc(ptr noundef %47, ptr noundef nonnull @.str.25)
           to label %446 unwind label %444
 
 444:                                              ; preds = %443, %441, %439, %.noexc88
@@ -1918,7 +1918,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit61.i: ; preds = %568, %555
           to label %595 unwind label %.loopexit.split-lp.i105
 
 595:                                              ; preds = %594
-  invoke fastcc void @_ZL5_DumpPN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsEPKc(ptr noundef nonnull %40, ptr noundef nonnull @.str.33)
+  invoke fastcc void @_ZL5_DumpPN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsEPKc(ptr noundef %40, ptr noundef nonnull @.str.33)
           to label %610 unwind label %.loopexit.split-lp.i105
 
 .loopexit.i100:                                   ; preds = %.lr.ph.i.i98
@@ -2179,7 +2179,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i140: ; preds = %650, %63
   br label %.body.i119
 
 662:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i140
-  invoke fastcc void @_ZL5_DumpPN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsEPKc(ptr noundef nonnull %34, ptr noundef nonnull @.str.35)
+  invoke fastcc void @_ZL5_DumpPN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsEPKc(ptr noundef %34, ptr noundef nonnull @.str.35)
           to label %663 unwind label %.loopexit.split-lp.i134
 
 .body.i119:                                       ; preds = %.body14.i, %.loopexit.split-lp.i134, %.loopexit.i129, %615
@@ -2380,7 +2380,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i167: ; preds = %707, %69
   br label %.body.i146
 
 718:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i167
-  invoke fastcc void @_ZL5_DumpPN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsEPKc(ptr noundef nonnull %28, ptr noundef nonnull @.str.37)
+  invoke fastcc void @_ZL5_DumpPN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsEPKc(ptr noundef %28, ptr noundef nonnull @.str.37)
           to label %719 unwind label %.loopexit.split-lp.i161
 
 .body.i146:                                       ; preds = %.body16.i, %.loopexit.split-lp.i161, %.loopexit.i156, %668
@@ -2581,7 +2581,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i199: ; preds = %762, %74
   br label %.body.i173
 
 774:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i199
-  invoke fastcc void @_ZL5_DumpPN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsEPKc(ptr noundef nonnull %22, ptr noundef nonnull @.str.39)
+  invoke fastcc void @_ZL5_DumpPN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsEPKc(ptr noundef %22, ptr noundef nonnull @.str.39)
           to label %775 unwind label %.loopexit.split-lp.i188
 
 .body.i173:                                       ; preds = %.body16.i192, %.loopexit.split-lp.i188, %.loopexit.i183, %724
@@ -2916,7 +2916,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit35.i: 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit37.i: ; preds = %875, %862, %860
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #22
-  invoke fastcc void @_ZL5_DumpPN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsEPKc(ptr noundef nonnull %11, ptr noundef nonnull @.str.43)
+  invoke fastcc void @_ZL5_DumpPN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsEPKc(ptr noundef %11, ptr noundef nonnull @.str.43)
           to label %900 unwind label %.loopexit.split-lp.i219
 
 .loopexit.i214:                                   ; preds = %.lr.ph.i.i212
@@ -8729,7 +8729,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__11TfErrorMarkD1Ev(ptr noundef
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsC1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL5_DumpPN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsEPKc(ptr noundef %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL5_DumpPN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsEPKc(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::basic_ofstream", align 8
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %3, ptr noundef %1, i32 noundef 16)
   %4 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds6GetIdsEv(ptr noundef nonnull align 8 dereferenceable(64) %0)

@@ -5547,7 +5547,7 @@ _ZNSt6vectorIN15cmDocumentation17RequestedHelpItemESaIS1_EE9push_backEOS1_.exit2
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN15cmDocumentation12CheckOptionsEiPKPKcS1_ENK3$_0clEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i32 %.0.val, ptr nocapture readonly %.8.val, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN15cmDocumentation12CheckOptionsEiPKPKcS1_ENK3$_0clEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i32 %.0.val, ptr nocapture readonly %.8.val, i32 noundef range(i32 -2147483647, -2147483648) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
   %3 = icmp slt i32 %0, %.0.val
   br i1 %3, label %4, label %_ZN12_GLOBAL__N_18isOptionEPKc.exit.thread3
 

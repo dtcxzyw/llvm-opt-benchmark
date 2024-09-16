@@ -208,7 +208,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_dbus_vmstate_post_load.exit:                ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %call1 = call fastcc ptr @dbus_get_proxies(ptr noundef %call.i, ptr noundef nonnull %err)
+  %call1 = call fastcc ptr @dbus_get_proxies(ptr noundef %call.i, ptr noundef %err)
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %cleanup.thread, label %if.end
 
@@ -487,7 +487,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_dbus_vmstate_pre_save.exit:                 ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %call1 = call fastcc ptr @dbus_get_proxies(ptr noundef %call.i, ptr noundef nonnull %err)
+  %call1 = call fastcc ptr @dbus_get_proxies(ptr noundef %call.i, ptr noundef %err)
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -594,7 +594,7 @@ glib_autoptr_cleanup_GOutputStream.exit:          ; preds = %glib_autoptr_cleanu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @dbus_get_proxies(ptr nocapture noundef readonly %self, ptr noundef %err) unnamed_addr #0 {
+define internal fastcc ptr @dbus_get_proxies(ptr nocapture noundef readonly %self, ptr noundef nonnull %err) unnamed_addr #0 {
 entry:
   %error = alloca ptr, align 8
   %size = alloca i64, align 8
@@ -650,7 +650,7 @@ cleanup82.thread63:                               ; preds = %get_id_list_set.exi
   %call3 = call i32 @g_io_error_quark() #6
   %6 = load ptr, ptr %error, align 8
   %call4 = call ptr @error_get_pretty(ptr noundef %6) #6
-  call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef %err, i32 noundef %call3, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef %call4) #6
+  call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef nonnull %err, i32 noundef %call3, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef %call4) #6
   %7 = load ptr, ptr %error, align 8
   call void @error_free(ptr noundef %7) #6
   br label %glib_auto_cleanup_GStrv.exit
@@ -659,7 +659,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %8 = phi ptr [ %5, %for.body.lr.ph ], [ %14, %for.inc ]
   %i.067 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %9 = load ptr, ptr %bus, align 8
-  %call8 = call ptr @g_dbus_proxy_new_sync(ptr noundef %9, i32 noundef 0, ptr noundef nonnull @vmstate1_interface_info, ptr noundef nonnull %8, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.18, ptr noundef null, ptr noundef %err) #6
+  %call8 = call ptr @g_dbus_proxy_new_sync(ptr noundef %9, i32 noundef 0, ptr noundef nonnull @vmstate1_interface_info, ptr noundef nonnull %8, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.18, ptr noundef null, ptr noundef nonnull %err) #6
   %tobool9.not = icmp eq ptr %call8, null
   br i1 %tobool9.not, label %land.lhs.true, label %if.end14
 
@@ -714,7 +714,7 @@ if.end46:                                         ; preds = %land.lhs.true24, %i
 
 if.then49:                                        ; preds = %if.end46
   %call50 = call i32 @g_io_error_quark() #6
-  call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef %err, i32 noundef %call50, i32 noundef 0, ptr noundef nonnull @.str.24, ptr noundef %call22) #6
+  call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef nonnull %err, i32 noundef %call50, i32 noundef 0, ptr noundef nonnull @.str.24, ptr noundef %call22) #6
   br label %glib_autoptr_cleanup_GVariant.exit
 
 if.end51:                                         ; preds = %if.end46
@@ -724,7 +724,7 @@ if.end51:                                         ; preds = %if.end46
 
 if.then54:                                        ; preds = %if.end51
   %call55 = call i32 @g_io_error_quark() #6
-  call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef %err, i32 noundef %call55, i32 noundef 0, ptr noundef nonnull @.str.25, ptr noundef %call22) #6
+  call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef nonnull %err, i32 noundef %call55, i32 noundef 0, ptr noundef nonnull @.str.25, ptr noundef %call22) #6
   br label %glib_autoptr_cleanup_GVariant.exit
 
 if.then62:                                        ; preds = %if.end51
@@ -776,7 +776,7 @@ if.then69:                                        ; preds = %for.end
 if.then72:                                        ; preds = %if.then69
   %call73 = call noalias ptr @g_strjoinv(ptr noundef nonnull @.str.26, ptr noundef nonnull %call70) #6
   %call74 = call i32 @g_io_error_quark() #6
-  call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef %err, i32 noundef %call74, i32 noundef 0, ptr noundef nonnull @.str.27, ptr noundef %call73) #6
+  call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef nonnull %err, i32 noundef %call74, i32 noundef 0, ptr noundef nonnull @.str.27, ptr noundef %call73) #6
   call void @g_free(ptr noundef %call73) #6
   br label %if.then.i.sink.split
 

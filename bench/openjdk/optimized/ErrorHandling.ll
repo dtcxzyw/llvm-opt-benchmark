@@ -100,7 +100,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111reportErrorERK13SourceCodePosRKN
   %6 = alloca %"class.std::allocator", align 1
   %7 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6Logger13defaultLoggerEv()
   %.val = load ptr, ptr %0, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111getFilenameB5cxx11ERK13SourceCodePos(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr %.val)
+  call fastcc void @_ZN12_GLOBAL__N_111getFilenameB5cxx11ERK13SourceCodePos(ptr dead_on_unwind noalias writable align 8 %3, ptr %.val)
   %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
@@ -207,7 +207,7 @@ define hidden void @_Z11makeMessageB5cxx11RKSt13runtime_errorRK13SourceCodePos(p
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4)
   %.val = load ptr, ptr %2, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_111getFilenameB5cxx11ERK13SourceCodePos(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %.val)
+  invoke fastcc void @_ZN12_GLOBAL__N_111getFilenameB5cxx11ERK13SourceCodePos(ptr dead_on_unwind noalias writable align 8 %5, ptr %.val)
           to label %6 unwind label %30
 
 6:                                                ; preds = %3
@@ -279,7 +279,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111getFilenameB5cxx11ERK13SourceCodePos(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111getFilenameB5cxx11ERK13SourceCodePos(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -515,7 +515,7 @@ define hidden void @_Z17joinErrorMessagesRKNSt7__cxx1112basic_stringIcSt11char_t
 declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZN12_GLOBAL__N_123printWithoutWhitespacesERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TrimModeE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc noundef i64 @_ZN12_GLOBAL__N_123printWithoutWhitespacesERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TrimModeE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef range(i32 32, 49) %2) unnamed_addr #3 {
   %4 = alloca %"class.std::reverse_iterator", align 8
   %5 = alloca %"class.std::reverse_iterator", align 8
   %6 = alloca %"class.std::reverse_iterator", align 8

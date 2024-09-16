@@ -2644,7 +2644,7 @@ define internal i32 @dissect_normal_ldap_pdu(ptr noundef %0, ptr noundef %1, ptr
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca %struct._gssapi_encrypt_info, align 8
   store ptr null, ptr @ldm_tree, align 8
   %6 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #12
@@ -3010,7 +3010,7 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ldap_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_ldap_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct._asn1_ctx_t, align 8
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1

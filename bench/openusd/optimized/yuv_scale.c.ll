@@ -302,7 +302,7 @@ declare i32 @FixedDiv1_C(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare void @ScalePlaneVertical(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp(i32 noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, i32 noundef range(i32 1, -2147483648) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef range(i32 1, 0) %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -337,7 +337,7 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp(i32 noundef %0,
   %30 = add nsw i64 %29, 63
   %31 = and i64 %30, -64
   %.not = icmp eq i64 %31, 0
-  br i1 %.not, label %101, label %32
+  br i1 %.not, label %100, label %32
 
 32:                                               ; preds = %21
   %33 = inttoptr i64 %31 to ptr
@@ -349,7 +349,7 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp(i32 noundef %0,
   %39 = load i32, ptr %10, align 4
   %40 = load i32, ptr %12, align 4
   call void %spec.select(ptr noundef nonnull %33, ptr noundef %38, i32 noundef %2, i32 noundef %39, i32 noundef %40) #8, !callees !10
-  %41 = icmp sgt i32 %1, 1
+  %41 = icmp ugt i32 %1, 1
   %spec.select98.idx = select i1 %41, i64 %23, i64 0
   %spec.select98 = getelementptr inbounds i8, ptr %38, i64 %spec.select98.idx
   %42 = sext i32 %34 to i64
@@ -357,148 +357,144 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp(i32 noundef %0,
   %44 = load i32, ptr %10, align 4
   %45 = load i32, ptr %12, align 4
   call void %spec.select(ptr noundef nonnull %43, ptr noundef %spec.select98, i32 noundef %2, i32 noundef %44, i32 noundef %45) #8, !callees !10
-  %46 = icmp sgt i32 %3, 0
-  br i1 %46, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %32
-  %47 = icmp sgt i32 %1, 2
-  %.187.idx = select i1 %47, i64 %23, i64 0
+  %46 = icmp ugt i32 %1, 2
+  %.187.idx = select i1 %46, i64 %23, i64 0
   %.187 = getelementptr inbounds i8, ptr %spec.select98, i64 %.187.idx
-  %48 = ashr exact i32 %15, 16
-  %49 = sext i32 %48 to i64
-  %50 = mul nsw i64 %49, %23
-  %51 = getelementptr inbounds i8, ptr %6, i64 %50
-  %52 = icmp eq i32 %8, 1
-  %53 = sext i32 %5 to i64
-  %.pre108 = load i32, ptr %11, align 4
-  br i1 %52, label %.lr.ph.split.us, label %.lr.ph.split
+  %47 = ashr exact i32 %15, 16
+  %48 = sext i32 %47 to i64
+  %49 = mul nsw i64 %48, %23
+  %50 = getelementptr inbounds i8, ptr %6, i64 %49
+  %51 = icmp eq i32 %8, 1
+  %52 = sext i32 %5 to i64
+  %.pre110 = load i32, ptr %11, align 4
+  br i1 %51, label %.split.us, label %.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %69
-  %54 = phi i32 [ %73, %69 ], [ %.pre108, %.lr.ph ]
-  %.080105.us = phi i32 [ %.1.us, %69 ], [ %35, %.lr.ph ]
-  %.081104.us = phi i32 [ %.182.us, %69 ], [ %34, %.lr.ph ]
-  %.083103.us = phi ptr [ %.184.us, %69 ], [ %33, %.lr.ph ]
-  %.085102.us = phi ptr [ %70, %69 ], [ %7, %.lr.ph ]
-  %.2101.us = phi ptr [ %.3.us, %69 ], [ %.187, %.lr.ph ]
-  %.091100.us = phi i32 [ %74, %69 ], [ 0, %.lr.ph ]
-  %55 = ashr i32 %54, 16
-  %.not96.us = icmp eq i32 %55, %.080105.us
-  br i1 %.not96.us, label %69, label %56
+.split.us:                                        ; preds = %32, %68
+  %53 = phi i32 [ %72, %68 ], [ %.pre110, %32 ]
+  %.080105.us = phi i32 [ %.1.us, %68 ], [ %35, %32 ]
+  %.081104.us = phi i32 [ %.182.us, %68 ], [ %34, %32 ]
+  %.083103.us = phi ptr [ %.184.us, %68 ], [ %33, %32 ]
+  %.085102.us = phi ptr [ %69, %68 ], [ %7, %32 ]
+  %.2101.us = phi ptr [ %.3.us, %68 ], [ %.187, %32 ]
+  %.091100.us = phi i32 [ %73, %68 ], [ 0, %32 ]
+  %54 = ashr i32 %53, 16
+  %.not96.us = icmp eq i32 %54, %.080105.us
+  br i1 %.not96.us, label %68, label %55
 
-56:                                               ; preds = %.lr.ph.split.us
-  %57 = icmp sgt i32 %54, %15
-  br i1 %57, label %58, label %59
+55:                                               ; preds = %.split.us
+  %56 = icmp sgt i32 %53, %15
+  br i1 %56, label %57, label %58
 
-58:                                               ; preds = %56
+57:                                               ; preds = %55
   store i32 %15, ptr %11, align 4
-  br label %59
+  br label %58
 
-59:                                               ; preds = %58, %56
-  %.088.us = phi i32 [ %48, %58 ], [ %55, %56 ]
-  %.4.us = phi ptr [ %51, %58 ], [ %.2101.us, %56 ]
+58:                                               ; preds = %57, %55
+  %.088.us = phi i32 [ %47, %57 ], [ %54, %55 ]
+  %.4.us = phi ptr [ %50, %57 ], [ %.2101.us, %55 ]
   %.not97.us = icmp eq i32 %.088.us, %.080105.us
-  br i1 %.not97.us, label %69, label %60
+  br i1 %.not97.us, label %68, label %59
 
-60:                                               ; preds = %59
-  %61 = load i32, ptr %10, align 4
-  %62 = load i32, ptr %12, align 4
-  call void %spec.select(ptr noundef %.083103.us, ptr noundef %.4.us, i32 noundef %2, i32 noundef %61, i32 noundef %62) #8, !callees !10
-  %63 = sext i32 %.081104.us to i64
-  %64 = getelementptr inbounds i8, ptr %.083103.us, i64 %63
-  %65 = sub nsw i32 0, %.081104.us
-  %66 = load i32, ptr %11, align 4
-  %67 = add nsw i32 %66, 65536
-  %68 = icmp slt i32 %67, %15
-  %spec.select99.idx.us = select i1 %68, i64 %23, i64 0
+59:                                               ; preds = %58
+  %60 = load i32, ptr %10, align 4
+  %61 = load i32, ptr %12, align 4
+  call void %spec.select(ptr noundef %.083103.us, ptr noundef %.4.us, i32 noundef %2, i32 noundef %60, i32 noundef %61) #8, !callees !10
+  %62 = sext i32 %.081104.us to i64
+  %63 = getelementptr inbounds i8, ptr %.083103.us, i64 %62
+  %64 = sub nsw i32 0, %.081104.us
+  %65 = load i32, ptr %11, align 4
+  %66 = add nsw i32 %65, 65536
+  %67 = icmp slt i32 %66, %15
+  %spec.select99.idx.us = select i1 %67, i64 %23, i64 0
   %spec.select99.us = getelementptr inbounds i8, ptr %.4.us, i64 %spec.select99.idx.us
-  br label %69
+  br label %68
 
-69:                                               ; preds = %60, %59, %.lr.ph.split.us
-  %.3.us = phi ptr [ %.4.us, %59 ], [ %.2101.us, %.lr.ph.split.us ], [ %spec.select99.us, %60 ]
-  %.184.us = phi ptr [ %.083103.us, %59 ], [ %.083103.us, %.lr.ph.split.us ], [ %64, %60 ]
-  %.182.us = phi i32 [ %.081104.us, %59 ], [ %.081104.us, %.lr.ph.split.us ], [ %65, %60 ]
-  %.1.us = phi i32 [ %.080105.us, %59 ], [ %.080105.us, %.lr.ph.split.us ], [ %.088.us, %60 ]
+68:                                               ; preds = %59, %58, %.split.us
+  %.3.us = phi ptr [ %.4.us, %58 ], [ %.2101.us, %.split.us ], [ %spec.select99.us, %59 ]
+  %.184.us = phi ptr [ %.083103.us, %58 ], [ %.083103.us, %.split.us ], [ %63, %59 ]
+  %.182.us = phi i32 [ %.081104.us, %58 ], [ %.081104.us, %.split.us ], [ %64, %59 ]
+  %.1.us = phi i32 [ %.080105.us, %58 ], [ %.080105.us, %.split.us ], [ %.088.us, %59 ]
   call void @InterpolateRow_C(ptr noundef %.085102.us, ptr noundef %.184.us, i64 noundef 0, i32 noundef %2, i32 noundef 0) #8
-  %70 = getelementptr inbounds i8, ptr %.085102.us, i64 %53
-  %71 = load i32, ptr %13, align 4
-  %72 = load i32, ptr %11, align 4
-  %73 = add nsw i32 %72, %71
-  store i32 %73, ptr %11, align 4
-  %74 = add nuw nsw i32 %.091100.us, 1
-  %exitcond107.not = icmp eq i32 %74, %3
-  br i1 %exitcond107.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
+  %69 = getelementptr inbounds i8, ptr %.085102.us, i64 %52
+  %70 = load i32, ptr %13, align 4
+  %71 = load i32, ptr %11, align 4
+  %72 = add nsw i32 %71, %70
+  store i32 %72, ptr %11, align 4
+  %73 = add nuw nsw i32 %.091100.us, 1
+  %exitcond109.not = icmp eq i32 %73, %3
+  br i1 %exitcond109.not, label %.split107.us, label %.split.us, !llvm.loop !11
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %91
-  %75 = phi i32 [ %99, %91 ], [ %.pre108, %.lr.ph ]
-  %.080105 = phi i32 [ %.1, %91 ], [ %35, %.lr.ph ]
-  %.081104 = phi i32 [ %.182, %91 ], [ %34, %.lr.ph ]
-  %.083103 = phi ptr [ %.184, %91 ], [ %33, %.lr.ph ]
-  %.085102 = phi ptr [ %96, %91 ], [ %7, %.lr.ph ]
-  %.2101 = phi ptr [ %.3, %91 ], [ %.187, %.lr.ph ]
-  %.091100 = phi i32 [ %100, %91 ], [ 0, %.lr.ph ]
-  %76 = ashr i32 %75, 16
-  %.not96 = icmp eq i32 %76, %.080105
-  br i1 %.not96, label %91, label %77
+.split:                                           ; preds = %32, %90
+  %74 = phi i32 [ %98, %90 ], [ %.pre110, %32 ]
+  %.080105 = phi i32 [ %.1, %90 ], [ %35, %32 ]
+  %.081104 = phi i32 [ %.182, %90 ], [ %34, %32 ]
+  %.083103 = phi ptr [ %.184, %90 ], [ %33, %32 ]
+  %.085102 = phi ptr [ %95, %90 ], [ %7, %32 ]
+  %.2101 = phi ptr [ %.3, %90 ], [ %.187, %32 ]
+  %.091100 = phi i32 [ %99, %90 ], [ 0, %32 ]
+  %75 = ashr i32 %74, 16
+  %.not96 = icmp eq i32 %75, %.080105
+  br i1 %.not96, label %90, label %76
 
-77:                                               ; preds = %.lr.ph.split
-  %78 = icmp sgt i32 %75, %15
-  br i1 %78, label %79, label %80
+76:                                               ; preds = %.split
+  %77 = icmp sgt i32 %74, %15
+  br i1 %77, label %78, label %79
 
-79:                                               ; preds = %77
+78:                                               ; preds = %76
   store i32 %15, ptr %11, align 4
-  br label %80
+  br label %79
 
-80:                                               ; preds = %79, %77
-  %81 = phi i32 [ %15, %79 ], [ %75, %77 ]
-  %.088 = phi i32 [ %48, %79 ], [ %76, %77 ]
-  %.4 = phi ptr [ %51, %79 ], [ %.2101, %77 ]
+79:                                               ; preds = %78, %76
+  %80 = phi i32 [ %15, %78 ], [ %74, %76 ]
+  %.088 = phi i32 [ %47, %78 ], [ %75, %76 ]
+  %.4 = phi ptr [ %50, %78 ], [ %.2101, %76 ]
   %.not97 = icmp eq i32 %.088, %.080105
-  br i1 %.not97, label %91, label %82
+  br i1 %.not97, label %90, label %81
 
-82:                                               ; preds = %80
-  %83 = load i32, ptr %10, align 4
-  %84 = load i32, ptr %12, align 4
-  call void %spec.select(ptr noundef %.083103, ptr noundef %.4, i32 noundef %2, i32 noundef %83, i32 noundef %84) #8, !callees !10
-  %85 = sext i32 %.081104 to i64
-  %86 = getelementptr inbounds i8, ptr %.083103, i64 %85
-  %87 = sub nsw i32 0, %.081104
-  %88 = load i32, ptr %11, align 4
-  %89 = add nsw i32 %88, 65536
-  %90 = icmp slt i32 %89, %15
-  %spec.select99.idx = select i1 %90, i64 %23, i64 0
+81:                                               ; preds = %79
+  %82 = load i32, ptr %10, align 4
+  %83 = load i32, ptr %12, align 4
+  call void %spec.select(ptr noundef %.083103, ptr noundef %.4, i32 noundef %2, i32 noundef %82, i32 noundef %83) #8, !callees !10
+  %84 = sext i32 %.081104 to i64
+  %85 = getelementptr inbounds i8, ptr %.083103, i64 %84
+  %86 = sub nsw i32 0, %.081104
+  %87 = load i32, ptr %11, align 4
+  %88 = add nsw i32 %87, 65536
+  %89 = icmp slt i32 %88, %15
+  %spec.select99.idx = select i1 %89, i64 %23, i64 0
   %spec.select99 = getelementptr inbounds i8, ptr %.4, i64 %spec.select99.idx
-  br label %91
+  br label %90
 
-91:                                               ; preds = %82, %80, %.lr.ph.split
-  %92 = phi i32 [ %81, %80 ], [ %75, %.lr.ph.split ], [ %88, %82 ]
-  %.3 = phi ptr [ %.4, %80 ], [ %.2101, %.lr.ph.split ], [ %spec.select99, %82 ]
-  %.184 = phi ptr [ %.083103, %80 ], [ %.083103, %.lr.ph.split ], [ %86, %82 ]
-  %.182 = phi i32 [ %.081104, %80 ], [ %.081104, %.lr.ph.split ], [ %87, %82 ]
-  %.1 = phi i32 [ %.080105, %80 ], [ %.080105, %.lr.ph.split ], [ %.088, %82 ]
-  %93 = lshr i32 %92, 8
-  %94 = and i32 %93, 255
-  %95 = sext i32 %.182 to i64
-  call void @InterpolateRow_C(ptr noundef %.085102, ptr noundef %.184, i64 noundef %95, i32 noundef %2, i32 noundef %94) #8
-  %96 = getelementptr inbounds i8, ptr %.085102, i64 %53
-  %97 = load i32, ptr %13, align 4
-  %98 = load i32, ptr %11, align 4
-  %99 = add nsw i32 %98, %97
-  store i32 %99, ptr %11, align 4
-  %100 = add nuw nsw i32 %.091100, 1
-  %exitcond.not = icmp eq i32 %100, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
+90:                                               ; preds = %81, %79, %.split
+  %91 = phi i32 [ %80, %79 ], [ %74, %.split ], [ %87, %81 ]
+  %.3 = phi ptr [ %.4, %79 ], [ %.2101, %.split ], [ %spec.select99, %81 ]
+  %.184 = phi ptr [ %.083103, %79 ], [ %.083103, %.split ], [ %85, %81 ]
+  %.182 = phi i32 [ %.081104, %79 ], [ %.081104, %.split ], [ %86, %81 ]
+  %.1 = phi i32 [ %.080105, %79 ], [ %.080105, %.split ], [ %.088, %81 ]
+  %92 = lshr i32 %91, 8
+  %93 = and i32 %92, 255
+  %94 = sext i32 %.182 to i64
+  call void @InterpolateRow_C(ptr noundef %.085102, ptr noundef %.184, i64 noundef %94, i32 noundef %2, i32 noundef %93) #8
+  %95 = getelementptr inbounds i8, ptr %.085102, i64 %52
+  %96 = load i32, ptr %13, align 4
+  %97 = load i32, ptr %11, align 4
+  %98 = add nsw i32 %97, %96
+  store i32 %98, ptr %11, align 4
+  %99 = add nuw nsw i32 %.091100, 1
+  %exitcond.not = icmp eq i32 %99, %3
+  br i1 %exitcond.not, label %.split107.us, label %.split, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %91, %69, %32
+.split107.us:                                     ; preds = %90, %68
   call void @free(ptr noundef %28) #8
-  br label %101
+  br label %100
 
-101:                                              ; preds = %21, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %21 ]
+100:                                              ; preds = %21, %.split107.us
+  %.0 = phi i32 [ 0, %.split107.us ], [ 1, %21 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearDown(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearDown(i32 noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef range(i32 1, 0) %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -598,7 +594,7 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearDown(i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ScalePlaneSimple(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @ScalePlaneSimple(i32 noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -939,7 +935,7 @@ declare void @CopyPlane_16(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i
 declare void @ScalePlaneVertical_16(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp_16(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp_16(i32 noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, i32 noundef range(i32 1, -2147483648) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef range(i32 1, 0) %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -975,7 +971,7 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp_16(i32 noundef 
   %31 = add nsw i64 %30, 63
   %32 = and i64 %31, -64
   %.not = icmp eq i64 %32, 0
-  br i1 %.not, label %101, label %33
+  br i1 %.not, label %100, label %33
 
 33:                                               ; preds = %21
   %34 = inttoptr i64 %32 to ptr
@@ -986,7 +982,7 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp_16(i32 noundef 
   %39 = load i32, ptr %10, align 4
   %40 = load i32, ptr %12, align 4
   call void %spec.select(ptr noundef nonnull %34, ptr noundef %38, i32 noundef %2, i32 noundef %39, i32 noundef %40) #8, !callees !20
-  %41 = icmp sgt i32 %1, 1
+  %41 = icmp ugt i32 %1, 1
   %spec.select98.idx = select i1 %41, i64 %23, i64 0
   %spec.select98 = getelementptr inbounds i16, ptr %38, i64 %spec.select98.idx
   %42 = sext i32 %25 to i64
@@ -994,148 +990,144 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp_16(i32 noundef 
   %44 = load i32, ptr %10, align 4
   %45 = load i32, ptr %12, align 4
   call void %spec.select(ptr noundef nonnull %43, ptr noundef %spec.select98, i32 noundef %2, i32 noundef %44, i32 noundef %45) #8, !callees !20
-  %46 = icmp sgt i32 %3, 0
-  br i1 %46, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %33
-  %47 = icmp sgt i32 %1, 2
-  %.187.idx = select i1 %47, i64 %23, i64 0
+  %46 = icmp ugt i32 %1, 2
+  %.187.idx = select i1 %46, i64 %23, i64 0
   %.187 = getelementptr inbounds i16, ptr %spec.select98, i64 %.187.idx
-  %48 = ashr exact i32 %15, 16
-  %49 = sext i32 %48 to i64
-  %50 = mul nsw i64 %49, %23
-  %51 = getelementptr inbounds i16, ptr %6, i64 %50
-  %52 = icmp eq i32 %8, 1
-  %53 = sext i32 %5 to i64
-  %.pre108 = load i32, ptr %11, align 4
-  br i1 %52, label %.lr.ph.split.us, label %.lr.ph.split
+  %47 = ashr exact i32 %15, 16
+  %48 = sext i32 %47 to i64
+  %49 = mul nsw i64 %48, %23
+  %50 = getelementptr inbounds i16, ptr %6, i64 %49
+  %51 = icmp eq i32 %8, 1
+  %52 = sext i32 %5 to i64
+  %.pre110 = load i32, ptr %11, align 4
+  br i1 %51, label %.split.us, label %.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %69
-  %54 = phi i32 [ %73, %69 ], [ %.pre108, %.lr.ph ]
-  %.080105.us = phi i32 [ %.1.us, %69 ], [ %35, %.lr.ph ]
-  %.081104.us = phi i32 [ %.182.us, %69 ], [ %25, %.lr.ph ]
-  %.083103.us = phi ptr [ %.184.us, %69 ], [ %34, %.lr.ph ]
-  %.085102.us = phi ptr [ %70, %69 ], [ %7, %.lr.ph ]
-  %.2101.us = phi ptr [ %.3.us, %69 ], [ %.187, %.lr.ph ]
-  %.091100.us = phi i32 [ %74, %69 ], [ 0, %.lr.ph ]
-  %55 = ashr i32 %54, 16
-  %.not96.us = icmp eq i32 %55, %.080105.us
-  br i1 %.not96.us, label %69, label %56
+.split.us:                                        ; preds = %33, %68
+  %53 = phi i32 [ %72, %68 ], [ %.pre110, %33 ]
+  %.080105.us = phi i32 [ %.1.us, %68 ], [ %35, %33 ]
+  %.081104.us = phi i32 [ %.182.us, %68 ], [ %25, %33 ]
+  %.083103.us = phi ptr [ %.184.us, %68 ], [ %34, %33 ]
+  %.085102.us = phi ptr [ %69, %68 ], [ %7, %33 ]
+  %.2101.us = phi ptr [ %.3.us, %68 ], [ %.187, %33 ]
+  %.091100.us = phi i32 [ %73, %68 ], [ 0, %33 ]
+  %54 = ashr i32 %53, 16
+  %.not96.us = icmp eq i32 %54, %.080105.us
+  br i1 %.not96.us, label %68, label %55
 
-56:                                               ; preds = %.lr.ph.split.us
-  %57 = icmp sgt i32 %54, %15
-  br i1 %57, label %58, label %59
+55:                                               ; preds = %.split.us
+  %56 = icmp sgt i32 %53, %15
+  br i1 %56, label %57, label %58
 
-58:                                               ; preds = %56
+57:                                               ; preds = %55
   store i32 %15, ptr %11, align 4
-  br label %59
+  br label %58
 
-59:                                               ; preds = %58, %56
-  %.088.us = phi i32 [ %48, %58 ], [ %55, %56 ]
-  %.4.us = phi ptr [ %51, %58 ], [ %.2101.us, %56 ]
+58:                                               ; preds = %57, %55
+  %.088.us = phi i32 [ %47, %57 ], [ %54, %55 ]
+  %.4.us = phi ptr [ %50, %57 ], [ %.2101.us, %55 ]
   %.not97.us = icmp eq i32 %.088.us, %.080105.us
-  br i1 %.not97.us, label %69, label %60
+  br i1 %.not97.us, label %68, label %59
 
-60:                                               ; preds = %59
-  %61 = load i32, ptr %10, align 4
-  %62 = load i32, ptr %12, align 4
-  call void %spec.select(ptr noundef %.083103.us, ptr noundef %.4.us, i32 noundef %2, i32 noundef %61, i32 noundef %62) #8, !callees !20
-  %63 = sext i32 %.081104.us to i64
-  %64 = getelementptr inbounds i16, ptr %.083103.us, i64 %63
-  %65 = sub nsw i32 0, %.081104.us
-  %66 = load i32, ptr %11, align 4
-  %67 = add nsw i32 %66, 65536
-  %68 = icmp slt i32 %67, %15
-  %spec.select99.idx.us = select i1 %68, i64 %23, i64 0
+59:                                               ; preds = %58
+  %60 = load i32, ptr %10, align 4
+  %61 = load i32, ptr %12, align 4
+  call void %spec.select(ptr noundef %.083103.us, ptr noundef %.4.us, i32 noundef %2, i32 noundef %60, i32 noundef %61) #8, !callees !20
+  %62 = sext i32 %.081104.us to i64
+  %63 = getelementptr inbounds i16, ptr %.083103.us, i64 %62
+  %64 = sub nsw i32 0, %.081104.us
+  %65 = load i32, ptr %11, align 4
+  %66 = add nsw i32 %65, 65536
+  %67 = icmp slt i32 %66, %15
+  %spec.select99.idx.us = select i1 %67, i64 %23, i64 0
   %spec.select99.us = getelementptr inbounds i16, ptr %.4.us, i64 %spec.select99.idx.us
-  br label %69
+  br label %68
 
-69:                                               ; preds = %60, %59, %.lr.ph.split.us
-  %.3.us = phi ptr [ %.4.us, %59 ], [ %.2101.us, %.lr.ph.split.us ], [ %spec.select99.us, %60 ]
-  %.184.us = phi ptr [ %.083103.us, %59 ], [ %.083103.us, %.lr.ph.split.us ], [ %64, %60 ]
-  %.182.us = phi i32 [ %.081104.us, %59 ], [ %.081104.us, %.lr.ph.split.us ], [ %65, %60 ]
-  %.1.us = phi i32 [ %.080105.us, %59 ], [ %.080105.us, %.lr.ph.split.us ], [ %.088.us, %60 ]
+68:                                               ; preds = %59, %58, %.split.us
+  %.3.us = phi ptr [ %.4.us, %58 ], [ %.2101.us, %.split.us ], [ %spec.select99.us, %59 ]
+  %.184.us = phi ptr [ %.083103.us, %58 ], [ %.083103.us, %.split.us ], [ %63, %59 ]
+  %.182.us = phi i32 [ %.081104.us, %58 ], [ %.081104.us, %.split.us ], [ %64, %59 ]
+  %.1.us = phi i32 [ %.080105.us, %58 ], [ %.080105.us, %.split.us ], [ %.088.us, %59 ]
   call void @InterpolateRow_16_C(ptr noundef %.085102.us, ptr noundef %.184.us, i64 noundef 0, i32 noundef %2, i32 noundef 0) #8
-  %70 = getelementptr inbounds i16, ptr %.085102.us, i64 %53
-  %71 = load i32, ptr %13, align 4
-  %72 = load i32, ptr %11, align 4
-  %73 = add nsw i32 %72, %71
-  store i32 %73, ptr %11, align 4
-  %74 = add nuw nsw i32 %.091100.us, 1
-  %exitcond107.not = icmp eq i32 %74, %3
-  br i1 %exitcond107.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !21
+  %69 = getelementptr inbounds i16, ptr %.085102.us, i64 %52
+  %70 = load i32, ptr %13, align 4
+  %71 = load i32, ptr %11, align 4
+  %72 = add nsw i32 %71, %70
+  store i32 %72, ptr %11, align 4
+  %73 = add nuw nsw i32 %.091100.us, 1
+  %exitcond109.not = icmp eq i32 %73, %3
+  br i1 %exitcond109.not, label %.split107.us, label %.split.us, !llvm.loop !21
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %91
-  %75 = phi i32 [ %99, %91 ], [ %.pre108, %.lr.ph ]
-  %.080105 = phi i32 [ %.1, %91 ], [ %35, %.lr.ph ]
-  %.081104 = phi i32 [ %.182, %91 ], [ %25, %.lr.ph ]
-  %.083103 = phi ptr [ %.184, %91 ], [ %34, %.lr.ph ]
-  %.085102 = phi ptr [ %96, %91 ], [ %7, %.lr.ph ]
-  %.2101 = phi ptr [ %.3, %91 ], [ %.187, %.lr.ph ]
-  %.091100 = phi i32 [ %100, %91 ], [ 0, %.lr.ph ]
-  %76 = ashr i32 %75, 16
-  %.not96 = icmp eq i32 %76, %.080105
-  br i1 %.not96, label %91, label %77
+.split:                                           ; preds = %33, %90
+  %74 = phi i32 [ %98, %90 ], [ %.pre110, %33 ]
+  %.080105 = phi i32 [ %.1, %90 ], [ %35, %33 ]
+  %.081104 = phi i32 [ %.182, %90 ], [ %25, %33 ]
+  %.083103 = phi ptr [ %.184, %90 ], [ %34, %33 ]
+  %.085102 = phi ptr [ %95, %90 ], [ %7, %33 ]
+  %.2101 = phi ptr [ %.3, %90 ], [ %.187, %33 ]
+  %.091100 = phi i32 [ %99, %90 ], [ 0, %33 ]
+  %75 = ashr i32 %74, 16
+  %.not96 = icmp eq i32 %75, %.080105
+  br i1 %.not96, label %90, label %76
 
-77:                                               ; preds = %.lr.ph.split
-  %78 = icmp sgt i32 %75, %15
-  br i1 %78, label %79, label %80
+76:                                               ; preds = %.split
+  %77 = icmp sgt i32 %74, %15
+  br i1 %77, label %78, label %79
 
-79:                                               ; preds = %77
+78:                                               ; preds = %76
   store i32 %15, ptr %11, align 4
-  br label %80
+  br label %79
 
-80:                                               ; preds = %79, %77
-  %81 = phi i32 [ %15, %79 ], [ %75, %77 ]
-  %.088 = phi i32 [ %48, %79 ], [ %76, %77 ]
-  %.4 = phi ptr [ %51, %79 ], [ %.2101, %77 ]
+79:                                               ; preds = %78, %76
+  %80 = phi i32 [ %15, %78 ], [ %74, %76 ]
+  %.088 = phi i32 [ %47, %78 ], [ %75, %76 ]
+  %.4 = phi ptr [ %50, %78 ], [ %.2101, %76 ]
   %.not97 = icmp eq i32 %.088, %.080105
-  br i1 %.not97, label %91, label %82
+  br i1 %.not97, label %90, label %81
 
-82:                                               ; preds = %80
-  %83 = load i32, ptr %10, align 4
-  %84 = load i32, ptr %12, align 4
-  call void %spec.select(ptr noundef %.083103, ptr noundef %.4, i32 noundef %2, i32 noundef %83, i32 noundef %84) #8, !callees !20
-  %85 = sext i32 %.081104 to i64
-  %86 = getelementptr inbounds i16, ptr %.083103, i64 %85
-  %87 = sub nsw i32 0, %.081104
-  %88 = load i32, ptr %11, align 4
-  %89 = add nsw i32 %88, 65536
-  %90 = icmp slt i32 %89, %15
-  %spec.select99.idx = select i1 %90, i64 %23, i64 0
+81:                                               ; preds = %79
+  %82 = load i32, ptr %10, align 4
+  %83 = load i32, ptr %12, align 4
+  call void %spec.select(ptr noundef %.083103, ptr noundef %.4, i32 noundef %2, i32 noundef %82, i32 noundef %83) #8, !callees !20
+  %84 = sext i32 %.081104 to i64
+  %85 = getelementptr inbounds i16, ptr %.083103, i64 %84
+  %86 = sub nsw i32 0, %.081104
+  %87 = load i32, ptr %11, align 4
+  %88 = add nsw i32 %87, 65536
+  %89 = icmp slt i32 %88, %15
+  %spec.select99.idx = select i1 %89, i64 %23, i64 0
   %spec.select99 = getelementptr inbounds i16, ptr %.4, i64 %spec.select99.idx
-  br label %91
+  br label %90
 
-91:                                               ; preds = %82, %80, %.lr.ph.split
-  %92 = phi i32 [ %81, %80 ], [ %75, %.lr.ph.split ], [ %88, %82 ]
-  %.3 = phi ptr [ %.4, %80 ], [ %.2101, %.lr.ph.split ], [ %spec.select99, %82 ]
-  %.184 = phi ptr [ %.083103, %80 ], [ %.083103, %.lr.ph.split ], [ %86, %82 ]
-  %.182 = phi i32 [ %.081104, %80 ], [ %.081104, %.lr.ph.split ], [ %87, %82 ]
-  %.1 = phi i32 [ %.080105, %80 ], [ %.080105, %.lr.ph.split ], [ %.088, %82 ]
-  %93 = lshr i32 %92, 8
-  %94 = and i32 %93, 255
-  %95 = sext i32 %.182 to i64
-  call void @InterpolateRow_16_C(ptr noundef %.085102, ptr noundef %.184, i64 noundef %95, i32 noundef %2, i32 noundef %94) #8
-  %96 = getelementptr inbounds i16, ptr %.085102, i64 %53
-  %97 = load i32, ptr %13, align 4
-  %98 = load i32, ptr %11, align 4
-  %99 = add nsw i32 %98, %97
-  store i32 %99, ptr %11, align 4
-  %100 = add nuw nsw i32 %.091100, 1
-  %exitcond.not = icmp eq i32 %100, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
+90:                                               ; preds = %81, %79, %.split
+  %91 = phi i32 [ %80, %79 ], [ %74, %.split ], [ %87, %81 ]
+  %.3 = phi ptr [ %.4, %79 ], [ %.2101, %.split ], [ %spec.select99, %81 ]
+  %.184 = phi ptr [ %.083103, %79 ], [ %.083103, %.split ], [ %85, %81 ]
+  %.182 = phi i32 [ %.081104, %79 ], [ %.081104, %.split ], [ %86, %81 ]
+  %.1 = phi i32 [ %.080105, %79 ], [ %.080105, %.split ], [ %.088, %81 ]
+  %92 = lshr i32 %91, 8
+  %93 = and i32 %92, 255
+  %94 = sext i32 %.182 to i64
+  call void @InterpolateRow_16_C(ptr noundef %.085102, ptr noundef %.184, i64 noundef %94, i32 noundef %2, i32 noundef %93) #8
+  %95 = getelementptr inbounds i16, ptr %.085102, i64 %52
+  %96 = load i32, ptr %13, align 4
+  %97 = load i32, ptr %11, align 4
+  %98 = add nsw i32 %97, %96
+  store i32 %98, ptr %11, align 4
+  %99 = add nuw nsw i32 %.091100, 1
+  %exitcond.not = icmp eq i32 %99, %3
+  br i1 %exitcond.not, label %.split107.us, label %.split, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %91, %69, %33
+.split107.us:                                     ; preds = %90, %68
   call void @free(ptr noundef %29) #8
-  br label %101
+  br label %100
 
-101:                                              ; preds = %21, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %21 ]
+100:                                              ; preds = %21, %.split107.us
+  %.0 = phi i32 [ 0, %.split107.us ], [ 1, %21 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearDown_16(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearDown_16(i32 noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef range(i32 1, 0) %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -1236,7 +1228,7 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearDown_16(i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ScalePlaneSimple_16(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @ScalePlaneSimple_16(i32 noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4

@@ -3490,7 +3490,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115Ma
   br label %_ZNK4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE5countES3_.exit175.i
 
 1341:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115MachineVerifier6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixERKS4_.exit.i
-  %1342 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %1326, ptr noundef %.sroa.0750.0976) #18
+  %1342 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %1326, ptr noundef nonnull %.sroa.0750.0976) #18
   %.not.i.i159.i = icmp eq ptr %1342, null
   %.pre.i160.i = load ptr, ptr %1327, align 8
   %.pre4.i161.i = load ptr, ptr %1326, align 8
@@ -3907,7 +3907,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115Ma
   br label %_ZNK4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE5countES3_.exit232.i
 
 1540:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115MachineVerifier6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixERKS4_.exit215.i
-  %1541 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %1525, ptr noundef %.sroa.0750.0976) #18
+  %1541 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %1525, ptr noundef nonnull %.sroa.0750.0976) #18
   %.not.i.i216.i = icmp eq ptr %1541, null
   %.pre.i217.i = load ptr, ptr %1526, align 8
   %.pre4.i218.i = load ptr, ptr %1525, align 8
@@ -6357,7 +6357,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit113.i:            ; preds = %2667, %2665, %_ZN12
 
 2719:                                             ; preds = %2714
   %2720 = getelementptr inbounds i8, ptr %2715, i64 32
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.111, ptr noundef nonnull %2720, i32 noundef 1, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.111, ptr noundef %2720, i32 noundef 1, i64 0)
   br label %2721
 
 2721:                                             ; preds = %2719, %2714
@@ -6544,7 +6544,7 @@ _ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE
   br i1 %.not58.i.i, label %2820, label %2821
 
 2820:                                             ; preds = %2817
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.114, ptr noundef nonnull %2813, i32 noundef %.05674.i.i, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.114, ptr noundef %2813, i32 noundef %.05674.i.i, i64 0)
   br label %_ZN12_GLOBAL__N_115MachineVerifier15verifyInlineAsmEPKN4llvm12MachineInstrE.exit.i
 
 2821:                                             ; preds = %2817
@@ -6552,7 +6552,7 @@ _ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE
   br i1 %2822, label %2824, label %2823
 
 2823:                                             ; preds = %2821
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.115, ptr noundef nonnull %2813, i32 noundef %.05674.i.i, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.115, ptr noundef %2813, i32 noundef %.05674.i.i, i64 0)
   br label %2824
 
 2824:                                             ; preds = %2823, %2821
@@ -6560,7 +6560,7 @@ _ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE
   br i1 %2825, label %2827, label %2826
 
 2826:                                             ; preds = %2824
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.116, ptr noundef nonnull %2813, i32 noundef %.05674.i.i, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.116, ptr noundef %2813, i32 noundef %.05674.i.i, i64 0)
   br label %2827
 
 2827:                                             ; preds = %2826, %2824, %.lr.ph76.i.i
@@ -6686,7 +6686,7 @@ _ZSt8distanceIN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1E
   br i1 %.not248.i, label %_ZNK4llvm15TargetInstrInfo23isUnspillableTerminatorEPKNS_12MachineInstrE.exit.thread.i, label %2878
 
 2878:                                             ; preds = %_ZSt8distanceIN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEEENSt15iterator_traitsIT_E15difference_typeES5_S5_.exit.i
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.85, ptr noundef %.sroa.0745.0967)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.85, ptr noundef nonnull %.sroa.0745.0967)
   br label %_ZNK4llvm15TargetInstrInfo23isUnspillableTerminatorEPKNS_12MachineInstrE.exit.thread.i
 
 _ZNK4llvm15TargetInstrInfo23isUnspillableTerminatorEPKNS_12MachineInstrE.exit.thread.i: ; preds = %.critedge2.i.i.i.i, %2878, %_ZSt8distanceIN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEEENSt15iterator_traitsIT_E15difference_typeES5_S5_.exit.i, %2861, %2856, %2851, %_ZNK4llvm15TargetInstrInfo23isUnspillableTerminatorEPKNS_12MachineInstrE.exit.i, %_ZNK4llvm12MachineInstr12isTerminatorENS0_9QueryTypeE.exit.i.i, %2835
@@ -6951,7 +6951,7 @@ _ZNK4llvm13LiveIntervals12isNotInMIMapERKNS_12MachineInstrE.exit.i: ; preds = %2
   br i1 %or.cond241.i, label %3006, label %3007
 
 3006:                                             ; preds = %3002
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef %.sroa.0745.0967)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull %.sroa.0745.0967)
   br label %_ZN12_GLOBAL__N_115MachineVerifier23visitMachineInstrBeforeEPKN4llvm12MachineInstrE.exit
 
 3007:                                             ; preds = %3002
@@ -6965,7 +6965,7 @@ _ZNK4llvm13LiveIntervals12isNotInMIMapERKNS_12MachineInstrE.exit.i: ; preds = %2
 
 3013:                                             ; preds = %3007
   %3014 = load ptr, ptr %14, align 8
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef %3014, ptr noundef %.sroa.0745.0967)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef %3014, ptr noundef nonnull %.sroa.0745.0967)
   br label %3015
 
 3015:                                             ; preds = %3013, %3007
@@ -8868,7 +8868,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit7.i711:           ; preds = %4075, %4073
   br i1 %.not306.i, label %4095, label %4094
 
 4094:                                             ; preds = %4091
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.289, ptr noundef nonnull %3593, i32 noundef %4092, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.289, ptr noundef %3593, i32 noundef %4092, i64 0)
   br label %.critedgethread-pre-split.i
 
 4095:                                             ; preds = %4091
@@ -8889,7 +8889,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit7.i711:           ; preds = %4075, %4073
   br i1 %4107, label %4109, label %4108
 
 4108:                                             ; preds = %4100
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.290, ptr noundef nonnull %4104, i32 noundef %4000, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.290, ptr noundef %4104, i32 noundef %4000, i64 0)
   br label %.critedgethread-pre-split.i
 
 4109:                                             ; preds = %4100
@@ -8902,7 +8902,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit7.i711:           ; preds = %4075, %4073
   br i1 %or.cond464.i, label %4115, label %.critedgethread-pre-split.i
 
 4115:                                             ; preds = %4109
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.291, ptr noundef nonnull %4104, i32 noundef %4000, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.291, ptr noundef %4104, i32 noundef %4000, i64 0)
   br label %.critedgethread-pre-split.i
 
 _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i: ; preds = %3987, %._ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread_crit_edge.i
@@ -9328,7 +9328,7 @@ _ZNK4llvm19MachineRegisterInfo25shouldTrackSubRegLivenessENS_8RegisterE.exit.thr
   %.str.339.sink.i.i = phi ptr [ @.str.338, %_ZNK4llvm19MachineRegisterInfo25shouldTrackSubRegLivenessENS_8RegisterE.exit.i.i ], [ @.str.339, %4284 ], [ @.str.339, %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.i.i ]
   %.0.ph.i.i = phi ptr [ %.0.i.i.i219, %_ZNK4llvm19MachineRegisterInfo25shouldTrackSubRegLivenessENS_8RegisterE.exit.i.i ], [ null, %4284 ], [ null, %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.i.i ]
   %4339 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull %.str.339.sink.i.i, ptr noundef nonnull %3593, i32 noundef %4339, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull %.str.339.sink.i.i, ptr noundef %3593, i32 noundef %4339, i64 0)
   br label %_ZNK4llvm19MachineRegisterInfo25shouldTrackSubRegLivenessENS_8RegisterE.exit.thread.i.i
 
 _ZNK4llvm19MachineRegisterInfo25shouldTrackSubRegLivenessENS_8RegisterE.exit.thread.i.i: ; preds = %_ZNK4llvm19MachineRegisterInfo25shouldTrackSubRegLivenessENS_8RegisterE.exit.thread.sink.split.i.i, %_ZNK4llvm19MachineRegisterInfo25shouldTrackSubRegLivenessENS_8RegisterE.exit.i.i, %4323, %4320, %4318, %4315, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit.i.i, %4277
@@ -9539,7 +9539,7 @@ _ZN4llvm12is_containedIRSt6vectorIPNS_12MachineInstrESaIS3_EEPKS2_EEbOT_RKT0_.ex
 
 _ZN4llvm12is_containedIRSt6vectorIPNS_12MachineInstrESaIS3_EEPKS2_EEbOT_RKT0_.exit.thread.i.i: ; preds = %_ZN4llvm12is_containedIRSt6vectorIPNS_12MachineInstrESaIS3_EEPKS2_EEbOT_RKT0_.exit.i.i, %._crit_edge.i.i.i.i.i.i
   %4437 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.340, ptr noundef nonnull %3593, i32 noundef %4437, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.340, ptr noundef %3593, i32 noundef %4437, i64 0)
   br label %4438
 
 4438:                                             ; preds = %_ZN4llvm12is_containedIRSt6vectorIPNS_12MachineInstrESaIS3_EEPKS2_EEbOT_RKT0_.exit.thread.i.i, %_ZN4llvm12is_containedIRSt6vectorIPNS_12MachineInstrESaIS3_EEPKS2_EEbOT_RKT0_.exit.i.i, %4387, %4381, %4379
@@ -9794,7 +9794,7 @@ _ZN12_GLOBAL__N_115MachineVerifier10isReservedEN4llvm8RegisterE.exit.thread.i.i:
   br i1 %.not146.i.i, label %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i, label %4574
 
 4574:                                             ; preds = %4567
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier18checkLivenessAtUseEPKN4llvm14MachineOperandEjNS1_9SlotIndexERKNS1_9LiveRangeENS1_8RegisterENS1_11LaneBitmaskE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull %3593, i32 noundef %4563, i64 %storemerge.i.i, ptr noundef nonnull align 8 dereferenceable(104) %4573, i32 %.sroa.0316.0477.i.i, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier18checkLivenessAtUseEPKN4llvm14MachineOperandEjNS1_9SlotIndexERKNS1_9LiveRangeENS1_8RegisterENS1_11LaneBitmaskE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef %3593, i32 noundef %4563, i64 %storemerge.i.i, ptr noundef nonnull align 8 dereferenceable(104) %4573, i32 %.sroa.0316.0477.i.i, i64 0)
   br label %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i
 
 _ZN4llvm17MCRegUnitIteratorppEv.exit.i.i:         ; preds = %4574, %4567, %4564
@@ -9810,7 +9810,7 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.i.i:         ; preds = %4574, %4567, %4564
 
 4579:                                             ; preds = %.loopexit455.i.i
   %4580 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier18checkLivenessAtUseEPKN4llvm14MachineOperandEjNS1_9SlotIndexERKNS1_9LiveRangeENS1_8RegisterENS1_11LaneBitmaskE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull %3593, i32 noundef %4580, i64 %storemerge.i.i, ptr noundef nonnull align 8 dereferenceable(104) %.0.i342.i, i32 %4268, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier18checkLivenessAtUseEPKN4llvm14MachineOperandEjNS1_9SlotIndexERKNS1_9LiveRangeENS1_8RegisterENS1_11LaneBitmaskE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef %3593, i32 noundef %4580, i64 %storemerge.i.i, ptr noundef nonnull align 8 dereferenceable(104) %.0.i342.i, i32 %4268, i64 0)
   %4581 = getelementptr inbounds nuw i8, ptr %.0.i342.i, i64 104
   %4582 = load ptr, ptr %4581, align 8
   %.not437.i.i = icmp eq ptr %4582, null
@@ -9860,7 +9860,7 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.i.i:         ; preds = %4574, %4567, %4564
   br i1 %4601, label %4646, label %4602
 
 4602:                                             ; preds = %4598
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier18checkLivenessAtUseEPKN4llvm14MachineOperandEjNS1_9SlotIndexERKNS1_9LiveRangeENS1_8RegisterENS1_11LaneBitmaskE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull %3593, i32 noundef %4580, i64 %storemerge.i.i, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0301.0482.i.i, i32 %4268, i64 %.sroa.048.0.copyload.i.i)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier18checkLivenessAtUseEPKN4llvm14MachineOperandEjNS1_9SlotIndexERKNS1_9LiveRangeENS1_8RegisterENS1_11LaneBitmaskE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef %3593, i32 noundef %4580, i64 %storemerge.i.i, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0301.0482.i.i, i32 %4268, i64 %.sroa.048.0.copyload.i.i)
   %4603 = call noundef ptr @_ZN4llvm9LiveRange4findENS_9SlotIndexE(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0301.0482.i.i, i64 %4595) #18, !noalias !72
   %4604 = load ptr, ptr %.sroa.0301.0482.i.i, align 8, !noalias !72
   %4605 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0301.0482.i.i) #18, !noalias !72
@@ -9972,7 +9972,7 @@ _ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit.thread.i.i: ; preds = %_ZNK4llvm9L
   br i1 %4649, label %4650, label %_ZNK12_GLOBAL__N_115MachineVerifier14report_contextEN4llvm9SlotIndexE.exit684
 
 4650:                                             ; preds = %._crit_edge.i.i203
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.341, ptr noundef nonnull %3593, i32 noundef %4580, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.341, ptr noundef %3593, i32 noundef %4580, i64 0)
   %4651 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #18
   %4652 = getelementptr inbounds nuw i8, ptr %4651, i64 24
   %4653 = load ptr, ptr %4652, align 8
@@ -10073,7 +10073,7 @@ _ZNK12_GLOBAL__N_115MachineVerifier14report_contextEN4llvm9SlotIndexE.exit684: ;
   br i1 %.not440.i.i, label %_ZNK4llvm13LiveIntervals12isNotInMIMapERKNS_12MachineInstrE.exit.thread.i.i, label %4697
 
 4697:                                             ; preds = %4696
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.342, ptr noundef nonnull %3593, i32 noundef %4580, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.342, ptr noundef %3593, i32 noundef %4580, i64 0)
   %4698 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #18
   %4699 = getelementptr inbounds nuw i8, ptr %4698, i64 24
   %4700 = load ptr, ptr %4699, align 8
@@ -10365,7 +10365,7 @@ _ZN4llvm12is_containedINS_14iterator_rangeINS_16MCSubRegIteratorEEENS_8RegisterE
 
 .critedge498.i.i:                                 ; preds = %._crit_edge491.i.i, %_ZNK4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5countERKS2_.exit182.i.i
   %4848 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.343, ptr noundef nonnull %3593, i32 noundef %4848, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.343, ptr noundef %3593, i32 noundef %4848, i64 0)
   br label %_ZNK4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5countERKS2_.exit.i.i
 
 4849:                                             ; preds = %.loopexit453.i.i
@@ -10404,7 +10404,7 @@ _ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i: ; preds = %4863
 
 _ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread.i.i: ; preds = %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i, %4863, %4849
   %4868 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.344, ptr noundef nonnull %3593, i32 noundef %4868, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.344, ptr noundef %3593, i32 noundef %4868, i64 0)
   br label %_ZNK4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5countERKS2_.exit.i.i
 
 _ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread410.i.i: ; preds = %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i, %4860
@@ -10518,7 +10518,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115Ma
 
 _ZNK4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5countERKS2_.exit204.i.i: ; preds = %4921, %4912
   %4928 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.345, ptr noundef nonnull %3593, i32 noundef %4928, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.345, ptr noundef %3593, i32 noundef %4928, i64 0)
   br label %_ZNK4llvm6detail12DenseSetImplINS_8RegisterENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E5countERKS2_.exit.i.i
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i199.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115MachineVerifier6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixEOS4_.exit.i.i
@@ -10699,7 +10699,7 @@ _ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb0ELb1ELb0ELb1ELb0ELb0EEppE
 
 5023:                                             ; preds = %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb0ELb1ELb0ELb1ELb0ELb0EEppEv.exit.i.i.i.i.i
   %5024 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.346, ptr noundef nonnull %3593, i32 noundef %5024, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.346, ptr noundef %3593, i32 noundef %5024, i64 0)
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %_ZN12_GLOBAL__N_115MachineVerifier17addRegWithSubRegsERN4llvm11SmallVectorINS1_8RegisterELj16EEES3_.exit.thread, %5023, %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb0ELb1ELb0ELb1ELb0ELb0EEppEv.exit.i.i.i.i.i, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i.i, %_ZN12_GLOBAL__N_115MachineVerifier17addRegWithSubRegsERN4llvm11SmallVectorINS1_8RegisterELj16EEES3_.exit
@@ -10858,7 +10858,7 @@ _ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit253.i.i: 
 
 5100:                                             ; preds = %_ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit253.i.i
   %5101 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier18checkLivenessAtDefEPKN4llvm14MachineOperandEjNS1_9SlotIndexERKNS1_9LiveRangeENS1_8RegisterEbNS1_11LaneBitmaskE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull %3593, i32 noundef %5101, i64 %5099, ptr noundef nonnull align 8 dereferenceable(104) %.0.i342.i, i32 %4268, i1 noundef zeroext false, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier18checkLivenessAtDefEPKN4llvm14MachineOperandEjNS1_9SlotIndexERKNS1_9LiveRangeENS1_8RegisterEbNS1_11LaneBitmaskE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef %3593, i32 noundef %5101, i64 %5099, ptr noundef nonnull align 8 dereferenceable(104) %.0.i342.i, i32 %4268, i1 noundef zeroext false, i64 0)
   %5102 = getelementptr inbounds nuw i8, ptr %.0.i342.i, i64 104
   %5103 = load ptr, ptr %5102, align 8
   %.not448.i.i = icmp eq ptr %5103, null
@@ -10898,7 +10898,7 @@ _ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit253.i.i: 
   br i1 %5116, label %5118, label %5117
 
 5117:                                             ; preds = %.lr.ph497.i.i
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier18checkLivenessAtDefEPKN4llvm14MachineOperandEjNS1_9SlotIndexERKNS1_9LiveRangeENS1_8RegisterEbNS1_11LaneBitmaskE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull %3593, i32 noundef %5101, i64 %5099, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0261.0495.i.i, i32 %4268, i1 noundef zeroext true, i64 %5114)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier18checkLivenessAtDefEPKN4llvm14MachineOperandEjNS1_9SlotIndexERKNS1_9LiveRangeENS1_8RegisterEbNS1_11LaneBitmaskE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef %3593, i32 noundef %5101, i64 %5099, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0261.0495.i.i, i32 %4268, i1 noundef zeroext true, i64 %5114)
   br label %5118
 
 5118:                                             ; preds = %5117, %.lr.ph497.i.i
@@ -11393,7 +11393,7 @@ _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit3
   br i1 %.not485.i, label %.critedge4.i, label %5402
 
 5402:                                             ; preds = %5395
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.302, ptr noundef nonnull %3593, i32 noundef %5396, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.302, ptr noundef %3593, i32 noundef %5396, i64 0)
   br label %.critedge4.i
 
 .critedge4.i:                                     ; preds = %5402, %5395, %5387, %5384, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit346.i
@@ -11522,7 +11522,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i: ; preds = %5466
   br i1 %.not492.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i, label %_ZN4llvm9PrintableD2Ev.exit.i192
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i: ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i, %5466
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.304, ptr noundef nonnull %3593, i32 noundef %5464, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.304, ptr noundef %3593, i32 noundef %5464, i64 0)
   %5481 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #18
   %5482 = load ptr, ptr %55, align 8
   call void @_ZN4llvm8printRegENS_8RegisterEPKNS_18TargetRegisterInfoEjPKNS_19MachineRegisterInfoE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Printable") align 8 %12, i32 %4268, ptr noundef %5482, i32 noundef 0, ptr noundef null) #18
@@ -11651,7 +11651,7 @@ _ZN4llvm9PrintableD2Ev.exit.i192:                 ; preds = %5536, %_ZN4llvm11ra
 
 5551:                                             ; preds = %5539
   %5552 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.307, ptr noundef nonnull %3593, i32 noundef %5552, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.307, ptr noundef %3593, i32 noundef %5552, i64 0)
   br label %_ZN12_GLOBAL__N_115MachineVerifier19visitMachineOperandEPKN4llvm14MachineOperandEj.exit
 
 5553:                                             ; preds = %.critedge4.i
@@ -11993,7 +11993,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit7.i607:           ; preds = %5717, %5715
 
 5751:                                             ; preds = %5748
   %5752 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.311, ptr noundef nonnull %3593, i32 noundef %5752, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.311, ptr noundef %3593, i32 noundef %5752, i64 0)
   br label %_ZN12_GLOBAL__N_115MachineVerifier19visitMachineOperandEPKN4llvm14MachineOperandEj.exit
 
 .critedge330.i:                                   ; preds = %5733
@@ -12079,7 +12079,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit604:           ; preds = %5774, %5777, %5780,
 
 5792:                                             ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit604
   %5793 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.312, ptr noundef nonnull %3593, i32 noundef %5793, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.312, ptr noundef %3593, i32 noundef %5793, i64 0)
   %5794 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #18
   %5795 = getelementptr inbounds nuw i8, ptr %5794, i64 24
   %5796 = load ptr, ptr %5795, align 8
@@ -12285,7 +12285,7 @@ _ZN4llvmlsINS_8TypeSizeEmEERNS_11raw_ostreamES3_RKNS_7details23FixedOrScalableQu
 
 5906:                                             ; preds = %.critedge6.i
   %5907 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.317, ptr noundef nonnull %3593, i32 noundef %5907, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.317, ptr noundef %3593, i32 noundef %5907, i64 0)
   br label %_ZN12_GLOBAL__N_115MachineVerifier19visitMachineOperandEPKN4llvm14MachineOperandEj.exit
 
 5908:                                             ; preds = %.critedge6.i
@@ -12315,7 +12315,7 @@ _ZN4llvmlsINS_8TypeSizeEmEERNS_11raw_ostreamES3_RKNS_7details23FixedOrScalableQu
   br i1 %.not318.i, label %_ZN12_GLOBAL__N_115MachineVerifier19visitMachineOperandEPKN4llvm14MachineOperandEj.exit, label %5927
 
 5927:                                             ; preds = %5918
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.318, ptr noundef nonnull %3593, i32 noundef %5925, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.318, ptr noundef %3593, i32 noundef %5925, i64 0)
   %5928 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #18
   %5929 = getelementptr inbounds nuw i8, ptr %5928, i64 24
   %5930 = load ptr, ptr %5929, align 8
@@ -12422,7 +12422,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit554:              ; preds = %_ZN4llvm11raw_ostre
 
 5991:                                             ; preds = %5985
   %5992 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.321, ptr noundef nonnull %3593, i32 noundef %5992, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.321, ptr noundef %3593, i32 noundef %5992, i64 0)
   %5993 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #18
   %5994 = getelementptr inbounds nuw i8, ptr %5993, i64 24
   %5995 = load ptr, ptr %5994, align 8
@@ -12536,7 +12536,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit536:              ; preds = %6038, %6040
 
 6056:                                             ; preds = %6055
   %6057 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.324, ptr noundef nonnull %3593, i32 noundef %6057, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.324, ptr noundef %3593, i32 noundef %6057, i64 0)
   %6058 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #18
   %6059 = getelementptr inbounds nuw i8, ptr %6058, i64 24
   %6060 = load ptr, ptr %6059, align 8
@@ -12677,7 +12677,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit519:              ; preds = %6103, %6105
   br i1 %.not323.i, label %6142, label %6143
 
 6142:                                             ; preds = %6135
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.326, ptr noundef nonnull %3593, i32 noundef %6132, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.326, ptr noundef %3593, i32 noundef %6132, i64 0)
   br label %_ZN12_GLOBAL__N_115MachineVerifier19visitMachineOperandEPKN4llvm14MachineOperandEj.exit
 
 6143:                                             ; preds = %6135
@@ -12690,7 +12690,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit519:              ; preds = %6103, %6105
   br i1 %.not324.i, label %6149, label %6150
 
 6149:                                             ; preds = %6143
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.327, ptr noundef nonnull %3593, i32 noundef %6132, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.327, ptr noundef %3593, i32 noundef %6132, i64 0)
   br label %_ZN12_GLOBAL__N_115MachineVerifier19visitMachineOperandEPKN4llvm14MachineOperandEj.exit
 
 6150:                                             ; preds = %6143, %6134
@@ -12712,7 +12712,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit519:              ; preds = %6103, %6105
   br i1 %.not487.i, label %6164, label %_ZN12_GLOBAL__N_115MachineVerifier19visitMachineOperandEPKN4llvm14MachineOperandEj.exit
 
 6164:                                             ; preds = %6150
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.328, ptr noundef nonnull %3593, i32 noundef %6132, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.328, ptr noundef %3593, i32 noundef %6132, i64 0)
   %6165 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #18
   %6166 = getelementptr inbounds nuw i8, ptr %6165, i64 24
   %6167 = load ptr, ptr %6166, align 8
@@ -13435,7 +13435,7 @@ _ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit450: ; preds = %6533
 
 _ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit450.thread: ; preds = %6533, %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit450
   %6552 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.334, ptr noundef nonnull %3593, i32 noundef %6552, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.334, ptr noundef %3593, i32 noundef %6552, i64 0)
   %6553 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #18
   %6554 = getelementptr inbounds nuw i8, ptr %6553, i64 24
   %6555 = load ptr, ptr %6554, align 8
@@ -13511,7 +13511,7 @@ _ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit:   ; preds = %6576
 
 _ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread: ; preds = %6576, %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit
   %6595 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.336, ptr noundef nonnull %3593, i32 noundef %6595, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.336, ptr noundef %3593, i32 noundef %6595, i64 0)
   %6596 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #18
   %6597 = getelementptr inbounds nuw i8, ptr %6596, i64 24
   %6598 = load ptr, ptr %6597, align 8
@@ -18242,7 +18242,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115Ma
   br i1 %1052, label %_ZNK12_GLOBAL__N_115MachineVerifier6BBInfo9isLiveOutEN4llvm8RegisterE.exit.thread.i, label %.lr.ph.i.i.i.i.i2.i.i, !llvm.loop !75
 
 _ZNK12_GLOBAL__N_115MachineVerifier6BBInfo9isLiveOutEN4llvm8RegisterE.exit.i: ; preds = %.lr.ph.i.i.i.i.i2.i.i, %.loopexit.i.i
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.379, ptr noundef nonnull %687, i32 noundef %.0136.i, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.379, ptr noundef %687, i32 noundef %.0136.i, i64 0)
   br label %_ZNK12_GLOBAL__N_115MachineVerifier6BBInfo9isLiveOutEN4llvm8RegisterE.exit.thread.i
 
 _ZNK12_GLOBAL__N_115MachineVerifier6BBInfo9isLiveOutEN4llvm8RegisterE.exit.thread.i: ; preds = %1026, %1046, %878, %876, %830, %828, %732, %730, %_ZNK12_GLOBAL__N_115MachineVerifier6BBInfo9isLiveOutEN4llvm8RegisterE.exit.i, %1038, %1017, %1005, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_115MachineVerifier6BBInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixEOS4_.exit81.i, %881
@@ -25419,12 +25419,12 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %142
 
 160:                                              ; preds = %159
   %161 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.120, ptr noundef nonnull %133, i32 noundef %161, i64 %151)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.120, ptr noundef %133, i32 noundef %161, i64 %151)
   br label %163
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread: ; preds = %138, %142, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
   %162 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.121, ptr noundef nonnull %133, i32 noundef %162, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.121, ptr noundef %133, i32 noundef %162, i64 0)
   br label %163
 
 163:                                              ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread, %159, %160, %158, %117, %137
@@ -25451,7 +25451,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread: ; preds = %138
 
 176:                                              ; preds = %171
   %177 = trunc nuw nsw i64 %indvars.iv1905 to i32
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.122, ptr noundef nonnull %167, i32 noundef %177, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.122, ptr noundef %167, i32 noundef %177, i64 0)
   %.pre1911 = load i24, ptr %71, align 8
   br label %.critedge
 
@@ -26065,7 +26065,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit844: ; preds = %428
   %443 = zext i24 %442 to i64
   %444 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %441, i64 %443
   %445 = getelementptr inbounds i8, ptr %441, i64 32
-  %446 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS_12MachineInstrEE3$_0EEbOT_T0_"(ptr nonnull %445, ptr %444, ptr nonnull %0, ptr nonnull %16)
+  %446 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS_12MachineInstrEE3$_0EEbOT_T0_"(ptr nonnull %445, ptr %444, ptr %0, ptr %16)
   br i1 %446, label %.critedge15, label %.critedge9
 
 .critedge9:                                       ; preds = %422, %428, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit844, %440
@@ -29847,7 +29847,7 @@ _ZNK4llvm3LLT9isPointerEv.exit1310.thread:        ; preds = %2401, %2407, %_ZNK4
   br i1 %2460, label %2462, label %2461
 
 2461:                                             ; preds = %2455
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.245, ptr noundef nonnull %2457, i32 noundef 0, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.245, ptr noundef %2457, i32 noundef 0, i64 0)
   br label %.critedge15
 
 2462:                                             ; preds = %2455
@@ -29858,7 +29858,7 @@ _ZNK4llvm3LLT9isPointerEv.exit1310.thread:        ; preds = %2401, %2407, %_ZNK4
   br i1 %2466, label %.critedge15, label %2467
 
 2467:                                             ; preds = %2462
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.246, ptr noundef nonnull %2457, i32 noundef 0, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.246, ptr noundef %2457, i32 noundef 0, i64 0)
   br label %.critedge15
 
 2468:                                             ; preds = %193, %193
@@ -30333,7 +30333,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1361: ; preds = %2729
   br i1 %or.cond1800, label %2743, label %.critedge33
 
 .critedge33:                                      ; preds = %2725, %2729, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1361, %2719
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.259, ptr noundef nonnull %2721, i32 noundef 0, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.259, ptr noundef %2721, i32 noundef 0, i64 0)
   br label %.critedge15
 
 2743:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1361
@@ -30351,7 +30351,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1361: ; preds = %2729
   br i1 %2752, label %2753, label %2754
 
 2753:                                             ; preds = %2749, %2743
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.260, ptr noundef nonnull %2745, i32 noundef 1, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.260, ptr noundef %2745, i32 noundef 1, i64 0)
   br label %.critedge15
 
 2754:                                             ; preds = %2749
@@ -30368,7 +30368,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1361: ; preds = %2729
   br i1 %2762, label %2763, label %2764
 
 2763:                                             ; preds = %2759, %2754
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.261, ptr noundef nonnull %2755, i32 noundef 2, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.261, ptr noundef %2755, i32 noundef 2, i64 0)
   br label %.critedge15
 
 2764:                                             ; preds = %2759
@@ -30385,7 +30385,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1361: ; preds = %2729
   br i1 %2772, label %2773, label %.critedge15
 
 2773:                                             ; preds = %2769, %2764
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.262, ptr noundef nonnull %2765, i32 noundef 3, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.262, ptr noundef %2765, i32 noundef 3, i64 0)
   br label %.critedge15
 
 2774:                                             ; preds = %193
@@ -30483,7 +30483,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1375: ; preds = %2819
   br i1 %or.cond1804, label %.critedge15, label %.critedge35
 
 .critedge35:                                      ; preds = %2815, %2819, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1375, %2808
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.259, ptr noundef nonnull %2811, i32 noundef 1, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.259, ptr noundef %2811, i32 noundef 1, i64 0)
   br label %.critedge15
 
 .critedge15:                                      ; preds = %1988, %1100, %891, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1334, %2634, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit948, %733, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit913, %611, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit871.thread, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit853.thread, %1984, %1064, %872, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1375, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1368, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1134, %1335, %._crit_edge1879, %2547, %2553, %2041, %1603, %1607, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1148, %553, %543, %1719, %275, %307, %319, %709, %1046, %1400, %1405, %.critedge17, %1423, %1431, %1437, %1491, %1497, %1629, %1640, %1711, %1724, %1732, %1738, %1744, %1794, %1800, %1806, %1808, %1812, %1820, %1828, %1834, %1870, %1876, %1880, %1888, %1896, %_ZNK4llvm3LLT16isScalableVectorEv.exit1227.thread, %_ZNK4llvm3LLT9isPointerEv.exit1232.thread, %2044, %_ZNK4llvm3LLT9isPointerEv.exit1245.thread, %2102, %2123, %2191, %2193, %_ZNK4llvm3LLT9isPointerEv.exit1261.thread, %2219, %.critedge27, %.critedge29, %2269, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread, %2296, %_ZNK4llvm3LLT9isPointerEv.exit1283.thread, %2454, %2461, %2568, %2611, %2660, %2664, %2686, %2705, %2714, %2718, %.critedge33, %2753, %2763, %2773, %320, %329, %308, %316, %416, %418, %419, %421, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.thread, %.critedge9, %440, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit853, %497, %494, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit871, %558, %568, %571, %_ZNK4llvm3LLT9isPointerEv.exit898.thread, %548, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit915, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit935, %649, %629, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit941, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit950, %776, %777, %774, %775, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit974, %816, %_ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmEneERKS3_.exit1014.thread, %_ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmEneERKS3_.exit1014, %_ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmEneERKS3_.exit1021.thread, %_ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmEneERKS3_.exit1021, %_ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmEneERKS3_.exit1006, %.critedge11, %1189, %._crit_edge1884, %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEneERKS3_.exit.thread, %1334, %.critedge13, %.critedge19, %1483, %1476, %1542, %1535, %_ZNK4llvm3LLT9isPointerEv.exit1139.thread, %.critedge21, %1630, %1632, %1676, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit1162, %1703, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit1171, %_ZNK4llvm11ConstantInt6isZeroEv.exit, %1813, %1816, %1881, %1884, %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exit1234, %2103, %2199, %2265, %2359, %2362, %2352, %2467, %2462, %2528, %2523, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1323.thread, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1323, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1325, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1330, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1336, %2662, %_ZNK4llvm3LLT9isPointerEv.exit1353.thread, %2706, %2715, %2769, %2780, %2774, %_ZNK4llvm3LLT9isPointerEv.exit1373.thread, %.critedge35, %193, %._crit_edge
@@ -30517,7 +30517,7 @@ declare noundef i32 @_ZNK4llvm18TargetRegisterInfo16getSubRegIdxSizeEj(ptr nound
 declare noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr nocapture noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i64 %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr nocapture noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef %1, ptr noundef %7)
@@ -30909,7 +30909,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %10, %14, %17, %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS_12MachineInstrEE3$_0EEbOT_T0_"(ptr %.0.val, ptr %.8.val, ptr nocapture readonly %0, ptr nocapture readonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPKNS_14MachineOperandEEEZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKNS_12MachineInstrEE3$_0EEbOT_T0_"(ptr %.0.val, ptr %.8.val, ptr nocapture nonnull readonly %0, ptr nocapture nonnull readonly %1) unnamed_addr #0 {
   %3 = ptrtoint ptr %.8.val to i64
   %4 = ptrtoint ptr %.0.val to i64
   %5 = sub i64 %3, %4
@@ -32111,7 +32111,7 @@ declare noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm13LiveVariables
 declare noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo17isReservedRegUnitEj(ptr noundef nonnull align 8 dereferenceable(512), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115MachineVerifier18checkLivenessAtUseEPKN4llvm14MachineOperandEjNS1_9SlotIndexERKNS1_9LiveRangeENS1_8RegisterENS1_11LaneBitmaskE(ptr nocapture noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef %1, i32 noundef %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(104) %4, i32 %5, i64 %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115MachineVerifier18checkLivenessAtUseEPKN4llvm14MachineOperandEjNS1_9SlotIndexERKNS1_9LiveRangeENS1_8RegisterENS1_11LaneBitmaskE(ptr nocapture noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull %1, i32 noundef %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(104) %4, i32 %5, i64 %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::SlotIndex", align 8
   %9 = alloca %"class.llvm::format_object", align 8
   %10 = alloca %"class.llvm::SlotIndex", align 8
@@ -32222,7 +32222,7 @@ _ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit.thread: ; preds = %7, %_ZNK4llvm9L
   br i1 %.old, label %61, label %.critedge
 
 61:                                               ; preds = %55, %.critedge22
-  tail call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.347, ptr noundef nonnull %1, i32 noundef %2, i64 0)
+  tail call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.347, ptr noundef %1, i32 noundef %2, i64 0)
   %62 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #18
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8
@@ -32325,7 +32325,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i25:             ; preds = %95, %93
   br i1 %brmerge, label %_ZNK12_GLOBAL__N_115MachineVerifier14report_contextEN4llvm9SlotIndexE.exit37, label %111
 
 111:                                              ; preds = %.critedge
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.348, ptr noundef nonnull %1, i32 noundef %2, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.348, ptr noundef %1, i32 noundef %2, i64 0)
   %112 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #18
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %114 = load ptr, ptr %113, align 8
@@ -32476,7 +32476,7 @@ _ZNK12_GLOBAL__N_115MachineVerifier14report_contextEN4llvm9SlotIndexE.exit37: ; 
 declare i64 @_ZNK4llvm19MachineRegisterInfo21getMaxLaneMaskForVRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512), i32) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115MachineVerifier18checkLivenessAtDefEPKN4llvm14MachineOperandEjNS1_9SlotIndexERKNS1_9LiveRangeENS1_8RegisterEbNS1_11LaneBitmaskE(ptr nocapture noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef %1, i32 noundef %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(104) %4, i32 %5, i1 noundef zeroext %6, i64 %7) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115MachineVerifier18checkLivenessAtDefEPKN4llvm14MachineOperandEjNS1_9SlotIndexERKNS1_9LiveRangeENS1_8RegisterEbNS1_11LaneBitmaskE(ptr nocapture noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull %1, i32 noundef %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(104) %4, i32 %5, i1 noundef zeroext %6, i64 %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::format_object", align 8
   %10 = alloca %"class.llvm::SlotIndex", align 8
   %11 = alloca %"class.llvm::format_object", align 8
@@ -32942,7 +32942,7 @@ _ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit.thread: ; preds = %209, %_ZNK4llvm
   br i1 %248, label %249, label %_ZNK12_GLOBAL__N_115MachineVerifier23report_context_lanemaskEN4llvm11LaneBitmaskE.exit66
 
 249:                                              ; preds = %245, %_ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit.thread
-  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.358, ptr noundef nonnull %1, i32 noundef %2, i64 0)
+  call fastcc void @_ZN12_GLOBAL__N_115MachineVerifier6reportEPKcPKN4llvm14MachineOperandEjNS3_3LLTE(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef nonnull @.str.358, ptr noundef %1, i32 noundef %2, i64 0)
   %250 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #18
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 24
   %252 = load ptr, ptr %251, align 8

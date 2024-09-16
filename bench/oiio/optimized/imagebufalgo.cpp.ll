@@ -11117,7 +11117,7 @@ ehcleanup273:                                     ; preds = %ehcleanup, %lpad206
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIffEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIffEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 0, 2) %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %width.addr = alloca i32, align 4
   %height.addr = alloca i32, align 4
@@ -11200,7 +11200,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIhhEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIhhEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 0, 2) %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %width.addr = alloca i32, align 4
   %height.addr = alloca i32, align 4
@@ -11283,7 +11283,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIttEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIttEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 0, 2) %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %width.addr = alloca i32, align 4
   %height.addr = alloca i32, align 4
@@ -11366,7 +11366,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implI4halfS1_EEbRNS_8ImageBufERKS2_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implI4halfS1_EEbRNS_8ImageBufERKS2_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 0, 2) %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %width.addr = alloca i32, align 4
   %height.addr = alloca i32, align 4
@@ -11449,7 +11449,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIccEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIccEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 0, 2) %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %width.addr = alloca i32, align 4
   %height.addr = alloca i32, align 4
@@ -11532,7 +11532,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIssEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIssEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 0, 2) %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %width.addr = alloca i32, align 4
   %height.addr = alloca i32, align 4
@@ -11615,7 +11615,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIjjEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIjjEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 0, 2) %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %width.addr = alloca i32, align 4
   %height.addr = alloca i32, align 4
@@ -11698,7 +11698,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIiiEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIiiEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 0, 2) %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %width.addr = alloca i32, align 4
   %height.addr = alloca i32, align 4
@@ -11781,7 +11781,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIddEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIddEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 0, 2) %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %width.addr = alloca i32, align 4
   %height.addr = alloca i32, align 4
@@ -11900,7 +11900,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIfhEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIfhEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 0, 2) %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %width.addr = alloca i32, align 4
   %height.addr = alloca i32, align 4
@@ -11983,7 +11983,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIf4halfEEbRNS_8ImageBufERKS2_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIf4halfEEbRNS_8ImageBufERKS2_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 0, 2) %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %width.addr = alloca i32, align 4
   %height.addr = alloca i32, align 4
@@ -12066,7 +12066,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIftEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIftEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 0, 2) %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %width.addr = alloca i32, align 4
   %height.addr = alloca i32, align 4
@@ -12149,7 +12149,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIhfEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIhfEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 0, 2) %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %width.addr = alloca i32, align 4
   %height.addr = alloca i32, align 4
@@ -12232,7 +12232,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIh4halfEEbRNS_8ImageBufERKS2_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIh4halfEEbRNS_8ImageBufERKS2_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 0, 2) %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %width.addr = alloca i32, align 4
   %height.addr = alloca i32, align 4
@@ -12315,7 +12315,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIhtEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIhtEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 0, 2) %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %width.addr = alloca i32, align 4
   %height.addr = alloca i32, align 4
@@ -12398,7 +12398,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implI4halffEEbRNS_8ImageBufERKS2_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implI4halffEEbRNS_8ImageBufERKS2_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 0, 2) %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %width.addr = alloca i32, align 4
   %height.addr = alloca i32, align 4
@@ -12481,7 +12481,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implI4halfhEEbRNS_8ImageBufERKS2_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implI4halfhEEbRNS_8ImageBufERKS2_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 0, 2) %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %width.addr = alloca i32, align 4
   %height.addr = alloca i32, align 4
@@ -12564,7 +12564,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implI4halftEEbRNS_8ImageBufERKS2_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implI4halftEEbRNS_8ImageBufERKS2_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 0, 2) %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %width.addr = alloca i32, align 4
   %height.addr = alloca i32, align 4
@@ -12647,7 +12647,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implItfEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implItfEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 0, 2) %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %width.addr = alloca i32, align 4
   %height.addr = alloca i32, align 4
@@ -12730,7 +12730,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIthEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIthEEbRNS_8ImageBufERKS1_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 0, 2) %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %width.addr = alloca i32, align 4
   %height.addr = alloca i32, align 4
@@ -12813,7 +12813,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit7: ; preds = %lpad, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIt4halfEEbRNS_8ImageBufERKS2_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L10morph_implIt4halfEEbRNS_8ImageBufERKS2_iiNS_7MorphOpENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %R, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 0, 2) %op, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %width.addr = alloca i32, align 4
   %height.addr = alloca i32, align 4

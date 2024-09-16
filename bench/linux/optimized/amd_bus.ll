@@ -574,7 +574,7 @@ declare dso_local void @update_res(ptr noundef, i64 noundef, i64 noundef, i64 no
 declare dso_local void @subtract_range(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i64 @native_read_msr(i32 noundef %0) unnamed_addr #5 align 16 {
+define internal fastcc i64 @native_read_msr(i32 noundef range(i32 -1073676272, -1073676258) %0) unnamed_addr #5 align 16 {
   %2 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %0) #9, !srcloc !21
   %3 = extractvalue { i64, i64 } %2, 0
   %4 = extractvalue { i64, i64 } %2, 1

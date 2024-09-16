@@ -1084,11 +1084,11 @@ _ZN2cv3PtrINS_4SIFTEED2Ev.exit:                   ; preds = %_ZN2cv3PtrINS_9Feat
   br i1 %142, label %349, label %355
 
 349:                                              ; preds = %347
-  invoke fastcc void @_ZN2cvL7makePtrINS_5flann14LshIndexParamsEJiiiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nonnull writable align 8 %38, i32 6, i32 12, i32 1)
+  invoke fastcc void @_ZN2cvL7makePtrINS_5flann14LshIndexParamsEJiiiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %38, i32 6, i32 12, i32 1)
           to label %350 unwind label %327
 
 350:                                              ; preds = %349
-  invoke fastcc void @_ZN2cvL7makePtrINS_17FlannBasedMatcherEJNS_3PtrINS_5flann14LshIndexParamsEEEEEENS2_IT_EEDpRKT0_(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(16) %38)
+  invoke fastcc void @_ZN2cvL7makePtrINS_17FlannBasedMatcherEJNS_3PtrINS_5flann14LshIndexParamsEEEEEENS2_IT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(16) %38)
           to label %351 unwind label %353
 
 351:                                              ; preds = %350
@@ -1150,11 +1150,11 @@ _ZN2cv3PtrINS_4SIFTEED2Ev.exit:                   ; preds = %_ZN2cv3PtrINS_9Feat
   br i1 %142, label %370, label %376
 
 370:                                              ; preds = %368
-  invoke fastcc void @_ZN2cvL7makePtrINS_5flann14LshIndexParamsEJiiiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nonnull writable align 8 %44, i32 6, i32 12, i32 1)
+  invoke fastcc void @_ZN2cvL7makePtrINS_5flann14LshIndexParamsEJiiiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %44, i32 6, i32 12, i32 1)
           to label %371 unwind label %327
 
 371:                                              ; preds = %370
-  invoke fastcc void @_ZN2cvL7makePtrINS_17FlannBasedMatcherEJNS_3PtrINS_5flann14LshIndexParamsEEEEEENS2_IT_EEDpRKT0_(ptr dead_on_unwind noalias nonnull writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(16) %44)
+  invoke fastcc void @_ZN2cvL7makePtrINS_17FlannBasedMatcherEJNS_3PtrINS_5flann14LshIndexParamsEEEEEENS2_IT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(16) %44)
           to label %372 unwind label %374
 
 372:                                              ; preds = %371
@@ -3596,7 +3596,7 @@ _ZNSt10shared_ptrIN2cv3ORBEED2Ev.exit:            ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_17FlannBasedMatcherEJNS_3PtrINS_5flann14LshIndexParamsEEEEEENS2_IT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_17FlannBasedMatcherEJNS_3PtrINS_5flann14LshIndexParamsEEEEEENS2_IT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #21, !noalias !30
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 1, ptr %4, align 8, !noalias !30
@@ -3621,7 +3621,7 @@ _ZNSt10shared_ptrIN2cv17FlannBasedMatcherEED2Ev.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_5flann14LshIndexParamsEJiiiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1, i32 %.0.val3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_5flann14LshIndexParamsEJiiiEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val, i32 %.0.val1, i32 %.0.val3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !33
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !33

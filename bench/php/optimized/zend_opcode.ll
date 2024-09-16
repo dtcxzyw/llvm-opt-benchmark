@@ -4279,7 +4279,7 @@ declare void @rc_dtor_func(ptr noundef) local_unnamed_addr #1
 declare void @gc_possible_root(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, -1) %2, i32 noundef range(i32 0, -1) %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %2 to i64
@@ -4588,7 +4588,7 @@ define internal i32 @cmp_live_range(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_live_range_raw(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @emit_live_range_raw(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 0, 5) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   %7 = load i32, ptr %6, align 8
   %8 = add nsw i32 %7, 1
@@ -4610,7 +4610,7 @@ define internal fastcc void @emit_live_range_raw(ptr nocapture noundef %0, i32 n
   %21 = add i32 %20, %1
   %22 = shl i32 %21, 4
   %23 = add i32 %22, 80
-  %24 = or i32 %23, %2
+  %24 = or disjoint i32 %23, %2
   store i32 %24, ptr %18, align 4
   %25 = getelementptr i8, ptr %17, i64 -8
   store i32 %3, ptr %25, align 4

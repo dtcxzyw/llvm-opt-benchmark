@@ -333,7 +333,7 @@ for.body:                                         ; preds = %entry, %_ZN4absl19s
 
 for.body7:                                        ; preds = %for.body, %invoke.cont15
   %chunks.029 = phi i64 [ 0, %for.body ], [ %inc, %invoke.cont15 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116MakeRandomStringB5cxx11Em(ptr noalias nonnull align 8 %rand, i64 noundef %conv)
+  invoke fastcc void @_ZN12_GLOBAL__N_116MakeRandomStringB5cxx11Em(ptr noalias align 8 %rand, i64 noundef %conv)
           to label %invoke.cont9 unwind label %lpad8.loopexit
 
 invoke.cont9:                                     ; preds = %for.body7
@@ -558,7 +558,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116MakeRandomStringB5cxx11Em(ptr noalias align 8 %agg.result, i64 noundef %len) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116MakeRandomStringB5cxx11Em(ptr noalias nonnull align 8 %agg.result, i64 noundef range(i64 -2147483648, 2147483648) %len) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %rd = alloca %"class.std::random_device", align 8
   %gen = alloca %"class.std::mersenne_twister_engine", align 8
@@ -1222,7 +1222,7 @@ for.body:                                         ; preds = %entry, %_ZN4absl19s
 
 for.body7.us:                                     ; preds = %for.body, %invoke.cont15.us
   %chunks.030.us = phi i64 [ %inc.us, %invoke.cont15.us ], [ 0, %for.body ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116MakeRandomStringB5cxx11Em(ptr noalias nonnull align 8 %rand, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_116MakeRandomStringB5cxx11Em(ptr noalias align 8 %rand, i64 noundef 1)
           to label %invoke.cont9.us unwind label %lpad8.loopexit.split.us
 
 invoke.cont9.us:                                  ; preds = %for.body7.us
@@ -1256,7 +1256,7 @@ lpad10.loopexit.split-lp.split.us:                ; preds = %invoke.cont13.us, %
 
 for.body7:                                        ; preds = %for.body, %while.end.i
   %chunks.030 = phi i64 [ %inc, %while.end.i ], [ 0, %for.body ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116MakeRandomStringB5cxx11Em(ptr noalias nonnull align 8 %rand, i64 noundef 1)
+  invoke fastcc void @_ZN12_GLOBAL__N_116MakeRandomStringB5cxx11Em(ptr noalias align 8 %rand, i64 noundef 1)
           to label %invoke.cont9 unwind label %lpad8.loopexit.split
 
 invoke.cont9:                                     ; preds = %for.body7

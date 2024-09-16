@@ -3750,7 +3750,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit322: ; preds = %.body867, %.bo
 
 1029:                                             ; preds = %.lr.ph2182
   %1030 = sub nsw i32 %1027, %.01672180
-  invoke fastcc void @_ZN12_GLOBAL__N_115SplitnetsWorker11append_wireEPN5Yosys5RTLIL6ModuleEPNS2_4WireEiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull %153, ptr noundef %1028, i32 noundef %.01672180, i32 noundef %1030, ptr noundef nonnull %35)
+  invoke fastcc void @_ZN12_GLOBAL__N_115SplitnetsWorker11append_wireEPN5Yosys5RTLIL6ModuleEPNS2_4WireEiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull %153, ptr noundef %1028, i32 noundef %.01672180, i32 noundef %1030, ptr noundef %35)
           to label %1031 unwind label %1033
 
 1031:                                             ; preds = %1029
@@ -3775,7 +3775,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit322: ; preds = %.body867, %.bo
 
 1038:                                             ; preds = %._crit_edge2183
   %1039 = sub nsw i32 %1037, %.0167.lcssa
-  invoke fastcc void @_ZN12_GLOBAL__N_115SplitnetsWorker11append_wireEPN5Yosys5RTLIL6ModuleEPNS2_4WireEiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull %153, ptr noundef nonnull %1035, i32 noundef %.0167.lcssa, i32 noundef %1039, ptr noundef nonnull %36)
+  invoke fastcc void @_ZN12_GLOBAL__N_115SplitnetsWorker11append_wireEPN5Yosys5RTLIL6ModuleEPNS2_4WireEiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull %153, ptr noundef nonnull %1035, i32 noundef %.0167.lcssa, i32 noundef %1039, ptr noundef %36)
           to label %1040 unwind label %1042
 
 1040:                                             ; preds = %1038
@@ -4099,7 +4099,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit357: ; preds = %1116, %_ZNSt6v
           to label %1159 unwind label %.loopexit.split-lp1420.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1159:                                             ; preds = %.lr.ph2154
-  invoke fastcc void @_ZN12_GLOBAL__N_115SplitnetsWorker11append_wireEPN5Yosys5RTLIL6ModuleEPNS2_4WireEiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull %153, ptr noundef nonnull %1158, i32 noundef %.01682152, i32 noundef 1, ptr noundef nonnull %38)
+  invoke fastcc void @_ZN12_GLOBAL__N_115SplitnetsWorker11append_wireEPN5Yosys5RTLIL6ModuleEPNS2_4WireEiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull %153, ptr noundef nonnull %1158, i32 noundef %.01682152, i32 noundef 1, ptr noundef %38)
           to label %1160 unwind label %1166
 
 1160:                                             ; preds = %1159
@@ -8369,7 +8369,7 @@ _ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115SplitnetsWorker11append_wireEPN5Yosys5RTLIL6ModuleEPNS2_4WireEiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115SplitnetsWorker11append_wireEPN5Yosys5RTLIL6ModuleEPNS2_4WireEiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::tuple.480", align 8
   %8 = alloca %"class.std::tuple.483", align 1
   %9 = alloca %"class.std::tuple.480", align 8

@@ -1911,7 +1911,7 @@ define void @jq_yyset_extra(i32 noundef %0, ptr nocapture noundef writeonly %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @yy_push_state(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @yy_push_state(i32 noundef range(i32 0, 7) %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 84
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 88
@@ -2001,7 +2001,7 @@ define internal fastcc void @yy_pop_state(ptr nocapture noundef %0) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -128, 300) i32 @enter(i32 noundef returned %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -128, 300) i32 @enter(i32 noundef returned range(i32 -128, 300) %0, ptr nocapture noundef %1) unnamed_addr #0 {
   switch i32 %0, label %7 [
     i32 40, label %3
     i32 91, label %4
@@ -2084,8 +2084,8 @@ yy_push_state.exit:                               ; preds = %._crit_edge.i, %._c
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 41, 301) i32 @try_exit(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #3 {
-  %switch.tableidx = add i32 %1, -1
+define internal fastcc range(i32 41, 301) i32 @try_exit(i32 noundef range(i32 -128, 128) %0, i32 noundef range(i32 -1073741824, 1073741824) %1, ptr nocapture noundef %2) unnamed_addr #3 {
+  %switch.tableidx = add nsw i32 %1, -1
   %4 = icmp ult i32 %switch.tableidx, 4
   br i1 %4, label %switch.lookup, label %22
 

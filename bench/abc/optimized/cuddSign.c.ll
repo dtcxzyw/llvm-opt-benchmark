@@ -16,7 +16,7 @@ define noundef ptr @Cudd_CofMinterm(ptr noundef %0, ptr noundef %1) local_unname
   %6 = getelementptr inbounds i8, ptr %0, i64 136
   %7 = load i32, ptr %6, align 8
   store i32 %7, ptr @size, align 4
-  %8 = tail call fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  %8 = tail call fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   %.not61 = icmp eq ptr %8, null
   br i1 %.not61, label %.thread, label %9
 
@@ -149,9 +149,9 @@ declare i32 @st__ptrcmp(ptr noundef, ptr noundef) #1
 declare i32 @st__ptrhash(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  %5 = call i32 @st__lookup(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %4) #5
+  %5 = call i32 @st__lookup(ptr noundef nonnull %2, ptr noundef %1, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
@@ -458,7 +458,7 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %194, label %195, label %200
 
 195:                                              ; preds = %191
-  %196 = call i32 @st__add_direct(ptr noundef %2, ptr noundef %1, ptr noundef %.pre137) #5
+  %196 = call i32 @st__add_direct(ptr noundef nonnull %2, ptr noundef %1, ptr noundef %.pre137) #5
   %197 = icmp eq i32 %196, -10000
   %.pre = load ptr, ptr %4, align 8
   br i1 %197, label %198, label %200

@@ -1339,7 +1339,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp.not.i, label %if.end.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_5PaintENS_7IntTypeIjLj4EEEvLb1EEES4_EixEi.exit
 
 if.end.i:                                         ; preds = %for.body
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i = getelementptr inbounds [1 x %"struct.OT::OffsetTo.12"], ptr %arrayZ.i, i64 0, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_5PaintENS_7IntTypeIjLj4EEEvLb1EEES4_EixEi.exit
 
@@ -2037,7 +2037,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  tail call void %1(ptr noundef nonnull %0) #18
+  tail call void %1(ptr noundef nonnull %0) #19
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
@@ -2056,13 +2056,13 @@ if.then.i.i:                                      ; preds = %if.end
   br i1 %tobool.not.i.i.i.i.i, label %_ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj1EE9hb_face_tLj1ES1_E7destroyEPS1_.exit.i.i, label %_ZN3CFF24cff_subset_accelerator_t7destroyEPv.exit.i.i.i.i.i
 
 _ZN3CFF24cff_subset_accelerator_t7destroyEPv.exit.i.i.i.i.i: ; preds = %if.then.i.i
-  tail call void @_ZN3CFF24cff_subset_accelerator_tD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #18
-  tail call void @free(ptr noundef nonnull %4) #18
+  tail call void @_ZN3CFF24cff_subset_accelerator_tD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #19
+  tail call void @free(ptr noundef nonnull %4) #19
   br label %_ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj1EE9hb_face_tLj1ES1_E7destroyEPS1_.exit.i.i
 
 _ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj1EE9hb_face_tLj1ES1_E7destroyEPS1_.exit.i.i: ; preds = %_ZN3CFF24cff_subset_accelerator_t7destroyEPv.exit.i.i.i.i.i, %if.then.i.i
-  tail call void @_ZN2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(304) %3) #18
-  tail call void @free(ptr noundef nonnull %3) #18
+  tail call void @_ZN2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(304) %3) #19
+  tail call void @free(ptr noundef nonnull %3) #19
   br label %_ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj1EE9hb_face_tLj1ES1_E4finiEv.exit
 
 _ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj1EE9hb_face_tLj1ES1_E4finiEv.exit: ; preds = %if.end, %_ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj1EE9hb_face_tLj1ES1_E7destroyEPS1_.exit.i.i
@@ -2082,22 +2082,22 @@ if.then.i.i5:                                     ; preds = %_ZN16hb_lazy_loader
   br i1 %tobool.not.i.i.i.i.i7, label %_ZN16hb_lazy_loader_tIN2OT25cff2_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj2EE9hb_face_tLj2ES1_E7destroyEPS1_.exit.i.i, label %_ZN3CFF24cff_subset_accelerator_t7destroyEPv.exit.i.i.i.i.i8
 
 _ZN3CFF24cff_subset_accelerator_t7destroyEPv.exit.i.i.i.i.i8: ; preds = %if.then.i.i5
-  tail call void @_ZN3CFF24cff_subset_accelerator_tD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #18
-  tail call void @free(ptr noundef nonnull %7) #18
+  tail call void @_ZN3CFF24cff_subset_accelerator_tD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #19
+  tail call void @free(ptr noundef nonnull %7) #19
   br label %_ZN16hb_lazy_loader_tIN2OT25cff2_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj2EE9hb_face_tLj2ES1_E7destroyEPS1_.exit.i.i
 
 _ZN16hb_lazy_loader_tIN2OT25cff2_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj2EE9hb_face_tLj2ES1_E7destroyEPS1_.exit.i.i: ; preds = %_ZN3CFF24cff_subset_accelerator_t7destroyEPv.exit.i.i.i.i.i8, %if.then.i.i5
-  tail call void @_ZN2OT4cff219accelerator_templ_tIN3CFF32cff2_private_dict_opset_subset_tENS2_31cff2_private_dict_values_base_tINS2_8op_str_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(196) %6) #18
-  tail call void @free(ptr noundef nonnull %6) #18
+  tail call void @_ZN2OT4cff219accelerator_templ_tIN3CFF32cff2_private_dict_opset_subset_tENS2_31cff2_private_dict_values_base_tINS2_8op_str_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(196) %6) #19
+  tail call void @free(ptr noundef nonnull %6) #19
   br label %_ZN16hb_lazy_loader_tIN2OT25cff2_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj2EE9hb_face_tLj2ES1_E4finiEv.exit
 
 _ZN16hb_lazy_loader_tIN2OT25cff2_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj2EE9hb_face_tLj2ES1_E4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj1EE9hb_face_tLj1ES1_E4finiEv.exit, %_ZN16hb_lazy_loader_tIN2OT25cff2_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj2EE9hb_face_tLj2ES1_E7destroyEPS1_.exit.i.i
   store atomic i64 0, ptr %cff2_accel monotonic, align 8
   %source = getelementptr inbounds i8, ptr %this, i64 328
   %8 = load ptr, ptr %source, align 8
-  tail call void @hb_face_destroy(ptr noundef %8) #18
+  tail call void @hb_face_destroy(ptr noundef %8) #19
   %unicodes = getelementptr inbounds i8, ptr %this, i64 232
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %unicodes) #18
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %unicodes) #19
   %gid_to_unicodes = getelementptr inbounds i8, ptr %this, i64 136
   %multiples.i = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @_ZN12hb_hashmap_tIj11hb_vector_tIjLb0EELb0EE4finiEv(ptr noundef nonnull align 8 dereferenceable(48) %multiples.i)
@@ -2111,8 +2111,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN16hb_lazy_loader
   %10 = inttoptr i64 %9 to ptr
   %items.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %10)
-  %call.i.i.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %10) #18
-  tail call void @free(ptr noundef nonnull %10) #18
+  %call.i.i.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %10) #19
+  tail call void @free(ptr noundef nonnull %10) #19
   store atomic i64 0, ptr %user_data2.i.i.i.i.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i.i
 
@@ -2123,7 +2123,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i.i: ; preds = %if.then
   br i1 %tobool.not.i.i.i.i, label %_ZN13hb_multimap_tD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i.i
-  tail call void @free(ptr noundef nonnull %11) #18
+  tail call void @free(ptr noundef nonnull %11) #19
   store ptr null, ptr %items.i.i.i.i, align 8
   br label %_ZN13hb_multimap_tD2Ev.exit
 
@@ -2143,8 +2143,8 @@ if.then.i.i.i.i11:                                ; preds = %_ZN13hb_multimap_tD
   %13 = inttoptr i64 %12 to ptr
   %items.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %13)
-  %call.i.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %13) #18
-  tail call void @free(ptr noundef nonnull %13) #18
+  %call.i.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %13) #19
+  tail call void @free(ptr noundef nonnull %13) #19
   store atomic i64 0, ptr %user_data2.i.i.i.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
 
@@ -2155,7 +2155,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i: ; preds = %if.then.i
   br i1 %tobool.not.i.i.i, label %_ZN8hb_map_tD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
-  tail call void @free(ptr noundef nonnull %14) #18
+  tail call void @free(ptr noundef nonnull %14) #19
   store ptr null, ptr %items.i.i.i, align 8
   br label %_ZN8hb_map_tD2Ev.exit
 
@@ -2166,7 +2166,7 @@ _ZN8hb_map_tD2Ev.exit:                            ; preds = %_ZL14hb_object_fini
   store i32 0, ptr %population.i.i.i, align 4
   %sanitized_table_cache = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN12hb_hashmap_tIjN2hb10unique_ptrI9hb_blob_tEELb0EE4finiEv(ptr noundef nonnull align 8 dereferenceable(48) %sanitized_table_cache)
-  %call.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %this) #18
+  %call.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %this) #19
   ret void
 }
 
@@ -2900,19 +2900,19 @@ if.then.i.i.i.i272:                               ; preds = %_ZN8hb_set_taSERKS_
   br label %_ZN8hb_set_taSERKS_.exit276
 
 _ZN8hb_set_taSERKS_.exit276:                      ; preds = %_ZN8hb_set_taSERKS_.exit268, %if.then.i.i.i.i272
-  %call30 = tail call ptr @hb_face_reference(ptr noundef %face) #18
+  %call30 = tail call ptr @hb_face_reference(ptr noundef %face) #19
   %source = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call30, ptr %source, align 8
-  %call31 = tail call ptr @hb_face_builder_create() #18
+  %call31 = tail call ptr @hb_face_builder_create() #19
   %dest = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %call31, ptr %dest, align 8
-  %call32 = tail call ptr @hb_map_create() #18
+  %call32 = tail call ptr @hb_map_create() #19
   %codepoint_to_glyph = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call32, ptr %codepoint_to_glyph, align 8
-  %call33 = tail call ptr @hb_map_create() #18
+  %call33 = tail call ptr @hb_map_create() #19
   %glyph_map = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %call33, ptr %glyph_map, align 8
-  %call34 = tail call ptr @hb_map_create() #18
+  %call34 = tail call ptr @hb_map_create() #19
   %reverse_glyph_map = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call34, ptr %reverse_glyph_map, align 8
   %gsub_insert_catch_all_feature_variation_rec = getelementptr inbounds i8, ptr %this, i64 95
@@ -2928,7 +2928,7 @@ _ZN8hb_set_taSERKS_.exit276:                      ; preds = %_ZN8hb_set_taSERKS_
   store i8 1, ptr %pinned_at_default, align 1
   %has_gdef_varstore = getelementptr inbounds i8, ptr %this, i64 97
   store i8 0, ptr %has_gdef_varstore, align 1
-  %call40 = tail call ptr @hb_face_get_user_data(ptr noundef %face, ptr noundef nonnull @_hb_subset_accelerator_user_data_key) #18
+  %call40 = tail call ptr @hb_face_get_user_data(ptr noundef %face, ptr noundef nonnull @_hb_subset_accelerator_user_data_key) #19
   %attach_accelerator_data41 = getelementptr inbounds i8, ptr %input, i64 84
   %23 = load i8, ptr %attach_accelerator_data41, align 4
   %frombool = and i8 %23, 1
@@ -3015,7 +3015,7 @@ _ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_triviall
   %35 = load ptr, ptr %arrayZ.i.i.i.i, align 8
   %36 = shl nuw i32 %add15.i.i.i, 2
   %mul.i.i.i.i = zext i32 %36 to i64
-  %call.i.i.i.i = tail call ptr @realloc(ptr noundef %35, i64 noundef %mul.i.i.i.i) #19
+  %call.i.i.i.i = tail call ptr @realloc(ptr noundef %35, i64 noundef %mul.i.i.i.i) #20
   %tobool27.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool27.not.i.i.i, label %if.then28.i.i.i, label %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.i.i
 
@@ -3288,7 +3288,7 @@ _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_triviall
   %76 = load ptr, ptr %arrayZ.i.i.i98.i, align 8
   %77 = shl nuw i32 %add15.i.i95.i, 2
   %mul.i.i.i99.i = zext i32 %77 to i64
-  %call.i.i.i100.i = call ptr @realloc(ptr noundef %76, i64 noundef %mul.i.i.i99.i) #19
+  %call.i.i.i100.i = call ptr @realloc(ptr noundef %76, i64 noundef %mul.i.i.i99.i) #20
   %tobool27.not.i.i101.i = icmp eq ptr %call.i.i.i100.i, null
   br i1 %tobool27.not.i.i101.i, label %if.then28.i.i102.i, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.i.i
 
@@ -3706,7 +3706,7 @@ _ZL24_normalize_axes_locationP9hb_face_tP16hb_subset_plan_t.exit: ; preds = %if.
   br i1 %cmp.i.i279, label %if.then.i.i379, label %_ZNK9hb_face_t14get_num_glyphsEv.exit.i
 
 if.then.i.i379:                                   ; preds = %_ZL24_normalize_axes_locationP9hb_face_tP16hb_subset_plan_t.exit
-  %call2.i.i380 = call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(416) %137) #18
+  %call2.i.i380 = call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(416) %137) #19
   br label %_ZNK9hb_face_t14get_num_glyphsEv.exit.i
 
 _ZNK9hb_face_t14get_num_glyphsEv.exit.i:          ; preds = %if.then.i.i379, %_ZL24_normalize_axes_locationP9hb_face_tP16hb_subset_plan_t.exit
@@ -4007,7 +4007,7 @@ _ZN11hb_vector_tI9hb_pair_tIjjELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3s
   %175 = load ptr, ptr %arrayZ.i.i.i372, align 8
   %176 = shl nuw i32 %add15.i.i, 3
   %mul.i.i.i373 = zext i32 %176 to i64
-  %call.i.i139.i = call ptr @realloc(ptr noundef %175, i64 noundef %mul.i.i.i373) #19
+  %call.i.i139.i = call ptr @realloc(ptr noundef %175, i64 noundef %mul.i.i.i373) #20
   %tobool27.not.i.i = icmp eq ptr %call.i.i139.i, null
   br i1 %tobool27.not.i.i, label %if.then28.i.i, label %if.end33.i.i
 
@@ -4071,7 +4071,7 @@ for.body.i344:                                    ; preds = %_ZNR9hb_iter_tIN23h
 
 _ZNK2OT4cmap13accelerator_t17get_nominal_glyphEjPjP10hb_cache_tILj21ELj16ELj8ELb1EE.exit.i: ; preds = %for.body.i344
   %184 = load ptr, ptr %get_glyph_data.i1.i.i, align 8
-  %call2.i2.i.i = call noundef zeroext i1 %183(ptr noundef %184, i32 noundef %182, ptr noundef nonnull %gid.i) #18
+  %call2.i2.i.i = call noundef zeroext i1 %183(ptr noundef %184, i32 noundef %182, ptr noundef nonnull %gid.i) #19
   br i1 %call2.i2.i.i, label %if.end17.i, label %for.inc.i346
 
 if.end17.i:                                       ; preds = %_ZNK2OT4cmap13accelerator_t17get_nominal_glyphEjPjP10hb_cache_tILj21ELj16ELj8ELb1EE.exit.i
@@ -4109,7 +4109,7 @@ _ZN11hb_vector_tI9hb_pair_tIjjELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3s
   %189 = load ptr, ptr %arrayZ.i.i.i.i343, align 8
   %190 = shl nuw i32 %add15.i.i.i362, 3
   %mul.i.i.i152.i = zext i32 %190 to i64
-  %call.i.i.i.i365 = call ptr @realloc(ptr noundef %189, i64 noundef %mul.i.i.i152.i) #19
+  %call.i.i.i.i365 = call ptr @realloc(ptr noundef %189, i64 noundef %mul.i.i.i152.i) #20
   %tobool27.not.i.i.i366 = icmp eq ptr %call.i.i.i.i365, null
   br i1 %tobool27.not.i.i.i366, label %if.then28.i.i.i367, label %_ZN11hb_vector_tI9hb_pair_tIjjELb1EE5allocEjb.exit.i.i
 
@@ -4294,7 +4294,7 @@ _ZN11hb_vector_tI9hb_pair_tIjjELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3s
   %219 = load ptr, ptr %arrayZ.i.i.i211.i, align 8
   %220 = shl nuw i32 %add15.i.i207.i, 3
   %mul.i.i.i212.i = zext i32 %220 to i64
-  %call.i.i.i213.i = call ptr @realloc(ptr noundef %219, i64 noundef %mul.i.i.i212.i) #19
+  %call.i.i.i213.i = call ptr @realloc(ptr noundef %219, i64 noundef %mul.i.i.i212.i) #20
   %tobool27.not.i.i214.i = icmp eq ptr %call.i.i.i213.i, null
   br i1 %tobool27.not.i.i214.i, label %if.then28.i.i216.i, label %_ZN11hb_vector_tI9hb_pair_tIjjELb1EE5allocEjb.exit.i215.i
 
@@ -4798,7 +4798,7 @@ _ZN11hb_vector_tI9hb_pair_tIjjELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3s
   %283 = load ptr, ptr %arrayZ.i.i460.i, align 8
   %284 = shl nuw i32 %add15.i455.i, 3
   %mul.i.i462.i = zext i32 %284 to i64
-  %call.i.i463.i = call ptr @realloc(ptr noundef %283, i64 noundef %mul.i.i462.i) #19
+  %call.i.i463.i = call ptr @realloc(ptr noundef %283, i64 noundef %mul.i.i462.i) #20
   %tobool27.not.i464.i = icmp eq ptr %call.i.i463.i, null
   br i1 %tobool27.not.i464.i, label %if.then28.i470.i, label %if.end33.i465.i
 
@@ -5813,7 +5813,7 @@ _ZN11hb_vector_tI9hb_pair_tIjjELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3s
   %416 = load ptr, ptr %arrayZ.i.i.i953.i, align 8
   %417 = shl nuw i32 %add15.i.i949.i, 3
   %mul.i.i.i954.i = zext i32 %417 to i64
-  %call.i.i.i955.i = call ptr @realloc(ptr noundef %416, i64 noundef %mul.i.i.i954.i) #19
+  %call.i.i.i955.i = call ptr @realloc(ptr noundef %416, i64 noundef %mul.i.i.i954.i) #20
   %tobool27.not.i.i956.i = icmp eq ptr %call.i.i.i955.i, null
   br i1 %tobool27.not.i.i956.i, label %if.then28.i.i958.i, label %_ZN11hb_vector_tI9hb_pair_tIjjELb1EE5allocEjb.exit.i957.i
 
@@ -6045,7 +6045,7 @@ _ZN11hb_vector_tI9hb_pair_tIjjELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3s
   %451 = load ptr, ptr %arrayZ.i.i.i1067.i, align 8
   %452 = shl nuw i32 %add15.i.i1063.i, 3
   %mul.i.i.i1068.i = zext i32 %452 to i64
-  %call.i.i.i1069.i = call ptr @realloc(ptr noundef %451, i64 noundef %mul.i.i.i1068.i) #19
+  %call.i.i.i1069.i = call ptr @realloc(ptr noundef %451, i64 noundef %mul.i.i.i1068.i) #20
   %tobool27.not.i.i1070.i = icmp eq ptr %call.i.i.i1069.i, null
   br i1 %tobool27.not.i.i1070.i, label %if.then28.i.i1072.i, label %_ZN11hb_vector_tI9hb_pair_tIjjELb1EE5allocEjb.exit.i1071.i
 
@@ -6600,7 +6600,7 @@ if.end.i1414.i:                                   ; preds = %if.end.i1334.i
   %retval.0.i.i1419.i = select i1 %tobool.not.i.i1418.i, i32 0, i32 %narrow.i.i.i
   %529 = zext nneg i32 %retval.0.i.i1419.i to i64
   %mul7.i.i = shl nuw nsw i64 12, %529
-  %call8.i.i = call noalias ptr @malloc(i64 noundef %mul7.i.i) #20
+  %call8.i.i = call noalias ptr @malloc(i64 noundef %mul7.i.i) #21
   %tobool9.not.i.i = icmp eq ptr %call8.i.i, null
   br i1 %tobool9.not.i.i, label %_ZN12hb_hashmap_tIjjLb1EE5allocEj.exit.i, label %if.end12.i.i
 
@@ -6663,7 +6663,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 if.then26.i.i:                                    ; preds = %for.body.i.i
   %bf.lshr.i.i = lshr i32 %bf.load.i.i1430.i, 2
   %value.i1433.i = getelementptr inbounds i8, ptr %arrayidx.i1429.i, i64 8
-  %call33.i.i = call noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE13set_with_hashIjjEEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %523, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i1429.i, i32 noundef %bf.lshr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %value.i1433.i, i1 noundef zeroext true) #21
+  %call33.i.i = call noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE13set_with_hashIjjEEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %523, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i1429.i, i32 noundef %bf.lshr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %value.i1433.i, i1 noundef zeroext true) #22
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then26.i.i, %for.body.i.i
@@ -6672,7 +6672,7 @@ for.inc.i.i:                                      ; preds = %if.then26.i.i, %for
   br i1 %exitcond.not.i.i, label %_ZN12hb_hashmap_tIjjLb1EE5allocEj.exit.thread.i, label %for.body.i.i, !llvm.loop !20
 
 _ZN12hb_hashmap_tIjjLb1EE5allocEj.exit.thread.i:  ; preds = %for.inc.i.i, %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit.i.i, %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit.i.i
-  call void @free(ptr noundef %532) #18
+  call void @free(ptr noundef %532) #19
   br label %if.end4.i1342.i
 
 _ZN12hb_hashmap_tIjjLb1EE5allocEj.exit.i:         ; preds = %if.end.i1414.i
@@ -6818,7 +6818,7 @@ _ZN11hb_vector_tI9hb_pair_tIjjELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3s
   %551 = load ptr, ptr %arrayZ.i.i.i1265.i, align 8
   %552 = shl nuw i32 %add15.i.i1261.i, 3
   %mul.i.i.i1266.i = zext i32 %552 to i64
-  %call.i.i.i1267.i = call ptr @realloc(ptr noundef %551, i64 noundef %mul.i.i.i1266.i) #19
+  %call.i.i.i1267.i = call ptr @realloc(ptr noundef %551, i64 noundef %mul.i.i.i1266.i) #20
   %tobool27.not.i.i1268.i = icmp eq ptr %call.i.i.i1267.i, null
   br i1 %tobool27.not.i.i1268.i, label %if.then28.i.i1270.i, label %_ZN11hb_vector_tI9hb_pair_tIjjELb1EE5allocEjb.exit.i1269.i
 
@@ -6870,7 +6870,7 @@ if.end168.i:                                      ; preds = %_ZNK14hb_sparseset_
   br i1 %cmp.i1278.i, label %if.then.i1280.i, label %_ZNK9hb_face_t14get_num_glyphsEv.exit1282.i
 
 if.then.i1280.i:                                  ; preds = %if.end168.i
-  %call2.i1281.i = call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(416) %557) #18
+  %call2.i1281.i = call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(416) %557) #19
   br label %_ZNK9hb_face_t14get_num_glyphsEv.exit1282.i
 
 _ZNK9hb_face_t14get_num_glyphsEv.exit1282.i:      ; preds = %if.then.i1280.i, %if.end168.i
@@ -6969,7 +6969,7 @@ for.cond173.i.backedge:                           ; preds = %cond.false.i.i1309.
   br label %for.cond173.i, !llvm.loop !22
 
 for.end183.i:                                     ; preds = %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE10next_rangeEPjS2_.exit1305.i, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE10next_rangeEPjS2_.exit1305.thread.i
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %cmap_unicodes_storage.i) #18
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %cmap_unicodes_storage.i) #19
   store atomic i32 -57005, ptr %unicode_glyphid_map_storage.i monotonic, align 8
   %569 = load atomic i64, ptr %user_data.i.i.i.i.i acquire, align 8
   %tobool.not.i.i.i.i.i = icmp eq i64 %569, 0
@@ -6979,8 +6979,8 @@ if.then.i.i.i.i1313.i:                            ; preds = %for.end183.i
   %570 = inttoptr i64 %569 to ptr
   %items.i.i.i.i.i.i = getelementptr inbounds i8, ptr %570, i64 40
   call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %570)
-  %call.i.i.i.i.i.i.i = call i32 @pthread_mutex_destroy(ptr noundef nonnull %570) #18
-  call void @free(ptr noundef nonnull %570) #18
+  %call.i.i.i.i.i.i.i = call i32 @pthread_mutex_destroy(ptr noundef nonnull %570) #19
+  call void @free(ptr noundef nonnull %570) #19
   store atomic i64 0, ptr %user_data.i.i.i.i.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i.i
 
@@ -6990,7 +6990,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i.i: ; preds = %if.then
   br i1 %tobool.not.i.i.i1315.i, label %_ZN8hb_map_tD2Ev.exit.i, label %if.then.i.i.i1316.i
 
 if.then.i.i.i1316.i:                              ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i.i
-  call void @free(ptr noundef nonnull %571) #18
+  call void @free(ptr noundef nonnull %571) #19
   store ptr null, ptr %items.i.i.i.i, align 8
   br label %_ZN8hb_map_tD2Ev.exit.i
 
@@ -7020,7 +7020,7 @@ if.then187.i:                                     ; preds = %if.end184.i
 _ZL28_populate_unicodes_to_retainPK8hb_set_tS1_P16hb_subset_plan_t.exit: ; preds = %if.end184.i, %if.then187.i
   %table.i.i = getelementptr inbounds i8, ptr %cmap.i, i64 80
   %576 = load ptr, ptr %table.i.i, align 8
-  call void @hb_blob_destroy(ptr noundef %576) #18
+  call void @hb_blob_destroy(ptr noundef %576) #19
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %cmap.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__begin3.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cp.i)
@@ -7036,7 +7036,7 @@ _ZL28_populate_unicodes_to_retainPK8hb_set_tS1_P16hb_subset_plan_t.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %last.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %last172.i)
   %577 = load ptr, ptr %drop_tables22, align 8
-  call fastcc void @_ZL24_populate_gids_to_retainP16hb_subset_plan_tP8hb_set_t(ptr noundef nonnull %this, ptr noundef %577)
+  call fastcc void @_ZL24_populate_gids_to_retainP16hb_subset_plan_tP8hb_set_t(ptr noundef %this, ptr noundef %577)
   %578 = load i8, ptr %successful, align 8
   %tobool.i382 = trunc i8 %578 to i1
   br i1 %tobool.i382, label %if.end59, label %return
@@ -7210,7 +7210,7 @@ _ZN11hb_vector_tI9hb_pair_tIjjELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3s
   %600 = load ptr, ptr %arrayZ.i.i.i501, align 8
   %601 = shl nuw i32 %add15.i.i497, 3
   %mul.i.i.i502 = zext i32 %601 to i64
-  %call.i.i.i503 = call ptr @realloc(ptr noundef %600, i64 noundef %mul.i.i.i502) #19
+  %call.i.i.i503 = call ptr @realloc(ptr noundef %600, i64 noundef %mul.i.i.i502) #20
   %tobool27.not.i.i504 = icmp eq ptr %call.i.i.i503, null
   br i1 %tobool27.not.i.i504, label %if.then28.i.i508, label %if.end33.i.i505
 
@@ -7518,7 +7518,7 @@ _ZN11hb_vector_tI9hb_pair_tIjjELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3s
   %633 = load ptr, ptr %arrayZ.i.i.i138.i, align 8
   %634 = shl nuw i32 %add15.i.i.i469, 3
   %mul.i.i.i.i473 = zext i32 %634 to i64
-  %call.i.i.i.i474 = call ptr @realloc(ptr noundef %633, i64 noundef %mul.i.i.i.i473) #19
+  %call.i.i.i.i474 = call ptr @realloc(ptr noundef %633, i64 noundef %mul.i.i.i.i473) #20
   %tobool27.not.i.i.i475 = icmp eq ptr %call.i.i.i.i474, null
   br i1 %tobool27.not.i.i.i475, label %if.then28.i.i.i477, label %_ZN11hb_vector_tI9hb_pair_tIjjELb1EE5allocEjb.exit.i.i476
 
@@ -7640,7 +7640,7 @@ _ZN11hb_vector_tI9hb_pair_tIjjELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3s
   %650 = load ptr, ptr %arrayZ.i.i.i138.i, align 8
   %651 = shl nuw i32 %add15.i.i134.i, 3
   %mul.i.i.i139.i = zext i32 %651 to i64
-  %call.i.i.i140.i = call ptr @realloc(ptr noundef %650, i64 noundef %mul.i.i.i139.i) #19
+  %call.i.i.i140.i = call ptr @realloc(ptr noundef %650, i64 noundef %mul.i.i.i139.i) #20
   %tobool27.not.i.i141.i = icmp eq ptr %call.i.i.i140.i, null
   br i1 %tobool27.not.i.i141.i, label %if.then28.i.i143.i, label %_ZN11hb_vector_tI9hb_pair_tIjjELb1EE5allocEjb.exit.i142.i
 
@@ -7774,7 +7774,7 @@ _ZN11hb_vector_tI9hb_pair_tIjjELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3s
   %672 = load ptr, ptr %arrayZ.i.i.i195.i, align 8
   %673 = shl nuw i32 %add15.i.i191.i, 3
   %mul.i.i.i196.i = zext i32 %673 to i64
-  %call.i.i.i197.i = call ptr @realloc(ptr noundef %672, i64 noundef %mul.i.i.i196.i) #19
+  %call.i.i.i197.i = call ptr @realloc(ptr noundef %672, i64 noundef %mul.i.i.i196.i) #20
   %tobool27.not.i.i198.i = icmp eq ptr %call.i.i.i197.i, null
   br i1 %tobool27.not.i.i198.i, label %if.then28.i.i200.i, label %_ZN11hb_vector_tI9hb_pair_tIjjELb1EE5allocEjb.exit.i199.i
 
@@ -7833,7 +7833,7 @@ _ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit213.i: ; preds = %if
   br i1 %681, label %for.body41.i, label %cleanup.i
 
 _ZL30_create_old_gid_to_new_gid_mapPK9hb_face_tbPK8hb_set_tPK8hb_map_tPS5_S8_P11hb_vector_tI9hb_pair_tIjjELb1EEPj.exit.thread: ; preds = %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE14get_populationEv.exit99.i
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %new_gids.i) #18
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %new_gids.i) #19
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %new_gids.i)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %remaining.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__begin2.i)
@@ -7847,8 +7847,8 @@ cleanup.i:                                        ; preds = %_ZNR9hb_iter_tIN23h
   %.lcssa34.i = phi i32 [ %spec.store.select24.lcssa.i, %_ZN11hb_vector_tI9hb_pair_tIjjELb1EE5qsortEPFiPKvS4_E.exit.i ], [ %inc.i457, %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit213.i ]
   %add.i456 = add i32 %.lcssa34.i, 1
   store i32 %add.i456, ptr %_num_output_glyphs, align 8
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %remaining.i) #18
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %new_gids.i) #18
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %remaining.i) #19
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %new_gids.i) #19
   br label %if.end73.i
 
 if.else.i483:                                     ; preds = %_ZN11hb_vector_tI9hb_pair_tIjjELb1EE5allocEjb.exit.i396
@@ -7929,7 +7929,7 @@ _ZN11hb_vector_tI9hb_pair_tIjjELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3s
   %688 = load ptr, ptr %arrayZ.i.i.i.i.i.i.i486, align 8
   %689 = shl nuw i32 %add15.i.i.i.i.i.i, 3
   %mul.i.i.i.i.i.i.i = zext i32 %689 to i64
-  %call.i.i.i.i.i.i.i491 = call ptr @realloc(ptr noundef %688, i64 noundef %mul.i.i.i.i.i.i.i) #19
+  %call.i.i.i.i.i.i.i491 = call ptr @realloc(ptr noundef %688, i64 noundef %mul.i.i.i.i.i.i.i) #20
   %tobool27.not.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i491, null
   br i1 %tobool27.not.i.i.i.i.i.i, label %if.then28.i.i.i.i.i.i, label %_ZN11hb_vector_tI9hb_pair_tIjjELb1EE5allocEjb.exit.i.i.i.i.i
 
@@ -7983,7 +7983,7 @@ if.then.i.i.i.i.i.i.i490:                         ; preds = %_ZN11hb_vector_tI9h
 "_ZorI13hb_map_iter_tIN23hb_bit_set_invertible_t6iter_tEZL30_create_old_gid_to_new_gid_mapPK9hb_face_tbPK8hb_set_tPK8hb_map_tPS9_SC_P11hb_vector_tI9hb_pair_tIjjELb1EEPjE3$_0L24hb_function_sortedness_t0ELPv0EE9hb_sink_tIRSG_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSR_6item_tEEE5valueEvE4typeELSL_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISR_Efp_EEEOSR_OSW_.exit.i": ; preds = %"_ZNR9hb_iter_tI13hb_map_iter_tIN23hb_bit_set_invertible_t6iter_tEZL30_create_old_gid_to_new_gid_mapPK9hb_face_tbPK8hb_set_tPK8hb_map_tPS9_SC_P11hb_vector_tI9hb_pair_tIjjELb1EEPjE3$_0L24hb_function_sortedness_t0ELPv0EESF_EppEv.exit.i.i.i", %if.else58.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i.i)
   store i32 -1, ptr %max_glyph69.i, align 4
-  %call70.i = call i32 @hb_set_previous(ptr noundef nonnull %_glyphset, ptr noundef nonnull %max_glyph69.i) #18
+  %call70.i = call i32 @hb_set_previous(ptr noundef nonnull %_glyphset, ptr noundef nonnull %max_glyph69.i) #19
   %695 = load i32, ptr %max_glyph69.i, align 4
   %add71.i = add i32 %695, 1
   store i32 %add71.i, ptr %_num_output_glyphs, align 8
@@ -8419,13 +8419,13 @@ if.end23.i.i:                                     ; preds = %lor.rhs.i.i720
   br i1 %tobool.not.i.i.i, label %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.thread.i.i, label %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i
 
 _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.thread.i.i: ; preds = %if.end23.i.i
-  call void @free(ptr noundef %750) #18
+  call void @free(ptr noundef %750) #19
   br label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.i
 
 _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i: ; preds = %if.end23.i.i
   %751 = shl nuw i32 %add15.i.i718, 2
   %mul.i.i.i722 = zext i32 %751 to i64
-  %call.i.i.i723 = call ptr @realloc(ptr noundef %750, i64 noundef %mul.i.i.i722) #19
+  %call.i.i.i723 = call ptr @realloc(ptr noundef %750, i64 noundef %mul.i.i.i722) #20
   %tobool27.not.i.i724 = icmp eq ptr %call.i.i.i723, null
   br i1 %tobool27.not.i.i724, label %if.then28.i.i725, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.i
 
@@ -8495,13 +8495,13 @@ if.end23.i.i751:                                  ; preds = %lor.rhs.i.i750
   br i1 %tobool.not.i.i.i752, label %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.thread.i.i765, label %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i754
 
 _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.thread.i.i765: ; preds = %if.end23.i.i751
-  call void @free(ptr noundef %759) #18
+  call void @free(ptr noundef %759) #19
   br label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.i758
 
 _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i754: ; preds = %if.end23.i.i751
   %760 = shl nuw i32 %add15.i.i748, 2
   %mul.i.i.i755 = zext i32 %760 to i64
-  %call.i.i.i756 = call ptr @realloc(ptr noundef %759, i64 noundef %mul.i.i.i755) #19
+  %call.i.i.i756 = call ptr @realloc(ptr noundef %759, i64 noundef %mul.i.i.i755) #20
   %tobool27.not.i.i757 = icmp eq ptr %call.i.i.i756, null
   br i1 %tobool27.not.i.i757, label %if.then28.i.i760, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.i758
 
@@ -8683,7 +8683,7 @@ _ZNK2OT4GDEF19has_mark_glyph_setsEv.exit.i:       ; preds = %lor.lhs.false.i
   br i1 %cmp6.i.not.i, label %if.then.i801, label %_ZNK2OT4GDEF19get_mark_glyph_setsEv.exit.i
 
 if.then.i801:                                     ; preds = %_ZNK2OT4GDEF19has_mark_glyph_setsEv.exit.i, %lor.lhs.false.i, %if.then112
-  call void @hb_blob_destroy(ptr noundef %call.i.i781) #18
+  call void @hb_blob_destroy(ptr noundef %call.i.i781) #19
   br label %_ZL21_remap_used_mark_setsP16hb_subset_plan_tR8hb_map_t.exit
 
 _ZNK2OT4GDEF19get_mark_glyph_setsEv.exit.i:       ; preds = %_ZNK2OT4GDEF19has_mark_glyph_setsEv.exit.i
@@ -8703,9 +8703,9 @@ _ZNK2OT4GDEF19get_mark_glyph_setsEv.exit.i:       ; preds = %_ZNK2OT4GDEF19has_m
   %idx.ext.i.i.i.i.i808 = zext nneg i32 %add.i.i5.i.i to i64
   %add.ptr.i.i.i.i.i809 = getelementptr inbounds i8, ptr %spec.select.i.i1.i.i.i, i64 %idx.ext.i.i.i.i.i808
   call void @_ZNK2OT13MarkGlyphSets22collect_used_mark_setsERK8hb_set_tRS1_(ptr noundef nonnull align 1 dereferenceable(8) %add.ptr.i.i.i.i.i809, ptr noundef nonnull align 8 dereferenceable(72) %_glyphset_gsub, ptr noundef nonnull align 8 dereferenceable(72) %used_mark_sets.i)
-  call void @hb_blob_destroy(ptr noundef %call.i.i781) #18
-  call fastcc void @_ZL14_remap_indexesPK8hb_set_tP8hb_map_t(ptr noundef nonnull %used_mark_sets.i, ptr noundef nonnull %used_mark_sets_map)
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %used_mark_sets.i) #18
+  call void @hb_blob_destroy(ptr noundef %call.i.i781) #19
+  call fastcc void @_ZL14_remap_indexesPK8hb_set_tP8hb_map_t(ptr noundef %used_mark_sets.i, ptr noundef %used_mark_sets_map)
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %used_mark_sets.i) #19
   br label %_ZL21_remap_used_mark_setsP16hb_subset_plan_tR8hb_map_t.exit
 
 _ZL21_remap_used_mark_setsP16hb_subset_plan_tR8hb_map_t.exit: ; preds = %if.then.i801, %_ZNK2OT4GDEF19get_mark_glyph_setsEv.exit.i
@@ -8742,7 +8742,7 @@ if.end.i816:                                      ; preds = %if.end117
 
 if.end3.i:                                        ; preds = %if.end.i816
   %790 = load ptr, ptr %source, align 8
-  %call.i.i818 = call ptr @hb_font_create(ptr noundef %790) #18
+  %call.i.i818 = call ptr @hb_font_create(ptr noundef %790) #19
   %791 = load i32, ptr %population.i.i, align 4
   %cmp9.not.i.not.i.i = icmp eq i32 %791, 0
   br i1 %cmp9.not.i.not.i.i, label %if.end.i.i829, label %while.body.i.i.i820
@@ -8767,7 +8767,7 @@ _ZN11hb_vector_tI14hb_variation_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr
   br i1 %tobool27.not.i.i.i828, label %cleanup.thread.i.i, label %if.end.i.i829
 
 cleanup.thread.i.i:                               ; preds = %_ZN11hb_vector_tI14hb_variation_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i.i, %lor.rhs.i.i.i826
-  call void @hb_font_destroy(ptr noundef %call.i.i818) #18
+  call void @hb_font_destroy(ptr noundef %call.i.i818) #19
   br label %if.then.i.i.i.i831
 
 if.end.i.i829:                                    ; preds = %_ZN11hb_vector_tI14hb_variation_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i.i, %if.end3.i
@@ -8901,7 +8901,7 @@ lor.rhs.i.i.i.i:                                  ; preds = %while.body.i.i.i.i9
 _ZN11hb_vector_tI14hb_variation_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i.i.i: ; preds = %lor.rhs.i.i.i.i
   %805 = shl nuw i32 %add15.i.i.i.i, 3
   %mul.i.i.i.i.i918 = zext i32 %805 to i64
-  %call.i.i.i.i.i = call ptr @realloc(ptr noundef %vars.sroa.14.185.i.i, i64 noundef %mul.i.i.i.i.i918) #19
+  %call.i.i.i.i.i = call ptr @realloc(ptr noundef %vars.sroa.14.185.i.i, i64 noundef %mul.i.i.i.i.i918) #20
   %tobool27.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
   br i1 %tobool27.not.i.i.i.i, label %_ZN11hb_vector_tI14hb_variation_tLb0EE5allocEjb.exit.thread5.i.i.i, label %if.end.i36.i.i
 
@@ -8969,14 +8969,14 @@ cleanup.i.i:                                      ; preds = %cleanup.loopexit.i.
   %810 = phi i32 [ %791, %_ZL3endIRK12hb_hashmap_tIj6TripleLb0EETnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELPv0EEDTcldtclL_ZL7hb_iterEfp_E3endEEOS6_.exit.i.i ], [ %.pre.i.i, %cleanup.loopexit.i.i ]
   %vars.sroa.14.1.lcssa.i.i = phi ptr [ %vars.sroa.14.3.ph.i.i, %_ZL3endIRK12hb_hashmap_tIj6TripleLb0EETnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELPv0EEDTcldtclL_ZL7hb_iterEfp_E3endEEOS6_.exit.i.i ], [ %vars.sroa.14.5.i.i, %cleanup.loopexit.i.i ]
   %vars.sroa.0.1.lcssa.i.i = phi i32 [ %vars.sroa.0.2.ph.i.i, %_ZL3endIRK12hb_hashmap_tIj6TripleLb0EETnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELPv0EEDTcldtclL_ZL7hb_iterEfp_E3endEEOS6_.exit.i.i ], [ %vars.sroa.0.5.i.i, %cleanup.loopexit.i.i ]
-  call void @hb_font_set_variations(ptr noundef %call.i.i818, ptr noundef %vars.sroa.14.1.lcssa.i.i, i32 noundef %810) #18
+  call void @hb_font_set_variations(ptr noundef %call.i.i818, ptr noundef %vars.sroa.14.1.lcssa.i.i, i32 noundef %810) #19
   %tobool.not.i.i40.i.i = icmp eq i32 %vars.sroa.0.1.lcssa.i.i, 0
   br i1 %tobool.not.i.i40.i.i, label %_ZL28_get_hb_font_with_variationsPK16hb_subset_plan_t.exit.i, label %if.then.i.i.i.i831
 
 if.then.i.i.i.i831:                               ; preds = %cleanup.i.i, %cleanup.thread.i.i
   %retval.078.i.i = phi ptr [ null, %cleanup.thread.i.i ], [ %call.i.i818, %cleanup.i.i ]
   %vars.sroa.14.077.i.i = phi ptr [ null, %cleanup.thread.i.i ], [ %vars.sroa.14.1.lcssa.i.i, %cleanup.i.i ]
-  call void @free(ptr noundef %vars.sroa.14.077.i.i) #18
+  call void @free(ptr noundef %vars.sroa.14.077.i.i) #19
   br label %_ZL28_get_hb_font_with_variationsPK16hb_subset_plan_t.exit.i
 
 _ZL28_get_hb_font_with_variationsPK16hb_subset_plan_t.exit.i: ; preds = %if.then.i.i.i.i831, %cleanup.i.i
@@ -8990,7 +8990,7 @@ _ZL28_get_hb_font_with_variationsPK16hb_subset_plan_t.exit.i: ; preds = %if.then
   br i1 %812, label %if.end7.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %_ZL28_get_hb_font_with_variationsPK16hb_subset_plan_t.exit.i
-  call void @hb_font_destroy(ptr noundef %retval.079.i.i) #18
+  call void @hb_font_destroy(ptr noundef %retval.079.i.i) #19
   br label %cleanup.i834
 
 if.end7.i:                                        ; preds = %_ZL28_get_hb_font_with_variationsPK16hb_subset_plan_t.exit.i
@@ -9071,7 +9071,7 @@ if.then11.i:                                      ; preds = %land.lhs.true.i835
   %add.i.i.i74.i = or disjoint i32 %shl.i.i.i.i849, %conv4.i.i.i.i851
   %828 = shl nuw nsw i32 %add.i.i.i74.i, 2
   %mul.i.i852 = zext nneg i32 %828 to i64
-  %call3.i.i = call noalias ptr @malloc(i64 noundef %mul.i.i852) #20
+  %call3.i.i = call noalias ptr @malloc(i64 noundef %mul.i.i852) #21
   %tobool.not.i.i853 = icmp ne ptr %call3.i.i, null
   %cmp6.i.i = icmp ne i32 %add.i.i.i74.i, 0
   %or.cond.i.i = and i1 %tobool.not.i.i853, %cmp6.i.i
@@ -9167,7 +9167,7 @@ if.then23.i:                                      ; preds = %land.lhs.true19.i
   %add.i.i.i128.i = or disjoint i32 %shl.i.i.i125.i, %conv4.i.i.i127.i
   %844 = shl nuw nsw i32 %add.i.i.i128.i, 2
   %mul.i129.i = zext nneg i32 %844 to i64
-  %call3.i130.i = call noalias ptr @malloc(i64 noundef %mul.i129.i) #20
+  %call3.i130.i = call noalias ptr @malloc(i64 noundef %mul.i129.i) #21
   %tobool.not.i131.i = icmp ne ptr %call3.i130.i, null
   %cmp6.i132.i = icmp ne i32 %add.i.i.i128.i, 0
   %or.cond.i133.i = and i1 %tobool.not.i131.i, %cmp6.i132.i
@@ -9291,7 +9291,7 @@ if.then.i.i.i.i.i.i.i897:                         ; preds = %for.body.i866
   %859 = load i32, ptr %value.i.i869, align 4
   %retval.sroa.0.0.insert.ext.i.i870 = zext i32 %858 to i64
   store i32 %859, ptr %new_gid.i, align 4
-  %call31.i = call noundef zeroext i1 @_ZNK2OT4cff213accelerator_t11get_extentsEP9hb_font_tjP18hb_glyph_extents_t(ptr noundef nonnull align 8 dereferenceable(196) %cff2.i, ptr noundef nonnull %retval.079.i.i, i32 noundef %858, ptr noundef nonnull %extents.i) #18
+  %call31.i = call noundef zeroext i1 @_ZNK2OT4cff213accelerator_t11get_extentsEP9hb_font_tjP18hb_glyph_extents_t(ptr noundef nonnull align 8 dereferenceable(196) %cff2.i, ptr noundef nonnull %retval.079.i.i, i32 noundef %858, ptr noundef nonnull %extents.i) #19
   br i1 %call31.i, label %if.end33.i, label %for.inc.i871
 
 if.end33.i:                                       ; preds = %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEEMS5_KFbvERK4$_10LPv0EEMS5_KF9hb_pair_tIjjEvEL24hb_function_sortedness_t0ELSC_0EESF_EdeEv.exit.i"
@@ -9636,12 +9636,12 @@ _ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EppEv.exit.i.i.i
   br i1 %926, label %for.body.i866, label %for.end.i860
 
 for.end.i860:                                     ; preds = %"_ZNR9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEEMS5_KFbvERK4$_10LPv0EEMS5_KF9hb_pair_tIjjEvEL24hb_function_sortedness_t0ELSC_0EESF_EppEv.exit.i", %_ZL3endIR8hb_map_tTnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELPv0EEDTcldtclL_ZL7hb_iterEfp_E3endEEOS3_.exit.i
-  call void @hb_font_destroy(ptr noundef nonnull %retval.079.i.i) #18
+  call void @hb_font_destroy(ptr noundef nonnull %retval.079.i.i) #19
   %tobool127.not.i = icmp eq ptr %hvar_store_cache.0.i, null
   br i1 %tobool127.not.i, label %if.end132.i, label %if.then128.i
 
 if.then128.i:                                     ; preds = %for.end.i860
-  call void @free(ptr noundef nonnull %hvar_store_cache.0.i) #18
+  call void @free(ptr noundef nonnull %hvar_store_cache.0.i) #19
   br label %if.end132.i
 
 if.end132.i:                                      ; preds = %if.then128.i, %for.end.i860
@@ -9649,30 +9649,30 @@ if.end132.i:                                      ; preds = %if.then128.i, %for.
   br i1 %tobool133.not.i, label %if.end138.i, label %if.then134.i
 
 if.then134.i:                                     ; preds = %if.end132.i
-  call void @free(ptr noundef nonnull %vvar_store_cache.0.i) #18
+  call void @free(ptr noundef nonnull %vvar_store_cache.0.i) #19
   br label %if.end138.i
 
 if.end138.i:                                      ; preds = %if.then134.i, %if.end132.i
   %table.i.i.i = getelementptr inbounds i8, ptr %_vmtx.i, i64 24
   %927 = load ptr, ptr %table.i.i.i, align 8
-  call void @hb_blob_destroy(ptr noundef %927) #18
+  call void @hb_blob_destroy(ptr noundef %927) #19
   store ptr null, ptr %table.i.i.i, align 8
   %var_table.i.i.i = getelementptr inbounds i8, ptr %_vmtx.i, i64 32
   %928 = load ptr, ptr %var_table.i.i.i, align 8
-  call void @hb_blob_destroy(ptr noundef %928) #18
+  call void @hb_blob_destroy(ptr noundef %928) #19
   store ptr null, ptr %var_table.i.i.i, align 8
   %table.i.i338.i = getelementptr inbounds i8, ptr %_hmtx.i, i64 24
   %929 = load ptr, ptr %table.i.i338.i, align 8
-  call void @hb_blob_destroy(ptr noundef %929) #18
+  call void @hb_blob_destroy(ptr noundef %929) #19
   store ptr null, ptr %table.i.i338.i, align 8
   %var_table.i.i339.i = getelementptr inbounds i8, ptr %_hmtx.i, i64 32
   %930 = load ptr, ptr %var_table.i.i339.i, align 8
-  call void @hb_blob_destroy(ptr noundef %930) #18
+  call void @hb_blob_destroy(ptr noundef %930) #19
   store ptr null, ptr %var_table.i.i339.i, align 8
   br label %cleanup.i834
 
 cleanup.i834:                                     ; preds = %if.end138.i, %if.then6.i, %if.end.i816
-  call void @_ZN2OT4cff219accelerator_templ_tIN3CFF25cff2_private_dict_opset_tENS2_31cff2_private_dict_values_base_tINS2_10dict_val_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(196) %cff2.i) #18
+  call void @_ZN2OT4cff219accelerator_templ_tIN3CFF25cff2_private_dict_opset_tENS2_31cff2_private_dict_values_base_tINS2_10dict_val_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(196) %cff2.i) #19
   br label %_ZL38_update_instance_metrics_map_from_cff2P16hb_subset_plan_t.exit
 
 _ZL38_update_instance_metrics_map_from_cff2P16hb_subset_plan_t.exit: ; preds = %if.end117, %cleanup.i834
@@ -9757,7 +9757,7 @@ cleanup.i940:                                     ; preds = %if.end13.i, %if.end
 if.then.i.i.i.i942:                               ; preds = %cleanup.i940
   store i32 0, ptr %length.i.i.i.i.i934, align 4
   %941 = load ptr, ptr %arrayZ.i.i.i.i935, align 8
-  call void @free(ptr noundef %941) #18
+  call void @free(ptr noundef %941) #19
   br label %_ZN22contour_point_vector_tD2Ev.exit.i
 
 _ZN22contour_point_vector_tD2Ev.exit.i:           ; preds = %if.then.i.i.i.i942, %cleanup.i940
@@ -9776,7 +9776,7 @@ cleanup18.i:                                      ; preds = %for.inc.i943, %_ZN2
   %cmp.not.lcssa.i = phi i1 [ true, %if.end.i927 ], [ false, %_ZN22contour_point_vector_tD2Ev.exit.i ], [ true, %for.inc.i943 ]
   %glyf_table.i.i = getelementptr inbounds i8, ptr %glyf.i, i64 40
   %942 = load ptr, ptr %glyf_table.i.i, align 8
-  call void @hb_blob_destroy(ptr noundef %942) #18
+  call void @hb_blob_destroy(ptr noundef %942) #19
   br label %_ZL35_get_instance_glyphs_contour_pointsP16hb_subset_plan_t.exit
 
 _ZL35_get_instance_glyphs_contour_pointsP16hb_subset_plan_t.exit: ; preds = %_ZL38_update_instance_metrics_map_from_cff2P16hb_subset_plan_t.exit, %lor.lhs.false.i924, %cleanup18.i
@@ -10092,7 +10092,7 @@ _Z7hb_copyIRK12hb_hashmap_tIj6TripleLb0EERS2_EvOT_OT0_.exit: ; preds = %_ZNR9hb_
 declare ptr @hb_face_get_user_data(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24_populate_gids_to_retainP16hb_subset_plan_tP8hb_set_t(ptr noundef %plan, ptr nocapture noundef %drop_tables) unnamed_addr #0 {
+define internal fastcc void @_ZL24_populate_gids_to_retainP16hb_subset_plan_tP8hb_set_t(ptr noundef nonnull %plan, ptr nocapture noundef %drop_tables) unnamed_addr #0 {
 entry:
   %retval.i.i.i8.i.i = alloca %"struct.hb_bit_set_invertible_t::iter_t", align 8
   %retval.i.i.i.i.i1042 = alloca %"struct.hb_bit_set_invertible_t::iter_t", align 8
@@ -10327,7 +10327,7 @@ _ZN23hb_bit_set_invertible_t3addEj.exit:          ; preds = %if.end8.i.i.i.i.i.i
   %spec.select.i.i1.i.i.i = select i1 %cmp.i.i.i.i.i, ptr @_hb_NullPool, ptr %16
   call void @_ZNK2OT4cmap14closure_glyphsEPK8hb_set_tPS1_(ptr noundef nonnull align 1 dereferenceable(12) %spec.select.i.i1.i.i.i, ptr noundef nonnull %unicodes, ptr noundef nonnull %_glyphset_gsub)
   %18 = load ptr, ptr %table.i, align 8
-  call void @hb_blob_destroy(ptr noundef %18) #18
+  call void @hb_blob_destroy(ptr noundef %18) #19
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %cmap.i)
   %last_page_lookup.i.i.i.i.i.i = getelementptr inbounds i8, ptr %drop_tables, i64 24
   %19 = load atomic i32, ptr %last_page_lookup.i.i.i.i.i.i monotonic, align 4
@@ -10634,7 +10634,7 @@ _ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i.i.i: ; preds = %if.then.i.i.
 
 _ZNK2OT8GSUBGPOS16get_feature_tagsEjPjS1_.exit.i.i: ; preds = %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i.i.i, %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i.i.i
   %layout_features.i.i = getelementptr inbounds i8, ptr %plan, i64 352
-  %call4.i.i = call fastcc noundef zeroext i1 @_ZL16_filter_tag_listP11hb_vector_tIjLb0EEPK8hb_set_t(ptr noundef nonnull %features.i.i, ptr noundef nonnull %layout_features.i.i)
+  %call4.i.i = call fastcc noundef zeroext i1 @_ZL16_filter_tag_listP11hb_vector_tIjLb0EEPK8hb_set_t(ptr noundef %features.i.i, ptr noundef %layout_features.i.i)
   %49 = load i8, ptr %spec.select.i.i1.i.i24.i, align 1
   %conv.i.i.i.i52.i.i = zext i8 %49 to i32
   %shl.i.i.i.i53.i.i = shl nuw nsw i32 %conv.i.i.i.i52.i.i, 8
@@ -10790,7 +10790,7 @@ _ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i142.i.i: ; preds = %if.then.i
 
 _ZNK2OT8GSUBGPOS15get_script_tagsEjPjS1_.exit.i.i: ; preds = %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i142.i.i, %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i.i.i
   %layout_scripts.i.i = getelementptr inbounds i8, ptr %plan, i64 424
-  %call12.i.i = call fastcc noundef zeroext i1 @_ZL16_filter_tag_listP11hb_vector_tIjLb0EEPK8hb_set_t(ptr noundef nonnull %scripts.i.i, ptr noundef nonnull %layout_scripts.i.i)
+  %call12.i.i = call fastcc noundef zeroext i1 @_ZL16_filter_tag_listP11hb_vector_tIjLb0EEPK8hb_set_t(ptr noundef %scripts.i.i, ptr noundef %layout_scripts.i.i)
   %66 = load i32, ptr %features.i.i, align 8
   %cmp.i.i.i = icmp sgt i32 %66, -1
   %67 = load i8, ptr %successful.i.i.i, align 8
@@ -10819,7 +10819,7 @@ if.end26.i.i:                                     ; preds = %lor.lhs.false19.i.i
   %cond.i.i = select i1 %call12.i.i, ptr %73, ptr null
   %74 = load ptr, ptr %arrayZ.i.i, align 8
   %cond33.i.i = select i1 %call4.i.i, ptr %74, ptr null
-  call void @hb_ot_layout_collect_features(ptr noundef %72, i32 noundef 1196643650, ptr noundef %cond.i.i, ptr noundef null, ptr noundef %cond33.i.i, ptr noundef nonnull %feature_indices.i) #18
+  call void @hb_ot_layout_collect_features(ptr noundef %72, i32 noundef 1196643650, ptr noundef %cond.i.i, ptr noundef null, ptr noundef %cond33.i.i, ptr noundef nonnull %feature_indices.i) #19
   %population.i.i.i = getelementptr inbounds i8, ptr %plan, i64 2108
   %75 = load i32, ptr %population.i.i.i, align 4
   %cmp.i178.i.i = icmp eq i32 %75, 0
@@ -10931,7 +10931,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i189.i.i: ; preds = %sw.bb.i.i191.i.i,
   br i1 %cmp.not.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %_ZNK2OT8GSUBGPOS11get_featureEj.exit.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i189.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i.i.i.i68 = getelementptr inbounds i8, ptr %retval.0.i.i190.i.i, i64 2
   %idxprom.i.i.i.i.i.i69 = zext nneg i32 %80 to i64
   %arrayidx.i.i.i.i.i.i70 = getelementptr inbounds [1 x %"struct.OT::Record.479"], ptr %arrayZ.i.i.i.i.i.i68, i64 0, i64 %idxprom.i.i.i.i.i.i69
@@ -11111,7 +11111,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i242.i.i: ; preds = %sw.bb.i.i265.i.i,
   br i1 %cmp.not.i.i.i.i249.i.i, label %if.end.i.i.i.i261.i.i, label %_ZNK2OT8GSUBGPOS11get_featureEj.exit276.i.i
 
 if.end.i.i.i.i261.i.i:                            ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i242.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i.i262.i.i = getelementptr inbounds i8, ptr %retval.0.i.i243.i.i, i64 2
   %idxprom.i.i.i.i263.i.i = zext nneg i32 %110 to i64
   %arrayidx.i.i.i.i264.i.i = getelementptr inbounds [1 x %"struct.OT::Record.479"], ptr %arrayZ.i.i.i.i262.i.i, i64 0, i64 %idxprom.i.i.i.i263.i.i
@@ -11177,7 +11177,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i.i:    ; preds = %sw.bb.i.i.i, %_ZNK2
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i303.i.i, label %_ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i.i
 
 if.end.i.i303.i.i:                                ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i304.i.i = getelementptr inbounds i8, ptr %retval.0.i291.i.i, i64 2
   %idxprom.i.i305.i.i = zext nneg i32 %125 to i64
   %arrayidx.i.i306.i.i = getelementptr inbounds [1 x %"struct.OT::Record.479"], ptr %arrayZ.i.i304.i.i, i64 0, i64 %idxprom.i.i305.i.i
@@ -11236,7 +11236,7 @@ cleanup.if.then.i.i319_crit_edge.i.i:             ; preds = %cleanup.i.i
 
 if.then.i.i319.i.i:                               ; preds = %cleanup.if.then.i.i319_crit_edge.i.i, %cleanup.thread.i.i
   %135 = phi ptr [ %.pre.i.i, %cleanup.if.then.i.i319_crit_edge.i.i ], [ null, %cleanup.thread.i.i ]
-  call void @free(ptr noundef %135) #18
+  call void @free(ptr noundef %135) #19
   br label %_ZN11hb_vector_tIjLb0EED2Ev.exit.i.i
 
 _ZN11hb_vector_tIjLb0EED2Ev.exit.i.i:             ; preds = %if.then.i.i319.i.i, %cleanup.i.i
@@ -11255,7 +11255,7 @@ cleanup80.if.then.i.i322_crit_edge.i.i:           ; preds = %cleanup80.i.i
 
 if.then.i.i322.i.i:                               ; preds = %cleanup80.if.then.i.i322_crit_edge.i.i, %cleanup80.thread.i.i
   %136 = phi ptr [ %.pre352.i.i, %cleanup80.if.then.i.i322_crit_edge.i.i ], [ null, %cleanup80.thread.i.i ]
-  call void @free(ptr noundef %136) #18
+  call void @free(ptr noundef %136) #19
   br label %_ZL23_collect_layout_indicesIN2OT6Layout4GSUBEEvP16hb_subset_plan_tRKT_P8hb_set_tS9_P12hb_hashmap_tIjN2hb10shared_ptrIS8_EELb0EEPSA_IjPKNS0_7FeatureELb0EERS8_RSA_Ij9hb_pair_tIPKvSO_ELb0EE.exit.i
 
 _ZL23_collect_layout_indicesIN2OT6Layout4GSUBEEvP16hb_subset_plan_tRKT_P8hb_set_tS9_P12hb_hashmap_tIjN2hb10shared_ptrIS8_EELb0EEPSA_IjPKNS0_7FeatureELb0EERS8_RSA_Ij9hb_pair_tIPKvSO_ELb0EE.exit.i: ; preds = %if.then.i.i322.i.i, %cleanup80.i.i
@@ -11276,7 +11276,7 @@ _ZL23_collect_layout_indicesIN2OT6Layout4GSUBEEvP16hb_subset_plan_tRKT_P8hb_set_
 
 if.then.i:                                        ; preds = %_ZL23_collect_layout_indicesIN2OT6Layout4GSUBEEvP16hb_subset_plan_tRKT_P8hb_set_tS9_P12hb_hashmap_tIjN2hb10shared_ptrIS8_EELb0EEPSA_IjPKNS0_7FeatureELb0EERS8_RSA_Ij9hb_pair_tIPKvSO_ELb0EE.exit.i
   %138 = load ptr, ptr %source, align 8
-  call void @hb_ot_layout_lookups_substitute_closure(ptr noundef %138, ptr noundef nonnull %lookup_indices.i, ptr noundef nonnull %_glyphset_gsub) #18
+  call void @hb_ot_layout_lookups_substitute_closure(ptr noundef %138, ptr noundef nonnull %lookup_indices.i, ptr noundef nonnull %_glyphset_gsub) #19
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %_ZL23_collect_layout_indicesIN2OT6Layout4GSUBEEvP16hb_subset_plan_tRKT_P8hb_set_tS9_P12hb_hashmap_tIjN2hb10shared_ptrIS8_EELb0EEPSA_IjPKNS0_7FeatureELb0EERS8_RSA_Ij9hb_pair_tIPKvSO_ELb0EE.exit.i
@@ -11286,7 +11286,7 @@ if.end.i:                                         ; preds = %if.then.i, %_ZL23_c
   %spec.select.i.i1.i.i33.i = select i1 %cmp.i.i.i.i32.i, ptr @_hb_NullPool, ptr %139
   %141 = load ptr, ptr %source, align 8
   call void @_ZNK2OT8GSUBGPOS15closure_lookupsINS_6Layout9GSUB_impl11SubstLookupEEEvP9hb_face_tPK8hb_set_tPS7_(ptr noundef nonnull align 1 dereferenceable(14) %spec.select.i.i1.i.i33.i, ptr noundef %141, ptr noundef nonnull %_glyphset_gsub, ptr noundef nonnull %lookup_indices.i)
-  call fastcc void @_ZL14_remap_indexesPK8hb_set_tP8hb_map_t(ptr noundef nonnull %lookup_indices.i, ptr noundef nonnull %gsub_lookups)
+  call fastcc void @_ZL14_remap_indexesPK8hb_set_tP8hb_map_t(ptr noundef %lookup_indices.i, ptr noundef %gsub_lookups)
   %142 = load ptr, ptr %data.i.i.i.i.i63, align 8
   %143 = load i32, ptr %length.i.i.i.i.i64, align 8
   %cmp.i.i.i.i38.i = icmp ult i32 %143, 4
@@ -11311,7 +11311,7 @@ if.end.i:                                         ; preds = %if.then.i, %_ZL23_c
   %146 = load i32, ptr %length.i.i.i.i.i64, align 8
   %cmp.i.i.i.i49.i = icmp ult i32 %146, 4
   %spec.select.i.i1.i.i50.i = select i1 %cmp.i.i.i.i49.i, ptr @_hb_NullPool, ptr %145
-  call fastcc void @_ZL33_GSUBGPOS_find_duplicate_featuresRKN2OT8GSUBGPOSEPK8hb_map_tPK8hb_set_tPK12hb_hashmap_tIjPKNS_7FeatureELb0EEPS3_(ptr noundef nonnull align 1 dereferenceable(14) %spec.select.i.i1.i.i50.i, ptr noundef nonnull %gsub_lookups, ptr noundef nonnull %feature_indices.i, ptr noundef nonnull %gsub_feature_substitutes_map, ptr noundef nonnull %duplicate_feature_map.i)
+  call fastcc void @_ZL33_GSUBGPOS_find_duplicate_featuresRKN2OT8GSUBGPOSEPK8hb_map_tPK8hb_set_tPK12hb_hashmap_tIjPKNS_7FeatureELb0EEPS3_(ptr noundef nonnull align 1 dereferenceable(14) %spec.select.i.i1.i.i50.i, ptr noundef %gsub_lookups, ptr noundef %feature_indices.i, ptr noundef %gsub_feature_substitutes_map, ptr noundef %duplicate_feature_map.i)
   %147 = load i8, ptr %s.i.i13.i, align 8
   %tobool.i.i62.i = trunc i8 %147 to i1
   br i1 %tobool.i.i62.i, label %if.end.i.i.i, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE5clearEv.exit.i
@@ -11355,13 +11355,13 @@ if.end23.i.i.i.i:                                 ; preds = %lor.rhs.i.i.i74.i
   br i1 %tobool.not.i.i.i.i75.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i.i.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i.i.i
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i.i.i: ; preds = %if.end23.i.i.i.i
-  call void @free(ptr noundef %152) #18
+  call void @free(ptr noundef %152) #19
   br label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.i.i.i
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i.i.i: ; preds = %if.end23.i.i.i.i
   %conv.i.i.i.i77.i = zext nneg i32 %add15.i.i.i72.i to i64
   %mul.i.i.i.i78.i = mul nuw nsw i64 %conv.i.i.i.i77.i, 72
-  %call.i.i.i.i.i = call ptr @realloc(ptr noundef %152, i64 noundef %mul.i.i.i.i78.i) #19
+  %call.i.i.i.i.i = call ptr @realloc(ptr noundef %152, i64 noundef %mul.i.i.i.i78.i) #20
   %tobool27.not.i.i.i79.i = icmp eq ptr %call.i.i.i.i.i, null
   br i1 %tobool27.not.i.i.i79.i, label %if.then28.i.i.i.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.i.i.i
 
@@ -11424,8 +11424,8 @@ _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE5clearEv.exit.i: ; preds = %if.end
   %spec.select.i.i1.i.i57.i = select i1 %cmp.i.i.i.i56.i, ptr @_hb_NullPool, ptr %156
   %layout_scripts.i = getelementptr inbounds i8, ptr %plan, i64 424
   call void @_ZNK2OT8GSUBGPOS13prune_langsysEPK8hb_map_tPK8hb_set_tP12hb_hashmap_tIjN2hb10unique_ptrIS4_EELb0EEPS4_(ptr noundef nonnull align 1 dereferenceable(14) %spec.select.i.i1.i.i57.i, ptr noundef nonnull %duplicate_feature_map.i, ptr noundef nonnull %layout_scripts.i, ptr noundef nonnull %gsub_langsys, ptr noundef nonnull %feature_indices.i)
-  call fastcc void @_ZL14_remap_indexesPK8hb_set_tP8hb_map_t(ptr noundef nonnull %feature_indices.i, ptr noundef nonnull %gsub_features)
-  call void @hb_blob_destroy(ptr noundef %call.i.i) #18
+  call fastcc void @_ZL14_remap_indexesPK8hb_set_tP8hb_map_t(ptr noundef %feature_indices.i, ptr noundef %gsub_features)
+  call void @hb_blob_destroy(ptr noundef %call.i.i) #19
   store atomic i32 -57005, ptr %duplicate_feature_map.i monotonic, align 8
   %158 = load atomic i64, ptr %user_data.i.i.i.i41.i acquire, align 8
   %tobool.not.i.i.i.i58.i = icmp eq i64 %158, 0
@@ -11435,8 +11435,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN14hb_sparseset_t
   %159 = inttoptr i64 %158 to ptr
   %items.i.i.i.i.i.i = getelementptr inbounds i8, ptr %159, i64 40
   call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %159)
-  %call.i.i.i.i.i.i.i = call i32 @pthread_mutex_destroy(ptr noundef nonnull %159) #18
-  call void @free(ptr noundef nonnull %159) #18
+  %call.i.i.i.i.i.i.i = call i32 @pthread_mutex_destroy(ptr noundef nonnull %159) #19
+  call void @free(ptr noundef nonnull %159) #19
   store atomic i64 0, ptr %user_data.i.i.i.i41.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i.i
 
@@ -11446,7 +11446,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i.i: ; preds = %if.then
   br i1 %tobool.not.i.i.i60.i, label %_ZL32_closure_glyphs_lookups_featuresIN2OT6Layout4GSUBEEvP16hb_subset_plan_tP8hb_set_tP8hb_map_tS8_P12hb_hashmap_tIjN2hb10unique_ptrIS5_EELb0EEPS9_IjNSA_10shared_ptrIS5_EELb0EEPS9_IjPKNS0_7FeatureELb0EERS5_RS9_Ij9hb_pair_tIPKvSR_ELb0EE.exit, label %if.then.i.i.i61.i
 
 if.then.i.i.i61.i:                                ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i.i
-  call void @free(ptr noundef nonnull %160) #18
+  call void @free(ptr noundef nonnull %160) #19
   store ptr null, ptr %items.i.i.i44.i, align 8
   br label %_ZL32_closure_glyphs_lookups_featuresIN2OT6Layout4GSUBEEvP16hb_subset_plan_tP8hb_set_tP8hb_map_tS8_P12hb_hashmap_tIjN2hb10unique_ptrIS5_EELb0EEPS9_IjNSA_10shared_ptrIS5_EELb0EEPS9_IjPKNS0_7FeatureELb0EERS5_RS9_Ij9hb_pair_tIPKvSR_ELb0EE.exit
 
@@ -11455,8 +11455,8 @@ _ZL32_closure_glyphs_lookups_featuresIN2OT6Layout4GSUBEEvP16hb_subset_plan_tP8hb
   store i32 0, ptr %occupancy.i.i.i.i, align 8
   %population.i.i.i.i = getelementptr inbounds i8, ptr %duplicate_feature_map.i, i64 20
   store i32 0, ptr %population.i.i.i.i, align 4
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %feature_indices.i) #18
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %lookup_indices.i) #18
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %feature_indices.i) #19
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %lookup_indices.i) #19
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %lookup_indices.i)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %feature_indices.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %duplicate_feature_map.i)
@@ -11765,7 +11765,7 @@ _ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i.i.i309: ; preds = %if.then.i
 
 _ZNK2OT8GSUBGPOS16get_feature_tagsEjPjS1_.exit.i.i317: ; preds = %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i.i.i309, %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i.i.i290
   %layout_features.i.i318 = getelementptr inbounds i8, ptr %plan, i64 352
-  %call4.i.i319 = call fastcc noundef zeroext i1 @_ZL16_filter_tag_listP11hb_vector_tIjLb0EEPK8hb_set_t(ptr noundef nonnull %features.i.i127, ptr noundef nonnull %layout_features.i.i318)
+  %call4.i.i319 = call fastcc noundef zeroext i1 @_ZL16_filter_tag_listP11hb_vector_tIjLb0EEPK8hb_set_t(ptr noundef %features.i.i127, ptr noundef %layout_features.i.i318)
   %191 = load i8, ptr %spec.select.i.i1.i.i24.i158, align 1
   %conv.i.i.i.i52.i.i320 = zext i8 %191 to i32
   %shl.i.i.i.i53.i.i321 = shl nuw nsw i32 %conv.i.i.i.i52.i.i320, 8
@@ -11921,7 +11921,7 @@ _ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i142.i.i388: ; preds = %if.the
 
 _ZNK2OT8GSUBGPOS15get_script_tagsEjPjS1_.exit.i.i396: ; preds = %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i142.i.i388, %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i.i.i369
   %layout_scripts.i.i397 = getelementptr inbounds i8, ptr %plan, i64 424
-  %call12.i.i398 = call fastcc noundef zeroext i1 @_ZL16_filter_tag_listP11hb_vector_tIjLb0EEPK8hb_set_t(ptr noundef nonnull %scripts.i.i128, ptr noundef nonnull %layout_scripts.i.i397)
+  %call12.i.i398 = call fastcc noundef zeroext i1 @_ZL16_filter_tag_listP11hb_vector_tIjLb0EEPK8hb_set_t(ptr noundef %scripts.i.i128, ptr noundef %layout_scripts.i.i397)
   %208 = load i32, ptr %features.i.i127, align 8
   %cmp.i.i.i399 = icmp sgt i32 %208, -1
   %209 = load i8, ptr %successful.i.i.i192, align 8
@@ -11950,7 +11950,7 @@ if.end26.i.i409:                                  ; preds = %lor.lhs.false19.i.i
   %cond.i.i411 = select i1 %call12.i.i398, ptr %215, ptr null
   %216 = load ptr, ptr %arrayZ.i.i284, align 8
   %cond33.i.i412 = select i1 %call4.i.i319, ptr %216, ptr null
-  call void @hb_ot_layout_collect_features(ptr noundef %214, i32 noundef 1196445523, ptr noundef %cond.i.i411, ptr noundef null, ptr noundef %cond33.i.i412, ptr noundef nonnull %feature_indices.i138) #18
+  call void @hb_ot_layout_collect_features(ptr noundef %214, i32 noundef 1196445523, ptr noundef %cond.i.i411, ptr noundef null, ptr noundef %cond33.i.i412, ptr noundef nonnull %feature_indices.i138) #19
   %population.i.i.i413 = getelementptr inbounds i8, ptr %plan, i64 2108
   %217 = load i32, ptr %population.i.i.i413, align 4
   %cmp.i178.i.i414 = icmp eq i32 %217, 0
@@ -12062,7 +12062,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i189.i.i559: ; preds = %sw.bb.i.i191.i
   br i1 %cmp.not.i.i.i.i.i.i566, label %if.end.i.i.i.i.i.i626, label %_ZNK2OT8GSUBGPOS11get_featureEj.exit.i.i567
 
 if.end.i.i.i.i.i.i626:                            ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i189.i.i559
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i.i.i.i627 = getelementptr inbounds i8, ptr %retval.0.i.i190.i.i560, i64 2
   %idxprom.i.i.i.i.i.i628 = zext nneg i32 %222 to i64
   %arrayidx.i.i.i.i.i.i629 = getelementptr inbounds [1 x %"struct.OT::Record.479"], ptr %arrayZ.i.i.i.i.i.i627, i64 0, i64 %idxprom.i.i.i.i.i.i628
@@ -12242,7 +12242,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i242.i.i467: ; preds = %sw.bb.i.i265.i
   br i1 %cmp.not.i.i.i.i249.i.i474, label %if.end.i.i.i.i261.i.i533, label %_ZNK2OT8GSUBGPOS11get_featureEj.exit276.i.i475
 
 if.end.i.i.i.i261.i.i533:                         ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i242.i.i467
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i.i262.i.i534 = getelementptr inbounds i8, ptr %retval.0.i.i243.i.i468, i64 2
   %idxprom.i.i.i.i263.i.i535 = zext nneg i32 %252 to i64
   %arrayidx.i.i.i.i264.i.i536 = getelementptr inbounds [1 x %"struct.OT::Record.479"], ptr %arrayZ.i.i.i.i262.i.i534, i64 0, i64 %idxprom.i.i.i.i263.i.i535
@@ -12308,7 +12308,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i.i499: ; preds = %sw.bb.i.i.i524, %_Z
   br i1 %cmp.not.i.i.i.i506, label %if.end.i.i303.i.i519, label %_ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i.i507
 
 if.end.i.i303.i.i519:                             ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i.i499
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i304.i.i520 = getelementptr inbounds i8, ptr %retval.0.i291.i.i500, i64 2
   %idxprom.i.i305.i.i521 = zext nneg i32 %267 to i64
   %arrayidx.i.i306.i.i522 = getelementptr inbounds [1 x %"struct.OT::Record.479"], ptr %arrayZ.i.i304.i.i520, i64 0, i64 %idxprom.i.i305.i.i521
@@ -12367,7 +12367,7 @@ cleanup.if.then.i.i319_crit_edge.i.i356:          ; preds = %cleanup.i.i353
 
 if.then.i.i319.i.i359:                            ; preds = %cleanup.if.then.i.i319_crit_edge.i.i356, %cleanup.thread.i.i651
   %277 = phi ptr [ %.pre.i.i358, %cleanup.if.then.i.i319_crit_edge.i.i356 ], [ null, %cleanup.thread.i.i651 ]
-  call void @free(ptr noundef %277) #18
+  call void @free(ptr noundef %277) #19
   br label %_ZN11hb_vector_tIjLb0EED2Ev.exit.i.i360
 
 _ZN11hb_vector_tIjLb0EED2Ev.exit.i.i360:          ; preds = %if.then.i.i319.i.i359, %cleanup.i.i353
@@ -12386,7 +12386,7 @@ cleanup80.if.then.i.i322_crit_edge.i.i198:        ; preds = %cleanup80.i.i195
 
 if.then.i.i322.i.i201:                            ; preds = %cleanup80.if.then.i.i322_crit_edge.i.i198, %cleanup80.thread.i.i677
   %278 = phi ptr [ %.pre352.i.i200, %cleanup80.if.then.i.i322_crit_edge.i.i198 ], [ null, %cleanup80.thread.i.i677 ]
-  call void @free(ptr noundef %278) #18
+  call void @free(ptr noundef %278) #19
   br label %_ZL23_collect_layout_indicesIN2OT6Layout4GPOSEEvP16hb_subset_plan_tRKT_P8hb_set_tS9_P12hb_hashmap_tIjN2hb10shared_ptrIS8_EELb0EEPSA_IjPKNS0_7FeatureELb0EERS8_RSA_Ij9hb_pair_tIPKvSO_ELb0EE.exit.i
 
 _ZL23_collect_layout_indicesIN2OT6Layout4GPOSEEvP16hb_subset_plan_tRKT_P8hb_set_tS9_P12hb_hashmap_tIjN2hb10shared_ptrIS8_EELb0EEPSA_IjPKNS0_7FeatureELb0EERS8_RSA_Ij9hb_pair_tIPKvSO_ELb0EE.exit.i: ; preds = %if.then.i.i322.i.i201, %cleanup80.i.i195
@@ -12405,7 +12405,7 @@ _ZL23_collect_layout_indicesIN2OT6Layout4GPOSEEvP16hb_subset_plan_tRKT_P8hb_set_
   %spec.select.i.i1.i.i33.i203 = select i1 %cmp.i.i.i.i32.i202, ptr @_hb_NullPool, ptr %279
   %281 = load ptr, ptr %source, align 8
   call void @_ZNK2OT8GSUBGPOS15closure_lookupsINS_6Layout9GPOS_impl9PosLookupEEEvP9hb_face_tPK8hb_set_tPS7_(ptr noundef nonnull align 1 dereferenceable(14) %spec.select.i.i1.i.i33.i203, ptr noundef %281, ptr noundef nonnull %_glyphset_gsub, ptr noundef nonnull %lookup_indices.i137)
-  call fastcc void @_ZL14_remap_indexesPK8hb_set_tP8hb_map_t(ptr noundef nonnull %lookup_indices.i137, ptr noundef nonnull %gpos_lookups)
+  call fastcc void @_ZL14_remap_indexesPK8hb_set_tP8hb_map_t(ptr noundef %lookup_indices.i137, ptr noundef %gpos_lookups)
   %282 = load ptr, ptr %data.i.i.i.i.i143, align 8
   %283 = load i32, ptr %length.i.i.i.i.i144, align 8
   %cmp.i.i.i.i38.i205 = icmp ult i32 %283, 4
@@ -12430,7 +12430,7 @@ _ZL23_collect_layout_indicesIN2OT6Layout4GPOSEEvP16hb_subset_plan_tRKT_P8hb_set_
   %286 = load i32, ptr %length.i.i.i.i.i144, align 8
   %cmp.i.i.i.i49.i215 = icmp ult i32 %286, 4
   %spec.select.i.i1.i.i50.i216 = select i1 %cmp.i.i.i.i49.i215, ptr @_hb_NullPool, ptr %285
-  call fastcc void @_ZL33_GSUBGPOS_find_duplicate_featuresRKN2OT8GSUBGPOSEPK8hb_map_tPK8hb_set_tPK12hb_hashmap_tIjPKNS_7FeatureELb0EEPS3_(ptr noundef nonnull align 1 dereferenceable(14) %spec.select.i.i1.i.i50.i216, ptr noundef nonnull %gpos_lookups, ptr noundef nonnull %feature_indices.i138, ptr noundef nonnull %gpos_feature_substitutes_map, ptr noundef nonnull %duplicate_feature_map.i139)
+  call fastcc void @_ZL33_GSUBGPOS_find_duplicate_featuresRKN2OT8GSUBGPOSEPK8hb_map_tPK8hb_set_tPK12hb_hashmap_tIjPKNS_7FeatureELb0EEPS3_(ptr noundef nonnull align 1 dereferenceable(14) %spec.select.i.i1.i.i50.i216, ptr noundef %gpos_lookups, ptr noundef %feature_indices.i138, ptr noundef %gpos_feature_substitutes_map, ptr noundef %duplicate_feature_map.i139)
   %287 = load i8, ptr %s.i.i13.i151, align 8
   %tobool.i.i62.i217 = trunc i8 %287 to i1
   br i1 %tobool.i.i62.i217, label %if.end.i.i.i237, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE5clearEv.exit.i220
@@ -12474,13 +12474,13 @@ if.end23.i.i.i.i267:                              ; preds = %lor.rhs.i.i.i74.i26
   br i1 %tobool.not.i.i.i.i75.i268, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i.i.i282, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i.i.i270
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i.i.i282: ; preds = %if.end23.i.i.i.i267
-  call void @free(ptr noundef %292) #18
+  call void @free(ptr noundef %292) #19
   br label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.i.i.i275
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i.i.i270: ; preds = %if.end23.i.i.i.i267
   %conv.i.i.i.i77.i271 = zext nneg i32 %add15.i.i.i72.i264 to i64
   %mul.i.i.i.i78.i272 = mul nuw nsw i64 %conv.i.i.i.i77.i271, 72
-  %call.i.i.i.i.i273 = call ptr @realloc(ptr noundef %292, i64 noundef %mul.i.i.i.i78.i272) #19
+  %call.i.i.i.i.i273 = call ptr @realloc(ptr noundef %292, i64 noundef %mul.i.i.i.i78.i272) #20
   %tobool27.not.i.i.i79.i274 = icmp eq ptr %call.i.i.i.i.i273, null
   br i1 %tobool27.not.i.i.i79.i274, label %if.then28.i.i.i.i277, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.i.i.i275
 
@@ -12543,8 +12543,8 @@ _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE5clearEv.exit.i220: ; preds = %_ZL
   %spec.select.i.i1.i.i57.i222 = select i1 %cmp.i.i.i.i56.i221, ptr @_hb_NullPool, ptr %296
   %layout_scripts.i223 = getelementptr inbounds i8, ptr %plan, i64 424
   call void @_ZNK2OT8GSUBGPOS13prune_langsysEPK8hb_map_tPK8hb_set_tP12hb_hashmap_tIjN2hb10unique_ptrIS4_EELb0EEPS4_(ptr noundef nonnull align 1 dereferenceable(14) %spec.select.i.i1.i.i57.i222, ptr noundef nonnull %duplicate_feature_map.i139, ptr noundef nonnull %layout_scripts.i223, ptr noundef nonnull %gpos_langsys, ptr noundef nonnull %feature_indices.i138)
-  call fastcc void @_ZL14_remap_indexesPK8hb_set_tP8hb_map_t(ptr noundef nonnull %feature_indices.i138, ptr noundef nonnull %gpos_features)
-  call void @hb_blob_destroy(ptr noundef %call.i.i140) #18
+  call fastcc void @_ZL14_remap_indexesPK8hb_set_tP8hb_map_t(ptr noundef %feature_indices.i138, ptr noundef %gpos_features)
+  call void @hb_blob_destroy(ptr noundef %call.i.i140) #19
   store atomic i32 -57005, ptr %duplicate_feature_map.i139 monotonic, align 8
   %298 = load atomic i64, ptr %user_data.i.i.i.i41.i211 acquire, align 8
   %tobool.not.i.i.i.i58.i224 = icmp eq i64 %298, 0
@@ -12554,8 +12554,8 @@ if.then.i.i.i.i.i225:                             ; preds = %_ZN14hb_sparseset_t
   %299 = inttoptr i64 %298 to ptr
   %items.i.i.i.i.i.i226 = getelementptr inbounds i8, ptr %299, i64 40
   call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i.i226, ptr noundef nonnull align 8 dereferenceable(40) %299)
-  %call.i.i.i.i.i.i.i227 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %299) #18
-  call void @free(ptr noundef nonnull %299) #18
+  %call.i.i.i.i.i.i.i227 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %299) #19
+  call void @free(ptr noundef nonnull %299) #19
   store atomic i64 0, ptr %user_data.i.i.i.i41.i211 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i.i228
 
@@ -12565,7 +12565,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i.i228: ; preds = %if.t
   br i1 %tobool.not.i.i.i60.i229, label %_ZL32_closure_glyphs_lookups_featuresIN2OT6Layout4GPOSEEvP16hb_subset_plan_tP8hb_set_tP8hb_map_tS8_P12hb_hashmap_tIjN2hb10unique_ptrIS5_EELb0EEPS9_IjNSA_10shared_ptrIS5_EELb0EEPS9_IjPKNS0_7FeatureELb0EERS5_RS9_Ij9hb_pair_tIPKvSR_ELb0EE.exit, label %if.then.i.i.i61.i230
 
 if.then.i.i.i61.i230:                             ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i.i228
-  call void @free(ptr noundef nonnull %300) #18
+  call void @free(ptr noundef nonnull %300) #19
   store ptr null, ptr %items.i.i.i44.i214, align 8
   br label %_ZL32_closure_glyphs_lookups_featuresIN2OT6Layout4GPOSEEvP16hb_subset_plan_tP8hb_set_tP8hb_map_tS8_P12hb_hashmap_tIjN2hb10unique_ptrIS5_EELb0EEPS9_IjNSA_10shared_ptrIS5_EELb0EEPS9_IjPKNS0_7FeatureELb0EERS5_RS9_Ij9hb_pair_tIPKvSR_ELb0EE.exit
 
@@ -12574,8 +12574,8 @@ _ZL32_closure_glyphs_lookups_featuresIN2OT6Layout4GPOSEEvP16hb_subset_plan_tP8hb
   store i32 0, ptr %occupancy.i.i.i.i231, align 8
   %population.i.i.i.i232 = getelementptr inbounds i8, ptr %duplicate_feature_map.i139, i64 20
   store i32 0, ptr %population.i.i.i.i232, align 4
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %feature_indices.i138) #18
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %lookup_indices.i137) #18
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %feature_indices.i138) #19
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %lookup_indices.i137) #19
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %lookup_indices.i137)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %feature_indices.i138)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %duplicate_feature_map.i139)
@@ -12589,7 +12589,7 @@ if.end16:                                         ; preds = %_ZNK14hb_sparseset_
   br i1 %cmp.i, label %if.then.i692, label %_ZNK9hb_face_t14get_num_glyphsEv.exit
 
 if.then.i692:                                     ; preds = %if.end16
-  %call2.i = call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(416) %301) #18
+  %call2.i = call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(416) %301) #19
   br label %_ZNK9hb_face_t14get_num_glyphsEv.exit
 
 _ZNK9hb_face_t14get_num_glyphsEv.exit:            ; preds = %if.end16, %if.then.i692
@@ -12763,8 +12763,8 @@ if.then.i.i762:                                   ; preds = %if.then.i760
   %idx.ext.i.i.i.i.i = zext nneg i32 %add.i.i.i.i761 to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %spec.select.i.i1.i.i.i756, i64 %idx.ext.i.i.i.i.i
   call void @_ZNK2OT12MathVariants14closure_glyphsEPK8hb_set_tPS1_(ptr noundef nonnull align 1 dereferenceable(12) %add.ptr.i.i.i.i.i, ptr noundef nonnull %_glyphset_mathed, ptr noundef nonnull %variant_glyphs.i.i)
-  call void @hb_set_union(ptr noundef nonnull %_glyphset_mathed, ptr noundef nonnull %variant_glyphs.i.i) #18
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %variant_glyphs.i.i) #18
+  call void @hb_set_union(ptr noundef nonnull %_glyphset_mathed, ptr noundef nonnull %variant_glyphs.i.i) #19
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %variant_glyphs.i.i) #19
   br label %_ZNK2OT4MATH14closure_glyphsEP8hb_set_t.exit.i
 
 _ZNK2OT4MATH14closure_glyphsEP8hb_set_t.exit.i:   ; preds = %if.then.i.i762, %if.then.i760
@@ -12772,7 +12772,7 @@ _ZNK2OT4MATH14closure_glyphsEP8hb_set_t.exit.i:   ; preds = %if.then.i.i762, %if
   br label %_ZL13_math_closureP16hb_subset_plan_tP8hb_set_t.exit
 
 _ZL13_math_closureP16hb_subset_plan_tP8hb_set_t.exit: ; preds = %if.then23, %_ZNK2OT4MATH14closure_glyphsEP8hb_set_t.exit.i
-  call void @hb_blob_destroy(ptr noundef %call.i.i750) #18
+  call void @hb_blob_destroy(ptr noundef %call.i.i750) #19
   %327 = load ptr, ptr %source, align 8
   %num_glyphs.i766 = getelementptr inbounds i8, ptr %327, i64 48
   %328 = load atomic i32, ptr %num_glyphs.i766 monotonic, align 4
@@ -12780,7 +12780,7 @@ _ZL13_math_closureP16hb_subset_plan_tP8hb_set_t.exit: ; preds = %if.then23, %_ZN
   br i1 %cmp.i767, label %if.then.i769, label %_ZNK9hb_face_t14get_num_glyphsEv.exit771
 
 if.then.i769:                                     ; preds = %_ZL13_math_closureP16hb_subset_plan_tP8hb_set_t.exit
-  %call2.i770 = call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(416) %327) #18
+  %call2.i770 = call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(416) %327) #19
   br label %_ZNK9hb_face_t14get_num_glyphsEv.exit771
 
 _ZNK9hb_face_t14get_num_glyphsEv.exit771:         ; preds = %_ZL13_math_closureP16hb_subset_plan_tP8hb_set_t.exit, %if.then.i769
@@ -12925,17 +12925,17 @@ if.then31:                                        ; preds = %_ZNK14hb_sparseset_
   %num_glyphs_set.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i841, i64 60
   %lazy_some_gpos.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i841, i64 61
   store i8 0, ptr %lazy_some_gpos.i.i.i, align 1
-  %call.i.i.i = call i32 @hb_face_get_glyph_count(ptr noundef %343) #18
+  %call.i.i.i = call i32 @hb_face_get_glyph_count(ptr noundef %343) #19
   store i32 %call.i.i.i, ptr %num_glyphs.i.i.i, align 8
   store i8 1, ptr %num_glyphs_set.i.i.i, align 4
-  %call2.i.i.i842 = call ptr @hb_face_reference_table(ptr noundef %343, i32 noundef 1129270354) #18
+  %call2.i.i.i842 = call ptr @hb_face_reference_table(ptr noundef %343, i32 noundef 1129270354) #19
   %call3.i.i.i = call noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4COLREEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %ref.tmp.i.i841, ptr noundef %call2.i.i.i842)
   %344 = load ptr, ptr %blob.i.i.i, align 8
   %tobool.not.i.i.i843 = icmp eq ptr %344, null
   br i1 %tobool.not.i.i.i843, label %_ZN2OT4COLR13accelerator_tC2EP9hb_face_t.exit.i, label %if.then.i3.i.i
 
 if.then.i3.i.i:                                   ; preds = %if.then31
-  call void @hb_blob_destroy(ptr noundef nonnull %344) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %344) #19
   br label %_ZN2OT4COLR13accelerator_tC2EP9hb_face_t.exit.i
 
 _ZN2OT4COLR13accelerator_tC2EP9hb_face_t.exit.i:  ; preds = %if.then.i3.i.i, %if.then31
@@ -13048,7 +13048,7 @@ for.end.i:                                        ; preds = %_ZNR9hb_iter_tIN23h
   %cmp.i.i.i.i.i34.i = icmp ult i32 %360, 14
   %spec.select.i.i1.i.i.i35.i = select i1 %cmp.i.i.i.i.i34.i, ptr @_hb_NullPool, ptr %359
   call void @_ZNK2OT4COLR25closure_V0palette_indicesEPK8hb_set_tPS1_(ptr noundef nonnull align 1 dereferenceable(34) %spec.select.i.i1.i.i.i35.i, ptr noundef nonnull %cur_glyphset, ptr noundef nonnull %palette_indices.i)
-  call fastcc void @_ZL14_remap_indexesPK8hb_set_tP8hb_map_t(ptr noundef nonnull %layer_indices.i, ptr noundef nonnull %colrv1_layers)
+  call fastcc void @_ZL14_remap_indexesPK8hb_set_tP8hb_map_t(ptr noundef %layer_indices.i, ptr noundef %colrv1_layers)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %new_idx.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__begin1.i.i840)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %palette_index.i.i)
@@ -13112,13 +13112,13 @@ _ZL22_remap_palette_indexesPK8hb_set_tP8hb_map_t.exit.i: ; preds = %_ZNR9hb_iter
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %new_idx.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__begin1.i.i840)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %palette_index.i.i)
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %glyphset_colrv0.i) #18
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %layer_indices.i) #18
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %palette_indices.i) #18
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %glyphset_colrv0.i) #19
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %layer_indices.i) #19
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %palette_indices.i) #19
   br label %_ZL13_colr_closureP9hb_face_tP8hb_map_tS2_P8hb_set_t.exit
 
 _ZL13_colr_closureP9hb_face_tP8hb_map_tS2_P8hb_set_t.exit: ; preds = %_ZN2OT4COLR13accelerator_tC2EP9hb_face_t.exit.i, %_ZL22_remap_palette_indexesPK8hb_set_tP8hb_map_t.exit.i
-  call void @hb_blob_destroy(ptr noundef %call3.i.i.i) #18
+  call void @hb_blob_destroy(ptr noundef %call3.i.i.i) #19
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %palette_indices.i)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %layer_indices.i)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %glyphset_colrv0.i)
@@ -13130,7 +13130,7 @@ _ZL13_colr_closureP9hb_face_tP8hb_map_tS2_P8hb_set_t.exit: ; preds = %_ZN2OT4COL
   br i1 %cmp.i870, label %if.then.i872, label %_ZNK9hb_face_t14get_num_glyphsEv.exit874
 
 if.then.i872:                                     ; preds = %_ZL13_colr_closureP9hb_face_tP8hb_map_tS2_P8hb_set_t.exit
-  %call2.i873 = call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(416) %370) #18
+  %call2.i873 = call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(416) %370) #19
   br label %_ZNK9hb_face_t14get_num_glyphsEv.exit874
 
 _ZNK9hb_face_t14get_num_glyphsEv.exit874:         ; preds = %_ZL13_colr_closureP9hb_face_tP8hb_map_tS2_P8hb_set_t.exit, %if.then.i872
@@ -13297,7 +13297,7 @@ if.then7.i:                                       ; preds = %_ZNK14hb_sparseset_
   br i1 %cmp.i.i902, label %if.then.i.i910, label %if.end12.i
 
 if.then.i.i910:                                   ; preds = %if.then7.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %398 = load i8, ptr %spec.select.i.i.i.i.i28.i, align 1
   %conv.i.i.i.i.i911 = zext i8 %398 to i32
   %shl.i.i.i.i.i912 = shl nuw nsw i32 %conv.i.i.i.i.i911, 8
@@ -13315,7 +13315,7 @@ if.then._ZNK2OT4CPAL2v1Ev.exit_crit_edge.i.i:     ; preds = %if.then.i.i910
   br label %_ZNK2OT4CPAL2v1Ev.exit.i.i
 
 if.end.i.i.i916:                                  ; preds = %if.then.i.i910
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %numPalettes.i.i.i.i.i = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i28.i, i64 4
   %400 = load i8, ptr %numPalettes.i.i.i.i.i, align 1
   %conv.i.i.i.i.i.i.i917 = zext i8 %400 to i64
@@ -13446,7 +13446,7 @@ if.then14.i:                                      ; preds = %_ZNK14hb_sparseset_
   %spec.select.i.i1.i.i.i909 = select i1 %cmp.i.i.i.i.i908, ptr @_hb_NullPool, ptr %420
   %gpos_features.i = getelementptr inbounds i8, ptr %plan, i64 1336
   call void @_ZNK2OT8GSUBGPOS16collect_name_idsEPK8hb_map_tP8hb_set_t(ptr noundef nonnull align 1 dereferenceable(14) %spec.select.i.i1.i.i.i909, ptr noundef nonnull %gpos_features.i, ptr noundef nonnull %name_ids.i)
-  call void @hb_blob_destroy(ptr noundef %call.i.i903) #18
+  call void @hb_blob_destroy(ptr noundef %call.i.i903) #19
   %.pre.i = load i32, ptr %length.i.i.i.i.i.i, align 4
   %.pre156.i = load ptr, ptr %arrayZ.i.i.i.i.i.i, align 8
   br label %if.end19.i
@@ -13549,7 +13549,7 @@ if.then21.i:                                      ; preds = %_ZNK14hb_sparseset_
   %spec.select.i.i1.i.i138.i = select i1 %cmp.i.i.i.i137.i, ptr @_hb_NullPool, ptr %433
   %gsub_features.i = getelementptr inbounds i8, ptr %plan, i64 1288
   call void @_ZNK2OT8GSUBGPOS16collect_name_idsEPK8hb_map_tP8hb_set_t(ptr noundef nonnull align 1 dereferenceable(14) %spec.select.i.i1.i.i138.i, ptr noundef nonnull %gsub_features.i, ptr noundef nonnull %name_ids.i)
-  call void @hb_blob_destroy(ptr noundef %call.i132.i) #18
+  call void @hb_blob_destroy(ptr noundef %call.i132.i) #19
   br label %_ZL15_nameid_closureP16hb_subset_plan_tP8hb_set_t.exit
 
 _ZL15_nameid_closureP16hb_subset_plan_tP8hb_set_t.exit: ; preds = %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit130.thr_comm.i, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit130.i, %if.then21.i
@@ -13711,7 +13711,7 @@ for.end.i22.i.i:                                  ; preds = %_ZNK13hb_bit_page_t
 _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE14get_populationEv.exit: ; preds = %_ZNK12hb_bit_set_t14get_populationEv.exit.i.i, %cond.false.i.i, %for.end.i22.i.i
   %cond.i.i937 = phi i32 [ %sub.i.i, %_ZNK12hb_bit_set_t14get_populationEv.exit.i.i ], [ %pop.0.lcssa.i23.i.i, %for.end.i22.i.i ], [ %442, %cond.false.i.i ]
   %mul = shl i32 %cond.i.i937, 6
-  %call44 = call fastcc noundef i32 @_ZL26_glyf_add_gid_and_childrenRKN2OT18glyf_accelerator_tEjP8hb_set_tij(ptr noundef nonnull align 8 dereferenceable(48) %glyf, i32 noundef %440, ptr noundef nonnull %_glyphset, i32 noundef %mul, i32 noundef 0)
+  %call44 = call fastcc noundef i32 @_ZL26_glyf_add_gid_and_childrenRKN2OT18glyf_accelerator_tEjP8hb_set_tij(ptr noundef nonnull align 8 dereferenceable(48) %glyf, i32 noundef %440, ptr noundef %_glyphset, i32 noundef %mul, i32 noundef 0)
   %457 = load ptr, ptr %__begin2, align 8
   %call.i.i948 = call noundef zeroext i1 @_ZNK23hb_bit_set_invertible_t4nextEPj(ptr noundef nonnull align 8 dereferenceable(49) %457, ptr noundef nonnull %436)
   %458 = load i32, ptr %l.i.i, align 4
@@ -13784,7 +13784,7 @@ for.body60:                                       ; preds = %for.body60.lr.ph, %
   %has_seac53.11173 = phi i8 [ 0, %for.body60.lr.ph ], [ %spec.select, %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit979 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %base_gid.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %accent_gid.i)
-  %call.i970 = call noundef zeroext i1 @_ZNK2OT4cff120accelerator_subset_t19get_seac_componentsEjPjS2_(ptr noundef nonnull align 8 dereferenceable(312) %cond8, i32 noundef %469, ptr noundef nonnull %base_gid.i, ptr noundef nonnull %accent_gid.i) #18
+  %call.i970 = call noundef zeroext i1 @_ZNK2OT4cff120accelerator_subset_t19get_seac_componentsEjPjS2_(ptr noundef nonnull align 8 dereferenceable(312) %cond8, i32 noundef %469, ptr noundef nonnull %base_gid.i, ptr noundef nonnull %accent_gid.i) #19
   br i1 %call.i970, label %if.then.i971, label %_ZL24_add_cff_seac_componentsRKN2OT4cff120accelerator_subset_tEjP8hb_set_t.exit
 
 if.then.i971:                                     ; preds = %for.body60
@@ -13835,7 +13835,7 @@ if.end73:                                         ; preds = %if.end70, %lor.lhs.
   br i1 %cmp.i981, label %if.then.i983, label %_ZNK9hb_face_t14get_num_glyphsEv.exit985
 
 if.then.i983:                                     ; preds = %if.end73
-  %call2.i984 = call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(416) %478) #18
+  %call2.i984 = call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(416) %478) #19
   br label %_ZNK9hb_face_t14get_num_glyphsEv.exit985
 
 _ZNK9hb_face_t14get_num_glyphsEv.exit985:         ; preds = %if.end73, %if.then.i983
@@ -13972,8 +13972,8 @@ if.then78:                                        ; preds = %_ZNK14hb_sparseset_
   br i1 %tobool.i.not.i1063, label %if.then.i1122, label %if.end.i1064
 
 if.then.i1122:                                    ; preds = %if.then78
-  call void @hb_blob_destroy(ptr noundef %call.i.i1045) #18
-  call void @hb_blob_destroy(ptr noundef %call.i11.i) #18
+  call void @hb_blob_destroy(ptr noundef %call.i.i1045) #19
+  call void @hb_blob_destroy(ptr noundef %call.i11.i) #19
   br label %_ZL33_collect_layout_variation_indicesP16hb_subset_plan_t.exit
 
 if.end.i1064:                                     ; preds = %if.then78
@@ -14022,7 +14022,7 @@ _ZNK2OT4GDEF25collect_variation_indicesEPNS_38hb_collect_variation_indices_conte
   %retval.0.i.i.i1074 = phi ptr [ %retval.0.i.i.i.i.i1121, %sw.bb.i.i.i1112 ], [ @_hb_NullPool, %if.end.i1064 ]
   call void @_ZNK2OT12LigCaretList25collect_variation_indicesEPNS_38hb_collect_variation_indices_context_tE(ptr noundef nonnull align 1 dereferenceable(6) %retval.0.i.i.i1074, ptr noundef nonnull %c.i)
   %502 = load ptr, ptr %source, align 8
-  %call8.i = call i32 @hb_ot_layout_has_positioning(ptr noundef %502) #18
+  %call8.i = call i32 @hb_ot_layout_has_positioning(ptr noundef %502) #19
   %tobool.not.i1076 = icmp eq i32 %call8.i, 0
   br i1 %tobool.not.i1076, label %if.end11.i, label %if.then9.i
 
@@ -14212,9 +14212,9 @@ _ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit.i.i1099: ; preds = 
 
 _ZL29_generate_varstore_inner_mapsRK8hb_set_tjR11hb_vector_tI14hb_inc_bimap_tLb0EE.exit.i: ; preds = %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit.i.i1099, %if.end3.i.i, %if.end.i.i1087, %cond.end.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__begin1.i.i1043)
-  call void @hb_blob_destroy(ptr noundef %call.i.i1045) #18
-  call void @hb_blob_destroy(ptr noundef %call.i11.i) #18
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %varidx_set.i) #18
+  call void @hb_blob_destroy(ptr noundef %call.i.i1045) #19
+  call void @hb_blob_destroy(ptr noundef %call.i11.i) #19
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %varidx_set.i) #19
   br label %_ZL33_collect_layout_variation_indicesP16hb_subset_plan_t.exit
 
 _ZL33_collect_layout_variation_indicesP16hb_subset_plan_t.exit: ; preds = %if.then.i1122, %_ZL29_generate_varstore_inner_mapsRK8hb_set_tjR11hb_vector_tI14hb_inc_bimap_tLb0EE.exit.i
@@ -14223,21 +14223,21 @@ _ZL33_collect_layout_variation_indicesP16hb_subset_plan_t.exit: ; preds = %if.th
   br label %if.end79
 
 if.end79:                                         ; preds = %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit1041.thr_comm, %_ZL33_collect_layout_variation_indicesP16hb_subset_plan_t.exit, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit1041
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %cur_glyphset) #18
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %cur_glyphset) #19
   %536 = load ptr, ptr %cff_accelerator.i, align 8
   %tobool.not.i1124 = icmp eq ptr %536, null
   br i1 %tobool.not.i1124, label %_ZN2OT4cff120accelerator_subset_tD2Ev.exit, label %_ZN3CFF24cff_subset_accelerator_t7destroyEPv.exit.i
 
 _ZN3CFF24cff_subset_accelerator_t7destroyEPv.exit.i: ; preds = %if.end79
-  call void @_ZN3CFF24cff_subset_accelerator_tD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %536) #18
-  call void @free(ptr noundef nonnull %536) #18
+  call void @_ZN3CFF24cff_subset_accelerator_tD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %536) #19
+  call void @free(ptr noundef nonnull %536) #19
   br label %_ZN2OT4cff120accelerator_subset_tD2Ev.exit
 
 _ZN2OT4cff120accelerator_subset_tD2Ev.exit:       ; preds = %if.end79, %_ZN3CFF24cff_subset_accelerator_t7destroyEPv.exit.i
-  call void @_ZN2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(304) %stack_cff) #18
+  call void @_ZN2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(304) %stack_cff) #19
   %glyf_table.i = getelementptr inbounds i8, ptr %glyf, i64 40
   %537 = load ptr, ptr %glyf_table.i, align 8
-  call void @hb_blob_destroy(ptr noundef %537) #18
+  call void @hb_blob_destroy(ptr noundef %537) #19
   ret void
 }
 
@@ -14342,7 +14342,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tEixEj.exit: ; preds = %if.end8.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN23hb_subset_accelerator_t6createEP9hb_face_tRK8hb_map_tRK8hb_set_tb(ptr noundef %source, ptr noundef nonnull align 8 dereferenceable(48) %unicode_to_gid_, ptr noundef nonnull align 8 dereferenceable(72) %unicodes_, i1 noundef zeroext %has_seac_) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(352) ptr @calloc(i64 noundef 1, i64 noundef 352) #22
+  %call = tail call noalias dereferenceable_or_null(352) ptr @calloc(i64 noundef 1, i64 noundef 352) #23
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end
 
@@ -14359,16 +14359,16 @@ define hidden void @_ZN16hb_subset_plan_tD2Ev(ptr noundef nonnull align 8 derefe
 entry:
   %dest = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %dest, align 8
-  tail call void @hb_face_destroy(ptr noundef %0) #18
+  tail call void @hb_face_destroy(ptr noundef %0) #19
   %codepoint_to_glyph = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %codepoint_to_glyph, align 8
-  tail call void @hb_map_destroy(ptr noundef %1) #18
+  tail call void @hb_map_destroy(ptr noundef %1) #19
   %glyph_map = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %glyph_map, align 8
-  tail call void @hb_map_destroy(ptr noundef %2) #18
+  tail call void @hb_map_destroy(ptr noundef %2) #19
   %reverse_glyph_map = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %reverse_glyph_map, align 8
-  tail call void @hb_map_destroy(ptr noundef %3) #18
+  tail call void @hb_map_destroy(ptr noundef %3) #19
   %cff1_accel = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load atomic i64, ptr %cff1_accel acquire, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -14384,13 +14384,13 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %tobool.not.i.i.i.i.i, label %_ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj1EE9hb_face_tLj1ES1_E7destroyEPS1_.exit.i.i, label %_ZN3CFF24cff_subset_accelerator_t7destroyEPv.exit.i.i.i.i.i
 
 _ZN3CFF24cff_subset_accelerator_t7destroyEPv.exit.i.i.i.i.i: ; preds = %if.then.i.i
-  tail call void @_ZN3CFF24cff_subset_accelerator_tD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #18
-  tail call void @free(ptr noundef nonnull %6) #18
+  tail call void @_ZN3CFF24cff_subset_accelerator_tD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #19
+  tail call void @free(ptr noundef nonnull %6) #19
   br label %_ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj1EE9hb_face_tLj1ES1_E7destroyEPS1_.exit.i.i
 
 _ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj1EE9hb_face_tLj1ES1_E7destroyEPS1_.exit.i.i: ; preds = %_ZN3CFF24cff_subset_accelerator_t7destroyEPv.exit.i.i.i.i.i, %if.then.i.i
-  tail call void @_ZN2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(304) %5) #18
-  tail call void @free(ptr noundef nonnull %5) #18
+  tail call void @_ZN2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(304) %5) #19
+  tail call void @free(ptr noundef nonnull %5) #19
   br label %_ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj1EE9hb_face_tLj1ES1_E4finiEv.exit
 
 _ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj1EE9hb_face_tLj1ES1_E4finiEv.exit: ; preds = %entry, %_ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj1EE9hb_face_tLj1ES1_E7destroyEPS1_.exit.i.i
@@ -14410,28 +14410,28 @@ if.then.i.i4:                                     ; preds = %_ZN16hb_lazy_loader
   br i1 %tobool.not.i.i.i.i.i6, label %_ZN16hb_lazy_loader_tIN2OT25cff2_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj2EE9hb_face_tLj2ES1_E7destroyEPS1_.exit.i.i, label %_ZN3CFF24cff_subset_accelerator_t7destroyEPv.exit.i.i.i.i.i7
 
 _ZN3CFF24cff_subset_accelerator_t7destroyEPv.exit.i.i.i.i.i7: ; preds = %if.then.i.i4
-  tail call void @_ZN3CFF24cff_subset_accelerator_tD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #18
-  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @_ZN3CFF24cff_subset_accelerator_tD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #19
+  tail call void @free(ptr noundef nonnull %9) #19
   br label %_ZN16hb_lazy_loader_tIN2OT25cff2_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj2EE9hb_face_tLj2ES1_E7destroyEPS1_.exit.i.i
 
 _ZN16hb_lazy_loader_tIN2OT25cff2_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj2EE9hb_face_tLj2ES1_E7destroyEPS1_.exit.i.i: ; preds = %_ZN3CFF24cff_subset_accelerator_t7destroyEPv.exit.i.i.i.i.i7, %if.then.i.i4
-  tail call void @_ZN2OT4cff219accelerator_templ_tIN3CFF32cff2_private_dict_opset_subset_tENS2_31cff2_private_dict_values_base_tINS2_8op_str_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(196) %8) #18
-  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @_ZN2OT4cff219accelerator_templ_tIN3CFF32cff2_private_dict_opset_subset_tENS2_31cff2_private_dict_values_base_tINS2_8op_str_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(196) %8) #19
+  tail call void @free(ptr noundef nonnull %8) #19
   br label %_ZN16hb_lazy_loader_tIN2OT25cff2_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj2EE9hb_face_tLj2ES1_E4finiEv.exit
 
 _ZN16hb_lazy_loader_tIN2OT25cff2_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj2EE9hb_face_tLj2ES1_E4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj1EE9hb_face_tLj1ES1_E4finiEv.exit, %_ZN16hb_lazy_loader_tIN2OT25cff2_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj2EE9hb_face_tLj2ES1_E7destroyEPS1_.exit.i.i
   store atomic i64 0, ptr %cff2_accel monotonic, align 8
   %source = getelementptr inbounds i8, ptr %this, i64 56
   %10 = load ptr, ptr %source, align 8
-  tail call void @hb_face_destroy(ptr noundef %10) #18
+  tail call void @hb_face_destroy(ptr noundef %10) #19
   %inprogress_accelerator = getelementptr inbounds i8, ptr %this, i64 2528
   %11 = load ptr, ptr %inprogress_accelerator, align 8
   %tobool.not = icmp eq ptr %11, null
   br i1 %tobool.not, label %if.end, label %_ZN23hb_subset_accelerator_t7destroyEPv.exit
 
 _ZN23hb_subset_accelerator_t7destroyEPv.exit:     ; preds = %_ZN16hb_lazy_loader_tIN2OT25cff2_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj2EE9hb_face_tLj2ES1_E4finiEv.exit
-  tail call void @_ZN23hb_subset_accelerator_tD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %11) #18
-  tail call void @free(ptr noundef nonnull %11) #18
+  tail call void @_ZN23hb_subset_accelerator_tD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %11) #19
+  tail call void @free(ptr noundef nonnull %11) #19
   br label %if.end
 
 if.end:                                           ; preds = %_ZN23hb_subset_accelerator_t7destroyEPv.exit, %_ZN16hb_lazy_loader_tIN2OT25cff2_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj2EE9hb_face_tLj2ES1_E4finiEv.exit
@@ -14447,7 +14447,7 @@ if.then.i.i9:                                     ; preds = %if.end
   store i32 0, ptr %length.i.i.i, align 4
   %arrayZ.i.i = getelementptr inbounds i8, ptr %this, i64 2416
   %13 = load ptr, ptr %arrayZ.i.i, align 8
-  tail call void @free(ptr noundef %13) #18
+  tail call void @free(ptr noundef %13) #19
   br label %_ZN11hb_vector_tIjLb0EED2Ev.exit
 
 _ZN11hb_vector_tIjLb0EED2Ev.exit:                 ; preds = %if.end, %if.then.i.i9
@@ -14462,7 +14462,7 @@ if.then.i.i11:                                    ; preds = %_ZN11hb_vector_tIjL
   store i32 0, ptr %length.i.i.i12, align 4
   %arrayZ.i.i13 = getelementptr inbounds i8, ptr %this, i64 2400
   %15 = load ptr, ptr %arrayZ.i.i13, align 8
-  tail call void @free(ptr noundef %15) #18
+  tail call void @free(ptr noundef %15) #19
   br label %_ZN11hb_vector_tIjLb0EED2Ev.exit14
 
 _ZN11hb_vector_tIjLb0EED2Ev.exit14:               ; preds = %_ZN11hb_vector_tIjLb0EED2Ev.exit, %if.then.i.i11
@@ -14478,8 +14478,8 @@ if.then.i.i.i:                                    ; preds = %_ZN11hb_vector_tIjL
   %17 = inttoptr i64 %16 to ptr
   %items.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %17)
-  %call.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %17) #18
-  tail call void @free(ptr noundef nonnull %17) #18
+  %call.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %17) #19
+  tail call void @free(ptr noundef nonnull %17) #19
   store atomic i64 0, ptr %user_data2.i.i.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIj9hb_pair_tIjiELb0EEEvPT_.exit.i.i
 
@@ -14490,7 +14490,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIj9hb_pair_tIjiELb0EEEvPT_.exit.i.i: ; preds =
   br i1 %tobool.not.i.i15, label %_ZN12hb_hashmap_tIj9hb_pair_tIjiELb0EED2Ev.exit, label %if.then.i.i16
 
 if.then.i.i16:                                    ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIj9hb_pair_tIjiELb0EEEvPT_.exit.i.i
-  tail call void @free(ptr noundef nonnull %18) #18
+  tail call void @free(ptr noundef nonnull %18) #19
   store ptr null, ptr %items.i.i, align 8
   br label %_ZN12hb_hashmap_tIj9hb_pair_tIjiELb0EED2Ev.exit
 
@@ -14510,8 +14510,8 @@ if.then.i.i.i19:                                  ; preds = %_ZN12hb_hashmap_tIj
   %20 = inttoptr i64 %19 to ptr
   %items.i.i.i.i20 = getelementptr inbounds i8, ptr %20, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i20, ptr noundef nonnull align 8 dereferenceable(40) %20)
-  %call.i.i.i.i.i21 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %20) #18
-  tail call void @free(ptr noundef nonnull %20) #18
+  %call.i.i.i.i.i21 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %20) #19
+  tail call void @free(ptr noundef nonnull %20) #19
   store atomic i64 0, ptr %user_data2.i.i.i17 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIj9hb_pair_tIjiELb0EEEvPT_.exit.i.i22
 
@@ -14522,7 +14522,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIj9hb_pair_tIjiELb0EEEvPT_.exit.i.i22: ; preds
   br i1 %tobool.not.i.i24, label %_ZN12hb_hashmap_tIj9hb_pair_tIjiELb0EED2Ev.exit28, label %if.then.i.i25
 
 if.then.i.i25:                                    ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIj9hb_pair_tIjiELb0EEEvPT_.exit.i.i22
-  tail call void @free(ptr noundef nonnull %21) #18
+  tail call void @free(ptr noundef nonnull %21) #19
   store ptr null, ptr %items.i.i23, align 8
   br label %_ZN12hb_hashmap_tIj9hb_pair_tIjiELb0EED2Ev.exit28
 
@@ -14541,7 +14541,7 @@ if.then.i.i30:                                    ; preds = %_ZN12hb_hashmap_tIj
   store i32 0, ptr %length.i.i.i31, align 4
   %arrayZ.i.i32 = getelementptr inbounds i8, ptr %this, i64 2288
   %23 = load ptr, ptr %arrayZ.i.i32, align 8
-  tail call void @free(ptr noundef %23) #18
+  tail call void @free(ptr noundef %23) #19
   br label %_ZN11hb_vector_tIjLb0EED2Ev.exit33
 
 _ZN11hb_vector_tIjLb0EED2Ev.exit33:               ; preds = %_ZN12hb_hashmap_tIj9hb_pair_tIjiELb0EED2Ev.exit28, %if.then.i.i30
@@ -14557,8 +14557,8 @@ if.then.i.i.i.i:                                  ; preds = %_ZN11hb_vector_tIjL
   %25 = inttoptr i64 %24 to ptr
   %items.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %25)
-  %call.i.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %25) #18
-  tail call void @free(ptr noundef nonnull %25) #18
+  %call.i.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %25) #19
+  tail call void @free(ptr noundef nonnull %25) #19
   store atomic i64 0, ptr %user_data2.i.i.i.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
 
@@ -14569,7 +14569,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i: ; preds = %if.then.i
   br i1 %tobool.not.i.i.i34, label %_ZN8hb_map_tD2Ev.exit, label %if.then.i.i.i35
 
 if.then.i.i.i35:                                  ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
-  tail call void @free(ptr noundef nonnull %26) #18
+  tail call void @free(ptr noundef nonnull %26) #19
   store ptr null, ptr %items.i.i.i, align 8
   br label %_ZN8hb_map_tD2Ev.exit
 
@@ -14589,8 +14589,8 @@ if.then.i.i.i.i38:                                ; preds = %_ZN8hb_map_tD2Ev.ex
   %28 = inttoptr i64 %27 to ptr
   %items.i.i.i.i.i39 = getelementptr inbounds i8, ptr %28, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i39, ptr noundef nonnull align 8 dereferenceable(40) %28)
-  %call.i.i.i.i.i.i40 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %28) #18
-  tail call void @free(ptr noundef nonnull %28) #18
+  %call.i.i.i.i.i.i40 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %28) #19
+  tail call void @free(ptr noundef nonnull %28) #19
   store atomic i64 0, ptr %user_data2.i.i.i.i36 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i41
 
@@ -14601,7 +14601,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i41: ; preds = %if.then
   br i1 %tobool.not.i.i.i43, label %_ZN8hb_map_tD2Ev.exit47, label %if.then.i.i.i44
 
 if.then.i.i.i44:                                  ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i41
-  tail call void @free(ptr noundef nonnull %29) #18
+  tail call void @free(ptr noundef nonnull %29) #19
   store ptr null, ptr %items.i.i.i42, align 8
   br label %_ZN8hb_map_tD2Ev.exit47
 
@@ -14621,8 +14621,8 @@ if.then.i.i.i50:                                  ; preds = %_ZN8hb_map_tD2Ev.ex
   %31 = inttoptr i64 %30 to ptr
   %items.i.i.i.i51 = getelementptr inbounds i8, ptr %31, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i51, ptr noundef nonnull align 8 dereferenceable(40) %31)
-  %call.i.i.i.i.i52 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %31) #18
-  tail call void @free(ptr noundef nonnull %31) #18
+  %call.i.i.i.i.i52 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %31) #19
+  tail call void @free(ptr noundef nonnull %31) #19
   store atomic i64 0, ptr %user_data2.i.i.i48 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIj15TripleDistancesLb0EEEvPT_.exit.i.i
 
@@ -14633,7 +14633,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIj15TripleDistancesLb0EEEvPT_.exit.i.i: ; pred
   br i1 %tobool.not.i.i54, label %_ZN12hb_hashmap_tIj15TripleDistancesLb0EED2Ev.exit, label %if.then.i.i55
 
 if.then.i.i55:                                    ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIj15TripleDistancesLb0EEEvPT_.exit.i.i
-  tail call void @free(ptr noundef nonnull %32) #18
+  tail call void @free(ptr noundef nonnull %32) #19
   store ptr null, ptr %items.i.i53, align 8
   br label %_ZN12hb_hashmap_tIj15TripleDistancesLb0EED2Ev.exit
 
@@ -14653,8 +14653,8 @@ if.then.i.i.i60:                                  ; preds = %_ZN12hb_hashmap_tIj
   %34 = inttoptr i64 %33 to ptr
   %items.i.i.i.i61 = getelementptr inbounds i8, ptr %34, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i61, ptr noundef nonnull align 8 dereferenceable(40) %34)
-  %call.i.i.i.i.i62 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %34) #18
-  tail call void @free(ptr noundef nonnull %34) #18
+  %call.i.i.i.i.i62 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %34) #19
+  tail call void @free(ptr noundef nonnull %34) #19
   store atomic i64 0, ptr %user_data2.i.i.i58 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIj6TripleLb0EEEvPT_.exit.i.i
 
@@ -14665,7 +14665,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIj6TripleLb0EEEvPT_.exit.i.i: ; preds = %if.th
   br i1 %tobool.not.i.i64, label %_ZN12hb_hashmap_tIj6TripleLb0EED2Ev.exit, label %if.then.i.i65
 
 if.then.i.i65:                                    ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIj6TripleLb0EEEvPT_.exit.i.i
-  tail call void @free(ptr noundef nonnull %35) #18
+  tail call void @free(ptr noundef nonnull %35) #19
   store ptr null, ptr %items.i.i63, align 8
   br label %_ZN12hb_hashmap_tIj6TripleLb0EED2Ev.exit
 
@@ -14684,7 +14684,7 @@ if.then.i.i69:                                    ; preds = %_ZN12hb_hashmap_tIj
   store i32 0, ptr %length.i.i.i70, align 4
   %arrayZ.i.i71 = getelementptr inbounds i8, ptr %this, i64 2080
   %37 = load ptr, ptr %arrayZ.i.i71, align 8
-  tail call void @free(ptr noundef %37) #18
+  tail call void @free(ptr noundef %37) #19
   br label %_ZN11hb_vector_tIiLb0EED2Ev.exit
 
 _ZN11hb_vector_tIiLb0EED2Ev.exit:                 ; preds = %_ZN12hb_hashmap_tIj6TripleLb0EED2Ev.exit, %if.then.i.i69
@@ -14700,8 +14700,8 @@ if.then.i.i.i74:                                  ; preds = %_ZN11hb_vector_tIiL
   %39 = inttoptr i64 %38 to ptr
   %items.i.i.i.i75 = getelementptr inbounds i8, ptr %39, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i75, ptr noundef nonnull align 8 dereferenceable(40) %39)
-  %call.i.i.i.i.i76 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %39) #18
-  tail call void @free(ptr noundef nonnull %39) #18
+  %call.i.i.i.i.i76 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %39) #19
+  tail call void @free(ptr noundef nonnull %39) #19
   store atomic i64 0, ptr %user_data2.i.i.i72 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIj6TripleLb0EEEvPT_.exit.i.i77
 
@@ -14712,7 +14712,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIj6TripleLb0EEEvPT_.exit.i.i77: ; preds = %if.
   br i1 %tobool.not.i.i79, label %_ZN12hb_hashmap_tIj6TripleLb0EED2Ev.exit83, label %if.then.i.i80
 
 if.then.i.i80:                                    ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIj6TripleLb0EEEvPT_.exit.i.i77
-  tail call void @free(ptr noundef nonnull %40) #18
+  tail call void @free(ptr noundef nonnull %40) #19
   store ptr null, ptr %items.i.i78, align 8
   br label %_ZN12hb_hashmap_tIj6TripleLb0EED2Ev.exit83
 
@@ -14732,7 +14732,7 @@ if.then.i.i85:                                    ; preds = %_ZN12hb_hashmap_tIj
   tail call void @_ZN11hb_vector_tI14hb_inc_bimap_tLb0EE13shrink_vectorEj(ptr noundef nonnull align 8 dereferenceable(16) %gdef_varstore_inner_maps, i32 noundef 0)
   %arrayZ.i.i86 = getelementptr inbounds i8, ptr %this, i64 1968
   %42 = load ptr, ptr %arrayZ.i.i86, align 8
-  tail call void @free(ptr noundef %42) #18
+  tail call void @free(ptr noundef %42) #19
   br label %_ZN11hb_vector_tI14hb_inc_bimap_tLb0EED2Ev.exit
 
 _ZN11hb_vector_tI14hb_inc_bimap_tLb0EED2Ev.exit:  ; preds = %_ZN12hb_hashmap_tIj6TripleLb0EED2Ev.exit83, %if.then.i.i85
@@ -14748,8 +14748,8 @@ if.then.i.i.i89:                                  ; preds = %_ZN11hb_vector_tI14
   %44 = inttoptr i64 %43 to ptr
   %items.i.i.i.i90 = getelementptr inbounds i8, ptr %44, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i90, ptr noundef nonnull align 8 dereferenceable(40) %44)
-  %call.i.i.i.i.i91 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %44) #18
-  tail call void @free(ptr noundef nonnull %44) #18
+  %call.i.i.i.i.i91 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %44) #19
+  tail call void @free(ptr noundef nonnull %44) #19
   store atomic i64 0, ptr %user_data2.i.i.i87 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIj9hb_pair_tIjiELb0EEEvPT_.exit.i.i92
 
@@ -14760,7 +14760,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIj9hb_pair_tIjiELb0EEEvPT_.exit.i.i92: ; preds
   br i1 %tobool.not.i.i94, label %_ZN12hb_hashmap_tIj9hb_pair_tIjiELb0EED2Ev.exit98, label %if.then.i.i95
 
 if.then.i.i95:                                    ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIj9hb_pair_tIjiELb0EEEvPT_.exit.i.i92
-  tail call void @free(ptr noundef nonnull %45) #18
+  tail call void @free(ptr noundef nonnull %45) #19
   store ptr null, ptr %items.i.i93, align 8
   br label %_ZN12hb_hashmap_tIj9hb_pair_tIjiELb0EED2Ev.exit98
 
@@ -14780,8 +14780,8 @@ if.then.i.i.i.i101:                               ; preds = %_ZN12hb_hashmap_tIj
   %47 = inttoptr i64 %46 to ptr
   %items.i.i.i.i.i102 = getelementptr inbounds i8, ptr %47, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i102, ptr noundef nonnull align 8 dereferenceable(40) %47)
-  %call.i.i.i.i.i.i103 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %47) #18
-  tail call void @free(ptr noundef nonnull %47) #18
+  %call.i.i.i.i.i.i103 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %47) #19
+  tail call void @free(ptr noundef nonnull %47) #19
   store atomic i64 0, ptr %user_data2.i.i.i.i99 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i104
 
@@ -14792,7 +14792,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i104: ; preds = %if.the
   br i1 %tobool.not.i.i.i106, label %_ZN8hb_map_tD2Ev.exit110, label %if.then.i.i.i107
 
 if.then.i.i.i107:                                 ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i104
-  tail call void @free(ptr noundef nonnull %48) #18
+  tail call void @free(ptr noundef nonnull %48) #19
   store ptr null, ptr %items.i.i.i105, align 8
   br label %_ZN8hb_map_tD2Ev.exit110
 
@@ -14812,8 +14812,8 @@ if.then.i.i.i.i113:                               ; preds = %_ZN8hb_map_tD2Ev.ex
   %50 = inttoptr i64 %49 to ptr
   %items.i.i.i.i.i114 = getelementptr inbounds i8, ptr %50, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i114, ptr noundef nonnull align 8 dereferenceable(40) %50)
-  %call.i.i.i.i.i.i115 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %50) #18
-  tail call void @free(ptr noundef nonnull %50) #18
+  %call.i.i.i.i.i.i115 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %50) #19
+  tail call void @free(ptr noundef nonnull %50) #19
   store atomic i64 0, ptr %user_data2.i.i.i.i111 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i116
 
@@ -14824,7 +14824,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i116: ; preds = %if.the
   br i1 %tobool.not.i.i.i118, label %_ZN8hb_map_tD2Ev.exit122, label %if.then.i.i.i119
 
 if.then.i.i.i119:                                 ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i116
-  tail call void @free(ptr noundef nonnull %51) #18
+  tail call void @free(ptr noundef nonnull %51) #19
   store ptr null, ptr %items.i.i.i117, align 8
   br label %_ZN8hb_map_tD2Ev.exit122
 
@@ -14844,8 +14844,8 @@ if.then.i.i.i125:                                 ; preds = %_ZN8hb_map_tD2Ev.ex
   %53 = inttoptr i64 %52 to ptr
   %items.i.i.i.i126 = getelementptr inbounds i8, ptr %53, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i126, ptr noundef nonnull align 8 dereferenceable(40) %53)
-  %call.i.i.i.i.i127 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %53) #18
-  tail call void @free(ptr noundef nonnull %53) #18
+  %call.i.i.i.i.i127 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %53) #19
+  tail call void @free(ptr noundef nonnull %53) #19
   store atomic i64 0, ptr %user_data2.i.i.i123 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIj9hb_pair_tIPKvS3_ELb0EEEvPT_.exit.i.i
 
@@ -14856,7 +14856,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIj9hb_pair_tIPKvS3_ELb0EEEvPT_.exit.i.i: ; pre
   br i1 %tobool.not.i.i129, label %_ZN12hb_hashmap_tIj9hb_pair_tIPKvS2_ELb0EED2Ev.exit, label %if.then.i.i130
 
 if.then.i.i130:                                   ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIj9hb_pair_tIPKvS3_ELb0EEEvPT_.exit.i.i
-  tail call void @free(ptr noundef nonnull %54) #18
+  tail call void @free(ptr noundef nonnull %54) #19
   store ptr null, ptr %items.i.i128, align 8
   br label %_ZN12hb_hashmap_tIj9hb_pair_tIPKvS2_ELb0EED2Ev.exit
 
@@ -14876,8 +14876,8 @@ if.then.i.i.i135:                                 ; preds = %_ZN12hb_hashmap_tIj
   %56 = inttoptr i64 %55 to ptr
   %items.i.i.i.i136 = getelementptr inbounds i8, ptr %56, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i136, ptr noundef nonnull align 8 dereferenceable(40) %56)
-  %call.i.i.i.i.i137 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %56) #18
-  tail call void @free(ptr noundef nonnull %56) #18
+  %call.i.i.i.i.i137 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %56) #19
+  tail call void @free(ptr noundef nonnull %56) #19
   store atomic i64 0, ptr %user_data2.i.i.i133 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIj9hb_pair_tIPKvS3_ELb0EEEvPT_.exit.i.i138
 
@@ -14888,7 +14888,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIj9hb_pair_tIPKvS3_ELb0EEEvPT_.exit.i.i138: ; 
   br i1 %tobool.not.i.i140, label %_ZN12hb_hashmap_tIj9hb_pair_tIPKvS2_ELb0EED2Ev.exit144, label %if.then.i.i141
 
 if.then.i.i141:                                   ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIj9hb_pair_tIPKvS3_ELb0EEEvPT_.exit.i.i138
-  tail call void @free(ptr noundef nonnull %57) #18
+  tail call void @free(ptr noundef nonnull %57) #19
   store ptr null, ptr %items.i.i139, align 8
   br label %_ZN12hb_hashmap_tIj9hb_pair_tIPKvS2_ELb0EED2Ev.exit144
 
@@ -14898,9 +14898,9 @@ _ZN12hb_hashmap_tIj9hb_pair_tIPKvS2_ELb0EED2Ev.exit144: ; preds = %_ZL14hb_objec
   %population.i.i143 = getelementptr inbounds i8, ptr %this, i64 1740
   store i32 0, ptr %population.i.i143, align 4
   %gpos_old_features = getelementptr inbounds i8, ptr %this, i64 1648
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %gpos_old_features) #18
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %gpos_old_features) #19
   %gsub_old_features = getelementptr inbounds i8, ptr %this, i64 1576
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %gsub_old_features) #18
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %gsub_old_features) #19
   %gpos_feature_substitutes_map = getelementptr inbounds i8, ptr %this, i64 1528
   store atomic i32 -57005, ptr %gpos_feature_substitutes_map monotonic, align 8
   %user_data2.i.i.i145 = getelementptr inbounds i8, ptr %this, i64 1536
@@ -14912,8 +14912,8 @@ if.then.i.i.i147:                                 ; preds = %_ZN12hb_hashmap_tIj
   %59 = inttoptr i64 %58 to ptr
   %items.i.i.i.i148 = getelementptr inbounds i8, ptr %59, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i148, ptr noundef nonnull align 8 dereferenceable(40) %59)
-  %call.i.i.i.i.i149 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %59) #18
-  tail call void @free(ptr noundef nonnull %59) #18
+  %call.i.i.i.i.i149 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %59) #19
+  tail call void @free(ptr noundef nonnull %59) #19
   store atomic i64 0, ptr %user_data2.i.i.i145 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjPKN2OT7FeatureELb0EEEvPT_.exit.i.i
 
@@ -14924,7 +14924,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjPKN2OT7FeatureELb0EEEvPT_.exit.i.i: ; preds 
   br i1 %tobool.not.i.i151, label %_ZN12hb_hashmap_tIjPKN2OT7FeatureELb0EED2Ev.exit, label %if.then.i.i152
 
 if.then.i.i152:                                   ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjPKN2OT7FeatureELb0EEEvPT_.exit.i.i
-  tail call void @free(ptr noundef nonnull %60) #18
+  tail call void @free(ptr noundef nonnull %60) #19
   store ptr null, ptr %items.i.i150, align 8
   br label %_ZN12hb_hashmap_tIjPKN2OT7FeatureELb0EED2Ev.exit
 
@@ -14944,8 +14944,8 @@ if.then.i.i.i157:                                 ; preds = %_ZN12hb_hashmap_tIj
   %62 = inttoptr i64 %61 to ptr
   %items.i.i.i.i158 = getelementptr inbounds i8, ptr %62, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i158, ptr noundef nonnull align 8 dereferenceable(40) %62)
-  %call.i.i.i.i.i159 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %62) #18
-  tail call void @free(ptr noundef nonnull %62) #18
+  %call.i.i.i.i.i159 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %62) #19
+  tail call void @free(ptr noundef nonnull %62) #19
   store atomic i64 0, ptr %user_data2.i.i.i155 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjPKN2OT7FeatureELb0EEEvPT_.exit.i.i160
 
@@ -14956,7 +14956,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjPKN2OT7FeatureELb0EEEvPT_.exit.i.i160: ; pre
   br i1 %tobool.not.i.i162, label %_ZN12hb_hashmap_tIjPKN2OT7FeatureELb0EED2Ev.exit166, label %if.then.i.i163
 
 if.then.i.i163:                                   ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjPKN2OT7FeatureELb0EEEvPT_.exit.i.i160
-  tail call void @free(ptr noundef nonnull %63) #18
+  tail call void @free(ptr noundef nonnull %63) #19
   store ptr null, ptr %items.i.i161, align 8
   br label %_ZN12hb_hashmap_tIjPKN2OT7FeatureELb0EED2Ev.exit166
 
@@ -14980,8 +14980,8 @@ if.then.i.i.i.i169:                               ; preds = %_ZN12hb_hashmap_tIj
   %65 = inttoptr i64 %64 to ptr
   %items.i.i.i.i.i170 = getelementptr inbounds i8, ptr %65, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i170, ptr noundef nonnull align 8 dereferenceable(40) %65)
-  %call.i.i.i.i.i.i171 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %65) #18
-  tail call void @free(ptr noundef nonnull %65) #18
+  %call.i.i.i.i.i.i171 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %65) #19
+  tail call void @free(ptr noundef nonnull %65) #19
   store atomic i64 0, ptr %user_data2.i.i.i.i167 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i172
 
@@ -14992,7 +14992,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i172: ; preds = %if.the
   br i1 %tobool.not.i.i.i174, label %_ZN8hb_map_tD2Ev.exit178, label %if.then.i.i.i175
 
 if.then.i.i.i175:                                 ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i172
-  tail call void @free(ptr noundef nonnull %66) #18
+  tail call void @free(ptr noundef nonnull %66) #19
   store ptr null, ptr %items.i.i.i173, align 8
   br label %_ZN8hb_map_tD2Ev.exit178
 
@@ -15012,8 +15012,8 @@ if.then.i.i.i.i181:                               ; preds = %_ZN8hb_map_tD2Ev.ex
   %68 = inttoptr i64 %67 to ptr
   %items.i.i.i.i.i182 = getelementptr inbounds i8, ptr %68, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i182, ptr noundef nonnull align 8 dereferenceable(40) %68)
-  %call.i.i.i.i.i.i183 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %68) #18
-  tail call void @free(ptr noundef nonnull %68) #18
+  %call.i.i.i.i.i.i183 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %68) #19
+  tail call void @free(ptr noundef nonnull %68) #19
   store atomic i64 0, ptr %user_data2.i.i.i.i179 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i184
 
@@ -15024,7 +15024,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i184: ; preds = %if.the
   br i1 %tobool.not.i.i.i186, label %_ZN8hb_map_tD2Ev.exit190, label %if.then.i.i.i187
 
 if.then.i.i.i187:                                 ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i184
-  tail call void @free(ptr noundef nonnull %69) #18
+  tail call void @free(ptr noundef nonnull %69) #19
   store ptr null, ptr %items.i.i.i185, align 8
   br label %_ZN8hb_map_tD2Ev.exit190
 
@@ -15048,8 +15048,8 @@ if.then.i.i.i.i193:                               ; preds = %_ZN8hb_map_tD2Ev.ex
   %71 = inttoptr i64 %70 to ptr
   %items.i.i.i.i.i194 = getelementptr inbounds i8, ptr %71, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i194, ptr noundef nonnull align 8 dereferenceable(40) %71)
-  %call.i.i.i.i.i.i195 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %71) #18
-  tail call void @free(ptr noundef nonnull %71) #18
+  %call.i.i.i.i.i.i195 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %71) #19
+  tail call void @free(ptr noundef nonnull %71) #19
   store atomic i64 0, ptr %user_data2.i.i.i.i191 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i196
 
@@ -15060,7 +15060,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i196: ; preds = %if.the
   br i1 %tobool.not.i.i.i198, label %_ZN8hb_map_tD2Ev.exit202, label %if.then.i.i.i199
 
 if.then.i.i.i199:                                 ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i196
-  tail call void @free(ptr noundef nonnull %72) #18
+  tail call void @free(ptr noundef nonnull %72) #19
   store ptr null, ptr %items.i.i.i197, align 8
   br label %_ZN8hb_map_tD2Ev.exit202
 
@@ -15080,8 +15080,8 @@ if.then.i.i.i.i205:                               ; preds = %_ZN8hb_map_tD2Ev.ex
   %74 = inttoptr i64 %73 to ptr
   %items.i.i.i.i.i206 = getelementptr inbounds i8, ptr %74, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i206, ptr noundef nonnull align 8 dereferenceable(40) %74)
-  %call.i.i.i.i.i.i207 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %74) #18
-  tail call void @free(ptr noundef nonnull %74) #18
+  %call.i.i.i.i.i.i207 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %74) #19
+  tail call void @free(ptr noundef nonnull %74) #19
   store atomic i64 0, ptr %user_data2.i.i.i.i203 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i208
 
@@ -15092,7 +15092,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i208: ; preds = %if.the
   br i1 %tobool.not.i.i.i210, label %_ZN8hb_map_tD2Ev.exit214, label %if.then.i.i.i211
 
 if.then.i.i.i211:                                 ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i208
-  tail call void @free(ptr noundef nonnull %75) #18
+  tail call void @free(ptr noundef nonnull %75) #19
   store ptr null, ptr %items.i.i.i209, align 8
   br label %_ZN8hb_map_tD2Ev.exit214
 
@@ -15112,8 +15112,8 @@ if.then.i.i.i.i217:                               ; preds = %_ZN8hb_map_tD2Ev.ex
   %77 = inttoptr i64 %76 to ptr
   %items.i.i.i.i.i218 = getelementptr inbounds i8, ptr %77, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i218, ptr noundef nonnull align 8 dereferenceable(40) %77)
-  %call.i.i.i.i.i.i219 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %77) #18
-  tail call void @free(ptr noundef nonnull %77) #18
+  %call.i.i.i.i.i.i219 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %77) #19
+  tail call void @free(ptr noundef nonnull %77) #19
   store atomic i64 0, ptr %user_data2.i.i.i.i215 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i220
 
@@ -15124,7 +15124,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i220: ; preds = %if.the
   br i1 %tobool.not.i.i.i222, label %_ZN8hb_map_tD2Ev.exit226, label %if.then.i.i.i223
 
 if.then.i.i.i223:                                 ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i220
-  tail call void @free(ptr noundef nonnull %78) #18
+  tail call void @free(ptr noundef nonnull %78) #19
   store ptr null, ptr %items.i.i.i221, align 8
   br label %_ZN8hb_map_tD2Ev.exit226
 
@@ -15134,13 +15134,13 @@ _ZN8hb_map_tD2Ev.exit226:                         ; preds = %_ZL14hb_object_fini
   %population.i.i.i225 = getelementptr inbounds i8, ptr %this, i64 1068
   store i32 0, ptr %population.i.i.i225, align 4
   %_glyphset_colred = getelementptr inbounds i8, ptr %this, i64 976
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %_glyphset_colred) #18
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %_glyphset_colred) #19
   %_glyphset_mathed = getelementptr inbounds i8, ptr %this, i64 904
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %_glyphset_mathed) #18
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %_glyphset_mathed) #19
   %_glyphset_gsub = getelementptr inbounds i8, ptr %this, i64 832
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %_glyphset_gsub) #18
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %_glyphset_gsub) #19
   %_glyphset = getelementptr inbounds i8, ptr %this, i64 760
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %_glyphset) #18
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %_glyphset) #19
   %glyph_map_gsub = getelementptr inbounds i8, ptr %this, i64 712
   store atomic i32 -57005, ptr %glyph_map_gsub monotonic, align 8
   %user_data2.i.i.i.i227 = getelementptr inbounds i8, ptr %this, i64 720
@@ -15152,8 +15152,8 @@ if.then.i.i.i.i229:                               ; preds = %_ZN8hb_map_tD2Ev.ex
   %80 = inttoptr i64 %79 to ptr
   %items.i.i.i.i.i230 = getelementptr inbounds i8, ptr %80, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i230, ptr noundef nonnull align 8 dereferenceable(40) %80)
-  %call.i.i.i.i.i.i231 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %80) #18
-  tail call void @free(ptr noundef nonnull %80) #18
+  %call.i.i.i.i.i.i231 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %80) #19
+  tail call void @free(ptr noundef nonnull %80) #19
   store atomic i64 0, ptr %user_data2.i.i.i.i227 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i232
 
@@ -15164,7 +15164,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i232: ; preds = %if.the
   br i1 %tobool.not.i.i.i234, label %_ZN8hb_map_tD2Ev.exit238, label %if.then.i.i.i235
 
 if.then.i.i.i235:                                 ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i232
-  tail call void @free(ptr noundef nonnull %81) #18
+  tail call void @free(ptr noundef nonnull %81) #19
   store ptr null, ptr %items.i.i.i233, align 8
   br label %_ZN8hb_map_tD2Ev.exit238
 
@@ -15174,19 +15174,19 @@ _ZN8hb_map_tD2Ev.exit238:                         ; preds = %_ZL14hb_object_fini
   %population.i.i.i237 = getelementptr inbounds i8, ptr %this, i64 732
   store i32 0, ptr %population.i.i.i237, align 4
   %drop_tables = getelementptr inbounds i8, ptr %this, i64 640
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %drop_tables) #18
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %drop_tables) #19
   %no_subset_tables = getelementptr inbounds i8, ptr %this, i64 568
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %no_subset_tables) #18
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %no_subset_tables) #19
   %glyphs_requested = getelementptr inbounds i8, ptr %this, i64 496
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %glyphs_requested) #18
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %glyphs_requested) #19
   %layout_scripts = getelementptr inbounds i8, ptr %this, i64 424
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %layout_scripts) #18
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %layout_scripts) #19
   %layout_features = getelementptr inbounds i8, ptr %this, i64 352
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %layout_features) #18
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %layout_features) #19
   %name_languages = getelementptr inbounds i8, ptr %this, i64 280
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %name_languages) #18
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %name_languages) #19
   %name_ids = getelementptr inbounds i8, ptr %this, i64 208
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %name_ids) #18
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %name_ids) #19
   %new_to_old_gid_list = getelementptr inbounds i8, ptr %this, i64 192
   %82 = load i32, ptr %new_to_old_gid_list, align 8
   %tobool.not.i.i239 = icmp eq i32 %82, 0
@@ -15197,7 +15197,7 @@ if.then.i.i240:                                   ; preds = %_ZN8hb_map_tD2Ev.ex
   store i32 0, ptr %length.i.i.i241, align 4
   %arrayZ.i.i242 = getelementptr inbounds i8, ptr %this, i64 200
   %83 = load ptr, ptr %arrayZ.i.i242, align 8
-  tail call void @free(ptr noundef %83) #18
+  tail call void @free(ptr noundef %83) #19
   br label %_ZN11hb_vector_tI9hb_pair_tIjjELb1EED2Ev.exit
 
 _ZN11hb_vector_tI9hb_pair_tIjjELb1EED2Ev.exit:    ; preds = %_ZN8hb_map_tD2Ev.exit238, %if.then.i.i240
@@ -15212,13 +15212,13 @@ if.then.i.i244:                                   ; preds = %_ZN11hb_vector_tI9h
   store i32 0, ptr %length.i.i.i245, align 4
   %arrayZ.i.i246 = getelementptr inbounds i8, ptr %this, i64 184
   %85 = load ptr, ptr %arrayZ.i.i246, align 8
-  tail call void @free(ptr noundef %85) #18
+  tail call void @free(ptr noundef %85) #19
   br label %_ZN11hb_vector_tI9hb_pair_tIjjELb1EED2Ev.exit247
 
 _ZN11hb_vector_tI9hb_pair_tIjjELb1EED2Ev.exit247: ; preds = %_ZN11hb_vector_tI9hb_pair_tIjjELb1EED2Ev.exit, %if.then.i.i244
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %unicode_to_new_gid_list, i8 0, i64 16, i1 false)
   %unicodes = getelementptr inbounds i8, ptr %this, i64 104
-  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %unicodes) #18
+  tail call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %unicodes) #19
   ret void
 }
 
@@ -15227,7 +15227,7 @@ declare void @hb_map_destroy(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @hb_subset_plan_create_or_fail(ptr noundef %face, ptr noundef %input) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call noalias dereferenceable_or_null(2536) ptr @calloc(i64 noundef 1, i64 noundef 2536) #22
+  %call.i = tail call noalias dereferenceable_or_null(2536) ptr @calloc(i64 noundef 1, i64 noundef 2536) #23
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %return, label %if.end
 
@@ -15265,14 +15265,14 @@ if.then.i.i.i:                                    ; preds = %if.end4.i.i
   %6 = inttoptr i64 %5 to ptr
   %items.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %6)
-  %call.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %6) #18
-  tail call void @free(ptr noundef nonnull %6) #18
+  %call.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %6) #19
+  tail call void @free(ptr noundef nonnull %6) #19
   store atomic i64 0, ptr %user_data.i.i monotonic, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i.i, %if.end4.i.i
-  tail call void @_ZN16hb_subset_plan_tD2Ev(ptr noundef nonnull align 8 dereferenceable(2536) %call.i) #18
-  tail call void @free(ptr noundef nonnull %call.i) #18
+  tail call void @_ZN16hb_subset_plan_tD2Ev(ptr noundef nonnull align 8 dereferenceable(2536) %call.i) #19
+  tail call void @free(ptr noundef nonnull %call.i) #19
   br label %return
 
 return:                                           ; preds = %entry, %if.end.i, %if.end.i.i, %lor.lhs.false.i.i, %if.end
@@ -15308,14 +15308,14 @@ if.then.i.i:                                      ; preds = %if.end4.i
   %4 = inttoptr i64 %3 to ptr
   %items.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %4)
-  %call.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %4) #18
-  tail call void @free(ptr noundef nonnull %4) #18
+  %call.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %4) #19
+  tail call void @free(ptr noundef nonnull %4) #19
   store atomic i64 0, ptr %user_data2.i.i monotonic, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i.i, %if.end4.i
-  tail call void @_ZN16hb_subset_plan_tD2Ev(ptr noundef nonnull align 8 dereferenceable(2536) %plan) #18
-  tail call void @free(ptr noundef nonnull %plan) #18
+  tail call void @_ZN16hb_subset_plan_tD2Ev(ptr noundef nonnull align 8 dereferenceable(2536) %plan) #19
+  tail call void @free(ptr noundef nonnull %plan) #19
   br label %return
 
 return:                                           ; preds = %entry, %if.end.i, %lor.lhs.false.i, %if.end
@@ -15387,12 +15387,12 @@ retry.preheader.i:                                ; preds = %lor.lhs.false.i
   br i1 %tobool4.not14.i, label %if.then5.i, label %if.end15.split.loop.exit12.i
 
 if.then5.i:                                       ; preds = %retry.preheader.i, %if.then13.i
-  %call6.i = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #22
+  %call6.i = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #23
   %tobool7.not.i = icmp eq ptr %call6.i, null
   br i1 %tobool7.not.i, label %_ZL23hb_object_set_user_dataI16hb_subset_plan_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then5.i
-  %call.i.i.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %call6.i, ptr noundef null) #18
+  %call.i.i.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %call6.i, ptr noundef null) #19
   %items.i.i = getelementptr inbounds i8, ptr %call6.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i, i8 0, i64 16, i1 false)
   %2 = ptrtoint ptr %call6.i to i64
@@ -15402,8 +15402,8 @@ if.end9.i:                                        ; preds = %if.then5.i
 
 if.then13.i:                                      ; preds = %if.end9.i
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i, ptr noundef nonnull align 8 dereferenceable(40) %call6.i)
-  %call.i.i11.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %call6.i) #18
-  tail call void @free(ptr noundef nonnull %call6.i) #18
+  %call.i.i11.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %call6.i) #19
+  tail call void @free(ptr noundef nonnull %call6.i) #19
   %5 = load atomic i64, ptr %user_data2.i acquire, align 8
   %tobool4.not.i = icmp eq i64 %5, 0
   br i1 %tobool4.not.i, label %if.then5.i, label %if.end15.split.loop.exit12.i
@@ -15443,7 +15443,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %tobool4.not.i, label %_ZL23hb_object_get_user_dataIK16hb_subset_plan_tEPvPT_P18hb_user_data_key_t.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
-  %call.i.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #18
+  %call.i.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #19
   %arrayZ.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 48
   %3 = load ptr, ptr %arrayZ.i.i.i.i.i, align 8
   %length.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 44
@@ -15472,7 +15472,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.
 
 _ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i: ; preds = %for.inc.i.i.i.i.i.i, %5, %if.end6.i
   %6 = phi ptr [ %item.sroa.2.0.copyload.i.i, %5 ], [ null, %if.end6.i ], [ null, %for.inc.i.i.i.i.i.i ]
-  %call.i4.i3.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #18
+  %call.i4.i3.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #19
   br label %_ZL23hb_object_get_user_dataIK16hb_subset_plan_tEPvPT_P18hb_user_data_key_t.exit
 
 _ZL23hb_object_get_user_dataIK16hb_subset_plan_tEPvPT_P18hb_user_data_key_t.exit: ; preds = %entry, %lor.lhs.false.i, %if.end.i, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
@@ -16107,13 +16107,13 @@ if.end23.i.i:                                     ; preds = %lor.rhs.i.i
   br i1 %tobool.not.i.i.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i: ; preds = %if.end23.i.i
-  tail call void @free(ptr noundef %12) #18
+  tail call void @free(ptr noundef %12) #19
   br label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i: ; preds = %if.end23.i.i
   %13 = shl nuw i32 %new_allocated.028.i.i, 3
   %mul.i.i.i = zext i32 %13 to i64
-  %call.i.i.i = tail call ptr @realloc(ptr noundef %12, i64 noundef %mul.i.i.i) #19
+  %call.i.i.i = tail call ptr @realloc(ptr noundef %12, i64 noundef %mul.i.i.i) #20
   %tobool27.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool27.not.i.i, label %if.then28.i.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i
 
@@ -16530,13 +16530,13 @@ if.end23.i.i:                                     ; preds = %lor.rhs.i.i
   br i1 %tobool.not.i.i.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i: ; preds = %if.end23.i.i
-  tail call void @free(ptr noundef %44) #18
+  tail call void @free(ptr noundef %44) #19
   br label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i: ; preds = %if.end23.i.i
   %45 = shl nuw i32 %new_allocated.028.i.i, 3
   %mul.i.i.i = zext i32 %45 to i64
-  %call.i.i.i = tail call ptr @realloc(ptr noundef %44, i64 noundef %mul.i.i.i) #19
+  %call.i.i.i = tail call ptr @realloc(ptr noundef %44, i64 noundef %mul.i.i.i) #20
   %tobool27.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool27.not.i.i, label %if.then28.i.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i
 
@@ -16592,7 +16592,7 @@ cleanup:                                          ; preds = %if.then12.i, %_ZN12
 
 if.then.i.i33:                                    ; preds = %cleanup.thread, %cleanup
   %compact_workspace.sroa.15.17782 = phi ptr [ null, %cleanup.thread ], [ %compact_workspace.sroa.15.1, %cleanup ]
-  tail call void @free(ptr noundef %compact_workspace.sroa.15.17782) #18
+  tail call void @free(ptr noundef %compact_workspace.sroa.15.17782) #19
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then.i.i33, %cleanup, %entry
@@ -16650,13 +16650,13 @@ if.end23.i:                                       ; preds = %lor.rhs.i
   br i1 %tobool.not.i.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i: ; preds = %if.end23.i
-  tail call void @free(ptr noundef %3) #18
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i: ; preds = %if.end23.i
   %conv.i.i = zext nneg i32 %new_allocated.028.i to i64
   %mul.i.i = mul nuw nsw i64 %conv.i.i, 72
-  %call.i.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %mul.i.i) #19
+  %call.i.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %mul.i.i) #20
   %tobool27.not.i = icmp eq ptr %call.i.i, null
   br i1 %tobool27.not.i, label %if.then28.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit
 
@@ -16870,8 +16870,8 @@ if.then.i.i:                                      ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
   %items.i.i.i = getelementptr inbounds i8, ptr %1, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %1)
-  %call.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %1) #18
-  tail call void @free(ptr noundef nonnull %1) #18
+  %call.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %1) #19
+  tail call void @free(ptr noundef nonnull %1) #19
   store atomic i64 0, ptr %user_data2.i.i monotonic, align 8
   br label %_ZL14hb_object_finiI14hb_sparseset_tI23hb_bit_set_invertible_tEEvPT_.exit.i
 
@@ -16886,7 +16886,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZL14hb_object_fini
   store i32 0, ptr %length.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %arrayZ.i.i.i.i, align 8
-  tail call void @free(ptr noundef %3) #18
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE4finiEv.exit.i.i.i
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE4finiEv.exit.i.i.i: ; preds = %if.then.i.i.i.i, %_ZL14hb_object_finiI14hb_sparseset_tI23hb_bit_set_invertible_tEEvPT_.exit.i
@@ -16905,7 +16905,7 @@ _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE4finiEv.exit: ; preds = %_ZN11hb_v
   store i32 0, ptr %length.i.i3.i.i.i, align 4
   %arrayZ.i4.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load ptr, ptr %arrayZ.i4.i.i.i, align 8
-  tail call void @free(ptr noundef %5) #18
+  tail call void @free(ptr noundef %5) #19
   %.pre = load i32, ptr %page_map.i.i.i, align 8
   %6 = icmp eq i32 %.pre, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pages.i.i.i, i8 0, i64 16, i1 false)
@@ -16916,7 +16916,7 @@ if.then.i.i2.i.i:                                 ; preds = %_ZN14hb_sparseset_t
   store i32 0, ptr %length.i.i.i3.i.i, align 4
   %arrayZ.i.i4.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load ptr, ptr %arrayZ.i.i4.i.i, align 8
-  tail call void @free(ptr noundef %7) #18
+  tail call void @free(ptr noundef %7) #19
   br label %_ZN23hb_bit_set_invertible_tD2Ev.exit
 
 _ZN23hb_bit_set_invertible_tD2Ev.exit:            ; preds = %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE4finiEv.exit.thread, %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE4finiEv.exit, %if.then.i.i2.i.i
@@ -16941,7 +16941,7 @@ if.then.i:                                        ; preds = %if.then
   store i32 0, ptr %length, align 4
   %arrayZ.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %arrayZ.i, align 8
-  tail call void @free(ptr noundef %2) #18
+  tail call void @free(ptr noundef %2) #19
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit: ; preds = %if.then, %if.then.i
@@ -16949,7 +16949,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit:
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %l) #18
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %l) #19
   %3 = load i32, ptr %length, align 4
   %tobool5.not21 = icmp eq i32 %3, 0
   br i1 %tobool5.not21, label %while.end, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph
@@ -16969,16 +16969,16 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   %old.sroa.2.0.retval.0.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %old.sroa.2.0.copyload = load ptr, ptr %old.sroa.2.0.retval.0.i.i.sroa_idx, align 8
   store i32 %sub.i, ptr %length, align 4, !noalias !120
-  %call.i9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %l) #18
+  %call.i9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %l) #19
   %tobool.not.i10 = icmp eq ptr %old.sroa.2.0.copyload, null
   br i1 %tobool.not.i10, label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, label %if.then.i11
 
 if.then.i11:                                      ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit
-  tail call void %old.sroa.2.0.copyload(ptr noundef %old.sroa.1.0.copyload) #18
+  tail call void %old.sroa.2.0.copyload(ptr noundef %old.sroa.1.0.copyload) #19
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, %if.then.i11
-  %call.i13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %l) #18
+  %call.i13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %l) #19
   %6 = load i32, ptr %length, align 4
   %tobool5.not = icmp eq i32 %6, 0
   br i1 %tobool5.not, label %while.end, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, !llvm.loop !123
@@ -16992,12 +16992,12 @@ if.then.i15:                                      ; preds = %while.end
   store i32 0, ptr %length, align 4
   %arrayZ.i17 = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %arrayZ.i17, align 8
-  tail call void @free(ptr noundef %8) #18
+  tail call void @free(ptr noundef %8) #19
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit19
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit19: ; preds = %while.end, %if.then.i15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %call.i20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %l) #18
+  %call.i20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %l) #19
   br label %return
 
 return:                                           ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit19, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit
@@ -17026,8 +17026,8 @@ if.then.i:                                        ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
   %items.i.i = getelementptr inbounds i8, ptr %1, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i, ptr noundef nonnull align 8 dereferenceable(40) %1)
-  %call.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %1) #18
-  tail call void @free(ptr noundef nonnull %1) #18
+  %call.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %1) #19
+  tail call void @free(ptr noundef nonnull %1) #19
   store atomic i64 0, ptr %user_data2.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIj11hb_vector_tIjLb0EELb0EEEvPT_.exit
 
@@ -17062,7 +17062,7 @@ if.then.i.i.i:                                    ; preds = %for.body
   store i32 0, ptr %length.i.i.i.i, align 4
   %arrayZ.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %6 = load ptr, ptr %arrayZ.i.i.i, align 8
-  tail call void @free(ptr noundef %6) #18
+  tail call void @free(ptr noundef %6) #19
   br label %_ZN12hb_hashmap_tIj11hb_vector_tIjLb0EELb0EE6item_tD2Ev.exit
 
 _ZN12hb_hashmap_tIj11hb_vector_tIjLb0EELb0EE6item_tD2Ev.exit: ; preds = %for.body, %if.then.i.i.i
@@ -17077,7 +17077,7 @@ for.end.loopexit:                                 ; preds = %_ZN12hb_hashmap_tIj
 
 for.end:                                          ; preds = %for.end.loopexit, %if.then
   %7 = phi ptr [ %.pre, %for.end.loopexit ], [ %2, %if.then ]
-  tail call void @free(ptr noundef %7) #18
+  tail call void @free(ptr noundef %7) #19
   store ptr null, ptr %items, align 8
   br label %if.end
 
@@ -17146,13 +17146,13 @@ if.end23.i.i129:                                  ; preds = %lor.rhs.i.i127
   br i1 %tobool.not.i.i.i130, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i144, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i132
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i144: ; preds = %if.end23.i.i129
-  tail call void @free(ptr noundef %5) #18
+  tail call void @free(ptr noundef %5) #19
   br label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.i137
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i132: ; preds = %if.end23.i.i129
   %conv.i.i.i133 = zext nneg i32 %new_allocated.028.i.i128 to i64
   %mul.i.i.i134 = mul nuw nsw i64 %conv.i.i.i133, 72
-  %call.i.i.i135 = tail call ptr @realloc(ptr noundef %5, i64 noundef %mul.i.i.i134) #19
+  %call.i.i.i135 = tail call ptr @realloc(ptr noundef %5, i64 noundef %mul.i.i.i134) #20
   %tobool27.not.i.i136 = icmp eq ptr %call.i.i.i135, null
   br i1 %tobool27.not.i.i136, label %if.then28.i.i139, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.i137
 
@@ -17238,13 +17238,13 @@ if.end23.i.i90:                                   ; preds = %lor.rhs.i.i88
   br i1 %tobool.not.i.i.i91, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i103, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i93
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i103: ; preds = %if.end23.i.i90
-  tail call void @free(ptr noundef %15) #18
+  tail call void @free(ptr noundef %15) #19
   br label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i97
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i93: ; preds = %if.end23.i.i90
   %16 = shl nuw i32 %new_allocated.028.i.i89, 3
   %mul.i.i.i94 = zext i32 %16 to i64
-  %call.i.i.i95 = tail call ptr @realloc(ptr noundef %15, i64 noundef %mul.i.i.i94) #19
+  %call.i.i.i95 = tail call ptr @realloc(ptr noundef %15, i64 noundef %mul.i.i.i94) #20
   %tobool27.not.i.i96 = icmp eq ptr %call.i.i.i95, null
   br i1 %tobool27.not.i.i96, label %if.then28.i.i99, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i97
 
@@ -17319,13 +17319,13 @@ if.end23.i.i55:                                   ; preds = %lor.rhs.i.i54
   br i1 %tobool.not.i.i.i56, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i67, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i58
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i67: ; preds = %if.end23.i.i55
-  tail call void @free(ptr noundef %25) #18
+  tail call void @free(ptr noundef %25) #19
   br label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.i63
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i58: ; preds = %if.end23.i.i55
   %conv.i.i.i59 = zext nneg i32 %new_allocated.028.i.i to i64
   %mul.i.i.i60 = mul nuw nsw i64 %conv.i.i.i59, 72
-  %call.i.i.i61 = tail call ptr @realloc(ptr noundef %25, i64 noundef %mul.i.i.i60) #19
+  %call.i.i.i61 = tail call ptr @realloc(ptr noundef %25, i64 noundef %mul.i.i.i60) #20
   %tobool27.not.i.i62 = icmp eq ptr %call.i.i.i61, null
   br i1 %tobool27.not.i.i62, label %if.then28.i.i65, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.i63
 
@@ -17399,13 +17399,13 @@ if.end23.i.i:                                     ; preds = %lor.rhs.i.i
   br i1 %tobool.not.i.i.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i: ; preds = %if.end23.i.i
-  tail call void @free(ptr noundef %31) #18
+  tail call void @free(ptr noundef %31) #19
   br label %if.end33.i.i
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i: ; preds = %if.end23.i.i
   %32 = shl nuw i32 %29, 3
   %mul.i.i.i = zext i32 %32 to i64
-  %call.i.i.i = tail call ptr @realloc(ptr noundef %31, i64 noundef %mul.i.i.i) #19
+  %call.i.i.i = tail call ptr @realloc(ptr noundef %31, i64 noundef %mul.i.i.i) #20
   %tobool27.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool27.not.i.i, label %if.then28.i.i, label %if.end33.i.i
 
@@ -17497,13 +17497,13 @@ if.end23.i.i27:                                   ; preds = %lor.rhs.i.i26
   br i1 %tobool.not.i.i.i28, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i: ; preds = %if.end23.i.i27
-  tail call void @free(ptr noundef %44) #18
+  tail call void @free(ptr noundef %44) #19
   br label %if.end33.i.i33
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i: ; preds = %if.end23.i.i27
   %conv.i.i.i = zext nneg i32 %42 to i64
   %mul.i.i.i30 = mul nuw nsw i64 %conv.i.i.i, 72
-  %call.i.i.i31 = tail call ptr @realloc(ptr noundef %44, i64 noundef %mul.i.i.i30) #19
+  %call.i.i.i31 = tail call ptr @realloc(ptr noundef %44, i64 noundef %mul.i.i.i30) #20
   %tobool27.not.i.i32 = icmp eq ptr %call.i.i.i31, null
   br i1 %tobool27.not.i.i32, label %if.then28.i.i40, label %if.end33.i.i33
 
@@ -17791,7 +17791,7 @@ if.then:                                          ; preds = %if.then.lr.ph, %_ZN
   br i1 %tobool.not.i, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  %call.i = call noundef ptr @hb_blob_get_empty() #18
+  %call.i = call noundef ptr @hb_blob_get_empty() #19
   br label %return
 
 if.end:                                           ; preds = %if.then
@@ -17801,14 +17801,14 @@ if.end:                                           ; preds = %if.then
   store i8 0, ptr %lazy_some_gpos.i.i.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %edit_count.i.i.i, i8 0, i64 16, i1 false)
   store i8 1, ptr %num_glyphs_set.i.i.i, align 4
-  %call2.i.i.i = call ptr @hb_face_reference_table(ptr noundef nonnull %1, i32 noundef 1719034226) #18
+  %call2.i.i.i = call ptr @hb_face_reference_table(ptr noundef nonnull %1, i32 noundef 1719034226) #19
   %call3.i.i.i = call noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4fvarEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %c.i.i, ptr noundef %call2.i.i.i)
   %2 = load ptr, ptr %blob.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %_ZNK17hb_data_wrapper_tI9hb_face_tLj18EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4fvarELj18ELb1EEEEPT_v.exit, label %if.then.i5.i.i
 
 if.then.i5.i.i:                                   ; preds = %if.end
-  call void @hb_blob_destroy(ptr noundef nonnull %2) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %2) #19
   br label %_ZNK17hb_data_wrapper_tI9hb_face_tLj18EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4fvarELj18ELb1EEEEPT_v.exit
 
 _ZNK17hb_data_wrapper_tI9hb_face_tLj18EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4fvarELj18ELb1EEEEPT_v.exit: ; preds = %if.end, %if.then.i5.i.i
@@ -17817,7 +17817,7 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj18EE11call_createI9hb_blob_t22hb_table_lazy_
   br i1 %tobool6.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %_ZNK17hb_data_wrapper_tI9hb_face_tLj18EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4fvarELj18ELb1EEEEPT_v.exit
-  %call.i6 = call noundef ptr @hb_blob_get_empty() #18
+  %call.i6 = call noundef ptr @hb_blob_get_empty() #19
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %_ZNK17hb_data_wrapper_tI9hb_face_tLj18EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4fvarELj18ELb1EEEEPT_v.exit
@@ -17832,12 +17832,12 @@ if.then11:                                        ; preds = %if.end9
   br i1 %tobool.not.i7, label %_ZN16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10do_destroyEPS5_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then11
-  %call.i.i = call noundef ptr @hb_blob_get_empty() #18
+  %call.i.i = call noundef ptr @hb_blob_get_empty() #19
   %cmp.not.i = icmp eq ptr %p.1, %call.i.i
   br i1 %cmp.not.i, label %_ZN16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10do_destroyEPS5_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  call void @hb_blob_destroy(ptr noundef nonnull %p.1) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %p.1) #19
   br label %_ZN16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10do_destroyEPS5_.exit
 
 _ZN16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10do_destroyEPS5_.exit: ; preds = %if.then11, %land.lhs.true.i, %if.then.i
@@ -17862,7 +17862,7 @@ declare i32 @hb_face_get_glyph_count(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4fvarEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %this, ptr noundef %blob) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #18
+  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #19
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call.i, ptr %blob.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -17907,7 +17907,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %retry, %if.else.
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
-  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %return
@@ -17927,7 +17927,7 @@ if.then7:                                         ; preds = %if.then5
   %7 = load i32, ptr %edit_count.i, align 4
   %tobool14.not = icmp eq i32 %7, 0
   %8 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %8) #18
+  tail call void @hb_blob_destroy(ptr noundef %8) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   %brmerge.not = and i1 %tobool14.not, %call11
@@ -17942,7 +17942,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %tobool22, label %if.else39.critedge, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #18
+  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #19
   store ptr %call24, ptr %start, align 8
   %10 = load i32, ptr %length, align 8
   %idx.ext = zext i32 %10 to i64
@@ -17953,25 +17953,25 @@ if.then23:                                        ; preds = %land.lhs.true
 
 if.then38.critedge:                               ; preds = %if.then5
   %11 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %11) #18
+  tail call void @hb_blob_destroy(ptr noundef %11) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.then38
 
 if.then38:                                        ; preds = %if.then7, %if.then38.critedge
-  tail call void @hb_blob_make_immutable(ptr noundef %blob) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %blob) #19
   br label %return
 
 if.else39.critedge:                               ; preds = %if.else, %if.then23, %land.lhs.true
   %12 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %12) #18
+  tail call void @hb_blob_destroy(ptr noundef %12) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.else39
 
 if.else39:                                        ; preds = %if.then7, %if.else39.critedge
-  tail call void @hb_blob_destroy(ptr noundef %blob) #18
-  %call40 = tail call ptr @hb_blob_get_empty() #18
+  tail call void @hb_blob_destroy(ptr noundef %blob) #19
+  %call40 = tail call ptr @hb_blob_get_empty() #19
   br label %return
 
 return:                                           ; preds = %if.else39, %if.then38, %if.then
@@ -17997,7 +17997,7 @@ entry:
   br i1 %cmp.i.i.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i8 = zext i8 %2 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i8, 8
@@ -18021,7 +18021,7 @@ land.lhs.true6:                                   ; preds = %land.lhs.true
   br i1 %cmp.i.not, label %land.end, label %land.lhs.true8
 
 land.lhs.true8:                                   ; preds = %land.lhs.true6
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %axisSize = getelementptr inbounds i8, ptr %this, i64 10
   %6 = load i8, ptr %axisSize, align 1
   %conv.i.i9 = zext i8 %6 to i32
@@ -18180,7 +18180,7 @@ if.then:                                          ; preds = %if.then.lr.ph, %_ZN
   br i1 %tobool.not.i, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  %call.i = call noundef ptr @hb_blob_get_empty() #18
+  %call.i = call noundef ptr @hb_blob_get_empty() #19
   br label %return
 
 if.end:                                           ; preds = %if.then
@@ -18190,14 +18190,14 @@ if.end:                                           ; preds = %if.then
   store i8 0, ptr %lazy_some_gpos.i.i.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %edit_count.i.i.i, i8 0, i64 16, i1 false)
   store i8 1, ptr %num_glyphs_set.i.i.i, align 4
-  %call2.i.i.i = call ptr @hb_face_reference_table(ptr noundef nonnull %1, i32 noundef 1635148146) #18
+  %call2.i.i.i = call ptr @hb_face_reference_table(ptr noundef nonnull %1, i32 noundef 1635148146) #19
   %call3.i.i.i = call noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4avarEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %c.i.i, ptr noundef %call2.i.i.i)
   %2 = load ptr, ptr %blob.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %_ZNK17hb_data_wrapper_tI9hb_face_tLj19EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4avarELj19ELb1EEEEPT_v.exit, label %if.then.i5.i.i
 
 if.then.i5.i.i:                                   ; preds = %if.end
-  call void @hb_blob_destroy(ptr noundef nonnull %2) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %2) #19
   br label %_ZNK17hb_data_wrapper_tI9hb_face_tLj19EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4avarELj19ELb1EEEEPT_v.exit
 
 _ZNK17hb_data_wrapper_tI9hb_face_tLj19EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4avarELj19ELb1EEEEPT_v.exit: ; preds = %if.end, %if.then.i5.i.i
@@ -18206,7 +18206,7 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj19EE11call_createI9hb_blob_t22hb_table_lazy_
   br i1 %tobool6.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %_ZNK17hb_data_wrapper_tI9hb_face_tLj19EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4avarELj19ELb1EEEEPT_v.exit
-  %call.i6 = call noundef ptr @hb_blob_get_empty() #18
+  %call.i6 = call noundef ptr @hb_blob_get_empty() #19
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %_ZNK17hb_data_wrapper_tI9hb_face_tLj19EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4avarELj19ELb1EEEEPT_v.exit
@@ -18221,12 +18221,12 @@ if.then11:                                        ; preds = %if.end9
   br i1 %tobool.not.i7, label %_ZN16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10do_destroyEPS5_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then11
-  %call.i.i = call noundef ptr @hb_blob_get_empty() #18
+  %call.i.i = call noundef ptr @hb_blob_get_empty() #19
   %cmp.not.i = icmp eq ptr %p.1, %call.i.i
   br i1 %cmp.not.i, label %_ZN16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10do_destroyEPS5_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  call void @hb_blob_destroy(ptr noundef nonnull %p.1) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %p.1) #19
   br label %_ZN16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10do_destroyEPS5_.exit
 
 _ZN16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10do_destroyEPS5_.exit: ; preds = %if.then11, %land.lhs.true.i, %if.then.i
@@ -18247,7 +18247,7 @@ return:                                           ; preds = %if.end9, %return.lo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4avarEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %this, ptr noundef %blob) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #18
+  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #19
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call.i, ptr %blob.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -18292,7 +18292,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %retry, %if.else.
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
-  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %return
@@ -18312,7 +18312,7 @@ if.then7:                                         ; preds = %if.then5
   %7 = load i32, ptr %edit_count.i, align 4
   %tobool14.not = icmp eq i32 %7, 0
   %8 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %8) #18
+  tail call void @hb_blob_destroy(ptr noundef %8) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   %brmerge.not = and i1 %tobool14.not, %call11
@@ -18327,7 +18327,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %tobool22, label %if.else39.critedge, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #18
+  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #19
   store ptr %call24, ptr %start, align 8
   %10 = load i32, ptr %length, align 8
   %idx.ext = zext i32 %10 to i64
@@ -18338,25 +18338,25 @@ if.then23:                                        ; preds = %land.lhs.true
 
 if.then38.critedge:                               ; preds = %if.then5
   %11 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %11) #18
+  tail call void @hb_blob_destroy(ptr noundef %11) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.then38
 
 if.then38:                                        ; preds = %if.then7, %if.then38.critedge
-  tail call void @hb_blob_make_immutable(ptr noundef %blob) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %blob) #19
   br label %return
 
 if.else39.critedge:                               ; preds = %if.else, %if.then23, %land.lhs.true
   %12 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %12) #18
+  tail call void @hb_blob_destroy(ptr noundef %12) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.else39
 
 if.else39:                                        ; preds = %if.then7, %if.else39.critedge
-  tail call void @hb_blob_destroy(ptr noundef %blob) #18
-  %call40 = tail call ptr @hb_blob_get_empty() #18
+  tail call void @hb_blob_destroy(ptr noundef %blob) #19
+  %call40 = tail call ptr @hb_blob_get_empty() #19
   br label %return
 
 return:                                           ; preds = %if.else39, %if.then38, %if.then
@@ -18380,7 +18380,7 @@ entry:
   br i1 %cmp.i.i.not45, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i16 = zext i8 %2 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i16, 8
@@ -18434,7 +18434,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %cmp.i.i.i.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %10 = load i8, ptr %map.048, align 1
   %conv.i.i11.i = zext i8 %10 to i32
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %map.048, i64 1
@@ -18496,7 +18496,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp24, label %return, label %if.end28
 
 if.end28:                                         ; preds = %for.end
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %call30 = tail call noundef zeroext i1 @_ZNK2OT10avarV2Tail8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(8) %map.0.lcssa, ptr noundef nonnull %c, ptr noundef nonnull %this)
   br label %return
 
@@ -18521,8 +18521,8 @@ entry:
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i.i9 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw i32 %conv.i.i.i9, 24
@@ -18579,8 +18579,8 @@ land.rhs:                                         ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.not.i17.not, label %land.end, label %land.lhs.true.i13
 
 land.lhs.true.i13:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %10 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i19 = zext i8 %10 to i32
   %shl.i.i.i20 = shl nuw i32 %conv.i.i.i19, 24
@@ -18646,7 +18646,7 @@ entry:
   br i1 %cmp.i.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   switch i8 %2, label %return [
     i8 0, label %sw.bb
@@ -18666,7 +18666,7 @@ sw.bb:                                            ; preds = %if.end
   br i1 %cmp.i.i.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %sw.bb
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %5 = load ptr, ptr %start.i.i.i, align 8
   %sub.ptr.rhs.cast.i.i9.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i10.i = sub i64 %sub.ptr.lhs.cast.i.i.i5, %sub.ptr.rhs.cast.i.i9.i
@@ -18710,7 +18710,7 @@ sw.bb10:                                          ; preds = %if.end
   br i1 %cmp.i.i.not.i18, label %return, label %land.lhs.true.i20
 
 land.lhs.true.i20:                                ; preds = %sw.bb10
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %mapCount.i21 = getelementptr inbounds i8, ptr %this, i64 2
   %16 = load i8, ptr %mapCount.i21, align 1
   %conv.i.i5.i22 = zext i8 %16 to i32
@@ -18787,7 +18787,7 @@ entry:
   br i1 %cmp.i.i.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i12 = zext i8 %2 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i12, 8
@@ -18811,8 +18811,8 @@ land.lhs.true5:                                   ; preds = %land.lhs.true
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %regions, align 1
   %conv.i.i.i15 = zext i8 %6 to i32
   %shl.i.i.i = shl nuw i32 %conv.i.i.i15, 24
@@ -18847,7 +18847,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.not.i.i.i, label %lor.rhs.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %lor.lhs.false.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %10 = load i8, ptr %add.ptr.i22, align 1
   %conv.i.i5.i.i.i = zext i8 %10 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i5.i.i.i, 8
@@ -18924,7 +18924,7 @@ land.rhs:                                         ; preds = %land.lhs.true.i, %_
   br i1 %cmp.i.i.i.not.i, label %land.end, label %land.lhs.true.i23
 
 land.lhs.true.i23:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %25 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i11.i = zext i8 %25 to i32
   %arrayidx3.i.i.i24 = getelementptr inbounds i8, ptr %this, i64 7
@@ -18958,7 +18958,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEE
   br i1 %cmp7.i.i.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %33 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i33 = zext i8 %33 to i32
   %shl.i.i34 = shl nuw nsw i32 %conv.i.i33, 8
@@ -18988,8 +18988,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %land.end, label %land.lhs.true.i.i.i45
 
 land.lhs.true.i.i.i45:                            ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %37 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %37 to i32
   %shl.i.i.i.i.i46 = shl nuw i32 %conv.i.i.i4.i.i, 24
@@ -19060,7 +19060,7 @@ entry:
 
 land.lhs.true.i:                                  ; preds = %entry
   %regionIndices = getelementptr inbounds i8, ptr %this, i64 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %regionIndices, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 5
@@ -19094,7 +19094,7 @@ _ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context
   br i1 %cmp7.i.i.i, label %land.lhs.true3, label %land.end
 
 land.lhs.true3:                                   ; preds = %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %wordSizeCount.i = getelementptr inbounds i8, ptr %this, i64 2
   %10 = load i8, ptr %wordSizeCount.i, align 1
   %conv.i.i.i7 = zext i8 %10 to i32
@@ -19341,7 +19341,7 @@ if.end4:                                          ; preds = %land.lhs.true, %if.
   %retval.0.i = select i1 %tobool.not.i, i32 0, i32 %narrow.i
   %4 = zext nneg i32 %retval.0.i to i64
   %mul7 = shl nuw nsw i64 12, %4
-  %call8 = tail call noalias ptr @malloc(i64 noundef %mul7) #20
+  %call8 = tail call noalias ptr @malloc(i64 noundef %mul7) #21
   %tobool9.not = icmp eq ptr %call8, null
   br i1 %tobool9.not, label %if.then10, label %if.end12
 
@@ -19418,7 +19418,7 @@ for.inc:                                          ; preds = %for.body, %if.then2
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %for.inc, %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit, %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit
-  tail call void @free(ptr noundef %7) #18
+  tail call void @free(ptr noundef %7) #19
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %for.end, %if.then10
@@ -19749,7 +19749,7 @@ if.end4:                                          ; preds = %land.lhs.true, %if.
   %shl = shl nuw i32 1, %retval.0.i
   %conv = zext i32 %shl to i64
   %mul7 = shl nuw nsw i64 %conv, 4
-  %call8 = tail call noalias ptr @malloc(i64 noundef %mul7) #20
+  %call8 = tail call noalias ptr @malloc(i64 noundef %mul7) #21
   %tobool9.not = icmp eq ptr %call8, null
   br i1 %tobool9.not, label %if.then10, label %for.body.preheader
 
@@ -19813,7 +19813,7 @@ for.body27.preheader:                             ; preds = %_ZN12hb_hashmap_tIj
   br label %for.body27
 
 for.cond41.preheader:                             ; preds = %for.inc38, %_ZN12hb_hashmap_tIj15TripleDistancesLb0EE9prime_forEj.exit
-  tail call void @free(ptr noundef %5) #18
+  tail call void @free(ptr noundef %5) #19
   br label %return
 
 for.body27:                                       ; preds = %for.body27.preheader, %for.inc38
@@ -20159,7 +20159,7 @@ if.end4:                                          ; preds = %land.lhs.true, %if.
   %retval.0.i = select i1 %tobool.not.i, i32 0, i32 %narrow.i
   %4 = zext nneg i32 %retval.0.i to i64
   %mul7 = shl nuw nsw i64 20, %4
-  %call8 = tail call noalias ptr @malloc(i64 noundef %mul7) #20
+  %call8 = tail call noalias ptr @malloc(i64 noundef %mul7) #21
   %tobool9.not = icmp eq ptr %call8, null
   br i1 %tobool9.not, label %if.then10, label %for.end
 
@@ -20214,7 +20214,7 @@ for.body27.preheader:                             ; preds = %_ZN12hb_hashmap_tIj
   br label %for.body27
 
 for.cond41.preheader:                             ; preds = %for.inc38, %_ZN12hb_hashmap_tIj6TripleLb0EE9prime_forEj.exit
-  tail call void @free(ptr noundef %12) #18
+  tail call void @free(ptr noundef %12) #19
   br label %return
 
 for.body27:                                       ; preds = %for.body27.preheader, %for.inc38
@@ -20406,10 +20406,10 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT4cmapEEEP9hb_blob_tPK9hb_face_tj
   %num_glyphs_set.i = getelementptr inbounds i8, ptr %ref.tmp, i64 60
   %lazy_some_gpos.i = getelementptr inbounds i8, ptr %ref.tmp, i64 61
   store i8 0, ptr %lazy_some_gpos.i, align 1
-  %call.i = tail call i32 @hb_face_get_glyph_count(ptr noundef %face) #18
+  %call.i = tail call i32 @hb_face_get_glyph_count(ptr noundef %face) #19
   store i32 %call.i, ptr %num_glyphs.i, align 8
   store i8 1, ptr %num_glyphs_set.i, align 4
-  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef %face, i32 noundef 1668112752) #18
+  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef %face, i32 noundef 1668112752) #19
   %call3.i = call noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4cmapEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %ref.tmp, ptr noundef %call2.i)
   store ptr %call3.i, ptr %table, align 8
   %0 = load ptr, ptr %blob.i, align 8
@@ -20417,7 +20417,7 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT4cmapEEEP9hb_blob_tPK9hb_face_tj
   br i1 %tobool.not.i, label %_ZN21hb_sanitize_context_tD2Ev.exit, label %if.then.i6
 
 if.then.i6:                                       ; preds = %_ZN21hb_sanitize_context_t15reference_tableIN2OT4cmapEEEP9hb_blob_tPK9hb_face_tj.exit
-  call void @hb_blob_destroy(ptr noundef nonnull %0) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %0) #19
   store ptr null, ptr %blob.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start.i, i8 0, i64 20, i1 false)
   %.pre = load ptr, ptr %table, align 8
@@ -21678,7 +21678,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4cmapEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %this, ptr noundef %blob) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #18
+  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #19
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call.i, ptr %blob.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -21723,7 +21723,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %retry, %if.else.
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
-  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %return
@@ -21743,7 +21743,7 @@ if.then7:                                         ; preds = %if.then5
   %7 = load i32, ptr %edit_count.i, align 4
   %tobool14.not = icmp eq i32 %7, 0
   %8 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %8) #18
+  tail call void @hb_blob_destroy(ptr noundef %8) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   %brmerge.not = and i1 %tobool14.not, %call11
@@ -21758,7 +21758,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %tobool22, label %if.else39.critedge, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #18
+  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #19
   store ptr %call24, ptr %start, align 8
   %10 = load i32, ptr %length, align 8
   %idx.ext = zext i32 %10 to i64
@@ -21769,25 +21769,25 @@ if.then23:                                        ; preds = %land.lhs.true
 
 if.then38.critedge:                               ; preds = %if.then5
   %11 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %11) #18
+  tail call void @hb_blob_destroy(ptr noundef %11) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.then38
 
 if.then38:                                        ; preds = %if.then7, %if.then38.critedge
-  tail call void @hb_blob_make_immutable(ptr noundef %blob) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %blob) #19
   br label %return
 
 if.else39.critedge:                               ; preds = %if.else, %if.then23, %land.lhs.true
   %12 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %12) #18
+  tail call void @hb_blob_destroy(ptr noundef %12) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.else39
 
 if.else39:                                        ; preds = %if.then7, %if.else39.critedge
-  tail call void @hb_blob_destroy(ptr noundef %blob) #18
-  %call40 = tail call ptr @hb_blob_get_empty() #18
+  tail call void @hb_blob_destroy(ptr noundef %blob) #19
+  %call40 = tail call ptr @hb_blob_get_empty() #19
   br label %return
 
 return:                                           ; preds = %if.else39, %if.then38, %if.then
@@ -21812,7 +21812,7 @@ entry:
   br i1 %cmp.i.i.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i8 = zext i8 %2 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i8, 8
@@ -21834,7 +21834,7 @@ land.rhs:                                         ; preds = %land.lhs.true
   br i1 %cmp.i.i.i.not.i, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %encodingRecord, align 1
   %conv.i.i11.i = zext i8 %6 to i32
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 3
@@ -21868,7 +21868,7 @@ _ZNK2OT7ArrayOfINS_14EncodingRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb
   br i1 %cmp7.i.i.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_14EncodingRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %encodingRecord, align 1
   %conv.i.i10 = zext i8 %14 to i32
   %shl.i.i11 = shl nuw nsw i32 %conv.i.i10, 8
@@ -21899,8 +21899,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body.i
   %subtable.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %18 = load i8, ptr %subtable.i.i.i, align 1
   %conv.i.i.i8.i.i.i = zext i8 %18 to i32
   %shl.i.i.i.i.i.i = shl nuw i32 %conv.i.i.i8.i.i.i, 24
@@ -21969,7 +21969,7 @@ entry:
   br i1 %cmp.i.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i = zext i8 %2 to i16
   %shl.i.i = shl nuw i16 %conv.i.i, 8
@@ -22011,7 +22011,7 @@ sw.bb10:                                          ; preds = %if.end
 
 if.end.i:                                         ; preds = %sw.bb10
   %end.i.i.i = getelementptr inbounds i8, ptr %c, i64 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i15.i = zext i8 %8 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i15.i, 8
@@ -22105,7 +22105,7 @@ sw.bb16:                                          ; preds = %if.end
 
 land.lhs.true.i.i:                                ; preds = %sw.bb16
   %glyphIdArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %26 = load i8, ptr %glyphIdArray.i, align 1
   %conv.i.i11.i.i = zext i8 %26 to i32
   %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 9
@@ -22152,7 +22152,7 @@ sw.bb22:                                          ; preds = %if.end
 
 land.lhs.true.i.i45:                              ; preds = %sw.bb22
   %glyphIdArray.i46 = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %36 = load i8, ptr %glyphIdArray.i46, align 1
   %conv.i.i11.i.i47 = zext i8 %36 to i32
   %shl.i.i.i.i = shl nuw i32 %conv.i.i11.i.i47, 24
@@ -22213,7 +22213,7 @@ sw.bb28:                                          ; preds = %if.end
 
 land.lhs.true.i.i73:                              ; preds = %sw.bb28
   %groups.i = getelementptr inbounds i8, ptr %this, i64 12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %50 = load i8, ptr %groups.i, align 1
   %conv.i.i11.i.i74 = zext i8 %50 to i32
   %shl.i.i.i.i75 = shl nuw i32 %conv.i.i11.i.i74, 24
@@ -22275,7 +22275,7 @@ sw.bb34:                                          ; preds = %if.end
 
 land.lhs.true.i.i109:                             ; preds = %sw.bb34
   %groups.i110 = getelementptr inbounds i8, ptr %this, i64 12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %63 = load i8, ptr %groups.i110, align 1
   %conv.i.i11.i.i111 = zext i8 %63 to i32
   %shl.i.i.i.i112 = shl nuw i32 %conv.i.i11.i.i111, 24
@@ -22350,7 +22350,7 @@ entry:
 
 land.lhs.true.i:                                  ; preds = %entry
   %record = getelementptr inbounds i8, ptr %this, i64 6
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %record, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %shl.i.i.i = shl nuw i32 %conv.i.i11.i, 24
@@ -22399,7 +22399,7 @@ _ZNK2OT7ArrayOfINS_23VariationSelectorRecordENS_7IntTypeIjLj4EEEE16sanitize_shal
   br i1 %cmp7.i.i.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_23VariationSelectorRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %13 = load i8, ptr %record, align 1
   %conv.i.i8 = zext i8 %13 to i32
   %shl.i.i = shl nuw i32 %conv.i.i8, 24
@@ -22460,8 +22460,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %defaultUVS, align 1
   %conv.i.i.i13 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw i32 %conv.i.i.i13, 24
@@ -22496,7 +22496,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i.not.i.i.i, label %lor.rhs.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %lor.lhs.false.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %add.ptr.i16, align 1
   %conv.i.i11.i.i.i = zext i8 %6 to i32
   %shl.i.i.i.i.i = shl nuw i32 %conv.i.i11.i.i.i, 24
@@ -22573,8 +22573,8 @@ land.rhs:                                         ; preds = %land.lhs.true.i, %_
   br i1 %cmp.i.i.not.i24.not, label %land.end, label %land.lhs.true.i16
 
 land.lhs.true.i16:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %23 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i26 = zext i8 %23 to i32
   %shl.i.i.i27 = shl nuw i32 %conv.i.i.i26, 24
@@ -22609,7 +22609,7 @@ lor.lhs.false.i20:                                ; preds = %land.lhs.true.i16
   br i1 %cmp.i.i.i.not.i.i.i62, label %lor.rhs.i24, label %land.lhs.true.i.i.i63
 
 land.lhs.true.i.i.i63:                            ; preds = %lor.lhs.false.i20
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %29 = load i8, ptr %add.ptr.i54, align 1
   %conv.i.i11.i.i.i64 = zext i8 %29 to i32
   %shl.i.i.i.i.i65 = shl nuw i32 %conv.i.i11.i.i.i64, 24
@@ -22703,7 +22703,7 @@ if.then:                                          ; preds = %if.then.lr.ph, %_ZN
   br i1 %tobool.not.i, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  %call.i = call noundef ptr @hb_blob_get_empty() #18
+  %call.i = call noundef ptr @hb_blob_get_empty() #19
   br label %return
 
 if.end:                                           ; preds = %if.then
@@ -22713,14 +22713,14 @@ if.end:                                           ; preds = %if.then
   store i8 0, ptr %lazy_some_gpos.i.i.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %edit_count.i.i.i, i8 0, i64 16, i1 false)
   store i8 1, ptr %num_glyphs_set.i.i.i, align 4
-  %call2.i.i.i = call ptr @hb_face_reference_table(ptr noundef nonnull %1, i32 noundef 1330851634) #18
+  %call2.i.i.i = call ptr @hb_face_reference_table(ptr noundef nonnull %1, i32 noundef 1330851634) #19
   %call3.i.i.i = call noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT3OS2EEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %c.i.i, ptr noundef %call2.i.i.i)
   %2 = load ptr, ptr %blob.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %_ZNK17hb_data_wrapper_tI9hb_face_tLj6EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT3OS2ELj6ELb1EEEEPT_v.exit, label %if.then.i5.i.i
 
 if.then.i5.i.i:                                   ; preds = %if.end
-  call void @hb_blob_destroy(ptr noundef nonnull %2) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %2) #19
   br label %_ZNK17hb_data_wrapper_tI9hb_face_tLj6EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT3OS2ELj6ELb1EEEEPT_v.exit
 
 _ZNK17hb_data_wrapper_tI9hb_face_tLj6EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT3OS2ELj6ELb1EEEEPT_v.exit: ; preds = %if.end, %if.then.i5.i.i
@@ -22729,7 +22729,7 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj6EE11call_createI9hb_blob_t22hb_table_lazy_l
   br i1 %tobool6.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %_ZNK17hb_data_wrapper_tI9hb_face_tLj6EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT3OS2ELj6ELb1EEEEPT_v.exit
-  %call.i6 = call noundef ptr @hb_blob_get_empty() #18
+  %call.i6 = call noundef ptr @hb_blob_get_empty() #19
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %_ZNK17hb_data_wrapper_tI9hb_face_tLj6EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT3OS2ELj6ELb1EEEEPT_v.exit
@@ -22744,12 +22744,12 @@ if.then11:                                        ; preds = %if.end9
   br i1 %tobool.not.i7, label %_ZN16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10do_destroyEPS5_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then11
-  %call.i.i = call noundef ptr @hb_blob_get_empty() #18
+  %call.i.i = call noundef ptr @hb_blob_get_empty() #19
   %cmp.not.i = icmp eq ptr %p.1, %call.i.i
   br i1 %cmp.not.i, label %_ZN16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10do_destroyEPS5_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  call void @hb_blob_destroy(ptr noundef nonnull %p.1) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %p.1) #19
   br label %_ZN16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10do_destroyEPS5_.exit
 
 _ZN16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10do_destroyEPS5_.exit: ; preds = %if.then11, %land.lhs.true.i, %if.then.i
@@ -22770,7 +22770,7 @@ return:                                           ; preds = %if.end9, %return.lo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT3OS2EEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %this, ptr noundef %blob) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #18
+  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #19
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call.i, ptr %blob.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -22815,7 +22815,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %retry, %if.else.
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
-  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %return
@@ -22825,7 +22825,7 @@ if.end:                                           ; preds = %_ZN21hb_sanitize_co
   br i1 %cmp.i.i.not.i, label %if.else, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %2, align 1
   %conv.i.i7.i = zext i8 %6 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i7.i, 8
@@ -22886,7 +22886,7 @@ if.then7:                                         ; preds = %if.then5
   br i1 %cmp.i.i.not.i21, label %_ZNK2OT3OS28sanitizeEP21hb_sanitize_context_t.exit52, label %if.end.i22
 
 if.end.i22:                                       ; preds = %if.then7
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %13 = load i8, ptr %2, align 1
   %conv.i.i7.i23 = zext i8 %13 to i32
   %shl.i.i.i24 = shl nuw nsw i32 %conv.i.i7.i23, 8
@@ -22935,7 +22935,7 @@ _ZNK2OT3OS28sanitizeEP21hb_sanitize_context_t.exit52: ; preds = %if.then7, %land
   %17 = load i32, ptr %edit_count.i, align 4
   %tobool14.not = icmp ne i32 %17, 0
   %18 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %18) #18
+  tail call void @hb_blob_destroy(ptr noundef %18) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   %brmerge = or i1 %tobool14.not, %retval.0.i51.not
@@ -22952,7 +22952,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %tobool22, label %if.else39.critedge, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #18
+  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #19
   store ptr %call24, ptr %start, align 8
   %21 = load i32, ptr %length, align 8
   %idx.ext = zext i32 %21 to i64
@@ -22963,25 +22963,25 @@ if.then23:                                        ; preds = %land.lhs.true
 
 if.then38.critedge:                               ; preds = %if.then5
   %22 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %22) #18
+  tail call void @hb_blob_destroy(ptr noundef %22) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.then38
 
 if.then38:                                        ; preds = %_ZNK2OT3OS28sanitizeEP21hb_sanitize_context_t.exit52, %if.then38.critedge
-  tail call void @hb_blob_make_immutable(ptr noundef %blob) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %blob) #19
   br label %return
 
 if.else39.critedge:                               ; preds = %if.else, %if.then23, %land.lhs.true
   %23 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %23) #18
+  tail call void @hb_blob_destroy(ptr noundef %23) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.else39
 
 if.else39:                                        ; preds = %_ZNK2OT3OS28sanitizeEP21hb_sanitize_context_t.exit52, %if.else39.critedge
-  tail call void @hb_blob_destroy(ptr noundef %blob) #18
-  %call40 = tail call ptr @hb_blob_get_empty() #18
+  tail call void @hb_blob_destroy(ptr noundef %blob) #19
+  %call40 = tail call ptr @hb_blob_get_empty() #19
   br label %return
 
 return:                                           ; preds = %if.else39, %if.then38, %if.then
@@ -23051,7 +23051,7 @@ sw.bb7:                                           ; preds = %entry
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit.i
 
 if.end.i.i:                                       ; preds = %sw.bb7
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i = getelementptr inbounds i8, ptr %this, i64 10
   %idxprom.i.i = zext nneg i32 %sub.i to i64
   %arrayidx.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i, i64 0, i64 %idxprom.i.i
@@ -23115,7 +23115,7 @@ sw.bb10:                                          ; preds = %entry
   br i1 %cmp.not.i.i27, label %if.end.i.i36, label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeIjLj4EEEEixEi.exit.i
 
 if.end.i.i36:                                     ; preds = %sw.bb10
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i37 = getelementptr inbounds i8, ptr %this, i64 20
   %idxprom.i.i38 = zext i32 %sub.i21 to i64
   %arrayidx.i.i39 = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i37, i64 0, i64 %idxprom.i.i38
@@ -24424,7 +24424,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.not.i, label %if.end.i, label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit
 
 if.end.i:                                         ; preds = %for.body
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i, i64 0, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit
 
@@ -24454,7 +24454,7 @@ if.then:                                          ; preds = %_ZNK2OT7ArrayOfINS_
   br i1 %cmp.not.i20, label %if.end.i22, label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit26
 
 if.end.i22:                                       ; preds = %if.then
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i25 = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i, i64 0, i64 %indvars.iv
   %.pre = load i32, ptr %unicode, align 4
   br label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit26
@@ -24555,7 +24555,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.not.i, label %if.end.i, label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeIjLj4EEEEixEi.exit
 
 if.end.i:                                         ; preds = %for.body
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i, i64 0, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeIjLj4EEEEixEi.exit
 
@@ -24593,7 +24593,7 @@ if.then:                                          ; preds = %_ZNK2OT7ArrayOfINS_
   br i1 %cmp.not.i36, label %if.end.i38, label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeIjLj4EEEEixEi.exit42
 
 if.end.i38:                                       ; preds = %if.then
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i41 = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i, i64 0, i64 %indvars.iv
   %.pre = load i32, ptr %unicode, align 4
   br label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeIjLj4EEEEixEi.exit42
@@ -24793,7 +24793,7 @@ if.end.i68:                                       ; preds = %if.end.i
   %retval.0.i.i = select i1 %tobool.not.i.i, i32 0, i32 %narrow.i.i
   %26 = zext nneg i32 %retval.0.i.i to i64
   %mul7.i = shl nuw nsw i64 12, %26
-  %call8.i = tail call noalias ptr @malloc(i64 noundef %mul7.i) #20
+  %call8.i = tail call noalias ptr @malloc(i64 noundef %mul7.i) #21
   %tobool9.not.i = icmp eq ptr %call8.i, null
   br i1 %tobool9.not.i, label %_ZN12hb_hashmap_tIjjLb1EE5allocEj.exit, label %if.end12.i
 
@@ -24851,7 +24851,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 if.then26.i:                                      ; preds = %for.body.i
   %bf.lshr.i = lshr i32 %bf.load.i.i81, 2
   %value.i = getelementptr inbounds i8, ptr %arrayidx.i80, i64 8
-  %call33.i = tail call noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE13set_with_hashIjjEEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %mapping, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i80, i32 noundef %bf.lshr.i, ptr noundef nonnull align 4 dereferenceable(4) %value.i, i1 noundef zeroext true) #21
+  %call33.i = tail call noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE13set_with_hashIjjEEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %mapping, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i80, i32 noundef %bf.lshr.i, ptr noundef nonnull align 4 dereferenceable(4) %value.i, i1 noundef zeroext true) #22
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then26.i, %for.body.i
@@ -24860,7 +24860,7 @@ for.inc.i:                                        ; preds = %if.then26.i, %for.b
   br i1 %exitcond.not.i, label %_ZN12hb_hashmap_tIjjLb1EE5allocEj.exit.thread, label %for.body.i, !llvm.loop !20
 
 _ZN12hb_hashmap_tIjjLb1EE5allocEj.exit.thread:    ; preds = %for.inc.i, %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit.i, %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit.i
-  tail call void @free(ptr noundef %28) #18
+  tail call void @free(ptr noundef %28) #19
   br label %if.end4.i
 
 _ZN12hb_hashmap_tIjjLb1EE5allocEj.exit:           ; preds = %if.end.i68
@@ -25157,7 +25157,7 @@ if.end.i65:                                       ; preds = %if.end.i
   %retval.0.i.i = select i1 %tobool.not.i.i, i32 0, i32 %narrow.i.i
   %26 = zext nneg i32 %retval.0.i.i to i64
   %mul7.i = shl nuw nsw i64 12, %26
-  %call8.i = tail call noalias ptr @malloc(i64 noundef %mul7.i) #20
+  %call8.i = tail call noalias ptr @malloc(i64 noundef %mul7.i) #21
   %tobool9.not.i = icmp eq ptr %call8.i, null
   br i1 %tobool9.not.i, label %_ZN12hb_hashmap_tIjjLb1EE5allocEj.exit, label %if.end12.i
 
@@ -25215,7 +25215,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 if.then26.i:                                      ; preds = %for.body.i
   %bf.lshr.i = lshr i32 %bf.load.i.i78, 2
   %value.i = getelementptr inbounds i8, ptr %arrayidx.i77, i64 8
-  %call33.i = tail call noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE13set_with_hashIjjEEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %mapping, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i77, i32 noundef %bf.lshr.i, ptr noundef nonnull align 4 dereferenceable(4) %value.i, i1 noundef zeroext true) #21
+  %call33.i = tail call noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE13set_with_hashIjjEEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %mapping, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i77, i32 noundef %bf.lshr.i, ptr noundef nonnull align 4 dereferenceable(4) %value.i, i1 noundef zeroext true) #22
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then26.i, %for.body.i
@@ -25224,7 +25224,7 @@ for.inc.i:                                        ; preds = %if.then26.i, %for.b
   br i1 %exitcond.not.i, label %_ZN12hb_hashmap_tIjjLb1EE5allocEj.exit.thread, label %for.body.i, !llvm.loop !20
 
 _ZN12hb_hashmap_tIjjLb1EE5allocEj.exit.thread:    ; preds = %for.inc.i, %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit.i, %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit.i
-  tail call void @free(ptr noundef %28) #18
+  tail call void @free(ptr noundef %28) #19
   br label %if.end4.i
 
 _ZN12hb_hashmap_tIjjLb1EE5allocEj.exit:           ; preds = %if.end.i65
@@ -26022,117 +26022,93 @@ for.end55:                                        ; preds = %for.inc53, %entry, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr noundef %base, i64 noundef %nel, i64 noundef %w, ptr nocapture noundef readonly %compar) unnamed_addr #0 {
+define internal fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr noundef %base, i64 noundef %nel, i64 noundef range(i64 0, 4294967296) %w, ptr nocapture noundef readonly %compar) unnamed_addr #0 {
 entry:
-  %mul215 = mul i64 %nel, %w
-  %add.ptr216 = getelementptr inbounds i8, ptr %base, i64 %mul215
-  %cmp217 = icmp ult i64 %nel, 10
-  br i1 %cmp217, label %for.cond.preheader, label %if.else.lr.ph
+  %mul214 = mul i64 %nel, %w
+  %add.ptr215 = getelementptr inbounds i8, ptr %base, i64 %mul214
+  %cmp216 = icmp ult i64 %nel, 10
+  br i1 %cmp216, label %for.cond.preheader, label %if.else.lr.ph
 
 if.else.lr.ph:                                    ; preds = %entry
   %idx.neg19 = sub nsw i64 0, %w
-  %cmp7.i = icmp sgt i64 %w, 0
+  %cmp7.i.not = icmp eq i64 %w, 0
   br label %if.else
 
-for.cond.preheader:                               ; preds = %_ZL18sort_r_swap_blocksPcmm.exit176, %entry
-  %base.tr.lcssa = phi ptr [ %base, %entry ], [ %add.ptr118, %_ZL18sort_r_swap_blocksPcmm.exit176 ]
-  %add.ptr.lcssa = phi ptr [ %add.ptr216, %entry ], [ %add.ptr, %_ZL18sort_r_swap_blocksPcmm.exit176 ]
-  %pi.0226 = getelementptr inbounds i8, ptr %base.tr.lcssa, i64 %w
-  %cmp2227 = icmp ult ptr %pi.0226, %add.ptr.lcssa
-  br i1 %cmp2227, label %for.cond3.preheader.lr.ph, label %if.end123
+for.cond.preheader:                               ; preds = %_ZL18sort_r_swap_blocksPcmm.exit175, %entry
+  %base.tr.lcssa = phi ptr [ %base, %entry ], [ %add.ptr118, %_ZL18sort_r_swap_blocksPcmm.exit175 ]
+  %add.ptr.lcssa = phi ptr [ %add.ptr215, %entry ], [ %add.ptr, %_ZL18sort_r_swap_blocksPcmm.exit175 ]
+  %pi.0225 = getelementptr inbounds i8, ptr %base.tr.lcssa, i64 %w
+  %cmp2226 = icmp ult ptr %pi.0225, %add.ptr.lcssa
+  br i1 %cmp2226, label %for.cond3.preheader.lr.ph, label %if.end123
 
 for.cond3.preheader.lr.ph:                        ; preds = %for.cond.preheader
   %idx.neg = sub nsw i64 0, %w
-  %cmp7.i.i = icmp sgt i64 %w, 0
-  br i1 %cmp7.i.i, label %for.cond3.preheader.us, label %for.cond3.preheader
-
-for.cond3.preheader.us:                           ; preds = %for.cond3.preheader.lr.ph, %for.inc9.us
-  %pi.0228.us = phi ptr [ %pi.0.us, %for.inc9.us ], [ %pi.0226, %for.cond3.preheader.lr.ph ]
-  %cmp4224.us = icmp ugt ptr %pi.0228.us, %base.tr.lcssa
-  br i1 %cmp4224.us, label %land.rhs.us.us, label %for.inc9.us
-
-for.inc9.us:                                      ; preds = %_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_.exit.loopexit.us.us, %land.rhs.us.us, %for.cond3.preheader.us
-  %pi.0.us = getelementptr inbounds i8, ptr %pi.0228.us, i64 %w
-  %cmp2.us = icmp ult ptr %pi.0.us, %add.ptr.lcssa
-  br i1 %cmp2.us, label %for.cond3.preheader.us, label %if.end123, !llvm.loop !161
-
-land.rhs.us.us:                                   ; preds = %for.cond3.preheader.us, %_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_.exit.loopexit.us.us
-  %pj.0225.us.us = phi ptr [ %add.ptr5.us.us, %_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_.exit.loopexit.us.us ], [ %pi.0228.us, %for.cond3.preheader.us ]
-  %add.ptr5.us.us = getelementptr inbounds i8, ptr %pj.0225.us.us, i64 %idx.neg
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !165)
-  %call.i.us.us = tail call noundef i32 %compar(ptr noundef nonnull %add.ptr5.us.us, ptr noundef nonnull %pj.0225.us.us) #18
-  %cmp.i.us.us = icmp sgt i32 %call.i.us.us, 0
-  br i1 %cmp.i.us.us, label %if.then.i.us.us, label %for.inc9.us
-
-if.then.i.us.us:                                  ; preds = %land.rhs.us.us
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
-  br label %for.body.i.i.us.us
-
-for.body.i.i.us.us:                               ; preds = %for.body.i.i.us.us, %if.then.i.us.us
-  %a.addr.09.i.i.us.us = phi ptr [ %incdec.ptr.i.i.us.us, %for.body.i.i.us.us ], [ %add.ptr5.us.us, %if.then.i.us.us ]
-  %b.addr.08.i.i.us.us = phi ptr [ %incdec.ptr1.i.i.us.us, %for.body.i.i.us.us ], [ %pj.0225.us.us, %if.then.i.us.us ]
-  %0 = load i8, ptr %a.addr.09.i.i.us.us, align 1, !alias.scope !172, !noalias !173
-  %1 = load i8, ptr %b.addr.08.i.i.us.us, align 1, !alias.scope !173, !noalias !172
-  store i8 %1, ptr %a.addr.09.i.i.us.us, align 1, !alias.scope !172, !noalias !173
-  store i8 %0, ptr %b.addr.08.i.i.us.us, align 1, !alias.scope !173, !noalias !172
-  %incdec.ptr.i.i.us.us = getelementptr inbounds i8, ptr %a.addr.09.i.i.us.us, i64 1
-  %incdec.ptr1.i.i.us.us = getelementptr inbounds i8, ptr %b.addr.08.i.i.us.us, i64 1
-  %cmp.i.i.us.us = icmp ult ptr %incdec.ptr.i.i.us.us, %pj.0225.us.us
-  br i1 %cmp.i.i.us.us, label %for.body.i.i.us.us, label %_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_.exit.loopexit.us.us, !llvm.loop !174
-
-_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_.exit.loopexit.us.us: ; preds = %for.body.i.i.us.us
-  %cmp4.us.us = icmp ugt ptr %add.ptr5.us.us, %base.tr.lcssa
-  br i1 %cmp4.us.us, label %land.rhs.us.us, label %for.inc9.us, !llvm.loop !175
+  %cmp7.i.not.i = icmp ne i64 %w, 0
+  tail call void @llvm.assume(i1 %cmp7.i.not.i)
+  br label %for.cond3.preheader
 
 for.cond3.preheader:                              ; preds = %for.cond3.preheader.lr.ph, %for.inc9
-  %pi.0228 = phi ptr [ %pi.0, %for.inc9 ], [ %pi.0226, %for.cond3.preheader.lr.ph ]
-  %cmp4224 = icmp ugt ptr %pi.0228, %base.tr.lcssa
-  br i1 %cmp4224, label %land.rhs, label %for.inc9
+  %pi.0227 = phi ptr [ %pi.0, %for.inc9 ], [ %pi.0225, %for.cond3.preheader.lr.ph ]
+  %cmp4223 = icmp ugt ptr %pi.0227, %base.tr.lcssa
+  br i1 %cmp4223, label %land.rhs, label %for.inc9
 
-land.rhs:                                         ; preds = %for.cond3.preheader, %if.then.i
-  %pj.0225 = phi ptr [ %add.ptr5, %if.then.i ], [ %pi.0228, %for.cond3.preheader ]
-  %add.ptr5 = getelementptr inbounds i8, ptr %pj.0225, i64 %idx.neg
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !165)
-  %call.i = tail call noundef i32 %compar(ptr noundef nonnull %add.ptr5, ptr noundef nonnull %pj.0225) #18
+land.rhs:                                         ; preds = %for.cond3.preheader, %_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_.exit.loopexit
+  %pj.0224 = phi ptr [ %add.ptr5, %_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_.exit.loopexit ], [ %pi.0227, %for.cond3.preheader ]
+  %add.ptr5 = getelementptr inbounds i8, ptr %pj.0224, i64 %idx.neg
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
+  %call.i = tail call noundef i32 %compar(ptr noundef nonnull %add.ptr5, ptr noundef nonnull %pj.0224) #19
   %cmp.i = icmp sgt i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %for.inc9
 
 if.then.i:                                        ; preds = %land.rhs
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !166)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !169)
+  br label %for.body.i.i
+
+for.body.i.i:                                     ; preds = %if.then.i, %for.body.i.i
+  %a.addr.09.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %add.ptr5, %if.then.i ]
+  %b.addr.08.i.i = phi ptr [ %incdec.ptr1.i.i, %for.body.i.i ], [ %pj.0224, %if.then.i ]
+  %0 = load i8, ptr %a.addr.09.i.i, align 1, !alias.scope !171, !noalias !172
+  %1 = load i8, ptr %b.addr.08.i.i, align 1, !alias.scope !172, !noalias !171
+  store i8 %1, ptr %a.addr.09.i.i, align 1, !alias.scope !171, !noalias !172
+  store i8 %0, ptr %b.addr.08.i.i, align 1, !alias.scope !172, !noalias !171
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %a.addr.09.i.i, i64 1
+  %incdec.ptr1.i.i = getelementptr inbounds i8, ptr %b.addr.08.i.i, i64 1
+  %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %pj.0224
+  br i1 %cmp.i.i, label %for.body.i.i, label %_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_.exit.loopexit, !llvm.loop !173
+
+_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_.exit.loopexit: ; preds = %for.body.i.i
   %cmp4 = icmp ugt ptr %add.ptr5, %base.tr.lcssa
-  br i1 %cmp4, label %land.rhs, label %for.inc9, !llvm.loop !175
+  br i1 %cmp4, label %land.rhs, label %for.inc9, !llvm.loop !174
 
-for.inc9:                                         ; preds = %if.then.i, %land.rhs, %for.cond3.preheader
-  %pi.0 = getelementptr inbounds i8, ptr %pi.0228, i64 %w
+for.inc9:                                         ; preds = %_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_.exit.loopexit, %land.rhs, %for.cond3.preheader
+  %pi.0 = getelementptr inbounds i8, ptr %pi.0227, i64 %w
   %cmp2 = icmp ult ptr %pi.0, %add.ptr.lcssa
-  br i1 %cmp2, label %for.cond3.preheader, label %if.end123, !llvm.loop !161
+  br i1 %cmp2, label %for.cond3.preheader, label %if.end123, !llvm.loop !175
 
-if.else:                                          ; preds = %if.else.lr.ph, %_ZL18sort_r_swap_blocksPcmm.exit176
-  %add.ptr221 = phi ptr [ %add.ptr216, %if.else.lr.ph ], [ %add.ptr, %_ZL18sort_r_swap_blocksPcmm.exit176 ]
-  %nel.tr220 = phi i64 [ %nel, %if.else.lr.ph ], [ %div122, %_ZL18sort_r_swap_blocksPcmm.exit176 ]
-  %base.tr218 = phi ptr [ %base, %if.else.lr.ph ], [ %add.ptr118, %_ZL18sort_r_swap_blocksPcmm.exit176 ]
-  %sub = add i64 %nel.tr220, -1
+if.else:                                          ; preds = %if.else.lr.ph, %_ZL18sort_r_swap_blocksPcmm.exit175
+  %add.ptr220 = phi ptr [ %add.ptr215, %if.else.lr.ph ], [ %add.ptr, %_ZL18sort_r_swap_blocksPcmm.exit175 ]
+  %nel.tr219 = phi i64 [ %nel, %if.else.lr.ph ], [ %div122, %_ZL18sort_r_swap_blocksPcmm.exit175 ]
+  %base.tr217 = phi ptr [ %base, %if.else.lr.ph ], [ %add.ptr118, %_ZL18sort_r_swap_blocksPcmm.exit175 ]
+  %sub = add i64 %nel.tr219, -1
   %mul13 = mul i64 %sub, %w
-  %add.ptr14 = getelementptr i8, ptr %base.tr218, i64 %mul13
-  %add.ptr15 = getelementptr inbounds i8, ptr %base.tr218, i64 %w
-  %div107 = lshr i64 %nel.tr220, 1
+  %add.ptr14 = getelementptr i8, ptr %base.tr217, i64 %mul13
+  %add.ptr15 = getelementptr inbounds i8, ptr %base.tr217, i64 %w
+  %div107 = lshr i64 %nel.tr219, 1
   %mul16 = mul i64 %div107, %w
-  %add.ptr17 = getelementptr inbounds i8, ptr %base.tr218, i64 %mul16
+  %add.ptr17 = getelementptr inbounds i8, ptr %base.tr217, i64 %mul16
   %add.ptr20 = getelementptr inbounds i8, ptr %add.ptr14, i64 %idx.neg19
-  %call24 = tail call noundef i32 %compar(ptr noundef %add.ptr15, ptr noundef %add.ptr17) #18
+  %call24 = tail call noundef i32 %compar(ptr noundef %add.ptr15, ptr noundef %add.ptr17) #19
   %cmp25 = icmp sgt i32 %call24, 0
   %spec.select = select i1 %cmp25, ptr %add.ptr15, ptr %add.ptr17
-  %call33 = tail call noundef i32 %compar(ptr noundef %spec.select, ptr noundef %add.ptr20) #18
+  %call33 = tail call noundef i32 %compar(ptr noundef %spec.select, ptr noundef %add.ptr20) #19
   %cmp34 = icmp sgt i32 %call33, 0
   br i1 %cmp34, label %if.then35, label %if.end50
 
 if.then35:                                        ; preds = %if.else
   %spec.select108 = select i1 %cmp25, ptr %add.ptr17, ptr %add.ptr15
-  %call42 = tail call noundef i32 %compar(ptr noundef %spec.select108, ptr noundef %add.ptr20) #18
+  %call42 = tail call noundef i32 %compar(ptr noundef %spec.select108, ptr noundef %add.ptr20) #19
   %cmp43 = icmp sgt i32 %call42, 0
   %spec.select109 = select i1 %cmp43, ptr %spec.select108, ptr %add.ptr20
   br label %if.end50
@@ -26146,7 +26122,7 @@ if.then53:                                        ; preds = %if.end50
   tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !179)
   %add.ptr.i = getelementptr inbounds i8, ptr %l.sroa.7.1, i64 %w
-  br i1 %cmp7.i, label %for.body.i, label %if.end55
+  br i1 %cmp7.i.not, label %_ZL18sort_r_swap_blocksPcmm.exit175, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then53, %for.body.i
   %a.addr.09.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %l.sroa.7.1, %if.then53 ]
@@ -26158,83 +26134,63 @@ for.body.i:                                       ; preds = %if.then53, %for.bod
   %incdec.ptr.i = getelementptr inbounds i8, ptr %a.addr.09.i, i64 1
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %b.addr.08.i, i64 1
   %cmp.i110 = icmp ult ptr %incdec.ptr.i, %add.ptr.i
-  br i1 %cmp.i110, label %for.body.i, label %if.end55, !llvm.loop !174
+  br i1 %cmp.i110, label %for.body.i, label %if.end55, !llvm.loop !173
 
-if.end55:                                         ; preds = %for.body.i, %if.then53, %if.end50
-  %cmp56207 = icmp sgt i64 %mul13, 0
-  br i1 %cmp56207, label %for.cond57.preheader, label %_ZL18sort_r_swap_blocksPcmm.exit176
+if.end55:                                         ; preds = %for.body.i, %if.end50
+  %cmp56206 = icmp sgt i64 %mul13, 0
+  br i1 %cmp56206, label %for.cond57.preheader, label %_ZL18sort_r_swap_blocksPcmm.exit175
 
 for.cond57.preheader:                             ; preds = %if.end55, %for.end100
-  %pre.0211 = phi ptr [ %pre.1185, %for.end100 ], [ %add.ptr14, %if.end55 ]
-  %pr.0210 = phi ptr [ %pr.2, %for.end100 ], [ %add.ptr14, %if.end55 ]
-  %ple.0209 = phi ptr [ %.us-phi195, %for.end100 ], [ %base.tr218, %if.end55 ]
-  %pl.0208 = phi ptr [ %pl.2, %for.end100 ], [ %base.tr218, %if.end55 ]
-  br i1 %cmp7.i, label %for.body59.us, label %for.body59
+  %pre.0210 = phi ptr [ %pre.1184, %for.end100 ], [ %add.ptr14, %if.end55 ]
+  %pr.0209 = phi ptr [ %pr.2, %for.end100 ], [ %add.ptr14, %if.end55 ]
+  %ple.0208 = phi ptr [ %.us-phi194, %for.end100 ], [ %base.tr217, %if.end55 ]
+  %pl.0207 = phi ptr [ %pl.2, %for.end100 ], [ %base.tr217, %if.end55 ]
+  br i1 %cmp7.i.not, label %for.body59.us.preheader, label %for.body59
 
-for.body59.us:                                    ; preds = %for.cond57.preheader, %for.inc72.us
-  %ple.2194.us = phi ptr [ %ple.3.us, %for.inc72.us ], [ %ple.0209, %for.cond57.preheader ]
-  %pl.1192.us = phi ptr [ %add.ptr73.us, %for.inc72.us ], [ %pl.0208, %for.cond57.preheader ]
-  %call60.us = tail call noundef i32 %compar(ptr noundef %pl.1192.us, ptr noundef nonnull %add.ptr14) #18
+for.body59.us.preheader:                          ; preds = %for.cond57.preheader
+  %cmp66.us = icmp uge ptr %ple.0208, %pl.0207
+  %cmp58.us = icmp ult ptr %pl.0207, %pr.0209
+  br label %for.body59.us
+
+for.body59.us:                                    ; preds = %for.body59.us.preheader, %for.inc72.us
+  %call60.us = tail call noundef i32 %compar(ptr noundef %pl.0207, ptr noundef nonnull %add.ptr14) #19
   %cmp61.us = icmp sgt i32 %call60.us, 0
   br i1 %cmp61.us, label %for.cond78.preheader, label %if.else63.us
 
 if.else63.us:                                     ; preds = %for.body59.us
-  %cmp64.us = icmp eq i32 %call60.us, 0
-  br i1 %cmp64.us, label %if.then65.us, label %for.inc72.us
+  %cmp64.us = icmp ne i32 %call60.us, 0
+  %brmerge = select i1 %cmp64.us, i1 true, i1 %cmp66.us
+  br i1 %brmerge, label %for.inc72.us, label %if.then67.us
 
-if.then65.us:                                     ; preds = %if.else63.us
-  %cmp66.us = icmp ult ptr %ple.2194.us, %pl.1192.us
-  br i1 %cmp66.us, label %if.then67.us, label %if.end68.us
-
-if.then67.us:                                     ; preds = %if.then65.us
+if.then67.us:                                     ; preds = %if.else63.us
   tail call void @llvm.experimental.noalias.scope.decl(metadata !181)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !184)
-  %add.ptr.i111.us = getelementptr inbounds i8, ptr %ple.2194.us, i64 %w
-  br label %for.body.i113.us
-
-for.body.i113.us:                                 ; preds = %if.then67.us, %for.body.i113.us
-  %a.addr.09.i114.us = phi ptr [ %incdec.ptr.i116.us, %for.body.i113.us ], [ %ple.2194.us, %if.then67.us ]
-  %b.addr.08.i115.us = phi ptr [ %incdec.ptr1.i117.us, %for.body.i113.us ], [ %pl.1192.us, %if.then67.us ]
-  %4 = load i8, ptr %a.addr.09.i114.us, align 1, !alias.scope !181, !noalias !184
-  %5 = load i8, ptr %b.addr.08.i115.us, align 1, !alias.scope !184, !noalias !181
-  store i8 %5, ptr %a.addr.09.i114.us, align 1, !alias.scope !181, !noalias !184
-  store i8 %4, ptr %b.addr.08.i115.us, align 1, !alias.scope !184, !noalias !181
-  %incdec.ptr.i116.us = getelementptr inbounds i8, ptr %a.addr.09.i114.us, i64 1
-  %incdec.ptr1.i117.us = getelementptr inbounds i8, ptr %b.addr.08.i115.us, i64 1
-  %cmp.i118.us = icmp ult ptr %incdec.ptr.i116.us, %add.ptr.i111.us
-  br i1 %cmp.i118.us, label %for.body.i113.us, label %if.end68.us, !llvm.loop !174
-
-if.end68.us:                                      ; preds = %for.body.i113.us, %if.then65.us
-  %add.ptr69.us = getelementptr inbounds i8, ptr %ple.2194.us, i64 %w
   br label %for.inc72.us
 
-for.inc72.us:                                     ; preds = %if.end68.us, %if.else63.us
-  %ple.3.us = phi ptr [ %add.ptr69.us, %if.end68.us ], [ %ple.2194.us, %if.else63.us ]
-  %add.ptr73.us = getelementptr inbounds i8, ptr %pl.1192.us, i64 %w
-  %cmp58.us = icmp ult ptr %add.ptr73.us, %pr.0210
+for.inc72.us:                                     ; preds = %if.else63.us, %if.then67.us
   br i1 %cmp58.us, label %for.body59.us, label %while.end, !llvm.loop !186
 
 for.body59:                                       ; preds = %for.cond57.preheader, %for.inc72
-  %ple.2194 = phi ptr [ %ple.3, %for.inc72 ], [ %ple.0209, %for.cond57.preheader ]
-  %pl.1192 = phi ptr [ %add.ptr73, %for.inc72 ], [ %pl.0208, %for.cond57.preheader ]
-  %call60 = tail call noundef i32 %compar(ptr noundef %pl.1192, ptr noundef nonnull %add.ptr14) #18
+  %ple.2193 = phi ptr [ %ple.3, %for.inc72 ], [ %ple.0208, %for.cond57.preheader ]
+  %pl.1191 = phi ptr [ %add.ptr73, %for.inc72 ], [ %pl.0207, %for.cond57.preheader ]
+  %call60 = tail call noundef i32 %compar(ptr noundef %pl.1191, ptr noundef nonnull %add.ptr14) #19
   %cmp61 = icmp sgt i32 %call60, 0
   br i1 %cmp61, label %for.cond78.preheader, label %if.else63
 
 for.cond78.preheader:                             ; preds = %for.body59, %for.body59.us
-  %.us-phi = phi ptr [ %pl.1192.us, %for.body59.us ], [ %pl.1192, %for.body59 ]
-  %.us-phi195 = phi ptr [ %ple.2194.us, %for.body59.us ], [ %ple.2194, %for.body59 ]
-  %cmp79199 = icmp ult ptr %.us-phi, %pr.0210
-  br i1 %cmp79199, label %for.body80.lr.ph, label %for.end100
+  %.us-phi = phi ptr [ %pl.0207, %for.body59.us ], [ %pl.1191, %for.body59 ]
+  %.us-phi194 = phi ptr [ %ple.0208, %for.body59.us ], [ %ple.2193, %for.body59 ]
+  %cmp79198 = icmp ult ptr %.us-phi, %pr.0209
+  br i1 %cmp79198, label %for.body80.lr.ph, label %for.end100
 
 for.body80.lr.ph:                                 ; preds = %for.cond78.preheader
-  br i1 %cmp7.i, label %for.body80.us, label %for.body80
+  br i1 %cmp7.i.not, label %for.body80.us, label %for.body80
 
 for.body80.us:                                    ; preds = %for.body80.lr.ph, %if.end99.us
-  %pre.1201.us = phi ptr [ %pre.2.us, %if.end99.us ], [ %pre.0211, %for.body80.lr.ph ]
-  %pr.1200.us = phi ptr [ %add.ptr82.us, %if.end99.us ], [ %pr.0210, %for.body80.lr.ph ]
-  %add.ptr82.us = getelementptr inbounds i8, ptr %pr.1200.us, i64 %idx.neg19
-  %call83.us = tail call noundef i32 %compar(ptr noundef nonnull %add.ptr82.us, ptr noundef nonnull %add.ptr14) #18
+  %pre.1200.us = phi ptr [ %pre.2.us, %if.end99.us ], [ %pre.0210, %for.body80.lr.ph ]
+  %pr.1199.us = phi ptr [ %add.ptr82.us, %if.end99.us ], [ %pr.0209, %for.body80.lr.ph ]
+  %add.ptr82.us = getelementptr inbounds i8, ptr %pr.1199.us, i64 %idx.neg19
+  %call83.us = tail call noundef i32 %compar(ptr noundef nonnull %add.ptr82.us, ptr noundef nonnull %add.ptr14) #19
   %cmp84.us = icmp eq i32 %call83.us, 0
   br i1 %cmp84.us, label %if.then85.us, label %if.else91.us
 
@@ -26243,29 +26199,17 @@ if.else91.us:                                     ; preds = %for.body80.us
   br i1 %cmp92.us, label %if.then93, label %if.end99.us
 
 if.then85.us:                                     ; preds = %for.body80.us
-  %add.ptr87.us = getelementptr i8, ptr %pre.1201.us, i64 %idx.neg19
-  %cmp88.us = icmp ult ptr %pr.1200.us, %pre.1201.us
+  %add.ptr87.us = getelementptr inbounds i8, ptr %pre.1200.us, i64 %idx.neg19
+  %cmp88.us = icmp ult ptr %pr.1199.us, %pre.1200.us
   br i1 %cmp88.us, label %if.then89.us, label %if.end99.us
 
 if.then89.us:                                     ; preds = %if.then85.us
   tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
-  br label %for.body.i122.us
+  br label %if.end99.us
 
-for.body.i122.us:                                 ; preds = %if.then89.us, %for.body.i122.us
-  %a.addr.09.i123.us = phi ptr [ %incdec.ptr.i125.us, %for.body.i122.us ], [ %add.ptr82.us, %if.then89.us ]
-  %b.addr.08.i124.us = phi ptr [ %incdec.ptr1.i126.us, %for.body.i122.us ], [ %add.ptr87.us, %if.then89.us ]
-  %6 = load i8, ptr %a.addr.09.i123.us, align 1, !alias.scope !187, !noalias !190
-  %7 = load i8, ptr %b.addr.08.i124.us, align 1, !alias.scope !190, !noalias !187
-  store i8 %7, ptr %a.addr.09.i123.us, align 1, !alias.scope !187, !noalias !190
-  store i8 %6, ptr %b.addr.08.i124.us, align 1, !alias.scope !190, !noalias !187
-  %incdec.ptr.i125.us = getelementptr inbounds i8, ptr %a.addr.09.i123.us, i64 1
-  %incdec.ptr1.i126.us = getelementptr inbounds i8, ptr %b.addr.08.i124.us, i64 1
-  %cmp.i127.us = icmp ult ptr %incdec.ptr.i125.us, %pr.1200.us
-  br i1 %cmp.i127.us, label %for.body.i122.us, label %if.end99.us, !llvm.loop !174
-
-if.end99.us:                                      ; preds = %for.body.i122.us, %if.then85.us, %if.else91.us
-  %pre.2.us = phi ptr [ %add.ptr87.us, %if.then85.us ], [ %pre.1201.us, %if.else91.us ], [ %add.ptr87.us, %for.body.i122.us ]
+if.end99.us:                                      ; preds = %if.then89.us, %if.then85.us, %if.else91.us
+  %pre.2.us = phi ptr [ %add.ptr87.us, %if.then85.us ], [ %pre.1200.us, %if.else91.us ], [ %add.ptr87.us, %if.then89.us ]
   %cmp79.us = icmp ult ptr %.us-phi, %add.ptr82.us
   br i1 %cmp79.us, label %for.body80.us, label %for.end100, !llvm.loop !192
 
@@ -26274,61 +26218,86 @@ if.else63:                                        ; preds = %for.body59
   br i1 %cmp64, label %if.then65, label %for.inc72
 
 if.then65:                                        ; preds = %if.else63
-  %cmp66 = icmp ult ptr %ple.2194, %pl.1192
+  %cmp66 = icmp ult ptr %ple.2193, %pl.1191
   br i1 %cmp66, label %if.then67, label %if.end68
 
 if.then67:                                        ; preds = %if.then65
   tail call void @llvm.experimental.noalias.scope.decl(metadata !181)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !184)
-  br label %if.end68
+  %add.ptr.i111 = getelementptr inbounds i8, ptr %ple.2193, i64 %w
+  br label %for.body.i113
 
-if.end68:                                         ; preds = %if.then67, %if.then65
-  %add.ptr69 = getelementptr inbounds i8, ptr %ple.2194, i64 %w
+for.body.i113:                                    ; preds = %if.then67, %for.body.i113
+  %a.addr.09.i114 = phi ptr [ %incdec.ptr.i116, %for.body.i113 ], [ %ple.2193, %if.then67 ]
+  %b.addr.08.i115 = phi ptr [ %incdec.ptr1.i117, %for.body.i113 ], [ %pl.1191, %if.then67 ]
+  %4 = load i8, ptr %a.addr.09.i114, align 1, !alias.scope !181, !noalias !184
+  %5 = load i8, ptr %b.addr.08.i115, align 1, !alias.scope !184, !noalias !181
+  store i8 %5, ptr %a.addr.09.i114, align 1, !alias.scope !181, !noalias !184
+  store i8 %4, ptr %b.addr.08.i115, align 1, !alias.scope !184, !noalias !181
+  %incdec.ptr.i116 = getelementptr inbounds i8, ptr %a.addr.09.i114, i64 1
+  %incdec.ptr1.i117 = getelementptr inbounds i8, ptr %b.addr.08.i115, i64 1
+  %cmp.i118 = icmp ult ptr %incdec.ptr.i116, %add.ptr.i111
+  br i1 %cmp.i118, label %for.body.i113, label %if.end68, !llvm.loop !173
+
+if.end68:                                         ; preds = %for.body.i113, %if.then65
+  %add.ptr69 = getelementptr inbounds i8, ptr %ple.2193, i64 %w
   br label %for.inc72
 
 for.inc72:                                        ; preds = %if.end68, %if.else63
-  %ple.3 = phi ptr [ %add.ptr69, %if.end68 ], [ %ple.2194, %if.else63 ]
-  %add.ptr73 = getelementptr inbounds i8, ptr %pl.1192, i64 %w
-  %cmp58 = icmp ult ptr %add.ptr73, %pr.0210
+  %ple.3 = phi ptr [ %add.ptr69, %if.end68 ], [ %ple.2193, %if.else63 ]
+  %add.ptr73 = getelementptr inbounds i8, ptr %pl.1191, i64 %w
+  %cmp58 = icmp ult ptr %add.ptr73, %pr.0209
   br i1 %cmp58, label %for.body59, label %while.end, !llvm.loop !186
 
 for.body80:                                       ; preds = %for.body80.lr.ph, %if.end99
-  %pre.1201 = phi ptr [ %pre.2, %if.end99 ], [ %pre.0211, %for.body80.lr.ph ]
-  %pr.1200 = phi ptr [ %add.ptr82, %if.end99 ], [ %pr.0210, %for.body80.lr.ph ]
-  %add.ptr82 = getelementptr inbounds i8, ptr %pr.1200, i64 %idx.neg19
-  %call83 = tail call noundef i32 %compar(ptr noundef nonnull %add.ptr82, ptr noundef nonnull %add.ptr14) #18
+  %pre.1200 = phi ptr [ %pre.2, %if.end99 ], [ %pre.0210, %for.body80.lr.ph ]
+  %pr.1199 = phi ptr [ %add.ptr82, %if.end99 ], [ %pr.0209, %for.body80.lr.ph ]
+  %add.ptr82 = getelementptr inbounds i8, ptr %pr.1199, i64 %idx.neg19
+  %call83 = tail call noundef i32 %compar(ptr noundef nonnull %add.ptr82, ptr noundef nonnull %add.ptr14) #19
   %cmp84 = icmp eq i32 %call83, 0
   br i1 %cmp84, label %if.then85, label %if.else91
 
 if.then85:                                        ; preds = %for.body80
-  %add.ptr87 = getelementptr inbounds i8, ptr %pre.1201, i64 %idx.neg19
-  %cmp88 = icmp ult ptr %pr.1200, %pre.1201
+  %add.ptr87 = getelementptr i8, ptr %pre.1200, i64 %idx.neg19
+  %cmp88 = icmp ult ptr %pr.1199, %pre.1200
   br i1 %cmp88, label %if.then89, label %if.end99
 
 if.then89:                                        ; preds = %if.then85
   tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
-  br label %if.end99
+  br label %for.body.i122
+
+for.body.i122:                                    ; preds = %if.then89, %for.body.i122
+  %a.addr.09.i123 = phi ptr [ %incdec.ptr.i125, %for.body.i122 ], [ %add.ptr82, %if.then89 ]
+  %b.addr.08.i124 = phi ptr [ %incdec.ptr1.i126, %for.body.i122 ], [ %add.ptr87, %if.then89 ]
+  %6 = load i8, ptr %a.addr.09.i123, align 1, !alias.scope !187, !noalias !190
+  %7 = load i8, ptr %b.addr.08.i124, align 1, !alias.scope !190, !noalias !187
+  store i8 %7, ptr %a.addr.09.i123, align 1, !alias.scope !187, !noalias !190
+  store i8 %6, ptr %b.addr.08.i124, align 1, !alias.scope !190, !noalias !187
+  %incdec.ptr.i125 = getelementptr inbounds i8, ptr %a.addr.09.i123, i64 1
+  %incdec.ptr1.i126 = getelementptr inbounds i8, ptr %b.addr.08.i124, i64 1
+  %cmp.i127 = icmp ult ptr %incdec.ptr.i125, %pr.1199
+  br i1 %cmp.i127, label %for.body.i122, label %if.end99, !llvm.loop !173
 
 if.else91:                                        ; preds = %for.body80
   %cmp92 = icmp slt i32 %call83, 0
   br i1 %cmp92, label %if.then93, label %if.end99
 
 if.then93:                                        ; preds = %if.else91, %if.else91.us
-  %.us-phi203 = phi ptr [ %add.ptr82.us, %if.else91.us ], [ %add.ptr82, %if.else91 ]
-  %.us-phi204 = phi ptr [ %pre.1201.us, %if.else91.us ], [ %pre.1201, %if.else91 ]
-  %cmp94 = icmp ult ptr %.us-phi, %.us-phi203
+  %.us-phi202 = phi ptr [ %add.ptr82.us, %if.else91.us ], [ %add.ptr82, %if.else91 ]
+  %.us-phi203 = phi ptr [ %pre.1200.us, %if.else91.us ], [ %pre.1200, %if.else91 ]
+  %cmp94 = icmp ult ptr %.us-phi, %.us-phi202
   br i1 %cmp94, label %if.then95, label %if.end96
 
 if.then95:                                        ; preds = %if.then93
   tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !196)
   %add.ptr.i129 = getelementptr inbounds i8, ptr %.us-phi, i64 %w
-  br i1 %cmp7.i, label %for.body.i131, label %if.end96
+  br i1 %cmp7.i.not, label %if.end96, label %for.body.i131
 
 for.body.i131:                                    ; preds = %if.then95, %for.body.i131
   %a.addr.09.i132 = phi ptr [ %incdec.ptr.i134, %for.body.i131 ], [ %.us-phi, %if.then95 ]
-  %b.addr.08.i133 = phi ptr [ %incdec.ptr1.i135, %for.body.i131 ], [ %.us-phi203, %if.then95 ]
+  %b.addr.08.i133 = phi ptr [ %incdec.ptr1.i135, %for.body.i131 ], [ %.us-phi202, %if.then95 ]
   %8 = load i8, ptr %a.addr.09.i132, align 1, !alias.scope !193, !noalias !196
   %9 = load i8, ptr %b.addr.08.i133, align 1, !alias.scope !196, !noalias !193
   store i8 %9, ptr %a.addr.09.i132, align 1, !alias.scope !193, !noalias !196
@@ -26336,35 +26305,35 @@ for.body.i131:                                    ; preds = %if.then95, %for.bod
   %incdec.ptr.i134 = getelementptr inbounds i8, ptr %a.addr.09.i132, i64 1
   %incdec.ptr1.i135 = getelementptr inbounds i8, ptr %b.addr.08.i133, i64 1
   %cmp.i136 = icmp ult ptr %incdec.ptr.i134, %add.ptr.i129
-  br i1 %cmp.i136, label %for.body.i131, label %if.end96, !llvm.loop !174
+  br i1 %cmp.i136, label %for.body.i131, label %if.end96, !llvm.loop !173
 
 if.end96:                                         ; preds = %for.body.i131, %if.then95, %if.then93
   %add.ptr97 = getelementptr inbounds i8, ptr %.us-phi, i64 %w
   br label %for.end100
 
-if.end99:                                         ; preds = %if.then89, %if.else91, %if.then85
-  %pre.2 = phi ptr [ %add.ptr87, %if.then85 ], [ %pre.1201, %if.else91 ], [ %add.ptr87, %if.then89 ]
+if.end99:                                         ; preds = %for.body.i122, %if.else91, %if.then85
+  %pre.2 = phi ptr [ %add.ptr87, %if.then85 ], [ %pre.1200, %if.else91 ], [ %add.ptr87, %for.body.i122 ]
   %cmp79 = icmp ult ptr %.us-phi, %add.ptr82
   br i1 %cmp79, label %for.body80, label %for.end100, !llvm.loop !192
 
 for.end100:                                       ; preds = %if.end99, %if.end99.us, %for.cond78.preheader, %if.end96
-  %pre.1185 = phi ptr [ %.us-phi204, %if.end96 ], [ %pre.0211, %for.cond78.preheader ], [ %pre.2.us, %if.end99.us ], [ %pre.2, %if.end99 ]
+  %pre.1184 = phi ptr [ %.us-phi203, %if.end96 ], [ %pre.0210, %for.cond78.preheader ], [ %pre.2.us, %if.end99.us ], [ %pre.2, %if.end99 ]
   %pl.2 = phi ptr [ %add.ptr97, %if.end96 ], [ %.us-phi, %for.cond78.preheader ], [ %.us-phi, %if.end99.us ], [ %.us-phi, %if.end99 ]
-  %pr.2 = phi ptr [ %.us-phi203, %if.end96 ], [ %pr.0210, %for.cond78.preheader ], [ %add.ptr82.us, %if.end99.us ], [ %add.ptr82, %if.end99 ]
+  %pr.2 = phi ptr [ %.us-phi202, %if.end96 ], [ %pr.0209, %for.cond78.preheader ], [ %add.ptr82.us, %if.end99.us ], [ %add.ptr82, %if.end99 ]
   %cmp56 = icmp ult ptr %pl.2, %pr.2
   br i1 %cmp56, label %for.cond57.preheader, label %while.end, !llvm.loop !198
 
 while.end:                                        ; preds = %for.end100, %for.inc72, %for.inc72.us
-  %pr.0190 = phi ptr [ %pr.0210, %for.inc72.us ], [ %pr.0210, %for.inc72 ], [ %pr.2, %for.end100 ]
-  %pre.0188 = phi ptr [ %pre.0211, %for.inc72.us ], [ %pre.0211, %for.inc72 ], [ %pre.1185, %for.end100 ]
-  %ple.1 = phi ptr [ %ple.3.us, %for.inc72.us ], [ %ple.3, %for.inc72 ], [ %.us-phi195, %for.end100 ]
+  %pr.0189 = phi ptr [ %pr.0209, %for.inc72.us ], [ %pr.0209, %for.inc72 ], [ %pr.2, %for.end100 ]
+  %pre.0187 = phi ptr [ %pre.0210, %for.inc72.us ], [ %pre.0210, %for.inc72 ], [ %pre.1184, %for.end100 ]
+  %ple.1 = phi ptr [ %ple.0208, %for.inc72.us ], [ %ple.3, %for.inc72 ], [ %.us-phi194, %for.end100 ]
   %sub.ptr.lhs.cast = ptrtoint ptr %ple.1 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %base.tr218 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %base.tr217 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.lhs.cast101 = ptrtoint ptr %pr.0190 to i64
+  %sub.ptr.lhs.cast101 = ptrtoint ptr %pr.0189 to i64
   %sub.ptr.sub103 = sub i64 %sub.ptr.lhs.cast101, %sub.ptr.lhs.cast
-  %cmp.i138 = icmp ne ptr %ple.1, %base.tr218
-  %cmp1.i = icmp ne ptr %pr.0190, %ple.1
+  %cmp.i138 = icmp ne ptr %ple.1, %base.tr217
+  %cmp1.i = icmp ne ptr %pr.0189, %ple.1
   %or.cond.i = and i1 %cmp.i138, %cmp1.i
   br i1 %or.cond.i, label %if.then.i139, label %_ZL18sort_r_swap_blocksPcmm.exit
 
@@ -26375,25 +26344,25 @@ if.then.i139:                                     ; preds = %while.end
 if.then3.i:                                       ; preds = %if.then.i139
   tail call void @llvm.experimental.noalias.scope.decl(metadata !199)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
-  %add.ptr.i.i140 = getelementptr inbounds i8, ptr %base.tr218, i64 %sub.ptr.sub103
-  %cmp7.i.i141 = icmp sgt i64 %sub.ptr.sub103, 0
-  br i1 %cmp7.i.i141, label %for.body.i.preheader.i, label %_ZL18sort_r_swap_blocksPcmm.exit
+  %add.ptr.i.i140 = getelementptr inbounds i8, ptr %base.tr217, i64 %sub.ptr.sub103
+  %cmp7.i.i = icmp sgt i64 %sub.ptr.sub103, 0
+  br i1 %cmp7.i.i, label %for.body.i.preheader.i, label %_ZL18sort_r_swap_blocksPcmm.exit
 
 for.body.i.preheader.i:                           ; preds = %if.then3.i
-  %add.ptr.i142 = getelementptr i8, ptr %base.tr218, i64 %sub.ptr.sub
-  br label %for.body.i.i143
+  %add.ptr.i141 = getelementptr i8, ptr %base.tr217, i64 %sub.ptr.sub
+  br label %for.body.i.i142
 
-for.body.i.i143:                                  ; preds = %for.body.i.i143, %for.body.i.preheader.i
-  %a.addr.09.i.i144 = phi ptr [ %incdec.ptr.i.i146, %for.body.i.i143 ], [ %base.tr218, %for.body.i.preheader.i ]
-  %b.addr.08.i.i145 = phi ptr [ %incdec.ptr1.i.i147, %for.body.i.i143 ], [ %add.ptr.i142, %for.body.i.preheader.i ]
-  %10 = load i8, ptr %a.addr.09.i.i144, align 1, !alias.scope !199, !noalias !202
-  %11 = load i8, ptr %b.addr.08.i.i145, align 1, !alias.scope !202, !noalias !199
-  store i8 %11, ptr %a.addr.09.i.i144, align 1, !alias.scope !199, !noalias !202
-  store i8 %10, ptr %b.addr.08.i.i145, align 1, !alias.scope !202, !noalias !199
-  %incdec.ptr.i.i146 = getelementptr inbounds i8, ptr %a.addr.09.i.i144, i64 1
-  %incdec.ptr1.i.i147 = getelementptr inbounds i8, ptr %b.addr.08.i.i145, i64 1
-  %cmp.i.i148 = icmp ult ptr %incdec.ptr.i.i146, %add.ptr.i.i140
-  br i1 %cmp.i.i148, label %for.body.i.i143, label %_ZL18sort_r_swap_blocksPcmm.exit, !llvm.loop !174
+for.body.i.i142:                                  ; preds = %for.body.i.i142, %for.body.i.preheader.i
+  %a.addr.09.i.i143 = phi ptr [ %incdec.ptr.i.i145, %for.body.i.i142 ], [ %base.tr217, %for.body.i.preheader.i ]
+  %b.addr.08.i.i144 = phi ptr [ %incdec.ptr1.i.i146, %for.body.i.i142 ], [ %add.ptr.i141, %for.body.i.preheader.i ]
+  %10 = load i8, ptr %a.addr.09.i.i143, align 1, !alias.scope !199, !noalias !202
+  %11 = load i8, ptr %b.addr.08.i.i144, align 1, !alias.scope !202, !noalias !199
+  store i8 %11, ptr %a.addr.09.i.i143, align 1, !alias.scope !199, !noalias !202
+  store i8 %10, ptr %b.addr.08.i.i144, align 1, !alias.scope !202, !noalias !199
+  %incdec.ptr.i.i145 = getelementptr inbounds i8, ptr %a.addr.09.i.i143, i64 1
+  %incdec.ptr1.i.i146 = getelementptr inbounds i8, ptr %b.addr.08.i.i144, i64 1
+  %cmp.i.i147 = icmp ult ptr %incdec.ptr.i.i145, %add.ptr.i.i140
+  br i1 %cmp.i.i147, label %for.body.i.i142, label %_ZL18sort_r_swap_blocksPcmm.exit, !llvm.loop !173
 
 if.else.i:                                        ; preds = %if.then.i139
   tail call void @llvm.experimental.noalias.scope.decl(metadata !204)
@@ -26402,11 +26371,11 @@ if.else.i:                                        ; preds = %if.then.i139
   br i1 %cmp7.i11.i, label %for.body.i12.preheader.i, label %_ZL18sort_r_swap_blocksPcmm.exit
 
 for.body.i12.preheader.i:                         ; preds = %if.else.i
-  %add.ptr4.i = getelementptr i8, ptr %base.tr218, i64 %sub.ptr.sub103
+  %add.ptr4.i = getelementptr i8, ptr %base.tr217, i64 %sub.ptr.sub103
   br label %for.body.i12.i
 
 for.body.i12.i:                                   ; preds = %for.body.i12.i, %for.body.i12.preheader.i
-  %a.addr.09.i13.i = phi ptr [ %incdec.ptr.i15.i, %for.body.i12.i ], [ %base.tr218, %for.body.i12.preheader.i ]
+  %a.addr.09.i13.i = phi ptr [ %incdec.ptr.i15.i, %for.body.i12.i ], [ %base.tr217, %for.body.i12.preheader.i ]
   %b.addr.08.i14.i = phi ptr [ %incdec.ptr1.i16.i, %for.body.i12.i ], [ %add.ptr4.i, %for.body.i12.preheader.i ]
   %12 = load i8, ptr %a.addr.09.i13.i, align 1, !alias.scope !204, !noalias !207
   %13 = load i8, ptr %b.addr.08.i14.i, align 1, !alias.scope !207, !noalias !204
@@ -26415,82 +26384,82 @@ for.body.i12.i:                                   ; preds = %for.body.i12.i, %fo
   %incdec.ptr.i15.i = getelementptr inbounds i8, ptr %a.addr.09.i13.i, i64 1
   %incdec.ptr1.i16.i = getelementptr inbounds i8, ptr %b.addr.08.i14.i, i64 1
   %cmp.i17.i = icmp ult ptr %incdec.ptr.i15.i, %ple.1
-  br i1 %cmp.i17.i, label %for.body.i12.i, label %_ZL18sort_r_swap_blocksPcmm.exit, !llvm.loop !174
+  br i1 %cmp.i17.i, label %for.body.i12.i, label %_ZL18sort_r_swap_blocksPcmm.exit, !llvm.loop !173
 
-_ZL18sort_r_swap_blocksPcmm.exit:                 ; preds = %for.body.i12.i, %for.body.i.i143, %while.end, %if.then3.i, %if.else.i
-  %sub.ptr.lhs.cast104 = ptrtoint ptr %pre.0188 to i64
+_ZL18sort_r_swap_blocksPcmm.exit:                 ; preds = %for.body.i12.i, %for.body.i.i142, %while.end, %if.then3.i, %if.else.i
+  %sub.ptr.lhs.cast104 = ptrtoint ptr %pre.0187 to i64
   %sub.ptr.sub106 = sub i64 %sub.ptr.lhs.cast104, %sub.ptr.lhs.cast101
-  %sub.ptr.lhs.cast107 = ptrtoint ptr %add.ptr221 to i64
+  %sub.ptr.lhs.cast107 = ptrtoint ptr %add.ptr220 to i64
   %sub.ptr.sub109 = sub i64 %sub.ptr.lhs.cast107, %sub.ptr.lhs.cast104
-  %cmp.i149 = icmp ne ptr %pre.0188, %pr.0190
-  %cmp1.i150 = icmp ne ptr %add.ptr221, %pre.0188
-  %or.cond.i151 = and i1 %cmp.i149, %cmp1.i150
-  br i1 %or.cond.i151, label %if.then.i152, label %_ZL18sort_r_swap_blocksPcmm.exit176
+  %cmp.i148 = icmp ne ptr %pre.0187, %pr.0189
+  %cmp1.i149 = icmp ne ptr %add.ptr220, %pre.0187
+  %or.cond.i150 = and i1 %cmp.i148, %cmp1.i149
+  br i1 %or.cond.i150, label %if.then.i151, label %_ZL18sort_r_swap_blocksPcmm.exit175
 
-if.then.i152:                                     ; preds = %_ZL18sort_r_swap_blocksPcmm.exit
-  %cmp2.i153 = icmp ugt i64 %sub.ptr.sub106, %sub.ptr.sub109
-  br i1 %cmp2.i153, label %if.then3.i165, label %if.else.i154
+if.then.i151:                                     ; preds = %_ZL18sort_r_swap_blocksPcmm.exit
+  %cmp2.i152 = icmp ugt i64 %sub.ptr.sub106, %sub.ptr.sub109
+  br i1 %cmp2.i152, label %if.then3.i164, label %if.else.i153
 
-if.then3.i165:                                    ; preds = %if.then.i152
+if.then3.i164:                                    ; preds = %if.then.i151
   tail call void @llvm.experimental.noalias.scope.decl(metadata !209)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !212)
-  %add.ptr.i.i166 = getelementptr inbounds i8, ptr %pr.0190, i64 %sub.ptr.sub109
-  %cmp7.i.i167 = icmp sgt i64 %sub.ptr.sub109, 0
-  br i1 %cmp7.i.i167, label %for.body.i.preheader.i168, label %_ZL18sort_r_swap_blocksPcmm.exit176
+  %add.ptr.i.i165 = getelementptr inbounds i8, ptr %pr.0189, i64 %sub.ptr.sub109
+  %cmp7.i.i166 = icmp sgt i64 %sub.ptr.sub109, 0
+  br i1 %cmp7.i.i166, label %for.body.i.preheader.i167, label %_ZL18sort_r_swap_blocksPcmm.exit175
 
-for.body.i.preheader.i168:                        ; preds = %if.then3.i165
-  %add.ptr.i169 = getelementptr i8, ptr %pr.0190, i64 %sub.ptr.sub106
-  br label %for.body.i.i170
+for.body.i.preheader.i167:                        ; preds = %if.then3.i164
+  %add.ptr.i168 = getelementptr i8, ptr %pr.0189, i64 %sub.ptr.sub106
+  br label %for.body.i.i169
 
-for.body.i.i170:                                  ; preds = %for.body.i.i170, %for.body.i.preheader.i168
-  %a.addr.09.i.i171 = phi ptr [ %incdec.ptr.i.i173, %for.body.i.i170 ], [ %pr.0190, %for.body.i.preheader.i168 ]
-  %b.addr.08.i.i172 = phi ptr [ %incdec.ptr1.i.i174, %for.body.i.i170 ], [ %add.ptr.i169, %for.body.i.preheader.i168 ]
-  %14 = load i8, ptr %a.addr.09.i.i171, align 1, !alias.scope !209, !noalias !212
-  %15 = load i8, ptr %b.addr.08.i.i172, align 1, !alias.scope !212, !noalias !209
-  store i8 %15, ptr %a.addr.09.i.i171, align 1, !alias.scope !209, !noalias !212
-  store i8 %14, ptr %b.addr.08.i.i172, align 1, !alias.scope !212, !noalias !209
-  %incdec.ptr.i.i173 = getelementptr inbounds i8, ptr %a.addr.09.i.i171, i64 1
-  %incdec.ptr1.i.i174 = getelementptr inbounds i8, ptr %b.addr.08.i.i172, i64 1
-  %cmp.i.i175 = icmp ult ptr %incdec.ptr.i.i173, %add.ptr.i.i166
-  br i1 %cmp.i.i175, label %for.body.i.i170, label %_ZL18sort_r_swap_blocksPcmm.exit176, !llvm.loop !174
+for.body.i.i169:                                  ; preds = %for.body.i.i169, %for.body.i.preheader.i167
+  %a.addr.09.i.i170 = phi ptr [ %incdec.ptr.i.i172, %for.body.i.i169 ], [ %pr.0189, %for.body.i.preheader.i167 ]
+  %b.addr.08.i.i171 = phi ptr [ %incdec.ptr1.i.i173, %for.body.i.i169 ], [ %add.ptr.i168, %for.body.i.preheader.i167 ]
+  %14 = load i8, ptr %a.addr.09.i.i170, align 1, !alias.scope !209, !noalias !212
+  %15 = load i8, ptr %b.addr.08.i.i171, align 1, !alias.scope !212, !noalias !209
+  store i8 %15, ptr %a.addr.09.i.i170, align 1, !alias.scope !209, !noalias !212
+  store i8 %14, ptr %b.addr.08.i.i171, align 1, !alias.scope !212, !noalias !209
+  %incdec.ptr.i.i172 = getelementptr inbounds i8, ptr %a.addr.09.i.i170, i64 1
+  %incdec.ptr1.i.i173 = getelementptr inbounds i8, ptr %b.addr.08.i.i171, i64 1
+  %cmp.i.i174 = icmp ult ptr %incdec.ptr.i.i172, %add.ptr.i.i165
+  br i1 %cmp.i.i174, label %for.body.i.i169, label %_ZL18sort_r_swap_blocksPcmm.exit175, !llvm.loop !173
 
-if.else.i154:                                     ; preds = %if.then.i152
+if.else.i153:                                     ; preds = %if.then.i151
   tail call void @llvm.experimental.noalias.scope.decl(metadata !214)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !217)
-  %add.ptr.i10.i155 = getelementptr inbounds i8, ptr %pr.0190, i64 %sub.ptr.sub106
-  %cmp7.i11.i156 = icmp sgt i64 %sub.ptr.sub106, 0
-  br i1 %cmp7.i11.i156, label %for.body.i12.preheader.i157, label %_ZL18sort_r_swap_blocksPcmm.exit176
+  %add.ptr.i10.i154 = getelementptr inbounds i8, ptr %pr.0189, i64 %sub.ptr.sub106
+  %cmp7.i11.i155 = icmp sgt i64 %sub.ptr.sub106, 0
+  br i1 %cmp7.i11.i155, label %for.body.i12.preheader.i156, label %_ZL18sort_r_swap_blocksPcmm.exit175
 
-for.body.i12.preheader.i157:                      ; preds = %if.else.i154
-  %add.ptr4.i158 = getelementptr i8, ptr %pr.0190, i64 %sub.ptr.sub109
-  br label %for.body.i12.i159
+for.body.i12.preheader.i156:                      ; preds = %if.else.i153
+  %add.ptr4.i157 = getelementptr i8, ptr %pr.0189, i64 %sub.ptr.sub109
+  br label %for.body.i12.i158
 
-for.body.i12.i159:                                ; preds = %for.body.i12.i159, %for.body.i12.preheader.i157
-  %a.addr.09.i13.i160 = phi ptr [ %incdec.ptr.i15.i162, %for.body.i12.i159 ], [ %pr.0190, %for.body.i12.preheader.i157 ]
-  %b.addr.08.i14.i161 = phi ptr [ %incdec.ptr1.i16.i163, %for.body.i12.i159 ], [ %add.ptr4.i158, %for.body.i12.preheader.i157 ]
-  %16 = load i8, ptr %a.addr.09.i13.i160, align 1, !alias.scope !214, !noalias !217
-  %17 = load i8, ptr %b.addr.08.i14.i161, align 1, !alias.scope !217, !noalias !214
-  store i8 %17, ptr %a.addr.09.i13.i160, align 1, !alias.scope !214, !noalias !217
-  store i8 %16, ptr %b.addr.08.i14.i161, align 1, !alias.scope !217, !noalias !214
-  %incdec.ptr.i15.i162 = getelementptr inbounds i8, ptr %a.addr.09.i13.i160, i64 1
-  %incdec.ptr1.i16.i163 = getelementptr inbounds i8, ptr %b.addr.08.i14.i161, i64 1
-  %cmp.i17.i164 = icmp ult ptr %incdec.ptr.i15.i162, %add.ptr.i10.i155
-  br i1 %cmp.i17.i164, label %for.body.i12.i159, label %_ZL18sort_r_swap_blocksPcmm.exit176, !llvm.loop !174
+for.body.i12.i158:                                ; preds = %for.body.i12.i158, %for.body.i12.preheader.i156
+  %a.addr.09.i13.i159 = phi ptr [ %incdec.ptr.i15.i161, %for.body.i12.i158 ], [ %pr.0189, %for.body.i12.preheader.i156 ]
+  %b.addr.08.i14.i160 = phi ptr [ %incdec.ptr1.i16.i162, %for.body.i12.i158 ], [ %add.ptr4.i157, %for.body.i12.preheader.i156 ]
+  %16 = load i8, ptr %a.addr.09.i13.i159, align 1, !alias.scope !214, !noalias !217
+  %17 = load i8, ptr %b.addr.08.i14.i160, align 1, !alias.scope !217, !noalias !214
+  store i8 %17, ptr %a.addr.09.i13.i159, align 1, !alias.scope !214, !noalias !217
+  store i8 %16, ptr %b.addr.08.i14.i160, align 1, !alias.scope !217, !noalias !214
+  %incdec.ptr.i15.i161 = getelementptr inbounds i8, ptr %a.addr.09.i13.i159, i64 1
+  %incdec.ptr1.i16.i162 = getelementptr inbounds i8, ptr %b.addr.08.i14.i160, i64 1
+  %cmp.i17.i163 = icmp ult ptr %incdec.ptr.i15.i161, %add.ptr.i10.i154
+  br i1 %cmp.i17.i163, label %for.body.i12.i158, label %_ZL18sort_r_swap_blocksPcmm.exit175, !llvm.loop !173
 
-_ZL18sort_r_swap_blocksPcmm.exit176:              ; preds = %for.body.i12.i159, %for.body.i.i170, %if.end55, %_ZL18sort_r_swap_blocksPcmm.exit, %if.then3.i165, %if.else.i154
-  %sub.ptr.sub106280 = phi i64 [ %sub.ptr.sub106, %_ZL18sort_r_swap_blocksPcmm.exit ], [ %sub.ptr.sub106, %if.then3.i165 ], [ %sub.ptr.sub106, %if.else.i154 ], [ 0, %if.end55 ], [ %sub.ptr.sub106, %for.body.i.i170 ], [ %sub.ptr.sub106, %for.body.i12.i159 ]
-  %sub.ptr.sub103267279 = phi i64 [ %sub.ptr.sub103, %_ZL18sort_r_swap_blocksPcmm.exit ], [ %sub.ptr.sub103, %if.then3.i165 ], [ %sub.ptr.sub103, %if.else.i154 ], [ %mul13, %if.end55 ], [ %sub.ptr.sub103, %for.body.i.i170 ], [ %sub.ptr.sub103, %for.body.i12.i159 ]
+_ZL18sort_r_swap_blocksPcmm.exit175:              ; preds = %for.body.i12.i158, %for.body.i.i169, %if.end55, %if.then53, %_ZL18sort_r_swap_blocksPcmm.exit, %if.then3.i164, %if.else.i153
+  %sub.ptr.sub106280 = phi i64 [ %sub.ptr.sub106, %_ZL18sort_r_swap_blocksPcmm.exit ], [ %sub.ptr.sub106, %if.then3.i164 ], [ %sub.ptr.sub106, %if.else.i153 ], [ 0, %if.then53 ], [ 0, %if.end55 ], [ %sub.ptr.sub106, %for.body.i.i169 ], [ %sub.ptr.sub106, %for.body.i12.i158 ]
+  %sub.ptr.sub103267279 = phi i64 [ %sub.ptr.sub103, %_ZL18sort_r_swap_blocksPcmm.exit ], [ %sub.ptr.sub103, %if.then3.i164 ], [ %sub.ptr.sub103, %if.else.i153 ], [ %mul13, %if.then53 ], [ %mul13, %if.end55 ], [ %sub.ptr.sub103, %for.body.i.i169 ], [ %sub.ptr.sub103, %for.body.i12.i158 ]
   %div113 = udiv i64 %sub.ptr.sub103267279, %w
-  tail call fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr noundef %base.tr218, i64 noundef %div113, i64 noundef %w, ptr noundef %compar)
+  tail call fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr noundef %base.tr217, i64 noundef %div113, i64 noundef %w, ptr noundef %compar)
   %idx.neg117 = sub i64 0, %sub.ptr.sub106280
-  %add.ptr118 = getelementptr inbounds i8, ptr %add.ptr221, i64 %idx.neg117
+  %add.ptr118 = getelementptr inbounds i8, ptr %add.ptr220, i64 %idx.neg117
   %div122 = udiv i64 %sub.ptr.sub106280, %w
   %mul = mul i64 %div122, %w
   %add.ptr = getelementptr inbounds i8, ptr %add.ptr118, i64 %mul
   %cmp = icmp ult i64 %div122, 10
   br i1 %cmp, label %for.cond.preheader, label %if.else
 
-if.end123:                                        ; preds = %for.inc9, %for.inc9.us, %for.cond.preheader
+if.end123:                                        ; preds = %for.inc9, %for.cond.preheader
   ret void
 }
 
@@ -27069,17 +27038,17 @@ if.end.i:                                         ; preds = %_ZN2OT4glyf21has_va
   %loca = getelementptr inbounds i8, ptr %face, i64 192
   %call.i = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4locaE22hb_table_lazy_loader_tIS1_Lj14ELb1EE9hb_face_tLj14E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %loca)
   store ptr %call.i, ptr %loca_table, align 8
-  %call.i10 = tail call i32 @hb_face_get_glyph_count(ptr noundef %face) #18
-  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef %face, i32 noundef 1735162214) #18
-  %call.i.i.i11 = tail call ptr @hb_blob_reference(ptr noundef %call2.i) #18
+  %call.i10 = tail call i32 @hb_face_get_glyph_count(ptr noundef %face) #19
+  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef %face, i32 noundef 1735162214) #19
+  %call.i.i.i11 = tail call ptr @hb_blob_reference(ptr noundef %call2.i) #19
   %data.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i11, i64 16
   %10 = load ptr, ptr %data.i.i.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %10, null
-  tail call void @hb_blob_destroy(ptr noundef nonnull %call.i.i.i11) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %call.i.i.i11) #19
   br i1 %tobool.not.i.i, label %_ZN21hb_sanitize_context_tD2Ev.exit, label %if.then38.i.i
 
 if.then38.i.i:                                    ; preds = %if.end.i
-  tail call void @hb_blob_make_immutable(ptr noundef %call2.i) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %call2.i) #19
   br label %_ZN21hb_sanitize_context_tD2Ev.exit
 
 _ZN21hb_sanitize_context_tD2Ev.exit:              ; preds = %if.then38.i.i, %if.end.i
@@ -27099,7 +27068,7 @@ if.then.i.i.i:                                    ; preds = %_ZN21hb_sanitize_co
   br i1 %tobool.not.i.i.i.i, label %_ZNK16hb_lazy_loader_tIN2OT18hmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj5EE9hb_face_tLj5ES1_EcvPKT_IS1_EEv.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
-  %call.i.i.i.i.i = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #22
+  %call.i.i.i.i.i = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #23
   %tobool.not.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i.i, label %if.end9.thread.i.i.i, label %if.end9.i.i.i
 
@@ -27118,12 +27087,12 @@ if.end9.thread.i.i.i:                             ; preds = %if.end.i.i.i
 if.then.i.i.i.i:                                  ; preds = %if.end9.i.i.i
   %table.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 24
   %18 = load ptr, ptr %table.i.i.i.i.i.i.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %18) #18
+  tail call void @hb_blob_destroy(ptr noundef %18) #19
   store ptr null, ptr %table.i.i.i.i.i.i.i, align 8
   %var_table.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 32
   %19 = load ptr, ptr %var_table.i.i.i.i.i.i.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %19) #18
-  tail call void @free(ptr noundef nonnull %call.i.i.i.i.i) #18
+  tail call void @hb_blob_destroy(ptr noundef %19) #19
+  tail call void @free(ptr noundef nonnull %call.i.i.i.i.i) #19
   br label %_ZN16hb_lazy_loader_tIN2OT18hmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj5EE9hb_face_tLj5ES1_E10do_destroyEPS1_.exit.i.i.i
 
 _ZN16hb_lazy_loader_tIN2OT18hmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj5EE9hb_face_tLj5ES1_E10do_destroyEPS1_.exit.i.i.i: ; preds = %if.then.i.i.i.i, %if.end9.thread.i.i.i
@@ -27150,7 +27119,7 @@ if.then.i.i.i22:                                  ; preds = %_ZNK16hb_lazy_loade
   br i1 %tobool.not.i.i.i.i23, label %_ZNK16hb_lazy_loader_tIN2OT18vmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj12EE9hb_face_tLj12ES1_EcvPKT_IS1_EEv.exit, label %if.end.i.i.i24
 
 if.end.i.i.i24:                                   ; preds = %if.then.i.i.i22
-  %call.i.i.i.i.i25 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #22
+  %call.i.i.i.i.i25 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #23
   %tobool.not.i.i.i.i.i26 = icmp eq ptr %call.i.i.i.i.i25, null
   br i1 %tobool.not.i.i.i.i.i26, label %if.end9.thread.i.i.i32, label %if.end9.i.i.i27
 
@@ -27169,12 +27138,12 @@ if.end9.thread.i.i.i32:                           ; preds = %if.end.i.i.i24
 if.then.i.i.i.i28:                                ; preds = %if.end9.i.i.i27
   %table.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %call.i.i.i.i.i25, i64 24
   %29 = load ptr, ptr %table.i.i.i.i.i.i.i29, align 8
-  tail call void @hb_blob_destroy(ptr noundef %29) #18
+  tail call void @hb_blob_destroy(ptr noundef %29) #19
   store ptr null, ptr %table.i.i.i.i.i.i.i29, align 8
   %var_table.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %call.i.i.i.i.i25, i64 32
   %30 = load ptr, ptr %var_table.i.i.i.i.i.i.i30, align 8
-  tail call void @hb_blob_destroy(ptr noundef %30) #18
-  tail call void @free(ptr noundef nonnull %call.i.i.i.i.i25) #18
+  tail call void @hb_blob_destroy(ptr noundef %30) #19
+  tail call void @free(ptr noundef nonnull %call.i.i.i.i.i25) #19
   br label %_ZN16hb_lazy_loader_tIN2OT18vmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj12EE9hb_face_tLj12ES1_E10do_destroyEPS1_.exit.i.i.i
 
 _ZN16hb_lazy_loader_tIN2OT18vmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj12EE9hb_face_tLj12ES1_E10do_destroyEPS1_.exit.i.i.i: ; preds = %if.then.i.i.i.i28, %if.end9.thread.i.i.i32
@@ -27208,7 +27177,7 @@ _ZNK16hb_lazy_loader_tIN2OT18vmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj12E
   br i1 %cmp.i35, label %if.then.i36, label %_ZNK9hb_face_t14get_num_glyphsEv.exit
 
 if.then.i36:                                      ; preds = %_ZNK16hb_lazy_loader_tIN2OT18vmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj12EE9hb_face_tLj12ES1_EcvPKT_IS1_EEv.exit
-  %call2.i37 = tail call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(416) %face) #18
+  %call2.i37 = tail call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(416) %face) #19
   %.pre = load i32, ptr %num_glyphs, align 4
   br label %_ZNK9hb_face_t14get_num_glyphsEv.exit
 
@@ -27224,7 +27193,7 @@ return:                                           ; preds = %entry, %_ZN2OT4glyf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL26_glyf_add_gid_and_childrenRKN2OT18glyf_accelerator_tEjP8hb_set_tij(ptr noundef nonnull align 8 dereferenceable(48) %glyf, i32 noundef %gid, ptr noundef %gids_to_retain, i32 noundef %operation_count, i32 noundef %depth) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL26_glyf_add_gid_and_childrenRKN2OT18glyf_accelerator_tEjP8hb_set_tij(ptr noundef nonnull align 8 dereferenceable(48) %glyf, i32 noundef %gid, ptr noundef nonnull %gids_to_retain, i32 noundef %operation_count, i32 noundef %depth) unnamed_addr #0 {
 entry:
   %glyph = alloca %"struct.OT::glyf_impl::Glyph", align 8
   %shr.i.i.i.i.i.i.i = lshr i32 %gid, 9
@@ -27418,7 +27387,7 @@ for.body:                                         ; preds = %land.lhs.true.i6.i.
   %16 = load i8, ptr %arrayidx3.i.i.i, align 1
   %conv4.i.i.i = zext i8 %16 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %conv4.i.i.i
-  %call9 = call fastcc noundef i32 @_ZL26_glyf_add_gid_and_childrenRKN2OT18glyf_accelerator_tEjP8hb_set_tij(ptr noundef nonnull align 8 dereferenceable(48) %glyf, i32 noundef %add.i.i.i, ptr noundef nonnull %gids_to_retain, i32 noundef %operation_count.addr.029, i32 noundef %inc)
+  %call9 = call fastcc noundef i32 @_ZL26_glyf_add_gid_and_childrenRKN2OT18glyf_accelerator_tEjP8hb_set_tij(ptr noundef nonnull align 8 dereferenceable(48) %glyf, i32 noundef %add.i.i.i, ptr noundef %gids_to_retain, i32 noundef %operation_count.addr.029, i32 noundef %inc)
   %arrayidx3.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.317.028, i64 1
   %17 = load i8, ptr %arrayidx3.i.i.i.i.i, align 1
   %18 = and i8 %17, 32
@@ -27504,7 +27473,7 @@ if.then:                                          ; preds = %if.then.lr.ph, %_ZN
   br i1 %tobool.not.i, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  %call.i = call noundef ptr @hb_blob_get_empty() #18
+  %call.i = call noundef ptr @hb_blob_get_empty() #19
   br label %return
 
 if.end:                                           ; preds = %if.then
@@ -27514,14 +27483,14 @@ if.end:                                           ; preds = %if.then
   store i8 0, ptr %lazy_some_gpos.i.i.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %edit_count.i.i.i, i8 0, i64 16, i1 false)
   store i8 1, ptr %num_glyphs_set.i.i.i, align 4
-  %call2.i.i.i = call ptr @hb_face_reference_table(ptr noundef nonnull %1, i32 noundef 1751474532) #18
+  %call2.i.i.i = call ptr @hb_face_reference_table(ptr noundef nonnull %1, i32 noundef 1751474532) #19
   %call3.i.i.i = call noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4headEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %c.i.i, ptr noundef %call2.i.i.i)
   %2 = load ptr, ptr %blob.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %_ZNK17hb_data_wrapper_tI9hb_face_tLj1EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4headELj1ELb1EEEEPT_v.exit, label %if.then.i5.i.i
 
 if.then.i5.i.i:                                   ; preds = %if.end
-  call void @hb_blob_destroy(ptr noundef nonnull %2) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %2) #19
   br label %_ZNK17hb_data_wrapper_tI9hb_face_tLj1EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4headELj1ELb1EEEEPT_v.exit
 
 _ZNK17hb_data_wrapper_tI9hb_face_tLj1EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4headELj1ELb1EEEEPT_v.exit: ; preds = %if.end, %if.then.i5.i.i
@@ -27530,7 +27499,7 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj1EE11call_createI9hb_blob_t22hb_table_lazy_l
   br i1 %tobool6.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %_ZNK17hb_data_wrapper_tI9hb_face_tLj1EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4headELj1ELb1EEEEPT_v.exit
-  %call.i6 = call noundef ptr @hb_blob_get_empty() #18
+  %call.i6 = call noundef ptr @hb_blob_get_empty() #19
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %_ZNK17hb_data_wrapper_tI9hb_face_tLj1EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4headELj1ELb1EEEEPT_v.exit
@@ -27545,12 +27514,12 @@ if.then11:                                        ; preds = %if.end9
   br i1 %tobool.not.i7, label %_ZN16hb_lazy_loader_tIN2OT4headE22hb_table_lazy_loader_tIS1_Lj1ELb1EE9hb_face_tLj1E9hb_blob_tE10do_destroyEPS5_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then11
-  %call.i.i = call noundef ptr @hb_blob_get_empty() #18
+  %call.i.i = call noundef ptr @hb_blob_get_empty() #19
   %cmp.not.i = icmp eq ptr %p.1, %call.i.i
   br i1 %cmp.not.i, label %_ZN16hb_lazy_loader_tIN2OT4headE22hb_table_lazy_loader_tIS1_Lj1ELb1EE9hb_face_tLj1E9hb_blob_tE10do_destroyEPS5_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  call void @hb_blob_destroy(ptr noundef nonnull %p.1) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %p.1) #19
   br label %_ZN16hb_lazy_loader_tIN2OT4headE22hb_table_lazy_loader_tIS1_Lj1ELb1EE9hb_face_tLj1E9hb_blob_tE10do_destroyEPS5_.exit
 
 _ZN16hb_lazy_loader_tIN2OT4headE22hb_table_lazy_loader_tIS1_Lj1ELb1EE9hb_face_tLj1E9hb_blob_tE10do_destroyEPS5_.exit: ; preds = %if.then11, %land.lhs.true.i, %if.then.i
@@ -27571,7 +27540,7 @@ return:                                           ; preds = %if.end9, %return.lo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4headEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %this, ptr noundef %blob) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #18
+  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #19
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call.i, ptr %blob.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -27616,7 +27585,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %retry, %if.else.
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
-  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %return
@@ -27626,7 +27595,7 @@ if.end:                                           ; preds = %_ZN21hb_sanitize_co
   br i1 %cmp.i.i.not.i, label %if.else39.critedge, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %2, align 1
   %conv.i.i4.i = zext i8 %6 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i4.i, 8
@@ -27686,7 +27655,7 @@ if.then7:                                         ; preds = %if.then5
   br i1 %cmp.i.i.not.i21, label %_ZNK2OT4head8sanitizeEP21hb_sanitize_context_t.exit46, label %land.lhs.true.i22
 
 land.lhs.true.i22:                                ; preds = %if.then7
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %2, align 1
   %conv.i.i4.i23 = zext i8 %14 to i32
   %shl.i.i.i24 = shl nuw nsw i32 %conv.i.i4.i23, 8
@@ -27719,7 +27688,7 @@ _ZNK2OT4head8sanitizeEP21hb_sanitize_context_t.exit46: ; preds = %if.then7, %lan
   %20 = load i32, ptr %edit_count.i, align 4
   %tobool14.not = icmp ne i32 %20, 0
   %21 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %21) #18
+  tail call void @hb_blob_destroy(ptr noundef %21) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   %brmerge = select i1 %tobool14.not, i1 true, i1 %frombool.i29
@@ -27736,7 +27705,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %tobool22, label %if.else39.critedge, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #18
+  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #19
   store ptr %call24, ptr %start, align 8
   %24 = load i32, ptr %length, align 8
   %idx.ext = zext i32 %24 to i64
@@ -27747,25 +27716,25 @@ if.then23:                                        ; preds = %land.lhs.true
 
 if.then38.critedge:                               ; preds = %if.then5
   %25 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %25) #18
+  tail call void @hb_blob_destroy(ptr noundef %25) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.then38
 
 if.then38:                                        ; preds = %_ZNK2OT4head8sanitizeEP21hb_sanitize_context_t.exit46, %if.then38.critedge
-  tail call void @hb_blob_make_immutable(ptr noundef %blob) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %blob) #19
   br label %return
 
 if.else39.critedge:                               ; preds = %if.end, %if.else, %if.then23, %land.lhs.true
   %26 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %26) #18
+  tail call void @hb_blob_destroy(ptr noundef %26) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.else39
 
 if.else39:                                        ; preds = %_ZNK2OT4head8sanitizeEP21hb_sanitize_context_t.exit46, %if.else39.critedge
-  tail call void @hb_blob_destroy(ptr noundef %blob) #18
-  %call40 = tail call ptr @hb_blob_get_empty() #18
+  tail call void @hb_blob_destroy(ptr noundef %blob) #19
+  %call40 = tail call ptr @hb_blob_get_empty() #19
   br label %return
 
 return:                                           ; preds = %if.else39, %if.then38, %if.then
@@ -27790,20 +27759,20 @@ if.then:                                          ; preds = %if.then.lr.ph, %_ZN
   br i1 %tobool.not.i, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  %call.i = tail call noundef ptr @hb_blob_get_empty() #18
+  %call.i = tail call noundef ptr @hb_blob_get_empty() #19
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %call2.i.i.i = tail call ptr @hb_face_reference_table(ptr noundef nonnull %1, i32 noundef 1819239265) #18
-  %call.i.i.i.i.i = tail call ptr @hb_blob_reference(ptr noundef %call2.i.i.i) #18
+  %call2.i.i.i = tail call ptr @hb_face_reference_table(ptr noundef nonnull %1, i32 noundef 1819239265) #19
+  %call.i.i.i.i.i = tail call ptr @hb_blob_reference(ptr noundef %call2.i.i.i) #19
   %data.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 16
   %2 = load ptr, ptr %data.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %2, null
-  tail call void @hb_blob_destroy(ptr noundef nonnull %call.i.i.i.i.i) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %call.i.i.i.i.i) #19
   br i1 %tobool.not.i.i.i.i, label %_ZNK17hb_data_wrapper_tI9hb_face_tLj14EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4locaELj14ELb1EEEEPT_v.exit, label %if.then38.i.i.i.i
 
 if.then38.i.i.i.i:                                ; preds = %if.end
-  tail call void @hb_blob_make_immutable(ptr noundef %call2.i.i.i) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %call2.i.i.i) #19
   br label %_ZNK17hb_data_wrapper_tI9hb_face_tLj14EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4locaELj14ELb1EEEEPT_v.exit
 
 _ZNK17hb_data_wrapper_tI9hb_face_tLj14EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4locaELj14ELb1EEEEPT_v.exit: ; preds = %if.end, %if.then38.i.i.i.i
@@ -27811,7 +27780,7 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj14EE11call_createI9hb_blob_t22hb_table_lazy_
   br i1 %tobool6.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %_ZNK17hb_data_wrapper_tI9hb_face_tLj14EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4locaELj14ELb1EEEEPT_v.exit
-  %call.i6 = tail call noundef ptr @hb_blob_get_empty() #18
+  %call.i6 = tail call noundef ptr @hb_blob_get_empty() #19
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %_ZNK17hb_data_wrapper_tI9hb_face_tLj14EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4locaELj14ELb1EEEEPT_v.exit
@@ -27826,12 +27795,12 @@ if.then11:                                        ; preds = %if.end9
   br i1 %tobool.not.i7, label %_ZN16hb_lazy_loader_tIN2OT4locaE22hb_table_lazy_loader_tIS1_Lj14ELb1EE9hb_face_tLj14E9hb_blob_tE10do_destroyEPS5_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then11
-  %call.i.i = tail call noundef ptr @hb_blob_get_empty() #18
+  %call.i.i = tail call noundef ptr @hb_blob_get_empty() #19
   %cmp.not.i = icmp eq ptr %p.1, %call.i.i
   br i1 %cmp.not.i, label %_ZN16hb_lazy_loader_tIN2OT4locaE22hb_table_lazy_loader_tIS1_Lj14ELb1EE9hb_face_tLj14E9hb_blob_tE10do_destroyEPS5_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @hb_blob_destroy(ptr noundef nonnull %p.1) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %p.1) #19
   br label %_ZN16hb_lazy_loader_tIN2OT4locaE22hb_table_lazy_loader_tIS1_Lj14ELb1EE9hb_face_tLj14E9hb_blob_tE10do_destroyEPS5_.exit
 
 _ZN16hb_lazy_loader_tIN2OT4locaE22hb_table_lazy_loader_tIS1_Lj14ELb1EE9hb_face_tLj14E9hb_blob_tE10do_destroyEPS5_.exit: ; preds = %if.then11, %land.lhs.true.i, %if.then.i
@@ -27863,7 +27832,7 @@ if.then:                                          ; preds = %entry, %_ZN16hb_laz
   br i1 %tobool.not.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %call.i.i = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #22
+  %call.i.i = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #23
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %if.end9.thread, label %if.end9
 
@@ -27881,7 +27850,7 @@ if.end9.thread:                                   ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.end9
   %7 = load ptr, ptr %call.i.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %7) #18
+  tail call void @hb_blob_destroy(ptr noundef %7) #19
   store ptr null, ptr %call.i.i, align 8
   %shared_tuple_active_idx.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %8 = load i32, ptr %shared_tuple_active_idx.i.i.i.i, align 8
@@ -27893,11 +27862,11 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i
   store i32 0, ptr %length.i.i.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %9 = load ptr, ptr %arrayZ.i.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef %9) #19
   br label %_ZN16hb_lazy_loader_tIN2OT18gvar_accelerator_tE21hb_face_lazy_loader_tIS1_Lj21EE9hb_face_tLj21ES1_E7destroyEPS1_.exit.i
 
 _ZN16hb_lazy_loader_tIN2OT18gvar_accelerator_tE21hb_face_lazy_loader_tIS1_Lj21EE9hb_face_tLj21ES1_E7destroyEPS1_.exit.i: ; preds = %if.then.i.i.i.i.i.i, %if.then.i
-  tail call void @free(ptr noundef nonnull %call.i.i) #18
+  tail call void @free(ptr noundef nonnull %call.i.i) #19
   br label %_ZN16hb_lazy_loader_tIN2OT18gvar_accelerator_tE21hb_face_lazy_loader_tIS1_Lj21EE9hb_face_tLj21ES1_E10do_destroyEPS1_.exit
 
 _ZN16hb_lazy_loader_tIN2OT18gvar_accelerator_tE21hb_face_lazy_loader_tIS1_Lj21EE9hb_face_tLj21ES1_E10do_destroyEPS1_.exit: ; preds = %if.end9.thread, %_ZN16hb_lazy_loader_tIN2OT18gvar_accelerator_tE21hb_face_lazy_loader_tIS1_Lj21EE9hb_face_tLj21ES1_E7destroyEPS1_.exit.i
@@ -27936,10 +27905,10 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT4gvarEEEP9hb_blob_tPK9hb_face_tj
   %num_glyphs_set.i = getelementptr inbounds i8, ptr %ref.tmp, i64 60
   %lazy_some_gpos.i = getelementptr inbounds i8, ptr %ref.tmp, i64 61
   store i8 0, ptr %lazy_some_gpos.i, align 1
-  %call.i = tail call i32 @hb_face_get_glyph_count(ptr noundef %face) #18
+  %call.i = tail call i32 @hb_face_get_glyph_count(ptr noundef %face) #19
   store i32 %call.i, ptr %num_glyphs.i, align 8
   store i8 1, ptr %num_glyphs_set.i, align 4
-  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef %face, i32 noundef 1735811442) #18
+  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef %face, i32 noundef 1735811442) #19
   %call3.i = call noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4gvarEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %ref.tmp, ptr noundef %call2.i)
   store ptr %call3.i, ptr %this, align 8
   %0 = load ptr, ptr %blob.i, align 8
@@ -27947,7 +27916,7 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT4gvarEEEP9hb_blob_tPK9hb_face_tj
   br i1 %tobool.not.i, label %_ZN21hb_sanitize_context_tD2Ev.exit, label %if.then.i16
 
 if.then.i16:                                      ; preds = %_ZN21hb_sanitize_context_t15reference_tableIN2OT4gvarEEEP9hb_blob_tPK9hb_face_tj.exit
-  call void @hb_blob_destroy(ptr noundef nonnull %0) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %0) #19
   store ptr null, ptr %blob.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start.i, i8 0, i64 20, i1 false)
   %.pre = load ptr, ptr %this, align 8
@@ -27990,7 +27959,7 @@ cond.true:                                        ; preds = %_ZN21hb_sanitize_co
   br i1 %cmp.i, label %if.then.i18, label %cond.end
 
 if.then.i18:                                      ; preds = %cond.true
-  %call2.i19 = call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(416) %face) #18
+  %call2.i19 = call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(416) %face) #19
   %.pre95 = load ptr, ptr %this, align 8
   br label %cond.end
 
@@ -28059,7 +28028,7 @@ _ZN11hb_vector_tI9hb_pair_tIiiELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3s
   %22 = load ptr, ptr %arrayZ.i.i.i, align 8
   %23 = shl nuw i32 %add15.i.i, 3
   %mul.i.i.i = zext i32 %23 to i64
-  %call.i.i.i = call ptr @realloc(ptr noundef %22, i64 noundef %mul.i.i.i) #19
+  %call.i.i.i = call ptr @realloc(ptr noundef %22, i64 noundef %mul.i.i.i) #20
   %tobool27.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool27.not.i.i, label %if.then28.i.i, label %_ZN11hb_vector_tI9hb_pair_tIiiELb0EE5allocEjb.exit.i
 
@@ -28188,7 +28157,7 @@ for.end52:                                        ; preds = %for.end.us, %for.bo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4gvarEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %this, ptr noundef %blob) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #18
+  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #19
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call.i, ptr %blob.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -28233,7 +28202,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %retry, %if.else.
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
-  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %return
@@ -28253,7 +28222,7 @@ if.then7:                                         ; preds = %if.then5
   %7 = load i32, ptr %edit_count.i, align 4
   %tobool14.not = icmp eq i32 %7, 0
   %8 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %8) #18
+  tail call void @hb_blob_destroy(ptr noundef %8) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   %brmerge.not = and i1 %tobool14.not, %call.i14
@@ -28268,7 +28237,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %tobool22, label %if.else39.critedge, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #18
+  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #19
   store ptr %call24, ptr %start, align 8
   %10 = load i32, ptr %length, align 8
   %idx.ext = zext i32 %10 to i64
@@ -28279,25 +28248,25 @@ if.then23:                                        ; preds = %land.lhs.true
 
 if.then38.critedge:                               ; preds = %if.then5
   %11 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %11) #18
+  tail call void @hb_blob_destroy(ptr noundef %11) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.then38
 
 if.then38:                                        ; preds = %if.then7, %if.then38.critedge
-  tail call void @hb_blob_make_immutable(ptr noundef %blob) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %blob) #19
   br label %return
 
 if.else39.critedge:                               ; preds = %if.else, %if.then23, %land.lhs.true
   %12 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %12) #18
+  tail call void @hb_blob_destroy(ptr noundef %12) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.else39
 
 if.else39:                                        ; preds = %if.then7, %if.else39.critedge
-  tail call void @hb_blob_destroy(ptr noundef %blob) #18
-  %call40 = tail call ptr @hb_blob_get_empty() #18
+  tail call void @hb_blob_destroy(ptr noundef %blob) #19
+  %call40 = tail call ptr @hb_blob_get_empty() #19
   br label %return
 
 return:                                           ; preds = %if.else39, %if.then38, %if.then
@@ -28322,7 +28291,7 @@ entry:
   br i1 %cmp.i.i.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i12 = zext i8 %2 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i12, 8
@@ -28362,8 +28331,8 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true5
   %conv4.i.i22 = zext i8 %9 to i32
   %add.i.i23 = or disjoint i32 %shl.i.i20, %conv4.i.i22
   %mul = mul nuw i32 %add.i.i23, %add.i.i18
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %10 = shl i32 %mul, 1
   %11 = icmp slt i32 %mul, 0
   br i1 %11, label %land.end, label %land.rhs.i.i.i.i.i
@@ -28462,17 +28431,17 @@ if.end.i:
   %table = getelementptr inbounds i8, ptr %this, i64 24
   %var_table = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %table, i8 0, i64 16, i1 false)
-  %call.i = tail call i32 @hb_face_get_glyph_count(ptr noundef %face) #18
-  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef %face, i32 noundef 1752003704) #18
-  %call.i.i.i = tail call ptr @hb_blob_reference(ptr noundef %call2.i) #18
+  %call.i = tail call i32 @hb_face_get_glyph_count(ptr noundef %face) #19
+  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef %face, i32 noundef 1752003704) #19
+  %call.i.i.i = tail call ptr @hb_blob_reference(ptr noundef %call2.i) #19
   %data.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   %0 = load ptr, ptr %data.i.i.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
-  tail call void @hb_blob_destroy(ptr noundef nonnull %call.i.i.i) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %call.i.i.i) #19
   br i1 %tobool.not.i.i, label %_ZN21hb_sanitize_context_t15reference_tableIN2OT4HVAREEEP9hb_blob_tPK9hb_face_tj.exit, label %if.then38.i.i
 
 if.then38.i.i:                                    ; preds = %if.end.i
-  tail call void @hb_blob_make_immutable(ptr noundef %call2.i) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %call2.i) #19
   br label %_ZN21hb_sanitize_context_t15reference_tableIN2OT4HVAREEEP9hb_blob_tPK9hb_face_tj.exit
 
 _ZN21hb_sanitize_context_t15reference_tableIN2OT4HVAREEEP9hb_blob_tPK9hb_face_tj.exit: ; preds = %if.then38.i.i, %if.end.i
@@ -28488,10 +28457,10 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT4HVAREEEP9hb_blob_tPK9hb_face_tj
   %num_glyphs_set.i29 = getelementptr inbounds i8, ptr %ref.tmp4, i64 60
   %lazy_some_gpos.i30 = getelementptr inbounds i8, ptr %ref.tmp4, i64 61
   store i8 0, ptr %lazy_some_gpos.i30, align 1
-  %call.i34 = tail call i32 @hb_face_get_glyph_count(ptr noundef %face) #18
+  %call.i34 = tail call i32 @hb_face_get_glyph_count(ptr noundef %face) #19
   store i32 %call.i34, ptr %num_glyphs.i28, align 8
   store i8 1, ptr %num_glyphs_set.i29, align 4
-  %call2.i37 = tail call ptr @hb_face_reference_table(ptr noundef %face, i32 noundef 1213612370) #18
+  %call2.i37 = tail call ptr @hb_face_reference_table(ptr noundef %face, i32 noundef 1213612370) #19
   %call3.i = call noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4HVAREEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %ref.tmp4, ptr noundef %call2.i37)
   store ptr %call3.i, ptr %var_table, align 8
   %1 = load ptr, ptr %blob.i27, align 8
@@ -28499,13 +28468,13 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT4HVAREEEP9hb_blob_tPK9hb_face_tj
   br i1 %tobool.not.i39, label %_ZN21hb_sanitize_context_tD2Ev.exit43, label %if.then.i40
 
 if.then.i40:                                      ; preds = %_ZN21hb_sanitize_context_t15reference_tableIN2OT4HVAREEEP9hb_blob_tPK9hb_face_tj.exit
-  call void @hb_blob_destroy(ptr noundef nonnull %1) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %1) #19
   store ptr null, ptr %blob.i27, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start.i25, i8 0, i64 20, i1 false)
   br label %_ZN21hb_sanitize_context_tD2Ev.exit43
 
 _ZN21hb_sanitize_context_tD2Ev.exit43:            ; preds = %_ZN21hb_sanitize_context_t15reference_tableIN2OT4HVAREEEP9hb_blob_tPK9hb_face_tj.exit, %if.then.i40
-  %call8 = call i32 @hb_face_get_upem(ptr noundef %face) #18
+  %call8 = call i32 @hb_face_get_upem(ptr noundef %face) #19
   %div15 = lshr i32 %call8, 1
   %default_advance = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %div15, ptr %default_advance, align 8
@@ -28578,7 +28547,7 @@ _ZN21hb_sanitize_context_tD2Ev.exit43:            ; preds = %_ZN21hb_sanitize_co
   br i1 %cmp.i, label %if.then.i51, label %_ZNK9hb_face_t14get_num_glyphsEv.exit
 
 if.then.i51:                                      ; preds = %_ZN21hb_sanitize_context_tD2Ev.exit43
-  %call2.i52 = call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(416) %face) #18
+  %call2.i52 = call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(416) %face) #19
   %.pre = load i32, ptr %num_advances, align 8
   br label %_ZNK9hb_face_t14get_num_glyphsEv.exit
 
@@ -28596,7 +28565,7 @@ declare i32 @hb_face_get_upem(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4HVAREEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %this, ptr noundef %blob) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #18
+  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #19
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call.i, ptr %blob.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -28641,7 +28610,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %retry, %if.else.
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
-  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %return
@@ -28661,7 +28630,7 @@ if.then7:                                         ; preds = %if.then5
   %7 = load i32, ptr %edit_count.i, align 4
   %tobool14.not = icmp eq i32 %7, 0
   %8 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %8) #18
+  tail call void @hb_blob_destroy(ptr noundef %8) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   %brmerge.not = and i1 %tobool14.not, %call11
@@ -28676,7 +28645,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %tobool22, label %if.else39.critedge, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #18
+  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #19
   store ptr %call24, ptr %start, align 8
   %10 = load i32, ptr %length, align 8
   %idx.ext = zext i32 %10 to i64
@@ -28687,25 +28656,25 @@ if.then23:                                        ; preds = %land.lhs.true
 
 if.then38.critedge:                               ; preds = %if.then5
   %11 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %11) #18
+  tail call void @hb_blob_destroy(ptr noundef %11) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.then38
 
 if.then38:                                        ; preds = %if.then7, %if.then38.critedge
-  tail call void @hb_blob_make_immutable(ptr noundef %blob) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %blob) #19
   br label %return
 
 if.else39.critedge:                               ; preds = %if.else, %if.then23, %land.lhs.true
   %12 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %12) #18
+  tail call void @hb_blob_destroy(ptr noundef %12) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.else39
 
 if.else39:                                        ; preds = %if.then7, %if.else39.critedge
-  tail call void @hb_blob_destroy(ptr noundef %blob) #18
-  %call40 = tail call ptr @hb_blob_get_empty() #18
+  tail call void @hb_blob_destroy(ptr noundef %blob) #19
+  %call40 = tail call ptr @hb_blob_get_empty() #19
   br label %return
 
 return:                                           ; preds = %if.else39, %if.then38, %if.then
@@ -28729,7 +28698,7 @@ entry:
   br i1 %cmp.i.i.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i17 = zext i8 %2 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i17, 8
@@ -28752,8 +28721,8 @@ land.lhs.true6:                                   ; preds = %land.lhs.true
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i65
 
 land.lhs.true.i65:                                ; preds = %land.lhs.true6
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i19 = zext i8 %6 to i32
   %shl.i.i.i = shl nuw i32 %conv.i.i.i19, 24
@@ -28810,8 +28779,8 @@ land.lhs.true8:                                   ; preds = %land.lhs.true.i65, 
   br i1 %cmp.i.i.not.i32.not, label %land.end, label %land.lhs.true.i44
 
 land.lhs.true.i44:                                ; preds = %land.lhs.true8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %add.ptr.i.i18, align 1
   %conv.i.i.i34 = zext i8 %14 to i32
   %shl.i.i.i35 = shl nuw i32 %conv.i.i.i34, 24
@@ -28868,8 +28837,8 @@ land.lhs.true10:                                  ; preds = %land.lhs.true.i44, 
   br i1 %cmp.i.i.not.i80.not, label %land.end, label %land.lhs.true.i23
 
 land.lhs.true.i23:                                ; preds = %land.lhs.true10
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %22 = load i8, ptr %add.ptr.i.i25, align 1
   %conv.i.i.i83 = zext i8 %22 to i32
   %shl.i.i.i84 = shl nuw i32 %conv.i.i.i83, 24
@@ -28926,8 +28895,8 @@ land.rhs:                                         ; preds = %land.lhs.true.i23, 
   br i1 %cmp.i.i.not.i130.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %30 = load i8, ptr %add.ptr.i.i73, align 1
   %conv.i.i.i133 = zext i8 %30 to i32
   %shl.i.i.i134 = shl nuw i32 %conv.i.i.i133, 24
@@ -29000,7 +28969,7 @@ if.then:                                          ; preds = %if.then.lr.ph, %_ZN
   br i1 %tobool.not.i, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  %call.i = call noundef ptr @hb_blob_get_empty() #18
+  %call.i = call noundef ptr @hb_blob_get_empty() #19
   br label %return
 
 if.end:                                           ; preds = %if.then
@@ -29010,14 +28979,14 @@ if.end:                                           ; preds = %if.then
   store i8 0, ptr %lazy_some_gpos.i.i.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %edit_count.i.i.i, i8 0, i64 16, i1 false)
   store i8 1, ptr %num_glyphs_set.i.i.i, align 4
-  %call2.i.i.i = call ptr @hb_face_reference_table(ptr noundef nonnull %1, i32 noundef 1751672161) #18
+  %call2.i.i.i = call ptr @hb_face_reference_table(ptr noundef nonnull %1, i32 noundef 1751672161) #19
   %call3.i.i.i = call noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4hheaEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %c.i.i, ptr noundef %call2.i.i.i)
   %2 = load ptr, ptr %blob.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %_ZNK17hb_data_wrapper_tI9hb_face_tLj4EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4hheaELj4ELb1EEEEPT_v.exit, label %if.then.i5.i.i
 
 if.then.i5.i.i:                                   ; preds = %if.end
-  call void @hb_blob_destroy(ptr noundef nonnull %2) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %2) #19
   br label %_ZNK17hb_data_wrapper_tI9hb_face_tLj4EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4hheaELj4ELb1EEEEPT_v.exit
 
 _ZNK17hb_data_wrapper_tI9hb_face_tLj4EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4hheaELj4ELb1EEEEPT_v.exit: ; preds = %if.end, %if.then.i5.i.i
@@ -29026,7 +28995,7 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj4EE11call_createI9hb_blob_t22hb_table_lazy_l
   br i1 %tobool6.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %_ZNK17hb_data_wrapper_tI9hb_face_tLj4EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4hheaELj4ELb1EEEEPT_v.exit
-  %call.i6 = call noundef ptr @hb_blob_get_empty() #18
+  %call.i6 = call noundef ptr @hb_blob_get_empty() #19
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %_ZNK17hb_data_wrapper_tI9hb_face_tLj4EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4hheaELj4ELb1EEEEPT_v.exit
@@ -29041,12 +29010,12 @@ if.then11:                                        ; preds = %if.end9
   br i1 %tobool.not.i7, label %_ZN16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10do_destroyEPS5_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then11
-  %call.i.i = call noundef ptr @hb_blob_get_empty() #18
+  %call.i.i = call noundef ptr @hb_blob_get_empty() #19
   %cmp.not.i = icmp eq ptr %p.1, %call.i.i
   br i1 %cmp.not.i, label %_ZN16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10do_destroyEPS5_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  call void @hb_blob_destroy(ptr noundef nonnull %p.1) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %p.1) #19
   br label %_ZN16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10do_destroyEPS5_.exit
 
 _ZN16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10do_destroyEPS5_.exit: ; preds = %if.then11, %land.lhs.true.i, %if.then.i
@@ -29067,7 +29036,7 @@ return:                                           ; preds = %if.end9, %return.lo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4hheaEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %this, ptr noundef %blob) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #18
+  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #19
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call.i, ptr %blob.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -29112,7 +29081,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %retry, %if.else.
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
-  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %return
@@ -29122,7 +29091,7 @@ if.end:                                           ; preds = %_ZN21hb_sanitize_co
   br i1 %cmp.i.i.not.i, label %if.else39.sink.split, label %_ZNK2OT4_heaINS_4hheaEE8sanitizeEP21hb_sanitize_context_t.exit
 
 _ZNK2OT4_heaINS_4hheaEE8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %if.end
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %2, align 1
   %conv.i.i4.i = zext i8 %6 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i4.i, 8
@@ -29152,7 +29121,7 @@ if.then7:                                         ; preds = %if.then5
   br i1 %cmp.i.i.not.i21, label %if.else39.sink.split, label %_ZNK2OT4_heaINS_4hheaEE8sanitizeEP21hb_sanitize_context_t.exit30
 
 _ZNK2OT4_heaINS_4hheaEE8sanitizeEP21hb_sanitize_context_t.exit30: ; preds = %if.then7
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %.pre = load i32, ptr %edit_count.i, align 4
   %10 = icmp eq i32 %.pre, 0
   br i1 %10, label %if.end34, label %if.else39.sink.split
@@ -29167,7 +29136,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %tobool22, label %if.else39.sink.split, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #18
+  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #19
   store ptr %call24, ptr %start, align 8
   %12 = load i32, ptr %length, align 8
   %idx.ext = zext i32 %12 to i64
@@ -29185,32 +29154,32 @@ if.end34:                                         ; preds = %_ZNK2OT4_heaINS_4hh
   %add.i.i5.i27 = or disjoint i32 %shl.i.i.i24, %conv4.i.i.i26
   %cmp.i28 = icmp eq i32 %add.i.i5.i27, 1
   %15 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %15) #18
+  tail call void @hb_blob_destroy(ptr noundef %15) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br i1 %cmp.i28, label %if.then38, label %if.else39
 
 if.then38.critedge:                               ; preds = %if.then5
   %16 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %16) #18
+  tail call void @hb_blob_destroy(ptr noundef %16) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.then38
 
 if.then38:                                        ; preds = %if.then38.critedge, %if.end34
-  tail call void @hb_blob_make_immutable(ptr noundef %blob) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %blob) #19
   br label %return
 
 if.else39.sink.split:                             ; preds = %land.lhs.true, %if.then23, %if.else, %if.end, %if.then7, %_ZNK2OT4_heaINS_4hheaEE8sanitizeEP21hb_sanitize_context_t.exit30
   %17 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %17) #18
+  tail call void @hb_blob_destroy(ptr noundef %17) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.else39
 
 if.else39:                                        ; preds = %if.else39.sink.split, %if.end34
-  tail call void @hb_blob_destroy(ptr noundef %blob) #18
-  %call40 = tail call ptr @hb_blob_get_empty() #18
+  tail call void @hb_blob_destroy(ptr noundef %blob) #19
+  %call40 = tail call ptr @hb_blob_get_empty() #19
   br label %return
 
 return:                                           ; preds = %if.else39, %if.then38, %if.then
@@ -29241,7 +29210,7 @@ if.then:                                          ; preds = %if.then.lr.ph, %_ZN
   br i1 %tobool.not.i, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  %call.i = call noundef ptr @hb_blob_get_empty() #18
+  %call.i = call noundef ptr @hb_blob_get_empty() #19
   br label %return
 
 if.end:                                           ; preds = %if.then
@@ -29251,14 +29220,14 @@ if.end:                                           ; preds = %if.then
   store i8 0, ptr %lazy_some_gpos.i.i.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %edit_count.i.i.i, i8 0, i64 16, i1 false)
   store i8 1, ptr %num_glyphs_set.i.i.i, align 4
-  %call2.i.i.i = call ptr @hb_face_reference_table(ptr noundef nonnull %1, i32 noundef 1835104368) #18
+  %call2.i.i.i = call ptr @hb_face_reference_table(ptr noundef nonnull %1, i32 noundef 1835104368) #19
   %call3.i.i.i = call noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4maxpEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %c.i.i, ptr noundef %call2.i.i.i)
   %2 = load ptr, ptr %blob.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %_ZNK17hb_data_wrapper_tI9hb_face_tLj2EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4maxpELj2ELb1EEEEPT_v.exit, label %if.then.i5.i.i
 
 if.then.i5.i.i:                                   ; preds = %if.end
-  call void @hb_blob_destroy(ptr noundef nonnull %2) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %2) #19
   br label %_ZNK17hb_data_wrapper_tI9hb_face_tLj2EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4maxpELj2ELb1EEEEPT_v.exit
 
 _ZNK17hb_data_wrapper_tI9hb_face_tLj2EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4maxpELj2ELb1EEEEPT_v.exit: ; preds = %if.end, %if.then.i5.i.i
@@ -29267,7 +29236,7 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj2EE11call_createI9hb_blob_t22hb_table_lazy_l
   br i1 %tobool6.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %_ZNK17hb_data_wrapper_tI9hb_face_tLj2EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4maxpELj2ELb1EEEEPT_v.exit
-  %call.i6 = call noundef ptr @hb_blob_get_empty() #18
+  %call.i6 = call noundef ptr @hb_blob_get_empty() #19
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %_ZNK17hb_data_wrapper_tI9hb_face_tLj2EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4maxpELj2ELb1EEEEPT_v.exit
@@ -29282,12 +29251,12 @@ if.then11:                                        ; preds = %if.end9
   br i1 %tobool.not.i7, label %_ZN16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_tLj2E9hb_blob_tE10do_destroyEPS5_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then11
-  %call.i.i = call noundef ptr @hb_blob_get_empty() #18
+  %call.i.i = call noundef ptr @hb_blob_get_empty() #19
   %cmp.not.i = icmp eq ptr %p.1, %call.i.i
   br i1 %cmp.not.i, label %_ZN16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_tLj2E9hb_blob_tE10do_destroyEPS5_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  call void @hb_blob_destroy(ptr noundef nonnull %p.1) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %p.1) #19
   br label %_ZN16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_tLj2E9hb_blob_tE10do_destroyEPS5_.exit
 
 _ZN16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_tLj2E9hb_blob_tE10do_destroyEPS5_.exit: ; preds = %if.then11, %land.lhs.true.i, %if.then.i
@@ -29308,7 +29277,7 @@ return:                                           ; preds = %if.end9, %return.lo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4maxpEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %this, ptr noundef %blob) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #18
+  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #19
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call.i, ptr %blob.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -29353,7 +29322,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %retry, %if.else.
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
-  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %return
@@ -29363,7 +29332,7 @@ if.end:                                           ; preds = %_ZN21hb_sanitize_co
   br i1 %cmp.i.i.not.i, label %if.else, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %2, align 1
   %conv.i.i5.i = zext i8 %6 to i16
   %shl.i.i.i = shl nuw i16 %conv.i.i5.i, 8
@@ -29418,7 +29387,7 @@ if.then7:                                         ; preds = %if.then5
   br i1 %cmp.i.i.not.i21, label %_ZNK2OT4maxp8sanitizeEP21hb_sanitize_context_t.exit44, label %if.end.i22
 
 if.end.i22:                                       ; preds = %if.then7
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %15 = load i8, ptr %2, align 1
   %conv.i.i5.i23 = zext i8 %15 to i16
   %shl.i.i.i24 = shl nuw i16 %conv.i.i5.i23, 8
@@ -29458,7 +29427,7 @@ _ZNK2OT4maxp8sanitizeEP21hb_sanitize_context_t.exit44: ; preds = %if.then7, %if.
   %21 = load i32, ptr %edit_count.i, align 4
   %tobool14.not = icmp eq i32 %21, 0
   %22 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %22) #18
+  tail call void @hb_blob_destroy(ptr noundef %22) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   %brmerge.not = select i1 %tobool14.not, i1 %retval.0.i36, i1 false
@@ -29475,7 +29444,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %tobool22, label %if.else39.critedge, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #18
+  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #19
   store ptr %call24, ptr %start, align 8
   %25 = load i32, ptr %length, align 8
   %idx.ext = zext i32 %25 to i64
@@ -29486,25 +29455,25 @@ if.then23:                                        ; preds = %land.lhs.true
 
 if.then38.critedge:                               ; preds = %if.then5
   %26 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %26) #18
+  tail call void @hb_blob_destroy(ptr noundef %26) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.then38
 
 if.then38:                                        ; preds = %_ZNK2OT4maxp8sanitizeEP21hb_sanitize_context_t.exit44, %if.then38.critedge
-  tail call void @hb_blob_make_immutable(ptr noundef %blob) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %blob) #19
   br label %return
 
 if.else39.critedge:                               ; preds = %if.else, %if.then23, %land.lhs.true
   %27 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %27) #18
+  tail call void @hb_blob_destroy(ptr noundef %27) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.else39
 
 if.else39:                                        ; preds = %_ZNK2OT4maxp8sanitizeEP21hb_sanitize_context_t.exit44, %if.else39.critedge
-  tail call void @hb_blob_destroy(ptr noundef %blob) #18
-  %call40 = tail call ptr @hb_blob_get_empty() #18
+  tail call void @hb_blob_destroy(ptr noundef %blob) #19
+  %call40 = tail call ptr @hb_blob_get_empty() #19
   br label %return
 
 return:                                           ; preds = %if.else39, %if.then38, %if.then
@@ -29519,17 +29488,17 @@ if.end.i:
   %table = getelementptr inbounds i8, ptr %this, i64 24
   %var_table = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %table, i8 0, i64 16, i1 false)
-  %call.i = tail call i32 @hb_face_get_glyph_count(ptr noundef %face) #18
-  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef %face, i32 noundef 1986884728) #18
-  %call.i.i.i = tail call ptr @hb_blob_reference(ptr noundef %call2.i) #18
+  %call.i = tail call i32 @hb_face_get_glyph_count(ptr noundef %face) #19
+  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef %face, i32 noundef 1986884728) #19
+  %call.i.i.i = tail call ptr @hb_blob_reference(ptr noundef %call2.i) #19
   %data.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   %0 = load ptr, ptr %data.i.i.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
-  tail call void @hb_blob_destroy(ptr noundef nonnull %call.i.i.i) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %call.i.i.i) #19
   br i1 %tobool.not.i.i, label %_ZN21hb_sanitize_context_t15reference_tableIN2OT4VVAREEEP9hb_blob_tPK9hb_face_tj.exit, label %if.then38.i.i
 
 if.then38.i.i:                                    ; preds = %if.end.i
-  tail call void @hb_blob_make_immutable(ptr noundef %call2.i) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %call2.i) #19
   br label %_ZN21hb_sanitize_context_t15reference_tableIN2OT4VVAREEEP9hb_blob_tPK9hb_face_tj.exit
 
 _ZN21hb_sanitize_context_t15reference_tableIN2OT4VVAREEEP9hb_blob_tPK9hb_face_tj.exit: ; preds = %if.then38.i.i, %if.end.i
@@ -29545,10 +29514,10 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT4VVAREEEP9hb_blob_tPK9hb_face_tj
   %num_glyphs_set.i28 = getelementptr inbounds i8, ptr %ref.tmp4, i64 60
   %lazy_some_gpos.i29 = getelementptr inbounds i8, ptr %ref.tmp4, i64 61
   store i8 0, ptr %lazy_some_gpos.i29, align 1
-  %call.i33 = tail call i32 @hb_face_get_glyph_count(ptr noundef %face) #18
+  %call.i33 = tail call i32 @hb_face_get_glyph_count(ptr noundef %face) #19
   store i32 %call.i33, ptr %num_glyphs.i27, align 8
   store i8 1, ptr %num_glyphs_set.i28, align 4
-  %call2.i36 = tail call ptr @hb_face_reference_table(ptr noundef %face, i32 noundef 1448493394) #18
+  %call2.i36 = tail call ptr @hb_face_reference_table(ptr noundef %face, i32 noundef 1448493394) #19
   %call3.i = call noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4VVAREEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %ref.tmp4, ptr noundef %call2.i36)
   store ptr %call3.i, ptr %var_table, align 8
   %1 = load ptr, ptr %blob.i26, align 8
@@ -29556,13 +29525,13 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT4VVAREEEP9hb_blob_tPK9hb_face_tj
   br i1 %tobool.not.i38, label %_ZN21hb_sanitize_context_tD2Ev.exit42, label %if.then.i39
 
 if.then.i39:                                      ; preds = %_ZN21hb_sanitize_context_t15reference_tableIN2OT4VVAREEEP9hb_blob_tPK9hb_face_tj.exit
-  call void @hb_blob_destroy(ptr noundef nonnull %1) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %1) #19
   store ptr null, ptr %blob.i26, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start.i24, i8 0, i64 20, i1 false)
   br label %_ZN21hb_sanitize_context_tD2Ev.exit42
 
 _ZN21hb_sanitize_context_tD2Ev.exit42:            ; preds = %_ZN21hb_sanitize_context_t15reference_tableIN2OT4VVAREEEP9hb_blob_tPK9hb_face_tj.exit, %if.then.i39
-  %call8 = call i32 @hb_face_get_upem(ptr noundef %face) #18
+  %call8 = call i32 @hb_face_get_upem(ptr noundef %face) #19
   %default_advance = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %call8, ptr %default_advance, align 8
   %2 = load ptr, ptr %table, align 8
@@ -29634,7 +29603,7 @@ _ZN21hb_sanitize_context_tD2Ev.exit42:            ; preds = %_ZN21hb_sanitize_co
   br i1 %cmp.i, label %if.then.i50, label %_ZNK9hb_face_t14get_num_glyphsEv.exit
 
 if.then.i50:                                      ; preds = %_ZN21hb_sanitize_context_tD2Ev.exit42
-  %call2.i51 = call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(416) %face) #18
+  %call2.i51 = call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(416) %face) #19
   %.pre = load i32, ptr %num_advances, align 8
   br label %_ZNK9hb_face_t14get_num_glyphsEv.exit
 
@@ -29650,7 +29619,7 @@ _ZNK9hb_face_t14get_num_glyphsEv.exit:            ; preds = %_ZN21hb_sanitize_co
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4VVAREEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %this, ptr noundef %blob) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #18
+  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #19
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call.i, ptr %blob.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -29695,7 +29664,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %retry, %if.else.
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
-  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %return
@@ -29717,8 +29686,8 @@ land.rhs.i:                                       ; preds = %if.end
   br i1 %cmp.i.i.not.i.not.i, label %if.else, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %land.rhs.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %vorgMap.i, align 1
   %conv.i.i.i5.i = zext i8 %8 to i32
   %shl.i.i.i.i = shl nuw i32 %conv.i.i.i5.i, 24
@@ -29784,8 +29753,8 @@ land.rhs.i18:                                     ; preds = %if.then7
   br i1 %cmp.i.i.not.i.not.i27, label %_ZNK2OT4VVAR8sanitizeEP21hb_sanitize_context_t.exit55, label %land.lhs.true.i.i28
 
 land.lhs.true.i.i28:                              ; preds = %land.rhs.i18
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %16 = load i8, ptr %vorgMap.i, align 1
   %conv.i.i.i5.i29 = zext i8 %16 to i32
   %shl.i.i.i.i30 = shl nuw i32 %conv.i.i.i5.i29, 24
@@ -29846,7 +29815,7 @@ land.lhs.true:                                    ; preds = %if.else.land.lhs.tr
   br i1 %tobool22, label %if.else39.sink.split, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #18
+  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #19
   store ptr %call24, ptr %start, align 8
   %23 = load i32, ptr %length, align 8
   %idx.ext = zext i32 %23 to i64
@@ -29857,32 +29826,32 @@ if.then23:                                        ; preds = %land.lhs.true
 
 if.end34:                                         ; preds = %_ZNK2OT4VVAR8sanitizeEP21hb_sanitize_context_t.exit55
   %24 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %24) #18
+  tail call void @hb_blob_destroy(ptr noundef %24) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br i1 %frombool.i17.ph, label %if.then38, label %if.else39
 
 if.then38.critedge:                               ; preds = %if.then5
   %25 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %25) #18
+  tail call void @hb_blob_destroy(ptr noundef %25) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.then38
 
 if.then38:                                        ; preds = %if.then38.critedge, %if.end34
-  tail call void @hb_blob_make_immutable(ptr noundef %blob) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %blob) #19
   br label %return
 
 if.else39.sink.split:                             ; preds = %land.lhs.true, %if.then23, %if.else, %_ZNK2OT4VVAR8sanitizeEP21hb_sanitize_context_t.exit55, %lor.rhs.i.i47, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i50
   %26 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %26) #18
+  tail call void @hb_blob_destroy(ptr noundef %26) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.else39
 
 if.else39:                                        ; preds = %if.else39.sink.split, %if.end34
-  tail call void @hb_blob_destroy(ptr noundef %blob) #18
-  %call40 = tail call ptr @hb_blob_get_empty() #18
+  tail call void @hb_blob_destroy(ptr noundef %blob) #19
+  %call40 = tail call ptr @hb_blob_get_empty() #19
   br label %return
 
 return:                                           ; preds = %if.else39, %if.then38, %if.then
@@ -29913,7 +29882,7 @@ if.then:                                          ; preds = %if.then.lr.ph, %_ZN
   br i1 %tobool.not.i, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  %call.i = call noundef ptr @hb_blob_get_empty() #18
+  %call.i = call noundef ptr @hb_blob_get_empty() #19
   br label %return
 
 if.end:                                           ; preds = %if.then
@@ -29923,14 +29892,14 @@ if.end:                                           ; preds = %if.then
   store i8 0, ptr %lazy_some_gpos.i.i.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %edit_count.i.i.i, i8 0, i64 16, i1 false)
   store i8 1, ptr %num_glyphs_set.i.i.i, align 4
-  %call2.i.i.i = call ptr @hb_face_reference_table(ptr noundef nonnull %1, i32 noundef 1986553185) #18
+  %call2.i.i.i = call ptr @hb_face_reference_table(ptr noundef nonnull %1, i32 noundef 1986553185) #19
   %call3.i.i.i = call noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4vheaEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %c.i.i, ptr noundef %call2.i.i.i)
   %2 = load ptr, ptr %blob.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %_ZNK17hb_data_wrapper_tI9hb_face_tLj11EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4vheaELj11ELb1EEEEPT_v.exit, label %if.then.i5.i.i
 
 if.then.i5.i.i:                                   ; preds = %if.end
-  call void @hb_blob_destroy(ptr noundef nonnull %2) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %2) #19
   br label %_ZNK17hb_data_wrapper_tI9hb_face_tLj11EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4vheaELj11ELb1EEEEPT_v.exit
 
 _ZNK17hb_data_wrapper_tI9hb_face_tLj11EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4vheaELj11ELb1EEEEPT_v.exit: ; preds = %if.end, %if.then.i5.i.i
@@ -29939,7 +29908,7 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj11EE11call_createI9hb_blob_t22hb_table_lazy_
   br i1 %tobool6.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %_ZNK17hb_data_wrapper_tI9hb_face_tLj11EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4vheaELj11ELb1EEEEPT_v.exit
-  %call.i6 = call noundef ptr @hb_blob_get_empty() #18
+  %call.i6 = call noundef ptr @hb_blob_get_empty() #19
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %_ZNK17hb_data_wrapper_tI9hb_face_tLj11EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4vheaELj11ELb1EEEEPT_v.exit
@@ -29954,12 +29923,12 @@ if.then11:                                        ; preds = %if.end9
   br i1 %tobool.not.i7, label %_ZN16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10do_destroyEPS5_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then11
-  %call.i.i = call noundef ptr @hb_blob_get_empty() #18
+  %call.i.i = call noundef ptr @hb_blob_get_empty() #19
   %cmp.not.i = icmp eq ptr %p.1, %call.i.i
   br i1 %cmp.not.i, label %_ZN16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10do_destroyEPS5_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  call void @hb_blob_destroy(ptr noundef nonnull %p.1) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %p.1) #19
   br label %_ZN16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10do_destroyEPS5_.exit
 
 _ZN16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10do_destroyEPS5_.exit: ; preds = %if.then11, %land.lhs.true.i, %if.then.i
@@ -29980,7 +29949,7 @@ return:                                           ; preds = %if.end9, %return.lo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4vheaEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %this, ptr noundef %blob) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #18
+  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #19
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call.i, ptr %blob.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -30025,7 +29994,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %retry, %if.else.
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
-  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %return
@@ -30035,7 +30004,7 @@ if.end:                                           ; preds = %_ZN21hb_sanitize_co
   br i1 %cmp.i.i.not.i, label %if.else39.sink.split, label %_ZNK2OT4_heaINS_4vheaEE8sanitizeEP21hb_sanitize_context_t.exit
 
 _ZNK2OT4_heaINS_4vheaEE8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %if.end
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %2, align 1
   %conv.i.i4.i = zext i8 %6 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i4.i, 8
@@ -30065,7 +30034,7 @@ if.then7:                                         ; preds = %if.then5
   br i1 %cmp.i.i.not.i21, label %if.else39.sink.split, label %_ZNK2OT4_heaINS_4vheaEE8sanitizeEP21hb_sanitize_context_t.exit30
 
 _ZNK2OT4_heaINS_4vheaEE8sanitizeEP21hb_sanitize_context_t.exit30: ; preds = %if.then7
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %.pre = load i32, ptr %edit_count.i, align 4
   %10 = icmp eq i32 %.pre, 0
   br i1 %10, label %if.end34, label %if.else39.sink.split
@@ -30080,7 +30049,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %tobool22, label %if.else39.sink.split, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #18
+  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #19
   store ptr %call24, ptr %start, align 8
   %12 = load i32, ptr %length, align 8
   %idx.ext = zext i32 %12 to i64
@@ -30098,32 +30067,32 @@ if.end34:                                         ; preds = %_ZNK2OT4_heaINS_4vh
   %add.i.i5.i27 = or disjoint i32 %shl.i.i.i24, %conv4.i.i.i26
   %cmp.i28 = icmp eq i32 %add.i.i5.i27, 1
   %15 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %15) #18
+  tail call void @hb_blob_destroy(ptr noundef %15) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br i1 %cmp.i28, label %if.then38, label %if.else39
 
 if.then38.critedge:                               ; preds = %if.then5
   %16 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %16) #18
+  tail call void @hb_blob_destroy(ptr noundef %16) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.then38
 
 if.then38:                                        ; preds = %if.then38.critedge, %if.end34
-  tail call void @hb_blob_make_immutable(ptr noundef %blob) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %blob) #19
   br label %return
 
 if.else39.sink.split:                             ; preds = %land.lhs.true, %if.then23, %if.else, %if.end, %if.then7, %_ZNK2OT4_heaINS_4vheaEE8sanitizeEP21hb_sanitize_context_t.exit30
   %17 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %17) #18
+  tail call void @hb_blob_destroy(ptr noundef %17) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.else39
 
 if.else39:                                        ; preds = %if.else39.sink.split, %if.end34
-  tail call void @hb_blob_destroy(ptr noundef %blob) #18
-  %call40 = tail call ptr @hb_blob_get_empty() #18
+  tail call void @hb_blob_destroy(ptr noundef %blob) #19
+  %call40 = tail call ptr @hb_blob_get_empty() #19
   br label %return
 
 return:                                           ; preds = %if.else39, %if.then38, %if.then
@@ -30189,13 +30158,13 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT4cff1EEEP9hb_blob_tPK9hb_face_tj
   store i32 8720, ptr %cidCount.i, align 4
   %EncodingOffset.i = getelementptr inbounds i8, ptr %this, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %EncodingOffset.i, i8 0, i64 56, i1 false)
-  %call.i = tail call i32 @hb_face_get_glyph_count(ptr noundef nonnull %face) #18
+  %call.i = tail call i32 @hb_face_get_glyph_count(ptr noundef nonnull %face) #19
   store i32 %call.i, ptr %num_glyphs.i, align 8
   store i8 1, ptr %num_glyphs_set.i, align 4
-  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef nonnull %face, i32 noundef 1128678944) #18
+  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef nonnull %face, i32 noundef 1128678944) #19
   %call3.i = tail call noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4cff1EEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %this, ptr noundef %call2.i)
   store ptr %call3.i, ptr %blob, align 8
-  %call.i30 = tail call ptr @hb_blob_reference(ptr noundef %call3.i) #18
+  %call.i30 = tail call ptr @hb_blob_reference(ptr noundef %call3.i) #19
   store ptr %call.i30, ptr %blob.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %writable.i, align 8
@@ -30251,7 +30220,7 @@ lor.lhs.false:                                    ; preds = %if.end14
   br i1 %call23, label %if.end25, label %fail
 
 if.end25:                                         ; preds = %lor.lhs.false
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %9 = load ptr, ptr %nameIndex, align 8
   %10 = load i8, ptr %9, align 1
   %conv.i.i.i = zext i8 %10 to i32
@@ -30376,7 +30345,7 @@ lor.lhs.false36:                                  ; preds = %_ZN3CFFL20StructAtO
   br i1 %cmp39, label %fail, label %if.end41
 
 if.end41:                                         ; preds = %lor.lhs.false36
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %27 = load ptr, ptr %topDictIndex, align 8
   %call44 = tail call { ptr, i64 } @_ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEEixEj(ptr noundef nonnull align 1 dereferenceable(4) %27, i32 noundef 0)
   %28 = extractvalue { ptr, i64 } %call44, 0
@@ -30407,7 +30376,7 @@ _ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit: ; preds = %lan
   br i1 %cmp7.i.i.i.i, label %if.end48, label %fail
 
 if.end48:                                         ; preds = %_ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %count.i.i.i.i = getelementptr inbounds i8, ptr %env, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4108) %count.i.i.i.i, i8 0, i64 4108, i1 false)
   %34 = getelementptr inbounds i8, ptr %env, i64 16
@@ -30796,7 +30765,7 @@ _ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit181: ; preds = %
   br i1 %cmp7.i.i.i.i180, label %if.end181, label %fail
 
 if.end181:                                        ; preds = %_ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit181
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4108) %count.i.i.i.i182, i8 0, i64 4108, i1 false)
   store i8 0, ptr %81, align 8
   store ptr %85, ptr %env183, align 8
@@ -31024,7 +30993,7 @@ if.end4.i279:                                     ; preds = %if.end.i269
 _ZN3CFFL20StructAtOffsetOrNullINS_5SubrsIN2OT7IntTypeItLj2EEEEEJEEERKT_PKviR21hb_sanitize_context_tDpOT0_.exit283: ; preds = %if.end230, %if.end.i269, %if.end4.i279
   %retval.0.i282 = phi ptr [ @_hb_NullPool, %if.end230 ], [ @_hb_NullPool, %if.end.i269 ], [ %spec.select.i281, %if.end4.i279 ]
   store ptr %retval.0.i282, ptr %localSubrs.i267, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   br label %return
 
 fail.sink.split:                                  ; preds = %if.end4.i146, %if.end.i136, %_ZN3CFFL20StructAtOffsetOrNullINS_5SubrsIN2OT7IntTypeItLj2EEEEEJEEERKT_PKviR21hb_sanitize_context_tDpOT0_.exit, %if.end4.i116, %if.end.i106, %if.end123, %if.end4.i101, %if.end.i91, %if.end4.i60, %if.end.i50, %if.end4.i, %if.end.i, %_ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE8get_sizeEv.exit
@@ -31057,7 +31026,7 @@ entry:
   br i1 %cmp.i.i51.not, label %land.end34, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i10 = zext i8 %2 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i10, 8
@@ -31069,7 +31038,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp, label %land.end34, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 3
   %4 = load ptr, ptr %start.i.i45, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i to i64
@@ -31267,7 +31236,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %offSize.i = getelementptr inbounds i8, ptr %this, i64 2
   %2 = load i8, ptr %offSize.i, align 1
   %offsets.i = getelementptr inbounds i8, ptr %this, i64 3
@@ -31527,7 +31496,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp.i.i.not.i, label %if.then7, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %add.ptr, align 1
   switch i8 %2, label %if.then7 [
     i8 0, label %sw.bb.i
@@ -31544,7 +31513,7 @@ sw.bb.i:                                          ; preds = %if.end.i
   br i1 %cmp.i.i.not.i.i, label %if.then7, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.bb.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %num_glyphs.i.i.i = getelementptr inbounds i8, ptr %sc, i64 56
   %5 = load i32, ptr %num_glyphs.i.i.i, align 8
   %6 = load ptr, ptr %start.i, align 8
@@ -31698,7 +31667,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.body.i12
   store i32 0, ptr %length.i.i.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.pn4.i, i64 -24
   %10 = load ptr, ptr %arrayZ.i.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %10) #18
+  tail call void @free(ptr noundef %10) #19
   br label %_ZN3CFF31cff1_private_dict_values_base_tINS_8op_str_tEED2Ev.exit.i
 
 _ZN3CFF31cff1_private_dict_values_base_tINS_8op_str_tEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i.i, %while.body.i12
@@ -31884,7 +31853,7 @@ entry:
   %start.i = getelementptr inbounds i8, ptr %this, i64 8
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %0) #18
+  tail call void @hb_blob_destroy(ptr noundef %0) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start.i, i8 0, i64 20, i1 false)
   %values.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
@@ -31897,7 +31866,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   store i32 0, ptr %length.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %2 = load ptr, ptr %arrayZ.i.i.i.i, align 8
-  tail call void @free(ptr noundef %2) #18
+  tail call void @free(ptr noundef %2) #19
   br label %_ZN3CFF22cff1_top_dict_values_t4finiEv.exit
 
 _ZN3CFF22cff1_top_dict_values_t4finiEv.exit:      ; preds = %entry, %if.then.i.i.i.i
@@ -31935,7 +31904,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %while.body.i.i
   store i32 0, ptr %length.i.i.i.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.pn4.i.i, i64 -24
   %7 = load ptr, ptr %arrayZ.i.i.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %7) #18
+  tail call void @free(ptr noundef %7) #19
   br label %_ZN3CFF23cff1_font_dict_values_tD2Ev.exit.i.i
 
 _ZN3CFF23cff1_font_dict_values_tD2Ev.exit.i.i:    ; preds = %if.then.i.i.i.i.i.i.i, %while.body.i.i
@@ -31947,7 +31916,7 @@ _ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EE13shrink_vectorEj.exit.i: ;
   store i32 0, ptr %length.i.i, align 4
   %arrayZ.i = getelementptr inbounds i8, ptr %this, i64 272
   %8 = load ptr, ptr %arrayZ.i, align 8
-  tail call void @free(ptr noundef %8) #18
+  tail call void @free(ptr noundef %8) #19
   br label %_ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EE4finiEv.exit
 
 _ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EE4finiEv.exit: ; preds = %_ZN3CFF22cff1_top_dict_values_t4finiEv.exit, %_ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EE13shrink_vectorEj.exit.i
@@ -31985,7 +31954,7 @@ if.then.i.i.i.i.i.i.i16:                          ; preds = %while.body.i.i9
   store i32 0, ptr %length.i.i.i.i.i.i.i.i17, align 4
   %arrayZ.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %add.ptr.pn4.i.i10, i64 -24
   %13 = load ptr, ptr %arrayZ.i.i.i.i.i.i.i18, align 8
-  tail call void @free(ptr noundef %13) #18
+  tail call void @free(ptr noundef %13) #19
   br label %_ZN3CFF31cff1_private_dict_values_base_tINS_8op_str_tEED2Ev.exit.i.i
 
 _ZN3CFF31cff1_private_dict_values_base_tINS_8op_str_tEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i16, %while.body.i.i9
@@ -31997,14 +31966,14 @@ _ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_8op_str_tEEELb0EE13s
   store i32 0, ptr %length.i.i3, align 4
   %arrayZ.i20 = getelementptr inbounds i8, ptr %this, i64 288
   %14 = load ptr, ptr %arrayZ.i20, align 8
-  tail call void @free(ptr noundef %14) #18
+  tail call void @free(ptr noundef %14) #19
   br label %_ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_8op_str_tEEELb0EE4finiEv.exit
 
 _ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_8op_str_tEEELb0EE4finiEv.exit: ; preds = %_ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EE4finiEv.exit, %_ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_8op_str_tEEELb0EE13shrink_vectorEj.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %privateDicts, i8 0, i64 16, i1 false)
   %blob = getelementptr inbounds i8, ptr %this, i64 64
   %15 = load ptr, ptr %blob, align 8
-  tail call void @hb_blob_destroy(ptr noundef %15) #18
+  tail call void @hb_blob_destroy(ptr noundef %15) #19
   store ptr null, ptr %blob, align 8
   ret void
 }
@@ -32012,7 +31981,7 @@ _ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_8op_str_tEEELb0EE4fi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4cff1EEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %this, ptr noundef %blob) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #18
+  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #19
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call.i, ptr %blob.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -32057,7 +32026,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %retry, %if.else.
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
-  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %return
@@ -32067,7 +32036,7 @@ if.end:                                           ; preds = %_ZN21hb_sanitize_co
   br i1 %cmp.i.i.not.i, label %if.else39.sink.split, label %_ZNK2OT4cff18sanitizeEP21hb_sanitize_context_t.exit
 
 _ZNK2OT4cff18sanitizeEP21hb_sanitize_context_t.exit: ; preds = %if.end
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %2, align 1
   %cmp.i = icmp eq i8 %6, 1
   %.pre49 = load i32, ptr %edit_count.i, align 4
@@ -32090,7 +32059,7 @@ if.then7:                                         ; preds = %if.then5
   br i1 %cmp.i.i.not.i21, label %if.else39.sink.split, label %_ZNK2OT4cff18sanitizeEP21hb_sanitize_context_t.exit25
 
 _ZNK2OT4cff18sanitizeEP21hb_sanitize_context_t.exit25: ; preds = %if.then7
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %.pre = load i32, ptr %edit_count.i, align 4
   %9 = icmp eq i32 %.pre, 0
   br i1 %9, label %if.end34, label %if.else39.sink.split
@@ -32104,7 +32073,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %tobool22, label %if.else39.sink.split, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #18
+  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #19
   store ptr %call24, ptr %start, align 8
   %11 = load i32, ptr %length, align 8
   %idx.ext = zext i32 %11 to i64
@@ -32117,32 +32086,32 @@ if.end34:                                         ; preds = %_ZNK2OT4cff18saniti
   %12 = load i8, ptr %2, align 1
   %cmp.i23 = icmp eq i8 %12, 1
   %13 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %13) #18
+  tail call void @hb_blob_destroy(ptr noundef %13) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br i1 %cmp.i23, label %if.then38, label %if.else39
 
 if.then38.critedge:                               ; preds = %if.then5
   %14 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %14) #18
+  tail call void @hb_blob_destroy(ptr noundef %14) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.then38
 
 if.then38:                                        ; preds = %if.then38.critedge, %if.end34
-  tail call void @hb_blob_make_immutable(ptr noundef %blob) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %blob) #19
   br label %return
 
 if.else39.sink.split:                             ; preds = %land.lhs.true, %if.then23, %if.else, %if.end, %if.then7, %_ZNK2OT4cff18sanitizeEP21hb_sanitize_context_t.exit25
   %15 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %15) #18
+  tail call void @hb_blob_destroy(ptr noundef %15) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.else39
 
 if.else39:                                        ; preds = %if.else39.sink.split, %if.end34
-  tail call void @hb_blob_destroy(ptr noundef %blob) #18
-  %call40 = tail call ptr @hb_blob_get_empty() #18
+  tail call void @hb_blob_destroy(ptr noundef %blob) #19
+  %call40 = tail call ptr @hb_blob_get_empty() #19
   br label %return
 
 return:                                           ; preds = %if.else39, %if.then38, %if.then
@@ -32778,7 +32747,7 @@ _ZN11hb_vector_tIN3CFF19cff1_top_dict_val_tELb0EE14realloc_vectorIS1_TnPN12hb_en
   %62 = load ptr, ptr %arrayZ.i.i.i.i, align 8
   %conv.i.i.i.i = zext nneg i32 %add15.i.i.i to i64
   %mul.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i, 24
-  %call.i.i.i.i = tail call ptr @realloc(ptr noundef %62, i64 noundef %mul.i.i.i.i) #19
+  %call.i.i.i.i = tail call ptr @realloc(ptr noundef %62, i64 noundef %mul.i.i.i.i) #20
   %tobool27.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool27.not.i.i.i, label %if.then28.i.i.i, label %_ZN11hb_vector_tIN3CFF19cff1_top_dict_val_tELb0EE5allocEjb.exit.i.i
 
@@ -33076,7 +33045,7 @@ if.then14:                                        ; preds = %if.end9
   store ptr %buf, ptr %p, align 8
   %idx.ext = zext nneg i32 %count.029 to i64
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
-  %call15 = call noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr noundef nonnull %p, ptr noundef nonnull %add.ptr, ptr noundef nonnull %pv, i1 noundef zeroext true) #18
+  %call15 = call noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr noundef nonnull %p, ptr noundef nonnull %add.ptr, ptr noundef nonnull %pv, i1 noundef zeroext true) #19
   br i1 %call15, label %if.end17, label %if.then14.for.end_crit_edge
 
 if.then14.for.end_crit_edge:                      ; preds = %if.then14
@@ -33394,7 +33363,7 @@ entry:
   br i1 %cmp.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   switch i8 %2, label %return [
     i8 0, label %sw.bb
@@ -33466,7 +33435,7 @@ for.body.i:                                       ; preds = %sw.bb9, %if.end.i15
   br i1 %cmp.i.i.i.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %nLeft.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 2
   %13 = load i8, ptr %nLeft.i, align 1
   %conv.i.i14 = zext i8 %13 to i32
@@ -33512,7 +33481,7 @@ for.body.i24:                                     ; preds = %sw.bb16, %if.end.i3
   br i1 %cmp.i.i.i.not.i32, label %return, label %land.lhs.true.i33
 
 land.lhs.true.i33:                                ; preds = %for.body.i24
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %nLeft.i34 = getelementptr inbounds i8, ptr %arrayidx.i.i26, i64 2
   %17 = load i8, ptr %nLeft.i34, align 1
   %conv.i.i.i = zext i8 %17 to i32
@@ -33562,7 +33531,7 @@ entry:
   br i1 %cmp.i.i.not, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i11.i, 8
@@ -33596,7 +33565,7 @@ _ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_E16
   br i1 %cmp7.i.i.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %this, align 1
   %conv.i.i13 = zext i8 %8 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i13, 8
@@ -33630,7 +33599,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.i.i, label %return, label %land.lhs.true.i.i.i15
 
 land.lhs.true.i.i.i15:                            ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %12 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i5.i.i.i = zext i8 %12 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i5.i.i.i, 8
@@ -33650,13 +33619,13 @@ _ZN21hb_sanitize_context_t8dispatchIN3CFF17FDSelect3_4_RangeIN2OT7IntTypeItLj2EE
   br i1 %cmp7.i.i.i18, label %for.cond.i, label %return
 
 land.lhs.true3:                                   ; preds = %for.cond.i, %if.end.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %retval.sroa.0.0.copyload.i = load i16, ptr %this, align 1
   %cmp.not = icmp eq i16 %retval.sroa.0.0.copyload.i, 0
   br i1 %cmp.not, label %return, label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit
 
 _ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit: ; preds = %land.lhs.true3
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %16 = load i8, ptr %add.ptr.i, align 1
   %conv.i.i32 = zext i8 %16 to i32
   %shl.i.i33 = shl nuw nsw i32 %conv.i.i32, 8
@@ -33691,7 +33660,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp.not.i49, label %if.end.i51, label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit55
 
 if.end.i51:                                       ; preds = %for.body
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i54 = getelementptr inbounds [1 x %"struct.CFF::FDSelect3_4_Range"], ptr %add.ptr.i, i64 0, i64 %19
   %.pre = load i8, ptr %this, align 1
   %.pre124 = load i8, ptr %arrayidx3.i.i.i, align 1
@@ -33715,7 +33684,7 @@ _ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_Eix
   br i1 %cmp.not.i66, label %if.end.i68, label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit72
 
 if.end.i68:                                       ; preds = %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit55
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i71 = getelementptr inbounds [1 x %"struct.CFF::FDSelect3_4_Range"], ptr %add.ptr.i, i64 0, i64 %indvars.iv120
   br label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit72
 
@@ -33740,7 +33709,7 @@ if.end.i.i:                                       ; preds = %for.end
   %rev.i = tail call i16 @llvm.bswap.i16(i16 %retval.sroa.0.0.copyload.i38.lcssa)
   %add.i.i.i79 = zext i16 %rev.i to i64
   %sub.i = add nuw nsw i64 %add.i.i.i79, 4294967295
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i = and i64 %sub.i, 4294967295
   %arrayidx.i.i = getelementptr inbounds [1 x %"struct.CFF::FDSelect3_4_Range"], ptr %add.ptr.i, i64 0, i64 %idxprom.i.i
   br label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE8sentinelEv.exit
@@ -33758,7 +33727,7 @@ _ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE8sentinelEv.exit: ; preds
   br i1 %cmp.i.i.i83.not, label %return, label %land.lhs.true37
 
 land.lhs.true37:                                  ; preds = %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE8sentinelEv.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %retval.sroa.0.0.copyload.i.i84 = load i16, ptr %this, align 1
   %cmp.not.i.i90.not = icmp eq i16 %retval.sroa.0.0.copyload.i.i84, 0
   br i1 %cmp.not.i.i90.not, label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE8sentinelEv.exit97, label %if.end.i.i93
@@ -33767,7 +33736,7 @@ if.end.i.i93:                                     ; preds = %land.lhs.true37
   %rev.i85 = tail call i16 @llvm.bswap.i16(i16 %retval.sroa.0.0.copyload.i.i84)
   %add.i.i.i86 = zext i16 %rev.i85 to i64
   %sub.i87 = add nuw nsw i64 %add.i.i.i86, 4294967295
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i95 = and i64 %sub.i87, 4294967295
   %arrayidx.i.i96 = getelementptr inbounds [1 x %"struct.CFF::FDSelect3_4_Range"], ptr %add.ptr.i, i64 0, i64 %idxprom.i.i95
   br label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE8sentinelEv.exit97
@@ -33809,7 +33778,7 @@ entry:
   br i1 %cmp.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i = and i8 %2, 127
   switch i8 %conv.i, label %return [
@@ -33829,7 +33798,7 @@ sw.bb:                                            ; preds = %if.end
   br i1 %cmp.i.i.i.not.i.i, label %return, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %sw.bb
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %5 = load i8, ptr %add.ptr.i, align 1
   %conv.i.i.i = zext i8 %5 to i32
   %6 = load ptr, ptr %start.i.i, align 8
@@ -33868,7 +33837,7 @@ sw.bb10:                                          ; preds = %if.end
   br i1 %cmp.i.i.i.not.i.i15, label %return, label %land.lhs.true.i.i16
 
 land.lhs.true.i.i16:                              ; preds = %sw.bb10
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %12 = load i8, ptr %add.ptr.i, align 1
   %conv.i.i.i17 = zext i8 %12 to i32
   %mul.i.i.i = shl nuw nsw i32 %conv.i.i.i17, 1
@@ -33916,7 +33885,7 @@ sw.bb.i:                                          ; preds = %lor.rhs
 if.end.i.i:                                       ; preds = %sw.bb.i
   %conv.i1.i = zext i8 %retval.sroa.0.0.copyload.i.i to i64
   %sub.i = add nuw nsw i64 %conv.i1.i, 4294967295
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i = getelementptr inbounds i8, ptr %this, i64 2
   %idxprom.i.i = and i64 %sub.i, 4294967295
   %arrayidx.i.i = getelementptr inbounds [1 x %"struct.OT::IntType"], ptr %arrayZ.i.i, i64 0, i64 %idxprom.i.i
@@ -33935,7 +33904,7 @@ sw.bb8.i:                                         ; preds = %lor.rhs
 if.end.i7.i:                                      ; preds = %sw.bb8.i
   %conv.i3.i = zext i8 %retval.sroa.0.0.copyload.i2.i to i64
   %sub16.i = add nuw nsw i64 %conv.i3.i, 4294967295
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i8.i = getelementptr inbounds i8, ptr %this, i64 2
   %idxprom.i9.i = and i64 %sub16.i, 4294967295
   %arrayidx.i10.i = getelementptr inbounds [1 x %"struct.CFF::Encoding1_Range"], ptr %arrayZ.i8.i, i64 0, i64 %idxprom.i9.i
@@ -33959,7 +33928,7 @@ _ZNK3CFF8Encoding11suppEncDataEv.exit:            ; preds = %lor.rhs, %_ZNK2OT7A
   br i1 %cmp.i.i.i.not.i.i43, label %return, label %land.lhs.true.i.i44
 
 land.lhs.true.i.i44:                              ; preds = %_ZNK3CFF8Encoding11suppEncDataEv.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %20 = load i8, ptr %retval.0.i, align 1
   %conv.i.i.i45 = zext i8 %20 to i32
   %mul.i.i.i46 = mul nuw nsw i32 %conv.i.i.i45, 3
@@ -34001,7 +33970,7 @@ entry:
 if.end:                                           ; preds = %entry
   %conv = zext i32 %new_allocated to i64
   %mul = mul nuw nsw i64 %conv, 40
-  %call = tail call noalias ptr @malloc(i64 noundef %mul) #20
+  %call = tail call noalias ptr @malloc(i64 noundef %mul) #21
   %tobool2.not = icmp eq ptr %call, null
   br i1 %tobool2.not, label %return, label %for.cond.preheader
 
@@ -34053,7 +34022,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.body
   store i32 0, ptr %length.i.i.i.i.i.i12, align 4
   %arrayZ.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx12, i64 16
   %8 = load ptr, ptr %arrayZ.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %8) #18
+  tail call void @free(ptr noundef %8) #19
   br label %_ZN3CFF31cff1_private_dict_values_base_tINS_8op_str_tEED2Ev.exit
 
 _ZN3CFF31cff1_private_dict_values_base_tINS_8op_str_tEED2Ev.exit: ; preds = %for.body, %if.then.i.i.i.i.i
@@ -34068,7 +34037,7 @@ return.sink.split:                                ; preds = %_ZN3CFF31cff1_priva
   %retval.0.ph = phi ptr [ null, %entry ], [ %call, %for.cond.preheader ], [ %call, %_ZN3CFF31cff1_private_dict_values_base_tINS_8op_str_tEED2Ev.exit ]
   %arrayZ13 = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load ptr, ptr %arrayZ13, align 8
-  tail call void @free(ptr noundef %11) #18
+  tail call void @free(ptr noundef %11) #19
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end
@@ -34191,7 +34160,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.body.i12
   store i32 0, ptr %length.i.i.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.pn4.i, i64 -24
   %10 = load ptr, ptr %arrayZ.i.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %10) #18
+  tail call void @free(ptr noundef %10) #19
   br label %_ZN3CFF23cff1_font_dict_values_tD2Ev.exit.i
 
 _ZN3CFF23cff1_font_dict_values_tD2Ev.exit.i:      ; preds = %if.then.i.i.i.i.i.i, %while.body.i12
@@ -34217,7 +34186,7 @@ entry:
 if.end:                                           ; preds = %entry
   %conv = zext i32 %new_allocated to i64
   %mul = mul nuw nsw i64 %conv, 40
-  %call = tail call noalias ptr @malloc(i64 noundef %mul) #20
+  %call = tail call noalias ptr @malloc(i64 noundef %mul) #21
   %tobool2.not = icmp eq ptr %call, null
   br i1 %tobool2.not, label %return, label %for.cond.preheader
 
@@ -34269,7 +34238,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.body
   store i32 0, ptr %length.i.i.i.i.i.i12, align 4
   %arrayZ.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx12, i64 16
   %8 = load ptr, ptr %arrayZ.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %8) #18
+  tail call void @free(ptr noundef %8) #19
   br label %_ZN3CFF23cff1_font_dict_values_tD2Ev.exit
 
 _ZN3CFF23cff1_font_dict_values_tD2Ev.exit:        ; preds = %for.body, %if.then.i.i.i.i.i
@@ -34284,7 +34253,7 @@ return.sink.split:                                ; preds = %_ZN3CFF23cff1_font_
   %retval.0.ph = phi ptr [ null, %entry ], [ %call, %for.cond.preheader ], [ %call, %_ZN3CFF23cff1_font_dict_values_tD2Ev.exit ]
   %arrayZ13 = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load ptr, ptr %arrayZ13, align 8
-  tail call void @free(ptr noundef %11) #18
+  tail call void @free(ptr noundef %11) #19
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end
@@ -34474,7 +34443,7 @@ _ZN11hb_vector_tIN3CFF8op_str_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3
   %20 = load ptr, ptr %arrayZ.i.i.i.i, align 8
   %21 = shl nuw i32 %add15.i.i.i, 4
   %mul.i.i.i.i = zext i32 %21 to i64
-  %call.i.i.i.i = tail call ptr @realloc(ptr noundef %20, i64 noundef %mul.i.i.i.i) #19
+  %call.i.i.i.i = tail call ptr @realloc(ptr noundef %20, i64 noundef %mul.i.i.i.i) #20
   %tobool27.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool27.not.i.i.i, label %if.then28.i.i.i, label %_ZN11hb_vector_tIN3CFF8op_str_tELb0EE5allocEjb.exit.i.i
 
@@ -34653,7 +34622,7 @@ _ZN11hb_vector_tIN3CFF8op_str_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3
   %12 = load ptr, ptr %arrayZ.i.i.i.i, align 8
   %13 = shl nuw i32 %add15.i.i.i, 4
   %mul.i.i.i.i = zext i32 %13 to i64
-  %call.i.i.i.i = tail call ptr @realloc(ptr noundef %12, i64 noundef %mul.i.i.i.i) #19
+  %call.i.i.i.i = tail call ptr @realloc(ptr noundef %12, i64 noundef %mul.i.i.i.i) #20
   %tobool27.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool27.not.i.i.i, label %if.then28.i.i.i, label %_ZN11hb_vector_tIN3CFF8op_str_tELb0EE5allocEjb.exit.i.i
 
@@ -34731,7 +34700,7 @@ if.then:                                          ; preds = %entry, %_ZN16hb_laz
   br i1 %tobool.not.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %call.i.i = tail call noalias dereferenceable_or_null(312) ptr @calloc(i64 noundef 1, i64 noundef 312) #22
+  %call.i.i = tail call noalias dereferenceable_or_null(312) ptr @calloc(i64 noundef 1, i64 noundef 312) #23
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %if.end9.thread, label %if.end9
 
@@ -34755,13 +34724,13 @@ if.then.i:                                        ; preds = %if.end9
   br i1 %tobool.not.i.i.i.i, label %_ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj1EE9hb_face_tLj1ES1_E7destroyEPS1_.exit.i, label %_ZN3CFF24cff_subset_accelerator_t7destroyEPv.exit.i.i.i.i
 
 _ZN3CFF24cff_subset_accelerator_t7destroyEPv.exit.i.i.i.i: ; preds = %if.then.i
-  tail call void @_ZN3CFF24cff_subset_accelerator_tD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #18
-  tail call void @free(ptr noundef nonnull %7) #18
+  tail call void @_ZN3CFF24cff_subset_accelerator_tD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #19
+  tail call void @free(ptr noundef nonnull %7) #19
   br label %_ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj1EE9hb_face_tLj1ES1_E7destroyEPS1_.exit.i
 
 _ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj1EE9hb_face_tLj1ES1_E7destroyEPS1_.exit.i: ; preds = %_ZN3CFF24cff_subset_accelerator_t7destroyEPv.exit.i.i.i.i, %if.then.i
-  tail call void @_ZN2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(304) %call.i.i) #18
-  tail call void @free(ptr noundef nonnull %call.i.i) #18
+  tail call void @_ZN2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(304) %call.i.i) #19
+  tail call void @free(ptr noundef nonnull %call.i.i) #19
   br label %_ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj1EE9hb_face_tLj1ES1_E10do_destroyEPS1_.exit
 
 _ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj1EE9hb_face_tLj1ES1_E10do_destroyEPS1_.exit: ; preds = %if.end9.thread, %_ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj1EE9hb_face_tLj1ES1_E7destroyEPS1_.exit.i
@@ -34816,7 +34785,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %while.body.i.i.i
   store i32 0, ptr %length.i.i.i.i.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.pn4.i.i.i, i64 -24
   %4 = load ptr, ptr %arrayZ.i.i.i.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %4) #18
+  tail call void @free(ptr noundef %4) #19
   br label %_ZN3CFF31cff1_private_dict_values_base_tINS_8op_str_tEED2Ev.exit.i.i.i
 
 _ZN3CFF31cff1_private_dict_values_base_tINS_8op_str_tEED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %while.body.i.i.i
@@ -34828,7 +34797,7 @@ _ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_8op_str_tEEELb0EE13s
   store i32 0, ptr %length.i.i.i, align 4
   %arrayZ.i.i = getelementptr inbounds i8, ptr %this, i64 288
   %5 = load ptr, ptr %arrayZ.i.i, align 8
-  tail call void @free(ptr noundef %5) #18
+  tail call void @free(ptr noundef %5) #19
   br label %_ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_8op_str_tEEELb0EED2Ev.exit
 
 _ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_8op_str_tEEELb0EED2Ev.exit: ; preds = %entry, %_ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_8op_str_tEEELb0EE13shrink_vectorEj.exit.i.i
@@ -34866,7 +34835,7 @@ if.then.i.i.i.i.i.i.i.i16:                        ; preds = %while.body.i.i.i9
   store i32 0, ptr %length.i.i.i.i.i.i.i.i.i17, align 4
   %arrayZ.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %add.ptr.pn4.i.i.i10, i64 -24
   %10 = load ptr, ptr %arrayZ.i.i.i.i.i.i.i.i18, align 8
-  tail call void @free(ptr noundef %10) #18
+  tail call void @free(ptr noundef %10) #19
   br label %_ZN3CFF23cff1_font_dict_values_tD2Ev.exit.i.i.i
 
 _ZN3CFF23cff1_font_dict_values_tD2Ev.exit.i.i.i:  ; preds = %if.then.i.i.i.i.i.i.i.i16, %while.body.i.i.i9
@@ -34878,7 +34847,7 @@ _ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EE13shrink_vectorEj.exit.i.i:
   store i32 0, ptr %length.i.i.i3, align 4
   %arrayZ.i.i20 = getelementptr inbounds i8, ptr %this, i64 272
   %11 = load ptr, ptr %arrayZ.i.i20, align 8
-  tail call void @free(ptr noundef %11) #18
+  tail call void @free(ptr noundef %11) #19
   br label %_ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EED2Ev.exit
 
 _ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EED2Ev.exit: ; preds = %_ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_8op_str_tEEELb0EED2Ev.exit, %_ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EE13shrink_vectorEj.exit.i.i
@@ -34893,7 +34862,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN11hb_vector_tIN3
   store i32 0, ptr %length.i.i.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %13 = load ptr, ptr %arrayZ.i.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %13) #18
+  tail call void @free(ptr noundef %13) #19
   br label %_ZN3CFF22cff1_top_dict_values_tD2Ev.exit
 
 _ZN3CFF22cff1_top_dict_values_tD2Ev.exit:         ; preds = %_ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EED2Ev.exit, %if.then.i.i.i.i.i.i
@@ -34905,7 +34874,7 @@ _ZN3CFF22cff1_top_dict_values_tD2Ev.exit:         ; preds = %_ZN11hb_vector_tIN3
 
 if.then.i:                                        ; preds = %_ZN3CFF22cff1_top_dict_values_tD2Ev.exit
   %start.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @hb_blob_destroy(ptr noundef nonnull %14) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %14) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start.i.i, i8 0, i64 20, i1 false)
   br label %_ZN21hb_sanitize_context_tD2Ev.exit
@@ -34919,7 +34888,7 @@ define linkonce_odr dso_local void @_ZN3CFF24cff_subset_accelerator_tD2Ev(ptr no
 entry:
   %original_blob = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %original_blob, align 8
-  tail call void @hb_blob_destroy(ptr noundef %0) #18
+  tail call void @hb_blob_destroy(ptr noundef %0) #19
   %glyph_to_sid_map = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load atomic i64, ptr %glyph_to_sid_map monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
@@ -34936,11 +34905,11 @@ if.then.i.i:                                      ; preds = %if.then
   store i32 0, ptr %length.i.i.i, align 4
   %arrayZ.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %arrayZ.i.i, align 8
-  tail call void @free(ptr noundef %4) #18
+  tail call void @free(ptr noundef %4) #19
   br label %_ZN11hb_vector_tIN3CFF11code_pair_tELb0EED2Ev.exit
 
 _ZN11hb_vector_tIN3CFF11code_pair_tELb0EED2Ev.exit: ; preds = %if.then, %if.then.i.i
-  tail call void @free(ptr noundef nonnull %2) #18
+  tail call void @free(ptr noundef nonnull %2) #19
   br label %if.end
 
 if.end:                                           ; preds = %_ZN11hb_vector_tIN3CFF11code_pair_tELb0EED2Ev.exit, %entry
@@ -34999,7 +34968,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %while.body.i.i.i.i.
   store i32 0, ptr %length.i.i.i.i.i.i.i.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.pn4.i.i.i.i.i.i.i, i64 -24
   %12 = load ptr, ptr %arrayZ.i.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %12) #18
+  tail call void @free(ptr noundef %12) #19
   br label %_ZN3CFF15parsed_cs_str_tD2Ev.exit.i.i.i.i.i.i.i
 
 _ZN3CFF15parsed_cs_str_tD2Ev.exit.i.i.i.i.i.i.i:  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
@@ -35011,7 +34980,7 @@ _ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EE13shrink_vectorEj.exit.i.i.i.i.i.i:
   store i32 0, ptr %length.i.i.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.pn4.i.i.i, i64 -8
   %13 = load ptr, ptr %arrayZ.i.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %13) #18
+  tail call void @free(ptr noundef %13) #19
   br label %_ZN3CFF19parsed_cs_str_vec_tD2Ev.exit.i.i.i
 
 _ZN3CFF19parsed_cs_str_vec_tD2Ev.exit.i.i.i:      ; preds = %_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EE13shrink_vectorEj.exit.i.i.i.i.i.i, %while.body.i.i.i
@@ -35023,7 +34992,7 @@ _ZN11hb_vector_tIN3CFF19parsed_cs_str_vec_tELb0EE13shrink_vectorEj.exit.i.i: ; p
   store i32 0, ptr %length.i.i.i5, align 4
   %arrayZ.i.i6 = getelementptr inbounds i8, ptr %this, i64 40
   %14 = load ptr, ptr %arrayZ.i.i6, align 8
-  tail call void @free(ptr noundef %14) #18
+  tail call void @free(ptr noundef %14) #19
   br label %_ZN11hb_vector_tIN3CFF19parsed_cs_str_vec_tELb0EED2Ev.exit
 
 _ZN11hb_vector_tIN3CFF19parsed_cs_str_vec_tELb0EED2Ev.exit: ; preds = %if.end, %_ZN11hb_vector_tIN3CFF19parsed_cs_str_vec_tELb0EE13shrink_vectorEj.exit.i.i
@@ -35061,7 +35030,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %while.body.i.i.i.i
   store i32 0, ptr %length.i.i.i.i.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.pn4.i.i.i.i, i64 -24
   %19 = load ptr, ptr %arrayZ.i.i.i.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %19) #18
+  tail call void @free(ptr noundef %19) #19
   br label %_ZN3CFF15parsed_cs_str_tD2Ev.exit.i.i.i.i
 
 _ZN3CFF15parsed_cs_str_tD2Ev.exit.i.i.i.i:        ; preds = %if.then.i.i.i.i.i.i.i.i, %while.body.i.i.i.i
@@ -35073,7 +35042,7 @@ _ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EE13shrink_vectorEj.exit.i.i.i: ; pre
   store i32 0, ptr %length.i.i.i.i, align 4
   %arrayZ.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 24
   %20 = load ptr, ptr %arrayZ.i.i.i8, align 8
-  tail call void @free(ptr noundef %20) #18
+  tail call void @free(ptr noundef %20) #19
   br label %_ZN3CFF19parsed_cs_str_vec_tD2Ev.exit
 
 _ZN3CFF19parsed_cs_str_vec_tD2Ev.exit:            ; preds = %_ZN11hb_vector_tIN3CFF19parsed_cs_str_vec_tELb0EED2Ev.exit, %_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EE13shrink_vectorEj.exit.i.i.i
@@ -35110,7 +35079,7 @@ if.then.i.i.i.i.i.i.i.i24:                        ; preds = %while.body.i.i.i.i1
   store i32 0, ptr %length.i.i.i.i.i.i.i.i.i25, align 4
   %arrayZ.i.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %add.ptr.pn4.i.i.i.i18, i64 -24
   %25 = load ptr, ptr %arrayZ.i.i.i.i.i.i.i.i26, align 8
-  tail call void @free(ptr noundef %25) #18
+  tail call void @free(ptr noundef %25) #19
   br label %_ZN3CFF15parsed_cs_str_tD2Ev.exit.i.i.i.i27
 
 _ZN3CFF15parsed_cs_str_tD2Ev.exit.i.i.i.i27:      ; preds = %if.then.i.i.i.i.i.i.i.i24, %while.body.i.i.i.i17
@@ -35122,7 +35091,7 @@ _ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EE13shrink_vectorEj.exit.i.i.i29: ; p
   store i32 0, ptr %length.i.i.i.i11, align 4
   %arrayZ.i.i.i30 = getelementptr inbounds i8, ptr %this, i64 8
   %26 = load ptr, ptr %arrayZ.i.i.i30, align 8
-  tail call void @free(ptr noundef %26) #18
+  tail call void @free(ptr noundef %26) #19
   br label %_ZN3CFF19parsed_cs_str_vec_tD2Ev.exit31
 
 _ZN3CFF19parsed_cs_str_vec_tD2Ev.exit31:          ; preds = %_ZN3CFF19parsed_cs_str_vec_tD2Ev.exit, %_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EE13shrink_vectorEj.exit.i.i.i29
@@ -35752,7 +35721,7 @@ while.end:                                        ; preds = %while.body, %"_ZNK4
 declare void @hb_ot_layout_lookups_substitute_closure(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14_remap_indexesPK8hb_set_tP8hb_map_t(ptr noundef %indexes, ptr noundef %mapping) unnamed_addr #0 {
+define internal fastcc void @_ZL14_remap_indexesPK8hb_set_tP8hb_map_t(ptr noundef nonnull %indexes, ptr noundef nonnull %mapping) unnamed_addr #0 {
 entry:
   %retval.i.i.i.i.i = alloca %"struct.hb_bit_set_invertible_t::iter_t", align 8
   %retval.i = alloca %"struct.hb_bit_set_invertible_t::iter_t", align 8
@@ -36016,7 +35985,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %sw.bb.i.i, %cond.fa
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %_ZNK2OT8GSUBGPOS15get_feature_tagEj.exit
 
 if.end.i.i.i:                                     ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 2
   %idxprom.i.i.i = zext nneg i32 %14 to i64
   %arrayidx.i.i.i = getelementptr inbounds [1 x %"struct.OT::Record.479"], ptr %arrayZ.i.i.i, i64 0, i64 %idxprom.i.i.i
@@ -36087,7 +36056,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i24:    ; preds = %sw.bb.i.i31, %if.en
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %_ZNK2OT8GSUBGPOS11get_featureEj.exit
 
 if.end.i.i.i.i:                                   ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i24
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i25, i64 2
   %idxprom.i.i.i.i = zext nneg i32 %14 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::Record.479"], ptr %arrayZ.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
@@ -36369,12 +36338,12 @@ _ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit: ; preds = %for.inc
   br i1 %68, label %for.body, label %cleanup
 
 cleanup:                                          ; preds = %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit, %if.end, %if.then.i.i.i, %if.then
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %alternate_feature_indices) #18
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %alternate_feature_indices) #19
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL33_GSUBGPOS_find_duplicate_featuresRKN2OT8GSUBGPOSEPK8hb_map_tPK8hb_set_tPK12hb_hashmap_tIjPKNS_7FeatureELb0EEPS3_(ptr noundef nonnull readonly align 1 dereferenceable(14) %g, ptr nocapture noundef readonly %lookup_indices, ptr noundef %feature_indices, ptr nocapture noundef readonly %feature_substitutes_map, ptr noundef %duplicate_feature_map) unnamed_addr #0 {
+define internal fastcc void @_ZL33_GSUBGPOS_find_duplicate_featuresRKN2OT8GSUBGPOSEPK8hb_map_tPK8hb_set_tPK12hb_hashmap_tIjPKNS_7FeatureELb0EEPS3_(ptr noundef nonnull readonly align 1 dereferenceable(14) %g, ptr nocapture noundef nonnull readonly %lookup_indices, ptr noundef nonnull %feature_indices, ptr nocapture noundef nonnull readonly %feature_substitutes_map, ptr noundef nonnull %duplicate_feature_map) unnamed_addr #0 {
 entry:
   %i.i.i = alloca i32, align 4
   %v.i476 = alloca i32, align 4
@@ -36486,7 +36455,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %sw.bb.i.i, %cond.fa
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %_ZNK2OT8GSUBGPOS15get_feature_tagEj.exit
 
 if.end.i.i.i:                                     ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 2
   %idxprom.i.i.i = zext nneg i32 %4 to i64
   %arrayidx.i.i.i = getelementptr inbounds [1 x %"struct.OT::Record.479"], ptr %arrayZ.i.i.i, i64 0, i64 %idxprom.i.i.i
@@ -36570,13 +36539,13 @@ if.end.i.i:                                       ; preds = %while.body.lr.ph.i.
   br i1 %tobool.i.not.i.i, label %if.then10, label %while.body.i.i, !llvm.loop !288
 
 if.then10:                                        ; preds = %if.end.i.i, %if.then.i.i.thread, %if.end8, %if.end.i, %if.then.i.i
-  %call12 = call ptr @hb_set_create() #18
+  %call12 = call ptr @hb_set_create() #19
   store ptr %call12, ptr %ref.tmp11, align 8
   %key.val.i24 = load i32, ptr %t, align 4
   %mul.i.i.i25 = mul i32 %key.val.i24, -1640531535
   %call2.i = call noundef zeroext i1 @_ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EE13set_with_hashIRKjS3_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %unique_features, ptr noundef nonnull align 4 dereferenceable(4) %t, i32 noundef %mul.i.i.i25, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11, i1 noundef zeroext true)
   %22 = load ptr, ptr %ref.tmp11, align 8
-  call void @hb_set_destroy(ptr noundef %22) #18
+  call void @hb_set_destroy(ptr noundef %22) #19
   store ptr null, ptr %ref.tmp11, align 8
   br i1 %call2.i, label %if.end15, label %cleanup
 
@@ -36752,7 +36721,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i137:   ; preds = %sw.bb.i.i139, %for.
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %_ZNK2OT8GSUBGPOS11get_featureEj.exit
 
 if.end.i.i.i.i:                                   ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i137
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i138, i64 2
   %idxprom.i.i.i.i = zext nneg i32 %41 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::Record.479"], ptr %arrayZ.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
@@ -36865,7 +36834,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i191:   ; preds = %sw.bb.i.i214, %if.e
   br i1 %cmp.not.i.i.i.i198, label %if.end.i.i.i.i210, label %_ZNK2OT8GSUBGPOS11get_featureEj.exit225
 
 if.end.i.i.i.i210:                                ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i191
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i.i211 = getelementptr inbounds i8, ptr %retval.0.i.i192, i64 2
   %idxprom.i.i.i.i212 = zext nneg i32 %59 to i64
   %arrayidx.i.i.i.i213 = getelementptr inbounds [1 x %"struct.OT::Record.479"], ptr %arrayZ.i.i.i.i211, i64 0, i64 %idxprom.i.i.i.i212
@@ -37557,7 +37526,7 @@ _ZNK2OT8GSUBGPOS15get_script_listEv.exit.i:       ; preds = %sw.bb.i.i12, %for.b
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %_ZNK2OT8GSUBGPOS14get_script_tagEj.exit
 
 if.end.i.i.i:                                     ; preds = %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i11, i64 2
   %arrayidx.i.i.i = getelementptr inbounds [1 x %"struct.OT::Record"], ptr %arrayZ.i.i.i, i64 0, i64 %indvars.iv
   br label %_ZNK2OT8GSUBGPOS14get_script_tagEj.exit
@@ -37707,7 +37676,7 @@ _ZNK2OT8GSUBGPOS15get_script_listEv.exit.i30:     ; preds = %sw.bb.i.i32, %if.en
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %_ZNK2OT8GSUBGPOS10get_scriptEj.exit
 
 if.end.i.i.i.i:                                   ; preds = %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i30
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i31, i64 2
   %arrayidx.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::Record"], ptr %arrayZ.i.i.i.i, i64 0, i64 %indvars.iv
   br label %_ZNK2OT8GSUBGPOS10get_scriptEj.exit
@@ -37751,7 +37720,7 @@ entry:
   br i1 %tobool.not, label %_ZN9hb_lock_tC2EP10hb_mutex_t.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #18
+  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #19
   %.pre = load ptr, ptr %accelerator, align 8
   br label %_ZN9hb_lock_tC2EP10hb_mutex_t.exit
 
@@ -37851,7 +37820,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i, %while
 _ZNK12hb_hashmap_tIjN2hb10unique_ptrI9hb_blob_tEELb0EE3getERKj.exit: ; preds = %if.end.i.i.i, %if.then.i.i.i
   %retval.0.i16 = phi ptr [ %spec.select.i.i, %if.then.i.i.i ], [ @_hb_NullPool, %if.end.i.i.i ]
   %13 = load ptr, ptr %retval.0.i16, align 8
-  %call16 = tail call ptr @hb_blob_reference(ptr noundef %13) #18
+  %call16 = tail call ptr @hb_blob_reference(ptr noundef %13) #19
   br label %cleanup
 
 _ZN21hb_sanitize_context_t15reference_tableIN2OT6Layout4GSUBEEEP9hb_blob_tPK9hb_face_tj.exit: ; preds = %if.end.i.i, %if.then.i.i.thread, %if.then.i.i, %if.end.i, %land.rhs, %_ZN9hb_lock_tC2EP10hb_mutex_t.exit
@@ -37868,10 +37837,10 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT6Layout4GSUBEEEP9hb_blob_tPK9hb_
   store i8 0, ptr %lazy_some_gpos.i, align 1
   %source = getelementptr inbounds i8, ptr %plan, i64 56
   %14 = load ptr, ptr %source, align 8
-  %call.i = tail call i32 @hb_face_get_glyph_count(ptr noundef %14) #18
+  %call.i = tail call i32 @hb_face_get_glyph_count(ptr noundef %14) #19
   store i32 %call.i, ptr %num_glyphs.i, align 8
   store i8 1, ptr %num_glyphs_set.i, align 4
-  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef %14, i32 noundef 1196643650) #18
+  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef %14, i32 noundef 1196643650) #19
   %call3.i = call noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT6Layout4GSUBEEEP9hb_blob_tS5_(ptr noundef nonnull align 8 dereferenceable(62) %ref.tmp17, ptr noundef %call2.i)
   store ptr %call3.i, ptr %table_blob, align 8
   %15 = load ptr, ptr %blob.i, align 8
@@ -37879,17 +37848,17 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT6Layout4GSUBEEEP9hb_blob_tPK9hb_
   br i1 %tobool.not.i22, label %_ZN21hb_sanitize_context_tD2Ev.exit, label %if.then.i23
 
 if.then.i23:                                      ; preds = %_ZN21hb_sanitize_context_t15reference_tableIN2OT6Layout4GSUBEEEP9hb_blob_tPK9hb_face_tj.exit
-  call void @hb_blob_destroy(ptr noundef nonnull %15) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %15) #19
   store ptr null, ptr %blob.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start.i, i8 0, i64 20, i1 false)
   br label %_ZN21hb_sanitize_context_tD2Ev.exit
 
 _ZN21hb_sanitize_context_tD2Ev.exit:              ; preds = %_ZN21hb_sanitize_context_t15reference_tableIN2OT6Layout4GSUBEEEP9hb_blob_tPK9hb_face_tj.exit, %if.then.i23
-  %call20 = call ptr @hb_blob_reference(ptr noundef %call3.i) #18
+  %call20 = call ptr @hb_blob_reference(ptr noundef %call3.i) #19
   store i32 1196643650, ptr %ref.tmp23, align 4
   %call2.i27 = call noundef zeroext i1 @_ZN12hb_hashmap_tIjN2hb10unique_ptrI9hb_blob_tEELb0EE13set_with_hashIjS3_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %cond10, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp23, i32 noundef -1055382366, ptr noundef nonnull align 8 dereferenceable(8) %table_blob, i1 noundef zeroext true)
   %16 = load ptr, ptr %table_blob, align 8
-  call void @hb_blob_destroy(ptr noundef %16) #18
+  call void @hb_blob_destroy(ptr noundef %16) #19
   store ptr null, ptr %table_blob, align 8
   br label %cleanup
 
@@ -37898,7 +37867,7 @@ cleanup:                                          ; preds = %_ZN21hb_sanitize_co
   br i1 %tobool.not, label %_ZN9hb_lock_tD2Ev.exit, label %if.then.i29
 
 if.then.i29:                                      ; preds = %cleanup
-  %call.i.i30 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #18
+  %call.i.i30 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #19
   br label %_ZN9hb_lock_tD2Ev.exit
 
 _ZN9hb_lock_tD2Ev.exit:                           ; preds = %cleanup, %if.then.i29
@@ -37908,7 +37877,7 @@ _ZN9hb_lock_tD2Ev.exit:                           ; preds = %cleanup, %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT6Layout4GSUBEEEP9hb_blob_tS5_(ptr noundef nonnull align 8 dereferenceable(62) %this, ptr noundef %blob) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #18
+  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #19
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call.i, ptr %blob.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -37953,7 +37922,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %retry, %if.else.
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
-  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %return
@@ -37963,7 +37932,7 @@ if.end:                                           ; preds = %_ZN21hb_sanitize_co
   br i1 %cmp.i.i.not.i.i, label %if.else39.critedge, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %2, align 1
   %conv.i.i2.i.i = zext i8 %6 to i32
   %shl.i.i.i.i = shl nuw nsw i32 %conv.i.i2.i.i, 8
@@ -37997,7 +37966,7 @@ if.then7:                                         ; preds = %if.then5
   br i1 %cmp.i.i.not.i.i20, label %_ZNK2OT6Layout4GSUB8sanitizeEP21hb_sanitize_context_t.exit31, label %if.end.i.i21
 
 if.end.i.i21:                                     ; preds = %if.then7
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %11 = load i8, ptr %2, align 1
   %conv.i.i2.i.i22 = zext i8 %11 to i32
   %shl.i.i.i.i23 = shl nuw nsw i32 %conv.i.i2.i.i22, 8
@@ -38017,7 +37986,7 @@ _ZNK2OT6Layout4GSUB8sanitizeEP21hb_sanitize_context_t.exit31: ; preds = %if.then
   %14 = load i32, ptr %edit_count.i, align 4
   %tobool14.not = icmp ne i32 %14, 0
   %15 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %15) #18
+  tail call void @hb_blob_destroy(ptr noundef %15) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   %brmerge = or i1 %tobool14.not, %retval.0.i.i28
@@ -38034,7 +38003,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %tobool22, label %if.else39.critedge, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #18
+  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #19
   store ptr %call24, ptr %start, align 8
   %18 = load i32, ptr %length, align 8
   %idx.ext = zext i32 %18 to i64
@@ -38045,25 +38014,25 @@ if.then23:                                        ; preds = %land.lhs.true
 
 if.then38.critedge:                               ; preds = %if.then5
   %19 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %19) #18
+  tail call void @hb_blob_destroy(ptr noundef %19) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.then38
 
 if.then38:                                        ; preds = %_ZNK2OT6Layout4GSUB8sanitizeEP21hb_sanitize_context_t.exit31, %if.then38.critedge
-  tail call void @hb_blob_make_immutable(ptr noundef %blob) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %blob) #19
   br label %return
 
 if.else39.critedge:                               ; preds = %if.end, %if.else, %if.then23, %land.lhs.true
   %20 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %20) #18
+  tail call void @hb_blob_destroy(ptr noundef %20) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.else39
 
 if.else39:                                        ; preds = %_ZNK2OT6Layout4GSUB8sanitizeEP21hb_sanitize_context_t.exit31, %if.else39.critedge
-  tail call void @hb_blob_destroy(ptr noundef %blob) #18
-  %call40 = tail call ptr @hb_blob_get_empty() #18
+  tail call void @hb_blob_destroy(ptr noundef %blob) #19
+  %call40 = tail call ptr @hb_blob_get_empty() #19
   br label %return
 
 return:                                           ; preds = %if.else39, %if.then38, %if.then
@@ -38088,8 +38057,8 @@ entry:
   br i1 %cmp.i.i.not.i.not, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %scriptList, align 1
   %conv.i.i.i16 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i16, 8
@@ -38136,8 +38105,8 @@ land.lhs.true:                                    ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.not.i24.not, label %return, label %land.lhs.true.i23
 
 land.lhs.true.i23:                                ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i26 = zext i8 %8 to i32
   %shl.i.i.i27 = shl nuw nsw i32 %conv.i.i.i26, 8
@@ -38184,8 +38153,8 @@ land.lhs.true3:                                   ; preds = %land.lhs.true.i23, 
   br i1 %cmp.i.i.not.i56.not, label %return, label %land.lhs.true.i43
 
 land.lhs.true.i43:                                ; preds = %land.lhs.true3
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %add.ptr.i.i17, align 1
   %conv.i.i.i58 = zext i8 %14 to i32
   %shl.i.i.i59 = shl nuw nsw i32 %conv.i.i.i58, 8
@@ -38253,8 +38222,8 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp.i.i.not.i92.not, label %return, label %land.lhs.true.i63
 
 land.lhs.true.i63:                                ; preds = %lor.lhs.false
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %26 = load i8, ptr %add.ptr.i.i49, align 1
   %conv.i.i.i94 = zext i8 %26 to i32
   %shl.i.i.i95 = shl nuw i32 %conv.i.i.i94, 24
@@ -38321,7 +38290,7 @@ entry:
   br i1 %cmp.i.i.i.not.i, label %_ZNK2OT7ArrayOfINS_6RecordINS_6ScriptEEENS_7IntTypeItLj2EEEE8sanitizeIJPKNS_12RecordListOfIS2_EEEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i11.i, 8
@@ -38356,7 +38325,7 @@ _ZNK2OT7ArrayOfINS_6RecordINS_6ScriptEEENS_7IntTypeItLj2EEEE16sanitize_shallowEP
   br i1 %cmp7.i.i.i, label %if.end.i, label %_ZNK2OT7ArrayOfINS_6RecordINS_6ScriptEEENS_7IntTypeItLj2EEEE8sanitizeIJPKNS_12RecordListOfIS2_EEEEEbP21hb_sanitize_context_tDpOT_.exit
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_6RecordINS_6ScriptEEENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %this, align 1
   %conv.i.i = zext i8 %8 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
@@ -38408,8 +38377,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body.i
   %offset.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %16 = load i8, ptr %offset.i.i.i, align 1
   %conv.i.i.i11.i.i.i = zext i8 %16 to i32
   %shl.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i11.i.i.i, 8
@@ -38473,8 +38442,8 @@ entry:
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %3 = load i8, ptr %this, align 1
   %conv.i.i.i9 = zext i8 %3 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i9, 8
@@ -38501,7 +38470,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %lor.lhs.false.i
   %featureIndex.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %5 = load i8, ptr %featureIndex.i.i.i, align 1
   %conv.i.i11.i.i.i.i = zext i8 %5 to i32
   %arrayidx3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
@@ -38566,7 +38535,7 @@ land.rhs:                                         ; preds = %land.lhs.true.i, %_
   br i1 %cmp.i.i.i.not.i, label %land.end, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %17 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i11.i = zext i8 %17 to i32
   %shl.i.i.i12 = shl nuw nsw i32 %conv.i.i11.i, 8
@@ -38601,7 +38570,7 @@ _ZNK2OT7ArrayOfINS_6RecordINS_7LangSysEEENS_7IntTypeItLj2EEEE16sanitize_shallowE
   br i1 %cmp7.i.i.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_6RecordINS_7LangSysEEENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %23 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i21 = zext i8 %23 to i32
   %shl.i.i22 = shl nuw nsw i32 %conv.i.i21, 8
@@ -38632,8 +38601,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
 
 land.lhs.true.i.i.i.i35:                          ; preds = %for.body.i
   %offset.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %27 = load i8, ptr %offset.i.i.i, align 1
   %conv.i.i.i11.i.i.i = zext i8 %27 to i32
   %shl.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i11.i.i.i, 8
@@ -38659,7 +38628,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i.i.i.i.i:                      ; preds = %lor.lhs.false.i.i.i.i
   %featureIndex.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i17.i.i.i, i64 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %31 = load i8, ptr %featureIndex.i.i.i.i.i.i, align 1
   %conv.i.i11.i.i.i.i.i.i.i = zext i8 %31 to i32
   %arrayidx3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i17.i.i.i, i64 5
@@ -38734,7 +38703,7 @@ entry:
   br i1 %cmp.i.i.i.not.i, label %_ZNK2OT7ArrayOfINS_6RecordINS_7FeatureEEENS_7IntTypeItLj2EEEE8sanitizeIJPKNS_12RecordListOfIS2_EEEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i11.i, 8
@@ -38769,7 +38738,7 @@ _ZNK2OT7ArrayOfINS_6RecordINS_7FeatureEEENS_7IntTypeItLj2EEEE16sanitize_shallowE
   br i1 %cmp7.i.i.i, label %if.end.i, label %_ZNK2OT7ArrayOfINS_6RecordINS_7FeatureEEENS_7IntTypeItLj2EEEE8sanitizeIJPKNS_12RecordListOfIS2_EEEEEbP21hb_sanitize_context_tDpOT_.exit
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_6RecordINS_7FeatureEEENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %this, align 1
   %conv.i.i = zext i8 %8 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
@@ -38821,8 +38790,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body.i
   %offset.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %16 = load i8, ptr %offset.i.i.i, align 1
   %conv.i.i.i11.i.i.i = zext i8 %16 to i32
   %shl.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i11.i.i.i, 8
@@ -38888,7 +38857,7 @@ entry:
 
 land.lhs.true.i23:                                ; preds = %entry
   %lookupIndex = getelementptr inbounds i8, ptr %this, i64 2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %lookupIndex, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 3
@@ -38922,7 +38891,7 @@ _ZNK2OT7ArrayOfINS_5IndexENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_
   br i1 %cmp7.i.i.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZNK2OT7ArrayOfINS_5IndexENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %10 = load i8, ptr %this, align 1
   %conv.i.i.i27 = zext i8 %10 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i27, 8
@@ -38953,8 +38922,8 @@ cond.end:                                         ; preds = %if.end9, %cond.true
   br i1 %cmp.i.i.not.i36.not, label %return, label %land.lhs.true.i79
 
 land.lhs.true.i79:                                ; preds = %cond.end
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %15 = load i8, ptr %this, align 1
   %conv.i.i.i38 = zext i8 %15 to i32
   %shl.i.i.i39 = shl nuw nsw i32 %conv.i.i.i38, 8
@@ -38989,7 +38958,7 @@ _ZNK2OT8OffsetToINS_13FeatureParamsENS_7IntTypeItLj2EEEvLb1EE8sanitizeIJjEEEbP21
   br label %if.end18
 
 if.end18:                                         ; preds = %land.lhs.true.i79, %lor.lhs.false.i83, %_ZNK2OT8OffsetToINS_13FeatureParamsENS_7IntTypeItLj2EEEvLb1EE8sanitizeIJjEEEbP21hb_sanitize_context_tPKvDpOT_.exit90
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %19 = load i8, ptr %this, align 1
   %conv.i.i52 = zext i8 %19 to i32
   %shl.i.i53 = shl nuw nsw i32 %conv.i.i52, 8
@@ -39050,8 +39019,8 @@ cond.end48:                                       ; preds = %_ZN21hb_sanitize_co
   br i1 %cmp.i.i.not.i70.not, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %cond.end48
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %29 = load i8, ptr %this, align 1
   %conv.i.i.i73 = zext i8 %29 to i32
   %shl.i.i.i74 = shl nuw nsw i32 %conv.i.i.i73, 8
@@ -39108,7 +39077,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i4.i = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i4.i, 8
@@ -39233,7 +39202,7 @@ if.then13:                                        ; preds = %if.end
 
 land.lhs.true.i.i:                                ; preds = %if.then13
   %characters.i = getelementptr inbounds i8, ptr %this, i64 12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %21 = load i8, ptr %characters.i, align 1
   %conv.i.i11.i.i = zext i8 %21 to i32
   %shl.i.i.i.i = shl nuw nsw i32 %conv.i.i11.i.i, 8
@@ -39287,7 +39256,7 @@ entry:
   br i1 %cmp.i.i.i.not.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11SubstLookupENS_7IntTypeItLj2EEEvLb1EEES6_E8sanitizeIJPKNS_16List16OfOffsetToIS4_S6_EEEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 1
@@ -39322,7 +39291,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11SubstLookupENS_7IntTypeItLj2E
   br i1 %cmp7.i.i.i, label %if.end.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11SubstLookupENS_7IntTypeItLj2EEEvLb1EEES6_E8sanitizeIJPKNS_16List16OfOffsetToIS4_S6_EEEEEbP21hb_sanitize_context_tDpOT_.exit
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11SubstLookupENS_7IntTypeItLj2EEEvLb1EEES6_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %10 = load i8, ptr %this, align 1
   %conv.i.i = zext i8 %10 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
@@ -39352,8 +39321,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11SubstLookupENS_7IntTypeItLj2EEEvLb1EEES6_E8sanitizeIJPKNS_16List16OfOffsetToIS4_S6_EEEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i.i.i4
 
 land.lhs.true.i.i.i4:                             ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %14 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i4.i.i, 8
@@ -39414,7 +39383,7 @@ entry:
 
 land.lhs.true.i:                                  ; preds = %entry
   %subTable = getelementptr inbounds i8, ptr %this, i64 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %subTable, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 5
@@ -39448,7 +39417,7 @@ _ZNK2OT7ArrayOfINS_6OffsetINS_7IntTypeItLj2EEELb1EEES3_E16sanitize_shallowEP21hb
   br i1 %cmp7.i.i.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZNK2OT7ArrayOfINS_6OffsetINS_7IntTypeItLj2EEELb1EEES3_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %10 = load i8, ptr %subTable, align 1
   %conv.i.i.i17 = zext i8 %10 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i17, 8
@@ -39508,7 +39477,7 @@ if.end20:                                         ; preds = %if.end10.if.end20_c
   br i1 %cmp.i.i.i.not.i44, label %return, label %land.lhs.true.i45
 
 land.lhs.true.i45:                                ; preds = %if.end20
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %22 = load i8, ptr %subTable, align 1
   %conv.i.i11.i46 = zext i8 %22 to i32
   %23 = load i8, ptr %arrayidx3.i.i.i, align 1
@@ -39540,7 +39509,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl19SubstLookupSubTableENS_7IntTy
   br i1 %cmp7.i.i.i63, label %if.end.i60, label %return
 
 if.end.i60:                                       ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl19SubstLookupSubTableENS_7IntTypeItLj2EEEvLb1EEES6_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %30 = load i8, ptr %subTable, align 1
   %conv.i.i66 = zext i8 %30 to i32
   %shl.i.i67 = shl nuw nsw i32 %conv.i.i66, 8
@@ -39570,8 +39539,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %return, label %land.lhs.true.i.i.i71
 
 land.lhs.true.i.i.i71:                            ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %34 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %34 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i4.i.i, 8
@@ -39626,7 +39595,7 @@ land.lhs.true31:                                  ; preds = %if.end29
   br i1 %tobool33.not, label %if.then34, label %return
 
 if.then34:                                        ; preds = %land.lhs.true31
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %41 = load i8, ptr %subTable, align 1
   %conv.i.i.i.i81 = zext i8 %41 to i32
   %shl.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i81, 8
@@ -39637,7 +39606,7 @@ if.then34:                                        ; preds = %land.lhs.true31
   br i1 %cmp.not.i.i.not, label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then34
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   br label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit
 
 _ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit: ; preds = %if.then34, %if.end.i.i
@@ -39689,7 +39658,7 @@ for.body:                                         ; preds = %_ZNK2OT6Lookup12get
   br i1 %cmp.not.i.i101, label %if.end.i.i112, label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit114
 
 if.end.i.i112:                                    ; preds = %for.body
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i.i = getelementptr inbounds [1 x %"struct.OT::OffsetTo.488"], ptr %add.ptr.i, i64 0, i64 %indvars.iv143
   br label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit114
 
@@ -39771,7 +39740,7 @@ sw.bb3:                                           ; preds = %tailrecurse
   br i1 %cmp.i.i.i.i.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb3
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this.tr, align 1
   %conv.i.i.i = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i, 8
@@ -39798,7 +39767,7 @@ sw.bb9:                                           ; preds = %tailrecurse
   br i1 %cmp.i.i.i.i.not.i16, label %return, label %if.end.i17
 
 if.end.i17:                                       ; preds = %sw.bb9
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %this.tr, align 1
   %conv.i.i.i18 = zext i8 %6 to i32
   %shl.i.i.i19 = shl nuw nsw i32 %conv.i.i.i18, 8
@@ -39825,7 +39794,7 @@ sw.bb15:                                          ; preds = %tailrecurse
   br i1 %cmp.i.i.i.i.not.i35, label %return, label %if.end.i36
 
 if.end.i36:                                       ; preds = %sw.bb15
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %10 = load i8, ptr %this.tr, align 1
   %conv.i.i.i37 = zext i8 %10 to i32
   %shl.i.i.i38 = shl nuw nsw i32 %conv.i.i.i37, 8
@@ -39852,7 +39821,7 @@ sw.bb21:                                          ; preds = %tailrecurse
   br i1 %cmp.i.i.i.i.not.i54, label %return, label %if.end.i55
 
 if.end.i55:                                       ; preds = %sw.bb21
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %this.tr, align 1
   %conv.i.i.i56 = zext i8 %14 to i16
   %shl.i.i.i57 = shl nuw i16 %conv.i.i.i56, 8
@@ -39890,7 +39859,7 @@ sw.bb27:                                          ; preds = %tailrecurse
   br i1 %cmp.i.i.i.i.not.i72, label %return, label %if.end.i73
 
 if.end.i73:                                       ; preds = %sw.bb27
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %18 = load i8, ptr %this.tr, align 1
   %conv.i.i.i74 = zext i8 %18 to i16
   %shl.i.i.i75 = shl nuw i16 %conv.i.i.i74, 8
@@ -39928,7 +39897,7 @@ sw.bb33:                                          ; preds = %tailrecurse
   br i1 %cmp.i.i.i.i.not.i115, label %return, label %if.end.i116
 
 if.end.i116:                                      ; preds = %sw.bb33
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %22 = load i8, ptr %this.tr, align 1
   %conv.i.i.i117 = zext i8 %22 to i32
   %shl.i.i.i118 = shl nuw nsw i32 %conv.i.i.i117, 8
@@ -39951,7 +39920,7 @@ sw.bb.i123:                                       ; preds = %if.end.i116
   br i1 %cmp.i.i.not.i.i.i, label %return, label %_ZNK2OT16ExtensionFormat1INS_6Layout9GSUB_impl14ExtensionSubstEE8sanitizeEP21hb_sanitize_context_t.exit.i.i
 
 _ZNK2OT16ExtensionFormat1INS_6Layout9GSUB_impl14ExtensionSubstEE8sanitizeEP21hb_sanitize_context_t.exit.i.i: ; preds = %sw.bb.i123
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %26 = load i8, ptr %add.ptr.i.i.i.i108, align 1
   %conv.i.i4.i.i.i = zext i8 %26 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i4.i.i.i, 8
@@ -39963,7 +39932,7 @@ _ZNK2OT16ExtensionFormat1INS_6Layout9GSUB_impl14ExtensionSubstEE8sanitizeEP21hb_
   br i1 %cmp.i.not.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZNK2OT16ExtensionFormat1INS_6Layout9GSUB_impl14ExtensionSubstEE8sanitizeEP21hb_sanitize_context_t.exit.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %extensionOffset.i.i = getelementptr inbounds i8, ptr %this.tr, i64 4
   %28 = load i8, ptr %extensionOffset.i.i, align 1
   %conv.i.i.i.i.i.i.i = zext i8 %28 to i32
@@ -40006,7 +39975,7 @@ sw.bb39:                                          ; preds = %tailrecurse
   br i1 %cmp.i.i.i.i.not.i95, label %return, label %if.end.i96
 
 if.end.i96:                                       ; preds = %sw.bb39
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %36 = load i8, ptr %this.tr, align 1
   %conv.i.i.i97 = zext i8 %36 to i32
   %shl.i.i.i98 = shl nuw nsw i32 %conv.i.i.i97, 8
@@ -40042,7 +40011,7 @@ entry:
   br i1 %cmp.i.i.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i = zext i8 %2 to i16
   %shl.i.i = shl nuw i16 %conv.i.i, 8
@@ -40071,8 +40040,8 @@ sw.bb8:                                           ; preds = %if.end
   br i1 %cmp.i.i.not.i.not.i.i.i, label %return, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %sw.bb8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %add.ptr.i.i.i, align 1
   %conv.i.i.i6.i.i.i = zext i8 %6 to i32
   %shl.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i6.i.i.i, 8
@@ -40119,7 +40088,7 @@ land.rhs.i.i.i:                                   ; preds = %_ZNK2OT8OffsetToINS
   br i1 %cmp.i.i.i.not.i.i.i.i, label %return, label %land.lhs.true.i8.i.i.i
 
 land.lhs.true.i8.i.i.i:                           ; preds = %land.rhs.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %12 = load i8, ptr %add.ptr.i.i.i.i.i, align 1
   %conv.i.i11.i.i.i.i = zext i8 %12 to i32
   %arrayidx3.i.i.i9.i.i.i = getelementptr inbounds i8, ptr %this, i64 5
@@ -40182,8 +40151,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %coverage, align 1
   %conv.i.i.i9 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i9, 8
@@ -40337,7 +40306,7 @@ entry:
   br i1 %cmp.i.i.i.not, label %_ZNK2OT6Layout6Common8Coverage8sanitizeEP21hb_sanitize_context_t.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %obj, align 1
   %conv.i.i = zext i8 %2 to i16
   %shl.i.i = shl nuw i16 %conv.i.i, 8
@@ -40362,7 +40331,7 @@ sw.bb.i:                                          ; preds = %if.end.i
   br i1 %cmp.i.i.i.not.i.i, label %_ZNK2OT6Layout6Common8Coverage8sanitizeEP21hb_sanitize_context_t.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %sw.bb.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load ptr, ptr %start.i.i.i, align 8
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
@@ -40400,7 +40369,7 @@ sw.bb10.i:                                        ; preds = %if.end.i
   br i1 %cmp.i.i.i.not.i.i11, label %_ZNK2OT6Layout6Common8Coverage8sanitizeEP21hb_sanitize_context_t.exit, label %land.lhs.true.i.i12
 
 land.lhs.true.i.i12:                              ; preds = %sw.bb10.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %15 = load ptr, ptr %start.i.i.i, align 8
   %sub.ptr.rhs.cast.i.i.i.i17 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i.i.i18 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i6, %sub.ptr.rhs.cast.i.i.i.i17
@@ -40457,8 +40426,8 @@ entry:
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %coverage, align 1
   %conv.i.i.i9 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i9, 8
@@ -40505,7 +40474,7 @@ land.rhs:                                         ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.i.not.i, label %land.end, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i11.i = zext i8 %8 to i32
   %arrayidx3.i.i.i12 = getelementptr inbounds i8, ptr %this, i64 5
@@ -40540,7 +40509,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl8SequenceINS2_10SmallTypesEEENS
   br i1 %cmp7.i.i.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl8SequenceINS2_10SmallTypesEEENS_7IntTypeItLj2EEEvLb1EEES8_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %16 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i20 = zext i8 %16 to i32
   %shl.i.i21 = shl nuw nsw i32 %conv.i.i20, 8
@@ -40570,8 +40539,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %land.end, label %land.lhs.true.i.i.i25
 
 land.lhs.true.i.i.i25:                            ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %20 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %20 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i4.i.i, 8
@@ -40596,7 +40565,7 @@ lor.lhs.false.i.i.i:                              ; preds = %land.lhs.true.i.i.i
   br i1 %cmp.i.i.i.not.i.i.i.i.i.i, label %lor.rhs.i.i.i, label %land.lhs.true.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %lor.lhs.false.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %24 = load i8, ptr %add.ptr.i.i.i, align 1
   %conv.i.i11.i.i.i.i.i.i = zext i8 %24 to i32
   %arrayidx3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 1
@@ -40671,8 +40640,8 @@ entry:
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %coverage, align 1
   %conv.i.i.i9 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i9, 8
@@ -40719,7 +40688,7 @@ land.rhs:                                         ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.i.not.i, label %land.end, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i11.i = zext i8 %8 to i32
   %arrayidx3.i.i.i12 = getelementptr inbounds i8, ptr %this, i64 5
@@ -40754,7 +40723,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl12AlternateSetINS2_10SmallTypes
   br i1 %cmp7.i.i.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl12AlternateSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEEvLb1EEES8_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %16 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i20 = zext i8 %16 to i32
   %shl.i.i21 = shl nuw nsw i32 %conv.i.i20, 8
@@ -40784,8 +40753,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %land.end, label %land.lhs.true.i.i.i25
 
 land.lhs.true.i.i.i25:                            ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %20 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %20 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i4.i.i, 8
@@ -40810,7 +40779,7 @@ lor.lhs.false.i.i.i:                              ; preds = %land.lhs.true.i.i.i
   br i1 %cmp.i.i.i.not.i.i.i.i.i.i, label %lor.rhs.i.i.i, label %land.lhs.true.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %lor.lhs.false.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %24 = load i8, ptr %add.ptr.i.i.i, align 1
   %conv.i.i11.i.i.i.i.i.i = zext i8 %24 to i32
   %arrayidx3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 1
@@ -40885,8 +40854,8 @@ entry:
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %coverage, align 1
   %conv.i.i.i9 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i9, 8
@@ -40933,7 +40902,7 @@ land.rhs:                                         ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.i.not.i, label %land.end, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i11.i = zext i8 %8 to i32
   %arrayidx3.i.i.i12 = getelementptr inbounds i8, ptr %this, i64 5
@@ -40968,7 +40937,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11LigatureSetINS2_10SmallTypesE
   br i1 %cmp7.i.i.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11LigatureSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEEvLb1EEES8_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %16 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i20 = zext i8 %16 to i32
   %shl.i.i21 = shl nuw nsw i32 %conv.i.i20, 8
@@ -40998,8 +40967,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %land.end, label %land.lhs.true.i.i.i25
 
 land.lhs.true.i.i.i25:                            ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %20 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %20 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i4.i.i, 8
@@ -41058,7 +41027,7 @@ entry:
   br i1 %cmp.i.i.i.not.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl8LigatureINS2_10SmallTypesEEENS_7IntTypeItLj2EEEvLb1EEES8_E8sanitizeIJPKNS3_11LigatureSetIS5_EEEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 1
@@ -41093,7 +41062,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl8LigatureINS2_10SmallTypesEEENS
   br i1 %cmp7.i.i.i, label %if.end.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl8LigatureINS2_10SmallTypesEEENS_7IntTypeItLj2EEEvLb1EEES8_E8sanitizeIJPKNS3_11LigatureSetIS5_EEEEEbP21hb_sanitize_context_tDpOT_.exit
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl8LigatureINS2_10SmallTypesEEENS_7IntTypeItLj2EEEvLb1EEES8_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %10 = load i8, ptr %this, align 1
   %conv.i.i = zext i8 %10 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
@@ -41123,8 +41092,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl8LigatureINS2_10SmallTypesEEENS_7IntTypeItLj2EEEvLb1EEES8_E8sanitizeIJPKNS3_11LigatureSetIS5_EEEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i.i.i4
 
 land.lhs.true.i.i.i4:                             ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %14 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i4.i.i, 8
@@ -41156,7 +41125,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp.i.i.i.not.i.i.i.i.i.i, label %lor.rhs.i.i.i, label %land.lhs.true.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %land.rhs.i.i.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %18 = load i8, ptr %add.ptr.i.i.i.i.i.i.i, align 1
   %conv.i.i11.i.i.i.i.i.i = zext i8 %18 to i32
   %shl.i.i.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i11.i.i.i.i.i.i, 8
@@ -41236,8 +41205,8 @@ entry:
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %coverage, align 1
   %conv.i.i.i9 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i9, 8
@@ -41284,7 +41253,7 @@ land.rhs:                                         ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.i.not.i, label %land.end, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i11.i = zext i8 %8 to i32
   %arrayidx3.i.i.i12 = getelementptr inbounds i8, ptr %this, i64 5
@@ -41319,7 +41288,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItL
   br i1 %cmp7.i.i.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEEvLb1EEES7_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %16 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i20 = zext i8 %16 to i32
   %shl.i.i21 = shl nuw nsw i32 %conv.i.i20, 8
@@ -41349,8 +41318,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %land.end, label %land.lhs.true.i.i.i25
 
 land.lhs.true.i.i.i25:                            ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %20 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %20 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i4.i.i, 8
@@ -41409,7 +41378,7 @@ entry:
   br i1 %cmp.i.i.i.not.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_4RuleINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEEvLb1EEES7_E8sanitizeIJPKNS_7RuleSetIS4_EEEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 1
@@ -41444,7 +41413,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_4RuleINS_6Layout10SmallTypesEEENS_7IntTypeItLj2E
   br i1 %cmp7.i.i.i, label %if.end.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_4RuleINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEEvLb1EEES7_E8sanitizeIJPKNS_7RuleSetIS4_EEEEEbP21hb_sanitize_context_tDpOT_.exit
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_4RuleINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEEvLb1EEES7_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %10 = load i8, ptr %this, align 1
   %conv.i.i = zext i8 %10 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
@@ -41474,8 +41443,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_4RuleINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEEvLb1EEES7_E8sanitizeIJPKNS_7RuleSetIS4_EEEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i.i.i4
 
 land.lhs.true.i.i.i4:                             ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %14 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i4.i.i, 8
@@ -41500,7 +41469,7 @@ lor.lhs.false.i.i.i:                              ; preds = %land.lhs.true.i.i.i
   br i1 %cmp.i.i.not.i.i.i.i.i, label %lor.rhs.i.i.i, label %land.lhs.true.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %lor.lhs.false.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %18 = load i8, ptr %add.ptr.i.i.i, align 1
   %conv.i.i13.i.i.i.i.i = zext i8 %18 to i32
   %shl.i.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i13.i.i.i.i.i, 8
@@ -41588,8 +41557,8 @@ entry:
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %coverage, align 1
   %conv.i.i.i13 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i13, 8
@@ -41636,8 +41605,8 @@ land.lhs.true:                                    ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.not.i22.not, label %land.end, label %land.lhs.true.i15
 
 land.lhs.true.i15:                                ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i24 = zext i8 %8 to i32
   %shl.i.i.i25 = shl nuw nsw i32 %conv.i.i.i24, 8
@@ -41684,7 +41653,7 @@ land.rhs:                                         ; preds = %land.lhs.true.i15, 
   br i1 %cmp.i.i.i.not.i, label %land.end, label %land.lhs.true.i46
 
 land.lhs.true.i46:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %add.ptr.i.i15, align 1
   %conv.i.i11.i = zext i8 %14 to i32
   %arrayidx3.i.i.i47 = getelementptr inbounds i8, ptr %this, i64 7
@@ -41719,7 +41688,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItL
   br i1 %cmp7.i.i.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEEvLb1EEES7_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %22 = load i8, ptr %add.ptr.i.i15, align 1
   %conv.i.i55 = zext i8 %22 to i32
   %shl.i.i56 = shl nuw nsw i32 %conv.i.i55, 8
@@ -41749,8 +41718,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %land.end, label %land.lhs.true.i.i.i60
 
 land.lhs.true.i.i.i60:                            ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %26 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %26 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i4.i.i, 8
@@ -41809,7 +41778,7 @@ entry:
   br i1 %cmp.i.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i = zext i8 %2 to i16
   %shl.i.i = shl nuw i16 %conv.i.i, 8
@@ -41835,7 +41804,7 @@ sw.bb:                                            ; preds = %if.end
   br i1 %cmp.i.i.not.i, label %return, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %sw.bb
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load ptr, ptr %start.i.i.i, align 8
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i5, %sub.ptr.rhs.cast.i.i.i.i
@@ -41873,7 +41842,7 @@ sw.bb10:                                          ; preds = %if.end
   br i1 %cmp.i.i.i.not.i.i, label %return, label %land.lhs.true.i.i11
 
 land.lhs.true.i.i11:                              ; preds = %sw.bb10
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %15 = load ptr, ptr %start.i.i.i, align 8
   %sub.ptr.rhs.cast.i.i.i.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i16
@@ -41930,7 +41899,7 @@ entry:
   br i1 %cmp.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %glyphCount = getelementptr inbounds i8, ptr %this, i64 2
   %2 = load i8, ptr %glyphCount, align 1
   %conv.i.i15 = zext i8 %2 to i32
@@ -41988,8 +41957,8 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp.i.i.not.i.not, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %11 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i25 = zext i8 %11 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i25, 8
@@ -42091,8 +42060,8 @@ entry:
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %coverage, align 1
   %conv.i.i.i9 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i9, 8
@@ -42139,7 +42108,7 @@ land.rhs:                                         ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.i.not.i, label %land.end, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i11.i = zext i8 %8 to i32
   %arrayidx3.i.i.i12 = getelementptr inbounds i8, ptr %this, i64 5
@@ -42174,7 +42143,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntT
   br i1 %cmp7.i.i.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEEvLb1EEES7_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %16 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i20 = zext i8 %16 to i32
   %shl.i.i21 = shl nuw nsw i32 %conv.i.i20, 8
@@ -42204,8 +42173,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %land.end, label %land.lhs.true.i.i.i25
 
 land.lhs.true.i.i.i25:                            ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %20 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %20 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i4.i.i, 8
@@ -42264,7 +42233,7 @@ entry:
   br i1 %cmp.i.i.i.not.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ChainRuleINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEEvLb1EEES7_E8sanitizeIJPKNS_12ChainRuleSetIS4_EEEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 1
@@ -42299,7 +42268,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_9ChainRuleINS_6Layout10SmallTypesEEENS_7IntTypeI
   br i1 %cmp7.i.i.i, label %if.end.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ChainRuleINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEEvLb1EEES7_E8sanitizeIJPKNS_12ChainRuleSetIS4_EEEEEbP21hb_sanitize_context_tDpOT_.exit
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ChainRuleINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEEvLb1EEES7_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %10 = load i8, ptr %this, align 1
   %conv.i.i = zext i8 %10 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
@@ -42329,8 +42298,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ChainRuleINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEEvLb1EEES7_E8sanitizeIJPKNS_12ChainRuleSetIS4_EEEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i.i.i4
 
 land.lhs.true.i.i.i4:                             ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %14 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i4.i.i, 8
@@ -42389,7 +42358,7 @@ entry:
   br i1 %cmp.i.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
   %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1
@@ -42411,7 +42380,7 @@ if.end:                                           ; preds = %entry
 
 if.end10:                                         ; preds = %if.end
   %add.ptr.i.i6 = getelementptr inbounds i8, ptr %6, i64 2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %9 = load i8, ptr %add.ptr.i.i6, align 1
   %conv.i.i.i.i.i = zext i8 %9 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i.i, 8
@@ -42435,7 +42404,7 @@ if.end10:                                         ; preds = %if.end
 
 if.end18:                                         ; preds = %if.end10
   %add.ptr.i.i17 = getelementptr inbounds i8, ptr %12, i64 2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %15 = load i8, ptr %add.ptr.i.i17, align 1
   %conv.i.i.i.i27 = zext i8 %15 to i64
   %arrayidx3.i.i.i.i28 = getelementptr inbounds i8, ptr %12, i64 3
@@ -42457,7 +42426,7 @@ if.end18:                                         ; preds = %if.end10
 
 land.lhs.true.i:                                  ; preds = %if.end18
   %add.ptr.i.i31 = getelementptr inbounds i8, ptr %19, i64 2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %22 = load i8, ptr %add.ptr.i.i31, align 1
   %conv.i.i11.i = zext i8 %22 to i32
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %19, i64 3
@@ -42513,8 +42482,8 @@ entry:
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %coverage, align 1
   %conv.i.i.i21 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i21, 8
@@ -42561,8 +42530,8 @@ land.lhs.true:                                    ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.not.i30.not, label %land.end, label %land.lhs.true.i60
 
 land.lhs.true.i60:                                ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i32 = zext i8 %8 to i32
   %shl.i.i.i33 = shl nuw nsw i32 %conv.i.i.i32, 8
@@ -42609,8 +42578,8 @@ land.lhs.true3:                                   ; preds = %land.lhs.true.i60, 
   br i1 %cmp.i.i.not.i61.not, label %land.end, label %land.lhs.true.i39
 
 land.lhs.true.i39:                                ; preds = %land.lhs.true3
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %add.ptr.i.i23, align 1
   %conv.i.i.i64 = zext i8 %14 to i32
   %shl.i.i.i65 = shl nuw nsw i32 %conv.i.i.i64, 8
@@ -42657,8 +42626,8 @@ land.lhs.true5:                                   ; preds = %land.lhs.true.i39, 
   br i1 %cmp.i.i.not.i95.not, label %land.end, label %land.lhs.true.i19
 
 land.lhs.true.i19:                                ; preds = %land.lhs.true5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %20 = load i8, ptr %add.ptr.i.i54, align 1
   %conv.i.i.i98 = zext i8 %20 to i32
   %shl.i.i.i99 = shl nuw nsw i32 %conv.i.i.i98, 8
@@ -42705,7 +42674,7 @@ land.rhs:                                         ; preds = %land.lhs.true.i19, 
   br i1 %cmp.i.i.i.not.i, label %land.end, label %land.lhs.true.i122
 
 land.lhs.true.i122:                               ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %26 = load i8, ptr %add.ptr.i.i88, align 1
   %conv.i.i11.i = zext i8 %26 to i32
   %arrayidx3.i.i.i123 = getelementptr inbounds i8, ptr %this, i64 11
@@ -42740,7 +42709,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntT
   br i1 %cmp7.i.i.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEEvLb1EEES7_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %34 = load i8, ptr %add.ptr.i.i88, align 1
   %conv.i.i131 = zext i8 %34 to i32
   %shl.i.i132 = shl nuw nsw i32 %conv.i.i131, 8
@@ -42770,8 +42739,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %land.end, label %land.lhs.true.i.i.i136
 
 land.lhs.true.i.i.i136:                           ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %38 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %38 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i4.i.i, 8
@@ -42831,7 +42800,7 @@ entry:
   br i1 %cmp.i.i.i.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %backtrack, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 3
@@ -42866,7 +42835,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEEvLb1E
   br i1 %cmp7.i.i.i, label %if.end.i89, label %return
 
 if.end.i89:                                       ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEEvLb1EEES6_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %10 = load i8, ptr %backtrack, align 1
   %conv.i.i = zext i8 %10 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
@@ -42896,8 +42865,8 @@ for.body.i96:                                     ; preds = %for.body.i96.lr.ph,
   br i1 %cmp.i.i.not.i.not.i.i, label %return, label %land.lhs.true.i.i.i16
 
 land.lhs.true.i.i.i16:                            ; preds = %for.body.i96
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %arrayidx.i99, align 1
   %conv.i.i.i4.i.i = zext i8 %14 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i4.i.i, 8
@@ -42936,7 +42905,7 @@ if.end9.i103:                                     ; preds = %lor.lhs.false.i.i.i
   br i1 %exitcond.not, label %if.end, label %for.body.i96, !llvm.loop !327
 
 if.end:                                           ; preds = %if.end9.i103, %if.end.i89
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %18 = load i8, ptr %backtrack, align 1
   %conv.i.i.i.i20 = zext i8 %18 to i64
   %19 = load i8, ptr %arrayidx3.i.i.i, align 1
@@ -42957,7 +42926,7 @@ if.end:                                           ; preds = %if.end9.i103, %if.e
   br i1 %cmp.i.i.i.not.i29, label %return, label %land.lhs.true.i30
 
 land.lhs.true.i30:                                ; preds = %if.end
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %25 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i11.i31 = zext i8 %25 to i32
   %arrayidx3.i.i.i32 = getelementptr inbounds i8, ptr %22, i64 3
@@ -42990,7 +42959,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEEvLb1E
   br i1 %cmp7.i.i.i48, label %if.end.i58, label %return
 
 if.end.i58:                                       ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEEvLb1EEES6_E16sanitize_shallowEP21hb_sanitize_context_t.exit50
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %33 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i52 = zext i8 %33 to i32
   %shl.i.i53 = shl nuw nsw i32 %conv.i.i52, 8
@@ -43020,8 +42989,8 @@ for.body.i65:                                     ; preds = %for.body.i65.lr.ph,
   br i1 %cmp.i.i.not.i.not.i.i64, label %return, label %land.lhs.true.i.i.i65
 
 land.lhs.true.i.i.i65:                            ; preds = %for.body.i65
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %37 = load i8, ptr %arrayidx.i68, align 1
   %conv.i.i.i4.i.i66 = zext i8 %37 to i32
   %shl.i.i.i.i.i67 = shl nuw nsw i32 %conv.i.i.i4.i.i66, 8
@@ -43060,7 +43029,7 @@ if.end9.i72:                                      ; preds = %lor.lhs.false.i.i.i
   br i1 %exitcond228.not, label %if.end13, label %for.body.i65, !llvm.loop !327
 
 if.end13:                                         ; preds = %if.end9.i72, %if.end.i58
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %41 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i89 = zext i8 %41 to i32
   %shl.i.i90 = shl nuw nsw i32 %conv.i.i89, 8
@@ -43089,7 +43058,7 @@ if.end19:                                         ; preds = %if.end13
   br i1 %cmp.i.i.i.not.i107, label %return, label %land.lhs.true.i108
 
 land.lhs.true.i108:                               ; preds = %if.end19
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %48 = load i8, ptr %add.ptr.i.i99, align 1
   %conv.i.i11.i109 = zext i8 %48 to i32
   %arrayidx3.i.i.i110 = getelementptr inbounds i8, ptr %45, i64 3
@@ -43122,7 +43091,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEEvLb1E
   br i1 %cmp7.i.i.i126, label %if.end.i42, label %return
 
 if.end.i42:                                       ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEEvLb1EEES6_E16sanitize_shallowEP21hb_sanitize_context_t.exit128
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %56 = load i8, ptr %add.ptr.i.i99, align 1
   %conv.i.i130 = zext i8 %56 to i32
   %shl.i.i131 = shl nuw nsw i32 %conv.i.i130, 8
@@ -43152,8 +43121,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i142, label %return, label %land.lhs.true.i.i.i143
 
 land.lhs.true.i.i.i143:                           ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %60 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i144 = zext i8 %60 to i32
   %shl.i.i.i.i.i145 = shl nuw nsw i32 %conv.i.i.i4.i.i144, 8
@@ -43192,7 +43161,7 @@ if.end9.i:                                        ; preds = %lor.lhs.false.i.i.i
   br i1 %exitcond233.not, label %if.end27, label %for.body.i, !llvm.loop !327
 
 if.end27:                                         ; preds = %if.end9.i, %if.end.i42
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %64 = load i8, ptr %add.ptr.i.i99, align 1
   %conv.i.i.i.i167 = zext i8 %64 to i64
   %65 = load i8, ptr %arrayidx3.i.i.i110, align 1
@@ -43213,7 +43182,7 @@ if.end27:                                         ; preds = %if.end9.i, %if.end.
 
 land.lhs.true.i180:                               ; preds = %if.end27
   %add.ptr.i.i171 = getelementptr inbounds i8, ptr %68, i64 2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %71 = load i8, ptr %add.ptr.i.i171, align 1
   %conv.i.i11.i181 = zext i8 %71 to i32
   %arrayidx3.i.i.i182 = getelementptr inbounds i8, ptr %68, i64 3
@@ -43267,8 +43236,8 @@ entry:
   br i1 %cmp.i.i.not.i.not, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %coverage, align 1
   %conv.i.i.i15 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i15, 8
@@ -43315,7 +43284,7 @@ land.rhs:                                         ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.i.not.i, label %return, label %land.lhs.true.i18
 
 land.lhs.true.i18:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i11.i = zext i8 %8 to i32
   %arrayidx3.i.i.i19 = getelementptr inbounds i8, ptr %this, i64 5
@@ -43350,7 +43319,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEEvLb1E
   br i1 %cmp7.i.i.i, label %if.end.i56, label %return
 
 if.end.i56:                                       ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEEvLb1EEES6_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %16 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i27 = zext i8 %16 to i32
   %shl.i.i28 = shl nuw nsw i32 %conv.i.i27, 8
@@ -43380,8 +43349,8 @@ for.body.i63:                                     ; preds = %for.body.i63.lr.ph,
   br i1 %cmp.i.i.not.i.not.i.i, label %return, label %land.lhs.true.i.i.i32
 
 land.lhs.true.i.i.i32:                            ; preds = %for.body.i63
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %20 = load i8, ptr %arrayidx.i66, align 1
   %conv.i.i.i4.i.i = zext i8 %20 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i4.i.i, 8
@@ -43420,7 +43389,7 @@ if.end9.i70:                                      ; preds = %lor.lhs.false.i.i.i
   br i1 %exitcond.not, label %if.end, label %for.body.i63, !llvm.loop !328
 
 if.end:                                           ; preds = %if.end9.i70, %if.end.i56
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %24 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i.i37 = zext i8 %24 to i64
   %25 = load i8, ptr %arrayidx3.i.i.i19, align 1
@@ -43441,7 +43410,7 @@ if.end:                                           ; preds = %if.end9.i70, %if.en
   br i1 %cmp.i.i.i.not.i47, label %return, label %land.lhs.true.i48
 
 land.lhs.true.i48:                                ; preds = %if.end
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %31 = load i8, ptr %add.ptr.i.i39, align 1
   %conv.i.i11.i49 = zext i8 %31 to i32
   %arrayidx3.i.i.i50 = getelementptr inbounds i8, ptr %28, i64 3
@@ -43474,7 +43443,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEEvLb1E
   br i1 %cmp7.i.i.i66, label %if.end.i37, label %return
 
 if.end.i37:                                       ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEEvLb1EEES6_E16sanitize_shallowEP21hb_sanitize_context_t.exit68
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %39 = load i8, ptr %add.ptr.i.i39, align 1
   %conv.i.i70 = zext i8 %39 to i32
   %shl.i.i71 = shl nuw nsw i32 %conv.i.i70, 8
@@ -43504,8 +43473,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i82, label %return, label %land.lhs.true.i.i.i83
 
 land.lhs.true.i.i.i83:                            ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %43 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i84 = zext i8 %43 to i32
   %shl.i.i.i.i.i85 = shl nuw nsw i32 %conv.i.i.i4.i.i84, 8
@@ -43544,7 +43513,7 @@ if.end9.i:                                        ; preds = %lor.lhs.false.i.i.i
   br i1 %exitcond170.not, label %if.end14, label %for.body.i, !llvm.loop !328
 
 if.end14:                                         ; preds = %if.end9.i, %if.end.i37
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %47 = load i8, ptr %add.ptr.i.i39, align 1
   %conv.i.i.i.i107 = zext i8 %47 to i64
   %48 = load i8, ptr %arrayidx3.i.i.i50, align 1
@@ -43565,7 +43534,7 @@ if.end14:                                         ; preds = %if.end9.i, %if.end.
 
 land.lhs.true.i120:                               ; preds = %if.end14
   %add.ptr.i.i111 = getelementptr inbounds i8, ptr %51, i64 2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %54 = load i8, ptr %add.ptr.i.i111, align 1
   %conv.i.i11.i121 = zext i8 %54 to i32
   %arrayidx3.i.i.i122 = getelementptr inbounds i8, ptr %51, i64 3
@@ -43618,7 +43587,7 @@ entry:
   br i1 %cmp.i.i.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i5 = zext i8 %2 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i5, 8
@@ -43641,7 +43610,7 @@ land.rhs:                                         ; preds = %land.lhs.true
   br i1 %cmp.i.i.i.not.i, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i11.i = zext i8 %6 to i32
   %shl.i.i.i = shl nuw i32 %conv.i.i11.i, 24
@@ -43690,7 +43659,7 @@ _ZNK2OT7ArrayOfINS_22FeatureVariationRecordENS_7IntTypeIjLj4EEEE16sanitize_shall
   br i1 %cmp7.i.i.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_22FeatureVariationRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %19 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i6 = zext i8 %19 to i32
   %shl.i.i7 = shl nuw i32 %conv.i.i6, 24
@@ -43742,8 +43711,8 @@ entry:
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i.i9 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw i32 %conv.i.i.i9, 24
@@ -43800,8 +43769,8 @@ land.rhs:                                         ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.not.i17.not, label %land.end, label %land.lhs.true.i13
 
 land.lhs.true.i13:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %10 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i19 = zext i8 %10 to i32
   %shl.i.i.i20 = shl nuw i32 %conv.i.i.i19, 24
@@ -43867,7 +43836,7 @@ entry:
   br i1 %cmp.i.i.i.not.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEE8sanitizeIJPKNS_12ConditionSetEEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 1
@@ -43902,7 +43871,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EE
   br i1 %cmp7.i.i.i, label %if.end.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEE8sanitizeIJPKNS_12ConditionSetEEEEbP21hb_sanitize_context_tDpOT_.exit
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %10 = load i8, ptr %this, align 1
   %conv.i.i = zext i8 %10 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
@@ -43932,8 +43901,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEE8sanitizeIJPKNS_12ConditionSetEEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i.i.i4
 
 land.lhs.true.i.i.i4:                             ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %14 to i32
   %shl.i.i.i.i.i = shl nuw i32 %conv.i.i.i4.i.i, 24
@@ -43968,7 +43937,7 @@ lor.lhs.false.i.i.i:                              ; preds = %land.lhs.true.i.i.i
   br i1 %cmp.i.i.i.not.i.i.i.i.i, label %lor.rhs.i.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %20 = load i8, ptr %add.ptr.i.i.i, align 1
   %conv.i.i.i.i.i.i.i = zext i8 %20 to i32
   %shl.i.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i.i.i.i, 8
@@ -44032,7 +44001,7 @@ entry:
   br i1 %cmp.i.i.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i5 = zext i8 %2 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i5, 8
@@ -44055,7 +44024,7 @@ land.rhs:                                         ; preds = %land.lhs.true
   br i1 %cmp.i.i.i.not.i, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i11.i = zext i8 %6 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i11.i, 8
@@ -44090,7 +44059,7 @@ _ZNK2OT7ArrayOfINS_30FeatureTableSubstitutionRecordENS_7IntTypeItLj2EEEE16saniti
   br i1 %cmp7.i.i.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_30FeatureTableSubstitutionRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %12 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i6 = zext i8 %12 to i32
   %shl.i.i7 = shl nuw nsw i32 %conv.i.i6, 8
@@ -44121,8 +44090,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body.i
   %feature.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %16 = load i8, ptr %feature.i.i.i, align 1
   %conv.i.i.i8.i.i.i = zext i8 %16 to i32
   %shl.i.i.i.i.i.i = shl nuw i32 %conv.i.i.i8.i.i.i, 24
@@ -44284,7 +44253,7 @@ if.end34:                                         ; preds = %if.then31, %while.e
   store i32 %15, ptr %arrayidx29, align 8
   %value36 = getelementptr inbounds i8, ptr %arrayidx29, i64 8
   %16 = load ptr, ptr %value36, align 8
-  tail call void @hb_blob_destroy(ptr noundef %16) #18
+  tail call void @hb_blob_destroy(ptr noundef %16) #19
   %17 = load ptr, ptr %value, align 8
   store ptr %17, ptr %value36, align 8
   store ptr null, ptr %value, align 8
@@ -44427,14 +44396,14 @@ for.body43:                                       ; preds = %for.body43.preheade
   %indvars.iv36 = phi i64 [ 0, %for.body43.preheader ], [ %indvars.iv.next37, %for.body43 ]
   %value.i = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, hb::unique_ptr<hb_blob_t>>::item_t", ptr %5, i64 %indvars.iv36, i32 2
   %7 = load ptr, ptr %value.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %7) #18
+  tail call void @hb_blob_destroy(ptr noundef %7) #19
   store ptr null, ptr %value.i, align 8
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
   br i1 %exitcond40.not, label %for.end48, label %for.body43, !llvm.loop !334
 
 for.end48:                                        ; preds = %for.body43, %_ZN12hb_hashmap_tIjN2hb10unique_ptrI9hb_blob_tEELb0EE9prime_forEj.exit
-  tail call void @free(ptr noundef %5) #18
+  tail call void @free(ptr noundef %5) #19
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %for.end48, %if.then10
@@ -44443,7 +44412,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL16_filter_tag_listP11hb_vector_tIjLb0EEPK8hb_set_t(ptr nocapture noundef %tags, ptr nocapture noundef %filter) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL16_filter_tag_listP11hb_vector_tIjLb0EEPK8hb_set_t(ptr nocapture noundef nonnull %tags, ptr nocapture noundef nonnull %filter) unnamed_addr #0 {
 if.end.i:
   %visited = alloca %struct.hb_set_t, align 8
   %length.i = getelementptr inbounds i8, ptr %tags, i64 4
@@ -44727,7 +44696,7 @@ lor.rhs.i.i:                                      ; preds = %while.body.i.i
 _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i: ; preds = %lor.rhs.i.i
   %29 = shl nuw i32 %add15.i.i, 2
   %mul.i.i.i = zext i32 %29 to i64
-  %call.i.i.i = call ptr @realloc(ptr noundef %out.sroa.25.0147, i64 noundef %mul.i.i.i) #19
+  %call.i.i.i = call ptr @realloc(ptr noundef %out.sroa.25.0147, i64 noundef %mul.i.i.i) #20
   %tobool27.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool27.not.i.i, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread5.i, label %if.end.i68
 
@@ -44789,7 +44758,7 @@ lor.rhs.i.i90:                                    ; preds = %while.body.i.i84
 _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i91: ; preds = %lor.rhs.i.i90
   %31 = shl nuw i32 %add15.i.i88, 2
   %mul.i.i.i93 = zext i32 %31 to i64
-  %call.i.i.i94 = call ptr @realloc(ptr noundef %out.sroa.25.0.lcssa, i64 noundef %mul.i.i.i93) #19
+  %call.i.i.i94 = call ptr @realloc(ptr noundef %out.sroa.25.0.lcssa, i64 noundef %mul.i.i.i93) #20
   %tobool27.not.i.i95 = icmp eq ptr %call.i.i.i94, null
   br i1 %tobool27.not.i.i95, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread5.i99, label %if.end.i78
 
@@ -44820,12 +44789,12 @@ _ZN11hb_vector_tIjLb0EE4pushIJjEEEPjDpOT_.exit:   ; preds = %if.then.i102, %if.e
   store i32 %out.sroa.16.3, ptr %length.i, align 4
   %34 = load ptr, ptr %arrayZ.i, align 8
   store ptr %out.sroa.25.7, ptr %arrayZ.i, align 8
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %visited) #18
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %visited) #19
   %tobool.not.i.i104 = icmp eq i32 %33, 0
   br i1 %tobool.not.i.i104, label %_ZN11hb_vector_tIjLb0EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN11hb_vector_tIjLb0EE4pushIJjEEEPjDpOT_.exit
-  call void @free(ptr noundef %34) #18
+  call void @free(ptr noundef %34) #19
   br label %_ZN11hb_vector_tIjLb0EED2Ev.exit
 
 _ZN11hb_vector_tIjLb0EED2Ev.exit:                 ; preds = %_ZN11hb_vector_tIjLb0EE4pushIJjEEEPjDpOT_.exit, %if.then.i.i
@@ -44945,7 +44914,7 @@ for.body.i:                                       ; preds = %_ZNK2OT7ArrayOfINS_
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZNK2OT7ArrayOfINS_22FeatureVariationRecordENS_7IntTypeIjLj4EEEEixEi.exit.i
 
 if.end.i.i:                                       ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i.i = getelementptr inbounds [1 x %"struct.OT::FeatureVariationRecord"], ptr %arrayZ.i.i, i64 0, i64 %indvars.iv.i
   br label %_ZNK2OT7ArrayOfINS_22FeatureVariationRecordENS_7IntTypeIjLj4EEEEixEi.exit.i
 
@@ -45148,13 +45117,13 @@ entry:
   %p = alloca %"struct.hb::shared_ptr.565", align 8
   %s = alloca %"struct.hb::shared_ptr", align 8
   %ref.tmp27 = alloca i32, align 4
-  %call = tail call ptr @hb_map_create() #18
+  %call = tail call ptr @hb_map_create() #19
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %cleanup.cont, label %if.end
 
 if.end:                                           ; preds = %entry
   store ptr %call, ptr %p, align 8
-  %call2 = tail call ptr @hb_set_create() #18
+  %call2 = tail call ptr @hb_set_create() #19
   %tobool3.not = icmp eq ptr %call2, null
   br i1 %tobool3.not, label %cleanup34, label %if.end5
 
@@ -45333,14 +45302,14 @@ if.then32:                                        ; preds = %_ZN12hb_hashmap_tIN
 
 cleanup:                                          ; preds = %_ZNK2OT9Condition20keep_with_variationsEPNS_49hb_collect_feature_substitutes_with_var_context_tEP8hb_map_t.exit, %if.end5, %_ZN12hb_hashmap_tIN2hb10shared_ptrI8hb_map_tEEjLb0EE3setIiEEbRKS3_OT_b.exit, %if.then32, %if.end22, %for.end
   %16 = load ptr, ptr %s, align 8
-  call void @hb_set_destroy(ptr noundef %16) #18
+  call void @hb_set_destroy(ptr noundef %16) #19
   store ptr null, ptr %s, align 8
   %.pre = load ptr, ptr %p, align 8
   br label %cleanup34
 
 cleanup34:                                        ; preds = %if.end, %cleanup
   %17 = phi ptr [ %call, %if.end ], [ %.pre, %cleanup ]
-  call void @hb_map_destroy(ptr noundef %17) #18
+  call void @hb_map_destroy(ptr noundef %17) #19
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %entry, %cleanup34
@@ -46223,10 +46192,10 @@ if.end40:                                         ; preds = %if.then37, %while.e
   br i1 %cmp.not.i, label %_ZN2hb10shared_ptrI8hb_map_tEaSERKS2_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end40
-  tail call void @hb_map_destroy(ptr noundef %17) #18
+  tail call void @hb_map_destroy(ptr noundef %17) #19
   %19 = load ptr, ptr %key, align 8
   store ptr %19, ptr %arrayidx35, align 8
-  %call.i.i30 = tail call noundef ptr @hb_map_reference(ptr noundef %19) #18
+  %call.i.i30 = tail call noundef ptr @hb_map_reference(ptr noundef %19) #19
   br label %_ZN2hb10shared_ptrI8hb_map_tEaSERKS2_.exit
 
 _ZN2hb10shared_ptrI8hb_map_tEaSERKS2_.exit:       ; preds = %if.end40, %if.then.i
@@ -46372,14 +46341,14 @@ for.body43:                                       ; preds = %for.body43.preheade
   %indvars.iv36 = phi i64 [ 0, %for.body43.preheader ], [ %indvars.iv.next37, %for.body43 ]
   %arrayidx45 = getelementptr inbounds %"struct.hb_hashmap_t<hb::shared_ptr<hb_map_t>, unsigned int>::item_t", ptr %5, i64 %indvars.iv36
   %7 = load ptr, ptr %arrayidx45, align 8
-  tail call void @hb_map_destroy(ptr noundef %7) #18
+  tail call void @hb_map_destroy(ptr noundef %7) #19
   store ptr null, ptr %arrayidx45, align 8
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
   br i1 %exitcond40.not, label %for.end48, label %for.body43, !llvm.loop !350
 
 for.end48:                                        ; preds = %for.body43, %_ZN12hb_hashmap_tIN2hb10shared_ptrI8hb_map_tEEjLb0EE9prime_forEj.exit
-  tail call void @free(ptr noundef %5) #18
+  tail call void @free(ptr noundef %5) #19
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %for.end48, %if.then10
@@ -46510,7 +46479,7 @@ if.then37:                                        ; preds = %while.end.thread
 
 if.end40:                                         ; preds = %if.then37, %while.end.thread
   %17 = load ptr, ptr %arrayidx35, align 8
-  tail call void @hb_map_destroy(ptr noundef %17) #18
+  tail call void @hb_map_destroy(ptr noundef %17) #19
   %18 = load ptr, ptr %key, align 8
   store ptr %18, ptr %arrayidx35, align 8
   store ptr null, ptr %key, align 8
@@ -46665,10 +46634,10 @@ if.end34:                                         ; preds = %if.then31, %while.e
   br i1 %cmp.not.i, label %_ZN2hb10shared_ptrI8hb_set_tEaSERKS2_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end34
-  tail call void @hb_set_destroy(ptr noundef %16) #18
+  tail call void @hb_set_destroy(ptr noundef %16) #19
   %18 = load ptr, ptr %value, align 8
   store ptr %18, ptr %value36, align 8
-  %call.i.i = tail call noundef ptr @hb_set_reference(ptr noundef %18) #18
+  %call.i.i = tail call noundef ptr @hb_set_reference(ptr noundef %18) #19
   br label %_ZN2hb10shared_ptrI8hb_set_tEaSERKS2_.exit
 
 _ZN2hb10shared_ptrI8hb_set_tEaSERKS2_.exit:       ; preds = %if.end34, %if.then.i
@@ -46811,14 +46780,14 @@ for.body43:                                       ; preds = %for.body43.preheade
   %indvars.iv36 = phi i64 [ 0, %for.body43.preheader ], [ %indvars.iv.next37, %for.body43 ]
   %value.i = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, hb::shared_ptr<hb_set_t>>::item_t", ptr %5, i64 %indvars.iv36, i32 2
   %7 = load ptr, ptr %value.i, align 8
-  tail call void @hb_set_destroy(ptr noundef %7) #18
+  tail call void @hb_set_destroy(ptr noundef %7) #19
   store ptr null, ptr %value.i, align 8
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
   br i1 %exitcond40.not, label %for.end48, label %for.body43, !llvm.loop !354
 
 for.end48:                                        ; preds = %for.body43, %_ZN12hb_hashmap_tIjN2hb10shared_ptrI8hb_set_tEELb0EE9prime_forEj.exit
-  tail call void @free(ptr noundef %5) #18
+  tail call void @free(ptr noundef %5) #19
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %for.end48, %if.then10
@@ -46935,7 +46904,7 @@ if.end34:                                         ; preds = %if.then31, %while.e
   store i32 %15, ptr %arrayidx29, align 8
   %value36 = getelementptr inbounds i8, ptr %arrayidx29, i64 8
   %16 = load ptr, ptr %value36, align 8
-  tail call void @hb_set_destroy(ptr noundef %16) #18
+  tail call void @hb_set_destroy(ptr noundef %16) #19
   %17 = load ptr, ptr %value, align 8
   store ptr %17, ptr %value36, align 8
   store ptr null, ptr %value, align 8
@@ -47305,7 +47274,7 @@ if.end4:                                          ; preds = %land.lhs.true, %if.
   %shl = shl nuw i32 1, %retval.0.i
   %conv = zext i32 %shl to i64
   %mul7 = shl nuw nsw i64 %conv, 4
-  %call8 = tail call noalias ptr @malloc(i64 noundef %mul7) #20
+  %call8 = tail call noalias ptr @malloc(i64 noundef %mul7) #21
   %tobool9.not = icmp eq ptr %call8, null
   br i1 %tobool9.not, label %if.then10, label %if.end12
 
@@ -47383,7 +47352,7 @@ for.inc:                                          ; preds = %for.body, %if.then2
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !357
 
 for.end:                                          ; preds = %for.inc, %_ZN12hb_hashmap_tIjPKN2OT7FeatureELb0EE9prime_forEj.exit, %_ZN12hb_hashmap_tIjPKN2OT7FeatureELb0EE9prime_forEj.exit
-  tail call void @free(ptr noundef %6) #18
+  tail call void @free(ptr noundef %6) #19
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %for.end, %if.then10
@@ -47442,13 +47411,13 @@ if.end23.i.i:                                     ; preds = %lor.rhs.i.i
   br i1 %tobool.not.i.i.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i: ; preds = %if.end23.i.i
-  tail call void @free(ptr noundef %5) #18
+  tail call void @free(ptr noundef %5) #19
   br label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.i
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i: ; preds = %if.end23.i.i
   %conv.i.i.i = zext nneg i32 %add15.i.i to i64
   %mul.i.i.i = mul nuw nsw i64 %conv.i.i.i, 72
-  %call.i.i.i = tail call ptr @realloc(ptr noundef %5, i64 noundef %mul.i.i.i) #19
+  %call.i.i.i = tail call ptr @realloc(ptr noundef %5, i64 noundef %mul.i.i.i) #20
   %tobool27.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool27.not.i.i, label %if.then28.i.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.i
 
@@ -47523,8 +47492,8 @@ if.then.i:                                        ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
   %items.i.i = getelementptr inbounds i8, ptr %1, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i, ptr noundef nonnull align 8 dereferenceable(40) %1)
-  %call.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %1) #18
-  tail call void @free(ptr noundef nonnull %1) #18
+  %call.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %1) #19
+  tail call void @free(ptr noundef nonnull %1) #19
   store atomic i64 0, ptr %user_data2.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIN2hb10shared_ptrI8hb_map_tEEjLb0EEEvPT_.exit
 
@@ -47550,7 +47519,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %4 = load ptr, ptr %items, align 8
   %arrayidx = getelementptr inbounds %"struct.hb_hashmap_t<hb::shared_ptr<hb_map_t>, unsigned int>::item_t", ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx, align 8
-  tail call void @hb_map_destroy(ptr noundef %5) #18
+  tail call void @hb_map_destroy(ptr noundef %5) #19
   store ptr null, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -47562,7 +47531,7 @@ for.end.loopexit:                                 ; preds = %for.body
 
 for.end:                                          ; preds = %for.end.loopexit, %if.then
   %6 = phi ptr [ %.pre, %for.end.loopexit ], [ %2, %if.then ]
-  tail call void @free(ptr noundef %6) #18
+  tail call void @free(ptr noundef %6) #19
   store ptr null, ptr %items, align 8
   br label %if.end
 
@@ -48019,7 +47988,7 @@ if.end4:                                          ; preds = %land.lhs.true, %if.
   %retval.0.i = select i1 %tobool.not.i, i32 0, i32 %narrow.i
   %4 = zext nneg i32 %retval.0.i to i64
   %mul7 = shl nuw nsw i64 24, %4
-  %call8 = tail call noalias ptr @malloc(i64 noundef %mul7) #20
+  %call8 = tail call noalias ptr @malloc(i64 noundef %mul7) #21
   %tobool9.not = icmp eq ptr %call8, null
   br i1 %tobool9.not, label %if.then10, label %for.end
 
@@ -48074,7 +48043,7 @@ for.body27.preheader:                             ; preds = %_ZN12hb_hashmap_tIj
   br label %for.body27
 
 for.cond41.preheader:                             ; preds = %for.inc38, %_ZN12hb_hashmap_tIj9hb_pair_tIPKvS2_ELb0EE9prime_forEj.exit
-  tail call void @free(ptr noundef %12) #18
+  tail call void @free(ptr noundef %12) #19
   br label %return
 
 for.body27:                                       ; preds = %for.body27.preheader, %for.inc38
@@ -48299,7 +48268,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   br i1 %cmp.not.i.us, label %if.end.i4.us, label %_ZNK2OT7ArrayOfINS_22FeatureVariationRecordENS_7IntTypeIjLj4EEEEixEi.exit.us
 
 if.end.i4.us:                                     ; preds = %for.body.us
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i.us = getelementptr inbounds [1 x %"struct.OT::FeatureVariationRecord"], ptr %arrayZ.i, i64 0, i64 %indvars.iv21
   br label %_ZNK2OT7ArrayOfINS_22FeatureVariationRecordENS_7IntTypeIjLj4EEEEixEi.exit.us
 
@@ -48417,7 +48386,7 @@ if.end:                                           ; preds = %if.then.i.i
   br i1 %cmp.not.i, label %if.end.i4, label %_ZNK2OT7ArrayOfINS_22FeatureVariationRecordENS_7IntTypeIjLj4EEEEixEi.exit
 
 if.end.i4:                                        ; preds = %if.end
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i = getelementptr inbounds [1 x %"struct.OT::FeatureVariationRecord"], ptr %arrayZ.i, i64 0, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_22FeatureVariationRecordENS_7IntTypeIjLj4EEEEixEi.exit
 
@@ -48904,7 +48873,7 @@ sw.bb.i:                                          ; preds = %for.body
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZNK2OT8GSUBGPOS10get_lookupEj.exit
 
 if.end.i.i:                                       ; preds = %sw.bb.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 2
   %idxprom.i.i = zext nneg i32 %3 to i64
   %arrayidx.i.i = getelementptr inbounds [1 x %"struct.OT::OffsetTo.615"], ptr %arrayZ.i.i, i64 0, i64 %idxprom.i.i
@@ -48944,10 +48913,10 @@ _ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit: ; preds = %_ZNK2OT
   br i1 %16, label %for.body, label %for.end
 
 for.end:                                          ; preds = %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit, %entry
-  call void @hb_set_union(ptr noundef nonnull %lookup_indexes, ptr noundef nonnull %visited_lookups) #18
-  call void @hb_set_subtract(ptr noundef nonnull %lookup_indexes, ptr noundef nonnull %inactive_lookups) #18
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %inactive_lookups) #18
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %visited_lookups) #18
+  call void @hb_set_union(ptr noundef nonnull %lookup_indexes, ptr noundef nonnull %visited_lookups) #19
+  call void @hb_set_subtract(ptr noundef nonnull %lookup_indexes, ptr noundef nonnull %inactive_lookups) #19
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %inactive_lookups) #19
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %visited_lookups) #19
   ret void
 }
 
@@ -49002,7 +48971,7 @@ sw.bb.i.i:                                        ; preds = %entry
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %_ZNK2OT6Layout4GSUB10get_lookupEj.exit
 
 if.end.i.i.i:                                     ; preds = %sw.bb.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 2
   %idxprom.i.i.i = zext nneg i32 %this_index to i64
   %arrayidx.i.i.i = getelementptr inbounds [1 x %"struct.OT::OffsetTo.615"], ptr %arrayZ.i.i.i, i64 0, i64 %idxprom.i.i.i
@@ -49191,7 +49160,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   br i1 %cmp.not.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %for.body.i.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::OffsetTo.488"], ptr %arrayZ.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i
   br label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit.i.i.i
 
@@ -49252,7 +49221,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %for.inc.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::OffsetTo.488"], ptr %arrayZ.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i
   br label %for.inc.i.i
 
@@ -50405,7 +50374,7 @@ sw.bb7.i.i:                                       ; preds = %entry
   br i1 %tobool.not.i.i.i, label %cond.end.i.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i: ; preds = %sw.bb7.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !noalias !375, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !noalias !375, !srcloc !5
   %arrayZ.i.i.i1.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 4
   %6 = load i8, ptr %arrayZ.i.i.i1.i, align 1, !noalias !375
   %conv.i.i1.i.i.i = zext i8 %6 to i32
@@ -50440,7 +50409,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i.i: ; preds = %cond.end.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !noalias !375, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !noalias !375, !srcloc !5
   %arrayZ.i14.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 4
   %.pre42.i.i.i = load i8, ptr %rangeRecord.i.i.i, align 1, !noalias !375
   %.pre43.i.i.i = load i8, ptr %arrayidx3.i.i.i.i.i7, align 1, !noalias !375
@@ -50459,7 +50428,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %10, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i.i, label %if.end.i28.i.i.i
 
 if.end.i28.i.i.i:                                 ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !noalias !375, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !noalias !375, !srcloc !5
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i.i: ; preds = %if.end.i28.i.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.thread.i.i.i
@@ -50544,7 +50513,7 @@ land.rhs.i.i.i:                                   ; preds = %land.rhs.i.i.i.lr.p
   br i1 %switch.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS2_9GSUB_impl11LigatureSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE9hb_pair_tIjRSF_EEdeEv.exit.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %ref.tmp3.sroa.10.080 to i64
   %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i.i
   %21 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 1
@@ -50669,7 +50638,7 @@ sw.bb2.i:                                         ; preds = %while.body.i.i.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %sw.bb2.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i = zext nneg i32 %ref.tmp3.sroa.10.080 to i64
   %arrayidx.i.i.i = getelementptr inbounds [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %arrayZ.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
@@ -50786,7 +50755,7 @@ for.body.i.i:                                     ; preds = %_ZNK9hb_iter_tIN2OT
   br i1 %cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZNK9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EERSH_EdeEv.exit.i.i.i.i"
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %for.body.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   br label %"_ZNK9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EERSH_EdeEv.exit.i.i.i.i"
 
 "_ZNK9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EERSH_EdeEv.exit.i.i.i.i": ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i
@@ -51044,7 +51013,7 @@ sw.bb2.i.i.i:                                     ; preds = %do.body.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %sw.bb2.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i.i.i = zext nneg i32 %it.sroa.10.1.i.i to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %arrayZ.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
@@ -51127,7 +51096,7 @@ land.rhs.i.i.i.i.i.i.i.i:                         ; preds = %_ZNK9hb_iter_tIN2OT
   br i1 %cond.i.i.i.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS2_9GSUB_impl11LigatureSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE9hb_pair_tIjRSF_EEdeEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %it.sroa.10.3.i.i to i64
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %87 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
@@ -51288,7 +51257,7 @@ sw.bb2:                                           ; preds = %entry
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i
 
 if.end.i.i:                                       ; preds = %sw.bb2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %idxprom.i.i = zext nneg i32 %4 to i64
   %arrayidx.i.i = getelementptr inbounds [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %arrayZ.i.i, i64 0, i64 %idxprom.i.i
@@ -51401,8 +51370,8 @@ entry:
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i
   %retval.0.i.i = select i1 %cmp.i.i.i, ptr @_hb_NullPool, ptr %add.ptr.i.i.i
   %ruleSet = getelementptr inbounds i8, ptr %this, i64 4
-  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS1_7ArrayOfINS1_8OffsetToINS1_7RuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEESD_EETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISJ_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISK_EEE4iterEEEOSJ_OSK_"(ptr noalias nonnull align 8 %ref.tmp5, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i, ptr noundef nonnull align 1 dereferenceable(4) %ruleSet)
-  call fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_7RuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSQ_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISQ_Efp_EEEOSQ_OSW_"(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp5, ptr %glyphs, ptr nonnull @_ZL8hb_first)
+  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS1_7ArrayOfINS1_8OffsetToINS1_7RuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEESD_EETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISJ_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISK_EEE4iterEEEOSJ_OSK_"(ptr noalias align 8 %ref.tmp5, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i, ptr noundef nonnull align 1 dereferenceable(4) %ruleSet)
+  call fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_7RuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSQ_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISQ_Efp_EEEOSQ_OSW_"(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp5, ptr %glyphs, ptr nonnull @_ZL8hb_first)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %it.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %it.i.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp4, i64 64, i1 false)
   %ref.tmp.sroa.2.0.it.i.i.sroa_idx = getelementptr inbounds i8, ptr %it.i.i, i64 64
@@ -51454,7 +51423,7 @@ for.body.i.i:                                     ; preds = %_ZNK9hb_iter_tIN2OT
   br label %12
 
 "_ZNK9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_7RuleSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSP_0EE12hb_partial_tILj2EPK4$_39PKNS3_16ContextFormat1_4ISB_EEELSU_0ELSP_0EERKSC_EdeEv.exit.i.i.i.i": ; preds = %for.body.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %.pre.i.i = load i32, ptr %length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %.pre.fr.i.i = freeze i32 %.pre.i.i
   %10 = icmp eq i32 %.pre.fr.i.i, 0
@@ -51540,7 +51509,7 @@ for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.
   %24 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext i8 %24 to i32
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %conv4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %call6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = call noundef zeroext i1 %20(ptr noundef %call.val.val.i.i.i.i, i32 noundef %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %21, ptr noundef %22) #18
+  %call6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = call noundef zeroext i1 %20(ptr noundef %call.val.val.i.i.i.i, i32 noundef %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %21, ptr noundef %22) #19
   br i1 %call6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT8OffsetToINS2_4RuleINS2_6Layout10SmallTypesEEENS2_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_39PKNS2_7RuleSetIS6_EEEL24hb_function_sortedness_t0ELPv0EEZNKSI_10intersectsEPK8hb_set_tRNS2_27ContextClosureLookupContextEEUlRKS7_E_LSM_0ELSN_0EEbEppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i"
 
 "_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT8OffsetToINS2_4RuleINS2_6Layout10SmallTypesEEENS2_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_39PKNS2_7RuleSetIS6_EEEL24hb_function_sortedness_t0ELPv0EEZNKSI_10intersectsEPK8hb_set_tRNS2_27ContextClosureLookupContextEEUlRKS7_E_LSM_0ELSN_0EEbEppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -51677,7 +51646,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_7RuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSQ_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISQ_Efp_EEEOSQ_OSW_"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %lhs, ptr %rhs.0.val, ptr %rhs.8.val) unnamed_addr #0 {
+define internal fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_7RuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSQ_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISQ_Efp_EEEOSQ_OSW_"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %lhs, ptr %rhs.0.val, ptr %rhs.8.val) unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %lhs, i64 48, i1 false)
   %p.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
@@ -51723,7 +51692,7 @@ land.rhs.i.i:                                     ; preds = %_ZNK9hb_iter_tIN2OT
   br i1 %switch.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 4
   %idxprom.i.i.i.i.i.i.i.i.i = zext nneg i32 %3 to i64
   %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i
@@ -51867,7 +51836,7 @@ _ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS1_7ArrayOfINS1_8OffsetToINS1_7RuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEESD_EETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISJ_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISK_EEE4iterEEEOSJ_OSK_"(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(10) %a, ptr noundef nonnull align 1 dereferenceable(4) %b) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS1_7ArrayOfINS1_8OffsetToINS1_7RuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEESD_EETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISJ_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISK_EEE4iterEEEOSJ_OSK_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(10) %a, ptr noundef nonnull align 1 dereferenceable(4) %b) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.sroa.8 = alloca i32, align 8
   %ref.tmp.sroa.12 = alloca i32, align 8
@@ -51899,7 +51868,7 @@ sw.bb7.i:                                         ; preds = %entry
   br i1 %tobool.not.i.i, label %cond.end.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i: ; preds = %sw.bb7.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i1 = getelementptr inbounds i8, ptr %a, i64 4
   %4 = load i8, ptr %arrayZ.i.i.i1, align 1
   %conv.i.i1.i.i = zext i8 %4 to i32
@@ -51934,7 +51903,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i: ; preds = %cond.end.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i14.i.i = getelementptr inbounds i8, ptr %a, i64 4
   %.pre42.i.i = load i8, ptr %rangeRecord.i.i, align 1
   %.pre43.i.i = load i8, ptr %arrayidx3.i.i.i.i, align 1
@@ -51953,7 +51922,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %8, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i, label %if.end.i28.i.i
 
 if.end.i28.i.i:                                   ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i: ; preds = %if.end.i28.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.thread.i.i
@@ -52077,7 +52046,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %_ZNK9hb_iter_tIN2OT
   br i1 %switch.i.i.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 4
   %idxprom.i.i.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %5 to i64
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i.i.i.i
@@ -52431,8 +52400,8 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 "_ZorI13hb_map_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjES0_I10hb_array_tIKN2OT8OffsetToINS5_7RuleSetINS5_6Layout10SmallTypesEEENS5_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_39PKNS5_16ContextFormat2_5IS9_EEEL24hb_function_sortedness_t0ELPv0EEEZNKSL_10intersectsEPK8hb_set_tEUl9hb_pair_tIjRKSA_EE_LSP_0ELSQ_0EERK4$_34TnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS16_6item_tEEE5valueEvE4typeELSQ_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS16_Efp_EEEOS16_OS1B_.exit": ; preds = %for.body.i.i, %for.inc.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjES0_I10hb_array_tIKN2OT8OffsetToINS5_7RuleSetINS5_6Layout10SmallTypesEEENS5_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_39PKNS5_16ContextFormat2_5IS9_EEEL24hb_function_sortedness_t0ELPv0EEEZNKSL_10intersectsEPK8hb_set_tEUl9hb_pair_tIjRKSA_EE_LSP_0ELSQ_0EEbEppEv.exit.i.i", %_ZNK2OT8ClassDef19intersected_classesEPK8hb_set_tPS1_.exit
   %tobool.i.i.i.i.i.i.i.i.lcssa.i.i = phi i1 [ false, %_ZNK2OT8ClassDef19intersected_classesEPK8hb_set_tPS1_.exit ], [ %call2.i.i.i.i.i.i.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjES0_I10hb_array_tIKN2OT8OffsetToINS5_7RuleSetINS5_6Layout10SmallTypesEEENS5_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_39PKNS5_16ContextFormat2_5IS9_EEEL24hb_function_sortedness_t0ELPv0EEEZNKSL_10intersectsEPK8hb_set_tEUl9hb_pair_tIjRKSA_EE_LSP_0ELSQ_0EEbEppEv.exit.i.i" ], [ %call2.i.i.i.i.i.i.i.i, %for.inc.i.i ], [ %call2.i.i.i.i.i.i.i.i, %for.body.i.i ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %it.i.i)
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %coverage_glyph_classes) #18
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %retained_coverage_glyphs) #18
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %coverage_glyph_classes) #19
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %retained_coverage_glyphs) #19
   store atomic i32 -57005, ptr %cache monotonic, align 8
   %22 = load atomic i64, ptr %user_data.i.i.i.i acquire, align 8
   %tobool.not.i.i.i.i = icmp eq i64 %22, 0
@@ -52442,8 +52411,8 @@ if.then.i.i.i.i:                                  ; preds = %"_ZorI13hb_map_iter
   %23 = inttoptr i64 %22 to ptr
   %items.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 40
   call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %23)
-  %call.i.i.i.i.i.i = call i32 @pthread_mutex_destroy(ptr noundef nonnull %23) #18
-  call void @free(ptr noundef nonnull %23) #18
+  %call.i.i.i.i.i.i = call i32 @pthread_mutex_destroy(ptr noundef nonnull %23) #19
+  call void @free(ptr noundef nonnull %23) #19
   store atomic i64 0, ptr %user_data.i.i.i.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
 
@@ -52453,7 +52422,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i: ; preds = %if.then.i
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
-  call void @free(ptr noundef nonnull %24) #18
+  call void @free(ptr noundef nonnull %24) #19
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i, %entry, %sw.bb4.i, %_ZNK2OT6Layout6Common8Coverage10intersectsEPK8hb_set_t.exit
@@ -53096,7 +53065,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.not.i, label %if.end.i, label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit
 
 if.end.i:                                         ; preds = %for.body
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i, i64 0, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit
 
@@ -53210,7 +53179,7 @@ if.then:                                          ; preds = %_ZNK14hb_sparseset_
   br i1 %cmp.not.i14, label %if.end.i16, label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit20
 
 if.end.i16:                                       ; preds = %if.then
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i19 = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i, i64 0, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit20
 
@@ -54776,7 +54745,7 @@ for.body.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %for.body.i.i.i, %fo
   %32 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext i8 %32 to i32
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %conv4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %call6.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef zeroext i1 %28(ptr noundef %20, i32 noundef %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %29, ptr noundef %30) #18
+  %call6.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef zeroext i1 %28(ptr noundef %20, i32 noundef %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %29, ptr noundef %30) #19
   br i1 %call6.i.i.i.i.i.i.i.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT8OffsetToINS2_4RuleINS2_6Layout10SmallTypesEEENS2_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_39PKNS2_7RuleSetIS6_EEEL24hb_function_sortedness_t0ELPv0EEZNKSI_10intersectsEPK8hb_set_tRNS2_27ContextClosureLookupContextEEUlRKS7_E_LSM_0ELSN_0EEbEppEv.exit.i.i.i"
 
 "_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT8OffsetToINS2_4RuleINS2_6Layout10SmallTypesEEENS2_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_39PKNS2_7RuleSetIS6_EEEL24hb_function_sortedness_t0ELPv0EEZNKSI_10intersectsEPK8hb_set_tRNS2_27ContextClosureLookupContextEEUlRKS7_E_LSM_0ELSN_0EEbEppEv.exit.i.i.i": ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -54906,8 +54875,8 @@ entry:
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i
   %retval.0.i.i = select i1 %cmp.i.i.i, ptr @_hb_NullPool, ptr %add.ptr.i.i.i
   %ruleSet = getelementptr inbounds i8, ptr %this, i64 4
-  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS1_7ArrayOfINS1_8OffsetToINS1_12ChainRuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEESD_EETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISJ_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISK_EEE4iterEEEOSJ_OSK_"(ptr noalias nonnull align 8 %ref.tmp5, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i, ptr noundef nonnull align 1 dereferenceable(4) %ruleSet)
-  call fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_12ChainRuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSQ_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISQ_Efp_EEEOSQ_OSW_"(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp5, ptr %glyphs, ptr nonnull @_ZL8hb_first)
+  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS1_7ArrayOfINS1_8OffsetToINS1_12ChainRuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEESD_EETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISJ_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISK_EEE4iterEEEOSJ_OSK_"(ptr noalias align 8 %ref.tmp5, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i, ptr noundef nonnull align 1 dereferenceable(4) %ruleSet)
+  call fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_12ChainRuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSQ_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISQ_Efp_EEEOSQ_OSW_"(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp5, ptr %glyphs, ptr nonnull @_ZL8hb_first)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %it.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %it.i.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp4, i64 64, i1 false)
   %ref.tmp.sroa.2.0.it.i.i.sroa_idx = getelementptr inbounds i8, ptr %it.i.i, i64 64
@@ -54959,7 +54928,7 @@ for.body.i.i:                                     ; preds = %_ZNK9hb_iter_tIN2OT
   br label %12
 
 "_ZNK9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_12ChainRuleSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSP_0EE12hb_partial_tILj2EPK4$_39PKNS3_21ChainContextFormat1_4ISB_EEELSU_0ELSP_0EERKSC_EdeEv.exit.i.i.i.i": ; preds = %for.body.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %.pre.i.i = load i32, ptr %length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %.pre.fr.i.i = freeze i32 %.pre.i.i
   %10 = icmp eq i32 %.pre.fr.i.i, 0
@@ -55076,7 +55045,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   %33 = load i8, ptr %arrayidx3.i.i.i.i17.i.i.i, align 1
   %conv4.i.i.i.i18.i.i.i = zext i8 %33 to i32
   %add.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i.i, %conv4.i.i.i.i18.i.i.i
-  %call6.i.i.i.i.i = call noundef zeroext i1 %29(ptr noundef %call.val.val.i.i.i.i, i32 noundef %add.i.i.i.i.i.i.i, ptr noundef %30, ptr noundef %31) #18
+  %call6.i.i.i.i.i = call noundef zeroext i1 %29(ptr noundef %call.val.val.i.i.i.i, i32 noundef %add.i.i.i.i.i.i.i, ptr noundef %30, ptr noundef %31) #19
   br i1 %call6.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT8OffsetToINS2_9ChainRuleINS2_6Layout10SmallTypesEEENS2_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_39PKNS2_12ChainRuleSetIS6_EEEL24hb_function_sortedness_t0ELPv0EEZNKSI_10intersectsEPK8hb_set_tRNS2_32ChainContextClosureLookupContextEEUlRKS7_E_LSM_0ELSN_0EEbEppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i"
 
 land.lhs.true.loopexit.i.i.i.i:                   ; preds = %for.cond.i.i.i.i.i
@@ -55106,7 +55075,7 @@ for.body.i15.i.i.i.i:                             ; preds = %land.lhs.true.i.i.i
   %38 = load i8, ptr %arrayidx3.i.i.i19.i.i.i.i, align 1
   %conv4.i.i.i20.i.i.i.i = zext i8 %38 to i32
   %add.i.i.i21.i.i.i.i = or disjoint i32 %shl.i.i.i18.i.i.i.i, %conv4.i.i.i20.i.i.i.i
-  %call6.i22.i.i.i.i = call noundef zeroext i1 %34(ptr noundef %call.val.val.i.i.i.i, i32 noundef %add.i.i.i21.i.i.i.i, ptr noundef %35, ptr noundef %36) #18
+  %call6.i22.i.i.i.i = call noundef zeroext i1 %34(ptr noundef %call.val.val.i.i.i.i, i32 noundef %add.i.i.i21.i.i.i.i, ptr noundef %35, ptr noundef %36) #19
   br i1 %call6.i22.i.i.i.i, label %for.cond.i24.i.i.i.i, label %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT8OffsetToINS2_9ChainRuleINS2_6Layout10SmallTypesEEENS2_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_39PKNS2_12ChainRuleSetIS6_EEEL24hb_function_sortedness_t0ELPv0EEZNKSI_10intersectsEPK8hb_set_tRNS2_32ChainContextClosureLookupContextEEUlRKS7_E_LSM_0ELSN_0EEbEppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i"
 
 land.rhs.loopexit.i.i.i.i:                        ; preds = %for.cond.i24.i.i.i.i
@@ -55136,7 +55105,7 @@ for.body.i31.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i, %
   %43 = load i8, ptr %arrayidx3.i.i.i35.i.i.i.i, align 1
   %conv4.i.i.i36.i.i.i.i = zext i8 %43 to i32
   %add.i.i.i37.i.i.i.i = or disjoint i32 %shl.i.i.i34.i.i.i.i, %conv4.i.i.i36.i.i.i.i
-  %call6.i38.i.i.i.i = call noundef zeroext i1 %39(ptr noundef %call.val.val.i.i.i.i, i32 noundef %add.i.i.i37.i.i.i.i, ptr noundef %40, ptr noundef %41) #18
+  %call6.i38.i.i.i.i = call noundef zeroext i1 %39(ptr noundef %call.val.val.i.i.i.i, i32 noundef %add.i.i.i37.i.i.i.i, ptr noundef %40, ptr noundef %41) #19
   br i1 %call6.i38.i.i.i.i, label %for.cond.i40.i.i.i.i, label %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT8OffsetToINS2_9ChainRuleINS2_6Layout10SmallTypesEEENS2_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_39PKNS2_12ChainRuleSetIS6_EEEL24hb_function_sortedness_t0ELPv0EEZNKSI_10intersectsEPK8hb_set_tRNS2_32ChainContextClosureLookupContextEEUlRKS7_E_LSM_0ELSN_0EEbEppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i"
 
 "_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT8OffsetToINS2_9ChainRuleINS2_6Layout10SmallTypesEEENS2_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_39PKNS2_12ChainRuleSetIS6_EEEL24hb_function_sortedness_t0ELPv0EEZNKSI_10intersectsEPK8hb_set_tRNS2_32ChainContextClosureLookupContextEEUlRKS7_E_LSM_0ELSN_0EEbEppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i": ; preds = %for.body.i.i.i.i.i, %for.body.i15.i.i.i.i, %for.body.i31.i.i.i.i
@@ -55158,7 +55127,7 @@ for.inc.i.i:                                      ; preds = %"_ZNR9hb_iter_tI13h
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_12ChainRuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSQ_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISQ_Efp_EEEOSQ_OSW_"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %lhs, ptr %rhs.0.val, ptr %rhs.8.val) unnamed_addr #0 {
+define internal fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_12ChainRuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSQ_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISQ_Efp_EEEOSQ_OSW_"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %lhs, ptr %rhs.0.val, ptr %rhs.8.val) unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %lhs, i64 48, i1 false)
   %p.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
@@ -55204,7 +55173,7 @@ land.rhs.i.i:                                     ; preds = %_ZNK9hb_iter_tIN2OT
   br i1 %switch.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 4
   %idxprom.i.i.i.i.i.i.i.i.i = zext nneg i32 %3 to i64
   %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i
@@ -55348,7 +55317,7 @@ _ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS1_7ArrayOfINS1_8OffsetToINS1_12ChainRuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEESD_EETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISJ_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISK_EEE4iterEEEOSJ_OSK_"(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(10) %a, ptr noundef nonnull align 1 dereferenceable(4) %b) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS1_7ArrayOfINS1_8OffsetToINS1_12ChainRuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEESD_EETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISJ_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISK_EEE4iterEEEOSJ_OSK_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(10) %a, ptr noundef nonnull align 1 dereferenceable(4) %b) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.sroa.8 = alloca i32, align 8
   %ref.tmp.sroa.12 = alloca i32, align 8
@@ -55380,7 +55349,7 @@ sw.bb7.i:                                         ; preds = %entry
   br i1 %tobool.not.i.i, label %cond.end.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i: ; preds = %sw.bb7.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i1 = getelementptr inbounds i8, ptr %a, i64 4
   %4 = load i8, ptr %arrayZ.i.i.i1, align 1
   %conv.i.i1.i.i = zext i8 %4 to i32
@@ -55415,7 +55384,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i: ; preds = %cond.end.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i14.i.i = getelementptr inbounds i8, ptr %a, i64 4
   %.pre42.i.i = load i8, ptr %rangeRecord.i.i, align 1
   %.pre43.i.i = load i8, ptr %arrayidx3.i.i.i.i, align 1
@@ -55434,7 +55403,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %8, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i, label %if.end.i28.i.i
 
 if.end.i28.i.i:                                   ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i: ; preds = %if.end.i28.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.thread.i.i
@@ -55563,7 +55532,7 @@ for.body.i.i:                                     ; preds = %entry, %for.cond.i.
   %15 = load i8, ptr %arrayidx3.i.i.i.i17, align 1
   %conv4.i.i.i.i18 = zext i8 %15 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %conv4.i.i.i.i18
-  %call6.i.i = tail call noundef zeroext i1 %11(ptr noundef %glyphs, i32 noundef %add.i.i.i.i, ptr noundef %12, ptr noundef %13) #18
+  %call6.i.i = tail call noundef zeroext i1 %11(ptr noundef %glyphs, i32 noundef %add.i.i.i.i, ptr noundef %12, ptr noundef %13) #19
   br i1 %call6.i.i, label %for.cond.i.i, label %_ZN2OTL24chain_context_intersectsINS_7IntTypeItLj2EEEEEbPK8hb_set_tjPKT_jS8_jS8_RNS_32ChainContextClosureLookupContextE.exit
 
 land.lhs.true.loopexit.i:                         ; preds = %for.cond.i.i
@@ -55595,7 +55564,7 @@ for.body.i15.i:                                   ; preds = %land.lhs.true.i, %f
   %20 = load i8, ptr %arrayidx3.i.i.i19.i, align 1
   %conv4.i.i.i20.i = zext i8 %20 to i32
   %add.i.i.i21.i = or disjoint i32 %shl.i.i.i18.i, %conv4.i.i.i20.i
-  %call6.i22.i = tail call noundef zeroext i1 %16(ptr noundef %glyphs, i32 noundef %add.i.i.i21.i, ptr noundef %17, ptr noundef %18) #18
+  %call6.i22.i = tail call noundef zeroext i1 %16(ptr noundef %glyphs, i32 noundef %add.i.i.i21.i, ptr noundef %17, ptr noundef %18) #19
   br i1 %call6.i22.i, label %for.cond.i24.i, label %_ZN2OTL24chain_context_intersectsINS_7IntTypeItLj2EEEEEbPK8hb_set_tjPKT_jS8_jS8_RNS_32ChainContextClosureLookupContextE.exit
 
 land.rhs.loopexit.i:                              ; preds = %for.cond.i24.i
@@ -55622,7 +55591,7 @@ for.body.i31.i:                                   ; preds = %land.rhs.i, %for.bo
   %25 = load i8, ptr %arrayidx3.i.i.i35.i, align 1
   %conv4.i.i.i36.i = zext i8 %25 to i32
   %add.i.i.i37.i = or disjoint i32 %shl.i.i.i34.i, %conv4.i.i.i36.i
-  %call6.i38.i = tail call noundef zeroext i1 %21(ptr noundef %glyphs, i32 noundef %add.i.i.i37.i, ptr noundef %22, ptr noundef %23) #18
+  %call6.i38.i = tail call noundef zeroext i1 %21(ptr noundef %glyphs, i32 noundef %add.i.i.i37.i, ptr noundef %22, ptr noundef %23) #19
   %incdec.ptr.i41.i = getelementptr inbounds i8, ptr %__begin0.08.i32.i, i64 2
   %cmp.not.i42.i = icmp ne ptr %incdec.ptr.i41.i, %add.ptr.i.i29.i
   %or.cond.not = select i1 %call6.i38.i, i1 %cmp.not.i42.i, i1 false
@@ -55691,7 +55660,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %_ZNK9hb_iter_tIN2OT
   br i1 %switch.i.i.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 4
   %idxprom.i.i.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %5 to i64
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i.i.i.i
@@ -56090,8 +56059,8 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 "_ZorI13hb_map_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjES0_I10hb_array_tIKN2OT8OffsetToINS5_12ChainRuleSetINS5_6Layout10SmallTypesEEENS5_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_39PKNS5_21ChainContextFormat2_5IS9_EEEL24hb_function_sortedness_t0ELPv0EEEZNKSL_10intersectsEPK8hb_set_tEUl9hb_pair_tIjRKSA_EE_LSP_0ELSQ_0EERK4$_34TnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS16_6item_tEEE5valueEvE4typeELSQ_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS16_Efp_EEEOS16_OS1B_.exit": ; preds = %for.body.i.i, %for.inc.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjES0_I10hb_array_tIKN2OT8OffsetToINS5_12ChainRuleSetINS5_6Layout10SmallTypesEEENS5_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_39PKNS5_21ChainContextFormat2_5IS9_EEEL24hb_function_sortedness_t0ELPv0EEEZNKSL_10intersectsEPK8hb_set_tEUl9hb_pair_tIjRKSA_EE_LSP_0ELSQ_0EEbEppEv.exit.i.i", %_ZNK2OT8ClassDef19intersected_classesEPK8hb_set_tPS1_.exit
   %tobool.i.i.i.i.i.i.i.i.lcssa.i.i = phi i1 [ false, %_ZNK2OT8ClassDef19intersected_classesEPK8hb_set_tPS1_.exit ], [ %call2.i.i.i.i.i.i.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjES0_I10hb_array_tIKN2OT8OffsetToINS5_12ChainRuleSetINS5_6Layout10SmallTypesEEENS5_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_39PKNS5_21ChainContextFormat2_5IS9_EEEL24hb_function_sortedness_t0ELPv0EEEZNKSL_10intersectsEPK8hb_set_tEUl9hb_pair_tIjRKSA_EE_LSP_0ELSQ_0EEbEppEv.exit.i.i" ], [ %call2.i.i.i.i.i.i.i.i, %for.inc.i.i ], [ %call2.i.i.i.i.i.i.i.i, %for.body.i.i ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %it.i.i)
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %coverage_glyph_classes) #18
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %retained_coverage_glyphs) #18
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %coverage_glyph_classes) #19
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %retained_coverage_glyphs) #19
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %_ZN8hb_map_tD2Ev.exit, %"_ZorI13hb_map_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjES0_I10hb_array_tIKN2OT8OffsetToINS5_12ChainRuleSetINS5_6Layout10SmallTypesEEENS5_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_39PKNS5_21ChainContextFormat2_5IS9_EEEL24hb_function_sortedness_t0ELPv0EEEZNKSL_10intersectsEPK8hb_set_tEUl9hb_pair_tIjRKSA_EE_LSP_0ELSQ_0EERK4$_34TnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS16_6item_tEEE5valueEvE4typeELSQ_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS16_Efp_EEEOS16_OS1B_.exit"
@@ -56107,8 +56076,8 @@ if.then.i.i.i.i:                                  ; preds = %arraydestroy.body
   %27 = inttoptr i64 %26 to ptr
   %items.i.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 40
   call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %27)
-  %call.i.i.i.i.i.i = call i32 @pthread_mutex_destroy(ptr noundef nonnull %27) #18
-  call void @free(ptr noundef nonnull %27) #18
+  %call.i.i.i.i.i.i = call i32 @pthread_mutex_destroy(ptr noundef nonnull %27) #19
+  call void @free(ptr noundef nonnull %27) #19
   store atomic i64 0, ptr %user_data2.i.i.i.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
 
@@ -56119,7 +56088,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i: ; preds = %if.then.i
   br i1 %tobool.not.i.i.i, label %_ZN8hb_map_tD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
-  call void @free(ptr noundef nonnull %28) #18
+  call void @free(ptr noundef nonnull %28) #19
   store ptr null, ptr %items.i.i.i71, align 8
   br label %_ZN8hb_map_tD2Ev.exit
 
@@ -56330,7 +56299,7 @@ entry:
   br i1 %cmp.not.i.not, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEEvLb1EEES6_EixEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i = getelementptr inbounds i8, ptr %4, i64 4
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEEvLb1EEES6_EixEi.exit
 
@@ -56605,7 +56574,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.not.i, label %if.end.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEEvLb1EEES6_EixEi.exit
 
 if.end.i:                                         ; preds = %for.body
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i = getelementptr inbounds [1 x %"struct.OT::OffsetTo.491"], ptr %arrayZ.i, i64 0, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEEvLb1EEES6_EixEi.exit
 
@@ -56675,7 +56644,7 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
   br i1 %cmp.not.i45, label %if.end.i47, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEEvLb1EEES6_EixEi.exit51
 
 if.end.i47:                                       ; preds = %for.body19
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i50 = getelementptr inbounds [1 x %"struct.OT::OffsetTo.491"], ptr %arrayZ.i48, i64 0, i64 %indvars.iv85
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEEvLb1EEES6_EixEi.exit51
 
@@ -56993,10 +56962,10 @@ entry:
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i
   %retval.0.i.i = select i1 %cmp.i.i.i, ptr @_hb_NullPool, ptr %add.ptr.i.i.i
   %ruleSet = getelementptr inbounds i8, ptr %this, i64 4
-  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS1_7ArrayOfINS1_8OffsetToINS1_7RuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEESD_EETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISJ_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISK_EEE4iterEEEOSJ_OSK_"(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i, ptr noundef nonnull align 1 dereferenceable(4) %ruleSet)
+  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS1_7ArrayOfINS1_8OffsetToINS1_7RuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEESD_EETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISJ_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISK_EEE4iterEEEOSJ_OSK_"(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i, ptr noundef nonnull align 1 dereferenceable(4) %ruleSet)
   %glyphs = getelementptr inbounds i8, ptr %c, i64 16
   %2 = load ptr, ptr %glyphs, align 8
-  call fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_7RuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSQ_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISQ_Efp_EEEOSQ_OSW_"(ptr noalias nonnull align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp4, ptr %2, ptr nonnull @_ZL8hb_first)
+  call fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_7RuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSQ_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISQ_Efp_EEEOSQ_OSW_"(ptr noalias align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp4, ptr %2, ptr nonnull @_ZL8hb_first)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %agg.tmp1.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp3, i64 64, i1 false)
   %ref.tmp.sroa.2.0.agg.tmp1.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 64
@@ -57044,7 +57013,7 @@ for.body.i.i:                                     ; preds = %_ZNK9hb_iter_tIN2OT
   br label %13
 
 "_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_7RuleSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSP_0EE12hb_partial_tILj2EPK4$_39PKNS3_16ContextFormat1_4ISB_EEELSU_0ELSP_0EERKSC_EdeEv.exit.i.i": ; preds = %for.body.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %.pre.i.i = load i32, ptr %length.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %.pre.fr.i.i = freeze i32 %.pre.i.i
   %11 = icmp eq i32 %.pre.fr.i.i, 0
@@ -57158,7 +57127,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i,
   %13 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i.i.i.i.i.i.i = zext i8 %13 to i32
   %add.i.i.i.i.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i.i.i.i.i.i, %conv4.i.i.i.i.i.i.i.i.i.i.i
-  %call6.i.i.i.i.i.i.i.i.i = tail call noundef zeroext i1 %9(ptr noundef %6, i32 noundef %add.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %10, ptr noundef %11) #18
+  %call6.i.i.i.i.i.i.i.i.i = tail call noundef zeroext i1 %9(ptr noundef %6, i32 noundef %add.i.i.i.i.i.i.i.i.i.i.i, ptr noundef %10, ptr noundef %11) #19
   br i1 %call6.i.i.i.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i.i.i.i, label %"_ZNR9hb_iter_tI13hb_map_iter_tI10hb_array_tIKN2OT8OffsetToINS2_4RuleINS2_6Layout10SmallTypesEEENS2_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_39PKNS2_7RuleSetIS6_EEEL24hb_function_sortedness_t0ELPv0EERKS7_EppEv.exit.i.i"
 
 if.end4.loopexit.i.i.i.i.i.i:                     ; preds = %for.cond.i.i.i.i.i.i.i.i.i
@@ -57324,7 +57293,7 @@ if.end8.i.i.i:                                    ; preds = %_ZNK14hb_sparseset_
   %dec.i.i.i = add i32 %36, -1
   store i32 %dec.i.i.i, ptr %nesting_level_left.i.i.i, align 8
   %37 = load ptr, ptr %recurse_func.i.i.i, align 8
-  tail call void %37(ptr noundef nonnull %c, i32 noundef %add.i.i.i18.i.i.i.i.i.i) #18
+  tail call void %37(ptr noundef nonnull %c, i32 noundef %add.i.i.i18.i.i.i.i.i.i) #19
   %38 = load i32, ptr %nesting_level_left.i.i.i, align 8
   %inc.i.i.i = add i32 %38, 1
   store i32 %inc.i.i.i, ptr %nesting_level_left.i.i.i, align 8
@@ -57472,7 +57441,7 @@ if.end8:                                          ; preds = %_ZNK14hb_sparseset_
   %dec = add i32 %16, -1
   store i32 %dec, ptr %nesting_level_left, align 8
   %17 = load ptr, ptr %recurse_func, align 8
-  tail call void %17(ptr noundef nonnull %this, i32 noundef %lookup_index) #18
+  tail call void %17(ptr noundef nonnull %this, i32 noundef %lookup_index) #19
   %18 = load i32, ptr %nesting_level_left, align 8
   %inc = add i32 %18, 1
   store i32 %inc, ptr %nesting_level_left, align 8
@@ -58139,8 +58108,8 @@ if.then.i.i.i.i:                                  ; preds = %"_ZorI13hb_map_iter
   %67 = inttoptr i64 %66 to ptr
   %items.i.i.i.i.i = getelementptr inbounds i8, ptr %67, i64 40
   call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %67)
-  %call.i.i.i.i.i.i = call i32 @pthread_mutex_destroy(ptr noundef nonnull %67) #18
-  call void @free(ptr noundef nonnull %67) #18
+  %call.i.i.i.i.i.i = call i32 @pthread_mutex_destroy(ptr noundef nonnull %67) #19
+  call void @free(ptr noundef nonnull %67) #19
   store atomic i64 0, ptr %user_data.i.i.i.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
 
@@ -58150,7 +58119,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i: ; preds = %if.then.i
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i39
 
 if.then.i.i.i39:                                  ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
-  call void @free(ptr noundef nonnull %68) #18
+  call void @free(ptr noundef nonnull %68) #19
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i39, %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i, %entry, %sw.bb4.i, %_ZNK2OT6Layout6Common8Coverage10intersectsEPK8hb_set_t.exit
@@ -58178,10 +58147,10 @@ entry:
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i
   %retval.0.i.i = select i1 %cmp.i.i.i, ptr @_hb_NullPool, ptr %add.ptr.i.i.i
   %ruleSet = getelementptr inbounds i8, ptr %this, i64 4
-  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS1_7ArrayOfINS1_8OffsetToINS1_12ChainRuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEESD_EETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISJ_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISK_EEE4iterEEEOSJ_OSK_"(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i, ptr noundef nonnull align 1 dereferenceable(4) %ruleSet)
+  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS1_7ArrayOfINS1_8OffsetToINS1_12ChainRuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEESD_EETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISJ_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISK_EEE4iterEEEOSJ_OSK_"(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i, ptr noundef nonnull align 1 dereferenceable(4) %ruleSet)
   %glyphs = getelementptr inbounds i8, ptr %c, i64 16
   %2 = load ptr, ptr %glyphs, align 8
-  call fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_12ChainRuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSQ_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISQ_Efp_EEEOSQ_OSW_"(ptr noalias nonnull align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp4, ptr %2, ptr nonnull @_ZL8hb_first)
+  call fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_12ChainRuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSQ_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISQ_Efp_EEEOSQ_OSW_"(ptr noalias align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp4, ptr %2, ptr nonnull @_ZL8hb_first)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %agg.tmp1.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp3, i64 64, i1 false)
   %ref.tmp.sroa.2.0.agg.tmp1.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 64
@@ -58229,7 +58198,7 @@ for.body.i.i:                                     ; preds = %_ZNK9hb_iter_tIN2OT
   br label %13
 
 "_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_12ChainRuleSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSP_0EE12hb_partial_tILj2EPK4$_39PKNS3_21ChainContextFormat1_4ISB_EEELSU_0ELSP_0EERKSC_EdeEv.exit.i.i": ; preds = %for.body.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %.pre.i.i = load i32, ptr %length.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %.pre.fr.i.i = freeze i32 %.pre.i.i
   %11 = icmp eq i32 %.pre.fr.i.i, 0
@@ -58494,7 +58463,7 @@ if.end8.i.i.i:                                    ; preds = %_ZNK14hb_sparseset_
   %dec.i.i.i = add i32 %43, -1
   store i32 %dec.i.i.i, ptr %nesting_level_left.i.i.i, align 8
   %44 = load ptr, ptr %recurse_func.i.i.i, align 8
-  tail call void %44(ptr noundef nonnull %c, i32 noundef %add.i.i.i.i.i.i.i.i.i) #18
+  tail call void %44(ptr noundef nonnull %c, i32 noundef %add.i.i.i.i.i.i.i.i.i) #19
   %45 = load i32, ptr %nesting_level_left.i.i.i, align 8
   %inc.i.i.i = add i32 %45, 1
   store i32 %inc.i.i.i, ptr %nesting_level_left.i.i.i, align 8
@@ -59222,8 +59191,8 @@ if.then.i.i.i.i:                                  ; preds = %arraydestroy.body
   %71 = inttoptr i64 %70 to ptr
   %items.i.i.i.i.i = getelementptr inbounds i8, ptr %71, i64 40
   call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %71)
-  %call.i.i.i.i.i.i = call i32 @pthread_mutex_destroy(ptr noundef nonnull %71) #18
-  call void @free(ptr noundef nonnull %71) #18
+  %call.i.i.i.i.i.i = call i32 @pthread_mutex_destroy(ptr noundef nonnull %71) #19
+  call void @free(ptr noundef nonnull %71) #19
   store atomic i64 0, ptr %user_data2.i.i.i.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
 
@@ -59234,7 +59203,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i: ; preds = %if.then.i
   br i1 %tobool.not.i.i.i, label %_ZN8hb_map_tD2Ev.exit, label %if.then.i.i.i57
 
 if.then.i.i.i57:                                  ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
-  call void @free(ptr noundef nonnull %72) #18
+  call void @free(ptr noundef nonnull %72) #19
   store ptr null, ptr %items.i.i.i56, align 8
   br label %_ZN8hb_map_tD2Ev.exit
 
@@ -59362,7 +59331,7 @@ if.end:                                           ; preds = %if.then.i.i, %for.b
   br i1 %cmp.not.i, label %if.end.i4, label %_ZNK2OT7ArrayOfINS_22FeatureVariationRecordENS_7IntTypeIjLj4EEEEixEi.exit
 
 if.end.i4:                                        ; preds = %if.end
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i = getelementptr inbounds [1 x %"struct.OT::FeatureVariationRecord"], ptr %arrayZ.i, i64 0, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_22FeatureVariationRecordENS_7IntTypeIjLj4EEEEixEi.exit
 
@@ -59779,7 +59748,7 @@ if.end34:                                         ; preds = %if.then31, %while.e
   store i32 %15, ptr %arrayidx29, align 8
   %value36 = getelementptr inbounds i8, ptr %arrayidx29, i64 8
   %16 = load ptr, ptr %value36, align 8
-  tail call void @hb_set_destroy(ptr noundef %16) #18
+  tail call void @hb_set_destroy(ptr noundef %16) #19
   %17 = load ptr, ptr %value, align 8
   store ptr %17, ptr %value36, align 8
   store ptr null, ptr %value, align 8
@@ -59922,14 +59891,14 @@ for.body43:                                       ; preds = %for.body43.preheade
   %indvars.iv36 = phi i64 [ 0, %for.body43.preheader ], [ %indvars.iv.next37, %for.body43 ]
   %value.i = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, hb::unique_ptr<hb_set_t>>::item_t", ptr %5, i64 %indvars.iv36, i32 2
   %7 = load ptr, ptr %value.i, align 8
-  tail call void @hb_set_destroy(ptr noundef %7) #18
+  tail call void @hb_set_destroy(ptr noundef %7) #19
   store ptr null, ptr %value.i, align 8
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
   br i1 %exitcond40.not, label %for.end48, label %for.body43, !llvm.loop !436
 
 for.end48:                                        ; preds = %for.body43, %_ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EE9prime_forEj.exit
-  tail call void @free(ptr noundef %5) #18
+  tail call void @free(ptr noundef %5) #19
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %for.end48, %if.then10
@@ -60046,7 +60015,7 @@ if.end34:                                         ; preds = %if.then31, %while.e
   store i32 %15, ptr %arrayidx29, align 8
   %value36 = getelementptr inbounds i8, ptr %arrayidx29, i64 8
   %16 = load ptr, ptr %value36, align 8
-  tail call void @hb_set_destroy(ptr noundef %16) #18
+  tail call void @hb_set_destroy(ptr noundef %16) #19
   %17 = load ptr, ptr %value, align 8
   store ptr %17, ptr %value36, align 8
   store ptr null, ptr %value, align 8
@@ -60173,12 +60142,12 @@ if.end.i.i:                                       ; preds = %while.body.lr.ph.i.
   br i1 %tobool.i.not.i.i, label %if.then7, label %while.body.i.i, !llvm.loop !288
 
 if.then7:                                         ; preds = %if.end.i.i, %if.end5, %if.end.i, %if.then.i.i
-  %call9 = tail call ptr @hb_set_create() #18
+  %call9 = tail call ptr @hb_set_create() #19
   store ptr %call9, ptr %ref.tmp, align 8
   %mul.i.i.i26 = mul i32 %script_index, -1640531535
   %call2.i = call noundef zeroext i1 @_ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EE13set_with_hashIRKjS3_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 4 dereferenceable(4) %script_index.addr, i32 noundef %mul.i.i.i26, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i1 noundef zeroext true)
   %13 = load ptr, ptr %ref.tmp, align 8
-  call void @hb_set_destroy(ptr noundef %13) #18
+  call void @hb_set_destroy(ptr noundef %13) #19
   store ptr null, ptr %ref.tmp, align 8
   br i1 %call2.i, label %if.end13, label %if.end65
 
@@ -61288,7 +61257,7 @@ entry:
   br i1 %tobool.not, label %_ZN9hb_lock_tC2EP10hb_mutex_t.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #18
+  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #19
   %.pre = load ptr, ptr %accelerator, align 8
   br label %_ZN9hb_lock_tC2EP10hb_mutex_t.exit
 
@@ -61388,7 +61357,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i, %while
 _ZNK12hb_hashmap_tIjN2hb10unique_ptrI9hb_blob_tEELb0EE3getERKj.exit: ; preds = %if.end.i.i.i, %if.then.i.i.i
   %retval.0.i16 = phi ptr [ %spec.select.i.i, %if.then.i.i.i ], [ @_hb_NullPool, %if.end.i.i.i ]
   %13 = load ptr, ptr %retval.0.i16, align 8
-  %call16 = tail call ptr @hb_blob_reference(ptr noundef %13) #18
+  %call16 = tail call ptr @hb_blob_reference(ptr noundef %13) #19
   br label %cleanup
 
 _ZN21hb_sanitize_context_t15reference_tableIN2OT6Layout4GPOSEEEP9hb_blob_tPK9hb_face_tj.exit: ; preds = %if.end.i.i, %if.then.i.i.thread, %if.then.i.i, %if.end.i, %land.rhs, %_ZN9hb_lock_tC2EP10hb_mutex_t.exit
@@ -61405,10 +61374,10 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT6Layout4GPOSEEEP9hb_blob_tPK9hb_
   store i8 0, ptr %lazy_some_gpos.i, align 1
   %source = getelementptr inbounds i8, ptr %plan, i64 56
   %14 = load ptr, ptr %source, align 8
-  %call.i = tail call i32 @hb_face_get_glyph_count(ptr noundef %14) #18
+  %call.i = tail call i32 @hb_face_get_glyph_count(ptr noundef %14) #19
   store i32 %call.i, ptr %num_glyphs.i, align 8
   store i8 1, ptr %num_glyphs_set.i, align 4
-  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef %14, i32 noundef 1196445523) #18
+  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef %14, i32 noundef 1196445523) #19
   %call3.i = call noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT6Layout4GPOSEEEP9hb_blob_tS5_(ptr noundef nonnull align 8 dereferenceable(62) %ref.tmp17, ptr noundef %call2.i)
   store ptr %call3.i, ptr %table_blob, align 8
   %15 = load ptr, ptr %blob.i, align 8
@@ -61416,17 +61385,17 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT6Layout4GPOSEEEP9hb_blob_tPK9hb_
   br i1 %tobool.not.i22, label %_ZN21hb_sanitize_context_tD2Ev.exit, label %if.then.i23
 
 if.then.i23:                                      ; preds = %_ZN21hb_sanitize_context_t15reference_tableIN2OT6Layout4GPOSEEEP9hb_blob_tPK9hb_face_tj.exit
-  call void @hb_blob_destroy(ptr noundef nonnull %15) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %15) #19
   store ptr null, ptr %blob.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start.i, i8 0, i64 20, i1 false)
   br label %_ZN21hb_sanitize_context_tD2Ev.exit
 
 _ZN21hb_sanitize_context_tD2Ev.exit:              ; preds = %_ZN21hb_sanitize_context_t15reference_tableIN2OT6Layout4GPOSEEEP9hb_blob_tPK9hb_face_tj.exit, %if.then.i23
-  %call20 = call ptr @hb_blob_reference(ptr noundef %call3.i) #18
+  %call20 = call ptr @hb_blob_reference(ptr noundef %call3.i) #19
   store i32 1196445523, ptr %ref.tmp23, align 4
   %call2.i27 = call noundef zeroext i1 @_ZN12hb_hashmap_tIjN2hb10unique_ptrI9hb_blob_tEELb0EE13set_with_hashIjS3_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %cond10, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp23, i32 noundef -1998974109, ptr noundef nonnull align 8 dereferenceable(8) %table_blob, i1 noundef zeroext true)
   %16 = load ptr, ptr %table_blob, align 8
-  call void @hb_blob_destroy(ptr noundef %16) #18
+  call void @hb_blob_destroy(ptr noundef %16) #19
   store ptr null, ptr %table_blob, align 8
   br label %cleanup
 
@@ -61435,7 +61404,7 @@ cleanup:                                          ; preds = %_ZN21hb_sanitize_co
   br i1 %tobool.not, label %_ZN9hb_lock_tD2Ev.exit, label %if.then.i29
 
 if.then.i29:                                      ; preds = %cleanup
-  %call.i.i30 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #18
+  %call.i.i30 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #19
   br label %_ZN9hb_lock_tD2Ev.exit
 
 _ZN9hb_lock_tD2Ev.exit:                           ; preds = %cleanup, %if.then.i29
@@ -61445,7 +61414,7 @@ _ZN9hb_lock_tD2Ev.exit:                           ; preds = %cleanup, %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT6Layout4GPOSEEEP9hb_blob_tS5_(ptr noundef nonnull align 8 dereferenceable(62) %this, ptr noundef %blob) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #18
+  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #19
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call.i, ptr %blob.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -61490,7 +61459,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %retry, %if.else.
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
-  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %return
@@ -61500,7 +61469,7 @@ if.end:                                           ; preds = %_ZN21hb_sanitize_co
   br i1 %cmp.i.i.not.i.i, label %if.else39.critedge, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %2, align 1
   %conv.i.i2.i.i = zext i8 %6 to i32
   %shl.i.i.i.i = shl nuw nsw i32 %conv.i.i2.i.i, 8
@@ -61534,7 +61503,7 @@ if.then7:                                         ; preds = %if.then5
   br i1 %cmp.i.i.not.i.i20, label %_ZNK2OT6Layout4GPOS8sanitizeEP21hb_sanitize_context_t.exit31, label %if.end.i.i21
 
 if.end.i.i21:                                     ; preds = %if.then7
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %11 = load i8, ptr %2, align 1
   %conv.i.i2.i.i22 = zext i8 %11 to i32
   %shl.i.i.i.i23 = shl nuw nsw i32 %conv.i.i2.i.i22, 8
@@ -61554,7 +61523,7 @@ _ZNK2OT6Layout4GPOS8sanitizeEP21hb_sanitize_context_t.exit31: ; preds = %if.then
   %14 = load i32, ptr %edit_count.i, align 4
   %tobool14.not = icmp ne i32 %14, 0
   %15 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %15) #18
+  tail call void @hb_blob_destroy(ptr noundef %15) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   %brmerge = or i1 %tobool14.not, %retval.0.i.i28
@@ -61571,7 +61540,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %tobool22, label %if.else39.critedge, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #18
+  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #19
   store ptr %call24, ptr %start, align 8
   %18 = load i32, ptr %length, align 8
   %idx.ext = zext i32 %18 to i64
@@ -61582,25 +61551,25 @@ if.then23:                                        ; preds = %land.lhs.true
 
 if.then38.critedge:                               ; preds = %if.then5
   %19 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %19) #18
+  tail call void @hb_blob_destroy(ptr noundef %19) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.then38
 
 if.then38:                                        ; preds = %_ZNK2OT6Layout4GPOS8sanitizeEP21hb_sanitize_context_t.exit31, %if.then38.critedge
-  tail call void @hb_blob_make_immutable(ptr noundef %blob) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %blob) #19
   br label %return
 
 if.else39.critedge:                               ; preds = %if.end, %if.else, %if.then23, %land.lhs.true
   %20 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %20) #18
+  tail call void @hb_blob_destroy(ptr noundef %20) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.else39
 
 if.else39:                                        ; preds = %_ZNK2OT6Layout4GPOS8sanitizeEP21hb_sanitize_context_t.exit31, %if.else39.critedge
-  tail call void @hb_blob_destroy(ptr noundef %blob) #18
-  %call40 = tail call ptr @hb_blob_get_empty() #18
+  tail call void @hb_blob_destroy(ptr noundef %blob) #19
+  %call40 = tail call ptr @hb_blob_get_empty() #19
   br label %return
 
 return:                                           ; preds = %if.else39, %if.then38, %if.then
@@ -61625,8 +61594,8 @@ entry:
   br i1 %cmp.i.i.not.i.not, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %scriptList, align 1
   %conv.i.i.i16 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i16, 8
@@ -61673,8 +61642,8 @@ land.lhs.true:                                    ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.not.i24.not, label %return, label %land.lhs.true.i23
 
 land.lhs.true.i23:                                ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i26 = zext i8 %8 to i32
   %shl.i.i.i27 = shl nuw nsw i32 %conv.i.i.i26, 8
@@ -61721,8 +61690,8 @@ land.lhs.true3:                                   ; preds = %land.lhs.true.i23, 
   br i1 %cmp.i.i.not.i56.not, label %return, label %land.lhs.true.i63
 
 land.lhs.true.i63:                                ; preds = %land.lhs.true3
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %add.ptr.i.i17, align 1
   %conv.i.i.i58 = zext i8 %14 to i32
   %shl.i.i.i59 = shl nuw nsw i32 %conv.i.i.i58, 8
@@ -61790,8 +61759,8 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp.i.i.not.i92.not, label %return, label %land.lhs.true.i43
 
 land.lhs.true.i43:                                ; preds = %lor.lhs.false
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %26 = load i8, ptr %add.ptr.i.i49, align 1
   %conv.i.i.i94 = zext i8 %26 to i32
   %shl.i.i.i95 = shl nuw i32 %conv.i.i.i94, 24
@@ -61857,7 +61826,7 @@ entry:
   br i1 %cmp.i.i.i.not.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl9PosLookupENS_7IntTypeItLj2EEEvLb1EEES6_E8sanitizeIJPKNS_16List16OfOffsetToIS4_S6_EEEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 1
@@ -61892,7 +61861,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl9PosLookupENS_7IntTypeItLj2EEEv
   br i1 %cmp7.i.i.i, label %if.end.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl9PosLookupENS_7IntTypeItLj2EEEvLb1EEES6_E8sanitizeIJPKNS_16List16OfOffsetToIS4_S6_EEEEEbP21hb_sanitize_context_tDpOT_.exit
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl9PosLookupENS_7IntTypeItLj2EEEvLb1EEES6_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %10 = load i8, ptr %this, align 1
   %conv.i.i = zext i8 %10 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
@@ -61922,8 +61891,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl9PosLookupENS_7IntTypeItLj2EEEvLb1EEES6_E8sanitizeIJPKNS_16List16OfOffsetToIS4_S6_EEEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i.i.i4
 
 land.lhs.true.i.i.i4:                             ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %14 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i4.i.i, 8
@@ -61984,7 +61953,7 @@ entry:
 
 land.lhs.true.i:                                  ; preds = %entry
   %subTable = getelementptr inbounds i8, ptr %this, i64 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %subTable, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 5
@@ -62018,7 +61987,7 @@ _ZNK2OT7ArrayOfINS_6OffsetINS_7IntTypeItLj2EEELb1EEES3_E16sanitize_shallowEP21hb
   br i1 %cmp7.i.i.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZNK2OT7ArrayOfINS_6OffsetINS_7IntTypeItLj2EEELb1EEES3_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %10 = load i8, ptr %subTable, align 1
   %conv.i.i.i17 = zext i8 %10 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i17, 8
@@ -62078,7 +62047,7 @@ if.end20:                                         ; preds = %if.end10.if.end20_c
   br i1 %cmp.i.i.i.not.i44, label %return, label %land.lhs.true.i45
 
 land.lhs.true.i45:                                ; preds = %if.end20
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %22 = load i8, ptr %subTable, align 1
   %conv.i.i11.i46 = zext i8 %22 to i32
   %23 = load i8, ptr %arrayidx3.i.i.i, align 1
@@ -62110,7 +62079,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl17PosLookupSubTableENS_7IntType
   br i1 %cmp7.i.i.i63, label %if.end.i60, label %return
 
 if.end.i60:                                       ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl17PosLookupSubTableENS_7IntTypeItLj2EEEvLb1EEES6_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %30 = load i8, ptr %subTable, align 1
   %conv.i.i66 = zext i8 %30 to i32
   %shl.i.i67 = shl nuw nsw i32 %conv.i.i66, 8
@@ -62140,8 +62109,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %return, label %land.lhs.true.i.i.i71
 
 land.lhs.true.i.i.i71:                            ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %34 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %34 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i4.i.i, 8
@@ -62196,7 +62165,7 @@ land.lhs.true31:                                  ; preds = %if.end29
   br i1 %tobool33.not, label %if.then34, label %return
 
 if.then34:                                        ; preds = %land.lhs.true31
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %41 = load i8, ptr %subTable, align 1
   %conv.i.i.i.i81 = zext i8 %41 to i32
   %shl.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i81, 8
@@ -62207,7 +62176,7 @@ if.then34:                                        ; preds = %land.lhs.true31
   br i1 %cmp.not.i.i.not, label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GPOS_impl17PosLookupSubTableEEERKT_j.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then34
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   br label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GPOS_impl17PosLookupSubTableEEERKT_j.exit
 
 _ZNK2OT6Lookup12get_subtableINS_6Layout9GPOS_impl17PosLookupSubTableEEERKT_j.exit: ; preds = %if.then34, %if.end.i.i
@@ -62259,7 +62228,7 @@ for.body:                                         ; preds = %_ZNK2OT6Lookup12get
   br i1 %cmp.not.i.i101, label %if.end.i.i112, label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GPOS_impl17PosLookupSubTableEEERKT_j.exit114
 
 if.end.i.i112:                                    ; preds = %for.body
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i.i = getelementptr inbounds [1 x %"struct.OT::OffsetTo.856"], ptr %add.ptr.i, i64 0, i64 %indvars.iv143
   br label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GPOS_impl17PosLookupSubTableEEERKT_j.exit114
 
@@ -62338,7 +62307,7 @@ sw.bb:                                            ; preds = %tailrecurse
   br i1 %cmp.i.i.i.i.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this.tr, align 1
   %conv.i.i.i = zext i8 %2 to i16
   %shl.i.i.i = shl nuw i16 %conv.i.i.i, 8
@@ -62371,7 +62340,7 @@ sw.bb3:                                           ; preds = %tailrecurse
   br i1 %cmp.i.i.i.i.not.i16, label %return, label %if.end.i17
 
 if.end.i17:                                       ; preds = %sw.bb3
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %this.tr, align 1
   %conv.i.i.i18 = zext i8 %6 to i16
   %shl.i.i.i19 = shl nuw i16 %conv.i.i.i18, 8
@@ -62404,7 +62373,7 @@ sw.bb9:                                           ; preds = %tailrecurse
   br i1 %cmp.i.i.i.i.not.i36, label %return, label %if.end.i37
 
 if.end.i37:                                       ; preds = %sw.bb9
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %10 = load i8, ptr %this.tr, align 1
   %conv.i.i.i38 = zext i8 %10 to i32
   %shl.i.i.i39 = shl nuw nsw i32 %conv.i.i.i38, 8
@@ -62431,7 +62400,7 @@ sw.bb15:                                          ; preds = %tailrecurse
   br i1 %cmp.i.i.i.i.not.i54, label %return, label %if.end.i55
 
 if.end.i55:                                       ; preds = %sw.bb15
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %this.tr, align 1
   %conv.i.i.i56 = zext i8 %14 to i32
   %shl.i.i.i57 = shl nuw nsw i32 %conv.i.i.i56, 8
@@ -62458,7 +62427,7 @@ sw.bb21:                                          ; preds = %tailrecurse
   br i1 %cmp.i.i.i.i.not.i73, label %return, label %if.end.i74
 
 if.end.i74:                                       ; preds = %sw.bb21
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %18 = load i8, ptr %this.tr, align 1
   %conv.i.i.i75 = zext i8 %18 to i32
   %shl.i.i.i76 = shl nuw nsw i32 %conv.i.i.i75, 8
@@ -62485,7 +62454,7 @@ sw.bb27:                                          ; preds = %tailrecurse
   br i1 %cmp.i.i.i.i.not.i92, label %return, label %if.end.i93
 
 if.end.i93:                                       ; preds = %sw.bb27
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %22 = load i8, ptr %this.tr, align 1
   %conv.i.i.i94 = zext i8 %22 to i32
   %shl.i.i.i95 = shl nuw nsw i32 %conv.i.i.i94, 8
@@ -62512,7 +62481,7 @@ sw.bb33:                                          ; preds = %tailrecurse
   br i1 %cmp.i.i.i.i.not.i111, label %return, label %if.end.i112
 
 if.end.i112:                                      ; preds = %sw.bb33
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %26 = load i8, ptr %this.tr, align 1
   %conv.i.i.i113 = zext i8 %26 to i16
   %shl.i.i.i114 = shl nuw i16 %conv.i.i.i113, 8
@@ -62550,7 +62519,7 @@ sw.bb39:                                          ; preds = %tailrecurse
   br i1 %cmp.i.i.i.i.not.i130, label %return, label %if.end.i131
 
 if.end.i131:                                      ; preds = %sw.bb39
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %30 = load i8, ptr %this.tr, align 1
   %conv.i.i.i132 = zext i8 %30 to i16
   %shl.i.i.i133 = shl nuw i16 %conv.i.i.i132, 8
@@ -62588,7 +62557,7 @@ sw.bb45:                                          ; preds = %tailrecurse
   br i1 %cmp.i.i.i.i.not.i154, label %return, label %if.end.i155
 
 if.end.i155:                                      ; preds = %sw.bb45
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %34 = load i8, ptr %this.tr, align 1
   %conv.i.i.i156 = zext i8 %34 to i32
   %shl.i.i.i157 = shl nuw nsw i32 %conv.i.i.i156, 8
@@ -62611,7 +62580,7 @@ sw.bb.i162:                                       ; preds = %if.end.i155
   br i1 %cmp.i.i.not.i.i.i, label %return, label %_ZNK2OT16ExtensionFormat1INS_6Layout9GPOS_impl12ExtensionPosEE8sanitizeEP21hb_sanitize_context_t.exit.i.i
 
 _ZNK2OT16ExtensionFormat1INS_6Layout9GPOS_impl12ExtensionPosEE8sanitizeEP21hb_sanitize_context_t.exit.i.i: ; preds = %sw.bb.i162
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %38 = load i8, ptr %add.ptr.i.i.i.i147, align 1
   %conv.i.i4.i.i.i = zext i8 %38 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i4.i.i.i, 8
@@ -62623,7 +62592,7 @@ _ZNK2OT16ExtensionFormat1INS_6Layout9GPOS_impl12ExtensionPosEE8sanitizeEP21hb_sa
   br i1 %cmp.i.not.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZNK2OT16ExtensionFormat1INS_6Layout9GPOS_impl12ExtensionPosEE8sanitizeEP21hb_sanitize_context_t.exit.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %extensionOffset.i.i = getelementptr inbounds i8, ptr %this.tr, i64 4
   %40 = load i8, ptr %extensionOffset.i.i, align 1
   %conv.i.i.i.i.i.i.i = zext i8 %40 to i32
@@ -62684,8 +62653,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %coverage, align 1
   %conv.i.i.i10 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i10, 8
@@ -62721,7 +62690,7 @@ _ZNK2OT8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEEvLb1EE8sanitizeIJ
   br label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %land.lhs.true.i, %lor.lhs.false.i, %_ZNK2OT8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %coverage, align 1
   %conv.i.i.i.i.i = zext i8 %6 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i.i, 8
@@ -62903,8 +62872,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %return, label %land.lhs.true.i99
 
 land.lhs.true.i99:                                ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %values.addr.3, align 1
   %conv.i.i.i33 = zext i8 %6 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i33, 8
@@ -63036,8 +63005,8 @@ land.lhs.true26:                                  ; preds = %if.end23
   br i1 %cmp.i.i.not.i46.not, label %return, label %land.lhs.true.i78
 
 land.lhs.true.i78:                                ; preds = %land.lhs.true26
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %23 = load i8, ptr %values.addr.4, align 1
   %conv.i.i.i49 = zext i8 %23 to i32
   %shl.i.i.i50 = shl nuw nsw i32 %conv.i.i.i49, 8
@@ -63169,8 +63138,8 @@ land.lhs.true34:                                  ; preds = %if.end31
   br i1 %cmp.i.i.not.i135.not, label %return, label %land.lhs.true.i57
 
 land.lhs.true.i57:                                ; preds = %land.lhs.true34
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %40 = load i8, ptr %values.addr.5, align 1
   %conv.i.i.i138 = zext i8 %40 to i32
   %shl.i.i.i139 = shl nuw nsw i32 %conv.i.i.i138, 8
@@ -63301,8 +63270,8 @@ land.lhs.true42:                                  ; preds = %if.end39
   br i1 %cmp.i.i.not.i224.not, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true42
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %57 = load i8, ptr %values.addr.6, align 1
   %conv.i.i.i227 = zext i8 %57 to i32
   %shl.i.i.i228 = shl nuw nsw i32 %conv.i.i.i227, 8
@@ -63447,8 +63416,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %coverage, align 1
   %conv.i.i.i9 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i9, 8
@@ -63533,7 +63502,7 @@ if.end.i24:                                       ; preds = %_ZNK21hb_sanitize_c
   br i1 %tobool.i25, label %land.end, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i24
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %17 = load i8, ptr %arrayidx3.i.i.i.i.i, align 1
   %cmp.i.i.i26 = icmp ugt i8 %17, 15
   %cmp5.i.i = icmp ne i32 %add.i.i17, 0
@@ -63577,7 +63546,7 @@ entry:
   br i1 %cmp.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %valueFormat = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i8, ptr %valueFormat, align 1
   %conv.i.i.i = zext i8 %2 to i32
@@ -63615,8 +63584,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %10 = load i8, ptr %coverage, align 1
   %conv.i.i.i20 = zext i8 %10 to i32
   %shl.i.i.i21 = shl nuw nsw i32 %conv.i.i.i20, 8
@@ -63662,7 +63631,7 @@ land.rhs:                                         ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.i.not.i, label %return, label %land.lhs.true.i30
 
 land.lhs.true.i30:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %16 = load i8, ptr %pairSet, align 1
   %conv.i.i11.i = zext i8 %16 to i32
   %arrayidx3.i.i.i31 = getelementptr inbounds i8, ptr %this, i64 9
@@ -63696,7 +63665,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl7PairSetINS2_10SmallTypesEEENS_
   br i1 %cmp7.i.i.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl7PairSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEEvLb1EEES8_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %24 = load i8, ptr %pairSet, align 1
   %conv.i.i39 = zext i8 %24 to i32
   %shl.i.i40 = shl nuw nsw i32 %conv.i.i39, 8
@@ -63726,8 +63695,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %return, label %land.lhs.true.i.i.i44
 
 land.lhs.true.i.i.i44:                            ; preds = %for.body.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %28 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %28 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i4.i.i, 8
@@ -63787,7 +63756,7 @@ entry:
   br i1 %cmp.i.i.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i15 = zext i8 %2 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i15, 8
@@ -63828,7 +63797,7 @@ _ZNK21hb_sanitize_context_t11check_rangeIN2OT6Layout9GPOS_impl15PairValueRecordI
   br i1 %cmp7.i.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZNK21hb_sanitize_context_t11check_rangeIN2OT6Layout9GPOS_impl15PairValueRecordINS2_10SmallTypesEEEEEbPKT_jj.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %12 = load i8, ptr %this, align 1
   %conv.i.i24 = zext i8 %12 to i32
   %shl.i.i25 = shl nuw nsw i32 %conv.i.i24, 8
@@ -63929,8 +63898,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %coverage, align 1
   %conv.i.i.i25 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i25, 8
@@ -63978,8 +63947,8 @@ land.lhs.true3:                                   ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.not.i36.not, label %return, label %land.lhs.true.i56
 
 land.lhs.true.i56:                                ; preds = %land.lhs.true3
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %classDef1, align 1
   %conv.i.i.i38 = zext i8 %8 to i32
   %shl.i.i.i39 = shl nuw nsw i32 %conv.i.i.i38, 8
@@ -64026,8 +63995,8 @@ land.lhs.true5:                                   ; preds = %land.lhs.true.i56, 
   br i1 %cmp.i.i.not.i67.not, label %return, label %land.lhs.true.i36
 
 land.lhs.true.i36:                                ; preds = %land.lhs.true5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %add.ptr.i.i29, align 1
   %conv.i.i.i70 = zext i8 %14 to i32
   %shl.i.i.i71 = shl nuw nsw i32 %conv.i.i.i70, 8
@@ -64201,8 +64170,8 @@ entry:
   br i1 %cmp.i.i.not.i.not, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %coverage, align 1
   %conv.i.i.i11 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i11, 8
@@ -64255,7 +64224,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.not.i, label %return, label %land.lhs.true.i14
 
 land.lhs.true.i14:                                ; preds = %if.then3
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %9 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i11.i = zext i8 %9 to i32
   %arrayidx3.i.i.i15 = getelementptr inbounds i8, ptr %this, i64 5
@@ -64293,7 +64262,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp.i.i.i.not.i, label %return, label %land.lhs.true.i31
 
 land.lhs.true.i31:                                ; preds = %if.else
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %17 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i11.i32 = zext i8 %17 to i32
   %arrayidx3.i.i.i33 = getelementptr inbounds i8, ptr %this, i64 5
@@ -64328,7 +64297,7 @@ _ZNK2OT7ArrayOfINS_6Layout9GPOS_impl15EntryExitRecordENS_7IntTypeItLj2EEEE16sani
   br i1 %cmp7.i.i.i49, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_6Layout9GPOS_impl15EntryExitRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit51
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %25 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i53 = zext i8 %25 to i32
   %shl.i.i54 = shl nuw nsw i32 %conv.i.i53, 8
@@ -64372,8 +64341,8 @@ entry:
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i13
 
 land.lhs.true.i13:                                ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i.i9 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i9, 8
@@ -64398,7 +64367,7 @@ lor.lhs.false.i17:                                ; preds = %land.lhs.true.i13
   br i1 %cmp.i.i.i.not.i.i.i, label %lor.rhs.i21, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %lor.lhs.false.i17
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %add.ptr.i, align 1
   %conv.i.i.i.i.i = zext i8 %6 to i16
   %shl.i.i.i.i.i = shl nuw i16 %conv.i.i.i.i.i, 8
@@ -64468,8 +64437,8 @@ land.rhs:                                         ; preds = %if.end.i.i.i, %sw.b
   br i1 %cmp.i.i.not.i17.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %16 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i20 = zext i8 %16 to i32
   %shl.i.i.i21 = shl nuw nsw i32 %conv.i.i.i20, 8
@@ -64494,7 +64463,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i.not.i.i.i40, label %lor.rhs.i, label %if.end.i.i.i41
 
 if.end.i.i.i41:                                   ; preds = %lor.lhs.false.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %20 = load i8, ptr %add.ptr.i32, align 1
   %conv.i.i.i.i.i42 = zext i8 %20 to i16
   %shl.i.i.i.i.i43 = shl nuw i16 %conv.i.i.i.i.i42, 8
@@ -64582,8 +64551,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %return, label %land.lhs.true.i18
 
 land.lhs.true.i18:                                ; preds = %if.end
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %xDeviceTable, align 1
   %conv.i.i.i12 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i12, 8
@@ -64706,8 +64675,8 @@ land.rhs:                                         ; preds = %if.end.i.i.i, %land
   br i1 %cmp.i.i.not.i24.not, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %17 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i27 = zext i8 %17 to i32
   %shl.i.i.i28 = shl nuw nsw i32 %conv.i.i.i27, 8
@@ -64847,8 +64816,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i20
 
 land.lhs.true.i20:                                ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %markCoverage, align 1
   %conv.i.i.i20 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i20, 8
@@ -64895,8 +64864,8 @@ land.lhs.true3:                                   ; preds = %land.lhs.true.i20, 
   br i1 %cmp.i.i.not.i32.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true3
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i35 = zext i8 %8 to i32
   %shl.i.i.i36 = shl nuw nsw i32 %conv.i.i.i35, 8
@@ -64944,8 +64913,8 @@ land.lhs.true5:                                   ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.not.i65.not, label %land.end, label %land.lhs.true.i43
 
 land.lhs.true.i43:                                ; preds = %land.lhs.true5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %markArray, align 1
   %conv.i.i.i67 = zext i8 %14 to i32
   %shl.i.i.i68 = shl nuw nsw i32 %conv.i.i.i67, 8
@@ -64997,8 +64966,8 @@ land.rhs:                                         ; preds = %land.lhs.true.i43, 
   br i1 %cmp.i.i.not.i101.not, label %land.end, label %land.lhs.true.i63
 
 land.lhs.true.i63:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %22 = load i8, ptr %add.ptr.i.i58, align 1
   %conv.i.i.i103 = zext i8 %22 to i32
   %shl.i.i.i104 = shl nuw nsw i32 %conv.i.i.i103, 8
@@ -65054,7 +65023,7 @@ entry:
   br i1 %cmp.i.i.i.not.i, label %_ZNK2OT7ArrayOfINS_6Layout9GPOS_impl10MarkRecordENS_7IntTypeItLj2EEEE8sanitizeIJPKNS2_9MarkArrayEEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 1
@@ -65089,7 +65058,7 @@ _ZNK2OT7ArrayOfINS_6Layout9GPOS_impl10MarkRecordENS_7IntTypeItLj2EEEE16sanitize_
   br i1 %cmp7.i.i.i, label %if.end.i, label %_ZNK2OT7ArrayOfINS_6Layout9GPOS_impl10MarkRecordENS_7IntTypeItLj2EEEE8sanitizeIJPKNS2_9MarkArrayEEEEbP21hb_sanitize_context_tDpOT_.exit
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_6Layout9GPOS_impl10MarkRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %10 = load i8, ptr %this, align 1
   %conv.i.i = zext i8 %10 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
@@ -65120,8 +65089,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body.i
   %markAnchor.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %markAnchor.i.i.i, align 1
   %conv.i.i.i8.i.i.i = zext i8 %14 to i32
   %shl.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i8.i.i.i, 8
@@ -65146,7 +65115,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i
   br i1 %cmp.i.i.i.not.i.i.i.i.i.i, label %lor.rhs.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %lor.lhs.false.i.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %18 = load i8, ptr %add.ptr.i11.i.i.i, align 1
   %conv.i.i.i.i.i.i.i.i = zext i8 %18 to i16
   %shl.i.i.i.i.i.i.i.i = shl nuw i16 %conv.i.i.i.i.i.i.i.i, 8
@@ -65229,7 +65198,7 @@ entry:
   br i1 %cmp.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i14 = zext i8 %2 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i14, 8
@@ -65279,7 +65248,7 @@ if.end16:                                         ; preds = %_ZNK21hb_sanitize_c
   br i1 %tobool, label %return, label %if.end20
 
 if.end20:                                         ; preds = %if.end16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %cmp52.not = icmp eq i32 %mul, 0
   br i1 %cmp52.not, label %return, label %for.body.lr.ph
 
@@ -65303,8 +65272,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i.i.not.i.not, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %15 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i30 = zext i8 %15 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i30, 8
@@ -65329,7 +65298,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i.not.i.i.i, label %lor.rhs.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %lor.lhs.false.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %19 = load i8, ptr %add.ptr.i36, align 1
   %conv.i.i.i.i.i = zext i8 %19 to i16
   %shl.i.i.i.i.i = shl nuw i16 %conv.i.i.i.i.i, 8
@@ -65420,8 +65389,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i20
 
 land.lhs.true.i20:                                ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %markCoverage, align 1
   %conv.i.i.i20 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i20, 8
@@ -65468,8 +65437,8 @@ land.lhs.true3:                                   ; preds = %land.lhs.true.i20, 
   br i1 %cmp.i.i.not.i32.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true3
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i35 = zext i8 %8 to i32
   %shl.i.i.i36 = shl nuw nsw i32 %conv.i.i.i35, 8
@@ -65517,8 +65486,8 @@ land.lhs.true5:                                   ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.not.i65.not, label %land.end, label %land.lhs.true.i41
 
 land.lhs.true.i41:                                ; preds = %land.lhs.true5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %markArray, align 1
   %conv.i.i.i67 = zext i8 %14 to i32
   %shl.i.i.i68 = shl nuw nsw i32 %conv.i.i.i67, 8
@@ -65571,8 +65540,8 @@ land.rhs:                                         ; preds = %land.lhs.true.i41, 
   br i1 %cmp.i.i.not.i101.not, label %land.end, label %land.lhs.true.i63
 
 land.lhs.true.i63:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %22 = load i8, ptr %add.ptr.i.i58, align 1
   %conv.i.i.i103 = zext i8 %22 to i32
   %shl.i.i.i104 = shl nuw nsw i32 %conv.i.i.i103, 8
@@ -65628,7 +65597,7 @@ entry:
   br i1 %cmp.i.i.i.not.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl12AnchorMatrixENS_7IntTypeItLj2EEEvLb1EEES6_E8sanitizeIJPKNS_16List16OfOffsetToIS4_S6_EEjEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 1
@@ -65663,7 +65632,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl12AnchorMatrixENS_7IntTypeItLj2
   br i1 %cmp7.i.i.i, label %if.end.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl12AnchorMatrixENS_7IntTypeItLj2EEEvLb1EEES6_E8sanitizeIJPKNS_16List16OfOffsetToIS4_S6_EEjEEEbP21hb_sanitize_context_tDpOT_.exit
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl12AnchorMatrixENS_7IntTypeItLj2EEEvLb1EEES6_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %10 = load i8, ptr %this, align 1
   %conv.i.i = zext i8 %10 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
@@ -65693,8 +65662,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl12AnchorMatrixENS_7IntTypeItLj2EEEvLb1EEES6_E8sanitizeIJPKNS_16List16OfOffsetToIS4_S6_EEjEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i.i.i4
 
 land.lhs.true.i.i.i4:                             ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %14 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i4.i.i, 8
@@ -65762,8 +65731,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i22
 
 land.lhs.true.i22:                                ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %mark1Coverage, align 1
   %conv.i.i.i20 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i20, 8
@@ -65810,8 +65779,8 @@ land.lhs.true3:                                   ; preds = %land.lhs.true.i22, 
   br i1 %cmp.i.i.not.i32.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true3
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i35 = zext i8 %8 to i32
   %shl.i.i.i36 = shl nuw nsw i32 %conv.i.i.i35, 8
@@ -65859,8 +65828,8 @@ land.lhs.true5:                                   ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.not.i65.not, label %land.end, label %land.lhs.true.i43
 
 land.lhs.true.i43:                                ; preds = %land.lhs.true5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %mark1Array, align 1
   %conv.i.i.i67 = zext i8 %14 to i32
   %shl.i.i.i68 = shl nuw nsw i32 %conv.i.i.i67, 8
@@ -65896,7 +65865,7 @@ _ZNK2OT8OffsetToINS_6Layout9GPOS_impl9MarkArrayENS_7IntTypeItLj2EEEvLb1EE8saniti
   br label %land.lhs.true7
 
 land.lhs.true7:                                   ; preds = %land.lhs.true.i43, %lor.lhs.false.i47, %_ZNK2OT8OffsetToINS_6Layout9GPOS_impl9MarkArrayENS_7IntTypeItLj2EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %18 = load i8, ptr %add.ptr.i.i25, align 1
   %conv.i.i89 = zext i8 %18 to i32
   %shl.i.i90 = shl nuw nsw i32 %conv.i.i89, 8
@@ -65913,8 +65882,8 @@ land.lhs.true7:                                   ; preds = %land.lhs.true.i43, 
   br i1 %cmp.i.i.not.i101.not, label %land.end, label %land.lhs.true.i63
 
 land.lhs.true.i63:                                ; preds = %land.lhs.true7
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %22 = load i8, ptr %add.ptr.i.i58, align 1
   %conv.i.i.i103 = zext i8 %22 to i32
   %shl.i.i.i104 = shl nuw nsw i32 %conv.i.i.i103, 8
@@ -66064,7 +66033,7 @@ sw.bb.i:                                          ; preds = %for.body
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZNK2OT8GSUBGPOS10get_lookupEj.exit
 
 if.end.i.i:                                       ; preds = %sw.bb.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 2
   %idxprom.i.i = zext nneg i32 %3 to i64
   %arrayidx.i.i = getelementptr inbounds [1 x %"struct.OT::OffsetTo.615"], ptr %arrayZ.i.i, i64 0, i64 %idxprom.i.i
@@ -66104,10 +66073,10 @@ _ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit: ; preds = %_ZNK2OT
   br i1 %16, label %for.body, label %for.end
 
 for.end:                                          ; preds = %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit, %entry
-  call void @hb_set_union(ptr noundef nonnull %lookup_indexes, ptr noundef nonnull %visited_lookups) #18
-  call void @hb_set_subtract(ptr noundef nonnull %lookup_indexes, ptr noundef nonnull %inactive_lookups) #18
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %inactive_lookups) #18
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %visited_lookups) #18
+  call void @hb_set_union(ptr noundef nonnull %lookup_indexes, ptr noundef nonnull %visited_lookups) #19
+  call void @hb_set_subtract(ptr noundef nonnull %lookup_indexes, ptr noundef nonnull %inactive_lookups) #19
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %inactive_lookups) #19
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %visited_lookups) #19
   ret void
 }
 
@@ -66162,7 +66131,7 @@ sw.bb.i.i:                                        ; preds = %entry
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %_ZNK2OT6Layout4GPOS10get_lookupEj.exit
 
 if.end.i.i.i:                                     ; preds = %sw.bb.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 2
   %idxprom.i.i.i = zext nneg i32 %this_index to i64
   %arrayidx.i.i.i = getelementptr inbounds [1 x %"struct.OT::OffsetTo.615"], ptr %arrayZ.i.i.i, i64 0, i64 %idxprom.i.i.i
@@ -66351,7 +66320,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   br i1 %cmp.not.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GPOS_impl17PosLookupSubTableEEERKT_j.exit.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %for.body.i.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::OffsetTo.856"], ptr %arrayZ.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i
   br label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GPOS_impl17PosLookupSubTableEEERKT_j.exit.i.i.i
 
@@ -66412,7 +66381,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %for.inc.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::OffsetTo.856"], ptr %arrayZ.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i
   br label %for.inc.i.i
 
@@ -66989,7 +66958,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp.not.i19, label %if.end.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl7PairSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEEvLb1EEES8_EixEi.exit
 
 if.end.i:                                         ; preds = %for.body
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i = zext nneg i32 %call14 to i64
   %arrayidx.i = getelementptr inbounds [1 x %"struct.OT::OffsetTo.861"], ptr %arrayZ.i, i64 0, i64 %idxprom.i
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl7PairSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEEvLb1EEES8_EixEi.exit
@@ -67031,7 +67000,7 @@ _ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit: ; preds = %for.inc
   br i1 %34, label %for.body, label %return
 
 if.end22:                                         ; preds = %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE14get_populationEv.exit
-  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS1_7ArrayOfINS1_8OffsetToINS2_9GPOS_impl7PairSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEESE_EETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISK_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISL_EEE4iterEEEOSK_OSL_"(ptr noalias nonnull align 8 %ref.tmp27, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i, ptr noundef nonnull align 1 dereferenceable(4) %pairSet)
+  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS1_7ArrayOfINS1_8OffsetToINS2_9GPOS_impl7PairSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEESE_EETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISK_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISL_EEE4iterEEEOSK_OSL_"(ptr noalias align 8 %ref.tmp27, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i, ptr noundef nonnull align 1 dereferenceable(4) %pairSet)
   %ref.tmp26.sroa.0.0.copyload = load i32, ptr %ref.tmp27, align 8
   %ref.tmp26.sroa.3.0.ref.tmp27.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp27, i64 8
   %ref.tmp26.sroa.3.0.copyload = load ptr, ptr %ref.tmp26.sroa.3.0.ref.tmp27.sroa_idx, align 8
@@ -67081,7 +67050,7 @@ land.rhs.i.i.i:                                   ; preds = %land.rhs.i.i.i.lr.p
   br i1 %switch.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS2_9GPOS_impl7PairSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE9hb_pair_tIjRSF_EEdeEv.exit.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %ref.tmp25.sroa.8.093 to i64
   %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i.i
   %37 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 1
@@ -67206,7 +67175,7 @@ sw.bb2.i:                                         ; preds = %while.body.i.i.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i50, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 if.end.i.i.i50:                                   ; preds = %sw.bb2.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i = zext nneg i32 %ref.tmp25.sroa.8.093 to i64
   %arrayidx.i.i.i = getelementptr inbounds [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %arrayZ.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
@@ -67323,7 +67292,7 @@ for.body.i.i:                                     ; preds = %_ZNK9hb_iter_tIN2OT
   br i1 %cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEdeEv.exit.i.i"
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %for.body.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   br label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEdeEv.exit.i.i"
 
 "_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEdeEv.exit.i.i": ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i
@@ -67367,7 +67336,7 @@ sw.bb2.i.i.i:                                     ; preds = %do.body.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %sw.bb2.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i.i.i = zext nneg i32 %it.sroa.10.1.i.i to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %arrayZ.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
@@ -67446,7 +67415,7 @@ land.rhs.i.i.i.i.i.i.i.i:                         ; preds = %_ZN2OT6Layout6Commo
   br i1 %cond.i.i.i.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS2_9GPOS_impl7PairSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE9hb_pair_tIjRSF_EEdeEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %it.sroa.10.3.i.i to i64
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %76 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
@@ -67893,7 +67862,7 @@ return:                                           ; preds = %_ZNK14hb_sparseset_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS1_7ArrayOfINS1_8OffsetToINS2_9GPOS_impl7PairSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEESE_EETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISK_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISL_EEE4iterEEEOSK_OSL_"(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(10) %a, ptr noundef nonnull align 1 dereferenceable(4) %b) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS1_7ArrayOfINS1_8OffsetToINS2_9GPOS_impl7PairSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEESE_EETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISK_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISL_EEE4iterEEEOSK_OSL_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(10) %a, ptr noundef nonnull align 1 dereferenceable(4) %b) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.sroa.8 = alloca i32, align 8
   %ref.tmp.sroa.12 = alloca i32, align 8
@@ -67925,7 +67894,7 @@ sw.bb7.i:                                         ; preds = %entry
   br i1 %tobool.not.i.i, label %cond.end.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i: ; preds = %sw.bb7.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i1 = getelementptr inbounds i8, ptr %a, i64 4
   %4 = load i8, ptr %arrayZ.i.i.i1, align 1
   %conv.i.i1.i.i = zext i8 %4 to i32
@@ -67960,7 +67929,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i: ; preds = %cond.end.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i14.i.i = getelementptr inbounds i8, ptr %a, i64 4
   %.pre42.i.i = load i8, ptr %rangeRecord.i.i, align 1
   %.pre43.i.i = load i8, ptr %arrayidx3.i.i.i.i, align 1
@@ -67979,7 +67948,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %8, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i, label %if.end.i28.i.i
 
 if.end.i28.i.i:                                   ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i: ; preds = %if.end.i28.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.thread.i.i
@@ -68150,7 +68119,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i = zext nneg i32 %sub9.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds [1 x %"struct.OT::IntType.3"], ptr %arrayZ.i.i.i, i64 0, i64 %idxprom.i.i.i
   br label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit.i.i
@@ -68827,7 +68796,7 @@ entry:
   br i1 %tobool.not, label %_ZN9hb_lock_tC2EP10hb_mutex_t.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #18
+  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #19
   %.pre = load ptr, ptr %accelerator, align 8
   br label %_ZN9hb_lock_tC2EP10hb_mutex_t.exit
 
@@ -68927,7 +68896,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i, %while
 _ZNK12hb_hashmap_tIjN2hb10unique_ptrI9hb_blob_tEELb0EE3getERKj.exit: ; preds = %if.end.i.i.i, %if.then.i.i.i
   %retval.0.i16 = phi ptr [ %spec.select.i.i, %if.then.i.i.i ], [ @_hb_NullPool, %if.end.i.i.i ]
   %13 = load ptr, ptr %retval.0.i16, align 8
-  %call16 = tail call ptr @hb_blob_reference(ptr noundef %13) #18
+  %call16 = tail call ptr @hb_blob_reference(ptr noundef %13) #19
   br label %cleanup
 
 _ZN21hb_sanitize_context_t15reference_tableIN2OT4MATHEEEP9hb_blob_tPK9hb_face_tj.exit: ; preds = %if.end.i.i, %if.then.i.i.thread, %if.then.i.i, %if.end.i, %land.rhs, %_ZN9hb_lock_tC2EP10hb_mutex_t.exit
@@ -68944,10 +68913,10 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT4MATHEEEP9hb_blob_tPK9hb_face_tj
   store i8 0, ptr %lazy_some_gpos.i, align 1
   %source = getelementptr inbounds i8, ptr %plan, i64 56
   %14 = load ptr, ptr %source, align 8
-  %call.i = tail call i32 @hb_face_get_glyph_count(ptr noundef %14) #18
+  %call.i = tail call i32 @hb_face_get_glyph_count(ptr noundef %14) #19
   store i32 %call.i, ptr %num_glyphs.i, align 8
   store i8 1, ptr %num_glyphs_set.i, align 4
-  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef %14, i32 noundef 1296127048) #18
+  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef %14, i32 noundef 1296127048) #19
   %call3.i = call noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4MATHEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %ref.tmp17, ptr noundef %call2.i)
   store ptr %call3.i, ptr %table_blob, align 8
   %15 = load ptr, ptr %blob.i, align 8
@@ -68955,17 +68924,17 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT4MATHEEEP9hb_blob_tPK9hb_face_tj
   br i1 %tobool.not.i22, label %_ZN21hb_sanitize_context_tD2Ev.exit, label %if.then.i23
 
 if.then.i23:                                      ; preds = %_ZN21hb_sanitize_context_t15reference_tableIN2OT4MATHEEEP9hb_blob_tPK9hb_face_tj.exit
-  call void @hb_blob_destroy(ptr noundef nonnull %15) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %15) #19
   store ptr null, ptr %blob.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start.i, i8 0, i64 20, i1 false)
   br label %_ZN21hb_sanitize_context_tD2Ev.exit
 
 _ZN21hb_sanitize_context_tD2Ev.exit:              ; preds = %_ZN21hb_sanitize_context_t15reference_tableIN2OT4MATHEEEP9hb_blob_tPK9hb_face_tj.exit, %if.then.i23
-  %call20 = call ptr @hb_blob_reference(ptr noundef %call3.i) #18
+  %call20 = call ptr @hb_blob_reference(ptr noundef %call3.i) #19
   store i32 1296127048, ptr %ref.tmp23, align 4
   %call2.i27 = call noundef zeroext i1 @_ZN12hb_hashmap_tIjN2hb10unique_ptrI9hb_blob_tEELb0EE13set_with_hashIjS3_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %cond10, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp23, i32 noundef -696693304, ptr noundef nonnull align 8 dereferenceable(8) %table_blob, i1 noundef zeroext true)
   %16 = load ptr, ptr %table_blob, align 8
-  call void @hb_blob_destroy(ptr noundef %16) #18
+  call void @hb_blob_destroy(ptr noundef %16) #19
   store ptr null, ptr %table_blob, align 8
   br label %cleanup
 
@@ -68974,7 +68943,7 @@ cleanup:                                          ; preds = %_ZN21hb_sanitize_co
   br i1 %tobool.not, label %_ZN9hb_lock_tD2Ev.exit, label %if.then.i29
 
 if.then.i29:                                      ; preds = %cleanup
-  %call.i.i30 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #18
+  %call.i.i30 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #19
   br label %_ZN9hb_lock_tD2Ev.exit
 
 _ZN9hb_lock_tD2Ev.exit:                           ; preds = %cleanup, %if.then.i29
@@ -68984,7 +68953,7 @@ _ZN9hb_lock_tD2Ev.exit:                           ; preds = %cleanup, %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4MATHEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %this, ptr noundef %blob) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #18
+  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #19
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call.i, ptr %blob.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -69029,7 +68998,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %retry, %if.else.
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
-  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %return
@@ -69049,7 +69018,7 @@ if.then7:                                         ; preds = %if.then5
   %7 = load i32, ptr %edit_count.i, align 4
   %tobool14.not = icmp eq i32 %7, 0
   %8 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %8) #18
+  tail call void @hb_blob_destroy(ptr noundef %8) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   %brmerge.not = and i1 %tobool14.not, %call11
@@ -69064,7 +69033,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %tobool22, label %if.else39.critedge, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #18
+  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #19
   store ptr %call24, ptr %start, align 8
   %10 = load i32, ptr %length, align 8
   %idx.ext = zext i32 %10 to i64
@@ -69075,25 +69044,25 @@ if.then23:                                        ; preds = %land.lhs.true
 
 if.then38.critedge:                               ; preds = %if.then5
   %11 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %11) #18
+  tail call void @hb_blob_destroy(ptr noundef %11) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.then38
 
 if.then38:                                        ; preds = %if.then7, %if.then38.critedge
-  tail call void @hb_blob_make_immutable(ptr noundef %blob) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %blob) #19
   br label %return
 
 if.else39.critedge:                               ; preds = %if.else, %if.then23, %land.lhs.true
   %12 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %12) #18
+  tail call void @hb_blob_destroy(ptr noundef %12) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.else39
 
 if.else39:                                        ; preds = %if.then7, %if.else39.critedge
-  tail call void @hb_blob_destroy(ptr noundef %blob) #18
-  %call40 = tail call ptr @hb_blob_get_empty() #18
+  tail call void @hb_blob_destroy(ptr noundef %blob) #19
+  %call40 = tail call ptr @hb_blob_get_empty() #19
   br label %return
 
 return:                                           ; preds = %if.else39, %if.then38, %if.then
@@ -69128,7 +69097,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp, label %land.lhs.true4, label %land.end
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %add.ptr.i.i14 = getelementptr inbounds i8, ptr %this, i64 6
   %4 = load ptr, ptr %start.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i.i14 to i64
@@ -69140,8 +69109,8 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i15 = zext i8 %6 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i15, 8
@@ -69211,8 +69180,8 @@ land.lhs.true8:                                   ; preds = %land.lhs.true.i, %_
   br i1 %cmp.i.i.not.i28.not, label %land.end, label %land.lhs.true.i21
 
 land.lhs.true.i21:                                ; preds = %land.lhs.true8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %add.ptr.i.i14, align 1
   %conv.i.i.i30 = zext i8 %14 to i32
   %shl.i.i.i31 = shl nuw nsw i32 %conv.i.i.i30, 8
@@ -69259,8 +69228,8 @@ land.rhs:                                         ; preds = %land.lhs.true.i21, 
   br i1 %cmp.i.i.not.i59.not, label %land.end, label %land.lhs.true.i41
 
 land.lhs.true.i41:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %20 = load i8, ptr %add.ptr.i.i21, align 1
   %conv.i.i.i61 = zext i8 %20 to i32
   %shl.i.i.i62 = shl nuw nsw i32 %conv.i.i.i61, 8
@@ -69318,8 +69287,8 @@ entry:
 
 land.lhs.true.i:                                  ; preds = %entry
   %deviceTable = getelementptr inbounds i8, ptr %this, i64 2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %deviceTable, align 1
   %conv.i.i.i8 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i8, 8
@@ -69458,8 +69427,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i20
 
 land.lhs.true.i20:                                ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i.i20 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i20, 8
@@ -69506,8 +69475,8 @@ land.lhs.true3:                                   ; preds = %land.lhs.true.i20, 
   br i1 %cmp.i.i.not.i31.not, label %land.end, label %land.lhs.true.i40
 
 land.lhs.true.i40:                                ; preds = %land.lhs.true3
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i33 = zext i8 %8 to i32
   %shl.i.i.i34 = shl nuw nsw i32 %conv.i.i.i33, 8
@@ -69554,8 +69523,8 @@ land.lhs.true5:                                   ; preds = %land.lhs.true.i40, 
   br i1 %cmp.i.i.not.i63.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %add.ptr.i.i24, align 1
   %conv.i.i.i65 = zext i8 %14 to i32
   %shl.i.i.i66 = shl nuw nsw i32 %conv.i.i.i65, 8
@@ -69600,8 +69569,8 @@ land.rhs:                                         ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.not.i94.not, label %land.end, label %land.lhs.true.i60
 
 land.lhs.true.i60:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %20 = load i8, ptr %add.ptr.i.i56, align 1
   %conv.i.i.i96 = zext i8 %20 to i32
   %shl.i.i.i97 = shl nuw nsw i32 %conv.i.i.i96, 8
@@ -69665,8 +69634,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i.i13 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i13, 8
@@ -69711,7 +69680,7 @@ land.rhs:                                         ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.i.not.i, label %land.end, label %land.lhs.true.i18
 
 land.lhs.true.i18:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i11.i = zext i8 %8 to i32
   %arrayidx3.i.i.i19 = getelementptr inbounds i8, ptr %this, i64 3
@@ -69745,7 +69714,7 @@ _ZNK2OT7ArrayOfINS_15MathValueRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21h
   br i1 %cmp7.i.i.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_15MathValueRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %16 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i27 = zext i8 %16 to i32
   %shl.i.i28 = shl nuw nsw i32 %conv.i.i27, 8
@@ -69797,8 +69766,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i.i13 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i13, 8
@@ -69843,7 +69812,7 @@ land.rhs:                                         ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.i.not.i, label %land.end, label %land.lhs.true.i18
 
 land.lhs.true.i18:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i11.i = zext i8 %8 to i32
   %arrayidx3.i.i.i19 = getelementptr inbounds i8, ptr %this, i64 3
@@ -69877,7 +69846,7 @@ _ZNK2OT7ArrayOfINS_15MathValueRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21h
   br i1 %cmp7.i.i.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_15MathValueRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %16 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i27 = zext i8 %16 to i32
   %shl.i.i28 = shl nuw nsw i32 %conv.i.i27, 8
@@ -69929,8 +69898,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i.i13 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i13, 8
@@ -69975,7 +69944,7 @@ land.rhs:                                         ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.i.not.i, label %land.end, label %land.lhs.true.i18
 
 land.lhs.true.i18:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i11.i = zext i8 %8 to i32
   %arrayidx3.i.i.i19 = getelementptr inbounds i8, ptr %this, i64 3
@@ -70009,7 +69978,7 @@ _ZNK2OT7ArrayOfINS_18MathKernInfoRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP
   br i1 %cmp7.i.i.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_18MathKernInfoRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %16 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i27 = zext i8 %16 to i32
   %shl.i.i28 = shl nuw nsw i32 %conv.i.i27, 8
@@ -70062,8 +70031,8 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp.i.i.not.i.not, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %arrayidx, align 1
   %conv.i.i.i6 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i6, 8
@@ -70088,7 +70057,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.not.i.i.i, label %lor.rhs.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %lor.lhs.false.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %add.ptr.i, align 1
   %conv.i.i6.i.i.i = zext i8 %6 to i32
   %arrayidx3.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
@@ -70194,8 +70163,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i22
 
 land.lhs.true.i22:                                ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %vertGlyphCoverage, align 1
   %conv.i.i.i14 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i14, 8
@@ -70242,8 +70211,8 @@ land.lhs.true3:                                   ; preds = %land.lhs.true.i22, 
   br i1 %cmp.i.i.not.i26.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true3
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i29 = zext i8 %8 to i32
   %shl.i.i.i30 = shl nuw nsw i32 %conv.i.i.i29, 8
@@ -70279,7 +70248,7 @@ _ZNK2OT8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEEvLb1EE8sanitizeIJ
   br label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %land.lhs.true.i, %lor.lhs.false.i, %_ZNK2OT8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %12 = load i8, ptr %add.ptr.i.i19, align 1
   %conv.i.i52 = zext i8 %12 to i32
   %shl.i.i53 = shl nuw nsw i32 %conv.i.i52, 8
@@ -70358,8 +70327,8 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp.i.i.not.i.not.i, label %land.end, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %27 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i11.i = zext i8 %27 to i32
   %shl.i.i.i.i = shl nuw nsw i32 %conv.i.i.i11.i, 8
@@ -70426,8 +70395,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i.i10 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i10, 8
@@ -70466,7 +70435,7 @@ land.rhs.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %land.rhs.i.i.i
   %partRecords.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i13, i64 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %partRecords.i.i.i, align 1
   %conv.i.i11.i.i.i.i = zext i8 %6 to i32
   %shl.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i11.i.i.i.i, 8
@@ -70529,7 +70498,7 @@ land.rhs:                                         ; preds = %land.lhs.true.i, %_
   br i1 %cmp.i.i.i.not.i, label %land.end, label %land.lhs.true.i14
 
 land.lhs.true.i14:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %16 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i11.i = zext i8 %16 to i32
   %arrayidx3.i.i.i15 = getelementptr inbounds i8, ptr %this, i64 3
@@ -70616,8 +70585,8 @@ if.then:                                          ; preds = %entry
   store i64 %retval.sroa.3.8.insert.ext.i.i, ptr %6, align 8
   %idx.ext.i.i.i = zext nneg i32 %add.i.i17 to i64
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i
-  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERK10hb_array_tIKNS1_8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEEvLb1EEEETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISI_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISJ_EEE4iterEEEOSI_OSJ_"(ptr noalias nonnull align 8 %ref.tmp10, ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %vert_offsets)
-  call fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRPK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSP_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISP_Efp_EEEOSP_OSV_"(ptr noalias nonnull align 8 %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp10, ptr nonnull %glyph_set.addr, ptr nonnull @_ZL8hb_first)
+  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERK10hb_array_tIKNS1_8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEEvLb1EEEETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISI_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISJ_EEE4iterEEEOSI_OSJ_"(ptr noalias align 8 %ref.tmp10, ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %vert_offsets)
+  call fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRPK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSP_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISP_Efp_EEEOSP_OSV_"(ptr noalias align 8 %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp10, ptr nonnull %glyph_set.addr, ptr nonnull @_ZL8hb_first)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %agg.tmp1.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp9, i64 64, i1 false)
   %ref.tmp.sroa.2.0.agg.tmp1.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 64
@@ -70672,7 +70641,7 @@ for.body.i.i:                                     ; preds = %_ZNK9hb_iter_tIN2OT
   br label %17
 
 "_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_21MathGlyphConstructionENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSO_0EE12hb_partial_tILj2EPK4$_39PKNS3_12MathVariantsEELST_0ELSO_0EERKSA_EdeEv.exit.i.i": ; preds = %for.body.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %.pre.i.i = load i32, ptr %length.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %.pre.fr.i.i = freeze i32 %.pre.i.i
   %15 = icmp eq i32 %.pre.fr.i.i, 0
@@ -71059,8 +71028,8 @@ if.then32:                                        ; preds = %if.end
   store i64 %retval.sroa.3.8.insert.ext.i.i46, ptr %59, align 8
   %idx.ext.i.i.i55 = zext nneg i32 %add.i.i33 to i64
   %add.ptr.i.i.i56 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i55
-  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERK10hb_array_tIKNS1_8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEEvLb1EEEETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISI_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISJ_EEE4iterEEEOSI_OSJ_"(ptr noalias nonnull align 8 %ref.tmp41, ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i.i.i56, ptr noundef nonnull align 8 dereferenceable(16) %hori_offsets)
-  call fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRPK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSP_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISP_Efp_EEEOSP_OSV_"(ptr noalias nonnull align 8 %ref.tmp40, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp41, ptr nonnull %glyph_set.addr, ptr nonnull @_ZL8hb_first)
+  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERK10hb_array_tIKNS1_8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEEvLb1EEEETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISI_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISJ_EEE4iterEEEOSI_OSJ_"(ptr noalias align 8 %ref.tmp41, ptr noundef nonnull align 1 dereferenceable(10) %add.ptr.i.i.i56, ptr noundef nonnull align 8 dereferenceable(16) %hori_offsets)
+  call fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRPK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSP_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISP_Efp_EEEOSP_OSV_"(ptr noalias align 8 %ref.tmp40, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp41, ptr nonnull %glyph_set.addr, ptr nonnull @_ZL8hb_first)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %agg.tmp1.i66)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i66, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp40, i64 64, i1 false)
   %ref.tmp38.sroa.2.0.agg.tmp1.i66.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1.i66, i64 64
@@ -71115,7 +71084,7 @@ for.body.i.i84:                                   ; preds = %_ZNK9hb_iter_tIN2OT
   br label %70
 
 "_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_21MathGlyphConstructionENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSO_0EE12hb_partial_tILj2EPK4$_39PKNS3_12MathVariantsEELST_0ELSO_0EERKSA_EdeEv.exit.i.i306": ; preds = %for.body.i.i84
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %.pre.i.i307 = load i32, ptr %length.i.i.i.i.i.i.i.i.i.i.i.i.i.i72, align 8
   %.pre.fr.i.i308 = freeze i32 %.pre.i.i307
   %68 = icmp eq i32 %.pre.fr.i.i308, 0
@@ -71472,7 +71441,7 @@ if.end62:                                         ; preds = %"_ZorI13hb_map_iter
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRPK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSP_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISP_Efp_EEEOSP_OSV_"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %lhs, ptr %rhs.0.val, ptr %rhs.8.val) unnamed_addr #0 {
+define internal fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRPK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSP_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISP_Efp_EEEOSP_OSV_"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %lhs, ptr %rhs.0.val, ptr %rhs.8.val) unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %lhs, i64 48, i1 false)
   %p.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
@@ -71518,7 +71487,7 @@ land.rhs.i.i:                                     ; preds = %_ZNK9hb_iter_tIN2OT
   br i1 %switch.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 4
   %idxprom.i.i.i.i.i.i.i.i.i = zext nneg i32 %3 to i64
   %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i
@@ -71663,7 +71632,7 @@ _ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERK10hb_array_tIKNS1_8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEEvLb1EEEETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISI_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISJ_EEE4iterEEEOSI_OSJ_"(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(10) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERK10hb_array_tIKNS1_8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEEvLb1EEEETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISI_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISJ_EEE4iterEEEOSI_OSJ_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(10) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.sroa.8 = alloca i32, align 8
   %ref.tmp.sroa.12 = alloca i32, align 8
@@ -71695,7 +71664,7 @@ sw.bb7.i:                                         ; preds = %entry
   br i1 %tobool.not.i.i, label %cond.end.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i: ; preds = %sw.bb7.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i = getelementptr inbounds i8, ptr %a, i64 4
   %4 = load i8, ptr %arrayZ.i.i.i, align 1
   %conv.i.i1.i.i = zext i8 %4 to i32
@@ -71730,7 +71699,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i: ; preds = %cond.end.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i14.i.i = getelementptr inbounds i8, ptr %a, i64 4
   %.pre42.i.i = load i8, ptr %rangeRecord.i.i, align 1
   %.pre43.i.i = load i8, ptr %arrayidx3.i.i.i.i, align 1
@@ -71749,7 +71718,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %8, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i, label %if.end.i28.i.i
 
 if.end.i28.i.i:                                   ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i: ; preds = %if.end.i28.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.thread.i.i
@@ -71868,7 +71837,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %_ZNK9hb_iter_tIN2OT
   br i1 %switch.i.i.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 4
   %idxprom.i.i.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %5 to i64
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i.i.i.i
@@ -71994,7 +71963,7 @@ do.body.i.i.i.i.i.backedge:                       ; preds = %"_ZNK4$_14clIRPK8hb
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4COLREEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %this, ptr noundef %blob) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #18
+  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #19
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call.i, ptr %blob.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -72039,7 +72008,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %retry, %if.else.
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
-  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %return
@@ -72059,7 +72028,7 @@ if.then7:                                         ; preds = %if.then5
   %7 = load i32, ptr %edit_count.i, align 4
   %tobool14.not = icmp eq i32 %7, 0
   %8 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %8) #18
+  tail call void @hb_blob_destroy(ptr noundef %8) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   %brmerge.not = and i1 %tobool14.not, %call11
@@ -72074,7 +72043,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %tobool22, label %if.else39.critedge, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #18
+  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #19
   store ptr %call24, ptr %start, align 8
   %10 = load i32, ptr %length, align 8
   %idx.ext = zext i32 %10 to i64
@@ -72085,25 +72054,25 @@ if.then23:                                        ; preds = %land.lhs.true
 
 if.then38.critedge:                               ; preds = %if.then5
   %11 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %11) #18
+  tail call void @hb_blob_destroy(ptr noundef %11) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.then38
 
 if.then38:                                        ; preds = %if.then7, %if.then38.critedge
-  tail call void @hb_blob_make_immutable(ptr noundef %blob) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %blob) #19
   br label %return
 
 if.else39.critedge:                               ; preds = %if.else, %if.then23, %land.lhs.true
   %12 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %12) #18
+  tail call void @hb_blob_destroy(ptr noundef %12) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.else39
 
 if.else39:                                        ; preds = %if.then7, %if.else39.critedge
-  tail call void @hb_blob_destroy(ptr noundef %blob) #18
-  %call40 = tail call ptr @hb_blob_get_empty() #18
+  tail call void @hb_blob_destroy(ptr noundef %blob) #19
+  %call40 = tail call ptr @hb_blob_get_empty() #19
   br label %return
 
 return:                                           ; preds = %if.else39, %if.then38, %if.then
@@ -72128,7 +72097,7 @@ entry:
   br i1 %cmp.i.i.not, label %land.end29, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %numBaseGlyphs = getelementptr inbounds i8, ptr %this, i64 2
   %2 = load i8, ptr %numBaseGlyphs, align 1
   %conv.i.i26 = zext i8 %2 to i32
@@ -72238,7 +72207,7 @@ land.rhs:                                         ; preds = %_ZNK2OT14UnsizedArr
   br i1 %cmp, label %land.end29, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %24 = load i8, ptr %this, align 1
   %conv.i.i74 = zext i8 %24 to i32
   %shl.i.i75 = shl nuw nsw i32 %conv.i.i74, 8
@@ -72260,8 +72229,8 @@ land.lhs.true19:                                  ; preds = %lor.rhs
   br i1 %cmp.i.i.not.i.not, label %land.end29, label %land.lhs.true.i83
 
 land.lhs.true.i83:                                ; preds = %land.lhs.true19
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %28 = load i8, ptr %add.ptr.i, align 1
   %conv.i.i.i80 = zext i8 %28 to i32
   %shl.i.i.i = shl nuw i32 %conv.i.i.i80, 24
@@ -72318,8 +72287,8 @@ land.lhs.true21:                                  ; preds = %land.lhs.true.i83, 
   br i1 %cmp.i.i.not.i95.not, label %land.end29, label %land.lhs.true.i103
 
 land.lhs.true.i103:                               ; preds = %land.lhs.true21
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %36 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i97 = zext i8 %36 to i32
   %shl.i.i.i98 = shl nuw i32 %conv.i.i.i97, 24
@@ -72376,8 +72345,8 @@ land.lhs.true23:                                  ; preds = %land.lhs.true.i103,
   br i1 %cmp.i.i.not.i143.not, label %land.end29, label %land.lhs.true.i123
 
 land.lhs.true.i123:                               ; preds = %land.lhs.true23
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %44 = load i8, ptr %add.ptr.i.i88, align 1
   %conv.i.i.i145 = zext i8 %44 to i32
   %shl.i.i.i146 = shl nuw i32 %conv.i.i.i145, 24
@@ -72434,8 +72403,8 @@ land.lhs.true25:                                  ; preds = %land.lhs.true.i123,
   br i1 %cmp.i.i.not.i191.not, label %land.end29, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true25
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %52 = load i8, ptr %add.ptr.i.i136, align 1
   %conv.i.i.i193 = zext i8 %52 to i32
   %shl.i.i.i194 = shl nuw i32 %conv.i.i.i193, 24
@@ -72492,8 +72461,8 @@ land.rhs27:                                       ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.not.i239.not, label %land.end29, label %land.lhs.true.i40
 
 land.lhs.true.i40:                                ; preds = %land.rhs27
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %60 = load i8, ptr %add.ptr.i.i184, align 1
   %conv.i.i.i241 = zext i8 %60 to i32
   %shl.i.i.i242 = shl nuw i32 %conv.i.i.i241, 24
@@ -72559,7 +72528,7 @@ entry:
   br i1 %cmp.i.i.i.not.i, label %_ZNK2OT7ArrayOfINS_20BaseGlyphPaintRecordENS_7IntTypeIjLj4EEEE8sanitizeIJPKNS_13BaseGlyphListEEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %shl.i.i.i = shl nuw i32 %conv.i.i11.i, 24
@@ -72609,7 +72578,7 @@ _ZNK2OT7ArrayOfINS_20BaseGlyphPaintRecordENS_7IntTypeIjLj4EEEE16sanitize_shallow
   br i1 %cmp7.i.i.i, label %if.end.i, label %_ZNK2OT7ArrayOfINS_20BaseGlyphPaintRecordENS_7IntTypeIjLj4EEEE8sanitizeIJPKNS_13BaseGlyphListEEEEbP21hb_sanitize_context_tDpOT_.exit
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_20BaseGlyphPaintRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %13 = load i8, ptr %this, align 1
   %conv.i.i = zext i8 %13 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
@@ -72649,8 +72618,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body.i
   %paint.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %19 = load i8, ptr %paint.i.i.i, align 1
   %conv.i.i.i8.i.i.i = zext i8 %19 to i32
   %shl.i.i.i.i.i.i = shl nuw i32 %conv.i.i.i8.i.i.i, 24
@@ -72733,7 +72702,7 @@ entry:
   br i1 %cmp.i.i.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   switch i8 %2, label %return [
     i8 1, label %sw.bb
@@ -73159,8 +73128,8 @@ land.rhs.i.i.i:                                   ; preds = %entry
   br i1 %cmp.i.i.not.i.not.i.i.i, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_19PaintLinearGradientIS2_EEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS6_.exit, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %land.rhs.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %colorLine.i.i.i, align 1
   %conv.i.i.i8.i.i.i = zext i8 %2 to i32
   %shl.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i8.i.i.i, 16
@@ -73191,7 +73160,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i.i.i.i.i:                      ; preds = %lor.lhs.false.i.i.i.i
   %stops.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i11.i.i.i, i64 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %7 = load i8, ptr %stops.i.i.i.i.i.i, align 1
   %conv.i.i11.i.i.i.i.i.i.i = zext i8 %7 to i32
   %shl.i.i.i.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i11.i.i.i.i.i.i.i, 8
@@ -73279,8 +73248,8 @@ land.rhs.i.i.i:                                   ; preds = %entry
   br i1 %cmp.i.i.not.i.not.i.i.i, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT8VariableINS1_19PaintLinearGradientIS2_EEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS6_.exit, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %land.rhs.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %colorLine.i.i.i, align 1
   %conv.i.i.i8.i.i.i = zext i8 %2 to i32
   %shl.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i8.i.i.i, 16
@@ -73311,7 +73280,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i.i.i.i.i:                      ; preds = %lor.lhs.false.i.i.i.i
   %stops.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i11.i.i.i, i64 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %7 = load i8, ptr %stops.i.i.i.i.i.i, align 1
   %conv.i.i11.i.i.i.i.i.i.i = zext i8 %7 to i32
   %shl.i.i.i.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i11.i.i.i.i.i.i.i, 8
@@ -73394,8 +73363,8 @@ land.rhs.i.i.i:                                   ; preds = %entry
   br i1 %cmp.i.i.not.i.not.i.i.i, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_19PaintRadialGradientIS2_EEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS6_.exit, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %land.rhs.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %colorLine.i.i.i, align 1
   %conv.i.i.i8.i.i.i = zext i8 %2 to i32
   %shl.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i8.i.i.i, 16
@@ -73426,7 +73395,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i.i.i.i.i:                      ; preds = %lor.lhs.false.i.i.i.i
   %stops.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i11.i.i.i, i64 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %7 = load i8, ptr %stops.i.i.i.i.i.i, align 1
   %conv.i.i11.i.i.i.i.i.i.i = zext i8 %7 to i32
   %shl.i.i.i.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i11.i.i.i.i.i.i.i, 8
@@ -73514,8 +73483,8 @@ land.rhs.i.i.i:                                   ; preds = %entry
   br i1 %cmp.i.i.not.i.not.i.i.i, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT8VariableINS1_19PaintRadialGradientIS2_EEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS6_.exit, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %land.rhs.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %colorLine.i.i.i, align 1
   %conv.i.i.i8.i.i.i = zext i8 %2 to i32
   %shl.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i8.i.i.i, 16
@@ -73546,7 +73515,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i.i.i.i.i:                      ; preds = %lor.lhs.false.i.i.i.i
   %stops.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i11.i.i.i, i64 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %7 = load i8, ptr %stops.i.i.i.i.i.i, align 1
   %conv.i.i11.i.i.i.i.i.i.i = zext i8 %7 to i32
   %shl.i.i.i.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i11.i.i.i.i.i.i.i, 8
@@ -73629,8 +73598,8 @@ land.rhs.i.i.i:                                   ; preds = %entry
   br i1 %cmp.i.i.not.i.not.i.i.i, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_18PaintSweepGradientIS2_EEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS6_.exit, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %land.rhs.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %colorLine.i.i.i, align 1
   %conv.i.i.i8.i.i.i = zext i8 %2 to i32
   %shl.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i8.i.i.i, 16
@@ -73661,7 +73630,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i.i.i.i.i:                      ; preds = %lor.lhs.false.i.i.i.i
   %stops.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i11.i.i.i, i64 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %7 = load i8, ptr %stops.i.i.i.i.i.i, align 1
   %conv.i.i11.i.i.i.i.i.i.i = zext i8 %7 to i32
   %shl.i.i.i.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i11.i.i.i.i.i.i.i, 8
@@ -73749,8 +73718,8 @@ land.rhs.i.i.i:                                   ; preds = %entry
   br i1 %cmp.i.i.not.i.not.i.i.i, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT8VariableINS1_18PaintSweepGradientIS2_EEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS6_.exit, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %land.rhs.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %colorLine.i.i.i, align 1
   %conv.i.i.i8.i.i.i = zext i8 %2 to i32
   %shl.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i8.i.i.i, 16
@@ -73781,7 +73750,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i.i.i.i.i:                      ; preds = %lor.lhs.false.i.i.i.i
   %stops.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i11.i.i.i, i64 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %7 = load i8, ptr %stops.i.i.i.i.i.i, align 1
   %conv.i.i11.i.i.i.i.i.i.i = zext i8 %7 to i32
   %shl.i.i.i.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i11.i.i.i.i.i.i.i, 8
@@ -73863,8 +73832,8 @@ land.rhs:                                         ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %paint, align 1
   %conv.i.i.i8 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i8, 16
@@ -73950,8 +73919,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %src, align 1
   %conv.i.i.i12 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i12, 16
@@ -74018,8 +73987,8 @@ land.rhs:                                         ; preds = %land.lhs.true.i, %_
   br i1 %cmp.i.i.not.i23.not, label %land.end, label %land.lhs.true.i16
 
 land.lhs.true.i16:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %11 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i25 = zext i8 %11 to i32
   %shl.i.i.i26 = shl nuw nsw i32 %conv.i.i.i25, 16
@@ -74097,8 +74066,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %src, align 1
   %conv.i.i.i12 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i12, 16
@@ -74165,8 +74134,8 @@ land.rhs:                                         ; preds = %land.lhs.true.i, %_
   br i1 %cmp.i.i.not.i23.not, label %land.end, label %land.lhs.true.i16
 
 land.lhs.true.i16:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %11 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i25 = zext i8 %11 to i32
   %shl.i.i.i26 = shl nuw nsw i32 %conv.i.i.i25, 16
@@ -74249,8 +74218,8 @@ land.rhs:                                         ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %src, align 1
   %conv.i.i.i8 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i8, 16
@@ -74336,8 +74305,8 @@ land.rhs:                                         ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %src, align 1
   %conv.i.i.i8 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i8, 16
@@ -74423,8 +74392,8 @@ land.rhs:                                         ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %src, align 1
   %conv.i.i.i8 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i8, 16
@@ -74510,8 +74479,8 @@ land.rhs:                                         ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %src, align 1
   %conv.i.i.i8 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i8, 16
@@ -74597,8 +74566,8 @@ land.rhs:                                         ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %src, align 1
   %conv.i.i.i8 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i8, 16
@@ -74684,8 +74653,8 @@ land.rhs:                                         ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %src, align 1
   %conv.i.i.i8 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i8, 16
@@ -74771,8 +74740,8 @@ land.rhs:                                         ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %src, align 1
   %conv.i.i.i8 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i8, 16
@@ -74858,8 +74827,8 @@ land.rhs:                                         ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %src, align 1
   %conv.i.i.i8 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i8, 16
@@ -74945,8 +74914,8 @@ land.rhs:                                         ; preds = %entry
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %src, align 1
   %conv.i.i.i8 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i8, 16
@@ -75041,8 +75010,8 @@ land.lhs.true3:                                   ; preds = %land.lhs.true
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i16
 
 land.lhs.true.i16:                                ; preds = %land.lhs.true3
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %3 = load i8, ptr %src, align 1
   %conv.i.i.i13 = zext i8 %3 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i13, 16
@@ -75110,8 +75079,8 @@ land.rhs:                                         ; preds = %land.lhs.true.i16, 
   br i1 %cmp.i.i.not.i25.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %12 = load i8, ptr %backdrop, align 1
   %conv.i.i.i28 = zext i8 %12 to i32
   %shl.i.i.i29 = shl nuw nsw i32 %conv.i.i.i28, 16
@@ -75189,7 +75158,7 @@ entry:
   br i1 %cmp.i.i.i.not.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_5PaintENS_7IntTypeIjLj4EEEvLb1EEES4_E8sanitizeIJPKNS_9LayerListEEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %shl.i.i.i = shl nuw i32 %conv.i.i11.i, 24
@@ -75238,7 +75207,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_5PaintENS_7IntTypeIjLj4EEEvLb1EEES4_E16sanitize_
   br i1 %cmp7.i.i.i, label %if.end.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_5PaintENS_7IntTypeIjLj4EEEvLb1EEES4_E8sanitizeIJPKNS_9LayerListEEEEbP21hb_sanitize_context_tDpOT_.exit
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_5PaintENS_7IntTypeIjLj4EEEvLb1EEES4_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %15 = load i8, ptr %this, align 1
   %conv.i.i = zext i8 %15 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
@@ -75277,8 +75246,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_5PaintENS_7IntTypeIjLj4EEEvLb1EEES4_E8sanitizeIJPKNS_9LayerListEEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i.i.i4
 
 land.lhs.true.i.i.i4:                             ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %21 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %21 to i32
   %shl.i.i.i.i.i = shl nuw i32 %conv.i.i.i4.i.i, 24
@@ -75363,7 +75332,7 @@ entry:
 
 land.lhs.true.i:                                  ; preds = %entry
   %clips = getelementptr inbounds i8, ptr %this, i64 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %clips, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %shl.i.i.i = shl nuw i32 %conv.i.i11.i, 24
@@ -75412,7 +75381,7 @@ _ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_san
   br i1 %cmp7.i.i.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %13 = load i8, ptr %clips, align 1
   %conv.i.i8 = zext i8 %13 to i32
   %shl.i.i = shl nuw i32 %conv.i.i8, 24
@@ -75451,8 +75420,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body.i
   %clipBox.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %19 = load i8, ptr %clipBox.i.i.i, align 1
   %conv.i.i.i8.i.i.i = zext i8 %19 to i32
   %shl.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i8.i.i.i, 16
@@ -75482,7 +75451,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i
   br i1 %cmp.i.i.i.i.not.i.i.i.i.i.i, label %lor.rhs.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %lor.lhs.false.i.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %24 = load i8, ptr %add.ptr.i11.i.i.i, align 1
   switch i8 %24, label %if.end9.i [
     i8 1, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i
@@ -75964,7 +75933,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %s.i.i = getelementptr inbounds i8, ptr %visited_glyphs, i64 16
   %population.i.i.i.i = getelementptr inbounds i8, ptr %visited_glyphs, i64 20
   %last_page_lookup.i.i.i.i = getelementptr inbounds i8, ptr %visited_glyphs, i64 24
@@ -76188,9 +76157,9 @@ for.inc:                                          ; preds = %_ZNK14hb_sparseset_
   br i1 %cmp8.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %if.end
-  call void @hb_set_union(ptr noundef %glyphset, ptr noundef nonnull %visited_glyphs) #18
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %visited_paint.i) #18
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %visited_glyphs) #18
+  call void @hb_set_union(ptr noundef %glyphset, ptr noundef nonnull %visited_glyphs) #19
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %visited_paint.i) #19
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %visited_glyphs) #19
   br label %return
 
 return:                                           ; preds = %entry, %for.end
@@ -77913,7 +77882,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %sw.bb.i.i13, %cond.
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %_ZNK2OT8GSUBGPOS15get_feature_tagEj.exit
 
 if.end.i.i.i:                                     ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i7, i64 2
   %arrayidx.i.i.i = getelementptr inbounds [1 x %"struct.OT::Record.479"], ptr %arrayZ.i.i.i, i64 0, i64 %indvars.iv
   br label %_ZNK2OT8GSUBGPOS15get_feature_tagEj.exit
@@ -77972,7 +77941,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i30:    ; preds = %sw.bb.i.i32, %_ZNK2
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %_ZNK2OT8GSUBGPOS11get_featureEj.exit
 
 if.end.i.i.i.i:                                   ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i30
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i31, i64 2
   %arrayidx.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::Record.479"], ptr %arrayZ.i.i.i.i, i64 0, i64 %indvars.iv
   br label %_ZNK2OT8GSUBGPOS11get_featureEj.exit
@@ -78073,7 +78042,7 @@ if.then:                                          ; preds = %if.then.lr.ph, %_ZN
   br i1 %tobool.not.i, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  %call.i = call noundef ptr @hb_blob_get_empty() #18
+  %call.i = call noundef ptr @hb_blob_get_empty() #19
   br label %return
 
 if.end:                                           ; preds = %if.then
@@ -78083,14 +78052,14 @@ if.end:                                           ; preds = %if.then
   store i8 0, ptr %lazy_some_gpos.i.i.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %edit_count.i.i.i, i8 0, i64 16, i1 false)
   store i8 1, ptr %num_glyphs_set.i.i.i, align 4
-  %call2.i.i.i = call ptr @hb_face_reference_table(ptr noundef nonnull %1, i32 noundef 1398030676) #18
+  %call2.i.i.i = call ptr @hb_face_reference_table(ptr noundef nonnull %1, i32 noundef 1398030676) #19
   %call3.i.i.i = call noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4STATEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %c.i.i, ptr noundef %call2.i.i.i)
   %2 = load ptr, ptr %blob.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %_ZNK17hb_data_wrapper_tI9hb_face_tLj9EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4STATELj9ELb1EEEEPT_v.exit, label %if.then.i5.i.i
 
 if.then.i5.i.i:                                   ; preds = %if.end
-  call void @hb_blob_destroy(ptr noundef nonnull %2) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %2) #19
   br label %_ZNK17hb_data_wrapper_tI9hb_face_tLj9EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4STATELj9ELb1EEEEPT_v.exit
 
 _ZNK17hb_data_wrapper_tI9hb_face_tLj9EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4STATELj9ELb1EEEEPT_v.exit: ; preds = %if.end, %if.then.i5.i.i
@@ -78099,7 +78068,7 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj9EE11call_createI9hb_blob_t22hb_table_lazy_l
   br i1 %tobool6.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %_ZNK17hb_data_wrapper_tI9hb_face_tLj9EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4STATELj9ELb1EEEEPT_v.exit
-  %call.i6 = call noundef ptr @hb_blob_get_empty() #18
+  %call.i6 = call noundef ptr @hb_blob_get_empty() #19
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %_ZNK17hb_data_wrapper_tI9hb_face_tLj9EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4STATELj9ELb1EEEEPT_v.exit
@@ -78114,12 +78083,12 @@ if.then11:                                        ; preds = %if.end9
   br i1 %tobool.not.i7, label %_ZN16hb_lazy_loader_tIN2OT4STATE22hb_table_lazy_loader_tIS1_Lj9ELb1EE9hb_face_tLj9E9hb_blob_tE10do_destroyEPS5_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then11
-  %call.i.i = call noundef ptr @hb_blob_get_empty() #18
+  %call.i.i = call noundef ptr @hb_blob_get_empty() #19
   %cmp.not.i = icmp eq ptr %p.1, %call.i.i
   br i1 %cmp.not.i, label %_ZN16hb_lazy_loader_tIN2OT4STATE22hb_table_lazy_loader_tIS1_Lj9ELb1EE9hb_face_tLj9E9hb_blob_tE10do_destroyEPS5_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  call void @hb_blob_destroy(ptr noundef nonnull %p.1) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %p.1) #19
   br label %_ZN16hb_lazy_loader_tIN2OT4STATE22hb_table_lazy_loader_tIS1_Lj9ELb1EE9hb_face_tLj9E9hb_blob_tE10do_destroyEPS5_.exit
 
 _ZN16hb_lazy_loader_tIN2OT4STATE22hb_table_lazy_loader_tIS1_Lj9ELb1EE9hb_face_tLj9E9hb_blob_tE10do_destroyEPS5_.exit: ; preds = %if.then11, %land.lhs.true.i, %if.then.i
@@ -78140,7 +78109,7 @@ return:                                           ; preds = %if.end9, %return.lo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4STATEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %this, ptr noundef %blob) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #18
+  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #19
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call.i, ptr %blob.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -78185,7 +78154,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %retry, %if.else.
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
-  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %return
@@ -78205,7 +78174,7 @@ if.then7:                                         ; preds = %if.then5
   %7 = load i32, ptr %edit_count.i, align 4
   %tobool14.not = icmp eq i32 %7, 0
   %8 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %8) #18
+  tail call void @hb_blob_destroy(ptr noundef %8) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   %brmerge.not = and i1 %tobool14.not, %call11
@@ -78220,7 +78189,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %tobool22, label %if.else39.critedge, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #18
+  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #19
   store ptr %call24, ptr %start, align 8
   %10 = load i32, ptr %length, align 8
   %idx.ext = zext i32 %10 to i64
@@ -78231,25 +78200,25 @@ if.then23:                                        ; preds = %land.lhs.true
 
 if.then38.critedge:                               ; preds = %if.then5
   %11 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %11) #18
+  tail call void @hb_blob_destroy(ptr noundef %11) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.then38
 
 if.then38:                                        ; preds = %if.then7, %if.then38.critedge
-  tail call void @hb_blob_make_immutable(ptr noundef %blob) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %blob) #19
   br label %return
 
 if.else39.critedge:                               ; preds = %if.else, %if.then23, %land.lhs.true
   %12 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %12) #18
+  tail call void @hb_blob_destroy(ptr noundef %12) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.else39
 
 if.else39:                                        ; preds = %if.then7, %if.else39.critedge
-  tail call void @hb_blob_destroy(ptr noundef %blob) #18
-  %call40 = tail call ptr @hb_blob_get_empty() #18
+  tail call void @hb_blob_destroy(ptr noundef %blob) #19
+  %call40 = tail call ptr @hb_blob_get_empty() #19
   br label %return
 
 return:                                           ; preds = %if.else39, %if.then38, %if.then
@@ -78275,7 +78244,7 @@ entry:
   br i1 %cmp.i.i.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i12 = zext i8 %2 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i12, 8
@@ -78312,8 +78281,8 @@ land.lhs.true9:                                   ; preds = %land.lhs.true5
 lor.lhs.false.i:                                  ; preds = %land.lhs.true9
   %designAxesOffset = getelementptr inbounds i8, ptr %this, i64 8
   %designAxisCount = getelementptr inbounds i8, ptr %this, i64 6
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %designAxesOffset, align 1
   %conv.i.i19 = zext i8 %8 to i64
   %shl.i.i20 = shl nuw nsw i64 %conv.i.i19, 24
@@ -78393,8 +78362,8 @@ land.rhs:                                         ; preds = %_ZN21hb_sanitize_co
   br i1 %cmp.i.i.not.i35.not, label %land.end, label %lor.lhs.false.i31
 
 lor.lhs.false.i31:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %25 = load i8, ptr %offsetToAxisValueOffsets, align 1
   %conv.i.i37 = zext i8 %25 to i64
   %shl.i.i38 = shl nuw nsw i64 %conv.i.i37, 24
@@ -78458,7 +78427,7 @@ _ZNK2OT14UnsizedArrayOfINS_8OffsetToINS_9AxisValueENS_7IntTypeItLj2EEEvLb1EEEE16
   br i1 %cmp7.i.i.i.i.i, label %if.end.i.i, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT20AxisValueOffsetArrayEJRKNS1_7IntTypeItLj2EEEPKS2_EEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS9_.exit
 
 if.end.i.i:                                       ; preds = %_ZNK2OT14UnsizedArrayOfINS_8OffsetToINS_9AxisValueENS_7IntTypeItLj2EEEvLb1EEEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %cmp.i7.not.i = icmp eq i32 %add.i.i.i, 0
   br i1 %cmp.i7.not.i, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT20AxisValueOffsetArrayEJRKNS1_7IntTypeItLj2EEEPKS2_EEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS9_.exit, label %for.body.i.preheader.i
 
@@ -78497,8 +78466,8 @@ entry:
   br i1 %cmp.i.i.not.i.not, label %_ZNK2OT8OffsetToINS_9AxisValueENS_7IntTypeItLj2EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %3 = load i8, ptr %obj, align 1
   %conv.i.i.i4 = zext i8 %3 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i4, 8
@@ -78524,7 +78493,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.not.i.i.i, label %lor.rhs.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %lor.lhs.false.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %7 = load i8, ptr %add.ptr.i, align 1
   %conv.i.i8.i.i.i = zext i8 %7 to i16
   %shl.i.i.i.i.i = shl nuw i16 %conv.i.i8.i.i.i, 8
@@ -78584,7 +78553,7 @@ sw.bb21.i.i.i:                                    ; preds = %if.end.i.i.i
   br i1 %cmp.i.i.not.i.i.i.i, label %lor.rhs.i, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %sw.bb21.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %17 = load i8, ptr %add.ptr.i.i.i.i, align 1
   %conv.i.i5.i.i.i.i = zext i8 %17 to i32
   %shl.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i5.i.i.i.i, 8
@@ -79515,7 +79484,7 @@ if.then:                                          ; preds = %if.then.lr.ph, %_ZN
   br i1 %tobool.not.i, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  %call.i = call noundef ptr @hb_blob_get_empty() #18
+  %call.i = call noundef ptr @hb_blob_get_empty() #19
   br label %return
 
 if.end:                                           ; preds = %if.then
@@ -79525,14 +79494,14 @@ if.end:                                           ; preds = %if.then
   store i8 0, ptr %lazy_some_gpos.i.i.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %edit_count.i.i.i, i8 0, i64 16, i1 false)
   store i8 1, ptr %num_glyphs_set.i.i.i, align 4
-  %call2.i.i.i = call ptr @hb_face_reference_table(ptr noundef nonnull %1, i32 noundef 1129333068) #18
+  %call2.i.i.i = call ptr @hb_face_reference_table(ptr noundef nonnull %1, i32 noundef 1129333068) #19
   %call3.i.i.i = call noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4CPALEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %c.i.i, ptr noundef %call2.i.i.i)
   %2 = load ptr, ptr %blob.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %_ZNK17hb_data_wrapper_tI9hb_face_tLj36EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4CPALELj36ELb1EEEEPT_v.exit, label %if.then.i5.i.i
 
 if.then.i5.i.i:                                   ; preds = %if.end
-  call void @hb_blob_destroy(ptr noundef nonnull %2) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %2) #19
   br label %_ZNK17hb_data_wrapper_tI9hb_face_tLj36EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4CPALELj36ELb1EEEEPT_v.exit
 
 _ZNK17hb_data_wrapper_tI9hb_face_tLj36EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4CPALELj36ELb1EEEEPT_v.exit: ; preds = %if.end, %if.then.i5.i.i
@@ -79541,7 +79510,7 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj36EE11call_createI9hb_blob_t22hb_table_lazy_
   br i1 %tobool6.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %_ZNK17hb_data_wrapper_tI9hb_face_tLj36EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4CPALELj36ELb1EEEEPT_v.exit
-  %call.i6 = call noundef ptr @hb_blob_get_empty() #18
+  %call.i6 = call noundef ptr @hb_blob_get_empty() #19
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %_ZNK17hb_data_wrapper_tI9hb_face_tLj36EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4CPALELj36ELb1EEEEPT_v.exit
@@ -79556,12 +79525,12 @@ if.then11:                                        ; preds = %if.end9
   br i1 %tobool.not.i7, label %_ZN16hb_lazy_loader_tIN2OT4CPALE22hb_table_lazy_loader_tIS1_Lj36ELb1EE9hb_face_tLj36E9hb_blob_tE10do_destroyEPS5_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then11
-  %call.i.i = call noundef ptr @hb_blob_get_empty() #18
+  %call.i.i = call noundef ptr @hb_blob_get_empty() #19
   %cmp.not.i = icmp eq ptr %p.1, %call.i.i
   br i1 %cmp.not.i, label %_ZN16hb_lazy_loader_tIN2OT4CPALE22hb_table_lazy_loader_tIS1_Lj36ELb1EE9hb_face_tLj36E9hb_blob_tE10do_destroyEPS5_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  call void @hb_blob_destroy(ptr noundef nonnull %p.1) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %p.1) #19
   br label %_ZN16hb_lazy_loader_tIN2OT4CPALE22hb_table_lazy_loader_tIS1_Lj36ELb1EE9hb_face_tLj36E9hb_blob_tE10do_destroyEPS5_.exit
 
 _ZN16hb_lazy_loader_tIN2OT4CPALE22hb_table_lazy_loader_tIS1_Lj36ELb1EE9hb_face_tLj36E9hb_blob_tE10do_destroyEPS5_.exit: ; preds = %if.then11, %land.lhs.true.i, %if.then.i
@@ -79582,7 +79551,7 @@ return:                                           ; preds = %if.end9, %return.lo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4CPALEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %this, ptr noundef %blob) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #18
+  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #19
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call.i, ptr %blob.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -79627,7 +79596,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %retry, %if.else.
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
-  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %return
@@ -79647,7 +79616,7 @@ if.then7:                                         ; preds = %if.then5
   %7 = load i32, ptr %edit_count.i, align 4
   %tobool14.not = icmp eq i32 %7, 0
   %8 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %8) #18
+  tail call void @hb_blob_destroy(ptr noundef %8) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   %brmerge.not = and i1 %tobool14.not, %call11
@@ -79662,7 +79631,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %tobool22, label %if.else39.critedge, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #18
+  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #19
   store ptr %call24, ptr %start, align 8
   %10 = load i32, ptr %length, align 8
   %idx.ext = zext i32 %10 to i64
@@ -79673,25 +79642,25 @@ if.then23:                                        ; preds = %land.lhs.true
 
 if.then38.critedge:                               ; preds = %if.then5
   %11 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %11) #18
+  tail call void @hb_blob_destroy(ptr noundef %11) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.then38
 
 if.then38:                                        ; preds = %if.then7, %if.then38.critedge
-  tail call void @hb_blob_make_immutable(ptr noundef %blob) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %blob) #19
   br label %return
 
 if.else39.critedge:                               ; preds = %if.else, %if.then23, %land.lhs.true
   %12 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %12) #18
+  tail call void @hb_blob_destroy(ptr noundef %12) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.else39
 
 if.else39:                                        ; preds = %if.then7, %if.else39.critedge
-  tail call void @hb_blob_destroy(ptr noundef %blob) #18
-  %call40 = tail call ptr @hb_blob_get_empty() #18
+  tail call void @hb_blob_destroy(ptr noundef %blob) #19
+  %call40 = tail call ptr @hb_blob_get_empty() #19
   br label %return
 
 return:                                           ; preds = %if.else39, %if.then38, %if.then
@@ -79716,7 +79685,7 @@ entry:
   br i1 %cmp.i.i.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %colorRecordsZ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i8, ptr %colorRecordsZ, align 1
   %conv.i.i.i.i = zext i8 %2 to i64
@@ -79806,7 +79775,7 @@ land.rhs:                                         ; preds = %_ZNK2OT14UnsizedArr
   br i1 %cmp, label %land.end, label %_ZNK2OT4CPAL2v1Ev.exit
 
 _ZNK2OT4CPAL2v1Ev.exit:                           ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %22 = load i8, ptr %numPalettes, align 1
   %conv.i.i.i.i.i = zext i8 %22 to i64
   %23 = load i8, ptr %arrayidx3.i.i13, align 1
@@ -81178,13 +81147,13 @@ if.end23.i.i:                                     ; preds = %lor.rhs.i.i
   br i1 %tobool.not.i.i.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i: ; preds = %if.end23.i.i
-  tail call void @free(ptr noundef %55) #18
+  tail call void @free(ptr noundef %55) #19
   br label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i: ; preds = %if.end23.i.i
   %56 = shl nuw i32 %new_allocated.028.i.i, 3
   %mul.i.i.i = zext i32 %56 to i64
-  %call.i.i.i = tail call ptr @realloc(ptr noundef %55, i64 noundef %mul.i.i.i) #19
+  %call.i.i.i = tail call ptr @realloc(ptr noundef %55, i64 noundef %mul.i.i.i) #20
   %tobool27.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool27.not.i.i, label %if.then28.i.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i
 
@@ -81282,7 +81251,7 @@ if.then79:                                        ; preds = %for.body68
   %72 = load i32, ptr %index.i143, align 4
   %idxprom3.i144 = zext i32 %72 to i64
   %v92 = getelementptr inbounds %struct.hb_bit_page_t, ptr %70, i64 %idxprom3.i144, i32 1
-  call void %op(ptr nonnull sret(%struct.hb_vector_size_t) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %v, ptr noundef nonnull align 8 dereferenceable(64) %v92) #18
+  call void %op(ptr nonnull sret(%struct.hb_vector_size_t) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %v, ptr noundef nonnull align 8 dereferenceable(64) %v92) #19
   %73 = load ptr, ptr %arrayZ.i164, align 8
   %74 = load ptr, ptr %arrayZ, align 8
   %index.i149 = getelementptr inbounds %"struct.hb_bit_set_t::page_map_t", ptr %74, i64 %idxprom88, i32 1
@@ -81479,13 +81448,13 @@ if.end23.i.i237:                                  ; preds = %lor.rhs.i.i235
   br i1 %tobool.not.i.i.i238, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i251, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i240
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i251: ; preds = %if.end23.i.i237
-  call void @free(ptr noundef %105) #18
+  call void @free(ptr noundef %105) #19
   br label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i244
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i240: ; preds = %if.end23.i.i237
   %106 = shl nuw i32 %new_allocated.028.i.i236, 3
   %mul.i.i.i241 = zext i32 %106 to i64
-  %call.i.i.i242 = call ptr @realloc(ptr noundef %105, i64 noundef %mul.i.i.i241) #19
+  %call.i.i.i242 = call ptr @realloc(ptr noundef %105, i64 noundef %mul.i.i.i241) #20
   %tobool27.not.i.i243 = icmp eq ptr %call.i.i.i242, null
   br i1 %tobool27.not.i.i243, label %if.then28.i.i246, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i244
 
@@ -81542,7 +81511,7 @@ cleanup:                                          ; preds = %if.end59, %if.then1
 
 if.then.i.i198:                                   ; preds = %cleanup.thread, %cleanup
   %compact_workspace.sroa.15.1298 = phi ptr [ null, %cleanup.thread ], [ %compact_workspace.sroa.15.0, %cleanup ]
-  call void @free(ptr noundef %compact_workspace.sroa.15.1298) #18
+  call void @free(ptr noundef %compact_workspace.sroa.15.1298) #19
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %if.then.i.i198, %cleanup, %entry
@@ -81817,7 +81786,7 @@ sw.bb.i.i:                                        ; preds = %if.end
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %_ZNK2OT6Layout4GPOS10get_lookupEj.exit
 
 if.end.i.i.i:                                     ; preds = %sw.bb.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 2
   %arrayidx.i.i.i = getelementptr inbounds [1 x %"struct.OT::OffsetTo.615"], ptr %arrayZ.i.i.i, i64 0, i64 %indvars.iv
   %21 = load i8, ptr %arrayidx.i.i.i, align 1
@@ -81870,7 +81839,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %for.inc.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::OffsetTo.856"], ptr %arrayZ.i.i.i.i, i64 0, i64 %indvars.iv.i.i
   br label %for.inc.i.i
 
@@ -81992,7 +81961,7 @@ _ZNK2OT4GDEF13get_var_storeEv.exit:               ; preds = %_ZNK2OT4GDEF13has_v
   %add.i.i.i53 = or disjoint i32 %shl.i.i.i50, %conv4.i.i.i52
   %16 = shl nuw nsw i32 %add.i.i.i53, 2
   %mul.i = zext nneg i32 %16 to i64
-  %call3.i = tail call noalias ptr @malloc(i64 noundef %mul.i) #20
+  %call3.i = tail call noalias ptr @malloc(i64 noundef %mul.i) #21
   %tobool.not.i = icmp ne ptr %call3.i, null
   %cmp6.i54 = icmp ne i32 %add.i.i.i53, 0
   %or.cond.i = and i1 %tobool.not.i, %cmp6.i54
@@ -82065,7 +82034,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEE
   %23 = load i32, ptr %length, align 4
   %24 = load ptr, ptr %arrayZ, align 8
   %and.i = and i32 %20, 65535
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i = zext nneg i32 %shr.i to i64
   %arrayidx.i.i.i = getelementptr inbounds [1 x %"struct.OT::OffsetTo.276"], ptr %arrayZ.i.i.i, i64 0, i64 %idxprom.i.i.i
   %25 = load i8, ptr %arrayidx.i.i.i, align 1
@@ -82179,7 +82148,7 @@ _ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit: ; preds = %for.inc
   br i1 %42, label %for.body, label %for.end
 
 for.end:                                          ; preds = %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit, %if.end19, %_ZNK2OT14VariationStore12create_cacheEv.exit
-  call void @free(ptr noundef %call3.i) #18
+  call void @free(ptr noundef %call3.i) #19
   br label %return
 
 return:                                           ; preds = %entry, %sw.bb.i, %_ZNK2OT4GDEF13has_var_storeEv.exit, %for.end
@@ -82198,7 +82167,7 @@ entry:
   br i1 %tobool.not, label %_ZN9hb_lock_tC2EP10hb_mutex_t.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #18
+  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #19
   %.pre = load ptr, ptr %accelerator, align 8
   br label %_ZN9hb_lock_tC2EP10hb_mutex_t.exit
 
@@ -82298,7 +82267,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i, %while
 _ZNK12hb_hashmap_tIjN2hb10unique_ptrI9hb_blob_tEELb0EE3getERKj.exit: ; preds = %if.end.i.i.i, %if.then.i.i.i
   %retval.0.i16 = phi ptr [ %spec.select.i.i, %if.then.i.i.i ], [ @_hb_NullPool, %if.end.i.i.i ]
   %13 = load ptr, ptr %retval.0.i16, align 8
-  %call16 = tail call ptr @hb_blob_reference(ptr noundef %13) #18
+  %call16 = tail call ptr @hb_blob_reference(ptr noundef %13) #19
   br label %cleanup
 
 _ZN21hb_sanitize_context_t15reference_tableIN2OT4GDEFEEEP9hb_blob_tPK9hb_face_tj.exit: ; preds = %if.end.i.i, %if.then.i.i.thread, %if.then.i.i, %if.end.i, %land.rhs, %_ZN9hb_lock_tC2EP10hb_mutex_t.exit
@@ -82315,10 +82284,10 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT4GDEFEEEP9hb_blob_tPK9hb_face_tj
   store i8 0, ptr %lazy_some_gpos.i, align 1
   %source = getelementptr inbounds i8, ptr %plan, i64 56
   %14 = load ptr, ptr %source, align 8
-  %call.i = tail call i32 @hb_face_get_glyph_count(ptr noundef %14) #18
+  %call.i = tail call i32 @hb_face_get_glyph_count(ptr noundef %14) #19
   store i32 %call.i, ptr %num_glyphs.i, align 8
   store i8 1, ptr %num_glyphs_set.i, align 4
-  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef %14, i32 noundef 1195656518) #18
+  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef %14, i32 noundef 1195656518) #19
   %call3.i = call noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4GDEFEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %ref.tmp17, ptr noundef %call2.i)
   store ptr %call3.i, ptr %table_blob, align 8
   %15 = load ptr, ptr %blob.i, align 8
@@ -82326,17 +82295,17 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT4GDEFEEEP9hb_blob_tPK9hb_face_tj
   br i1 %tobool.not.i22, label %_ZN21hb_sanitize_context_tD2Ev.exit, label %if.then.i23
 
 if.then.i23:                                      ; preds = %_ZN21hb_sanitize_context_t15reference_tableIN2OT4GDEFEEEP9hb_blob_tPK9hb_face_tj.exit
-  call void @hb_blob_destroy(ptr noundef nonnull %15) #18
+  call void @hb_blob_destroy(ptr noundef nonnull %15) #19
   store ptr null, ptr %blob.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start.i, i8 0, i64 20, i1 false)
   br label %_ZN21hb_sanitize_context_tD2Ev.exit
 
 _ZN21hb_sanitize_context_tD2Ev.exit:              ; preds = %_ZN21hb_sanitize_context_t15reference_tableIN2OT4GDEFEEEP9hb_blob_tPK9hb_face_tj.exit, %if.then.i23
-  %call20 = call ptr @hb_blob_reference(ptr noundef %call3.i) #18
+  %call20 = call ptr @hb_blob_reference(ptr noundef %call3.i) #19
   store i32 1195656518, ptr %ref.tmp23, align 4
   %call2.i27 = call noundef zeroext i1 @_ZN12hb_hashmap_tIjN2hb10unique_ptrI9hb_blob_tEELb0EE13set_with_hashIjS3_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %cond10, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp23, i32 noundef -1594098842, ptr noundef nonnull align 8 dereferenceable(8) %table_blob, i1 noundef zeroext true)
   %16 = load ptr, ptr %table_blob, align 8
-  call void @hb_blob_destroy(ptr noundef %16) #18
+  call void @hb_blob_destroy(ptr noundef %16) #19
   store ptr null, ptr %table_blob, align 8
   br label %cleanup
 
@@ -82345,7 +82314,7 @@ cleanup:                                          ; preds = %_ZN21hb_sanitize_co
   br i1 %tobool.not, label %_ZN9hb_lock_tD2Ev.exit, label %if.then.i29
 
 if.then.i29:                                      ; preds = %cleanup
-  %call.i.i30 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #18
+  %call.i.i30 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #19
   br label %_ZN9hb_lock_tD2Ev.exit
 
 _ZN9hb_lock_tD2Ev.exit:                           ; preds = %cleanup, %if.then.i29
@@ -82355,7 +82324,7 @@ _ZN9hb_lock_tD2Ev.exit:                           ; preds = %cleanup, %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4GDEFEEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %this, ptr noundef %blob) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #18
+  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #19
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call.i, ptr %blob.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -82400,7 +82369,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %retry, %if.else.
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
-  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %return
@@ -82410,7 +82379,7 @@ if.end:                                           ; preds = %_ZN21hb_sanitize_co
   br i1 %cmp.i.i.not.i, label %if.else39.critedge, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %2, align 1
   %conv.i.i2.i = zext i8 %6 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i2.i, 8
@@ -82444,7 +82413,7 @@ if.then7:                                         ; preds = %if.then5
   br i1 %cmp.i.i.not.i20, label %_ZNK2OT4GDEF8sanitizeEP21hb_sanitize_context_t.exit31, label %if.end.i21
 
 if.end.i21:                                       ; preds = %if.then7
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %11 = load i8, ptr %2, align 1
   %conv.i.i2.i22 = zext i8 %11 to i32
   %shl.i.i.i23 = shl nuw nsw i32 %conv.i.i2.i22, 8
@@ -82464,7 +82433,7 @@ _ZNK2OT4GDEF8sanitizeEP21hb_sanitize_context_t.exit31: ; preds = %if.then7, %if.
   %14 = load i32, ptr %edit_count.i, align 4
   %tobool14.not = icmp ne i32 %14, 0
   %15 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %15) #18
+  tail call void @hb_blob_destroy(ptr noundef %15) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   %brmerge = or i1 %tobool14.not, %retval.0.i28
@@ -82481,7 +82450,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %tobool22, label %if.else39.critedge, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #18
+  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #19
   store ptr %call24, ptr %start, align 8
   %18 = load i32, ptr %length, align 8
   %idx.ext = zext i32 %18 to i64
@@ -82492,25 +82461,25 @@ if.then23:                                        ; preds = %land.lhs.true
 
 if.then38.critedge:                               ; preds = %if.then5
   %19 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %19) #18
+  tail call void @hb_blob_destroy(ptr noundef %19) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.then38
 
 if.then38:                                        ; preds = %_ZNK2OT4GDEF8sanitizeEP21hb_sanitize_context_t.exit31, %if.then38.critedge
-  tail call void @hb_blob_make_immutable(ptr noundef %blob) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %blob) #19
   br label %return
 
 if.else39.critedge:                               ; preds = %if.end, %if.else, %if.then23, %land.lhs.true
   %20 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %20) #18
+  tail call void @hb_blob_destroy(ptr noundef %20) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.else39
 
 if.else39:                                        ; preds = %_ZNK2OT4GDEF8sanitizeEP21hb_sanitize_context_t.exit31, %if.else39.critedge
-  tail call void @hb_blob_destroy(ptr noundef %blob) #18
-  %call40 = tail call ptr @hb_blob_get_empty() #18
+  tail call void @hb_blob_destroy(ptr noundef %blob) #19
+  %call40 = tail call ptr @hb_blob_get_empty() #19
   br label %return
 
 return:                                           ; preds = %if.else39, %if.then38, %if.then
@@ -82539,8 +82508,8 @@ entry:
   br i1 %or.cond, label %land.lhs.true.i49, label %land.end
 
 land.lhs.true.i49:                                ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i26 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i26, 8
@@ -82587,8 +82556,8 @@ land.lhs.true3:                                   ; preds = %land.lhs.true.i49, 
   br i1 %cmp.i.i.not.i35.not, label %land.end, label %land.lhs.true.i70
 
 land.lhs.true.i70:                                ; preds = %land.lhs.true3
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %add.ptr.i.i25, align 1
   %conv.i.i.i37 = zext i8 %8 to i32
   %shl.i.i.i38 = shl nuw nsw i32 %conv.i.i.i37, 8
@@ -82635,8 +82604,8 @@ land.lhs.true5:                                   ; preds = %land.lhs.true.i70, 
   br i1 %cmp.i.i.not.i67.not, label %land.end, label %land.lhs.true.i90
 
 land.lhs.true.i90:                                ; preds = %land.lhs.true5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %add.ptr.i.i28, align 1
   %conv.i.i.i69 = zext i8 %14 to i32
   %shl.i.i.i70 = shl nuw nsw i32 %conv.i.i.i69, 8
@@ -82683,8 +82652,8 @@ land.lhs.true7:                                   ; preds = %land.lhs.true.i90, 
   br i1 %cmp.i.i.not.i99.not, label %land.end, label %land.lhs.true.i29
 
 land.lhs.true.i29:                                ; preds = %land.lhs.true7
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %20 = load i8, ptr %add.ptr.i.i60, align 1
   %conv.i.i.i102 = zext i8 %20 to i32
   %shl.i.i.i103 = shl nuw nsw i32 %conv.i.i.i102, 8
@@ -82720,7 +82689,7 @@ _ZNK2OT8OffsetToINS_8ClassDefENS_7IntTypeItLj2EEEvLb1EE8sanitizeIJEEEbP21hb_sani
   br label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %land.lhs.true.i29, %lor.lhs.false.i33, %_ZNK2OT8OffsetToINS_8ClassDefENS_7IntTypeItLj2EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %24 = load i8, ptr %this, align 1
   %conv.i.i.i126 = zext i8 %24 to i32
   %arrayidx3.i.i.i127 = getelementptr inbounds i8, ptr %this, i64 1
@@ -82753,8 +82722,8 @@ lor.lhs.false:                                    ; preds = %land.lhs.true9
   br i1 %cmp.i.i.not.i136.not, label %land.end, label %land.lhs.true.i110
 
 land.lhs.true.i110:                               ; preds = %lor.lhs.false
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %32 = load i8, ptr %add.ptr.i.i92, align 1
   %conv.i.i.i138 = zext i8 %32 to i32
   %shl.i.i.i139 = shl nuw nsw i32 %conv.i.i.i138, 8
@@ -82820,8 +82789,8 @@ lor.rhs:                                          ; preds = %land.rhs
   br i1 %cmp.i.i.not.i178.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %lor.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %44 = load i8, ptr %varStore, align 1
   %conv.i.i.i180 = zext i8 %44 to i32
   %shl.i.i.i181 = shl nuw i32 %conv.i.i.i180, 24
@@ -82887,8 +82856,8 @@ entry:
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i.i9 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i9, 8
@@ -82935,7 +82904,7 @@ land.rhs:                                         ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.i.not.i, label %land.end, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i11.i = zext i8 %8 to i32
   %arrayidx3.i.i.i12 = getelementptr inbounds i8, ptr %this, i64 3
@@ -82970,7 +82939,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_11AttachPointENS_7IntTypeItLj2EEEvLb1EEES4_E16sa
   br i1 %cmp7.i.i.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_11AttachPointENS_7IntTypeItLj2EEEvLb1EEES4_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %16 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i20 = zext i8 %16 to i32
   %shl.i.i21 = shl nuw nsw i32 %conv.i.i20, 8
@@ -83000,8 +82969,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %land.end, label %land.lhs.true.i.i.i25
 
 land.lhs.true.i.i.i25:                            ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %20 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %20 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i4.i.i, 8
@@ -83026,7 +82995,7 @@ lor.lhs.false.i.i.i:                              ; preds = %land.lhs.true.i.i.i
   br i1 %cmp.i.i.i.not.i.i.i.i.i, label %lor.rhs.i.i.i, label %land.lhs.true.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %lor.lhs.false.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %24 = load i8, ptr %add.ptr.i.i.i, align 1
   %conv.i.i11.i.i.i.i.i = zext i8 %24 to i32
   %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 1
@@ -83100,8 +83069,8 @@ entry:
   br i1 %cmp.i.i.not.i.not, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i.i9 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i9, 8
@@ -83148,7 +83117,7 @@ land.rhs:                                         ; preds = %land.lhs.true.i, %l
   br i1 %cmp.i.i.i.not.i, label %land.end, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i11.i = zext i8 %8 to i32
   %arrayidx3.i.i.i12 = getelementptr inbounds i8, ptr %this, i64 3
@@ -83183,7 +83152,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_8LigGlyphENS_7IntTypeItLj2EEEvLb1EEES4_E16saniti
   br i1 %cmp7.i.i.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_8LigGlyphENS_7IntTypeItLj2EEEvLb1EEES4_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %16 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i20 = zext i8 %16 to i32
   %shl.i.i21 = shl nuw nsw i32 %conv.i.i20, 8
@@ -83213,8 +83182,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %land.end, label %land.lhs.true.i.i.i25
 
 land.lhs.true.i.i.i25:                            ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %20 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %20 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i4.i.i, 8
@@ -83273,7 +83242,7 @@ entry:
   br i1 %cmp.i.i.i.not.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_10CaretValueENS_7IntTypeItLj2EEEvLb1EEES4_E8sanitizeIJPKNS_8LigGlyphEEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 1
@@ -83308,7 +83277,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_10CaretValueENS_7IntTypeItLj2EEEvLb1EEES4_E16san
   br i1 %cmp7.i.i.i, label %if.end.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_10CaretValueENS_7IntTypeItLj2EEEvLb1EEES4_E8sanitizeIJPKNS_8LigGlyphEEEEbP21hb_sanitize_context_tDpOT_.exit
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_10CaretValueENS_7IntTypeItLj2EEEvLb1EEES4_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %10 = load i8, ptr %this, align 1
   %conv.i.i = zext i8 %10 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
@@ -83338,8 +83307,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_10CaretValueENS_7IntTypeItLj2EEEvLb1EEES4_E8sanitizeIJPKNS_8LigGlyphEEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i.i.i4
 
 land.lhs.true.i.i.i4:                             ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %14 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i4.i.i, 8
@@ -83364,7 +83333,7 @@ lor.lhs.false.i.i.i:                              ; preds = %land.lhs.true.i.i.i
   br i1 %cmp.i.i.i.not.i.i.i.i.i, label %lor.rhs.i.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %18 = load i8, ptr %add.ptr.i.i.i, align 1
   %conv.i.i.i.i.i.i.i = zext i8 %18 to i16
   %shl.i.i.i.i.i.i.i = shl nuw i16 %conv.i.i.i.i.i.i.i, 8
@@ -83448,8 +83417,8 @@ entry:
 
 land.lhs.true.i:                                  ; preds = %entry
   %deviceTable = getelementptr inbounds i8, ptr %this, i64 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %deviceTable, align 1
   %conv.i.i.i8 = zext i8 %2 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i8, 8
@@ -83581,7 +83550,7 @@ entry:
   br i1 %cmp.i.i.i.not.i.i, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT13MarkGlyphSetsEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS3_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %obj, align 1
   %conv.i.i.i.i = zext i8 %2 to i32
   %shl.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i, 8
@@ -83618,7 +83587,7 @@ entry:
   br i1 %cmp.i.i.i.not.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeIjLj4EEEvLb1EEENS5_ItLj2EEEE8sanitizeIJPKNS_20MarkGlyphSetsFormat1EEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %coverage, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 3
@@ -83653,7 +83622,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeIjLj4EEEvLb1E
   br i1 %cmp7.i.i.i, label %if.end.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeIjLj4EEEvLb1EEENS5_ItLj2EEEE8sanitizeIJPKNS_20MarkGlyphSetsFormat1EEEEbP21hb_sanitize_context_tDpOT_.exit
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeIjLj4EEEvLb1EEENS5_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %10 = load i8, ptr %coverage, align 1
   %conv.i.i = zext i8 %10 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
@@ -83683,8 +83652,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.not.i.i, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeIjLj4EEEvLb1EEENS5_ItLj2EEEE8sanitizeIJPKNS_20MarkGlyphSetsFormat1EEEEbP21hb_sanitize_context_tDpOT_.exit, label %land.lhs.true.i.i.i4
 
 land.lhs.true.i.i.i4:                             ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %14 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i4.i.i = zext i8 %14 to i32
   %shl.i.i.i.i.i = shl nuw i32 %conv.i.i.i4.i.i, 24
@@ -83784,7 +83753,7 @@ sw.bb7.i.i:                                       ; preds = %entry
   br i1 %tobool.not.i.i.i, label %cond.end.i.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i: ; preds = %sw.bb7.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !noalias !584, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !noalias !584, !srcloc !5
   %arrayZ.i.i.i1.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 4
   %6 = load i8, ptr %arrayZ.i.i.i1.i, align 1, !noalias !584
   %conv.i.i1.i.i.i = zext i8 %6 to i32
@@ -83819,7 +83788,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i.i: ; preds = %cond.end.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !noalias !584, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !noalias !584, !srcloc !5
   %arrayZ.i14.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 4
   %.pre42.i.i.i = load i8, ptr %rangeRecord.i.i.i, align 1, !noalias !584
   %.pre43.i.i.i = load i8, ptr %arrayidx3.i.i.i.i.i7, align 1, !noalias !584
@@ -83838,7 +83807,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %10, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i.i, label %if.end.i28.i.i.i
 
 if.end.i28.i.i.i:                                 ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !noalias !584, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !noalias !584, !srcloc !5
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i.i: ; preds = %if.end.i28.i.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.thread.i.i.i
@@ -83919,7 +83888,7 @@ land.rhs.i.i.i:                                   ; preds = %land.rhs.i.i.i.lr.p
   br i1 %switch.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_8LigGlyphENS1_7IntTypeItLj2EEEvLb1EEEEE9hb_pair_tIjRSC_EEdeEv.exit.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %ref.tmp3.sroa.10.083 to i64
   %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i.i
   %21 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 1
@@ -84051,7 +84020,7 @@ sw.bb2.i:                                         ; preds = %while.body.i.i.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %sw.bb2.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i = zext nneg i32 %ref.tmp3.sroa.10.083 to i64
   %arrayidx.i.i.i = getelementptr inbounds [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %arrayZ.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
@@ -84167,7 +84136,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   br i1 %cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_8LigGlyphENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSO_0EE12hb_partial_tILj2EPK4$_39PKNS3_12LigCaretListEELST_0ELSO_0EERKSA_EdeEv.exit.i.i"
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %for.body.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   br label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_8LigGlyphENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSO_0EE12hb_partial_tILj2EPK4$_39PKNS3_12LigCaretListEELST_0ELSO_0EERKSA_EdeEv.exit.i.i"
 
 "_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_8LigGlyphENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSO_0EE12hb_partial_tILj2EPK4$_39PKNS3_12LigCaretListEELST_0ELSO_0EERKSA_EdeEv.exit.i.i": ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i
@@ -84428,7 +84397,7 @@ sw.bb2.i.i.i:                                     ; preds = %do.body.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %sw.bb2.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i23.i.i = zext nneg i32 %76 to i64
   %arrayidx.i.i.i24.i.i = getelementptr inbounds [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %arrayZ.i.i.i22.i.i, i64 0, i64 %idxprom.i.i.i23.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
@@ -84507,7 +84476,7 @@ land.rhs.i.i.i.i.i.i.i.i:                         ; preds = %_ZN2OT6Layout6Commo
   br i1 %cond.i.i.i.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_8LigGlyphENS1_7IntTypeItLj2EEEvLb1EEEEE9hb_pair_tIjRSC_EEdeEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %89 to i64
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i22.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %93 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
@@ -84891,7 +84860,7 @@ if.end5:                                          ; preds = %_ZNK2OT6Layout6Comm
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNK2OT6Layout6Common8Coverage13intersect_setIR8hb_set_tTnPN12hb_enable_ifIXsr13hb_is_sink_ofIT_jEE5valueEvE4typeELPv0EEEvRKS4_OS7_.exit, %if.end5
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %intersection) #18
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %intersection) #19
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %entry, %cleanup
@@ -85210,7 +85179,7 @@ if.end:                                           ; preds = %entry
   %tmp.coerce.sroa.2.0.ref.tmp5.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store i32 1, ptr %tmp.coerce.sroa.2.0.ref.tmp5.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp2.i), !noalias !589
-  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageE15hb_range_iter_tIjjETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISA_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISB_EEE4iterEEEOSA_OSB_"(ptr noalias nonnull align 8 %agg.tmp2.i, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp5)
+  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageE15hb_range_iter_tIjjETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISA_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISB_EEE4iterEEEOSA_OSB_"(ptr noalias align 8 %agg.tmp2.i, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp5)
   %glyph_set = getelementptr inbounds i8, ptr %c, i64 16
   call fastcc void @"_ZN16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EEC2ERKS8_SC_SF_"(ptr noundef nonnull align 8 dereferenceable(64) %it, ptr noundef nonnull readonly align 8 dereferenceable(44) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(8) %glyph_set, ptr noundef nonnull align 1 dereferenceable(1) @_ZL8hb_first)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp2.i), !noalias !589
@@ -85346,7 +85315,7 @@ sw.bb.i.i.i.i.i.i.i.i.i:                          ; preds = %for.body.sw.bb.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSI_0EEjEdeEv.exit"
 
 if.end.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %sw.bb.i.i.i.i.i.i.i.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %this.val.i.i.i.i.i.i.i.i.pre = load i32, ptr %b.i.i.i, align 8
   br label %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSI_0EEjEdeEv.exit"
 
@@ -85369,7 +85338,7 @@ for.end:                                          ; preds = %if.end.i.i.i.i, %sw
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageE15hb_range_iter_tIjjETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISA_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISB_EEE4iterEEEOSA_OSB_"(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(10) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %b) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageE15hb_range_iter_tIjjETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISA_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISB_EEE4iterEEEOSA_OSB_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(10) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %b) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.sroa.8 = alloca i32, align 8
   %ref.tmp.sroa.12 = alloca i32, align 8
@@ -85401,7 +85370,7 @@ sw.bb7.i:                                         ; preds = %entry
   br i1 %tobool.not.i.i, label %cond.end.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i: ; preds = %sw.bb7.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i = getelementptr inbounds i8, ptr %a, i64 4
   %4 = load i8, ptr %arrayZ.i.i.i, align 1
   %conv.i.i1.i.i = zext i8 %4 to i32
@@ -85436,7 +85405,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i: ; preds = %cond.end.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i14.i.i = getelementptr inbounds i8, ptr %a, i64 4
   %.pre42.i.i = load i8, ptr %rangeRecord.i.i, align 1
   %.pre43.i.i = load i8, ptr %arrayidx3.i.i.i.i, align 1
@@ -85455,7 +85424,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %8, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i, label %if.end.i28.i.i
 
 if.end.i28.i.i:                                   ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i: ; preds = %if.end.i28.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.thread.i.i
@@ -85564,7 +85533,7 @@ land.rhs.i.i.i:                                   ; preds = %_ZNK9hb_iter_tIN2OT
   br i1 %switch.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 4
   %idxprom.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %4 to i64
   %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i.i
@@ -85744,7 +85713,7 @@ land.rhs:                                         ; preds = %_ZNK9hb_iter_tI13hb
   br i1 %switch, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i, label %sw.bb2.i.i.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i: ; preds = %land.rhs
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %idxprom.i.i.i.i.i.i.i = zext nneg i32 %2 to i64
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i
@@ -85915,15 +85884,15 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i
 
 if.end.i28.i.i:                                   ; preds = %sw.bb7.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr getelementptr inbounds (i8, ptr @_hb_NullPool, i64 4), align 4
   %conv.i.i1.i.i = zext i8 %6 to i32
   %shl.i.i2.i.i = shl nuw nsw i32 %conv.i.i1.i.i, 8
   %7 = load i8, ptr getelementptr inbounds (i8, ptr @_hb_NullPool, i64 5), align 1
   %conv4.i.i4.i.i = zext i8 %7 to i32
   %add.i.i5.i.i = or disjoint i32 %shl.i.i2.i.i, %conv4.i.i4.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i: ; preds = %if.end.i28.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.thread.i.i
@@ -85987,7 +85956,7 @@ sw.bb6.i.i:                                       ; preds = %_ZN2OT6Layout6Commo
   br i1 %tobool.not.i.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE6iter_t7__end__Ev.exit.i.i, label %cond.end.i.i.i.i
 
 cond.end.i.i.i.i:                                 ; preds = %sw.bb6.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !noalias !623, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !noalias !623, !srcloc !5
   %.pre.i.i.i = load i8, ptr %rangeRecord.i.i.i.i, align 1, !noalias !623
   %.pre1.i.i.i = load i8, ptr %arrayidx3.i.i.i.i.i.i, align 1, !noalias !623
   %.pre2.i.i.i = zext i8 %.pre.i.i.i to i32
@@ -85998,7 +85967,7 @@ cond.end.i.i.i.i:                                 ; preds = %sw.bb6.i.i
   br i1 %17, label %_ZNK2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE6iter_t7__end__Ev.exit.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i.i.i: ; preds = %cond.end.i.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !noalias !623, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !noalias !623, !srcloc !5
   %.pre42.i.i.i.i = load i8, ptr %rangeRecord.i.i.i.i, align 1, !noalias !623
   %.pre43.i.i.i.i = load i8, ptr %arrayidx3.i.i.i.i.i.i, align 1, !noalias !623
   %.pre44.i.i.i.i = zext i8 %.pre42.i.i.i.i to i32
@@ -86009,7 +85978,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %18, label %_ZNK2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE6iter_t7__end__Ev.exit.i.i, label %if.end.i28.i.i.i.i
 
 if.end.i28.i.i.i.i:                               ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !noalias !623, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !noalias !623, !srcloc !5
   br label %_ZNK2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE6iter_t7__end__Ev.exit.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE6iter_t7__end__Ev.exit.i.i: ; preds = %if.end.i28.i.i.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i.i.i, %cond.end.i.i.i.i, %sw.bb6.i.i
@@ -86091,7 +86060,7 @@ if.end:                                           ; preds = %entry
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i
   %retval.0.i.i = select i1 %cmp.i.i.i, ptr @_hb_NullPool, ptr %add.ptr.i.i.i
   %pairSet = getelementptr inbounds i8, ptr %this, i64 8
-  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS1_7ArrayOfINS1_8OffsetToINS2_9GPOS_impl7PairSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEESE_EETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISK_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISL_EEE4iterEEEOSK_OSL_"(ptr noalias nonnull align 8 %ref.tmp6, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i, ptr noundef nonnull align 1 dereferenceable(4) %pairSet)
+  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS1_7ArrayOfINS1_8OffsetToINS2_9GPOS_impl7PairSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEESE_EETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISK_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISL_EEE4iterEEEOSK_OSL_"(ptr noalias align 8 %ref.tmp6, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i, ptr noundef nonnull align 1 dereferenceable(4) %pairSet)
   %ref.tmp5.sroa.0.0.copyload = load i32, ptr %ref.tmp6, align 8
   %ref.tmp5.sroa.3.0.ref.tmp6.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   %ref.tmp5.sroa.3.0.copyload = load ptr, ptr %ref.tmp5.sroa.3.0.ref.tmp6.sroa_idx, align 8
@@ -86138,7 +86107,7 @@ land.rhs.i.i.i:                                   ; preds = %land.rhs.i.i.i.lr.p
   br i1 %switch.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS2_9GPOS_impl7PairSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE9hb_pair_tIjRSF_EEdeEv.exit.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %ref.tmp.sroa.8.079 to i64
   %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i.i
   %6 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 1
@@ -86270,7 +86239,7 @@ sw.bb2.i:                                         ; preds = %while.body.i.i.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %sw.bb2.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i = zext nneg i32 %ref.tmp.sroa.8.079 to i64
   %arrayidx.i.i.i = getelementptr inbounds [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %arrayZ.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
@@ -86385,7 +86354,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   br i1 %cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EdeEv.exit.i.i"
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %for.body.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   br label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EdeEv.exit.i.i"
 
 "_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EdeEv.exit.i.i": ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i
@@ -86429,7 +86398,7 @@ sw.bb2.i.i.i:                                     ; preds = %do.body.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %sw.bb2.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i.i.i = zext nneg i32 %35 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %arrayZ.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
@@ -86508,7 +86477,7 @@ land.rhs.i.i.i.i.i.i.i.i:                         ; preds = %_ZN2OT6Layout6Commo
   br i1 %cond.i.i.i.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS2_9GPOS_impl7PairSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE9hb_pair_tIjRSF_EEdeEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %48 to i64
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %52 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
@@ -87393,7 +87362,7 @@ sw.bb.i.i:                                        ; preds = %if.else
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i.i
 
 if.end.i.i.i.i:                                   ; preds = %sw.bb.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i82, i64 6
   %idxprom.i.i.i.i = zext nneg i32 %sub.i.i.i to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::IntType.3"], ptr %arrayZ.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
@@ -87764,7 +87733,7 @@ sw.bb.i.i194:                                     ; preds = %for.body47
   br i1 %cmp.not.i.i.i.i208, label %if.end.i.i.i.i212, label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i.i209
 
 if.end.i.i.i.i212:                                ; preds = %sw.bb.i.i194
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i.i213 = getelementptr inbounds i8, ptr %retval.0.i.i134, i64 6
   %idxprom.i.i.i.i214 = zext nneg i32 %sub.i.i.i202 to i64
   %arrayidx.i.i.i.i215 = getelementptr inbounds [1 x %"struct.OT::IntType.3"], ptr %arrayZ.i.i.i.i213, i64 0, i64 %idxprom.i.i.i.i214
@@ -88295,13 +88264,13 @@ _ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit312: ; preds = %for.
   br i1 %175, label %for.body82, label %cleanup
 
 cleanup:                                          ; preds = %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit312, %if.end64, %for.end56, %lor.lhs.false, %land.lhs.true61
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %class2_set) #18
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %class1_set) #18
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %class2_set) #19
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %class1_set) #19
   br label %cleanup120
 
 cleanup120:                                       ; preds = %if.end9, %if.end5, %cleanup
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %klass2_glyphs) #18
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %klass1_glyphs) #18
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %klass2_glyphs) #19
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %klass1_glyphs) #19
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %if.end, %entry, %cleanup120
@@ -88435,7 +88404,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.not.i, label %if.end.i, label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit
 
 if.end.i:                                         ; preds = %for.body
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i = getelementptr inbounds [1 x %"struct.OT::IntType.3"], ptr %arrayZ.i, i64 0, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit
 
@@ -88716,7 +88685,7 @@ sw.bb7.i.i:                                       ; preds = %entry
   br i1 %tobool.not.i.i.i, label %cond.end.i.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i: ; preds = %sw.bb7.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !noalias !661, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !noalias !661, !srcloc !5
   %arrayZ.i.i.i1.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 4
   %6 = load i8, ptr %arrayZ.i.i.i1.i, align 1, !noalias !661
   %conv.i.i1.i.i.i = zext i8 %6 to i32
@@ -88751,7 +88720,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i.i: ; preds = %cond.end.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !noalias !661, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !noalias !661, !srcloc !5
   %arrayZ.i14.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 4
   %.pre42.i.i.i = load i8, ptr %rangeRecord.i.i.i, align 1, !noalias !661
   %.pre43.i.i.i = load i8, ptr %arrayidx3.i.i.i.i.i5, align 1, !noalias !661
@@ -88770,7 +88739,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %10, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i.i, label %if.end.i28.i.i.i
 
 if.end.i28.i.i.i:                                 ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !noalias !661, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !noalias !661, !srcloc !5
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i.i: ; preds = %if.end.i28.i.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.thread.i.i.i
@@ -88851,7 +88820,7 @@ land.rhs.i.i.i:                                   ; preds = %land.rhs.i.i.i.lr.p
   br i1 %switch.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_9GPOS_impl15EntryExitRecordEEE9hb_pair_tIjRS9_EEdeEv.exit.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %ref.tmp2.sroa.10.078 to i64
   %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i.i
   %21 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 1
@@ -88983,7 +88952,7 @@ sw.bb2.i:                                         ; preds = %while.body.i.i.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %sw.bb2.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i = zext nneg i32 %ref.tmp2.sroa.10.078 to i64
   %arrayidx.i.i.i = getelementptr inbounds [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %arrayZ.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
@@ -89095,7 +89064,7 @@ for.body.i.i:                                     ; preds = %_ZNK9hb_iter_tIN2OT
   br i1 %cond.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl15EntryExitRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSL_0EERSB_EdeEv.exit.i.i"
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   br label %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl15EntryExitRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSL_0EERSB_EdeEv.exit.i.i"
 
 "_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl15EntryExitRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSL_0EERSB_EdeEv.exit.i.i": ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i
@@ -89180,7 +89149,7 @@ sw.bb2.i.i.i:                                     ; preds = %do.body.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %sw.bb2.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i.i.i = zext nneg i32 %57 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %arrayZ.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
@@ -89259,7 +89228,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %_ZN2OT6Layout6Commo
   br i1 %cond.i.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_9GPOS_impl15EntryExitRecordEEE9hb_pair_tIjRS9_EEdeEv.exit.i.i.i.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i.i.i.i.i.i.i.i.i.i.i23 = zext nneg i32 %70 to i64
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i.i.i.i.i23
   %74 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i24, align 1
@@ -89529,9 +89498,9 @@ entry:
   %idx.ext.i.i.i15 = zext nneg i32 %add.i.i.i.i.i13 to i64
   %add.ptr.i.i.i16 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i15
   %retval.0.i.i17 = select i1 %cmp.i.i.i14, ptr @_hb_NullPool, ptr %add.ptr.i.i.i16
-  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS2_9GPOS_impl9MarkArrayETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISC_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISD_EEE4iterEEEOSC_OSD_"(ptr noalias nonnull align 8 %ref.tmp3, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i, ptr noundef nonnull align 1 dereferenceable(6) %retval.0.i.i17)
+  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS2_9GPOS_impl9MarkArrayETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISC_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISD_EEE4iterEEEOSC_OSD_"(ptr noalias align 8 %ref.tmp3, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i, ptr noundef nonnull align 1 dereferenceable(6) %retval.0.i.i17)
   %glyph_set = getelementptr inbounds i8, ptr %c, i64 16
-  call fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_9GPOS_impl10MarkRecordEEE24hb_filter_iter_factory_tIRPK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSM_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISM_Efp_EEEOSM_OSS_"(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3, ptr nonnull %glyph_set, ptr nonnull @_ZL8hb_first)
+  call fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_9GPOS_impl10MarkRecordEEE24hb_filter_iter_factory_tIRPK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSM_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISM_Efp_EEEOSM_OSS_"(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3, ptr nonnull %glyph_set, ptr nonnull @_ZL8hb_first)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %agg.tmp1.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp2, i64 64, i1 false)
   %ref.tmp.sroa.2.0.agg.tmp1.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 64
@@ -89575,7 +89544,7 @@ for.body.i.i:                                     ; preds = %_ZNK9hb_iter_tIN2OT
   br label %14
 
 "_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSL_0EERSB_EdeEv.exit.i.i": ; preds = %for.body.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %.pre.i.i = load i32, ptr %length.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %.pre.fr.i.i = freeze i32 %.pre.i.i
   %12 = icmp eq i32 %.pre.fr.i.i, 0
@@ -89699,7 +89668,7 @@ sw.bb2.i.i.i.i.i.i.i:                             ; preds = %14
   %tmp.coerce.sroa.2.0.ref.tmp31.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
   store i32 1, ptr %tmp.coerce.sroa.2.0.ref.tmp31.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp2.i), !noalias !667
-  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageE15hb_range_iter_tIjjETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISA_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISB_EEE4iterEEEOSA_OSB_"(ptr noalias nonnull align 8 %agg.tmp2.i, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i55, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp31)
+  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageE15hb_range_iter_tIjjETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISA_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISB_EEE4iterEEEOSA_OSB_"(ptr noalias align 8 %agg.tmp2.i, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i55, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp31)
   call fastcc void @"_ZN16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EEC2ERKS8_SC_SF_"(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp26, ptr noundef nonnull readonly align 8 dereferenceable(44) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(8) %glyph_set, ptr noundef nonnull align 1 dereferenceable(1) @_ZL8hb_first)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp2.i), !noalias !667
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %base_iter, ptr noundef nonnull readonly align 8 dereferenceable(64) %ref.tmp26, i64 64, i1 false)
@@ -89796,7 +89765,7 @@ sw.bb.i.i.i.i.i.i.i.i.i:                          ; preds = %for.body.sw.bb.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSI_0EEjEdeEv.exit"
 
 if.end.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %sw.bb.i.i.i.i.i.i.i.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %this.val.i.i.i.i.i.i.i.i.pre = load i32, ptr %b.i.i.i, align 8
   br label %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSI_0EEjEdeEv.exit"
 
@@ -89914,7 +89883,7 @@ lor.rhs.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.
 _ZN11hb_vector_tIjLb1EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i.i: ; preds = %lor.rhs.i.i.i.i.i
   %60 = shl nuw i32 %add15.i.i.i.i.i, 2
   %mul.i.i.i.i.i.i = zext i32 %60 to i64
-  %call.i.i.i.i.i.i = call ptr @realloc(ptr noundef %base_indexes.sroa.12.1, i64 noundef %mul.i.i.i.i.i.i) #19
+  %call.i.i.i.i.i.i = call ptr @realloc(ptr noundef %base_indexes.sroa.12.1, i64 noundef %mul.i.i.i.i.i.i) #20
   %tobool27.not.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i, null
   br i1 %tobool27.not.i.i.i.i.i, label %_ZN11hb_vector_tIjLb1EE5allocEjb.exit.thread5.i.i.i.i, label %if.end.i.i.i.i90
 
@@ -90072,7 +90041,7 @@ _ZNK2OT6Layout9GPOS_impl12AnchorMatrix25collect_variation_indicesI17hb_sorted_ar
   br i1 %tobool.not.i.i, label %_ZN11hb_vector_tIjLb1EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNK2OT6Layout9GPOS_impl12AnchorMatrix25collect_variation_indicesI17hb_sorted_array_tIKjETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS8_6item_tEEE5valueEvE4typeELPv0EEEvPNS_38hb_collect_variation_indices_context_tES8_.exit
-  call void @free(ptr noundef %base_indexes.sroa.12.0) #18
+  call void @free(ptr noundef %base_indexes.sroa.12.0) #19
   br label %_ZN11hb_vector_tIjLb1EED2Ev.exit
 
 _ZN11hb_vector_tIjLb1EED2Ev.exit:                 ; preds = %_ZNK2OT6Layout9GPOS_impl12AnchorMatrix25collect_variation_indicesI17hb_sorted_array_tIKjETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS8_6item_tEEE5valueEvE4typeELPv0EEEvPNS_38hb_collect_variation_indices_context_tES8_.exit, %if.then.i.i
@@ -90085,8 +90054,8 @@ if.then.i.i.i.i106:                               ; preds = %_ZN11hb_vector_tIjL
   %76 = inttoptr i64 %75 to ptr
   %items.i.i.i.i.i = getelementptr inbounds i8, ptr %76, i64 40
   call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %76)
-  %call.i.i.i.i.i.i107 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %76) #18
-  call void @free(ptr noundef nonnull %76) #18
+  %call.i.i.i.i.i.i107 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %76) #19
+  call void @free(ptr noundef nonnull %76) #19
   store atomic i64 0, ptr %user_data.i.i.i.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
 
@@ -90096,7 +90065,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i: ; preds = %if.then.i
   br i1 %tobool.not.i.i.i, label %_ZN8hb_map_tD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
-  call void @free(ptr noundef nonnull %77) #18
+  call void @free(ptr noundef nonnull %77) #19
   br label %_ZN8hb_map_tD2Ev.exit
 
 _ZN8hb_map_tD2Ev.exit:                            ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i, %if.then.i.i.i
@@ -90104,7 +90073,7 @@ _ZN8hb_map_tD2Ev.exit:                            ; preds = %_ZL14hb_object_fini
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_9GPOS_impl10MarkRecordEEE24hb_filter_iter_factory_tIRPK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSM_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISM_Efp_EEEOSM_OSS_"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %lhs, ptr %rhs.0.val, ptr %rhs.8.val) unnamed_addr #0 {
+define internal fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_9GPOS_impl10MarkRecordEEE24hb_filter_iter_factory_tIRPK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSM_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISM_Efp_EEEOSM_OSS_"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %lhs, ptr %rhs.0.val, ptr %rhs.8.val) unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %lhs, i64 48, i1 false)
   %p.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
@@ -90150,7 +90119,7 @@ land.rhs.i.i:                                     ; preds = %_ZNK9hb_iter_tIN2OT
   br i1 %switch.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 4
   %idxprom.i.i.i.i.i.i.i.i.i = zext nneg i32 %3 to i64
   %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i
@@ -90295,7 +90264,7 @@ _ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS2_9GPOS_impl9MarkArrayETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISC_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISD_EEE4iterEEEOSC_OSD_"(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(10) %a, ptr noundef nonnull align 1 dereferenceable(6) %b) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS2_9GPOS_impl9MarkArrayETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISC_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISD_EEE4iterEEEOSC_OSD_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(10) %a, ptr noundef nonnull align 1 dereferenceable(6) %b) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.sroa.8 = alloca i32, align 8
   %ref.tmp.sroa.12 = alloca i32, align 8
@@ -90327,7 +90296,7 @@ sw.bb7.i:                                         ; preds = %entry
   br i1 %tobool.not.i.i, label %cond.end.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i: ; preds = %sw.bb7.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i1 = getelementptr inbounds i8, ptr %a, i64 4
   %4 = load i8, ptr %arrayZ.i.i.i1, align 1
   %conv.i.i1.i.i = zext i8 %4 to i32
@@ -90362,7 +90331,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i: ; preds = %cond.end.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i14.i.i = getelementptr inbounds i8, ptr %a, i64 4
   %.pre42.i.i = load i8, ptr %rangeRecord.i.i, align 1
   %.pre43.i.i = load i8, ptr %arrayidx3.i.i.i.i, align 1
@@ -90381,7 +90350,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %8, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i, label %if.end.i28.i.i
 
 if.end.i28.i.i:                                   ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i: ; preds = %if.end.i28.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.thread.i.i
@@ -90469,7 +90438,7 @@ entry:
   store i32 0, ptr %population.i.i.i.i, align 4
   store atomic i32 0, ptr %last_page_lookup.i.i.i.i monotonic, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %page_map.i.i.i.i, i8 0, i64 33, i1 false)
-  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS2_9GPOS_impl9MarkArrayETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISC_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISD_EEE4iterEEEOSC_OSD_"(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 1 dereferenceable(10) %mark_coverage, ptr noundef nonnull align 1 dereferenceable(6) %mark_array)
+  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS2_9GPOS_impl9MarkArrayETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISC_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISD_EEE4iterEEEOSC_OSD_"(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 1 dereferenceable(10) %mark_coverage, ptr noundef nonnull align 1 dereferenceable(6) %mark_array)
   %ref.tmp3.sroa.0.0.copyload = load i32, ptr %ref.tmp4, align 8
   %ref.tmp3.sroa.3.0.ref.tmp4.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %ref.tmp3.sroa.3.0.copyload = load ptr, ptr %ref.tmp3.sroa.3.0.ref.tmp4.sroa_idx, align 8
@@ -90520,7 +90489,7 @@ land.rhs.i.i.i:                                   ; preds = %land.rhs.i.i.i.lr.p
   br i1 %switch.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_9GPOS_impl10MarkRecordEEE9hb_pair_tIjRS9_EEdeEv.exit.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %ref.tmp2.sroa.8.066 to i64
   %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i.i
   %2 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 1
@@ -90645,7 +90614,7 @@ sw.bb2.i:                                         ; preds = %while.body.i.i.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %sw.bb2.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i = zext nneg i32 %ref.tmp2.sroa.8.066 to i64
   %arrayidx.i.i.i = getelementptr inbounds [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %arrayZ.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
@@ -90765,7 +90734,7 @@ for.body.i.i:                                     ; preds = %"_ZNR9hb_iter_tI13h
   br i1 %cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEdeEv.exit.i.i"
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %for.body.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   br label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEdeEv.exit.i.i"
 
 "_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEdeEv.exit.i.i": ; preds = %for.body.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -90805,7 +90774,7 @@ sw.bb2.i.i.i:                                     ; preds = %do.body.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %sw.bb2.i.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i.i.i = zext nneg i32 %agg.tmp1.sroa.7.1.i to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %arrayZ.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
@@ -90884,7 +90853,7 @@ land.rhs.i.i.i.i.i.i.i.i:                         ; preds = %_ZNK9hb_iter_tIN2OT
   br i1 %cond.i.i.i.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_9GPOS_impl10MarkRecordEEE9hb_pair_tIjRS9_EEdeEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i.i.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %agg.tmp1.sroa.7.3.i to i64
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %44 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
@@ -91107,7 +91076,7 @@ _ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit: ; preds = %for.inc
   br i1 %75, label %for.body, label %for.end
 
 for.end:                                          ; preds = %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit, %"_ZorI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EE9hb_sink_tIRSE_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSY_6item_tEEE5valueEvE4typeELSK_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISY_Efp_EEEOSY_OS13_.exit"
-  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %orig_classes) #18
+  call void @_ZN14hb_sparseset_tI23hb_bit_set_invertible_tED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %orig_classes) #19
   ret void
 }
 
@@ -91169,7 +91138,7 @@ land.rhs.i.i.i:                                   ; preds = %_ZNK9hb_iter_tIN2OT
   br i1 %switch.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i, label %sw.bb2.i.i.i.i.i.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 4
   %idxprom.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %5 to i64
   %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i.i
@@ -91330,9 +91299,9 @@ entry:
   %idx.ext.i.i.i18 = zext nneg i32 %add.i.i.i.i.i16 to i64
   %add.ptr.i.i.i19 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i18
   %retval.0.i.i20 = select i1 %cmp.i.i.i17, ptr @_hb_NullPool, ptr %add.ptr.i.i.i19
-  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS2_9GPOS_impl9MarkArrayETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISC_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISD_EEE4iterEEEOSC_OSD_"(ptr noalias nonnull align 8 %ref.tmp3, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i, ptr noundef nonnull align 1 dereferenceable(6) %retval.0.i.i20)
+  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS2_9GPOS_impl9MarkArrayETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISC_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISD_EEE4iterEEEOSC_OSD_"(ptr noalias align 8 %ref.tmp3, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i, ptr noundef nonnull align 1 dereferenceable(6) %retval.0.i.i20)
   %glyph_set = getelementptr inbounds i8, ptr %c, i64 16
-  call fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_9GPOS_impl10MarkRecordEEE24hb_filter_iter_factory_tIRPK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSM_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISM_Efp_EEEOSM_OSS_"(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3, ptr nonnull %glyph_set, ptr nonnull @_ZL8hb_first)
+  call fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_9GPOS_impl10MarkRecordEEE24hb_filter_iter_factory_tIRPK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSM_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISM_Efp_EEEOSM_OSS_"(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3, ptr nonnull %glyph_set, ptr nonnull @_ZL8hb_first)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %agg.tmp1.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp2, i64 64, i1 false)
   %ref.tmp.sroa.2.0.agg.tmp1.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 64
@@ -91376,7 +91345,7 @@ for.body.i.i:                                     ; preds = %_ZNK9hb_iter_tIN2OT
   br label %14
 
 "_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSL_0EERSB_EdeEv.exit.i.i": ; preds = %for.body.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %.pre.i.i = load i32, ptr %length.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %.pre.fr.i.i = freeze i32 %.pre.i.i
   %12 = icmp eq i32 %.pre.fr.i.i, 0
@@ -91500,7 +91469,7 @@ sw.bb2.i.i.i.i.i.i.i:                             ; preds = %14
   %tmp.coerce.sroa.2.0.ref.tmp31.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
   store i32 1, ptr %tmp.coerce.sroa.2.0.ref.tmp31.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp2.i), !noalias !706
-  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageE15hb_range_iter_tIjjETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISA_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISB_EEE4iterEEEOSA_OSB_"(ptr noalias nonnull align 8 %agg.tmp2.i, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i58, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp31)
+  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageE15hb_range_iter_tIjjETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISA_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISB_EEE4iterEEEOSA_OSB_"(ptr noalias align 8 %agg.tmp2.i, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i58, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp31)
   call fastcc void @"_ZN16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EEC2ERKS8_SC_SF_"(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp26, ptr noundef nonnull readonly align 8 dereferenceable(44) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(8) %glyph_set, ptr noundef nonnull align 1 dereferenceable(1) @_ZL8hb_first)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp2.i), !noalias !706
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %lig_iter, ptr noundef nonnull readonly align 8 dereferenceable(64) %ref.tmp26, i64 64, i1 false)
@@ -91607,7 +91576,7 @@ sw.bb.i.i.i.i.i.i.i.i.i:                          ; preds = %for.body.sw.bb.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSI_0EEjEdeEv.exit"
 
 if.end.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %sw.bb.i.i.i.i.i.i.i.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %this.val.i.i.i.i.i.i.i.i.pre = load i32, ptr %b.i.i.i, align 8
   br label %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSI_0EEjEdeEv.exit"
 
@@ -91623,7 +91592,7 @@ if.end.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %sw.bb.i.i.i.i.i.i.i
   br i1 %cmp.not.i, label %if.end.i, label %_ZNK2OT16List16OfOffsetToINS_6Layout9GPOS_impl12AnchorMatrixENS_7IntTypeItLj2EEEEixEi.exit
 
 if.end.i:                                         ; preds = %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSI_0EEjEdeEv.exit"
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i = zext nneg i32 %this.val.i.i.i.i.i.i.i.i to i64
   %arrayidx.i = getelementptr inbounds [1 x %"struct.OT::OffsetTo.867"], ptr %arrayZ.i, i64 0, i64 %idxprom.i
   %54 = load i8, ptr %arrayidx.i, align 1
@@ -91768,7 +91737,7 @@ lor.rhs.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.
 _ZN11hb_vector_tIjLb1EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i.i: ; preds = %lor.rhs.i.i.i.i.i
   %68 = shl nuw i32 %add15.i.i.i.i.i, 2
   %mul.i.i.i.i.i.i = zext i32 %68 to i64
-  %call.i.i.i.i.i.i = call ptr @realloc(ptr noundef %lig_indexes.sroa.12.2, i64 noundef %mul.i.i.i.i.i.i) #19
+  %call.i.i.i.i.i.i = call ptr @realloc(ptr noundef %lig_indexes.sroa.12.2, i64 noundef %mul.i.i.i.i.i.i) #20
   %tobool27.not.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i, null
   br i1 %tobool27.not.i.i.i.i.i, label %_ZN11hb_vector_tIjLb1EE5allocEjb.exit.thread5.i.i.i.i, label %if.end.i.i.i.i118
 
@@ -91885,7 +91854,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp.not.i127, label %if.end.i129, label %_ZNK2OT16List16OfOffsetToINS_6Layout9GPOS_impl12AnchorMatrixENS_7IntTypeItLj2EEEEixEi.exit142
 
 if.end.i129:                                      ; preds = %for.end
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i131 = zext nneg i32 %this.val.i.i.i.i.i.i.i.i to i64
   %arrayidx.i132 = getelementptr inbounds [1 x %"struct.OT::OffsetTo.867"], ptr %arrayZ.i, i64 0, i64 %idxprom.i131
   %79 = load i8, ptr %arrayidx.i132, align 1
@@ -92301,7 +92270,7 @@ _ZNK2OT6Layout9GPOS_impl12AnchorMatrix25collect_variation_indicesI17hb_sorted_ar
   br i1 %lig_indexes.sroa.0.1.lcssa, label %_ZN11hb_vector_tIjLb1EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNK2OT6Layout9GPOS_impl12AnchorMatrix25collect_variation_indicesI17hb_sorted_array_tIKjETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS8_6item_tEEE5valueEvE4typeELPv0EEEvPNS_38hb_collect_variation_indices_context_tES8_.exit
-  call void @free(ptr noundef %lig_indexes.sroa.12.1.lcssa) #18
+  call void @free(ptr noundef %lig_indexes.sroa.12.1.lcssa) #19
   br label %_ZN11hb_vector_tIjLb1EED2Ev.exit
 
 _ZN11hb_vector_tIjLb1EED2Ev.exit:                 ; preds = %_ZNK2OT6Layout9GPOS_impl12AnchorMatrix25collect_variation_indicesI17hb_sorted_array_tIKjETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS8_6item_tEEE5valueEvE4typeELPv0EEEvPNS_38hb_collect_variation_indices_context_tES8_.exit, %if.then.i.i
@@ -92318,8 +92287,8 @@ if.then.i.i.i.i158:                               ; preds = %for.end84
   %125 = inttoptr i64 %124 to ptr
   %items.i.i.i.i.i = getelementptr inbounds i8, ptr %125, i64 40
   call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %125)
-  %call.i.i.i.i.i.i159 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %125) #18
-  call void @free(ptr noundef nonnull %125) #18
+  %call.i.i.i.i.i.i159 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %125) #19
+  call void @free(ptr noundef nonnull %125) #19
   store atomic i64 0, ptr %user_data.i.i.i.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
 
@@ -92329,7 +92298,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i: ; preds = %if.then.i
   br i1 %tobool.not.i.i.i, label %_ZN8hb_map_tD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
-  call void @free(ptr noundef nonnull %126) #18
+  call void @free(ptr noundef nonnull %126) #19
   br label %_ZN8hb_map_tD2Ev.exit
 
 _ZN8hb_map_tD2Ev.exit:                            ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i, %if.then.i.i.i
@@ -92374,9 +92343,9 @@ entry:
   %idx.ext.i.i.i15 = zext nneg i32 %add.i.i.i.i.i13 to i64
   %add.ptr.i.i.i16 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i15
   %retval.0.i.i17 = select i1 %cmp.i.i.i14, ptr @_hb_NullPool, ptr %add.ptr.i.i.i16
-  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS2_9GPOS_impl9MarkArrayETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISC_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISD_EEE4iterEEEOSC_OSD_"(ptr noalias nonnull align 8 %ref.tmp3, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i, ptr noundef nonnull align 1 dereferenceable(6) %retval.0.i.i17)
+  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageERKNS2_9GPOS_impl9MarkArrayETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISC_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISD_EEE4iterEEEOSC_OSD_"(ptr noalias align 8 %ref.tmp3, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i, ptr noundef nonnull align 1 dereferenceable(6) %retval.0.i.i17)
   %glyph_set = getelementptr inbounds i8, ptr %c, i64 16
-  call fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_9GPOS_impl10MarkRecordEEE24hb_filter_iter_factory_tIRPK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSM_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISM_Efp_EEEOSM_OSS_"(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3, ptr nonnull %glyph_set, ptr nonnull @_ZL8hb_first)
+  call fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_9GPOS_impl10MarkRecordEEE24hb_filter_iter_factory_tIRPK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSM_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISM_Efp_EEEOSM_OSS_"(ptr noalias align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3, ptr nonnull %glyph_set, ptr nonnull @_ZL8hb_first)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %agg.tmp1.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp1.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp2, i64 64, i1 false)
   %ref.tmp.sroa.2.0.agg.tmp1.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 64
@@ -92420,7 +92389,7 @@ for.body.i.i:                                     ; preds = %_ZNK9hb_iter_tIN2OT
   br label %14
 
 "_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSL_0EERSB_EdeEv.exit.i.i": ; preds = %for.body.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %.pre.i.i = load i32, ptr %length.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %.pre.fr.i.i = freeze i32 %.pre.i.i
   %12 = icmp eq i32 %.pre.fr.i.i, 0
@@ -92544,7 +92513,7 @@ sw.bb2.i.i.i.i.i.i.i:                             ; preds = %14
   %tmp.coerce.sroa.2.0.ref.tmp31.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
   store i32 1, ptr %tmp.coerce.sroa.2.0.ref.tmp31.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp2.i), !noalias !735
-  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageE15hb_range_iter_tIjjETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISA_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISB_EEE4iterEEEOSA_OSB_"(ptr noalias nonnull align 8 %agg.tmp2.i, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i55, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp31)
+  call fastcc void @"_ZNK4$_22clIRKN2OT6Layout6Common8CoverageE15hb_range_iter_tIjjETnPN12hb_enable_ifIXaasr14hb_is_iterableIT_EE5valuesr14hb_is_iterableIT0_EE5valueEvE4typeELPv0EEE13hb_zip_iter_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISA_EEE4iterEEDTcldtclL_ZL8hb_derefEcl10hb_declvalISB_EEE4iterEEEOSA_OSB_"(ptr noalias align 8 %agg.tmp2.i, ptr noundef nonnull align 1 dereferenceable(10) %retval.0.i.i55, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp31)
   call fastcc void @"_ZN16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EEC2ERKS8_SC_SF_"(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp26, ptr noundef nonnull readonly align 8 dereferenceable(44) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(8) %glyph_set, ptr noundef nonnull align 1 dereferenceable(1) @_ZL8hb_first)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp2.i), !noalias !735
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mark2_iter, ptr noundef nonnull readonly align 8 dereferenceable(64) %ref.tmp26, i64 64, i1 false)
@@ -92641,7 +92610,7 @@ sw.bb.i.i.i.i.i.i.i.i.i:                          ; preds = %for.body.sw.bb.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSI_0EEjEdeEv.exit"
 
 if.end.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %sw.bb.i.i.i.i.i.i.i.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %this.val.i.i.i.i.i.i.i.i.pre = load i32, ptr %b.i.i.i, align 8
   br label %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSI_0EEjEdeEv.exit"
 
@@ -92759,7 +92728,7 @@ lor.rhs.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.
 _ZN11hb_vector_tIjLb1EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i.i: ; preds = %lor.rhs.i.i.i.i.i
   %60 = shl nuw i32 %add15.i.i.i.i.i, 2
   %mul.i.i.i.i.i.i = zext i32 %60 to i64
-  %call.i.i.i.i.i.i = call ptr @realloc(ptr noundef %mark2_indexes.sroa.12.1, i64 noundef %mul.i.i.i.i.i.i) #19
+  %call.i.i.i.i.i.i = call ptr @realloc(ptr noundef %mark2_indexes.sroa.12.1, i64 noundef %mul.i.i.i.i.i.i) #20
   %tobool27.not.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i, null
   br i1 %tobool27.not.i.i.i.i.i, label %_ZN11hb_vector_tIjLb1EE5allocEjb.exit.thread5.i.i.i.i, label %if.end.i.i.i.i90
 
@@ -92917,7 +92886,7 @@ _ZNK2OT6Layout9GPOS_impl12AnchorMatrix25collect_variation_indicesI17hb_sorted_ar
   br i1 %tobool.not.i.i, label %_ZN11hb_vector_tIjLb1EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNK2OT6Layout9GPOS_impl12AnchorMatrix25collect_variation_indicesI17hb_sorted_array_tIKjETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS8_6item_tEEE5valueEvE4typeELPv0EEEvPNS_38hb_collect_variation_indices_context_tES8_.exit
-  call void @free(ptr noundef %mark2_indexes.sroa.12.0) #18
+  call void @free(ptr noundef %mark2_indexes.sroa.12.0) #19
   br label %_ZN11hb_vector_tIjLb1EED2Ev.exit
 
 _ZN11hb_vector_tIjLb1EED2Ev.exit:                 ; preds = %_ZNK2OT6Layout9GPOS_impl12AnchorMatrix25collect_variation_indicesI17hb_sorted_array_tIKjETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS8_6item_tEEE5valueEvE4typeELPv0EEEvPNS_38hb_collect_variation_indices_context_tES8_.exit, %if.then.i.i
@@ -92930,8 +92899,8 @@ if.then.i.i.i.i106:                               ; preds = %_ZN11hb_vector_tIjL
   %76 = inttoptr i64 %75 to ptr
   %items.i.i.i.i.i = getelementptr inbounds i8, ptr %76, i64 40
   call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %76)
-  %call.i.i.i.i.i.i107 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %76) #18
-  call void @free(ptr noundef nonnull %76) #18
+  %call.i.i.i.i.i.i107 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %76) #19
+  call void @free(ptr noundef nonnull %76) #19
   store atomic i64 0, ptr %user_data.i.i.i.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
 
@@ -92941,7 +92910,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i: ; preds = %if.then.i
   br i1 %tobool.not.i.i.i, label %_ZN8hb_map_tD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
-  call void @free(ptr noundef nonnull %77) #18
+  call void @free(ptr noundef nonnull %77) #19
   br label %_ZN8hb_map_tD2Ev.exit
 
 _ZN8hb_map_tD2Ev.exit:                            ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i, %if.then.i.i.i
@@ -93495,7 +93464,7 @@ for.body27.preheader:                             ; preds = %_ZN12hb_hashmap_tIj
   br label %for.body27
 
 for.cond41.preheader:                             ; preds = %for.inc38, %_ZN12hb_hashmap_tIj9hb_pair_tIjiELb0EE9prime_forEj.exit
-  tail call void @free(ptr noundef %5) #18
+  tail call void @free(ptr noundef %5) #19
   br label %return
 
 for.body27:                                       ; preds = %for.body27.preheader, %for.inc38
@@ -93886,7 +93855,7 @@ _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_triviall
   %13 = load ptr, ptr %arrayZ.i.i.i, align 8
   %14 = shl nuw i32 %add15.i.i, 2
   %mul.i.i.i1 = zext i32 %14 to i64
-  %call.i.i.i = call ptr @realloc(ptr noundef %13, i64 noundef %mul.i.i.i1) #19
+  %call.i.i.i = call ptr @realloc(ptr noundef %13, i64 noundef %mul.i.i.i1) #20
   %tobool27.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool27.not.i.i, label %if.then28.i.i, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.i
 
@@ -93959,7 +93928,7 @@ if.then.i.i.i:                                    ; preds = %while.body
   store i32 0, ptr %length.i.i.i.i, align 4
   %arrayZ.i.i.i = getelementptr inbounds i8, ptr %add.ptr.pn4, i64 -8
   %3 = load ptr, ptr %arrayZ.i.i.i, align 8
-  tail call void @free(ptr noundef %3) #18
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN11hb_vector_tIjLb0EED2Ev.exit.i
 
 _ZN11hb_vector_tIjLb0EED2Ev.exit.i:               ; preds = %if.then.i.i.i, %while.body
@@ -93974,8 +93943,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN11hb_vector_tIjL
   %5 = inttoptr i64 %4 to ptr
   %items.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %5)
-  %call.i.i.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %5) #18
-  tail call void @free(ptr noundef nonnull %5) #18
+  %call.i.i.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %5) #19
+  tail call void @free(ptr noundef nonnull %5) #19
   store atomic i64 0, ptr %user_data2.i.i.i.i.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i.i
 
@@ -93986,7 +93955,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i.i: ; preds = %if.then
   br i1 %tobool.not.i.i.i.i, label %_ZN14hb_inc_bimap_tD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i.i
-  tail call void @free(ptr noundef nonnull %6) #18
+  tail call void @free(ptr noundef nonnull %6) #19
   store ptr null, ptr %items.i.i.i.i, align 8
   br label %_ZN14hb_inc_bimap_tD2Ev.exit
 
@@ -94012,7 +93981,7 @@ entry:
 if.end:                                           ; preds = %entry
   %conv = zext i32 %new_allocated to i64
   %mul = shl nuw nsw i64 %conv, 6
-  %call = tail call noalias ptr @malloc(i64 noundef %mul) #20
+  %call = tail call noalias ptr @malloc(i64 noundef %mul) #21
   %tobool2.not = icmp eq ptr %call, null
   br i1 %tobool2.not, label %return, label %for.cond.preheader
 
@@ -94108,7 +94077,7 @@ if.then.i.i.i:                                    ; preds = %_ZN14hb_inc_bimap_t
   store i32 0, ptr %length.i.i.i.i11, align 4
   %arrayZ.i.i.i = getelementptr inbounds i8, ptr %arrayidx12, i64 56
   %15 = load ptr, ptr %arrayZ.i.i.i, align 8
-  tail call void @free(ptr noundef %15) #18
+  tail call void @free(ptr noundef %15) #19
   br label %_ZN11hb_vector_tIjLb0EED2Ev.exit.i
 
 _ZN11hb_vector_tIjLb0EED2Ev.exit.i:               ; preds = %if.then.i.i.i, %_ZN14hb_inc_bimap_taSEOS_.exit
@@ -94123,8 +94092,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN11hb_vector_tIjL
   %17 = inttoptr i64 %16 to ptr
   %items.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %17)
-  %call.i.i.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %17) #18
-  tail call void @free(ptr noundef nonnull %17) #18
+  %call.i.i.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %17) #19
+  tail call void @free(ptr noundef nonnull %17) #19
   store atomic i64 0, ptr %user_data2.i.i.i.i.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i.i
 
@@ -94135,7 +94104,7 @@ _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i.i: ; preds = %if.then
   br i1 %tobool.not.i.i.i.i, label %_ZN14hb_inc_bimap_tD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i.i
-  tail call void @free(ptr noundef nonnull %18) #18
+  tail call void @free(ptr noundef nonnull %18) #19
   store ptr null, ptr %items.i.i.i.i12, align 8
   br label %_ZN14hb_inc_bimap_tD2Ev.exit
 
@@ -94154,7 +94123,7 @@ return.sink.split:                                ; preds = %_ZN14hb_inc_bimap_t
   %retval.0.ph = phi ptr [ null, %entry ], [ %call, %for.cond.preheader ], [ %call, %_ZN14hb_inc_bimap_tD2Ev.exit ]
   %arrayZ13 = getelementptr inbounds i8, ptr %this, i64 8
   %21 = load ptr, ptr %arrayZ13, align 8
-  tail call void @free(ptr noundef %21) #18
+  tail call void @free(ptr noundef %21) #19
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end
@@ -94219,7 +94188,7 @@ _ZN11hb_vector_tI9hb_pair_tIjjELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3s
   %7 = load ptr, ptr %arrayZ.i.i.i.i, align 8
   %8 = shl nuw i32 %add15.i.i.i, 3
   %mul.i.i.i.i = zext i32 %8 to i64
-  %call.i.i.i.i = call ptr @realloc(ptr noundef %7, i64 noundef %mul.i.i.i.i) #19
+  %call.i.i.i.i = call ptr @realloc(ptr noundef %7, i64 noundef %mul.i.i.i.i) #20
   %tobool27.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool27.not.i.i.i, label %if.then28.i.i.i, label %_ZN11hb_vector_tI9hb_pair_tIjjELb1EE5allocEjb.exit.i.i
 
@@ -94576,7 +94545,7 @@ entry:
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEEixEi.exit.i.i: ; preds = %entry
   %and.i = and i32 %call2, 65535
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayZ.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i17, i64 8
   %idxprom.i.i.i = zext nneg i32 %shr.i to i64
   %arrayidx.i.i.i = getelementptr inbounds [1 x %"struct.OT::OffsetTo.276"], ptr %arrayZ.i.i.i, i64 0, i64 %idxprom.i.i.i
@@ -94676,13 +94645,13 @@ _ZN21hb_sanitize_context_t15reference_tableIN2OT4cff2EEEP9hb_blob_tPK9hb_face_tj
   store i32 0, ptr %topDict, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %values.i.i.i.i, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fontDicts, i8 0, i64 32, i1 false)
-  %call.i = tail call i32 @hb_face_get_glyph_count(ptr noundef nonnull %face) #18
+  %call.i = tail call i32 @hb_face_get_glyph_count(ptr noundef nonnull %face) #19
   store i32 %call.i, ptr %num_glyphs.i, align 8
   store i8 1, ptr %num_glyphs_set.i, align 4
-  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef nonnull %face, i32 noundef 1128678962) #18
+  %call2.i = tail call ptr @hb_face_reference_table(ptr noundef nonnull %face, i32 noundef 1128678962) #19
   %call3.i = tail call noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4cff2EEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %this, ptr noundef %call2.i)
   store ptr %call3.i, ptr %blob, align 8
-  %call.i14 = tail call ptr @hb_blob_reference(ptr noundef %call3.i) #18
+  %call.i14 = tail call ptr @hb_blob_reference(ptr noundef %call3.i) #19
   store ptr %call.i14, ptr %blob.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %writable.i, align 8
@@ -94756,7 +94725,7 @@ _ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit: ; preds = %if.
   br i1 %cmp7.i.i.i.i, label %if.end22, label %fail
 
 if.end22:                                         ; preds = %_ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %count.i.i.i = getelementptr inbounds i8, ptr %env, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4108) %count.i.i.i, i8 0, i64 4108, i1 false)
   %11 = getelementptr inbounds i8, ptr %env, i64 16
@@ -94870,7 +94839,7 @@ if.end4.i45:                                      ; preds = %if.end.i34
   br i1 %cmp.i.i.not.i.i, label %if.then6.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end4.i45
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %varStore.i.i = getelementptr inbounds i8, ptr %add.ptr.i36, i64 2
   %29 = load i8, ptr %add.ptr.i36, align 1
   %conv.i.i14.i.i = zext i8 %29 to i32
@@ -95005,7 +94974,7 @@ if.end4.i91:                                      ; preds = %if.end.i80
   br i1 %cmp.i.i.not.i.i96, label %if.then7.i, label %if.end.i.i97
 
 if.end.i.i97:                                     ; preds = %if.end4.i91
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %48 = load i8, ptr %add.ptr.i82, align 1
   switch i8 %48, label %if.then7.i [
     i8 0, label %sw.bb.i.i
@@ -95025,7 +94994,7 @@ sw.bb.i.i:                                        ; preds = %if.end.i.i97
   br i1 %cmp.i.i.not.i.i.i, label %if.then7.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %sw.bb.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %51 = load i32, ptr %num_glyphs.i, align 8
   %52 = load ptr, ptr %start.i, align 8
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %52 to i64
@@ -95178,7 +95147,7 @@ _ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit136: ; preds = %
   br i1 %cmp7.i.i.i.i135, label %if.end91, label %fail
 
 if.end91:                                         ; preds = %_ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit136
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4108) %count.i.i.i137, i8 0, i64 4108, i1 false)
   store i8 0, ptr %69, align 8
   store ptr %73, ptr %env93, align 8
@@ -95585,7 +95554,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.body.i12
   store i32 0, ptr %length.i.i.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.pn4.i, i64 -32
   %10 = load ptr, ptr %arrayZ.i.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %10) #18
+  tail call void @free(ptr noundef %10) #19
   br label %_ZN3CFF31cff2_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit.i
 
 _ZN3CFF31cff2_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i.i, %while.body.i12
@@ -95626,7 +95595,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %offSize.i = getelementptr inbounds i8, ptr %this, i64 4
   %4 = load i8, ptr %offSize.i, align 1
   %offsets.i = getelementptr inbounds i8, ptr %this, i64 5
@@ -95874,7 +95843,7 @@ entry:
   %start.i = getelementptr inbounds i8, ptr %this, i64 8
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %0) #18
+  tail call void @hb_blob_destroy(ptr noundef %0) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start.i, i8 0, i64 20, i1 false)
   %values.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -95887,7 +95856,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   store i32 0, ptr %length.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load ptr, ptr %arrayZ.i.i.i.i, align 8
-  tail call void @free(ptr noundef %2) #18
+  tail call void @free(ptr noundef %2) #19
   br label %_ZN3CFF22cff2_top_dict_values_t4finiEv.exit
 
 _ZN3CFF22cff2_top_dict_values_t4finiEv.exit:      ; preds = %entry, %if.then.i.i.i.i
@@ -95925,7 +95894,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %while.body.i.i
   store i32 0, ptr %length.i.i.i.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.pn4.i.i, i64 -24
   %7 = load ptr, ptr %arrayZ.i.i.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %7) #18
+  tail call void @free(ptr noundef %7) #19
   br label %_ZN3CFF23cff2_font_dict_values_tD2Ev.exit.i.i
 
 _ZN3CFF23cff2_font_dict_values_tD2Ev.exit.i.i:    ; preds = %if.then.i.i.i.i.i.i.i, %while.body.i.i
@@ -95937,7 +95906,7 @@ _ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE13shrink_vectorEj.exit.i: ;
   store i32 0, ptr %length.i.i, align 4
   %arrayZ.i = getelementptr inbounds i8, ptr %this, i64 168
   %8 = load ptr, ptr %arrayZ.i, align 8
-  tail call void @free(ptr noundef %8) #18
+  tail call void @free(ptr noundef %8) #19
   br label %_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE4finiEv.exit
 
 _ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE4finiEv.exit: ; preds = %_ZN3CFF22cff2_top_dict_values_t4finiEv.exit, %_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE13shrink_vectorEj.exit.i
@@ -95975,7 +95944,7 @@ if.then.i.i.i.i.i.i.i16:                          ; preds = %while.body.i.i9
   store i32 0, ptr %length.i.i.i.i.i.i.i.i17, align 4
   %arrayZ.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %add.ptr.pn4.i.i10, i64 -32
   %13 = load ptr, ptr %arrayZ.i.i.i.i.i.i.i18, align 8
-  tail call void @free(ptr noundef %13) #18
+  tail call void @free(ptr noundef %13) #19
   br label %_ZN3CFF31cff2_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit.i.i
 
 _ZN3CFF31cff2_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i16, %while.body.i.i9
@@ -95987,14 +95956,14 @@ _ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE
   store i32 0, ptr %length.i.i3, align 4
   %arrayZ.i20 = getelementptr inbounds i8, ptr %this, i64 184
   %14 = load ptr, ptr %arrayZ.i20, align 8
-  tail call void @free(ptr noundef %14) #18
+  tail call void @free(ptr noundef %14) #19
   br label %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE4finiEv.exit
 
 _ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE4finiEv.exit: ; preds = %_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE4finiEv.exit, %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE13shrink_vectorEj.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %privateDicts, i8 0, i64 16, i1 false)
   %blob = getelementptr inbounds i8, ptr %this, i64 64
   %15 = load ptr, ptr %blob, align 8
-  tail call void @hb_blob_destroy(ptr noundef %15) #18
+  tail call void @hb_blob_destroy(ptr noundef %15) #19
   store ptr null, ptr %blob, align 8
   ret void
 }
@@ -96002,7 +95971,7 @@ _ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4cff2EEEP9hb_blob_tS4_(ptr noundef nonnull align 8 dereferenceable(62) %this, ptr noundef %blob) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #18
+  %call.i = tail call ptr @hb_blob_reference(ptr noundef %blob) #19
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call.i, ptr %blob.i, align 8
   %writable.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -96047,7 +96016,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %retry, %if.else.
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
-  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %1) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %return
@@ -96057,7 +96026,7 @@ if.end:                                           ; preds = %_ZN21hb_sanitize_co
   br i1 %cmp.i.i.not.i, label %if.else39.sink.split, label %_ZNK2OT4cff28sanitizeEP21hb_sanitize_context_t.exit
 
 _ZNK2OT4cff28sanitizeEP21hb_sanitize_context_t.exit: ; preds = %if.end
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %6 = load i8, ptr %2, align 1
   %cmp.i = icmp eq i8 %6, 2
   %.pre49 = load i32, ptr %edit_count.i, align 4
@@ -96080,7 +96049,7 @@ if.then7:                                         ; preds = %if.then5
   br i1 %cmp.i.i.not.i21, label %if.else39.sink.split, label %_ZNK2OT4cff28sanitizeEP21hb_sanitize_context_t.exit25
 
 _ZNK2OT4cff28sanitizeEP21hb_sanitize_context_t.exit25: ; preds = %if.then7
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %.pre = load i32, ptr %edit_count.i, align 4
   %9 = icmp eq i32 %.pre, 0
   br i1 %9, label %if.end34, label %if.else39.sink.split
@@ -96094,7 +96063,7 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %tobool22, label %if.else39.sink.split, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #18
+  %call24 = tail call ptr @hb_blob_get_data_writable(ptr noundef %blob, ptr noundef null) #19
   store ptr %call24, ptr %start, align 8
   %11 = load i32, ptr %length, align 8
   %idx.ext = zext i32 %11 to i64
@@ -96107,32 +96076,32 @@ if.end34:                                         ; preds = %_ZNK2OT4cff28saniti
   %12 = load i8, ptr %2, align 1
   %cmp.i23 = icmp eq i8 %12, 2
   %13 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %13) #18
+  tail call void @hb_blob_destroy(ptr noundef %13) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br i1 %cmp.i23, label %if.then38, label %if.else39
 
 if.then38.critedge:                               ; preds = %if.then5
   %14 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %14) #18
+  tail call void @hb_blob_destroy(ptr noundef %14) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.then38
 
 if.then38:                                        ; preds = %if.then38.critedge, %if.end34
-  tail call void @hb_blob_make_immutable(ptr noundef %blob) #18
+  tail call void @hb_blob_make_immutable(ptr noundef %blob) #19
   br label %return
 
 if.else39.sink.split:                             ; preds = %land.lhs.true, %if.then23, %if.else, %if.end, %if.then7, %_ZNK2OT4cff28sanitizeEP21hb_sanitize_context_t.exit25
   %15 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %15) #18
+  tail call void @hb_blob_destroy(ptr noundef %15) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start, i8 0, i64 20, i1 false)
   br label %if.else39
 
 if.else39:                                        ; preds = %if.else39.sink.split, %if.end34
-  tail call void @hb_blob_destroy(ptr noundef %blob) #18
-  %call40 = tail call ptr @hb_blob_get_empty() #18
+  tail call void @hb_blob_destroy(ptr noundef %blob) #19
+  %call40 = tail call ptr @hb_blob_get_empty() #19
   br label %return
 
 return:                                           ; preds = %if.else39, %if.then38, %if.then
@@ -96185,7 +96154,7 @@ _ZN11hb_vector_tIN3CFF8op_str_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3
   %3 = load ptr, ptr %arrayZ.i.i.i.i, align 8
   %4 = shl nuw i32 %add15.i.i.i, 4
   %mul.i.i.i.i = zext i32 %4 to i64
-  %call.i.i.i.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %mul.i.i.i.i) #19
+  %call.i.i.i.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %mul.i.i.i.i) #20
   %tobool27.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool27.not.i.i.i, label %if.then28.i.i.i, label %_ZN11hb_vector_tIN3CFF8op_str_tELb0EE5allocEjb.exit.i.i
 
@@ -96422,7 +96391,7 @@ _ZN11hb_vector_tIN3CFF8op_str_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3
   %37 = load ptr, ptr %arrayZ.i.i.i.i73, align 8
   %38 = shl nuw i32 %add15.i.i.i69, 4
   %mul.i.i.i.i74 = zext i32 %38 to i64
-  %call.i.i.i.i75 = tail call ptr @realloc(ptr noundef %37, i64 noundef %mul.i.i.i.i74) #19
+  %call.i.i.i.i75 = tail call ptr @realloc(ptr noundef %37, i64 noundef %mul.i.i.i.i74) #20
   %tobool27.not.i.i.i76 = icmp eq ptr %call.i.i.i.i75, null
   br i1 %tobool27.not.i.i.i76, label %if.then28.i.i.i78, label %_ZN11hb_vector_tIN3CFF8op_str_tELb0EE5allocEjb.exit.i.i77
 
@@ -96503,7 +96472,7 @@ entry:
   br i1 %cmp.i.i51.not, label %land.end34, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i10 = zext i8 %2 to i32
   %shl.i.i = shl nuw i32 %conv.i.i10, 24
@@ -96527,7 +96496,7 @@ land.lhs.true:                                    ; preds = %entry
   ]
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 5
   %6 = load ptr, ptr %start.i.i45, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i to i64
@@ -96739,7 +96708,7 @@ entry:
   br i1 %cmp.i.i.not, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %2 = load i8, ptr %this, align 1
   %conv.i.i11.i = zext i8 %2 to i32
   %shl.i.i.i = shl nuw i32 %conv.i.i11.i, 24
@@ -96788,7 +96757,7 @@ _ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_E16
   br i1 %cmp7.i.i.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %13 = load i8, ptr %this, align 1
   %conv.i.i13 = zext i8 %13 to i32
   %shl.i.i = shl nuw i32 %conv.i.i13, 24
@@ -96830,7 +96799,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp.i.i.not.i.i.i, label %return, label %land.lhs.true.i.i.i15
 
 land.lhs.true.i.i.i15:                            ; preds = %for.body.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %19 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i5.i.i.i = zext i8 %19 to i32
   %shl.i.i.i.i.i = shl nuw i32 %conv.i.i5.i.i.i, 24
@@ -96865,13 +96834,13 @@ _ZN21hb_sanitize_context_t8dispatchIN3CFF17FDSelect3_4_RangeIN2OT7IntTypeIjLj4EE
   br i1 %cmp7.i.i.i17, label %for.cond.i, label %return
 
 land.lhs.true3:                                   ; preds = %for.cond.i, %if.end.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %retval.sroa.0.0.copyload.i = load i32, ptr %this, align 1
   %cmp.not = icmp eq i32 %retval.sroa.0.0.copyload.i, 0
   br i1 %cmp.not, label %return, label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit
 
 _ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit: ; preds = %land.lhs.true3
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %26 = load i8, ptr %add.ptr.i, align 1
   %conv.i.i47 = zext i8 %26 to i32
   %shl.i.i48 = shl nuw i32 %conv.i.i47, 24
@@ -96916,7 +96885,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp.not.i88, label %if.end.i90, label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit94
 
 if.end.i90:                                       ; preds = %for.body
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i93 = getelementptr inbounds [1 x %"struct.CFF::FDSelect3_4_Range.1242"], ptr %add.ptr.i, i64 0, i64 %31
   %.pre = load i8, ptr %this, align 1
   %.pre192 = load i8, ptr %arrayidx3.i.i.i, align 1
@@ -96958,7 +96927,7 @@ _ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_Eix
   br i1 %cmp.not.i121, label %if.end.i123, label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit127
 
 if.end.i123:                                      ; preds = %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit94
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %arrayidx.i126 = getelementptr inbounds [1 x %"struct.CFF::FDSelect3_4_Range.1242"], ptr %add.ptr.i, i64 0, i64 %indvars.iv188
   br label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit127
 
@@ -96992,7 +96961,7 @@ for.end:                                          ; preds = %for.cond, %for.cond
 if.end.i.i:                                       ; preds = %for.end
   %add14.i.i.i142 = tail call i32 @llvm.bswap.i32(i32 %retval.sroa.0.0.copyload.i61.lcssa)
   %sub.i = add i32 %add14.i.i.i142, -1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i = zext i32 %sub.i to i64
   %arrayidx.i.i = getelementptr inbounds [1 x %"struct.CFF::FDSelect3_4_Range.1242"], ptr %add.ptr.i, i64 0, i64 %idxprom.i.i
   br label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE8sentinelEv.exit
@@ -97010,7 +96979,7 @@ _ZNK3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE8sentinelEv.exit: ; preds
   br i1 %cmp.i.i.i146.not, label %return, label %land.lhs.true37
 
 land.lhs.true37:                                  ; preds = %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE8sentinelEv.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %retval.sroa.0.0.copyload.i.i147 = load i32, ptr %this, align 1
   %cmp.not.i.i151.not = icmp eq i32 %retval.sroa.0.0.copyload.i.i147, 0
   br i1 %cmp.not.i.i151.not, label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE8sentinelEv.exit158, label %if.end.i.i154
@@ -97018,7 +96987,7 @@ land.lhs.true37:                                  ; preds = %_ZNK3CFF11FDSelect3
 if.end.i.i154:                                    ; preds = %land.lhs.true37
   %add14.i.i.i148 = tail call i32 @llvm.bswap.i32(i32 %retval.sroa.0.0.copyload.i.i147)
   %sub.i149 = add i32 %add14.i.i.i148, -1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   %idxprom.i.i156 = zext i32 %sub.i149 to i64
   %arrayidx.i.i157 = getelementptr inbounds [1 x %"struct.CFF::FDSelect3_4_Range.1242"], ptr %add.ptr.i, i64 0, i64 %idxprom.i.i156
   br label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE8sentinelEv.exit158
@@ -97062,7 +97031,7 @@ entry:
 if.end:                                           ; preds = %entry
   %conv = zext i32 %new_allocated to i64
   %mul = mul nuw nsw i64 %conv, 48
-  %call = tail call noalias ptr @malloc(i64 noundef %mul) #20
+  %call = tail call noalias ptr @malloc(i64 noundef %mul) #21
   %tobool2.not = icmp eq ptr %call, null
   br i1 %tobool2.not, label %return, label %for.cond.preheader
 
@@ -97114,7 +97083,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.body
   store i32 0, ptr %length.i.i.i.i.i.i12, align 4
   %arrayZ.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx12, i64 16
   %8 = load ptr, ptr %arrayZ.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %8) #18
+  tail call void @free(ptr noundef %8) #19
   br label %_ZN3CFF31cff2_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit
 
 _ZN3CFF31cff2_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit: ; preds = %for.body, %if.then.i.i.i.i.i
@@ -97129,7 +97098,7 @@ return.sink.split:                                ; preds = %_ZN3CFF31cff2_priva
   %retval.0.ph = phi ptr [ null, %entry ], [ %call, %for.cond.preheader ], [ %call, %_ZN3CFF31cff2_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit ]
   %arrayZ13 = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load ptr, ptr %arrayZ13, align 8
-  tail call void @free(ptr noundef %11) #18
+  tail call void @free(ptr noundef %11) #19
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end
@@ -97252,7 +97221,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.body.i12
   store i32 0, ptr %length.i.i.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.pn4.i, i64 -24
   %10 = load ptr, ptr %arrayZ.i.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %10) #18
+  tail call void @free(ptr noundef %10) #19
   br label %_ZN3CFF23cff2_font_dict_values_tD2Ev.exit.i
 
 _ZN3CFF23cff2_font_dict_values_tD2Ev.exit.i:      ; preds = %if.then.i.i.i.i.i.i, %while.body.i12
@@ -97278,7 +97247,7 @@ entry:
 if.end:                                           ; preds = %entry
   %conv = zext i32 %new_allocated to i64
   %mul = mul nuw nsw i64 %conv, 40
-  %call = tail call noalias ptr @malloc(i64 noundef %mul) #20
+  %call = tail call noalias ptr @malloc(i64 noundef %mul) #21
   %tobool2.not = icmp eq ptr %call, null
   br i1 %tobool2.not, label %return, label %for.cond.preheader
 
@@ -97330,7 +97299,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.body
   store i32 0, ptr %length.i.i.i.i.i.i12, align 4
   %arrayZ.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx12, i64 16
   %8 = load ptr, ptr %arrayZ.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %8) #18
+  tail call void @free(ptr noundef %8) #19
   br label %_ZN3CFF23cff2_font_dict_values_tD2Ev.exit
 
 _ZN3CFF23cff2_font_dict_values_tD2Ev.exit:        ; preds = %for.body, %if.then.i.i.i.i.i
@@ -97345,7 +97314,7 @@ return.sink.split:                                ; preds = %_ZN3CFF23cff2_font_
   %retval.0.ph = phi ptr [ null, %entry ], [ %call, %for.cond.preheader ], [ %call, %_ZN3CFF23cff2_font_dict_values_tD2Ev.exit ]
   %arrayZ13 = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load ptr, ptr %arrayZ13, align 8
-  tail call void @free(ptr noundef %11) #18
+  tail call void @free(ptr noundef %11) #19
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end
@@ -97484,7 +97453,7 @@ _ZN11hb_vector_tIN3CFF8op_str_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3
   %16 = load ptr, ptr %arrayZ.i.i.i.i, align 8
   %17 = shl nuw i32 %add15.i.i.i, 4
   %mul.i.i.i.i = zext i32 %17 to i64
-  %call.i.i.i.i = tail call ptr @realloc(ptr noundef %16, i64 noundef %mul.i.i.i.i) #19
+  %call.i.i.i.i = tail call ptr @realloc(ptr noundef %16, i64 noundef %mul.i.i.i.i) #20
   %tobool27.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool27.not.i.i.i, label %if.then28.i.i.i, label %_ZN11hb_vector_tIN3CFF8op_str_tELb0EE5allocEjb.exit.i.i
 
@@ -97718,7 +97687,7 @@ _ZN11hb_vector_tIN3CFF10dict_val_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIX
   %18 = load ptr, ptr %arrayZ.i.i.i.i, align 8
   %19 = shl nuw i32 %add15.i.i.i, 4
   %mul.i.i.i.i = zext i32 %19 to i64
-  %call.i.i.i.i = tail call ptr @realloc(ptr noundef %18, i64 noundef %mul.i.i.i.i) #19
+  %call.i.i.i.i = tail call ptr @realloc(ptr noundef %18, i64 noundef %mul.i.i.i.i) #20
   %tobool27.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool27.not.i.i.i, label %if.then28.i.i.i, label %_ZN11hb_vector_tIN3CFF10dict_val_tELb0EE5allocEjb.exit.i.i
 
@@ -98102,7 +98071,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %while.body.i.i.i
   store i32 0, ptr %length.i.i.i.i.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.pn4.i.i.i, i64 -32
   %4 = load ptr, ptr %arrayZ.i.i.i.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %4) #18
+  tail call void @free(ptr noundef %4) #19
   br label %_ZN3CFF31cff2_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit.i.i.i
 
 _ZN3CFF31cff2_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %while.body.i.i.i
@@ -98114,7 +98083,7 @@ _ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE
   store i32 0, ptr %length.i.i.i, align 4
   %arrayZ.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %5 = load ptr, ptr %arrayZ.i.i, align 8
-  tail call void @free(ptr noundef %5) #18
+  tail call void @free(ptr noundef %5) #19
   br label %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EED2Ev.exit
 
 _ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EED2Ev.exit: ; preds = %entry, %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE13shrink_vectorEj.exit.i.i
@@ -98152,7 +98121,7 @@ if.then.i.i.i.i.i.i.i.i16:                        ; preds = %while.body.i.i.i9
   store i32 0, ptr %length.i.i.i.i.i.i.i.i.i17, align 4
   %arrayZ.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %add.ptr.pn4.i.i.i10, i64 -24
   %10 = load ptr, ptr %arrayZ.i.i.i.i.i.i.i.i18, align 8
-  tail call void @free(ptr noundef %10) #18
+  tail call void @free(ptr noundef %10) #19
   br label %_ZN3CFF23cff2_font_dict_values_tD2Ev.exit.i.i.i
 
 _ZN3CFF23cff2_font_dict_values_tD2Ev.exit.i.i.i:  ; preds = %if.then.i.i.i.i.i.i.i.i16, %while.body.i.i.i9
@@ -98164,7 +98133,7 @@ _ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE13shrink_vectorEj.exit.i.i:
   store i32 0, ptr %length.i.i.i3, align 4
   %arrayZ.i.i20 = getelementptr inbounds i8, ptr %this, i64 168
   %11 = load ptr, ptr %arrayZ.i.i20, align 8
-  tail call void @free(ptr noundef %11) #18
+  tail call void @free(ptr noundef %11) #19
   br label %_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EED2Ev.exit
 
 _ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EED2Ev.exit: ; preds = %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EED2Ev.exit, %_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE13shrink_vectorEj.exit.i.i
@@ -98179,7 +98148,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN11hb_vector_tIN3
   store i32 0, ptr %length.i.i.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %13 = load ptr, ptr %arrayZ.i.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %13) #18
+  tail call void @free(ptr noundef %13) #19
   br label %_ZN3CFF22cff2_top_dict_values_tD2Ev.exit
 
 _ZN3CFF22cff2_top_dict_values_tD2Ev.exit:         ; preds = %_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EED2Ev.exit, %if.then.i.i.i.i.i.i
@@ -98191,7 +98160,7 @@ _ZN3CFF22cff2_top_dict_values_tD2Ev.exit:         ; preds = %_ZN11hb_vector_tIN3
 
 if.then.i:                                        ; preds = %_ZN3CFF22cff2_top_dict_values_tD2Ev.exit
   %start.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @hb_blob_destroy(ptr noundef nonnull %14) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %14) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start.i.i, i8 0, i64 20, i1 false)
   br label %_ZN21hb_sanitize_context_tD2Ev.exit
@@ -98385,13 +98354,13 @@ if.end23.i.i:                                     ; preds = %lor.rhs.i.i
   br i1 %tobool.not.i.i.i, label %_ZN11hb_vector_tI15contour_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i, label %_ZN11hb_vector_tI15contour_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
 
 _ZN11hb_vector_tI15contour_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i: ; preds = %if.end23.i.i
-  call void @free(ptr noundef %12) #18
+  call void @free(ptr noundef %12) #19
   br label %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.i
 
 _ZN11hb_vector_tI15contour_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i: ; preds = %if.end23.i.i
   %conv.i.i.i = zext nneg i32 %add15.i.i to i64
   %mul.i.i.i = mul nuw nsw i64 %conv.i.i.i, 12
-  %call.i.i.i = call ptr @realloc(ptr noundef %12, i64 noundef %mul.i.i.i) #19
+  %call.i.i.i = call ptr @realloc(ptr noundef %12, i64 noundef %mul.i.i.i) #20
   %tobool27.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool27.not.i.i, label %if.then28.i.i, label %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.i
 
@@ -98452,7 +98421,7 @@ if.then.i.i.i23:                                  ; preds = %if.end13, %_ZN16hb_
   br i1 %tobool.not.i.i.i.i24, label %_ZNK16hb_lazy_loader_tIN2OT18hmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj5EE9hb_face_tLj5ES1_EptEv.exit, label %if.end.i.i.i25
 
 if.end.i.i.i25:                                   ; preds = %if.then.i.i.i23
-  %call.i.i.i.i.i = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #22
+  %call.i.i.i.i.i = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #23
   %tobool.not.i.i.i.i.i26 = icmp eq ptr %call.i.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i.i26, label %if.end9.thread.i.i.i, label %if.end9.i.i.i
 
@@ -98471,12 +98440,12 @@ if.end9.thread.i.i.i:                             ; preds = %if.end.i.i.i25
 if.then.i.i.i.i:                                  ; preds = %if.end9.i.i.i
   %table.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 24
   %24 = load ptr, ptr %table.i.i.i.i.i.i.i, align 8
-  call void @hb_blob_destroy(ptr noundef %24) #18
+  call void @hb_blob_destroy(ptr noundef %24) #19
   store ptr null, ptr %table.i.i.i.i.i.i.i, align 8
   %var_table.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 32
   %25 = load ptr, ptr %var_table.i.i.i.i.i.i.i, align 8
-  call void @hb_blob_destroy(ptr noundef %25) #18
-  call void @free(ptr noundef nonnull %call.i.i.i.i.i) #18
+  call void @hb_blob_destroy(ptr noundef %25) #19
+  call void @free(ptr noundef nonnull %call.i.i.i.i.i) #19
   br label %_ZN16hb_lazy_loader_tIN2OT18hmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj5EE9hb_face_tLj5ES1_E10do_destroyEPS1_.exit.i.i.i
 
 _ZN16hb_lazy_loader_tIN2OT18hmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj5EE9hb_face_tLj5ES1_E10do_destroyEPS1_.exit.i.i.i: ; preds = %if.then.i.i.i.i, %if.end9.thread.i.i.i
@@ -98580,7 +98549,7 @@ if.then.i.i.i46:                                  ; preds = %cond.end, %_ZN16hb_
   br i1 %tobool.not.i.i.i.i47, label %_ZNK16hb_lazy_loader_tIN2OT18vmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj12EE9hb_face_tLj12ES1_EptEv.exit, label %if.end.i.i.i48
 
 if.end.i.i.i48:                                   ; preds = %if.then.i.i.i46
-  %call.i.i.i.i.i49 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #22
+  %call.i.i.i.i.i49 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #23
   %tobool.not.i.i.i.i.i50 = icmp eq ptr %call.i.i.i.i.i49, null
   br i1 %tobool.not.i.i.i.i.i50, label %if.end9.thread.i.i.i56, label %if.end9.i.i.i51
 
@@ -98599,12 +98568,12 @@ if.end9.thread.i.i.i56:                           ; preds = %if.end.i.i.i48
 if.then.i.i.i.i52:                                ; preds = %if.end9.i.i.i51
   %table.i.i.i.i.i.i.i53 = getelementptr inbounds i8, ptr %call.i.i.i.i.i49, i64 24
   %50 = load ptr, ptr %table.i.i.i.i.i.i.i53, align 8
-  call void @hb_blob_destroy(ptr noundef %50) #18
+  call void @hb_blob_destroy(ptr noundef %50) #19
   store ptr null, ptr %table.i.i.i.i.i.i.i53, align 8
   %var_table.i.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %call.i.i.i.i.i49, i64 32
   %51 = load ptr, ptr %var_table.i.i.i.i.i.i.i54, align 8
-  call void @hb_blob_destroy(ptr noundef %51) #18
-  call void @free(ptr noundef nonnull %call.i.i.i.i.i49) #18
+  call void @hb_blob_destroy(ptr noundef %51) #19
+  call void @free(ptr noundef nonnull %call.i.i.i.i.i49) #19
   br label %_ZN16hb_lazy_loader_tIN2OT18vmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj12EE9hb_face_tLj12ES1_E10do_destroyEPS1_.exit.i.i.i
 
 _ZN16hb_lazy_loader_tIN2OT18vmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj12EE9hb_face_tLj12ES1_E10do_destroyEPS1_.exit.i.i.i: ; preds = %if.then.i.i.i.i52, %if.end9.thread.i.i.i56
@@ -98680,7 +98649,7 @@ if.then.i.i.i92:                                  ; preds = %_ZNK2OT8hmtxvmtxINS
   br i1 %tobool.not.i.i.i.i93, label %_ZNK16hb_lazy_loader_tIN2OT18hmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj5EE9hb_face_tLj5ES1_EptEv.exit104, label %if.end.i.i.i94
 
 if.end.i.i.i94:                                   ; preds = %if.then.i.i.i92
-  %call.i.i.i.i.i95 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #22
+  %call.i.i.i.i.i95 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #23
   %tobool.not.i.i.i.i.i96 = icmp eq ptr %call.i.i.i.i.i95, null
   br i1 %tobool.not.i.i.i.i.i96, label %if.end9.thread.i.i.i103, label %if.end9.i.i.i97
 
@@ -98699,12 +98668,12 @@ if.end9.thread.i.i.i103:                          ; preds = %if.end.i.i.i94
 if.then.i.i.i.i98:                                ; preds = %if.end9.i.i.i97
   %table.i.i.i.i.i.i.i99 = getelementptr inbounds i8, ptr %call.i.i.i.i.i95, i64 24
   %70 = load ptr, ptr %table.i.i.i.i.i.i.i99, align 8
-  call void @hb_blob_destroy(ptr noundef %70) #18
+  call void @hb_blob_destroy(ptr noundef %70) #19
   store ptr null, ptr %table.i.i.i.i.i.i.i99, align 8
   %var_table.i.i.i.i.i.i.i100 = getelementptr inbounds i8, ptr %call.i.i.i.i.i95, i64 32
   %71 = load ptr, ptr %var_table.i.i.i.i.i.i.i100, align 8
-  call void @hb_blob_destroy(ptr noundef %71) #18
-  call void @free(ptr noundef nonnull %call.i.i.i.i.i95) #18
+  call void @hb_blob_destroy(ptr noundef %71) #19
+  call void @free(ptr noundef nonnull %call.i.i.i.i.i95) #19
   br label %_ZN16hb_lazy_loader_tIN2OT18hmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj5EE9hb_face_tLj5ES1_E10do_destroyEPS1_.exit.i.i.i101
 
 _ZN16hb_lazy_loader_tIN2OT18hmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj5EE9hb_face_tLj5ES1_E10do_destroyEPS1_.exit.i.i.i101: ; preds = %if.then.i.i.i.i98, %if.end9.thread.i.i.i103
@@ -98769,7 +98738,7 @@ if.then.i.i.i122:                                 ; preds = %_ZNK2OT8hmtxvmtxINS
   br i1 %tobool.not.i.i.i.i123, label %_ZNK16hb_lazy_loader_tIN2OT18vmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj12EE9hb_face_tLj12ES1_EptEv.exit134, label %if.end.i.i.i124
 
 if.end.i.i.i124:                                  ; preds = %if.then.i.i.i122
-  %call.i.i.i.i.i125 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #22
+  %call.i.i.i.i.i125 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #23
   %tobool.not.i.i.i.i.i126 = icmp eq ptr %call.i.i.i.i.i125, null
   br i1 %tobool.not.i.i.i.i.i126, label %if.end9.thread.i.i.i133, label %if.end9.i.i.i127
 
@@ -98788,12 +98757,12 @@ if.end9.thread.i.i.i133:                          ; preds = %if.end.i.i.i124
 if.then.i.i.i.i128:                               ; preds = %if.end9.i.i.i127
   %table.i.i.i.i.i.i.i129 = getelementptr inbounds i8, ptr %call.i.i.i.i.i125, i64 24
   %90 = load ptr, ptr %table.i.i.i.i.i.i.i129, align 8
-  call void @hb_blob_destroy(ptr noundef %90) #18
+  call void @hb_blob_destroy(ptr noundef %90) #19
   store ptr null, ptr %table.i.i.i.i.i.i.i129, align 8
   %var_table.i.i.i.i.i.i.i130 = getelementptr inbounds i8, ptr %call.i.i.i.i.i125, i64 32
   %91 = load ptr, ptr %var_table.i.i.i.i.i.i.i130, align 8
-  call void @hb_blob_destroy(ptr noundef %91) #18
-  call void @free(ptr noundef nonnull %call.i.i.i.i.i125) #18
+  call void @hb_blob_destroy(ptr noundef %91) #19
+  call void @free(ptr noundef nonnull %call.i.i.i.i.i125) #19
   br label %_ZN16hb_lazy_loader_tIN2OT18vmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj12EE9hb_face_tLj12ES1_E10do_destroyEPS1_.exit.i.i.i131
 
 _ZN16hb_lazy_loader_tIN2OT18vmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj12EE9hb_face_tLj12ES1_E10do_destroyEPS1_.exit.i.i.i131: ; preds = %if.then.i.i.i.i128, %if.end9.thread.i.i.i133
@@ -99054,13 +99023,13 @@ if.end23.i.i.i:                                   ; preds = %lor.rhs.i.i.i
   br i1 %tobool.not.i.i.i.i, label %_ZN11hb_vector_tI15contour_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i.i, label %_ZN11hb_vector_tI15contour_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i.i
 
 _ZN11hb_vector_tI15contour_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i.i: ; preds = %if.end23.i.i.i
-  tail call void @free(ptr noundef %19) #18
+  tail call void @free(ptr noundef %19) #19
   br label %if.end33.i.i.i
 
 _ZN11hb_vector_tI15contour_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i.i: ; preds = %if.end23.i.i.i
   %conv.i.i.i.i = zext nneg i32 %17 to i64
   %mul.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i, 12
-  %call.i.i.i.i = tail call ptr @realloc(ptr noundef %19, i64 noundef %mul.i.i.i.i) #19
+  %call.i.i.i.i = tail call ptr @realloc(ptr noundef %19, i64 noundef %mul.i.i.i.i) #20
   %tobool27.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool27.not.i.i.i, label %if.then28.i.i.i, label %if.end33.i.i.i
 
@@ -99181,7 +99150,7 @@ if.end4:                                          ; preds = %land.lhs.true, %if.
   %retval.0.i = select i1 %tobool.not.i, i32 0, i32 %narrow.i
   %4 = zext nneg i32 %retval.0.i to i64
   %mul7 = shl nuw nsw i64 24, %4
-  %call8 = tail call noalias ptr @malloc(i64 noundef %mul7) #20
+  %call8 = tail call noalias ptr @malloc(i64 noundef %mul7) #21
   %tobool9.not = icmp eq ptr %call8, null
   br i1 %tobool9.not, label %if.then10, label %for.end
 
@@ -99272,7 +99241,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body43
   store i32 0, ptr %length.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx45, i64 16
   %15 = load ptr, ptr %arrayZ.i.i.i.i, align 8
-  tail call void @free(ptr noundef %15) #18
+  tail call void @free(ptr noundef %15) #19
   br label %_ZN12hb_hashmap_tIj22contour_point_vector_tLb0EE6item_tD2Ev.exit
 
 _ZN12hb_hashmap_tIj22contour_point_vector_tLb0EE6item_tD2Ev.exit: ; preds = %for.body43, %if.then.i.i.i.i
@@ -99282,7 +99251,7 @@ _ZN12hb_hashmap_tIj22contour_point_vector_tLb0EE6item_tD2Ev.exit: ; preds = %for
   br i1 %exitcond40.not, label %for.end48, label %for.body43, !llvm.loop !804
 
 for.end48:                                        ; preds = %_ZN12hb_hashmap_tIj22contour_point_vector_tLb0EE6item_tD2Ev.exit, %_ZN12hb_hashmap_tIj22contour_point_vector_tLb0EE9prime_forEj.exit
-  tail call void @free(ptr noundef %12) #18
+  tail call void @free(ptr noundef %12) #19
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %for.end48, %if.then10
@@ -99528,13 +99497,13 @@ if.end23.i:                                       ; preds = %lor.rhs.i
   br i1 %tobool.not.i.i, label %_ZN11hb_vector_tI15contour_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i, label %_ZN11hb_vector_tI15contour_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i
 
 _ZN11hb_vector_tI15contour_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i: ; preds = %if.end23.i
-  tail call void @free(ptr noundef %12) #18
+  tail call void @free(ptr noundef %12) #19
   br label %if.end33.i
 
 _ZN11hb_vector_tI15contour_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i: ; preds = %if.end23.i
   %conv.i.i30 = zext nneg i32 %.sroa.speculated.i to i64
   %mul.i.i = mul nuw nsw i64 %conv.i.i30, 12
-  %call.i.i = tail call ptr @realloc(ptr noundef %12, i64 noundef %mul.i.i) #19
+  %call.i.i = tail call ptr @realloc(ptr noundef %12, i64 noundef %mul.i.i) #20
   %tobool27.not.i = icmp eq ptr %call.i.i, null
   br i1 %tobool27.not.i, label %if.then28.i, label %if.end33.i
 
@@ -99591,13 +99560,13 @@ if.end23.i.i:                                     ; preds = %lor.rhs.i.i
   br i1 %tobool.not.i.i.i, label %_ZN11hb_vector_tI15contour_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i, label %_ZN11hb_vector_tI15contour_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
 
 _ZN11hb_vector_tI15contour_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i.i: ; preds = %if.end23.i.i
-  tail call void @free(ptr noundef %18) #18
+  tail call void @free(ptr noundef %18) #19
   br label %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.i
 
 _ZN11hb_vector_tI15contour_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i: ; preds = %if.end23.i.i
   %conv.i.i.i = zext nneg i32 %add15.i.i to i64
   %mul.i.i.i = mul nuw nsw i64 %conv.i.i.i, 12
-  %call.i.i.i = tail call ptr @realloc(ptr noundef %18, i64 noundef %mul.i.i.i) #19
+  %call.i.i.i = tail call ptr @realloc(ptr noundef %18, i64 noundef %mul.i.i.i) #20
   %tobool27.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool27.not.i.i, label %if.then28.i.i, label %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.i
 
@@ -99798,7 +99767,7 @@ _ZN11hb_vector_tI15contour_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXs
   %3 = load ptr, ptr %arrayZ.i.i, align 8
   %conv.i.i = zext nneg i32 %add15.i to i64
   %mul.i.i = mul nuw nsw i64 %conv.i.i, 12
-  %call.i.i = call ptr @realloc(ptr noundef %3, i64 noundef %mul.i.i) #19
+  %call.i.i = call ptr @realloc(ptr noundef %3, i64 noundef %mul.i.i) #20
   %tobool27.not.i = icmp eq ptr %call.i.i, null
   br i1 %tobool27.not.i, label %if.then28.i, label %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit
 
@@ -99850,7 +99819,7 @@ _ZN11hb_vector_tI15contour_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXs
   %8 = load ptr, ptr %arrayZ.i.i.i, align 8
   %conv.i.i.i = zext nneg i32 %add15.i.i to i64
   %mul.i.i.i = mul nuw nsw i64 %conv.i.i.i, 12
-  %call.i.i.i = call ptr @realloc(ptr noundef %8, i64 noundef %mul.i.i.i) #19
+  %call.i.i.i = call ptr @realloc(ptr noundef %8, i64 noundef %mul.i.i.i) #20
   %tobool27.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool27.not.i.i, label %if.then28.i.i, label %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.i
 
@@ -100145,7 +100114,7 @@ return:                                           ; preds = %if.end59, %if.then4
 define linkonce_odr dso_local void @_ZN23hb_subset_accelerator_tC2EP9hb_face_tRK8hb_map_tRK8hb_set_tb(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef %source, ptr noundef nonnull align 8 dereferenceable(48) %unicode_to_gid_, ptr noundef nonnull align 8 dereferenceable(72) %unicodes_, i1 noundef zeroext %has_seac_) unnamed_addr #0 comdat align 2 {
 entry:
   %frombool = zext i1 %has_seac_ to i8
-  %call.i.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %this, ptr noundef null) #18
+  %call.i.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %this, ptr noundef null) #19
   %sanitized_table_cache = getelementptr inbounds i8, ptr %this, i64 40
   store atomic i32 1, ptr %sanitized_table_cache monotonic, align 8
   %writable.i.i.i = getelementptr inbounds i8, ptr %this, i64 44
@@ -100179,7 +100148,7 @@ if.end.i.i:                                       ; preds = %entry
   %add.i.i = add i32 %0, 1
   %conv.i.i = zext i32 %add.i.i to i64
   %mul.i.i = mul nuw nsw i64 %conv.i.i, 12
-  %call.i.i8 = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #20
+  %call.i.i8 = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #21
   store ptr %call.i.i8, ptr %items.i.i.i.i, align 8
   %tobool4.not.i.i = icmp eq ptr %call.i.i8, null
   br i1 %tobool4.not.i.i, label %if.then5.i.i, label %if.end6.i.i
@@ -100274,7 +100243,7 @@ _ZN8hb_set_tC2ERKS_.exit:                         ; preds = %_ZN8hb_map_tC2ERKS_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cmap_cache, i8 0, i64 16, i1 false)
   store i8 %frombool, ptr %has_seac, align 8
   %source3 = getelementptr inbounds i8, ptr %this, i64 328
-  %call = tail call ptr @hb_face_reference(ptr noundef %source) #18
+  %call = tail call ptr @hb_face_reference(ptr noundef %source) #19
   store ptr %call, ptr %source3, align 8
   %cff1_accel = getelementptr inbounds i8, ptr %this, i64 336
   %population.i = getelementptr inbounds i8, ptr %this, i64 108
@@ -100495,7 +100464,7 @@ _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_triviall
   %11 = load ptr, ptr %arrayZ.i.i.i, align 8
   %12 = shl nuw i32 %add15.i.i, 2
   %mul.i.i.i7 = zext i32 %12 to i64
-  %call.i.i.i = tail call ptr @realloc(ptr noundef %11, i64 noundef %mul.i.i.i7) #19
+  %call.i.i.i = tail call ptr @realloc(ptr noundef %11, i64 noundef %mul.i.i.i7) #20
   %tobool27.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool27.not.i.i, label %if.then28.i.i, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.i
 
@@ -100696,7 +100665,7 @@ lor.rhs.i.i.i:                                    ; preds = %while.body.i.i.i
 _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i: ; preds = %lor.rhs.i.i.i
   %38 = shl nuw i32 %add15.i.i.i, 2
   %mul.i.i.i.i = zext i32 %38 to i64
-  %call.i.i.i.i = tail call ptr @realloc(ptr noundef %34, i64 noundef %mul.i.i.i.i) #19
+  %call.i.i.i.i = tail call ptr @realloc(ptr noundef %34, i64 noundef %mul.i.i.i.i) #20
   %tobool27.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool27.not.i.i.i, label %if.then28.i.i.i, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.i.i
 
@@ -100746,7 +100715,7 @@ _ZN11hb_vector_tIjLb0EEC2ESt16initializer_listIjE.exit: ; preds = %_ZN11hb_vecto
 if.then.i.i88:                                    ; preds = %_ZN11hb_vector_tIjLb0EEC2ESt16initializer_listIjE.exit
   store i32 0, ptr %length.i.i, align 4
   %45 = load ptr, ptr %arrayZ.i.i.i.i, align 8
-  call void @free(ptr noundef %45) #18
+  call void @free(ptr noundef %45) #19
   br label %return
 
 if.end9:                                          ; preds = %if.end.i.i24, %if.then.i.i37.thread, %if.end, %if.end.i10, %if.then.i.i37
@@ -100949,7 +100918,7 @@ if.end4:                                          ; preds = %land.lhs.true, %if.
   %retval.0.i = select i1 %tobool.not.i, i32 0, i32 %narrow.i
   %4 = zext nneg i32 %retval.0.i to i64
   %mul7 = shl nuw nsw i64 24, %4
-  %call8 = tail call noalias ptr @malloc(i64 noundef %mul7) #20
+  %call8 = tail call noalias ptr @malloc(i64 noundef %mul7) #21
   %tobool9.not = icmp eq ptr %call8, null
   br i1 %tobool9.not, label %if.then10, label %for.end
 
@@ -101040,7 +101009,7 @@ if.then.i.i.i:                                    ; preds = %for.body43
   store i32 0, ptr %length.i.i.i.i, align 4
   %arrayZ.i.i.i = getelementptr inbounds i8, ptr %arrayidx45, i64 16
   %15 = load ptr, ptr %arrayZ.i.i.i, align 8
-  tail call void @free(ptr noundef %15) #18
+  tail call void @free(ptr noundef %15) #19
   br label %_ZN12hb_hashmap_tIj11hb_vector_tIjLb0EELb0EE6item_tD2Ev.exit
 
 _ZN12hb_hashmap_tIj11hb_vector_tIjLb0EELb0EE6item_tD2Ev.exit: ; preds = %for.body43, %if.then.i.i.i
@@ -101050,7 +101019,7 @@ _ZN12hb_hashmap_tIj11hb_vector_tIjLb0EELb0EE6item_tD2Ev.exit: ; preds = %for.bod
   br i1 %exitcond40.not, label %for.end48, label %for.body43, !llvm.loop !837
 
 for.end48:                                        ; preds = %_ZN12hb_hashmap_tIj11hb_vector_tIjLb0EELb0EE6item_tD2Ev.exit, %_ZN12hb_hashmap_tIj11hb_vector_tIjLb0EELb0EE9prime_forEj.exit
-  tail call void @free(ptr noundef %12) #18
+  tail call void @free(ptr noundef %12) #19
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %entry, %for.end48, %if.then10
@@ -101227,8 +101196,8 @@ if.then.i:                                        ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
   %items.i.i = getelementptr inbounds i8, ptr %1, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i, ptr noundef nonnull align 8 dereferenceable(40) %1)
-  %call.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %1) #18
-  tail call void @free(ptr noundef nonnull %1) #18
+  %call.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %1) #19
+  tail call void @free(ptr noundef nonnull %1) #19
   store atomic i64 0, ptr %user_data2.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjN2hb10unique_ptrI9hb_blob_tEELb0EEEvPT_.exit
 
@@ -101254,7 +101223,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %4 = load ptr, ptr %items, align 8
   %value.i = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, hb::unique_ptr<hb_blob_t>>::item_t", ptr %4, i64 %indvars.iv, i32 2
   %5 = load ptr, ptr %value.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %5) #18
+  tail call void @hb_blob_destroy(ptr noundef %5) #19
   store ptr null, ptr %value.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -101266,7 +101235,7 @@ for.end.loopexit:                                 ; preds = %for.body
 
 for.end:                                          ; preds = %for.end.loopexit, %if.then
   %6 = phi ptr [ %.pre, %for.end.loopexit ], [ %2, %if.then ]
-  tail call void @free(ptr noundef %6) #18
+  tail call void @free(ptr noundef %6) #19
   store ptr null, ptr %items, align 8
   br label %if.end
 
@@ -101432,8 +101401,8 @@ if.then.i:                                        ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
   %items.i.i = getelementptr inbounds i8, ptr %1, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i, ptr noundef nonnull align 8 dereferenceable(40) %1)
-  %call.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %1) #18
-  tail call void @free(ptr noundef nonnull %1) #18
+  %call.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %1) #19
+  tail call void @free(ptr noundef nonnull %1) #19
   store atomic i64 0, ptr %user_data2.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EEEvPT_.exit
 
@@ -101459,7 +101428,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %4 = load ptr, ptr %items, align 8
   %value.i = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, hb::unique_ptr<hb_set_t>>::item_t", ptr %4, i64 %indvars.iv, i32 2
   %5 = load ptr, ptr %value.i, align 8
-  tail call void @hb_set_destroy(ptr noundef %5) #18
+  tail call void @hb_set_destroy(ptr noundef %5) #19
   store ptr null, ptr %value.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -101471,7 +101440,7 @@ for.end.loopexit:                                 ; preds = %for.body
 
 for.end:                                          ; preds = %for.end.loopexit, %if.then
   %6 = phi ptr [ %.pre, %for.end.loopexit ], [ %2, %if.then ]
-  tail call void @free(ptr noundef %6) #18
+  tail call void @free(ptr noundef %6) #19
   store ptr null, ptr %items, align 8
   br label %if.end
 
@@ -106448,7 +106417,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %while.body.i.i.i
   store i32 0, ptr %length.i.i.i.i.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.pn4.i.i.i, i64 -32
   %4 = load ptr, ptr %arrayZ.i.i.i.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %4) #18
+  tail call void @free(ptr noundef %4) #19
   br label %_ZN3CFF31cff2_private_dict_values_base_tINS_8op_str_tEED2Ev.exit.i.i.i
 
 _ZN3CFF31cff2_private_dict_values_base_tINS_8op_str_tEED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %while.body.i.i.i
@@ -106460,7 +106429,7 @@ _ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_8op_str_tEEELb0EE13s
   store i32 0, ptr %length.i.i.i, align 4
   %arrayZ.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %5 = load ptr, ptr %arrayZ.i.i, align 8
-  tail call void @free(ptr noundef %5) #18
+  tail call void @free(ptr noundef %5) #19
   br label %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_8op_str_tEEELb0EED2Ev.exit
 
 _ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_8op_str_tEEELb0EED2Ev.exit: ; preds = %entry, %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_8op_str_tEEELb0EE13shrink_vectorEj.exit.i.i
@@ -106498,7 +106467,7 @@ if.then.i.i.i.i.i.i.i.i16:                        ; preds = %while.body.i.i.i9
   store i32 0, ptr %length.i.i.i.i.i.i.i.i.i17, align 4
   %arrayZ.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %add.ptr.pn4.i.i.i10, i64 -24
   %10 = load ptr, ptr %arrayZ.i.i.i.i.i.i.i.i18, align 8
-  tail call void @free(ptr noundef %10) #18
+  tail call void @free(ptr noundef %10) #19
   br label %_ZN3CFF23cff2_font_dict_values_tD2Ev.exit.i.i.i
 
 _ZN3CFF23cff2_font_dict_values_tD2Ev.exit.i.i.i:  ; preds = %if.then.i.i.i.i.i.i.i.i16, %while.body.i.i.i9
@@ -106510,7 +106479,7 @@ _ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE13shrink_vectorEj.exit.i.i:
   store i32 0, ptr %length.i.i.i3, align 4
   %arrayZ.i.i20 = getelementptr inbounds i8, ptr %this, i64 168
   %11 = load ptr, ptr %arrayZ.i.i20, align 8
-  tail call void @free(ptr noundef %11) #18
+  tail call void @free(ptr noundef %11) #19
   br label %_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EED2Ev.exit
 
 _ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EED2Ev.exit: ; preds = %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_8op_str_tEEELb0EED2Ev.exit, %_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE13shrink_vectorEj.exit.i.i
@@ -106525,7 +106494,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN11hb_vector_tIN3
   store i32 0, ptr %length.i.i.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %13 = load ptr, ptr %arrayZ.i.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %13) #18
+  tail call void @free(ptr noundef %13) #19
   br label %_ZN3CFF22cff2_top_dict_values_tD2Ev.exit
 
 _ZN3CFF22cff2_top_dict_values_tD2Ev.exit:         ; preds = %_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EED2Ev.exit, %if.then.i.i.i.i.i.i
@@ -106537,7 +106506,7 @@ _ZN3CFF22cff2_top_dict_values_tD2Ev.exit:         ; preds = %_ZN11hb_vector_tIN3
 
 if.then.i:                                        ; preds = %_ZN3CFF22cff2_top_dict_values_tD2Ev.exit
   %start.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @hb_blob_destroy(ptr noundef nonnull %14) #18
+  tail call void @hb_blob_destroy(ptr noundef nonnull %14) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start.i.i, i8 0, i64 20, i1 false)
   br label %_ZN21hb_sanitize_context_tD2Ev.exit
@@ -106552,7 +106521,7 @@ entry:
   %start.i = getelementptr inbounds i8, ptr %this, i64 8
   %blob.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %blob.i, align 8
-  tail call void @hb_blob_destroy(ptr noundef %0) #18
+  tail call void @hb_blob_destroy(ptr noundef %0) #19
   store ptr null, ptr %blob.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %start.i, i8 0, i64 20, i1 false)
   %values.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -106565,7 +106534,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   store i32 0, ptr %length.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load ptr, ptr %arrayZ.i.i.i.i, align 8
-  tail call void @free(ptr noundef %2) #18
+  tail call void @free(ptr noundef %2) #19
   br label %_ZN3CFF22cff2_top_dict_values_t4finiEv.exit
 
 _ZN3CFF22cff2_top_dict_values_t4finiEv.exit:      ; preds = %entry, %if.then.i.i.i.i
@@ -106603,7 +106572,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %while.body.i.i
   store i32 0, ptr %length.i.i.i.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.pn4.i.i, i64 -24
   %7 = load ptr, ptr %arrayZ.i.i.i.i.i.i.i, align 8
-  tail call void @free(ptr noundef %7) #18
+  tail call void @free(ptr noundef %7) #19
   br label %_ZN3CFF23cff2_font_dict_values_tD2Ev.exit.i.i
 
 _ZN3CFF23cff2_font_dict_values_tD2Ev.exit.i.i:    ; preds = %if.then.i.i.i.i.i.i.i, %while.body.i.i
@@ -106615,7 +106584,7 @@ _ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE13shrink_vectorEj.exit.i: ;
   store i32 0, ptr %length.i.i, align 4
   %arrayZ.i = getelementptr inbounds i8, ptr %this, i64 168
   %8 = load ptr, ptr %arrayZ.i, align 8
-  tail call void @free(ptr noundef %8) #18
+  tail call void @free(ptr noundef %8) #19
   br label %_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE4finiEv.exit
 
 _ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE4finiEv.exit: ; preds = %_ZN3CFF22cff2_top_dict_values_t4finiEv.exit, %_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE13shrink_vectorEj.exit.i
@@ -106653,7 +106622,7 @@ if.then.i.i.i.i.i.i.i16:                          ; preds = %while.body.i.i9
   store i32 0, ptr %length.i.i.i.i.i.i.i.i17, align 4
   %arrayZ.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %add.ptr.pn4.i.i10, i64 -32
   %13 = load ptr, ptr %arrayZ.i.i.i.i.i.i.i18, align 8
-  tail call void @free(ptr noundef %13) #18
+  tail call void @free(ptr noundef %13) #19
   br label %_ZN3CFF31cff2_private_dict_values_base_tINS_8op_str_tEED2Ev.exit.i.i
 
 _ZN3CFF31cff2_private_dict_values_base_tINS_8op_str_tEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i16, %while.body.i.i9
@@ -106665,14 +106634,14 @@ _ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_8op_str_tEEELb0EE13s
   store i32 0, ptr %length.i.i3, align 4
   %arrayZ.i20 = getelementptr inbounds i8, ptr %this, i64 184
   %14 = load ptr, ptr %arrayZ.i20, align 8
-  tail call void @free(ptr noundef %14) #18
+  tail call void @free(ptr noundef %14) #19
   br label %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_8op_str_tEEELb0EE4finiEv.exit
 
 _ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_8op_str_tEEELb0EE4finiEv.exit: ; preds = %_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE4finiEv.exit, %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_8op_str_tEEELb0EE13shrink_vectorEj.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %privateDicts, i8 0, i64 16, i1 false)
   %blob = getelementptr inbounds i8, ptr %this, i64 64
   %15 = load ptr, ptr %blob, align 8
-  tail call void @hb_blob_destroy(ptr noundef %15) #18
+  tail call void @hb_blob_destroy(ptr noundef %15) #19
   store ptr null, ptr %blob, align 8
   ret void
 }
@@ -106690,8 +106659,8 @@ if.then.i:                                        ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
   %items.i.i = getelementptr inbounds i8, ptr %1, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i, ptr noundef nonnull align 8 dereferenceable(40) %1)
-  %call.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %1) #18
-  tail call void @free(ptr noundef nonnull %1) #18
+  %call.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %1) #19
+  tail call void @free(ptr noundef nonnull %1) #19
   store atomic i64 0, ptr %user_data2.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjN2hb10shared_ptrI8hb_set_tEELb0EEEvPT_.exit
 
@@ -106717,7 +106686,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %4 = load ptr, ptr %items, align 8
   %value.i = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, hb::shared_ptr<hb_set_t>>::item_t", ptr %4, i64 %indvars.iv, i32 2
   %5 = load ptr, ptr %value.i, align 8
-  tail call void @hb_set_destroy(ptr noundef %5) #18
+  tail call void @hb_set_destroy(ptr noundef %5) #19
   store ptr null, ptr %value.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -106729,7 +106698,7 @@ for.end.loopexit:                                 ; preds = %for.body
 
 for.end:                                          ; preds = %for.end.loopexit, %if.then
   %6 = phi ptr [ %.pre, %for.end.loopexit ], [ %2, %if.then ]
-  tail call void @free(ptr noundef %6) #18
+  tail call void @free(ptr noundef %6) #19
   store ptr null, ptr %items, align 8
   br label %if.end
 
@@ -106754,8 +106723,8 @@ if.then.i:                                        ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
   %items.i.i = getelementptr inbounds i8, ptr %1, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i, ptr noundef nonnull align 8 dereferenceable(40) %1)
-  %call.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %1) #18
-  tail call void @free(ptr noundef nonnull %1) #18
+  %call.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %1) #19
+  tail call void @free(ptr noundef nonnull %1) #19
   store atomic i64 0, ptr %user_data2.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIj22contour_point_vector_tLb0EEEvPT_.exit
 
@@ -106790,7 +106759,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body
   store i32 0, ptr %length.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %6 = load ptr, ptr %arrayZ.i.i.i.i, align 8
-  tail call void @free(ptr noundef %6) #18
+  tail call void @free(ptr noundef %6) #19
   br label %_ZN12hb_hashmap_tIj22contour_point_vector_tLb0EE6item_tD2Ev.exit
 
 _ZN12hb_hashmap_tIj22contour_point_vector_tLb0EE6item_tD2Ev.exit: ; preds = %for.body, %if.then.i.i.i.i
@@ -106805,7 +106774,7 @@ for.end.loopexit:                                 ; preds = %_ZN12hb_hashmap_tIj
 
 for.end:                                          ; preds = %for.end.loopexit, %if.then
   %7 = phi ptr [ %.pre, %for.end.loopexit ], [ %2, %if.then ]
-  tail call void @free(ptr noundef %7) #18
+  tail call void @free(ptr noundef %7) #19
   store ptr null, ptr %items, align 8
   br label %if.end
 
@@ -106835,7 +106804,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %or.cond, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.then3
-  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %this) #18
+  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %this) #19
   %arrayZ.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %arrayZ.i.i.i, align 8
   %length.i.i.i = getelementptr inbounds i8, ptr %this, i64 44
@@ -106877,16 +106846,16 @@ if.end.i.i:                                       ; preds = %if.then.i
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i: ; preds = %if.end.i.i, %if.then.i
-  %call.i10.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #18
+  %call.i10.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #19
   %tobool.not.i11.i = icmp eq ptr %old.sroa.2.0.copyload.i, null
   br i1 %tobool.not.i11.i, label %return, label %if.then.i12.i
 
 if.then.i12.i:                                    ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i
-  tail call void %old.sroa.2.0.copyload.i(ptr noundef %old.sroa.1.0.copyload.i) #18
+  tail call void %old.sroa.2.0.copyload.i(ptr noundef %old.sroa.1.0.copyload.i) #19
   br label %return
 
 if.else.i:                                        ; preds = %for.inc.i.i.i.i, %if.then6
-  %call.i14.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #18
+  %call.i14.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #19
   br label %return
 
 if.end8:                                          ; preds = %if.then3, %if.end
@@ -106908,7 +106877,7 @@ return:                                           ; preds = %if.else.i, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE17replace_or_insertIS1_EEPS1_T_RS2_b(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef byval(%"struct.hb_user_data_array_t::hb_user_data_item_t") align 8 %v, ptr noundef nonnull align 8 dereferenceable(40) %l, i1 noundef zeroext %replace) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %l) #18
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %l) #19
   %arrayZ.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %arrayZ.i.i, align 8
   %length.i.i = getelementptr inbounds i8, ptr %this, i64 4
@@ -106944,16 +106913,16 @@ if.then3:                                         ; preds = %if.then
   %old.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %old.sroa.2.0.copyload = load ptr, ptr %old.sroa.2.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %v, i64 24, i1 false)
-  %call.i7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %l) #18
+  %call.i7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %l) #19
   %tobool.not.i = icmp eq ptr %old.sroa.2.0.copyload, null
   br i1 %tobool.not.i, label %if.end7, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then3
-  tail call void %old.sroa.2.0.copyload(ptr noundef %old.sroa.1.0.copyload) #18
+  tail call void %old.sroa.2.0.copyload(ptr noundef %old.sroa.1.0.copyload) #19
   br label %if.end7
 
 if.else:                                          ; preds = %if.then
-  %call.i8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %l) #18
+  %call.i8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %l) #19
   br label %if.end7
 
 if.else4:                                         ; preds = %for.inc.i.i.i, %entry
@@ -106985,7 +106954,7 @@ lor.rhs.i.i:                                      ; preds = %while.body.i.i
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i: ; preds = %lor.rhs.i.i
   %conv.i.i.i = zext nneg i32 %add15.i.i to i64
   %mul.i.i.i = mul nuw nsw i64 %conv.i.i.i, 24
-  %call.i.i.i = tail call ptr @realloc(ptr noundef %0, i64 noundef %mul.i.i.i) #19
+  %call.i.i.i = tail call ptr @realloc(ptr noundef %0, i64 noundef %mul.i.i.i) #20
   %tobool27.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool27.not.i.i, label %if.then28.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.i
 
@@ -107025,7 +106994,7 @@ if.end.i:                                         ; preds = %if.then28.i.i.if.en
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit: ; preds = %if.then.i9, %if.end.i
   %retval.0.i = phi ptr [ %arrayidx.i, %if.end.i ], [ @_hb_CrapPool, %if.then.i9 ]
-  %call.i10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %l) #18
+  %call.i10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %l) #19
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then.i, %if.then3, %if.else, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
@@ -107072,6 +107041,9 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #15
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #18
+
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -107090,11 +107062,12 @@ attributes #14 = { mustprogress nofree norecurse nosync nounwind memory(argmem: 
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #18 = { nounwind }
-attributes #19 = { nounwind allocsize(1) }
-attributes #20 = { nounwind allocsize(0) }
-attributes #21 = { "function-inline-cost-multiplier"="2" }
-attributes #22 = { nounwind allocsize(0,1) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #19 = { nounwind }
+attributes #20 = { nounwind allocsize(1) }
+attributes #21 = { nounwind allocsize(0) }
+attributes #22 = { "function-inline-cost-multiplier"="2" }
+attributes #23 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
@@ -107259,19 +107232,19 @@ attributes #22 = { nounwind allocsize(0,1) }
 !158 = distinct !{!158, !7}
 !159 = distinct !{!159, !7}
 !160 = distinct !{!160, !7}
-!161 = distinct !{!161, !7}
-!162 = !{!163}
-!163 = distinct !{!163, !164, !"_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_: %a"}
-!164 = distinct !{!164, !"_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_"}
-!165 = !{!166}
-!166 = distinct !{!166, !164, !"_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_: %b"}
-!167 = !{!168}
-!168 = distinct !{!168, !169, !"_ZL11sort_r_swapPcS_m: %a"}
-!169 = distinct !{!169, !"_ZL11sort_r_swapPcS_m"}
-!170 = !{!171}
-!171 = distinct !{!171, !169, !"_ZL11sort_r_swapPcS_m: %b"}
-!172 = !{!168, !163}
-!173 = !{!171, !166}
+!161 = !{!162}
+!162 = distinct !{!162, !163, !"_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_: %a"}
+!163 = distinct !{!163, !"_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_"}
+!164 = !{!165}
+!165 = distinct !{!165, !163, !"_ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_: %b"}
+!166 = !{!167}
+!167 = distinct !{!167, !168, !"_ZL11sort_r_swapPcS_m: %a"}
+!168 = distinct !{!168, !"_ZL11sort_r_swapPcS_m"}
+!169 = !{!170}
+!170 = distinct !{!170, !168, !"_ZL11sort_r_swapPcS_m: %b"}
+!171 = !{!167, !162}
+!172 = !{!170, !165}
+!173 = distinct !{!173, !7}
 !174 = distinct !{!174, !7}
 !175 = distinct !{!175, !7}
 !176 = !{!177}

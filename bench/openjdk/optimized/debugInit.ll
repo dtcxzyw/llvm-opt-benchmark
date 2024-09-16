@@ -1093,7 +1093,7 @@ get_boolean.exit270.i:                            ; preds = %389, %388
 392:                                              ; preds = %390
   %393 = load ptr, ptr @gdata, align 8
   %394 = getelementptr inbounds i8, ptr %393, i64 22
-  %395 = call fastcc zeroext i8 @get_boolean(ptr noundef nonnull %6, ptr noundef nonnull %394)
+  %395 = call fastcc zeroext i8 @get_boolean(ptr noundef %6, ptr noundef nonnull %394)
   %.not165.i = icmp eq i8 %395, 0
   br i1 %.not165.i, label %get_tok.exit.thread.i, label %506
 
@@ -1276,7 +1276,7 @@ get_tok.exit300.i:                                ; preds = %.lr.ph.i294.i, %.lr
   br i1 %.not146.i, label %472, label %474
 
 472:                                              ; preds = %471
-  %473 = call fastcc zeroext i8 @get_boolean(ptr noundef nonnull %6, ptr noundef nonnull @suspendOnInit)
+  %473 = call fastcc zeroext i8 @get_boolean(ptr noundef %6, ptr noundef nonnull @suspendOnInit)
   %.not161.i = icmp eq i8 %473, 0
   br i1 %.not161.i, label %get_tok.exit.thread.i, label %506
 
@@ -1286,7 +1286,7 @@ get_tok.exit300.i:                                ; preds = %.lr.ph.i294.i, %.lr
   br i1 %475, label %476, label %478
 
 476:                                              ; preds = %474
-  %477 = call fastcc zeroext i8 @get_boolean(ptr noundef nonnull %6, ptr noundef nonnull @isServer)
+  %477 = call fastcc zeroext i8 @get_boolean(ptr noundef %6, ptr noundef nonnull @isServer)
   %.not160.i = icmp eq i8 %477, 0
   br i1 %.not160.i, label %get_tok.exit.thread.i, label %506
 
@@ -1296,7 +1296,7 @@ get_tok.exit300.i:                                ; preds = %.lr.ph.i294.i, %.lr
   br i1 %479, label %480, label %482
 
 480:                                              ; preds = %478
-  %481 = call fastcc zeroext i8 @get_boolean(ptr noundef nonnull %6, ptr noundef nonnull @isStrict)
+  %481 = call fastcc zeroext i8 @get_boolean(ptr noundef %6, ptr noundef nonnull @isStrict)
   %.not159.i = icmp eq i8 %481, 0
   br i1 %.not159.i, label %get_tok.exit.thread.i, label %506
 
@@ -1308,7 +1308,7 @@ get_tok.exit300.i:                                ; preds = %.lr.ph.i294.i, %.lr
 484:                                              ; preds = %482
   %485 = load ptr, ptr @gdata, align 8
   %486 = getelementptr inbounds i8, ptr %485, i64 24
-  %487 = call fastcc zeroext i8 @get_boolean(ptr noundef nonnull %6, ptr noundef nonnull %486)
+  %487 = call fastcc zeroext i8 @get_boolean(ptr noundef %6, ptr noundef nonnull %486)
   %.not158.i = icmp eq i8 %487, 0
   br i1 %.not158.i, label %get_tok.exit.thread.i, label %506
 
@@ -1318,7 +1318,7 @@ get_tok.exit300.i:                                ; preds = %.lr.ph.i294.i, %.lr
   br i1 %489, label %490, label %492
 
 490:                                              ; preds = %488
-  %491 = call fastcc zeroext i8 @get_boolean(ptr noundef nonnull %6, ptr noundef nonnull @initOnUncaught)
+  %491 = call fastcc zeroext i8 @get_boolean(ptr noundef %6, ptr noundef nonnull @initOnUncaught)
   %.not157.i = icmp eq i8 %491, 0
   br i1 %.not157.i, label %get_tok.exit.thread.i, label %506
 
@@ -1330,7 +1330,7 @@ get_tok.exit300.i:                                ; preds = %.lr.ph.i294.i, %.lr
 494:                                              ; preds = %492
   %495 = load ptr, ptr @gdata, align 8
   %496 = getelementptr inbounds i8, ptr %495, i64 23
-  %497 = call fastcc zeroext i8 @get_boolean(ptr noundef nonnull %6, ptr noundef nonnull %496)
+  %497 = call fastcc zeroext i8 @get_boolean(ptr noundef %6, ptr noundef nonnull %496)
   %.not156.i = icmp eq i8 %497, 0
   br i1 %.not156.i, label %get_tok.exit.thread.i, label %506
 
@@ -1340,7 +1340,7 @@ get_tok.exit300.i:                                ; preds = %.lr.ph.i294.i, %.lr
   br i1 %499, label %500, label %502
 
 500:                                              ; preds = %498
-  %501 = call fastcc zeroext i8 @get_boolean(ptr noundef nonnull %6, ptr noundef nonnull @useStandardAlloc)
+  %501 = call fastcc zeroext i8 @get_boolean(ptr noundef %6, ptr noundef nonnull @useStandardAlloc)
   %.not155.i = icmp eq i8 %501, 0
   br i1 %.not155.i, label %get_tok.exit.thread.i, label %506
 
@@ -1350,7 +1350,7 @@ get_tok.exit300.i:                                ; preds = %.lr.ph.i294.i, %.lr
   br i1 %503, label %504, label %get_tok.exit.thread.i
 
 504:                                              ; preds = %502
-  %505 = call fastcc zeroext i8 @get_boolean(ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %505 = call fastcc zeroext i8 @get_boolean(ptr noundef %6, ptr noundef nonnull %7)
   %.not154.i = icmp eq i8 %505, 0
   br i1 %.not154.i, label %get_tok.exit.thread.i, label %506
 
@@ -1725,7 +1725,7 @@ declare ptr @jvmtiErrorText(i32 noundef) local_unnamed_addr #1
 declare void @eventIndexInit() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @set_event_notification(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @set_event_notification(i32 noundef range(i32 0, 2) %0, i32 noundef range(i32 4, 21) %1) unnamed_addr #0 {
   %3 = load ptr, ptr @gdata, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 528
   %5 = load i32, ptr %4, align 8
@@ -2683,7 +2683,7 @@ define noundef ptr @debugInit_startDebuggingViaCommand(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @initialize(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @initialize(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 20) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.EnumerateArg, align 4
   %6 = load ptr, ptr @gdata, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 528
@@ -2999,7 +2999,7 @@ declare ptr @bagAdd(ptr noundef) local_unnamed_addr #1
 declare i64 @atol(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @get_boolean(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #12 {
+define internal fastcc zeroext range(i8 0, 2) i8 @get_boolean(ptr nocapture noundef nonnull %0, ptr nocapture noundef writeonly %1) unnamed_addr #12 {
   %3 = alloca [80 x i8], align 16
   store i8 0, ptr %1, align 1
   %4 = load ptr, ptr %0, align 8

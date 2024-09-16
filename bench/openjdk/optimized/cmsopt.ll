@@ -774,7 +774,7 @@ define internal range(i32 0, 2) i32 @OptimizeByResampling(ptr nocapture noundef 
   br i1 %46, label %47, label %53
 
 47:                                               ; preds = %43
-  %48 = tail call fastcc i32 @AllCurvesAreLinear(ptr noundef nonnull %42)
+  %48 = tail call fastcc i32 @AllCurvesAreLinear(ptr noundef %42)
   %.not93 = icmp eq i32 %48, 0
   br i1 %.not93, label %49, label %53
 
@@ -819,7 +819,7 @@ define internal range(i32 0, 2) i32 @OptimizeByResampling(ptr nocapture noundef 
   br i1 %68, label %69, label %75
 
 69:                                               ; preds = %66
-  %70 = call fastcc i32 @AllCurvesAreLinear(ptr noundef nonnull %65)
+  %70 = call fastcc i32 @AllCurvesAreLinear(ptr noundef %65)
   %.not98 = icmp eq i32 %70, 0
   br i1 %.not98, label %71, label %75
 
@@ -950,7 +950,7 @@ define internal range(i32 0, 2) i32 @OptimizeByResampling(ptr nocapture noundef 
   br i1 %.not103, label %133, label %135
 
 133:                                              ; preds = %130
-  %134 = call fastcc i32 @FixWhiteMisalignment(ptr noundef nonnull %37, i32 noundef %17, i32 noundef %21)
+  %134 = call fastcc i32 @FixWhiteMisalignment(ptr noundef %37, i32 noundef %17, i32 noundef %21)
   br label %135
 
 135:                                              ; preds = %133, %130
@@ -1024,13 +1024,13 @@ declare i32 @cmsPipelineStageCount(ptr noundef) local_unnamed_addr #1
 declare ptr @cmsPipelineAlloc(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @AllCurvesAreLinear(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call ptr @_cmsStageGetPtrToCurveSet(ptr noundef %0) #10
+define internal fastcc range(i32 0, 2) i32 @AllCurvesAreLinear(ptr noundef nonnull %0) unnamed_addr #0 {
+  %2 = tail call ptr @_cmsStageGetPtrToCurveSet(ptr noundef nonnull %0) #10
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @cmsStageOutputChannels(ptr noundef %0) #10
+  %5 = tail call i32 @cmsStageOutputChannels(ptr noundef nonnull %0) #10
   %.not13 = icmp eq i32 %5, 0
   br i1 %.not13, label %.loopexit, label %.lr.ph.preheader
 
@@ -1367,7 +1367,7 @@ define internal ptr @Prelin16dup(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @FixWhiteMisalignment(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @FixWhiteMisalignment(ptr noundef nonnull %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca [16 x i16], align 16
@@ -1439,22 +1439,22 @@ define internal fastcc range(i32 0, 2) i32 @FixWhiteMisalignment(ptr noundef %0,
   br i1 %.not.i, label %29, label %WhitesAreEqual.exit
 
 WhitesAreEqual.exit:                              ; preds = %39
-  %40 = call i32 (ptr, i32, ...) @cmsPipelineCheckAndRetreiveStages(ptr noundef %0, i32 noundef 3, i32 noundef 1668707188, i32 noundef 1668052340, i32 noundef 1668707188, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #10
+  %40 = call i32 (ptr, i32, ...) @cmsPipelineCheckAndRetreiveStages(ptr noundef nonnull %0, i32 noundef 3, i32 noundef 1668707188, i32 noundef 1668052340, i32 noundef 1668707188, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #10
   %.not42 = icmp eq i32 %40, 0
   br i1 %.not42, label %41, label %47
 
 41:                                               ; preds = %WhitesAreEqual.exit
-  %42 = call i32 (ptr, i32, ...) @cmsPipelineCheckAndRetreiveStages(ptr noundef %0, i32 noundef 2, i32 noundef 1668707188, i32 noundef 1668052340, ptr noundef nonnull %11, ptr noundef nonnull %12) #10
+  %42 = call i32 (ptr, i32, ...) @cmsPipelineCheckAndRetreiveStages(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 1668707188, i32 noundef 1668052340, ptr noundef nonnull %11, ptr noundef nonnull %12) #10
   %.not43 = icmp eq i32 %42, 0
   br i1 %.not43, label %43, label %47
 
 43:                                               ; preds = %41
-  %44 = call i32 (ptr, i32, ...) @cmsPipelineCheckAndRetreiveStages(ptr noundef %0, i32 noundef 2, i32 noundef 1668052340, i32 noundef 1668707188, ptr noundef nonnull %12, ptr noundef nonnull %13) #10
+  %44 = call i32 (ptr, i32, ...) @cmsPipelineCheckAndRetreiveStages(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 1668052340, i32 noundef 1668707188, ptr noundef nonnull %12, ptr noundef nonnull %13) #10
   %.not44 = icmp eq i32 %44, 0
   br i1 %.not44, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = call i32 (ptr, i32, ...) @cmsPipelineCheckAndRetreiveStages(ptr noundef %0, i32 noundef 1, i32 noundef 1668052340, ptr noundef nonnull %12) #10
+  %46 = call i32 (ptr, i32, ...) @cmsPipelineCheckAndRetreiveStages(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 1668052340, ptr noundef nonnull %12) #10
   %.not45 = icmp eq i32 %46, 0
   br i1 %.not45, label %PatchLUT.exit, label %47
 
@@ -1960,7 +1960,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph144, %57, %59
 ._crit_edge149:                                   ; preds = %.lr.ph148, %.preheader
   %84 = load ptr, ptr %19, align 8
   call void @_cmsFree(ptr noundef %84, ptr noundef nonnull %30) #10
-  %85 = call fastcc i32 @AllCurvesAreLinear(ptr noundef nonnull %76)
+  %85 = call fastcc i32 @AllCurvesAreLinear(ptr noundef %76)
   %.not111 = icmp eq i32 %85, 0
   br i1 %.not111, label %86, label %109
 
@@ -2231,7 +2231,7 @@ define internal range(i32 0, 2) i32 @OptimizeMatrixShaper(ptr nocapture noundef 
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %93, i64 8
   %99 = load ptr, ptr %98, align 8
-  call fastcc void @SetMatShaper(ptr noundef nonnull %71, ptr noundef %97, ptr noundef nonnull %10, ptr noundef %61, ptr noundef %99, ptr noundef nonnull %3)
+  call fastcc void @SetMatShaper(ptr noundef nonnull %71, ptr noundef %97, ptr noundef %10, ptr noundef %61, ptr noundef %99, ptr noundef nonnull %3)
   br label %100
 
 100:                                              ; preds = %89, %87
@@ -2838,7 +2838,7 @@ IsDegenerated.exit204.thread:                     ; preds = %._crit_edge.i198
   br i1 %.not163, label %290, label %292
 
 290:                                              ; preds = %287
-  %291 = call fastcc i32 @FixWhiteMisalignment(ptr noundef nonnull %239, i32 noundef %31, i32 noundef %35)
+  %291 = call fastcc i32 @FixWhiteMisalignment(ptr noundef %239, i32 noundef %31, i32 noundef %35)
   %.not164 = icmp eq i32 %291, 0
   br i1 %.not164, label %309, label %292
 
@@ -2911,7 +2911,7 @@ declare ptr @cmsStageAllocToneCurves(ptr noundef, i32 noundef, ptr noundef) loca
 declare i32 @_cmsFormatterIs8bit(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @CurvesAlloc(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc ptr @CurvesAlloc(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 256, 65537) %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 24) #10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit61, label %7
@@ -2929,144 +2929,124 @@ define internal fastcc ptr @CurvesAlloc(ptr noundef %0, i32 noundef %1, i32 noun
 
 .preheader60:                                     ; preds = %7
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %.loopexit61, label %.lr.ph66
+  br i1 %.not, label %.loopexit61, label %.lr.ph
 
-.lr.ph66:                                         ; preds = %.preheader60
-  switch i32 %2, label %.lr.ph66.split.split.us.preheader [
-    i32 256, label %.lr.ph66.split.us
-    i32 0, label %.lr.ph66.split.split
-  ]
+.lr.ph:                                           ; preds = %.preheader60
+  %13 = icmp eq i32 %2, 256
+  br i1 %13, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
-.lr.ph66.split.us:                                ; preds = %.lr.ph66, %.loopexit.us
-  %.05365.us = phi i32 [ %31, %.loopexit.us ], [ 0, %.lr.ph66 ]
-  %13 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef 256, i32 noundef 2) #10
-  %14 = load ptr, ptr %11, align 8
-  %15 = zext i32 %.05365.us to i64
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
-  store ptr %13, ptr %16, align 8
-  %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %15
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %.preheader, label %.preheader57.us
+.lr.ph.split.preheader:                           ; preds = %.lr.ph
+  %wide.trip.count = zext nneg i32 %2 to i64
+  br label %.lr.ph.split
 
-.preheader57.us:                                  ; preds = %.lr.ph66.split.us
-  %21 = getelementptr inbounds ptr, ptr %3, i64 %15
-  br label %22
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.loopexit.us
+  %.05365.us = phi i32 [ %32, %.loopexit.us ], [ 0, %.lr.ph ]
+  %14 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef 256, i32 noundef 2) #10
+  %15 = load ptr, ptr %11, align 8
+  %16 = zext i32 %.05365.us to i64
+  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
+  store ptr %14, ptr %17, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = getelementptr inbounds ptr, ptr %18, i64 %16
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %.preheader, label %.preheader57.us
 
-22:                                               ; preds = %.preheader57.us, %22
-  %indvars.iv83 = phi i64 [ 0, %.preheader57.us ], [ %indvars.iv.next84, %22 ]
-  %23 = load ptr, ptr %21, align 8
-  %24 = trunc i64 %indvars.iv83 to i16
-  %25 = mul i16 %24, 257
-  %26 = tail call zeroext i16 @cmsEvalToneCurve16(ptr noundef %23, i16 noundef zeroext %25) #10
-  %27 = load ptr, ptr %11, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %15
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i16, ptr %29, i64 %indvars.iv83
-  store i16 %26, ptr %30, align 2
-  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
-  %exitcond86.not = icmp eq i64 %indvars.iv.next84, 256
-  br i1 %exitcond86.not, label %.loopexit.us, label %22, !llvm.loop !50
+.preheader57.us:                                  ; preds = %.lr.ph.split.us
+  %22 = getelementptr inbounds ptr, ptr %3, i64 %16
+  br label %23
 
-.loopexit.us:                                     ; preds = %22
-  %31 = add nuw i32 %.05365.us, 1
-  %exitcond87.not = icmp eq i32 %31, %1
-  br i1 %exitcond87.not, label %.loopexit61, label %.lr.ph66.split.us, !llvm.loop !51
+23:                                               ; preds = %.preheader57.us, %23
+  %indvars.iv75 = phi i64 [ 0, %.preheader57.us ], [ %indvars.iv.next76, %23 ]
+  %24 = load ptr, ptr %22, align 8
+  %25 = trunc i64 %indvars.iv75 to i16
+  %26 = mul i16 %25, 257
+  %27 = tail call zeroext i16 @cmsEvalToneCurve16(ptr noundef %24, i16 noundef zeroext %26) #10
+  %28 = load ptr, ptr %11, align 8
+  %29 = getelementptr inbounds ptr, ptr %28, i64 %16
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds i16, ptr %30, i64 %indvars.iv75
+  store i16 %27, ptr %31, align 2
+  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
+  %exitcond78.not = icmp eq i64 %indvars.iv.next76, 256
+  br i1 %exitcond78.not, label %.loopexit.us, label %23, !llvm.loop !50
 
-.lr.ph66.split.split.us.preheader:                ; preds = %.lr.ph66
-  %wide.trip.count = zext i32 %2 to i64
-  br label %.lr.ph66.split.split.us
+.loopexit.us:                                     ; preds = %23
+  %32 = add nuw i32 %.05365.us, 1
+  %exitcond79.not = icmp eq i32 %32, %1
+  br i1 %exitcond79.not, label %.loopexit61, label %.lr.ph.split.us, !llvm.loop !51
 
-.lr.ph66.split.split.us:                          ; preds = %.lr.ph66.split.split.us.preheader, %..loopexit59_crit_edge.us
-  %.05365.us67 = phi i32 [ %49, %..loopexit59_crit_edge.us ], [ 0, %.lr.ph66.split.split.us.preheader ]
-  %32 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %2, i32 noundef 2) #10
-  %33 = load ptr, ptr %11, align 8
-  %34 = zext i32 %.05365.us67 to i64
-  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
-  store ptr %32, ptr %35, align 8
-  %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %34
-  %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %.preheader, label %.preheader58.us
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.loopexit59
+  %.05365 = phi i32 [ %55, %.loopexit59 ], [ 0, %.lr.ph.split.preheader ]
+  %33 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %2, i32 noundef 2) #10
+  %34 = load ptr, ptr %11, align 8
+  %35 = zext i32 %.05365 to i64
+  %36 = getelementptr inbounds ptr, ptr %34, i64 %35
+  store ptr %33, ptr %36, align 8
+  %37 = load ptr, ptr %11, align 8
+  %38 = getelementptr inbounds ptr, ptr %37, i64 %35
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %.preheader, label %.preheader58
 
-.preheader58.us:                                  ; preds = %.lr.ph66.split.split.us
-  %40 = getelementptr inbounds ptr, ptr %3, i64 %34
-  br label %41
+.preheader:                                       ; preds = %.lr.ph.split, %.lr.ph.split.us
+  %41 = phi ptr [ %18, %.lr.ph.split.us ], [ %37, %.lr.ph.split ]
+  %.us-phi = phi i32 [ %.05365.us, %.lr.ph.split.us ], [ %.05365, %.lr.ph.split ]
+  %.not68 = icmp eq i32 %.us-phi, 0
+  br i1 %.not68, label %._crit_edge, label %.lr.ph67.preheader
 
-41:                                               ; preds = %.preheader58.us, %41
-  %indvars.iv = phi i64 [ 0, %.preheader58.us ], [ %indvars.iv.next, %41 ]
-  %42 = load ptr, ptr %40, align 8
-  %43 = trunc i64 %indvars.iv to i16
-  %44 = tail call zeroext i16 @cmsEvalToneCurve16(ptr noundef %42, i16 noundef zeroext %43) #10
-  %45 = load ptr, ptr %11, align 8
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %34
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i16, ptr %47, i64 %indvars.iv
-  store i16 %44, ptr %48, align 2
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit59_crit_edge.us, label %41, !llvm.loop !52
+.lr.ph67.preheader:                               ; preds = %.preheader
+  %wide.trip.count83 = zext i32 %.us-phi to i64
+  br label %.lr.ph67
 
-..loopexit59_crit_edge.us:                        ; preds = %41
-  %49 = add nuw i32 %.05365.us67, 1
-  %exitcond81.not = icmp eq i32 %49, %1
-  br i1 %exitcond81.not, label %.loopexit61, label %.lr.ph66.split.split.us, !llvm.loop !51
+.lr.ph67:                                         ; preds = %.lr.ph67.preheader, %.lr.ph67
+  %indvars.iv80 = phi i64 [ 0, %.lr.ph67.preheader ], [ %indvars.iv.next81, %.lr.ph67 ]
+  %42 = load ptr, ptr %11, align 8
+  %43 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv80
+  %44 = load ptr, ptr %43, align 8
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef %44) #10
+  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
+  %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
+  br i1 %exitcond84.not, label %._crit_edge.loopexit, label %.lr.ph67, !llvm.loop !52
 
-.lr.ph66.split.split:                             ; preds = %.lr.ph66, %.preheader58
-  %.05365 = phi i32 [ %63, %.preheader58 ], [ %2, %.lr.ph66 ]
-  %50 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef 0, i32 noundef 2) #10
-  %51 = load ptr, ptr %11, align 8
-  %52 = zext i32 %.05365 to i64
-  %53 = getelementptr inbounds ptr, ptr %51, i64 %52
-  store ptr %50, ptr %53, align 8
-  %54 = load ptr, ptr %11, align 8
-  %55 = getelementptr inbounds ptr, ptr %54, i64 %52
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %.preheader, label %.preheader58
-
-.preheader:                                       ; preds = %.lr.ph66.split.split, %.lr.ph66.split.us, %.lr.ph66.split.split.us
-  %58 = phi ptr [ %36, %.lr.ph66.split.split.us ], [ %17, %.lr.ph66.split.us ], [ %54, %.lr.ph66.split.split ]
-  %.us-phi = phi i32 [ %.05365.us67, %.lr.ph66.split.split.us ], [ %.05365.us, %.lr.ph66.split.us ], [ %.05365, %.lr.ph66.split.split ]
-  %.not72 = icmp eq i32 %.us-phi, 0
-  br i1 %.not72, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %wide.trip.count91 = zext i32 %.us-phi to i64
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv88 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next89, %.lr.ph ]
-  %59 = load ptr, ptr %11, align 8
-  %60 = getelementptr inbounds ptr, ptr %59, i64 %indvars.iv88
-  %61 = load ptr, ptr %60, align 8
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef %61) #10
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91
-  br i1 %exitcond92.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !53
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph
+._crit_edge.loopexit:                             ; preds = %.lr.ph67
   %.pre = load ptr, ptr %11, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %62 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %58, %.preheader ]
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef %62) #10
+  %45 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %41, %.preheader ]
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef %45) #10
   br label %.loopexit61.sink.split
 
-.preheader58:                                     ; preds = %.lr.ph66.split.split
-  %63 = add nuw i32 %.05365, 1
-  %exitcond82.not = icmp eq i32 %63, %1
-  br i1 %exitcond82.not, label %.loopexit61, label %.lr.ph66.split.split, !llvm.loop !51
+.preheader58:                                     ; preds = %.lr.ph.split
+  %46 = getelementptr inbounds ptr, ptr %3, i64 %35
+  br label %47
+
+47:                                               ; preds = %.preheader58, %47
+  %indvars.iv = phi i64 [ 0, %.preheader58 ], [ %indvars.iv.next, %47 ]
+  %48 = load ptr, ptr %46, align 8
+  %49 = trunc i64 %indvars.iv to i16
+  %50 = tail call zeroext i16 @cmsEvalToneCurve16(ptr noundef %48, i16 noundef zeroext %49) #10
+  %51 = load ptr, ptr %11, align 8
+  %52 = getelementptr inbounds ptr, ptr %51, i64 %35
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i16, ptr %53, i64 %indvars.iv
+  store i16 %50, ptr %54, align 2
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit59, label %47, !llvm.loop !53
+
+.loopexit59:                                      ; preds = %47
+  %55 = add nuw i32 %.05365, 1
+  %exitcond74.not = icmp eq i32 %55, %1
+  br i1 %exitcond74.not, label %.loopexit61, label %.lr.ph.split, !llvm.loop !51
 
 .loopexit61.sink.split:                           ; preds = %7, %._crit_edge
   tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %5) #10
   br label %.loopexit61
 
-.loopexit61:                                      ; preds = %.preheader58, %.loopexit.us, %..loopexit59_crit_edge.us, %.loopexit61.sink.split, %.preheader60, %4
-  %.0 = phi ptr [ null, %4 ], [ %5, %.preheader60 ], [ null, %.loopexit61.sink.split ], [ %5, %..loopexit59_crit_edge.us ], [ %5, %.loopexit.us ], [ %5, %.preheader58 ]
+.loopexit61:                                      ; preds = %.loopexit59, %.loopexit.us, %.loopexit61.sink.split, %.preheader60, %4
+  %.0 = phi ptr [ null, %4 ], [ %5, %.preheader60 ], [ null, %.loopexit61.sink.split ], [ %5, %.loopexit.us ], [ %5, %.loopexit59 ]
   ret ptr %.0
 }
 
@@ -3219,7 +3199,7 @@ declare i32 @_cmsMAT3isIdentity(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SetMatShaper(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc void @SetMatShaper(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr %5, align 4
   %8 = tail call i32 @_cmsFormatterIs8bit(i32 noundef %7) #10
   %9 = getelementptr inbounds i8, ptr %0, i64 56
@@ -3325,15 +3305,15 @@ FillFirstShaper.exit51:                           ; preds = %46
 FillFirstShaper.exit56:                           ; preds = %63
   %65 = getelementptr inbounds i8, ptr %11, i64 3128
   %66 = load ptr, ptr %4, align 8
-  tail call fastcc void @FillSecondShaper(ptr noundef nonnull %65, ptr noundef %66, i32 noundef %8)
+  tail call fastcc void @FillSecondShaper(ptr noundef %65, ptr noundef %66, i32 noundef %8)
   %67 = getelementptr inbounds i8, ptr %11, i64 35898
   %68 = getelementptr inbounds i8, ptr %4, i64 8
   %69 = load ptr, ptr %68, align 8
-  tail call fastcc void @FillSecondShaper(ptr noundef nonnull %67, ptr noundef %69, i32 noundef %8)
+  tail call fastcc void @FillSecondShaper(ptr noundef %67, ptr noundef %69, i32 noundef %8)
   %70 = getelementptr inbounds i8, ptr %11, i64 68668
   %71 = getelementptr inbounds i8, ptr %4, i64 16
   %72 = load ptr, ptr %71, align 8
-  tail call fastcc void @FillSecondShaper(ptr noundef nonnull %70, ptr noundef %72, i32 noundef %8)
+  tail call fastcc void @FillSecondShaper(ptr noundef %70, ptr noundef %72, i32 noundef %8)
   %73 = getelementptr inbounds i8, ptr %11, i64 3080
   br label %.preheader57
 
@@ -3403,7 +3383,7 @@ FillFirstShaper.exit56:                           ; preds = %63
 declare ptr @_cmsMalloc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @FillSecondShaper(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @FillSecondShaper(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.split.us, label %.split
 

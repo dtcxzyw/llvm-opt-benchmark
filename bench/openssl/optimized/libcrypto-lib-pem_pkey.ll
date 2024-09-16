@@ -33,7 +33,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pem_read_bio_key(ptr noundef %bp, ptr noundef %x, ptr noundef %cb, ptr noundef %u, ptr noundef %libctx, ptr noundef %propq, i32 noundef %selection) unnamed_addr #0 {
+define internal fastcc ptr @pem_read_bio_key(ptr noundef %bp, ptr noundef %x, ptr noundef %cb, ptr noundef %u, ptr noundef %libctx, ptr noundef %propq, i32 noundef range(i32 132, 136) %selection) unnamed_addr #0 {
 entry:
   %nm.i = alloca ptr, align 8
   %p.i = alloca ptr, align 8
@@ -149,8 +149,7 @@ while.end.i:                                      ; preds = %if.then36.i, %if.en
   %call43.i = call i32 @ERR_pop_to_mark() #6
   %and.i = and i32 %selection, 1
   %cmp44.not.i = icmp eq i32 %and.i, 0
-  %and47.i = and i32 %selection, -3
-  %spec.select.i = select i1 %cmp44.not.i, i32 %selection, i32 %and47.i
+  %spec.select.i = select i1 %cmp44.not.i, i32 %selection, i32 133
   %7 = load ptr, ptr %pkey.i, align 8
   %call49.i = call i32 @evp_keymgmt_util_has(ptr noundef %7, i32 noundef %spec.select.i) #6
   %tobool50.not.i = icmp eq i32 %call49.i, 0

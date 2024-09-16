@@ -1943,7 +1943,7 @@ cdf_grow_info.exit.thread:                        ; preds = %38, %42
   br i1 %.not12.i157, label %cdf_check_stream_offset.exit159.thread, label %cdf_check_stream_offset.exit159.preheader
 
 cdf_check_stream_offset.exit159.preheader:        ; preds = %55
-  %invariant.gep = getelementptr i8, ptr %53, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %53, i64 16
   %.not203 = icmp eq i32 %35, 0
   br i1 %.not203, label %.loopexit, label %.lr.ph202
 
@@ -1963,7 +1963,7 @@ cdf_check_stream_offset.exit159.thread:           ; preds = %55
   %64 = shl i64 %.0122200, 3
   %65 = or disjoint i64 %64, 4
   %66 = load ptr, ptr %0, align 8
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %64
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %64
   %.not.i.i = icmp ult ptr %gep, %66
   br i1 %.not.i.i, label %cdf_check_stream_offset.exit.thread.i, label %67
 
@@ -2195,7 +2195,7 @@ cdf_get_property_info_pos.exit.thread:            ; preds = %76, %cdf_check_stre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cdf_grow_info(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2) unnamed_addr #6 {
+define internal fastcc ptr @cdf_grow_info(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef range(i64 0, 2796203) %2) unnamed_addr #6 {
   %4 = load i64, ptr %1, align 8
   %5 = add i64 %4, %2
   %6 = icmp ugt i64 %5, 2796202

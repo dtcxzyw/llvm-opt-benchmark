@@ -41769,12 +41769,12 @@ _ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %27
   br i1 %.not7.i.i.i.i.i.i.not, label %_ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.thread10, label %_ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.thread
 
 _ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.thread: ; preds = %12, %_ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit
-  invoke fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIhSaIhEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %28 unwind label %33
 
 28:                                               ; preds = %_ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.thread
   %29 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  invoke fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIhSaIhEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  invoke fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %30 unwind label %35
 
 30:                                               ; preds = %28
@@ -41819,12 +41819,12 @@ _ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit9:       ; preds = %50
   br i1 %.not7.i.i.i.i.i.i8.not, label %_ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit9.thread11, label %_ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit9.thread
 
 _ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit9.thread: ; preds = %_ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.thread10, %_ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit9
-  invoke fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIhSaIhEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  invoke fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %51 unwind label %33
 
 51:                                               ; preds = %_ZStneIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit9.thread
   %52 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
-  invoke fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIhSaIhEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  invoke fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %53 unwind label %56
 
 53:                                               ; preds = %51
@@ -41968,7 +41968,7 @@ declare noundef zeroext i1 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648finalizeEv(
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIhSaIhEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.184", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17

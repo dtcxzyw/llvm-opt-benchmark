@@ -10358,19 +10358,19 @@ invoke.cont86:                                    ; preds = %if.then.i, %if.then
   store i32 0, ptr %m_capacity.i.i24.i152, align 8
   %105 = load ptr, ptr %m_node, align 8
   %m_x88 = getelementptr inbounds i8, ptr %105, i64 16
-  invoke fastcc void @_ZL12findJacobianPK23btMultiBodyLinkColliderR23btMultiBodyJacobianDataRK9btVector3S6_(ptr noundef nonnull %51, ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal, ptr noundef nonnull align 4 dereferenceable(16) %m_x88, ptr noundef nonnull align 4 dereferenceable(16) %normal)
+  invoke fastcc void @_ZL12findJacobianPK23btMultiBodyLinkColliderR23btMultiBodyJacobianDataRK9btVector3S6_(ptr noundef %51, ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_normal, ptr noundef nonnull align 4 dereferenceable(16) %m_x88, ptr noundef nonnull align 4 dereferenceable(16) %normal)
           to label %invoke.cont90 unwind label %lpad89
 
 invoke.cont90:                                    ; preds = %invoke.cont86
   %106 = load ptr, ptr %m_node, align 8
   %m_x92 = getelementptr inbounds i8, ptr %106, i64 16
-  invoke fastcc void @_ZL12findJacobianPK23btMultiBodyLinkColliderR23btMultiBodyJacobianDataRK9btVector3S6_(ptr noundef nonnull %51, ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1, ptr noundef nonnull align 4 dereferenceable(16) %m_x92, ptr noundef nonnull align 4 dereferenceable(16) %t1)
+  invoke fastcc void @_ZL12findJacobianPK23btMultiBodyLinkColliderR23btMultiBodyJacobianDataRK9btVector3S6_(ptr noundef %51, ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t1, ptr noundef nonnull align 4 dereferenceable(16) %m_x92, ptr noundef nonnull align 4 dereferenceable(16) %t1)
           to label %invoke.cont93 unwind label %lpad89
 
 invoke.cont93:                                    ; preds = %invoke.cont90
   %107 = load ptr, ptr %m_node, align 8
   %m_x95 = getelementptr inbounds i8, ptr %107, i64 16
-  invoke fastcc void @_ZL12findJacobianPK23btMultiBodyLinkColliderR23btMultiBodyJacobianDataRK9btVector3S6_(ptr noundef nonnull %51, ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2, ptr noundef nonnull align 4 dereferenceable(16) %m_x95, ptr noundef nonnull align 4 dereferenceable(16) %t2)
+  invoke fastcc void @_ZL12findJacobianPK23btMultiBodyLinkColliderR23btMultiBodyJacobianDataRK9btVector3S6_(ptr noundef %51, ptr noundef nonnull align 8 dereferenceable(204) %jacobianData_t2, ptr noundef nonnull align 4 dereferenceable(16) %m_x95, ptr noundef nonnull align 4 dereferenceable(16) %t2)
           to label %invoke.cont136 unwind label %lpad89
 
 invoke.cont136:                                   ; preds = %invoke.cont93
@@ -11495,7 +11495,7 @@ _ZN9btVector313safeNormalizeEv.exit:              ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12findJacobianPK23btMultiBodyLinkColliderR23btMultiBodyJacobianDataRK9btVector3S6_(ptr nocapture noundef readonly %multibodyLinkCol, ptr noundef nonnull align 8 dereferenceable(204) %jacobianData, ptr noundef nonnull align 4 dereferenceable(16) %contact_point, ptr noundef nonnull align 4 dereferenceable(16) %dir) unnamed_addr #3 {
+define internal fastcc void @_ZL12findJacobianPK23btMultiBodyLinkColliderR23btMultiBodyJacobianDataRK9btVector3S6_(ptr nocapture noundef nonnull readonly %multibodyLinkCol, ptr noundef nonnull align 8 dereferenceable(204) %jacobianData, ptr noundef nonnull align 4 dereferenceable(16) %contact_point, ptr noundef nonnull align 4 dereferenceable(16) %dir) unnamed_addr #3 {
 entry:
   %ref.tmp.i = alloca %class.btVector3, align 4
   %m_multiBody = getelementptr inbounds i8, ptr %multibodyLinkCol, i64 376

@@ -1651,7 +1651,7 @@ SerializationNeededForRead.exit:                  ; preds = %13
   store i32 -1, ptr %25, align 4
   %26 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %26, align 4
-  call fastcc void @PredicateLockAcquire(ptr noundef nonnull %3)
+  call fastcc void @PredicateLockAcquire(ptr noundef %3)
   br label %SerializationNeededForRead.exit.thread
 
 SerializationNeededForRead.exit.thread:           ; preds = %13, %6, %2, %12, %SerializationNeededForRead.exit, %21
@@ -1659,7 +1659,7 @@ SerializationNeededForRead.exit.thread:           ; preds = %13, %6, %2, %12, %S
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @PredicateLockAcquire(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @PredicateLockAcquire(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %struct.PREDICATELOCKTAG, align 8
   %3 = alloca %struct.PREDICATELOCKTARGETTAG, align 4
   %4 = alloca %struct.PREDICATELOCKTARGETTAG, align 4
@@ -1668,7 +1668,7 @@ define internal fastcc void @PredicateLockAcquire(ptr noundef %0) unnamed_addr #
   %7 = alloca %struct.PREDICATELOCKTARGETTAG, align 4
   %8 = alloca i8, align 1
   %9 = load ptr, ptr @LocalPredicateLockHash, align 8
-  %10 = tail call ptr @hash_search(ptr noundef %9, ptr noundef %0, i32 noundef 0, ptr noundef null) #12
+  %10 = tail call ptr @hash_search(ptr noundef %9, ptr noundef nonnull %0, i32 noundef 0, ptr noundef null) #12
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %PredicateLockExists.exit.thread, label %PredicateLockExists.exit
 
@@ -1732,9 +1732,9 @@ CoarserLockCovers.exit.thread:                    ; preds = %27
 31:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %32 = load ptr, ptr @PredicateLockTargetHash, align 8
-  %33 = call i32 @get_hash_value(ptr noundef %32, ptr noundef %0) #12
+  %33 = call i32 @get_hash_value(ptr noundef %32, ptr noundef nonnull %0) #12
   %34 = load ptr, ptr @LocalPredicateLockHash, align 8
-  %35 = call ptr @hash_search_with_hash_value(ptr noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef 1, ptr noundef nonnull %8) #12
+  %35 = call ptr @hash_search_with_hash_value(ptr noundef %34, ptr noundef nonnull %0, i32 noundef %33, i32 noundef 1, ptr noundef nonnull %8) #12
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   store i8 1, ptr %36, align 4
   %37 = load i8, ptr %8, align 1
@@ -1748,7 +1748,7 @@ CoarserLockCovers.exit.thread:                    ; preds = %27
 
 41:                                               ; preds = %39, %31
   %42 = load ptr, ptr @MySerializableXact, align 8
-  call fastcc void @CreatePredicateLock(ptr noundef %0, i32 noundef %33, ptr noundef %42)
+  call fastcc void @CreatePredicateLock(ptr noundef nonnull %0, i32 noundef %33, ptr noundef %42)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
@@ -1849,7 +1849,7 @@ GetParentPredicateLockTag.exit:                   ; preds = %48
   br i1 %.0.i14.ph, label %CheckAndPromotePredicateLockRequest.exit.thread, label %81
 
 CheckAndPromotePredicateLockRequest.exit.thread:  ; preds = %GetParentPredicateLockTag.exit
-  call fastcc void @PredicateLockAcquire(ptr noundef nonnull %5)
+  call fastcc void @PredicateLockAcquire(ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
@@ -1983,7 +1983,7 @@ CheckAndPromotePredicateLockRequest.exit.thread:  ; preds = %GetParentPredicateL
 
 RemoveTargetIfNoLongerUsed.exit.i:                ; preds = %155, %124
   call void @LWLockRelease(ptr noundef %131) #12
-  call fastcc void @DecrementParentLocks(ptr noundef nonnull %3)
+  call fastcc void @DecrementParentLocks(ptr noundef %3)
   br label %158
 
 158:                                              ; preds = %RemoveTargetIfNoLongerUsed.exit.i, %120, %117, %109, %103
@@ -2060,7 +2060,7 @@ SerializationNeededForRead.exit:                  ; preds = %14
   store i32 %1, ptr %26, align 4
   %27 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 0, ptr %27, align 4
-  call fastcc void @PredicateLockAcquire(ptr noundef nonnull %4)
+  call fastcc void @PredicateLockAcquire(ptr noundef %4)
   br label %SerializationNeededForRead.exit.thread
 
 SerializationNeededForRead.exit.thread:           ; preds = %14, %7, %3, %13, %SerializationNeededForRead.exit, %22
@@ -2159,7 +2159,7 @@ PredicateLockExists.exit.thread:                  ; preds = %29, %PredicateLockE
   %.val10 = load i16, ptr %48, align 2
   %49 = zext i16 %.val10 to i32
   store i32 %49, ptr %35, align 4
-  call fastcc void @PredicateLockAcquire(ptr noundef nonnull %5)
+  call fastcc void @PredicateLockAcquire(ptr noundef %5)
   br label %SerializationNeededForRead.exit.thread
 
 SerializationNeededForRead.exit.thread:           ; preds = %15, %8, %4, %14, %PredicateLockExists.exit, %27, %SerializationNeededForRead.exit, %PredicateLockExists.exit.thread
@@ -5219,7 +5219,7 @@ SerializationNeededForWrite.exit:                 ; preds = %7
   %37 = zext i16 %.val15 to i32
   %38 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 %37, ptr %38, align 4
-  call fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %4)
+  call fastcc void @CheckTargetForConflictsIn(ptr noundef %4)
   %.pre18.pre = load i32, ptr %8, align 8
   br label %39
 
@@ -5238,7 +5238,7 @@ SerializationNeededForWrite.exit:                 ; preds = %7
   store i32 %2, ptr %44, align 4
   %45 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 0, ptr %45, align 4
-  call fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %4)
+  call fastcc void @CheckTargetForConflictsIn(ptr noundef %4)
   %.pre = load i32, ptr %8, align 8
   br label %46
 
@@ -5253,7 +5253,7 @@ SerializationNeededForWrite.exit:                 ; preds = %7
   store i32 -1, ptr %51, align 4
   %52 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 0, ptr %52, align 4
-  call fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %4)
+  call fastcc void @CheckTargetForConflictsIn(ptr noundef %4)
   br label %SerializationNeededForWrite.exit.thread
 
 SerializationNeededForWrite.exit.thread:          ; preds = %7, %3, %SerializationNeededForWrite.exit, %46
@@ -5261,10 +5261,10 @@ SerializationNeededForWrite.exit.thread:          ; preds = %7, %3, %Serializati
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @CheckTargetForConflictsIn(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %struct.PREDICATELOCKTAG, align 8
   %3 = load ptr, ptr @PredicateLockTargetHash, align 8
-  %4 = tail call i32 @get_hash_value(ptr noundef %3, ptr noundef %0) #12
+  %4 = tail call i32 @get_hash_value(ptr noundef %3, ptr noundef nonnull %0) #12
   %5 = load ptr, ptr @MainLWLockArray, align 8
   %6 = and i32 %4, 15
   %7 = zext nneg i32 %6 to i64
@@ -5272,7 +5272,7 @@ define internal fastcc void @CheckTargetForConflictsIn(ptr noundef %0) unnamed_a
   %9 = getelementptr i8, ptr %8, i64 25216
   %10 = tail call zeroext i1 @LWLockAcquire(ptr noundef %9, i32 noundef 1) #12
   %11 = load ptr, ptr @PredicateLockTargetHash, align 8
-  %12 = tail call ptr @hash_search_with_hash_value(ptr noundef %11, ptr noundef %0, i32 noundef %4, i32 noundef 0, ptr noundef null) #12
+  %12 = tail call ptr @hash_search_with_hash_value(ptr noundef %11, ptr noundef nonnull %0, i32 noundef %4, i32 noundef 0, ptr noundef null) #12
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %13, label %14
 
@@ -5581,7 +5581,7 @@ RemoveTargetIfNoLongerUsed.exit:                  ; preds = %144, %162
 
 176:                                              ; preds = %173
   %177 = load ptr, ptr @LocalPredicateLockHash, align 8
-  %178 = call ptr @hash_search_with_hash_value(ptr noundef %177, ptr noundef %0, i32 noundef %4, i32 noundef 2, ptr noundef null) #12
+  %178 = call ptr @hash_search_with_hash_value(ptr noundef %177, ptr noundef nonnull %0, i32 noundef %4, i32 noundef 2, ptr noundef null) #12
   call fastcc void @DecrementParentLocks(ptr noundef %0)
   br label %179
 
@@ -6449,7 +6449,7 @@ declare i32 @SimpleLruZeroPage(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @SimpleLruReadPage(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @DecrementParentLocks(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @DecrementParentLocks(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = alloca %struct.PREDICATELOCKTARGETTAG, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
   %3 = getelementptr inbounds i8, ptr %2, i64 8

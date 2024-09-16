@@ -968,7 +968,7 @@ define internal i32 @dissect_dect(ptr noundef %0, ptr nocapture noundef readonly
 38:                                               ; preds = %13
   tail call void @col_set_str(ptr noundef %37, i32 noundef 34, ptr noundef nonnull @.str.586) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %31, ptr noundef nonnull @.str.587) #5
-  call fastcc void @dissect_afield(i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %17, ptr noundef %36)
+  call fastcc void @dissect_afield(i32 noundef 0, ptr noundef %5, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %17, ptr noundef %36)
   %39 = load i8, ptr %5, align 1
   tail call fastcc void @dissect_bfield(i8 noundef zeroext %39, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %17, ptr noundef %36)
   br label %43
@@ -976,7 +976,7 @@ define internal i32 @dissect_dect(ptr noundef %0, ptr nocapture noundef readonly
 40:                                               ; preds = %13
   tail call void @col_set_str(ptr noundef %37, i32 noundef 34, ptr noundef nonnull @.str.588) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %31, ptr noundef nonnull @.str.589) #5
-  call fastcc void @dissect_afield(i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %17, ptr noundef %36)
+  call fastcc void @dissect_afield(i32 noundef 1, ptr noundef %5, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %17, ptr noundef %36)
   %41 = load i8, ptr %5, align 1
   tail call fastcc void @dissect_bfield(i8 noundef zeroext %41, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %17, ptr noundef %36)
   br label %43
@@ -1015,7 +1015,7 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_afield(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_afield(i32 noundef range(i32 0, 2) %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [8 x i8], align 1
   %8 = getelementptr inbounds i8, ptr %2, i64 408
   %9 = load ptr, ptr %8, align 8
@@ -1039,7 +1039,7 @@ define internal fastcc void @dissect_afield(i32 noundef %0, ptr nocapture nounde
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %25, ptr noundef %3, i32 noundef 11, i32 noundef 1, i32 noundef 0) #5
   %27 = load i32, ptr @ett_ahead, align 4
   %28 = tail call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %27) #5
-  %29 = icmp eq i32 %0, 1
+  %29 = icmp ne i32 %0, 0
   %hf_dect_A_Head_TA_FP.val = load i32, ptr @hf_dect_A_Head_TA_FP, align 4
   %hf_dect_A_Head_TA_PP.val = load i32, ptr @hf_dect_A_Head_TA_PP, align 4
   %30 = select i1 %29, i32 %hf_dect_A_Head_TA_FP.val, i32 %hf_dect_A_Head_TA_PP.val

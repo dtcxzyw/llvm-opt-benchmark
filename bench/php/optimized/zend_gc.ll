@@ -1515,7 +1515,7 @@ gc_scan_roots.exit.thread:                        ; preds = %gc_compact.exit.i, 
   %490 = or disjoint i32 %489, 1073741824
   store i32 %490, ptr %484, align 4
   %491 = load ptr, ptr %478, align 8
-  call fastcc void @gc_scan(ptr noundef %491, ptr noundef nonnull %15)
+  call fastcc void @gc_scan(ptr noundef %491, ptr noundef %15)
   %.pre.i158 = load ptr, ptr @gc_globals, align 8
   br label %492
 
@@ -1550,7 +1550,7 @@ gc_scan_roots.exit.thread:                        ; preds = %gc_compact.exit.i, 
   %508 = or disjoint i32 %507, 1073741824
   store i32 %508, ptr %502, align 4
   %509 = load ptr, ptr %496, align 8
-  call fastcc void @gc_scan(ptr noundef %509, ptr noundef nonnull %15)
+  call fastcc void @gc_scan(ptr noundef %509, ptr noundef %15)
   %.pre27.i = load ptr, ptr @gc_globals, align 8
   %.pre29.i = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
   br label %510
@@ -3914,7 +3914,7 @@ declare ptr @zend_weakmap_get_entry_gc(ptr noundef, ptr noundef, ptr noundef) lo
 declare noalias ptr @_emalloc_large(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gc_scan(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @gc_scan(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8

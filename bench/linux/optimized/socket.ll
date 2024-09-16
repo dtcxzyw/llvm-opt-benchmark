@@ -4885,155 +4885,155 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__sys_sendmsg_sock(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @____sys_sendmsg(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @____sys_sendmsg(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 129) %4) unnamed_addr #0 align 16 {
   %6 = alloca [36 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6) #20
   %7 = getelementptr inbounds i8, ptr %1, i64 72
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %8, 2147483647
-  br i1 %9, label %95, label %10
+  br i1 %9, label %94, label %10
 
 10:                                               ; preds = %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %6, i8 0, i64 36, i1 false), !annotation !8
   %11 = getelementptr inbounds i8, ptr %1, i64 68
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, %4
-  %14 = or i32 %13, %2
-  %15 = trunc nuw nsw i64 %8 to i32
-  %16 = icmp slt i32 %14, 0
-  %17 = icmp ne i64 %8, 0
-  %18 = and i1 %17, %16
-  br i1 %18, label %19, label %29
+  %14 = trunc nuw nsw i64 %8 to i32
+  %15 = icmp slt i32 %2, 0
+  %16 = icmp ne i64 %8, 0
+  %17 = and i1 %15, %16
+  br i1 %17, label %18, label %28
 
-19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8
-  %22 = call i32 @cmsghdr_from_user_compat_to_kern(ptr noundef %1, ptr noundef %21, ptr noundef nonnull %6, i32 noundef 36) #20
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %95
+18:                                               ; preds = %10
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = load ptr, ptr %19, align 8
+  %21 = call i32 @cmsghdr_from_user_compat_to_kern(ptr noundef %1, ptr noundef %20, ptr noundef nonnull %6, i32 noundef 36) #20
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %94
 
-24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %1, i64 56
-  %26 = load ptr, ptr %25, align 8
-  %27 = load i64, ptr %7, align 8
-  %28 = trunc i64 %27 to i32
-  br label %47
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds i8, ptr %1, i64 56
+  %25 = load ptr, ptr %24, align 8
+  %26 = load i64, ptr %7, align 8
+  %27 = trunc i64 %26 to i32
+  br label %46
 
-29:                                               ; preds = %10
-  br i1 %17, label %30, label %47
+28:                                               ; preds = %10
+  br i1 %16, label %29, label %46
 
-30:                                               ; preds = %29
-  %31 = icmp ugt i64 %8, 36
-  br i1 %31, label %32, label %37
+29:                                               ; preds = %28
+  %30 = icmp ugt i64 %8, 36
+  br i1 %30, label %31, label %36
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call ptr @sock_kmalloc(ptr noundef %34, i32 noundef %15, i32 noundef 3264) #20
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %95, label %37
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call ptr @sock_kmalloc(ptr noundef %33, i32 noundef %14, i32 noundef 3264) #20
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %94, label %36
 
-37:                                               ; preds = %32, %30
-  %38 = phi ptr [ %35, %32 ], [ %6, %30 ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 56
-  %40 = load ptr, ptr %39, align 8
-  %41 = call i64 @_copy_from_user(ptr noundef nonnull %38, ptr noundef %40, i64 noundef %8) #20
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %43, label %87
+36:                                               ; preds = %31, %29
+  %37 = phi ptr [ %34, %31 ], [ %6, %29 ]
+  %38 = getelementptr inbounds i8, ptr %1, i64 56
+  %39 = load ptr, ptr %38, align 8
+  %40 = call i64 @_copy_from_user(ptr noundef nonnull %37, ptr noundef %39, i64 noundef %8) #20
+  %41 = icmp eq i64 %40, 0
+  br i1 %41, label %42, label %86
 
-43:                                               ; preds = %37
-  store ptr %38, ptr %39, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 64
-  %45 = load i8, ptr %44, align 8
-  %46 = and i8 %45, -2
-  store i8 %46, ptr %44, align 8
-  br label %47
+42:                                               ; preds = %36
+  store ptr %37, ptr %38, align 8
+  %43 = getelementptr inbounds i8, ptr %1, i64 64
+  %44 = load i8, ptr %43, align 8
+  %45 = and i8 %44, -2
+  store i8 %45, ptr %43, align 8
+  br label %46
 
-47:                                               ; preds = %43, %29, %24
-  %48 = phi ptr [ %26, %24 ], [ %38, %43 ], [ %6, %29 ]
-  %49 = phi i32 [ %28, %24 ], [ %15, %43 ], [ 0, %29 ]
-  %50 = and i32 %14, -135331841
-  store i32 %50, ptr %11, align 4
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
-  %52 = load ptr, ptr %51, align 16
-  %53 = getelementptr inbounds i8, ptr %52, i64 72
-  %54 = load i32, ptr %53, align 8
-  %55 = and i32 %54, 2048
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %59, label %57
+46:                                               ; preds = %42, %28, %23
+  %47 = phi ptr [ %25, %23 ], [ %37, %42 ], [ %6, %28 ]
+  %48 = phi i32 [ %27, %23 ], [ %14, %42 ], [ 0, %28 ]
+  %.masked = and i32 %2, -135331841
+  %49 = or i32 %13, %.masked
+  store i32 %49, ptr %11, align 4
+  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = load ptr, ptr %50, align 16
+  %52 = getelementptr inbounds i8, ptr %51, i64 72
+  %53 = load i32, ptr %52, align 8
+  %54 = and i32 %53, 2048
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %58, label %56
 
-57:                                               ; preds = %47
-  %58 = or i32 %50, 64
-  store i32 %58, ptr %11, align 4
-  br label %59
+56:                                               ; preds = %46
+  %57 = or i32 %49, 64
+  store i32 %57, ptr %11, align 4
+  br label %58
 
-59:                                               ; preds = %57, %47
+58:                                               ; preds = %56, %46
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %.thread, label %61
+  br i1 %.not, label %.thread, label %60
 
-.thread:                                          ; preds = %59
-  %60 = call fastcc i32 @__sock_sendmsg(ptr noundef %0, ptr noundef %1)
-  br label %87
+.thread:                                          ; preds = %58
+  %59 = call fastcc i32 @__sock_sendmsg(ptr noundef %0, ptr noundef %1)
+  br label %86
 
-61:                                               ; preds = %59
-  %62 = load ptr, ptr %1, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %76, label %64
+60:                                               ; preds = %58
+  %61 = load ptr, ptr %1, align 8
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %75, label %63
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %3, i64 128
-  %66 = load i32, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %1, i64 8
-  %68 = load i32, ptr %67, align 8
-  %69 = icmp eq i32 %66, %68
-  br i1 %69, label %70, label %76
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds i8, ptr %3, i64 128
+  %65 = load i32, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %1, i64 8
+  %67 = load i32, ptr %66, align 8
+  %68 = icmp eq i32 %65, %67
+  br i1 %68, label %69, label %75
 
-70:                                               ; preds = %64
-  %71 = zext i32 %66 to i64
-  %72 = call i32 @bcmp(ptr nonnull %3, ptr nonnull %62, i64 %71)
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %74, label %76
+69:                                               ; preds = %63
+  %70 = zext i32 %65 to i64
+  %71 = call i32 @bcmp(ptr nonnull %3, ptr nonnull %61, i64 %70)
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %75
 
-74:                                               ; preds = %70
-  %75 = call fastcc i32 @sock_sendmsg_nosec(ptr noundef %0, ptr noundef %1), !range !37
-  br label %87
+73:                                               ; preds = %69
+  %74 = call fastcc i32 @sock_sendmsg_nosec(ptr noundef %0, ptr noundef %1), !range !37
+  br label %86
 
-76:                                               ; preds = %70, %64, %61
-  %77 = call fastcc i32 @__sock_sendmsg(ptr noundef %0, ptr noundef %1)
-  %78 = icmp sgt i32 %77, -1
-  br i1 %78, label %79, label %87
+75:                                               ; preds = %69, %63, %60
+  %76 = call fastcc i32 @__sock_sendmsg(ptr noundef %0, ptr noundef %1)
+  %77 = icmp sgt i32 %76, -1
+  br i1 %77, label %78, label %86
 
-79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %1, i64 8
-  %81 = load i32, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %3, i64 128
-  store i32 %81, ptr %82, align 8
-  %83 = load ptr, ptr %1, align 8
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %87, label %85
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds i8, ptr %1, i64 8
+  %80 = load i32, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %3, i64 128
+  store i32 %80, ptr %81, align 8
+  %82 = load ptr, ptr %1, align 8
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %86, label %84
 
-85:                                               ; preds = %79
-  %86 = zext i32 %81 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr nonnull align 1 %83, i64 %86, i1 false)
-  br label %87
+84:                                               ; preds = %78
+  %85 = zext i32 %80 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr nonnull align 1 %82, i64 %85, i1 false)
+  br label %86
 
-87:                                               ; preds = %.thread, %85, %79, %76, %74, %37
-  %88 = phi ptr [ %48, %85 ], [ %48, %79 ], [ %48, %76 ], [ %48, %74 ], [ %38, %37 ], [ %48, %.thread ]
-  %89 = phi i32 [ %49, %85 ], [ %49, %79 ], [ %49, %76 ], [ %49, %74 ], [ %15, %37 ], [ %49, %.thread ]
-  %90 = phi i32 [ %77, %85 ], [ %77, %79 ], [ %77, %76 ], [ %75, %74 ], [ -14, %37 ], [ %60, %.thread ]
-  %91 = icmp eq ptr %88, %6
-  br i1 %91, label %95, label %92
+86:                                               ; preds = %.thread, %84, %78, %75, %73, %36
+  %87 = phi ptr [ %47, %84 ], [ %47, %78 ], [ %47, %75 ], [ %47, %73 ], [ %37, %36 ], [ %47, %.thread ]
+  %88 = phi i32 [ %48, %84 ], [ %48, %78 ], [ %48, %75 ], [ %48, %73 ], [ %14, %36 ], [ %48, %.thread ]
+  %89 = phi i32 [ %76, %84 ], [ %76, %78 ], [ %76, %75 ], [ %74, %73 ], [ -14, %36 ], [ %59, %.thread ]
+  %90 = icmp eq ptr %87, %6
+  br i1 %90, label %94, label %91
 
-92:                                               ; preds = %87
-  %93 = getelementptr inbounds i8, ptr %0, i64 24
-  %94 = load ptr, ptr %93, align 8
-  call void @sock_kfree_s(ptr noundef %94, ptr noundef %88, i32 noundef %89) #20
-  br label %95
+91:                                               ; preds = %86
+  %92 = getelementptr inbounds i8, ptr %0, i64 24
+  %93 = load ptr, ptr %92, align 8
+  call void @sock_kfree_s(ptr noundef %93, ptr noundef %87, i32 noundef %88) #20
+  br label %94
 
-95:                                               ; preds = %92, %87, %32, %19, %5
-  %96 = phi i32 [ -105, %5 ], [ %22, %19 ], [ %90, %92 ], [ %90, %87 ], [ -105, %32 ]
+94:                                               ; preds = %91, %86, %31, %18, %5
+  %95 = phi i32 [ -105, %5 ], [ %21, %18 ], [ %89, %91 ], [ %89, %86 ], [ -105, %31 ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6) #20
-  ret i32 %96
+  ret i32 %95
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -5100,7 +5100,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__sys_sendmsg(i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @___sys_sendmsg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @___sys_sendmsg(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 0, 129) %5) unnamed_addr #0 align 16 {
   %7 = alloca %struct.user_msghdr, align 8
   %8 = alloca %struct.__kernel_sockaddr_storage, align 8
   %9 = alloca [8 x %struct.iovec], align 16
@@ -5227,7 +5227,7 @@ __copy_msghdr.exit.thread:                        ; preds = %.thread1, %.thread7
   br i1 %75, label %79, label %76
 
 76:                                               ; preds = %73
-  %77 = call fastcc i32 @____sys_sendmsg(ptr noundef %0, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5)
+  %77 = call fastcc i32 @____sys_sendmsg(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5)
   %78 = load ptr, ptr %10, align 8
   call void @kfree(ptr noundef %78) #20
   br label %79
@@ -5851,7 +5851,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__sys_recvmsg(i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @___sys_recvmsg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @___sys_recvmsg(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.user_msghdr, align 8
   %7 = alloca [8 x %struct.iovec], align 16
   %8 = alloca ptr, align 8
@@ -5954,7 +5954,7 @@ define internal fastcc i32 @___sys_recvmsg(ptr noundef %0, ptr noundef %1, ptr n
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %9, align 8
-  %60 = call fastcc i32 @____sys_recvmsg(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef %59, i32 noundef %3, i32 noundef %4)
+  %60 = call fastcc i32 @____sys_recvmsg(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %1, ptr noundef %59, i32 noundef %3, i32 noundef %4)
   %61 = load ptr, ptr %8, align 8
   call void @kfree(ptr noundef %61) #20
   br label %62

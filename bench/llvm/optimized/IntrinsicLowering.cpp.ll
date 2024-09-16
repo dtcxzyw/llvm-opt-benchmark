@@ -2538,7 +2538,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit153:              ; preds = %1140, %1142
   %1189 = getelementptr inbounds i8, ptr %82, i64 24
   %1190 = getelementptr inbounds nuw i8, ptr %1184, i64 8
   %1191 = load ptr, ptr %1190, align 8
-  call fastcc void @_ZL15ReplaceCallWithIPPN4llvm5ValueEEPNS0_8CallInstEPKcS5_T_S8_PNS0_4TypeE(ptr noundef nonnull @.str.19, ptr noundef nonnull %1, ptr noundef nonnull %82, ptr noundef nonnull %1189, ptr noundef %1191)
+  call fastcc void @_ZL15ReplaceCallWithIPPN4llvm5ValueEEPNS0_8CallInstEPKcS5_T_S8_PNS0_4TypeE(ptr noundef nonnull @.str.19, ptr noundef nonnull %1, ptr noundef %82, ptr noundef %1189, ptr noundef %1191)
   br label %1306
 
 1192:                                             ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit
@@ -2577,7 +2577,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit153:              ; preds = %1140, %1142
   %1221 = getelementptr inbounds i8, ptr %84, i64 24
   %1222 = getelementptr inbounds nuw i8, ptr %1216, i64 8
   %1223 = load ptr, ptr %1222, align 8
-  call fastcc void @_ZL15ReplaceCallWithIPPN4llvm5ValueEEPNS0_8CallInstEPKcS5_T_S8_PNS0_4TypeE(ptr noundef nonnull @.str.20, ptr noundef nonnull %1, ptr noundef nonnull %84, ptr noundef nonnull %1221, ptr noundef %1223)
+  call fastcc void @_ZL15ReplaceCallWithIPPN4llvm5ValueEEPNS0_8CallInstEPKcS5_T_S8_PNS0_4TypeE(ptr noundef nonnull @.str.20, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %1221, ptr noundef %1223)
   br label %1306
 
 1224:                                             ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit
@@ -2639,7 +2639,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit153:              ; preds = %1140, %1142
   %1275 = load ptr, ptr %1274, align 8
   %1276 = getelementptr inbounds nuw i8, ptr %1275, i64 8
   %1277 = load ptr, ptr %1276, align 8
-  call fastcc void @_ZL15ReplaceCallWithIPPN4llvm5ValueEEPNS0_8CallInstEPKcS5_T_S8_PNS0_4TypeE(ptr noundef nonnull @.str.21, ptr noundef nonnull %1, ptr noundef nonnull %86, ptr noundef nonnull %1269, ptr noundef %1277)
+  call fastcc void @_ZL15ReplaceCallWithIPPN4llvm5ValueEEPNS0_8CallInstEPKcS5_T_S8_PNS0_4TypeE(ptr noundef nonnull @.str.21, ptr noundef nonnull %1, ptr noundef %86, ptr noundef %1269, ptr noundef %1277)
   br label %1306
 
 1278:                                             ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit
@@ -3263,7 +3263,7 @@ declare noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef no
 declare noundef ptr @_ZNK4llvm10DataLayout13getIntPtrTypeERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(512), ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15ReplaceCallWithIPPN4llvm5ValueEEPNS0_8CallInstEPKcS5_T_S8_PNS0_4TypeE(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL15ReplaceCallWithIPPN4llvm5ValueEEPNS0_8CallInstEPKcS5_T_S8_PNS0_4TypeE(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::IRBuilder", align 8
   %7 = alloca %"class.llvm::SmallVector.107", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -3404,7 +3404,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %._crit_edge, %39
   call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull %51, ptr nonnull %49, i64 0)
   %66 = getelementptr inbounds i8, ptr %7, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %66, i64 noundef 8) #15
-  call void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendIPS2_vEEvT_S6_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %2, ptr noundef %3)
+  call void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendIPS2_vEEvT_S6_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %67 = load ptr, ptr %7, align 8
   %68 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 32

@@ -352,13 +352,13 @@ define dso_local i32 @qpci_secondary_buses_init(ptr noundef %bus) local_unnamed_
 entry:
   %last_bus = alloca i32, align 4
   store i32 0, ptr %last_bus, align 4
-  call fastcc void @qpci_secondary_buses_rec(ptr noundef %bus, i32 noundef 0, ptr noundef nonnull %last_bus)
+  call fastcc void @qpci_secondary_buses_rec(ptr noundef %bus, i32 noundef 0, ptr noundef %last_bus)
   %0 = load i32, ptr %last_bus, align 4
   ret i32 %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qpci_secondary_buses_rec(ptr noundef %qbus, i32 noundef %bus, ptr nocapture noundef %pci_bus) unnamed_addr #0 {
+define internal fastcc void @qpci_secondary_buses_rec(ptr noundef %qbus, i32 noundef range(i32 0, 8161) %bus, ptr nocapture noundef nonnull %pci_bus) unnamed_addr #0 {
 entry:
   %config_readw.i.i = getelementptr inbounds i8, ptr %qbus, i64 88
   br label %for.body
@@ -378,8 +378,8 @@ if.else.i.i:                                      ; preds = %for.body
   unreachable
 
 qpci_device_set.exit.i:                           ; preds = %for.body
-  %add = add nsw i32 %index.0101, %bus
-  %shl = shl i32 %add, 3
+  %add = add nuw nsw i32 %index.0101, %bus
+  %shl = shl nuw nsw i32 %add, 3
   store ptr %qbus, ptr %call.i, align 8
   %devfn2.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %shl, ptr %devfn2.i.i, align 8
@@ -427,8 +427,8 @@ if.else.i.i65:                                    ; preds = %for.body10
   unreachable
 
 qpci_device_set.exit.i58:                         ; preds = %for.body10
-  %add11 = add nsw i32 %index.1102, %bus
-  %shl12 = shl i32 %add11, 3
+  %add11 = add nuw nsw i32 %index.1102, %bus
+  %shl12 = shl nuw nsw i32 %add11, 3
   store ptr %qbus, ptr %call.i56, align 8
   %devfn2.i.i59 = getelementptr inbounds i8, ptr %call.i56, i64 8
   store i32 %shl12, ptr %devfn2.i.i59, align 8
@@ -501,7 +501,7 @@ if.end39:                                         ; preds = %if.then37, %if.end3
   %32 = load i32, ptr %devfn2.i.i59, align 8
   tail call void %31(ptr noundef %30, i32 noundef %32, i8 noundef zeroext 26, i8 noundef zeroext -1) #11
   %shl42 = shl nuw nsw i32 %conv41.pre-phi, 5
-  tail call fastcc void @qpci_secondary_buses_rec(ptr noundef nonnull %qbus, i32 noundef %shl42, ptr noundef nonnull %pci_bus)
+  tail call fastcc void @qpci_secondary_buses_rec(ptr noundef nonnull %qbus, i32 noundef %shl42, ptr noundef %pci_bus)
   %conv43 = zext i8 %call.i81 to i32
   %33 = load i32, ptr %pci_bus, align 4
   %cmp44.not = icmp eq i32 %33, %conv43

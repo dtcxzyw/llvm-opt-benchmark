@@ -1000,7 +1000,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %366, %368
 374:                                              ; preds = %371
   %375 = load i32, ptr %17, align 4
   %376 = load ptr, ptr %16, align 8
-  %377 = invoke fastcc noundef ptr @_ZL9select_itiP11gmx_enxnm_tPi(i32 noundef %375, ptr noundef %376, ptr noundef nonnull %19)
+  %377 = invoke fastcc noundef ptr @_ZL9select_itiP11gmx_enxnm_tPi(i32 noundef %375, ptr noundef %376, ptr noundef %19)
           to label %380 unwind label %.loopexit.split-lp.loopexit
 
 378:                                              ; preds = %364
@@ -2157,7 +2157,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %22, %25
 declare void @_Z9do_enxnmsP9ener_filePiPP11gmx_enxnm_t(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc noundef ptr @_ZL9select_itiP11gmx_enxnm_tPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL9select_itiP11gmx_enxnm_tPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %6 = tail call ptr @getenv(ptr noundef nonnull @.str.78) #23

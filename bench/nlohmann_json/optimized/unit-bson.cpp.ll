@@ -83230,7 +83230,7 @@ invoke.cont31:                                    ; preds = %call.i3.noexc.i
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont31
-  invoke fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_(ptr noalias nonnull align 8 %ref.tmp26, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32)
+  invoke fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_(ptr noalias align 8 %ref.tmp26, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32)
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont35
@@ -83949,7 +83949,7 @@ nrvo.skipdtor:                                    ; preds = %call.i.i.i7.noexc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_(ptr noalias align 8 %agg.result, i32 noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %detail, ptr noundef nonnull align 8 dereferenceable(32) %context) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_(ptr noalias nonnull align 8 %agg.result, i32 noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %detail, ptr noundef nonnull align 8 dereferenceable(32) %context) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %error_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator.8", align 1
@@ -83985,7 +83985,7 @@ switch.lookup:                                    ; preds = %invoke.cont
 
 sw.epilog:                                        ; preds = %invoke.cont, %switch.lookup
   store i8 32, ptr %ref.tmp17, align 1
-  invoke void @_ZN8nlohmann16json_abi_v3_11_36detail6concatINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRS8_cRKS8_RA3_KcSB_EEET_DpOT0_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %error_msg, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(32) %context, ptr noundef nonnull align 1 dereferenceable(3) @.str.218, ptr noundef nonnull align 8 dereferenceable(32) %detail)
+  invoke void @_ZN8nlohmann16json_abi_v3_11_36detail6concatINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRS8_cRKS8_RA3_KcSB_EEET_DpOT0_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %error_msg, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(32) %context, ptr noundef nonnull align 1 dereferenceable(3) @.str.218, ptr noundef nonnull align 8 dereferenceable(32) %detail)
           to label %invoke.cont18 unwind label %lpad2
 
 invoke.cont18:                                    ; preds = %sw.epilog
@@ -84349,7 +84349,7 @@ invoke.cont.i231:                                 ; preds = %call.i3.noexc.i.i22
           to label %invoke.cont10.i235 unwind label %lpad9.i232
 
 invoke.cont10.i235:                               ; preds = %invoke.cont.i231
-  invoke fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_(ptr noalias nonnull align 8 %ref.tmp4.i180, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i181, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i183)
+  invoke fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_(ptr noalias align 8 %ref.tmp4.i180, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i181, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i183)
           to label %invoke.cont12.i239 unwind label %lpad11.i236
 
 invoke.cont12.i239:                               ; preds = %invoke.cont10.i235
@@ -84752,7 +84752,7 @@ invoke.cont.i84:                                  ; preds = %call.i3.noexc.i.i
           to label %invoke.cont10.i unwind label %lpad9.i
 
 invoke.cont10.i:                                  ; preds = %invoke.cont.i84
-  invoke fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_(ptr noalias nonnull align 8 %ref.tmp4.i, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i)
+  invoke fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_(ptr noalias align 8 %ref.tmp4.i, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i)
           to label %invoke.cont12.i unwind label %lpad11.i
 
 invoke.cont12.i:                                  ; preds = %invoke.cont10.i
@@ -85301,7 +85301,7 @@ invoke.cont10:                                    ; preds = %invoke.cont
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %invoke.cont10
-  invoke fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_(ptr noalias nonnull align 8 %ref.tmp6, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11)
+  invoke fastcc void @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE17exception_messageENS1_14input_format_tERKSB_SS_(ptr noalias align 8 %ref.tmp6, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont14

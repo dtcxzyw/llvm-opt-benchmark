@@ -6026,7 +6026,7 @@ define linkonce_odr void @_ZNK8LightGBM4GBDT14GetLoadedParamB5cxx11Ev(ptr dead_o
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_assignIRKSL_NSA_10_AllocNodeISaINSA_10_Hash_nodeIS8_Lb1EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %37, ptr noundef nonnull align 8 dereferenceable(8) %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   %48 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #19
-  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef %48, ptr noundef nonnull @.str.30)
+  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcS2_(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef %48, ptr noundef nonnull @.str.30)
           to label %49 unwind label %67
 
 49:                                               ; preds = %36
@@ -6055,7 +6055,7 @@ define linkonce_odr void @_ZNK8LightGBM4GBDT14GetLoadedParamB5cxx11Ev(ptr dead_o
   %.01698 = phi i1 [ true, %.lr.ph ], [ %.117, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit56 ]
   %.sroa.071.097 = phi ptr [ %54, %.lr.ph ], [ %350, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit56 ]
   %61 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.071.097) #19
-  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef %61, ptr noundef nonnull @.str.16)
+  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcS2_(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef %61, ptr noundef nonnull @.str.16)
           to label %62 unwind label %.loopexit
 
 62:                                               ; preds = %60
@@ -6727,7 +6727,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 284:                                              ; preds = %281
   %285 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #19
-  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef %285, ptr noundef nonnull @.str.78)
+  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcS2_(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef %285, ptr noundef nonnull @.str.78)
           to label %286 unwind label %93
 
 286:                                              ; preds = %284
@@ -18933,7 +18933,7 @@ declare void @_ZN8LightGBM4Tree17RecomputeMaxDepthEv(ptr noundef nonnull align 8
 declare noundef nonnull align 8 dereferenceable(56) ptr @_ZN8LightGBM6Config14ParameterTypesB5cxx11Ev() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcS2_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.0", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

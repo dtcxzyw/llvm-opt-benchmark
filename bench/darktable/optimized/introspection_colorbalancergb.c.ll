@@ -3726,7 +3726,7 @@ define void @gui_changed(ptr nocapture noundef readonly %0, ptr noundef readnone
 
 282:                                              ; preds = %141
   %283 = load i32, ptr %140, align 64, !tbaa !149
-  call fastcc void @dt_ioppr_apply_trc(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull readonly %138, ptr noundef nonnull readonly %139, i32 noundef %283)
+  call fastcc void @dt_ioppr_apply_trc(ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull readonly %138, ptr noundef nonnull readonly %139, i32 noundef %283)
   br label %_YchToRGB.exit
 
 284:                                              ; preds = %141
@@ -3881,7 +3881,7 @@ declare ptr @dt_ioppr_get_pipe_output_profile_info(ptr noundef) local_unnamed_ad
 declare ptr @dt_ioppr_add_profile_info_to_list(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @paint_chroma_slider(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, float noundef %3) unnamed_addr #1 {
+define internal fastcc void @paint_chroma_slider(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, float noundef %3) unnamed_addr #1 {
   %5 = alloca [4 x float], align 16
   %6 = alloca [4 x float], align 16
   %7 = fadd reassoc nsz arcp contract afn float %3, -3.000000e+01
@@ -4099,7 +4099,7 @@ define internal fastcc void @paint_chroma_slider(ptr nocapture noundef readonly 
 
 197:                                              ; preds = %104
   %198 = load i32, ptr %102, align 64, !tbaa !149
-  call fastcc void @dt_ioppr_apply_trc(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull readonly %100, ptr noundef nonnull readonly %101, i32 noundef %198)
+  call fastcc void @dt_ioppr_apply_trc(ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull readonly %100, ptr noundef nonnull readonly %101, i32 noundef %198)
   br label %_YchToRGB.exit
 
 199:                                              ; preds = %104
@@ -6429,7 +6429,7 @@ declare void @llvm.x86.sse.sfence() #19
 declare ptr @dt_alloc_aligned(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @dt_ioppr_apply_trc(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #20 {
+define internal fastcc void @dt_ioppr_apply_trc(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #20 {
   %6 = add nsw i32 %4, -1
   %7 = sitofp i32 %6 to float
   %8 = add nsw i32 %4, -2

@@ -849,7 +849,7 @@ _ZNK2cv20MatCommaInitializer_IdEcvNS_4Mat_IdEEEv.exit: ; preds = %_ZN2cv20MatCom
   store i32 16842752, ptr %38, align 8
   %317 = getelementptr inbounds i8, ptr %38, i64 8
   store ptr %31, ptr %317, align 8
-  invoke fastcc void @_ZN2cvL6formatERKNS_11_InputArrayENS_9Formatter10FormatTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(24) %38, i32 noundef 3)
+  invoke fastcc void @_ZN2cvL6formatERKNS_11_InputArrayENS_9Formatter10FormatTypeE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(24) %38, i32 noundef 3)
           to label %318 unwind label %640
 
 318:                                              ; preds = %314
@@ -985,7 +985,7 @@ _ZN2cv3PtrINS_9FormattedEED2Ev.exit:              ; preds = %335, %354, %367, %_
   store i32 16842752, ptr %40, align 8
   %378 = getelementptr inbounds i8, ptr %40, i64 8
   store ptr %31, ptr %378, align 8
-  invoke fastcc void @_ZN2cvL6formatERKNS_11_InputArrayENS_9Formatter10FormatTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(24) %40, i32 noundef 4)
+  invoke fastcc void @_ZN2cvL6formatERKNS_11_InputArrayENS_9Formatter10FormatTypeE(ptr dead_on_unwind noalias writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(24) %40, i32 noundef 4)
           to label %379 unwind label %643
 
 379:                                              ; preds = %375
@@ -1121,7 +1121,7 @@ _ZN2cv3PtrINS_9FormattedEED2Ev.exit106:           ; preds = %396, %415, %428, %_
   store i32 16842752, ptr %42, align 8
   %439 = getelementptr inbounds i8, ptr %42, i64 8
   store ptr %31, ptr %439, align 8
-  invoke fastcc void @_ZN2cvL6formatERKNS_11_InputArrayENS_9Formatter10FormatTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(24) %42, i32 noundef 2)
+  invoke fastcc void @_ZN2cvL6formatERKNS_11_InputArrayENS_9Formatter10FormatTypeE(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(24) %42, i32 noundef 2)
           to label %440 unwind label %646
 
 440:                                              ; preds = %436
@@ -1257,7 +1257,7 @@ _ZN2cv3PtrINS_9FormattedEED2Ev.exit122:           ; preds = %457, %476, %489, %_
   store i32 16842752, ptr %44, align 8
   %500 = getelementptr inbounds i8, ptr %44, i64 8
   store ptr %31, ptr %500, align 8
-  invoke fastcc void @_ZN2cvL6formatERKNS_11_InputArrayENS_9Formatter10FormatTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(24) %44, i32 noundef 5)
+  invoke fastcc void @_ZN2cvL6formatERKNS_11_InputArrayENS_9Formatter10FormatTypeE(ptr dead_on_unwind noalias writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(24) %44, i32 noundef 5)
           to label %501 unwind label %649
 
 501:                                              ; preds = %497
@@ -2326,7 +2326,7 @@ declare void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96), 
 declare void @_ZN2cv5randuERKNS_17_InputOutputArrayERKNS_11_InputArrayES5_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN2cvL6formatERKNS_11_InputArrayENS_9Formatter10FormatTypeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL6formatERKNS_11_InputArrayENS_9Formatter10FormatTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef range(i32 2, 6) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.cv::Ptr.5", align 8
   %5 = alloca %"class.cv::Mat", align 8
   call void @_ZN2cv9Formatter3getENS0_10FormatTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.5") align 8 %4, i32 noundef %2)
@@ -2352,7 +2352,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
   %13 = load ptr, ptr %6, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  invoke void %15(ptr dead_on_unwind writable sret(%"struct.cv::Ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(96) %5)
+  invoke void %15(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(96) %5)
           to label %16 unwind label %55
 
 16:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit

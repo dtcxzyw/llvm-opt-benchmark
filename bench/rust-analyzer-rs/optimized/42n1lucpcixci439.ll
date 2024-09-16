@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table._ZN9toolchain4Tool4name17ha6d4fd0230798ce3E.12 = private unnamed_addr constant [4 x i64] [i64 5, i64 5, i64 6, i64 7], align 8
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$camino..Utf8PathBuf$GT$$GT$17hbcf0dac9a156d9d3E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$camino..Utf8PathBuf$GT$$GT$17hbcf0dac9a156d9d3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -867,7 +867,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hf00f0c286be9a9a0E.exit.thread.
 
 .body.i.i:                                        ; preds = %50, %39
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %51, %50 ], [ %40, %39 ]
-  invoke fastcc void @"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$camino..Utf8PathBuf$GT$$GT$17hbcf0dac9a156d9d3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #8
+  invoke fastcc void @"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$camino..Utf8PathBuf$GT$$GT$17hbcf0dac9a156d9d3E"(ptr noalias noundef align 8 dereferenceable(24) %7) #8
           to label %.body unwind label %52, !noalias !330
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d3ed5df3689760bE.exit.i.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h232b30810e5e779dE.exit.i.i.i.i.i.i"

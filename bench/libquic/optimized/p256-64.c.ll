@@ -57,19 +57,19 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %X = getelementptr inbounds i8, ptr %point, i64 8
-  %call1 = call fastcc i32 @BN_to_felem(ptr noundef nonnull %x_in, ptr noundef nonnull %X)
+  %call1 = call fastcc i32 @BN_to_felem(ptr noundef %x_in, ptr noundef nonnull %X)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
   %Y = getelementptr inbounds i8, ptr %point, i64 32
-  %call4 = call fastcc i32 @BN_to_felem(ptr noundef nonnull %y_in, ptr noundef nonnull %Y)
+  %call4 = call fastcc i32 @BN_to_felem(ptr noundef %y_in, ptr noundef nonnull %Y)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %return, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false
   %Z = getelementptr inbounds i8, ptr %point, i64 56
-  %call8 = call fastcc i32 @BN_to_felem(ptr noundef nonnull %z1, ptr noundef nonnull %Z)
+  %call8 = call fastcc i32 @BN_to_felem(ptr noundef %z1, ptr noundef nonnull %Z)
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %if.end11
 
@@ -239,7 +239,7 @@ if.end11:                                         ; preds = %lor.lhs.false6
   %sub41.i.i.i = add nuw nsw i128 %10, %shl13.i.i.i
   %add56.i.i.i = sub nuw nsw i128 %sub41.i.i.i, %add.i.i20.i
   store i128 %add56.i.i.i, ptr %arrayidx10.i.i, align 16
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp.i, ptr noundef nonnull readonly %z1, ptr noundef nonnull %ftmp.i)
+  call fastcc void @felem_mul(ptr noundef %tmp.i, ptr noundef readonly %z1, ptr noundef %ftmp.i)
   %11 = load i128, ptr %tmp.i, align 16
   %12 = load i128, ptr %arrayidx8.i2282.i, align 16
   %add3.i25.i = add i128 %12, 1267650600228229401496703205376
@@ -545,7 +545,7 @@ if.end11:                                         ; preds = %lor.lhs.false6
   %sub41.i.i258.i = add nuw nsw i128 %38, %shl13.i.i243.i
   %add56.i.i265.i = sub nuw nsw i128 %sub41.i.i258.i, %add.i.i236.i
   store i128 %add56.i.i265.i, ptr %arrayidx10.i.i, align 16
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp.i, ptr noundef nonnull %ftmp.i, ptr noundef nonnull %e2.i)
+  call fastcc void @felem_mul(ptr noundef %tmp.i, ptr noundef %ftmp.i, ptr noundef %e2.i)
   %39 = load i128, ptr %tmp.i, align 16
   %40 = load i128, ptr %arrayidx8.i2282.i, align 16
   %add3.i268.i = add i128 %40, 1267650600228229401496703205376
@@ -1097,7 +1097,7 @@ if.end11:                                         ; preds = %lor.lhs.false6
   %sub41.i.i699.i = add nuw nsw i128 %84, %shl13.i.i684.i
   %add56.i.i706.i = sub nuw nsw i128 %sub41.i.i699.i, %add.i.i677.i
   store i128 %add56.i.i706.i, ptr %arrayidx10.i.i, align 16
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp.i, ptr noundef nonnull %ftmp.i, ptr noundef nonnull %e4.i)
+  call fastcc void @felem_mul(ptr noundef %tmp.i, ptr noundef %ftmp.i, ptr noundef %e4.i)
   %85 = load i128, ptr %tmp.i, align 16
   %86 = load i128, ptr %arrayidx8.i2282.i, align 16
   %add3.i709.i = add i128 %86, 1267650600228229401496703205376
@@ -1293,7 +1293,7 @@ for.end.i:                                        ; preds = %for.body.i
   store i128 %add128.i2787.i, ptr %arrayidx96.i.i, align 16
   store i128 %add139.i2792.i, ptr %arrayidx111.i.i, align 16
   store i128 %shr135.i2790.i, ptr %arrayidx141.i.i, align 16
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp.i, ptr noundef nonnull %ftmp.i, ptr noundef nonnull %e8.i)
+  call fastcc void @felem_mul(ptr noundef %tmp.i, ptr noundef %ftmp.i, ptr noundef %e8.i)
   %104 = load i128, ptr %tmp.i, align 16
   %105 = load i128, ptr %arrayidx8.i2282.i, align 16
   %add3.i856.i = add i128 %105, 1267650600228229401496703205376
@@ -1489,7 +1489,7 @@ for.end67.i:                                      ; preds = %for.body60.i
   store i128 %add128.i2860.i, ptr %arrayidx96.i.i, align 16
   store i128 %add139.i2865.i, ptr %arrayidx111.i.i, align 16
   store i128 %shr135.i2863.i, ptr %arrayidx141.i.i, align 16
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp.i, ptr noundef nonnull %ftmp.i, ptr noundef nonnull %e16.i)
+  call fastcc void @felem_mul(ptr noundef %tmp.i, ptr noundef %ftmp.i, ptr noundef %e16.i)
   %123 = load i128, ptr %tmp.i, align 16
   %124 = load i128, ptr %arrayidx8.i2282.i, align 16
   %add3.i1003.i = add i128 %124, 1267650600228229401496703205376
@@ -1692,7 +1692,7 @@ for.end84.i:                                      ; preds = %for.body77.i
   store i128 %add52.i.i1145.i, ptr %arrayidx5.i1151.i, align 16
   %arrayidx7.i1153.i = getelementptr inbounds i8, ptr %e64.i, i64 48
   store i128 %add56.i.i1147.i, ptr %arrayidx7.i1153.i, align 16
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp.i, ptr noundef nonnull %ftmp.i, ptr noundef nonnull readonly %z1)
+  call fastcc void @felem_mul(ptr noundef %tmp.i, ptr noundef %ftmp.i, ptr noundef readonly %z1)
   %142 = load i128, ptr %tmp.i, align 16
   %143 = load i128, ptr %arrayidx8.i2282.i, align 16
   %add3.i1156.i = add i128 %143, 1267650600228229401496703205376
@@ -1881,7 +1881,7 @@ for.end100.i:                                     ; preds = %for.body93.i
   store i128 %add128.i3006.i, ptr %arrayidx96.i.i, align 16
   store i128 %add139.i3011.i, ptr %arrayidx111.i.i, align 16
   store i128 %shr135.i3009.i, ptr %arrayidx141.i.i, align 16
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp.i, ptr noundef nonnull %e64.i, ptr noundef nonnull %e32.i)
+  call fastcc void @felem_mul(ptr noundef %tmp.i, ptr noundef %e64.i, ptr noundef %e32.i)
   %161 = load i128, ptr %tmp.i, align 16
   %162 = load i128, ptr %arrayidx8.i2282.i, align 16
   %add3.i1297.i = add i128 %162, 1267650600228229401496703205376
@@ -2073,7 +2073,7 @@ for.end115.i:                                     ; preds = %for.body108.i
   store i128 %add128.i3079.i, ptr %arrayidx96.i.i, align 16
   store i128 %add139.i3084.i, ptr %arrayidx111.i.i, align 16
   store i128 %shr135.i3082.i, ptr %arrayidx141.i.i, align 16
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp.i, ptr noundef nonnull %ftmp2.i, ptr noundef nonnull %e16.i)
+  call fastcc void @felem_mul(ptr noundef %tmp.i, ptr noundef %ftmp2.i, ptr noundef %e16.i)
   %180 = load i128, ptr %tmp.i, align 16
   %181 = load i128, ptr %arrayidx8.i2282.i, align 16
   %add3.i1438.i = add i128 %181, 1267650600228229401496703205376
@@ -2262,7 +2262,7 @@ for.end130.i:                                     ; preds = %for.body123.i
   store i128 %add128.i3152.i, ptr %arrayidx96.i.i, align 16
   store i128 %add139.i3157.i, ptr %arrayidx111.i.i, align 16
   store i128 %shr135.i3155.i, ptr %arrayidx141.i.i, align 16
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp.i, ptr noundef nonnull %ftmp2.i, ptr noundef nonnull %e8.i)
+  call fastcc void @felem_mul(ptr noundef %tmp.i, ptr noundef %ftmp2.i, ptr noundef %e8.i)
   %199 = load i128, ptr %tmp.i, align 16
   %200 = load i128, ptr %arrayidx8.i2282.i, align 16
   %add3.i1579.i = add i128 %200, 1267650600228229401496703205376
@@ -2452,7 +2452,7 @@ felem_inv.exit:                                   ; preds = %for.body138.i
   store i128 %add128.i3225.i, ptr %arrayidx96.i.i, align 16
   store i128 %add139.i3230.i, ptr %arrayidx111.i.i, align 16
   store i128 %shr135.i3228.i, ptr %arrayidx141.i.i, align 16
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp.i, ptr noundef nonnull %ftmp2.i, ptr noundef nonnull %e4.i)
+  call fastcc void @felem_mul(ptr noundef %tmp.i, ptr noundef %ftmp2.i, ptr noundef %e4.i)
   %220 = load i128, ptr %tmp.i, align 16
   %221 = load i128, ptr %arrayidx8.i2282.i, align 16
   %222 = load i128, ptr %arrayidx23.i.i, align 16
@@ -2748,7 +2748,7 @@ felem_inv.exit:                                   ; preds = %for.body138.i
   %sub41.i.i1949.i = add nuw nsw i128 %246, %shl13.i.i1934.i
   %add56.i.i1956.i = sub nuw nsw i128 %sub41.i.i1949.i, %add.i.i1927.i
   store i128 %add56.i.i1956.i, ptr %arrayidx10.i1304.i, align 16
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp.i, ptr noundef nonnull %ftmp2.i, ptr noundef nonnull %e2.i)
+  call fastcc void @felem_mul(ptr noundef %tmp.i, ptr noundef %ftmp2.i, ptr noundef %e2.i)
   %247 = load i128, ptr %tmp.i, align 16
   %248 = load i128, ptr %arrayidx8.i2282.i, align 16
   %249 = load i128, ptr %arrayidx23.i.i, align 16
@@ -3044,7 +3044,7 @@ felem_inv.exit:                                   ; preds = %for.body138.i
   %sub41.i.i2188.i = add nuw nsw i128 %273, %shl13.i.i2173.i
   %add56.i.i2195.i = sub nuw nsw i128 %sub41.i.i2188.i, %add.i.i2166.i
   store i128 %add56.i.i2195.i, ptr %arrayidx10.i1304.i, align 16
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp.i, ptr noundef nonnull %ftmp2.i, ptr noundef nonnull readonly %z1)
+  call fastcc void @felem_mul(ptr noundef %tmp.i, ptr noundef %ftmp2.i, ptr noundef readonly %z1)
   %274 = load i128, ptr %tmp.i, align 16
   %275 = load i128, ptr %arrayidx8.i2282.i, align 16
   %add3.i2198.i = add i128 %275, 1267650600228229401496703205376
@@ -3085,7 +3085,7 @@ felem_inv.exit:                                   ; preds = %for.body138.i
   %285 = add i128 %add.i.i2209.i, %283
   %add56.i.i2238.i = sub i128 %284, %285
   store i128 %add56.i.i2238.i, ptr %arrayidx10.i1304.i, align 16
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp.i, ptr noundef nonnull %ftmp2.i, ptr noundef nonnull %ftmp.i)
+  call fastcc void @felem_mul(ptr noundef %tmp.i, ptr noundef %ftmp2.i, ptr noundef %ftmp.i)
   %286 = load i128, ptr %tmp.i, align 16
   %287 = load i128, ptr %arrayidx8.i2282.i, align 16
   %add3.i2241.i = add i128 %287, 1267650600228229401496703205376
@@ -3289,7 +3289,7 @@ felem_inv.exit:                                   ; preds = %for.body138.i
   br i1 %cmp.not, label %if.end31, label %if.then18
 
 if.then18:                                        ; preds = %felem_inv.exit
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp, ptr noundef nonnull %x_in, ptr noundef nonnull %z1)
+  call fastcc void @felem_mul(ptr noundef %tmp, ptr noundef %x_in, ptr noundef %z1)
   %305 = load i128, ptr %tmp, align 16
   %add.i22 = add i128 %305, 1267650600228229401427983728624
   %306 = load i128, ptr %arrayidx8.i172, align 16
@@ -3334,7 +3334,7 @@ if.then18:                                        ; preds = %felem_inv.exit
   %mul54.i.i63 = mul i128 %311, 3
   %add56.i.i64 = add i128 %sub41.i.i57, %mul54.i.i63
   store i128 %add56.i.i64, ptr %arrayidx10.i31, align 16
-  call fastcc void @felem_contract(ptr noundef nonnull %x_out, ptr noundef nonnull %x_in)
+  call fastcc void @felem_contract(ptr noundef %x_out, ptr noundef %x_in)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %b_in.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %b_out.i)
   %316 = load i64, ptr %x_out, align 16
@@ -3381,7 +3381,7 @@ if.end31:                                         ; preds = %smallfelem_to_BN.ex
   br i1 %cmp32.not, label %return, label %if.then33
 
 if.then33:                                        ; preds = %if.end31
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp, ptr noundef nonnull %z1, ptr noundef nonnull %z2)
+  call fastcc void @felem_mul(ptr noundef %tmp, ptr noundef %z1, ptr noundef %z2)
   %323 = load i128, ptr %tmp, align 16
   %add.i70 = add i128 %323, 1267650600228229401427983728624
   %324 = load i128, ptr %arrayidx8.i172, align 16
@@ -3423,7 +3423,7 @@ if.then33:                                        ; preds = %if.end31
   %mul54.i.i111 = mul i128 %329, 3
   %add56.i.i112 = add i128 %sub41.i.i105, %mul54.i.i111
   store i128 %add56.i.i112, ptr %arrayidx.i.i.i, align 16
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp, ptr noundef nonnull %y_in, ptr noundef nonnull %z1)
+  call fastcc void @felem_mul(ptr noundef %tmp, ptr noundef %y_in, ptr noundef %z1)
   %334 = load i128, ptr %tmp, align 16
   %add.i113 = add i128 %334, 1267650600228229401427983728624
   %335 = load i128, ptr %arrayidx8.i172, align 16
@@ -3468,7 +3468,7 @@ if.then33:                                        ; preds = %if.end31
   %mul54.i.i154 = mul i128 %340, 3
   %add56.i.i155 = add i128 %sub41.i.i148, %mul54.i.i154
   store i128 %add56.i.i155, ptr %arrayidx10.i122, align 16
-  call fastcc void @felem_contract(ptr noundef nonnull %y_out, ptr noundef nonnull %y_in)
+  call fastcc void @felem_contract(ptr noundef %y_out, ptr noundef %y_in)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %b_in.i156)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %b_out.i157)
   %345 = load i64, ptr %y_out, align 16
@@ -3704,17 +3704,17 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %flip_endian.exit, label %for.body.i, !llvm.loop !15
 
 flip_endian.exit:                                 ; preds = %for.body.i, %if.end76
-  %call81 = call fastcc i32 @BN_to_felem(ptr noundef nonnull %x_out, ptr noundef nonnull %X)
+  %call81 = call fastcc i32 @BN_to_felem(ptr noundef %x_out, ptr noundef nonnull %X)
   %tobool82.not = icmp eq i32 %call81, 0
   br i1 %tobool82.not, label %err, label %lor.lhs.false83
 
 lor.lhs.false83:                                  ; preds = %flip_endian.exit
-  %call85 = call fastcc i32 @BN_to_felem(ptr noundef nonnull %y_out, ptr noundef nonnull %Y)
+  %call85 = call fastcc i32 @BN_to_felem(ptr noundef %y_out, ptr noundef nonnull %Y)
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %err, label %lor.lhs.false87
 
 lor.lhs.false87:                                  ; preds = %lor.lhs.false83
-  %call89 = call fastcc i32 @BN_to_felem(ptr noundef nonnull %z_out, ptr noundef nonnull %Z)
+  %call89 = call fastcc i32 @BN_to_felem(ptr noundef %z_out, ptr noundef nonnull %Z)
   %tobool90.not = icmp eq i32 %call89, 0
   br i1 %tobool90.not, label %err, label %if.end92
 
@@ -3954,7 +3954,7 @@ if.then113:                                       ; preds = %for.body111
   %35 = load i64, ptr %arrayidx114.i212, align 8
   %conv9.i19.i = zext i64 %35 to i128
   store i128 %conv9.i19.i, ptr %arrayidx10.i20.i, align 16
-  call fastcc void @point_add(ptr noundef nonnull %felem_x3.i, ptr noundef nonnull %felem_y3.i, ptr noundef nonnull %felem_z3.i, ptr noundef nonnull %felem_x1.i, ptr noundef nonnull %felem_y1.i, ptr noundef nonnull %felem_z1.i, i32 noundef 0, ptr noundef readonly %arrayidx139, ptr noundef nonnull readonly %arrayidx145, ptr noundef nonnull readonly %arrayidx150)
+  call fastcc void @point_add(ptr noundef %felem_x3.i, ptr noundef %felem_y3.i, ptr noundef %felem_z3.i, ptr noundef %felem_x1.i, ptr noundef %felem_y1.i, ptr noundef %felem_z1.i, i32 noundef 0, ptr noundef readonly %arrayidx139, ptr noundef readonly %arrayidx145, ptr noundef readonly %arrayidx150)
   %36 = load i128, ptr %arrayidx.i.i, align 16
   %add.i.i = add i128 %36, 18446744069414584320
   %37 = load i128, ptr %arrayidx1.i.i, align 16
@@ -4205,7 +4205,7 @@ if.else152:                                       ; preds = %for.body111
   %68 = load i64, ptr %arrayidx8.i18.i240, align 8
   %conv9.i19.i241 = zext i64 %68 to i128
   store i128 %conv9.i19.i241, ptr %arrayidx10.i20.i242, align 16
-  call fastcc void @point_double(ptr noundef nonnull %felem_x_out.i, ptr noundef nonnull %felem_y_out.i, ptr noundef nonnull %felem_z_out.i, ptr noundef nonnull %felem_x_in.i, ptr noundef nonnull %felem_y_in.i, ptr noundef nonnull %felem_z_in.i)
+  call fastcc void @point_double(ptr noundef %felem_x_out.i, ptr noundef %felem_y_out.i, ptr noundef %felem_z_out.i, ptr noundef %felem_x_in.i, ptr noundef %felem_y_in.i, ptr noundef %felem_z_in.i)
   %69 = load i128, ptr %arrayidx.i.i243, align 16
   %add.i.i244 = add i128 %69, 18446744069414584320
   %70 = load i128, ptr %arrayidx1.i.i245, align 16
@@ -4497,7 +4497,7 @@ for.cond.i:                                       ; preds = %if.end224.i, %if.en
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.cond.i
-  call fastcc void @point_double(ptr noundef nonnull %nq.i, ptr noundef nonnull %arrayidx2.i414, ptr noundef nonnull %arrayidx4.i, ptr noundef nonnull %nq.i, ptr noundef nonnull %arrayidx2.i414, ptr noundef nonnull %arrayidx4.i)
+  call fastcc void @point_double(ptr noundef %nq.i, ptr noundef %arrayidx2.i414, ptr noundef %arrayidx4.i, ptr noundef %nq.i, ptr noundef %arrayidx2.i414, ptr noundef %arrayidx4.i)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %for.cond.i
@@ -4523,7 +4523,7 @@ if.then16.i:                                      ; preds = %if.end.i
   %shr2.i75.i = lshr i32 %conv.i73.i, %and.i.i429
   %98 = shl nuw nsw i32 %shr2.i75.i, 2
   %99 = and i32 %98, 4
-  %or56345.i = or disjoint i32 %99, %96
+  %or56344.i = or disjoint i32 %99, %96
   %shr.i81.i = or disjoint i64 %conv17.i, 12
   %arrayidx.i83.i = getelementptr inbounds i8, ptr %cond220, i64 %shr.i81.i
   %100 = load i8, ptr %arrayidx.i83.i, align 1
@@ -4531,29 +4531,29 @@ if.then16.i:                                      ; preds = %if.end.i
   %shr2.i86.i = lshr i32 %conv.i84.i, %and.i.i429
   %101 = shl nuw nsw i32 %shr2.i86.i, 1
   %102 = and i32 %101, 2
-  %or3257346.i = or disjoint i32 %or56345.i, %102
+  %or3257345.i = or disjoint i32 %or56344.i, %102
   %shr.i92.i = or disjoint i64 %conv17.i, 4
   %arrayidx.i94.i = getelementptr inbounds i8, ptr %cond220, i64 %shr.i92.i
   %103 = load i8, ptr %arrayidx.i94.i, align 1
   %conv.i95.i = zext i8 %103 to i32
   %shr2.i97.i = lshr i32 %conv.i95.i, %and.i.i429
   %104 = and i32 %shr2.i97.i, 1
-  %or3758347.i = or disjoint i32 %or3257346.i, %104
-  %or3758.i = zext nneg i32 %or3758347.i to i64
+  %or3758346.i = or disjoint i32 %or3257345.i, %104
+  %or3758.i = zext nneg i32 %or3758346.i to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %tmp.i, i8 0, i64 96, i1 false)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc16.i.i, %if.then16.i
-  %i.018.i.i = phi i64 [ %inc17.i.i, %for.inc16.i.i ], [ 0, %if.then16.i ]
-  %arrayidx2.i.i430 = getelementptr inbounds [3 x [4 x i64]], ptr getelementptr inbounds (i8, ptr @g_pre_comp, i64 1536), i64 %i.018.i.i
-  %xor.i.i = xor i64 %i.018.i.i, %or3758.i
+  %i.017.i.i = phi i64 [ 0, %if.then16.i ], [ %inc17.i.i, %for.inc16.i.i ]
+  %arrayidx2.i.i430 = getelementptr inbounds [3 x [4 x i64]], ptr getelementptr inbounds (i8, ptr @g_pre_comp, i64 1536), i64 %i.017.i.i
+  %xor.i.i = xor i64 %i.017.i.i, %or3758.i
   %shr.i101.i = lshr i64 %xor.i.i, 4
   %or.i.i431 = or i64 %shr.i101.i, %xor.i.i
   %shr5.i.i = lshr i64 %or.i.i431, 2
   %or6.i.i = or i64 %shr5.i.i, %or.i.i431
   %or6.fr.i.i = freeze i64 %or6.i.i
-  %and19.i.i = and i64 %or6.fr.i.i, 3
-  %105 = icmp eq i64 %and19.i.i, 0
+  %and18.i.i = and i64 %or6.fr.i.i, 3
+  %105 = icmp eq i64 %and18.i.i, 0
   br i1 %105, label %for.body11.us.i.i, label %for.inc16.i.i
 
 for.body11.us.i.i:                                ; preds = %for.body.i.i, %for.body11.us.i.i
@@ -4569,15 +4569,15 @@ for.body11.us.i.i:                                ; preds = %for.body.i.i, %for.
   br i1 %exitcond.not.i.i, label %for.inc16.i.i, label %for.body11.us.i.i, !llvm.loop !17
 
 for.inc16.i.i:                                    ; preds = %for.body11.us.i.i, %for.body.i.i
-  %inc17.i.i = add nuw nsw i64 %i.018.i.i, 1
-  %exitcond21.not.i.i = icmp eq i64 %inc17.i.i, 16
-  br i1 %exitcond21.not.i.i, label %select_point.exit.i, label %for.body.i.i, !llvm.loop !18
+  %inc17.i.i = add nuw nsw i64 %i.017.i.i, 1
+  %exitcond20.not.i.i = icmp eq i64 %inc17.i.i, 16
+  br i1 %exitcond20.not.i.i, label %select_point.exit.i, label %for.body.i.i, !llvm.loop !18
 
 select_point.exit.i:                              ; preds = %for.inc16.i.i
   br i1 %tobool.not.i, label %if.then40.i, label %if.else.i
 
 if.then40.i:                                      ; preds = %select_point.exit.i
-  call fastcc void @point_add(ptr noundef nonnull %nq.i, ptr noundef nonnull %arrayidx2.i414, ptr noundef nonnull %arrayidx4.i, ptr noundef nonnull %nq.i, ptr noundef nonnull %arrayidx2.i414, ptr noundef nonnull %arrayidx4.i, i32 noundef 1, ptr noundef nonnull %tmp.i, ptr noundef nonnull %arrayidx65.i, ptr noundef nonnull %arrayidx69.i)
+  call fastcc void @point_add(ptr noundef %nq.i, ptr noundef %arrayidx2.i414, ptr noundef %arrayidx4.i, ptr noundef %nq.i, ptr noundef %arrayidx2.i414, ptr noundef %arrayidx4.i, i32 noundef 1, ptr noundef %tmp.i, ptr noundef %arrayidx65.i, ptr noundef %arrayidx69.i)
   br label %if.end71.i
 
 if.else.i:                                        ; preds = %select_point.exit.i
@@ -4634,7 +4634,7 @@ if.end71.i:                                       ; preds = %if.else.i, %if.then
   %shr2.i142.i = lshr i32 %conv.i140.i, %and.i.i429
   %124 = shl nuw nsw i32 %shr2.i142.i, 2
   %125 = and i32 %124, 4
-  %or8459350.i = or disjoint i32 %125, %122
+  %or8459349.i = or disjoint i32 %125, %122
   %shr.i148.i = or disjoint i64 %conv17.i, 8
   %arrayidx.i150.i = getelementptr inbounds i8, ptr %cond220, i64 %shr.i148.i
   %126 = load i8, ptr %arrayidx.i150.i, align 1
@@ -4642,28 +4642,28 @@ if.end71.i:                                       ; preds = %if.else.i, %if.then
   %shr2.i153.i = lshr i32 %conv.i151.i, %and.i.i429
   %127 = shl nuw nsw i32 %shr2.i153.i, 1
   %128 = and i32 %127, 2
-  %or9160351.i = or disjoint i32 %or8459350.i, %128
+  %or9160350.i = or disjoint i32 %or8459349.i, %128
   %arrayidx.i161.i = getelementptr inbounds i8, ptr %cond220, i64 %conv17.i
   %129 = load i8, ptr %arrayidx.i161.i, align 1
   %conv.i162.i = zext i8 %129 to i32
   %shr2.i164.i = lshr i32 %conv.i162.i, %and.i.i429
   %130 = and i32 %shr2.i164.i, 1
-  %or9561352.i = or disjoint i32 %or9160351.i, %130
-  %or9561.i = zext nneg i32 %or9561352.i to i64
+  %or9561351.i = or disjoint i32 %or9160350.i, %130
+  %or9561.i = zext nneg i32 %or9561351.i to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %tmp.i, i8 0, i64 96, i1 false)
   br label %for.body.i168.i
 
 for.body.i168.i:                                  ; preds = %for.inc16.i178.i, %if.end71.i
-  %i.018.i169.i = phi i64 [ %inc17.i179.i, %for.inc16.i178.i ], [ 0, %if.end71.i ]
-  %arrayidx2.i170.i = getelementptr inbounds [3 x [4 x i64]], ptr @g_pre_comp, i64 %i.018.i169.i
-  %xor.i171.i = xor i64 %i.018.i169.i, %or9561.i
+  %i.017.i169.i = phi i64 [ 0, %if.end71.i ], [ %inc17.i179.i, %for.inc16.i178.i ]
+  %arrayidx2.i170.i = getelementptr inbounds [3 x [4 x i64]], ptr @g_pre_comp, i64 %i.017.i169.i
+  %xor.i171.i = xor i64 %i.017.i169.i, %or9561.i
   %shr.i172.i = lshr i64 %xor.i171.i, 4
   %or.i173.i = or i64 %shr.i172.i, %xor.i171.i
   %shr5.i174.i = lshr i64 %or.i173.i, 2
   %or6.i175.i = or i64 %shr5.i174.i, %or.i173.i
   %or6.fr.i176.i = freeze i64 %or6.i175.i
-  %and19.i177.i = and i64 %or6.fr.i176.i, 3
-  %131 = icmp eq i64 %and19.i177.i, 0
+  %and18.i177.i = and i64 %or6.fr.i176.i, 3
+  %131 = icmp eq i64 %and18.i177.i, 0
   br i1 %131, label %for.body11.us.i181.i, label %for.inc16.i178.i
 
 for.body11.us.i181.i:                             ; preds = %for.body.i168.i, %for.body11.us.i181.i
@@ -4679,12 +4679,12 @@ for.body11.us.i181.i:                             ; preds = %for.body.i168.i, %f
   br i1 %exitcond.not.i187.i, label %for.inc16.i178.i, label %for.body11.us.i181.i, !llvm.loop !17
 
 for.inc16.i178.i:                                 ; preds = %for.body11.us.i181.i, %for.body.i168.i
-  %inc17.i179.i = add nuw nsw i64 %i.018.i169.i, 1
-  %exitcond21.not.i180.i = icmp eq i64 %inc17.i179.i, 16
-  br i1 %exitcond21.not.i180.i, label %select_point.exit188.i, label %for.body.i168.i, !llvm.loop !18
+  %inc17.i179.i = add nuw nsw i64 %i.017.i169.i, 1
+  %exitcond20.not.i180.i = icmp eq i64 %inc17.i179.i, 16
+  br i1 %exitcond20.not.i180.i, label %select_point.exit188.i, label %for.body.i168.i, !llvm.loop !18
 
 select_point.exit188.i:                           ; preds = %for.inc16.i178.i
-  call fastcc void @point_add(ptr noundef nonnull %nq.i, ptr noundef nonnull %arrayidx2.i414, ptr noundef nonnull %arrayidx4.i, ptr noundef nonnull %nq.i, ptr noundef nonnull %arrayidx2.i414, ptr noundef nonnull %arrayidx4.i, i32 noundef 1, ptr noundef nonnull %tmp.i, ptr noundef nonnull %arrayidx65.i, ptr noundef nonnull %arrayidx69.i)
+  call fastcc void @point_add(ptr noundef %nq.i, ptr noundef %arrayidx2.i414, ptr noundef %arrayidx4.i, ptr noundef %nq.i, ptr noundef %arrayidx2.i414, ptr noundef %arrayidx4.i, i32 noundef 1, ptr noundef %tmp.i, ptr noundef %arrayidx65.i, ptr noundef %arrayidx69.i)
   br label %if.end115.i
 
 if.end115.i:                                      ; preds = %select_point.exit188.i, %if.end.i
@@ -4820,16 +4820,16 @@ get_bit.exit254.i:                                ; preds = %if.end.i245.i, %get
   br label %for.body.i255.i
 
 for.body.i255.i:                                  ; preds = %for.inc16.i265.i, %get_bit.exit254.i
-  %i.018.i256.i = phi i64 [ %inc17.i266.i, %for.inc16.i265.i ], [ 0, %get_bit.exit254.i ]
-  %arrayidx2.i257.i = getelementptr inbounds [3 x [4 x i64]], ptr %pre_comp.1, i64 %i.018.i256.i
-  %xor.i258.i = xor i64 %i.018.i256.i, %conv175.i
+  %i.017.i256.i = phi i64 [ 0, %get_bit.exit254.i ], [ %inc17.i266.i, %for.inc16.i265.i ]
+  %arrayidx2.i257.i = getelementptr inbounds [3 x [4 x i64]], ptr %pre_comp.1, i64 %i.017.i256.i
+  %xor.i258.i = xor i64 %i.017.i256.i, %conv175.i
   %shr.i259.i = lshr i64 %xor.i258.i, 4
   %or.i260.i = or i64 %shr.i259.i, %xor.i258.i
   %shr5.i261.i = lshr i64 %or.i260.i, 2
   %or6.i262.i = or i64 %shr5.i261.i, %or.i260.i
   %or6.fr.i263.i = freeze i64 %or6.i262.i
-  %and19.i264.i = and i64 %or6.fr.i263.i, 3
-  %153 = icmp eq i64 %and19.i264.i, 0
+  %and18.i264.i = and i64 %or6.fr.i263.i, 3
+  %153 = icmp eq i64 %and18.i264.i, 0
   br i1 %153, label %for.body11.us.i268.i, label %for.inc16.i265.i
 
 for.body11.us.i268.i:                             ; preds = %for.body.i255.i, %for.body11.us.i268.i
@@ -4845,9 +4845,9 @@ for.body11.us.i268.i:                             ; preds = %for.body.i255.i, %f
   br i1 %exitcond.not.i274.i, label %for.inc16.i265.i, label %for.body11.us.i268.i, !llvm.loop !17
 
 for.inc16.i265.i:                                 ; preds = %for.body11.us.i268.i, %for.body.i255.i
-  %inc17.i266.i = add nuw nsw i64 %i.018.i256.i, 1
-  %exitcond21.not.i267.i = icmp eq i64 %inc17.i266.i, 17
-  br i1 %exitcond21.not.i267.i, label %select_point.exit275.i, label %for.body.i255.i, !llvm.loop !18
+  %inc17.i266.i = add nuw nsw i64 %i.017.i256.i, 1
+  %exitcond20.not.i267.i = icmp eq i64 %inc17.i266.i, 17
+  br i1 %exitcond20.not.i267.i, label %select_point.exit275.i, label %for.body.i255.i, !llvm.loop !18
 
 select_point.exit275.i:                           ; preds = %for.inc16.i265.i
   %156 = load i64, ptr %arrayidx65.i, align 16
@@ -4951,7 +4951,7 @@ copy_small_conditional.exit.i:                    ; preds = %for.body.i281.i
   br label %for.body.i288.i
 
 for.body.i288.i:                                  ; preds = %for.body.i288.i, %copy_small_conditional.exit.i
-  %all_equal_so_far.0103.i.i = phi i64 [ -1, %copy_small_conditional.exit.i ], [ %and19.i297.i, %for.body.i288.i ]
+  %all_equal_so_far.0103.i.i = phi i64 [ -1, %copy_small_conditional.exit.i ], [ %and19.i.i, %for.body.i288.i ]
   %result.0102.i.i = phi i64 [ 0, %copy_small_conditional.exit.i ], [ %or.i295.i, %for.body.i288.i ]
   %i.0101.i.i = phi i64 [ 3, %copy_small_conditional.exit.i ], [ %dec20.i.i, %for.body.i288.i ]
   %arrayidx.i289.i = getelementptr inbounds [4 x i64], ptr @kPrime, i64 0, i64 %i.0101.i.i
@@ -4980,13 +4980,13 @@ for.body.i288.i:                                  ; preds = %for.body.i288.i, %c
   %shl16.i.i = shl i64 %and15.i.i, 1
   %and17.i.i = and i64 %shl16.i.i, %and15.i.i
   %isneg.i.i = icmp slt i64 %and17.i.i, 0
-  %and19.i297.i = select i1 %isneg.i.i, i64 %all_equal_so_far.0103.i.i, i64 0
+  %and19.i.i = select i1 %isneg.i.i, i64 %all_equal_so_far.0103.i.i, i64 0
   %dec20.i.i = add nsw i64 %i.0101.i.i, -1
   %cmp.i.i = icmp ult i64 %dec20.i.i, 4
   br i1 %cmp.i.i, label %for.body.i288.i, label %felem_contract.exit.i, !llvm.loop !20
 
 felem_contract.exit.i:                            ; preds = %for.body.i288.i
-  %or21.i.i = or i64 %and19.i297.i, %or.i295.i
+  %or21.i.i = or i64 %and19.i.i, %or.i295.i
   %conv.i.i.i = and i128 %sub64.i.i.i, 18446744073709551615
   %conv1.i.i.i = zext i64 %or21.i.i to i128
   %sub.i40.i.i = sub nsw i128 %conv.i.i.i, %conv1.i.i.i
@@ -5021,42 +5021,42 @@ felem_contract.exit.i:                            ; preds = %for.body.i288.i
   br i1 %tobool190.not.i, label %if.then191.i, label %if.else210.i
 
 if.then191.i:                                     ; preds = %felem_contract.exit.i
-  call fastcc void @point_add(ptr noundef nonnull %nq.i, ptr noundef nonnull %arrayidx2.i414, ptr noundef nonnull %arrayidx4.i, ptr noundef nonnull %nq.i, ptr noundef nonnull %arrayidx2.i414, ptr noundef nonnull %arrayidx4.i, i32 noundef 0, ptr noundef nonnull %tmp.i, ptr noundef nonnull %arrayidx65.i, ptr noundef nonnull %arrayidx69.i)
+  call fastcc void @point_add(ptr noundef %nq.i, ptr noundef %arrayidx2.i414, ptr noundef %arrayidx4.i, ptr noundef %nq.i, ptr noundef %arrayidx2.i414, ptr noundef %arrayidx4.i, i32 noundef 0, ptr noundef %tmp.i, ptr noundef %arrayidx65.i, ptr noundef %arrayidx69.i)
   br label %if.end224.i
 
 if.else210.i:                                     ; preds = %felem_contract.exit.i
   %178 = load i64, ptr %tmp.i, align 16
-  %conv.i298.i = zext i64 %178 to i128
-  store i128 %conv.i298.i, ptr %nq.i, align 16
+  %conv.i297.i = zext i64 %178 to i128
+  store i128 %conv.i297.i, ptr %nq.i, align 16
   %179 = load i64, ptr %arrayidx2.i103.i, align 8
-  %conv3.i300.i = zext i64 %179 to i128
-  store i128 %conv3.i300.i, ptr %arrayidx4.i.i415, align 16
+  %conv3.i299.i = zext i64 %179 to i128
+  store i128 %conv3.i299.i, ptr %arrayidx4.i.i415, align 16
   %180 = load i64, ptr %arrayidx5.i.i416, align 16
-  %conv6.i303.i = zext i64 %180 to i128
-  store i128 %conv6.i303.i, ptr %arrayidx7.i.i417, align 16
+  %conv6.i302.i = zext i64 %180 to i128
+  store i128 %conv6.i302.i, ptr %arrayidx7.i.i417, align 16
   %181 = load i64, ptr %arrayidx8.i.i418, align 8
-  %conv9.i306.i = zext i64 %181 to i128
-  store i128 %conv9.i306.i, ptr %arrayidx10.i.i419, align 16
-  %conv.i308.i = and i128 %sub.i40.i.i, 18446744073709551615
-  store i128 %conv.i308.i, ptr %arrayidx2.i414, align 16
-  %conv3.i310.i = and i128 %sub.i62.i.i, 18446744073709551615
-  store i128 %conv3.i310.i, ptr %arrayidx4.i107.i, align 16
-  %conv6.i313.i = and i128 %sub.i68.i.i, 18446744073709551615
-  store i128 %conv6.i313.i, ptr %arrayidx7.i110.i, align 16
-  %conv9.i316.i = zext i64 %conv3.i94.i.i to i128
-  store i128 %conv9.i316.i, ptr %arrayidx10.i113.i, align 16
+  %conv9.i305.i = zext i64 %181 to i128
+  store i128 %conv9.i305.i, ptr %arrayidx10.i.i419, align 16
+  %conv.i307.i = and i128 %sub.i40.i.i, 18446744073709551615
+  store i128 %conv.i307.i, ptr %arrayidx2.i414, align 16
+  %conv3.i309.i = and i128 %sub.i62.i.i, 18446744073709551615
+  store i128 %conv3.i309.i, ptr %arrayidx4.i107.i, align 16
+  %conv6.i312.i = and i128 %sub.i68.i.i, 18446744073709551615
+  store i128 %conv6.i312.i, ptr %arrayidx7.i110.i, align 16
+  %conv9.i315.i = zext i64 %conv3.i94.i.i to i128
+  store i128 %conv9.i315.i, ptr %arrayidx10.i113.i, align 16
   %182 = load i64, ptr %arrayidx69.i, align 16
-  %conv.i318.i = zext i64 %182 to i128
-  store i128 %conv.i318.i, ptr %arrayidx4.i, align 16
+  %conv.i317.i = zext i64 %182 to i128
+  store i128 %conv.i317.i, ptr %arrayidx4.i, align 16
   %183 = load i64, ptr %arrayidx2.i115.i, align 8
-  %conv3.i320.i = zext i64 %183 to i128
-  store i128 %conv3.i320.i, ptr %arrayidx4.i117.i, align 16
+  %conv3.i319.i = zext i64 %183 to i128
+  store i128 %conv3.i319.i, ptr %arrayidx4.i117.i, align 16
   %184 = load i64, ptr %arrayidx5.i118.i, align 16
-  %conv6.i323.i = zext i64 %184 to i128
-  store i128 %conv6.i323.i, ptr %arrayidx7.i120.i, align 16
+  %conv6.i322.i = zext i64 %184 to i128
+  store i128 %conv6.i322.i, ptr %arrayidx7.i120.i, align 16
   %185 = load i64, ptr %arrayidx8.i121.i, align 8
-  %conv9.i326.i = zext i64 %185 to i128
-  store i128 %conv9.i326.i, ptr %arrayidx10.i123.i, align 16
+  %conv9.i325.i = zext i64 %185 to i128
+  store i128 %conv9.i325.i, ptr %arrayidx10.i123.i, align 16
   br label %if.end224.i
 
 if.end224.i:                                      ; preds = %if.else210.i, %if.then191.i, %if.end115.i
@@ -5072,41 +5072,41 @@ batch_mul.exit:                                   ; preds = %if.end224.i
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %x_out, i64 16
   store i128 %187, ptr %arrayidx3.i.i, align 16
   %188 = load i128, ptr %arrayidx7.i.i417, align 16
-  %arrayidx5.i330.i = getelementptr inbounds i8, ptr %x_out, i64 32
-  store i128 %188, ptr %arrayidx5.i330.i, align 16
+  %arrayidx5.i329.i = getelementptr inbounds i8, ptr %x_out, i64 32
+  store i128 %188, ptr %arrayidx5.i329.i, align 16
   %189 = load i128, ptr %arrayidx10.i.i419, align 16
-  %arrayidx7.i332.i = getelementptr inbounds i8, ptr %x_out, i64 48
-  store i128 %189, ptr %arrayidx7.i332.i, align 16
+  %arrayidx7.i331.i = getelementptr inbounds i8, ptr %x_out, i64 48
+  store i128 %189, ptr %arrayidx7.i331.i, align 16
   %190 = load i128, ptr %arrayidx2.i414, align 16
   store i128 %190, ptr %y_out, align 16
   %191 = load i128, ptr %arrayidx4.i107.i, align 16
-  %arrayidx3.i334.i = getelementptr inbounds i8, ptr %y_out, i64 16
-  store i128 %191, ptr %arrayidx3.i334.i, align 16
+  %arrayidx3.i333.i = getelementptr inbounds i8, ptr %y_out, i64 16
+  store i128 %191, ptr %arrayidx3.i333.i, align 16
   %192 = load i128, ptr %arrayidx7.i110.i, align 16
-  %arrayidx5.i336.i = getelementptr inbounds i8, ptr %y_out, i64 32
-  store i128 %192, ptr %arrayidx5.i336.i, align 16
+  %arrayidx5.i335.i = getelementptr inbounds i8, ptr %y_out, i64 32
+  store i128 %192, ptr %arrayidx5.i335.i, align 16
   %193 = load i128, ptr %arrayidx10.i113.i, align 16
-  %arrayidx7.i338.i = getelementptr inbounds i8, ptr %y_out, i64 48
-  store i128 %193, ptr %arrayidx7.i338.i, align 16
+  %arrayidx7.i337.i = getelementptr inbounds i8, ptr %y_out, i64 48
+  store i128 %193, ptr %arrayidx7.i337.i, align 16
   %194 = load i128, ptr %arrayidx4.i, align 16
   store i128 %194, ptr %z_out, align 16
   %195 = load i128, ptr %arrayidx4.i117.i, align 16
-  %arrayidx3.i340.i = getelementptr inbounds i8, ptr %z_out, i64 16
-  store i128 %195, ptr %arrayidx3.i340.i, align 16
+  %arrayidx3.i339.i = getelementptr inbounds i8, ptr %z_out, i64 16
+  store i128 %195, ptr %arrayidx3.i339.i, align 16
   %196 = load i128, ptr %arrayidx7.i120.i, align 16
-  %arrayidx5.i342.i = getelementptr inbounds i8, ptr %z_out, i64 32
-  store i128 %196, ptr %arrayidx5.i342.i, align 16
+  %arrayidx5.i341.i = getelementptr inbounds i8, ptr %z_out, i64 32
+  store i128 %196, ptr %arrayidx5.i341.i, align 16
   %197 = load i128, ptr %arrayidx10.i123.i, align 16
-  %arrayidx7.i344.i = getelementptr inbounds i8, ptr %z_out, i64 48
-  store i128 %197, ptr %arrayidx7.i344.i, align 16
+  %arrayidx7.i343.i = getelementptr inbounds i8, ptr %z_out, i64 48
+  store i128 %197, ptr %arrayidx7.i343.i, align 16
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %nq.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ftmp.i)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %sign.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %digit.i)
-  call fastcc void @felem_contract(ptr noundef nonnull %x_in, ptr noundef nonnull %x_out)
-  call fastcc void @felem_contract(ptr noundef nonnull %y_in, ptr noundef nonnull %y_out)
-  call fastcc void @felem_contract(ptr noundef nonnull %z_in, ptr noundef nonnull %z_out)
+  call fastcc void @felem_contract(ptr noundef %x_in, ptr noundef %x_out)
+  call fastcc void @felem_contract(ptr noundef %y_in, ptr noundef %y_out)
+  call fastcc void @felem_contract(ptr noundef %z_in, ptr noundef %z_out)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %b_in.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %b_out.i)
   %198 = load i64, ptr %x_in, align 16
@@ -5252,7 +5252,7 @@ declare i32 @EC_POINT_is_at_infinity(ptr noundef, ptr noundef) local_unnamed_add
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @BN_to_felem(ptr nocapture noundef writeonly %out, ptr noundef %bn) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @BN_to_felem(ptr nocapture noundef nonnull writeonly %out, ptr noundef %bn) unnamed_addr #2 {
 entry:
   %b_out = alloca [32 x i8], align 16
   %b_in = alloca [32 x i8], align 16
@@ -5328,7 +5328,7 @@ return:                                           ; preds = %flip_endian.exit, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @felem_mul(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %in1, ptr nocapture noundef readonly %in2) unnamed_addr #3 {
+define internal fastcc void @felem_mul(ptr nocapture noundef nonnull writeonly %out, ptr nocapture noundef nonnull readonly %in1, ptr nocapture noundef nonnull readonly %in2) unnamed_addr #3 {
 entry:
   %small1 = alloca [4 x i64], align 16
   %small2 = alloca [4 x i64], align 16
@@ -5462,12 +5462,12 @@ entry:
   %conv113.i53 = trunc i128 %add98.i49 to i64
   %arrayidx114.i54 = getelementptr inbounds i8, ptr %small2, i64 24
   store i64 %conv113.i53, ptr %arrayidx114.i54, align 8
-  call fastcc void @smallfelem_mul(ptr noundef %out, ptr noundef nonnull %small1, ptr noundef nonnull %small2)
+  call fastcc void @smallfelem_mul(ptr noundef %out, ptr noundef %small1, ptr noundef %small2)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @felem_contract(ptr nocapture noundef %out, ptr nocapture noundef readonly %in) unnamed_addr #4 {
+define internal fastcc void @felem_contract(ptr nocapture noundef nonnull %out, ptr nocapture noundef nonnull readonly %in) unnamed_addr #4 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %in, i64 48
   %0 = load i128, ptr %arrayidx.i, align 16
@@ -5616,7 +5616,7 @@ declare i32 @BN_num_bytes(ptr noundef) local_unnamed_addr #1
 declare i64 @BN_bn2bin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @smallfelem_mul(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %small1, ptr nocapture noundef readonly %small2) unnamed_addr #3 {
+define internal fastcc void @smallfelem_mul(ptr nocapture noundef nonnull writeonly %out, ptr nocapture noundef nonnull readonly %small1, ptr nocapture noundef nonnull readonly %small2) unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %small1, align 8
   %conv = zext i64 %0 to i128
@@ -5827,7 +5827,7 @@ declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @point_add(ptr nocapture noundef %x3, ptr nocapture noundef writeonly %y3, ptr nocapture noundef writeonly %z3, ptr nocapture noundef readonly %x1, ptr nocapture noundef readonly %y1, ptr nocapture noundef readonly %z1, i32 noundef %mixed, ptr nocapture noundef readonly %x2, ptr nocapture noundef readonly %y2, ptr nocapture noundef readonly %z2) unnamed_addr #4 {
+define internal fastcc void @point_add(ptr nocapture noundef nonnull %x3, ptr nocapture noundef nonnull writeonly %y3, ptr nocapture noundef nonnull writeonly %z3, ptr nocapture noundef nonnull readonly %x1, ptr nocapture noundef nonnull readonly %y1, ptr nocapture noundef nonnull readonly %z1, i32 noundef range(i32 0, 2) %mixed, ptr nocapture noundef nonnull readonly %x2, ptr nocapture noundef nonnull readonly %y2, ptr nocapture noundef nonnull readonly %z2) unnamed_addr #4 {
 entry:
   %small2.i1462 = alloca [4 x i64], align 16
   %small2.i884 = alloca [4 x i64], align 16
@@ -6377,7 +6377,7 @@ if.then:                                          ; preds = %entry
   %conv113.i362 = trunc i128 %add98.i358 to i64
   %arrayidx114.i363 = getelementptr inbounds i8, ptr %small5, i64 24
   store i64 %conv113.i362, ptr %arrayidx114.i363, align 8
-  call fastcc void @smallfelem_mul(ptr noundef nonnull %tmp, ptr noundef nonnull %small5, ptr noundef nonnull %small2)
+  call fastcc void @smallfelem_mul(ptr noundef %tmp, ptr noundef %small5, ptr noundef %small2)
   %34 = load i128, ptr %tmp, align 16
   %add.i364 = add i128 %34, 1267650600228229401427983728624
   %35 = load i128, ptr %arrayidx8.i, align 16
@@ -6573,7 +6573,7 @@ if.then:                                          ; preds = %entry
   %add56.i.i468 = add nuw nsw i128 %sub41.i.i461, %add81.i1725
   %add6.i480 = add nuw nsw i128 %add56.i.i468, %shl13.i.i446
   %sub17.i = sub nuw nsw i128 %add6.i480, %add.i.i439
-  call fastcc void @smallfelem_mul(ptr noundef nonnull %tmp, ptr noundef nonnull %small2, ptr noundef nonnull %z2)
+  call fastcc void @smallfelem_mul(ptr noundef %tmp, ptr noundef %small2, ptr noundef %z2)
   %57 = load i128, ptr %tmp, align 16
   %add.i484 = add i128 %57, 1267650600228229401427983728624
   %58 = load i128, ptr %arrayidx8.i, align 16
@@ -6615,7 +6615,7 @@ if.then:                                          ; preds = %entry
   %mul54.i.i525 = mul i128 %63, 3
   %add56.i.i526 = add i128 %sub41.i.i519, %mul54.i.i525
   store i128 %add56.i.i526, ptr %arrayidx10.i222, align 16
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp, ptr noundef %y1, ptr noundef nonnull %ftmp2)
+  call fastcc void @felem_mul(ptr noundef %tmp, ptr noundef %y1, ptr noundef %ftmp2)
   %68 = load i128, ptr %tmp, align 16
   %add.i527 = add i128 %68, 1267650600228229401427983728624
   %69 = load i128, ptr %arrayidx8.i, align 16
@@ -6710,7 +6710,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %ftmp5.sroa.54.0 = phi i128 [ %sub14.i, %if.then ], [ %mul6.i, %if.else ]
   %ftmp5.sroa.29.0 = phi i128 [ %sub11.i, %if.then ], [ %mul3.i, %if.else ]
   %ftmp5.sroa.0.0 = phi i128 [ %sub.i481, %if.then ], [ %mul.i582, %if.else ]
-  call fastcc void @smallfelem_mul(ptr noundef nonnull %tmp, ptr noundef %x2, ptr noundef nonnull %small1)
+  call fastcc void @smallfelem_mul(ptr noundef %tmp, ptr noundef %x2, ptr noundef %small1)
   %91 = load i128, ptr %tmp, align 16
   %add.i592 = add i128 %91, 1267650600228229401427983728624
   %92 = load i128, ptr %arrayidx8.i, align 16
@@ -6916,7 +6916,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %conv113.i.i796 = trunc i128 %add98.i.i792 to i64
   %arrayidx114.i.i797 = getelementptr inbounds i8, ptr %small2.i, i64 24
   store i64 %conv113.i.i796, ptr %arrayidx114.i.i797, align 8
-  call fastcc void @smallfelem_mul(ptr noundef nonnull %tmp, ptr noundef nonnull readonly %small4, ptr noundef nonnull %small2.i)
+  call fastcc void @smallfelem_mul(ptr noundef %tmp, ptr noundef readonly %small4, ptr noundef %small2.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %small2.i)
   %109 = load i128, ptr %tmp, align 16
   %add.i798 = add i128 %109, 1267650600228229401427983728624
@@ -6962,7 +6962,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %mul54.i.i839 = mul i128 %115, 3
   %add56.i.i840 = add i128 %sub41.i.i833, %mul54.i.i839
   store i128 %add56.i.i840, ptr %arrayidx10.i807, align 16
-  call fastcc void @smallfelem_mul(ptr noundef nonnull %tmp, ptr noundef nonnull %small1, ptr noundef nonnull %small3)
+  call fastcc void @smallfelem_mul(ptr noundef %tmp, ptr noundef %small1, ptr noundef %small3)
   %120 = load i128, ptr %tmp, align 16
   %add.i841 = add i128 %120, 1267650600228229401427983728624
   %121 = load i128, ptr %arrayidx8.i, align 16
@@ -7059,7 +7059,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %conv113.i.i937 = trunc i128 %add98.i.i933 to i64
   %arrayidx114.i.i938 = getelementptr inbounds i8, ptr %small2.i884, i64 24
   store i64 %conv113.i.i937, ptr %arrayidx114.i.i938, align 8
-  call fastcc void @smallfelem_mul(ptr noundef nonnull %tmp, ptr noundef readonly %y2, ptr noundef nonnull %small2.i884)
+  call fastcc void @smallfelem_mul(ptr noundef %tmp, ptr noundef readonly %y2, ptr noundef %small2.i884)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %small2.i884)
   %134 = load i128, ptr %tmp, align 16
   %135 = load i128, ptr %arrayidx8.i, align 16
@@ -7213,7 +7213,7 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %or.cond2, label %if.end83, label %if.then82
 
 if.then82:                                        ; preds = %if.end
-  tail call fastcc void @point_double(ptr noundef %x3, ptr noundef %y3, ptr noundef %z3, ptr noundef nonnull %x1, ptr noundef %y1, ptr noundef nonnull %z1)
+  tail call fastcc void @point_double(ptr noundef %x3, ptr noundef %y3, ptr noundef %z3, ptr noundef %x1, ptr noundef %y1, ptr noundef %z1)
   br label %return
 
 if.end83:                                         ; preds = %if.end
@@ -7361,7 +7361,7 @@ if.end83:                                         ; preds = %if.end
   %mul54.i.i1207 = mul nuw nsw i128 %shr135.i1823, 3
   %add56.i.i1208 = add nuw nsw i128 %sub41.i.i1201, %mul54.i.i1207
   store i128 %add56.i.i1208, ptr %arrayidx10.i, align 16
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp, ptr noundef nonnull %ftmp4, ptr noundef nonnull %ftmp)
+  call fastcc void @felem_mul(ptr noundef %tmp, ptr noundef %ftmp4, ptr noundef %ftmp)
   %163 = load i128, ptr %tmp, align 16
   %add.i1209 = add i128 %163, 1267650600228229401427983728624
   %164 = load i128, ptr %arrayidx8.i, align 16
@@ -7406,7 +7406,7 @@ if.end83:                                         ; preds = %if.end
   %mul54.i.i1250 = mul i128 %169, 3
   %add56.i.i1251 = add i128 %sub41.i.i1244, %mul54.i.i1250
   store i128 %add56.i.i1251, ptr %arrayidx10.i1218, align 16
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp, ptr noundef nonnull %ftmp3, ptr noundef nonnull %ftmp)
+  call fastcc void @felem_mul(ptr noundef %tmp, ptr noundef %ftmp3, ptr noundef %ftmp)
   %174 = load i128, ptr %tmp, align 16
   %add.i1252 = add i128 %174, 1267650600228229401427983728624
   %175 = load i128, ptr %arrayidx8.i, align 16
@@ -7622,9 +7622,9 @@ if.end83:                                         ; preds = %if.end
   %conv113.i.i1515 = trunc i128 %add98.i.i1511 to i64
   %arrayidx114.i.i1516 = getelementptr inbounds i8, ptr %small2.i1462, i64 24
   store i64 %conv113.i.i1515, ptr %arrayidx114.i.i1516, align 8
-  call fastcc void @smallfelem_mul(ptr noundef nonnull %tmp, ptr noundef nonnull readonly %small1, ptr noundef nonnull %small2.i1462)
+  call fastcc void @smallfelem_mul(ptr noundef %tmp, ptr noundef readonly %small1, ptr noundef %small2.i1462)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %small2.i1462)
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp2, ptr noundef nonnull %ftmp6, ptr noundef nonnull %ftmp2)
+  call fastcc void @felem_mul(ptr noundef %tmp2, ptr noundef %ftmp6, ptr noundef %ftmp2)
   %194 = load i128, ptr %tmp2, align 16
   %mul.i1517 = shl i128 %194, 1
   %arrayidx2.i1518 = getelementptr inbounds i8, ptr %tmp2, i64 16
@@ -7837,7 +7837,7 @@ return:                                           ; preds = %copy_conditional.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @point_double(ptr nocapture noundef %x_out, ptr nocapture noundef writeonly %y_out, ptr nocapture noundef writeonly %z_out, ptr nocapture noundef readonly %x_in, ptr nocapture noundef readonly %y_in, ptr nocapture noundef readonly %z_in) unnamed_addr #3 {
+define internal fastcc void @point_double(ptr nocapture noundef nonnull %x_out, ptr nocapture noundef nonnull writeonly %y_out, ptr nocapture noundef nonnull writeonly %z_out, ptr nocapture noundef nonnull readonly %x_in, ptr nocapture noundef nonnull readonly %y_in, ptr nocapture noundef nonnull readonly %z_in) unnamed_addr #3 {
 entry:
   %small2.i573 = alloca [4 x i64], align 16
   %small2.i = alloca [4 x i64], align 16
@@ -8259,7 +8259,7 @@ entry:
   %conv113.i.i176 = trunc i128 %add98.i.i172 to i64
   %arrayidx114.i.i177 = getelementptr inbounds i8, ptr %small2.i, i64 24
   store i64 %conv113.i.i176, ptr %arrayidx114.i.i177, align 8
-  call fastcc void @smallfelem_mul(ptr noundef nonnull %tmp, ptr noundef nonnull readonly %small1, ptr noundef nonnull %small2.i)
+  call fastcc void @smallfelem_mul(ptr noundef %tmp, ptr noundef readonly %small1, ptr noundef %small2.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %small2.i)
   %32 = load i128, ptr %tmp, align 16
   %33 = load i128, ptr %arrayidx8.i774, align 16
@@ -8321,7 +8321,7 @@ entry:
   store i128 %mul6.i, ptr %arrayidx5.i11, align 16
   %mul9.i = mul i128 %add10.i, 3
   store i128 %mul9.i, ptr %arrayidx7.i13, align 16
-  call fastcc void @felem_mul(ptr noundef nonnull %tmp, ptr noundef nonnull %ftmp, ptr noundef nonnull %ftmp2)
+  call fastcc void @felem_mul(ptr noundef %tmp, ptr noundef %ftmp, ptr noundef %ftmp2)
   %44 = load i128, ptr %tmp, align 16
   %45 = load i128, ptr %arrayidx8.i774, align 16
   %46 = load i128, ptr %arrayidx23.i783, align 16
@@ -8752,7 +8752,7 @@ entry:
   %conv113.i.i626 = trunc i128 %add98.i.i622 to i64
   %arrayidx114.i.i627 = getelementptr inbounds i8, ptr %small2.i573, i64 24
   store i64 %conv113.i.i626, ptr %arrayidx114.i.i627, align 8
-  call fastcc void @smallfelem_mul(ptr noundef nonnull %tmp, ptr noundef nonnull readonly %small2, ptr noundef nonnull %small2.i573)
+  call fastcc void @smallfelem_mul(ptr noundef %tmp, ptr noundef readonly %small2, ptr noundef %small2.i573)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %small2.i573)
   %93 = load i64, ptr %small1, align 16
   %conv.i628 = zext i64 %93 to i128

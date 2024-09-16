@@ -221,7 +221,7 @@ if.then15:                                        ; preds = %if.then12
 
 if.end16:                                         ; preds = %if.then12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %input, i64 %conv13, i1 false)
-  tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in)
+  tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef %this, ptr noundef %in)
   %add.ptr24 = getelementptr inbounds i8, ptr %input, i64 %conv13
   %sub26 = sub nuw i64 %len, %conv13
   br label %if.end27
@@ -240,7 +240,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %input.addr.133 = phi ptr [ %input.addr.0, %while.body.lr.ph ], [ %add.ptr37, %while.body ]
   %len.addr.132 = phi i64 [ %len.addr.0, %while.body.lr.ph ], [ %sub38, %while.body ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %in29, ptr noundef nonnull align 1 dereferenceable(64) %input.addr.133, i64 64, i1 false)
-  tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in29)
+  tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef %this, ptr noundef %in29)
   %add.ptr37 = getelementptr inbounds i8, ptr %input.addr.133, i64 64
   %sub38 = add i64 %len.addr.132, -64
   %cmp28 = icmp ugt i64 %sub38, 63
@@ -261,7 +261,7 @@ return:                                           ; preds = %while.end, %if.then
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr nocapture noundef %buf, ptr nocapture noundef readonly %in) unnamed_addr #3 {
+define internal fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr nocapture noundef nonnull %buf, ptr nocapture noundef nonnull readonly %in) unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %buf, align 4
   %arrayidx1 = getelementptr inbounds i8, ptr %buf, i64 4
@@ -826,7 +826,7 @@ entry:
 if.then:                                          ; preds = %entry
   %conv = zext nneg i32 %sub to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr, i8 0, i64 %conv, i1 false)
-  tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in)
+  tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef %this, ptr noundef %in)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %in, i8 0, i64 56, i1 false)
   br label %if.end
 
@@ -844,7 +844,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %2 = load i32, ptr %arrayidx19, align 4
   %arrayidx22 = getelementptr inbounds i8, ptr %this, i64 84
   store i32 %2, ptr %arrayidx22, align 4
-  tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in)
+  tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef %this, ptr noundef %in)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %out_digest, ptr noundef nonnull align 4 dereferenceable(16) %this, i64 16, i1 false)
   ret void
 }
@@ -955,7 +955,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %conv.i = zext nneg i32 %sub.i to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i, i8 0, i64 %conv.i, i1 false)
-  tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in.i)
+  tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef %this, ptr noundef %in.i)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %in.i, i8 0, i64 56, i1 false)
   br label %_ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit
 
@@ -973,7 +973,7 @@ _ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit: ; preds = %if.then.i, %if.
   %2 = load i32, ptr %arrayidx19.i, align 4
   %arrayidx22.i = getelementptr inbounds i8, ptr %this, i64 84
   store i32 %2, ptr %arrayidx22.i, align 4
-  tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in.i)
+  tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef %this, ptr noundef %in.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %digest, ptr noundef nonnull align 4 dereferenceable(16) %this, i64 16, i1 false)
   br label %for.body.i
 
@@ -1031,7 +1031,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %conv.i = zext nneg i32 %sub.i to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i, i8 0, i64 %conv.i, i1 false)
-  tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in.i)
+  tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef %this, ptr noundef %in.i)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %in.i, i8 0, i64 56, i1 false)
   br label %_ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit
 
@@ -1049,7 +1049,7 @@ _ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit: ; preds = %if.then.i, %if.
   %2 = load i32, ptr %arrayidx19.i, align 4
   %arrayidx22.i = getelementptr inbounds i8, ptr %this, i64 84
   store i32 %2, ptr %arrayidx22.i, align 4
-  tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in.i)
+  tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef %this, ptr noundef %in.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %digest, ptr noundef nonnull align 4 dereferenceable(16) %this, i64 16, i1 false)
   br i1 %needPadding, label %for.body.i, label %for.body.i5
 
@@ -1219,7 +1219,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %conv.i.i = zext nneg i32 %sub.i.i to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i, i8 0, i64 %conv.i.i, i1 false)
-  tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in.i.i)
+  tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef %this, ptr noundef %in.i.i)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %in.i.i, i8 0, i64 56, i1 false)
   br label %_ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit.i
 
@@ -1237,7 +1237,7 @@ _ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit.i: ; preds = %if.else.i.i, 
   %2 = load i32, ptr %arrayidx19.i.i, align 4
   %arrayidx22.i.i = getelementptr inbounds i8, ptr %this, i64 84
   store i32 %2, ptr %arrayidx22.i.i, align 4
-  tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in.i.i)
+  tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef %this, ptr noundef %in.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %digest.i, ptr noundef nonnull align 4 dereferenceable(16) %this, i64 16, i1 false)
   br label %for.body.i.i
 

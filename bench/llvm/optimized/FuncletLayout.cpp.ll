@@ -214,7 +214,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_113FuncletLayout20runOnMachi
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  call fastcc void @"_ZN4llvm12simple_ilistINS_17MachineBasicBlockEJEE4sortIZN12_GLOBAL__N_113FuncletLayout20runOnMachineFunctionERNS_15MachineFunctionEE3$_0EEvT_"(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr nonnull %3)
+  call fastcc void @"_ZN4llvm12simple_ilistINS_17MachineBasicBlockEJEE4sortIZN12_GLOBAL__N_113FuncletLayout20runOnMachineFunctionERNS_15MachineFunctionEE3$_0EEvT_"(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr %3)
   br label %9
 
 9:                                                ; preds = %2, %7
@@ -251,7 +251,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 declare void @_ZN4llvm20getEHScopeMembershipERKNS_15MachineFunctionE(ptr dead_on_unwind writable sret(%"class.llvm::DenseMap.5") align 8, ptr noundef nonnull align 8 dereferenceable(1041)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZN4llvm12simple_ilistINS_17MachineBasicBlockEJEE4sortIZN12_GLOBAL__N_113FuncletLayout20runOnMachineFunctionERNS_15MachineFunctionEE3$_0EEvT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1) unnamed_addr #6 align 2 {
+define internal fastcc void @"_ZN4llvm12simple_ilistINS_17MachineBasicBlockEJEE4sortIZN12_GLOBAL__N_113FuncletLayout20runOnMachineFunctionERNS_15MachineFunctionEE3$_0EEvT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nonnull %1) unnamed_addr #6 align 2 {
   %3 = alloca %"class.llvm::simple_ilist", align 8
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %0, %4

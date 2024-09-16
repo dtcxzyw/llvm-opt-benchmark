@@ -1498,7 +1498,7 @@ declare noundef ptr @_ZN7testing8UnitTest11GetInstanceEv() local_unnamed_addr #0
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8UnitTest27parameterized_test_registryEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN7testing8internal29ParameterizedTestCaseRegistry24GetTestCasePatternHolderIN12_GLOBAL__N_111BadModeTestEEEPNS0_25ParameterizedTestCaseInfoIT_EEPKcSA_i(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %line) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7testing8internal29ParameterizedTestCaseRegistry24GetTestCasePatternHolderIN12_GLOBAL__N_111BadModeTestEEEPNS0_25ParameterizedTestCaseInfoIT_EEPKcSA_i(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef range(i32 2615, 2651) %line) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
   %0 = load ptr, ptr %this, align 8
@@ -93317,7 +93317,7 @@ cleanup16:                                        ; preds = %cleanup.cont, %_ZN7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122makeSerializedDatabaseEPPcPm(ptr noundef %bytes, ptr noundef %length) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_122makeSerializedDatabaseEPPcPm(ptr noundef nonnull %bytes, ptr noundef nonnull %length) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %db = alloca ptr, align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -93528,7 +93528,7 @@ cleanup.cont:                                     ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar) #28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %err) #28
   %25 = load ptr, ptr %db, align 8
-  %call15 = call i32 @hs_serialize_database(ptr noundef %25, ptr noundef %bytes, ptr noundef %length)
+  %call15 = call i32 @hs_serialize_database(ptr noundef %25, ptr noundef nonnull %bytes, ptr noundef nonnull %length)
   store i32 %call15, ptr %err, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar16) #28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp17) #28

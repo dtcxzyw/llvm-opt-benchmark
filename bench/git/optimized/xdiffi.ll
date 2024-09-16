@@ -1135,7 +1135,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %shift.2453 = phi i64 [ %inc, %for.inc ], [ %shift.1, %for.body.preheader ]
   %best_score.sroa.0.2452 = phi i32 [ %best_score.sroa.0.3, %for.inc ], [ %best_score.sroa.0.0, %for.body.preheader ]
   %best_score.sroa.2.2451 = phi i32 [ %best_score.sroa.2.3, %for.inc ], [ %best_score.sroa.2.0, %for.body.preheader ]
-  call fastcc void @measure_split(ptr noundef %xdf, i64 noundef %shift.2453, ptr noundef nonnull %m)
+  call fastcc void @measure_split(ptr noundef %xdf, i64 noundef %shift.2453, ptr noundef %m)
   %80 = load i32, ptr %pre_indent.i, align 4
   %cmp.i107 = icmp eq i32 %80, -1
   %81 = load i32, ptr %pre_blank.i, align 4
@@ -1210,7 +1210,7 @@ score_add_split.exit:                             ; preds = %if.end21.i, %if.els
   %score.sroa.11.2 = phi i32 [ %add16.i346, %if.end21.i ], [ %add16.i352, %if.else27.i ], [ %add63.i, %if.end68.sink.split.i ], [ %add16.i352, %if.else41.i ]
   %score.sroa.0.1 = phi i32 [ -1, %if.end21.i ], [ %score.sroa.0.0, %if.else27.i ], [ %score.sroa.0.0, %if.end68.sink.split.i ], [ %80, %if.else41.i ]
   %sub77 = sub nsw i64 %shift.2453, %sub
-  call fastcc void @measure_split(ptr noundef %xdf, i64 noundef %sub77, ptr noundef nonnull %m)
+  call fastcc void @measure_split(ptr noundef %xdf, i64 noundef %sub77, ptr noundef %m)
   %87 = load i32, ptr %pre_indent.i, align 4
   %cmp.i114 = icmp eq i32 %87, -1
   %88 = load i32, ptr %pre_blank.i, align 4
@@ -1454,7 +1454,7 @@ if.end113:                                        ; preds = %while.end109
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @measure_split(ptr nocapture noundef readonly %xdf, i64 noundef %split, ptr nocapture noundef writeonly %m) unnamed_addr #5 {
+define internal fastcc void @measure_split(ptr nocapture noundef readonly %xdf, i64 noundef %split, ptr nocapture noundef nonnull writeonly %m) unnamed_addr #5 {
 entry:
   %nrec = getelementptr inbounds i8, ptr %xdf, i64 56
   %0 = load i64, ptr %nrec, align 8
@@ -1955,20 +1955,20 @@ if.then14:                                        ; preds = %if.end12
   %14 = load i64, ptr %xpp, align 8
   %and = and i64 %14, 128
   %tobool16.not = icmp eq i64 %and, 0
-  br i1 %tobool16.not, label %if.end19, label %for.body.lr.ph.i
+  br i1 %tobool16.not, label %if.end19, label %if.then17
 
-for.body.lr.ph.i:                                 ; preds = %if.then14
+if.then17:                                        ; preds = %if.then14
   %recs.i = getelementptr inbounds i8, ptr %xe, i64 96
   %recs6.i = getelementptr inbounds i8, ptr %xe, i64 232
   br label %for.body.i8
 
-for.body.i8:                                      ; preds = %for.end21.i, %for.body.lr.ph.i
-  %xch.028.i = phi ptr [ %cscr.1.i, %for.body.lr.ph.i ], [ %32, %for.end21.i ]
+for.body.i8:                                      ; preds = %for.end21.i, %if.then17
+  %xch.027.i = phi ptr [ %cscr.1.i, %if.then17 ], [ %32, %for.end21.i ]
   %15 = load ptr, ptr %recs.i, align 8
-  %i1.i = getelementptr inbounds i8, ptr %xch.028.i, i64 8
+  %i1.i = getelementptr inbounds i8, ptr %xch.027.i, i64 8
   %16 = load i64, ptr %i1.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %15, i64 %16
-  %chg1.i = getelementptr inbounds i8, ptr %xch.028.i, i64 24
+  %chg1.i = getelementptr inbounds i8, ptr %xch.027.i, i64 24
   %17 = load i64, ptr %chg1.i, align 8
   %cmp21.i = icmp sgt i64 %17, 0
   br i1 %cmp21.i, label %for.body3.i, label %for.end.i
@@ -1992,10 +1992,10 @@ for.body3.i:                                      ; preds = %for.body.i8, %for.b
 for.end.i:                                        ; preds = %for.body3.i, %for.body.i8
   %ignore.0.lcssa.i = phi i32 [ 1, %for.body.i8 ], [ %call.i, %for.body3.i ]
   %23 = load ptr, ptr %recs6.i, align 8
-  %i2.i = getelementptr inbounds i8, ptr %xch.028.i, i64 16
+  %i2.i = getelementptr inbounds i8, ptr %xch.027.i, i64 16
   %24 = load i64, ptr %i2.i, align 8
   %arrayidx7.i = getelementptr inbounds ptr, ptr %23, i64 %24
-  %chg2.i = getelementptr inbounds i8, ptr %xch.028.i, i64 32
+  %chg2.i = getelementptr inbounds i8, ptr %xch.027.i, i64 32
   %25 = load i64, ptr %chg2.i, align 8
   %cmp923.i = icmp sgt i64 %25, 0
   %tobool1124.i = icmp ne i32 %ignore.0.lcssa.i, 0
@@ -2020,9 +2020,9 @@ for.body13.i:                                     ; preds = %for.end.i, %for.bod
 
 for.end21.i:                                      ; preds = %for.body13.i, %for.end.i
   %ignore.1.lcssa.i = phi i32 [ %ignore.0.lcssa.i, %for.end.i ], [ %call18.i, %for.body13.i ]
-  %ignore22.i = getelementptr inbounds i8, ptr %xch.028.i, i64 40
+  %ignore22.i = getelementptr inbounds i8, ptr %xch.027.i, i64 40
   store i32 %ignore.1.lcssa.i, ptr %ignore22.i, align 8
-  %32 = load ptr, ptr %xch.028.i, align 8
+  %32 = load ptr, ptr %xch.027.i, align 8
   %tobool.not.i9 = icmp eq ptr %32, null
   br i1 %tobool.not.i9, label %if.end19, label %for.body.i8, !llvm.loop !39
 
@@ -2030,32 +2030,32 @@ if.end19:                                         ; preds = %for.end21.i, %if.th
   %ignore_regex = getelementptr inbounds i8, ptr %xpp, i64 8
   %33 = load ptr, ptr %ignore_regex, align 8
   %tobool20.not = icmp eq ptr %33, null
-  br i1 %tobool20.not, label %if.end22, label %for.body.lr.ph.i12
+  br i1 %tobool20.not, label %if.end22, label %for.body.lr.ph.i
 
-for.body.lr.ph.i12:                               ; preds = %if.end19
-  %recs.i13 = getelementptr inbounds i8, ptr %xe, i64 96
+for.body.lr.ph.i:                                 ; preds = %if.end19
+  %recs.i12 = getelementptr inbounds i8, ptr %xe, i64 96
   %ignore_regex_nr.i.i = getelementptr inbounds i8, ptr %xpp, i64 16
   %rm_eo.i.i.i = getelementptr inbounds i8, ptr %regmatch.i.i, i64 4
   %recs7.i = getelementptr inbounds i8, ptr %xe, i64 232
   %rm_eo.i.i25.i = getelementptr inbounds i8, ptr %regmatch.i18.i, i64 4
-  br label %for.body.i14
+  br label %for.body.i13
 
-for.body.i14:                                     ; preds = %for.inc21.i, %for.body.lr.ph.i12
-  %xch.045.i = phi ptr [ %cscr.1.i, %for.body.lr.ph.i12 ], [ %61, %for.inc21.i ]
+for.body.i13:                                     ; preds = %for.inc21.i, %for.body.lr.ph.i
+  %xch.045.i = phi ptr [ %cscr.1.i, %for.body.lr.ph.i ], [ %61, %for.inc21.i ]
   %ignore1.i = getelementptr inbounds i8, ptr %xch.045.i, i64 40
   %34 = load i32, ptr %ignore1.i, align 8
   %tobool2.not.i = icmp eq i32 %34, 0
   br i1 %tobool2.not.i, label %if.end.i, label %for.inc21.i
 
-if.end.i:                                         ; preds = %for.body.i14
-  %35 = load ptr, ptr %recs.i13, align 8
-  %i1.i16 = getelementptr inbounds i8, ptr %xch.045.i, i64 8
-  %36 = load i64, ptr %i1.i16, align 8
-  %arrayidx.i17 = getelementptr inbounds ptr, ptr %35, i64 %36
-  %chg1.i18 = getelementptr inbounds i8, ptr %xch.045.i, i64 24
-  %37 = load i64, ptr %chg1.i18, align 8
+if.end.i:                                         ; preds = %for.body.i13
+  %35 = load ptr, ptr %recs.i12, align 8
+  %i1.i15 = getelementptr inbounds i8, ptr %xch.045.i, i64 8
+  %36 = load i64, ptr %i1.i15, align 8
+  %arrayidx.i16 = getelementptr inbounds ptr, ptr %35, i64 %36
+  %chg1.i17 = getelementptr inbounds i8, ptr %xch.045.i, i64 24
+  %37 = load i64, ptr %chg1.i17, align 8
   %cmp37.i = icmp sgt i64 %37, 0
-  br i1 %cmp37.i, label %for.body5.lr.ph.i, label %for.end.i19
+  br i1 %cmp37.i, label %for.body5.lr.ph.i, label %for.end.i18
 
 for.body5.lr.ph.i:                                ; preds = %if.end.i
   %38 = load i64, ptr %ignore_regex_nr.i.i, align 8
@@ -2063,13 +2063,13 @@ for.body5.lr.ph.i:                                ; preds = %if.end.i
   br i1 %39, label %for.end19.i, label %for.body5.i.preheader
 
 for.body5.i.preheader:                            ; preds = %for.body5.lr.ph.i
-  %40 = load ptr, ptr %arrayidx.i17, align 8
+  %40 = load ptr, ptr %arrayidx.i16, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %regmatch.i.i)
   br label %for.body.lr.ph.i.i
 
 for.body5thread-pre-split.i:                      ; preds = %record_matches_regex.exit.i
   %.pr.i = load i64, ptr %ignore_regex_nr.i.i, align 8
-  %arrayidx6.i = getelementptr inbounds ptr, ptr %arrayidx.i17, i64 %inc.i25
+  %arrayidx6.i = getelementptr inbounds ptr, ptr %arrayidx.i16, i64 %inc.i24
   %41 = load ptr, ptr %arrayidx6.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %regmatch.i.i)
   %cmp5.not.i.i = icmp eq i64 %.pr.i, 0
@@ -2081,7 +2081,7 @@ record_matches_regex.exit.thread.i:               ; preds = %for.body5thread-pre
 
 for.body.lr.ph.i.i:                               ; preds = %for.body5.i.preheader, %for.body5thread-pre-split.i
   %42 = phi ptr [ %40, %for.body5.i.preheader ], [ %41, %for.body5thread-pre-split.i ]
-  %i.038.i44 = phi i64 [ 0, %for.body5.i.preheader ], [ %inc.i25, %for.body5thread-pre-split.i ]
+  %i.038.i42 = phi i64 [ 0, %for.body5.i.preheader ], [ %inc.i24, %for.body5thread-pre-split.i ]
   %ptr.i.i = getelementptr inbounds i8, ptr %42, i64 8
   %size.i.i = getelementptr inbounds i8, ptr %42, i64 16
   br label %for.body.i.i
@@ -2107,27 +2107,27 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   %conv.i.i.i = trunc i64 %47 to i32
   store i32 %conv.i.i.i, ptr %rm_eo.i.i.i, align 4
   %call.i.i.i = call i32 @regexec(ptr noundef %45, ptr noundef %46, i64 noundef 1, ptr noundef nonnull %regmatch.i.i, i32 noundef 4) #8
-  %tobool.not.i.i23 = icmp eq i32 %call.i.i.i, 0
-  br i1 %tobool.not.i.i23, label %record_matches_regex.exit.i, label %for.cond.i.i
+  %tobool.not.i.i22 = icmp eq i32 %call.i.i.i, 0
+  br i1 %tobool.not.i.i22, label %record_matches_regex.exit.i, label %for.cond.i.i
 
 record_matches_regex.exit.i:                      ; preds = %for.body.i.i
-  %.pre.i24 = load i64, ptr %chg1.i18, align 8
+  %.pre.i23 = load i64, ptr %chg1.i17, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %regmatch.i.i)
-  %inc.i25 = add nuw nsw i64 %i.038.i44, 1
-  %cmp.i26 = icmp slt i64 %inc.i25, %.pre.i24
-  br i1 %cmp.i26, label %for.body5thread-pre-split.i, label %for.end.i19, !llvm.loop !41
+  %inc.i24 = add nuw nsw i64 %i.038.i42, 1
+  %cmp.i25 = icmp slt i64 %inc.i24, %.pre.i23
+  br i1 %cmp.i25, label %for.body5thread-pre-split.i, label %for.end.i18, !llvm.loop !41
 
-for.end.i19:                                      ; preds = %record_matches_regex.exit.i, %if.end.i
+for.end.i18:                                      ; preds = %record_matches_regex.exit.i, %if.end.i
   %48 = load ptr, ptr %recs7.i, align 8
-  %i2.i20 = getelementptr inbounds i8, ptr %xch.045.i, i64 16
-  %49 = load i64, ptr %i2.i20, align 8
+  %i2.i19 = getelementptr inbounds i8, ptr %xch.045.i, i64 16
+  %49 = load i64, ptr %i2.i19, align 8
   %arrayidx8.i = getelementptr inbounds ptr, ptr %48, i64 %49
-  %chg2.i21 = getelementptr inbounds i8, ptr %xch.045.i, i64 32
-  %50 = load i64, ptr %chg2.i21, align 8
+  %chg2.i20 = getelementptr inbounds i8, ptr %xch.045.i, i64 32
+  %50 = load i64, ptr %chg2.i20, align 8
   %cmp1039.i = icmp sgt i64 %50, 0
   br i1 %cmp1039.i, label %for.body14.lr.ph.i, label %for.end19.i
 
-for.body14.lr.ph.i:                               ; preds = %for.end.i19
+for.body14.lr.ph.i:                               ; preds = %for.end.i18
   %51 = load i64, ptr %ignore_regex_nr.i.i, align 8
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %for.end19.i, label %for.body14.i.preheader
@@ -2151,7 +2151,7 @@ record_matches_regex.exit36.thread.i:             ; preds = %for.body14thread-pr
 
 for.body.lr.ph.i22.i:                             ; preds = %for.body14.i.preheader, %for.body14thread-pre-split.i
   %55 = phi ptr [ %53, %for.body14.i.preheader ], [ %54, %for.body14thread-pre-split.i ]
-  %i.141.i45 = phi i64 [ 0, %for.body14.i.preheader ], [ %inc18.i, %for.body14thread-pre-split.i ]
+  %i.141.i43 = phi i64 [ 0, %for.body14.i.preheader ], [ %inc18.i, %for.body14thread-pre-split.i ]
   %ptr.i23.i = getelementptr inbounds i8, ptr %55, i64 8
   %size.i24.i = getelementptr inbounds i8, ptr %55, i64 16
   br label %for.body.i26.i
@@ -2181,26 +2181,26 @@ for.body.i26.i:                                   ; preds = %for.cond.i32.i, %fo
   br i1 %tobool.not.i31.i, label %record_matches_regex.exit36.i, label %for.cond.i32.i
 
 record_matches_regex.exit36.i:                    ; preds = %for.body.i26.i
-  %.pre46.i = load i64, ptr %chg2.i21, align 8
+  %.pre46.i = load i64, ptr %chg2.i20, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %regmatch.i18.i)
-  %inc18.i = add nuw nsw i64 %i.141.i45, 1
+  %inc18.i = add nuw nsw i64 %i.141.i43, 1
   %cmp10.i = icmp slt i64 %inc18.i, %.pre46.i
   br i1 %cmp10.i, label %for.body14thread-pre-split.i, label %for.end19.i, !llvm.loop !43
 
-for.end19.i:                                      ; preds = %record_matches_regex.exit36.i, %record_matches_regex.exit36.thread69.i, %record_matches_regex.exit36.thread.i, %for.body14.lr.ph.i, %for.end.i19, %record_matches_regex.exit.thread52.i, %record_matches_regex.exit.thread.i, %for.body5.lr.ph.i
-  %ignore.1.lcssa.i22 = phi i32 [ 1, %for.end.i19 ], [ 0, %for.body14.lr.ph.i ], [ 0, %record_matches_regex.exit36.thread.i ], [ 0, %record_matches_regex.exit36.thread69.i ], [ 0, %for.body5.lr.ph.i ], [ 0, %record_matches_regex.exit.thread.i ], [ 0, %record_matches_regex.exit.thread52.i ], [ 1, %record_matches_regex.exit36.i ]
-  store i32 %ignore.1.lcssa.i22, ptr %ignore1.i, align 8
+for.end19.i:                                      ; preds = %record_matches_regex.exit36.i, %record_matches_regex.exit36.thread69.i, %record_matches_regex.exit36.thread.i, %for.body14.lr.ph.i, %for.end.i18, %record_matches_regex.exit.thread52.i, %record_matches_regex.exit.thread.i, %for.body5.lr.ph.i
+  %ignore.1.lcssa.i21 = phi i32 [ 1, %for.end.i18 ], [ 0, %for.body14.lr.ph.i ], [ 0, %record_matches_regex.exit36.thread.i ], [ 0, %record_matches_regex.exit36.thread69.i ], [ 0, %for.body5.lr.ph.i ], [ 0, %record_matches_regex.exit.thread.i ], [ 0, %record_matches_regex.exit.thread52.i ], [ 1, %record_matches_regex.exit36.i ]
+  store i32 %ignore.1.lcssa.i21, ptr %ignore1.i, align 8
   br label %for.inc21.i
 
-for.inc21.i:                                      ; preds = %for.end19.i, %for.body.i14
+for.inc21.i:                                      ; preds = %for.end19.i, %for.body.i13
   %61 = load ptr, ptr %xch.045.i, align 8
-  %tobool.not.i15 = icmp eq ptr %61, null
-  br i1 %tobool.not.i15, label %if.end22, label %for.body.i14, !llvm.loop !44
+  %tobool.not.i14 = icmp eq ptr %61, null
+  br i1 %tobool.not.i14, label %if.end22, label %for.body.i13, !llvm.loop !44
 
 if.end22:                                         ; preds = %for.inc21.i, %if.end19
   %call23 = call i32 %cond(ptr noundef nonnull %xe, ptr noundef nonnull %cscr.1.i, ptr noundef %ecb, ptr noundef %xecfg) #8, !callees !45
   %cmp24 = icmp slt i32 %call23, 0
-  br i1 %cmp24, label %while.body.i, label %while.body.i28
+  br i1 %cmp24, label %while.body.i, label %while.body.i27
 
 while.body.i:                                     ; preds = %if.end22, %while.body.i
   %xscr.addr.03.i = phi ptr [ %62, %while.body.i ], [ %cscr.1.i, %if.end22 ]
@@ -2209,15 +2209,15 @@ while.body.i:                                     ; preds = %if.end22, %while.bo
   %cmp.not.i = icmp eq ptr %62, null
   br i1 %cmp.not.i, label %return.sink.split, label %while.body.i, !llvm.loop !35
 
-while.body.i28:                                   ; preds = %if.end22, %while.body.i28
-  %xscr.addr.03.i29 = phi ptr [ %63, %while.body.i28 ], [ %cscr.1.i, %if.end22 ]
-  %63 = load ptr, ptr %xscr.addr.03.i29, align 8
-  call void @free(ptr noundef nonnull %xscr.addr.03.i29) #8
-  %cmp.not.i30 = icmp eq ptr %63, null
-  br i1 %cmp.not.i30, label %return.sink.split, label %while.body.i28, !llvm.loop !35
+while.body.i27:                                   ; preds = %if.end22, %while.body.i27
+  %xscr.addr.03.i28 = phi ptr [ %63, %while.body.i27 ], [ %cscr.1.i, %if.end22 ]
+  %63 = load ptr, ptr %xscr.addr.03.i28, align 8
+  call void @free(ptr noundef nonnull %xscr.addr.03.i28) #8
+  %cmp.not.i29 = icmp eq ptr %63, null
+  br i1 %cmp.not.i29, label %return.sink.split, label %while.body.i27, !llvm.loop !35
 
-return.sink.split:                                ; preds = %while.body.i.i, %while.body.i28, %while.body.i, %if.end12, %if.end, %if.then28.i
-  %retval.0.ph = phi i32 [ -1, %if.then28.i ], [ 0, %if.end ], [ 0, %if.end12 ], [ -1, %while.body.i ], [ 0, %while.body.i28 ], [ -1, %while.body.i.i ]
+return.sink.split:                                ; preds = %while.body.i.i, %while.body.i27, %while.body.i, %if.end12, %if.end, %if.then28.i
+  %retval.0.ph = phi i32 [ -1, %if.then28.i ], [ 0, %if.end ], [ 0, %if.end12 ], [ -1, %while.body.i ], [ 0, %while.body.i27 ], [ -1, %while.body.i.i ]
   call void @xdl_free_env(ptr noundef nonnull %xe) #8
   br label %return
 

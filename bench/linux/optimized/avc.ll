@@ -1689,7 +1689,7 @@ define internal fastcc void @avc_compute_av(i32 noundef %0, i32 noundef %1, i16 
 declare dso_local void @security_compute_xperms_decision(i32 noundef, i32 noundef, i16 noundef zeroext, i8 noundef zeroext, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @avc_update_node(i32 noundef %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7, ptr nocapture noundef readonly %8, i32 noundef %9) unnamed_addr #1 align 16 {
+define internal fastcc void @avc_update_node(i32 noundef range(i32 1, 257) %0, i32 noundef range(i32 1, 0) %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7, ptr nocapture noundef readonly %8, i32 noundef %9) unnamed_addr #1 align 16 {
   %11 = tail call fastcc ptr @avc_alloc_node()
   %12 = icmp eq ptr %11, null
   br i1 %12, label %162, label %13
@@ -1959,7 +1959,7 @@ define internal fastcc void @avc_update_node(i32 noundef %0, i32 noundef %1, i8 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -13, 1) i32 @avc_denied(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i32 noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -13, 1) i32 @avc_denied(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef range(i32 1, 0) %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i32 noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #1 align 16 {
   %9 = and i32 %6, 1
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %22
@@ -2069,7 +2069,7 @@ define dso_local noundef range(i32 -13, 1) i32 @avc_has_perm_noaudit(i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -13, 1) i32 @avc_perm_nonode(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -13, 1) i32 @avc_perm_nonode(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef range(i32 1, 0) %3, i32 noundef %4, ptr noundef %5) unnamed_addr #1 align 16 {
   %7 = alloca %struct.avc_xperms_node, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false), !annotation !11
@@ -2465,7 +2465,7 @@ define internal fastcc ptr @avc_alloc_node() unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @avc_xperms_populate(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @avc_xperms_populate(ptr nocapture noundef nonnull writeonly %0, ptr noundef readonly %1) unnamed_addr #1 align 16 {
   %3 = load i16, ptr %1, align 8
   %4 = icmp eq i16 %3, 0
   br i1 %4, label %62, label %5
@@ -2672,7 +2672,7 @@ define internal fastcc ptr @avc_xperms_decision_alloc(i8 noundef zeroext %0) unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @avc_xperms_allow_perm(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2) unnamed_addr #19 align 16 {
+define internal fastcc void @avc_xperms_allow_perm(ptr noundef nonnull %0, i8 noundef zeroext %1, i8 noundef zeroext %2) unnamed_addr #19 align 16 {
   %4 = zext i8 %1 to i32
   %5 = and i32 %4, 31
   %6 = shl nuw i32 1, %5

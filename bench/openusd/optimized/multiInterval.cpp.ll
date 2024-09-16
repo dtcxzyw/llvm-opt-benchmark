@@ -2290,7 +2290,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervalanERKS0_.exit.i: ; preds = %92
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval10IntersectsERKS0_.exit.thread38: ; preds = %97
   %101 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.033.046) #21
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_RemoveIntervalESt23_Rb_tree_const_iteratorINS_10GfIntervalEERKS1_PSt3setIS1_St4lessIS1_ESaIS1_EE(ptr %.sroa.033.046, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %0)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_RemoveIntervalESt23_Rb_tree_const_iteratorINS_10GfIntervalEERKS1_PSt3setIS1_St4lessIS1_ESaIS1_EE(ptr %.sroa.033.046, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %0)
   %.not = icmp eq ptr %101, %19
   br i1 %.not, label %.critedge.loopexit, label %53, !llvm.loop !25
 
@@ -2388,7 +2388,7 @@ _ZNSt3setIN32pxrInternal_v0_24__pxrReserved__10GfIntervalESt4lessIS1_ESaIS1_EE11
 
 140:                                              ; preds = %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__10GfIntervalESt4lessIS1_ESaIS1_EE11upper_boundERKS1_.exit
   %141 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef %.08.lcssa.i.i.i22) #21
-  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_RemoveIntervalESt23_Rb_tree_const_iteratorINS_10GfIntervalEERKS1_PSt3setIS1_St4lessIS1_ESaIS1_EE(ptr %141, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %0)
+  tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_RemoveIntervalESt23_Rb_tree_const_iteratorINS_10GfIntervalEERKS1_PSt3setIS1_St4lessIS1_ESaIS1_EE(ptr %141, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %0)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread: ; preds = %9, %2, %140, %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__10GfIntervalESt4lessIS1_ESaIS1_EE11upper_boundERKS1_.exit
@@ -2396,7 +2396,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_RemoveIntervalESt23_Rb_tree_const_iteratorINS_10GfIntervalEERKS1_PSt3setIS1_St4lessIS1_ESaIS1_EE(ptr %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_RemoveIntervalESt23_Rb_tree_const_iteratorINS_10GfIntervalEERKS1_PSt3setIS1_St4lessIS1_ESaIS1_EE(ptr %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<pxrInternal_v0_24__pxrReserved__::GfInterval, pxrInternal_v0_24__pxrReserved__::GfInterval, std::_Identity<pxrInternal_v0_24__pxrReserved__::GfInterval>, std::less<pxrInternal_v0_24__pxrReserved__::GfInterval>>::_Alloc_node", align 8
   %5 = alloca %"struct.std::_Rb_tree<pxrInternal_v0_24__pxrReserved__::GfInterval, pxrInternal_v0_24__pxrReserved__::GfInterval, std::_Identity<pxrInternal_v0_24__pxrReserved__::GfInterval>, std::less<pxrInternal_v0_24__pxrReserved__::GfInterval>>::_Alloc_node", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfInterval", align 8

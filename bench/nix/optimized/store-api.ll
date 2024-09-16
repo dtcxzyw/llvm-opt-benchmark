@@ -5362,7 +5362,7 @@ define void @_ZNK3nix14StoreDirConfig19makeFixedOutputPathESt17basic_string_view
 
 43:                                               ; preds = %42
   %44 = getelementptr inbounds i8, ptr %4, i64 88
-  invoke fastcc void @_ZN3nixL8makeTypeERKNS_14StoreDirConfigEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_15StoreReferencesE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(49) %44)
+  invoke fastcc void @_ZN3nixL8makeTypeERKNS_14StoreDirConfigEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_15StoreReferencesE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(49) %44)
           to label %45 unwind label %74
 
 45:                                               ; preds = %43
@@ -5789,7 +5789,7 @@ _ZN3nix9BaseErrorC2IJEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nixL8makeTypeERKNS_14StoreDirConfigEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_15StoreReferencesE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 8 dereferenceable(49) %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nixL8makeTypeERKNS_14StoreDirConfigEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_15StoreReferencesE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 8 dereferenceable(49) %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -6205,7 +6205,7 @@ _ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_S_mini
 _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EEC2ERKS5_.exit.i.i.i.i.i.i: ; preds = %34, %19
   %37 = getelementptr inbounds i8, ptr %12, i64 48
   store i8 0, ptr %37, align 8, !noalias !30
-  invoke fastcc void @_ZN3nixL8makeTypeERKNS_14StoreDirConfigEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_15StoreReferencesE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(49) %12)
+  invoke fastcc void @_ZN3nixL8makeTypeERKNS_14StoreDirConfigEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_15StoreReferencesE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(49) %12)
           to label %38 unwind label %73, !noalias !30
 
 38:                                               ; preds = %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EEC2ERKS5_.exit.i.i.i.i.i.i
@@ -23032,7 +23032,7 @@ define void @_ZN3nix13copyStorePathERNS_5StoreES1_RKNS_9StorePathENS_10RepairFla
   store i64 %49, ptr %11, align 8
   %50 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %47, ptr %50, align 8
-  invoke fastcc void @_ZN3nixL19makeCopyPathMessageB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES3_S3_(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 %43, ptr %41, i64 %46, ptr %44, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %11)
+  invoke fastcc void @_ZN3nixL19makeCopyPathMessageB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES3_S3_(ptr dead_on_unwind noalias writable align 8 %10, i64 %43, ptr %41, i64 %46, ptr %44, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %11)
           to label %51 unwind label %217
 
 51:                                               ; preds = %39
@@ -24413,7 +24413,7 @@ _ZN3nix12PushActivityD2Ev.exit129:                ; preds = %598, %231
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nixL19makeCopyPathMessageB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES3_S3_(ptr dead_on_unwind noalias writable align 8 %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef byval(%"class.std::basic_string_view") align 8 %5) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nixL19makeCopyPathMessageB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES3_S3_(ptr dead_on_unwind noalias nonnull writable align 8 %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef byval(%"class.std::basic_string_view") align 8 %5) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.boost::io::detail::put_holder", align 8
   %8 = alloca %"struct.boost::io::detail::put_holder", align 8
   %9 = alloca %"class.boost::basic_format", align 8
@@ -24484,7 +24484,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 33:                                               ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !192
-  invoke void @_ZNK5boost12basic_formatIcSt11char_traitsIcESaIcEE3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %12)
+  invoke void @_ZNK5boost12basic_formatIcSt11char_traitsIcESaIcEE3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %12)
           to label %66 unwind label %34
 
 34:                                               ; preds = %33, %.noexc.i, %.noexc
@@ -24544,7 +24544,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 47:                                               ; preds = %.noexc.i59
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !195
-  invoke void @_ZNK5boost12basic_formatIcSt11char_traitsIcESaIcEE3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %9)
+  invoke void @_ZNK5boost12basic_formatIcSt11char_traitsIcESaIcEE3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %9)
           to label %59 unwind label %48
 
 48:                                               ; preds = %47, %.noexc.i59, %.noexc60
@@ -24559,7 +24559,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
           to label %51 unwind label %81
 
 51:                                               ; preds = %50
-  invoke void @_ZN3nix3fmtIJSt17basic_string_viewIcSt11char_traitsIcEES4_S4_EEENSt7__cxx1112basic_stringIcS3_SaIcEEERKS8_DpRKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14)
+  invoke void @_ZN3nix3fmtIJSt17basic_string_viewIcSt11char_traitsIcEES4_S4_EEENSt7__cxx1112basic_stringIcS3_SaIcEEERKS8_DpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14)
           to label %52 unwind label %83
 
 52:                                               ; preds = %51
@@ -97176,7 +97176,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_9copyPathsER
   store i64 %40, ptr %8, align 8
   %41 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %38, ptr %41, align 8
-  invoke fastcc void @_ZN3nixL19makeCopyPathMessageB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES3_S3_(ptr dead_on_unwind noalias nonnull writable align 8 %7, i64 %34, ptr %32, i64 %37, ptr %35, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %8)
+  invoke fastcc void @_ZN3nixL19makeCopyPathMessageB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES3_S3_(ptr dead_on_unwind noalias writable align 8 %7, i64 %34, ptr %32, i64 %37, ptr %35, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %8)
           to label %42 unwind label %155
 
 42:                                               ; preds = %30

@@ -956,7 +956,7 @@ entry:
   %encoded_len = alloca i64, align 8
   %encoded_raw = alloca ptr, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %input, i8 0, i64 24, i1 false)
-  %call = invoke fastcc noundef zeroext i1 @_ZL12DecodeBase64PSt6vectorIhSaIhEEPKc(ptr noundef nonnull %input, ptr noundef %input_b64)
+  %call = invoke fastcc noundef zeroext i1 @_ZL12DecodeBase64PSt6vectorIhSaIhEEPKc(ptr noundef %input, ptr noundef %input_b64)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1244,7 +1244,7 @@ entry:
   %input = alloca %"class.std::vector.2", align 8
   %session = alloca %"class.std::unique_ptr.7", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %input, i8 0, i64 24, i1 false)
-  %call = invoke fastcc noundef zeroext i1 @_ZL12DecodeBase64PSt6vectorIhSaIhEEPKc(ptr noundef nonnull %input, ptr noundef %input_b64)
+  %call = invoke fastcc noundef zeroext i1 @_ZL12DecodeBase64PSt6vectorIhSaIhEEPKc(ptr noundef %input, ptr noundef %input_b64)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2590,7 +2590,7 @@ declare ptr @SSL_CIPHER_get_name(ptr noundef) local_unnamed_addr #4
 declare i32 @SSL_CIPHER_is_NULL(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL12DecodeBase64PSt6vectorIhSaIhEEPKc(ptr noundef %out, ptr noundef %in) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZL12DecodeBase64PSt6vectorIhSaIhEEPKc(ptr noundef nonnull %out, ptr noundef %in) unnamed_addr #3 {
 entry:
   %len = alloca i64, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %in) #32
@@ -2833,7 +2833,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %der.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %der.i, i8 0, i64 24, i1 false), !noalias !33
-  %call.i = invoke fastcc noundef zeroext i1 @_ZL12DecodeBase64PSt6vectorIhSaIhEEPKc(ptr noundef nonnull %der.i, ptr noundef nonnull @_ZL15kOpenSSLSession)
+  %call.i = invoke fastcc noundef zeroext i1 @_ZL12DecodeBase64PSt6vectorIhSaIhEEPKc(ptr noundef %der.i, ptr noundef nonnull @_ZL15kOpenSSLSession)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !33
 
 invoke.cont.i:                                    ; preds = %entry

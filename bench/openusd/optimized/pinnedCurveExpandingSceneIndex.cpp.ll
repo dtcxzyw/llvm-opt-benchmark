@@ -7836,7 +7836,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_p
   %372 = phi ptr [ %.pr.pre, %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit ], [ %360, %368 ], [ %360, %361 ]
   %373 = getelementptr inbounds i8, ptr %14, i64 8
   %.val37 = load ptr, ptr %373, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurvesDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7VtArrayIiEERKmEEES3_IS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr nonnull %372, ptr %.val37, ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurvesDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7VtArrayIiEERKmEEES3_IS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %15, ptr nonnull %372, ptr %.val37, ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %374 unwind label %391
 
 374:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.thread
@@ -7978,7 +7978,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtAr
   %.val39 = load ptr, ptr %18, align 8
   %429 = getelementptr inbounds i8, ptr %18, i64 8
   %.val40 = load ptr, ptr %429, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7VtArrayIiEERKmbEEES3_IS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr %.val39, ptr %.val40, ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(8) %11, i8 %428)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7VtArrayIiEERKmbEEES3_IS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %19, ptr %.val39, ptr %.val40, ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(8) %11, i8 %428)
           to label %430 unwind label %437
 
 430:                                              ; preds = %426
@@ -8496,7 +8496,7 @@ _ZSt20dynamic_pointer_castIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurvesDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7VtArrayIiEERKmEEES3_IS1_EDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurvesDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7VtArrayIiEERKmEEES3_IS1_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #18
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
@@ -8823,7 +8823,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCur
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__27HdBasisCurvesTopologySchema15GetCurveIndicesEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.34") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7VtArrayIiEERKmbEEES3_IS1_EDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, i8 %.0.val1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7VtArrayIiEERKmbEEES3_IS1_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, i8 %.0.val1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #18
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)

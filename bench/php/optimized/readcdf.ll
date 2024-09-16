@@ -232,7 +232,7 @@ define hidden i32 @file_trycdf(ptr noundef %0, ptr nocapture noundef readonly %1
 
 73:                                               ; preds = %66
   %74 = load ptr, ptr %11, align 8
-  %75 = call fastcc i32 @cdf_check_summary_info(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef %74, ptr noundef nonnull %10)
+  %75 = call fastcc i32 @cdf_check_summary_info(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %9, ptr noundef %8, ptr noundef %74, ptr noundef %10)
   %76 = call i32 @cdf_zero_stream(ptr noundef nonnull %8) #8
   %77 = icmp slt i32 %75, 1
   br i1 %77, label %.thread, label %.thread44
@@ -254,12 +254,12 @@ define hidden i32 @file_trycdf(ptr noundef %0, ptr nocapture noundef readonly %1
 
 84:                                               ; preds = %.thread
   %85 = load ptr, ptr %11, align 8
-  %86 = call fastcc i32 @cdf_check_summary_info(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef %85, ptr noundef nonnull %10)
+  %86 = call fastcc i32 @cdf_check_summary_info(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %9, ptr noundef %8, ptr noundef %85, ptr noundef %10)
   %87 = icmp slt i32 %86, 1
   br i1 %87, label %.thread42, label %.thread44
 
 .thread42:                                        ; preds = %80, %83, %84
-  %88 = call fastcc i32 @cdf_file_dir_info(ptr noundef nonnull %0, ptr noundef nonnull %9)
+  %88 = call fastcc i32 @cdf_file_dir_info(ptr noundef nonnull %0, ptr noundef %9)
   %89 = icmp slt i32 %88, 0
   br i1 %89, label %90, label %.thread44
 
@@ -350,7 +350,7 @@ declare i32 @cdf_read_summary_info(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cdf_check_summary_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef readonly %8, ptr nocapture noundef writeonly %9) unnamed_addr #0 {
+define internal fastcc noundef i32 @cdf_check_summary_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef readonly %8, ptr nocapture noundef nonnull writeonly %9) unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = alloca [256 x i8], align 16
   %13 = alloca %struct.timespec, align 8
@@ -364,7 +364,7 @@ define internal fastcc noundef i32 @cdf_check_summary_info(ptr noundef %0, ptr n
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
-  %21 = call i32 @cdf_unpack_summary_info(ptr noundef %7, ptr noundef %2, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19) #8
+  %21 = call i32 @cdf_unpack_summary_info(ptr noundef nonnull %7, ptr noundef nonnull %2, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19) #8
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %cdf_file_summary_info.exit.thread, label %23
 
@@ -654,7 +654,7 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
   br i1 %184, label %185, label %213
 
 185:                                              ; preds = %182
-  %186 = call fastcc ptr @cdf_app_to_mime(ptr noundef nonnull %15, ptr noundef nonnull @app2mime)
+  %186 = call fastcc ptr @cdf_app_to_mime(ptr noundef %15, ptr noundef nonnull @app2mime)
   br label %213
 
 187:                                              ; preds = %.lr.ph110.i.i
@@ -798,7 +798,7 @@ cdf_file_summary_info.exit:                       ; preds = %.lr.ph110.i.i, %100
   %245 = and i32 %244, 1040
   %246 = icmp eq i32 %245, 0
   %247 = select i1 %246, ptr @name2desc, ptr @name2mime
-  %248 = call fastcc ptr @cdf_app_to_mime(ptr noundef nonnull %20, ptr noundef nonnull %247)
+  %248 = call fastcc ptr @cdf_app_to_mime(ptr noundef %20, ptr noundef nonnull %247)
   %249 = add nuw i64 %.03859, 1
   %250 = icmp eq ptr %248, null
   br i1 %250, label %231, label %.critedge.thread
@@ -839,7 +839,7 @@ cdf_file_summary_info.exit:                       ; preds = %.lr.ph110.i.i, %100
   br i1 %224, label %267, label %cdf_file_catalog_info.exit
 
 267:                                              ; preds = %266
-  %268 = call i32 @cdf_read_user_stream(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull @.str.54, ptr noundef %7) #8
+  %268 = call i32 @cdf_read_user_stream(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.54, ptr noundef nonnull %7) #8
   %269 = icmp eq i32 %268, -1
   br i1 %269, label %cdf_file_catalog_info.exit, label %270
 
@@ -857,7 +857,7 @@ cdf_file_summary_info.exit:                       ; preds = %.lr.ph110.i.i, %100
   br i1 %276, label %cdf_file_catalog.exit.i, label %277
 
 277:                                              ; preds = %274
-  %278 = call i32 @cdf_unpack_catalog(ptr noundef %2, ptr noundef %7, ptr noundef nonnull %11) #8
+  %278 = call i32 @cdf_unpack_catalog(ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %11) #8
   %279 = icmp eq i32 %278, -1
   br i1 %279, label %cdf_file_catalog.exit.i, label %280
 
@@ -928,7 +928,7 @@ cdf_file_catalog_info.exit:                       ; preds = %cdf_file_catalog.ex
 declare i32 @cdf_read_doc_summary_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @cdf_file_dir_info(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @cdf_file_dir_info(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %2, %._crit_edge
@@ -955,7 +955,7 @@ define internal fastcc range(i32 -1, 2) i32 @cdf_file_dir_info(ptr noundef %0, p
   %.01924 = phi i64 [ 0, %.lr.ph ], [ %9, %8 ]
   %14 = getelementptr inbounds [5 x i32], ptr %7, i64 0, i64 %.01924
   %15 = load i32, ptr %14, align 4
-  %16 = tail call i32 @cdf_find_stream(ptr noundef %1, ptr noundef nonnull %13, i32 noundef %15) #8
+  %16 = tail call i32 @cdf_find_stream(ptr noundef nonnull %1, ptr noundef nonnull %13, i32 noundef %15) #8
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %18, label %8
 
@@ -1002,9 +1002,9 @@ declare void @_efree(ptr noundef) local_unnamed_addr #1
 declare zeroext i16 @cdf_tole2(i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cdf_app_to_mime(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @cdf_app_to_mime(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
-  %4 = tail call ptr @zend_str_tolower_dup(ptr noundef %0, i64 noundef %3) #8
+  %4 = tail call ptr @zend_str_tolower_dup(ptr noundef nonnull %0, i64 noundef %3) #8
   %5 = load ptr, ptr %1, align 8
   %.not20 = icmp eq ptr %5, null
   br i1 %.not20, label %.loopexit, label %.lr.ph
